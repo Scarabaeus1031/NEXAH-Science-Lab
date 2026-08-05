@@ -1,0 +1,103 @@
+{
+  "baseline_commit": "b1bb915a841595fbbf8c64a8362849d66f72ef81",
+  "byte_identity_reproduced": true,
+  "frozen_contracts_modified": false,
+  "hash_identity_reproduced": true,
+  "human_acquisition": "PROHIBITED",
+  "human_data": "NONE",
+  "overall": "PASS",
+  "primary": {
+    "closure_status": "CLOSED",
+    "manifest_path": "minimal_trace_run/primary/SHA256SUMS",
+    "row_count": 5,
+    "trace_bytes": 324,
+    "trace_path": "minimal_trace_run/primary/trace_canonical.csv",
+    "trace_sha256": "8aadeeec4b4c8cd591a597aef59b8390585db7e8f6a5346e88b37bd41cbc71ce"
+  },
+  "produced_artifacts_excluding_this_report": [
+    {
+      "bytes": 227,
+      "path": "minimal_trace_input.json",
+      "sha256": "91b4f44c375d75f3473f3ac948abc905c85a06151ed1593c2788d5328c8a1205"
+    },
+    {
+      "bytes": 10757,
+      "path": "run_minimal_trace.py",
+      "sha256": "ffe129aceb0223632179b9aa716a94b592b149da52950b2bbf2d39d5b40c3e37"
+    },
+    {
+      "bytes": 324,
+      "path": "minimal_trace_run/primary/trace_canonical.csv",
+      "sha256": "8aadeeec4b4c8cd591a597aef59b8390585db7e8f6a5346e88b37bd41cbc71ce"
+    },
+    {
+      "bytes": 86,
+      "path": "minimal_trace_run/primary/SHA256SUMS",
+      "sha256": "b35ae1750001b025dc30c4b6e93a8dd9fcb2c2a3856bc0daca213e6888783319"
+    },
+    {
+      "bytes": 324,
+      "path": "minimal_trace_run/replay/trace_canonical.csv",
+      "sha256": "8aadeeec4b4c8cd591a597aef59b8390585db7e8f6a5346e88b37bd41cbc71ce"
+    },
+    {
+      "bytes": 86,
+      "path": "minimal_trace_run/replay/SHA256SUMS",
+      "sha256": "b35ae1750001b025dc30c4b6e93a8dd9fcb2c2a3856bc0daca213e6888783319"
+    }
+  ],
+  "provisional_dry_run_assumptions": {
+    "O-06": [
+      "preserve supplied source row order",
+      "derive s_norm from cumulative Euclidean segment length",
+      "use an explicit repeated endpoint",
+      "assess closure by exact binary64 equality of first and last coordinates"
+    ],
+    "O-10": [
+      "evaluate engineering stage conformance only",
+      "use exact byte and SHA-256 identity as the deterministic comparison",
+      "compute no scientific metric"
+    ],
+    "O-19": [
+      "replay with the same script, interpreter and host environment",
+      "claim no cross-language or cross-platform validation"
+    ]
+  },
+  "remaining_owner_decisions": {
+    "O-06": "final derivation and geometric closure method remain open",
+    "O-09": "marker and source-to-curve mapping remain open",
+    "O-10": "scientific metric inventory and rationale remain open",
+    "O-11": "independent direction evaluator and rule remain open",
+    "O-13": "scientific metric tolerances remain open",
+    "O-19": "portable replay environment and identity remain open",
+    "O-21": "Human acquisition remains unauthorized"
+  },
+  "replay": {
+    "closure_status": "CLOSED",
+    "manifest_path": "minimal_trace_run/replay/SHA256SUMS",
+    "row_count": 5,
+    "trace_bytes": 324,
+    "trace_path": "minimal_trace_run/replay/trace_canonical.csv",
+    "trace_sha256": "8aadeeec4b4c8cd591a597aef59b8390585db7e8f6a5346e88b37bd41cbc71ce"
+  },
+  "run_class": "SYNTHETIC_ENGINEERING_SELF_CONFORMANCE",
+  "run_id": "MINIMAL-SYNTHETIC-TRACE-DRY-RUN-01",
+  "runtime": {
+    "machine": "arm64",
+    "platform_release": "25.5.0",
+    "platform_system": "Darwin",
+    "python_implementation": "CPython",
+    "python_version": "3.9.6"
+  },
+  "scientific_result": "NONE",
+  "stages": {
+    "canonical_six_column_serialization": "PASS",
+    "clean_replay": "PASS",
+    "closure_status_assignment": "PASS",
+    "deterministic_byte_and_hash_comparison": "PASS",
+    "operational_trace_derivation": "PASS",
+    "sha256_generation_and_verification": "PASS",
+    "synthetic_input_validation": "PASS",
+    "trace_connectivity_assessment": "PASS"
+  }
+}
