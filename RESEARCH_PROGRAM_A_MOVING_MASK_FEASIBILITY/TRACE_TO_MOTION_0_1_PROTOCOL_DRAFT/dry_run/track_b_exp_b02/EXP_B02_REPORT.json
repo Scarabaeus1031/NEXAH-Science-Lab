@@ -1,0 +1,1154 @@
+{
+  "baseline_commit": "e3027a6553feda951f0c666d2609236b25887080",
+  "candidate_relations": {
+    "candidate_count": 8,
+    "focused_plus_alternatives": "1+7=8",
+    "physical_simultaneity_claim": "NONE",
+    "relation_scope": "IDENTITY_START_FIRST_NEIGHBOR_AND_COMMON_UNDIRECTED_PROJECTION_ONLY",
+    "rows": [
+      {
+        "alternative_count": 7,
+        "common_undirected_projection": true,
+        "compatible_alternative_candidate_ids": [
+          "B02-S01-D02",
+          "B02-S02-D01",
+          "B02-S02-D02",
+          "B02-S03-D01",
+          "B02-S03-D02",
+          "B02-S04-D01",
+          "B02-S04-D02"
+        ],
+        "focused_candidate_id": "B02-S01-D01",
+        "technical_first_neighbor": "N01",
+        "technical_start_node": "N00"
+      },
+      {
+        "alternative_count": 7,
+        "common_undirected_projection": true,
+        "compatible_alternative_candidate_ids": [
+          "B02-S01-D01",
+          "B02-S02-D01",
+          "B02-S02-D02",
+          "B02-S03-D01",
+          "B02-S03-D02",
+          "B02-S04-D01",
+          "B02-S04-D02"
+        ],
+        "focused_candidate_id": "B02-S01-D02",
+        "technical_first_neighbor": "N02",
+        "technical_start_node": "N00"
+      },
+      {
+        "alternative_count": 7,
+        "common_undirected_projection": true,
+        "compatible_alternative_candidate_ids": [
+          "B02-S01-D01",
+          "B02-S01-D02",
+          "B02-S02-D02",
+          "B02-S03-D01",
+          "B02-S03-D02",
+          "B02-S04-D01",
+          "B02-S04-D02"
+        ],
+        "focused_candidate_id": "B02-S02-D01",
+        "technical_first_neighbor": "N00",
+        "technical_start_node": "N01"
+      },
+      {
+        "alternative_count": 7,
+        "common_undirected_projection": true,
+        "compatible_alternative_candidate_ids": [
+          "B02-S01-D01",
+          "B02-S01-D02",
+          "B02-S02-D01",
+          "B02-S03-D01",
+          "B02-S03-D02",
+          "B02-S04-D01",
+          "B02-S04-D02"
+        ],
+        "focused_candidate_id": "B02-S02-D02",
+        "technical_first_neighbor": "N03",
+        "technical_start_node": "N01"
+      },
+      {
+        "alternative_count": 7,
+        "common_undirected_projection": true,
+        "compatible_alternative_candidate_ids": [
+          "B02-S01-D01",
+          "B02-S01-D02",
+          "B02-S02-D01",
+          "B02-S02-D02",
+          "B02-S03-D02",
+          "B02-S04-D01",
+          "B02-S04-D02"
+        ],
+        "focused_candidate_id": "B02-S03-D01",
+        "technical_first_neighbor": "N00",
+        "technical_start_node": "N02"
+      },
+      {
+        "alternative_count": 7,
+        "common_undirected_projection": true,
+        "compatible_alternative_candidate_ids": [
+          "B02-S01-D01",
+          "B02-S01-D02",
+          "B02-S02-D01",
+          "B02-S02-D02",
+          "B02-S03-D01",
+          "B02-S04-D01",
+          "B02-S04-D02"
+        ],
+        "focused_candidate_id": "B02-S03-D02",
+        "technical_first_neighbor": "N03",
+        "technical_start_node": "N02"
+      },
+      {
+        "alternative_count": 7,
+        "common_undirected_projection": true,
+        "compatible_alternative_candidate_ids": [
+          "B02-S01-D01",
+          "B02-S01-D02",
+          "B02-S02-D01",
+          "B02-S02-D02",
+          "B02-S03-D01",
+          "B02-S03-D02",
+          "B02-S04-D02"
+        ],
+        "focused_candidate_id": "B02-S04-D01",
+        "technical_first_neighbor": "N01",
+        "technical_start_node": "N03"
+      },
+      {
+        "alternative_count": 7,
+        "common_undirected_projection": true,
+        "compatible_alternative_candidate_ids": [
+          "B02-S01-D01",
+          "B02-S01-D02",
+          "B02-S02-D01",
+          "B02-S02-D02",
+          "B02-S03-D01",
+          "B02-S03-D02",
+          "B02-S04-D01"
+        ],
+        "focused_candidate_id": "B02-S04-D02",
+        "technical_first_neighbor": "N02",
+        "technical_start_node": "N03"
+      }
+    ]
+  },
+  "deterministic_replay": {
+    "method": "fresh reconstruction and canonical JSON byte comparison",
+    "objects_compared": [
+      "motion candidates",
+      "forward projections",
+      "candidate relations",
+      "evaluation"
+    ],
+    "status": "PASS"
+  },
+  "evaluation": {
+    "candidate_checks": [
+      {
+        "candidate_id": "B02-S01-D01",
+        "closed": true,
+        "edges_once": true,
+        "exact_track_a_xy_row_order": "FAIL",
+        "nodes_once": true,
+        "same_undirected_geometry": true
+      },
+      {
+        "candidate_id": "B02-S01-D02",
+        "closed": true,
+        "edges_once": true,
+        "exact_track_a_xy_row_order": "PASS",
+        "nodes_once": true,
+        "same_undirected_geometry": true
+      },
+      {
+        "candidate_id": "B02-S02-D01",
+        "closed": true,
+        "edges_once": true,
+        "exact_track_a_xy_row_order": "FAIL",
+        "nodes_once": true,
+        "same_undirected_geometry": true
+      },
+      {
+        "candidate_id": "B02-S02-D02",
+        "closed": true,
+        "edges_once": true,
+        "exact_track_a_xy_row_order": "FAIL",
+        "nodes_once": true,
+        "same_undirected_geometry": true
+      },
+      {
+        "candidate_id": "B02-S03-D01",
+        "closed": true,
+        "edges_once": true,
+        "exact_track_a_xy_row_order": "FAIL",
+        "nodes_once": true,
+        "same_undirected_geometry": true
+      },
+      {
+        "candidate_id": "B02-S03-D02",
+        "closed": true,
+        "edges_once": true,
+        "exact_track_a_xy_row_order": "FAIL",
+        "nodes_once": true,
+        "same_undirected_geometry": true
+      },
+      {
+        "candidate_id": "B02-S04-D01",
+        "closed": true,
+        "edges_once": true,
+        "exact_track_a_xy_row_order": "FAIL",
+        "nodes_once": true,
+        "same_undirected_geometry": true
+      },
+      {
+        "candidate_id": "B02-S04-D02",
+        "closed": true,
+        "edges_once": true,
+        "exact_track_a_xy_row_order": "FAIL",
+        "nodes_once": true,
+        "same_undirected_geometry": true
+      }
+    ],
+    "candidate_count": 8,
+    "exact_track_a_xy_match_count": 1,
+    "exact_track_a_xy_matching_candidates": [
+      "B02-S01-D02"
+    ],
+    "lawful_comparison_boundary": {
+      "cyclic_origin_rule": "NOT_INTRODUCED",
+      "ordered_xy_equality": "EXECUTED_EXACT",
+      "reversal_quotient": "NOT_INTRODUCED",
+      "rotation_quotient": "NOT_INTRODUCED",
+      "similarity_metric": "NOT_INTRODUCED",
+      "undirected_node_and_edge_agreement": "EXECUTED_EXACT"
+    },
+    "unique_ordered_sequence_count": 8
+  },
+  "experiment_class": "SYNTHETIC_ENGINEERING_PROBE",
+  "experiment_id": "TRACK-B-EXP-B02",
+  "final_status": {
+    "ALL_CANDIDATES_CLOSED": "PASS",
+    "ALL_FORWARD_PROJECTIONS_EXECUTED": "PASS",
+    "ALTERNATIVE_SET_PRESERVED": "PASS",
+    "AMBIGUITY_REPORTED": "YES",
+    "CANDIDATE_IDENTITIES_UNIQUE": "PASS",
+    "DETERMINISTIC_REPLAY": "PASS",
+    "EIGHT_CANDIDATES_ENUMERATED": "PASS",
+    "HUMAN_ACQUISITION": "PROHIBITED",
+    "INFORMATION_LOSS_REPORTED": "YES",
+    "N1_TRANSLATION_EXECUTED": "PASS",
+    "NO_EQUIVALENCE_RULE_INTRODUCED": "PASS",
+    "ORDERED_XY_COMPARISON_EXECUTED": "PASS",
+    "SCIENTIFIC_RESULT": "NONE",
+    "TRACK_A_REFERENCE_INTEGRITY": "PASS",
+    "TRACK_B_INPUT_BOUNDARY": "PASS",
+    "UNDIRECTED_GEOMETRY_PERSISTENT": "PASS"
+  },
+  "forward_projections": {
+    "projection_count": 8,
+    "projections": [
+      {
+        "candidate_id": "B02-S01-D01",
+        "closed_cycle_connectivity": true,
+        "local_index": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "points_mm": [
+          [
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            4.0
+          ],
+          [
+            4.0,
+            4.0
+          ],
+          [
+            4.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0
+          ]
+        ],
+        "representation": "ORDERED_TRACE_PROJECTION",
+        "unitless_phase": [
+          0.0,
+          0.25,
+          0.5,
+          0.75,
+          1.0
+        ]
+      },
+      {
+        "candidate_id": "B02-S01-D02",
+        "closed_cycle_connectivity": true,
+        "local_index": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "points_mm": [
+          [
+            0.0,
+            0.0
+          ],
+          [
+            4.0,
+            0.0
+          ],
+          [
+            4.0,
+            4.0
+          ],
+          [
+            0.0,
+            4.0
+          ],
+          [
+            0.0,
+            0.0
+          ]
+        ],
+        "representation": "ORDERED_TRACE_PROJECTION",
+        "unitless_phase": [
+          0.0,
+          0.25,
+          0.5,
+          0.75,
+          1.0
+        ]
+      },
+      {
+        "candidate_id": "B02-S02-D01",
+        "closed_cycle_connectivity": true,
+        "local_index": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "points_mm": [
+          [
+            0.0,
+            4.0
+          ],
+          [
+            0.0,
+            0.0
+          ],
+          [
+            4.0,
+            0.0
+          ],
+          [
+            4.0,
+            4.0
+          ],
+          [
+            0.0,
+            4.0
+          ]
+        ],
+        "representation": "ORDERED_TRACE_PROJECTION",
+        "unitless_phase": [
+          0.0,
+          0.25,
+          0.5,
+          0.75,
+          1.0
+        ]
+      },
+      {
+        "candidate_id": "B02-S02-D02",
+        "closed_cycle_connectivity": true,
+        "local_index": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "points_mm": [
+          [
+            0.0,
+            4.0
+          ],
+          [
+            4.0,
+            4.0
+          ],
+          [
+            4.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            4.0
+          ]
+        ],
+        "representation": "ORDERED_TRACE_PROJECTION",
+        "unitless_phase": [
+          0.0,
+          0.25,
+          0.5,
+          0.75,
+          1.0
+        ]
+      },
+      {
+        "candidate_id": "B02-S03-D01",
+        "closed_cycle_connectivity": true,
+        "local_index": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "points_mm": [
+          [
+            4.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            4.0
+          ],
+          [
+            4.0,
+            4.0
+          ],
+          [
+            4.0,
+            0.0
+          ]
+        ],
+        "representation": "ORDERED_TRACE_PROJECTION",
+        "unitless_phase": [
+          0.0,
+          0.25,
+          0.5,
+          0.75,
+          1.0
+        ]
+      },
+      {
+        "candidate_id": "B02-S03-D02",
+        "closed_cycle_connectivity": true,
+        "local_index": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "points_mm": [
+          [
+            4.0,
+            0.0
+          ],
+          [
+            4.0,
+            4.0
+          ],
+          [
+            0.0,
+            4.0
+          ],
+          [
+            0.0,
+            0.0
+          ],
+          [
+            4.0,
+            0.0
+          ]
+        ],
+        "representation": "ORDERED_TRACE_PROJECTION",
+        "unitless_phase": [
+          0.0,
+          0.25,
+          0.5,
+          0.75,
+          1.0
+        ]
+      },
+      {
+        "candidate_id": "B02-S04-D01",
+        "closed_cycle_connectivity": true,
+        "local_index": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "points_mm": [
+          [
+            4.0,
+            4.0
+          ],
+          [
+            0.0,
+            4.0
+          ],
+          [
+            0.0,
+            0.0
+          ],
+          [
+            4.0,
+            0.0
+          ],
+          [
+            4.0,
+            4.0
+          ]
+        ],
+        "representation": "ORDERED_TRACE_PROJECTION",
+        "unitless_phase": [
+          0.0,
+          0.25,
+          0.5,
+          0.75,
+          1.0
+        ]
+      },
+      {
+        "candidate_id": "B02-S04-D02",
+        "closed_cycle_connectivity": true,
+        "local_index": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "points_mm": [
+          [
+            4.0,
+            4.0
+          ],
+          [
+            4.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            4.0
+          ],
+          [
+            4.0,
+            4.0
+          ]
+        ],
+        "representation": "ORDERED_TRACE_PROJECTION",
+        "unitless_phase": [
+          0.0,
+          0.25,
+          0.5,
+          0.75,
+          1.0
+        ]
+      }
+    ]
+  },
+  "information_classification": {
+    "enumerated_not_recovered": [
+      "technical start node",
+      "technical first neighbor",
+      "traversal orientation"
+    ],
+    "not_recoverable": [
+      "intrinsic start",
+      "source direction",
+      "time",
+      "speed",
+      "velocity",
+      "acceleration",
+      "source order",
+      "provenance",
+      "markers",
+      "tau",
+      "sample_uuid",
+      "physical cause"
+    ],
+    "persistent": [
+      "undirected nodes",
+      "undirected edges",
+      "cycle closure",
+      "segment geometry"
+    ]
+  },
+  "input_boundary": {
+    "byte_identical_local_copy": true,
+    "hidden_track_a_fields_consumed_by_n1": [],
+    "source": "EXP-B01 direction-free packet",
+    "source_sha256": "85029c476ca5462eeeca06cf547c4055bc151e07908c46f3217ffebc3e7cdadf",
+    "track_a_use": "XY_ONLY_POST_TRANSLATION_COMPARISON_REFERENCE"
+  },
+  "motion_candidates": {
+    "candidate_count": 8,
+    "candidates": [
+      {
+        "all_edges_once_per_cycle": true,
+        "all_nodes_once_per_cycle": true,
+        "candidate_id": "B02-S01-D01",
+        "closed": true,
+        "enumeration_rank": 1,
+        "ordered_node_cycle": [
+          "N00",
+          "N01",
+          "N03",
+          "N02",
+          "N00"
+        ],
+        "positions_mm": [
+          [
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            4.0
+          ],
+          [
+            4.0,
+            4.0
+          ],
+          [
+            4.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0
+          ]
+        ],
+        "technical_first_neighbor": "N01",
+        "technical_start_node": "N00",
+        "traversed_undirected_edges": [
+          [
+            "N00",
+            "N01"
+          ],
+          [
+            "N01",
+            "N03"
+          ],
+          [
+            "N02",
+            "N03"
+          ],
+          [
+            "N00",
+            "N02"
+          ]
+        ],
+        "unitless_phase": [
+          0.0,
+          0.25,
+          0.5,
+          0.75,
+          1.0
+        ]
+      },
+      {
+        "all_edges_once_per_cycle": true,
+        "all_nodes_once_per_cycle": true,
+        "candidate_id": "B02-S01-D02",
+        "closed": true,
+        "enumeration_rank": 2,
+        "ordered_node_cycle": [
+          "N00",
+          "N02",
+          "N03",
+          "N01",
+          "N00"
+        ],
+        "positions_mm": [
+          [
+            0.0,
+            0.0
+          ],
+          [
+            4.0,
+            0.0
+          ],
+          [
+            4.0,
+            4.0
+          ],
+          [
+            0.0,
+            4.0
+          ],
+          [
+            0.0,
+            0.0
+          ]
+        ],
+        "technical_first_neighbor": "N02",
+        "technical_start_node": "N00",
+        "traversed_undirected_edges": [
+          [
+            "N00",
+            "N02"
+          ],
+          [
+            "N02",
+            "N03"
+          ],
+          [
+            "N01",
+            "N03"
+          ],
+          [
+            "N00",
+            "N01"
+          ]
+        ],
+        "unitless_phase": [
+          0.0,
+          0.25,
+          0.5,
+          0.75,
+          1.0
+        ]
+      },
+      {
+        "all_edges_once_per_cycle": true,
+        "all_nodes_once_per_cycle": true,
+        "candidate_id": "B02-S02-D01",
+        "closed": true,
+        "enumeration_rank": 3,
+        "ordered_node_cycle": [
+          "N01",
+          "N00",
+          "N02",
+          "N03",
+          "N01"
+        ],
+        "positions_mm": [
+          [
+            0.0,
+            4.0
+          ],
+          [
+            0.0,
+            0.0
+          ],
+          [
+            4.0,
+            0.0
+          ],
+          [
+            4.0,
+            4.0
+          ],
+          [
+            0.0,
+            4.0
+          ]
+        ],
+        "technical_first_neighbor": "N00",
+        "technical_start_node": "N01",
+        "traversed_undirected_edges": [
+          [
+            "N00",
+            "N01"
+          ],
+          [
+            "N00",
+            "N02"
+          ],
+          [
+            "N02",
+            "N03"
+          ],
+          [
+            "N01",
+            "N03"
+          ]
+        ],
+        "unitless_phase": [
+          0.0,
+          0.25,
+          0.5,
+          0.75,
+          1.0
+        ]
+      },
+      {
+        "all_edges_once_per_cycle": true,
+        "all_nodes_once_per_cycle": true,
+        "candidate_id": "B02-S02-D02",
+        "closed": true,
+        "enumeration_rank": 4,
+        "ordered_node_cycle": [
+          "N01",
+          "N03",
+          "N02",
+          "N00",
+          "N01"
+        ],
+        "positions_mm": [
+          [
+            0.0,
+            4.0
+          ],
+          [
+            4.0,
+            4.0
+          ],
+          [
+            4.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            4.0
+          ]
+        ],
+        "technical_first_neighbor": "N03",
+        "technical_start_node": "N01",
+        "traversed_undirected_edges": [
+          [
+            "N01",
+            "N03"
+          ],
+          [
+            "N02",
+            "N03"
+          ],
+          [
+            "N00",
+            "N02"
+          ],
+          [
+            "N00",
+            "N01"
+          ]
+        ],
+        "unitless_phase": [
+          0.0,
+          0.25,
+          0.5,
+          0.75,
+          1.0
+        ]
+      },
+      {
+        "all_edges_once_per_cycle": true,
+        "all_nodes_once_per_cycle": true,
+        "candidate_id": "B02-S03-D01",
+        "closed": true,
+        "enumeration_rank": 5,
+        "ordered_node_cycle": [
+          "N02",
+          "N00",
+          "N01",
+          "N03",
+          "N02"
+        ],
+        "positions_mm": [
+          [
+            4.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            4.0
+          ],
+          [
+            4.0,
+            4.0
+          ],
+          [
+            4.0,
+            0.0
+          ]
+        ],
+        "technical_first_neighbor": "N00",
+        "technical_start_node": "N02",
+        "traversed_undirected_edges": [
+          [
+            "N00",
+            "N02"
+          ],
+          [
+            "N00",
+            "N01"
+          ],
+          [
+            "N01",
+            "N03"
+          ],
+          [
+            "N02",
+            "N03"
+          ]
+        ],
+        "unitless_phase": [
+          0.0,
+          0.25,
+          0.5,
+          0.75,
+          1.0
+        ]
+      },
+      {
+        "all_edges_once_per_cycle": true,
+        "all_nodes_once_per_cycle": true,
+        "candidate_id": "B02-S03-D02",
+        "closed": true,
+        "enumeration_rank": 6,
+        "ordered_node_cycle": [
+          "N02",
+          "N03",
+          "N01",
+          "N00",
+          "N02"
+        ],
+        "positions_mm": [
+          [
+            4.0,
+            0.0
+          ],
+          [
+            4.0,
+            4.0
+          ],
+          [
+            0.0,
+            4.0
+          ],
+          [
+            0.0,
+            0.0
+          ],
+          [
+            4.0,
+            0.0
+          ]
+        ],
+        "technical_first_neighbor": "N03",
+        "technical_start_node": "N02",
+        "traversed_undirected_edges": [
+          [
+            "N02",
+            "N03"
+          ],
+          [
+            "N01",
+            "N03"
+          ],
+          [
+            "N00",
+            "N01"
+          ],
+          [
+            "N00",
+            "N02"
+          ]
+        ],
+        "unitless_phase": [
+          0.0,
+          0.25,
+          0.5,
+          0.75,
+          1.0
+        ]
+      },
+      {
+        "all_edges_once_per_cycle": true,
+        "all_nodes_once_per_cycle": true,
+        "candidate_id": "B02-S04-D01",
+        "closed": true,
+        "enumeration_rank": 7,
+        "ordered_node_cycle": [
+          "N03",
+          "N01",
+          "N00",
+          "N02",
+          "N03"
+        ],
+        "positions_mm": [
+          [
+            4.0,
+            4.0
+          ],
+          [
+            0.0,
+            4.0
+          ],
+          [
+            0.0,
+            0.0
+          ],
+          [
+            4.0,
+            0.0
+          ],
+          [
+            4.0,
+            4.0
+          ]
+        ],
+        "technical_first_neighbor": "N01",
+        "technical_start_node": "N03",
+        "traversed_undirected_edges": [
+          [
+            "N01",
+            "N03"
+          ],
+          [
+            "N00",
+            "N01"
+          ],
+          [
+            "N00",
+            "N02"
+          ],
+          [
+            "N02",
+            "N03"
+          ]
+        ],
+        "unitless_phase": [
+          0.0,
+          0.25,
+          0.5,
+          0.75,
+          1.0
+        ]
+      },
+      {
+        "all_edges_once_per_cycle": true,
+        "all_nodes_once_per_cycle": true,
+        "candidate_id": "B02-S04-D02",
+        "closed": true,
+        "enumeration_rank": 8,
+        "ordered_node_cycle": [
+          "N03",
+          "N02",
+          "N00",
+          "N01",
+          "N03"
+        ],
+        "positions_mm": [
+          [
+            4.0,
+            4.0
+          ],
+          [
+            4.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            4.0
+          ],
+          [
+            4.0,
+            4.0
+          ]
+        ],
+        "technical_first_neighbor": "N02",
+        "technical_start_node": "N03",
+        "traversed_undirected_edges": [
+          [
+            "N02",
+            "N03"
+          ],
+          [
+            "N00",
+            "N02"
+          ],
+          [
+            "N00",
+            "N01"
+          ],
+          [
+            "N01",
+            "N03"
+          ]
+        ],
+        "unitless_phase": [
+          0.0,
+          0.25,
+          0.5,
+          0.75,
+          1.0
+        ]
+      }
+    ],
+    "enumeration_order": {
+      "first_neighbors": "LEXICOGRAPHIC_BY_COORDINATE_THEN_NODE_ID",
+      "start_nodes": "LEXICOGRAPHIC_BY_COORDINATE_THEN_NODE_ID",
+      "status": "TECHNICAL_SERIALIZATION_DECISION_NOT_MOTION_PROPERTY"
+    },
+    "provisional_assumptions": [
+      "PROVISIONAL_TRACK_B_ASSUMPTION: every discrete packet node is enumerated as a possible operational start",
+      "PROVISIONAL_TRACK_B_ASSUMPTION: both outgoing neighbors are enumerated in technical lexicographic order",
+      "PROVISIONAL_TRACK_B_ASSUMPTION: packet edges are traversed piecewise-linearly",
+      "PROVISIONAL_TRACK_B_ASSUMPTION: cumulative geometric length supplies a unitless phase",
+      "PROVISIONAL_TRACK_B_ASSUMPTION: phase is not time, speed, velocity or physical motion"
+    ],
+    "translation_boundary": "n1",
+    "translation_boundary_status": "PROVISIONAL_TECHNICAL_LABEL_ONLY"
+  },
+  "n1": {
+    "physical_meaning": "NONE",
+    "role": "PROVISIONAL_TECHNICAL_TRANSLATION_BOUNDARY",
+    "scientific_status": "NOT_ESTABLISHED",
+    "symbolic_meaning": "NONE"
+  },
+  "remaining_blockers": [
+    "no source start, direction or time information",
+    "no authorized cyclic-origin, reversal or rotation quotient comparison",
+    "no scientific motion model or motion metric inventory",
+    "no independent Track B evaluator",
+    "Human acquisition remains prohibited"
+  ]
+}
