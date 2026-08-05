@@ -1,0 +1,71 @@
+{
+  "run_id": "MINIMAL-SYNTHETIC-TRACE-NODE-INDEPENDENT-01",
+  "baseline_commit": "b75b2b20dab29e98bafc3e3a62b3aafa6e63b0d4",
+  "implementation_class": "INDEPENDENT_NODEJS_SECOND_IMPLEMENTATION",
+  "independence_boundary": {
+    "python_module_imported": false,
+    "python_process_invoked": false,
+    "python_serialization_code_reused": false,
+    "primary_output_used_for_generation": false,
+    "diagnostic_reference_read": false
+  },
+  "expected": {
+    "input_sha256": "91b4f44c375d75f3473f3ac948abc905c85a06151ed1593c2788d5328c8a1205",
+    "trace_bytes": 324,
+    "trace_sha256": "8aadeeec4b4c8cd591a597aef59b8390585db7e8f6a5346e88b37bd41cbc71ce"
+  },
+  "actual": {
+    "closure_status": "CLOSED",
+    "row_count": 5,
+    "trace_bytes": 324,
+    "trace_sha256": "8aadeeec4b4c8cd591a597aef59b8390585db7e8f6a5346e88b37bd41cbc71ce"
+  },
+  "stages": {
+    "frozen_input_validation": "PASS",
+    "independent_operational_derivation": "PASS",
+    "independent_trace_connectivity_assessment": "PASS",
+    "independent_closure_status_assignment": "PASS",
+    "independent_six_column_serialization": "PASS",
+    "byte_count_comparison": "PASS",
+    "sha256_comparison": "PASS",
+    "post_write_hash_verification": "PASS",
+    "earliest_divergence_reporting": "PASS"
+  },
+  "divergence": {
+    "status": "NO_DIVERGENCE",
+    "earliest_byte": null,
+    "category": "NONE",
+    "reference_read": false,
+    "reference_used_for_generation": false
+  },
+  "overall": "PASS",
+  "runtime": {
+    "runtime": "Node.js",
+    "node_version": "v22.14.0",
+    "platform": "darwin",
+    "architecture": "arm64",
+    "os_release": "25.5.0"
+  },
+  "produced_artifacts_excluding_this_report": [
+    {
+      "path": "run_minimal_trace_node.mjs",
+      "bytes": 13022,
+      "sha256": "b67ff8c7f304ee46508217c9ca38a14ad1bed278e7bf96ffc0d25526590503c5"
+    },
+    {
+      "path": "minimal_trace_node_run/trace_canonical.csv",
+      "bytes": 324,
+      "sha256": "8aadeeec4b4c8cd591a597aef59b8390585db7e8f6a5346e88b37bd41cbc71ce"
+    },
+    {
+      "path": "minimal_trace_node_run/SHA256SUMS",
+      "bytes": 86,
+      "sha256": "b35ae1750001b025dc30c4b6e93a8dd9fcb2c2a3856bc0daca213e6888783319"
+    }
+  ],
+  "frozen_input_modified": false,
+  "frozen_contracts_modified": false,
+  "primary_python_implementation_modified": false,
+  "human_acquisition": "PROHIBITED",
+  "scientific_result": "NONE"
+}
