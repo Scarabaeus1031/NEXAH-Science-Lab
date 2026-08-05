@@ -1,0 +1,395 @@
+{
+  "bounded_conclusion": "C0 is deterministic for exact reversal and closure-preserving shared perturbation, but is not invariant to all declared sampling-origin changes and cannot identify an intrinsic origin for P05. The Landing 02A noise fixture is invalid as a closed trace because its endpoints were perturbed independently. Restrict it to exact deterministic serialization; no replacement is selected.",
+  "candidate_selection_authorized": false,
+  "cases": {
+    "P05": {
+      "EXACT_REVERSAL": {
+        "C0_V1_LEXICOGRAPHIC": {
+          "max_error_mm": 1.1196854986560656e-12,
+          "status": "PASS"
+        },
+        "C1_RADIAL_SIGNATURE": {
+          "max_error_mm": 15.039988027717312,
+          "status": "FAIL"
+        },
+        "C2_P06_CROSSING": {
+          "note": "NOT_APPLICABLE",
+          "status": "INVALID"
+        },
+        "C3_CYCLIC_REVERSAL_QUOTIENT": {
+          "max_error_mm": 1.1196854986560656e-12,
+          "status": "PASS"
+        }
+      },
+      "INDEPENDENT_NOISE": {
+        "C0_V1_LEXICOGRAPHIC": {
+          "note": "No equality expectation is declared for independent noise.",
+          "status": "UNKNOWN"
+        },
+        "C1_RADIAL_SIGNATURE": {
+          "note": "No equality expectation is declared for independent noise.",
+          "status": "UNKNOWN"
+        },
+        "C2_P06_CROSSING": {
+          "note": "No equality expectation is declared for independent noise.",
+          "status": "UNKNOWN"
+        },
+        "C3_CYCLIC_REVERSAL_QUOTIENT": {
+          "note": "No equality expectation is declared for independent noise.",
+          "status": "UNKNOWN"
+        }
+      },
+      "LOCAL_PERTURBATION_REVERSAL": {
+        "C0_V1_LEXICOGRAPHIC": {
+          "max_error_mm": 1.1186930694303869e-12,
+          "status": "PASS"
+        },
+        "C1_RADIAL_SIGNATURE": {
+          "max_error_mm": 1.1186930694303869e-12,
+          "status": "PASS"
+        },
+        "C2_P06_CROSSING": {
+          "note": "NOT_APPLICABLE",
+          "status": "INVALID"
+        },
+        "C3_CYCLIC_REVERSAL_QUOTIENT": {
+          "max_error_mm": 1.1186930694303869e-12,
+          "status": "PASS"
+        }
+      },
+      "ORIGIN_SHIFT_1": {
+        "C0_V1_LEXICOGRAPHIC": {
+          "max_error_mm": 1.3101760682293512e-13,
+          "status": "PASS"
+        },
+        "C1_RADIAL_SIGNATURE": {
+          "max_error_mm": 10.542143586089423,
+          "status": "FAIL"
+        },
+        "C2_P06_CROSSING": {
+          "note": "NOT_APPLICABLE",
+          "status": "INVALID"
+        },
+        "C3_CYCLIC_REVERSAL_QUOTIENT": {
+          "max_error_mm": 1.3101760682293512e-13,
+          "status": "PASS"
+        }
+      },
+      "ORIGIN_SHIFT_137": {
+        "C0_V1_LEXICOGRAPHIC": {
+          "max_error_mm": 1.5157893454847195e-12,
+          "status": "PASS"
+        },
+        "C1_RADIAL_SIGNATURE": {
+          "max_error_mm": 36.36423235593447,
+          "status": "FAIL"
+        },
+        "C2_P06_CROSSING": {
+          "note": "NOT_APPLICABLE",
+          "status": "INVALID"
+        },
+        "C3_CYCLIC_REVERSAL_QUOTIENT": {
+          "max_error_mm": 1.5157893454847195e-12,
+          "status": "PASS"
+        }
+      },
+      "ORIGIN_SHIFT_500": {
+        "C0_V1_LEXICOGRAPHIC": {
+          "max_error_mm": 120.0,
+          "status": "FAIL"
+        },
+        "C1_RADIAL_SIGNATURE": {
+          "max_error_mm": 46.617689595762734,
+          "status": "FAIL"
+        },
+        "C2_P06_CROSSING": {
+          "note": "NOT_APPLICABLE",
+          "status": "INVALID"
+        },
+        "C3_CYCLIC_REVERSAL_QUOTIENT": {
+          "max_error_mm": 2.9615912192439894e-12,
+          "status": "PASS"
+        }
+      },
+      "SHARED_NOISE_REVERSAL": {
+        "C0_V1_LEXICOGRAPHIC": {
+          "max_error_mm": 4.069369499369586e-13,
+          "status": "PASS"
+        },
+        "C1_RADIAL_SIGNATURE": {
+          "max_error_mm": 4.069369499369586e-13,
+          "status": "PASS"
+        },
+        "C2_P06_CROSSING": {
+          "note": "NOT_APPLICABLE",
+          "status": "INVALID"
+        },
+        "C3_CYCLIC_REVERSAL_QUOTIENT": {
+          "max_error_mm": 4.069369499369586e-13,
+          "status": "PASS"
+        }
+      }
+    },
+    "P06": {
+      "EXACT_REVERSAL": {
+        "C0_V1_LEXICOGRAPHIC": {
+          "max_error_mm": 4.769112875507583e-13,
+          "status": "PASS"
+        },
+        "C1_RADIAL_SIGNATURE": {
+          "max_error_mm": 136.9428607491418,
+          "status": "FAIL"
+        },
+        "C2_P06_CROSSING": {
+          "note": "CROSSING_NOT_UNIQUELY_EXACT",
+          "status": "BLOCKED"
+        },
+        "C3_CYCLIC_REVERSAL_QUOTIENT": {
+          "max_error_mm": 4.769112875507583e-13,
+          "status": "PASS"
+        }
+      },
+      "INDEPENDENT_NOISE": {
+        "C0_V1_LEXICOGRAPHIC": {
+          "note": "No equality expectation is declared for independent noise.",
+          "status": "UNKNOWN"
+        },
+        "C1_RADIAL_SIGNATURE": {
+          "note": "No equality expectation is declared for independent noise.",
+          "status": "UNKNOWN"
+        },
+        "C2_P06_CROSSING": {
+          "note": "No equality expectation is declared for independent noise.",
+          "status": "UNKNOWN"
+        },
+        "C3_CYCLIC_REVERSAL_QUOTIENT": {
+          "note": "No equality expectation is declared for independent noise.",
+          "status": "UNKNOWN"
+        }
+      },
+      "LOCAL_PERTURBATION_REVERSAL": {
+        "C0_V1_LEXICOGRAPHIC": {
+          "max_error_mm": 4.439612937350521e-13,
+          "status": "PASS"
+        },
+        "C1_RADIAL_SIGNATURE": {
+          "max_error_mm": 4.439612937350521e-13,
+          "status": "PASS"
+        },
+        "C2_P06_CROSSING": {
+          "note": "CROSSING_NOT_UNIQUELY_EXACT",
+          "status": "BLOCKED"
+        },
+        "C3_CYCLIC_REVERSAL_QUOTIENT": {
+          "max_error_mm": 4.439612937350521e-13,
+          "status": "PASS"
+        }
+      },
+      "ORIGIN_SHIFT_1": {
+        "C0_V1_LEXICOGRAPHIC": {
+          "max_error_mm": 89.99753613514409,
+          "status": "FAIL"
+        },
+        "C1_RADIAL_SIGNATURE": {
+          "max_error_mm": 136.94313840995522,
+          "status": "FAIL"
+        },
+        "C2_P06_CROSSING": {
+          "note": "CROSSING_NOT_UNIQUELY_EXACT",
+          "status": "BLOCKED"
+        },
+        "C3_CYCLIC_REVERSAL_QUOTIENT": {
+          "max_error_mm": 0.22223311149834762,
+          "status": "FAIL"
+        }
+      },
+      "ORIGIN_SHIFT_137": {
+        "C0_V1_LEXICOGRAPHIC": {
+          "max_error_mm": 0.10844950628613738,
+          "status": "FAIL"
+        },
+        "C1_RADIAL_SIGNATURE": {
+          "max_error_mm": 136.94292247463454,
+          "status": "FAIL"
+        },
+        "C2_P06_CROSSING": {
+          "note": "CROSSING_NOT_UNIQUELY_EXACT",
+          "status": "BLOCKED"
+        },
+        "C3_CYCLIC_REVERSAL_QUOTIENT": {
+          "max_error_mm": 0.10844950628613738,
+          "status": "FAIL"
+        }
+      },
+      "ORIGIN_SHIFT_500": {
+        "C0_V1_LEXICOGRAPHIC": {
+          "max_error_mm": 6.898122193969272e-13,
+          "status": "PASS"
+        },
+        "C1_RADIAL_SIGNATURE": {
+          "max_error_mm": 113.21365028333476,
+          "status": "FAIL"
+        },
+        "C2_P06_CROSSING": {
+          "note": "CROSSING_NOT_UNIQUELY_EXACT",
+          "status": "BLOCKED"
+        },
+        "C3_CYCLIC_REVERSAL_QUOTIENT": {
+          "max_error_mm": 6.898122193969272e-13,
+          "status": "PASS"
+        }
+      },
+      "SHARED_NOISE_REVERSAL": {
+        "C0_V1_LEXICOGRAPHIC": {
+          "max_error_mm": 5.334278619990147e-13,
+          "status": "PASS"
+        },
+        "C1_RADIAL_SIGNATURE": {
+          "max_error_mm": 5.334278619990147e-13,
+          "status": "PASS"
+        },
+        "C2_P06_CROSSING": {
+          "note": "CROSSING_NOT_UNIQUELY_EXACT",
+          "status": "BLOCKED"
+        },
+        "C3_CYCLIC_REVERSAL_QUOTIENT": {
+          "max_error_mm": 5.334278619990147e-13,
+          "status": "PASS"
+        }
+      }
+    }
+  },
+  "evidence_class": "SYNTHETIC_METHODOLOGICAL_REVIEW",
+  "existing_rule_disposition": "RESTRICT",
+  "existing_rule_failures": [
+    "P05:ORIGIN_SHIFT_500",
+    "P06:ORIGIN_SHIFT_1",
+    "P06:ORIGIN_SHIFT_137"
+  ],
+  "existing_tolerance_mm": 1e-09,
+  "fixture_sha256": "115292e88dd022d20718e342b292dae510f8f87cb937278923dc7a1bac7cf680",
+  "human_acquisition": "PROHIBITED",
+  "human_data": "NONE",
+  "immutable_baseline": "b11678585485bf6d58dd7cd7ffaac61c0d61592c",
+  "invalid_input_checks": {
+    "DEGENERATE": {
+      "C0_V1_LEXICOGRAPHIC": {
+        "note": "DEGENERATE",
+        "status": "INVALID"
+      },
+      "C1_RADIAL_SIGNATURE": {
+        "note": "DEGENERATE",
+        "status": "INVALID"
+      },
+      "C2_P06_CROSSING": {
+        "note": "DEGENERATE",
+        "status": "INVALID"
+      },
+      "C3_CYCLIC_REVERSAL_QUOTIENT": {
+        "note": "DEGENERATE",
+        "status": "INVALID"
+      }
+    },
+    "NON_CLOSED": {
+      "C0_V1_LEXICOGRAPHIC": {
+        "note": "NON_CLOSED",
+        "status": "INVALID"
+      },
+      "C1_RADIAL_SIGNATURE": {
+        "note": "NON_CLOSED",
+        "status": "INVALID"
+      },
+      "C2_P06_CROSSING": {
+        "note": "NON_CLOSED",
+        "status": "INVALID"
+      },
+      "C3_CYCLIC_REVERSAL_QUOTIENT": {
+        "note": "NON_CLOSED",
+        "status": "INVALID"
+      }
+    },
+    "NON_FINITE": {
+      "C0_V1_LEXICOGRAPHIC": {
+        "note": "NON_FINITE",
+        "status": "INVALID"
+      },
+      "C1_RADIAL_SIGNATURE": {
+        "note": "NON_FINITE",
+        "status": "INVALID"
+      },
+      "C2_P06_CROSSING": {
+        "note": "NON_FINITE",
+        "status": "INVALID"
+      },
+      "C3_CYCLIC_REVERSAL_QUOTIENT": {
+        "note": "NON_FINITE",
+        "status": "INVALID"
+      }
+    }
+  },
+  "landing02a_failed_fixture_diagnostic": {
+    "closure_gap_mm": 0.043607016269466746,
+    "existing_tolerance_mm": 1e-09,
+    "original_landing02a_check_result": "FAIL",
+    "raw_c0_error_mm_without_contract_rejection": 0.043607016269466746,
+    "reason": "Nominally coincident endpoints were perturbed independently; the fixture is not closed.",
+    "status": "INVALID"
+  },
+  "new_or_relaxed_tolerance": "NONE",
+  "protected_tracks": {
+    "acquisition_authority": "UNCHANGED",
+    "mask_schedules": "UNCHANGED",
+    "owner_decisions": "UNCHANGED",
+    "track_b": "UNCHANGED",
+    "track_c": "UNCHANGED"
+  },
+  "replacement_rule_disposition": "UNRESOLVED",
+  "review_id": "LANDING-02B",
+  "scientific_result": "NONE",
+  "scope": "P05_P06_CLOSED_TRACE_CANONICALIZATION_ONLY",
+  "status_vocabulary_observed": [
+    "BLOCKED",
+    "FAIL",
+    "INVALID",
+    "PASS",
+    "UNKNOWN"
+  ],
+  "structural_identifiability": {
+    "P05_ROTATIONAL_SYMMETRY": {
+      "C0_V1_LEXICOGRAPHIC": {
+        "note": "A circle has no intrinsic unique start point.",
+        "status": "BLOCKED"
+      },
+      "C1_RADIAL_SIGNATURE": {
+        "note": "All ideal-circle radii are equal; a unique radial anchor is not identifiable.",
+        "status": "BLOCKED"
+      },
+      "C2_P06_CROSSING": {
+        "note": "NOT_APPLICABLE",
+        "status": "INVALID"
+      },
+      "C3_CYCLIC_REVERSAL_QUOTIENT": {
+        "note": "Comparison is defined; no canonical origin is identified.",
+        "status": "PASS"
+      }
+    },
+    "P06_CROSSING_AMBIGUITY": {
+      "C0_V1_LEXICOGRAPHIC": {
+        "note": "The rule does not encode crossing identity.",
+        "status": "UNKNOWN"
+      },
+      "C1_RADIAL_SIGNATURE": {
+        "note": "The rule does not encode crossing identity.",
+        "status": "UNKNOWN"
+      },
+      "C2_P06_CROSSING": {
+        "note": "Exact sampled crossing and outgoing-branch identity are not both guaranteed.",
+        "status": "BLOCKED"
+      },
+      "C3_CYCLIC_REVERSAL_QUOTIENT": {
+        "note": "Comparison is defined; crossing branch identity is not recovered.",
+        "status": "PASS"
+      }
+    }
+  }
+}
