@@ -1,0 +1,95 @@
+{
+  "candidate_count": 2,
+  "candidates": [
+    {
+      "candidate_id": "MOTION-CANDIDATE-01",
+      "ordered_node_cycle": [
+        "N00",
+        "N01",
+        "N03",
+        "N02",
+        "N00"
+      ],
+      "positions_mm": [
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          4.0
+        ],
+        [
+          4.0,
+          4.0
+        ],
+        [
+          4.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ]
+      ],
+      "technical_model": "PIECEWISE_LINEAR_UNIT_PHASE_TRAVERSAL",
+      "unitless_phase": [
+        0.0,
+        0.25,
+        0.5,
+        0.75,
+        1.0
+      ]
+    },
+    {
+      "candidate_id": "MOTION-CANDIDATE-02",
+      "ordered_node_cycle": [
+        "N00",
+        "N02",
+        "N03",
+        "N01",
+        "N00"
+      ],
+      "positions_mm": [
+        [
+          0.0,
+          0.0
+        ],
+        [
+          4.0,
+          0.0
+        ],
+        [
+          4.0,
+          4.0
+        ],
+        [
+          0.0,
+          4.0
+        ],
+        [
+          0.0,
+          0.0
+        ]
+      ],
+      "technical_model": "PIECEWISE_LINEAR_UNIT_PHASE_TRAVERSAL",
+      "unitless_phase": [
+        0.0,
+        0.25,
+        0.5,
+        0.75,
+        1.0
+      ]
+    }
+  ],
+  "minimum_compatible_start_direction_combinations": 8,
+  "provisional_assumptions": [
+    "PROVISIONAL_TRACK_B_ASSUMPTION: choose the lexicographically smallest coordinate as an operational start",
+    "PROVISIONAL_TRACK_B_ASSUMPTION: enumerate both outgoing undirected edges without preference",
+    "PROVISIONAL_TRACK_B_ASSUMPTION: use piecewise-linear traversal between packet nodes",
+    "PROVISIONAL_TRACK_B_ASSUMPTION: use cumulative geometric length as a unitless phase parameter",
+    "PROVISIONAL_TRACK_B_ASSUMPTION: phase is not time, speed, velocity or physical motion"
+  ],
+  "translation_boundary": "n1",
+  "translation_boundary_status": "PROVISIONAL_TECHNICAL_LABEL_ONLY"
+}

@@ -1,0 +1,309 @@
+{
+  "architectural_hypotheses_not_evaluated": [
+    "(\u03b2-m|j)\u03b7 split",
+    "RA\u2013TH Bridge"
+  ],
+  "baseline_commit": "c6681b8833ce86b5eca3caafb1e2e55728ee3e1a",
+  "comparison": {
+    "candidate_results": [
+      {
+        "candidate_id": "MOTION-CANDIDATE-01",
+        "closed_cycle_property_agreement": "PASS",
+        "closure_status_assignment": "NOT_PERFORMED_BY_TRACK_B",
+        "exact_ordered_xy_equality": "FAIL",
+        "geometric_sample_multiset_agreement": "PASS",
+        "local_index_shape_agreement": "PASS",
+        "s_norm_vs_unitless_phase_agreement": "PASS_PROVISIONAL_ASSUMPTION",
+        "sample_uuid_recovery": "NOT_RECOVERABLE_FROM_AUTHORIZED_PACKET"
+      },
+      {
+        "candidate_id": "MOTION-CANDIDATE-02",
+        "closed_cycle_property_agreement": "PASS",
+        "closure_status_assignment": "NOT_PERFORMED_BY_TRACK_B",
+        "exact_ordered_xy_equality": "PASS",
+        "geometric_sample_multiset_agreement": "PASS",
+        "local_index_shape_agreement": "PASS",
+        "s_norm_vs_unitless_phase_agreement": "PASS_PROVISIONAL_ASSUMPTION",
+        "sample_uuid_recovery": "NOT_RECOVERABLE_FROM_AUTHORIZED_PACKET"
+      }
+    ],
+    "comparison_boundaries": {
+      "closure_property_agreement": "EXECUTED",
+      "cyclic_origin_quotient_comparison": "NOT_EXECUTED_NO_GOVERNING_METHOD",
+      "direct_row_order_agreement": "EXECUTED",
+      "exact_available_field_comparison": "EXECUTED",
+      "geometric_sample_agreement": "EXECUTED_EXACT_NO_TOLERANCE",
+      "reversal_quotient_comparison": "NOT_EXECUTED_NO_GOVERNING_METHOD",
+      "scientific_motion_metric": "NOT_DEFINED"
+    }
+  },
+  "core_question": "What motion information survives translation from an authorized direction-free trace packet?",
+  "deterministic_replay": {
+    "method": "fresh deterministic reconstruction and canonical JSON byte comparison",
+    "objects_compared": [
+      "authorized input packet",
+      "motion candidates",
+      "forward projections",
+      "trace comparison"
+    ],
+    "status": "PASS"
+  },
+  "earliest_information_loss_at_n1": "At the first directed transition from the provisional start, two adjacent nodes are equally compatible; the authorized packet contains no datum selecting the first outgoing edge.",
+  "experiment_class": "SYNTHETIC_ENGINEERING_PROBE",
+  "experiment_id": "TRACK-B-EXP-B01",
+  "final_status": {
+    "ALTERNATIVE_CANDIDATE_CREATED": "PASS",
+    "AMBIGUITY_REPORTED": "YES",
+    "DETERMINISTIC_REPLAY": "PASS",
+    "FIRST_DIRECTION_CHANGE": "PASS",
+    "FORWARD_PROJECTION_EXECUTED": "PASS",
+    "HUMAN_ACQUISITION": "PROHIBITED",
+    "INFORMATION_LOSS_REPORTED": "YES",
+    "MOTION_CANDIDATE_CREATED": "PASS",
+    "N1_TRANSLATION_EXECUTED": "PASS",
+    "SCIENTIFIC_RESULT": "NONE",
+    "TRACE_COMPARISON_EXECUTED": "PARTIAL",
+    "TRACK_A_REFERENCE_INTEGRITY": "PASS",
+    "TRACK_B_INPUT_BOUNDARY": "PASS"
+  },
+  "forward_projection": {
+    "projection_count": 2,
+    "projections": [
+      {
+        "candidate_id": "MOTION-CANDIDATE-01",
+        "closed_cycle_connectivity": true,
+        "local_index": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "points_mm": [
+          [
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            4.0
+          ],
+          [
+            4.0,
+            4.0
+          ],
+          [
+            4.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0
+          ]
+        ],
+        "representation": "ORDERED_TRACE_PROJECTION",
+        "unitless_phase": [
+          0.0,
+          0.25,
+          0.5,
+          0.75,
+          1.0
+        ]
+      },
+      {
+        "candidate_id": "MOTION-CANDIDATE-02",
+        "closed_cycle_connectivity": true,
+        "local_index": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "points_mm": [
+          [
+            0.0,
+            0.0
+          ],
+          [
+            4.0,
+            0.0
+          ],
+          [
+            4.0,
+            4.0
+          ],
+          [
+            0.0,
+            4.0
+          ],
+          [
+            0.0,
+            0.0
+          ]
+        ],
+        "representation": "ORDERED_TRACE_PROJECTION",
+        "unitless_phase": [
+          0.0,
+          0.25,
+          0.5,
+          0.75,
+          1.0
+        ]
+      }
+    ]
+  },
+  "frozen_track_a_modified": false,
+  "human_acquisition": "PROHIBITED",
+  "information_classification": {
+    "directly_recoverable": [
+      "coordinate nodes",
+      "undirected adjacency",
+      "closed-cycle connectivity",
+      "segment lengths"
+    ],
+    "non_unique": [
+      "start node",
+      "traversal orientation",
+      "phase origin",
+      "motion candidate"
+    ],
+    "not_recoverable": [
+      "time",
+      "tau",
+      "speed",
+      "velocity",
+      "acceleration",
+      "forces",
+      "source traversal direction",
+      "source start",
+      "sample_uuid",
+      "markers",
+      "physical cause"
+    ],
+    "recoverable_only_under_provisional_assumption": [
+      "operational start node",
+      "traversal direction",
+      "piecewise-linear interpolation",
+      "unitless phase"
+    ]
+  },
+  "motion_candidates": [
+    {
+      "candidate_id": "MOTION-CANDIDATE-01",
+      "ordered_node_cycle": [
+        "N00",
+        "N01",
+        "N03",
+        "N02",
+        "N00"
+      ],
+      "positions_mm": [
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          4.0
+        ],
+        [
+          4.0,
+          4.0
+        ],
+        [
+          4.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ]
+      ],
+      "technical_model": "PIECEWISE_LINEAR_UNIT_PHASE_TRAVERSAL",
+      "unitless_phase": [
+        0.0,
+        0.25,
+        0.5,
+        0.75,
+        1.0
+      ]
+    },
+    {
+      "candidate_id": "MOTION-CANDIDATE-02",
+      "ordered_node_cycle": [
+        "N00",
+        "N02",
+        "N03",
+        "N01",
+        "N00"
+      ],
+      "positions_mm": [
+        [
+          0.0,
+          0.0
+        ],
+        [
+          4.0,
+          0.0
+        ],
+        [
+          4.0,
+          4.0
+        ],
+        [
+          0.0,
+          4.0
+        ],
+        [
+          0.0,
+          0.0
+        ]
+      ],
+      "technical_model": "PIECEWISE_LINEAR_UNIT_PHASE_TRAVERSAL",
+      "unitless_phase": [
+        0.0,
+        0.25,
+        0.5,
+        0.75,
+        1.0
+      ]
+    }
+  ],
+  "moving_mask_implemented": false,
+  "n1": {
+    "physical_meaning": "NONE",
+    "role": "PROVISIONAL_TECHNICAL_TRANSLATION_BOUNDARY",
+    "scientific_status": "NOT_ESTABLISHED",
+    "symbolic_meaning": "NONE"
+  },
+  "provisional_assumptions": [
+    "PROVISIONAL_TRACK_B_ASSUMPTION: choose the lexicographically smallest coordinate as an operational start",
+    "PROVISIONAL_TRACK_B_ASSUMPTION: enumerate both outgoing undirected edges without preference",
+    "PROVISIONAL_TRACK_B_ASSUMPTION: use piecewise-linear traversal between packet nodes",
+    "PROVISIONAL_TRACK_B_ASSUMPTION: use cumulative geometric length as a unitless phase parameter",
+    "PROVISIONAL_TRACK_B_ASSUMPTION: phase is not time, speed, velocity or physical motion"
+  ],
+  "remaining_blockers": [
+    "no authorized cyclic-origin comparison implementation",
+    "no authorized reversal-quotient comparison implementation",
+    "no timing or source-direction information in the authorized packet",
+    "no independent Track B evaluator or decision rule (O-11)",
+    "no scientific motion model or metric inventory (O-10)",
+    "Human acquisition remains unauthorized (O-21)"
+  ],
+  "scientific_result": "NONE",
+  "track_a_reference": {
+    "bytes": 324,
+    "modified": false,
+    "sha256": "8aadeeec4b4c8cd591a597aef59b8390585db7e8f6a5346e88b37bd41cbc71ce"
+  },
+  "track_b_packet": {
+    "consumed_by_translation": "PACKET_ONLY",
+    "edge_count": 4,
+    "forbidden_keys_present": [],
+    "node_count": 4,
+    "representation": "UNDIRECTED_CYCLIC_GEOMETRY"
+  },
+  "track_c_started": false
+}

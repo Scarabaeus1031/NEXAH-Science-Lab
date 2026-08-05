@@ -1,0 +1,46 @@
+{
+  "closed_cycle_connectivity": true,
+  "coordinate_unit": "mm",
+  "nodes": [
+    {
+      "node_id": "N00",
+      "x_mm": 0.0,
+      "y_mm": 0.0
+    },
+    {
+      "node_id": "N01",
+      "x_mm": 0.0,
+      "y_mm": 4.0
+    },
+    {
+      "node_id": "N02",
+      "x_mm": 4.0,
+      "y_mm": 0.0
+    },
+    {
+      "node_id": "N03",
+      "x_mm": 4.0,
+      "y_mm": 4.0
+    }
+  ],
+  "packet_id": "TB-B01-0001",
+  "representation": "UNDIRECTED_CYCLIC_GEOMETRY",
+  "undirected_edges": [
+    [
+      "N00",
+      "N01"
+    ],
+    [
+      "N00",
+      "N02"
+    ],
+    [
+      "N01",
+      "N03"
+    ],
+    [
+      "N02",
+      "N03"
+    ]
+  ]
+}
