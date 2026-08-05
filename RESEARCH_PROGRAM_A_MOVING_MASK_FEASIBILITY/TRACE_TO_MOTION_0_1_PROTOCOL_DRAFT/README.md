@@ -37,11 +37,25 @@ Fugenformel, handwriting meaning, golf, body motion and energy remain excluded.
 12. [Acquisition Blockers](12_ACQUISITION_BLOCKER_CHECKLIST.md)
 13. [Changelog](13_REVISION_2_CHANGELOG.md)
 14. [Experimentlog](14_EXPERIMENT_LOG.md)
+15. [Closed-Trace Canonicalization Robustness Review](15_CLOSED_TRACE_CANONICALIZATION_ROBUSTNESS_REVIEW.md)
+16. [Closed-Trace Representation Requirement Gate](16_CLOSED_TRACE_REPRESENTATION_REQUIREMENT_GATE.md)
+17. [Closed-Trace Consumer Contract Freeze](17_CLOSED_TRACE_CONSUMER_CONTRACT_FREEZE.md)
+18. [Byte-Stable Trace Serialization Boundary](18_BYTE_STABLE_TRACE_SERIALIZATION_BOUNDARY.md)
+19. [Closure Status Semantic Vocabulary Gate](19_CLOSURE_STATUS_SEMANTIC_VOCABULARY_GATE.md)
+20. [Track B Plateau View](TRACK_B_PLATEAU_REPORT_DE.md)
+21. [Desk Return Report](DESK_REPORT_RETURN_DE.md)
+22. [Lab Return Report](LAB_REPORT_RETURN_DE.md)
+23. [Architecture Status](TRACE_TO_MOTION_ARCHITECTURE_STATUS_DE.md)
+24. [Documentation Phase Closeout](PHASE_CLOSEOUT_DE.md)
 
 Derived validator artifacts share one implementation lineage and are not
 independent validation or scientific evidence.
 
-## Current disposition
+## Revision 2 protocol disposition
+
+The following block records the broader Revision 2 protocol state. Later
+bounded synthetic engineering checkpoints do not erase its unresolved
+canonicalization, independent-validation or Human-acquisition blockers.
 
 ```text
 REVISION_2: PREPARED
@@ -58,3 +72,25 @@ canonicalization fails the shared-noise exact-reversal fixture with maximum
 deviation `0.043607016 mm`. No tolerance was relaxed to conceal the failure.
 
 Next gate: `OWNER REVIEW OF REVISION 2 AND OPEN SCIENTIFIC DECISIONS`.
+
+## Documentation closeout status
+
+Later bounded work reached a minimal Track A serialization/replay milestone and
+a Track B engineering plateau through EXP-B01 and EXP-B02. This does not execute
+the blocked scientific direction-identifiability test.
+
+```text
+ARCHITECTURAL_ORIENTATION: YES
+TRACK_A_MINIMAL_TECHNICAL_MILESTONE: REACHED
+TRACK_B_ENGINEERING_PLATEAU: REACHED
+TRACK_B_SCIENTIFIC_IDENTIFIABILITY: BLOCKED
+TRACK_C_IMPLEMENTED: NO
+FULL_PROTOCOL_VALIDATION: NO
+SCIENTIFIC_RESULT: NONE
+HUMAN_DATA: NONE
+HUMAN_ACQUISITION: PROHIBITED
+NEXT_STATE: OWNER PRIORITY DECISION
+```
+
+Current return entry point: [Documentation Phase Closeout](PHASE_CLOSEOUT_DE.md),
+followed by the [Desk Return Report](DESK_REPORT_RETURN_DE.md).

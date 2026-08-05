@@ -4,6 +4,32 @@ Status: `OPEN — NO HUMAN ACQUISITION AUTHORITY`
 
 Documentation does not constitute Owner acceptance.
 
+## Current orientation checkpoint
+
+Later bounded synthetic engineering work established a minimal Track A
+byte/replay checkpoint and the EXP‑B01/EXP‑B02 Track B engineering plateau.
+These checkpoints do not close any scientific Owner decision in this queue.
+
+```text
+ARCHITECTURAL_ORIENTATION: YES
+TRACK_A_MINIMAL_TECHNICAL_MILESTONE: REACHED
+TRACK_B_ENGINEERING_PLATEAU: REACHED
+TRACK_B_SCIENTIFIC_IDENTIFIABILITY: BLOCKED
+TRACK_C_IMPLEMENTED: NO
+FULL_PROTOCOL_VALIDATION: NO
+SCIENTIFIC_RESULT: NONE
+HUMAN_DATA: NONE
+HUMAN_ACQUISITION: PROHIBITED
+NEXT_STATE: OWNER PRIORITY DECISION
+```
+
+Return navigation:
+
+- [Desk Return Report](DESK_REPORT_RETURN_DE.md)
+- [Lab Return Report](LAB_REPORT_RETURN_DE.md)
+- [Architecture Status](TRACE_TO_MOTION_ARCHITECTURE_STATUS_DE.md)
+- [Phase Closeout](PHASE_CLOSEOUT_DE.md)
+
 ## Structurally acceptable — recommended for Owner acceptance
 
 | ID | Element | State |
