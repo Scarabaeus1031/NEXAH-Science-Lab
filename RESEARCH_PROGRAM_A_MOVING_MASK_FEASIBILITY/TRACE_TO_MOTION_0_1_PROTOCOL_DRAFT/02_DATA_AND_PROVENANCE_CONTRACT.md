@@ -1,6 +1,6 @@
 # Data and Provenance Contract
 
-Status: `DRAFT — OWNER APPROVAL REQUIRED`
+Status: `REVISION 2 DRAFT — HUMAN ACQUISITION PROHIBITED`
 
 ## 1. Package layout
 
@@ -13,7 +13,8 @@ TTM-0.1_<run_id>/
 │   └── SHA256SUMS
 ├── calibration/
 │   ├── calibration_raw.csv
-│   └── calibration_result.json
+│   ├── calibration_result.json
+│   └── device_qualification.json
 ├── templates/
 │   └── P01.csv ... P06.csv
 ├── raw/
@@ -31,12 +32,15 @@ TTM-0.1_<run_id>/
 │       ├── reconstruction_static.csv
 │       └── reconstruction_moving.csv
 ├── review_packets/
-│   ├── trace_only/
-│   ├── static_mask/
-│   └── moving_mask/
+│   ├── track_b_direction/
+│   └── track_c_schedules/
 ├── results/
-│   ├── sample_metrics.csv
-│   ├── pair_metrics.csv
+│   ├── track_a_conformance.json
+│   ├── track_b_responses.csv
+│   ├── track_b_scores.json
+│   ├── track_c_availability.csv
+│   ├── track_c_conditional_error.csv
+│   ├── track_c_common_support.csv
 │   └── run_status.json
 ├── provenance/
 │   ├── run_manifest.json
@@ -47,6 +51,9 @@ TTM-0.1_<run_id>/
 ```
 
 No execution package is created by this draft.
+
+Track A synthetic packages use a separate `SYNTHETIC` run class and may not be
+relabeled as Human evidence.
 
 ## 2. Identifiers and filenames
 
@@ -111,6 +118,9 @@ VISIBLE
 WITHHELD
 ```
 
+Every mask record references a `schedule_id` frozen before Human acquisition.
+No schedule may depend on a completed Human trajectory.
+
 ### Reconstruction schema
 
 ```text
@@ -140,14 +150,22 @@ INVALID
 BLOCKED
 ```
 
+Track B responses use `packet_pair_id,response,response_utc,response_status,evaluator_id`.
+Allowed responses are `PACKET_A_IS_FORWARD`, `PACKET_B_IS_FORWARD`, `UNKNOWN`
+and `INVALID_PACKET`.
+
+Track C availability uses
+`sample_uuid,schedule_id,hidden_count,gap_count,max_gap_count,start_hidden,end_hidden,marker_exposure,observable_count,status`.
+Conditional and common-support outputs include their own support counts.
+
 ## 4. Required JSON metadata
 
 `run_manifest.json` must contain:
 
 ```json
 {
-  "protocol_id": "TTM-0.1-DRAFT-01",
-  "protocol_status": "OWNER_APPROVED_REQUIRED",
+  "protocol_id": "TTM-0.1-DRAFT-02",
+  "protocol_status": "REVISION_2_OWNER_REVIEW_REQUIRED",
   "run_id": "",
   "scientific_owner": "UNASSIGNED",
   "data_owner": "UNASSIGNED",
@@ -188,6 +206,9 @@ Required per-sample metadata:
 - QC status;
 - derivation software hash;
 - derived file hashes.
+
+Attempt metadata includes `attempt_number`, `attempt_status`, `invalid_reason`,
+`replaces_uuid` and inclusion status. Failed attempts remain in provenance.
 
 ## 5. Provenance events
 
@@ -244,6 +265,9 @@ Rules:
 | results | no before freeze | write | submit | read |
 
 One person may not act as both analysis operator and independent reviewer.
+
+The primary validator author may not be recorded as an independent oracle or
+independent second-implementation author.
 
 ## 8. Preservation and privacy boundary
 

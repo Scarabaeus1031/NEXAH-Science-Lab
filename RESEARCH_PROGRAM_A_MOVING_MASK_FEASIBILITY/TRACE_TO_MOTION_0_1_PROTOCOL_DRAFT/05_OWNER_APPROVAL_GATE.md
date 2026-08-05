@@ -1,65 +1,60 @@
-# Owner Approval Gate
+# Owner Decision Queue — Revision 2
 
-Status: `OPEN — PROTOCOL REMAINS DRAFT`
+Status: `OPEN — NO HUMAN ACQUISITION AUTHORITY`
 
-Every choice below is proposed and frozen inside the draft. None is accepted
-for Human-data acquisition until Thomas explicitly approves it.
+Documentation does not constitute Owner acceptance.
 
-## Scientific choices requiring approval
+## Structurally acceptable — recommended for Owner acceptance
 
-| ID | Proposed choice | Current state |
+| ID | Element | State |
 |---|---|---|
-| O-01 | bounded question: planar trajectory → direction-free trace → masked reconstruction | `OWNER APPROVAL REQUIRED` |
-| O-02 | exactly six geometries and twelve F/R samples | `OWNER APPROVAL REQUIRED` |
-| O-03 | formulas and diagnostic roles for P01–P06 | `OWNER APPROVAL REQUIRED` |
-| O-04 | fixed acquisition order | `OWNER APPROVAL REQUIRED` |
-| O-05 | `200 x 200 mm` right-handed coordinate frame | `OWNER APPROVAL REQUIRED` |
-| O-06 | device minimums: `>=120 Hz`, `<=1 ms`, `<=0.10 mm` resolution | `OWNER APPROVAL REQUIRED` |
-| O-07 | affine four-fiducial calibration and `0.25/0.50 mm` limits | `OWNER APPROVAL REQUIRED` |
-| O-08 | sample duration, timestamp-gap and one-replacement rules | `OWNER APPROVAL REQUIRED` |
-| O-09 | template-adherence QC thresholds | `OWNER APPROVAL REQUIRED` |
-| O-10 | normalization to `1001` uniform-time samples without smoothing | `OWNER APPROVAL REQUIRED` |
-| O-11 | direction-free arc-length trace canonicalization, `2.0 mm` closure rule and deterministic `2000 x 2000` PGM rendering | `OWNER APPROVAL REQUIRED` |
-| O-12 | opaque UUID identity and sealed F/R mapping | `OWNER APPROVAL REQUIRED` |
-| O-13 | `40 mm` static and moving vertical strips | `OWNER APPROVAL REQUIRED` |
-| O-14 | moving center `20+55 tau mm`; per-sample static center selected by the frozen exact-match rule | `OWNER APPROVAL REQUIRED` |
-| O-15 | masked spatiotemporal area exactly `0.20` for both masks | `OWNER APPROVAL REQUIRED` |
-| O-16 | exact per-sample equality of masked sample count; temporal/geometric arrangement deliberately differs | `OWNER APPROVAL REQUIRED` |
-| O-17 | coordinate-wise linear interpolation as the sole baseline | `OWNER APPROVAL REQUIRED` |
-| O-18 | segmentation markers and window rules | `OWNER APPROVAL REQUIRED` |
-| O-19 | identity registration for scoring; rigid fit restricted to QC | `OWNER APPROVAL REQUIRED` |
-| O-20 | representation, reconstruction and pair metrics | `OWNER APPROVAL REQUIRED` |
-| O-21 | all numerical tolerances, four-of-six pair rule and terminal result rules | `OWNER APPROVAL REQUIRED` |
-| O-22 | no significance test or population inference | `OWNER APPROVAL REQUIRED` |
-| O-23 | CSV/JSON schemas, decimal precision, UUID filenames and SHA-256 manifest | `OWNER APPROVAL REQUIRED` |
-| O-24 | leakage checks, negative controls and BLOCKED conditions | `OWNER APPROVAL REQUIRED` |
-| O-25 | one adult Human participant produces all twelve samples; identity remains `UNASSIGNED`; no population inference | `OWNER APPROVAL REQUIRED` |
-| O-26 | consent, privacy, retention and deletion rules must be approved before acquisition | `OWNER APPROVAL REQUIRED` |
-| O-27 | scientific owner, data owner, acquisition operator, analysis operator and independent reviewer assignments | `OWNER APPROVAL REQUIRED` |
-| O-28 | repository identity, implementation hash and replay location | `OWNER APPROVAL REQUIRED` |
+| S-01 | bounded planar question and exclusions | `PENDING` |
+| S-02 | P01–P06 as individual diagnostic fixture families | `PENDING` |
+| S-03 | planar coordinate proposal | `PENDING` |
+| S-04 | UUID, identity, sealed mapping, manifests and hashes | `PENDING` |
+| S-05 | linear interpolation as technical baseline | `PENDING` |
+| S-06 | identity registration; template fit only for QC | `PENDING` |
+| S-07 | no significance or population inference | `PENDING` |
+| S-08 | explicit `UNKNOWN`, `INVALID`, `BLOCKED` | `PENDING` |
+| S-09 | separated scientific, custody, protocol and validation roles | `PENDING` |
+| S-10 | three-track separation | `PENDING` |
 
-## Required external checks before approval can become executable
+## Pending Owner decisions
 
-- independent protocol review completed;
-- applicable Human-data ethics and privacy requirements identified;
-- actual device confirmed against the minimum contract;
-- acquisition and analysis implementations independently verified;
-- protocol snapshot and hashes frozen;
-- roles assigned without reviewer conflict;
-- explicit separate Owner authorization for acquisition.
+| ID | Decision | Required basis |
+|---|---|---|
+| O-01 | twelve-sample proposal | bounded purpose and repeatability rationale |
+| O-02 | acquisition order | frozen randomization/counterbalancing method |
+| O-03 | device and sampling limits | device qualification and task rationale |
+| O-04 | calibration design and tolerances | held-out validation and error budget |
+| O-05 | trajectory QC | repeatability/inclusion study |
+| O-06 | normalization and canonicalization | noise/stability validation |
+| O-07 | mask geometry and schedules | pre-acquisition schedule records |
+| O-08 | exposure matching | estimand and feasibility evidence |
+| O-09 | markers and parameter mapping | frozen geometric/registration method |
+| O-10 | Track A metrics | oracle and capability rationale |
+| O-11 | Track B evaluator and rule | independence and statistical rationale |
+| O-12 | Track C evaluability/common support | simulation and estimand rationale |
+| O-13 | metric tolerances | error budget/repeatability/noise study |
+| O-14 | aggregate rule, if any | dependence and statistical rationale |
+| O-15 | sensitivity grid | pre-result rationale |
+| O-16 | participant eligibility | Human-data and ethics/privacy review |
+| O-17 | attempts, replacement, incomplete sets | fixed population rationale |
+| O-18 | consent, privacy, retention, deletion | applicable approval |
+| O-19 | environment and replay location | repository identity and hashes |
+| O-20 | named roles | assignments and conflict check |
+| O-21 | Human acquisition | separate authorization after all blockers close |
 
-## Current decision
+Withdrawn from V1: fixed order, source-dependent static center, H1 as external
+evidence, H2 by field deletion, causal H3 wording, four-of-six aggregation and
+marker search near `tau=0.5`.
 
 ```text
-PROTOCOL_STATUS: DRAFT
-OWNER_APPROVAL: PENDING
-INDEPENDENT_REVIEW: PENDING
+PROTOCOL_STATUS: REVISION_2_DRAFT
+OWNER_DECISIONS_CLOSED: 0
+INDEPENDENT_VALIDATION: PENDING
+MANDATORY_BLOCKERS_OPEN: YES
 HUMAN_DATA_AUTHORIZED: NO
 EXECUTION_AUTHORIZED: NO
 SCIENTIFIC_RESULT: NONE
 ```
-
-## Next permitted action
-
-Independent review of the draft, followed by Owner acceptance, revision or
-rejection of O-01 through O-28. Acquisition remains prohibited.
