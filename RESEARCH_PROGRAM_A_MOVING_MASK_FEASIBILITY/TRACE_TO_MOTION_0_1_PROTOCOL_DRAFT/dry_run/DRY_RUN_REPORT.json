@@ -1,0 +1,164 @@
+{
+  "checks": {
+    "direction_free_canonical_trace_identity": "PASS",
+    "direction_leak_rejected": "PASS",
+    "domain_bounds": "PASS",
+    "exact_area_exposure_match": "PASS",
+    "exact_masked_sample_count_match": "PASS",
+    "excluded_interpretation_keys_absent": "PASS",
+    "false_reconstruction_count_zero": "PASS",
+    "no_completely_masked_record": "PASS",
+    "paired_reversal_identity": "PASS",
+    "sample_count_1001": "PASS",
+    "six_paths": "PASS",
+    "static_center_found_for_every_sample": "PASS",
+    "synthetic_transition_markers": "PASS",
+    "tampered_hash_rejected": "PASS",
+    "twelve_samples": "PASS",
+    "unbounded_gaps_remain_unknown": "PASS"
+  },
+  "constants": {
+    "domain_mm": [
+      200.0,
+      200.0
+    ],
+    "mask_width_mm": 40.0,
+    "maximum_canonical_trace_error_mm": 1.4371945416963321e-12,
+    "maximum_reverse_error_mm": 1.0247593068766007e-13,
+    "maximum_transition_marker_error_tau": 0.0010000000000000009,
+    "moving_area_exposure": 0.2,
+    "paths": 6,
+    "samples": 12,
+    "samples_per_trajectory": 1001,
+    "static_area_exposure": 0.2
+  },
+  "human_data": "NONE",
+  "overall": "PASS",
+  "protocol_id": "TTM-0.1-DRAFT-01",
+  "scientific_result": "NONE",
+  "script_sha256": "c6e208fa22002112b12a1e2b46574669528c6b47bf9b33df6f5572d9b640d6db",
+  "synthetic_diagnostics_not_scientific_results": [
+    {
+      "moving_masked_fraction": 0.117882118,
+      "moving_reconstruction_rmse_mm": null,
+      "moving_unknown_fraction": 0.117882118,
+      "sample_id": "P01-F",
+      "static_center_mm": 26.45,
+      "static_masked_fraction": 0.117882118,
+      "static_reconstruction_rmse_mm": null,
+      "static_unknown_fraction": 0.117882118
+    },
+    {
+      "moving_masked_fraction": 0.204795205,
+      "moving_reconstruction_rmse_mm": 0.0,
+      "moving_unknown_fraction": 0.0,
+      "sample_id": "P01-R",
+      "static_center_mm": 38.63,
+      "static_masked_fraction": 0.204795205,
+      "static_reconstruction_rmse_mm": null,
+      "static_unknown_fraction": 0.204795205
+    },
+    {
+      "moving_masked_fraction": 0.280719281,
+      "moving_reconstruction_rmse_mm": null,
+      "moving_unknown_fraction": 0.280719281,
+      "sample_id": "P02-F",
+      "static_center_mm": 146.969843609,
+      "static_masked_fraction": 0.280719281,
+      "static_reconstruction_rmse_mm": 4.938838344,
+      "static_unknown_fraction": 0.0
+    },
+    {
+      "moving_masked_fraction": 0.175824176,
+      "moving_reconstruction_rmse_mm": 1.968118391,
+      "moving_unknown_fraction": 0.0,
+      "sample_id": "P02-R",
+      "static_center_mm": 20.372787385,
+      "static_masked_fraction": 0.175824176,
+      "static_reconstruction_rmse_mm": null,
+      "static_unknown_fraction": 0.175824176
+    },
+    {
+      "moving_masked_fraction": 0.117882118,
+      "moving_reconstruction_rmse_mm": null,
+      "moving_unknown_fraction": 0.117882118,
+      "sample_id": "P03-F",
+      "static_center_mm": 26.45,
+      "static_masked_fraction": 0.117882118,
+      "static_reconstruction_rmse_mm": null,
+      "static_unknown_fraction": 0.117882118
+    },
+    {
+      "moving_masked_fraction": 0.204795205,
+      "moving_reconstruction_rmse_mm": 6.580842699,
+      "moving_unknown_fraction": 0.0,
+      "sample_id": "P03-R",
+      "static_center_mm": 38.63,
+      "static_masked_fraction": 0.204795205,
+      "static_reconstruction_rmse_mm": null,
+      "static_unknown_fraction": 0.204795205
+    },
+    {
+      "moving_masked_fraction": 0.117882118,
+      "moving_reconstruction_rmse_mm": null,
+      "moving_unknown_fraction": 0.117882118,
+      "sample_id": "P04-F",
+      "static_center_mm": 26.45,
+      "static_masked_fraction": 0.117882118,
+      "static_reconstruction_rmse_mm": null,
+      "static_unknown_fraction": 0.117882118
+    },
+    {
+      "moving_masked_fraction": 0.204795205,
+      "moving_reconstruction_rmse_mm": 0.0,
+      "moving_unknown_fraction": 0.0,
+      "sample_id": "P04-R",
+      "static_center_mm": 38.63,
+      "static_masked_fraction": 0.204795205,
+      "static_reconstruction_rmse_mm": null,
+      "static_unknown_fraction": 0.204795205
+    },
+    {
+      "moving_masked_fraction": 0.324675325,
+      "moving_reconstruction_rmse_mm": 20.984350249,
+      "moving_unknown_fraction": 0.0,
+      "sample_id": "P05-F",
+      "static_center_mm": 138.297903975,
+      "static_masked_fraction": 0.324675325,
+      "static_reconstruction_rmse_mm": 5.666065193,
+      "static_unknown_fraction": 0.0
+    },
+    {
+      "moving_masked_fraction": 0.324675325,
+      "moving_reconstruction_rmse_mm": 20.984350249,
+      "moving_unknown_fraction": 0.0,
+      "sample_id": "P05-R",
+      "static_center_mm": 48.650240823,
+      "static_masked_fraction": 0.324675325,
+      "static_reconstruction_rmse_mm": 20.984350249,
+      "static_unknown_fraction": 0.0
+    },
+    {
+      "moving_masked_fraction": 0.264735265,
+      "moving_reconstruction_rmse_mm": 10.397196354,
+      "moving_unknown_fraction": 0.0,
+      "sample_id": "P06-F",
+      "static_center_mm": 138.461341352,
+      "static_masked_fraction": 0.264735265,
+      "static_reconstruction_rmse_mm": 11.026292832,
+      "static_unknown_fraction": 0.0
+    },
+    {
+      "moving_masked_fraction": 0.252747253,
+      "moving_reconstruction_rmse_mm": 18.393971801,
+      "moving_unknown_fraction": 0.0,
+      "sample_id": "P06-R",
+      "static_center_mm": 63.844977882,
+      "static_masked_fraction": 0.252747253,
+      "static_reconstruction_rmse_mm": 9.838509928,
+      "static_unknown_fraction": 0.0
+    }
+  ],
+  "validation_scope": "SYNTHETIC_PROTOCOL_MECHANICS_ONLY",
+  "validator_version": "0.1"
+}
