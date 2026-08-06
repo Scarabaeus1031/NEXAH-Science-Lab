@@ -47,6 +47,7 @@ Fugenformel, handwriting meaning, golf, body motion and energy remain excluded.
 22. [Lab Return Report](LAB_REPORT_RETURN_DE.md)
 23. [Architecture Status](TRACE_TO_MOTION_ARCHITECTURE_STATUS_DE.md)
 24. [Documentation Phase Closeout](PHASE_CLOSEOUT_DE.md)
+25. [Track B Reversal Relation and I-L-A-U Audit](TRACK_B_REVERSAL_RELATION_AND_ILAU_AUDIT_DE.md)
 
 Derived validator artifacts share one implementation lineage and are not
 independent validation or scientific evidence.

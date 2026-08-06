@@ -1,0 +1,192 @@
+{
+  "source_model": "navigator_v39_fixpoint_extraction.py",
+  "seed": 42,
+  "radii": [
+    0.2,
+    0.4,
+    0.6000000000000001,
+    0.8,
+    1.0,
+    1.2000000000000002
+  ],
+  "n_ring": 40,
+  "n_fixpoint": 100,
+  "controlled_steps": 260,
+  "controlled_step_size": 0.06,
+  "tolerance": 0.16,
+  "free_diagnostic": "Euler dx/dt=combined_field(x), dt=0.01, steps=1560",
+  "results": [
+    {
+      "cluster": "C2",
+      "declared_center": [
+        13.5,
+        26.0
+      ],
+      "controlled_fixpoint_estimate": [
+        13.50028845362891,
+        25.99766142546654
+      ],
+      "controlled_fixpoint_offset": 0.002356297168139548,
+      "controlled_endpoint_cloud_spread": 0.033538531240590704,
+      "largest_tested_radius_with_controlled_return_ge_0_90": 1.2,
+      "scalar_field_at_declared_center": 3.2173249917118767,
+      "free_field_norm_at_declared_center": 0.3909651565545306,
+      "free_field_jacobian_at_declared_center": [
+        [
+          -2.0264364728192485,
+          1.0710809812625177
+        ],
+        [
+          -0.2024299645903005,
+          -1.8147346139410492
+        ]
+      ],
+      "free_field_jacobian_eigenvalues": [
+        [
+          -1.9205855433801489,
+          0.45344731319878223
+        ],
+        [
+          -1.9205855433801489,
+          -0.45344731319878223
+        ]
+      ],
+      "radius_rows": [
+        {
+          "cluster": "C2",
+          "radius": 0.2,
+          "controlled_return_fraction": 1.0,
+          "free_return_to_declared_center_fraction": 0.0,
+          "controlled_endpoint_spread": 0.032043377450582396,
+          "free_median_endpoint_distance": 0.26549008079197733
+        },
+        {
+          "cluster": "C2",
+          "radius": 0.4,
+          "controlled_return_fraction": 1.0,
+          "free_return_to_declared_center_fraction": 0.0,
+          "controlled_endpoint_spread": 0.027326102680767322,
+          "free_median_endpoint_distance": 0.2654900807919179
+        },
+        {
+          "cluster": "C2",
+          "radius": 0.6,
+          "controlled_return_fraction": 1.0,
+          "free_return_to_declared_center_fraction": 0.0,
+          "controlled_endpoint_spread": 0.02027723990386198,
+          "free_median_endpoint_distance": 0.26549008079191505
+        },
+        {
+          "cluster": "C2",
+          "radius": 0.8,
+          "controlled_return_fraction": 1.0,
+          "free_return_to_declared_center_fraction": 0.0,
+          "controlled_endpoint_spread": 0.015888484643038374,
+          "free_median_endpoint_distance": 0.26549008079193626
+        },
+        {
+          "cluster": "C2",
+          "radius": 1.0,
+          "controlled_return_fraction": 1.0,
+          "free_return_to_declared_center_fraction": 0.0,
+          "controlled_endpoint_spread": 0.018524874713252242,
+          "free_median_endpoint_distance": 0.2654900807919127
+        },
+        {
+          "cluster": "C2",
+          "radius": 1.2,
+          "controlled_return_fraction": 1.0,
+          "free_return_to_declared_center_fraction": 0.0,
+          "controlled_endpoint_spread": 0.02431300947987846,
+          "free_median_endpoint_distance": 0.2654900807919107
+        }
+      ]
+    },
+    {
+      "cluster": "C3",
+      "declared_center": [
+        11.0,
+        28.5
+      ],
+      "controlled_fixpoint_estimate": [
+        11.004513005598136,
+        28.498835336247577
+      ],
+      "controlled_fixpoint_offset": 0.004660864853760333,
+      "controlled_endpoint_cloud_spread": 0.03436506792750128,
+      "largest_tested_radius_with_controlled_return_ge_0_90": 1.0,
+      "scalar_field_at_declared_center": -1.9445848823895084,
+      "free_field_norm_at_declared_center": 0.1901362147141948,
+      "free_field_jacobian_at_declared_center": [
+        [
+          1.6036186557462362,
+          -0.7204002387428687
+        ],
+        [
+          0.5301489534614845,
+          1.441964681444946
+        ]
+      ],
+      "free_field_jacobian_eigenvalues": [
+        [
+          1.5227916685955911,
+          0.6126878738730553
+        ],
+        [
+          1.5227916685955911,
+          -0.6126878738730553
+        ]
+      ],
+      "radius_rows": [
+        {
+          "cluster": "C3",
+          "radius": 0.2,
+          "controlled_return_fraction": 1.0,
+          "free_return_to_declared_center_fraction": 0.0,
+          "controlled_endpoint_spread": 0.033544842902499795,
+          "free_median_endpoint_distance": 3.529937878104735
+        },
+        {
+          "cluster": "C3",
+          "radius": 0.4,
+          "controlled_return_fraction": 1.0,
+          "free_return_to_declared_center_fraction": 0.0,
+          "controlled_endpoint_spread": 0.029485531256127955,
+          "free_median_endpoint_distance": 3.529937878006728
+        },
+        {
+          "cluster": "C3",
+          "radius": 0.6,
+          "controlled_return_fraction": 1.0,
+          "free_return_to_declared_center_fraction": 0.0,
+          "controlled_endpoint_spread": 0.020688579920444945,
+          "free_median_endpoint_distance": 3.529937877956124
+        },
+        {
+          "cluster": "C3",
+          "radius": 0.8,
+          "controlled_return_fraction": 1.0,
+          "free_return_to_declared_center_fraction": 0.0,
+          "controlled_endpoint_spread": 0.023842922604468957,
+          "free_median_endpoint_distance": 3.5299378779554074
+        },
+        {
+          "cluster": "C3",
+          "radius": 1.0,
+          "controlled_return_fraction": 1.0,
+          "free_return_to_declared_center_fraction": 0.0,
+          "controlled_endpoint_spread": 0.03438196783293143,
+          "free_median_endpoint_distance": 3.529937877947246
+        },
+        {
+          "cluster": "C3",
+          "radius": 1.2,
+          "controlled_return_fraction": 0.75,
+          "free_return_to_declared_center_fraction": 0.0,
+          "controlled_endpoint_spread": 1.122705197386051,
+          "free_median_endpoint_distance": 3.5299378779566113
+        }
+      ]
+    }
+  ]
+}
