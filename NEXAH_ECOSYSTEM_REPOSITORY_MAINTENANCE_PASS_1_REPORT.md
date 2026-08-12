@@ -27,6 +27,7 @@ clean, restore, checkout, stash, deletion or force-push was performed.
 | NEXAH-Science-Lab | `664dcf627ea59fc068065a8fbd1637d48dfdc9b8` | `docs: record ecosystem repository currentness audit` |
 | NEXAH-Science-Lab | `cadb6c086970e8d9a4981adffa27f9236bafdf86` | `chore: ignore Python cache artifacts` |
 | NEXAH-ORION | `d023b96672d6c29c8fadda1b91e247f48d9b1288` | `docs(architecture): record adopted ORION master architecture` |
+| NEXAH-Science-Lab | `7c54f72ad93ab296ab0ec340e849a8bcb9279cc8` | `docs: record ecosystem maintenance pass 1` |
 
 No NEXAH governance commit was created because its branch-ancestry gate did
 not pass. No Experience commit was authorized.
@@ -35,12 +36,18 @@ not pass. No Experience commit was authorized.
 
 | Remote branch | Pushed commits | Resulting remote SHA |
 |---|---|---|
-| `NEXAH-Science-Lab:codex/z3885-verification` | `664dcf6`, `cadb6c0` | `cadb6c086970e8d9a4981adffa27f9236bafdf86` |
+| `NEXAH-Science-Lab:codex/z3885-verification` | `664dcf6`, `cadb6c0`, `7c54f72` | `7c54f72ad93ab296ab0ec340e849a8bcb9279cc8` before the report-only metadata finalization described below |
 | `NEXAH-ORION:codex/orion-orientation-operators` | `d023b96` | `d023b96672d6c29c8fadda1b91e247f48d9b1288` |
 
 Both local branches are `0 ahead / 0 behind` their upstreams after push.
 Neither remote default `main` was merged or modified. The NEXAH feature remote
 remains at `cc402e8adca47baa7e86b86e4e074d5c6eb9a402` because its gate was blocked.
+
+This report was made durable by `7c54f72`. A subsequent report-only metadata
+finalization records that publication commit in this table. Its own commit SHA
+cannot be embedded in its own content without circularity; the authoritative
+final SHA is the current remote branch ref and is reported to the Owner in the
+maintenance completion response. It performs no additional maintenance action.
 
 ## 4. Exact files included per commit
 
