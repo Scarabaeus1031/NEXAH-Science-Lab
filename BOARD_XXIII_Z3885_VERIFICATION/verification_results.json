@@ -1,0 +1,421 @@
+{
+  "base_system": {
+    "admissible_periods_derived_from_order": [
+      1,
+      2,
+      4
+    ],
+    "analytic_checks": {
+      "all_residual_points_have_exact_period_4": true,
+      "enumerated_period_2_point_count": 20,
+      "enumerated_period_4_point_count": 756,
+      "exact_period_2_point_count": 20,
+      "fixed_point_enumeration_count": 1,
+      "fixed_point_equation_count": 1,
+      "fixed_point_sets_equal": true,
+      "period_2_point_sets_equal": true,
+      "residual_after_t_squared_fixed_points": 756,
+      "t_squared_fixed_point_count": 21
+    },
+    "fixed_points": [
+      0
+    ],
+    "gcd": 1,
+    "is_permutation": true,
+    "modulus": 777,
+    "multiplicative_order": 4,
+    "multiplier": 524,
+    "observed_periods": [
+      1,
+      2,
+      4
+    ],
+    "orbit_count": 200,
+    "period_histogram": {
+      "1": 1,
+      "2": 10,
+      "4": 189
+    },
+    "representative_cycles": {
+      "period_1_all": [
+        [
+          0
+        ]
+      ],
+      "period_2_first_5": [
+        [
+          37,
+          740
+        ],
+        [
+          74,
+          703
+        ],
+        [
+          111,
+          666
+        ],
+        [
+          148,
+          629
+        ],
+        [
+          185,
+          592
+        ]
+      ],
+      "period_4_first_3": [
+        [
+          1,
+          524,
+          295,
+          734
+        ],
+        [
+          2,
+          271,
+          590,
+          691
+        ],
+        [
+          3,
+          18,
+          108,
+          648
+        ]
+      ]
+    },
+    "state_count": 777,
+    "state_histogram": {
+      "1": 1,
+      "2": 20,
+      "4": 756
+    },
+    "t_squared_fixed_points": [
+      0,
+      37,
+      74,
+      111,
+      148,
+      185,
+      222,
+      259,
+      296,
+      333,
+      370,
+      407,
+      444,
+      481,
+      518,
+      555,
+      592,
+      629,
+      666,
+      703,
+      740
+    ]
+  },
+  "crt": {
+    "bijective": true,
+    "commuting_relation": true,
+    "distinct_crt_images": 3885,
+    "expected_product_size": 3885,
+    "failure_count": 0,
+    "failures": [],
+    "states_checked": 3885
+  },
+  "definitions": {
+    "base": {
+      "modulus": 777,
+      "multiplier": 524
+    },
+    "scale_factor": 5,
+    "scaled": {
+      "modulus": 3885,
+      "multiplier": 1301
+    }
+  },
+  "expectation_tests": {
+    "base_histogram_matches": true,
+    "base_total_orbits_matches_200": true,
+    "scaled_histogram_matches": true,
+    "scaled_total_orbits_matches_1000": true
+  },
+  "factorization_and_residues": {
+    "gcd_base_factor": 1,
+    "scaled_equals_factor_times_base": true,
+    "scaled_multiplier_mod_base": 524,
+    "scaled_multiplier_mod_factor": 1
+  },
+  "firewall": {
+    "finite_algebra_to_physics_bridge_status": "UNTESTED / UNDEFINED",
+    "ieee_9_to_ieee_14_claim_established": false,
+    "physical_truth_established": false,
+    "power_grid_scaling_established": false
+  },
+  "invariants": {
+    "aggregate_count_scaling": true,
+    "base_analytic_checks": true,
+    "base_is_permutation": true,
+    "base_partition_complete": true,
+    "crt_bijection_all_states": true,
+    "crt_conjugacy_all_states": true,
+    "crt_factor_coprimality": true,
+    "factorization_3885_equals_5_times_777": true,
+    "historical_expectations_reproduced": true,
+    "operator_residue_mod_5_identity": true,
+    "operator_residue_mod_777": true,
+    "orbitwise_crt_fiber_scaling": true,
+    "scaled_analytic_checks": true,
+    "scaled_is_permutation": true,
+    "scaled_partition_complete": true
+  },
+  "reproducibility": {
+    "deterministic_output": true,
+    "python_implementation": "CPython",
+    "python_version": "3.9.6",
+    "script_sha256": "f7a461fb56ca304e496458246dbd22394479ffcb70d500dae7a19e7e0f0242d0"
+  },
+  "scaled_system": {
+    "admissible_periods_derived_from_order": [
+      1,
+      2,
+      4
+    ],
+    "analytic_checks": {
+      "all_residual_points_have_exact_period_4": true,
+      "enumerated_period_2_point_count": 100,
+      "enumerated_period_4_point_count": 3780,
+      "exact_period_2_point_count": 100,
+      "fixed_point_enumeration_count": 5,
+      "fixed_point_equation_count": 5,
+      "fixed_point_sets_equal": true,
+      "period_2_point_sets_equal": true,
+      "residual_after_t_squared_fixed_points": 3780,
+      "t_squared_fixed_point_count": 105
+    },
+    "fixed_points": [
+      0,
+      777,
+      1554,
+      2331,
+      3108
+    ],
+    "gcd": 1,
+    "is_permutation": true,
+    "modulus": 3885,
+    "multiplicative_order": 4,
+    "multiplier": 1301,
+    "observed_periods": [
+      1,
+      2,
+      4
+    ],
+    "orbit_count": 1000,
+    "period_histogram": {
+      "1": 5,
+      "2": 50,
+      "4": 945
+    },
+    "representative_cycles": {
+      "period_1_all": [
+        [
+          0
+        ],
+        [
+          777
+        ],
+        [
+          1554
+        ],
+        [
+          2331
+        ],
+        [
+          3108
+        ]
+      ],
+      "period_2_first_5": [
+        [
+          37,
+          1517
+        ],
+        [
+          74,
+          3034
+        ],
+        [
+          111,
+          666
+        ],
+        [
+          148,
+          2183
+        ],
+        [
+          185,
+          3700
+        ]
+      ],
+      "period_4_first_3": [
+        [
+          1,
+          1301,
+          2626,
+          1511
+        ],
+        [
+          2,
+          2602,
+          1367,
+          3022
+        ],
+        [
+          3,
+          18,
+          108,
+          648
+        ]
+      ]
+    },
+    "state_count": 3885,
+    "state_histogram": {
+      "1": 5,
+      "2": 100,
+      "4": 3780
+    },
+    "t_squared_fixed_points": [
+      0,
+      37,
+      74,
+      111,
+      148,
+      185,
+      222,
+      259,
+      296,
+      333,
+      370,
+      407,
+      444,
+      481,
+      518,
+      555,
+      592,
+      629,
+      666,
+      703,
+      740,
+      777,
+      814,
+      851,
+      888,
+      925,
+      962,
+      999,
+      1036,
+      1073,
+      1110,
+      1147,
+      1184,
+      1221,
+      1258,
+      1295,
+      1332,
+      1369,
+      1406,
+      1443,
+      1480,
+      1517,
+      1554,
+      1591,
+      1628,
+      1665,
+      1702,
+      1739,
+      1776,
+      1813,
+      1850,
+      1887,
+      1924,
+      1961,
+      1998,
+      2035,
+      2072,
+      2109,
+      2146,
+      2183,
+      2220,
+      2257,
+      2294,
+      2331,
+      2368,
+      2405,
+      2442,
+      2479,
+      2516,
+      2553,
+      2590,
+      2627,
+      2664,
+      2701,
+      2738,
+      2775,
+      2812,
+      2849,
+      2886,
+      2923,
+      2960,
+      2997,
+      3034,
+      3071,
+      3108,
+      3145,
+      3182,
+      3219,
+      3256,
+      3293,
+      3330,
+      3367,
+      3404,
+      3441,
+      3478,
+      3515,
+      3552,
+      3589,
+      3626,
+      3663,
+      3700,
+      3737,
+      3774,
+      3811,
+      3848
+    ]
+  },
+  "scaling": {
+    "aggregate_count_scaling": true,
+    "base_orbits_tested": 200,
+    "constant_coordinate_failures": [],
+    "exact_class_scaling": {
+      "1": true,
+      "2": true,
+      "4": true
+    },
+    "expected_lifts": 1000,
+    "failure_count": 0,
+    "failures": [],
+    "orbitwise_crt_fiber_scaling": true,
+    "unaccounted_scaled_orbit_count": 0,
+    "unaccounted_scaled_orbits": [],
+    "verified_lifts": 1000
+  },
+  "schema_version": "1.0.0",
+  "scope": "finite modular dynamical systems only",
+  "source_hashes": {
+    "lab_closure": "e971156943e954fd34c35c4c209f54d9210db2481f7146ea3434ed44a7842321",
+    "lab_master_status": "c14a70373699cb770909d5f62aef14fb933129b82b6fb6ba875912eb4f700816",
+    "lab_portfolio": "12409616e9f7446c23bfcab94cd02e13298a9846c97d3d89cf68ff73fc7e7b4e",
+    "task_spec": "617a23f854b46e2cc52cbbba9e2b6087f3760897b3dd83bc5c1a75466f940631"
+  },
+  "verdict": "PASS — EXACT_5X_CRT_ORBIT_SCALING_PROVEN"
+}
