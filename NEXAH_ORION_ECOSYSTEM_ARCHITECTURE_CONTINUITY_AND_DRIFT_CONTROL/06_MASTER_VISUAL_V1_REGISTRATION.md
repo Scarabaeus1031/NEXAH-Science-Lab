@@ -1,11 +1,12 @@
 # Master Ecosystem Visual V1 registration
 
-Verified: 2026-08-11  
+Verified: 2026-08-13
 Registration authority: derived-artifact tracking only
 
 ```text
 ARCHITECTURE_BASELINE = EASL-001..EASL-009 / 2026-08-11
 GENERATED_DATE = 2026-08-11
+PUBLISHED_DATE = 2026-08-13
 VISUAL_VERSION = 1.0.0
 STATUS = REVIEW_REQUIRED
 DERIVATION_CLASS = DERIVED_ARCHITECTURE_ARTIFACT
@@ -16,8 +17,15 @@ VISUAL_AUTHORITY = NONE
 
 | Artifact | SHA-256 | Role |
 |---|---|---|
-| `/Users/tho2020/.codex/visualizations/2026/08/10/019fec6c-4b5b-7ec3-bb6d-c6e54cf41e11/master-ecosystem-overview-v1.html` | `42da93f0fc8cb851f99ed8efb6bfcece66f50782a5b4c6e27d1674e14af76d1b` | Codex in-conversation visual artifact |
-| `/Users/tho2020/.codex/visualizations/2026/08/10/019fec6c-4b5b-7ec3-bb6d-c6e54cf41e11/master-ecosystem-overview-v1-standalone.html` | `a8d6dfaea98d411c626df68b439e528ae0791a748f754baffbb7604e3f6328e7` | Standalone/downloadable wrapper |
+| `master_visual_v1/master-ecosystem-overview-v1.html` | `42da93f0fc8cb851f99ed8efb6bfcece66f50782a5b4c6e27d1674e14af76d1b` | Versioned Codex in-conversation visual artifact |
+| `master_visual_v1/master-ecosystem-overview-v1-standalone.html` | `a8d6dfaea98d411c626df68b439e528ae0791a748f754baffbb7604e3f6328e7` | Versioned standalone/downloadable wrapper |
+| `master_visual_v1/MASTER_VISUAL_V1_MANIFEST.json` | `85f47c55b9606ff9fe86fa2a08df76d43897461a3b488873a6fd0f8204cf49d5` | Required artifact/source provenance sidecar |
+
+The two HTML files were copied byte-for-byte from the original Codex artifact
+paths under
+`/Users/tho2020/.codex/visualizations/2026/08/10/019fec6c-4b5b-7ec3-bb6d-c6e54cf41e11/`.
+Source and versioned-copy SHA-256 values are identical; no visual byte was
+edited during publication.
 
 ## Source documents and hashes
 
@@ -53,12 +61,15 @@ No semantic contradiction was found.
 The visual embeds the abbreviated Continuity Ledger reference `7f10a92…`. The
 pre-registration ledger bytes producing that abbreviated hash are not preserved
 as a separately immutable artifact, and the current ledger changed when the
-visual itself was registered. In addition, both HTML files remain outside a
-versioned canonical publication repository.
+visual itself was registered. The two HTML files and their mandatory provenance
+manifest are now versioned in this continuity package; publication-location
+traceability is resolved, but the abbreviated historical ledger reference is
+not independently reconstructible.
 
 This is a metadata/publication traceability limitation, not an architecture
-contradiction. V1 must not be silently edited. A later documentation Owner may
-publish V1 with this sidecar or issue a traceability-only PATCH version under
-the visual versioning rule. Until then:
+contradiction. V1 was published without changing its bytes. A later
+documentation Owner may issue a traceability-only PATCH version under the
+visual versioning rule if a reconstructible baseline reference is established.
+Until then:
 
 `MASTER_VISUAL = SEMANTIC_CONTENT_VERIFIED / DERIVED / REVIEW_REQUIRED`

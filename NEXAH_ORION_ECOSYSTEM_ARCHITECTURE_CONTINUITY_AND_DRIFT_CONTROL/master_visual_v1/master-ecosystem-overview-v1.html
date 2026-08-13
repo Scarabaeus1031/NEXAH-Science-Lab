@@ -1,0 +1,492 @@
+<style>
+  #ecosystem-master-v1 {
+    color: var(--foreground);
+    font-family: ui-sans-serif, system-ui, sans-serif;
+    font-size: var(--font-size-base);
+    width: 100%;
+  }
+  #ecosystem-master-v1 .eco-desktop { display: none; }
+  #ecosystem-master-v1 .eco-grid-desktop { display: block; }
+  #ecosystem-master-v1 .eco-mobile { display: none; }
+  #ecosystem-master-v1 .eco-plate { display: block; width: 100%; height: auto; }
+  #ecosystem-master-v1 .plate-rule,
+  #ecosystem-master-v1 .neutral-stroke { stroke: var(--border); }
+  #ecosystem-master-v1 .human-region { fill: color-mix(in srgb, var(--viz-series-5) 11%, transparent); stroke: var(--viz-series-5); }
+  #ecosystem-master-v1 .lucy-region { fill: color-mix(in srgb, var(--viz-series-5) 5%, transparent); stroke: var(--viz-series-5); stroke-dasharray: 10 7; }
+  #ecosystem-master-v1 .experience-region { fill: color-mix(in srgb, var(--viz-series-2) 8%, transparent); stroke: var(--viz-series-2); }
+  #ecosystem-master-v1 .orion-region { fill: color-mix(in srgb, var(--viz-series-1) 8%, transparent); stroke: var(--viz-series-1); }
+  #ecosystem-master-v1 .orion-step { fill: color-mix(in srgb, var(--viz-series-1) 14%, transparent); stroke: color-mix(in srgb, var(--viz-series-1) 50%, var(--border)); }
+  #ecosystem-master-v1 .nexah-region { fill: color-mix(in srgb, var(--viz-series-3) 8%, transparent); stroke: var(--viz-series-3); }
+  #ecosystem-master-v1 .nexah-node { fill: color-mix(in srgb, var(--viz-series-3) 13%, transparent); stroke: color-mix(in srgb, var(--viz-series-3) 50%, var(--border)); }
+  #ecosystem-master-v1 .research-region { fill: color-mix(in srgb, var(--viz-series-4) 8%, transparent); stroke: var(--viz-series-4); }
+  #ecosystem-master-v1 .research-step { fill: color-mix(in srgb, var(--viz-series-4) 13%, transparent); stroke: color-mix(in srgb, var(--viz-series-4) 50%, var(--border)); }
+  #ecosystem-master-v1 .lyra-region { fill: color-mix(in srgb, var(--muted) 55%, transparent); stroke: var(--muted-foreground); stroke-dasharray: 9 7; }
+  #ecosystem-master-v1 .gate-region { fill: color-mix(in srgb, var(--viz-series-5) 9%, transparent); stroke: var(--viz-series-5); }
+  #ecosystem-master-v1 .empty-zone { fill: transparent; stroke: var(--viz-series-1); stroke-dasharray: 8 6; }
+  #ecosystem-master-v1 .membrane { stroke: var(--muted-foreground); stroke-width: 2; stroke-dasharray: 9 7; }
+  #ecosystem-master-v1 .info-line { stroke: var(--foreground); stroke-width: 1.5; fill: none; }
+  #ecosystem-master-v1 .reference-line { stroke: var(--muted-foreground); stroke-width: 1.5; stroke-dasharray: 3 6; fill: none; }
+  #ecosystem-master-v1 .conditional-line { stroke: var(--muted-foreground); stroke-width: 1.8; stroke-dasharray: 9 7; fill: none; }
+  #ecosystem-master-v1 .authority-line { stroke: var(--viz-series-5); stroke-width: 5; fill: none; }
+  #ecosystem-master-v1 text { fill: var(--foreground); }
+  #ecosystem-master-v1 .muted-text { fill: var(--muted-foreground); }
+  #ecosystem-master-v1 .eyebrow { font-size: 18px; font-weight: 500; letter-spacing: 1.7px; }
+  #ecosystem-master-v1 .title { font-size: 34px; font-weight: 500; letter-spacing: .4px; }
+  #ecosystem-master-v1 .subtitle { font-size: 19px; fill: var(--muted-foreground); }
+  #ecosystem-master-v1 .region-title { font-size: 22px; font-weight: 500; letter-spacing: .4px; }
+  #ecosystem-master-v1 .region-subtitle { font-size: 18px; font-weight: 500; letter-spacing: .5px; }
+  #ecosystem-master-v1 .body-label { font-size: 18px; }
+  #ecosystem-master-v1 .small-label { font-size: 18px; }
+  #ecosystem-master-v1 .tiny-label { font-size: 18px; }
+  #ecosystem-master-v1 .step-number { font-size: 18px; font-weight: 500; fill: var(--muted-foreground); }
+  #ecosystem-master-v1 .footer-sentence { font-size: 18px; font-weight: 500; letter-spacing: .3px; }
+  #ecosystem-master-v1 .status-review { fill: var(--viz-series-5); font-weight: 500; }
+  #ecosystem-master-v1 .m-header { margin-bottom: 1rem; }
+  #ecosystem-master-v1 .m-header h1 { margin: 0; }
+  #ecosystem-master-v1 .m-kicker { color: var(--muted-foreground); margin-bottom: .35rem; }
+  #ecosystem-master-v1 .m-section { padding: .8rem 0 .9rem 1rem; border-left: 3px solid var(--border); border-bottom: 1px solid var(--border); }
+  #ecosystem-master-v1 .m-section h2 { margin: 0 0 .35rem; }
+  #ecosystem-master-v1 .m-section p { margin: .25rem 0; }
+  #ecosystem-master-v1 .m-section ul,
+  #ecosystem-master-v1 .m-section ol { margin: .35rem 0 0; padding-left: 1.25rem; }
+  #ecosystem-master-v1 .m-human { border-left-color: var(--viz-series-5); }
+  #ecosystem-master-v1 .m-orion { border-left-color: var(--viz-series-1); }
+  #ecosystem-master-v1 .m-nexah { border-left-color: var(--viz-series-3); }
+  #ecosystem-master-v1 .m-research { border-left-color: var(--viz-series-4); }
+  #ecosystem-master-v1 .m-status { margin-top: 1rem; padding-top: .8rem; border-top: 2px solid var(--border); }
+  #ecosystem-master-v1 .grid-head { display: flex; justify-content: space-between; gap: 1rem; align-items: start; padding-bottom: .8rem; border-bottom: 1px solid var(--border); }
+  #ecosystem-master-v1 .grid-head h1 { margin: .15rem 0; }
+  #ecosystem-master-v1 .grid-head p { margin: 0; }
+  #ecosystem-master-v1 .grid-head-meta { text-align: right; color: var(--muted-foreground); }
+  #ecosystem-master-v1 .architecture-grid { display: grid; grid-template-columns: minmax(0,1.2fr) minmax(0,1.25fr) minmax(0,2fr) minmax(42px,.35fr) minmax(0,1.45fr); grid-template-rows: 275px 295px 200px; grid-template-areas: "human experience orion membrane nexah" "lucy gate orion membrane nexah" "lyra research research research research"; gap: .7rem; margin-top: .8rem; }
+  #ecosystem-master-v1 .g-region { min-width: 0; padding: .6rem; border: 1.5px solid var(--border); border-radius: 4px; overflow-wrap: anywhere; }
+  #ecosystem-master-v1 .g-region h2 { margin: 0 0 .3rem; }
+  #ecosystem-master-v1 .g-region h3 { margin: .5rem 0 .25rem; }
+  #ecosystem-master-v1 .g-region p { margin: .25rem 0; }
+  #ecosystem-master-v1 .g-region ul { margin: .35rem 0 0; padding-left: 1.1rem; }
+  #ecosystem-master-v1 .g-human { grid-area: human; border-color: var(--viz-series-5); background: color-mix(in srgb, var(--viz-series-5) 9%, transparent); box-shadow: inset 4px 0 0 var(--viz-series-5); }
+  #ecosystem-master-v1 .g-lucy { grid-area: lucy; border-color: var(--viz-series-5); border-style: dashed; background: color-mix(in srgb, var(--viz-series-5) 4%, transparent); }
+  #ecosystem-master-v1 .g-experience { grid-area: experience; border-color: var(--viz-series-2); background: color-mix(in srgb, var(--viz-series-2) 7%, transparent); }
+  #ecosystem-master-v1 .g-gate { grid-area: gate; border-color: var(--viz-series-5); background: color-mix(in srgb, var(--viz-series-5) 7%, transparent); text-align: center; align-self: start; }
+  #ecosystem-master-v1 .g-orion { grid-area: orion; border-color: var(--viz-series-1); background: color-mix(in srgb, var(--viz-series-1) 7%, transparent); }
+  #ecosystem-master-v1 .g-nexah { grid-area: nexah; border-color: var(--viz-series-3); background: color-mix(in srgb, var(--viz-series-3) 7%, transparent); }
+  #ecosystem-master-v1 .g-lyra { grid-area: lyra; border-color: var(--muted-foreground); border-style: dashed; background: color-mix(in srgb, var(--muted) 45%, transparent); }
+  #ecosystem-master-v1 .g-research { grid-area: research; border-color: var(--viz-series-4); background: color-mix(in srgb, var(--viz-series-4) 7%, transparent); }
+  #ecosystem-master-v1 .g-membrane { grid-area: membrane; border-left: 2px dashed var(--muted-foreground); border-right: 2px dashed var(--muted-foreground); display: flex; align-items: center; justify-content: center; min-height: 100%; }
+  #ecosystem-master-v1 .g-membrane-label { writing-mode: vertical-rl; transform: rotate(180deg); text-align: center; overflow-wrap: anywhere; }
+  #ecosystem-master-v1 .mode-row { display: grid; grid-template-columns: 1fr 1fr; gap: .35rem; margin: .55rem 0; }
+  #ecosystem-master-v1 .mode { padding: .3rem; border: 1px solid var(--viz-series-5); text-align: center; overflow-wrap: anywhere; }
+  #ecosystem-master-v1 .flow-line { padding: .35rem 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); text-align: center; }
+  #ecosystem-master-v1 .core-chain { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: .25rem; margin: .35rem 0; }
+  #ecosystem-master-v1 .core-step { min-width: 0; padding: .25rem; line-height: 1.2; overflow-wrap: anywhere; border: 1px solid color-mix(in srgb, var(--viz-series-1) 55%, var(--border)); background: color-mix(in srgb, var(--viz-series-1) 12%, transparent); }
+  #ecosystem-master-v1 .core-step span { color: var(--muted-foreground); }
+  #ecosystem-master-v1 .empty-profile { margin-top: .35rem; padding: .4rem; border: 1.5px dashed var(--viz-series-1); }
+  #ecosystem-master-v1 .nexah-modules { display: grid; grid-template-columns: 1fr 1fr; gap: .4rem; margin-top: .5rem; }
+  #ecosystem-master-v1 .nexah-module { padding: .3rem; border-top: 2px solid var(--viz-series-3); }
+  #ecosystem-master-v1 .research-cycle { display: grid; grid-template-columns: repeat(5,minmax(0,1fr)); gap: .35rem; margin: .5rem 0; }
+  #ecosystem-master-v1 .research-step-html { padding: .3rem; text-align: center; border: 1px solid color-mix(in srgb, var(--viz-series-4) 55%, var(--border)); background: color-mix(in srgb, var(--viz-series-4) 11%, transparent); }
+  #ecosystem-master-v1 .adoption-gate { margin-top: .5rem; padding-top: .5rem; border-top: 2px dashed var(--viz-series-4); text-align: center; }
+  #ecosystem-master-v1 .grid-legend { display: flex; flex-wrap: wrap; gap: .5rem 1rem; margin-top: .8rem; padding: .65rem 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+  #ecosystem-master-v1 .legend-line { display: inline-block; width: 2.5rem; margin-right: .35rem; vertical-align: middle; border-top: 2px solid var(--foreground); }
+  #ecosystem-master-v1 .legend-dashed { border-top-style: dashed; }
+  #ecosystem-master-v1 .legend-dotted { border-top-style: dotted; }
+  #ecosystem-master-v1 .legend-heavy { border-top: 4px solid var(--viz-series-5); }
+  #ecosystem-master-v1 .grid-footer { text-align: center; padding-top: .7rem; }
+  #ecosystem-master-v1 .grid-footer p { margin: .3rem 0; }
+  #ecosystem-master-v1 .grid-status { display: flex; justify-content: space-between; gap: 1rem; padding-top: .5rem; margin-top: .6rem; border-top: 1px solid var(--border); text-align: left; }
+  #ecosystem-master-v1 .g-lucy p,
+  #ecosystem-master-v1 .g-experience p { margin: .12rem 0; }
+  #ecosystem-master-v1 .g-lucy .mode-row { margin: .3rem 0; }
+  #ecosystem-master-v1 .g-experience .flow-line { padding: .2rem 0; }
+  @media (max-width: 819px) {
+    #ecosystem-master-v1 .eco-grid-desktop { display: none; }
+    #ecosystem-master-v1 .eco-mobile { display: block; }
+  }
+</style>
+
+<div id="ecosystem-master-v1">
+  <div class="eco-grid-desktop">
+    <header class="grid-head">
+      <div>
+        <div class="text-small text-muted">ARCHITECTURE PLATE · MASTER OVERVIEW V1</div>
+        <h1>NEXAH / ORION ECOSYSTEM</h1>
+        <p class="text-muted">Topology of responsibilities and authorities — not one execution pipeline</p>
+      </div>
+      <div class="grid-head-meta text-small"><code>DERIVED_ARCHITECTURE_ARTIFACT</code><br><code>VISUAL_AUTHORITY = NONE</code></div>
+    </header>
+
+    <div class="architecture-grid">
+      <section class="g-region g-human">
+        <h2>HUMAN AUTHORITY</h2>
+        <p class="text-small"><strong>OWNS — NEVER TRANSFERRED</strong></p>
+        <p>intention · reflection · meaning</p>
+        <p>consent · interpretation · decision</p>
+        <p>continuation · responsibility · STOP</p>
+        <p class="text-small text-muted">Information crosses; Human authority does not.</p>
+      </section>
+
+      <section class="g-region g-lucy text-small">
+        <h2>LUCY</h2>
+        <p><strong>OPTIONAL HUMAN REFLECTION BOUNDARY</strong><br>Owner-adopted architecture concept</p>
+        <div class="mode-row"><div class="mode">PRE_REFLECTION</div><div class="mode">POST_REFLECTION</div></div>
+        <p><strong>HUMAN OWNS REFLECTION</strong></p>
+        <p class="text-muted">no execution · decision · semantic authority<br>no persistence · no agent · no runtime</p>
+        <p><strong>CURRENT IMPLEMENTATION: NONE</strong></p>
+      </section>
+
+      <section class="g-region g-experience text-small">
+        <h2>EXPERIENCE / NEXAHEDRON</h2>
+        <p><strong>PRESENTATION · ENCOUNTER · BOUNDED SESSION</strong></p>
+        <p>presents information · exact read-only results · supports Human interaction</p>
+        <p class="text-muted">does not own meaning · science · product semantics · decisions</p>
+        <div class="flow-line">structured result + provenance ← ORION<br>→ Human inspection</div>
+      </section>
+
+      <section class="g-region g-gate">
+        <p class="text-small"><strong>HUMAN-CONTROLLED GATE</strong></p>
+        <h2>EXPLICIT SUBMIT / CONFIRM</h2>
+        <p class="text-small">Human reflection → explicit Human action → formal request</p>
+      </section>
+
+      <section class="g-region g-orion">
+        <h2>ORION · PRODUCT AUTHORITY</h2>
+        <p class="text-small">CANONICAL DOCUMENTATION ADOPTED</p>
+        <h3>CERTIFIED CORE · UNCHANGED</h3>
+        <div class="core-chain text-small">
+          <div class="core-step"><span>01</span><br>confirmed source</div>
+          <div class="core-step"><span>02</span><br>immutable structural representation</div>
+          <div class="core-step"><span>03</span><br>UNDERSTAND Inventory</div>
+          <div class="core-step"><span>04</span><br>structural summary / statistics</div>
+          <div class="core-step"><span>05</span><br>certified Relations</div>
+          <div class="core-step"><span>06</span><br>Structural Navigation</div>
+          <div class="core-step"><span>07</span><br>Structural Orientation Map</div>
+          <div class="core-step"><span>08</span><br>Expression</div>
+          <div class="core-step"><span>09</span><br>provenance / conformance / replay → STOP</div>
+        </div>
+        <p class="text-small">Structural Navigation ≠ general navigation<br>Structural Orientation ≠ Human meaning<br>Replay ≠ scientific truth<br>Certification ≠ universal validation</p>
+        <div class="empty-profile"><strong>SEPARATELY ADOPTED EXTENSION PROFILES</strong><br><strong>NONE ADOPTED</strong><br><code>STOP = at_slice_iv_certified</code></div>
+      </section>
+
+      <div class="g-membrane" aria-label="ORION to NEXAH Interface V1, approved but not implemented">
+        <div class="g-membrane-label text-small"><strong>ORION ↔ NEXAH INTERFACE V1</strong> · <code>MEMBRANE_V1_APPROVED_NOT_IMPLEMENTED</code> · TRANSPORT ONLY · NO AUTHORITY TRANSFER · NO DOMAIN MEANING OWNERSHIP</div>
+      </div>
+
+      <section class="g-region g-nexah">
+        <h2>NEXAH</h2>
+        <p><strong>FRAMEWORK / ORIENTATION SPACE</strong></p>
+        <div class="nexah-modules text-small">
+          <div class="nexah-module"><strong>NEXAH FRAMEWORK</strong><br>shared orientation space / ecosystem boundaries</div>
+          <div class="nexah-module"><strong>OLS</strong><br>normative semantics / contracts</div>
+          <div class="nexah-module"><strong>KERNEL</strong><br>deterministic execution of released contracts</div>
+          <div class="nexah-module"><strong>LIBRARY</strong><br>publication / identity / registry</div>
+          <div class="nexah-module"><strong>LIVING ATLAS</strong><br>curated explicit relations</div>
+        </div>
+        <p class="text-small text-muted">Modular authorities — not a sequential pipeline.<br>OLS normativity ≠ Human meaning.<br>Kernel determinism ≠ scientific truth.</p>
+      </section>
+
+      <section class="g-region g-lyra text-small">
+        <h2>LYRA</h2>
+        <p><strong>CONTROLLED LANGUAGE / TRANSLATION / EXPLANATION PROFILE</strong></p>
+        <p>INACTIVE · OUTSIDE CERTIFIED V1</p>
+        <p class="text-muted">HISTORICAL / RETAINED · no current invocation</p>
+      </section>
+
+      <section class="g-region g-research">
+        <h2>SCIENCE LAB · EXTERNAL RESEARCH AUTHORITY</h2>
+        <p class="text-small">SEPARATE FROM ORION PRODUCT AUTHORITY</p>
+        <div class="research-cycle text-small">
+          <div class="research-step-html">Question →</div><div class="research-step-html">Protocol →</div><div class="research-step-html">Evidence →</div><div class="research-step-html">Review →</div><div class="research-step-html">Labreport</div>
+        </div>
+        <div class="adoption-gate"><strong>RESEARCH → ARCHITECTURE ADOPTION GATE</strong><br><span class="text-small">explicit Owner review only</span></div>
+        <p class="text-small">RESEARCH ≠ ADOPTION · PASS ≠ PRODUCT CAPABILITY · LABREPORT ≠ CANONICAL ARCHITECTURE</p>
+      </section>
+    </div>
+
+    <div class="grid-legend text-small" aria-label="Visual grammar legend">
+      <span><i class="legend-line"></i>SOLID · current</span>
+      <span><i class="legend-line legend-dashed"></i>DASHED · approved-not-implemented / inactive / conditional</span>
+      <span><i class="legend-line legend-dotted"></i>DOTTED · read-only / reference / evidence</span>
+      <span><i class="legend-line legend-heavy"></i>HEAVY · authority / ownership</span>
+      <span>→ THIN ARROW · information only; no authority transfer</span>
+    </div>
+
+    <footer class="grid-footer">
+      <p><strong>HUMANS OWN MEANING AND DECISION. NEXAH DEFINES THE SPACE. ORION STRUCTURES ORIENTATION.<br>EXPERIENCE PRESENTS. RESEARCH EARNS ADOPTION.</strong></p>
+      <div class="grid-status text-small">
+        <span>NEXAH / ORION ECOSYSTEM — MASTER ARCHITECTURE · VERSION 1.0.0 · GENERATED 2026-08-11</span>
+        <strong>STATUS = REVIEW_REQUIRED</strong>
+      </div>
+      <p class="text-small text-muted">Architecture content current; drift-control items remain open. Baseline: ADR-0009 a3dbefe… · Master Architecture b40a8e8… · Phase 4B LUCY 1b49ad9… · Continuity Ledger 7f10a92…</p>
+    </footer>
+  </div>
+
+  <div class="eco-desktop">
+    <svg class="eco-plate" viewBox="0 0 1600 1160" role="img" aria-labelledby="eco-v1-title eco-v1-desc">
+      <title id="eco-v1-title">NEXAH / ORION Ecosystem Master Architecture, version 1</title>
+      <desc id="eco-v1-desc">A topology of responsibilities and authorities. Human authority and optional LUCY reflection are left of Experience. ORION product authority is central, separated by an approved-not-implemented membrane from NEXAH ecosystem authorities. Science Lab is external research below. LYRA is inactive and historical.</desc>
+      <defs>
+        <marker id="eco-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M 0 0 L 10 5 L 0 10 z" fill="var(--foreground)"></path>
+        </marker>
+        <marker id="eco-arrow-muted" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M 0 0 L 10 5 L 0 10 z" fill="var(--muted-foreground)"></path>
+        </marker>
+      </defs>
+
+      <text x="40" y="38" class="eyebrow muted-text">ARCHITECTURE PLATE · MASTER OVERVIEW V1</text>
+      <text x="40" y="76" class="title">NEXAH / ORION ECOSYSTEM</text>
+      <text x="40" y="104" class="subtitle">Topology of responsibilities and authorities — not one execution pipeline</text>
+      <text x="1560" y="40" text-anchor="end" class="small-label muted-text">DERIVED_ARCHITECTURE_ARTIFACT · VISUAL_AUTHORITY = NONE</text>
+      <line x1="40" y1="122" x2="1560" y2="122" class="plate-rule"></line>
+
+      <!-- Human authority -->
+      <rect x="40" y="150" width="300" height="210" rx="4" class="human-region" stroke-width="2.5"></rect>
+      <line x1="55" y1="172" x2="55" y2="338" class="authority-line"></line>
+      <text x="76" y="183" class="region-title">HUMAN AUTHORITY</text>
+      <text x="76" y="207" class="region-subtitle">OWNS — NEVER TRANSFERRED</text>
+      <text x="76" y="238" class="body-label">intention · reflection · meaning</text>
+      <text x="76" y="265" class="body-label">consent · interpretation · decision</text>
+      <text x="76" y="292" class="body-label">continuation · responsibility · STOP</text>
+      <text x="76" y="330" class="small-label muted-text">Information crosses; Human authority does not.</text>
+
+      <!-- LUCY -->
+      <rect x="40" y="395" width="300" height="245" rx="4" class="lucy-region" stroke-width="2"></rect>
+      <text x="60" y="425" class="region-title">LUCY</text>
+      <text x="60" y="448" class="region-subtitle">OPTIONAL HUMAN REFLECTION BOUNDARY</text>
+      <text x="60" y="470" class="small-label">OWNER-ADOPTED ARCHITECTURE CONCEPT</text>
+      <rect x="60" y="490" width="120" height="38" rx="3" class="gate-region"></rect>
+      <rect x="196" y="490" width="124" height="38" rx="3" class="gate-region"></rect>
+      <text x="120" y="514" text-anchor="middle" class="small-label">PRE_REFLECTION</text>
+      <text x="258" y="514" text-anchor="middle" class="small-label">POST_REFLECTION</text>
+      <text x="60" y="552" class="small-label">HUMAN OWNS REFLECTION</text>
+      <text x="60" y="575" class="small-label muted-text">no execution · decision · semantic authority</text>
+      <text x="60" y="598" class="small-label muted-text">no persistence · no agent · no runtime</text>
+      <text x="60" y="621" class="small-label">CURRENT IMPLEMENTATION: NONE</text>
+      <path d="M 190 360 L 190 395" class="reference-line"></path>
+      <text x="204" y="382" class="tiny-label muted-text">Human reflection only</text>
+
+      <!-- Experience -->
+      <rect x="385" y="150" width="300" height="210" rx="4" class="experience-region" stroke-width="2"></rect>
+      <text x="405" y="183" class="region-title">EXPERIENCE / NEXAHEDRON</text>
+      <text x="405" y="207" class="region-subtitle">PRESENTATION · ENCOUNTER</text>
+      <text x="405" y="226" class="region-subtitle">BOUNDED SESSION</text>
+      <text x="405" y="250" class="body-label">presents information</text>
+      <text x="405" y="276" class="body-label">shows exact read-only results</text>
+      <text x="405" y="302" class="body-label">supports Human interaction</text>
+      <text x="405" y="326" class="small-label muted-text">does not own meaning · science</text>
+      <text x="405" y="345" class="small-label muted-text">product semantics · decisions</text>
+
+      <!-- Human gate -->
+      <rect x="385" y="405" width="300" height="92" rx="4" class="gate-region" stroke-width="2"></rect>
+      <text x="535" y="438" text-anchor="middle" class="region-subtitle">HUMAN-CONTROLLED GATE</text>
+      <text x="535" y="468" text-anchor="middle" class="region-title">EXPLICIT SUBMIT / CONFIRM</text>
+      <path d="M 340 455 L 385 455" class="info-line" marker-end="url(#eco-arrow)"></path>
+
+      <!-- ORION -->
+      <rect x="730" y="150" width="430" height="560" rx="4" class="orion-region" stroke-width="2.5"></rect>
+      <text x="752" y="183" class="region-title">ORION · PRODUCT AUTHORITY</text>
+      <text x="1138" y="205" text-anchor="end" class="small-label">CANONICAL DOCUMENTATION ADOPTED</text>
+      <rect x="752" y="218" width="386" height="385" rx="3" fill="transparent" stroke="var(--viz-series-1)" stroke-width="1.5"></rect>
+      <text x="770" y="242" class="region-subtitle">CERTIFIED CORE · UNCHANGED</text>
+
+      <rect x="770" y="252" width="106" height="70" rx="3" class="orion-step"></rect>
+      <rect x="892" y="252" width="106" height="70" rx="3" class="orion-step"></rect>
+      <rect x="1014" y="252" width="106" height="70" rx="3" class="orion-step"></rect>
+      <text x="782" y="270" class="step-number">01</text><text x="823" y="292" text-anchor="middle" class="small-label">confirmed</text><text x="823" y="309" text-anchor="middle" class="small-label">source</text>
+      <text x="904" y="270" class="step-number">02</text><text x="945" y="289" text-anchor="middle" class="tiny-label">immutable structural</text><text x="945" y="306" text-anchor="middle" class="tiny-label">representation</text>
+      <text x="1026" y="270" class="step-number">03</text><text x="1067" y="289" text-anchor="middle" class="small-label">UNDERSTAND</text><text x="1067" y="306" text-anchor="middle" class="small-label">Inventory</text>
+
+      <rect x="770" y="338" width="106" height="70" rx="3" class="orion-step"></rect>
+      <rect x="892" y="338" width="106" height="70" rx="3" class="orion-step"></rect>
+      <rect x="1014" y="338" width="106" height="70" rx="3" class="orion-step"></rect>
+      <text x="782" y="356" class="step-number">04</text><text x="823" y="376" text-anchor="middle" class="tiny-label">structural summary</text><text x="823" y="393" text-anchor="middle" class="tiny-label">+ statistics</text>
+      <text x="904" y="356" class="step-number">05</text><text x="945" y="380" text-anchor="middle" class="small-label">certified Relations</text>
+      <text x="1026" y="356" class="step-number">06</text><text x="1067" y="376" text-anchor="middle" class="tiny-label">Structural</text><text x="1067" y="393" text-anchor="middle" class="tiny-label">Navigation</text>
+
+      <rect x="770" y="424" width="106" height="70" rx="3" class="orion-step"></rect>
+      <rect x="892" y="424" width="106" height="70" rx="3" class="orion-step"></rect>
+      <rect x="1014" y="424" width="106" height="70" rx="3" class="orion-step"></rect>
+      <text x="782" y="442" class="step-number">07</text><text x="823" y="459" text-anchor="middle" class="tiny-label">Structural</text><text x="823" y="475" text-anchor="middle" class="tiny-label">Orientation Map</text>
+      <text x="904" y="442" class="step-number">08</text><text x="945" y="468" text-anchor="middle" class="small-label">Expression</text>
+      <text x="1026" y="442" class="step-number">09</text><text x="1067" y="459" text-anchor="middle" class="tiny-label">provenance · conformance</text><text x="1067" y="475" text-anchor="middle" class="tiny-label">replay</text>
+
+      <path d="M 876 287 L 892 287 M 998 287 L 1014 287 M 1067 322 L 1067 330 L 823 330 L 823 338 M 876 373 L 892 373 M 998 373 L 1014 373 M 1067 408 L 1067 416 L 823 416 L 823 424 M 876 459 L 892 459 M 998 459 L 1014 459" class="info-line" marker-end="url(#eco-arrow)"></path>
+      <line x1="770" y1="513" x2="1120" y2="513" class="plate-rule"></line>
+      <text x="770" y="538" class="small-label">Structural Navigation ≠ general navigation</text>
+      <text x="770" y="559" class="small-label">Structural Orientation ≠ Human meaning</text>
+      <text x="770" y="580" class="small-label">Replay ≠ scientific truth · Certification ≠ universal validation</text>
+
+      <rect x="752" y="620" width="386" height="68" rx="3" class="empty-zone" stroke-width="1.5"></rect>
+      <text x="770" y="648" class="region-subtitle">SEPARATELY ADOPTED EXTENSION PROFILES</text>
+      <text x="770" y="674" class="region-title">NONE ADOPTED</text>
+      <text x="1120" y="674" text-anchor="end" class="small-label">STOP = at_slice_iv_certified</text>
+
+      <!-- request and result information flows -->
+      <path d="M 685 451 L 730 451" class="info-line" marker-end="url(#eco-arrow)"></path>
+      <text x="707" y="438" text-anchor="middle" class="tiny-label">explicit request</text>
+      <path d="M 730 246 L 685 246" class="info-line" marker-end="url(#eco-arrow)"></path>
+      <text x="708" y="232" text-anchor="middle" class="tiny-label">structured result</text>
+      <path d="M 385 230 L 340 230" class="info-line" marker-end="url(#eco-arrow)"></path>
+      <text x="373" y="215" text-anchor="end" class="tiny-label">Human inspection</text>
+      <text x="535" y="384" text-anchor="middle" class="small-label">EXACT READ-ONLY RESULT + PROVENANCE</text>
+
+      <!-- Membrane -->
+      <line x1="1192" y1="150" x2="1192" y2="710" class="membrane"></line>
+      <line x1="1216" y1="150" x2="1216" y2="710" class="membrane"></line>
+      <text x="1190" y="695" transform="rotate(-90 1190 695)" class="region-subtitle">ORION ↔ NEXAH INTERFACE V1</text>
+      <text x="1218" y="695" transform="rotate(-90 1218 695)" class="small-label">MEMBRANE_V1_APPROVED_NOT_IMPLEMENTED</text>
+      <text x="1244" y="695" transform="rotate(-90 1244 695)" class="tiny-label muted-text">TRANSPORT ONLY · NO AUTHORITY TRANSFER · NO DOMAIN MEANING OWNERSHIP</text>
+
+      <!-- NEXAH -->
+      <rect x="1275" y="150" width="285" height="560" rx="4" class="nexah-region" stroke-width="2.5"></rect>
+      <text x="1295" y="183" class="region-title">NEXAH</text>
+      <text x="1295" y="207" class="region-subtitle">FRAMEWORK / ORIENTATION SPACE</text>
+      <rect x="1295" y="230" width="245" height="78" rx="3" class="nexah-node"></rect>
+      <text x="1312" y="256" class="region-subtitle">NEXAH FRAMEWORK</text>
+      <text x="1312" y="281" class="small-label">shared orientation space</text>
+      <text x="1312" y="299" class="small-label">ecosystem boundaries</text>
+
+      <rect x="1295" y="328" width="116" height="102" rx="3" class="nexah-node"></rect>
+      <rect x="1424" y="328" width="116" height="102" rx="3" class="nexah-node"></rect>
+      <text x="1312" y="354" class="region-subtitle">OLS</text>
+      <text x="1312" y="380" class="small-label">normative</text><text x="1312" y="399" class="small-label">semantics</text><text x="1312" y="418" class="small-label">contracts</text>
+      <text x="1441" y="354" class="region-subtitle">KERNEL</text>
+      <text x="1441" y="380" class="small-label">deterministic</text><text x="1441" y="399" class="small-label">released-contract</text><text x="1441" y="418" class="small-label">execution</text>
+
+      <rect x="1295" y="450" width="116" height="112" rx="3" class="nexah-node"></rect>
+      <rect x="1424" y="450" width="116" height="112" rx="3" class="nexah-node"></rect>
+      <text x="1312" y="476" class="region-subtitle">LIBRARY</text>
+      <text x="1312" y="502" class="small-label">publication</text><text x="1312" y="521" class="small-label">identity</text><text x="1312" y="540" class="small-label">registry</text>
+      <text x="1441" y="476" class="region-subtitle">LIVING ATLAS</text>
+      <text x="1441" y="502" class="small-label">curated</text><text x="1441" y="521" class="small-label">explicit</text><text x="1441" y="540" class="small-label">relations</text>
+      <path d="M 1417 308 L 1353 328 M 1417 308 L 1482 328 M 1353 430 L 1353 450 M 1482 430 L 1482 450" class="reference-line"></path>
+      <text x="1295" y="595" class="small-label">Modular authorities — not a sequential pipeline.</text>
+      <text x="1295" y="626" class="small-label muted-text">OLS normativity ≠ Human meaning</text>
+      <text x="1295" y="649" class="small-label muted-text">Kernel determinism ≠ scientific truth</text>
+      <text x="1295" y="672" class="small-label muted-text">Registry / relations retain their own owners</text>
+
+      <!-- LYRA -->
+      <rect x="40" y="755" width="300" height="175" rx="4" class="lyra-region" stroke-width="2"></rect>
+      <text x="60" y="787" class="region-title">LYRA</text>
+      <text x="60" y="813" class="region-subtitle">CONTROLLED LANGUAGE / TRANSLATION</text>
+      <text x="60" y="836" class="region-subtitle">/ EXPLANATION PROFILE</text>
+      <text x="60" y="869" class="body-label">INACTIVE · OUTSIDE CERTIFIED V1</text>
+      <text x="60" y="895" class="small-label muted-text">HISTORICAL / RETAINED · no current invocation</text>
+
+      <!-- Science Lab -->
+      <rect x="385" y="755" width="1175" height="175" rx="4" class="research-region" stroke-width="2.5"></rect>
+      <text x="405" y="787" class="region-title">SCIENCE LAB · EXTERNAL RESEARCH AUTHORITY</text>
+      <text x="1538" y="787" text-anchor="end" class="small-label">SEPARATE FROM ORION PRODUCT AUTHORITY</text>
+
+      <rect x="405" y="812" width="122" height="46" rx="3" class="research-step"></rect>
+      <rect x="547" y="812" width="122" height="46" rx="3" class="research-step"></rect>
+      <rect x="689" y="812" width="122" height="46" rx="3" class="research-step"></rect>
+      <rect x="831" y="812" width="122" height="46" rx="3" class="research-step"></rect>
+      <rect x="973" y="812" width="122" height="46" rx="3" class="research-step"></rect>
+      <text x="466" y="841" text-anchor="middle" class="small-label">Question</text>
+      <text x="608" y="841" text-anchor="middle" class="small-label">Protocol</text>
+      <text x="750" y="841" text-anchor="middle" class="small-label">Evidence</text>
+      <text x="892" y="841" text-anchor="middle" class="small-label">Review</text>
+      <text x="1034" y="841" text-anchor="middle" class="small-label">Labreport</text>
+      <path d="M 527 835 L 547 835 M 669 835 L 689 835 M 811 835 L 831 835 M 953 835 L 973 835" class="info-line" marker-end="url(#eco-arrow)"></path>
+      <rect x="1160" y="805" width="372" height="60" rx="3" fill="transparent" stroke="var(--viz-series-4)" stroke-dasharray="9 7"></rect>
+      <text x="1346" y="830" text-anchor="middle" class="region-subtitle">RESEARCH → ARCHITECTURE ADOPTION GATE</text>
+      <text x="1346" y="851" text-anchor="middle" class="small-label">explicit Owner review only</text>
+      <path d="M 1346 805 L 1346 735" class="conditional-line" marker-end="url(#eco-arrow-muted)"></path>
+      <text x="405" y="892" class="small-label">RESEARCH ≠ ADOPTION · PASS ≠ PRODUCT CAPABILITY · LABREPORT ≠ CANONICAL ARCHITECTURE</text>
+      <text x="405" y="916" class="tiny-label muted-text">Evidence may be referenced; it never enters ORION Core as runtime.</text>
+
+      <!-- Legend -->
+      <line x1="40" y1="962" x2="1560" y2="962" class="plate-rule"></line>
+      <text x="40" y="990" class="region-subtitle">VISUAL GRAMMAR</text>
+      <line x1="174" y1="985" x2="224" y2="985" class="info-line"></line><text x="234" y="990" class="small-label">SOLID · current canonical / implemented relation</text>
+      <line x1="565" y1="985" x2="615" y2="985" class="conditional-line"></line><text x="625" y="990" class="small-label">DASHED · approved-not-implemented / inactive / conditional</text>
+      <line x1="1070" y1="985" x2="1120" y2="985" class="reference-line"></line><text x="1130" y="990" class="small-label">DOTTED · read-only / reference / evidence</text>
+      <line x1="174" y1="1014" x2="224" y2="1014" class="authority-line"></line><text x="234" y="1019" class="small-label">HEAVY · authority / ownership (used only inside its owning region)</text>
+      <line x1="760" y1="1014" x2="810" y2="1014" class="info-line" marker-end="url(#eco-arrow)"></line><text x="820" y="1019" class="small-label">THIN ARROW · information payload; no authority transfer</text>
+
+      <!-- Footer -->
+      <text x="800" y="1062" text-anchor="middle" class="footer-sentence">HUMANS OWN MEANING AND DECISION.  NEXAH DEFINES THE SPACE.  ORION STRUCTURES ORIENTATION.</text>
+      <text x="800" y="1087" text-anchor="middle" class="footer-sentence">EXPERIENCE PRESENTS.  RESEARCH EARNS ADOPTION.</text>
+      <line x1="40" y1="1110" x2="1560" y2="1110" class="plate-rule"></line>
+      <text x="40" y="1136" class="small-label">NEXAH / ORION ECOSYSTEM — MASTER ARCHITECTURE · VISUAL_VERSION 1.0.0 · GENERATED 2026-08-11</text>
+      <text x="1560" y="1136" text-anchor="end" class="small-label status-review">STATUS = REVIEW_REQUIRED · architecture content current; drift-control items remain open</text>
+      <text x="40" y="1155" class="tiny-label muted-text">Baseline refs: ORION ADR-0009 a3dbefe… · Master Architecture b40a8e8… · Phase 4B LUCY manifest 1b49ad9… · Continuity Ledger 7f10a92…</text>
+    </svg>
+  </div>
+
+  <div class="eco-mobile">
+    <header class="m-header">
+      <div class="m-kicker text-small">ARCHITECTURE PLATE · MASTER OVERVIEW V1</div>
+      <h1>NEXAH / ORION ECOSYSTEM</h1>
+      <p class="text-muted">Responsibilities and authorities — not one execution pipeline.</p>
+    </header>
+    <section class="m-section m-human">
+      <h2>Human authority</h2>
+      <p>Owns intention, reflection, meaning, consent, interpretation, decision, continuation and STOP.</p>
+      <p><strong>Explicit submit / confirm</strong> is the only gate into a formal request.</p>
+    </section>
+    <section class="m-section m-human">
+      <h2>LUCY · optional Human reflection boundary</h2>
+      <p><code>PRE_REFLECTION</code> · <code>POST_REFLECTION</code></p>
+      <p>Owner-adopted architecture concept. Current implementation: none.</p>
+      <p>No execution, decision, semantic or persistence authority; no agent or runtime.</p>
+    </section>
+    <section class="m-section">
+      <h2>Experience / NEXAHEDRON</h2>
+      <p>Presentation · encounter · bounded session. May show exact read-only results with provenance and support Human interaction.</p>
+      <p>Does not own meaning, science, product semantics or decisions.</p>
+    </section>
+    <section class="m-section m-orion">
+      <h2>ORION · product authority</h2>
+      <p><strong>Certified Core · unchanged</strong></p>
+      <ol>
+        <li>confirmed source → immutable structural representation</li>
+        <li>UNDERSTAND Inventory → structural summary/statistics</li>
+        <li>certified Relations → Structural Navigation</li>
+        <li>Structural Orientation Map → Expression</li>
+        <li>provenance / conformance / replay → STOP</li>
+      </ol>
+      <p><code>STOP = at_slice_iv_certified</code></p>
+      <p>Structural Navigation ≠ general navigation. Structural Orientation ≠ Human meaning. Replay ≠ scientific truth.</p>
+      <p><strong>Separately Adopted Extension Profiles: NONE ADOPTED</strong></p>
+    </section>
+    <section class="m-section">
+      <h2>ORION ↔ NEXAH Interface V1</h2>
+      <p><code>MEMBRANE_V1_APPROVED_NOT_IMPLEMENTED</code></p>
+      <p>Transport only · no authority transfer · no domain meaning ownership.</p>
+    </section>
+    <section class="m-section m-nexah">
+      <h2>NEXAH · Framework / Orientation Space</h2>
+      <ul>
+        <li>OLS — normative semantics / contracts</li>
+        <li>Kernel — deterministic execution of released contracts</li>
+        <li>Library — publication / identity / registry</li>
+        <li>Living Atlas — curated explicit relations</li>
+      </ul>
+      <p>Modular authorities — not a sequential pipeline.</p>
+    </section>
+    <section class="m-section">
+      <h2>LYRA</h2>
+      <p>Controlled language / translation / explanation profile.</p>
+      <p><strong>Inactive · outside certified V1 · historical / retained.</strong></p>
+    </section>
+    <section class="m-section m-research">
+      <h2>Science Lab · external Research authority</h2>
+      <p>Question → Protocol → Evidence → Review → Labreport</p>
+      <p>Research → Architecture requires explicit Owner adoption.</p>
+      <p>Research ≠ adoption. PASS ≠ product capability. Labreport ≠ canonical architecture.</p>
+    </section>
+    <section class="m-section">
+      <h2>Visual grammar</h2>
+      <p>Solid: current. Dashed: approved-not-implemented, inactive or conditional. Dotted: read-only/reference/evidence.</p>
+      <p>Authority stays inside its owner. Thin arrows carry information only.</p>
+    </section>
+    <div class="m-status">
+      <p><strong>HUMANS OWN MEANING AND DECISION. NEXAH DEFINES THE SPACE. ORION STRUCTURES ORIENTATION. EXPERIENCE PRESENTS. RESEARCH EARNS ADOPTION.</strong></p>
+      <p><code>DERIVED_ARCHITECTURE_ARTIFACT</code> · <code>VISUAL_AUTHORITY = NONE</code></p>
+      <p>Version 1.0.0 · Baseline 2026-08-11 · <strong>STATUS = REVIEW_REQUIRED</strong></p>
+      <p class="text-small text-muted">Refs: ADR-0009 a3dbefe… · Master Architecture b40a8e8… · Phase 4B LUCY 1b49ad9… · Continuity Ledger 7f10a92…</p>
+    </div>
+  </div>
+</div>
