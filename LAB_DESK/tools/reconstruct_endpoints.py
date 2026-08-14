@@ -232,11 +232,14 @@ def build_inventory(repo: Path, as_of: str) -> dict[str, Any]:
             if len(signals) >= 80:
                 break
 
-        review_class = {
-            "TERMINAL_MARKER": "TERMINAL_CANDIDATE",
-            "DOCUMENTED_MARKER": "DOCUMENTED_REVIEW",
-            "NO_MARKER": "MANUAL_REVIEW",
-        }[markers]
+        if raw_records and len(raw_records) == len(paths):
+            review_class = "DATA_ARTIFACT_RESIDUE"
+        else:
+            review_class = {
+                "TERMINAL_MARKER": "TERMINAL_CANDIDATE",
+                "DOCUMENTED_MARKER": "DOCUMENTED_REVIEW",
+                "NO_MARKER": "MANUAL_REVIEW",
+            }[markers]
         packages.append(
             {
                 "root": root,
@@ -357,6 +360,7 @@ def markdown(inventory: dict[str, Any]) -> str:
             "- `TERMINAL_CANDIDATE` means terminal-looking documents exist; it does not mean adopted or scientifically valid.",
             "- `DOCUMENTED_REVIEW` means orientation material exists but a bounded disposition still must be established.",
             "- `MANUAL_REVIEW` means filenames alone do not expose a safe endpoint.",
+            "- `DATA_ARTIFACT_RESIDUE` means every remaining untracked file in that root is data-like; use its registered manifest and artifact gate rather than treating it as undocumented research.",
             "- The JSON ledger contains candidate paths, bounded extracted labels, full package hashes and separate raw-tree hashes.",
             "- Re-run the generator after each approved package disposition; never hand-edit the generated ledgers.",
             "",

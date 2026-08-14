@@ -2,23 +2,23 @@
 
 Snapshot: 2026-08-14
 
-Repository HEAD: `afc386c1bd7b9fba44d6a24f587fc6c83bce6f79`
+Repository HEAD: `f9f634564531b5777f85871767836c7585936134`
 
 > This is a repository-review ledger, not a scientific adoption record. Endpoint markers and extracted labels must be checked against the Master Status and the package's actual authority chain.
 
 ## Inventory
 
 - Package roots: **169**
-- Untracked files: **5,455**
+- Untracked files: **5,403**
 - Total bytes: **2.7 GiB**
 - Raw/data-like files: **3,004** (2.6 GiB)
-- Review classes: `DOCUMENTED_REVIEW` 39, `MANUAL_REVIEW` 16, `TERMINAL_CANDIDATE` 114
+- Review classes: `DATA_ARTIFACT_RESIDUE` 1, `DOCUMENTED_REVIEW` 39, `MANUAL_REVIEW` 16, `TERMINAL_CANDIDATE` 113
 
 ## Largest packages
 
 | Package | Files | Size | Raw/data-like | Review class |
 | --- | ---: | ---: | ---: | --- |
-| `NEXAH_EARLY_WARNING_HYPOTHESIS_VALIDATION` | 3,042 | 2.6 GiB | 2.6 GiB | `TERMINAL_CANDIDATE` |
+| `NEXAH_EARLY_WARNING_HYPOTHESIS_VALIDATION` | 2,990 | 2.6 GiB | 2.6 GiB | `DATA_ARTIFACT_RESIDUE` |
 | `ORION_EXP_ORION_L1_001_V1_1_EXECUTION` | 36 | 38.0 MiB | 0 B | `TERMINAL_CANDIDATE` |
 | `ORION_EXP_ORION_L3_001_EXECUTION` | 72 | 34.1 MiB | 0 B | `TERMINAL_CANDIDATE` |
 | `EXP_00_REPRESENTATION_AGREEMENT` | 39 | 11.8 MiB | 1.8 MiB | `TERMINAL_CANDIDATE` |
@@ -139,7 +139,7 @@ Repository HEAD: `afc386c1bd7b9fba44d6a24f587fc6c83bce6f79`
 | `NEXAH_AUDIENCE_MAP.md` | NEXAH | 1 | 2.9 KiB | `MANUAL_REVIEW` | 0 | `4b9efd80f66d1f0bd9c515dedce810220176a7e863cc0b555651a022adcf67de` |
 | `NEXAH_BUILDER_ONRAMP_REVIEW.md` | NEXAH | 1 | 3.3 KiB | `MANUAL_REVIEW` | 0 | `2f0531a640bfeb679a60f30a3abd77eeda8029bc2ca1c4d247b9e6a803b88a78` |
 | `NEXAH_CODEX_ARCHITECTURE_EXTRACTION_REVIEW` | NEXAH | 14 | 51.9 KiB | `TERMINAL_CANDIDATE` | 4 | `fdf4ddb5d229446d259a5dce8737d257ed4d441e0d3d34cec21264fd4145f38e` |
-| `NEXAH_EARLY_WARNING_HYPOTHESIS_VALIDATION` | NEXAH | 3,042 | 2.6 GiB | `TERMINAL_CANDIDATE` | 8 | `5f4e0014714a39d807a5f3849bfbeab23c7db9c2d1196ee2105a0a777ed7cc64` |
+| `NEXAH_EARLY_WARNING_HYPOTHESIS_VALIDATION` | NEXAH | 2,990 | 2.6 GiB | `DATA_ARTIFACT_RESIDUE` | 0 | `b3254f3c74f2a37359a0213d47baf8ddc599b8165263552d845562b847095efb` |
 | `NEXAH_ECOSYSTEM_REPOSITORY_CURRENTNESS_FREEZE_REPORT.md` | NEXAH | 1 | 10.4 KiB | `TERMINAL_CANDIDATE` | 1 | `6e9adc540761acbad4aa618e36d9fceb7dc95316a72777de668b510c0e50c347` |
 | `NEXAH_ECOSYSTEM_REPOSITORY_MAINTENANCE_PASS_2_REPORT.md` | NEXAH | 1 | 29.5 KiB | `DOCUMENTED_REVIEW` | 1 | `043954a4a59c72b2753fa0264bf61fa8db5ad6b6b09af6fe6240588c12427a55` |
 | `NEXAH_ECOSYSTEM_REPOSITORY_MAINTENANCE_PASS_3_REPORT.md` | NEXAH | 1 | 17.4 KiB | `DOCUMENTED_REVIEW` | 1 | `24d93b0a914972f355814e9200deb948c56e8662f4f213aaab4d098ecabb73b1` |
@@ -237,5 +237,6 @@ Repository HEAD: `afc386c1bd7b9fba44d6a24f587fc6c83bce6f79`
 - `TERMINAL_CANDIDATE` means terminal-looking documents exist; it does not mean adopted or scientifically valid.
 - `DOCUMENTED_REVIEW` means orientation material exists but a bounded disposition still must be established.
 - `MANUAL_REVIEW` means filenames alone do not expose a safe endpoint.
+- `DATA_ARTIFACT_RESIDUE` means every remaining untracked file in that root is data-like; use its registered manifest and artifact gate rather than treating it as undocumented research.
 - The JSON ledger contains candidate paths, bounded extracted labels, full package hashes and separate raw-tree hashes.
 - Re-run the generator after each approved package disposition; never hand-edit the generated ledgers.
