@@ -1,0 +1,43 @@
+{
+  "schema": "EXP_00_R_REGISTERED_GENERATION_RUNTIME_AUTHORITY_V1",
+  "authority_status": "OBSERVED_BINDING_OF_ALREADY_FROZEN_RUNTIME",
+  "runtime_id": "CODEX_PRIMARY_PY31213_NUMPY235_MACOS2652_ARM64",
+  "python": {
+    "version": "3.12.13",
+    "version_full": "3.12.13 (main, Mar  3 2026, 15:35:03) [Clang 21.1.4 ]",
+    "invocation_path": "/Users/tho2020/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+    "symlink_target": "python3.12",
+    "resolved_executable": "/Users/tho2020/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3.12",
+    "executable_bytes": 49968,
+    "executable_sha256": "eb9d74b9c7cfdfb2c9b91614edb2c3607360ba46c5aa7fc4557b3a4a23e97cff"
+  },
+  "numpy": {
+    "version": "2.3.5",
+    "distribution_location": "/Users/tho2020/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages",
+    "module_origin": "/Users/tho2020/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/numpy/__init__.py",
+    "module_bytes": 25919,
+    "module_sha256": "93924ac4b793328947dfd9eb9355e54eccdfd26a92c8dd52188aed2e52c7eb38",
+    "distribution_member_count": 1310,
+    "distribution_member_tree_semantics": "SHA256_OF_SORTED_SHA256_TWO_SPACES_IMPORTLIB_METADATA_RELATIVE_PATH_LF_FOR_EXISTING_REGULAR_DISTRIBUTION_FILES",
+    "distribution_member_tree_sha256": "e7b6bdc49c04f759be1bd16020b8b987d5b9f44e9f14ace04a4648287c52b084",
+    "core_extension": {
+      "path": "numpy/_core/_multiarray_umath.cpython-312-darwin.so",
+      "bytes": 3450392,
+      "sha256": "96ce8cda1e4f1a3107e5c945b68bcd970c3de09019fc19beda4cc0319609de09"
+    },
+    "linalg_extension": {
+      "path": "numpy/linalg/_umath_linalg.cpython-312-darwin.so",
+      "bytes": 154752,
+      "sha256": "09cde0db10d0e4d8f25e0e207379cc449e9cd8bda44601e2ef049d5ab41400a2"
+    }
+  },
+  "platform": {
+    "platform": "macOS-26.5.2-arm64-arm-64bit",
+    "machine": "arm64",
+    "numeric_backend_linkage": "/System/Library/Frameworks/Accelerate.framework/Versions/A/Accelerate"
+  },
+  "historical_reference_runtime_id": "ANACONDA_PY3127_NUMPY1264_OPENBLAS0321_ARM64",
+  "historical_reference_runtime_role": "REFERENCE_REPRODUCTION_ONLY_NOT_REGISTERED_GENERATION",
+  "registered_seed_accessed_during_binding": false,
+  "registered_evidence_accessed_during_binding": false
+}

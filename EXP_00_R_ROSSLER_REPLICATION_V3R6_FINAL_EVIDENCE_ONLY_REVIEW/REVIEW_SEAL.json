@@ -1,0 +1,56 @@
+{
+  "schema": "EXP_00_R_V3R6_FINAL_EVIDENCE_ONLY_REVIEW_SEAL_V1",
+  "review_mode": "EVIDENCE_ONLY",
+  "decision": "PASS_V3_ENGINEERING_CLOSED",
+  "seal_scope": "ALL_REGULAR_REVIEW_MEMBERS_EXCEPT_REVIEW_SEAL.json",
+  "tree_semantics": "SHA256_OF_SORTED_SHA256_TWO_SPACES_BASENAME_LINES",
+  "member_count": 3,
+  "tree_sha256": "9d8a6d894909b6587778f8b410e49ecffc433b571606ed384b3e84a3a03aebde",
+  "members": [
+    {
+      "path": "EVIDENCE_MATRIX.md",
+      "bytes": 4982,
+      "sha256": "fdd7ea6b94718749c6aec9c13c513bc990be4667d61cef0ff9133672814b52be"
+    },
+    {
+      "path": "FINAL_DECISION.md",
+      "bytes": 1619,
+      "sha256": "9ba61d96298b9026ebf27e6f017543354814b0ef65e68e97aa670f0178cc2774"
+    },
+    {
+      "path": "README.md",
+      "bytes": 2940,
+      "sha256": "08f8d0817ff82997760de533ec620c22bb64c2621b268bb6568d1d903c5ea29f"
+    }
+  ],
+  "reviewed_authority": {
+    "v3r6_package_tree_sha256": "b647af0487f4662d2209695bf38b9742349f17634d789bebd8b5b7353c554e60",
+    "v3r6_trust_root_sha256": "f9abe3d301245482e40f4207b0b207677cb94e155f7333521faad87deb92833e",
+    "transitive_authority_package_count": 24,
+    "transitive_authority_reconstruction": "PASS",
+    "lab_pad_tree_sha256": "8de7f8b5f6498f533cc7cd55ae088066ff642bbac0dae28d3d1dc0593e2037db",
+    "canonical_reference_sha256": "aa7777ba26486f5acd594456240c2678c342678750248802bba67f02215ff454",
+    "alternate_reference_sha256": "c2bdfe097288c21c9c2eee963390ef185fcd11759161efcdf32143d0c93df364"
+  },
+  "boundary": {
+    "registered_data_accessed": false,
+    "registered_experiment_executed": false,
+    "execution_authorization_created": false,
+    "unauthorized_input_resolve_count": 0,
+    "unauthorized_input_read_count": 0,
+    "runtime_mutation_performed": false,
+    "new_adversarial_runtime_experiment_performed": false
+  },
+  "preservation": {
+    "v3r6_modified": false,
+    "upstream_packages_modified": false,
+    "scientific_contract_modified": false,
+    "evidence_contract_modified": false,
+    "sealed_references_modified": false
+  },
+  "defects": {
+    "class_a": 0,
+    "class_b": 0
+  },
+  "review_infrastructure_limitation": "NON_BLOCKING"
+}

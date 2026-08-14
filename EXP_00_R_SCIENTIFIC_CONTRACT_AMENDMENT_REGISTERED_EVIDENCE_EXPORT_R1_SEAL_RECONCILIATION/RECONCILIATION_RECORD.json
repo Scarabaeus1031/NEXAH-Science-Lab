@@ -1,0 +1,64 @@
+{
+  "schema": "EXP_00_R_EXPORT_R1_SEAL_TREE_CONSTRUCTION_RECONCILIATION_V1",
+  "reconciled_at_utc": "2026-08-08T22:56:43Z",
+  "mode": "NARROW_SEAL_RECONCILIATION",
+  "objects": {
+    "export_r1": {
+      "package": "EXP_00_R_SCIENTIFIC_CONTRACT_AMENDMENT_REGISTERED_EVIDENCE_EXPORT_R1",
+      "seal": "PACKAGE_SEAL.json",
+      "member_count": 10,
+      "member_list_exact": true,
+      "member_byte_lengths": "PASS_10_OF_10",
+      "member_sha256": "PASS_10_OF_10",
+      "declared_tree_sha256": "726132aa49973e32f420554c44d0a0ab891f0582301535de0c4fa80d02c5bc33",
+      "documented_basename_sorted_two_space_lf_sha256": "8e7ca6710290e8774427569500e09ce212f0345e1af6697d7cdbf49cb1f16cf1",
+      "documented_method_reproduces": false,
+      "historical_method": "SHA256_OF_BYTEWISE_SORTED_COMPLETE_LOWERCASE_DIGEST_TWO_SPACES_BASENAME_LF_RECORDS",
+      "historical_method_sha256": "726132aa49973e32f420554c44d0a0ab891f0582301535de0c4fa80d02c5bc33",
+      "historical_method_reproduces": true
+    },
+    "export_r1_independent_review": {
+      "package": "EXP_00_R_SCIENTIFIC_CONTRACT_AMENDMENT_REGISTERED_EVIDENCE_EXPORT_R1_INDEPENDENT_REVIEW",
+      "seal": "REVIEW_SEAL.json",
+      "member_count": 7,
+      "member_list_exact": true,
+      "member_byte_lengths": "PASS_7_OF_7",
+      "member_sha256": "PASS_7_OF_7",
+      "declared_tree_sha256": "5f7bdde15d9ca00e7212480562062f226010759ebccd2c8678162e68724fee35",
+      "documented_basename_sorted_two_space_lf_sha256": "38de0b34b8e1d2751a529cc1400cc0d85c4e69b0b28b8e8f3095146cf5061a42",
+      "documented_method_reproduces": false,
+      "historical_method": "SHA256_OF_BYTEWISE_SORTED_COMPLETE_LOWERCASE_DIGEST_IMMEDIATELY_FOLLOWED_BY_BASENAME_LF_RECORDS",
+      "historical_method_sha256": "5f7bdde15d9ca00e7212480562062f226010759ebccd2c8678162e68724fee35",
+      "historical_method_reproduces": true
+    }
+  },
+  "root_cause": {
+    "classes": ["C_SORT_PATH_NORMALIZATION_MISMATCH","D_CONCATENATION_DELIMITER_ENCODING_MISMATCH","F_DOCUMENTATION_DOES_NOT_MATCH_HISTORICAL_TREE_ALGORITHM"],
+    "explanation": "Both historical trees sorted complete records by their leading member digest rather than by basename; the independent-review tree additionally omitted the documented two-space delimiter."
+  },
+  "integrity": {
+    "member_substitution_detected": false,
+    "scientific_content_difference": false,
+    "scientific_authority_affected": false,
+    "independent_review_substantively_affected": false,
+    "ambiguous_membership": false,
+    "historical_tree_semantics_recovered": true
+  },
+  "decision": {
+    "export_r1_content_integrity": "PASS",
+    "export_r1_seal_reconciliation": "PASS",
+    "export_r1_status": "CLOSED_RECONCILED",
+    "new_scientific_choice_introduced": false,
+    "generation_authorized_by_this_package": false,
+    "next_permitted_object": "REGISTERED EVIDENCE GENERATION OPERATION AUTHORIZATION — FINAL RECHECK"
+  },
+  "boundaries": {
+    "registered_input_accessed": false,
+    "registered_evidence_generated": false,
+    "registered_test_seeds_executed": false,
+    "registered_experiment_executed": false,
+    "p1_p5_evaluated": false,
+    "scientific_classification_generated": false,
+    "historical_objects_modified": false
+  }
+}

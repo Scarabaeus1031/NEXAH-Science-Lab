@@ -1,0 +1,42 @@
+{
+  "schema": "EXP_00_R_EXPORT_R1_SEAL_RECONCILIATION_PACKAGE_SEAL_V1",
+  "sealed_at_utc": "2026-08-08T22:57:58Z",
+  "hash_algorithm": "SHA-256",
+  "tree_hash_construction": "SHA256 of UTF-8 lines sorted bytewise by relative path; each line is '<member_sha256>  <relative_path>\\n'",
+  "package_seal_excluded_from_tree": true,
+  "member_count": 6,
+  "members": [
+    {"path":"FINAL_DECISION.md","bytes":1150,"sha256":"f43a0c9e5d8d64b3c3694b1cf391d33610d2acb673a958ac8a424542e0175d10"},
+    {"path":"HISTORICAL_SEAL_AUDIT.md","bytes":1695,"sha256":"ff74305c3fce456edc697b40885f8732178c0aa8f9d9f2bfd48769a92e27b10a"},
+    {"path":"MEMBER_HASH_VERIFICATION.md","bytes":2229,"sha256":"196ac51130d8c32f6ccb5b4734ce4ad9317104978f6b4f0dbb1168383498f3a4"},
+    {"path":"README.md","bytes":1220,"sha256":"56d7f2381cc1817e7206f1f77d3448aa56cdb643d36e2d3f6c68e9980c44ba07"},
+    {"path":"RECONCILIATION_RECORD.json","bytes":3227,"sha256":"79abaaa3550773910ea5f123478105e29d6c608210055cddc7f1d83b1cbf3dcf"},
+    {"path":"TREE_CONSTRUCTION_RECONSTRUCTION.md","bytes":2175,"sha256":"6da2c1e652941490918c213743012c7df6c9756d97db0be1dc226a4e8de09a51"}
+  ],
+  "tree_sha256": "c6c0781e8072268ae64e7b5639373ac5ff3a56522dc6937dbac6b24d9916d268",
+  "reconciled_objects": {
+    "export_r1_declared_tree_sha256": "726132aa49973e32f420554c44d0a0ab891f0582301535de0c4fa80d02c5bc33",
+    "export_r1_review_declared_tree_sha256": "5f7bdde15d9ca00e7212480562062f226010759ebccd2c8678162e68724fee35",
+    "member_files_verified": 17,
+    "member_files_total": 17,
+    "member_substitution_detected": false
+  },
+  "decision": {
+    "export_r1_content_integrity": "PASS",
+    "export_r1_seal_reconciliation": "PASS",
+    "scientific_authority_affected": false,
+    "export_r1_status": "CLOSED_RECONCILED",
+    "generation_authorized": false,
+    "new_scientific_choice_introduced": false
+  },
+  "boundaries": {
+    "registered_input_accessed": false,
+    "registered_evidence_generated": false,
+    "registered_test_seeds_executed": false,
+    "registered_experiment_executed": false,
+    "p1_p5_evaluated": false,
+    "scientific_classification_generated": false,
+    "historical_objects_modified": false
+  },
+  "next_permitted_object": "REGISTERED EVIDENCE GENERATION OPERATION AUTHORIZATION — FINAL RECHECK"
+}

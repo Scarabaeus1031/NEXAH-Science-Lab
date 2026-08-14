@@ -1,0 +1,35 @@
+{
+  "schema": "EXP_00_R_REGISTERED_EVIDENCE_EXPORT_REPAIR_R1",
+  "rejected_amendment_tree_sha256": "7bb09e9680423c26b9e2d03fc57799c3e5210759ba6f384809ce100f9000a2b4",
+  "independent_review_tree_sha256": "bb2498493911fbff472f8923bb5e734e949f5e7bdf8823312495ce90d538a4d4",
+  "scope": ["IR-A1_REE-G1-D1", "IR-A2_REE-G9-D1"],
+  "repairs": {
+    "REE-G1-D1": "REPAIRED_PHYSICAL_UNSIGNED_SEED_IS_SOLE_SCIENTIFIC_RNG_CLUSTER_IDENTITY",
+    "REE-G9-D1": "REPAIRED_REGISTERED_RUNTIME_PYTHON_3_12_13_NUMPY_2_3_5_MACOS_26_5_2_ARM64"
+  },
+  "registered_runtime_id": "CODEX_PRIMARY_PY31213_NUMPY235_MACOS2652_ARM64",
+  "historical_reference_runtime": "PRESERVED_REFERENCE_ONLY",
+  "preserved": {
+    "REE-G4-D1": "UNCHANGED",
+    "REE-G7-D1": "UNCHANGED",
+    "b_mappings": "UNCHANGED",
+    "tie_rank": "UNCHANGED",
+    "support": "UNCHANGED",
+    "outcomes": "UNCHANGED",
+    "sensitivities": "UNCHANGED"
+  },
+  "new_scientific_choice_introduced": false,
+  "two_conforming_implementations_can_differ_scientifically": false,
+  "boundaries": {
+    "registered_input_content_accessed": false,
+    "registered_input_materialized": false,
+    "registered_experiment_executed": false,
+    "p1_p5_evaluated": false,
+    "scientific_classification_generated": false,
+    "execution_authorization_created": false,
+    "previous_frozen_packages_modified": false,
+    "v3r6_modified": false
+  },
+  "status": "REPAIRED_PENDING_INDEPENDENT_REVIEW",
+  "next_permitted_object": "INDEPENDENT_REVIEW_OF_REE_G1_D1_REE_G9_D1_REPAIR"
+}

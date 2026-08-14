@@ -1,0 +1,37 @@
+{
+  "schema": "EXP_00_R_REGISTERED_EVIDENCE_EXPORT_R1_INDEPENDENT_REVIEW_SEAL_V1",
+  "sealed_at_utc": "2026-08-08T21:53:50Z",
+  "hash_algorithm": "SHA-256",
+  "tree_hash_construction": "SHA256 of UTF-8 lines sorted bytewise by basename; each line is '<member_sha256>  <basename>\\n'",
+  "review_seal_excluded_from_tree": true,
+  "reviewed_package_tree_sha256": "726132aa49973e32f420554c44d0a0ab891f0582301535de0c4fa80d02c5bc33",
+  "rejected_predecessor_tree_sha256": "7bb09e9680423c26b9e2d03fc57799c3e5210759ba6f384809ce100f9000a2b4",
+  "previous_independent_review_tree_sha256": "bb2498493911fbff472f8923bb5e734e949f5e7bdf8823312495ce90d538a4d4",
+  "member_count": 7,
+  "members": [
+    {"path":"FINAL_DECISION.md","bytes":845,"sha256":"51826a22b752e207877efd66264420df70dd31fd534e1f91e4c03b5fd05713b8"},
+    {"path":"PACKAGE_INTEGRITY_REVIEW.md","bytes":1027,"sha256":"3aa9a0df6e98321395061d6830b40b5ccc0f5a769cb9fdaa0e6adee28f6e7cf7"},
+    {"path":"PRESERVATION_REVIEW.md","bytes":777,"sha256":"4bf8c9fb8a3e1058bea5f8646b8cefc3a62725b5727c593663b6199bb8e47276"},
+    {"path":"README.md","bytes":875,"sha256":"a921aa3b62e7db303967d7aed04e1adc1988a971c61020d583bf98495dcca356"},
+    {"path":"REE_G1_D1_R1_REVIEW.md","bytes":1020,"sha256":"03f4c64cb27a546bda49718729b4ef6b1f1d1b02d8bf9de8c087c0d349b991ff"},
+    {"path":"REE_G9_D1_R1_REVIEW.md","bytes":1307,"sha256":"03ca928c984c50386d9052d890fb0b6e118af41af463d784f94ae4cda8344765"},
+    {"path":"REVIEW_RECORD.json","bytes":1341,"sha256":"9df1d18b2567d1c73b614a2b6ed07e0cf1ab3bb0077885bca89c3bc7dd0db01e"}
+  ],
+  "tree_sha256": "5f7bdde15d9ca00e7212480562062f226010759ebccd2c8678162e68724fee35",
+  "final_review": "PASS",
+  "class_a_defects": 0,
+  "class_b_defects": 0,
+  "registered_evidence_export_contract_status": "CLOSED",
+  "attestation": {
+    "registered_input_content_accessed": false,
+    "registered_input_materialized": false,
+    "registered_experiment_executed": false,
+    "p1_p5_evaluated": false,
+    "scientific_classification_generated": false,
+    "execution_authorization_created": false,
+    "new_scientific_choice_introduced": false,
+    "reviewed_package_modified": false,
+    "previous_frozen_contracts_modified": false,
+    "v3r6_modified": false
+  }
+}
