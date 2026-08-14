@@ -1,0 +1,25 @@
+{
+  "experiment": "ORION_EXP_O8_GENERATOR_REALIZATION_001",
+  "frozen_at_utc": "2026-08-10T20:47:35Z",
+  "reviewed_preregistration_sha256": "767c5cf968cc9800becf220580c3e688b20978d7679298564b2f682c78e9a903",
+  "lock_created_before_source": true,
+  "result_known_at_freeze_time": false,
+  "executed_at_freeze_time": false,
+  "runtime": "Python 3.9.6 standard library only",
+  "serialization": "SORTED_KEY_COMPACT_UTF8_JSON_PLUS_LF",
+  "equality": "BYTE_EXACT",
+  "tolerance": 0,
+  "randomness": false,
+  "selected_generators": ["H6", "R5", "E23"],
+  "files": {
+    "PREREGISTRATION_LOCK.md": "f3a4a6641568b86c375ddec1ab02fefc23ece7d9f1d792351d602b5108e645be",
+    "src/o8_audit.py": "80896d1ad901045ed771dd2e88f8a87e7f8c2bc26c43d797022eae67a48d8610"
+  },
+  "frozen_external_inputs": {
+    "DESIGN_HASH_MANIFEST.json": "b23bbf8d9baefa2c1b31fb712fed0d63b5df75643642fea087c98f7106a96b51",
+    "fixture_manifest.json": "e1d938fd67214a5219f7c9fbf416256c37c0531e88e467dd1282e20188e55970",
+    "generator_registry.json": "d1e98379150f647562fb4913d5377515c6ff43e2c431f96f242879acd825eca8",
+    "typed_domain_contract.json": "f4cd72fe7643850c345cd9a530e49a44885db53d942d23522a2b27ea24226ccc"
+  },
+  "post_freeze_source_changes": "FORBIDDEN"
+}

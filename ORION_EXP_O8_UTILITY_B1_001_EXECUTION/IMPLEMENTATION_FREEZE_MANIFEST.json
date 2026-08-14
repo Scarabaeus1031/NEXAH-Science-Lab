@@ -1,0 +1,36 @@
+{
+  "schema": "ORION_O8_B1_IMPLEMENTATION_FREEZE_V1",
+  "experiment_id": "EXP-ORION-O8-B1-001",
+  "frozen_at_utc": "2026-08-10T21:47:57Z",
+  "lock_sha256": "7a8afc8b9c3f4177df52ba64a5e96082e05237b74a1b09fdaec15e12810414fd",
+  "reviewed_preregistration_sha256": "ead9f410fe2361284d3ff46d3df216f033e1c6f3b63e7b1dce845594ba51184c",
+  "controlling_o8_scientific_sha256": "cfea693c746c0ab16515b7ee716ba5d2ebe6f15ec84fdbd9e41f7b0585e5f0e5",
+  "source_tree_hash_rule": "SHA-256 of UTF-8 filename + TAB + file_sha256 + LF for bytewise-sorted src/*.py",
+  "source_tree_sha256": "b012d575ac493e453c90bafccec86e35466570d3f72338e6dd48fef81dfc9e9d",
+  "source_files": {
+    "b1_execute.py": "4f9c9635c55b7378c94a353c6ad8bb27e1eed4d6612c0e74a615284111b4c16b",
+    "o8_interface.py": "683fa3a28bbffd38cc5ebc92312a363d5a7336f834471845164e280a0d1498af",
+    "serializer.py": "55172e0db965bca03066b55e4d49a361dca9187553236a56c7f4d544d880b423"
+  },
+  "python_version": "3.9.6",
+  "python_build": "default May 22 2026; Clang 21.0.0",
+  "platform": "macOS-26.5.2-arm64-arm-64bit",
+  "dependencies": ["PYTHON_STANDARD_LIBRARY_ONLY"],
+  "seed_contracts": {
+    "test": "SHA256(ORION_O8_B1_TEST_V1|controlling_O8_hash|SOURCE)",
+    "development": "SHA256(ORION_O8_B1_DEV_V1|controlling_O8_hash|SOURCE)",
+    "controls": "SHA256(ORION_O8_B1_CONTROL_V1|controlling_O8_hash|SOURCE)"
+  },
+  "serializer_version": "ORION_TYPED_CANONICAL_V2",
+  "serializer_sha256": "55172e0db965bca03066b55e4d49a361dca9187553236a56c7f4d544d880b423",
+  "o8_interface_sha256": "683fa3a28bbffd38cc5ebc92312a363d5a7336f834471845164e280a0d1498af",
+  "baseline_provider_function_sha256": "153c2009e8d242a5019cf73fcb29d15f20ceec505308e770de9ba51c9b3295a0",
+  "baseline_schedule_function_sha256": "19e444467d3c3c79f63f34e3bb7ba06db1ac8313036b115f3a5a7722cc6eeba1",
+  "plus_o8_provider_function_sha256": "f4a63c2ef6062a68002e8840135d842ee32d4f54018cc4605f663270b2234da2",
+  "evaluator_function_sha256": "33b04351f78a9d8411e9c3dcf1e7624394a3e3b536ba0202167d4d368ce23224",
+  "runner_function_sha256": "e61bab3861f03cdb53ed76f1363e53d95e38d38f448b2b956e0e322f04fe7c3f",
+  "candidate_budget_per_arm": 8,
+  "post_freeze_source_changes_permitted": false,
+  "test_population_generated_at_freeze": false,
+  "scientific_result_known_at_freeze": false
+}

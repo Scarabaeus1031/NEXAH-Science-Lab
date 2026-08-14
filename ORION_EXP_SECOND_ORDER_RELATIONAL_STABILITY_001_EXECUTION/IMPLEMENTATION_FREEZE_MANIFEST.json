@@ -1,0 +1,35 @@
+{
+  "algorithm": "SHA-256",
+  "frozen_at_utc": "2026-08-10T20:09:42Z",
+  "frozen_before_scientific_execution": true,
+  "lock_sha256": "95c3d45c590d7754d57d8b4c6bc3e5236ea0cda9235066526f4fb3da7cf71161",
+  "reviewed_preregistration_sha256": "5a9bd087fa6deff38e7b94753346ba13836e6dc9c7da8c94ae0a1991542f4856",
+  "environment": {
+    "numpy": "2.3.5",
+    "python": "3.12.13",
+    "python_executable_sha256": "eb9d74b9c7cfdfb2c9b91614edb2c3607360ba46c5aa7fc4557b3a4a23e97cff"
+  },
+  "files": {
+    "src/blind_observer.py": "dffb736d145351918fbcb51bb544f7a72c582679dc75f478e40cc27df3240444",
+    "src/comparator.py": "755df7a70316002723948fc58fda885f0dabc0a7e2e06109014f9d8929bb11dc",
+    "src/control_engine.py": "e233023cd259a6f351f795505064c8227a94629b674e6257b74b3fdf50a39938",
+    "src/core.py": "13c1306cdc618ed4e468a77714ad0a484deab62701242be893abf151b8f61403",
+    "src/first_order_extractor.py": "ea88e429b1b1d6c799cc890ff542b456d5cd267bc8b216263b02983566b1bdba",
+    "src/fixture_auditor.py": "30cbb7b83d9170ee0e609ea7a6e6bfc08f88d94714df2958fe6a0887493dcd6e",
+    "src/null_engine.py": "fa3310743cdd8b66f4029acf995f3fbcbcc8f821c5b1a4f9ad4c729c216010a3",
+    "src/null_input_builder.py": "c1a0e586bbf6f1c54b8b6d78a91d6dc1d70af6106fd6817b0084bd400e51a923",
+    "src/relation_encoder.py": "01c78c0c99579f2f30037408f1b8b5d803249d76ae5aa8310e7a9d9de4ac7b1a",
+    "src/run_experiment.py": "c233fba35b540e5dc95a11bfc23c5682e10e07e71bc2379722d711f79339abf6",
+    "src/schema_auditor.py": "cbc2a09852fab1f8d787d823f69082a3e9a87c3c66d8229edd328e6bb41ffe72",
+    "src/source_generator.py": "5221562f88cc91fde53bf26c64b494d36dd236dce1348b7dae53725999d56263",
+    "tests/test_contract.py": "7a29e44990f6b112f6f26c7db41887d5499799608250f726f002c6c8fd333740"
+  },
+  "preexecution_tests": {
+    "failed": 0,
+    "passed": 6,
+    "observer_static_separation": "PASS",
+    "null_static_separation": "PASS"
+  },
+  "result_known_when_frozen": false,
+  "scientific_execution_started_when_frozen": false
+}

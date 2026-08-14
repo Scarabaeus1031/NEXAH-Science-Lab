@@ -1,0 +1,26 @@
+{
+  "algorithm": "SHA-256",
+  "frozen_before_primary_execution": true,
+  "implementation_status": "TESTED_AND_FROZEN",
+  "lock_sha256": "34c1103937a7f7f77773a91341c06bbc6f3b42b15fd9d584bbbbe4256c1937ca",
+  "reviewed_design_sha256": "83811aca6c6c495bc98b3e6de4a8723b4e7452fed16534de92e806957476c4e9",
+  "files": {
+    "src/blind_observer.py": "fc4a6a4e5cb43b4db4a6a47904e10a977adcd56138a1130ae1d3dda688fd8895",
+    "src/extractor_worker.py": "a11f7087e36d046584ddfe45dc4d8d60b063e8b9bf92e006e7c721cc060774a4",
+    "src/l4_core.py": "21275d321285b75243a45f5cb107987bb7aaa91094a344299f9ef2dfdb2609b0",
+    "src/run_l4.py": "83c9bd09e378c72c7d633940e078101047b2f75be35db0735c4f574dc0d4fb49",
+    "tests/test_l4_contract.py": "815264e1926eb3a10a810cb3276b7e9c70df67bebdd113ad5d81d063365eea3e"
+  },
+  "environment": {
+    "python": "3.12.13",
+    "numpy": "2.3.5",
+    "python_executable_sha256": "eb9d74b9c7cfdfb2c9b91614edb2c3607360ba46c5aa7fc4557b3a4a23e97cff"
+  },
+  "preexecution_tests": {
+    "count": 4,
+    "passed": 4,
+    "syntax_compile": "PASS",
+    "blindness_static_check": "PASS"
+  },
+  "result_known_when_manifest_written": false
+}

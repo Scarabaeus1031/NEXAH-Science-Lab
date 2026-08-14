@@ -1,0 +1,28 @@
+{
+  "experiment_id": "EXP-ORION-L1-001",
+  "preregistration_version": "1.1",
+  "preregistration_sha256": "b8477914987bdc7a8f870aeaf7ca4e366396e1e645c7c5eda5b006f5980d15bc",
+  "steps": 8192,
+  "dt": 0.0015339807878856412,
+  "rotation_alpha": 0.4487989505128276,
+  "scale": [2.0, 0.5],
+  "damping": 0.1,
+  "phase_bins": 12,
+  "palette_a": ["A00", "A01", "A02", "A03", "A04", "A05", "A06", "A07", "A08", "A09", "A10", "A11"],
+  "palette_b": ["A11", "A10", "A09", "A08", "A07", "A06", "A05", "A04", "A03", "A02", "A01", "A00"],
+  "thresholds": {
+    "source_trajectory": 1e-9,
+    "source_energy": 1e-9,
+    "trajectory": 1e-9,
+    "algebraic": 1e-12,
+    "phase": 1e-8,
+    "undefined_radius": 1e-12,
+    "collision_x": 1e-8,
+    "collision_y": 1e-3,
+    "collision_count": 1000,
+    "representation_difference": 0.1,
+    "perturbed_energy": 2e-6,
+    "damped_drop_fraction": 0.5
+  }
+}
+
