@@ -1,0 +1,4884 @@
+{
+  "as_of": "2026-08-14",
+  "boundary": {
+    "note": "Markers and extracted labels locate review candidates; they do not establish scientific authority.",
+    "raw_data_publication_authorized": false,
+    "research_files_modified": false,
+    "scientific_adoption": false
+  },
+  "packages": [
+    {
+      "bytes": 40146,
+      "endpoint_candidates": [
+        "ECOSYSTEM_LIFECYCLE/12_FINAL_RECOMMENDATION.md",
+        "ECOSYSTEM_LIFECYCLE/04_DECISION_GATES.md",
+        "ECOSYSTEM_LIFECYCLE/README.md"
+      ],
+      "extensions": {
+        ".md": 13
+      },
+      "family": "OTHER",
+      "file_count": 13,
+      "marker_class": "TERMINAL_MARKER",
+      "raw_bytes": 0,
+      "raw_file_count": 0,
+      "review_class": "TERMINAL_CANDIDATE",
+      "root": "ECOSYSTEM_LIFECYCLE",
+      "sha256_raw_tree": null,
+      "sha256_tree": "12e684b1fac88db18a7efa8538c346eaf3eb00a5d42dc0e08d000782511fb53d",
+      "status_signals": [
+        {
+          "signal": "Status=architecture design",
+          "source": "ECOSYSTEM_LIFECYCLE/12_FINAL_RECOMMENDATION.md"
+        },
+        {
+          "signal": "Status=`EIGHT GATES`",
+          "source": "ECOSYSTEM_LIFECYCLE/04_DECISION_GATES.md"
+        },
+        {
+          "signal": "Status=`ARCHITECTURE DESIGN — UNADOPTED`",
+          "source": "ECOSYSTEM_LIFECYCLE/README.md"
+        }
+      ]
+    },
+    {
+      "bytes": 52677,
+      "endpoint_candidates": [
+        "EXECUTION_ENGINE/README.md"
+      ],
+      "extensions": {
+        ".md": 13
+      },
+      "family": "OTHER",
+      "file_count": 13,
+      "marker_class": "DOCUMENTED_MARKER",
+      "raw_bytes": 0,
+      "raw_file_count": 0,
+      "review_class": "DOCUMENTED_REVIEW",
+      "root": "EXECUTION_ENGINE",
+      "sha256_raw_tree": null,
+      "sha256_tree": "14a2b7704b2779705ef62bfbeb375f14e674a24da5a70b353213498f34697cfa",
+      "status_signals": [
+        {
+          "signal": "Status=execution architecture only",
+          "source": "EXECUTION_ENGINE/README.md"
+        }
+      ]
+    },
+    {
+      "bytes": 12402137,
+      "endpoint_candidates": [
+        "EXP_00_REPRESENTATION_AGREEMENT/outputs/logs/CODE_FREEZE_MANIFEST.json",
+        "EXP_00_REPRESENTATION_AGREEMENT/reports/EXP_00_FALSIFICATION_REPORT.md",
+        "EXP_00_REPRESENTATION_AGREEMENT/README.md"
+      ],
+      "extensions": {
+        ".csv": 7,
+        ".json": 7,
+        ".md": 5,
+        ".npz": 1,
+        ".py": 17,
+        ".svg": 1,
+        ".yaml": 1
+      },
+      "family": "EXP_00",
+      "file_count": 39,
+      "marker_class": "TERMINAL_MARKER",
+      "raw_bytes": 1919137,
+      "raw_file_count": 2,
+      "review_class": "TERMINAL_CANDIDATE",
+      "root": "EXP_00_REPRESENTATION_AGREEMENT",
+      "sha256_raw_tree": "7deaad2e30d9d8b946579abd2f2d803299118818716e214bbf2da0d8f6a83ccc",
+      "sha256_tree": "a5661db80cf0fd5915e5b5392116e4560ed19ac888a30872dad866f081654710",
+      "status_signals": []
+    },
+    {
+      "bytes": 51628,
+      "endpoint_candidates": [
+        "EXP_00_R_ROSSLER_REPLICATION/EXP_00_R_OPEN_DECISIONS.md"
+      ],
+      "extensions": {
+        ".md": 11,
+        ".yaml": 1
+      },
+      "family": "EXP_00",
+      "file_count": 12,
+      "marker_class": "TERMINAL_MARKER",
+      "raw_bytes": 0,
+      "raw_file_count": 0,
+      "review_class": "TERMINAL_CANDIDATE",
+      "root": "EXP_00_R_ROSSLER_REPLICATION",
+      "sha256_raw_tree": null,
+      "sha256_tree": "924bb6e54b35855a1cff8ef212a568df86388f24cbbfbe97b3396fff7763b479",
+      "status_signals": [
+        {
+          "signal": "Status=** DESIGN ONLY — NOT EXECUTED",
+          "source": "EXP_00_R_ROSSLER_REPLICATION/EXP_00_R_OPEN_DECISIONS.md"
+        }
+      ]
+    },
+    {
+      "bytes": 21630,
+      "endpoint_candidates": [
+        "EXP_00_R_ROSSLER_REPLICATION_EXTERNAL_EVIDENCE_PROVENANCE_RESOLUTION/FINAL_DECISION.md",
+        "EXP_00_R_ROSSLER_REPLICATION_EXTERNAL_EVIDENCE_PROVENANCE_RESOLUTION/README.md"
+      ],
+      "extensions": {
+        ".json": 2,
+        ".md": 12
+      },
+      "family": "EXP_00",
+      "file_count": 14,
+      "marker_class": "TERMINAL_MARKER",
+      "raw_bytes": 0,
+      "raw_file_count": 0,
+      "review_class": "TERMINAL_CANDIDATE",
+      "root": "EXP_00_R_ROSSLER_REPLICATION_EXTERNAL_EVIDENCE_PROVENANCE_RESOLUTION",
+      "sha256_raw_tree": null,
+      "sha256_tree": "2c56245fbca89674fe9b01c661b76eebff1917a11661c7ffbf085f2ac3b86964",
+      "status_signals": []
+    },
+    {
+      "bytes": 83397,
+      "endpoint_candidates": [
+        "EXP_00_R_ROSSLER_REPLICATION_FREEZE_V1/EXP_00_R_FINAL_GO_NO_GO.md",
+        "EXP_00_R_ROSSLER_REPLICATION_FREEZE_V1/EXP_00_R_FINAL_PREREGISTRATION_REVIEW.md",
+        "EXP_00_R_ROSSLER_REPLICATION_FREEZE_V1/EXP_00_R_FREEZE_LOCK.json",
+        "EXP_00_R_ROSSLER_REPLICATION_FREEZE_V1/EXP_00_R_FREEZE_MANIFEST.md",
+        "EXP_00_R_ROSSLER_REPLICATION_FREEZE_V1/SYNTHETIC_STATIC_VALIDATION_REPORT.md",
+        "EXP_00_R_ROSSLER_REPLICATION_FREEZE_V1/EXP_00_R_FROZEN_CONFIG.yaml",
+        "EXP_00_R_ROSSLER_REPLICATION_FREEZE_V1/EXP_00_R_PREREGISTRATION_FROZEN_V1.md"
+      ],
+      "extensions": {
+        ".json": 1,
+        ".md": 9,
+        ".py": 23,
+        ".yaml": 1
+      },
+      "family": "EXP_00",
+      "file_count": 34,
+      "marker_class": "TERMINAL_MARKER",
+      "raw_bytes": 0,
+      "raw_file_count": 0,
+      "review_class": "TERMINAL_CANDIDATE",
+      "root": "EXP_00_R_ROSSLER_REPLICATION_FREEZE_V1",
+      "sha256_raw_tree": null,
+      "sha256_tree": "0ce8339d9a9e1127093605b30a15cdaa5b09c2e9e68c85d24a083c69df744f97",
+      "status_signals": [
+        {
+          "signal": "Status=** FROZEN; REGISTERED RÖSSLER EXPERIMENT NOT EXECUTED.",
+          "source": "EXP_00_R_ROSSLER_REPLICATION_FREEZE_V1/EXP_00_R_PREREGISTRATION_FROZEN_V1.md"
+        }
+      ]
+    },
+    {
+      "bytes": 84635,
+      "endpoint_candidates": [
+        "EXP_00_R_ROSSLER_REPLICATION_FREEZE_V2/EXP_00_R_V2_FINAL_GO_NO_GO.md",
+        "EXP_00_R_ROSSLER_REPLICATION_FREEZE_V2/EXP_00_R_V2_FREEZE_LOCK.json",
+        "EXP_00_R_ROSSLER_REPLICATION_FREEZE_V2/EXP_00_R_V2_FREEZE_MANIFEST.md",
+        "EXP_00_R_ROSSLER_REPLICATION_FREEZE_V2/SYNTHETIC_ORCHESTRATION_VALIDATION_REPORT.md",
+        "EXP_00_R_ROSSLER_REPLICATION_FREEZE_V2/DEPENDENCY_ENVIRONMENT_MANIFEST.md",
+        "EXP_00_R_ROSSLER_REPLICATION_FREEZE_V2/EXPECTED_ARTIFACT_MANIFEST.md",
+        "EXP_00_R_ROSSLER_REPLICATION_FREEZE_V2/FAIL_CLOSED_RULES.md"
+      ],
+      "extensions": {
+        ".json": 2,
+        ".md": 10,
+        ".py": 14,
+        ".yaml": 1
+      },
+      "family": "EXP_00",
+      "file_count": 27,
+      "marker_class": "TERMINAL_MARKER",
+      "raw_bytes": 0,
+      "raw_file_count": 0,
+      "review_class": "TERMINAL_CANDIDATE",
+      "root": "EXP_00_R_ROSSLER_REPLICATION_FREEZE_V2",
+      "sha256_raw_tree": null,
+      "sha256_tree": "64b39cc3a2ad25fa79305eb58734af2f1126fd0520acff901f287f1755ca575f",
+      "status_signals": []
+    },
+    {
+      "bytes": 27374,
+      "endpoint_candidates": [
+        "EXP_00_R_ROSSLER_REPLICATION_FREEZE_V2_ADVERSARIAL_REVIEW/FINAL_FREEZE_DECISION.md",
+        "EXP_00_R_ROSSLER_REPLICATION_FREEZE_V2_ADVERSARIAL_REVIEW/INDEPENDENT_FREEZE_REVIEW.md",
+        "EXP_00_R_ROSSLER_REPLICATION_FREEZE_V2_ADVERSARIAL_REVIEW/FAIL_CLOSED_ADVERSARIAL_TESTS.md"
+      ],
+      "extensions": {
+        ".md": 7
+      },
+      "family": "EXP_00",
+      "file_count": 7,
+      "marker_class": "TERMINAL_MARKER",
+      "raw_bytes": 0,
+      "raw_file_count": 0,
+      "review_class": "TERMINAL_CANDIDATE",
+      "root": "EXP_00_R_ROSSLER_REPLICATION_FREEZE_V2_ADVERSARIAL_REVIEW",
+      "sha256_raw_tree": null,
+      "sha256_tree": "d9ee5c0c0742c84c07bdc02d5b372079fbfe224215340fa93a77e2ea2086b044",
+      "status_signals": []
+    },
+    {
+      "bytes": 29855,
+      "endpoint_candidates": [],
+      "extensions": {
+        ".json": 1,
+        ".md": 5
+      },
+      "family": "EXP_00",
+      "file_count": 6,
+      "marker_class": "TERMINAL_MARKER",
+      "raw_bytes": 0,
+      "raw_file_count": 0,
+      "review_class": "TERMINAL_CANDIDATE",
+      "root": "EXP_00_R_ROSSLER_REPLICATION_FREEZE_V3",
+      "sha256_raw_tree": null,
+      "sha256_tree": "07fe9ef66eccc924f04952df0833d2d3a35f100d7333fd097244913ecc431d19",
+      "status_signals": []
+    },
+    {
+      "bytes": 113534,
+      "endpoint_candidates": [
+        "EXP_00_R_ROSSLER_REPLICATION_LAB_PAD/LAB_PAD_POST_V3_CLOSURE_SEAL.json",
+        "EXP_00_R_ROSSLER_REPLICATION_LAB_PAD/V3_ENGINEERING_CLOSURE_RECORD.md",
+        "EXP_00_R_ROSSLER_REPLICATION_LAB_PAD/POST_R1_CLOSURE/CLOSURE_LEDGER.md",
+        "EXP_00_R_ROSSLER_REPLICATION_LAB_PAD/POST_R1_CLOSURE/POST_R1_CLOSURE_SEAL.json",
+        "EXP_00_R_ROSSLER_REPLICATION_LAB_PAD/POST_R1_CLOSURE/ONE_PAGE_STATUS.md",
+        "EXP_00_R_ROSSLER_REPLICATION_LAB_PAD/LAB_REPORT_BRIDGE.md",
+        "EXP_00_R_ROSSLER_REPLICATION_LAB_PAD/LAB_REPORT_DRAFT.md",
+        "EXP_00_R_ROSSLER_REPLICATION_LAB_PAD/LAB_REPORT_EVIDENCE_MAP.md"
+      ],
+      "extensions": {
+        ".json": 5,
+        ".md": 27
+      },
+      "family": "EXP_00",
+      "file_count": 32,
+      "marker_class": "TERMINAL_MARKER",
+      "raw_bytes": 0,
+      "raw_file_count": 0,
+      "review_class": "TERMINAL_CANDIDATE",
+      "root": "EXP_00_R_ROSSLER_REPLICATION_LAB_PAD",
+      "sha256_raw_tree": null,
+      "sha256_tree": "6bb5ed0b6c64504b04b577acf14262363556e4dfa39350c1bb0a8a6b2429e189",
+      "status_signals": [
+        {
+          "signal": "repository_reconciliation.status=PASS",
+          "source": "EXP_00_R_ROSSLER_REPLICATION_LAB_PAD/LAB_PAD_POST_V3_CLOSURE_SEAL.json"
+        },
+        {
+          "signal": "Status=CLOSED / FROZEN**",
+          "source": "EXP_00_R_ROSSLER_REPLICATION_LAB_PAD/POST_R1_CLOSURE/ONE_PAGE_STATUS.md"
+        },
+        {
+          "signal": "Status=CLOSED**",
+          "source": "EXP_00_R_ROSSLER_REPLICATION_LAB_PAD/POST_R1_CLOSURE/ONE_PAGE_STATUS.md"
+        },
+        {
+          "signal": "Status=UNTOUCHED**",
+          "source": "EXP_00_R_ROSSLER_REPLICATION_LAB_PAD/POST_R1_CLOSURE/ONE_PAGE_STATUS.md"
+        }
+      ]
+    },
+    {
+      "bytes": 14481,
+      "endpoint_candidates": [
+        "EXP_00_R_ROSSLER_REPLICATION_REGISTERED_EVIDENCE_GENERATION_OPERATION/FINAL_DECISION.md",
+        "EXP_00_R_ROSSLER_REPLICATION_REGISTERED_EVIDENCE_GENERATION_OPERATION/README.md"
+      ],
+      "extensions": {
+        ".json": 2,
+        ".md": 7
+      },
+      "family": "EXP_00",
+      "file_count": 9,
+      "marker_class": "TERMINAL_MARKER",
+      "raw_bytes": 0,
+      "raw_file_count": 0,
+      "review_class": "TERMINAL_CANDIDATE",
+      "root": "EXP_00_R_ROSSLER_REPLICATION_REGISTERED_EVIDENCE_GENERATION_OPERATION",
+      "sha256_raw_tree": null,
+      "sha256_tree": "caa021b7c1ac449aef1a8edf91f3b173c62fe1ba83c9fab5bdd659dd21fb17c5",
+      "status_signals": [
+        {
+          "signal": "Status=**FAIL-CLOSED BEFORE REGISTERED SEED ACCESS**",
+          "source": "EXP_00_R_ROSSLER_REPLICATION_REGISTERED_EVIDENCE_GENERATION_OPERATION/README.md"
+        }
+      ]
+    },
+    {
+      "bytes": 25202,
+      "endpoint_candidates": [
+        "EXP_00_R_ROSSLER_REPLICATION_REGISTERED_EVIDENCE_GENERATION_OPERATION_AUTHORIZATION/FINAL_DECISION.md",
+        "EXP_00_R_ROSSLER_REPLICATION_REGISTERED_EVIDENCE_GENERATION_OPERATION_AUTHORIZATION/README.md",
+        "EXP_00_R_ROSSLER_REPLICATION_REGISTERED_EVIDENCE_GENERATION_OPERATION_AUTHORIZATION/FAIL_CLOSED_RULES.md"
+      ],
+      "extensions": {
+        ".json": 2,
+        ".md": 9
+      },
+      "family": "EXP_00",
+      "file_count": 11,
+      "marker_class": "TERMINAL_MARKER",
+      "raw_bytes": 0,
+      "raw_file_count": 0,
+      "review_class": "TERMINAL_CANDIDATE",
+      "root": "EXP_00_R_ROSSLER_REPLICATION_REGISTERED_EVIDENCE_GENERATION_OPERATION_AUTHORIZATION",
+      "sha256_raw_tree": null,
+      "sha256_tree": "22cd95b91621e7b6900467aca010c7dfd22f4e6cb732e113c3870e030ea3be37",
+      "status_signals": [
+        {
+          "signal": "Status=**NOT AUTHORIZED — UPSTREAM SEAL-CONSTRUCTION CONFLICT**",
+          "source": "EXP_00_R_ROSSLER_REPLICATION_REGISTERED_EVIDENCE_GENERATION_OPERATION_AUTHORIZATION/README.md"
+        }
+      ]
+    },
+    {
+      "bytes": 17117,
+      "endpoint_candidates": [
+        "EXP_00_R_ROSSLER_REPLICATION_REGISTERED_EVIDENCE_GENERATION_OPERATION_AUTHORIZATION_FINAL/FINAL_DECISION.md",
+        "EXP_00_R_ROSSLER_REPLICATION_REGISTERED_EVIDENCE_GENERATION_OPERATION_AUTHORIZATION_FINAL/README.md",
+        "EXP_00_R_ROSSLER_REPLICATION_REGISTERED_EVIDENCE_GENERATION_OPERATION_AUTHORIZATION_FINAL/FAIL_CLOSED_RULES.md"
+      ],
+      "extensions": {
+        ".json": 2,
+        ".md": 5
+      },
+      "family": "EXP_00",
+      "file_count": 7,
+      "marker_class": "TERMINAL_MARKER",
+      "raw_bytes": 0,
+      "raw_file_count": 0,
+      "review_class": "TERMINAL_CANDIDATE",
+      "root": "EXP_00_R_ROSSLER_REPLICATION_REGISTERED_EVIDENCE_GENERATION_OPERATION_AUTHORIZATION_FINAL",
+      "sha256_raw_tree": null,
+      "sha256_tree": "6b854912eb8614586bfbe090dba9201fd9cdc60491e08d4c2b12147ebade25cf",
+      "status_signals": [
+        {
+          "signal": "Status=**AUTHORIZED — ONE GENERATION OPERATION ONLY**",
+          "source": "EXP_00_R_ROSSLER_REPLICATION_REGISTERED_EVIDENCE_GENERATION_OPERATION_AUTHORIZATION_FINAL/README.md"
+        }
+      ]
+    },
+    {
+      "bytes": 55933,
+      "endpoint_candidates": [
+        "EXP_00_R_ROSSLER_REPLICATION_REGISTERED_EVIDENCE_GENERATOR/VALIDATION_REPORT.md",
+        "EXP_00_R_ROSSLER_REPLICATION_REGISTERED_EVIDENCE_GENERATOR/README.md",
+        "EXP_00_R_ROSSLER_REPLICATION_REGISTERED_EVIDENCE_GENERATOR/GENERATOR_MANIFEST.json"
+      ],
+      "extensions": {
+        ".json": 2,
+        ".md": 4,
+        ".py": 2
+      },
+      "family": "EXP_00",
+      "file_count": 8,
+      "marker_class": "DOCUMENTED_MARKER",
+      "raw_bytes": 0,
+      "raw_file_count": 0,
+      "review_class": "DOCUMENTED_REVIEW",
+      "root": "EXP_00_R_ROSSLER_REPLICATION_REGISTERED_EVIDENCE_GENERATOR",
+      "sha256_raw_tree": null,
+      "sha256_tree": "e3f9676712fbbd63a85e07402e13e5ea77966b3f21b71f005dd1a4909eeae3fc",
+      "status_signals": [
+        {
+          "signal": "Status=**IMPLEMENTED — READY FOR INDEPENDENT CONFORMANCE REVIEW**",
+          "source": "EXP_00_R_ROSSLER_REPLICATION_REGISTERED_EVIDENCE_GENERATOR/README.md"
+        }
+      ]
+    },
+    {
+      "bytes": 18264,
+      "endpoint_candidates": [
+        "EXP_00_R_ROSSLER_REPLICATION_REGISTERED_EVIDENCE_GENERATOR_INDEPENDENT_REVIEW/FINAL_DECISION.md",
+        "EXP_00_R_ROSSLER_REPLICATION_REGISTERED_EVIDENCE_GENERATOR_INDEPENDENT_REVIEW/README.md"
+      ],
+      "extensions": {
+        ".json": 2,
+        ".md": 8,
+        ".py": 1
+      },
+      "family": "EXP_00",
+      "file_count": 11,
+      "marker_class": "TERMINAL_MARKER",
+      "raw_bytes": 0,
+      "raw_file_count": 0,
+      "review_class": "TERMINAL_CANDIDATE",
+      "root": "EXP_00_R_ROSSLER_REPLICATION_REGISTERED_EVIDENCE_GENERATOR_INDEPENDENT_REVIEW",
+      "sha256_raw_tree": null,
+      "sha256_tree": "3f73c61dca65c7c903a292dd7cb7c58a056890f68280c55b2bdbe1a1143b417f",
+      "status_signals": []
+    },
+    {
+      "bytes": 63297,
+      "endpoint_candidates": [
+        "EXP_00_R_ROSSLER_REPLICATION_REGISTERED_EVIDENCE_GENERATOR_R1/VALIDATION_REPORT.md",
+        "EXP_00_R_ROSSLER_REPLICATION_REGISTERED_EVIDENCE_GENERATOR_R1/README.md",
+        "EXP_00_R_ROSSLER_REPLICATION_REGISTERED_EVIDENCE_GENERATOR_R1/GENERATOR_R1_MANIFEST.json"
+      ],
+      "extensions": {
+        ".json": 2,
+        ".md": 4,
+        ".py": 3
+      },
+      "family": "EXP_00",
+      "file_count": 9,
+      "marker_class": "DOCUMENTED_MARKER",
+      "raw_bytes": 0,
+      "raw_file_count": 0,
+      "review_class": "DOCUMENTED_REVIEW",
+      "root": "EXP_00_R_ROSSLER_REPLICATION_REGISTERED_EVIDENCE_GENERATOR_R1",
+      "sha256_raw_tree": null,
+      "sha256_tree": "cf72afb9958b3c5b8a5655977e2d7b972aba66486695fa35c91b7bb009f9c2a8",
+      "status_signals": [
+        {
+          "signal": "PYTHONDONTWRITEBYTECODE=1 <bound-python> -B -m unittest discover -s tests -v",
+          "source": "EXP_00_R_ROSSLER_REPLICATION_REGISTERED_EVIDENCE_GENERATOR_R1/VALIDATION_REPORT.md"
+        },
+        {
+          "signal": "Status=**REPAIRED — READY FOR INDEPENDENT R1 CONFORMANCE REVIEW**",
+          "source": "EXP_00_R_ROSSLER_REPLICATION_REGISTERED_EVIDENCE_GENERATOR_R1/README.md"
+        }
+      ]
+    },
+    {
+      "bytes": 10581,
+      "endpoint_candidates": [
+        "EXP_00_R_ROSSLER_REPLICATION_REGISTERED_EVIDENCE_GENERATOR_R1_INDEPENDENT_REVIEW/FINAL_DECISION.md",
+        "EXP_00_R_ROSSLER_REPLICATION_REGISTERED_EVIDENCE_GENERATOR_R1_INDEPENDENT_REVIEW/README.md"
+      ],
+      "extensions": {
+        ".json": 2,
+        ".md": 7
+      },
+      "family": "EXP_00",
+      "file_count": 9,
+      "marker_class": "TERMINAL_MARKER",
+      "raw_bytes": 0,
+      "raw_file_count": 0,
+      "review_class": "TERMINAL_CANDIDATE",
+      "root": "EXP_00_R_ROSSLER_REPLICATION_REGISTERED_EVIDENCE_GENERATOR_R1_INDEPENDENT_REVIEW",
+      "sha256_raw_tree": null,
+      "sha256_tree": "cdbf50e731af55f16aa5cf8897d1c1ffb9d9c4c1f7374116f8b4f07109dff6dd",
+      "status_signals": []
+    },
+    {
+      "bytes": 74832,
+      "endpoint_candidates": [
+        "EXP_00_R_ROSSLER_REPLICATION_REGISTERED_EVIDENCE_GENERATOR_R2/VALIDATION_REPORT.md",
+        "EXP_00_R_ROSSLER_REPLICATION_REGISTERED_EVIDENCE_GENERATOR_R2/README.md",
+        "EXP_00_R_ROSSLER_REPLICATION_REGISTERED_EVIDENCE_GENERATOR_R2/GENERATOR_R2_MANIFEST.json"
+      ],
+      "extensions": {
+        ".json": 2,
+        ".md": 5,
+        ".py": 4
+      },
+      "family": "EXP_00",
+      "file_count": 11,
+      "marker_class": "DOCUMENTED_MARKER",
+      "raw_bytes": 0,
+      "raw_file_count": 0,
+      "review_class": "DOCUMENTED_REVIEW",
+      "root": "EXP_00_R_ROSSLER_REPLICATION_REGISTERED_EVIDENCE_GENERATOR_R2",
+      "sha256_raw_tree": null,
+      "sha256_tree": "b36d527ec3974f46b2e2f3b28f32095ae1406e0ef8c01876d5a224d3133ac18d",
+      "status_signals": [
+        {
+          "signal": "Status=**IMPLEMENTED — READY FOR INDEPENDENT R2 NULL-NAMESPACE CONFORMANCE REVIEW**",
+          "source": "EXP_00_R_ROSSLER_REPLICATION_REGISTERED_EVIDENCE_GENERATOR_R2/README.md"
+        }
+      ]
+    },
+    {
+      "bytes": 15986,
+      "endpoint_candidates": [
+        "EXP_00_R_ROSSLER_REPLICATION_REGISTERED_EVIDENCE_GENERATOR_R2_INDEPENDENT_REVIEW/FINAL_REVIEW.md",
+        "EXP_00_R_ROSSLER_REPLICATION_REGISTERED_EVIDENCE_GENERATOR_R2_INDEPENDENT_REVIEW/INDEPENDENT_VALIDATION_REPORT.md",
+        "EXP_00_R_ROSSLER_REPLICATION_REGISTERED_EVIDENCE_GENERATOR_R2_INDEPENDENT_REVIEW/README.md",
+        "EXP_00_R_ROSSLER_REPLICATION_REGISTERED_EVIDENCE_GENERATOR_R2_INDEPENDENT_REVIEW/REVIEW_MANIFEST.json"
+      ],
+      "extensions": {
+        ".json": 2,
+        ".md": 5,
+        ".py": 1
+      },
+      "family": "EXP_00",
+      "file_count": 8,
+      "marker_class": "TERMINAL_MARKER",
+      "raw_bytes": 0,
+      "raw_file_count": 0,
+      "review_class": "TERMINAL_CANDIDATE",
+      "root": "EXP_00_R_ROSSLER_REPLICATION_REGISTERED_EVIDENCE_GENERATOR_R2_INDEPENDENT_REVIEW",
+      "sha256_raw_tree": null,
+      "sha256_tree": "9527e70b09e11e81afe5ee3cfb4193e709e4d48fa04cee8584dff76d7d9f5e1f",
+      "status_signals": [
+        {
+          "signal": "Verdict=**PASS**. Generator R2 closes the contradiction without changing canonical namespace components, serialization, SHA-256/PCG64 identity, physical-seed authority, null semantics, or frozen scientific semantics.",
+          "source": "EXP_00_R_ROSSLER_REPLICATION_REGISTERED_EVIDENCE_GENERATOR_R2_INDEPENDENT_REVIEW/README.md"
+        }
+      ]
+    },
+    {
+      "bytes": 14979,
+      "endpoint_candidates": [
+        "EXP_00_R_ROSSLER_REPLICATION_REGISTERED_INPUT_AVAILABILITY_RECONCILIATION/AVAILABILITY_DECISION.md",
+        "EXP_00_R_ROSSLER_REPLICATION_REGISTERED_INPUT_AVAILABILITY_RECONCILIATION/README.md",
+        "EXP_00_R_ROSSLER_REPLICATION_REGISTERED_INPUT_AVAILABILITY_RECONCILIATION/FROZEN_IDENTITY_RECONSTRUCTION.md"
+      ],
+      "extensions": {
+        ".json": 2,
+        ".md": 6
+      },
+      "family": "EXP_00",
+      "file_count": 8,
+      "marker_class": "TERMINAL_MARKER",
+      "raw_bytes": 0,
+      "raw_file_count": 0,
+      "review_class": "TERMINAL_CANDIDATE",
+      "root": "EXP_00_R_ROSSLER_REPLICATION_REGISTERED_INPUT_AVAILABILITY_RECONCILIATION",
+      "sha256_raw_tree": null,
+      "sha256_tree": "4d1a3d45ccf86b6f7bb4ca7eea9ce14617bab7c3f7fad2dbd35223298f58fa45",
+      "status_signals": []
+    },
+    {
+      "bytes": 26797,
+      "endpoint_candidates": [
+        "EXP_00_R_ROSSLER_REPLICATION_REGISTERED_INPUT_GENERATION_PROVENANCE_REVIEW/FINAL_DECISION.md",
+        "EXP_00_R_ROSSLER_REPLICATION_REGISTERED_INPUT_GENERATION_PROVENANCE_REVIEW/README.md"
+      ],
+      "extensions": {
+        ".json": 2,
+        ".md": 12
+      },
+      "family": "EXP_00",
+      "file_count": 14,
+      "marker_class": "TERMINAL_MARKER",
+      "raw_bytes": 0,
+      "raw_file_count": 0,
+      "review_class": "TERMINAL_CANDIDATE",
+      "root": "EXP_00_R_ROSSLER_REPLICATION_REGISTERED_INPUT_GENERATION_PROVENANCE_REVIEW",
+      "sha256_raw_tree": null,
+      "sha256_tree": "6cc29eadf2ec28e516e2be7397aef7583cff4180e0ab9a3334756a76c5a05931",
+      "status_signals": []
+    },
+    {
+      "bytes": 35689,
+      "endpoint_candidates": [
+        "EXP_00_R_ROSSLER_REPLICATION_REGISTERED_INPUT_SEAL_AUTHORITY/AUTHORITY_DECISION.md",
+        "EXP_00_R_ROSSLER_REPLICATION_REGISTERED_INPUT_SEAL_AUTHORITY/README.md"
+      ],
+      "extensions": {
+        ".json": 2,
+        ".md": 8
+      },
+      "family": "EXP_00",
+      "file_count": 10,
+      "marker_class": "TERMINAL_MARKER",
+      "raw_bytes": 0,
+      "raw_file_count": 0,
+      "review_class": "TERMINAL_CANDIDATE",
+      "root": "EXP_00_R_ROSSLER_REPLICATION_REGISTERED_INPUT_SEAL_AUTHORITY",
+      "sha256_raw_tree": null,
+      "sha256_tree": "120ca9bf4364c819c280bcb455b7c45ab64ad8b018f03705d11f193ffe72dc09",
+      "status_signals": [
+        {
+          "signal": "Decision=**GO FOR CONTENT-BLIND REGISTERED INPUT SEAL**.",
+          "source": "EXP_00_R_ROSSLER_REPLICATION_REGISTERED_INPUT_SEAL_AUTHORITY/README.md"
+        }
+      ]
+    },
+    {
+      "bytes": 14769,
+      "endpoint_candidates": [
+        "EXP_00_R_ROSSLER_REPLICATION_REGISTERED_INPUT_SEAL_OPERATION_AUTHORIZATION/FINAL_DECISION.md",
+        "EXP_00_R_ROSSLER_REPLICATION_REGISTERED_INPUT_SEAL_OPERATION_AUTHORIZATION/README.md"
+      ],
+      "extensions": {
+        ".json": 3,
+        ".md": 4
+      },
+      "family": "EXP_00",
+      "file_count": 7,
+      "marker_class": "TERMINAL_MARKER",
+      "raw_bytes": 0,
+      "raw_file_count": 0,
+      "review_class": "TERMINAL_CANDIDATE",
+      "root": "EXP_00_R_ROSSLER_REPLICATION_REGISTERED_INPUT_SEAL_OPERATION_AUTHORIZATION",
+      "sha256_raw_tree": null,
+      "sha256_tree": "2399049d382fc854bae9a40199a12a5d11160af7b9aad3cce2b2c187b3801bdd",
+      "status_signals": []
+    },
+    {
+      "bytes": 15706,
+      "endpoint_candidates": [
+        "EXP_00_R_ROSSLER_REPLICATION_REGISTERED_PAYLOAD_PRODUCER/VALIDATION_REPORT.md",
+        "EXP_00_R_ROSSLER_REPLICATION_REGISTERED_PAYLOAD_PRODUCER/README.md",
+        "EXP_00_R_ROSSLER_REPLICATION_REGISTERED_PAYLOAD_PRODUCER/PRODUCER_MANIFEST.json"
+      ],
+      "extensions": {
+        ".json": 2,
+        ".md": 5,
+        ".py": 1
+      },
+      "family": "EXP_00",
+      "file_count": 8,
+      "marker_class": "DOCUMENTED_MARKER",
+      "raw_bytes": 0,
+      "raw_file_count": 0,
+      "review_class": "DOCUMENTED_REVIEW",
+      "root": "EXP_00_R_ROSSLER_REPLICATION_REGISTERED_PAYLOAD_PRODUCER",
+      "sha256_raw_tree": null,
+      "sha256_tree": "02a22ffc9b3e8d9afe1b5065a79a58d2e46998ca6be941e6ee5e8be8cc1b422f",
+      "status_signals": [
+        {
+          "signal": "Status=**IMPLEMENTATION STOPPED — BLOCKING_CONTRACT_CONTRADICTION**",
+          "source": "EXP_00_R_ROSSLER_REPLICATION_REGISTERED_PAYLOAD_PRODUCER/README.md"
+        }
+      ]
+    },
+    {
+      "bytes": 33138,
+      "endpoint_candidates": [
+        "EXP_00_R_ROSSLER_REPLICATION_REGISTERED_PAYLOAD_PRODUCER_R1/VALIDATION_REPORT.md",
+        "EXP_00_R_ROSSLER_REPLICATION_REGISTERED_PAYLOAD_PRODUCER_R1/README.md",
+        "EXP_00_R_ROSSLER_REPLICATION_REGISTERED_PAYLOAD_PRODUCER_R1/PRODUCER_MANIFEST.json"
+      ],
+      "extensions": {
+        ".json": 2,
+        ".md": 3,
+        ".py": 3
+      },
+      "family": "EXP_00",
+      "file_count": 8,
+      "marker_class": "DOCUMENTED_MARKER",
+      "raw_bytes": 0,
+      "raw_file_count": 0,
+      "review_class": "DOCUMENTED_REVIEW",
+      "root": "EXP_00_R_ROSSLER_REPLICATION_REGISTERED_PAYLOAD_PRODUCER_R1",
+      "sha256_raw_tree": null,
+      "sha256_tree": "7e663c1edc0da10e93548756df8c0cb41948ff0e1273c5813188e67af02ed349",
+      "status_signals": [
+        {
+          "signal": "Status=**IMPLEMENTED — READY FOR ONE INDEPENDENT PRODUCER CONFORMANCE CHECK**",
+          "source": "EXP_00_R_ROSSLER_REPLICATION_REGISTERED_PAYLOAD_PRODUCER_R1/README.md"
+        }
+      ]
+    },
+    {
+      "bytes": 20259,
+      "endpoint_candidates": [
+        "EXP_00_R_ROSSLER_REPLICATION_REGISTERED_PAYLOAD_PRODUCER_R1_INDEPENDENT_REVIEW/FINAL_REVIEW.md",
+        "EXP_00_R_ROSSLER_REPLICATION_REGISTERED_PAYLOAD_PRODUCER_R1_INDEPENDENT_REVIEW/INDEPENDENT_VALIDATION_REPORT.md",
+        "EXP_00_R_ROSSLER_REPLICATION_REGISTERED_PAYLOAD_PRODUCER_R1_INDEPENDENT_REVIEW/README.md",
+        "EXP_00_R_ROSSLER_REPLICATION_REGISTERED_PAYLOAD_PRODUCER_R1_INDEPENDENT_REVIEW/REVIEW_MANIFEST.json"
+      ],
+      "extensions": {
+        ".json": 2,
+        ".md": 5,
+        ".py": 1
+      },
+      "family": "EXP_00",
+      "file_count": 8,
+      "marker_class": "TERMINAL_MARKER",
+      "raw_bytes": 0,
+      "raw_file_count": 0,
+      "review_class": "TERMINAL_CANDIDATE",
+      "root": "EXP_00_R_ROSSLER_REPLICATION_REGISTERED_PAYLOAD_PRODUCER_R1_INDEPENDENT_REVIEW",
+      "sha256_raw_tree": null,
+      "sha256_tree": "e8d0298a51bd0090695c46524bad264d5bc85956aa762e91a37108d302dcb0cc",
+      "status_signals": [
+        {
+          "signal": "Verdict=**PASS**.",
+          "source": "EXP_00_R_ROSSLER_REPLICATION_REGISTERED_PAYLOAD_PRODUCER_R1_INDEPENDENT_REVIEW/README.md"
+        }
+      ]
+    },
+    {
+      "bytes": 39760,
+      "endpoint_candidates": [
+        "EXP_00_R_ROSSLER_REPLICATION_V3/V3_IMPLEMENTATION_DECISION.md",
+        "EXP_00_R_ROSSLER_REPLICATION_V3/V3_ADVERSARIAL_TEST_REPORT.md",
+        "EXP_00_R_ROSSLER_REPLICATION_V3/V3_REFERENCE_EQUIVALENCE_REPORT.md",
+        "EXP_00_R_ROSSLER_REPLICATION_V3/V3_SYNTHETIC_VALIDATION_REPORT.md",
+        "EXP_00_R_ROSSLER_REPLICATION_V3/README.md",
+        "EXP_00_R_ROSSLER_REPLICATION_V3/V3_PACKAGE_MANIFEST.json",
+        "EXP_00_R_ROSSLER_REPLICATION_V3/execution_authorization/EXECUTION_MANIFEST.json"
+      ],
+      "extensions": {
+        ".json": 5,
+        ".md": 14,
+        ".py": 3
+      },
+      "family": "EXP_00",
+      "file_count": 22,
+      "marker_class": "TERMINAL_MARKER",
+      "raw_bytes": 0,
+      "raw_file_count": 0,
+      "review_class": "TERMINAL_CANDIDATE",
+      "root": "EXP_00_R_ROSSLER_REPLICATION_V3",
+      "sha256_raw_tree": null,
+      "sha256_tree": "e3eb2c9c4fc0d8284e35da000a7682d11a9552d7e34d6dc627f421f7995397e3",
+      "status_signals": []
+    },
+    {
+      "bytes": 40365,
+      "endpoint_candidates": [
+        "EXP_00_R_ROSSLER_REPLICATION_V3R1/V3R1_ADVERSARIAL_TEST_REPORT.md",
+        "EXP_00_R_ROSSLER_REPLICATION_V3R1/README.md",
+        "EXP_00_R_ROSSLER_REPLICATION_V3R1/authorization_trust/EXECUTION_MANIFEST.json"
+      ],
+      "extensions": {
+        ".json": 5,
+        ".md": 9,
+        ".py": 4
+      },
+      "family": "EXP_00",
+      "file_count": 18,
+      "marker_class": "DOCUMENTED_MARKER",
+      "raw_bytes": 0,
+      "raw_file_count": 0,
+      "review_class": "DOCUMENTED_REVIEW",
+      "root": "EXP_00_R_ROSSLER_REPLICATION_V3R1",
+      "sha256_raw_tree": null,
+      "sha256_tree": "67f6372e16c64438b1c59fb740985802277f400e0dae590b0ad1938512223797",
+      "status_signals": []
+    },
+    {
+      "bytes": 26100,
+      "endpoint_candidates": [
+        "EXP_00_R_ROSSLER_REPLICATION_V3R1_INDEPENDENT_REVIEW/ADVERSARIAL_TEST_REPORT.md",
+        "EXP_00_R_ROSSLER_REPLICATION_V3R1_INDEPENDENT_REVIEW/README.md"
+      ],
+      "extensions": {
+        ".md": 11,
+        ".py": 2
+      },
+      "family": "EXP_00",
+      "file_count": 13,
+      "marker_class": "DOCUMENTED_MARKER",
+      "raw_bytes": 0,
+      "raw_file_count": 0,
+      "review_class": "DOCUMENTED_REVIEW",
+      "root": "EXP_00_R_ROSSLER_REPLICATION_V3R1_INDEPENDENT_REVIEW",
+      "sha256_raw_tree": null,
+      "sha256_tree": "f7e67dd185270cd0b8cdf61024d8e809d15bb6e2cee258c24c9a7c4f457277cc",
+      "status_signals": [
+        {
+          "signal": "Decision=`REJECT V3R1 — CLASS B DEFECT`.",
+          "source": "EXP_00_R_ROSSLER_REPLICATION_V3R1_INDEPENDENT_REVIEW/README.md"
+        }
+      ]
+    },
+    {
+      "bytes": 47482,
+      "endpoint_candidates": [
+        "EXP_00_R_ROSSLER_REPLICATION_V3R2/V3R2_ADVERSARIAL_TEST_REPORT.md",
+        "EXP_00_R_ROSSLER_REPLICATION_V3R2/V3R2_REFERENCE_INVARIANCE_REPORT.md",
+        "EXP_00_R_ROSSLER_REPLICATION_V3R2/README.md",
+        "EXP_00_R_ROSSLER_REPLICATION_V3R2/authorization_trust/EXECUTION_MANIFEST.json"
+      ],
+      "extensions": {
+        ".json": 5,
+        ".md": 7,
+        ".py": 3
+      },
+      "family": "EXP_00",
+      "file_count": 15,
+      "marker_class": "DOCUMENTED_MARKER",
+      "raw_bytes": 0,
+      "raw_file_count": 0,
+      "review_class": "DOCUMENTED_REVIEW",
+      "root": "EXP_00_R_ROSSLER_REPLICATION_V3R2",
+      "sha256_raw_tree": null,
+      "sha256_tree": "04214d6443a6ab769154baf5f08dabc68a0b4d35fc789e3ca5e785199f094c14",
+      "status_signals": [
+        {
+          "signal": "Status=**PASS**",
+          "source": "EXP_00_R_ROSSLER_REPLICATION_V3R2/V3R2_REFERENCE_INVARIANCE_REPORT.md"
+        },
+        {
+          "signal": "Decision=**GO FOR INDEPENDENT V3R2 REVIEW**. This is not execution authorization.",
+          "source": "EXP_00_R_ROSSLER_REPLICATION_V3R2/README.md"
+        }
+      ]
+    },
+    {
+      "bytes": 30797,
+      "endpoint_candidates": [],
+      "extensions": {
+        ".py": 5
+      },
+      "family": "EXP_00",
+      "file_count": 5,
+      "marker_class": "NO_MARKER",
+      "raw_bytes": 0,
+      "raw_file_count": 0,
+      "review_class": "MANUAL_REVIEW",
+      "root": "EXP_00_R_ROSSLER_REPLICATION_V3R2_INDEPENDENT_REVIEW",
+      "sha256_raw_tree": null,
+      "sha256_tree": "d02103d297ec58ae93ac8bf5af7361dd6a8c336b46150095909290dfe871093d",
+      "status_signals": []
+    },
+    {
+      "bytes": 63693,
+      "endpoint_candidates": [
+        "EXP_00_R_ROSSLER_REPLICATION_V3R3/V3R3_ADVERSARIAL_TEST_REPORT.md",
+        "EXP_00_R_ROSSLER_REPLICATION_V3R3/V3R3_AUTHORIZATION_FIREWALL_REPORT.md",
+        "EXP_00_R_ROSSLER_REPLICATION_V3R3/README.md",
+        "EXP_00_R_ROSSLER_REPLICATION_V3R3/authorization_trust/EXECUTION_MANIFEST.json"
+      ],
+      "extensions": {
+        ".json": 5,
+        ".md": 11,
+        ".py": 5
+      },
+      "family": "EXP_00",
+      "file_count": 21,
+      "marker_class": "DOCUMENTED_MARKER",
+      "raw_bytes": 0,
+      "raw_file_count": 0,
+      "review_class": "DOCUMENTED_REVIEW",
+      "root": "EXP_00_R_ROSSLER_REPLICATION_V3R3",
+      "sha256_raw_tree": null,
+      "sha256_tree": "e2c68ba994f2a580f051fc25e9c50f2b56dbb62ca2a0faf194f240681376710f",
+      "status_signals": [
+        {
+          "signal": "Status=**PASS**",
+          "source": "EXP_00_R_ROSSLER_REPLICATION_V3R3/V3R3_AUTHORIZATION_FIREWALL_REPORT.md"
+        },
+        {
+          "signal": "Decision=**GO FOR INDEPENDENT V3R3 REVIEW**. This is not execution authorization.",
+          "source": "EXP_00_R_ROSSLER_REPLICATION_V3R3/README.md"
+        }
+      ]
+    },
+    {
+      "bytes": 17875,
+      "endpoint_candidates": [
+        "EXP_00_R_ROSSLER_REPLICATION_V3R3_INDEPENDENT_REVIEW/FINAL_DECISION.md",
+        "EXP_00_R_ROSSLER_REPLICATION_V3R3_INDEPENDENT_REVIEW/V3R3_FINAL_INDEPENDENT_REVIEW.md",
+        "EXP_00_R_ROSSLER_REPLICATION_V3R3_INDEPENDENT_REVIEW/ADVERSARIAL_TEST_REPORT.md",
+        "EXP_00_R_ROSSLER_REPLICATION_V3R3_INDEPENDENT_REVIEW/README.md"
+      ],
+      "extensions": {
+        ".md": 12,
+        ".py": 1
+      },
+      "family": "EXP_00",
+      "file_count": 13,
+      "marker_class": "TERMINAL_MARKER",
+      "raw_bytes": 0,
+      "raw_file_count": 0,
+      "review_class": "TERMINAL_CANDIDATE",
+      "root": "EXP_00_R_ROSSLER_REPLICATION_V3R3_INDEPENDENT_REVIEW",
+      "sha256_raw_tree": null,
+      "sha256_tree": "184ea60f2961eb83ba6fdd4bca108f7c81a2200875734ba55a72b125fe97d73f",
+      "status_signals": [
+        {
+          "signal": "Decision=**V3R3 FINAL INDEPENDENT REVIEW: FAIL**.",
+          "source": "EXP_00_R_ROSSLER_REPLICATION_V3R3_INDEPENDENT_REVIEW/README.md"
+        }
+      ]
+    },
+    {
+      "bytes": 49245,
+      "endpoint_candidates": [
+        "EXP_00_R_ROSSLER_REPLICATION_V3R4_RUNTIME_ENVIRONMENT_BINDING/V3R4_ADVERSARIAL_TEST_REPORT.md",
+        "EXP_00_R_ROSSLER_REPLICATION_V3R4_RUNTIME_ENVIRONMENT_BINDING/README.md"
+      ],
+      "extensions": {
+        ".json": 3,
+        ".md": 7,
+        ".py": 4
+      },
+      "family": "EXP_00",
+      "file_count": 14,
+      "marker_class": "DOCUMENTED_MARKER",
+      "raw_bytes": 0,
+      "raw_file_count": 0,
+      "review_class": "DOCUMENTED_REVIEW",
+      "root": "EXP_00_R_ROSSLER_REPLICATION_V3R4_RUNTIME_ENVIRONMENT_BINDING",
+      "sha256_raw_tree": null,
+      "sha256_tree": "269dcd28b2cd07071f1c774ed7603f1e0ce9b84cd346449c5f7679c89c880d78",
+      "status_signals": []
+    },
+    {
+      "bytes": 10865,
+      "endpoint_candidates": [
+        "EXP_00_R_ROSSLER_REPLICATION_V3R5_INDEPENDENT_REVIEW/FINAL_DECISION.md",
+        "EXP_00_R_ROSSLER_REPLICATION_V3R5_INDEPENDENT_REVIEW/V3_ENGINEERING_CLOSURE.md",
+        "EXP_00_R_ROSSLER_REPLICATION_V3R5_INDEPENDENT_REVIEW/ADVERSARIAL_TEST_REPORT.md",
+        "EXP_00_R_ROSSLER_REPLICATION_V3R5_INDEPENDENT_REVIEW/README.md"
+      ],
+      "extensions": {
+        ".md": 8,
+        ".py": 1
+      },
+      "family": "EXP_00",
+      "file_count": 9,
+      "marker_class": "TERMINAL_MARKER",
+      "raw_bytes": 0,
+      "raw_file_count": 0,
+      "review_class": "TERMINAL_CANDIDATE",
+      "root": "EXP_00_R_ROSSLER_REPLICATION_V3R5_INDEPENDENT_REVIEW",
+      "sha256_raw_tree": null,
+      "sha256_tree": "dbce123a0b15bb855823e12ef8a1bf951b8688660bd9c8c0a54470b69718c46a",
+      "status_signals": [
+        {
+          "signal": "Decision=**FAIL — V3 engineering remains open**. No repair is included.",
+          "source": "EXP_00_R_ROSSLER_REPLICATION_V3R5_INDEPENDENT_REVIEW/README.md"
+        }
+      ]
+    },
+    {
+      "bytes": 43656,
+      "endpoint_candidates": [
+        "EXP_00_R_ROSSLER_REPLICATION_V3R5_RECOVERED_HISTORICAL_RUNTIME_BINDING/V3R5_ADVERSARIAL_TEST_REPORT.md",
+        "EXP_00_R_ROSSLER_REPLICATION_V3R5_RECOVERED_HISTORICAL_RUNTIME_BINDING/V3R5_RUNTIME_BINDING_REPORT.md",
+        "EXP_00_R_ROSSLER_REPLICATION_V3R5_RECOVERED_HISTORICAL_RUNTIME_BINDING/V3R5_SNAPSHOT_TRUST_REPORT.md",
+        "EXP_00_R_ROSSLER_REPLICATION_V3R5_RECOVERED_HISTORICAL_RUNTIME_BINDING/README.md",
+        "EXP_00_R_ROSSLER_REPLICATION_V3R5_RECOVERED_HISTORICAL_RUNTIME_BINDING/V3R5_RUNTIME_AUTHORITY_MANIFEST.json"
+      ],
+      "extensions": {
+        ".json": 3,
+        ".md": 7,
+        ".py": 3
+      },
+      "family": "EXP_00",
+      "file_count": 13,
+      "marker_class": "DOCUMENTED_MARKER",
+      "raw_bytes": 0,
+      "raw_file_count": 0,
+      "review_class": "DOCUMENTED_REVIEW",
+      "root": "EXP_00_R_ROSSLER_REPLICATION_V3R5_RECOVERED_HISTORICAL_RUNTIME_BINDING",
+      "sha256_raw_tree": null,
+      "sha256_tree": "3273954285474f1bd6f08e3ba86fd026ba8ec81e35626fff51351b99be50936b",
+      "status_signals": []
+    },
+    {
+      "bytes": 11687,
+      "endpoint_candidates": [
+        "EXP_00_R_ROSSLER_REPLICATION_V3R6_FINAL_EVIDENCE_ONLY_REVIEW/FINAL_DECISION.md",
+        "EXP_00_R_ROSSLER_REPLICATION_V3R6_FINAL_EVIDENCE_ONLY_REVIEW/README.md"
+      ],
+      "extensions": {
+        ".json": 1,
+        ".md": 3
+      },
+      "family": "EXP_00",
+      "file_count": 4,
+      "marker_class": "TERMINAL_MARKER",
+      "raw_bytes": 0,
+      "raw_file_count": 0,
+      "review_class": "TERMINAL_CANDIDATE",
+      "root": "EXP_00_R_ROSSLER_REPLICATION_V3R6_FINAL_EVIDENCE_ONLY_REVIEW",
+      "sha256_raw_tree": null,
+      "sha256_tree": "56b7020174999703def59f75a3ab80896fccc4131de54b10634c69ad2270529f",
+      "status_signals": [
+        {
+          "signal": "Decision=**PASS — V3 ENGINEERING CLOSED**.",
+          "source": "EXP_00_R_ROSSLER_REPLICATION_V3R6_FINAL_EVIDENCE_ONLY_REVIEW/README.md"
+        }
+      ]
+    },
+    {
+      "bytes": 39422,
+      "endpoint_candidates": [
+        "EXP_00_R_ROSSLER_REPLICATION_V3R6_MATERIAL_CALLABLE_INTEGRITY/V3R6_ADVERSARIAL_TEST_REPORT.md",
+        "EXP_00_R_ROSSLER_REPLICATION_V3R6_MATERIAL_CALLABLE_INTEGRITY/V3R6_CALLABLE_INTEGRITY_REPORT.md",
+        "EXP_00_R_ROSSLER_REPLICATION_V3R6_MATERIAL_CALLABLE_INTEGRITY/README.md"
+      ],
+      "extensions": {
+        ".json": 4,
+        ".md": 8,
+        ".py": 5
+      },
+      "family": "EXP_00",
+      "file_count": 17,
+      "marker_class": "DOCUMENTED_MARKER",
+      "raw_bytes": 0,
+      "raw_file_count": 0,
+      "review_class": "DOCUMENTED_REVIEW",
+      "root": "EXP_00_R_ROSSLER_REPLICATION_V3R6_MATERIAL_CALLABLE_INTEGRITY",
+      "sha256_raw_tree": null,
+      "sha256_tree": "43aa591fa4008bec3250546cdc943cb2c44cc9d496c68bd9e859f60114b3025f",
+      "status_signals": [
+        {
+          "signal": "Status=**V3R5 COUNTEREXAMPLE REPRODUCED**.",
+          "source": "EXP_00_R_ROSSLER_REPLICATION_V3R6_MATERIAL_CALLABLE_INTEGRITY/V3R6_CALLABLE_INTEGRITY_REPORT.md"
+        },
+        {
+          "signal": "Status=**VERIFIED CALLABLE == CONSUMED CALLABLE: PASS**.",
+          "source": "EXP_00_R_ROSSLER_REPLICATION_V3R6_MATERIAL_CALLABLE_INTEGRITY/V3R6_CALLABLE_INTEGRITY_REPORT.md"
+        },
+        {
+          "signal": "Decision=**GO FOR INDEPENDENT V3R6 REVIEW**. This is not registered-execution authorization and does not declare V3 engineering closed.",
+          "source": "EXP_00_R_ROSSLER_REPLICATION_V3R6_MATERIAL_CALLABLE_INTEGRITY/README.md"
+        }
+      ]
+    },
+    {
+      "bytes": 20404,
+      "endpoint_candidates": [
+        "EXP_00_R_ROSSLER_REPLICATION_V3_INDEPENDENT_REVIEW/FINAL_DECISION.md",
+        "EXP_00_R_ROSSLER_REPLICATION_V3_INDEPENDENT_REVIEW/ADVERSARIAL_TEST_REPORT.md",
+        "EXP_00_R_ROSSLER_REPLICATION_V3_INDEPENDENT_REVIEW/README.md"
+      ],
+      "extensions": {
+        ".md": 11,
+        ".py": 4
+      },
+      "family": "EXP_00",
+      "file_count": 15,
+      "marker_class": "TERMINAL_MARKER",
+      "raw_bytes": 0,
+      "raw_file_count": 0,
+      "review_class": "TERMINAL_CANDIDATE",
+      "root": "EXP_00_R_ROSSLER_REPLICATION_V3_INDEPENDENT_REVIEW",
+      "sha256_raw_tree": null,
+      "sha256_tree": "6802adc14fc9aec198c82711e78cba9dd5752426198ab071ff135fa06985462f",
+      "status_signals": []
+    },
+    {
+      "bytes": 32288,
+      "endpoint_candidates": [
+        "EXP_00_R_SCIENTIFIC_CONTRACT_AMENDMENT_A1/README.md"
+      ],
+      "extensions": {
+        ".md": 8,
+        ".yaml": 1
+      },
+      "family": "EXP_00",
+      "file_count": 9,
+      "marker_class": "DOCUMENTED_MARKER",
+      "raw_bytes": 0,
+      "raw_file_count": 0,
+      "review_class": "DOCUMENTED_REVIEW",
+      "root": "EXP_00_R_SCIENTIFIC_CONTRACT_AMENDMENT_A1",
+      "sha256_raw_tree": null,
+      "sha256_tree": "098305c49bbb0e8b095cb6026578db4c03d1c3088d7d2ff4e3ba243b6d923df2",
+      "status_signals": [
+        {
+          "signal": "Status=** prospective, outcome-blind contract completion; not implementation; not execution authorization.",
+          "source": "EXP_00_R_SCIENTIFIC_CONTRACT_AMENDMENT_A1/README.md"
+        }
+      ]
+    },
+    {
+      "bytes": 21312,
+      "endpoint_candidates": [
+        "EXP_00_R_SCIENTIFIC_CONTRACT_AMENDMENT_A1_INDEPENDENT_REVIEW/A1_FINAL_DECISION.md"
+      ],
+      "extensions": {
+        ".md": 8
+      },
+      "family": "EXP_00",
+      "file_count": 8,
+      "marker_class": "TERMINAL_MARKER",
+      "raw_bytes": 0,
+      "raw_file_count": 0,
+      "review_class": "TERMINAL_CANDIDATE",
+      "root": "EXP_00_R_SCIENTIFIC_CONTRACT_AMENDMENT_A1_INDEPENDENT_REVIEW",
+      "sha256_raw_tree": null,
+      "sha256_tree": "8f2dc0de7db083a08e3636a8435d7f60eae3057c89b64f68b827b2e5c6d8fee8",
+      "status_signals": []
+    },
+    {
+      "bytes": 53727,
+      "endpoint_candidates": [
+        "EXP_00_R_SCIENTIFIC_CONTRACT_AMENDMENT_A2/README.md"
+      ],
+      "extensions": {
+        ".md": 10,
+        ".py": 3,
+        ".yaml": 1
+      },
+      "family": "EXP_00",
+      "file_count": 14,
+      "marker_class": "DOCUMENTED_MARKER",
+      "raw_bytes": 0,
+      "raw_file_count": 0,
+      "review_class": "DOCUMENTED_REVIEW",
+      "root": "EXP_00_R_SCIENTIFIC_CONTRACT_AMENDMENT_A2",
+      "sha256_raw_tree": null,
+      "sha256_tree": "bdc720dfc8be9bd96baca80c34c5a1c61d884e9265ffc84ea8c7386166ae33d6",
+      "status_signals": [
+        {
+          "signal": "Status=** prospective, outcome-blind repair of rejected A1; not implementation; not authorization.",
+          "source": "EXP_00_R_SCIENTIFIC_CONTRACT_AMENDMENT_A2/README.md"
+        }
+      ]
+    },
+    {
+      "bytes": 26316,
+      "endpoint_candidates": [
+        "EXP_00_R_SCIENTIFIC_CONTRACT_AMENDMENT_A2_INDEPENDENT_REVIEW/A2_FINAL_DECISION.md"
+      ],
+      "extensions": {
+        ".md": 9
+      },
+      "family": "EXP_00",
+      "file_count": 9,
+      "marker_class": "TERMINAL_MARKER",
+      "raw_bytes": 0,
+      "raw_file_count": 0,
+      "review_class": "TERMINAL_CANDIDATE",
+      "root": "EXP_00_R_SCIENTIFIC_CONTRACT_AMENDMENT_A2_INDEPENDENT_REVIEW",
+      "sha256_raw_tree": null,
+      "sha256_tree": "11d07f97c52138ea582d8ae8638648bd2173572a43da549c620dbb89f3307448",
+      "status_signals": []
+    },
+    {
+      "bytes": 51610,
+      "endpoint_candidates": [
+        "EXP_00_R_SCIENTIFIC_CONTRACT_AMENDMENT_A3/A3_ADVERSARIAL_MUTATION_REPORT.md",
+        "EXP_00_R_SCIENTIFIC_CONTRACT_AMENDMENT_A3/A3_NULL_REPORTING_CONTRACT.md",
+        "EXP_00_R_SCIENTIFIC_CONTRACT_AMENDMENT_A3/README.md"
+      ],
+      "extensions": {
+        ".md": 13,
+        ".py": 3,
+        ".yaml": 1
+      },
+      "family": "EXP_00",
+      "file_count": 17,
+      "marker_class": "DOCUMENTED_MARKER",
+      "raw_bytes": 0,
+      "raw_file_count": 0,
+      "review_class": "DOCUMENTED_REVIEW",
+      "root": "EXP_00_R_SCIENTIFIC_CONTRACT_AMENDMENT_A3",
+      "sha256_raw_tree": null,
+      "sha256_tree": "c230c9bbc83498d2a689846e4c2ae3948f5111ba33bba13426c49a464f8ac18c",
+      "status_signals": [
+        {
+          "signal": "Status=** prospective, outcome-blind repair of rejected A2; contract only.",
+          "source": "EXP_00_R_SCIENTIFIC_CONTRACT_AMENDMENT_A3/README.md"
+        }
+      ]
+    },
+    {
+      "bytes": 30184,
+      "endpoint_candidates": [
+        "EXP_00_R_SCIENTIFIC_CONTRACT_AMENDMENT_A3_INDEPENDENT_REVIEW/A3_FINAL_DECISION.md",
+        "EXP_00_R_SCIENTIFIC_CONTRACT_AMENDMENT_A3_INDEPENDENT_REVIEW/A3_ADVERSARIAL_MUTATION_REPORT.md"
+      ],
+      "extensions": {
+        ".md": 11,
+        ".py": 1
+      },
+      "family": "EXP_00",
+      "file_count": 12,
+      "marker_class": "TERMINAL_MARKER",
+      "raw_bytes": 0,
+      "raw_file_count": 0,
+      "review_class": "TERMINAL_CANDIDATE",
+      "root": "EXP_00_R_SCIENTIFIC_CONTRACT_AMENDMENT_A3_INDEPENDENT_REVIEW",
+      "sha256_raw_tree": null,
+      "sha256_tree": "8eda966cae29912bc25a610f13d917b36795fed47fe826797aaf5a49fbb50850",
+      "status_signals": []
+    },
+    {
+      "bytes": 70243,
+      "endpoint_candidates": [
+        "EXP_00_R_SCIENTIFIC_CONTRACT_AMENDMENT_A4/A4_ADVERSARIAL_MUTATION_REPORT.md",
+        "EXP_00_R_SCIENTIFIC_CONTRACT_AMENDMENT_A4/README.md"
+      ],
+      "extensions": {
+        ".md": 16,
+        ".py": 4,
+        ".yaml": 1
+      },
+      "family": "EXP_00",
+      "file_count": 21,
+      "marker_class": "DOCUMENTED_MARKER",
+      "raw_bytes": 0,
+      "raw_file_count": 0,
+      "review_class": "DOCUMENTED_REVIEW",
+      "root": "EXP_00_R_SCIENTIFIC_CONTRACT_AMENDMENT_A4",
+      "sha256_raw_tree": null,
+      "sha256_tree": "edbfc956dffbb01cc868fe68e29b84e95f7cefa2a4acb7326d628185187db39b",
+      "status_signals": [
+        {
+          "signal": "Status=** prospective contract closure only; not independently accepted; not implemented; not executed.",
+          "source": "EXP_00_R_SCIENTIFIC_CONTRACT_AMENDMENT_A4/README.md"
+        }
+      ]
+    },
+    {
+      "bytes": 27751,
+      "endpoint_candidates": [
+        "EXP_00_R_SCIENTIFIC_CONTRACT_AMENDMENT_A4_INDEPENDENT_REVIEW/A4_FINAL_DECISION.md",
+        "EXP_00_R_SCIENTIFIC_CONTRACT_AMENDMENT_A4_INDEPENDENT_REVIEW/A4_FIXPOINT_DECISION.md",
+        "EXP_00_R_SCIENTIFIC_CONTRACT_AMENDMENT_A4_INDEPENDENT_REVIEW/A4_INDEPENDENT_MUTATION_REPORT.md"
+      ],
+      "extensions": {
+        ".md": 12,
+        ".py": 1
+      },
+      "family": "EXP_00",
+      "file_count": 13,
+      "marker_class": "TERMINAL_MARKER",
+      "raw_bytes": 0,
+      "raw_file_count": 0,
+      "review_class": "TERMINAL_CANDIDATE",
+      "root": "EXP_00_R_SCIENTIFIC_CONTRACT_AMENDMENT_A4_INDEPENDENT_REVIEW",
+      "sha256_raw_tree": null,
+      "sha256_tree": "5832a27b079c193839079e42566b5061f15b6338a0d6b3c11ecb9a3566d25809",
+      "status_signals": []
+    },
+    {
+      "bytes": 62768,
+      "endpoint_candidates": [
+        "EXP_00_R_SCIENTIFIC_CONTRACT_AMENDMENT_A5/A5_FIXPOINT_DECISION.md",
+        "EXP_00_R_SCIENTIFIC_CONTRACT_AMENDMENT_A5/A5_ADVERSARIAL_MUTATION_REPORT.md",
+        "EXP_00_R_SCIENTIFIC_CONTRACT_AMENDMENT_A5/README.md",
+        "EXP_00_R_SCIENTIFIC_CONTRACT_AMENDMENT_A5/A5_PACKAGE_MANIFEST.json"
+      ],
+      "extensions": {
+        ".json": 1,
+        ".md": 15,
+        ".py": 2,
+        ".yaml": 1
+      },
+      "family": "EXP_00",
+      "file_count": 19,
+      "marker_class": "TERMINAL_MARKER",
+      "raw_bytes": 0,
+      "raw_file_count": 0,
+      "review_class": "TERMINAL_CANDIDATE",
+      "root": "EXP_00_R_SCIENTIFIC_CONTRACT_AMENDMENT_A5",
+      "sha256_raw_tree": null,
+      "sha256_tree": "d812ebbeeac9c41ff34834ce1bc973249bffdda212071056ec39893c4da22bb0",
+      "status_signals": []
+    },
+    {
+      "bytes": 52114,
+      "endpoint_candidates": [
+        "EXP_00_R_SCIENTIFIC_CONTRACT_AMENDMENT_A5X/A5X_FIXPOINT_DECISION.md",
+        "EXP_00_R_SCIENTIFIC_CONTRACT_AMENDMENT_A5X/A5X_COORDINATED_ATTACK_REPORT.md",
+        "EXP_00_R_SCIENTIFIC_CONTRACT_AMENDMENT_A5X/README.md"
+      ],
+      "extensions": {
+        ".json": 1,
+        ".md": 12,
+        ".py": 3,
+        ".yaml": 1
+      },
+      "family": "EXP_00",
+      "file_count": 17,
+      "marker_class": "TERMINAL_MARKER",
+      "raw_bytes": 0,
+      "raw_file_count": 0,
+      "review_class": "TERMINAL_CANDIDATE",
+      "root": "EXP_00_R_SCIENTIFIC_CONTRACT_AMENDMENT_A5X",
+      "sha256_raw_tree": null,
+      "sha256_tree": "ce0de55520a149488bf7af2922f41b12f11639a1506dd1d7a4867d1e25bf7e25",
+      "status_signals": []
+    },
+    {
+      "bytes": 140583,
+      "endpoint_candidates": [
+        "EXP_00_R_SCIENTIFIC_CONTRACT_AMENDMENT_A5XE/A5XE_FIXPOINT_DECISION.md",
+        "EXP_00_R_SCIENTIFIC_CONTRACT_AMENDMENT_A5XE/A5XE_ADVERSARIAL_TEST_REPORT.md",
+        "EXP_00_R_SCIENTIFIC_CONTRACT_AMENDMENT_A5XE/README.md",
+        "EXP_00_R_SCIENTIFIC_CONTRACT_AMENDMENT_A5XE/A5XE_ENVIRONMENT_MANIFEST.md"
+      ],
+      "extensions": {
+        ".json": 2,
+        ".md": 17,
+        ".py": 7,
+        ".yaml": 1
+      },
+      "family": "EXP_00",
+      "file_count": 27,
+      "marker_class": "TERMINAL_MARKER",
+      "raw_bytes": 0,
+      "raw_file_count": 0,
+      "review_class": "TERMINAL_CANDIDATE",
+      "root": "EXP_00_R_SCIENTIFIC_CONTRACT_AMENDMENT_A5XE",
+      "sha256_raw_tree": null,
+      "sha256_tree": "0ce40a0d6d385de0d69b61b8e3dfcc930d9dbbdca70e1ff38f825a3aa153bb4f",
+      "status_signals": [
+        {
+          "signal": "Decision=**PASS**.",
+          "source": "EXP_00_R_SCIENTIFIC_CONTRACT_AMENDMENT_A5XE/A5XE_ADVERSARIAL_TEST_REPORT.md"
+        },
+        {
+          "signal": "PYTHONDONTWRITEBYTECODE=1 <bundled-python> -m unittest discover -s contract_validation -p 'test_*.py' -v",
+          "source": "EXP_00_R_SCIENTIFIC_CONTRACT_AMENDMENT_A5XE/A5XE_ENVIRONMENT_MANIFEST.md"
+        }
+      ]
+    },
+    {
+      "bytes": 112510,
+      "endpoint_candidates": [
+        "EXP_00_R_SCIENTIFIC_CONTRACT_AMENDMENT_A5XEF/A5XEF_FIXPOINT_DECISION.md",
+        "EXP_00_R_SCIENTIFIC_CONTRACT_AMENDMENT_A5XEF/A5XEF_ADVERSARIAL_TEST_REPORT.md",
+        "EXP_00_R_SCIENTIFIC_CONTRACT_AMENDMENT_A5XEF/README.md"
+      ],
+      "extensions": {
+        ".json": 5,
+        ".md": 14,
+        ".py": 5,
+        ".yaml": 1
+      },
+      "family": "EXP_00",
+      "file_count": 25,
+      "marker_class": "TERMINAL_MARKER",
+      "raw_bytes": 0,
+      "raw_file_count": 0,
+      "review_class": "TERMINAL_CANDIDATE",
+      "root": "EXP_00_R_SCIENTIFIC_CONTRACT_AMENDMENT_A5XEF",
+      "sha256_raw_tree": null,
+      "sha256_tree": "681dab18d6cdbf444cc49e1c164c149a9e2ebd6b4ecccbddbbadfb49609389c1",
+      "status_signals": []
+    },
+    {
+      "bytes": 32215,
+      "endpoint_candidates": [
+        "EXP_00_R_SCIENTIFIC_CONTRACT_AMENDMENT_A5XEFR/A5XEFR_VALIDATION_REPORT.md",
+        "EXP_00_R_SCIENTIFIC_CONTRACT_AMENDMENT_A5XEFR/README.md"
+      ],
+      "extensions": {
+        ".json": 4,
+        ".md": 5,
+        ".py": 5
+      },
+      "family": "EXP_00",
+      "file_count": 14,
+      "marker_class": "DOCUMENTED_MARKER",
+      "raw_bytes": 0,
+      "raw_file_count": 0,
+      "review_class": "DOCUMENTED_REVIEW",
+      "root": "EXP_00_R_SCIENTIFIC_CONTRACT_AMENDMENT_A5XEFR",
+      "sha256_raw_tree": null,
+      "sha256_tree": "02808a3d01d715e3e2f46c83319ad70216f718d259ae4a63adbc930c4c09c43f",
+      "status_signals": []
+    },
+    {
+      "bytes": 17958,
+      "endpoint_candidates": [
+        "EXP_00_R_SCIENTIFIC_CONTRACT_AMENDMENT_A5XEFR_INDEPENDENT_REVIEW/FINAL_DECISION.md",
+        "EXP_00_R_SCIENTIFIC_CONTRACT_AMENDMENT_A5XEFR_INDEPENDENT_REVIEW/ADVERSARIAL_TEST_REPORT.md",
+        "EXP_00_R_SCIENTIFIC_CONTRACT_AMENDMENT_A5XEFR_INDEPENDENT_REVIEW/README.md"
+      ],
+      "extensions": {
+        ".md": 10,
+        ".py": 1
+      },
+      "family": "EXP_00",
+      "file_count": 11,
+      "marker_class": "TERMINAL_MARKER",
+      "raw_bytes": 0,
+      "raw_file_count": 0,
+      "review_class": "TERMINAL_CANDIDATE",
+      "root": "EXP_00_R_SCIENTIFIC_CONTRACT_AMENDMENT_A5XEFR_INDEPENDENT_REVIEW",
+      "sha256_raw_tree": null,
+      "sha256_tree": "8131894f5965fe7c0422e24919a5308f41b8791d83da6ca3553357a1f6f4b9ba",
+      "status_signals": [
+        {
+          "signal": "Outcome=A5XEFR closes F47 without changing A5XEF scientific semantics. The pre-V3 contract chain is closed.",
+          "source": "EXP_00_R_SCIENTIFIC_CONTRACT_AMENDMENT_A5XEFR_INDEPENDENT_REVIEW/README.md"
+        }
+      ]
+    },
+    {
+      "bytes": 9554,
+      "endpoint_candidates": [
+        "EXP_00_R_SCIENTIFIC_CONTRACT_AMENDMENT_A5XEF_INDEPENDENT_REVIEW/ADVERSARIAL_TEST_REPORT.md",
+        "EXP_00_R_SCIENTIFIC_CONTRACT_AMENDMENT_A5XEF_INDEPENDENT_REVIEW/README.md"
+      ],
+      "extensions": {
+        ".md": 6
+      },
+      "family": "EXP_00",
+      "file_count": 6,
+      "marker_class": "DOCUMENTED_MARKER",
+      "raw_bytes": 0,
+      "raw_file_count": 0,
+      "review_class": "DOCUMENTED_REVIEW",
+      "root": "EXP_00_R_SCIENTIFIC_CONTRACT_AMENDMENT_A5XEF_INDEPENDENT_REVIEW",
+      "sha256_raw_tree": null,
+      "sha256_tree": "fcf178fd9a074c2d6ead8a930218d38025694a24d164355a57fe414ef2e16cd3",
+      "status_signals": []
+    },
+    {
+      "bytes": 21249,
+      "endpoint_candidates": [
+        "EXP_00_R_SCIENTIFIC_CONTRACT_AMENDMENT_A5XE_INDEPENDENT_REVIEW/A5XE_FINAL_DECISION.md",
+        "EXP_00_R_SCIENTIFIC_CONTRACT_AMENDMENT_A5XE_INDEPENDENT_REVIEW/A5XE_FIXPOINT_DECISION.md",
+        "EXP_00_R_SCIENTIFIC_CONTRACT_AMENDMENT_A5XE_INDEPENDENT_REVIEW/A5XE_ADVERSARIAL_MUTATION_REPORT.md"
+      ],
+      "extensions": {
+        ".md": 8,
+        ".py": 1
+      },
+      "family": "EXP_00",
+      "file_count": 9,
+      "marker_class": "TERMINAL_MARKER",
+      "raw_bytes": 0,
+      "raw_file_count": 0,
+      "review_class": "TERMINAL_CANDIDATE",
+      "root": "EXP_00_R_SCIENTIFIC_CONTRACT_AMENDMENT_A5XE_INDEPENDENT_REVIEW",
+      "sha256_raw_tree": null,
+      "sha256_tree": "0e4019fd3505f89cce32b9a45afab07e371d1ecff615f47d3a57b529dcad9c80",
+      "status_signals": []
+    },
+    {
+      "bytes": 59359,
+      "endpoint_candidates": [
+        "EXP_00_R_SCIENTIFIC_CONTRACT_AMENDMENT_A5XR/A5XR_FIXPOINT_DECISION.md",
+        "EXP_00_R_SCIENTIFIC_CONTRACT_AMENDMENT_A5XR/A5XR_ADVERSARIAL_TEST_REPORT.md",
+        "EXP_00_R_SCIENTIFIC_CONTRACT_AMENDMENT_A5XR/A5XR_END_TO_END_DERIVATION_REPORT.md",
+        "EXP_00_R_SCIENTIFIC_CONTRACT_AMENDMENT_A5XR/README.md"
+      ],
+      "extensions": {
+        ".json": 2,
+        ".md": 16,
+        ".py": 5,
+        ".yaml": 1
+      },
+      "family": "EXP_00",
+      "file_count": 24,
+      "marker_class": "TERMINAL_MARKER",
+      "raw_bytes": 0,
+      "raw_file_count": 0,
+      "review_class": "TERMINAL_CANDIDATE",
+      "root": "EXP_00_R_SCIENTIFIC_CONTRACT_AMENDMENT_A5XR",
+      "sha256_raw_tree": null,
+      "sha256_tree": "c550dcd6f141415560244bca0864fa36d82029451f981b8bea68fc67bda535f8",
+      "status_signals": []
+    },
+    {
+      "bytes": 32690,
+      "endpoint_candidates": [
+        "EXP_00_R_SCIENTIFIC_CONTRACT_AMENDMENT_A5XR_INDEPENDENT_REVIEW/A5XR_FINAL_DECISION.md",
+        "EXP_00_R_SCIENTIFIC_CONTRACT_AMENDMENT_A5XR_INDEPENDENT_REVIEW/A5XR_FIXPOINT_DECISION.md"
+      ],
+      "extensions": {
+        ".md": 13,
+        ".py": 2
+      },
+      "family": "EXP_00",
+      "file_count": 15,
+      "marker_class": "TERMINAL_MARKER",
+      "raw_bytes": 0,
+      "raw_file_count": 0,
+      "review_class": "TERMINAL_CANDIDATE",
+      "root": "EXP_00_R_SCIENTIFIC_CONTRACT_AMENDMENT_A5XR_INDEPENDENT_REVIEW",
+      "sha256_raw_tree": null,
+      "sha256_tree": "8b1300902e6415822aa0113488e070a938e9da12c5d494aa98948451450ad5a4",
+      "status_signals": []
+    },
+    {
+      "bytes": 16762,
+      "endpoint_candidates": [
+        "EXP_00_R_SCIENTIFIC_CONTRACT_AMENDMENT_A5X_INDEPENDENT_REVIEW/A5X_FINAL_DECISION.md",
+        "EXP_00_R_SCIENTIFIC_CONTRACT_AMENDMENT_A5X_INDEPENDENT_REVIEW/A5X_FIXPOINT_DECISION.md",
+        "EXP_00_R_SCIENTIFIC_CONTRACT_AMENDMENT_A5X_INDEPENDENT_REVIEW/A5X_SEMANTIC_MUTATION_REPORT.md"
+      ],
+      "extensions": {
+        ".md": 12,
+        ".py": 1
+      },
+      "family": "EXP_00",
+      "file_count": 13,
+      "marker_class": "TERMINAL_MARKER",
+      "raw_bytes": 0,
+      "raw_file_count": 0,
+      "review_class": "TERMINAL_CANDIDATE",
+      "root": "EXP_00_R_SCIENTIFIC_CONTRACT_AMENDMENT_A5X_INDEPENDENT_REVIEW",
+      "sha256_raw_tree": null,
+      "sha256_tree": "030a00145be9faa47906e06002c43cdb45f4b105c84430bbd882928973afa6f1",
+      "status_signals": []
+    },
+    {
+      "bytes": 28956,
+      "endpoint_candidates": [
+        "EXP_00_R_SCIENTIFIC_CONTRACT_AMENDMENT_A5_INDEPENDENT_REVIEW/A5_FINAL_DECISION.md",
+        "EXP_00_R_SCIENTIFIC_CONTRACT_AMENDMENT_A5_INDEPENDENT_REVIEW/A5_FIXPOINT_DECISION.md",
+        "EXP_00_R_SCIENTIFIC_CONTRACT_AMENDMENT_A5_INDEPENDENT_REVIEW/A5_INDEPENDENT_MUTATION_REPORT.md"
+      ],
+      "extensions": {
+        ".md": 14,
+        ".py": 1
+      },
+      "family": "EXP_00",
+      "file_count": 15,
+      "marker_class": "TERMINAL_MARKER",
+      "raw_bytes": 0,
+      "raw_file_count": 0,
+      "review_class": "TERMINAL_CANDIDATE",
+      "root": "EXP_00_R_SCIENTIFIC_CONTRACT_AMENDMENT_A5_INDEPENDENT_REVIEW",
+      "sha256_raw_tree": null,
+      "sha256_tree": "94c4999b4b19771ee2511182e03e90006a752d85ef1a87264e305933b8d3dd73",
+      "status_signals": []
+    },
+    {
+      "bytes": 39454,
+      "endpoint_candidates": [
+        "EXP_00_R_SCIENTIFIC_CONTRACT_AMENDMENT_REGISTERED_EVIDENCE_EXPORT/FINAL_DECISION.md",
+        "EXP_00_R_SCIENTIFIC_CONTRACT_AMENDMENT_REGISTERED_EVIDENCE_EXPORT/PER_ACTION_OUTCOME_EXPORT.md",
+        "EXP_00_R_SCIENTIFIC_CONTRACT_AMENDMENT_REGISTERED_EVIDENCE_EXPORT/NEW_PROSPECTIVE_DECISIONS.md",
+        "EXP_00_R_SCIENTIFIC_CONTRACT_AMENDMENT_REGISTERED_EVIDENCE_EXPORT/README.md"
+      ],
+      "extensions": {
+        ".json": 2,
+        ".md": 17
+      },
+      "family": "EXP_00",
+      "file_count": 19,
+      "marker_class": "TERMINAL_MARKER",
+      "raw_bytes": 0,
+      "raw_file_count": 0,
+      "review_class": "TERMINAL_CANDIDATE",
+      "root": "EXP_00_R_SCIENTIFIC_CONTRACT_AMENDMENT_REGISTERED_EVIDENCE_EXPORT",
+      "sha256_raw_tree": null,
+      "sha256_tree": "41725e3e8bbda3603a1326b4f21b25c242f1bfb55c29eeea6c3fd00ebc4ffef4",
+      "status_signals": []
+    },
+    {
+      "bytes": 13357,
+      "endpoint_candidates": [
+        "EXP_00_R_SCIENTIFIC_CONTRACT_AMENDMENT_REGISTERED_EVIDENCE_EXPORT_INDEPENDENT_REVIEW/FINAL_DECISION.md",
+        "EXP_00_R_SCIENTIFIC_CONTRACT_AMENDMENT_REGISTERED_EVIDENCE_EXPORT_INDEPENDENT_REVIEW/OUTCOME_BLINDNESS_AUDIT.md",
+        "EXP_00_R_SCIENTIFIC_CONTRACT_AMENDMENT_REGISTERED_EVIDENCE_EXPORT_INDEPENDENT_REVIEW/README.md"
+      ],
+      "extensions": {
+        ".json": 2,
+        ".md": 7
+      },
+      "family": "EXP_00",
+      "file_count": 9,
+      "marker_class": "TERMINAL_MARKER",
+      "raw_bytes": 0,
+      "raw_file_count": 0,
+      "review_class": "TERMINAL_CANDIDATE",
+      "root": "EXP_00_R_SCIENTIFIC_CONTRACT_AMENDMENT_REGISTERED_EVIDENCE_EXPORT_INDEPENDENT_REVIEW",
+      "sha256_raw_tree": null,
+      "sha256_tree": "b558361c1dde29cc57ece15615c89a90eb1afc7ea6500c979fd74dfa0957648e",
+      "status_signals": []
+    },
+    {
+      "bytes": 15748,
+      "endpoint_candidates": [
+        "EXP_00_R_SCIENTIFIC_CONTRACT_AMENDMENT_REGISTERED_EVIDENCE_EXPORT_R1/VALIDATION_REPORT.md",
+        "EXP_00_R_SCIENTIFIC_CONTRACT_AMENDMENT_REGISTERED_EVIDENCE_EXPORT_R1/README.md"
+      ],
+      "extensions": {
+        ".json": 3,
+        ".md": 8
+      },
+      "family": "EXP_00",
+      "file_count": 11,
+      "marker_class": "DOCUMENTED_MARKER",
+      "raw_bytes": 0,
+      "raw_file_count": 0,
+      "review_class": "DOCUMENTED_REVIEW",
+      "root": "EXP_00_R_SCIENTIFIC_CONTRACT_AMENDMENT_REGISTERED_EVIDENCE_EXPORT_R1",
+      "sha256_raw_tree": null,
+      "sha256_tree": "4f368d40f98856202c0fe3852cd597e427123c2a6324dcfe7f2bd21545a85d3d",
+      "status_signals": [
+        {
+          "signal": "Status=**REPAIRED — PENDING INDEPENDENT REVIEW**.",
+          "source": "EXP_00_R_SCIENTIFIC_CONTRACT_AMENDMENT_REGISTERED_EVIDENCE_EXPORT_R1/README.md"
+        }
+      ]
+    },
+    {
+      "bytes": 9424,
+      "endpoint_candidates": [
+        "EXP_00_R_SCIENTIFIC_CONTRACT_AMENDMENT_REGISTERED_EVIDENCE_EXPORT_R1_INDEPENDENT_REVIEW/FINAL_DECISION.md",
+        "EXP_00_R_SCIENTIFIC_CONTRACT_AMENDMENT_REGISTERED_EVIDENCE_EXPORT_R1_INDEPENDENT_REVIEW/README.md"
+      ],
+      "extensions": {
+        ".json": 2,
+        ".md": 6
+      },
+      "family": "EXP_00",
+      "file_count": 8,
+      "marker_class": "TERMINAL_MARKER",
+      "raw_bytes": 0,
+      "raw_file_count": 0,
+      "review_class": "TERMINAL_CANDIDATE",
+      "root": "EXP_00_R_SCIENTIFIC_CONTRACT_AMENDMENT_REGISTERED_EVIDENCE_EXPORT_R1_INDEPENDENT_REVIEW",
+      "sha256_raw_tree": null,
+      "sha256_tree": "ca4c7308318dcf8e57c0b86eb63883ea722d3a08dcd5d4fbe25775ad3d459754",
+      "status_signals": [
+        {
+          "signal": "Verdict=**PASS**. The two Class-A authority conflicts identified by the preceding independent review do not remain after R1.",
+          "source": "EXP_00_R_SCIENTIFIC_CONTRACT_AMENDMENT_REGISTERED_EVIDENCE_EXPORT_R1_INDEPENDENT_REVIEW/README.md"
+        }
+      ]
+    },
+    {
+      "bytes": 13979,
+      "endpoint_candidates": [
+        "EXP_00_R_SCIENTIFIC_CONTRACT_AMENDMENT_REGISTERED_EVIDENCE_EXPORT_R1_SEAL_RECONCILIATION/FINAL_DECISION.md",
+        "EXP_00_R_SCIENTIFIC_CONTRACT_AMENDMENT_REGISTERED_EVIDENCE_EXPORT_R1_SEAL_RECONCILIATION/README.md"
+      ],
+      "extensions": {
+        ".json": 2,
+        ".md": 5
+      },
+      "family": "EXP_00",
+      "file_count": 7,
+      "marker_class": "TERMINAL_MARKER",
+      "raw_bytes": 0,
+      "raw_file_count": 0,
+      "review_class": "TERMINAL_CANDIDATE",
+      "root": "EXP_00_R_SCIENTIFIC_CONTRACT_AMENDMENT_REGISTERED_EVIDENCE_EXPORT_R1_SEAL_RECONCILIATION",
+      "sha256_raw_tree": null,
+      "sha256_tree": "385dd4a6aaf7ad597cbd5b0ed7899990891735f3b2a5a50f048510988c926aaf",
+      "status_signals": [
+        {
+          "signal": "Status=**PASS — CLOSED / RECONCILED**",
+          "source": "EXP_00_R_SCIENTIFIC_CONTRACT_AMENDMENT_REGISTERED_EVIDENCE_EXPORT_R1_SEAL_RECONCILIATION/README.md"
+        }
+      ]
+    },
+    {
+      "bytes": 22934,
+      "endpoint_candidates": [
+        "EXP_00_R_V3_HISTORICAL_RUNTIME_REFERENCE_PROVENANCE_AUDIT/FINAL_DECISION.md",
+        "EXP_00_R_V3_HISTORICAL_RUNTIME_REFERENCE_PROVENANCE_AUDIT/NEXT_AUTHORITY_DECISION.md",
+        "EXP_00_R_V3_HISTORICAL_RUNTIME_REFERENCE_PROVENANCE_AUDIT/README.md"
+      ],
+      "extensions": {
+        ".json": 2,
+        ".md": 8,
+        ".py": 3
+      },
+      "family": "EXP_00",
+      "file_count": 13,
+      "marker_class": "TERMINAL_MARKER",
+      "raw_bytes": 0,
+      "raw_file_count": 0,
+      "review_class": "TERMINAL_CANDIDATE",
+      "root": "EXP_00_R_V3_HISTORICAL_RUNTIME_REFERENCE_PROVENANCE_AUDIT",
+      "sha256_raw_tree": null,
+      "sha256_tree": "4919665d977a7b23339260feeffd547f3bab856c96cf85a48bf3008f7a557b9e",
+      "status_signals": []
+    },
+    {
+      "bytes": 10308950,
+      "endpoint_candidates": [
+        "EXP_00_V2_LEARNED_PARITY/outputs/logs/CODE_FREEZE_MANIFEST.json",
+        "EXP_00_V2_LEARNED_PARITY/reports/EXP_00_V2_FALSIFICATION_REPORT.md",
+        "EXP_00_V2_LEARNED_PARITY/README.md"
+      ],
+      "extensions": {
+        ".csv": 6,
+        ".json": 8,
+        ".md": 7,
+        ".npz": 1,
+        ".py": 8,
+        ".yaml": 1
+      },
+      "family": "EXP_00",
+      "file_count": 31,
+      "marker_class": "TERMINAL_MARKER",
+      "raw_bytes": 1301806,
+      "raw_file_count": 2,
+      "review_class": "TERMINAL_CANDIDATE",
+      "root": "EXP_00_V2_LEARNED_PARITY",
+      "sha256_raw_tree": "d411c79f943c6e3be42c5cc56016ff986df123a3b1922c847913bcf5f6c6e20f",
+      "sha256_tree": "450da3c04bc1104ab820cff3b6048d791034a8ae665cbb54978c70344df19048",
+      "status_signals": []
+    },
+    {
+      "bytes": 37712,
+      "endpoint_candidates": [
+        "GOVERNANCE/02_OWNER_DECISION_OBJECT.md",
+        "GOVERNANCE/07_DECISION_LIFECYCLE.md",
+        "GOVERNANCE/09_CURRENT_OWNER_DECISIONS.md",
+        "GOVERNANCE/README.md"
+      ],
+      "extensions": {
+        ".md": 14
+      },
+      "family": "OTHER",
+      "file_count": 14,
+      "marker_class": "TERMINAL_MARKER",
+      "raw_bytes": 0,
+      "raw_file_count": 0,
+      "review_class": "TERMINAL_CANDIDATE",
+      "root": "GOVERNANCE",
+      "sha256_raw_tree": null,
+      "sha256_tree": "4b10b3e2582cdc57eba46260dd0dca11b27663fc1d0b28413cd0385d15f4fb31",
+      "status_signals": [
+        {
+          "signal": "STATUS=PROPOSED",
+          "source": "GOVERNANCE/02_OWNER_DECISION_OBJECT.md"
+        },
+        {
+          "signal": "PATTERN_MASTER_HOME=/Users/tho2020/Documents/GitHub/NEXAH/docs/library/architecture-of-orientation-vol-iv/pattern-of-orientation",
+          "source": "GOVERNANCE/09_CURRENT_OWNER_DECISIONS.md"
+        },
+        {
+          "signal": "EFFECTIVE_RUNTIME_VALUES=PATTERN_MASTER_HOME",
+          "source": "GOVERNANCE/09_CURRENT_OWNER_DECISIONS.md"
+        },
+        {
+          "signal": "Status=`PREPARED`",
+          "source": "GOVERNANCE/README.md"
+        }
+      ]
+    },
+    {
+      "bytes": 2178,
+      "endpoint_candidates": [
+        "LAB_SESSION_CLOSURE_2026-08.md"
+      ],
+      "extensions": {
+        ".md": 1
+      },
+      "family": "OTHER",
+      "file_count": 1,
+      "marker_class": "TERMINAL_MARKER",
+      "raw_bytes": 0,
+      "raw_file_count": 0,
+      "review_class": "TERMINAL_CANDIDATE",
+      "root": "LAB_SESSION_CLOSURE_2026-08.md",
+      "sha256_raw_tree": null,
+      "sha256_tree": "500cb5e219edc45075d0a6fa484762b46c974a1d8a52dd124bd50c63d07b968e",
+      "status_signals": []
+    },
+    {
+      "bytes": 48416,
+      "endpoint_candidates": [
+        "MINIMUM_REPOSITORY_ORIENTATION_REVIEW/14_FINAL_RECOMMENDATION.md",
+        "MINIMUM_REPOSITORY_ORIENTATION_REVIEW/README.md"
+      ],
+      "extensions": {
+        ".md": 15
+      },
+      "family": "OTHER",
+      "file_count": 15,
+      "marker_class": "TERMINAL_MARKER",
+      "raw_bytes": 0,
+      "raw_file_count": 0,
+      "review_class": "TERMINAL_CANDIDATE",
+      "root": "MINIMUM_REPOSITORY_ORIENTATION_REVIEW",
+      "sha256_raw_tree": null,
+      "sha256_tree": "fa5e67cd0ef6a8cdce1499e56699854c79a9901f5e3ec59ab3717330e1c4dafb",
+      "status_signals": [
+        {
+          "signal": "Status=`REVIEW COMPLETE — OWNER DECISIONS REQUIRED`",
+          "source": "MINIMUM_REPOSITORY_ORIENTATION_REVIEW/14_FINAL_RECOMMENDATION.md"
+        },
+        {
+          "signal": "Status=`REVIEW COMPLETE — ADOPTION PREPARED`",
+          "source": "MINIMUM_REPOSITORY_ORIENTATION_REVIEW/README.md"
+        }
+      ]
+    },
+    {
+      "bytes": 78947,
+      "endpoint_candidates": [
+        "MISSION_02_HIDDEN_ARCHITECTURE/README.md"
+      ],
+      "extensions": {
+        ".md": 11
+      },
+      "family": "OTHER",
+      "file_count": 11,
+      "marker_class": "DOCUMENTED_MARKER",
+      "raw_bytes": 0,
+      "raw_file_count": 0,
+      "review_class": "DOCUMENTED_REVIEW",
+      "root": "MISSION_02_HIDDEN_ARCHITECTURE",
+      "sha256_raw_tree": null,
+      "sha256_tree": "d90234ce1843ce92b18c6dccee1caa6929ad9f5e5ea817568d93996d59197757",
+      "status_signals": [
+        {
+          "signal": "Status=** reconstruction report · documentation only",
+          "source": "MISSION_02_HIDDEN_ARCHITECTURE/README.md"
+        }
+      ]
+    },
+    {
+      "bytes": 61566,
+      "endpoint_candidates": [
+        "MISSION_03_INTAKE_RESOLUTION_DECISION_GATE/01_DECISION_PACKET.md",
+        "MISSION_03_INTAKE_RESOLUTION_DECISION_GATE/02_PATTERN_OF_ORIENTATION_DECISION.md",
+        "MISSION_03_INTAKE_RESOLUTION_DECISION_GATE/03_LAB_IDENTITY_COLLISION_DECISION.md",
+        "MISSION_03_INTAKE_RESOLUTION_DECISION_GATE/README.md",
+        "MISSION_03_INTAKE_RESOLUTION_DECISION_GATE/05_LANDING_PAD_ROUTING_MANIFEST.md"
+      ],
+      "extensions": {
+        ".md": 10
+      },
+      "family": "OTHER",
+      "file_count": 10,
+      "marker_class": "TERMINAL_MARKER",
+      "raw_bytes": 0,
+      "raw_file_count": 0,
+      "review_class": "TERMINAL_CANDIDATE",
+      "root": "MISSION_03_INTAKE_RESOLUTION_DECISION_GATE",
+      "sha256_raw_tree": null,
+      "sha256_tree": "b5c4a29e88a184d000c4dbe6960cfa04b75e65759f6fe5fc88de766bc73a5b9b",
+      "status_signals": [
+        {
+          "signal": "Status=** Phase A complete · decision preparation only",
+          "source": "MISSION_03_INTAKE_RESOLUTION_DECISION_GATE/README.md"
+        }
+      ]
+    },
+    {
+      "bytes": 3177,
+      "endpoint_candidates": [],
+      "extensions": {
+        ".md": 1
+      },
+      "family": "NEXAH",
+      "file_count": 1,
+      "marker_class": "NO_MARKER",
+      "raw_bytes": 0,
+      "raw_file_count": 0,
+      "review_class": "MANUAL_REVIEW",
+      "root": "NEXAH_90_DAY_OUTREACH_PLAN.md",
+      "sha256_raw_tree": null,
+      "sha256_tree": "e8194e6bab0078417b8ec60e68101a1be1b8ab569658f0b9dd57d763fd16c6d6",
+      "status_signals": []
+    },
+    {
+      "bytes": 64898,
+      "endpoint_candidates": [
+        "NEXAH_APPLICATION_AND_USEFULNESS_ROADMAP_V1/FINAL_APPLICATION_AND_USEFULNESS_ROADMAP_REPORT.md",
+        "NEXAH_APPLICATION_AND_USEFULNESS_ROADMAP_V1/10_OWNER_DECISIONS_AND_BLOCKERS.md",
+        "NEXAH_APPLICATION_AND_USEFULNESS_ROADMAP_V1/00_SCOPE_AND_FREEZE.md"
+      ],
+      "extensions": {
+        ".md": 12
+      },
+      "family": "NEXAH",
+      "file_count": 12,
+      "marker_class": "TERMINAL_MARKER",
+      "raw_bytes": 0,
+      "raw_file_count": 0,
+      "review_class": "TERMINAL_CANDIDATE",
+      "root": "NEXAH_APPLICATION_AND_USEFULNESS_ROADMAP_V1",
+      "sha256_raw_tree": null,
+      "sha256_tree": "f1bd8325b7066a77e42541c54f92b6fa64a9b31d3ab796e2424b8cc2fa83aa6a",
+      "status_signals": []
+    },
+    {
+      "bytes": 48910,
+      "endpoint_candidates": [
+        "NEXAH_APPLICATION_PHASE_1/FINAL_APPLICATION_PHASE_1_REPORT.md"
+      ],
+      "extensions": {
+        ".md": 9
+      },
+      "family": "NEXAH",
+      "file_count": 9,
+      "marker_class": "TERMINAL_MARKER",
+      "raw_bytes": 0,
+      "raw_file_count": 0,
+      "review_class": "TERMINAL_CANDIDATE",
+      "root": "NEXAH_APPLICATION_PHASE_1",
+      "sha256_raw_tree": null,
+      "sha256_tree": "33e2adbf48050bdc0a5e2ea569786297434a5f03f8a9e765a004b67874557e7e",
+      "status_signals": [
+        {
+          "signal": "Status=`PROPOSED / NOT_ADOPTED`",
+          "source": "NEXAH_APPLICATION_PHASE_1/FINAL_APPLICATION_PHASE_1_REPORT.md"
+        }
+      ]
+    },
+    {
+      "bytes": 3017,
+      "endpoint_candidates": [],
+      "extensions": {
+        ".md": 1
+      },
+      "family": "NEXAH",
+      "file_count": 1,
+      "marker_class": "NO_MARKER",
+      "raw_bytes": 0,
+      "raw_file_count": 0,
+      "review_class": "MANUAL_REVIEW",
+      "root": "NEXAH_AUDIENCE_MAP.md",
+      "sha256_raw_tree": null,
+      "sha256_tree": "4b9efd80f66d1f0bd9c515dedce810220176a7e863cc0b555651a022adcf67de",
+      "status_signals": []
+    },
+    {
+      "bytes": 3393,
+      "endpoint_candidates": [],
+      "extensions": {
+        ".md": 1
+      },
+      "family": "NEXAH",
+      "file_count": 1,
+      "marker_class": "NO_MARKER",
+      "raw_bytes": 0,
+      "raw_file_count": 0,
+      "review_class": "MANUAL_REVIEW",
+      "root": "NEXAH_BUILDER_ONRAMP_REVIEW.md",
+      "sha256_raw_tree": null,
+      "sha256_tree": "2f0531a640bfeb679a60f30a3abd77eeda8029bc2ca1c4d247b9e6a803b88a78",
+      "status_signals": []
+    },
+    {
+      "bytes": 53167,
+      "endpoint_candidates": [
+        "NEXAH_CODEX_ARCHITECTURE_EXTRACTION_REVIEW/10_FINAL_ASSESSMENT.md",
+        "NEXAH_CODEX_ARCHITECTURE_EXTRACTION_REVIEW/OWNER_DECISION_MATRIX.md",
+        "NEXAH_CODEX_ARCHITECTURE_EXTRACTION_REVIEW/OWNER_REVIEW_DECISION_BRIEF.md",
+        "NEXAH_CODEX_ARCHITECTURE_EXTRACTION_REVIEW/README.md"
+      ],
+      "extensions": {
+        ".md": 14
+      },
+      "family": "NEXAH",
+      "file_count": 14,
+      "marker_class": "TERMINAL_MARKER",
+      "raw_bytes": 0,
+      "raw_file_count": 0,
+      "review_class": "TERMINAL_CANDIDATE",
+      "root": "NEXAH_CODEX_ARCHITECTURE_EXTRACTION_REVIEW",
+      "sha256_raw_tree": null,
+      "sha256_tree": "fdf4ddb5d229446d259a5dce8737d257ed4d441e0d3d34cec21264fd4145f38e",
+      "status_signals": [
+        {
+          "signal": "Status=`OWNER DECISION REQUIRED`",
+          "source": "NEXAH_CODEX_ARCHITECTURE_EXTRACTION_REVIEW/OWNER_DECISION_MATRIX.md"
+        },
+        {
+          "signal": "Status=`OWNER DECISION PREPARATION`",
+          "source": "NEXAH_CODEX_ARCHITECTURE_EXTRACTION_REVIEW/OWNER_REVIEW_DECISION_BRIEF.md"
+        },
+        {
+          "signal": "Status=`READ-ONLY REVIEW COMPLETE`",
+          "source": "NEXAH_CODEX_ARCHITECTURE_EXTRACTION_REVIEW/README.md"
+        }
+      ]
+    },
+    {
+      "bytes": 2788532776,
+      "endpoint_candidates": [
+        "NEXAH_EARLY_WARNING_HYPOTHESIS_VALIDATION/FINAL_EARLY_WARNING_VALIDATION_PLAN.md",
+        "NEXAH_EARLY_WARNING_HYPOTHESIS_VALIDATION/level1b/LEVEL1B_FINAL_REPORT.md",
+        "NEXAH_EARLY_WARNING_HYPOTHESIS_VALIDATION/level1c/LEVEL1C_FINAL_REPORT.md",
+        "NEXAH_EARLY_WARNING_HYPOTHESIS_VALIDATION/level1c/LEVEL1C_SCIENTIFIC_OUTCOME.json",
+        "NEXAH_EARLY_WARNING_HYPOTHESIS_VALIDATION/level1/LEVEL1_FREEZE_RECORD.md",
+        "NEXAH_EARLY_WARNING_HYPOTHESIS_VALIDATION/level1b/LEVEL1B_FREEZE_RECORD.md",
+        "NEXAH_EARLY_WARNING_HYPOTHESIS_VALIDATION/LEVEL1_PREREGISTRATION_AND_RAW_SIMULATOR_REPORT.md",
+        "NEXAH_EARLY_WARNING_HYPOTHESIS_VALIDATION/level1/README.md"
+      ],
+      "extensions": {
+        ".json": 3009,
+        ".md": 24,
+        ".py": 9
+      },
+      "family": "NEXAH",
+      "file_count": 3042,
+      "marker_class": "TERMINAL_MARKER",
+      "raw_bytes": 2782763545,
+      "raw_file_count": 2990,
+      "review_class": "TERMINAL_CANDIDATE",
+      "root": "NEXAH_EARLY_WARNING_HYPOTHESIS_VALIDATION",
+      "sha256_raw_tree": "b3254f3c74f2a37359a0213d47baf8ddc599b8165263552d845562b847095efb",
+      "sha256_tree": "5f4e0014714a39d807a5f3849bfbeab23c7db9c2d1196ee2105a0a777ed7cc64",
+      "status_signals": [
+        {
+          "signal": "ORIGINAL_LEVEL1_MANIFEST_VERIFIED=YES",
+          "source": "NEXAH_EARLY_WARNING_HYPOTHESIS_VALIDATION/level1b/LEVEL1B_FINAL_REPORT.md"
+        },
+        {
+          "signal": "PROTOCOL_AMENDMENT_CREATED=YES",
+          "source": "NEXAH_EARLY_WARNING_HYPOTHESIS_VALIDATION/level1b/LEVEL1B_FINAL_REPORT.md"
+        },
+        {
+          "signal": "AMENDMENT_SHA256=c5df438954b3f32d44a4eea6d4add89bb9f10c71e3b32ba8ce135d8b473c870a",
+          "source": "NEXAH_EARLY_WARNING_HYPOTHESIS_VALIDATION/level1b/LEVEL1B_FINAL_REPORT.md"
+        },
+        {
+          "signal": "SCIENTIFIC_RAW_MODEL_CHANGED=NO",
+          "source": "NEXAH_EARLY_WARNING_HYPOTHESIS_VALIDATION/level1b/LEVEL1B_FINAL_REPORT.md"
+        },
+        {
+          "signal": "R_FORMULA_CHANGED=NO",
+          "source": "NEXAH_EARLY_WARNING_HYPOTHESIS_VALIDATION/level1b/LEVEL1B_FINAL_REPORT.md"
+        },
+        {
+          "signal": "V_FORMULA_CHANGED=NO",
+          "source": "NEXAH_EARLY_WARNING_HYPOTHESIS_VALIDATION/level1b/LEVEL1B_FINAL_REPORT.md"
+        },
+        {
+          "signal": "DEVELOPMENT_RESULTS_SEEN_BEFORE_AMENDMENT=NO",
+          "source": "NEXAH_EARLY_WARNING_HYPOTHESIS_VALIDATION/level1b/LEVEL1B_FINAL_REPORT.md"
+        },
+        {
+          "signal": "EVALUATION_PARTITION_OPENED=NO",
+          "source": "NEXAH_EARLY_WARNING_HYPOTHESIS_VALIDATION/level1b/LEVEL1B_FINAL_REPORT.md"
+        },
+        {
+          "signal": "EVALUATION_PERFORMANCE_INSPECTED=NO",
+          "source": "NEXAH_EARLY_WARNING_HYPOTHESIS_VALIDATION/level1b/LEVEL1B_FINAL_REPORT.md"
+        },
+        {
+          "signal": "APPLICATION_001_CHANGED=NO",
+          "source": "NEXAH_EARLY_WARNING_HYPOTHESIS_VALIDATION/level1b/LEVEL1B_FINAL_REPORT.md"
+        },
+        {
+          "signal": "TOTAL_EVALUATION_RUNS=2613",
+          "source": "NEXAH_EARLY_WARNING_HYPOTHESIS_VALIDATION/level1c/LEVEL1C_FINAL_REPORT.md"
+        },
+        {
+          "signal": "VALID_RUNS=2613",
+          "source": "NEXAH_EARLY_WARNING_HYPOTHESIS_VALIDATION/level1c/LEVEL1C_FINAL_REPORT.md"
+        },
+        {
+          "signal": "INVALID_RUNS=0",
+          "source": "NEXAH_EARLY_WARNING_HYPOTHESIS_VALIDATION/level1c/LEVEL1C_FINAL_REPORT.md"
+        },
+        {
+          "signal": "EVENT_RUNS=0",
+          "source": "NEXAH_EARLY_WARNING_HYPOTHESIS_VALIDATION/level1c/LEVEL1C_FINAL_REPORT.md"
+        },
+        {
+          "signal": "EVENT_FREE_RUNS=2613",
+          "source": "NEXAH_EARLY_WARNING_HYPOTHESIS_VALIDATION/level1c/LEVEL1C_FINAL_REPORT.md"
+        },
+        {
+          "signal": "R_DETECTIONS=0",
+          "source": "NEXAH_EARLY_WARNING_HYPOTHESIS_VALIDATION/level1c/LEVEL1C_FINAL_REPORT.md"
+        },
+        {
+          "signal": "V_DETECTIONS=0",
+          "source": "NEXAH_EARLY_WARNING_HYPOTHESIS_VALIDATION/level1c/LEVEL1C_FINAL_REPORT.md"
+        },
+        {
+          "signal": "R_TRUE_POSITIVES=0",
+          "source": "NEXAH_EARLY_WARNING_HYPOTHESIS_VALIDATION/level1c/LEVEL1C_FINAL_REPORT.md"
+        },
+        {
+          "signal": "V_TRUE_POSITIVES=0",
+          "source": "NEXAH_EARLY_WARNING_HYPOTHESIS_VALIDATION/level1c/LEVEL1C_FINAL_REPORT.md"
+        },
+        {
+          "signal": "R_FALSE_POSITIVES=0",
+          "source": "NEXAH_EARLY_WARNING_HYPOTHESIS_VALIDATION/level1c/LEVEL1C_FINAL_REPORT.md"
+        },
+        {
+          "signal": "formal_classifier.outcome=INCONCLUSIVE",
+          "source": "NEXAH_EARLY_WARNING_HYPOTHESIS_VALIDATION/level1c/LEVEL1C_SCIENTIFIC_OUTCOME.json"
+        },
+        {
+          "signal": "outcome=INCONCLUSIVE",
+          "source": "NEXAH_EARLY_WARNING_HYPOTHESIS_VALIDATION/level1c/LEVEL1C_SCIENTIFIC_OUTCOME.json"
+        },
+        {
+          "signal": "recommended_route=NEW_PROTOCOL_REQUIRED_FOR_IDENTIFIABILITY",
+          "source": "NEXAH_EARLY_WARNING_HYPOTHESIS_VALIDATION/level1c/LEVEL1C_SCIENTIFIC_OUTCOME.json"
+        },
+        {
+          "signal": "status=LEVEL1C_COMPLETE_INCONCLUSIVE",
+          "source": "NEXAH_EARLY_WARNING_HYPOTHESIS_VALIDATION/level1c/LEVEL1C_SCIENTIFIC_OUTCOME.json"
+        },
+        {
+          "signal": "Status=`NOT_ADOPTED`. This directory implements only the frozen synthetic",
+          "source": "NEXAH_EARLY_WARNING_HYPOTHESIS_VALIDATION/level1/README.md"
+        }
+      ]
+    },
+    {
+      "bytes": 10676,
+      "endpoint_candidates": [
+        "NEXAH_ECOSYSTEM_REPOSITORY_CURRENTNESS_FREEZE_REPORT.md"
+      ],
+      "extensions": {
+        ".md": 1
+      },
+      "family": "NEXAH",
+      "file_count": 1,
+      "marker_class": "TERMINAL_MARKER",
+      "raw_bytes": 0,
+      "raw_file_count": 0,
+      "review_class": "TERMINAL_CANDIDATE",
+      "root": "NEXAH_ECOSYSTEM_REPOSITORY_CURRENTNESS_FREEZE_REPORT.md",
+      "sha256_raw_tree": null,
+      "sha256_tree": "6e9adc540761acbad4aa618e36d9fceb7dc95316a72777de668b510c0e50c347",
+      "status_signals": [
+        {
+          "signal": "ARCHITECTURE_DRIFT_STATUS=REVIEW_REQUIRED",
+          "source": "NEXAH_ECOSYSTEM_REPOSITORY_CURRENTNESS_FREEZE_REPORT.md"
+        },
+        {
+          "signal": "DRIFT_DETECTED=NONE",
+          "source": "NEXAH_ECOSYSTEM_REPOSITORY_CURRENTNESS_FREEZE_REPORT.md"
+        },
+        {
+          "signal": "REPOSITORY_CURRENTNESS_BLOCKERS=NONE",
+          "source": "NEXAH_ECOSYSTEM_REPOSITORY_CURRENTNESS_FREEZE_REPORT.md"
+        },
+        {
+          "signal": "BASELINE=ledger SHA-256 0c0de9b6eefb306932baa59f88a231626f0b0bfbf669bf3caab620b22a4c51d8",
+          "source": "NEXAH_ECOSYSTEM_REPOSITORY_CURRENTNESS_FREEZE_REPORT.md"
+        },
+        {
+          "signal": "CHECKED_AT=2026-08-13 Europe/Berlin",
+          "source": "NEXAH_ECOSYSTEM_REPOSITORY_CURRENTNESS_FREEZE_REPORT.md"
+        }
+      ]
+    },
+    {
+      "bytes": 30203,
+      "endpoint_candidates": [
+        "NEXAH_ECOSYSTEM_REPOSITORY_MAINTENANCE_PASS_2_REPORT.md"
+      ],
+      "extensions": {
+        ".md": 1
+      },
+      "family": "NEXAH",
+      "file_count": 1,
+      "marker_class": "DOCUMENTED_MARKER",
+      "raw_bytes": 0,
+      "raw_file_count": 0,
+      "review_class": "DOCUMENTED_REVIEW",
+      "root": "NEXAH_ECOSYSTEM_REPOSITORY_MAINTENANCE_PASS_2_REPORT.md",
+      "sha256_raw_tree": null,
+      "sha256_tree": "043954a4a59c72b2753fa0264bf61fa8db5ad6b6b09af6fe6240588c12427a55",
+      "status_signals": [
+        {
+          "signal": "status=REVIEW_REQUIRED",
+          "source": "NEXAH_ECOSYSTEM_REPOSITORY_MAINTENANCE_PASS_2_REPORT.md"
+        }
+      ]
+    },
+    {
+      "bytes": 17777,
+      "endpoint_candidates": [
+        "NEXAH_ECOSYSTEM_REPOSITORY_MAINTENANCE_PASS_3_REPORT.md"
+      ],
+      "extensions": {
+        ".md": 1
+      },
+      "family": "NEXAH",
+      "file_count": 1,
+      "marker_class": "DOCUMENTED_MARKER",
+      "raw_bytes": 0,
+      "raw_file_count": 0,
+      "review_class": "DOCUMENTED_REVIEW",
+      "root": "NEXAH_ECOSYSTEM_REPOSITORY_MAINTENANCE_PASS_3_REPORT.md",
+      "sha256_raw_tree": null,
+      "sha256_tree": "24d93b0a914972f355814e9200deb948c56e8662f4f213aaab4d098ecabb73b1",
+      "status_signals": [
+        {
+          "signal": "VISUAL_AUTHORITY=NONE",
+          "source": "NEXAH_ECOSYSTEM_REPOSITORY_MAINTENANCE_PASS_3_REPORT.md"
+        },
+        {
+          "signal": "DERIVATION_CLASS=DERIVED_ARCHITECTURE_ARTIFACT",
+          "source": "NEXAH_ECOSYSTEM_REPOSITORY_MAINTENANCE_PASS_3_REPORT.md"
+        },
+        {
+          "signal": "STATUS=REVIEW_REQUIRED",
+          "source": "NEXAH_ECOSYSTEM_REPOSITORY_MAINTENANCE_PASS_3_REPORT.md"
+        }
+      ]
+    },
+    {
+      "bytes": 40463,
+      "endpoint_candidates": [],
+      "extensions": {
+        ".md": 9
+      },
+      "family": "NEXAH",
+      "file_count": 9,
+      "marker_class": "NO_MARKER",
+      "raw_bytes": 0,
+      "raw_file_count": 0,
+      "review_class": "MANUAL_REVIEW",
+      "root": "NEXAH_EXPERIMENTAL_ARCHAEOLOGY_AUDIT",
+      "sha256_raw_tree": null,
+      "sha256_tree": "8ceb99721cbe34ec3004ff0719b408eff9166846094bc72466323e982607c86b",
+      "status_signals": []
+    },
+    {
+      "bytes": 21527,
+      "endpoint_candidates": [
+        "NEXAH_EXP_T02_ADVERSARIAL_PREREGISTRATION_REVIEW/FINAL_T02_PREEXECUTION_REVIEW.md",
+        "NEXAH_EXP_T02_ADVERSARIAL_PREREGISTRATION_REVIEW/07_DECISION_SCENARIO_MATRIX.md"
+      ],
+      "extensions": {
+        ".md": 13
+      },
+      "family": "NEXAH",
+      "file_count": 13,
+      "marker_class": "TERMINAL_MARKER",
+      "raw_bytes": 0,
+      "raw_file_count": 0,
+      "review_class": "TERMINAL_CANDIDATE",
+      "root": "NEXAH_EXP_T02_ADVERSARIAL_PREREGISTRATION_REVIEW",
+      "sha256_raw_tree": null,
+      "sha256_tree": "793ac0ad3335c1410bdbd4a27eb403ff3fbd2daca54b2e8a093b84dfd3d97e9d",
+      "status_signals": [
+        {
+          "signal": "T02_PACKAGE_INTEGRITY=PASS",
+          "source": "NEXAH_EXP_T02_ADVERSARIAL_PREREGISTRATION_REVIEW/FINAL_T02_PREEXECUTION_REVIEW.md"
+        },
+        {
+          "signal": "PROTOCOL_HASH_VERIFIED=YES",
+          "source": "NEXAH_EXP_T02_ADVERSARIAL_PREREGISTRATION_REVIEW/FINAL_T02_PREEXECUTION_REVIEW.md"
+        },
+        {
+          "signal": "EXPERIMENT_EXECUTED=NO",
+          "source": "NEXAH_EXP_T02_ADVERSARIAL_PREREGISTRATION_REVIEW/FINAL_T02_PREEXECUTION_REVIEW.md"
+        },
+        {
+          "signal": "FROZEN_PROTOCOL_MODIFIED=NO",
+          "source": "NEXAH_EXP_T02_ADVERSARIAL_PREREGISTRATION_REVIEW/FINAL_T02_PREEXECUTION_REVIEW.md"
+        },
+        {
+          "signal": "CANONICAL_NEXAH_CHANGED=NO",
+          "source": "NEXAH_EXP_T02_ADVERSARIAL_PREREGISTRATION_REVIEW/FINAL_T02_PREEXECUTION_REVIEW.md"
+        },
+        {
+          "signal": "H0_OPERATIONALLY_DECIDABLE=YES",
+          "source": "NEXAH_EXP_T02_ADVERSARIAL_PREREGISTRATION_REVIEW/FINAL_T02_PREEXECUTION_REVIEW.md"
+        },
+        {
+          "signal": "H1_OPERATIONALLY_DECIDABLE=NO",
+          "source": "NEXAH_EXP_T02_ADVERSARIAL_PREREGISTRATION_REVIEW/FINAL_T02_PREEXECUTION_REVIEW.md"
+        },
+        {
+          "signal": "INCREMENTAL_VALUE_DEFINED_A_PRIORI=NO",
+          "source": "NEXAH_EXP_T02_ADVERSARIAL_PREREGISTRATION_REVIEW/FINAL_T02_PREEXECUTION_REVIEW.md"
+        },
+        {
+          "signal": "COMPLETE_BASELINE_SET_CAN_DEFEAT_H1=YES",
+          "source": "NEXAH_EXP_T02_ADVERSARIAL_PREREGISTRATION_REVIEW/FINAL_T02_PREEXECUTION_REVIEW.md"
+        },
+        {
+          "signal": "CONSTRUCTED_COLLISION_CANNOT_SUPPORT_H1_BY_ITSELF=YES",
+          "source": "NEXAH_EXP_T02_ADVERSARIAL_PREREGISTRATION_REVIEW/FINAL_T02_PREEXECUTION_REVIEW.md"
+        }
+      ]
+    },
+    {
+      "bytes": 553561,
+      "endpoint_candidates": [],
+      "extensions": {
+        ".png": 1
+      },
+      "family": "NEXAH",
+      "file_count": 1,
+      "marker_class": "NO_MARKER",
+      "raw_bytes": 0,
+      "raw_file_count": 0,
+      "review_class": "MANUAL_REVIEW",
+      "root": "NEXAH_FOCUS_AND_GOALS.png",
+      "sha256_raw_tree": null,
+      "sha256_tree": "ad32341bf08293c50eda730d2c953eb295f18bebb63478e0e50a02d742cb6978",
+      "status_signals": []
+    },
+    {
+      "bytes": 76209,
+      "endpoint_candidates": [
+        "NEXAH_LAB_OPERATOR_DEMONSTRATOR_AUDIT/RESEARCH_STATUS.md",
+        "NEXAH_LAB_OPERATOR_DEMONSTRATOR_AUDIT/INGEST_REPORT.md"
+      ],
+      "extensions": {
+        ".md": 9
+      },
+      "family": "NEXAH",
+      "file_count": 9,
+      "marker_class": "DOCUMENTED_MARKER",
+      "raw_bytes": 0,
+      "raw_file_count": 0,
+      "review_class": "DOCUMENTED_REVIEW",
+      "root": "NEXAH_LAB_OPERATOR_DEMONSTRATOR_AUDIT",
+      "sha256_raw_tree": null,
+      "sha256_tree": "0142f8938ac2f035d8b7072e724da3fd74a33c9ac06a4175f3a67168b35670ef",
+      "status_signals": []
+    },
+    {
+      "bytes": 48698,
+      "endpoint_candidates": [
+        "NEXAH_LEGACY_REPRESENTATION_PIPELINE_AUDIT/FINAL_NEXAH_LEGACY_REPRESENTATION_PIPELINE_AUDIT.md"
+      ],
+      "extensions": {
+        ".md": 13
+      },
+      "family": "NEXAH",
+      "file_count": 13,
+      "marker_class": "TERMINAL_MARKER",
+      "raw_bytes": 0,
+      "raw_file_count": 0,
+      "review_class": "TERMINAL_CANDIDATE",
+      "root": "NEXAH_LEGACY_REPRESENTATION_PIPELINE_AUDIT",
+      "sha256_raw_tree": null,
+      "sha256_tree": "62bcfb422bc608777676c89cca1120d7a76c46a4deedfa3b61c061c52186bffc",
+      "status_signals": [
+        {
+          "signal": "CANONICAL_NEXAH_CHANGED=NO",
+          "source": "NEXAH_LEGACY_REPRESENTATION_PIPELINE_AUDIT/FINAL_NEXAH_LEGACY_REPRESENTATION_PIPELINE_AUDIT.md"
+        },
+        {
+          "signal": "EXPERIMENTS_RERUN=NO",
+          "source": "NEXAH_LEGACY_REPRESENTATION_PIPELINE_AUDIT/FINAL_NEXAH_LEGACY_REPRESENTATION_PIPELINE_AUDIT.md"
+        },
+        {
+          "signal": "LEGACY_ARTIFACTS_PROVENANCE_RESOLVED=PARTIAL",
+          "source": "NEXAH_LEGACY_REPRESENTATION_PIPELINE_AUDIT/FINAL_NEXAH_LEGACY_REPRESENTATION_PIPELINE_AUDIT.md"
+        },
+        {
+          "signal": "ACTUAL_MULTI_STAGE_PIPELINE_FOUND=PARTIAL",
+          "source": "NEXAH_LEGACY_REPRESENTATION_PIPELINE_AUDIT/FINAL_NEXAH_LEGACY_REPRESENTATION_PIPELINE_AUDIT.md"
+        },
+        {
+          "signal": "FIELD_TO_GRADIENT_IMPLEMENTED=YES",
+          "source": "NEXAH_LEGACY_REPRESENTATION_PIPELINE_AUDIT/FINAL_NEXAH_LEGACY_REPRESENTATION_PIPELINE_AUDIT.md"
+        },
+        {
+          "signal": "GRADIENT_TO_CRITICAL_STRUCTURE_IMPLEMENTED=YES",
+          "source": "NEXAH_LEGACY_REPRESENTATION_PIPELINE_AUDIT/FINAL_NEXAH_LEGACY_REPRESENTATION_PIPELINE_AUDIT.md"
+        },
+        {
+          "signal": "CRITICAL_STRUCTURE_TO_BASINS_IMPLEMENTED=YES",
+          "source": "NEXAH_LEGACY_REPRESENTATION_PIPELINE_AUDIT/FINAL_NEXAH_LEGACY_REPRESENTATION_PIPELINE_AUDIT.md"
+        },
+        {
+          "signal": "BASINS_TO_GRAPH_IMPLEMENTED=YES",
+          "source": "NEXAH_LEGACY_REPRESENTATION_PIPELINE_AUDIT/FINAL_NEXAH_LEGACY_REPRESENTATION_PIPELINE_AUDIT.md"
+        },
+        {
+          "signal": "GRAPH_TO_SPECTRUM_IMPLEMENTED=NO",
+          "source": "NEXAH_LEGACY_REPRESENTATION_PIPELINE_AUDIT/FINAL_NEXAH_LEGACY_REPRESENTATION_PIPELINE_AUDIT.md"
+        },
+        {
+          "signal": "LYAPUNOV_QUANTITY_GENUINE=NO",
+          "source": "NEXAH_LEGACY_REPRESENTATION_PIPELINE_AUDIT/FINAL_NEXAH_LEGACY_REPRESENTATION_PIPELINE_AUDIT.md"
+        }
+      ]
+    },
+    {
+      "bytes": 3810,
+      "endpoint_candidates": [],
+      "extensions": {
+        ".md": 1
+      },
+      "family": "NEXAH",
+      "file_count": 1,
+      "marker_class": "NO_MARKER",
+      "raw_bytes": 0,
+      "raw_file_count": 0,
+      "review_class": "MANUAL_REVIEW",
+      "root": "NEXAH_LIGHTHOUSE_MAP.md",
+      "sha256_raw_tree": null,
+      "sha256_tree": "06356925add9721d2ec03293939ee619a11917579bc4943af9f421650f32f2ca",
+      "status_signals": []
+    },
+    {
+      "bytes": 26905,
+      "endpoint_candidates": [
+        "NEXAH_MATHEMATICS_LAB_M1_BOUNDARY_REVIEW/README.md"
+      ],
+      "extensions": {
+        ".md": 9
+      },
+      "family": "NEXAH",
+      "file_count": 9,
+      "marker_class": "DOCUMENTED_MARKER",
+      "raw_bytes": 0,
+      "raw_file_count": 0,
+      "review_class": "DOCUMENTED_REVIEW",
+      "root": "NEXAH_MATHEMATICS_LAB_M1_BOUNDARY_REVIEW",
+      "sha256_raw_tree": null,
+      "sha256_tree": "dad60336c5645cc508a1ccfd3121fe4b852761ae80910c18e1dd594bec156917",
+      "status_signals": [
+        {
+          "signal": "Status=`RESEARCH DESIGN REVIEW COMPLETE`",
+          "source": "NEXAH_MATHEMATICS_LAB_M1_BOUNDARY_REVIEW/README.md"
+        }
+      ]
+    },
+    {
+      "bytes": 30849,
+      "endpoint_candidates": [
+        "NEXAH_MATHEMATICS_LAB_M2_REVIEW/README.md"
+      ],
+      "extensions": {
+        ".md": 10
+      },
+      "family": "NEXAH",
+      "file_count": 10,
+      "marker_class": "DOCUMENTED_MARKER",
+      "raw_bytes": 0,
+      "raw_file_count": 0,
+      "review_class": "DOCUMENTED_REVIEW",
+      "root": "NEXAH_MATHEMATICS_LAB_M2_REVIEW",
+      "sha256_raw_tree": null,
+      "sha256_tree": "c12125f6fccf7ebb8d1a5b5c88c1f2ca57c47174a1aff4e3f86becf450b4bb62",
+      "status_signals": [
+        {
+          "signal": "Status=`RESEARCH DESIGN REVIEW COMPLETE`",
+          "source": "NEXAH_MATHEMATICS_LAB_M2_REVIEW/README.md"
+        }
+      ]
+    },
+    {
+      "bytes": 27149,
+      "endpoint_candidates": [
+        "NEXAH_MATHEMATICS_LAB_SERIES_I_FINAL_REDUCTION_REVIEW/README.md"
+      ],
+      "extensions": {
+        ".md": 11
+      },
+      "family": "NEXAH",
+      "file_count": 11,
+      "marker_class": "TERMINAL_MARKER",
+      "raw_bytes": 0,
+      "raw_file_count": 0,
+      "review_class": "TERMINAL_CANDIDATE",
+      "root": "NEXAH_MATHEMATICS_LAB_SERIES_I_FINAL_REDUCTION_REVIEW",
+      "sha256_raw_tree": null,
+      "sha256_tree": "bd943a612cf61014ffb88274124e7ca912306e31eeafe8139d45f28ebf79a73a",
+      "status_signals": [
+        {
+          "signal": "Status=`READ-ONLY REVIEW COMPLETE`",
+          "source": "NEXAH_MATHEMATICS_LAB_SERIES_I_FINAL_REDUCTION_REVIEW/README.md"
+        }
+      ]
+    },
+    {
+      "bytes": 19766,
+      "endpoint_candidates": [
+        "NEXAH_MATHEMATICS_LAB_SERIES_I_FINAL_SCIENTIFIC_ASSESSMENT/README.md"
+      ],
+      "extensions": {
+        ".md": 7
+      },
+      "family": "NEXAH",
+      "file_count": 7,
+      "marker_class": "TERMINAL_MARKER",
+      "raw_bytes": 0,
+      "raw_file_count": 0,
+      "review_class": "TERMINAL_CANDIDATE",
+      "root": "NEXAH_MATHEMATICS_LAB_SERIES_I_FINAL_SCIENTIFIC_ASSESSMENT",
+      "sha256_raw_tree": null,
+      "sha256_tree": "724bdc1e77921f15f0e0e1c15783767c47b8acbd6008d5175c7f27d9112d88be",
+      "status_signals": [
+        {
+          "signal": "Status=`FINAL REVIEW COMPLETE`",
+          "source": "NEXAH_MATHEMATICS_LAB_SERIES_I_FINAL_SCIENTIFIC_ASSESSMENT/README.md"
+        }
+      ]
+    },
+    {
+      "bytes": 32084,
+      "endpoint_candidates": [
+        "NEXAH_MATHEMATICS_LAB_SERIES_I_REVIEW/README.md"
+      ],
+      "extensions": {
+        ".md": 9
+      },
+      "family": "NEXAH",
+      "file_count": 9,
+      "marker_class": "DOCUMENTED_MARKER",
+      "raw_bytes": 0,
+      "raw_file_count": 0,
+      "review_class": "DOCUMENTED_REVIEW",
+      "root": "NEXAH_MATHEMATICS_LAB_SERIES_I_REVIEW",
+      "sha256_raw_tree": null,
+      "sha256_tree": "6960f4e87032e1ac684c22a7a36542558d7e6f7f805b0f73a2bba63d923bc570",
+      "status_signals": [
+        {
+          "signal": "Status=`RESEARCH DESIGN REVIEW COMPLETE`",
+          "source": "NEXAH_MATHEMATICS_LAB_SERIES_I_REVIEW/README.md"
+        }
+      ]
+    },
+    {
+      "bytes": 602910,
+      "endpoint_candidates": [],
+      "extensions": {
+        ".png": 1
+      },
+      "family": "NEXAH",
+      "file_count": 1,
+      "marker_class": "NO_MARKER",
+      "raw_bytes": 0,
+      "raw_file_count": 0,
+      "review_class": "MANUAL_REVIEW",
+      "root": "NEXAH_ONE_PAGE_OUTREACH_STRATEGY.png",
+      "sha256_raw_tree": null,
+      "sha256_tree": "c3f842b272ac8851a3b513004bfc50922381125fc3d017dbd8da7acd2be6730a",
+      "status_signals": []
+    },
+    {
+      "bytes": 58752,
+      "endpoint_candidates": [
+        "NEXAH_OPERATOR_INVARIANCE_BATTERY/FINAL_NEXAH_TRANSLATION_STUDY_REPORT.md",
+        "NEXAH_OPERATOR_INVARIANCE_BATTERY/TRANSLATION_STUDY_FREEZE_RECORD.md",
+        "NEXAH_OPERATOR_INVARIANCE_BATTERY/HASH_MANIFEST.json"
+      ],
+      "extensions": {
+        ".json": 4,
+        ".md": 13,
+        ".py": 1
+      },
+      "family": "NEXAH",
+      "file_count": 18,
+      "marker_class": "TERMINAL_MARKER",
+      "raw_bytes": 0,
+      "raw_file_count": 0,
+      "review_class": "TERMINAL_CANDIDATE",
+      "root": "NEXAH_OPERATOR_INVARIANCE_BATTERY",
+      "sha256_raw_tree": null,
+      "sha256_tree": "fe73571ea436673d8dfdffafeca69adfa1e8bfc12d0852a0dfe589926571d818",
+      "status_signals": [
+        {
+          "signal": "CANONICAL_OPERATORS_CHANGED=NO",
+          "source": "NEXAH_OPERATOR_INVARIANCE_BATTERY/FINAL_NEXAH_TRANSLATION_STUDY_REPORT.md"
+        },
+        {
+          "signal": "APPLICATION_001_CHANGED=NO",
+          "source": "NEXAH_OPERATOR_INVARIANCE_BATTERY/FINAL_NEXAH_TRANSLATION_STUDY_REPORT.md"
+        },
+        {
+          "signal": "LEVEL1C_CHANGED=NO",
+          "source": "NEXAH_OPERATOR_INVARIANCE_BATTERY/FINAL_NEXAH_TRANSLATION_STUDY_REPORT.md"
+        },
+        {
+          "signal": "IEEE_EARLY_WARNING_RERUN=NO",
+          "source": "NEXAH_OPERATOR_INVARIANCE_BATTERY/FINAL_NEXAH_TRANSLATION_STUDY_REPORT.md"
+        },
+        {
+          "signal": "POST_RESULT_RETUNING=NO",
+          "source": "NEXAH_OPERATOR_INVARIANCE_BATTERY/FINAL_NEXAH_TRANSLATION_STUDY_REPORT.md"
+        },
+        {
+          "signal": "PROTOCOL_BUNDLE_SHA256=f8080f2e96f1d7f17a230bf26ce0a24ceacfb0c3a9c03431a693d74cc7993973",
+          "source": "NEXAH_OPERATOR_INVARIANCE_BATTERY/TRANSLATION_STUDY_FREEZE_RECORD.md"
+        }
+      ]
+    },
+    {
+      "bytes": 21413,
+      "endpoint_candidates": [
+        "NEXAH_ORION_ECOSYSTEM_PHASE_4B_LUCY_OWNER_ADOPTION_AND_ARCHITECTURE_FREEZE/FINAL_PHASE_4B_OWNER_ADOPTION_AND_FREEZE_REPORT.md",
+        "NEXAH_ORION_ECOSYSTEM_PHASE_4B_LUCY_OWNER_ADOPTION_AND_ARCHITECTURE_FREEZE/02_OWNER_DECISIONS_LU01_LU12.md",
+        "NEXAH_ORION_ECOSYSTEM_PHASE_4B_LUCY_OWNER_ADOPTION_AND_ARCHITECTURE_FREEZE/03_CANONICAL_MINIMAL_LUCY_FREEZE.md",
+        "NEXAH_ORION_ECOSYSTEM_PHASE_4B_LUCY_OWNER_ADOPTION_AND_ARCHITECTURE_FREEZE/04_ARCHITECTURE_STATUS_AND_BOUNDARIES.md",
+        "NEXAH_ORION_ECOSYSTEM_PHASE_4B_LUCY_OWNER_ADOPTION_AND_ARCHITECTURE_FREEZE/HASH_MANIFEST.json"
+      ],
+      "extensions": {
+        ".json": 1,
+        ".md": 7
+      },
+      "family": "NEXAH",
+      "file_count": 8,
+      "marker_class": "TERMINAL_MARKER",
+      "raw_bytes": 0,
+      "raw_file_count": 0,
+      "review_class": "TERMINAL_CANDIDATE",
+      "root": "NEXAH_ORION_ECOSYSTEM_PHASE_4B_LUCY_OWNER_ADOPTION_AND_ARCHITECTURE_FREEZE",
+      "sha256_raw_tree": null,
+      "sha256_tree": "84f4c05868a146322e0a5023fb56249287e21d5487836fe95ef0bd05db90c238",
+      "status_signals": [
+        {
+          "signal": "LUCY_NAME=RETAINED",
+          "source": "NEXAH_ORION_ECOSYSTEM_PHASE_4B_LUCY_OWNER_ADOPTION_AND_ARCHITECTURE_FREEZE/03_CANONICAL_MINIMAL_LUCY_FREEZE.md"
+        },
+        {
+          "signal": "LUCY_CLASSIFICATION=REFLECTION_BOUNDARY",
+          "source": "NEXAH_ORION_ECOSYSTEM_PHASE_4B_LUCY_OWNER_ADOPTION_AND_ARCHITECTURE_FREEZE/03_CANONICAL_MINIMAL_LUCY_FREEZE.md"
+        },
+        {
+          "signal": "LUCY_ARCHITECTURE_LEVEL=ECOSYSTEM_CONCEPT",
+          "source": "NEXAH_ORION_ECOSYSTEM_PHASE_4B_LUCY_OWNER_ADOPTION_AND_ARCHITECTURE_FREEZE/03_CANONICAL_MINIMAL_LUCY_FREEZE.md"
+        },
+        {
+          "signal": "LUCY_SYSTEM_IDENTITY=NONE",
+          "source": "NEXAH_ORION_ECOSYSTEM_PHASE_4B_LUCY_OWNER_ADOPTION_AND_ARCHITECTURE_FREEZE/03_CANONICAL_MINIMAL_LUCY_FREEZE.md"
+        },
+        {
+          "signal": "LUCY_RUNTIME=NONE",
+          "source": "NEXAH_ORION_ECOSYSTEM_PHASE_4B_LUCY_OWNER_ADOPTION_AND_ARCHITECTURE_FREEZE/03_CANONICAL_MINIMAL_LUCY_FREEZE.md"
+        },
+        {
+          "signal": "LUCY_AGENT=NONE",
+          "source": "NEXAH_ORION_ECOSYSTEM_PHASE_4B_LUCY_OWNER_ADOPTION_AND_ARCHITECTURE_FREEZE/03_CANONICAL_MINIMAL_LUCY_FREEZE.md"
+        },
+        {
+          "signal": "LUCY_PERSISTENCE=NONE",
+          "source": "NEXAH_ORION_ECOSYSTEM_PHASE_4B_LUCY_OWNER_ADOPTION_AND_ARCHITECTURE_FREEZE/03_CANONICAL_MINIMAL_LUCY_FREEZE.md"
+        },
+        {
+          "signal": "LUCY_DECISION_AUTHORITY=NONE",
+          "source": "NEXAH_ORION_ECOSYSTEM_PHASE_4B_LUCY_OWNER_ADOPTION_AND_ARCHITECTURE_FREEZE/03_CANONICAL_MINIMAL_LUCY_FREEZE.md"
+        },
+        {
+          "signal": "LUCY_NAVIGATION_AUTHORITY=NONE",
+          "source": "NEXAH_ORION_ECOSYSTEM_PHASE_4B_LUCY_OWNER_ADOPTION_AND_ARCHITECTURE_FREEZE/03_CANONICAL_MINIMAL_LUCY_FREEZE.md"
+        },
+        {
+          "signal": "LUCY_SCIENTIFIC_AUTHORITY=NONE",
+          "source": "NEXAH_ORION_ECOSYSTEM_PHASE_4B_LUCY_OWNER_ADOPTION_AND_ARCHITECTURE_FREEZE/03_CANONICAL_MINIMAL_LUCY_FREEZE.md"
+        }
+      ]
+    },
+    {
+      "bytes": 45738,
+      "endpoint_candidates": [
+        "NEXAH_ORION_LUCY_ARCHITECTURE_RECONCILIATION_PHASE_4A/FINAL_LUCY_ARCHITECTURE_RECONCILIATION_REPORT.md",
+        "NEXAH_ORION_LUCY_ARCHITECTURE_RECONCILIATION_PHASE_4A/09_OWNER_DECISIONS_REQUIRED.md",
+        "NEXAH_ORION_LUCY_ARCHITECTURE_RECONCILIATION_PHASE_4A/HASH_MANIFEST.json"
+      ],
+      "extensions": {
+        ".json": 1,
+        ".md": 12
+      },
+      "family": "NEXAH",
+      "file_count": 13,
+      "marker_class": "TERMINAL_MARKER",
+      "raw_bytes": 0,
+      "raw_file_count": 0,
+      "review_class": "TERMINAL_CANDIDATE",
+      "root": "NEXAH_ORION_LUCY_ARCHITECTURE_RECONCILIATION_PHASE_4A",
+      "sha256_raw_tree": null,
+      "sha256_tree": "67990929057fd80f3bf7417a23e9e949996f42f9443f6bbd9398ebe8f93e1bf7",
+      "status_signals": []
+    },
+    {
+      "bytes": 22025,
+      "endpoint_candidates": [
+        "NEXAH_ORION_REPOSITORY_SYNC_AND_PRE_APPLICATION_FREEZE_AUDIT/FINAL_REPOSITORY_SYNC_AND_PRE_APPLICATION_FREEZE_REPORT.md",
+        "NEXAH_ORION_REPOSITORY_SYNC_AND_PRE_APPLICATION_FREEZE_AUDIT/HASH_MANIFEST.json"
+      ],
+      "extensions": {
+        ".json": 1,
+        ".md": 4
+      },
+      "family": "NEXAH",
+      "file_count": 5,
+      "marker_class": "TERMINAL_MARKER",
+      "raw_bytes": 0,
+      "raw_file_count": 0,
+      "review_class": "TERMINAL_CANDIDATE",
+      "root": "NEXAH_ORION_REPOSITORY_SYNC_AND_PRE_APPLICATION_FREEZE_AUDIT",
+      "sha256_raw_tree": null,
+      "sha256_tree": "90837d39862c0cab222c46a1211921ce18121e21bdfe2d363c5c559b1605e05d",
+      "status_signals": [
+        {
+          "signal": "LUCY=OWNER_ADOPTED_ARCHITECTURE_CONCEPT_NO_IMPLEMENTATION",
+          "source": "NEXAH_ORION_REPOSITORY_SYNC_AND_PRE_APPLICATION_FREEZE_AUDIT/FINAL_REPOSITORY_SYNC_AND_PRE_APPLICATION_FREEZE_REPORT.md"
+        },
+        {
+          "signal": "LUCY_CLASSIFICATION=REFLECTION_BOUNDARY",
+          "source": "NEXAH_ORION_REPOSITORY_SYNC_AND_PRE_APPLICATION_FREEZE_AUDIT/FINAL_REPOSITORY_SYNC_AND_PRE_APPLICATION_FREEZE_REPORT.md"
+        },
+        {
+          "signal": "LUCY_SYSTEM_IDENTITY=NONE",
+          "source": "NEXAH_ORION_REPOSITORY_SYNC_AND_PRE_APPLICATION_FREEZE_AUDIT/FINAL_REPOSITORY_SYNC_AND_PRE_APPLICATION_FREEZE_REPORT.md"
+        },
+        {
+          "signal": "LUCY_RUNTIME=NONE",
+          "source": "NEXAH_ORION_REPOSITORY_SYNC_AND_PRE_APPLICATION_FREEZE_AUDIT/FINAL_REPOSITORY_SYNC_AND_PRE_APPLICATION_FREEZE_REPORT.md"
+        },
+        {
+          "signal": "LUCY_AGENT=NONE",
+          "source": "NEXAH_ORION_REPOSITORY_SYNC_AND_PRE_APPLICATION_FREEZE_AUDIT/FINAL_REPOSITORY_SYNC_AND_PRE_APPLICATION_FREEZE_REPORT.md"
+        },
+        {
+          "signal": "LUCY_PERSISTENCE=NONE",
+          "source": "NEXAH_ORION_REPOSITORY_SYNC_AND_PRE_APPLICATION_FREEZE_AUDIT/FINAL_REPOSITORY_SYNC_AND_PRE_APPLICATION_FREEZE_REPORT.md"
+        },
+        {
+          "signal": "LUCY_CURRENT_IMPLEMENTATION=NONE",
+          "source": "NEXAH_ORION_REPOSITORY_SYNC_AND_PRE_APPLICATION_FREEZE_AUDIT/FINAL_REPOSITORY_SYNC_AND_PRE_APPLICATION_FREEZE_REPORT.md"
+        },
+        {
+          "signal": "LUCY_MODES=PRE_REFLECTION, POST_REFLECTION",
+          "source": "NEXAH_ORION_REPOSITORY_SYNC_AND_PRE_APPLICATION_FREEZE_AUDIT/FINAL_REPOSITORY_SYNC_AND_PRE_APPLICATION_FREEZE_REPORT.md"
+        },
+        {
+          "signal": "LYRA=INACTIVE_OUTSIDE_CERTIFIED_V1",
+          "source": "NEXAH_ORION_REPOSITORY_SYNC_AND_PRE_APPLICATION_FREEZE_AUDIT/FINAL_REPOSITORY_SYNC_AND_PRE_APPLICATION_FREEZE_REPORT.md"
+        },
+        {
+          "signal": "INTERFACE_V1=MEMBRANE_V1_APPROVED_NOT_IMPLEMENTED",
+          "source": "NEXAH_ORION_REPOSITORY_SYNC_AND_PRE_APPLICATION_FREEZE_AUDIT/FINAL_REPOSITORY_SYNC_AND_PRE_APPLICATION_FREEZE_REPORT.md"
+        }
+      ]
+    },
+    {
+      "bytes": 3953,
+      "endpoint_candidates": [],
+      "extensions": {
+        ".md": 1
+      },
+      "family": "NEXAH",
+      "file_count": 1,
+      "marker_class": "NO_MARKER",
+      "raw_bytes": 0,
+      "raw_file_count": 0,
+      "review_class": "MANUAL_REVIEW",
+      "root": "NEXAH_OUTREACH_ARCHITECTURE.md",
+      "sha256_raw_tree": null,
+      "sha256_tree": "9be83250552e6292a56a631aa25e9ad9b2de3078e7f260a58c930865ba784106",
+      "status_signals": []
+    },
+    {
+      "bytes": 1209525,
+      "endpoint_candidates": [],
+      "extensions": {
+        ".png": 1
+      },
+      "family": "NEXAH",
+      "file_count": 1,
+      "marker_class": "NO_MARKER",
+      "raw_bytes": 0,
+      "raw_file_count": 0,
+      "review_class": "MANUAL_REVIEW",
+      "root": "NEXAH_OUTREACH_FOCUS_ASSESSMENT.png",
+      "sha256_raw_tree": null,
+      "sha256_tree": "0016f36363428e9a401141be5b62f42f32fdf9bedf07abbc7dd8efb9e975a06a",
+      "status_signals": []
+    },
+    {
+      "bytes": 11284,
+      "endpoint_candidates": [],
+      "extensions": {
+        ".md": 1
+      },
+      "family": "NEXAH",
+      "file_count": 1,
+      "marker_class": "NO_MARKER",
+      "raw_bytes": 0,
+      "raw_file_count": 0,
+      "review_class": "MANUAL_REVIEW",
+      "root": "NEXAH_OUTREACH_REALITY_CHECK.md",
+      "sha256_raw_tree": null,
+      "sha256_tree": "347aa89c0d5debcaa63363695511ca40be8318cd307aa2a48a137ff912cb8e1f",
+      "status_signals": []
+    },
+    {
+      "bytes": 7378,
+      "endpoint_candidates": [],
+      "extensions": {
+        ".json": 1
+      },
+      "family": "NEXAH",
+      "file_count": 1,
+      "marker_class": "NO_MARKER",
+      "raw_bytes": 0,
+      "raw_file_count": 0,
+      "review_class": "MANUAL_REVIEW",
+      "root": "NEXAH_OUTREACH_STRATEGY.json",
+      "sha256_raw_tree": null,
+      "sha256_tree": "80b259d84bcd6a68c130ffea86562cf3832b66784ce002eb58b56183ead26b9f",
+      "status_signals": []
+    },
+    {
+      "bytes": 44044,
+      "endpoint_candidates": [
+        "NEXAH_POST_LEVEL1C_APPLICATION_DISCOVERY/FINAL_POST_LEVEL1C_APPLICATION_DISCOVERY_REPORT.md",
+        "NEXAH_POST_LEVEL1C_APPLICATION_DISCOVERY/06_EARLY_WARNING_NEXT_RESEARCH_DECISION.md"
+      ],
+      "extensions": {
+        ".md": 9
+      },
+      "family": "NEXAH",
+      "file_count": 9,
+      "marker_class": "TERMINAL_MARKER",
+      "raw_bytes": 0,
+      "raw_file_count": 0,
+      "review_class": "TERMINAL_CANDIDATE",
+      "root": "NEXAH_POST_LEVEL1C_APPLICATION_DISCOVERY",
+      "sha256_raw_tree": null,
+      "sha256_tree": "68a387197c6fe3e8dcd61b718d537779f012bfa6822016d518e1156f9ef8fb69",
+      "status_signals": []
+    },
+    {
+      "bytes": 56412,
+      "endpoint_candidates": [
+        "NEXAH_REPOSITORY_SCIENTIFIC_CLAIM_AUDIT/FINAL_NEXAH_REPOSITORY_SCIENTIFIC_CLAIM_AUDIT.md",
+        "NEXAH_REPOSITORY_SCIENTIFIC_CLAIM_AUDIT/09_SCIENTIFIC_CLAIM_STATUS_LEGEND.md"
+      ],
+      "extensions": {
+        ".md": 12
+      },
+      "family": "NEXAH",
+      "file_count": 12,
+      "marker_class": "TERMINAL_MARKER",
+      "raw_bytes": 0,
+      "raw_file_count": 0,
+      "review_class": "TERMINAL_CANDIDATE",
+      "root": "NEXAH_REPOSITORY_SCIENTIFIC_CLAIM_AUDIT",
+      "sha256_raw_tree": null,
+      "sha256_tree": "7c58ddc4d4e2d9441dea5f4422267869f89f329e42866293b32e9fffadd22288",
+      "status_signals": [
+        {
+          "signal": "CANONICAL_REPOSITORY_CHANGED=NO",
+          "source": "NEXAH_REPOSITORY_SCIENTIFIC_CLAIM_AUDIT/FINAL_NEXAH_REPOSITORY_SCIENTIFIC_CLAIM_AUDIT.md"
+        },
+        {
+          "signal": "EXPERIMENTS_RERUN=NO",
+          "source": "NEXAH_REPOSITORY_SCIENTIFIC_CLAIM_AUDIT/FINAL_NEXAH_REPOSITORY_SCIENTIFIC_CLAIM_AUDIT.md"
+        },
+        {
+          "signal": "SCIENTIFIC_RESULTS_CHANGED=NO",
+          "source": "NEXAH_REPOSITORY_SCIENTIFIC_CLAIM_AUDIT/FINAL_NEXAH_REPOSITORY_SCIENTIFIC_CLAIM_AUDIT.md"
+        },
+        {
+          "signal": "CLAIMS_REWRITTEN=NO",
+          "source": "NEXAH_REPOSITORY_SCIENTIFIC_CLAIM_AUDIT/FINAL_NEXAH_REPOSITORY_SCIENTIFIC_CLAIM_AUDIT.md"
+        }
+      ]
+    },
+    {
+      "bytes": 31949,
+      "endpoint_candidates": [
+        "NEXAH_RESEARCH_DISCOVERY_SERIES_II/README.md"
+      ],
+      "extensions": {
+        ".md": 8
+      },
+      "family": "NEXAH",
+      "file_count": 8,
+      "marker_class": "DOCUMENTED_MARKER",
+      "raw_bytes": 0,
+      "raw_file_count": 0,
+      "review_class": "DOCUMENTED_REVIEW",
+      "root": "NEXAH_RESEARCH_DISCOVERY_SERIES_II",
+      "sha256_raw_tree": null,
+      "sha256_tree": "50f5b9369b3fdcd5327e3b67291a093b5b132764418834cabd571de13fd56ed5",
+      "status_signals": [
+        {
+          "signal": "Status=`READ-ONLY DISCOVERY COMPLETE`",
+          "source": "NEXAH_RESEARCH_DISCOVERY_SERIES_II/README.md"
+        }
+      ]
+    },
+    {
+      "bytes": 14650,
+      "endpoint_candidates": [
+        "NEXAH_SCIENTIFIC_CURRENTNESS_RECONCILIATION/FINAL_NEXAH_SCIENTIFIC_CURRENTNESS_RECONCILIATION.md"
+      ],
+      "extensions": {
+        ".md": 2
+      },
+      "family": "NEXAH",
+      "file_count": 2,
+      "marker_class": "TERMINAL_MARKER",
+      "raw_bytes": 0,
+      "raw_file_count": 0,
+      "review_class": "TERMINAL_CANDIDATE",
+      "root": "NEXAH_SCIENTIFIC_CURRENTNESS_RECONCILIATION",
+      "sha256_raw_tree": null,
+      "sha256_tree": "8a7e10de7f937a67530d0700c1c18c0980f86269728598a8adab0379e48efa9c",
+      "status_signals": [
+        {
+          "signal": "SCIENTIFIC_CODE_CHANGED=NO",
+          "source": "NEXAH_SCIENTIFIC_CURRENTNESS_RECONCILIATION/FINAL_NEXAH_SCIENTIFIC_CURRENTNESS_RECONCILIATION.md"
+        },
+        {
+          "signal": "EXPERIMENT_RESULTS_CHANGED=NO",
+          "source": "NEXAH_SCIENTIFIC_CURRENTNESS_RECONCILIATION/FINAL_NEXAH_SCIENTIFIC_CURRENTNESS_RECONCILIATION.md"
+        },
+        {
+          "signal": "HISTORICAL_RESULTS_DELETED=NO",
+          "source": "NEXAH_SCIENTIFIC_CURRENTNESS_RECONCILIATION/FINAL_NEXAH_SCIENTIFIC_CURRENTNESS_RECONCILIATION.md"
+        },
+        {
+          "signal": "CURRENT_STATUS_VISUAL_BYTES_CHANGED=NO",
+          "source": "NEXAH_SCIENTIFIC_CURRENTNESS_RECONCILIATION/FINAL_NEXAH_SCIENTIFIC_CURRENTNESS_RECONCILIATION.md"
+        },
+        {
+          "signal": "APPLICATION_001_ADOPTED=NO",
+          "source": "NEXAH_SCIENTIFIC_CURRENTNESS_RECONCILIATION/FINAL_NEXAH_SCIENTIFIC_CURRENTNESS_RECONCILIATION.md"
+        },
+        {
+          "signal": "POST_RESULT_RETUNING=NO",
+          "source": "NEXAH_SCIENTIFIC_CURRENTNESS_RECONCILIATION/FINAL_NEXAH_SCIENTIFIC_CURRENTNESS_RECONCILIATION.md"
+        }
+      ]
+    },
+    {
+      "bytes": 16125,
+      "endpoint_candidates": [],
+      "extensions": {
+        ".md": 1
+      },
+      "family": "NEXAH",
+      "file_count": 1,
+      "marker_class": "NO_MARKER",
+      "raw_bytes": 0,
+      "raw_file_count": 0,
+      "review_class": "MANUAL_REVIEW",
+      "root": "NEXAH_SCIENTIFIC_INTERFACE_MAP.md",
+      "sha256_raw_tree": null,
+      "sha256_tree": "d69b3cdaf3396d9de11a27fc57d0eb2e6fbcabfcf2d25516ff83ff9cb000760e",
+      "status_signals": []
+    },
+    {
+      "bytes": 7420,
+      "endpoint_candidates": [
+        "NEXAH_TRANSLATION_AUDIT_REPORT_01_PRELIMINARY_FINDING.md"
+      ],
+      "extensions": {
+        ".md": 1
+      },
+      "family": "NEXAH",
+      "file_count": 1,
+      "marker_class": "DOCUMENTED_MARKER",
+      "raw_bytes": 0,
+      "raw_file_count": 0,
+      "review_class": "DOCUMENTED_REVIEW",
+      "root": "NEXAH_TRANSLATION_AUDIT_REPORT_01_PRELIMINARY_FINDING.md",
+      "sha256_raw_tree": null,
+      "sha256_tree": "ce62dc80c5f360d2f40f9ebf1310b8c35c79eb9f010f9da86d2b084292718f0f",
+      "status_signals": [
+        {
+          "signal": "Status=`PRELIMINARY WORKING BRIEF`",
+          "source": "NEXAH_TRANSLATION_AUDIT_REPORT_01_PRELIMINARY_FINDING.md"
+        }
+      ]
+    },
+    {
+      "bytes": 4247814,
+      "endpoint_candidates": [
+        "NEXAH_TRANSLATION_FIDELITY_EXPERIMENT/FINAL_NEXAH_TRANSLATION_FIDELITY_REPORT.md",
+        "NEXAH_TRANSLATION_FIDELITY_EXPERIMENT/PROTOCOL_FREEZE_RECORD.md",
+        "NEXAH_TRANSLATION_FIDELITY_EXPERIMENT/HASH_MANIFEST.json"
+      ],
+      "extensions": {
+        ".json": 3,
+        ".md": 8,
+        ".py": 1
+      },
+      "family": "NEXAH",
+      "file_count": 12,
+      "marker_class": "TERMINAL_MARKER",
+      "raw_bytes": 0,
+      "raw_file_count": 0,
+      "review_class": "TERMINAL_CANDIDATE",
+      "root": "NEXAH_TRANSLATION_FIDELITY_EXPERIMENT",
+      "sha256_raw_tree": null,
+      "sha256_tree": "4faf4cf4b6be0bf3aa22751d7a6a938366b2e6a7771612cd920080051ec2dc14",
+      "status_signals": [
+        {
+          "signal": "CANONICAL_NEXAH_IMPORTED=NO",
+          "source": "NEXAH_TRANSLATION_FIDELITY_EXPERIMENT/FINAL_NEXAH_TRANSLATION_FIDELITY_REPORT.md"
+        },
+        {
+          "signal": "CANONICAL_REPOSITORIES_CHANGED=NO",
+          "source": "NEXAH_TRANSLATION_FIDELITY_EXPERIMENT/FINAL_NEXAH_TRANSLATION_FIDELITY_REPORT.md"
+        },
+        {
+          "signal": "IEEE_PEGASE_EXECUTED=NO",
+          "source": "NEXAH_TRANSLATION_FIDELITY_EXPERIMENT/FINAL_NEXAH_TRANSLATION_FIDELITY_REPORT.md"
+        },
+        {
+          "signal": "EARLY_WARNING_REOPENED=NO",
+          "source": "NEXAH_TRANSLATION_FIDELITY_EXPERIMENT/FINAL_NEXAH_TRANSLATION_FIDELITY_REPORT.md"
+        },
+        {
+          "signal": "APPLICATION_001_CHANGED=NO",
+          "source": "NEXAH_TRANSLATION_FIDELITY_EXPERIMENT/FINAL_NEXAH_TRANSLATION_FIDELITY_REPORT.md"
+        },
+        {
+          "signal": "POST_RESULT_RETUNING=NO",
+          "source": "NEXAH_TRANSLATION_FIDELITY_EXPERIMENT/FINAL_NEXAH_TRANSLATION_FIDELITY_REPORT.md"
+        },
+        {
+          "signal": "PROTOCOL_BUNDLE_SHA256=f9a71253c75fbbe22bf911f8774d4680b9cf206049d2a61f6deea40ad9090ad2",
+          "source": "NEXAH_TRANSLATION_FIDELITY_EXPERIMENT/PROTOCOL_FREEZE_RECORD.md"
+        }
+      ]
+    },
+    {
+      "bytes": 54351,
+      "endpoint_candidates": [
+        "NEXAH_TRANSLATION_FIDELITY_LITERATURE_AUDIT/FINAL_NEXAH_TRANSLATION_FIDELITY_LITERATURE_AUDIT.md",
+        "NEXAH_TRANSLATION_FIDELITY_LITERATURE_AUDIT/09_GO_NO_GO_DECISION.md"
+      ],
+      "extensions": {
+        ".md": 12
+      },
+      "family": "NEXAH",
+      "file_count": 12,
+      "marker_class": "TERMINAL_MARKER",
+      "raw_bytes": 0,
+      "raw_file_count": 0,
+      "review_class": "TERMINAL_CANDIDATE",
+      "root": "NEXAH_TRANSLATION_FIDELITY_LITERATURE_AUDIT",
+      "sha256_raw_tree": null,
+      "sha256_tree": "4f94648a6e3de0d882cc01bae75bffcf0c0e7cf41f705a6e8a9543755dfef50b",
+      "status_signals": []
+    },
+    {
+      "bytes": 48865,
+      "endpoint_candidates": [
+        "NEXAH_TRANSLATION_FIDELITY_RECOVERY_LITERATURE_GAP_AUDIT/FINAL_LITERATURE_GAP_AUDIT.md"
+      ],
+      "extensions": {
+        ".md": 8
+      },
+      "family": "NEXAH",
+      "file_count": 8,
+      "marker_class": "TERMINAL_MARKER",
+      "raw_bytes": 0,
+      "raw_file_count": 0,
+      "review_class": "TERMINAL_CANDIDATE",
+      "root": "NEXAH_TRANSLATION_FIDELITY_RECOVERY_LITERATURE_GAP_AUDIT",
+      "sha256_raw_tree": null,
+      "sha256_tree": "e63c667b044c8cd434533f0b982abe7adaca740096e598746a5f7a2c083cd6ed",
+      "status_signals": [
+        {
+          "signal": "LITERATURE_REVIEW_COMPLETED=YES",
+          "source": "NEXAH_TRANSLATION_FIDELITY_RECOVERY_LITERATURE_GAP_AUDIT/FINAL_LITERATURE_GAP_AUDIT.md"
+        },
+        {
+          "signal": "KNOWN_MATHEMATICS_OVERLAP=HIGH",
+          "source": "NEXAH_TRANSLATION_FIDELITY_RECOVERY_LITERATURE_GAP_AUDIT/FINAL_LITERATURE_GAP_AUDIT.md"
+        },
+        {
+          "signal": "NEXAH_OPERATIONAL_SYNTHESIS_DISTINCT=POSSIBLY",
+          "source": "NEXAH_TRANSLATION_FIDELITY_RECOVERY_LITERATURE_GAP_AUDIT/FINAL_LITERATURE_GAP_AUDIT.md"
+        },
+        {
+          "signal": "NEW_MATHEMATICAL_PRINCIPLE_SUPPORTED=NO",
+          "source": "NEXAH_TRANSLATION_FIDELITY_RECOVERY_LITERATURE_GAP_AUDIT/FINAL_LITERATURE_GAP_AUDIT.md"
+        },
+        {
+          "signal": "ROBUSTNESS_DISCRIMINATION_TRADEOFF_PRIOR_ART=ESTABLISHED",
+          "source": "NEXAH_TRANSLATION_FIDELITY_RECOVERY_LITERATURE_GAP_AUDIT/FINAL_LITERATURE_GAP_AUDIT.md"
+        },
+        {
+          "signal": "TRANSLATION_RECOVERY_PRIOR_ART=ESTABLISHED",
+          "source": "NEXAH_TRANSLATION_FIDELITY_RECOVERY_LITERATURE_GAP_AUDIT/FINAL_LITERATURE_GAP_AUDIT.md"
+        },
+        {
+          "signal": "GENUINE_RESEARCH_GAP_IDENTIFIED=POSSIBLY",
+          "source": "NEXAH_TRANSLATION_FIDELITY_RECOVERY_LITERATURE_GAP_AUDIT/FINAL_LITERATURE_GAP_AUDIT.md"
+        },
+        {
+          "signal": "EXTERNAL_REPLICATION_STILL_JUSTIFIED=YES",
+          "source": "NEXAH_TRANSLATION_FIDELITY_RECOVERY_LITERATURE_GAP_AUDIT/FINAL_LITERATURE_GAP_AUDIT.md"
+        },
+        {
+          "signal": "RECOMMENDED_NEXT_ACTION=REFRAME_EXTERNAL_PREREGISTRATION_TO_TEST_INCREMENTAL_DIAGNOSTIC_VALUE_AGAINST_INFORMATION_THEORETIC_MARKOV_BISIMULATION_AND_GRAPH_EXPRESSIVITY_BASELINES",
+          "source": "NEXAH_TRANSLATION_FIDELITY_RECOVERY_LITERATURE_GAP_AUDIT/FINAL_LITERATURE_GAP_AUDIT.md"
+        }
+      ]
+    },
+    {
+      "bytes": 37383,
+      "endpoint_candidates": [
+        "NEXAH_TRANSLATION_FIDELITY_SYNTHESIS/FINAL_TRANSLATION_FIDELITY_SYNTHESIS_REPORT.md",
+        "NEXAH_TRANSLATION_FIDELITY_SYNTHESIS/SYNTHESIS_HASH_MANIFEST.json"
+      ],
+      "extensions": {
+        ".json": 1,
+        ".md": 9
+      },
+      "family": "NEXAH",
+      "file_count": 10,
+      "marker_class": "TERMINAL_MARKER",
+      "raw_bytes": 0,
+      "raw_file_count": 0,
+      "review_class": "TERMINAL_CANDIDATE",
+      "root": "NEXAH_TRANSLATION_FIDELITY_SYNTHESIS",
+      "sha256_raw_tree": null,
+      "sha256_tree": "4bc5577b8581c8d14889e9c560dc6292ae72b6bbaeddda2bf27ca216643a0944",
+      "status_signals": [
+        {
+          "signal": "SOURCE_STUDIES_VERIFIED=YES",
+          "source": "NEXAH_TRANSLATION_FIDELITY_SYNTHESIS/FINAL_TRANSLATION_FIDELITY_SYNTHESIS_REPORT.md"
+        },
+        {
+          "signal": "NEW_EXPERIMENT_EXECUTED=NO",
+          "source": "NEXAH_TRANSLATION_FIDELITY_SYNTHESIS/FINAL_TRANSLATION_FIDELITY_SYNTHESIS_REPORT.md"
+        },
+        {
+          "signal": "POST_RESULT_RETUNING=NO",
+          "source": "NEXAH_TRANSLATION_FIDELITY_SYNTHESIS/FINAL_TRANSLATION_FIDELITY_SYNTHESIS_REPORT.md"
+        },
+        {
+          "signal": "MATHEMATICAL_INVARIANT_DISCOVERED=NO",
+          "source": "NEXAH_TRANSLATION_FIDELITY_SYNTHESIS/FINAL_TRANSLATION_FIDELITY_SYNTHESIS_REPORT.md"
+        },
+        {
+          "signal": "PHYSICAL_INVARIANT_DISCOVERED=NO",
+          "source": "NEXAH_TRANSLATION_FIDELITY_SYNTHESIS/FINAL_TRANSLATION_FIDELITY_SYNTHESIS_REPORT.md"
+        },
+        {
+          "signal": "UNIVERSAL_LAW_CLAIMED=NO",
+          "source": "NEXAH_TRANSLATION_FIDELITY_SYNTHESIS/FINAL_TRANSLATION_FIDELITY_SYNTHESIS_REPORT.md"
+        },
+        {
+          "signal": "TRADEOFF_PATTERN_REPLICATED=YES_WITH_IMPLEMENTATION_QUALIFICATION",
+          "source": "NEXAH_TRANSLATION_FIDELITY_SYNTHESIS/FINAL_TRANSLATION_FIDELITY_SYNTHESIS_REPORT.md"
+        },
+        {
+          "signal": "EXACT_HIERARCHY_REPLICATED=NO",
+          "source": "NEXAH_TRANSLATION_FIDELITY_SYNTHESIS/FINAL_TRANSLATION_FIDELITY_SYNTHESIS_REPORT.md"
+        },
+        {
+          "signal": "EXTERNAL_REPLICATION_REQUIRED=YES",
+          "source": "NEXAH_TRANSLATION_FIDELITY_SYNTHESIS/FINAL_TRANSLATION_FIDELITY_SYNTHESIS_REPORT.md"
+        },
+        {
+          "signal": "INTERNAL_TRANSLATION_BRANCH_COMPLETE=YES",
+          "source": "NEXAH_TRANSLATION_FIDELITY_SYNTHESIS/FINAL_TRANSLATION_FIDELITY_SYNTHESIS_REPORT.md"
+        }
+      ]
+    },
+    {
+      "bytes": 590105,
+      "endpoint_candidates": [
+        "NEXAH_TRANSLATION_INVARIANT_REPLICATION/FINAL_NEXAH_TRANSLATION_INVARIANT_REPLICATION_REPORT.md",
+        "NEXAH_TRANSLATION_INVARIANT_REPLICATION/PROTOCOL_FREEZE_RECORD.md",
+        "NEXAH_TRANSLATION_INVARIANT_REPLICATION/HASH_MANIFEST.json",
+        "NEXAH_TRANSLATION_INVARIANT_REPLICATION/01_FROZEN_STRUCTURAL_CERTIFICATES.md"
+      ],
+      "extensions": {
+        ".json": 3,
+        ".md": 12,
+        ".py": 1
+      },
+      "family": "NEXAH",
+      "file_count": 16,
+      "marker_class": "TERMINAL_MARKER",
+      "raw_bytes": 0,
+      "raw_file_count": 0,
+      "review_class": "TERMINAL_CANDIDATE",
+      "root": "NEXAH_TRANSLATION_INVARIANT_REPLICATION",
+      "sha256_raw_tree": null,
+      "sha256_tree": "43394f664921b5d951439015d962deef5958b2115320322d42070ffeee190a15",
+      "status_signals": [
+        {
+          "signal": "CANONICAL_OPERATORS_CHANGED=NO",
+          "source": "NEXAH_TRANSLATION_INVARIANT_REPLICATION/FINAL_NEXAH_TRANSLATION_INVARIANT_REPLICATION_REPORT.md"
+        },
+        {
+          "signal": "APPLICATION_001_CHANGED=NO",
+          "source": "NEXAH_TRANSLATION_INVARIANT_REPLICATION/FINAL_NEXAH_TRANSLATION_INVARIANT_REPLICATION_REPORT.md"
+        },
+        {
+          "signal": "LEVEL1C_CHANGED=NO",
+          "source": "NEXAH_TRANSLATION_INVARIANT_REPLICATION/FINAL_NEXAH_TRANSLATION_INVARIANT_REPLICATION_REPORT.md"
+        },
+        {
+          "signal": "IEEE_PEGASE_EXECUTED=NO",
+          "source": "NEXAH_TRANSLATION_INVARIANT_REPLICATION/FINAL_NEXAH_TRANSLATION_INVARIANT_REPLICATION_REPORT.md"
+        },
+        {
+          "signal": "POST_RESULT_RETUNING=NO",
+          "source": "NEXAH_TRANSLATION_INVARIANT_REPLICATION/FINAL_NEXAH_TRANSLATION_INVARIANT_REPLICATION_REPORT.md"
+        },
+        {
+          "signal": "PROTOCOL_BUNDLE_SHA256=98c7856cb99d428492168a1bc0a4ab31f075b5b3504a92c8f4dfafa9635f4eb8",
+          "source": "NEXAH_TRANSLATION_INVARIANT_REPLICATION/PROTOCOL_FREEZE_RECORD.md"
+        }
+      ]
+    },
+    {
+      "bytes": 92979,
+      "endpoint_candidates": [
+        "NEXAH_TRANSLATION_RECOVERY_EXP_T01/FINAL_NEXAH_EXP_T01_REPORT.md",
+        "NEXAH_TRANSLATION_RECOVERY_EXP_T01/PROTOCOL_FREEZE_RECORD.json",
+        "NEXAH_TRANSLATION_RECOVERY_EXP_T01/PROTOCOL_FREEZE_RECORD.md",
+        "NEXAH_TRANSLATION_RECOVERY_EXP_T01/HASH_MANIFEST.json"
+      ],
+      "extensions": {
+        ".json": 9,
+        ".md": 16,
+        ".py": 2
+      },
+      "family": "NEXAH",
+      "file_count": 27,
+      "marker_class": "TERMINAL_MARKER",
+      "raw_bytes": 0,
+      "raw_file_count": 0,
+      "review_class": "TERMINAL_CANDIDATE",
+      "root": "NEXAH_TRANSLATION_RECOVERY_EXP_T01",
+      "sha256_raw_tree": null,
+      "sha256_tree": "d1d609a022740da4d7bd79d347baefbc797a98f3cb5d96f4577d2cb4ec42c8e4",
+      "status_signals": [
+        {
+          "signal": "status=clean and aligned with `origin/main`",
+          "source": "NEXAH_TRANSLATION_RECOVERY_EXP_T01/PROTOCOL_FREEZE_RECORD.md"
+        }
+      ]
+    },
+    {
+      "bytes": 2108,
+      "endpoint_candidates": [],
+      "extensions": {
+        ".md": 1
+      },
+      "family": "OTHER",
+      "file_count": 1,
+      "marker_class": "NO_MARKER",
+      "raw_bytes": 0,
+      "raw_file_count": 0,
+      "review_class": "MANUAL_REVIEW",
+      "root": "ONE_PAGE_OUTREACH_STRATEGY.md",
+      "sha256_raw_tree": null,
+      "sha256_tree": "0beefd81a2de30b51bd9b64f4229a6cb08b7c7e98e65a49b70c07a9dd7a1c100",
+      "status_signals": []
+    },
+    {
+      "bytes": 40886,
+      "endpoint_candidates": [],
+      "extensions": {
+        ".md": 12
+      },
+      "family": "OTHER",
+      "file_count": 12,
+      "marker_class": "NO_MARKER",
+      "raw_bytes": 0,
+      "raw_file_count": 0,
+      "review_class": "MANUAL_REVIEW",
+      "root": "OPERATIONS",
+      "sha256_raw_tree": null,
+      "sha256_tree": "acab2bd9c36a9af65704a39036e9a61bc2ea6bbbc3ca59abdbfc93caec764130",
+      "status_signals": []
+    },
+    {
+      "bytes": 38818,
+      "endpoint_candidates": [
+        "ORION_1_0_APPLICATION_ARCHITECTURE/12_FINAL_RECOMMENDATION.md",
+        "ORION_1_0_APPLICATION_ARCHITECTURE/03_CANONICAL_REPOSITORY_DECISION.md",
+        "ORION_1_0_APPLICATION_ARCHITECTURE/05_ARCHIVIST_ROLE_DECISION.md",
+        "ORION_1_0_APPLICATION_ARCHITECTURE/07_NEXAH_README_INTEGRATION.md",
+        "ORION_1_0_APPLICATION_ARCHITECTURE/README.md"
+      ],
+      "extensions": {
+        ".md": 13
+      },
+      "family": "ORION",
+      "file_count": 13,
+      "marker_class": "TERMINAL_MARKER",
+      "raw_bytes": 0,
+      "raw_file_count": 0,
+      "review_class": "TERMINAL_CANDIDATE",
+      "root": "ORION_1_0_APPLICATION_ARCHITECTURE",
+      "sha256_raw_tree": null,
+      "sha256_tree": "dee5bed4c6bb9ecdb08657e66ac19b3fef5ec20b8c02c6a33347b825b8ec045f",
+      "status_signals": [
+        {
+          "signal": "Status=`PREPARED`",
+          "source": "ORION_1_0_APPLICATION_ARCHITECTURE/12_FINAL_RECOMMENDATION.md"
+        },
+        {
+          "signal": "Status=`OWNER APPROVAL REQUIRED`",
+          "source": "ORION_1_0_APPLICATION_ARCHITECTURE/03_CANONICAL_REPOSITORY_DECISION.md"
+        },
+        {
+          "signal": "Status=`PREPARED`",
+          "source": "ORION_1_0_APPLICATION_ARCHITECTURE/05_ARCHIVIST_ROLE_DECISION.md"
+        },
+        {
+          "signal": "Status=`DRAFT — NOT APPLIED`",
+          "source": "ORION_1_0_APPLICATION_ARCHITECTURE/07_NEXAH_README_INTEGRATION.md"
+        },
+        {
+          "signal": "Status=`PREPARED`",
+          "source": "ORION_1_0_APPLICATION_ARCHITECTURE/README.md"
+        }
+      ]
+    },
+    {
+      "bytes": 29973,
+      "endpoint_candidates": [
+        "ORION_1_0_FOUNDATION_FREEZE/04_FOUNDATION_FREEZE.md",
+        "ORION_1_0_FOUNDATION_FREEZE/README.md"
+      ],
+      "extensions": {
+        ".md": 11
+      },
+      "family": "ORION",
+      "file_count": 11,
+      "marker_class": "TERMINAL_MARKER",
+      "raw_bytes": 0,
+      "raw_file_count": 0,
+      "review_class": "TERMINAL_CANDIDATE",
+      "root": "ORION_1_0_FOUNDATION_FREEZE",
+      "sha256_raw_tree": null,
+      "sha256_tree": "8ad6c3071e722608b26e3247afdfd278b739086ced3bfbac98c80665e0129a1b",
+      "status_signals": [
+        {
+          "signal": "Status=`PREPARED FOR ADOPTION`",
+          "source": "ORION_1_0_FOUNDATION_FREEZE/04_FOUNDATION_FREEZE.md"
+        },
+        {
+          "signal": "ORION_VERSION=1.0",
+          "source": "ORION_1_0_FOUNDATION_FREEZE/04_FOUNDATION_FREEZE.md"
+        },
+        {
+          "signal": "ADOPTION_AUTHORITY=Thomas",
+          "source": "ORION_1_0_FOUNDATION_FREEZE/04_FOUNDATION_FREEZE.md"
+        },
+        {
+          "signal": "ADOPTION_DATE=<effective date>",
+          "source": "ORION_1_0_FOUNDATION_FREEZE/04_FOUNDATION_FREEZE.md"
+        },
+        {
+          "signal": "NEXAH_BASE_COMMIT=<verified pre-migration commit>",
+          "source": "ORION_1_0_FOUNDATION_FREEZE/04_FOUNDATION_FREEZE.md"
+        },
+        {
+          "signal": "ORION_ADOPTION_COMMIT=<verified adoption commit>",
+          "source": "ORION_1_0_FOUNDATION_FREEZE/04_FOUNDATION_FREEZE.md"
+        },
+        {
+          "signal": "SOURCE_MANIFEST_SHA256=<manifest checksum>",
+          "source": "ORION_1_0_FOUNDATION_FREEZE/04_FOUNDATION_FREEZE.md"
+        },
+        {
+          "signal": "Status=`PREPARED`",
+          "source": "ORION_1_0_FOUNDATION_FREEZE/README.md"
+        }
+      ]
+    },
+    {
+      "bytes": 6472,
+      "endpoint_candidates": [
+        "ORION_EXPERIMENT_PIPELINE/REP_01_AME46_REPRESENTATION_LIFT/IDEA_FREEZE.md",
+        "ORION_EXPERIMENT_PIPELINE/REP_01_AME46_REPRESENTATION_LIFT/README.md"
+      ],
+      "extensions": {
+        ".json": 1,
+        ".md": 7
+      },
+      "family": "ORION",
+      "file_count": 8,
+      "marker_class": "TERMINAL_MARKER",
+      "raw_bytes": 0,
+      "raw_file_count": 0,
+      "review_class": "TERMINAL_CANDIDATE",
+      "root": "ORION_EXPERIMENT_PIPELINE",
+      "sha256_raw_tree": null,
+      "sha256_tree": "23762415d6a0119dc33dce9e6d1733e9239d121b8be1f024895d198aa152ec92",
+      "status_signals": [
+        {
+          "signal": "STATUS=PIPELINE_CANDIDATE",
+          "source": "ORION_EXPERIMENT_PIPELINE/REP_01_AME46_REPRESENTATION_LIFT/README.md"
+        }
+      ]
+    },
+    {
+      "bytes": 343585,
+      "endpoint_candidates": [
+        "ORION_EXP_O8_GENERATOR_REALIZATION_001_EXECUTION/FINAL_REPORT.md",
+        "ORION_EXP_O8_GENERATOR_REALIZATION_001_EXECUTION/primary/closure_audit.json",
+        "ORION_EXP_O8_GENERATOR_REALIZATION_001_EXECUTION/replay/closure_audit.json",
+        "ORION_EXP_O8_GENERATOR_REALIZATION_001_EXECUTION/IMPLEMENTATION_FREEZE_MANIFEST.json",
+        "ORION_EXP_O8_GENERATOR_REALIZATION_001_EXECUTION/ARTIFACT_HASH_MANIFEST.json"
+      ],
+      "extensions": {
+        ".json": 32,
+        ".md": 13,
+        ".py": 1
+      },
+      "family": "ORION",
+      "file_count": 46,
+      "marker_class": "TERMINAL_MARKER",
+      "raw_bytes": 0,
+      "raw_file_count": 0,
+      "review_class": "TERMINAL_CANDIDATE",
+      "root": "ORION_EXP_O8_GENERATOR_REALIZATION_001_EXECUTION",
+      "sha256_raw_tree": null,
+      "sha256_tree": "c863fb86275db42499619b118d3ab377019bcaac7fc4e280277537cb37d286a0",
+      "status_signals": []
+    },
+    {
+      "bytes": 255807,
+      "endpoint_candidates": [
+        "ORION_EXP_O8_GENERATOR_REALIZATION_002_EXECUTION/FINAL_REPORT.md",
+        "ORION_EXP_O8_GENERATOR_REALIZATION_002_EXECUTION/primary/closure_audit.json",
+        "ORION_EXP_O8_GENERATOR_REALIZATION_002_EXECUTION/replay/closure_audit.json",
+        "ORION_EXP_O8_GENERATOR_REALIZATION_002_EXECUTION/IMPLEMENTATION_FREEZE_MANIFEST.json",
+        "ORION_EXP_O8_GENERATOR_REALIZATION_002_EXECUTION/ARTIFACT_HASH_MANIFEST.json"
+      ],
+      "extensions": {
+        ".json": 40,
+        ".md": 17
+      },
+      "family": "ORION",
+      "file_count": 57,
+      "marker_class": "TERMINAL_MARKER",
+      "raw_bytes": 0,
+      "raw_file_count": 0,
+      "review_class": "TERMINAL_CANDIDATE",
+      "root": "ORION_EXP_O8_GENERATOR_REALIZATION_002_EXECUTION",
+      "sha256_raw_tree": null,
+      "sha256_tree": "2e70238f6b192e790d2b51959d512b8e6922853ea93bf9b5e87fb1cb9ffc1ed5",
+      "status_signals": []
+    },
+    {
+      "bytes": 3896194,
+      "endpoint_candidates": [
+        "ORION_EXP_O8_UTILITY_B1_001_EXECUTION/FINAL_REPORT.md",
+        "ORION_EXP_O8_UTILITY_B1_001_EXECUTION/primary/decision.json",
+        "ORION_EXP_O8_UTILITY_B1_001_EXECUTION/replay/decision.json",
+        "ORION_EXP_O8_UTILITY_B1_001_EXECUTION/IMPLEMENTATION_FREEZE_MANIFEST.json",
+        "ORION_EXP_O8_UTILITY_B1_001_EXECUTION/MCNEMAR_REPORT.md",
+        "ORION_EXP_O8_UTILITY_B1_001_EXECUTION/PRIMARY_ENDPOINT_REPORT.md",
+        "ORION_EXP_O8_UTILITY_B1_001_EXECUTION/ARTIFACT_HASH_MANIFEST.json"
+      ],
+      "extensions": {
+        ".json": 33,
+        ".md": 14,
+        ".py": 3
+      },
+      "family": "ORION",
+      "file_count": 50,
+      "marker_class": "TERMINAL_MARKER",
+      "raw_bytes": 0,
+      "raw_file_count": 0,
+      "review_class": "TERMINAL_CANDIDATE",
+      "root": "ORION_EXP_O8_UTILITY_B1_001_EXECUTION",
+      "sha256_raw_tree": null,
+      "sha256_tree": "3fa53f9fb8985b793a3bc8a500980a1f3d20149a12f36b0a2e432d7ff8429026",
+      "status_signals": [
+        {
+          "signal": "Status=PASS.",
+          "source": "ORION_EXP_O8_UTILITY_B1_001_EXECUTION/MCNEMAR_REPORT.md"
+        }
+      ]
+    },
+    {
+      "bytes": 4694651,
+      "endpoint_candidates": [
+        "ORION_EXP_O8_UTILITY_B1_002_001_EXECUTION/FINAL_REPORT.md",
+        "ORION_EXP_O8_UTILITY_B1_002_001_EXECUTION/clean_replay/decision.json",
+        "ORION_EXP_O8_UTILITY_B1_002_001_EXECUTION/primary/decision.json",
+        "ORION_EXP_O8_UTILITY_B1_002_001_EXECUTION/IMPLEMENTATION_FREEZE_MANIFEST.json"
+      ],
+      "extensions": {
+        ".json": 35,
+        ".md": 2,
+        ".py": 2
+      },
+      "family": "ORION",
+      "file_count": 39,
+      "marker_class": "TERMINAL_MARKER",
+      "raw_bytes": 0,
+      "raw_file_count": 0,
+      "review_class": "TERMINAL_CANDIDATE",
+      "root": "ORION_EXP_O8_UTILITY_B1_002_001_EXECUTION",
+      "sha256_raw_tree": null,
+      "sha256_tree": "ce88046e4e3df9e6eb8f6b27683fa8e2334aa26dcec0476af575fb25000b4dcb",
+      "status_signals": [
+        {
+          "signal": "status=FROZEN_BEFORE_PRIMARY",
+          "source": "ORION_EXP_O8_UTILITY_B1_002_001_EXECUTION/IMPLEMENTATION_FREEZE_MANIFEST.json"
+        }
+      ]
+    },
+    {
+      "bytes": 19542,
+      "endpoint_candidates": [
+        "ORION_EXP_ORION_L1_001_INDEPENDENT_PREREGISTRATION_REVIEW/README.md"
+      ],
+      "extensions": {
+        ".csv": 1,
+        ".md": 4
+      },
+      "family": "ORION",
+      "file_count": 5,
+      "marker_class": "DOCUMENTED_MARKER",
+      "raw_bytes": 0,
+      "raw_file_count": 0,
+      "review_class": "DOCUMENTED_REVIEW",
+      "root": "ORION_EXP_ORION_L1_001_INDEPENDENT_PREREGISTRATION_REVIEW",
+      "sha256_raw_tree": null,
+      "sha256_tree": "7f7f46f50cc12f5cae8094c639892df88ec19d0c845eadbef4413c983b241d9a",
+      "status_signals": [
+        {
+          "signal": "Status=`STOP BEFORE EXECUTION — MAJOR ISSUES FOUND`",
+          "source": "ORION_EXP_ORION_L1_001_INDEPENDENT_PREREGISTRATION_REVIEW/README.md"
+        }
+      ]
+    },
+    {
+      "bytes": 39868985,
+      "endpoint_candidates": [
+        "ORION_EXP_ORION_L1_001_V1_1_EXECUTION/01_FINAL_PREREGISTRATION_REVIEW.md",
+        "ORION_EXP_ORION_L1_001_V1_1_EXECUTION/FINAL_REPORT.md",
+        "ORION_EXP_ORION_L1_001_V1_1_EXECUTION/ARTIFACT_HASH_MANIFEST.json",
+        "ORION_EXP_ORION_L1_001_V1_1_EXECUTION/primary/HASH_MANIFEST.json",
+        "ORION_EXP_ORION_L1_001_V1_1_EXECUTION/replay/HASH_MANIFEST.json"
+      ],
+      "extensions": {
+        ".csv": 14,
+        ".json": 13,
+        ".md": 4,
+        ".py": 5
+      },
+      "family": "ORION",
+      "file_count": 36,
+      "marker_class": "TERMINAL_MARKER",
+      "raw_bytes": 0,
+      "raw_file_count": 0,
+      "review_class": "TERMINAL_CANDIDATE",
+      "root": "ORION_EXP_ORION_L1_001_V1_1_EXECUTION",
+      "sha256_raw_tree": null,
+      "sha256_tree": "0bb7846a1fae8020947572963fb01b84cef9e6e59f0023a035525aacccfff211",
+      "status_signals": []
+    },
+    {
+      "bytes": 1498297,
+      "endpoint_candidates": [
+        "ORION_EXP_ORION_L2_001_EXECUTION/FINAL_REPORT.md",
+        "ORION_EXP_ORION_L2_001_EXECUTION/ARTIFACT_HASH_MANIFEST.json",
+        "ORION_EXP_ORION_L2_001_EXECUTION/primary/PRIMARY_SEAL_MANIFEST.json",
+        "ORION_EXP_ORION_L2_001_EXECUTION/replay/REPLAY_SEAL_MANIFEST.json"
+      ],
+      "extensions": {
+        ".csv": 12,
+        ".json": 14,
+        ".md": 4,
+        ".py": 5
+      },
+      "family": "ORION",
+      "file_count": 35,
+      "marker_class": "TERMINAL_MARKER",
+      "raw_bytes": 0,
+      "raw_file_count": 0,
+      "review_class": "TERMINAL_CANDIDATE",
+      "root": "ORION_EXP_ORION_L2_001_EXECUTION",
+      "sha256_raw_tree": null,
+      "sha256_tree": "6f2dd7d09d6a443eb4b5bd1556e424a2a4e61094a319e55edab0f5e7a26694ba",
+      "status_signals": []
+    },
+    {
+      "bytes": 35804956,
+      "endpoint_candidates": [
+        "ORION_EXP_ORION_L3_001_EXECUTION/FINAL_REPORT.md",
+        "ORION_EXP_ORION_L3_001_EXECUTION/ARTIFACT_HASH_MANIFEST.json",
+        "ORION_EXP_ORION_L3_001_EXECUTION/primary/PRIMARY_SEAL_MANIFEST.json",
+        "ORION_EXP_ORION_L3_001_EXECUTION/replay/REPLAY_SEAL_MANIFEST.json",
+        "ORION_EXP_ORION_L3_001_EXECUTION/failed_attempts/attempt_001/FAILED_ATTEMPT_MANIFEST.json"
+      ],
+      "extensions": {
+        ".csv": 33,
+        ".json": 25,
+        ".md": 8,
+        ".py": 6
+      },
+      "family": "ORION",
+      "file_count": 72,
+      "marker_class": "TERMINAL_MARKER",
+      "raw_bytes": 0,
+      "raw_file_count": 0,
+      "review_class": "TERMINAL_CANDIDATE",
+      "root": "ORION_EXP_ORION_L3_001_EXECUTION",
+      "sha256_raw_tree": null,
+      "sha256_tree": "ac081d54069e1fc46c191b0b5c6a5f9b02b95ee568c8195cc9a5969a7f371380",
+      "status_signals": []
+    },
+    {
+      "bytes": 8585468,
+      "endpoint_candidates": [
+        "ORION_EXP_ORION_L4_001_EXECUTION/FINAL_L4_REPORT.md",
+        "ORION_EXP_ORION_L4_001_EXECUTION/IMPLEMENTATION_FREEZE_MANIFEST.json",
+        "ORION_EXP_ORION_L4_001_EXECUTION/POST_FAILURE_CLOSEOUT_MANIFEST.json"
+      ],
+      "extensions": {
+        ".json": 33,
+        ".jsonl": 6,
+        ".log": 10,
+        ".md": 4,
+        ".npz": 18,
+        ".py": 6
+      },
+      "family": "ORION",
+      "file_count": 77,
+      "marker_class": "TERMINAL_MARKER",
+      "raw_bytes": 2083102,
+      "raw_file_count": 10,
+      "review_class": "TERMINAL_CANDIDATE",
+      "root": "ORION_EXP_ORION_L4_001_EXECUTION",
+      "sha256_raw_tree": "b7d9a638f5f945034b938f522ab4d7c9b16a357f1bd4957b17390cb36c880c64",
+      "sha256_tree": "701680edc499715f33022d988ce53c28d1ee25c918c275cca6b006c01b297329",
+      "status_signals": []
+    },
+    {
+      "bytes": 308452,
+      "endpoint_candidates": [
+        "ORION_EXP_ORION_L4_003_TNSPA_V1_EXECUTION/FINAL_REPORT.md",
+        "ORION_EXP_ORION_L4_003_TNSPA_V1_EXECUTION/IMPLEMENTATION_FREEZE_MANIFEST.json",
+        "ORION_EXP_ORION_L4_003_TNSPA_V1_EXECUTION/primary/ARTIFACT_HASH_MANIFEST.json",
+        "ORION_EXP_ORION_L4_003_TNSPA_V1_EXECUTION/replay/ARTIFACT_HASH_MANIFEST.json"
+      ],
+      "extensions": {
+        ".json": 30,
+        ".log": 14,
+        ".md": 3,
+        ".npz": 8,
+        ".py": 10
+      },
+      "family": "ORION",
+      "file_count": 65,
+      "marker_class": "TERMINAL_MARKER",
+      "raw_bytes": 0,
+      "raw_file_count": 0,
+      "review_class": "TERMINAL_CANDIDATE",
+      "root": "ORION_EXP_ORION_L4_003_TNSPA_V1_EXECUTION",
+      "sha256_raw_tree": null,
+      "sha256_tree": "bedb2dd738bf56ad6862d825497ba6d3fab18539ed3ba8cf5c10764e260fa7a7",
+      "status_signals": []
+    },
+    {
+      "bytes": 1903597,
+      "endpoint_candidates": [
+        "ORION_EXP_SECOND_ORDER_RELATIONAL_STABILITY_001_EXECUTION/FINAL_REPORT.md",
+        "ORION_EXP_SECOND_ORDER_RELATIONAL_STABILITY_001_EXECUTION/IMPLEMENTATION_FREEZE_MANIFEST.json",
+        "ORION_EXP_SECOND_ORDER_RELATIONAL_STABILITY_001_EXECUTION/ARTIFACT_HASH_MANIFEST.json",
+        "ORION_EXP_SECOND_ORDER_RELATIONAL_STABILITY_001_EXECUTION/replay/ARTIFACT_HASH_MANIFEST.json",
+        "ORION_EXP_SECOND_ORDER_RELATIONAL_STABILITY_001_EXECUTION/primary/first_order/first_order_manifest.json",
+        "ORION_EXP_SECOND_ORDER_RELATIONAL_STABILITY_001_EXECUTION/primary/null_input/null_input_manifest.json",
+        "ORION_EXP_SECOND_ORDER_RELATIONAL_STABILITY_001_EXECUTION/primary/relation/relation_manifest.json",
+        "ORION_EXP_SECOND_ORDER_RELATIONAL_STABILITY_001_EXECUTION/primary/source/source_manifest.json"
+      ],
+      "extensions": {
+        ".json": 30,
+        ".log": 18,
+        ".md": 3,
+        ".npy": 4,
+        ".npz": 8,
+        ".py": 13
+      },
+      "family": "ORION",
+      "file_count": 76,
+      "marker_class": "TERMINAL_MARKER",
+      "raw_bytes": 0,
+      "raw_file_count": 0,
+      "review_class": "TERMINAL_CANDIDATE",
+      "root": "ORION_EXP_SECOND_ORDER_RELATIONAL_STABILITY_001_EXECUTION",
+      "sha256_raw_tree": null,
+      "sha256_tree": "5b69e0900112331e66cdf7a65b5901997f69cc6d68960482a8a4320029bb8a5f",
+      "status_signals": []
+    },
+    {
+      "bytes": 20571,
+      "endpoint_candidates": [
+        "ORION_INFORMATION_BOUNDARY_COMPARATOR_FEASIBILITY_AUDIT/FINAL_AUDIT_REPORT.md",
+        "ORION_INFORMATION_BOUNDARY_COMPARATOR_FEASIBILITY_AUDIT/00_SCOPE_AND_DECISION_FRAME.md",
+        "ORION_INFORMATION_BOUNDARY_COMPARATOR_FEASIBILITY_AUDIT/AUDIT_HASH_MANIFEST.json"
+      ],
+      "extensions": {
+        ".json": 1,
+        ".md": 5
+      },
+      "family": "ORION",
+      "file_count": 6,
+      "marker_class": "TERMINAL_MARKER",
+      "raw_bytes": 0,
+      "raw_file_count": 0,
+      "review_class": "TERMINAL_CANDIDATE",
+      "root": "ORION_INFORMATION_BOUNDARY_COMPARATOR_FEASIBILITY_AUDIT",
+      "sha256_raw_tree": null,
+      "sha256_tree": "dc3731001c622514d6731b19c5bb9c67cfb99059a808f6bb9b293425d59ef857",
+      "status_signals": [
+        {
+          "signal": "Decision=`NO_NEW_EXPERIMENT`; `NO_B2`; current cycle remains closed.",
+          "source": "ORION_INFORMATION_BOUNDARY_COMPARATOR_FEASIBILITY_AUDIT/FINAL_AUDIT_REPORT.md"
+        },
+        {
+          "signal": "decision=ONLY_SPARSE_TRACE_EQUIVALENCE_CLASS_SURVIVES_CONCEPTUALLY_NEEDS_MORE_THEORY_NO_NEW_EXPERIMENT",
+          "source": "ORION_INFORMATION_BOUNDARY_COMPARATOR_FEASIBILITY_AUDIT/AUDIT_HASH_MANIFEST.json"
+        }
+      ]
+    },
+    {
+      "bytes": 110543,
+      "endpoint_candidates": [
+        "ORION_LABORATORY_CATALOG/README.md",
+        "ORION_LABORATORY_CATALOG/HUMAN_BRIEFING/README.md",
+        "ORION_LABORATORY_CATALOG/OPERATING_CYCLE/README.md",
+        "ORION_LABORATORY_CATALOG/PILOT_0_1/README.md"
+      ],
+      "extensions": {
+        ".md": 33
+      },
+      "family": "ORION",
+      "file_count": 33,
+      "marker_class": "DOCUMENTED_MARKER",
+      "raw_bytes": 0,
+      "raw_file_count": 0,
+      "review_class": "DOCUMENTED_REVIEW",
+      "root": "ORION_LABORATORY_CATALOG",
+      "sha256_raw_tree": null,
+      "sha256_tree": "5eb1b83eab69f764061d99f04679fe01d768dcf738837e576d62cc95375fd394",
+      "status_signals": [
+        {
+          "signal": "Status=`ARCHITECTURE PREPARATION — NOT IMPLEMENTED`",
+          "source": "ORION_LABORATORY_CATALOG/README.md"
+        },
+        {
+          "signal": "Decision=`B — BOUNDED CATALOG DOCUMENTATION PACKAGE REQUIRED`",
+          "source": "ORION_LABORATORY_CATALOG/README.md"
+        },
+        {
+          "signal": "Status=`CANONICAL DOCUMENTATION PACKAGE`",
+          "source": "ORION_LABORATORY_CATALOG/HUMAN_BRIEFING/README.md"
+        },
+        {
+          "signal": "Status=`CANONICAL DOCUMENTATION PACKAGE`",
+          "source": "ORION_LABORATORY_CATALOG/OPERATING_CYCLE/README.md"
+        },
+        {
+          "signal": "Status=`MANUAL DOCUMENTATION PILOT — OWNER REVIEW REQUIRED`",
+          "source": "ORION_LABORATORY_CATALOG/PILOT_0_1/README.md"
+        }
+      ]
+    },
+    {
+      "bytes": 76524,
+      "endpoint_candidates": [
+        "ORION_LEVEL_0_CALIBRATION_AND_L1_PREP/07_NEXT_ACTION_DECISION.md",
+        "ORION_LEVEL_0_CALIBRATION_AND_L1_PREP/04_ORION_L0_EXECUTION_REPORT.md",
+        "ORION_LEVEL_0_CALIBRATION_AND_L1_PREP/README.md"
+      ],
+      "extensions": {
+        ".csv": 2,
+        ".json": 3,
+        ".md": 8,
+        ".py": 2
+      },
+      "family": "ORION",
+      "file_count": 15,
+      "marker_class": "TERMINAL_MARKER",
+      "raw_bytes": 0,
+      "raw_file_count": 0,
+      "review_class": "TERMINAL_CANDIDATE",
+      "root": "ORION_LEVEL_0_CALIBRATION_AND_L1_PREP",
+      "sha256_raw_tree": null,
+      "sha256_tree": "0c00259180a2e52b3b4a8471b4f079bc464e5850fec98555f80ff39df2f191e0",
+      "status_signals": [
+        {
+          "signal": "Status=`LEVEL-0 CLOSED / L1 READY FOR REVIEW`",
+          "source": "ORION_LEVEL_0_CALIBRATION_AND_L1_PREP/07_NEXT_ACTION_DECISION.md"
+        },
+        {
+          "signal": "Status=`PASS`",
+          "source": "ORION_LEVEL_0_CALIBRATION_AND_L1_PREP/04_ORION_L0_EXECUTION_REPORT.md"
+        },
+        {
+          "signal": "Status=`LEVEL 0 EXECUTED / L1 PREREGISTERED / NO NAVIGATION CLAIM`",
+          "source": "ORION_LEVEL_0_CALIBRATION_AND_L1_PREP/README.md"
+        }
+      ]
+    },
+    {
+      "bytes": 32031,
+      "endpoint_candidates": [
+        "ORION_LEVEL_2_NONLINEAR_DYNAMICS_PREREGISTRATION/09_ORION_L2_EXECUTION_DECISION.md"
+      ],
+      "extensions": {
+        ".json": 2,
+        ".md": 9
+      },
+      "family": "ORION",
+      "file_count": 11,
+      "marker_class": "TERMINAL_MARKER",
+      "raw_bytes": 0,
+      "raw_file_count": 0,
+      "review_class": "TERMINAL_CANDIDATE",
+      "root": "ORION_LEVEL_2_NONLINEAR_DYNAMICS_PREREGISTRATION",
+      "sha256_raw_tree": null,
+      "sha256_tree": "fca825c38c5b5a7fc6ae3b9bcdc153ebbc8a9a2933848336ac2307cb8b788769",
+      "status_signals": []
+    },
+    {
+      "bytes": 49604,
+      "endpoint_candidates": [
+        "ORION_LEVEL_3_CROSS_REPRESENTATION_PREREGISTRATION/02_ORION_L3_SOURCE_DECISION.md",
+        "ORION_LEVEL_3_CROSS_REPRESENTATION_PREREGISTRATION/11_ORION_L3_EXECUTION_DECISION.md",
+        "ORION_LEVEL_3_CROSS_REPRESENTATION_PREREGISTRATION/DESIGN_HASH_MANIFEST.json"
+      ],
+      "extensions": {
+        ".json": 4,
+        ".md": 11
+      },
+      "family": "ORION",
+      "file_count": 15,
+      "marker_class": "TERMINAL_MARKER",
+      "raw_bytes": 0,
+      "raw_file_count": 0,
+      "review_class": "TERMINAL_CANDIDATE",
+      "root": "ORION_LEVEL_3_CROSS_REPRESENTATION_PREREGISTRATION",
+      "sha256_raw_tree": null,
+      "sha256_tree": "a3ccef9c350cfffec54286a1c8ed6e38d96a3374e195647e3221b6025d0c8dfc",
+      "status_signals": []
+    },
+    {
+      "bytes": 138492,
+      "endpoint_candidates": [
+        "ORION_LEVEL_4_002_CANDIDATE_CHARACTERIZATION/FINAL_REPORT.md",
+        "ORION_LEVEL_4_002_CANDIDATE_CHARACTERIZATION/11_L4_003_READINESS_DECISION.md",
+        "ORION_LEVEL_4_002_CANDIDATE_CHARACTERIZATION/04_PREORDER_STRUCTURE_REPORT.md",
+        "ORION_LEVEL_4_002_CANDIDATE_CHARACTERIZATION/CHARACTERIZATION_HASH_MANIFEST.json"
+      ],
+      "extensions": {
+        ".json": 23,
+        ".md": 12,
+        ".py": 1
+      },
+      "family": "ORION",
+      "file_count": 36,
+      "marker_class": "TERMINAL_MARKER",
+      "raw_bytes": 0,
+      "raw_file_count": 0,
+      "review_class": "TERMINAL_CANDIDATE",
+      "root": "ORION_LEVEL_4_002_CANDIDATE_CHARACTERIZATION",
+      "sha256_raw_tree": null,
+      "sha256_tree": "6f64824a3ee3067a30b5e0c3864b794e0aec6da1c3e689f2345e5f61691e3606",
+      "status_signals": [
+        {
+          "signal": "Decision=**READY_FOR_L4_003_METRIC_PREREGISTRATION**",
+          "source": "ORION_LEVEL_4_002_CANDIDATE_CHARACTERIZATION/11_L4_003_READINESS_DECISION.md"
+        }
+      ]
+    },
+    {
+      "bytes": 24487,
+      "endpoint_candidates": [
+        "ORION_LEVEL_4_003_TIE_AWARE_METRIC_PREREGISTRATION/10_LOCK_READINESS_DECISION.md",
+        "ORION_LEVEL_4_003_TIE_AWARE_METRIC_PREREGISTRATION/DESIGN_HASH_MANIFEST.json"
+      ],
+      "extensions": {
+        ".json": 4,
+        ".md": 10
+      },
+      "family": "ORION",
+      "file_count": 14,
+      "marker_class": "TERMINAL_MARKER",
+      "raw_bytes": 0,
+      "raw_file_count": 0,
+      "review_class": "TERMINAL_CANDIDATE",
+      "root": "ORION_LEVEL_4_003_TIE_AWARE_METRIC_PREREGISTRATION",
+      "sha256_raw_tree": null,
+      "sha256_tree": "e2acab5924d44c81961fa36ba42a7bdbd40643f7d22dac2681ddc6082ecfbc6e",
+      "status_signals": [
+        {
+          "signal": "Decision=**READY FOR A SEPARATE IMMUTABLE LOCK STEP. STOP BEFORE LOCK AND EXECUTION.**",
+          "source": "ORION_LEVEL_4_003_TIE_AWARE_METRIC_PREREGISTRATION/10_LOCK_READINESS_DECISION.md"
+        },
+        {
+          "signal": "review_attestation.verdict=PASS",
+          "source": "ORION_LEVEL_4_003_TIE_AWARE_METRIC_PREREGISTRATION/DESIGN_HASH_MANIFEST.json"
+        }
+      ]
+    },
+    {
+      "bytes": 46244,
+      "endpoint_candidates": [
+        "ORION_LEVEL_4_NEXAH_CANDIDATE_PREREGISTRATION/14_L4_EXECUTION_DECISION.md",
+        "ORION_LEVEL_4_NEXAH_CANDIDATE_PREREGISTRATION/DESIGN_HASH_MANIFEST.json"
+      ],
+      "extensions": {
+        ".json": 5,
+        ".md": 14
+      },
+      "family": "ORION",
+      "file_count": 19,
+      "marker_class": "TERMINAL_MARKER",
+      "raw_bytes": 0,
+      "raw_file_count": 0,
+      "review_class": "TERMINAL_CANDIDATE",
+      "root": "ORION_LEVEL_4_NEXAH_CANDIDATE_PREREGISTRATION",
+      "sha256_raw_tree": null,
+      "sha256_tree": "5d4999f3761ff4a6b24511c50c6667c15f14b99ee412b74f3e077a6065fc3138",
+      "status_signals": [
+        {
+          "signal": "Decision=**STOP AT THE PHASE-1 BOUNDARY.**",
+          "source": "ORION_LEVEL_4_NEXAH_CANDIDATE_PREREGISTRATION/14_L4_EXECUTION_DECISION.md"
+        },
+        {
+          "signal": "review_attestation.verdict=PASS",
+          "source": "ORION_LEVEL_4_NEXAH_CANDIDATE_PREREGISTRATION/DESIGN_HASH_MANIFEST.json"
+        }
+      ]
+    },
+    {
+      "bytes": 117750,
+      "endpoint_candidates": [
+        "ORION_MASTER_ARCHITECTURE_BLUEPRINT_PHASE_1/FINAL_ORION_MASTER_ARCHITECTURE_RECONCILIATION_REPORT.md",
+        "ORION_MASTER_ARCHITECTURE_BLUEPRINT_PHASE_1/HASH_MANIFEST.json"
+      ],
+      "extensions": {
+        ".json": 1,
+        ".md": 11
+      },
+      "family": "ORION",
+      "file_count": 12,
+      "marker_class": "TERMINAL_MARKER",
+      "raw_bytes": 0,
+      "raw_file_count": 0,
+      "review_class": "TERMINAL_CANDIDATE",
+      "root": "ORION_MASTER_ARCHITECTURE_BLUEPRINT_PHASE_1",
+      "sha256_raw_tree": null,
+      "sha256_tree": "e3d5647d3f2a4c29f920766aadfc04363bf5cedbd3292d006ca86e9f729fb545",
+      "status_signals": [
+        {
+          "signal": "Status=`PHASE 1 COMPLETE / DOCUMENTATION ONLY / 2026-08-11`",
+          "source": "ORION_MASTER_ARCHITECTURE_BLUEPRINT_PHASE_1/FINAL_ORION_MASTER_ARCHITECTURE_RECONCILIATION_REPORT.md"
+        }
+      ]
+    },
+    {
+      "bytes": 55781,
+      "endpoint_candidates": [
+        "ORION_MASTER_ARCHITECTURE_BLUEPRINT_PHASE_2_OWNER_ADOPTION/FINAL_ORION_MASTER_ARCHITECTURE_PHASE_2_OWNER_ADOPTION_REPORT.md",
+        "ORION_MASTER_ARCHITECTURE_BLUEPRINT_PHASE_2_OWNER_ADOPTION/10_OWNER_ADOPTION_DECISION_MATRIX.md",
+        "ORION_MASTER_ARCHITECTURE_BLUEPRINT_PHASE_2_OWNER_ADOPTION/00_PHASE_1_EVIDENCE_FREEZE.md",
+        "ORION_MASTER_ARCHITECTURE_BLUEPRINT_PHASE_2_OWNER_ADOPTION/HASH_MANIFEST.json"
+      ],
+      "extensions": {
+        ".json": 1,
+        ".md": 6
+      },
+      "family": "ORION",
+      "file_count": 7,
+      "marker_class": "TERMINAL_MARKER",
+      "raw_bytes": 0,
+      "raw_file_count": 0,
+      "review_class": "TERMINAL_CANDIDATE",
+      "root": "ORION_MASTER_ARCHITECTURE_BLUEPRINT_PHASE_2_OWNER_ADOPTION",
+      "sha256_raw_tree": null,
+      "sha256_tree": "d2f4d5f88a53f0a708c03f4de30256455281e5bdd636d7d61039d60455ada70d",
+      "status_signals": [
+        {
+          "signal": "Status=`AWAITING_OWNER_DECISIONS`",
+          "source": "ORION_MASTER_ARCHITECTURE_BLUEPRINT_PHASE_2_OWNER_ADOPTION/FINAL_ORION_MASTER_ARCHITECTURE_PHASE_2_OWNER_ADOPTION_REPORT.md"
+        },
+        {
+          "signal": "Status=`AWAITING_OWNER_DECISIONS`",
+          "source": "ORION_MASTER_ARCHITECTURE_BLUEPRINT_PHASE_2_OWNER_ADOPTION/10_OWNER_ADOPTION_DECISION_MATRIX.md"
+        },
+        {
+          "signal": "Status=`VERIFIED / READ_ONLY EVIDENCE BASE / 2026-08-11`",
+          "source": "ORION_MASTER_ARCHITECTURE_BLUEPRINT_PHASE_2_OWNER_ADOPTION/00_PHASE_1_EVIDENCE_FREEZE.md"
+        },
+        {
+          "signal": "status=AWAITING_OWNER_DECISIONS",
+          "source": "ORION_MASTER_ARCHITECTURE_BLUEPRINT_PHASE_2_OWNER_ADOPTION/HASH_MANIFEST.json"
+        }
+      ]
+    },
+    {
+      "bytes": 14900,
+      "endpoint_candidates": [
+        "ORION_MASTER_ARCHITECTURE_PHASE_3B_CANONICALIZATION/FINAL_PHASE_3B_CANONICALIZATION_REPORT.md",
+        "ORION_MASTER_ARCHITECTURE_PHASE_3B_CANONICALIZATION/HASH_MANIFEST.json"
+      ],
+      "extensions": {
+        ".json": 1,
+        ".md": 3
+      },
+      "family": "ORION",
+      "file_count": 4,
+      "marker_class": "TERMINAL_MARKER",
+      "raw_bytes": 0,
+      "raw_file_count": 0,
+      "review_class": "TERMINAL_CANDIDATE",
+      "root": "ORION_MASTER_ARCHITECTURE_PHASE_3B_CANONICALIZATION",
+      "sha256_raw_tree": null,
+      "sha256_tree": "217f3223b7ade7771b83abd50182be007f9eb8876b195025082bd22a2c99c81b",
+      "status_signals": []
+    },
+    {
+      "bytes": 25146,
+      "endpoint_candidates": [
+        "ORION_MASTER_ARCHITECTURE_PHASE_3_CANONICALIZATION_PROPOSAL/FINAL_PHASE_3_CANONICALIZATION_PROPOSAL_REPORT.md",
+        "ORION_MASTER_ARCHITECTURE_PHASE_3_CANONICALIZATION_PROPOSAL/00_OWNER_DECISION_TRANSCRIPTION.md",
+        "ORION_MASTER_ARCHITECTURE_PHASE_3_CANONICALIZATION_PROPOSAL/HASH_MANIFEST.json"
+      ],
+      "extensions": {
+        ".json": 1,
+        ".md": 5
+      },
+      "family": "ORION",
+      "file_count": 6,
+      "marker_class": "TERMINAL_MARKER",
+      "raw_bytes": 0,
+      "raw_file_count": 0,
+      "review_class": "TERMINAL_CANDIDATE",
+      "root": "ORION_MASTER_ARCHITECTURE_PHASE_3_CANONICALIZATION_PROPOSAL",
+      "sha256_raw_tree": null,
+      "sha256_tree": "979ff7848c2e6949b59eff16b06264891405aa0b2701e54766b447b30ac846b1",
+      "status_signals": [
+        {
+          "signal": "Status=`PROPOSED_CHANGESET_AWAITING_OWNER_REVIEW / NOT CANONICALIZED`",
+          "source": "ORION_MASTER_ARCHITECTURE_PHASE_3_CANONICALIZATION_PROPOSAL/FINAL_PHASE_3_CANONICALIZATION_PROPOSAL_REPORT.md"
+        },
+        {
+          "signal": "Status=`TRANSCRIBED / NOT YET CANONICALIZED`",
+          "source": "ORION_MASTER_ARCHITECTURE_PHASE_3_CANONICALIZATION_PROPOSAL/00_OWNER_DECISION_TRANSCRIPTION.md"
+        },
+        {
+          "signal": "status=PROPOSED_CHANGESET_AWAITING_OWNER_REVIEW_NOT_CANONICALIZED",
+          "source": "ORION_MASTER_ARCHITECTURE_PHASE_3_CANONICALIZATION_PROPOSAL/HASH_MANIFEST.json"
+        }
+      ]
+    },
+    {
+      "bytes": 165217,
+      "endpoint_candidates": [
+        "ORION_MATH_THE_MATH_VALIDATION_ARCHITECTURE_PASS/06_REPRODUCIBILITY_GAP_REPORT.md",
+        "ORION_MATH_THE_MATH_VALIDATION_ARCHITECTURE_PASS/README.md"
+      ],
+      "extensions": {
+        ".csv": 1,
+        ".md": 10,
+        ".py": 2
+      },
+      "family": "ORION",
+      "file_count": 13,
+      "marker_class": "DOCUMENTED_MARKER",
+      "raw_bytes": 0,
+      "raw_file_count": 0,
+      "review_class": "DOCUMENTED_REVIEW",
+      "root": "ORION_MATH_THE_MATH_VALIDATION_ARCHITECTURE_PASS",
+      "sha256_raw_tree": null,
+      "sha256_tree": "64568616b90c8e9e82b4ab99190a3fd5ff62a48d4938a1ab400e94e24ac425d8",
+      "status_signals": [
+        {
+          "signal": "Status=`GAPS EXPLICIT / NO EVIDENCE REPAIR BY NARRATIVE`",
+          "source": "ORION_MATH_THE_MATH_VALIDATION_ARCHITECTURE_PASS/06_REPRODUCIBILITY_GAP_REPORT.md"
+        },
+        {
+          "signal": "Status=`RESEARCH ARCHIVE AUDIT COMPLETE`",
+          "source": "ORION_MATH_THE_MATH_VALIDATION_ARCHITECTURE_PASS/README.md"
+        }
+      ]
+    },
+    {
+      "bytes": 32499,
+      "endpoint_candidates": [
+        "ORION_MOVABLE_2_3_FOLD_GRID_PHASE_1_DESIGN/06_READINESS_DECISION.md",
+        "ORION_MOVABLE_2_3_FOLD_GRID_PHASE_1_DESIGN/00_SCOPE_AND_STATUS.md",
+        "ORION_MOVABLE_2_3_FOLD_GRID_PHASE_1_DESIGN/DESIGN_HASH_MANIFEST.json"
+      ],
+      "extensions": {
+        ".json": 2,
+        ".md": 8
+      },
+      "family": "ORION",
+      "file_count": 10,
+      "marker_class": "TERMINAL_MARKER",
+      "raw_bytes": 0,
+      "raw_file_count": 0,
+      "review_class": "TERMINAL_CANDIDATE",
+      "root": "ORION_MOVABLE_2_3_FOLD_GRID_PHASE_1_DESIGN",
+      "sha256_raw_tree": null,
+      "sha256_tree": "d42a0d1d9567f3e97a2fb1ba1e8d0593f0bc25a5b4cd3dab2503d8206461959c",
+      "status_signals": [
+        {
+          "signal": "Status=**DESIGN AND REVIEW ONLY**",
+          "source": "ORION_MOVABLE_2_3_FOLD_GRID_PHASE_1_DESIGN/00_SCOPE_AND_STATUS.md"
+        },
+        {
+          "signal": "status=DESIGN_ONLY_NOT_A_LOCK",
+          "source": "ORION_MOVABLE_2_3_FOLD_GRID_PHASE_1_DESIGN/DESIGN_HASH_MANIFEST.json"
+        }
+      ]
+    },
+    {
+      "bytes": 28157,
+      "endpoint_candidates": [
+        "ORION_MULTI_GRID_RELATION_CALCULUS_PHASE_1/00_SCOPE_AND_STATUS.md",
+        "ORION_MULTI_GRID_RELATION_CALCULUS_PHASE_1/design_hash_manifest.json"
+      ],
+      "extensions": {
+        ".json": 5,
+        ".md": 16
+      },
+      "family": "ORION",
+      "file_count": 21,
+      "marker_class": "DOCUMENTED_MARKER",
+      "raw_bytes": 0,
+      "raw_file_count": 0,
+      "review_class": "DOCUMENTED_REVIEW",
+      "root": "ORION_MULTI_GRID_RELATION_CALCULUS_PHASE_1",
+      "sha256_raw_tree": null,
+      "sha256_tree": "8c21066d4c6a64030250fa3f1806cbe19dc76da9ccab5a8d2907b3699bd98462",
+      "status_signals": [
+        {
+          "signal": "Status=**DESIGN + FORMALIZATION + ADVERSARIAL REVIEW ONLY**",
+          "source": "ORION_MULTI_GRID_RELATION_CALCULUS_PHASE_1/00_SCOPE_AND_STATUS.md"
+        },
+        {
+          "signal": "status=DESIGN_ONLY_NOT_A_LOCK",
+          "source": "ORION_MULTI_GRID_RELATION_CALCULUS_PHASE_1/design_hash_manifest.json"
+        }
+      ]
+    },
+    {
+      "bytes": 28198,
+      "endpoint_candidates": [
+        "ORION_NEXAH_BIG_PICTURE_SCIENCE_LAB_CLOSURE/FINAL_BIG_PICTURE_AND_LAB_INTEGRATION_REPORT.md",
+        "ORION_NEXAH_BIG_PICTURE_SCIENCE_LAB_CLOSURE/CLOSURE_HASH_MANIFEST.json",
+        "ORION_NEXAH_BIG_PICTURE_SCIENCE_LAB_CLOSURE/LABREPORT_INDEX.md",
+        "ORION_NEXAH_BIG_PICTURE_SCIENCE_LAB_CLOSURE/LABREPORT_ORION_O8_B1_CYCLE_001.md",
+        "ORION_NEXAH_BIG_PICTURE_SCIENCE_LAB_CLOSURE/LABREPORT_SCHEMA.md"
+      ],
+      "extensions": {
+        ".json": 1,
+        ".md": 15
+      },
+      "family": "ORION",
+      "file_count": 16,
+      "marker_class": "TERMINAL_MARKER",
+      "raw_bytes": 0,
+      "raw_file_count": 0,
+      "review_class": "TERMINAL_CANDIDATE",
+      "root": "ORION_NEXAH_BIG_PICTURE_SCIENCE_LAB_CLOSURE",
+      "sha256_raw_tree": null,
+      "sha256_tree": "1ec9a6185b4223f66df83003255b30100f92c8d078b56a09215e2d5551ad018b",
+      "status_signals": []
+    },
+    {
+      "bytes": 25536,
+      "endpoint_candidates": [
+        "ORION_NEXAH_INTERFACE_V1_OWNER_REVIEW_FREEZE/FINAL_OWNER_REVIEW_AND_MEMBRANE_FREEZE_REPORT.md",
+        "ORION_NEXAH_INTERFACE_V1_OWNER_REVIEW_FREEZE/01_OWNER_DECISIONS_D1_D12.md",
+        "ORION_NEXAH_INTERFACE_V1_OWNER_REVIEW_FREEZE/05_CONFORMANCE_GATE_FREEZE.md",
+        "ORION_NEXAH_INTERFACE_V1_OWNER_REVIEW_FREEZE/HASH_MANIFEST.json",
+        "ORION_NEXAH_INTERFACE_V1_OWNER_REVIEW_FREEZE/02_FROZEN_MINIMAL_V1_CONTRACT.md"
+      ],
+      "extensions": {
+        ".json": 1,
+        ".md": 8
+      },
+      "family": "ORION",
+      "file_count": 9,
+      "marker_class": "TERMINAL_MARKER",
+      "raw_bytes": 0,
+      "raw_file_count": 0,
+      "review_class": "TERMINAL_CANDIDATE",
+      "root": "ORION_NEXAH_INTERFACE_V1_OWNER_REVIEW_FREEZE",
+      "sha256_raw_tree": null,
+      "sha256_tree": "2f10a2f7e9c658452a706ee8edfe2e1a78d227781cfcb8acd2d1aa5442741585",
+      "status_signals": [
+        {
+          "signal": "DECISION=** ORION owns the scientific semantics of all twelve listed",
+          "source": "ORION_NEXAH_INTERFACE_V1_OWNER_REVIEW_FREEZE/01_OWNER_DECISIONS_D1_D12.md"
+        },
+        {
+          "signal": "DECISION=** Frozen O8/B1 code remains evidence, not reusable canonical",
+          "source": "ORION_NEXAH_INTERFACE_V1_OWNER_REVIEW_FREEZE/01_OWNER_DECISIONS_D1_D12.md"
+        },
+        {
+          "signal": "STATUS=** `APPROVED`.",
+          "source": "ORION_NEXAH_INTERFACE_V1_OWNER_REVIEW_FREEZE/01_OWNER_DECISIONS_D1_D12.md"
+        },
+        {
+          "signal": "DECISION=** Adopt role ownership:",
+          "source": "ORION_NEXAH_INTERFACE_V1_OWNER_REVIEW_FREEZE/01_OWNER_DECISIONS_D1_D12.md"
+        },
+        {
+          "signal": "DECISION=** V1 consumption is limited to NEXAH validation/reporting:",
+          "source": "ORION_NEXAH_INTERFACE_V1_OWNER_REVIEW_FREEZE/01_OWNER_DECISIONS_D1_D12.md"
+        },
+        {
+          "signal": "STATUS=** `APPROVED WITH CONSTRAINT`.",
+          "source": "ORION_NEXAH_INTERFACE_V1_OWNER_REVIEW_FREEZE/01_OWNER_DECISIONS_D1_D12.md"
+        },
+        {
+          "signal": "DECISION=** `D` now: documentation-only semantic contract. `C` later: a",
+          "source": "ORION_NEXAH_INTERFACE_V1_OWNER_REVIEW_FREEZE/01_OWNER_DECISIONS_D1_D12.md"
+        },
+        {
+          "signal": "DECISION=** Preserve orthogonal fields, with one necessary extension:",
+          "source": "ORION_NEXAH_INTERFACE_V1_OWNER_REVIEW_FREEZE/01_OWNER_DECISIONS_D1_D12.md"
+        },
+        {
+          "signal": "STATUS=** `APPROVED AS REVISED`.",
+          "source": "ORION_NEXAH_INTERFACE_V1_OWNER_REVIEW_FREEZE/01_OWNER_DECISIONS_D1_D12.md"
+        },
+        {
+          "signal": "DECISION=** Approve UTF-8 canonical JSON under the named contract",
+          "source": "ORION_NEXAH_INTERFACE_V1_OWNER_REVIEW_FREEZE/01_OWNER_DECISIONS_D1_D12.md"
+        },
+        {
+          "signal": "READY_FOR_INTERFACE_USE=YES",
+          "source": "ORION_NEXAH_INTERFACE_V1_OWNER_REVIEW_FREEZE/05_CONFORMANCE_GATE_FREEZE.md"
+        },
+        {
+          "signal": "Status=`SEMANTICALLY_APPROVED / NOT_IMPLEMENTED`.",
+          "source": "ORION_NEXAH_INTERFACE_V1_OWNER_REVIEW_FREEZE/02_FROZEN_MINIMAL_V1_CONTRACT.md"
+        }
+      ]
+    },
+    {
+      "bytes": 37364,
+      "endpoint_candidates": [
+        "ORION_NEXAH_SCHEMA_OWNERSHIP_CONFORMANCE/FINAL_SCHEMA_OWNERSHIP_REPORT.md",
+        "ORION_NEXAH_SCHEMA_OWNERSHIP_CONFORMANCE/08_OWNER_DECISIONS_REQUIRED.md",
+        "ORION_NEXAH_SCHEMA_OWNERSHIP_CONFORMANCE/HASH_MANIFEST.json"
+      ],
+      "extensions": {
+        ".json": 1,
+        ".md": 10
+      },
+      "family": "ORION",
+      "file_count": 11,
+      "marker_class": "TERMINAL_MARKER",
+      "raw_bytes": 0,
+      "raw_file_count": 0,
+      "review_class": "TERMINAL_CANDIDATE",
+      "root": "ORION_NEXAH_SCHEMA_OWNERSHIP_CONFORMANCE",
+      "sha256_raw_tree": null,
+      "sha256_tree": "6e7c806647743b8fd11fda2ea6f7342852b25d79bfb674638c5231ccd3fd70ab",
+      "status_signals": [
+        {
+          "signal": "Classification=`ARCHITECTURE_RECONCILIATION` + `INTERFACE_DESIGN` +",
+          "source": "ORION_NEXAH_SCHEMA_OWNERSHIP_CONFORMANCE/FINAL_SCHEMA_OWNERSHIP_REPORT.md"
+        }
+      ]
+    },
+    {
+      "bytes": 34593,
+      "endpoint_candidates": [
+        "ORION_O8_002_CANONICALIZATION_REPAIR_PREREGISTRATION/06_DECISION_AND_REPLAY.md",
+        "ORION_O8_002_CANONICALIZATION_REPAIR_PREREGISTRATION/DESIGN_HASH_MANIFEST.json"
+      ],
+      "extensions": {
+        ".json": 3,
+        ".md": 10,
+        ".py": 1
+      },
+      "family": "ORION",
+      "file_count": 14,
+      "marker_class": "TERMINAL_MARKER",
+      "raw_bytes": 0,
+      "raw_file_count": 0,
+      "review_class": "TERMINAL_CANDIDATE",
+      "root": "ORION_O8_002_CANONICALIZATION_REPAIR_PREREGISTRATION",
+      "sha256_raw_tree": null,
+      "sha256_tree": "5f84deb575df34781d0d37c76ce76b001798c9c31ee15fb626414060167e98db",
+      "status_signals": []
+    },
+    {
+      "bytes": 17306,
+      "endpoint_candidates": [],
+      "extensions": {
+        ".md": 1
+      },
+      "family": "ORION",
+      "file_count": 1,
+      "marker_class": "NO_MARKER",
+      "raw_bytes": 0,
+      "raw_file_count": 0,
+      "review_class": "MANUAL_REVIEW",
+      "root": "ORION_O8_B1_002_BASELINE_CEILING_FORENSIC_ANALYSIS",
+      "sha256_raw_tree": null,
+      "sha256_tree": "3a23edd24a14774edb052bcdfda293a3b5e39902dac09da7d27f209ab8fd5aa4",
+      "status_signals": []
+    },
+    {
+      "bytes": 12617,
+      "endpoint_candidates": [
+        "ORION_O8_B1_INDEPENDENT_AUDIT_AND_B2_NAVIGATION_READINESS/AUDIT_HASH_MANIFEST.json"
+      ],
+      "extensions": {
+        ".json": 2,
+        ".md": 5
+      },
+      "family": "ORION",
+      "file_count": 7,
+      "marker_class": "DOCUMENTED_MARKER",
+      "raw_bytes": 0,
+      "raw_file_count": 0,
+      "review_class": "DOCUMENTED_REVIEW",
+      "root": "ORION_O8_B1_INDEPENDENT_AUDIT_AND_B2_NAVIGATION_READINESS",
+      "sha256_raw_tree": null,
+      "sha256_tree": "9610272df61520d88b63d90a66bf5e6c6606b186cd69a8072c41cfe8be534670",
+      "status_signals": []
+    },
+    {
+      "bytes": 29525,
+      "endpoint_candidates": [
+        "ORION_O8_CAPABILITY_INTEGRATION_RETURN_MAP_CLOSURE/08_STOP_CONDITIONS_AND_CLOSURE.md",
+        "ORION_O8_CAPABILITY_INTEGRATION_RETURN_MAP_CLOSURE/10_CLOSURE_REVIEW.md",
+        "ORION_O8_CAPABILITY_INTEGRATION_RETURN_MAP_CLOSURE/INTEGRATION_HASH_MANIFEST.json"
+      ],
+      "extensions": {
+        ".json": 2,
+        ".md": 12
+      },
+      "family": "ORION",
+      "file_count": 14,
+      "marker_class": "TERMINAL_MARKER",
+      "raw_bytes": 0,
+      "raw_file_count": 0,
+      "review_class": "TERMINAL_CANDIDATE",
+      "root": "ORION_O8_CAPABILITY_INTEGRATION_RETURN_MAP_CLOSURE",
+      "sha256_raw_tree": null,
+      "sha256_tree": "9a21c9841833abb294341542ab6996b2a1fea06456bf4f806db868a10b1e9bbd",
+      "status_signals": []
+    },
+    {
+      "bytes": 34905,
+      "endpoint_candidates": [
+        "ORION_O8_GENERATOR_REALIZATION_FEASIBILITY_PREREGISTRATION/12_DECISION_RULE.md",
+        "ORION_O8_GENERATOR_REALIZATION_FEASIBILITY_PREREGISTRATION/00_SCOPE_AND_STATUS.md",
+        "ORION_O8_GENERATOR_REALIZATION_FEASIBILITY_PREREGISTRATION/DESIGN_HASH_MANIFEST.json",
+        "ORION_O8_GENERATOR_REALIZATION_FEASIBILITY_PREREGISTRATION/fixture_manifest.json"
+      ],
+      "extensions": {
+        ".json": 4,
+        ".md": 15
+      },
+      "family": "ORION",
+      "file_count": 19,
+      "marker_class": "TERMINAL_MARKER",
+      "raw_bytes": 0,
+      "raw_file_count": 0,
+      "review_class": "TERMINAL_CANDIDATE",
+      "root": "ORION_O8_GENERATOR_REALIZATION_FEASIBILITY_PREREGISTRATION",
+      "sha256_raw_tree": null,
+      "sha256_tree": "c16e3fcb0bc54fa6f1c6da7984f010cec8e0d425287936fd9e6af715a46df73e",
+      "status_signals": [
+        {
+          "signal": "OPERATIONAL_O8_REALIZED=YES",
+          "source": "ORION_O8_GENERATOR_REALIZATION_FEASIBILITY_PREREGISTRATION/12_DECISION_RULE.md"
+        },
+        {
+          "signal": "OPERATIONAL_O8_REALIZED=NO",
+          "source": "ORION_O8_GENERATOR_REALIZATION_FEASIBILITY_PREREGISTRATION/12_DECISION_RULE.md"
+        }
+      ]
+    },
+    {
+      "bytes": 32930,
+      "endpoint_candidates": [
+        "ORION_O8_INFORMATION_BOUNDARY_INTEGRATION/FINAL_INTEGRATION_REPORT.md",
+        "ORION_O8_INFORMATION_BOUNDARY_INTEGRATION/INTEGRATION_HASH_MANIFEST.json"
+      ],
+      "extensions": {
+        ".json": 1,
+        ".md": 11
+      },
+      "family": "ORION",
+      "file_count": 12,
+      "marker_class": "TERMINAL_MARKER",
+      "raw_bytes": 0,
+      "raw_file_count": 0,
+      "review_class": "TERMINAL_CANDIDATE",
+      "root": "ORION_O8_INFORMATION_BOUNDARY_INTEGRATION",
+      "sha256_raw_tree": null,
+      "sha256_tree": "e4e80d8a17dc53fd092d93456703a8941789dce5ec2f80c86e8a7cbfcec568c2",
+      "status_signals": [
+        {
+          "signal": "decision=CURRENT_RESEARCH_CYCLE_CLOSED_NO_NEW_EXPERIMENT",
+          "source": "ORION_O8_INFORMATION_BOUNDARY_INTEGRATION/INTEGRATION_HASH_MANIFEST.json"
+        }
+      ]
+    },
+    {
+      "bytes": 46211,
+      "endpoint_candidates": [
+        "ORION_O8_UTILITY_B1_002_CLEAN_REPLICATION_PREREGISTRATION/decision_contract.json",
+        "ORION_O8_UTILITY_B1_002_CLEAN_REPLICATION_PREREGISTRATION/00_SCOPE_AND_STATUS.md",
+        "ORION_O8_UTILITY_B1_002_CLEAN_REPLICATION_PREREGISTRATION/DESIGN_HASH_MANIFEST.json"
+      ],
+      "extensions": {
+        ".json": 8,
+        ".md": 14
+      },
+      "family": "ORION",
+      "file_count": 22,
+      "marker_class": "TERMINAL_MARKER",
+      "raw_bytes": 0,
+      "raw_file_count": 0,
+      "review_class": "TERMINAL_CANDIDATE",
+      "root": "ORION_O8_UTILITY_B1_002_CLEAN_REPLICATION_PREREGISTRATION",
+      "sha256_raw_tree": null,
+      "sha256_tree": "403e6a41feabfaac46e961ad645db06a5ac9ee21a1ae3749a4fffc409625b51a",
+      "status_signals": [
+        {
+          "signal": "Status=preregistration design only.",
+          "source": "ORION_O8_UTILITY_B1_002_CLEAN_REPLICATION_PREREGISTRATION/00_SCOPE_AND_STATUS.md"
+        }
+      ]
+    },
+    {
+      "bytes": 33503,
+      "endpoint_candidates": [
+        "ORION_O8_UTILITY_B1_PREREGISTRATION/DESIGN_HASH_MANIFEST.json"
+      ],
+      "extensions": {
+        ".json": 4,
+        ".md": 15
+      },
+      "family": "ORION",
+      "file_count": 19,
+      "marker_class": "DOCUMENTED_MARKER",
+      "raw_bytes": 0,
+      "raw_file_count": 0,
+      "review_class": "DOCUMENTED_REVIEW",
+      "root": "ORION_O8_UTILITY_B1_PREREGISTRATION",
+      "sha256_raw_tree": null,
+      "sha256_tree": "04c111947756fc36d5c8eb88d2734187b2ff0aeb8dd74fe086a7ce37e12d567d",
+      "status_signals": []
+    },
+    {
+      "bytes": 20007,
+      "endpoint_candidates": [
+        "ORION_OCTAGON_OPERATOR_GRID_STRUCTURE_HARVEST_PHASE_0/00_SCOPE_AND_STATUS.md",
+        "ORION_OCTAGON_OPERATOR_GRID_STRUCTURE_HARVEST_PHASE_0/DESIGN_HASH_MANIFEST.json"
+      ],
+      "extensions": {
+        ".json": 3,
+        ".md": 10
+      },
+      "family": "ORION",
+      "file_count": 13,
+      "marker_class": "DOCUMENTED_MARKER",
+      "raw_bytes": 0,
+      "raw_file_count": 0,
+      "review_class": "DOCUMENTED_REVIEW",
+      "root": "ORION_OCTAGON_OPERATOR_GRID_STRUCTURE_HARVEST_PHASE_0",
+      "sha256_raw_tree": null,
+      "sha256_tree": "5548b5ef00f5009952547738e5693afc1830b66c371467b2bc271e0bff581ec9",
+      "status_signals": [
+        {
+          "signal": "Status=**MATHEMATICAL DESIGN / STRUCTURE HARVEST ONLY**",
+          "source": "ORION_OCTAGON_OPERATOR_GRID_STRUCTURE_HARVEST_PHASE_0/00_SCOPE_AND_STATUS.md"
+        },
+        {
+          "signal": "status=FORMAL_STRUCTURE_HARVEST_COMPLETE",
+          "source": "ORION_OCTAGON_OPERATOR_GRID_STRUCTURE_HARVEST_PHASE_0/DESIGN_HASH_MANIFEST.json"
+        }
+      ]
+    },
+    {
+      "bytes": 35517,
+      "endpoint_candidates": [
+        "ORION_SECOND_ORDER_RELATIONAL_STABILITY_PREREGISTRATION/00_SCOPE_AND_STATUS.md",
+        "ORION_SECOND_ORDER_RELATIONAL_STABILITY_PREREGISTRATION/design_hash_manifest.json"
+      ],
+      "extensions": {
+        ".json": 7,
+        ".md": 16
+      },
+      "family": "ORION",
+      "file_count": 23,
+      "marker_class": "DOCUMENTED_MARKER",
+      "raw_bytes": 0,
+      "raw_file_count": 0,
+      "review_class": "DOCUMENTED_REVIEW",
+      "root": "ORION_SECOND_ORDER_RELATIONAL_STABILITY_PREREGISTRATION",
+      "sha256_raw_tree": null,
+      "sha256_tree": "4423c848b476872e2de9f1443e6031ba1aaaf79b1a3f23f14f22da5462e4289d",
+      "status_signals": [
+        {
+          "signal": "Status=**PREREGISTRATION DESIGN ONLY**",
+          "source": "ORION_SECOND_ORDER_RELATIONAL_STABILITY_PREREGISTRATION/00_SCOPE_AND_STATUS.md"
+        },
+        {
+          "signal": "status=REVIEWED_PREREGISTRATION_NOT_A_LOCK",
+          "source": "ORION_SECOND_ORDER_RELATIONAL_STABILITY_PREREGISTRATION/design_hash_manifest.json"
+        }
+      ]
+    },
+    {
+      "bytes": 27804,
+      "endpoint_candidates": [
+        "ORION_SPARSE_TRACE_PATH_EQUIVALENCE_THEORY/FINAL_THEORY_REPORT.md",
+        "ORION_SPARSE_TRACE_PATH_EQUIVALENCE_THEORY/THEORY_HASH_MANIFEST.json"
+      ],
+      "extensions": {
+        ".json": 1,
+        ".md": 12
+      },
+      "family": "ORION",
+      "file_count": 13,
+      "marker_class": "TERMINAL_MARKER",
+      "raw_bytes": 0,
+      "raw_file_count": 0,
+      "review_class": "TERMINAL_CANDIDATE",
+      "root": "ORION_SPARSE_TRACE_PATH_EQUIVALENCE_THEORY",
+      "sha256_raw_tree": null,
+      "sha256_tree": "c0fa415140f834cd8931956649dcfc55ae4f3a4f46917b6f234a804201babd2b",
+      "status_signals": [
+        {
+          "signal": "Decision=`NO_EXPERIMENT`; `NO_B2`; sparse-trace candidate eliminated.",
+          "source": "ORION_SPARSE_TRACE_PATH_EQUIVALENCE_THEORY/FINAL_THEORY_REPORT.md"
+        },
+        {
+          "signal": "decision=SPARSE_TRACE_ELIMINATED_GENERIC_EQUIVALENCE_NO_EXPERIMENT",
+          "source": "ORION_SPARSE_TRACE_PATH_EQUIVALENCE_THEORY/THEORY_HASH_MANIFEST.json"
+        }
+      ]
+    },
+    {
+      "bytes": 32647,
+      "endpoint_candidates": [
+        "PHASE_1_ARCHITECTURE_DECISION/TARGET_IMPLEMENTATION_STATUS.md"
+      ],
+      "extensions": {
+        ".md": 6
+      },
+      "family": "OTHER",
+      "file_count": 6,
+      "marker_class": "TERMINAL_MARKER",
+      "raw_bytes": 0,
+      "raw_file_count": 0,
+      "review_class": "TERMINAL_CANDIDATE",
+      "root": "PHASE_1_ARCHITECTURE_DECISION",
+      "sha256_raw_tree": null,
+      "sha256_tree": "9d472fb13684eb6cce58b2009572b6cc731b68a19f076ce035657658bbc9644d",
+      "status_signals": [
+        {
+          "signal": "Status=DRAFT SNAPSHOT — NOT AN ADOPTION RECORD",
+          "source": "PHASE_1_ARCHITECTURE_DECISION/TARGET_IMPLEMENTATION_STATUS.md"
+        }
+      ]
+    },
+    {
+      "bytes": 47446,
+      "endpoint_candidates": [
+        "PUBLISHING_RECONCILIATION_AUDIT/15_FINAL_RECOMMENDATION.md",
+        "PUBLISHING_RECONCILIATION_AUDIT/04_NEXAH_README_REVIEW.md",
+        "PUBLISHING_RECONCILIATION_AUDIT/README.md"
+      ],
+      "extensions": {
+        ".md": 16
+      },
+      "family": "OTHER",
+      "file_count": 16,
+      "marker_class": "TERMINAL_MARKER",
+      "raw_bytes": 0,
+      "raw_file_count": 0,
+      "review_class": "TERMINAL_CANDIDATE",
+      "root": "PUBLISHING_RECONCILIATION_AUDIT",
+      "sha256_raw_tree": null,
+      "sha256_tree": "ad36ca791544573d10c2697d8fcabfdecfcfbb1c145c9d13d9551d3fbf0bdb3a",
+      "status_signals": [
+        {
+          "signal": "Status=`AUDIT COMPLETE — OWNER REVIEW REQUIRED`",
+          "source": "PUBLISHING_RECONCILIATION_AUDIT/15_FINAL_RECOMMENDATION.md"
+        },
+        {
+          "signal": "Status=`NO CHANGE REQUIRED`",
+          "source": "PUBLISHING_RECONCILIATION_AUDIT/04_NEXAH_README_REVIEW.md"
+        },
+        {
+          "signal": "Status=`AUDIT COMPLETE — OWNER REVIEW REQUIRED`",
+          "source": "PUBLISHING_RECONCILIATION_AUDIT/README.md"
+        }
+      ]
+    },
+    {
+      "bytes": 14047,
+      "endpoint_candidates": [
+        "PUBLISHING_RECONCILIATION_PHASE_1/11_FINAL_CLOSEOUT.md",
+        "PUBLISHING_RECONCILIATION_PHASE_1/01_OWNER_DECISION.md",
+        "PUBLISHING_RECONCILIATION_PHASE_1/03_CANONICAL_HOME_DECISION.md",
+        "PUBLISHING_RECONCILIATION_PHASE_1/README.md"
+      ],
+      "extensions": {
+        ".md": 12
+      },
+      "family": "OTHER",
+      "file_count": 12,
+      "marker_class": "TERMINAL_MARKER",
+      "raw_bytes": 0,
+      "raw_file_count": 0,
+      "review_class": "TERMINAL_CANDIDATE",
+      "root": "PUBLISHING_RECONCILIATION_PHASE_1",
+      "sha256_raw_tree": null,
+      "sha256_tree": "a8990b6f829a1c698ff7e53e257333d464a54f0791953b7c741576d04c354233",
+      "status_signals": [
+        {
+          "signal": "Status=`PARTIAL — ONE AUTHENTICATION GATE REMAINS`",
+          "source": "PUBLISHING_RECONCILIATION_PHASE_1/11_FINAL_CLOSEOUT.md"
+        },
+        {
+          "signal": "Status=`ACCEPTED`",
+          "source": "PUBLISHING_RECONCILIATION_PHASE_1/01_OWNER_DECISION.md"
+        },
+        {
+          "signal": "Status=`ADOPTED`",
+          "source": "PUBLISHING_RECONCILIATION_PHASE_1/03_CANONICAL_HOME_DECISION.md"
+        },
+        {
+          "signal": "Status=`PARTIAL CLOSEOUT — PR-002 BLOCKED`",
+          "source": "PUBLISHING_RECONCILIATION_PHASE_1/README.md"
+        }
+      ]
+    },
+    {
+      "bytes": 45391,
+      "endpoint_candidates": [
+        "REPOSITORY_ARCHITECTURE_REVIEW/11_FINAL_RECOMMENDATION.md",
+        "REPOSITORY_ARCHITECTURE_REVIEW/README.md"
+      ],
+      "extensions": {
+        ".md": 12
+      },
+      "family": "OTHER",
+      "file_count": 12,
+      "marker_class": "TERMINAL_MARKER",
+      "raw_bytes": 0,
+      "raw_file_count": 0,
+      "review_class": "TERMINAL_CANDIDATE",
+      "root": "REPOSITORY_ARCHITECTURE_REVIEW",
+      "sha256_raw_tree": null,
+      "sha256_tree": "4d89946276d549e591139247524fc3d547b26fa1cf6b698d65a876d3baa88970",
+      "status_signals": [
+        {
+          "signal": "Status=`COMPLETE — OWNER REVIEW AVAILABLE`",
+          "source": "REPOSITORY_ARCHITECTURE_REVIEW/11_FINAL_RECOMMENDATION.md"
+        },
+        {
+          "signal": "Status=`COMPLETE — REVIEW ONLY`",
+          "source": "REPOSITORY_ARCHITECTURE_REVIEW/README.md"
+        }
+      ]
+    },
+    {
+      "bytes": 46712,
+      "endpoint_candidates": [
+        "REPOSITORY_CONSTITUTION_LAYER/13_FINAL_RECOMMENDATION.md",
+        "REPOSITORY_CONSTITUTION_LAYER/README.md"
+      ],
+      "extensions": {
+        ".md": 14
+      },
+      "family": "OTHER",
+      "file_count": 14,
+      "marker_class": "TERMINAL_MARKER",
+      "raw_bytes": 0,
+      "raw_file_count": 0,
+      "review_class": "TERMINAL_CANDIDATE",
+      "root": "REPOSITORY_CONSTITUTION_LAYER",
+      "sha256_raw_tree": null,
+      "sha256_tree": "a1f2be83ffa0022c8ffd24810c286b3d69469f1ec173e06ce4d25ab10af51a0e",
+      "status_signals": [
+        {
+          "signal": "Status=`STANDARD PREPARED — OWNER DECISION REQUIRED`",
+          "source": "REPOSITORY_CONSTITUTION_LAYER/13_FINAL_RECOMMENDATION.md"
+        },
+        {
+          "signal": "Status=`STANDARD PREPARED — NOT ADOPTED`",
+          "source": "REPOSITORY_CONSTITUTION_LAYER/README.md"
+        }
+      ]
+    },
+    {
+      "bytes": 31663,
+      "endpoint_candidates": [
+        "REPOSITORY_CONTEXT_PILOT/10_FINAL_RECOMMENDATION.md",
+        "REPOSITORY_CONTEXT_PILOT/README.md"
+      ],
+      "extensions": {
+        ".md": 11
+      },
+      "family": "OTHER",
+      "file_count": 11,
+      "marker_class": "TERMINAL_MARKER",
+      "raw_bytes": 0,
+      "raw_file_count": 0,
+      "review_class": "TERMINAL_CANDIDATE",
+      "root": "REPOSITORY_CONTEXT_PILOT",
+      "sha256_raw_tree": null,
+      "sha256_tree": "cfd979aed5f3a6760de982e449eb7f44f8065794c5577665e670e413e1b8ba41",
+      "status_signals": [
+        {
+          "signal": "Status=`PHASE 0 COMPLETE`",
+          "source": "REPOSITORY_CONTEXT_PILOT/10_FINAL_RECOMMENDATION.md"
+        },
+        {
+          "signal": "Status=`PHASE 0 REVIEW COMPLETE`",
+          "source": "REPOSITORY_CONTEXT_PILOT/README.md"
+        }
+      ]
+    },
+    {
+      "bytes": 39020,
+      "endpoint_candidates": [
+        "REPOSITORY_ORIENTATION_PILOT_A1_A2/12_FINAL_RECOMMENDATION.md",
+        "REPOSITORY_ORIENTATION_PILOT_A1_A2/01_OWNER_DECISION_RECORD.md",
+        "REPOSITORY_ORIENTATION_PILOT_A1_A2/05_NEXAH_ADOPTION_DECISION.md",
+        "REPOSITORY_ORIENTATION_PILOT_A1_A2/09_NEXAHEDRON_ADOPTION_DECISION.md",
+        "REPOSITORY_ORIENTATION_PILOT_A1_A2/README.md"
+      ],
+      "extensions": {
+        ".md": 13
+      },
+      "family": "OTHER",
+      "file_count": 13,
+      "marker_class": "TERMINAL_MARKER",
+      "raw_bytes": 0,
+      "raw_file_count": 0,
+      "review_class": "TERMINAL_CANDIDATE",
+      "root": "REPOSITORY_ORIENTATION_PILOT_A1_A2",
+      "sha256_raw_tree": null,
+      "sha256_tree": "883eac5c68d13911b732619f23fb385d00d5e64c5f07cd088a546ac650c82f30",
+      "status_signals": [
+        {
+          "signal": "Status=`PILOT VALIDATION COMPLETE`",
+          "source": "REPOSITORY_ORIENTATION_PILOT_A1_A2/12_FINAL_RECOMMENDATION.md"
+        },
+        {
+          "signal": "Status=`APPROVED FOR READ-ONLY PILOT VALIDATION`",
+          "source": "REPOSITORY_ORIENTATION_PILOT_A1_A2/01_OWNER_DECISION_RECORD.md"
+        },
+        {
+          "signal": "Status=`READY FOR A SEPARATE IMPLEMENTATION DECISION`",
+          "source": "REPOSITORY_ORIENTATION_PILOT_A1_A2/05_NEXAH_ADOPTION_DECISION.md"
+        },
+        {
+          "signal": "Status=`READY FOR A SEPARATE IMPLEMENTATION DECISION`",
+          "source": "REPOSITORY_ORIENTATION_PILOT_A1_A2/09_NEXAHEDRON_ADOPTION_DECISION.md"
+        },
+        {
+          "signal": "Status=`PILOT VALIDATION COMPLETE`",
+          "source": "REPOSITORY_ORIENTATION_PILOT_A1_A2/README.md"
+        }
+      ]
+    },
+    {
+      "bytes": 26682,
+      "endpoint_candidates": [
+        "RESEARCH_NAVIGATION_PILOT_PHASE_C/README.md"
+      ],
+      "extensions": {
+        ".md": 10
+      },
+      "family": "OTHER",
+      "file_count": 10,
+      "marker_class": "DOCUMENTED_MARKER",
+      "raw_bytes": 0,
+      "raw_file_count": 0,
+      "review_class": "DOCUMENTED_REVIEW",
+      "root": "RESEARCH_NAVIGATION_PILOT_PHASE_C",
+      "sha256_raw_tree": null,
+      "sha256_tree": "b2cd05baf22c231607959dfb159ba8f9d0fc3ad3d7a6e958077b62561bd87d22",
+      "status_signals": [
+        {
+          "signal": "Status=`READ-ONLY DISCOVERY PILOT COMPLETE`",
+          "source": "RESEARCH_NAVIGATION_PILOT_PHASE_C/README.md"
+        }
+      ]
+    },
+    {
+      "bytes": 24476,
+      "endpoint_candidates": [
+        "RUNTIME/EXEC-0000_WORKSPACE_STABILIZATION/05_PATTERN_MASTER_HOME_DECISION.md",
+        "RUNTIME/EXEC-0000_WORKSPACE_STABILIZATION/08_REQUIRED_HUMAN_DECISIONS.md",
+        "RUNTIME/EXEC-0000_WORKSPACE_STABILIZATION/README.md"
+      ],
+      "extensions": {
+        ".md": 11
+      },
+      "family": "OTHER",
+      "file_count": 11,
+      "marker_class": "TERMINAL_MARKER",
+      "raw_bytes": 0,
+      "raw_file_count": 0,
+      "review_class": "TERMINAL_CANDIDATE",
+      "root": "RUNTIME",
+      "sha256_raw_tree": null,
+      "sha256_tree": "1e2a1f0a7f181ce4c3d18b147b7f9a4779d624f36128bf2b0cd1f3b024aee28a",
+      "status_signals": [
+        {
+          "signal": "PATTERN_MASTER_HOME=UNRESOLVED",
+          "source": "RUNTIME/EXEC-0000_WORKSPACE_STABILIZATION/05_PATTERN_MASTER_HOME_DECISION.md"
+        },
+        {
+          "signal": "LANDING_ROOT=/Users/tho2020/Desktop/00_INCOMING",
+          "source": "RUNTIME/EXEC-0000_WORKSPACE_STABILIZATION/08_REQUIRED_HUMAN_DECISIONS.md"
+        },
+        {
+          "signal": "Status=preflight stopped",
+          "source": "RUNTIME/EXEC-0000_WORKSPACE_STABILIZATION/README.md"
+        }
+      ]
+    },
+    {
+      "bytes": 28353,
+      "endpoint_candidates": [
+        "RUNTIME_ASSESSMENT/10_FINAL_RECOMMENDATION.md",
+        "RUNTIME_ASSESSMENT/README.md"
+      ],
+      "extensions": {
+        ".md": 11
+      },
+      "family": "OTHER",
+      "file_count": 11,
+      "marker_class": "TERMINAL_MARKER",
+      "raw_bytes": 0,
+      "raw_file_count": 0,
+      "review_class": "TERMINAL_CANDIDATE",
+      "root": "RUNTIME_ASSESSMENT",
+      "sha256_raw_tree": null,
+      "sha256_tree": "4d8f67f36ded8969a435711f09d3906eeff47dd774fd814e80d15d389dcb456a",
+      "status_signals": [
+        {
+          "signal": "Status=`COMPLETE`",
+          "source": "RUNTIME_ASSESSMENT/10_FINAL_RECOMMENDATION.md"
+        },
+        {
+          "signal": "Status=`REVIEW COMPLETE`",
+          "source": "RUNTIME_ASSESSMENT/README.md"
+        }
+      ]
+    },
+    {
+      "bytes": 19154,
+      "endpoint_candidates": [
+        "SCIENCE_LAB/LABREPORTS/LABREPORT_INDEX.md",
+        "SCIENCE_LAB/PROTOCOLS/LABREPORT_SCHEMA.md",
+        "SCIENCE_LAB/LABREPORTS/ORION/LABREPORT_ORION_O8_B1_CYCLE_001.md"
+      ],
+      "extensions": {
+        ".md": 10
+      },
+      "family": "OTHER",
+      "file_count": 10,
+      "marker_class": "DOCUMENTED_MARKER",
+      "raw_bytes": 0,
+      "raw_file_count": 0,
+      "review_class": "DOCUMENTED_REVIEW",
+      "root": "SCIENCE_LAB",
+      "sha256_raw_tree": null,
+      "sha256_tree": "82ab0102e7671b239f6e4f5f1aa210b33222616dd98905a1f1540ca2ea0ef509",
+      "status_signals": []
+    }
+  ],
+  "repository": {
+    "branch": "codex/z3885-verification",
+    "head": "afc386c1bd7b9fba44d6a24f587fc6c83bce6f79"
+  },
+  "schema": "nexah-science-lab-endpoint-reconstruction-v1",
+  "summary": {
+    "bytes": 2921239642,
+    "families": {
+      "EXP_00": 64,
+      "NEXAH": 42,
+      "ORION": 43,
+      "OTHER": 20
+    },
+    "package_roots": 169,
+    "raw_bytes": 2788067590,
+    "raw_files": 3004,
+    "review_classes": {
+      "DOCUMENTED_REVIEW": 39,
+      "MANUAL_REVIEW": 16,
+      "TERMINAL_CANDIDATE": 114
+    },
+    "untracked_files": 5455
+  }
+}
