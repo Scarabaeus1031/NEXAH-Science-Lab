@@ -51,6 +51,41 @@ The second package disposition is also complete:
   operational replay or readiness claim is made;
 - registered evidence generation and experiment execution remain unauthorized.
 
+The third package disposition is prepared but not committed:
+
+- ten completed ORION execution packages were split into an exact 151-file Git
+  core and 402-file primary/replay data layer;
+- the 92.2 MiB data layer is preserved as a deterministic 11.2 MiB local
+  `tar.zst`, member-verified and reproduced byte-identically;
+- its SHA-256 is
+  `3793f5a96407d64f9ef3592f0d3dce625908fb39ec8e94489da7dd459fa68579`;
+- all 327 checked package-manifest file bindings match current bytes;
+- package outcomes remain bounded: four `INVALID_EXPERIMENT`, one
+  `UNINFORMATIVE_BENCHMARK`, and the remaining PASS/demonstration statements
+  retain their package-specific restrictions;
+- no ORION execution core has been staged, committed or pushed yet.
+
+Active owner gate:
+`AUTHORIZE_BOUNDED_ORION_EXECUTION_CORE_COMMIT_AND_PUSH_OR_PRESERVE_LOCAL`.
+
+The terminal NEXAH review is also complete:
+
+- six Translation Fidelity source roots are already hash-mapped into the
+  tracked, self-contained RC1 release bundle;
+- the untracked T02 adversarial v1 review is historical provenance behind the
+  tracked v2/v3 authority chain;
+- Application, architecture and repository-currentness records are routed to
+  their responsible Desks rather than treated as new Lab science;
+- `NEXAH_TRANSLATION_RECOVERY_EXP_T01` is the sole separate science candidate:
+  27 files, tree
+  `836b2f3aee8b0dd8d13704adf3621e5af01b9b5cce50ffdea564c98f1f7b8648`,
+  with all **26 / 26** frozen manifest bindings verified;
+- EXP-T01 remains `SCIENCE_LAB_NOT_ADOPTED` and has not been staged, committed
+  or pushed.
+
+Second active owner gate:
+`AUTHORIZE_SEPARATE_EXP_T01_CORE_COMMIT_AND_PUSH_OR_PRESERVE_LOCAL`.
+
 ## Definition of done for SL-CLEAN-001
 
 - every untracked top-level package has a deterministic content-tree hash;

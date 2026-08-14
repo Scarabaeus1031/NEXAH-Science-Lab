@@ -9,10 +9,11 @@ status or authorize research execution.
 | --- | --- | --- | --- |
 | 1 | `NEXAH_EARLY_WARNING_HYPOTHESIS_VALIDATION` | Logical split complete; deterministic local artifact built and stream-verified | Select durable private object storage and authorize upload; preserve the inconclusive Level-1C result exactly |
 | 2 | EXP-00-R package family | Current authority bundle registered in three bounded lineages; 32 historical roots remain excluded and hash-recorded | Preserve historical residuals; recover exact Python 3.12.13 only under a separate operational recheck authorization |
-| 3 | Terminally marked NEXAH/ORION studies | Candidate endpoint consolidation | Compare each candidate to current Master Status before any commit |
-| 4 | Documented but non-terminal packages | Review required | Decide whether each is active input, historical provenance or superseded working material |
-| 5 | Packages without endpoint markers | Manual inspection | Identify owner, purpose and explicit disposition; do not infer status from filenames |
-| 6 | Outreach images and strategy drafts in the Lab | Route out of scientific working set | Confirm canonical Publishing/Outreach copy before any move or deletion |
+| 3 | Ten terminal ORION execution packages | Core/data split and integrity review complete; exact 151-file core awaits authorization | Approve or reject one bounded historical execution-evidence commit; keep 402 data files external |
+| 4 | Terminal NEXAH candidates | Reconciled: six embedded in RC1, T02-v1 historical, non-science records routed; EXP-T01 remains separate | Approve/reject the exact 27-file EXP-T01 core; decide later whether legacy audit accompanies T01/T02 as provenance |
+| 5 | Documented but non-terminal packages | Review required | Decide whether each is active input, historical provenance or superseded working material |
+| 6 | Packages without endpoint markers | Manual inspection | Identify owner, purpose and explicit disposition; do not infer status from filenames |
+| 7 | Outreach images and strategy drafts in the Lab | Route out of scientific working set | Confirm canonical Publishing/Outreach copy before any move or deletion |
 
 ## Research Director recommendation
 
@@ -53,6 +54,27 @@ identical second build. Active gate: `SELECT_PRIVATE_DURABLE_OBJECT_STORAGE_AND_
 The current authorization stops before `private upload verified`. Selecting a
 storage provider, uploading data or deleting a local copy requires a separate
 owner decision.
+
+## ORION execution-evidence checkpoint
+
+The ten completed ORION execution packages have also been reduced to an exact
+repository decision:
+
+- **151** core files (**466.5 KiB**) preserve reports, locks, manifests, source,
+  configuration and tests;
+- **402** primary/replay data files (**92.2 MiB**) are excluded from Git;
+- the data files are preserved in one deterministic, member-verified local
+  artifact with SHA-256
+  `3793f5a96407d64f9ef3592f0d3dce625908fb39ec8e94489da7dd459fa68579`;
+- **327 / 327** file bindings in seven artifact manifests and three additional
+  implementation-freeze manifests match;
+- positive, negative, invalid and uninformative outcomes remain exactly
+  distinguished in the core review.
+
+Active gate:
+`AUTHORIZE_BOUNDED_ORION_EXECUTION_CORE_COMMIT_AND_PUSH_OR_PRESERVE_LOCAL`.
+No canonical NEXAH-ORION integration, architecture adoption, upload or deletion
+is implied.
 
 ## Stop conditions
 

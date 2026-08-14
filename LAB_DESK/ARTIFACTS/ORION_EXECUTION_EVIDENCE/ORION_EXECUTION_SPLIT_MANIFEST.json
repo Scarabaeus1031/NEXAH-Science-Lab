@@ -1,0 +1,226 @@
+{
+  "artifact": {
+    "bytes": 11754031,
+    "deterministic_rebuild": "PASS",
+    "filename": "ORION_EXECUTION_EVIDENCE_V1.tar.zst",
+    "format": "deterministic POSIX pax tar compressed with zstd level 10",
+    "local_storage_class": "SCIENCE_LAB_90_DATA_ARTIFACTS",
+    "member_stream_verification": "PASS",
+    "remote_uri": null,
+    "sha256": "3793f5a96407d64f9ef3592f0d3dce625908fb39ec8e94489da7dd459fa68579"
+  },
+  "as_of": "2026-08-14",
+  "boundary": {
+    "architecture_adoption": false,
+    "canonical_orion_integration": false,
+    "deletion_authorized": false,
+    "new_experiment": false,
+    "scientific_reinterpretation": false,
+    "source_files_modified": false,
+    "upload_authorized": false
+  },
+  "combined": {
+    "core": {
+      "bytes": 477726,
+      "file_count": 151,
+      "sha256_tree": "66e54cd62df8eada4b617985adcbbee8c50652b577106c99c9156e9a508c33a4"
+    },
+    "data": {
+      "bytes": 96682266,
+      "file_count": 402,
+      "sha256_tree": "1333a0a0a32129374186dc770174e68c9aed959dae8f1e42d3a7881608d2dc4d"
+    }
+  },
+  "disposition": "LOCAL_ARTIFACT_VERIFIED; CORE_REGISTRATION_REQUIRES_REVIEW",
+  "packages": {
+    "ORION_EXP_O8_GENERATOR_REALIZATION_001_EXECUTION": {
+      "core": {
+        "bytes": 51667,
+        "file_count": 18,
+        "sha256_tree": "f286ddf432ababa384e7095a767d193931c494eec93585d50f6b374d7a959644"
+      },
+      "data": {
+        "bytes": 291918,
+        "file_count": 28,
+        "sha256_tree": "b02396fa5139c5e8424b75072c6dc0330c03d6a7af708b1fa493681132b127b0"
+      },
+      "preserved_disposition": {
+        "bounded_result": "OPERATIONAL_O8_REALIZED_NO",
+        "status": "INVALID_EXPERIMENT"
+      }
+    },
+    "ORION_EXP_O8_GENERATOR_REALIZATION_002_EXECUTION": {
+      "core": {
+        "bytes": 20721,
+        "file_count": 21,
+        "sha256_tree": "cb30d4ce886a368224ffb9c373e362126a179217d7306d9647578a311581647b"
+      },
+      "data": {
+        "bytes": 235086,
+        "file_count": 36,
+        "sha256_tree": "a51abbac9c5c15558f93d06f3b6447d958249c3ca07bd1102e3f2b5032666846"
+      },
+      "preserved_disposition": {
+        "bounded_result": "OPERATIONAL_O8_REALIZED_YES_ON_REGISTERED_TYPED_DOMAIN",
+        "status": "PASS"
+      }
+    },
+    "ORION_EXP_O8_UTILITY_B1_001_EXECUTION": {
+      "core": {
+        "bytes": 58114,
+        "file_count": 20,
+        "sha256_tree": "484e5b17e36e383cad51346854917f6367e010a737ba1345868a4771b46fbc09"
+      },
+      "data": {
+        "bytes": 3838080,
+        "file_count": 30,
+        "sha256_tree": "186c4590924b89401b2765d749e4296d512a9ac17a0c656bd8d870eab34c343c"
+      },
+      "preserved_disposition": {
+        "bounded_result": "HELD_OUT_REGISTERED_O8_DOMAIN_ONLY",
+        "status": "O8_UTILITY_DEMONSTRATED"
+      }
+    },
+    "ORION_EXP_O8_UTILITY_B1_002_001_EXECUTION": {
+      "core": {
+        "bytes": 47527,
+        "file_count": 7,
+        "sha256_tree": "091244830c06b7ca079d65d0c57f8d95a18745a07b292094143cea94b48c5e8f"
+      },
+      "data": {
+        "bytes": 4647124,
+        "file_count": 32,
+        "sha256_tree": "12e9376445aaa6bd1485d7f4a213621d91501246583cce27baf48e382181f664"
+      },
+      "preserved_disposition": {
+        "bounded_result": "O8_UTILITY_DEMONSTRATED_NO",
+        "status": "UNINFORMATIVE_BENCHMARK"
+      }
+    },
+    "ORION_EXP_ORION_L1_001_V1_1_EXECUTION": {
+      "core": {
+        "bytes": 41240,
+        "file_count": 12,
+        "sha256_tree": "11c1bf9e21f924b1853fbbcaa76b40e836daa537965fd9859643c9a88ec60264"
+      },
+      "data": {
+        "bytes": 39827745,
+        "file_count": 24,
+        "sha256_tree": "23090353a7d9120efa7a316ab85424617a19583a4660114fa0c75b817c473fa5"
+      },
+      "preserved_disposition": {
+        "bounded_result": "LOCKED_HARMONIC_OSCILLATOR_BENCHMARK_ONLY",
+        "status": "PASS"
+      }
+    },
+    "ORION_EXP_ORION_L2_001_EXECUTION": {
+      "core": {
+        "bytes": 39056,
+        "file_count": 11,
+        "sha256_tree": "89fca41b8fce656ffcdf50a062cbab5833b9fb3798baf5d5ea4cd2c42736f141"
+      },
+      "data": {
+        "bytes": 1459241,
+        "file_count": 24,
+        "sha256_tree": "578d2ad5affc6eac4dcddbaf26e3d805809a3deaec20a7ef0f905a2f56feeaf3"
+      },
+      "preserved_disposition": {
+        "bounded_result": "LOCKED_LORENZ_63_BENCHMARK_ONLY",
+        "status": "PASS"
+      }
+    },
+    "ORION_EXP_ORION_L3_001_EXECUTION": {
+      "core": {
+        "bytes": 52366,
+        "file_count": 15,
+        "sha256_tree": "3babedd368d843a86957c404eb733784d3e2f0240e1f737dff49497292b02270"
+      },
+      "data": {
+        "bytes": 35752590,
+        "file_count": 57,
+        "sha256_tree": "0b71649af34b52f70087487a26e3e05b8526e5e4b7c35ce419e55a1fffced2e2"
+      },
+      "preserved_disposition": {
+        "bounded_result": "LOCKED_CROSS_REPRESENTATION_BENCHMARK_ONLY",
+        "status": "PASS"
+      }
+    },
+    "ORION_EXP_ORION_L4_001_EXECUTION": {
+      "core": {
+        "bytes": 68695,
+        "file_count": 13,
+        "sha256_tree": "a470c97e92e1e8bcacdf0e9aaea436cdb89b4311051327e8db58551aafb7d651"
+      },
+      "data": {
+        "bytes": 8516773,
+        "file_count": 64,
+        "sha256_tree": "ed183e32d598cb41976c58168b0fcf4beb35986831488885bf8ca296bbebb1c2"
+      },
+      "preserved_disposition": {
+        "bounded_result": "SCIENTIFIC_CANDIDATE_CLASS_NOT_ASSIGNED",
+        "status": "INVALID_EXPERIMENT"
+      }
+    },
+    "ORION_EXP_ORION_L4_003_TNSPA_V1_EXECUTION": {
+      "core": {
+        "bytes": 40798,
+        "file_count": 15,
+        "sha256_tree": "282d05c29fca5cdd2c56c370f248c509986cde30a2cff686983d344bd87dedb3"
+      },
+      "data": {
+        "bytes": 267654,
+        "file_count": 50,
+        "sha256_tree": "bd0571f3660376548ed54812580c5ee06ed8d765025d0598983aef3d4ee89258"
+      },
+      "preserved_disposition": {
+        "bounded_result": "ROBUST_CLASSIFICATION_NOT_REACHED",
+        "status": "INVALID_EXPERIMENT"
+      }
+    },
+    "ORION_EXP_SECOND_ORDER_RELATIONAL_STABILITY_001_EXECUTION": {
+      "core": {
+        "bytes": 57542,
+        "file_count": 19,
+        "sha256_tree": "0823c189285a0239a0e2f72d9ec777382ccfdd36773e009004b03fdd631f2241"
+      },
+      "data": {
+        "bytes": 1846055,
+        "file_count": 57,
+        "sha256_tree": "126bedb101a51943c3b7d5884d30e954fea41b2b6b7f7a2bb052a2a4d3b13ee1"
+      },
+      "preserved_disposition": {
+        "bounded_result": "RELATIONALLY_STABLE_NO; LEE_CANDIDATE_NOT_REACHED",
+        "status": "INVALID_EXPERIMENT"
+      }
+    }
+  },
+  "schema": "nexah-orion-execution-artifact-split-v1",
+  "split_rule": {
+    "external_data_top_level_directories": [
+      "clean_replay",
+      "failed_attempts",
+      "primary",
+      "replay"
+    ],
+    "git_core_rule": "all non-transient files outside external data directories",
+    "transient_exclusions": [
+      "ORION_EXP_ORION_L1_001_V1_1_EXECUTION/.DS_Store",
+      "ORION_EXP_ORION_L4_001_EXECUTION/src/__pycache__/blind_observer.cpython-312.pyc",
+      "ORION_EXP_ORION_L4_001_EXECUTION/src/__pycache__/extractor_worker.cpython-312.pyc",
+      "ORION_EXP_ORION_L4_001_EXECUTION/src/__pycache__/failure_closeout.cpython-312.pyc",
+      "ORION_EXP_ORION_L4_001_EXECUTION/src/__pycache__/l4_core.cpython-312.pyc",
+      "ORION_EXP_ORION_L4_001_EXECUTION/src/__pycache__/run_l4.cpython-312.pyc",
+      "ORION_EXP_ORION_L4_001_EXECUTION/tests/__pycache__/test_l4_contract.cpython-312.pyc",
+      "ORION_EXP_ORION_L4_003_TNSPA_V1_EXECUTION/src/__pycache__/blind_observer.cpython-312.pyc",
+      "ORION_EXP_ORION_L4_003_TNSPA_V1_EXECUTION/src/__pycache__/comparator.cpython-312.pyc",
+      "ORION_EXP_ORION_L4_003_TNSPA_V1_EXECUTION/src/__pycache__/null_engine.cpython-312.pyc",
+      "ORION_EXP_ORION_L4_003_TNSPA_V1_EXECUTION/src/__pycache__/r3_verifier.cpython-312.pyc",
+      "ORION_EXP_ORION_L4_003_TNSPA_V1_EXECUTION/src/__pycache__/relation_encoder.cpython-312.pyc",
+      "ORION_EXP_ORION_L4_003_TNSPA_V1_EXECUTION/src/__pycache__/run_l4_003.cpython-312.pyc",
+      "ORION_EXP_ORION_L4_003_TNSPA_V1_EXECUTION/src/__pycache__/secondary_jaccard.cpython-312.pyc",
+      "ORION_EXP_ORION_L4_003_TNSPA_V1_EXECUTION/src/__pycache__/tie_controls.cpython-312.pyc",
+      "ORION_EXP_ORION_L4_003_TNSPA_V1_EXECUTION/src/__pycache__/tnspa_core.cpython-312.pyc",
+      "ORION_EXP_ORION_L4_003_TNSPA_V1_EXECUTION/tests/__pycache__/test_tnspa_contract.cpython-312.pyc"
+    ]
+  }
+}
