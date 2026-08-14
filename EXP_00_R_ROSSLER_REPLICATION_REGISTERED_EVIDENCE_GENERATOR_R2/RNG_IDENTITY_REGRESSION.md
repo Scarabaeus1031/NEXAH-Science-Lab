@@ -1,0 +1,30 @@
+# RNG Identity Regression
+
+R2 validates existing components and joins them exactly with `|`; it does not rewrite them.
+
+## N3 witness
+
+```text
+before = after = EXP00R-ROSSLER-2REP-XCTRL-H1-FROZEN-20260808-v1|state_mismatch|0|SPLIT=TEST|ROW=TEST.6000.0
+SHA-256 = 88abe27d3d0c1e7228e24924baff10b5c1fe147b2c866c5721fb3e8e28c36721
+PCG64 seed = 9848214037698715250
+PCG64 state = 76945234321278015977682848766845968460
+PCG64 increment = 18562659840391979258442040380312355615
+```
+
+## N4_T witness
+
+```text
+before = after = EXP00R-ROSSLER-2REP-XCTRL-H1-FROZEN-20260808-v1|support_matched|0|SPLIT=TEST|CARRIER=T|STRATUM=Q0;M000;D0
+SHA-256 = f15a8daf90881682558083daf5b6edd14e9c4fe907c27670cca604dd6eff40f1
+PCG64 seed = 17391368696228222594
+PCG64 state = 134673039685604194990666656008317413609
+PCG64 increment = 208652969294485219063652164159155606817
+```
+
+The regression test compares UTF-8 bytes, full SHA-256 digest, derived unsigned 64-bit seed and initial NumPy 2.3.5 PCG64 state.
+
+```text
+CANONICAL NULL NAMESPACE MODIFIED: NO
+NULL RNG STREAM SEMANTICS CHANGED: NO
+```

@@ -1,0 +1,49 @@
+{
+  "schema": "EXP_00_R_REGISTERED_PAYLOAD_PRODUCER_R1_MANIFEST_V1",
+  "package_id": "EXP_00_R_ROSSLER_REPLICATION_REGISTERED_PAYLOAD_PRODUCER_R1",
+  "mode": "CLOSURE_MODE_MINIMAL_PRODUCER",
+  "implementation_status": "PASS",
+  "bound_authority": {
+    "generator_r2_tree_sha256": "82ff760b17fa99998eedad1d5c7c471f5c7fdfded2e2cb36dace8415a7c8b5d4",
+    "generator_r2_review_tree_sha256": "9847c76cf08abc63e947b3dd723049d5dabc127b23addbf1fed452bf5c84a719",
+    "historical_failed_producer_tree_sha256": "5b60a0653020d26529024bbfc5e645ae0d58ba7f87ca57ae6911b1901b2e3d17",
+    "v1_authority_tree_sha256": "977c7b5cf6d40985f1e69827615bdea65c32dc8b92f4b671908fca72a7e548af",
+    "runtime_id": "CODEX_PRIMARY_PY31213_NUMPY235_MACOS2652_ARM64"
+  },
+  "implementation": {
+    "callable": "payload_producer.produce_payload",
+    "role": "PURE_FROZEN_OUTPUT_TO_GENERATOR_R2_ADAPTER",
+    "seed_resolution_surface": false,
+    "registered_writer_surface": false,
+    "authorization_surface": false,
+    "scientific_analysis_surface": false
+  },
+  "validation": {
+    "producer_tests": "PASS_7_OF_7",
+    "payload_completeness": "PASS",
+    "generator_r2_integration": "PASS",
+    "deterministic_bytes": "PASS",
+    "contract_to_code_trace": "PASS",
+    "generator_r2_regression": "PASS_35_OF_35",
+    "generator_r1_regression": "PASS_25_OF_25",
+    "original_generator_regression": "PASS_20_OF_20",
+    "previous_counterexamples": "CLOSED_5_OF_5",
+    "v1_synthetic_regression": "PASS_24_OF_24",
+    "synthetic_bytes": 21171245,
+    "synthetic_sha256": "007d580bf31951097c9c610261ec87991850481165f26c5dd72592f6233af3ba"
+  },
+  "boundaries": {
+    "new_scientific_choice_introduced": false,
+    "new_governance_layer_introduced": false,
+    "registered_test_seeds_executed": false,
+    "registered_evidence_generated": false,
+    "registered_input_created": false,
+    "generation_authorization_consumed": false,
+    "p1_p5_evaluated": false,
+    "scientific_classification_generated": false,
+    "blocking_scientific_contract_contradiction": false,
+    "historical_packages_modified": false
+  },
+  "final_decision": "READY_FOR_ONE_INDEPENDENT_PAYLOAD_PRODUCER_CONFORMANCE_CHECK",
+  "next_permitted_object": "ONE INDEPENDENT PAYLOAD PRODUCER CONFORMANCE CHECK"
+}

@@ -1,0 +1,51 @@
+{
+  "schema": "EXP_00_R_REGISTERED_PAYLOAD_PRODUCER_R1_PACKAGE_SEAL_V1",
+  "sealed_at_utc": "2026-08-08T23:33:49Z",
+  "hash_algorithm": "SHA-256",
+  "tree_hash_construction": "SHA256 of UTF-8 lines sorted bytewise by relative path; each line is '<member_sha256>  <relative_path>\\n'",
+  "package_seal_excluded_from_tree": true,
+  "member_count": 7,
+  "members": [
+    {"path":"AUTHORITY_FIELD_TRACE.md","bytes":2545,"sha256":"398c2585a63ebd187de1ff55c3b7959219c933e3129f472a50dd97f54305ce42"},
+    {"path":"PRODUCER_MANIFEST.json","bytes":2251,"sha256":"24c0b858aa6a9978b754452df3da708bc0f94e233792aeda6a0fceed8fef95a0"},
+    {"path":"README.md","bytes":1043,"sha256":"1f8b9f7e3fa52bebdd24b979f358227f2cb9356d4125fb1ee33934f540bf03e9"},
+    {"path":"VALIDATION_REPORT.md","bytes":1399,"sha256":"fda81cc07e3a2cdec499860be9dce5accca511c94b5fc4dbbd65b4c89f04aae2"},
+    {"path":"src/payload_producer.py","bytes":13933,"sha256":"40373e7f22f11c165794a660c591b2bb2f7c18aaf39ed9e96f461b902d7b71bc"},
+    {"path":"tests/synthetic_v1_outputs.py","bytes":4589,"sha256":"aff314bc72c6b18c7b6738e28abacc691c82b2e0bb4ac8a1e1ba28f0183b029e"},
+    {"path":"tests/test_payload_producer.py","bytes":4454,"sha256":"9ead79220a94b920dd8fafc6fc4b4e5891653e3fe30de01cbb3f407268cb274b"}
+  ],
+  "tree_sha256": "05beedf4bbfc47b7ed684c17da137bc52e93be1d4fcb3885459c9ea14f54c5fb",
+  "bound_authority": {
+    "generator_r2_tree_sha256": "82ff760b17fa99998eedad1d5c7c471f5c7fdfded2e2cb36dace8415a7c8b5d4",
+    "generator_r2_review_tree_sha256": "9847c76cf08abc63e947b3dd723049d5dabc127b23addbf1fed452bf5c84a719",
+    "historical_failed_producer_tree_sha256": "5b60a0653020d26529024bbfc5e645ae0d58ba7f87ca57ae6911b1901b2e3d17",
+    "v1_authority_tree_sha256": "977c7b5cf6d40985f1e69827615bdea65c32dc8b92f4b671908fca72a7e548af"
+  },
+  "validation": {
+    "producer_tests": "PASS_7_OF_7",
+    "payload_completeness": "PASS",
+    "generator_r2_integration": "PASS",
+    "deterministic_bytes": "PASS",
+    "contract_to_code_trace": "PASS",
+    "generator_r2_regression": "PASS_35_OF_35",
+    "generator_r1_regression": "PASS_25_OF_25",
+    "original_generator_regression": "PASS_20_OF_20",
+    "previous_counterexamples": "CLOSED_5_OF_5",
+    "v1_synthetic_regression": "PASS_24_OF_24"
+  },
+  "attestation": {
+    "new_scientific_choice_introduced": false,
+    "new_governance_layer_introduced": false,
+    "registered_test_seeds_executed": false,
+    "registered_evidence_generated": false,
+    "registered_input_created": false,
+    "generation_authorization_consumed": false,
+    "p1_p5_evaluated": false,
+    "scientific_classification_generated": false,
+    "blocking_scientific_contract_contradiction": false,
+    "historical_packages_modified": false
+  },
+  "payload_producer": "PASS",
+  "final_decision": "READY_FOR_ONE_INDEPENDENT_PAYLOAD_PRODUCER_CONFORMANCE_CHECK",
+  "next_permitted_object": "ONE INDEPENDENT PAYLOAD PRODUCER CONFORMANCE CHECK"
+}

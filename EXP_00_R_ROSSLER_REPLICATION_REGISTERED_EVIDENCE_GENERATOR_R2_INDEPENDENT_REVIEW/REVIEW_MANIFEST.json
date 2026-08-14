@@ -1,0 +1,36 @@
+{
+  "schema": "EXP_00_R_GENERATOR_R2_INDEPENDENT_NULL_NAMESPACE_REVIEW_V1",
+  "review_mode": "INDEPENDENT_NARROW_R2_NULL_NAMESPACE_REVIEW",
+  "reviewed_package": "EXP_00_R_ROSSLER_REPLICATION_REGISTERED_EVIDENCE_GENERATOR_R2",
+  "reviewed_tree_sha256": "82ff760b17fa99998eedad1d5c7c471f5c7fdfded2e2cb36dace8415a7c8b5d4",
+  "blocking_ancestor_tree_sha256": "5b60a0653020d26529024bbfc5e645ae0d58ba7f87ca57ae6911b1901b2e3d17",
+  "integrity": "PASS",
+  "authority_precedence": "PASS",
+  "validation": {
+    "independent_tests": "PASS_10_OF_10",
+    "r2_regression": "PASS_35_OF_35",
+    "r1_regression": "PASS_25_OF_25",
+    "original_generator_regression": "PASS_20_OF_20",
+    "previous_counterexamples": "CLOSED_5_OF_5",
+    "d1_d4": "PASS",
+    "null_rng_stream_semantics_changed": false
+  },
+  "defects": {
+    "class_a": 0,
+    "class_b": 0
+  },
+  "boundaries": {
+    "reviewed_packages_modified": false,
+    "registered_input_accessed": false,
+    "registered_test_seeds_executed": false,
+    "registered_evidence_generated": false,
+    "registered_experiment_executed": false,
+    "generation_authorization_consumed": false,
+    "p1_p5_evaluated": false,
+    "scientific_classification_generated": false,
+    "new_scientific_choice_introduced": false
+  },
+  "final_review": "PASS",
+  "registered_evidence_generator_status": "CLOSED_R2",
+  "next_permitted_object": "RESUME FROZEN V1-TO-GENERATOR R2 REGISTERED PAYLOAD PRODUCER IMPLEMENTATION"
+}

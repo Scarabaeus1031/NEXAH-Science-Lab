@@ -1,0 +1,50 @@
+{
+  "schema": "EXP_00_R_GENERATOR_R2_INDEPENDENT_REVIEW_PACKAGE_SEAL_V1",
+  "sealed_at_utc": "2026-08-08T23:25:38Z",
+  "hash_algorithm": "SHA-256",
+  "tree_hash_construction": "SHA256 of UTF-8 lines sorted bytewise by relative path; each line is '<member_sha256>  <relative_path>\\n'",
+  "package_seal_excluded_from_tree": true,
+  "member_count": 7,
+  "members": [
+    {"path":"AUTHORITY_AND_SCOPE_REVIEW.md","bytes":2019,"sha256":"adc3cad2b8dd65513ca5b5c6f3758002de28f423f301ec21623f35f0ccb84d0e"},
+    {"path":"FINAL_REVIEW.md","bytes":1230,"sha256":"7744251f7782560edce802b7e22d9e99ff97fe5b40ef2d28c15e6a00a3ddc325"},
+    {"path":"INDEPENDENT_VALIDATION_REPORT.md","bytes":1279,"sha256":"869ddfcb7c0fb8e15c20d0f936c14ca23e6b0e70785a49909d9ab73fdb5b9191"},
+    {"path":"PACKAGE_INTEGRITY.md","bytes":731,"sha256":"0a8535f3b248745da3f1271562f43e4575d441d4dcc062767472317e5f015dd5"},
+    {"path":"README.md","bytes":822,"sha256":"da843ea82331e49bbe82b12de4a8a8501f348bbda7c348ccd2cb02f344e6b373"},
+    {"path":"REVIEW_MANIFEST.json","bytes":1448,"sha256":"4b68c37f4d5e9d6e2aedd74fd720dfb5e18ab153be13d7e1d5e6a8c2957f163b"},
+    {"path":"review_tests/independent_null_namespace_review.py","bytes":5674,"sha256":"c8fae7de79c05f7a3a02f317e357a83587779fc0ef1592b89abc5d34a55c9184"}
+  ],
+  "tree_sha256": "9847c76cf08abc63e947b3dd723049d5dabc127b23addbf1fed452bf5c84a719",
+  "reviewed_authority": {
+    "generator_r2_tree_sha256": "82ff760b17fa99998eedad1d5c7c471f5c7fdfded2e2cb36dace8415a7c8b5d4",
+    "generator_r1_tree_sha256": "6ca47acd93d527f96cb1fe8d584275752c6274a96d169d97dcd7bd4202b4066f",
+    "contradiction_ancestor_tree_sha256": "5b60a0653020d26529024bbfc5e645ae0d58ba7f87ca57ae6911b1901b2e3d17"
+  },
+  "validation": {
+    "independent_tests": "PASS_10_OF_10",
+    "r2_regression": "PASS_35_OF_35",
+    "r1_regression": "PASS_25_OF_25",
+    "original_generator_regression": "PASS_20_OF_20",
+    "previous_counterexamples": "CLOSED_5_OF_5",
+    "d1_d4": "PASS",
+    "package_integrity": "PASS",
+    "authority_precedence": "PASS",
+    "null_rng_stream_semantics_changed": false
+  },
+  "attestation": {
+    "reviewed_packages_modified": false,
+    "registered_input_accessed": false,
+    "registered_test_seeds_executed": false,
+    "registered_evidence_generated": false,
+    "registered_experiment_executed": false,
+    "generation_authorization_consumed": false,
+    "p1_p5_evaluated": false,
+    "scientific_classification_generated": false,
+    "new_scientific_choice_introduced": false
+  },
+  "remaining_class_a_defects": 0,
+  "remaining_class_b_defects": 0,
+  "final_independent_generator_r2_review": "PASS",
+  "registered_evidence_generator_status": "CLOSED_R2",
+  "next_permitted_object": "RESUME FROZEN V1-TO-GENERATOR R2 REGISTERED PAYLOAD PRODUCER IMPLEMENTATION"
+}

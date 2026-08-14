@@ -1,0 +1,53 @@
+{
+  "schema": "EXP_00_R_REGISTERED_EVIDENCE_GENERATOR_R2_PACKAGE_SEAL_V1",
+  "sealed_at_utc": "2026-08-08T23:18:43Z",
+  "hash_algorithm": "SHA-256",
+  "tree_hash_construction": "SHA256 of UTF-8 lines sorted bytewise by relative path; each line is '<member_sha256>  <relative_path>\\n'",
+  "package_seal_excluded_from_tree": true,
+  "member_count": 10,
+  "members": [
+    {"path":"CONTRADICTION_REPLAY.md","bytes":934,"sha256":"15a426e88f1b272047a3519af243f8cf3f6e6da4df89aaa92b9ff57c315e5a2a"},
+    {"path":"GENERATOR_R2_MANIFEST.json","bytes":1998,"sha256":"8fef347e70e40df730761f9e31cf5e561c3ab68039bc68bd1ee7114bfd21662c"},
+    {"path":"NULL_NAMESPACE_AUTHORITY_TRACE.md","bytes":2003,"sha256":"80ce78d4d5dfa8df566e14a60648400b08bcf74ab3076a31725f36fb0d1e800e"},
+    {"path":"README.md","bytes":1346,"sha256":"0b56f0673f787d40bdf4072a32768bf9283f878867e914c5193e1b9f65bcece7"},
+    {"path":"RNG_IDENTITY_REGRESSION.md","bytes":1067,"sha256":"da1a6426a3897283c22f628dc6a8e75bc2ecc5dec58ec79cfff2feff2c9eb441"},
+    {"path":"VALIDATION_REPORT.md","bytes":1192,"sha256":"95a66b40b5e72a9e7be60fadf3cf079a255c5f6f70b9d86e6d1a1265c55cfabc"},
+    {"path":"src/registered_evidence_generator.py","bytes":42176,"sha256":"fb42a7de92f5248a543bf462019519f294bb4f7bd2e851de8a352ff01d6a8a33"},
+    {"path":"tests/test_null_namespace_reconciliation.py","bytes":4637,"sha256":"3a583a3c35eff60532963afcb1fa6b90e8db4541413645c5e6c5ce3f506d1ebe"},
+    {"path":"tests/test_r1_counterexamples.py","bytes":3472,"sha256":"bf41462e400405fbaac8dbed13e468b917f71fcd937e28b2738cb3cd73a6e331"},
+    {"path":"tests/test_registered_evidence_generator.py","bytes":12731,"sha256":"bb776d7252e5562e746f20ea31f4503f31fb471761e9c88ebc3b6c57281972d4"}
+  ],
+  "tree_sha256": "82ff760b17fa99998eedad1d5c7c471f5c7fdfded2e2cb36dace8415a7c8b5d4",
+  "lineage": {
+    "generator_r1_tree_sha256": "6ca47acd93d527f96cb1fe8d584275752c6274a96d169d97dcd7bd4202b4066f",
+    "generator_r1_independent_review_tree_sha256": "42dcbc4634ea704e42501b0d86cbdbf592ef50fad6feeea04d4de36e7b3d3052",
+    "blocking_contradiction_tree_sha256": "5b60a0653020d26529024bbfc5e645ae0d58ba7f87ca57ae6911b1901b2e3d17",
+    "export_r1_tree_sha256": "726132aa49973e32f420554c44d0a0ab891f0582301535de0c4fa80d02c5bc33"
+  },
+  "validation": {
+    "authority_precedence": "RESOLVED",
+    "r2_suite": "PASS_35_OF_35",
+    "generator_r1_suite": "PASS_25_OF_25",
+    "original_generator_suite": "PASS_20_OF_20",
+    "previous_counterexamples": "CLOSED_5_OF_5",
+    "new_namespace_tests": "PASS_10_OF_10",
+    "null_rng_stream_semantics_changed": false
+  },
+  "attestation": {
+    "frozen_scientific_semantics_modified": false,
+    "canonical_null_namespace_modified": false,
+    "null_rng_stream_modified": false,
+    "validation_logic_modified": true,
+    "new_scientific_choice": false,
+    "registered_input_accessed": false,
+    "registered_evidence_generated": false,
+    "registered_test_seeds_executed": false,
+    "registered_experiment_executed": false,
+    "generation_authorization_consumed": false,
+    "p1_p5_evaluated": false,
+    "scientific_classification_generated": false,
+    "upstream_packages_modified": false
+  },
+  "generator_r2": "PASS",
+  "next_permitted_object": "INDEPENDENT GENERATOR R2 NULL-NAMESPACE CONFORMANCE REVIEW"
+}

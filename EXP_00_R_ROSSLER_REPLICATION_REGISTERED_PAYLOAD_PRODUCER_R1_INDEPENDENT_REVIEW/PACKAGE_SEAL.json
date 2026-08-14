@@ -1,0 +1,53 @@
+{
+  "schema": "EXP_00_R_PAYLOAD_PRODUCER_R1_INDEPENDENT_REVIEW_PACKAGE_SEAL_V1",
+  "sealed_at_utc": "2026-08-08T23:39:41Z",
+  "hash_algorithm": "SHA-256",
+  "tree_hash_construction": "SHA256 of UTF-8 lines sorted bytewise by relative path; each line is '<member_sha256>  <relative_path>\\n'",
+  "package_seal_excluded_from_tree": true,
+  "member_count": 7,
+  "members": [
+    {"path":"FIELD_TRACE_REVIEW.md","bytes":2364,"sha256":"2336d4220b3d6855e3f034b38e3e46415c0c5791ae27d6eff001498f9ecf1bd1"},
+    {"path":"FINAL_REVIEW.md","bytes":1170,"sha256":"a75d4bfde1475ede1e0b9577737b620b1fbd1574c9945d1bb6436ecccfa682e9"},
+    {"path":"INDEPENDENT_VALIDATION_REPORT.md","bytes":1150,"sha256":"2c1cf32fedb61bd4c8de819126b2f8fe17305bc6ba16684fb95dcc1aa6149e41"},
+    {"path":"PACKAGE_INTEGRITY.md","bytes":778,"sha256":"3ee859fa1b810a38e70ab120c8abe3ee984c3aeefea8cf8fa12545b911150326"},
+    {"path":"README.md","bytes":729,"sha256":"bf8e853387f505008374cedc59cfacecf5470f777c99c557912849c504256f3f"},
+    {"path":"REVIEW_MANIFEST.json","bytes":1524,"sha256":"7914ddb4a64d270bd34bd1c2224d965ebc436afff89eeb4f9a29993ca8c8b5f2"},
+    {"path":"review_tests/independent_producer_review.py","bytes":9543,"sha256":"b567a219af486806c9d220249b28ca82929809ca6f9fa46551043b1e915dd216"}
+  ],
+  "tree_sha256": "1bc968a088e4ec2e7bf4a9ca9547c1e1a97d59cb4370fde0c5e89316c79ce640",
+  "reviewed_authority": {
+    "producer_r1_tree_sha256": "05beedf4bbfc47b7ed684c17da137bc52e93be1d4fcb3885459c9ea14f54c5fb",
+    "generator_r2_tree_sha256": "82ff760b17fa99998eedad1d5c7c471f5c7fdfded2e2cb36dace8415a7c8b5d4",
+    "generator_r2_review_tree_sha256": "9847c76cf08abc63e947b3dd723049d5dabc127b23addbf1fed452bf5c84a719",
+    "historical_stopped_producer_tree_sha256": "5b60a0653020d26529024bbfc5e645ae0d58ba7f87ca57ae6911b1901b2e3d17"
+  },
+  "validation": {
+    "independent_tests": "PASS_6_OF_6",
+    "complete_independent_builds": 2,
+    "field_trace": "PASS",
+    "payload_completeness": "PASS",
+    "generator_r2_acceptance": "PASS",
+    "deterministic_bytes": "PASS",
+    "producer_regression": "PASS_7_OF_7",
+    "generator_r2_regression": "PASS_35_OF_35",
+    "generator_r1_regression": "PASS_25_OF_25",
+    "original_generator_regression": "PASS_20_OF_20",
+    "previous_counterexamples": "CLOSED_5_OF_5",
+    "frozen_v1_synthetic_regression": "PASS_24_OF_24"
+  },
+  "attestation": {
+    "new_scientific_choice_introduced": false,
+    "registered_test_seeds_executed": false,
+    "registered_evidence_generated": false,
+    "registered_input_created": false,
+    "generation_authorization_consumed": false,
+    "p1_p5_evaluated": false,
+    "scientific_classification_generated": false,
+    "reviewed_packages_modified": false
+  },
+  "remaining_class_a_defects": 0,
+  "remaining_class_b_defects": 0,
+  "final_independent_producer_review": "PASS",
+  "registered_payload_producer_status": "CLOSED",
+  "next_permitted_object": "REGISTERED EVIDENCE GENERATION AUTHORIZATION RECHECK FOR V1 → PRODUCER R1 → GENERATOR R2"
+}
