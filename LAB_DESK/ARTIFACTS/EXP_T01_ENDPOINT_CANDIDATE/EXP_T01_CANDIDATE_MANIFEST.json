@@ -2,8 +2,8 @@
   "as_of": "2026-08-14",
   "boundary": {
     "adoption_implied": false,
-    "commit_authorized": false,
-    "push_authorized": false,
+    "commit_authorized": true,
+    "push_authorized": true,
     "scientific_reinterpretation": false,
     "source_files_modified": false
   },
@@ -148,7 +148,7 @@
   ],
   "frozen_manifest_bindings": 26,
   "frozen_manifest_verification": "PASS",
-  "next_gate": "AUTHORIZE_SEPARATE_EXP_T01_CORE_COMMIT_AND_PUSH_OR_PRESERVE_LOCAL",
+  "next_gate": "NONE_REGISTRATION_COMPLETE",
   "package": "NEXAH_TRANSLATION_RECOVERY_EXP_T01",
   "preserved_disposition": {
     "authority": "SCIENCE_LAB_NOT_ADOPTED",
@@ -159,6 +159,7 @@
     "stillpoint_result": "STILLPOINT_OPERATIONAL_EQUILIBRIUM_CONFIRMED",
     "translation_recovery_result": "EXP_T01_TRANSLATION_CLASSIFIER_SUPPORTED"
   },
+  "registration_commit": "bf2c34a3ca66c053fb3c412e86206ccf9f9cf1b7",
   "schema": "nexah-exp-t01-registration-candidate-v1",
   "sha256_tree": "836b2f3aee8b0dd8d13704adf3621e5af01b9b5cce50ffdea564c98f1f7b8648"
 }

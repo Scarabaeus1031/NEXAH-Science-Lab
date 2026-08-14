@@ -22,6 +22,7 @@ from typing import BinaryIO, Iterable
 
 AS_OF = "2026-08-14"
 SCHEMA = "nexah-orion-execution-artifact-split-v1"
+CORE_REGISTRATION_COMMIT = "73a0f97c05547b025bacc7f609c600008d58bbdb"
 DATA_DIRS = {"primary", "replay", "clean_replay", "failed_attempts"}
 PACKAGES = (
     "ORION_EXP_O8_GENERATOR_REALIZATION_001_EXECUTION",
@@ -277,8 +278,11 @@ def write_outputs(
             "architecture_adoption": False,
             "upload_authorized": False,
             "deletion_authorized": False,
+            "core_commit_authorized": True,
+            "core_push_authorized": True,
         },
-        "disposition": "LOCAL_ARTIFACT_VERIFIED; CORE_REGISTRATION_REQUIRES_REVIEW",
+        "core_registration_commit": CORE_REGISTRATION_COMMIT,
+        "disposition": "CORE_REGISTERED; LOCAL_ARTIFACT_VERIFIED; REMOTE_DATA_STORAGE_UNASSIGNED",
     }
     (output / "ORION_EXECUTION_SPLIT_MANIFEST.json").write_text(
         json.dumps(manifest, indent=2, sort_keys=True) + "\n", encoding="utf-8"
@@ -296,7 +300,7 @@ def write_outputs(
 
 Status date: {AS_OF}
 
-Disposition: **LOCAL_ARTIFACT_VERIFIED; CORE_REGISTRATION_REQUIRES_REVIEW**
+Disposition: **CORE_REGISTERED; LOCAL_ARTIFACT_VERIFIED; REMOTE DATA STORAGE UNASSIGNED**
 
 ## Exact bounded set
 
@@ -325,9 +329,9 @@ Disposition: **LOCAL_ARTIFACT_VERIFIED; CORE_REGISTRATION_REQUIRES_REVIEW**
 
 ## Next gate
 
-Review the exact Git-core allowlist and the individual package dispositions before
-authorizing any commit or push. Select durable private object storage separately
-before considering deletion of any local data payload.
+The exact Git core is registered at `{CORE_REGISTRATION_COMMIT}`. Select durable
+private object storage separately before considering deletion of any local data
+payload.
 """
     (output / "ORION_EXECUTION_DISPOSITION.md").write_text(report, encoding="utf-8")
 

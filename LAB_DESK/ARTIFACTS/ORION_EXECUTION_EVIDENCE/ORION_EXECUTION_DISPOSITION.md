@@ -2,14 +2,14 @@
 
 Status date: 2026-08-14
 
-Disposition: **LOCAL_ARTIFACT_VERIFIED; CORE_REGISTRATION_REQUIRES_REVIEW**
+Disposition: **CORE_REGISTERED; LOCAL_ARTIFACT_VERIFIED; REMOTE DATA STORAGE UNASSIGNED**
 
 ## Exact bounded set
 
 - Execution packages: **10**
 - Git-core candidates: **151 files**, **466.5 KiB**, tree `66e54cd62df8eada4b617985adcbbee8c50652b577106c99c9156e9a508c33a4`
 - External data payload: **402 files**, **92.2 MiB**, tree `1333a0a0a32129374186dc770174e68c9aed959dae8f1e42d3a7881608d2dc4d`
-- Transient files excluded: **17**
+- Transient files excluded: **32**
 
 ## Local immutable artifact
 
@@ -31,6 +31,6 @@ Disposition: **LOCAL_ARTIFACT_VERIFIED; CORE_REGISTRATION_REQUIRES_REVIEW**
 
 ## Next gate
 
-Review the exact Git-core allowlist and the individual package dispositions before
-authorizing any commit or push. Select durable private object storage separately
-before considering deletion of any local data payload.
+The exact Git core is registered at `73a0f97c05547b025bacc7f609c600008d58bbdb`. Select durable
+private object storage separately before considering deletion of any local data
+payload.

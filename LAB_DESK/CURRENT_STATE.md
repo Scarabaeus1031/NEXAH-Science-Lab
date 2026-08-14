@@ -51,7 +51,7 @@ The second package disposition is also complete:
   operational replay or readiness claim is made;
 - registered evidence generation and experiment execution remain unauthorized.
 
-The third package disposition is prepared but not committed:
+The third package disposition is registered:
 
 - ten completed ORION execution packages were split into an exact 151-file Git
   core and 402-file primary/replay data layer;
@@ -63,10 +63,11 @@ The third package disposition is prepared but not committed:
 - package outcomes remain bounded: four `INVALID_EXPERIMENT`, one
   `UNINFORMATIVE_BENCHMARK`, and the remaining PASS/demonstration statements
   retain their package-specific restrictions;
-- no ORION execution core has been staged, committed or pushed yet.
+- the exact ORION execution core is remote-durable at
+  `73a0f97c05547b025bacc7f609c600008d58bbdb`.
 
 Active owner gate:
-`AUTHORIZE_BOUNDED_ORION_EXECUTION_CORE_COMMIT_AND_PUSH_OR_PRESERVE_LOCAL`.
+`SELECT_PRIVATE_DURABLE_OBJECT_STORAGE_AND_AUTHORIZE_UPLOAD`.
 
 The terminal NEXAH review is also complete:
 
@@ -80,11 +81,10 @@ The terminal NEXAH review is also complete:
   27 files, tree
   `836b2f3aee8b0dd8d13704adf3621e5af01b9b5cce50ffdea564c98f1f7b8648`,
   with all **26 / 26** frozen manifest bindings verified;
-- EXP-T01 remains `SCIENCE_LAB_NOT_ADOPTED` and has not been staged, committed
-  or pushed.
+- EXP-T01 remains `SCIENCE_LAB_NOT_ADOPTED` and is remote-durable at
+  `bf2c34a3ca66c053fb3c412e86206ccf9f9cf1b7`.
 
-Second active owner gate:
-`AUTHORIZE_SEPARATE_EXP_T01_CORE_COMMIT_AND_PUSH_OR_PRESERVE_LOCAL`.
+EXP-T01 registration is complete; no adoption or execution follows from it.
 
 ## Definition of done for SL-CLEAN-001
 

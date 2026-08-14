@@ -13,6 +13,8 @@
   "boundary": {
     "architecture_adoption": false,
     "canonical_orion_integration": false,
+    "core_commit_authorized": true,
+    "core_push_authorized": true,
     "deletion_authorized": false,
     "new_experiment": false,
     "scientific_reinterpretation": false,
@@ -31,7 +33,8 @@
       "sha256_tree": "1333a0a0a32129374186dc770174e68c9aed959dae8f1e42d3a7881608d2dc4d"
     }
   },
-  "disposition": "LOCAL_ARTIFACT_VERIFIED; CORE_REGISTRATION_REQUIRES_REVIEW",
+  "core_registration_commit": "73a0f97c05547b025bacc7f609c600008d58bbdb",
+  "disposition": "CORE_REGISTERED; LOCAL_ARTIFACT_VERIFIED; REMOTE_DATA_STORAGE_UNASSIGNED",
   "packages": {
     "ORION_EXP_O8_GENERATOR_REALIZATION_001_EXECUTION": {
       "core": {
@@ -204,13 +207,25 @@
     ],
     "git_core_rule": "all non-transient files outside external data directories",
     "transient_exclusions": [
+      "ORION_EXP_O8_GENERATOR_REALIZATION_001_EXECUTION/.DS_Store",
+      "ORION_EXP_O8_GENERATOR_REALIZATION_002_EXECUTION/.DS_Store",
+      "ORION_EXP_O8_UTILITY_B1_001_EXECUTION/.DS_Store",
+      "ORION_EXP_O8_UTILITY_B1_002_001_EXECUTION/.DS_Store",
       "ORION_EXP_ORION_L1_001_V1_1_EXECUTION/.DS_Store",
+      "ORION_EXP_ORION_L2_001_EXECUTION/.DS_Store",
+      "ORION_EXP_ORION_L3_001_EXECUTION/.DS_Store",
+      "ORION_EXP_ORION_L4_001_EXECUTION/.DS_Store",
+      "ORION_EXP_ORION_L4_001_EXECUTION/primary/.DS_Store",
+      "ORION_EXP_ORION_L4_001_EXECUTION/replay/.DS_Store",
       "ORION_EXP_ORION_L4_001_EXECUTION/src/__pycache__/blind_observer.cpython-312.pyc",
       "ORION_EXP_ORION_L4_001_EXECUTION/src/__pycache__/extractor_worker.cpython-312.pyc",
       "ORION_EXP_ORION_L4_001_EXECUTION/src/__pycache__/failure_closeout.cpython-312.pyc",
       "ORION_EXP_ORION_L4_001_EXECUTION/src/__pycache__/l4_core.cpython-312.pyc",
       "ORION_EXP_ORION_L4_001_EXECUTION/src/__pycache__/run_l4.cpython-312.pyc",
       "ORION_EXP_ORION_L4_001_EXECUTION/tests/__pycache__/test_l4_contract.cpython-312.pyc",
+      "ORION_EXP_ORION_L4_003_TNSPA_V1_EXECUTION/.DS_Store",
+      "ORION_EXP_ORION_L4_003_TNSPA_V1_EXECUTION/primary/.DS_Store",
+      "ORION_EXP_ORION_L4_003_TNSPA_V1_EXECUTION/replay/.DS_Store",
       "ORION_EXP_ORION_L4_003_TNSPA_V1_EXECUTION/src/__pycache__/blind_observer.cpython-312.pyc",
       "ORION_EXP_ORION_L4_003_TNSPA_V1_EXECUTION/src/__pycache__/comparator.cpython-312.pyc",
       "ORION_EXP_ORION_L4_003_TNSPA_V1_EXECUTION/src/__pycache__/null_engine.cpython-312.pyc",
@@ -220,7 +235,10 @@
       "ORION_EXP_ORION_L4_003_TNSPA_V1_EXECUTION/src/__pycache__/secondary_jaccard.cpython-312.pyc",
       "ORION_EXP_ORION_L4_003_TNSPA_V1_EXECUTION/src/__pycache__/tie_controls.cpython-312.pyc",
       "ORION_EXP_ORION_L4_003_TNSPA_V1_EXECUTION/src/__pycache__/tnspa_core.cpython-312.pyc",
-      "ORION_EXP_ORION_L4_003_TNSPA_V1_EXECUTION/tests/__pycache__/test_tnspa_contract.cpython-312.pyc"
+      "ORION_EXP_ORION_L4_003_TNSPA_V1_EXECUTION/tests/__pycache__/test_tnspa_contract.cpython-312.pyc",
+      "ORION_EXP_SECOND_ORDER_RELATIONAL_STABILITY_001_EXECUTION/.DS_Store",
+      "ORION_EXP_SECOND_ORDER_RELATIONAL_STABILITY_001_EXECUTION/primary/.DS_Store",
+      "ORION_EXP_SECOND_ORDER_RELATIONAL_STABILITY_001_EXECUTION/replay/.DS_Store"
     ]
   }
 }

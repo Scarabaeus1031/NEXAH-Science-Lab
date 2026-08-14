@@ -11,6 +11,7 @@ from pathlib import Path
 
 PACKAGE = "NEXAH_TRANSLATION_RECOVERY_EXP_T01"
 AS_OF = "2026-08-14"
+REGISTRATION_COMMIT = "bf2c34a3ca66c053fb3c412e86206ccf9f9cf1b7"
 TRANSIENT = {".DS_Store"}
 
 
@@ -80,10 +81,11 @@ def main() -> None:
             "source_files_modified": False,
             "scientific_reinterpretation": False,
             "adoption_implied": False,
-            "commit_authorized": False,
-            "push_authorized": False,
+            "commit_authorized": True,
+            "push_authorized": True,
         },
-        "next_gate": "AUTHORIZE_SEPARATE_EXP_T01_CORE_COMMIT_AND_PUSH_OR_PRESERVE_LOCAL",
+        "registration_commit": REGISTRATION_COMMIT,
+        "next_gate": "NONE_REGISTRATION_COMPLETE",
     }
     (output / "EXP_T01_CANDIDATE_MANIFEST.json").write_text(
         json.dumps(manifest, indent=2, sort_keys=True) + "\n", encoding="utf-8"

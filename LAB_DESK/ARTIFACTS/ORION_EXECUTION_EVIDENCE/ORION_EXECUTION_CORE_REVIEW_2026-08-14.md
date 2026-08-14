@@ -2,7 +2,7 @@
 
 Status date: 2026-08-14
 
-Review disposition: **CORE_ALLOWLIST_READY; COMMIT_AND_PUSH_NOT_YET_AUTHORIZED**
+Review disposition: **CORE_REGISTERED**
 
 ## Integrity checks
 
@@ -30,9 +30,10 @@ Review disposition: **CORE_ALLOWLIST_READY; COMMIT_AND_PUSH_NOT_YET_AUTHORIZED**
 
 ## Registration recommendation
 
-Register the exact 151-file Git core as a single historical execution-evidence
-bundle only after explicit approval. Keep all 402 primary/replay data files
-outside Git, identified by the split manifest and verified local artifact.
+The exact 151-file Git core is registered as a historical execution-evidence
+bundle at `73a0f97c05547b025bacc7f609c600008d58bbdb`. All 402 primary/replay data
+files remain outside Git, identified by the split manifest and verified local
+artifact.
 
 This registration would preserve both positive and negative/invalid outcomes.
 It must not be described as universal ORION validation, NEXAH validation,
