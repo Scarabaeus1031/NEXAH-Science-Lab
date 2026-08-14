@@ -1,0 +1,125 @@
+schema_version: "3.0.0"
+ledger_series_id: "RLS.CASE_C.T01_E3"
+record_id: "RL.CASE_C.T01_E3"
+record_revision: 1
+previous_record_ref: null
+history_state:
+  history_completeness: HISTORY_COMPLETE
+  known_prior_record_refs: []
+  unresolved_prior_refs: []
+  assessment: &rule { basis: RULE_GUIDED, assessor: v3_bounded_revision, rationale: "All known claims from the prior ledger description and independent conflict review are represented locally." }
+source_boundary:
+  resolution: RESOLVED
+  boundary_id: C.SOURCE
+  description: "Raw F2 fixture and recovery_record arguments plus frozen protocol; the result record is not a source artifact."
+  representations:
+    - class: ARRAY
+      subtype: raw_recovery_arguments
+      contract_id: rep.t01-recovery-arguments.v1
+      contract: "F2 source points, transformed and recovered point arrays, family/fixture identifiers, and optional forward state; exact tolerance is loaded from protocol."
+      qualifiers: { value_kind: RECORD, temporal: false }
+      artifacts:
+        - artifact_id: t01.runner_fixture_definition
+          provenance_state: KNOWN
+          locator: "../NEXAH_TRANSLATION_RECOVERY_EXP_T01/run_exp_t01.py:213-222"
+        - artifact_id: t01.protocol
+          provenance_state: KNOWN
+          locator: "../NEXAH_TRANSLATION_RECOVERY_EXP_T01/experiment_protocol.json"
+          sha256: "00b77834878a0bccc2607465c996529218d466390c3711c32424819e1c6fe308"
+  judgment: &det { basis: DETERMINISTIC, assessor: v3_bounded_revision, rationale: "Function signature, call site, and protocol access define the source." }
+operator_boundary:
+  resolution: RESOLVED
+  unit_kind: COMPOSITE
+  operator_id: C.OP
+  name: E3_rotation_roundtrip_and_record_classification
+  definition_ref: "../NEXAH_TRANSLATION_RECOVERY_EXP_T01/run_exp_t01.py:164-222"
+  version: sha256:e602071c3d294001f4e3c2076478d3f1c56a730fea0e5f8758e36011c9fbe7b1
+  boundary_justification: "Composite retains the difficult reviewed unit while making subpath and record construction explicit."
+  components:
+    - { order: 1, component_id: C.C1, name: rotate_plus_pi_over_3, definition_ref: "run_exp_t01.py:164-166,220-222", input_contract: F2_points, output_contract: rotated_points, judgment: *det }
+    - { order: 2, component_id: C.C2, name: rotate_minus_pi_over_3, definition_ref: "run_exp_t01.py:220-222", input_contract: rotated_points, output_contract: recovered_points, judgment: *det }
+    - { order: 3, component_id: C.C3, name: compute_error_certificates_and_status_record, definition_ref: "run_exp_t01.py:173-210", input_contract: raw_recovery_arguments_plus_protocol, output_contract: rep.t01-primary-result.v1, judgment: *det }
+  parameters: { forward_angle_radians: 1.0471975511965976, inverse_angle_radians: -1.0471975511965976, exact_tolerance: 1.0e-12, family: EXACT }
+  assumptions: [{ key: frozen_protocol_controls_classification, statement: "Classification tolerance is read from experiment_protocol.json.", judgment: *det }]
+  judgment: { basis: EXPERT_JUDGMENT, assessor: v3_bounded_revision, rationale: "The composite boundary is the reviewed E3 unit; subpath claims are explicitly scoped." }
+target_boundary:
+  resolution: RESOLVED
+  boundary_id: C.TARGET
+  description: "Constructed T01 result record containing recovered state, error, certificates, and primary status."
+  representations:
+    - class: RECORD
+      subtype: t01_primary_recovery_result
+      contract_id: rep.t01-primary-result.v1
+      contract: "Full output record produced for E3, including TOLERANCE_RECOVERY and measured error."
+      qualifiers: { value_kind: RECORD, temporal: false }
+      artifacts:
+        - artifact_id: t01a.primary.results
+          provenance_state: KNOWN
+          locator: "../NEXAH_TRANSLATION_RECOVERY_EXP_T01/T01A_PRIMARY_RESULTS.json"
+          sha256: "0f860a7986476f63125d7832187e3b02367485ecbd10b1820173eabc647b8aac"
+  judgment: *det
+preservation_claims:
+  - claim_id: C.P1
+    scope: { scope_type: SUBPATH, edge_id: C.OP, component_ids: [C.C1, C.C2] }
+    object: recovered_F2_point_coordinates
+    criterion_type: TOLERANCE
+    criterion: "Maximum absolute coordinate error after C.C1 then C.C2 is <= 1e-12."
+    result: PRESERVED
+    evidence_refs: [C.E1, C.E2, C.E3]
+    judgment: *det
+loss_claims:
+  - claim_id: C.L1
+    scope:
+      scope_type: DERIVED_PROJECTION
+      edge_id: C.OP
+      source_scope: WHOLE_EDGE_TARGET
+      projection_contract: "pi_status(full_result_record) returns only primary_status"
+    object_or_distinction: "recovery error and individual certificate comparisons under pi_status"
+    category: STRUCTURAL
+    criterion: "The explicit projection output contains only primary_status; the whole-edge target retains all fields."
+    result: ESTABLISHED
+    evidence_refs: [C.E1]
+    judgment: *det
+collision_claims: []
+uncertainty:
+  - uncertainty_id: C.U1
+    scope: { scope_type: SUBPATH, edge_id: C.OP, component_ids: [C.C1, C.C2] }
+    category: NUMERICAL
+    state: BOUNDED
+    description: "Observed maximum floating round-trip error."
+    value: 2.220446049250313e-16
+    unit: max_absolute_coordinate_error
+    method: "state_error; compare to frozen tolerance"
+    evidence_refs: [C.E2, C.E3]
+    judgment: *det
+invertibility:
+  scope: { scope_type: SUBPATH, edge_id: C.OP, component_ids: [C.C1, C.C2] }
+  classification: APPROXIMATELY_RECOVERABLE
+  declared_domain: "Frozen F2 points under floating rotations +/-pi/3."
+  criterion: "C.C2 recovers C.C1 input within 1e-12 maximum absolute coordinate error."
+  inverse_ref: "run_exp_t01.py:220-222"
+  evidence_refs: [C.E1, C.E2, C.E3]
+  judgment: *det
+task_relevance: { state: UNDEFINED }
+evidence:
+  - { evidence_id: C.E1, evidence_type: CODE, eligibility: TECHNICAL_SUPPORT, integrity: HASH_CONFIRMED, locator: "../NEXAH_TRANSLATION_RECOVERY_EXP_T01/run_exp_t01.py", sha256: "e602071c3d294001f4e3c2076478d3f1c56a730fea0e5f8758e36011c9fbe7b1", supports_claim_ids: [C.P1, C.L1, C.H1, C.H2, C.H3] }
+  - { evidence_id: C.E2, evidence_type: DATA, eligibility: TECHNICAL_SUPPORT, integrity: REPLAY_CONFIRMED, locator: "../NEXAH_TRANSLATION_RECOVERY_EXP_T01/T01A_PRIMARY_RESULTS.json", sha256: "0f860a7986476f63125d7832187e3b02367485ecbd10b1820173eabc647b8aac", supports_claim_ids: [C.P1, C.H1] }
+  - { evidence_id: C.E3, evidence_type: PROTOCOL, eligibility: TECHNICAL_SUPPORT, integrity: HASH_CONFIRMED, locator: "../NEXAH_TRANSLATION_RECOVERY_EXP_T01/experiment_protocol.json", sha256: "00b77834878a0bccc2607465c996529218d466390c3711c32424819e1c6fe308", supports_claim_ids: [C.P1, C.H3] }
+  - { evidence_id: C.E4, evidence_type: AUDIT, eligibility: TECHNICAL_SUPPORT, integrity: LOCATED, locator: "../NEXAH_REPRESENTATION_LEDGER_INDEPENDENT_DESIGN_REVIEW/05_CASE_C_SECOND_TRANSFORMATION.md", supports_claim_ids: [C.H2, C.H3] }
+provenance_trace:
+  links:
+    - { link_id: C.TR1, role: IMPLEMENTATION, state: HASH_CONFIRMED, locator: "../NEXAH_TRANSLATION_RECOVERY_EXP_T01/run_exp_t01.py", sha256: "e602071c3d294001f4e3c2076478d3f1c56a730fea0e5f8758e36011c9fbe7b1", note: "Frozen runner." }
+    - { link_id: C.TR2, role: CONFIGURATION, state: HASH_CONFIRMED, locator: "../NEXAH_TRANSLATION_RECOVERY_EXP_T01/experiment_protocol.json", sha256: "00b77834878a0bccc2607465c996529218d466390c3711c32424819e1c6fe308", note: "Frozen protocol." }
+    - { link_id: C.TR3, role: INPUT, state: LOCATED, locator: "../NEXAH_TRANSLATION_RECOVERY_EXP_T01/run_exp_t01.py:213-222", note: "Raw fixture/call arguments; result file is excluded." }
+    - { link_id: C.TR4, role: OUTPUT, state: REPLAY_CONFIRMED, locator: "../NEXAH_TRANSLATION_RECOVERY_EXP_T01/T01A_PRIMARY_RESULTS.json", sha256: "0f860a7986476f63125d7832187e3b02367485ecbd10b1820173eabc647b8aac", note: "Byte-identical replay." }
+  sufficiency_judgment: *rule
+epistemic_status:
+  implementation: { status: LOCATED, note: "Runner and components located.", evidence_refs: [C.E1], judgment: *det }
+  execution: { status: REPRODUCED, note: "Frozen output replayed byte-identically.", evidence_refs: [C.E2], judgment: *det }
+  reproducibility: { status: REPRODUCIBLE, note: "Bounded software execution reproducible.", evidence_refs: [C.E1, C.E2, C.E3], judgment: *rule }
+  provenance: { status: COMPLETE, note: "Consequential links for bounded claim located.", evidence_refs: [C.E1, C.E2, C.E3], judgment: *rule }
+  claim_support: { status: MIXED, scope: { scope_type: WHOLE_EDGE, edge_id: C.OP }, note: "Execution supported; prior boundary description rejected; corrected boundary supported.", evidence_refs: [C.E1, C.E2, C.E4], judgment: { basis: EXPERT_JUDGMENT, assessor: v3_bounded_revision, rationale: "Claim history contains both rejected and supported boundary claims." } }
+claim_history:
+  - { claim_id: C.H1, claim_revision: 1, claim_type: EXECUTION, scope: { scope_type: WHOLE_EDGE, edge_id: C.OP }, statement: "E3 produced TOLERANCE_RECOVERY within 1e-12 and replayed byte-identically.", status: SUPPORTED, evidence_refs: [C.E1, C.E2, C.E3], relations: [], judgment: *det }
+  - { claim_id: C.H2, claim_revision: 1, claim_type: BOUNDARY, scope: { scope_type: WHOLE_EDGE, edge_id: C.OP }, statement: "The classifier consumes a pre-existing comparison record containing certificates and tolerance.", status: REJECTED, evidence_refs: [C.E1, C.E4], relations: [], judgment: { basis: EXPERT_JUDGMENT, assessor: v3_bounded_revision, rationale: "Code computes certificates and loads protocol tolerance internally." } }
+  - { claim_id: C.H3, claim_revision: 1, claim_type: BOUNDARY, scope: { scope_type: WHOLE_EDGE, edge_id: C.OP }, statement: "The edge consumes raw arguments plus protocol and constructs the result record.", status: SUPPORTED, evidence_refs: [C.E1, C.E3, C.E4], relations: [{ relation: CONTRADICTS, prior_claim_id: C.H2, prior_claim_revision: 1 }], judgment: *det }

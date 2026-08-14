@@ -1,0 +1,193 @@
+schema_version: "2.0.0"
+record_id: "RLV2.CASE_A.FIELD_TO_CRITICAL.R1"
+lineage:
+  revision: 1
+  supersedes_record_id: null
+  history_policy: APPEND_PRESERVING
+  prior_claim_ids: []
+source_boundary:
+  resolution: RESOLVED
+  boundary_id: "A.SOURCE"
+  description: "Same-shaped in-memory coordinate grids X,Y and scalar grid Z before candidate detection."
+  representations:
+    - class: FIELD
+      subtype: scalar_grid_with_coordinates
+      contract_id: "rep.scalar-grid-xy.v1"
+      contract: "Two rank-2 coordinate arrays X,Y and one same-shaped rank-2 scalar array Z."
+      qualifiers: { grid_rank: 2, coordinate_arrays: true, value_kind: SCALAR, temporal: false }
+      artifacts:
+        - artifact_id: "legacy.in_memory.XYZ"
+          provenance_state: PROVENANCE_UNAVAILABLE
+          note: "Historical arrays and upstream RNG state were not retained."
+  judgment: &expert_boundary
+    basis: EXPERT_JUDGMENT
+    assessor: independent_schema_v2_revision
+    rationale: "Boundary follows the callable constructor inputs and reviewed computation."
+operator_boundary:
+  resolution: RESOLVED
+  unit_kind: COMPOSITE
+  operator_id: "A.OP.CRITICAL_CANDIDATE_PIPELINE"
+  name: "finite-difference threshold and Hessian-sign candidate classifier"
+  definition_ref: "/Users/tho2020/Documents/GitHub/NEXAH/EXPERIMENTAL/BUILDER_LAB/ARCHIVE_ENGINE/archived/analysis/stability_critical_points.py:23"
+  version: "canonical-724814ea40351141350a1822d7c559a308ac0cfa"
+  boundary_justification: "One callable is retained as the reviewed edge, with material internal components exposed in order."
+  components:
+    - order: 1
+      component_id: "A.C1"
+      name: numpy_gradient_first_and_second_differences
+      definition_ref: "stability_critical_points.py:25-30"
+      input_contract: "rep.scalar-grid-xy.v1"
+      output_contract: "gradient and Hessian-derived arrays"
+      judgment: &det_code
+        basis: DETERMINISTIC
+        assessor: independent_schema_v2_revision
+        rationale: "Component is directly visible in source code."
+    - order: 2
+      component_id: "A.C2"
+      name: interior_gradient_threshold
+      definition_ref: "stability_critical_points.py:36-43"
+      input_contract: "derivative arrays"
+      output_contract: "selected interior grid indices"
+      judgment: *det_code
+    - order: 3
+      component_id: "A.C3"
+      name: determinant_and_Zxx_sign_classification
+      definition_ref: "stability_critical_points.py:45-59"
+      input_contract: "selected indices and Hessian-derived arrays"
+      output_contract: "three coordinate lists"
+      judgment: *det_code
+  parameters: { grad_threshold: 0.02, boundary_cells_examined: false, sample_spacing: implicit_unit }
+  assumptions:
+    - key: implicit_unit_sample_spacing
+      statement: "numpy.gradient is called without physical X/Y spacing."
+      judgment: *det_code
+    - key: fixed_candidate_threshold
+      statement: "Candidate inclusion uses gradient magnitude below 0.02."
+      judgment: *det_code
+  judgment: *expert_boundary
+target_boundary:
+  resolution: RESOLVED
+  boundary_id: "A.TARGET"
+  description: "Three ordered lists of coordinate pairs classified as grid-level heuristic maxima, minima, and saddles."
+  representations:
+    - class: FEATURE_SET
+      subtype: heuristic_critical_candidate_coordinate_lists
+      contract_id: "rep.critical-candidate-lists.v1"
+      contract: "Three lists of X,Y coordinate pairs selected and classified by the declared discrete rule; not a certified continuous critical set."
+      qualifiers: { value_kind: COORDINATE_PAIR, labeled: true, temporal: false }
+      artifacts:
+        - artifact_id: "legacy.in_memory.candidate_lists"
+          provenance_state: PROVENANCE_UNAVAILABLE
+          note: "Historical in-memory output was not retained as a data artifact."
+  judgment: *expert_boundary
+preservation_claims:
+  - claim_id: "A.P1.COORDINATE_COPY"
+    object: "emitted candidate coordinates"
+    criterion_type: DETERMINISTIC_PROPERTY_TEST
+    criterion: "For every emitted tuple, values equal X[i,j],Y[i,j] at the selected source index in the same execution."
+    result: PRESERVED
+    evidence_refs: ["A.E1.CODE"]
+    judgment: *det_code
+loss_claims:
+  - claim_id: "A.L1.OMITTED_FIELD_VALUES"
+    object_or_distinction: "Z values, derivative magnitudes, confidence, and all nonselected grid cells"
+    category: STRUCTURAL
+    criterion: "These values are not members of the returned three-list target contract."
+    result: ESTABLISHED
+    evidence_refs: ["A.E1.CODE"]
+    judgment: *det_code
+  - claim_id: "A.L2.INSTANCE_COLLISION"
+    object_or_distinction: "distinct historical fields yielding identical candidate lists"
+    category: UNKNOWN
+    criterion: "Requires two retained distinct source instances and exact equality of their candidate-list targets."
+    result: UNKNOWN
+    evidence_refs: ["A.E2.AUDIT"]
+    judgment:
+      basis: RULE_GUIDED
+      assessor: independent_schema_v2_revision
+      rationale: "Historical source arrays are unavailable, so no instance witness can be checked."
+collision_claims: []
+uncertainty:
+  - uncertainty_id: "A.U1.DISCRETIZATION"
+    category: DISCRETIZATION
+    state: NOT_QUANTIFIED
+    description: "Resolution, implicit spacing, stencil, threshold, and boundary exclusion affect candidate selection."
+    judgment:
+      basis: EXPERT_JUDGMENT
+      assessor: independent_schema_v2_revision
+      rationale: "Effects are source-visible but no convergence/error study exists."
+  - uncertainty_id: "A.U2.HISTORICAL_INPUT"
+    category: OTHER
+    state: UNKNOWN
+    description: "Exact historical X,Y,Z realization and RNG state are unavailable."
+    judgment:
+      basis: RULE_GUIDED
+      assessor: independent_schema_v2_revision
+      rationale: "The provenance audit explicitly records the missing realization."
+invertibility:
+  classification: MANY_TO_ONE
+  declared_domain: "All same-shaped numeric X,Y,Z arrays admitted by the callable."
+  criterion: "The output omits Z and derivative values; source reconstruction is not defined by the callable."
+  evidence_refs: ["A.E1.CODE", "A.E2.AUDIT"]
+  judgment:
+    basis: EXPERT_JUDGMENT
+    assessor: independent_schema_v2_revision
+    rationale: "Classification concerns the declared output contract, not a witnessed historical collision."
+task_relevance: { state: UNDEFINED }
+evidence:
+  - evidence_id: "A.E1.CODE"
+    evidence_type: CODE
+    eligibility: TECHNICAL_SUPPORT
+    integrity: LOCATED
+    locator: "/Users/tho2020/Documents/GitHub/NEXAH/EXPERIMENTAL/BUILDER_LAB/ARCHIVE_ENGINE/archived/analysis/stability_critical_points.py:23-61"
+    supports_claim_ids: ["A.P1.COORDINATE_COPY", "A.L1.OMITTED_FIELD_VALUES", "A.CLAIM.EXECUTION_SEMANTICS"]
+  - evidence_id: "A.E2.AUDIT"
+    evidence_type: AUDIT
+    eligibility: TECHNICAL_SUPPORT
+    integrity: LOCATED
+    locator: "../NEXAH_LEGACY_REPRESENTATION_PIPELINE_AUDIT/04_FIELD_TO_CRITICAL_STRUCTURE_AUDIT.md"
+    supports_claim_ids: ["A.L2.INSTANCE_COLLISION", "A.CLAIM.INTERPRETATION_BOUNDARY"]
+provenance_trace:
+  links:
+    - { link_id: "A.TR.CLAIM", role: CLAIM, state: LOCATED, locator: "SAMPLE_A_FIELD_TO_CRITICAL.yaml", note: "Current ledger record." }
+    - { link_id: "A.TR.IMPLEMENTATION", role: IMPLEMENTATION, state: LOCATED, locator: "/Users/tho2020/Documents/GitHub/NEXAH/EXPERIMENTAL/BUILDER_LAB/ARCHIVE_ENGINE/archived/analysis/stability_critical_points.py", note: "Canonical source at inspected commit." }
+    - { link_id: "A.TR.CONFIG", role: CONFIGURATION, state: LOCATED, locator: "stability_critical_points.py:23", note: "Default threshold is 0.02; no external config artifact." }
+    - { link_id: "A.TR.INPUT", role: INPUT, state: PROVENANCE_UNAVAILABLE, note: "Historical X,Y,Z realization and RNG state unavailable." }
+    - { link_id: "A.TR.OUTPUT", role: OUTPUT, state: PROVENANCE_UNAVAILABLE, note: "Candidate lists not retained as machine-readable artifacts." }
+    - { link_id: "A.TR.AUDIT", role: AUDIT, state: LOCATED, locator: "../NEXAH_LEGACY_REPRESENTATION_PIPELINE_AUDIT/04_FIELD_TO_CRITICAL_STRUCTURE_AUDIT.md", note: "Static independent audit." }
+  sufficiency_judgment:
+    basis: EXPERT_JUDGMENT
+    assessor: independent_schema_v2_revision
+    rationale: "Sufficient for operator semantics; insufficient for historical instance replay."
+epistemic_status:
+  implementation_status: LOCATED
+  execution_status: UNKNOWN
+  reproducibility_status: PARTIAL
+  provenance_status: PARTIAL
+  claim_support_status: PARTIAL
+  dimensions:
+    implementation: { value: LOCATED, evidence_refs: ["A.E1.CODE"], judgment: *det_code }
+    execution: { value: UNKNOWN, evidence_refs: ["A.E2.AUDIT"], judgment: { basis: RULE_GUIDED, assessor: independent_schema_v2_revision, rationale: "No retained execution record for the historical instance." } }
+    reproducibility: { value: PARTIAL, evidence_refs: ["A.E1.CODE", "A.E2.AUDIT"], judgment: { basis: EXPERT_JUDGMENT, assessor: independent_schema_v2_revision, rationale: "Callable located; historical inputs unavailable." } }
+    provenance: { value: PARTIAL, evidence_refs: ["A.E2.AUDIT"], judgment: { basis: RULE_GUIDED, assessor: independent_schema_v2_revision, rationale: "Implementation known but source/output artifacts unavailable." } }
+    claim_support: { value: PARTIAL, evidence_refs: ["A.E1.CODE", "A.E2.AUDIT"], judgment: { basis: EXPERT_JUDGMENT, assessor: independent_schema_v2_revision, rationale: "Narrow algorithmic claims supported; continuous critical-structure interpretation not supported." } }
+claim_history:
+  - claim_id: "A.CLAIM.EXECUTION_SEMANTICS"
+    claim_type: EXECUTION
+    statement: "For a fixed admitted input, the callable deterministically produces three candidate coordinate lists under the declared rule."
+    status: SUPPORTED
+    evidence_refs: ["A.E1.CODE"]
+    supersedes: []
+    append_action: CREATED
+    judgment: *det_code
+  - claim_id: "A.CLAIM.INTERPRETATION_BOUNDARY"
+    claim_type: SCIENTIFIC_INTERPRETATION
+    statement: "The returned candidates establish the complete continuous critical structure."
+    status: REJECTED
+    evidence_refs: ["A.E2.AUDIT"]
+    supersedes: []
+    append_action: CREATED
+    judgment:
+      basis: EXPERT_JUDGMENT
+      assessor: independent_schema_v2_revision
+      rationale: "No scale-aware convergence, interpolation, boundary, or uncertainty study supports that interpretation."

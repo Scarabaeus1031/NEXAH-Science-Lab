@@ -1,0 +1,80 @@
+schema_version: "3.0.0"
+ledger_series_id: "RLS.CASE_B.PARTITION_EDGESET"
+record_id: "RL.CASE_B.PARTITION_EDGESET"
+record_revision: 1
+previous_record_ref: null
+history_state:
+  history_completeness: HISTORY_PARTIAL
+  known_prior_record_refs: []
+  unresolved_prior_refs: ["historical basin raster and edge output"]
+  assessment: &expert { basis: EXPERT_JUDGMENT, assessor: v3_bounded_revision, rationale: "Historical data instances are unavailable." }
+source_boundary:
+  resolution: RESOLVED
+  boundary_id: B.SOURCE
+  description: "Rank-2 integer region-label raster read by compute()."
+  representations:
+    - class: PARTITION
+      subtype: integer_label_raster
+      contract_id: rep.integer-partition-raster.v1
+      contract: "Rank-2 integer array; equality denotes the same region label."
+      qualifiers: { grid_rank: 2, value_kind: INTEGER_LABEL, labeled: true, temporal: false }
+      artifacts: [{ artifact_id: legacy.basin_map, provenance_state: PROVENANCE_UNAVAILABLE, note: "Not retained." }]
+  judgment: &det { basis: DETERMINISTIC, assessor: v3_bounded_revision, rationale: "Direct callable input." }
+operator_boundary:
+  resolution: RESOLVED
+  unit_kind: ATOMIC
+  operator_id: B.OP
+  name: down_right_label_contact_extraction
+  definition_ref: "/Users/tho2020/Documents/GitHub/NEXAH/EXPERIMENTAL/BUILDER_LAB/ARCHIVE_ENGINE/archived/analysis/basin_transition_graph.py:17-38"
+  version: canonical-724814ea40351141350a1822d7c559a308ac0cfa
+  boundary_justification: "Only compute(), not plotting, is represented."
+  components: []
+  parameters: { neighbor_directions: [down, right], unique_sorted_pairs: true, loop_excludes_last_origins: true }
+  assumptions: [{ key: label_equality_is_identity, statement: "Equal integers denote one region label.", judgment: *det }]
+  judgment: *det
+target_boundary:
+  resolution: RESOLVED
+  boundary_id: B.TARGET
+  description: "Sorted unique undirected differing-label pairs without isolated-node inventory."
+  representations:
+    - class: EDGE_SET
+      subtype: undirected_unweighted_label_pairs
+      contract_id: rep.undirected-label-edge-set.v1
+      contract: "Simple unique label pairs from the implemented scan; not an observed transition graph."
+      qualifiers: { value_kind: EDGE_PAIR, directed: false, weighted: false, labeled: true, simple: true, includes_isolated_nodes: false, temporal: false }
+      artifacts: [{ artifact_id: legacy.edges, provenance_state: PROVENANCE_UNAVAILABLE, note: "Not retained." }]
+  judgment: *det
+preservation_claims:
+  - { claim_id: B.P1, scope: { scope_type: WHOLE_EDGE, edge_id: B.OP }, object: detected_label_contacts, criterion_type: DETERMINISTIC_PROPERTY_TEST, criterion: "Every returned pair has at least one tested unequal down/right neighbor comparison.", result: PRESERVED, evidence_refs: [B.E1], judgment: *det }
+loss_claims:
+  - { claim_id: B.L1, scope: { scope_type: WHOLE_EDGE, edge_id: B.OP }, object_or_distinction: "raster geometry, membership, multiplicity, direction, weights, field", category: STRUCTURAL, criterion: "Target contains only unique sorted label pairs.", result: ESTABLISHED, evidence_refs: [B.E1], judgment: *det }
+  - { claim_id: B.L2, scope: { scope_type: WHOLE_EDGE, edge_id: B.OP }, object_or_distinction: "last-row right and last-column down origin contacts", category: POTENTIAL, criterion: "Both loops stop before the last row and column.", result: ESTABLISHED, evidence_refs: [B.E1], judgment: *det }
+collision_claims: []
+uncertainty:
+  - { uncertainty_id: B.U1, scope: { scope_type: WHOLE_EDGE, edge_id: B.OP }, category: DISCRETIZATION, state: NOT_QUANTIFIED, description: "Raster resolution and omitted border-origin comparisons affect output.", judgment: *expert }
+invertibility:
+  scope: { scope_type: WHOLE_EDGE, edge_id: B.OP }
+  classification: MANY_TO_ONE
+  declared_domain: "Rank-2 integer label rasters."
+  criterion: "Unique label pairs omit cell assignments and geometry."
+  evidence_refs: [B.E1, B.E2]
+  judgment: *expert
+task_relevance: { state: UNDEFINED }
+evidence:
+  - { evidence_id: B.E1, evidence_type: CODE, eligibility: TECHNICAL_SUPPORT, integrity: LOCATED, locator: "/Users/tho2020/Documents/GitHub/NEXAH/EXPERIMENTAL/BUILDER_LAB/ARCHIVE_ENGINE/archived/analysis/basin_transition_graph.py:17-38", supports_claim_ids: [B.P1, B.L1, B.L2, B.H1] }
+  - { evidence_id: B.E2, evidence_type: AUDIT, eligibility: TECHNICAL_SUPPORT, integrity: LOCATED, locator: "../NEXAH_LEGACY_REPRESENTATION_PIPELINE_AUDIT/06_GRAPH_TRANSLATION_AUDIT.md", supports_claim_ids: [B.H2] }
+provenance_trace:
+  links:
+    - { link_id: B.TR1, role: IMPLEMENTATION, state: LOCATED, locator: "/Users/tho2020/Documents/GitHub/NEXAH/EXPERIMENTAL/BUILDER_LAB/ARCHIVE_ENGINE/archived/analysis/basin_transition_graph.py", note: "Canonical source." }
+    - { link_id: B.TR2, role: INPUT, state: PROVENANCE_UNAVAILABLE, note: "Historical raster unavailable." }
+    - { link_id: B.TR3, role: OUTPUT, state: PROVENANCE_UNAVAILABLE, note: "Historical edge set unavailable." }
+  sufficiency_judgment: *expert
+epistemic_status:
+  implementation: { status: LOCATED, note: "Callable located.", evidence_refs: [B.E1], judgment: *det }
+  execution: { status: UNKNOWN, note: "No retained historical execution record.", evidence_refs: [B.E2], judgment: *expert }
+  reproducibility: { status: PARTIAL, note: "Code known; instance absent.", evidence_refs: [B.E1], judgment: *expert }
+  provenance: { status: PARTIAL, note: "Implementation known; data unavailable.", evidence_refs: [B.E2], judgment: *expert }
+  claim_support: { status: PARTIAL, scope: { scope_type: WHOLE_EDGE, edge_id: B.OP }, note: "Edge extraction supported; transition semantics rejected.", evidence_refs: [B.E1, B.E2], judgment: *expert }
+claim_history:
+  - { claim_id: B.H1, claim_revision: 1, claim_type: EXECUTION, scope: { scope_type: WHOLE_EDGE, edge_id: B.OP }, statement: "compute() returns label-contact pairs under its coded scan.", status: SUPPORTED, evidence_refs: [B.E1], relations: [], judgment: *det }
+  - { claim_id: B.H2, claim_revision: 1, claim_type: SCIENTIFIC_INTERPRETATION, scope: { scope_type: WHOLE_EDGE, edge_id: B.OP }, statement: "The returned pairs establish observed dynamical transitions.", status: REJECTED, evidence_refs: [B.E2], relations: [], judgment: *expert }

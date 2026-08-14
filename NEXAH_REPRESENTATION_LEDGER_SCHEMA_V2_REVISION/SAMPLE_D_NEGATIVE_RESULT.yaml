@@ -1,0 +1,175 @@
+schema_version: "2.0.0"
+record_id: "RLV2.CASE_D.DELAY_HIERARCHY_FAILURE.R1"
+lineage: { revision: 1, supersedes_record_id: null, history_policy: APPEND_PRESERVING, prior_claim_ids: [] }
+source_boundary:
+  resolution: BOUNDARY_UNRESOLVED
+  boundary_id: "D.SOURCE"
+  description: "Frozen Study-2 and Study-3 families/representations used for the cross-study hierarchy comparison; no unique single-edge source is justified."
+  representations:
+    - class: RECORD
+      subtype: cross_study_translation_result_collection
+      contract_id: "rep.translation-study-collection.v1"
+      contract: "Frozen aggregate and raw records used to compare certificate robustness/discrimination and delay behavior across implementations."
+      qualifiers: { value_kind: RECORD, temporal: true }
+      artifacts:
+        - artifact_id: "study3.fidelity_results"
+          provenance_state: KNOWN
+          locator: "../NEXAH_TRANSLATION_FIDELITY_EXPERIMENT/fidelity_results.json"
+          sha256: "36657449bd48eb498a65e30bdda27a2d42735e357455b42aa9126f3b32f1d0d9"
+  judgment: &dexpert
+    basis: EXPERT_JUDGMENT
+    assessor: independent_schema_v2_revision
+    rationale: "The rejected hierarchy is a cross-study aggregate claim, not one uniquely decomposable translation edge."
+operator_boundary:
+  resolution: BOUNDARY_UNRESOLVED
+  unit_kind: BOUNDARY_UNRESOLVED
+  operator_id: "D.OP.CROSS_STUDY_DELAY_DECODER_CERTIFICATE_PIPELINE"
+  name: "delay representation, decoder, alignment, transition extraction, certificate computation, and cross-study comparison"
+  definition_ref: "../NEXAH_TRANSLATION_FIDELITY_EXPERIMENT/run_fidelity_experiment.py"
+  version: "sha256:1576d97bcd25a9481b486ae42c0632ca3fa2f9bd7436af38356c1446f9814ee9"
+  boundary_justification: "Material components are known, but the aggregate rejected hierarchy does not select one unique edge decomposition shared across Study 2 and Study 3."
+  components:
+    - { order: 1, component_id: "D.C1", name: one_step_delay_representation, definition_ref: "run_fidelity_experiment.py:72", input_contract: "time-series observations", output_contract: "delayed observations", judgment: { basis: DETERMINISTIC, assessor: independent_schema_v2_revision, rationale: "Located in Study-3 code." } }
+    - { order: 2, component_id: "D.C2", name: independent_k_medoids_decode_and_alignment, definition_ref: "run_fidelity_experiment.py", input_contract: "delayed observations", output_contract: "aligned decoded states", judgment: *dexpert }
+    - { order: 3, component_id: "D.C3", name: transition_and_certificate_evaluation, definition_ref: "run_fidelity_experiment.py", input_contract: "aligned decoded states", output_contract: "certificate and fidelity records", judgment: *dexpert }
+  parameters: { representation: R3_delay, study3_decoder: deterministic_k_medoids_from_scratch, state_count_oracle: true }
+  assumptions:
+    - key: decoder_and_alignment_are_part_of_observed_fidelity
+      statement: "Observed certificate preservation depends on decoder and alignment geometry."
+      judgment: *dexpert
+  judgment: *dexpert
+target_boundary:
+  resolution: BOUNDARY_UNRESOLVED
+  boundary_id: "D.TARGET"
+  description: "Cross-study certificate preservation/discrimination results and scientific hierarchy assessment."
+  representations:
+    - class: STATISTICAL_SUMMARY
+      subtype: cross_study_certificate_hierarchy_assessment
+      contract_id: "rep.cross-study-hierarchy-assessment.v1"
+      contract: "Study-specific certificate rates and the conclusion that the exact v0.7 categorical hierarchy did not replicate independently."
+      qualifiers: { value_kind: RECORD, temporal: false }
+      artifacts:
+        - artifact_id: "study3.fidelity_results"
+          provenance_state: KNOWN
+          locator: "../NEXAH_TRANSLATION_FIDELITY_EXPERIMENT/fidelity_results.json"
+          sha256: "36657449bd48eb498a65e30bdda27a2d42735e357455b42aa9126f3b32f1d0d9"
+  judgment: *dexpert
+preservation_claims:
+  - claim_id: "D.P1.DELAY_SUPPORT_STUDY3"
+    object: "binary support certificate under Study-3 delay representation"
+    criterion_type: EMPIRICAL_COMPARISON
+    criterion: "Exact certificate equality after registered decoding/alignment for each of 20 Study-3 families."
+    result: NOT_PRESERVED
+    evidence_refs: ["D.E2.RESULT", "D.E4.SYNTHESIS"]
+    judgment: { basis: RULE_GUIDED, assessor: independent_schema_v2_revision, rationale: "Frozen protocol/results define the comparison and report 0/20." }
+loss_claims:
+  - claim_id: "D.L1.DECODED_IDENTITY"
+    object_or_distinction: "decoded state/edge identity under Study-3 delay path"
+    category: OBSERVED_INSTANCE
+    criterion: "Mean aligned mapping accuracy below exact identity and reported collision pairs/edge recall under the frozen decoder/alignment."
+    result: ESTABLISHED
+    evidence_refs: ["D.E2.RESULT", "D.E3.REPORT"]
+    judgment: { basis: RULE_GUIDED, assessor: independent_schema_v2_revision, rationale: "Study-3 reports mapping accuracy 0.7896, 20 collision pairs, and edge recall 0.6081." }
+collision_claims:
+  - claim_id: "D.COLL1.DELAY"
+    source_a_ref: "distinct latent/source-state assignments in Study-3 R3_delay records"
+    source_b_ref: "distinct latent/source-state assignments paired by dominant decoded identity"
+    source_distinction_criterion: "latent/source labels differ in the registered correspondence records"
+    target_equivalence_criterion: "dominant decoded/aligned state identity is equal under the frozen correspondence rule"
+    result: COLLISION_OBSERVED
+    evidence_refs: ["D.E2.RESULT", "D.E3.REPORT"]
+    judgment: { basis: RULE_GUIDED, assessor: independent_schema_v2_revision, rationale: "Frozen result explicitly reports 20 dominant collision pairs." }
+uncertainty:
+  - uncertainty_id: "D.U1.FINITE_SAMPLE_DECODER"
+    category: MODEL
+    state: NOT_QUANTIFIED
+    description: "Rates are implementation-, fixture-, known-state-count-, delay-, and alignment-qualified; external generalization is unknown."
+    judgment: *dexpert
+invertibility:
+  classification: UNKNOWN
+  declared_domain: "Cross-study composite path containing representation, decoding, alignment, and certificate extraction."
+  criterion: "No unique composite inverse contract is defined for the aggregate claim."
+  evidence_refs: ["D.E3.REPORT", "D.E4.SYNTHESIS"]
+  judgment: *dexpert
+task_relevance: { state: UNDEFINED }
+evidence:
+  - evidence_id: "D.E1.CODE"
+    evidence_type: CODE
+    eligibility: TECHNICAL_SUPPORT
+    integrity: HASH_CONFIRMED
+    locator: "../NEXAH_TRANSLATION_FIDELITY_EXPERIMENT/run_fidelity_experiment.py"
+    sha256: "1576d97bcd25a9481b486ae42c0632ca3fa2f9bd7436af38356c1446f9814ee9"
+    supports_claim_ids: ["D.CLAIM.EXECUTED", "D.CLAIM.HIERARCHY_REJECTED"]
+  - evidence_id: "D.E2.RESULT"
+    evidence_type: DATA
+    eligibility: TECHNICAL_SUPPORT
+    integrity: HASH_CONFIRMED
+    locator: "../NEXAH_TRANSLATION_FIDELITY_EXPERIMENT/fidelity_results.json"
+    sha256: "36657449bd48eb498a65e30bdda27a2d42735e357455b42aa9126f3b32f1d0d9"
+    supports_claim_ids: ["D.P1.DELAY_SUPPORT_STUDY3", "D.L1.DECODED_IDENTITY", "D.COLL1.DELAY", "D.CLAIM.EXECUTED", "D.CLAIM.HIERARCHY_REJECTED"]
+  - evidence_id: "D.E3.REPORT"
+    evidence_type: AUDIT
+    eligibility: TECHNICAL_SUPPORT
+    integrity: LOCATED
+    locator: "../NEXAH_TRANSLATION_FIDELITY_EXPERIMENT/FINAL_NEXAH_TRANSLATION_FIDELITY_REPORT.md"
+    supports_claim_ids: ["D.L1.DECODED_IDENTITY", "D.COLL1.DELAY", "D.CLAIM.EXECUTED", "D.CLAIM.HIERARCHY_REJECTED"]
+  - evidence_id: "D.E4.SYNTHESIS"
+    evidence_type: AUDIT
+    eligibility: TECHNICAL_SUPPORT
+    integrity: HASH_CONFIRMED
+    locator: "../NEXAH_TRANSLATION_FIDELITY_SYNTHESIS/00_THREE_STUDY_EVIDENCE_AUDIT.md"
+    sha256: "a8d2ee5265466a61cfb4e013415acc0192bc1d0d5e38315e9388d4f5233bb9ce"
+    supports_claim_ids: ["D.P1.DELAY_SUPPORT_STUDY3", "D.CLAIM.HIERARCHY_REJECTED", "D.CLAIM.BROADER_PATTERN"]
+  - evidence_id: "D.E5.PROTOCOL"
+    evidence_type: PROTOCOL
+    eligibility: TECHNICAL_SUPPORT
+    integrity: HASH_CONFIRMED
+    locator: "../NEXAH_TRANSLATION_FIDELITY_EXPERIMENT/experiment_protocol.json"
+    sha256: "5df8e69c655d8362bddcd54878f87d3ebcc9adbed9e599fb49b0660b5ce812f7"
+    supports_claim_ids: ["D.CLAIM.EXECUTED"]
+provenance_trace:
+  links:
+    - { link_id: "D.TR.CLAIM", role: CLAIM, state: LOCATED, locator: "SAMPLE_D_NEGATIVE_RESULT.yaml", note: "Current record." }
+    - { link_id: "D.TR.IMPLEMENTATION", role: IMPLEMENTATION, state: HASH_CONFIRMED, locator: "../NEXAH_TRANSLATION_FIDELITY_EXPERIMENT/run_fidelity_experiment.py", sha256: "1576d97bcd25a9481b486ae42c0632ca3fa2f9bd7436af38356c1446f9814ee9", note: "Study-3 runner." }
+    - { link_id: "D.TR.CONFIG", role: CONFIGURATION, state: HASH_CONFIRMED, locator: "../NEXAH_TRANSLATION_FIDELITY_EXPERIMENT/experiment_protocol.json", sha256: "5df8e69c655d8362bddcd54878f87d3ebcc9adbed9e599fb49b0660b5ce812f7", note: "Study-3 frozen protocol." }
+    - { link_id: "D.TR.INPUT", role: INPUT, state: LOCATED, locator: "../NEXAH_TRANSLATION_FIDELITY_EXPERIMENT/fidelity_results.json", note: "Input hashes and records are embedded in the result; aggregate cross-study source remains composite." }
+    - { link_id: "D.TR.OUTPUT", role: OUTPUT, state: HASH_CONFIRMED, locator: "../NEXAH_TRANSLATION_FIDELITY_EXPERIMENT/fidelity_results.json", sha256: "36657449bd48eb498a65e30bdda27a2d42735e357455b42aa9126f3b32f1d0d9", note: "Frozen Study-3 output." }
+    - { link_id: "D.TR.AUDIT", role: AUDIT, state: HASH_CONFIRMED, locator: "../NEXAH_TRANSLATION_FIDELITY_SYNTHESIS/00_THREE_STUDY_EVIDENCE_AUDIT.md", sha256: "a8d2ee5265466a61cfb4e013415acc0192bc1d0d5e38315e9388d4f5233bb9ce", note: "Cross-study claim authority." }
+  sufficiency_judgment: { basis: EXPERT_JUDGMENT, assessor: independent_schema_v2_revision, rationale: "Complete for execution and aggregate failure claim; unique single-edge decomposition deliberately unresolved." }
+epistemic_status:
+  implementation_status: PARTIAL
+  execution_status: REPRODUCED
+  reproducibility_status: REPRODUCIBLE
+  provenance_status: PARTIAL
+  claim_support_status: MIXED
+  dimensions:
+    implementation: { value: PARTIAL, evidence_refs: ["D.E1.CODE", "D.E4.SYNTHESIS"], judgment: *dexpert }
+    execution: { value: REPRODUCED, evidence_refs: ["D.E2.RESULT", "D.E3.REPORT"], judgment: { basis: RULE_GUIDED, assessor: independent_schema_v2_revision, rationale: "Study-3 output and byte-identical replay are recorded." } }
+    reproducibility: { value: REPRODUCIBLE, evidence_refs: ["D.E1.CODE", "D.E2.RESULT", "D.E5.PROTOCOL"], judgment: { basis: RULE_GUIDED, assessor: independent_schema_v2_revision, rationale: "Bounded Study-3 execution reproduced; external scientific replication is a separate claim." } }
+    provenance: { value: PARTIAL, evidence_refs: ["D.E2.RESULT", "D.E4.SYNTHESIS"], judgment: *dexpert }
+    claim_support: { value: MIXED, evidence_refs: ["D.E2.RESULT", "D.E3.REPORT", "D.E4.SYNTHESIS"], judgment: { basis: EXPERT_JUDGMENT, assessor: independent_schema_v2_revision, rationale: "Execution supported, exact hierarchy rejected, broader pattern qualified rather than rejected." } }
+claim_history:
+  - claim_id: "D.CLAIM.EXECUTED"
+    claim_type: EXECUTION
+    statement: "The Study-3 pipeline executed under its frozen protocol and produced reproducible registered results."
+    status: SUPPORTED
+    evidence_refs: ["D.E1.CODE", "D.E2.RESULT", "D.E3.REPORT", "D.E5.PROTOCOL"]
+    supersedes: []
+    append_action: CREATED
+    judgment: { basis: RULE_GUIDED, assessor: independent_schema_v2_revision, rationale: "Frozen code, protocol, output, and replay report exist." }
+  - claim_id: "D.CLAIM.HIERARCHY_REJECTED"
+    claim_type: SCIENTIFIC_INTERPRETATION
+    statement: "The exact v0.7 HIGH/LOW support versus LOW/HIGH weighted hierarchy is decoder-independent."
+    status: REJECTED
+    evidence_refs: ["D.E2.RESULT", "D.E3.REPORT", "D.E4.SYNTHESIS"]
+    supersedes: []
+    append_action: CREATED
+    judgment: { basis: EXPERT_JUDGMENT, assessor: independent_schema_v2_revision, rationale: "Study-3 support was MEDIUM/MEDIUM and delay support preservation changed from 31/32 to 0/20." }
+  - claim_id: "D.CLAIM.BROADER_PATTERN"
+    claim_type: SCIENTIFIC_INTERPRETATION
+    statement: "The broader robustness-discrimination association is internally reproduced with implementation qualification."
+    status: PARTIAL
+    evidence_refs: ["D.E2.RESULT", "D.E4.SYNTHESIS"]
+    supersedes: []
+    append_action: CREATED
+    judgment: { basis: EXPERT_JUDGMENT, assessor: independent_schema_v2_revision, rationale: "Supported only as bounded synthetic evidence and established-prior-art-consistent pattern." }

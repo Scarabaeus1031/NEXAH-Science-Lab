@@ -1,0 +1,279 @@
+$schema: "https://json-schema.org/draft/2020-12/schema"
+$id: "https://example.invalid/nexah/minimum-representation-ledger/1.0.0"
+title: Minimum Representation Ledger Edge
+type: object
+additionalProperties: false
+required:
+  - schema_version
+  - translation_id
+  - source
+  - target
+  - operator
+  - claims
+  - uncertainty
+  - invertibility
+  - task_relevance
+  - evidence
+  - provenance
+  - status
+  - content_status
+  - negative_results
+properties:
+  schema_version:
+    const: "1.0.0"
+  translation_id:
+    type: string
+    pattern: "^[A-Z0-9][A-Z0-9._-]{2,127}$"
+  source:
+    $ref: "#/$defs/endpoint"
+  target:
+    $ref: "#/$defs/endpoint"
+  operator:
+    $ref: "#/$defs/operator"
+  claims:
+    type: object
+    additionalProperties: false
+    required: [preservation, loss, collisions, introduced]
+    properties:
+      preservation:
+        type: array
+        items: { $ref: "#/$defs/preservation" }
+      loss:
+        type: array
+        items: { $ref: "#/$defs/loss" }
+      collisions:
+        type: array
+        items: { $ref: "#/$defs/collision" }
+      introduced:
+        type: array
+        items: { $ref: "#/$defs/assertion" }
+  uncertainty:
+    type: array
+    items: { $ref: "#/$defs/uncertainty" }
+  invertibility:
+    type: object
+    additionalProperties: false
+    required: [classification, assertion, evidence_refs]
+    properties:
+      classification:
+        enum: [EXACTLY_INVERTIBLE, CONDITIONALLY_INVERTIBLE, APPROXIMATELY_RECOVERABLE, MANY_TO_ONE, NONINVERTIBLE, UNKNOWN]
+      assertion: { type: string, minLength: 1 }
+      evidence_refs:
+        type: array
+        items: { type: string }
+  task_relevance:
+    oneOf:
+      - type: object
+        additionalProperties: false
+        required: [state]
+        properties:
+          state: { const: UNDEFINED }
+      - type: object
+        additionalProperties: false
+        required: [state, task_id, task_source, task_owner, adequacy_criterion, decision_consequence]
+        properties:
+          state: { const: DEFINED }
+          task_id: { type: string, minLength: 1 }
+          task_source: { type: string, minLength: 1 }
+          task_owner: { type: string, minLength: 1 }
+          adequacy_criterion: { type: string, minLength: 1 }
+          decision_consequence: { type: string, minLength: 1 }
+  evidence:
+    type: array
+    minItems: 1
+    items: { $ref: "#/$defs/evidence" }
+  provenance:
+    $ref: "#/$defs/provenance"
+  status:
+    enum: [VERIFIED, PARTIALLY_VERIFIED, CONDITIONAL, CONCEPTUAL, FAILED, RETIRED, UNKNOWN]
+  content_status:
+    enum: [TECHNICAL, HISTORICAL, SYMBOLIC]
+    default: TECHNICAL
+  component_edges:
+    type: array
+    items: { type: string }
+  negative_results:
+    type: array
+    items: { $ref: "#/$defs/negative_result" }
+allOf:
+  - if:
+      properties: { status: { const: VERIFIED } }
+    then:
+      properties:
+        evidence:
+          contains:
+            allOf:
+              - properties: { verification: { const: VERIFIED } }
+              - properties: { basis: { enum: [CODE, DATA, MATHEMATICS, EXTERNAL_REFERENCE] } }
+      required: [evidence]
+  - if:
+      properties:
+        status: { const: VERIFIED }
+        operator:
+          properties: { kind: { enum: [DETERMINISTIC, STOCHASTIC, ESTIMATED] } }
+    then:
+      properties:
+        provenance:
+          properties:
+            implementation_refs: { minItems: 1 }
+  - if:
+      properties: { content_status: { const: SYMBOLIC } }
+    then:
+      not:
+        properties: { status: { const: VERIFIED } }
+$defs:
+  endpoint:
+    type: object
+    additionalProperties: false
+    required: [representation_type, subtype, artifacts]
+    properties:
+      representation_type:
+        enum: [MODEL, ARRAY, FIELD, FEATURE_SET, PARTITION, GRAPH, SIMULATION_OUTPUT, STATISTICAL_SUMMARY, CLASSIFICATION, MEASUREMENT, VISUALIZATION, DECISION, EXTENSION]
+      subtype: { type: string, minLength: 1 }
+      artifacts:
+        type: array
+        minItems: 1
+        items: { $ref: "#/$defs/artifact" }
+  artifact:
+    oneOf:
+      - type: object
+        additionalProperties: false
+        required: [artifact_id, provenance_status, locator]
+        properties:
+          artifact_id: { type: string, minLength: 1 }
+          provenance_status: { const: KNOWN }
+          locator: { type: string, minLength: 1 }
+          sha256: { type: string, pattern: "^[a-f0-9]{64}$" }
+      - type: object
+        additionalProperties: false
+        required: [artifact_id, provenance_status]
+        properties:
+          artifact_id: { type: string, minLength: 1 }
+          provenance_status: { const: UNKNOWN }
+          note: { type: string }
+  operator:
+    type: object
+    additionalProperties: false
+    required: [kind, name, version, definition_ref, parameters, assumptions]
+    properties:
+      kind: { enum: [DETERMINISTIC, STOCHASTIC, ESTIMATED, HUMAN_INTERPRETATION] }
+      name: { type: string, minLength: 1 }
+      version: { type: string, minLength: 1 }
+      definition_ref: { type: string, minLength: 1 }
+      parameters: { type: object }
+      assumptions:
+        type: array
+        items:
+          type: object
+          additionalProperties: false
+          required: [key, kind, assertion]
+          properties:
+            key: { type: string, pattern: "^[a-z][a-z0-9_]*$" }
+            kind: { enum: [OPERATOR_ASSUMPTION, SCIENTIFIC_INTERPRETATION] }
+            assertion: { type: string, minLength: 1 }
+  assertion:
+    type: object
+    additionalProperties: false
+    required: [object, assertion, scope, evidence_refs]
+    properties:
+      object: { type: string, minLength: 1 }
+      assertion: { type: string, minLength: 1 }
+      scope: { type: string, minLength: 1 }
+      evidence_refs:
+        type: array
+        minItems: 1
+        items: { type: string }
+  preservation:
+    type: object
+    additionalProperties: false
+    required: [object, assertion, scope, evidence_refs, level]
+    properties:
+      object: { type: string, minLength: 1 }
+      assertion: { type: string, minLength: 1 }
+      scope: { type: string, minLength: 1 }
+      evidence_refs:
+        type: array
+        minItems: 1
+        items: { type: string }
+      level: { enum: [EXACT, APPROXIMATE, EMPIRICALLY_SUPPORTED, TASK_CONDITIONAL, UNKNOWN] }
+  loss:
+    type: object
+    additionalProperties: false
+    required: [object, assertion, scope, evidence_refs, kind]
+    properties:
+      object: { type: string, minLength: 1 }
+      assertion: { type: string, minLength: 1 }
+      scope: { type: string, minLength: 1 }
+      evidence_refs:
+        type: array
+        minItems: 1
+        items: { type: string }
+      kind: { enum: [PROVEN, OBSERVED, POTENTIAL, UNKNOWN] }
+  collision:
+    type: object
+    additionalProperties: false
+    required: [source_a_ref, source_b_ref, target_equivalence_criterion, evidence_refs]
+    properties:
+      source_a_ref: { type: string, minLength: 1 }
+      source_b_ref: { type: string, minLength: 1 }
+      target_equivalence_criterion: { type: string, minLength: 1 }
+      task_consequence: { type: string }
+      evidence_refs:
+        type: array
+        minItems: 1
+        items: { type: string }
+  uncertainty:
+    type: object
+    additionalProperties: false
+    required: [category, state, description]
+    properties:
+      category: { enum: [NUMERICAL, SAMPLING, PARAMETER, MODEL, DISCRETIZATION, CLASSIFICATION, CALIBRATION, OTHER] }
+      state: { enum: [QUANTIFIED, BOUNDED, NOT_QUANTIFIED, NOT_APPLICABLE, UNKNOWN] }
+      description: { type: string, minLength: 1 }
+      value: { type: number }
+      unit: { type: string }
+      method: { type: string }
+      evidence_refs:
+        type: array
+        items: { type: string }
+  evidence:
+    type: object
+    additionalProperties: false
+    required: [evidence_id, basis, locator, scope, verification]
+    properties:
+      evidence_id: { type: string, minLength: 1 }
+      basis: { enum: [CODE, DATA, MATHEMATICS, EXTERNAL_REFERENCE, AUDIT] }
+      locator: { type: string, minLength: 1 }
+      scope: { type: string, minLength: 1 }
+      verification: { enum: [VERIFIED, PARTIAL, UNVERIFIED] }
+  provenance:
+    type: object
+    additionalProperties: false
+    required: [origin, implementation_refs, audit_refs]
+    properties:
+      origin:
+        type: object
+        additionalProperties: false
+        required: [repository, commit]
+        properties:
+          repository: { type: string, minLength: 1 }
+          commit: { type: string, minLength: 1 }
+      implementation_refs:
+        type: array
+        items: { type: string }
+      audit_refs:
+        type: array
+        items: { type: string }
+  negative_result:
+    type: object
+    additionalProperties: false
+    required: [negative_id, original_claim, disposition, evidence_refs, reopening_condition]
+    properties:
+      negative_id: { type: string, minLength: 1 }
+      original_claim: { type: string, minLength: 1 }
+      disposition: { enum: [FALSIFIED, NOT_REPLICATED, REDUCED_TO_PRIOR_ART, PROVENANCE_FAILURE, UNSUPPORTED_INTERPRETATION] }
+      evidence_refs:
+        type: array
+        minItems: 1
+        items: { type: string }
+      reopening_condition: { type: string, minLength: 1 }

@@ -2,9 +2,28 @@
 
 Status: `NAVIGATION ENTRY — NO AUTHORITY CHANGE`
 
-Last navigation review: `2026-08-06`
+Last navigation review: `2026-08-14`
 
 Operational effect: `NONE`
+
+## Current Lab checkpoint
+
+For the current portfolio state, start with:
+
+1. [Science Lab Master Status](SCIENCE_LAB_MASTER_STATUS.md)
+2. [Lab Consolidation Report](NEXAH_LAB_CONSOLIDATION_REPORT.md)
+
+The current bounded dispositions are:
+
+| Research line | Current disposition |
+| --- | --- |
+| T02 | `FROZEN`; no preregistration, implementation or experiment authorized |
+| ORION reduced metrology line | `EXTERNAL_REVIEW`; `NEXAH_METHOD_IN_ORION = UNDEFINED` |
+| Representation Ledger | schema line `CLOSED`; V3 retained as `STRUCTURED_PROVENANCE_ONLY` |
+| First representation-transition case study | `METHODOLOGICAL_CLARITY_ONLY`; no new principle or algorithm established |
+
+These entries are navigation/status statements. They do not promote any result
+into canonical NEXAH or authorize implementation.
 
 ## Purpose
 

@@ -1,0 +1,136 @@
+schema_version: "2.0.0"
+record_id: "RLV2.CASE_B.PARTITION_TO_EDGESET.R1"
+lineage: { revision: 1, supersedes_record_id: null, history_policy: APPEND_PRESERVING, prior_claim_ids: [] }
+source_boundary:
+  resolution: RESOLVED
+  boundary_id: "B.SOURCE"
+  description: "Rank-2 integer basin-label raster consumed by compute()."
+  representations:
+    - class: PARTITION
+      subtype: integer_label_raster
+      contract_id: "rep.integer-partition-raster.v1"
+      contract: "Rank-2 integer array; equality denotes same region label."
+      qualifiers: { grid_rank: 2, value_kind: INTEGER_LABEL, labeled: true, temporal: false }
+      artifacts: [{ artifact_id: "legacy.in_memory.basin_map", provenance_state: PROVENANCE_UNAVAILABLE, note: "Historical raster not retained." }]
+  judgment: &bdet
+    basis: DETERMINISTIC
+    assessor: independent_schema_v2_revision
+    rationale: "Boundary follows the compute() argument actually read."
+operator_boundary:
+  resolution: RESOLVED
+  unit_kind: ATOMIC
+  operator_id: "B.OP.CONTACT_EDGE_EXTRACTION"
+  name: "down-right differing-label edge extraction"
+  definition_ref: "/Users/tho2020/Documents/GitHub/NEXAH/EXPERIMENTAL/BUILDER_LAB/ARCHIVE_ENGINE/archived/analysis/basin_transition_graph.py:17-38"
+  version: "canonical-724814ea40351141350a1822d7c559a308ac0cfa"
+  boundary_justification: "Only compute() is represented; plotting/NetworkX node construction is excluded."
+  components: []
+  parameters: { neighbor_directions_checked: [down, right], loop_excludes_last_row_and_column_origins: true, unique_sorted_pairs: true }
+  assumptions:
+    - key: label_equality_defines_region_identity
+      statement: "Integer equality denotes identical region label."
+      judgment: *bdet
+    - key: undirected_unweighted_pair_semantics
+      statement: "Pairs are sorted and deduplicated; direction and multiplicity are discarded."
+      judgment: *bdet
+  judgment: *bdet
+target_boundary:
+  resolution: RESOLVED
+  boundary_id: "B.TARGET"
+  description: "Sorted unique undirected pairs of differing labels; isolated region labels are not represented."
+  representations:
+    - class: EDGE_SET
+      subtype: simple_undirected_unweighted_label_pairs
+      contract_id: "rep.undirected-label-edge-set.v1"
+      contract: "Sorted unique integer pairs emitted by the implemented scan; not a complete graph object and contains no isolated-node inventory."
+      qualifiers: { value_kind: EDGE_PAIR, directed: false, weighted: false, labeled: true, simple: true, includes_isolated_nodes: false, temporal: false }
+      artifacts: [{ artifact_id: "legacy.in_memory.edges", provenance_state: PROVENANCE_UNAVAILABLE, note: "Historical edge list not retained." }]
+  judgment: *bdet
+preservation_claims:
+  - claim_id: "B.P1.DETECTED_CONTACT"
+    object: "label pairs detected by the implemented scan"
+    criterion_type: DETERMINISTIC_PROPERTY_TEST
+    criterion: "A returned pair equals sorted(a,b) for at least one tested down/right neighbor comparison with a != b."
+    result: PRESERVED
+    evidence_refs: ["B.E1.CODE"]
+    judgment: *bdet
+loss_claims:
+  - claim_id: "B.L1.RASTER_GEOMETRY"
+    object_or_distinction: "cell memberships, spatial geometry, boundary multiplicity/length, direction, weights, and field values"
+    category: STRUCTURAL
+    criterion: "Target contract contains only unique sorted label pairs."
+    result: ESTABLISHED
+    evidence_refs: ["B.E1.CODE"]
+    judgment: *bdet
+  - claim_id: "B.L2.BORDER_CONTACTS"
+    object_or_distinction: "right contacts originating in last row and down contacts originating in last column"
+    category: POTENTIAL
+    criterion: "Loop ranges stop at ny-2 and nx-2 for both comparisons, so those origin positions are never tested."
+    result: ESTABLISHED
+    evidence_refs: ["B.E1.CODE"]
+    judgment: *bdet
+collision_claims: []
+uncertainty:
+  - uncertainty_id: "B.U1.DISCRETIZATION"
+    category: DISCRETIZATION
+    state: NOT_QUANTIFIED
+    description: "Adjacency depends on raster resolution, label assignment, and omitted border-origin comparisons."
+    judgment: { basis: EXPERT_JUDGMENT, assessor: independent_schema_v2_revision, rationale: "No sensitivity study exists." }
+invertibility:
+  classification: MANY_TO_ONE
+  declared_domain: "All rank-2 integer label rasters admitted by compute()."
+  criterion: "Many raster geometries and memberships can produce the same unique label-pair set; target omits cell assignments."
+  evidence_refs: ["B.E1.CODE", "B.E2.AUDIT"]
+  judgment: { basis: EXPERT_JUDGMENT, assessor: independent_schema_v2_revision, rationale: "Follows from the output contract and omitted raster data." }
+task_relevance: { state: UNDEFINED }
+evidence:
+  - evidence_id: "B.E1.CODE"
+    evidence_type: CODE
+    eligibility: TECHNICAL_SUPPORT
+    integrity: LOCATED
+    locator: "/Users/tho2020/Documents/GitHub/NEXAH/EXPERIMENTAL/BUILDER_LAB/ARCHIVE_ENGINE/archived/analysis/basin_transition_graph.py:17-38"
+    supports_claim_ids: ["B.P1.DETECTED_CONTACT", "B.L1.RASTER_GEOMETRY", "B.L2.BORDER_CONTACTS", "B.CLAIM.REGION_ADJACENCY"]
+  - evidence_id: "B.E2.AUDIT"
+    evidence_type: AUDIT
+    eligibility: TECHNICAL_SUPPORT
+    integrity: LOCATED
+    locator: "../NEXAH_LEGACY_REPRESENTATION_PIPELINE_AUDIT/06_GRAPH_TRANSLATION_AUDIT.md"
+    supports_claim_ids: ["B.CLAIM.NOT_TRANSITION"]
+provenance_trace:
+  links:
+    - { link_id: "B.TR.CLAIM", role: CLAIM, state: LOCATED, locator: "SAMPLE_B_LEGACY_EDGE.yaml", note: "Current record." }
+    - { link_id: "B.TR.IMPLEMENTATION", role: IMPLEMENTATION, state: LOCATED, locator: "/Users/tho2020/Documents/GitHub/NEXAH/EXPERIMENTAL/BUILDER_LAB/ARCHIVE_ENGINE/archived/analysis/basin_transition_graph.py", note: "Canonical source." }
+    - { link_id: "B.TR.CONFIG", role: CONFIGURATION, state: LOCATED, locator: "basin_transition_graph.py:17-38", note: "Behavior is source-defined; no external config." }
+    - { link_id: "B.TR.INPUT", role: INPUT, state: PROVENANCE_UNAVAILABLE, note: "Historical basin raster unavailable." }
+    - { link_id: "B.TR.OUTPUT", role: OUTPUT, state: PROVENANCE_UNAVAILABLE, note: "Historical edge list unavailable." }
+    - { link_id: "B.TR.AUDIT", role: AUDIT, state: LOCATED, locator: "../NEXAH_LEGACY_REPRESENTATION_PIPELINE_AUDIT/06_GRAPH_TRANSLATION_AUDIT.md", note: "Static audit." }
+  sufficiency_judgment: { basis: EXPERT_JUDGMENT, assessor: independent_schema_v2_revision, rationale: "Sufficient for algorithm semantics, not historical instance replay." }
+epistemic_status:
+  implementation_status: LOCATED
+  execution_status: UNKNOWN
+  reproducibility_status: PARTIAL
+  provenance_status: PARTIAL
+  claim_support_status: PARTIAL
+  dimensions:
+    implementation: { value: LOCATED, evidence_refs: ["B.E1.CODE"], judgment: *bdet }
+    execution: { value: UNKNOWN, evidence_refs: ["B.E2.AUDIT"], judgment: { basis: RULE_GUIDED, assessor: independent_schema_v2_revision, rationale: "No retained execution record for the historical raster." } }
+    reproducibility: { value: PARTIAL, evidence_refs: ["B.E1.CODE"], judgment: { basis: EXPERT_JUDGMENT, assessor: independent_schema_v2_revision, rationale: "Callable known; exact historical inputs unavailable." } }
+    provenance: { value: PARTIAL, evidence_refs: ["B.E2.AUDIT"], judgment: { basis: RULE_GUIDED, assessor: independent_schema_v2_revision, rationale: "Source located; historical data links unavailable." } }
+    claim_support: { value: PARTIAL, evidence_refs: ["B.E1.CODE", "B.E2.AUDIT"], judgment: { basis: EXPERT_JUDGMENT, assessor: independent_schema_v2_revision, rationale: "Edge extraction supported; transition interpretation rejected." } }
+claim_history:
+  - claim_id: "B.CLAIM.REGION_ADJACENCY"
+    claim_type: EXECUTION
+    statement: "compute() returns unique sorted label-contact pairs under its implemented scan."
+    status: SUPPORTED
+    evidence_refs: ["B.E1.CODE"]
+    supersedes: []
+    append_action: CREATED
+    judgment: *bdet
+  - claim_id: "B.CLAIM.NOT_TRANSITION"
+    claim_type: SCIENTIFIC_INTERPRETATION
+    statement: "The returned pairs establish observed dynamical transitions."
+    status: REJECTED
+    evidence_refs: ["B.E2.AUDIT"]
+    supersedes: []
+    append_action: CREATED
+    judgment: { basis: EXPERT_JUDGMENT, assessor: independent_schema_v2_revision, rationale: "No trajectories, counts, time ordering, direction, or probabilities are consumed." }

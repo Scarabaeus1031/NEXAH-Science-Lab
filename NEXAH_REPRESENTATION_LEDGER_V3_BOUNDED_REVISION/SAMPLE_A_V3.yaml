@@ -1,0 +1,100 @@
+schema_version: "3.0.0"
+ledger_series_id: "RLS.CASE_A.FIELD_CRITICAL"
+record_id: "RL.CASE_A.FIELD_CRITICAL"
+record_revision: 1
+previous_record_ref: null
+history_state:
+  history_completeness: HISTORY_PARTIAL
+  known_prior_record_refs: []
+  unresolved_prior_refs: ["historical in-memory X,Y,Z and candidate outputs"]
+  assessment: &expert { basis: EXPERT_JUDGMENT, assessor: v3_bounded_revision, rationale: "Historical instance artifacts are unavailable." }
+source_boundary:
+  resolution: RESOLVED
+  boundary_id: A.SOURCE
+  description: "Same-shaped in-memory coordinate grids X,Y and scalar grid Z."
+  representations:
+    - class: FIELD
+      subtype: scalar_grid_with_coordinates
+      contract_id: rep.scalar-grid-xy.v1
+      contract: "Two rank-2 coordinate arrays and one same-shaped scalar array."
+      qualifiers: { grid_rank: 2, coordinate_arrays: true, value_kind: SCALAR, temporal: false }
+      artifacts: [{ artifact_id: legacy.XYZ, provenance_state: PROVENANCE_UNAVAILABLE, note: "Not retained." }]
+  judgment: *expert
+operator_boundary:
+  resolution: RESOLVED
+  unit_kind: COMPOSITE
+  operator_id: A.OP
+  name: finite_difference_threshold_hessian_classifier
+  definition_ref: "/Users/tho2020/Documents/GitHub/NEXAH/EXPERIMENTAL/BUILDER_LAB/ARCHIVE_ENGINE/archived/analysis/stability_critical_points.py:23-61"
+  version: canonical-724814ea40351141350a1822d7c559a308ac0cfa
+  boundary_justification: "One callable with scientifically material internal components."
+  components:
+    - { order: 1, component_id: A.C1, name: finite_differences, definition_ref: "stability_critical_points.py:25-30", input_contract: rep.scalar-grid-xy.v1, output_contract: derivative_arrays, judgment: &det { basis: DETERMINISTIC, assessor: v3_bounded_revision, rationale: "Directly specified in source." } }
+    - { order: 2, component_id: A.C2, name: threshold_and_sign_classification, definition_ref: "stability_critical_points.py:36-59", input_contract: derivative_arrays, output_contract: rep.critical-candidate-lists.v1, judgment: *det }
+  parameters: { grad_threshold: 0.02, sample_spacing: implicit_unit, boundary_cells_examined: false }
+  assumptions: [{ key: discrete_threshold_rule, statement: "Candidate status is defined by the coded grid rule.", judgment: *det }]
+  judgment: *expert
+target_boundary:
+  resolution: RESOLVED
+  boundary_id: A.TARGET
+  description: "Three coordinate lists of heuristic grid-level candidates."
+  representations:
+    - class: FEATURE_SET
+      subtype: heuristic_critical_candidate_lists
+      contract_id: rep.critical-candidate-lists.v1
+      contract: "Coordinate pairs grouped as maxima, minima, saddles under the coded rule; not a complete continuous critical set."
+      qualifiers: { value_kind: COORDINATE_PAIR, labeled: true, temporal: false }
+      artifacts: [{ artifact_id: legacy.candidate_lists, provenance_state: PROVENANCE_UNAVAILABLE, note: "Not retained." }]
+  judgment: *expert
+preservation_claims:
+  - claim_id: A.P1
+    scope: { scope_type: COMPONENT, edge_id: A.OP, component_ids: [A.C2] }
+    object: emitted_coordinates
+    criterion_type: DETERMINISTIC_PROPERTY_TEST
+    criterion: "Each emitted tuple equals X[i,j],Y[i,j] at its selected index."
+    result: PRESERVED
+    evidence_refs: [A.E1]
+    judgment: *det
+loss_claims:
+  - claim_id: A.L1
+    scope: { scope_type: WHOLE_EDGE, edge_id: A.OP }
+    object_or_distinction: "Z values, derivatives, confidence, and nonselected cells"
+    category: STRUCTURAL
+    criterion: "They are absent from the target contract."
+    result: ESTABLISHED
+    evidence_refs: [A.E1]
+    judgment: *det
+collision_claims: []
+uncertainty:
+  - uncertainty_id: A.U1
+    scope: { scope_type: WHOLE_EDGE, edge_id: A.OP }
+    category: DISCRETIZATION
+    state: NOT_QUANTIFIED
+    description: "Resolution, spacing, threshold, stencil, and boundary exclusion affect selection."
+    judgment: *expert
+invertibility:
+  scope: { scope_type: WHOLE_EDGE, edge_id: A.OP }
+  classification: MANY_TO_ONE
+  declared_domain: "Admitted same-shaped numeric X,Y,Z arrays."
+  criterion: "Target omits field and derivative values; the edge defines no source reconstruction."
+  evidence_refs: [A.E1, A.E2]
+  judgment: *expert
+task_relevance: { state: UNDEFINED }
+evidence:
+  - { evidence_id: A.E1, evidence_type: CODE, eligibility: TECHNICAL_SUPPORT, integrity: LOCATED, locator: "/Users/tho2020/Documents/GitHub/NEXAH/EXPERIMENTAL/BUILDER_LAB/ARCHIVE_ENGINE/archived/analysis/stability_critical_points.py:23-61", supports_claim_ids: [A.P1, A.L1, A.H1] }
+  - { evidence_id: A.E2, evidence_type: AUDIT, eligibility: TECHNICAL_SUPPORT, integrity: LOCATED, locator: "../NEXAH_LEGACY_REPRESENTATION_PIPELINE_AUDIT/04_FIELD_TO_CRITICAL_STRUCTURE_AUDIT.md", supports_claim_ids: [A.H2] }
+provenance_trace:
+  links:
+    - { link_id: A.TR1, role: IMPLEMENTATION, state: LOCATED, locator: "/Users/tho2020/Documents/GitHub/NEXAH/EXPERIMENTAL/BUILDER_LAB/ARCHIVE_ENGINE/archived/analysis/stability_critical_points.py", note: "Canonical source." }
+    - { link_id: A.TR2, role: INPUT, state: PROVENANCE_UNAVAILABLE, note: "Historical arrays unavailable." }
+    - { link_id: A.TR3, role: OUTPUT, state: PROVENANCE_UNAVAILABLE, note: "Historical lists unavailable." }
+  sufficiency_judgment: *expert
+epistemic_status:
+  implementation: { status: LOCATED, note: "Callable located.", evidence_refs: [A.E1], judgment: *det }
+  execution: { status: UNKNOWN, note: "No retained historical execution record.", evidence_refs: [A.E2], judgment: *expert }
+  reproducibility: { status: PARTIAL, note: "Code known; instance inputs absent.", evidence_refs: [A.E1, A.E2], judgment: *expert }
+  provenance: { status: PARTIAL, note: "Implementation known; artifacts unavailable.", evidence_refs: [A.E2], judgment: *expert }
+  claim_support: { status: PARTIAL, scope: { scope_type: WHOLE_EDGE, edge_id: A.OP }, note: "Coded rule supported; continuous critical-set interpretation rejected.", evidence_refs: [A.E1, A.E2], judgment: *expert }
+claim_history:
+  - { claim_id: A.H1, claim_revision: 1, claim_type: EXECUTION, scope: { scope_type: WHOLE_EDGE, edge_id: A.OP }, statement: "For fixed input the callable applies the declared deterministic rule.", status: SUPPORTED, evidence_refs: [A.E1], relations: [], judgment: *det }
+  - { claim_id: A.H2, claim_revision: 1, claim_type: SCIENTIFIC_INTERPRETATION, scope: { scope_type: WHOLE_EDGE, edge_id: A.OP }, statement: "The candidates establish the complete continuous critical structure.", status: REJECTED, evidence_refs: [A.E2], relations: [], judgment: *expert }
