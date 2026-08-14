@@ -1,8 +1,11 @@
 {
   "schema": "NEXAH_ORION_SCIENCE_LAB_PORTFOLIO_V1",
   "as_of": "2026-08-14",
-  "mode": "CONSOLIDATED_REVIEW_CONTROLLED_EXECUTION",
-  "active_experiment": "EXP-00-R",
+  "mode": "STRUCTURE_FREEZE",
+  "active_experiment": null,
+  "lab_governance": "SCIENCE_LAB/LAB_CONSTITUTION.md",
+  "lab_register": "SCIENCE_LAB/LAB_REGISTER.md",
+  "active_work": "SCIENCE_LAB/ACTIVE_WORK.md",
   "scientific_result_known": false,
   "objects": [
     {
@@ -65,12 +68,13 @@
       "type": "experiment",
       "experiment": "EXP-00-R",
       "status": "ACTIVE_PRE_REGISTERED_PRODUCTION",
-      "authority_role": "ACTIVE_EXPERIMENT",
+      "operational_status": "BLOCKED_BY_STRUCTURE_FREEZE",
+      "authority_role": "SCIENTIFIC_STATE_RETAINED_NOT_OPERATIONALLY_ACTIVE",
       "current_or_historical": "current",
       "superseded_by": null,
-      "next_action": "REGISTERED_EVIDENCE_GENERATION_AUTHORIZATION_RECHECK",
+      "next_action": "WAIT_FOR_SEPARATE_LAB_REOPEN_AND_STUDY_ACTIVATION",
       "action_required_now": false,
-      "notes": "Only active experiment. Scientific design is closed; registered evidence and result remain absent."
+      "notes": "Scientific design is closed; registered evidence and result remain absent. The native scientific state is retained, but the Study is not operationally active during Structure Freeze."
     },
     {
       "name": "Frozen V1 scientific authority",
@@ -224,7 +228,7 @@
       "current_or_historical": "current",
       "paths": ["SCIENCE_LAB_MASTER_STATUS.md"],
       "superseded_by": null,
-      "next_action": "START_FUTURE_SESSION_HERE",
+      "next_action": "START_AT_00_LAB_ENTRY_AND_CHECK_STRUCTURE_FREEZE",
       "action_required_now": false,
       "notes": "Does not replace scientific authority; compresses the current portfolio state."
     },
@@ -232,14 +236,14 @@
       "name": "Current-chain registered evidence generation authorization recheck",
       "type": "operational_frontier",
       "experiment": "EXP-00-R",
-      "status": "NEXT_NOT_PERFORMED",
-      "authority_role": "NEXT_OPERATIONAL_GATE",
+      "status": "BLOCKED_BY_STRUCTURE_FREEZE",
+      "authority_role": "CONDITIONAL_FUTURE_OPERATIONAL_GATE",
       "current_or_historical": "future",
       "paths": [],
       "superseded_by": null,
-      "next_action": "PERFORM_SEPARATELY_FOR_V1_TO_PRODUCER_R1_TO_GENERATOR_R2",
-      "action_required_now": true,
-      "notes": "No current authorization package or grant was created by session closure."
+      "next_action": "WAIT_FOR_SEPARATE_LAB_REOPEN_AND_EXP_00_R_ACTIVATION",
+      "action_required_now": false,
+      "notes": "No current authorization package or grant was created by session closure. The gate is ineligible during Structure Freeze."
     },
     {
       "name": "Future registered evidence and analysis",

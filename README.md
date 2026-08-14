@@ -7,15 +7,19 @@ Last navigation review: `2026-08-14`
 Operational effect: `NONE`
 
 > **Human entry:** begin with
-> [`00_LAB_ENTRY/`](00_LAB_ENTRY/README.md) for the current role, status,
-> queue and safe directory policy.
+> [`00_LAB_ENTRY/`](00_LAB_ENTRY/README.md). The Lab is currently in
+> **`STRUCTURE_FREEZE`** under
+> [Science Lab Constitution V1](SCIENCE_LAB/LAB_CONSTITUTION.md); no experiment,
+> scientific replay or new Lab admission is authorized.
 
 ## Current Lab checkpoint
 
 For the current portfolio state, start with:
 
-1. [Science Lab Master Status](SCIENCE_LAB_MASTER_STATUS.md)
-2. [Lab Consolidation Report](NEXAH_LAB_CONSOLIDATION_REPORT.md)
+1. [Active Work and Structure Freeze gate](SCIENCE_LAB/ACTIVE_WORK.md)
+2. [Single Lab Register](SCIENCE_LAB/LAB_REGISTER.md)
+3. [Science Lab Master Status](SCIENCE_LAB_MASTER_STATUS.md)
+4. [Lab Consolidation Report](NEXAH_LAB_CONSOLIDATION_REPORT.md)
 
 The current bounded dispositions are:
 
@@ -44,6 +48,9 @@ working tree as a versioned repository baseline.
 
 ## Constitutional foundation
 
+- [Science Lab Constitution V1](SCIENCE_LAB/LAB_CONSTITUTION.md) governs Lab
+  roles, admission, WIP, runs and closure without changing canonical NEXAH or
+  package-level scientific authority.
 - [Ecosystem Constitution](NEXAH_CONSTITUTION/README.md) governs authority,
   organizational responsibilities and repository-level governance.
 - [Scientific Constitution](NEXAH_CONSTITUTION/SCIENTIFIC_CONSTITUTION.md)

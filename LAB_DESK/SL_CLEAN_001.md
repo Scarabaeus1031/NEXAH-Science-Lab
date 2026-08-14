@@ -1,10 +1,14 @@
 # SL-CLEAN-001 — Endpoint Reconstruction
 
-Status: **ACTIVE**
+Status: **PAUSED_BY_STRUCTURE_FREEZE**
 
 Owner: **Science Lab Research Director**
 
 Opened: 2026-08-14
+
+Pause note: the deterministic endpoint reconstruction remains a valid
+repository-control record. Further package cleanup is not current work unless
+`SCIENCE_LAB/ACTIVE_WORK.md` explicitly authorizes a bounded item.
 
 ## Objective
 

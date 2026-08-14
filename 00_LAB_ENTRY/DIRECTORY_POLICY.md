@@ -5,6 +5,9 @@ Status: `NAVIGATION AND INTAKE POLICY — NO SCIENTIFIC EFFECT`
 ## Stable control surfaces
 
 - `00_LAB_ENTRY/` — Human-visible entrance and navigation.
+- `SCIENCE_LAB/LAB_CONSTITUTION.md` — owner-adopted Lab governance.
+- `SCIENCE_LAB/ACTIVE_WORK.md` — current WIP and execution gate.
+- `SCIENCE_LAB/LAB_REGISTER.md` — single maintained Study navigator.
 - `LAB_DESK/` — Research Director working state, queue, ledgers and cleanup
   artifacts.
 - `SCIENCE_LAB_MASTER_STATUS.md` — current scientific-status orientation.
@@ -15,7 +18,9 @@ These surfaces point to authorities; they do not replace them.
 ## New-work intake
 
 Do not create a new top-level research folder merely because an idea or draft
-exists. New work should first receive:
+exists. New work must first pass the Constitution's admission gate through an
+accepted [`LAB_ADMISSION_RECORD`](../SCIENCE_LAB/TEMPLATES/LAB_ADMISSION_RECORD.md)
+and receive:
 
 1. a named owner or role;
 2. a bounded question or operational purpose;
@@ -25,7 +30,8 @@ exists. New work should first receive:
    repository object;
 5. an explicit authority and claim boundary.
 
-Only then should a new top-level package be created.
+Only then may its accepted canonical home be created. Admission is paused
+during `STRUCTURE_FREEZE`.
 
 ## Existing package movement
 

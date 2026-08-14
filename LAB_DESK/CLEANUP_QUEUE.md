@@ -5,6 +5,10 @@ Queue owner: **Science Lab Research Director**
 This queue governs repository disposition only. It does not change a scientific
 status or authorize research execution.
 
+Queue state: **PAUSED_BY_STRUCTURE_FREEZE**. These are preserved maintenance
+items, not current assignments. Resume one item only after it is explicitly
+listed in [`../SCIENCE_LAB/ACTIVE_WORK.md`](../SCIENCE_LAB/ACTIVE_WORK.md).
+
 | Order | Work item | Initial disposition | Decision required |
 | --- | --- | --- | --- |
 | 1 | `NEXAH_EARLY_WARNING_HYPOTHESIS_VALIDATION` | Logical split complete; deterministic local artifact built and stream-verified | Select durable private object storage and authorize upload; preserve the inconclusive Level-1C result exactly |

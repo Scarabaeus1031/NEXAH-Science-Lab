@@ -2,13 +2,19 @@
 
 Status date: 2026-08-14
 
-Mode: **CONSOLIDATED / REVIEW / CONTROLLED EXECUTION**
-Primary active experiment: **EXP-00-R**
+Mode: **STRUCTURE FREEZE**
+Primary active experiment: **NONE**
 
 ## 0. Current portfolio reconciliation
 
-This file remains the current Lab orientation point. The EXP-00-R state below
-is unchanged. Four later research lines are now reconciled here:
+The Lab is governed by [Science Lab Constitution V1](SCIENCE_LAB/LAB_CONSTITUTION.md).
+Operational work begins at [Active Work](SCIENCE_LAB/ACTIVE_WORK.md) and the
+single [Lab Register](SCIENCE_LAB/LAB_REGISTER.md). During Structure Freeze no
+experiment, scientific replay, new admission or evidence repair is authorized.
+
+This file remains the current scientific-status orientation point. Package-level
+scientific states below are unchanged; their operational activation is paused.
+Four later research lines are reconciled here:
 
 | Line | Current disposition | Controlling final record |
 | --- | --- | --- |
@@ -29,7 +35,11 @@ records linked above.
 
 ## 1. Where we are
 
-The intensive architecture-build session is closed. EXP-00-R is still the only active experiment, but it has not crossed the registered scientific boundary. Its scientific design, V3 implementation, evidence-export contract, Generator R2 and Payload Producer R1 are closed and independently reviewed.
+The intensive architecture-build session is closed. EXP-00-R retains its
+pre-registered-production scientific state, but it is **not operationally
+active** during Structure Freeze and has not crossed the registered scientific
+boundary. Its scientific design, V3 implementation, evidence-export contract,
+Generator R2 and Payload Producer R1 are closed and independently reviewed.
 
 The current position is: **the complete frozen V1 → Producer R1 → Generator R2 chain is reviewed and ready for a new registered-evidence generation authorization recheck; no such recheck or production occurs in this session.**
 
@@ -152,7 +162,7 @@ A closed historical defect may be reopened only when a specific reproducible con
 
 | Category | Experiment/object | Status |
 | --- | --- | --- |
-| ACTIVE NOW | EXP-00-R Rössler replication | active experiment; pre-registered-production boundary |
+| BLOCKED BY STRUCTURE FREEZE | EXP-00-R Rössler replication | scientific state retained; no operational activation or execution |
 | NEXT AFTER ACTIVE EXPERIMENT | REP-01 pipeline review | review only after EXP-00-R closure or explicit human reprioritization |
 | FUTURE / PARKED | REP-01 — Classical Impossibility → Representation Lift | `PIPELINE_CANDIDATE`; not analyzed, implemented or active |
 | ARCHIVAL IDEA ONLY | No additional formally registered candidate | research-program and field-note folders remain context, not activated experiments |
@@ -173,7 +183,10 @@ The Lab contains many packages because defects and repairs were preserved additi
 
 Preserve all of these packages. During normal operation, start with the current pointers in section 6 and consult lineage only when provenance or a concrete contradiction requires it.
 
-## 10. EXP-00-R-specific next three actions
+## 10. EXP-00-R-specific conditional future sequence
+
+This sequence is not current work. It becomes eligible only after all Structure
+Freeze gates pass and the Human Owner separately reopens and activates EXP-00-R.
 
 1. **REGISTERED EVIDENCE GENERATION AUTHORIZATION RECHECK** for the fully reviewed `V1 → Producer R1 → Generator R2` chain.
 2. **If and only if that authorization passes,** perform the separately authorized registered-evidence production and content-blind sealing sequence under the frozen rules.
@@ -185,7 +198,9 @@ None of these actions is performed by this status/closure task.
 
 We will not create another amendment, generator, producer, authorization package, governance layer or experiment candidate in this session. We will not repair historical artifacts, reuse obsolete authorization, search for substitute registered evidence, access registered seeds, generate evidence, execute V3, inspect outcomes, evaluate P1–P5, classify EXP-00-R, write the final result report, activate REP-01, or analyze its AME hypothesis.
 
-The Lab is now in controlled review/execution mode. The purpose of the closed infrastructure is to allow the eventual result—including a null, negative, partial or validity outcome—to survive scrutiny, not to perpetuate architecture building.
+The Lab is now in Structure Freeze. The purpose of the closed infrastructure is
+to allow an eventual result—including a null, negative, partial or validity
+outcome—to survive scrutiny, not to perpetuate architecture building.
 
 ## 12. Cross-line authorization boundary
 

@@ -6,9 +6,14 @@ Role: **Science Lab Research Director**
 
 ## Current assignment
 
-`SL-CLEAN-001` — reconstruct the endpoints and disposition needs of the
-pre-existing untracked Science Lab packages without changing scientific
-content or publishing raw data.
+`SL-STRUCTURE-V1` — establish and verify the Constitution, single Lab Register,
+Active Work gate, admission record, Run Contract and contributor onramp.
+
+Lab operations state: **`STRUCTURE_FREEZE`**.
+
+`SL-CLEAN-001` is paused. Its completed inventories and package dispositions
+remain valid records, but no further package cleanup, experiment, scientific
+replay or new Lab admission is current work.
 
 ## What is known
 
@@ -27,6 +32,11 @@ content or publishing raw data.
 
 No package deletion, bulk staging, raw-data upload, experiment execution or
 scientific reinterpretation is authorized by this cleanup task.
+
+The controlling operational gate is now
+[`../SCIENCE_LAB/ACTIVE_WORK.md`](../SCIENCE_LAB/ACTIVE_WORK.md). A completed
+structure checklist does not reopen the Lab; that requires a separate Human
+Owner decision.
 
 The first package disposition is now locally prepared:
 
@@ -109,3 +119,6 @@ storage work, not undocumented scientific packages.
 - raw/generated-data weight is visible separately;
 - each package has a bounded review class;
 - the next cleanup sequence is small enough to execute package-by-package.
+
+These criteria describe the preserved maintenance task. They are not an active
+instruction during Structure Freeze.

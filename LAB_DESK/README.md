@@ -3,6 +3,12 @@
 This is the operating desk for the **Science Lab Research Director**. It is a
 small control surface over the Lab; it is not a second scientific record.
 
+Current state: **`STRUCTURE_FREEZE`**. Start with the
+[Lab Constitution](../SCIENCE_LAB/LAB_CONSTITUTION.md),
+[Active Work](../SCIENCE_LAB/ACTIVE_WORK.md) and
+[Lab Register](../SCIENCE_LAB/LAB_REGISTER.md). This Desk currently performs
+repository maintenance only.
+
 ## Authority boundary
 
 - [`../SCIENCE_LAB_MASTER_STATUS.md`](../SCIENCE_LAB_MASTER_STATUS.md) remains
@@ -14,11 +20,13 @@ small control surface over the Lab; it is not a second scientific record.
 
 ## Start here
 
-1. Read [`CURRENT_STATE.md`](CURRENT_STATE.md).
-2. Use [`CLEANUP_QUEUE.md`](CLEANUP_QUEUE.md) for bounded decisions.
-3. Consult [`ENDPOINT_RECONSTRUCTION.md`](ENDPOINT_RECONSTRUCTION.md) to locate
+1. Read [`../SCIENCE_LAB/ACTIVE_WORK.md`](../SCIENCE_LAB/ACTIVE_WORK.md).
+2. Read [`CURRENT_STATE.md`](CURRENT_STATE.md).
+3. Use [`CLEANUP_QUEUE.md`](CLEANUP_QUEUE.md) only after the Structure Freeze
+   gate explicitly authorizes the queued maintenance item.
+4. Consult [`ENDPOINT_RECONSTRUCTION.md`](ENDPOINT_RECONSTRUCTION.md) to locate
    package endpoints without browsing thousands of files.
-4. Rebuild the inventory with
+5. Rebuild the inventory with
    `python3 LAB_DESK/tools/reconstruct_endpoints.py` after a bounded package
    disposition changes.
 
