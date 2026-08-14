@@ -6,6 +6,10 @@ Last navigation review: `2026-08-14`
 
 Operational effect: `NONE`
 
+> **Human entry:** begin with
+> [`00_LAB_ENTRY/`](00_LAB_ENTRY/README.md) for the current role, status,
+> queue and safe directory policy.
+
 ## Current Lab checkpoint
 
 For the current portfolio state, start with:
