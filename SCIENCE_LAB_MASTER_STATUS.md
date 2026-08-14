@@ -134,7 +134,7 @@ These are the smallest useful human entry points:
 | Current generator review | [`EXP_00_R_ROSSLER_REPLICATION_REGISTERED_EVIDENCE_GENERATOR_R2_INDEPENDENT_REVIEW/`](EXP_00_R_ROSSLER_REPLICATION_REGISTERED_EVIDENCE_GENERATOR_R2_INDEPENDENT_REVIEW/) | Independent R2 PASS |
 | Current producer | [`EXP_00_R_ROSSLER_REPLICATION_REGISTERED_PAYLOAD_PRODUCER_R1/`](EXP_00_R_ROSSLER_REPLICATION_REGISTERED_PAYLOAD_PRODUCER_R1/) | Closed current adapter |
 | Current producer review | [`EXP_00_R_ROSSLER_REPLICATION_REGISTERED_PAYLOAD_PRODUCER_R1_INDEPENDENT_REVIEW/`](EXP_00_R_ROSSLER_REPLICATION_REGISTERED_PAYLOAD_PRODUCER_R1_INDEPENDENT_REVIEW/) | Independent PASS; producer status CLOSED |
-| Detailed historical Lab status | [`EXP_00_R_ROSSLER_REPLICATION_LAB_PAD/`](EXP_00_R_ROSSLER_REPLICATION_LAB_PAD/) | Detailed provenance; some current-state prose predates R2/Producer R1 |
+| Detailed historical Lab status | Local untracked `EXP_00_R_ROSSLER_REPLICATION_LAB_PAD/` | Detailed provenance; not a remote-durable clean-checkout entry point and some prose predates R2/Producer R1 |
 | Current Lab status | [`SCIENCE_LAB_MASTER_STATUS.md`](SCIENCE_LAB_MASTER_STATUS.md) | Primary next-session orientation point |
 | Next operational frontier | New authorization recheck for `V1 → Producer R1 → Generator R2` | Must be performed separately; not yet created or granted |
 
@@ -167,7 +167,10 @@ A closed historical defect may be reopened only when a specific reproducible con
 | FUTURE / PARKED | REP-01 — Classical Impossibility → Representation Lift | `PIPELINE_CANDIDATE`; not analyzed, implemented or active |
 | ARCHIVAL IDEA ONLY | No additional formally registered candidate | research-program and field-note folders remain context, not activated experiments |
 
-REP-01 remains governed by [`ORION_EXPERIMENT_PIPELINE/REP_01_AME46_REPRESENTATION_LIFT/`](ORION_EXPERIMENT_PIPELINE/REP_01_AME46_REPRESENTATION_LIFT/). Its AME reference target has not been reviewed or compared, and its blind-test intent remains prospective.
+REP-01 remains governed by the local untracked
+`ORION_EXPERIMENT_PIPELINE/REP_01_AME46_REPRESENTATION_LIFT/` record. It is not
+a remote-durable clean-checkout entry point. Its AME reference target has not
+been reviewed or compared, and its blind-test intent remains prospective.
 
 ## 9. Historical objects that can be ignored during normal operation
 

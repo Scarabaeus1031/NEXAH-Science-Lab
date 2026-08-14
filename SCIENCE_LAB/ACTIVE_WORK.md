@@ -44,7 +44,7 @@ Every item must pass:
 - [ ] Contributor Onramp states one safe first action and all claim boundaries.
 - [ ] Existing protocols, ledgers and the Labreport index are tracked.
 - [ ] Master Status, portfolio and Lab Desk agree on `STRUCTURE_FREEZE`.
-- [ ] All internal navigation links pass.
+- [ ] All Constitution V1 control-surface navigation links pass.
 - [ ] A clean checkout exposes the complete entry and governance route.
 - [ ] Human Owner records a separate `REOPEN` or `REMAIN_FROZEN` decision.
 
