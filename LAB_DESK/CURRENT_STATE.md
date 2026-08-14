@@ -38,6 +38,19 @@ The first package disposition is now locally prepared:
 - active owner gate:
   `SELECT_PRIVATE_DURABLE_OBJECT_STORAGE_AND_AUTHORIZE_UPLOAD`.
 
+The second package disposition is also complete:
+
+- the EXP-00-R current-authority bundle is registered as 30 selected roots and
+  414 repository files across scientific-authority, engineering/export and
+  generator/producer lineages;
+- 32 historical roots remain excluded under `HISTORICAL_PRESERVE` and are
+  hash-recorded in the bundle manifest;
+- the current local Python `3.12.7` environment is correctly rejected by the
+  exact frozen Python `3.12.13` runtime gate;
+- this runtime mismatch does not alter the preserved reviews, but no exact
+  operational replay or readiness claim is made;
+- registered evidence generation and experiment execution remain unauthorized.
+
 ## Definition of done for SL-CLEAN-001
 
 - every untracked top-level package has a deterministic content-tree hash;

@@ -8,7 +8,7 @@ status or authorize research execution.
 | Order | Work item | Initial disposition | Decision required |
 | --- | --- | --- | --- |
 | 1 | `NEXAH_EARLY_WARNING_HYPOTHESIS_VALIDATION` | Logical split complete; deterministic local artifact built and stream-verified | Select durable private object storage and authorize upload; preserve the inconclusive Level-1C result exactly |
-| 2 | EXP-00-R package family | Historical provenance with a small set of current endpoints already named in Master Status | Register only bounded endpoint/source packages; never mass-commit the full lineage |
+| 2 | EXP-00-R package family | Current authority bundle registered in three bounded lineages; 32 historical roots remain excluded and hash-recorded | Preserve historical residuals; recover exact Python 3.12.13 only under a separate operational recheck authorization |
 | 3 | Terminally marked NEXAH/ORION studies | Candidate endpoint consolidation | Compare each candidate to current Master Status before any commit |
 | 4 | Documented but non-terminal packages | Review required | Decide whether each is active input, historical provenance or superseded working material |
 | 5 | Packages without endpoint markers | Manual inspection | Identify owner, purpose and explicit disposition; do not infer status from filenames |
