@@ -1,0 +1,553 @@
+{
+  "evidence_class": "EMPIRICAL_SYNTHETIC_AND_SOFTWARE_CHECK",
+  "experiment_id": "NEXAH_EXP_T01",
+  "phase": "a",
+  "protocol_bundle_sha256": "6f0b807d1d18c9db3825dbaa98dd413cba0d52ea5f8e9bc319aa137865119b53",
+  "schema_version": "1.0.0",
+  "t01a": {
+    "collisions": {
+      "collision_counts": {
+        "C0_STATE": 0,
+        "C1_DISTANCE_ORDER": 1,
+        "C2_ADJACENCY": 1,
+        "C3_ORIENTATION": 0,
+        "C4_RANK_ORDER": 0,
+        "C5_CONNECTIVITY": 3
+      },
+      "false_recoveries": 0,
+      "pair_records": [
+        {
+          "certificate_equal": {
+            "C0_STATE": false,
+            "C1_DISTANCE_ORDER": false,
+            "C2_ADJACENCY": false,
+            "C3_ORIENTATION": false,
+            "C4_RANK_ORDER": false,
+            "C5_CONNECTIVITY": true
+          },
+          "fixture": "F1_ORDERED_1D",
+          "pair_id": "F1_BASE_VS_CF",
+          "source_states_distinct": true
+        },
+        {
+          "certificate_equal": {
+            "C0_STATE": false,
+            "C1_DISTANCE_ORDER": true,
+            "C2_ADJACENCY": true,
+            "C3_ORIENTATION": false,
+            "C5_CONNECTIVITY": true
+          },
+          "fixture": "F2_GEOMETRY_2D",
+          "pair_id": "F2_BASE_VS_CF",
+          "source_states_distinct": true
+        },
+        {
+          "certificate_equal": {
+            "C0_STATE": false,
+            "C2_ADJACENCY": false,
+            "C4_RANK_ORDER": false,
+            "C5_CONNECTIVITY": true
+          },
+          "fixture": "F3_GRAPH",
+          "pair_id": "F3_BASE_VS_CF",
+          "source_states_distinct": true
+        }
+      ]
+    },
+    "records": [
+      {
+        "family": "EXACT",
+        "fixture": "F1_ORDERED_1D",
+        "forward_certificates": {
+          "C0_STATE": false,
+          "C1_DISTANCE_ORDER": true,
+          "C2_ADJACENCY": true,
+          "C3_ORIENTATION": true,
+          "C4_RANK_ORDER": true,
+          "C5_CONNECTIVITY": true
+        },
+        "primary_status": "EXACT_RECOVERY",
+        "recovered_state": [
+          -2.0,
+          -0.5,
+          1.0,
+          3.0
+        ],
+        "recovery_bound": null,
+        "recovery_certificates": {
+          "C0_STATE": true,
+          "C1_DISTANCE_ORDER": true,
+          "C2_ADJACENCY": true,
+          "C3_ORIENTATION": true,
+          "C4_RANK_ORDER": true,
+          "C5_CONNECTIVITY": true
+        },
+        "recovery_error": 0.0,
+        "representation_equal": false,
+        "run_id": "E1_TRANSLATE_1D",
+        "witness": null
+      },
+      {
+        "family": "EXACT",
+        "fixture": "F1_ORDERED_1D",
+        "forward_certificates": {
+          "C0_STATE": false,
+          "C1_DISTANCE_ORDER": true,
+          "C2_ADJACENCY": true,
+          "C3_ORIENTATION": true,
+          "C4_RANK_ORDER": true,
+          "C5_CONNECTIVITY": true
+        },
+        "primary_status": "EXACT_RECOVERY",
+        "recovered_state": [
+          -2.0,
+          -0.5,
+          1.0,
+          3.0
+        ],
+        "recovery_bound": null,
+        "recovery_certificates": {
+          "C0_STATE": true,
+          "C1_DISTANCE_ORDER": true,
+          "C2_ADJACENCY": true,
+          "C3_ORIENTATION": true,
+          "C4_RANK_ORDER": true,
+          "C5_CONNECTIVITY": true
+        },
+        "recovery_error": 0.0,
+        "representation_equal": false,
+        "run_id": "E2_SCALE_1D",
+        "witness": null
+      },
+      {
+        "family": "EXACT",
+        "fixture": "F2_GEOMETRY_2D",
+        "forward_certificates": {
+          "C0_STATE": false,
+          "C1_DISTANCE_ORDER": true,
+          "C2_ADJACENCY": true,
+          "C3_ORIENTATION": true,
+          "C5_CONNECTIVITY": true
+        },
+        "primary_status": "TOLERANCE_RECOVERY",
+        "recovered_state": [
+          [
+            0.1,
+            0.2
+          ],
+          [
+            1.2,
+            0.10000000000000003
+          ],
+          [
+            1.7999999999999998,
+            1.2999999999999998
+          ],
+          [
+            0.20000000000000007,
+            1.7000000000000002
+          ]
+        ],
+        "recovery_bound": null,
+        "recovery_certificates": {
+          "C0_STATE": false,
+          "C1_DISTANCE_ORDER": true,
+          "C2_ADJACENCY": true,
+          "C3_ORIENTATION": true,
+          "C5_CONNECTIVITY": true
+        },
+        "recovery_error": 2.220446049250313e-16,
+        "representation_equal": false,
+        "run_id": "E3_ROTATE_2D",
+        "witness": null
+      },
+      {
+        "family": "EXACT",
+        "fixture": "F2_GEOMETRY_2D",
+        "forward_certificates": {
+          "C0_STATE": false,
+          "C1_DISTANCE_ORDER": true,
+          "C2_ADJACENCY": true,
+          "C3_ORIENTATION": true,
+          "C5_CONNECTIVITY": true
+        },
+        "primary_status": "EXACT_RECOVERY",
+        "recovered_state": [
+          [
+            0.1,
+            0.2
+          ],
+          [
+            1.2,
+            0.1
+          ],
+          [
+            1.8,
+            1.3
+          ],
+          [
+            0.2,
+            1.7
+          ]
+        ],
+        "recovery_bound": null,
+        "recovery_certificates": {
+          "C0_STATE": true,
+          "C1_DISTANCE_ORDER": true,
+          "C2_ADJACENCY": true,
+          "C3_ORIENTATION": true,
+          "C5_CONNECTIVITY": true
+        },
+        "recovery_error": 0.0,
+        "representation_equal": false,
+        "run_id": "E4_ORTHOGONAL_2D",
+        "witness": null
+      },
+      {
+        "family": "EXACT",
+        "fixture": "F3_GRAPH",
+        "forward_certificates": {
+          "C0_STATE": true,
+          "C2_ADJACENCY": true,
+          "C4_RANK_ORDER": true,
+          "C5_CONNECTIVITY": true
+        },
+        "primary_status": "EXACT_RECOVERY",
+        "recovered_state": {
+          "edges": [
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              2,
+              3
+            ],
+            [
+              3,
+              4
+            ]
+          ],
+          "nodes": [
+            0,
+            1,
+            2,
+            3,
+            4
+          ]
+        },
+        "recovery_bound": null,
+        "recovery_certificates": {
+          "C0_STATE": true,
+          "C2_ADJACENCY": true,
+          "C4_RANK_ORDER": true,
+          "C5_CONNECTIVITY": true
+        },
+        "recovery_error": 0.0,
+        "representation_equal": false,
+        "run_id": "E5_RELABEL_GRAPH",
+        "witness": null
+      },
+      {
+        "family": "PERTURBED",
+        "fixture": "F1_ORDERED_1D",
+        "forward_certificates": {
+          "C0_STATE": false,
+          "C1_DISTANCE_ORDER": false,
+          "C2_ADJACENCY": false,
+          "C3_ORIENTATION": true,
+          "C4_RANK_ORDER": true,
+          "C5_CONNECTIVITY": false
+        },
+        "primary_status": "STRUCTURE_CHANGED",
+        "recovered_state": [
+          -1.9999989999999999,
+          -0.5000010000000001,
+          1.0000004999999996,
+          2.9999995000000004
+        ],
+        "recovery_bound": 1.0099999999999999e-06,
+        "recovery_certificates": {
+          "C0_STATE": false,
+          "C1_DISTANCE_ORDER": false,
+          "C2_ADJACENCY": false,
+          "C3_ORIENTATION": true,
+          "C4_RANK_ORDER": true,
+          "C5_CONNECTIVITY": false
+        },
+        "recovery_error": 1.000000000139778e-06,
+        "representation_equal": false,
+        "run_id": "P_NOISE_1e-06",
+        "witness": null
+      },
+      {
+        "family": "PERTURBED",
+        "fixture": "F1_ORDERED_1D",
+        "forward_certificates": {
+          "C0_STATE": false,
+          "C1_DISTANCE_ORDER": false,
+          "C2_ADJACENCY": false,
+          "C3_ORIENTATION": true,
+          "C4_RANK_ORDER": true,
+          "C5_CONNECTIVITY": false
+        },
+        "primary_status": "STRUCTURE_CHANGED",
+        "recovered_state": [
+          -1.9,
+          -0.5999999999999996,
+          1.0499999999999998,
+          2.95
+        ],
+        "recovery_bound": 0.101,
+        "recovery_certificates": {
+          "C0_STATE": false,
+          "C1_DISTANCE_ORDER": false,
+          "C2_ADJACENCY": false,
+          "C3_ORIENTATION": true,
+          "C4_RANK_ORDER": true,
+          "C5_CONNECTIVITY": false
+        },
+        "recovery_error": 0.10000000000000009,
+        "representation_equal": false,
+        "run_id": "P_NOISE_0.1",
+        "witness": null
+      },
+      {
+        "family": "PERTURBED",
+        "fixture": "F1_ORDERED_1D",
+        "forward_certificates": {
+          "C0_STATE": false,
+          "C1_DISTANCE_ORDER": false,
+          "C2_ADJACENCY": false,
+          "C3_ORIENTATION": false,
+          "C4_RANK_ORDER": false,
+          "C5_CONNECTIVITY": false
+        },
+        "primary_status": "STRUCTURE_CHANGED",
+        "recovered_state": [
+          -1.2000000000000002,
+          -1.2999999999999998,
+          1.4000000000000004,
+          2.5999999999999996
+        ],
+        "recovery_bound": 0.808,
+        "recovery_certificates": {
+          "C0_STATE": false,
+          "C1_DISTANCE_ORDER": false,
+          "C2_ADJACENCY": false,
+          "C3_ORIENTATION": false,
+          "C4_RANK_ORDER": false,
+          "C5_CONNECTIVITY": false
+        },
+        "recovery_error": 0.7999999999999998,
+        "representation_equal": false,
+        "run_id": "P_NOISE_0.8",
+        "witness": null
+      },
+      {
+        "family": "PERTURBED",
+        "fixture": "F2_GEOMETRY_2D",
+        "forward_certificates": {
+          "C0_STATE": false,
+          "C1_DISTANCE_ORDER": true,
+          "C2_ADJACENCY": true,
+          "C3_ORIENTATION": true,
+          "C5_CONNECTIVITY": true
+        },
+        "primary_status": "STRUCTURE_CHANGED",
+        "recovered_state": [
+          [
+            0.10044675050769002,
+            0.20002112466548594
+          ],
+          [
+            1.1996016647212535,
+            0.1002289678585831
+          ],
+          [
+            1.8000501169598249,
+            1.3002217412552834
+          ],
+          [
+            0.19994398807148062,
+            1.69968685399225
+          ]
+        ],
+        "recovery_bound": 0.000714177848998413,
+        "recovery_certificates": {
+          "C0_STATE": false,
+          "C1_DISTANCE_ORDER": true,
+          "C2_ADJACENCY": true,
+          "C3_ORIENTATION": true,
+          "C5_CONNECTIVITY": true
+        },
+        "recovery_error": 0.0004467505076900108,
+        "representation_equal": false,
+        "run_id": "P_QUANTIZE_0.001",
+        "witness": null
+      },
+      {
+        "family": "PERTURBED",
+        "fixture": "F2_GEOMETRY_2D",
+        "forward_certificates": {
+          "C0_STATE": false,
+          "C1_DISTANCE_ORDER": true,
+          "C2_ADJACENCY": true,
+          "C3_ORIENTATION": true,
+          "C5_CONNECTIVITY": true
+        },
+        "primary_status": "STRUCTURE_CHANGED",
+        "recovered_state": [
+          [
+            0.12320508075688771,
+            0.1866025403784439
+          ],
+          [
+            1.2026279441628827,
+            0.11698729810778086
+          ],
+          [
+            1.780255888325765,
+            1.31650635094611
+          ],
+          [
+            0.19102540378443844,
+            1.6691342951089925
+          ]
+        ],
+        "recovery_bound": 0.03570889244992065,
+        "recovery_certificates": {
+          "C0_STATE": false,
+          "C1_DISTANCE_ORDER": true,
+          "C2_ADJACENCY": true,
+          "C3_ORIENTATION": true,
+          "C5_CONNECTIVITY": true
+        },
+        "recovery_error": 0.030865704891007484,
+        "representation_equal": false,
+        "run_id": "P_QUANTIZE_0.05",
+        "witness": null
+      },
+      {
+        "family": "PERTURBED",
+        "fixture": "F2_GEOMETRY_2D",
+        "forward_certificates": {
+          "C0_STATE": false,
+          "C1_DISTANCE_ORDER": false,
+          "C2_ADJACENCY": false,
+          "C3_ORIENTATION": true,
+          "C5_CONNECTIVITY": false
+        },
+        "primary_status": "STRUCTURE_CHANGED",
+        "recovered_state": [
+          [
+            0.0,
+            0.0
+          ],
+          [
+            1.1160254037844386,
+            0.06698729810778081
+          ],
+          [
+            1.7320508075688772,
+            1.0000000000000002
+          ],
+          [
+            0.11602540378443837,
+            1.799038105676658
+          ]
+        ],
+        "recovery_bound": 0.3570889244992065,
+        "recovery_certificates": {
+          "C0_STATE": false,
+          "C1_DISTANCE_ORDER": false,
+          "C2_ADJACENCY": false,
+          "C3_ORIENTATION": true,
+          "C5_CONNECTIVITY": false
+        },
+        "recovery_error": 0.2999999999999998,
+        "representation_equal": false,
+        "run_id": "P_QUANTIZE_0.5",
+        "witness": null
+      },
+      {
+        "family": "LOSSY",
+        "fixture": "F1_ORDERED_1D",
+        "forward_certificates": {},
+        "primary_status": "UNIDENTIFIABLE",
+        "recovered_state": null,
+        "recovery_bound": null,
+        "recovery_certificates": {},
+        "recovery_error": null,
+        "representation_equal": false,
+        "run_id": "L1_SIGN_SQUARE",
+        "witness": {
+          "preimage_a": [
+            -2.0,
+            -0.5,
+            1.0,
+            3.0
+          ],
+          "preimage_b": [
+            2.0,
+            0.5,
+            -1.0,
+            -3.0
+          ]
+        }
+      },
+      {
+        "family": "LOSSY",
+        "fixture": "F2_GEOMETRY_2D",
+        "forward_certificates": {},
+        "primary_status": "INFORMATION_LOST",
+        "recovered_state": null,
+        "recovery_bound": null,
+        "recovery_certificates": {},
+        "recovery_error": null,
+        "representation_equal": false,
+        "run_id": "L2_PROJECT_X",
+        "witness": {
+          "destroyed": "all y coordinates"
+        }
+      },
+      {
+        "family": "LOSSY",
+        "fixture": "F1_ORDERED_1D",
+        "forward_certificates": {},
+        "primary_status": "INFORMATION_LOST",
+        "recovered_state": null,
+        "recovery_bound": null,
+        "recovery_certificates": {},
+        "recovery_error": null,
+        "representation_equal": false,
+        "run_id": "L3_COARSE_QUANTIZE",
+        "witness": {
+          "destroyed": "sub-integer coordinate information"
+        }
+      },
+      {
+        "family": "LOSSY",
+        "fixture": "F3_GRAPH",
+        "forward_certificates": {},
+        "primary_status": "INFORMATION_LOST",
+        "recovered_state": null,
+        "recovery_bound": null,
+        "recovery_certificates": {},
+        "recovery_error": null,
+        "representation_equal": false,
+        "run_id": "L4_DELETE_EDGE",
+        "witness": {
+          "destroyed_edge": [
+            1,
+            2
+          ]
+        }
+      }
+    ]
+  }
+}
