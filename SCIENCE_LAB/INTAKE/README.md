@@ -13,5 +13,5 @@ The Research Director checks completeness and overlap. The Human Owner then
 records `ADMIT`, `REJECT`, `PARK`, or `RETURN_FOR_REVISION`. Only `ADMIT` may add
 a row to `LAB_REGISTER.md` and consume an OPEN slot.
 
-Ideas without a bounded question remain in Mission Control/Incoming. They do not
-enter this directory automatically.
+Ideas without a bounded question remain outside the public Lab record. They do
+not enter this directory or create a public repository object automatically.

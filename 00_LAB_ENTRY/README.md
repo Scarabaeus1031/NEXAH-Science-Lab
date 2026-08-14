@@ -1,12 +1,16 @@
 # NEXAH Science Lab — Start Here
 
-Status: `STRUCTURE_FREEZE — CONSTITUTION V1 ENTRY`
+Status: `HISTORICAL_MIGRATION_SNAPSHOT — NOT_CURRENT_ENTRY`
+
+> Current public entry: [`../README.md`](../README.md).
+>
+> Current private operational home:
+> `NEXAH-Mission-Control/00_LAB_RESEARCH_DIRECTOR_DESK/`.
 
 Role at this entrance: **Science Lab Research Director**
 
-This folder is the visible entrance to the Science Lab. It provides orientation
-over the repository without moving, renaming, adopting or reclassifying any
-research package.
+This folder preserves the first Constitution V1 entry design for migration
+traceability. It is no longer the public entrance or an active planning desk.
 
 ## Start here
 

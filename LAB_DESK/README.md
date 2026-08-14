@@ -1,4 +1,14 @@
-# NEXAH Science Lab — Research Director Desk
+# Historical Lab Desk and Public Reproducibility Records
+
+Status: `HISTORICAL_MIGRATION_SNAPSHOT / NOT_ACTIVE_MANAGEMENT_DESK`
+
+The active Science Lab Research Director Desk lives in the private NEXAH
+Mission Control repository under `00_LAB_RESEARCH_DIRECTOR_DESK/`.
+
+This path is retained temporarily for migration traceability and because
+`ARTIFACTS/` contains public reproducibility manifests and bounded disposition
+records. The cleanup queue, current state and endpoint inventory below are dated
+historical snapshots and create no current task authority.
 
 This is the operating desk for the **Science Lab Research Director**. It is a
 small control surface over the Lab; it is not a second scientific record.

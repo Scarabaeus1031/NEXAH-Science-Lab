@@ -8,9 +8,10 @@ Primary active experiment: **NONE**
 ## 0. Current portfolio reconciliation
 
 The Lab is governed by [Science Lab Constitution V1](SCIENCE_LAB/LAB_CONSTITUTION.md).
-Operational work begins at [Active Work](SCIENCE_LAB/ACTIVE_WORK.md) and the
-single [Lab Register](SCIENCE_LAB/LAB_REGISTER.md). During Structure Freeze no
-experiment, scientific replay, new admission or evidence repair is authorized.
+Public navigation begins at the repository [README](README.md) and the single
+[Lab Register](SCIENCE_LAB/LAB_REGISTER.md). Private work scheduling belongs to
+NEXAH Mission Control. During Structure Freeze no experiment, scientific
+replay, new admission or evidence repair is authorized.
 
 This file remains the current scientific-status orientation point. Package-level
 scientific states below are unchanged; their operational activation is paused.

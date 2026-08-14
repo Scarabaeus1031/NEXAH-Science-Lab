@@ -1,6 +1,10 @@
 # Science Lab Directory Policy
 
-Status: `NAVIGATION AND INTAKE POLICY — NO SCIENTIFIC EFFECT`
+Status: `HISTORICAL_MIGRATION_SNAPSHOT — SUPERSEDED_BY_SL_GOV_003`
+
+Current public directory guidance begins at [`../README.md`](../README.md).
+Private archive and workflow policy belongs to
+`NEXAH-Mission-Control/00_LAB_RESEARCH_DIRECTOR_DESK/`.
 
 ## Stable control surfaces
 

@@ -118,8 +118,9 @@ The Lab permits:
   they create no active maintenance burden.
 
 Structure, storage or governance maintenance does not consume the scientific
-ACTIVE slot, but it must be listed in `ACTIVE_WORK.md` and cannot be used to
-open research indirectly.
+ACTIVE slot, but it must be authorized in the private Research Director Desk
+and cannot be used to open research indirectly. The public repository records
+only the resulting bounded status or governance change.
 
 When the WIP limit is full, new ideas go to Mission Control/Incoming or remain
 unadmitted. They do not receive a new Lab folder.
@@ -212,8 +213,9 @@ Existing package paths remain stable until a separate path-impact audit proves
 movement safe. New top-level folders require an admitted Register record and a
 documented reason not to use an existing canonical home.
 
-The root is not a task list. Work begins at `00_LAB_ENTRY/`, then moves through
-`ACTIVE_WORK.md` and the Lab Register to one owning package.
+The root `README.md` is the public entrance, not a task list. Public readers
+move from the README through the Lab Register to one owning package. Private
+work begins in `00_LAB_RESEARCH_DIRECTOR_DESK/` in NEXAH Mission Control.
 
 ## 13. Structure Freeze
 
@@ -226,8 +228,9 @@ At adoption, all scientific work is paused. During `STRUCTURE_FREEZE`:
 - only bounded constitution, navigation, reproducibility and repository-control
   work is permitted.
 
-Exit requires every gate in `ACTIVE_WORK.md` plus a separate Human Owner reopen
-decision. Passing the gate does not automatically activate any Study.
+Exit requires the private Research Director gate, a separate Human Owner reopen
+decision and a synchronized public status update. Passing an internal gate does
+not automatically activate any Study.
 
 ## 14. Amendment rule
 
@@ -252,6 +255,8 @@ ACTIVE_RESEARCH_CYCLES_ALLOWED_NOW = 0
 NORMAL_WIP_LIMIT_ACTIVE = 1
 NORMAL_WIP_LIMIT_OPEN = 2
 CENTRAL_NAVIGATOR = SCIENCE_LAB/LAB_REGISTER.md
+PUBLIC_ENTRY = README.md
+PRIVATE_BACKSTAGE = NEXAH_MISSION_CONTROL/00_LAB_RESEARCH_DIRECTOR_DESK
 AUTOMATIC_HISTORICAL_IMPORT = NO
 AUTOMATIC_CLAIM_PROMOTION = NO
 EXTERNAL_RUN_REQUIRES_RUN_CONTRACT = YES

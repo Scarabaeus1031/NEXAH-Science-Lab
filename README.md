@@ -1,121 +1,112 @@
-# NEXAH Science Lab — Repository Entry
+# NEXAH Science Lab
 
-Status: `NAVIGATION ENTRY — NO AUTHORITY CHANGE`
+Open, evidence-bounded research on a practical question:
 
-Last navigation review: `2026-08-14`
+> When a dynamical system is translated between representations, which
+> structural properties remain operationally useful, what information is lost,
+> and how should robustness be distinguished from fidelity and discrimination?
 
-Operational effect: `NONE`
+This repository is the public laboratory record. It contains inspectable
+protocols, implementations, evidence manifests, reports, negative results and
+explicit scientific limits. It is intended to become useful to readers,
+reviewers, replicators and contributors without requiring access to NEXAH's
+private planning environment.
 
-> **Human entry:** begin with
-> [`00_LAB_ENTRY/`](00_LAB_ENTRY/README.md). The Lab is currently in
-> **`STRUCTURE_FREEZE`** under
-> [Science Lab Constitution V1](SCIENCE_LAB/LAB_CONSTITUTION.md); no experiment,
-> scientific replay or new Lab admission is authorized.
+## Current status
 
-## Current Lab checkpoint
+`LAB_OPERATIONS_STATE = STRUCTURE_FREEZE`
 
-For the current portfolio state, start with:
+No experiment, scientific replay or new Study is currently authorized. This is
+a governance state, not a scientific result. Existing package-level findings
+retain their own scope and status.
 
-1. [Active Work and Structure Freeze gate](SCIENCE_LAB/ACTIVE_WORK.md)
-2. [Single Lab Register](SCIENCE_LAB/LAB_REGISTER.md)
-3. [Science Lab Master Status](SCIENCE_LAB_MASTER_STATUS.md)
-4. [Lab Consolidation Report](NEXAH_LAB_CONSOLIDATION_REPORT.md)
+Start with:
 
-The current bounded dispositions are:
+1. [What the Lab currently knows](SCIENCE_LAB_MASTER_STATUS.md)
+2. [Maintained Study and report register](SCIENCE_LAB/LAB_REGISTER.md)
+3. [Science Lab Constitution](SCIENCE_LAB/LAB_CONSTITUTION.md)
+4. [Contributor and replicator onramp](SCIENCE_LAB/CONTRIBUTOR_ONRAMP.md)
+5. [Run Contract](SCIENCE_LAB/RUN_CONTRACT.md)
 
-| Research line | Current disposition |
-| --- | --- |
-| T02 | `FROZEN`; no preregistration, implementation or experiment authorized |
-| ORION reduced metrology line | `EXTERNAL_REVIEW`; `NEXAH_METHOD_IN_ORION = UNDEFINED` |
-| Representation Ledger | schema line `CLOSED`; V3 retained as `STRUCTURED_PROVENANCE_ONLY` |
-| First representation-transition case study | `METHODOLOGICAL_CLARITY_ONLY`; no new principle or algorithm established |
+## What this repository is — and is not
 
-These entries are navigation/status statements. They do not promote any result
-into canonical NEXAH or authorize implementation.
+The Lab tests bounded claims about representation, translation, information
+loss, structural certificates, dynamical systems and deterministic operators.
+It preserves positive, negative, invalid, inconclusive and uninformative
+outcomes when their evidence boundaries are inspectable.
 
-## Purpose
+The repository does **not** establish universal NEXAH validity, a new physical
+law, general prediction or control capability, external-domain validity or
+human benefit. File presence, visual similarity, a passing implementation test
+or a completed report does not promote a scientific claim.
 
-This README is the first reading point for this local repository. It routes a
-Human or machine reader to existing owners, Programs, Labs, reports and review
-packages. It does not create or change scientific results, Programs,
-architecture, Governance, OLS, Evidence status or external-repository
-authority.
+## Find the work
 
-Read each target document's own status, date, scope and non-effects. File
-presence, package completion and navigation from this page do not by themselves
-change authority or maturity. Inspect the live Git state before treating the
-working tree as a versioned repository baseline.
+| Need | Public entry |
+|---|---|
+| current bounded dispositions | [Master Status](SCIENCE_LAB_MASTER_STATUS.md) |
+| Studies and canonical reports | [Lab Register](SCIENCE_LAB/LAB_REGISTER.md) |
+| scientific lifecycle and result classes | [Science Lab Protocol](SCIENCE_LAB/PROTOCOLS/SCIENCE_LAB_PROTOCOL.md) |
+| research-cycle requirements | [Research-Cycle Lifecycle](SCIENCE_LAB/PROTOCOLS/RESEARCH_CYCLE_LIFECYCLE.md) |
+| promotion and non-promotion rules | [Knowledge-Promotion Rules](SCIENCE_LAB/PROTOCOLS/KNOWLEDGE_PROMOTION_RULES.md) |
+| closure requirements | [Lab Close Protocol](SCIENCE_LAB/PROTOCOLS/LAB_CLOSE_PROTOCOL.md) |
+| canonical report form | [Labreport Schema](SCIENCE_LAB/PROTOCOLS/LABREPORT_SCHEMA.md) |
+| current machine-readable portfolio | [Portfolio JSON](SCIENCE_LAB_PORTFOLIO.json) |
 
-## Constitutional foundation
+Research packages remain authoritative only within their declared scope. The
+Lab Register points to them; it does not replace their evidence or conclusions.
 
-- [Science Lab Constitution V1](SCIENCE_LAB/LAB_CONSTITUTION.md) governs Lab
-  roles, admission, WIP, runs and closure without changing canonical NEXAH or
-  package-level scientific authority.
-- [Ecosystem Constitution](NEXAH_CONSTITUTION/README.md) governs authority,
-  organizational responsibilities and repository-level governance.
-- [Scientific Constitution](NEXAH_CONSTITUTION/SCIENTIFIC_CONSTITUTION.md)
-  defines methodological direction, scientific interpretation, translation,
-  structural identity and evidence philosophy.
+## Reproduce or review
 
-The two constitutional layers are complementary and have distinct scopes.
-Neither transfers authority to the other.
+Before presenting a command as a scientific run, use the
+[Run Contract](SCIENCE_LAB/RUN_CONTRACT.md). It distinguishes documented work,
+verification of existing evidence, local replay, portable replay and external
+replication.
 
-## Read first
+Some large raw or generated datasets are intentionally excluded from ordinary
+Git history. Their public manifests and disposition records remain under
+`LAB_DESK/ARTIFACTS/` as a historical path. A manifest is not proof that an
+external artifact is currently downloadable; inspect the relevant disposition
+before claiming reproducibility.
 
-1. [Repository Scientific Infrastructure Baseline Freeze](RESEARCH_INSTITUTE_PHASE_B/12_BASELINE_FREEZE_2026_08_06.md)
-2. [Scientific Constitution](NEXAH_CONSTITUTION/SCIENTIFIC_CONSTITUTION.md)
-3. [Research Institute Phase B](RESEARCH_INSTITUTE_PHASE_B/README.md)
-4. [Existing Research Grammar](RESEARCH_INSTITUTE_PHASE_B/01_EXISTING_RESEARCH_GRAMMAR.md)
-5. [Mission 01 — Scientific Backbone](MISSION_01_SCIENTIFIC_BACKBONE/README.md)
-6. [Common Research Infrastructure](MISSION_01_SCIENTIFIC_BACKBONE/13_COMMON_RESEARCH_INFRASTRUCTURE.md)
+During Structure Freeze, contributors may review documentation, inspect
+manifests and report broken paths or ambiguous boundaries. Do not silently
+repair frozen evidence or describe a failed replay as a pass.
 
-The Baseline Freeze is the current documentary entry to the scientific
-infrastructure. The other documents retain their own authority and status.
+## Repository map
 
-## Route by need
+- `SCIENCE_LAB/` — public governance, protocols, register and Labreports.
+- named experiment and audit packages — bounded scientific objects with their
+  own status and authority.
+- `LAB_DESK/ARTIFACTS/` — historical public reproducibility manifests and data
+  disposition records; not the active management desk.
+- `RESEARCH_PROGRAM_*` and `RESEARCH_INSTITUTE_*` — research navigation and
+  program context with their own documentary status.
 
-| Need | Read here |
-| --- | --- |
-| current scientific documentation baseline | [Baseline Freeze](RESEARCH_INSTITUTE_PHASE_B/12_BASELINE_FREEZE_2026_08_06.md) |
-| research grammar and institute-level navigation | [Research Institute Phase B](RESEARCH_INSTITUTE_PHASE_B/README.md) |
-| archaeological inventory of Programs, questions and Labs | [Research Institute Audit](RESEARCH_INSTITUTE_AUDIT/README.md) |
-| existing and candidate Labs | [Lab Catalogue](RESEARCH_INSTITUTE_AUDIT/03_EXISTING_AND_CANDIDATE_LAB_CATALOGUE.md) |
-| research-program inventory | [Existing Research Program Map](RESEARCH_INSTITUTE_AUDIT/02_EXISTING_RESEARCH_PROGRAM_MAP.md) |
-| `TRACE_TO_MOTION` and Moving Mask material | [Research Program A](RESEARCH_PROGRAM_A_MOVING_MASK_FEASIBILITY/README.md) |
-| mathematical foundations and bounded questions | [Research Program B](RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/README.md) |
-| validation and claim-status landscape | [Research Program C](RESEARCH_PROGRAM_C_VALIDATION_LANDSCAPE/README.md) |
-| demonstrators and application landscape | [Research Program D](RESEARCH_PROGRAM_D_APPLICATION_LANDSCAPE/README.md) |
-| positioning, synthesis and protocol-design packages | [Program E](RESEARCH_PROGRAM_E_SCIENTIFIC_POSITIONING/README.md), [Program F](RESEARCH_PROGRAM_F_CROSS_PROGRAM_SYNTHESIS/README.md), [Program G](RESEARCH_PROGRAM_G_PROTOCOL_DESIGN/README.md) |
-| Field Notes and their status boundary | [Field Notes Governance](FIELD_NOTES/FIELD_NOTES_GOVERNANCE.md) |
-| distributed Translation material | [Translation Research Landscape](RESEARCH_INSTITUTE_PHASE_B/11_TRANSLATION_RESEARCH_LANDSCAPE.md) |
-| optional Comparison Card or outward-route documentation | [Declared Outward Path — Working Practice](RESEARCH_INSTITUTE_PHASE_B/13_OUTWARD_PATH_WORKING_PRACTICE.md) |
+The local workstation also contains a large untracked historical archive. It is
+not part of the public repository and does not create public claims or current
+tasks. Private prioritization, daily queues, owner decisions and archive
+management live in the private NEXAH Mission Control repository.
 
-## Document types
+## Frontstage / backstage boundary
 
-- **Research Programs** own bounded question families and their local
-  documentation. Use the owning Program README.
-- **Research Institute** packages inventory and connect existing work. They do
-  not replace Program owners.
-- **Labs and Studies** are located through the Lab Catalogue and their owning
-  reports.
-- **Evidence and Reports** retain the status assigned by their owning package;
-  navigation does not promote them.
-- **Applications and Demonstrators** are routed through the Application
-  Landscape and remain subject to their recorded readiness boundaries.
-- **Field Notes** are read through their Governance reference and remain
-  distinct from Research and Evidence.
-- **Historical Audits and Reviews** preserve the state observed at their date.
-  Use them for provenance, then return to the Baseline Freeze for the current
-  documentary entry.
+This public repository owns the inspectable scientific record. Private Mission
+Control owns scheduling, prioritization, personal workflow and the Science Lab
+Research Director Desk. The private Desk may point here; it cannot silently
+change a public Study's evidence or status.
 
-## Historical and review packages
+The boundary is recorded in
+[SL-GOV-003](SCIENCE_LAB/GOVERNANCE/SL_GOV_003_FRONTSTAGE_BACKSTAGE_BOUNDARY.md).
 
-Completed audits, architecture reviews, orientation pilots, runtime
-assessments and publishing reviews remain in place as dated records. Their
-historical Git-state observations must not be substituted for a live Git check.
-Start from this README and the Baseline Freeze, then enter a historical package
-through its own README when provenance or an earlier decision is relevant.
+The older `00_LAB_ENTRY/`, `SCIENCE_LAB/ACTIVE_WORK.md` and management files in
+`LAB_DESK/` are retained temporarily as historical migration snapshots. They
+are not current entry points or task authority.
 
-The Scientific Constitution defines the enduring methodological direction.
-Programs, Reports, Evidence and Experiments remain independently versioned, and
-navigation never changes their evidence status.
+## License and contribution boundary
+
+Inspect the license and provenance of the specific package before reuse. A
+repository-wide contribution route does not override third-party data,
+historical artifact or package-specific restrictions.
+
+No contribution, issue, replay or pull request becomes an adopted scientific
+result without the documented audit, integration and closure path.

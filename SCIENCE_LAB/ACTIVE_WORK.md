@@ -4,6 +4,10 @@ Status date: 2026-08-14
 
 Lab operations state: **STRUCTURE_FREEZE**
 
+Record status: **HISTORICAL_MIGRATION_SNAPSHOT**. Current private work control
+lives at `NEXAH-Mission-Control/00_LAB_RESEARCH_DIRECTOR_DESK/ACTIVE_WORK.md`.
+This public snapshot does not schedule work.
+
 ## Scientific WIP
 
 | Slot | Record | Status |
