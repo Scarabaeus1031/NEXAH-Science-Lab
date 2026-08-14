@@ -1,0 +1,32 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "$id":"A5XEFR_GENERIC_RAW_EVIDENCE_V1",
+  "type":"object",
+  "additionalProperties":false,
+  "required":["schema","execution_identity","evidence","provenance"],
+  "properties":{
+    "schema":{"const":"A5XEFR_GENERIC_RAW_EVIDENCE_V1"},
+    "execution_identity":{"$ref":"#/$defs/identity"},
+    "evidence":{"type":"object","required":["manifest","authority_binding","observed_rows","model_spec","null_worlds","bootstrap","n5","sensitivities"]},
+    "provenance":{"type":"object","additionalProperties":false,"required":["identity_sha256","evidence_sha256"],"properties":{"identity_sha256":{"type":"string","pattern":"^[0-9a-f]{64}$"},"evidence_sha256":{"type":"string","pattern":"^[0-9a-f]{64}$"}}}
+  },
+  "$defs":{
+    "identity":{
+      "type":"object",
+      "additionalProperties":false,
+      "required":["evidence_mode","registered","registered_data","fixture","payload_kind","payload_origin","conformance_only","scientific_result_claimed","authority","authorization"],
+      "properties":{
+        "evidence_mode":{"enum":["FIXTURE","REGISTERED"]},
+        "registered":{"type":"boolean"},
+        "registered_data":{"type":"boolean"},
+        "fixture":{"type":"boolean"},
+        "payload_kind":{"enum":["SYNTHETIC_FIXTURE","SYNTHETIC_REGISTERED_INTERFACE_CONFORMANCE","REGISTERED_SCIENTIFIC_EVIDENCE"]},
+        "payload_origin":{"enum":["SYNTHETIC","REGISTERED"]},
+        "conformance_only":{"type":"boolean"},
+        "scientific_result_claimed":{"type":"boolean"},
+        "authority":{"type":"object","additionalProperties":false,"required":["a5xef_root_sha256","a5xef_review_tree_sha256"],"properties":{"a5xef_root_sha256":{"type":"string","pattern":"^[0-9a-f]{64}$"},"a5xef_review_tree_sha256":{"type":"string","pattern":"^[0-9a-f]{64}$"}}},
+        "authorization":{"type":"object","additionalProperties":false,"required":["present","reference"],"properties":{"present":{"type":"boolean"},"reference":{"type":["string","null"]}}}
+      }
+    }
+  }
+}

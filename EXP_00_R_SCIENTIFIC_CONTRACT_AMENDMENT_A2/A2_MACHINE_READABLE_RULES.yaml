@@ -1,0 +1,241 @@
+{
+  "schema_version": "2.0",
+  "amendment_id": "EXP00R-SCIENTIFIC-CONTRACT-A2-20260808",
+  "status": "PROSPECTIVE_NOT_IMPLEMENTED_NOT_EXECUTED",
+  "authoritative_v1": {
+    "config_id": "EXP00R-ROSSLER-2REP-XCTRL-H1-FROZEN-20260808-v1",
+    "composite_sha256": "971d4d947366f54692f72bbf20ac89ac4fcf7d11d4654f65bd4bfc6e1658bc05"
+  },
+  "immutable_v1_refs": {
+    "trajectory_neighbors": {"json_path": "representations.trajectory.neighbors", "value": 25},
+    "trajectory_epsilon": {"json_path": "representations.trajectory.epsilon", "value": 1e-12},
+    "field_neighbors": {"json_path": "representations.learned_field.neighbors", "value": 100},
+    "field_ridge_alpha": {"json_path": "representations.learned_field.ridge_alpha", "value": 1e-6},
+    "field_derivative_interval": {"json_path": "representations.learned_field.derivative_interval", "value": 0.05},
+    "support_quantile": {"json_path": "support.threshold_quantile", "value": 0.99},
+    "actions": {"json_path": "actions.normalized_levels+primary_amplitude", "value": [-0.5, -0.25, 0.0, 0.25, 0.5]},
+    "dt": {"json_path": "plant.dt", "value": 0.005},
+    "horizon": {"json_path": "plant.evaluation_horizon", "value": 1.0},
+    "primary_population": {"json_path": "analysis.primary_population", "value": "all_both_supported_states_including_zero_action_carriers"},
+    "null_repetitions": {"json_path": "nulls.repetitions", "value": 200},
+    "bootstrap_repetitions": {"json_path": "analysis.cluster_bootstrap_repetitions", "value": 500}
+  },
+  "N5": {
+    "role": "VALIDITY_AND_IMPLEMENTATION_INTEGRITY_ONLY",
+    "stochastic_null": false,
+    "tiers": {
+      "N5_SYNTH": {
+        "stage": "PRE_AUTHORIZATION_PRE_REGISTERED_SEED_RELEASE",
+        "population": "FIXED_A1_SYNTHETIC_ORIGINAL_JOINTLY_SUPPORTED_QUERIES",
+        "minimum_rows": 20,
+        "failure": "IMPLEMENTATION_FAILURE"
+      },
+      "N5_RUN": {
+        "stage_after": ["AUTHORIZED_TRAINING_TABLE", "TARGET", "ORIGINAL_FITS", "HELDOUT_PREDICTIONS", "ORIGINAL_SUPPORT_ACCOUNTING"],
+        "stage_before": ["INTERVENTION_OUTCOMES", "PRIMARY_REGRESSION", "N1", "N2", "N3", "N4", "SENSITIVITIES", "BOOTSTRAP", "CLASSIFICATION"],
+        "population": "ORIGINAL_UNTRANSFORMED_JOINTLY_SUPPORTED_HELDOUT_ROWS_INCLUDING_ZERO_CARRIER_ACTIONS",
+        "population_fixed_before_transformed_fit": true,
+        "transformed_abstention": "INVALID_EXPERIMENT",
+        "failure": "INVALID_EXPERIMENT"
+      }
+    },
+    "transforms": {
+      "matrix_type": "3X3_SIGNED_PERMUTATION",
+      "determinant": 1,
+      "order": "LEXICOGRAPHIC_FLATTENED_NUMERIC_ASCENDING",
+      "count": 12,
+      "executions_per_transform_per_tier": 1,
+      "monte_carlo_repetitions": 0
+    },
+    "representation_parameters": {
+      "trajectory_neighbors_ref": "immutable_v1_refs.trajectory_neighbors",
+      "trajectory_epsilon_ref": "immutable_v1_refs.trajectory_epsilon",
+      "field_neighbors_ref": "immutable_v1_refs.field_neighbors",
+      "field_ridge_alpha_ref": "immutable_v1_refs.field_ridge_alpha",
+      "field_derivative_interval_ref": "immutable_v1_refs.field_derivative_interval",
+      "support_quantile_ref": "immutable_v1_refs.support_quantile"
+    },
+    "synthetic_fixture": {
+      "field_matrix": [[-0.2, -1.0, -0.1], [1.0, -0.3, 0.0], [0.2, 0.0, -0.4]],
+      "actuator": [1.0, 0.0, 0.0],
+      "actions_ref": "immutable_v1_refs.actions",
+      "integrator": "FIXED_STEP_RK4",
+      "dt_ref": "immutable_v1_refs.dt",
+      "horizon_ref": "immutable_v1_refs.horizon",
+      "observation_interval": 0.05,
+      "training_axes": {"x": [-1.0, -0.5, 0.0, 0.5, 1.0], "y": [-1.0, -0.5, 0.0, 0.5, 1.0], "z": [-1.0, -0.5, 0.0, 0.5, 1.0]},
+      "query_axes": {"x": [-0.75, -0.25, 0.25, 0.75], "y": [-0.6, -0.2, 0.2, 0.6], "z": [-0.5, 0.0, 0.5]},
+      "cartesian_order": "LEXICOGRAPHIC_X_Y_Z",
+      "target": "BUILD_ONCE_FROM_ORIGINAL_TRAINING_STATES_USING_FROZEN_V1_RULE",
+      "comparison_population": "ORIGINAL_JOINTLY_SUPPORTED_QUERIES",
+      "minimum_comparison_rows": 20
+    },
+    "transform_rules": {
+      "state": "x_prime=Q@x",
+      "all_training_path_states": true,
+      "all_query_states": true,
+      "actuator": "B_prime=Q@B",
+      "scalar_actions": "UNCHANGED",
+      "standardizer_mean": "mu_prime=Q@mu",
+      "standardizer_scale": "PERMUTE_SCALE_BY_UNSIGNED_SOURCE_COORDINATE_OF_Q_ROWS",
+      "target_center": "c_prime=Q@c",
+      "target_radius": "UNCHANGED",
+      "reselect_high_x_subset": false,
+      "support": "REFIT_ON_TRANSFORMED_TRAINING_DECISION_STATES_AND_EVALUATE_TRANSFORMED_PATHS",
+      "refit_representations": ["TRAJECTORY", "LEARNED_FIELD"],
+      "inverse_registration": "Q_TRANSPOSE_ON_STATE_VALUED_TERMINAL_OUTPUT_BEFORE_ORIGINAL_TARGET_SCORE",
+      "ground_truth_outcome_rows": "NOT_USED_OR_RECOMPUTED"
+    },
+    "ranking_comparison": {
+      "ranking": "ASCENDING_WEAK_PREORDER_AVERAGE_EXACT_TIES",
+      "statistic": "KENDALL_TAU_B_PER_QUERY_PER_REPRESENTATION_PER_TRANSFORM",
+      "minimum_operator": ">=",
+      "minimum": 0.99,
+      "both_constant_identical": 1.0,
+      "other_undefined": 0.0,
+      "missing_ranking": "TIER_FAILURE"
+    }
+  },
+  "seed_dominance": {
+    "population": "FROZEN_PRIMARY_JOINTLY_SUPPORTED_ROWS_INCLUDING_ZERO_CARRIER_ACTIONS",
+    "carriers": ["TRAJECTORY", "LEARNED_FIELD"],
+    "predictions": "SAME_PRIMARY_BASELINE_AND_AUGMENTED_PROBABILITIES_NO_PER_SEED_REFIT",
+    "probability_clip": [1e-15, 0.999999999999999],
+    "input_numeric": "FINITE_IEEE754_BINARY64_PER_ROW_LOG_LOSS",
+    "exact_conversion": "REDUCED_ARBITRARY_PRECISION_INTEGER_RATIO_OF_BINARY64_BIT_PATTERN",
+    "row_order": "CANONICAL_ROW_ID_ASCENDING",
+    "seed_order": "INTEGER_SEED_ID_ASCENDING",
+    "contribution_formula": "g[c,s]=(1/N[c])*SUM_i_in_seed(q(loss0_i)-q(loss1_i))",
+    "clip_contributions": false,
+    "exact_summation": "ARBITRARY_PRECISION_RATIONAL",
+    "serialization": "REDUCED_NUMERATOR_DENOMINATOR_POSITIVE_DENOMINATOR",
+    "ranking": {"primary": "EXACT_G_DESCENDING", "tie_break": "SEED_ID_ASCENDING", "top_count": 3},
+    "decision": {
+      "nonfinite_input": "INVALID_EXPERIMENT",
+      "fewer_than_three_eligible_seeds": "INVALID_EXPERIMENT",
+      "aggregate_nonpositive": "FAIL_AGGREGATE_NONPOSITIVE",
+      "exact_comparison": "WHEN_G_POSITIVE_PASS_IFF_2_TIMES_D3_LESS_THAN_OR_EQUAL_TO_G",
+      "division": false,
+      "epsilon_or_tolerance": false,
+      "equality_at_half": "PASS",
+      "both_carriers_required": true
+    },
+    "zero_row_seed": "EXCLUDE_AND_REPORT_NO_ELIGIBLE_ROWS",
+    "no_endpoint_variation": "INCLUDE",
+    "negative_contributions": "RETAIN_SIGNED",
+    "reproducibility": "IDENTICAL_INPUT_BINARY64_BITS_AND_SERIALIZED_RATIONAL_PAIRS_REQUIRED"
+  },
+  "shared_null_contract": {
+    "repetition_ids": {"start": 0, "stop_inclusive": 199, "count": 200},
+    "dependencies": ["SEALED_CONFIG_AND_SEEDS", "ORIGINAL_TRAIN_ALL_ACTION_TABLE", "TARGET", "ORIGINAL_OOF_RECORDS", "ORIGINAL_FULL_FITS", "ORIGINAL_TEST_ALL_ACTION_TABLE", "ORIGINAL_SCORES_RANKS_SUPPORT_COVARIATES_ACTIONS_OUTCOMES_ROW_IDS", "FROZEN_N3_N4_METADATA"],
+    "train_population": "ORIGINAL_JOINTLY_SUPPORTED_OOF_VALIDATION_ROW_IDS_INCLUDING_ZERO_CARRIER_ACTIONS",
+    "test_population": "ORIGINAL_JOINTLY_SUPPORTED_EXTERNAL_TEST_ROW_IDS_INCLUDING_ZERO_CARRIER_ACTIONS",
+    "support_membership": "FROZEN_ORIGINAL_NO_NULL_INTERSECTION_NO_NULL_ROW_DELETION",
+    "agreement_population": "TEST_POPULATION",
+    "model_fit_population": "TRAIN_POPULATION",
+    "model_evaluation_population": "TEST_POPULATION",
+    "both_carriers_same_row_ids": true,
+    "new_physical_simulation": false,
+    "required_statistics": ["MEAN_COHERENCE", "TOP_ACTION_AGREEMENT", "TRAJECTORY_COHERENCE_COEFFICIENT", "TRAJECTORY_LOG_LOSS_IMPROVEMENT", "FIELD_COHERENCE_COEFFICIENT", "FIELD_LOG_LOSS_IMPROVEMENT"],
+    "undefined_replicate": "INVALID_REPLICATE_NO_RETRY_NO_REPLACEMENT",
+    "any_invalid_replicate": "INVALID_EXPERIMENT"
+  },
+  "null_worlds": {
+    "N1": {
+      "name": "ACTION_LABEL_PERMUTATION_REFIT",
+      "randomization_unit": "ONE_INDEPENDENT_UNIFORM_5_ACTION_BIJECTION_PER_REPRESENTATION_PER_TRAINING_SEED_PER_REPETITION_IDENTITY_ALLOWED",
+      "rng_namespace": ["CONFIG_ID", "N1", "REPETITION", "REPRESENTATION", "TRAINING_SEED"],
+      "fixed_objects": ["RAW_PATH_STATES", "DECISION_STATES", "TARGET", "PHYSICAL_ACTION_SET", "ORIGINAL_SUPPORT_MODELS_THRESHOLDS_FLAGS", "TRAIN_TEST_ROW_IDS", "OOF_FOLDS", "STATE_TARGET_PHASE_SUPPORT_COVARIATES", "ALL_ACTION_OUTCOME_TABLES"],
+      "refit": {
+        "trajectory": "RELABEL_TERMINAL_OUTCOMES_BY_PERMUTED_ACTION_AND_REFIT_EACH_OOF_FOLD_AND_FULL_TRAIN",
+        "field": "RELABEL_PATH_ACTION_AND_SUBTRACT_B_TIMES_PERMUTED_ACTION_THEN_REFIT_EACH_OOF_FOLD_AND_FULL_TRAIN"
+      },
+      "recomputed_objects": ["T_SCORES_RANKS_MARGINS", "F_SCORES_RANKS_MARGINS", "FIELD_FLOW_NORM", "FIELD_LOCAL_EXPANSION", "COHERENCE", "TOP_ACTION_AGREEMENT", "CARRIER_ACTION_MAGNITUDE_SIGN", "CARRIER_ACTIONS", "CARRIER_OUTCOMES", "NULL_BASELINE_MODEL_AND_PREDICTIONS", "NULL_AUGMENTED_MODEL_AND_PREDICTIONS"],
+      "support_rule": "ORIGINAL_SUPPORT_FLAGS_BINDING_NULL_PATH_SUPPORT_NOT_A_SELECTION_RULE",
+      "fixed_row_scoring_failure": "INVALID_REPLICATE",
+      "carrier_action": {"T": "NULL_TRAJECTORY_TOP_ACTION_FROZEN_TIE_RULE", "F": "NULL_FIELD_TOP_ACTION_FROZEN_TIE_RULE"},
+      "outcome_rule": "SELECT_NULL_CARRIER_ACTION_TERMINAL_FROM_EXISTING_ROW_ALL_ACTION_TABLE_COMPARE_EXISTING_ZERO_ACTION_TERMINAL_RECOMPUTE_DELTA_J_AND_SUCCESS",
+      "outcome_simulation": false,
+      "populations_ref": "shared_null_contract.train_population+test_population"
+    },
+    "N2": {
+      "name": "WITHIN_SEED_FIELD_RANK_PERMUTATION",
+      "randomization_unit": "WITHOUT_REPLACEMENT_PERMUTATION_OF_COMPLETE_ORIGINAL_FIELD_WEAK_RANK_VECTORS_WITHIN_EACH_OOF_VALIDATION_SEED_AND_TEST_SEED_FIXED_POINTS_ALLOWED",
+      "rng_namespace": ["CONFIG_ID", "N2", "REPETITION", "SPLIT", "SEED"],
+      "fixed_objects": ["ALL_SCORES_MARGINS_BASELINE_COVARIATES_SUPPORT_ROW_IDS_TRAJECTORY_RANKS_CARRIER_ACTIONS_OUTCOME_LABELS"],
+      "recomputed_objects": ["COHERENCE", "TOP_ACTION_AGREEMENT", "AUGMENTED_LOGISTIC_MODEL_AND_PREDICTIONS"],
+      "baseline_model": "FROZEN_PRIMARY_BASELINE",
+      "support_rule": "FROZEN_ORIGINAL",
+      "carrier_action": "FROZEN_OBSERVED",
+      "outcome_rule": "FROZEN_OBSERVED_CARRIER_OUTCOME_ROWS_EVEN_IF_DONOR_TOP_ACTION_DIFFERS",
+      "populations_ref": "shared_null_contract.train_population+test_population"
+    },
+    "N3": {
+      "name": "STATE_REPRESENTATION_MISMATCH",
+      "strata": {
+        "phase": "ATAN2_Y_X_EIGHT_EQUAL_BINS_MINUS_PI_INCLUSIVE_PI_EXCLUSIVE_NUMBERED_0_TO_7_COUNTERCLOCKWISE",
+        "target_distance_cutpoints": "TRAINING_METADATA_NUMPY_LINEAR_QUANTILES_0.2_0.4_0.6_0.8",
+        "empty_phase_merge": "PER_TARGET_QUINTILE_MAP_EMPTY_BIN_TO_FIRST_NONEMPTY_BIN_BY_INCREASING_INDEX_MODULO_8_NONEMPTY_MAPS_TO_SELF",
+        "map_source": "REGISTERED_TRAINING_DECISION_METADATA_ONLY_FROZEN_BEFORE_REPETITIONS"
+      },
+      "randomization_unit": "FOR_EACH_RECIPIENT_UNIFORM_WITH_REPLACEMENT_FIELD_RANK_DONOR_FROM_DIFFERENT_SEED_SAME_MAPPED_PHASE_AND_TARGET_QUINTILE",
+      "rng_namespace": ["CONFIG_ID", "N3", "REPETITION", "SPLIT", "RECIPIENT_ROW_ID"],
+      "no_donor": "INVALID_REPLICATE",
+      "fixed_objects_ref": "null_worlds.N2.fixed_objects",
+      "recomputed_objects_ref": "null_worlds.N2.recomputed_objects",
+      "support_rule": "FROZEN_ORIGINAL",
+      "carrier_action": "FROZEN_OBSERVED",
+      "outcome_rule": "FROZEN_OBSERVED",
+      "populations_ref": "shared_null_contract.train_population+test_population"
+    },
+    "N4": {
+      "name": "SUPPORT_MATCHED_FIELD_RANK_PERMUTATION",
+      "subworlds": ["N4_T", "N4_F"],
+      "subworld_repetitions": "SAME_COMMON_200_REPETITION_IDS_NOT_ADDITIONAL_NULL_FAMILIES",
+      "strata": {
+        "support_cutpoints": "TRAINING_METADATA_NUMPY_LINEAR_DECILES_0.1_TO_0.9",
+        "target_cutpoints": "TRAINING_METADATA_NUMPY_LINEAR_QUANTILES_0.2_0.4_0.6_0.8",
+        "action_magnitude_classes": [0.0, 0.25, 0.5],
+        "N4_T_magnitude": "ORIGINAL_T_CARRIER_ACTION_MAGNITUDE",
+        "N4_F_magnitude": "ORIGINAL_F_CARRIER_ACTION_MAGNITUDE",
+        "construction_scope": "SEPARATE_BY_SPLIT_CARRIER_INDEX_TARGET_QUINTILE_MAGNITUDE_CLASS_BEFORE_REPETITIONS",
+        "merge_algorithm": ["INITIAL_GROUP_PER_DECILE_0_TO_9", "SCAN_ORIGINAL_DECILES_ASCENDING", "IF_CURRENT_GROUP_SIZE_LT_10_MERGE_SMALLEST_STRICTLY_HIGHER_CURRENT_GROUP", "IF_NO_HIGHER_MERGE_GREATEST_STRICTLY_LOWER_CURRENT_GROUP", "REPEAT_ASCENDING_SCANS_UNTIL_ALL_NONEMPTY_GROUPS_AT_LEAST_10", "IF_SUBGROUP_TOTAL_LT_10_OR_NO_SOLUTION_INVALID_EXPERIMENT"]
+      },
+      "randomization_unit": "WITHOUT_REPLACEMENT_PERMUTATION_OF_FIELD_WEAK_RANK_VECTORS_WITHIN_STORED_MERGED_STRATUM_FIXED_POINTS_ALLOWED",
+      "rng_namespace": ["CONFIG_ID", "N4", "REPETITION", "SPLIT", "CARRIER_INDEX", "STRATUM"],
+      "fixed_objects_ref": "null_worlds.N2.fixed_objects",
+      "recomputed_objects_ref": "null_worlds.N2.recomputed_objects",
+      "support_rule": "FROZEN_ORIGINAL",
+      "carrier_action": "FROZEN_OBSERVED",
+      "outcome_rule": "FROZEN_OBSERVED",
+      "P1_rule": "OBSERVED_AGREEMENT_MUST_PASS_BOTH_N4_T_AND_N4_F_DISTRIBUTIONS",
+      "P3_rule": "T_USES_N4_T_F_USES_N4_F",
+      "populations_ref": "shared_null_contract.train_population+test_population"
+    }
+  },
+  "monte_carlo": {
+    "formula": "p=(1+count(T_null>=T_observed))/201",
+    "direction": "OBSERVED_GREATER",
+    "ties": "ADVERSE",
+    "alpha": 0.025,
+    "maximum_k_for_pass": 4,
+    "P1": "MEAN_COHERENCE_AND_TOP_ACTION_AGREEMENT_PASS_N1_N2_N3_N4_T_N4_F",
+    "P2": "COEFFICIENT_NULL_P_VALUES_DIAGNOSTIC_ONLY_FROZEN_POSITIVE_COEFFICIENT_AND_CLUSTERED_INTERVAL_RULE",
+    "P3": "BOTH_CARRIERS_POSITIVE_LOG_LOSS_NONWORSE_BRIER_AND_PASS_N1_N2_N3_MATCHING_N4",
+    "N5": "VALIDITY_ONLY"
+  },
+  "prose_anchors": {
+    "dominance": "[A2-R01-COMPARE]",
+    "N1": "N1 — action-label permutation/refit null",
+    "N2": "N2 — within-seed field-rank permutation",
+    "N3": "N3 — state/representation mismatch",
+    "N4": "N4 — support-matched rank permutation",
+    "monte_carlo": "p=(1+count(T_null>=T_observed))/201"
+  },
+  "nonexecution": {
+    "scientific_implementation_created": false,
+    "authorization_created": false,
+    "registered_data_accessed": false,
+    "registered_experiment_executed": false
+  }
+}

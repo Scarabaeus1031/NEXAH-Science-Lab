@@ -1,0 +1,19 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "$id":"A5XEF_GENERIC_RAW_EVIDENCE_V1",
+  "type":"object",
+  "additionalProperties":false,
+  "required":["schema","manifest","primary_config","model_spec","observed_rows","null_worlds","bootstrap","n5","sensitivities","authority_binding","provenance"],
+  "properties":{
+    "schema":{"const":"A5XEF_GENERIC_RAW_EVIDENCE_V1"},
+    "manifest":{"type":"object","additionalProperties":false,"required":["experiment_id","namespace","seed_ids","splits","rows_per_seed_per_split","actions","support_thresholds","config_id","registered"],"properties":{"experiment_id":{"type":"string"},"namespace":{"type":"string","pattern":"^[A-Z][A-Z0-9_:-]{2,63}$"},"seed_ids":{"type":"array","minItems":30,"maxItems":30,"uniqueItems":true,"items":{"type":"string","pattern":"^[A-Z][A-Z0-9_:-]{2,63}$"}},"splits":{"const":["TRAIN_OOF","TEST"]},"rows_per_seed_per_split":{"const":50},"actions":{"const":[-0.5,-0.25,0,0.25,0.5]},"support_thresholds":{"type":"object","required":["T","F"],"additionalProperties":false,"properties":{"T":{"type":"number"},"F":{"type":"number"}}},"config_id":{"type":"string"},"registered":{"const":false}}},
+    "model_spec":{"type":"object","additionalProperties":true,"required":["family","C","max_iter","tolerance","linear_predictor_clip","probability_clip","baseline_features","augmented_feature","standardization","intercept_penalized","canonical_order"]},
+    "observed_rows":{"type":"array","minItems":3000,"maxItems":3000,"items":{"$ref":"#/$defs/rawRow"}},
+    "sensitivities":{"type":"array","minItems":12,"maxItems":12,"items":{"type":"object","required":["ordinal","sensitivity_id","changed_factor_path","primary_value","sensitivity_value","p5","variant_config","variant_config_sha256","unchanged_config_sha256","contributing_seed_ids","rows_per_seed","required_outputs","variant_actions","variant_support_thresholds","variant_train_seed_ids","variant_rows"]}},
+    "null_worlds":{"type":"object","required":["N1","N2","N3","N4_T","N4_F"],"additionalProperties":true},
+    "bootstrap":{"type":"object","required":["cluster_unit","seed","replicate_ids"],"additionalProperties":false},
+    "n5":{"type":"object","required":["matrix_registry","SYNTH","RUN"],"additionalProperties":true},
+    "primary_config":{"type":"object"},"authority_binding":{"type":"object"},"provenance":{"type":"array","minItems":9,"maxItems":9}
+  },
+  "$defs":{"rawRow":{"type":"object","additionalProperties":false,"required":["row_id","split","seed_id","decision_index","state_id","state","state_signal","T_scores","F_scores","T_support_distance","F_support_distance","action_success"],"properties":{"row_id":{"type":"string"},"split":{"enum":["TRAIN_OOF","TEST"]},"seed_id":{"type":"string","pattern":"^[A-Z][A-Z0-9_:-]{2,63}$"},"decision_index":{"type":"integer","minimum":0,"maximum":49},"state_id":{"type":"string"},"state":{"type":"array","minItems":3,"maxItems":3,"items":{"type":"number"}},"state_signal":{"type":"number"},"T_scores":{"type":"array","minItems":5,"maxItems":5,"items":{"type":"number"}},"F_scores":{"type":"array","minItems":5,"maxItems":5,"items":{"type":"number"}},"T_support_distance":{"type":"number"},"F_support_distance":{"type":"number"},"action_success":{"type":"array","minItems":5,"maxItems":5,"items":{"enum":[0,1]}}}}}
+}

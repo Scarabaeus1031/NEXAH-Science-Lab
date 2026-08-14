@@ -1,0 +1,16 @@
+{
+ "schema":"A5XR_RAW_DERIVATION_V1","scientific_change":false,
+ "authority":{"v1":"971d4d947366f54692f72bbf20ac89ac4fcf7d11d4654f65bd4bfc6e1658bc05","a5x_root":"c5b35bbbbc7551fb5cddd8cc5468ba0aa8bcf4e895ef8bbe0b55f341821c4100"},
+ "registries":{"synthetic_seeds":"SYNTH_00..SYNTH_29","carriers":["T","F"],"representations":["TRAJECTORY","LEARNED_FIELD"],"actions":[-0.5,-0.25,0.0,0.25,0.5],"nulls":["N1","N2","N3","N4_T","N4_F"],"replicates":{"start":0,"stop":199,"count":200},"transforms":{"count":12,"source":"A4.N5.matrices"}},
+ "N1":{"map":"FORWARD","refit":"BOTH_ALL_OOF_AND_FULL","support":"ORIGINAL_FROZEN","outcome":"PHYSICAL_ACTION_EXISTING_TABLE"},
+ "N2":{"unit":"WITHIN_SPLIT_AND_SEED","assignment":"RECIPIENT_GETS_DONOR","replacement":false},
+ "N3":{"donor":"DIFFERENT_SEED_SAME_MAPPED_PHASE_TARGET","binding":"RECIPIENT_GETS_DONOR","clockwise":"DECREASING_MODULO_8","boundary":"RIGHT_INSERTION_HIGHER_BIN"},
+ "N4":{"distance":"FULL_TRAINING_LOO_NEAREST_SINGLE_STANDARDIZER","merge":"HIGHER_FIRST_ELSE_LOWER_RESTART","mapping":{"T":"N4_T","F":"N4_F"}},
+ "N5":{"count":12,"order":"FIRST_12_DET_PLUS_1_LEXICOGRAPHIC","determinant":1,"inverse_registration":"Q_TRANSPOSE_BEFORE_SCORE","aggregation":"MINIMUM","threshold":0.99,"SYNTH_failure":"IMPLEMENTATION_FAILURE_NO_RELEASE","RUN_failure":"INVALID_EXPERIMENT"},
+ "rng":{"namespace_fields":{"N1":["REP","SEED"],"N2":["SPLIT","SEED"],"N3":["SPLIT","ROW"],"N4":["SPLIT","CARRIER","STRATUM"]},"serialization":"CONFIG_ID|FAMILY|REPLICATE|TAG=VALUE","hash":"SHA-256","slice":[0,8],"byte_order":"BIG_ENDIAN","bits":64,"generator":"NUMPY_2.3.5_PCG64","fresh":true,"draw_order":"CANONICAL_OBJECT_ORDER"},
+ "dominance":{"arithmetic":"EXACT_BINARY64_RATIONAL","signed":true,"rule":"G>0_AND_2D3<=G","fewer_than_3":"INVALID"},
+ "P4":{"critical":["T_PRIMARY_CARRIER","F_PRIMARY_CARRIER"],"report_only":["TRAJECTORY_ONLY_OUTCOME_PREDICTION","LEARNED_FIELD_ONLY_OUTCOME_PREDICTION","EQUAL_SCORE_FUSION_CARRIER"],"coefficient":">0","gain":">0","directions":"BOTH_21_OF_30_GE_0","dominance":"BOTH_PASS"},
+ "P5":{"variants":["ACTION_AMPLITUDE_0.25","ACTION_AMPLITUDE_1.0"],"coefficient":">0","gain":">0","interval":"PRIMARY_ONLY","no_rescue":true},
+ "classification":{"precedence":["INVALID","REPLICATED","PARTIALLY_REPLICATED","NOT_REPLICATED"],"invalid_positive_forbidden":true,"lorenz_ceiling":"PARTIAL CROSS-SYSTEM REPLICATION"},
+ "producer_decisions_authoritative":false
+}

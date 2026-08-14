@@ -1,0 +1,132 @@
+{
+  "schema_version": "4.0",
+  "amendment_id": "EXP00R-SCIENTIFIC-CONTRACT-A4-20260808",
+  "status": "PROSPECTIVE_CONTRACT_ONLY_NOT_IMPLEMENTED_NOT_EXECUTED",
+  "authority": {
+    "v1_config_id": "EXP00R-ROSSLER-2REP-XCTRL-H1-FROZEN-20260808-v1",
+    "v1_composite_sha256": "971d4d947366f54692f72bbf20ac89ac4fcf7d11d4654f65bd4bfc6e1658bc05",
+    "external_files": [
+      {"path":"EXP_00_R_ROSSLER_REPLICATION_FREEZE_V1/EXP_00_R_FROZEN_CONFIG.yaml","sha256":"622c2a62f679bf7f5faa35788d50eeccbed543bec638b7d0f91abdb9bee38944"},
+      {"path":"EXP_00_R_ROSSLER_REPLICATION/EXP_00_R_FALSIFICATION_CRITERIA.md","sha256":"98fecbf2be9c27043546c660779ca026b129cda868590c410dab1e1257593a2a"},
+      {"path":"EXP_00_R_ROSSLER_REPLICATION/EXP_00_R_CROSS_SYSTEM_COMPARISON_CONTRACT.md","sha256":"e8dd0f7966a0a99db3dae0501bfb3ce0458f44e4185ce5a0804713d2322bf4e7"},
+      {"path":"EXP_00_R_ROSSLER_REPLICATION/EXP_00_R_NULLS_AND_SENSITIVITIES.md","sha256":"a38d407a92fc09b10cf5f271bf9801eb9fa1f351a4c92d3fff66cb8516a94709"},
+      {"path":"EXP_00_R_ROSSLER_REPLICATION/EXP_00_R_SUPPORT_RULES.md","sha256":"0930711b2721f8a7bf28515ce48428ebd5104b0295bfdd4d9163feef59fcabcd"},
+      {"path":"EXP_00_R_SCIENTIFIC_CONTRACT_AMENDMENT_A1/A1_MACHINE_READABLE_RULES.yaml","sha256":"01f1b5f36cf4db6e1862d4cdd74480823148c998f30e4d055a386b88e5ef904a"},
+      {"path":"EXP_00_R_SCIENTIFIC_CONTRACT_AMENDMENT_A2/A2_MACHINE_READABLE_RULES.yaml","sha256":"e4ff751c40b1568ad4683a943e062209de13439a309f5e9e2a79fb465791cd25"},
+      {"path":"EXP_00_R_SCIENTIFIC_CONTRACT_AMENDMENT_A3/A3_MACHINE_READABLE_RULES.yaml","sha256":"0bd67734fdbb308d07aec6c494d1274c1f7a4f61d258f56a0d6cb94fdb2d9130"},
+      {"path":"EXP_00_R_SCIENTIFIC_CONTRACT_AMENDMENT_A3_INDEPENDENT_REVIEW/A3_INDEPENDENT_REVIEW.md","sha256":"d541e2f5654fd5c0b58b87f68a2dee004e0fddb05e2db9add5d20b3289ab7827"}
+    ],
+    "new_prospective_scientific_choices": ["N4_FULL_TRAINING_LOO_DISTANCE_CUTPOINT_VECTOR", "ROSSLER_CLASSIFICATION_PRECEDENCE"],
+    "scope_changes": false
+  },
+  "frozen_science": {
+    "train_seeds":{"start":5000,"stop_inclusive":5029,"count":30},
+    "test_seeds":{"start":6000,"stop_inclusive":6029,"count":30},
+    "actions":[-0.5,-0.25,0.0,0.25,0.5],
+    "representations":["TRAJECTORY","LEARNED_FIELD"],
+    "carriers":["T","F"],
+    "primary_population":"ORIGINAL_JOINTLY_SUPPORTED_ROWS_INCLUDING_ZERO_ACTION_CARRIERS",
+    "endpoint":"BINARY_DELTA_J_LTE_MINUS_0.01",
+    "model":"FROZEN_SEED_BLOCKED_L2_LOGISTIC_C_1.0",
+    "baseline_covariates":["STANDARDIZED_X","STANDARDIZED_Y","STANDARDIZED_Z","CURRENT_TARGET_DISTANCE","SIN_THETA","COS_THETA","LEARNED_FIELD_FLOW_NORM","LEARNED_FIELD_LOCAL_EXPANSION","NEAREST_TRAINING_DISTANCE","SUPPORT_FRACTION","TRAJECTORY_BEST_SCORE","TRAJECTORY_TOP_TWO_MARGIN","LEARNED_FIELD_BEST_SCORE","LEARNED_FIELD_TOP_TWO_MARGIN","CARRIER_ACTION_MAGNITUDE","CARRIER_ACTION_SIGN"],
+    "augmented_addition":"STANDARDIZED_C_TAU_ONLY"
+  },
+  "numeric_environment":{"float":"IEEE754_BINARY64","python":"3.12.13","numpy":"2.3.5","platform":"MACOS_26.5.2_ARM64","nonfinite_mandatory":"INVALID_EXPERIMENT"},
+  "ordering": {
+    "splits":["TRAIN_OOF","TEST"],"seeds":"ASCENDING_INTEGER","within_seed_rows":"ASCENDING_SAMPLING_INDEX_0_TO_49",
+    "row_key":["SPLIT_CODE","INTEGER_SEED_ID","WITHIN_SEED_DECISION_INDEX"],"actions":[-0.5,-0.25,0.0,0.25,0.5],
+    "representations":["TRAJECTORY","LEARNED_FIELD"],"carriers":["T","F"],"null_families":["N1","N2","N3","N4"],
+    "null_replicates":{"start":0,"stop_inclusive":199,"count":200},"donors":"CANONICAL_ROW_KEY_ASCENDING","permutation_members":"CANONICAL_ROW_KEY_ASCENDING",
+    "strata":["TARGET_BIN_ASCENDING","ACTION_MAGNITUDE_TOKEN_000_025_050","MEMBER_SUPPORT_DECILES_ASCENDING"],
+    "nearest_neighbors":"FINITE_DISTANCE_ASCENDING_THEN_CANONICAL_TRAINING_ROW_KEY_ASCENDING",
+    "sensitivity_axes":[
+      {"name":"ACTION_AMPLITUDE","values":[0.25,1.0]},
+      {"name":"TRAJECTORY_NEIGHBORS","values":[15,50]},
+      {"name":"LEARNED_FIELD_NEIGHBORS","values":[60,160]},
+      {"name":"HORIZON","values":[0.5,1.5]},
+      {"name":"TRAINING_SEED_HALF","values":[[5000,5014],[5015,5029]]},
+      {"name":"SUPPORT_QUANTILE","values":[0.95,0.995]}
+    ],
+    "global_scope":["DESIGN_MATRICES","FOLD_STANDARDIZATION","FITS","PREDICTIONS","METRIC_REDUCTIONS","PER_SEED_REDUCTIONS","BOOTSTRAP_EXPANSIONS","NULL_STATISTICS","SENSITIVITY_STATISTICS","ARTIFACT_SERIALIZATION"],
+    "forbidden":["DICTIONARY_ORDER","FILESYSTEM_ORDER","SET_ORDER","HASH_TABLE_ORDER","INCIDENTAL_NUMPY_OR_DATAFRAME_ORDER","UNSTABLE_SORT","LIBRARY_NEIGHBOR_TIE_ORDER"]
+  },
+  "rng": {
+    "payload":"UTF8(CONFIG_ID)+'|'+ASCII(FAMILY_TOKEN)+'|'+ASCII(REPLICATE_UNSIGNED_DECIMAL)+ORDERED_UTF8_SUFFIXES",
+    "suffix":"FOR_EACH_DECLARED_FIELD_APPEND_'|TAG=VALUE'","encoding":"UTF-8","terminator":"NONE","length_prefix":"NONE_CLOSED_ALPHABETS_EXCLUDE_PIPE_AND_EQUALS",
+    "integer":"UNSIGNED_BASE10_NO_LEADING_ZERO_EXCEPT_ZERO","enum_regex":"[A-Z0-9_.;,-]+","row":"SPLIT.SEED.INDEX","stratum":"Q<INT>;M<000|025|050>;D<ASCENDING_COMMA_DECILES>",
+    "family_tokens":{"N1":"action_label","N2":"rank_within_seed","N3":"state_mismatch","N4":"support_matched"},
+    "suffix_fields":{"N1":["REP","SEED"],"N2":["SPLIT","SEED"],"N3":["SPLIT","ROW"],"N4":["SPLIT","CARRIER","STRATUM"]},
+    "hash":"SHA-256","digest_bytes":[0,8],"byte_order":"BIG_ENDIAN","seed_width_bits":64,"generator":"numpy.random.Generator(numpy.random.PCG64(seed))","fresh_generator_per_namespace":true,"preliminary_draws":0,"retry":false,
+    "draws":{"N1":"ONE_PERMUTATION_5","N2":"ONE_PERMUTATION_N","N3":"ONE_INTEGERS_0_N_ENDPOINT_FALSE_DTYPE_INT64","N4":"ONE_PERMUTATION_N"},
+    "invalid_before_draw":"NO_GENERATOR_NO_DRAW_INVALID_REPLICATE",
+    "known_answers":[
+      {"payload":"fixture|action_label|7|REP=TRAJECTORY|SEED=5000","sha256":"0c5f93457cbf6b730bdfb7c3251c37cb70a72baeddf80326758acb5472fb0857","seed":891593177897593715,"call":"permutation(5)","output":[4,3,2,0,1]},
+      {"payload":"fixture|rank_within_seed|7|SPLIT=TEST|SEED=6000","sha256":"7e8a731d97dd45fd01e18cfcbd331819f8f6e05310e5d7764124a5c783d22c22","seed":9118226966504097277,"call":"permutation(8)","output":[2,3,5,4,0,7,6,1]},
+      {"payload":"fixture|state_mismatch|7|SPLIT=TEST|ROW=TEST.6000.3","sha256":"7cc3b038228f6bb96d52d4edfefcb2003df4aad87fc41889c1af1515688307dc","seed":8990223036306123705,"call":"integers(0,11,endpoint=False,dtype=int64)","output":5},
+      {"payload":"fixture|support_matched|7|SPLIT=TEST|CARRIER=T|STRATUM=Q2;M050;D3,4","sha256":"4e2585bbee95a2515dc90aeb338fda86c5b88fef6de09458f7248a092e3b7060","seed":5631053951304835665,"call":"permutation(10)","output":[5,6,8,4,2,0,3,7,9,1]}
+    ]
+  },
+  "bootstrap": {
+    "repetitions":500,"replicate_ids":{"start":0,"stop_inclusive":499},"cluster_unit":"TEST_SEED","seed":20260808,"seed_width_bits":64,
+    "generator":"ONE_FRESH_NUMPY_PCG64_STREAM_FOR_COMPLETE_BOOTSTRAP","draw":"FOR_EACH_REPLICATE_CHOICE_SORTED_30_UNIQUE_TEST_SEEDS_SIZE_30_REPLACE_TRUE",
+    "expansion":"DRAW_ORDER_THEN_CANONICAL_WITHIN_SEED_ROW_ORDER","repeated_cluster":"REPEAT_COMPLETE_CLUSTER","undefined":"INVALID_EXPERIMENT_NO_REDRAW",
+    "ci":{"probabilities":[0.025,0.975],"method":"NUMPY_LINEAR_2.3.5","finite_count":500}
+  },
+  "binning": {
+    "phase":{"function":"numpy.arctan2(y,x)_2.3.5","pi_hex":"0x1.921fb54442d18p+1","normalize_positive_pi_to_negative_pi":true,"interval":"[-PI,PI)","edges_hex":["-0x1.921fb54442d18p+1","-0x1.2d97c7f3321d2p+1","-0x1.921fb54442d18p+0","-0x1.921fb54442d18p-1","0x0.0p+0","0x1.921fb54442d18p-1","0x1.921fb54442d18p+0","0x1.2d97c7f3321d2p+1","0x1.921fb54442d18p+1"],"closure":"LEFT_CLOSED_RIGHT_OPEN","assignment":"RIGHT_INSERTION_INTERNAL_EDGES","exact_edge":"HIGHER_BIN","index_direction":"INCREASING_COUNTERCLOCKWISE","clockwise":"DECREASING_INDEX_MODULO_8"},
+    "quantiles":{"algorithm":"numpy.quantile_method_linear_2.3.5","source_order":"CANONICAL_COMPLETE_TRAINING_ROWS","target_probabilities":[0.2,0.4,0.6,0.8],"support_probabilities":[0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9],"storage":"BINARY64_HEX","assignment":"RIGHT_INSERTION_ALL_EQUAL_CUTPOINTS","exact_cutpoint":"HIGHER_BIN","duplicates":"RETAIN_EMPTY_INTERMEDIATE_BINS","minimum":"BIN_0","maximum":"LAST_BIN","nonfinite":"INVALID_EXPERIMENT"},
+    "N4_support_source":{"status":"NEW_PROSPECTIVE_SCIENTIFIC_CHOICE","population":"COMPLETE_ORIGINAL_TRAINING_DECISION_STATE_TABLE_BEFORE_OOF","coordinates":"SINGLE_FROZEN_FULL_TRAINING_STANDARDIZER","metric":"EUCLIDEAN","self":"EXCLUDED_BY_POSITIVE_INFINITY_DIAGONAL","value":"MIN_DISTANCE_TO_OTHER_TRAINING_ROW","not_allowed":["SELF_INCLUSIVE_ZERO","OOF_FOLD_DISTANCE_FOR_CUTPOINTS"]},
+    "recipient_distance":{"TRAIN_OOF":"ORIGINAL_OOF_RECORD_DISTANCE_TO_ITS_FOLD_TRAINING_LIBRARY","TEST":"ORIGINAL_TEST_RECORD_DISTANCE_TO_FULL_TRAINING_LIBRARY","null_refit_changes_distance":false},
+    "N3_merge":{"scope":"WITHIN_TARGET_QUINTILE","nonempty":"SELF","search":"FIRST_NONEMPTY_(B-D)_MOD_8_FOR_D_1_TO_7","all_empty":"INVALID_EXPERIMENT_BEFORE_REPETITIONS"},
+    "N4_merge":{"scope":["SPLIT","CARRIER","TARGET_BIN","ACTION_MAGNITUDE"],"initial_deciles":[0,1,2,3,4,5,6,7,8,9],"minimum_size":10,"scan":"ORIGINAL_DECILES_ASCENDING_RESTART_AFTER_EACH_MERGE","priority":"SMALLEST_STRICTLY_HIGHER_CURRENT_GROUP_ELSE_GREATEST_STRICTLY_LOWER","empty":"ABSENT","subgroup_total_lt_10":"INVALID_EXPERIMENT","label":"ASCENDING_MEMBER_ORIGINAL_DECILES"}
+  },
+  "shared_null": {
+    "slots":200,"train_population":"ORIGINAL_JOINTLY_SUPPORTED_OOF_VALIDATION_ROWS_INCLUDING_ZERO_ACTION_CARRIERS","test_population":"ORIGINAL_JOINTLY_SUPPORTED_EXTERNAL_TEST_ROWS_INCLUDING_ZERO_ACTION_CARRIERS","support":"FROZEN_ORIGINAL_NO_NULL_INTERSECTION_DELETION_OR_IMPUTATION","fit":"TRAIN_POPULATION","evaluate":"TEST_POPULATION","same_rows_both_carriers":true,"new_plant_simulation":false,
+    "required_statistics":["MEAN_COHERENCE","TOP_ACTION_AGREEMENT","T_STANDARDIZED_COHERENCE_COEFFICIENT","T_HELDOUT_LOG_LOSS_GAIN","F_STANDARDIZED_COHERENCE_COEFFICIENT","F_HELDOUT_LOG_LOSS_GAIN"],
+    "invalid_slot":"INVALID_REPLICATE_NO_RETRY_NO_REDRAW_NO_OMISSION_NO_NAN_THEN_INVALID_EXPERIMENT"
+  },
+  "nulls": {
+    "N1":{"randomized":"FORWARD_ACTION_LABEL_BIJECTION_PER_REPRESENTATION_TRAINING_SEED_REPLICATE_IDENTITY_ALLOWED","map":"pi(action[j])=action[p[j]]","trajectory_refit":"STORE_ORIGINAL_PATH_OUTCOME_UNDER_pi(a)_REFIT_ALL_OOF_AND_FULL","field_refit":"STORE_ORIGINAL_PATH_UNDER_pi(a)_SUBTRACT_B_TIMES_pi(a)_REFIT_ALL_OOF_AND_FULL","fixed":["RAW_PATHS","STATES","TARGET","ACTIONS","ORIGINAL_SUPPORT_MODELS_THRESHOLDS_FLAGS","ROW_IDS","FOLDS","ALL_ACTION_OUTCOMES"],"recomputed":["BOTH_REPRESENTATION_SCORES_RANKS_MARGINS","FIELD_FLOW_AND_EXPANSION","COHERENCE","TOP_AGREEMENT","NULL_CARRIERS","CARRIER_OUTCOMES","NULL_BASELINE_AND_AUGMENTED_MODELS"],"carrier":"NULL_REPRESENTATION_TOP_PHYSICAL_ACTION","outcome":"DIRECT_PHYSICAL_ACTION_LOOKUP_EXISTING_ALL_ACTION_TABLE","inverse_map_use":"FORBIDDEN_FOR_RELABEL_OR_OUTCOME","simulation":false},
+    "N2":{"randomized":"FIELD_WEAK_RANK_VECTOR_WITHOUT_REPLACEMENT_WITHIN_SPLIT_AND_SEED","assignment":"RECIPIENT_i_GETS_DONOR_p[i]","fixed":["ALL_SCORES_MARGINS_BASELINE_COVARIATES","SUPPORT","ROW_IDS","TRAJECTORY_RANKS","CARRIER_ACTIONS","CARRIER_OUTCOMES","BASELINE_MODEL_PREDICTIONS"],"recomputed":["COHERENCE","TOP_AGREEMENT","AUGMENTED_MODEL_PREDICTIONS"]},
+    "N3":{"randomized":"FIELD_WEAK_RANK_DONOR_WITH_REPLACEMENT_PER_RECIPIENT","donor_filter":"DIFFERENT_SEED_AND_SAME_FROZEN_MAPPED_PHASE_BIN_AND_TARGET_QUINTILE_IN_CORRESPONDING_FIXED_SPLIT_POPULATION","no_donor":"INVALID_REPLICATE_BEFORE_DRAW","fixed_and_recomputed":"SAME_AS_N2"},
+    "N4":{"subworlds":["N4_T","N4_F"],"shared_repetition_ids":true,"magnitude":{"N4_T":"ORIGINAL_T_CARRIER_MAGNITUDE","N4_F":"ORIGINAL_F_CARRIER_MAGNITUDE"},"randomized":"FIELD_WEAK_RANK_WITHOUT_REPLACEMENT_WITHIN_STORED_MERGED_STRATUM","assignment":"RECIPIENT_i_GETS_DONOR_p[i]","fixed_and_recomputed":"SAME_AS_N2","P1":"BOTH_SUBWORLDS","P3":{"T":"N4_T","F":"N4_F"}}
+  },
+  "monte_carlo":{"direction":"OBSERVED_GREATER","ties":"ADVERSE","k":"COUNT_NULL_GREATER_OR_EQUAL_OBSERVED","p":"(1+k)/201","alpha":0.025,"pass_iff_k_lte":4,"nearest_rank":{"probability":0.975,"sort":"VALUE_ASCENDING_THEN_REPLICATE_ID","one_based_rank":195,"zero_based_index":194,"decision_authority":false}},
+  "N5": {
+    "status":"PRESERVED_ACCEPTED_A3_CONTRACT","role":"VALIDITY_AND_IMPLEMENTATION_INTEGRITY_ONLY","stochastic":false,"matrix_type":"3X3_SIGNED_PERMUTATION_DETERMINANT_PLUS_1","matrix_order":"ROW_MAJOR_TUPLE_LEXICOGRAPHIC_-1_LT_0_LT_1","selection":"FIRST_12","count":12,"executions_per_matrix_per_tier":1,
+    "matrices":[[[-1,0,0],[0,-1,0],[0,0,1]],[[-1,0,0],[0,0,-1],[0,-1,0]],[[-1,0,0],[0,0,1],[0,1,0]],[[-1,0,0],[0,1,0],[0,0,-1]],[[0,-1,0],[-1,0,0],[0,0,-1]],[[0,-1,0],[0,0,-1],[1,0,0]],[[0,-1,0],[0,0,1],[-1,0,0]],[[0,-1,0],[1,0,0],[0,0,1]],[[0,0,-1],[-1,0,0],[0,1,0]],[[0,0,-1],[0,-1,0],[-1,0,0]],[[0,0,-1],[0,1,0],[1,0,0]],[[0,0,-1],[1,0,0],[0,-1,0]]],
+    "parameters":{"trajectory_neighbors":25,"trajectory_epsilon":1e-12,"field_neighbors":100,"field_ridge_alpha":1e-6,"field_derivative_interval":0.05,"support_quantile":0.99},
+    "synthetic":{"field_matrix":[[-0.2,-1.0,-0.1],[1.0,-0.3,0.0],[0.2,0.0,-0.4]],"actuator":[1.0,0.0,0.0],"actions":[-0.5,-0.25,0.0,0.25,0.5],"integrator":"RK4","dt":0.005,"horizon":1.0,"observation_interval":0.05,"training_axes":{"x":[-1,-0.5,0,0.5,1],"y":[-1,-0.5,0,0.5,1],"z":[-1,-0.5,0,0.5,1]},"query_axes":{"x":[-0.75,-0.25,0.25,0.75],"y":[-0.6,-0.2,0.2,0.6],"z":[-0.5,0,0.5]},"cartesian_order":"LEXICOGRAPHIC_X_Y_Z","training_paths":"EVERY_TRAINING_STATE_EVERY_ACTION","target":"BUILD_ONCE_ORIGINAL_TRAINING_V1_RULE","population":"ORIGINAL_JOINTLY_SUPPORTED_QUERIES","minimum_rows":20},
+    "transform":{"state":"Q@x","every_training_decision_and_path_state":true,"every_query":true,"actuator":"Q@B","scalar_actions":"UNCHANGED","mean":"Q@mu","scale":"PERMUTE_BY_UNSIGNED_SOURCE_COORDINATE_PER_Q_ROW","target_center":"Q@center","radius":"UNCHANGED","reselect_target":false,"refit_support":true,"refit":["TRAJECTORY","LEARNED_FIELD"],"inverse_register":"Q_TRANSPOSE_BEFORE_ORIGINAL_TARGET_SCORE","ground_truth_outcomes":"NOT_USED"},
+    "tiers":{"N5_SYNTH":{"stage":"PRE_AUTH_PRE_SEED_RELEASE","failure":"IMPLEMENTATION_FAILURE_AND_AUTHORIZATION_UNREACHABLE"},"N5_RUN":{"stage_after":["AUTHORIZATION","TRAINING_TABLE","TARGET","ORIGINAL_FITS","HELDOUT_PREDICTIONS","ORIGINAL_SUPPORT_ACCOUNTING"],"stage_before":["OUTCOMES","PRIMARY_REGRESSION","N1","N2","N3","N4","SENSITIVITIES","BOOTSTRAP","CLASSIFICATION"],"population":"ORIGINAL_JOINTLY_SUPPORTED_HELDOUT_ROWS_INCLUDING_ZERO_CARRIER_ACTIONS_FIXED_BEFORE_TRANSFORMED_FIT","abstention_refit_error_or_population_change":"INVALID_EXPERIMENT"}},
+    "ranking":{"actions":5,"weak_rank":"ASCENDING_AVERAGE_EXACT_TIES","statistic":"KENDALL_TAU_B_PER_TIER_MATRIX_REPRESENTATION_QUERY","both_constant_identical":1.0,"other_undefined":0.0,"missing":"FAIL","aggregation":"MINIMUM_OVER_ALL_REQUIRED_COMPARISONS_PER_TIER","pass_operator":">=","threshold":0.99}
+  },
+  "seed_dominance":{"carriers":["T","F"],"population":"PRIMARY_ROWS","predictions":"PRIMARY_BASELINE_AND_AUGMENTED_NO_REFIT","clip":[1e-15,0.999999999999999],"contribution":"g[c,s]=(1/N[c])*SUM_EXACT_BINARY64_RATIONAL(loss0-loss1)","signed":true,"sum":"EXACT_RATIONAL","rank":"g_DESC_SEED_ASC","top":3,"aggregate_nonpositive":"FAIL","pass":"2*D3<=G","equality_half":"PASS","both":true,"aggregate_identity_tolerance":0.0},
+  "per_seed_direction":{"statistic":"PEARSON_CORRELATION_COHERENCE_BINARY_SUCCESS","population":"PRIMARY_PER_CARRIER_ROWS","less_than_2_or_zero_variance":0.0,"threshold":0.0,"operator":">=","required_count":21,"denominator_registered_seeds":30,"both_carriers":true},
+  "P": {
+    "P1":{"tests":["MEAN_COHERENCE","TOP_ACTION_AGREEMENT"],"nulls":["N1","N2","N3","N4_T","N4_F"],"all_required":true,"pass":"k<=4"},
+    "P2":{"carriers":["T","F"],"coefficient":">0","clustered_ci_lower":">0","coefficient_nulls":"MANDATORY_DIAGNOSTIC_ONLY","all_required":true},
+    "P3":{"carriers":["T","F"],"log_loss_gain":">0","augmented_brier":"<=BASELINE_BRIER","null_map":{"T":["N1","N2","N3","N4_T"],"F":["N1","N2","N3","N4_F"]},"null_pass":"k<=4","all_required":true},
+    "P4":{"classification_critical_analyses":["T_PRIMARY_CARRIER","F_PRIMARY_CARRIER"],"each_coefficient":">0","each_log_loss_gain":">0","score_margin_controls":["TRAJECTORY_BEST_SCORE","TRAJECTORY_MARGIN","LEARNED_FIELD_BEST_SCORE","LEARNED_FIELD_MARGIN"],"per_seed_direction":"BOTH_CARRIERS_AT_LEAST_21_OF_30_GE_ZERO","seed_dominance":"BOTH_CARRIERS_PASS","report_only":["TRAJECTORY_ONLY_OUTCOME_PREDICTION","LEARNED_FIELD_ONLY_OUTCOME_PREDICTION","EQUAL_SCORE_FUSION_CARRIER"],"leave_one_representation_coherence_registry":[],"reason_empty":"TWO_REPRESENTATIONS_LEAVE_ONE_HAS_NO_PAIRWISE_COHERENCE","continuous_quality":"REPORT_ONLY"},
+    "P5":{"classification_critical":{"axis":"ACTION_AMPLITUDE","values":[0.25,1.0],"both_carriers_each_coefficient":">0","both_carriers_each_log_loss_gain":">0","interval_required":"PRIMARY_AMPLITUDE_ONLY"},"mandatory_report_only_axes":["TRAJECTORY_NEIGHBORS","LEARNED_FIELD_NEIGHBORS","HORIZON","TRAINING_SEED_HALF","SUPPORT_QUANTILE"],"non_rescue":true}
+  },
+  "validity": {
+    "failure_after_authorization":"INVALID_EXPERIMENT","all_required":true,
+    "gates":["V1_CONFIGURATION_INTEGRITY","UPSTREAM_AMENDMENT_HASH_BINDING","TRAIN_TEST_ISOLATION","INFORMATION_PARITY","REPRESENTATION_DISTINCTNESS","NO_ANALYTIC_FIELD_LEAKAGE","CANONICAL_ROW_PROVENANCE","T_OOS_LTE_0.10","F_OOS_LTE_0.10","JOINT_SUPPORT_GTE_0.80","AT_LEAST_20_TEST_SEEDS_WITH_AT_LEAST_20_JOINT_ROWS_WHERE_BOTH_CARRIERS_NONZERO","N5_RUN_PASS","N1_200_FINITE","N2_200_FINITE","N3_200_FINITE","N4_T_200_FINITE","N4_F_200_FINITE","BOOTSTRAP_500_FINITE_SEED_CLUSTERED","PER_SEED_ATTRIBUTION_COMPLETE","SYMMETRIC_CARRIER_ATTRIBUTION_COMPLETE","SEED_DOMINANCE_EXACT_IDENTITY","ALL_12_SENSITIVITIES_COMPLETE","PROVENANCE_COMPLETE","CONFIG_BINDING_COMPLETE","NO_POST_ACCESS_SCIENTIFIC_MUTATION","P1_P5_MECHANICALLY_COMPUTED"],
+    "preauth":{"N5_SYNTH_PASS":"REQUIRED","failure":"IMPLEMENTATION_FAILURE_NO_REGISTERED_ACCESS"},
+    "support_propagation":"ANY_REPRESENTATION_SUPPORT_FAILURE_REMOVES_JOINT_MEMBERSHIP;THRESHOLD_GATE_FAILURE_INVALIDATES_NO_REDEFINITION"
+  },
+  "classification": {
+    "status":"NEW_PROSPECTIVE_SCIENTIFIC_CHOICE","labels":["INVALID EXPERIMENT","REPLICATED","PARTIALLY REPLICATED","NOT REPLICATED"],
+    "precedence":[
+      {"if":"NOT_ALL_VALIDITY_GATES","label":"INVALID EXPERIMENT"},
+      {"if":"ALL_P1_P2_P3_P4_P5_AND_T_POSITIVE_CORE_AND_F_POSITIVE_CORE_AND_NO_RESOLVED_NEGATIVE","label":"REPLICATED"},
+      {"if":"AT_LEAST_ONE_POSITIVE_CORE_AND_NO_RESOLVED_NEGATIVE","label":"PARTIALLY REPLICATED"},
+      {"if":"OTHERWISE","label":"NOT REPLICATED"}
+    ],
+    "positive_core":"COEFFICIENT>0_AND_LOG_LOSS_GAIN>0","resolved_negative":"CLUSTERED_CI_UPPER<0","positive_and_resolved_negative":"PROVENANCE_MODEL_CONSISTENCY_GATE_FAILURE",
+    "report_failed_conditions":true,"mutually_exclusive":true,"exhaustive":true
+  },
+  "cross_system":{"labels":["INCONCLUSIVE","PARTIAL CROSS-SYSTEM REPLICATION","NON-REPLICATION"],"rule":["INVALID_ROSSLER=>INCONCLUSIVE","VALID_AND_P1_P2_P3_AND_ROSSLER_LABEL_IN_REPLICATED_OR_PARTIALLY_REPLICATED=>PARTIAL_CROSS_SYSTEM_REPLICATION","OTHER_VALID=>NON_REPLICATION"],"strict_label_reachable":false,"ceiling":"PARTIAL CROSS-SYSTEM REPLICATION","reason":"FROZEN_LORENZ_V2_CARRIER_DEPENDENT_P4_FAILURE","pooling":false},
+  "nonexecution":{"implementation_created":false,"authorization_created":false,"registered_data_accessed":false,"registered_experiment_executed":false}
+}

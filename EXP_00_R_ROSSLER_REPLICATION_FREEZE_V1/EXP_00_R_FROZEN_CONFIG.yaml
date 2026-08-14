@@ -1,0 +1,101 @@
+{
+  "schema_version": "1.0",
+  "status": "FROZEN_NOT_EXECUTED",
+  "config_id": "EXP00R-ROSSLER-2REP-XCTRL-H1-FROZEN-20260808-v1",
+  "review_date": "2026-08-08",
+  "plant": {
+    "system": "rossler",
+    "state_order": ["x", "y", "z"],
+    "parameters": {"a": 0.2, "b": 0.2, "c": 5.7},
+    "control_matrix": [[1.0], [0.0], [0.0]],
+    "integrator": "fixed_step_rk4",
+    "dt": 0.005,
+    "decision_interval": 0.05,
+    "evaluation_horizon": 1.0
+  },
+  "data": {
+    "train_seeds": {"start": 5000, "stop_inclusive": 5029, "count": 30},
+    "test_seeds": {"start": 6000, "stop_inclusive": 6029, "count": 30},
+    "initial_state_bounds": {"x": [-8.0, 8.0], "y": [-8.0, 8.0], "z": [0.0, 8.0]},
+    "burn_in": 100.0,
+    "sampling_duration": 25.0,
+    "sample_interval": 0.5,
+    "states_per_seed": 50,
+    "training_rollout_observation_interval": 0.05
+  },
+  "actions": {
+    "control_channel": "scalar_additive_x",
+    "normalized_levels": [-1.0, -0.5, 0.0, 0.5, 1.0],
+    "primary_amplitude": 0.5,
+    "sensitivity_amplitudes": [0.25, 1.0]
+  },
+  "objective": {
+    "normalization": "training_mean_population_sd",
+    "target_subset": "raw_x_gte_training_q75",
+    "target_center": "mean_standardized_subset",
+    "target_radius": "q25_distance_to_center_within_subset",
+    "score": "squared_distance_to_closed_target_ball",
+    "control_effort_lambda": 0.0,
+    "success_delta_threshold": -0.01
+  },
+  "representations": {
+    "trajectory": {"family": "finite_horizon_knn_outcome", "neighbors": 25, "epsilon": 1e-12},
+    "learned_field": {"family": "query_local_affine_ridge_field", "neighbors": 100, "ridge_alpha": 1e-6, "derivative_interval": 0.05}
+  },
+  "orientation": {
+    "ranking": "ascending_weak_preorder",
+    "tie_method": "average_rank_float64_exact",
+    "top_tie_preference": [0.0, -0.5, 0.5, -1.0, 1.0],
+    "coherence": "one_pair_only_(1+kendall_tau_b)/2"
+  },
+  "support": {
+    "threshold_quantile": 0.99,
+    "trajectory_rule": "query_within_threshold",
+    "learned_field_rule": "query_and_every_predicted_step_for_all_actions_within_threshold",
+    "unsupported": "abstain_no_partial_ranking_no_imputation",
+    "maximum_individual_oos_fraction": 0.10,
+    "minimum_both_supported_fraction": 0.80,
+    "minimum_contributing_seeds": 20,
+    "minimum_rows_per_contributing_seed": 20
+  },
+  "analysis": {
+    "primary_population": "all_both_supported_states_including_zero_action_carriers",
+    "zero_action_endpoint": "delta_J_equals_0_and_binary_success_false",
+    "carriers": ["trajectory_top_action", "learned_field_top_action"],
+    "primary_endpoint": "binary_delta_J_lte_minus_0.01",
+    "secondary_endpoint": "continuous_delta_J",
+    "logistic_l2_C": 1.0,
+    "seed_block_folds": 5,
+    "cluster_bootstrap_repetitions": 500,
+    "calibration_bins": 10,
+    "baseline_covariates": [
+      "standardized_x_y_z", "current_target_distance", "sin_theta_cos_theta",
+      "learned_field_flow_norm", "learned_field_local_expansion",
+      "nearest_training_distance", "support_fraction",
+      "trajectory_best_score_and_margin", "learned_field_best_score_and_margin",
+      "carrier_action_magnitude_and_sign"
+    ],
+    "active_only_analysis": "descriptive_secondary_only"
+  },
+  "nulls": {
+    "repetitions": 200,
+    "tests": ["action_label_permutation", "rank_permutation_within_seed", "state_representation_mismatch", "support_matched_permutation", "coordinate_registration"]
+  },
+  "sensitivities": {
+    "trajectory_neighbors": [15, 50],
+    "learned_field_neighbors": [60, 160],
+    "horizons": [0.5, 1.5],
+    "training_seed_halves": [[5000, 5014], [5015, 5029]],
+    "support_quantiles": [0.95, 0.995]
+  },
+  "classification": {
+    "strict_cross_system_ceiling": "PARTIAL_CROSS_SYSTEM_REPLICATION_UNTIL_CARRIER_BALANCED_LORENZ_REPLICATION"
+  },
+  "execution": {
+    "default_mode": "validate",
+    "registered_modes": ["registered", "full"],
+    "authorization_required": true,
+    "authorization_phrase": "AUTHORIZED_FOR_REGISTERED_EXECUTION",
+    "registered_science_executed": false
+  }
+}
