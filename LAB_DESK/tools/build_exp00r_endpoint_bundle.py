@@ -84,10 +84,16 @@ def package_inventory(repo: Path, root: str) -> dict[str, object]:
         raise RuntimeError(f"missing selected package: {root}")
     records = []
     for path in sorted(directory.rglob("*"), key=lambda item: item.as_posix()):
-        if path.is_file():
+        relative = path.relative_to(directory)
+        transient = (
+            path.name == ".DS_Store"
+            or "__pycache__" in relative.parts
+            or path.suffix.lower() in {".pyc", ".pyo"}
+        )
+        if path.is_file() and not transient:
             records.append(
                 {
-                    "path": path.relative_to(directory).as_posix(),
+                    "path": relative.as_posix(),
                     "bytes": path.stat().st_size,
                     "sha256": sha256_file(path),
                 }

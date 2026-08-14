@@ -11,13 +11,13 @@ Registered evidence generated: **NO**
 ## Selection
 
 - Selected roots: **30**
-- Selected files: **435**
-- Selected bytes: **1.3 MiB**
-- Bundle tree: `e586ad21d6a2b6de2249509e1f227500737246fa9538a594f16ab545a54427a6`
+- Selected files: **414**
+- Selected bytes: **1.2 MiB**
+- Bundle tree: `ef1869651d1f96309160ee825e2922b9ec4eb53cef425172ebdbedd3d21c4eb0`
 
 | Layer | Roots | Files | Size | Tree SHA-256 |
 | --- | ---: | ---: | ---: | --- |
-| `01_scientific_authority` | 21 | 353 | 1.0 MiB | `da3621901d2a065dd18643e08558c3c935ac092e6b96e945719209620053da93` |
+| `01_scientific_authority` | 21 | 332 | 960.5 KiB | `9d7aac5e990bd558434336c02a006411e52d293d6a221cedfac7e19db637440a` |
 | `02_engineering_export` | 5 | 47 | 88.1 KiB | `700fcb0f3f3a8bacb3de057b90f189fb1ca35f659e6f1ea81c3c04db8f1a7e67` |
 | `03_generator_producer` | 4 | 35 | 140.8 KiB | `9e9c464f55a1066d36f3c40c898d6a18eda780eb1900867917bb74026c75fbfe` |
 
