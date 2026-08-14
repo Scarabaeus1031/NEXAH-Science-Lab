@@ -1,0 +1,22 @@
+name: translation-fidelity-rc1-replay
+channels:
+  - defaults
+dependencies:
+  - python=3.12.7=h99e199e_0
+  - blas=1.0=openblas
+  - libopenblas=0.3.21=h269037a_0
+  - llvm-openmp=14.0.6=hc6e5704_0
+  - numpy=1.26.4=py312h7f4fdc5_0
+  - numpy-base=1.26.4=py312he047099_0
+  - scikit-learn=1.5.1=py312hd77ebd4_0
+  - scipy=1.13.1=py312ha409365_0
+  - joblib=1.4.2=py312hca03da5_0
+  - threadpoolctl=3.5.0=py312h989b03a_0
+  - python-dateutil=2.9.0post0=py312hca03da5_2
+  - pytz=2024.1=py312hca03da5_0
+  - python-tzdata=2023.3=pyhd3eb1b0_0
+  - tzdata=2024b=h04d1e81_0
+  - six=1.16.0=pyhd3eb1b0_1
+  - pip
+  - pip:
+      - pandas==2.3.3

@@ -1,0 +1,22 @@
+# Translation Study Freeze Record
+
+Freeze occurred before any study result was generated.
+
+```text
+PROTOCOL_BUNDLE_SHA256 = f8080f2e96f1d7f17a230bf26ce0a24ceacfb0c3a9c03431a693d74cc7993973
+00_NEXAH_TRANSLATION_MAP.md = c8c3500bff8c9e900f940630aedd5d13fc45a2b7a584e82253485a407e2d16fa
+01_CANDIDATE_TRANSLATION_INVARIANTS.md = 03795da3df30a8a2d26169ac014a5a386036c591ff6be0a9a61beecfea7a403c
+02_MINIMAL_TRANSLATION_EXPERIMENT.md = 72364b5636c2474fef8e53257f8f821d16a6533b882071d8ec190c50dbae6998
+translation_spec.json = 2a079de0a0c3bd1ce6d66aceb2746a07d7f94ec7c514692e6aec91c7fedc7739
+run_translation_study.py = f436a19aa3122ba448b2c0df04a8b676924ed70de64b50f0d753b07eebfe2e44
+```
+
+Canonical source identities checked prospectively:
+
+```text
+nexah/core.py = af8b831a8cb3242b12a66d1cd694dcdb65ca87aed531ea9038ea7453f145dbc0
+nexah/backends/v07.py = c8f9f6be401992a1d9d50a0b2959fefaa10966a9d84f4874cf2ef93c067ff589
+```
+
+No IEEE/PEGASE execution, operator modification, threshold tuning or result
+inspection preceded this freeze.

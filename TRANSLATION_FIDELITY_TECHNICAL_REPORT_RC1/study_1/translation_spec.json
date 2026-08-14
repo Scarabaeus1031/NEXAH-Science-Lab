@@ -1,0 +1,14 @@
+{
+  "protocol_id": "NEXAH-TRANSLATION-STUDY-MINIMAL-V1",
+  "protocol_version": "1.0.0",
+  "disposition": "RESEARCH / NOT_ADOPTED",
+  "canonical_nexah_revision": "923362e141170f06f2f0f26992136b5979047c42",
+  "adapter": {"n_clusters": 3, "window": 6, "random_state": 7, "normalize": true},
+  "fixture": {"plateaus": [-2.0, 0.0, 2.0, 0.0, -2.0], "dwell_counts": [24, 20, 24, 20, 24], "connector_interior_points": 6},
+  "representations": ["baseline_scalar", "affine_redundant_2d", "nonlinear_injective_2d", "delay_2d", "small_noise", "coarsened", "lossy_square", "structural_shortcut"],
+  "noise": {"bit_generator": "PCG64", "seed": 20260813, "sigma": 1e-6},
+  "weighted_certificate_decimals": 12,
+  "candidate_gate": ["H1_support_isomorphic", "H2_support_isomorphic", "H3_summaries_preserved_for_H1_H2", "H5_noise_support_isomorphic", "C2_structural_control_changes_relation"],
+  "retuning_allowed": false,
+  "ieee_execution_allowed": false
+}

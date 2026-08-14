@@ -1,0 +1,17 @@
+# Protocol Freeze Record
+
+Frozen before any replication result was generated.
+
+```text
+PROTOCOL_BUNDLE_SHA256 = 98c7856cb99d428492168a1bc0a4ab31f075b5b3504a92c8f4dfafa9635f4eb8
+00_PRIOR_CANDIDATE_AUDIT.md = f7cfc41c9a18c4c27501e98bd58563285fec67570e0201e00b775d3607373d53
+01_FROZEN_STRUCTURAL_CERTIFICATES.md = 06e8c55917aea8e93b780dc861376a86171476ab879396bdc1b5fc4454162821
+02_REPLICATION_PROTOCOL.md = 8097869d7a786aa3994608e933a024823277a48883b4f014aa734a18d79d49d6
+03_STRUCTURAL_FAMILY_AND_COUNTERFACTUALS.md = 4849d115d07a4376b0b5a07a60d2afd95a40d513582fa44f49ffe77ec993e2e8
+replication_protocol.json = aa54e9fa3ff2a59ae02ba9e88361190e6f7cc8bde2ad697a43fd8d244e3662b8
+run_replication.py = 407513c6d00bc7f47e4b18d4481a5819240f884c577254c2d163d11a52412784
+```
+
+The protocol freezes 8 base families, 6 faithful representations, 3 separate
+lossy controls, 8 matched counterfactuals, 4 canonical configurations and 10
+certificates. No IEEE/PEGASE input is present.

@@ -1,0 +1,54 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "nexah"
+version = "0.7.0"
+description = "NEXAH — an evidence-bound orientation ecosystem"
+authors = [
+    { name = "Thomas Hofmann" }
+]
+license = { file = "LICENSE" }
+requires-python = ">=3.10"
+
+dependencies = [
+    "numpy>=1.24",
+    "matplotlib>=3.7",
+    "scikit-learn>=1.3",
+    "pandas>=2.0",
+    "PyYAML>=6.0"
+]
+
+[project.optional-dependencies]
+test = [
+    "pytest>=7.4",
+    "pandapower>=3.0",
+]
+
+[project.scripts]
+nexah = "nexah.cli:main"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["nexah*"]
+exclude = ["tests*", "BUILDER_LAB*", "APPLICATIONS*"]
+
+[tool.mypy]
+python_version = "3.12"
+strict = true
+warn_unused_configs = true
+disallow_untyped_defs = true
+disallow_any_generics = true
+no_implicit_optional = true
+check_untyped_defs = true
+warn_return_any = true
+warn_unused_ignores = true
+
+[[tool.mypy.overrides]]
+module = ["nexah.core", "nexah.cli"]
+ignore_errors = true
