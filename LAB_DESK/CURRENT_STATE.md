@@ -28,6 +28,16 @@ content or publishing raw data.
 No package deletion, bulk staging, raw-data upload, experiment execution or
 scientific reinterpretation is authorized by this cleanup task.
 
+The first package disposition is now locally prepared:
+
+- `NEXAH_EARLY_WARNING_HYPOTHESIS_VALIDATION` is split into a 52-file Git-core
+  allowlist and a 2,990-file raw-data manifest;
+- the raw corpus is packaged as a deterministic 950.5 MiB `tar.zst` artifact;
+- member-by-member stream verification and a second identical build passed;
+- upload and deletion remain unauthorized;
+- active owner gate:
+  `SELECT_PRIVATE_DURABLE_OBJECT_STORAGE_AND_AUTHORIZE_UPLOAD`.
+
 ## Definition of done for SL-CLEAN-001
 
 - every untracked top-level package has a deterministic content-tree hash;

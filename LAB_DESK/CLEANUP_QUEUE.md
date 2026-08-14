@@ -7,7 +7,7 @@ status or authorize research execution.
 
 | Order | Work item | Initial disposition | Decision required |
 | --- | --- | --- | --- |
-| 1 | `NEXAH_EARLY_WARNING_HYPOTHESIS_VALIDATION` | Split small reproducibility/report core from multi-gigabyte generated trajectories | Choose durable external/private data-artifact home; preserve the inconclusive Level-1C result exactly |
+| 1 | `NEXAH_EARLY_WARNING_HYPOTHESIS_VALIDATION` | Logical split complete; deterministic local artifact built and stream-verified | Select durable private object storage and authorize upload; preserve the inconclusive Level-1C result exactly |
 | 2 | EXP-00-R package family | Historical provenance with a small set of current endpoints already named in Master Status | Register only bounded endpoint/source packages; never mass-commit the full lineage |
 | 3 | Terminally marked NEXAH/ORION studies | Candidate endpoint consolidation | Compare each candidate to current Master Status before any commit |
 | 4 | Documented but non-terminal packages | Review required | Decide whether each is active input, historical provenance or superseded working material |
@@ -46,7 +46,11 @@ repository, is the recommended target architecture.
 `private upload verified` → `clean-room retrieval verified` →
 `local-copy disposition decided`
 
-The current authorization stops before `data artifact built`. Selecting a
+Completed locally: `inventory frozen` → `core allowlist reviewed` →
+`data artifact built`. The archive passed member-by-member verification and an
+identical second build. Active gate: `SELECT_PRIVATE_DURABLE_OBJECT_STORAGE_AND_AUTHORIZE_UPLOAD`.
+
+The current authorization stops before `private upload verified`. Selecting a
 storage provider, uploading data or deleting a local copy requires a separate
 owner decision.
 
