@@ -1,0 +1,99 @@
+{
+    "amendment_id": "NEXAH-EARLY-WARNING-LEVEL1-AMENDMENT",
+    "amendment_version": "1.0.1",
+    "application_001_changed": false,
+    "base_manifest_sha256": "d742ddfe23cea1ddd94817f51b0abc6b95c33599a78e965e7d375ec33f4fd9f3",
+    "base_protocol_id": "NEXAH-EARLY-WARNING-LEVEL1-SYNTHETIC",
+    "base_protocol_version": "1.0.0",
+    "canonical_architecture_changed": false,
+    "created_at": "2026-08-13T03:53:35+02:00",
+    "decisions": {
+        "bootstrap": {
+            "failed_replicates": "preserve and count; never replace undefined",
+            "quantile_method": "linear",
+            "quantiles": [
+                0.025,
+                0.975
+            ],
+            "replicates": 10000,
+            "resampling": "paired with replacement independently within each frozen path stratum, preserving each stratum sample count",
+            "rng": "numpy.random.Generator(numpy.random.PCG64(seed))",
+            "seed": 1031
+        },
+        "burn_in": {
+            "eligibility": "first qualifying sample must be at or after stress onset",
+            "pre_onset_sequence_carry": false
+        },
+        "calibration_recall": {
+            "definition": "confirmed actionable detection on an event run",
+            "inclusive_actionable_lead": [
+                0.2,
+                5.0
+            ],
+            "missing_or_nonactionable_event_detection": "false_negative",
+            "zero_actionable_median_lead": "UNDEFINED"
+        },
+        "directional_preservation": {
+            "definition": "sensitivity effect sign equals nonzero primary effect sign",
+            "zero_preserves_nonzero": false
+        },
+        "event": {
+            "confirmation_sample_primary": 21,
+            "confirmation_time": "final confirming state",
+            "duration": 0.2,
+            "primary_complete_intervals": 20,
+            "strict_condition": "maximum pairwise unwrapped angle separation > pi",
+            "timestamp": "first qualifying sample of subsequently confirmed sequence"
+        },
+        "missing": {
+            "empty_actionable_lead_median": "UNDEFINED",
+            "missing_R_on_event": "false_negative",
+            "missing_V_on_event": "false_negative",
+            "numerical_invalidity_is_event": false,
+            "precision_zero_predictions": "UNDEFINED_WITH_RAW_COUNTS",
+            "undefined_coercion_forbidden": true
+        },
+        "persistence_primary": {
+            "R_condition": "R < tau_R",
+            "V_condition": "V > tau_V",
+            "confirmation_time": "10th qualifying sample",
+            "detection_timestamp": "first qualifying sample of subsequently confirmed 10-state sequence",
+            "dt": 0.01,
+            "qualifying_states": 10
+        },
+        "threshold_final_tie": {
+            "R": "lower_tau_R",
+            "V": "higher_tau_V"
+        },
+        "timestep_sensitivity": {
+            "dt": 0.005,
+            "event_complete_intervals": 40,
+            "event_states": 41,
+            "relative_change_when_reference_zero": "UNDEFINED_REPORT_ABSOLUTE_CHANGE",
+            "stochastic_coupling": "NOT_COMPARABLE_OWNER_REVIEW_REQUIRED_IF_SIMULATOR_OR_MODEL_CHANGE_NEEDED",
+            "warning_alarm_complete_intervals": 18,
+            "warning_alarm_states": 19
+        }
+    },
+    "development_indicator_trajectories_seen_before_amendment": 0,
+    "disposition": "NOT_ADOPTED",
+    "evaluation_partition_opened": false,
+    "evaluation_performance_inspected": false,
+    "previous_owner_review_report": {
+        "path": "LEVEL1B_OWNER_REVIEW_REQUIRED.md",
+        "sha256": "a5547a5222fba492898cd5f1628df8b7eb2af36169ce42b369b1423992241ec9"
+    },
+    "resolved_ambiguities": [
+        "detection onset versus confirmation timestamp",
+        "event duration interval/state conversion",
+        "burn-in boundary carry",
+        "actionable calibration recall",
+        "final threshold tie",
+        "bootstrap determinism",
+        "directional preservation predicate",
+        "timestep sensitivity conversion and zero denominator",
+        "missing and empty cases"
+    ],
+    "scientific_raw_model_changed": false,
+    "status": "FROZEN_PROSPECTIVE_CLARIFICATION"
+}

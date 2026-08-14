@@ -1,0 +1,118 @@
+{
+  "manifest_type": "LEVEL1_SHA256_ARTIFACT_MANIFEST",
+  "protocol_version": "1.0.0",
+  "hash_algorithm": "SHA-256",
+  "hash_scope": "actual finalized file bytes; HASH_MANIFEST.json intentionally does not self-hash",
+  "entries": [
+    {
+      "artifact_type": "controlling_document",
+      "path": "../00_SOURCE_AND_PROVENANCE_AUDIT.md",
+      "sha256": "342d584dcdb8dfe36262ed3e0322700865291629e605f21b13508d03f4d3a0a6"
+    },
+    {
+      "artifact_type": "controlling_document",
+      "path": "../01_SYNTHETIC_SCRIPT_FORENSIC_AUDIT.md",
+      "sha256": "3387b51e9e03c939a48ea4c533341d7d71b484b9d62edf7c31c7e0a93e924432"
+    },
+    {
+      "artifact_type": "controlling_document",
+      "path": "../02_CLAIM_AUDIT.md",
+      "sha256": "bedca3db9efa65e1a0ac3e74dd366edfa8538a2a56a94199af700e1cf12f56a4"
+    },
+    {
+      "artifact_type": "controlling_document",
+      "path": "../03_FALSIFIABLE_HYPOTHESIS.md",
+      "sha256": "9f67f18af64638e88aba71e442333414e2a361328b3f604dad7605ebca5a60cc"
+    },
+    {
+      "artifact_type": "controlling_document",
+      "path": "../04_PREREGISTRATION.md",
+      "sha256": "f5019cd0c7d078fa53c3a51009fdb9759cf414fef51483ef12cf0832ad9a35a7"
+    },
+    {
+      "artifact_type": "controlling_document",
+      "path": "../05_EXPERIMENT_DESIGN.md",
+      "sha256": "ea3804cd01d1b49629bc697680b622ee847dadcf6454aed08efa306aa286222f"
+    },
+    {
+      "artifact_type": "controlling_document",
+      "path": "../06_METRICS_AND_PASS_FAIL_CRITERIA.md",
+      "sha256": "bbb8c9b1b078956c95352162d8c5205d20bb5aba1adda95d9af0476cdf8ee079"
+    },
+    {
+      "artifact_type": "controlling_document",
+      "path": "../07_APPLICATION_001_BOUNDARY.md",
+      "sha256": "c911d4d6923423c2bb8431efc50e47ad4d036c50916ff259b0688c7a6a8200d9"
+    },
+    {
+      "artifact_type": "controlling_document",
+      "path": "../08_IMPLEMENTATION_PLAN.md",
+      "sha256": "43903a0c192f828a785115247bb40c870336e556c409392ce387354fe22fb338"
+    },
+    {
+      "artifact_type": "controlling_document",
+      "path": "../FINAL_EARLY_WARNING_VALIDATION_PLAN.md",
+      "sha256": "70d1b8fb7088f74f2741bae93a5146199c7f3cfd922a20b5798d54b3e50e2645"
+    },
+    {
+      "artifact_type": "top_level_report",
+      "path": "../LEVEL1_PREREGISTRATION_AND_RAW_SIMULATOR_REPORT.md",
+      "sha256": "87c521c797fbf0435d73f7c32098736e250595ddea94e7d01757c4e1388cd329"
+    },
+    {
+      "artifact_type": "frozen_preregistration",
+      "path": "preregistration_level1_v1.json",
+      "sha256": "d742ddfe23cea1ddd94817f51b0abc6b95c33599a78e965e7d375ec33f4fd9f3"
+    },
+    {
+      "artifact_type": "simulator_source",
+      "path": "simulate_level1.py",
+      "sha256": "7cd95b94631aa17b90fc182fa58280ce80103b9de172e88d066519d11c8f6f19"
+    },
+    {
+      "artifact_type": "verifier_source",
+      "path": "verify_level1_simulator.py",
+      "sha256": "aada001761de1ee74070bafa19d9c18946081fda7f6873510f2d49685a68cdf9"
+    },
+    {
+      "artifact_type": "documentation",
+      "path": "README.md",
+      "sha256": "03e84e8b8c8f21d0957656660a34f28eeb8fa2a7ef88a1d4bb0e941b45e929bc"
+    },
+    {
+      "artifact_type": "freeze_record",
+      "path": "LEVEL1_FREEZE_RECORD.md",
+      "sha256": "96f55d0c482179892d0da09d15c3442b51cf47a26d9bf0aa7dd65683fd334e0e"
+    },
+    {
+      "artifact_type": "verification_document",
+      "path": "LEVEL1_NUMERICAL_VERIFICATION.md",
+      "sha256": "d747554f25700471b26ad375bd7259e75100cad620ed9e79b4764372823999c5"
+    },
+    {
+      "artifact_type": "raw_verification_artifact",
+      "path": "raw/1.0.0__development__dev-r0.04-c0.4__deterministic__seed-none__dt-0p005.json",
+      "sha256": "dc8884749f4a3f45413319ee8791c31b62f81f9636730783c217277df8b13b86"
+    },
+    {
+      "artifact_type": "raw_verification_artifact",
+      "path": "raw/1.0.0__development__dev-r0.04-c0.4__deterministic__seed-none__dt-0p01.json",
+      "sha256": "47241fa093a0f0d4542239e4d498ee87c42c834171926ee55f92436f1c93ba87"
+    },
+    {
+      "artifact_type": "raw_verification_artifact",
+      "path": "raw/1.0.0__development__dev-r0.04-c0.4__stochastic__seed-1000__dt-0p01.json",
+      "sha256": "603e76d6fd6a379980d16b55d1bfe013947bc40f35b759ad5e1356f1ab729999"
+    },
+    {
+      "artifact_type": "raw_verification_artifact",
+      "path": "raw/1.0.0__development__dev-r0.04-c0.4__stochastic__seed-1001__dt-0p01.json",
+      "sha256": "d143796a441a3e49b9660a0f7e2f10efa6ea26110ba2aa99f79a13b58ca79c38"
+    },
+    {
+      "artifact_type": "verification_result",
+      "path": "verification/verification_result.json",
+      "sha256": "448b55b1770a7650345fc1ca23ee025bdcd093cddc45590f667d573eb45ae8ba"
+    }
+  ]
+}

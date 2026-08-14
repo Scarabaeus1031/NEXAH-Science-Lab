@@ -1,0 +1,92 @@
+{
+  "actionable_horizon": [0.2, 5.0],
+  "amendment_human_sha256": "ffc7233a15be76580a3518d1ca179b57a96aa2c0a7f6d7b1bde797c5b2249bcc",
+  "amendment_sha256": "c5df438954b3f32d44a4eea6d4add89bb9f10c71e3b32ba8ce135d8b473c870a",
+  "base_manifest_sha256": "d742ddfe23cea1ddd94817f51b0abc6b95c33599a78e965e7d375ec33f4fd9f3",
+  "bootstrap": {
+    "method": "paired stratified percentile bootstrap",
+    "quantile_method": "linear",
+    "quantiles": [0.025, 0.975],
+    "replicates": 10000,
+    "resample": "with replacement independently within path; preserve stratum size",
+    "rng": "numpy Generator PCG64",
+    "seed": 1031,
+    "undefined": "preserve and count"
+  },
+  "burn_in_rule": "detection onset index must be at or after stress onset; no pre-onset carry",
+  "calibration_order": [
+    "development FPR <= 0.10",
+    "maximize actionable event recall",
+    "maximize median actionable lead; undefined cannot improve",
+    "minimize false-positive rate",
+    "prefer shorter lead when still applicable",
+    "R final tie: lower threshold; V final tie: higher threshold"
+  ],
+  "candidate": {
+    "condition": "R < tau_R",
+    "definition": "R(t)=abs(mean_i(exp(1j*delta_i(t))))",
+    "name": "phase_coherence_order_parameter"
+  },
+  "comparator": {
+    "condition": "V > tau_V",
+    "definition": "V(t)=max_i abs(omega_i(t)-omega_COI(t))",
+    "omega_coi": "sum_i M_i*omega_i/sum_i M_i"
+  },
+  "confirmation_timestamp": "final qualifying state in required sequence",
+  "detection_timestamp": "first qualifying state in subsequently confirmed sequence",
+  "development_fpr_maximum": 0.1,
+  "directional_preservation": "sensitivity effect sign equals nonzero primary effect sign; zero does not preserve nonzero",
+  "event": {
+    "condition": "maximum pairwise unwrapped delta separation > pi",
+    "duration": 0.2,
+    "name": "synthetic loss-of-synchronism proxy"
+  },
+  "evaluator_source_sha256": "529a9615ef46434b67349981accad223ea906f1f5c0d5bf031eb2fb4e5c63a4e",
+  "generator_source_sha256": "c8d0fea629b7d30b5c9221dd714c3b4fbdf1c5f3c072ff0da0696179cd20ada6",
+  "lead": {
+    "Delta_L": "L_N-L_B",
+    "L_B": "T_E-T_B",
+    "L_N": "T_E-T_N",
+    "actionable_interval_inclusive": [0.2, 5.0]
+  },
+  "missing_policy": {
+    "empty_median_actionable_lead": "UNDEFINED",
+    "missing_detection_on_event": "FALSE_NEGATIVE",
+    "numerical_invalidity": "NOT_EVENT",
+    "precision_zero_predicted_positives": "UNDEFINED_WITH_RAW_COUNTS",
+    "undefined_coercion": "FORBIDDEN"
+  },
+  "primary_dt": 0.01,
+  "primary_persistence_states": {
+    "event": 21,
+    "warning_alarm": 10
+  },
+  "scientific_outcome_gates": {
+    "candidate_fpr_maximum": 0.1,
+    "maximum_classification_rate_change": 0.02,
+    "maximum_fpr_excess": 0.05,
+    "maximum_median_lead_relative_change": 0.1,
+    "maximum_recall_deficit": 0.05,
+    "minimum_direction_preserved_rate_strata": 2,
+    "minimum_event_runs": 30,
+    "minimum_non_event_runs": 30,
+    "paired_delta_lead_interval_lower_strictly_positive": true,
+    "paired_median_delta_lead_strictly_positive": true
+  },
+  "scientific_parameters_changed": false,
+  "sensitivity_dt": 0.005,
+  "sensitivity_persistence_states": {
+    "event": 41,
+    "warning_alarm": 19
+  },
+  "spec_id": "NEXAH-EARLY-WARNING-LEVEL1B-EVALUATOR",
+  "spec_version": "1.0.0",
+  "status": "PRE_EVALUATION_FROZEN_NOT_ADOPTED",
+  "stochastic_timestep_sensitivity": "NOT_COMPARABLE_OWNER_REVIEW_REQUIRED_WITHOUT_FROZEN_SIMULATOR_CHANGE",
+  "stress_onset": 5.0,
+  "threshold_grids": {
+    "R": {"start_hundredths": 50, "step_hundredths": 1, "stop_hundredths": 95},
+    "V": {"start_hundredths": 2, "step_hundredths": 1, "stop_hundredths": 100}
+  },
+  "verifier_source_sha256": "7e3960e44e56308af8c419e46e3a4bb50dbb5cd0eabbafca1f47cc12b55bdcde"
+}

@@ -1,0 +1,104 @@
+{
+  "manifest_type": "LEVEL1C_FINAL_HASH_MANIFEST",
+  "scientific_outcome": "INCONCLUSIVE",
+  "hash_algorithm": "SHA-256",
+  "hash_scope": "actual finalized bytes; LEVEL1C_RUN_MANIFEST.json contains individual SHA-256 identities for all 2626 raw artifacts; this manifest intentionally does not self-hash",
+  "raw_artifact_count": 2626,
+  "primary_evaluation_run_count": 2613,
+  "deterministic_sensitivity_run_count": 13,
+  "no_retuning": true,
+  "application_001_changed": false,
+  "canonical_components_changed": false,
+  "entries": [
+    {
+      "artifact_type": "controlling_level1_manifest",
+      "path": "../level1/preregistration_level1_v1.json",
+      "sha256": "d742ddfe23cea1ddd94817f51b0abc6b95c33599a78e965e7d375ec33f4fd9f3"
+    },
+    {
+      "artifact_type": "controlling_level1_simulator",
+      "path": "../level1/simulate_level1.py",
+      "sha256": "7cd95b94631aa17b90fc182fa58280ce80103b9de172e88d066519d11c8f6f19"
+    },
+    {
+      "artifact_type": "controlling_amendment",
+      "path": "../level1b/protocol_amendment_v1_0_1.json",
+      "sha256": "c5df438954b3f32d44a4eea6d4add89bb9f10c71e3b32ba8ce135d8b473c870a"
+    },
+    {
+      "artifact_type": "controlling_evaluator_spec",
+      "path": "../level1b/evaluator_spec_v1.json",
+      "sha256": "2a3a53da5841154f60b07b97b489ac9bdc89df79de65e33b5cb9b36cb0b59839"
+    },
+    {
+      "artifact_type": "controlling_evaluator",
+      "path": "../level1b/evaluate_level1b.py",
+      "sha256": "529a9615ef46434b67349981accad223ea906f1f5c0d5bf031eb2fb4e5c63a4e"
+    },
+    {
+      "artifact_type": "controlling_level1b_hash_manifest",
+      "path": "../level1b/HASH_MANIFEST.json",
+      "sha256": "9fa9440b4f4fe5f593fe2856b27b9cf240f7ea9ff6f611b422273494f350ce61"
+    },
+    {
+      "artifact_type": "opening_record",
+      "path": "LEVEL1C_EVALUATION_OPENING_RECORD.json",
+      "sha256": "fbc1298f8794a10883d50edcda15ff8a2b8c525e47a6867db6c69a259502afaf"
+    },
+    {
+      "artifact_type": "run_manifest",
+      "path": "LEVEL1C_RUN_MANIFEST.json",
+      "sha256": "0d57b07bb982132093cd3e44b38007fee2a698630e44ba27713c9103aa2df697"
+    },
+    {
+      "artifact_type": "run_level_results",
+      "path": "LEVEL1C_RUN_LEVEL_RESULTS.json",
+      "sha256": "b2c2d2085cde6d7879bd9769579d1dbe020178b4ce36195101835676ad72adcd"
+    },
+    {
+      "artifact_type": "aggregate_results",
+      "path": "LEVEL1C_AGGREGATE_RESULTS.json",
+      "sha256": "c278425bd41957a20f1036d4a088ab556aa2a19b9a0958d90c978f15a4254e68"
+    },
+    {
+      "artifact_type": "scientific_outcome",
+      "path": "LEVEL1C_SCIENTIFIC_OUTCOME.json",
+      "sha256": "34cf8948ce53fdd437ec3f114e7344b0b6a4f5897d09c129facebb5cb30af103"
+    },
+    {
+      "artifact_type": "runner_source",
+      "path": "run_level1c.py",
+      "sha256": "5bb3ec2cdaf6489b1776dad84c8b08b26dc4076f6cc658874edc628f703ec05b"
+    },
+    {
+      "artifact_type": "preopening_verifier_source",
+      "path": "verify_level1c_preopening.py",
+      "sha256": "45c6ac7623ca33dbc5614b5057f4790951132bbe1cfa3369baabe492c0926193"
+    },
+    {
+      "artifact_type": "audit_source",
+      "path": "verify_level1c_audit.py",
+      "sha256": "7fcef232cdfe2c54618e7d6110297348ba7b0516e798f6b335f58324d27dad4d"
+    },
+    {
+      "artifact_type": "preopening_verification",
+      "path": "verification/PREOPENING_VERIFICATION.json",
+      "sha256": "8596ae11403bac4fab3073b5aa3ae39c24367478dbefe5e2927db8bd867d31c1"
+    },
+    {
+      "artifact_type": "full_replay_audit",
+      "path": "verification/LEVEL1C_REPLAY_AUDIT.json",
+      "sha256": "384f6c62e5ba588b8d91935edf30cfc5f15ba19947dd123aa3ed126eb0998f44"
+    },
+    {
+      "artifact_type": "readme",
+      "path": "README.md",
+      "sha256": "0adf7369b5b54af09809e203186f590fd584d2dd61af5a8fe5921bfe3871f96f"
+    },
+    {
+      "artifact_type": "final_report",
+      "path": "LEVEL1C_FINAL_REPORT.md",
+      "sha256": "923f44a4e04f5bf041c8d8ed61ab1867d5d680a4ee6b5b4b6a921edcde8244c3"
+    }
+  ]
+}

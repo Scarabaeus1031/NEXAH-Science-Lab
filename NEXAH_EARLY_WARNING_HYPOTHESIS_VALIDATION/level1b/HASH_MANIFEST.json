@@ -1,0 +1,116 @@
+{
+  "manifest_type": "LEVEL1B_FROZEN_ARTIFACT_HASH_MANIFEST",
+  "spec_id": "NEXAH-EARLY-WARNING-LEVEL1B-EVALUATOR",
+  "spec_version": "1.0.0",
+  "hash_algorithm": "SHA-256",
+  "hash_scope": "actual finalized bytes; raw_generation_record.json contains the individual SHA-256 identities of all 364 development raw artifacts; this file intentionally does not self-hash",
+  "evaluation_partition_opened": false,
+  "evaluation_performance_inspected": false,
+  "entries": [
+    {
+      "artifact_type": "controlling_level1_manifest",
+      "path": "../level1/preregistration_level1_v1.json",
+      "sha256": "d742ddfe23cea1ddd94817f51b0abc6b95c33599a78e965e7d375ec33f4fd9f3"
+    },
+    {
+      "artifact_type": "frozen_level1_simulator",
+      "path": "../level1/simulate_level1.py",
+      "sha256": "7cd95b94631aa17b90fc182fa58280ce80103b9de172e88d066519d11c8f6f19"
+    },
+    {
+      "artifact_type": "prior_source_extraction",
+      "path": "SOURCE_OF_TRUTH_EXTRACTION.md",
+      "sha256": "87cad99f628704119e73b95bf1a7220372eca57a4dfb52a300799d5f9a9e3fbc"
+    },
+    {
+      "artifact_type": "prior_owner_review",
+      "path": "LEVEL1B_OWNER_REVIEW_REQUIRED.md",
+      "sha256": "a5547a5222fba492898cd5f1628df8b7eb2af36169ce42b369b1423992241ec9"
+    },
+    {
+      "artifact_type": "human_amendment",
+      "path": "LEVEL1_PROTOCOL_AMENDMENT_V1.0.1.md",
+      "sha256": "ffc7233a15be76580a3518d1ca179b57a96aa2c0a7f6d7b1bde797c5b2249bcc"
+    },
+    {
+      "artifact_type": "machine_amendment",
+      "path": "protocol_amendment_v1_0_1.json",
+      "sha256": "c5df438954b3f32d44a4eea6d4add89bb9f10c71e3b32ba8ce135d8b473c870a"
+    },
+    {
+      "artifact_type": "amendment_hash_record",
+      "path": "AMENDMENT_HASH_RECORD.json",
+      "sha256": "0b9cb5d8bdfc235938fc3e871361fc4d749ad0088725ca0ba1d704f7399db047"
+    },
+    {
+      "artifact_type": "evaluator_specification",
+      "path": "evaluator_spec_v1.json",
+      "sha256": "2a3a53da5841154f60b07b97b489ac9bdc89df79de65e33b5cb9b36cb0b59839"
+    },
+    {
+      "artifact_type": "evaluator_source",
+      "path": "evaluate_level1b.py",
+      "sha256": "529a9615ef46434b67349981accad223ea906f1f5c0d5bf031eb2fb4e5c63a4e"
+    },
+    {
+      "artifact_type": "verifier_source",
+      "path": "verify_level1b_evaluator.py",
+      "sha256": "7e3960e44e56308af8c419e46e3a4bb50dbb5cd0eabbafca1f47cc12b55bdcde"
+    },
+    {
+      "artifact_type": "development_generator_source",
+      "path": "generate_development_raw.py",
+      "sha256": "c8d0fea629b7d30b5c9221dd714c3b4fbdf1c5f3c072ff0da0696179cd20ada6"
+    },
+    {
+      "artifact_type": "sensitivity_source",
+      "path": "evaluate_level1b_sensitivity.py",
+      "sha256": "c233c7a0197b0e969097e4ac3d223eb0f6fbe5da079e20f18e468d47aa0ecf82"
+    },
+    {
+      "artifact_type": "development_raw_generation_record",
+      "path": "development/raw_generation_record.json",
+      "sha256": "34340e92d85a1db2c84accab92e850e5ebb6791ecb8bcbc0fc70a5ba020e261a"
+    },
+    {
+      "artifact_type": "development_result",
+      "path": "development/development_results.json",
+      "sha256": "1b2c6d19020d7c12d3e971b0eca6ee555a4c73875ced933fb827bc849e91cd94"
+    },
+    {
+      "artifact_type": "development_sensitivity",
+      "path": "development/deterministic_sensitivity.json",
+      "sha256": "6f08bd6557ce5a8e74c6086cc2fc1d325384797ad292a79e3d59a10422f62c6c"
+    },
+    {
+      "artifact_type": "verification_result",
+      "path": "verification/verification_result.json",
+      "sha256": "efceaa6a61c14b1f0df59e9a0cb2ad892ac4e0c36254920a35f6043e1a2084f9"
+    },
+    {
+      "artifact_type": "readme",
+      "path": "README.md",
+      "sha256": "685ca4321a976aac5da154aef8cce378472b6efa2ff0655d96e88cdef2f28c95"
+    },
+    {
+      "artifact_type": "verification_document",
+      "path": "LEVEL1B_VERIFICATION.md",
+      "sha256": "0520bb96f017a1973586521135600aa373a513277c09fc6b43c373820b31bc8f"
+    },
+    {
+      "artifact_type": "development_observation_document",
+      "path": "LEVEL1B_DEVELOPMENT_OBSERVATION.md",
+      "sha256": "6dbfd6e4deb6a9243f53b0ff7262d9d7986cd3f61fac73a3f7abc2b6e3f42dc9"
+    },
+    {
+      "artifact_type": "freeze_record",
+      "path": "LEVEL1B_FREEZE_RECORD.md",
+      "sha256": "8044683b032550b469f78ea958cad178f5161c1d8d60120c52755d16ec4c537a"
+    },
+    {
+      "artifact_type": "final_report",
+      "path": "LEVEL1B_FINAL_REPORT.md",
+      "sha256": "6f25682f236d04f1e53256af7b8d4e89c5ae0ab99c819da73fdb411c75c79379"
+    }
+  ]
+}
