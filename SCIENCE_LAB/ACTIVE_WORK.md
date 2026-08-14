@@ -35,17 +35,17 @@ system:
 
 Every item must pass:
 
-- [ ] Constitution and adoption record are tracked and remote-durable.
-- [ ] `00_LAB_ENTRY` reaches Constitution, Active Work and Lab Register.
-- [ ] Lab Register contains only owner-accepted current control records.
-- [ ] New-work intake cannot create a Lab without owner admission.
-- [ ] Run Contract distinguishes documentation, verification, replay and
+- [x] Constitution and adoption record are tracked and remote-durable.
+- [x] `00_LAB_ENTRY` reaches Constitution, Active Work and Lab Register.
+- [x] Lab Register contains only owner-accepted current control records.
+- [x] New-work intake cannot create a Lab without owner admission.
+- [x] Run Contract distinguishes documentation, verification, replay and
       external replication.
-- [ ] Contributor Onramp states one safe first action and all claim boundaries.
-- [ ] Existing protocols, ledgers and the Labreport index are tracked.
-- [ ] Master Status, portfolio and Lab Desk agree on `STRUCTURE_FREEZE`.
-- [ ] All Constitution V1 control-surface navigation links pass.
-- [ ] A clean checkout exposes the complete entry and governance route.
+- [x] Contributor Onramp states one safe first action and all claim boundaries.
+- [x] Existing protocols, ledgers and the Labreport index are tracked.
+- [x] Master Status, portfolio and Lab Desk agree on `STRUCTURE_FREEZE`.
+- [x] All Constitution V1 control-surface navigation links pass.
+- [x] A clean checkout exposes the complete entry and governance route.
 - [ ] Human Owner records a separate `REOPEN` or `REMAIN_FROZEN` decision.
 
 Until the final checkbox receives a Human decision:
