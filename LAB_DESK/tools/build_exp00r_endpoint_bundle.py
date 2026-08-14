@@ -223,9 +223,20 @@ def write_outputs(output: Path, manifest: dict[str, object]) -> None:
     (output / "EXP00R_ENDPOINT_BUNDLE_MANIFEST.json").write_text(
         json.dumps(manifest, indent=2, sort_keys=True) + "\n", encoding="utf-8"
     )
+    packages_by_root = {
+        package["root"]: package for package in manifest["selection"]["packages"]
+    }
     for layer in manifest["selection"]["layers"]:
         (output / f"{layer['layer']}_ROOTS.txt").write_text(
             "".join(f"{root}\n" for root in layer["roots"]), encoding="utf-8"
+        )
+        (output / f"{layer['layer']}_FILES.txt").write_text(
+            "".join(
+                f"{root}/{record['path']}\n"
+                for root in layer["roots"]
+                for record in packages_by_root[root]["files"]
+            ),
+            encoding="utf-8",
         )
 
     selection = manifest["selection"]
