@@ -14,6 +14,42 @@ status or authorize research execution.
 | 5 | Packages without endpoint markers | Manual inspection | Identify owner, purpose and explicit disposition; do not infer status from filenames |
 | 6 | Outreach images and strategy drafts in the Lab | Route out of scientific working set | Confirm canonical Publishing/Outreach copy before any move or deletion |
 
+## Research Director recommendation
+
+Start with `NEXAH_EARLY_WARNING_HYPOTHESIS_VALIDATION`, but perform a logical
+split before any physical move:
+
+1. Preserve a **small reproducibility core in Git**: preregistration and freeze
+   records, source code, configuration, manifests, final reports and the
+   machine-readable Level-1C outcome.
+2. Preserve the approximately **2.6 GiB generated trajectory corpus as one
+   immutable data artifact outside normal Git history**. The storage location
+   must support private access initially, durable download and checksum
+   verification.
+3. Connect both layers with a versioned manifest containing every relative
+   path, byte size and SHA-256 digest. Record the data-artifact URI only after
+   the owner has selected and tested the durable storage location.
+4. Keep the scientific disposition exactly
+   `LEVEL1C_COMPLETE_INCONCLUSIVE`; the split is repository maintenance, not a
+   new analysis or reinterpretation.
+5. Verify reconstruction from a clean checkout plus the external data artifact
+   before considering any local duplicate removable.
+
+Do **not** use ordinary Git or an unbounded Git-LFS upload for the trajectory
+corpus by default. A content-addressed compressed dataset in private object
+storage, with its manifest and retrieval instructions tracked in this
+repository, is the recommended target architecture.
+
+### Recommended decision sequence
+
+`inventory frozen` → `core allowlist reviewed` → `data artifact built` →
+`private upload verified` → `clean-room retrieval verified` →
+`local-copy disposition decided`
+
+The current authorization stops before `data artifact built`. Selecting a
+storage provider, uploading data or deleting a local copy requires a separate
+owner decision.
+
 ## Stop conditions
 
 Stop and request owner direction if a step would:
