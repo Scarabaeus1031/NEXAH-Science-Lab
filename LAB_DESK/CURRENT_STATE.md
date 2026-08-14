@@ -86,6 +86,22 @@ The terminal NEXAH review is also complete:
 
 EXP-T01 registration is complete; no adoption or execution follows from it.
 
+## Current residual inventory
+
+After the ORION and EXP-T01 registrations, the untracked working corpus is:
+
+- **138** top-level package roots;
+- **4,811** files;
+- **2.7 GiB** total;
+- **3,418** known data-like files in **11** artifact-residue roots;
+- **29** documented-review roots;
+- **16** manual-review roots;
+- **82** terminal-candidate roots.
+
+The 11 data-artifact residues are the Early-Warning raw corpus plus the ten
+registered ORION packages' excluded primary/replay data layers. They are known
+storage work, not undocumented scientific packages.
+
 ## Definition of done for SL-CLEAN-001
 
 - every untracked top-level package has a deterministic content-tree hash;

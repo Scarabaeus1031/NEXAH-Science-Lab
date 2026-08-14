@@ -22,7 +22,16 @@ DESK_ROOT = "LAB_DESK"
 TEXT_SUFFIXES = {".json", ".md", ".txt", ".yaml", ".yml"}
 TERMINAL_WORDS = ("FINAL", "FREEZE", "FROZEN", "CLOSURE", "CLOSED", "DECISION")
 DOCUMENT_WORDS = ("STATUS", "REPORT", "MANIFEST", "README")
-RAW_PARTS = {"raw", "data", "datasets", "trajectories"}
+RAW_PARTS = {
+    "raw",
+    "data",
+    "datasets",
+    "trajectories",
+    "primary",
+    "replay",
+    "clean_replay",
+    "failed_attempts",
+}
 SIGNAL_KEYS = {
     "status",
     "outcome",
