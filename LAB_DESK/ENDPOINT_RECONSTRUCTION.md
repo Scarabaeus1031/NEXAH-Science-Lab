@@ -1,18 +1,18 @@
 # Science Lab Endpoint Reconstruction
 
-Snapshot: 2026-08-14
+Snapshot: 2026-08-21
 
-Repository HEAD: `bb93800c9042bcd9396b0c97bbda5b3380619ca0`
+Repository HEAD: `b1bfb94a9c8cb85b3caaeaf603c8d4e4a3b9a8c5`
 
 > This is a repository-review ledger, not a scientific adoption record. Endpoint markers and extracted labels must be checked against the Master Status and the package's actual authority chain.
 
 ## Inventory
 
 - Package roots: **138**
-- Untracked files: **4,811**
+- Untracked files: **4,804**
 - Total bytes: **2.7 GiB**
 - Raw/data-like files: **3,418** (2.7 GiB)
-- Review classes: `DATA_ARTIFACT_RESIDUE` 11, `DOCUMENTED_REVIEW` 29, `MANUAL_REVIEW` 16, `TERMINAL_CANDIDATE` 82
+- Review classes: `DATA_ARTIFACT_RESIDUE` 11, `DOCUMENTED_REVIEW` 28, `MANUAL_REVIEW` 17, `TERMINAL_CANDIDATE` 82
 
 ## Largest packages
 
@@ -33,11 +33,11 @@ Repository HEAD: `bb93800c9042bcd9396b0c97bbda5b3380619ca0`
 | `NEXAH_ONE_PAGE_OUTREACH_STRATEGY.png` | 1 | 588.8 KiB | 0 B | `MANUAL_REVIEW` |
 | `NEXAH_TRANSLATION_INVARIANT_REPLICATION` | 16 | 576.3 KiB | 0 B | `TERMINAL_CANDIDATE` |
 | `NEXAH_FOCUS_AND_GOALS.png` | 1 | 540.6 KiB | 0 B | `MANUAL_REVIEW` |
+| `tmp` | 3 | 496.9 KiB | 0 B | `MANUAL_REVIEW` |
 | `ORION_EXP_O8_GENERATOR_REALIZATION_001_EXECUTION` | 28 | 285.1 KiB | 285.1 KiB | `DATA_ARTIFACT_RESIDUE` |
 | `ORION_EXP_ORION_L4_003_TNSPA_V1_EXECUTION` | 50 | 261.4 KiB | 261.4 KiB | `DATA_ARTIFACT_RESIDUE` |
 | `ORION_EXP_O8_GENERATOR_REALIZATION_002_EXECUTION` | 36 | 229.6 KiB | 229.6 KiB | `DATA_ARTIFACT_RESIDUE` |
 | `ORION_MATH_THE_MATH_VALIDATION_ARCHITECTURE_PASS` | 13 | 161.3 KiB | 0 B | `DOCUMENTED_REVIEW` |
-| `ORION_LEVEL_4_002_CANDIDATE_CHARACTERIZATION` | 36 | 135.2 KiB | 92.0 KiB | `TERMINAL_CANDIDATE` |
 
 ## Manual-review roots
 
@@ -57,6 +57,7 @@ Repository HEAD: `bb93800c9042bcd9396b0c97bbda5b3380619ca0`
 - `ONE_PAGE_OUTREACH_STRATEGY.md`
 - `OPERATIONS`
 - `ORION_O8_B1_002_BASELINE_CEILING_FORENSIC_ANALYSIS`
+- `tmp`
 
 ## Package ledger
 
@@ -199,7 +200,7 @@ Repository HEAD: `bb93800c9042bcd9396b0c97bbda5b3380619ca0`
 | `RESEARCH_NAVIGATION_PILOT_PHASE_C` | OTHER | 10 | 26.1 KiB | `DOCUMENTED_REVIEW` | 1 | `b2cd05baf22c231607959dfb159ba8f9d0fc3ad3d7a6e958077b62561bd87d22` |
 | `RUNTIME` | OTHER | 11 | 23.9 KiB | `TERMINAL_CANDIDATE` | 3 | `1e2a1f0a7f181ce4c3d18b147b7f9a4779d624f36128bf2b0cd1f3b024aee28a` |
 | `RUNTIME_ASSESSMENT` | OTHER | 11 | 27.7 KiB | `TERMINAL_CANDIDATE` | 2 | `4d8f67f36ded8969a435711f09d3906eeff47dd774fd814e80d15d389dcb456a` |
-| `SCIENCE_LAB` | OTHER | 10 | 18.7 KiB | `DOCUMENTED_REVIEW` | 3 | `82ab0102e7671b239f6e4f5f1aa210b33222616dd98905a1f1540ca2ea0ef509` |
+| `tmp` | OTHER | 3 | 496.9 KiB | `MANUAL_REVIEW` | 0 | `a9a7c7a23d15dfbc7b159188f04206630147e650f69856189313f93aabe6efe3` |
 
 ## Interpretation boundary
 

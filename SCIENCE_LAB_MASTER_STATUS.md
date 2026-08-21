@@ -1,9 +1,40 @@
 # NEXAH / ORION Science Lab — Master Status
 
-Status date: 2026-08-14
+Status date: 2026-08-21
 
 Mode: **STRUCTURE FREEZE**
 Primary active experiment: **NONE**
+
+## Owner freeze and bounded-maintenance closure
+
+Thomas Hofmann, as Human Authority, decided on 2026-08-21:
+
+```yaml
+SCIENCE_LAB_RESEARCH:
+  state: REMAIN_FROZEN
+  active_research_cycle: NONE
+SL_CLEAN_001:
+  class: NONSCIENTIFIC_MAINTENANCE
+  state: DONE
+  closure_basis: VERIFIED_BOUNDED_NONSCIENTIFIC_MAINTENANCE
+  research_activation: NO
+APP_01_H1:
+  state: READY_NOT_ACTIVE
+  desk_acceptance: NO
+  activation: NO
+  return_trigger:
+    - VERIFIED_SL_CLEAN_001_CLOSURE
+    - SEPARATE_REOPEN_FOR_APP_01_H1_ONLY_DECISION
+ORION_RESEARCH_SESSION:
+  state: CANDIDATE_NOT_ACTIVATED
+  relation_to_APP_01_H1: SEPARATE
+```
+
+The cleanup closure records repository maintenance only. Its final deterministic
+residual inventory contains 138 roots and 4,804 files after the six authorized
+program-evidence records entered the tracked closure changeset. It does not alter a
+scientific result, reopen the Lab, activate APP-01-H1, or adopt an ORION
+capability. The first APP-01-H1 slice requires no ORION output.
 
 ## 0. Current portfolio reconciliation
 

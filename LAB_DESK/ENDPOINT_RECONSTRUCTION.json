@@ -1,5 +1,5 @@
 {
-  "as_of": "2026-08-14",
+  "as_of": "2026-08-21",
   "boundary": {
     "note": "Markers and extracted labels locate review candidates; they do not establish scientific authority.",
     "raw_data_publication_authorized": false,
@@ -3846,34 +3846,30 @@
       ]
     },
     {
-      "bytes": 19154,
-      "endpoint_candidates": [
-        "SCIENCE_LAB/LABREPORTS/LABREPORT_INDEX.md",
-        "SCIENCE_LAB/PROTOCOLS/LABREPORT_SCHEMA.md",
-        "SCIENCE_LAB/LABREPORTS/ORION/LABREPORT_ORION_O8_B1_CYCLE_001.md"
-      ],
+      "bytes": 508868,
+      "endpoint_candidates": [],
       "extensions": {
-        ".md": 10
+        ".pdf": 3
       },
       "family": "OTHER",
-      "file_count": 10,
-      "marker_class": "DOCUMENTED_MARKER",
+      "file_count": 3,
+      "marker_class": "NO_MARKER",
       "raw_bytes": 0,
       "raw_file_count": 0,
-      "review_class": "DOCUMENTED_REVIEW",
-      "root": "SCIENCE_LAB",
+      "review_class": "MANUAL_REVIEW",
+      "root": "tmp",
       "sha256_raw_tree": null,
-      "sha256_tree": "82ab0102e7671b239f6e4f5f1aa210b33222616dd98905a1f1540ca2ea0ef509",
+      "sha256_tree": "a9a7c7a23d15dfbc7b159188f04206630147e650f69856189313f93aabe6efe3",
       "status_signals": []
     }
   ],
   "repository": {
     "branch": "codex/z3885-verification",
-    "head": "bb93800c9042bcd9396b0c97bbda5b3380619ca0"
+    "head": "b1bfb94a9c8cb85b3caaeaf603c8d4e4a3b9a8c5"
   },
   "schema": "nexah-science-lab-endpoint-reconstruction-v1",
   "summary": {
-    "bytes": 2913681685,
+    "bytes": 2914171399,
     "families": {
       "EXP_00": 34,
       "NEXAH": 41,
@@ -3885,10 +3881,10 @@
     "raw_files": 3418,
     "review_classes": {
       "DATA_ARTIFACT_RESIDUE": 11,
-      "DOCUMENTED_REVIEW": 29,
-      "MANUAL_REVIEW": 16,
+      "DOCUMENTED_REVIEW": 28,
+      "MANUAL_REVIEW": 17,
       "TERMINAL_CANDIDATE": 82
     },
-    "untracked_files": 4811
+    "untracked_files": 4804
   }
 }

@@ -5,9 +5,11 @@ Queue owner: **Science Lab Research Director**
 This queue governs repository disposition only. It does not change a scientific
 status or authorize research execution.
 
-Queue state: **PAUSED_BY_STRUCTURE_FREEZE**. These are preserved maintenance
-items, not current assignments. Resume one item only after it is explicitly
-listed in [`../SCIENCE_LAB/ACTIVE_WORK.md`](../SCIENCE_LAB/ACTIVE_WORK.md).
+Queue state: **RESIDUALS_PRESERVED_AFTER_SL_CLEAN_001_CLOSURE**. These are
+bounded future maintenance or owner gates, not current assignments. The
+inventory-and-disposition ticket is closed; resume one residual only after it
+is explicitly authorized and listed in
+[`../SCIENCE_LAB/ACTIVE_WORK.md`](../SCIENCE_LAB/ACTIVE_WORK.md).
 
 | Order | Work item | Initial disposition | Decision required |
 | --- | --- | --- | --- |

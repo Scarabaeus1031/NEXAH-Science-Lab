@@ -1,19 +1,23 @@
 # Research Director — Current State
 
-Status date: 2026-08-14
+Status date: 2026-08-21
 
 Role: **Science Lab Research Director**
 
 ## Current assignment
 
-`SL-STRUCTURE-V1` — establish and verify the Constitution, single Lab Register,
-Active Work gate, admission record, Run Contract and contributor onramp.
+`NONE` — no active scientific or maintenance assignment.
 
-Lab operations state: **`STRUCTURE_FREEZE`**.
+Lab operations state: **`STRUCTURE_FREEZE · REMAIN_FROZEN`**.
 
-`SL-CLEAN-001` is paused. Its completed inventories and package dispositions
-remain valid records, but no further package cleanup, experiment, scientific
-replay or new Lab admission is current work.
+`SL-CLEAN-001` is `DONE` with closure basis
+`VERIFIED_BOUNDED_NONSCIENTIFIC_MAINTENANCE`. Its inventory and bounded
+dispositions remain valid records. Residual maintenance gates are not current
+assignments. No experiment, scientific replay or new Lab admission is active.
+
+`APP-01-H1` is `READY_NOT_ACTIVE`. Desk 05 acceptance and activation remain
+`NO`; the next admissible gate is a separate Human Authority decision
+`REOPEN_FOR_APP_01_H1_ONLY`. The first slice requires no ORION output.
 
 ## What is known
 
@@ -98,14 +102,14 @@ EXP-T01 registration is complete; no adoption or execution follows from it.
 
 ## Current residual inventory
 
-After the ORION and EXP-T01 registrations, the untracked working corpus is:
+The 2026-08-21 deterministic reconstruction records:
 
-- **138** top-level package roots;
-- **4,811** files;
+- **138** residual top-level package roots;
+- **4,804** files;
 - **2.7 GiB** total;
 - **3,418** known data-like files in **11** artifact-residue roots;
-- **29** documented-review roots;
-- **16** manual-review roots;
+- **28** documented-review roots;
+- **17** manual-review roots;
 - **82** terminal-candidate roots.
 
 The 11 data-artifact residues are the Early-Warning raw corpus plus the ten
@@ -120,5 +124,6 @@ storage work, not undocumented scientific packages.
 - each package has a bounded review class;
 - the next cleanup sequence is small enough to execute package-by-package.
 
-These criteria describe the preserved maintenance task. They are not an active
-instruction during Structure Freeze.
+The regenerated reconstruction verifies all five criteria. Completion closes
+the bounded inventory-and-disposition ticket only; it does not activate any
+residual queue item or scientific work.
