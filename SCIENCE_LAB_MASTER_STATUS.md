@@ -5,6 +5,17 @@ Status date: 2026-08-21
 Mode: **STRUCTURE FREEZE**
 Primary active experiment: **NONE**
 
+<!-- BEGIN SCIENCE FRAMEWORK FREEZE POINTER 2026-08-30 -->
+## Science and framework freeze — current pointer
+
+The controlling documentary closure is the
+[NEXAH Science & Framework Freeze](NEXAH_SCIENCE_FRAMEWORK_FREEZE_2026-08-30.md)
+([visual marker](NEXAH_SCIENCE_FRAMEWORK_FREEZE_2026-08-30.png)). Science and
+conceptual Framework are `CLOSED_AND_FROZEN`; no research, implementation or
+ORION capability is activated. The package-level scientific states below remain
+historical/currentness detail and do not override that later portfolio freeze.
+<!-- END SCIENCE FRAMEWORK FREEZE POINTER 2026-08-30 -->
+
 ## Owner freeze and bounded-maintenance closure
 
 Thomas Hofmann, as Human Authority, decided on 2026-08-21:
