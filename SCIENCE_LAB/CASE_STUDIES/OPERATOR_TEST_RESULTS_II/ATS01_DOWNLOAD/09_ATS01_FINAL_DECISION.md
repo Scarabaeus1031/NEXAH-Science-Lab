@@ -1,0 +1,79 @@
+# 09 — ATS-01 Final Decision
+
+## Primary result
+
+**B_DISCRETE_ANCHOR_TRANSPORT_IS_WELL_DEFINED_BUT_GENERIC**
+
+The bounded system is mathematically complete: a carrier, deterministic
+transition, anchor predicate, next-anchor rule, full trace and step distance are
+all independently defined. The primary run is exactly
+`97→98→99→100→101`, with three intermediate states and four transitions.
+
+The same architecture works unchanged for the neutral predicate “divisible by
+5.” Primality is therefore one anchor selector, not the source of the transport
+architecture. “Transport” adds no operator beyond iterating `T` until the anchor
+predicate becomes true; it is an interpretive label for that bounded process.
+
+```text
+ATS01_PRIMARY_RESULT=B_DISCRETE_ANCHOR_TRANSPORT_IS_WELL_DEFINED_BUT_GENERIC
+
+STATE_TYPE=INTEGER
+TRANSITION_OPERATOR=T_N_EQUALS_N_PLUS_1
+ANCHOR_PREDICATE=P_N_IS_PRIME
+NEXT_ANCHOR_RULE=MINIMUM_M_GREATER_THAN_A_SATISFYING_P
+
+PRIMARY_START_ANCHOR=97
+PRIMARY_END_ANCHOR=101
+PRIMARY_INTERMEDIATE_STATES=98_99_100
+PRIMARY_INTERMEDIATE_STATE_COUNT=3
+PRIMARY_TRANSITION_COUNT=4
+PRIMARY_TRACE=97_98_99_100_101
+
+P25_EQUALS_97=YES
+P26_EQUALS_101=YES
+VALUE_SPACE_DISTANCE=4
+PRIME_INDEX_DISTANCE=1
+
+PRIME_CONTROL_RESULT=SAME_RULE_GENERATES_ALL_FIVE_CONTROL_TRACES
+NEUTRAL_PREDICATE_RESULT=SAME_ARCHITECTURE_10_TO_15
+PRIME_SPECIFIC_ARCHITECTURE=NO
+
+TRANSPORT_FORMAL_DEFINITION=ITERATE_T_UNTIL_NEXT_ANCHOR_PREDICATE_IS_TRUE
+TRANSPORT_SEMANTIC_DELTA=NONE
+
+TRACE_START_RECOVERABLE=YES
+TRACE_END_RECOVERABLE=YES
+TRACE_TRANSITION_COUNT_RECOVERABLE=YES
+REDUCED_TRACE_INFORMATION_LOSS=EXPLICIT_VISITATION_AND_PATH_ATTESTATION_ONLY_GIVEN_FROZEN_DETERMINISTIC_MODEL
+
+INVERSE_OPERATOR=T_INVERSE_N_EQUALS_N_MINUS_1
+INVERSE_EXISTS=YES_ON_INTEGERS
+INVERSE_EQUALS_RETURN=NO
+
+PRIMALITY_1031=PRIME
+FACTORIZATION_1032=2^3*3*43
+PRIMALITY_1033=PRIME
+1033_NEXT_PRIME_AFTER_1031=YES
+
+SYMBOLIC_ANNOTATIONS_USED_AS_EVIDENCE=NO
+DIRECTION_INFERRED_FROM_GLYPH=NO
+POST_HOC_OPERATOR_ADDITIONS=NONE
+
+NEXAH_ARCHITECTURE_CHANGED=NO
+ORION_CAPABILITY_DELTA=NONE
+SCIENTIFIC_CLAIM_DELTA=NONE
+RUN05_AUTHORIZATION=NO
+NEW_RESEARCH_ACTIVATION=NO
+IMPLEMENTATION_ACTIVATION=NO
+
+ATS01_STATUS=CLOSED
+NEXT_ACTION=STOP
+```
+
+## Plain-language answer
+
+“Something moves from anchor to anchor and leaves a trace” is a valid discrete
+architecture once the state space, step rule and anchor predicate are fixed.
+It is not specifically prime mathematics: primes merely choose some stopping
+points. Transport is ordinary deterministic iteration viewed together with its
+retained path.

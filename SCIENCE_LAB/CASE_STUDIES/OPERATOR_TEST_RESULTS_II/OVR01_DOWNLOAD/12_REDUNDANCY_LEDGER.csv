@@ -1,0 +1,10 @@
+﻿TOKEN_A,TOKEN_B,RESULT,REASON,HISTORICAL_DISTINCTION_PRESERVED
+PROJECT,PROJECTION,DISTINCT,rule/verb versus result or representation relation,YES
+TRANSFORM,TRANSLATE,PARTIALLY_OVERLAPPING,translate is a specialized transform,YES
+REFLECT,INVERSE,DISTINCT,"reflection can be self-inverse; inverse is a rule relation, not a geometry",YES
+GATE,FILTER,PARTIALLY_OVERLAPPING,"some gates filter, but gate also names intersections/transitions",YES
+FILTER,CONSTRAINT,DISTINCT,predicate/condition versus possible selection execution,YES
+RETURN,INVERSE,DISTINCT,path/event versus inverse rule,YES
+REPEAT,ITERATION,PARTIALLY_OVERLAPPING,"repeat is retained operator; iteration is analytical concept, not OVI survivor",YES
+OBSERVE,PROJECT,PARTIALLY_OVERLAPPING,both may be maps; observe commits to measurement/observation semantics,YES
+MIRROR,REFLECT,REDUNDANT_IN_CURRENT_FORMAL_CORE,formal core needs REFLECT; mirror remains historical expression,YES

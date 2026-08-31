@@ -1,0 +1,72 @@
+# 10 — PAT-01 Final Decision
+
+## Primary result
+
+**B_LOCAL_PRIME_TRACE_SHOWS_ONLY_STANDARD_GAP_AND_TRACE_STRUCTURE**
+
+The verified anchors are `83,89,97,101,103`, with primary gap profile
+`(6,8,4,2)`. This profile is neither constant, monotone increasing, monotone
+decreasing nor alternating. Every complete `+1` trace obeys the standard
+identities `transition_count=gap` and `intermediate_count=gap-1`.
+
+Normalization to `u∈[0,1]` provides a common representation for unequal gaps
+but introduces no new arithmetic content. No encoder exists for the quarantined
+31/33/35 or 24/34 candidates.
+
+```text
+PAT01_PRIMARY_RESULT=B_LOCAL_PRIME_TRACE_SHOWS_ONLY_STANDARD_GAP_AND_TRACE_STRUCTURE
+
+P23=83
+P24=89
+P25=97
+P26=101
+P27=103
+
+G23=6
+G24=8
+G25=4
+G26=2
+GAP_PROFILE=NONE_OF_CONSTANT_MONOTONE_INCREASING_MONOTONE_DECREASING_ALTERNATING
+
+TRACE_23_24=83_84_85_86_87_88_89
+TRACE_24_25=89_90_91_92_93_94_95_96_97
+TRACE_25_26=97_98_99_100_101
+TRACE_26_27=101_102_103
+
+TRANSITION_COUNT_EQUALS_GAP=YES_ALL_INTERVALS
+INTERMEDIATE_COUNT_EQUALS_GAP_MINUS_ONE=YES_ALL_INTERVALS
+
+MICRO_LEDGER_97_104_COMPLETE=YES
+COMPOSITE_FACTORIZATIONS_VERIFIED=YES
+
+NORMALIZED_COORDINATE_VALID=YES
+NORMALIZATION_ADDS_NEW_ARITHMETIC_CONTENT=NO
+
+PRIME_INDEX_SPACE=RETAINS_ANCHOR_ORDER_LOSES_VALUES_GAPS_AND_INTERMEDIATE_STATES
+PRIME_VALUE_SPACE=RETAINS_ANCHORS_AND_GAPS_LOSES_EXPLICIT_TRACE_AND_INDEX_WITHOUT_EXTERNAL_ENUMERATION
+TRACE_SPACE=RETAINS_ALL_VISITED_STATES_LOSES_GLOBAL_PRIME_INDEX_WITHOUT_PRIOR_COUNT
+
+SECONDARY_ENCODER_DEFINED=NO
+31_33_35_DERIVED=NO
+24_34_DERIVED=NO
+
+GLYPH_SEMANTICS_USED=NO
+WORD_ASSOCIATIONS_USED=NO
+POST_HOC_PATTERN_FIT=NONE
+
+NEXAH_ARCHITECTURE_CHANGED=NO
+ORION_CAPABILITY_DELTA=NONE
+SCIENTIFIC_CLAIM_DELTA=NONE
+RUN05_AUTHORIZATION=NO
+NEW_RESEARCH_ACTIVATION=NO
+
+PAT01_STATUS=CLOSED
+NEXT_ACTION=STOP
+```
+
+## Plain-language answer
+
+The local window contains ordinary but exact prime-gap structure. What changes
+from interval to interval is the number of `+1` steps and therefore the number
+of composite intermediate states. No additional encoded “change” survives the
+neutral arithmetic description.

@@ -1,0 +1,52 @@
+# Final Intake Decision
+
+Date: `2026-08-29`
+
+## Decision
+
+`CLOSED_AND_FILED_MIXED_BOUNDED_COLLECTION`
+
+The ten received subpackages form several explicitly connected bounded branches plus one closed reference artifact. They do not support one linear genealogy. All primary test/inventory decisions required for custody are materially present; GPT-01 carries a terminal result and boundary but no explicit native `CLOSED` label. No canonical duplicate or destination collision was found.
+
+The complete collection is therefore filed intact as archived evidence case-study custody at:
+
+`/Users/tho2020/Documents/NEXAH ECOSYSTEM/30 SCIENCE LAB/NEXAH-Science-Lab/SCIENCE_LAB/CASE_STUDIES/OPERATOR_TEST_RESULTS_II`
+
+This is custody, not admission of a new Study. Package-local authority and native wording are preserved. Mission Control receives only a compact receipt/pointer.
+
+## Collection state
+
+```text
+COLLECTION_ID = OPERATOR_TEST_RESULTS_II
+COLLECTION_STRUCTURE = MULTIPLE_BOUNDED_TEST_FAMILIES
+COLLECTION_COMPLETENESS = COMPLETE_FOR_RECEIVED_TEN_SUBPACKAGES_WITH_EXPLICIT_OVI_CHAT_PROVENANCE_LIMIT
+SCIENTIFIC_STATUS = CLOSED_MIXED_BOUNDED_RESULTS_PRESERVED
+VOCABULARY_STATUS = RECONCILED_REFERENCE_NO_NEW_SEMANTICS
+NVC01_STATUS = CLOSED_REFERENCE_ARTIFACT
+EYE_RELEVANCE = REFERENCE_INPUT_ONLY_NOT_ACTIVATED
+RUST_RELEVANCE = REFERENCE_INPUT_ONLY_NOT_ACTIVATED
+ORION_CAPABILITY_DELTA = NONE
+NEXAH_ARCHITECTURE_DELTA = NONE
+NEW_RESEARCH_ACTIVATION = NO
+CANONICAL_CUSTODY = SCIENCE_LAB_ARCHIVED_EVIDENCE_CASE_STUDY
+NEXT_ACTION = PRESERVE_NO_ACTION
+```
+
+## Terminal gates
+
+```text
+RUN05_AUTHORIZATION = NO
+SUCCESSOR_TRANSFORMATION_GATE = NO
+NEW_VOCABULARY = NO
+NEW_SEMANTICS = NO
+EYE_VIEW_CONTRACT = NOT_CREATED
+RUST_IMPLEMENTATION = NO
+ORION_CAPABILITY_ACTIVATION = NO
+LYRA_INTEGRATION = NO
+NEXAHEDRON_INTEGRATION = NO
+PUBLICATION_AUTHORIZATION = NO
+FILES_OVERWRITTEN = NONE
+PRE_EXISTING_EVIDENCE_CHANGED = NO
+PRE_EXISTING_EVIDENCE_DELETED = NO
+DECISION_QUEUE_ENTRY = NONE
+```

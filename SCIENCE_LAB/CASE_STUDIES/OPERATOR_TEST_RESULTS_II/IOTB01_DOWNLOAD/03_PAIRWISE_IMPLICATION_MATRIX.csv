@@ -1,0 +1,6 @@
+equality_of,implies_equal_IDENTITY,implies_equal_OBSERVABLE_STATE,implies_equal_ORIENTATION,implies_equal_PROVENANCE,implies_equal_GENERATION,reason
+IDENTITY,YES,NO_GENERAL_IMPLICATION,NO_GENERAL_IMPLICATION,NO_GENERAL_IMPLICATION,NO_GENERAL_IMPLICATION,same object may be observed at different times after in-place state/orientation changes
+OBSERVABLE_STATE,NO_GENERAL_IMPLICATION,YES,NO_GENERAL_IMPLICATION,NO_GENERAL_IMPLICATION,NO_GENERAL_IMPLICATION,copies or unrelated objects may share fields while identity/history differ
+ORIENTATION,NO_GENERAL_IMPLICATION,NO_GENERAL_IMPLICATION,YES,NO_GENERAL_IMPLICATION,NO_GENERAL_IMPLICATION,distinct objects can share orientation; one object can rotate
+PROVENANCE,NO_GENERAL_IMPLICATION,NO_GENERAL_IMPLICATION,NO_GENERAL_IMPLICATION,YES,NO_GENERAL_IMPLICATION,siblings can share source while identity/state/orientation differ; depth need not be assumed from root alone
+GENERATION,NO_GENERAL_IMPLICATION,NO_GENERAL_IMPLICATION,NO_GENERAL_IMPLICATION,NO_GENERAL_IMPLICATION,YES,many distinct objects and states can occupy the same derivation depth
