@@ -25,3 +25,15 @@ The three folders were not classified as duplicates: byte-identity comparisons f
 The Numeric-Coupling bundle remains held, noncanonical and inactive pending recovery of the four missing requested deliverables plus verification of an authorized home. The three larger folders remain out-of-scope archives pending a future owner-controlled intake decision. Existing APP, research, architecture and ORION gates remain unchanged.
 
 Nothing was deleted. Seven top-level incoming objects were moved to dated preservation locations; `/Users/tho2020/Desktop/00_INCOMING` was left physically empty. No research, experiment, theory, application, mission or ORION activation occurred, and no canonical decision was overwritten.
+
+
+## Post-closeout custody supersession — 2026-08-29
+
+The dated Desktop routing above remains the historical closeout record. Thomas subsequently approved permanent custody dispositions through the bounded Routed Custody Final Execution.
+
+- Numeric Coupling: permanently filed as `CLOSED_INCOMPLETE` historical provenance under `NEXAH/RESEARCH/HISTORY/ROUTED_CUSTODY_2026-08-25/NUMERIC_COUPLING_INCOMPLETE/`; no scientific reopen.
+- TRANSVERSUM: permanently filed intact as historical design/expression material under `NEXAH/ORIENTATION_LANGUAGE/VISUALS/ARCHIVE/Conzept Circle Zirkus TRANSVERSUM/`; no canonical successor was inferred.
+- GH_KKK: permanently filed intact as historical provenance under `NEXAH/RESEARCH/HISTORY/ROUTED_CUSTODY_2026-08-25/GH_KKK/`; the later-marker snapshot was not changed.
+- POLAR|PASS: permanently split by custody class between the closed Builder Lab archive and the Orientation Language visual archive, controlled by `POLARPASS_BUILD_PROJECT_MASTER_CUSTODY_MANIFEST_2026-08-29.json`; implementation remains unauthorized.
+
+All 188 substantive source files passed per-file SHA-256 verification at their permanent destinations. The routed Desktop path is retained only as historical source identity and is no longer active custody. The terminal receipt `ROUTED_CUSTODY_FINAL_HANDOFF_RECEIPT_2026-08-29.md` controls the final retirement status.
