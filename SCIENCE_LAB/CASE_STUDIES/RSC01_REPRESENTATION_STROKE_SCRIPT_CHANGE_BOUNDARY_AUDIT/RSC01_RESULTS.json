@@ -1,0 +1,62 @@
+{
+  "test_id": "RSC-01",
+  "title": "REPRESENTATION / STROKE / SCRIPT-CHANGE BOUNDARY AUDIT",
+  "mode": "BOUNDED_CROSS_DOMAIN_REPRESENTATION_TRANSFER_AND_FALSIFICATION_AUDIT",
+  "primary_result": "B_SFM_SURVIVES_WITH_DOMAIN_SPECIFIC_PROCESS_AND_RELATION_EXTENSIONS",
+  "sfm": {
+    "mark_survives": "YES",
+    "form_survives": "YES",
+    "unit_survives": "YES",
+    "value_survives": "YES"
+  },
+  "brush_control": {
+    "stroke_equals_mark": "DOMAIN_DEPENDENT",
+    "trace_equals_action": "NO",
+    "execution_history_fully_recoverable_from_form": "NO",
+    "process_extension_required": "YES",
+    "temporal_order_required": "YES"
+  },
+  "script_control": {
+    "script_equals_language": "NO",
+    "script_change_equals_language_change": "NO",
+    "script_change_preserves_all_representational_properties": "NO",
+    "cross_script_correspondence_supported": "PARTIAL",
+    "chu_nom_status": "SOURCE_BOUND_HISTORICAL_SCRIPT_FOR_VIETNAMESE_WITH_CONTEXTUAL_READINGS_AND_VARIABLE_FORMS",
+    "quoc_ngu_status": "SOURCE_BOUND_ROMANIZED_VIETNAMESE_ORTHOGRAPHY_WITH_TYPED_BASE_AND_DIACRITIC_RELATIONS"
+  },
+  "kinship_control": {
+    "vietnamese_kinship_relational_encoding_supported": "YES",
+    "ba_noi_ba_ngoai_control": "PATERNAL_MATERNAL_GRANDMOTHER_DISTINCTION_SUPPORTED_WITH_CONTEXTUAL_ADDRESS_REFERENCE_BOUNDARY",
+    "address_form_equals_person_identity": "NO",
+    "relational_context_required": "YES",
+    "relation_extension_required": "YES"
+  },
+  "information_location_ledger_complete": "YES",
+  "occident_orient_generalization": "NOT_ESTABLISHED",
+  "asia_holistic_claim": "NOT_ESTABLISHED",
+  "asia_lunar_claim": "NOT_ESTABLISHED",
+  "asia_harmony_claim": "NOT_ESTABLISHED",
+  "vm_asia_claim": "NOT_ESTABLISHED",
+  "neutral_relabel_survives": "YES",
+  "destruction_controls": "11_REJECTED_1_SUPPORTED_NEUTRAL_CONTROL",
+  "predecessors": {
+    "vor01_boundaries_preserved": "YES",
+    "cun01_boundaries_preserved": "YES",
+    "grb01_boundaries_preserved": "YES",
+    "sfm01_boundaries_preserved": "YES"
+  },
+  "governance": {
+    "new_cultural_theory_created": "NO",
+    "new_writing_system_discovery": "NO",
+    "new_linguistic_discovery": "NO",
+    "new_operator_invented": "NO",
+    "new_ontology_created": "NO",
+    "nexah_architecture_changed": "NO",
+    "orion_capability_delta": "NONE",
+    "scientific_claim_delta": "NONE",
+    "new_research_activation": "NO",
+    "implementation_activation": "NO"
+  },
+  "status": "CLOSED",
+  "next_action": "STOP"
+}

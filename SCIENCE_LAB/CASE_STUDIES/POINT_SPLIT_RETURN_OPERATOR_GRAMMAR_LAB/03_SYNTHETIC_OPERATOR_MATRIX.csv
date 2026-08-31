@@ -1,0 +1,14 @@
+arm,name,construction,declared_roles,expected_scope,status_before_run
+A,SINGLE_POINT_NULL,P only,P,negative,PREDECLARED
+B,RADIAL_NEEDLE_NULL,eight equal radial needles from P,P only no privileged S or R,negative despite visual symmetry,PREDECLARED
+C,TWO_BRANCH_SPLIT,P-S stem and two open branches,P S branches,split only no closure or return,PREDECLARED
+D,SPLIT_WITH_RETURN,two branches plus polygon cycle and explicit return endpoint,P S branches C R,positive control,PREDECLARED
+E,FIVE_BRANCH_CONTROL,five equal radial branches,P=S and five branches,branch-count control no return,PREDECLARED
+F,SEVEN_BRANCH_CONTROL,seven equal radial branches,P=S and seven branches,branch-count control no return,PREDECLARED
+G,FIVE_TO_SEVEN_TRANSITION,operator adds exactly new_1 and new_2 to E,P=S and persistent branch IDs,structural transition only,PREDECLARED
+H,SIX_PLUS_ONE_CONTROL,six equal branches plus one labelled extra branch,P=S and seven branches,plus-one count is not return,PREDECLARED
+I,RANDOM_MATCHED_CONTROL,1000 fixed-role matched random graphs,P S R fixed before generation,FPR control,PREDECLARED
+J,ADVERSARIAL_POST_HOC_CONTROL,1000 random graph fields with post-hoc subset and role search,P S R selected after generation,FPR and selectivity stress,PREDECLARED
+K,PERTURBED_POSITIVE_CONTROL,D plus frozen noise gap and raster,P S branches C R,robustness control,PREDECLARED
+L,COORDINATE_SPACE_CONFUSION_CONTROL,D interpreted in data image and local spaces,P S branches C R,space-separation audit,PREDECLARED
+

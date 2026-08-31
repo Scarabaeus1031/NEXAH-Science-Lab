@@ -1,0 +1,53 @@
+{
+  "test_id": "AREV-01",
+  "mode": "BOUNDED_FORMAL_GEOMETRY_TYPE_AND_REPRESENTATION_AUDIT",
+  "primary_result": "B_STANDARD_TYPED_GEOMETRY_SUFFICIENT_AND_USEFUL_FOR_INTERFACE",
+  "types": {
+    "anchor_ray_distinction_recovered": true,
+    "ray_edge_distinction_recovered": true,
+    "v_pair_formally_typed": true,
+    "y_junction_formally_typed": true,
+    "graph_embedding_view_chain_recovered": true
+  },
+  "geometry": {
+    "visible_angle_graph_intrinsic": false,
+    "angle_requires_embedding_and_metric": true,
+    "same_graph_different_angles_supported": true,
+    "parameterized_embedding_family_supported": "YES_AS_STANDARD_MODEL"
+  },
+  "role_status": {
+    "i": "C_EXPRESSION_ONLY",
+    "j": "C_EXPRESSION_ONLY",
+    "l": "C_EXPRESSION_ONLY",
+    "iota": "REJECT",
+    "yugo": "REJECT",
+    "wheel": "CONDITIONAL_GEOMETRIC_EMBEDDING_ROLE",
+    "coil": "CONDITIONAL_ALIAS_FOR_PARAMETERIZED_EMBEDDING_FAMILY"
+  },
+  "interface": {
+    "rust_facing_type_interface_useful": "YES_CONCEPTUALLY",
+    "rust_implementation_created": false
+  },
+  "quaternion": {
+    "q_degree_quaternion_status": "NO",
+    "quaternion_required": false
+  },
+  "controls": {
+    "neutral_relabel_survives": true,
+    "destruction_controls": "25_OF_25_COLLAPSES_REJECTED",
+    "positive_controls": "5_OF_5_PASSED"
+  },
+  "deltas": {
+    "new_geometric_discovery": false,
+    "new_graph_theory_discovery": false,
+    "new_operator_invented": false,
+    "new_ontology_created": false,
+    "nexah_architecture_changed": false,
+    "orion_capability_delta": "NONE",
+    "scientific_claim_delta": "NONE",
+    "implementation_activation": false,
+    "new_research_activation": false
+  },
+  "status": "CLOSED",
+  "next_action": "STOP"
+}

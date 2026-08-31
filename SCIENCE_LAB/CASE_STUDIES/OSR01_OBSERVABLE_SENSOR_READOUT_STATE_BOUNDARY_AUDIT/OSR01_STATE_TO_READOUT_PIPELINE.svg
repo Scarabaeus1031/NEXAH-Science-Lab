@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1250" height="650" viewBox="0 0 1250 650" role="img" aria-labelledby="title desc">
+  <title id="title">OSR-01 state to readout pipeline</title>
+  <desc id="desc">A state branches to a geometric view pipeline and a measurement-to-readout pipeline, both converging at a typed view.</desc>
+  <rect width="1250" height="650" fill="#fafafa"/>
+  <style>
+    .box{fill:#fff;stroke:#0f766e;stroke-width:3}.state{fill:#fff7ed;stroke:#c2410c;stroke-width:3}.view{fill:#eff6ff;stroke:#1d4ed8;stroke-width:3}.arrow{stroke:#475569;stroke-width:3;fill:none;marker-end:url(#m)}.title{font:27px system-ui,sans-serif;fill:#0f172a}.text{font:19px system-ui,sans-serif;fill:#0f172a}.small{font:17px system-ui,sans-serif;fill:#475569}
+  </style>
+  <defs><marker id="m" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#475569"/></marker></defs>
+  <text x="625" y="45" text-anchor="middle" class="title">State, geometry, measurement and view</text>
+  <rect class="state" x="35" y="270" width="160" height="80" rx="14"/><text x="115" y="318" text-anchor="middle" class="text">STATE / X</text>
+  <path class="arrow" d="M195 295 C245 295 245 145 300 145"/><path class="arrow" d="M195 325 C245 325 245 470 300 470"/>
+  <text x="345" y="95" text-anchor="middle" class="small">GEOMETRY BRANCH</text>
+  <rect class="box" x="300" y="115" width="160" height="60" rx="12"/><text x="380" y="152" text-anchor="middle" class="text">EMBEDDING</text>
+  <rect class="box" x="530" y="115" width="190" height="60" rx="12"/><text x="625" y="152" text-anchor="middle" class="text">METRIC GEOMETRY</text>
+  <path class="arrow" d="M460 145 H525"/>
+  <text x="405" y="420" text-anchor="middle" class="small">MEASUREMENT BRANCH</text>
+  <rect class="box" x="300" y="440" width="210" height="60" rx="12"/><text x="405" y="477" text-anchor="middle" class="text">OBSERVATION MAP</text>
+  <rect class="box" x="560" y="440" width="170" height="60" rx="12"/><text x="645" y="477" text-anchor="middle" class="text">OBSERVABLE</text>
+  <rect class="box" x="780" y="400" width="190" height="60" rx="12"/><text x="875" y="437" text-anchor="middle" class="text">MEASUREMENT</text>
+  <rect class="box" x="780" y="500" width="190" height="60" rx="12"/><text x="875" y="537" text-anchor="middle" class="text">READOUT</text>
+  <path class="arrow" d="M510 470 H555"/><path class="arrow" d="M730 470 H775"/><path class="arrow" d="M875 460 V495"/>
+  <rect class="view" x="1040" y="270" width="160" height="80" rx="14"/><text x="1120" y="318" text-anchor="middle" class="text">VIEW</text>
+  <path class="arrow" d="M720 145 C930 145 930 295 1035 295"/><path class="arrow" d="M970 530 C1010 530 1000 325 1035 325"/>
+  <text x="625" y="615" text-anchor="middle" class="small">View can be geometry-derived, measurement-derived, or composite.</text>
+</svg>

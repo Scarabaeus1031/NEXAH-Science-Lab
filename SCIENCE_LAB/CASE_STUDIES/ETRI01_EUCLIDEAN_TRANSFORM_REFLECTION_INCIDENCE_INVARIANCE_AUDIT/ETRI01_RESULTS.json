@@ -1,0 +1,58 @@
+{
+  "test_id": "ETRI-01",
+  "mode": "BOUNDED_FORMAL_GEOMETRY_TRANSFORM_AND_INVARIANCE_AUDIT",
+  "primary_result": "B_STANDARD_EUCLIDEAN_TRANSFORM_INVARIANTS_RECOVERED_EXISTING_TYPES_SUFFICIENT",
+  "source_corpus_frozen": true,
+  "construction": {
+    "base_construction_valid": true,
+    "parallel_relation_registered": true,
+    "triangle_angle_sum_supported": "YES_STANDARD_EUCLIDEAN_GEOMETRY"
+  },
+  "reflection": {
+    "preserves_incidence": true,
+    "preserves_parallelism": true,
+    "preserves_perpendicularity": true,
+    "preserves_distance": true,
+    "preserves_unsigned_angle": true,
+    "preserves_orientation": false
+  },
+  "relations": {
+    "vertical_angle_operationalized": "YES_WITH_INTERSECTION_PRECONDITIONS",
+    "visual_opposition_equals_vertical_angle": false,
+    "lot_adds_geometric_object": true,
+    "lot_equals_reflection": false,
+    "angle_partition_supported": true,
+    "graph_augmentation_distinguished_from_reembedding": true
+  },
+  "composition": {
+    "two_reflection_composition_tested": true,
+    "transform_history_preserved": "YES_IN_PROVENANCE_RECORD"
+  },
+  "affine_control": {
+    "complete": true,
+    "angle_is_affine_invariant": false
+  },
+  "interfaces": {
+    "arev_types_sufficient": true,
+    "osr_boundary_preserved": true,
+    "measurement_event_performed": false
+  },
+  "controls": {
+    "expression_quarantine_complete": true,
+    "neutral_relabel_survives": true,
+    "destruction_controls": "25_OF_25_EVALUATED_AND_REJECTED",
+    "positive_controls": "6_OF_6_PASSED"
+  },
+  "deltas": {
+    "new_geometric_discovery": false,
+    "new_operator_invented": false,
+    "new_ontology_created": false,
+    "nexah_architecture_changed": false,
+    "orion_capability_delta": "NONE",
+    "scientific_claim_delta": "NONE",
+    "implementation_activation": false,
+    "new_research_activation": false
+  },
+  "status": "CLOSED",
+  "next_action": "STOP"
+}

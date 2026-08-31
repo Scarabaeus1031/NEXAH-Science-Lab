@@ -1,0 +1,44 @@
+{
+  "test_id": "SWM-01",
+  "mode": "BOUNDED_ARCHITECTURE_CONSOLIDATION_AND_INTERFACE_BLUEPRINT",
+  "primary_result": "B_BLUEPRINT_RECOVERED_BUT_INTERFACE_GAPS_REMAIN",
+  "minimal_machine_blueprint_recovered": true,
+  "new_primitive_required": false,
+  "implementation_gate": {
+    "rust_type_consolidation_ready": "READY_FOR_INTERFACE_DESIGN",
+    "nexah_to_orion_machine_readable_contract_ready": "BLOCKED_BY_MISSING_SCHEMA",
+    "view_source_typing_ready": "READY_FOR_INTERFACE_DESIGN",
+    "operation_event_provenance_ready": "READY_FOR_INTERFACE_DESIGN",
+    "return_history_model_ready": "READY_FOR_INTERFACE_DESIGN",
+    "executable_software_machine_ready": "BLOCKED_BY_MISSING_SCHEMA"
+  },
+  "projection_control": {
+    "three_views_equal_three_objects": false,
+    "different_projections_may_preserve_same_relation": "YES_CONDITIONALLY",
+    "different_projections_may_lose_different_information": true,
+    "return_to_same_state_erases_path_history": false
+  },
+  "boundaries": {
+    "operation_order_always_commutes": false,
+    "return_is_not_erasure": true,
+    "state_return_equals_history_return": false,
+    "provenance_preserved": true,
+    "view_source_sum_type_sufficient": true
+  },
+  "destruction_controls": "12_OF_12_REJECTED",
+  "nonclaims": {
+    "new_mathematical_discovery": false,
+    "new_physical_discovery": false,
+    "new_operator_invented": false,
+    "new_ontology_created": false,
+    "nexah_architecture_changed": false,
+    "orion_v1_modified": false,
+    "orion_capability_delta": "NONE",
+    "rust_source_created": false,
+    "implementation_activation": false,
+    "new_research_activation": false
+  },
+  "status": "CLOSED",
+  "next_action": "STOP"
+}
+

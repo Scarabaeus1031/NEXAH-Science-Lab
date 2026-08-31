@@ -1,0 +1,10 @@
+arm,input_geometry,pose_deg,projection,lens,raster_px,threshold,colour_role,front_back,variable,prediction
+A,planar_circle,0,orthographic,none,continuous,NA,display_only,front,none,no_crown
+B,planar_circle,30,orthographic,none,continuous,NA,display_only,front,pose_only,no_detrended_crown
+C,concave_circle,0,orthographic,none,continuous,NA,display_only,front,surface_sign,no_boundary_crown
+D,convex_circle,0,orthographic,none,continuous,NA,display_only,front,surface_sign,no_boundary_crown
+E,planar_circle,0,orthographic,radial_k1_0.20_k2_-0.05,continuous,NA,display_only,front,lens_only,no_crown
+F,planar_circle,0,orthographic,none,96_256_512,128,display_only,front,raster_only,no_persistent_crown
+G,corrugated_12fold,0,orthographic,none,continuous_and_512,128,display_only,front,structured_geometry,persistent_12_peak_crown
+H,concave_circle,0,orthographic,none,continuous,NA,display_only,front_and_back,orientation_reversal,no_boundary_crown
+I,scissor_arms,0,orthographic,none,512,128,display_only,front,opening_angle_20_45_70,tips_follow_geometry_pivot_fixed

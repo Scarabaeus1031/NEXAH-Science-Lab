@@ -1,0 +1,178 @@
+{
+  "fixture_suite": "RID01_C1_C20",
+  "schema_version": "1.0.0",
+  "fixtures": [
+    {
+      "id": "C1",
+      "title": "valid geometry-only source/view",
+      "expected_valid": true,
+      "document": {
+        "schema_version": "1.0.0",
+        "contract_id": "RID01_NEXAH_MACHINE_CONTRACT",
+        "document_id": "urn:nexah:rid01:c1:DOCUMENT:d1",
+        "records": [
+          {"kind":"PROVENANCE_RECORD","id":"urn:nexah:rid01:c1:PROVENANCE:p1","revision_id":"1","data":{"resolution_status":"VERIFIED","sources":[{"artifact_id":"fixture-c1","artifact_hash":"sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"}],"parent_provenance_refs":[],"recorded_at":"2026-08-30T10:00:00Z","logical_order":0,"method":"RID01 fixture"}},
+          {"kind":"GRAPH","id":"urn:nexah:rid01:c1:GRAPH:g1","revision_id":"1","provenance_ref":"urn:nexah:rid01:c1:PROVENANCE:p1","data":{"vertices":[{"vertex_id":"A"}],"edges":[],"relations":[],"constraints":[],"origin":{"origin_kind":"REGISTERED_BASE"}}},
+          {"kind":"FRAME","id":"urn:nexah:rid01:c1:FRAME:f1","revision_id":"1","provenance_ref":"urn:nexah:rid01:c1:PROVENANCE:p1","data":{"dimension":2,"basis":[[1,0],[0,1]],"origin":[0,0],"handedness":"RIGHT"}},
+          {"kind":"METRIC","id":"urn:nexah:rid01:c1:METRIC:m1","revision_id":"1","provenance_ref":"urn:nexah:rid01:c1:PROVENANCE:p1","data":{"metric_kind":"EUCLIDEAN","domain_dimension":2}},
+          {"kind":"EMBEDDING","id":"urn:nexah:rid01:c1:EMBEDDING:e1","revision_id":"1","provenance_ref":"urn:nexah:rid01:c1:PROVENANCE:p1","data":{"graph_ref":{"object_id":"urn:nexah:rid01:c1:GRAPH:g1","revision_id":"1"},"frame_ref":{"object_id":"urn:nexah:rid01:c1:FRAME:f1","revision_id":"1"},"metric_ref":{"object_id":"urn:nexah:rid01:c1:METRIC:m1","revision_id":"1"},"coordinates":{"A":[0,0]}}},
+          {"kind":"OPERATION_RULE","id":"urn:nexah:rid01:c1:RULE:r1","revision_id":"1","provenance_ref":"urn:nexah:rid01:c1:PROVENANCE:p1","data":{"operation_kind":"RENDER","spec":{"spec_kind":"RENDER","representation":"2D","loss_policy":"LOSSLESS_DECLARED"}}},
+          {"kind":"VIEW","id":"urn:nexah:rid01:c1:VIEW:v1","revision_id":"1","provenance_ref":"urn:nexah:rid01:c1:PROVENANCE:p1","data":{"source":{"source_kind":"GEOMETRY","embedding_ref":{"object_id":"urn:nexah:rid01:c1:EMBEDDING:e1","revision_id":"1"}},"render_rule_ref":"urn:nexah:rid01:c1:RULE:r1","declared_losses":[]}}
+        ]
+      }
+    },
+    {
+      "id": "C2",
+      "title": "valid measurement-only source/view",
+      "expected_valid": true,
+      "document": {
+        "schema_version":"1.0.0","contract_id":"RID01_NEXAH_MACHINE_CONTRACT","document_id":"urn:nexah:rid01:c2:DOCUMENT:d1",
+        "external_refs":["urn:nexah:rid01:c2:STATE:s1","urn:nexah:rid01:c2:EXECUTION:x1","urn:nexah:rid01:c2:RULE:render1"],
+        "records":[
+          {"kind":"PROVENANCE_RECORD","id":"urn:nexah:rid01:c2:PROVENANCE:p1","revision_id":"1","data":{"resolution_status":"VERIFIED","sources":[{"artifact_id":"fixture-c2","artifact_hash":"sha256:bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"}],"parent_provenance_refs":[],"recorded_at":"2026-08-30T10:00:00Z","logical_order":0,"method":"RID01 fixture"}},
+          {"kind":"OBSERVATION_MAP","id":"urn:nexah:rid01:c2:OBSERVATION_MAP:o1","revision_id":"1","provenance_ref":"urn:nexah:rid01:c2:PROVENANCE:p1","data":{"domain_schema":"state-v1","codomain_schema":"scalar-v1","rule_version":"1"}},
+          {"kind":"OBSERVABLE_DEFINITION","id":"urn:nexah:rid01:c2:OBSERVABLE:q1","revision_id":"1","provenance_ref":"urn:nexah:rid01:c2:PROVENANCE:p1","data":{"name":"temperature","quantity_kind":"temperature","domain_schema":"state-v1"}},
+          {"kind":"UNIT","id":"urn:nexah:rid01:c2:UNIT:u1","revision_id":"1","provenance_ref":"urn:nexah:rid01:c2:PROVENANCE:p1","data":{"symbol":"K","quantity_kind":"temperature","scale_convention":"SI"}},
+          {"kind":"MEASUREMENT_EVENT","id":"urn:nexah:rid01:c2:MEASUREMENT_EVENT:me1","revision_id":"1","provenance_ref":"urn:nexah:rid01:c2:PROVENANCE:p1","data":{"state_ref":{"object_id":"urn:nexah:rid01:c2:STATE:s1","revision_id":"1"},"observation_map_ref":{"object_id":"urn:nexah:rid01:c2:OBSERVATION_MAP:o1","revision_id":"1"},"observable_ref":{"object_id":"urn:nexah:rid01:c2:OBSERVABLE:q1","revision_id":"1"},"execution_ref":"urn:nexah:rid01:c2:EXECUTION:x1","logical_order":1,"occurred_at":"2026-08-30T10:01:00Z"}},
+          {"kind":"MEASUREMENT_VALUE","id":"urn:nexah:rid01:c2:MEASUREMENT_VALUE:mv1","revision_id":"1","provenance_ref":"urn:nexah:rid01:c2:PROVENANCE:p1","data":{"observable_ref":{"object_id":"urn:nexah:rid01:c2:OBSERVABLE:q1","revision_id":"1"},"measurement_event_ref":"urn:nexah:rid01:c2:MEASUREMENT_EVENT:me1","value":{"state":"VALUE","value":293.15},"unit":{"status":"PRESENT","unit_ref":{"object_id":"urn:nexah:rid01:c2:UNIT:u1","revision_id":"1"}},"uncertainty":{"status":"PRESENT","method":"bounded","value":0.1}}},
+          {"kind":"READOUT","id":"urn:nexah:rid01:c2:READOUT:ro1","revision_id":"1","provenance_ref":"urn:nexah:rid01:c2:PROVENANCE:p1","data":{"source_measurement_refs":["urn:nexah:rid01:c2:MEASUREMENT_VALUE:mv1"],"display_rule_ref":"urn:nexah:rid01:c2:RULE:render1","rendered_values":[{"state":"VALUE","value":"293.15 K"}]}},
+          {"kind":"VIEW","id":"urn:nexah:rid01:c2:VIEW:v1","revision_id":"1","provenance_ref":"urn:nexah:rid01:c2:PROVENANCE:p1","data":{"source":{"source_kind":"MEASUREMENT","readout_refs":["urn:nexah:rid01:c2:READOUT:ro1"]},"render_rule_ref":"urn:nexah:rid01:c2:RULE:render1","declared_losses":["raw precision"]}}
+        ]
+      }
+    },
+    {
+      "id":"C3","title":"valid composite view","expected_valid":true,
+      "document":{"schema_version":"1.0.0","contract_id":"RID01_NEXAH_MACHINE_CONTRACT","document_id":"urn:nexah:rid01:c3:DOCUMENT:d1","external_refs":["urn:nexah:rid01:c3:EMBEDDING:e1","urn:nexah:rid01:c3:READOUT:r1","urn:nexah:rid01:c3:RULE:compose1","urn:nexah:rid01:c3:RULE:render1"],"records":[
+        {"kind":"PROVENANCE_RECORD","id":"urn:nexah:rid01:c3:PROVENANCE:p1","revision_id":"1","data":{"resolution_status":"VERIFIED","sources":[{"artifact_id":"fixture-c3","artifact_hash":"sha256:cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc"}],"parent_provenance_refs":[],"recorded_at":"2026-08-30T10:00:00Z","logical_order":0,"method":"RID01 fixture"}},
+        {"kind":"VIEW","id":"urn:nexah:rid01:c3:VIEW:v1","revision_id":"1","provenance_ref":"urn:nexah:rid01:c3:PROVENANCE:p1","data":{"source":{"source_kind":"COMPOSITE","embedding_refs":[{"object_id":"urn:nexah:rid01:c3:EMBEDDING:e1","revision_id":"1"}],"readout_refs":["urn:nexah:rid01:c3:READOUT:r1"],"composition_rule_ref":"urn:nexah:rid01:c3:RULE:compose1"},"render_rule_ref":"urn:nexah:rid01:c3:RULE:render1","declared_losses":[]}}
+      ]}
+    },
+    {
+      "id":"C4","title":"same graph / different embeddings","expected_valid":true,
+      "document":{"schema_version":"1.0.0","contract_id":"RID01_NEXAH_MACHINE_CONTRACT","document_id":"urn:nexah:rid01:c4:DOCUMENT:d1","external_refs":["urn:nexah:rid01:c4:GRAPH:g1","urn:nexah:rid01:c4:FRAME:f1","urn:nexah:rid01:c4:METRIC:m1"],"records":[
+        {"kind":"PROVENANCE_RECORD","id":"urn:nexah:rid01:c4:PROVENANCE:p1","revision_id":"1","data":{"resolution_status":"VERIFIED","sources":[{"artifact_id":"fixture-c4","artifact_hash":"sha256:dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd"}],"parent_provenance_refs":[],"recorded_at":"2026-08-30T10:00:00Z","logical_order":0,"method":"RID01 fixture"}},
+        {"kind":"EMBEDDING","id":"urn:nexah:rid01:c4:EMBEDDING:e1","revision_id":"1","provenance_ref":"urn:nexah:rid01:c4:PROVENANCE:p1","data":{"graph_ref":{"object_id":"urn:nexah:rid01:c4:GRAPH:g1","revision_id":"1"},"frame_ref":{"object_id":"urn:nexah:rid01:c4:FRAME:f1","revision_id":"1"},"metric_ref":{"object_id":"urn:nexah:rid01:c4:METRIC:m1","revision_id":"1"},"coordinates":{"A":[0,0]}}},
+        {"kind":"EMBEDDING","id":"urn:nexah:rid01:c4:EMBEDDING:e2","revision_id":"1","provenance_ref":"urn:nexah:rid01:c4:PROVENANCE:p1","data":{"graph_ref":{"object_id":"urn:nexah:rid01:c4:GRAPH:g1","revision_id":"1"},"frame_ref":{"object_id":"urn:nexah:rid01:c4:FRAME:f1","revision_id":"1"},"metric_ref":{"object_id":"urn:nexah:rid01:c4:METRIC:m1","revision_id":"1"},"coordinates":{"A":[1,1]}}}
+      ]}
+    },
+    {
+      "id":"C5","title":"same state / multiple readouts","expected_valid":true,
+      "document":{"schema_version":"1.0.0","contract_id":"RID01_NEXAH_MACHINE_CONTRACT","document_id":"urn:nexah:rid01:c5:DOCUMENT:d1","external_refs":["urn:nexah:rid01:c5:MEASUREMENT_VALUE:m1","urn:nexah:rid01:c5:RULE:r1","urn:nexah:rid01:c5:RULE:r2"],"records":[
+        {"kind":"PROVENANCE_RECORD","id":"urn:nexah:rid01:c5:PROVENANCE:p1","revision_id":"1","data":{"resolution_status":"VERIFIED","sources":[{"artifact_id":"fixture-c5","artifact_hash":"sha256:eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee"}],"parent_provenance_refs":[],"recorded_at":"2026-08-30T10:00:00Z","logical_order":0,"method":"RID01 fixture"}},
+        {"kind":"READOUT","id":"urn:nexah:rid01:c5:READOUT:r1","revision_id":"1","provenance_ref":"urn:nexah:rid01:c5:PROVENANCE:p1","data":{"source_measurement_refs":["urn:nexah:rid01:c5:MEASUREMENT_VALUE:m1"],"display_rule_ref":"urn:nexah:rid01:c5:RULE:r1","rendered_values":[{"state":"VALUE","value":"1.0"}]}},
+        {"kind":"READOUT","id":"urn:nexah:rid01:c5:READOUT:r2","revision_id":"1","provenance_ref":"urn:nexah:rid01:c5:PROVENANCE:p1","data":{"source_measurement_refs":["urn:nexah:rid01:c5:MEASUREMENT_VALUE:m1"],"display_rule_ref":"urn:nexah:rid01:c5:RULE:r2","rendered_values":[{"state":"VALUE","value":"100%"}]}}
+      ]}
+    },
+    {
+      "id":"C6","title":"same rendered readout / multiple states","expected_valid":true,
+      "document":{"schema_version":"1.0.0","contract_id":"RID01_NEXAH_MACHINE_CONTRACT","document_id":"urn:nexah:rid01:c6:DOCUMENT:d1","external_refs":["urn:nexah:rid01:c6:MEASUREMENT_VALUE:m1","urn:nexah:rid01:c6:MEASUREMENT_VALUE:m2","urn:nexah:rid01:c6:RULE:r1"],"records":[
+        {"kind":"PROVENANCE_RECORD","id":"urn:nexah:rid01:c6:PROVENANCE:p1","revision_id":"1","data":{"resolution_status":"VERIFIED","sources":[{"artifact_id":"fixture-c6","artifact_hash":"sha256:ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"}],"parent_provenance_refs":[],"recorded_at":"2026-08-30T10:00:00Z","logical_order":0,"method":"RID01 fixture"}},
+        {"kind":"READOUT","id":"urn:nexah:rid01:c6:READOUT:r1","revision_id":"1","provenance_ref":"urn:nexah:rid01:c6:PROVENANCE:p1","data":{"source_measurement_refs":["urn:nexah:rid01:c6:MEASUREMENT_VALUE:m1"],"display_rule_ref":"urn:nexah:rid01:c6:RULE:r1","rendered_values":[{"state":"VALUE","value":"10"}]}},
+        {"kind":"READOUT","id":"urn:nexah:rid01:c6:READOUT:r2","revision_id":"1","provenance_ref":"urn:nexah:rid01:c6:PROVENANCE:p1","data":{"source_measurement_refs":["urn:nexah:rid01:c6:MEASUREMENT_VALUE:m2"],"display_rule_ref":"urn:nexah:rid01:c6:RULE:r1","rendered_values":[{"state":"VALUE","value":"10"}]}}
+      ]}
+    },
+    {
+      "id":"C7","title":"valid transform lineage","expected_valid":true,
+      "document":{"schema_version":"1.0.0","contract_id":"RID01_NEXAH_MACHINE_CONTRACT","document_id":"urn:nexah:rid01:c7:DOCUMENT:d1","external_refs":["urn:nexah:rid01:c7:EMBEDDING:e1","urn:nexah:rid01:c7:EMBEDDING:e2","urn:nexah:rid01:c7:EXECUTION:x1"],"records":[
+        {"kind":"PROVENANCE_RECORD","id":"urn:nexah:rid01:c7:PROVENANCE:p1","revision_id":"1","data":{"resolution_status":"VERIFIED","sources":[{"artifact_id":"fixture-c7","artifact_hash":"sha256:1111111111111111111111111111111111111111111111111111111111111111"}],"parent_provenance_refs":[],"recorded_at":"2026-08-30T10:00:00Z","logical_order":0,"method":"RID01 fixture"}},
+        {"kind":"OPERATION_RULE","id":"urn:nexah:rid01:c7:RULE:t1","revision_id":"1","provenance_ref":"urn:nexah:rid01:c7:PROVENANCE:p1","data":{"operation_kind":"TRANSFORM","spec":{"spec_kind":"TRANSFORM","domain":"embedding","codomain":"embedding","map":"reflection-x"}}},
+        {"kind":"OPERATION_EVENT","id":"urn:nexah:rid01:c7:EVENT:t1","revision_id":"1","provenance_ref":"urn:nexah:rid01:c7:PROVENANCE:p1","data":{"operation_kind":"TRANSFORM","rule_ref":{"object_id":"urn:nexah:rid01:c7:RULE:t1","revision_id":"1"},"source_refs":[{"object_id":"urn:nexah:rid01:c7:EMBEDDING:e1","revision_id":"1"}],"result_refs":[{"object_id":"urn:nexah:rid01:c7:EMBEDDING:e2","revision_id":"1"}],"execution_ref":"urn:nexah:rid01:c7:EXECUTION:x1","logical_order":1,"occurred_at":"2026-08-30T10:01:00Z"}},
+        {"kind":"OPERATION_RESULT","id":"urn:nexah:rid01:c7:RESULT:t1","revision_id":"1","provenance_ref":"urn:nexah:rid01:c7:PROVENANCE:p1","data":{"operation_kind":"TRANSFORM","event_ref":"urn:nexah:rid01:c7:EVENT:t1","source_refs":[{"object_id":"urn:nexah:rid01:c7:EMBEDDING:e1","revision_id":"1"}],"result_refs":[{"object_id":"urn:nexah:rid01:c7:EMBEDDING:e2","revision_id":"1"}]}}
+      ]}
+    },
+    {
+      "id":"C8","title":"valid graph augmentation","expected_valid":true,
+      "document":{"schema_version":"1.0.0","contract_id":"RID01_NEXAH_MACHINE_CONTRACT","document_id":"urn:nexah:rid01:c8:DOCUMENT:d1","external_refs":["urn:nexah:rid01:c8:GRAPH:g0","urn:nexah:rid01:c8:EXECUTION:x1"],"records":[
+        {"kind":"PROVENANCE_RECORD","id":"urn:nexah:rid01:c8:PROVENANCE:p1","revision_id":"1","data":{"resolution_status":"VERIFIED","sources":[{"artifact_id":"fixture-c8","artifact_hash":"sha256:2222222222222222222222222222222222222222222222222222222222222222"}],"parent_provenance_refs":[],"recorded_at":"2026-08-30T10:00:00Z","logical_order":0,"method":"RID01 fixture"}},
+        {"kind":"OPERATION_RULE","id":"urn:nexah:rid01:c8:RULE:a1","revision_id":"1","provenance_ref":"urn:nexah:rid01:c8:PROVENANCE:p1","data":{"operation_kind":"AUGMENT","spec":{"spec_kind":"AUGMENT","dependency_kind":"COMBINATORIAL","added_objects":["vertex B"]}}},
+        {"kind":"OPERATION_EVENT","id":"urn:nexah:rid01:c8:EVENT:a1","revision_id":"1","provenance_ref":"urn:nexah:rid01:c8:PROVENANCE:p1","data":{"operation_kind":"AUGMENT","rule_ref":{"object_id":"urn:nexah:rid01:c8:RULE:a1","revision_id":"1"},"source_refs":[{"object_id":"urn:nexah:rid01:c8:GRAPH:g0","revision_id":"1"}],"result_refs":[{"object_id":"urn:nexah:rid01:c8:GRAPH:g1","revision_id":"1"}],"execution_ref":"urn:nexah:rid01:c8:EXECUTION:x1","logical_order":1,"occurred_at":"2026-08-30T10:01:00Z"}},
+        {"kind":"GRAPH","id":"urn:nexah:rid01:c8:GRAPH:g1","revision_id":"1","provenance_ref":"urn:nexah:rid01:c8:PROVENANCE:p1","data":{"vertices":[{"vertex_id":"A"},{"vertex_id":"B"}],"edges":[{"edge_id":"AB","source_vertex":"A","target_vertex":"B","directed":false}],"relations":[],"constraints":[],"origin":{"origin_kind":"AUGMENTED","source_graph_ref":{"object_id":"urn:nexah:rid01:c8:GRAPH:g0","revision_id":"1"},"augmentation_event_ref":"urn:nexah:rid01:c8:EVENT:a1"}}}
+      ]}
+    },
+    {
+      "id":"C9","title":"invalid transform=result collapse","expected_valid":false,
+      "document":{"schema_version":"1.0.0","contract_id":"RID01_NEXAH_MACHINE_CONTRACT","document_id":"urn:nexah:rid01:c9:DOCUMENT:d1","records":[
+        {"kind":"PROVENANCE_RECORD","id":"urn:nexah:rid01:c9:PROVENANCE:p1","revision_id":"1","data":{"resolution_status":"VERIFIED","sources":[{"artifact_id":"fixture-c9","artifact_hash":"sha256:3333333333333333333333333333333333333333333333333333333333333333"}],"parent_provenance_refs":[],"recorded_at":"2026-08-30T10:00:00Z","logical_order":0,"method":"RID01 fixture"}},
+        {"kind":"OPERATION_RESULT","id":"urn:nexah:rid01:c9:RESULT:r1","revision_id":"1","provenance_ref":"urn:nexah:rid01:c9:PROVENANCE:p1","data":{"spec_kind":"TRANSFORM","domain":"embedding","codomain":"embedding","map":"identity"}}
+      ]}
+    },
+    {
+      "id":"C10","title":"invalid measurement value without event","expected_valid":false,
+      "document":{"schema_version":"1.0.0","contract_id":"RID01_NEXAH_MACHINE_CONTRACT","document_id":"urn:nexah:rid01:c10:DOCUMENT:d1","records":[
+        {"kind":"PROVENANCE_RECORD","id":"urn:nexah:rid01:c10:PROVENANCE:p1","revision_id":"1","data":{"resolution_status":"VERIFIED","sources":[{"artifact_id":"fixture-c10","artifact_hash":"sha256:4444444444444444444444444444444444444444444444444444444444444444"}],"parent_provenance_refs":[],"recorded_at":"2026-08-30T10:00:00Z","logical_order":0,"method":"RID01 fixture"}},
+        {"kind":"MEASUREMENT_VALUE","id":"urn:nexah:rid01:c10:MEASUREMENT_VALUE:m1","revision_id":"1","provenance_ref":"urn:nexah:rid01:c10:PROVENANCE:p1","data":{"observable_ref":{"object_id":"urn:nexah:rid01:c10:OBSERVABLE:o1","revision_id":"1"},"value":{"state":"VALUE","value":1},"unit":{"status":"NOT_APPLICABLE"},"uncertainty":{"status":"UNKNOWN"}}}
+      ]}
+    },
+    {
+      "id":"C11","title":"ambiguity outcome","expected_valid":true,
+      "document":{"schema_version":"1.0.0","contract_id":"RID01_NEXAH_MACHINE_CONTRACT","document_id":"urn:nexah:rid01:c11:DOCUMENT:d1","external_refs":["urn:nexah:rid01:c11:COMPARISON_EVENT:e1","urn:nexah:rid01:c11:CRITERION:c1","urn:nexah:rid01:c11:STATE:s1","urn:nexah:rid01:c11:STATE:s2"],"records":[
+        {"kind":"PROVENANCE_RECORD","id":"urn:nexah:rid01:c11:PROVENANCE:p1","revision_id":"1","data":{"resolution_status":"UNRESOLVED","sources":[],"parent_provenance_refs":[],"recorded_at":"2026-08-30T10:00:00Z","logical_order":0,"method":"RID01 fixture","unresolved_reasons":["two candidates remain"]}},
+        {"kind":"COMPARISON_OUTCOME","id":"urn:nexah:rid01:c11:OUTCOME:o1","revision_id":"1","provenance_ref":"urn:nexah:rid01:c11:PROVENANCE:p1","data":{"comparison_event_ref":"urn:nexah:rid01:c11:COMPARISON_EVENT:e1","criterion_ref":{"object_id":"urn:nexah:rid01:c11:CRITERION:c1","revision_id":"1"},"outcome":"AMBIGUOUS","detail":{"state":"UNRESOLVED","reason":"non-singleton candidate set"}}},
+        {"kind":"AMBIGUITY_RECORD","id":"urn:nexah:rid01:c11:AMBIGUITY:a1","revision_id":"1","provenance_ref":"urn:nexah:rid01:c11:PROVENANCE:p1","data":{"comparison_outcome_ref":"urn:nexah:rid01:c11:OUTCOME:o1","candidate_refs":[{"object_id":"urn:nexah:rid01:c11:STATE:s1","revision_id":"1"},{"object_id":"urn:nexah:rid01:c11:STATE:s2","revision_id":"1"}],"causes":["projection loss"],"resolution_status":"UNRESOLVED"}}
+      ]}
+    },
+    {
+      "id":"C12","title":"abstain outcome","expected_valid":true,
+      "document":{"schema_version":"1.0.0","contract_id":"RID01_NEXAH_MACHINE_CONTRACT","document_id":"urn:nexah:rid01:c12:DOCUMENT:d1","external_refs":["urn:nexah:rid01:c12:COMPARISON_EVENT:e1","urn:nexah:rid01:c12:CRITERION:c1"],"records":[
+        {"kind":"PROVENANCE_RECORD","id":"urn:nexah:rid01:c12:PROVENANCE:p1","revision_id":"1","data":{"resolution_status":"VERIFIED","sources":[{"artifact_id":"fixture-c12","artifact_hash":"sha256:5555555555555555555555555555555555555555555555555555555555555555"}],"parent_provenance_refs":[],"recorded_at":"2026-08-30T10:00:00Z","logical_order":0,"method":"RID01 fixture"}},
+        {"kind":"COMPARISON_OUTCOME","id":"urn:nexah:rid01:c12:OUTCOME:o1","revision_id":"1","provenance_ref":"urn:nexah:rid01:c12:PROVENANCE:p1","data":{"comparison_event_ref":"urn:nexah:rid01:c12:COMPARISON_EVENT:e1","criterion_ref":{"object_id":"urn:nexah:rid01:c12:CRITERION:c1","revision_id":"1"},"outcome":"ABSTAIN","detail":{"state":"VALUE","value":"insufficient authorized basis"}}},
+        {"kind":"ABSTAIN_RESULT","id":"urn:nexah:rid01:c12:ABSTAIN:a1","revision_id":"1","provenance_ref":"urn:nexah:rid01:c12:PROVENANCE:p1","data":{"comparison_event_ref":"urn:nexah:rid01:c12:COMPARISON_EVENT:e1","criterion_ref":{"object_id":"urn:nexah:rid01:c12:CRITERION:c1","revision_id":"1"},"reason":"insufficient authorized basis"}}
+      ]}
+    },
+    {
+      "id":"C13","title":"reconstruction distinct from original","expected_valid":true,
+      "document":{"schema_version":"1.0.0","contract_id":"RID01_NEXAH_MACHINE_CONTRACT","document_id":"urn:nexah:rid01:c13:DOCUMENT:d1","external_refs":["urn:nexah:rid01:c13:EVENT:re1","urn:nexah:rid01:c13:STATE:s2"],"records":[
+        {"kind":"PROVENANCE_RECORD","id":"urn:nexah:rid01:c13:PROVENANCE:p1","revision_id":"1","data":{"resolution_status":"VERIFIED","sources":[{"artifact_id":"fixture-c13","artifact_hash":"sha256:6666666666666666666666666666666666666666666666666666666666666666"}],"parent_provenance_refs":[],"recorded_at":"2026-08-30T10:00:00Z","logical_order":0,"method":"RID01 fixture"}},
+        {"kind":"RECONSTRUCTION_RESULT","id":"urn:nexah:rid01:c13:RECONSTRUCTION:r1","revision_id":"1","provenance_ref":"urn:nexah:rid01:c13:PROVENANCE:p1","data":{"reconstruction_event_ref":"urn:nexah:rid01:c13:EVENT:re1","result_ref":{"object_id":"urn:nexah:rid01:c13:STATE:s2","revision_id":"1"},"original_event_identity":false,"uncertainty":{"status":"UNKNOWN"}}}
+      ]}
+    },
+    {
+      "id":"C14","title":"return to same state with different history","expected_valid":true,
+      "document":{"schema_version":"1.0.0","contract_id":"RID01_NEXAH_MACHINE_CONTRACT","document_id":"urn:nexah:rid01:c14:DOCUMENT:d1","external_refs":["urn:nexah:rid01:c14:CRITERION:c1","urn:nexah:rid01:c14:STATE:s1","urn:nexah:rid01:c14:HISTORY:h1","urn:nexah:rid01:c14:HISTORY:h2"],"records":[
+        {"kind":"PROVENANCE_RECORD","id":"urn:nexah:rid01:c14:PROVENANCE:p1","revision_id":"1","data":{"resolution_status":"VERIFIED","sources":[{"artifact_id":"fixture-c14","artifact_hash":"sha256:7777777777777777777777777777777777777777777777777777777777777777"}],"parent_provenance_refs":[],"recorded_at":"2026-08-30T10:00:00Z","logical_order":0,"method":"RID01 fixture"}},
+        {"kind":"RETURN_ASSESSMENT","id":"urn:nexah:rid01:c14:RETURN:r1","revision_id":"1","provenance_ref":"urn:nexah:rid01:c14:PROVENANCE:p1","data":{"field_or_projection":"position","comparison_criterion_ref":{"object_id":"urn:nexah:rid01:c14:CRITERION:c1","revision_id":"1"},"earlier_state_ref":{"object_id":"urn:nexah:rid01:c14:STATE:s1","revision_id":"1"},"later_state_ref":{"object_id":"urn:nexah:rid01:c14:STATE:s1","revision_id":"2"},"relation":"EQUAL","history_equal":false,"earlier_history_ref":{"object_id":"urn:nexah:rid01:c14:HISTORY:h1","revision_id":"1"},"later_history_ref":{"object_id":"urn:nexah:rid01:c14:HISTORY:h2","revision_id":"1"}}}
+      ]}
+    },
+    {
+      "id":"C15","title":"reset retaining history","expected_valid":true,
+      "document":{"schema_version":"1.0.0","contract_id":"RID01_NEXAH_MACHINE_CONTRACT","document_id":"urn:nexah:rid01:c15:DOCUMENT:d1","external_refs":["urn:nexah:rid01:c15:STATE:s1","urn:nexah:rid01:c15:HISTORY:h1","urn:nexah:rid01:c15:EXECUTION:x1"],"records":[
+        {"kind":"PROVENANCE_RECORD","id":"urn:nexah:rid01:c15:PROVENANCE:p1","revision_id":"1","data":{"resolution_status":"VERIFIED","sources":[{"artifact_id":"fixture-c15","artifact_hash":"sha256:8888888888888888888888888888888888888888888888888888888888888888"}],"parent_provenance_refs":[],"recorded_at":"2026-08-30T10:00:00Z","logical_order":0,"method":"RID01 fixture"}},
+        {"kind":"RESET_EVENT","id":"urn:nexah:rid01:c15:RESET:r1","revision_id":"1","provenance_ref":"urn:nexah:rid01:c15:PROVENANCE:p1","data":{"state_ref":{"object_id":"urn:nexah:rid01:c15:STATE:s1","revision_id":"1"},"reset_fields":["counter"],"history_ref":{"object_id":"urn:nexah:rid01:c15:HISTORY:h1","revision_id":"1"},"preserves_prior_history":true,"execution_ref":"urn:nexah:rid01:c15:EXECUTION:x1","logical_order":2}}
+      ]}
+    },
+    {
+      "id":"C16","title":"restart with new execution ID","expected_valid":true,
+      "document":{"schema_version":"1.0.0","contract_id":"RID01_NEXAH_MACHINE_CONTRACT","document_id":"urn:nexah:rid01:c16:DOCUMENT:d1","external_refs":["urn:nexah:rid01:c16:EXECUTION:x1","urn:nexah:rid01:c16:EXECUTION:x2","urn:nexah:rid01:c16:HISTORY:h1"],"records":[
+        {"kind":"PROVENANCE_RECORD","id":"urn:nexah:rid01:c16:PROVENANCE:p1","revision_id":"1","data":{"resolution_status":"VERIFIED","sources":[{"artifact_id":"fixture-c16","artifact_hash":"sha256:9999999999999999999999999999999999999999999999999999999999999999"}],"parent_provenance_refs":[],"recorded_at":"2026-08-30T10:00:00Z","logical_order":0,"method":"RID01 fixture"}},
+        {"kind":"RESTART_EVENT","id":"urn:nexah:rid01:c16:RESTART:r1","revision_id":"1","provenance_ref":"urn:nexah:rid01:c16:PROVENANCE:p1","data":{"prior_execution_ref":"urn:nexah:rid01:c16:EXECUTION:x1","new_execution_ref":"urn:nexah:rid01:c16:EXECUTION:x2","history_ref":{"object_id":"urn:nexah:rid01:c16:HISTORY:h1","revision_id":"1"},"logical_order":3}}
+      ]}
+    },
+    {
+      "id":"C17","title":"repeat with distinct event ID","expected_valid":true,
+      "document":{"schema_version":"1.0.0","contract_id":"RID01_NEXAH_MACHINE_CONTRACT","document_id":"urn:nexah:rid01:c17:DOCUMENT:d1","external_refs":["urn:nexah:rid01:c17:EVENT:e1","urn:nexah:rid01:c17:EVENT:e2","urn:nexah:rid01:c17:EXECUTION:x1"],"records":[
+        {"kind":"PROVENANCE_RECORD","id":"urn:nexah:rid01:c17:PROVENANCE:p1","revision_id":"1","data":{"resolution_status":"VERIFIED","sources":[{"artifact_id":"fixture-c17","artifact_hash":"sha256:abababababababababababababababababababababababababababababababab"}],"parent_provenance_refs":[],"recorded_at":"2026-08-30T10:00:00Z","logical_order":0,"method":"RID01 fixture"}},
+        {"kind":"REPEAT_EVENT","id":"urn:nexah:rid01:c17:REPEAT:r1","revision_id":"1","provenance_ref":"urn:nexah:rid01:c17:PROVENANCE:p1","data":{"original_event_ref":"urn:nexah:rid01:c17:EVENT:e1","repeated_event_ref":"urn:nexah:rid01:c17:EVENT:e2","execution_ref":"urn:nexah:rid01:c17:EXECUTION:x1","logical_order":4}}
+      ]}
+    },
+    {
+      "id":"C18","title":"invalid provenance erasure","expected_valid":false,
+      "document":{"schema_version":"1.0.0","contract_id":"RID01_NEXAH_MACHINE_CONTRACT","document_id":"urn:nexah:rid01:c18:DOCUMENT:d1","records":[
+        {"kind":"OPERATION_RESULT","id":"urn:nexah:rid01:c18:RESULT:r1","revision_id":"1","data":{"operation_kind":"TRANSFORM","event_ref":"urn:nexah:rid01:c18:EVENT:e1","source_refs":[{"object_id":"urn:nexah:rid01:c18:EMBEDDING:e1","revision_id":"1"}],"result_refs":[{"object_id":"urn:nexah:rid01:c18:EMBEDDING:e2","revision_id":"1"}]}}
+      ]}
+    },
+    {
+      "id":"C19","title":"zero / null / unknown / absent distinction","expected_valid":true,
+      "document":{"schema_version":"1.0.0","contract_id":"RID01_NEXAH_MACHINE_CONTRACT","document_id":"urn:nexah:rid01:c19:DOCUMENT:d1","records":[
+        {"kind":"PROVENANCE_RECORD","id":"urn:nexah:rid01:c19:PROVENANCE:p1","revision_id":"1","data":{"resolution_status":"VERIFIED","sources":[{"artifact_id":"fixture-c19","artifact_hash":"sha256:cdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcd"}],"parent_provenance_refs":[],"recorded_at":"2026-08-30T10:00:00Z","logical_order":0,"method":"RID01 fixture"}},
+        {"kind":"SOURCE_STATE","id":"urn:nexah:rid01:c19:STATE:s1","revision_id":"1","provenance_ref":"urn:nexah:rid01:c19:PROVENANCE:p1","data":{"fields":{"zero":{"state":"VALUE","value":0},"semantic_null":{"state":"VALUE_NULL","reason":"defined empty reading"},"unknown":{"state":"UNKNOWN","reason":"not measured"}}}}
+      ]}
+    },
+    {
+      "id":"C20","title":"operation-order provenance example","expected_valid":true,
+      "document":{"schema_version":"1.0.0","contract_id":"RID01_NEXAH_MACHINE_CONTRACT","document_id":"urn:nexah:rid01:c20:DOCUMENT:d1","external_refs":["urn:nexah:rid01:c20:EXECUTION:x1","urn:nexah:rid01:c20:EVENT:e1","urn:nexah:rid01:c20:EVENT:e2","urn:nexah:rid01:c20:STATE:s0","urn:nexah:rid01:c20:STATE:s1","urn:nexah:rid01:c20:STATE:s2"],"records":[
+        {"kind":"PROVENANCE_RECORD","id":"urn:nexah:rid01:c20:PROVENANCE:p1","revision_id":"1","data":{"resolution_status":"VERIFIED","sources":[{"artifact_id":"fixture-c20","artifact_hash":"sha256:efefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefef"}],"parent_provenance_refs":[],"recorded_at":"2026-08-30T10:00:00Z","logical_order":0,"method":"RID01 fixture"}},
+        {"kind":"HISTORY_RECORD","id":"urn:nexah:rid01:c20:HISTORY:h1","revision_id":"1","provenance_ref":"urn:nexah:rid01:c20:PROVENANCE:p1","data":{"execution_ref":"urn:nexah:rid01:c20:EXECUTION:x1","entries":[{"logical_order":1,"event_ref":"urn:nexah:rid01:c20:EVENT:e1","state_before_ref":{"object_id":"urn:nexah:rid01:c20:STATE:s0","revision_id":"1"},"state_after_ref":{"object_id":"urn:nexah:rid01:c20:STATE:s1","revision_id":"1"}},{"logical_order":2,"event_ref":"urn:nexah:rid01:c20:EVENT:e2","state_before_ref":{"object_id":"urn:nexah:rid01:c20:STATE:s1","revision_id":"1"},"state_after_ref":{"object_id":"urn:nexah:rid01:c20:STATE:s2","revision_id":"1"}}],"append_only":true}}
+      ]}
+    }
+  ]
+}

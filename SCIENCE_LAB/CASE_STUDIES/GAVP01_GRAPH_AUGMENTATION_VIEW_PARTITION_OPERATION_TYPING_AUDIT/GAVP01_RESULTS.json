@@ -1,0 +1,51 @@
+{
+  "test_id": "GAVP-01",
+  "mode": "BOUNDED_FORMAL_OPERATION_TYPING_AND_APPLICATION_AUDIT",
+  "primary_result": "B_EXISTING_AREV_OSR_ETRI_TYPES_SUFFICIENT_OPERATION_TYPING_MATERIALLY_USEFUL",
+  "anti_collapses": {
+    "graph_equals_embedding": false,
+    "reembedding_equals_augmentation": false,
+    "transform_equals_result": false,
+    "transform_history_equals_final_embedding": false,
+    "partition_equals_augmentation": false,
+    "view_equals_source": false,
+    "observation_equals_measurement": false,
+    "readout_equals_view": "NO_IN_GENERAL",
+    "difference_equals_residual": "NO_IN_GENERAL",
+    "intersection_equals_rest": false,
+    "unobserved_equals_nonexistent": false
+  },
+  "operations": {
+    "augmentation_changes_registered_structure": true,
+    "geometry_dependent_augmentation_identified": "YES_PERPENDICULAR_FOOT_CONSTRUCTION",
+    "combinatorial_augmentation_identified": "YES_ADD_VERTEX_WITH_DECLARED_ADJACENCY",
+    "partition_requires_new_primitive": false,
+    "same_source_multiple_views_supported": true,
+    "operation_order_always_commutes": false
+  },
+  "notation": {
+    "gplus_useful": "YES_AS_LOCAL_EXPLICIT_ALIAS_FOR_AUGMENTED_GRAPH",
+    "gdegree_useful": false,
+    "d_status": "UNDERDEFINED",
+    "view_type_already_sufficient": true
+  },
+  "controls": {
+    "neutral_relabel_survives": true,
+    "destruction_controls": "25_OF_25_EVALUATED_AND_REJECTED",
+    "positive_controls": "6_OF_6_PASSED"
+  },
+  "deltas": {
+    "new_operator_invented": false,
+    "new_ontology_created": false,
+    "new_mathematical_discovery": false,
+    "new_physical_discovery": false,
+    "nexah_architecture_changed": false,
+    "orion_capability_delta": "NONE",
+    "scientific_claim_delta": "NONE",
+    "rust_interface_delta": "NONE",
+    "implementation_activation": false,
+    "new_research_activation": false
+  },
+  "status": "CLOSED",
+  "next_action": "STOP"
+}

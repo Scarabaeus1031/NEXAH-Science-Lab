@@ -1,0 +1,13 @@
+control,information_kind,carrier_or_location,typing,context_required,evidence,boundary
+"brush production","ink deposition","VISIBLE_TRACE","MARK",YES,"B1;B2;B3","trace is not event"
+"brush production","recognized stroke shape","STROKE/CHARACTER_FORM","FORM",YES,"B1;B3","shape does not fully recover execution"
+"brush production","production sequence","STROKE_ORDER","TEMPORAL_ORDER domain extension",YES,"B1;B3;B4","partly inferable from trace under known conventions"
+"brush production","speed/pressure/contact effects","VISIBLE_TRACE plus PROCESS provenance","EVIDENCE/PROVENANCE fields",YES,"B1;B2;B3","exact history not uniquely recoverable"
+"brush production","reading/function","CHARACTER plus writing-system context","VALUE mapping",YES,"B1;B3","not inferred from brush motion"
+"Vietnamese script history","system identity","REPRESENTATION_SYSTEM plus period","CONTEXT field",YES,"V1;V2","script is not language"
+"Chữ Nôm","reading and lexical relation","ORTHOGRAPHIC_UNIT plus source text","VALUE mapping",YES,"V2;V3","visual form alone insufficient"
+"Quốc Ngữ","tone marking","DIACRITIC in orthographic unit","MARK/FORM component with orthographic role",YES,"V4","code-point count is not linguistic count"
+"Quốc Ngữ","rendered grapheme composition","BASE plus combining marks or precomposed unit","FORM/UNIT and encoding relation",YES,"V4","multiple encodings can render equivalent unit"
+"kinship/address","lexical constraint","LEXICAL_ITEM","UNIT",YES,"K1;K2;K3","does not uniquely identify participant"
+"kinship/address","referential/address value","RELATION plus SPEAKER_ADDRESSEE_CONFIGURATION plus DISCOURSE","VALUE mapping",YES,"K1;K2","relationally assigned"
+"bà nội/bà ngoại","lineage side","MORPHOLOGY plus KIN_RELATION","RELATION/context field",YES,"K2;K3","no symbolic gloss inference"

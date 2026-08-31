@@ -1,0 +1,682 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://nexah.example/schema/rid01/1.0.0",
+  "title": "RID-01 NEXAH provenance-preserving machine contract",
+  "description": "Language-neutral interface-design schema. It is not an ORION V1 modification or implementation authorization.",
+  "type": "object",
+  "required": ["schema_version", "contract_id", "document_id", "records"],
+  "properties": {
+    "schema_version": {"const": "1.0.0"},
+    "contract_id": {"const": "RID01_NEXAH_MACHINE_CONTRACT"},
+    "document_id": {"$ref": "#/$defs/GlobalId"},
+    "records": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"$ref": "#/$defs/Record"}
+    },
+    "external_refs": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/GlobalId"},
+      "uniqueItems": true
+    },
+    "orion_membrane_binding": {"$ref": "#/$defs/OrionMembraneBinding"},
+    "annotations": {
+      "type": "object",
+      "additionalProperties": {"type": "string"},
+      "description": "User-facing, evidential-weight-zero annotations only. Omission means FIELD_ABSENT."
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "GlobalId": {
+      "type": "string",
+      "pattern": "^urn:nexah:rid01:[a-z0-9._-]+:[A-Z][A-Z0-9_]*:[A-Za-z0-9._-]+$"
+    },
+    "LocalId": {
+      "type": "string",
+      "pattern": "^[A-Za-z][A-Za-z0-9._-]{0,63}$"
+    },
+    "RevisionId": {
+      "type": "string",
+      "pattern": "^[1-9][0-9]*$"
+    },
+    "Timestamp": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "LogicalOrder": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "Hash": {
+      "type": "string",
+      "pattern": "^sha256:[0-9a-f]{64}$"
+    },
+    "OrionMembraneBinding": {
+      "type": "object",
+      "required": ["interface_version", "source_envelope_id", "source_envelope_sha256", "canonical_orion_object_ref", "projection_losses", "navigation_fields_emitted"],
+      "properties": {
+        "interface_version": {"type": "string", "minLength": 1},
+        "source_envelope_id": {"type": "string", "minLength": 1},
+        "source_envelope_sha256": {"$ref": "#/$defs/Hash"},
+        "canonical_orion_object_ref": {"type": "string", "minLength": 1},
+        "projection_losses": {"type": "array", "items": {"type": "string", "minLength": 1}},
+        "navigation_fields_emitted": {"const": false}
+      },
+      "additionalProperties": false
+    },
+    "RevisionRef": {
+      "type": "object",
+      "required": ["object_id", "revision_id"],
+      "properties": {
+        "object_id": {"$ref": "#/$defs/GlobalId"},
+        "revision_id": {"$ref": "#/$defs/RevisionId"}
+      },
+      "additionalProperties": false
+    },
+    "PresenceValue": {
+      "oneOf": [
+        {
+          "type": "object",
+          "required": ["state", "value"],
+          "properties": {
+            "state": {"const": "VALUE"},
+            "value": {"type": ["boolean", "number", "string"]}
+          },
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "required": ["state"],
+          "properties": {
+            "state": {"enum": ["VALUE_NULL", "UNKNOWN", "NOT_APPLICABLE", "UNRESOLVED", "REDACTED"]},
+            "reason": {"type": "string", "minLength": 1}
+          },
+          "additionalProperties": false
+        }
+      ]
+    },
+    "SourceEvidence": {
+      "type": "object",
+      "required": ["artifact_id", "artifact_hash"],
+      "properties": {
+        "artifact_id": {"type": "string", "minLength": 1},
+        "artifact_hash": {"$ref": "#/$defs/Hash"}
+      },
+      "additionalProperties": false
+    },
+    "ProvenanceData": {
+      "type": "object",
+      "required": ["resolution_status", "sources", "parent_provenance_refs", "recorded_at", "logical_order", "method"],
+      "properties": {
+        "resolution_status": {"enum": ["VERIFIED", "UNRESOLVED", "REDACTED"]},
+        "sources": {"type": "array", "items": {"$ref": "#/$defs/SourceEvidence"}},
+        "parent_provenance_refs": {"type": "array", "items": {"$ref": "#/$defs/GlobalId"}, "uniqueItems": true},
+        "recorded_at": {"$ref": "#/$defs/Timestamp"},
+        "logical_order": {"$ref": "#/$defs/LogicalOrder"},
+        "method": {"type": "string", "minLength": 1},
+        "unresolved_reasons": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}}
+      },
+      "allOf": [
+        {
+          "if": {"properties": {"resolution_status": {"const": "VERIFIED"}}},
+          "then": {"properties": {"sources": {"minItems": 1}}}
+        },
+        {
+          "if": {"properties": {"resolution_status": {"const": "UNRESOLVED"}}},
+          "then": {"required": ["unresolved_reasons"]}
+        }
+      ],
+      "additionalProperties": false
+    },
+    "ProvenanceRecord": {
+      "type": "object",
+      "required": ["kind", "id", "revision_id", "data"],
+      "properties": {
+        "kind": {"const": "PROVENANCE_RECORD"},
+        "id": {"$ref": "#/$defs/GlobalId"},
+        "revision_id": {"$ref": "#/$defs/RevisionId"},
+        "data": {"$ref": "#/$defs/ProvenanceData"}
+      },
+      "additionalProperties": false
+    },
+    "RecordKind": {
+      "enum": [
+        "SOURCE_STATE", "GRAPH", "EMBEDDING", "FRAME", "METRIC", "ANGLE_MEASUREMENT",
+        "OBSERVATION_MAP", "OBSERVABLE_DEFINITION", "CALIBRATION", "UNIT", "MEASUREMENT_EVENT", "MEASUREMENT_VALUE", "READOUT", "VIEW",
+        "OPERATION_RULE", "OPERATION_EVENT", "OPERATION_RESULT", "COMPARISON_CRITERION", "COMPARISON_EVENT", "COMPARISON_OUTCOME",
+        "INVARIANT_RESULT", "DIFFERENCE_RESULT", "RESIDUAL_RESULT", "AMBIGUITY_RECORD", "ABSTAIN_RESULT",
+        "RECONSTRUCTION_EVENT", "RECONSTRUCTION_RESULT", "DECISION_EVENT", "DECISION_RESULT", "RETURN_ASSESSMENT",
+        "RESET_EVENT", "RESTART_EVENT", "REPEAT_EVENT", "EXECUTION", "HISTORY_RECORD"
+      ]
+    },
+    "StandardRecord": {
+      "type": "object",
+      "required": ["kind", "id", "revision_id", "provenance_ref", "data"],
+      "properties": {
+        "kind": {"$ref": "#/$defs/RecordKind"},
+        "id": {"$ref": "#/$defs/GlobalId"},
+        "revision_id": {"$ref": "#/$defs/RevisionId"},
+        "provenance_ref": {"$ref": "#/$defs/GlobalId"},
+        "data": {}
+      },
+      "allOf": [
+        {"if": {"properties": {"kind": {"const": "SOURCE_STATE"}}}, "then": {"properties": {"data": {"$ref": "#/$defs/SourceStateData"}}}},
+        {"if": {"properties": {"kind": {"const": "GRAPH"}}}, "then": {"properties": {"data": {"$ref": "#/$defs/GraphData"}}}},
+        {"if": {"properties": {"kind": {"const": "EMBEDDING"}}}, "then": {"properties": {"data": {"$ref": "#/$defs/EmbeddingData"}}}},
+        {"if": {"properties": {"kind": {"const": "FRAME"}}}, "then": {"properties": {"data": {"$ref": "#/$defs/FrameData"}}}},
+        {"if": {"properties": {"kind": {"const": "METRIC"}}}, "then": {"properties": {"data": {"$ref": "#/$defs/MetricData"}}}},
+        {"if": {"properties": {"kind": {"const": "ANGLE_MEASUREMENT"}}}, "then": {"properties": {"data": {"$ref": "#/$defs/AngleMeasurementData"}}}},
+        {"if": {"properties": {"kind": {"const": "OBSERVATION_MAP"}}}, "then": {"properties": {"data": {"$ref": "#/$defs/ObservationMapData"}}}},
+        {"if": {"properties": {"kind": {"const": "OBSERVABLE_DEFINITION"}}}, "then": {"properties": {"data": {"$ref": "#/$defs/ObservableDefinitionData"}}}},
+        {"if": {"properties": {"kind": {"const": "CALIBRATION"}}}, "then": {"properties": {"data": {"$ref": "#/$defs/CalibrationData"}}}},
+        {"if": {"properties": {"kind": {"const": "UNIT"}}}, "then": {"properties": {"data": {"$ref": "#/$defs/UnitData"}}}},
+        {"if": {"properties": {"kind": {"const": "MEASUREMENT_EVENT"}}}, "then": {"properties": {"data": {"$ref": "#/$defs/MeasurementEventData"}}}},
+        {"if": {"properties": {"kind": {"const": "MEASUREMENT_VALUE"}}}, "then": {"properties": {"data": {"$ref": "#/$defs/MeasurementValueData"}}}},
+        {"if": {"properties": {"kind": {"const": "READOUT"}}}, "then": {"properties": {"data": {"$ref": "#/$defs/ReadoutData"}}}},
+        {"if": {"properties": {"kind": {"const": "VIEW"}}}, "then": {"properties": {"data": {"$ref": "#/$defs/ViewData"}}}},
+        {"if": {"properties": {"kind": {"const": "OPERATION_RULE"}}}, "then": {"properties": {"data": {"$ref": "#/$defs/OperationRuleData"}}}},
+        {"if": {"properties": {"kind": {"const": "OPERATION_EVENT"}}}, "then": {"properties": {"data": {"$ref": "#/$defs/OperationEventData"}}}},
+        {"if": {"properties": {"kind": {"const": "OPERATION_RESULT"}}}, "then": {"properties": {"data": {"$ref": "#/$defs/OperationResultData"}}}},
+        {"if": {"properties": {"kind": {"const": "COMPARISON_CRITERION"}}}, "then": {"properties": {"data": {"$ref": "#/$defs/ComparisonCriterionData"}}}},
+        {"if": {"properties": {"kind": {"const": "COMPARISON_EVENT"}}}, "then": {"properties": {"data": {"$ref": "#/$defs/ComparisonEventData"}}}},
+        {"if": {"properties": {"kind": {"const": "COMPARISON_OUTCOME"}}}, "then": {"properties": {"data": {"$ref": "#/$defs/ComparisonOutcomeData"}}}},
+        {"if": {"properties": {"kind": {"const": "INVARIANT_RESULT"}}}, "then": {"properties": {"data": {"$ref": "#/$defs/InvariantResultData"}}}},
+        {"if": {"properties": {"kind": {"const": "DIFFERENCE_RESULT"}}}, "then": {"properties": {"data": {"$ref": "#/$defs/DifferenceResultData"}}}},
+        {"if": {"properties": {"kind": {"const": "RESIDUAL_RESULT"}}}, "then": {"properties": {"data": {"$ref": "#/$defs/ResidualResultData"}}}},
+        {"if": {"properties": {"kind": {"const": "AMBIGUITY_RECORD"}}}, "then": {"properties": {"data": {"$ref": "#/$defs/AmbiguityRecordData"}}}},
+        {"if": {"properties": {"kind": {"const": "ABSTAIN_RESULT"}}}, "then": {"properties": {"data": {"$ref": "#/$defs/AbstainResultData"}}}},
+        {"if": {"properties": {"kind": {"const": "RECONSTRUCTION_EVENT"}}}, "then": {"properties": {"data": {"$ref": "#/$defs/ReconstructionEventData"}}}},
+        {"if": {"properties": {"kind": {"const": "RECONSTRUCTION_RESULT"}}}, "then": {"properties": {"data": {"$ref": "#/$defs/ReconstructionResultData"}}}},
+        {"if": {"properties": {"kind": {"const": "DECISION_EVENT"}}}, "then": {"properties": {"data": {"$ref": "#/$defs/DecisionEventData"}}}},
+        {"if": {"properties": {"kind": {"const": "DECISION_RESULT"}}}, "then": {"properties": {"data": {"$ref": "#/$defs/DecisionResultData"}}}},
+        {"if": {"properties": {"kind": {"const": "RETURN_ASSESSMENT"}}}, "then": {"properties": {"data": {"$ref": "#/$defs/ReturnAssessmentData"}}}},
+        {"if": {"properties": {"kind": {"const": "RESET_EVENT"}}}, "then": {"properties": {"data": {"$ref": "#/$defs/ResetEventData"}}}},
+        {"if": {"properties": {"kind": {"const": "RESTART_EVENT"}}}, "then": {"properties": {"data": {"$ref": "#/$defs/RestartEventData"}}}},
+        {"if": {"properties": {"kind": {"const": "REPEAT_EVENT"}}}, "then": {"properties": {"data": {"$ref": "#/$defs/RepeatEventData"}}}},
+        {"if": {"properties": {"kind": {"const": "EXECUTION"}}}, "then": {"properties": {"data": {"$ref": "#/$defs/ExecutionData"}}}},
+        {"if": {"properties": {"kind": {"const": "HISTORY_RECORD"}}}, "then": {"properties": {"data": {"$ref": "#/$defs/HistoryRecordData"}}}}
+      ],
+      "additionalProperties": false
+    },
+    "Record": {
+      "oneOf": [
+        {"$ref": "#/$defs/ProvenanceRecord"},
+        {"$ref": "#/$defs/StandardRecord"}
+      ]
+    },
+    "SourceStateData": {
+      "type": "object",
+      "required": ["fields"],
+      "properties": {
+        "fields": {"type": "object", "minProperties": 1, "additionalProperties": {"$ref": "#/$defs/PresenceValue"}}
+      },
+      "additionalProperties": false
+    },
+    "Vertex": {
+      "type": "object",
+      "required": ["vertex_id"],
+      "properties": {"vertex_id": {"$ref": "#/$defs/LocalId"}},
+      "additionalProperties": false
+    },
+    "Edge": {
+      "type": "object",
+      "required": ["edge_id", "source_vertex", "target_vertex", "directed"],
+      "properties": {
+        "edge_id": {"$ref": "#/$defs/LocalId"},
+        "source_vertex": {"$ref": "#/$defs/LocalId"},
+        "target_vertex": {"$ref": "#/$defs/LocalId"},
+        "directed": {"type": "boolean"}
+      },
+      "additionalProperties": false
+    },
+    "Relation": {
+      "type": "object",
+      "required": ["relation_id", "relation_type", "members"],
+      "properties": {
+        "relation_id": {"$ref": "#/$defs/LocalId"},
+        "relation_type": {"type": "string", "minLength": 1},
+        "members": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/LocalId"}}
+      },
+      "additionalProperties": false
+    },
+    "Constraint": {
+      "type": "object",
+      "required": ["constraint_id", "rule", "members"],
+      "properties": {
+        "constraint_id": {"$ref": "#/$defs/LocalId"},
+        "rule": {"type": "string", "minLength": 1},
+        "members": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/LocalId"}}
+      },
+      "additionalProperties": false
+    },
+    "GraphOrigin": {
+      "oneOf": [
+        {"type": "object", "required": ["origin_kind"], "properties": {"origin_kind": {"const": "REGISTERED_BASE"}}, "additionalProperties": false},
+        {
+          "type": "object",
+          "required": ["origin_kind", "source_graph_ref", "augmentation_event_ref"],
+          "properties": {
+            "origin_kind": {"const": "AUGMENTED"},
+            "source_graph_ref": {"$ref": "#/$defs/RevisionRef"},
+            "augmentation_event_ref": {"$ref": "#/$defs/GlobalId"}
+          },
+          "additionalProperties": false
+        }
+      ]
+    },
+    "GraphData": {
+      "type": "object",
+      "required": ["vertices", "edges", "relations", "constraints", "origin"],
+      "properties": {
+        "vertices": {"type": "array", "items": {"$ref": "#/$defs/Vertex"}},
+        "edges": {"type": "array", "items": {"$ref": "#/$defs/Edge"}},
+        "relations": {"type": "array", "items": {"$ref": "#/$defs/Relation"}},
+        "constraints": {"type": "array", "items": {"$ref": "#/$defs/Constraint"}},
+        "origin": {"$ref": "#/$defs/GraphOrigin"},
+        "anchors": {"type": "array", "items": {"$ref": "#/$defs/Anchor"}},
+        "rays": {"type": "array", "items": {"$ref": "#/$defs/Ray"}},
+        "junctions": {"type": "array", "items": {"$ref": "#/$defs/Junction"}}
+      },
+      "additionalProperties": false
+    },
+    "Anchor": {
+      "type": "object",
+      "required": ["anchor_id", "vertex_id"],
+      "properties": {"anchor_id": {"$ref": "#/$defs/LocalId"}, "vertex_id": {"$ref": "#/$defs/LocalId"}},
+      "additionalProperties": false
+    },
+    "Ray": {
+      "type": "object",
+      "required": ["ray_id", "anchor_id", "direction", "frame_ref"],
+      "properties": {
+        "ray_id": {"$ref": "#/$defs/LocalId"},
+        "anchor_id": {"$ref": "#/$defs/LocalId"},
+        "direction": {"type": "array", "minItems": 1, "items": {"type": "number"}},
+        "frame_ref": {"$ref": "#/$defs/RevisionRef"}
+      },
+      "additionalProperties": false
+    },
+    "Junction": {
+      "type": "object",
+      "required": ["junction_id", "vertex_id", "incident_edge_ids"],
+      "properties": {
+        "junction_id": {"$ref": "#/$defs/LocalId"},
+        "vertex_id": {"$ref": "#/$defs/LocalId"},
+        "incident_edge_ids": {"type": "array", "minItems": 2, "items": {"$ref": "#/$defs/LocalId"}}
+      },
+      "additionalProperties": false
+    },
+    "FrameData": {
+      "type": "object",
+      "required": ["dimension", "basis", "origin"],
+      "properties": {
+        "dimension": {"type": "integer", "minimum": 1},
+        "basis": {"type": "array", "minItems": 1, "items": {"type": "array", "minItems": 1, "items": {"type": "number"}}},
+        "origin": {"type": "array", "minItems": 1, "items": {"type": "number"}},
+        "handedness": {"enum": ["RIGHT", "LEFT", "NOT_APPLICABLE"]}
+      },
+      "additionalProperties": false
+    },
+    "MetricData": {
+      "type": "object",
+      "required": ["metric_kind", "domain_dimension"],
+      "properties": {
+        "metric_kind": {"enum": ["EUCLIDEAN", "MANHATTAN", "CUSTOM_REGISTERED"]},
+        "domain_dimension": {"type": "integer", "minimum": 1},
+        "custom_rule_ref": {"$ref": "#/$defs/GlobalId"}
+      },
+      "allOf": [
+        {"if": {"properties": {"metric_kind": {"const": "CUSTOM_REGISTERED"}}}, "then": {"required": ["custom_rule_ref"]}}
+      ],
+      "additionalProperties": false
+    },
+    "EmbeddingData": {
+      "type": "object",
+      "required": ["graph_ref", "frame_ref", "metric_ref", "coordinates"],
+      "properties": {
+        "graph_ref": {"$ref": "#/$defs/RevisionRef"},
+        "frame_ref": {"$ref": "#/$defs/RevisionRef"},
+        "metric_ref": {"$ref": "#/$defs/RevisionRef"},
+        "coordinates": {"type": "object", "minProperties": 1, "additionalProperties": {"type": "array", "minItems": 1, "items": {"type": "number"}}}
+      },
+      "additionalProperties": false
+    },
+    "AngleMeasurementData": {
+      "type": "object",
+      "required": ["ray_ids", "embedding_ref", "metric_ref", "measurement_event_ref", "value"],
+      "properties": {
+        "ray_ids": {"type": "array", "minItems": 2, "maxItems": 2, "items": {"$ref": "#/$defs/LocalId"}},
+        "embedding_ref": {"$ref": "#/$defs/RevisionRef"},
+        "metric_ref": {"$ref": "#/$defs/RevisionRef"},
+        "measurement_event_ref": {"$ref": "#/$defs/GlobalId"},
+        "value": {"$ref": "#/$defs/PresenceValue"}
+      },
+      "additionalProperties": false
+    },
+    "ObservationMapData": {
+      "type": "object",
+      "required": ["domain_schema", "codomain_schema", "rule_version"],
+      "properties": {
+        "domain_schema": {"type": "string", "minLength": 1},
+        "codomain_schema": {"type": "string", "minLength": 1},
+        "rule_version": {"type": "string", "minLength": 1},
+        "frame_ref": {"$ref": "#/$defs/RevisionRef"},
+        "calibration_ref": {"$ref": "#/$defs/RevisionRef"}
+      },
+      "additionalProperties": false
+    },
+    "ObservableDefinitionData": {
+      "type": "object",
+      "required": ["name", "quantity_kind", "domain_schema"],
+      "properties": {
+        "name": {"type": "string", "minLength": 1},
+        "quantity_kind": {"type": "string", "minLength": 1},
+        "domain_schema": {"type": "string", "minLength": 1}
+      },
+      "additionalProperties": false
+    },
+    "CalibrationData": {
+      "type": "object",
+      "required": ["rule", "valid_from", "reference_provenance_ref"],
+      "properties": {
+        "rule": {"type": "string", "minLength": 1},
+        "valid_from": {"$ref": "#/$defs/Timestamp"},
+        "valid_until": {"$ref": "#/$defs/Timestamp"},
+        "reference_provenance_ref": {"$ref": "#/$defs/GlobalId"}
+      },
+      "additionalProperties": false
+    },
+    "UnitData": {
+      "type": "object",
+      "required": ["symbol", "quantity_kind", "scale_convention"],
+      "properties": {
+        "symbol": {"type": "string", "minLength": 1},
+        "quantity_kind": {"type": "string", "minLength": 1},
+        "scale_convention": {"type": "string", "minLength": 1}
+      },
+      "additionalProperties": false
+    },
+    "Uncertainty": {
+      "type": "object",
+      "required": ["status"],
+      "properties": {
+        "status": {"enum": ["PRESENT", "UNKNOWN", "NOT_APPLICABLE"]},
+        "method": {"type": "string", "minLength": 1},
+        "value": {"type": "number", "minimum": 0},
+        "confidence": {"type": "number", "minimum": 0, "maximum": 1}
+      },
+      "allOf": [
+        {"if": {"properties": {"status": {"const": "PRESENT"}}}, "then": {"required": ["method", "value"]}}
+      ],
+      "additionalProperties": false
+    },
+    "UnitBinding": {
+      "oneOf": [
+        {"type": "object", "required": ["status", "unit_ref"], "properties": {"status": {"const": "PRESENT"}, "unit_ref": {"$ref": "#/$defs/RevisionRef"}}, "additionalProperties": false},
+        {"type": "object", "required": ["status"], "properties": {"status": {"const": "NOT_APPLICABLE"}}, "additionalProperties": false}
+      ]
+    },
+    "MeasurementEventData": {
+      "type": "object",
+      "required": ["state_ref", "observation_map_ref", "observable_ref", "execution_ref", "logical_order", "occurred_at"],
+      "properties": {
+        "state_ref": {"$ref": "#/$defs/RevisionRef"},
+        "observation_map_ref": {"$ref": "#/$defs/RevisionRef"},
+        "observable_ref": {"$ref": "#/$defs/RevisionRef"},
+        "execution_ref": {"$ref": "#/$defs/GlobalId"},
+        "logical_order": {"$ref": "#/$defs/LogicalOrder"},
+        "occurred_at": {"$ref": "#/$defs/Timestamp"}
+      },
+      "additionalProperties": false
+    },
+    "MeasurementValueData": {
+      "type": "object",
+      "required": ["observable_ref", "measurement_event_ref", "value", "unit", "uncertainty"],
+      "properties": {
+        "observable_ref": {"$ref": "#/$defs/RevisionRef"},
+        "measurement_event_ref": {"$ref": "#/$defs/GlobalId"},
+        "value": {"$ref": "#/$defs/PresenceValue"},
+        "unit": {"$ref": "#/$defs/UnitBinding"},
+        "uncertainty": {"$ref": "#/$defs/Uncertainty"},
+        "calibration_ref": {"$ref": "#/$defs/RevisionRef"}
+      },
+      "additionalProperties": false
+    },
+    "ReadoutData": {
+      "type": "object",
+      "required": ["source_measurement_refs", "display_rule_ref", "rendered_values"],
+      "properties": {
+        "source_measurement_refs": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/GlobalId"}, "uniqueItems": true},
+        "display_rule_ref": {"$ref": "#/$defs/GlobalId"},
+        "rendered_values": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/PresenceValue"}}
+      },
+      "additionalProperties": false
+    },
+    "GeometrySource": {
+      "type": "object",
+      "required": ["source_kind", "embedding_ref"],
+      "properties": {"source_kind": {"const": "GEOMETRY"}, "embedding_ref": {"$ref": "#/$defs/RevisionRef"}},
+      "additionalProperties": false
+    },
+    "MeasurementSource": {
+      "type": "object",
+      "required": ["source_kind", "readout_refs"],
+      "properties": {"source_kind": {"const": "MEASUREMENT"}, "readout_refs": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/GlobalId"}}},
+      "additionalProperties": false
+    },
+    "CompositeSource": {
+      "type": "object",
+      "required": ["source_kind", "embedding_refs", "readout_refs", "composition_rule_ref"],
+      "properties": {
+        "source_kind": {"const": "COMPOSITE"},
+        "embedding_refs": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/RevisionRef"}},
+        "readout_refs": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/GlobalId"}},
+        "composition_rule_ref": {"$ref": "#/$defs/GlobalId"}
+      },
+      "additionalProperties": false
+    },
+    "ViewSource": {"oneOf": [{"$ref": "#/$defs/GeometrySource"}, {"$ref": "#/$defs/MeasurementSource"}, {"$ref": "#/$defs/CompositeSource"}]},
+    "ViewData": {
+      "type": "object",
+      "required": ["source", "render_rule_ref", "declared_losses"],
+      "properties": {
+        "source": {"$ref": "#/$defs/ViewSource"},
+        "render_rule_ref": {"$ref": "#/$defs/GlobalId"},
+        "declared_losses": {"type": "array", "items": {"type": "string", "minLength": 1}}
+      },
+      "additionalProperties": false
+    },
+    "OperationKind": {"enum": ["TRANSFORM", "AUGMENT", "PARTITION", "RENDER", "COMPARE", "RECONSTRUCT", "DECIDE", "RESET", "RESTART", "REPEAT"]},
+    "TransformSpec": {
+      "type": "object", "required": ["spec_kind", "domain", "codomain", "map"],
+      "properties": {"spec_kind": {"const": "TRANSFORM"}, "domain": {"type": "string"}, "codomain": {"type": "string"}, "map": {"type": "string", "minLength": 1}}, "additionalProperties": false
+    },
+    "AugmentationSpec": {
+      "type": "object", "required": ["spec_kind", "dependency_kind", "added_objects"],
+      "properties": {"spec_kind": {"const": "AUGMENT"}, "dependency_kind": {"enum": ["COMBINATORIAL", "GEOMETRY_DEPENDENT"]}, "added_objects": {"type": "array", "minItems": 1, "items": {"type": "string"}}}, "additionalProperties": false
+    },
+    "PartitionSpec": {
+      "type": "object", "required": ["spec_kind", "domain", "criterion"],
+      "properties": {"spec_kind": {"const": "PARTITION"}, "domain": {"type": "string"}, "criterion": {"type": "string", "minLength": 1}}, "additionalProperties": false
+    },
+    "RenderSpec": {
+      "type": "object", "required": ["spec_kind", "representation", "loss_policy"],
+      "properties": {"spec_kind": {"const": "RENDER"}, "representation": {"type": "string", "minLength": 1}, "loss_policy": {"enum": ["LOSSLESS_DECLARED", "LOSSY_DECLARED"]}}, "additionalProperties": false
+    },
+    "CompareSpec": {
+      "type": "object", "required": ["spec_kind", "criterion_ref"],
+      "properties": {"spec_kind": {"const": "COMPARE"}, "criterion_ref": {"$ref": "#/$defs/GlobalId"}}, "additionalProperties": false
+    },
+    "ReconstructionSpec": {
+      "type": "object", "required": ["spec_kind", "method", "assumption_policy"],
+      "properties": {"spec_kind": {"const": "RECONSTRUCT"}, "method": {"type": "string", "minLength": 1}, "assumption_policy": {"type": "string", "minLength": 1}}, "additionalProperties": false
+    },
+    "DecisionRule": {
+      "type": "object", "required": ["spec_kind", "authority_ref", "outcome_space", "abstention_allowed"],
+      "properties": {"spec_kind": {"const": "DECIDE"}, "authority_ref": {"$ref": "#/$defs/GlobalId"}, "outcome_space": {"type": "array", "minItems": 1, "items": {"type": "string"}}, "abstention_allowed": {"type": "boolean"}}, "additionalProperties": false
+    },
+    "ReturnFamilySpec": {
+      "type": "object", "required": ["spec_kind", "field_or_projection"],
+      "properties": {"spec_kind": {"enum": ["RESET", "RESTART", "REPEAT"]}, "field_or_projection": {"type": "string", "minLength": 1}}, "additionalProperties": false
+    },
+    "OperationRuleData": {
+      "type": "object",
+      "required": ["operation_kind", "spec"],
+      "properties": {
+        "operation_kind": {"$ref": "#/$defs/OperationKind"},
+        "spec": {"oneOf": [{"$ref": "#/$defs/TransformSpec"}, {"$ref": "#/$defs/AugmentationSpec"}, {"$ref": "#/$defs/PartitionSpec"}, {"$ref": "#/$defs/RenderSpec"}, {"$ref": "#/$defs/CompareSpec"}, {"$ref": "#/$defs/ReconstructionSpec"}, {"$ref": "#/$defs/DecisionRule"}, {"$ref": "#/$defs/ReturnFamilySpec"}]}
+      },
+      "allOf": [
+        {"if": {"properties": {"operation_kind": {"const": "TRANSFORM"}}}, "then": {"properties": {"spec": {"$ref": "#/$defs/TransformSpec"}}}},
+        {"if": {"properties": {"operation_kind": {"const": "AUGMENT"}}}, "then": {"properties": {"spec": {"$ref": "#/$defs/AugmentationSpec"}}}},
+        {"if": {"properties": {"operation_kind": {"const": "PARTITION"}}}, "then": {"properties": {"spec": {"$ref": "#/$defs/PartitionSpec"}}}},
+        {"if": {"properties": {"operation_kind": {"const": "RENDER"}}}, "then": {"properties": {"spec": {"$ref": "#/$defs/RenderSpec"}}}},
+        {"if": {"properties": {"operation_kind": {"const": "COMPARE"}}}, "then": {"properties": {"spec": {"$ref": "#/$defs/CompareSpec"}}}},
+        {"if": {"properties": {"operation_kind": {"const": "RECONSTRUCT"}}}, "then": {"properties": {"spec": {"$ref": "#/$defs/ReconstructionSpec"}}}},
+        {"if": {"properties": {"operation_kind": {"const": "DECIDE"}}}, "then": {"properties": {"spec": {"$ref": "#/$defs/DecisionRule"}}}},
+        {"if": {"properties": {"operation_kind": {"const": "RESET"}}}, "then": {"properties": {"spec": {"allOf": [{"$ref": "#/$defs/ReturnFamilySpec"}, {"properties": {"spec_kind": {"const": "RESET"}}}]}}}},
+        {"if": {"properties": {"operation_kind": {"const": "RESTART"}}}, "then": {"properties": {"spec": {"allOf": [{"$ref": "#/$defs/ReturnFamilySpec"}, {"properties": {"spec_kind": {"const": "RESTART"}}}]}}}},
+        {"if": {"properties": {"operation_kind": {"const": "REPEAT"}}}, "then": {"properties": {"spec": {"allOf": [{"$ref": "#/$defs/ReturnFamilySpec"}, {"properties": {"spec_kind": {"const": "REPEAT"}}}]}}}}
+      ],
+      "additionalProperties": false
+    },
+    "OperationEventData": {
+      "type": "object",
+      "required": ["operation_kind", "rule_ref", "source_refs", "result_refs", "execution_ref", "logical_order", "occurred_at"],
+      "properties": {
+        "operation_kind": {"$ref": "#/$defs/OperationKind"},
+        "rule_ref": {"$ref": "#/$defs/RevisionRef"},
+        "source_refs": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/RevisionRef"}},
+        "result_refs": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/RevisionRef"}},
+        "execution_ref": {"$ref": "#/$defs/GlobalId"},
+        "logical_order": {"$ref": "#/$defs/LogicalOrder"},
+        "occurred_at": {"$ref": "#/$defs/Timestamp"}
+      },
+      "additionalProperties": false
+    },
+    "OperationResultData": {
+      "type": "object",
+      "required": ["operation_kind", "event_ref", "source_refs", "result_refs"],
+      "properties": {
+        "operation_kind": {"$ref": "#/$defs/OperationKind"},
+        "event_ref": {"$ref": "#/$defs/GlobalId"},
+        "source_refs": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/RevisionRef"}},
+        "result_refs": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/RevisionRef"}}
+      },
+      "additionalProperties": false
+    },
+    "ComparisonRelation": {"enum": ["EQUAL", "EQUIVALENT", "NOT_EQUAL", "UNKNOWN"]},
+    "ComparisonOutcomeKind": {"enum": ["EQUAL", "EQUIVALENT", "DIFFERENT", "INCOMPARABLE", "AMBIGUOUS", "ABSTAIN", "ERROR"]},
+    "ComparisonCriterionData": {
+      "type": "object",
+      "required": ["field_or_projection", "relation_family", "rule"],
+      "properties": {
+        "field_or_projection": {"type": "string", "minLength": 1},
+        "relation_family": {"enum": ["EQUALITY", "EQUIVALENCE", "ORDER", "DISTANCE", "CUSTOM_REGISTERED"]},
+        "rule": {"type": "string", "minLength": 1},
+        "metric_ref": {"$ref": "#/$defs/RevisionRef"},
+        "frame_ref": {"$ref": "#/$defs/RevisionRef"}
+      },
+      "additionalProperties": false
+    },
+    "ComparisonEventData": {
+      "type": "object",
+      "required": ["criterion_ref", "left_ref", "right_ref", "execution_ref", "logical_order"],
+      "properties": {
+        "criterion_ref": {"$ref": "#/$defs/RevisionRef"},
+        "left_ref": {"$ref": "#/$defs/RevisionRef"},
+        "right_ref": {"$ref": "#/$defs/RevisionRef"},
+        "execution_ref": {"$ref": "#/$defs/GlobalId"},
+        "logical_order": {"$ref": "#/$defs/LogicalOrder"}
+      },
+      "additionalProperties": false
+    },
+    "ComparisonOutcomeData": {
+      "type": "object",
+      "required": ["comparison_event_ref", "criterion_ref", "outcome"],
+      "properties": {
+        "comparison_event_ref": {"$ref": "#/$defs/GlobalId"},
+        "criterion_ref": {"$ref": "#/$defs/RevisionRef"},
+        "outcome": {"$ref": "#/$defs/ComparisonOutcomeKind"},
+        "detail": {"$ref": "#/$defs/PresenceValue"}
+      },
+      "additionalProperties": false
+    },
+    "InvariantResultData": {
+      "type": "object", "required": ["comparison_outcome_ref", "property", "preserved"],
+      "properties": {"comparison_outcome_ref": {"$ref": "#/$defs/GlobalId"}, "property": {"type": "string", "minLength": 1}, "preserved": {"type": "boolean"}}, "additionalProperties": false
+    },
+    "DifferenceResultData": {
+      "type": "object", "required": ["comparison_outcome_ref", "difference"],
+      "properties": {"comparison_outcome_ref": {"$ref": "#/$defs/GlobalId"}, "difference": {"$ref": "#/$defs/PresenceValue"}}, "additionalProperties": false
+    },
+    "ResidualResultData": {
+      "type": "object", "required": ["model_rule_ref", "target_ref", "accounted_result_ref", "remainder"],
+      "properties": {"model_rule_ref": {"$ref": "#/$defs/RevisionRef"}, "target_ref": {"$ref": "#/$defs/RevisionRef"}, "accounted_result_ref": {"$ref": "#/$defs/RevisionRef"}, "remainder": {"$ref": "#/$defs/PresenceValue"}}, "additionalProperties": false
+    },
+    "AmbiguityRecordData": {
+      "type": "object", "required": ["comparison_outcome_ref", "candidate_refs", "causes", "resolution_status"],
+      "properties": {"comparison_outcome_ref": {"$ref": "#/$defs/GlobalId"}, "candidate_refs": {"type": "array", "minItems": 2, "items": {"$ref": "#/$defs/RevisionRef"}}, "causes": {"type": "array", "minItems": 1, "items": {"type": "string"}}, "resolution_status": {"enum": ["UNRESOLVED", "BOUNDED"]}}, "additionalProperties": false
+    },
+    "AbstainResultData": {
+      "type": "object", "required": ["comparison_event_ref", "criterion_ref", "reason"],
+      "properties": {"comparison_event_ref": {"$ref": "#/$defs/GlobalId"}, "criterion_ref": {"$ref": "#/$defs/RevisionRef"}, "reason": {"type": "string", "minLength": 1}}, "additionalProperties": false
+    },
+    "ReconstructionEventData": {
+      "type": "object", "required": ["rule_ref", "source_refs", "result_ref", "execution_ref", "logical_order"],
+      "properties": {"rule_ref": {"$ref": "#/$defs/RevisionRef"}, "source_refs": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/RevisionRef"}}, "result_ref": {"$ref": "#/$defs/RevisionRef"}, "execution_ref": {"$ref": "#/$defs/GlobalId"}, "logical_order": {"$ref": "#/$defs/LogicalOrder"}}, "additionalProperties": false
+    },
+    "ReconstructionResultData": {
+      "type": "object", "required": ["reconstruction_event_ref", "result_ref", "original_event_identity"],
+      "properties": {"reconstruction_event_ref": {"$ref": "#/$defs/GlobalId"}, "result_ref": {"$ref": "#/$defs/RevisionRef"}, "original_event_identity": {"const": false}, "uncertainty": {"$ref": "#/$defs/Uncertainty"}}, "additionalProperties": false
+    },
+    "DecisionEventData": {
+      "type": "object", "required": ["rule_ref", "input_refs", "execution_ref", "logical_order", "authority_ref"],
+      "properties": {"rule_ref": {"$ref": "#/$defs/RevisionRef"}, "input_refs": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/RevisionRef"}}, "execution_ref": {"$ref": "#/$defs/GlobalId"}, "logical_order": {"$ref": "#/$defs/LogicalOrder"}, "authority_ref": {"$ref": "#/$defs/GlobalId"}}, "additionalProperties": false
+    },
+    "DecisionResultData": {
+      "type": "object", "required": ["decision_event_ref", "decision_rule_ref", "outcome"],
+      "properties": {"decision_event_ref": {"$ref": "#/$defs/GlobalId"}, "decision_rule_ref": {"$ref": "#/$defs/RevisionRef"}, "outcome": {"$ref": "#/$defs/PresenceValue"}}, "additionalProperties": false
+    },
+    "ReturnAssessmentData": {
+      "type": "object",
+      "required": ["field_or_projection", "comparison_criterion_ref", "earlier_state_ref", "later_state_ref", "relation", "history_equal"],
+      "properties": {
+        "field_or_projection": {"type": "string", "minLength": 1},
+        "comparison_criterion_ref": {"$ref": "#/$defs/RevisionRef"},
+        "earlier_state_ref": {"$ref": "#/$defs/RevisionRef"},
+        "later_state_ref": {"$ref": "#/$defs/RevisionRef"},
+        "relation": {"$ref": "#/$defs/ComparisonRelation"},
+        "history_equal": {"type": "boolean"},
+        "earlier_history_ref": {"$ref": "#/$defs/RevisionRef"},
+        "later_history_ref": {"$ref": "#/$defs/RevisionRef"}
+      },
+      "additionalProperties": false
+    },
+    "ResetEventData": {
+      "type": "object", "required": ["state_ref", "reset_fields", "history_ref", "preserves_prior_history", "execution_ref", "logical_order"],
+      "properties": {"state_ref": {"$ref": "#/$defs/RevisionRef"}, "reset_fields": {"type": "array", "minItems": 1, "items": {"type": "string"}}, "history_ref": {"$ref": "#/$defs/RevisionRef"}, "preserves_prior_history": {"const": true}, "execution_ref": {"$ref": "#/$defs/GlobalId"}, "logical_order": {"$ref": "#/$defs/LogicalOrder"}}, "additionalProperties": false
+    },
+    "RestartEventData": {
+      "type": "object", "required": ["prior_execution_ref", "new_execution_ref", "history_ref", "logical_order"],
+      "properties": {"prior_execution_ref": {"$ref": "#/$defs/GlobalId"}, "new_execution_ref": {"$ref": "#/$defs/GlobalId"}, "history_ref": {"$ref": "#/$defs/RevisionRef"}, "logical_order": {"$ref": "#/$defs/LogicalOrder"}}, "additionalProperties": false
+    },
+    "RepeatEventData": {
+      "type": "object", "required": ["original_event_ref", "repeated_event_ref", "execution_ref", "logical_order"],
+      "properties": {"original_event_ref": {"$ref": "#/$defs/GlobalId"}, "repeated_event_ref": {"$ref": "#/$defs/GlobalId"}, "execution_ref": {"$ref": "#/$defs/GlobalId"}, "logical_order": {"$ref": "#/$defs/LogicalOrder"}}, "additionalProperties": false
+    },
+    "ExecutionData": {
+      "type": "object", "required": ["started_at", "start_state_refs", "event_refs", "status"],
+      "properties": {"started_at": {"$ref": "#/$defs/Timestamp"}, "start_state_refs": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/RevisionRef"}}, "event_refs": {"type": "array", "items": {"$ref": "#/$defs/GlobalId"}}, "status": {"enum": ["PLANNED", "RUNNING", "COMPLETED", "FAILED", "ABORTED"]}}, "additionalProperties": false
+    },
+    "HistoryEntry": {
+      "type": "object", "required": ["logical_order", "event_ref", "state_before_ref", "state_after_ref"],
+      "properties": {"logical_order": {"$ref": "#/$defs/LogicalOrder"}, "event_ref": {"$ref": "#/$defs/GlobalId"}, "state_before_ref": {"$ref": "#/$defs/RevisionRef"}, "state_after_ref": {"$ref": "#/$defs/RevisionRef"}}, "additionalProperties": false
+    },
+    "HistoryRecordData": {
+      "type": "object", "required": ["execution_ref", "entries", "append_only"],
+      "properties": {"execution_ref": {"$ref": "#/$defs/GlobalId"}, "entries": {"type": "array", "items": {"$ref": "#/$defs/HistoryEntry"}}, "append_only": {"const": true}}, "additionalProperties": false
+    }
+  }
+}

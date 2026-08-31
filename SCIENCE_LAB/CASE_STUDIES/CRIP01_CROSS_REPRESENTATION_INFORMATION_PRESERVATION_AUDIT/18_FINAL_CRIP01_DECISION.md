@@ -1,0 +1,54 @@
+# Final CRIP-01 Decision
+
+## Primary result
+
+`B_USEFUL_REPRESENTATION_TYPING_AND_LOSS_ANALYSIS_STANDARD_METHODS_SUFFICIENT`
+
+When the historical artifacts are treated as representations rather than claims about a hidden common system, CRIP-01 can reproducibly classify survival, rule-governed recoding, loss, view additions, and undefined relations—provided object identity and a transformation are established first. The strongest example is source-code-backed: the same scalar matrix is rendered as a heatmap and a 3D surface. Object identity and the scalar sign/zero structure survive; magnitude changes from color to height by a declared rule; exact numeric recovery is lost from standalone rasters; mask, perspective and shading are representation-specific.
+
+This does **not** reveal a new mathematical structure. It uses standard arrays, functions, plots, graphs, embeddings, projections, and information-loss analysis.
+
+It **does** demonstrate a useful representation-audit capability of the existing NEXAH architecture: the system can register source/object/view boundaries, abstain when identity is absent, and report what a view preserves or destroys without turning visual resemblance into evidence.
+
+## Final status block
+
+```text
+CRIP01_PRIMARY_RESULT=B_USEFUL_REPRESENTATION_TYPING_AND_LOSS_ANALYSIS_STANDARD_METHODS_SUFFICIENT
+MULTIPLE_REPRESENTATION_TYPES_RECOVERED=YES
+SAME_OBJECT_ACROSS_MULTIPLE_VIEWS_DEMONSTRATED=YES_SOURCE_CODE_BACKED
+OBJECT_IDENTITY_REQUIRED_BEFORE_INVARIANT_TEST=YES
+GRID_DISTINCT_FROM_GRAPH=YES
+GRAPH_DISTINCT_FROM_EMBEDDING=YES
+DATA_INDEX_DISTINCT_FROM_VISUAL_POSITION=YES
+POLAR_POSITION_DISTINCT_FROM_STRUCTURAL_RELATION=YES
+POINT_DISTINCT_FROM_TRAJECTORY=YES
+COLOR_DISTINCT_FROM_TYPED_VALUE=YES
+TENSOR_LABEL_SUFFICIENT_FOR_TENSOR=NO
+DIMENSION_LABEL_SUFFICIENT_FOR_DIMENSION=NO
+REPRESENTATION_TRANSFORMATION_RECOVERED=YES_SOURCE_CODE_BACKED_FOR_F0_F1_F2
+NONTRIVIAL_PRESERVED_RELATION_FOUND=YES_OBJECT_IDENTITY_ZERO_AND_SIGN_STRUCTURE
+TRANSFORMED_BY_RULE_EXAMPLE_FOUND=YES_VALUE_TO_COLOR_AND_HEIGHT
+INFORMATION_LOSS_DEMONSTRATED=YES
+VIEW_INTRODUCED_INFORMATION_DEMONSTRATED=YES
+YELLOW_POINT_PURPLE_REGION_STATUS=OUTSIDE_RELATION_UNDEFINED
+EXPRESSION_REMOVAL_FORMAL_SURVIVAL_STATUS=FORMAL_OBJECT_SURVIVES_FOR_SOURCE_CODE_BACKED_CONTROLS_ONLY
+VISUAL_SIMILARITY_SUFFICIENT_FOR_EQUIVALENCE=NO
+BETTER_RECONSTRUCTION_IMPLIES_MORE_INVARIANT=NO
+COMMON_HISTORICAL_SYSTEM_ESTABLISHED=NO
+EXISTING_ARCHITECTURE_SUFFICIENT=YES
+ORION_COMPATIBILITY=DOCUMENTARY_OR_INTERFACE_LEVEL
+NEW_OPERATOR_REQUIRED=NO
+NEW_OLS_PRIMITIVE_REQUIRED=NO
+RID_SCHEMA_GAP_FOUND=NO
+ORION_V1_MODIFIED=NO
+NEW_MATHEMATICAL_THEORY_CREATED=NO
+NEW_PHYSICAL_THEORY_CREATED=NO
+NEW_ONTOLOGY_CREATED=NO
+RUST_SOURCE_CREATED=NO
+IMPLEMENTATION_ACTIVATION=NO
+NEW_RESEARCH_ACTIVATION=NO
+CRIP01_STATUS=CLOSED
+NEXT_ACTION=STOP
+```
+
+No optional marker graphic is warranted. The audit stops here.

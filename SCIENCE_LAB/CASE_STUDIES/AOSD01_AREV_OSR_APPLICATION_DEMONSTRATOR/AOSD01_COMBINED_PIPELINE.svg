@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1300" height="760" viewBox="0 0 1300 760" role="img" aria-labelledby="title desc">
+  <title id="title">AOSD-01 combined typed pipeline</title>
+  <desc id="desc">A source branches into geometry and measurement pipelines, reconverges at a typed view, and applies to graph, car, ratio and calendar cases.</desc>
+  <rect width="1300" height="760" fill="#fafafa"/>
+  <style>
+    .box{fill:#fff;stroke:#0f766e;stroke-width:3}.source{fill:#fff7ed;stroke:#c2410c;stroke-width:3}.view{fill:#eff6ff;stroke:#1d4ed8;stroke-width:3}.case{fill:#f8fafc;stroke:#64748b;stroke-width:2}.arrow{stroke:#475569;stroke-width:3;fill:none;marker-end:url(#m)}.title{font:27px system-ui,sans-serif;fill:#0f172a}.text{font:18px system-ui,sans-serif;fill:#0f172a}.small{font:16px system-ui,sans-serif;fill:#475569}
+  </style>
+  <defs><marker id="m" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#475569"/></marker></defs>
+  <text x="650" y="42" text-anchor="middle" class="title">Combined typed geometry–measurement–view grammar</text>
+  <rect class="source" x="535" y="70" width="230" height="65" rx="14"/><text x="650" y="110" text-anchor="middle" class="text">STATE / SOURCE</text>
+  <path class="arrow" d="M650 135 V175 H330 V205"/><path class="arrow" d="M650 175 H970 V205"/>
+  <text x="330" y="195" text-anchor="middle" class="small">GEOMETRY BRANCH</text><text x="970" y="195" text-anchor="middle" class="small">MEASUREMENT BRANCH</text>
+  <g class="text" text-anchor="middle">
+    <rect class="box" x="245" y="215" width="170" height="55" rx="10"/><text x="330" y="249">GRAPH</text>
+    <rect class="box" x="245" y="305" width="170" height="55" rx="10"/><text x="330" y="339">EMBEDDING</text>
+    <rect class="box" x="225" y="395" width="210" height="55" rx="10"/><text x="330" y="429">METRIC GEOMETRY</text>
+    <rect class="box" x="225" y="485" width="210" height="55" rx="10"/><text x="330" y="519">GEOMETRIC VALUE</text>
+    <rect class="box" x="865" y="215" width="210" height="55" rx="10"/><text x="970" y="249">OBSERVATION</text>
+    <rect class="box" x="865" y="305" width="210" height="55" rx="10"/><text x="970" y="339">OBSERVABLE</text>
+    <rect class="box" x="865" y="395" width="210" height="55" rx="10"/><text x="970" y="429">MEASUREMENT</text>
+    <rect class="box" x="865" y="485" width="210" height="55" rx="10"/><text x="970" y="519">READOUT</text>
+  </g>
+  <path class="arrow" d="M330 270 V300"/><path class="arrow" d="M330 360 V390"/><path class="arrow" d="M330 450 V480"/>
+  <path class="arrow" d="M970 270 V300"/><path class="arrow" d="M970 360 V390"/><path class="arrow" d="M970 450 V480"/>
+  <rect class="view" x="535" y="565" width="230" height="65" rx="14"/><text x="650" y="605" text-anchor="middle" class="text">TYPED VIEW</text>
+  <path class="arrow" d="M330 540 C330 590 475 598 530 598"/><path class="arrow" d="M970 540 C970 590 825 598 770 598"/>
+  <g class="text" text-anchor="middle">
+    <rect class="case" x="85" y="675" width="220" height="55" rx="10"/><text x="195" y="709">GRAPH</text>
+    <rect class="case" x="390" y="675" width="220" height="55" rx="10"/><text x="500" y="709">CAR</text>
+    <rect class="case" x="695" y="675" width="220" height="55" rx="10"/><text x="805" y="709">RATIO</text>
+    <rect class="case" x="1000" y="675" width="220" height="55" rx="10"/><text x="1110" y="709">CALENDAR</text>
+  </g>
+</svg>

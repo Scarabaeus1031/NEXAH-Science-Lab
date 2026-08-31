@@ -1,0 +1,62 @@
+{
+  "test_id": "GARC-01",
+  "title": "GRAPH / ANGLE / REPRESENTATION CONSERVATION AUDIT",
+  "mode": "BOUNDED_FORMAL_GEOMETRY_AND_REPRESENTATION_AUDIT",
+  "primary_result": "B_STANDARD_GRAPH_AND_GEOMETRIC_INVARIANTS_SUFFICIENT",
+  "graph_equals_embedding": false,
+  "embedding_equals_observation": false,
+  "observation_equals_graph": false,
+  "same_graph_can_have_different_visible_angles": true,
+  "different_visible_angles_require_different_graph": false,
+  "graph_invariants": {
+    "adjacency": true,
+    "node_valence": true,
+    "path_structure": true,
+    "cycle_structure": true,
+    "scope": "fixed_abstract_graph"
+  },
+  "geometry": {
+    "euclidean_angle_graph_intrinsic": false,
+    "euclidean_length_graph_intrinsic": false,
+    "angles_preserved_under_translation": true,
+    "angles_preserved_under_rotation": true,
+    "angles_preserved_under_reflection": "YES_UNSIGNED_MAGNITUDE",
+    "angles_preserved_under_uniform_positive_scaling": true,
+    "angles_preserved_under_general_affine_map": false,
+    "collinearity_preserved_under_invertible_affine_map": true,
+    "parallelism_preserved_under_invertible_affine_map": true
+  },
+  "boundaries": {
+    "frame_required_for_directional_interpretation": true,
+    "angle_equals_relation": false,
+    "view_equals_dimension": false
+  },
+  "label_quarantine": {
+    "prime_label_geometric_evidence": "ZERO",
+    "integer_factorization_angle_evidence": "ZERO"
+  },
+  "source_image": {
+    "class": "CLASS_D_VISUAL_REPRESENTATION_REPORTED_SOURCE_NOT_PHYSICALLY_AVAILABLE",
+    "generator_provenance": "UNAVAILABLE",
+    "relation_claim_status": "NOT_EVALUATED_IMAGE_UNAVAILABLE"
+  },
+  "controls": {
+    "neutral_relabel_survives": true,
+    "destruction_controls": "25_OF_25_COLLAPSES_REJECTED",
+    "positive_controls": "5_OF_5_PASSED"
+  },
+  "claim_deltas": {
+    "new_graph_theory_discovery": false,
+    "new_geometric_discovery": false,
+    "new_physical_discovery": false,
+    "new_operator_invented": false,
+    "new_ontology_created": false,
+    "nexah_architecture_changed": false,
+    "orion_capability_delta": "NONE",
+    "scientific_claim_delta": "NONE",
+    "new_research_activation": false,
+    "implementation_activation": false
+  },
+  "status": "CLOSED",
+  "next_action": "STOP"
+}

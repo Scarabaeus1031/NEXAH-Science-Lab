@@ -1,0 +1,34 @@
+{
+  "audit_id": "QRO-01",
+  "primary_result": "B_PARTIAL_TYPING_DOMAIN_SPECIFIC_EXTENSIONS_REQUIRED",
+  "test_payload": "QRO-01 STATIC TEXT",
+  "zero_i_two_distinguishable_states": "CONDITIONAL",
+  "distinguishability_implies_semantics": "NO",
+  "position_required_for_spatial_code": "YES",
+  "orientation_reference_required": "CONDITIONAL",
+  "decode_implies_execution": "NO",
+  "information_equals_execution": "NO",
+  "counts": {
+    "exact_operator_matches": 2,
+    "domain_specializations": 5,
+    "non_operator_processes": 3,
+    "no_existing_operator_match": 0,
+    "underdefined": 0
+  },
+  "controls": {
+    "remove_orientation_reference": "FAILS_OR_REQUIRES_COMPENSATION",
+    "permute_positions": "PAYLOAD_NOT_PRESERVED_IN_GENERAL",
+    "remove_encoding_specification": "SEMANTICS_NOT_RECOVERABLE",
+    "decode_without_runtime": "NO_EXECUTION",
+    "runtime_without_instruction": "NO_EXECUTION",
+    "duplicate_carrier": "SAME_CONTENT_DIFFERENT_INSTANCE_POSSIBLE"
+  },
+  "ahce_distinctions_survive": "YES",
+  "iotb_four_question_model_survives": "YES",
+  "neutral_relabel_survives": "YES",
+  "hidden_topology_claim": "NOT_TESTED",
+  "numerological_evidence_used": "NO",
+  "new_operator_invented": "NO",
+  "status": "CLOSED",
+  "next_action": "STOP"
+}

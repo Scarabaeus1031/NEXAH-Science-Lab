@@ -1,0 +1,75 @@
+{
+  "test_id": "GLF-01",
+  "title": "GLOBAL / LOCAL / FRAME AUDIT",
+  "mode": "BOUNDED_FORMAL_REPRESENTATION_AND_INVARIANCE_AUDIT",
+  "primary_result": "B_STANDARD_MATHEMATICS_SUPPORTS_PARTIAL_GLOBAL_LOCAL_TRANSFER_WITH_EXPLICIT_CUT_FRAME_DEPENDENCE",
+  "object_representation": {
+    "object_equals_representation": "NO",
+    "point_equals_coordinate": "NO",
+    "chosen_origin_is_intrinsic": "NO"
+  },
+  "circle_cut": {
+    "circle_has_intrinsic_start": "NO",
+    "circle_equals_interval": "NO",
+    "cut_equals_point_removal": "DOMAIN_DEPENDENT",
+    "quotient_endpoint_identification_required": "DOMAIN_DEPENDENT"
+  },
+  "local_control": {
+    "curve_equals_tangent": "NO",
+    "local_linearization_supported": "YES",
+    "local_straight_implies_global_straight": "NO",
+    "nonsmooth_counterexample_complete": "YES",
+    "local_frame_equals_global_object": "NO",
+    "orthogonal_frame_implies_orthogonal_world": "NO",
+    "orthogonality_standard_mathematical_role": "INNER_PRODUCT_PROJECTION_NORM_DECOMPOSITION_AND_ORTHONORMAL_BASIS_CONVENIENCE"
+  },
+  "polygon_control": {
+    "range_tested": "3_TO_10",
+    "complexity_status": "AMBIGUOUS",
+    "even_odd_structural_differences_supported": "YES",
+    "even_odd_semantic_meaning": "NOT_SUPPORTED",
+    "finite_polygon_equals_circle": "NO",
+    "circle_limit_status": "FIXED_CIRCUMRADIUS_CONVERGENCE_IN_HAUSDORFF_DISTANCE_PERIMETER_AND_AREA"
+  },
+  "sensitivity": {
+    "relabel_dependent_patterns_found": "YES",
+    "cut_dependent_patterns_found": "YES",
+    "partition_dependent_patterns_found": "YES",
+    "invariance_ledger_complete": "YES"
+  },
+  "calendar_control": {
+    "calendar_is_astronomical_cycle": "NO",
+    "month_name_equals_current_ordinal": "NO",
+    "september_7_current_9_status": "HISTORICAL_TRACE_OF_CALENDAR_HISTORY",
+    "october_8_current_10_status": "HISTORICAL_TRACE_OF_CALENDAR_HISTORY",
+    "november_9_current_11_status": "HISTORICAL_TRACE_OF_CALENDAR_HISTORY",
+    "december_10_current_12_status": "HISTORICAL_TRACE_OF_CALENDAR_HISTORY",
+    "mam_jja_son_djf_status": "DOCUMENTED_THREE_MONTH_CLIMATE_GROUPING_CUT_AND_DOMAIN_DEPENDENT",
+    "janus_boundary_status": "DOCUMENTED_CULTURAL_ASSOCIATION_NOT_MATHEMATICAL_CYCLE_STRUCTURE"
+  },
+  "expression_control": {
+    "n_p_status": "UNDERDEFINED_HUMAN_ANNOTATION",
+    "oi_status": "B_PARTIAL_VISUAL_ANALOGY",
+    "q_degree_status": "E_UNDERDEFINED"
+  },
+  "neutral_relabel_survives": "YES",
+  "destruction_controls": "15_REJECTED_1_PARTIAL",
+  "predecessors": {
+    "sfm01_boundaries_preserved": "YES",
+    "rsc01_boundaries_preserved": "YES"
+  },
+  "governance": {
+    "new_mathematical_discovery": "NO",
+    "new_calendar_discovery": "NO",
+    "new_physical_discovery": "NO",
+    "new_operator_invented": "NO",
+    "new_ontology_created": "NO",
+    "nexah_architecture_changed": "NO",
+    "orion_capability_delta": "NONE",
+    "scientific_claim_delta": "NONE",
+    "new_research_activation": "NO",
+    "implementation_activation": "NO"
+  },
+  "status": "CLOSED",
+  "next_action": "STOP"
+}

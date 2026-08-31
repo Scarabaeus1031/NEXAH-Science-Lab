@@ -1,0 +1,91 @@
+{
+  "audit_id": "AHCE-01",
+  "title": "AGENT_HOST_CARRIER_EXECUTION_DISTINCTION_AUDIT",
+  "mode": "BOUNDED_FORMAL_AND_DOCUMENTARY_TYPING_AUDIT",
+  "primary_result": "B_PARTIAL_COMMON_SCHEMA_DOMAIN_FIELDS_REQUIRED",
+  "common_record_core": "SUPPORTED",
+  "material_domain_extensions": "REQUIRED",
+  "non_equivalence_rules": "MANDATORY",
+  "cases": [
+    "BACTERIUM",
+    "VIRUS",
+    "CANCER_CELL",
+    "FUNGUS",
+    "SOFTWARE_AI",
+    "PASSIVE_RECORD_NULL"
+  ],
+  "controls": {
+    "agent_carrier_collapse": "FAILS",
+    "host_execution_collapse": "FAILS",
+    "information_execution_swap": "FAILS",
+    "origin_removal": "FAILS",
+    "replication_transformation_collapse": "FAILS",
+    "observation_mechanism_upgrade": "FAILS_CLAIM_BOUNDARY",
+    "trace_provenance_swap": "FAILS",
+    "authority_removal": "FAILS",
+    "null_control": "PASSES"
+  },
+  "null_control": {
+    "information_present": true,
+    "execution_present": false,
+    "host_interaction": false,
+    "replication_present": false,
+    "trace": "NOT_ATTESTED",
+    "inferred_agency": false
+  },
+  "distinctions": {
+    "agent_ne_carrier": true,
+    "carrier_ne_host": true,
+    "host_ne_execution_environment": true,
+    "information_ne_execution": true,
+    "operator_ne_execution": true,
+    "external_agent_ne_internal_cell_lineage": true,
+    "observation_ne_mechanism": true,
+    "trace_ne_provenance": true,
+    "model_ne_authority": true
+  },
+  "relevance": {
+    "eye": "REFERENCE_INPUT_ONLY",
+    "atlas": "REFERENCE_INPUT_ONLY",
+    "rust": "REFERENCE_INPUT_FOR_FUTURE_SPEC"
+  },
+  "implementation": {
+    "eye_view_contract": "NOT_CREATED",
+    "atlas_implementation": "NO",
+    "rust_conformance_spec": "NOT_CREATED",
+    "rust_implementation": "NO"
+  },
+  "governance": {
+    "package_route": "PROVISIONAL_UNVERIFIED_INDEPENDENT_CLOSED_PACKAGE",
+    "authority_records_available": false,
+    "identifier_collision": "NOT_FOUND_IN_AVAILABLE_WORKSPACE",
+    "new_research_activation": "NO",
+    "publication_authorization": "NO",
+    "orion_capability_delta": "NONE"
+  },
+  "nonclaims": {
+    "new_biological_mechanism": "NO",
+    "universal_infection_law": "NO",
+    "biological_technical_identity": "NO",
+    "new_nvc01_type": "NO",
+    "new_nvc01_operator": "NO",
+    "new_vocabulary": "NO",
+    "new_semantics": "NO"
+  },
+  "core_evidence_sha256": "82a8c34dc5684bbaf9ca7803efa5647f554f68f6b1fb3d85ac59f9aba84f6644",
+  "created_files": [
+    "00_AHCE01_SPECIFICATION.md",
+    "01_SOURCE_AND_CLAIM_LEDGER.md",
+    "02_CANDIDATE_INTERACTION_SCHEMA.md",
+    "03_CASE_TYPING_MATRIX.md",
+    "04_DESTRUCTION_CONTROLS.md",
+    "05_NVC01_EVR01_COMPATIBILITY.md",
+    "06_EYE_ATLAS_AND_RUST_RELEVANCE.md",
+    "07_EXPRESSION_QUARANTINE.md",
+    "08_BOUNDARY_AND_NONCLAIMS.md",
+    "09_AHCE01_FINAL_DECISION.md",
+    "AHCE01_RESULTS.json"
+  ],
+  "status": "CLOSED",
+  "next_action": "STOP_AND_PRESERVE"
+}

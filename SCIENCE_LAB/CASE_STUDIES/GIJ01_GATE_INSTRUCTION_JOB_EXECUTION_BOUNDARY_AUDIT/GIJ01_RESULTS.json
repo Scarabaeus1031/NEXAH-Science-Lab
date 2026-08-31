@@ -1,0 +1,49 @@
+{
+  "test_id": "GIJ-01",
+  "title": "GATE_INSTRUCTION_JOB_EXECUTION_BOUNDARY_AUDIT",
+  "mode": "BOUNDED_FORMAL_EXECUTION_BOUNDARY_TEST",
+  "primary_result": "C_EXISTING_DISTINCTIONS_SUFFICIENT_BUT_GIJ_LABEL_ADDS_NOTHING",
+  "information_equals_instruction": "CONDITIONAL",
+  "instruction_implies_execution": "NO",
+  "environment_implies_execution": "NO",
+  "authority_implies_execution": "NO",
+  "preconditions_equal_event": "NO",
+  "trigger_equals_event": "NO",
+  "operator_equals_execution": "NO",
+  "execution_equals_result": "NO",
+  "result_equals_trace": "NO",
+  "case7_case8_distinguishable": "YES",
+  "execution_with_failure_possible": "YES",
+  "gij_mapping_status": "B",
+  "lexical_order_implies_execution_order": "NO",
+  "controls": {
+    "gti_survives": "YES",
+    "gta_survives": "YES",
+    "git_lexical_control_survives": "YES",
+    "random_relabel_survives": "YES",
+    "real_world_git_control_used": "NO",
+    "github_control_used": "NO",
+    "git_equals_github": "NO"
+  },
+  "predecessor_checks": {
+    "ahce_distinctions_survive": "YES",
+    "iotb_distinctions_survive": "YES",
+    "qro01_reopened": "NO",
+    "predecessors_modified": "NO"
+  },
+  "neutral_relabel_survives": "YES",
+  "rust_type_relevance": "MEDIUM",
+  "rust_implementation_created": "NO",
+  "nonclaims": {
+    "new_operator_invented": "NO",
+    "nexah_architecture_changed": "NO",
+    "orion_capability_delta": "NONE",
+    "scientific_claim_delta": "NONE",
+    "new_research_activation": "NO",
+    "implementation_activation": "NO",
+    "gij02_authorization": "NO"
+  },
+  "status": "CLOSED",
+  "next_action": "STOP"
+}
+

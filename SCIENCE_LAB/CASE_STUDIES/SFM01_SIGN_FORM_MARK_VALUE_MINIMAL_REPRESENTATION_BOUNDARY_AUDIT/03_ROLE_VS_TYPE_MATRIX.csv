@@ -1,0 +1,11 @@
+ITEM,CLASSIFICATION,INDEPENDENTLY_REQUIRED,REMOVED_FROM_MINIMAL_STACK,REASON,PREDECESSOR_BOUNDARY_PRESERVED
+CARRIER,DOMAIN_EXTENSION,NO,YES,"Required for material cuneiform records but not every representation domain",YES
+MARK,TYPE,YES,NO,"Physical/visible instance or component must remain separable from composed/recognized form",YES
+FORM,TYPE,YES,NO,"Configuration/realization must remain separable from mark instance unit identity and value",YES
+UNIT,TYPE,YES,NO,"System-recognized functional unit differs from component count and contextual value",YES
+SIGN,DOMAIN_EXTENSION,NO,YES,"Cuneiform requires sign identity; modern controls use orthographic-unit terminology",YES
+VALUE,TYPE,YES,NO,"Context-dependent assigned reading/pronunciation/function cannot merge with form or unit",YES
+FEATURE,DOMAIN_EXTENSION,NO,YES,"Grammatical feature remains distinct within GRB but is not a universal representation layer",YES
+INFORMATION,TOO_BROAD_RELATION_DESCRIPTION,NO,YES,"Common superclass adds no precision and risks collapsing feature value and meaning",YES
+CONTEXT,REQUIRED_MAPPING_FIELD,YES,YES,"Constrains mappings rather than forming an object layer",YES
+ATTESTATION,EVIDENCE_FIELD,YES,YES,"Records how claims are supported rather than what the represented object is",YES

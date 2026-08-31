@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1250" height="700" viewBox="0 0 1250 700" role="img" aria-labelledby="title desc">
+  <title id="title">RRR-01 return state history map</title>
+  <desc id="desc">A bare initial state and a two-event sequence can end in equal state values while retaining different histories and provenance.</desc>
+  <rect width="1250" height="700" fill="#fafafa"/>
+  <style>
+    .state{fill:#fff;stroke:#0f766e;stroke-width:3}.event{fill:#fff7ed;stroke:#c2410c;stroke-width:3}.history{fill:#eff6ff;stroke:#1d4ed8;stroke-width:3}.arrow{stroke:#475569;stroke-width:3;fill:none;marker-end:url(#m)}.title{font:28px system-ui,sans-serif;fill:#0f172a}.text{font:20px system-ui,sans-serif;fill:#0f172a}.small{font:16px system-ui,sans-serif;fill:#475569}.yes{font:20px system-ui,sans-serif;font-weight:600;fill:#0f766e}.no{font:20px system-ui,sans-serif;font-weight:600;fill:#991b1b}
+  </style>
+  <defs><marker id="m" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#475569"/></marker></defs>
+  <text x="625" y="45" text-anchor="middle" class="title">WHAT RETURNED?</text>
+  <text x="220" y="105" text-anchor="middle" class="text">BARE REGISTERED STATE</text>
+  <rect class="state" x="120" y="140" width="200" height="75" rx="14"/><text x="220" y="185" text-anchor="middle" class="text">X0</text>
+  <rect class="history" x="120" y="270" width="200" height="65" rx="12"/><text x="220" y="310" text-anchor="middle" class="text">H0 = [ ]</text>
+  <text x="855" y="105" text-anchor="middle" class="text">SEQUENCE RETURNING TO X0</text>
+  <rect class="state" x="500" y="140" width="170" height="75" rx="14"/><text x="585" y="185" text-anchor="middle" class="text">X0</text>
+  <path class="arrow" d="M670 177 H755"/><text x="712" y="157" text-anchor="middle" class="small">A / e1</text>
+  <rect class="event" x="760" y="140" width="170" height="75" rx="14"/><text x="845" y="185" text-anchor="middle" class="text">X1</text>
+  <path class="arrow" d="M930 177 H1015"/><text x="972" y="157" text-anchor="middle" class="small">B / e2</text>
+  <rect class="state" x="1020" y="140" width="170" height="75" rx="14"/><text x="1105" y="185" text-anchor="middle" class="text">X0′ = X0</text>
+  <rect class="history" x="720" y="270" width="270" height="65" rx="12"/><text x="855" y="310" text-anchor="middle" class="text">H2 = [e1, e2]</text>
+  <path class="arrow" d="M585 215 C585 250 720 240 765 265"/><path class="arrow" d="M1105 215 C1105 250 990 240 945 265"/>
+  <rect class="state" x="330" y="410" width="590" height="145" rx="16"/>
+  <text x="625" y="455" text-anchor="middle" class="yes">STATE VALUE EQUAL: YES</text>
+  <text x="625" y="495" text-anchor="middle" class="no">EVENT IDENTITY: NO · HISTORY EQUALITY: NO</text>
+  <text x="625" y="530" text-anchor="middle" class="no">PROVENANCE ERASURE: NO</text>
+  <text x="625" y="625" text-anchor="middle" class="title">RETURN IS NOT ERASURE.</text>
+  <text x="625" y="665" text-anchor="middle" class="small">See the relation. Keep the difference. Type the return.</text>
+</svg>

@@ -1,0 +1,45 @@
+# QRO-01 — Final Decision
+
+## Primary result
+
+```text
+B_PARTIAL_TYPING_DOMAIN_SPECIFIC_EXTENSIONS_REQUIRED
+```
+
+The reconciled vocabulary usefully preserves the boundaries among carrier, representation, orientation/reference, information, execution, result, trace and provenance. It does not replace the QR domain model. Five QR-specific stages require specialized rules: location, geometric normalization, module sampling, codeword parsing and payload decoding. Interpretation, optional execution and trace remain non-operator processes/records.
+
+Therefore the foreign object is only partially typed by the existing core. This is a positive boundary result, not a QR or NEXAH discovery.
+
+```text
+QRO01_PRIMARY_RESULT=B_PARTIAL_TYPING_DOMAIN_SPECIFIC_EXTENSIONS_REQUIRED
+
+ZERO_I_TWO_DISTINGUISHABLE_STATES=CONDITIONAL
+DISTINGUISHABILITY_IMPLIES_SEMANTICS=NO
+POSITION_REQUIRED_FOR_SPATIAL_CODE=YES
+ORIENTATION_REFERENCE_REQUIRED=CONDITIONAL
+DECODE_IMPLIES_EXECUTION=NO
+INFORMATION_EQUALS_EXECUTION=NO
+
+EXACT_OPERATOR_MATCH_COUNT=2
+DOMAIN_SPECIALIZATION_COUNT=5
+NON_OPERATOR_PROCESS_COUNT=3
+NO_EXISTING_OPERATOR_MATCH_COUNT=0
+UNDERDEFINED_COUNT=0
+
+AHCE_DISTINCTIONS_SURVIVE=YES
+IOTB_FOUR_QUESTION_MODEL_SURVIVES=YES
+NEUTRAL_RELABEL_SURVIVES=YES
+
+HIDDEN_TOPOLOGY_CLAIM=NOT_TESTED
+NUMEROLOGICAL_EVIDENCE_USED=NO
+NEW_OPERATOR_INVENTED=NO
+
+NEXAH_ARCHITECTURE_CHANGED=NO
+ORION_CAPABILITY_DELTA=NONE
+SCIENTIFIC_CLAIM_DELTA=NONE
+NEW_RESEARCH_ACTIVATION=NO
+IMPLEMENTATION_ACTIVATION=NO
+
+QRO01_STATUS=CLOSED
+NEXT_ACTION=STOP
+```

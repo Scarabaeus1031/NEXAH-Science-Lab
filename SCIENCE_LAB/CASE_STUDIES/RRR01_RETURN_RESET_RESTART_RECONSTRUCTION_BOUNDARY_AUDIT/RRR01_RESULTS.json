@@ -1,0 +1,58 @@
+{
+  "test_id": "RRR-01",
+  "mode": "BOUNDED_FORMAL_STATE_RETURN_PROVENANCE_AND_EXECUTION_AUDIT",
+  "primary_result": "C_EXISTING_TYPES_FULLY_SUFFICIENT_RETURN_FAMILY_IS_CONTEXT_DEPENDENT",
+  "anti_collapses": {
+    "return_equals_inverse": false,
+    "return_equals_reset": false,
+    "return_equals_restart": false,
+    "return_equals_reconstruction": false,
+    "state_return_equals_history_return": false,
+    "state_return_equals_event_return": false,
+    "same_endpoint_equals_same_path": false,
+    "same_result_equals_same_provenance": false,
+    "reset_erases_history": false,
+    "reconstruction_equals_original_event": false
+  },
+  "events": {
+    "restart_creates_new_execution_event": true,
+    "repeat_creates_distinct_event": true,
+    "documentary_history_distinguished_from_state": true,
+    "transform_history_preserved": true,
+    "provenance_preserved": true
+  },
+  "controls": {
+    "prr_involution": true,
+    "double_reflection": true,
+    "partial_reset": true,
+    "restart": true,
+    "repeat": true,
+    "reconstruction": true,
+    "zero_readout": true,
+    "equivalence_return": true,
+    "path_endpoint": true,
+    "neutral_relabel_survives": true,
+    "destruction_controls": "25_OF_25_EVALUATED_AND_REJECTED",
+    "positive_controls": "9_OF_9_PASSED"
+  },
+  "expression_quarantine": {
+    "rnj_status": "EXPRESSION_ONLY",
+    "nrj_status": "EXPRESSION_ONLY",
+    "nrg_status": "EXPRESSION_ONLY",
+    "nrg_equals_energy_formally": false
+  },
+  "deltas": {
+    "new_operator_invented": false,
+    "new_ontology_created": false,
+    "new_mathematical_discovery": false,
+    "new_physical_discovery": false,
+    "nexah_architecture_changed": false,
+    "orion_capability_delta": "NONE",
+    "scientific_claim_delta": "NONE",
+    "rust_interface_delta": "NONE",
+    "implementation_activation": false,
+    "new_research_activation": false
+  },
+  "status": "CLOSED",
+  "next_action": "STOP"
+}

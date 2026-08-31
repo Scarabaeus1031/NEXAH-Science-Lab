@@ -1,0 +1,9 @@
+arm,name,input,operation,predeclared_evaluation,status_before_run
+A,Exact reconstruction,"a=41;b=74;n=17",exact integer difference and residues,all calibration identities exact,PREDECLARED
+B,Mirror control,"(41,74) and (74,41)",subtraction-order reversal only,signed residual +1 reverses to -1,PREDECLARED
+C,Neighbor perturbation,"a=39..43;b=72..76;n=17",complete 25-pair matrix,count +1 -1 and distance to plus-or-minus-one,PREDECLARED
+D,Modulus sweep,"difference=-33;n=2..40",complete 39-modulus sweep,list canonical-one signed-absolute-one and closure moduli,PREDECLARED
+E,Archive pair control,"13-number P2 list;156 ordered pairs;39 moduli",complete pair-modulus enumeration,raw and family-wise descriptive rates,PREDECLARED
+F,Random baseline,"5000 sets;13 unique integers from 3..1836;seed=330117",fixed-17 versus post-hoc 2..40 search,raw pair rate and set-level search-adjusted rate,PREDECLARED
+G,Cycle closure semantics,"17-state abstract cycle",compare repeated-origin record with external anchor,classify archive evidence as RETURN_RECORD_PLUS_ONE EXTERNAL_ANCHOR_PLUS_ONE or UNRESOLVED_PLUS_ONE,PREDECLARED
+H,Representation audit,"same directed arithmetic relation",number line modular circle sequence set directed graph undirected graph image marker,record retained lost introduced unresolved,PREDECLARED

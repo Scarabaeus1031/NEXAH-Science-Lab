@@ -1,0 +1,107 @@
+{
+  "test_id": "EVR-01",
+  "title": "EYE_VIEW_RESIDUAL_RECORD_AUDIT",
+  "mode": "BOUNDED_FORMAL_AND_DOCUMENTARY_SCHEMA_AUDIT",
+  "primary_outcome": "B_PARTIAL_COMMON_SCHEMA_DOMAIN_FIELDS_REQUIRED",
+  "schema_status": "USEFUL_BOUNDED_CORE_WITH_MANDATORY_DOMAIN_EXTENSIONS",
+  "common_required_fields": [
+    "record_id",
+    "source_object_or_state",
+    "source_domain",
+    "operator_or_execution",
+    "boundary_or_constraint",
+    "reference",
+    "observation",
+    "residual_present",
+    "retained",
+    "lost",
+    "introduced",
+    "unresolved",
+    "reversibility_status",
+    "trace",
+    "provenance",
+    "evidence_status",
+    "claim_boundary"
+  ],
+  "domain_specific_fields": [
+    "orientation",
+    "residual_kind",
+    "residual_value",
+    "sign",
+    "unit",
+    "domain_fields"
+  ],
+  "residual_kind_status": {
+    "SIGNED_REMAINDER": "RETAIN",
+    "MATERIAL_REACTION_PRODUCT": "RETAIN",
+    "ENERGY_DISSIPATION": "UNDERDEFINED_NOT_TESTED",
+    "STRUCTURAL_TRACE": "REJECT_AS_CURRENT_KIND",
+    "FUNCTIONAL_STATE_CHANGE": "RETAIN",
+    "REPRESENTATION_DIFFERENCE": "RETAIN",
+    "UNRESOLVED_INFORMATION": "MOVE_TO_UNRESOLVED_OR_EVIDENCE_STATUS",
+    "NO_RESIDUAL": "REMOVE_AS_KIND_USE_RESIDUAL_PRESENT_FALSE"
+  },
+  "controls": {
+    "zero_control": "PASS_RESIDUAL_PRESENT_FALSE_NO_INVENTED_TRACE",
+    "untyped_collapse_control": "INFORMATION_LOSS",
+    "domain_label_removal_control": "PASS_WITH_TYPED_FIELDS",
+    "orientation_reversal_control": "PASS_REFERENCE_BOUND_VALUE_AND_SIGN_CHANGE_SOURCE_POSITION_STABLE",
+    "unit_removal_control": "DETECTS_AMBIGUOUS_OR_INVALID_DIMENSIONAL_RECORD",
+    "observation_mechanism_control": "PASS_CLAIM_UPGRADE_DETECTED",
+    "trace_provenance_control": "PASS_SWAP_DETECTED_AS_INFORMATION_LOSS"
+  },
+  "cases": [
+    {
+      "case_id": "EVR-A",
+      "domain": "ARITHMETIC",
+      "residual_present": true,
+      "residual_kind": "SIGNED_REMAINDER",
+      "schema_fit": "CORE_PLUS_ARITHMETIC_FIELDS"
+    },
+    {
+      "case_id": "EVR-B",
+      "domain": "MATERIAL_CHEMICAL",
+      "residual_present": true,
+      "residual_kind": "MATERIAL_REACTION_PRODUCT",
+      "schema_fit": "CORE_PLUS_MATERIAL_FIELDS"
+    },
+    {
+      "case_id": "EVR-C",
+      "domain": "BIOLOGICAL_BIOPHYSICAL_OBSERVATION",
+      "residual_present": true,
+      "residual_kind": "FUNCTIONAL_STATE_CHANGE",
+      "schema_fit": "CORE_PLUS_BIOLOGICAL_FIELDS"
+    },
+    {
+      "case_id": "EVR-D",
+      "domain": "REPRESENTATION_INFORMATION",
+      "residual_present": true,
+      "residual_kind": "REPRESENTATION_DIFFERENCE",
+      "schema_fit": "CORE_PLUS_REPRESENTATION_FIELDS"
+    },
+    {
+      "case_id": "EVR-E",
+      "domain": "FORMAL_REVERSIBLE_CONTROL",
+      "residual_present": false,
+      "residual_kind": null,
+      "schema_fit": "CORE_PLUS_ZERO_CONTROL_RULE"
+    }
+  ],
+  "nvc01_compatibility": "PASS_NO_CORE_CHANGE",
+  "new_vocabulary": false,
+  "new_semantics": false,
+  "eye_view_contract_relevance": "REFERENCE_INPUT_ONLY",
+  "eye_view_contract_created": false,
+  "rust_serialization_relevance": "REFERENCE_INPUT_FOR_FUTURE_CONFORMANCE_SPEC",
+  "rust_conformance_spec_created": false,
+  "rust_implementation": false,
+  "orion_capability_delta": "NONE",
+  "new_research_activation": false,
+  "publication_authorization": false,
+  "decision_queue_entry": "NONE",
+  "next_action": "STOP_AND_PRESERVE",
+  "evr01_status": "CLOSED_PARTIAL_SCHEMA_RESULT",
+  "hypothesis_status": "PARTIALLY_SUPPORTED_FOR_SELECTED_CASES_ENERGETIC_STRUCTURAL_AND_EPISTEMIC_GENERALITY_NOT_ESTABLISHED",
+  "registration_route": "SELF_CONTAINED_SCIENCE_LAB_CASE_STUDY_AUDIT_PACKAGE",
+  "lab_register_entry": "NONE"
+}

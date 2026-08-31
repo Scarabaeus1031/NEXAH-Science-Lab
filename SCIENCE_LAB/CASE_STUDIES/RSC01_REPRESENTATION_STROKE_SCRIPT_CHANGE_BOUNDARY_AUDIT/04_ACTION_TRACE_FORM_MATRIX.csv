@@ -1,0 +1,9 @@
+case,production_conditions,event_occurs,visible_trace,recognized_form,history_recoverable,classification,evidence
+0,"tool/ink/substrate absent",NO,NO,NO,NO,"no event or trace","typed negative control"
+1,"tool/ink/substrate present",NO,NO,NO,NO,"conditions are not event","logical control"
+2,"single brush movement with contact",YES,YES,MAYBE,PARTIAL,"event leaves trace; recognition needs system context","B1;B2;B3"
+3,"speed/pressure/ink state varied within stroke",YES,YES,MAYBE,PARTIAL,"trace carries process effects but not full parameter history","B1;B2;B3"
+4,"prescribed stroke order used",YES,YES,YES,PARTIAL,"order supports informed reconstruction of some movement","B1;B3;B4"
+5,"running style joins several conventional strokes without lift",YES,YES,YES,PARTIAL,"contact continuity does not equal functional stroke count","B4"
+6,"same recognized character target produced with permitted variation",YES,YES,YES,NO,"recognized form does not uniquely identify event realization","B2;B3"
+7,"static reproduction only; production provenance absent",UNKNOWN,YES,YES,NO,"trace/form cannot attest original event by themselves","attestation boundary"

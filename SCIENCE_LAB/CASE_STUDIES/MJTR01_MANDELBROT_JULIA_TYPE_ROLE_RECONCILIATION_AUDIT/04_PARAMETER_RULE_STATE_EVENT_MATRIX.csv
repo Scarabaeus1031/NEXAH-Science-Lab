@@ -1,0 +1,13 @@
+token,formal_type,registered_role,requires,produces_or_maps_to,forbidden_collapse
+C,set,parameter space,quadratic family,c,C != c
+c,complex number,selected parameter value,C,"f_c; J_c; E_c",c != f_c
+z_n,complex number,current dynamical state,"c; initial state; prior step",input to f_c,z_n != c by role
+f_c,function C_to_C,generative rule,"family definition; c",next-state mapping,f_c != execution event
+e_n,event occurrence,iteration event,"f_c; c; z_n; actual occurrence",z_n_plus_1,e_n != f_c
+z_n_plus_1,complex number,resulting state,"completed iteration event",next possible input,result != event
+orbit,ordered sequence,trajectory or accumulated trace,"c; z_0; repeated iteration occurrences",boundedness or escape record,orbit != rule
+J_c,subset of dynamical plane,exact generated dynamical object,f_c,ideal observation,J_c != c
+E_c,finite integer-valued field,numerical representation,"c; W; G; N; R; iterations",registered observation,E_c != J_c
+P,map,observation rule,"source type; view registration",y,P != application event
+y,observation value,realized representation,"P; E_c or declared source",Theta_y,y != source object
+Theta_y,set of parameters,reconstruction or compatibility set,"y; P; C_441; equality rule",compatible candidates,Theta_y != true c

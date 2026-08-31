@@ -1,0 +1,58 @@
+{
+  "test_id": "OSR-01",
+  "mode": "BOUNDED_FORMAL_TYPE_AND_REPRESENTATION_AUDIT",
+  "primary_result": "B_STANDARD_OBSERVATION_MEASUREMENT_TYPES_ARE_SUFFICIENT_AND_USEFUL_FOR_INTERFACE",
+  "anti_collapses": {
+    "state_equals_observable": false,
+    "state_equals_measurement": false,
+    "state_equals_readout": false,
+    "observation_map_equals_observable": false,
+    "observable_equals_measurement_event": false,
+    "measurement_event_equals_measurement_value": false,
+    "measurement_value_equals_readout": false,
+    "readout_equals_view": "NO_IN_GENERAL",
+    "same_observable_value_implies_same_state": "NO_IN_GENERAL",
+    "same_readout_implies_same_state": false
+  },
+  "supporting_types": {
+    "calibration_separate_type_useful": true,
+    "unit_separate_type_useful": true,
+    "uncertainty_separate_type_useful": true,
+    "frame_dependence_preserved": true
+  },
+  "pipelines": {
+    "geometry_pipeline_recovered": "YES_UNCHANGED",
+    "measurement_pipeline_recovered": true,
+    "pipelines_can_converge_at_view": "YES_WITH_TYPED_SOURCE",
+    "e1_e2_same_formal_kind": "YES_DISTINCT_EMBEDDING_INSTANCES",
+    "e3_instrumented_view_same_formal_kind_as_e1_e2": "NO_REQUIRES_OBSERVATION_AND_PROVENANCE"
+  },
+  "automotive_control": {
+    "valid": "YES_UNDER_STATED_IDEAL_ASSUMPTIONS",
+    "rpm_equals_speed": false,
+    "gear_equals_dimension": false,
+    "clutch_equals_gate": false
+  },
+  "interface": {
+    "rust_facing_type_interface_useful": "YES_CONCEPTUALLY",
+    "rust_implementation_created": false
+  },
+  "controls": {
+    "neutral_relabel_survives": true,
+    "destruction_controls": "25_OF_25_COLLAPSES_REJECTED",
+    "positive_controls": "5_OF_5_PASSED"
+  },
+  "deltas": {
+    "new_operator_invented": false,
+    "new_ontology_created": false,
+    "new_physical_discovery": false,
+    "new_mathematical_discovery": false,
+    "nexah_architecture_changed": false,
+    "orion_capability_delta": "NONE",
+    "scientific_claim_delta": "NONE",
+    "implementation_activation": false,
+    "new_research_activation": false
+  },
+  "status": "CLOSED",
+  "next_action": "STOP"
+}

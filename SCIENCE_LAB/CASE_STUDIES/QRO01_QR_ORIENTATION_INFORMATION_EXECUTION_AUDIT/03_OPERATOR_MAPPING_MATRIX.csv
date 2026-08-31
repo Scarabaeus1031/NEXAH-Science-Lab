@@ -1,0 +1,11 @@
+﻿QR_STEP,OVR_TOKEN,CLASS,DOMAIN,CODOMAIN,PRECONDITION,RULE,RESULT_TYPE
+capture,OBSERVE,A,physical/digital visible carrier,captured representation,sensor available; resolution declared,apply a registered capture/measurement map,captured representation
+locate finder structures,OBSERVE,B,captured representation,located representation,QR detector model available,detect registered finder/alignment structures,located QR candidate
+orientation/perspective normalization,NORMALIZE; ROTATE,B,located representation,normalized representation,reference points and transform estimable,map presentation into canonical sampling frame,normalized QR representation
+module sampling,PROJECT; OBSERVE,B,normalized representation,module matrix,dimension and sampling model declared,sample one state per module location,binary spatial matrix
+parse/mask/codeword extraction,TRANSFORM,B,module matrix,codeword representation,QR version/format/layout available,apply QR-specific parsing rules,structured codewords
+error correction,CORRECT,A,received codewords,corrected/validated codewords,error level and correctable syndrome,apply declared Reed–Solomon correction,corrected codewords or failure
+payload decode,TRANSFORM,B,corrected codewords,decoded bytes/text,QR mode/encoding declared,apply QR decoding rule,decoded payload
+payload interpretation,NONE,C,decoded payload,interpreted payload,application convention declared,"process/state relation, not OVR operator match",application-level interpretation
+optional dispatch/execution,NONE,C,interpreted payload + policy/runtime,result or no event,"explicit instruction, authorization and environment","execution event, not operator token",event/result
+trace,TRACE,C,attested stages/events,trace record,instrumentation enabled,record relation; TRACE is not operator,trace record
