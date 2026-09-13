@@ -1,0 +1,173 @@
+{
+  "audit": "DESK10_CRT_SHADOW_OTHER_SIDE_INVOLUTION_AUDIT",
+  "date": "2026-09-09",
+  "decision": "CRT_MULTI_REGISTER_RETURN_CONFIRMED",
+  "domain": {
+    "modulus": 31000,
+    "canonical_min": 0,
+    "canonical_max": 30999,
+    "states_tested": 31000
+  },
+  "selected_pair": {
+    "x": 11357,
+    "shadow": 19643,
+    "sum": 31000,
+    "source_bound": true,
+    "factorizations": {
+      "11357": [
+        41,
+        277
+      ],
+      "19643": [
+        13,
+        1511
+      ]
+    }
+  },
+  "operator": {
+    "definition": "S_N(x)=(-x) mod N",
+    "classifications": [
+      "MODULAR_NEGATION",
+      "ADDITIVE_INVERSE",
+      "INVOLUTION"
+    ],
+    "address_preserving_return_candidate": false
+  },
+  "crt_register_a": {
+    "moduli": [
+      31,
+      1000
+    ],
+    "product": 31000,
+    "pairwise_coprime": true,
+    "x_residues": [
+      11,
+      357
+    ],
+    "shadow_residues": [
+      20,
+      643
+    ],
+    "selected_reconstructions": [
+      11357,
+      19643
+    ]
+  },
+  "crt_register_b": {
+    "moduli": [
+      8,
+      125,
+      31
+    ],
+    "product": 31000,
+    "pairwise_coprime": true,
+    "x_residues": [
+      5,
+      107,
+      11
+    ],
+    "shadow_residues": [
+      3,
+      18,
+      20
+    ],
+    "selected_reconstructions": [
+      11357,
+      19643
+    ]
+  },
+  "exhaustive": {
+    "failure_counts": {
+      "involution": 0,
+      "complement_sum": 0,
+      "crt_decomposition": 0,
+      "crt_reconstruction_a": 0,
+      "crt_reconstruction_b": 0,
+      "shadow_commutation_a": 0,
+      "shadow_commutation_b": 0
+    },
+    "fixed_points": [
+      0,
+      15500
+    ],
+    "fixed_point_count": 2,
+    "two_element_orbits": 15499,
+    "total_orbits": 15501,
+    "complement_rule": "x+S(x)=0 for x=0; otherwise N"
+  },
+  "backspace": {
+    "classifications": [
+      "STRING_TRANSFORMATION",
+      "DECIMAL_PROJECTION",
+      "NON_ARITHMETIC_CUT",
+      "NONCOMMUTING"
+    ],
+    "at_31000": "UNDEFINED_ON_SHADOW_THEN_BACKSPACE_BRANCH",
+    "witness": {
+      "input": "11357",
+      "shadow_after_backspace": 29865,
+      "backspace_after_shadow": 1964
+    }
+  },
+  "source_binding": {
+    "pair": "SOURCE_DOCUMENTED",
+    "crt_31_1000": "NEW_BOUNDED_FORMALIZATION",
+    "address_preserving": "NOT_ASSIGNED",
+    "visual_file": "NOT_LOCATED",
+    "visual_transcription": "PROMPT_SUPPLIED"
+  },
+  "boundaries": {
+    "new_physics": false,
+    "physical_experiment": false,
+    "source_modifications": false,
+    "orion_core_change": false,
+    "commit_or_push": false
+  },
+  "sources": [
+    {
+      "id": "CURRENT_PROMPT",
+      "path": "/Users/tho2020/.codex/attachments/14a1c4c7-5948-4dae-a6e8-fe92ccb320fc/pasted-text.txt",
+      "sha256": "df159e8dba7722c8ebb19d7d3bbcefb877352448f8e464b369b14a0b659c4b02"
+    },
+    {
+      "id": "CLOCKWORK_V3_MANIFEST",
+      "path": "/Users/tho2020/Desktop/00_INCOMING/CLOCKWORK ORANGE/CLOCKWORK_ORANGE_GLTF_MANIFEST-2 copy.md",
+      "sha256": "957f233bc22d2d8f68b6876cc089fb8860dd7482d864041ffcf4ea69c81884d1"
+    },
+    {
+      "id": "CLOCKWORK_V2_MANIFEST",
+      "path": "/Users/tho2020/Desktop/00_INCOMING/CLOCKWORK ORANGE/CLOCKWORK_ORANGE_GLTF_MANIFEST-2.md",
+      "sha256": "694fe00a7665a7a7cee305366d4728ca3545872abb55735902435b04239c739e"
+    },
+    {
+      "id": "CRT_PARAMETER_LOCK",
+      "path": "/Users/tho2020/Documents/NEXAH ECOSYSTEM/30 SCIENCE LAB/NEXAH-Science-Lab/00_INCOMING/THE_PRIME_GENESIS_CRT_ELEVATOR_QRT_FORMAT_LENS_GATE_01_2026-09-08/data/parameter_lock.json",
+      "sha256": "cf76f566d41b28dc0af8b4d57cf84c390d248a70007b7a3b6e39b347968335f7"
+    },
+    {
+      "id": "CRT_FINGERPRINT_REGISTER",
+      "path": "/Users/tho2020/Documents/NEXAH ECOSYSTEM/30 SCIENCE LAB/NEXAH-Science-Lab/00_INCOMING/THE_PRIME_GENESIS_CRT_ELEVATOR_QRT_FORMAT_LENS_GATE_01_2026-09-08/03_CRT_FINGERPRINT_REGISTER.csv",
+      "sha256": "4b01866f26dbc2d86dace29774d643fed0df668985461d76ad404cf00e9d72fb"
+    },
+    {
+      "id": "ELEVATOR_ADDRESS_AUDIT",
+      "path": "/Users/tho2020/Documents/NEXAH ECOSYSTEM/30 SCIENCE LAB/NEXAH-Science-Lab/00_INCOMING/THE_PRIME_GENESIS_CRT_ELEVATOR_QRT_FORMAT_LENS_GATE_01_2026-09-08/04_ELEVATOR_ADDRESS_AUDIT.md",
+      "sha256": "8d9fcb5f2b8a27f6fa07a09cf547aede6f110ed4439c4067805bbddf0c247a92"
+    },
+    {
+      "id": "ADDRESS_CLAIM_LEDGER",
+      "path": "/Users/tho2020/Documents/NEXAH ECOSYSTEM/30 SCIENCE LAB/NEXAH-Science-Lab/00_INCOMING/THE_PRIME_GENESIS_CRT_ELEVATOR_QRT_FORMAT_LENS_GATE_01_2026-09-08/11_CLAIM_AND_NONCLAIM_LEDGER.md",
+      "sha256": "2f27faaa68d7b9dcaa53319b9ca9763f0a7e8fe027139beaf176002671cf4dc1"
+    },
+    {
+      "id": "RBA37_GENERATOR_AUDIT",
+      "path": "/Users/tho2020/Documents/NEXAH ECOSYSTEM/30 SCIENCE LAB/NEXAH-Science-Lab/SCIENCE_LAB/CASE_STUDIES/CRT_RBA01_HISTORICAL_GENERATOR_RECONSTRUCTION_BOUNDARY_AUDIT/10_37_137_237_537_11357_GENERATOR_AUDIT.md",
+      "sha256": "de63d9f6be3edd2b97484630c7a23e860bb78bd2b946c3032d15b8185d6914a0"
+    },
+    {
+      "id": "PRIOR_CRT11357_AUDIT",
+      "path": "/Users/tho2020/Documents/NEXAH ECOSYSTEM/00 EXECUTIVE/NEXAH-Mission-Control/REVIEWS/DESK10_INCOMING_AUDITS_2026-09-01/CRT_11357_AUDIT/00_EXECUTIVE_FINDINGS.md",
+      "sha256": "981572340a65a377eb5ebec80411f96494ae886c25144e74249ecec41049123e"
+    }
+  ]
+}

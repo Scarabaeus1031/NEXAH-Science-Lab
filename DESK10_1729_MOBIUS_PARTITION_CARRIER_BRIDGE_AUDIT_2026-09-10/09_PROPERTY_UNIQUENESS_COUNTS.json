@@ -1,0 +1,114 @@
+{
+  "all_nonunit_perfect_powers_convention": "at least one non-unit and every non-unit is a nontrivial perfect power",
+  "alternation_convention": "at least two segments; ZERO and UNIT fail; adjacent PRIME/COMPOSITE or mu +/-1 must differ",
+  "counts": {
+    "all_nonunit_segments_perfect_powers": 2,
+    "all_segments_prime": 1,
+    "all_segments_squarefree": 4,
+    "alternating_prime_composite": 2,
+    "concatenation_reconstructs_original": 16,
+    "contains_exactly_one_nontrivial_square_factor": 9,
+    "contains_nontrivial_radical_extraction": 12,
+    "exactly_one_composite_segment": 11,
+    "prime_plus_composite": 2,
+    "product_segments_equals_original": 2,
+    "segment_mobius_values_alternate_sign": 0,
+    "sum_segments_equals_original": 2
+  },
+  "matching_partitions": {
+    "all_nonunit_segments_perfect_powers": [
+      "A1",
+      "B5"
+    ],
+    "all_segments_prime": [
+      "A2"
+    ],
+    "all_segments_squarefree": [
+      "A0",
+      "A2",
+      "A4",
+      "B0"
+    ],
+    "alternating_prime_composite": [
+      "B1",
+      "B2"
+    ],
+    "concatenation_reconstructs_original": [
+      "A0",
+      "A1",
+      "A2",
+      "A3",
+      "A4",
+      "A5",
+      "A6",
+      "A7",
+      "B0",
+      "B1",
+      "B2",
+      "B3",
+      "B4",
+      "B5",
+      "B6",
+      "B7"
+    ],
+    "contains_exactly_one_nontrivial_square_factor": [
+      "A1",
+      "A6",
+      "A7",
+      "B1",
+      "B2",
+      "B3",
+      "B4",
+      "B6",
+      "B7"
+    ],
+    "contains_nontrivial_radical_extraction": [
+      "A1",
+      "A3",
+      "A5",
+      "A6",
+      "A7",
+      "B1",
+      "B2",
+      "B3",
+      "B4",
+      "B5",
+      "B6",
+      "B7"
+    ],
+    "exactly_one_composite_segment": [
+      "A0",
+      "A1",
+      "A6",
+      "A7",
+      "B0",
+      "B1",
+      "B2",
+      "B3",
+      "B4",
+      "B6",
+      "B7"
+    ],
+    "prime_plus_composite": [
+      "B1",
+      "B2"
+    ],
+    "product_segments_equals_original": [
+      "A0",
+      "B0"
+    ],
+    "segment_mobius_values_alternate_sign": [],
+    "sum_segments_equals_original": [
+      "A0",
+      "B0"
+    ]
+  },
+  "named_partitions": {
+    "A1_17_29": "A2",
+    "A2_1_72_9": "A5",
+    "B1_92_71": "B2",
+    "B2_9_27_1": "B5"
+  },
+  "partition_convention": "three independent internal base-10 cut positions; ordered cut sets NONE,1,2,3,1+2,1+3,2+3,1+2+3",
+  "prime_plus_composite_convention": "exactly two segments, one PRIME and one COMPOSITE, either order"
+}

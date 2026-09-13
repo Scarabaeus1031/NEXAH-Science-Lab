@@ -1,0 +1,14 @@
+claim,result,classification
+A1Z26 square,+1 and +10 commute,TRANSLATION_SQUARE_CONFIRMED; COMMUTING_TRANSLATIONS_CONFIRMED
+B+T and S+C,both sums 22,SELECTED_ENCODING_ONLY
+factor 19 in 32642,matches S under A1Z26,SELECTED_ENCODING_ONLY
+checkerboard size/counts,1000000; balanced,GRID_SIZE_CONFIRMED; EXACT_ARITHMETIC
+balanced histogram,1 bit per sampled symbol,EMPIRICAL_SYMBOL_ENTROPY
+one million uncertain bits,only IID Bernoulli model,IID_MODEL_DEPENDENT; BYTE_COUNT_CONFIRMED
+known checkerboard,not one million uncertain bits,DETERMINISTIC_CONFIGURATION
+PNG size,not entropy,FILE_SIZE_NOT_ENTROPY
+transforms 1-7,coordinate permutations,EXACT_GRID_AUTOMORPHISM; LOSSLESS_RECONSTRUCTION
+33/45 rotations,interpolation losses,RASTERIZATION_DEPENDENT
+binary/trinary,not invertibly equivalent,INDEPENDENT_MODULAR_PROJECTIONS
+animal perception,not tested,BIOLOGICAL_PERCEPTION_NOT_TESTED
+decorative geometry,not checkerboard theorem,UNRESOLVED_VISUAL_MAPPING

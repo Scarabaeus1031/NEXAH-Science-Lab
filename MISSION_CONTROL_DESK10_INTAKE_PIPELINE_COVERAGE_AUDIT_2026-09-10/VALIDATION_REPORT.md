@@ -1,0 +1,19 @@
+# Validation Report
+
+Deterministic validation: **PASS**.
+
+- `REPOSITORY_PACKAGES_36` = `PASS`
+- `REPOSITORY_CURRENTNESS_36_OF_36` = `PASS`
+- `REPOSITORY_FILES_3257_OF_3257` = `PASS`
+- `REPOSITORY_PATH_DELTAS_ZERO` = `PASS`
+- `DESKTOP_DIRECTORIES_12` = `PASS`
+- `GB_SUBSTANTIVE_FILES_42` = `PASS`
+- `GB_ALL_SUBSTANTIVE_BOUND` = `PASS`
+- `POST49_PACKAGES_19` = `PASS`
+- `POST49_MANIFEST_PASS_14` = `PASS`
+- `POST49_MANIFEST_MISSING_4` = `PASS`
+- `POST49_MANIFEST_FAIL_1` = `PASS`
+- `POST49_MC_REFERENCES_ABSENT_19` = `PASS`
+- `FINAL_DECISION_PRESENT` = `PASS`
+
+The validator performs no source or Control Desk mutation. The package manifest excludes itself to avoid recursive hashing.

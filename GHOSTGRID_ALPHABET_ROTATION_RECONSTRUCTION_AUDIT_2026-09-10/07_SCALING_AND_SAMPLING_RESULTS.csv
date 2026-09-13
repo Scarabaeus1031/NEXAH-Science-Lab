@@ -1,0 +1,9 @@
+scale,interpretation,method,width,height,histogram,empirical_entropy_bits,reconstruction_mismatch,reconstruction_mae,reconstruction_max_error,exact_reconstruction,operation
+2.0,scale_factor,nearest,2000,2000,"{""0"": 2000000, ""1"": 2000000}",1.0,0,0.0,0,True,upsampling
+1.0,scale_factor,nearest,1000,1000,"{""0"": 500000, ""1"": 500000}",1.0,0,0.0,0,True,identity
+0.5,scale_factor,nearest,500,500,"{""0"": 250000}",-0.0,500000,0.5,1.0,False,downsampling
+0.5,scale_factor,block_majority_tie_to_zero,500,500,"{""0"": 250000}",-0.0,500000,0.5,1.0,False,downsampling
+0.5,scale_factor,block_average,500,500,"{""0.5"": 250000}",-0.0,1000000,0.5,0.5,False,downsampling
+0.25,scale_factor,nearest,250,250,"{""0"": 62500}",-0.0,500000,0.5,1.0,False,downsampling
+0.25,scale_factor,block_majority_tie_to_zero,250,250,"{""0"": 62500}",-0.0,500000,0.5,1.0,False,downsampling
+0.25,scale_factor,block_average,250,250,"{""0.5"": 62500}",-0.0,1000000,0.5,0.5,False,downsampling

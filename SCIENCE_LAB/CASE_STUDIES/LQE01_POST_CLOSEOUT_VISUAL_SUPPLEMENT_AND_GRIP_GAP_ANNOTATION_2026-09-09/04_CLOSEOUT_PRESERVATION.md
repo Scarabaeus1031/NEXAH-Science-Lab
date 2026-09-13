@@ -1,0 +1,30 @@
+# Closeout preservation
+
+The following state remains controlling and unchanged:
+
+```text
+LQE01_SOURCE_BINDING = COMPLETE
+LQE01_CUSTODY_STATUS = CLOSED
+LQE01_CLASSIFICATION =
+A_EXISTING_MODULE_LINEAGE_WITH_NEW_BOUNDED_DEMONSTRATOR_PRESERVED
+
+MANDATORY_FOLLOW_ON = NONE
+SAFE_TO_PAUSE = YES
+SAFE_TO_STOP = YES
+```
+
+This supplement does not modify the closed 20-file Source Snapshot or its 44-entry manifest. It binds later Owner-supplied visuals separately and adds only a documentary annotation.
+
+```text
+LQE01_REOPENED = NO
+NEW_SCIENTIFIC_INTAKE = NO
+NEW_AUDIT = NO
+NEW_LINEAGE_REVIEW = NO
+NEW_RESEARCH = NO
+SCIENTIFIC_VALIDATION = NO
+CAPABILITY_REGISTERED = NO
+ASSEMBLY_GATE_01_ACTIVATED = NO
+INTEGRATION = NO
+OUTREACH_ACTIVATED = NO
+MANDATORY_FOLLOW_ON = NONE
+```

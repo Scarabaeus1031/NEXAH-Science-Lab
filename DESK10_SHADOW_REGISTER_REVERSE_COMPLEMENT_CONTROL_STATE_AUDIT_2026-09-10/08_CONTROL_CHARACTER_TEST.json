@@ -1,0 +1,143 @@
+{
+  "runtime": {
+    "implementation": "Node.js ECMAScript",
+    "node": "v24.19.0",
+    "v8": "13.6.233.17-node.51",
+    "platform": "darwin",
+    "stdout_is_tty": false,
+    "duration": "not recorded or interpreted"
+  },
+  "method": "Raw controls not emitted; util.inspect and JSON.stringify used.",
+  "records": [
+    {
+      "source_spelling": "\"\\0\"",
+      "runtime_length": 1,
+      "unicode_codepoints": [
+        "U+0000"
+      ],
+      "utf8_bytes_hex": [
+        "00"
+      ],
+      "terminal_console_representation": "'\\x00'",
+      "json_serialization": "\"\\u0000\"",
+      "numeric_zero": false,
+      "is_nul": true,
+      "is_empty_string": false,
+      "semantic_type": "NUL",
+      "cursor_or_page_control": "U+0000; no cursor/page motion"
+    },
+    {
+      "source_spelling": "\"\\b\"",
+      "runtime_length": 1,
+      "unicode_codepoints": [
+        "U+0008"
+      ],
+      "utf8_bytes_hex": [
+        "08"
+      ],
+      "terminal_console_representation": "'\\b'",
+      "json_serialization": "\"\\b\"",
+      "numeric_zero": false,
+      "is_nul": false,
+      "is_empty_string": false,
+      "semantic_type": "BACKSPACE",
+      "cursor_or_page_control": "U+0008 cursor-back request; terminal-dependent"
+    },
+    {
+      "source_spelling": "\"\\f\"",
+      "runtime_length": 1,
+      "unicode_codepoints": [
+        "U+000C"
+      ],
+      "utf8_bytes_hex": [
+        "0c"
+      ],
+      "terminal_console_representation": "'\\f'",
+      "json_serialization": "\"\\f\"",
+      "numeric_zero": false,
+      "is_nul": false,
+      "is_empty_string": false,
+      "semantic_type": "FORM_FEED",
+      "cursor_or_page_control": "U+000C page/form control; environment-dependent"
+    },
+    {
+      "source_spelling": "\"\\\\bar\"",
+      "runtime_length": 4,
+      "unicode_codepoints": [
+        "U+005C",
+        "U+0062",
+        "U+0061",
+        "U+0072"
+      ],
+      "utf8_bytes_hex": [
+        "5c",
+        "62",
+        "61",
+        "72"
+      ],
+      "terminal_console_representation": "'\\\\bar'",
+      "json_serialization": "\"\\\\bar\"",
+      "numeric_zero": false,
+      "is_nul": false,
+      "is_empty_string": false,
+      "semantic_type": "PRINTABLE",
+      "cursor_or_page_control": "backslash+b,a,r"
+    },
+    {
+      "source_spelling": "\"\\\\frac\"",
+      "runtime_length": 5,
+      "unicode_codepoints": [
+        "U+005C",
+        "U+0066",
+        "U+0072",
+        "U+0061",
+        "U+0063"
+      ],
+      "utf8_bytes_hex": [
+        "5c",
+        "66",
+        "72",
+        "61",
+        "63"
+      ],
+      "terminal_console_representation": "'\\\\frac'",
+      "json_serialization": "\"\\\\frac\"",
+      "numeric_zero": false,
+      "is_nul": false,
+      "is_empty_string": false,
+      "semantic_type": "PRINTABLE",
+      "cursor_or_page_control": "backslash+f,r,a,c"
+    },
+    {
+      "source_spelling": "\"\"",
+      "runtime_length": 0,
+      "unicode_codepoints": [],
+      "utf8_bytes_hex": [],
+      "terminal_console_representation": "''",
+      "json_serialization": "\"\"",
+      "numeric_zero": false,
+      "is_nul": false,
+      "is_empty_string": true,
+      "semantic_type": "EMPTY",
+      "cursor_or_page_control": "length zero"
+    },
+    {
+      "source_spelling": "\"0\"",
+      "runtime_length": 1,
+      "unicode_codepoints": [
+        "U+0030"
+      ],
+      "utf8_bytes_hex": [
+        "30"
+      ],
+      "terminal_console_representation": "'0'",
+      "json_serialization": "\"0\"",
+      "numeric_zero": false,
+      "is_nul": false,
+      "is_empty_string": false,
+      "semantic_type": "DIGIT_ZERO",
+      "cursor_or_page_control": "U+0030; not numeric zero"
+    }
+  ],
+  "decision": "CONTROL_CHARACTERS_DISTINCTLY_TYPED"
+}

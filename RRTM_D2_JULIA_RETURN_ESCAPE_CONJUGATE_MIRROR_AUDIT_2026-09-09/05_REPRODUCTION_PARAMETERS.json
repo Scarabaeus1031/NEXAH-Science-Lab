@@ -1,0 +1,27 @@
+{
+  "audit_id": "RRTM_D2_2026-09-09",
+  "arithmetic": "IEEE-754 binary64 via Python float/complex",
+  "grid": {
+    "resolution": 301,
+    "shape": [301, 301],
+    "viewport": [-2.0, 2.0, -2.0, 2.0],
+    "x_sampling": "inclusive linear endpoints; column increases with Re(z0)",
+    "y_sampling": "inclusive linear endpoints; row increases with Im(z0)",
+    "array_orientation": "row 0 = Im(z0)=-2; display reverses row order"
+  },
+  "iteration": {
+    "formula": "z_(n+1)=z_n^2+c",
+    "escape_radius": 2.0,
+    "escape_test": "|z_n| > 2 after update",
+    "maximum_iterations": 250,
+    "integer_escape_encoding": "1..250 = first escape iteration; 0 = not escaped by horizon"
+  },
+  "critical_orbit": {"z0": [0.0, 0.0], "maximum_iterations": 250, "termination": "stop immediately after first |z_n|>2"},
+  "representation_agreement": {"absolute_tolerance": 1e-12, "sample_coordinates": [-2.0, -1.0, -0.25, 0.0, 0.25, 1.0, 2.0], "maximum_steps_per_point": 50},
+  "return_observables": {"candidate_periods": [1, 2, 3, 4, 5, 10], "near_return_threshold": 1e-12, "distance_scope": "states through escape only"},
+  "parameter_sensitivity": {
+    "reference_mask": "c_plus", "epsilon": 0.001,
+    "parameters": {"c_0": [-0.75, 0.0], "c_plus": [-0.75, 0.1], "c_minus": [-0.75, -0.1], "c_eps_plus": [-0.75, 0.101], "c_eps_minus": [-0.75, 0.099]}
+  },
+  "render": {"quantity": "integer escape iteration", "bounded_color_value": 255, "escaped_mapping": "round(254*N_escape/N_max), clamped to [0,254]", "format": "8-bit grayscale PNG", "label_status": "AUDIT-ONLY REPRODUCTION by filename/report binding"}
+}

@@ -1,0 +1,10 @@
+operator,what_changes,what_survives,reconstructable,declared_domain,breaks_under_representation,status
+Julia iteration,complex state and escape status,c and update rule,forward replay yes; inverse no,declared grid/horizon,pixel rendering and hidden conventions,IMPLEMENTED
+complex conjugation,imaginary orientation,escape counts under reflection,yes; self-inverse,declared conjugate grid,unmatched viewport/grid conventions,IMPLEMENTED
+S_N,residue representative orientation,residue domain and distance modulo N,yes; self-inverse,Z/NZ,ordinary complement outside restricted domain,IMPLEMENTED
+CRT,coordinate tuple,residue class,yes; explicit inverse,coprime registers,noncoprime or undeclared moduli,IMPLEMENTED
+R_10,digit order and integer,digits/length for fixed width,yes; self-inverse,declared decimal strings,base and leading-zero normalization,IMPLEMENTED
+Mobius classifier,class label,integer factorization truth,integer from factors; classifier not inverse,positive integers,selected decimal reversal relation,IMPLEMENTED
+T_9999 with R4,digit values/order,maximal complement relation,yes; both operators explicit,all D4,different width/base without matching maximal register,IMPLEMENTED
+control literal parsing,runtime value/control semantics,bytes and codepoints,yes from escaped serialization,declared Node runtime,terminal interpretation,IMPLEMENTED
+Observer Return grammar,record fields/review state,provenance contract,documentarily yes,declared schema,missing runtime binding,DOCUMENTARY_ONLY

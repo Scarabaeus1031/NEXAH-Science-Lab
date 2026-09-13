@@ -1,0 +1,12 @@
+operator,input_type,output_type,invariant,information_loss,invertible,reconstruction_mismatch,reconstruction_mae,reconstruction_max_error
+AGGREGATE_MEAN,110x110 binary interval cells,11x11 scalar cells,block mean,YES,NO,12100,0.5,0.5
+AGGREGATE_SUM,110x110 binary interval cells,11x11 scalar cells,block total,YES,NO,12100,0.5,0.5
+AGGREGATE_MAJORITY_TIE_ZERO,110x110 binary interval cells,11x11 scalar cells,declared reducer,YES,NO,6050,0.5,1.0
+AGGREGATE_MAXIMUM,110x110 binary interval cells,11x11 scalar cells,declared reducer,YES,NO,6050,0.5,1.0
+SAMPLE_THEN_EXPAND_NEAREST,111x111 vertex samples,12x12 samples then 111x111,sample values at boundaries,YES,NO,6160,0.4999594188783378,1.0
+SAMPLE_THEN_EXPAND_BILINEAR,111x111 vertex samples,12x12 samples then 111x111,sample values at boundaries,YES,NO,6160,0.4999594188783378,1.0
+THRESHOLD_GE_0.5,11x11 mean cells,11x11 binary cells,declared threshold,YES,NO,6050,0.5,1.0
+RESIDUE_MOD_2,integer labels,residue classes,congruence class,YES,NO,not reconstructable from residue alone,,
+RESIDUE_MOD_3,integer labels,residue classes,congruence class,YES,NO,not reconstructable from residue alone,,
+RESIDUE_MOD_11,integer labels,residue classes,congruence class,YES,NO,not reconstructable from residue alone,,
+PRIME_SIEVE,integer labels 0..999999,boolean/type mask,primality,YES,NO,not invertible,,

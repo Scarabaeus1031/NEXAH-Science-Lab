@@ -1,0 +1,23 @@
+claim_id,claim,classification,status,source,notes
+CL-001,11357 + 19643 = 31000,EXACT_ARITHMETIC;SOURCE_DOCUMENTED,PASS,Clockwork manifests lines 15/32 and 11/19,The pair and closure are pre-existing.
+CL-002,S_31000(11357)=19643 and reverse,MODULAR_NEGATION;ADDITIVE_INVERSE;INVOLUTION,PASS,Current audit computation,New formal operator binding to a documented pair.
+CL-003,S_31000 is address-preserving,ADDRESS_PRESERVING_RETURN_CANDIDATE,NOT_ASSIGNED,/Users/tho2020/Documents/NEXAH ECOSYSTEM/30 SCIENCE LAB/NEXAH-Science-Lab/00_INCOMING/THE_PRIME_GENESIS_CRT_ELEVATOR_QRT_FORMAT_LENS_GATE_01_2026-09-08/04_ELEVATOR_ADDRESS_AUDIT.md,Existing address definitions preserve one carrier through views; shadow changes the residue address and has no exact source-bound address-preservation contract.
+CL-004,31000 = 31 * 1000; gcd=1,EXACT_ARITHMETIC,PASS,Current audit computation,Valid CRT decomposition.
+CL-005,"Phi(11357)=(11,357)",EXACT_ARITHMETIC,PASS,Current audit computation,"New tuple, not found verbatim in searched sources."
+CL-006,"Phi(19643)=(20,643)",EXACT_ARITHMETIC,PASS,Current audit computation,"New tuple, not found verbatim in searched sources."
+CL-007,CRT reconstruction returns both selected values,EXACT_ARITHMETIC,PASS,Current audit exhaustive computation,No reconstruction failures over all 31000 residues.
+CL-008,Phi commutes with modular negation,EXACT_ARITHMETIC,PASS,Current audit exhaustive computation,Componentwise additive inverse.
+CL-009,31000 = 2^3 * 5^3 * 31,EXACT_ARITHMETIC,PASS,Current audit computation,Prime-power factorization.
+CL-010,"(8,125,31) is an equivalent CRT register",EXACT_ARITHMETIC,PASS,Current audit exhaustive computation,Pairwise coprime and product 31000.
+CL-011,3 + 1000 is a CRT factorization,CONTRADICTED,REJECT,Current prompt visual wording,Sum is 1003 and factors are not a product decomposition of 31000.
+CL-012,3 + 1000,DECIMAL_OR_LEXICAL_ANNOTATION,BOUNDED,pasted-text.txt,No exact source-defined arithmetic operator was located.
+CL-013,Backspace commutes with S_31000,NONCOMMUTING,REJECT,Current audit witness 11357,B then shadow gives 29865; shadow then B gives 1964.
+CL-014,Backspace at canonical string 31000 has two defined compositions,UNDEFINED,REJECT,Current audit boundary test,"S_31000(31000)=0 and B(""0"") is empty, whose integer conversion is undefined."
+CL-015,11357 = 41 * 277,EXACT_ARITHMETIC;SOURCE_DOCUMENTED,PASS,/Users/tho2020/Documents/NEXAH ECOSYSTEM/30 SCIENCE LAB/NEXAH-Science-Lab/00_INCOMING/THE_PRIME_GENESIS_CRT_ELEVATOR_QRT_FORMAT_LENS_GATE_01_2026-09-08/03_CRT_FINGERPRINT_REGISTER.csv,Also established by prior CRT audits.
+CL-016,19643 = 13 * 1511,EXACT_ARITHMETIC;SOURCE_DOCUMENTED,PASS,/Users/tho2020/Desktop/00_INCOMING/CLOCKWORK ORANGE/CLOCKWORK_ORANGE_GLTF_MANIFEST-2 copy.md,1511 is prime.
+CL-017,11357 = 3 * 5 * 757,CONTRADICTED,REJECT,Legacy candidate named in prompt,Right side is 11355.
+CL-018,"11357 or 19643 belongs to 37,137,237,...",CONTRADICTED,REJECT,/Users/tho2020/Documents/NEXAH ECOSYSTEM/30 SCIENCE LAB/NEXAH-Science-Lab/SCIENCE_LAB/CASE_STUDIES/CRT_RBA01_HISTORICAL_GENERATOR_RECONSTRUCTION_BOUNDARY_AUDIT/10_37_137_237_537_11357_GENERATOR_AUDIT.md,"That corridor is 37 mod100; residues are 57 and43. Source binds 11357 only as a separate later role, not corridor membership."
+CL-019,Selected pair was prospectively preregistered,NEW_ANNOTATION,NOT_DEMONSTRATED,/Users/tho2020/Desktop/00_INCOMING/CLOCKWORK ORANGE/CLOCKWORK_ORANGE_GLTF_MANIFEST-2 copy.md,Pair predates this audit but no prospective selection rule or preregistration was located; selection is retrospective relative to the historical corpus.
+CL-020,Light/shadow or cry/echo metaphors prove the operator,UNSUPPORTED_PHYSICAL_CLAIM,REJECT,Prompt boundary,Metaphors are explanatory ceilings only.
+CL-021,29 <- 30 -> 31 and 29+31=60,EXACT_ARITHMETIC,PASS,Prompt-supplied visual transcription,Visual file not physically identified.
+CL-022,Exact 29/31 visual source was located,SOURCE_DOCUMENTED,NO,pasted-text.txt,Only the marker transcription in the prompt was available.

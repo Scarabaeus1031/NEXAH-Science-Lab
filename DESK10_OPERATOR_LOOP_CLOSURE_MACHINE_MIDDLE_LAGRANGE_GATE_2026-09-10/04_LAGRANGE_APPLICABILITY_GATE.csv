@@ -1,0 +1,7 @@
+candidate,q_i,Q,time_velocity,T_V_L_action,units_boundaries_constraints,data_or_simulation,decision,reason
+Julia iteration,complex iterate only,complex plane,iteration index; no physical velocity,absent,no mechanical units/boundaries,executable discrete map,OPERATOR_MODEL_SUFFICIENT,loop is not action trajectory
+modular shadow,residue,finite cyclic group,no time or velocity,absent,dimensionless domain,executable exhaustive tests,OPERATOR_MODEL_SUFFICIENT,involution is not mechanics
+CRT reconstruction,residue tuple,product of finite residue rings,no time or velocity,absent,dimensionless congruences,executable exhaustive tests,OPERATOR_MODEL_SUFFICIENT,reconstruction is algebraic
+representation/unit conversion,INPUT_NOT_AVAILABLE,INPUT_NOT_AVAILABLE,absent,absent,unit convention unavailable,not demonstrated,CATEGORY_ERROR,conversion does not require Lagrangian
+mechanical three-body plant,candidate coordinates referenced,formal plant referenced,time/delays specified documentarily,energy/work ledger referenced; full bound action unavailable here,required bindings not all executable,not implemented,INSUFFICIENT_STATE_BINDING,mechanical plant and data required first
+observer-return grammar,record fields,schema space,"workflow ordering, not mechanics",absent,document constraints only,not executable,CATEGORY_ERROR,grammar is not mechanical trajectory

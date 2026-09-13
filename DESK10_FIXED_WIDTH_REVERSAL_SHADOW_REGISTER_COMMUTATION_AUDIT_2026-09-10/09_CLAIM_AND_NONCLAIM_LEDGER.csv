@@ -1,0 +1,14 @@
+claim,result,classification
+decimal sweep,"10000 unique registers, complete domains",EXHAUSTIVE_FINITE_RESULT
+T_9999,10000/10000 equality plus proof,UNIVERSAL_COMMUTATION; DIGIT_COMPLEMENT; CARRY_FREE_COMPLEMENT
+T repdigits,(d+1)^4 equality count,REPDIGIT_REGISTER; BORROW_DEPENDENT
+repdigit monotonicity,strictly increasing,EXACT_ARITHMETIC
+d to 9-d symmetry,false,CONTRADICTED
+palindrome sufficient,false,CONTRADICTED
+maximal complement all bases,proved,POSITIONAL_BASE_GENERAL; SUFFICIENT_CONDITION_CONFIRMED
+general necessity,not proved,NECESSITY_NOT_DEMONSTRATED
+S vs T,distinct,STANDARD_MODULAR_INVOLUTION; FIXED_WIDTH_REVERSAL
+external S perfect valid-rate,tiny valid domain,DOMAIN_RESTRICTED
+7801/1087,one of 40 nonfixed orbits,PROPERTY_NOT_UNIQUE
+72/81 language,corrected,TERMINOLOGY_CORRECTED; LEADING_ZERO_DEPENDENT
+interpretive mechanisms,not tested,NONCLAIM

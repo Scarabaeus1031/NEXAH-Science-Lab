@@ -1,0 +1,5 @@
+grid,model,type,axis_size,cell_count,vertex_count,interval_count_per_axis,refinement_factor,boundary_policy,nesting_status
+G11,MODEL_A_CELL_COUNTS,cells_per_axis,11,121,144,11,baseline,cell edges 0..11,BASE_COARSE_GRID
+G111,MODEL_A_CELL_COUNTS,cells_per_axis,111,12321,12544,111,10.090909090909092,cell edges 0..111,NONINTEGER_CELL_REFINEMENT; CONTRADICTED
+G111,MODEL_B_SAMPLE_POINTS,sample_points_per_axis,111,12100,12321,110,10,"indices 0,10,...,110",EXACT_VERTEX_CELL_REFINEMENT
+G1000,DECLARED_ARRAY,sampled_cells_or_pixels_per_axis,1000,1000000,UNDEFINED_AS_GEOMETRIC_VERTICES,UNDEFINED,90.9090909090909,array indices 0..999,NO_EXACT_11_CELL_NESTING_DECLARED

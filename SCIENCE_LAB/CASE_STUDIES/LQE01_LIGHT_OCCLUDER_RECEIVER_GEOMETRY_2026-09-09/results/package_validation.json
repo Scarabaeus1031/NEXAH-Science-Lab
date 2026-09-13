@@ -1,0 +1,43 @@
+{
+  "record_type": "LQE01_CUSTODY_PACKAGE_VALIDATION",
+  "required_files": {
+    "00_README.md": true,
+    "01_AUTHORITY_SCOPE_AND_INPUT_LOCK.md": true,
+    "02_SOURCE_TO_CUSTODY_HASH_LEDGER.csv": true,
+    "03_ARTIFACT_ROLE_AND_AUTHORITY_LEDGER.csv": true,
+    "04_REVIEW_AND_LINEAGE_BINDING.md": true,
+    "05_HTML_OFFLINE_REPLAY_RECORD.md": true,
+    "06_LQE01_FINAL_CUSTODY_CLASSIFICATION.md": true,
+    "07_CLAIM_AND_NONCLAIM_PRESERVATION.md": true,
+    "08_PRESERVED_OPTIONAL_FUTURE_DECISIONS.md": true,
+    "FINAL_RETURN.md": true,
+    "VALIDATION_REPORT.md": true
+  },
+  "source_files": 20,
+  "snapshot_files": 20,
+  "source_bytes": 13205090,
+  "snapshot_bytes": 13205090,
+  "source_to_custody_hash_match": true,
+  "csv_checks": {
+    "02_SOURCE_TO_CUSTODY_HASH_LEDGER.csv": {
+      "rows": 21,
+      "columns": 9,
+      "unique_headers": true,
+      "rectangular": true,
+      "expected_shape": true
+    },
+    "03_ARTIFACT_ROLE_AND_AUTHORITY_LEDGER.csv": {
+      "rows": 21,
+      "columns": 8,
+      "unique_headers": true,
+      "rectangular": true,
+      "expected_shape": true
+    }
+  },
+  "csv_visual_previews": "CREATED_AND_REVIEWED",
+  "html_offline_replay": "PASS",
+  "html_controls_verified": "3_OF_3",
+  "controlling_review_manifest_hash_match": true,
+  "mission_control_pointer_update": "NOT_REQUIRED",
+  "result": "PASS"
+}

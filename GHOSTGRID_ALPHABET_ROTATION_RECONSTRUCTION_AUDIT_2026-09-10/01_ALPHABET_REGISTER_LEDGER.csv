@@ -1,0 +1,8 @@
+case,representation,value_or_result,classification,note
+"I,J,S,T",A1Z26,"9,10,19,20",EXACT_ARITHMETIC,J-I=1; T-S=1; S-I=10; T-J=10
+IJ to ST,ordered coordinates,tau_10 on both coordinates,TRANSLATION_SQUARE_CONFIRMED,"(9,10)+(10,10)=(19,20)"
+horizontal then vertical,"translations +1,+10",same as vertical then horizontal,COMMUTING_TRANSLATIONS_CONFIRMED,integer addition commutes
+B on T,unspecified,operation not selected,OPERATION_NOT_DEFINED,"tuple (2,20), sum22, difference18, product40, concat220 are distinct"
+B+T,sum,22=2*11,A1Z26_ENCODING_DEPENDENT,selected addition
+SC,tuple/sum/difference/product/concats,"(19,3);22;16;57;193;319",A1Z26_ENCODING_DEPENDENT,encodings distinct
+B+T versus S+C,sum,22=22,SELECTED_ENCODING_ONLY,coincides only under selected A1Z26 addition

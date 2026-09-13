@@ -1,0 +1,55 @@
+{
+  "record_type": "LQE01_CUSTODY_HTML_OFFLINE_REPLAY",
+  "test_scope": "LOCAL_INTERFACE_REPLAY_ONLY_NO_NEW_DESTRUCTION_TEST",
+  "html_path": "/Users/tho2020/Documents/NEXAH ECOSYSTEM/30 SCIENCE LAB/NEXAH-Science-Lab/SCIENCE_LAB/CASE_STUDIES/LQE01_LIGHT_OCCLUDER_RECEIVER_GEOMETRY_2026-09-09/SOURCE_SNAPSHOT/GB_Shadow Geometry LQE 01/NEXAH_Light_Three_Shadows_Destruction_Test.html",
+  "html_sha256": "a4580abfc62d283330d9a6349fe73d6835153ffceb72fcd0f30318474de207cf",
+  "browser_mode": "LOCAL_FILE_WITH_ALL_HTTP_AND_HTTPS_REQUESTS_BLOCKED",
+  "loaded": true,
+  "controls": [
+    {
+      "id": "ang",
+      "min": "-45",
+      "max": "45",
+      "step": "1",
+      "value": "20"
+    },
+    {
+      "id": "src",
+      "min": "0.02",
+      "max": "1.20",
+      "step": "0.02",
+      "value": "0.5"
+    },
+    {
+      "id": "dist",
+      "min": "0.70",
+      "max": "3.50",
+      "step": "0.05",
+      "value": "2"
+    }
+  ],
+  "controls_verified": "3_OF_3",
+  "state_changes": [
+    {
+      "id": "ang",
+      "value": -35,
+      "changed": true
+    },
+    {
+      "id": "src",
+      "value": 1.1,
+      "changed": true
+    },
+    {
+      "id": "dist",
+      "value": 3.2,
+      "changed": true
+    }
+  ],
+  "core_requires_remote_network": false,
+  "blocked_optional_remote_requests": [
+    "https://unpkg.com/@floating-ui/dom@1.7.4/dist/floating-ui.dom.umd.min.js",
+    "https://unpkg.com/lucide@1.17.0/dist/umd/lucide.js"
+  ],
+  "result": "PASS"
+}
