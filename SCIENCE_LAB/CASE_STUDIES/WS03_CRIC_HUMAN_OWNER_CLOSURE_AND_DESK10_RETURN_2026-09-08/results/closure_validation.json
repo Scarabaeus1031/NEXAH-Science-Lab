@@ -1,0 +1,46 @@
+{
+  "artifact_type": "WS03_CLOSURE_VALIDATION",
+  "date": "2026-09-08",
+  "status": "PASS",
+  "authoritative_manifests": {
+    "desk10": "PASS",
+    "desk04": "PASS",
+    "desk05": "PASS"
+  },
+  "allowlist": {
+    "ws03_count": 25,
+    "bound_exactly_once": 25,
+    "bad_bindings": 0
+  },
+  "labreport": {
+    "mandatory_fields": 31,
+    "fields_present": 31,
+    "schema_valid": true,
+    "sha256": "bd80a32205f4f0be5da6fb673c6895e4c6bb2f6bb25f76ebbcff070e09676b72"
+  },
+  "science_lab": {
+    "register_ws03_closed_rows": 1,
+    "labreport_index_rows": 1,
+    "eliminated_question_rows_added": 4,
+    "capability_ledger_created": true
+  },
+  "mission_control": {
+    "decision_d032_table_rows": 1,
+    "decision_d032_details": 1,
+    "closed_handoff_rows": 1,
+    "currentness_pointers": 1,
+    "the_eye_currentness_notes": 1,
+    "sync_manifest_sha256": "825b0b7602f1173c95a56ab93a0391e96bedd92976d863c2fae23ffbfb16bd1b"
+  },
+  "boundaries": {
+    "cric_executed": false,
+    "new_allowance_created": false,
+    "source_packages_modified": false,
+    "capability_registered": false,
+    "ticket_activated": false,
+    "other_workstream_activated": false,
+    "portfolio_reopened": false,
+    "prime_genesis_delta_imported": false
+  },
+  "final_status": "CLOSED"
+}
