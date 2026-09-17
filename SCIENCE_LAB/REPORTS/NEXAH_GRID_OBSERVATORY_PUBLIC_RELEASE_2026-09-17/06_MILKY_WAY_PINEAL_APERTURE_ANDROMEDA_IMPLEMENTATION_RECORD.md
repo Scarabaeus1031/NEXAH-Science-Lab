@@ -74,7 +74,7 @@ therefore bounded to the declared selection and edge rules.
 
 ## Inside Frame Navigator
 
-The instrument now separates six coordinate-frame orientations instead of
+The instrument now separates seven coordinate-frame orientations instead of
 collapsing galactic, heliocentric and planetocentric structures into one
 picture:
 
@@ -94,6 +94,10 @@ picture:
   eight-state Q3 layers. Eight green edges bind corresponding states across
   the fourth binary coordinate. Iota marks the directed cut and Pearl the
   bounded aperture.
+- **Closure Transit** makes the operator path explicit: transform or trace,
+  query or cut, hinge crossing, reconstruct or return, comparator and typed
+  residual. Its selector keeps exact return, tolerance closure, near-closure
+  and visual closure separate.
 
 The solar and planetary views are orientation diagrams. Distances, body sizes
 and animation rates are not scale measurements or ephemerides. The active
@@ -101,6 +105,12 @@ frame and its semantic boundary are included in every exported state record.
 The Loki view is likewise a mathematical projection and not a physical
 four-dimensional object. Its green channel denotes declared frame binding,
 not a substance or causal mechanism.
+
+Closure Transit reuses the phase control as the declared rotation parameter,
+the aperture control as cut width and the pulse control as route speed. Its
+area-preserving shear is a display fixture with determinant one. Visual
+alignment remains view-local unless a comparator, domain, metric and threshold
+are declared.
 
 ## Stellar Node Mapper
 

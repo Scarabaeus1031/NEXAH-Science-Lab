@@ -51,7 +51,8 @@
       "Solar System",
       "Saturn and Titan",
       "Uranus and Moons",
-      "Green Bridge and Loki Frame"
+      "Green Bridge and Loki Frame",
+      "Closure Transit"
     ],
     "earth_sky_rule": "Milky Way becomes the background field, Pineal Aperture becomes the observer window, and Andromeda is represented as a deep-sky object. Imported right ascension and declination are used when available; otherwise the view is labeled procedural.",
     "solar_rule": "The Sun is the heliocentric origin, planets form nested orbit traces, Earth carries a local Moon orbit, and the Oort Cloud is shown only as a schematic outer shell.",
@@ -66,6 +67,13 @@
       "states_per_layer": 8,
       "green_bridge_edges": 8,
       "bridge_coordinate": "independent square-root-of-seven sign"
+    },
+    "closure_transit_rule": "A declared carrier passes through Transform/Trace, Query/Cut and Reconstruct/Return. HRT records the seam crossing; a declared comparator assigns exact return, tolerance closure, near-closure or visual closure only.",
+    "closure_modes": {
+      "exact": "d(M, M_hat) equals zero on the complete declared comparison domain",
+      "tolerance": "zero is less than d(M, M_hat), which is less than or equal to declared epsilon",
+      "near": "d(M, M_hat) exceeds declared epsilon and remains a typed residual trace",
+      "visual": "contours align in the selected view but no mathematical closure authority is asserted"
     },
     "scale_boundary": "Solar and planetary frames are schematic orientation views, not scale models, measured ephemerides or claims of simultaneous alignment."
   },
@@ -152,6 +160,7 @@
     "SOURCE_0 is a declared model address, not a claim about the origin of nature.",
     "The procedural carrier fields are schematic and are not astronomical sky maps.",
     "The Green Bridge and Loki view is a projected discrete sign-state fixture, not a physical four-dimensional object or substance ontology.",
+    "Visual closure is view-local and is not exact or tolerance closure without a declared comparator, domain, metric and threshold.",
     "A generated figure is a declared nearest-node selection, not a discovered astronomical object or natural law.",
     "Stellar proxy properties are deterministic test data and are not astronomical measurements or catalog entries.",
     "Importing a file does not by itself authenticate its astronomical provenance or measurement quality."

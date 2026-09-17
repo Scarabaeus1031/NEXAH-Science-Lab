@@ -93,7 +93,7 @@ wird nicht aus dem Aussehen erraten, sondern aus dem zugehörigen Record gelesen
 
 Die jüngste interaktive Fassung
 [`MIWA_PINEAP_AN_DROMEDA.html`](../../EXPORTS/MIWA_PINEAP_AN_DROMEDA.html)
-ist die derzeit kompakteste ausführbare Synopsis dieser Idee. Sie trennt sechs
+ist die derzeit kompakteste ausführbare Synopsis dieser Idee. Sie trennt sieben
 Orientierungsräume:
 
 1. Outside Carrier View;
@@ -103,7 +103,9 @@ Orientierungsräume:
 4. planetozentrisches Saturn–Titan-System;
 5. gekipptes Uranus–Moons-System;
 6. Green Bridge · Loki als projizierten Q4-Frame aus zwei Q3-Schichten und
-   acht grünen Bindekanten.
+   acht grünen Bindekanten;
+7. Closure Transit als ausführbare TQR/QRT/HRT- und Comparator-Ansicht mit
+   typisierter Restspur.
 
 Dass dieselbe Oberfläche zwischen diesen Räumen wechseln kann, bedeutet nicht,
 dass ihre Objekte physisch gleich sind. Es zeigt, dass dieselbe dokumentarische
