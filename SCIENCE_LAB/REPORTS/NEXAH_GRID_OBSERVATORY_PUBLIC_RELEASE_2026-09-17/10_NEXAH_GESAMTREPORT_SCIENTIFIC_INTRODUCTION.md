@@ -108,6 +108,23 @@ dass ihre Objekte physisch gleich sind. Es zeigt, dass dieselbe dokumentarische
 Grammatik unterschiedliche Träger, Frames, Node-Typen und Relationen aufnehmen
 kann.
 
+Die ergänzenden Instrumente
+[`NEXAH_TESSERACT_ROOT_SPACE_8_TO_16.html`](../../EXPORTS/NEXAH_TESSERACT_ROOT_SPACE_8_TO_16.html)
+und
+[`NEXAH_TESSAREC_Q_IOTA_PEARL.html`](../../EXPORTS/NEXAH_TESSAREC_Q_IOTA_PEARL.html)
+zeigen nun die darunterliegende Frame-Logik. Der Root Space erweitert drei
+unabhängige Vorzeichenkoordinaten mit acht Zuständen um eine vierte Koordinate
+zu sechzehn Zuständen. Die acht grünen Kanten koppeln korrespondierende
+Zustände der beiden 8-State-Schichten. Grün bezeichnet damit den
+**Bridge-/Frame-Binding-Kanal**, nicht den vollständigen Frame und keine
+physikalische Substanz.
+
+Q · Iota · Pearl zeigt anschließend den gerichteten Schnitt durch diesen
+Träger: Q wählt die Schicht, Iota orientiert den diagonalen IN/OUT-Schnitt, die
+Pearl begrenzt die Apertur, und ein lokaler achtadressiger Zylinder hält die
+periodische Sicht auseinander. Damit ist die zuvor fehlende Darstellungsebene
+zwischen abstraktem Zustandsraum und beobachterlokalem Schnitt ausführbar.
+
 ### Was sich mit dem heutigen Kern darstellen lässt
 
 | Darstellungsbaustein | Beispiele | Wissenschaftliche Grenze |
@@ -122,7 +139,7 @@ kann.
 | Vergleich und Rest | numerisch, strukturell, Provenienz-, Support- oder Auflösungsrest | Rest ist nicht automatisch Entdeckung |
 | maschinenlesbare Rückkehr | State Record, Receipt, Hash, Claim Ceiling | Ausführbarkeit ist keine empirische Bestätigung |
 
-### Noch nicht implementierte, aber passende Erweiterungen
+### Teilweise implementierte und noch offene Erweiterungen
 
 **Zodiac / Ekliptikring:** Ein astronomisch gebundener Zodiac-Modus könnte die
 Ekliptik als Winkelkoordinate mit zwölf benannten Sektoren darstellen. Planeten,
@@ -130,19 +147,24 @@ Sonne oder Blickrichtungen würden über deklarierte ekliptikale Längen
 adressiert. Eine astrologische Interpretation wäre davon als eigene
 Ausdrucksschicht zu trennen und hätte keine geerbte wissenschaftliche Autorität.
 
-**Zylinder:** Ein Zylinder würde eine periodische Winkelkoordinate mit einer
-zweiten linearen Koordinate verbinden, beispielsweise Phase × Zeit, Winkel ×
-Höhe oder Sektor × Schicht. Er wäre besonders geeignet, um Wrap-around,
-Nahtstelle, Helix, wiederkehrende Adresse und fortschreitende Geschichte
-gleichzeitig sichtbar zu machen:
+**Zylinder:** Das Tessarec-Instrument enthält bereits einen lokalen
+achtadressigen Zylinder. Er verbindet eine periodische Zustandsadresse mit dem
+gerichteten Cut und einem deklarierten Anzeigezyklus. Eine generalisierte
+Observatory-Fassung könnte eine periodische Winkelkoordinate mit einer zweiten
+linearen Koordinate verbinden, beispielsweise Phase × Zeit, Winkel × Höhe oder
+Sektor × Schicht. Sie wäre besonders geeignet, um Wrap-around, Nahtstelle,
+Helix, wiederkehrende Adresse und fortschreitende Geschichte gleichzeitig
+sichtbar zu machen:
 
 ```text
 Zylinder = periodischer Umfang × lineare Achse
 lokale Rückkehr im Winkel != Rückkehr in Zeit, Höhe oder Geschichte
 ```
 
-Zodiac und Zylinder sind damit keine neuen Grundannahmen. Sie sind zwei weitere
-Frames, die an dieselbe Grid-Grammatik gebunden werden könnten. Ihr Status ist
+Zodiac und der generalisierte Observatory-Zylinder sind damit keine neuen
+Grundannahmen. Sie sind weitere Frames, die an dieselbe Grid-Grammatik gebunden
+werden könnten. Der lokale Tessarec-Zylinder ist
+`IMPLEMENTED_VISUAL_FIXTURE`; Zodiac und Observatory-Zylinder bleiben
 `DESIGN_CANDIDATE / NOT_IMPLEMENTED`.
 
 ## 1. Das konkrete Problem
