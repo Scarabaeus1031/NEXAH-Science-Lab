@@ -28,6 +28,7 @@ loose root documents, local exports and one unregistered case-study folder.
 2. [02_DISPOSITION_QUEUE.csv](02_DISPOSITION_QUEUE.csv)
 3. [03_DESK_04_05_CROSSCHECK.md](03_DESK_04_05_CROSSCHECK.md)
 4. [04_NEXT_SAFE_PASS.md](04_NEXT_SAFE_PASS.md)
+5. [05_INCOMING_BREAKDOWN.md](05_INCOMING_BREAKDOWN.md)
 
 ## Authority boundary
 

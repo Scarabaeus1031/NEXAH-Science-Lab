@@ -4,8 +4,9 @@ The next pass should be narrow and reversible.
 
 ## Pass 2 — delta triage
 
-1. Generate an exact `00_INCOMING` delta against the current Research Corpus
-   Inventory and classify each new child package.
+1. Establish a per-file baseline for `00_INCOMING` and classify each child
+   package. The existing root-count inventory cannot reconstruct exact file
+   arrival identity retrospectively.
 2. Review `Orion ≠ Labreport` as intake; do not let its current folder location
    imply admission.
 3. Split `tmp` into reproducible build output, reusable scripts, working copies

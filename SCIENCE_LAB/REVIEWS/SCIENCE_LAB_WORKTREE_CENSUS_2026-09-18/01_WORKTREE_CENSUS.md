@@ -13,7 +13,7 @@ do not confer scientific status.
 |---|---:|---:|---|
 | `NEXAH_EARLY_WARNING_HYPOTHESIS_VALIDATION` | 2,990 | 2,782,763,545 | registered bulk evidence; preserve |
 | `SCIENCE_LAB/CASE_STUDIES` | 3,631 | 2,756,529,239 | registered research corpus with one new directory delta |
-| `00_INCOMING` | 3,252 | 223,843,180 | active intake delta; prior inventory recorded 2,704 files |
+| `00_INCOMING` | 3,255 | 223,872,478 | active intake delta; prior inventory recorded 2,704 files |
 | `ORION_EXP_ORION_L1_001_V1_1_EXECUTION` | 24 | 39,800,000 approx. | execution evidence; custody review, no deletion |
 | `ORION_EXP_ORION_L3_001_EXECUTION` | 57 | 35,750,000 approx. | execution evidence; custody review, no deletion |
 | `tmp` | about 105 | 19,220,000 approx. | mixed working copies, dependency tree, previews and unrelated PDFs |
@@ -43,11 +43,14 @@ The local archive therefore needs a delta pass, not another full rediscovery.
 
 ### 1. Incoming growth
 
-`00_INCOMING` grew from `2,704` inventoried files to `3,252` observed files:
-`+548` files. The largest child is `THe Prime Genesis` with `84` files and
-about `191 MB`, dominated by images. Several CRIC gate folders include build
-or runtime-shaped file trees. These must be classified package by package;
-they must not be bulk-imported merely because they are in Incoming.
+`00_INCOMING` grew from `2,704` inventoried files to `3,255` observed files:
+an aggregate difference of `+551` files. This arithmetic delta does not by
+itself identify 551 individual newly arrived paths because the earlier
+inventory preserved only a root count, not a per-file baseline. The largest
+child is `THe Prime Genesis` with `86` files and about `191.5 MB`, dominated by
+images. Several CRIC gate folders include build or runtime-shaped file trees.
+These must be classified package by package; they must not be bulk-imported
+merely because they are in Incoming.
 
 ### 2. Temporary workspace
 
