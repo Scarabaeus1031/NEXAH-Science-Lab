@@ -74,7 +74,7 @@ therefore bounded to the declared selection and edge rules.
 
 ## Inside Frame Navigator
 
-The instrument now separates five coordinate-frame orientations instead of
+The instrument now separates six coordinate-frame orientations instead of
 collapsing galactic, heliocentric and planetocentric structures into one
 picture:
 
@@ -90,10 +90,17 @@ picture:
   orbits as the planetocentric grid.
 - **Uranus–Moons** uses the tilted Uranian axis, ring plane and moon family as
   a separate planetocentric grid.
+- **Green Bridge · Loki** projects the sixteen-state Q4 sign graph as two
+  eight-state Q3 layers. Eight green edges bind corresponding states across
+  the fourth binary coordinate. Iota marks the directed cut and Pearl the
+  bounded aperture.
 
 The solar and planetary views are orientation diagrams. Distances, body sizes
 and animation rates are not scale measurements or ephemerides. The active
 frame and its semantic boundary are included in every exported state record.
+The Loki view is likewise a mathematical projection and not a physical
+four-dimensional object. Its green channel denotes declared frame binding,
+not a substance or causal mechanism.
 
 ## Stellar Node Mapper
 

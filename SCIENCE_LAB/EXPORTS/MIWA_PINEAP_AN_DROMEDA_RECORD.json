@@ -50,12 +50,23 @@
       "Earth Sky",
       "Solar System",
       "Saturn and Titan",
-      "Uranus and Moons"
+      "Uranus and Moons",
+      "Green Bridge and Loki Frame"
     ],
     "earth_sky_rule": "Milky Way becomes the background field, Pineal Aperture becomes the observer window, and Andromeda is represented as a deep-sky object. Imported right ascension and declination are used when available; otherwise the view is labeled procedural.",
     "solar_rule": "The Sun is the heliocentric origin, planets form nested orbit traces, Earth carries a local Moon orbit, and the Oort Cloud is shown only as a schematic outer shell.",
     "saturn_rule": "Saturn is the planetocentric origin; its ring plane and seven named moon tracks form the local orientation grid, with Titan highlighted.",
     "uranus_rule": "Uranus is the planetocentric origin; the strongly tilted local axis, rings and five named moon tracks define the orientation grid.",
+    "loki_rule": "Two Q3 sign-state layers of eight nodes are joined by eight green fourth-coordinate edges into the 16-node, 32-edge Q4 carrier. Iota marks the directed cut and Pearl marks the bounded aperture.",
+    "loki_fixture": {
+      "carrier": "Q4 sign-state graph",
+      "nodes": 16,
+      "edges": 32,
+      "degree": 4,
+      "states_per_layer": 8,
+      "green_bridge_edges": 8,
+      "bridge_coordinate": "independent square-root-of-seven sign"
+    },
     "scale_boundary": "Solar and planetary frames are schematic orientation views, not scale models, measured ephemerides or claims of simultaneous alignment."
   },
   "figure_inspector": {
@@ -140,6 +151,7 @@
     "Visual synchrony, pulsing or overlap is not evidence of causal synchrony.",
     "SOURCE_0 is a declared model address, not a claim about the origin of nature.",
     "The procedural carrier fields are schematic and are not astronomical sky maps.",
+    "The Green Bridge and Loki view is a projected discrete sign-state fixture, not a physical four-dimensional object or substance ontology.",
     "A generated figure is a declared nearest-node selection, not a discovered astronomical object or natural law.",
     "Stellar proxy properties are deterministic test data and are not astronomical measurements or catalog entries.",
     "Importing a file does not by itself authenticate its astronomical provenance or measurement quality."
