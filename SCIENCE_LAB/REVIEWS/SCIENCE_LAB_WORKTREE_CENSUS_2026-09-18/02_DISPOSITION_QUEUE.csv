@@ -1,0 +1,12 @@
+priority,class,path_or_group,observed_scope,inventory_state,proposed_disposition,authority_required,reason
+P0,REGISTERED_BULK_EVIDENCE,NEXAH_EARLY_WARNING_HYPOTHESIS_VALIDATION,"2990 files; 2782763545 bytes",REGISTERED,PRESERVE_IN_PLACE,NONE_FOR_PRESERVATION,"large evidence body; size is not cleanup authority"
+P0,REGISTERED_BULK_EVIDENCE,SCIENCE_LAB/CASE_STUDIES,"3631 files; 2756529239 bytes",MOSTLY_REGISTERED,PRESERVE_AND_REVIEW_DELTA,NONE_FOR_PRESERVATION,"primary evidence corpus; one unregistered directory"
+P1,INCOMING_DELTA,00_INCOMING,"3252 files; +548 against inventory",REGISTERED_BASE_WITH_DELTA,PACKAGE_LEVEL_TRIAGE,HUMAN_OWNER_BEFORE_MOVE_OR_DELETE,"new intake must be admitted rejected or archived by named package"
+P1,UNASSESSED_CASE_STUDY,"SCIENCE_LAB/CASE_STUDIES/Orion ≠ Labreport","30 visible files; images DOCX and TXT",NOT_REGISTERED,RETURN_TO_INTAKE_OR_CREATE_BOUNDED_PACKAGE,HUMAN_OWNER,"folder location currently overstates status"
+P1,TEMPORARY_WORKSPACE,tmp,"about 105 files; about 19.22 MB",NOT_REGISTERED,SPLIT_BY_ROLE_THEN_REMOVE_REPRODUCIBLE_COPIES,HUMAN_OWNER_BEFORE_DELETE,"contains scripts previews dependency tree dashboard copies and unrelated PDFs"
+P1,LOOSE_ROOT_DOCS,repository root,"20 loose documents and assets",NOT_REGISTERED,ROUTE_TO_CANONICAL_AREA_OR_ARCHIVE,HUMAN_OWNER_IF_MOVED,"mostly September consolidation outputs without final repository home"
+P1,LOCAL_EXPORTS,SCIENCE_LAB/EXPORTS,"12 untracked files; about 9.15 MB",PARTIAL_DELTA,CLASSIFY_SOURCE_RELEASE_DEMO_OR_GENERATED,HUMAN_OWNER_BEFORE_PUBLICATION,"useful current artifacts but export location is not release authority"
+P2,EXECUTION_EVIDENCE,ORION_EXP_ORION_L1_001_V1_1_EXECUTION,"24 files; about 39.8 MB",REGISTERED,PRESERVE_AND_BIND_TO_RESULT_RECORD,HUMAN_OWNER_BEFORE_MOVE,"execution custody may support replay and provenance"
+P2,EXECUTION_EVIDENCE,ORION_EXP_ORION_L3_001_EXECUTION,"57 files; about 35.75 MB",REGISTERED,PRESERVE_AND_BIND_TO_RESULT_RECORD,HUMAN_OWNER_BEFORE_MOVE,"execution custody may support replay and provenance"
+P2,SEALED_REVIEW_EVIDENCE,"Desk 04 and Desk 05 review/closure packages","sealed manifests verified",REGISTERED,PRESERVE_AS_HISTORICAL_EVIDENCE,NONE_FOR_PRESERVATION,"closed workstreams; not active queues"
+P3,KNOWN_PACKAGE_FAMILIES,"remaining registered roots","majority of 165 top-level roots",REGISTERED,NO_ACTION_UNTIL_NAMED_DEPENDENCY,NONE,"inventory coverage already supplies locator function"
