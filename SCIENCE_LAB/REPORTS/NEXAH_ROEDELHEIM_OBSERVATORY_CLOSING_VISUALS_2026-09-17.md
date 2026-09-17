@@ -29,10 +29,11 @@ cinematic plate translates the executable visual grammar into the established
 NEXAH brass, black-glass and luminous-channel machine language. The HTML plate
 retains a quieter diagrammatic reading of the same relations.
 
-The **Field Console** makes the observer layer tangible: seven screens display
-seven declared views of one central carrier while the astronomical field
-remains visible through the Observatory window. The virtual-reality headset
-and microscope are input instruments, not additional frames.
+The **Field Console** makes the observer layer tangible: six glass screens and
+one central volumetric display stage seven declared views around a shared
+carrier while the astronomical field remains visible through the Observatory
+window. The virtual-reality headset and microscope are input instruments, not
+additional frames.
 
 The **Field Art Lab** documents a second path:
 
