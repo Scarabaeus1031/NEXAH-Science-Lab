@@ -1,0 +1,307 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="description" content="NEXAH–ERITH source-seed HTML5 instrument: one declared source, two complementary seeds, three elevators per side, dual belts and observer mask.">
+  <title>NEXAH ⇄ ERITH · Source-Seed Field Instrument</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --ink:#f4f7fb; --muted:#8fa2b8; --panel:rgba(5,10,17,.86);
+      --line:#21364a; --cyan:#16e5f2; --amber:#ffb217; --mint:#19e3aa;
+      --pink:#ff3f91; --violet:#a978ff; --blue:#1588ff; --bg:#02050a;
+    }
+    * { box-sizing:border-box; }
+    html,body { width:100%; height:100%; margin:0; overflow:hidden; background:var(--bg); color:var(--ink); }
+    body { font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; }
+    canvas { position:fixed; inset:0; width:100%; height:100%; touch-action:none; cursor:grab; }
+    canvas:active { cursor:grabbing; }
+    .panel { position:fixed; z-index:5; background:var(--panel); border:1px solid rgba(118,161,198,.2); box-shadow:0 18px 60px rgba(0,0,0,.38); backdrop-filter:blur(16px); }
+    .identity { top:18px; left:18px; width:min(390px,calc(100vw - 36px)); padding:18px 18px 16px; border-left:3px solid var(--pink); }
+    .eyebrow { display:flex; align-items:center; gap:9px; color:var(--pink); font:700 12px/1.2 ui-monospace,SFMono-Regular,Menlo,monospace; letter-spacing:.14em; text-transform:uppercase; }
+    .live { width:7px; height:7px; border-radius:50%; background:var(--mint); box-shadow:0 0 14px var(--mint); }
+    h1 { margin:10px 0 6px; font-size:clamp(22px,2.2vw,34px); line-height:1.02; letter-spacing:-.035em; }
+    .dek { margin:0; max-width:34ch; color:var(--muted); font-size:14px; line-height:1.5; }
+    .grammar { margin-top:14px; padding-top:12px; border-top:1px solid rgba(143,162,184,.18); color:#c7d5e3; font:600 12px/1.6 ui-monospace,SFMono-Regular,Menlo,monospace; }
+    .controls { top:18px; right:18px; width:310px; padding:15px; }
+    .section-title { margin:0 0 9px; color:var(--muted); font:700 11px/1.2 ui-monospace,SFMono-Regular,Menlo,monospace; letter-spacing:.13em; text-transform:uppercase; }
+    .button-row { display:grid; grid-template-columns:repeat(3,1fr); gap:7px; margin-bottom:13px; }
+    button,select,input { font:inherit; }
+    button,select { min-height:38px; border:1px solid #29445e; border-radius:7px; background:#09121d; color:var(--ink); }
+    button { cursor:pointer; padding:8px 10px; font-size:13px; font-weight:650; }
+    button:hover,button:focus-visible,select:focus-visible { border-color:#75a9d4; outline:none; }
+    button[aria-pressed="true"] { color:#001017; background:var(--cyan); border-color:var(--cyan); }
+    .field { display:grid; grid-template-columns:88px 1fr; align-items:center; gap:10px; margin:8px 0; }
+    .field label { color:#a9bacb; font-size:13px; }
+    select { width:100%; padding:0 9px; font-size:13px; }
+    input[type="range"] { width:100%; accent-color:var(--pink); }
+    .toggles { display:grid; grid-template-columns:1fr 1fr; gap:7px; margin-top:12px; }
+    .toggle { display:flex; align-items:center; gap:8px; min-height:36px; padding:8px 9px; border:1px solid #20364b; border-radius:7px; color:#b8c7d6; font-size:12px; cursor:pointer; }
+    .toggle input { accent-color:var(--mint); }
+    .readout { left:18px; bottom:18px; width:min(390px,calc(100vw - 36px)); padding:14px 16px; }
+    .readout-grid { display:grid; grid-template-columns:1fr 1fr; gap:9px 18px; }
+    .datum span { display:block; color:var(--muted); font:700 10px/1.2 ui-monospace,SFMono-Regular,Menlo,monospace; letter-spacing:.1em; text-transform:uppercase; }
+    .datum strong { display:block; margin-top:3px; color:#e9f5ff; font:650 13px/1.3 ui-monospace,SFMono-Regular,Menlo,monospace; }
+    .legend { right:18px; bottom:18px; width:310px; padding:14px 15px; }
+    .legend-row { display:grid; grid-template-columns:12px 1fr auto; gap:9px; align-items:center; min-height:26px; font-size:12px; color:#c4d1dd; }
+    .swatch { width:9px; height:9px; border-radius:50%; box-shadow:0 0 12px currentColor; }
+    .legend-row code { color:#8298ad; font-size:11px; }
+    .statusbar { position:fixed; z-index:4; left:50%; bottom:20px; transform:translateX(-50%); color:#7690a7; font:600 11px/1.2 ui-monospace,SFMono-Regular,Menlo,monospace; letter-spacing:.08em; pointer-events:none; }
+    .hint { position:fixed; z-index:4; left:50%; top:20px; transform:translateX(-50%); color:#6f8498; font-size:12px; pointer-events:none; }
+    @media (max-width:900px) {
+      .identity { width:calc(100vw - 36px); }
+      .identity .dek,.identity .grammar { display:none; }
+      .controls { top:auto; right:12px; bottom:12px; width:265px; max-height:52vh; overflow:auto; }
+      .readout { left:12px; bottom:12px; width:calc(100vw - 301px); }
+      .legend,.statusbar,.hint { display:none; }
+    }
+    @media (max-width:620px) {
+      .identity { top:10px; left:10px; width:calc(100vw - 20px); padding:12px 14px; }
+      h1 { font-size:20px; }
+      .controls { left:10px; right:10px; bottom:10px; width:auto; }
+      .readout,.legend { display:none; }
+    }
+  </style>
+</head>
+<body>
+  <canvas id="field" aria-label="Interaktive räumliche Darstellung eines Seeds, dreier Elevator und zweier Gürtel"></canvas>
+
+  <header class="panel identity">
+    <div class="eyebrow"><span class="live"></span>NEXAH HTML5 INSTRUMENT · G1/G2</div>
+    <h1>NEXAH ⇄ ERITH</h1>
+    <p class="dek">Eine deklarierte Source speist zwei komplementäre Seeds. ERITH entfaltet 1→3; NEXAH bindet 3→1. Die Seam hält beide Lesarten vergleichbar.</p>
+    <div class="grammar">SOURCE₀ → Cᴱ → 1+3 → SEAM → 3+1 → Cᴺ → RETURN</div>
+  </header>
+
+  <aside class="panel controls" aria-label="Instrumentsteuerung">
+    <h2 class="section-title">Kamera / Frame</h2>
+    <div class="button-row">
+      <button id="outside" aria-pressed="true">Outside</button>
+      <button id="inside" aria-pressed="false">Inside</button>
+      <button id="reset">Reset</button>
+    </div>
+    <div class="field">
+      <label for="side">Ansicht</label>
+      <select id="side">
+        <option value="whole">Whole Field</option>
+        <option value="erith">ERITH · 1→3</option>
+        <option value="seam">Seam · Cᴱ⇄Cᴺ</option>
+        <option value="nexah">NEXAH · 3→1</option>
+      </select>
+    </div>
+    <div class="field">
+      <label for="focus">Fokus</label>
+      <select id="focus">
+        <option value="source">Source₀</option>
+        <option value="seed">Aktiver Seed</option>
+        <option value="seam">Seam</option>
+        <option value="e45">Elevator 45°</option>
+        <option value="e33">Elevator 33°</option>
+        <option value="e07">Elevator 7°</option>
+        <option value="belts">Dual Belt</option>
+      </select>
+    </div>
+    <div class="field">
+      <label for="mask">Maske</label>
+      <select id="mask">
+        <option value="split">Front / Back</option>
+        <option value="front">Nur Front</option>
+        <option value="back">Nur Back</option>
+        <option value="full">Vollständig</option>
+      </select>
+    </div>
+    <div class="field">
+      <label for="speed">Pulsrate</label>
+      <input id="speed" type="range" min="0" max="2" step="0.05" value="0.75">
+    </div>
+    <div class="field">
+      <label for="flow">Fluss</label>
+      <select id="flow">
+        <option value="breath">Breath · C↔3</option>
+        <option value="outward">Outward · C→3</option>
+        <option value="return">Return · 3→C</option>
+      </select>
+    </div>
+    <div class="toggles">
+      <label class="toggle"><input id="pulseToggle" type="checkbox" checked> Pulse</label>
+      <label class="toggle"><input id="skyToggle" type="checkbox" checked> Seed-Raster</label>
+      <label class="toggle"><input id="labelToggle" type="checkbox" checked> Adressen</label>
+      <label class="toggle"><input id="pauseToggle" type="checkbox"> Pause</label>
+    </div>
+    <button id="export" style="width:100%;margin-top:12px">State Record exportieren</button>
+  </aside>
+
+  <section class="panel readout" aria-live="polite">
+    <h2 class="section-title">Observer Record</h2>
+    <div class="readout-grid">
+      <div class="datum"><span>Frame</span><strong id="rFrame">OUTSIDE</strong></div>
+      <div class="datum"><span>Fokus</span><strong id="rFocus">SOURCE_0</strong></div>
+      <div class="datum"><span>Ansicht</span><strong id="rSide">WHOLE FIELD</strong></div>
+      <div class="datum"><span>Source</span><strong>SOURCE₀</strong></div>
+      <div class="datum"><span>Maske</span><strong id="rMask">FRONT / BACK</strong></div>
+      <div class="datum"><span>Phase</span><strong id="rPhase">0.000</strong></div>
+      <div class="datum"><span>Fluss</span><strong id="rFlow">BREATH · C↔3</strong></div>
+      <div class="datum"><span>Coupler</span><strong>C / +1</strong></div>
+      <div class="datum"><span>Auswärts</span><strong id="rOut">VISIBLE</strong></div>
+      <div class="datum"><span>Rückweg</span><strong id="rReturn">MASKED</strong></div>
+    </div>
+  </section>
+
+  <aside class="panel legend">
+    <h2 class="section-title">Codierung</h2>
+    <div class="legend-row"><span class="swatch" style="color:var(--white);background:var(--white)"></span><span>Source₀ / deklarierter Ursprung</span><code>S₀</code></div>
+    <div class="legend-row"><span class="swatch" style="color:var(--violet);background:var(--violet)"></span><span>Cᴱ · ERITH Seed / 1→3</span><code>Cᴱ</code></div>
+    <div class="legend-row"><span class="swatch" style="color:var(--blue);background:var(--blue)"></span><span>Cᴺ · NEXAH Seed / 3→1</span><code>Cᴺ</code></div>
+    <div class="legend-row"><span class="swatch" style="color:var(--cyan);background:var(--cyan)"></span><span>Elevator 45° / binär</span><code>E45</code></div>
+    <div class="legend-row"><span class="swatch" style="color:var(--amber);background:var(--amber)"></span><span>Elevator 33° / ternär</span><code>E33</code></div>
+    <div class="legend-row"><span class="swatch" style="color:var(--mint);background:var(--mint)"></span><span>Elevator 7° / prime gap</span><code>E07</code></div>
+    <div class="legend-row"><span class="swatch" style="color:var(--pink);background:var(--pink)"></span><span>Auswärtsgürtel</span><code>B+</code></div>
+    <div class="legend-row"><span class="swatch" style="color:var(--violet);background:var(--violet)"></span><span>Rückkehrgürtel</span><code>B−</code></div>
+  </aside>
+  <div class="hint">Ziehen: Orbit · Shift/Zweitaste: Pan · Rad/Trackpad: Zoom · Punkt wählen: Fokus</div>
+  <div class="statusbar">SOURCE₀ · ERITH 1→3 · SEAM Cᴱ⇄Cᴺ · NEXAH 3→1 · RETURN</div>
+
+  <script id="nexah-schema" type="application/json">
+  {"instrument":"NEXAH_ERITH_SOURCE_SEED_FIELD","version":"1.2","claim_ceiling":"DOCUMENTARY_GRAMMAR_AND_EXECUTABLE_VISUAL_FIXTURE","source":{"id":"SOURCE_0","role":"DECLARED_MODEL_SOURCE","position":[0,0,0]},"seeds":[{"id":"C_ERITH","symbol":"Cᴱ","role":"UNFOLD_1_TO_3","position":[-5.5,0,0]},{"id":"C_NEXAH","symbol":"Cᴺ","role":"BIND_3_TO_1","position":[5.5,0,0]}],"seam":{"id":"H_SOURCE","mapping":"C_ERITH_TO_C_NEXAH"},"flow_modes":["BREATH_BIDIRECTIONAL","ERITH_SOURCE_TO_3","NEXAH_3_TO_RETURN"],"elevators":[{"id":"E45","angle_deg":45,"length":15,"stations":4},{"id":"E33","angle_deg":33,"length":18,"stations":4},{"id":"E07","angle_deg":7,"length":20,"stations":4}],"belts":[{"id":"B_PLUS","role":"OUTWARD"},{"id":"B_MINUS","role":"RETURN"}],"nonclaims":["SOURCE_0 is a declared model source, not a cosmological origin.","No physical three-body solution is asserted."]}
+  </script>
+
+  <script>
+  (() => {
+    'use strict';
+    const canvas = document.getElementById('field');
+    const ctx = canvas.getContext('2d');
+    const DPR = Math.min(devicePixelRatio || 1, 2);
+    const C = {blue:'#1588ff',cyan:'#16e5f2',amber:'#ffb217',mint:'#19e3aa',pink:'#ff3f91',violet:'#a978ff',white:'#f4f7fb'};
+    const V = (x=0,y=0,z=0)=>({x,y,z});
+    const add=(a,b)=>V(a.x+b.x,a.y+b.y,a.z+b.z), sub=(a,b)=>V(a.x-b.x,a.y-b.y,a.z-b.z);
+    const mul=(a,s)=>V(a.x*s,a.y*s,a.z*s), dot=(a,b)=>a.x*b.x+a.y*b.y+a.z*b.z;
+    const cross=(a,b)=>V(a.y*b.z-a.z*b.y,a.z*b.x-a.x*b.z,a.x*b.y-a.y*b.x);
+    const len=a=>Math.hypot(a.x,a.y,a.z), norm=a=>{const l=len(a)||1;return mul(a,1/l)};
+    const lerp=(a,b,t)=>V(a.x+(b.x-a.x)*t,a.y+(b.y-a.y)*t,a.z+(b.z-a.z)*t);
+    const rotateX=(p,a)=>V(p.x,p.y*Math.cos(a)-p.z*Math.sin(a),p.y*Math.sin(a)+p.z*Math.cos(a));
+    const rotateY=(p,a)=>V(p.x*Math.cos(a)+p.z*Math.sin(a),p.y,-p.x*Math.sin(a)+p.z*Math.cos(a));
+    const rotateZ=(p,a)=>V(p.x*Math.cos(a)-p.y*Math.sin(a),p.x*Math.sin(a)+p.y*Math.cos(a),p.z);
+
+    const elevators = [
+      {id:'E45',label:'45°',angle:45,length:15,color:C.cyan,axis:'z',rate:.50,amp:.05},
+      {id:'E33',label:'33°',angle:33,length:18,color:C.amber,axis:'y',rate:.80,amp:.20},
+      {id:'E07',label:'7°', angle:7, length:20,color:C.mint,axis:'x',rate:1.50,amp:.30}
+    ];
+    const SOURCE=V(0,0,0), C_ERITH=V(-5.5,0,0), C_NEXAH=V(5.5,0,0);
+    const state = {yaw:-.67,pitch:.34,distance:44,target:V(),mode:'OUTSIDE',side:'whole',focus:'SOURCE_0',mask:'split',flow:'breath',speed:.75,time:0,flowClock:0,drag:false,pan:false,lastX:0,lastY:0,pulse:true,sky:true,labels:true,paused:false};
+    let W=innerWidth,H=innerHeight, projectedStations=[];
+
+    function resize(){W=innerWidth;H=innerHeight;canvas.width=W*DPR;canvas.height=H*DPR;ctx.setTransform(DPR,0,0,DPR,0,0);}
+    addEventListener('resize',resize); resize();
+
+    function camera(){
+      const cp=Math.cos(state.pitch), sp=Math.sin(state.pitch), cy=Math.cos(state.yaw), sy=Math.sin(state.yaw);
+      const pos=add(state.target,V(state.distance*cp*sy,state.distance*sp,state.distance*cp*cy));
+      const forward=norm(sub(state.target,pos));
+      let right=norm(cross(forward,V(0,1,0))); if(len(right)<.1) right=V(1,0,0);
+      const up=norm(cross(right,forward)); return {pos,forward,right,up};
+    }
+    function project(p,cam){
+      const d=sub(p,cam.pos), z=dot(d,cam.forward); if(z<.06)return null;
+      const focal=(Math.min(W,H)*.88)/Math.tan((state.mode==='INSIDE'?82:58)*Math.PI/360);
+      return {x:W/2+dot(d,cam.right)*focal/z,y:H/2-dot(d,cam.up)*focal/z,z,scale:focal/z};
+    }
+    function alphaColor(hex,a){const n=parseInt(hex.slice(1),16);return `rgba(${n>>16},${(n>>8)&255},${n&255},${a})`;}
+    function line3(points,color,width,alpha,cam,dash=[]){
+      let started=false;ctx.beginPath();
+      for(const p of points){const q=project(p,cam);if(!q){started=false;continue} if(!started){ctx.moveTo(q.x,q.y);started=true}else ctx.lineTo(q.x,q.y)}
+      ctx.strokeStyle=alphaColor(color,alpha);ctx.lineWidth=width;ctx.setLineDash(dash);ctx.stroke();ctx.setLineDash([]);
+    }
+    function sphereWire(center,r,color,cam,alpha=.8){
+      const loops=[];
+      for(let j=-3;j<=3;j++){const lat=j*Math.PI/8,rr=r*Math.cos(lat),yy=r*Math.sin(lat),pts=[];for(let i=0;i<=48;i++){const a=i*Math.PI*2/48;pts.push(add(center,V(rr*Math.cos(a),yy,rr*Math.sin(a))))}loops.push(pts)}
+      for(let j=0;j<10;j++){const a=j*Math.PI/10,pts=[];for(let i=-24;i<=24;i++){const t=i*Math.PI/48;pts.push(add(center,V(r*Math.cos(t)*Math.cos(a),r*Math.sin(t),r*Math.cos(t)*Math.sin(a))))}loops.push(pts)}
+      for(const pts of loops)line3(pts,color,.75,alpha,cam);
+      const q=project(center,cam);if(q){const rr=Math.max(2,r*q.scale);const g=ctx.createRadialGradient(q.x-rr*.25,q.y-rr*.25,0,q.x,q.y,rr);g.addColorStop(0,alphaColor(color,.32));g.addColorStop(1,alphaColor(color,.015));ctx.fillStyle=g;ctx.beginPath();ctx.arc(q.x,q.y,rr,0,Math.PI*2);ctx.fill()}
+    }
+    function elevatorDirection(e,t,mirror=false){
+      const a=e.angle*Math.PI/180;let p=V(Math.cos(a),Math.sin(a),0);const wob=Math.sin(t*e.rate)*e.amp;
+      p=e.axis==='x'?rotateX(p,wob):e.axis==='y'?rotateY(p,wob):rotateZ(p,wob);
+      if(mirror)p=V(-p.x,p.y,-p.z);return norm(p);
+    }
+    function beltPoint(which,a,t){
+      const outward=which==='B_PLUS'; const rx=outward?32:27, ry=outward?15:12.4;
+      let p=V(rx*Math.cos(a),ry*Math.sin(a),outward?.65:-.65);
+      p=rotateX(p,outward?Math.PI/4:-Math.PI/4.7);
+      p=rotateZ(p,(outward?1:-1)*t*.035+(outward?0:.22)); return p;
+    }
+    function drawBelts(cam){
+      for(const b of [{id:'B_PLUS',color:C.pink,dash:[]},{id:'B_MINUS',color:C.violet,dash:[7,7]}]){
+        for(let i=0;i<180;i++){
+          const a=i*Math.PI*2/180,beta=(i+1)*Math.PI*2/180,p1=beltPoint(b.id,a,state.time),p2=beltPoint(b.id,beta,state.time);
+          const q1=project(p1,cam),q2=project(p2,cam);if(!q1||!q2)continue;
+          const centerDepth=project(V(),cam)?.z||0, front=(q1.z+q2.z)/2<centerDepth;
+          if(state.mask==='front'&&!front||state.mask==='back'&&front)continue;
+          const alpha=state.mask==='full'?.78:front?.95:.18;
+          ctx.strokeStyle=alphaColor(b.color,alpha);ctx.lineWidth=front?2.2:1;ctx.setLineDash(b.dash);ctx.beginPath();ctx.moveTo(q1.x,q1.y);ctx.lineTo(q2.x,q2.y);ctx.stroke();ctx.setLineDash([]);
+        }
+      }
+    }
+    function drawElevatorSet(cam,origin,sideId,mirror,alpha){
+      for(const e of elevators){
+        const localTime=mirror?-state.time:state.time,u=elevatorDirection(e,localTime,mirror),end=add(origin,mul(u,e.length));
+        line3([origin,end],e.color,1.35,.78*alpha,cam);
+        for(let k=1;k<=4;k++){
+          const p=add(origin,mul(u,e.length*k/4)),q=project(p,cam);if(!q)continue;
+          const wave=state.pulse?.5+.5*Math.sin(localTime*2.4-k*.9-e.angle):.25;
+          const radius=Math.max(4,.31*q.scale*(1+wave*.34));
+          projectedStations.push({x:q.x,y:q.y,r:Math.max(12,radius),id:`${sideId}.${e.id}.${k}`,world:p});
+          ctx.shadowBlur=(10+wave*14)*alpha;ctx.shadowColor=e.color;ctx.fillStyle=alphaColor(e.color,(.72+wave*.28)*alpha);ctx.beginPath();ctx.arc(q.x,q.y,radius,0,Math.PI*2);ctx.fill();ctx.shadowBlur=0;
+          if(state.labels&&radius<38&&alpha>.4){ctx.fillStyle=alphaColor(C.white,.72*alpha);ctx.font='600 11px ui-monospace,monospace';ctx.fillText(`${sideId}.${e.id}.${k}`,q.x+radius+6,q.y+4)}
+        }
+      }
+    }
+    function drawElevators(cam){projectedStations=[];const na=state.side==='erith'?.1:state.side==='seam'?.34:1,ea=state.side==='nexah'?.1:state.side==='seam'?.34:1;drawElevatorSet(cam,C_NEXAH,'N',false,na);drawElevatorSet(cam,C_ERITH,'R',true,ea)}
+    function drawSourceAndSeam(cam){
+      line3([SOURCE,C_ERITH],C.violet,1.4,state.side==='nexah'?.18:.72,cam,[5,5]);line3([SOURCE,C_NEXAH],C.blue,1.4,state.side==='erith'?.18:.72,cam,[5,5]);
+      const seam=[];for(let i=0;i<=72;i++){const a=i*Math.PI*2/72;seam.push(V(0,3.7*Math.cos(a),3.7*Math.sin(a)))}line3(seam,C.white,1.1,state.side==='seam'?.95:.27,cam,[3,5]);
+      const q=project(SOURCE,cam);if(q){const pulse=7+3*Math.sin(state.time*1.7);ctx.shadowBlur=28;ctx.shadowColor=C.white;ctx.fillStyle=alphaColor(C.white,.9);ctx.beginPath();ctx.arc(q.x,q.y,Math.max(4,pulse*q.scale*.08),0,Math.PI*2);ctx.fill();ctx.shadowBlur=0;if(state.labels){ctx.font='700 12px ui-monospace,monospace';ctx.fillStyle=alphaColor(C.white,.9);ctx.fillText('SOURCE₀',q.x+12,q.y-12)}}
+    }
+    function drawCrosshair(){ctx.strokeStyle='rgba(137,175,207,.18)';ctx.lineWidth=1;ctx.beginPath();ctx.moveTo(W/2-10,H/2);ctx.lineTo(W/2+10,H/2);ctx.moveTo(W/2,H/2-10);ctx.lineTo(W/2,H/2+10);ctx.stroke();}
+    function render(){
+      const g=ctx.createRadialGradient(W*.52,H*.48,0,W*.52,H*.48,Math.max(W,H)*.72);g.addColorStop(0,'#07111c');g.addColorStop(.55,'#030810');g.addColorStop(1,'#010308');ctx.fillStyle=g;ctx.fillRect(0,0,W,H);
+      const cam=camera(); drawBelts(cam); drawSourceAndSeam(cam); drawElevators(cam);
+      if(state.sky){sphereWire(C_ERITH,1.2,C.violet,cam,state.side==='nexah'?.12:state.mode==='INSIDE'?.82:.65);sphereWire(C_NEXAH,1.2,C.blue,cam,state.side==='erith'?.12:state.mode==='INSIDE'?.82:.7)}
+      for(const [p,label,color] of [[C_ERITH,'Cᴱ · ERITH',C.violet],[C_NEXAH,'Cᴺ · NEXAH',C.blue]]){const q=project(p,cam);if(q&&state.labels){ctx.fillStyle=alphaColor(color,.94);ctx.font='700 12px ui-monospace,monospace';ctx.fillText(label,q.x+12,q.y-12)}}
+      drawCrosshair();
+      document.getElementById('rPhase').textContent=(state.time%(Math.PI*2)).toFixed(3);
+      const fwd=dot(cam.forward,norm(sub(beltPoint('B_PLUS',0,state.time),cam.pos)))>0;
+      document.getElementById('rOut').textContent=state.mask==='back'?'MASKED':fwd?'VISIBLE':'PARTIAL';
+      document.getElementById('rReturn').textContent=state.mask==='front'?'MASKED':fwd?'PARTIAL':'VISIBLE';
+    }
+    function tick(){if(!state.paused){state.flowClock+=.012*state.speed;const direction=state.flow==='outward'?1:state.flow==='return'?-1:Math.cos(state.flowClock*.42);state.time+=.012*state.speed*direction}render();requestAnimationFrame(tick)} tick();
+
+    function activeSeed(){return state.side==='erith'?C_ERITH:C_NEXAH}
+    function setMode(mode){state.mode=mode;state.target=mode==='INSIDE'?activeSeed():state.side==='whole'?SOURCE:activeSeed();state.distance=mode==='INSIDE'?.72:state.side==='whole'?44:27;state.yaw=mode==='INSIDE'?-1.35:-.67;state.pitch=mode==='INSIDE'?.08:.34;document.getElementById('outside').setAttribute('aria-pressed',mode==='OUTSIDE');document.getElementById('inside').setAttribute('aria-pressed',mode==='INSIDE');document.getElementById('rFrame').textContent=mode;}
+    function focusTarget(value){let label=value.toUpperCase();if(value==='source'){state.target=SOURCE;label='SOURCE_0'}else if(value==='seed'){state.target=activeSeed();label=state.side==='erith'?'C_ERITH':'C_NEXAH'}else if(value==='seam'||value==='belts')state.target=SOURCE;else{const e=elevators.find(x=>x.id.toLowerCase()===value);if(e){const mirror=state.side==='erith',origin=mirror?C_ERITH:C_NEXAH;state.target=add(origin,mul(elevatorDirection(e,mirror?-state.time:state.time,mirror),e.length*.55));label=`${mirror?'R':'N'}.${e.id}`}}state.focus=label;document.getElementById('rFocus').textContent=label;if(state.mode==='OUTSIDE')state.distance=value==='belts'?44:value==='source'||value==='seam'?32:22;}
+    document.getElementById('outside').onclick=()=>setMode('OUTSIDE'); document.getElementById('inside').onclick=()=>setMode('INSIDE');
+    document.getElementById('reset').onclick=()=>{state.side='whole';document.getElementById('side').value='whole';document.getElementById('rSide').textContent='WHOLE FIELD';document.getElementById('focus').value='source';setMode('OUTSIDE');focusTarget('source')};
+    document.getElementById('side').onchange=e=>{state.side=e.target.value;document.getElementById('rSide').textContent=e.target.options[e.target.selectedIndex].text.toUpperCase();state.target=state.side==='whole'||state.side==='seam'?SOURCE:activeSeed();if(state.mode==='OUTSIDE')state.distance=state.side==='whole'?44:27;document.getElementById('focus').value=state.side==='seam'?'seam':state.side==='whole'?'source':'seed';focusTarget(document.getElementById('focus').value)};
+    document.getElementById('focus').onchange=e=>focusTarget(e.target.value);
+    document.getElementById('mask').onchange=e=>{state.mask=e.target.value;document.getElementById('rMask').textContent=e.target.options[e.target.selectedIndex].text.toUpperCase()};
+    document.getElementById('speed').oninput=e=>state.speed=+e.target.value;
+    document.getElementById('flow').onchange=e=>{state.flow=e.target.value;const label=e.target.options[e.target.selectedIndex].text.toUpperCase();document.getElementById('rFlow').textContent=label};
+    document.getElementById('pulseToggle').onchange=e=>state.pulse=e.target.checked;
+    document.getElementById('skyToggle').onchange=e=>state.sky=e.target.checked;
+    document.getElementById('labelToggle').onchange=e=>state.labels=e.target.checked;
+    document.getElementById('pauseToggle').onchange=e=>state.paused=e.target.checked;
+    document.getElementById('export').onclick=()=>{
+      const schema=JSON.parse(document.getElementById('nexah-schema').textContent);const record={...schema,observer:{frame:state.mode,side:state.side,focus:state.focus,mask:state.mask,flow:state.flow,yaw:state.yaw,pitch:state.pitch,distance:state.distance},phase:+(state.time%(Math.PI*2)).toFixed(6),timestamp:new Date().toISOString()};
+      const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([JSON.stringify(record,null,2)],{type:'application/json'}));a.download='NEXAH_ERITH_SOURCE_SEED_STATE_RECORD.json';a.click();setTimeout(()=>URL.revokeObjectURL(a.href),500);
+    };
+
+    canvas.addEventListener('pointerdown',e=>{state.drag=true;state.pan=e.shiftKey||e.button===2;state.lastX=e.clientX;state.lastY=e.clientY;canvas.setPointerCapture(e.pointerId)});
+    canvas.addEventListener('pointermove',e=>{if(!state.drag)return;const dx=e.clientX-state.lastX,dy=e.clientY-state.lastY;state.lastX=e.clientX;state.lastY=e.clientY;if(state.pan){const cam=camera(),s=state.distance*.0015;state.target=add(state.target,add(mul(cam.right,-dx*s),mul(cam.up,dy*s)))}else{state.yaw-=dx*.006;state.pitch=Math.max(-1.45,Math.min(1.45,state.pitch+dy*.006))}});
+    canvas.addEventListener('pointerup',e=>{state.drag=false;const hit=projectedStations.find(p=>Math.hypot(e.clientX-p.x,e.clientY-p.y)<p.r);if(hit){state.target=hit.world;state.focus=hit.id;document.getElementById('rFocus').textContent=hit.id;state.distance=Math.max(6,state.distance*.62)}});
+    canvas.addEventListener('wheel',e=>{e.preventDefault();state.distance=Math.max(state.mode==='INSIDE'?.16:2.5,Math.min(80,state.distance*Math.exp(e.deltaY*.001)))},{passive:false});
+    canvas.addEventListener('contextmenu',e=>e.preventDefault());
+  })();
+  </script>
+</body>
+</html>

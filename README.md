@@ -28,6 +28,11 @@ Start with:
 4. [Contributor and replicator onramp](SCIENCE_LAB/CONTRIBUTOR_ONRAMP.md)
 5. [Run Contract](SCIENCE_LAB/RUN_CONTRACT.md)
 
+Current public documentary release:
+
+- [NEXAH Grid and Observatory — scientific introduction, canonical grammar
+  and executable visual fixtures](SCIENCE_LAB/REPORTS/NEXAH_GRID_OBSERVATORY_PUBLIC_RELEASE_2026-09-17/README.md)
+
 ## What this repository is — and is not
 
 The Lab tests bounded claims about representation, translation, information

@@ -1,0 +1,48 @@
+{
+  "record_id": "NEXAH-ERITH-SOURCE-SEED-HTML5-02",
+  "date": "2026-09-17",
+  "artifact": "NEXAH_3_PLUS_1_DUAL_BELT.html",
+  "status": "EXECUTABLE_VISUAL_FIXTURE",
+  "conformance_level": "G2",
+  "claim_ceiling": "DOCUMENTARY_GRAMMAR_AND_EXECUTABLE_VISUAL_FIXTURE",
+  "source": {
+    "id": "SOURCE_0",
+    "position": [0, 0, 0],
+    "role": "declared model source",
+    "boundary": "not a cosmological origin claim"
+  },
+  "seeds": [
+    {"id": "C_ERITH", "symbol": "C_E", "position": [-5.5, 0, 0], "role": "unfold 1 to 3"},
+    {"id": "C_NEXAH", "symbol": "C_N", "position": [5.5, 0, 0], "role": "bind 3 to 1"}
+  ],
+  "seam": {"id": "H_SOURCE", "mapping": "C_ERITH <-> C_NEXAH", "comparison_required": true},
+  "flow_grammar": {
+    "source": "SOURCE_0 -> C_ERITH and C_NEXAH",
+    "erith": "C_ERITH -> 3_ERITH",
+    "seam": "C_ERITH <-> C_NEXAH",
+    "nexah": "3_NEXAH -> C_NEXAH",
+    "breath": "SOURCE_0 -> 1+3 -> seam -> 3+1 -> return",
+    "boundary": "3 -> 1 is convergence notation, not the arithmetic claim 3-1=1"
+  },
+  "elevators": [
+    {"id": "E45", "angle_deg": 45, "length": 15, "stations": 4, "role": "binary symmetry channel"},
+    {"id": "E33", "angle_deg": 33, "length": 18, "stations": 4, "role": "ternary phase channel"},
+    {"id": "E07", "angle_deg": 7, "length": 20, "stations": 4, "role": "prime-gap address channel"}
+  ],
+  "belts": [
+    {"id": "B_PLUS", "role": "outward trace", "maskable": true},
+    {"id": "B_MINUS", "role": "return trace", "maskable": true}
+  ],
+  "observer_modes": ["OUTSIDE", "INSIDE"],
+  "mask_states": ["FRONT", "BACK", "FULL", "SPLIT"],
+  "residual_types": ["NUMERIC", "STRUCTURAL", "SEAM", "PROVENANCE", "OUT_OF_SUPPORT", "UNRESOLVED"],
+  "interpretation": "A declared source binds two complementary seeds: ERITH unfolds one into three, while NEXAH binds three into one across a typed seam and dual return belts.",
+  "nonclaims": [
+    "The fixture does not solve the physical three-body problem.",
+    "SOURCE_0 is a declared model address, not a claim about the origin of nature.",
+    "View-dependent shear is not automatically intrinsic shear.",
+    "Animated orientation is not automatically geometric torsion.",
+    "Rendered pulse markers are not empirical pulse measurements.",
+    "A 1x1x1 cell is a cube or voxel unless a fourth coordinate is declared."
+  ]
+}
