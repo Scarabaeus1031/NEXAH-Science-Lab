@@ -41,6 +41,7 @@ loose root documents, local exports and one unregistered case-study folder.
 15. [15_EXPORT_DISPOSITION.csv](15_EXPORT_DISPOSITION.csv)
 16. [16_FIRST_EXECUTION_ALLOWLIST.md](16_FIRST_EXECUTION_ALLOWLIST.md)
 17. [17_FIRST_EXECUTION_ALLOWLIST.csv](17_FIRST_EXECUTION_ALLOWLIST.csv)
+18. [18_STAGING_TODO.md](18_STAGING_TODO.md)
 
 ## Authority boundary
 
