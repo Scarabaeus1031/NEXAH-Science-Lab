@@ -1,0 +1,26 @@
+{
+  "schema": "nexah-pqr01-method-freeze/0.1.0",
+  "mission_id": "PQR-01",
+  "date": "2026-09-20",
+  "status": "POST_HOC_EXPLORATORY_REPRESENTATION_AUDIT",
+  "source_cycle_file": "../PHX_01_EXTERNAL_E2_PHASE_ANALYSIS_2026-09-20/03_CYCLE_PHASE_RECORDS.csv",
+  "source_result_file": "../PHX_01_EXTERNAL_E2_PHASE_ANALYSIS_2026-09-20/02_EMPIRICAL_PHASE_RESULT.json",
+  "corpora": ["CYCLE_72", "SUMMARY_12"],
+  "views": ["degrees", "radians_pi", "cycle_fraction", "phi_scaled_control", "sqrt2_scaled_control"],
+  "operators": ["ROUND_HALF_UP", "TRUNCATE_TOWARD_ZERO"],
+  "precisions": [2, 3, 4, 5, 6],
+  "primary_exploratory_display": {
+    "view": "degrees",
+    "operator": "ROUND_HALF_UP",
+    "precision": 3
+  },
+  "binary_projection": "integer_code mod 2",
+  "trinary_projection": "integer_code mod 3",
+  "bootstrap": {
+    "draws": 20000,
+    "block_length_cycles": 2,
+    "seed": 20260920
+  },
+  "multiple_testing": "Benjamini-Hochberg across all registered enrichment tests",
+  "claim_boundary": "Representation audit only; no physical constant, prime causation, morphogenesis or new number theory claim."
+}

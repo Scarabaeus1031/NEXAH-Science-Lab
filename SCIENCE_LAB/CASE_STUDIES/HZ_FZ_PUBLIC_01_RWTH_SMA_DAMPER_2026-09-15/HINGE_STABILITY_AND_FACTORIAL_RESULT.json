@@ -1,0 +1,1548 @@
+{
+  "binder_feature_status": {
+    "ARC": "AVAILABLE_AS_CONTIGUOUS_SIGNED_RESIDUAL_REGION",
+    "AREA": "MEASURED_J_PER_CYCLE",
+    "GAP": "MEASURED_PER_BRANCH",
+    "ORIENT": "AVAILABLE_FROM_DISPLACEMENT_DIRECTION",
+    "PIN_HINGE": "MEASURED_DESCRIPTIVE_CANDIDATE",
+    "TOUCH": "DEFINED_AS_SMOOTHED_TIME_VIEW_ZERO_CROSSING_ONLY",
+    "physical_switch_claim": "NOT_ADMITTED"
+  },
+  "case_id": "HZ_FZ_PUBLIC_01",
+  "factorial_source_inventory": {
+    "amplitude_levels_mm": [
+      20.0,
+      40.0
+    ],
+    "claim_boundary": "This grid separates nominal displacement and frequency within the 8-wire configuration; it does not isolate every other apparatus or history variable.",
+    "complete_factorial": true,
+    "design": "2 nominal displacement levels x 3 frequency levels; 8-wire configuration",
+    "frequency_levels_hz": [
+      0.1,
+      0.5,
+      1.0
+    ],
+    "records": [
+      {
+        "active_cycle_count": 10,
+        "active_cycles": "1,2,3,4,5,6,7,8,9,10",
+        "archive_member": "Data.v1.0.0/02_SMAWD/01_8wires_sin20mm_0p1Hz.csv",
+        "duration_s": 111.99805,
+        "frequency_hz": 0.1,
+        "median_gain_kn_per_mm": 1.2621903920050408,
+        "median_loop_area_j": 128.7819914717272,
+        "median_maximum_branch_gap_kn": 4.475181928611444,
+        "median_phase_deg": 4.645371852349214,
+        "nominal_displacement_mm": 20.0,
+        "rows": 57344,
+        "sample_rate_hz": 512.0,
+        "source_sha256": "66b81c39927a9a301ea59e6b41e046d3a138dd49fe074adbef3dee001e02c378",
+        "wires": 8
+      },
+      {
+        "active_cycle_count": 10,
+        "active_cycles": "1,2,3,4,5,6,7,8,9,10",
+        "archive_member": "Data.v1.0.0/02_SMAWD/02_8wires_sin20mm_0p5Hz.csv",
+        "duration_s": 31.998047,
+        "frequency_hz": 0.5,
+        "median_gain_kn_per_mm": 1.3867889515541432,
+        "median_loop_area_j": 135.90158732391058,
+        "median_maximum_branch_gap_kn": 4.560016004627852,
+        "median_phase_deg": 4.508357414222331,
+        "nominal_displacement_mm": 20.0,
+        "rows": 16384,
+        "sample_rate_hz": 512.0,
+        "source_sha256": "8534371a1a8e91eeaf74da0b2d5d269e09ef8d62daf14bf79576e1987cd860fd",
+        "wires": 8
+      },
+      {
+        "active_cycle_count": 8,
+        "active_cycles": "2,3,4,5,6,7,8,9",
+        "archive_member": "Data.v1.0.0/02_SMAWD/03_8wires_sin20mm_1p0Hz.csv",
+        "duration_s": 15.998047,
+        "frequency_hz": 1.0,
+        "median_gain_kn_per_mm": 1.415507394002864,
+        "median_loop_area_j": 140.41177658213826,
+        "median_maximum_branch_gap_kn": 4.94276569838786,
+        "median_phase_deg": 4.484387068582436,
+        "nominal_displacement_mm": 20.0,
+        "rows": 8192,
+        "sample_rate_hz": 512.0,
+        "source_sha256": "fb5a18f4ed1be7015d990614942affa253ce797e1f501defd58e89a16dd537ed",
+        "wires": 8
+      },
+      {
+        "active_cycle_count": 10,
+        "active_cycles": "1,2,3,4,5,6,7,8,9,10",
+        "archive_member": "Data.v1.0.0/02_SMAWD/04_8wires_sin40mm_0p1Hz.csv",
+        "duration_s": 111.99805,
+        "frequency_hz": 0.1,
+        "median_gain_kn_per_mm": 0.8093421438221733,
+        "median_loop_area_j": 353.8328588097404,
+        "median_maximum_branch_gap_kn": 6.939817132442942,
+        "median_phase_deg": 4.972979365848744,
+        "nominal_displacement_mm": 40.0,
+        "rows": 57344,
+        "sample_rate_hz": 512.0,
+        "source_sha256": "5679bbdf4585f9dd92b1c0b2aa461da103718055fff262c5c39422c5a68d924a",
+        "wires": 8
+      },
+      {
+        "active_cycle_count": 10,
+        "active_cycles": "1,2,3,4,5,6,7,8,9,10",
+        "archive_member": "Data.v1.0.0/02_SMAWD/05_8wires_sin40mm_0p5Hz.csv",
+        "duration_s": 31.998047,
+        "frequency_hz": 0.5,
+        "median_gain_kn_per_mm": 0.8364859323228234,
+        "median_loop_area_j": 339.5890561057103,
+        "median_maximum_branch_gap_kn": 6.342878600522655,
+        "median_phase_deg": 4.646475862869394,
+        "nominal_displacement_mm": 40.0,
+        "rows": 16384,
+        "sample_rate_hz": 512.0,
+        "source_sha256": "84f9df9677edc5370d5a921cf779cd4eebe868ec7d65b9b00db347556088ca9a",
+        "wires": 8
+      },
+      {
+        "active_cycle_count": 8,
+        "active_cycles": "2,3,4,5,6,7,8,9",
+        "archive_member": "Data.v1.0.0/02_SMAWD/06_8wires_sin40mm_1p0Hz.csv",
+        "duration_s": 15.998047,
+        "frequency_hz": 1.0,
+        "median_gain_kn_per_mm": 0.8824044014762107,
+        "median_loop_area_j": 381.1568824314376,
+        "median_maximum_branch_gap_kn": 7.4802765053743165,
+        "median_phase_deg": 4.96231404378895,
+        "nominal_displacement_mm": 40.0,
+        "rows": 8192,
+        "sample_rate_hz": 512.0,
+        "source_sha256": "6278de78bace57dca28aed5dd9e1912d6494aa2da1accf1ba7350d186d3e3b0d",
+        "wires": 8
+      }
+    ]
+  },
+  "hinge_stability": {
+    "P05_BEFORE_AFTER_EQ": {
+      "actuators": {
+        "actuator_1": {
+          "records": [
+            {
+              "branch_gap": {
+                "REFERENCE_A": {
+                  "absolute_gap_area_j": 76.54911045481703,
+                  "gap_at_zero_displacement_kn": 0.2819214956560982,
+                  "maximum_absolute_gap_kn": 2.712599649943529,
+                  "median_absolute_gap_kn": 2.1050884931709275
+                },
+                "RETURN_B": {
+                  "absolute_gap_area_j": 69.44819451630224,
+                  "gap_at_zero_displacement_kn": 0.2014632206150678,
+                  "maximum_absolute_gap_kn": 2.426556519836206,
+                  "median_absolute_gap_kn": 1.8577558475939426
+                }
+              },
+              "candidate_cycle_fraction": 0.5068359375,
+              "candidate_force_difference_kn": -0.11028128999999998,
+              "candidate_nonfundamental_difference_kn": -0.12097413024451598,
+              "cut_touch_count_smoothed_time_view": 9,
+              "cycle": 1,
+              "local_tangent_change_kn_per_mm": {
+                "REFERENCE_A": 0.8912212043759437,
+                "RETURN_B": 0.974105184481122
+              },
+              "loop_area_change_percent_from_a": -9.0605246701536,
+              "loop_area_j": {
+                "REFERENCE_A": 76.21131845683647,
+                "RETURN_B": 69.30617314660547
+              }
+            },
+            {
+              "branch_gap": {
+                "REFERENCE_A": {
+                  "absolute_gap_area_j": 69.47864271035105,
+                  "gap_at_zero_displacement_kn": 0.6740399545405933,
+                  "maximum_absolute_gap_kn": 2.380653239849464,
+                  "median_absolute_gap_kn": 1.9317860076664504
+                },
+                "RETURN_B": {
+                  "absolute_gap_area_j": 63.42118619501659,
+                  "gap_at_zero_displacement_kn": 0.52080939192276,
+                  "maximum_absolute_gap_kn": 2.1320223677493444,
+                  "median_absolute_gap_kn": 1.7342085801097706
+                }
+              },
+              "candidate_cycle_fraction": 0.5087890625,
+              "candidate_force_difference_kn": 0.09515641,
+              "candidate_nonfundamental_difference_kn": -0.08098146894353997,
+              "cut_touch_count_smoothed_time_view": 11,
+              "cycle": 2,
+              "local_tangent_change_kn_per_mm": {
+                "REFERENCE_A": 0.9172866560081349,
+                "RETURN_B": 1.1019583285048868
+              },
+              "loop_area_change_percent_from_a": -8.7112941267596,
+              "loop_area_j": {
+                "REFERENCE_A": 69.4553241476447,
+                "RETURN_B": 63.40486657444909
+              }
+            },
+            {
+              "branch_gap": {
+                "REFERENCE_A": {
+                  "absolute_gap_area_j": 68.3333488752063,
+                  "gap_at_zero_displacement_kn": 0.5384838648810617,
+                  "maximum_absolute_gap_kn": 2.3525367713764602,
+                  "median_absolute_gap_kn": 1.8797788466047818
+                },
+                "RETURN_B": {
+                  "absolute_gap_area_j": 62.82846719009163,
+                  "gap_at_zero_displacement_kn": 0.6171505599947097,
+                  "maximum_absolute_gap_kn": 2.218039820568179,
+                  "median_absolute_gap_kn": 1.7216846882120709
+                }
+              },
+              "candidate_cycle_fraction": 0.5087890625,
+              "candidate_force_difference_kn": -0.01830316999999998,
+              "candidate_nonfundamental_difference_kn": -0.1067453540136607,
+              "cut_touch_count_smoothed_time_view": 8,
+              "cycle": 3,
+              "local_tangent_change_kn_per_mm": {
+                "REFERENCE_A": 0.8612795626456687,
+                "RETURN_B": 0.937938093301481
+              },
+              "loop_area_change_percent_from_a": -7.9591169337887635,
+              "loop_area_j": {
+                "REFERENCE_A": 68.3097193413743,
+                "RETURN_B": 62.872868901851405
+              }
+            },
+            {
+              "branch_gap": {
+                "REFERENCE_A": {
+                  "absolute_gap_area_j": 67.65447392996926,
+                  "gap_at_zero_displacement_kn": 0.5540795598767188,
+                  "maximum_absolute_gap_kn": 2.403784635842048,
+                  "median_absolute_gap_kn": 1.8707700722033191
+                },
+                "RETURN_B": {
+                  "absolute_gap_area_j": 62.63074541870817,
+                  "gap_at_zero_displacement_kn": 0.48209636599880384,
+                  "maximum_absolute_gap_kn": 2.178850374044605,
+                  "median_absolute_gap_kn": 1.6818529694456874
+                }
+              },
+              "candidate_cycle_fraction": 0.5126953125,
+              "candidate_force_difference_kn": -0.25884571999999995,
+              "candidate_nonfundamental_difference_kn": -0.1635097224176265,
+              "cut_touch_count_smoothed_time_view": 15,
+              "cycle": 4,
+              "local_tangent_change_kn_per_mm": {
+                "REFERENCE_A": 1.0027047526346773,
+                "RETURN_B": 1.0447461764275379
+              },
+              "loop_area_change_percent_from_a": -7.48687964035425,
+              "loop_area_j": {
+                "REFERENCE_A": 67.60904237020564,
+                "RETURN_B": 62.54723474195224
+              }
+            },
+            {
+              "branch_gap": {
+                "REFERENCE_A": {
+                  "absolute_gap_area_j": 67.20089803285448,
+                  "gap_at_zero_displacement_kn": 0.548461090073919,
+                  "maximum_absolute_gap_kn": 2.327485709421451,
+                  "median_absolute_gap_kn": 1.847334978979335
+                },
+                "RETURN_B": {
+                  "absolute_gap_area_j": 62.14687973383009,
+                  "gap_at_zero_displacement_kn": 0.5640648380800493,
+                  "maximum_absolute_gap_kn": 2.1161091917731234,
+                  "median_absolute_gap_kn": 1.686005639960344
+                }
+              },
+              "candidate_cycle_fraction": 0.5126953125,
+              "candidate_force_difference_kn": 0.026427149999999955,
+              "candidate_nonfundamental_difference_kn": -0.15221203604714706,
+              "cut_touch_count_smoothed_time_view": 11,
+              "cycle": 5,
+              "local_tangent_change_kn_per_mm": {
+                "REFERENCE_A": 0.9378549693319131,
+                "RETURN_B": 1.0999324753994058
+              },
+              "loop_area_change_percent_from_a": -7.397348787375487,
+              "loop_area_j": {
+                "REFERENCE_A": 67.13886361855872,
+                "RETURN_B": 62.17236770481358
+              }
+            },
+            {
+              "branch_gap": {
+                "REFERENCE_A": {
+                  "absolute_gap_area_j": 66.8476513944936,
+                  "gap_at_zero_displacement_kn": 0.3935972578949125,
+                  "maximum_absolute_gap_kn": 2.3417275068731263,
+                  "median_absolute_gap_kn": 1.8647097051327588
+                },
+                "RETURN_B": {
+                  "absolute_gap_area_j": 61.85089170965364,
+                  "gap_at_zero_displacement_kn": 0.5565500878979498,
+                  "maximum_absolute_gap_kn": 2.066920982730062,
+                  "median_absolute_gap_kn": 1.6890906040941083
+                }
+              },
+              "candidate_cycle_fraction": 0.5087890625,
+              "candidate_force_difference_kn": 0.06859509,
+              "candidate_nonfundamental_difference_kn": -0.0927575007956356,
+              "cut_touch_count_smoothed_time_view": 12,
+              "cycle": 6,
+              "local_tangent_change_kn_per_mm": {
+                "REFERENCE_A": 0.8053384414114239,
+                "RETURN_B": 1.0092719490061837
+              },
+              "loop_area_change_percent_from_a": -7.439213170065726,
+              "loop_area_j": {
+                "REFERENCE_A": 66.8532027500792,
+                "RETURN_B": 61.87985048648457
+              }
+            },
+            {
+              "branch_gap": {
+                "REFERENCE_A": {
+                  "absolute_gap_area_j": 66.51992298093208,
+                  "gap_at_zero_displacement_kn": 0.5506768350574313,
+                  "maximum_absolute_gap_kn": 2.3773147467679694,
+                  "median_absolute_gap_kn": 1.8233085755656653
+                },
+                "RETURN_B": {
+                  "absolute_gap_area_j": 61.566992404554014,
+                  "gap_at_zero_displacement_kn": 0.5842796856816225,
+                  "maximum_absolute_gap_kn": 2.1295967530733937,
+                  "median_absolute_gap_kn": 1.6899463527961676
+                }
+              },
+              "candidate_cycle_fraction": 0.51171875,
+              "candidate_force_difference_kn": -0.03762949000000004,
+              "candidate_nonfundamental_difference_kn": -0.14321120010772082,
+              "cut_touch_count_smoothed_time_view": 10,
+              "cycle": 7,
+              "local_tangent_change_kn_per_mm": {
+                "REFERENCE_A": 0.8647572980805109,
+                "RETURN_B": 1.107148261033233
+              },
+              "loop_area_change_percent_from_a": -7.233174198552013,
+              "loop_area_j": {
+                "REFERENCE_A": 66.45318808290502,
+                "RETURN_B": 61.64651322837709
+              }
+            },
+            {
+              "branch_gap": {
+                "REFERENCE_A": {
+                  "absolute_gap_area_j": 66.2736365188957,
+                  "gap_at_zero_displacement_kn": 0.38715270262923707,
+                  "maximum_absolute_gap_kn": 2.309954791769138,
+                  "median_absolute_gap_kn": 1.836341045617015
+                },
+                "RETURN_B": {
+                  "absolute_gap_area_j": 61.45366611889801,
+                  "gap_at_zero_displacement_kn": 0.5063423352677902,
+                  "maximum_absolute_gap_kn": 2.089429233834439,
+                  "median_absolute_gap_kn": 1.6702582943309432
+                }
+              },
+              "candidate_cycle_fraction": 0.4599609375,
+              "candidate_force_difference_kn": 0.6263130000000001,
+              "candidate_nonfundamental_difference_kn": 0.5394938824185194,
+              "cut_touch_count_smoothed_time_view": 14,
+              "cycle": 8,
+              "local_tangent_change_kn_per_mm": {
+                "REFERENCE_A": 0.26084176301769624,
+                "RETURN_B": 0.009598725357716997
+              },
+              "loop_area_change_percent_from_a": -7.288186190644507,
+              "loop_area_j": {
+                "REFERENCE_A": 66.28217147162691,
+                "RETURN_B": 61.451403403572485
+              }
+            },
+            {
+              "branch_gap": {
+                "REFERENCE_A": {
+                  "absolute_gap_area_j": 66.115158202012,
+                  "gap_at_zero_displacement_kn": 0.390403479324481,
+                  "maximum_absolute_gap_kn": 2.2526595818322503,
+                  "median_absolute_gap_kn": 1.819061196412858
+                },
+                "RETURN_B": {
+                  "absolute_gap_area_j": 61.24751573613945,
+                  "gap_at_zero_displacement_kn": 0.4823761800739431,
+                  "maximum_absolute_gap_kn": 2.1508905958894218,
+                  "median_absolute_gap_kn": 1.6337283616341922
+                }
+              },
+              "candidate_cycle_fraction": 0.5087890625,
+              "candidate_force_difference_kn": -0.04952785000000001,
+              "candidate_nonfundamental_difference_kn": -0.09383623209857173,
+              "cut_touch_count_smoothed_time_view": 11,
+              "cycle": 9,
+              "local_tangent_change_kn_per_mm": {
+                "REFERENCE_A": 0.7386881344648544,
+                "RETURN_B": 0.9833979667944376
+              },
+              "loop_area_change_percent_from_a": -7.302357742741489,
+              "loop_area_j": {
+                "REFERENCE_A": 66.08620024401208,
+                "RETURN_B": 61.260349483609815
+              }
+            },
+            {
+              "branch_gap": {
+                "REFERENCE_A": {
+                  "absolute_gap_area_j": 65.49246411797549,
+                  "gap_at_zero_displacement_kn": 0.2861773219710243,
+                  "maximum_absolute_gap_kn": 2.238205848951195,
+                  "median_absolute_gap_kn": 1.8158820414487613
+                },
+                "RETURN_B": {
+                  "absolute_gap_area_j": 60.63414433198169,
+                  "gap_at_zero_displacement_kn": 0.2900479248381923,
+                  "maximum_absolute_gap_kn": 2.0352164526324055,
+                  "median_absolute_gap_kn": 1.64145657443858
+                }
+              },
+              "candidate_cycle_fraction": 0.5126953125,
+              "candidate_force_difference_kn": -0.05247113000000003,
+              "candidate_nonfundamental_difference_kn": -0.10634279142485115,
+              "cut_touch_count_smoothed_time_view": 19,
+              "cycle": 10,
+              "local_tangent_change_kn_per_mm": {
+                "REFERENCE_A": 0.9229616366961619,
+                "RETURN_B": 1.2195505133627642
+              },
+              "loop_area_change_percent_from_a": -7.122002363195048,
+              "loop_area_j": {
+                "REFERENCE_A": 65.7896032331733,
+                "RETURN_B": 61.10406613617005
+              }
+            }
+          ],
+          "summary": {
+            "candidate_cycle_fraction": {
+              "count": 10,
+              "maximum": 0.5126953125,
+              "mean": 0.50517578125,
+              "median": 0.5087890625,
+              "minimum": 0.4599609375,
+              "q1": 0.5087890625,
+              "q3": 0.512451171875,
+              "sample_sd": 0.016027067072093285
+            },
+            "candidate_nonfundamental_difference_kn": {
+              "count": 10,
+              "maximum": 0.5394938824185194,
+              "mean": -0.05210765536747501,
+              "median": -0.10654407271925592,
+              "minimum": -0.1635097224176265,
+              "q1": -0.1376519326419196,
+              "q3": -0.09302718362136964,
+              "sample_sd": 0.20966116674491825
+            },
+            "loop_area_change_percent_from_a": {
+              "count": 10,
+              "maximum": -7.122002363195048,
+              "mean": -7.70000978236305,
+              "median": -7.418280978720606,
+              "minimum": -9.0605246701536,
+              "q1": -7.841057610430135,
+              "q3": -7.2917290786687525,
+              "sample_sd": 0.6687991031678553
+            },
+            "maximum_branch_gap_reference_a_kn": {
+              "count": 10,
+              "maximum": 2.712599649943529,
+              "mean": 2.3696922482626634,
+              "median": 2.3471321391247932,
+              "minimum": 2.238205848951195,
+              "q1": 2.3143375211822166,
+              "q3": 2.37981861657909,
+              "sample_sd": 0.13179851366198225
+            },
+            "maximum_branch_gap_return_b_kn": {
+              "count": 10,
+              "maximum": 2.426556519836206,
+              "mean": 2.154363229213118,
+              "median": 2.130809560411369,
+              "minimum": 2.0352164526324055,
+              "q1": 2.09609922331911,
+              "q3": 2.1718604295058093,
+              "sample_sd": 0.10923469310425289
+            },
+            "tangent_change_reference_a_kn_per_mm": {
+              "count": 10,
+              "maximum": 1.0027047526346773,
+              "mean": 0.8202934418666985,
+              "median": 0.8779892512282272,
+              "minimum": 0.26084176301769624,
+              "q1": 0.8193237217199851,
+              "q3": 0.9215428915241551,
+              "sample_sd": 0.20965578778275976
+            },
+            "tangent_change_return_b_kn_per_mm": {
+              "count": 10,
+              "maximum": 1.2195505133627642,
+              "mean": 0.9487647673668768,
+              "median": 1.0270090627168607,
+              "minimum": 0.009598725357716997,
+              "q1": 0.9764283800594509,
+              "q3": 1.1014518652285166,
+              "sample_sd": 0.34019527250589593
+            }
+          }
+        },
+        "actuator_2": {
+          "records": [
+            {
+              "branch_gap": {
+                "REFERENCE_A": {
+                  "absolute_gap_area_j": 70.16535804404421,
+                  "gap_at_zero_displacement_kn": 0.18177678590811078,
+                  "maximum_absolute_gap_kn": 2.5239838548953735,
+                  "median_absolute_gap_kn": 1.8695316091058771
+                },
+                "RETURN_B": {
+                  "absolute_gap_area_j": 65.1387790589402,
+                  "gap_at_zero_displacement_kn": 0.19167123659637578,
+                  "maximum_absolute_gap_kn": 2.374506896313661,
+                  "median_absolute_gap_kn": 1.7289317805316902
+                }
+              },
+              "candidate_cycle_fraction": 0.51953125,
+              "candidate_force_difference_kn": 0.10660763000000001,
+              "candidate_nonfundamental_difference_kn": -0.03227669374625908,
+              "cut_touch_count_smoothed_time_view": 7,
+              "cycle": 1,
+              "local_tangent_change_kn_per_mm": {
+                "REFERENCE_A": 0.7430271381683831,
+                "RETURN_B": 0.9619943166179578
+              },
+              "loop_area_change_percent_from_a": -7.409904142121391,
+              "loop_area_j": {
+                "REFERENCE_A": 69.96669820479025,
+                "RETURN_B": 64.78223293640792
+              }
+            },
+            {
+              "branch_gap": {
+                "REFERENCE_A": {
+                  "absolute_gap_area_j": 63.55056857016321,
+                  "gap_at_zero_displacement_kn": 0.529652535326941,
+                  "maximum_absolute_gap_kn": 2.3241018151285138,
+                  "median_absolute_gap_kn": 1.773018876758352
+                },
+                "RETURN_B": {
+                  "absolute_gap_area_j": 59.66684604204067,
+                  "gap_at_zero_displacement_kn": 0.40903575745979964,
+                  "maximum_absolute_gap_kn": 2.204484565966891,
+                  "median_absolute_gap_kn": 1.5811900733478357
+                }
+              },
+              "candidate_cycle_fraction": 0.517578125,
+              "candidate_force_difference_kn": 0.038719564000000005,
+              "candidate_nonfundamental_difference_kn": 0.01234472624595484,
+              "cut_touch_count_smoothed_time_view": 7,
+              "cycle": 2,
+              "local_tangent_change_kn_per_mm": {
+                "REFERENCE_A": 0.8509505808903184,
+                "RETURN_B": 1.1346466268419997
+              },
+              "loop_area_change_percent_from_a": -6.184381179551695,
+              "loop_area_j": {
+                "REFERENCE_A": 63.687859457074794,
+                "RETURN_B": 59.749159463152125
+              }
+            },
+            {
+              "branch_gap": {
+                "REFERENCE_A": {
+                  "absolute_gap_area_j": 62.58233692389342,
+                  "gap_at_zero_displacement_kn": 0.43589124191758927,
+                  "maximum_absolute_gap_kn": 2.1638461723418247,
+                  "median_absolute_gap_kn": 1.736418813376721
+                },
+                "RETURN_B": {
+                  "absolute_gap_area_j": 58.84444842691093,
+                  "gap_at_zero_displacement_kn": 0.45429514436009266,
+                  "maximum_absolute_gap_kn": 2.1794641306755578,
+                  "median_absolute_gap_kn": 1.5546785915542136
+                }
+              },
+              "candidate_cycle_fraction": 0.5009765625,
+              "candidate_force_difference_kn": 0.008564500000000003,
+              "candidate_nonfundamental_difference_kn": -0.007688655383558299,
+              "cut_touch_count_smoothed_time_view": 6,
+              "cycle": 3,
+              "local_tangent_change_kn_per_mm": {
+                "REFERENCE_A": -0.42156136188018023,
+                "RETURN_B": -0.764428110968519
+              },
+              "loop_area_change_percent_from_a": -5.726692914482514,
+              "loop_area_j": {
+                "REFERENCE_A": 62.57762942675545,
+                "RETURN_B": 58.99400075632232
+              }
+            },
+            {
+              "branch_gap": {
+                "REFERENCE_A": {
+                  "absolute_gap_area_j": 61.742902181672605,
+                  "gap_at_zero_displacement_kn": 0.5013192477724158,
+                  "maximum_absolute_gap_kn": 2.1846388281052347,
+                  "median_absolute_gap_kn": 1.7334504367113563
+                },
+                "RETURN_B": {
+                  "absolute_gap_area_j": 58.457943332117864,
+                  "gap_at_zero_displacement_kn": 0.34589107089935717,
+                  "maximum_absolute_gap_kn": 2.247065235122748,
+                  "median_absolute_gap_kn": 1.5692698350085363
+                }
+              },
+              "candidate_cycle_fraction": 0.5263671875,
+              "candidate_force_difference_kn": -0.22579813000000004,
+              "candidate_nonfundamental_difference_kn": -0.20417163513435543,
+              "cut_touch_count_smoothed_time_view": 6,
+              "cycle": 4,
+              "local_tangent_change_kn_per_mm": {
+                "REFERENCE_A": 0.7267989570932325,
+                "RETURN_B": 0.7755178309345367
+              },
+              "loop_area_change_percent_from_a": -5.305529350950824,
+              "loop_area_j": {
+                "REFERENCE_A": 61.778463940077785,
+                "RETURN_B": 58.50078940317039
+              }
+            },
+            {
+              "branch_gap": {
+                "REFERENCE_A": {
+                  "absolute_gap_area_j": 61.39211979476031,
+                  "gap_at_zero_displacement_kn": 0.3578037041783423,
+                  "maximum_absolute_gap_kn": 2.1829054129843426,
+                  "median_absolute_gap_kn": 1.6975441605631367
+                },
+                "RETURN_B": {
+                  "absolute_gap_area_j": 58.16131014979137,
+                  "gap_at_zero_displacement_kn": 0.5228408235504058,
+                  "maximum_absolute_gap_kn": 2.3491685446656745,
+                  "median_absolute_gap_kn": 1.5552089659432506
+                }
+              },
+              "candidate_cycle_fraction": 0.5205078125,
+              "candidate_force_difference_kn": 0.19181027,
+              "candidate_nonfundamental_difference_kn": -0.04064367886300624,
+              "cut_touch_count_smoothed_time_view": 9,
+              "cycle": 5,
+              "local_tangent_change_kn_per_mm": {
+                "REFERENCE_A": 0.8384680978625901,
+                "RETURN_B": 1.1594323088352343
+              },
+              "loop_area_change_percent_from_a": -4.998133346140682,
+              "loop_area_j": {
+                "REFERENCE_A": 61.268561951270115,
+                "RETURN_B": 58.20627752568282
+              }
+            },
+            {
+              "branch_gap": {
+                "REFERENCE_A": {
+                  "absolute_gap_area_j": 61.02716009591558,
+                  "gap_at_zero_displacement_kn": 0.3213835681895537,
+                  "maximum_absolute_gap_kn": 2.134506024184712,
+                  "median_absolute_gap_kn": 1.725395155557508
+                },
+                "RETURN_B": {
+                  "absolute_gap_area_j": 58.04863197625951,
+                  "gap_at_zero_displacement_kn": 0.20650657507853928,
+                  "maximum_absolute_gap_kn": 2.2353802389277924,
+                  "median_absolute_gap_kn": 1.5565387758039968
+                }
+              },
+              "candidate_cycle_fraction": 0.4970703125,
+              "candidate_force_difference_kn": 0.168447205,
+              "candidate_nonfundamental_difference_kn": 0.16162847244047934,
+              "cut_touch_count_smoothed_time_view": 9,
+              "cycle": 6,
+              "local_tangent_change_kn_per_mm": {
+                "REFERENCE_A": -0.5757589190616199,
+                "RETURN_B": -0.9824785421922836
+              },
+              "loop_area_change_percent_from_a": -4.813625851280543,
+              "loop_area_j": {
+                "REFERENCE_A": 60.96776415198357,
+                "RETURN_B": 58.03300409581594
+              }
+            },
+            {
+              "branch_gap": {
+                "REFERENCE_A": {
+                  "absolute_gap_area_j": 60.535353800641715,
+                  "gap_at_zero_displacement_kn": 0.4343430994851352,
+                  "maximum_absolute_gap_kn": 2.138463278952964,
+                  "median_absolute_gap_kn": 1.6939751265080902
+                },
+                "RETURN_B": {
+                  "absolute_gap_area_j": 57.9596770185445,
+                  "gap_at_zero_displacement_kn": 0.46991927664598515,
+                  "maximum_absolute_gap_kn": 2.084511820553139,
+                  "median_absolute_gap_kn": 1.554007861000768
+                }
+              },
+              "candidate_cycle_fraction": 0.49609375,
+              "candidate_force_difference_kn": 0.22974872699999999,
+              "candidate_nonfundamental_difference_kn": 0.23027100888127752,
+              "cut_touch_count_smoothed_time_view": 6,
+              "cycle": 7,
+              "local_tangent_change_kn_per_mm": {
+                "REFERENCE_A": -0.7170996801578561,
+                "RETURN_B": -0.9106202544157584
+              },
+              "loop_area_change_percent_from_a": -4.339484058633819,
+              "loop_area_j": {
+                "REFERENCE_A": 60.56410334717245,
+                "RETURN_B": 57.93593373716739
+              }
+            },
+            {
+              "branch_gap": {
+                "REFERENCE_A": {
+                  "absolute_gap_area_j": 60.32529011637822,
+                  "gap_at_zero_displacement_kn": 0.5125699323987729,
+                  "maximum_absolute_gap_kn": 2.0965726749295275,
+                  "median_absolute_gap_kn": 1.6801006778121153
+                },
+                "RETURN_B": {
+                  "absolute_gap_area_j": 57.729750996405684,
+                  "gap_at_zero_displacement_kn": 0.34513698477002835,
+                  "maximum_absolute_gap_kn": 2.1105249712264174,
+                  "median_absolute_gap_kn": 1.571432606022138
+                }
+              },
+              "candidate_cycle_fraction": 0.44140625,
+              "candidate_force_difference_kn": 0.2617788999999995,
+              "candidate_nonfundamental_difference_kn": 0.2529706988254269,
+              "cut_touch_count_smoothed_time_view": 9,
+              "cycle": 8,
+              "local_tangent_change_kn_per_mm": {
+                "REFERENCE_A": 0.11741925961501742,
+                "RETURN_B": -0.06909689206056957
+              },
+              "loop_area_change_percent_from_a": -4.37308269824928,
+              "loop_area_j": {
+                "REFERENCE_A": 60.33163114437525,
+                "RETURN_B": 57.693279021229
+              }
+            },
+            {
+              "branch_gap": {
+                "REFERENCE_A": {
+                  "absolute_gap_area_j": 59.77986042610022,
+                  "gap_at_zero_displacement_kn": 0.38251556915033197,
+                  "maximum_absolute_gap_kn": 2.1786614816731316,
+                  "median_absolute_gap_kn": 1.684662201523568
+                },
+                "RETURN_B": {
+                  "absolute_gap_area_j": 57.05925111221855,
+                  "gap_at_zero_displacement_kn": 0.5030176830217511,
+                  "maximum_absolute_gap_kn": 2.1130970994467155,
+                  "median_absolute_gap_kn": 1.4866078847332076
+                }
+              },
+              "candidate_cycle_fraction": 0.5234375,
+              "candidate_force_difference_kn": -0.011582800000000004,
+              "candidate_nonfundamental_difference_kn": -0.10985002939544253,
+              "cut_touch_count_smoothed_time_view": 9,
+              "cycle": 9,
+              "local_tangent_change_kn_per_mm": {
+                "REFERENCE_A": 0.9177741112603176,
+                "RETURN_B": 1.3364653531513038
+              },
+              "loop_area_change_percent_from_a": -4.495034476984613,
+              "loop_area_j": {
+                "REFERENCE_A": 59.896432771978695,
+                "RETURN_B": 57.20406746839434
+              }
+            },
+            {
+              "branch_gap": {
+                "REFERENCE_A": {
+                  "absolute_gap_area_j": 59.40201020223927,
+                  "gap_at_zero_displacement_kn": 0.35929578036560555,
+                  "maximum_absolute_gap_kn": 2.1173067401837367,
+                  "median_absolute_gap_kn": 1.6563081423391264
+                },
+                "RETURN_B": {
+                  "absolute_gap_area_j": 56.85250104229735,
+                  "gap_at_zero_displacement_kn": 0.37847607638006464,
+                  "maximum_absolute_gap_kn": 2.2382169291414113,
+                  "median_absolute_gap_kn": 1.5307581211065617
+                }
+              },
+              "candidate_cycle_fraction": 0.5185546875,
+              "candidate_force_difference_kn": 0.020612383999999997,
+              "candidate_nonfundamental_difference_kn": 0.010830761728447102,
+              "cut_touch_count_smoothed_time_view": 17,
+              "cycle": 10,
+              "local_tangent_change_kn_per_mm": {
+                "REFERENCE_A": 0.7262349047331177,
+                "RETURN_B": 0.8914239685257118
+              },
+              "loop_area_change_percent_from_a": -4.336648998192369,
+              "loop_area_j": {
+                "REFERENCE_A": 59.74333409850374,
+                "RETURN_B": 57.152475398834255
+              }
+            }
+          ],
+          "summary": {
+            "candidate_cycle_fraction": {
+              "count": 10,
+              "maximum": 0.5263671875,
+              "mean": 0.50615234375,
+              "median": 0.51806640625,
+              "minimum": 0.44140625,
+              "q1": 0.498046875,
+              "q3": 0.520263671875,
+              "sample_sd": 0.025340704464586254
+            },
+            "candidate_nonfundamental_difference_kn": {
+              "count": 10,
+              "maximum": 0.2529706988254269,
+              "mean": 0.027341497559896406,
+              "median": 0.0015710531724444018,
+              "minimum": -0.20417163513435543,
+              "q1": -0.03855193258381945,
+              "q3": 0.12430753589184822,
+              "sample_sd": 0.14622763549431672
+            },
+            "loop_area_change_percent_from_a": {
+              "count": 10,
+              "maximum": -4.336648998192369,
+              "mean": -5.198251701658773,
+              "median": -4.905879598710612,
+              "minimum": -7.409904142121391,
+              "q1": -5.621402023599591,
+              "q3": -4.403570642933113,
+              "sample_sd": 0.9998811211344528
+            },
+            "maximum_branch_gap_reference_a_kn": {
+              "count": 10,
+              "maximum": 2.5239838548953735,
+              "mean": 2.204498628337936,
+              "median": 2.171253827007478,
+              "minimum": 2.0965726749295275,
+              "q1": 2.135495337876775,
+              "q3": 2.1842054743250117,
+              "sample_sd": 0.128264769564694
+            },
+            "maximum_branch_gap_return_b_kn": {
+              "count": 10,
+              "maximum": 2.374506896313661,
+              "mean": 2.213642043204001,
+              "median": 2.2199324024473417,
+              "minimum": 2.084511820553139,
+              "q1": 2.1296888572539263,
+              "q3": 2.244853158627414,
+              "sample_sd": 0.09724398709719252
+            },
+            "tangent_change_reference_a_kn_per_mm": {
+              "count": 10,
+              "maximum": 0.9177741112603176,
+              "mean": 0.32062530885233204,
+              "median": 0.7265169309131752,
+              "minimum": -0.7170996801578561,
+              "q1": -0.28681620650638084,
+              "q3": 0.8146078579390383,
+              "sample_sd": 0.6571338280952077
+            },
+            "tangent_change_return_b_kn_per_mm": {
+              "count": 10,
+              "maximum": 1.3364653531513038,
+              "mean": 0.3532856605269613,
+              "median": 0.8334708997301243,
+              "minimum": -0.9824785421922836,
+              "q1": -0.5905953062415317,
+              "q3": 1.0914835492859891,
+              "sample_sd": 0.9354056767773524
+            }
+          }
+        }
+      },
+      "common_active_cycles": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "frequency_hz": 0.5,
+      "nominal_displacement_mm": 20.0
+    },
+    "P10_BEFORE_AFTER_EQ": {
+      "actuators": {
+        "actuator_1": {
+          "records": [
+            {
+              "branch_gap": {
+                "REFERENCE_A": {
+                  "absolute_gap_area_j": 238.8174374421326,
+                  "gap_at_zero_displacement_kn": 1.0289225502017125,
+                  "maximum_absolute_gap_kn": 4.645688072030665,
+                  "median_absolute_gap_kn": 3.271410802562187
+                },
+                "RETURN_B": {
+                  "absolute_gap_area_j": 232.16637046679747,
+                  "gap_at_zero_displacement_kn": 0.9674760037830462,
+                  "maximum_absolute_gap_kn": 4.603125555651204,
+                  "median_absolute_gap_kn": 3.085986675142866
+                }
+              },
+              "candidate_cycle_fraction": 0.501953125,
+              "candidate_force_difference_kn": 0.88899437,
+              "candidate_nonfundamental_difference_kn": 0.46625426948986953,
+              "cut_touch_count_smoothed_time_view": 4,
+              "cycle": 2,
+              "local_tangent_change_kn_per_mm": {
+                "REFERENCE_A": -0.5252057738506927,
+                "RETURN_B": -0.2767204850430247
+              },
+              "loop_area_change_percent_from_a": -2.69490877711887,
+              "loop_area_j": {
+                "REFERENCE_A": 239.09421569099453,
+                "RETURN_B": 232.6508446867544
+              }
+            },
+            {
+              "branch_gap": {
+                "REFERENCE_A": {
+                  "absolute_gap_area_j": 223.94041797089525,
+                  "gap_at_zero_displacement_kn": 0.7661641613894794,
+                  "maximum_absolute_gap_kn": 6.492475882740926,
+                  "median_absolute_gap_kn": 3.016917176925375
+                },
+                "RETURN_B": {
+                  "absolute_gap_area_j": 223.83722150713766,
+                  "gap_at_zero_displacement_kn": 0.14911098105104378,
+                  "maximum_absolute_gap_kn": 4.24381636991676,
+                  "median_absolute_gap_kn": 2.983619073244638
+                }
+              },
+              "candidate_cycle_fraction": 0.44921875,
+              "candidate_force_difference_kn": 0.32443000000000044,
+              "candidate_nonfundamental_difference_kn": -0.0719305960809794,
+              "cut_touch_count_smoothed_time_view": 4,
+              "cycle": 3,
+              "local_tangent_change_kn_per_mm": {
+                "REFERENCE_A": 0.18449325655779802,
+                "RETURN_B": 0.1306346450963825
+              },
+              "loop_area_change_percent_from_a": -0.011048713589520328,
+              "loop_area_j": {
+                "REFERENCE_A": 224.6646299852904,
+                "RETURN_B": 224.63980743378636
+              }
+            },
+            {
+              "branch_gap": {
+                "REFERENCE_A": {
+                  "absolute_gap_area_j": 219.75598093687137,
+                  "gap_at_zero_displacement_kn": 0.8897389042646796,
+                  "maximum_absolute_gap_kn": 4.338808744959751,
+                  "median_absolute_gap_kn": 3.0614026399246974
+                },
+                "RETURN_B": {
+                  "absolute_gap_area_j": 220.9687644054943,
+                  "gap_at_zero_displacement_kn": 0.40436975056177704,
+                  "maximum_absolute_gap_kn": 4.244599294114619,
+                  "median_absolute_gap_kn": 2.969780354078377
+                }
+              },
+              "candidate_cycle_fraction": 0.501953125,
+              "candidate_force_difference_kn": 1.1571677729999998,
+              "candidate_nonfundamental_difference_kn": 0.4141604758348996,
+              "cut_touch_count_smoothed_time_view": 8,
+              "cycle": 4,
+              "local_tangent_change_kn_per_mm": {
+                "REFERENCE_A": -0.6733835534620797,
+                "RETURN_B": -0.5310123053548865
+              },
+              "loop_area_change_percent_from_a": 0.6889880739669783,
+              "loop_area_j": {
+                "REFERENCE_A": 219.46304274548487,
+                "RETURN_B": 220.9751169367663
+              }
+            },
+            {
+              "branch_gap": {
+                "REFERENCE_A": {
+                  "absolute_gap_area_j": 215.77811216154902,
+                  "gap_at_zero_displacement_kn": 0.7205409300431447,
+                  "maximum_absolute_gap_kn": 4.586932350163403,
+                  "median_absolute_gap_kn": 2.9136027159718765
+                },
+                "RETURN_B": {
+                  "absolute_gap_area_j": 219.74180894534172,
+                  "gap_at_zero_displacement_kn": -0.37561185631908156,
+                  "maximum_absolute_gap_kn": 4.875208717909281,
+                  "median_absolute_gap_kn": 2.9659529739435015
+                }
+              },
+              "candidate_cycle_fraction": 0.53125,
+              "candidate_force_difference_kn": -0.09090569700000001,
+              "candidate_nonfundamental_difference_kn": -0.07568772904640797,
+              "cut_touch_count_smoothed_time_view": 2,
+              "cycle": 5,
+              "local_tangent_change_kn_per_mm": {
+                "REFERENCE_A": 0.9328622606155035,
+                "RETURN_B": 1.0626986410953518
+              },
+              "loop_area_change_percent_from_a": 1.6572052680711418,
+              "loop_area_j": {
+                "REFERENCE_A": 216.12702201449036,
+                "RETURN_B": 219.70869040903978
+              }
+            },
+            {
+              "branch_gap": {
+                "REFERENCE_A": {
+                  "absolute_gap_area_j": 212.52746269327787,
+                  "gap_at_zero_displacement_kn": -0.04849010179733701,
+                  "maximum_absolute_gap_kn": 5.693429698647455,
+                  "median_absolute_gap_kn": 2.794861457205349
+                },
+                "RETURN_B": {
+                  "absolute_gap_area_j": 216.3411618545927,
+                  "gap_at_zero_displacement_kn": 0.028052872736209985,
+                  "maximum_absolute_gap_kn": 4.763941013429585,
+                  "median_absolute_gap_kn": 2.8956218208946085
+                }
+              },
+              "candidate_cycle_fraction": 0.537109375,
+              "candidate_force_difference_kn": -0.025878260000000014,
+              "candidate_nonfundamental_difference_kn": -0.0066690249148924075,
+              "cut_touch_count_smoothed_time_view": 2,
+              "cycle": 6,
+              "local_tangent_change_kn_per_mm": {
+                "REFERENCE_A": 0.7041912696777494,
+                "RETURN_B": 1.122959265662017
+              },
+              "loop_area_change_percent_from_a": 2.203675175456119,
+              "loop_area_j": {
+                "REFERENCE_A": 212.7933573063067,
+                "RETURN_B": 217.4826316962854
+              }
+            },
+            {
+              "branch_gap": {
+                "REFERENCE_A": {
+                  "absolute_gap_area_j": 213.14026604894553,
+                  "gap_at_zero_displacement_kn": 0.013165443301817237,
+                  "maximum_absolute_gap_kn": 4.9416577595542535,
+                  "median_absolute_gap_kn": 2.7854694359820567
+                },
+                "RETURN_B": {
+                  "absolute_gap_area_j": 216.68198695761862,
+                  "gap_at_zero_displacement_kn": 1.0975574456606318,
+                  "maximum_absolute_gap_kn": 4.57702036465,
+                  "median_absolute_gap_kn": 2.874958359650238
+                }
+              },
+              "candidate_cycle_fraction": 0.533203125,
+              "candidate_force_difference_kn": -0.70937282,
+              "candidate_nonfundamental_difference_kn": 0.01022454713930987,
+              "cut_touch_count_smoothed_time_view": 10,
+              "cycle": 7,
+              "local_tangent_change_kn_per_mm": {
+                "REFERENCE_A": 0.8881717101822272,
+                "RETURN_B": 0.9825265905783787
+              },
+              "loop_area_change_percent_from_a": 1.8461340627565792,
+              "loop_area_j": {
+                "REFERENCE_A": 213.2119789676363,
+                "RETURN_B": 217.14815793723523
+              }
+            },
+            {
+              "branch_gap": {
+                "REFERENCE_A": {
+                  "absolute_gap_area_j": 211.95594709579004,
+                  "gap_at_zero_displacement_kn": 1.103052590313416,
+                  "maximum_absolute_gap_kn": 4.375977073365758,
+                  "median_absolute_gap_kn": 2.949679996699949
+                },
+                "RETURN_B": {
+                  "absolute_gap_area_j": 216.06690803880412,
+                  "gap_at_zero_displacement_kn": 1.2929157959124067,
+                  "maximum_absolute_gap_kn": 4.383722895478131,
+                  "median_absolute_gap_kn": 2.969057186978757
+                }
+              },
+              "candidate_cycle_fraction": 0.54296875,
+              "candidate_force_difference_kn": 1.03861793,
+              "candidate_nonfundamental_difference_kn": -0.039092504431942565,
+              "cut_touch_count_smoothed_time_view": 8,
+              "cycle": 8,
+              "local_tangent_change_kn_per_mm": {
+                "REFERENCE_A": 0.6927912395287866,
+                "RETURN_B": 0.9126692276297519
+              },
+              "loop_area_change_percent_from_a": 2.0159663523519016,
+              "loop_area_j": {
+                "REFERENCE_A": 212.72730278974154,
+                "RETURN_B": 217.01581363624848
+              }
+            },
+            {
+              "branch_gap": {
+                "REFERENCE_A": {
+                  "absolute_gap_area_j": 211.34618195962545,
+                  "gap_at_zero_displacement_kn": -0.27867969260648456,
+                  "maximum_absolute_gap_kn": 5.270438479612611,
+                  "median_absolute_gap_kn": 2.786269877556843
+                },
+                "RETURN_B": {
+                  "absolute_gap_area_j": 217.6624776740377,
+                  "gap_at_zero_displacement_kn": 0.11631234190108111,
+                  "maximum_absolute_gap_kn": 4.11062893297775,
+                  "median_absolute_gap_kn": 2.9175416201023747
+                }
+              },
+              "candidate_cycle_fraction": 0.537109375,
+              "candidate_force_difference_kn": -0.917338173,
+              "candidate_nonfundamental_difference_kn": -0.02895082717042241,
+              "cut_touch_count_smoothed_time_view": 10,
+              "cycle": 9,
+              "local_tangent_change_kn_per_mm": {
+                "REFERENCE_A": 1.0158544857735743,
+                "RETURN_B": 0.8278007727012823
+              },
+              "loop_area_change_percent_from_a": 2.7396722919263645,
+              "loop_area_j": {
+                "REFERENCE_A": 211.08875784068994,
+                "RETURN_B": 216.87189805062286
+              }
+            }
+          ],
+          "summary": {
+            "candidate_cycle_fraction": {
+              "count": 8,
+              "maximum": 0.54296875,
+              "mean": 0.516845703125,
+              "median": 0.5322265625,
+              "minimum": 0.44921875,
+              "q1": 0.501953125,
+              "q3": 0.537109375,
+              "sample_sd": 0.03161301257393419
+            },
+            "candidate_nonfundamental_difference_kn": {
+              "count": 8,
+              "maximum": 0.46625426948986953,
+              "mean": 0.08353857635242928,
+              "median": -0.01780992604265741,
+              "minimum": -0.07568772904640797,
+              "q1": -0.047302027344201775,
+              "q3": 0.11120852931320731,
+              "sample_sd": 0.22248930253073712
+            },
+            "loop_area_change_percent_from_a": {
+              "count": 8,
+              "maximum": 2.7396722919263645,
+              "mean": 1.0557104667275865,
+              "median": 1.7516696654138606,
+              "minimum": -2.69490877711887,
+              "q1": 0.5139788770778536,
+              "q3": 2.062893558127956,
+              "sample_sd": 1.7485427564830787
+            },
+            "maximum_branch_gap_reference_a_kn": {
+              "count": 8,
+              "maximum": 6.492475882740926,
+              "mean": 5.043176007634353,
+              "median": 4.79367291579246,
+              "minimum": 4.338808744959751,
+              "q1": 4.534193530963992,
+              "q3": 5.376186284371322,
+              "sample_sd": 0.7457208180270783
+            },
+            "maximum_branch_gap_return_b_kn": {
+              "count": 8,
+              "maximum": 4.875208717909281,
+              "mean": 4.475257893015916,
+              "median": 4.480371630064066,
+              "minimum": 4.11062893297775,
+              "q1": 4.244403563065154,
+              "q3": 4.6433294200957995,
+              "sample_sd": 0.27205720203659606
+            },
+            "tangent_change_reference_a_kn_per_mm": {
+              "count": 8,
+              "maximum": 1.0158544857735743,
+              "mean": 0.4024718618778584,
+              "median": 0.698491254603268,
+              "minimum": -0.6733835534620797,
+              "q1": 0.007068498955675351,
+              "q3": 0.8993443477905463,
+              "sample_sd": 0.6691510448770528
+            },
+            "tangent_change_return_b_kn_per_mm": {
+              "count": 8,
+              "maximum": 1.122959265662017,
+              "mean": 0.5289445440456566,
+              "median": 0.870235000165517,
+              "minimum": -0.5310123053548865,
+              "q1": 0.028795862561530702,
+              "q3": 1.002569603207622,
+              "sample_sd": 0.6558853029126424
+            }
+          }
+        },
+        "actuator_2": {
+          "records": [
+            {
+              "branch_gap": {
+                "REFERENCE_A": {
+                  "absolute_gap_area_j": 234.04992279384467,
+                  "gap_at_zero_displacement_kn": 0.844978416828629,
+                  "maximum_absolute_gap_kn": 5.123436343661991,
+                  "median_absolute_gap_kn": 3.187979348850906
+                },
+                "RETURN_B": {
+                  "absolute_gap_area_j": 227.79908978733513,
+                  "gap_at_zero_displacement_kn": -0.17410666409341,
+                  "maximum_absolute_gap_kn": 4.900695563660626,
+                  "median_absolute_gap_kn": 3.0639846532641606
+                }
+              },
+              "candidate_cycle_fraction": 0.5390625,
+              "candidate_force_difference_kn": -0.07997968400000001,
+              "candidate_nonfundamental_difference_kn": -0.018356256113798874,
+              "cut_touch_count_smoothed_time_view": 10,
+              "cycle": 2,
+              "local_tangent_change_kn_per_mm": {
+                "REFERENCE_A": 0.7365774725298992,
+                "RETURN_B": 0.7690102160140798
+              },
+              "loop_area_change_percent_from_a": -2.808917728999179,
+              "loop_area_j": {
+                "REFERENCE_A": 234.5517264689533,
+                "RETURN_B": 227.9633614404932
+              }
+            },
+            {
+              "branch_gap": {
+                "REFERENCE_A": {
+                  "absolute_gap_area_j": 216.42058998630014,
+                  "gap_at_zero_displacement_kn": -0.21373400629433242,
+                  "maximum_absolute_gap_kn": 4.935249529164798,
+                  "median_absolute_gap_kn": 2.935201531520045
+                },
+                "RETURN_B": {
+                  "absolute_gap_area_j": 215.0216147397183,
+                  "gap_at_zero_displacement_kn": 0.82358335409366,
+                  "maximum_absolute_gap_kn": 4.777159585848885,
+                  "median_absolute_gap_kn": 2.9050413968104625
+                }
+              },
+              "candidate_cycle_fraction": 0.5234375,
+              "candidate_force_difference_kn": -0.073770587,
+              "candidate_nonfundamental_difference_kn": 0.02346367287623019,
+              "cut_touch_count_smoothed_time_view": 6,
+              "cycle": 3,
+              "local_tangent_change_kn_per_mm": {
+                "REFERENCE_A": -0.31322069534871794,
+                "RETURN_B": -0.3872197821922594
+              },
+              "loop_area_change_percent_from_a": -0.5922033450388837,
+              "loop_area_j": {
+                "REFERENCE_A": 216.7540325646234,
+                "RETURN_B": 215.47040793326903
+              }
+            },
+            {
+              "branch_gap": {
+                "REFERENCE_A": {
+                  "absolute_gap_area_j": 207.46381605228322,
+                  "gap_at_zero_displacement_kn": 0.6453233679924831,
+                  "maximum_absolute_gap_kn": 4.226197940492476,
+                  "median_absolute_gap_kn": 2.799381465617963
+                },
+                "RETURN_B": {
+                  "absolute_gap_area_j": 210.40990729032748,
+                  "gap_at_zero_displacement_kn": 0.6037967549086732,
+                  "maximum_absolute_gap_kn": 4.907295070411445,
+                  "median_absolute_gap_kn": 2.8038444545345422
+                }
+              },
+              "candidate_cycle_fraction": 0.541015625,
+              "candidate_force_difference_kn": -0.459833338,
+              "candidate_nonfundamental_difference_kn": -0.12974880721543647,
+              "cut_touch_count_smoothed_time_view": 6,
+              "cycle": 4,
+              "local_tangent_change_kn_per_mm": {
+                "REFERENCE_A": 0.8007572049925608,
+                "RETURN_B": 0.8583323612227977
+              },
+              "loop_area_change_percent_from_a": 1.771784865611206,
+              "loop_area_j": {
+                "REFERENCE_A": 207.53495109266146,
+                "RETURN_B": 211.21202394697485
+              }
+            },
+            {
+              "branch_gap": {
+                "REFERENCE_A": {
+                  "absolute_gap_area_j": 202.25712788205516,
+                  "gap_at_zero_displacement_kn": -0.04487621045151439,
+                  "maximum_absolute_gap_kn": 4.713284129864303,
+                  "median_absolute_gap_kn": 2.734613657431326
+                },
+                "RETURN_B": {
+                  "absolute_gap_area_j": 208.61188838212206,
+                  "gap_at_zero_displacement_kn": 0.11567316311882896,
+                  "maximum_absolute_gap_kn": 4.160753852129098,
+                  "median_absolute_gap_kn": 2.882809576471262
+                }
+              },
+              "candidate_cycle_fraction": 0.54296875,
+              "candidate_force_difference_kn": -0.991840545,
+              "candidate_nonfundamental_difference_kn": -0.1613323793523156,
+              "cut_touch_count_smoothed_time_view": 6,
+              "cycle": 5,
+              "local_tangent_change_kn_per_mm": {
+                "REFERENCE_A": 0.7962870693098171,
+                "RETURN_B": 0.7059482546330114
+              },
+              "loop_area_change_percent_from_a": 3.551649313734651,
+              "loop_area_j": {
+                "REFERENCE_A": 202.24195000562105,
+                "RETURN_B": 209.42487483507927
+              }
+            },
+            {
+              "branch_gap": {
+                "REFERENCE_A": {
+                  "absolute_gap_area_j": 199.41418255876988,
+                  "gap_at_zero_displacement_kn": 0.19326609272144407,
+                  "maximum_absolute_gap_kn": 4.7288233330114835,
+                  "median_absolute_gap_kn": 2.6899778044700984
+                },
+                "RETURN_B": {
+                  "absolute_gap_area_j": 205.9847178994454,
+                  "gap_at_zero_displacement_kn": -0.03818366704139329,
+                  "maximum_absolute_gap_kn": 4.339557659287106,
+                  "median_absolute_gap_kn": 2.7708104244896568
+                }
+              },
+              "candidate_cycle_fraction": 0.5234375,
+              "candidate_force_difference_kn": 0.5237654199999999,
+              "candidate_nonfundamental_difference_kn": 0.06159553142411939,
+              "cut_touch_count_smoothed_time_view": 8,
+              "cycle": 6,
+              "local_tangent_change_kn_per_mm": {
+                "REFERENCE_A": -0.2365991622022621,
+                "RETURN_B": -0.5788545146552054
+              },
+              "loop_area_change_percent_from_a": 3.390351996597725,
+              "loop_area_j": {
+                "REFERENCE_A": 199.79501751943127,
+                "RETURN_B": 206.56877188500408
+              }
+            },
+            {
+              "branch_gap": {
+                "REFERENCE_A": {
+                  "absolute_gap_area_j": 199.22573633060222,
+                  "gap_at_zero_displacement_kn": -0.7029282823963423,
+                  "maximum_absolute_gap_kn": 4.435475069279807,
+                  "median_absolute_gap_kn": 2.6266547517857486
+                },
+                "RETURN_B": {
+                  "absolute_gap_area_j": 205.35922907773107,
+                  "gap_at_zero_displacement_kn": 0.6935604734679871,
+                  "maximum_absolute_gap_kn": 4.580156547223673,
+                  "median_absolute_gap_kn": 2.737989658888341
+                }
+              },
+              "candidate_cycle_fraction": 0.552734375,
+              "candidate_force_difference_kn": -1.32126991,
+              "candidate_nonfundamental_difference_kn": -0.4776065326051979,
+              "cut_touch_count_smoothed_time_view": 6,
+              "cycle": 7,
+              "local_tangent_change_kn_per_mm": {
+                "REFERENCE_A": 0.6880697673317133,
+                "RETURN_B": 0.7421607454160128
+              },
+              "loop_area_change_percent_from_a": 3.821554069340793,
+              "loop_area_j": {
+                "REFERENCE_A": 198.10893698202483,
+                "RETURN_B": 205.6797771249892
+              }
+            },
+            {
+              "branch_gap": {
+                "REFERENCE_A": {
+                  "absolute_gap_area_j": 197.90917800988962,
+                  "gap_at_zero_displacement_kn": 1.1872665603150578,
+                  "maximum_absolute_gap_kn": 4.980364735798567,
+                  "median_absolute_gap_kn": 2.6856329476515555
+                },
+                "RETURN_B": {
+                  "absolute_gap_area_j": 204.3293461409615,
+                  "gap_at_zero_displacement_kn": 0.3650901939871526,
+                  "maximum_absolute_gap_kn": 4.886736179674113,
+                  "median_absolute_gap_kn": 2.6755874354192564
+                }
+              },
+              "candidate_cycle_fraction": 0.453125,
+              "candidate_force_difference_kn": 1.2220111000000005,
+              "candidate_nonfundamental_difference_kn": 0.265036581005581,
+              "cut_touch_count_smoothed_time_view": 3,
+              "cycle": 8,
+              "local_tangent_change_kn_per_mm": {
+                "REFERENCE_A": 0.2480437289074643,
+                "RETURN_B": 0.12607967882316656
+              },
+              "loop_area_change_percent_from_a": 3.4342479885239623,
+              "loop_area_j": {
+                "REFERENCE_A": 197.6963981308956,
+                "RETURN_B": 204.4857827070902
+              }
+            },
+            {
+              "branch_gap": {
+                "REFERENCE_A": {
+                  "absolute_gap_area_j": 196.80017819608614,
+                  "gap_at_zero_displacement_kn": 0.5490927236118005,
+                  "maximum_absolute_gap_kn": 4.32632016432937,
+                  "median_absolute_gap_kn": 2.6914958218174405
+                },
+                "RETURN_B": {
+                  "absolute_gap_area_j": 203.2794329277229,
+                  "gap_at_zero_displacement_kn": 0.9614247983591073,
+                  "maximum_absolute_gap_kn": 4.333740839346246,
+                  "median_absolute_gap_kn": 2.765355511426291
+                }
+              },
+              "candidate_cycle_fraction": 0.544921875,
+              "candidate_force_difference_kn": 0.52639629,
+              "candidate_nonfundamental_difference_kn": 0.03089029447628011,
+              "cut_touch_count_smoothed_time_view": 10,
+              "cycle": 9,
+              "local_tangent_change_kn_per_mm": {
+                "REFERENCE_A": 0.7181117868175675,
+                "RETURN_B": 0.9123009294586423
+              },
+              "loop_area_change_percent_from_a": 3.512159643147922,
+              "loop_area_j": {
+                "REFERENCE_A": 196.5725139425257,
+                "RETURN_B": 203.4764544467364
+              }
+            }
+          ],
+          "summary": {
+            "candidate_cycle_fraction": {
+              "count": 8,
+              "maximum": 0.552734375,
+              "mean": 0.527587890625,
+              "median": 0.5400390625,
+              "minimum": 0.453125,
+              "q1": 0.5234375,
+              "q3": 0.54345703125,
+              "sample_sd": 0.03175920069503745
+            },
+            "candidate_nonfundamental_difference_kn": {
+              "count": 8,
+              "maximum": 0.265036581005581,
+              "mean": -0.050757236938067274,
+              "median": 0.002553708381215658,
+              "minimum": -0.4776065326051979,
+              "q1": -0.13764470024965625,
+              "q3": 0.03856660371323993,
+              "sample_sd": 0.21588377094912772
+            },
+            "loop_area_change_percent_from_a": {
+              "count": 8,
+              "maximum": 3.821554069340793,
+              "mean": 2.0100783503647746,
+              "median": 3.4122999925608437,
+              "minimum": -2.808917728999179,
+              "q1": 1.1807878129486835,
+              "q3": 3.5220320607946043,
+              "sample_sd": 2.446540561762602
+            },
+            "maximum_branch_gap_reference_a_kn": {
+              "count": 8,
+              "maximum": 5.123436343661991,
+              "mean": 4.683643905700349,
+              "median": 4.721053731437893,
+              "minimum": 4.226197940492476,
+              "q1": 4.408186343042198,
+              "q3": 4.94652833082324,
+              "sample_sd": 0.32649887144951506
+            },
+            "maximum_branch_gap_return_b_kn": {
+              "count": 8,
+              "maximum": 4.907295070411445,
+              "mean": 4.610761912197649,
+              "median": 4.678658066536279,
+              "minimum": 4.160753852129098,
+              "q1": 4.338103454301891,
+              "q3": 4.890226025670741,
+              "sample_sd": 0.29989993149357974
+            },
+            "tangent_change_reference_a_kn_per_mm": {
+              "count": 8,
+              "maximum": 0.8007572049925608,
+              "mean": 0.4297533965422553,
+              "median": 0.7030907770746404,
+              "minimum": -0.31322069534871794,
+              "q1": 0.1268830061300327,
+              "q3": 0.7515048717248787,
+              "sample_sd": 0.4698121689267067
+            },
+            "tangent_change_return_b_kn_per_mm": {
+              "count": 8,
+              "maximum": 0.9123009294586423,
+              "mean": 0.3934697360900307,
+              "median": 0.7240545000245121,
+              "minimum": -0.5788545146552054,
+              "q1": -0.0022451864306899383,
+              "q3": 0.7913407523162592,
+              "sample_sd": 0.5942498247277936
+            }
+          }
+        }
+      },
+      "common_active_cycles": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "frequency_hz": 1.0,
+      "nominal_displacement_mm": 40.0
+    }
+  },
+  "next_gate": "CUT_BINDER_V0_1_DESCRIPTIVE_CONTRACT",
+  "schema": "nexah-hz-fz-hinge-stability-factorial/0.1.0",
+  "source_archive_sha256": "8f32e7bdddbe2a262ed227df108a6fd05df87a5752ca1574f586b10a7748e929",
+  "source_archive_verified": true
+}

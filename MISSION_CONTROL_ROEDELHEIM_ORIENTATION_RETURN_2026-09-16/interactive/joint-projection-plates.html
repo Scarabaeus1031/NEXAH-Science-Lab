@@ -1,0 +1,176 @@
+<div id="joint-projection-plates">
+  <h2>Ein gehaltenes Verhältnis · vier Darstellungen</h2>
+
+  <div class="viz-controls">
+    <label class="form-label" for="jpp-angle">Drehung <output id="jpp-angle-value" class="tabular-nums">35°</output>
+      <input id="jpp-angle" class="form-range" type="range" min="0" max="360" value="35" step="1">
+    </label>
+    <label class="form-check form-switch">
+      <input id="jpp-antipode" class="form-check-input" type="checkbox" checked>
+      <span class="form-check-label">Antipode zeigen</span>
+    </label>
+  </div>
+
+  <svg id="jpp-svg" viewBox="0 0 920 430" role="img" aria-labelledby="jpp-title jpp-desc">
+    <title id="jpp-title">Körper, Platten, Karte und Kacheln als verschiedene Darstellungen</title>
+    <desc id="jpp-desc">Ein Punkt und sein Antipode werden durch vier Darstellungen verfolgt. Die Relation bleibt erhalten, während Form, Schnitt und Raster wechseln.</desc>
+
+    <g transform="translate(15 34)">
+      <text class="panel-title" x="105" y="0" text-anchor="middle">1 · Körper / Amphore</text>
+      <path class="body-shape" d="M45,25 C22,58 28,100 72,135 C92,151 91,172 62,193 C20,224 22,290 50,332 C80,377 130,377 160,332 C188,290 190,224 148,193 C119,172 118,151 138,135 C182,100 188,58 165,25 C132,54 78,54 45,25 Z"></path>
+      <ellipse class="joint-ring" cx="105" cy="165" rx="31" ry="9"></ellipse>
+      <circle class="ghost-node" cx="105" cy="165" r="5"></circle>
+      <text class="ghost-label" x="105" y="184" text-anchor="middle">O · Referenz</text>
+      <g id="jpp-body-p"><circle class="point-p" r="7"></circle><text class="point-label" x="10" y="-8">P</text></g>
+      <g id="jpp-body-a" class="antipode"><circle class="point-a" r="7"></circle><text class="point-label" x="10" y="-8">−P</text></g>
+      <text class="panel-note" x="105" y="397" text-anchor="middle">Ring = gehaltene Fuge</text>
+    </g>
+
+    <g transform="translate(245 34)">
+      <text class="panel-title" x="105" y="0" text-anchor="middle">2 · Ringe / Platten</text>
+      <g id="jpp-plates">
+        <ellipse class="plate" cx="105" cy="68" rx="60" ry="16"></ellipse>
+        <ellipse class="plate" cx="105" cy="102" rx="76" ry="19"></ellipse>
+        <ellipse class="plate" cx="105" cy="136" rx="90" ry="21"></ellipse>
+        <ellipse class="active-plate" cx="105" cy="170" rx="96" ry="22"></ellipse>
+        <ellipse class="plate" cx="105" cy="204" rx="90" ry="21"></ellipse>
+        <ellipse class="plate" cx="105" cy="238" rx="76" ry="19"></ellipse>
+        <ellipse class="plate" cx="105" cy="272" rx="60" ry="16"></ellipse>
+        <path class="memory-axis" d="M105,45 L105,295"></path>
+      </g>
+      <g id="jpp-plate-p"><circle class="point-p" r="7"></circle><text class="point-label" x="10" y="-8">P</text></g>
+      <g id="jpp-plate-a" class="antipode"><circle class="point-a" r="7"></circle><text class="point-label" x="10" y="-8">−P</text></g>
+      <text class="panel-note" x="105" y="330" text-anchor="middle">Schichtfolge = Memory</text>
+      <text class="panel-note" x="105" y="352" text-anchor="middle">kleine Amphore im Stapel</text>
+    </g>
+
+    <g transform="translate(475 34)">
+      <text class="panel-title" x="105" y="0" text-anchor="middle">3 · Abgewickelte Karte</text>
+      <rect class="map-frame" x="8" y="47" width="194" height="244"></rect>
+      <path class="map-grid" d="M8,108 H202 M8,169 H202 M8,230 H202 M56.5,47 V291 M105,47 V291 M153.5,47 V291"></path>
+      <path class="seam" d="M8,47 V291"></path>
+      <text class="seam-label" x="13" y="66">Spalt · 0°/360°</text>
+      <path class="stream" d="M18,221 C58,190 76,121 108,133 C143,146 154,225 194,184"></path>
+      <g id="jpp-map-p"><circle class="point-p" r="7"></circle><text class="point-label" x="10" y="-8">P</text></g>
+      <g id="jpp-map-a" class="antipode"><circle class="point-a" r="7"></circle><text class="point-label" x="10" y="-8">−P</text></g>
+      <text class="axis-label" x="105" y="313" text-anchor="middle">Azimut · 0° → 360°</text>
+      <text class="panel-note" x="105" y="348" text-anchor="middle">Der Spalt gehört zur Karte,</text>
+      <text class="panel-note" x="105" y="368" text-anchor="middle">nicht zum Feld.</text>
+    </g>
+
+    <g transform="translate(705 34)">
+      <text class="panel-title" x="100" y="0" text-anchor="middle">4 · Kacheln / Würfel</text>
+      <g id="jpp-tiles"></g>
+      <text class="panel-note" x="100" y="330" text-anchor="middle">Diskretisierung macht Zellen.</text>
+      <text class="panel-note" x="100" y="352" text-anchor="middle">Rotation allein nicht.</text>
+    </g>
+  </svg>
+
+  <div id="jpp-detail" class="card" aria-live="polite">
+    <span>P: <strong id="jpp-p-value">35° / +30°</strong></span>
+    <span>Antipode: <strong id="jpp-a-value">215° / −30°</strong></span>
+    <span>Invariant: <strong>Gegenüberlage + gemeinsame Referenz O</strong></span>
+  </div>
+</div>
+
+<style>
+  #joint-projection-plates { width: 100%; color: var(--foreground); }
+  #joint-projection-plates h2 { margin-bottom: 12px; }
+  #joint-projection-plates .viz-controls { margin-bottom: 8px; }
+  #joint-projection-plates .form-label { flex: 1; min-width: 250px; }
+  #joint-projection-plates .form-range { width: 100%; }
+  #joint-projection-plates #jpp-svg { display: block; width: 100%; height: auto; }
+  #joint-projection-plates text { fill: var(--foreground); font-size: 12px; }
+  #joint-projection-plates .panel-title { font-weight: 500; }
+  #joint-projection-plates .panel-note,
+  #joint-projection-plates .axis-label,
+  #joint-projection-plates .ghost-label,
+  #joint-projection-plates .seam-label { fill: var(--muted-foreground); }
+  #joint-projection-plates .body-shape { fill: color-mix(in srgb, var(--viz-series-1) 12%, transparent); stroke: var(--foreground); stroke-width: 1.5; }
+  #joint-projection-plates .joint-ring,
+  #joint-projection-plates .active-plate { fill: none; stroke: var(--viz-series-2); stroke-width: 2.5; }
+  #joint-projection-plates .ghost-node { fill: var(--viz-series-2); }
+  #joint-projection-plates .plate { fill: none; stroke: var(--border); stroke-width: 1.5; }
+  #joint-projection-plates .memory-axis { fill: none; stroke: var(--muted-foreground); stroke-dasharray: 4 5; }
+  #joint-projection-plates .map-frame { fill: none; stroke: var(--border); }
+  #joint-projection-plates .map-grid { fill: none; stroke: var(--border); stroke-width: 1; }
+  #joint-projection-plates .seam { fill: none; stroke: var(--viz-series-2); stroke-width: 3; }
+  #joint-projection-plates .stream { fill: none; stroke: var(--viz-series-3); stroke-width: 2; }
+  #joint-projection-plates .point-p { fill: var(--viz-series-1); }
+  #joint-projection-plates .point-a { fill: var(--viz-series-4); }
+  #joint-projection-plates .point-label { font-weight: 500; }
+  #joint-projection-plates .tile { fill: color-mix(in srgb, var(--muted) 30%, transparent); stroke: var(--border); }
+  #joint-projection-plates .tile.p { fill: var(--viz-series-1); }
+  #joint-projection-plates .tile.a { fill: var(--viz-series-4); }
+  #joint-projection-plates #jpp-detail { display: flex; gap: 16px; justify-content: space-between; flex-wrap: wrap; margin-top: 8px; }
+  @media (max-width: 520px) {
+    #joint-projection-plates #jpp-detail { display: grid; }
+  }
+</style>
+
+<script>
+(() => {
+  const root = document.getElementById('joint-projection-plates');
+  const angleInput = root.querySelector('#jpp-angle');
+  const antipodeInput = root.querySelector('#jpp-antipode');
+  const tileGroup = root.querySelector('#jpp-tiles');
+  const altitude = 30;
+
+  for (let row = 0; row < 6; row += 1) {
+    for (let col = 0; col < 8; col += 1) {
+      const rect = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+      rect.setAttribute('x', String(12 + col * 23));
+      rect.setAttribute('y', String(48 + row * 40));
+      rect.setAttribute('width', '19');
+      rect.setAttribute('height', '35');
+      rect.setAttribute('class', 'tile');
+      rect.dataset.row = String(row);
+      rect.dataset.col = String(col);
+      tileGroup.appendChild(rect);
+    }
+  }
+
+  function place(selector, x, y) {
+    root.querySelector(selector).setAttribute('transform', `translate(${x.toFixed(2)} ${y.toFixed(2)})`);
+  }
+
+  function render() {
+    const angle = Number(angleInput.value);
+    const radians = angle * Math.PI / 180;
+    const antiAngle = (angle + 180) % 360;
+    const antiRadians = antiAngle * Math.PI / 180;
+    const showAnti = antipodeInput.checked;
+
+    place('#jpp-body-p', 105 + 70 * Math.cos(radians), 165 - 118 * Math.sin(radians));
+    place('#jpp-body-a', 105 + 70 * Math.cos(antiRadians), 165 - 118 * Math.sin(antiRadians));
+    place('#jpp-plate-p', 105 + 96 * Math.cos(radians), 170 + 22 * Math.sin(radians));
+    place('#jpp-plate-a', 105 + 96 * Math.cos(antiRadians), 170 + 22 * Math.sin(antiRadians));
+
+    const mapX = 8 + (angle / 360) * 194;
+    const antiMapX = 8 + (antiAngle / 360) * 194;
+    const mapY = 169 - (altitude / 90) * 112;
+    const antiMapY = 169 + (altitude / 90) * 112;
+    place('#jpp-map-p', mapX, mapY);
+    place('#jpp-map-a', antiMapX, antiMapY);
+
+    root.querySelectorAll('.antipode').forEach(node => { node.style.display = showAnti ? '' : 'none'; });
+    root.querySelectorAll('.tile').forEach(tile => tile.setAttribute('class', 'tile'));
+    const pCol = Math.min(7, Math.floor(angle / 45));
+    const aCol = Math.min(7, Math.floor(antiAngle / 45));
+    const pRow = 2;
+    const aRow = 3;
+    const pTile = root.querySelector(`.tile[data-row="${pRow}"][data-col="${pCol}"]`);
+    const aTile = root.querySelector(`.tile[data-row="${aRow}"][data-col="${aCol}"]`);
+    if (pTile) pTile.setAttribute('class', 'tile p');
+    if (aTile && showAnti) aTile.setAttribute('class', 'tile a');
+
+    root.querySelector('#jpp-angle-value').textContent = `${angle}°`;
+    root.querySelector('#jpp-p-value').textContent = `${angle}° / +${altitude}°`;
+    root.querySelector('#jpp-a-value').textContent = showAnti ? `${antiAngle}° / −${altitude}°` : 'ausgeblendet';
+  }
+
+  angleInput.addEventListener('input', render);
+  antipodeInput.addEventListener('change', render);
+  render();
+})();
+</script>

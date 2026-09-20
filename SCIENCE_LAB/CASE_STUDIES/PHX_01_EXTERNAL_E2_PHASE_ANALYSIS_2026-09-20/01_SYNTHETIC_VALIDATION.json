@@ -1,0 +1,80 @@
+{
+  "all_controls_passed": true,
+  "classification": "PASS",
+  "controls": {
+    "clock_jitter": {
+      "circular_error_deg": 0.00016286808437371292,
+      "jitter_standard_deviation_s": 2e-05,
+      "passed": true,
+      "tolerance_deg": 0.2
+    },
+    "fixed_phase_0_90_180": {
+      "errors_deg": {
+        "0": 0.0,
+        "180": 3.410605131648481e-13,
+        "90": 2.2737367544323206e-13
+      },
+      "maximum_circular_error_deg": 3.410605131648481e-13,
+      "passed": true,
+      "tolerance_deg": 0.1
+    },
+    "known_phase_jump": {
+      "cycle_error": 0,
+      "detected_first_post_jump_cycle": 13,
+      "expected_first_post_jump_cycle": 13,
+      "passed": true,
+      "tolerance_cycles": 1
+    },
+    "missing_samples": {
+      "circular_error_deg": 0.1497218735269712,
+      "passed": true,
+      "removed_fraction": 0.1427001953125,
+      "tolerance_deg": 0.2
+    },
+    "nearby_frequency_beating": {
+      "cycle_phase_plv": 0.6245067269025533,
+      "maximum_allowed_plv": 0.95,
+      "passed": true
+    },
+    "noisy_phase_locked": {
+      "cycle_phase_plv": 0.9997076180938993,
+      "maximum_error_deg": 2.0,
+      "mean_circular_error_deg": 0.30314574269314676,
+      "minimum_plv": 0.95,
+      "passed": true
+    },
+    "relation_transformations": {
+      "channel_exchange_sign_error_deg": 0.0,
+      "common_time_translation_error_deg": 0.0,
+      "maximum_error_deg": 0.0,
+      "passed": true,
+      "time_reversal_sign_error_deg": 0.0,
+      "tolerance_deg": 0.1
+    },
+    "same_spectrum_phase_randomized": {
+      "band_phase_plv": 0.01928407883915325,
+      "maximum_allowed_plv": 0.4,
+      "maximum_fft_magnitude_error": 1.7053025658242404e-13,
+      "passed": true
+    },
+    "slow_phase_drift": {
+      "endpoint_max_error_deg": 0.016000292104138225,
+      "observed_span_deg": 29.598437553487173,
+      "passed": true,
+      "tolerance_deg": 1.0
+    },
+    "unequal_amplitudes": {
+      "circular_error_deg": 2.8421709430404007e-13,
+      "passed": true,
+      "tolerance_deg": 0.1
+    }
+  },
+  "environment": {
+    "numpy": "1.26.4",
+    "pandas": "2.3.3",
+    "python": "3.12.7",
+    "scipy": "1.13.1"
+  },
+  "mission_id": "PHX-01",
+  "schema": "nexah-phx01-synthetic-validation/0.1.0"
+}

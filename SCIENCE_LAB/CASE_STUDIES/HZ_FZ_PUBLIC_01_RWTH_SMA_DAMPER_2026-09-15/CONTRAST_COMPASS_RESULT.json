@@ -1,0 +1,72 @@
+{
+  "active_order_crossings": {
+    "0.1_vs_0.5": [
+      7.556191592015567
+    ],
+    "0.1_vs_1.0": [
+      4.257178433222677
+    ],
+    "0.5_vs_1.0": [
+      2.609088108342916
+    ]
+  },
+  "angular_residual_deg": -0.4797990021028795,
+  "bootstrap": {
+    "angular_residual_quantiles_deg": [
+      -61.16867204139237,
+      -27.19774763724891,
+      1.910565287470348,
+      29.753178778603285,
+      129.22189154380294
+    ],
+    "block_length_cycles": 2,
+    "draws": 20000,
+    "orthogonal_residual_quantiles_j": [
+      -51.82000961399392,
+      -20.274105441520174,
+      -1.479109662603881,
+      26.870110476181683,
+      121.90132658374398
+    ],
+    "quadrant_iii_fraction": 0.6305,
+    "seed": 20260916,
+    "within_10_deg_of_reference_ray_fraction": 0.175,
+    "within_5_deg_of_reference_ray_fraction": 0.0888,
+    "x_quantiles_j": [
+      -144.76755278677632,
+      -12.899847697841494,
+      55.70897902225529
+    ],
+    "y_quantiles_j": [
+      -70.65245386877643,
+      -42.545464086868606,
+      22.430897796470276
+    ]
+  },
+  "case_id": "HZ_FZ_PUBLIC_01",
+  "claim_boundary": "The compass is a coordinate transform of the same three source runs. It does not add independent evidence or establish a physical gamma law.",
+  "classification": "POINT_ESTIMATE_ALIGNS_WITH_GAMMA_REFERENCE_BUT_BOOTSTRAP_ORIENTATION_IS_NOT_STABLE",
+  "coordinate_definition": {
+    "source_view": "40 mm 8-wire active-cycle order",
+    "x_j": "median loop area at 0.5 Hz minus median loop area at 0.1 Hz",
+    "y_j": "median loop area at 0.5 Hz minus median loop area at 1.0 Hz"
+  },
+  "crossing_step_lengths": [
+    1.6480903248797611,
+    3.2990131587928904
+  ],
+  "crossing_step_ratio": 2.001718661283674,
+  "gamma_inverse_square_reference_ratio": 2.999999999999999,
+  "gamma_reference": 0.5773502691896258,
+  "observed_absolute_ratio": 2.918309610815254,
+  "observed_angle_deg": 251.0852521749751,
+  "observed_magnitude_j": 43.94052913788321,
+  "observed_orthogonal_residual_j": 0.36795686887943413,
+  "observed_vector_j": [
+    -14.243802704030088,
+    -41.56782632572731
+  ],
+  "ratio_relative_error_percent": -2.7230129728248342,
+  "reference_negative_ray_angle_deg": 251.56505117707798,
+  "schema": "nexah-contrast-compass/0.1.0"
+}

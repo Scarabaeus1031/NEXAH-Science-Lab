@@ -1,0 +1,186 @@
+{
+  "campaign_id": "KAPPA_01",
+  "campaign_schema_currently_valid": false,
+  "classification": "SOFTWARE_GATE_PASS_PHYSICAL_INPUTS_PENDING",
+  "configuration_path": "/Users/tho2020/Documents/NEXAH ECOSYSTEM/30 SCIENCE LAB/NEXAH-Science-Lab/SCIENCE_LAB/CASE_STUDIES/KAPPA_01_PROSPECTIVE_SHARED_CLOCK_CAMPAIGN_2026-09-20/campaign.pending.json",
+  "data_collection_authorized": false,
+  "next_gate": "Complete apparatus, intervention, safety, MCID, variance, attrition, block bounds, randomization receipt and blinding custodian; then seal hashes before acquisition.",
+  "pending_or_false_paths": [
+    "apparatus.device_id",
+    "apparatus.acquisition_id",
+    "apparatus.shared_sample_clock_id",
+    "apparatus.drive_channel_id",
+    "apparatus.drive_is_measured_not_setpoint",
+    "apparatus.displacement_sensor_id",
+    "apparatus.displacement_calibration_id",
+    "apparatus.displacement_uncertainty_mm",
+    "apparatus.force_sensor_id",
+    "apparatus.force_calibration_id",
+    "apparatus.force_uncertainty_n",
+    "apparatus.channel_skew_bound_s",
+    "intervention.active_definition",
+    "intervention.sham_definition",
+    "intervention.event_marker_source",
+    "intervention.duration_s",
+    "intervention.washout_rule",
+    "intervention.safety_approval_ref",
+    "fixed_settings.frequency_hz",
+    "fixed_settings.drive_amplitude_v",
+    "fixed_settings.preload_n",
+    "fixed_settings.sample_rate_hz",
+    "design.mcid_deg",
+    "design.paired_session_sd_deg",
+    "design.variance_source_ref",
+    "design.attrition_fraction",
+    "design.minimum_blocks",
+    "design.maximum_blocks",
+    "design.randomization_seed_receipt",
+    "design.blinding_key_custodian"
+  ],
+  "power_plan": null,
+  "real_measurement_present": false,
+  "schema": "nexah-kappa01-readiness/0.1.0",
+  "schema_errors": [
+    {
+      "message": "'PENDING' should not be valid under {'const': 'PENDING'}",
+      "path": "apparatus.acquisition_id"
+    },
+    {
+      "message": "None is not of type 'number'",
+      "path": "apparatus.channel_skew_bound_s"
+    },
+    {
+      "message": "'PENDING' should not be valid under {'const': 'PENDING'}",
+      "path": "apparatus.device_id"
+    },
+    {
+      "message": "'PENDING' should not be valid under {'const': 'PENDING'}",
+      "path": "apparatus.displacement_calibration_id"
+    },
+    {
+      "message": "'PENDING' should not be valid under {'const': 'PENDING'}",
+      "path": "apparatus.displacement_sensor_id"
+    },
+    {
+      "message": "None is not of type 'number'",
+      "path": "apparatus.displacement_uncertainty_mm"
+    },
+    {
+      "message": "'PENDING' should not be valid under {'const': 'PENDING'}",
+      "path": "apparatus.drive_channel_id"
+    },
+    {
+      "message": "True was expected",
+      "path": "apparatus.drive_is_measured_not_setpoint"
+    },
+    {
+      "message": "'PENDING' should not be valid under {'const': 'PENDING'}",
+      "path": "apparatus.force_calibration_id"
+    },
+    {
+      "message": "'PENDING' should not be valid under {'const': 'PENDING'}",
+      "path": "apparatus.force_sensor_id"
+    },
+    {
+      "message": "None is not of type 'number'",
+      "path": "apparatus.force_uncertainty_n"
+    },
+    {
+      "message": "'PENDING' should not be valid under {'const': 'PENDING'}",
+      "path": "apparatus.shared_sample_clock_id"
+    },
+    {
+      "message": "None is not of type 'number'",
+      "path": "design.attrition_fraction"
+    },
+    {
+      "message": "'PENDING' should not be valid under {'const': 'PENDING'}",
+      "path": "design.blinding_key_custodian"
+    },
+    {
+      "message": "None is not of type 'integer'",
+      "path": "design.maximum_blocks"
+    },
+    {
+      "message": "None is not of type 'number'",
+      "path": "design.mcid_deg"
+    },
+    {
+      "message": "None is not of type 'integer'",
+      "path": "design.minimum_blocks"
+    },
+    {
+      "message": "None is not of type 'number'",
+      "path": "design.paired_session_sd_deg"
+    },
+    {
+      "message": "'PENDING' should not be valid under {'const': 'PENDING'}",
+      "path": "design.randomization_seed_receipt"
+    },
+    {
+      "message": "'PENDING' should not be valid under {'const': 'PENDING'}",
+      "path": "design.variance_source_ref"
+    },
+    {
+      "message": "None is not of type 'number'",
+      "path": "fixed_settings.drive_amplitude_v"
+    },
+    {
+      "message": "None is not of type 'number'",
+      "path": "fixed_settings.frequency_hz"
+    },
+    {
+      "message": "None is not of type 'number'",
+      "path": "fixed_settings.preload_n"
+    },
+    {
+      "message": "None is not of type 'number'",
+      "path": "fixed_settings.sample_rate_hz"
+    },
+    {
+      "message": "'PENDING' is too short",
+      "path": "intervention.active_definition"
+    },
+    {
+      "message": "'PENDING' should not be valid under {'const': 'PENDING'}",
+      "path": "intervention.active_definition"
+    },
+    {
+      "message": "None is not of type 'number'",
+      "path": "intervention.duration_s"
+    },
+    {
+      "message": "'PENDING' should not be valid under {'const': 'PENDING'}",
+      "path": "intervention.event_marker_source"
+    },
+    {
+      "message": "'PENDING' should not be valid under {'const': 'PENDING'}",
+      "path": "intervention.safety_approval_ref"
+    },
+    {
+      "message": "'PENDING' is too short",
+      "path": "intervention.sham_definition"
+    },
+    {
+      "message": "'PENDING' should not be valid under {'const': 'PENDING'}",
+      "path": "intervention.sham_definition"
+    },
+    {
+      "message": "'PENDING' is too short",
+      "path": "intervention.washout_rule"
+    },
+    {
+      "message": "'PENDING' should not be valid under {'const': 'PENDING'}",
+      "path": "intervention.washout_rule"
+    },
+    {
+      "message": "'PREREGISTERED_READY_FOR_ACQUISITION' was expected",
+      "path": "status"
+    }
+  ],
+  "software_gate_passed": true,
+  "synthetic_power_example_not_campaign_design": {
+    "blocks_with_attrition": 20,
+    "normal_approximation_complete_blocks": 18
+  }
+}

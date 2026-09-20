@@ -1,0 +1,27 @@
+{
+  "schema": "nexah-e11-protocol/0.1.0",
+  "mission_id": "E11-01",
+  "status": "FROZEN_BEFORE_E11_STATISTIC_EXECUTION",
+  "source": {
+    "path": "../PHX_01_EXTERNAL_E2_PHASE_ANALYSIS_2026-09-20/03_CYCLE_PHASE_RECORDS.csv",
+    "sha256": "907ec0ef4bcde56c53ab39a656a78a4c12bbc6d343dc20732115762f28aa373a"
+  },
+  "corpora": ["ABS_PHASE_72", "KAPPA_CYCLE_36"],
+  "primary_quantum_deg": 0.01,
+  "primary_rounding": "ROUND_HALF_UP",
+  "station_blocks": [0, 11, 22, 33, 44, 55, 66, 77, 88, 99],
+  "target_directed_step_centideg": 11,
+  "janus_step_centideg": -11,
+  "comparison_signed_steps_centideg": [10, 12, 17, -10, -12, -17],
+  "step_spectrum_magnitudes_centideg": [1, 25],
+  "decimal_origin_offsets": [0, 99],
+  "dither": {
+    "draws": 20000,
+    "half_width_deg": 0.005,
+    "seed": 20260920
+  },
+  "sensitivity_quantum_deg": 0.001,
+  "sensitivity_same_physical_step_millideg": 110,
+  "multiplicity": "HOLM_OVER_4_PRIMARY_CORPUS_STATISTIC_P_VALUES",
+  "analysis_class": "POST_HOC_EXPLORATORY_SPECIFICITY_AUDIT"
+}

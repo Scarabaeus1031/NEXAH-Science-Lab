@@ -1,6 +1,7 @@
 # NEXAH — aktuelle Gesamtübersicht
 
-Stand: 2026-09-18
+Erstausgabe: 2026-09-18
+Aktualisiert: 2026-09-20
 
 Dokumenttyp: additive Gesamtsynthese / wissenschaftliche und öffentliche Orientierung
 
@@ -18,12 +19,42 @@ Direkter Lesepfad:
 - [ORION Repository](https://github.com/Scarabaeus1031/NEXAH-ORION)
 - [NEXAHEDRON](https://nexahedron.com)
 - [Scientific Constitution](../NEXAH_CONSTITUTION/SCIENTIFIC_CONSTITUTION.md)
-- [wissenschaftlicher Langreport](REPORTS/NEXAH_GRID_OBSERVATORY_PUBLIC_RELEASE_2026-09-17/10_NEXAH_GESAMTREPORT_SCIENTIFIC_INTRODUCTION.md)
-- [Grid and Observatory Public Release](REPORTS/NEXAH_GRID_OBSERVATORY_PUBLIC_RELEASE_2026-09-17/README.md)
 - [kanonische Grid Grammar](../MISSION_CONTROL_GRID_GRAMMAR_CANONICALIZATION_2026-09-17/01_CANONICAL_GRID_GRAMMAR.md)
 - [Observatory Session Close](../MISSION_CONTROL_GRID_GRAMMAR_CANONICALIZATION_2026-09-17/07_ROEDELHEIM_OBSERVATORY_SESSION_CLOSE.md)
 - [Sealed Comparison Method 0.1](../NEXAH_SEALED_COMPARISON_METHOD_0_1_2026-09-17/README.md)
 - [Mission Control Current Truth](../../../00%20EXECUTIVE/NEXAH-Mission-Control/CURRENT/README.md)
+
+## Übersichtsdokumente und ihre Rollen
+
+| Dokument | Rolle |
+|---|---|
+| Mission Control Entry Point | Lead/Master-of-Desks; Einstieg, Routing und Aktivierungsgrenzen |
+| Mission Control Current Truth | manifestgeprüfte operative Gesamtwahrheit |
+| diese aktuelle Gesamtübersicht | lesbare Gesamtsynthese über das Ökosystem |
+| Research Atlas | Forschungsrichtungen, Resultate, Works, Outreach und Schulfächer |
+| Science Lab Subject Overview | Fachansicht der Forschung ohne Verschiebung von Evidenz |
+| Lab Register | gepflegte Study- und Statuszeilen |
+| öffentlicher Gesamtreport vom 17. September | veröffentlichter wissenschaftlicher Snapshot |
+
+Mission Control ist die aktuelle Leitstelle. Diese Gesamtübersicht erklärt den
+Stand lesbar; Fachübersicht und Register führen zu den Belegen. Der öffentliche
+Gesamtreport bleibt eine datierte Ausgabe und wird nicht rückwirkend zum
+operativen Master umgedeutet.
+
+## Aktualisierung vom 20. September
+
+- Mathematik, Chemie und Physik besitzen getrennte Fachzugänge.
+- Der HZ/FZ-Faden ist Physik: Mechanik, Strukturdynamik, Dämpfung, Hysterese
+  und Phasenanalyse.
+- Phase/Kappa, negative 11-Spezifität und exakte Cube-Boundary-Mathematik
+  bleiben getrennte Claim-Klassen.
+- Weitere Lab-Bestände sind in der Fachansicht zusätzlich unter Informatik,
+  Engineering, Biologie/Domainpiloten, Statistik/Wissenschaftsmethode,
+  Human Orientation und Kunst/Kultur navigierbar.
+- Die Ordnung aktiviert keine Forschung und ändert keine package-eigene
+  Evidenz oder Abschlussentscheidung.
+
+[Science Lab Subject Overview](SUBJECT_OVERVIEW.md)
 
 ## Kurzantwort: Was ist NEXAH?
 

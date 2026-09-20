@@ -1,0 +1,293 @@
+{
+  "baseline_reproduction": {
+    "comparison": "whole-record relative phase versus SOURCE_INTAKE_RESULT.json",
+    "maximum_circular_error_deg": 0.0,
+    "passed": true
+  },
+  "case_id": "HZ_FZ_PUBLIC_01",
+  "claim_boundary": "Descriptive within-source phase stability only; cycles are not independent runs and frequency is confounded with amplitude in the selected records.",
+  "classification": "BOUNDED_RELATIVE_PHASE_STABILITY_SUPPORTED",
+  "evidence_class": "EXTERNAL_E2_ONLY",
+  "frequency_amplitude_separation": "NOT_IDENTIFIABLE_IN_SELECTED_RECORDS",
+  "mission_id": "PHX-01",
+  "order_sensitivity_explained_by_phase": "INDETERMINATE_SOURCE_NOT_BOUND",
+  "pairs": {
+    "P05_BEFORE_AFTER_EQ": {
+      "actuators": {
+        "1": {
+          "boundary_exclusion_change_deg": 0.028053677505226915,
+          "circular_mean_phase_shift_deg": -0.6962206653352894,
+          "classification": "STABLE_EQUIVALENT",
+          "cut_A": {
+            "circular_mean_phase_deg": 5.431220645107146,
+            "circular_standard_deviation_deg": 0.2209605426140094,
+            "cycle_count": 10,
+            "cycles": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10
+            ],
+            "fundamental_magnitude_squared_coherence": 0.9999524596859525,
+            "median_gain_kn_per_mm": 0.5728276819206732,
+            "phase_locking_value": 0.9999925637740008
+          },
+          "cut_B": {
+            "circular_mean_phase_deg": 4.735000682493023,
+            "circular_standard_deviation_deg": 0.12190157756669555,
+            "cycle_count": 10,
+            "cycles": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10
+            ],
+            "fundamental_magnitude_squared_coherence": 0.9999707492497012,
+            "median_gain_kn_per_mm": 0.603915441747804,
+            "phase_locking_value": 0.9999977366959527
+          },
+          "interior_cycle_mean_phase_shift_deg": -0.6681669878300625,
+          "moving_block_bootstrap_95_interval_deg": [
+            -0.7774833218918218,
+            -0.6382888203467587
+          ],
+          "paired_phase_shift_deg": [
+            -1.0012315667327698,
+            -0.7640094109027586,
+            -0.7030591937730435,
+            -0.6702281307511271,
+            -0.6568711694115166,
+            -0.6519093448174829,
+            -0.6384388521964013,
+            -0.6333660925008076,
+            -0.6274537479502271,
+            -0.6156405268895639
+          ]
+        },
+        "2": {
+          "boundary_exclusion_change_deg": 0.010684478449888957,
+          "circular_mean_phase_shift_deg": -0.4410970520339106,
+          "classification": "STABLE_EQUIVALENT",
+          "cut_A": {
+            "circular_mean_phase_deg": 4.879952997070546,
+            "circular_standard_deviation_deg": 0.19969280548136195,
+            "cycle_count": 10,
+            "cycles": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10
+            ],
+            "fundamental_magnitude_squared_coherence": 0.9999530836920023,
+            "median_gain_kn_per_mm": 0.5749632232048925,
+            "phase_locking_value": 0.999993926371036
+          },
+          "cut_B": {
+            "circular_mean_phase_deg": 4.438855962158243,
+            "circular_standard_deviation_deg": 0.15420045292459988,
+            "cycle_count": 10,
+            "cycles": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10
+            ],
+            "fundamental_magnitude_squared_coherence": 0.9999761894831681,
+            "median_gain_kn_per_mm": 0.6024845604154457,
+            "phase_locking_value": 0.9999963784436103
+          },
+          "interior_cycle_mean_phase_shift_deg": -0.45178153048379954,
+          "moving_block_bootstrap_95_interval_deg": [
+            -0.487659366930302,
+            -0.3970677899327484
+          ],
+          "paired_phase_shift_deg": [
+            -0.4806114513166051,
+            -0.550099726752677,
+            -0.5007499921134695,
+            -0.4711202681708926,
+            -0.4428428624910623,
+            -0.43699776272632107,
+            -0.4142944870067993,
+            -0.4071147420051773,
+            -0.39103243840210666,
+            -0.31610676191013454
+          ]
+        }
+      },
+      "classification": "STABLE_EQUIVALENT",
+      "common_active_cycles": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ]
+    },
+    "P10_BEFORE_AFTER_EQ": {
+      "actuators": {
+        "1": {
+          "boundary_exclusion_change_deg": 0.0154539080890288,
+          "circular_mean_phase_shift_deg": -0.26675592284877325,
+          "classification": "STABLE_EQUIVALENT",
+          "cut_A": {
+            "circular_mean_phase_deg": 5.5843239350911915,
+            "circular_standard_deviation_deg": 0.2699852868280327,
+            "cycle_count": 8,
+            "cycles": [
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9
+            ],
+            "fundamental_magnitude_squared_coherence": 0.9998755405153175,
+            "median_gain_kn_per_mm": 0.449931175651682,
+            "phase_locking_value": 0.9999888979667537
+          },
+          "cut_B": {
+            "circular_mean_phase_deg": 5.3175687177826205,
+            "circular_standard_deviation_deg": 0.15406706701885883,
+            "cycle_count": 8,
+            "cycles": [
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9
+            ],
+            "fundamental_magnitude_squared_coherence": 0.999931734611025,
+            "median_gain_kn_per_mm": 0.4738802085083952,
+            "phase_locking_value": 0.9999963847062998
+          },
+          "interior_cycle_mean_phase_shift_deg": -0.25130201475974445,
+          "moving_block_bootstrap_95_interval_deg": [
+            -0.3633026737549585,
+            -0.18768460802394316
+          ],
+          "paired_phase_shift_deg": [
+            -0.5008397344844866,
+            -0.3977491602457235,
+            -0.2930490020216894,
+            -0.22526561807552525,
+            -0.20930893196262446,
+            -0.207474108827995,
+            -0.17496539906281328,
+            -0.12539598784985628
+          ]
+        },
+        "2": {
+          "boundary_exclusion_change_deg": 0.031530704582593216,
+          "circular_mean_phase_shift_deg": -0.2589726695622403,
+          "classification": "STABLE_EQUIVALENT",
+          "cut_A": {
+            "circular_mean_phase_deg": 5.392686782380991,
+            "circular_standard_deviation_deg": 0.33172274177661254,
+            "cycle_count": 8,
+            "cycles": [
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9
+            ],
+            "fundamental_magnitude_squared_coherence": 0.9999143576306808,
+            "median_gain_kn_per_mm": 0.44208979644188806,
+            "phase_locking_value": 0.9999832400934525
+          },
+          "cut_B": {
+            "circular_mean_phase_deg": 5.133715680596964,
+            "circular_standard_deviation_deg": 0.20094220888034062,
+            "cycle_count": 8,
+            "cycles": [
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9
+            ],
+            "fundamental_magnitude_squared_coherence": 0.9999426818352508,
+            "median_gain_kn_per_mm": 0.47020957994757123,
+            "phase_locking_value": 0.999993850132654
+          },
+          "interior_cycle_mean_phase_shift_deg": -0.22744196497964708,
+          "moving_block_bootstrap_95_interval_deg": [
+            -0.3704155663608617,
+            -0.16671004577290205
+          ],
+          "paired_phase_shift_deg": [
+            -0.5415104549768444,
+            -0.40464589101296156,
+            -0.2781795515961676,
+            -0.18156298528714387,
+            -0.18231807188462312,
+            -0.1602990783823941,
+            -0.1576464586522377,
+            -0.1656199777668803
+          ]
+        }
+      },
+      "classification": "STABLE_EQUIVALENT",
+      "common_active_cycles": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ]
+    }
+  },
+  "prime_test_executed": false,
+  "relative_phase_invariant_found": true,
+  "schema": "nexah-phx01-empirical-phase/0.1.0",
+  "source_hashes": {
+    "07_4wires_sin20mm_0p5Hz.csv": "36cf6cc994de28fdc32b609dc9fe4b671d154584c0e69bcb1b93631568bc4b61",
+    "08_4wires_sin40mm_1p0Hz.csv": "3e21c2be71089caf4b800c09cb0e7c846772e318791445063bd05e1ee3fd2bae",
+    "09_4wires_sin20mm_0p5Hz_after_EQ.csv": "b3274aa7a2dceea186394630b93b80a0f7ea6ca2040d0a4faec8dea3b2cefe8b",
+    "10_4wires_sin40mm_1p0Hz_after_EQ.csv": "eae1c973b447653642ef0cb3013ab954bd6bbde172b4017bf4388ba9941f0e36"
+  }
+}

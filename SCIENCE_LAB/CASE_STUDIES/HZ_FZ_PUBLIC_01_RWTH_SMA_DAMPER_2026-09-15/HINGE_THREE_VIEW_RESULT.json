@@ -1,0 +1,76 @@
+{
+  "actuator": 1,
+  "case_id": "HZ_FZ_PUBLIC_01",
+  "interpretation_boundary": "The marked location is a reproducible visualization candidate in one selected active cycle. It is not evidence of electrical switching, AC/DC conversion, series/parallel wiring, or causality.",
+  "method": {
+    "candidate_rule": "maximum combined curvature of smoothed non-fundamental force within cycle fraction 0.4 to 0.6",
+    "cycle": 8,
+    "loop_area_unit_identity": "1 kN mm = 1 J",
+    "smoothing": "Savitzky-Golay, 21 samples, polynomial order 3",
+    "source_rate_hz": 512
+  },
+  "pairs": {
+    "P05_BEFORE_AFTER_EQ": {
+      "candidate_cycle_fraction": 0.4599609375,
+      "candidate_force_difference_kn": 0.6263130000000001,
+      "candidate_nonfundamental_difference_kn": 0.5394938824185194,
+      "local_tangent_kn_per_mm": {
+        "REFERENCE_A": {
+          "after": 0.9444399482533681,
+          "before": 0.6835981852356718,
+          "change": 0.26084176301769624
+        },
+        "RETURN_B": {
+          "after": 0.6626762788426893,
+          "before": 0.6530775534849723,
+          "change": 0.009598725357716997
+        }
+      },
+      "loop_absolute_area_j": {
+        "REFERENCE_A": 66.28217147162691,
+        "RETURN_B": 61.451403403572485
+      },
+      "loop_area_change_percent_from_a": -7.288186190644507,
+      "loop_signed_area_j": {
+        "REFERENCE_A": 66.28217147162691,
+        "RETURN_B": 61.451403403572485
+      },
+      "mean_loop_power_w": {
+        "REFERENCE_A": 33.141085735813455,
+        "RETURN_B": 30.725701701786242
+      }
+    },
+    "P10_BEFORE_AFTER_EQ": {
+      "candidate_cycle_fraction": 0.54296875,
+      "candidate_force_difference_kn": 1.03861793,
+      "candidate_nonfundamental_difference_kn": -0.039092504431942565,
+      "local_tangent_kn_per_mm": {
+        "REFERENCE_A": {
+          "after": 0.6926498146334509,
+          "before": -0.00014142489533579657,
+          "change": 0.6927912395287866
+        },
+        "RETURN_B": {
+          "after": 0.9680115350242545,
+          "before": 0.05534230739450258,
+          "change": 0.9126692276297519
+        }
+      },
+      "loop_absolute_area_j": {
+        "REFERENCE_A": 212.72730278974154,
+        "RETURN_B": 217.01581363624848
+      },
+      "loop_area_change_percent_from_a": 2.0159663523519016,
+      "loop_signed_area_j": {
+        "REFERENCE_A": 212.72730278974154,
+        "RETURN_B": 217.01581363624848
+      },
+      "mean_loop_power_w": {
+        "REFERENCE_A": 212.72730278974154,
+        "RETURN_B": 217.01581363624848
+      }
+    }
+  },
+  "schema": "nexah-hz-fz-public-hinge-three-view/0.1.0",
+  "source_archive_sha256": "8f32e7bdddbe2a262ed227df108a6fd05df87a5752ca1574f586b10a7748e929"
+}

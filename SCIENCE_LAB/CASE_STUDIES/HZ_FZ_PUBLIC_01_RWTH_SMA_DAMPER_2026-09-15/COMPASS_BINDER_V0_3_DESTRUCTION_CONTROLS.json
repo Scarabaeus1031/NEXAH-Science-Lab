@@ -1,0 +1,45 @@
+{
+  "schema": "nexah-compass-binder-acr-controls/0.3.0",
+  "source_receipt_sha256": "990099764be3de9adb7ec1f77644ac26ec43458053b8cf58273bb8a58860021e",
+  "controls": [
+    {
+      "control": "baseline_chain",
+      "expected": "ACCEPT",
+      "observed": "ACCEPT",
+      "pass": true,
+      "detail": "87d47380c8baad37a89f5be15a2c0d2b5a8653170d6538e832b4a80df40967fd"
+    },
+    {
+      "control": "remove_orientation_key",
+      "expected": "REJECT",
+      "observed": "REJECT",
+      "pass": true,
+      "detail": "required orientation metadata absent"
+    },
+    {
+      "control": "permute_event_order",
+      "expected": "REJECT",
+      "observed": "REJECT",
+      "pass": true,
+      "detail": "sequence mismatch"
+    },
+    {
+      "control": "alter_source_hash",
+      "expected": "REJECT",
+      "observed": "REJECT",
+      "pass": true,
+      "detail": "event hash mismatch"
+    },
+    {
+      "control": "alter_return_claim",
+      "expected": "REJECT",
+      "observed": "REJECT",
+      "pass": true,
+      "detail": "event hash mismatch"
+    }
+  ],
+  "decision": "PASS_ALL_DESTRUCTION_CONTROLS",
+  "profile_activation": false,
+  "scientific_claim_change": false,
+  "controls_receipt_sha256": "8c98833b2ea4bfff3c3e2cee37120f743acb9cb2aaf1fe8541e815a4d5e0a109"
+}

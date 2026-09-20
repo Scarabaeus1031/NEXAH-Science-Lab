@@ -1,0 +1,120 @@
+<div id="property-horizon-projection">
+  <h2>Vom Einfahrtspunkt zur Horizontprojektion</h2>
+
+  <div class="address-strip" aria-label="Schematische Hausnummernfolge an der Fuchstanzstraße">
+    <div class="numbers odd"><span>29</span><span>31</span><span>33</span><strong>35</strong></div>
+    <div class="street">Fuchstanzstraße <span class="axis">35 ↔ 34 · Summe 69</span></div>
+    <div class="numbers even"><span>24</span><span>26</span><span>28</span><span>30</span><span>32</span><strong>34</strong></div>
+  </div>
+
+  <div class="viz-controls">
+    <label class="form-label" for="php-heading">Gerätezeiger <output id="php-heading-value" class="tabular-nums">263°</output>
+      <input id="php-heading" class="form-range" type="range" min="240" max="285" value="263" step="1">
+    </label>
+    <label class="form-label" for="php-fov">Sichtfeld <output id="php-fov-value" class="tabular-nums">50°</output>
+      <input id="php-fov" class="form-range" type="range" min="30" max="70" value="50" step="2">
+    </label>
+  </div>
+
+  <svg id="php-svg" viewBox="0 0 760 360" role="img" aria-labelledby="php-title php-desc">
+    <title id="php-title">Horizontprojektion eines festen Bergpunkts</title>
+    <desc id="php-desc">Ein fester Zielpunkt bei Peilung 271,4 Grad und Höhe 1,8 Grad bewegt sich auf dem Bildschirm, wenn sich der Gerätezeiger ändert.</desc>
+    <defs>
+      <clipPath id="php-clip"><rect x="35" y="35" width="690" height="270"></rect></clipPath>
+    </defs>
+    <rect class="frame" x="35" y="35" width="690" height="270"></rect>
+    <g clip-path="url(#php-clip)">
+      <path class="dome" d="M75,246 Q380,42 685,246"></path>
+      <path class="terrain" d="M35,248 C105,238 150,250 210,240 C275,229 316,247 374,237 C440,226 490,242 545,234 C610,225 666,238 725,228"></path>
+      <line class="horizon" x1="35" y1="246" x2="725" y2="246"></line>
+      <line class="center-line" x1="380" y1="48" x2="380" y2="293"></line>
+      <circle class="reticle" cx="380" cy="246" r="54"></circle>
+      <line class="reticle-tick" x1="380" y1="181" x2="380" y2="211"></line>
+      <line class="reticle-tick" x1="380" y1="281" x2="380" y2="311"></line>
+      <line class="reticle-tick" x1="315" y1="246" x2="345" y2="246"></line>
+      <line class="reticle-tick" x1="415" y1="246" x2="445" y2="246"></line>
+      <g id="php-target">
+        <line class="target-stem" x1="0" y1="211" x2="0" y2="246"></line>
+        <circle class="target" cx="0" cy="211" r="7"></circle>
+        <text class="target-label" x="0" y="188" text-anchor="middle">Hahnenkopf · 271,4° · +1,8°</text>
+      </g>
+    </g>
+    <text class="muted-label" x="48" y="62">projizierte Himmels-/Horizontfläche</text>
+    <text class="muted-label" x="380" y="329" text-anchor="middle">Bildmitte = Gerätezeiger</text>
+    <text id="php-status" class="status-label" x="712" y="62" text-anchor="end">Ziel im Sichtfeld</text>
+  </svg>
+
+  <div id="php-detail" class="card" aria-live="polite">
+    <span>Fester Außenpunkt: <strong>271,4° / +1,8°</strong></span>
+    <span>Gerätezeiger: <strong id="php-device">263°</strong></span>
+    <span>Bildversatz: <strong id="php-offset">+8,4° rechts</strong></span>
+  </div>
+</div>
+
+<style>
+  #property-horizon-projection { color: var(--foreground); width: 100%; }
+  #property-horizon-projection h2 { margin-bottom: 12px; }
+  #property-horizon-projection .address-strip { margin-bottom: 16px; }
+  #property-horizon-projection .numbers { display: flex; justify-content: space-around; gap: 10px; padding: 7px 8px; }
+  #property-horizon-projection .numbers strong { color: var(--viz-series-1); }
+  #property-horizon-projection .street { border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 7px 10px; text-align: center; color: var(--muted-foreground); }
+  #property-horizon-projection .axis { color: var(--foreground); margin-left: 14px; }
+  #property-horizon-projection .viz-controls { margin-bottom: 8px; }
+  #property-horizon-projection .form-label { min-width: 230px; flex: 1; }
+  #property-horizon-projection .form-range { width: 100%; }
+  #property-horizon-projection #php-svg { display: block; width: 100%; height: auto; }
+  #property-horizon-projection .frame { fill: none; stroke: var(--border); }
+  #property-horizon-projection .dome { fill: none; stroke: var(--muted-foreground); stroke-width: 1.5; stroke-dasharray: 6 6; }
+  #property-horizon-projection .terrain { fill: none; stroke: var(--foreground); stroke-width: 2; }
+  #property-horizon-projection .horizon { stroke: var(--border); stroke-width: 1; }
+  #property-horizon-projection .center-line { stroke: var(--viz-series-2); stroke-width: 2; }
+  #property-horizon-projection .reticle { fill: none; stroke: var(--viz-series-2); stroke-width: 2; }
+  #property-horizon-projection .reticle-tick { stroke: var(--viz-series-2); stroke-width: 2; }
+  #property-horizon-projection .target-stem { stroke: var(--viz-series-1); stroke-width: 2; }
+  #property-horizon-projection .target { fill: var(--viz-series-1); }
+  #property-horizon-projection .target-label,
+  #property-horizon-projection .muted-label,
+  #property-horizon-projection .status-label { fill: var(--foreground); font-size: 12px; }
+  #property-horizon-projection .muted-label { fill: var(--muted-foreground); }
+  #property-horizon-projection .status-label { fill: var(--viz-series-1); }
+  #property-horizon-projection #php-detail { display: flex; justify-content: space-between; gap: 14px; flex-wrap: wrap; margin-top: 8px; }
+  @media (max-width: 520px) {
+    #property-horizon-projection .axis { display: block; margin-left: 0; }
+    #property-horizon-projection #php-detail { display: grid; }
+  }
+</style>
+
+<script>
+(() => {
+  const root = document.getElementById('property-horizon-projection');
+  const heading = root.querySelector('#php-heading');
+  const fov = root.querySelector('#php-fov');
+  const targetGroup = root.querySelector('#php-target');
+  const targetLabel = root.querySelector('.target-label');
+  const status = root.querySelector('#php-status');
+  const targetBearing = 271.4;
+  const plotCenter = 380;
+  const plotWidth = 690;
+
+  function render() {
+    const h = Number(heading.value);
+    const width = Number(fov.value);
+    const offset = targetBearing - h;
+    const x = plotCenter + (offset / width) * plotWidth;
+    const inside = Math.abs(offset) <= width / 2;
+    const direction = offset >= 0 ? 'rechts' : 'links';
+
+    targetGroup.setAttribute('transform', `translate(${x.toFixed(2)} 0)`);
+    targetLabel.setAttribute('text-anchor', x > 620 ? 'end' : x < 140 ? 'start' : 'middle');
+    root.querySelector('#php-heading-value').textContent = `${h.toFixed(0)}°`;
+    root.querySelector('#php-fov-value').textContent = `${width.toFixed(0)}°`;
+    root.querySelector('#php-device').textContent = `${h.toFixed(0)}°`;
+    root.querySelector('#php-offset').textContent = `${offset >= 0 ? '+' : '−'}${Math.abs(offset).toFixed(1).replace('.', ',')}° ${direction}`;
+    status.textContent = inside ? 'Ziel im Sichtfeld' : 'Ziel außerhalb des Sichtfelds';
+  }
+
+  heading.addEventListener('input', render);
+  fov.addEventListener('input', render);
+  render();
+})();
+</script>

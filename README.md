@@ -22,13 +22,15 @@ retain their own scope and status.
 
 Start with:
 
-1. [What the Lab currently knows](SCIENCE_LAB_MASTER_STATUS.md)
-2. [Maintained Study and report register](SCIENCE_LAB/LAB_REGISTER.md)
-3. [Science Lab Constitution](SCIENCE_LAB/LAB_CONSTITUTION.md)
-4. [Contributor and replicator onramp](SCIENCE_LAB/CONTRIBUTOR_ONRAMP.md)
-5. [Run Contract](SCIENCE_LAB/RUN_CONTRACT.md)
+1. [Current NEXAH total overview](SCIENCE_LAB/NEXAH_CURRENT_TOTAL_OVERVIEW_2026-09-18.md)
+2. [Research by school subject](SCIENCE_LAB/SUBJECT_OVERVIEW.md)
+3. [Maintained Study and report register](SCIENCE_LAB/LAB_REGISTER.md)
+4. [Science Lab Constitution](SCIENCE_LAB/LAB_CONSTITUTION.md)
+5. [Contributor and replicator onramp](SCIENCE_LAB/CONTRIBUTOR_ONRAMP.md)
+6. [Run Contract](SCIENCE_LAB/RUN_CONTRACT.md)
 
-Current public documentary release:
+Historical published release snapshot — retained for its dated release scope,
+not part of the currentness read path:
 
 - [NEXAH Grid and Observatory — scientific introduction, canonical grammar
   and executable visual fixtures](SCIENCE_LAB/REPORTS/NEXAH_GRID_OBSERVATORY_PUBLIC_RELEASE_2026-09-17/README.md)
@@ -49,7 +51,8 @@ or a completed report does not promote a scientific claim.
 
 | Need | Public entry |
 |---|---|
-| current bounded dispositions | [Master Status](SCIENCE_LAB_MASTER_STATUS.md) |
+| current readable whole | [Current total overview](SCIENCE_LAB/NEXAH_CURRENT_TOTAL_OVERVIEW_2026-09-18.md) |
+| research by subject | [Subject Overview](SCIENCE_LAB/SUBJECT_OVERVIEW.md) |
 | Studies and canonical reports | [Lab Register](SCIENCE_LAB/LAB_REGISTER.md) |
 | scientific lifecycle and result classes | [Science Lab Protocol](SCIENCE_LAB/PROTOCOLS/SCIENCE_LAB_PROTOCOL.md) |
 | research-cycle requirements | [Research-Cycle Lifecycle](SCIENCE_LAB/PROTOCOLS/RESEARCH_CYCLE_LIFECYCLE.md) |

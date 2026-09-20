@@ -1,0 +1,41 @@
+{
+  "schema": "nexah-compass-binder-acr-execution/0.2.0",
+  "case_id": "HZ_FZ_PUBLIC_01",
+  "adapter_contract": "hz-fz-contrast-compass:acr-coordinate-extension-v0.2",
+  "source_binder_sha256": "05171e5fa00828eb78a6bc8e0e92e906d8d3b3df7ccf6d812c2b0b17ca29a1fe",
+  "contract_sha256": "d7578cdaaf6f268209c75f4b706ff8815f0d67c80e4f46fcf87646e131f8db74",
+  "adapter_sequence_executed": [
+    "ACR33",
+    "ACR44"
+  ],
+  "preflight": {
+    "finite_values": true,
+    "same_unit": true,
+    "distinct_orientations": true,
+    "source_receipt_present": true,
+    "alignment_declared": true,
+    "profile_remains_fail_closed": true
+  },
+  "coordinate_lift": {
+    "input_A_delta_l_j_per_cycle": -14.243802704030088,
+    "input_B_delta_r_j_per_cycle": -41.56782632572731,
+    "M_midpoint_j_per_cycle": -27.9058145148787,
+    "S_side_j_per_cycle": 13.662011810848611,
+    "reconstructed_A": -14.243802704030088,
+    "reconstructed_B": -41.56782632572731,
+    "absolute_errors": [
+      0.0,
+      0.0
+    ],
+    "tolerance": 1e-12,
+    "pass": true
+  },
+  "decision": "PASS_REVERSIBLE_LOCAL_ADAPTER",
+  "profile_activation": false,
+  "claim_change": false,
+  "next_dormant_stages": [
+    "ACR35 projection warning",
+    "ACR43/45 event receipt"
+  ],
+  "execution_receipt_sha256": "3a2c1a7a5aa14c9c36ae919eecbe226aa8f6951c61ab55291c26c5cba3cf5beb"
+}
