@@ -1,0 +1,68 @@
+{
+  "record_id": "CARC01-2026-09-14",
+  "record_type": "DOCUMENTARY_CROSS_PROFILE_SYNTHESIS",
+  "status": "COMPLETE_NO_ACTIVATION",
+  "common_execution_spine": [
+    "CarrierRecord",
+    "ViewRecord",
+    "AddressMapRecord",
+    "OperatorRecord:Q_T_R",
+    "ObservationRecord",
+    "ReconstructionRecord",
+    "ResidualRecord",
+    "ILAUDecisionRecord",
+    "ExecutionReceipt"
+  ],
+  "semantic_governor": "OLS-RELEASE-1.0.0",
+  "execution_contract_reference": "CRIC-01/0.1.1",
+  "optional_complete_trace_contract_reference": "nexah.relation-record/0.1-candidate",
+  "profiles": [
+    {
+      "profile_id": "PRIME_CRT_QRTP_EXACT_ADDRESS",
+      "source": "00_INCOMING/THE_PRIME_GENESIS_CRT_ELEVATOR_QRT_FORMAT_LENS_GATE_01_2026-09-08/06_QRTP_CUT_RETURN_RESULTS.json",
+      "source_status": "SYNTHETIC_METHOD_TEST_ONLY",
+      "carrier": "N10537 residue fingerprint",
+      "frame": "CRT_FINGERPRINT_FRAME",
+      "persistent_addresses": [
+        "N10537:MOD7",
+        "N10537:MOD11",
+        "N10537:MOD13",
+        "N10537:MOD19",
+        "N10537:MOD20",
+        "N10537:MOD29",
+        "N10537:MOD37"
+      ],
+      "bounded_results": {
+        "full_vector": {"I": 7, "L": 0, "A": 0, "U": 0, "aggregate": 0, "status": "PASS"},
+        "one_residue_held": {"I": 6, "L": 0, "A": 0, "U": 1, "aggregate": 0, "status": "HOLD"}
+      },
+      "nrrc_trace_fit": "INCOMPLETE_K_GAMMA_D_C_PHI_NOT_DEFINED",
+      "cric_fit": "STRONG_CONCEPTUAL_PROFILE_BINDING_NOT_IMPLEMENTED_HERE"
+    },
+    {
+      "profile_id": "NBV01_NEON_VISIBILITY_LAYER",
+      "source": "NBV01_ILAU_CARTOGRAPHY_EYE_GATE_2026-09-04",
+      "source_status": "DETERMINISTIC_SYNTHETIC_TEST_WITH_ERRATUM",
+      "carrier": "frozen 128x128 synthetic scalar field",
+      "frame": "Cartesian grid with polar-disk roundtrip representation",
+      "bounded_results": {
+        "eligible_best_single_B5": {"I": 1045, "L": 77, "A": 0, "U": 25, "retention": 0.911072362685, "visibility_residual": 0.231453800172},
+        "strongest_multiband_C_EQUAL": {"I": 1066, "L": 60, "A": 0, "U": 21, "retention": 0.929380993897, "visibility_residual": 0.158605529749, "gap_preservation": 0.828571428571},
+        "base_mapping_normalized_l1": 0.276692027448,
+        "multiband_benefit": "NOT_ESTABLISHED"
+      },
+      "nrrc_trace_fit": "INCOMPLETE_WITHOUT_APPROVED_TRACE_EXTRACTOR_AND_PHI_RULE",
+      "cric_fit": "STRUCTURALLY_STRONG_ADAPTER_AND_PRODUCTION_IDENTITY_CONTRACT_ABSENT"
+    }
+  ],
+  "cross_profile_decision": {
+    "same_record_spine": true,
+    "same_domain_mechanism": false,
+    "same_ontology": false,
+    "shared_color_semantics": false,
+    "production_integration": false,
+    "research_activation": false
+  },
+  "claim_ceiling": "DOCUMENTARY_SYNTHESIS_OF_EXISTING_BOUNDED_EVIDENCE_ONLY"
+}
+
