@@ -75,6 +75,22 @@ coordinates and a named residual. It advances the mechanism and evidence
 chain, while leaving the broader Translation Fidelity publication result and
 its unresolved replay boundary unchanged.
 
+## Core integration
+
+The completed experiment is now docked into NEXAH Core as the separately
+versioned `IEEE Projection Fidelity Sidecar V1` on commit `53dd958c`. The Core
+implementation reads the already committed IEEE Geometry V1 frames, freezes
+the IEEE-9 fit, evaluates IEEE-14 without refit, reproduces this gate and
+exports a typed result contract. Geometry V1 and its G4 replay remain
+unchanged; the sidecar closes only the previously declared projection-
+comparison gap.
+
+Core entry points:
+
+- `APPLICATIONS/power_systems/ieee_projection_fidelity_v1/README.md`;
+- `nexah/power_systems/ieee_projection_fidelity.py`;
+- `validation/ieee_projection_fidelity_v1/`.
+
 ## Claim boundary
 
 Supported: exact quotient-residual reconstruction and bounded geometry-fidelity
@@ -84,4 +100,3 @@ IEEE-9 fitting.
 Not supported: electrical stability prediction, early warning, risk, causal
 inference, control, physical AXIS08 identity, universal optimality or a new
 mathematical theorem.
-
