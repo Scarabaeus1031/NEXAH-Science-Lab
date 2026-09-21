@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>NEXAH E8 · AXIS08 Repair Lab R1</title>
+<style>
+:root{color-scheme:dark;--bg:#030913;--panel:#081726;--line:#21445d;--cyan:#20d9ef;--amber:#ffb31c;--mint:#25e0ac;--pink:#ff3d91;--ink:#ecf6ff;--muted:#8aa1b8}*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 50% 25%,#0b2134,var(--bg) 60%);color:var(--ink);font:14px/1.45 system-ui,sans-serif}main{max-width:1180px;margin:auto;padding:24px}h1{margin:0;font-size:clamp(24px,4vw,44px)}.kicker,.boundary{color:var(--cyan);font-weight:800;letter-spacing:.13em;text-transform:uppercase}.grid{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(300px,.8fr);gap:18px;margin-top:20px}.panel{border:1px solid var(--line);background:#06111ed9;border-radius:14px;padding:16px}canvas{width:100%;height:560px;display:block}.controls{display:grid;grid-template-columns:1fr 1fr;gap:10px}.control{display:grid;gap:4px}.control input{width:100%;background:#020811;color:var(--ink);border:1px solid var(--line);padding:8px;border-radius:6px}.wide{grid-column:1/-1}.actions{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}button{border:1px solid var(--line);background:#0b2033;color:var(--ink);padding:9px 11px;border-radius:7px;cursor:pointer}button:hover{border-color:var(--cyan)}textarea{width:100%;height:220px;background:#020811;color:#cfe8ff;border:1px solid var(--line);border-radius:8px;padding:10px;font:11px/1.35 ui-monospace,monospace}.readout{display:grid;grid-template-columns:1fr auto;gap:7px;border-top:1px solid var(--line);padding-top:12px}.pass{color:var(--mint)}.fail{color:var(--pink)}small{color:var(--muted)}@media(max-width:820px){.grid{grid-template-columns:1fr}canvas{height:430px}}
+</style>
+</head>
+<body><main>
+<div class="kicker">Canonical repaired derivative · R1</div>
+<h1>E8 reference × numerical AXIS08 quotient</h1>
+<p class="boundary">Mathematical reference + declared model operator · physical identity not claimed</p>
+<div class="grid">
+  <section class="panel"><canvas id="field" width="760" height="560" aria-label="Eight poles and seven-coordinate quotient"></canvas></section>
+  <section class="panel">
+    <div class="controls">
+      <label class="control">p7 x<input id="p7x" type="number" step="0.1" value="-0.7"></label>
+      <label class="control">p7 y<input id="p7y" type="number" step="0.1" value="0.7"></label>
+      <label class="control">p8 x<input id="p8x" type="number" step="0.1" value="-0.7"></label>
+      <label class="control">p8 y<input id="p8y" type="number" step="0.1" value="-0.7"></label>
+      <label class="control">weight p7<input id="w7" type="number" step="0.1" value="1"></label>
+      <label class="control">weight p8<input id="w8" type="number" step="0.1" value="1"></label>
+      <label class="control wide">coupling log10 κ <input id="kappa" type="range" min="0" max="4" step="0.01" value="2"></label>
+      <label class="control wide">split ε <input id="epsilon" type="range" min="-1" max="1" step="0.01" value="0"></label>
+    </div>
+    <div class="actions"><button id="swap">Swap p7/p8 + weights</button><button id="identical">p7 = p8</button><button id="opposite">p7 = −p8</button></div>
+    <div class="readout"><span>E8 construction</span><b id="e8Status"></b><span>AXIS08 result q7</span><b id="quotient"></b><span>8 → 7 coordinates</span><b id="axisStatus"></b><span>State roundtrip</span><b id="roundtrip"></b></div>
+    <div class="actions"><button id="exportState">Write state</button><button id="importState">Import state</button></div>
+    <textarea id="stateText" spellcheck="false" aria-label="State record"></textarea>
+    <small>Ties use the lexicographically smallest canonical numeric point key. Zero-sum weights fail closed.</small>
+  </section>
+</div>
+</main><script src="e8_axis08_core.js"></script><script>
+"use strict";
+const core=globalThis.NexahE8Axis08,$=id=>document.getElementById(id),canvas=$("field"),ctx=canvas.getContext("2d"),ids=["p7x","p7y","p8x","p8y","w7","w8","kappa","epsilon"];
+function poles(){return Array.from({length:8},(_,i)=>{const a=-Math.PI/2+i*Math.PI/4;return[Math.cos(a),Math.sin(a)]}).map((p,i)=>i===6?[Number($("p7x").value),Number($("p7y").value)]:i===7?[Number($("p8x").value),Number($("p8y").value)]:p)}
+function state(){return core.normalizeState({poles:poles(),weights:[Number($("w7").value),Number($("w8").value)],couplingLog10:Number($("kappa").value),splitEpsilon:Number($("epsilon").value)})}
+function setState(s){$("p7x").value=s.poles[6][0];$("p7y").value=s.poles[6][1];$("p8x").value=s.poles[7][0];$("p8y").value=s.poles[7][1];$("w7").value=s.weights[0];$("w8").value=s.weights[1];$("kappa").value=s.couplingLog10;$("epsilon").value=s.splitEpsilon;draw()}
+function draw(){ctx.clearRect(0,0,canvas.width,canvas.height);const cx=canvas.width/2,cy=canvas.height/2,R=205,s=state();let q;try{q=core.weightedAxis08(s.poles,s.weights);$("axisStatus").textContent="PASS";$("axisStatus").className="pass";$("quotient").textContent=q.coupled.map(v=>v.toFixed(4)).join(", ")}catch(e){$("axisStatus").textContent="FAIL CLOSED";$("axisStatus").className="fail";$("quotient").textContent=e.message;return}ctx.strokeStyle="#21445d";ctx.beginPath();ctx.arc(cx,cy,R,0,Math.PI*2);ctx.stroke();const screen=s.poles.map(([x,y])=>[cx+x*R*.7,cy+y*R*.7]);ctx.strokeStyle="#4bb8ff";ctx.beginPath();screen.forEach((p,i)=>i?ctx.lineTo(...p):ctx.moveTo(...p));ctx.closePath();ctx.stroke();screen.forEach((p,i)=>{ctx.fillStyle=i>5?"#25e0ac":"#4bb8ff";ctx.beginPath();ctx.arc(...p,i>5?7:5,0,Math.PI*2);ctx.fill();ctx.fillStyle="#ecf6ff";ctx.fillText(`p${i+1}`,p[0]+9,p[1]-7)});const qp=[cx+q.coupled[0]*R*.7,cy+q.coupled[1]*R*.7];ctx.strokeStyle="#25e0ac";ctx.lineWidth=2+Number($("kappa").value);for(const i of [6,7]){ctx.beginPath();ctx.moveTo(...screen[i]);ctx.lineTo(...qp);ctx.stroke()}ctx.fillStyle="#ffb31c";ctx.beginPath();ctx.arc(...qp,8,0,Math.PI*2);ctx.fill();ctx.fillStyle="#ffb31c";ctx.fillText("q7 weighted quotient",qp[0]+12,qp[1]-10);const eps=Number($("epsilon").value);ctx.strokeStyle="#ff3d91";ctx.lineWidth=3;ctx.beginPath();ctx.moveTo(cx,cy-80);ctx.quadraticCurveTo(cx+eps*120,cy,cx,cy+80);ctx.stroke();const round=core.importState(core.exportState(s));$("roundtrip").textContent=core.stableState(round)===core.stableState(s)?"PASS":"FAIL";$("roundtrip").className=$("roundtrip").textContent.toLowerCase()}
+const audit=core.validateE8(core.constructE8Roots());$("e8Status").textContent=audit.pass?"PASS · 240 = 112 + 128":"FAIL";$("e8Status").className=audit.pass?"pass":"fail";ids.forEach(id=>$(id).addEventListener("input",draw));$("swap").onclick=()=>{const values=[$("p7x").value,$("p7y").value,$("w7").value];$("p7x").value=$("p8x").value;$("p7y").value=$("p8y").value;$("w7").value=$("w8").value;$("p8x").value=values[0];$("p8y").value=values[1];$("w8").value=values[2];draw()};$("identical").onclick=()=>{$("p8x").value=$("p7x").value;$("p8y").value=$("p7y").value;draw()};$("opposite").onclick=()=>{$("p8x").value=-Number($("p7x").value);$("p8y").value=-Number($("p7y").value);draw()};$("exportState").onclick=()=>{$("stateText").value=core.exportState(state())};$("importState").onclick=()=>{try{setState(core.importState($("stateText").value))}catch(e){$("roundtrip").textContent="FAIL CLOSED: "+e.message;$("roundtrip").className="fail"}};draw();$("exportState").click();
+</script></body></html>

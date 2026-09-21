@@ -19,17 +19,26 @@ Date: `2026-09-21`
 - Physical identity: not claimed
 - Existing Translation Fidelity or AXIS08 decision: unchanged
 
-## Decision
+## Repair R1
 
-`C — E8_DEMOS_PARTIALLY_REPRODUCIBLE_REPAIR_REQUIRED`
+- canonical offline operator: `REPAIR_R1/e8_axis08_core.js`
+- interactive audit harness: `REPAIR_R1/E8_AXIS08_REPAIR_LAB.html`
+- deterministic tests: `12/12 PASS`
+- E8 roots constructed in-browser/Node: `240 = 112 + 128`, norm squared `2`
+- numerical AXIS08: weighted affine quotient of p7 and p8
+- edge cases: swap, identity, opposition and zero-sum weights covered
+- Observer State roundtrip: lossless for the declared R1 schema
+- tie handling: canonical and independent of source-array order
 
-The package is reproducible at source, syntax, reference-mathematics and
-static-operator level. It does not satisfy a full runtime/browser validation,
-does not provide State export→reimport, and does not implement a numerical
-AXIS08 weighted quotient inside either HTML. Those limits are preserved rather
-than repaired during intake.
+## Decision after repair
+
+`B — E8_DEMOS_TECHNICALLY_VALID_MODEL_BOUNDARIES_RECORDED`
+
+The original package remains reproducible and immutable. Repair R1 closes the
+functional gaps through a canonical successor rather than rewriting intake
+evidence. Independent browser-console capture and regenerated screenshots
+remain environment-limited and are explicitly not claimed.
 
 `SAFE_TO_PAUSE`
 
 `SAFE_TO_STOP`
-

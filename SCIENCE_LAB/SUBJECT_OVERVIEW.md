@@ -77,7 +77,7 @@ reading map, not a ranking of truth.
 | Library, books and atlases | arts/cultural studies | science communication | authored Works, not scientific validation |
 | Field Glyph and Number Architecture | mixed: mathematics, design and cultural study | computer science | item-level authority; no universal decoder |
 | Rödelheim Observatory family | scientific visualization | education; cartography | executable visual fixtures |
-| [Milky Way · Pineal Aperture · Andromeda](CASE_STUDIES/E8_DEMOS_INTERACTIVE_ORIENTATION_2026-09-21/00_README.md) | scientific visualization and coordinate frames | astronomy interface; computer science; design | bounded HTML fixture; partial reproducibility; no astronomy measurement |
+| [Milky Way · Pineal Aperture · Andromeda](CASE_STUDIES/E8_DEMOS_INTERACTIVE_ORIENTATION_2026-09-21/00_README.md) | scientific visualization and coordinate frames | astronomy interface; computer science; design | bounded source fixture plus technically verified Repair R1; no astronomy measurement |
 | Earth Sky / Solar / Saturn–Titan / Uranus–Moons | astronomy orientation | cartography; visualization | schematic frames, not ephemerides |
 | Green Bridge · Loki | discrete mathematics/graph theory | visualization | Q4-to-Q3 projection, not physical 4D |
 | Closure Transit | systems and information design | visual analytics | operator-path teaching fixture |

@@ -411,7 +411,7 @@ Beobachterprojektionen. Beide HTMLs enthalten dieselben 240 vorprojizierten
 Punkte, berechnen aber weder die acht-dimensionalen Wurzeln noch einen
 numerischen gewichteten AXIS08-Quotienten im Browser. Der State-Record kann
 exportiert, aber nicht verlustfrei reimportiert werden. Der Intake-Status ist
-daher `E8_DEMOS_PARTIALLY_REPRODUCIBLE_REPAIR_REQUIRED`; daraus folgt keine
+daher nach dem separaten Repair R1 `E8_DEMOS_TECHNICALLY_VALID_MODEL_BOUNDARIES_RECORDED`; daraus folgt keine
 physikalische Identität, neue Capability oder Forschungsaktivierung. Das
 Paket liegt unter
 `SCIENCE_LAB/CASE_STUDIES/E8_DEMOS_INTERACTIVE_ORIENTATION_2026-09-21/`.
@@ -912,7 +912,7 @@ operativen Master umgedeutet.
   aufgenommen: sechs Quelldateien sind hashverifiziert; 240 Referenzwurzeln,
   acht Coxeter-Gruppen und die Q4-Struktur sind bestätigt. Browserlauf,
   State-Roundtrip und numerischer AXIS08-Quotient bleiben offen. Entscheidung:
-  `E8_DEMOS_PARTIALLY_REPRODUCIBLE_REPAIR_REQUIRED`; keine Aktivierung.
+  `E8_DEMOS_TECHNICALLY_VALID_MODEL_BOUNDARIES_RECORDED`; Repair R1 schließt den numerischen AXIS08-, Tie- und State-Roundtrip-Befund, weiterhin keine Aktivierung.
 
 [Science Lab Subject Overview](SUBJECT_OVERVIEW.md)
 

@@ -14,15 +14,19 @@ Both HTMLs embed the same 240 distinct two-dimensional points in eight groups
 of 30. Those points match the bound Coxeter-plane CSV after one uniform signed
 scale with maximum coordinate error below `5.03e-7`.
 
-Neither HTML constructs the 8D roots in-browser. Neither computes the
+Neither original HTML constructs the 8D roots in-browser. Neither computes the
 mass-weighted AXIS08 quotient. They draw a declared p7/p8-to-one-target model.
-The two drawings are related but not identical implementations. The larger
-MIWA demonstrator exports an Observer Record, but it has no State-record
-importer and explicitly rejects such records in its catalog importer.
+The two drawings are related but not identical implementations. These intake
+facts remain unchanged. Repair R1 adds a separate canonical successor that
+constructs the roots, computes the declared weighted quotient, defines a
+stable tie rule and provides lossless State-record import/export.
 
 Decision:
 
-`C — E8_DEMOS_PARTIALLY_REPRODUCIBLE_REPAIR_REQUIRED`
+`B — E8_DEMOS_TECHNICALLY_VALID_MODEL_BOUNDARIES_RECORDED`
+
+Repair evidence: `12/12 PASS`. Independent browser-console capture and
+regenerated screenshots remain `NOT_TESTABLE` in the available environment.
 
 ## Source inventory
 
@@ -119,7 +123,7 @@ is no State-record import path. Export→reimport therefore fails.
 
 ## AXIS08 comparison
 
-Status: `DIFFERENT`
+Original-source status: `DIFFERENT`
 
 The same conceptual drawing is duplicated with different formulas:
 
@@ -129,8 +133,37 @@ The same conceptual drawing is duplicated with different formulas:
 - MIWA split scale: `0.90R`.
 
 This is an implementation and parameter difference, not merely a camera or
-color difference. Neither implementation performs the numerical weighted
-quotient from the separate AXIS08 experiment.
+color difference. Neither original implementation performs the numerical
+weighted quotient from the separate AXIS08 experiment. Repair R1 supersedes
+both formulas for current use with one shared `weightedAxis08` implementation;
+the originals remain preserved as historical intake evidence.
+
+## Repair R1 verification
+
+Repair R1 is deliberately separated from `SOURCE_SNAPSHOT` and contains:
+
+- `e8_axis08_core.js`: one offline UMD module usable in Node and a browser;
+- `E8_AXIS08_REPAIR_LAB.html`: interactive numerical audit harness;
+- `test_repair.js`: deterministic fail-closed regression battery.
+
+The test battery passes all 12 checks:
+
+1. construction of 240 unique 8D E8 roots as 112 integer and 128 half roots;
+2. squared norm 2 for every constructed root;
+3. numerical weighted 8-to-7 AXIS08 quotient;
+4. swap invariance when poles and their weights are exchanged together;
+5. correct identical-pole result;
+6. correct opposite-pole result for equal weights;
+7. fail-closed zero-sum weights;
+8. input-order-independent nearest-point tie rule;
+9. fail-closed empty nearest-point set;
+10. lossless State export/import for the declared R1 schema;
+11. rejection of foreign State schemas and deterministic repeated state;
+12. bounded Node workload benchmark for 48×240 assignments repeated 100 times.
+
+The split parameter remains a visualization coordinate and is not presented as
+part of the affine quotient. Coupling changes display emphasis; the weights,
+not the styling control, define the numerical quotient.
 
 ## Invariants and observer-dependent quantities
 
@@ -145,16 +178,14 @@ quotient from the separate AXIS08 experiment.
 
 ## Open residuals
 
-Eight open residuals are retained:
+Two environment-bound residuals remain:
 
-1. no independent browser execution or console capture;
-2. no independently regenerated screenshots;
-3. 8D roots are reference-bound, not constructed by either HTML;
-4. no numerical AXIS08 weighted quotient;
-5. p7/p8 swap, identity and opposition cases are not input-testable;
-6. the two AXIS08 drawings are not implementation-identical;
-7. Observer Record export has no lossless reimport path;
-8. tie handling and mobile/runtime performance remain unqualified.
+1. no independent browser execution or console capture in the available local-file browser policy;
+2. no independently regenerated screenshots or mobile-browser profile.
+
+The former functional residuals are closed in Repair R1. The original files
+are not retroactively relabeled; their differences remain documented and their
+hashes remain unchanged.
 
 ## Known limits and nonclaims
 
@@ -171,9 +202,10 @@ The package does not establish:
 ## Final decision
 
 The artifacts are useful, bounded visual instruments with a verified
-mathematical reference and explicit nonclaim language. The missing runtime
-evidence, missing roundtrip and non-numerical operator prevent decisions A or
-B under the requested fail-closed rule.
+mathematical reference and explicit nonclaim language. Repair R1 supplies a
+deterministically tested canonical operator and record boundary. Decision A is
+still inappropriate because no physical theory, browser conformance campaign
+or independent scientific validation is claimed. Decision B now accurately
+describes the bounded technical result.
 
-`C — E8_DEMOS_PARTIALLY_REPRODUCIBLE_REPAIR_REQUIRED`
-
+`B — E8_DEMOS_TECHNICALLY_VALID_MODEL_BOUNDARIES_RECORDED`

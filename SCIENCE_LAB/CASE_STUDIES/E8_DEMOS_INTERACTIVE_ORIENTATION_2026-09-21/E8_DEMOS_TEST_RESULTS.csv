@@ -44,4 +44,15 @@ PERF-01,NEXAH_E8_AXIS08_Coupling.html,technical,performance,PARTIAL,draw throttl
 PERF-02,MIWA_PINEAP_AN_DROMEDA(1).html,technical,performance,PARTIAL,continuous animation and up to 11520 anchor distances per frame,no measured browser profile
 SHOT-01,NEXAH_E8_AXIS08_Coupling.png,visual,supplied preview,PASS,source PNG present,not independently regenerated in this environment
 SHOT-02,MIWA_Projection_Lab_Extension_Preview.png,visual,supplied preview,PASS,source PNG present,not independently regenerated in this environment
-
+R1-01,Repair R1,reference,construct E8 roots,PASS,240 unique roots equals 112 integer plus 128 even-parity half roots,norm squared 2
+R1-02,Repair R1,model,numerical AXIS08 quotient,PASS,weighted affine quotient produces seven coordinates,physical identity not claimed
+R1-03,Repair R1,model,p7 p8 swap,PASS,swap poles together with weights preserves quotient,declared weighted symmetry
+R1-04,Repair R1,model,identical poles,PASS,quotient equals common pole,zero residual separation
+R1-05,Repair R1,model,opposite poles,PASS,equal weights yield zero vector,model result only
+R1-06,Repair R1,model,zero-sum weights,PASS,fails closed with RangeError,no undefined quotient
+R1-07,Repair R1,observer projection,tie handling,PASS,lexicographically smallest canonical numeric key,independent of input order
+R1-08,Repair R1,record,State export and reimport,PASS,stable normalized R1 state is byte-equivalent after roundtrip,catalog data remains separate
+R1-09,Repair R1,record,foreign State schema,PASS,fails closed,explicit schema boundary
+R1-10,Repair R1,technical,deterministic repeat,PASS,identical normalized inputs produce identical state bytes,timestamps excluded from scientific state
+R1-11,Repair R1,technical,nearest workload benchmark,PASS,48x240x100 completed within 3 seconds in Node,not a browser or mobile profile
+R1-12,Repair R1,integration,canonical successor,PASS,one shared core replaces divergent source formulas,source snapshots remain immutable
