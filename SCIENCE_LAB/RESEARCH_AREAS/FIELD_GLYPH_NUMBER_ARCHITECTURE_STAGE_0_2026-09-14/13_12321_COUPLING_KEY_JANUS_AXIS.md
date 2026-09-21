@@ -683,6 +683,7 @@ distinguishable rather than typographic variants.
 
 ## Source locators
 
+- `SCIENCE_LAB/CASE_STUDIES/PTF_01_PALINDROMIC_JANUS_TRANSLATION_FIDELITY_2026-09-21/` — preregistered deterministic `3+1` view/binder conformance fixture; execution not authorized
 - `SCIENCE_LAB/CASE_STUDIES/T_RAN_S_FORMATION/Operator Test Results/JGQ01_DOWNLOAD/NEXAH_JANUS_GRID_QUOTIENT_AUDIT_JGQ01.md`
 - `SCIENCE_LAB/CASE_STUDIES/T_RAN_S_FORMATION/Operator Test Results/JGQ01_DOWNLOAD/JGQ01_NEGATIVE_CONTROLS.md`
 - `SCIENCE_LAB/CASE_STUDIES/T_RAN_S_FORMATION/Operator Test Results/DMO01_DOWNLOAD/DMO01_FINAL_REPORT.md`

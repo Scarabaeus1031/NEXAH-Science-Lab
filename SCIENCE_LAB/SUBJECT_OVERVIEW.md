@@ -4,10 +4,25 @@ Date: `2026-09-20`
 
 Status: `CURRENT_NAVIGATION_VIEW / NO_STATUS_OR_AUTHORITY_TRANSFER`
 
-This is the school-subject view of the Science Lab. It answers “which subject
-does this belong to?” without moving evidence or changing a Study result.
-The Lab Register remains the status navigator; case-study packages retain
+This is the school-subject entrance to the Science Lab. It answers “which
+subject does this belong to?” and now points onward to the more useful
+questions: what was investigated, what was found, where the finding ends and
+who should review it.
+
+Start with the [Artifact and Significance Catalog](ARTIFACT_CATALOG/README.md)
+when the question is why a family matters rather than only which subject owns
+it. The Lab Register remains the status navigator; case-study packages retain
 evidence authority; Mission Control retains the current portfolio view.
+
+## Two complementary views
+
+| View | Use it when asking |
+|---|---|
+| This Subject Overview | Which discipline or school subject helps me enter the material? |
+| [Artifact and Significance Catalog](ARTIFACT_CATALOG/README.md) | What did NEXAH investigate or find and why might someone inspect it? |
+
+Neither view promotes a candidate into a scientific result. They provide
+navigation to the owning evidence and its declared boundary.
 
 ## Maintained subject shelves
 
