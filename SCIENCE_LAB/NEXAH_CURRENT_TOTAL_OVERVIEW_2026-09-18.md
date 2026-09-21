@@ -417,6 +417,19 @@ ohne die Quelldateien umzuschreiben. Der aktuelle Status ist daher
 physikalische Identität, neue Capability oder Forschungsaktivierung. Das Paket liegt unter
 `SCIENCE_LAB/CASE_STUDIES/E8_DEMOS_INTERACTIVE_ORIENTATION_2026-09-21/`.
 
+Auf dieser technischen Grundlage wurde **AXIS08-QRR-01 — Quotient–Residual
+Reconstruction** als eigener, preregistrierter Translation-Fidelity-Test
+ausgeführt. Für den deklarierten gewichteten Quotienten ist die verlorene
+Kernelrichtung algebraisch bestimmt. In zehn synthetischen Familien-/Gewichts-
+zellen war der Quotient gegenüber diesen Gegenfakten blind, während Quotient
+plus Differenzresiduum alle Fälle erkannte und mit maximal
+`8.881784197001252e-16` Fehler rekonstruierte; zwei E8-Kalibrierungen waren
+exakt. Das ist ein begrenzter positiver Methodenbefund, keine neue lineare
+Algebra und kein Kompressionsvorteil: Quotient plus Residuum speichert wieder
+acht Skalare. Der Transfer auf IEEE-9/14 bleibt angehalten, bis ein
+fachlich begründetes achtkomponentiges Zustandsobjekt und ein vorab begründetes
+Koordinatenpaar nachgewiesen sind.
+
 Die Zusammenführung ist wichtig, weil sie den methodischen Kern, die
 wissenschaftlichen Prüfungen und die vorhandenen technischen Bausteine als
 einen lesbaren Zusammenhang zeigt. Sie ist dennoch nur eine
@@ -916,6 +929,10 @@ operativen Master umgedeutet.
   State-Roundtrip mit 12/12 Tests. Offen bleiben nur unabhängige
   Browser-/Screenshot-Evidenz. Entscheidung:
   `E8_DEMOS_TECHNICALLY_VALID_MODEL_BOUNDARIES_RECORDED`; weiterhin keine Aktivierung.
+- AXIS08-QRR-01 bestätigt in einem vorab eingefrorenen Phase-A-Test die exakte
+  Suffizienz eines expliziten Differenzresiduums für den deklarierten
+  gewichteten Quotienten. Der IEEE-Transfer bleibt am Semantik-Gate; keine
+  Power-System-, Frühwarn-, Risiko- oder Kontrollaussage wurde aktiviert.
 
 [Science Lab Subject Overview](SUBJECT_OVERVIEW.md)
 

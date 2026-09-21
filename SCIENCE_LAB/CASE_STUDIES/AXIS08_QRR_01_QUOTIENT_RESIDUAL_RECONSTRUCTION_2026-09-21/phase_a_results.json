@@ -1,0 +1,134 @@
+{
+  "protocol_id": "AXIS08-QRR-01",
+  "protocol_sha256": "554525d6d9a3ea57001f525da565e130a1936c07ac4037bbf46e6d621f7b8199",
+  "status": "PASS",
+  "primary": [
+    {
+      "family": "independent",
+      "weights": [
+        1.0,
+        1.0
+      ],
+      "exact_max_error": 4.440892098500626e-16,
+      "q_kernel_max_distance": 2.220446049250313e-16,
+      "qr_kernel_detection_rate": 1.0
+    },
+    {
+      "family": "independent",
+      "weights": [
+        3.0,
+        1.0
+      ],
+      "exact_max_error": 4.440892098500626e-16,
+      "q_kernel_max_distance": 4.440892098500626e-16,
+      "qr_kernel_detection_rate": 1.0
+    },
+    {
+      "family": "correlated_pair",
+      "weights": [
+        1.0,
+        1.0
+      ],
+      "exact_max_error": 4.440892098500626e-16,
+      "q_kernel_max_distance": 4.440892098500626e-16,
+      "qr_kernel_detection_rate": 1.0
+    },
+    {
+      "family": "correlated_pair",
+      "weights": [
+        3.0,
+        1.0
+      ],
+      "exact_max_error": 4.440892098500626e-16,
+      "q_kernel_max_distance": 4.440892098500626e-16,
+      "qr_kernel_detection_rate": 1.0
+    },
+    {
+      "family": "near_identical_pair",
+      "weights": [
+        1.0,
+        1.0
+      ],
+      "exact_max_error": 4.440892098500626e-16,
+      "q_kernel_max_distance": 4.440892098500626e-16,
+      "qr_kernel_detection_rate": 1.0
+    },
+    {
+      "family": "near_identical_pair",
+      "weights": [
+        3.0,
+        1.0
+      ],
+      "exact_max_error": 4.440892098500626e-16,
+      "q_kernel_max_distance": 8.881784197001252e-16,
+      "qr_kernel_detection_rate": 1.0
+    },
+    {
+      "family": "near_opposite_pair",
+      "weights": [
+        1.0,
+        1.0
+      ],
+      "exact_max_error": 4.440892098500626e-16,
+      "q_kernel_max_distance": 2.220446049250313e-16,
+      "qr_kernel_detection_rate": 1.0
+    },
+    {
+      "family": "near_opposite_pair",
+      "weights": [
+        3.0,
+        1.0
+      ],
+      "exact_max_error": 8.881784197001252e-16,
+      "q_kernel_max_distance": 4.440892098500626e-16,
+      "qr_kernel_detection_rate": 1.0
+    },
+    {
+      "family": "rare_kernel_events",
+      "weights": [
+        1.0,
+        1.0
+      ],
+      "exact_max_error": 8.881784197001252e-16,
+      "q_kernel_max_distance": 2.220446049250313e-16,
+      "qr_kernel_detection_rate": 1.0
+    },
+    {
+      "family": "rare_kernel_events",
+      "weights": [
+        3.0,
+        1.0
+      ],
+      "exact_max_error": 8.881784197001252e-16,
+      "q_kernel_max_distance": 8.881784197001252e-16,
+      "qr_kernel_detection_rate": 1.0
+    }
+  ],
+  "e8_calibration": [
+    {
+      "weights": [
+        1.0,
+        1.0
+      ],
+      "root_count": 240,
+      "max_reconstruction_error": 0.0
+    },
+    {
+      "weights": [
+        3.0,
+        1.0
+      ],
+      "root_count": 240,
+      "max_reconstruction_error": 0.0
+    }
+  ],
+  "zero_sum_rejected": true,
+  "ieee_pegase_executed": false,
+  "decision": "PHASE_A_EXACT_RESIDUAL_SUFFICIENCY_CONFIRMED",
+  "nonclaims": [
+    "no novel linear algebra",
+    "no universal optimality",
+    "no physical identity",
+    "no IEEE prediction or control"
+  ]
+}

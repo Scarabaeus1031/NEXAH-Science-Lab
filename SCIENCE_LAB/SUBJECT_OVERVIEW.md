@@ -65,6 +65,7 @@ reading map, not a ranking of truth.
 | OLS and ILAU | theoretical computer science | formal methods; semantics | normative/bounded language |
 | CRIC and NRRC records | computer science | provenance; data engineering | bounded record contracts |
 | Translation Fidelity studies | information theory | statistics; inverse problems | strongest near-publication scientific line |
+| [AXIS08 Quotient–Residual Reconstruction](CASE_STUDIES/AXIS08_QRR_01_QUOTIENT_RESIDUAL_RECONSTRUCTION_2026-09-21/04_PHASE_A_RESULTS.md) | linear algebra and information loss | inverse problems; dimensionality reduction; numerical methods | Phase A confirms exact residual sufficiency for one declared quotient; IEEE transfer gated |
 | ORION certified core and O8 | computer science/engineering | algebra; metrology | tested bounded components |
 | Prime, CRT, QRTp and 1728/1729 | mathematics | computer science fixtures | exact bounded results; no new number theory |
 | HZ/FZ and SMA phase family | physics | statistics; signal processing | external-data bounded empirical result |

@@ -1,6 +1,6 @@
 # AXIS08-QRR-01 — Quotient–Residual Reconstruction
 
-Status: `PREREGISTERED_PHASE_A_EXECUTION_AUTHORIZED`
+Status: `PHASE_A_EXACT_RESIDUAL_SUFFICIENCY_CONFIRMED`
 
 Question: Can a declared AXIS08 quotient identify its lost kernel direction,
 and can an explicit residual restore reconstruction without being confused
@@ -31,3 +31,16 @@ Run Phase A with the bundled scientific Python runtime:
 python3 run_phase_a.py
 ```
 
+## Phase A result
+
+- primary cells: `10/10 PASS`
+- E8 calibrations: `2/2 PASS`
+- metric rows: `60`
+- exact quotient-plus-residual reconstruction maximum error:
+  `8.881784197001252e-16`
+- quotient-only kernel counterfactual maximum distance:
+  `8.881784197001252e-16` (numerical zero; blind as predicted)
+- quotient-plus-residual kernel-event detection: `1.0`
+- IEEE/PEGASE executed: `NO`
+
+See `04_PHASE_A_RESULTS.md` and `phase_a_results.json`.
