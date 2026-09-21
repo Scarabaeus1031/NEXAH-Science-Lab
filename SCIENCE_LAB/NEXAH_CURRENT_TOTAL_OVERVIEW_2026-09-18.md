@@ -404,6 +404,18 @@ keine Identitätsbehauptung und keinen neuen Anspruch für `111` oder `12321`.
 Die Spezifikation liegt unter
 `SCIENCE_LAB/CASE_STUDIES/PTF_01_PALINDROMIC_JANUS_TRANSLATION_FIDELITY_2026-09-21/`.
 
+Als gebundener Kalibrierungs- und Demonstratorfall ist außerdem **E8 DEMOS**
+aufgenommen. Die bekannte E8-/Coxeter-Mathematik dient als Positivkontrolle;
+die AXIS08- und Qι/Pearl-Ebenen bleiben deklarierte Modell- beziehungsweise
+Beobachterprojektionen. Beide HTMLs enthalten dieselben 240 vorprojizierten
+Punkte, berechnen aber weder die acht-dimensionalen Wurzeln noch einen
+numerischen gewichteten AXIS08-Quotienten im Browser. Der State-Record kann
+exportiert, aber nicht verlustfrei reimportiert werden. Der Intake-Status ist
+daher `E8_DEMOS_PARTIALLY_REPRODUCIBLE_REPAIR_REQUIRED`; daraus folgt keine
+physikalische Identität, neue Capability oder Forschungsaktivierung. Das
+Paket liegt unter
+`SCIENCE_LAB/CASE_STUDIES/E8_DEMOS_INTERACTIVE_ORIENTATION_2026-09-21/`.
+
 Die Zusammenführung ist wichtig, weil sie den methodischen Kern, die
 wissenschaftlichen Prüfungen und die vorhandenen technischen Bausteine als
 einen lesbaren Zusammenhang zeigt. Sie ist dennoch nur eine
@@ -896,6 +908,11 @@ operativen Master umgedeutet.
 - Open-Fracture- und Non-Identity-Tafeln sind als visuelle Review-Sprache
   eingeordnet, nicht als neue ORION-Capability oder wissenschaftlicher Befund.
 - Forschungsprogramme, Evidenzpakete und Claim-Grenzen bleiben getrennt.
+- E8 DEMOS ist als ein Demonstratorpaket mit gebundener E8-Referenz
+  aufgenommen: sechs Quelldateien sind hashverifiziert; 240 Referenzwurzeln,
+  acht Coxeter-Gruppen und die Q4-Struktur sind bestätigt. Browserlauf,
+  State-Roundtrip und numerischer AXIS08-Quotient bleiben offen. Entscheidung:
+  `E8_DEMOS_PARTIALLY_REPRODUCIBLE_REPAIR_REQUIRED`; keine Aktivierung.
 
 [Science Lab Subject Overview](SUBJECT_OVERVIEW.md)
 

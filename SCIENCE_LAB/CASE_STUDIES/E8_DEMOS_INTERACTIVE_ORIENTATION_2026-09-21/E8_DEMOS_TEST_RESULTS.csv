@@ -1,0 +1,47 @@
+test_id,artifact,layer,test_case,status,measured,interpretation
+SRC-01,package,custody,source file count,PASS,6,complete E8 DEMOS folder captured
+SRC-02,package,custody,SHA-256 source verification,PASS,6/6,source copies are byte-identical
+HTML-A-01,NEXAH_E8_AXIS08_Coupling.html,technical,HTML and JavaScript syntax,PASS,one inline script,static syntax valid
+HTML-A-02,NEXAH_E8_AXIS08_Coupling.html,technical,external dependencies,PASS,none,self-contained offline source
+HTML-A-03,NEXAH_E8_AXIS08_Coupling.html,technical,canvas and controls,PASS,one canvas two ranges flip and PNG export,static binding present
+HTML-A-04,NEXAH_E8_AXIS08_Coupling.html,technical,browser console,NOT_TESTABLE,browser local-file navigation blocked,no independent runtime console capture
+HTML-A-05,NEXAH_E8_AXIS08_Coupling.html,technical,responsive declaration,PASS,780px breakpoint,visual browser check remains open
+E8-01,E8 reference,reference,240 roots,PASS,240,verified from bound 8D CSV
+E8-02,E8 reference,reference,unique roots,PASS,240,verified from bound 8D CSV
+E8-03,E8 reference,reference,norm squared,PASS,max error 0,all bound vectors have norm squared 2
+E8-04,E8 reference,reference,root construction classes,PASS,112 plus 128,integer and even-parity half-root classes
+E8-05,both HTMLs,representation,embedded projected points,PASS,240 unique and 8x30,both arrays are identical
+E8-06,both HTMLs,representation,bound projection comparison,PASS,max error 5.03e-7,uniform signed scale links embedded array to bound Coxeter CSV
+AXIS-A-01,NEXAH_E8_AXIS08_Coupling.html,model,kappa 0,PASS,inner radius 0.27R and weaker styling,display parameter only
+AXIS-A-02,NEXAH_E8_AXIS08_Coupling.html,model,small positive kappa,PASS,linear interpolation by t=kappa_slider/4,display parameter only
+AXIS-A-03,NEXAH_E8_AXIS08_Coupling.html,model,large positive kappa,PASS,inner radius up to 0.35R and stronger styling,not a physical or mass-weighted coupling
+AXIS-A-04,NEXAH_E8_AXIS08_Coupling.html,model,epsilon 0,PASS,unbent center curve,display invariant counts unchanged
+AXIS-A-05,NEXAH_E8_AXIS08_Coupling.html,model,positive and negative split,PASS,mirror bend sign,representation change only
+AXIS-A-06,NEXAH_E8_AXIS08_Coupling.html,model,swap p7 and p8,NOT_TESTABLE,no swap control,fixed symmetric drawing only
+AXIS-A-07,NEXAH_E8_AXIS08_Coupling.html,model,identical p7 equals p8,NOT_TESTABLE,fixed distinct octagon positions,no degenerate-pole input
+AXIS-A-08,NEXAH_E8_AXIS08_Coupling.html,model,opposite p7 equals minus p8,NOT_TESTABLE,fixed adjacent octagon positions,no opposite-pole input
+HTML-B-01,MIWA_PINEAP_AN_DROMEDA(1).html,technical,HTML and JavaScript syntax,PASS,one inline script,static syntax valid
+HTML-B-02,MIWA_PINEAP_AN_DROMEDA(1).html,technical,external dependencies,PASS,none plus local CSV link,self-contained offline source
+HTML-B-03,MIWA_PINEAP_AN_DROMEDA(1).html,technical,navigation frames,PASS,9,E8 and Tessarec frames present
+HTML-B-04,MIWA_PINEAP_AN_DROMEDA(1).html,technical,responsive declaration,PASS,1180 900 and 720px breakpoints,visual browser check remains open
+IMPORT-01,MIWA Star Map,observer projection,empty catalog,PASS,rejected as no valid star rows,fail-closed import
+IMPORT-02,MIWA Star Map,observer projection,single point,PASS,accepted when carrier and x/y or ra/dec exist,extent floor avoids division by zero
+IMPORT-03,MIWA Star Map,observer projection,two identical points,PASS,both retained without deduplication,nearest-anchor tie follows source order
+IMPORT-04,MIWA Star Map,observer projection,symmetric dataset,PASS,deterministic normalization,no physical symmetry inference
+IMPORT-05,MIWA Star Map,observer projection,supplied template,PASS,16 rows with ra/dec,template schema parses
+IMPORT-06,MIWA Star Map,observer projection,JSON catalog support,PASS,array or named star-list containers,State records deliberately rejected
+MAP-01,MIWA Star Map,observer projection,nearest E8 root,PASS,strict less-than scan over 240 points,deterministic but order-dependent tie rule
+Q4-01,MIWA Tessarec,reference,Q4 node count,PASS,16,all four-bit sign states
+Q4-02,MIWA Tessarec,reference,Q4 edge count,PASS,32,one edge for each one-bit difference
+Q4-03,MIWA Tessarec,observer projection,extreme sliders,PASS,bounded numeric ranges,static formulas remain finite
+CUT-01,MIWA Tessarec,observer projection,cut hits,PASS,bounded distance and aperture predicate,observer-frame selection only
+EXPORT-01,MIWA Observer Record,record,projection parameter export,PASS,kappa epsilon q-layer angle depth direction,boundary strings included
+EXPORT-02,MIWA Observer Record,record,export and reimport,FAIL,no State-record importer,catalog importer explicitly rejects exported records
+COMPARE-01,both HTMLs,model,AXIS08 implementation equality,FAIL,DIFFERENT,related concept but different drawing formulas
+COMPARE-02,both HTMLs,model,numerical weighted quotient,FAIL,absent,p7 and p8 only route visually to one drawn target
+DET-01,both HTMLs,technical,deterministic identical state,PARTIAL,seeded data deterministic but time-driven rotation and timestamp vary,pause/fixed time required for identical frame bytes
+PERF-01,NEXAH_E8_AXIS08_Coupling.html,technical,performance,PARTIAL,draw throttled near 14 fps,no measured browser profile
+PERF-02,MIWA_PINEAP_AN_DROMEDA(1).html,technical,performance,PARTIAL,continuous animation and up to 11520 anchor distances per frame,no measured browser profile
+SHOT-01,NEXAH_E8_AXIS08_Coupling.png,visual,supplied preview,PASS,source PNG present,not independently regenerated in this environment
+SHOT-02,MIWA_Projection_Lab_Extension_Preview.png,visual,supplied preview,PASS,source PNG present,not independently regenerated in this environment
+

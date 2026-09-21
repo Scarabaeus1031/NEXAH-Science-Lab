@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>NEXAH E8 AXIS08 Coupling</title>
+<style>
+  :root { color-scheme: dark; --bg:#071019; --panel:#0b1824; --ink:#e8f1f7; --muted:#8da2b3; --line:#244054; --cyan:#62d9ff; --blue:#2b8cff; --amber:#ffc85b; --green:#63e6ad; --magenta:#ff69c8; --red:#ff786f; }
+  * { box-sizing:border-box; }
+  html,body { margin:0; min-height:100%; background:var(--bg); color:var(--ink); font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; }
+  body { display:grid; place-items:center; padding:18px; }
+  .shell { width:min(1600px,100%); }
+  header { display:flex; align-items:flex-end; justify-content:space-between; gap:22px; margin:0 0 12px; }
+  .kicker { color:var(--amber); letter-spacing:.14em; font-size:12px; font-weight:700; text-transform:uppercase; }
+  h1 { margin:5px 0 0; font-size:clamp(22px,3vw,42px); line-height:1; font-weight:650; letter-spacing:-.03em; }
+  .status { color:var(--muted); text-align:right; font-size:13px; max-width:500px; line-height:1.4; }
+  .stage { position:relative; aspect-ratio:16/9; min-height:520px; background:radial-gradient(circle at 50% 48%,#112638 0,#091522 52%,#050b11 100%); overflow:hidden; border:1px solid #173043; }
+  canvas { width:100%; height:100%; display:block; }
+  .legend { position:absolute; left:20px; top:18px; display:flex; flex-wrap:wrap; gap:10px 16px; font-size:12px; color:var(--muted); pointer-events:none; }
+  .legend span { display:inline-flex; align-items:center; gap:7px; }
+  .swatch { width:12px; height:3px; display:inline-block; }
+  .controls { display:grid; grid-template-columns:1.25fr 1.25fr auto auto; gap:14px; align-items:end; margin-top:12px; }
+  .control { min-width:0; }
+  label { display:flex; justify-content:space-between; gap:12px; color:var(--muted); font-size:12px; margin-bottom:7px; }
+  output { color:var(--ink); font-variant-numeric:tabular-nums; }
+  input[type=range] { width:100%; accent-color:var(--amber); }
+  button { appearance:none; border:1px solid var(--line); background:var(--panel); color:var(--ink); min-height:42px; padding:0 15px; font:inherit; }
+  button:hover { border-color:var(--cyan); }
+  .gate { display:grid; grid-template-columns:repeat(3,1fr); gap:1px; margin-top:12px; background:var(--line); border:1px solid var(--line); }
+  .gate div { background:var(--panel); padding:10px 12px; min-width:0; }
+  .gate b { display:block; font-size:11px; letter-spacing:.08em; text-transform:uppercase; margin-bottom:3px; }
+  .gate span { color:var(--muted); font-size:12px; }
+  @media(max-width:780px) { body{padding:10px} header{align-items:flex-start;flex-direction:column} .status{text-align:left} .stage{min-height:430px;aspect-ratio:auto} .controls{grid-template-columns:1fr 1fr} .gate{grid-template-columns:1fr} }
+</style>
+</head>
+<body>
+<main class="shell">
+  <header>
+    <div><div class="kicker">NEXAH projection bridge</div><h1>E8 field × AXIS08 quotient</h1></div>
+    <div class="status">Reference geometry → explicit projection interface → eight physical poles → one coupled pair → seven effective coordinates</div>
+  </header>
+  <section class="stage" aria-label="Interactive projection of the 240 E8 roots coupled to the NEXAH AXIS08 operator model">
+    <canvas id="field" width="1600" height="900"></canvas>
+    <div class="legend" aria-hidden="true">
+      <span><i class="swatch" style="background:var(--cyan)"></i>E8 Coxeter plane · 240 roots</span>
+      <span><i class="swatch" style="background:var(--blue)"></i>8 physical poles</span>
+      <span><i class="swatch" style="background:var(--green)"></i>coupled pair</span>
+      <span><i class="swatch" style="background:var(--amber)"></i>7-coordinate quotient</span>
+      <span><i class="swatch" style="background:var(--magenta)"></i>split axis</span>
+    </div>
+  </section>
+  <section class="controls" aria-label="Model controls">
+    <div class="control"><label for="coupling">Pair coupling κ <output id="kout">10⁴</output></label><input id="coupling" type="range" min="0" max="4" step="0.01" value="4"></div>
+    <div class="control"><label for="split">Axis split ε <output id="sout">+0.223</output></label><input id="split" type="range" min="-0.25" max="0.25" step="0.001" value="0.223"></div>
+    <button id="flip" type="button">Janus flip</button>
+    <button id="export" type="button">Export PNG</button>
+  </section>
+  <section class="gate" aria-label="Evidence boundary">
+    <div><b style="color:var(--cyan)">E8</b><span>Established 240-root reference geometry</span></div>
+    <div><b style="color:var(--amber)">AXIS08</b><span>Weighted quotient supported in the tested linear model</span></div>
+    <div><b style="color:var(--red)">Bridge</b><span>Visual coupling hypothesis · physical identity not established</span></div>
+  </section>
+</main>
+<script>
+const ROOTS=[[0.104528,-0.491768,3],[-0.104528,0.321706,1],[0.104528,-0.321706,1],[-0.104528,0.491768,3],[0.169131,-0.292943,1],[-0.169131,0.122881,0],[0.169131,-0.122881,0],[-0.169131,0.292943,1],[0.190983,-0.085031,0],[-0.190983,-0.085031,0],[0.190983,0.085031,0],[-0.190983,0.085031,0],[0.169131,0.122881,0],[-0.169131,-0.292943,1],[0.169131,0.292943,1],[-0.169131,-0.122881,0],[0.104528,0.321706,1],[-0.104528,-0.491768,3],[0.104528,0.491768,3],[-0.104528,-0.321706,1],[0.0,0.502754,3],[-0.0,-0.672816,5],[0.0,0.672816,5],[-0.0,-0.502754,3],[0.809017,-0.085031,6],[-0.809017,-0.085031,6],[0.809017,0.085031,6],[-0.809017,0.085031,6],[0.273659,-0.614648,5],[-0.064602,-0.198825,0],[0.064602,0.198825,0],[-0.273659,0.614648,5],[0.295511,-0.406737,3],[-0.086455,-0.406737,2],[0.086455,0.406737,2],[-0.295511,0.406737,3],[0.273659,-0.198825,1],[-0.064602,-0.614648,4],[0.064602,0.614648,4],[-0.273659,0.198825,1],[0.209057,-0.0,0],[-0.0,-0.813473,6],[0.0,0.813473,6],[-0.209057,0.0,0],[0.104528,0.181049,0],[0.104528,-0.994522,7],[-0.104528,0.994522,7],[-0.104528,-0.181049,0],[0.913545,-0.406737,7],[-0.704489,-0.406737,6],[0.704489,0.406737,6],[-0.913545,0.406737,7],[0.360114,-0.207912,2],[-0.021852,-0.207912,0],[0.021852,0.207912,0],[-0.360114,0.207912,2],[0.338261,-0.0,1],[-0.0,-0.415823,2],[0.0,0.415823,2],[-0.338261,0.0,1],[0.273659,0.198825,1],[0.064602,-0.614648,4],[-0.064602,0.614648,4],[-0.273659,-0.198825,1],[0.169131,0.379874,2],[0.169131,-0.795697,6],[-0.169131,0.795697,6],[-0.169131,-0.379874,2],[0.978148,-0.207912,7],[-0.639886,-0.207912,5],[0.639886,0.207912,5],[-0.978148,0.207912,7],[0.360114,0.207912,2],[0.021852,-0.207912,0],[-0.021852,0.207912,0],[-0.360114,-0.207912,2],[0.295511,0.406737,3],[0.086455,-0.406737,2],[-0.086455,0.406737,2],[-0.295511,-0.406737,3],[0.190983,0.587785,4],[0.190983,-0.587785,4],[-0.190983,0.587785,4],[-0.190983,-0.587785,4],[1.0,-0.0,7],[-0.618034,0.0,4],[0.618034,-0.0,4],[-1.0,0.0,7],[0.273659,0.614648,5],[0.064602,-0.198825,0],[-0.064602,0.198825,0],[-0.273659,-0.614648,5],[0.169131,0.795697,6],[0.169131,-0.379874,2],[-0.169131,0.379874,2],[-0.169131,-0.795697,6],[0.978148,0.207912,7],[-0.639886,0.207912,5],[0.639886,-0.207912,5],[-0.978148,-0.207912,7],[0.104528,0.994522,7],[0.104528,-0.181049,0],[-0.104528,0.181049,0],[-0.104528,-0.994522,7],[0.913545,0.406737,7],[-0.704489,0.406737,6],[0.704489,-0.406737,6],[-0.913545,-0.406737,7],[0.809017,0.587785,7],[-0.809017,0.587785,7],[0.809017,-0.587785,7],[-0.809017,-0.587785,7],[0.773659,0.251377,6],[-0.035358,-0.336408,1],[-0.139886,-0.15536,0],[0.669131,-0.743145,7],[-0.204489,0.043465,0],[0.604528,-0.54432,6],[0.5,-0.363271,4],[-0.309017,-0.951057,7],[-0.226341,0.251377,1],[0.582676,-0.336408,5],[0.478148,-0.15536,3],[-0.330869,-0.743145,6],[0.413545,0.043465,2],[-0.395472,-0.54432,5],[-0.5,-0.363271,4],[0.309017,-0.951057,7],[-0.204489,0.459289,3],[0.604528,-0.128496,4],[0.5,0.052552,3],[-0.309017,-0.535233,4],[0.435398,0.251377,3],[-0.373619,-0.336408,3],[-0.478148,-0.15536,3],[0.330869,-0.743145,6],[0.413545,0.459289,4],[-0.395472,-0.128496,2],[-0.5,0.052552,3],[0.309017,-0.535233,4],[-0.564602,0.251377,4],[0.244415,-0.336408,2],[0.139886,-0.15536,0],[-0.669131,-0.743145,7],[-0.139886,0.658114,5],[0.669131,0.070328,5],[0.564602,0.251377,4],[-0.244415,-0.336408,2],[0.5,0.450202,5],[-0.309017,-0.137583,1],[-0.413545,0.043465,2],[0.395472,-0.54432,5],[0.478148,0.658114,6],[-0.330869,0.070328,1],[-0.435398,0.251377,3],[0.373619,-0.336408,3],[-0.5,0.450202,5],[0.309017,-0.137583,1],[0.204489,0.043465,0],[-0.604528,-0.54432,6],[0.5,0.866025,7],[-0.309017,0.27824,2],[-0.413545,0.459289,4],[0.395472,-0.128496,2],[-0.478148,0.658114,6],[0.330869,0.070328,1],[0.226341,0.251377,1],[-0.582676,-0.336408,5],[-0.5,0.866025,7],[0.309017,0.27824,2],[0.204489,0.459289,3],[-0.604528,-0.128496,4],[0.139886,0.658114,5],[-0.669131,0.070328,5],[-0.773659,0.251377,6],[0.035358,-0.336408,1],[-0.035358,0.336408,1],[0.773659,-0.251377,6],[0.669131,-0.070328,5],[-0.139886,-0.658114,5],[0.604528,0.128496,4],[-0.204489,-0.459289,3],[-0.309017,-0.27824,2],[0.5,-0.866025,7],[0.582676,0.336408,5],[-0.226341,-0.251377,1],[-0.330869,-0.070328,1],[0.478148,-0.658114,6],[-0.395472,0.128496,2],[0.413545,-0.459289,4],[0.309017,-0.27824,2],[-0.5,-0.866025,7],[0.604528,0.54432,6],[-0.204489,-0.043465,0],[-0.309017,0.137583,1],[0.5,-0.450202,5],[-0.373619,0.336408,3],[0.435398,-0.251377,3],[0.330869,-0.070328,1],[-0.478148,-0.658114,6],[-0.395472,0.54432,5],[0.413545,-0.043465,2],[0.309017,0.137583,1],[-0.5,-0.450202,5],[0.244415,0.336408,2],[-0.564602,-0.251377,4],[-0.669131,-0.070328,5],[0.139886,-0.658114,5],[0.669131,0.743145,7],[-0.139886,0.15536,0],[-0.244415,0.336408,2],[0.564602,-0.251377,4],[-0.309017,0.535233,4],[0.5,-0.052552,3],[0.395472,0.128496,2],[-0.413545,-0.459289,4],[-0.330869,0.743145,6],[0.478148,0.15536,3],[0.373619,0.336408,3],[-0.435398,-0.251377,3],[0.309017,0.535233,4],[-0.5,-0.052552,3],[-0.604528,0.128496,4],[0.204489,-0.459289,3],[-0.309017,0.951057,7],[0.5,0.363271,4],[0.395472,0.54432,5],[-0.413545,-0.043465,2],[0.330869,0.743145,6],[-0.478148,0.15536,3],[-0.582676,0.336408,5],[0.226341,-0.251377,1],[0.309017,0.951057,7],[-0.5,0.363271,4],[-0.604528,0.54432,6],[0.204489,-0.043465,0],[-0.669131,0.743145,7],[0.139886,0.15536,0],[0.035358,0.336408,1],[-0.773659,-0.251377,6]];
+const RINGS=[0.209057,0.338261,0.415823,0.502754,0.618034,0.672816,0.813473,1.0];
+const canvas=document.getElementById('field');
+const ctx=canvas.getContext('2d');
+const coupling=document.getElementById('coupling');
+const split=document.getElementById('split');
+const kout=document.getElementById('kout');
+const sout=document.getElementById('sout');
+const reduceMotion=matchMedia('(prefers-reduced-motion: reduce)').matches;
+let angle=0;
+
+function css(name){ return getComputedStyle(document.documentElement).getPropertyValue(name).trim(); }
+function point(cx,cy,r,a){ return [cx+r*Math.cos(a),cy+r*Math.sin(a)]; }
+function text(t,x,y,size,color,align='center',weight=500){ ctx.font=`${weight} ${size}px Inter,system-ui,sans-serif`;ctx.textAlign=align;ctx.textBaseline='middle';ctx.fillStyle=color;ctx.fillText(t,x,y); }
+function poly(points,color,width=1,alpha=1,close=true){ ctx.save();ctx.globalAlpha=alpha;ctx.strokeStyle=color;ctx.lineWidth=width;ctx.beginPath();points.forEach((p,i)=>i?ctx.lineTo(...p):ctx.moveTo(...p));if(close)ctx.closePath();ctx.stroke();ctx.restore(); }
+function dot(x,y,r,fill,stroke=null,w=1){ ctx.beginPath();ctx.arc(x,y,r,0,Math.PI*2);ctx.fillStyle=fill;ctx.fill();if(stroke){ctx.strokeStyle=stroke;ctx.lineWidth=w;ctx.stroke();} }
+
+function draw(){
+  const dpr=Math.min(devicePixelRatio||1,2), rect=canvas.getBoundingClientRect();
+  const W=Math.max(640,Math.round(rect.width*dpr)), H=Math.max(430,Math.round(rect.height*dpr));
+  if(canvas.width!==W||canvas.height!==H){canvas.width=W;canvas.height=H;}
+  ctx.setTransform(dpr,0,0,dpr,0,0); const w=W/dpr,h=H/dpr;
+  const bg=ctx.createRadialGradient(w*.5,h*.48,20,w*.5,h*.48,Math.max(w,h)*.62);bg.addColorStop(0,'#112638');bg.addColorStop(.58,'#091522');bg.addColorStop(1,'#050b11');ctx.fillStyle=bg;ctx.fillRect(0,0,w,h);
+  const cx=w*.5,cy=h*.50,R=Math.min(w,h)*.405;
+  const t=Number(coupling.value)/4, eps=Number(split.value);
+
+  // E8 Coxeter-plane rings: 8 rings × 30 roots.
+  for(let ring=0;ring<8;ring++){
+    const ringPts=ROOTS.filter(p=>p[2]===ring).map(p=>{const a=Math.atan2(p[1],p[0])+angle; const rr=Math.hypot(p[0],p[1])*R; return [cx+rr*Math.cos(a),cy+rr*Math.sin(a)];}).sort((a,b)=>Math.atan2(a[1]-cy,a[0]-cx)-Math.atan2(b[1]-cy,b[0]-cx));
+    poly(ringPts,css('--cyan'),.7,.08+.025*ring,true);
+  }
+  ROOTS.forEach((p,i)=>{const a=Math.atan2(p[1],p[0])+angle;const rr=Math.hypot(p[0],p[1])*R;dot(cx+rr*Math.cos(a),cy+rr*Math.sin(a),i%30===0?2.6:1.35,css('--cyan'));});
+
+  // Projection membrane.
+  ctx.save();ctx.setLineDash([4,8]);ctx.strokeStyle=css('--line');ctx.lineWidth=1;ctx.beginPath();ctx.arc(cx,cy,R*.76,0,Math.PI*2);ctx.stroke();ctx.restore();
+  text('PROJECTION INTERFACE',cx,cy-R*.79,11,css('--muted'));
+
+  // Eight physical poles.
+  const outer=[]; for(let i=0;i<8;i++) outer.push(point(cx,cy,R*.67,-Math.PI/2+i*Math.PI/4));
+  poly(outer,css('--blue'),1.6,.75,true);
+  outer.forEach((p,i)=>{const coupled=i===6||i===7;dot(p[0],p[1],coupled?7:5,coupled?css('--green'):css('--blue'),'#dff7ff',1.2);text(`p${i+1}`,p[0]+(p[0]-cx)*.10,p[1]+(p[1]-cy)*.10,11,css('--ink'));});
+  ctx.save();ctx.strokeStyle=css('--green');ctx.lineWidth=2+8*t;ctx.globalAlpha=.35+.65*t;ctx.beginPath();ctx.moveTo(...outer[6]);ctx.lineTo(...outer[7]);ctx.stroke();ctx.restore();
+  text('COUPLED PAIR',cx,cy+R*.72,11,css('--green'));
+
+  // Seven-coordinate weighted quotient.
+  const inner=[]; for(let i=0;i<7;i++) inner.push(point(cx,cy,R*(.27+.08*t),-Math.PI/2+i*2*Math.PI/7));
+  poly(inner,css('--amber'),1.8,.45+.55*t,true);
+  for(let i=0;i<6;i++){ctx.save();ctx.globalAlpha=.16+.34*t;ctx.strokeStyle=css('--amber');ctx.lineWidth=1;ctx.beginPath();ctx.moveTo(...outer[i]);ctx.lineTo(...inner[i]);ctx.stroke();ctx.restore();}
+  const fused=inner[6];
+  [outer[6],outer[7]].forEach(p=>{ctx.save();ctx.globalAlpha=.2+.65*t;ctx.strokeStyle=css('--green');ctx.lineWidth=1.5;ctx.beginPath();ctx.moveTo(...p);ctx.lineTo(...fused);ctx.stroke();ctx.restore();});
+  inner.forEach((p,i)=>{dot(p[0],p[1],i===6?7:4,i===6?css('--green'):css('--amber'));text(`q${i+1}`,p[0]+(p[0]-cx)*.12,p[1]+(p[1]-cy)*.12,10,css('--ink'));});
+  text('7 EFFECTIVE COORDINATES',cx,cy-R*.39,11,css('--amber'));
+
+  // AXIS06 split visual: odd response changes sign, common axis remains centered.
+  const bend=eps*R*.95;
+  ctx.save();ctx.strokeStyle=css('--magenta');ctx.lineWidth=3;ctx.beginPath();ctx.moveTo(cx,cy-R*.22);ctx.quadraticCurveTo(cx+bend,cy,cx,cy+R*.22);ctx.stroke();ctx.restore();
+  dot(cx,cy,4,css('--magenta'));
+  text('SPLIT',cx+Math.sign(eps||1)*Math.abs(bend)*.55,cy,10,css('--magenta'));
+
+  // Center aperture and return marker.
+  ctx.save();ctx.strokeStyle=css('--ink');ctx.globalAlpha=.55;ctx.lineWidth=1;ctx.beginPath();ctx.arc(cx,cy,R*.105,0,Math.PI*2);ctx.stroke();ctx.restore();
+  text('RETURN',cx,cy+R*.09,10,css('--muted'));
+
+  text('E8 · 240 ROOTS · 8 COXETER ORBITS',24,h-26,11,css('--cyan'),'left');
+  text(`κ = 10^${Number(coupling.value).toFixed(2)}   ·   ε = ${eps>=0?'+':''}${eps.toFixed(3)}`,w-24,h-26,11,css('--ink'),'right');
+}
+
+coupling.addEventListener('input',()=>{kout.textContent=`10^${Number(coupling.value).toFixed(2)}`;draw();});
+split.addEventListener('input',()=>{const v=Number(split.value);sout.textContent=`${v>=0?'+':''}${v.toFixed(3)}`;draw();});
+document.getElementById('flip').addEventListener('click',()=>{split.value=(-Number(split.value)).toFixed(3);split.dispatchEvent(new Event('input'));});
+document.getElementById('export').addEventListener('click',()=>{draw();const a=document.createElement('a');a.download='NEXAH_E8_AXIS08_Coupling.png';a.href=canvas.toDataURL('image/png');a.click();});
+new ResizeObserver(draw).observe(document.querySelector('.stage'));
+draw();
+if(!reduceMotion){let last=0;function tick(ts){if(ts-last>70){angle+=.0007;draw();last=ts;}requestAnimationFrame(tick)}requestAnimationFrame(tick)}
+</script>
+</body>
+</html>

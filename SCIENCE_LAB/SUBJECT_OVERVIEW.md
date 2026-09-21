@@ -77,11 +77,12 @@ reading map, not a ranking of truth.
 | Library, books and atlases | arts/cultural studies | science communication | authored Works, not scientific validation |
 | Field Glyph and Number Architecture | mixed: mathematics, design and cultural study | computer science | item-level authority; no universal decoder |
 | Rödelheim Observatory family | scientific visualization | education; cartography | executable visual fixtures |
-| Milky Way · Pineal Aperture · Andromeda | scientific visualization and coordinate frames | astronomy interface; computer science; design | E2 executable visual fixture, no astronomy measurement |
+| [Milky Way · Pineal Aperture · Andromeda](CASE_STUDIES/E8_DEMOS_INTERACTIVE_ORIENTATION_2026-09-21/00_README.md) | scientific visualization and coordinate frames | astronomy interface; computer science; design | bounded HTML fixture; partial reproducibility; no astronomy measurement |
 | Earth Sky / Solar / Saturn–Titan / Uranus–Moons | astronomy orientation | cartography; visualization | schematic frames, not ephemerides |
 | Green Bridge · Loki | discrete mathematics/graph theory | visualization | Q4-to-Q3 projection, not physical 4D |
 | Closure Transit | systems and information design | visual analytics | operator-path teaching fixture |
 | Tessarec · Root Space · Iota Pearl | geometry and discrete address | visualization; computer science | bounded representation fixture |
+| [E8 · AXIS08 Projection Lab](CASE_STUDIES/E8_DEMOS_INTERACTIVE_ORIENTATION_2026-09-21/E8_DEMOS_VALIDATION_REPORT.md) | established E8 reference plus visualization | applied mathematics; visual analytics | reference verified; projection/model boundary recorded; no physical identity |
 | glyph, sound and number-symbol families | arts/cultural studies | history of ideas; mathematics where exact | expression unless separately formalized/tested |
 
 ## Milky Way · Pineal Aperture · Andromeda
