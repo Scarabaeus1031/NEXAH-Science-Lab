@@ -407,13 +407,14 @@ Die Spezifikation liegt unter
 Als gebundener Kalibrierungs- und Demonstratorfall ist außerdem **E8 DEMOS**
 aufgenommen. Die bekannte E8-/Coxeter-Mathematik dient als Positivkontrolle;
 die AXIS08- und Qι/Pearl-Ebenen bleiben deklarierte Modell- beziehungsweise
-Beobachterprojektionen. Beide HTMLs enthalten dieselben 240 vorprojizierten
-Punkte, berechnen aber weder die acht-dimensionalen Wurzeln noch einen
-numerischen gewichteten AXIS08-Quotienten im Browser. Der State-Record kann
-exportiert, aber nicht verlustfrei reimportiert werden. Der Intake-Status ist
-daher nach dem separaten Repair R1 `E8_DEMOS_TECHNICALLY_VALID_MODEL_BOUNDARIES_RECORDED`; daraus folgt keine
-physikalische Identität, neue Capability oder Forschungsaktivierung. Das
-Paket liegt unter
+Beobachterprojektionen. Die beiden unveränderten Intake-HTMLs enthalten
+dieselben 240 vorprojizierten Punkte; ihre ursprünglichen Grenzen bleiben als
+Provenienz sichtbar: keine 8D-Konstruktion, kein numerischer gewichteter
+AXIS08-Quotient und kein State-Reimport. Der separate kanonische Repair R1
+schließt diese Funktionslücken mit 12/12 bestandenen deterministischen Tests,
+ohne die Quelldateien umzuschreiben. Der aktuelle Status ist daher
+`E8_DEMOS_TECHNICALLY_VALID_MODEL_BOUNDARIES_RECORDED`; daraus folgt keine
+physikalische Identität, neue Capability oder Forschungsaktivierung. Das Paket liegt unter
 `SCIENCE_LAB/CASE_STUDIES/E8_DEMOS_INTERACTIVE_ORIENTATION_2026-09-21/`.
 
 Die Zusammenführung ist wichtig, weil sie den methodischen Kern, die
@@ -910,9 +911,11 @@ operativen Master umgedeutet.
 - Forschungsprogramme, Evidenzpakete und Claim-Grenzen bleiben getrennt.
 - E8 DEMOS ist als ein Demonstratorpaket mit gebundener E8-Referenz
   aufgenommen: sechs Quelldateien sind hashverifiziert; 240 Referenzwurzeln,
-  acht Coxeter-Gruppen und die Q4-Struktur sind bestätigt. Browserlauf,
-  State-Roundtrip und numerischer AXIS08-Quotient bleiben offen. Entscheidung:
-  `E8_DEMOS_TECHNICALLY_VALID_MODEL_BOUNDARIES_RECORDED`; Repair R1 schließt den numerischen AXIS08-, Tie- und State-Roundtrip-Befund, weiterhin keine Aktivierung.
+  acht Coxeter-Gruppen und die Q4-Struktur sind bestätigt. Repair R1 schließt
+  numerischen AXIS08-Quotienten, Degenerationsfälle, Tie-Regel und
+  State-Roundtrip mit 12/12 Tests. Offen bleiben nur unabhängige
+  Browser-/Screenshot-Evidenz. Entscheidung:
+  `E8_DEMOS_TECHNICALLY_VALID_MODEL_BOUNDARIES_RECORDED`; weiterhin keine Aktivierung.
 
 [Science Lab Subject Overview](SUBJECT_OVERVIEW.md)
 
