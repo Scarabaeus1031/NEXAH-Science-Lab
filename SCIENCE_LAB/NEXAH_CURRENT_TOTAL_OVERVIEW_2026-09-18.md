@@ -426,9 +426,17 @@ plus Differenzresiduum alle Fälle erkannte und mit maximal
 `8.881784197001252e-16` Fehler rekonstruierte; zwei E8-Kalibrierungen waren
 exakt. Das ist ein begrenzter positiver Methodenbefund, keine neue lineare
 Algebra und kein Kompressionsvorteil: Quotient plus Residuum speichert wieder
-acht Skalare. Der Transfer auf IEEE-9/14 bleibt angehalten, bis ein
-fachlich begründetes achtkomponentiges Zustandsobjekt und ein vorab begründetes
-Koordinatenpaar nachgewiesen sind.
+acht Skalare.
+
+Der danach separat präregistrierte **Phase-B-Transfer auf IEEE-9/14** bestand
+alle Primärgates. Als fachlich begründetes Paar wurden Minimum und Maximum des
+bereits gebundenen Busspannungsprofils verwendet; IEEE-9 blieb alleinige
+Fit-Basis, IEEE-14 wurde ohne Refit ausgewertet. Quotient plus Residuum erhielt
+Rekonstruktion und Geometrie bis zum Rundungsfehler. Quotient-only zeigte auf
+IEEE-14 `1.23%` Distanz-NRMSE; die eingefrorene PCA7-Baseline war mit `0.426%`
+besser. Der Befund stützt daher die transparente Residual- und
+Fidelity-Methodik, nicht eine AXIS08-Kompressionsüberlegenheit oder eine
+Power-System-Prognose.
 
 Die Zusammenführung ist wichtig, weil sie den methodischen Kern, die
 wissenschaftlichen Prüfungen und die vorhandenen technischen Bausteine als
@@ -929,10 +937,12 @@ operativen Master umgedeutet.
   State-Roundtrip mit 12/12 Tests. Offen bleiben nur unabhängige
   Browser-/Screenshot-Evidenz. Entscheidung:
   `E8_DEMOS_TECHNICALLY_VALID_MODEL_BOUNDARIES_RECORDED`; weiterhin keine Aktivierung.
-- AXIS08-QRR-01 bestätigt in einem vorab eingefrorenen Phase-A-Test die exakte
-  Suffizienz eines expliziten Differenzresiduums für den deklarierten
-  gewichteten Quotienten. Der IEEE-Transfer bleibt am Semantik-Gate; keine
-  Power-System-, Frühwarn-, Risiko- oder Kontrollaussage wurde aktiviert.
+- AXIS08-QRR-01 bestätigt zunächst in Phase A die exakte Suffizienz eines
+  expliziten Differenzresiduums. Der separat präregistrierte Phase-B-Test
+  überträgt dieselbe Auditlogik auf ein quellbegründetes Spannungsintervall in
+  IEEE-9/14: exakte Rekonstruktion mit Residuum, messbarer Verlust ohne
+  Residuum und keine Überlegenheit gegenüber PCA7 als reine 7D-Kompression.
+  Keine Frühwarn-, Risiko-, Stabilitäts- oder Kontrollaussage wurde aktiviert.
 
 [Science Lab Subject Overview](SUBJECT_OVERVIEW.md)
 

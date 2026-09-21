@@ -1,0 +1,215 @@
+{
+  "protocol_id": "AXIS08-QRR-01-PHASE-B-IEEE",
+  "protocol_sha256": "e27b765145b1dcff1436a97fe96fb1eb5b48b36ae29c56b0a0591ea6a5d354dc",
+  "source_files": {
+    "case_manifest.json": "a6df815729abdb49c3d3f0e09f6fb786395523beb402b1582095436d41bcb566",
+    "development_frames.json": "14744e193321398536529cb81c307968ab363510493265ff1e1cf1340f1224d1",
+    "evaluation_frames.json": "0b0f8771eb775bfbb09f3e4fa92c860c30a9422f578ddcd40c23846d6410386b"
+  },
+  "feature_names": [
+    "mean_bus_voltage",
+    "bus_voltage_std",
+    "bus_angle_range",
+    "maximum_line_loading",
+    "total_bus_consumption_p",
+    "total_bus_consumption_q",
+    "minimum_bus_voltage",
+    "maximum_bus_voltage"
+  ],
+  "status": "PASS",
+  "decision": "IEEE_TRANSFER_REPRESENTATION_FIDELITY_CONFIRMED",
+  "primary": {
+    "source_reproduction_max_error": 0.0,
+    "q_plus_r_standardized_reconstruction_max_error": 3.552713678800501e-15,
+    "q_plus_r_raw_reconstruction_max_error": 5.684341886080802e-14,
+    "q_plus_r_pair_distance_max_error": 1.3322676295501878e-15,
+    "q_only_kernel_max_distance": 2.220446049250313e-16,
+    "q_plus_r_kernel_detection_rate": 1.0,
+    "evaluation_refit": false
+  },
+  "results": {
+    "ieee9": {
+      "FULL8": {
+        "pair_distance_nrmse": 0.0,
+        "pair_distance_correlation": 1.0,
+        "adjacent_relative_error_median": 0.0,
+        "adjacent_relative_error_max": 0.0,
+        "path_length_relative_error": 0.0,
+        "turn_angle_mae_degrees": 0.0,
+        "pair_distance_max_abs_error": 0.0,
+        "stored_scalars": 8
+      },
+      "Q_ONLY7": {
+        "pair_distance_nrmse": 0.04695530742063206,
+        "pair_distance_correlation": 0.9986455247267518,
+        "adjacent_relative_error_median": 0.037213831933584116,
+        "adjacent_relative_error_max": 0.1634639020744317,
+        "path_length_relative_error": 0.07065467133887961,
+        "turn_angle_mae_degrees": 1.626463378122895,
+        "pair_distance_max_abs_error": 0.5338699869160313,
+        "stored_scalars": 7
+      },
+      "Q_PLUS_R8": {
+        "pair_distance_nrmse": 5.74960357138917e-17,
+        "pair_distance_correlation": 1.0,
+        "adjacent_relative_error_median": 0.0,
+        "adjacent_relative_error_max": 1.8763604758868404e-16,
+        "path_length_relative_error": 0.0,
+        "turn_angle_mae_degrees": 5.5288642212774134e-14,
+        "pair_distance_max_abs_error": 8.881784197001252e-16,
+        "stored_scalars": 8,
+        "standardized_reconstruction_max_error": 4.440892098500626e-16,
+        "raw_reconstruction_max_error": 2.842170943040401e-14
+      },
+      "PCA7": {
+        "pair_distance_nrmse": 1.3957014227464504e-07,
+        "pair_distance_correlation": 0.9999999999999843,
+        "adjacent_relative_error_median": 5.185355218863918e-07,
+        "adjacent_relative_error_max": 4.91875186471299e-06,
+        "path_length_relative_error": 1.022036746880927e-06,
+        "turn_angle_mae_degrees": 0.0008498191256388373,
+        "pair_distance_max_abs_error": 2.33829348045278e-06,
+        "stored_scalars": 7
+      },
+      "RANDOM7": {
+        "pair_distance_nrmse": 0.007817947935803801,
+        "pair_distance_correlation": 0.9999832335082403,
+        "adjacent_relative_error_median": 0.002981425422022052,
+        "adjacent_relative_error_max": 0.061826864492341885,
+        "path_length_relative_error": 0.006916346857731545,
+        "turn_angle_mae_degrees": 0.7038753583534473,
+        "pair_distance_max_abs_error": 0.053113790499628166,
+        "stored_scalars": 7
+      },
+      "DROP_MIN7": {
+        "pair_distance_nrmse": 0.07931539118744806,
+        "pair_distance_correlation": 0.9994325057263985,
+        "adjacent_relative_error_median": 0.05271280915062747,
+        "adjacent_relative_error_max": 0.10777932722313303,
+        "path_length_relative_error": 0.056020700655635164,
+        "turn_angle_mae_degrees": 0.34958047047603047,
+        "pair_distance_max_abs_error": 0.7095013961120955,
+        "stored_scalars": 7
+      },
+      "DROP_MAX7": {
+        "pair_distance_nrmse": 0.16543751942174537,
+        "pair_distance_correlation": 0.9774821580700498,
+        "adjacent_relative_error_median": 0.0,
+        "adjacent_relative_error_max": 0.5861737934089037,
+        "path_length_relative_error": 0.15722876635225916,
+        "turn_angle_mae_degrees": 5.762606642617212,
+        "pair_distance_max_abs_error": 1.875704436839781,
+        "stored_scalars": 7
+      },
+      "MAINTAINED7": {
+        "pair_distance_nrmse": 0.16543751942174537,
+        "pair_distance_correlation": 0.97748215807005,
+        "adjacent_relative_error_median": 0.0,
+        "adjacent_relative_error_max": 0.5861737934089039,
+        "path_length_relative_error": 0.15722876635225916,
+        "turn_angle_mae_degrees": 5.762606642617169,
+        "pair_distance_max_abs_error": 1.875704436839781,
+        "stored_scalars": 7
+      },
+      "frame_count": 17,
+      "failed_frame_count": 2,
+      "load_scale_min": 0.6,
+      "load_scale_max_converged": 2.2
+    },
+    "ieee14": {
+      "FULL8": {
+        "pair_distance_nrmse": 0.0,
+        "pair_distance_correlation": 1.0,
+        "adjacent_relative_error_median": 0.0,
+        "adjacent_relative_error_max": 0.0,
+        "path_length_relative_error": 0.0,
+        "turn_angle_mae_degrees": 0.0,
+        "pair_distance_max_abs_error": 0.0,
+        "stored_scalars": 8
+      },
+      "Q_ONLY7": {
+        "pair_distance_nrmse": 0.012304960925787834,
+        "pair_distance_correlation": 0.9999479183682536,
+        "adjacent_relative_error_median": 0.007106763132793334,
+        "adjacent_relative_error_max": 0.023855719610163653,
+        "path_length_relative_error": 0.011300411230909498,
+        "turn_angle_mae_degrees": 0.24681755963370608,
+        "pair_distance_max_abs_error": 0.059433791241581435,
+        "stored_scalars": 7
+      },
+      "Q_PLUS_R8": {
+        "pair_distance_nrmse": 2.3751229852531143e-16,
+        "pair_distance_correlation": 1.0,
+        "adjacent_relative_error_median": 5.068981950050597e-16,
+        "adjacent_relative_error_max": 2.2541894707946485e-15,
+        "path_length_relative_error": 3.1984604540697377e-16,
+        "turn_angle_mae_degrees": 1.4845706704360592e-13,
+        "pair_distance_max_abs_error": 1.3322676295501878e-15,
+        "stored_scalars": 8,
+        "standardized_reconstruction_max_error": 3.552713678800501e-15,
+        "raw_reconstruction_max_error": 5.684341886080802e-14
+      },
+      "PCA7": {
+        "pair_distance_nrmse": 0.004256379474715974,
+        "pair_distance_correlation": 0.9999890568976292,
+        "adjacent_relative_error_median": 0.0014135296592525152,
+        "adjacent_relative_error_max": 0.015638077143128554,
+        "path_length_relative_error": 0.004542878015205015,
+        "turn_angle_mae_degrees": 0.25988113005896135,
+        "pair_distance_max_abs_error": 0.023887209212344995,
+        "stored_scalars": 7
+      },
+      "RANDOM7": {
+        "pair_distance_nrmse": 0.06982973560214506,
+        "pair_distance_correlation": 0.9998347404058399,
+        "adjacent_relative_error_median": 0.053897452434851174,
+        "adjacent_relative_error_max": 0.08085824198787755,
+        "path_length_relative_error": 0.05918213439064987,
+        "turn_angle_mae_degrees": 0.23650261198523237,
+        "pair_distance_max_abs_error": 0.331004618584247,
+        "stored_scalars": 7
+      },
+      "DROP_MIN7": {
+        "pair_distance_nrmse": 0.024798626826770788,
+        "pair_distance_correlation": 0.9997835504237683,
+        "adjacent_relative_error_median": 0.014264869040372169,
+        "adjacent_relative_error_max": 0.04830923495303502,
+        "path_length_relative_error": 0.022838880092041134,
+        "turn_angle_mae_degrees": 0.6341376070879216,
+        "pair_distance_max_abs_error": 0.1198904926750819,
+        "stored_scalars": 7
+      },
+      "DROP_MAX7": {
+        "pair_distance_nrmse": 8.359741096074049e-17,
+        "pair_distance_correlation": 1.0,
+        "adjacent_relative_error_median": 0.0,
+        "adjacent_relative_error_max": 2.1570053451469076e-16,
+        "path_length_relative_error": 0.0,
+        "turn_angle_mae_degrees": 3.056606594612365e-14,
+        "pair_distance_max_abs_error": 8.881784197001252e-16,
+        "stored_scalars": 7
+      },
+      "MAINTAINED7": {
+        "pair_distance_nrmse": 5.701832253799388e-17,
+        "pair_distance_correlation": 1.0,
+        "adjacent_relative_error_median": 0.0,
+        "adjacent_relative_error_max": 2.1570053451469076e-16,
+        "path_length_relative_error": 0.0,
+        "turn_angle_mae_degrees": 1.2495370340484979e-13,
+        "pair_distance_max_abs_error": 4.440892098500626e-16,
+        "stored_scalars": 7
+      },
+      "frame_count": 19,
+      "failed_frame_count": 0,
+      "load_scale_min": 0.6,
+      "load_scale_max_converged": 2.4
+    }
+  },
+  "nonclaims": [
+    "no stability prediction or early warning",
+    "no risk, causal, or control claim",
+    "no physical identity",
+    "no universal superiority",
+    "Q_PLUS_R8 is not compression"
+  ]
+}

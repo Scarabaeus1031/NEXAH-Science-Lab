@@ -60,6 +60,11 @@ Current transfer decision:
 
 `HOLD_IEEE_TRANSFER_PENDING_DOMAIN_JUSTIFIED_EIGHT_COMPONENT_STATE`
 
+Historical note: this was the Phase A disposition. The later, separately
+preregistered Phase B gate identified the source-derived minimum/maximum
+bus-voltage envelope and executed the bounded IEEE audit. See
+`06_PHASE_B_IEEE_RESULTS.md`.
+
 ## Claim boundary
 
 Supported: exact residual sufficiency for the declared affine quotient and
@@ -68,4 +73,3 @@ bounded deterministic comparison under the frozen Phase A data.
 Not supported: novel linear algebra, universal compression advantage,
 physical coupling, E8 physics, power-system transition detection, early
 warning, risk, control or operational IEEE utility.
-

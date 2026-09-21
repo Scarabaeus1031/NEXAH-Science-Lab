@@ -1,6 +1,6 @@
 # AXIS08-QRR-01 — Quotient–Residual Reconstruction
 
-Status: `PHASE_A_EXACT_RESIDUAL_SUFFICIENCY_CONFIRMED`
+Status: `PHASE_B_IEEE_REPRESENTATION_FIDELITY_CONFIRMED`
 
 Question: Can a declared AXIS08 quotient identify its lost kernel direction,
 and can an explicit residual restore reconstruction without being confused
@@ -18,9 +18,10 @@ intake claim and does not activate an IEEE/power-system claim.
 3. **Phase C — not authorized:** unchanged external/domain transfer only after
    Phase B passes without inventing features or retuning.
 
-Phase B has now passed its semantic gate for one bounded candidate: the
-same-unit minimum/maximum bus-voltage envelope. Its execution is preregistered
-in `05_PHASE_B_IEEE_PREREGISTRATION.md`; no IEEE result is claimed yet.
+Phase B passed its semantic gate for one bounded candidate: the same-unit
+minimum/maximum bus-voltage envelope. The preregistered IEEE-9/14 execution
+passed all primary gates. See `05_PHASE_B_IEEE_PREREGISTRATION.md` and
+`06_PHASE_B_IEEE_RESULTS.md`.
 
 ## Required reading
 
@@ -48,3 +49,16 @@ python3 run_phase_a.py
 - IEEE/PEGASE executed: `NO`
 
 See `04_PHASE_A_RESULTS.md` and `phase_a_results.json`.
+
+## Phase B result
+
+- source reproduction maximum error: `0.0`
+- quotient-plus-residual raw reconstruction maximum error: `5.68e-14`
+- quotient-plus-residual pair-distance maximum error: `1.33e-15`
+- quotient-only IEEE-14 distance NRMSE: `1.23%`
+- frozen PCA7 IEEE-14 distance NRMSE: `0.426%`
+- IEEE-14 refit: `NO`
+
+The residual gives an exact, interpretable loss certificate; quotient-only is
+not a compression winner. See `06_PHASE_B_IEEE_RESULTS.md` and
+`phase_b_ieee_results.json`.
