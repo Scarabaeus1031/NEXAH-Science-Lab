@@ -20,3 +20,15 @@ If any condition is absent, decision is
 Even after a pass, the permissible question is representation fidelity. It is
 not stability prediction, early warning, risk estimation or control.
 
+## Phase B gate disposition — 2026-09-21
+
+`PASS_BOUNDED_VOLTAGE_ENVELOPE_PAIR`
+
+The committed physical frames provide bus-level `vm_pu` values. Their minimum
+and maximum form a same-unit, source-derived voltage-envelope pair. Maximum bus
+voltage is derived from the already committed profile; it is not a fabricated
+measurement. Equal weights are fixed before execution. IEEE-9 remains the sole
+fit case and IEEE-14 remains evaluation-only.
+
+See `05_PHASE_B_IEEE_PREREGISTRATION.md`. This pass authorizes only the bounded
+representation-fidelity audit defined there.

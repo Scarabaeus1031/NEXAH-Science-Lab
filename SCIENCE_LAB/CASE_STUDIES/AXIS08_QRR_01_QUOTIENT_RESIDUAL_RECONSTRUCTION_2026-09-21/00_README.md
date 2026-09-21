@@ -18,6 +18,10 @@ intake claim and does not activate an IEEE/power-system claim.
 3. **Phase C — not authorized:** unchanged external/domain transfer only after
    Phase B passes without inventing features or retuning.
 
+Phase B has now passed its semantic gate for one bounded candidate: the
+same-unit minimum/maximum bus-voltage envelope. Its execution is preregistered
+in `05_PHASE_B_IEEE_PREREGISTRATION.md`; no IEEE result is claimed yet.
+
 ## Required reading
 
 - `01_PREREGISTERED_PROTOCOL.md`
