@@ -477,6 +477,8 @@ Nicht etabliert sind:
 - ein allgemeiner Capability Router;
 - eine einheitliche produktionsreife Benutzeroberfläche;
 - extern validierter Human-Nutzen;
+- ein reproduzierbarer inkrementeller Nutzen eines NEXAH-Verfahrens gegenüber
+  der stärksten passenden etablierten Methode;
 - Produkt- oder Marktreife;
 - eine universelle naturwissenschaftliche Theorie.
 
@@ -943,6 +945,28 @@ operativen Master umgedeutet.
   IEEE-9/14: exakte Rekonstruktion mit Residuum, messbarer Verlust ohne
   Residuum und keine Überlegenheit gegenüber PCA7 als reine 7D-Kompression.
   Keine Frühwarn-, Risiko-, Stabilitäts- oder Kontrollaussage wurde aktiviert.
+
+### Aktualisierung vom 22. September — Nutzenvalidierung ausgewählt
+
+- Der Human Owner hat die ergebnisoffene Prüfung des inkrementellen Nutzens als
+  obersten Nachfolger von `MC-TRUTH-01` ausgewählt.
+- Der Test verbindet die Science-Einordnung mit dem Builder-Inventar: genau ein
+  vorhandenes NEXAH-Objekt wird für genau eine fachliche Aufgabe gegen die
+  stärkste passende Equal-Information-Baseline geprüft.
+- Vor einer Ausführung werden Tool, Frage, Baseline, Fixture, primärer Endpunkt,
+  Kostenmaße und Stop-Regeln eingefroren.
+- Eine minimale Assembly beweist zunächst nur, dass eine begrenzte Maschine
+  existiert. Nutzen erfordert danach Vergleich, Kontrollen und unabhängigen
+  Replay. Eine Human-Utility-Prüfung folgt nur bei einem technisch bedeutsamen
+  Kandidaten.
+- `NO_INCREMENTAL_UTILITY_SHOWN` ist ein gültiges Ergebnis. In diesem Fall
+  bleibt das getestete Objekt je nach Evidenz historisches Werkzeug, Fixture,
+  Lehr- oder Ausdrucksobjekt und wird nicht als neue Methode promoviert.
+- Die Serie ist bis zum Abschluss von `MC-TRUTH-01` nicht aktiv. Ihr erster
+  zulässiger Schritt ist ausschließlich `UTILITY-00_SCOPE_AND_BASELINE_FREEZE`.
+
+Kontrollplan: Mission Control
+`CURRENT/NEXAH_INCREMENTAL_UTILITY_VALIDATION_SERIES.md`.
 
 [Science Lab Subject Overview](SUBJECT_OVERVIEW.md)
 

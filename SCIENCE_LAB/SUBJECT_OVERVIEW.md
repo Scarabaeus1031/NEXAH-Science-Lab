@@ -107,14 +107,16 @@ residuals.
 | Priority | Keep in focus | Why |
 |---|---|---|
 | P0 — current | Mission Control currentness, total overview and subject map | prevents you from carrying the archive in your head |
-| P1 — scientific core | Representation Fidelity/provenance; one bounded empirical line such as HZ/FZ | strongest route from method to inspectable evidence |
+| P1 — selected successor | NEXAH incremental-utility validation: one existing tool, one disciplinary question and one strong equal-information baseline | determines whether any bounded NEXAH method adds reproducible value beyond established methods |
 | P2 — communication/demonstration | NEXAHEDRON and selected Observatory HTMLs, including Milky Way · Pineal Aperture · Andromeda | makes the method understandable without inflating it into evidence |
 | P3 — exact supporting fixtures | Grid Grammar, Prime/CRT, graph and geometry fixtures | useful controls and teaching objects, not the main empirical claim |
 | P4 — preserve/park | speculative field readings, universal-number interpretations and unbound symbolic correspondences | high archive value but low current scientific priority |
 
-Only P0 is operationally active. P1–P4 are portfolio dispositions, not
-authorization to start work. If one next scientific object is later selected,
-choose exactly one P1 line; do not advance all shelves in parallel.
+Only P0 is operationally active. P1 is the Human-Owner-selected successor but
+remains inactive until `MC-TRUTH-01` closes. Its first permitted gate freezes
+one existing tool, one Program-E question, one baseline family, one fixture
+family and one primary endpoint. P2–P4 remain portfolio dispositions. Do not
+advance several subject shelves or tools in parallel.
 
 ## Cross-subject split rule
 
