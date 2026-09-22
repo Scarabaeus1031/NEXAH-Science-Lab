@@ -1,0 +1,196 @@
+{
+  "protocol_id": "PROT-FOLD-01-PHASE-A-1XQQ",
+  "protocol_sha256": "da67c121a7476f01aa072f004dd5c375952e9375952734c51949b41ecc2de9f8",
+  "source_sha256": "88182fc83c2c5081f993ccdad6f4b628c1b52d39b3aea601bf568a0b6f4d45c1",
+  "status": "PASS",
+  "decision": "PHASE_A_FRAME_FIDELITY_CONFIRMED",
+  "carrier": {
+    "model_count": 128,
+    "selected_atom": "CA",
+    "chain": "A",
+    "residue_count": 76,
+    "residue_range": [
+      1,
+      76
+    ],
+    "reference_model": 1,
+    "model_index_is_time": false
+  },
+  "primary_gates": {
+    "source_hash_match": true,
+    "model_count_exact": true,
+    "selected_atom_count_exact": true,
+    "pair_distance_invariance": true,
+    "source_reconstruction": true,
+    "proper_rotations_only": true,
+    "contact_matrix_invariance": true,
+    "translation_control": true,
+    "proper_rotation_control": true,
+    "reflection_detected": true,
+    "identity_corruption_detected": true
+  },
+  "fidelity_metrics": {
+    "pair_distance_max_abs_error_A": 3.552713678800501e-14,
+    "source_reconstruction_max_abs_error_A": 3.197442310920451e-14,
+    "rotation_determinant_max_abs_error": 1.7763568394002505e-15,
+    "contact_agreement_min": 1.0,
+    "actual_model_chirality_sign_agreement_fraction": 1.0
+  },
+  "controls": {
+    "translation": {
+      "alignment_rmsd_A": 4.1487728225423686e-15,
+      "reconstruction_max_abs_error_A": 1.0658141036401503e-14,
+      "rotation_determinant": 1.0000000000000009,
+      "pair_distance_max_abs_error_A": 1.4210854715202004e-14,
+      "contact_agreement_with_reference": 1.0,
+      "chirality": 2108.7515387430003
+    },
+    "proper_rotation": {
+      "alignment_rmsd_A": 4.172541959553719e-15,
+      "reconstruction_max_abs_error_A": 1.4210854715202004e-14,
+      "rotation_determinant": 1.0000000000000007,
+      "pair_distance_max_abs_error_A": 1.4210854715202004e-14,
+      "contact_agreement_with_reference": 1.0,
+      "chirality": 2108.7515387430003
+    },
+    "reflection": {
+      "alignment_rmsd_A": 10.95704165222371,
+      "reconstruction_max_abs_error_A": 1.2434497875801753e-14,
+      "rotation_determinant": 1.000000000000001,
+      "pair_distance_max_abs_error_A": 1.7763568394002505e-14,
+      "contact_agreement_with_reference": 1.0,
+      "chirality": -2108.7515387430003
+    },
+    "reversed_identity": {
+      "alignment_rmsd_A": 12.331471419848647,
+      "reconstruction_max_abs_error_A": 2.1316282072803006e-14,
+      "rotation_determinant": 0.9999999999999993,
+      "pair_distance_max_abs_error_A": 2.1316282072803006e-14,
+      "contact_agreement_with_reference": 0.8989473684210526,
+      "chirality": -3821.7019659480006
+    }
+  },
+  "descriptive_ensemble": {
+    "rmsd_to_reference_A": {
+      "min": 5.533834532142472e-15,
+      "median": 1.6621249349168634,
+      "mean": 1.6738165474658018,
+      "p95": 2.4225687494215493,
+      "max": 2.976992617499056
+    },
+    "pairwise_body_frame_rmsd_A": {
+      "min": 0.5728539387711598,
+      "median": 1.53367230011873,
+      "mean": 1.76019632838356,
+      "p95": 3.1425656360793455,
+      "max": 3.9924851230851037
+    },
+    "top_mean_displacement_residues": [
+      {
+        "residue_id": 76,
+        "mean_displacement_A": 8.08299742059437
+      },
+      {
+        "residue_id": 75,
+        "mean_displacement_A": 6.244211605166625
+      },
+      {
+        "residue_id": 74,
+        "mean_displacement_A": 3.6212454989669416
+      },
+      {
+        "residue_id": 73,
+        "mean_displacement_A": 2.2558468692498135
+      },
+      {
+        "residue_id": 9,
+        "mean_displacement_A": 1.862200523276705
+      },
+      {
+        "residue_id": 10,
+        "mean_displacement_A": 1.7709212364771358
+      },
+      {
+        "residue_id": 72,
+        "mean_displacement_A": 1.61675039603788
+      },
+      {
+        "residue_id": 21,
+        "mean_displacement_A": 1.575967847824206
+      },
+      {
+        "residue_id": 8,
+        "mean_displacement_A": 1.3826002662409929
+      },
+      {
+        "residue_id": 37,
+        "mean_displacement_A": 1.3580719358022424
+      }
+    ],
+    "variable_contact_count_occupancy_0_05_to_0_95": 79,
+    "ten_contacts_closest_to_half_occupancy": [
+      {
+        "residue_i": 24,
+        "residue_j": 38,
+        "occupancy": 0.5
+      },
+      {
+        "residue_i": 50,
+        "residue_j": 54,
+        "occupancy": 0.5078125
+      },
+      {
+        "residue_i": 73,
+        "residue_j": 76,
+        "occupancy": 0.46875
+      },
+      {
+        "residue_i": 1,
+        "residue_j": 62,
+        "occupancy": 0.4609375
+      },
+      {
+        "residue_i": 15,
+        "residue_j": 26,
+        "occupancy": 0.5390625
+      },
+      {
+        "residue_i": 40,
+        "residue_j": 74,
+        "occupancy": 0.4609375
+      },
+      {
+        "residue_i": 2,
+        "residue_j": 65,
+        "occupancy": 0.5546875
+      },
+      {
+        "residue_i": 27,
+        "residue_j": 37,
+        "occupancy": 0.4453125
+      },
+      {
+        "residue_i": 18,
+        "residue_j": 56,
+        "occupancy": 0.5625
+      },
+      {
+        "residue_i": 38,
+        "residue_j": 42,
+        "occupancy": 0.4375
+      }
+    ]
+  },
+  "holds": {
+    "phase_b": "HOLD",
+    "phase_c_axis08": "HOLD_NATURAL_PAIR_UNRESOLVED",
+    "phase_d_mod7_11": "HOLD_PENDING_TYPED_UTILITY_QUESTION"
+  },
+  "nonclaims": [
+    "no temporal trajectory",
+    "no folding kinetics or causal mechanism",
+    "no E8 Hopf or Mod-7/11 biological identity",
+    "no protein prediction",
+    "no new capability"
+  ]
+}

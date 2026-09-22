@@ -1,0 +1,63 @@
+{
+  "package_id": "PROT_FOLD_01_MOVING_FRAME_QRR_2026-09-22",
+  "repair": "R1",
+  "status": "REPAIR_R1_COMPLETE_DATA_NOT_BOUND",
+  "execution_status": "PHASE_A_EXECUTED_PASS",
+  "source_binding": "EXECUTED_PHASE_A_ONLY",
+  "carrier_semantics": {
+    "preferred_label": "EXPERIMENTALLY_CONSTRAINED_NATIVE_STATE_CONFORMER_ENSEMBLE",
+    "state": "X^(m),m=1,...,M",
+    "index_semantics": "MODEL_OR_CONFORMER_INDEX_NOT_TIME",
+    "planned_model_count": 128,
+    "planned_residue_count": 76
+  },
+  "primary_source": {
+    "provider": "RCSB_PDB",
+    "identifier": "1XQQ",
+    "format": "PDBx_mmCIF",
+    "bound": true,
+    "sha256": "88182fc83c2c5081f993ccdad6f4b628c1b52d39b3aea601bf568a0b6f4d45c1"
+  },
+  "carriers": [
+    "SOURCE_FRAME3N",
+    "CENTERED3N",
+    "BODY_FRAME3N",
+    "FRAME_RESIDUAL",
+    "DIST_NN",
+    "CONTACT_NN",
+    "LOCAL_ORIENTATION",
+    "FEATURE8_CANDIDATE"
+  ],
+  "phases": {
+    "A": "DRAFT_CANDIDATE_FOR_LATER_PREPARATION",
+    "B": "HOLD_PENDING_FRAME_QUATERNION_AND_FIBER_CONTRACT",
+    "C": "HOLD_PENDING_NATURAL_PAIR_GATE",
+    "D": "HOLD_PENDING_TYPED_UTILITY_QUESTION"
+  },
+  "axis08": {
+    "pair_status": "UNRESOLVED",
+    "natural_pair_gate": "REQUIRED",
+    "prohibited_pair": ["accessibility", "hydropathy"],
+    "allowed_gate_outcomes": [
+      "PASS_NATURAL_PAIR_DECLARED_BEFORE_RESULTS",
+      "STOP_NO_NATURAL_PAIR",
+      "CALIBRATION_PAIR_ONLY_NOT_BIOLOGICAL"
+    ]
+  },
+  "hopf": {
+    "quaternion_equivalence": "u~-u",
+    "fiber_loss": "S1",
+    "reconstruction_requires_typed_fiber_residual": true
+  },
+  "mod7_11_protein_sidecar": "HOLD_PENDING_TYPED_UTILITY_QUESTION",
+  "e8_boundary": "EXACT_EXTERNAL_CALIBRATION_CARRIER_NO_PROTEIN_MAP",
+  "prohibited": [
+    "MODEL_ORDER_AS_TIME",
+    "FOLDING_TRAJECTORY_CLAIM",
+    "PHYSICAL_WORLD_MOTION_RECONSTRUCTION",
+    "IMPROVISED_AXIS08_PAIR",
+    "EIGHT_DIMENSIONS_EQUALS_E8",
+    "SEVENTY_SIX_RESIDUES_EQUALS_COMPLETE_CRT77_CYCLE"
+  ],
+  "claim_ceiling": "BOUNDED_REPRESENTATION_FIDELITY_ONLY"
+}
