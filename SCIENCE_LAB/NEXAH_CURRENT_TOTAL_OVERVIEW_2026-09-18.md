@@ -18,6 +18,14 @@ Dieser Report folgt derselben Richtung: zuerst menschliche Orientierung, dann
 Methode und Sprache, danach Instrumente, Repositories, Evidenzstatus und
 Governance.
 
+**Aktueller Utility-Status (23. September 2026):** `UTILITY-01/01R` ist vor
+Evaluation terminal mit `D_INVALID_AFTER_SINGLE_REPAIR_ATTEMPT` geschlossen;
+`UTILITY_RESULT: NONE`. Der frühere Plan eines nächsten Utility-Tests weiter
+unten ist `HISTORICAL_PLAN_SUPERSEDED_BY_TERMINAL_D`, kein aktiver Auftrag.
+Maßgeblich ist Mission Control `CURRENT/UTILITY_01R_FINAL_STOP.md` mit der
+Science-Lab-Stop-Evidenz unter
+`SCIENCE_LAB/CASE_STUDIES/UTILITY01R_RFLC_REPAIR_R1_2026-09-23/`.
+
 ## Orientation beginnt beim Menschen
 
 Der menschliche Ausgangspunkt ist einfach:
@@ -802,7 +810,12 @@ Erkenntnis- und Orientierungsinstrumente wertvoll sein. Ihre Stärke liegt in
 der erfahrbaren Beziehung – nicht in einer automatisch geerbten empirischen
 Autorität.
 
-## Der nächste belastbare Schritt
+## Historischer Vorschlag für den nächsten belastbaren Schritt
+
+`HISTORICAL_PLAN_SUPERSEDED_BY_TERMINAL_D`: Der folgende allgemeine
+Vergleichsvorschlag war eine Forschungsorientierung, keine aktuell
+autorisierte Testserie. Utility-01/01R wurde vor Evaluation geschlossen; eine
+neue Prüfung benötigt eine eigenständige Human-Owner-Entscheidung.
 
 Nach der breiten Konsolidierung ist nicht noch mehr Begriffserweiterung
 erforderlich. Der stärkste nächste wissenschaftliche Schritt wäre ein kleiner,
@@ -946,7 +959,11 @@ operativen Master umgedeutet.
   Residuum und keine Überlegenheit gegenüber PCA7 als reine 7D-Kompression.
   Keine Frühwarn-, Risiko-, Stabilitäts- oder Kontrollaussage wurde aktiviert.
 
-### Aktualisierung vom 22. September — Nutzenvalidierung ausgewählt
+### Historischer Plan vom 22. September — Nutzenvalidierung ausgewählt
+
+`HISTORICAL_PLAN_SUPERSEDED_BY_TERMINAL_D`: Die damalige Auswahl und der
+damalige erste Schritt werden hier als Verlauf bewahrt, nicht als heutige
+Aktivierung gelesen.
 
 - Der Human Owner hat die ergebnisoffene Prüfung des inkrementellen Nutzens als
   obersten Nachfolger von `MC-TRUTH-01` ausgewählt.
@@ -967,6 +984,27 @@ operativen Master umgedeutet.
 
 Kontrollplan: Mission Control
 `CURRENT/NEXAH_INCREMENTAL_UTILITY_VALIDATION_SERIES.md`.
+
+### Aktualisierung vom 23. September — terminaler Utility-Stop
+
+`UTILITY-01/01R` endete vor Evaluation und Replay mit
+`D_INVALID_AFTER_SINGLE_REPAIR_ATTEMPT`; `UTILITY_RESULT: NONE`. U1 belegte
+nur die Existenz einer begrenzten Maschine auf Development-Smoke-Fällen. U2
+stoppte mit `D_INVALID_OR_INSUFFICIENT_TEST` wegen eines ungültigen
+Vergleichsaufbaus. Der einmalige Reparaturzyklus stoppte in R1 mit
+`D_R1_EQUAL_INFORMATION_FAILED`: Das ausgewählte, unveränderte NEXAH-Core-
+Werkzeug verarbeitet den präregistrierten Common Carrier nicht semantisch.
+Der IEEE-Sidecar bleibt ein begrenzter Evidence-Bundle-/Fidelity-Verifier;
+ein integrierter semantischer Auditor existiert derzeit nicht als ausführbare,
+validierte Maschine. Es gab keinen UCDR- oder sonstigen Utility-Vergleich und
+weder einen positiven noch einen negativen allgemeinen Utility-Befund für
+NEXAH. `STOP_NO_FURTHER_REDESIGN` gilt innerhalb dieser Serie. Aktive
+Priorität: `NONE`; aktive Queue: `0`; aktive Forschungszyklen: `0`.
+Ein Integrated Semantic Auditor ist allenfalls
+`OWNER_DECISION_CANDIDATE / NOT_ACTIVE / NOT_SCOPED / NO_BUILD_AUTHORIZED`;
+keine Nachfolgearbeit wurde automatisch autorisiert. Capability gap
+identified; utility remains unmeasured. Maßgeblicher Abschluss:
+Mission Control `CURRENT/UTILITY_01R_FINAL_STOP.md`.
 
 [Science Lab Subject Overview](SUBJECT_OVERVIEW.md)
 

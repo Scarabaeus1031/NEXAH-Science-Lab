@@ -102,7 +102,12 @@ uncertainties, epoch and projection contract are bound. Until then its highest
 relevance is as a transparent demonstrator of frames, cuts, provenance and
 residuals.
 
-## Priority for one Human Owner
+## Historical priority plan for one Human Owner
+
+`HISTORICAL_PLAN_SUPERSEDED_BY_TERMINAL_D`: The table preserves the earlier
+selection, not a current priority or an authorized next test. Mission Control
+now records `ACTIVE_PRIORITY: NONE`, `ACTIVE_QUEUE_ROWS: 0` and
+`ACTIVE_RESEARCH_CYCLES: 0`.
 
 | Priority | Keep in focus | Why |
 |---|---|---|
@@ -112,11 +117,22 @@ residuals.
 | P3 — exact supporting fixtures | Grid Grammar, Prime/CRT, graph and geometry fixtures | useful controls and teaching objects, not the main empirical claim |
 | P4 — preserve/park | speculative field readings, universal-number interpretations and unbound symbolic correspondences | high archive value but low current scientific priority |
 
-Only P0 is operationally active. P1 is the Human-Owner-selected successor but
-remains inactive until `MC-TRUTH-01` closes. Its first permitted gate freezes
-one existing tool, one Program-E question, one baseline family, one fixture
-family and one primary endpoint. P2–P4 remain portfolio dispositions. Do not
-advance several subject shelves or tools in parallel.
+Historically, P0 was operationally active and P1 was the selected but inactive
+successor pending `MC-TRUTH-01`; `UTILITY-00` was its proposed first gate.
+That plan is superseded. U1 established only bounded machine existence on
+Development smoke cases. U2 stopped with `D_INVALID_OR_INSUFFICIENT_TEST`;
+the single repair attempt stopped in R1 with `D_R1_EQUAL_INFORMATION_FAILED`.
+The selected, unchanged NEXAH Core could not semantically process the
+preregistered Common Carrier. Evaluation and replay were not executed;
+`UTILITY-01/01R` is terminal `D_INVALID_AFTER_SINGLE_REPAIR_ATTEMPT` with
+`UTILITY_RESULT: NONE` and `STOP_NO_FURTHER_REDESIGN`. The IEEE sidecar remains
+a bounded Evidence-Bundle/Fidelity verifier, not an executable validated
+integrated semantic auditor. This is a capability gap, not a positive or
+negative general utility result for NEXAH. An Integrated Semantic Auditor is
+only `OWNER_DECISION_CANDIDATE / NOT_ACTIVE / NOT_SCOPED /
+NO_BUILD_AUTHORIZED`; no successor has been activated. Controlling record:
+Mission Control `CURRENT/UTILITY_01R_FINAL_STOP.md`; Science Lab evidence:
+`SCIENCE_LAB/CASE_STUDIES/UTILITY01R_RFLC_REPAIR_R1_2026-09-23/`.
 
 ## Cross-subject split rule
 
