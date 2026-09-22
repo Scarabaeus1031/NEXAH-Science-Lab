@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://nexah.local/schemas/utility00-neutral-result-v1.json",
+  "title": "UTILITY00 neutral processor result",
+  "type": "object",
+  "additionalProperties": true,
+  "required": [
+    "fixture_id", "mutation_family", "severity", "split", "parent_record",
+    "processor", "detection", "localization", "abstention", "failure_status",
+    "defect_family", "evidence_references", "reconstruction_status",
+    "failure_reason", "unmet_precondition", "claim_ceiling", "software_version",
+    "runtime", "memory", "record_size", "input_sha256", "semantic_result_sha256"
+  ],
+  "properties": {
+    "fixture_id": {"type": "string", "minLength": 1},
+    "mutation_family": {"const": "WITHHELD_AT_PROCESSING"},
+    "severity": {"const": "WITHHELD_AT_PROCESSING"},
+    "split": {"enum": ["development", "evaluation", "replay"]},
+    "parent_record": {"type": "string", "minLength": 1},
+    "processor": {"type": "string", "minLength": 1},
+    "detection": {"type": "boolean"},
+    "localization": {"type": "string"},
+    "abstention": {"type": "boolean"},
+    "failure_status": {"enum": ["PASS", "DEFECT", "ABSTAIN", "UNKNOWN", "ERROR"]},
+    "defect_family": {"type": "string"},
+    "evidence_references": {"type": "array", "items": {"type": "string"}},
+    "reconstruction_status": {"type": "string"},
+    "failure_reason": {"type": "string"},
+    "unmet_precondition": {"type": "string"},
+    "claim_ceiling": {"const": "BOUNDED_IEEE_REPRESENTATION_FIDELITY_AUDIT"},
+    "software_version": {"type": "string", "minLength": 1},
+    "runtime": {"type": "object"},
+    "memory": {"type": "object"},
+    "record_size": {"type": "integer", "minimum": 0, "maximum": 5242880},
+    "input_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "semantic_result_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"}
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "contract_id": "NEXAH-UTILITY-01-U1-MINIMUM-MACHINE-V1",
+  "fixture_family_id": "UTILITY00-RFLC-FIXTURE-V1",
+  "decision_scope": "MACHINE_EXISTENCE_ONLY",
+  "core": {
+    "repository": "/Users/tho2020/Documents/NEXAH ECOSYSTEM/10 NEXAH CORE/NEXAH",
+    "commit": "ead4223a9bea103ad2266fc3b71b433974de37dd",
+    "mode": "READ_ONLY"
+  },
+  "seeds": {
+    "fixture_generation": 2026092200,
+    "stratified_split": 2026092201,
+    "bootstrap": 2026092202
+  },
+  "planned_counts": {
+    "development": 140,
+    "evaluation": 216,
+    "replay": 76,
+    "total": 432
+  },
+  "materialized_in_u1": {
+    "development": 140,
+    "evaluation": 0,
+    "replay": 0
+  },
+  "resource_budget_per_instance": {
+    "wall_seconds": 30,
+    "peak_rss_bytes": 4294967296,
+    "output_bytes": 5242880,
+    "network": false
+  },
+  "authoring_budget": {
+    "nexah_path_human_hours": 24,
+    "baseline_path_human_hours": 24,
+    "capture_file": "authoring_effort_log.json",
+    "unused_time_transferable": false
+  },
+  "evaluation_seal": "SEALED_NOT_MATERIALIZED_U1",
+  "replay_seal": "SEALED_NOT_MATERIALIZED_U1",
+  "ground_truth_transport": "SEPARATE_JSONL_NOT_IN_PROCESSOR_INPUT",
+  "claim_ceiling": "PREEXECUTION_PROTOCOL_ONLY_NO_UTILITY_NOVELTY_DOMAIN_PRODUCT_OR_HUMAN_CLAIM"
+}
