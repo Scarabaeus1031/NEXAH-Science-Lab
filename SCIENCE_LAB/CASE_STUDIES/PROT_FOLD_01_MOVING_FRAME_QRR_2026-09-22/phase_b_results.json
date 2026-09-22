@@ -1,0 +1,109 @@
+{
+  "protocol_id": "PROT-FOLD-01-PHASE-B-LOCAL-ORIENTATION",
+  "protocol_sha256": "76ca2e3b22b9f078d4e515ee07c624b02f30642cdc9807994155da44763e5024",
+  "source_sha256": "88182fc83c2c5081f993ccdad6f4b628c1b52d39b3aea601bf568a0b6f4d45c1",
+  "status": "PASS",
+  "decision": "PHASE_B_LOCAL_ORIENTATION_AUDIT_CONFIRMED",
+  "carrier": {
+    "models": 128,
+    "residues": 76,
+    "local_frames": 9728,
+    "model_index_is_time": false
+  },
+  "primary_gates": {
+    "all_frames_valid": true,
+    "frames_orthonormal": true,
+    "frames_right_handed": true,
+    "quaternions_unit": true,
+    "quaternion_roundtrip": true,
+    "double_cover_invariant": true,
+    "hopf_unit": true,
+    "hopf_fiber_noninjectivity": true,
+    "global_rotation_invariant": true,
+    "reflection_detected": true,
+    "missing_atom_rejected": true,
+    "degenerate_frame_rejected": true
+  },
+  "metrics": {
+    "valid_frame_count": 9728,
+    "frame_orthonormality_max_error": 6.661338147750939e-16,
+    "frame_determinant_max_error": 8.881784197001252e-16,
+    "quaternion_norm_max_error": 2.220446049250313e-16,
+    "quaternion_roundtrip_max_error": 6.661338147750939e-16,
+    "double_cover_matrix_max_error": 0.0,
+    "double_cover_hopf_max_error": 0.0,
+    "hopf_norm_max_error": 4.440892098500626e-16,
+    "fiber_hopf_max_error": 6.661338147750939e-16,
+    "fiber_rotation_change_min_radians": 1.4599999999999993,
+    "global_rotation_angle_max_error_radians": 4.3298697960381105e-15,
+    "reflection_mean_local_angle_radians": 1.9115683736646678
+  },
+  "descriptive_orientation": {
+    "all_model_residue_angles_degrees": {
+      "min": 0.0,
+      "median": 13.363772700675966,
+      "mean": 18.7742361498078,
+      "p95": 47.584187221135835,
+      "max": 179.6633966049312
+    },
+    "top_mean_orientation_variability": [
+      {
+        "residue_id": 76,
+        "mean_angle_deg": 131.24184321488005
+      },
+      {
+        "residue_id": 75,
+        "mean_angle_deg": 80.42584924631836
+      },
+      {
+        "residue_id": 74,
+        "mean_angle_deg": 75.546913271464
+      },
+      {
+        "residue_id": 73,
+        "mean_angle_deg": 59.4376240691246
+      },
+      {
+        "residue_id": 10,
+        "mean_angle_deg": 35.03224274155907
+      },
+      {
+        "residue_id": 72,
+        "mean_angle_deg": 33.106732416832706
+      },
+      {
+        "residue_id": 8,
+        "mean_angle_deg": 29.599575439720102
+      },
+      {
+        "residue_id": 71,
+        "mean_angle_deg": 28.005577021922768
+      },
+      {
+        "residue_id": 47,
+        "mean_angle_deg": 27.90321901238949
+      },
+      {
+        "residue_id": 21,
+        "mean_angle_deg": 26.959048203612085
+      }
+    ]
+  },
+  "hopf_boundary": {
+    "view_is_noninvertible": true,
+    "s1_fiber_demonstrated": true,
+    "inverse_reconstruction_claimed": false,
+    "controlling_orientation_record": "SO3_MATRIX_PLUS_CANONICAL_QUATERNION"
+  },
+  "holds": {
+    "phase_c_axis08": "HOLD_NATURAL_PAIR_UNRESOLVED",
+    "phase_d_mod7_11": "HOLD"
+  },
+  "nonclaims": [
+    "no temporal dynamics",
+    "no folding path",
+    "no causal Hopf mechanism",
+    "no protein prediction",
+    "no new capability"
+  ]
+}

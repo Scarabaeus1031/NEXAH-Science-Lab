@@ -1,0 +1,56 @@
+{
+  "protocol_id": "PROT-FOLD-01-PHASE-B-LOCAL-ORIENTATION",
+  "status": "FROZEN_BEFORE_EXECUTION",
+  "source_sha256": "88182fc83c2c5081f993ccdad6f4b628c1b52d39b3aea601bf568a0b6f4d45c1",
+  "carrier": {
+    "models": [1, 128],
+    "chain": "A",
+    "residues": [1, 76],
+    "required_atoms": ["N", "CA", "C"],
+    "reference_model": 1,
+    "global_alignment": "PHASE_A_CA_PROPER_KABSCH",
+    "model_index_is_time": false
+  },
+  "local_frame": {
+    "origin": "CA",
+    "e1": "normalize(C-CA)",
+    "e2": "normalize((N-CA)-dot(N-CA,e1)*e1)",
+    "e3": "cross(e1,e2)",
+    "basis_storage": "COLUMNS",
+    "degenerate_norm_threshold_angstrom": 1e-8
+  },
+  "quaternion": {
+    "order": "WXYZ",
+    "algebra": "HAMILTON_RIGHT_HAND_ROTATION",
+    "equivalence": "q~-q",
+    "canonical_hemisphere": "W_POSITIVE_THEN_FIRST_NONZERO_XYZ_POSITIVE",
+    "tie_tolerance": 1e-15
+  },
+  "hopf": {
+    "formula": ["2*(w*y+x*z)", "2*(x*y-w*z)", "w*w+x*x-y*y-z*z"],
+    "fiber_action_alpha_radians": 0.73,
+    "inverse_claimed": false
+  },
+  "controls": {
+    "global_rotation_model": 64,
+    "global_rotation_axis": [1.0, 2.0, 3.0],
+    "global_rotation_angle_radians": 0.7,
+    "reflection_matrix_diagonal": [-1.0, 1.0, 1.0],
+    "missing_atom": "REMOVE_C_FROM_RESIDUE_10",
+    "degenerate_frame": "SET_N_EQUAL_CA_AT_RESIDUE_10"
+  },
+  "gates": {
+    "frame_orthonormality_max_error": 1e-12,
+    "frame_determinant_max_error": 1e-12,
+    "quaternion_norm_max_error": 1e-12,
+    "quaternion_roundtrip_max_error": 1e-12,
+    "double_cover_max_error": 1e-12,
+    "hopf_norm_max_error": 1e-12,
+    "fiber_hopf_max_error": 1e-12,
+    "fiber_min_rotation_change_radians": 0.1,
+    "global_rotation_angle_max_error_radians": 1e-10,
+    "reflection_min_mean_local_angle_radians": 0.1
+  },
+  "phase_c_axis08": "HOLD_NATURAL_PAIR_UNRESOLVED",
+  "claim_ceiling": "BOUND_LOCAL_ORIENTATION_VARIABILITY_AND_REPRESENTATION_AUDIT"
+}
