@@ -1,0 +1,90 @@
+{
+  "schema": "nexah.top.edge_ledger/0.1-candidate",
+  "audit_id": "TOP-ECOSYSTEM-02",
+  "date": "2026-09-25",
+  "observer_position": "Q_TOP_LOCAL_ECOSYSTEM_AUDIT_2026_09_25",
+  "comparison_object": "AXIS08-QRR-01 / IEEE Projection Fidelity Sidecar V1",
+  "claim_ceiling": "ONE_LOCAL_ARTIFACT_LINEAGE_ONLY",
+  "edges": [
+    {
+      "edge_id": "E1_SCIENCE_LAB_TO_NEXAH_CORE",
+      "source_repository": "NEXAH-Science-Lab",
+      "source_authority": "Science Lab preregistered method result",
+      "target_repository": "NEXAH Core",
+      "consumer_role": "reusable typed computation implementation",
+      "source_reference": "06_PHASE_B_IEEE_RESULTS.md",
+      "source_sha256": "591a0c767f81002763267c8143a0d12614acf3f917cf742f29b4b06925a418e4",
+      "target_reference": "IEEE Projection Fidelity Sidecar V1",
+      "target_anchor_commit": "53dd958c",
+      "retained": [
+        "IEEE-9 development and IEEE-14 no-refit evaluation split",
+        "quotient-plus-residual reconstruction result",
+        "quotient-only measured geometry loss",
+        "PCA7 stronger than quotient-only on the stated compression metric",
+        "representation-fidelity claim ceiling",
+        "no stability, prediction, risk, causal, control, or physical-identity claim"
+      ],
+      "lost": [
+        "the complete Science Lab narrative and Phase-A genealogy are not contained in the Core evidence bundle",
+        "the Science Lab package-local manifest no longer represents the post-integration result-document bytes"
+      ],
+      "introduced": [
+        "typed Core analysis contract",
+        "canonical computation result",
+        "closed evidence bundle",
+        "CLI verifier",
+        "explicit Human-authority statement"
+      ],
+      "unresolved": [
+        "independent external reproduction",
+        "platform-independent byte-identical numerical replay"
+      ],
+      "typed_residuals": [
+        "R1_SCIENCE_MANIFEST_STALE_ONE_ENTRY",
+        "R2_CORE_REPLAY_FLOATING_POINT_BYTE_DRIFT_WITHIN_TOLERANCE"
+      ],
+      "return": {
+        "byte": "FAIL_TYPED",
+        "semantic": "PASS_BOUNDED",
+        "authority": "PASS_BOUNDED"
+      }
+    },
+    {
+      "edge_id": "E2_NEXAH_CORE_TO_MISSION_CONTROL",
+      "source_repository": "NEXAH Core",
+      "source_authority": "implementation contract and computation bundle",
+      "target_repository": "NEXAH-Mission-Control",
+      "consumer_role": "currentness receipt and ecosystem routing",
+      "retained": [
+        "Core sidecar integrated",
+        "Science Lab remains result authority",
+        "bounded positive representation-fidelity status",
+        "quotient-only is not a compression winner",
+        "negative claim boundaries"
+      ],
+      "lost": [
+        "Core artifact hashes are not bound in the AXIS08 controlling-source row",
+        "the computation-bundle record is summarized rather than embedded"
+      ],
+      "introduced": [
+        "portfolio-level status language",
+        "ecosystem role and routing summary"
+      ],
+      "unresolved": [
+        "a common machine-readable Core-to-Mission-Control edge receipt",
+        "commit-level current-Core binding beyond the cited integration anchor"
+      ],
+      "typed_residuals": [
+        "R3_CORE_TO_MISSION_CONTROL_BINDING_IS_SEMANTIC_NOT_ARTIFACT_HASHED",
+        "R4_RELEVANT_MISSION_CONTROL_FILES_HAVE_LOCAL_UNCOMMITTED_CHANGES"
+      ],
+      "return": {
+        "science_source_hash_receipt": "PASS",
+        "core_artifact_hash_receipt": "NOT_PRESENT",
+        "semantic": "PASS_BOUNDED",
+        "authority": "PASS_BOUNDED"
+      }
+    }
+  ],
+  "overall": "BOUNDED_PASS_WITH_TYPED_RESIDUALS"
+}

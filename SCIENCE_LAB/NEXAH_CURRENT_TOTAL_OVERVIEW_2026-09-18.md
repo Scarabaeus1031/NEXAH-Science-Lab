@@ -264,6 +264,36 @@ Die vollständige Nachbarschafts-, Lern- und Prüfkarte liegt in Mission
 Control. Diese Einordnung aktiviert keinen Forschungszyklus und erhöht keinen
 Claim.
 
+### TOP — Theory of Perspective
+
+Mission Control führt seit dem 25. September 2026 `TOP — Theory of
+Perspective` als kurzen, fachübergreifenden Namen für dieses bereits
+vorhandene methodische Zentrum. TOP bezeichnet ein Perspektivinstrument und
+keine neue Wissenschaft oder Naturtheorie.
+
+Sein erklärendes Prinzip ist die **Gewaltenteilung der Darstellung**: Quelle,
+Auswahl, Darstellung, Interpretation, Entscheidung und Revision bleiben
+unterscheidbare Rollen. Mehrere Ansichten dürfen verbunden und verglichen
+werden, aber keine Ansicht erhält allein durch ihre Darstellung absolute
+Autorität über die Quelle.
+
+TOP ersetzt weder die Scientific Constitution noch Orientation, OLS, ILAU,
+NRRC, die Sealed Comparison Method oder Fachmethoden. Es benennt deren
+gemeinsame menschliche Lesart:
+
+```text
+QUELLE / GESCHEHEN
+  -> DEKLARIERTE PERSPEKTIVE UND AUSWAHL
+  -> RECORDS
+  -> GEBUNDENER VERGLEICH
+  -> ERHALTEN / VERLOREN / HINZUGEFÜGT / UNGEKLÄRT
+  -> RESIDUAL UND RETURN
+  -> MENSCHLICHE INTERPRETATION / REVISION / ABSTAIN / STOP
+```
+
+Die [Mission-Control-Abgleichung](../MISSION_CONTROL_TOP_METHOD_CENTER_ALIGNMENT_2026-09-25/README.md)
+fixiert TOP additiv mit `NO_NEW_CLAIM / NO_ACTIVATION`.
+
 ## Wozu Mathematik und die Fachgebiete gebraucht werden
 
 NEXAH will kein Fach übernehmen und keinem Fach sagen, wie sein Gegenstand
@@ -880,7 +910,7 @@ heutige Mitte von NEXAH.
 
 Erstausgabe: 2026-09-18
 
-Aktualisiert: 2026-09-21
+Aktualisiert: 2026-09-25
 
 Dokumenttyp: additive Gesamtsynthese / wissenschaftliche und öffentliche
 Orientierung
@@ -903,6 +933,7 @@ zusammen.
 - [kanonische Grid Grammar](../MISSION_CONTROL_GRID_GRAMMAR_CANONICALIZATION_2026-09-17/01_CANONICAL_GRID_GRAMMAR.md)
 - [Observatory Session Close](../MISSION_CONTROL_GRID_GRAMMAR_CANONICALIZATION_2026-09-17/07_ROEDELHEIM_OBSERVATORY_SESSION_CLOSE.md)
 - [Sealed Comparison Method 0.1](../NEXAH_SEALED_COMPARISON_METHOD_0_1_2026-09-17/README.md)
+- [TOP — Theory of Perspective: Method Center Alignment](../MISSION_CONTROL_TOP_METHOD_CENTER_ALIGNMENT_2026-09-25/README.md)
 - [Mission Control Current Truth](../../../00%20EXECUTIVE/NEXAH-Mission-Control/CURRENT/README.md)
 
 ### Übersichtsdokumente und ihre Rollen
@@ -1007,6 +1038,20 @@ identified; utility remains unmeasured. Maßgeblicher Abschluss:
 Mission Control `CURRENT/UTILITY_01R_FINAL_STOP.md`.
 
 [Science Lab Subject Overview](SUBJECT_OVERVIEW.md)
+
+### Aktualisierung vom 25. September — TOP method-center alignment
+
+- `TOP — Theory of Perspective` ist als fachübergreifender Name der bereits
+  bestehenden Orientation-Architektur fixiert.
+- Die **Gewaltenteilung der Darstellung** trennt Quelle, Auswahl,
+  Repräsentation, Interpretation, Entscheidung und Revision, ohne ihre
+  Beziehungen zu unterbrechen.
+- TOP ist ein Perspektiv- und Prüfinstrument, keine neue Wissenschaft, keine
+  Naturtheorie und keine neue OLS- oder ILAU-Klasse.
+- Scientific Constitution, Sealed Comparison Method, OLS/NRRC/ILAU,
+  Human Authority und alle fachlichen Evidenzregeln bleiben unverändert.
+- Es wurde kein Forschungszyklus, Experiment, Runtime-Build oder
+  Publikationsprozess aktiviert.
 
 ## Quellenordnung
 

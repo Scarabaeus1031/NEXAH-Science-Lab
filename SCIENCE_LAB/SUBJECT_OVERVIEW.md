@@ -59,7 +59,7 @@ reading map, not a ranking of truth.
 | Mission Control and Desks | operations/governance | provenance management | portfolio control, not a school-subject result |
 | NEXAH Experience, website and Outreach | science communication/design | publishing; HCI | public navigation, not validation |
 | archive, manifests and custody | archival/provenance science | reproducibility | preservation and source verification |
-| NEXAH comparison/orientation method | Information science | scientific method; applied mathematics | central method |
+| NEXAH comparison/orientation method — TOP, Theory of Perspective | Information science | scientific method; applied mathematics | central cross-subject perspective instrument; not a new science |
 | Common Carrier–Aperture–Return | systems science | information science | cross-family architecture |
 | Grid Grammar | applied mathematics | computer science; visualization | declared representation grammar |
 | OLS and ILAU | theoretical computer science | formal methods; semantics | normative/bounded language |
