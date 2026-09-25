@@ -34,7 +34,8 @@ error report and transform record required for a location-identity claim.
 4. `04_ILAU_RETURN.md`
 5. `05_TOP_RETURN_CARD.md`
 6. `06_RETURN_RECEIPT.json`
-7. `FINAL_RETURN.md`
+7. `07_TOP_RETURN_CARD.png` - static visual summary, not evidence
+8. `FINAL_RETURN.md`
 
 ## Claim ceiling
 
