@@ -1,0 +1,107 @@
+{
+  "test_id": "NEXAH-ORI-02",
+  "source_relations": 5,
+  "symbol_collisions": {
+    "phi": [
+      "mathematical.coordinate",
+      "particle.meson"
+    ],
+    "pi": [
+      "mathematical.constant",
+      "particle.meson"
+    ],
+    "tau": [
+      "particle.lepton",
+      "physical.observable"
+    ]
+  },
+  "compatible_histories_for_visible_e_plus_missing": [
+    [
+      "pdg:mu_plus",
+      "pdg:e_plus"
+    ],
+    [
+      "pdg:pi_plus",
+      "pdg:mu_plus",
+      "pdg:e_plus"
+    ],
+    [
+      "pdg:K_plus",
+      "pdg:mu_plus",
+      "pdg:e_plus"
+    ],
+    [
+      "pdg:phi_1020",
+      "pdg:K_plus",
+      "pdg:mu_plus",
+      "pdg:e_plus"
+    ],
+    [
+      "pdg:tau_plus",
+      "pdg:e_plus"
+    ]
+  ],
+  "strong_baseline": {
+    "typed_graph": true,
+    "rejects_mixed_chain": true,
+    "blocks_unique_upstream_claim": true
+  },
+  "nexah": {
+    "Omega": "typed PDG-derived decay graph",
+    "X": "particle namespace plus detector visibility",
+    "Q": "Does the glyph chain or visible e+ record identify one physical history?",
+    "sigma": "hide neutrinos and upstream vertices; retain visible e+",
+    "vertices": 5,
+    "ILAU": {
+      "I_retained": [
+        "visible positron",
+        "declared source graph",
+        "typed particle identities"
+      ],
+      "L_lost": [
+        "neutrino worldlines",
+        "unseen vertices",
+        "upstream parent identity"
+      ],
+      "A_introduced": [
+        "candidate-history enumeration",
+        "detector aperture model"
+      ],
+      "U_unresolved": [
+        "which compatible upstream history occurred"
+      ]
+    },
+    "symbol_collisions": {
+      "phi": [
+        "mathematical.coordinate",
+        "particle.meson"
+      ],
+      "pi": [
+        "mathematical.constant",
+        "particle.meson"
+      ],
+      "tau": [
+        "particle.lepton",
+        "physical.observable"
+      ]
+    },
+    "blocked_claims": [
+      "the mixed glyph sequence is a physical decay chain",
+      "visible e+ plus missing momentum proves one unique parent"
+    ],
+    "residual": "five compatible source histories remain under the frozen aperture"
+  },
+  "gates": {
+    "G1_TYPED_SOURCE_GRAPH": true,
+    "G2_NAIVE_GLYPH_COLLISION_EXPOSED": true,
+    "G3_BASELINE_REJECTS_MIXED_CHAIN": true,
+    "G4_NEXAH_REJECTS_MIXED_CHAIN": true,
+    "G5_RECORD_IS_NONUNIQUE": true,
+    "G6_BASELINE_BLOCKS_UNIQUE_SOURCE": true,
+    "G7_NEXAH_BLOCKS_UNIQUE_SOURCE": true,
+    "G8_INCREMENTAL_DETECTION": false
+  },
+  "method_functioning": true,
+  "incremental_detection_utility": false,
+  "outcome": "TIE_NO_INCREMENTAL_DETECTION_UTILITY"
+}

@@ -1,0 +1,46 @@
+{
+  "schema_id": "nexah.ghostgrid-relativity-muon-01",
+  "status": "PASS",
+  "claim_boundary": "DETERMINISTIC_DIDACTIC_FIXTURE_NO_NEW_PHYSICS_CLAIM",
+  "inputs": {
+    "c_m_per_s": 299792458.0,
+    "muon_mean_life_s": 2.1969811e-06,
+    "earth_path_m": 15000.0,
+    "beta": 0.99
+  },
+  "derived": {
+    "c_tau_m": 658.6383641485438,
+    "rest_decay_length_ratio": 22.774257948656366,
+    "gamma_at_beta_0_99": 7.088812050083354,
+    "earth_mean_decay_length_m": 4622.273936699152,
+    "survival_probability_with_dilation": 0.03896248572968266,
+    "survival_probability_without_dilation": 1.0217838493393419e-10,
+    "muon_frame_path_m": 2116.010396949884,
+    "earth_elapsed_s": 5.054001442396243e-05,
+    "muon_proper_elapsed_s": 7.129546398873454e-06,
+    "gamma_for_one_mean_lifetime_over_path": 22.796201988751058,
+    "beta_for_one_mean_lifetime_over_path": 0.9990373817487
+  },
+  "round_trip": {
+    "time_residual_s": 8.809142651444724e-20,
+    "position_residual_m": 2.9103830456733704e-11,
+    "relative_interval_error": 7.542870452056598e-15,
+    "muon_frame_position_m": 0.0
+  },
+  "lossy_projection": {
+    "retained": [
+      "earth_elapsed_s"
+    ],
+    "discarded": [
+      "beta",
+      "path_length",
+      "frame_identity"
+    ],
+    "return_status": "EXACT_RETURN_NOT_IDENTIFIABLE"
+  },
+  "negative_controls": {
+    "euclidean_mirror_as_frame_transform": "REJECTED",
+    "inverse_transform_as_physical_time_reversal": "REJECTED",
+    "factor_22_as_privileged_nexah_number": "REJECTED"
+  }
+}

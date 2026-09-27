@@ -1,0 +1,36 @@
+{
+  "source": "PDG 2025 update / RPP 2024 base",
+  "nodes": [
+    {"id": "pdg:phi_1020", "glyph": "phi", "type": "particle.meson"},
+    {"id": "pdg:K_plus", "glyph": "K", "type": "particle.meson"},
+    {"id": "pdg:K_minus", "glyph": "K", "type": "particle.meson"},
+    {"id": "pdg:pi_plus", "glyph": "pi", "type": "particle.meson"},
+    {"id": "pdg:mu_plus", "glyph": "mu", "type": "particle.lepton"},
+    {"id": "pdg:tau_plus", "glyph": "tau", "type": "particle.lepton"},
+    {"id": "pdg:e_plus", "glyph": "e", "type": "particle.lepton"},
+    {"id": "pdg:nu_mu", "glyph": "nu_mu", "type": "particle.neutrino"},
+    {"id": "pdg:anti_nu_mu", "glyph": "anti_nu_mu", "type": "particle.neutrino"},
+    {"id": "pdg:nu_e", "glyph": "nu_e", "type": "particle.neutrino"},
+    {"id": "pdg:anti_nu_tau", "glyph": "anti_nu_tau", "type": "particle.neutrino"},
+    {"id": "math:pi", "glyph": "pi", "type": "mathematical.constant"},
+    {"id": "physics:proper_time_tau", "glyph": "tau", "type": "physical.observable"},
+    {"id": "math:phi_angle", "glyph": "phi", "type": "mathematical.coordinate"},
+    {"id": "nexah:kappa_channel", "glyph": "kappa", "type": "model.parameter"},
+    {"id": "math:sqrt2", "glyph": "sqrt2", "type": "mathematical.value"}
+  ],
+  "decays": [
+    {"parent": "pdg:phi_1020", "children": ["pdg:K_plus", "pdg:K_minus"]},
+    {"parent": "pdg:K_plus", "children": ["pdg:mu_plus", "pdg:nu_mu"]},
+    {"parent": "pdg:pi_plus", "children": ["pdg:mu_plus", "pdg:nu_mu"]},
+    {"parent": "pdg:mu_plus", "children": ["pdg:e_plus", "pdg:nu_e", "pdg:anti_nu_mu"]},
+    {"parent": "pdg:tau_plus", "children": ["pdg:e_plus", "pdg:nu_e", "pdg:anti_nu_tau"]}
+  ],
+  "candidate_histories_for_e_plus_missing": [
+    ["pdg:mu_plus", "pdg:e_plus"],
+    ["pdg:pi_plus", "pdg:mu_plus", "pdg:e_plus"],
+    ["pdg:K_plus", "pdg:mu_plus", "pdg:e_plus"],
+    ["pdg:phi_1020", "pdg:K_plus", "pdg:mu_plus", "pdg:e_plus"],
+    ["pdg:tau_plus", "pdg:e_plus"]
+  ],
+  "proposed_mixed_glyph_chain": ["pi", "tau", "phi", "K", "kappa", "sqrt2"]
+}

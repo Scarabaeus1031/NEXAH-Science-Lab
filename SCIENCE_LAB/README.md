@@ -23,6 +23,14 @@ Operational procedures:
 - [Lab Close Protocol](PROTOCOLS/LAB_CLOSE_PROTOCOL.md)
 - [Canonical Labreport Schema](PROTOCOLS/LABREPORT_SCHEMA.md)
 
+Navigation registers:
+
+- [Possible Physics Experiments](POSSIBLE_PHYSICS_EXPERIMENTS/README.md) —
+  parked experiment candidates; listing does not authorize execution.
+- [Scientific Contribution Candidates](SCIENTIFIC_CONTRIBUTION_CANDIDATES/README.md)
+  — bounded work with possible scientific value; listing does not establish
+  novelty, evidence sufficiency or publication readiness.
+
 ## Current operating state
 
 `LAB_OPERATIONS_STATE = STRUCTURE_FREEZE`

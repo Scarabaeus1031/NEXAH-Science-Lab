@@ -1,0 +1,13 @@
+matrix_id,arm,boundary_family,mask_role,complement_partner,orientations_deg,primary_comparison,mechanism_boundary,status
+TB01-A-OPEN,A_BROADBAND_BOUNDARY,OPEN,reference,CLOSED,"0",flat_and_source_reference,"illumination and detector baseline; not a boundary effect",PLANNED
+TB01-A-CLOSED,A_BROADBAND_BOUNDARY,CLOSED,dark_reference,OPEN,"0",dark_offset,"detector/background baseline",PLANNED
+TB01-A-EDGE-Q,A_BROADBAND_BOUNDARY,SINGLE_EDGE,Q,TB01-A-EDGE-C,"0|45|90|135|180|225|270|315",orientation_and_complement,"edge spread and wavelength-dependent displacement; not two-slit interference",PLANNED
+TB01-A-EDGE-C,A_BROADBAND_BOUNDARY,SINGLE_EDGE,ONE_MINUS_Q,TB01-A-EDGE-Q,"0|45|90|135|180|225|270|315",orientation_and_complement,"opposite edge polarity from same binary master",PLANNED
+TB01-A-SLIT,A_BROADBAND_BOUNDARY,SLIT,Q,TB01-A-BAR,"0|45|90|135|180|225|270|315",two_edge_overlap_and_complement,"two boundaries under broadband/incoherent illumination",PLANNED
+TB01-A-BAR,A_BROADBAND_BOUNDARY,BAR_COMPLEMENT,ONE_MINUS_Q,TB01-A-SLIT,"0|45|90|135|180|225|270|315",two_edge_overlap_and_complement,"complement of slit from same binary master",PLANNED
+TB01-B-OPEN,B_COHERENT_SLIT,OPEN,reference,CLOSED,"0",source_reference,"coherent illumination baseline",PLANNED
+TB01-B-CLOSED,B_COHERENT_SLIT,CLOSED,dark_reference,OPEN,"0",dark_offset,"detector/background baseline",PLANNED
+TB01-B-SINGLE,B_COHERENT_SLIT,SLIT,Q,TB01-B-SINGLE-C,"0|45|90|135|180|225|270|315",single_slit_diffraction_and_complement,"finite-width diffraction",PLANNED
+TB01-B-SINGLE-C,B_COHERENT_SLIT,BAR_COMPLEMENT,ONE_MINUS_Q,TB01-B-SINGLE,"0|45|90|135|180|225|270|315",complement_diagnostic,"coherent intensity complement is not assumed additive",PLANNED
+TB01-B-DOUBLE,B_COHERENT_SLIT,DOUBLE_SLIT,Q,TB01-B-DOUBLE-C,"0|45|90|135|180|225|270|315",interaction_and_complement,"single-slit envelope multiplied by two-aperture interference",PLANNED
+TB01-B-DOUBLE-C,B_COHERENT_SLIT,DOUBLE_BAR_COMPLEMENT,ONE_MINUS_Q,TB01-B-DOUBLE,"0|45|90|135|180|225|270|315",complement_diagnostic,"Babinet/amplitude comparison requires domain-specific treatment",PLANNED

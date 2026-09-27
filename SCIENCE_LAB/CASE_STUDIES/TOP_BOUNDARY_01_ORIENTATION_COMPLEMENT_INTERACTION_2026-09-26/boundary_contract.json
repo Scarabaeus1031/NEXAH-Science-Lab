@@ -1,0 +1,31 @@
+{
+  "case_id": "TOP-BOUNDARY-01",
+  "date": "2026-09-26",
+  "status": "PREREGISTERED_EQUIPMENT_NOT_BOUND_NOT_EXECUTED",
+  "claim_ceiling": "LOCAL_EXPERIMENTAL_CHARACTERIZATION_ONLY",
+  "arms": {
+    "A_BROADBAND_BOUNDARY": {
+      "source_class": "SPATIALLY_INCOHERENT_BROADBAND",
+      "primary_domain_baseline": "EDGE_SPREAD_DISPERSION_AND_DETECTOR_RESPONSE",
+      "excluded_identity": "DOUBLE_SLIT_INTERFERENCE"
+    },
+    "B_COHERENT_SLIT": {
+      "source_class": "MONOCHROMATIC_COHERENT",
+      "primary_domain_baseline": "FINITE_SLIT_DIFFRACTION_AND_TWO_APERTURE_INTERFERENCE",
+      "excluded_identity": "GOETHE_PRISM_COLOR_MECHANISM"
+    }
+  },
+  "orientations_deg": [0, 45, 90, 135, 180, 225, 270, 315],
+  "minimum_repeats_per_condition": 10,
+  "primary_record": ["LINEAR_RAW", "CALIBRATED_SPECTRAL_WHERE_AVAILABLE"],
+  "derived_record": ["FIXED_RENDERED_PNG"],
+  "residuals": {
+    "orientation": "ROTATE_BACK(Y_theta, theta) - Y_0",
+    "complement": "Y(Q) + Y(1-Q) - Y(1) - Y(0)",
+    "interaction": "Y(Q1_UNION_Q2) - Y(Q1) - Y(Q2) + Y(0)"
+  },
+  "equipment_binding_required": true,
+  "execution_authorized_by_this_file": false,
+  "scientific_result": null,
+  "top_effect": "BOUNDED_APPLICATION_ONLY_NO_NEW_THEORY_OR_OPERATOR"
+}

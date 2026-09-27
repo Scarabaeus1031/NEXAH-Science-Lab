@@ -1,0 +1,76 @@
+{
+  "test_id": "NEXAH-ORI-03",
+  "cases": 4,
+  "development_domains": 3,
+  "transfer_controls": 1,
+  "correctness": {
+    "baseline": true,
+    "nexah": true,
+    "parity": true
+  },
+  "core_changes_for_transfer_control": {
+    "baseline": 0,
+    "nexah": 0
+  },
+  "code_metrics": {
+    "baseline": {
+      "logical_lines": 10,
+      "source_bytes": 354
+    },
+    "nexah": {
+      "logical_lines": 22,
+      "source_bytes": 771
+    }
+  },
+  "runtime": {
+    "baseline": {
+      "passes": 10000,
+      "repeats": 7,
+      "median_total_ns": 18871000,
+      "median_ns_per_case": 471.775,
+      "samples_total_ns": [
+        19210750,
+        19620916,
+        19154167,
+        18782750,
+        18625167,
+        18868792,
+        18871000
+      ]
+    },
+    "nexah": {
+      "passes": 10000,
+      "repeats": 7,
+      "median_total_ns": 49036166,
+      "median_ns_per_case": 1225.90415,
+      "samples_total_ns": [
+        49163709,
+        49036166,
+        49087833,
+        48992583,
+        48768750,
+        48931750,
+        49236125
+      ]
+    },
+    "nexah_to_baseline_median_ratio": 2.598493243601293,
+    "interpretation_floor": "differences below 20 percent are not claimed"
+  },
+  "serialized_result_bytes": {
+    "baseline_equal_output": 711,
+    "nexah_equal_output": 711,
+    "nexah_full_ledger": 2315
+  },
+  "gates": {
+    "G1_EQUAL_INFORMATION": true,
+    "G2_CORRECTNESS": true,
+    "G3_PARITY": true,
+    "G4_ZERO_CORE_TRANSFER_CHANGE": true,
+    "G5_TRACE_COMPLETENESS": true,
+    "G6_NEXAH_SMALLER_EXECUTABLE_LOGIC": false,
+    "G7_NEXAH_SMALLER_EQUAL_OUTPUT": false,
+    "G8_NEXAH_RUNTIME_ADVANTAGE": false
+  },
+  "outcome": "NO_EFFICIENCY_ADVANTAGE_SHOWN",
+  "claim_boundary": "internal deterministic engineering proxy; not human time cognitive load external utility or scientific novelty"
+}

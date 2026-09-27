@@ -1,6 +1,6 @@
 # NEXAH Physics Foundations Glossary
 
-Date: `2026-09-20`
+Maintained through: `2026-09-25`
 
 Status: `FOUNDATION_GLOSSARY / ESTABLISHED_PHYSICS_SEPARATED_FROM_NEXAH_READING`
 
@@ -61,6 +61,24 @@ observables, units, calibration, timing, controls and uncertainty.
 | Confounding | factors cannot be isolated because they change together |
 | External E2 evidence | bounded external data use without local profile admission |
 
+## Special relativity and muon case
+
+| Term | Meaning and boundary |
+|---|---|
+| Event | localized occurrence represented by spacetime coordinates in a declared frame; coordinates may change while event identity is retained |
+| Inertial frame | non-accelerating coordinate frame within special relativity; no inertial frame is physically privileged |
+| Lorentz factor | `gamma = 1/sqrt(1-beta^2)` for `beta=v/c`; it is determined by relative speed, not by a visual ratio |
+| Proper time | time measured along one timelike worldline; invariant between the selected events |
+| Time dilation | relation `Delta t = gamma Delta tau` between frame coordinate time and proper time |
+| Length contraction | frame-dependent comparison of simultaneous endpoint separation; not physical crushing of the atmosphere |
+| Lorentz transformation | invertible mapping between inertial-frame coordinates that preserves the spacetime interval |
+| Spacetime interval | invariant combination `c^2 Delta t^2 - Delta x^2` in the one-dimensional sign convention used by the muon case |
+| Worldline | ordered spacetime path of an object; a recorded trace is a representation of it, not the object itself |
+| Survival probability | exponential-decay probability under a declared lifetime, speed and path model; not a guarantee for an individual muon |
+| Inverse coordinate transform | return from one frame description to another; not physical time reversal, reversed decay or history erasure |
+| Fugennetz | NEXAH representation graph whose nodes are bounded records and whose edges are typed transforms; not a standard physics term and not spacetime itself |
+| Epsilon residual | declared reconstruction or numerical discrepancy after return; not entropy and not evidence of backward time |
+
 ## HZ/FZ reading rule
 
 The empirical phase result comes from external RWTH SMA-damper displacement
@@ -71,3 +89,12 @@ The local `HZ_FZ_01` package remains a frequency-to-force admission contract
 with real measurement pending. Decimal/11 patterns are representation audits.
 Exact identities such as `12^3 +/- 1` belong to Mathematics. Neither explains
 the physical cause of the phase behavior.
+
+
+## Ghostgrid–muon reading rule
+
+The [Ghostgrid Relativity / Muon 01 case](../../CASE_STUDIES/GHOSTGRID_RELATIVITY_MUON_01_2026-09-25/README.md)
+uses established special relativity as the authority and Ghostgrid as a bounded
+comparison representation. The factor near 22 is the fixture-dependent ratio
+of a 15 km path to the muon rest-frame mean decay length. It is not the Lorentz
+factor at `0.99c`, not a symmetry order and not a NEXAH invariant.

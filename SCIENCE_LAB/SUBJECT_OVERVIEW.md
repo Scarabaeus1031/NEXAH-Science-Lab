@@ -1,6 +1,6 @@
 # NEXAH Science Lab — Subject Overview
 
-Date: `2026-09-20`
+Maintained through: `2026-09-26`
 
 Status: `CURRENT_NAVIGATION_VIEW / NO_STATUS_OR_AUTHORITY_TRANSFER`
 
@@ -29,8 +29,9 @@ navigation to the owning evidence and its declared boundary.
 | Subject | Primary material | Maintained entrance |
 |---|---|---|
 | Mathematics | exact arithmetic, prime/CRT fixtures, geometry and cube identities | NEXAH Mathematical Foundations Glossary and Mathematics Map |
-| Physics | mechanics, oscillations, phase, structural dynamics, damping and dynamical systems | [Physics Foundations and HZ/FZ family](RESEARCH_AREAS/PHYSICS_MECHANICS_AND_DYNAMICS_STAGE_0_2026-09-20/README.md) |
+| Physics | mechanics, oscillations, phase, structural dynamics, damping, dynamical systems, bounded special-relativity orientation and candidate optical boundary metrology | [Physics Foundations, cases and possible experiments](RESEARCH_AREAS/PHYSICS_MECHANICS_AND_DYNAMICS_STAGE_0_2026-09-20/README.md) |
 | Chemistry | matter, species, phases, interfaces, reactions and chemistry claim boundaries | [Chemistry Foundations Glossary](RESEARCH_AREAS/FIELD_GLYPH_NUMBER_ARCHITECTURE_STAGE_0_2026-09-14/24_CHEMISTRY_FOUNDATIONS_GLOSSARY.md) |
+| History and historical topography | archival sources, settlement, water systems, boundaries, routes, land use and cartographic provenance | [History and Historical Topography](RESEARCH_AREAS/HISTORY_AND_HISTORICAL_TOPOGRAPHY/README.md) |
 
 ## Additional disciplinary shelves
 
@@ -45,6 +46,11 @@ glossary.
 | Statistics and scientific method | uncertainty, bootstrap, negative results, preregistration and provenance | method supports but does not replace domain evidence |
 | Human orientation and design | THE EYE, NEXAHEDRON, comprehension and reader utility | external Human usefulness remains unvalidated |
 | Arts and cultural studies | glyph, sound, atlases, books and curatorial synthesis | expression remains separate from scientific authority |
+
+The maintained History and Historical Topography entrance owns the source-
+criticism and map-provenance rules for the Rödelheim history corpus. It does not
+turn visual alignment, symbolic reading or an unregistered overlay into an
+historical fact.
 
 
 ## Coverage of the current total overview
@@ -69,6 +75,8 @@ reading map, not a ranking of truth.
 | ORION certified core and O8 | computer science/engineering | algebra; metrology | tested bounded components |
 | Prime, CRT, QRTp and 1728/1729 | mathematics | computer science fixtures | exact bounded results; no new number theory |
 | HZ/FZ and SMA phase family | physics | statistics; signal processing | external-data bounded empirical result |
+| [Ghostgrid Relativity / Muon 01](CASE_STUDIES/GHOSTGRID_RELATIVITY_MUON_01_2026-09-25/README.md) | physics | information science; scientific visualization | closed deterministic mapping case over established special relativity; no new physics or utility claim |
+| [TOP-BOUNDARY-01](CASE_STUDIES/TOP_BOUNDARY_01_ORIENTATION_COMPLEMENT_INTERACTION_2026-09-26/14_PRIMARY_INTERACTION_ANALYSIS_REPORT.md) | experimental optics and imaging metrology | Fourier optics; information science | synthetic interaction-operator validation; physical experiment parked at equipment gate; no novelty or physical-result claim |
 | Lorenz, Rössler and Kuramoto | mathematics/dynamical systems | physics modelling; statistics | synthetic/model studies |
 | NBV, Neon and visibility maps | cartography/visual analytics | computer vision | bounded and partly negative evidence |
 | IEEE and power-system work | electrical engineering | graph/network science | internal reproducibility; domain validation open |
@@ -78,6 +86,7 @@ reading map, not a ranking of truth.
 | Library, books and atlases | arts/cultural studies | science communication | authored Works, not scientific validation |
 | Field Glyph and Number Architecture | mixed: mathematics, design and cultural study | computer science | item-level authority; no universal decoder |
 | Rödelheim Observatory family | scientific visualization | education; cartography | executable visual fixtures |
+| Rödelheim History and Historical Topography | history and historical geography | cartography; hydrology; archaeology | source-bounded local case study; visual hypotheses remain unpromoted |
 | [Milky Way · Pineal Aperture · Andromeda](CASE_STUDIES/E8_DEMOS_INTERACTIVE_ORIENTATION_2026-09-21/00_README.md) | scientific visualization and coordinate frames | astronomy interface; computer science; design | bounded source fixture plus technically verified Repair R1; no astronomy measurement |
 | Earth Sky / Solar / Saturn–Titan / Uranus–Moons | astronomy orientation | cartography; visualization | schematic frames, not ephemerides |
 | Green Bridge · Loki | discrete mathematics/graph theory | visualization | Q4-to-Q3 projection, not physical 4D |
