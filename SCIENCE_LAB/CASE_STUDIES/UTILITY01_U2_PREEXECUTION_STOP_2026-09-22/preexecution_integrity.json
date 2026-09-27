@@ -1,0 +1,42 @@
+{
+  "schema": "nexah.utility01.u2-preexecution-integrity/1.0",
+  "date": "2026-09-22",
+  "authorization": "AUTHORIZE_U2_EQUAL_INFORMATION_COMPARISON",
+  "decision": "D_INVALID_OR_INSUFFICIENT_TEST",
+  "stop": "STOP_BEFORE_EVALUATION_MATERIALIZATION",
+  "stage": "PHASE_A_PREEXECUTION_INTEGRITY",
+  "bound_commits": {
+    "nexah_core": "ead4223a9bea103ad2266fc3b71b433974de37dd",
+    "science_lab_u1": "e529c33e44c7a31440ab88d984c60f4d2c428dc9",
+    "mission_control_u1": "aea349e5503a0920a6cdb8d3456b5af0637a8c61"
+  },
+  "u1_manifest_sha256": "598c4124dce131a820d3d7fd54c843f3a881abc148fd51d56db293d8b809bc39",
+  "preflight": {
+    "currentness": "VALID_62_OF_62",
+    "release_custody": "RELEASE_CUSTODY_VALID_62_OF_62",
+    "core_pinned": true,
+    "u1_package_hashes_valid": true,
+    "evaluation_files_present_before_preflight": false,
+    "replay_files_present_before_preflight": false,
+    "baseline_imports_nexah_detection_logic": false,
+    "hidden_labels_protected": false,
+    "observability_variants_realized": false,
+    "strong_baseline_complete": false,
+    "primary_scorer_locked": false
+  },
+  "blocking_findings": [
+    "FIXTURE_ID_ENCODES_HIDDEN_MUTATION_FAMILY_AND_CONTROL_CLASS",
+    "OBSERVABILITY_LABELS_ONLY_WITH_DUPLICATED_PAYLOADS",
+    "FROZEN_BASELINE_COMPONENTS_INCOMPLETE",
+    "PRIMARY_SCORER_NOT_LOCKED"
+  ],
+  "materialized": {"development_existing": 140, "evaluation": 0, "replay": 0},
+  "evaluation_cases_executed": 0,
+  "evaluation_ground_truth_opened": false,
+  "primary_endpoint_calculated": false,
+  "execution_lock_commit_created": false,
+  "utility_claim": false,
+  "u3_started": false,
+  "active_research_cycles": 0,
+  "next_permitted_action": "OWNER_REVIEW_NEW_FREEZE_ONLY"
+}

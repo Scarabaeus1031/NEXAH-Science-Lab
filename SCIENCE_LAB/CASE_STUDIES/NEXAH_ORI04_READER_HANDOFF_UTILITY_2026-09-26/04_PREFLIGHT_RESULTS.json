@@ -1,0 +1,65 @@
+{
+  "test_id": "NEXAH-ORI-04-PREFLIGHT",
+  "status": "PASS",
+  "cases": 8,
+  "gold_counts": {
+    "BLOCK": 4,
+    "ALLOW": 4
+  },
+  "forms": 8,
+  "conditions_per_form": {
+    "BASELINE": 4,
+    "NEXAH": 4
+  },
+  "condition_exposures_per_case": {
+    "BASELINE": 4,
+    "NEXAH": 4
+  },
+  "position_exposures_per_case": "one at each position 1-8",
+  "equal_information": true,
+  "value_fields": [
+    "source",
+    "context",
+    "question",
+    "selection",
+    "retained",
+    "lost",
+    "introduced",
+    "unresolved",
+    "residual"
+  ],
+  "baseline_labels": [
+    "Source",
+    "Context",
+    "Question",
+    "Selection",
+    "Present",
+    "Missing",
+    "Added",
+    "Open",
+    "Difference"
+  ],
+  "nexah_labels": [
+    "Omega / Source",
+    "X / Context",
+    "Q / Question",
+    "S / Selection",
+    "I / Retained",
+    "L / Lost",
+    "A / Introduced",
+    "U / Unresolved",
+    "epsilon / Residual"
+  ],
+  "payload_sha256_by_case": {
+    "STAT_AGGREGATE": "d6e7e78178b410e8cdfbb01f4c84010df006200862e829b8f4fd2c797f9020a0",
+    "PHYS_UNIQUE_PARENT": "80427c9d5409e3603ccfc4f681ead3ce540b7cc5a62356bc1b4a8bc0741af42c",
+    "HISTORY_MAP_IDENTITY": "6e496a3038b396e6485207e3b5268f7cece9867eee44a5d68730c22d950b9c61",
+    "TIME_COORDINATE_INVARIANT": "e5813d8c29f6eee5db59fbec6c0ce420204ae5985eb22c97fc93e4e8bba39871",
+    "COUNT_CONTROL": "ae20375bcee1b019823ffff259b9635dcec89fc55bc855e69b4f131a6465cc4d",
+    "MUON_ARRIVAL_CONTROL": "f97a317852bffb32e65c12b47606fb342c47c5218794f6789a6d67610459a2d9",
+    "BYTE_IDENTITY_CONTROL": "15b2fecd4c78f2a6f10b9b62edf68394de4c163b91daf43d385496c6f5f5dcda",
+    "SYMBOL_NAMESPACE_CONTROL": "888615ffbf20945e09f67cd996707cde6a5d1464f75bddd5318f146450004349"
+  },
+  "errors": [],
+  "human_execution": "NOT_STARTED"
+}

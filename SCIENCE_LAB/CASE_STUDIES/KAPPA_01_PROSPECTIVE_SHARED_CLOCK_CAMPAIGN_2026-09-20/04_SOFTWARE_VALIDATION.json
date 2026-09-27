@@ -1,0 +1,49 @@
+{
+  "all_controls_passed": true,
+  "controls": {
+    "clock_reset_rejected": {
+      "failures": [
+        "clock_not_strictly_increasing"
+      ],
+      "passed": true
+    },
+    "continuous_active_session_admitted": {
+      "failures": [],
+      "passed": true
+    },
+    "continuous_sham_session_admitted": {
+      "failures": [],
+      "passed": true
+    },
+    "duplicate_sample_index_rejected": {
+      "failures": [
+        "sample_index_not_consecutive"
+      ],
+      "passed": true
+    },
+    "known_two_degree_endpoint_recovered": {
+      "active_error_deg": 5.115907697472721e-13,
+      "observed_active_endpoint_deg": 1.9999999999994884,
+      "observed_sham_endpoint_deg": 8.242295734817162e-13,
+      "passed": true,
+      "sham_error_deg": 8.242295734817162e-13,
+      "tolerance_deg": 0.05
+    },
+    "missing_event_marker_rejected": {
+      "failures": [
+        "event_marker_missing"
+      ],
+      "passed": true
+    },
+    "missing_recovery_phase_rejected": {
+      "failures": [
+        "phase_set_incomplete"
+      ],
+      "passed": true
+    }
+  },
+  "schema": "nexah-kappa01-software-validation/0.1.0",
+  "synthetic_complete_config_schema_error": "",
+  "synthetic_complete_config_schema_valid": true,
+  "synthetic_only": true
+}

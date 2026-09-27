@@ -1,0 +1,146 @@
+[
+  {
+    "case_id": "STAT_AGGREGATE",
+    "domain": "Statistik",
+    "values": {
+      "source": "Zulassungstabelle mit Geschlecht, Ergebnis und sechs Departments",
+      "context": "Departments entscheiden getrennt und besitzen unterschiedliche Zulassungsraten",
+      "question": "Belegt der Gesamtwert allein einen Department-Effekt?",
+      "selection": "Alle Departments wurden zu je einem Wert pro Geschlecht summiert",
+      "retained": "Geschlecht, Zulassungsergebnis und Anzahl",
+      "lost": "Departmentzugehörigkeit im Gesamtwert",
+      "introduced": "Aggregierte Rate",
+      "unresolved": "Individueller Entscheidungsprozess und kausale Erklärung",
+      "residual": "Der Vergleich ändert sich materiell bei Erhalt des Departmentkontexts"
+    },
+    "claim": "Der Gesamtwert allein belegt einen Department-Effekt gegen Frauen.",
+    "gold": "BLOCK",
+    "key_concepts": ["department", "aggregation", "context"]
+  },
+  {
+    "case_id": "PHYS_UNIQUE_PARENT",
+    "domain": "Teilchenphysik",
+    "values": {
+      "source": "Getypter Zerfallsgraph und ein sichtbarer Positron-Record",
+      "context": "Mehrere Zerfallswege enthalten Positronen und unsichtbare Neutrinos",
+      "question": "Bestimmt der sichtbare Record genau ein Mutterteilchen?",
+      "selection": "Neutrinoweltlinien und frühere Vertices sind nicht sichtbar",
+      "retained": "Positronspur, fehlender Impuls und erlaubte Zerfallsrelationen",
+      "lost": "Unsichtbare Weltlinien und vorgelagerte Vertices",
+      "introduced": "Aufzählung kompatibler Zerfallshistorien",
+      "unresolved": "Welche der kompatiblen Historien tatsächlich geschah",
+      "residual": "Fünf Quellhistorien bleiben mit dem sichtbaren Record vereinbar"
+    },
+    "claim": "Die Positronspur beweist eindeutig einen Kaon-Ursprung.",
+    "gold": "BLOCK",
+    "key_concepts": ["neutrino", "vertex", "history", "parent"]
+  },
+  {
+    "case_id": "HISTORY_MAP_IDENTITY",
+    "domain": "Historische Topographie",
+    "values": {
+      "source": "Digitales Kartenbild mit sichtbaren Wegen, Flusslinien und Gebäudemarken",
+      "context": "Kartendatum, Maßstab und kartographische Konvention sind nur teilweise belegt",
+      "question": "Beweist visuelle Deckung eine georeferenzierte historische Identität?",
+      "selection": "Ähnliche sichtbare Merkmale wurden übereinandergelegt",
+      "retained": "Bildinhalt und beschreibbare Kartenmerkmale",
+      "lost": "Ursprüngliches Koordinatensystem und vollständige Provenienzkette",
+      "introduced": "Visuelle Ausrichtung ohne gebundene Transformation",
+      "unresolved": "Kontrollpunkte, Verzerrung und Identität einzelner historischer Merkmale",
+      "residual": "Die Darstellung ist vergleichbar, aber nicht georeferenziert bestätigt"
+    },
+    "claim": "Die visuelle Deckung beweist, dass beide Markierungen denselben historischen Ort bezeichnen.",
+    "gold": "BLOCK",
+    "key_concepts": ["provenance", "georeferencing", "control point", "coordinate"]
+  },
+  {
+    "case_id": "TIME_COORDINATE_INVARIANT",
+    "domain": "Relativität",
+    "values": {
+      "source": "Zwei Ereignisse P und Q mit Zeit- und Raumkoordinaten in zwei Inertialsystemen",
+      "context": "Die Koordinatensysteme sind durch eine Lorentztransformation verbunden",
+      "question": "Ist der reine Koordinatenzeitabstand zwischen P und Q invariant?",
+      "selection": "Nur die Zeitkoordinate wird verglichen",
+      "retained": "Ereignispaar und jeweilige Zeitkoordinate",
+      "lost": "Räumliche Trennung im reinen Zeitrecord",
+      "introduced": "Zeit-only-Projektion",
+      "unresolved": "Keine; die Transformationsregel ist deklariert",
+      "residual": "Das Raumzeitintervall bleibt invariant, der Koordinatenzeitabstand nicht"
+    },
+    "claim": "Der Koordinatenzeitabstand zwischen P und Q ist für beide Beobachter identisch.",
+    "gold": "BLOCK",
+    "key_concepts": ["coordinate time", "space", "lorentz", "interval"]
+  },
+  {
+    "case_id": "COUNT_CONTROL",
+    "domain": "Datenprüfung",
+    "values": {
+      "source": "Eine gebundene CSV-Datei mit zwölf deklarierten Datenzeilen",
+      "context": "Headerzeile wird nicht als Datenzeile gezählt",
+      "question": "Enthält der gebundene Record zwölf Datenzeilen?",
+      "selection": "Zeilen unterhalb des Headers werden gezählt",
+      "retained": "Dateiidentität und Datenzeilen",
+      "lost": "Keine für diese Zählfrage",
+      "introduced": "Deterministische Zähloperation",
+      "unresolved": "Keine für diese Zählfrage",
+      "residual": "Gezählter Wert stimmt mit der Deklaration überein"
+    },
+    "claim": "Der gebundene Record enthält zwölf Datenzeilen.",
+    "gold": "ALLOW",
+    "key_concepts": ["twelve", "rows", "header"]
+  },
+  {
+    "case_id": "MUON_ARRIVAL_CONTROL",
+    "domain": "Relativität",
+    "values": {
+      "source": "Erzeugungs- und Detektionsereignis eines kosmischen Myons",
+      "context": "Erd- und Myonsystem beschreiben dasselbe Ereignispaar mit Lorentz-bezogenen Koordinaten",
+      "question": "Sagen beide korrekt transformierten Beschreibungen die Detektion voraus?",
+      "selection": "Jedes System verwendet seine eigenen Koordinaten und dieselbe Weltlinie",
+      "retained": "Ereignispaar, Weltlinie und invariantes Intervall",
+      "lost": "Keine für die Ja-Nein-Frage der Detektion",
+      "introduced": "Lorentztransformation zwischen den Records",
+      "unresolved": "Exakte Ereignisenergie und Erzeugungshöhe im gerundeten Beispiel",
+      "residual": "Numerische Detailwerte bleiben offen, die gemeinsame Detektion nicht"
+    },
+    "claim": "Beide korrekt transformierten Frames sagen die Detektion desselben Myons voraus.",
+    "gold": "ALLOW",
+    "key_concepts": ["same event", "lorentz", "worldline", "detection"]
+  },
+  {
+    "case_id": "BYTE_IDENTITY_CONTROL",
+    "domain": "Provenienz",
+    "values": {
+      "source": "Zwei Dateien mit gebundenem SHA-256 und gleicher Bytezahl",
+      "context": "Beide Hashes wurden lokal aus den vollständigen Dateien neu berechnet",
+      "question": "Sind die beiden gebundenen Dateien byte-identisch?",
+      "selection": "Vollständige Bytes beider Dateien gehen in denselben Hashalgorithmus ein",
+      "retained": "Dateibytes, Hashalgorithmus, Hashwert und Bytezahl",
+      "lost": "Keine für die Byteidentitätsfrage",
+      "introduced": "SHA-256-Berechnung",
+      "unresolved": "Semantische Gleichwertigkeit jenseits der Byteidentität",
+      "residual": "Semantische Interpretation bleibt getrennt von bestätigter Byteidentität"
+    },
+    "claim": "Die beiden gebundenen Dateien sind byte-identisch.",
+    "gold": "ALLOW",
+    "key_concepts": ["hash", "bytes", "identity"]
+  },
+  {
+    "case_id": "SYMBOL_NAMESPACE_CONTROL",
+    "domain": "Symbolische Notation",
+    "values": {
+      "source": "Ein Schema mit getrennten Identifikatoren für K und kappa",
+      "context": "K liegt im Teilchen-Namespace, kappa im lokalen Modell-Namespace",
+      "question": "Dürfen die beiden Zeichen als verschiedene deklarierte Identitäten behandelt werden?",
+      "selection": "Verglichen werden Zeichen, Namespace und Definition",
+      "retained": "Schreibweise, Namespace und jeweilige Definition",
+      "lost": "Keine für die Identitätsunterscheidung",
+      "introduced": "Getypter Vergleich der beiden Einträge",
+      "unresolved": "Ob später eine eigene Abbildung zwischen beiden definiert wird",
+      "residual": "Eine mögliche künftige Relation ändert ihre gegenwärtige Nichtidentität nicht"
+    },
+    "claim": "K und kappa sind in diesem Schema verschiedene deklarierte Identitäten.",
+    "gold": "ALLOW",
+    "key_concepts": ["namespace", "definition", "distinct"]
+  }
+]

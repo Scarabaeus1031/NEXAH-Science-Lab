@@ -1,0 +1,58 @@
+[
+  {
+    "case_id": "STAT_CONTEXT_LOSS",
+    "phase": "development",
+    "domain": "statistics",
+    "source": "NEXAH-ORI-01/UCBAdmissions",
+    "context": ["department"],
+    "question": "Does the aggregate record alone establish a department-level effect?",
+    "selection": "aggregate_over_department",
+    "available": ["recorded_gender", "admission_outcome", "counts"],
+    "claim_requires": ["department"],
+    "introduced": ["aggregate_rate"],
+    "unresolved": ["causal_process"],
+    "expected": "BLOCK"
+  },
+  {
+    "case_id": "PHYS_UNIQUE_PARENT",
+    "phase": "development",
+    "domain": "particle_physics",
+    "source": "NEXAH-ORI-02/PDG-derived graph",
+    "context": ["particle_namespace", "detector_visibility"],
+    "question": "Does visible e+ plus missing momentum identify one unique parent?",
+    "selection": "hide_neutrinos_and_upstream_vertices",
+    "available": ["visible_e_plus", "missing_momentum", "typed_decay_graph"],
+    "claim_requires": ["upstream_parent_identity", "invisible_worldlines"],
+    "introduced": ["candidate_history_enumeration"],
+    "unresolved": ["actual_upstream_history"],
+    "expected": "BLOCK"
+  },
+  {
+    "case_id": "HISTORY_MAP_IDENTITY",
+    "phase": "development",
+    "domain": "historical_topography",
+    "source": "TOP-ECOSYSTEM-03/Roedelheim map return",
+    "context": ["map_date", "cartographic_convention"],
+    "question": "Does visual alignment establish georeferenced historical identity?",
+    "selection": "visual_feature_comparison",
+    "available": ["map_image", "visible_cartographic_features"],
+    "claim_requires": ["source_provenance", "georeferencing_transform", "control_points"],
+    "introduced": ["visual_alignment"],
+    "unresolved": ["coordinate_identity", "historical_feature_identity"],
+    "expected": "BLOCK"
+  },
+  {
+    "case_id": "DESCRIPTIVE_COUNT_CONTROL",
+    "phase": "transfer_control",
+    "domain": "generic_record",
+    "source": "ORI-03 clean control",
+    "context": ["declared_table"],
+    "question": "Does the record contain twelve declared rows?",
+    "selection": "count_rows",
+    "available": ["row_count", "source_identifier"],
+    "claim_requires": ["row_count"],
+    "introduced": ["count_operation"],
+    "unresolved": [],
+    "expected": "ALLOW"
+  }
+]

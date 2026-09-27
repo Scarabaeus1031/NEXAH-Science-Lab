@@ -1,0 +1,1741 @@
+{
+  "case_id": "HZ_FZ_PUBLIC_01",
+  "cycle_robustness": {
+    "P05_BEFORE_AFTER_EQ": {
+      "actuator_1": {
+        "active_cycles": {
+          "gain_relative_delta": {
+            "maximum": 0.05716574602900386,
+            "median": 0.05315594875777055,
+            "minimum": 0.051620562051740676,
+            "q1": 0.05252987844650782,
+            "q3": 0.05424550238378543
+          },
+          "phase_absolute_delta_deg": {
+            "maximum": 1.0012315667327698,
+            "median": 0.6543902571144997,
+            "minimum": 0.6156405268895639,
+            "q1": 0.634634282424706,
+            "q3": 0.6948514280175644
+          }
+        },
+        "active_windows": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "activity_rule": "both cuts displacement half-range >= 90% of declared nominal amplitude",
+        "inactive_windows": [
+          11,
+          12,
+          13,
+          14,
+          15,
+          16
+        ],
+        "paired_cycle_deltas": [
+          {
+            "active": true,
+            "cycle": 1,
+            "gain_relative_delta": 0.05716574602900386,
+            "phase_absolute_delta_deg": 1.0012315667327698
+          },
+          {
+            "active": true,
+            "cycle": 2,
+            "gain_relative_delta": 0.05479436941724329,
+            "phase_absolute_delta_deg": 0.7640094109027586
+          },
+          {
+            "active": true,
+            "cycle": 3,
+            "gain_relative_delta": 0.054289355416436404,
+            "phase_absolute_delta_deg": 0.7030591937730435
+          },
+          {
+            "active": true,
+            "cycle": 4,
+            "gain_relative_delta": 0.053279666589450575,
+            "phase_absolute_delta_deg": 0.6702281307511271
+          },
+          {
+            "active": true,
+            "cycle": 5,
+            "gain_relative_delta": 0.05303223092609052,
+            "phase_absolute_delta_deg": 0.6568711694115166
+          },
+          {
+            "active": true,
+            "cycle": 6,
+            "gain_relative_delta": 0.05264198693616402,
+            "phase_absolute_delta_deg": 0.6519093448174829
+          },
+          {
+            "active": true,
+            "cycle": 7,
+            "gain_relative_delta": 0.05249250894995575,
+            "phase_absolute_delta_deg": 0.6384388521964013
+          },
+          {
+            "active": true,
+            "cycle": 8,
+            "gain_relative_delta": 0.051925740151693614,
+            "phase_absolute_delta_deg": 0.6333660925008076
+          },
+          {
+            "active": true,
+            "cycle": 9,
+            "gain_relative_delta": 0.051620562051740676,
+            "phase_absolute_delta_deg": 0.6274537479502271
+          },
+          {
+            "active": true,
+            "cycle": 10,
+            "gain_relative_delta": 0.054113943285832494,
+            "phase_absolute_delta_deg": 0.6156405268895639
+          },
+          {
+            "active": false,
+            "cycle": 11,
+            "gain_relative_delta": 0.560065023483957,
+            "phase_absolute_delta_deg": 11.696591307192847
+          },
+          {
+            "active": false,
+            "cycle": 12,
+            "gain_relative_delta": 0.5417281452933109,
+            "phase_absolute_delta_deg": 12.653860838355854
+          },
+          {
+            "active": false,
+            "cycle": 13,
+            "gain_relative_delta": 0.5124648355571498,
+            "phase_absolute_delta_deg": 129.5840027357795
+          },
+          {
+            "active": false,
+            "cycle": 14,
+            "gain_relative_delta": 1.6083732620703466,
+            "phase_absolute_delta_deg": 48.58207006003923
+          },
+          {
+            "active": false,
+            "cycle": 15,
+            "gain_relative_delta": 0.6336498421762987,
+            "phase_absolute_delta_deg": 98.92709497856094
+          },
+          {
+            "active": false,
+            "cycle": 16,
+            "gain_relative_delta": 0.16580044472654262,
+            "phase_absolute_delta_deg": 72.55812851144245
+          }
+        ],
+        "reference_cycles": [
+          {
+            "cycle": 1,
+            "displacement_half_range_mm": 20.017789,
+            "gain_kn_per_mm": 0.5679247446378036,
+            "phase_deg": 6.018732398585911
+          },
+          {
+            "cycle": 2,
+            "displacement_half_range_mm": 20.031475,
+            "gain_kn_per_mm": 0.5692836376156142,
+            "phase_deg": 5.565439217961
+          },
+          {
+            "cycle": 3,
+            "displacement_half_range_mm": 20.028091500000002,
+            "gain_kn_per_mm": 0.5701925077845723,
+            "phase_deg": 5.460184387381361
+          },
+          {
+            "cycle": 4,
+            "displacement_half_range_mm": 20.027151,
+            "gain_kn_per_mm": 0.5713959506995135,
+            "phase_deg": 5.395284438973249
+          },
+          {
+            "cycle": 5,
+            "displacement_half_range_mm": 20.029912,
+            "gain_kn_per_mm": 0.5723088538078122,
+            "phase_deg": 5.347271356006331
+          },
+          {
+            "cycle": 6,
+            "displacement_half_range_mm": 20.029294999999998,
+            "gain_kn_per_mm": 0.5733465100335342,
+            "phase_deg": 5.311331299719512
+          },
+          {
+            "cycle": 7,
+            "displacement_half_range_mm": 20.02592,
+            "gain_kn_per_mm": 0.574297763266997,
+            "phase_deg": 5.27581182008737
+          },
+          {
+            "cycle": 8,
+            "displacement_half_range_mm": 20.029049,
+            "gain_kn_per_mm": 0.5753389040642449,
+            "phase_deg": 5.250928660177095
+          },
+          {
+            "cycle": 9,
+            "displacement_half_range_mm": 20.0307815,
+            "gain_kn_per_mm": 0.5764852710719466,
+            "phase_deg": 5.222177272287411
+          },
+          {
+            "cycle": 10,
+            "displacement_half_range_mm": 20.0278235,
+            "gain_kn_per_mm": 0.5798149138476602,
+            "phase_deg": 5.465054949677949
+          },
+          {
+            "cycle": 11,
+            "displacement_half_range_mm": 0.022911258,
+            "gain_kn_per_mm": 21.576422842885748,
+            "phase_deg": 23.910510729684148
+          },
+          {
+            "cycle": 12,
+            "displacement_half_range_mm": 0.020326333,
+            "gain_kn_per_mm": 11.960387702052735,
+            "phase_deg": 31.15902117432313
+          },
+          {
+            "cycle": 13,
+            "displacement_half_range_mm": 0.0169369475,
+            "gain_kn_per_mm": 3.8731729556304666,
+            "phase_deg": 170.41742372583906
+          },
+          {
+            "cycle": 14,
+            "displacement_half_range_mm": 0.0190427565,
+            "gain_kn_per_mm": 15.03983111359465,
+            "phase_deg": 9.762658827286003
+          },
+          {
+            "cycle": 15,
+            "displacement_half_range_mm": 0.0169166845,
+            "gain_kn_per_mm": 21.373655812000838,
+            "phase_deg": -104.92869632854612
+          },
+          {
+            "cycle": 16,
+            "displacement_half_range_mm": 0.016569906600000003,
+            "gain_kn_per_mm": 26.608321682622687,
+            "phase_deg": -23.895359683253815
+          }
+        ],
+        "return_cycles": [
+          {
+            "cycle": 1,
+            "displacement_half_range_mm": 20.023755,
+            "gain_kn_per_mm": 0.6013458577864873,
+            "phase_deg": 5.017500831853141
+          },
+          {
+            "cycle": 2,
+            "displacement_half_range_mm": 20.023023000000002,
+            "gain_kn_per_mm": 0.6013558642761517,
+            "phase_deg": 4.801429807058241
+          },
+          {
+            "cycle": 3,
+            "displacement_half_range_mm": 20.02791,
+            "gain_kn_per_mm": 0.6020116107915676,
+            "phase_deg": 4.757125193608317
+          },
+          {
+            "cycle": 4,
+            "displacement_half_range_mm": 20.0256845,
+            "gain_kn_per_mm": 0.6026729505040991,
+            "phase_deg": 4.725056308222122
+          },
+          {
+            "cycle": 5,
+            "displacement_half_range_mm": 20.0304815,
+            "gain_kn_per_mm": 0.6034863758790878,
+            "phase_deg": 4.690400186594815
+          },
+          {
+            "cycle": 6,
+            "displacement_half_range_mm": 20.0389005,
+            "gain_kn_per_mm": 0.6043445076165201,
+            "phase_deg": 4.6594219549020295
+          },
+          {
+            "cycle": 7,
+            "displacement_half_range_mm": 20.0262575,
+            "gain_kn_per_mm": 0.6052566485259988,
+            "phase_deg": 4.637372967890968
+          },
+          {
+            "cycle": 8,
+            "displacement_half_range_mm": 20.024742500000002,
+            "gain_kn_per_mm": 0.6060101151647155,
+            "phase_deg": 4.617562567676288
+          },
+          {
+            "cycle": 9,
+            "displacement_half_range_mm": 20.027851,
+            "gain_kn_per_mm": 0.6070321893237848,
+            "phase_deg": 4.594723524337184
+          },
+          {
+            "cycle": 10,
+            "displacement_half_range_mm": 20.025043500000002,
+            "gain_kn_per_mm": 0.6120635352466067,
+            "phase_deg": 4.849414422788385
+          },
+          {
+            "cycle": 11,
+            "displacement_half_range_mm": 0.021674676,
+            "gain_kn_per_mm": 38.36079153075331,
+            "phase_deg": 12.213919422491301
+          },
+          {
+            "cycle": 12,
+            "displacement_half_range_mm": 0.019874112499999996,
+            "gain_kn_per_mm": 20.846630175854262,
+            "phase_deg": 18.505160335967275
+          },
+          {
+            "cycle": 13,
+            "displacement_half_range_mm": 0.0169164435,
+            "gain_kn_per_mm": 2.2931588486060277,
+            "phase_deg": -59.99857353838145
+          },
+          {
+            "cycle": 14,
+            "displacement_half_range_mm": 0.017987362,
+            "gain_kn_per_mm": 1.6323145002605761,
+            "phase_deg": -38.819411232753225
+          },
+          {
+            "cycle": 15,
+            "displacement_half_range_mm": 0.017503985,
+            "gain_kn_per_mm": 11.088755051759033,
+            "phase_deg": -6.001601349985151
+          },
+          {
+            "cycle": 16,
+            "displacement_half_range_mm": 0.0187858619,
+            "gain_kn_per_mm": 31.418781434095063,
+            "phase_deg": -96.45348819469626
+          }
+        ],
+        "steady_active_cycles": {
+          "gain_relative_delta": {
+            "maximum": 0.05479436941724329,
+            "median": 0.05283710893112727,
+            "minimum": 0.051620562051740676,
+            "q1": 0.05235081675039022,
+            "q3": 0.05353208879619703
+          },
+          "phase_absolute_delta_deg": {
+            "maximum": 0.7640094109027586,
+            "median": 0.6543902571144997,
+            "minimum": 0.6274537479502271,
+            "q1": 0.6371706622725029,
+            "q3": 0.6784358965066062
+          },
+          "windows": [
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        }
+      },
+      "actuator_2": {
+        "active_cycles": {
+          "gain_relative_delta": {
+            "maximum": 0.055069888390660356,
+            "median": 0.04559591570844558,
+            "minimum": 0.043843779180329036,
+            "q1": 0.04485584089017046,
+            "q3": 0.04753307854279731
+          },
+          "phase_absolute_delta_deg": {
+            "maximum": 0.550099726752677,
+            "median": 0.4399203126086917,
+            "minimum": 0.31610676191013454,
+            "q1": 0.4089096782555828,
+            "q3": 0.47823865553017697
+          }
+        },
+        "active_windows": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "activity_rule": "both cuts displacement half-range >= 90% of declared nominal amplitude",
+        "inactive_windows": [
+          11,
+          12,
+          13,
+          14,
+          15,
+          16
+        ],
+        "paired_cycle_deltas": [
+          {
+            "active": true,
+            "cycle": 1,
+            "gain_relative_delta": 0.055069888390660356,
+            "phase_absolute_delta_deg": 0.4806114513166051
+          },
+          {
+            "active": true,
+            "cycle": 2,
+            "gain_relative_delta": 0.049298246196535195,
+            "phase_absolute_delta_deg": 0.550099726752677
+          },
+          {
+            "active": true,
+            "cycle": 3,
+            "gain_relative_delta": 0.04777752892816216,
+            "phase_absolute_delta_deg": 0.5007499921134695
+          },
+          {
+            "active": true,
+            "cycle": 4,
+            "gain_relative_delta": 0.04679972738670275,
+            "phase_absolute_delta_deg": 0.4711202681708926
+          },
+          {
+            "active": true,
+            "cycle": 5,
+            "gain_relative_delta": 0.04567777311297754,
+            "phase_absolute_delta_deg": 0.4428428624910623
+          },
+          {
+            "active": true,
+            "cycle": 6,
+            "gain_relative_delta": 0.045514058303913627,
+            "phase_absolute_delta_deg": 0.43699776272632107
+          },
+          {
+            "active": true,
+            "cycle": 7,
+            "gain_relative_delta": 0.04479127633004054,
+            "phase_absolute_delta_deg": 0.4142944870067993
+          },
+          {
+            "active": true,
+            "cycle": 8,
+            "gain_relative_delta": 0.04427821033326281,
+            "phase_absolute_delta_deg": 0.4071147420051773
+          },
+          {
+            "active": true,
+            "cycle": 9,
+            "gain_relative_delta": 0.043843779180329036,
+            "phase_absolute_delta_deg": 0.39103243840210666
+          },
+          {
+            "active": true,
+            "cycle": 10,
+            "gain_relative_delta": 0.045049534570560226,
+            "phase_absolute_delta_deg": 0.31610676191013454
+          },
+          {
+            "active": false,
+            "cycle": 11,
+            "gain_relative_delta": 0.026580089835370916,
+            "phase_absolute_delta_deg": 10.278596230456344
+          },
+          {
+            "active": false,
+            "cycle": 12,
+            "gain_relative_delta": 0.35536478333698435,
+            "phase_absolute_delta_deg": 17.449541148861954
+          },
+          {
+            "active": false,
+            "cycle": 13,
+            "gain_relative_delta": 0.7861643427437274,
+            "phase_absolute_delta_deg": 70.9775326247107
+          },
+          {
+            "active": false,
+            "cycle": 14,
+            "gain_relative_delta": 0.3190053655012515,
+            "phase_absolute_delta_deg": 158.09464376559657
+          },
+          {
+            "active": false,
+            "cycle": 15,
+            "gain_relative_delta": 1.531893581956285,
+            "phase_absolute_delta_deg": 26.19333070579495
+          },
+          {
+            "active": false,
+            "cycle": 16,
+            "gain_relative_delta": 0.7904819986829875,
+            "phase_absolute_delta_deg": 163.83212981517545
+          }
+        ],
+        "reference_cycles": [
+          {
+            "cycle": 1,
+            "displacement_half_range_mm": 20.0124555,
+            "gain_kn_per_mm": 0.5704037380836063,
+            "phase_deg": 5.326649810615351
+          },
+          {
+            "cycle": 2,
+            "displacement_half_range_mm": 20.022914,
+            "gain_kn_per_mm": 0.5712145623592245,
+            "phase_deg": 5.079307910724651
+          },
+          {
+            "cycle": 3,
+            "displacement_half_range_mm": 20.0255565,
+            "gain_kn_per_mm": 0.5720395546263962,
+            "phase_deg": 4.979048218982399
+          },
+          {
+            "cycle": 4,
+            "displacement_half_range_mm": 20.022343,
+            "gain_kn_per_mm": 0.5731643457471907,
+            "phase_deg": 4.910532272744149
+          },
+          {
+            "cycle": 5,
+            "displacement_half_range_mm": 20.0259275,
+            "gain_kn_per_mm": 0.574464103850452,
+            "phase_deg": 4.855249929460882
+          },
+          {
+            "cycle": 6,
+            "displacement_half_range_mm": 20.029021,
+            "gain_kn_per_mm": 0.575462342559333,
+            "phase_deg": 4.823539228291878
+          },
+          {
+            "cycle": 7,
+            "displacement_half_range_mm": 20.023598,
+            "gain_kn_per_mm": 0.5766211322988057,
+            "phase_deg": 4.782527205419797
+          },
+          {
+            "cycle": 8,
+            "displacement_half_range_mm": 20.030858000000002,
+            "gain_kn_per_mm": 0.5777683293290578,
+            "phase_deg": 4.750625297081484
+          },
+          {
+            "cycle": 9,
+            "displacement_half_range_mm": 20.026790499999997,
+            "gain_kn_per_mm": 0.5787882386224091,
+            "phase_deg": 4.714157368838016
+          },
+          {
+            "cycle": 10,
+            "displacement_half_range_mm": 20.0109395,
+            "gain_kn_per_mm": 0.5821288947108394,
+            "phase_deg": 4.577895909677153
+          },
+          {
+            "cycle": 11,
+            "displacement_half_range_mm": 0.0459374835,
+            "gain_kn_per_mm": 42.63083247493415,
+            "phase_deg": 48.769387243332204
+          },
+          {
+            "cycle": 12,
+            "displacement_half_range_mm": 0.032478943999999996,
+            "gain_kn_per_mm": 18.85185727045403,
+            "phase_deg": 23.15862718260132
+          },
+          {
+            "cycle": 13,
+            "displacement_half_range_mm": 0.030236318499999998,
+            "gain_kn_per_mm": 4.652794551263569,
+            "phase_deg": 157.62502909135526
+          },
+          {
+            "cycle": 14,
+            "displacement_half_range_mm": 0.029076821999999995,
+            "gain_kn_per_mm": 17.187427218965023,
+            "phase_deg": -24.348501310841527
+          },
+          {
+            "cycle": 15,
+            "displacement_half_range_mm": 0.03218185135,
+            "gain_kn_per_mm": 4.576083937377336,
+            "phase_deg": 166.6267331394152
+          },
+          {
+            "cycle": 16,
+            "displacement_half_range_mm": 0.026004388899999998,
+            "gain_kn_per_mm": 7.767195577502155,
+            "phase_deg": 154.12900848946515
+          }
+        ],
+        "return_cycles": [
+          {
+            "cycle": 1,
+            "displacement_half_range_mm": 20.0080325,
+            "gain_kn_per_mm": 0.6027052279997531,
+            "phase_deg": 4.8460383592987455
+          },
+          {
+            "cycle": 2,
+            "displacement_half_range_mm": 20.020499,
+            "gain_kn_per_mm": 0.6000860964841365,
+            "phase_deg": 4.529208183971974
+          },
+          {
+            "cycle": 3,
+            "displacement_half_range_mm": 20.0215465,
+            "gain_kn_per_mm": 0.6000390646967932,
+            "phase_deg": 4.4782982268689295
+          },
+          {
+            "cycle": 4,
+            "displacement_half_range_mm": 20.014988,
+            "gain_kn_per_mm": 0.6006309967658874,
+            "phase_deg": 4.439412004573256
+          },
+          {
+            "cycle": 5,
+            "displacement_half_range_mm": 20.017856000000002,
+            "gain_kn_per_mm": 0.6013176499404723,
+            "phase_deg": 4.41240706696982
+          },
+          {
+            "cycle": 6,
+            "displacement_half_range_mm": 20.023272,
+            "gain_kn_per_mm": 0.6022638928311383,
+            "phase_deg": 4.386541465565557
+          },
+          {
+            "cycle": 7,
+            "displacement_half_range_mm": 20.013317999999998,
+            "gain_kn_per_mm": 0.6030404052509618,
+            "phase_deg": 4.368232718412997
+          },
+          {
+            "cycle": 8,
+            "displacement_half_range_mm": 20.018164,
+            "gain_kn_per_mm": 0.6039300745681792,
+            "phase_deg": 4.343510555076307
+          },
+          {
+            "cycle": 9,
+            "displacement_half_range_mm": 20.016094,
+            "gain_kn_per_mm": 0.6047332663827168,
+            "phase_deg": 4.32312493043591
+          },
+          {
+            "cycle": 10,
+            "displacement_half_range_mm": 20.0202885,
+            "gain_kn_per_mm": 0.6089578463702742,
+            "phase_deg": 4.2617891477670184
+          },
+          {
+            "cycle": 11,
+            "displacement_half_range_mm": 0.0552469885,
+            "gain_kn_per_mm": 41.51256296994514,
+            "phase_deg": 59.04798347378855
+          },
+          {
+            "cycle": 12,
+            "displacement_half_range_mm": 0.0355038815,
+            "gain_kn_per_mm": 26.99869263739647,
+            "phase_deg": 5.709086033739368
+          },
+          {
+            "cycle": 13,
+            "displacement_half_range_mm": 0.029094516999999997,
+            "gain_kn_per_mm": 10.679740865534594,
+            "phase_deg": 86.64749646664455
+          },
+          {
+            "cycle": 14,
+            "displacement_half_range_mm": 0.028702430499999997,
+            "gain_kn_per_mm": 12.458777959607252,
+            "phase_deg": 133.74614245475505
+          },
+          {
+            "cycle": 15,
+            "displacement_half_range_mm": 0.030408613349999995,
+            "gain_kn_per_mm": 34.52685301017795,
+            "phase_deg": 140.43340243362024
+          },
+          {
+            "cycle": 16,
+            "displacement_half_range_mm": 0.0271284953,
+            "gain_kn_per_mm": 17.9197162966317,
+            "phase_deg": -9.703121325710299
+          }
+        ],
+        "steady_active_cycles": {
+          "gain_relative_delta": {
+            "maximum": 0.049298246196535195,
+            "median": 0.04559591570844558,
+            "minimum": 0.043843779180329036,
+            "q1": 0.04466300983084611,
+            "q3": 0.047044177772067604
+          },
+          "phase_absolute_delta_deg": {
+            "maximum": 0.550099726752677,
+            "median": 0.4399203126086917,
+            "minimum": 0.39103243840210666,
+            "q1": 0.4124995507563938,
+            "q3": 0.4785276991565368
+          },
+          "windows": [
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        }
+      }
+    },
+    "P10_BEFORE_AFTER_EQ": {
+      "actuator_1": {
+        "active_cycles": {
+          "gain_relative_delta": {
+            "maximum": 0.05457563324278264,
+            "median": 0.05185156200261798,
+            "minimum": 0.04761319409257844,
+            "q1": 0.05018998708059816,
+            "q3": 0.05386574330886771
+          },
+          "phase_absolute_delta_deg": {
+            "maximum": 0.5008397344844866,
+            "median": 0.21728727501907485,
+            "minimum": 0.12539598784985628,
+            "q1": 0.19934693138669957,
+            "q3": 0.3192240415776979
+          }
+        },
+        "active_windows": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "activity_rule": "both cuts displacement half-range >= 90% of declared nominal amplitude",
+        "inactive_windows": [
+          1,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16
+        ],
+        "paired_cycle_deltas": [
+          {
+            "active": false,
+            "cycle": 1,
+            "gain_relative_delta": 0.05065785812671039,
+            "phase_absolute_delta_deg": 0.3759946252602333
+          },
+          {
+            "active": true,
+            "cycle": 2,
+            "gain_relative_delta": 0.05415794472741697,
+            "phase_absolute_delta_deg": 0.5008397344844866
+          },
+          {
+            "active": true,
+            "cycle": 3,
+            "gain_relative_delta": 0.05376834283601795,
+            "phase_absolute_delta_deg": 0.3977491602457235
+          },
+          {
+            "active": true,
+            "cycle": 4,
+            "gain_relative_delta": 0.05457563324278264,
+            "phase_absolute_delta_deg": 0.2930490020216894
+          },
+          {
+            "active": true,
+            "cycle": 5,
+            "gain_relative_delta": 0.053267959634762795,
+            "phase_absolute_delta_deg": 0.22526561807552525
+          },
+          {
+            "active": true,
+            "cycle": 6,
+            "gain_relative_delta": 0.05043516437047317,
+            "phase_absolute_delta_deg": 0.20930893196262446
+          },
+          {
+            "active": true,
+            "cycle": 7,
+            "gain_relative_delta": 0.05035025558430838,
+            "phase_absolute_delta_deg": 0.207474108827995
+          },
+          {
+            "active": true,
+            "cycle": 8,
+            "gain_relative_delta": 0.04970918156946747,
+            "phase_absolute_delta_deg": 0.17496539906281328
+          },
+          {
+            "active": true,
+            "cycle": 9,
+            "gain_relative_delta": 0.04761319409257844,
+            "phase_absolute_delta_deg": 0.12539598784985628
+          },
+          {
+            "active": false,
+            "cycle": 10,
+            "gain_relative_delta": 0.05048760660697638,
+            "phase_absolute_delta_deg": 0.37180312096495527
+          },
+          {
+            "active": false,
+            "cycle": 11,
+            "gain_relative_delta": 1.0210645091973634,
+            "phase_absolute_delta_deg": 90.14977357593443
+          },
+          {
+            "active": false,
+            "cycle": 12,
+            "gain_relative_delta": 1.4618154724366834,
+            "phase_absolute_delta_deg": 178.191274361764
+          },
+          {
+            "active": false,
+            "cycle": 13,
+            "gain_relative_delta": 0.8888476811006609,
+            "phase_absolute_delta_deg": 172.03398204096686
+          },
+          {
+            "active": false,
+            "cycle": 14,
+            "gain_relative_delta": 0.3245668056550164,
+            "phase_absolute_delta_deg": 102.45431473754994
+          },
+          {
+            "active": false,
+            "cycle": 15,
+            "gain_relative_delta": 0.5084020579185874,
+            "phase_absolute_delta_deg": 155.74455602514348
+          },
+          {
+            "active": false,
+            "cycle": 16,
+            "gain_relative_delta": 0.11427805293225754,
+            "phase_absolute_delta_deg": 32.60082722052772
+          }
+        ],
+        "reference_cycles": [
+          {
+            "cycle": 1,
+            "displacement_half_range_mm": 33.042967499999996,
+            "gain_kn_per_mm": 0.4828584687274786,
+            "phase_deg": 5.82604759753454
+          },
+          {
+            "cycle": 2,
+            "displacement_half_range_mm": 40.078148,
+            "gain_kn_per_mm": 0.4452553705649867,
+            "phase_deg": 6.1471509260146036
+          },
+          {
+            "cycle": 3,
+            "displacement_half_range_mm": 40.040678,
+            "gain_kn_per_mm": 0.44562291056153175,
+            "phase_deg": 5.8514462699164085
+          },
+          {
+            "cycle": 4,
+            "displacement_half_range_mm": 40.0779,
+            "gain_kn_per_mm": 0.44639719453718024,
+            "phase_deg": 5.644766401386335
+          },
+          {
+            "cycle": 5,
+            "displacement_half_range_mm": 40.07415399999999,
+            "gain_kn_per_mm": 0.448573328061467,
+            "phase_deg": 5.528699328969509
+          },
+          {
+            "cycle": 6,
+            "displacement_half_range_mm": 40.0432015,
+            "gain_kn_per_mm": 0.451289023241897,
+            "phase_deg": 5.449195323620415
+          },
+          {
+            "cycle": 7,
+            "displacement_half_range_mm": 40.081108,
+            "gain_kn_per_mm": 0.4534000460766619,
+            "phase_deg": 5.408245541710727
+          },
+          {
+            "cycle": 8,
+            "displacement_half_range_mm": 40.075531,
+            "gain_kn_per_mm": 0.4557056814607617,
+            "phase_deg": 5.353718915063467
+          },
+          {
+            "cycle": 9,
+            "displacement_half_range_mm": 40.078948999999994,
+            "gain_kn_per_mm": 0.4581312779662313,
+            "phase_deg": 5.291376494440499
+          },
+          {
+            "cycle": 10,
+            "displacement_half_range_mm": 32.940220499999995,
+            "gain_kn_per_mm": 0.46699702488640804,
+            "phase_deg": 6.423629110660812
+          },
+          {
+            "cycle": 11,
+            "displacement_half_range_mm": 0.045522415999999996,
+            "gain_kn_per_mm": 8.755497886405452,
+            "phase_deg": -111.66038937436085
+          },
+          {
+            "cycle": 12,
+            "displacement_half_range_mm": 0.017684499,
+            "gain_kn_per_mm": 11.140395066945697,
+            "phase_deg": 107.9504795511591
+          },
+          {
+            "cycle": 13,
+            "displacement_half_range_mm": 0.017577844499999995,
+            "gain_kn_per_mm": 9.984524802460065,
+            "phase_deg": -149.8398452945217
+          },
+          {
+            "cycle": 14,
+            "displacement_half_range_mm": 0.017996497,
+            "gain_kn_per_mm": 12.297541672906213,
+            "phase_deg": -28.033526405020268
+          },
+          {
+            "cycle": 15,
+            "displacement_half_range_mm": 0.0183899625,
+            "gain_kn_per_mm": 5.731046351200755,
+            "phase_deg": -32.43706660574156
+          },
+          {
+            "cycle": 16,
+            "displacement_half_range_mm": 0.0154945605,
+            "gain_kn_per_mm": 12.1608372433198,
+            "phase_deg": 22.238846913147114
+          }
+        ],
+        "return_cycles": [
+          {
+            "cycle": 1,
+            "displacement_half_range_mm": 33.0498695,
+            "gain_kn_per_mm": 0.507954705328172,
+            "phase_deg": 5.450052972274307
+          },
+          {
+            "cycle": 2,
+            "displacement_half_range_mm": 40.079271,
+            "gain_kn_per_mm": 0.4700406461050059,
+            "phase_deg": 5.646311191530117
+          },
+          {
+            "cycle": 3,
+            "displacement_half_range_mm": 40.071993,
+            "gain_kn_per_mm": 0.4702452676611705,
+            "phase_deg": 5.453697109670685
+          },
+          {
+            "cycle": 4,
+            "displacement_half_range_mm": 40.0715085,
+            "gain_kn_per_mm": 0.471443050840787,
+            "phase_deg": 5.351717399364645
+          },
+          {
+            "cycle": 5,
+            "displacement_half_range_mm": 40.0752925,
+            "gain_kn_per_mm": 0.4731217357898634,
+            "phase_deg": 5.303433710893984
+          },
+          {
+            "cycle": 6,
+            "displacement_half_range_mm": 40.074852,
+            "gain_kn_per_mm": 0.47463868122692704,
+            "phase_deg": 5.239886391657791
+          },
+          {
+            "cycle": 7,
+            "displacement_half_range_mm": 40.078201,
+            "gain_kn_per_mm": 0.4768184147013698,
+            "phase_deg": 5.200771432882732
+          },
+          {
+            "cycle": 8,
+            "displacement_half_range_mm": 40.0611725,
+            "gain_kn_per_mm": 0.4789358133445803,
+            "phase_deg": 5.178753516000654
+          },
+          {
+            "cycle": 9,
+            "displacement_half_range_mm": 40.0608045,
+            "gain_kn_per_mm": 0.48047633109984844,
+            "phase_deg": 5.165980506590643
+          },
+          {
+            "cycle": 10,
+            "displacement_half_range_mm": 32.963754,
+            "gain_kn_per_mm": 0.4911851882025261,
+            "phase_deg": 6.051825989695857
+          },
+          {
+            "cycle": 11,
+            "displacement_half_range_mm": 0.038685625,
+            "gain_kn_per_mm": 2.8371018210819106,
+            "phase_deg": -21.510615798426443
+          },
+          {
+            "cycle": 12,
+            "displacement_half_range_mm": 0.01864326649999999,
+            "gain_kn_per_mm": 1.731920231944867,
+            "phase_deg": -70.24079481060487
+          },
+          {
+            "cycle": 13,
+            "displacement_half_range_mm": 0.01693472,
+            "gain_kn_per_mm": 3.84039904905422,
+            "phase_deg": 38.126172664511415
+          },
+          {
+            "cycle": 14,
+            "displacement_half_range_mm": 0.0151673945,
+            "gain_kn_per_mm": 17.062128923124874,
+            "phase_deg": -130.4878411425702
+          },
+          {
+            "cycle": 15,
+            "displacement_half_range_mm": 0.0203885885,
+            "gain_kn_per_mm": 3.4079133831190953,
+            "phase_deg": 171.81837736911496
+          },
+          {
+            "cycle": 16,
+            "displacement_half_range_mm": 0.015802582500000002,
+            "gain_kn_per_mm": 10.846235504664572,
+            "phase_deg": -10.361980307380605
+          }
+        ],
+        "steady_active_cycles": {
+          "gain_relative_delta": {
+            "maximum": 0.05457563324278264,
+            "median": 0.05185156200261798,
+            "minimum": 0.04970918156946747,
+            "q1": 0.05037148278084958,
+            "q3": 0.05364324703570417
+          },
+          "phase_absolute_delta_deg": {
+            "maximum": 0.3977491602457235,
+            "median": 0.21728727501907485,
+            "minimum": 0.17496539906281328,
+            "q1": 0.20793281461165236,
+            "q3": 0.27610315603514834
+          },
+          "windows": [
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ]
+        }
+      },
+      "actuator_2": {
+        "active_cycles": {
+          "gain_relative_delta": {
+            "maximum": 0.06223968651906284,
+            "median": 0.06046267303442558,
+            "minimum": 0.05880876721555233,
+            "q1": 0.05976611480314939,
+            "q3": 0.06148461123613824
+          },
+          "phase_absolute_delta_deg": {
+            "maximum": 0.5415104549768444,
+            "median": 0.1819405285858835,
+            "minimum": 0.1576464586522377,
+            "q1": 0.16428975292075876,
+            "q3": 0.3097961364503661
+          }
+        },
+        "active_windows": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "activity_rule": "both cuts displacement half-range >= 90% of declared nominal amplitude",
+        "inactive_windows": [
+          1,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16
+        ],
+        "paired_cycle_deltas": [
+          {
+            "active": false,
+            "cycle": 1,
+            "gain_relative_delta": 0.04504110982659855,
+            "phase_absolute_delta_deg": 0.8425550683305119
+          },
+          {
+            "active": true,
+            "cycle": 2,
+            "gain_relative_delta": 0.05880876721555233,
+            "phase_absolute_delta_deg": 0.5415104549768444
+          },
+          {
+            "active": true,
+            "cycle": 3,
+            "gain_relative_delta": 0.0609292441067922,
+            "phase_absolute_delta_deg": 0.40464589101296156
+          },
+          {
+            "active": true,
+            "cycle": 4,
+            "gain_relative_delta": 0.06223968651906284,
+            "phase_absolute_delta_deg": 0.2781795515961676
+          },
+          {
+            "active": true,
+            "cycle": 5,
+            "gain_relative_delta": 0.061970354219773614,
+            "phase_absolute_delta_deg": 0.18156298528714387
+          },
+          {
+            "active": true,
+            "cycle": 6,
+            "gain_relative_delta": 0.06132269690825979,
+            "phase_absolute_delta_deg": 0.18231807188462312
+          },
+          {
+            "active": true,
+            "cycle": 7,
+            "gain_relative_delta": 0.059996101962058956,
+            "phase_absolute_delta_deg": 0.1602990783823941
+          },
+          {
+            "active": true,
+            "cycle": 8,
+            "gain_relative_delta": 0.05934331702633543,
+            "phase_absolute_delta_deg": 0.1576464586522377
+          },
+          {
+            "active": true,
+            "cycle": 9,
+            "gain_relative_delta": 0.05990704739542071,
+            "phase_absolute_delta_deg": 0.1656199777668803
+          },
+          {
+            "active": false,
+            "cycle": 10,
+            "gain_relative_delta": 0.07287772713643852,
+            "phase_absolute_delta_deg": 0.196730498078864
+          },
+          {
+            "active": false,
+            "cycle": 11,
+            "gain_relative_delta": 0.10067581822269558,
+            "phase_absolute_delta_deg": 44.88033823023784
+          },
+          {
+            "active": false,
+            "cycle": 12,
+            "gain_relative_delta": 0.02385036060563805,
+            "phase_absolute_delta_deg": 70.69750004315432
+          },
+          {
+            "active": false,
+            "cycle": 13,
+            "gain_relative_delta": 0.3562613159272845,
+            "phase_absolute_delta_deg": 65.97193488230369
+          },
+          {
+            "active": false,
+            "cycle": 14,
+            "gain_relative_delta": 0.6888536802842607,
+            "phase_absolute_delta_deg": 44.723326133178716
+          },
+          {
+            "active": false,
+            "cycle": 15,
+            "gain_relative_delta": 0.06936459954017156,
+            "phase_absolute_delta_deg": 152.21480417553963
+          },
+          {
+            "active": false,
+            "cycle": 16,
+            "gain_relative_delta": 0.7583489567723506,
+            "phase_absolute_delta_deg": 167.32182521547702
+          }
+        ],
+        "reference_cycles": [
+          {
+            "cycle": 1,
+            "displacement_half_range_mm": 32.990007500000004,
+            "gain_kn_per_mm": 0.487765060755529,
+            "phase_deg": 6.084387881505251
+          },
+          {
+            "cycle": 2,
+            "displacement_half_range_mm": 40.044227500000005,
+            "gain_kn_per_mm": 0.4408017283460155,
+            "phase_deg": 6.117881786269294
+          },
+          {
+            "cycle": 3,
+            "displacement_half_range_mm": 40.040355500000004,
+            "gain_kn_per_mm": 0.4390236191467558,
+            "phase_deg": 5.693993104433474
+          },
+          {
+            "cycle": 4,
+            "displacement_half_range_mm": 40.0410745,
+            "gain_kn_per_mm": 0.4396768684223299,
+            "phase_deg": 5.447312820284424
+          },
+          {
+            "cycle": 5,
+            "displacement_half_range_mm": 40.0398885,
+            "gain_kn_per_mm": 0.44123806679198996,
+            "phase_deg": 5.293486965439314
+          },
+          {
+            "cycle": 6,
+            "displacement_half_range_mm": 40.036621,
+            "gain_kn_per_mm": 0.4429415260917862,
+            "phase_deg": 5.2189969366777405
+          },
+          {
+            "cycle": 7,
+            "displacement_half_range_mm": 40.043869,
+            "gain_kn_per_mm": 0.4449526733275861,
+            "phase_deg": 5.160571521328791
+          },
+          {
+            "cycle": 8,
+            "displacement_half_range_mm": 40.042967000000004,
+            "gain_kn_per_mm": 0.4468774683293248,
+            "phase_deg": 5.124734413418594
+          },
+          {
+            "cycle": 9,
+            "displacement_half_range_mm": 40.041933,
+            "gain_kn_per_mm": 0.4483255969919455,
+            "phase_deg": 5.084534058035956
+          },
+          {
+            "cycle": 10,
+            "displacement_half_range_mm": 32.907978,
+            "gain_kn_per_mm": 0.4517421391747915,
+            "phase_deg": 5.671306154197282
+          },
+          {
+            "cycle": 11,
+            "displacement_half_range_mm": 0.066795385,
+            "gain_kn_per_mm": 7.038150415160189,
+            "phase_deg": -141.56014014270647
+          },
+          {
+            "cycle": 12,
+            "displacement_half_range_mm": 0.0332212075,
+            "gain_kn_per_mm": 3.263176500336072,
+            "phase_deg": 92.41051838616829
+          },
+          {
+            "cycle": 13,
+            "displacement_half_range_mm": 0.029376705999999995,
+            "gain_kn_per_mm": 41.02325406391483,
+            "phase_deg": 136.55439085838202
+          },
+          {
+            "cycle": 14,
+            "displacement_half_range_mm": 0.03272295,
+            "gain_kn_per_mm": 10.821054631971675,
+            "phase_deg": 53.968308651005344
+          },
+          {
+            "cycle": 15,
+            "displacement_half_range_mm": 0.029884279,
+            "gain_kn_per_mm": 19.183504820088785,
+            "phase_deg": -15.914216911290623
+          },
+          {
+            "cycle": 16,
+            "displacement_half_range_mm": 0.0301972055,
+            "gain_kn_per_mm": 26.89710704739616,
+            "phase_deg": -147.23616647790587
+          }
+        ],
+        "return_cycles": [
+          {
+            "cycle": 1,
+            "displacement_half_range_mm": 33.017274,
+            "gain_kn_per_mm": 0.5102407043933537,
+            "phase_deg": 5.241832813174739
+          },
+          {
+            "cycle": 2,
+            "displacement_half_range_mm": 40.049309,
+            "gain_kn_per_mm": 0.46751007710908915,
+            "phase_deg": 5.576371331292449
+          },
+          {
+            "cycle": 3,
+            "displacement_half_range_mm": 40.040878500000005,
+            "gain_kn_per_mm": 0.4666135120666955,
+            "phase_deg": 5.289347213420513
+          },
+          {
+            "cycle": 4,
+            "displacement_half_range_mm": 40.0505655,
+            "gain_kn_per_mm": 0.46792117734940325,
+            "phase_deg": 5.169133268688256
+          },
+          {
+            "cycle": 5,
+            "displacement_half_range_mm": 40.0518455,
+            "gain_kn_per_mm": 0.46945608642227227,
+            "phase_deg": 5.11192398015217
+          },
+          {
+            "cycle": 6,
+            "displacement_half_range_mm": 40.045725000000004,
+            "gain_kn_per_mm": 0.4709630734728702,
+            "phase_deg": 5.036678864793117
+          },
+          {
+            "cycle": 7,
+            "displacement_half_range_mm": 40.041916,
+            "gain_kn_per_mm": 0.4724736757175828,
+            "phase_deg": 5.000272442946397
+          },
+          {
+            "cycle": 8,
+            "displacement_half_range_mm": 40.037716,
+            "gain_kn_per_mm": 0.4742075896306958,
+            "phase_deg": 4.967087954766356
+          },
+          {
+            "cycle": 9,
+            "displacement_half_range_mm": 40.025362,
+            "gain_kn_per_mm": 0.47601278873347525,
+            "phase_deg": 4.918914080269076
+          },
+          {
+            "cycle": 10,
+            "displacement_half_range_mm": 32.931154500000005,
+            "gain_kn_per_mm": 0.4859090841770844,
+            "phase_deg": 5.474575656118418
+          },
+          {
+            "cycle": 11,
+            "displacement_half_range_mm": 0.064468012,
+            "gain_kn_per_mm": 7.784280600432306,
+            "phase_deg": 173.5595216270557
+          },
+          {
+            "cycle": 12,
+            "displacement_half_range_mm": 0.035710633000000006,
+            "gain_kn_per_mm": 3.3419437502460654,
+            "phase_deg": 21.71301834301397
+          },
+          {
+            "cycle": 13,
+            "displacement_half_range_mm": 0.026755036000000003,
+            "gain_kn_per_mm": 58.80588413528094,
+            "phase_deg": -157.47367425931427
+          },
+          {
+            "cycle": 14,
+            "displacement_half_range_mm": 0.030321067999999996,
+            "gain_kn_per_mm": 5.276592794983433,
+            "phase_deg": 9.244982517826628
+          },
+          {
+            "cycle": 15,
+            "displacement_half_range_mm": 0.0240886585,
+            "gain_kn_per_mm": 17.89745196123724,
+            "phase_deg": -168.12902108683025
+          },
+          {
+            "cycle": 16,
+            "displacement_half_range_mm": 0.035796316,
+            "gain_kn_per_mm": 12.107540252732962,
+            "phase_deg": 20.08565873757115
+          }
+        ],
+        "steady_active_cycles": {
+          "gain_relative_delta": {
+            "maximum": 0.06223968651906284,
+            "median": 0.061125970507525995,
+            "minimum": 0.05934331702633543,
+            "q1": 0.06022938749824227,
+            "q3": 0.06180843989189516
+          },
+          "phase_absolute_delta_deg": {
+            "maximum": 0.40464589101296156,
+            "median": 0.1819405285858835,
+            "minimum": 0.1576464586522377,
+            "q1": 0.16561505510858154,
+            "q3": 0.25421418166828147
+          },
+          "windows": [
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ]
+        }
+      }
+    }
+  },
+  "interpretation": "Observed ranges only; no universal threshold or causal effect is asserted.",
+  "kernel_sensitivity": {
+    "P05_BEFORE_AFTER_EQ": {
+      "configurations": [
+        {
+          "ab_similarity": 1.0,
+          "cuts": {
+            "REFERENCE_A": {
+              "dominant_occupancy": 0.5354330708661418,
+              "mean_transition_entropy": 0.10324605845297112,
+              "n_states_observed": 3,
+              "regime_shift_count": 40,
+              "regime_shift_density": 0.01968503937007874
+            },
+            "RETURN_B": {
+              "dominant_occupancy": 0.5354330708661418,
+              "mean_transition_entropy": 0.10324605845297112,
+              "n_states_observed": 3,
+              "regime_shift_count": 40,
+              "regime_shift_density": 0.01968503937007874
+            }
+          },
+          "n_clusters": 3,
+          "random_state": 42,
+          "similarity_method": "v07-signature-permutation-invariant-v1",
+          "window": 16
+        },
+        {
+          "ab_similarity": 0.998835771596263,
+          "cuts": {
+            "REFERENCE_A": {
+              "dominant_occupancy": 0.5054133858267716,
+              "mean_transition_entropy": 0.1847615971460913,
+              "n_states_observed": 4,
+              "regime_shift_count": 60,
+              "regime_shift_density": 0.02952755905511811
+            },
+            "RETURN_B": {
+              "dominant_occupancy": 0.500492125984252,
+              "mean_transition_entropy": 0.1842388738672251,
+              "n_states_observed": 4,
+              "regime_shift_count": 60,
+              "regime_shift_density": 0.02952755905511811
+            }
+          },
+          "n_clusters": 4,
+          "random_state": 42,
+          "similarity_method": "v07-signature-permutation-invariant-v1",
+          "window": 16
+        },
+        {
+          "ab_similarity": 1.0,
+          "cuts": {
+            "REFERENCE_A": {
+              "dominant_occupancy": 0.4603174603174603,
+              "mean_transition_entropy": 0.11473680463008361,
+              "n_states_observed": 4,
+              "regime_shift_count": 39,
+              "regime_shift_density": 0.019345238095238096
+            },
+            "RETURN_B": {
+              "dominant_occupancy": 0.4603174603174603,
+              "mean_transition_entropy": 0.11473680463008361,
+              "n_states_observed": 4,
+              "regime_shift_count": 39,
+              "regime_shift_density": 0.019345238095238096
+            }
+          },
+          "n_clusters": 4,
+          "random_state": 7,
+          "similarity_method": "v07-signature-permutation-invariant-v1",
+          "window": 32
+        },
+        {
+          "ab_similarity": 0.9989428826869198,
+          "cuts": {
+            "REFERENCE_A": {
+              "dominant_occupancy": 0.4603174603174603,
+              "mean_transition_entropy": 0.11471700713602358,
+              "n_states_observed": 4,
+              "regime_shift_count": 39,
+              "regime_shift_density": 0.019345238095238096
+            },
+            "RETURN_B": {
+              "dominant_occupancy": 0.4603174603174603,
+              "mean_transition_entropy": 0.11473680463008361,
+              "n_states_observed": 4,
+              "regime_shift_count": 39,
+              "regime_shift_density": 0.019345238095238096
+            }
+          },
+          "n_clusters": 4,
+          "random_state": 42,
+          "similarity_method": "v07-signature-permutation-invariant-v1",
+          "window": 32
+        },
+        {
+          "ab_similarity": 0.9995743305241142,
+          "cuts": {
+            "REFERENCE_A": {
+              "dominant_occupancy": 0.3709677419354839,
+              "mean_transition_entropy": 0.08695674068625911,
+              "n_states_observed": 4,
+              "regime_shift_count": 30,
+              "regime_shift_density": 0.015120967741935484
+            },
+            "RETURN_B": {
+              "dominant_occupancy": 0.3714717741935484,
+              "mean_transition_entropy": 0.08701302059552082,
+              "n_states_observed": 4,
+              "regime_shift_count": 30,
+              "regime_shift_density": 0.015120967741935484
+            }
+          },
+          "n_clusters": 4,
+          "random_state": 42,
+          "similarity_method": "v07-signature-permutation-invariant-v1",
+          "window": 64
+        },
+        {
+          "ab_similarity": 0.9878692172010939,
+          "cuts": {
+            "REFERENCE_A": {
+              "dominant_occupancy": 0.4201388888888889,
+              "mean_transition_entropy": 0.14092522538211566,
+              "n_states_observed": 5,
+              "regime_shift_count": 49,
+              "regime_shift_density": 0.024305555555555556
+            },
+            "RETURN_B": {
+              "dominant_occupancy": 0.37549603174603174,
+              "mean_transition_entropy": 0.12651072390436888,
+              "n_states_observed": 5,
+              "regime_shift_count": 41,
+              "regime_shift_density": 0.020337301587301588
+            }
+          },
+          "n_clusters": 5,
+          "random_state": 42,
+          "similarity_method": "v07-signature-permutation-invariant-v1",
+          "window": 32
+        }
+      ],
+      "similarity_range": {
+        "maximum": 1.0,
+        "minimum": 0.9878692172010939,
+        "span": 0.012130782798906115
+      }
+    },
+    "P10_BEFORE_AFTER_EQ": {
+      "configurations": [
+        {
+          "ab_similarity": 0.9997092584852351,
+          "cuts": {
+            "REFERENCE_A": {
+              "dominant_occupancy": 0.5416666666666666,
+              "mean_transition_entropy": 0.17975601473438038,
+              "n_states_observed": 3,
+              "regime_shift_count": 40,
+              "regime_shift_density": 0.03968253968253968
+            },
+            "RETURN_B": {
+              "dominant_occupancy": 0.5426587301587301,
+              "mean_transition_entropy": 0.17986273554014956,
+              "n_states_observed": 3,
+              "regime_shift_count": 40,
+              "regime_shift_density": 0.03968253968253968
+            }
+          },
+          "n_clusters": 3,
+          "random_state": 42,
+          "similarity_method": "v07-signature-permutation-invariant-v1",
+          "window": 16
+        },
+        {
+          "ab_similarity": 0.99973871954361,
+          "cuts": {
+            "REFERENCE_A": {
+              "dominant_occupancy": 0.4712301587301587,
+              "mean_transition_entropy": 0.19711778821006432,
+              "n_states_observed": 4,
+              "regime_shift_count": 40,
+              "regime_shift_density": 0.03968253968253968
+            },
+            "RETURN_B": {
+              "dominant_occupancy": 0.4712301587301587,
+              "mean_transition_entropy": 0.19708885576211438,
+              "n_states_observed": 4,
+              "regime_shift_count": 40,
+              "regime_shift_density": 0.03968253968253968
+            }
+          },
+          "n_clusters": 4,
+          "random_state": 42,
+          "similarity_method": "v07-signature-permutation-invariant-v1",
+          "window": 16
+        },
+        {
+          "ab_similarity": 0.9979489611727634,
+          "cuts": {
+            "REFERENCE_A": {
+              "dominant_occupancy": 0.38306451612903225,
+              "mean_transition_entropy": 0.16793569574569261,
+              "n_states_observed": 4,
+              "regime_shift_count": 32,
+              "regime_shift_density": 0.03225806451612903
+            },
+            "RETURN_B": {
+              "dominant_occupancy": 0.3800403225806452,
+              "mean_transition_entropy": 0.16731185954355235,
+              "n_states_observed": 4,
+              "regime_shift_count": 32,
+              "regime_shift_density": 0.03225806451612903
+            }
+          },
+          "n_clusters": 4,
+          "random_state": 7,
+          "similarity_method": "v07-signature-permutation-invariant-v1",
+          "window": 32
+        },
+        {
+          "ab_similarity": 0.9997833176808686,
+          "cuts": {
+            "REFERENCE_A": {
+              "dominant_occupancy": 0.3810483870967742,
+              "mean_transition_entropy": 0.16756504601112232,
+              "n_states_observed": 4,
+              "regime_shift_count": 32,
+              "regime_shift_density": 0.03225806451612903
+            },
+            "RETURN_B": {
+              "dominant_occupancy": 0.38205645161290325,
+              "mean_transition_entropy": 0.1677273313611324,
+              "n_states_observed": 4,
+              "regime_shift_count": 32,
+              "regime_shift_density": 0.03225806451612903
+            }
+          },
+          "n_clusters": 4,
+          "random_state": 42,
+          "similarity_method": "v07-signature-permutation-invariant-v1",
+          "window": 32
+        },
+        {
+          "ab_similarity": 1.0,
+          "cuts": {
+            "REFERENCE_A": {
+              "dominant_occupancy": 0.38229166666666664,
+              "mean_transition_entropy": 0.14653960094406848,
+              "n_states_observed": 4,
+              "regime_shift_count": 28,
+              "regime_shift_density": 0.029166666666666667
+            },
+            "RETURN_B": {
+              "dominant_occupancy": 0.38229166666666664,
+              "mean_transition_entropy": 0.14653960094406848,
+              "n_states_observed": 4,
+              "regime_shift_count": 28,
+              "regime_shift_density": 0.029166666666666667
+            }
+          },
+          "n_clusters": 4,
+          "random_state": 42,
+          "similarity_method": "v07-signature-permutation-invariant-v1",
+          "window": 64
+        },
+        {
+          "ab_similarity": 0.9969054672449262,
+          "cuts": {
+            "REFERENCE_A": {
+              "dominant_occupancy": 0.38205645161290325,
+              "mean_transition_entropy": 0.20505475647403273,
+              "n_states_observed": 5,
+              "regime_shift_count": 41,
+              "regime_shift_density": 0.04133064516129032
+            },
+            "RETURN_B": {
+              "dominant_occupancy": 0.38205645161290325,
+              "mean_transition_entropy": 0.19360407417573416,
+              "n_states_observed": 5,
+              "regime_shift_count": 39,
+              "regime_shift_density": 0.03931451612903226
+            }
+          },
+          "n_clusters": 5,
+          "random_state": 42,
+          "similarity_method": "v07-signature-permutation-invariant-v1",
+          "window": 32
+        }
+      ],
+      "similarity_range": {
+        "maximum": 1.0,
+        "minimum": 0.9969054672449262,
+        "span": 0.0030945327550737645
+      }
+    }
+  },
+  "nominal_cycle_windows_per_record": 16,
+  "schema": "nexah-hz-fz-public-robustness/0.1.0",
+  "signal_analysis_source_rate_hz": 512.0
+}

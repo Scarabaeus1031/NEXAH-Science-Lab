@@ -1,0 +1,118 @@
+{
+  "schema": "nexah-compass-binder-acr-return/0.3.0",
+  "case_id": "HZ_FZ_PUBLIC_01",
+  "extends": "nexah-compass-binder-acr-execution/0.2.0",
+  "adapters_executed": [
+    "ACR35",
+    "ACR43",
+    "ACR45"
+  ],
+  "projection_screen": {
+    "adapter": "ACR35",
+    "input_representation": "direct Cartesian contrast coordinates",
+    "display_representation": "polar radius and atan2 angle",
+    "sine_phase_projection_used": false,
+    "generic_fourfold_phase_inverse_applies": false,
+    "orientation_metadata": {
+      "angle_convention": "atan2(delta_R, delta_L), degrees modulo 360",
+      "quadrant": "III",
+      "delta_L_sign": -1,
+      "delta_R_sign": -1,
+      "alignment": "active_order",
+      "source_receipt": "10ef29d1e4a3f4e5abd1aef9f2b3b419245ad482d0355c350eb3aba20584a98e"
+    },
+    "roundtrip": {
+      "radius": 43.9405291378832,
+      "angle_deg": 251.0852521749751,
+      "reconstructed_cartesian": [
+        -14.243802704030104,
+        -41.5678263257273
+      ],
+      "max_absolute_error": 1.5987211554602254e-14,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    "decision": "PASS_DIRECT_POLAR_VIEW_WITH_ORIENTATION_KEY",
+    "warning": "If a future adapter uses (sin(phi_x), sin(phi_z)), retain time order or phase derivatives because the static inverse is generally fourfold."
+  },
+  "event_ledger": {
+    "timebase": "ordinal execution steps; not physical time",
+    "direction": "forward",
+    "event_count": 6,
+    "events": [
+      {
+        "sequence": 0,
+        "event_id": "SOURCE_BINDER",
+        "source_name": "COMPASS_BINDER_V0_1.json",
+        "source_sha256": "05171e5fa00828eb78a6bc8e0e92e906d8d3b3df7ccf6d812c2b0b17ca29a1fe",
+        "result": "paired contrast record",
+        "ordinal_timebase": 0,
+        "physical_timestamp": null,
+        "previous_event_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+        "event_sha256": "9bf201c28d8ff2af380323c5d101e387080f422b852719d2f32ceed7b03953df"
+      },
+      {
+        "sequence": 1,
+        "event_id": "ACR33_PREFLIGHT",
+        "source_name": "COMPASS_BINDER_V0_2_ACR_EXECUTION.json",
+        "source_sha256": "0f02e7afe2c1e0d603fec78e061bc9cbccaa65011da692f2cab4c7be18ae8c60",
+        "result": "PASS_REVERSIBLE_LOCAL_ADAPTER",
+        "ordinal_timebase": 1,
+        "physical_timestamp": null,
+        "previous_event_sha256": "9bf201c28d8ff2af380323c5d101e387080f422b852719d2f32ceed7b03953df",
+        "event_sha256": "dfb79a6301df6c0d20056fbbd9ac14628a745a2baa04625784301080bef7509d"
+      },
+      {
+        "sequence": 2,
+        "event_id": "ACR44_COORDINATE_LIFT",
+        "source_name": "COMPASS_BINDER_V0_2_ACR_EXECUTION.json",
+        "source_sha256": "0f02e7afe2c1e0d603fec78e061bc9cbccaa65011da692f2cab4c7be18ae8c60",
+        "result": "zero-error A/B to M/S to A/B round trip",
+        "ordinal_timebase": 2,
+        "physical_timestamp": null,
+        "previous_event_sha256": "dfb79a6301df6c0d20056fbbd9ac14628a745a2baa04625784301080bef7509d",
+        "event_sha256": "0d67f012a3af90b69c8160dee9f4ea8d449d6cb5a7850918ed207d8557757f82"
+      },
+      {
+        "sequence": 3,
+        "event_id": "ACR35_PROJECTION_SCREEN",
+        "source_name": "NEXAH_ACR35_TEST_REPORT.md",
+        "source_sha256": "932c808e6085db0a7a84fe512baa5e1ed33409d046a2e6aa7c570edf13ffa0b5",
+        "result": "PASS_DIRECT_POLAR_VIEW_WITH_ORIENTATION_KEY",
+        "ordinal_timebase": 3,
+        "physical_timestamp": null,
+        "previous_event_sha256": "0d67f012a3af90b69c8160dee9f4ea8d449d6cb5a7850918ed207d8557757f82",
+        "event_sha256": "a5402c87d85125cdaa97d0ef0edecf31ca013f62bf659d94ac89bc90aa38566a"
+      },
+      {
+        "sequence": 4,
+        "event_id": "ACR43_EVENT_LEDGER",
+        "source_name": "NEXAH_ACR43_TEST_REPORT.md",
+        "source_sha256": "ca449e09fd60b14d5064c9478334880a3ec8239d6015e65809c2700c9ba977fc",
+        "result": "explicit ordered mapping with decoder and direction metadata",
+        "ordinal_timebase": 4,
+        "physical_timestamp": null,
+        "previous_event_sha256": "a5402c87d85125cdaa97d0ef0edecf31ca013f62bf659d94ac89bc90aa38566a",
+        "event_sha256": "a9e6ce469ed011368167898d97a1aec2a643df3acbaec18bfdc390d7a7876bad"
+      },
+      {
+        "sequence": 5,
+        "event_id": "ACR45_RETURN_CONTAINER",
+        "source_name": "NEXAH_ACR45_TEST_REPORT.md",
+        "source_sha256": "e5b89a36d51d1a11ae055e4179470dea13fe5dfdc719bf99357c5e863242f90d",
+        "result": "container receipt; no synchrony claim",
+        "ordinal_timebase": 5,
+        "physical_timestamp": null,
+        "previous_event_sha256": "a9e6ce469ed011368167898d97a1aec2a643df3acbaec18bfdc390d7a7876bad",
+        "event_sha256": "87d47380c8baad37a89f5be15a2c0d2b5a8653170d6538e832b4a80df40967fd"
+      }
+    ],
+    "final_event_sha256": "87d47380c8baad37a89f5be15a2c0d2b5a8653170d6538e832b4a80df40967fd"
+  },
+  "decision": "PASS_ACR_PROJECTION_AND_RETURN_RECEIPT",
+  "profile_activation": false,
+  "registered_capability": false,
+  "scientific_claim_change": false,
+  "next_gate": "negative controls: remove orientation key, permute event order, and alter one source hash",
+  "receipt_sha256": "a67d9722daee44e3933bd463e8b68a731e9094e960927aa814c230f776d58ae2"
+}

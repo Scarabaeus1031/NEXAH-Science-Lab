@@ -1,0 +1,110 @@
+{
+  "binder": {
+    "default_alignment": "active_order",
+    "forbids": [
+      "unit averaging",
+      "implicit cycle relabeling",
+      "constant fitting as evidence",
+      "profile activation"
+    ],
+    "operation": "PAIR_BY_DECLARED_ALIGNMENT_THEN_MAP_TO_SHARED_CONTRAST_PLANE",
+    "preserves": [
+      "source identity",
+      "units",
+      "cycle label",
+      "active order"
+    ],
+    "required_alternative": "nominal_cycle_label"
+  },
+  "binder_id": "hz-fz-contrast-compass:paired-median-contrast-v1",
+  "case_id": "HZ_FZ_PUBLIC_01",
+  "claim_boundary": "All constant rays and reflection checks are exploratory coordinate references on the same source records; they add no independent evidence and identify no physical constant or refraction law.",
+  "comparison": {
+    "absolute_ratio": 2.918309610815254,
+    "angle_deg": 251.0852521749751,
+    "observed_vector_j": [
+      -14.243802704030088,
+      -41.56782632572731
+    ],
+    "path_views": [
+      "active_order",
+      "nominal_cycle_label"
+    ]
+  },
+  "cuts": {
+    "A": {
+      "orientation": "LEFT_CONTRAST",
+      "quantity": "median_loop_area_0.5_minus_0.1",
+      "unit": "J/cycle"
+    },
+    "B": {
+      "orientation": "RETURN_CONTRAST",
+      "quantity": "median_loop_area_0.5_minus_1.0",
+      "unit": "J/cycle"
+    }
+  },
+  "decision": "DESCRIPTIVE_PATH_STRUCTURE_WITH_ALIGNMENT_SENSITIVITY_AND_UNSTABLE_REFERENCE_ORIENTATION",
+  "profile_ref": "hz-fz-transfer@0.1.0",
+  "schema": "nexah-compass-binder/0.1.0",
+  "source": {
+    "record": "FACTORIAL_CYCLE_METRICS.csv",
+    "scope": "40 mm, 8-wire, 0.1/0.5/1.0 Hz cycle records",
+    "sha256": "10ef29d1e4a3f4e5abd1aef9f2b3b419245ad482d0355c350eb3aba20584a98e"
+  },
+  "status": "DESCRIPTIVE_E2_SUPPLEMENT_NO_PROFILE_ACTIVATION",
+  "uncertainty": {
+    "block_length_cycles": 2,
+    "draws": 20000,
+    "method": "joint circular moving-block bootstrap",
+    "reference_screen": [
+      {
+        "bootstrap_within_10_deg_fraction": 0.16905,
+        "bootstrap_within_5_deg_fraction": 0.07735,
+        "name": "sqrt(2)",
+        "negative_ray_angle_deg": 234.73561031724535,
+        "point_relative_error_percent": 106.35565154093402,
+        "ratio": 1.4142135623730951
+      },
+      {
+        "bootstrap_within_10_deg_fraction": 0.16695,
+        "bootstrap_within_5_deg_fraction": 0.0798,
+        "name": "phi",
+        "negative_ray_angle_deg": 238.282525588539,
+        "point_relative_error_percent": 80.36145291793049,
+        "ratio": 1.618033988749895
+      },
+      {
+        "bootstrap_within_10_deg_fraction": 0.1728,
+        "bootstrap_within_5_deg_fraction": 0.0885,
+        "name": "2:1",
+        "negative_ray_angle_deg": 243.43494882292202,
+        "point_relative_error_percent": 45.91548054076271,
+        "ratio": 2.0
+      },
+      {
+        "bootstrap_within_10_deg_fraction": 0.1773,
+        "bootstrap_within_5_deg_fraction": 0.0916,
+        "name": "2*sqrt(2)",
+        "negative_ray_angle_deg": 250.5287793655093,
+        "point_relative_error_percent": 3.177825770467013,
+        "ratio": 2.8284271247461903
+      },
+      {
+        "bootstrap_within_10_deg_fraction": 0.175,
+        "bootstrap_within_5_deg_fraction": 0.0888,
+        "name": "gamma^-2",
+        "negative_ray_angle_deg": 251.56505117707798,
+        "point_relative_error_percent": -2.7230129728248564,
+        "ratio": 3.0
+      },
+      {
+        "bootstrap_within_10_deg_fraction": 0.17895,
+        "bootstrap_within_5_deg_fraction": 0.08965,
+        "name": "pi",
+        "negative_ray_angle_deg": 252.34321284858714,
+        "point_relative_error_percent": -7.107319993233396,
+        "ratio": 3.141592653589793
+      }
+    ]
+  }
+}

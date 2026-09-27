@@ -1,0 +1,143 @@
+{
+  "cases": {
+    "D01_residual_removed": {
+      "actual_residual_state": "REMOVED",
+      "baseline_raw": {
+        "claim_ceiling": "BOUNDED_IEEE_REPRESENTATION_FIDELITY_AUDIT",
+        "cost": {
+          "output_bytes": 660,
+          "peak_rss": 73203712,
+          "runtime_ns": 2583083
+        },
+        "defect_class": "D01",
+        "evidence": [
+          {
+            "artifact": "transform.json",
+            "input_sha256": "051115c054aa0f0b65c08139cb4b407bdca39d7f29ff5abdc682b3a97484f7a1"
+          }
+        ],
+        "id": "097b45f24eac4fef41bacaecbccde640",
+        "input_sha256": "051115c054aa0f0b65c08139cb4b407bdca39d7f29ff5abdc682b3a97484f7a1",
+        "location": {
+          "artifact_role": "TRANSFORM",
+          "pointer": "/residual/0",
+          "pointer_kind": "JSON_POINTER",
+          "relative_path": "transform.json"
+        },
+        "reason": "RESIDUAL_MISMATCH",
+        "reconstruction_state": "UNKNOWN",
+        "software_version": "INDEPENDENT_BASELINE_R1_V1",
+        "status": "DEFECT",
+        "unmet_precondition": ""
+      },
+      "carrier_sha256": "051115c054aa0f0b65c08139cb4b407bdca39d7f29ff5abdc682b3a97484f7a1",
+      "file_sha256": {
+        "analysis.json": "67e4a9e51610a56fe42a7a46b2c451a42991e3e42a18c35bca9356371362675b",
+        "checklist.json": "f9d973cd961cef63e012b5b4cd20e539707e4cfd5c21e30598764454b999437e",
+        "claim.json": "be43f936e37c77efeea88c9ff106bf9941b8964d4a602c939bc2c58c53184247",
+        "computation_result.json": "dc7e2f894000d9c7a8e3bcdf45d34b7a36b9f8cae97da569e86e88bd7f61ae7f",
+        "manifest.json": "0b48284b23e777f805554bb0c58c343fc0ca70fdb9474aa5be57c4a052281bac",
+        "payload.dat": "5c6215efefc3c7b9d5d4c2949f8ee15f5fb4627c9a9976f2366d204d97642194",
+        "pca_fit.json": "e22656106c9d8fac3c23fab01d1170ebdb965be8922fc151273aa3d1a68b8e65",
+        "prov.json": "b004ad64cf1b98518cab41ad98130c085d9fb4eeecdf81622c5c22798e4dba74",
+        "report.md": "7eabc54d9f0bdd52a58ad590622bffdfa6ed531341cec6029a1a9928c2678089",
+        "ro-crate-metadata.json": "b7bbb9f978d275e94572c95ce35661155939dc8ffc006c0f884edc31721323ea",
+        "source.json": "71a07ea2af8826d82b020a7bb0e16e34735f4665da33cf93a0e48a005703a1e4",
+        "transform.json": "cf3058720de59f8225a4c19aef64efee759f2a7aba1bbfe23f5d56f4425eda4d"
+      },
+      "nexah_raw": {
+        "claim_ceiling": "BOUNDED_IEEE_REPRESENTATION_FIDELITY_AUDIT",
+        "cost": {
+          "output_bytes": 522,
+          "peak_rss": 73170944,
+          "runtime_ns": 14604833
+        },
+        "defect_class": "NONE",
+        "evidence": [
+          {
+            "artifact": null,
+            "input_sha256": "051115c054aa0f0b65c08139cb4b407bdca39d7f29ff5abdc682b3a97484f7a1"
+          }
+        ],
+        "id": "097b45f24eac4fef41bacaecbccde640",
+        "input_sha256": "051115c054aa0f0b65c08139cb4b407bdca39d7f29ff5abdc682b3a97484f7a1",
+        "location": null,
+        "reason": "",
+        "reconstruction_state": "UNKNOWN",
+        "software_version": "PINNED_CORE_SYNTAX_ONLY_R1_V1",
+        "status": "PASS",
+        "unmet_precondition": ""
+      },
+      "opaque_id": "097b45f24eac4fef41bacaecbccde640"
+    },
+    "valid": {
+      "actual_residual_state": "PRESENT",
+      "baseline_raw": {
+        "claim_ceiling": "BOUNDED_IEEE_REPRESENTATION_FIDELITY_AUDIT",
+        "cost": {
+          "output_bytes": 519,
+          "peak_rss": 73170944,
+          "runtime_ns": 3728625
+        },
+        "defect_class": "NONE",
+        "evidence": [
+          {
+            "artifact": null,
+            "input_sha256": "948a53db2c0150b0daea6ae169f9d4a677bf35f657ce23b424497497e9907663"
+          }
+        ],
+        "id": "1c5dadc1655369c31fea09d852340254",
+        "input_sha256": "948a53db2c0150b0daea6ae169f9d4a677bf35f657ce23b424497497e9907663",
+        "location": null,
+        "reason": "",
+        "reconstruction_state": "RETAINED",
+        "software_version": "INDEPENDENT_BASELINE_R1_V1",
+        "status": "PASS",
+        "unmet_precondition": ""
+      },
+      "carrier_sha256": "948a53db2c0150b0daea6ae169f9d4a677bf35f657ce23b424497497e9907663",
+      "file_sha256": {
+        "analysis.json": "c5997371a6252efeb5533038363f0d68ac1a91f90905b5324c36796f1baad955",
+        "checklist.json": "f9d973cd961cef63e012b5b4cd20e539707e4cfd5c21e30598764454b999437e",
+        "claim.json": "be43f936e37c77efeea88c9ff106bf9941b8964d4a602c939bc2c58c53184247",
+        "computation_result.json": "691269583c8deb581c8aac6cf26a012f46c42d85f3e0d9ea92a2d65fe8d12f0f",
+        "manifest.json": "37f26d078ff6c2d47598e16e8ebb1a7d13b1c72fcbb1ee0edd324c2787f327b7",
+        "payload.dat": "5c6215efefc3c7b9d5d4c2949f8ee15f5fb4627c9a9976f2366d204d97642194",
+        "pca_fit.json": "c9f8cc858fc751410e0dd2ed4e65349b2ee2a1e08b25a5fa4f462f84aba95e9c",
+        "prov.json": "2f61a100aabd352960849f6f164ffd56c7ddfd441cfd6961452e08198c18fe14",
+        "report.md": "e5889bf4165723261c8c0f68d28df68a43f9ce2c8cdc5f47833c20711cfea4ff",
+        "ro-crate-metadata.json": "b7bbb9f978d275e94572c95ce35661155939dc8ffc006c0f884edc31721323ea",
+        "source.json": "7626bea558b158bdf6a15003ebdf0a464af6f5909bffc61348eb60139652ede5",
+        "transform.json": "91d4f24f2d26b75a7b8d5313885b43a28bb87a0c2dcdff96f5d352074192e162"
+      },
+      "nexah_raw": {
+        "claim_ceiling": "BOUNDED_IEEE_REPRESENTATION_FIDELITY_AUDIT",
+        "cost": {
+          "output_bytes": 523,
+          "peak_rss": 72630272,
+          "runtime_ns": 343311084
+        },
+        "defect_class": "NONE",
+        "evidence": [
+          {
+            "artifact": null,
+            "input_sha256": "948a53db2c0150b0daea6ae169f9d4a677bf35f657ce23b424497497e9907663"
+          }
+        ],
+        "id": "1c5dadc1655369c31fea09d852340254",
+        "input_sha256": "948a53db2c0150b0daea6ae169f9d4a677bf35f657ce23b424497497e9907663",
+        "location": null,
+        "reason": "",
+        "reconstruction_state": "UNKNOWN",
+        "software_version": "PINNED_CORE_SYNTAX_ONLY_R1_V1",
+        "status": "PASS",
+        "unmet_precondition": ""
+      },
+      "opaque_id": "1c5dadc1655369c31fea09d852340254"
+    }
+  },
+  "claim": "CAPABILITY_PREFLIGHT_ONLY_NO_UTILITY_RESULT",
+  "core_commit": "ead4223a9bea103ad2266fc3b71b433974de37dd",
+  "evidence_class": "STOPPED_PREEXECUTION_DEVELOPMENT_CANDIDATE",
+  "schema": "nexah.utility01r.terminal-capability-gate/1"
+}

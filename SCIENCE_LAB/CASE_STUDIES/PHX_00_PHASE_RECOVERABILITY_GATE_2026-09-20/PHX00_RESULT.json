@@ -1,0 +1,50 @@
+{
+  "schema": "nexah-phx00-phase-recoverability/0.1.0",
+  "mission_id": "PHX-00",
+  "date": "2026-09-20",
+  "authorized_search_scope": "current NEXAH Science Lab checkout only",
+  "canonical_local_experiment": {
+    "case_id": "HZ_FZ_01",
+    "found": true,
+    "real_measurement_present": false,
+    "synthetic_conformance_present": true,
+    "phase_recoverability_class": "D",
+    "runtime_profile_activation_authorized": false
+  },
+  "external_phase_candidate": {
+    "case_id": "HZ_FZ_PUBLIC_01",
+    "found": true,
+    "evidence_class": "EXTERNAL_E2_ONLY",
+    "selected_record_count": 4,
+    "raw_time_domain_data_present": true,
+    "shared_relative_time_within_record": true,
+    "sample_rate_hz": 512,
+    "channels": [
+      "Actuator1_Disp",
+      "Actuator1_Force",
+      "Actuator2_Disp",
+      "Actuator2_Force"
+    ],
+    "phase_recoverability_class": "A",
+    "cross_record_sample_synchronization_supported": false,
+    "source_intake_reproduced_byte_identically": true,
+    "source_intake_sha256": "36a66c91ff54578f04f32afe9675254eb38ae64deccf9755f3d694aab3ac255c"
+  },
+  "overall_phase_recoverability_class": "A",
+  "overall_class_scope": "HZ_FZ_PUBLIC_01 within-record relative phase only",
+  "phx01_authorized_scope": "additive external E2 method validation and phase analysis",
+  "empirical_phase_analysis_executed": false,
+  "prime_morphogenesis_mission_started": false,
+  "claims_not_authorized": [
+    "HZ_FZ_01 admission from the public source",
+    "electrical-drive-to-force phase",
+    "causal earthquake effect",
+    "prime morphogenesis demonstrated",
+    "microtubule resonance demonstrated",
+    "consciousness demonstrated",
+    "universal resonance architecture demonstrated"
+  ],
+  "decision": "PROCEED_TO_PHX01_EXTERNAL_E2_ONLY",
+  "safe_to_promote": false,
+  "safe_to_pause": true
+}

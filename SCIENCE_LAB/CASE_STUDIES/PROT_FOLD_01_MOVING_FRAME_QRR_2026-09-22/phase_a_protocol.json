@@ -1,0 +1,37 @@
+{
+  "protocol_id": "PROT-FOLD-01-PHASE-A-1XQQ",
+  "status": "FROZEN_BEFORE_EXECUTION",
+  "source_sha256": "88182fc83c2c5081f993ccdad6f4b628c1b52d39b3aea601bf568a0b6f4d45c1",
+  "selection": {
+    "chain": "A",
+    "atom_name": "CA",
+    "residue_ids": [1, 76],
+    "expected_model_count": 128,
+    "expected_selected_atom_count": 76,
+    "reference_model": 1,
+    "altloc_policy": ["", "A"],
+    "missing_policy": "FAIL_CLOSED_NO_IMPUTATION"
+  },
+  "contacts": {"threshold_angstrom": 8.0, "minimum_sequence_separation": 3},
+  "chirality_residue_ids": [1, 19, 38, 76],
+  "controls": {
+    "translation_angstrom": [10.0, -7.0, 3.5],
+    "rotation_axis": [1.0, 2.0, 3.0],
+    "rotation_angle_radians": 0.7,
+    "reflection_matrix_diagonal": [-1.0, 1.0, 1.0],
+    "identity_corruption": "REVERSE_COORDINATE_ORDER_KEEP_ADDRESSES"
+  },
+  "gates": {
+    "pair_distance_max_abs_error": 1e-10,
+    "source_reconstruction_max_abs_error": 1e-10,
+    "rotation_determinant_abs_error": 1e-12,
+    "contact_agreement": 1.0,
+    "rigid_control_alignment_rmsd": 1e-10,
+    "reflection_min_alignment_rmsd": 0.001,
+    "permutation_min_alignment_rmsd": 0.1,
+    "permutation_max_contact_agreement": 0.99
+  },
+  "phases_b_c_d": "HOLD",
+  "model_index_is_time": false,
+  "claim_ceiling": "BOUND_1XQQ_REPRESENTATION_FIDELITY_AND_DESCRIPTIVE_ENSEMBLE_VARIABILITY"
+}

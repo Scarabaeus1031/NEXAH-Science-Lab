@@ -1,0 +1,52 @@
+{
+  "schema": "nexah-kappa01-campaign/0.1.0",
+  "campaign_id": "KAPPA_01",
+  "status": "PHYSICAL_INPUTS_PENDING",
+  "apparatus_identity_ref": "../HZ_FZ_01_FREQUENCY_FORCE_ADMISSION_2026-09-15/apparatus.identity.pending.json",
+  "apparatus": {
+    "device_id": "PENDING",
+    "acquisition_id": "PENDING",
+    "shared_sample_clock_id": "PENDING",
+    "drive_channel_id": "PENDING",
+    "drive_is_measured_not_setpoint": false,
+    "displacement_sensor_id": "PENDING",
+    "displacement_calibration_id": "PENDING",
+    "displacement_uncertainty_mm": null,
+    "force_sensor_id": "PENDING",
+    "force_calibration_id": "PENDING",
+    "force_uncertainty_n": null,
+    "channel_skew_bound_s": null
+  },
+  "intervention": {
+    "active_definition": "PENDING",
+    "sham_definition": "PENDING",
+    "event_marker_source": "PENDING",
+    "duration_s": null,
+    "washout_rule": "PENDING",
+    "safety_approval_ref": "PENDING"
+  },
+  "fixed_settings": {
+    "frequency_hz": null,
+    "drive_amplitude_v": null,
+    "preload_n": null,
+    "sample_rate_hz": null,
+    "minimum_samples_per_cycle": 100,
+    "pre_cycles": 20,
+    "post_cycles": 20,
+    "recovery_cycles": 20
+  },
+  "design": {
+    "type": "PAIRED_RANDOMIZED_ACTIVE_SHAM_CROSSOVER",
+    "mcid_deg": null,
+    "paired_session_sd_deg": null,
+    "variance_source_ref": "PENDING",
+    "alpha_two_sided": 0.05,
+    "target_power": 0.8,
+    "attrition_fraction": null,
+    "minimum_blocks": null,
+    "maximum_blocks": null,
+    "randomization_seed_receipt": "PENDING",
+    "blinding_key_custodian": "PENDING"
+  },
+  "claim_boundary": "Apparatus-bound active-versus-sham phase-path effect only."
+}

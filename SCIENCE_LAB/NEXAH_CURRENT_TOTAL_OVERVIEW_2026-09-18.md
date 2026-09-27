@@ -1,114 +1,489 @@
 # NEXAH — aktuelle Gesamtübersicht
 
-Stand: 2026-09-18
+**Rolle:** ausführlicher Gesamtreport und Quellendokument der Human View.
 
-Dokumenttyp: additive Gesamtsynthese / wissenschaftliche und öffentliche Orientierung
+Der kurze Einstieg liegt in Mission Control unter
+`00_OVERVIEW/HUMAN_VIEW.md`. Dieser Report bewahrt die ausführliche
+Zusammenführung; er ist nicht der erste Leseschritt.
 
-Status: `CURRENT_SYNTHESIS / NO_NEW_CLAIM / NO_ACTIVATION`
-Geltung: Diese Übersicht ersetzt keine Constitution, Spezifikation,
-Release-Grenze oder Einzelbewertung. Sie führt deren gegenwärtig gemeinsamen
-Kern lesbar zusammen.
+> **NEXAH beginnt bei einem Menschen, der sich in einem Feld befindet, nicht
+> alles überblickt und trotzdem verantwortlich handeln muss.**
 
-Direkter Lesepfad:
+Es hilft dabei, begrenzte Beobachtungen nebeneinanderzulegen, ihre Beziehungen
+zu prüfen und sichtbar zu halten, was erhalten bleibt, verloren geht, neu
+hinzukommt oder noch ungeklärt ist. Das Instrument unterstützt diese Arbeit.
+Die Bedeutung und die Entscheidung verbleiben beim Menschen.
 
-- [öffentliche NEXAH Experience](https://nexah.de)
-- [öffentliche Ökosystemkarte und Visitor Guide](https://nexah.de/visitor-guide/)
-- [NEXAH Research & Framework Repository](https://github.com/Scarabaeus1031/NEXAH)
-- [NEXAH-Experience Repository](https://github.com/Scarabaeus1031/NEXAH-Experience)
-- [ORION Repository](https://github.com/Scarabaeus1031/NEXAH-ORION)
-- [NEXAHEDRON](https://nexahedron.com)
-- [Scientific Constitution](../NEXAH_CONSTITUTION/SCIENTIFIC_CONSTITUTION.md)
-- [wissenschaftlicher Langreport](REPORTS/NEXAH_GRID_OBSERVATORY_PUBLIC_RELEASE_2026-09-17/10_NEXAH_GESAMTREPORT_SCIENTIFIC_INTRODUCTION.md)
-- [Grid and Observatory Public Release](REPORTS/NEXAH_GRID_OBSERVATORY_PUBLIC_RELEASE_2026-09-17/README.md)
-- [kanonische Grid Grammar](../MISSION_CONTROL_GRID_GRAMMAR_CANONICALIZATION_2026-09-17/01_CANONICAL_GRID_GRAMMAR.md)
-- [Observatory Session Close](../MISSION_CONTROL_GRID_GRAMMAR_CANONICALIZATION_2026-09-17/07_ROEDELHEIM_OBSERVATORY_SESSION_CLOSE.md)
-- [Sealed Comparison Method 0.1](../NEXAH_SEALED_COMPARISON_METHOD_0_1_2026-09-17/README.md)
-- [Mission Control Current Truth](../../../00%20EXECUTIVE/NEXAH-Mission-Control/CURRENT/README.md)
+Dieser Report folgt derselben Richtung: zuerst menschliche Orientierung, dann
+Methode und Sprache, danach Instrumente, Repositories, Evidenzstatus und
+Governance.
 
-## Kurzantwort: Was ist NEXAH?
+**Aktueller Utility-Status (23. September 2026):** `UTILITY-01/01R` ist vor
+Evaluation terminal mit `D_INVALID_AFTER_SINGLE_REPAIR_ATTEMPT` geschlossen;
+`UTILITY_RESULT: NONE`. Der frühere Plan eines nächsten Utility-Tests weiter
+unten ist `HISTORICAL_PLAN_SUPERSEDED_BY_TERMINAL_D`, kein aktiver Auftrag.
+Maßgeblich ist Mission Control `CURRENT/UTILITY_01R_FINAL_STOP.md` mit der
+Science-Lab-Stop-Evidenz unter
+`SCIENCE_LAB/CASE_STUDIES/UTILITY01R_RFLC_REPAIR_R1_2026-09-23/`.
 
-> **NEXAH ist ein evidenzgebundenes Orientierungssystem für den
-> verantwortlichen Vergleich begrenzter Darstellungen. Es hält Quelle oder
-> Träger, Perspektive, Transformation, Verlust, hinzugefügte Struktur,
-> Unsicherheit, Provenienz, Ergebnis, Rückkehr und menschliche Deutungshoheit
-> unterscheidbar.**
+## Orientation beginnt beim Menschen
 
-NEXAH untersucht damit nicht nur eine Darstellung eines Gegenstands. Es
-untersucht auch die Beziehungen, Übergänge und verbleibenden Differenzen
-zwischen mehreren Darstellungen desselben gebundenen Gegenstands.
-
-Die kürzeste Arbeitsform lautet:
+Der menschliche Ausgangspunkt ist einfach:
 
 ```text
-SOURCE / CARRIER
-  -> VIEW / FRAME / APERTURE
-  -> TRANSFORMATION
-  -> COMPARISON
-  -> TYPED RESIDUAL
-  -> PROVENANCE-BOUND RECORD
-  -> HUMAN RETURN / DECISION / STOP
+I AM SITUATED IN THE FIELD.
+I RECEIVE OR SELECT A FRAME.
+I OBSERVE THROUGH A FRAME.
+I CONNECT WITHOUT COLLAPSING.
+I BRIDGE WITHOUT CLAIMING IDENTITY.
+I RECORD WHAT CHANGES.
+I KEEP THE UNKNOWN OPEN.
+I RETURN THE DECISION TO THE HUMAN.
 ```
 
-## 1. Warum NEXAH existiert
+Auf Deutsch: Ich befinde mich mitten im Geschehen. Ich wähle eine Perspektive
+oder bekomme eine Perspektive präsentiert. Erst durch diesen Frame beobachte
+ich einen begrenzten Ausschnitt. Ich kann Beobachtungen verbinden, ohne sie
+gleichzusetzen. Ich kann Unterschiede festhalten, ohne jedes Unbekannte
+vorschnell aufzulösen. Und ich kann ein technisches Ergebnis zum menschlichen
+Urteil zurückführen.
 
-Wissenschaft, Technik und Alltag arbeiten nicht mit der vollständigen Welt,
-sondern mit begrenzten Repräsentationen: Messwerten, Karten, Modellen,
-Projektionen, Bildern, Zustandsräumen, Kategorien und Erzählungen.
+`Orientation` ist der Name für diese Praxis. Sie beginnt nicht mit einer
+Maschine und nicht mit einem neuen Fachwort. Sie beginnt mit der Frage:
 
-Beim Wechsel zwischen solchen Repräsentationen können
+> Wo befinde ich mich, wodurch schaue ich, was kann ich erkennen – und was
+> bleibt außerhalb meiner gegenwärtigen Sicht?
 
-- Unterschiede erhalten bleiben;
-- verschiedene Quellen zusammenfallen;
-- Information verloren gehen;
-- neue Struktur durch Raster, Auswahl oder Glättung entstehen;
-- Unsicherheit unsichtbar werden;
-- oder die Darstellung mit dem dargestellten Gegenstand verwechselt werden.
+## Die menschliche Geschichte
 
-NEXAH macht diese Übergänge explizit und rückverfolgbar. Die zentrale Frage
-lautet:
+Bevor NEXAH technische Begriffe verwendet, unterscheidet es acht einfache
+Schritte:
 
-> Was bleibt von einer gebundenen Quelle erkennbar, wenn sie durch begrenzte
-> Ansichten dargestellt, transformiert und mit anderen Ansichten verglichen
-> wird?
+| Menschlicher Begriff | Bedeutung |
+|---|---|
+| **FIELD** | das Geschehen, das nie vollständig erfasst ist |
+| **SELECT / SELECTION** | die Wahl oder Zuweisung dessen, was sichtbar werden kann; sie kann selbst gewählt oder von Menschen, Institutionen, Sensoren, Datensätzen, Interfaces oder Algorithmen vorgegeben sein |
+| **SELECTED / PRESENTED FRAME** | die daraus verfügbare Perspektive: selbst gewählt oder bereits präsentiert |
+| **CUT** | das konkrete Beobachtungsereignis durch diesen begrenzten Frame |
+| **TRACE** | die Spur, die in dieser Beobachtung sichtbar wird |
+| **ARTIFACT** | die materialisierte Spur: etwa Bild, Text, Messwert, Ton, Datei oder Diagramm |
+| **RECORD** | eine Spur oder ein Artefakt mit erklärtem Zeitpunkt, Ursprung, Kontext, Blickwinkel und Herkunft seiner Auswahl |
+| **INTERPRETATION** | die menschliche Bedeutung, die aus Records und ihren Beziehungen entwickelt wird |
 
-## 2. Was der gemeinsame methodische Kern ist
+`SELECT` markiert eine eigene Verantwortungsstelle. Eine Perspektive kann
+bewusst selbst gewählt, sozial oder institutionell zugewiesen, durch einen
+Sensor begrenzt, von einem Datensatz vorgefiltert, durch ein Interface
+präsentiert oder algorithmisch empfohlen worden sein. Deshalb sollte ein
+Record – soweit bekannt – nicht nur den Frame, sondern auch Auswahlregel,
+Auswahlverantwortung und ausgeschlossene Alternativen benennen.
 
-Die verschiedenen NEXAH-Linien stimmen in neun Punkten überein:
+Ein Record ist deshalb nicht die absolute Wahrheit. Er ist eine
+rückverfolgbare Aussage darüber, was unter bestimmten Bedingungen sichtbar
+wurde. Ein Bild, eine Messung, ein Text und eine Bewegung können Records sein,
+wenn ihr Zustandekommen ausreichend erklärt ist.
 
-1. **Quelle und Darstellung sind nicht identisch.**
-2. **Jede Ansicht benötigt einen deklarierten Frame.**
-3. **Transformationen benötigen benannte Regeln und Parameter.**
-4. **Gleiches Ergebnis bedeutet nicht automatisch gleiche Quelle oder gleichen
-   Generator.**
-5. **Verlust, Ergänzung und Ungeklärtes bleiben getrennte Resttypen.**
-6. **Provenienz gehört zum Resultat und nicht nur in eine Fußnote.**
-7. **Mehrere Ansichten dürfen verglichen, aber nicht stillschweigend
-   gleichgesetzt werden.**
-8. **Ausführbarkeit, Schönheit und formale Schließung sind noch kein
-   empirischer Nachweis.**
-9. **Bedeutung, Freigabe, Entscheidung und STOP verbleiben beim Menschen.**
+```text
+FIELD
+  -> SELECT / SELECTION RULE
+  -> SELECTED OR PRESENTED FRAME
+  -> CUT
+  -> TRACE
+  -> ARTIFACT
+  -> RECORD
+  -> INTERPRETATION
+```
 
-Diese Ordnung erscheint in unterschiedlicher Form in Orientation Language,
-ILAU, Relation Contracts, Grid Grammar, Source Court, Common
-Carrier–Aperture–Return, THE EYE, NEXAHEDRON und Rödelheim Observatory.
+## Was NEXAH in einfachen Worten tut
 
-## 3. Die vier Sprachebenen
+NEXAH hilft, mehrere begrenzte Bilder derselben Sache verantwortlich zu
+vergleichen. Es fragt nicht nur: „Was zeigt dieses Bild?“ Es fragt auch:
 
-NEXAH wurde aus mehreren berechtigten Perspektiven beschrieben. Sie sind keine
-konkurrierenden Identitäten, solange ihre Zuständigkeit sichtbar bleibt.
+- Aus welcher Situation und Perspektive entstand es?
+- Wer oder was hat diese Perspektive ausgewählt oder präsentiert?
+- Was wurde bereits durch die Auswahl ein- oder ausgeschlossen?
+- Was zeigt ein zweiter Blick anders?
+- Was bleibt in beiden Blicken erkennbar?
+- Was verschwindet beim Übergang?
+- Was erzeugt die Darstellung selbst?
+- Was können wir noch nicht entscheiden?
+- Wer deutet das Ergebnis und übernimmt Verantwortung?
 
-| Ebene | Treffende Beschreibung | Grenze |
+Die kürzeste menschliche Methode lautet:
+
+```text
+EIN FELD
+  -> AUSWAHL ODER ZUWEISUNG VON FRAMES OFFENLEGEN
+  -> MINDESTENS ZWEI BEGRENZTE BEOBACHTUNGEN
+  -> IHRE SPUREN ALS RECORDS FESTHALTEN
+  -> GEMEINSAMES UND UNTERSCHIEDE VERGLEICHEN
+  -> DEN VERBLEIBENDEN REST NICHT VERSTECKEN
+  -> ZUM MENSCHEN ZURÜCKKEHREN
+  -> DEUTEN / WEITERFRAGEN / ENTHALTEN / STOPPEN
+```
+
+Zwei Cuts machen einen Vergleich möglich; sie sind noch keine automatisch
+ausreichende Stichprobe. Weitere Cuts können das Feld besser annähern, ohne es
+jemals vollständig zu ersetzen.
+
+## I / IT — Mensch und Instrument bleiben getrennt
+
+`I` bezeichnet den situierten Menschen. `IT` bezeichnet das begrenzte
+Instrument. Diese Unterscheidung ist nicht dekorativ, sondern eine
+Verantwortungsgrenze.
+
+| I — Mensch | IT — Instrument |
+|---|---|
+| bringt Frage, Zweck und Kontext ein | verarbeitet deklarierte Records |
+| lebt in einer gegenwärtigen Perspektive | arbeitet innerhalb eines erklärten Frames |
+| entwickelt Bedeutung | berechnet, ordnet, transformiert und vergleicht |
+| kann widersprechen, sich enthalten oder stoppen | meldet Ergebnis, Differenz, Unsicherheit und Fehlerstatus zurück |
+| trägt Verantwortung für die Entscheidung | besitzt keine eigene menschliche Handlungsautorität |
+
+Die Maschine hat keinen unmittelbaren Zugang zum Feld. Sie arbeitet mit
+Records und ihren erklärten Beziehungen. Mathematik, Grids, Geometrien,
+Topologien und Algorithmen können Strukturen sichtbar machen. Sie erzeugen
+nicht automatisch Bedeutung.
+
+```text
+I
+  -> FRAGE / ZWECK
+  -> SELECTED OR PRESENTED FRAME
+  -> IT
+  -> CUT / OPERATION / VERGLEICH / RECORD
+  -> RETURN
+  -> I
+  -> INTERPRETIEREN / ENTSCHEIDEN / ABSTAIN / STOP
+```
+
+Die kurze Formel lautet:
+
+> **I bring meaning. IT brings structure. The boundary stays visible. RETURN
+> gives the record back to the human.**
+
+## Menschliche Sprache und technische Sprache nebeneinander
+
+Erst an dieser Stelle wird die technische Sprache nützlich. Sie ersetzt die
+menschliche Erklärung nicht, sondern macht dieselben Grenzen für Software,
+Dokumentation und Audit prüfbar.
+
+| Menschlich zuerst | Technische NEXAH-/OLS-Sprache |
+|---|---|
+| Geschehen, dem wir uns annähern | `SOURCE / CARRIER` und deklarierter Geltungsbereich |
+| Auswahl oder Zuweisung | `SELECT / SELECTION RULE` |
+| daraus verfügbare Perspektive | `SELECTED / PRESENTED VIEW / FRAME / APERTURE` |
+| konkretes Beobachtungsereignis | `CUT` |
+| Bearbeitung oder Übersetzung | `TRANSFORMATION / OPERATOR` |
+| zwei Records nebeneinanderlegen | `DECLARED COMPARISON` |
+| was gemeinsam erkennbar bleibt | `RETAINED / INVARIANT` |
+| was im Übergang verschwindet | `LOST` |
+| was durch Auswahl oder Darstellung hinzukommt | `ADDED` |
+| was offenbleibt | `UNRESOLVED` |
+| der verbleibende, zu erklärende Unterschied | `TYPED RESIDUAL` |
+| Herkunft und Bedingungen mitführen | `PROVENANCE-BOUND RECORD` |
+| Ergebnis zum Menschen zurückgeben | `HUMAN RETURN / DECISION / ABSTAIN / STOP` |
+
+Die Orientation Language Specification, kurz OLS, ist die vereinbarte
+technische Sprache an der Grenze zwischen Mensch, Record und Instrument. Die
+Tabelle ist eine verständliche Lesebrücke; für normative Bedeutungen bleibt
+die jeweilige OLS-Spezifikation maßgeblich.
+
+ILAU ist die kompakte technische Notation für vier Vergleichsklassen:
+
+```text
+ILAU.I = INVARIANT / RETAINED
+ILAU.L = LOST
+ILAU.A = ADDED
+ILAU.U = UNRESOLVED
+```
+
+Das `I` in `ILAU.I` bedeutet **Invariant**. Es ist nicht das menschliche `I`.
+Darum stehen in der öffentlichen Erklärung die ausgeschriebenen Wörter im
+Vordergrund. Das Instrument kann Unterschiede klassifizieren; der Mensch
+interpretiert ihre Bedeutung.
+
+## Die Methode als wiederholbarer Kreislauf
+
+```text
+FIELD
+  -> SELECT_A -> FRAME_A -> CUT_A -> TRACE_A -> ARTIFACT_A -> RECORD_A
+  -> SELECT_B -> FRAME_B -> CUT_B -> TRACE_B -> ARTIFACT_B -> RECORD_B
+
+RECORD_A <-> RECORD_B
+  -> DECLARED COMPARISON
+  -> RETAINED / LOST / ADDED / UNRESOLVED
+  -> RESIDUAL / ORIENTATION TRACE
+  -> RETURN
+  -> HUMAN INTERPRETATION
+  -> NEXT QUESTION / NEXT CUT / STOP
+```
+
+Der gemeinsame methodische Kern lässt sich daraus ohne zusätzliche
+Metaphysik ableiten:
+
+1. Quelle oder Feld und Darstellung sind nicht identisch.
+2. Jede Beobachtung braucht einen erklärten Blickwinkel.
+3. Auswahl und Zuweisung des Blickwinkels müssen sichtbar bleiben.
+4. Veränderungen brauchen benannte Regeln und Parameter.
+5. Gleiches Ergebnis beweist nicht dieselbe Quelle oder denselben Generator.
+6. Erhaltenes, Verlorenes, Hinzugefügtes und Ungeklärtes bleiben getrennt.
+7. Herkunft und Bedingungen gehören zum Ergebnis.
+8. Mehrere Ansichten dürfen verbunden, aber nicht stillschweigend
+   gleichgesetzt werden.
+9. Schönheit, Ausführbarkeit und formale Schließung sind noch kein empirischer
+   Nachweis.
+10. Bedeutung, Freigabe, Entscheidung und STOP verbleiben beim Menschen.
+
+## Orientation als Rahmen
+
+`Orientation` ist der gegenwärtige NEXAH-Überbegriff: eine evidenzgebundene
+Methode zum Vergleichen begrenzter Darstellungen. NEXAH entwickelt und erprobt
+diesen Rahmen; Orientation ist derzeit keine bereits etablierte
+wissenschaftliche Disziplin.
+
+Fachwissenschaften untersuchen ihre jeweiligen Gegenstände mit eigenen
+Begriffen und Evidenzregeln. Orientation liegt quer dazu. Sie fragt in jedem
+Fach nach Perspektive, Übergang, Erhaltung, Verlust, hinzugefügter Struktur,
+Ungeklärtem, Herkunft und menschlicher Entscheidung.
+
+Die wichtigsten wissenschaftlichen Nachbarschaften sind
+Wissenschaftsphilosophie und Modellpluralismus, Kartografie und
+Projektionslehre, Provenienz- und Forschungsdatenstandards,
+Repräsentationsvergleich, dynamische Systeme, Wissensrepräsentation,
+Visual Analytics, Human-Computer Interaction, formale Methoden, Design
+Research, Digital Humanities und Wissenschaftskommunikation.
+
+Der derzeit prüfenswerte Beitrag liegt nicht in einer nachgewiesenen neuen
+Mathematik oder einem neuen Algorithmus. Er liegt möglicherweise in der
+konsequenten Verbindung von begrenzten Ansichten, typisierten Differenzen,
+Provenienz, sichtbarem Nichtwissen und menschlichem `ABSTAIN` oder `STOP`.
+Ob diese Verbindung einen relevanten methodischen Zusatznutzen besitzt, muss
+noch systematisch gegen etablierte Baselines und durch fremde Leser geprüft
+werden.
+
+Die vollständige Nachbarschafts-, Lern- und Prüfkarte liegt in Mission
+Control. Diese Einordnung aktiviert keinen Forschungszyklus und erhöht keinen
+Claim.
+
+### TOP — Theory of Perspective
+
+Mission Control führt seit dem 25. September 2026 `TOP — Theory of
+Perspective` als kurzen, fachübergreifenden Namen für dieses bereits
+vorhandene methodische Zentrum. TOP bezeichnet ein Perspektivinstrument und
+keine neue Wissenschaft oder Naturtheorie.
+
+Sein erklärendes Prinzip ist die **Gewaltenteilung der Darstellung**: Quelle,
+Auswahl, Darstellung, Interpretation, Entscheidung und Revision bleiben
+unterscheidbare Rollen. Mehrere Ansichten dürfen verbunden und verglichen
+werden, aber keine Ansicht erhält allein durch ihre Darstellung absolute
+Autorität über die Quelle.
+
+TOP ersetzt weder die Scientific Constitution noch Orientation, OLS, ILAU,
+NRRC, die Sealed Comparison Method oder Fachmethoden. Es benennt deren
+gemeinsame menschliche Lesart:
+
+```text
+QUELLE / GESCHEHEN
+  -> DEKLARIERTE PERSPEKTIVE UND AUSWAHL
+  -> RECORDS
+  -> GEBUNDENER VERGLEICH
+  -> ERHALTEN / VERLOREN / HINZUGEFÜGT / UNGEKLÄRT
+  -> RESIDUAL UND RETURN
+  -> MENSCHLICHE INTERPRETATION / REVISION / ABSTAIN / STOP
+```
+
+Die [Mission-Control-Abgleichung](../MISSION_CONTROL_TOP_METHOD_CENTER_ALIGNMENT_2026-09-25/README.md)
+fixiert TOP additiv mit `NO_NEW_CLAIM / NO_ACTIVATION`.
+
+## Wozu Mathematik und die Fachgebiete gebraucht werden
+
+NEXAH will kein Fach übernehmen und keinem Fach sagen, wie sein Gegenstand
+„wirklich“ ist. Die Fachgebiete bleiben für Begriffe, Messverfahren,
+Evidenzregeln und fachliche Interpretation zuständig. Orientation stellt eine
+zusätzliche, fachübergreifende Frage:
+
+> Wie wurde aus einem nicht vollständig erfassten Geschehen genau dieser
+> Record – und was geschieht, wenn wir ihn mit einem anderen Record verbinden
+> oder vergleichen?
+
+Die Arbeitsteilung lautet:
+
+```text
+FACHGEBIET
+  -> bestimmt Gegenstand, Fachbegriffe, Messregeln und zulässige Evidenz
+
+MATHEMATIK / STATISTIK / INFORMATIK
+  -> formulieren Auswahl, Frame, Transformation, Vergleich und Unsicherheit
+
+ORIENTATION
+  -> hält diese Schritte, ihre Grenzen und die menschliche Rückkehr zusammen
+```
+
+### Die Rolle der Mathematik
+
+Mathematik ist in NEXAH weder Ornament noch eine universelle Welterklärung.
+Sie wird dort eingesetzt, wo eine Beziehung so genau werden soll, dass sie
+geprüft, wiederholt oder widerlegt werden kann:
+
+| Orientierungsfrage | Mathematische Funktion |
+|---|---|
+| Welcher Ausschnitt wurde gewählt? | Mengen, Koordinaten, Projektionen, Sampling und Randbedingungen |
+| Wie wurde der Record verändert? | Funktionen, Operatoren und Transformationsparameter |
+| Was bleibt bei einem Wechsel erhalten? | Invarianten, Erhaltungsgrößen und Äquivalenzbedingungen |
+| Wie unterscheiden sich zwei Records? | Metriken, Distanzen, Korrelationen und strukturierte Vergleiche |
+| Was bleibt als Rest? | Residuen, Fehlerterme und Restklassifikation |
+| Ist eine Rückrechnung eindeutig? | Identifizierbarkeit, Inversion und Kollisionsanalyse |
+| Wie sicher ist das Ergebnis? | Statistik, Unsicherheitsintervalle, Robustheit und Kontrollen |
+| Wie hängen Teile zusammen? | Graphen, Geometrie, Topologie und dynamische Systeme |
+
+Zahlen sind damit Operations- und Verhältniszeiger. Sie zeigen, **was unter
+deklarierten Regeln geschieht**. Sie beweisen nicht von selbst, was ein
+Ergebnis in der Welt bedeutet.
+
+### Ein Beispiel aus der Chemie
+
+NEXAH würde keine chemische Struktur allein aus einem interessanten Muster
+behaupten. Es könnte aber den Weg verschiedener chemischer Records sauber
+vergleichbar machen:
+
+```text
+FIELD                 Reaktion, Material oder Probe
+SELECT                Probenahme, Zeitpunkt, Stoffmenge, Messbereich
+PRESENTED FRAME       Instrument, Temperatur, Druck, Wellenlänge, Kalibrierung
+CUT                   konkrete Messung
+TRACE                 Spektrum, Chromatogramm oder zeitlicher Verlauf
+ARTIFACT               Datei, Bild, Tabelle oder Plot
+RECORD                 Artefakt plus Probe, Methode, Zeitpunkt und Provenienz
+COMPARISON             Referenz, Replikat oder anderes Messverfahren
+RETAINED / LOST /
+ADDED / UNRESOLVED     typisierte Unterschiede
+INTERPRETATION         chemische Bedeutung durch fachkundige Beurteilung
+```
+
+Für einen Laien kann diese Ordnung verständlich machen, warum zwei Bilder
+derselben Probe verschieden aussehen und welche Fragen er stellen sollte. Ob
+ein Peak eine bestimmte Substanz, Verunreinigung oder ein Messartefakt
+bedeutet, bleibt eine chemische Behauptung und braucht chemische Evidenz.
+
+### Was die Fächer in den gemeinsamen Raum einbringen
+
+| Fachgebiet | Beitrag zum Orientierungsraum | NEXAH-Grenze |
 |---|---|---|
-| wissenschaftlich | Architektur für prüfbare Übersetzungen und Vergleiche zwischen Repräsentationen | keine neue Physik oder Universaltheorie |
-| methodisch | Disziplin zur Trennung von Träger, Ansicht, Transformation, Rest, Provenienz und menschlicher Claim Authority | keine automatische Entscheidung |
-| technisch | verteiltes Ökosystem mit mehreren teilweise integrierten Systemen und profilgebundenen ausführbaren Pfaden | keine einheitliche Produktionsruntime |
-| öffentlich und kulturell | unabhängiges Orientation-Design-Labor, visuelle Forschungsbibliothek und begehbarer Erfahrungsraum | Ausdruck erbt keine wissenschaftliche Autorität |
+| Mathematik | formale Beziehungen, Invarianten, Transformationen und Beweise | keine Bedeutung ohne deklarierte Annahmen und Gegenstandsbindung |
+| Statistik und Wissenschaftsmethode | Stichproben, Unsicherheit, Kontrollen und Replikation | kein Ersatz für geeignete Daten oder Studiendesign |
+| Informatik | Repräsentationen, Algorithmen, Datenflüsse, Softwaretests und Provenienz | Softwareverhalten ist nicht automatisch Weltverhalten |
+| Physik | Frames, Messung, Dynamik, Erhaltung und Fehlerbudgets | keine neue Physik aus visueller oder numerischer Ähnlichkeit |
+| Chemie | Stoffe, Zustände, Reaktionen, Spektren und analytische Verfahren | keine Stoffidentität ohne fachgerechte Messung und Auswertung |
+| Biologie | variable, mehrskalige und kontextabhängige lebende Systeme | keine biologische Generalisierung aus einzelnen Mustern |
+| Engineering | Anforderungen, Toleranzen, Schnittstellen, Ausfälle und Sicherheit | kein Einsatz ohne domänenspezifische Verifikation und Freigabe |
+| Kartografie, Geo- und Astronomie | Koordinaten, Projektionen, Beobachterlagen und Kataloge | Karte, Modell und Himmel bleiben unterscheidbar |
+| Geistes- und Sozialwissenschaften | Bedeutung, Geschichte, Institutionen, Macht und Auswahlbedingungen | qualitative Deutung darf nicht in eine Scheinmetrik gezwungen werden |
+| Kunst, Design und Musik | Wahrnehmung, Übersetzung, Rhythmus und alternative Zugänge | Ausdruck und Analogie sind zunächst Orientierung, nicht Messnachweis |
 
-Für Wissenschaft, Repo, Mission Control und Outreach darf daher dieselbe
-Kurzdefinition verwendet werden. Die anschließende Erklärung wird an das
-jeweilige Publikum angepasst.
+Ein Laie darf mit NEXAH bessere Fragen finden, Quellen und Frames unterscheiden
+und fachliche Anschlusspunkte erkennen. Er erhält dadurch keine automatische
+Fachautorität. Der Wert liegt in einer Karte, die zeigt, **wo weitergefragt
+werden muss und welches Fach für die nächste Antwort zuständig ist**.
 
-## 4. Was heute tatsächlich existiert
+## Von der Methode zur Umsetzung
+
+Erst aus diesem menschlichen und methodischen Kern entstehen die technischen,
+wissenschaftlichen und öffentlichen Teile von NEXAH:
+
+| Ebene | Umsetzung | Grenze |
+|---|---|---|
+| menschlich und kulturell | Orientierung, sichtbares Nichtwissen und Rückkehr zum Urteil | keine automatische Entscheidung |
+| methodisch | Vergleich von Records, Perspektiven, Übergängen und Resten | keine Identität von Karte und Welt |
+| wissenschaftlich | prüfbare Übersetzungen und Vergleiche zwischen Repräsentationen | keine neue Physik oder Universaltheorie |
+| technisch | Semantik, Verträge, Validatoren, Operatoren und Human-facing Instrumente | keine einheitliche Produktionsruntime |
+| öffentlich | Library, Atlasse, Visuals, Demonstratoren und begehbare Erfahrungsräume | Ausdruck erbt keine wissenschaftliche Autorität |
+
+Diese Ordnung erscheint in verschiedener Form in OLS, ILAU, Relation
+Contracts, Grid Grammar, Source Court, Common Carrier–Aperture–Return, THE EYE,
+NEXAHEDRON und Rödelheim Observatory. Das sind Umsetzungen und Instrumente der
+Methode – nicht ihr menschlicher Ausgangspunkt.
+
+### Ein gemeinsamer Pfad durch getrennte Arbeitsbereiche
+
+Die Konsolidierung zeigt, dass mehrere bisher getrennt gelesene Forschungs-
+und Builder-Familien einen gemeinsamen Weg bedienen:
+
+```text
+FRAME & CUT
+  → TRANSLATE & COMPARE
+  → RECORD & RESIDUAL
+  → VERIFY & STOP
+  → BOUNDED EXECUTION
+  → HUMAN VIEW & RETURN
+```
+
+| Ebene des Weges | Vorhandene Arbeit | Funktion und Grenze |
+|---|---|---|
+| Frame & Cut | Observer-, Aperture- und Cut-Arbeit; Rödelheim- und Polar-Janus-Fixtures | benennt Beobachter, Perspektive und Sichtgrenze; der Cut bleibt unvollständig |
+| Translate & Compare | Translation Fidelity und Operator-Invariance | prüft ausdrücklich, welche Beziehungen eine Darstellungsänderung überleben; Ähnlichkeit ist keine Identität |
+| Record & Residual | CRIC, NRRC und CARC01 | bewahrt Quelle, Spur, Verlust, Unsicherheit, Naht und Return; ein gemeinsamer Produktionsvertrag fehlt |
+| Verify & Stop | Provenienz, Kontrollen, Holdouts und negative Resultate | erhält Fehler, Enthaltung und Claim-Grenze; gute Prozessform beweist keine Wirksamkeit |
+| Bounded Execution | vorhandene NEXAH-Prozessoren und ORION Certified Core | führt zugelassene Operationen im jeweiligen Scope aus; daraus entsteht keine Universalruntime |
+| Human View & Return | THE EYE, NEXAHEDRON, NEXAH Experience und die ROO-02-Route | macht Unterschiede und Residuen lesbar; Entscheidung und Bedeutung bleiben menschlich |
+
+CARC01 stellt dabei das dokumentarische Rückgrat aus Carrier, Transformation,
+Aperture, Record, Reconstruction, Residual und Return bereit. Die Builder-Sicht
+bezeichnet die mögliche konkrete Assembly als **NEXAH Compare — Translation,
+Record & Return Stack**. Die Open-Fracture- und Non-Identity-Tafeln bilden die
+zugehörige visuelle Erklärungs- und Review-Sprache: Sie zeigen die Naht zwischen
+Darstellungen, ohne deren Schließung oder Identität zu behaupten.
+
+Als eng begrenztes Builder-/Science-Fixture ist dazu **PTF-01 — Palindromic
+Janus Translation Fidelity** präregistriert. Es bindet drei deklarierte
+Quotientenansichten (Linie, Kreis, Oval) an einen separaten Side-/Return-Binder
+und prüft damit, welche Beziehungen die Darstellung wechseln, welche
+Unterscheidung verloren geht und wann eine exakte Rückkehr möglich ist. PTF-01
+ist `PREREGISTERED_DESIGN_ONLY`: Es erzeugt keinen aktiven Forschungszyklus,
+keine Identitätsbehauptung und keinen neuen Anspruch für `111` oder `12321`.
+Die Spezifikation liegt unter
+`SCIENCE_LAB/CASE_STUDIES/PTF_01_PALINDROMIC_JANUS_TRANSLATION_FIDELITY_2026-09-21/`.
+
+Als gebundener Kalibrierungs- und Demonstratorfall ist außerdem **E8 DEMOS**
+aufgenommen. Die bekannte E8-/Coxeter-Mathematik dient als Positivkontrolle;
+die AXIS08- und Qι/Pearl-Ebenen bleiben deklarierte Modell- beziehungsweise
+Beobachterprojektionen. Die beiden unveränderten Intake-HTMLs enthalten
+dieselben 240 vorprojizierten Punkte; ihre ursprünglichen Grenzen bleiben als
+Provenienz sichtbar: keine 8D-Konstruktion, kein numerischer gewichteter
+AXIS08-Quotient und kein State-Reimport. Der separate kanonische Repair R1
+schließt diese Funktionslücken mit 12/12 bestandenen deterministischen Tests,
+ohne die Quelldateien umzuschreiben. Der aktuelle Status ist daher
+`E8_DEMOS_TECHNICALLY_VALID_MODEL_BOUNDARIES_RECORDED`; daraus folgt keine
+physikalische Identität, neue Capability oder Forschungsaktivierung. Das Paket liegt unter
+`SCIENCE_LAB/CASE_STUDIES/E8_DEMOS_INTERACTIVE_ORIENTATION_2026-09-21/`.
+
+Auf dieser technischen Grundlage wurde **AXIS08-QRR-01 — Quotient–Residual
+Reconstruction** als eigener, preregistrierter Translation-Fidelity-Test
+ausgeführt. Für den deklarierten gewichteten Quotienten ist die verlorene
+Kernelrichtung algebraisch bestimmt. In zehn synthetischen Familien-/Gewichts-
+zellen war der Quotient gegenüber diesen Gegenfakten blind, während Quotient
+plus Differenzresiduum alle Fälle erkannte und mit maximal
+`8.881784197001252e-16` Fehler rekonstruierte; zwei E8-Kalibrierungen waren
+exakt. Das ist ein begrenzter positiver Methodenbefund, keine neue lineare
+Algebra und kein Kompressionsvorteil: Quotient plus Residuum speichert wieder
+acht Skalare.
+
+Der danach separat präregistrierte **Phase-B-Transfer auf IEEE-9/14** bestand
+alle Primärgates. Als fachlich begründetes Paar wurden Minimum und Maximum des
+bereits gebundenen Busspannungsprofils verwendet; IEEE-9 blieb alleinige
+Fit-Basis, IEEE-14 wurde ohne Refit ausgewertet. Quotient plus Residuum erhielt
+Rekonstruktion und Geometrie bis zum Rundungsfehler. Quotient-only zeigte auf
+IEEE-14 `1.23%` Distanz-NRMSE; die eingefrorene PCA7-Baseline war mit `0.426%`
+besser. Der Befund stützt daher die transparente Residual- und
+Fidelity-Methodik, nicht eine AXIS08-Kompressionsüberlegenheit oder eine
+Power-System-Prognose.
+
+Die Zusammenführung ist wichtig, weil sie den methodischen Kern, die
+wissenschaftlichen Prüfungen und die vorhandenen technischen Bausteine als
+einen lesbaren Zusammenhang zeigt. Sie ist dennoch nur eine
+Navigations- und Assembly-Synthese: Die Forschungsfamilien behalten getrennte
+Evidenz, ORION erhält keine neue Capability, und es wird weder ein neuer Claim
+noch ein Build aktiviert.
+
+## Was heute tatsächlich existiert
 
 NEXAH ist kein einzelnes Programm. Es besteht aus koordinierten, aber getrennt
 autorisierten Verantwortungsbereichen:
@@ -140,6 +515,8 @@ Nicht etabliert sind:
 - ein allgemeiner Capability Router;
 - eine einheitliche produktionsreife Benutzeroberfläche;
 - extern validierter Human-Nutzen;
+- ein reproduzierbarer inkrementeller Nutzen eines NEXAH-Verfahrens gegenüber
+  der stärksten passenden etablierten Methode;
 - Produkt- oder Marktreife;
 - eine universelle naturwissenschaftliche Theorie.
 
@@ -153,7 +530,7 @@ KOHÄRENTES METHODISCHES ÖKOSYSTEM
 - KEINE EINHEITLICHE PRODUKTIONSMASCHINE
 ```
 
-## 5. Öffentliches Ökosystem und Repository-Landschaft
+## Öffentliches Ökosystem und Repository-Landschaft
 
 NEXAH hat eine öffentliche Vorderseite und mehrere getrennt verantwortete
 Arbeits- und Quellenräume. Die öffentliche Website und die Repositories sind
@@ -247,7 +624,7 @@ Mission Control darf auf die öffentlichen Quellen zeigen und ihren aktuellen
 Status binden. Es darf deren Semantik, wissenschaftliche Ergebnisse,
 Release-Grenzen oder öffentliche Inhalte nicht stillschweigend umschreiben.
 
-## 6. Was Desk 01–03 geklärt haben
+## Was Desk 01–03 geklärt haben
 
 Die Reconciliation vom 8. September bleibt eine wichtige historische
 Baseline. Sie ist nicht mehr die operative Truth Surface, klärt aber drei
@@ -287,7 +664,7 @@ Diese Grenze gilt weiterhin. Die späteren Observatory-Arbeiten erweitern die
 Instrumente und die Anschaulichkeit, nicht automatisch den Integrations- oder
 Produktstatus.
 
-## 7. Was seit dieser Baseline hinzugekommen ist
+## Was seit dieser Baseline hinzugekommen ist
 
 Die Arbeit bis zum 17. September hat den gemeinsamen Kern wesentlich
 anschaulicher gemacht:
@@ -311,7 +688,7 @@ Diese Arbeiten sind mehr als lose Bilder: Sie sind ausführbare oder gebundene
 Darstellungsprofile. Sie bleiben zugleich Modelle und Instrumente, keine
 Ephemeriden und kein Nachweis verborgener physischer Kopplungen.
 
-## 8. Die kanonische Grid Grammar
+## Die kanonische Grid Grammar
 
 Der gemeinsame dokumentarische Kern lautet:
 
@@ -339,7 +716,7 @@ Dekoration. Es ist ein deklarierter Adress-, Vergleichs- und
 Orientierungsraum. Seine wissenschaftliche Aussage hängt von gebundener
 Quelle, Operator, Randregel, Vergleichsmaß, Unsicherheit und Provenienz ab.
 
-## 9. Was NEXAH darstellen kann
+## Was NEXAH darstellen kann
 
 Die Architektur kann heute oder als klar begrenzte Erweiterung unter anderem
 folgende Gegenstände aufnehmen:
@@ -362,7 +739,7 @@ kataloggebundener Zodiac-/Ekliptikring, ein generalisierter
 Observatory-Zylinder, berechnete lokale Earth-Sky-Horizonte und gemessene
 Ephemeriden.
 
-## 10. Anwendungsräume
+## Anwendungsräume
 
 ### Heute unmittelbar plausibel
 
@@ -395,7 +772,7 @@ Raumfahrtführung freigegeben. Solche Anwendungen benötigen eigene Daten,
 Baselines, Fehlerbudgets, prospektive Prüfpläne, unabhängige Reproduktion und
 fachlich autorisierte menschliche Verantwortung.
 
-## 11. Wissenschaftlicher Status
+## Wissenschaftlicher Status
 
 Die aktuelle Evidenzleiter unterscheidet:
 
@@ -419,7 +796,7 @@ Nicht belegt sind ein universeller Operator, ein neues Naturgesetz, ein
 objektives Ghostgrid, eine allgemeine Frühwarnmethode, externe Nützlichkeit,
 Produktreife oder wissenschaftliche Neuheit des Gesamtsystems.
 
-## 12. NEXAHEDRON, Observatory und Outreach
+## NEXAHEDRON, Observatory und Outreach
 
 Diese drei Rollen sollten nicht vermischt werden:
 
@@ -445,7 +822,7 @@ Visuals, Books, Library Objects und Field Art dürfen dabei Interesse und
 Orientierung erzeugen. Technische oder wissenschaftliche Behauptungen müssen
 immer auf die zuständige Quelle zurückführen.
 
-## 13. Was NEXAH nicht ist
+## Was NEXAH nicht ist
 
 NEXAH ist gegenwärtig
 
@@ -463,7 +840,12 @@ Erkenntnis- und Orientierungsinstrumente wertvoll sein. Ihre Stärke liegt in
 der erfahrbaren Beziehung – nicht in einer automatisch geerbten empirischen
 Autorität.
 
-## 14. Der nächste belastbare Schritt
+## Historischer Vorschlag für den nächsten belastbaren Schritt
+
+`HISTORICAL_PLAN_SUPERSEDED_BY_TERMINAL_D`: Der folgende allgemeine
+Vergleichsvorschlag war eine Forschungsorientierung, keine aktuell
+autorisierte Testserie. Utility-01/01R wurde vor Evaluation geschlossen; eine
+neue Prüfung benötigt eine eigenständige Human-Owner-Entscheidung.
 
 Nach der breiten Konsolidierung ist nicht noch mehr Begriffserweiterung
 erforderlich. Der stärkste nächste wissenschaftliche Schritt wäre ein kleiner,
@@ -482,7 +864,7 @@ Damit ließe sich prüfen, ob NEXAH gegenüber einer gewöhnlichen Analyse einen
 messbaren Zusatznutzen durch die Verbindung von Mehransichtenvergleich,
 Resttypisierung und Provenienz-Rückkehr liefert.
 
-## 15. Formulierungen für verschiedene Kontexte
+## Formulierungen für verschiedene Kontexte
 
 ### Ein Satz
 
@@ -523,6 +905,153 @@ Himmelsframes, visuelle Instrumente und kulturelle Works in einem gemeinsamen
 Orientierungsraum behandeln, ohne sie ontologisch oder evidenziell
 gleichzusetzen. Genau diese Verbindung aus Offenheit und Begrenzung ist die
 heutige Mitte von NEXAH.
+
+## Dokumentstatus und Lesepfade
+
+Erstausgabe: 2026-09-18
+
+Aktualisiert: 2026-09-25
+
+Dokumenttyp: additive Gesamtsynthese / wissenschaftliche und öffentliche
+Orientierung
+
+Status: `CURRENT_SYNTHESIS / NO_NEW_CLAIM / NO_ACTIVATION`
+
+Diese Übersicht ersetzt keine Constitution, Spezifikation, Release-Grenze
+oder Einzelbewertung. Sie führt deren gegenwärtig gemeinsamen Kern lesbar
+zusammen.
+
+### Direkter Lesepfad
+
+- [öffentliche NEXAH Experience](https://nexah.de)
+- [öffentliche Ökosystemkarte und Visitor Guide](https://nexah.de/visitor-guide/)
+- [NEXAH Research & Framework Repository](https://github.com/Scarabaeus1031/NEXAH)
+- [NEXAH-Experience Repository](https://github.com/Scarabaeus1031/NEXAH-Experience)
+- [ORION Repository](https://github.com/Scarabaeus1031/NEXAH-ORION)
+- [NEXAHEDRON](https://nexahedron.com)
+- [Scientific Constitution](../NEXAH_CONSTITUTION/SCIENTIFIC_CONSTITUTION.md)
+- [kanonische Grid Grammar](../MISSION_CONTROL_GRID_GRAMMAR_CANONICALIZATION_2026-09-17/01_CANONICAL_GRID_GRAMMAR.md)
+- [Observatory Session Close](../MISSION_CONTROL_GRID_GRAMMAR_CANONICALIZATION_2026-09-17/07_ROEDELHEIM_OBSERVATORY_SESSION_CLOSE.md)
+- [Sealed Comparison Method 0.1](../NEXAH_SEALED_COMPARISON_METHOD_0_1_2026-09-17/README.md)
+- [TOP — Theory of Perspective: Method Center Alignment](../MISSION_CONTROL_TOP_METHOD_CENTER_ALIGNMENT_2026-09-25/README.md)
+- [Mission Control Current Truth](../../../00%20EXECUTIVE/NEXAH-Mission-Control/CURRENT/README.md)
+
+### Übersichtsdokumente und ihre Rollen
+
+| Dokument | Rolle |
+|---|---|
+| Mission Control Entry Point | Lead/Master-of-Desks; Einstieg, Routing und Aktivierungsgrenzen |
+| Mission Control Current Truth | manifestgeprüfte operative Gesamtwahrheit |
+| diese aktuelle Gesamtübersicht | lesbare Gesamtsynthese über das Ökosystem |
+| Research Atlas | Forschungsrichtungen, Resultate, Works, Outreach und Schulfächer |
+| Science Lab Subject Overview | Fachansicht der Forschung ohne Verschiebung von Evidenz |
+| Lab Register | gepflegte Study- und Statuszeilen |
+| öffentlicher Gesamtreport vom 17. September | veröffentlichter wissenschaftlicher Snapshot |
+
+Mission Control ist die aktuelle Leitstelle. Diese Gesamtübersicht erklärt den
+Stand lesbar; Fachübersicht und Register führen zu den Belegen. Der öffentliche
+Gesamtreport bleibt eine datierte Ausgabe und wird nicht rückwirkend zum
+operativen Master umgedeutet.
+
+### Aktualisierung vom 20. September
+
+- Mathematik, Chemie und Physik besitzen getrennte Fachzugänge.
+- Der HZ/FZ-Faden ist Physik: Mechanik, Strukturdynamik, Dämpfung, Hysterese
+  und Phasenanalyse.
+- Phase/Kappa, negative 11-Spezifität und exakte Cube-Boundary-Mathematik
+  bleiben getrennte Claim-Klassen.
+- Weitere Lab-Bestände sind in der Fachansicht zusätzlich unter Informatik,
+  Engineering, Biologie/Domainpiloten, Statistik/Wissenschaftsmethode,
+  Human Orientation und Kunst/Kultur navigierbar.
+- Die Ordnung aktiviert keine Forschung und ändert keine package-eigene
+  Evidenz oder Abschlussentscheidung.
+
+### Aktualisierung vom 21. September
+
+- Der gemeinsame Pfad von Frame/Cut über Translation, Record/Residual und
+  Verify/STOP bis zu Human View/Return ist als bereichsübergreifende Synthese
+  sichtbar gemacht.
+- CARC01 bleibt das dokumentarische Rückgrat; NEXAH Compare bleibt eine
+  mögliche Assembly und ist weder Produkt noch aktiver Build.
+- Open-Fracture- und Non-Identity-Tafeln sind als visuelle Review-Sprache
+  eingeordnet, nicht als neue ORION-Capability oder wissenschaftlicher Befund.
+- Forschungsprogramme, Evidenzpakete und Claim-Grenzen bleiben getrennt.
+- E8 DEMOS ist als ein Demonstratorpaket mit gebundener E8-Referenz
+  aufgenommen: sechs Quelldateien sind hashverifiziert; 240 Referenzwurzeln,
+  acht Coxeter-Gruppen und die Q4-Struktur sind bestätigt. Repair R1 schließt
+  numerischen AXIS08-Quotienten, Degenerationsfälle, Tie-Regel und
+  State-Roundtrip mit 12/12 Tests. Offen bleiben nur unabhängige
+  Browser-/Screenshot-Evidenz. Entscheidung:
+  `E8_DEMOS_TECHNICALLY_VALID_MODEL_BOUNDARIES_RECORDED`; weiterhin keine Aktivierung.
+- AXIS08-QRR-01 bestätigt zunächst in Phase A die exakte Suffizienz eines
+  expliziten Differenzresiduums. Der separat präregistrierte Phase-B-Test
+  überträgt dieselbe Auditlogik auf ein quellbegründetes Spannungsintervall in
+  IEEE-9/14: exakte Rekonstruktion mit Residuum, messbarer Verlust ohne
+  Residuum und keine Überlegenheit gegenüber PCA7 als reine 7D-Kompression.
+  Keine Frühwarn-, Risiko-, Stabilitäts- oder Kontrollaussage wurde aktiviert.
+
+### Historischer Plan vom 22. September — Nutzenvalidierung ausgewählt
+
+`HISTORICAL_PLAN_SUPERSEDED_BY_TERMINAL_D`: Die damalige Auswahl und der
+damalige erste Schritt werden hier als Verlauf bewahrt, nicht als heutige
+Aktivierung gelesen.
+
+- Der Human Owner hat die ergebnisoffene Prüfung des inkrementellen Nutzens als
+  obersten Nachfolger von `MC-TRUTH-01` ausgewählt.
+- Der Test verbindet die Science-Einordnung mit dem Builder-Inventar: genau ein
+  vorhandenes NEXAH-Objekt wird für genau eine fachliche Aufgabe gegen die
+  stärkste passende Equal-Information-Baseline geprüft.
+- Vor einer Ausführung werden Tool, Frage, Baseline, Fixture, primärer Endpunkt,
+  Kostenmaße und Stop-Regeln eingefroren.
+- Eine minimale Assembly beweist zunächst nur, dass eine begrenzte Maschine
+  existiert. Nutzen erfordert danach Vergleich, Kontrollen und unabhängigen
+  Replay. Eine Human-Utility-Prüfung folgt nur bei einem technisch bedeutsamen
+  Kandidaten.
+- `NO_INCREMENTAL_UTILITY_SHOWN` ist ein gültiges Ergebnis. In diesem Fall
+  bleibt das getestete Objekt je nach Evidenz historisches Werkzeug, Fixture,
+  Lehr- oder Ausdrucksobjekt und wird nicht als neue Methode promoviert.
+- Die Serie ist bis zum Abschluss von `MC-TRUTH-01` nicht aktiv. Ihr erster
+  zulässiger Schritt ist ausschließlich `UTILITY-00_SCOPE_AND_BASELINE_FREEZE`.
+
+Kontrollplan: Mission Control
+`CURRENT/NEXAH_INCREMENTAL_UTILITY_VALIDATION_SERIES.md`.
+
+### Aktualisierung vom 23. September — terminaler Utility-Stop
+
+`UTILITY-01/01R` endete vor Evaluation und Replay mit
+`D_INVALID_AFTER_SINGLE_REPAIR_ATTEMPT`; `UTILITY_RESULT: NONE`. U1 belegte
+nur die Existenz einer begrenzten Maschine auf Development-Smoke-Fällen. U2
+stoppte mit `D_INVALID_OR_INSUFFICIENT_TEST` wegen eines ungültigen
+Vergleichsaufbaus. Der einmalige Reparaturzyklus stoppte in R1 mit
+`D_R1_EQUAL_INFORMATION_FAILED`: Das ausgewählte, unveränderte NEXAH-Core-
+Werkzeug verarbeitet den präregistrierten Common Carrier nicht semantisch.
+Der IEEE-Sidecar bleibt ein begrenzter Evidence-Bundle-/Fidelity-Verifier;
+ein integrierter semantischer Auditor existiert derzeit nicht als ausführbare,
+validierte Maschine. Es gab keinen UCDR- oder sonstigen Utility-Vergleich und
+weder einen positiven noch einen negativen allgemeinen Utility-Befund für
+NEXAH. `STOP_NO_FURTHER_REDESIGN` gilt innerhalb dieser Serie. Aktive
+Priorität: `NONE`; aktive Queue: `0`; aktive Forschungszyklen: `0`.
+Ein Integrated Semantic Auditor ist allenfalls
+`OWNER_DECISION_CANDIDATE / NOT_ACTIVE / NOT_SCOPED / NO_BUILD_AUTHORIZED`;
+keine Nachfolgearbeit wurde automatisch autorisiert. Capability gap
+identified; utility remains unmeasured. Maßgeblicher Abschluss:
+Mission Control `CURRENT/UTILITY_01R_FINAL_STOP.md`.
+
+[Science Lab Subject Overview](SUBJECT_OVERVIEW.md)
+
+### Aktualisierung vom 25. September — TOP method-center alignment
+
+- `TOP — Theory of Perspective` ist als fachübergreifender Name der bereits
+  bestehenden Orientation-Architektur fixiert.
+- Die **Gewaltenteilung der Darstellung** trennt Quelle, Auswahl,
+  Repräsentation, Interpretation, Entscheidung und Revision, ohne ihre
+  Beziehungen zu unterbrechen.
+- TOP ist ein Perspektiv- und Prüfinstrument, keine neue Wissenschaft, keine
+  Naturtheorie und keine neue OLS- oder ILAU-Klasse.
+- Scientific Constitution, Sealed Comparison Method, OLS/NRRC/ILAU,
+  Human Authority und alle fachlichen Evidenzregeln bleiben unverändert.
+- Es wurde kein Forschungszyklus, Experiment, Runtime-Build oder
+  Publikationsprozess aktiviert.
 
 ## Quellenordnung
 

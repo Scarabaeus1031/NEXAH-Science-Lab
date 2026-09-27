@@ -1,0 +1,35 @@
+{
+  "schema": "nexah-phx01-method-freeze/0.1.0",
+  "mission_id": "PHX-01",
+  "date": "2026-09-20",
+  "evidence_scope": "HZ_FZ_PUBLIC_01_EXTERNAL_E2_ONLY",
+  "sample_rate_hz": 512.0,
+  "active_amplitude_fraction": 0.9,
+  "reference_channel": "corresponding actuator displacement",
+  "response_channel": "corresponding actuator force",
+  "bootstrap": {
+    "draws": 20000,
+    "block_length_cycles": 2,
+    "seed": 20260920,
+    "interval": 0.95
+  },
+  "empirical_thresholds": {
+    "minimum_phase_locking_value": 0.95,
+    "minimum_fundamental_coherence": 0.95,
+    "phase_shift_equivalence_margin_deg": 2.0,
+    "maximum_boundary_exclusion_change_deg": 0.5
+  },
+  "synthetic_thresholds": {
+    "fixed_phase_max_error_deg": 0.1,
+    "amplitude_scaling_max_error_deg": 0.1,
+    "phase_drift_endpoint_max_error_deg": 1.0,
+    "phase_jump_cycle_tolerance": 1,
+    "beating_maximum_plv": 0.95,
+    "noisy_lock_minimum_plv": 0.95,
+    "noisy_lock_max_mean_error_deg": 2.0,
+    "phase_randomized_maximum_plv": 0.4,
+    "missing_sample_max_error_deg": 0.2,
+    "clock_jitter_max_error_deg": 0.2
+  },
+  "claim_boundary": "Descriptive within-source phase stability only; no local admission, causal earthquake effect, universal invariant, prime or morphogenesis claim."
+}

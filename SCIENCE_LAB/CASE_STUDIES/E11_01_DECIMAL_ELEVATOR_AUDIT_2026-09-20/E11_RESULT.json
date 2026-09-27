@@ -1,0 +1,160 @@
+{
+  "carrier_counts": {
+    "ABS_PHASE_72": 72,
+    "KAPPA_CYCLE_36": 36
+  },
+  "claims_not_authorized": [
+    "11 causes phase behavior",
+    "decimal notation is physically privileged",
+    "octave mechanism demonstrated",
+    "morphogenesis demonstrated",
+    "post-hoc pattern is confirmatory evidence"
+  ],
+  "classification": "PARTIAL_E11_PATTERN_NOT_CONFIRMATORY",
+  "dither_summary": [
+    {
+      "corpus": "ABS_PHASE_72",
+      "dither_at_least_observed_fraction": 0.6355,
+      "dither_equal_observed_fraction": 0.33365,
+      "dither_mean": 6.89065,
+      "dither_median": 7.0,
+      "dither_p025": 5.0,
+      "dither_p975": 9.0,
+      "metric": "station11_count",
+      "observed_count": 7
+    },
+    {
+      "corpus": "ABS_PHASE_72",
+      "dither_at_least_observed_fraction": 1.0,
+      "dither_equal_observed_fraction": 1.0,
+      "dither_mean": 0.0,
+      "dither_median": 0.0,
+      "dither_p025": 0.0,
+      "dither_p975": 0.0,
+      "metric": "plus11_count",
+      "observed_count": 0
+    },
+    {
+      "corpus": "ABS_PHASE_72",
+      "dither_at_least_observed_fraction": 0.4584,
+      "dither_equal_observed_fraction": 0.3346,
+      "dither_mean": 1.44725,
+      "dither_median": 1.0,
+      "dither_p025": 0.0,
+      "dither_p975": 3.0,
+      "metric": "minus11_count",
+      "observed_count": 2
+    },
+    {
+      "corpus": "ABS_PHASE_72",
+      "dither_at_least_observed_fraction": 0.4584,
+      "dither_equal_observed_fraction": 0.3346,
+      "dither_mean": 1.44725,
+      "dither_median": 1.0,
+      "dither_p025": 0.0,
+      "dither_p975": 3.0,
+      "metric": "magnitude11_count",
+      "observed_count": 2
+    },
+    {
+      "corpus": "KAPPA_CYCLE_36",
+      "dither_at_least_observed_fraction": 0.72025,
+      "dither_equal_observed_fraction": 0.3151,
+      "dither_mean": 5.1936,
+      "dither_median": 5.0,
+      "dither_p025": 3.0,
+      "dither_p975": 7.0,
+      "metric": "station11_count",
+      "observed_count": 5
+    },
+    {
+      "corpus": "KAPPA_CYCLE_36",
+      "dither_at_least_observed_fraction": 0.7683,
+      "dither_equal_observed_fraction": 0.72345,
+      "dither_mean": 0.81315,
+      "dither_median": 1.0,
+      "dither_p025": 0.0,
+      "dither_p975": 2.0,
+      "metric": "plus11_count",
+      "observed_count": 1
+    },
+    {
+      "corpus": "KAPPA_CYCLE_36",
+      "dither_at_least_observed_fraction": 1.0,
+      "dither_equal_observed_fraction": 1.0,
+      "dither_mean": 0.0,
+      "dither_median": 0.0,
+      "dither_p025": 0.0,
+      "dither_p975": 0.0,
+      "metric": "minus11_count",
+      "observed_count": 0
+    },
+    {
+      "corpus": "KAPPA_CYCLE_36",
+      "dither_at_least_observed_fraction": 0.7683,
+      "dither_equal_observed_fraction": 0.72345,
+      "dither_mean": 0.81315,
+      "dither_median": 1.0,
+      "dither_p025": 0.0,
+      "dither_p975": 2.0,
+      "metric": "magnitude11_count",
+      "observed_count": 1
+    }
+  ],
+  "mission_id": "E11-01",
+  "primary_results": [
+    {
+      "corpus": "ABS_PHASE_72",
+      "full_e11_rule_pass_without_rounding_gate": false,
+      "magnitude10_count": 2,
+      "magnitude11_count": 2,
+      "magnitude11_exceeds_all_comparators": false,
+      "magnitude12_count": 1,
+      "magnitude17_count": 0,
+      "minus11_count": 2,
+      "observed_station_count": 7,
+      "observed_station_fraction": 0.09722222222222222,
+      "offset_null_count_max": 14,
+      "offset_null_count_median": 7.0,
+      "offset_null_count_min": 1,
+      "plus11_count": 0,
+      "plus11_exceeds_minus11": false,
+      "record_count": 72,
+      "station_p_holm": 1.0,
+      "station_p_shift": 0.63,
+      "step_rank_p": 0.36,
+      "step_rank_p_holm": 1.0,
+      "transition_count": 64
+    },
+    {
+      "corpus": "KAPPA_CYCLE_36",
+      "full_e11_rule_pass_without_rounding_gate": false,
+      "magnitude10_count": 2,
+      "magnitude11_count": 1,
+      "magnitude11_exceeds_all_comparators": false,
+      "magnitude12_count": 1,
+      "magnitude17_count": 0,
+      "minus11_count": 0,
+      "observed_station_count": 5,
+      "observed_station_fraction": 0.1388888888888889,
+      "offset_null_count_max": 6,
+      "offset_null_count_median": 3.0,
+      "offset_null_count_min": 1,
+      "plus11_count": 1,
+      "plus11_exceeds_minus11": true,
+      "record_count": 36,
+      "station_p_holm": 1.0,
+      "station_p_shift": 0.28,
+      "step_rank_p": 0.48,
+      "step_rank_p_holm": 1.0,
+      "transition_count": 32
+    }
+  ],
+  "schema": "nexah-e11-result/0.1.0",
+  "source_sha256_verified": true,
+  "status": "COMPLETE_POST_HOC_EXPLORATORY",
+  "transition_counts": {
+    "ABS_PHASE_72": 64,
+    "KAPPA_CYCLE_36": 32
+  }
+}

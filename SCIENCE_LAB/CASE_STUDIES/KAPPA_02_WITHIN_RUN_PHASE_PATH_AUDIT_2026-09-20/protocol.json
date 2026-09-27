@@ -1,0 +1,25 @@
+{
+  "schema": "nexah-kappa02-method-freeze/0.1.0",
+  "mission_id": "KAPPA-02",
+  "date": "2026-09-20",
+  "status": "FROZEN_BEFORE_KAPPA02_EMPIRICAL_OUTPUT",
+  "evidence_status": "POST_HOC_EXPLORATORY_WITH_RESPECT_TO_PHX01",
+  "sample_rate_hz": 512.0,
+  "window_cycles": 1.0,
+  "window_type": "hann",
+  "steps_per_cycle": 8,
+  "reference": "corresponding actuator displacement",
+  "response": "corresponding actuator force",
+  "path_match": "same ordinal window-center sample index within declared A/B pair",
+  "synthetic_tolerances_deg": {
+    "fixed_phase": 0.05,
+    "linear_drift_endpoint": 0.15,
+    "unequal_amplitude": 0.05,
+    "janus_antisymmetry": 1e-12
+  },
+  "shape_thresholds": {
+    "absolute_slope_constant_deg_per_normalized_run": 0.1,
+    "minimum_linear_rmse_improvement_fraction": 0.1
+  },
+  "claim_boundary": "Exploratory within-run ordinal phase paths only; no cross-record physical synchronization or causal mechanism claim."
+}

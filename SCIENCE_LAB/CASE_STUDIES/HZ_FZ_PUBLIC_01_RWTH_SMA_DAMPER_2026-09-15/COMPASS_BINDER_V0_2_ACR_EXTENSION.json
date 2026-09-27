@@ -1,0 +1,80 @@
+{
+  "schema": "nexah-compass-binder/0.2.0",
+  "extends": "hz-fz-contrast-compass:paired-median-contrast-v1",
+  "binder_id": "hz-fz-contrast-compass:acr-coordinate-extension-v0.2",
+  "status": "ADDITIVE_DORMANT_ADAPTERS_NO_PROFILE_ACTIVATION",
+  "source_binder_sha256": "05171e5fa00828eb78a6bc8e0e92e906d8d3b3df7ccf6d812c2b0b17ca29a1fe",
+  "preserved_v0_1": {
+    "cuts": {
+      "A": {
+        "orientation": "LEFT_CONTRAST",
+        "quantity": "median_loop_area_0.5_minus_0.1",
+        "unit": "J/cycle"
+      },
+      "B": {
+        "orientation": "RETURN_CONTRAST",
+        "quantity": "median_loop_area_0.5_minus_1.0",
+        "unit": "J/cycle"
+      }
+    },
+    "comparison": {
+      "absolute_ratio": 2.918309610815254,
+      "angle_deg": 251.0852521749751,
+      "observed_vector_j": [
+        -14.243802704030088,
+        -41.56782632572731
+      ],
+      "path_views": [
+        "active_order",
+        "nominal_cycle_label"
+      ]
+    },
+    "claim_boundary": "All constant rays and reflection checks are exploratory coordinate references on the same source records; they add no independent evidence and identify no physical constant or refraction law."
+  },
+  "stages": [
+    {
+      "order": 1,
+      "adapter": "ACR33",
+      "role": "preflight_gate",
+      "contract": "check scale, axis, speed, traversal, transducer before comparison",
+      "state": "DEFINED_NOT_EXECUTED"
+    },
+    {
+      "order": 2,
+      "adapter": "ACR44",
+      "role": "coordinate_lift",
+      "contract": "map paired cuts (A,B) to M=(A+B)/2 and S=(A-B)/2 with exact inverse",
+      "state": "DEFINED_NOT_EXECUTED"
+    },
+    {
+      "order": 3,
+      "adapter": "ACR35",
+      "role": "projection_warning",
+      "contract": "if a phase-plane view is used, retain branch/orientation metadata because static sine projection is many-to-one",
+      "state": "DEFINED_NOT_EXECUTED"
+    },
+    {
+      "order": 4,
+      "adapter": "ACR43/45",
+      "role": "event_and_return_ledger",
+      "contract": "write ordered mapping and media/receipt provenance without asserting synchrony",
+      "state": "DEFINED_NOT_EXECUTED"
+    },
+    {
+      "order": 5,
+      "adapter": "ACR27",
+      "role": "exact_closure_control",
+      "contract": "use 27\u00d7(40\u00b0/3)=360\u00b0 only as a positive exact arithmetic fixture",
+      "state": "CONTROL_ONLY"
+    }
+  ],
+  "forbids": [
+    "renaming an observed ratio as a constant",
+    "inferring optics from polar similarity",
+    "treating GLB node names as validated variables",
+    "activating the Hz/Fz profile",
+    "discarding v0.1 provenance"
+  ],
+  "next_executable_gate": "implement ACR33 preflight and ACR44 reversible-coordinate unit tests on copied v0.1 records",
+  "human_authority": "required for interpretation, activation, and claim changes"
+}

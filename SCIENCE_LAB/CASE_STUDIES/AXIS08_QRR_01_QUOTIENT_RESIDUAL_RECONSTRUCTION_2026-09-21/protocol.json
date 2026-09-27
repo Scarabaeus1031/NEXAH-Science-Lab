@@ -1,0 +1,15 @@
+{
+  "protocol_id": "AXIS08-QRR-01",
+  "date": "2026-09-21",
+  "phase": "A",
+  "status": "PREREGISTERED_PHASE_A_EXECUTION_AUTHORIZED",
+  "weights": [[1.0, 1.0], [3.0, 1.0]],
+  "synthetic_records_per_family": 4096,
+  "train_fraction": 0.7,
+  "seeds": [8107, 8108, 8109, 8110, 8111],
+  "families": ["independent", "correlated_pair", "near_identical_pair", "near_opposite_pair", "rare_kernel_events"],
+  "representations": ["FULL8", "Q_ONLY7", "Q_PLUS_DELTA8", "DROP8_TO7", "PCA7", "RANDOM7"],
+  "primary_tolerance": 1e-12,
+  "ieee_pegase_execution": false,
+  "claim_ceiling": "BOUNDED_QUOTIENT_RESIDUAL_RECONSTRUCTION_METHOD_TEST"
+}

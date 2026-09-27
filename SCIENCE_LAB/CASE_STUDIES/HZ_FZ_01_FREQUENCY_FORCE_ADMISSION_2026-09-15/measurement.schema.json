@@ -1,0 +1,76 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "nexah-hz-fz-measurement/0.1.0",
+  "title": "NEXAH HZ_FZ_01 measurement record",
+  "type": "object",
+  "required": ["schema", "experiment_id", "status", "claim_boundary", "apparatus", "criteria", "runs"],
+  "properties": {
+    "schema": { "const": "nexah-hz-fz-measurement/0.1.0" },
+    "experiment_id": { "const": "HZ_FZ_01" },
+    "status": { "const": "MEASURED" },
+    "claim_boundary": { "type": "string", "minLength": 20 },
+    "apparatus": {
+      "type": "object",
+      "required": ["device_id", "actuator_id", "force_sensor_id", "calibration_id", "calibration_uncertainty_n", "acquisition_id", "operator_id"],
+      "properties": {
+        "device_id": { "type": "string", "minLength": 1 },
+        "actuator_id": { "type": "string", "minLength": 1 },
+        "force_sensor_id": { "type": "string", "minLength": 1 },
+        "calibration_id": { "type": "string", "minLength": 1 },
+        "calibration_uncertainty_n": { "type": "number", "exclusiveMinimum": 0 },
+        "acquisition_id": { "type": "string", "minLength": 1 },
+        "operator_id": { "type": "string", "minLength": 1 }
+      },
+      "additionalProperties": false
+    },
+    "criteria": {
+      "type": "object",
+      "required": ["max_null_force_rms_n", "min_signal_to_uncertainty_ratio", "max_gain_relative_delta", "max_phase_delta_deg", "max_force_rms_relative_delta"],
+      "properties": {
+        "max_null_force_rms_n": { "type": "number", "minimum": 0 },
+        "min_signal_to_uncertainty_ratio": { "type": "number", "minimum": 1 },
+        "max_gain_relative_delta": { "type": "number", "minimum": 0, "maximum": 1 },
+        "max_phase_delta_deg": { "type": "number", "minimum": 0, "maximum": 180 },
+        "max_force_rms_relative_delta": { "type": "number", "minimum": 0, "maximum": 1 }
+      },
+      "additionalProperties": false
+    },
+    "runs": {
+      "type": "array",
+      "minItems": 3,
+      "maxItems": 3,
+      "items": {
+        "type": "object",
+        "required": ["role", "run_id", "frequency_hz", "drive_amplitude_v", "drive_phase_deg", "preload_n", "sample_rate_hz", "units", "samples"],
+        "properties": {
+          "role": { "enum": ["NULL", "REFERENCE_A", "REPLAY_B"] },
+          "run_id": { "type": "string", "minLength": 1 },
+          "frequency_hz": { "type": "number", "minimum": 0 },
+          "drive_amplitude_v": { "type": "number", "minimum": 0 },
+          "drive_phase_deg": { "type": "number" },
+          "preload_n": { "type": "number" },
+          "sample_rate_hz": { "type": "number", "exclusiveMinimum": 0 },
+          "units": {
+            "const": { "time": "s", "drive": "V", "force": "N" }
+          },
+          "samples": {
+            "type": "array",
+            "minItems": 16,
+            "items": {
+              "type": "object",
+              "required": ["t_s", "drive_v", "force_n"],
+              "properties": {
+                "t_s": { "type": "number" },
+                "drive_v": { "type": "number" },
+                "force_n": { "type": "number" }
+              },
+              "additionalProperties": false
+            }
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

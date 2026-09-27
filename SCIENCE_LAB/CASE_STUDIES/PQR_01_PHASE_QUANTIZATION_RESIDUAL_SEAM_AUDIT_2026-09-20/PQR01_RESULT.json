@@ -1,0 +1,97 @@
+{
+  "all_euler_angle_returns_within_1e_minus_12_deg": true,
+  "all_seam_reconstructions_exact": true,
+  "any_palindrome_or_prime_enrichment_after_fdr": false,
+  "claims_not_authorized": [
+    "digit string is the physical phase",
+    "packet boundary is intrinsic",
+    "binary and trinary views are invertibly equivalent",
+    "palindrome is a physical invariant",
+    "prime factorization causes phase behavior",
+    "phi or sqrt2 has a privileged physical role",
+    "morphogenesis demonstrated"
+  ],
+  "classification": "REPRESENTATION_PATTERNS_AUDITED_NO_PHYSICAL_OR_PRIME_CAUSATION_AUTHORIZED",
+  "cycle_record_count": 72,
+  "marked_393_696_summary_records": {
+    "summary::cut_mean::P10_BEFORE_AFTER_EQ::A::a2": {
+      "any_palindrome_bootstrap_fraction": 0.1149,
+      "bootstrap_phase_95_interval_deg": [
+        5.163823653998037,
+        5.667331609174084
+      ],
+      "identical_code_bootstrap_fraction": 0.01175,
+      "observed_digit_string": "393",
+      "observed_factorization": "3*131",
+      "observed_integer_code": 393,
+      "observed_palindrome": true,
+      "observed_phase_deg": 5.392686782380991,
+      "record_id": "summary::cut_mean::P10_BEFORE_AFTER_EQ::A::a2",
+      "same_mod2_bootstrap_fraction": 0.50945,
+      "same_mod3_bootstrap_fraction": 0.3373,
+      "value_kind": "cut_circular_mean"
+    },
+    "summary::pair_shift::P05_BEFORE_AFTER_EQ::a1": {
+      "any_palindrome_bootstrap_fraction": 0.0968,
+      "bootstrap_phase_95_interval_deg": [
+        -0.776480040782161,
+        -0.6385832875623692
+      ],
+      "identical_code_bootstrap_fraction": 0.0126,
+      "observed_digit_string": "696",
+      "observed_factorization": "2^3*3*29",
+      "observed_integer_code": 696,
+      "observed_palindrome": true,
+      "observed_phase_deg": -0.6962206653352894,
+      "record_id": "summary::pair_shift::P05_BEFORE_AFTER_EQ::a1",
+      "same_mod2_bootstrap_fraction": 0.4912,
+      "same_mod3_bootstrap_fraction": 0.3358,
+      "value_kind": "paired_circular_mean_shift"
+    }
+  },
+  "mission_id": "PQR-01",
+  "primary_exploratory_pattern_summary": [
+    {
+      "corpus": "CYCLE_72",
+      "operator": "ROUND_HALF_UP",
+      "palindrome_count": 13,
+      "palindrome_enrichment_fdr": 0.5460219159773805,
+      "palindrome_enrichment_p": 0.0253779230735855,
+      "palindrome_fraction": 0.18055555555555555,
+      "palindrome_uniform_digit_null": 0.1,
+      "precision": 3,
+      "prime_code_count": 16,
+      "prime_code_enrichment_fdr": 1.0,
+      "prime_code_enrichment_p": 0.14226214439741663,
+      "prime_code_fraction": 0.2222222222222222,
+      "prime_code_uniform_integer_null": 0.168,
+      "record_count": 72,
+      "view": "degrees"
+    },
+    {
+      "corpus": "SUMMARY_12",
+      "operator": "ROUND_HALF_UP",
+      "palindrome_count": 2,
+      "palindrome_enrichment_fdr": 1.0,
+      "palindrome_enrichment_p": 0.3409977482110001,
+      "palindrome_fraction": 0.16666666666666666,
+      "palindrome_uniform_digit_null": 0.1,
+      "precision": 3,
+      "prime_code_count": 2,
+      "prime_code_enrichment_fdr": 1.0,
+      "prime_code_enrichment_p": 0.6233859011356582,
+      "prime_code_fraction": 0.16666666666666666,
+      "prime_code_uniform_integer_null": 0.168,
+      "record_count": 12,
+      "view": "degrees"
+    }
+  ],
+  "representation_record_count": 4200,
+  "schema": "nexah-pqr01-result/0.1.0",
+  "source_hashes": {
+    "02_EMPIRICAL_PHASE_RESULT.json": "2a8d00f0c873613b84ae2405d6e7fa1f4928b5e580b238e38d7b3bd00defbc82",
+    "03_CYCLE_PHASE_RECORDS.csv": "907ec0ef4bcde56c53ab39a656a78a4c12bbc6d343dc20732115762f28aa373a"
+  },
+  "status": "COMPLETE_POST_HOC_EXPLORATORY",
+  "summary_record_count": 12
+}

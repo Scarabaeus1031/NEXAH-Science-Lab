@@ -1,0 +1,209 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "nexah.relation-record/0.1-candidate",
+  "title": "Neutral Relation-Record Contract 0.1 candidate",
+  "$ref": "#/$defs/RelationRecordEnvelope",
+  "$defs": {
+    "RelationRecordEnvelope": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["schema_id", "schema_version", "record_id", "record_version", "record_class", "carrier_state_ref", "frame_ref", "aperture_ref", "representation_ref", "trace_record", "ilau_audit_record", "residual_record", "return_test_record", "provenance_stages", "claim_ceiling_ref", "human_authority_boundary", "source_hashes", "content_hash"],
+      "properties": {
+        "schema_id": {"const": "nexah.relation-record"},
+        "schema_version": {"const": "0.1-candidate"},
+        "record_id": {"type": "string", "pattern": "^urn:nexah:nrrc:record:[A-Za-z0-9._:-]+$"},
+        "record_version": {"type": "string", "minLength": 1},
+        "record_class": {"const": "TRACE_AUDIT_RESIDUAL_RETURN"},
+        "carrier_state_ref": {"$ref": "#/$defs/CarrierStateRef"},
+        "frame_ref": {"$ref": "#/$defs/FrameRef"},
+        "aperture_ref": {"$ref": "#/$defs/ApertureRef"},
+        "representation_ref": {"$ref": "#/$defs/RepresentationRef"},
+        "trace_record": {"$ref": "#/$defs/TraceRecord"},
+        "ilau_audit_record": {"$ref": "#/$defs/ILAUAuditRecord"},
+        "residual_record": {"$ref": "#/$defs/ResidualRecord"},
+        "return_test_record": {"$ref": "#/$defs/ReturnTestRecord"},
+        "provenance_stages": {"type": "array", "minItems": 1, "maxItems": 256, "items": {"$ref": "#/$defs/ProvenanceStage"}},
+        "claim_ceiling_ref": {"$ref": "#/$defs/ClaimCeilingRef"},
+        "human_authority_boundary": {"$ref": "#/$defs/HumanAuthorityBoundary"},
+        "source_hashes": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"}},
+        "content_hash": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"},
+        "supersedes_record_ref": {"type": "string", "pattern": "^urn:nexah:nrrc:record:[A-Za-z0-9._:-]+$"},
+        "declared_extensions": {"type": "object", "propertyNames": {"pattern": "^[a-z][a-z0-9.-]+/[0-9]+\\.[0-9]+(?:-[a-z0-9.-]+)?$"}, "additionalProperties": {"type": "object", "additionalProperties": false, "required": ["version", "payload"], "properties": {"version": {"type": "string", "minLength": 1}, "payload": {}}}},
+        "producer_note": {"type": "string", "maxLength": 4096}
+      }
+    },
+    "CarrierStateRef": {
+      "type": "object", "additionalProperties": false,
+      "required": ["carrier_id", "carrier_identity_domain", "state_id", "state_version", "source_ref", "source_hash"],
+      "properties": {
+        "carrier_id": {"type": "string", "pattern": "^urn:nexah:nrrc:carrier:"},
+        "carrier_identity_domain": {"type": "string", "minLength": 1},
+        "state_id": {"type": "string", "pattern": "^urn:nexah:nrrc:state:"},
+        "state_version": {"type": "string", "minLength": 1},
+        "source_ref": {"type": "string", "minLength": 1},
+        "source_hash": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"},
+        "state_order": {"type": "integer", "minimum": 0}
+      }
+    },
+    "FrameRef": {
+      "type": "object", "additionalProperties": false,
+      "required": ["frame_id", "frame_version", "source_ref", "source_hash", "orientation_convention_ref", "scale_ref"],
+      "properties": {
+        "frame_id": {"type": "string", "pattern": "^urn:nexah:nrrc:frame:"},
+        "frame_version": {"type": "string", "minLength": 1},
+        "source_ref": {"type": "string", "minLength": 1},
+        "source_hash": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"},
+        "orientation_convention_ref": {"type": "string", "minLength": 1},
+        "scale_ref": {"type": "string", "minLength": 1},
+        "parent_frame_ref": {"type": "string", "pattern": "^urn:nexah:nrrc:frame:"}
+      }
+    },
+    "ApertureRef": {
+      "type": "object", "additionalProperties": false,
+      "required": ["aperture_id", "aperture_version", "frame_id", "source_ref", "source_hash"],
+      "properties": {
+        "aperture_id": {"type": "string", "pattern": "^urn:nexah:nrrc:aperture:"},
+        "aperture_version": {"type": "string", "minLength": 1},
+        "frame_id": {"type": "string", "pattern": "^urn:nexah:nrrc:frame:"},
+        "source_ref": {"type": "string", "minLength": 1},
+        "source_hash": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"},
+        "selection_summary": {"type": "string", "maxLength": 4096}
+      }
+    },
+    "RepresentationRef": {
+      "type": "object", "additionalProperties": false,
+      "required": ["representation_id", "representation_version", "representation_type", "source_state_id", "producer_id", "content_hash"],
+      "properties": {
+        "representation_id": {"type": "string", "pattern": "^urn:nexah:nrrc:representation:"},
+        "representation_version": {"type": "string", "minLength": 1},
+        "representation_type": {"type": "string", "minLength": 1},
+        "source_state_id": {"type": "string", "pattern": "^urn:nexah:nrrc:state:"},
+        "producer_id": {"type": "string", "minLength": 1},
+        "content_hash": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"},
+        "mapping_ref": {"type": "string", "minLength": 1}
+      }
+    },
+    "TraceRecord": {
+      "type": "object", "additionalProperties": false,
+      "required": ["trace_id", "trace_version", "carrier_id", "state_id", "frame_id", "aperture_id", "representation_id", "local_descriptor", "side_status"],
+      "properties": {
+        "trace_id": {"type": "string", "pattern": "^urn:nexah:nrrc:trace:"},
+        "trace_version": {"type": "string", "minLength": 1},
+        "carrier_id": {"type": "string", "pattern": "^urn:nexah:nrrc:carrier:"},
+        "state_id": {"type": "string", "pattern": "^urn:nexah:nrrc:state:"},
+        "frame_id": {"type": "string", "pattern": "^urn:nexah:nrrc:frame:"},
+        "aperture_id": {"type": "string", "pattern": "^urn:nexah:nrrc:aperture:"},
+        "representation_id": {"type": "string", "pattern": "^urn:nexah:nrrc:representation:"},
+        "local_descriptor": {"$ref": "#/$defs/TraceLocalDescriptor"},
+        "side_status": {"$ref": "#/$defs/TraceSideStatus"},
+        "measurement_ref": {"type": "string", "minLength": 1}
+      }
+    },
+    "TraceLocalDescriptor": {
+      "type": "object", "additionalProperties": false,
+      "required": ["P", "D", "C", "Phi", "S"],
+      "properties": {
+        "P": {"type": "object", "additionalProperties": false, "required": ["value", "value_type", "unit_or_scale_ref"], "properties": {"value": {}, "value_type": {"type": "string", "minLength": 1}, "unit_or_scale_ref": {"type": "string", "minLength": 1}}},
+        "D": {"type": "object", "additionalProperties": false, "required": ["value", "value_type", "unit_or_scale_ref"], "properties": {"value": {}, "value_type": {"type": "string", "minLength": 1}, "unit_or_scale_ref": {"type": "string", "minLength": 1}}},
+        "C": {"type": "object", "additionalProperties": false, "required": ["value", "value_type", "unit_or_scale_ref"], "properties": {"value": {}, "value_type": {"type": "string", "minLength": 1}, "unit_or_scale_ref": {"type": "string", "minLength": 1}}},
+        "Phi": {"type": "object", "additionalProperties": false, "required": ["value", "value_type", "unit_or_scale_ref"], "properties": {"value": {}, "value_type": {"type": "string", "minLength": 1}, "unit_or_scale_ref": {"type": "string", "minLength": 1}}},
+        "S": {"type": "object", "additionalProperties": false, "required": ["value", "value_type", "unit_or_scale_ref"], "properties": {"value": {}, "value_type": {"type": "string", "minLength": 1}, "unit_or_scale_ref": {"type": "string", "minLength": 1}}}
+      }
+    },
+    "TraceSideStatus": {"type": "string", "enum": ["IN", "OUT", "CROSSING", "UNRESOLVED"]},
+    "ILAUAuditRecord": {
+      "type": "object", "additionalProperties": false,
+      "required": ["audit_id", "audit_version", "reference_id", "representation_id", "audit_universe", "criteria_ref", "I", "L", "A", "U", "completeness_status"],
+      "properties": {
+        "audit_id": {"type": "string", "pattern": "^urn:nexah:nrrc:ilau-audit:"},
+        "audit_version": {"type": "string", "minLength": 1},
+        "reference_id": {"type": "string", "minLength": 1},
+        "representation_id": {"type": "string", "pattern": "^urn:nexah:nrrc:representation:"},
+        "audit_universe": {"type": "array", "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+        "criteria_ref": {"type": "string", "minLength": 1},
+        "I": {"type": "array", "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+        "L": {"type": "array", "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+        "A": {"type": "array", "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+        "U": {"type": "array", "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+        "completeness_status": {"enum": ["COMPLETE", "INCOMPLETE", "UNRESOLVED"]}
+      }
+    },
+    "ResidualRecord": {
+      "type": "object", "additionalProperties": false,
+      "required": ["residual_id", "residual_version", "reference_id", "observed_id", "components", "component_count", "unit_policy"],
+      "properties": {
+        "residual_id": {"type": "string", "pattern": "^urn:nexah:nrrc:residual:"},
+        "residual_version": {"type": "string", "minLength": 1},
+        "reference_id": {"type": "string", "minLength": 1},
+        "observed_id": {"type": "string", "minLength": 1},
+        "components": {"type": "array", "maxItems": 4096, "items": {"type": "object", "additionalProperties": false, "required": ["component_id", "residual_type", "value", "unit", "reference_path", "observed_path"], "properties": {"component_id": {"type": "string", "minLength": 1}, "residual_type": {"type": "string", "minLength": 1}, "value": {"type": "number"}, "unit": {"type": "string", "minLength": 1}, "reference_path": {"type": "string", "minLength": 1}, "observed_path": {"type": "string", "minLength": 1}}}},
+        "component_count": {"type": "integer", "minimum": 0, "maximum": 4096},
+        "unit_policy": {"type": "string", "minLength": 1},
+        "aggregation": {"oneOf": [{"type": "null"}, {"type": "object", "additionalProperties": false, "required": ["metric_id", "metric_version", "value", "unit"], "properties": {"metric_id": {"type": "string", "minLength": 1}, "metric_version": {"type": "string", "minLength": 1}, "value": {"type": "number"}, "unit": {"type": "string", "minLength": 1}}}]}
+      }
+    },
+    "ReturnTestRecord": {
+      "type": "object", "additionalProperties": false,
+      "required": ["return_test_id", "return_test_version", "route_id", "start_state_id", "returned_state_id", "comparison_frame_id", "metric_id", "metric_version", "tolerance", "observed_residual", "decision_status", "residual_id"],
+      "properties": {
+        "return_test_id": {"type": "string", "pattern": "^urn:nexah:nrrc:return-test:"},
+        "return_test_version": {"type": "string", "minLength": 1},
+        "route_id": {"type": "string", "minLength": 1},
+        "start_state_id": {"type": "string", "pattern": "^urn:nexah:nrrc:state:"},
+        "returned_state_id": {"type": "string", "pattern": "^urn:nexah:nrrc:state:"},
+        "comparison_frame_id": {"type": "string", "pattern": "^urn:nexah:nrrc:frame:"},
+        "metric_id": {"type": "string", "minLength": 1},
+        "metric_version": {"type": "string", "minLength": 1},
+        "tolerance": {"type": "number", "minimum": 0},
+        "observed_residual": {"type": ["number", "null"], "minimum": 0},
+        "decision_status": {"enum": ["BOUNDED_LOCK", "OPEN_RESIDUAL", "UNRESOLVED"]},
+        "residual_id": {"type": "string", "pattern": "^urn:nexah:nrrc:residual:"},
+        "decision_reason_ref": {"type": "string", "minLength": 1}
+      }
+    },
+    "ProvenanceStage": {
+      "type": "object", "additionalProperties": false,
+      "required": ["stage_id", "stage_order", "input_refs", "output_ref", "operator_or_process_ref", "producer_id", "contract_id", "contract_version", "source_hashes", "output_hash", "lossiness"],
+      "properties": {
+        "stage_id": {"type": "string", "pattern": "^urn:nexah:nrrc:provenance-stage:"},
+        "stage_order": {"type": "integer", "minimum": 0},
+        "input_refs": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+        "output_ref": {"type": "string", "minLength": 1},
+        "operator_or_process_ref": {"type": "string", "minLength": 1},
+        "producer_id": {"type": "string", "minLength": 1},
+        "contract_id": {"type": "string", "minLength": 1},
+        "contract_version": {"type": "string", "minLength": 1},
+        "source_hashes": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"}},
+        "output_hash": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"},
+        "lossiness": {"enum": ["LOSSLESS", "DECLARED_LOSSY", "UNRESOLVED"]},
+        "timestamp": {"type": "string", "format": "date-time"},
+        "prior_stage_ref": {"type": "string", "pattern": "^urn:nexah:nrrc:provenance-stage:"}
+      }
+    },
+    "ClaimCeilingRef": {
+      "type": "object", "additionalProperties": false,
+      "required": ["claim_ceiling_id", "claim_ceiling_version", "value", "authority_ref", "content_hash"],
+      "properties": {
+        "claim_ceiling_id": {"type": "string", "pattern": "^urn:nexah:nrrc:claim-ceiling:"},
+        "claim_ceiling_version": {"type": "string", "minLength": 1},
+        "value": {"enum": ["FORMAT_VALIDITY_ONLY", "DOCUMENTARY_CONTRACT_VALIDITY_ONLY", "BOUNDED_PROCESSOR_RESULT", "HUMAN_REVIEW_REQUIRED"]},
+        "authority_ref": {"type": "string", "minLength": 1},
+        "content_hash": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"},
+        "expires_or_supersedes_ref": {"type": "string", "minLength": 1}
+      }
+    },
+    "HumanAuthorityBoundary": {
+      "type": "object", "additionalProperties": false,
+      "required": ["human_authority_ref", "authority_scope", "allowed_decisions", "machine_claim_authority", "processor_decision_authority", "display_decision_authority"],
+      "properties": {
+        "human_authority_ref": {"type": "string", "minLength": 1},
+        "authority_scope": {"type": "string", "minLength": 1},
+        "allowed_decisions": {"type": "array", "minItems": 4, "maxItems": 4, "uniqueItems": true, "items": {"enum": ["STOP", "CONTINUE", "ADOPT", "REJECT"]}},
+        "machine_claim_authority": {"const": false},
+        "processor_decision_authority": {"const": false},
+        "display_decision_authority": {"const": false},
+        "receipt_contract_ref": {"type": "string", "minLength": 1}
+      }
+    }
+  }
+}

@@ -1,0 +1,356 @@
+{
+  "schema": "nexah-runtime-evidence-attachment/0.1.0",
+  "runtime_version": "0.1.0",
+  "profile_ref": "hz-fz-public-rwth-sma@0.1.0",
+  "subject": {
+    "case_id": "HZ_FZ_PUBLIC_01",
+    "data_class": "OPEN_LABORATORY_DATA",
+    "source_archive_sha256": "8f32e7bdddbe2a262ed227df108a6fd05df87a5752ca1574f586b10a7748e929"
+  },
+  "admission": {
+    "case_id": "HZ_FZ_PUBLIC_01",
+    "classification": "SOURCE_INTAKE_ACCEPTED_EXTERNAL_E2_ONLY",
+    "missing_for_hz_fz_01_admission": [
+      "measured electrical drive voltage channel",
+      "separate zero-drive NULL run",
+      "calibration certificate identifier and expanded uncertainty",
+      "independent same-condition replay without the intervening earthquake campaign"
+    ],
+    "next_gate": "PUBLIC_SOURCE_KERNEL_ATTACHMENT_CONTRACT",
+    "pairs": {
+      "P05_BEFORE_AFTER_EQ": {
+        "a_file": "07_4wires_sin20mm_0p5Hz.csv",
+        "b_file": "09_4wires_sin20mm_0p5Hz_after_EQ.csv",
+        "deltas": {
+          "actuator_1": {
+            "gain_relative_delta": 0.05365979247600256,
+            "phase_absolute_delta_deg": 0.7021201102763541
+          },
+          "actuator_2": {
+            "gain_relative_delta": 0.0459717075104703,
+            "phase_absolute_delta_deg": 0.43634340484760514
+          }
+        },
+        "frequency_hz": 0.5,
+        "interpretation_boundary": "Observed before/after relation; not an independent repeatability pair and not a causal earthquake-effect estimate.",
+        "nominal_displacement_mm": 20,
+        "relation": "BEFORE_EQ_TO_AFTER_EQ"
+      },
+      "P10_BEFORE_AFTER_EQ": {
+        "a_file": "08_4wires_sin40mm_1p0Hz.csv",
+        "b_file": "10_4wires_sin40mm_1p0Hz_after_EQ.csv",
+        "deltas": {
+          "actuator_1": {
+            "gain_relative_delta": 0.05169501606932526,
+            "phase_absolute_delta_deg": 0.2836410087220145
+          },
+          "actuator_2": {
+            "gain_relative_delta": 0.06010242737555588,
+            "phase_absolute_delta_deg": 0.2712953319584699
+          }
+        },
+        "frequency_hz": 1,
+        "interpretation_boundary": "Observed before/after relation; not an independent repeatability pair and not a causal earthquake-effect estimate.",
+        "nominal_displacement_mm": 40,
+        "relation": "BEFORE_EQ_TO_AFTER_EQ"
+      }
+    },
+    "runs": {
+      "07_4wires_sin20mm_0p5Hz.csv": {
+        "channels": {
+          "actuator_1": {
+            "displacement_fundamental_mm": 12.351632413369128,
+            "force_fundamental_kn": 7.086610083835503,
+            "force_relative_to_displacement_phase_deg": 5.4328683220171,
+            "gain_kn_per_mm": 0.5737387453471426
+          },
+          "actuator_2": {
+            "displacement_fundamental_mm": 12.356053005107965,
+            "force_fundamental_kn": 7.123983154780707,
+            "force_relative_to_displacement_phase_deg": 5.017603511026294,
+            "gain_kn_per_mm": 0.5765581575148365
+          }
+        },
+        "condition": "BEFORE_EQ",
+        "duration_s": 31.998047,
+        "frequency_hz": 0.5,
+        "maximum_timestamp_rounding_error_s": 8.75000001343551e-7,
+        "missing_values": 0,
+        "nominal_displacement_mm": 20,
+        "non_finite_values": 0,
+        "pair": "P05_BEFORE_AFTER_EQ",
+        "path": "selected/07_4wires_sin20mm_0p5Hz.csv",
+        "role": "REFERENCE_A",
+        "rows": 16384,
+        "sample_rate_hz": 511.99999799987796,
+        "sha256": "36cf6cc994de28fdc32b609dc9fe4b671d154584c0e69bcb1b93631568bc4b61",
+        "units": {
+          "Disp": "mm",
+          "Force": "kN",
+          "Time": "s"
+        }
+      },
+      "08_4wires_sin40mm_1p0Hz.csv": {
+        "channels": {
+          "actuator_1": {
+            "displacement_fundamental_mm": 23.440182183471066,
+            "force_fundamental_kn": 10.6477235431165,
+            "force_relative_to_displacement_phase_deg": 5.662380476746108,
+            "gain_kn_per_mm": 0.45425088677957387
+          },
+          "actuator_2": {
+            "displacement_fundamental_mm": 23.431191046102988,
+            "force_fundamental_kn": 10.484875942781224,
+            "force_relative_to_displacement_phase_deg": 5.442090572420511,
+            "gain_kn_per_mm": 0.4474751591650327
+          }
+        },
+        "condition": "BEFORE_EQ",
+        "duration_s": 15.998047,
+        "frequency_hz": 1,
+        "maximum_timestamp_rounding_error_s": 8.75000001343551e-7,
+        "missing_values": 0,
+        "nominal_displacement_mm": 40,
+        "non_finite_values": 0,
+        "pair": "P10_BEFORE_AFTER_EQ",
+        "path": "selected/08_4wires_sin40mm_1p0Hz.csv",
+        "role": "REFERENCE_A",
+        "rows": 8192,
+        "sample_rate_hz": 511.9999959995117,
+        "sha256": "3e21c2be71089caf4b800c09cb0e7c846772e318791445063bd05e1ee3fd2bae",
+        "units": {
+          "Disp": "mm",
+          "Force": "kN",
+          "Time": "s"
+        }
+      },
+      "09_4wires_sin20mm_0p5Hz_after_EQ.csv": {
+        "channels": {
+          "actuator_1": {
+            "displacement_fundamental_mm": 12.350917661126195,
+            "force_fundamental_kn": 7.476927194381065,
+            "force_relative_to_displacement_phase_deg": 4.730748211740746,
+            "gain_kn_per_mm": 0.605374223966715
+          },
+          "actuator_2": {
+            "displacement_fundamental_mm": 12.35216905012932,
+            "force_fundamental_kn": 7.456845142917173,
+            "force_relative_to_displacement_phase_deg": 4.581260106178689,
+            "gain_kn_per_mm": 0.6036871024558318
+          }
+        },
+        "condition": "AFTER_EQ",
+        "duration_s": 31.998047,
+        "frequency_hz": 0.5,
+        "maximum_timestamp_rounding_error_s": 8.75000001343551e-7,
+        "missing_values": 0,
+        "nominal_displacement_mm": 20,
+        "non_finite_values": 0,
+        "pair": "P05_BEFORE_AFTER_EQ",
+        "path": "selected/09_4wires_sin20mm_0p5Hz_after_EQ.csv",
+        "role": "RETURN_B",
+        "rows": 16384,
+        "sample_rate_hz": 511.99999799987796,
+        "sha256": "b3274aa7a2dceea186394630b93b80a0f7ea6ca2040d0a4faec8dea3b2cefe8b",
+        "units": {
+          "Disp": "mm",
+          "Force": "kN",
+          "Time": "s"
+        }
+      },
+      "10_4wires_sin40mm_1p0Hz_after_EQ.csv": {
+        "channels": {
+          "actuator_1": {
+            "displacement_fundamental_mm": 23.471648679460948,
+            "force_fundamental_kn": 11.227814836970076,
+            "force_relative_to_displacement_phase_deg": 5.378739468024094,
+            "gain_kn_per_mm": 0.4783564627394523
+          },
+          "actuator_2": {
+            "displacement_fundamental_mm": 23.446361806219233,
+            "force_fundamental_kn": 11.1417756121214,
+            "force_relative_to_displacement_phase_deg": 5.170795240462041,
+            "gain_kn_per_mm": 0.47520275018386876
+          }
+        },
+        "condition": "AFTER_EQ",
+        "duration_s": 15.998047,
+        "frequency_hz": 1,
+        "maximum_timestamp_rounding_error_s": 8.75000001343551e-7,
+        "missing_values": 0,
+        "nominal_displacement_mm": 40,
+        "non_finite_values": 0,
+        "pair": "P10_BEFORE_AFTER_EQ",
+        "path": "selected/10_4wires_sin40mm_1p0Hz_after_EQ.csv",
+        "role": "RETURN_B",
+        "rows": 8192,
+        "sample_rate_hz": 511.9999959995117,
+        "sha256": "eae1c973b447653642ef0cb3013ab954bd6bbde172b4017bf4388ba9941f0e36",
+        "units": {
+          "Disp": "mm",
+          "Force": "kN",
+          "Time": "s"
+        }
+      }
+    },
+    "runtime_effect": "NO_HZ_FZ_01_PROFILE_ACTIVATION",
+    "schema": "nexah-hz-fz-public-source-intake/0.1.0",
+    "source": {
+      "archive_sha256": "8f32e7bdddbe2a262ed227df108a6fd05df87a5752ca1574f586b10a7748e929",
+      "archive_zenodo_md5": "da06b1056528e8429e7f64e3019cb17b",
+      "creators": [
+        "Florian Kolisch",
+        "Selin Oflazgil",
+        "Sven Klinkel"
+      ],
+      "doi": "10.5281/zenodo.17296336",
+      "institution": "RWTH Aachen University, Chair of Structural Analysis and Dynamics",
+      "license": "CC BY-SA 4.0",
+      "protocol_sha256": "7346ffbc5df666dd710088c4765069a3c7e86801410bcc1a73a1c33fb6b17433",
+      "protocol_zenodo_md5": "fc4ad29433778e688abadccc47530099",
+      "publisher": "Zenodo",
+      "title": "Dataset of real-time hybrid simulation testing of multiple shape memory alloy based structural control devices"
+    }
+  },
+  "evidence": {
+    "analyses": {
+      "07_4wires_sin20mm_0p5Hz.csv": {
+        "backend_adapter": "nexah-v07",
+        "kernel_rows": 2048,
+        "orientation_state": {
+          "canonical_json_sha256": "dae0b193ff14965ca5075a448a69c10e354a1ebe63f94838f418c223daeba678",
+          "gzip_sha256": "018c01bfb2bb0a3167cf94b8623e85f421d0f1a23a48e224ed9e1c7d5a2eac15",
+          "path": "kernel/07_4wires_sin20mm_0p5Hz.orientation-state.json.gz"
+        },
+        "pair": "P05_BEFORE_AFTER_EQ",
+        "role": "REFERENCE_A",
+        "source_adapter": "pandas-table-source-v1",
+        "source_rows": 16384,
+        "source_sha256": "36cf6cc994de28fdc32b609dc9fe4b671d154584c0e69bcb1b93631568bc4b61",
+        "summary": {
+          "dominant_occupancy": 0.4603174603174603,
+          "mean_transition_entropy": 0.11471700713602358,
+          "n_states_observed": 4,
+          "regime_shift_count": 39,
+          "regime_shift_density": 0.019345238095238096
+        },
+        "transitions": {
+          "canonical_json_sha256": "acf6d1a98888f8cefe7682a2c54decdc624249dc0ef40e7e9ca1bb4556ff28d3",
+          "gzip_sha256": "5d1f5916a7a3f3c02ea80859f54df82fd5db8572ec290f097338490726c87c82",
+          "path": "kernel/07_4wires_sin20mm_0p5Hz.transitions.json.gz"
+        }
+      },
+      "08_4wires_sin40mm_1p0Hz.csv": {
+        "backend_adapter": "nexah-v07",
+        "kernel_rows": 1024,
+        "orientation_state": {
+          "canonical_json_sha256": "d2d4c1c72d93aed45fb0e5ff664c2ea71c06dadd2b9ae931272d5df0b4a9107a",
+          "gzip_sha256": "66d7eed2e57cca74d62dd8fec98b26c030460f729ddc4444a5a59e49fa6c2044",
+          "path": "kernel/08_4wires_sin40mm_1p0Hz.orientation-state.json.gz"
+        },
+        "pair": "P10_BEFORE_AFTER_EQ",
+        "role": "REFERENCE_A",
+        "source_adapter": "pandas-table-source-v1",
+        "source_rows": 8192,
+        "source_sha256": "3e21c2be71089caf4b800c09cb0e7c846772e318791445063bd05e1ee3fd2bae",
+        "summary": {
+          "dominant_occupancy": 0.3810483870967742,
+          "mean_transition_entropy": 0.16756504601112232,
+          "n_states_observed": 4,
+          "regime_shift_count": 32,
+          "regime_shift_density": 0.03225806451612903
+        },
+        "transitions": {
+          "canonical_json_sha256": "2b945d604d4461f3a64bbbe397db523ba410337cb6a6a179be127a6421bd31e3",
+          "gzip_sha256": "66d3bf225cfe74e2e2c5fa5fba023304dde400871d3f8d6f88a742b4495e63ce",
+          "path": "kernel/08_4wires_sin40mm_1p0Hz.transitions.json.gz"
+        }
+      },
+      "09_4wires_sin20mm_0p5Hz_after_EQ.csv": {
+        "backend_adapter": "nexah-v07",
+        "kernel_rows": 2048,
+        "orientation_state": {
+          "canonical_json_sha256": "7ecaf513fc98fd12ec4d63a8e4a38bbfb46926eefa29b432d91e1c6e37f5157c",
+          "gzip_sha256": "3f32ca47945e49f727a099d386f6be4fb28a5e1229f1bd0d5d89f81e3623a3f3",
+          "path": "kernel/09_4wires_sin20mm_0p5Hz_after_EQ.orientation-state.json.gz"
+        },
+        "pair": "P05_BEFORE_AFTER_EQ",
+        "role": "RETURN_B",
+        "source_adapter": "pandas-table-source-v1",
+        "source_rows": 16384,
+        "source_sha256": "b3274aa7a2dceea186394630b93b80a0f7ea6ca2040d0a4faec8dea3b2cefe8b",
+        "summary": {
+          "dominant_occupancy": 0.4603174603174603,
+          "mean_transition_entropy": 0.11473680463008361,
+          "n_states_observed": 4,
+          "regime_shift_count": 39,
+          "regime_shift_density": 0.019345238095238096
+        },
+        "transitions": {
+          "canonical_json_sha256": "16aa5d97d2e6626ba2a3d4600ea048744adcc3aecb1555082c93ea5b9ae90654",
+          "gzip_sha256": "234921445254576690655a9f7cb4c2593672a6c8e1a96ed0be3d5f117a7a01ad",
+          "path": "kernel/09_4wires_sin20mm_0p5Hz_after_EQ.transitions.json.gz"
+        }
+      },
+      "10_4wires_sin40mm_1p0Hz_after_EQ.csv": {
+        "backend_adapter": "nexah-v07",
+        "kernel_rows": 1024,
+        "orientation_state": {
+          "canonical_json_sha256": "852bb8a1f19cfd10d9b3cc1e094f09e920803d3c7bccc09c6fc41af7c040480e",
+          "gzip_sha256": "632df9d7d8598c1d465763359abaac8365c461c3aa8dcb2c50ed6b5c449db267",
+          "path": "kernel/10_4wires_sin40mm_1p0Hz_after_EQ.orientation-state.json.gz"
+        },
+        "pair": "P10_BEFORE_AFTER_EQ",
+        "role": "RETURN_B",
+        "source_adapter": "pandas-table-source-v1",
+        "source_rows": 8192,
+        "source_sha256": "eae1c973b447653642ef0cb3013ab954bd6bbde172b4017bf4388ba9941f0e36",
+        "summary": {
+          "dominant_occupancy": 0.38205645161290325,
+          "mean_transition_entropy": 0.1677273313611324,
+          "n_states_observed": 4,
+          "regime_shift_count": 32,
+          "regime_shift_density": 0.03225806451612903
+        },
+        "transitions": {
+          "canonical_json_sha256": "a0be26ea663e737fc53188722da45548c55df0c024f7ddfb3009d8fe2e3f2881",
+          "gzip_sha256": "bb53c8c99c646bf7800b5c2625706e75ee015769d441d3aec3c66bc8590b5da1",
+          "path": "kernel/10_4wires_sin40mm_1p0Hz_after_EQ.transitions.json.gz"
+        }
+      }
+    },
+    "case_id": "HZ_FZ_PUBLIC_01",
+    "comparison_boundary": "Each cut is a local fit; similarity is permutation-invariant and does not align cluster identifiers.",
+    "evidence_class": "E2_COMPUTATIONAL_SUPPLEMENT",
+    "kernel": {
+      "effective_sample_rate_hz": 64,
+      "loaded_from": "/Users/tho2020/Documents/NEXAH ECOSYSTEM/10 NEXAH CORE/NEXAH/nexah/__init__.py",
+      "name": "NEXAH",
+      "primary_config": {
+        "n_clusters": 4,
+        "normalize": true,
+        "random_state": 42,
+        "window": 32
+      },
+      "repository": "/Users/tho2020/Documents/NEXAH ECOSYSTEM/10 NEXAH CORE/NEXAH",
+      "source_decimation": 8,
+      "version": "0.7.0"
+    },
+    "limitations": [
+      "before/after campaign is not an independent replay",
+      "kernel outputs are descriptive heuristics",
+      "uncertainty remains unknown",
+      "kernel input is ordered-decimated while signal metrics use the full source"
+    ],
+    "robustness": {
+      "battery_configurations": 6,
+      "path": "ROBUSTNESS_RESULT.json",
+      "sha256": "994c595887f94479370dd72fd89157995e165083e55d8dec609ef50e7c7e8a6b"
+    },
+    "runtime_effect": "SUPPLEMENT_ONLY_NO_PROFILE_ACTIVATION",
+    "schema": "nexah-hz-fz-public-v07-evidence/0.1.0",
+    "source_archive_sha256": "8f32e7bdddbe2a262ed227df108a6fd05df87a5752ca1574f586b10a7748e929"
+  },
+  "effect": "SUPPLEMENT_ONLY_NO_PROFILE_ACTIVATION",
+  "canonical_sha256": "6c742e6e03b69633bd46d9a8d683b9b734c65dff6bc78c1c8afe0db7daa1cf52"
+}

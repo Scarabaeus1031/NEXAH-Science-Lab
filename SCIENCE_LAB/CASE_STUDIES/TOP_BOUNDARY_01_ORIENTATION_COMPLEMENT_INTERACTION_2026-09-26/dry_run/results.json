@@ -1,0 +1,423 @@
+{
+  "artifacts": {
+    "arrays_npz": "arrays.npz",
+    "metrics_csv": "metrics.csv",
+    "overview_png": "synthetic_boundary_matrix_overview.png"
+  },
+  "case_id": "TOP-BOUNDARY-01-DRY-01R1",
+  "checks": {
+    "coherent_interaction_max_abs": 0.005117412829868731,
+    "coherent_interaction_nonzero": true,
+    "dispersion_noiseless_closure_max_abs": 1.9984014443252818e-15,
+    "exact_binary_complement_edge": true,
+    "exact_binary_complement_slit": true,
+    "interpretation": "SYNTHETIC_PIPELINE_CHECK_ONLY",
+    "isotropic_noiseless_closure_max_abs": 1.7763568394002505e-15,
+    "scientific_result": null
+  },
+  "claim_ceiling": "SYNTHETIC_PIPELINE_CHECK_ONLY_NOT_PHYSICAL_EVIDENCE",
+  "metrics": [
+    {
+      "angle_deg": 0,
+      "family": "C0_ISOTROPIC_EDGE",
+      "ideal_nrmse": 0.0,
+      "metric": "rho_theta",
+      "noisy_mean_nrmse": 0.0019130983520810046,
+      "noisy_q025_nrmse": 0.001423256016796054,
+      "noisy_q975_nrmse": 0.0031679667099987928,
+      "noisy_std_nrmse": 0.0006518733230259548
+    },
+    {
+      "angle_deg": 0,
+      "family": "A1_FIXED_DISPERSION_EDGE",
+      "ideal_nrmse": 0.0,
+      "metric": "rho_theta",
+      "noisy_mean_nrmse": 0.0017042605073682975,
+      "noisy_q025_nrmse": 0.001421148425260186,
+      "noisy_q975_nrmse": 0.002430473313402146,
+      "noisy_std_nrmse": 0.00036350685106070925
+    },
+    {
+      "angle_deg": 0,
+      "family": "B1_COHERENT_SINGLE_SLIT",
+      "ideal_nrmse": 0.0,
+      "metric": "rho_theta",
+      "noisy_mean_nrmse": 17.09692301940038,
+      "noisy_q025_nrmse": 16.949399517306126,
+      "noisy_q975_nrmse": 17.221766409270952,
+      "noisy_std_nrmse": 0.09628269391638364
+    },
+    {
+      "angle_deg": 0,
+      "family": "B1_COHERENT_DOUBLE_SLIT",
+      "ideal_nrmse": 0.0,
+      "metric": "rho_theta",
+      "noisy_mean_nrmse": 6.9904661740813765,
+      "noisy_q025_nrmse": 6.936496416026335,
+      "noisy_q975_nrmse": 7.030636877664134,
+      "noisy_std_nrmse": 0.03014114660984403
+    },
+    {
+      "angle_deg": 45,
+      "family": "C0_ISOTROPIC_EDGE",
+      "ideal_nrmse": 0.02489679927777192,
+      "metric": "rho_theta",
+      "noisy_mean_nrmse": 0.02498680393148607,
+      "noisy_q025_nrmse": 0.024751819350826976,
+      "noisy_q975_nrmse": 0.02531347685601336,
+      "noisy_std_nrmse": 0.00018963410766928302
+    },
+    {
+      "angle_deg": 45,
+      "family": "A1_FIXED_DISPERSION_EDGE",
+      "ideal_nrmse": 0.0639672969776476,
+      "metric": "rho_theta",
+      "noisy_mean_nrmse": 0.06403358934412974,
+      "noisy_q025_nrmse": 0.06388582001110991,
+      "noisy_q975_nrmse": 0.06422851942809768,
+      "noisy_std_nrmse": 0.00010693102145030728
+    },
+    {
+      "angle_deg": 45,
+      "family": "B1_COHERENT_SINGLE_SLIT",
+      "ideal_nrmse": 0.9381613923403718,
+      "metric": "rho_theta",
+      "noisy_mean_nrmse": 16.28691954087531,
+      "noisy_q025_nrmse": 16.17230486470589,
+      "noisy_q975_nrmse": 16.361076187037472,
+      "noisy_std_nrmse": 0.07005152527116301
+    },
+    {
+      "angle_deg": 45,
+      "family": "B1_COHERENT_DOUBLE_SLIT",
+      "ideal_nrmse": 0.48210412679114767,
+      "metric": "rho_theta",
+      "noisy_mean_nrmse": 6.666559283295757,
+      "noisy_q025_nrmse": 6.61757523490968,
+      "noisy_q975_nrmse": 6.7008368527492665,
+      "noisy_std_nrmse": 0.02802994507159716
+    },
+    {
+      "angle_deg": 90,
+      "family": "C0_ISOTROPIC_EDGE",
+      "ideal_nrmse": 0.029594678031966803,
+      "metric": "rho_theta",
+      "noisy_mean_nrmse": 0.029676367138916554,
+      "noisy_q025_nrmse": 0.02949365580684018,
+      "noisy_q975_nrmse": 0.02988639502547406,
+      "noisy_std_nrmse": 0.00015880992967573892
+    },
+    {
+      "angle_deg": 90,
+      "family": "A1_FIXED_DISPERSION_EDGE",
+      "ideal_nrmse": 0.17928927890788987,
+      "metric": "rho_theta",
+      "noisy_mean_nrmse": 0.17927133162271777,
+      "noisy_q025_nrmse": 0.17913687006022402,
+      "noisy_q975_nrmse": 0.17944398472873688,
+      "noisy_std_nrmse": 0.00010675112372490641
+    },
+    {
+      "angle_deg": 90,
+      "family": "B1_COHERENT_SINGLE_SLIT",
+      "ideal_nrmse": 2.9545676447665063e-08,
+      "metric": "rho_theta",
+      "noisy_mean_nrmse": 17.100852548080525,
+      "noisy_q025_nrmse": 16.943326222132793,
+      "noisy_q975_nrmse": 17.201069793768564,
+      "noisy_std_nrmse": 0.08524236423487036
+    },
+    {
+      "angle_deg": 90,
+      "family": "B1_COHERENT_DOUBLE_SLIT",
+      "ideal_nrmse": 2.0880303835141842e-08,
+      "metric": "rho_theta",
+      "noisy_mean_nrmse": 6.978669005297853,
+      "noisy_q025_nrmse": 6.93492243853048,
+      "noisy_q975_nrmse": 7.010859237791662,
+      "noisy_std_nrmse": 0.026901291104606
+    },
+    {
+      "angle_deg": 135,
+      "family": "C0_ISOTROPIC_EDGE",
+      "ideal_nrmse": 0.024896799318732142,
+      "metric": "rho_theta",
+      "noisy_mean_nrmse": 0.02490388425114977,
+      "noisy_q025_nrmse": 0.02478655239733081,
+      "noisy_q975_nrmse": 0.02510951834838993,
+      "noisy_std_nrmse": 0.00012612145017090707
+    },
+    {
+      "angle_deg": 135,
+      "family": "A1_FIXED_DISPERSION_EDGE",
+      "ideal_nrmse": 0.26045523021410494,
+      "metric": "rho_theta",
+      "noisy_mean_nrmse": 0.26042544386472705,
+      "noisy_q025_nrmse": 0.2602574822864918,
+      "noisy_q975_nrmse": 0.26057893643268276,
+      "noisy_std_nrmse": 0.00011738026774761992
+    },
+    {
+      "angle_deg": 135,
+      "family": "B1_COHERENT_SINGLE_SLIT",
+      "ideal_nrmse": 0.9381613923403712,
+      "metric": "rho_theta",
+      "noisy_mean_nrmse": 16.290171920494117,
+      "noisy_q025_nrmse": 16.180113997417642,
+      "noisy_q975_nrmse": 16.431366380457952,
+      "noisy_std_nrmse": 0.08371152117560911
+    },
+    {
+      "angle_deg": 135,
+      "family": "B1_COHERENT_DOUBLE_SLIT",
+      "ideal_nrmse": 0.48210412679114756,
+      "metric": "rho_theta",
+      "noisy_mean_nrmse": 6.663919802678928,
+      "noisy_q025_nrmse": 6.610852834364362,
+      "noisy_q975_nrmse": 6.71333509652803,
+      "noisy_std_nrmse": 0.038979885627546
+    },
+    {
+      "angle_deg": 180,
+      "family": "C0_ISOTROPIC_EDGE",
+      "ideal_nrmse": 0.029594678031966803,
+      "metric": "rho_theta",
+      "noisy_mean_nrmse": 0.029626889090302748,
+      "noisy_q025_nrmse": 0.029476903616689767,
+      "noisy_q975_nrmse": 0.02984778887687262,
+      "noisy_std_nrmse": 0.0001426486054365052
+    },
+    {
+      "angle_deg": 180,
+      "family": "A1_FIXED_DISPERSION_EDGE",
+      "ideal_nrmse": 0.28779611779300174,
+      "metric": "rho_theta",
+      "noisy_mean_nrmse": 0.2878793317060746,
+      "noisy_q025_nrmse": 0.2876585369002162,
+      "noisy_q975_nrmse": 0.28814181855640497,
+      "noisy_std_nrmse": 0.00019713087805427285
+    },
+    {
+      "angle_deg": 180,
+      "family": "B1_COHERENT_SINGLE_SLIT",
+      "ideal_nrmse": 2.9545676447665063e-08,
+      "metric": "rho_theta",
+      "noisy_mean_nrmse": 17.107649309191434,
+      "noisy_q025_nrmse": 17.020866052579095,
+      "noisy_q975_nrmse": 17.20304717812431,
+      "noisy_std_nrmse": 0.06238322840588258
+    },
+    {
+      "angle_deg": 180,
+      "family": "B1_COHERENT_DOUBLE_SLIT",
+      "ideal_nrmse": 2.0880303835141842e-08,
+      "metric": "rho_theta",
+      "noisy_mean_nrmse": 6.992980236719797,
+      "noisy_q025_nrmse": 6.910861056923521,
+      "noisy_q975_nrmse": 7.052595953430447,
+      "noisy_std_nrmse": 0.052628464137915866
+    },
+    {
+      "angle_deg": 225,
+      "family": "C0_ISOTROPIC_EDGE",
+      "ideal_nrmse": 0.025942850035635675,
+      "metric": "rho_theta",
+      "noisy_mean_nrmse": 0.025999071900264042,
+      "noisy_q025_nrmse": 0.025870297162282504,
+      "noisy_q975_nrmse": 0.026249769168306913,
+      "noisy_std_nrmse": 0.000131867998122489
+    },
+    {
+      "angle_deg": 225,
+      "family": "A1_FIXED_DISPERSION_EDGE",
+      "ideal_nrmse": 0.2611221058259494,
+      "metric": "rho_theta",
+      "noisy_mean_nrmse": 0.26110885086937385,
+      "noisy_q025_nrmse": 0.260699683021653,
+      "noisy_q975_nrmse": 0.26135847834360026,
+      "noisy_std_nrmse": 0.00020429772525015806
+    },
+    {
+      "angle_deg": 225,
+      "family": "B1_COHERENT_SINGLE_SLIT",
+      "ideal_nrmse": 0.9381613934099956,
+      "metric": "rho_theta",
+      "noisy_mean_nrmse": 16.321144275578558,
+      "noisy_q025_nrmse": 16.215601650713644,
+      "noisy_q975_nrmse": 16.38554661797824,
+      "noisy_std_nrmse": 0.06813620772287815
+    },
+    {
+      "angle_deg": 225,
+      "family": "B1_COHERENT_DOUBLE_SLIT",
+      "ideal_nrmse": 0.48210412769476957,
+      "metric": "rho_theta",
+      "noisy_mean_nrmse": 6.674054551752015,
+      "noisy_q025_nrmse": 6.619507683459127,
+      "noisy_q975_nrmse": 6.717579225950106,
+      "noisy_std_nrmse": 0.03469980280151012
+    },
+    {
+      "angle_deg": 270,
+      "family": "C0_ISOTROPIC_EDGE",
+      "ideal_nrmse": 0.029594678031966803,
+      "metric": "rho_theta",
+      "noisy_mean_nrmse": 0.02961806370463684,
+      "noisy_q025_nrmse": 0.029468239959472148,
+      "noisy_q975_nrmse": 0.02990711866638147,
+      "noisy_std_nrmse": 0.00014897780622934422
+    },
+    {
+      "angle_deg": 270,
+      "family": "A1_FIXED_DISPERSION_EDGE",
+      "ideal_nrmse": 0.1809963473377993,
+      "metric": "rho_theta",
+      "noisy_mean_nrmse": 0.1810956523904878,
+      "noisy_q025_nrmse": 0.1809047400204792,
+      "noisy_q975_nrmse": 0.18124303923148327,
+      "noisy_std_nrmse": 0.00012817420580888913
+    },
+    {
+      "angle_deg": 270,
+      "family": "B1_COHERENT_SINGLE_SLIT",
+      "ideal_nrmse": 2.9545676447665063e-08,
+      "metric": "rho_theta",
+      "noisy_mean_nrmse": 17.076626263447043,
+      "noisy_q025_nrmse": 16.980568345849125,
+      "noisy_q975_nrmse": 17.23569333284389,
+      "noisy_std_nrmse": 0.08311581066597504
+    },
+    {
+      "angle_deg": 270,
+      "family": "B1_COHERENT_DOUBLE_SLIT",
+      "ideal_nrmse": 2.0880303835141842e-08,
+      "metric": "rho_theta",
+      "noisy_mean_nrmse": 6.992313079146781,
+      "noisy_q025_nrmse": 6.965611361042107,
+      "noisy_q975_nrmse": 7.013738175097257,
+      "noisy_std_nrmse": 0.017240632207066522
+    },
+    {
+      "angle_deg": 315,
+      "family": "C0_ISOTROPIC_EDGE",
+      "ideal_nrmse": 0.02594284999046002,
+      "metric": "rho_theta",
+      "noisy_mean_nrmse": 0.026015504597738427,
+      "noisy_q025_nrmse": 0.025861327133776563,
+      "noisy_q975_nrmse": 0.026151215215990703,
+      "noisy_std_nrmse": 9.756788268636531e-05
+    },
+    {
+      "angle_deg": 315,
+      "family": "A1_FIXED_DISPERSION_EDGE",
+      "ideal_nrmse": 0.0654835858026321,
+      "metric": "rho_theta",
+      "noisy_mean_nrmse": 0.06551384846401961,
+      "noisy_q025_nrmse": 0.06543309716748787,
+      "noisy_q975_nrmse": 0.06561059335696189,
+      "noisy_std_nrmse": 6.255643846230471e-05
+    },
+    {
+      "angle_deg": 315,
+      "family": "B1_COHERENT_SINGLE_SLIT",
+      "ideal_nrmse": 0.938161392340372,
+      "metric": "rho_theta",
+      "noisy_mean_nrmse": 16.354108610063882,
+      "noisy_q025_nrmse": 16.24316076099139,
+      "noisy_q975_nrmse": 16.510107893873812,
+      "noisy_std_nrmse": 0.09696305686108145
+    },
+    {
+      "angle_deg": 315,
+      "family": "B1_COHERENT_DOUBLE_SLIT",
+      "ideal_nrmse": 0.48210412679114767,
+      "metric": "rho_theta",
+      "noisy_mean_nrmse": 6.665633192621885,
+      "noisy_q025_nrmse": 6.63966500428409,
+      "noisy_q975_nrmse": 6.6991687416743435,
+      "noisy_std_nrmse": 0.021431136037845952
+    },
+    {
+      "angle_deg": 0,
+      "family": "C0_ISOTROPIC_EDGE",
+      "ideal_nrmse": 3.8870084525478154e-16,
+      "metric": "epsilon_Q",
+      "noisy_mean_nrmse": 0.001941614674786252,
+      "noisy_q025_nrmse": 0.0015078180663311623,
+      "noisy_q975_nrmse": 0.0026629103607792855,
+      "noisy_std_nrmse": 0.0004133553377320108
+    },
+    {
+      "angle_deg": 0,
+      "family": "A1_FIXED_DISPERSION_EDGE",
+      "ideal_nrmse": 4.1246887342143143e-16,
+      "metric": "epsilon_Q",
+      "noisy_mean_nrmse": 0.001877978055592389,
+      "noisy_q025_nrmse": 0.0014480326013984108,
+      "noisy_q975_nrmse": 0.0026840010240650326,
+      "noisy_std_nrmse": 0.00045394927145287676
+    },
+    {
+      "angle_deg": 0,
+      "family": "A1_FIXED_DISPERSION_SLIT",
+      "ideal_nrmse": 3.840948441272357e-16,
+      "metric": "epsilon_Q",
+      "noisy_mean_nrmse": 0.0016543330852140368,
+      "noisy_q025_nrmse": 0.001454235259263289,
+      "noisy_q975_nrmse": 0.0019894443408616245,
+      "noisy_std_nrmse": 0.00018956890620266126
+    },
+    {
+      "angle_deg": 0,
+      "family": "B1_COHERENT_SINGLE_SLIT",
+      "ideal_nrmse": 0.09770115578071578,
+      "metric": "epsilon_Q",
+      "noisy_mean_nrmse": 0.24517064180369572,
+      "noisy_q025_nrmse": 0.2440961613970031,
+      "noisy_q975_nrmse": 0.24630315421693164,
+      "noisy_std_nrmse": 0.0007712439813504975
+    },
+    {
+      "angle_deg": 0,
+      "family": "B1_COHERENT_DOUBLE_SLIT",
+      "ideal_normalized_l1": 0.6538550437377226,
+      "ideal_nrmse": 0.5773502732507162,
+      "metric": "Delta_12",
+      "noisy_mean_nrmse": 9.915131132255123,
+      "noisy_q025_nrmse": 9.853283119739716,
+      "noisy_q975_nrmse": 9.999000681825846,
+      "noisy_std_nrmse": 0.050846706827276475
+    }
+  ],
+  "parameters": {
+    "angles_deg": [
+      0,
+      45,
+      90,
+      135,
+      180,
+      225,
+      270,
+      315
+    ],
+    "blur_sigma_px": 2.0,
+    "dark_offset": 0.01,
+    "dispersion_shifts_px": {
+      "B": -6,
+      "G": 0,
+      "R": 6
+    },
+    "grid": [
+      257,
+      257
+    ],
+    "repeats": 10,
+    "seed": 260926,
+    "sensor_noise_sigma": 0.0005,
+    "slit_separation": 0.34,
+    "slit_width": 0.1,
+    "source_gain_sigma": 0.001
+  },
+  "scientific_result": null,
+  "status": "SYNTHETIC_DRY_RUN_COMPLETE"
+}

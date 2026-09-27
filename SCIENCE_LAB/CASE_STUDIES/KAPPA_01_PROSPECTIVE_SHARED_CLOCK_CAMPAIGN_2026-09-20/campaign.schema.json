@@ -1,0 +1,79 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "nexah-kappa01-campaign/0.1.0",
+  "type": "object",
+  "required": ["schema", "campaign_id", "status", "apparatus_identity_ref", "apparatus", "intervention", "fixed_settings", "design", "claim_boundary"],
+  "properties": {
+    "schema": {"const": "nexah-kappa01-campaign/0.1.0"},
+    "campaign_id": {"const": "KAPPA_01"},
+    "status": {"const": "PREREGISTERED_READY_FOR_ACQUISITION"},
+    "apparatus_identity_ref": {"type": "string", "minLength": 1},
+    "apparatus": {
+      "type": "object",
+      "required": ["device_id", "acquisition_id", "shared_sample_clock_id", "drive_channel_id", "drive_is_measured_not_setpoint", "displacement_sensor_id", "displacement_calibration_id", "displacement_uncertainty_mm", "force_sensor_id", "force_calibration_id", "force_uncertainty_n", "channel_skew_bound_s"],
+      "properties": {
+        "device_id": {"type": "string", "minLength": 1, "not": {"const": "PENDING"}},
+        "acquisition_id": {"type": "string", "minLength": 1, "not": {"const": "PENDING"}},
+        "shared_sample_clock_id": {"type": "string", "minLength": 1, "not": {"const": "PENDING"}},
+        "drive_channel_id": {"type": "string", "minLength": 1, "not": {"const": "PENDING"}},
+        "drive_is_measured_not_setpoint": {"const": true},
+        "displacement_sensor_id": {"type": "string", "minLength": 1, "not": {"const": "PENDING"}},
+        "displacement_calibration_id": {"type": "string", "minLength": 1, "not": {"const": "PENDING"}},
+        "displacement_uncertainty_mm": {"type": "number", "exclusiveMinimum": 0},
+        "force_sensor_id": {"type": "string", "minLength": 1, "not": {"const": "PENDING"}},
+        "force_calibration_id": {"type": "string", "minLength": 1, "not": {"const": "PENDING"}},
+        "force_uncertainty_n": {"type": "number", "exclusiveMinimum": 0},
+        "channel_skew_bound_s": {"type": "number", "minimum": 0}
+      },
+      "additionalProperties": false
+    },
+    "intervention": {
+      "type": "object",
+      "required": ["active_definition", "sham_definition", "event_marker_source", "duration_s", "washout_rule", "safety_approval_ref"],
+      "properties": {
+        "active_definition": {"type": "string", "minLength": 20, "not": {"const": "PENDING"}},
+        "sham_definition": {"type": "string", "minLength": 20, "not": {"const": "PENDING"}},
+        "event_marker_source": {"type": "string", "minLength": 1, "not": {"const": "PENDING"}},
+        "duration_s": {"type": "number", "exclusiveMinimum": 0},
+        "washout_rule": {"type": "string", "minLength": 20, "not": {"const": "PENDING"}},
+        "safety_approval_ref": {"type": "string", "minLength": 1, "not": {"const": "PENDING"}}
+      },
+      "additionalProperties": false
+    },
+    "fixed_settings": {
+      "type": "object",
+      "required": ["frequency_hz", "drive_amplitude_v", "preload_n", "sample_rate_hz", "minimum_samples_per_cycle", "pre_cycles", "post_cycles", "recovery_cycles"],
+      "properties": {
+        "frequency_hz": {"type": "number", "exclusiveMinimum": 0},
+        "drive_amplitude_v": {"type": "number", "exclusiveMinimum": 0},
+        "preload_n": {"type": "number"},
+        "sample_rate_hz": {"type": "number", "exclusiveMinimum": 0},
+        "minimum_samples_per_cycle": {"type": "integer", "minimum": 100},
+        "pre_cycles": {"type": "integer", "minimum": 20},
+        "post_cycles": {"type": "integer", "minimum": 20},
+        "recovery_cycles": {"type": "integer", "minimum": 20}
+      },
+      "additionalProperties": false
+    },
+    "design": {
+      "type": "object",
+      "required": ["type", "mcid_deg", "paired_session_sd_deg", "variance_source_ref", "alpha_two_sided", "target_power", "attrition_fraction", "minimum_blocks", "maximum_blocks", "randomization_seed_receipt", "blinding_key_custodian"],
+      "properties": {
+        "type": {"const": "PAIRED_RANDOMIZED_ACTIVE_SHAM_CROSSOVER"},
+        "mcid_deg": {"type": "number", "exclusiveMinimum": 0},
+        "paired_session_sd_deg": {"type": "number", "exclusiveMinimum": 0},
+        "variance_source_ref": {"type": "string", "minLength": 1, "not": {"const": "PENDING"}},
+        "alpha_two_sided": {"const": 0.05},
+        "target_power": {"type": "number", "minimum": 0.8, "exclusiveMaximum": 1},
+        "attrition_fraction": {"type": "number", "minimum": 0, "maximum": 0.5},
+        "minimum_blocks": {"type": "integer", "minimum": 8},
+        "maximum_blocks": {"type": "integer", "minimum": 8},
+        "randomization_seed_receipt": {"type": "string", "minLength": 1, "not": {"const": "PENDING"}},
+        "blinding_key_custodian": {"type": "string", "minLength": 1, "not": {"const": "PENDING"}}
+      },
+      "additionalProperties": false
+    },
+    "claim_boundary": {"type": "string", "minLength": 20}
+  },
+  "additionalProperties": false
+}

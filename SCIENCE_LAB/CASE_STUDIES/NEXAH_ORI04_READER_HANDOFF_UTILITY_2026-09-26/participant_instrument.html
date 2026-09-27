@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>ORI-04 Reader Pilot</title>
+  <style>
+    :root { color-scheme: light dark; font-family: system-ui, sans-serif; }
+    body { margin: 0; background: Canvas; color: CanvasText; }
+    main { width: min(820px, calc(100% - 32px)); margin: 32px auto 64px; }
+    h1 { font-size: 1.45rem; }
+    h2 { font-size: 1.15rem; margin-top: 1.5rem; }
+    .muted { color: color-mix(in srgb, CanvasText 65%, Canvas); }
+    .panel { border: 1px solid color-mix(in srgb, CanvasText 20%, Canvas); border-radius: 12px; padding: 18px; margin: 18px 0; }
+    .field { display: grid; grid-template-columns: minmax(130px, 180px) 1fr; gap: 12px; padding: 9px 0; border-bottom: 1px solid color-mix(in srgb, CanvasText 12%, Canvas); }
+    .field:last-child { border-bottom: 0; }
+    .field dt { font-weight: 650; }
+    .field dd { margin: 0; }
+    label { display: block; margin: 14px 0 6px; font-weight: 650; }
+    input, select, textarea, button { font: inherit; }
+    input[type="text"], select, textarea { width: 100%; box-sizing: border-box; padding: 10px; border: 1px solid color-mix(in srgb, CanvasText 25%, Canvas); border-radius: 8px; background: Canvas; color: CanvasText; }
+    textarea { min-height: 82px; resize: vertical; }
+    .choices { display: flex; flex-wrap: wrap; gap: 10px; }
+    .choices label { display: flex; align-items: center; gap: 6px; padding: 9px 12px; border: 1px solid color-mix(in srgb, CanvasText 25%, Canvas); border-radius: 8px; font-weight: 500; }
+    button { padding: 10px 16px; border-radius: 8px; border: 1px solid color-mix(in srgb, CanvasText 30%, Canvas); background: CanvasText; color: Canvas; }
+    button[disabled] { opacity: .45; }
+    .row { display: flex; gap: 12px; align-items: end; flex-wrap: wrap; }
+    .row > * { flex: 1 1 220px; }
+    .progress { margin: 12px 0; }
+    .error { color: #c0392b; font-weight: 650; }
+    .hidden { display: none !important; }
+    .familiarity { display: grid; grid-template-columns: 1fr auto; gap: 8px 14px; align-items: center; }
+    @media (max-width: 560px) { .field { grid-template-columns: 1fr; gap: 4px; } }
+  </style>
+</head>
+<body>
+<main>
+  <section id="start">
+    <h1>ORI-04 Reader Pilot</h1>
+    <p>Sie sehen acht kurze Records und beurteilen jeweils genau den angegebenen Claim. Es gibt keine Wissensprüfung außerhalb der angezeigten Informationen.</p>
+    <p class="muted">Die Seite sendet keine Daten. Am Ende wird eine JSON-Datei lokal exportiert. Starten Sie nur mit der Ihnen zugeteilten Form-ID und einem pseudonymen Teilnehmercode.</p>
+    <div class="panel">
+      <div class="row">
+        <div>
+          <label for="participant">Pseudonymer Teilnehmercode</label>
+          <input id="participant" type="text" autocomplete="off" required>
+        </div>
+        <div>
+          <label for="form">Form-ID</label>
+          <select id="form">
+            <option>F1</option><option>F2</option><option>F3</option><option>F4</option>
+            <option>F5</option><option>F6</option><option>F7</option><option>F8</option>
+          </select>
+        </div>
+      </div>
+      <label><input id="consent" type="checkbox"> Ich habe die Pilotinformation erhalten, nehme freiwillig teil und weiß, dass ich jederzeit abbrechen kann.</label>
+      <p id="start-error" class="error hidden"></p>
+      <button id="begin" type="button">Start</button>
+    </div>
+  </section>
+
+  <section id="case-screen" class="hidden">
+    <p id="progress" class="progress muted"></p>
+    <h1 id="domain"></h1>
+    <dl id="record" class="panel"></dl>
+    <div class="panel">
+      <h2>Zu beurteilender Claim</h2>
+      <p id="claim"></p>
+      <label>Entscheidung</label>
+      <div class="choices">
+        <label><input type="radio" name="decision" value="ALLOW"> ALLOW</label>
+        <label><input type="radio" name="decision" value="BLOCK"> BLOCK</label>
+        <label><input type="radio" name="decision" value="INSUFFICIENT"> INSUFFICIENT</label>
+      </div>
+      <label for="limitation">Wichtigste fehlende oder begrenzende Information</label>
+      <textarea id="limitation"></textarea>
+      <label for="confidence">Sicherheit: <span id="confidence-value">50</span>/100</label>
+      <input id="confidence" type="range" min="0" max="100" value="50">
+      <label for="handoff">Ein Satz für die nächste Person</label>
+      <textarea id="handoff"></textarea>
+      <p id="case-error" class="error hidden"></p>
+      <button id="next" type="button">Antwort speichern und weiter</button>
+    </div>
+  </section>
+
+  <section id="finish" class="hidden">
+    <h1>Abschluss</h1>
+    <p>Bitte schätzen Sie Ihre vorherige Vertrautheit ein: 0 = keine, 4 = sehr hoch.</p>
+    <div class="panel familiarity" id="familiarity"></div>
+    <p class="muted">Der Export enthält Ihren pseudonymen Code, Form-ID, Antworten und Bearbeitungszeiten. Prüfen Sie bitte, dass keine personenbezogenen Angaben in Freitexten stehen.</p>
+    <button id="export" type="button">Antwortdatei exportieren</button>
+    <p id="export-state" class="muted"></p>
+  </section>
+</main>
+<script>
+  const fieldOrder = ["source","context","question","selection","retained","lost","introduced","unresolved","residual"];
+  const labels = {
+    BASELINE: ["Source","Context","Question","Selection","Present","Missing","Added","Open","Difference"],
+    NEXAH: ["Ω / Source","X / Context","Q / Question","S / Selection","I / Retained","L / Lost","A / Introduced","U / Unresolved","ε / Residual"]
+  };
+  const conditionCode = { BASELINE: "X", NEXAH: "Y" };
+  const domains = ["Statistik","Teilchenphysik","Historische Topographie","Relativität","Daten/Provenienz","Symbolische Notation"];
+  let cases = [], forms = [], assignments = [], current = 0, startedAt = 0, responses = [], participant = "", formId = "";
+
+  const byId = id => document.getElementById(id);
+  const showError = (id, message) => { const node = byId(id); node.textContent = message; node.classList.toggle("hidden", !message); };
+
+  async function loadMaterials() {
+    const [caseResponse, formResponse] = await Promise.all([fetch("01_CASES.json"), fetch("02_ASSIGNMENT_FORMS.json")]);
+    cases = await caseResponse.json();
+    forms = await formResponse.json();
+  }
+
+  function renderCase() {
+    const assignment = assignments[current];
+    const item = cases.find(entry => entry.case_id === assignment.case_id);
+    byId("progress").textContent = `Fall ${current + 1} von ${assignments.length}`;
+    byId("domain").textContent = item.domain;
+    byId("claim").textContent = item.claim;
+    const record = byId("record");
+    record.replaceChildren();
+    fieldOrder.forEach((field, index) => {
+      const wrapper = document.createElement("div"); wrapper.className = "field";
+      const term = document.createElement("dt"); term.textContent = labels[assignment.condition][index];
+      const value = document.createElement("dd"); value.textContent = item.values[field];
+      wrapper.append(term, value); record.append(wrapper);
+    });
+    document.querySelectorAll('input[name="decision"]').forEach(input => input.checked = false);
+    byId("limitation").value = ""; byId("handoff").value = "";
+    byId("confidence").value = "50"; byId("confidence-value").textContent = "50";
+    showError("case-error", ""); startedAt = performance.now();
+  }
+
+  byId("confidence").addEventListener("input", event => byId("confidence-value").textContent = event.target.value);
+
+  byId("begin").addEventListener("click", async () => {
+    participant = byId("participant").value.trim(); formId = byId("form").value;
+    if (!participant || !byId("consent").checked) { showError("start-error", "Teilnehmercode und freiwillige Zustimmung sind erforderlich."); return; }
+    try { if (!cases.length) await loadMaterials(); }
+    catch (error) { showError("start-error", "Materialien konnten nicht geladen werden. Bitte über einen lokalen Webserver öffnen."); return; }
+    assignments = forms.find(form => form.form_id === formId).assignments;
+    byId("start").classList.add("hidden"); byId("case-screen").classList.remove("hidden"); renderCase();
+  });
+
+  byId("next").addEventListener("click", () => {
+    const selected = document.querySelector('input[name="decision"]:checked');
+    if (!selected || !byId("limitation").value.trim() || !byId("handoff").value.trim()) {
+      showError("case-error", "Bitte Entscheidung, Begrenzung und Übergabesatz ausfüllen."); return;
+    }
+    const assignment = assignments[current];
+    responses.push({
+      position: current + 1,
+      case_id: assignment.case_id,
+      condition_code: conditionCode[assignment.condition],
+      decision: selected.value,
+      limitation_text: byId("limitation").value.trim(),
+      confidence: Number(byId("confidence").value),
+      handoff_text: byId("handoff").value.trim(),
+      elapsed_ms: Math.round(performance.now() - startedAt)
+    });
+    current += 1;
+    if (current < assignments.length) renderCase();
+    else {
+      byId("case-screen").classList.add("hidden"); byId("finish").classList.remove("hidden");
+      const area = byId("familiarity");
+      domains.forEach((domain, index) => {
+        const label = document.createElement("label"); label.htmlFor = `fam-${index}`; label.textContent = domain;
+        const select = document.createElement("select"); select.id = `fam-${index}`; select.dataset.domain = domain;
+        [0,1,2,3,4].forEach(value => { const option = document.createElement("option"); option.value = value; option.textContent = value; select.append(option); });
+        area.append(label, select);
+      });
+    }
+  });
+
+  byId("export").addEventListener("click", () => {
+    const familiarity = {};
+    byId("familiarity").querySelectorAll("select").forEach(select => familiarity[select.dataset.domain] = Number(select.value));
+    const payload = {
+      schema: "nexah.ori04.reader-response.v1",
+      participant_code: participant,
+      form_id: formId,
+      exported_at: new Date().toISOString(),
+      condition_key_withheld: true,
+      familiarity,
+      responses
+    };
+    const blob = new Blob([JSON.stringify(payload, null, 2) + "\n"], {type: "application/json"});
+    const link = document.createElement("a"); link.href = URL.createObjectURL(blob);
+    link.download = `ori04-${participant}-${formId}.json`; link.click(); URL.revokeObjectURL(link.href);
+    byId("export-state").textContent = "Antwortdatei wurde lokal erzeugt.";
+  });
+</script>
+</body>
+</html>

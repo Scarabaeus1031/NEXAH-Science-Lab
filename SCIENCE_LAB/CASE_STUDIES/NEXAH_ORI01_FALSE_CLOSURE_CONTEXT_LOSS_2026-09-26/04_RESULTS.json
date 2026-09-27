@@ -1,0 +1,109 @@
+{
+  "test_id": "NEXAH-ORI-01",
+  "fixture": "UCBAdmissions_1973_six_departments",
+  "aggregate": {
+    "Male": {
+      "admitted": 1198,
+      "rejected": 1493,
+      "applicants": 2691,
+      "rate": 0.4451876625789669
+    },
+    "Female": {
+      "admitted": 557,
+      "rejected": 1278,
+      "applicants": 1835,
+      "rate": 0.30354223433242505
+    }
+  },
+  "department_strata": [
+    {
+      "department": "A",
+      "male_rate": 0.6206060606060606,
+      "female_rate": 0.8240740740740741
+    },
+    {
+      "department": "B",
+      "male_rate": 0.6303571428571428,
+      "female_rate": 0.68
+    },
+    {
+      "department": "C",
+      "male_rate": 0.36923076923076925,
+      "female_rate": 0.3406408094435076
+    },
+    {
+      "department": "D",
+      "male_rate": 0.33093525179856115,
+      "female_rate": 0.34933333333333333
+    },
+    {
+      "department": "E",
+      "male_rate": 0.2774869109947644,
+      "female_rate": 0.23918575063613232
+    },
+    {
+      "department": "F",
+      "male_rate": 0.058981233243967826,
+      "female_rate": 0.07038123167155426
+    }
+  ],
+  "direct_standardization_common_pooled_department_weights": {
+    "Male": 0.3873185826894222,
+    "Female": 0.4299553804607252
+  },
+  "contrasts": {
+    "aggregate_female_minus_male": -0.14164542824654186,
+    "standardized_female_minus_male": 0.04263679777130297,
+    "sign_reversal": true
+  },
+  "strong_baseline": {
+    "input_rows": 12,
+    "uses_department_context": true,
+    "blocks_C1_false_closure": true,
+    "reason": "aggregate contrast reverses under common department weights"
+  },
+  "nexah": {
+    "Omega": "01_SOURCE_DATA.csv / UCBAdmissions six-department table",
+    "X": "department as decision-unit context",
+    "Q": "Does the aggregate record alone establish department-level bias?",
+    "sigma": "sum over department",
+    "records": [
+      "aggregate_by_gender",
+      "department_by_gender",
+      "direct_standardization"
+    ],
+    "ILAU": {
+      "I_retained": [
+        "recorded gender",
+        "admission outcome",
+        "counts"
+      ],
+      "L_lost": [
+        "department under aggregate selection"
+      ],
+      "A_introduced": [
+        "common pooled department weights in standardized comparator"
+      ],
+      "U_unresolved": [
+        "applicant qualifications",
+        "decision process",
+        "causal discrimination"
+      ]
+    },
+    "allowed_claim": "C0 aggregate descriptive difference; C2 context materially changes comparison",
+    "blocked_claim": "C1 aggregate record alone establishes department-level admissions bias",
+    "residual": "causal and historical interpretation remains unresolved by this table",
+    "blocks_C1_false_closure": true
+  },
+  "gates": {
+    "G1_SOURCE_TOTALS": true,
+    "G2_AGGREGATE_RECORD": true,
+    "G3_CONTEXT_EFFECT": true,
+    "G4_BASELINE_BLOCKS_C1": true,
+    "G5_NEXAH_BLOCKS_C1": true,
+    "G6_INCREMENTAL_DETECTION": false
+  },
+  "method_functioning": true,
+  "incremental_detection_utility": false,
+  "outcome": "TIE_NO_INCREMENTAL_DETECTION_UTILITY"
+}
