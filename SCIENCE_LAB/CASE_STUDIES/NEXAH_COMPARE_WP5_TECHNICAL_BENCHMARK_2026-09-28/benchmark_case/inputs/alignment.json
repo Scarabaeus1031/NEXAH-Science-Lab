@@ -1,0 +1,61 @@
+{
+  "profile_id": "NC01-ADVISORY-0.1",
+  "case_id": "CASE-WP5-FAMILY-OFFICE-REFINANCING",
+  "reference_analysis_id": "AN-WP5-FAMILY-OFFICE-REFERENCE",
+  "groups": [
+    {
+      "alignment_key": "WP5-INVARIANT-REFINANCED-PRINCIPAL",
+      "mode": "DECLARED_KEY",
+      "criterion": "Confirm the shared four-year refinanced principal calculation",
+      "claim_ids": {
+        "AN-WP5-FAMILY-OFFICE-CANDIDATE": "CLM-WP5-CANDIDATE-0001",
+        "AN-WP5-FAMILY-OFFICE-REFERENCE": "CLM-WP5-REFERENCE-0001"
+      }
+    },
+    {
+      "alignment_key": "WP5-D01-FOUR-YEAR-DEBT-TIMELINE",
+      "mode": "DECLARED_KEY",
+      "criterion": "Total debt at the four-year horizon must incorporate four annual amortization periods",
+      "claim_ids": {
+        "AN-WP5-FAMILY-OFFICE-CANDIDATE": "CLM-WP5-CANDIDATE-0002",
+        "AN-WP5-FAMILY-OFFICE-REFERENCE": "CLM-WP5-REFERENCE-0002"
+      }
+    },
+    {
+      "alignment_key": "WP5-D02-NEW-RATE-SCOPE",
+      "mode": "DECLARED_KEY",
+      "criterion": "Apply the new rate only to the refinanced principal and retain the declared legacy-rate remainder",
+      "claim_ids": {
+        "AN-WP5-FAMILY-OFFICE-CANDIDATE": "CLM-WP5-CANDIDATE-0003",
+        "AN-WP5-FAMILY-OFFICE-REFERENCE": "CLM-WP5-REFERENCE-0003"
+      }
+    },
+    {
+      "alignment_key": "WP5-D03-FREE-LIQUIDITY-EVIDENCE",
+      "mode": "DECLARED_KEY",
+      "criterion": "Do not treat reported liquidity as freely deployable while its reconciliation is unavailable",
+      "claim_ids": {
+        "AN-WP5-FAMILY-OFFICE-CANDIDATE": "CLM-WP5-CANDIDATE-0004",
+        "AN-WP5-FAMILY-OFFICE-REFERENCE": "CLM-WP5-REFERENCE-0004"
+      }
+    },
+    {
+      "alignment_key": "WP5-D04-COST-STRESS-OPERATION",
+      "mode": "DECLARED_KEY",
+      "criterion": "Separate an unavailable absolute operating-cost-base calculation from a declared operating-surplus shock",
+      "claim_ids": {
+        "AN-WP5-FAMILY-OFFICE-CANDIDATE": "CLM-WP5-CANDIDATE-0005",
+        "AN-WP5-FAMILY-OFFICE-REFERENCE": "CLM-WP5-REFERENCE-0005"
+      }
+    },
+    {
+      "alignment_key": "WP5-D05-RESERVE-ASSET-DECISION-BOUNDARY",
+      "mode": "DECLARED_KEY",
+      "criterion": "Abstain from an immediate reserve-asset sale recommendation until tax and cross-collateral evidence is resolved",
+      "claim_ids": {
+        "AN-WP5-FAMILY-OFFICE-CANDIDATE": "CLM-WP5-CANDIDATE-0006",
+        "AN-WP5-FAMILY-OFFICE-REFERENCE": "CLM-WP5-REFERENCE-0006"
+      }
+    }
+  ]
+}

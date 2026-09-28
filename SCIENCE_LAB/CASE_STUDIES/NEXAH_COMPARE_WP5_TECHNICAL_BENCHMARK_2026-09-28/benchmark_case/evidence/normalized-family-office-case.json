@@ -1,0 +1,26 @@
+{
+  "case_class": "SYNTHETIC_NORMALIZED_FAMILY_OFFICE_REFINANCING",
+  "units": "NORMALIZED_NOT_EUR_OR_MILLIONS",
+  "core_portfolio_value": "100",
+  "current_debt": "53",
+  "annual_operating_surplus_before_interest_and_amortization": "4.4",
+  "current_annual_interest": "1.0",
+  "annual_amortization": "2.0",
+  "refinancing_window_years": "4",
+  "share_refinanced_within_window": "0.76",
+  "liquidity_reserve_reported": "11",
+  "reserve_asset_value": "18",
+  "reserve_asset_debt": "4",
+  "scenario_axes": {
+    "new_interest_rates": ["0.03", "0.04", "0.05", "0.06"],
+    "operating_surplus_change": ["0", "-0.10", "-0.20"],
+    "property_value_change": ["0", "-0.15", "-0.30"],
+    "operating_cost_change": ["0", "0.10", "0.20"]
+  },
+  "evidence_boundaries": {
+    "liquidity_freely_available": "UNRESOLVED",
+    "absolute_operating_cost_base": "UNAVAILABLE",
+    "reserve_asset_sale_tax": "UNAVAILABLE",
+    "cross_collateral_and_purpose_declarations": "INCOMPLETE"
+  }
+}

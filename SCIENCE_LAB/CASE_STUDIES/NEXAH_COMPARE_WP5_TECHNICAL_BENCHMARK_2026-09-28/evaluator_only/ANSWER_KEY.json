@@ -1,0 +1,56 @@
+{
+  "schema_id": "nexah.compare.wp5.answer-key",
+  "schema_version": "0.1",
+  "case_id": "CASE-WP5-FAMILY-OFFICE-REFINANCING",
+  "status": "SEALED_BEFORE_MACHINE_EXECUTION",
+  "seeded_defect_count": 5,
+  "defects": [
+    {
+      "defect_id": "D01-FOUR-YEAR-DEBT-TIMELINE",
+      "severity": "CRITICAL",
+      "claim_ids": ["CLM-WP5-REFERENCE-0002", "CLM-WP5-CANDIDATE-0002"],
+      "expected_issue": "The candidate carries current debt 53 into the four-year horizon instead of incorporating four annual amortization periods and horizon debt 45.",
+      "accepted_reason_codes": ["FORMULA_MISMATCH", "OPERAND_MISMATCH", "TIME_BASIS_MISMATCH"],
+      "abstain_required": true
+    },
+    {
+      "defect_id": "D02-NEW-RATE-SCOPE",
+      "severity": "CRITICAL",
+      "claim_ids": ["CLM-WP5-REFERENCE-0003", "CLM-WP5-CANDIDATE-0003"],
+      "expected_issue": "The candidate applies the new rate to all horizon debt and omits the declared legacy-rate remainder treatment.",
+      "accepted_reason_codes": ["FORMULA_MISMATCH", "OPERAND_MISMATCH"],
+      "abstain_required": true
+    },
+    {
+      "defect_id": "D03-FREE-LIQUIDITY-EVIDENCE",
+      "severity": "MATERIAL",
+      "claim_ids": ["CLM-WP5-REFERENCE-0004", "CLM-WP5-CANDIDATE-0004"],
+      "expected_issue": "The candidate treats all reported liquidity as freely deployable although the reconciliation is unavailable.",
+      "accepted_reason_codes": ["EVIDENCE_MISSING", "EVIDENCE_ASYMMETRY"],
+      "abstain_required": true
+    },
+    {
+      "defect_id": "D04-COST-STRESS-OPERATION",
+      "severity": "MATERIAL",
+      "claim_ids": ["CLM-WP5-REFERENCE-0005", "CLM-WP5-CANDIDATE-0005"],
+      "expected_issue": "The candidate converts cost plus 20 percent into operating surplus minus 20 percent even though the absolute cost base is unavailable.",
+      "accepted_reason_codes": ["DOMAIN_INCOMPATIBLE", "ASSUMPTION_CONFLICT", "EVIDENCE_MISSING"],
+      "abstain_required": true
+    },
+    {
+      "defect_id": "D05-RESERVE-ASSET-DECISION-BOUNDARY",
+      "severity": "MATERIAL",
+      "claim_ids": ["CLM-WP5-REFERENCE-0006", "CLM-WP5-CANDIDATE-0006"],
+      "expected_issue": "The candidate recommends immediate sale despite unavailable tax treatment and missing cross-collateral evidence; the correct result is unresolved/abstain.",
+      "accepted_reason_codes": ["EVIDENCE_MISSING", "EVIDENCE_ASYMMETRY", "RECOMMENDATION_BOUNDARY_CONFLICT"],
+      "abstain_required": true
+    }
+  ],
+  "permitted_non_defect_relation": {
+    "claim_ids": ["CLM-WP5-REFERENCE-0001", "CLM-WP5-CANDIDATE-0001"],
+    "expected_classification": "INVARIANT"
+  },
+  "false_positive_rule": "Any material or critical finding outside D01-D05 is a material false positive unless both blinded adjudicators document a key defect before condition unblinding.",
+  "matching_rule": "A finding matches one defect only when it identifies the material issue and at least one frozen claim ID; exact prose equality is not required.",
+  "claim_ceiling": "NO_GLOBAL_TRUTH_RANKING_OR_FINANCIAL_RECOMMENDATION"
+}

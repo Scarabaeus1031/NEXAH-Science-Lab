@@ -1,0 +1,104 @@
+{
+  "schema_id": "nexah.compare.analysis-record",
+  "schema_version": "0.1.0",
+  "record_id": "AN-WP5-FAMILY-OFFICE-CANDIDATE",
+  "profile_id": "NC01-ADVISORY-0.1",
+  "case_id": "CASE-WP5-FAMILY-OFFICE-REFINANCING",
+  "source": {
+    "source_id": "SRC-WP5-FAMILY-OFFICE-CANDIDATE",
+    "title": "Synthetic candidate refinancing analysis with five seeded material defects",
+    "producer_class": "MODEL_ASSISTED_HUMAN_CONFIRMED",
+    "source_sha256": "6c37e9a1626aa8fa4df4469df59f33d285c9ceeaeed3399be42f0c51021af30f"
+  },
+  "claims": [
+    {
+      "claim_id": "CLM-WP5-CANDIDATE-0001",
+      "kind": "CALCULATION",
+      "statement": "At the four-year horizon 34.2 of debt is refinanced.",
+      "materiality": "MATERIAL",
+      "evidence_ids": ["EVD-WP5-CASE-0001", "EVD-WP5-SCHEDULE-0002"],
+      "uncertainty": "DECLARED_LOW",
+      "conditions": ["Annual amortization remains 2 for four years", "The 76 percent share amortizes proportionally"],
+      "calculation": {
+        "formula": "refinanced_principal",
+        "operands": [{"name": "refinanced_principal", "quantity": {"value": "34.2", "unit": "NORMALIZED_CURRENCY", "unit_system": "DECLARED_CUSTOM", "time_basis": "INSTANT", "custom_definition": "normalized case unit"}}],
+        "result": {"value": "34.2", "unit": "NORMALIZED_CURRENCY", "unit_system": "DECLARED_CUSTOM", "time_basis": "INSTANT", "custom_definition": "normalized case unit"},
+        "tolerance": "0"
+      }
+    },
+    {
+      "claim_id": "CLM-WP5-CANDIDATE-0002",
+      "kind": "CALCULATION",
+      "statement": "Total core debt remains 53 at the four-year refinancing horizon.",
+      "materiality": "CRITICAL",
+      "evidence_ids": ["EVD-WP5-CASE-0001", "EVD-WP5-SCHEDULE-0002"],
+      "uncertainty": "DECLARED_LOW",
+      "conditions": ["Use the current debt figure at the refinancing horizon"],
+      "calculation": {
+        "formula": "current_debt",
+        "operands": [{"name": "current_debt", "quantity": {"value": "53", "unit": "NORMALIZED_CURRENCY", "unit_system": "DECLARED_CUSTOM", "time_basis": "INSTANT", "custom_definition": "normalized case unit"}}],
+        "result": {"value": "53", "unit": "NORMALIZED_CURRENCY", "unit_system": "DECLARED_CUSTOM", "time_basis": "INSTANT", "custom_definition": "normalized case unit"},
+        "tolerance": "0"
+      }
+    },
+    {
+      "claim_id": "CLM-WP5-CANDIDATE-0003",
+      "kind": "CALCULATION",
+      "statement": "At a six-percent new rate modeled annual debt service is 4.7.",
+      "materiality": "CRITICAL",
+      "evidence_ids": ["EVD-WP5-CASE-0001", "EVD-WP5-SCHEDULE-0002"],
+      "uncertainty": "DECLARED_LOW",
+      "conditions": ["Apply the new rate to the entire four-year debt balance", "Annual amortization remains 2"],
+      "calculation": {
+        "formula": "horizon_debt * new_rate + annual_amortization",
+        "operands": [
+          {"name": "horizon_debt", "quantity": {"value": "45", "unit": "NORMALIZED_CURRENCY", "unit_system": "DECLARED_CUSTOM", "time_basis": "INSTANT", "custom_definition": "normalized case unit"}},
+          {"name": "new_rate", "quantity": {"value": "0.06", "unit": "RATIO", "unit_system": "DIMENSIONLESS", "time_basis": "YEAR"}},
+          {"name": "annual_amortization", "quantity": {"value": "2", "unit": "NORMALIZED_CURRENCY", "unit_system": "DECLARED_CUSTOM", "time_basis": "YEAR", "custom_definition": "normalized case unit per year"}}
+        ],
+        "result": {"value": "4.7", "unit": "NORMALIZED_CURRENCY", "unit_system": "DECLARED_CUSTOM", "time_basis": "YEAR", "custom_definition": "normalized case unit per year"},
+        "tolerance": "0"
+      }
+    },
+    {
+      "claim_id": "CLM-WP5-CANDIDATE-0004",
+      "kind": "FACT",
+      "statement": "All 11 of reported liquidity is freely deployable.",
+      "materiality": "MATERIAL",
+      "evidence_ids": ["EVD-WP5-LIQUIDITY-0003"],
+      "uncertainty": "DECLARED_LOW",
+      "conditions": [],
+      "calculation": null
+    },
+    {
+      "claim_id": "CLM-WP5-CANDIDATE-0005",
+      "kind": "CALCULATION",
+      "statement": "A 20 percent operating-cost increase reduces operating surplus from 4.4 to 3.52.",
+      "materiality": "MATERIAL",
+      "evidence_ids": ["EVD-WP5-CASE-0001"],
+      "uncertainty": "DECLARED_LOW",
+      "conditions": ["Treat cost growth as an equal percentage reduction of operating surplus"],
+      "calculation": {
+        "formula": "operating_surplus * remaining_share",
+        "operands": [
+          {"name": "operating_surplus", "quantity": {"value": "4.4", "unit": "NORMALIZED_CURRENCY", "unit_system": "DECLARED_CUSTOM", "time_basis": "YEAR", "custom_definition": "normalized case unit per year"}},
+          {"name": "remaining_share", "quantity": {"value": "0.8", "unit": "RATIO", "unit_system": "DIMENSIONLESS", "time_basis": "NOT_APPLICABLE"}}
+        ],
+        "result": {"value": "3.52", "unit": "NORMALIZED_CURRENCY", "unit_system": "DECLARED_CUSTOM", "time_basis": "YEAR", "custom_definition": "normalized case unit per year"},
+        "tolerance": "0"
+      }
+    },
+    {
+      "claim_id": "CLM-WP5-CANDIDATE-0006",
+      "kind": "RECOMMENDATION",
+      "statement": "Sell the reserve asset immediately and use the proceeds to reduce refinancing exposure.",
+      "materiality": "MATERIAL",
+      "evidence_ids": ["EVD-WP5-TAX-0005", "EVD-WP5-SECURITY-0006"],
+      "uncertainty": "DECLARED_LOW",
+      "conditions": [],
+      "calculation": null
+    }
+  ],
+  "limitations": ["Synthetic normalized case", "No regulated advice"],
+  "human_confirmation": {"status": "CONFIRMED", "actor_id": "ACTOR-OWNER-01", "confirmed_at": "2026-09-28T12:10:00Z", "confirmation_sha256": "5756079ea9fd383b84929969489e664cde6b6698b59c852da1772ae551a114e6"}
+}

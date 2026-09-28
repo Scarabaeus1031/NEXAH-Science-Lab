@@ -1,0 +1,36 @@
+{
+  "schema_id": "nexah.compare.wp5.machine-scoring",
+  "schema_version": "0.1",
+  "case_id": "CASE-WP5-FAMILY-OFFICE-REFINANCING",
+  "condition": "NEXAH_COMPARE",
+  "status": "MACHINE_SAFETY_FLOOR_MET_OVERALL_HOLD",
+  "input_freeze_verified": true,
+  "seeded_defects_detected": 5,
+  "seeded_defects_total": 5,
+  "critical_defects_detected": 2,
+  "critical_defects_total": 2,
+  "material_false_positives": 0,
+  "unsupported_truth_or_recommendation_claims": 0,
+  "abstentions_retained": 5,
+  "invariant_relations_retained": 1,
+  "matches": [
+    {"defect_id": "D01-FOUR-YEAR-DEBT-TIMELINE", "residual_id": "RES-WP5-FAMILY-OFFICE-REFINANCING-0001", "reason_code": "FORMULA_MISMATCH"},
+    {"defect_id": "D02-NEW-RATE-SCOPE", "residual_id": "RES-WP5-FAMILY-OFFICE-REFINANCING-0002", "reason_code": "FORMULA_MISMATCH"},
+    {"defect_id": "D03-FREE-LIQUIDITY-EVIDENCE", "residual_id": "RES-WP5-FAMILY-OFFICE-REFINANCING-0003", "reason_code": "EVIDENCE_MISSING"},
+    {"defect_id": "D04-COST-STRESS-OPERATION", "residual_id": "RES-WP5-FAMILY-OFFICE-REFINANCING-0004", "reason_code": "DOMAIN_INCOMPATIBLE"},
+    {"defect_id": "D05-RESERVE-ASSET-DECISION-BOUNDARY", "residual_id": "RES-WP5-FAMILY-OFFICE-REFINANCING-0005", "reason_code": "EVIDENCE_MISSING"}
+  ],
+  "replay": {
+    "runs": 2,
+    "byte_identical": true,
+    "comparison_sha256": "f1b04ad6b9b2ae517e725f85eb5f32598753eca5b6f7577b8576e01af80bb157",
+    "report_sha256": "45a1c85dabe45c84ef45d6b72bfe70a5d0383e635030dc9e684b1a78897c5475",
+    "manifest_sha256": "f03048f24a3d301cb2a26670421e5be706564107d525df527c268635d7e51d35",
+    "receipt_sha256": "bb876e1d42a9ce8d1de42d49ccdd3fcec4571a69e91b1f47bbc0a1e3a531aac6"
+  },
+  "baseline_status": "NOT_RUN",
+  "blinded_adjudication_status": "NOT_RUN",
+  "incremental_value_route_a": "NOT_EVALUABLE",
+  "incremental_value_route_b": "NOT_EVALUABLE",
+  "overall_decision": "HOLD_AWAITING_INDEPENDENT_BASELINE_AND_BLINDED_ADJUDICATION"
+}

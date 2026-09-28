@@ -1,0 +1,19 @@
+{
+  "schema_id": "nexah.compare.case-package",
+  "schema_version": "0.1.0",
+  "package_id": "PKG-WP5-FAMILY-OFFICE-REFINANCING-0001",
+  "profile_id": "NC01-ADVISORY-0.1",
+  "privacy_class": "SYNTHETIC",
+  "case_path": "inputs/case.json",
+  "analysis_paths": [
+    "inputs/analyses/reference.json",
+    "inputs/analyses/candidate.json"
+  ],
+  "alignment_path": "inputs/alignment.json",
+  "reference_analysis_id": "AN-WP5-FAMILY-OFFICE-REFERENCE",
+  "comparison_path": "outputs/comparison.json",
+  "report_path": "outputs/report.md",
+  "manifest_path": "manifest.json",
+  "receipt_path": "receipts/run-receipt.json",
+  "return_path": "returns/return.json"
+}

@@ -1,0 +1,102 @@
+{
+  "schema_id": "nexah.compare.analysis-record",
+  "schema_version": "0.1.0",
+  "record_id": "AN-WP5-FAMILY-OFFICE-REFERENCE",
+  "profile_id": "NC01-ADVISORY-0.1",
+  "case_id": "CASE-WP5-FAMILY-OFFICE-REFINANCING",
+  "source": {
+    "source_id": "SRC-WP5-FAMILY-OFFICE-REFERENCE",
+    "title": "Synthetic schedule-grounded refinancing analysis",
+    "producer_class": "HUMAN",
+    "source_sha256": "2f002fdc2ad8e9831b5b2a0dcd621b54684451f029e4dc047b82d95ad5107d36"
+  },
+  "claims": [
+    {
+      "claim_id": "CLM-WP5-REFERENCE-0001",
+      "kind": "CALCULATION",
+      "statement": "At the four-year horizon 34.2 of debt is refinanced.",
+      "materiality": "MATERIAL",
+      "evidence_ids": ["EVD-WP5-CASE-0001", "EVD-WP5-SCHEDULE-0002"],
+      "uncertainty": "DECLARED_LOW",
+      "conditions": ["Annual amortization remains 2 for four years", "The 76 percent share amortizes proportionally"],
+      "calculation": {
+        "formula": "refinanced_principal",
+        "operands": [{"name": "refinanced_principal", "quantity": {"value": "34.2", "unit": "NORMALIZED_CURRENCY", "unit_system": "DECLARED_CUSTOM", "time_basis": "INSTANT", "custom_definition": "normalized case unit"}}],
+        "result": {"value": "34.2", "unit": "NORMALIZED_CURRENCY", "unit_system": "DECLARED_CUSTOM", "time_basis": "INSTANT", "custom_definition": "normalized case unit"},
+        "tolerance": "0"
+      }
+    },
+    {
+      "claim_id": "CLM-WP5-REFERENCE-0002",
+      "kind": "CALCULATION",
+      "statement": "Scheduled amortization reduces total core debt to 45 at the four-year horizon.",
+      "materiality": "CRITICAL",
+      "evidence_ids": ["EVD-WP5-CASE-0001", "EVD-WP5-SCHEDULE-0002"],
+      "uncertainty": "DECLARED_LOW",
+      "conditions": ["Annual amortization remains 2 for four years"],
+      "calculation": {
+        "formula": "current_debt - annual_amortization * years",
+        "operands": [
+          {"name": "current_debt", "quantity": {"value": "53", "unit": "NORMALIZED_CURRENCY", "unit_system": "DECLARED_CUSTOM", "time_basis": "INSTANT", "custom_definition": "normalized case unit"}},
+          {"name": "annual_amortization", "quantity": {"value": "2", "unit": "NORMALIZED_CURRENCY", "unit_system": "DECLARED_CUSTOM", "time_basis": "YEAR", "custom_definition": "normalized case unit per year"}},
+          {"name": "years", "quantity": {"value": "4", "unit": "YEAR", "unit_system": "UCUM", "time_basis": "NOT_APPLICABLE"}}
+        ],
+        "result": {"value": "45", "unit": "NORMALIZED_CURRENCY", "unit_system": "DECLARED_CUSTOM", "time_basis": "INSTANT", "custom_definition": "normalized case unit"},
+        "tolerance": "0"
+      }
+    },
+    {
+      "claim_id": "CLM-WP5-REFERENCE-0003",
+      "kind": "CALCULATION",
+      "statement": "At a six-percent new rate modeled annual debt service is approximately 4.25577358490566.",
+      "materiality": "CRITICAL",
+      "evidence_ids": ["EVD-WP5-CASE-0001", "EVD-WP5-SCHEDULE-0002"],
+      "uncertainty": "DECLARED_MEDIUM",
+      "conditions": ["34.2 receives the new rate", "10.8 remains at modeled legacy average rate 1 divided by 53", "Annual amortization remains 2"],
+      "calculation": {
+        "formula": "refinanced_principal * new_rate + legacy_principal * legacy_rate + annual_amortization",
+        "operands": [
+          {"name": "refinanced_principal", "quantity": {"value": "34.2", "unit": "NORMALIZED_CURRENCY", "unit_system": "DECLARED_CUSTOM", "time_basis": "INSTANT", "custom_definition": "normalized case unit"}},
+          {"name": "new_rate", "quantity": {"value": "0.06", "unit": "RATIO", "unit_system": "DIMENSIONLESS", "time_basis": "YEAR"}},
+          {"name": "legacy_principal", "quantity": {"value": "10.8", "unit": "NORMALIZED_CURRENCY", "unit_system": "DECLARED_CUSTOM", "time_basis": "INSTANT", "custom_definition": "normalized case unit"}},
+          {"name": "legacy_rate", "quantity": {"value": "0.018867924528301886792452830188679245283018867924528", "unit": "RATIO", "unit_system": "DIMENSIONLESS", "time_basis": "YEAR"}},
+          {"name": "annual_amortization", "quantity": {"value": "2", "unit": "NORMALIZED_CURRENCY", "unit_system": "DECLARED_CUSTOM", "time_basis": "YEAR", "custom_definition": "normalized case unit per year"}}
+        ],
+        "result": {"value": "4.25577358490566", "unit": "NORMALIZED_CURRENCY", "unit_system": "DECLARED_CUSTOM", "time_basis": "YEAR", "custom_definition": "normalized case unit per year"},
+        "tolerance": "0.00000000000001"
+      }
+    },
+    {
+      "claim_id": "CLM-WP5-REFERENCE-0004",
+      "kind": "FACT",
+      "statement": "The freely deployable portion of the reported liquidity reserve of 11 is unresolved.",
+      "materiality": "MATERIAL",
+      "evidence_ids": ["EVD-WP5-LIQUIDITY-0003"],
+      "uncertainty": "UNAVAILABLE",
+      "conditions": [],
+      "calculation": null
+    },
+    {
+      "claim_id": "CLM-WP5-REFERENCE-0005",
+      "kind": "ASSUMPTION",
+      "statement": "A 20 percent operating-cost increase cannot be converted into an exact surplus result because the absolute cost base is unavailable.",
+      "materiality": "MATERIAL",
+      "evidence_ids": ["EVD-WP5-COSTBASE-0004"],
+      "uncertainty": "UNAVAILABLE",
+      "conditions": [],
+      "calculation": null
+    },
+    {
+      "claim_id": "CLM-WP5-REFERENCE-0006",
+      "kind": "RECOMMENDATION",
+      "statement": "Do not choose an immediate reserve-asset sale until tax and cross-collateral evidence is resolved.",
+      "materiality": "MATERIAL",
+      "evidence_ids": ["EVD-WP5-TAX-0005", "EVD-WP5-SECURITY-0006"],
+      "uncertainty": "UNAVAILABLE",
+      "conditions": ["Obtain written tax treatment", "Complete cross-collateral and purpose declarations"],
+      "calculation": null
+    }
+  ],
+  "limitations": ["Synthetic normalized case", "No regulated advice", "Actual loan schedules are outside scope"],
+  "human_confirmation": {"status": "CONFIRMED", "actor_id": "ACTOR-OWNER-01", "confirmed_at": "2026-09-28T12:05:00Z", "confirmation_sha256": "1b4b302bba174879e4c85a8cd7d61a491f7802b7e6350d88d72442d47b792856"}
+}

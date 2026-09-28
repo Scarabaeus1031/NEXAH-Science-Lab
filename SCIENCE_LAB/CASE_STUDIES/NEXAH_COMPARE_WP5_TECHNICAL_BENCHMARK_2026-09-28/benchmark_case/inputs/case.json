@@ -1,0 +1,83 @@
+{
+  "schema_id": "nexah.compare.case-record",
+  "schema_version": "0.1.0",
+  "record_id": "CASE-WP5-FAMILY-OFFICE-REFINANCING",
+  "profile_id": "NC01-ADVISORY-0.1",
+  "title": "Synthetic normalized family-office refinancing decision",
+  "decision_question": "Which combination of minimum liquidity, refinancing preparation and optional reserve-asset action remains supportable across the declared four-year scenarios?",
+  "domain": "BUSINESS_STRATEGY_NON_REGULATED",
+  "decision_options": [
+    {"option_id": "OPT-WP5-HOLD-RESERVE", "label": "Retain liquidity and preserve the reserve asset as an option"},
+    {"option_id": "OPT-WP5-DELEVERAGE", "label": "Use some liquidity to reduce debt"},
+    {"option_id": "OPT-WP5-SELL-RESERVE", "label": "Sell the reserve asset and reduce refinancing exposure"}
+  ],
+  "decision_period": {
+    "start": "2026-09-28T00:00:00Z",
+    "end": "2030-09-28T00:00:00Z",
+    "basis": "CUSTOM",
+    "timezone": "UTC"
+  },
+  "privacy_class": "SYNTHETIC",
+  "evidence": [
+    {
+      "evidence_id": "EVD-WP5-CASE-0001",
+      "status": "ADMITTED",
+      "kind": "DATASET",
+      "path": "evidence/normalized-family-office-case.json",
+      "sha256": "809bff6a118418318ef5b5acc0a74e2e3402257b75b3825c33730502a3dd722c",
+      "locator": "complete JSON object"
+    },
+    {
+      "evidence_id": "EVD-WP5-SCHEDULE-0002",
+      "status": "ADMITTED",
+      "kind": "DATASET",
+      "path": "evidence/refinancing-schedule.csv",
+      "sha256": "451ca196cfe014101bc11c1cd6420fbd1a56801acbccc2202330e77c6af6817a",
+      "locator": "header and rows 2-6"
+    },
+    {
+      "evidence_id": "EVD-WP5-LIQUIDITY-0003",
+      "status": "UNAVAILABLE",
+      "kind": "DOCUMENT",
+      "path": null,
+      "sha256": null,
+      "locator": "free-liquidity reconciliation not supplied"
+    },
+    {
+      "evidence_id": "EVD-WP5-COSTBASE-0004",
+      "status": "UNAVAILABLE",
+      "kind": "DATASET",
+      "path": null,
+      "sha256": null,
+      "locator": "absolute operating-cost base not supplied"
+    },
+    {
+      "evidence_id": "EVD-WP5-TAX-0005",
+      "status": "UNAVAILABLE",
+      "kind": "DOCUMENT",
+      "path": null,
+      "sha256": null,
+      "locator": "written reserve-asset sale tax treatment not supplied"
+    },
+    {
+      "evidence_id": "EVD-WP5-SECURITY-0006",
+      "status": "MISSING",
+      "kind": "DOCUMENT",
+      "path": null,
+      "sha256": null,
+      "locator": "complete cross-collateral and purpose declarations missing"
+    }
+  ],
+  "constraints": [
+    "Synthetic normalized derivative; no private source documents or identities admitted",
+    "All quantities are normalized and are not EUR or millions",
+    "No regulated financial, tax or legal advice",
+    "Absent evidence remains unresolved and may not be inferred"
+  ],
+  "human_confirmation": {
+    "status": "CONFIRMED",
+    "actor_id": "ACTOR-OWNER-01",
+    "confirmed_at": "2026-09-28T12:00:00Z",
+    "confirmation_sha256": "6631acf132e078591c9739dd1412b2b2d160262a0ab059579ac575e6f66743d2"
+  }
+}

@@ -1,6 +1,6 @@
 # NEXAH Science Lab — Subject Overview
 
-Maintained through: `2026-09-26`
+Maintained through: `2026-09-28`
 
 Status: `CURRENT_NAVIGATION_VIEW / NO_STATUS_OR_AUTHORITY_TRANSFER`
 
@@ -41,6 +41,7 @@ glossary.
 | Subject shelf | Research families | Boundary |
 |---|---|---|
 | Computer and information science | representation fidelity, identifiability, records, semantics, graph methods | formal results do not become physical laws |
+| Decision science and AI evaluation | model comparison, assumption reconciliation, boundary search, audit trails and calibrated abstention | one case or explicit model is not professional advice, product validation or general system superiority |
 | Engineering and control | ORION, power systems, measurement contracts and state estimation | component tests do not establish an integrated product |
 | Biology and domain pilots | photosynthesis, respiration, mitosis, planetary and solar families | source-bounded orientation; no domain-authority transfer |
 | Statistics and scientific method | uncertainty, bootstrap, negative results, preregistration and provenance | method supports but does not replace domain evidence |
@@ -71,6 +72,8 @@ reading map, not a ranking of truth.
 | OLS and ILAU | theoretical computer science | formal methods; semantics | normative/bounded language |
 | CRIC and NRRC records | computer science | provenance; data engineering | bounded record contracts |
 | Translation Fidelity studies | information theory | statistics; inverse problems | strongest near-publication scientific line |
+| [External Test 01 — Strategic Refinancing / Competitive Benchmark](CASE_STUDIES/EXTERNAL_TEST_01_STRATEGIC_REFINANCING_COMPETITIVE_BENCHMARK_2026-09-27/00_README.md) | decision science and AI evaluation | financial modelling; information science; scientific method | first exploratory external comparison; method hypothesis partly supported; no financial advice, accuracy winner, market proof or activation |
+| [NEXAH Compare WP5 — Family Office Refinancing Benchmark](CASE_STUDIES/NEXAH_COMPARE_WP5_TECHNICAL_BENCHMARK_2026-09-28/FINAL_RETURN.md) | decision science and AI evaluation | financial modelling; reproducibility; scientific method | frozen synthetic derivative of External Test 01; machine condition detects 5/5 seeded defects with byte-identical replay; overall HOLD until independent baseline and blinded adjudication; no advice or utility claim |
 | [AXIS08 Quotient–Residual Reconstruction](CASE_STUDIES/AXIS08_QRR_01_QUOTIENT_RESIDUAL_RECONSTRUCTION_2026-09-21/06_PHASE_B_IEEE_RESULTS.md) | linear algebra and information loss | inverse problems; dimensionality reduction; electrical-engineering benchmark | Phase B confirms exact residual reconstruction and bounded IEEE-9/14 geometry fidelity; quotient-only is not a compression winner |
 | ORION certified core and O8 | computer science/engineering | algebra; metrology | tested bounded components |
 | Prime, CRT, QRTp and 1728/1729 | mathematics | computer science fixtures | exact bounded results; no new number theory |
