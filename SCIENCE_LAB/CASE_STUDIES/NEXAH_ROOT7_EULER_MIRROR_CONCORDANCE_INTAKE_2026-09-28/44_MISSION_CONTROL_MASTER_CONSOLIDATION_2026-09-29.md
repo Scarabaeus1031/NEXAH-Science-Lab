@@ -26,7 +26,9 @@ claim rule:
 The work is complete enough for overview and custody. It is not an authority
 to continue research, implement a state-update operator, choose base 101 by
 post-hoc number fitting or promote the Poincare view into a geometric or
-physical mechanism.
+physical mechanism. The later preregistered `64/37 Nexus Selector 01` binds
+base 101 by a separate finite contract; it does not derive that selection from
+`F_50`.
 
 ## Policy review
 
@@ -40,7 +42,7 @@ rules.
 | Presence is not activation | The package creates no active research, build, publication or outreach work. |
 | Similarity does not transfer authority | Number, geometry, image and historical labels retain separate typed roles. |
 | One current big picture | The package is summarized once in the Science and Builder views rather than promoted as many platforms. |
-| Research exception requires a concrete build gap | The three parked questions below remain inactive until one is required by a separately authorized build contract. |
+| Research exception requires a concrete build gap | The state-update and Poincare questions remain inactive. The selector question was resolved by one separately preregistered finite contract without opening an active successor. |
 | Exact versioning scope | Only this package and the explicitly named overview/currentness files belong to the checkpoint. Broad staging is prohibited. |
 
 ## Consolidated portfolio
@@ -76,8 +78,9 @@ The tested `101*2^k` family admits a reversible parity/factor-four coding and
 roundtrips exactly. The profile is a lossless representation grammar, not a
 predictive process. `101` is an exact factor of `F_50`, but `F_50` supplies no
 unique intrinsic selector: `151` is an equal rank-50 peer and decimal
-palindromy is non-unique. Base 101 therefore remains an external typed choice
-unless an independent selector contract is supplied.
+palindromy is non-unique. The later `64/37 Nexus Selector 01` supplies the
+independent contract: the digit-boundary, prime-hinge and preregistered Nexus
+routes converge on `101` with `8/8 PASS`.
 
 ### D. Coordinate and basis views
 
@@ -115,6 +118,7 @@ not become identities of Root7, Ghostgrid, SNCE or Five-H.
 | `DESCARTES_6_POWER_SUBSTITUTION_01` | `8/8 PASS` | exact substitution and coefficient ladder | Fourier, SNCE or physical semantics |
 | `ELINE_FOURIER_RECONSTRUCTION_01` | `10/10 PASS` | exact finite DFT view | exact single sine or physical spectrum |
 | `ELINE_FOURIER_POINCARE_VIEW_EQUIVALENCE_01` | `10/10 PASS` | reversible Cayley view and metric invariance | same Euclidean shape or geodesic status |
+| `64_37_NEXUS_SELECTOR_01` | `8/8 PASS` | finite multi-path selector contract for `101` | intrinsic `F_50` choice, physical law or universal calendar invariant |
 
 All named final runs are deterministic within their reports. The useful
 negative findings are retained as boundaries rather than treated as failed
@@ -132,25 +136,25 @@ runtime or platform.
 | HTML comparison instruments | `VIEW / EXPRESSION_AND_INSPECTION` | explain view dependence and inspect frozen results |
 | H_Q observation chain | `IMPLEMENTED_BOUNDED_PIPELINE` | record, project, classify and compare without claiming feedback |
 | absent state-update operator | `MISSING_SEMANTIC CONTRACT` | do not fabricate a feedback loop from display arrows |
-| absent intrinsic 101 selector | `MISSING SELECTION CONTRACT` | require an external typed input or independent rule |
+| independent 101 selector | `SELECTOR CONTRACT PRESENT` | use the locked digit-boundary / prime-hinge / `64+P_12` rule; do not infer it from `F_50` |
 | Poincare embedding | `BOUNDED VIEW ADAPTER` | compare coordinate descriptions; do not advertise a dynamics engine |
 
 No new platform should be built from this package. Reuse begins only when a
 concrete application names the required contract and acceptance test.
 
-## Parked questions 2–4
+## Disposition of questions 2–4
 
-The previously identified follow-ons are parked together as one Builder-
-reconciliation block:
+The previously identified follow-ons are reconciled as follows:
 
 1. **State update / re-feed** — parked as `MISSING_SEMANTIC_CONTRACT`.
    Reactivation would require a new `H_Q_STATE_UPDATE_CONTRACT_01` defining
    state type, admitted return fields, equation `U`, step rule, invariants,
    null update and falsifying control.
-2. **Intrinsic selection of 101** — parked as `MISSING_SELECTION_CONTRACT`.
-   A builder must either receive `base=101` as an explicit typed input or bind
-   an independent rule frozen before execution. Further retrospective digit
-   fitting is excluded.
+2. **Independent selection of 101** — resolved as
+   `SELECTOR_CONTRACT_PRESENT / 8_OF_8_PASS`. The locked rule combines
+   `next_prime(99)`, the upper endpoint of `97–99–101`, and
+   `64+P_12=64+37`. It remains separate from `F_50` and excludes retrospective
+   residual fitting.
 3. **Poincare follow-on geometry** — parked as `OPTIONAL_MODEL_COMPARISON`.
    A future test would require a concrete use case and preregistered comparison
    among geodesic, hypercycle or other curve families. Another visual alone is
@@ -168,8 +172,8 @@ concrete build gap
   -> at most one bounded successor.
 ```
 
-Until that gate is satisfied, all three remain `PARKED_NO_ACTION` and create
-no Active Queue row.
+The state-update and Poincare questions remain `PARKED_NO_ACTION`. The selector
+contract is closed evidence and likewise creates no Active Queue row.
 
 ## Overview effect
 
@@ -181,7 +185,8 @@ one exact discrete-address family
 + one typed SNCE carrier profile
 + one coordinate/basis-view family
 + one reference/calibration layer
-+ three parked interface questions.
++ one closed finite selector contract
++ two parked interface questions.
 ```
 
 Named images, HTMLs and intermediate addenda are routes into these units, not
@@ -195,7 +200,7 @@ LIFECYCLE_PHASE_AT_CLOSE: STAGE_0_CONSOLIDATION
 LOCAL_OPERATIONAL_STATE: CLOSED_CONSOLIDATED_PARKED
 PHASE_TRANSITION_OCCURRED: NO
 TRANSITION_AUTHORITY: NONE_REQUIRED
-RETIREMENT_OR_FOLLOW_ON_STATUS: THREE_QUESTIONS_PARKED_AS_ONE_BUILDER_RECONCILIATION_BLOCK
+RETIREMENT_OR_FOLLOW_ON_STATUS: SELECTOR_RESOLVED; STATE_UPDATE_AND_POINCARE_COMPARISON_PARKED
 WORK_STATUS: COMPLETE
 ADOPTION_STATUS: EVIDENCE_AND_OVERVIEW_ONLY
 MATERIALITY_LEVEL: PORTFOLIO_CURRENTNESS

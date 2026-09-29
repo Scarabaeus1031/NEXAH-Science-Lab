@@ -1,0 +1,69 @@
+{
+  "contract_name": "64_37_nexus_protocol",
+  "version": "1.0.0",
+  "status": "PREREGISTERED_NOT_YET_EXECUTED",
+  "claim_ceiling": "FINITE_INTEGER_RELATIONS_ONLY",
+  "core_selector": {
+    "value": 101,
+    "prime_index": 26,
+    "classification": "MULTI_PATH_SELECTOR_CANDIDATE",
+    "paths": {
+      "digit_boundary": "next_prime(99) = 101",
+      "prime_hinge": "upper endpoint of 97 <-> 99 <-> 101",
+      "nexus_decomposition": "64 + 37 = 101"
+    }
+  },
+  "invariant_base": {
+    "symbol": "B",
+    "value": 64,
+    "factorization": "2^6"
+  },
+  "prior_binding_r37": {
+    "value": 37,
+    "prime_index": 12,
+    "is_emirp": true,
+    "mirror_pair": {
+      "value": 73,
+      "prime_index": 21
+    },
+    "index_mirror_relation": "reverse(12) = 21",
+    "uniqueness_scope": "unique non-palindromic value-and-index mirror pair among two-digit primes"
+  },
+  "nexus_prime_triad": {
+    "id": "192_NEXUS_TRIAD",
+    "is_consecutive": false,
+    "components": [101, 127, 137],
+    "prime_indices": [26, 31, 33],
+    "equations": {
+      "channel_1": "64 + 37 = 101",
+      "channel_2": "64 + 63 = 127",
+      "channel_3": "64 + 73 = 137"
+    },
+    "checksum": {
+      "base_sum": 192,
+      "residual_sum": 173,
+      "residual_sum_prime_index": 40,
+      "total": 365
+    }
+  },
+  "mirror_square_control": {
+    "original": "37^2 + 64^2 = 5465",
+    "mirrored": "73^2 + 46^2 = 7445",
+    "quadratic_checksum_invariant": false
+  },
+  "calendar_mapping": {
+    "value": 365,
+    "classification": "COMMON_YEAR_CHECKSUM_MNEMONIC",
+    "physical_constant": false,
+    "universal_calendar_invariant": false
+  },
+  "repository_protection": {
+    "distinct_from": {
+      "id": "CONSECUTIVE_PRIME_TRIAD",
+      "components": [127, 131, 137],
+      "prime_indices": [31, 32, 33]
+    },
+    "shared_members": [127, 137],
+    "do_not_merge_contract_ids": true
+  }
+}

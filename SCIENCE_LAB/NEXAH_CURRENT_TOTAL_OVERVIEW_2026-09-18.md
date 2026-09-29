@@ -42,16 +42,19 @@ sich fünf Rollen zu:
 
 Die wichtigsten Grenzen sind ebenso verbindlich: Es wurde kein ausführbarer
 H_Q-Next-State-Operator gefunden; `F_50` enthält 101 exakt, wählt 101 aber
-nicht intrinsisch und eindeutig aus; die eLinie ist endlich exakt
+nicht intrinsisch und eindeutig aus. Ein später separat preregistrierter
+`64/37 Nexus Selector 01` bindet 101 stattdessen durch die Übereinstimmung von
+Dezimalgrenze, Primzahl-Hinge und `64+P_12=64+37`; der endliche Test bestand
+8/8 Kontrollen in drei byte-identischen Läufen. Die eLinie ist endlich exakt
 Fourier-rekonstruierbar und als Poincare-Disk-Record darstellbar, aber weder
 eine exakte einzelne Sinuswelle noch eine Poincare-Geodäte.
 
-Die drei möglichen Folgefragen — Zustandsupdate, unabhängiger 101-Selektor und
-weiterer hyperbolischer Kurvenvergleich — sind gemeinsam als inaktiver
-Builder-Abgleich geparkt. Sie dürfen nur zurückkehren, wenn ein konkreter
-Build-Gap einen benannten Vertrag, Test, Owner und Claim Ceiling erfordert.
-Es entsteht keine Active Queue, Capability, Produkt-, Physik- oder
-Publikationsänderung.
+Die Selektorfrage ist damit als endlicher Vertrag geschlossen. Die zwei
+verbleibenden Folgefragen — Zustandsupdate und weiterer hyperbolischer
+Kurvenvergleich — bleiben als inaktiver Builder-Abgleich geparkt. Sie dürfen
+nur zurückkehren, wenn ein konkreter Build-Gap einen benannten Vertrag, Test,
+Owner und Claim Ceiling erfordert. Es entsteht keine Active Queue,
+Capability, Produkt-, Physik- oder Publikationsänderung.
 
 Controlling Science-Lab report:
 [`44_MISSION_CONTROL_MASTER_CONSOLIDATION_2026-09-29.md`](CASE_STUDIES/NEXAH_ROOT7_EULER_MIRROR_CONCORDANCE_INTAKE_2026-09-28/44_MISSION_CONTROL_MASTER_CONSOLIDATION_2026-09-29.md).

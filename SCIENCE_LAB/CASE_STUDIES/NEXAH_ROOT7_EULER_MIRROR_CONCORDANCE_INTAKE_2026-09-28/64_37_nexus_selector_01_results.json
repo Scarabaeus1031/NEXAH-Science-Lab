@@ -1,0 +1,169 @@
+{
+  "boundary": {
+    "capability_activation": false,
+    "f50_intrinsic_selector": false,
+    "new_research_result_id": false,
+    "state_update_operator": false
+  },
+  "claim_ceiling": "FINITE_INTEGER_MULTI_PATH_SELECTOR / NO_PHYSICAL_INFORMATION_THEORETIC_OR_UNIVERSAL_CALENDAR_CLAIM",
+  "contract_sha256": "0dd61d187d4074c03212b8b7ca5cbb82275fe71462cf4da5a895b6268c0f5ded",
+  "contract_version": "1.0.0",
+  "decision": "PASS / MULTI_PATH_SELECTOR_CONTRACT_BOUND",
+  "experiment": "64_37_NEXUS_SELECTOR_01",
+  "preregistration_sha256": "7fc7e33d6121de392ae7b41c602f1c5c6e94e535f23437a66f19255d24193fd4",
+  "tests": [
+    {
+      "base": 64,
+      "factorization": "2^6",
+      "name": "T1_BASE_AND_PRIME_ADDRESSES",
+      "pass": true,
+      "prime_indices": {
+        "101": 26,
+        "127": 31,
+        "131": 32,
+        "137": 33,
+        "173": 40,
+        "37": 12,
+        "73": 21
+      }
+    },
+    {
+      "all_hits": [
+        {
+          "mirror": 11,
+          "mirror_prime_index": 5,
+          "prime_index": 5,
+          "value": 11
+        },
+        {
+          "mirror": 73,
+          "mirror_prime_index": 21,
+          "prime_index": 12,
+          "value": 37
+        },
+        {
+          "mirror": 37,
+          "mirror_prime_index": 12,
+          "prime_index": 21,
+          "value": 73
+        }
+      ],
+      "name": "T2_PRIOR_BINDING_R37",
+      "nonpalindromic_unordered_pairs": [
+        [
+          37,
+          73
+        ]
+      ],
+      "pass": true,
+      "scope": "two-digit primes"
+    },
+    {
+      "name": "T3_SELECTOR_CONVERGENCE",
+      "pass": true,
+      "selectors": {
+        "digit_boundary": 101,
+        "nexus_decomposition": 101,
+        "prime_hinge_upper": 101
+      }
+    },
+    {
+      "components": [
+        101,
+        127,
+        137
+      ],
+      "consecutive": false,
+      "generated_components": [
+        101,
+        127,
+        137
+      ],
+      "name": "T4_NEXUS_TRIAD",
+      "pass": true,
+      "prime_indices": [
+        26,
+        31,
+        33
+      ]
+    },
+    {
+      "calendar_role": "COMMON_YEAR_CHECKSUM_MNEMONIC_ONLY",
+      "checksums": {
+        "base_plus_residual": 365,
+        "base_sum": 192,
+        "residual_sum": 173,
+        "residual_sum_prime_index": 40,
+        "triad_sum": 365
+      },
+      "name": "T5_FINITE_CHECKSUMS",
+      "pass": true
+    },
+    {
+      "consecutive_prime_indices": [
+        31,
+        32,
+        33
+      ],
+      "consecutive_triad": [
+        127,
+        131,
+        137
+      ],
+      "name": "T6_CONSECUTIVE_TRIAD_SEPARATION",
+      "nexus_triad": [
+        101,
+        127,
+        137
+      ],
+      "pass": true,
+      "shared_members": [
+        127,
+        137
+      ]
+    },
+    {
+      "name": "T7_MIRROR_SQUARE_NEGATIVE_CONTROL",
+      "pass": true,
+      "quadratic_checksum_invariant": false,
+      "values": {
+        "37_squared": 1369,
+        "46_squared": 2116,
+        "64_squared": 4096,
+        "73_squared": 5329,
+        "mirrored_sum": 7445,
+        "original_sum": 5465
+      }
+    },
+    {
+      "candidate_count": 20,
+      "conclusion": "64+r alone is underdetermined; prior binding is required",
+      "name": "T8_ARBITRARY_RESIDUAL_NEGATIVE_CONTROL",
+      "pass": true,
+      "residual_candidates": [
+        3,
+        7,
+        9,
+        15,
+        19,
+        25,
+        33,
+        37,
+        39,
+        43,
+        45,
+        49,
+        63,
+        67,
+        73,
+        75,
+        85,
+        87,
+        93,
+        99
+      ]
+    }
+  ],
+  "tests_passed": 8,
+  "tests_total": 8
+}
