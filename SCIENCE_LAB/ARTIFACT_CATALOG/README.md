@@ -1,6 +1,6 @@
 # NEXAH Science View — Artefakt- und Relevanzkatalog
 
-Stand: `2026-09-21`
+Stand: `2026-09-29`
 
 Status: `CURRENT_NAVIGATION / NO_NEW_RESEARCH_CLAIM`
 

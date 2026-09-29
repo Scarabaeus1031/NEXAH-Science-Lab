@@ -1,0 +1,663 @@
+{
+  "check_count": 17,
+  "checks": [
+    {
+      "expected": {
+        "gate": "182dab62ea72e92887b7ad968dbc96fe9e40346f26111a2deccce45b9f604807",
+        "grid": "ee8a3db47e0287d49f7e8f18dd4122a71984b59d5a9b94cdb7791e25f77ab988"
+      },
+      "id": "bound_source_hashes",
+      "observed": {
+        "gate": "182dab62ea72e92887b7ad968dbc96fe9e40346f26111a2deccce45b9f604807",
+        "grid": "ee8a3db47e0287d49f7e8f18dd4122a71984b59d5a9b94cdb7791e25f77ab988"
+      },
+      "pass": true
+    },
+    {
+      "expected": 404,
+      "id": "A404_equals_D_unique_integer_solution",
+      "observed": 404,
+      "pass": true
+    },
+    {
+      "expected": [
+        808,
+        808
+      ],
+      "id": "first_collision_404_to_808",
+      "observed": [
+        808,
+        808
+      ],
+      "pass": true
+    },
+    {
+      "expected": [
+        1212,
+        1616
+      ],
+      "id": "operators_separate_at_808",
+      "observed": [
+        1212,
+        1616
+      ],
+      "pass": true
+    },
+    {
+      "expected": [
+        1616,
+        1616
+      ],
+      "id": "two_step_arrow_meets_one_dyadic_endpoint",
+      "observed": [
+        1616,
+        1616
+      ],
+      "pass": true
+    },
+    {
+      "expected": 1212,
+      "id": "1212_exact_affine_midpoint",
+      "observed": 1212,
+      "pass": true
+    },
+    {
+      "expected": "not in {101*2^k}",
+      "id": "1212_not_dyadic_101_carrier",
+      "observed": 1212,
+      "pass": true
+    },
+    {
+      "expected": [
+        404,
+        402,
+        204,
+        2121
+      ],
+      "id": "decimal_reversal_roles",
+      "observed": [
+        404,
+        402,
+        204,
+        2121
+      ],
+      "pass": true
+    },
+    {
+      "expected": [
+        696,
+        292,
+        -112,
+        -516
+      ],
+      "id": "J1100_bounded_complements",
+      "observed": [
+        696,
+        292,
+        -112,
+        -516
+      ],
+      "pass": true
+    },
+    {
+      "expected": {
+        "J_constant_mod11": 0,
+        "R_constant_mod11": 0,
+        "integer_offset": 11220
+      },
+      "id": "J_and_R_same_mod11_action_not_same_map",
+      "observed": {
+        "J_constant_mod11": 0,
+        "R_constant_mod11": 0,
+        "integer_offset": 11220
+      },
+      "pass": true
+    },
+    {
+      "expected": true,
+      "id": "grid111_coordinate_roundtrip",
+      "observed": true,
+      "pass": true
+    },
+    {
+      "expected": true,
+      "id": "grid112_coordinate_roundtrip",
+      "observed": true,
+      "pass": true
+    },
+    {
+      "expected": true,
+      "id": "CRT77_grid_formula",
+      "observed": true,
+      "pass": true
+    },
+    {
+      "expected": {
+        "12320": [
+          110,
+          110
+        ],
+        "12321": null,
+        "residues": [
+          0,
+          1
+        ]
+      },
+      "id": "grid_boundary_12320_12321",
+      "observed": {
+        "12320": [
+          110,
+          110
+        ],
+        "12321": null,
+        "residues": [
+          0,
+          1
+        ]
+      },
+      "pass": true
+    },
+    {
+      "expected": [
+        true,
+        true,
+        false,
+        false,
+        false,
+        true
+      ],
+      "id": "knickfield_gate_truth_table",
+      "observed": [
+        true,
+        true,
+        false,
+        false,
+        false,
+        true
+      ],
+      "pass": true
+    },
+    {
+      "expected": "NOT_EVALUABLE_WITHOUT_H",
+      "id": "integer_to_gate_interface_not_evaluated",
+      "observed": "NOT_EVALUABLE_WITHOUT_H",
+      "pass": true
+    },
+    {
+      "expected": [
+        {
+          "left": "A404",
+          "n": 404,
+          "right": "D",
+          "value": 808
+        }
+      ],
+      "id": "declared_domain_collision_ledger_complete",
+      "observed": [
+        {
+          "left": "A404",
+          "n": 404,
+          "right": "D",
+          "value": 808
+        }
+      ],
+      "pass": true
+    }
+  ],
+  "claim_boundary": "Finite arithmetic taxonomy only; no switch, physical transition, historical generator or M-Class promotion.",
+  "classification": "SINGLE_OPERATOR_COLLISION_AT_404_TYPED_PATHS_SEPARATE",
+  "collisions": [
+    {
+      "left": "A404",
+      "n": 404,
+      "right": "D",
+      "value": 808
+    }
+  ],
+  "date": "2026-09-29",
+  "decision": {
+    "1212_dyadic_carrier": false,
+    "1212_role": "AFFINE_MIDPOINT_ON_TWO_STEP_A404_PATH",
+    "SCN_NCS_to_gate_interface_defined": false,
+    "knickfield_gate_executable": true,
+    "operator_identity": false,
+    "unique_A404_D_integer_collision": 404
+  },
+  "domain": [
+    404,
+    808,
+    1212,
+    1616,
+    2020,
+    2424,
+    3232,
+    204,
+    292,
+    402,
+    403,
+    696,
+    1100,
+    12320,
+    12321
+  ],
+  "gate_bridge_status": "NOT_EVALUABLE_WITHOUT_INDEPENDENT_SOURCE_BOUND_H",
+  "gate_truth_table": [
+    {
+      "a": 0,
+      "aligned": true,
+      "b": 0,
+      "distance": 0.0,
+      "gate404": true,
+      "mean": 0.0,
+      "open": true,
+      "phase": 0
+    },
+    {
+      "a": 5,
+      "aligned": true,
+      "b": 5,
+      "distance": 31.0,
+      "gate404": true,
+      "mean": 5.0,
+      "open": true,
+      "phase": 0
+    },
+    {
+      "a": 5,
+      "aligned": false,
+      "b": 6,
+      "distance": 34.357677453518306,
+      "gate404": false,
+      "mean": 5.5,
+      "open": true,
+      "phase": 1
+    },
+    {
+      "a": 6,
+      "aligned": false,
+      "b": 6,
+      "distance": 37.2,
+      "gate404": false,
+      "mean": 6.0,
+      "open": false,
+      "phase": 0
+    },
+    {
+      "a": -4,
+      "aligned": true,
+      "b": 4,
+      "distance": 33.6,
+      "gate404": false,
+      "mean": 0.0,
+      "open": false,
+      "phase": 8
+    },
+    {
+      "a": -3,
+      "aligned": true,
+      "b": 4,
+      "distance": 29.562983611266304,
+      "gate404": true,
+      "mean": 0.5,
+      "open": true,
+      "phase": 7
+    }
+  ],
+  "passed": true,
+  "passed_count": 17,
+  "rows": [
+    {
+      "A404": 808,
+      "D": 808,
+      "J1100": 696,
+      "R12320": 11916,
+      "Rev": 404,
+      "dyadic_101_carrier": true,
+      "gate404_from_integer": "NOT_EVALUABLE_WITHOUT_H",
+      "grid111": [
+        71,
+        3
+      ],
+      "grid112x110": [
+        68,
+        3
+      ],
+      "mod11": 8,
+      "mod112": 68,
+      "mod1232": 404,
+      "mod7": 5,
+      "mod77": 19,
+      "n": 404,
+      "palindrome": true
+    },
+    {
+      "A404": 1212,
+      "D": 1616,
+      "J1100": 292,
+      "R12320": 11512,
+      "Rev": 808,
+      "dyadic_101_carrier": true,
+      "gate404_from_integer": "NOT_EVALUABLE_WITHOUT_H",
+      "grid111": [
+        31,
+        7
+      ],
+      "grid112x110": [
+        24,
+        7
+      ],
+      "mod11": 5,
+      "mod112": 24,
+      "mod1232": 808,
+      "mod7": 3,
+      "mod77": 38,
+      "n": 808,
+      "palindrome": true
+    },
+    {
+      "A404": 1616,
+      "D": 2424,
+      "J1100": -112,
+      "R12320": 11108,
+      "Rev": 2121,
+      "dyadic_101_carrier": false,
+      "gate404_from_integer": "NOT_EVALUABLE_WITHOUT_H",
+      "grid111": [
+        102,
+        10
+      ],
+      "grid112x110": [
+        92,
+        10
+      ],
+      "mod11": 2,
+      "mod112": 92,
+      "mod1232": 1212,
+      "mod7": 1,
+      "mod77": 57,
+      "n": 1212,
+      "palindrome": false
+    },
+    {
+      "A404": 2020,
+      "D": 3232,
+      "J1100": -516,
+      "R12320": 10704,
+      "Rev": 6161,
+      "dyadic_101_carrier": true,
+      "gate404_from_integer": "NOT_EVALUABLE_WITHOUT_H",
+      "grid111": [
+        62,
+        14
+      ],
+      "grid112x110": [
+        48,
+        14
+      ],
+      "mod11": 10,
+      "mod112": 48,
+      "mod1232": 384,
+      "mod7": 6,
+      "mod77": 76,
+      "n": 1616,
+      "palindrome": false
+    },
+    {
+      "A404": 2424,
+      "D": 4040,
+      "J1100": -920,
+      "R12320": 10300,
+      "Rev": 202,
+      "dyadic_101_carrier": false,
+      "gate404_from_integer": "NOT_EVALUABLE_WITHOUT_H",
+      "grid111": [
+        22,
+        18
+      ],
+      "grid112x110": [
+        4,
+        18
+      ],
+      "mod11": 7,
+      "mod112": 4,
+      "mod1232": 788,
+      "mod7": 4,
+      "mod77": 18,
+      "n": 2020,
+      "palindrome": false
+    },
+    {
+      "A404": 2828,
+      "D": 4848,
+      "J1100": -1324,
+      "R12320": 9896,
+      "Rev": 4242,
+      "dyadic_101_carrier": false,
+      "gate404_from_integer": "NOT_EVALUABLE_WITHOUT_H",
+      "grid111": [
+        93,
+        21
+      ],
+      "grid112x110": [
+        72,
+        21
+      ],
+      "mod11": 4,
+      "mod112": 72,
+      "mod1232": 1192,
+      "mod7": 2,
+      "mod77": 37,
+      "n": 2424,
+      "palindrome": false
+    },
+    {
+      "A404": 3636,
+      "D": 6464,
+      "J1100": -2132,
+      "R12320": 9088,
+      "Rev": 2323,
+      "dyadic_101_carrier": true,
+      "gate404_from_integer": "NOT_EVALUABLE_WITHOUT_H",
+      "grid111": [
+        13,
+        29
+      ],
+      "grid112x110": [
+        96,
+        28
+      ],
+      "mod11": 9,
+      "mod112": 96,
+      "mod1232": 768,
+      "mod7": 5,
+      "mod77": 75,
+      "n": 3232,
+      "palindrome": false
+    },
+    {
+      "A404": 608,
+      "D": 408,
+      "J1100": 896,
+      "R12320": 12116,
+      "Rev": 402,
+      "dyadic_101_carrier": false,
+      "gate404_from_integer": "NOT_EVALUABLE_WITHOUT_H",
+      "grid111": [
+        93,
+        1
+      ],
+      "grid112x110": [
+        92,
+        1
+      ],
+      "mod11": 6,
+      "mod112": 92,
+      "mod1232": 204,
+      "mod7": 1,
+      "mod77": 50,
+      "n": 204,
+      "palindrome": false
+    },
+    {
+      "A404": 696,
+      "D": 584,
+      "J1100": 808,
+      "R12320": 12028,
+      "Rev": 292,
+      "dyadic_101_carrier": false,
+      "gate404_from_integer": "NOT_EVALUABLE_WITHOUT_H",
+      "grid111": [
+        70,
+        2
+      ],
+      "grid112x110": [
+        68,
+        2
+      ],
+      "mod11": 6,
+      "mod112": 68,
+      "mod1232": 292,
+      "mod7": 5,
+      "mod77": 61,
+      "n": 292,
+      "palindrome": true
+    },
+    {
+      "A404": 806,
+      "D": 804,
+      "J1100": 698,
+      "R12320": 11918,
+      "Rev": 204,
+      "dyadic_101_carrier": false,
+      "gate404_from_integer": "NOT_EVALUABLE_WITHOUT_H",
+      "grid111": [
+        69,
+        3
+      ],
+      "grid112x110": [
+        66,
+        3
+      ],
+      "mod11": 6,
+      "mod112": 66,
+      "mod1232": 402,
+      "mod7": 3,
+      "mod77": 17,
+      "n": 402,
+      "palindrome": false
+    },
+    {
+      "A404": 807,
+      "D": 806,
+      "J1100": 697,
+      "R12320": 11917,
+      "Rev": 304,
+      "dyadic_101_carrier": false,
+      "gate404_from_integer": "NOT_EVALUABLE_WITHOUT_H",
+      "grid111": [
+        70,
+        3
+      ],
+      "grid112x110": [
+        67,
+        3
+      ],
+      "mod11": 7,
+      "mod112": 67,
+      "mod1232": 403,
+      "mod7": 4,
+      "mod77": 18,
+      "n": 403,
+      "palindrome": false
+    },
+    {
+      "A404": 1100,
+      "D": 1392,
+      "J1100": 404,
+      "R12320": 11624,
+      "Rev": 696,
+      "dyadic_101_carrier": false,
+      "gate404_from_integer": "NOT_EVALUABLE_WITHOUT_H",
+      "grid111": [
+        30,
+        6
+      ],
+      "grid112x110": [
+        24,
+        6
+      ],
+      "mod11": 3,
+      "mod112": 24,
+      "mod1232": 696,
+      "mod7": 3,
+      "mod77": 3,
+      "n": 696,
+      "palindrome": true
+    },
+    {
+      "A404": 1504,
+      "D": 2200,
+      "J1100": 0,
+      "R12320": 11220,
+      "Rev": 11,
+      "dyadic_101_carrier": false,
+      "gate404_from_integer": "NOT_EVALUABLE_WITHOUT_H",
+      "grid111": [
+        101,
+        9
+      ],
+      "grid112x110": [
+        92,
+        9
+      ],
+      "mod11": 0,
+      "mod112": 92,
+      "mod1232": 1100,
+      "mod7": 1,
+      "mod77": 22,
+      "n": 1100,
+      "palindrome": false
+    },
+    {
+      "A404": 12724,
+      "D": 24640,
+      "J1100": -11220,
+      "R12320": 0,
+      "Rev": 2321,
+      "dyadic_101_carrier": false,
+      "gate404_from_integer": "NOT_EVALUABLE_WITHOUT_H",
+      "grid111": [
+        110,
+        110
+      ],
+      "grid112x110": null,
+      "mod11": 0,
+      "mod112": 0,
+      "mod1232": 0,
+      "mod7": 0,
+      "mod77": 0,
+      "n": 12320,
+      "palindrome": false
+    },
+    {
+      "A404": 12725,
+      "D": 24642,
+      "J1100": -11221,
+      "R12320": -1,
+      "Rev": 12321,
+      "dyadic_101_carrier": false,
+      "gate404_from_integer": "NOT_EVALUABLE_WITHOUT_H",
+      "grid111": null,
+      "grid112x110": null,
+      "mod11": 1,
+      "mod112": 1,
+      "mod1232": 1,
+      "mod7": 1,
+      "mod77": 1,
+      "n": 12321,
+      "palindrome": true
+    }
+  ],
+  "scientific_hash": "511b691bcbc3d32dfcb1e7415f2b5b00a27a0e9e236802627cb565edc5dad295",
+  "test_id": "NEXAH_OPERATOR_COLLISION_MATRIX_001"
+}

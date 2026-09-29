@@ -1,0 +1,130 @@
+{
+  "status": "PASS_BOUNDED",
+  "scope": "0 ≤ n < 111², row-major 111×111 grid; not a measured NEXAH placement rule",
+  "embedding": "F(n)=(n mod 111, floor(n/111))",
+  "commuting_projection": "n mod 11 = (x+y) mod 11, because n=x+111*y and 111≡1 mod11",
+  "field_points": 12321,
+  "dyadic_channel": [
+    {
+      "level_index": 0,
+      "channel_mark": 101,
+      "binary": "1100101",
+      "bit_count": 4,
+      "field_column_x": 101,
+      "field_row_y": 0,
+      "mod_111": 101,
+      "mod_11": 2,
+      "recovered_mod_11_from_xy": 2,
+      "naive_x_only_mod_11": 2,
+      "naive_level_index_as_row_mod_11": 2,
+      "stipulated_4D_coordinate": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "stipulated_4D_radius_squared": 0,
+      "orientation_code": "47"
+    },
+    {
+      "level_index": 1,
+      "channel_mark": 202,
+      "binary": "11001010",
+      "bit_count": 4,
+      "field_column_x": 91,
+      "field_row_y": 1,
+      "mod_111": 91,
+      "mod_11": 4,
+      "recovered_mod_11_from_xy": 4,
+      "naive_x_only_mod_11": 3,
+      "naive_level_index_as_row_mod_11": 4,
+      "stipulated_4D_coordinate": [
+        1,
+        1,
+        1,
+        0
+      ],
+      "stipulated_4D_radius_squared": 3,
+      "orientation_code": "47"
+    },
+    {
+      "level_index": 2,
+      "channel_mark": 404,
+      "binary": "110010100",
+      "bit_count": 4,
+      "field_column_x": 71,
+      "field_row_y": 3,
+      "mod_111": 71,
+      "mod_11": 8,
+      "recovered_mod_11_from_xy": 8,
+      "naive_x_only_mod_11": 5,
+      "naive_level_index_as_row_mod_11": 7,
+      "stipulated_4D_coordinate": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "stipulated_4D_radius_squared": 4,
+      "orientation_code": "74"
+    },
+    {
+      "level_index": 3,
+      "channel_mark": 808,
+      "binary": "1100101000",
+      "bit_count": 4,
+      "field_column_x": 31,
+      "field_row_y": 7,
+      "mod_111": 31,
+      "mod_11": 5,
+      "recovered_mod_11_from_xy": 5,
+      "naive_x_only_mod_11": 9,
+      "naive_level_index_as_row_mod_11": 1,
+      "stipulated_4D_coordinate": [
+        1,
+        1,
+        2,
+        1
+      ],
+      "stipulated_4D_radius_squared": 7,
+      "orientation_code": "74"
+    }
+  ],
+  "radius_squared_increments": [
+    3,
+    1,
+    3
+  ],
+  "cycle_periods": {
+    "mod_11": 10,
+    "mod_111": 36
+  },
+  "first_dyadic_exit": {
+    "level_index": 7,
+    "mark": 12928,
+    "tile_index": 1,
+    "local_xy": [
+      52,
+      5
+    ],
+    "true_mod_11": 3,
+    "local_xy_only_mod_11": 2,
+    "with_tile_mod_11": 3
+  },
+  "extended_projection": "For n=111²*t+111*y+x: n mod11 = (x+y+t) mod11",
+  "what_remains_under_doubling": "Binary 1100101 followed by level_index zero bits; popcount 4; gcd with 111 remains 1",
+  "null_controls": {
+    "x_only_does_not_always_recover_mod_11": true,
+    "using_dyadic_level_as_row_does_not_always_recover_mod_11": true,
+    "first_number_outside_bounded_field": 12321,
+    "wrap_to_zero_would_misrepresent_mod_11": true,
+    "wrap_mod_11_value_vs_coordinate_zero": [
+      1,
+      0
+    ],
+    "binary_caption_decimal_7801_is_inconsistent": true,
+    "binary_shown_decimal_value": 7809,
+    "correct_16bit_binary_for_7801": "0001111001111001"
+  },
+  "inference_limit": "The labels 101/202/404/808 and 4D path agree by a stipulated attachment. The row-major map is an exact chosen encoding only inside the field; no independent image binds the geometry, gate, and 2D coordinates."
+}

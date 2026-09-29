@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>H_Q · Format Elevator Invariance 01</title>
+<style>
+:root{color-scheme:dark;--bg:#111514;--panel:#181d1b;--line:#34413c;--ink:#f1f3ef;--muted:#a8b1ab;--cyan:#5ed6ee;--green:#65d696;--yellow:#f0c44f;--red:#ff7373;--purple:#a88bf2}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.45 Inter,ui-sans-serif,system-ui,-apple-system,sans-serif}main{max-width:1380px;margin:auto;padding:28px}.eyebrow{color:var(--cyan);font:700 12px/1.2 ui-monospace,monospace;letter-spacing:.14em;text-transform:uppercase}h1{font-size:clamp(28px,4vw,54px);line-height:1.02;margin:10px 0}h2{font-size:18px;margin:0 0 14px}.sub{color:var(--muted);max-width:880px;font-size:17px}.status{display:flex;gap:12px;flex-wrap:wrap;margin:22px 0}.chip{border:1px solid var(--line);padding:8px 12px;border-radius:999px;background:#141917}.chip strong{color:var(--green)}.layout{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(290px,.65fr);gap:18px}.panel{border:1px solid var(--line);background:var(--panel);border-radius:16px;padding:18px}.formats{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:16px}button{color:var(--ink);background:#101513;border:1px solid var(--line);border-radius:8px;padding:7px 10px;cursor:pointer}button:hover,button.active{border-color:var(--cyan);color:var(--cyan)}svg{width:100%;height:auto;display:block}.sheet{fill:#111715;stroke:#7b8a83;stroke-width:1.3}.plot{fill:#151b19;stroke:#3f4d47;stroke-dasharray:4 4}.mask{fill:#f0c44f22;stroke:var(--yellow);stroke-width:1}.guide{stroke:#40504a;stroke-width:1}.chord{stroke:var(--purple);stroke-width:1.5;stroke-dasharray:5 4}.point{stroke:#0d1110;stroke-width:1.5}.outside{fill:var(--green)}.inside{fill:var(--yellow)}.label{fill:var(--ink);font:600 10px ui-monospace,monospace}.caption{fill:var(--muted);font:9px ui-monospace,monospace}.metric{border-top:1px solid var(--line);padding:12px 0}.metric:first-of-type{border-top:0}.metric b{display:block;font-size:22px}.metric small{color:var(--muted)}.split{color:var(--red)}.good{color:var(--green)}.legend{display:flex;gap:16px;flex-wrap:wrap;color:var(--muted);font-size:13px;margin-top:12px}.dot{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:6px}.table{margin-top:18px;display:grid;grid-template-columns:repeat(4,1fr);gap:8px}.cell{padding:11px;border:1px solid var(--line);border-radius:10px;background:#121715}.cell span{display:block;color:var(--muted);font-size:12px}.cell b{font:700 14px ui-monospace,monospace}.foot{margin-top:18px;color:var(--muted);font-size:13px}.foot strong{color:var(--ink)}@media(max-width:900px){.layout{grid-template-columns:1fr}.table{grid-template-columns:repeat(2,1fr)}main{padding:18px}}@media(max-width:520px){.table{grid-template-columns:1fr}}
+</style>
+</head>
+<body><main>
+  <div class="eyebrow">NEXAH · source-bound test · 2026-09-29</div>
+  <h1>H_Q → QRT Format Elevator</h1>
+  <p class="sub">Ein unveränderter Eight-Gate-Record, sechzehn deklarierte FIT-Flächen. Der Test trennt persistente Geometrie von Rohkoordinaten eines einzelnen Screens.</p>
+  <div class="status"><div class="chip"><strong>PASS</strong> · 12/12 checks</div><div class="chip"><strong>16/16</strong> complete FIT views</div><div class="chip"><strong>0/16</strong> retain the split 220</div><div class="chip"><strong>2 inside</strong> · 6 outside</div></div>
+  <section class="layout">
+    <div class="panel">
+      <h2>Formatfläche wählen</h2>
+      <div class="formats" id="formats"></div>
+      <svg id="stage" viewBox="0 0 900 520" role="img" aria-label="Eight H gates fitted into the selected page format"></svg>
+      <div class="legend"><span><i class="dot" style="background:var(--green)"></i>unmasked</span><span><i class="dot" style="background:var(--yellow)"></i>masked / recoverable</span><span><i class="dot" style="background:var(--purple)"></i>9↔42 chord · rank 8/28</span></div>
+    </div>
+    <aside class="panel">
+      <h2 id="viewTitle">A4 · FIT</h2>
+      <div class="metric"><small>42 h · y in target frame</small><b id="y42"></b></div>
+      <div class="metric"><small>three-place digit split</small><b class="split" id="split"></b></div>
+      <div class="metric"><small>source diagnostic</small><b>357 − 137 = 220</b><small>source pixel view only</small></div>
+      <div class="metric"><small>persistent relation</small><b class="good">42 h stays y-minimum</b><small>same y-order on all 16 surfaces</small></div>
+      <div class="metric"><small>carrier/view boundary</small><b>record ≠ page</b><small>QRT lens changes representation, not source identity</small></div>
+    </aside>
+  </section>
+  <section class="table">
+    <div class="cell"><span>Identity</span><b>8 gate IDs retained</b></div><div class="cell"><span>Provenance</span><b>5 source keys / gate</b></div><div class="cell"><span>Mask class</span><b>2 inside · 6 outside</b></div><div class="cell"><span>Geometry</span><b>all 28 ranks retained</b></div>
+    <div class="cell"><span>Inverse FIT</span><b>≤ 1e−9 px</b></div><div class="cell"><span>Hull</span><b>area′ = s² · area</b></div><div class="cell"><span>Cropping</span><b>none in 16 views</b></div><div class="cell"><span>137|357 → 220</span><b>view-dependent</b></div>
+  </section>
+  <p class="foot"><strong>Interpretation:</strong> Der Format Elevator passt exakt als nächste gebundene Stufe: Five-H record → Π<sub>Q</sub> projection → mask → typed FIT view. Die CRT-Carrier-Arithmetik des älteren Instruments wird dabei nicht in die H_Q-Koordinaten importiert.</p>
+</main>
+<script>
+const source={w:664,h:226,mask:[272.24,391.76],points:[
+{h:3,x:516.3214847005461,y:166.3535009082427,z:'outside'},{h:6,x:454.8314905250384,y:158.6388852296928,z:'outside'},
+{h:9,x:393.2946563164411,y:152.02511707344783,z:'outside'},{h:12,x:367.2345206648536,y:146.960538733245,z:'inside'},
+{h:24,x:534.5379291286924,y:169.41513997898087,z:'outside'},{h:36,x:358.11532648704656,y:141.6668365836387,z:'inside'},
+{h:42,x:441.1827402310438,y:137.3565058015647,z:'outside'},{h:48,x:524.0984097803624,y:164.1071537504365,z:'outside'}]};
+const formats=[['A1',841,594],['A2',594,420],['A3',420,297],['A4',297,210],['A5',210,148],['B1',1000,707],['B2',707,500],['B3',500,353],['B4',353,250],['B5',250,176],['C1',917,648],['C2',648,458],['C3',458,324],['C4',324,229],['C5',229,162],['US Letter',279.4,215.9]];
+const ns='http://www.w3.org/2000/svg', stage=document.querySelector('#stage'), bar=document.querySelector('#formats');
+function S(tag,a={},text=''){const e=document.createElementNS(ns,tag);for(const[k,v]of Object.entries(a))e.setAttribute(k,v);if(text)e.textContent=text;return e}
+function split3(v){const f=v.toFixed(3),[a,b]=f.split('.');return{f,d:Number(b)-Number(a),a,b}}
+function draw(index){[...bar.children].forEach((b,i)=>b.classList.toggle('active',i===index));stage.replaceChildren();const [name,W,H]=formats[index];const pageMaxW=760,pageMaxH=430,k=Math.min(pageMaxW/W,pageMaxH/H),pw=W*k,ph=H*k,px=(900-pw)/2,py=(500-ph)/2;
+ const s=Math.min(W/source.w,H/source.h),ox=(W-source.w*s)/2,oy=(H-source.h*s)/2;const plot={x:px+ox*k,y:py+oy*k,w:source.w*s*k,h:source.h*s*k};
+ stage.append(S('rect',{x:px,y:py,width:pw,height:ph,rx:5,class:'sheet'}),S('rect',{x:plot.x,y:plot.y,width:plot.w,height:plot.h,class:'plot'}));
+ const ml=px+(ox+source.mask[0]*s)*k,mr=px+(ox+source.mask[1]*s)*k;stage.append(S('rect',{x:ml,y:plot.y,width:mr-ml,height:plot.h,class:'mask'}));
+ const map=p=>({x:px+(ox+p.x*s)*k,y:py+(oy+p.y*s)*k});const p9=map(source.points.find(p=>p.h===9)),p42=map(source.points.find(p=>p.h===42));stage.append(S('line',{x1:p9.x,y1:p9.y,x2:p42.x,y2:p42.y,class:'chord'}));
+ for(const p of source.points){const q=map(p);stage.append(S('circle',{cx:q.x,cy:q.y,r:p.h===42?7:5,class:`point ${p.z}`}));stage.append(S('text',{x:q.x+8,y:q.y-7,class:'label'},`${p.h}h`))}
+ stage.append(S('text',{x:px+12,y:py+20,class:'label'},`${name} · ${W} × ${H} mm · FIT`));stage.append(S('text',{x:plot.x+8,y:plot.y+plot.h-9,class:'caption'},'unchanged H_Q plot frame · uniform scale · no crop'));
+ const y42=oy+s*source.points.find(p=>p.h===42).y,sp=split3(y42);document.querySelector('#viewTitle').textContent=`${name} · FIT`;document.querySelector('#y42').textContent=`${sp.f} mm`;document.querySelector('#split').textContent=`${sp.b} − ${sp.a} = ${sp.d}`;
+}
+formats.forEach((f,i)=>{const b=document.createElement('button');b.textContent=f[0];b.onclick=()=>draw(i);bar.append(b)});draw(3);
+</script></body></html>

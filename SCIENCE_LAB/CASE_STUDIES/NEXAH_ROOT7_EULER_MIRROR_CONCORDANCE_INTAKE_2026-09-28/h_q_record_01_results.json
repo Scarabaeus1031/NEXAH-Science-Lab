@@ -1,0 +1,287 @@
+{
+  "checks": {
+    "direct_formula_rmse_at_most_1e_12": true,
+    "negative_offset_rmse_is_0_125": true,
+    "no_refeed_and_labelled_return_are_identical_without_update_operator": true,
+    "positive_offset_rmse_is_0_125": true,
+    "record_has_40_cells": true,
+    "record_has_40_unique_keys": true,
+    "shuffled_keyed_record_rmse_at_most_1e_12": true,
+    "source_hashes_match": true
+  },
+  "checks_passed": 8,
+  "checks_total": 8,
+  "claim_boundary": "Deterministic elapsed-phase record and keyed reconstruction only; no re-feed benefit, projection benefit, mask recovery, astronomy prediction, causal feedback, SCN/NCS, 404, E8/H4 or M-Class claim.",
+  "input": {
+    "epoch": "2024-01-15T00:00:00Z",
+    "gates_hours": [
+      3,
+      6,
+      9,
+      12,
+      24,
+      36,
+      42,
+      48
+    ],
+    "location": {
+      "height_m": 55.0,
+      "label": "TEST_04C_MAASTRICHT_SITE",
+      "latitude_deg_north": 50.8514,
+      "longitude_deg_east": 5.69097,
+      "used_in_period_only_phase_calculation": false
+    },
+    "periods_days": {
+      "H1_SOLAR_DAY": 0.9999998937119587,
+      "H2_SYNODIC_MONTH": 29.53058821396243,
+      "H3_ANNUAL_ORBIT": 365.256363004,
+      "H4_PRINCIPAL_NODES": 6798.2530686,
+      "H5_AXIAL_PRECESSION": 9413021.978400001
+    },
+    "phase_origin": "zero_at_epoch_elapsed_phase"
+  },
+  "metrics": {
+    "delta_rmse_no_refeed_minus_labelled_return": null,
+    "direct_formula_circular_rmse_turns": 0.0,
+    "labelled_return_circular_rmse_turns": 0.0,
+    "negative_1_over_8_offset_circular_rmse_turns": 0.125,
+    "no_refeed_circular_rmse_turns": 0.0,
+    "positive_1_over_8_offset_circular_rmse_turns": 0.125,
+    "shuffled_gate_order_circular_rmse_turns": 0.0
+  },
+  "operator_audit": {
+    "clock_id_binder": "EXECUTABLE_IN_COMMON_RUNTIME_ADAPTER",
+    "html_trace": "DISPLAY_WAVE_NOT_DERIVED_FROM_FIVE_PHASE_VECTOR",
+    "mask_partition": "NOT_NUMERICALLY_DEFINED",
+    "phase_record": "EXECUTABLE",
+    "pi_q_projection": "NOT_NUMERICALLY_DEFINED",
+    "refeed_state_update": "NOT_NUMERICALLY_DEFINED"
+  },
+  "preregistration_sha256": "4b92532eb9f340622c0c114283b73bc65f4459c65ceb31347e81115f970a538d",
+  "primary_effect_result": "PRIMARY_EFFECT_NOT_EVALUABLE_OPERATOR_ABSENT",
+  "record": {
+    "cells": 40,
+    "fields": [
+      "gate_hour",
+      "clock_id",
+      "phase_turns"
+    ],
+    "lost_cells": null,
+    "mask_ledger_status": "NOT_EVALUABLE_MASK_OPERATOR_ABSENT",
+    "masked_cells": null,
+    "phase_register": [
+      {
+        "clock_id": "H1_SOLAR_DAY",
+        "gate_hour": 3,
+        "phase_turns": 0.12500001328600657
+      },
+      {
+        "clock_id": "H2_SYNODIC_MONTH",
+        "gate_hour": 3,
+        "phase_turns": 0.004232899090743422
+      },
+      {
+        "clock_id": "H3_ANNUAL_ORBIT",
+        "gate_hour": 3,
+        "phase_turns": 0.00034222538649828014
+      },
+      {
+        "clock_id": "H4_PRINCIPAL_NODES",
+        "gate_hour": 3,
+        "phase_turns": 1.8387076611983483e-05
+      },
+      {
+        "clock_id": "H5_AXIAL_PRECESSION",
+        "gate_hour": 3,
+        "phase_turns": 1.3279476058468435e-08
+      },
+      {
+        "clock_id": "H1_SOLAR_DAY",
+        "gate_hour": 6,
+        "phase_turns": 0.25000002657201315
+      },
+      {
+        "clock_id": "H2_SYNODIC_MONTH",
+        "gate_hour": 6,
+        "phase_turns": 0.008465798181486845
+      },
+      {
+        "clock_id": "H3_ANNUAL_ORBIT",
+        "gate_hour": 6,
+        "phase_turns": 0.0006844507729965603
+      },
+      {
+        "clock_id": "H4_PRINCIPAL_NODES",
+        "gate_hour": 6,
+        "phase_turns": 3.6774153223966966e-05
+      },
+      {
+        "clock_id": "H5_AXIAL_PRECESSION",
+        "gate_hour": 6,
+        "phase_turns": 2.655895211693687e-08
+      },
+      {
+        "clock_id": "H1_SOLAR_DAY",
+        "gate_hour": 9,
+        "phase_turns": 0.3750000398580197
+      },
+      {
+        "clock_id": "H2_SYNODIC_MONTH",
+        "gate_hour": 9,
+        "phase_turns": 0.012698697272230266
+      },
+      {
+        "clock_id": "H3_ANNUAL_ORBIT",
+        "gate_hour": 9,
+        "phase_turns": 0.0010266761594948403
+      },
+      {
+        "clock_id": "H4_PRINCIPAL_NODES",
+        "gate_hour": 9,
+        "phase_turns": 5.5161229835950445e-05
+      },
+      {
+        "clock_id": "H5_AXIAL_PRECESSION",
+        "gate_hour": 9,
+        "phase_turns": 3.98384281754053e-08
+      },
+      {
+        "clock_id": "H1_SOLAR_DAY",
+        "gate_hour": 12,
+        "phase_turns": 0.5000000531440263
+      },
+      {
+        "clock_id": "H2_SYNODIC_MONTH",
+        "gate_hour": 12,
+        "phase_turns": 0.01693159636297369
+      },
+      {
+        "clock_id": "H3_ANNUAL_ORBIT",
+        "gate_hour": 12,
+        "phase_turns": 0.0013689015459931206
+      },
+      {
+        "clock_id": "H4_PRINCIPAL_NODES",
+        "gate_hour": 12,
+        "phase_turns": 7.354830644793393e-05
+      },
+      {
+        "clock_id": "H5_AXIAL_PRECESSION",
+        "gate_hour": 12,
+        "phase_turns": 5.311790423387374e-08
+      },
+      {
+        "clock_id": "H1_SOLAR_DAY",
+        "gate_hour": 24,
+        "phase_turns": 1.0628805258150464e-07
+      },
+      {
+        "clock_id": "H2_SYNODIC_MONTH",
+        "gate_hour": 24,
+        "phase_turns": 0.03386319272594738
+      },
+      {
+        "clock_id": "H3_ANNUAL_ORBIT",
+        "gate_hour": 24,
+        "phase_turns": 0.002737803091986241
+      },
+      {
+        "clock_id": "H4_PRINCIPAL_NODES",
+        "gate_hour": 24,
+        "phase_turns": 0.00014709661289586786
+      },
+      {
+        "clock_id": "H5_AXIAL_PRECESSION",
+        "gate_hour": 24,
+        "phase_turns": 1.0623580846774748e-07
+      },
+      {
+        "clock_id": "H1_SOLAR_DAY",
+        "gate_hour": 36,
+        "phase_turns": 0.5000001594320789
+      },
+      {
+        "clock_id": "H2_SYNODIC_MONTH",
+        "gate_hour": 36,
+        "phase_turns": 0.050794789088921065
+      },
+      {
+        "clock_id": "H3_ANNUAL_ORBIT",
+        "gate_hour": 36,
+        "phase_turns": 0.004106704637979361
+      },
+      {
+        "clock_id": "H4_PRINCIPAL_NODES",
+        "gate_hour": 36,
+        "phase_turns": 0.00022064491934380178
+      },
+      {
+        "clock_id": "H5_AXIAL_PRECESSION",
+        "gate_hour": 36,
+        "phase_turns": 1.593537127016212e-07
+      },
+      {
+        "clock_id": "H1_SOLAR_DAY",
+        "gate_hour": 42,
+        "phase_turns": 0.7500001860040919
+      },
+      {
+        "clock_id": "H2_SYNODIC_MONTH",
+        "gate_hour": 42,
+        "phase_turns": 0.059260587270407915
+      },
+      {
+        "clock_id": "H3_ANNUAL_ORBIT",
+        "gate_hour": 42,
+        "phase_turns": 0.004791155410975922
+      },
+      {
+        "clock_id": "H4_PRINCIPAL_NODES",
+        "gate_hour": 42,
+        "phase_turns": 0.00025741907256776874
+      },
+      {
+        "clock_id": "H5_AXIAL_PRECESSION",
+        "gate_hour": 42,
+        "phase_turns": 1.8591266481855809e-07
+      },
+      {
+        "clock_id": "H1_SOLAR_DAY",
+        "gate_hour": 48,
+        "phase_turns": 2.125761051630093e-07
+      },
+      {
+        "clock_id": "H2_SYNODIC_MONTH",
+        "gate_hour": 48,
+        "phase_turns": 0.06772638545189476
+      },
+      {
+        "clock_id": "H3_ANNUAL_ORBIT",
+        "gate_hour": 48,
+        "phase_turns": 0.005475606183972482
+      },
+      {
+        "clock_id": "H4_PRINCIPAL_NODES",
+        "gate_hour": 48,
+        "phase_turns": 0.0002941932257917357
+      },
+      {
+        "clock_id": "H5_AXIAL_PRECESSION",
+        "gate_hour": 48,
+        "phase_turns": 2.1247161693549496e-07
+      }
+    ],
+    "retained_cells": 40,
+    "unique_keys": 40
+  },
+  "source_hashes": {
+    "five_h_html": "8c733218dfd1ae6e8632653439877c059429286fa45e09889d0ccfdce0e123ca",
+    "preregistration": "4b92532eb9f340622c0c114283b73bc65f4459c65ceb31347e81115f970a538d",
+    "runtime_profiles": "9e2a55497ae2c7fe5510398818e75658d6d27b83b6e7c89606465e26f85cd71d",
+    "test_04c_implementation": "e221984abbbc2a661914c3b0df6c30407a9e002f93f525b9c4fdca24ef7ccfb7",
+    "test_04c_preregistration": "d54c1c1693c1ccd6ce0d63da361d96a7086c62437195f492a1069ebff4ecd1b2"
+  },
+  "status": "PASS_SOURCE_BOUND_RECORD_RECONSTRUCTION__PRIMARY_EFFECT_NOT_EVALUABLE_OPERATOR_ABSENT",
+  "technical_result": "PASS_SOURCE_BOUND_RECORD_RECONSTRUCTION",
+  "test_id": "H_Q_RECORD_01"
+}

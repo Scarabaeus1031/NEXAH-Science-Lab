@@ -1,0 +1,20 @@
+assertion,layer,status,measured,expected
+E8_ROOT_COUNT,8D,PASS,240,240
+E8_UNIQUE_ROOTS,8D,PASS,240,240
+E8_ROOT_NORM_SQUARED,8D,PASS,0.0,"""0 error"""
+E8_EDGE_COUNT,8D,PASS,6720,6720
+E8_VERTEX_DEGREE,8D,PASS,56,56
+COXETER_EXACT_ORDER,operator,PASS,30,30
+COXETER_EXPONENTS,operator,PASS,"[1, 7, 11, 13, 17, 19, 23, 29]","[1, 7, 11, 13, 17, 19, 23, 29]"
+COXETER_ORBITS,operator,PASS,"[30, 30, 30, 30, 30, 30, 30, 30]","[30, 30, 30, 30, 30, 30, 30, 30]"
+COXETER_2D_RINGS,2D,PASS,"[30, 30, 30, 30, 30, 30, 30, 30]","[30, 30, 30, 30, 30, 30, 30, 30]"
+COXETER_PHI_RING_PAIRS,2D,PASS,"[[1, 2], [3, 6], [4, 7], [5, 8]]","[[1, 2], [3, 6], [4, 7], [5, 8]]"
+H4_TWO_SHELLS,4D,PASS,"[120, 120]","[120, 120]"
+H4_RADIUS_RATIO_PHI,4D,PASS,1.6180339887498951,1.618033988749895
+H4_DIRECT_SET_EQUALITY,4D,PASS,2.232938208154006e-15,"""< 1e-12"""
+H4_CANONICAL_GRAM,4D,PASS,"[true, true]","[true, true]"
+H4_SIMPLE_ROOT_GRAM,4D,PASS,"[8.881784197001252e-16, 4.876024587359806e-16]","""each < 1e-12"""
+H4_REFLECTION_CLOSURE,4D,PASS,"[[14400, 14400], [14400, 14400]]","[[14400, 14400], [14400, 14400]]"
+H4_SUBSPACE_INVARIANCE,4D,PASS,6.661338147750939e-16,"""< 1e-12"""
+NEG_GENERIC_REJECTED,negative,PASS,"{""seed"": 20260921, ""radius_cluster_count"": 120, ""multiplicity_histogram"": [[2, 120]], ""matches_e8_coxeter_signature"": false}","""not 8 rings x 30"""
+NEG_MODULAR_REJECTED,negative,PASS,"[{""modulus"": 37, ""node_count"": 37, ""gcd_37_N"": 37, ""image_size"": 1, ""operator_order"": null, ""fixed_points"": 1, ""matches_e8_identity_gate"": false}, {""modulus"": 137, ""node_count"": 137, ""gcd_37_N"": 1, ""image_size"": 137, ""operator_order"": 4, ""fixed_points"": 1, ""matches_e8_identity_gate"": false}, {""modulus"": 237, ""node_count"": 237, ""gcd_37_N"": 1, ""image_size"": 237, ""operator_order"": 78, ""fixed_points"": 3, ""matches_e8_identity_gate"": false}, {""modulus"": 11357, ""node_count"": 11357, ""gcd_37_N"": 1, ""image_size"": 11357, ""operator_order"": 460, ""fixed_points"": 1, ""matches_e8_identity_gate"": false}]","""all false"""

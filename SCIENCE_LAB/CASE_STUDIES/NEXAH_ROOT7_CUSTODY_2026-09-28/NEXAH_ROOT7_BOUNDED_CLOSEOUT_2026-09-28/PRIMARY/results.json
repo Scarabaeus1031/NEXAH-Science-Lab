@@ -1,0 +1,597 @@
+{
+  "provenance": {
+    "preregistration_sha256": "92fa0913d151b11457bdbc78b4a544e2eee27a32259eb2d3559c3d49e8c2e360",
+    "source_files_verified": 13,
+    "source_manifest_sha256": "1cb1c385775ba99e696ebee2b1e3b3fa7e460dbfdaff2d0bcea5290ce3d82a72",
+    "sources": [
+      {
+        "relative_path": "NEXAH_ROOT7_MISSION_CONTROL_INTAKE_2026-09-28.md",
+        "sha256": "b75b10b33af025d413efb2bcf7ccabea9f883c6c41d061f004241c4e312b3ab3"
+      },
+      {
+        "relative_path": "NEXAH_ROOT7_AXIS_RULE_AUDIT_2026-09-28.md",
+        "sha256": "6adca159944f80722140faeb211894047c5a446af6ac572cd9c27996fbc42da4"
+      },
+      {
+        "relative_path": "NEXAH_ROOT7_BRUECKENREGEL_PRUEFPUNKT_02_2026-09-28.md",
+        "sha256": "f7f720f6c5729f45f54d314dfc6f7d521c9aa12dff4bd50ba9e37862222124a5"
+      },
+      {
+        "relative_path": "NEXAH_ROOT7_313_PRUEFPUNKT_04/ROOT7_313_README.md",
+        "sha256": "744c26340e5ebd3e58cc20c3ce858180c73ee827c4e99a55f77a46ce1d950d95"
+      },
+      {
+        "relative_path": "NEXAH_ROOT7_313_PRUEFPUNKT_04/root7_313_probe.py",
+        "sha256": "2c7ebd62e86bbc6c07269426fbb82912423c0eea0a25de6915c2d93dac36450b"
+      },
+      {
+        "relative_path": "NEXAH_ROOT7_404_RETURN_PRUEFPUNKT_05/ROOT7_404_RETURN_README.md",
+        "sha256": "816b85559e3086cfecdd9fc24a05c8f3b726486c29b8bc6ef1c3e8e66aef3627"
+      },
+      {
+        "relative_path": "NEXAH_ROOT7_404_RETURN_PRUEFPUNKT_05/ROOT7_404_RETURN_GATE.py",
+        "sha256": "2e4fbfd5f143ecd0e7cc422f2a8f660e042b1b473cd3dee74c12b7472b3996d9"
+      },
+      {
+        "relative_path": "NEXAH_ROOT7_111_FIELD_PRUEFPUNKT_06/ROOT7_111_FIELD_README.md",
+        "sha256": "86a841ffdb7849d3391037d3a512ec179db35c4f99b335c0b096b8a1f9258325"
+      },
+      {
+        "relative_path": "NEXAH_ROOT7_111_FIELD_PRUEFPUNKT_06/ROOT7_111_FIELD_BRIDGE.py",
+        "sha256": "e0bd9a1337072ecfeec801f6d246dc51648cc35b965f3f008618498728229d52"
+      },
+      {
+        "relative_path": "NEXAH_SCN_WINKEL_404_PRUEFPUNKT_13_2026-09-28.md",
+        "sha256": "3428dd517b713bd5abe48085f4b5023a6da60411ceeeff9efeff837d9ac3a008"
+      },
+      {
+        "relative_path": "NEXAH_ROOT7_4D_1087_KONGRUENZ_PRUEFPUNKT_17_2026-09-28.md",
+        "sha256": "67632295a2775cdddce388a698671b0fe9c8988bb942f647781ae8fda7fc42c8"
+      },
+      {
+        "relative_path": "NEXAH_947_PACKET_ROUTING_AUDIT_PRUEFPUNKT_18_2026-09-28.md",
+        "sha256": "5dcb21cd1a4f33e110484ab158a5ec0401a68c0e77aa21b294846d2b01270b27"
+      },
+      {
+        "relative_path": "ROOT7_INTAKT_RECORD_TEST_01 4/ROOT7_INTAKT_BENCHMARK.py",
+        "sha256": "4c98c7185cdca06e39c927d29185f2a862a7fb610566a3170361d29e47b08802"
+      }
+    ]
+  },
+  "scientific_result": {
+    "core_promotion": "NO",
+    "experiment_id": "NEXAH_ROOT7_BOUNDED_CLOSEOUT_2026-09-28",
+    "overall_closeout": "CLOSED_BOUNDED",
+    "physical_or_e8_identity": "NOT_ESTABLISHED",
+    "prior_result_exposure": true,
+    "source_manifest_sha256": "1cb1c385775ba99e696ebee2b1e3b3fa7e460dbfdaff2d0bcea5290ce3d82a72",
+    "tests": [
+      {
+        "candidates": [
+          {
+            "channel": "sqrt2/x",
+            "endpoint_code_preserving_middle_47_74_paths": 1,
+            "lattice_points": 24,
+            "middle_w_paths": 1,
+            "radial_3_1_3_paths": 4,
+            "scale_vector": [
+              2,
+              1,
+              1,
+              1
+            ],
+            "survives": true
+          },
+          {
+            "channel": "sqrt3/y",
+            "endpoint_code_preserving_middle_47_74_paths": 1,
+            "lattice_points": 24,
+            "middle_w_paths": 1,
+            "radial_3_1_3_paths": 4,
+            "scale_vector": [
+              1,
+              2,
+              1,
+              1
+            ],
+            "survives": true
+          },
+          {
+            "channel": "sqrt5/z",
+            "endpoint_code_preserving_middle_47_74_paths": 1,
+            "lattice_points": 24,
+            "middle_w_paths": 1,
+            "radial_3_1_3_paths": 4,
+            "scale_vector": [
+              1,
+              1,
+              2,
+              1
+            ],
+            "survives": true
+          },
+          {
+            "channel": "sqrt7/w",
+            "endpoint_code_preserving_middle_47_74_paths": 0,
+            "lattice_points": 24,
+            "middle_w_paths": 1,
+            "radial_3_1_3_paths": 4,
+            "scale_vector": [
+              1,
+              1,
+              1,
+              2
+            ],
+            "survives": false
+          }
+        ],
+        "claim_boundary": "The constraints exclude a stretched w axis but do not uniquely select x, y, or z.",
+        "decision": "NON_IDENTIFIABLE",
+        "survivor_count": 3,
+        "survivors": [
+          "sqrt2/x",
+          "sqrt3/y",
+          "sqrt5/z"
+        ],
+        "test": "T1_AXIS_313_IDENTIFIABILITY"
+      },
+      {
+        "claim_boundary": "A full typed history separates the two routes; endpoint, static label, and residue/index do not reconstruct history or signed payload.",
+        "decision": "ENDPOINT_INSUFFICIENT_HISTORY_REQUIRED",
+        "gate_binding_status": "MODEL_DEPENDENT_NOT_SOURCE_BOUND",
+        "observer_results": {
+          "endpoint_only": {
+            "LS": [
+              1,
+              1,
+              2,
+              1
+            ],
+            "SL": [
+              1,
+              1,
+              2,
+              1
+            ],
+            "separates_routes": false
+          },
+          "initial_final_roles": {
+            "LS": [
+              "47",
+              "74"
+            ],
+            "SL": [
+              "47",
+              "74"
+            ],
+            "separates_routes": false
+          },
+          "ordered_3d_projection": {
+            "LS": [
+              [
+                1,
+                1,
+                0
+              ],
+              [
+                1,
+                1,
+                0
+              ],
+              [
+                1,
+                1,
+                2
+              ]
+            ],
+            "SL": [
+              [
+                1,
+                1,
+                0
+              ],
+              [
+                1,
+                1,
+                2
+              ],
+              [
+                1,
+                1,
+                2
+              ]
+            ],
+            "separates_routes": true
+          },
+          "ordered_47_74_history": {
+            "LS": [
+              "47",
+              "74",
+              "74"
+            ],
+            "SL": [
+              "47",
+              "47",
+              "74"
+            ],
+            "separates_routes": true
+          },
+          "static_4774": {
+            "LS": "4774",
+            "SL": "4774",
+            "separates_routes": false
+          },
+          "typed_operator_sequence": {
+            "LS": [
+              "L",
+              "S"
+            ],
+            "SL": [
+              "S",
+              "L"
+            ],
+            "separates_routes": true
+          }
+        },
+        "payload_control": {
+          "decision": "MANY_TO_ONE_CLASSIFIER",
+          "domain": [
+            -1000,
+            1000
+          ],
+          "largest_fiber_size": 364,
+          "reachable_residues": [
+            0,
+            2,
+            6,
+            7,
+            8,
+            10
+          ],
+          "records": 6,
+          "sign_collision_example": [
+            -947,
+            947
+          ],
+          "sign_collision_record": [
+            7,
+            2
+          ]
+        },
+        "routes": {
+          "LS": {
+            "endpoint": [
+              1,
+              1,
+              2,
+              1
+            ],
+            "endpoint_roles": [
+              "47",
+              "74"
+            ],
+            "ops": "LS",
+            "ordered_projection_3d": [
+              [
+                1,
+                1,
+                0
+              ],
+              [
+                1,
+                1,
+                0
+              ],
+              [
+                1,
+                1,
+                2
+              ]
+            ],
+            "ordered_roles": [
+              "47",
+              "74",
+              "74"
+            ],
+            "states": [
+              [
+                1,
+                1,
+                0,
+                0
+              ],
+              [
+                1,
+                1,
+                0,
+                1
+              ],
+              [
+                1,
+                1,
+                2,
+                1
+              ]
+            ],
+            "static_4774": "4774",
+            "typed_operator_sequence": [
+              "L",
+              "S"
+            ]
+          },
+          "SL": {
+            "endpoint": [
+              1,
+              1,
+              2,
+              1
+            ],
+            "endpoint_roles": [
+              "47",
+              "74"
+            ],
+            "ops": "SL",
+            "ordered_projection_3d": [
+              [
+                1,
+                1,
+                0
+              ],
+              [
+                1,
+                1,
+                2
+              ],
+              [
+                1,
+                1,
+                2
+              ]
+            ],
+            "ordered_roles": [
+              "47",
+              "47",
+              "74"
+            ],
+            "states": [
+              [
+                1,
+                1,
+                0,
+                0
+              ],
+              [
+                1,
+                1,
+                2,
+                0
+              ],
+              [
+                1,
+                1,
+                2,
+                1
+              ]
+            ],
+            "static_4774": "4774",
+            "typed_operator_sequence": [
+              "S",
+              "L"
+            ]
+          }
+        },
+        "synthetic_404_gate_scenarios": {
+          "both_sites_aligned": {
+            "direct_first": true,
+            "inner_hinge": true
+          },
+          "gap_closed_at_both": {
+            "direct_first": false,
+            "inner_hinge": false
+          },
+          "only_inner_hinge_aligned": {
+            "direct_first": false,
+            "inner_hinge": true
+          },
+          "only_tip_aligned": {
+            "direct_first": true,
+            "inner_hinge": false
+          },
+          "too_fast_at_both": {
+            "direct_first": false,
+            "inner_hinge": false
+          }
+        },
+        "test": "T2_ROUTE_404_INFORMATION_BOUNDARY"
+      },
+      {
+        "admitted_candidates": {
+          "F_centered_1": {
+            "gate_residues": [
+              0,
+              1,
+              2,
+              3,
+              8,
+              9,
+              10
+            ],
+            "rows": [
+              {
+                "a": 0,
+                "b": 0,
+                "gate_404": true,
+                "residue": 0
+              },
+              {
+                "a": -1,
+                "b": 1,
+                "gate_404": true,
+                "residue": 1
+              },
+              {
+                "a": -2,
+                "b": 2,
+                "gate_404": true,
+                "residue": 2
+              },
+              {
+                "a": -3,
+                "b": 3,
+                "gate_404": true,
+                "residue": 3
+              },
+              {
+                "a": -4,
+                "b": 4,
+                "gate_404": false,
+                "residue": 4
+              },
+              {
+                "a": -5,
+                "b": 5,
+                "gate_404": false,
+                "residue": 5
+              },
+              {
+                "a": 5,
+                "b": -5,
+                "gate_404": false,
+                "residue": 6
+              },
+              {
+                "a": 4,
+                "b": -4,
+                "gate_404": false,
+                "residue": 7
+              },
+              {
+                "a": 3,
+                "b": -3,
+                "gate_404": true,
+                "residue": 8
+              },
+              {
+                "a": 2,
+                "b": -2,
+                "gate_404": true,
+                "residue": 9
+              },
+              {
+                "a": 1,
+                "b": -1,
+                "gate_404": true,
+                "residue": 10
+              }
+            ]
+          },
+          "F_shifted_4": {
+            "gate_residues": [
+              5
+            ],
+            "rows": [
+              {
+                "a": 20,
+                "b": -20,
+                "gate_404": false,
+                "residue": 0
+              },
+              {
+                "a": 16,
+                "b": -16,
+                "gate_404": false,
+                "residue": 1
+              },
+              {
+                "a": 12,
+                "b": -12,
+                "gate_404": false,
+                "residue": 2
+              },
+              {
+                "a": 8,
+                "b": -8,
+                "gate_404": false,
+                "residue": 3
+              },
+              {
+                "a": 4,
+                "b": -4,
+                "gate_404": false,
+                "residue": 4
+              },
+              {
+                "a": 0,
+                "b": 0,
+                "gate_404": true,
+                "residue": 5
+              },
+              {
+                "a": -4,
+                "b": 4,
+                "gate_404": false,
+                "residue": 6
+              },
+              {
+                "a": -8,
+                "b": 8,
+                "gate_404": false,
+                "residue": 7
+              },
+              {
+                "a": -12,
+                "b": 12,
+                "gate_404": false,
+                "residue": 8
+              },
+              {
+                "a": -16,
+                "b": 16,
+                "gate_404": false,
+                "residue": 9
+              },
+              {
+                "a": -20,
+                "b": 20,
+                "gate_404": false,
+                "residue": 10
+              }
+            ]
+          }
+        },
+        "claim_boundary": "No fitted replacement was introduced; the source contains incompatible SCN adapters and lacks required 4D and angle arrows.",
+        "complete_unique_typed_unit_contract": false,
+        "decision": "NOT_IDENTIFIED",
+        "independent_held_out_prediction_present": false,
+        "required_arrow_audit": {
+          "regulator_or_angle_to_named_gate_pair_and_404": {
+            "source_defined_candidates": 1,
+            "typed": false,
+            "unique": true,
+            "unit_bearing": false
+          },
+          "residue_or_regulator_to_7_6_13_angle_state": {
+            "source_defined_candidates": 0,
+            "typed": false,
+            "unique": false,
+            "unit_bearing": false
+          },
+          "residue_or_regulator_to_root7_4d_state": {
+            "source_defined_candidates": 0,
+            "typed": false,
+            "unique": false,
+            "unit_bearing": false
+          },
+          "scn_residue_to_regulator_pair": {
+            "source_defined_candidates": 2,
+            "typed": true,
+            "unique": false,
+            "unit_bearing": false
+          }
+        },
+        "test": "T3_SOURCE_BOUND_BRIDGE_IDENTIFICATION"
+      }
+    ]
+  },
+  "scientific_result_sha256": "b035d786b17f61acd5e1c25b3efc01e16d5b80f30f1098eab4543ffb5b3d6c81"
+}

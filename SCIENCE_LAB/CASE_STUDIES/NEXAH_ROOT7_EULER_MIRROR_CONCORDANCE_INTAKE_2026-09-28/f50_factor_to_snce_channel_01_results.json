@@ -1,0 +1,274 @@
+{
+  "test_id": "F50_FACTOR_TO_SNCE_CHANNEL_01",
+  "classification": "FAIL_F50_TO_SNCE_FACTOR_BRIDGE",
+  "preregistration_sha256": "eb8d6c4255a619fa90bc01ceea772240b8d219f9d743d936636a9649a37ae097",
+  "lock_sha256": "454261f0ac71ae78d5765a9630dfc81b214b4db06e6b01d47aed15af64fc8c66",
+  "frozen_source_hashes": {
+    "snce_preregistration": {
+      "expected": "ffe14decb4e01f2e8eece3e4d22009c04e7bff7f368f3d57afe30d74b51de2ee",
+      "actual": "ffe14decb4e01f2e8eece3e4d22009c04e7bff7f368f3d57afe30d74b51de2ee",
+      "pass": true
+    },
+    "snce_machine_result": {
+      "expected": "81ff586caaf2c8725176175a20172e8c945341f90d1228cfb256015fbbd088b8",
+      "actual": "81ff586caaf2c8725176175a20172e8c945341f90d1228cfb256015fbbd088b8",
+      "pass": true
+    },
+    "f50_visual": {
+      "expected": "4a515309bb3f1e702c47d8505ac033b840c32e64abece6426af0dcafda5edf78",
+      "actual": "4a515309bb3f1e702c47d8505ac033b840c32e64abece6426af0dcafda5edf78",
+      "pass": true
+    },
+    "zipf_visual": {
+      "expected": "2a1fb6db2f5a20fbd3fa5a7089d9d324f7138a22b69839dfd144f2d4accffe66",
+      "actual": "2a1fb6db2f5a20fbd3fa5a7089d9d324f7138a22b69839dfd144f2d4accffe66",
+      "pass": true
+    },
+    "prime_density_visual": {
+      "expected": "a49d91c3648b30069163e5130235b92aacf6df8a7f15bd7a0fec34bb45811976",
+      "actual": "a49d91c3648b30069163e5130235b92aacf6df8a7f15bd7a0fec34bb45811976",
+      "pass": true
+    },
+    "last_digit_visual": {
+      "expected": "ed591052a055fb69b130cc68cd8edf59b00e66b772499b61ac14e5a38adcc69d",
+      "actual": "ed591052a055fb69b130cc68cd8edf59b00e66b772499b61ac14e5a38adcc69d",
+      "pass": true
+    },
+    "mod30_visual": {
+      "expected": "f5e2f5d1fd2248fb1a1346d87636eefa9ae752d0b7ef8b761d76d7b8b91b71ad",
+      "actual": "f5e2f5d1fd2248fb1a1346d87636eefa9ae752d0b7ef8b761d76d7b8b91b71ad",
+      "pass": true
+    },
+    "twin_prime_visual": {
+      "expected": "e8a6ad437c62f6e337bffc54ea6960c8ac6286694fcad0f764568e9e0cf290dd",
+      "actual": "e8a6ad437c62f6e337bffc54ea6960c8ac6286694fcad0f764568e9e0cf290dd",
+      "pass": true
+    },
+    "local_gap_visual": {
+      "expected": "2dca4d529d94fc2b623a48dd80336859bd2ae485e3eeec2d5a3c0c90b42c69bb",
+      "actual": "2dca4d529d94fc2b623a48dd80336859bd2ae485e3eeec2d5a3c0c90b42c69bb",
+      "pass": true
+    },
+    "rosenbruecke_visual": {
+      "expected": "14b96f9cdb620b75d1b77b51f3623c69aca2f22b73f28201da1ee5763d1a42af",
+      "actual": "14b96f9cdb620b75d1b77b51f3623c69aca2f22b73f28201da1ee5763d1a42af",
+      "pass": true
+    }
+  },
+  "checks": {
+    "frozen_hashes_match": true,
+    "fibonacci_50_exact": true,
+    "factorization_exact_and_prime": true,
+    "divisor_lattice_has_48_unique_nodes": true,
+    "ranks_of_apparition_exact": true,
+    "rank_50_selector_is_nonunique": true,
+    "no_frozen_intrinsic_candidate_uniquely_selects_101": true,
+    "decimal_palindrome_unique_but_rejected_as_intrinsic": false,
+    "snce_type_enforcement_only": true,
+    "inner_shrink_terminates_and_commutes_with_outer_expand": true,
+    "strict_fractal_operator_absent": true,
+    "local_prime_controls_exact": true,
+    "wheel_controls_descriptive_only": true,
+    "rosenbruecke_2041_factorization_exact_but_unbridged": true,
+    "population_charts_retained_as_null_models": true
+  },
+  "checks_passed": 14,
+  "checks_total": 15,
+  "f50": "12586269025",
+  "factorization": [
+    {
+      "prime": 5,
+      "exponent": 2,
+      "rank_of_apparition": 5,
+      "wheel": {
+        "mod6": 5,
+        "mod30": 5,
+        "lastDigit": 5
+      }
+    },
+    {
+      "prime": 11,
+      "exponent": 1,
+      "rank_of_apparition": 10,
+      "wheel": {
+        "mod6": 5,
+        "mod30": 11,
+        "lastDigit": 1
+      }
+    },
+    {
+      "prime": 101,
+      "exponent": 1,
+      "rank_of_apparition": 50,
+      "wheel": {
+        "mod6": 5,
+        "mod30": 11,
+        "lastDigit": 1
+      }
+    },
+    {
+      "prime": 151,
+      "exponent": 1,
+      "rank_of_apparition": 50,
+      "wheel": {
+        "mod6": 1,
+        "mod30": 1,
+        "lastDigit": 1
+      }
+    },
+    {
+      "prime": 3001,
+      "exponent": 1,
+      "rank_of_apparition": 25,
+      "wheel": {
+        "mod6": 1,
+        "mod30": 1,
+        "lastDigit": 1
+      }
+    }
+  ],
+  "divisor_lattice": {
+    "nodes": 48,
+    "directed_shrink_edges": 128,
+    "unique_sink": "1",
+    "max_shrink_steps": 6
+  },
+  "selector_audit": {
+    "primality": [
+      5,
+      11,
+      101,
+      151,
+      3001
+    ],
+    "exponent_one": [
+      11,
+      101,
+      151,
+      3001
+    ],
+    "rank_50": [
+      101,
+      151
+    ],
+    "last_digit_1": [
+      11,
+      101,
+      151,
+      3001
+    ],
+    "coprime_to_30": [
+      11,
+      101,
+      151,
+      3001
+    ],
+    "twin_prime_member": [
+      5,
+      11,
+      101,
+      151,
+      3001
+    ],
+    "decimal_palindrome": [
+      5,
+      11,
+      101,
+      151
+    ]
+  },
+  "selection_result": {
+    "bridge_factor_101_present": true,
+    "rank_50_candidates": [
+      101,
+      151
+    ],
+    "unique_intrinsic_selection": false,
+    "decimal_palindrome_status": "UNIQUE_IN_BASE_10_BUT_REPRESENTATION_DEPENDENT",
+    "existing_snce_base_status": "TYPE_DEFINITION_NOT_INDEPENDENT_EVIDENCE"
+  },
+  "outer_channel": {
+    "formula": "101*2^k",
+    "tested_k": [
+      0,
+      20
+    ],
+    "accepts_base_101": true,
+    "rejects_base_151": true
+  },
+  "product_lattice": {
+    "inner": "48 divisors of F50 under one-exponent decrement",
+    "outer": "k -> k+1, carrier multiplied by 2",
+    "operations_commute": true,
+    "strict_fractal": false,
+    "missing": [
+      "independently specified contraction ratio",
+      "branch-copy map"
+    ]
+  },
+  "local_prime_control": {
+    "primes_1020_1050": [
+      1021,
+      1031,
+      1033,
+      1039,
+      1049
+    ],
+    "targets": {
+      "1032": {
+        "below": 1,
+        "above": 1,
+        "primes": [
+          1031,
+          1033
+        ]
+      },
+      "1034": {
+        "below": 1,
+        "above": 5,
+        "primes": [
+          1033,
+          1039
+        ]
+      },
+      "1035": {
+        "below": 2,
+        "above": 4,
+        "primes": [
+          1033,
+          1039
+        ]
+      },
+      "1037": {
+        "below": 4,
+        "above": 2,
+        "primes": [
+          1033,
+          1039
+        ]
+      }
+    },
+    "twin_hinge": [
+      1031,
+      1032,
+      1033
+    ]
+  },
+  "rosenbruecke_control": {
+    "value": 2041,
+    "factorization": [
+      13,
+      157
+    ],
+    "status": "EXACT_ARITHMETIC__NO_FROZEN_OPERATOR_TO_101"
+  },
+  "null_model_layers": [
+    "Zipf rank-size",
+    "prime density",
+    "last-digit balance",
+    "mod-6 balance",
+    "mod-30 wheel",
+    "twin-prime population"
+  ],
+  "claim_boundary": "Exact F50 factor bridge to the already typed base-101 SNCE family; no unique intrinsic 101 selector, strict fractal, physical resonance, or geometric causal bridge."
+}

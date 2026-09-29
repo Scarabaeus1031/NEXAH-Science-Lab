@@ -1,0 +1,4446 @@
+{
+  "classification": "PASS_FORMAT_ELEVATOR_INVARIANCE__137_357_SPLIT_VIEW_DEPENDENT",
+  "preregistration_sha256": "8b9f57ffb04f3099e0c3d92765f46696f627699acc94ac6cdc915fb06482809b",
+  "frozen_source_hashes": {
+    "h_q_result": {
+      "expected": "226f3aace443b0ffff74dc58b45d7aa9e01ef2bb854fd2fc6168acf6949590bc",
+      "actual": "226f3aace443b0ffff74dc58b45d7aa9e01ef2bb854fd2fc6168acf6949590bc",
+      "pass": true
+    },
+    "double_cut_model": {
+      "expected": "35c49ac53760c0df79411822568f924e86b6bf697f2041690a04d705ab623849",
+      "actual": "35c49ac53760c0df79411822568f924e86b6bf697f2041690a04d705ab623849",
+      "pass": true
+    },
+    "format_spec": {
+      "expected": "192f372b9184a01558dc37214b707c14f10b0f358b6fe4ffceb8abd24ae26372",
+      "actual": "192f372b9184a01558dc37214b707c14f10b0f358b6fe4ffceb8abd24ae26372",
+      "pass": true
+    },
+    "format_decision": {
+      "expected": "9a45b51b4bf06cb2a6efe7c1f7eb1ee400c9da64d57d62fbd69ba0c79fadac1f",
+      "actual": "9a45b51b4bf06cb2a6efe7c1f7eb1ee400c9da64d57d62fbd69ba0c79fadac1f",
+      "pass": true
+    },
+    "format_lenses": {
+      "expected": "da59993eb45c2b70e6e2439038698c9877fdf284d984e99da9e293b346c826ac",
+      "actual": "da59993eb45c2b70e6e2439038698c9877fdf284d984e99da9e293b346c826ac",
+      "pass": true
+    },
+    "format_runner": {
+      "expected": "8e318df1e68058e34a55f1cb20deaa436253c24b40a8d85867fed2254b378f77",
+      "actual": "8e318df1e68058e34a55f1cb20deaa436253c24b40a8d85867fed2254b378f77",
+      "pass": true
+    },
+    "format_validation": {
+      "expected": "898ac6023f1509f52ea1e05cb5a93b0aa701d3934279364b92ea158953339d40",
+      "actual": "898ac6023f1509f52ea1e05cb5a93b0aa701d3934279364b92ea158953339d40",
+      "pass": true
+    }
+  },
+  "source_frame": {
+    "width_px": 664,
+    "height_px": 226,
+    "source_hull_area_px2": 2084.654353634356
+  },
+  "source_diagnostics": {
+    "gate_42_y_px": 137.3565058015647,
+    "gate_42_split3": {
+      "fixed": "137.357",
+      "integer_part": 137,
+      "fractional_integer": 357,
+      "difference": 220
+    },
+    "y_order": [
+      42,
+      36,
+      12,
+      9,
+      6,
+      48,
+      3,
+      24
+    ],
+    "chord_9_42_rank": 8,
+    "pair_count": 28
+  },
+  "checks": {
+    "frozen_hashes_match": true,
+    "sixteen_fit_lenses": true,
+    "provenance_retained": true,
+    "inverse_fit_reconstructs": true,
+    "mask_split_preserved": true,
+    "classes_preserved": true,
+    "no_crop": true,
+    "y_order_and_minimum_preserved": true,
+    "pair_ranks_preserved": true,
+    "hull_scaling_preserved": true,
+    "normalized_positions_preserved": true,
+    "digit_split_evaluated": true
+  },
+  "checks_passed": 12,
+  "checks_total": 12,
+  "split_220_formats": [],
+  "split_220_format_count": 0,
+  "view_summary": [
+    {
+      "format": "A1",
+      "family": "DIN_A",
+      "target_landscape_mm": [
+        841,
+        594
+      ],
+      "scale_mm_per_px": 1.266566265060241,
+      "offset_mm": [
+        0,
+        153.87801204819277
+      ],
+      "gate_42_y_mm": 327.849128583006,
+      "gate_42_split3": {
+        "fixed": "327.849",
+        "integer_part": 327,
+        "fractional_integer": 849,
+        "difference": 522
+      },
+      "hull_area_fraction_of_sheet": 0.006694335114762599,
+      "y_min_gate": 42,
+      "chord_9_42_rank": 8,
+      "zone_counts": {
+        "inside": 2,
+        "outside": 6,
+        "boundary": 0
+      },
+      "max_inverse_error_px": 2.842170943040401e-14
+    },
+    {
+      "format": "A2",
+      "family": "DIN_A",
+      "target_landscape_mm": [
+        594,
+        420
+      ],
+      "scale_mm_per_px": 0.8945783132530121,
+      "offset_mm": [
+        0,
+        108.91265060240964
+      ],
+      "gate_42_y_mm": 231.788801876701,
+      "gate_42_split3": {
+        "fixed": "231.789",
+        "integer_part": 231,
+        "fractional_integer": 789,
+        "difference": 558
+      },
+      "hull_area_fraction_of_sheet": 0.006687057427530655,
+      "y_min_gate": 42,
+      "chord_9_42_rank": 8,
+      "zone_counts": {
+        "inside": 2,
+        "outside": 6,
+        "boundary": 0
+      },
+      "max_inverse_error_px": 2.842170943040401e-14
+    },
+    {
+      "format": "A3",
+      "family": "DIN_A",
+      "target_landscape_mm": [
+        420,
+        297
+      ],
+      "scale_mm_per_px": 0.6325301204819277,
+      "offset_mm": [
+        0,
+        77.02409638554217
+      ],
+      "gate_42_y_mm": 163.906223549182,
+      "gate_42_split3": {
+        "fixed": "163.906",
+        "integer_part": 163,
+        "fractional_integer": 906,
+        "difference": 743
+      },
+      "hull_area_fraction_of_sheet": 0.006686375144352867,
+      "y_min_gate": 42,
+      "chord_9_42_rank": 8,
+      "zone_counts": {
+        "inside": 2,
+        "outside": 6,
+        "boundary": 0
+      },
+      "max_inverse_error_px": 5.684341886080802e-14
+    },
+    {
+      "format": "A4",
+      "family": "DIN_A",
+      "target_landscape_mm": [
+        297,
+        210
+      ],
+      "scale_mm_per_px": 0.44728915662650603,
+      "offset_mm": [
+        0,
+        54.45632530120482
+      ],
+      "gate_42_y_mm": 115.89440093835,
+      "gate_42_split3": {
+        "fixed": "115.894",
+        "integer_part": 115,
+        "fractional_integer": 894,
+        "difference": 779
+      },
+      "hull_area_fraction_of_sheet": 0.006687057427530976,
+      "y_min_gate": 42,
+      "chord_9_42_rank": 8,
+      "zone_counts": {
+        "inside": 2,
+        "outside": 6,
+        "boundary": 0
+      },
+      "max_inverse_error_px": 2.842170943040401e-14
+    },
+    {
+      "format": "A5",
+      "family": "DIN_A",
+      "target_landscape_mm": [
+        210,
+        148
+      ],
+      "scale_mm_per_px": 0.31626506024096385,
+      "offset_mm": [
+        0,
+        38.26204819277108
+      ],
+      "gate_42_y_mm": 81.703111774591,
+      "gate_42_split3": {
+        "fixed": "81.703",
+        "integer_part": 81,
+        "fractional_integer": 703,
+        "difference": 622
+      },
+      "hull_area_fraction_of_sheet": 0.006708964249571095,
+      "y_min_gate": 42,
+      "chord_9_42_rank": 8,
+      "zone_counts": {
+        "inside": 2,
+        "outside": 6,
+        "boundary": 0
+      },
+      "max_inverse_error_px": 5.684341886080802e-14
+    },
+    {
+      "format": "B1",
+      "family": "DIN_B",
+      "target_landscape_mm": [
+        1000,
+        707
+      ],
+      "scale_mm_per_px": 1.5060240963855422,
+      "offset_mm": [
+        0,
+        183.31927710843374
+      ],
+      "gate_42_y_mm": 390.181484640911,
+      "gate_42_split3": {
+        "fixed": "390.181",
+        "integer_part": 390,
+        "fractional_integer": 181,
+        "difference": -209
+      },
+      "hull_area_fraction_of_sheet": 0.006687726200150709,
+      "y_min_gate": 42,
+      "chord_9_42_rank": 8,
+      "zone_counts": {
+        "inside": 2,
+        "outside": 6,
+        "boundary": 0
+      },
+      "max_inverse_error_px": 5.684341886080802e-14
+    },
+    {
+      "format": "B2",
+      "family": "DIN_B",
+      "target_landscape_mm": [
+        707,
+        500
+      ],
+      "scale_mm_per_px": 1.0647590361445782,
+      "offset_mm": [
+        0,
+        129.68222891566268
+      ],
+      "gate_42_y_mm": 275.933809641124,
+      "gate_42_split3": {
+        "fixed": "275.934",
+        "integer_part": 275,
+        "fractional_integer": 934,
+        "difference": 659
+      },
+      "hull_area_fraction_of_sheet": 0.006685706506838349,
+      "y_min_gate": 42,
+      "chord_9_42_rank": 8,
+      "zone_counts": {
+        "inside": 2,
+        "outside": 6,
+        "boundary": 0
+      },
+      "max_inverse_error_px": 2.842170943040401e-14
+    },
+    {
+      "format": "B3",
+      "family": "DIN_B",
+      "target_landscape_mm": [
+        500,
+        353
+      ],
+      "scale_mm_per_px": 0.7530120481927711,
+      "offset_mm": [
+        0,
+        91.40963855421687
+      ],
+      "gate_42_y_mm": 194.840742320455,
+      "gate_42_split3": {
+        "fixed": "194.841",
+        "integer_part": 194,
+        "fractional_integer": 841,
+        "difference": 647
+      },
+      "hull_area_fraction_of_sheet": 0.006697198900151253,
+      "y_min_gate": 42,
+      "chord_9_42_rank": 8,
+      "zone_counts": {
+        "inside": 2,
+        "outside": 6,
+        "boundary": 0
+      },
+      "max_inverse_error_px": 5.684341886080802e-14
+    },
+    {
+      "format": "B4",
+      "family": "DIN_B",
+      "target_landscape_mm": [
+        353,
+        250
+      ],
+      "scale_mm_per_px": 0.5316265060240963,
+      "offset_mm": [
+        2.842170943040401e-14,
+        64.92620481927712
+      ],
+      "gate_42_y_mm": 137.948564078241,
+      "gate_42_split3": {
+        "fixed": "137.949",
+        "integer_part": 137,
+        "fractional_integer": 949,
+        "difference": 812
+      },
+      "hull_area_fraction_of_sheet": 0.006676250061991255,
+      "y_min_gate": 42,
+      "chord_9_42_rank": 8,
+      "zone_counts": {
+        "inside": 2,
+        "outside": 6,
+        "boundary": 0
+      },
+      "max_inverse_error_px": 1.1368683772161603e-13
+    },
+    {
+      "format": "B5",
+      "family": "DIN_B",
+      "target_landscape_mm": [
+        250,
+        176
+      ],
+      "scale_mm_per_px": 0.37650602409638556,
+      "offset_mm": [
+        0,
+        45.454819277108435
+      ],
+      "gate_42_y_mm": 97.170371160228,
+      "gate_42_split3": {
+        "fixed": "97.170",
+        "integer_part": 97,
+        "fractional_integer": 170,
+        "difference": 73
+      },
+      "hull_area_fraction_of_sheet": 0.006716225033389389,
+      "y_min_gate": 42,
+      "chord_9_42_rank": 8,
+      "zone_counts": {
+        "inside": 2,
+        "outside": 6,
+        "boundary": 0
+      },
+      "max_inverse_error_px": 5.684341886080802e-14
+    },
+    {
+      "format": "C1",
+      "family": "DIN_C",
+      "target_landscape_mm": [
+        917,
+        648
+      ],
+      "scale_mm_per_px": 1.3810240963855422,
+      "offset_mm": [
+        0,
+        167.94427710843374
+      ],
+      "gate_42_y_mm": 357.636921415715,
+      "gate_42_split3": {
+        "fixed": "357.637",
+        "integer_part": 357,
+        "fractional_integer": 637,
+        "difference": 280
+      },
+      "hull_area_fraction_of_sheet": 0.006691018460425181,
+      "y_min_gate": 42,
+      "chord_9_42_rank": 8,
+      "zone_counts": {
+        "inside": 2,
+        "outside": 6,
+        "boundary": 0
+      },
+      "max_inverse_error_px": 2.842170943040401e-14
+    },
+    {
+      "format": "C2",
+      "family": "DIN_C",
+      "target_landscape_mm": [
+        648,
+        458
+      ],
+      "scale_mm_per_px": 0.9759036144578314,
+      "offset_mm": [
+        0,
+        118.72289156626506
+      ],
+      "gate_42_y_mm": 252.76960204731,
+      "gate_42_split3": {
+        "fixed": "252.770",
+        "integer_part": 252,
+        "fractional_integer": 770,
+        "difference": 518
+      },
+      "hull_area_fraction_of_sheet": 0.006689712075179722,
+      "y_min_gate": 42,
+      "chord_9_42_rank": 8,
+      "zone_counts": {
+        "inside": 2,
+        "outside": 6,
+        "boundary": 0
+      },
+      "max_inverse_error_px": 2.842170943040401e-14
+    },
+    {
+      "format": "C3",
+      "family": "DIN_C",
+      "target_landscape_mm": [
+        458,
+        324
+      ],
+      "scale_mm_per_px": 0.6897590361445783,
+      "offset_mm": [
+        0,
+        84.05722891566265
+      ],
+      "gate_42_y_mm": 178.800119965537,
+      "gate_42_split3": {
+        "fixed": "178.800",
+        "integer_part": 178,
+        "fractional_integer": 800,
+        "difference": 622
+      },
+      "hull_area_fraction_of_sheet": 0.0066837218208827855,
+      "y_min_gate": 42,
+      "chord_9_42_rank": 8,
+      "zone_counts": {
+        "inside": 2,
+        "outside": 6,
+        "boundary": 0
+      },
+      "max_inverse_error_px": 5.684341886080802e-14
+    },
+    {
+      "format": "C4",
+      "family": "DIN_C",
+      "target_landscape_mm": [
+        324,
+        229
+      ],
+      "scale_mm_per_px": 0.4879518072289157,
+      "offset_mm": [
+        0,
+        59.36144578313253
+      ],
+      "gate_42_y_mm": 126.384801023655,
+      "gate_42_split3": {
+        "fixed": "126.385",
+        "integer_part": 126,
+        "fractional_integer": 385,
+        "difference": 259
+      },
+      "hull_area_fraction_of_sheet": 0.0066897120751796485,
+      "y_min_gate": 42,
+      "chord_9_42_rank": 8,
+      "zone_counts": {
+        "inside": 2,
+        "outside": 6,
+        "boundary": 0
+      },
+      "max_inverse_error_px": 2.842170943040401e-14
+    },
+    {
+      "format": "C5",
+      "family": "DIN_C",
+      "target_landscape_mm": [
+        229,
+        162
+      ],
+      "scale_mm_per_px": 0.34487951807228917,
+      "offset_mm": [
+        0,
+        42.028614457831324
+      ],
+      "gate_42_y_mm": 89.400059982769,
+      "gate_42_split3": {
+        "fixed": "89.400",
+        "integer_part": 89,
+        "fractional_integer": 400,
+        "difference": 311
+      },
+      "hull_area_fraction_of_sheet": 0.006683721820882491,
+      "y_min_gate": 42,
+      "chord_9_42_rank": 8,
+      "zone_counts": {
+        "inside": 2,
+        "outside": 6,
+        "boundary": 0
+      },
+      "max_inverse_error_px": 5.684341886080802e-14
+    },
+    {
+      "format": "LETTER",
+      "family": "US",
+      "target_landscape_mm": [
+        279.4,
+        215.9
+      ],
+      "scale_mm_per_px": 0.42078313253012045,
+      "offset_mm": [
+        0,
+        60.40150602409639
+      ],
+      "gate_42_y_mm": 118.19880680867,
+      "gate_42_split3": {
+        "fixed": "118.199",
+        "integer_part": 118,
+        "fractional_integer": 199,
+        "difference": 81
+      },
+      "hull_area_fraction_of_sheet": 0.00611887607747941,
+      "y_min_gate": 42,
+      "chord_9_42_rank": 8,
+      "zone_counts": {
+        "inside": 2,
+        "outside": 6,
+        "boundary": 0
+      },
+      "max_inverse_error_px": 2.842170943040401e-14
+    }
+  ],
+  "views": [
+    {
+      "format": "A1",
+      "family": "DIN_A",
+      "target_landscape_mm": [
+        841,
+        594
+      ],
+      "format_area_mm2": 499554,
+      "scale_mm_per_px": 1.266566265060241,
+      "offset_mm": [
+        0,
+        153.87801204819277
+      ],
+      "fit_content_mm": [
+        841,
+        286.24397590361446
+      ],
+      "all_points_inside_frame": true,
+      "zone_counts": {
+        "inside": 2,
+        "outside": 6,
+        "boundary": 0
+      },
+      "y_order": [
+        42,
+        36,
+        12,
+        9,
+        6,
+        48,
+        3,
+        24
+      ],
+      "chord_9_42_rank": 8,
+      "all_pair_ranks_preserved": true,
+      "hull_area_mm2": 3344.181883920115,
+      "hull_area_fraction_of_sheet": 0.006694335114762599,
+      "hull_scaling_error": 4.092726157978177e-11,
+      "max_inverse_error_px": 2.842170943040401e-14,
+      "max_normalized_error": 1.887379141862766e-15,
+      "gate_42_y_mm": 327.849128583006,
+      "gate_42_split3": {
+        "fixed": "327.849",
+        "integer_part": 327,
+        "fractional_integer": 849,
+        "difference": 522
+      },
+      "transformed_records": [
+        {
+          "gate_hour": 3,
+          "x_mm": 653.955374447529,
+          "y_mm": 364.575744373241,
+          "zone": "outside",
+          "class_full_trace": "GENERATED_UNMASKED",
+          "class_no_trace": "GENERATED_UNMASKED",
+          "source_clock_ids": [
+            "H1_SOLAR_DAY",
+            "H2_SYNODIC_MONTH",
+            "H3_ANNUAL_ORBIT",
+            "H4_PRINCIPAL_NODES",
+            "H5_AXIAL_PRECESSION"
+          ],
+          "source_cell_keys": [
+            "3:H1_SOLAR_DAY",
+            "3:H2_SYNODIC_MONTH",
+            "3:H3_ANNUAL_ORBIT",
+            "3:H4_PRINCIPAL_NODES",
+            "3:H5_AXIAL_PRECESSION"
+          ],
+          "inverse_error_x_px": 0,
+          "inverse_error_y_px": 2.842170943040401e-14
+        },
+        {
+          "gate_hour": 6,
+          "x_mm": 576.07422218608,
+          "y_mm": 354.804672406885,
+          "zone": "outside",
+          "class_full_trace": "GENERATED_UNMASKED",
+          "class_no_trace": "GENERATED_UNMASKED",
+          "source_clock_ids": [
+            "H1_SOLAR_DAY",
+            "H2_SYNODIC_MONTH",
+            "H3_ANNUAL_ORBIT",
+            "H4_PRINCIPAL_NODES",
+            "H5_AXIAL_PRECESSION"
+          ],
+          "source_cell_keys": [
+            "6:H1_SOLAR_DAY",
+            "6:H2_SYNODIC_MONTH",
+            "6:H3_ANNUAL_ORBIT",
+            "6:H4_PRINCIPAL_NODES",
+            "6:H5_AXIAL_PRECESSION"
+          ],
+          "inverse_error_x_px": 0,
+          "inverse_error_y_px": 0
+        },
+        {
+          "gate_hour": 9,
+          "x_mm": 498.133743918866,
+          "y_mm": 346.427896775255,
+          "zone": "outside",
+          "class_full_trace": "GENERATED_UNMASKED",
+          "class_no_trace": "GENERATED_UNMASKED",
+          "source_clock_ids": [
+            "H1_SOLAR_DAY",
+            "H2_SYNODIC_MONTH",
+            "H3_ANNUAL_ORBIT",
+            "H4_PRINCIPAL_NODES",
+            "H5_AXIAL_PRECESSION"
+          ],
+          "source_cell_keys": [
+            "9:H1_SOLAR_DAY",
+            "9:H2_SYNODIC_MONTH",
+            "9:H3_ANNUAL_ORBIT",
+            "9:H4_PRINCIPAL_NODES",
+            "9:H5_AXIAL_PRECESSION"
+          ],
+          "inverse_error_x_px": 0,
+          "inverse_error_y_px": 0
+        },
+        {
+          "gate_hour": 12,
+          "x_mm": 465.126855239671,
+          "y_mm": 340.0132727028,
+          "zone": "inside",
+          "class_full_trace": "GENERATED_MASKED_RECOVERABLE",
+          "class_no_trace": "UNKNOWN",
+          "source_clock_ids": [
+            "H1_SOLAR_DAY",
+            "H2_SYNODIC_MONTH",
+            "H3_ANNUAL_ORBIT",
+            "H4_PRINCIPAL_NODES",
+            "H5_AXIAL_PRECESSION"
+          ],
+          "source_cell_keys": [
+            "12:H1_SOLAR_DAY",
+            "12:H2_SYNODIC_MONTH",
+            "12:H3_ANNUAL_ORBIT",
+            "12:H4_PRINCIPAL_NODES",
+            "12:H5_AXIAL_PRECESSION"
+          ],
+          "inverse_error_x_px": 0,
+          "inverse_error_y_px": 2.842170943040401e-14
+        },
+        {
+          "gate_hour": 24,
+          "x_mm": 677.027708429564,
+          "y_mm": 368.453513136029,
+          "zone": "outside",
+          "class_full_trace": "GENERATED_UNMASKED",
+          "class_no_trace": "GENERATED_UNMASKED",
+          "source_clock_ids": [
+            "H1_SOLAR_DAY",
+            "H2_SYNODIC_MONTH",
+            "H3_ANNUAL_ORBIT",
+            "H4_PRINCIPAL_NODES",
+            "H5_AXIAL_PRECESSION"
+          ],
+          "source_cell_keys": [
+            "24:H1_SOLAR_DAY",
+            "24:H2_SYNODIC_MONTH",
+            "24:H3_ANNUAL_ORBIT",
+            "24:H4_PRINCIPAL_NODES",
+            "24:H5_AXIAL_PRECESSION"
+          ],
+          "inverse_error_x_px": 0,
+          "inverse_error_y_px": 2.842170943040401e-14
+        },
+        {
+          "gate_hour": 36,
+          "x_mm": 453.576791529527,
+          "y_mm": 333.308448142832,
+          "zone": "inside",
+          "class_full_trace": "GENERATED_MASKED_RECOVERABLE",
+          "class_no_trace": "UNKNOWN",
+          "source_clock_ids": [
+            "H1_SOLAR_DAY",
+            "H2_SYNODIC_MONTH",
+            "H3_ANNUAL_ORBIT",
+            "H4_PRINCIPAL_NODES",
+            "H5_AXIAL_PRECESSION"
+          ],
+          "source_cell_keys": [
+            "36:H1_SOLAR_DAY",
+            "36:H2_SYNODIC_MONTH",
+            "36:H3_ANNUAL_ORBIT",
+            "36:H4_PRINCIPAL_NODES",
+            "36:H5_AXIAL_PRECESSION"
+          ],
+          "inverse_error_x_px": 0,
+          "inverse_error_y_px": 2.842170943040401e-14
+        },
+        {
+          "gate_hour": 42,
+          "x_mm": 558.787175503476,
+          "y_mm": 327.849128583006,
+          "zone": "outside",
+          "class_full_trace": "GENERATED_UNMASKED",
+          "class_no_trace": "GENERATED_UNMASKED",
+          "source_clock_ids": [
+            "H1_SOLAR_DAY",
+            "H2_SYNODIC_MONTH",
+            "H3_ANNUAL_ORBIT",
+            "H4_PRINCIPAL_NODES",
+            "H5_AXIAL_PRECESSION"
+          ],
+          "source_cell_keys": [
+            "42:H1_SOLAR_DAY",
+            "42:H2_SYNODIC_MONTH",
+            "42:H3_ANNUAL_ORBIT",
+            "42:H4_PRINCIPAL_NODES",
+            "42:H5_AXIAL_PRECESSION"
+          ],
+          "inverse_error_x_px": 0,
+          "inverse_error_y_px": 0
+        },
+        {
+          "gate_hour": 48,
+          "x_mm": 663.805365399525,
+          "y_mm": 361.73059684355,
+          "zone": "outside",
+          "class_full_trace": "GENERATED_UNMASKED",
+          "class_no_trace": "GENERATED_UNMASKED",
+          "source_clock_ids": [
+            "H1_SOLAR_DAY",
+            "H2_SYNODIC_MONTH",
+            "H3_ANNUAL_ORBIT",
+            "H4_PRINCIPAL_NODES",
+            "H5_AXIAL_PRECESSION"
+          ],
+          "source_cell_keys": [
+            "48:H1_SOLAR_DAY",
+            "48:H2_SYNODIC_MONTH",
+            "48:H3_ANNUAL_ORBIT",
+            "48:H4_PRINCIPAL_NODES",
+            "48:H5_AXIAL_PRECESSION"
+          ],
+          "inverse_error_x_px": 0,
+          "inverse_error_y_px": 0
+        }
+      ]
+    },
+    {
+      "format": "A2",
+      "family": "DIN_A",
+      "target_landscape_mm": [
+        594,
+        420
+      ],
+      "format_area_mm2": 249480,
+      "scale_mm_per_px": 0.8945783132530121,
+      "offset_mm": [
+        0,
+        108.91265060240964
+      ],
+      "fit_content_mm": [
+        594,
+        202.17469879518072
+      ],
+      "all_points_inside_frame": true,
+      "zone_counts": {
+        "inside": 2,
+        "outside": 6,
+        "boundary": 0
+      },
+      "y_order": [
+        42,
+        36,
+        12,
+        9,
+        6,
+        48,
+        3,
+        24
+      ],
+      "chord_9_42_rank": 8,
+      "all_pair_ranks_preserved": true,
+      "hull_area_mm2": 1668.2870870203478,
+      "hull_area_fraction_of_sheet": 0.006687057427530655,
+      "hull_scaling_error": 1.9099388737231493e-11,
+      "max_inverse_error_px": 2.842170943040401e-14,
+      "max_normalized_error": 1.9984014443252818e-15,
+      "gate_42_y_mm": 231.788801876701,
+      "gate_42_split3": {
+        "fixed": "231.789",
+        "integer_part": 231,
+        "fractional_integer": 789,
+        "difference": 558
+      },
+      "transformed_records": [
+        {
+          "gate_hour": 3,
+          "x_mm": 461.890002879705,
+          "y_mm": 257.728884848639,
+          "zone": "outside",
+          "class_full_trace": "GENERATED_UNMASKED",
+          "class_no_trace": "GENERATED_UNMASKED",
+          "source_clock_ids": [
+            "H1_SOLAR_DAY",
+            "H2_SYNODIC_MONTH",
+            "H3_ANNUAL_ORBIT",
+            "H4_PRINCIPAL_NODES",
+            "H5_AXIAL_PRECESSION"
+          ],
+          "source_cell_keys": [
+            "3:H1_SOLAR_DAY",
+            "3:H2_SYNODIC_MONTH",
+            "3:H3_ANNUAL_ORBIT",
+            "3:H4_PRINCIPAL_NODES",
+            "3:H5_AXIAL_PRECESSION"
+          ],
+          "inverse_error_x_px": 0,
+          "inverse_error_y_px": 0
+        },
+        {
+          "gate_hour": 6,
+          "x_mm": 406.882387608242,
+          "y_mm": 250.827556967526,
+          "zone": "outside",
+          "class_full_trace": "GENERATED_UNMASKED",
+          "class_no_trace": "GENERATED_UNMASKED",
+          "source_clock_ids": [
+            "H1_SOLAR_DAY",
+            "H2_SYNODIC_MONTH",
+            "H3_ANNUAL_ORBIT",
+            "H4_PRINCIPAL_NODES",
+            "H5_AXIAL_PRECESSION"
+          ],
+          "source_cell_keys": [
+            "6:H1_SOLAR_DAY",
+            "6:H2_SYNODIC_MONTH",
+            "6:H3_ANNUAL_ORBIT",
+            "6:H4_PRINCIPAL_NODES",
+            "6:H5_AXIAL_PRECESSION"
+          ],
+          "inverse_error_x_px": 0,
+          "inverse_error_y_px": 0
+        },
+        {
+          "gate_hour": 9,
+          "x_mm": 351.832870258985,
+          "y_mm": 244.911023406066,
+          "zone": "outside",
+          "class_full_trace": "GENERATED_UNMASKED",
+          "class_no_trace": "GENERATED_UNMASKED",
+          "source_clock_ids": [
+            "H1_SOLAR_DAY",
+            "H2_SYNODIC_MONTH",
+            "H3_ANNUAL_ORBIT",
+            "H4_PRINCIPAL_NODES",
+            "H5_AXIAL_PRECESSION"
+          ],
+          "source_cell_keys": [
+            "9:H1_SOLAR_DAY",
+            "9:H2_SYNODIC_MONTH",
+            "9:H3_ANNUAL_ORBIT",
+            "9:H4_PRINCIPAL_NODES",
+            "9:H5_AXIAL_PRECESSION"
+          ],
+          "inverse_error_x_px": 0,
+          "inverse_error_y_px": 0
+        },
+        {
+          "gate_hour": 12,
+          "x_mm": 328.520038064643,
+          "y_mm": 240.38036145715,
+          "zone": "inside",
+          "class_full_trace": "GENERATED_MASKED_RECOVERABLE",
+          "class_no_trace": "UNKNOWN",
+          "source_clock_ids": [
+            "H1_SOLAR_DAY",
+            "H2_SYNODIC_MONTH",
+            "H3_ANNUAL_ORBIT",
+            "H4_PRINCIPAL_NODES",
+            "H5_AXIAL_PRECESSION"
+          ],
+          "source_cell_keys": [
+            "12:H1_SOLAR_DAY",
+            "12:H2_SYNODIC_MONTH",
+            "12:H3_ANNUAL_ORBIT",
+            "12:H4_PRINCIPAL_NODES",
+            "12:H5_AXIAL_PRECESSION"
+          ],
+          "inverse_error_x_px": 0,
+          "inverse_error_y_px": 2.842170943040401e-14
+        },
+        {
+          "gate_hour": 24,
+          "x_mm": 478.186039009704,
+          "y_mm": 260.467760764329,
+          "zone": "outside",
+          "class_full_trace": "GENERATED_UNMASKED",
+          "class_no_trace": "GENERATED_UNMASKED",
+          "source_clock_ids": [
+            "H1_SOLAR_DAY",
+            "H2_SYNODIC_MONTH",
+            "H3_ANNUAL_ORBIT",
+            "H4_PRINCIPAL_NODES",
+            "H5_AXIAL_PRECESSION"
+          ],
+          "source_cell_keys": [
+            "24:H1_SOLAR_DAY",
+            "24:H2_SYNODIC_MONTH",
+            "24:H3_ANNUAL_ORBIT",
+            "24:H4_PRINCIPAL_NODES",
+            "24:H5_AXIAL_PRECESSION"
+          ],
+          "inverse_error_x_px": 0,
+          "inverse_error_y_px": 2.842170943040401e-14
+        },
+        {
+          "gate_hour": 36,
+          "x_mm": 320.362204718834,
+          "y_mm": 235.644730317291,
+          "zone": "inside",
+          "class_full_trace": "GENERATED_MASKED_RECOVERABLE",
+          "class_no_trace": "UNKNOWN",
+          "source_clock_ids": [
+            "H1_SOLAR_DAY",
+            "H2_SYNODIC_MONTH",
+            "H3_ANNUAL_ORBIT",
+            "H4_PRINCIPAL_NODES",
+            "H5_AXIAL_PRECESSION"
+          ],
+          "source_cell_keys": [
+            "36:H1_SOLAR_DAY",
+            "36:H2_SYNODIC_MONTH",
+            "36:H3_ANNUAL_ORBIT",
+            "36:H4_PRINCIPAL_NODES",
+            "36:H5_AXIAL_PRECESSION"
+          ],
+          "inverse_error_x_px": 0,
+          "inverse_error_y_px": 2.842170943040401e-14
+        },
+        {
+          "gate_hour": 42,
+          "x_mm": 394.672511592229,
+          "y_mm": 231.788801876701,
+          "zone": "outside",
+          "class_full_trace": "GENERATED_UNMASKED",
+          "class_no_trace": "GENERATED_UNMASKED",
+          "source_clock_ids": [
+            "H1_SOLAR_DAY",
+            "H2_SYNODIC_MONTH",
+            "H3_ANNUAL_ORBIT",
+            "H4_PRINCIPAL_NODES",
+            "H5_AXIAL_PRECESSION"
+          ],
+          "source_cell_keys": [
+            "42:H1_SOLAR_DAY",
+            "42:H2_SYNODIC_MONTH",
+            "42:H3_ANNUAL_ORBIT",
+            "42:H4_PRINCIPAL_NODES",
+            "42:H5_AXIAL_PRECESSION"
+          ],
+          "inverse_error_x_px": 0,
+          "inverse_error_y_px": 0
+        },
+        {
+          "gate_hour": 48,
+          "x_mm": 468.847071399903,
+          "y_mm": 255.719351397228,
+          "zone": "outside",
+          "class_full_trace": "GENERATED_UNMASKED",
+          "class_no_trace": "GENERATED_UNMASKED",
+          "source_clock_ids": [
+            "H1_SOLAR_DAY",
+            "H2_SYNODIC_MONTH",
+            "H3_ANNUAL_ORBIT",
+            "H4_PRINCIPAL_NODES",
+            "H5_AXIAL_PRECESSION"
+          ],
+          "source_cell_keys": [
+            "48:H1_SOLAR_DAY",
+            "48:H2_SYNODIC_MONTH",
+            "48:H3_ANNUAL_ORBIT",
+            "48:H4_PRINCIPAL_NODES",
+            "48:H5_AXIAL_PRECESSION"
+          ],
+          "inverse_error_x_px": 0,
+          "inverse_error_y_px": 0
+        }
+      ]
+    },
+    {
+      "format": "A3",
+      "family": "DIN_A",
+      "target_landscape_mm": [
+        420,
+        297
+      ],
+      "format_area_mm2": 124740,
+      "scale_mm_per_px": 0.6325301204819277,
+      "offset_mm": [
+        0,
+        77.02409638554217
+      ],
+      "fit_content_mm": [
+        420,
+        142.95180722891567
+      ],
+      "all_points_inside_frame": true,
+      "zone_counts": {
+        "inside": 2,
+        "outside": 6,
+        "boundary": 0
+      },
+      "y_order": [
+        42,
+        36,
+        12,
+        9,
+        6,
+        48,
+        3,
+        24
+      ],
+      "chord_9_42_rank": 8,
+      "all_pair_ranks_preserved": true,
+      "hull_area_mm2": 834.0584355065766,
+      "hull_area_fraction_of_sheet": 0.006686375144352867,
+      "hull_scaling_error": 1.6370904631912708e-11,
+      "max_inverse_error_px": 5.684341886080802e-14,
+      "max_normalized_error": 3.552713678800501e-15,
+      "gate_42_y_mm": 163.906223549182,
+      "gate_42_split3": {
+        "fixed": "163.906",
+        "integer_part": 163,
+        "fractional_integer": 906,
+        "difference": 743
+      },
+      "transformed_records": [
+        {
+          "gate_hour": 3,
+          "x_mm": 326.588890925044,
+          "y_mm": 182.247696357623,
+          "zone": "outside",
+          "class_full_trace": "GENERATED_UNMASKED",
+          "class_no_trace": "GENERATED_UNMASKED",
+          "source_clock_ids": [
+            "H1_SOLAR_DAY",
+            "H2_SYNODIC_MONTH",
+            "H3_ANNUAL_ORBIT",
+            "H4_PRINCIPAL_NODES",
+            "H5_AXIAL_PRECESSION"
+          ],
+          "source_cell_keys": [
+            "3:H1_SOLAR_DAY",
+            "3:H2_SYNODIC_MONTH",
+            "3:H3_ANNUAL_ORBIT",
+            "3:H4_PRINCIPAL_NODES",
+            "3:H5_AXIAL_PRECESSION"
+          ],
+          "inverse_error_x_px": 0,
+          "inverse_error_y_px": 2.842170943040401e-14
+        },
+        {
+          "gate_hour": 6,
+          "x_mm": 287.694617500777,
+          "y_mm": 177.367969572998,
+          "zone": "outside",
+          "class_full_trace": "GENERATED_UNMASKED",
+          "class_no_trace": "GENERATED_UNMASKED",
+          "source_clock_ids": [
+            "H1_SOLAR_DAY",
+            "H2_SYNODIC_MONTH",
+            "H3_ANNUAL_ORBIT",
+            "H4_PRINCIPAL_NODES",
+            "H5_AXIAL_PRECESSION"
+          ],
+          "source_cell_keys": [
+            "6:H1_SOLAR_DAY",
+            "6:H2_SYNODIC_MONTH",
+            "6:H3_ANNUAL_ORBIT",
+            "6:H4_PRINCIPAL_NODES",
+            "6:H5_AXIAL_PRECESSION"
+          ],
+          "inverse_error_x_px": 5.684341886080802e-14,
+          "inverse_error_y_px": 0
+        },
+        {
+          "gate_hour": 9,
+          "x_mm": 248.770716344737,
+          "y_mm": 173.184562004289,
+          "zone": "outside",
+          "class_full_trace": "GENERATED_UNMASKED",
+          "class_no_trace": "GENERATED_UNMASKED",
+          "source_clock_ids": [
+            "H1_SOLAR_DAY",
+            "H2_SYNODIC_MONTH",
+            "H3_ANNUAL_ORBIT",
+            "H4_PRINCIPAL_NODES",
+            "H5_AXIAL_PRECESSION"
+          ],
+          "source_cell_keys": [
+            "9:H1_SOLAR_DAY",
+            "9:H2_SYNODIC_MONTH",
+            "9:H3_ANNUAL_ORBIT",
+            "9:H4_PRINCIPAL_NODES",
+            "9:H5_AXIAL_PRECESSION"
+          ],
+          "inverse_error_x_px": 0,
+          "inverse_error_y_px": 0
+        },
+        {
+          "gate_hour": 12,
+          "x_mm": 232.286895601263,
+          "y_mm": 169.981063656571,
+          "zone": "inside",
+          "class_full_trace": "GENERATED_MASKED_RECOVERABLE",
+          "class_no_trace": "UNKNOWN",
+          "source_clock_ids": [
+            "H1_SOLAR_DAY",
+            "H2_SYNODIC_MONTH",
+            "H3_ANNUAL_ORBIT",
+            "H4_PRINCIPAL_NODES",
+            "H5_AXIAL_PRECESSION"
+          ],
+          "source_cell_keys": [
+            "12:H1_SOLAR_DAY",
+            "12:H2_SYNODIC_MONTH",
+            "12:H3_ANNUAL_ORBIT",
+            "12:H4_PRINCIPAL_NODES",
+            "12:H5_AXIAL_PRECESSION"
+          ],
+          "inverse_error_x_px": 0,
+          "inverse_error_y_px": 0
+        },
+        {
+          "gate_hour": 24,
+          "x_mm": 338.111340713932,
+          "y_mm": 184.18427528791,
+          "zone": "outside",
+          "class_full_trace": "GENERATED_UNMASKED",
+          "class_no_trace": "GENERATED_UNMASKED",
+          "source_clock_ids": [
+            "H1_SOLAR_DAY",
+            "H2_SYNODIC_MONTH",
+            "H3_ANNUAL_ORBIT",
+            "H4_PRINCIPAL_NODES",
+            "H5_AXIAL_PRECESSION"
+          ],
+          "source_cell_keys": [
+            "24:H1_SOLAR_DAY",
+            "24:H2_SYNODIC_MONTH",
+            "24:H3_ANNUAL_ORBIT",
+            "24:H4_PRINCIPAL_NODES",
+            "24:H5_AXIAL_PRECESSION"
+          ],
+          "inverse_error_x_px": 0,
+          "inverse_error_y_px": 2.842170943040401e-14
+        },
+        {
+          "gate_hour": 36,
+          "x_mm": 226.518730609276,
+          "y_mm": 166.632637598085,
+          "zone": "inside",
+          "class_full_trace": "GENERATED_MASKED_RECOVERABLE",
+          "class_no_trace": "UNKNOWN",
+          "source_clock_ids": [
+            "H1_SOLAR_DAY",
+            "H2_SYNODIC_MONTH",
+            "H3_ANNUAL_ORBIT",
+            "H4_PRINCIPAL_NODES",
+            "H5_AXIAL_PRECESSION"
+          ],
+          "source_cell_keys": [
+            "36:H1_SOLAR_DAY",
+            "36:H2_SYNODIC_MONTH",
+            "36:H3_ANNUAL_ORBIT",
+            "36:H4_PRINCIPAL_NODES",
+            "36:H5_AXIAL_PRECESSION"
+          ],
+          "inverse_error_x_px": 0,
+          "inverse_error_y_px": 0
+        },
+        {
+          "gate_hour": 42,
+          "x_mm": 279.061371832889,
+          "y_mm": 163.906223549182,
+          "zone": "outside",
+          "class_full_trace": "GENERATED_UNMASKED",
+          "class_no_trace": "GENERATED_UNMASKED",
+          "source_clock_ids": [
+            "H1_SOLAR_DAY",
+            "H2_SYNODIC_MONTH",
+            "H3_ANNUAL_ORBIT",
+            "H4_PRINCIPAL_NODES",
+            "H5_AXIAL_PRECESSION"
+          ],
+          "source_cell_keys": [
+            "42:H1_SOLAR_DAY",
+            "42:H2_SYNODIC_MONTH",
+            "42:H3_ANNUAL_ORBIT",
+            "42:H4_PRINCIPAL_NODES",
+            "42:H5_AXIAL_PRECESSION"
+          ],
+          "inverse_error_x_px": 5.684341886080802e-14,
+          "inverse_error_y_px": 2.842170943040401e-14
+        },
+        {
+          "gate_hour": 48,
+          "x_mm": 331.508030282759,
+          "y_mm": 180.826814119252,
+          "zone": "outside",
+          "class_full_trace": "GENERATED_UNMASKED",
+          "class_no_trace": "GENERATED_UNMASKED",
+          "source_clock_ids": [
+            "H1_SOLAR_DAY",
+            "H2_SYNODIC_MONTH",
+            "H3_ANNUAL_ORBIT",
+            "H4_PRINCIPAL_NODES",
+            "H5_AXIAL_PRECESSION"
+          ],
+          "source_cell_keys": [
+            "48:H1_SOLAR_DAY",
+            "48:H2_SYNODIC_MONTH",
+            "48:H3_ANNUAL_ORBIT",
+            "48:H4_PRINCIPAL_NODES",
+            "48:H5_AXIAL_PRECESSION"
+          ],
+          "inverse_error_x_px": 0,
+          "inverse_error_y_px": 2.842170943040401e-14
+        }
+      ]
+    },
+    {
+      "format": "A4",
+      "family": "DIN_A",
+      "target_landscape_mm": [
+        297,
+        210
+      ],
+      "format_area_mm2": 62370,
+      "scale_mm_per_px": 0.44728915662650603,
+      "offset_mm": [
+        0,
+        54.45632530120482
+      ],
+      "fit_content_mm": [
+        297,
+        101.08734939759036
+      ],
+      "all_points_inside_frame": true,
+      "zone_counts": {
+        "inside": 2,
+        "outside": 6,
+        "boundary": 0
+      },
+      "y_order": [
+        42,
+        36,
+        12,
+        9,
+        6,
+        48,
+        3,
+        24
+      ],
+      "chord_9_42_rank": 8,
+      "all_pair_ranks_preserved": true,
+      "hull_area_mm2": 417.07177175510697,
+      "hull_area_fraction_of_sheet": 0.006687057427530976,
+      "hull_scaling_error": 1.5234036254696548e-11,
+      "max_inverse_error_px": 2.842170943040401e-14,
+      "max_normalized_error": 4.6629367034256575e-15,
+      "gate_42_y_mm": 115.89440093835,
+      "gate_42_split3": {
+        "fixed": "115.894",
+        "integer_part": 115,
+        "fractional_integer": 894,
+        "difference": 779
+      },
+      "transformed_records": [
+        {
+          "gate_hour": 3,
+          "x_mm": 230.945001439853,
+          "y_mm": 128.864442424319,
+          "zone": "outside",
+          "class_full_trace": "GENERATED_UNMASKED",
+          "class_no_trace": "GENERATED_UNMASKED",
+          "source_clock_ids": [
+            "H1_SOLAR_DAY",
+            "H2_SYNODIC_MONTH",
+            "H3_ANNUAL_ORBIT",
+            "H4_PRINCIPAL_NODES",
+            "H5_AXIAL_PRECESSION"
+          ],
+          "source_cell_keys": [
+            "3:H1_SOLAR_DAY",
+            "3:H2_SYNODIC_MONTH",
+            "3:H3_ANNUAL_ORBIT",
+            "3:H4_PRINCIPAL_NODES",
+            "3:H5_AXIAL_PRECESSION"
+          ],
+          "inverse_error_x_px": 0,
+          "inverse_error_y_px": 0
+        },
+        {
+          "gate_hour": 6,
+          "x_mm": 203.441193804121,
+          "y_mm": 125.413778483763,
+          "zone": "outside",
+          "class_full_trace": "GENERATED_UNMASKED",
+          "class_no_trace": "GENERATED_UNMASKED",
+          "source_clock_ids": [
+            "H1_SOLAR_DAY",
+            "H2_SYNODIC_MONTH",
+            "H3_ANNUAL_ORBIT",
+            "H4_PRINCIPAL_NODES",
+            "H5_AXIAL_PRECESSION"
+          ],
+          "source_cell_keys": [
+            "6:H1_SOLAR_DAY",
+            "6:H2_SYNODIC_MONTH",
+            "6:H3_ANNUAL_ORBIT",
+            "6:H4_PRINCIPAL_NODES",
+            "6:H5_AXIAL_PRECESSION"
+          ],
+          "inverse_error_x_px": 0,
+          "inverse_error_y_px": 0
+        },
+        {
+          "gate_hour": 9,
+          "x_mm": 175.916435129492,
+          "y_mm": 122.455511703033,
+          "zone": "outside",
+          "class_full_trace": "GENERATED_UNMASKED",
+          "class_no_trace": "GENERATED_UNMASKED",
+          "source_clock_ids": [
+            "H1_SOLAR_DAY",
+            "H2_SYNODIC_MONTH",
+            "H3_ANNUAL_ORBIT",
+            "H4_PRINCIPAL_NODES",
+            "H5_AXIAL_PRECESSION"
+          ],
+          "source_cell_keys": [
+            "9:H1_SOLAR_DAY",
+            "9:H2_SYNODIC_MONTH",
+            "9:H3_ANNUAL_ORBIT",
+            "9:H4_PRINCIPAL_NODES",
+            "9:H5_AXIAL_PRECESSION"
+          ],
+          "inverse_error_x_px": 0,
+          "inverse_error_y_px": 0
+        },
+        {
+          "gate_hour": 12,
+          "x_mm": 164.260019032322,
+          "y_mm": 120.190180728575,
+          "zone": "inside",
+          "class_full_trace": "GENERATED_MASKED_RECOVERABLE",
+          "class_no_trace": "UNKNOWN",
+          "source_clock_ids": [
+            "H1_SOLAR_DAY",
+            "H2_SYNODIC_MONTH",
+            "H3_ANNUAL_ORBIT",
+            "H4_PRINCIPAL_NODES",
+            "H5_AXIAL_PRECESSION"
+          ],
+          "source_cell_keys": [
+            "12:H1_SOLAR_DAY",
+            "12:H2_SYNODIC_MONTH",
+            "12:H3_ANNUAL_ORBIT",
+            "12:H4_PRINCIPAL_NODES",
+            "12:H5_AXIAL_PRECESSION"
+          ],
+          "inverse_error_x_px": 0,
+          "inverse_error_y_px": 2.842170943040401e-14
+        },
+        {
+          "gate_hour": 24,
+          "x_mm": 239.093019504852,
+          "y_mm": 130.233880382165,
+          "zone": "outside",
+          "class_full_trace": "GENERATED_UNMASKED",
+          "class_no_trace": "GENERATED_UNMASKED",
+          "source_clock_ids": [
+            "H1_SOLAR_DAY",
+            "H2_SYNODIC_MONTH",
+            "H3_ANNUAL_ORBIT",
+            "H4_PRINCIPAL_NODES",
+            "H5_AXIAL_PRECESSION"
+          ],
+          "source_cell_keys": [
+            "24:H1_SOLAR_DAY",
+            "24:H2_SYNODIC_MONTH",
+            "24:H3_ANNUAL_ORBIT",
+            "24:H4_PRINCIPAL_NODES",
+            "24:H5_AXIAL_PRECESSION"
+          ],
+          "inverse_error_x_px": 0,
+          "inverse_error_y_px": 2.842170943040401e-14
+        },
+        {
+          "gate_hour": 36,
+          "x_mm": 160.181102359417,
+          "y_mm": 117.822365158646,
+          "zone": "inside",
+          "class_full_trace": "GENERATED_MASKED_RECOVERABLE",
+          "class_no_trace": "UNKNOWN",
+          "source_clock_ids": [
+            "H1_SOLAR_DAY",
+            "H2_SYNODIC_MONTH",
+            "H3_ANNUAL_ORBIT",
+            "H4_PRINCIPAL_NODES",
+            "H5_AXIAL_PRECESSION"
+          ],
+          "source_cell_keys": [
+            "36:H1_SOLAR_DAY",
+            "36:H2_SYNODIC_MONTH",
+            "36:H3_ANNUAL_ORBIT",
+            "36:H4_PRINCIPAL_NODES",
+            "36:H5_AXIAL_PRECESSION"
+          ],
+          "inverse_error_x_px": 0,
+          "inverse_error_y_px": 2.842170943040401e-14
+        },
+        {
+          "gate_hour": 42,
+          "x_mm": 197.336255796114,
+          "y_mm": 115.89440093835,
+          "zone": "outside",
+          "class_full_trace": "GENERATED_UNMASKED",
+          "class_no_trace": "GENERATED_UNMASKED",
+          "source_clock_ids": [
+            "H1_SOLAR_DAY",
+            "H2_SYNODIC_MONTH",
+            "H3_ANNUAL_ORBIT",
+            "H4_PRINCIPAL_NODES",
+            "H5_AXIAL_PRECESSION"
+          ],
+          "source_cell_keys": [
+            "42:H1_SOLAR_DAY",
+            "42:H2_SYNODIC_MONTH",
+            "42:H3_ANNUAL_ORBIT",
+            "42:H4_PRINCIPAL_NODES",
+            "42:H5_AXIAL_PRECESSION"
+          ],
+          "inverse_error_x_px": 0,
+          "inverse_error_y_px": 0
+        },
+        {
+          "gate_hour": 48,
+          "x_mm": 234.423535699951,
+          "y_mm": 127.859675698614,
+          "zone": "outside",
+          "class_full_trace": "GENERATED_UNMASKED",
+          "class_no_trace": "GENERATED_UNMASKED",
+          "source_clock_ids": [
+            "H1_SOLAR_DAY",
+            "H2_SYNODIC_MONTH",
+            "H3_ANNUAL_ORBIT",
+            "H4_PRINCIPAL_NODES",
+            "H5_AXIAL_PRECESSION"
+          ],
+          "source_cell_keys": [
+            "48:H1_SOLAR_DAY",
+            "48:H2_SYNODIC_MONTH",
+            "48:H3_ANNUAL_ORBIT",
+            "48:H4_PRINCIPAL_NODES",
+            "48:H5_AXIAL_PRECESSION"
+          ],
+          "inverse_error_x_px": 0,
+          "inverse_error_y_px": 0
+        }
+      ]
+    },
+    {
+      "format": "A5",
+      "family": "DIN_A",
+      "target_landscape_mm": [
+        210,
+        148
+      ],
+      "format_area_mm2": 31080,
+      "scale_mm_per_px": 0.31626506024096385,
+      "offset_mm": [
+        0,
+        38.26204819277108
+      ],
+      "fit_content_mm": [
+        210,
+        71.47590361445783
+      ],
+      "all_points_inside_frame": true,
+      "zone_counts": {
+        "inside": 2,
+        "outside": 6,
+        "boundary": 0
+      },
+      "y_order": [
+        42,
+        36,
+        12,
+        9,
+        6,
+        48,
+        3,
+        24
+      ],
+      "chord_9_42_rank": 8,
+      "all_pair_ranks_preserved": true,
+      "hull_area_mm2": 208.51460887666963,
+      "hull_area_fraction_of_sheet": 0.006708964249571095,
+      "hull_scaling_error": 2.955857780762017e-11,
+      "max_inverse_error_px": 5.684341886080802e-14,
+      "max_normalized_error": 5.218048215738236e-15,
+      "gate_42_y_mm": 81.703111774591,
+      "gate_42_split3": {
+        "fixed": "81.703",
+        "integer_part": 81,
+        "fractional_integer": 703,
+        "difference": 622
+      },
+      "transformed_records": [
+        {
+          "gate_hour": 3,
+          "x_mm": 163.294445462522,
+          "y_mm": 90.873848178812,
+          "zone": "outside",
+          "class_full_trace": "GENERATED_UNMASKED",
+          "class_no_trace": "GENERATED_UNMASKED",
+          "source_clock_ids": [
+            "H1_SOLAR_DAY",
+            "H2_SYNODIC_MONTH",
+            "H3_ANNUAL_ORBIT",
+            "H4_PRINCIPAL_NODES",
+            "H5_AXIAL_PRECESSION"
+          ],
+          "source_cell_keys": [
+            "3:H1_SOLAR_DAY",
+            "3:H2_SYNODIC_MONTH",
+            "3:H3_ANNUAL_ORBIT",
+            "3:H4_PRINCIPAL_NODES",
+            "3:H5_AXIAL_PRECESSION"
+          ],
+          "inverse_error_x_px": 0,
+          "inverse_error_y_px": 2.842170943040401e-14
+        },
+        {
+          "gate_hour": 6,
+          "x_mm": 143.847308750389,
+          "y_mm": 88.433984786499,
+          "zone": "outside",
+          "class_full_trace": "GENERATED_UNMASKED",
+          "class_no_trace": "GENERATED_UNMASKED",
+          "source_clock_ids": [
+            "H1_SOLAR_DAY",
+            "H2_SYNODIC_MONTH",
+            "H3_ANNUAL_ORBIT",
+            "H4_PRINCIPAL_NODES",
+            "H5_AXIAL_PRECESSION"
+          ],
+          "source_cell_keys": [
+            "6:H1_SOLAR_DAY",
+            "6:H2_SYNODIC_MONTH",
+            "6:H3_ANNUAL_ORBIT",
+            "6:H4_PRINCIPAL_NODES",
+            "6:H5_AXIAL_PRECESSION"
+          ],
+          "inverse_error_x_px": 5.684341886080802e-14,
+          "inverse_error_y_px": 0
+        },
+        {
+          "gate_hour": 9,
+          "x_mm": 124.385358172368,
+          "y_mm": 86.342281002145,
+          "zone": "outside",
+          "class_full_trace": "GENERATED_UNMASKED",
+          "class_no_trace": "GENERATED_UNMASKED",
+          "source_clock_ids": [
+            "H1_SOLAR_DAY",
+            "H2_SYNODIC_MONTH",
+            "H3_ANNUAL_ORBIT",
+            "H4_PRINCIPAL_NODES",
+            "H5_AXIAL_PRECESSION"
+          ],
+          "source_cell_keys": [
+            "9:H1_SOLAR_DAY",
+            "9:H2_SYNODIC_MONTH",
+            "9:H3_ANNUAL_ORBIT",
+            "9:H4_PRINCIPAL_NODES",
+            "9:H5_AXIAL_PRECESSION"
+          ],
+          "inverse_error_x_px": 0,
+          "inverse_error_y_px": 0
+        },
+        {
+          "gate_hour": 12,
+          "x_mm": 116.143447800631,
+          "y_mm": 84.740531828285,
+          "zone": "inside",
+          "class_full_trace": "GENERATED_MASKED_RECOVERABLE",
+          "class_no_trace": "UNKNOWN",
+          "source_clock_ids": [
+            "H1_SOLAR_DAY",
+            "H2_SYNODIC_MONTH",
+            "H3_ANNUAL_ORBIT",
+            "H4_PRINCIPAL_NODES",
+            "H5_AXIAL_PRECESSION"
+          ],
+          "source_cell_keys": [
+            "12:H1_SOLAR_DAY",
+            "12:H2_SYNODIC_MONTH",
+            "12:H3_ANNUAL_ORBIT",
+            "12:H4_PRINCIPAL_NODES",
+            "12:H5_AXIAL_PRECESSION"
+          ],
+          "inverse_error_x_px": 0,
+          "inverse_error_y_px": 0
+        },
+        {
+          "gate_hour": 24,
+          "x_mm": 169.055670356966,
+          "y_mm": 91.842137643955,
+          "zone": "outside",
+          "class_full_trace": "GENERATED_UNMASKED",
+          "class_no_trace": "GENERATED_UNMASKED",
+          "source_clock_ids": [
+            "H1_SOLAR_DAY",
+            "H2_SYNODIC_MONTH",
+            "H3_ANNUAL_ORBIT",
+            "H4_PRINCIPAL_NODES",
+            "H5_AXIAL_PRECESSION"
+          ],
+          "source_cell_keys": [
+            "24:H1_SOLAR_DAY",
+            "24:H2_SYNODIC_MONTH",
+            "24:H3_ANNUAL_ORBIT",
+            "24:H4_PRINCIPAL_NODES",
+            "24:H5_AXIAL_PRECESSION"
+          ],
+          "inverse_error_x_px": 0,
+          "inverse_error_y_px": 2.842170943040401e-14
+        },
+        {
+          "gate_hour": 36,
+          "x_mm": 113.259365304638,
+          "y_mm": 83.066318799042,
+          "zone": "inside",
+          "class_full_trace": "GENERATED_MASKED_RECOVERABLE",
+          "class_no_trace": "UNKNOWN",
+          "source_clock_ids": [
+            "H1_SOLAR_DAY",
+            "H2_SYNODIC_MONTH",
+            "H3_ANNUAL_ORBIT",
+            "H4_PRINCIPAL_NODES",
+            "H5_AXIAL_PRECESSION"
+          ],
+          "source_cell_keys": [
+            "36:H1_SOLAR_DAY",
+            "36:H2_SYNODIC_MONTH",
+            "36:H3_ANNUAL_ORBIT",
+            "36:H4_PRINCIPAL_NODES",
+            "36:H5_AXIAL_PRECESSION"
+          ],
+          "inverse_error_x_px": 0,
+          "inverse_error_y_px": 0
+        },
+        {
+          "gate_hour": 42,
+          "x_mm": 139.530685916445,
+          "y_mm": 81.703111774591,
+          "zone": "outside",
+          "class_full_trace": "GENERATED_UNMASKED",
+          "class_no_trace": "GENERATED_UNMASKED",
+          "source_clock_ids": [
+            "H1_SOLAR_DAY",
+            "H2_SYNODIC_MONTH",
+            "H3_ANNUAL_ORBIT",
+            "H4_PRINCIPAL_NODES",
+            "H5_AXIAL_PRECESSION"
+          ],
+          "source_cell_keys": [
+            "42:H1_SOLAR_DAY",
+            "42:H2_SYNODIC_MONTH",
+            "42:H3_ANNUAL_ORBIT",
+            "42:H4_PRINCIPAL_NODES",
+            "42:H5_AXIAL_PRECESSION"
+          ],
+          "inverse_error_x_px": 5.684341886080802e-14,
+          "inverse_error_y_px": 2.842170943040401e-14
+        },
+        {
+          "gate_hour": 48,
+          "x_mm": 165.75401514138,
+          "y_mm": 90.163407059626,
+          "zone": "outside",
+          "class_full_trace": "GENERATED_UNMASKED",
+          "class_no_trace": "GENERATED_UNMASKED",
+          "source_clock_ids": [
+            "H1_SOLAR_DAY",
+            "H2_SYNODIC_MONTH",
+            "H3_ANNUAL_ORBIT",
+            "H4_PRINCIPAL_NODES",
+            "H5_AXIAL_PRECESSION"
+          ],
+          "source_cell_keys": [
+            "48:H1_SOLAR_DAY",
+            "48:H2_SYNODIC_MONTH",
+            "48:H3_ANNUAL_ORBIT",
+            "48:H4_PRINCIPAL_NODES",
+            "48:H5_AXIAL_PRECESSION"
+          ],
+          "inverse_error_x_px": 0,
+          "inverse_error_y_px": 2.842170943040401e-14
+        }
+      ]
+    },
+    {
+      "format": "B1",
+      "family": "DIN_B",
+      "target_landscape_mm": [
+        1000,
+        707
+      ],
+      "format_area_mm2": 707000,
+      "scale_mm_per_px": 1.5060240963855422,
+      "offset_mm": [
+        0,
+        183.31927710843374
+      ],
+      "fit_content_mm": [
+        1000,
+        340.3614457831325
+      ],
+      "all_points_inside_frame": true,
+      "zone_counts": {
+        "inside": 2,
+        "outside": 6,
+        "boundary": 0
+      },
+      "y_order": [
+        42,
+        36,
+        12,
+        9,
+        6,
+        48,
+        3,
+        24
+      ],
+      "chord_9_42_rank": 8,
+      "all_pair_ranks_preserved": true,
+      "hull_area_mm2": 4728.222423506551,
+      "hull_area_fraction_of_sheet": 0.006687726200150709,
+      "hull_scaling_error": 2.637534635141492e-11,
+      "max_inverse_error_px": 5.684341886080802e-14,
+      "max_normalized_error": 1.4432899320127035e-15,
+      "gate_42_y_mm": 390.181484640911,
+      "gate_42_split3": {
+        "fixed": "390.181",
+        "integer_part": 390,
+        "fractional_integer": 181,
+        "difference": -209
+      },
+      "transformed_records": [
+        {
+          "gate_hour": 3,
+          "x_mm": 777.592597440581,
+          "y_mm": 433.851657994341,
+          "zone": "outside",
+          "class_full_trace": "GENERATED_UNMASKED",
+          "class_no_trace": "GENERATED_UNMASKED",
+          "source_clock_ids": [
+            "H1_SOLAR_DAY",
+            "H2_SYNODIC_MONTH",
+            "H3_ANNUAL_ORBIT",
+            "H4_PRINCIPAL_NODES",
+            "H5_AXIAL_PRECESSION"
+          ],
+          "source_cell_keys": [
+            "3:H1_SOLAR_DAY",
+            "3:H2_SYNODIC_MONTH",
+            "3:H3_ANNUAL_ORBIT",
+            "3:H4_PRINCIPAL_NODES",
+            "3:H5_AXIAL_PRECESSION"
+          ],
+          "inverse_error_x_px": 0,
+          "inverse_error_y_px": 2.842170943040401e-14
+        },
+        {
+          "gate_hour": 6,
+          "x_mm": 684.98718452566,
+          "y_mm": 422.233260888092,
+          "zone": "outside",
+          "class_full_trace": "GENERATED_UNMASKED",
+          "class_no_trace": "GENERATED_UNMASKED",
+          "source_clock_ids": [
+            "H1_SOLAR_DAY",
+            "H2_SYNODIC_MONTH",
+            "H3_ANNUAL_ORBIT",
+            "H4_PRINCIPAL_NODES",
+            "H5_AXIAL_PRECESSION"
+          ],
+          "source_cell_keys": [
+            "6:H1_SOLAR_DAY",
+            "6:H2_SYNODIC_MONTH",
+            "6:H3_ANNUAL_ORBIT",
+            "6:H4_PRINCIPAL_NODES",
+            "6:H5_AXIAL_PRECESSION"
+          ],
+          "inverse_error_x_px": 0,
+          "inverse_error_y_px": 2.842170943040401e-14
+        },
+        {
+          "gate_hour": 9,
+          "x_mm": 592.311229392231,
+          "y_mm": 412.272766676879,
+          "zone": "outside",
+          "class_full_trace": "GENERATED_UNMASKED",
+          "class_no_trace": "GENERATED_UNMASKED",
+          "source_clock_ids": [
+            "H1_SOLAR_DAY",
+            "H2_SYNODIC_MONTH",
+            "H3_ANNUAL_ORBIT",
+            "H4_PRINCIPAL_NODES",
+            "H5_AXIAL_PRECESSION"
+          ],
+          "source_cell_keys": [
+            "9:H1_SOLAR_DAY",
+            "9:H2_SYNODIC_MONTH",
+            "9:H3_ANNUAL_ORBIT",
+            "9:H4_PRINCIPAL_NODES",
+            "9:H5_AXIAL_PRECESSION"
+          ],
+          "inverse_error_x_px": 5.684341886080802e-14,
+          "inverse_error_y_px": 2.842170943040401e-14
+        },
+        {
+          "gate_hour": 12,
+          "x_mm": 553.064037145864,
+          "y_mm": 404.645389658501,
+          "zone": "inside",
+          "class_full_trace": "GENERATED_MASKED_RECOVERABLE",
+          "class_no_trace": "UNKNOWN",
+          "source_clock_ids": [
+            "H1_SOLAR_DAY",
+            "H2_SYNODIC_MONTH",
+            "H3_ANNUAL_ORBIT",
+            "H4_PRINCIPAL_NODES",
+            "H5_AXIAL_PRECESSION"
+          ],
+          "source_cell_keys": [
+            "12:H1_SOLAR_DAY",
+            "12:H2_SYNODIC_MONTH",
+            "12:H3_ANNUAL_ORBIT",
+            "12:H4_PRINCIPAL_NODES",
+            "12:H5_AXIAL_PRECESSION"
+          ],
+          "inverse_error_x_px": 0,
+          "inverse_error_y_px": 2.842170943040401e-14
+        },
+        {
+          "gate_hour": 24,
+          "x_mm": 805.027001699838,
+          "y_mm": 438.462560209309,
+          "zone": "outside",
+          "class_full_trace": "GENERATED_UNMASKED",
+          "class_no_trace": "GENERATED_UNMASKED",
+          "source_clock_ids": [
+            "H1_SOLAR_DAY",
+            "H2_SYNODIC_MONTH",
+            "H3_ANNUAL_ORBIT",
+            "H4_PRINCIPAL_NODES",
+            "H5_AXIAL_PRECESSION"
+          ],
+          "source_cell_keys": [
+            "24:H1_SOLAR_DAY",
+            "24:H2_SYNODIC_MONTH",
+            "24:H3_ANNUAL_ORBIT",
+            "24:H4_PRINCIPAL_NODES",
+            "24:H5_AXIAL_PRECESSION"
+          ],
+          "inverse_error_x_px": 0,
+          "inverse_error_y_px": 0
+        },
+        {
+          "gate_hour": 36,
+          "x_mm": 539.330310974468,
+          "y_mm": 396.672946662106,
+          "zone": "inside",
+          "class_full_trace": "GENERATED_MASKED_RECOVERABLE",
+          "class_no_trace": "UNKNOWN",
+          "source_clock_ids": [
+            "H1_SOLAR_DAY",
+            "H2_SYNODIC_MONTH",
+            "H3_ANNUAL_ORBIT",
+            "H4_PRINCIPAL_NODES",
+            "H5_AXIAL_PRECESSION"
+          ],
+          "source_cell_keys": [
+            "36:H1_SOLAR_DAY",
+            "36:H2_SYNODIC_MONTH",
+            "36:H3_ANNUAL_ORBIT",
+            "36:H4_PRINCIPAL_NODES",
+            "36:H5_AXIAL_PRECESSION"
+          ],
+          "inverse_error_x_px": 5.684341886080802e-14,
+          "inverse_error_y_px": 2.842170943040401e-14
+        },
+        {
+          "gate_hour": 42,
+          "x_mm": 664.431837697355,
+          "y_mm": 390.181484640911,
+          "zone": "outside",
+          "class_full_trace": "GENERATED_UNMASKED",
+          "class_no_trace": "GENERATED_UNMASKED",
+          "source_clock_ids": [
+            "H1_SOLAR_DAY",
+            "H2_SYNODIC_MONTH",
+            "H3_ANNUAL_ORBIT",
+            "H4_PRINCIPAL_NODES",
+            "H5_AXIAL_PRECESSION"
+          ],
+          "source_cell_keys": [
+            "42:H1_SOLAR_DAY",
+            "42:H2_SYNODIC_MONTH",
+            "42:H3_ANNUAL_ORBIT",
+            "42:H4_PRINCIPAL_NODES",
+            "42:H5_AXIAL_PRECESSION"
+          ],
+          "inverse_error_x_px": 0,
+          "inverse_error_y_px": 2.842170943040401e-14
+        },
+        {
+          "gate_hour": 48,
+          "x_mm": 789.30483400657,
+          "y_mm": 430.468605045838,
+          "zone": "outside",
+          "class_full_trace": "GENERATED_UNMASKED",
+          "class_no_trace": "GENERATED_UNMASKED",
+          "source_clock_ids": [
+            "H1_SOLAR_DAY",
+            "H2_SYNODIC_MONTH",
+            "H3_ANNUAL_ORBIT",
+            "H4_PRINCIPAL_NODES",
+            "H5_AXIAL_PRECESSION"
+          ],
+          "source_cell_keys": [
+            "48:H1_SOLAR_DAY",
+            "48:H2_SYNODIC_MONTH",
+            "48:H3_ANNUAL_ORBIT",
+            "48:H4_PRINCIPAL_NODES",
+            "48:H5_AXIAL_PRECESSION"
+          ],
+          "inverse_error_x_px": 0,
+          "inverse_error_y_px": 2.842170943040401e-14
+        }
+      ]
+    },
+    {
+      "format": "B2",
+      "family": "DIN_B",
+      "target_landscape_mm": [
+        707,
+        500
+      ],
+      "format_area_mm2": 353500,
+      "scale_mm_per_px": 1.0647590361445782,
+      "offset_mm": [
+        0,
+        129.68222891566268
+      ],
+      "fit_content_mm": [
+        707,
+        240.63554216867468
+      ],
+      "all_points_inside_frame": true,
+      "zone_counts": {
+        "inside": 2,
+        "outside": 6,
+        "boundary": 0
+      },
+      "y_order": [
+        42,
+        36,
+        12,
+        9,
+        6,
+        48,
+        3,
+        24
+      ],
+      "chord_9_42_rank": 8,
+      "all_pair_ranks_preserved": true,
+      "hull_area_mm2": 2363.397250167356,
+      "hull_area_fraction_of_sheet": 0.006685706506838349,
+      "hull_scaling_error": 1.6825651982799172e-11,
+      "max_inverse_error_px": 2.842170943040401e-14,
+      "max_normalized_error": 1.7763568394002505e-15,
+      "gate_42_y_mm": 275.933809641124,
+      "gate_42_split3": {
+        "fixed": "275.934",
+        "integer_part": 275,
+        "fractional_integer": 934,
+        "difference": 659
+      },
+      "transformed_records": [
+        {
+          "gate_hour": 3,
+          "x_mm": 549.757966390491,
+          "y_mm": 306.808622201999,
+          "zone": "outside",
+          "class_full_trace": "GENERATED_UNMASKED",
+          "class_no_trace": "GENERATED_UNMASKED",
+          "source_clock_ids": [
+            "H1_SOLAR_DAY",
+            "H2_SYNODIC_MONTH",
+            "H3_ANNUAL_ORBIT",
+            "H4_PRINCIPAL_NODES",
+            "H5_AXIAL_PRECESSION"
+          ],
+          "source_cell_keys": [
+            "3:H1_SOLAR_DAY",
+            "3:H2_SYNODIC_MONTH",
+            "3:H3_ANNUAL_ORBIT",
+            "3:H4_PRINCIPAL_NODES",
+            "3:H5_AXIAL_PRECESSION"
+          ],
+          "inverse_error_x_px": 0,
+          "inverse_error_y_px": 2.842170943040401e-14
+        },
+        {
+          "gate_hour": 6,
+          "x_mm": 484.285939459642,
+          "y_mm": 298.594415447881,
+          "zone": "outside",
+          "class_full_trace": "GENERATED_UNMASKED",
+          "class_no_trace": "GENERATED_UNMASKED",
+          "source_clock_ids": [
+            "H1_SOLAR_DAY",
+            "H2_SYNODIC_MONTH",
+            "H3_ANNUAL_ORBIT",
+            "H4_PRINCIPAL_NODES",
+            "H5_AXIAL_PRECESSION"
+          ],
+          "source_cell_keys": [
+            "6:H1_SOLAR_DAY",
+            "6:H2_SYNODIC_MONTH",
+            "6:H3_ANNUAL_ORBIT",
+            "6:H4_PRINCIPAL_NODES",
+            "6:H5_AXIAL_PRECESSION"
+          ],
+          "inverse_error_x_px": 0,
+          "inverse_error_y_px": 0
+        },
+        {
+          "gate_hour": 9,
+          "x_mm": 418.764039180307,
+          "y_mm": 291.552346040554,
+          "zone": "outside",
+          "class_full_trace": "GENERATED_UNMASKED",
+          "class_no_trace": "GENERATED_UNMASKED",
+          "source_clock_ids": [
+            "H1_SOLAR_DAY",
+            "H2_SYNODIC_MONTH",
+            "H3_ANNUAL_ORBIT",
+            "H4_PRINCIPAL_NODES",
+            "H5_AXIAL_PRECESSION"
+          ],
+          "source_cell_keys": [
+            "9:H1_SOLAR_DAY",
+            "9:H2_SYNODIC_MONTH",
+            "9:H3_ANNUAL_ORBIT",
+            "9:H4_PRINCIPAL_NODES",
+            "9:H5_AXIAL_PRECESSION"
+          ],
+          "inverse_error_x_px": 0,
+          "inverse_error_y_px": 2.842170943040401e-14
+        },
+        {
+          "gate_hour": 12,
+          "x_mm": 391.016274262126,
+          "y_mm": 286.159790488561,
+          "zone": "inside",
+          "class_full_trace": "GENERATED_MASKED_RECOVERABLE",
+          "class_no_trace": "UNKNOWN",
+          "source_clock_ids": [
+            "H1_SOLAR_DAY",
+            "H2_SYNODIC_MONTH",
+            "H3_ANNUAL_ORBIT",
+            "H4_PRINCIPAL_NODES",
+            "H5_AXIAL_PRECESSION"
+          ],
+          "source_cell_keys": [
+            "12:H1_SOLAR_DAY",
+            "12:H2_SYNODIC_MONTH",
+            "12:H3_ANNUAL_ORBIT",
+            "12:H4_PRINCIPAL_NODES",
+            "12:H5_AXIAL_PRECESSION"
+          ],
+          "inverse_error_x_px": 0,
+          "inverse_error_y_px": 2.842170943040401e-14
+        },
+        {
+          "gate_hour": 24,
+          "x_mm": 569.154090201785,
+          "y_mm": 310.068530067981,
+          "zone": "outside",
+          "class_full_trace": "GENERATED_UNMASKED",
+          "class_no_trace": "GENERATED_UNMASKED",
+          "source_clock_ids": [
+            "H1_SOLAR_DAY",
+            "H2_SYNODIC_MONTH",
+            "H3_ANNUAL_ORBIT",
+            "H4_PRINCIPAL_NODES",
+            "H5_AXIAL_PRECESSION"
+          ],
+          "source_cell_keys": [
+            "24:H1_SOLAR_DAY",
+            "24:H2_SYNODIC_MONTH",
+            "24:H3_ANNUAL_ORBIT",
+            "24:H4_PRINCIPAL_NODES",
+            "24:H5_AXIAL_PRECESSION"
+          ],
+          "inverse_error_x_px": 0,
+          "inverse_error_y_px": 0
+        },
+        {
+          "gate_hour": 36,
+          "x_mm": 381.306529858949,
+          "y_mm": 280.523273290109,
+          "zone": "inside",
+          "class_full_trace": "GENERATED_MASKED_RECOVERABLE",
+          "class_no_trace": "UNKNOWN",
+          "source_clock_ids": [
+            "H1_SOLAR_DAY",
+            "H2_SYNODIC_MONTH",
+            "H3_ANNUAL_ORBIT",
+            "H4_PRINCIPAL_NODES",
+            "H5_AXIAL_PRECESSION"
+          ],
+          "source_cell_keys": [
+            "36:H1_SOLAR_DAY",
+            "36:H2_SYNODIC_MONTH",
+            "36:H3_ANNUAL_ORBIT",
+            "36:H4_PRINCIPAL_NODES",
+            "36:H5_AXIAL_PRECESSION"
+          ],
+          "inverse_error_x_px": 0,
+          "inverse_error_y_px": 2.842170943040401e-14
+        },
+        {
+          "gate_hour": 42,
+          "x_mm": 469.75330925203,
+          "y_mm": 275.933809641124,
+          "zone": "outside",
+          "class_full_trace": "GENERATED_UNMASKED",
+          "class_no_trace": "GENERATED_UNMASKED",
+          "source_clock_ids": [
+            "H1_SOLAR_DAY",
+            "H2_SYNODIC_MONTH",
+            "H3_ANNUAL_ORBIT",
+            "H4_PRINCIPAL_NODES",
+            "H5_AXIAL_PRECESSION"
+          ],
+          "source_cell_keys": [
+            "42:H1_SOLAR_DAY",
+            "42:H2_SYNODIC_MONTH",
+            "42:H3_ANNUAL_ORBIT",
+            "42:H4_PRINCIPAL_NODES",
+            "42:H5_AXIAL_PRECESSION"
+          ],
+          "inverse_error_x_px": 0,
+          "inverse_error_y_px": 2.842170943040401e-14
+        },
+        {
+          "gate_hour": 48,
+          "x_mm": 558.038517642645,
+          "y_mm": 304.416803767408,
+          "zone": "outside",
+          "class_full_trace": "GENERATED_UNMASKED",
+          "class_no_trace": "GENERATED_UNMASKED",
+          "source_clock_ids": [
+            "H1_SOLAR_DAY",
+            "H2_SYNODIC_MONTH",
+            "H3_ANNUAL_ORBIT",
+            "H4_PRINCIPAL_NODES",
+            "H5_AXIAL_PRECESSION"
+          ],
+          "source_cell_keys": [
+            "48:H1_SOLAR_DAY",
+            "48:H2_SYNODIC_MONTH",
+            "48:H3_ANNUAL_ORBIT",
+            "48:H4_PRINCIPAL_NODES",
+            "48:H5_AXIAL_PRECESSION"
+          ],
+          "inverse_error_x_px": 0,
+          "inverse_error_y_px": 2.842170943040401e-14
+        }
+      ]
+    },
+    {
+      "format": "B3",
+      "family": "DIN_B",
+      "target_landscape_mm": [
+        500,
+        353
+      ],
+      "format_area_mm2": 176500,
+      "scale_mm_per_px": 0.7530120481927711,
+      "offset_mm": [
+        0,
+        91.40963855421687
+      ],
+      "fit_content_mm": [
+        500,
+        170.18072289156626
+      ],
+      "all_points_inside_frame": true,
+      "zone_counts": {
+        "inside": 2,
+        "outside": 6,
+        "boundary": 0
+      },
+      "y_order": [
+        42,
+        36,
+        12,
+        9,
+        6,
+        48,
+        3,
+        24
+      ],
+      "chord_9_42_rank": 8,
+      "all_pair_ranks_preserved": true,
+      "hull_area_mm2": 1182.055605876696,
+      "hull_area_fraction_of_sheet": 0.006697198900151253,
+      "hull_scaling_error": 5.161382432561368e-11,
+      "max_inverse_error_px": 5.684341886080802e-14,
+      "max_normalized_error": 2.1094237467877974e-15,
+      "gate_42_y_mm": 194.840742320455,
+      "gate_42_split3": {
+        "fixed": "194.841",
+        "integer_part": 194,
+        "fractional_integer": 841,
+        "difference": 647
+      },
+      "transformed_records": [
+        {
+          "gate_hour": 3,
+          "x_mm": 388.796298720291,
+          "y_mm": 216.675828997171,
+          "zone": "outside",
+          "class_full_trace": "GENERATED_UNMASKED",
+          "class_no_trace": "GENERATED_UNMASKED",
+          "source_clock_ids": [
+            "H1_SOLAR_DAY",
+            "H2_SYNODIC_MONTH",
+            "H3_ANNUAL_ORBIT",
+            "H4_PRINCIPAL_NODES",
+            "H5_AXIAL_PRECESSION"
+          ],
+          "source_cell_keys": [
+            "3:H1_SOLAR_DAY",
+            "3:H2_SYNODIC_MONTH",
+            "3:H3_ANNUAL_ORBIT",
+            "3:H4_PRINCIPAL_NODES",
+            "3:H5_AXIAL_PRECESSION"
+          ],
+          "inverse_error_x_px": 0,
+          "inverse_error_y_px": 2.842170943040401e-14
+        },
+        {
+          "gate_hour": 6,
+          "x_mm": 342.49359226283,
+          "y_mm": 210.866630444046,
+          "zone": "outside",
+          "class_full_trace": "GENERATED_UNMASKED",
+          "class_no_trace": "GENERATED_UNMASKED",
+          "source_clock_ids": [
+            "H1_SOLAR_DAY",
+            "H2_SYNODIC_MONTH",
+            "H3_ANNUAL_ORBIT",
+            "H4_PRINCIPAL_NODES",
+            "H5_AXIAL_PRECESSION"
+          ],
+          "source_cell_keys": [
+            "6:H1_SOLAR_DAY",
+            "6:H2_SYNODIC_MONTH",
+            "6:H3_ANNUAL_ORBIT",
+            "6:H4_PRINCIPAL_NODES",
+            "6:H5_AXIAL_PRECESSION"
+          ],
+          "inverse_error_x_px": 0,
+          "inverse_error_y_px": 2.842170943040401e-14
+        },
+        {
+          "gate_hour": 9,
+          "x_mm": 296.155614696115,
+          "y_mm": 205.88638333844,
+          "zone": "outside",
+          "class_full_trace": "GENERATED_UNMASKED",
+          "class_no_trace": "GENERATED_UNMASKED",
+          "source_clock_ids": [
+            "H1_SOLAR_DAY",
+            "H2_SYNODIC_MONTH",
+            "H3_ANNUAL_ORBIT",
+            "H4_PRINCIPAL_NODES",
+            "H5_AXIAL_PRECESSION"
+          ],
+          "source_cell_keys": [
+            "9:H1_SOLAR_DAY",
+            "9:H2_SYNODIC_MONTH",
+            "9:H3_ANNUAL_ORBIT",
+            "9:H4_PRINCIPAL_NODES",
+            "9:H5_AXIAL_PRECESSION"
+          ],
+          "inverse_error_x_px": 5.684341886080802e-14,
+          "inverse_error_y_px": 2.842170943040401e-14
+        },
+        {
+          "gate_hour": 12,
+          "x_mm": 276.532018572932,
+          "y_mm": 202.072694829251,
+          "zone": "inside",
+          "class_full_trace": "GENERATED_MASKED_RECOVERABLE",
+          "class_no_trace": "UNKNOWN",
+          "source_clock_ids": [
+            "H1_SOLAR_DAY",
+            "H2_SYNODIC_MONTH",
+            "H3_ANNUAL_ORBIT",
+            "H4_PRINCIPAL_NODES",
+            "H5_AXIAL_PRECESSION"
+          ],
+          "source_cell_keys": [
+            "12:H1_SOLAR_DAY",
+            "12:H2_SYNODIC_MONTH",
+            "12:H3_ANNUAL_ORBIT",
+            "12:H4_PRINCIPAL_NODES",
+            "12:H5_AXIAL_PRECESSION"
+          ],
+          "inverse_error_x_px": 0,
+          "inverse_error_y_px": 2.842170943040401e-14
+        },
+        {
+          "gate_hour": 24,
+          "x_mm": 402.513500849919,
+          "y_mm": 218.981280104654,
+          "zone": "outside",
+          "class_full_trace": "GENERATED_UNMASKED",
+          "class_no_trace": "GENERATED_UNMASKED",
+          "source_clock_ids": [
+            "H1_SOLAR_DAY",
+            "H2_SYNODIC_MONTH",
+            "H3_ANNUAL_ORBIT",
+            "H4_PRINCIPAL_NODES",
+            "H5_AXIAL_PRECESSION"
+          ],
+          "source_cell_keys": [
+            "24:H1_SOLAR_DAY",
+            "24:H2_SYNODIC_MONTH",
+            "24:H3_ANNUAL_ORBIT",
+            "24:H4_PRINCIPAL_NODES",
+            "24:H5_AXIAL_PRECESSION"
+          ],
+          "inverse_error_x_px": 0,
+          "inverse_error_y_px": 0
+        },
+        {
+          "gate_hour": 36,
+          "x_mm": 269.665155487234,
+          "y_mm": 198.086473331053,
+          "zone": "inside",
+          "class_full_trace": "GENERATED_MASKED_RECOVERABLE",
+          "class_no_trace": "UNKNOWN",
+          "source_clock_ids": [
+            "H1_SOLAR_DAY",
+            "H2_SYNODIC_MONTH",
+            "H3_ANNUAL_ORBIT",
+            "H4_PRINCIPAL_NODES",
+            "H5_AXIAL_PRECESSION"
+          ],
+          "source_cell_keys": [
+            "36:H1_SOLAR_DAY",
+            "36:H2_SYNODIC_MONTH",
+            "36:H3_ANNUAL_ORBIT",
+            "36:H4_PRINCIPAL_NODES",
+            "36:H5_AXIAL_PRECESSION"
+          ],
+          "inverse_error_x_px": 5.684341886080802e-14,
+          "inverse_error_y_px": 2.842170943040401e-14
+        },
+        {
+          "gate_hour": 42,
+          "x_mm": 332.215918848678,
+          "y_mm": 194.840742320455,
+          "zone": "outside",
+          "class_full_trace": "GENERATED_UNMASKED",
+          "class_no_trace": "GENERATED_UNMASKED",
+          "source_clock_ids": [
+            "H1_SOLAR_DAY",
+            "H2_SYNODIC_MONTH",
+            "H3_ANNUAL_ORBIT",
+            "H4_PRINCIPAL_NODES",
+            "H5_AXIAL_PRECESSION"
+          ],
+          "source_cell_keys": [
+            "42:H1_SOLAR_DAY",
+            "42:H2_SYNODIC_MONTH",
+            "42:H3_ANNUAL_ORBIT",
+            "42:H4_PRINCIPAL_NODES",
+            "42:H5_AXIAL_PRECESSION"
+          ],
+          "inverse_error_x_px": 0,
+          "inverse_error_y_px": 2.842170943040401e-14
+        },
+        {
+          "gate_hour": 48,
+          "x_mm": 394.652417003285,
+          "y_mm": 214.984302522919,
+          "zone": "outside",
+          "class_full_trace": "GENERATED_UNMASKED",
+          "class_no_trace": "GENERATED_UNMASKED",
+          "source_clock_ids": [
+            "H1_SOLAR_DAY",
+            "H2_SYNODIC_MONTH",
+            "H3_ANNUAL_ORBIT",
+            "H4_PRINCIPAL_NODES",
+            "H5_AXIAL_PRECESSION"
+          ],
+          "source_cell_keys": [
+            "48:H1_SOLAR_DAY",
+            "48:H2_SYNODIC_MONTH",
+            "48:H3_ANNUAL_ORBIT",
+            "48:H4_PRINCIPAL_NODES",
+            "48:H5_AXIAL_PRECESSION"
+          ],
+          "inverse_error_x_px": 0,
+          "inverse_error_y_px": 2.842170943040401e-14
+        }
+      ]
+    },
+    {
+      "format": "B4",
+      "family": "DIN_B",
+      "target_landscape_mm": [
+        353,
+        250
+      ],
+      "format_area_mm2": 88250,
+      "scale_mm_per_px": 0.5316265060240963,
+      "offset_mm": [
+        2.842170943040401e-14,
+        64.92620481927712
+      ],
+      "fit_content_mm": [
+        352.99999999999994,
+        120.14759036144576
+      ],
+      "all_points_inside_frame": true,
+      "zone_counts": {
+        "inside": 2,
+        "outside": 6,
+        "boundary": 0
+      },
+      "y_order": [
+        42,
+        36,
+        12,
+        9,
+        6,
+        48,
+        3,
+        24
+      ],
+      "chord_9_42_rank": 8,
+      "all_pair_ranks_preserved": true,
+      "hull_area_mm2": 589.1790679707283,
+      "hull_area_fraction_of_sheet": 0.006676250061991255,
+      "hull_scaling_error": 2.7284841053187847e-12,
+      "max_inverse_error_px": 1.1368683772161603e-13,
+      "max_normalized_error": 4.3298697960381105e-15,
+      "gate_42_y_mm": 137.948564078241,
+      "gate_42_split3": {
+        "fixed": "137.949",
+        "integer_part": 137,
+        "fractional_integer": 949,
+        "difference": 812
+      },
+      "transformed_records": [
+        {
+          "gate_hour": 3,
+          "x_mm": 274.490186896525,
+          "y_mm": 153.364135272002,
+          "zone": "outside",
+          "class_full_trace": "GENERATED_UNMASKED",
+          "class_no_trace": "GENERATED_UNMASKED",
+          "source_clock_ids": [
+            "H1_SOLAR_DAY",
+            "H2_SYNODIC_MONTH",
+            "H3_ANNUAL_ORBIT",
+            "H4_PRINCIPAL_NODES",
+            "H5_AXIAL_PRECESSION"
+          ],
+          "source_cell_keys": [
+            "3:H1_SOLAR_DAY",
+            "3:H2_SYNODIC_MONTH",
+            "3:H3_ANNUAL_ORBIT",
+            "3:H4_PRINCIPAL_NODES",
+            "3:H5_AXIAL_PRECESSION"
+          ],
+          "inverse_error_x_px": 1.1368683772161603e-13,
+          "inverse_error_y_px": 2.842170943040401e-14
+        },
+        {
+          "gate_hour": 6,
+          "x_mm": 241.800476137558,
+          "y_mm": 149.262841093496,
+          "zone": "outside",
+          "class_full_trace": "GENERATED_UNMASKED",
+          "class_no_trace": "GENERATED_UNMASKED",
+          "source_clock_ids": [
+            "H1_SOLAR_DAY",
+            "H2_SYNODIC_MONTH",
+            "H3_ANNUAL_ORBIT",
+            "H4_PRINCIPAL_NODES",
+            "H5_AXIAL_PRECESSION"
+          ],
+          "source_cell_keys": [
+            "6:H1_SOLAR_DAY",
+            "6:H2_SYNODIC_MONTH",
+            "6:H3_ANNUAL_ORBIT",
+            "6:H4_PRINCIPAL_NODES",
+            "6:H5_AXIAL_PRECESSION"
+          ],
+          "inverse_error_x_px": 0,
+          "inverse_error_y_px": 0
+        },
+        {
+          "gate_hour": 9,
+          "x_mm": 209.085863975457,
+          "y_mm": 145.746786636938,
+          "zone": "outside",
+          "class_full_trace": "GENERATED_UNMASKED",
+          "class_no_trace": "GENERATED_UNMASKED",
+          "source_clock_ids": [
+            "H1_SOLAR_DAY",
+            "H2_SYNODIC_MONTH",
+            "H3_ANNUAL_ORBIT",
+            "H4_PRINCIPAL_NODES",
+            "H5_AXIAL_PRECESSION"
+          ],
+          "source_cell_keys": [
+            "9:H1_SOLAR_DAY",
+            "9:H2_SYNODIC_MONTH",
+            "9:H3_ANNUAL_ORBIT",
+            "9:H4_PRINCIPAL_NODES",
+            "9:H5_AXIAL_PRECESSION"
+          ],
+          "inverse_error_x_px": 0,
+          "inverse_error_y_px": 2.842170943040401e-14
+        },
+        {
+          "gate_hour": 12,
+          "x_mm": 195.23160511249,
+          "y_mm": 143.054322549451,
+          "zone": "inside",
+          "class_full_trace": "GENERATED_MASKED_RECOVERABLE",
+          "class_no_trace": "UNKNOWN",
+          "source_clock_ids": [
+            "H1_SOLAR_DAY",
+            "H2_SYNODIC_MONTH",
+            "H3_ANNUAL_ORBIT",
+            "H4_PRINCIPAL_NODES",
+            "H5_AXIAL_PRECESSION"
+          ],
+          "source_cell_keys": [
+            "12:H1_SOLAR_DAY",
+            "12:H2_SYNODIC_MONTH",
+            "12:H3_ANNUAL_ORBIT",
+            "12:H4_PRINCIPAL_NODES",
+            "12:H5_AXIAL_PRECESSION"
+          ],
+          "inverse_error_x_px": 0,
+          "inverse_error_y_px": 0
+        },
+        {
+          "gate_hour": 24,
+          "x_mm": 284.174531600043,
+          "y_mm": 154.991783753886,
+          "zone": "outside",
+          "class_full_trace": "GENERATED_UNMASKED",
+          "class_no_trace": "GENERATED_UNMASKED",
+          "source_clock_ids": [
+            "H1_SOLAR_DAY",
+            "H2_SYNODIC_MONTH",
+            "H3_ANNUAL_ORBIT",
+            "H4_PRINCIPAL_NODES",
+            "H5_AXIAL_PRECESSION"
+          ],
+          "source_cell_keys": [
+            "24:H1_SOLAR_DAY",
+            "24:H2_SYNODIC_MONTH",
+            "24:H3_ANNUAL_ORBIT",
+            "24:H4_PRINCIPAL_NODES",
+            "24:H5_AXIAL_PRECESSION"
+          ],
+          "inverse_error_x_px": 0,
+          "inverse_error_y_px": 2.842170943040401e-14
+        },
+        {
+          "gate_hour": 36,
+          "x_mm": 190.383599773987,
+          "y_mm": 140.240050171724,
+          "zone": "inside",
+          "class_full_trace": "GENERATED_MASKED_RECOVERABLE",
+          "class_no_trace": "UNKNOWN",
+          "source_clock_ids": [
+            "H1_SOLAR_DAY",
+            "H2_SYNODIC_MONTH",
+            "H3_ANNUAL_ORBIT",
+            "H4_PRINCIPAL_NODES",
+            "H5_AXIAL_PRECESSION"
+          ],
+          "source_cell_keys": [
+            "36:H1_SOLAR_DAY",
+            "36:H2_SYNODIC_MONTH",
+            "36:H3_ANNUAL_ORBIT",
+            "36:H4_PRINCIPAL_NODES",
+            "36:H5_AXIAL_PRECESSION"
+          ],
+          "inverse_error_x_px": 0,
+          "inverse_error_y_px": 0
+        },
+        {
+          "gate_hour": 42,
+          "x_mm": 234.544438707166,
+          "y_mm": 137.948564078241,
+          "zone": "outside",
+          "class_full_trace": "GENERATED_UNMASKED",
+          "class_no_trace": "GENERATED_UNMASKED",
+          "source_clock_ids": [
+            "H1_SOLAR_DAY",
+            "H2_SYNODIC_MONTH",
+            "H3_ANNUAL_ORBIT",
+            "H4_PRINCIPAL_NODES",
+            "H5_AXIAL_PRECESSION"
+          ],
+          "source_cell_keys": [
+            "42:H1_SOLAR_DAY",
+            "42:H2_SYNODIC_MONTH",
+            "42:H3_ANNUAL_ORBIT",
+            "42:H4_PRINCIPAL_NODES",
+            "42:H5_AXIAL_PRECESSION"
+          ],
+          "inverse_error_x_px": 0,
+          "inverse_error_y_px": 0
+        },
+        {
+          "gate_hour": 48,
+          "x_mm": 278.624606404319,
+          "y_mm": 152.169917581181,
+          "zone": "outside",
+          "class_full_trace": "GENERATED_UNMASKED",
+          "class_no_trace": "GENERATED_UNMASKED",
+          "source_clock_ids": [
+            "H1_SOLAR_DAY",
+            "H2_SYNODIC_MONTH",
+            "H3_ANNUAL_ORBIT",
+            "H4_PRINCIPAL_NODES",
+            "H5_AXIAL_PRECESSION"
+          ],
+          "source_cell_keys": [
+            "48:H1_SOLAR_DAY",
+            "48:H2_SYNODIC_MONTH",
+            "48:H3_ANNUAL_ORBIT",
+            "48:H4_PRINCIPAL_NODES",
+            "48:H5_AXIAL_PRECESSION"
+          ],
+          "inverse_error_x_px": 0,
+          "inverse_error_y_px": 2.842170943040401e-14
+        }
+      ]
+    },
+    {
+      "format": "B5",
+      "family": "DIN_B",
+      "target_landscape_mm": [
+        250,
+        176
+      ],
+      "format_area_mm2": 44000,
+      "scale_mm_per_px": 0.37650602409638556,
+      "offset_mm": [
+        0,
+        45.454819277108435
+      ],
+      "fit_content_mm": [
+        250,
+        85.09036144578313
+      ],
+      "all_points_inside_frame": true,
+      "zone_counts": {
+        "inside": 2,
+        "outside": 6,
+        "boundary": 0
+      },
+      "y_order": [
+        42,
+        36,
+        12,
+        9,
+        6,
+        48,
+        3,
+        24
+      ],
+      "chord_9_42_rank": 8,
+      "all_pair_ranks_preserved": true,
+      "hull_area_mm2": 295.5139014691331,
+      "hull_area_fraction_of_sheet": 0.006716225033389389,
+      "hull_scaling_error": 2.802380549837835e-11,
+      "max_inverse_error_px": 5.684341886080802e-14,
+      "max_normalized_error": 5.440092820663267e-15,
+      "gate_42_y_mm": 97.170371160228,
+      "gate_42_split3": {
+        "fixed": "97.170",
+        "integer_part": 97,
+        "fractional_integer": 170,
+        "difference": 73
+      },
+      "transformed_records": [
+        {
+          "gate_hour": 3,
+          "x_mm": 194.398149360145,
+          "y_mm": 108.087914498585,
+          "zone": "outside",
+          "class_full_trace": "GENERATED_UNMASKED",
+          "class_no_trace": "GENERATED_UNMASKED",
+          "source_clock_ids": [
+            "H1_SOLAR_DAY",
+            "H2_SYNODIC_MONTH",
+            "H3_ANNUAL_ORBIT",
+            "H4_PRINCIPAL_NODES",
+            "H5_AXIAL_PRECESSION"
+          ],
+          "source_cell_keys": [
+            "3:H1_SOLAR_DAY",
+            "3:H2_SYNODIC_MONTH",
+            "3:H3_ANNUAL_ORBIT",
+            "3:H4_PRINCIPAL_NODES",
+            "3:H5_AXIAL_PRECESSION"
+          ],
+          "inverse_error_x_px": 0,
+          "inverse_error_y_px": 2.842170943040401e-14
+        },
+        {
+          "gate_hour": 6,
+          "x_mm": 171.246796131415,
+          "y_mm": 105.183315222023,
+          "zone": "outside",
+          "class_full_trace": "GENERATED_UNMASKED",
+          "class_no_trace": "GENERATED_UNMASKED",
+          "source_clock_ids": [
+            "H1_SOLAR_DAY",
+            "H2_SYNODIC_MONTH",
+            "H3_ANNUAL_ORBIT",
+            "H4_PRINCIPAL_NODES",
+            "H5_AXIAL_PRECESSION"
+          ],
+          "source_cell_keys": [
+            "6:H1_SOLAR_DAY",
+            "6:H2_SYNODIC_MONTH",
+            "6:H3_ANNUAL_ORBIT",
+            "6:H4_PRINCIPAL_NODES",
+            "6:H5_AXIAL_PRECESSION"
+          ],
+          "inverse_error_x_px": 0,
+          "inverse_error_y_px": 2.842170943040401e-14
+        },
+        {
+          "gate_hour": 9,
+          "x_mm": 148.077807348058,
+          "y_mm": 102.69319166922,
+          "zone": "outside",
+          "class_full_trace": "GENERATED_UNMASKED",
+          "class_no_trace": "GENERATED_UNMASKED",
+          "source_clock_ids": [
+            "H1_SOLAR_DAY",
+            "H2_SYNODIC_MONTH",
+            "H3_ANNUAL_ORBIT",
+            "H4_PRINCIPAL_NODES",
+            "H5_AXIAL_PRECESSION"
+          ],
+          "source_cell_keys": [
+            "9:H1_SOLAR_DAY",
+            "9:H2_SYNODIC_MONTH",
+            "9:H3_ANNUAL_ORBIT",
+            "9:H4_PRINCIPAL_NODES",
+            "9:H5_AXIAL_PRECESSION"
+          ],
+          "inverse_error_x_px": 5.684341886080802e-14,
+          "inverse_error_y_px": 2.842170943040401e-14
+        },
+        {
+          "gate_hour": 12,
+          "x_mm": 138.266009286466,
+          "y_mm": 100.786347414625,
+          "zone": "inside",
+          "class_full_trace": "GENERATED_MASKED_RECOVERABLE",
+          "class_no_trace": "UNKNOWN",
+          "source_clock_ids": [
+            "H1_SOLAR_DAY",
+            "H2_SYNODIC_MONTH",
+            "H3_ANNUAL_ORBIT",
+            "H4_PRINCIPAL_NODES",
+            "H5_AXIAL_PRECESSION"
+          ],
+          "source_cell_keys": [
+            "12:H1_SOLAR_DAY",
+            "12:H2_SYNODIC_MONTH",
+            "12:H3_ANNUAL_ORBIT",
+            "12:H4_PRINCIPAL_NODES",
+            "12:H5_AXIAL_PRECESSION"
+          ],
+          "inverse_error_x_px": 0,
+          "inverse_error_y_px": 2.842170943040401e-14
+        },
+        {
+          "gate_hour": 24,
+          "x_mm": 201.25675042496,
+          "y_mm": 109.240640052327,
+          "zone": "outside",
+          "class_full_trace": "GENERATED_UNMASKED",
+          "class_no_trace": "GENERATED_UNMASKED",
+          "source_clock_ids": [
+            "H1_SOLAR_DAY",
+            "H2_SYNODIC_MONTH",
+            "H3_ANNUAL_ORBIT",
+            "H4_PRINCIPAL_NODES",
+            "H5_AXIAL_PRECESSION"
+          ],
+          "source_cell_keys": [
+            "24:H1_SOLAR_DAY",
+            "24:H2_SYNODIC_MONTH",
+            "24:H3_ANNUAL_ORBIT",
+            "24:H4_PRINCIPAL_NODES",
+            "24:H5_AXIAL_PRECESSION"
+          ],
+          "inverse_error_x_px": 0,
+          "inverse_error_y_px": 0
+        },
+        {
+          "gate_hour": 36,
+          "x_mm": 134.832577743617,
+          "y_mm": 98.793236665527,
+          "zone": "inside",
+          "class_full_trace": "GENERATED_MASKED_RECOVERABLE",
+          "class_no_trace": "UNKNOWN",
+          "source_clock_ids": [
+            "H1_SOLAR_DAY",
+            "H2_SYNODIC_MONTH",
+            "H3_ANNUAL_ORBIT",
+            "H4_PRINCIPAL_NODES",
+            "H5_AXIAL_PRECESSION"
+          ],
+          "source_cell_keys": [
+            "36:H1_SOLAR_DAY",
+            "36:H2_SYNODIC_MONTH",
+            "36:H3_ANNUAL_ORBIT",
+            "36:H4_PRINCIPAL_NODES",
+            "36:H5_AXIAL_PRECESSION"
+          ],
+          "inverse_error_x_px": 5.684341886080802e-14,
+          "inverse_error_y_px": 2.842170943040401e-14
+        },
+        {
+          "gate_hour": 42,
+          "x_mm": 166.107959424339,
+          "y_mm": 97.170371160228,
+          "zone": "outside",
+          "class_full_trace": "GENERATED_UNMASKED",
+          "class_no_trace": "GENERATED_UNMASKED",
+          "source_clock_ids": [
+            "H1_SOLAR_DAY",
+            "H2_SYNODIC_MONTH",
+            "H3_ANNUAL_ORBIT",
+            "H4_PRINCIPAL_NODES",
+            "H5_AXIAL_PRECESSION"
+          ],
+          "source_cell_keys": [
+            "42:H1_SOLAR_DAY",
+            "42:H2_SYNODIC_MONTH",
+            "42:H3_ANNUAL_ORBIT",
+            "42:H4_PRINCIPAL_NODES",
+            "42:H5_AXIAL_PRECESSION"
+          ],
+          "inverse_error_x_px": 0,
+          "inverse_error_y_px": 2.842170943040401e-14
+        },
+        {
+          "gate_hour": 48,
+          "x_mm": 197.326208501642,
+          "y_mm": 107.24215126146,
+          "zone": "outside",
+          "class_full_trace": "GENERATED_UNMASKED",
+          "class_no_trace": "GENERATED_UNMASKED",
+          "source_clock_ids": [
+            "H1_SOLAR_DAY",
+            "H2_SYNODIC_MONTH",
+            "H3_ANNUAL_ORBIT",
+            "H4_PRINCIPAL_NODES",
+            "H5_AXIAL_PRECESSION"
+          ],
+          "source_cell_keys": [
+            "48:H1_SOLAR_DAY",
+            "48:H2_SYNODIC_MONTH",
+            "48:H3_ANNUAL_ORBIT",
+            "48:H4_PRINCIPAL_NODES",
+            "48:H5_AXIAL_PRECESSION"
+          ],
+          "inverse_error_x_px": 0,
+          "inverse_error_y_px": 2.842170943040401e-14
+        }
+      ]
+    },
+    {
+      "format": "C1",
+      "family": "DIN_C",
+      "target_landscape_mm": [
+        917,
+        648
+      ],
+      "format_area_mm2": 594216,
+      "scale_mm_per_px": 1.3810240963855422,
+      "offset_mm": [
+        0,
+        167.94427710843374
+      ],
+      "fit_content_mm": [
+        917,
+        312.1114457831325
+      ],
+      "all_points_inside_frame": true,
+      "zone_counts": {
+        "inside": 2,
+        "outside": 6,
+        "boundary": 0
+      },
+      "y_order": [
+        42,
+        36,
+        12,
+        9,
+        6,
+        48,
+        3,
+        24
+      ],
+      "chord_9_42_rank": 8,
+      "all_pair_ranks_preserved": true,
+      "hull_area_mm2": 3975.910225480009,
+      "hull_area_fraction_of_sheet": 0.006691018460425181,
+      "hull_scaling_error": 1.3642420526593924e-11,
+      "max_inverse_error_px": 2.842170943040401e-14,
+      "max_normalized_error": 1.4432899320127035e-15,
+      "gate_42_y_mm": 357.636921415715,
+      "gate_42_split3": {
+        "fixed": "357.637",
+        "integer_part": 357,
+        "fractional_integer": 637,
+        "difference": 280
+      },
+      "transformed_records": [
+        {
+          "gate_hour": 3,
+          "x_mm": 713.052411853013,
+          "y_mm": 397.682470380811,
+          "zone": "outside",
+          "class_full_trace": "GENERATED_UNMASKED",
+          "class_no_trace": "GENERATED_UNMASKED",
+          "source_clock_ids": [
+            "H1_SOLAR_DAY",
+            "H2_SYNODIC_MONTH",
+            "H3_ANNUAL_ORBIT",
+            "H4_PRINCIPAL_NODES",
+            "H5_AXIAL_PRECESSION"
+          ],
+          "source_cell_keys": [
+            "3:H1_SOLAR_DAY",
+            "3:H2_SYNODIC_MONTH",
+            "3:H3_ANNUAL_ORBIT",
+            "3:H4_PRINCIPAL_NODES",
+            "3:H5_AXIAL_PRECESSION"
+          ],
+          "inverse_error_x_px": 0,
+          "inverse_error_y_px": 0
+        },
+        {
+          "gate_hour": 6,
+          "x_mm": 628.133248210031,
+          "y_mm": 387.02840023438,
+          "zone": "outside",
+          "class_full_trace": "GENERATED_UNMASKED",
+          "class_no_trace": "GENERATED_UNMASKED",
+          "source_clock_ids": [
+            "H1_SOLAR_DAY",
+            "H2_SYNODIC_MONTH",
+            "H3_ANNUAL_ORBIT",
+            "H4_PRINCIPAL_NODES",
+            "H5_AXIAL_PRECESSION"
+          ],
+          "source_cell_keys": [
+            "6:H1_SOLAR_DAY",
+            "6:H2_SYNODIC_MONTH",
+            "6:H3_ANNUAL_ORBIT",
+            "6:H4_PRINCIPAL_NODES",
+            "6:H5_AXIAL_PRECESSION"
+          ],
+          "inverse_error_x_px": 0,
+          "inverse_error_y_px": 2.842170943040401e-14
+        },
+        {
+          "gate_hour": 9,
+          "x_mm": 543.149397352675,
+          "y_mm": 377.894627042698,
+          "zone": "outside",
+          "class_full_trace": "GENERATED_UNMASKED",
+          "class_no_trace": "GENERATED_UNMASKED",
+          "source_clock_ids": [
+            "H1_SOLAR_DAY",
+            "H2_SYNODIC_MONTH",
+            "H3_ANNUAL_ORBIT",
+            "H4_PRINCIPAL_NODES",
+            "H5_AXIAL_PRECESSION"
+          ],
+          "source_cell_keys": [
+            "9:H1_SOLAR_DAY",
+            "9:H2_SYNODIC_MONTH",
+            "9:H3_ANNUAL_ORBIT",
+            "9:H4_PRINCIPAL_NODES",
+            "9:H5_AXIAL_PRECESSION"
+          ],
+          "inverse_error_x_px": 0,
+          "inverse_error_y_px": 0
+        },
+        {
+          "gate_hour": 12,
+          "x_mm": 507.159722062757,
+          "y_mm": 370.900322316846,
+          "zone": "inside",
+          "class_full_trace": "GENERATED_MASKED_RECOVERABLE",
+          "class_no_trace": "UNKNOWN",
+          "source_clock_ids": [
+            "H1_SOLAR_DAY",
+            "H2_SYNODIC_MONTH",
+            "H3_ANNUAL_ORBIT",
+            "H4_PRINCIPAL_NODES",
+            "H5_AXIAL_PRECESSION"
+          ],
+          "source_cell_keys": [
+            "12:H1_SOLAR_DAY",
+            "12:H2_SYNODIC_MONTH",
+            "12:H3_ANNUAL_ORBIT",
+            "12:H4_PRINCIPAL_NODES",
+            "12:H5_AXIAL_PRECESSION"
+          ],
+          "inverse_error_x_px": 0,
+          "inverse_error_y_px": 0
+        },
+        {
+          "gate_hour": 24,
+          "x_mm": 738.209760558751,
+          "y_mm": 401.910667711936,
+          "zone": "outside",
+          "class_full_trace": "GENERATED_UNMASKED",
+          "class_no_trace": "GENERATED_UNMASKED",
+          "source_clock_ids": [
+            "H1_SOLAR_DAY",
+            "H2_SYNODIC_MONTH",
+            "H3_ANNUAL_ORBIT",
+            "H4_PRINCIPAL_NODES",
+            "H5_AXIAL_PRECESSION"
+          ],
+          "source_cell_keys": [
+            "24:H1_SOLAR_DAY",
+            "24:H2_SYNODIC_MONTH",
+            "24:H3_ANNUAL_ORBIT",
+            "24:H4_PRINCIPAL_NODES",
+            "24:H5_AXIAL_PRECESSION"
+          ],
+          "inverse_error_x_px": 0,
+          "inverse_error_y_px": 0
+        },
+        {
+          "gate_hour": 36,
+          "x_mm": 494.565895163587,
+          "y_mm": 363.589592089152,
+          "zone": "inside",
+          "class_full_trace": "GENERATED_MASKED_RECOVERABLE",
+          "class_no_trace": "UNKNOWN",
+          "source_clock_ids": [
+            "H1_SOLAR_DAY",
+            "H2_SYNODIC_MONTH",
+            "H3_ANNUAL_ORBIT",
+            "H4_PRINCIPAL_NODES",
+            "H5_AXIAL_PRECESSION"
+          ],
+          "source_cell_keys": [
+            "36:H1_SOLAR_DAY",
+            "36:H2_SYNODIC_MONTH",
+            "36:H3_ANNUAL_ORBIT",
+            "36:H4_PRINCIPAL_NODES",
+            "36:H5_AXIAL_PRECESSION"
+          ],
+          "inverse_error_x_px": 0,
+          "inverse_error_y_px": 0
+        },
+        {
+          "gate_hour": 42,
+          "x_mm": 609.283995168475,
+          "y_mm": 357.636921415715,
+          "zone": "outside",
+          "class_full_trace": "GENERATED_UNMASKED",
+          "class_no_trace": "GENERATED_UNMASKED",
+          "source_clock_ids": [
+            "H1_SOLAR_DAY",
+            "H2_SYNODIC_MONTH",
+            "H3_ANNUAL_ORBIT",
+            "H4_PRINCIPAL_NODES",
+            "H5_AXIAL_PRECESSION"
+          ],
+          "source_cell_keys": [
+            "42:H1_SOLAR_DAY",
+            "42:H2_SYNODIC_MONTH",
+            "42:H3_ANNUAL_ORBIT",
+            "42:H4_PRINCIPAL_NODES",
+            "42:H5_AXIAL_PRECESSION"
+          ],
+          "inverse_error_x_px": 0,
+          "inverse_error_y_px": 2.842170943040401e-14
+        },
+        {
+          "gate_hour": 48,
+          "x_mm": 723.792532784025,
+          "y_mm": 394.580210827034,
+          "zone": "outside",
+          "class_full_trace": "GENERATED_UNMASKED",
+          "class_no_trace": "GENERATED_UNMASKED",
+          "source_clock_ids": [
+            "H1_SOLAR_DAY",
+            "H2_SYNODIC_MONTH",
+            "H3_ANNUAL_ORBIT",
+            "H4_PRINCIPAL_NODES",
+            "H5_AXIAL_PRECESSION"
+          ],
+          "source_cell_keys": [
+            "48:H1_SOLAR_DAY",
+            "48:H2_SYNODIC_MONTH",
+            "48:H3_ANNUAL_ORBIT",
+            "48:H4_PRINCIPAL_NODES",
+            "48:H5_AXIAL_PRECESSION"
+          ],
+          "inverse_error_x_px": 0,
+          "inverse_error_y_px": 0
+        }
+      ]
+    },
+    {
+      "format": "C2",
+      "family": "DIN_C",
+      "target_landscape_mm": [
+        648,
+        458
+      ],
+      "format_area_mm2": 296784,
+      "scale_mm_per_px": 0.9759036144578314,
+      "offset_mm": [
+        0,
+        118.72289156626506
+      ],
+      "fit_content_mm": [
+        648,
+        220.55421686746988
+      ],
+      "all_points_inside_frame": true,
+      "zone_counts": {
+        "inside": 2,
+        "outside": 6,
+        "boundary": 0
+      },
+      "y_order": [
+        42,
+        36,
+        12,
+        9,
+        6,
+        48,
+        3,
+        24
+      ],
+      "chord_9_42_rank": 8,
+      "all_pair_ranks_preserved": true,
+      "hull_area_mm2": 1985.3995085201386,
+      "hull_area_fraction_of_sheet": 0.006689712075179722,
+      "hull_scaling_error": 3.2514435588382185e-11,
+      "max_inverse_error_px": 2.842170943040401e-14,
+      "max_normalized_error": 1.5543122344752192e-15,
+      "gate_42_y_mm": 252.76960204731,
+      "gate_42_split3": {
+        "fixed": "252.770",
+        "integer_part": 252,
+        "fractional_integer": 770,
+        "difference": 518
+      },
+      "transformed_records": [
+        {
+          "gate_hour": 3,
+          "x_mm": 503.880003141497,
+          "y_mm": 281.067874380333,
+          "zone": "outside",
+          "class_full_trace": "GENERATED_UNMASKED",
+          "class_no_trace": "GENERATED_UNMASKED",
+          "source_clock_ids": [
+            "H1_SOLAR_DAY",
+            "H2_SYNODIC_MONTH",
+            "H3_ANNUAL_ORBIT",
+            "H4_PRINCIPAL_NODES",
+            "H5_AXIAL_PRECESSION"
+          ],
+          "source_cell_keys": [
+            "3:H1_SOLAR_DAY",
+            "3:H2_SYNODIC_MONTH",
+            "3:H3_ANNUAL_ORBIT",
+            "3:H4_PRINCIPAL_NODES",
+            "3:H5_AXIAL_PRECESSION"
+          ],
+          "inverse_error_x_px": 0,
+          "inverse_error_y_px": 2.842170943040401e-14
+        },
+        {
+          "gate_hour": 6,
+          "x_mm": 443.871695572628,
+          "y_mm": 273.539153055483,
+          "zone": "outside",
+          "class_full_trace": "GENERATED_UNMASKED",
+          "class_no_trace": "GENERATED_UNMASKED",
+          "source_clock_ids": [
+            "H1_SOLAR_DAY",
+            "H2_SYNODIC_MONTH",
+            "H3_ANNUAL_ORBIT",
+            "H4_PRINCIPAL_NODES",
+            "H5_AXIAL_PRECESSION"
+          ],
+          "source_cell_keys": [
+            "6:H1_SOLAR_DAY",
+            "6:H2_SYNODIC_MONTH",
+            "6:H3_ANNUAL_ORBIT",
+            "6:H4_PRINCIPAL_NODES",
+            "6:H5_AXIAL_PRECESSION"
+          ],
+          "inverse_error_x_px": 0,
+          "inverse_error_y_px": 0
+        },
+        {
+          "gate_hour": 9,
+          "x_mm": 383.817676646165,
+          "y_mm": 267.084752806618,
+          "zone": "outside",
+          "class_full_trace": "GENERATED_UNMASKED",
+          "class_no_trace": "GENERATED_UNMASKED",
+          "source_clock_ids": [
+            "H1_SOLAR_DAY",
+            "H2_SYNODIC_MONTH",
+            "H3_ANNUAL_ORBIT",
+            "H4_PRINCIPAL_NODES",
+            "H5_AXIAL_PRECESSION"
+          ],
+          "source_cell_keys": [
+            "9:H1_SOLAR_DAY",
+            "9:H2_SYNODIC_MONTH",
+            "9:H3_ANNUAL_ORBIT",
+            "9:H4_PRINCIPAL_NODES",
+            "9:H5_AXIAL_PRECESSION"
+          ],
+          "inverse_error_x_px": 0,
+          "inverse_error_y_px": 0
+        },
+        {
+          "gate_hour": 12,
+          "x_mm": 358.38549607052,
+          "y_mm": 262.142212498709,
+          "zone": "inside",
+          "class_full_trace": "GENERATED_MASKED_RECOVERABLE",
+          "class_no_trace": "UNKNOWN",
+          "source_clock_ids": [
+            "H1_SOLAR_DAY",
+            "H2_SYNODIC_MONTH",
+            "H3_ANNUAL_ORBIT",
+            "H4_PRINCIPAL_NODES",
+            "H5_AXIAL_PRECESSION"
+          ],
+          "source_cell_keys": [
+            "12:H1_SOLAR_DAY",
+            "12:H2_SYNODIC_MONTH",
+            "12:H3_ANNUAL_ORBIT",
+            "12:H4_PRINCIPAL_NODES",
+            "12:H5_AXIAL_PRECESSION"
+          ],
+          "inverse_error_x_px": 0,
+          "inverse_error_y_px": 0
+        },
+        {
+          "gate_hour": 24,
+          "x_mm": 521.657497101495,
+          "y_mm": 284.055739015632,
+          "zone": "outside",
+          "class_full_trace": "GENERATED_UNMASKED",
+          "class_no_trace": "GENERATED_UNMASKED",
+          "source_clock_ids": [
+            "H1_SOLAR_DAY",
+            "H2_SYNODIC_MONTH",
+            "H3_ANNUAL_ORBIT",
+            "H4_PRINCIPAL_NODES",
+            "H5_AXIAL_PRECESSION"
+          ],
+          "source_cell_keys": [
+            "24:H1_SOLAR_DAY",
+            "24:H2_SYNODIC_MONTH",
+            "24:H3_ANNUAL_ORBIT",
+            "24:H4_PRINCIPAL_NODES",
+            "24:H5_AXIAL_PRECESSION"
+          ],
+          "inverse_error_x_px": 0,
+          "inverse_error_y_px": 2.842170943040401e-14
+        },
+        {
+          "gate_hour": 36,
+          "x_mm": 349.486041511455,
+          "y_mm": 256.976069437045,
+          "zone": "inside",
+          "class_full_trace": "GENERATED_MASKED_RECOVERABLE",
+          "class_no_trace": "UNKNOWN",
+          "source_clock_ids": [
+            "H1_SOLAR_DAY",
+            "H2_SYNODIC_MONTH",
+            "H3_ANNUAL_ORBIT",
+            "H4_PRINCIPAL_NODES",
+            "H5_AXIAL_PRECESSION"
+          ],
+          "source_cell_keys": [
+            "36:H1_SOLAR_DAY",
+            "36:H2_SYNODIC_MONTH",
+            "36:H3_ANNUAL_ORBIT",
+            "36:H4_PRINCIPAL_NODES",
+            "36:H5_AXIAL_PRECESSION"
+          ],
+          "inverse_error_x_px": 0,
+          "inverse_error_y_px": 0
+        },
+        {
+          "gate_hour": 42,
+          "x_mm": 430.551830827886,
+          "y_mm": 252.76960204731,
+          "zone": "outside",
+          "class_full_trace": "GENERATED_UNMASKED",
+          "class_no_trace": "GENERATED_UNMASKED",
+          "source_clock_ids": [
+            "H1_SOLAR_DAY",
+            "H2_SYNODIC_MONTH",
+            "H3_ANNUAL_ORBIT",
+            "H4_PRINCIPAL_NODES",
+            "H5_AXIAL_PRECESSION"
+          ],
+          "source_cell_keys": [
+            "42:H1_SOLAR_DAY",
+            "42:H2_SYNODIC_MONTH",
+            "42:H3_ANNUAL_ORBIT",
+            "42:H4_PRINCIPAL_NODES",
+            "42:H5_AXIAL_PRECESSION"
+          ],
+          "inverse_error_x_px": 0,
+          "inverse_error_y_px": 0
+        },
+        {
+          "gate_hour": 48,
+          "x_mm": 511.469532436257,
+          "y_mm": 278.875656069703,
+          "zone": "outside",
+          "class_full_trace": "GENERATED_UNMASKED",
+          "class_no_trace": "GENERATED_UNMASKED",
+          "source_clock_ids": [
+            "H1_SOLAR_DAY",
+            "H2_SYNODIC_MONTH",
+            "H3_ANNUAL_ORBIT",
+            "H4_PRINCIPAL_NODES",
+            "H5_AXIAL_PRECESSION"
+          ],
+          "source_cell_keys": [
+            "48:H1_SOLAR_DAY",
+            "48:H2_SYNODIC_MONTH",
+            "48:H3_ANNUAL_ORBIT",
+            "48:H4_PRINCIPAL_NODES",
+            "48:H5_AXIAL_PRECESSION"
+          ],
+          "inverse_error_x_px": 0,
+          "inverse_error_y_px": 0
+        }
+      ]
+    },
+    {
+      "format": "C3",
+      "family": "DIN_C",
+      "target_landscape_mm": [
+        458,
+        324
+      ],
+      "format_area_mm2": 148392,
+      "scale_mm_per_px": 0.6897590361445783,
+      "offset_mm": [
+        0,
+        84.05722891566265
+      ],
+      "fit_content_mm": [
+        458,
+        155.8855421686747
+      ],
+      "all_points_inside_frame": true,
+      "zone_counts": {
+        "inside": 2,
+        "outside": 6,
+        "boundary": 0
+      },
+      "y_order": [
+        42,
+        36,
+        12,
+        9,
+        6,
+        48,
+        3,
+        24
+      ],
+      "chord_9_42_rank": 8,
+      "all_pair_ranks_preserved": true,
+      "hull_area_mm2": 991.8108484444383,
+      "hull_area_fraction_of_sheet": 0.0066837218208827855,
+      "hull_scaling_error": 4.547473508864641e-12,
+      "max_inverse_error_px": 5.684341886080802e-14,
+      "max_normalized_error": 2.3314683517128287e-15,
+      "gate_42_y_mm": 178.800119965537,
+      "gate_42_split3": {
+        "fixed": "178.800",
+        "integer_part": 178,
+        "fractional_integer": 800,
+        "difference": 622
+      },
+      "transformed_records": [
+        {
+          "gate_hour": 3,
+          "x_mm": 356.137409627786,
+          "y_mm": 198.801059361408,
+          "zone": "outside",
+          "class_full_trace": "GENERATED_UNMASKED",
+          "class_no_trace": "GENERATED_UNMASKED",
+          "source_clock_ids": [
+            "H1_SOLAR_DAY",
+            "H2_SYNODIC_MONTH",
+            "H3_ANNUAL_ORBIT",
+            "H4_PRINCIPAL_NODES",
+            "H5_AXIAL_PRECESSION"
+          ],
+          "source_cell_keys": [
+            "3:H1_SOLAR_DAY",
+            "3:H2_SYNODIC_MONTH",
+            "3:H3_ANNUAL_ORBIT",
+            "3:H4_PRINCIPAL_NODES",
+            "3:H5_AXIAL_PRECESSION"
+          ],
+          "inverse_error_x_px": 0,
+          "inverse_error_y_px": 0
+        },
+        {
+          "gate_hour": 6,
+          "x_mm": 313.724130512752,
+          "y_mm": 193.479833486746,
+          "zone": "outside",
+          "class_full_trace": "GENERATED_UNMASKED",
+          "class_no_trace": "GENERATED_UNMASKED",
+          "source_clock_ids": [
+            "H1_SOLAR_DAY",
+            "H2_SYNODIC_MONTH",
+            "H3_ANNUAL_ORBIT",
+            "H4_PRINCIPAL_NODES",
+            "H5_AXIAL_PRECESSION"
+          ],
+          "source_cell_keys": [
+            "6:H1_SOLAR_DAY",
+            "6:H2_SYNODIC_MONTH",
+            "6:H3_ANNUAL_ORBIT",
+            "6:H4_PRINCIPAL_NODES",
+            "6:H5_AXIAL_PRECESSION"
+          ],
+          "inverse_error_x_px": 0,
+          "inverse_error_y_px": 2.842170943040401e-14
+        },
+        {
+          "gate_hour": 9,
+          "x_mm": 271.278543061642,
+          "y_mm": 188.917927138011,
+          "zone": "outside",
+          "class_full_trace": "GENERATED_UNMASKED",
+          "class_no_trace": "GENERATED_UNMASKED",
+          "source_clock_ids": [
+            "H1_SOLAR_DAY",
+            "H2_SYNODIC_MONTH",
+            "H3_ANNUAL_ORBIT",
+            "H4_PRINCIPAL_NODES",
+            "H5_AXIAL_PRECESSION"
+          ],
+          "source_cell_keys": [
+            "9:H1_SOLAR_DAY",
+            "9:H2_SYNODIC_MONTH",
+            "9:H3_ANNUAL_ORBIT",
+            "9:H4_PRINCIPAL_NODES",
+            "9:H5_AXIAL_PRECESSION"
+          ],
+          "inverse_error_x_px": 5.684341886080802e-14,
+          "inverse_error_y_px": 2.842170943040401e-14
+        },
+        {
+          "gate_hour": 12,
+          "x_mm": 253.303329012806,
+          "y_mm": 185.424588463594,
+          "zone": "inside",
+          "class_full_trace": "GENERATED_MASKED_RECOVERABLE",
+          "class_no_trace": "UNKNOWN",
+          "source_clock_ids": [
+            "H1_SOLAR_DAY",
+            "H2_SYNODIC_MONTH",
+            "H3_ANNUAL_ORBIT",
+            "H4_PRINCIPAL_NODES",
+            "H5_AXIAL_PRECESSION"
+          ],
+          "source_cell_keys": [
+            "12:H1_SOLAR_DAY",
+            "12:H2_SYNODIC_MONTH",
+            "12:H3_ANNUAL_ORBIT",
+            "12:H4_PRINCIPAL_NODES",
+            "12:H5_AXIAL_PRECESSION"
+          ],
+          "inverse_error_x_px": 0,
+          "inverse_error_y_px": 2.842170943040401e-14
+        },
+        {
+          "gate_hour": 24,
+          "x_mm": 368.702366778526,
+          "y_mm": 200.912852575863,
+          "zone": "outside",
+          "class_full_trace": "GENERATED_UNMASKED",
+          "class_no_trace": "GENERATED_UNMASKED",
+          "source_clock_ids": [
+            "H1_SOLAR_DAY",
+            "H2_SYNODIC_MONTH",
+            "H3_ANNUAL_ORBIT",
+            "H4_PRINCIPAL_NODES",
+            "H5_AXIAL_PRECESSION"
+          ],
+          "source_cell_keys": [
+            "24:H1_SOLAR_DAY",
+            "24:H2_SYNODIC_MONTH",
+            "24:H3_ANNUAL_ORBIT",
+            "24:H4_PRINCIPAL_NODES",
+            "24:H5_AXIAL_PRECESSION"
+          ],
+          "inverse_error_x_px": 0,
+          "inverse_error_y_px": 0
+        },
+        {
+          "gate_hour": 36,
+          "x_mm": 247.013282426306,
+          "y_mm": 181.773209571245,
+          "zone": "inside",
+          "class_full_trace": "GENERATED_MASKED_RECOVERABLE",
+          "class_no_trace": "UNKNOWN",
+          "source_clock_ids": [
+            "H1_SOLAR_DAY",
+            "H2_SYNODIC_MONTH",
+            "H3_ANNUAL_ORBIT",
+            "H4_PRINCIPAL_NODES",
+            "H5_AXIAL_PRECESSION"
+          ],
+          "source_cell_keys": [
+            "36:H1_SOLAR_DAY",
+            "36:H2_SYNODIC_MONTH",
+            "36:H3_ANNUAL_ORBIT",
+            "36:H4_PRINCIPAL_NODES",
+            "36:H5_AXIAL_PRECESSION"
+          ],
+          "inverse_error_x_px": 0,
+          "inverse_error_y_px": 2.842170943040401e-14
+        },
+        {
+          "gate_hour": 42,
+          "x_mm": 304.309781665389,
+          "y_mm": 178.800119965537,
+          "zone": "outside",
+          "class_full_trace": "GENERATED_UNMASKED",
+          "class_no_trace": "GENERATED_UNMASKED",
+          "source_clock_ids": [
+            "H1_SOLAR_DAY",
+            "H2_SYNODIC_MONTH",
+            "H3_ANNUAL_ORBIT",
+            "H4_PRINCIPAL_NODES",
+            "H5_AXIAL_PRECESSION"
+          ],
+          "source_cell_keys": [
+            "42:H1_SOLAR_DAY",
+            "42:H2_SYNODIC_MONTH",
+            "42:H3_ANNUAL_ORBIT",
+            "42:H4_PRINCIPAL_NODES",
+            "42:H5_AXIAL_PRECESSION"
+          ],
+          "inverse_error_x_px": 0,
+          "inverse_error_y_px": 0
+        },
+        {
+          "gate_hour": 48,
+          "x_mm": 361.501613975009,
+          "y_mm": 197.251621110994,
+          "zone": "outside",
+          "class_full_trace": "GENERATED_UNMASKED",
+          "class_no_trace": "GENERATED_UNMASKED",
+          "source_clock_ids": [
+            "H1_SOLAR_DAY",
+            "H2_SYNODIC_MONTH",
+            "H3_ANNUAL_ORBIT",
+            "H4_PRINCIPAL_NODES",
+            "H5_AXIAL_PRECESSION"
+          ],
+          "source_cell_keys": [
+            "48:H1_SOLAR_DAY",
+            "48:H2_SYNODIC_MONTH",
+            "48:H3_ANNUAL_ORBIT",
+            "48:H4_PRINCIPAL_NODES",
+            "48:H5_AXIAL_PRECESSION"
+          ],
+          "inverse_error_x_px": 0,
+          "inverse_error_y_px": 2.842170943040401e-14
+        }
+      ]
+    },
+    {
+      "format": "C4",
+      "family": "DIN_C",
+      "target_landscape_mm": [
+        324,
+        229
+      ],
+      "format_area_mm2": 74196,
+      "scale_mm_per_px": 0.4879518072289157,
+      "offset_mm": [
+        0,
+        59.36144578313253
+      ],
+      "fit_content_mm": [
+        324,
+        110.27710843373494
+      ],
+      "all_points_inside_frame": true,
+      "zone_counts": {
+        "inside": 2,
+        "outside": 6,
+        "boundary": 0
+      },
+      "y_order": [
+        42,
+        36,
+        12,
+        9,
+        6,
+        48,
+        3,
+        24
+      ],
+      "chord_9_42_rank": 8,
+      "all_pair_ranks_preserved": true,
+      "hull_area_mm2": 496.3498771300292,
+      "hull_area_fraction_of_sheet": 0.0066897120751796485,
+      "hull_scaling_error": 2.6716406864579767e-12,
+      "max_inverse_error_px": 2.842170943040401e-14,
+      "max_normalized_error": 4.551914400963142e-15,
+      "gate_42_y_mm": 126.384801023655,
+      "gate_42_split3": {
+        "fixed": "126.385",
+        "integer_part": 126,
+        "fractional_integer": 385,
+        "difference": 259
+      },
+      "transformed_records": [
+        {
+          "gate_hour": 3,
+          "x_mm": 251.940001570748,
+          "y_mm": 140.533937190167,
+          "zone": "outside",
+          "class_full_trace": "GENERATED_UNMASKED",
+          "class_no_trace": "GENERATED_UNMASKED",
+          "source_clock_ids": [
+            "H1_SOLAR_DAY",
+            "H2_SYNODIC_MONTH",
+            "H3_ANNUAL_ORBIT",
+            "H4_PRINCIPAL_NODES",
+            "H5_AXIAL_PRECESSION"
+          ],
+          "source_cell_keys": [
+            "3:H1_SOLAR_DAY",
+            "3:H2_SYNODIC_MONTH",
+            "3:H3_ANNUAL_ORBIT",
+            "3:H4_PRINCIPAL_NODES",
+            "3:H5_AXIAL_PRECESSION"
+          ],
+          "inverse_error_x_px": 0,
+          "inverse_error_y_px": 2.842170943040401e-14
+        },
+        {
+          "gate_hour": 6,
+          "x_mm": 221.935847786314,
+          "y_mm": 136.769576527742,
+          "zone": "outside",
+          "class_full_trace": "GENERATED_UNMASKED",
+          "class_no_trace": "GENERATED_UNMASKED",
+          "source_clock_ids": [
+            "H1_SOLAR_DAY",
+            "H2_SYNODIC_MONTH",
+            "H3_ANNUAL_ORBIT",
+            "H4_PRINCIPAL_NODES",
+            "H5_AXIAL_PRECESSION"
+          ],
+          "source_cell_keys": [
+            "6:H1_SOLAR_DAY",
+            "6:H2_SYNODIC_MONTH",
+            "6:H3_ANNUAL_ORBIT",
+            "6:H4_PRINCIPAL_NODES",
+            "6:H5_AXIAL_PRECESSION"
+          ],
+          "inverse_error_x_px": 0,
+          "inverse_error_y_px": 0
+        },
+        {
+          "gate_hour": 9,
+          "x_mm": 191.908838323083,
+          "y_mm": 133.542376403309,
+          "zone": "outside",
+          "class_full_trace": "GENERATED_UNMASKED",
+          "class_no_trace": "GENERATED_UNMASKED",
+          "source_clock_ids": [
+            "H1_SOLAR_DAY",
+            "H2_SYNODIC_MONTH",
+            "H3_ANNUAL_ORBIT",
+            "H4_PRINCIPAL_NODES",
+            "H5_AXIAL_PRECESSION"
+          ],
+          "source_cell_keys": [
+            "9:H1_SOLAR_DAY",
+            "9:H2_SYNODIC_MONTH",
+            "9:H3_ANNUAL_ORBIT",
+            "9:H4_PRINCIPAL_NODES",
+            "9:H5_AXIAL_PRECESSION"
+          ],
+          "inverse_error_x_px": 0,
+          "inverse_error_y_px": 0
+        },
+        {
+          "gate_hour": 12,
+          "x_mm": 179.19274803526,
+          "y_mm": 131.071106249354,
+          "zone": "inside",
+          "class_full_trace": "GENERATED_MASKED_RECOVERABLE",
+          "class_no_trace": "UNKNOWN",
+          "source_clock_ids": [
+            "H1_SOLAR_DAY",
+            "H2_SYNODIC_MONTH",
+            "H3_ANNUAL_ORBIT",
+            "H4_PRINCIPAL_NODES",
+            "H5_AXIAL_PRECESSION"
+          ],
+          "source_cell_keys": [
+            "12:H1_SOLAR_DAY",
+            "12:H2_SYNODIC_MONTH",
+            "12:H3_ANNUAL_ORBIT",
+            "12:H4_PRINCIPAL_NODES",
+            "12:H5_AXIAL_PRECESSION"
+          ],
+          "inverse_error_x_px": 0,
+          "inverse_error_y_px": 0
+        },
+        {
+          "gate_hour": 24,
+          "x_mm": 260.828748550748,
+          "y_mm": 142.027869507816,
+          "zone": "outside",
+          "class_full_trace": "GENERATED_UNMASKED",
+          "class_no_trace": "GENERATED_UNMASKED",
+          "source_clock_ids": [
+            "H1_SOLAR_DAY",
+            "H2_SYNODIC_MONTH",
+            "H3_ANNUAL_ORBIT",
+            "H4_PRINCIPAL_NODES",
+            "H5_AXIAL_PRECESSION"
+          ],
+          "source_cell_keys": [
+            "24:H1_SOLAR_DAY",
+            "24:H2_SYNODIC_MONTH",
+            "24:H3_ANNUAL_ORBIT",
+            "24:H4_PRINCIPAL_NODES",
+            "24:H5_AXIAL_PRECESSION"
+          ],
+          "inverse_error_x_px": 0,
+          "inverse_error_y_px": 2.842170943040401e-14
+        },
+        {
+          "gate_hour": 36,
+          "x_mm": 174.743020755728,
+          "y_mm": 128.488034718522,
+          "zone": "inside",
+          "class_full_trace": "GENERATED_MASKED_RECOVERABLE",
+          "class_no_trace": "UNKNOWN",
+          "source_clock_ids": [
+            "H1_SOLAR_DAY",
+            "H2_SYNODIC_MONTH",
+            "H3_ANNUAL_ORBIT",
+            "H4_PRINCIPAL_NODES",
+            "H5_AXIAL_PRECESSION"
+          ],
+          "source_cell_keys": [
+            "36:H1_SOLAR_DAY",
+            "36:H2_SYNODIC_MONTH",
+            "36:H3_ANNUAL_ORBIT",
+            "36:H4_PRINCIPAL_NODES",
+            "36:H5_AXIAL_PRECESSION"
+          ],
+          "inverse_error_x_px": 0,
+          "inverse_error_y_px": 0
+        },
+        {
+          "gate_hour": 42,
+          "x_mm": 215.275915413943,
+          "y_mm": 126.384801023655,
+          "zone": "outside",
+          "class_full_trace": "GENERATED_UNMASKED",
+          "class_no_trace": "GENERATED_UNMASKED",
+          "source_clock_ids": [
+            "H1_SOLAR_DAY",
+            "H2_SYNODIC_MONTH",
+            "H3_ANNUAL_ORBIT",
+            "H4_PRINCIPAL_NODES",
+            "H5_AXIAL_PRECESSION"
+          ],
+          "source_cell_keys": [
+            "42:H1_SOLAR_DAY",
+            "42:H2_SYNODIC_MONTH",
+            "42:H3_ANNUAL_ORBIT",
+            "42:H4_PRINCIPAL_NODES",
+            "42:H5_AXIAL_PRECESSION"
+          ],
+          "inverse_error_x_px": 0,
+          "inverse_error_y_px": 0
+        },
+        {
+          "gate_hour": 48,
+          "x_mm": 255.734766218129,
+          "y_mm": 139.437828034852,
+          "zone": "outside",
+          "class_full_trace": "GENERATED_UNMASKED",
+          "class_no_trace": "GENERATED_UNMASKED",
+          "source_clock_ids": [
+            "H1_SOLAR_DAY",
+            "H2_SYNODIC_MONTH",
+            "H3_ANNUAL_ORBIT",
+            "H4_PRINCIPAL_NODES",
+            "H5_AXIAL_PRECESSION"
+          ],
+          "source_cell_keys": [
+            "48:H1_SOLAR_DAY",
+            "48:H2_SYNODIC_MONTH",
+            "48:H3_ANNUAL_ORBIT",
+            "48:H4_PRINCIPAL_NODES",
+            "48:H5_AXIAL_PRECESSION"
+          ],
+          "inverse_error_x_px": 0,
+          "inverse_error_y_px": 0
+        }
+      ]
+    },
+    {
+      "format": "C5",
+      "family": "DIN_C",
+      "target_landscape_mm": [
+        229,
+        162
+      ],
+      "format_area_mm2": 37098,
+      "scale_mm_per_px": 0.34487951807228917,
+      "offset_mm": [
+        0,
+        42.028614457831324
+      ],
+      "fit_content_mm": [
+        229,
+        77.94277108433735
+      ],
+      "all_points_inside_frame": true,
+      "zone_counts": {
+        "inside": 2,
+        "outside": 6,
+        "boundary": 0
+      },
+      "y_order": [
+        42,
+        36,
+        12,
+        9,
+        6,
+        48,
+        3,
+        24
+      ],
+      "chord_9_42_rank": 8,
+      "all_pair_ranks_preserved": true,
+      "hull_area_mm2": 247.95271211109866,
+      "hull_area_fraction_of_sheet": 0.006683721820882491,
+      "hull_scaling_error": 9.777068044058979e-12,
+      "max_inverse_error_px": 5.684341886080802e-14,
+      "max_normalized_error": 5.662137425588298e-15,
+      "gate_42_y_mm": 89.400059982769,
+      "gate_42_split3": {
+        "fixed": "89.400",
+        "integer_part": 89,
+        "fractional_integer": 400,
+        "difference": 311
+      },
+      "transformed_records": [
+        {
+          "gate_hour": 3,
+          "x_mm": 178.068704813893,
+          "y_mm": 99.400529680704,
+          "zone": "outside",
+          "class_full_trace": "GENERATED_UNMASKED",
+          "class_no_trace": "GENERATED_UNMASKED",
+          "source_clock_ids": [
+            "H1_SOLAR_DAY",
+            "H2_SYNODIC_MONTH",
+            "H3_ANNUAL_ORBIT",
+            "H4_PRINCIPAL_NODES",
+            "H5_AXIAL_PRECESSION"
+          ],
+          "source_cell_keys": [
+            "3:H1_SOLAR_DAY",
+            "3:H2_SYNODIC_MONTH",
+            "3:H3_ANNUAL_ORBIT",
+            "3:H4_PRINCIPAL_NODES",
+            "3:H5_AXIAL_PRECESSION"
+          ],
+          "inverse_error_x_px": 0,
+          "inverse_error_y_px": 0
+        },
+        {
+          "gate_hour": 6,
+          "x_mm": 156.862065256376,
+          "y_mm": 96.739916743373,
+          "zone": "outside",
+          "class_full_trace": "GENERATED_UNMASKED",
+          "class_no_trace": "GENERATED_UNMASKED",
+          "source_clock_ids": [
+            "H1_SOLAR_DAY",
+            "H2_SYNODIC_MONTH",
+            "H3_ANNUAL_ORBIT",
+            "H4_PRINCIPAL_NODES",
+            "H5_AXIAL_PRECESSION"
+          ],
+          "source_cell_keys": [
+            "6:H1_SOLAR_DAY",
+            "6:H2_SYNODIC_MONTH",
+            "6:H3_ANNUAL_ORBIT",
+            "6:H4_PRINCIPAL_NODES",
+            "6:H5_AXIAL_PRECESSION"
+          ],
+          "inverse_error_x_px": 0,
+          "inverse_error_y_px": 2.842170943040401e-14
+        },
+        {
+          "gate_hour": 9,
+          "x_mm": 135.639271530821,
+          "y_mm": 94.458963569005,
+          "zone": "outside",
+          "class_full_trace": "GENERATED_UNMASKED",
+          "class_no_trace": "GENERATED_UNMASKED",
+          "source_clock_ids": [
+            "H1_SOLAR_DAY",
+            "H2_SYNODIC_MONTH",
+            "H3_ANNUAL_ORBIT",
+            "H4_PRINCIPAL_NODES",
+            "H5_AXIAL_PRECESSION"
+          ],
+          "source_cell_keys": [
+            "9:H1_SOLAR_DAY",
+            "9:H2_SYNODIC_MONTH",
+            "9:H3_ANNUAL_ORBIT",
+            "9:H4_PRINCIPAL_NODES",
+            "9:H5_AXIAL_PRECESSION"
+          ],
+          "inverse_error_x_px": 5.684341886080802e-14,
+          "inverse_error_y_px": 2.842170943040401e-14
+        },
+        {
+          "gate_hour": 12,
+          "x_mm": 126.651664506403,
+          "y_mm": 92.712294231797,
+          "zone": "inside",
+          "class_full_trace": "GENERATED_MASKED_RECOVERABLE",
+          "class_no_trace": "UNKNOWN",
+          "source_clock_ids": [
+            "H1_SOLAR_DAY",
+            "H2_SYNODIC_MONTH",
+            "H3_ANNUAL_ORBIT",
+            "H4_PRINCIPAL_NODES",
+            "H5_AXIAL_PRECESSION"
+          ],
+          "source_cell_keys": [
+            "12:H1_SOLAR_DAY",
+            "12:H2_SYNODIC_MONTH",
+            "12:H3_ANNUAL_ORBIT",
+            "12:H4_PRINCIPAL_NODES",
+            "12:H5_AXIAL_PRECESSION"
+          ],
+          "inverse_error_x_px": 0,
+          "inverse_error_y_px": 2.842170943040401e-14
+        },
+        {
+          "gate_hour": 24,
+          "x_mm": 184.351183389263,
+          "y_mm": 100.456426287932,
+          "zone": "outside",
+          "class_full_trace": "GENERATED_UNMASKED",
+          "class_no_trace": "GENERATED_UNMASKED",
+          "source_clock_ids": [
+            "H1_SOLAR_DAY",
+            "H2_SYNODIC_MONTH",
+            "H3_ANNUAL_ORBIT",
+            "H4_PRINCIPAL_NODES",
+            "H5_AXIAL_PRECESSION"
+          ],
+          "source_cell_keys": [
+            "24:H1_SOLAR_DAY",
+            "24:H2_SYNODIC_MONTH",
+            "24:H3_ANNUAL_ORBIT",
+            "24:H4_PRINCIPAL_NODES",
+            "24:H5_AXIAL_PRECESSION"
+          ],
+          "inverse_error_x_px": 0,
+          "inverse_error_y_px": 0
+        },
+        {
+          "gate_hour": 36,
+          "x_mm": 123.506641213153,
+          "y_mm": 90.886604785622,
+          "zone": "inside",
+          "class_full_trace": "GENERATED_MASKED_RECOVERABLE",
+          "class_no_trace": "UNKNOWN",
+          "source_clock_ids": [
+            "H1_SOLAR_DAY",
+            "H2_SYNODIC_MONTH",
+            "H3_ANNUAL_ORBIT",
+            "H4_PRINCIPAL_NODES",
+            "H5_AXIAL_PRECESSION"
+          ],
+          "source_cell_keys": [
+            "36:H1_SOLAR_DAY",
+            "36:H2_SYNODIC_MONTH",
+            "36:H3_ANNUAL_ORBIT",
+            "36:H4_PRINCIPAL_NODES",
+            "36:H5_AXIAL_PRECESSION"
+          ],
+          "inverse_error_x_px": 0,
+          "inverse_error_y_px": 2.842170943040401e-14
+        },
+        {
+          "gate_hour": 42,
+          "x_mm": 152.154890832694,
+          "y_mm": 89.400059982769,
+          "zone": "outside",
+          "class_full_trace": "GENERATED_UNMASKED",
+          "class_no_trace": "GENERATED_UNMASKED",
+          "source_clock_ids": [
+            "H1_SOLAR_DAY",
+            "H2_SYNODIC_MONTH",
+            "H3_ANNUAL_ORBIT",
+            "H4_PRINCIPAL_NODES",
+            "H5_AXIAL_PRECESSION"
+          ],
+          "source_cell_keys": [
+            "42:H1_SOLAR_DAY",
+            "42:H2_SYNODIC_MONTH",
+            "42:H3_ANNUAL_ORBIT",
+            "42:H4_PRINCIPAL_NODES",
+            "42:H5_AXIAL_PRECESSION"
+          ],
+          "inverse_error_x_px": 0,
+          "inverse_error_y_px": 0
+        },
+        {
+          "gate_hour": 48,
+          "x_mm": 180.750806987505,
+          "y_mm": 98.625810555497,
+          "zone": "outside",
+          "class_full_trace": "GENERATED_UNMASKED",
+          "class_no_trace": "GENERATED_UNMASKED",
+          "source_clock_ids": [
+            "H1_SOLAR_DAY",
+            "H2_SYNODIC_MONTH",
+            "H3_ANNUAL_ORBIT",
+            "H4_PRINCIPAL_NODES",
+            "H5_AXIAL_PRECESSION"
+          ],
+          "source_cell_keys": [
+            "48:H1_SOLAR_DAY",
+            "48:H2_SYNODIC_MONTH",
+            "48:H3_ANNUAL_ORBIT",
+            "48:H4_PRINCIPAL_NODES",
+            "48:H5_AXIAL_PRECESSION"
+          ],
+          "inverse_error_x_px": 0,
+          "inverse_error_y_px": 2.842170943040401e-14
+        }
+      ]
+    },
+    {
+      "format": "LETTER",
+      "family": "US",
+      "target_landscape_mm": [
+        279.4,
+        215.9
+      ],
+      "format_area_mm2": 60322.46,
+      "scale_mm_per_px": 0.42078313253012045,
+      "offset_mm": [
+        0,
+        60.40150602409639
+      ],
+      "fit_content_mm": [
+        279.4,
+        95.09698795180722
+      ],
+      "all_points_inside_frame": true,
+      "zone_counts": {
+        "inside": 2,
+        "outside": 6,
+        "boundary": 0
+      },
+      "y_order": [
+        42,
+        36,
+        12,
+        9,
+        6,
+        48,
+        3,
+        24
+      ],
+      "chord_9_42_rank": 8,
+      "all_pair_ranks_preserved": true,
+      "hull_area_mm2": 369.1056574287086,
+      "hull_area_fraction_of_sheet": 0.00611887607747941,
+      "hull_scaling_error": 1.864464138634503e-11,
+      "max_inverse_error_px": 2.842170943040401e-14,
+      "max_normalized_error": 4.773959005888173e-15,
+      "gate_42_y_mm": 118.19880680867,
+      "gate_42_split3": {
+        "fixed": "118.199",
+        "integer_part": 118,
+        "fractional_integer": 199,
+        "difference": 81
+      },
+      "transformed_records": [
+        {
+          "gate_hour": 3,
+          "x_mm": 217.259371724898,
+          "y_mm": 130.400253243619,
+          "zone": "outside",
+          "class_full_trace": "GENERATED_UNMASKED",
+          "class_no_trace": "GENERATED_UNMASKED",
+          "source_clock_ids": [
+            "H1_SOLAR_DAY",
+            "H2_SYNODIC_MONTH",
+            "H3_ANNUAL_ORBIT",
+            "H4_PRINCIPAL_NODES",
+            "H5_AXIAL_PRECESSION"
+          ],
+          "source_cell_keys": [
+            "3:H1_SOLAR_DAY",
+            "3:H2_SYNODIC_MONTH",
+            "3:H3_ANNUAL_ORBIT",
+            "3:H4_PRINCIPAL_NODES",
+            "3:H5_AXIAL_PRECESSION"
+          ],
+          "inverse_error_x_px": 0,
+          "inverse_error_y_px": 2.842170943040401e-14
+        },
+        {
+          "gate_hour": 6,
+          "x_mm": 191.385419356469,
+          "y_mm": 127.154073092133,
+          "zone": "outside",
+          "class_full_trace": "GENERATED_UNMASKED",
+          "class_no_trace": "GENERATED_UNMASKED",
+          "source_clock_ids": [
+            "H1_SOLAR_DAY",
+            "H2_SYNODIC_MONTH",
+            "H3_ANNUAL_ORBIT",
+            "H4_PRINCIPAL_NODES",
+            "H5_AXIAL_PRECESSION"
+          ],
+          "source_cell_keys": [
+            "6:H1_SOLAR_DAY",
+            "6:H2_SYNODIC_MONTH",
+            "6:H3_ANNUAL_ORBIT",
+            "6:H4_PRINCIPAL_NODES",
+            "6:H5_AXIAL_PRECESSION"
+          ],
+          "inverse_error_x_px": 0,
+          "inverse_error_y_px": 0
+        },
+        {
+          "gate_hour": 9,
+          "x_mm": 165.491757492189,
+          "y_mm": 124.37111100952,
+          "zone": "outside",
+          "class_full_trace": "GENERATED_UNMASKED",
+          "class_no_trace": "GENERATED_UNMASKED",
+          "source_clock_ids": [
+            "H1_SOLAR_DAY",
+            "H2_SYNODIC_MONTH",
+            "H3_ANNUAL_ORBIT",
+            "H4_PRINCIPAL_NODES",
+            "H5_AXIAL_PRECESSION"
+          ],
+          "source_cell_keys": [
+            "9:H1_SOLAR_DAY",
+            "9:H2_SYNODIC_MONTH",
+            "9:H3_ANNUAL_ORBIT",
+            "9:H4_PRINCIPAL_NODES",
+            "9:H5_AXIAL_PRECESSION"
+          ],
+          "inverse_error_x_px": 0,
+          "inverse_error_y_px": 0
+        },
+        {
+          "gate_hour": 12,
+          "x_mm": 154.526091978554,
+          "y_mm": 122.240021870585,
+          "zone": "inside",
+          "class_full_trace": "GENERATED_MASKED_RECOVERABLE",
+          "class_no_trace": "UNKNOWN",
+          "source_clock_ids": [
+            "H1_SOLAR_DAY",
+            "H2_SYNODIC_MONTH",
+            "H3_ANNUAL_ORBIT",
+            "H4_PRINCIPAL_NODES",
+            "H5_AXIAL_PRECESSION"
+          ],
+          "source_cell_keys": [
+            "12:H1_SOLAR_DAY",
+            "12:H2_SYNODIC_MONTH",
+            "12:H3_ANNUAL_ORBIT",
+            "12:H4_PRINCIPAL_NODES",
+            "12:H5_AXIAL_PRECESSION"
+          ],
+          "inverse_error_x_px": 0,
+          "inverse_error_y_px": 2.842170943040401e-14
+        },
+        {
+          "gate_hour": 24,
+          "x_mm": 224.924544274935,
+          "y_mm": 131.688539322481,
+          "zone": "outside",
+          "class_full_trace": "GENERATED_UNMASKED",
+          "class_no_trace": "GENERATED_UNMASKED",
+          "source_clock_ids": [
+            "H1_SOLAR_DAY",
+            "H2_SYNODIC_MONTH",
+            "H3_ANNUAL_ORBIT",
+            "H4_PRINCIPAL_NODES",
+            "H5_AXIAL_PRECESSION"
+          ],
+          "source_cell_keys": [
+            "24:H1_SOLAR_DAY",
+            "24:H2_SYNODIC_MONTH",
+            "24:H3_ANNUAL_ORBIT",
+            "24:H4_PRINCIPAL_NODES",
+            "24:H5_AXIAL_PRECESSION"
+          ],
+          "inverse_error_x_px": 0,
+          "inverse_error_y_px": 0
+        },
+        {
+          "gate_hour": 36,
+          "x_mm": 150.688888886266,
+          "y_mm": 120.012521297393,
+          "zone": "inside",
+          "class_full_trace": "GENERATED_MASKED_RECOVERABLE",
+          "class_no_trace": "UNKNOWN",
+          "source_clock_ids": [
+            "H1_SOLAR_DAY",
+            "H2_SYNODIC_MONTH",
+            "H3_ANNUAL_ORBIT",
+            "H4_PRINCIPAL_NODES",
+            "H5_AXIAL_PRECESSION"
+          ],
+          "source_cell_keys": [
+            "36:H1_SOLAR_DAY",
+            "36:H2_SYNODIC_MONTH",
+            "36:H3_ANNUAL_ORBIT",
+            "36:H4_PRINCIPAL_NODES",
+            "36:H5_AXIAL_PRECESSION"
+          ],
+          "inverse_error_x_px": 0,
+          "inverse_error_y_px": 2.842170943040401e-14
+        },
+        {
+          "gate_hour": 42,
+          "x_mm": 185.642255452641,
+          "y_mm": 118.19880680867,
+          "zone": "outside",
+          "class_full_trace": "GENERATED_UNMASKED",
+          "class_no_trace": "GENERATED_UNMASKED",
+          "source_clock_ids": [
+            "H1_SOLAR_DAY",
+            "H2_SYNODIC_MONTH",
+            "H3_ANNUAL_ORBIT",
+            "H4_PRINCIPAL_NODES",
+            "H5_AXIAL_PRECESSION"
+          ],
+          "source_cell_keys": [
+            "42:H1_SOLAR_DAY",
+            "42:H2_SYNODIC_MONTH",
+            "42:H3_ANNUAL_ORBIT",
+            "42:H4_PRINCIPAL_NODES",
+            "42:H5_AXIAL_PRECESSION"
+          ],
+          "inverse_error_x_px": 0,
+          "inverse_error_y_px": 0
+        },
+        {
+          "gate_hour": 48,
+          "x_mm": 220.531770621436,
+          "y_mm": 129.455028249807,
+          "zone": "outside",
+          "class_full_trace": "GENERATED_UNMASKED",
+          "class_no_trace": "GENERATED_UNMASKED",
+          "source_clock_ids": [
+            "H1_SOLAR_DAY",
+            "H2_SYNODIC_MONTH",
+            "H3_ANNUAL_ORBIT",
+            "H4_PRINCIPAL_NODES",
+            "H5_AXIAL_PRECESSION"
+          ],
+          "source_cell_keys": [
+            "48:H1_SOLAR_DAY",
+            "48:H2_SYNODIC_MONTH",
+            "48:H3_ANNUAL_ORBIT",
+            "48:H4_PRINCIPAL_NODES",
+            "48:H5_AXIAL_PRECESSION"
+          ],
+          "inverse_error_x_px": 0,
+          "inverse_error_y_px": 2.842170943040401e-14
+        }
+      ]
+    }
+  ],
+  "interpretation": {
+    "invariant": [
+      "gate identity",
+      "source provenance",
+      "normalized position",
+      "mask zone",
+      "trace class",
+      "y-order",
+      "pair-distance rank",
+      "convex-hull geometry up to uniform scale"
+    ],
+    "view_dependent": [
+      "raw x/y coordinate",
+      "physical surface area",
+      "margin",
+      "absolute pair distance",
+      "three-decimal digit split"
+    ],
+    "note": "Every FIT surface displays all eight H gates. FIT changes the view, not the frozen carrier record."
+  },
+  "claim_boundary": "Representation invariance only; no CRT-carrier arithmetic, generator, SCN/NCS292/404, E8/H4, astronomy, physics or re-feed claim."
+}

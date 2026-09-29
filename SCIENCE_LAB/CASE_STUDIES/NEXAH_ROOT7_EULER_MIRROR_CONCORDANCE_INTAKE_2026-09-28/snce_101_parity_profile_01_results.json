@@ -1,0 +1,559 @@
+{
+  "classification": "PASS_SNCE_101_PARITY_PROFILE__LOSSLESS_REPARAMETERIZATION_ONLY",
+  "preregistration_sha256": "ffe14decb4e01f2e8eece3e4d22009c04e7bff7f368f3d57afe30d74b51de2ee",
+  "frozen_source_hashes": {
+    "composite_contract": {
+      "expected": "703308d68b779c63d75c6d35a289c02d164d29c2becbc4ee4250bf67dbb26a8c",
+      "actual": "703308d68b779c63d75c6d35a289c02d164d29c2becbc4ee4250bf67dbb26a8c",
+      "pass": true
+    },
+    "composite_result": {
+      "expected": "8ed8457d77d062f2ea237c3df4d0ddd3e3eb8c3903e25d2fcabae04893c6df0f",
+      "actual": "8ed8457d77d062f2ea237c3df4d0ddd3e3eb8c3903e25d2fcabae04893c6df0f",
+      "pass": true
+    },
+    "collision_contract": {
+      "expected": "dc5049dbb33508e12ee9bf4d834c74b3f6a4bfa690c79fd941aa4ceeb2005a8b",
+      "actual": "dc5049dbb33508e12ee9bf4d834c74b3f6a4bfa690c79fd941aa4ceeb2005a8b",
+      "pass": true
+    },
+    "collision_result": {
+      "expected": "0f587856b9107042f7d1245599b9e69cfc5d1e6f5d535182840a868f74385fde",
+      "actual": "0f587856b9107042f7d1245599b9e69cfc5d1e6f5d535182840a868f74385fde",
+      "pass": true
+    },
+    "collision_addendum": {
+      "expected": "973e365b353820bb4d3d2611e2ab65f5839fe1f945337dcb0f4a2d9fcab80f51",
+      "actual": "973e365b353820bb4d3d2611e2ab65f5839fe1f945337dcb0f4a2d9fcab80f51",
+      "pass": true
+    },
+    "legacy_image": {
+      "expected": "a0d9396df0b5db7e25ac05cff54181f55ed5b454825d28f021aa8599d0dbf808",
+      "actual": "a0d9396df0b5db7e25ac05cff54181f55ed5b454825d28f021aa8599d0dbf808",
+      "pass": true
+    }
+  },
+  "profile": {
+    "id": "SNCE_101_DYADIC_PARITY_V1",
+    "start": "positive safe integer c",
+    "norm": "q=c/101",
+    "code": "q=2^k; k=2u+epsilon",
+    "expand": "101*4^u*2^epsilon",
+    "mirror": "(-c,0,+c)"
+  },
+  "checks": {
+    "frozen_hashes_match": true,
+    "roundtrip_21_of_21": true,
+    "codes_unique": true,
+    "parity_partition_complete_exclusive": true,
+    "same_channel_factor_four": true,
+    "interleaved_factor_two": true,
+    "mirror_centered": true,
+    "carrier_404_typed_without_gate_semantics": true,
+    "rejection_controls_pass": true,
+    "malformed_codes_rejected": true,
+    "carrier_12928_code_and_roundtrip": true,
+    "substring_292_not_numeric_identity": true,
+    "midpoint_1212_outside_profile": true,
+    "legacy_444_trace_unevaluated": true
+  },
+  "checks_passed": 14,
+  "checks_total": 14,
+  "records": [
+    {
+      "k": 0,
+      "carrier": 101,
+      "q": 1,
+      "u": 0,
+      "epsilon": 0,
+      "channel": "EVEN",
+      "expanded": 101,
+      "mirror": [
+        -101,
+        0,
+        101
+      ],
+      "roundtrip": true
+    },
+    {
+      "k": 1,
+      "carrier": 202,
+      "q": 2,
+      "u": 0,
+      "epsilon": 1,
+      "channel": "ODD",
+      "expanded": 202,
+      "mirror": [
+        -202,
+        0,
+        202
+      ],
+      "roundtrip": true
+    },
+    {
+      "k": 2,
+      "carrier": 404,
+      "q": 4,
+      "u": 1,
+      "epsilon": 0,
+      "channel": "EVEN",
+      "expanded": 404,
+      "mirror": [
+        -404,
+        0,
+        404
+      ],
+      "roundtrip": true
+    },
+    {
+      "k": 3,
+      "carrier": 808,
+      "q": 8,
+      "u": 1,
+      "epsilon": 1,
+      "channel": "ODD",
+      "expanded": 808,
+      "mirror": [
+        -808,
+        0,
+        808
+      ],
+      "roundtrip": true
+    },
+    {
+      "k": 4,
+      "carrier": 1616,
+      "q": 16,
+      "u": 2,
+      "epsilon": 0,
+      "channel": "EVEN",
+      "expanded": 1616,
+      "mirror": [
+        -1616,
+        0,
+        1616
+      ],
+      "roundtrip": true
+    },
+    {
+      "k": 5,
+      "carrier": 3232,
+      "q": 32,
+      "u": 2,
+      "epsilon": 1,
+      "channel": "ODD",
+      "expanded": 3232,
+      "mirror": [
+        -3232,
+        0,
+        3232
+      ],
+      "roundtrip": true
+    },
+    {
+      "k": 6,
+      "carrier": 6464,
+      "q": 64,
+      "u": 3,
+      "epsilon": 0,
+      "channel": "EVEN",
+      "expanded": 6464,
+      "mirror": [
+        -6464,
+        0,
+        6464
+      ],
+      "roundtrip": true
+    },
+    {
+      "k": 7,
+      "carrier": 12928,
+      "q": 128,
+      "u": 3,
+      "epsilon": 1,
+      "channel": "ODD",
+      "expanded": 12928,
+      "mirror": [
+        -12928,
+        0,
+        12928
+      ],
+      "roundtrip": true
+    },
+    {
+      "k": 8,
+      "carrier": 25856,
+      "q": 256,
+      "u": 4,
+      "epsilon": 0,
+      "channel": "EVEN",
+      "expanded": 25856,
+      "mirror": [
+        -25856,
+        0,
+        25856
+      ],
+      "roundtrip": true
+    },
+    {
+      "k": 9,
+      "carrier": 51712,
+      "q": 512,
+      "u": 4,
+      "epsilon": 1,
+      "channel": "ODD",
+      "expanded": 51712,
+      "mirror": [
+        -51712,
+        0,
+        51712
+      ],
+      "roundtrip": true
+    },
+    {
+      "k": 10,
+      "carrier": 103424,
+      "q": 1024,
+      "u": 5,
+      "epsilon": 0,
+      "channel": "EVEN",
+      "expanded": 103424,
+      "mirror": [
+        -103424,
+        0,
+        103424
+      ],
+      "roundtrip": true
+    },
+    {
+      "k": 11,
+      "carrier": 206848,
+      "q": 2048,
+      "u": 5,
+      "epsilon": 1,
+      "channel": "ODD",
+      "expanded": 206848,
+      "mirror": [
+        -206848,
+        0,
+        206848
+      ],
+      "roundtrip": true
+    },
+    {
+      "k": 12,
+      "carrier": 413696,
+      "q": 4096,
+      "u": 6,
+      "epsilon": 0,
+      "channel": "EVEN",
+      "expanded": 413696,
+      "mirror": [
+        -413696,
+        0,
+        413696
+      ],
+      "roundtrip": true
+    },
+    {
+      "k": 13,
+      "carrier": 827392,
+      "q": 8192,
+      "u": 6,
+      "epsilon": 1,
+      "channel": "ODD",
+      "expanded": 827392,
+      "mirror": [
+        -827392,
+        0,
+        827392
+      ],
+      "roundtrip": true
+    },
+    {
+      "k": 14,
+      "carrier": 1654784,
+      "q": 16384,
+      "u": 7,
+      "epsilon": 0,
+      "channel": "EVEN",
+      "expanded": 1654784,
+      "mirror": [
+        -1654784,
+        0,
+        1654784
+      ],
+      "roundtrip": true
+    },
+    {
+      "k": 15,
+      "carrier": 3309568,
+      "q": 32768,
+      "u": 7,
+      "epsilon": 1,
+      "channel": "ODD",
+      "expanded": 3309568,
+      "mirror": [
+        -3309568,
+        0,
+        3309568
+      ],
+      "roundtrip": true
+    },
+    {
+      "k": 16,
+      "carrier": 6619136,
+      "q": 65536,
+      "u": 8,
+      "epsilon": 0,
+      "channel": "EVEN",
+      "expanded": 6619136,
+      "mirror": [
+        -6619136,
+        0,
+        6619136
+      ],
+      "roundtrip": true
+    },
+    {
+      "k": 17,
+      "carrier": 13238272,
+      "q": 131072,
+      "u": 8,
+      "epsilon": 1,
+      "channel": "ODD",
+      "expanded": 13238272,
+      "mirror": [
+        -13238272,
+        0,
+        13238272
+      ],
+      "roundtrip": true
+    },
+    {
+      "k": 18,
+      "carrier": 26476544,
+      "q": 262144,
+      "u": 9,
+      "epsilon": 0,
+      "channel": "EVEN",
+      "expanded": 26476544,
+      "mirror": [
+        -26476544,
+        0,
+        26476544
+      ],
+      "roundtrip": true
+    },
+    {
+      "k": 19,
+      "carrier": 52953088,
+      "q": 524288,
+      "u": 9,
+      "epsilon": 1,
+      "channel": "ODD",
+      "expanded": 52953088,
+      "mirror": [
+        -52953088,
+        0,
+        52953088
+      ],
+      "roundtrip": true
+    },
+    {
+      "k": 20,
+      "carrier": 105906176,
+      "q": 1048576,
+      "u": 10,
+      "epsilon": 0,
+      "channel": "EVEN",
+      "expanded": 105906176,
+      "mirror": [
+        -105906176,
+        0,
+        105906176
+      ],
+      "roundtrip": true
+    }
+  ],
+  "channels": {
+    "even": [
+      101,
+      404,
+      1616,
+      6464,
+      25856,
+      103424,
+      413696,
+      1654784,
+      6619136,
+      26476544,
+      105906176
+    ],
+    "odd": [
+      202,
+      808,
+      3232,
+      12928,
+      51712,
+      206848,
+      827392,
+      3309568,
+      13238272,
+      52953088
+    ]
+  },
+  "rejection_controls": [
+    {
+      "input": 1212,
+      "accepted": false,
+      "reason": "QUOTIENT_NOT_POWER_OF_TWO"
+    },
+    {
+      "input": 303,
+      "accepted": false,
+      "reason": "QUOTIENT_NOT_POWER_OF_TWO"
+    },
+    {
+      "input": 292,
+      "accepted": false,
+      "reason": "NOT_DIVISIBLE_BY_101"
+    },
+    {
+      "input": 12929,
+      "accepted": false,
+      "reason": "NOT_DIVISIBLE_BY_101"
+    },
+    {
+      "input": 0,
+      "accepted": false,
+      "reason": "START_DOMAIN"
+    },
+    {
+      "input": -101,
+      "accepted": false,
+      "reason": "START_DOMAIN"
+    },
+    {
+      "input": 110,
+      "accepted": false,
+      "reason": "NOT_DIVISIBLE_BY_101"
+    },
+    {
+      "input": 220,
+      "accepted": false,
+      "reason": "NOT_DIVISIBLE_BY_101"
+    },
+    {
+      "input": 550,
+      "accepted": false,
+      "reason": "NOT_DIVISIBLE_BY_101"
+    },
+    {
+      "input": 97,
+      "accepted": false,
+      "reason": "NOT_DIVISIBLE_BY_101"
+    },
+    {
+      "input": 194,
+      "accepted": false,
+      "reason": "NOT_DIVISIBLE_BY_101"
+    },
+    {
+      "input": 388,
+      "accepted": false,
+      "reason": "NOT_DIVISIBLE_BY_101"
+    },
+    {
+      "input": 776,
+      "accepted": false,
+      "reason": "NOT_DIVISIBLE_BY_101"
+    },
+    {
+      "input": 1552,
+      "accepted": false,
+      "reason": "NOT_DIVISIBLE_BY_101"
+    },
+    {
+      "input": 3104,
+      "accepted": false,
+      "reason": "NOT_DIVISIBLE_BY_101"
+    },
+    {
+      "input": 6208,
+      "accepted": false,
+      "reason": "NOT_DIVISIBLE_BY_101"
+    },
+    {
+      "input": 12416,
+      "accepted": false,
+      "reason": "NOT_DIVISIBLE_BY_101"
+    }
+  ],
+  "malformed_code_controls": [
+    {
+      "code": {
+        "u": -1,
+        "epsilon": 0
+      },
+      "rejected": true,
+      "reason": "MALFORMED_CODE"
+    },
+    {
+      "code": {
+        "u": 0.5,
+        "epsilon": 0
+      },
+      "rejected": true,
+      "reason": "MALFORMED_CODE"
+    },
+    {
+      "code": {
+        "u": 1,
+        "epsilon": -1
+      },
+      "rejected": true,
+      "reason": "MALFORMED_CODE"
+    },
+    {
+      "code": {
+        "u": 1,
+        "epsilon": 2
+      },
+      "rejected": true,
+      "reason": "MALFORMED_CODE"
+    }
+  ],
+  "typed_boundaries": {
+    "carrier_404": {
+      "value": 404,
+      "code": {
+        "u": 1,
+        "epsilon": 0
+      },
+      "gate_semantics": "NOT_IMPORTED; G404(a,b) remains a separate regulator predicate"
+    },
+    "midpoint_1212": "ADDITIVE_MIDPOINT_OUTSIDE_PROFILE",
+    "substring_292": {
+      "source": "12928",
+      "segmentation": [
+        "1",
+        "292",
+        "8"
+      ],
+      "arithmetic_mod_292": 80,
+      "status": "DIGIT_SUBSTRING_ONLY"
+    },
+    "legacy_444": {
+      "observed_labels": [
+        444,
+        4.44,
+        74,
+        4774
+      ],
+      "status": "UNMODELED_LEGACY_TRACE",
+      "reason": "image supplies no typed transition functions; no rule fitted in this test"
+    }
+  },
+  "claim_boundary": "Lossless encoding of 101*2^k only; no prediction, physical resonance, SCN/NCS switch, 404 gate bridge, digit law or recovered 444 mechanism."
+}

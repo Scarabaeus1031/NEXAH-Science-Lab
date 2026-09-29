@@ -1,0 +1,827 @@
+{
+  "status": "PASS_BOUNDED",
+  "carrier": "Euclidean Z^4; E8 is a separate negative control",
+  "routes": {
+    "stretch_then_lift": {
+      "operator_sequence": "SL",
+      "states": [
+        [
+          1,
+          1,
+          0,
+          0
+        ],
+        [
+          1,
+          1,
+          2,
+          0
+        ],
+        [
+          1,
+          1,
+          2,
+          1
+        ]
+      ],
+      "radial_norm_squared": [
+        2,
+        6,
+        7
+      ],
+      "e8_integer_coset_after_zero_padding": [
+        true,
+        true,
+        false
+      ],
+      "projection_3d_history": [
+        [
+          1,
+          1,
+          0
+        ],
+        [
+          1,
+          1,
+          2
+        ],
+        [
+          1,
+          1,
+          2
+        ]
+      ],
+      "orientation_47_74_history": [
+        "47",
+        "47",
+        "74"
+      ],
+      "orientation_neutral_history": [
+        "A",
+        "A",
+        "B"
+      ],
+      "typed_transition_records": [
+        {
+          "tick": 1,
+          "operator": "S",
+          "from": [
+            1,
+            1,
+            0,
+            0
+          ],
+          "to": [
+            1,
+            1,
+            2,
+            0
+          ],
+          "step_length_squared": 4,
+          "observed_3d_from": [
+            1,
+            1,
+            0
+          ],
+          "observed_3d_to": [
+            1,
+            1,
+            2
+          ],
+          "hidden_w_change": 0
+        },
+        {
+          "tick": 2,
+          "operator": "L",
+          "from": [
+            1,
+            1,
+            2,
+            0
+          ],
+          "to": [
+            1,
+            1,
+            2,
+            1
+          ],
+          "step_length_squared": 1,
+          "observed_3d_from": [
+            1,
+            1,
+            2
+          ],
+          "observed_3d_to": [
+            1,
+            1,
+            2
+          ],
+          "hidden_w_change": 1
+        }
+      ],
+      "end_state": [
+        1,
+        1,
+        2,
+        1
+      ],
+      "static_role_code": "4774"
+    },
+    "lift_then_stretch": {
+      "operator_sequence": "LS",
+      "states": [
+        [
+          1,
+          1,
+          0,
+          0
+        ],
+        [
+          1,
+          1,
+          0,
+          1
+        ],
+        [
+          1,
+          1,
+          2,
+          1
+        ]
+      ],
+      "radial_norm_squared": [
+        2,
+        3,
+        7
+      ],
+      "e8_integer_coset_after_zero_padding": [
+        true,
+        false,
+        false
+      ],
+      "projection_3d_history": [
+        [
+          1,
+          1,
+          0
+        ],
+        [
+          1,
+          1,
+          0
+        ],
+        [
+          1,
+          1,
+          2
+        ]
+      ],
+      "orientation_47_74_history": [
+        "47",
+        "74",
+        "74"
+      ],
+      "orientation_neutral_history": [
+        "A",
+        "B",
+        "B"
+      ],
+      "typed_transition_records": [
+        {
+          "tick": 1,
+          "operator": "L",
+          "from": [
+            1,
+            1,
+            0,
+            0
+          ],
+          "to": [
+            1,
+            1,
+            0,
+            1
+          ],
+          "step_length_squared": 1,
+          "observed_3d_from": [
+            1,
+            1,
+            0
+          ],
+          "observed_3d_to": [
+            1,
+            1,
+            0
+          ],
+          "hidden_w_change": 1
+        },
+        {
+          "tick": 2,
+          "operator": "S",
+          "from": [
+            1,
+            1,
+            0,
+            1
+          ],
+          "to": [
+            1,
+            1,
+            2,
+            1
+          ],
+          "step_length_squared": 4,
+          "observed_3d_from": [
+            1,
+            1,
+            0
+          ],
+          "observed_3d_to": [
+            1,
+            1,
+            2
+          ],
+          "hidden_w_change": 0
+        }
+      ],
+      "end_state": [
+        1,
+        1,
+        2,
+        1
+      ],
+      "static_role_code": "4774"
+    }
+  },
+  "records": {
+    "endpoint_distinguishes_order": false,
+    "static_4774_distinguishes_order": false,
+    "ordered_3d_projections_distinguish_order": true,
+    "ordered_47_74_orientation_distinguishes_order": true,
+    "initial_and_final_47_74_only_distinguish_order": false,
+    "arbitrary_distinct_tags_also_distinguish_order": true,
+    "typed_operator_sequence_distinguishes_order": true
+  },
+  "role_code": {
+    "split_and_label": [
+      4,
+      7,
+      7,
+      4
+    ],
+    "grouped_outer_middle_outer": [
+      4,
+      14,
+      4
+    ],
+    "numeric_4_77_4_preserves_1_2_1_ratio": false,
+    "inner_halves": [
+      47,
+      74
+    ],
+    "inner_half_gap": 27,
+    "prespecified_orientation_rule": {
+      "47": "left/blue w=0",
+      "74": "right/gold w=1"
+    },
+    "rule_status": "role encoding; no claim about duration, metric length or physical mechanism"
+  },
+  "e8_reference": {
+    "archived_benchmark_sha256": "20de5d42a099a853b57f3c4ced7abae47de7d74d62f2d697fc407afc5c03411d",
+    "decision": "PASS",
+    "passed_assertions": 19,
+    "root_count": 240,
+    "root_norm_squared": 2.0,
+    "generic_projection_rejected": true,
+    "modular_graphs_rejected": [
+      37,
+      137,
+      237,
+      11357
+    ]
+  },
+  "prime_window_reference": {
+    "prespecified_baseline": "all 997 four-consecutive-prime windows among first 1000 primes",
+    "focus_prime_indices": [
+      12,
+      13,
+      14,
+      15
+    ],
+    "focus_primes": [
+      37,
+      41,
+      43,
+      47
+    ],
+    "focus_last_digits": [
+      7,
+      1,
+      3,
+      7
+    ],
+    "focus_4774_bridge": "reverse(47)=74=2*37",
+    "focus_balance": "37+47=41+43=84",
+    "focus_gaps": [
+      4,
+      2,
+      4
+    ],
+    "total_windows": 997,
+    "balanced_count": 163,
+    "reversal_double_count": 1,
+    "joint_count": 1,
+    "joint_windows": [
+      {
+        "starting_prime_index": 12,
+        "primes": [
+          37,
+          41,
+          43,
+          47
+        ]
+      }
+    ],
+    "interpretation": "Arithmetic coincidences in a declared finite population; no statistical significance, physical resonance, E8 or sqrt(7) geometry is inferred."
+  },
+  "sign_to_metric_bridge": {
+    "source_sign_states": 16,
+    "candidate_metric_map": "b∈{0,1}^4 -> (b0,b1,2*b2,b3)",
+    "axis_scale_choice": [
+      1,
+      1,
+      2,
+      1
+    ],
+    "unit_cube_full_diagonal_squared": 4,
+    "stretched_box_full_diagonal_squared": 7,
+    "positive_integer_scale_assignments_with_diagonal_squared_7": [
+      [
+        1,
+        1,
+        1,
+        2
+      ],
+      [
+        1,
+        1,
+        2,
+        1
+      ],
+      [
+        1,
+        2,
+        1,
+        1
+      ],
+      [
+        2,
+        1,
+        1,
+        1
+      ]
+    ],
+    "basis_selection_status": "four labelled choices; √5 role as stretched axis is an explicit convention",
+    "role_code_fiber_sizes": {
+      "47": 8,
+      "74": 8
+    },
+    "norm_squared_by_code": {
+      "47": [
+        0,
+        1,
+        2,
+        4,
+        5,
+        6
+      ],
+      "74": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7
+      ]
+    },
+    "paired_47_to_74_norm_squared_increment": 1,
+    "number_of_corresponding_pairs": 8,
+    "sqrt7_points_in_selected_16_state_box": [
+      {
+        "bits": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "coord": [
+          1,
+          1,
+          2,
+          1
+        ],
+        "norm_squared": 7,
+        "orientation_code": "74"
+      }
+    ],
+    "conclusion": "The sign graph can be embedded in a 2×1×1×1 box by a chosen weighting. 47/74 reports only the last bit (8-to-1); it cannot predict norm²=7. This is a graph embedding with an imposed metric, not a metric implication of the root labels."
+  },
+  "axis_selection_audit": {
+    "source_channel_order": [
+      "√2",
+      "√3",
+      "√5",
+      "√7"
+    ],
+    "all_integer_axis_choices": [
+      {
+        "stretched_bit": 0,
+        "scales": [
+          2,
+          1,
+          1,
+          1
+        ],
+        "full_diagonal_squared": 7,
+        "paired_47_to_74_norm_squared_increment": 1,
+        "compatible_with_prior_fixed_S_and_L_steps": false
+      },
+      {
+        "stretched_bit": 1,
+        "scales": [
+          1,
+          2,
+          1,
+          1
+        ],
+        "full_diagonal_squared": 7,
+        "paired_47_to_74_norm_squared_increment": 1,
+        "compatible_with_prior_fixed_S_and_L_steps": false
+      },
+      {
+        "stretched_bit": 2,
+        "scales": [
+          1,
+          1,
+          2,
+          1
+        ],
+        "full_diagonal_squared": 7,
+        "paired_47_to_74_norm_squared_increment": 1,
+        "compatible_with_prior_fixed_S_and_L_steps": true
+      },
+      {
+        "stretched_bit": 3,
+        "scales": [
+          1,
+          1,
+          1,
+          2
+        ],
+        "full_diagonal_squared": 7,
+        "paired_47_to_74_norm_squared_increment": 4,
+        "compatible_with_prior_fixed_S_and_L_steps": false
+      }
+    ],
+    "source_distinguishes_fourth_channel": true,
+    "additional_hypothesis": "assign long edge to the newly added √7 sign channel",
+    "fourth_channel_candidate_scales": [
+      1,
+      1,
+      1,
+      2
+    ],
+    "fourth_channel_candidate_47_to_74_increment": 4,
+    "prior_third_channel_candidate_scales": [
+      1,
+      1,
+      2,
+      1
+    ],
+    "prior_third_channel_candidate_47_to_74_increment": 1,
+    "selection_verdict": "The original sign-channel labels identify a fourth bit but do not specify an edge-length rule. Assigning the long edge to that bit is a new convention, not a deduction. It changes the prior typed metric steps and cannot be conflated with their fixed 47/74 records."
+  },
+  "two_cut_projection_test": {
+    "fixed_domain": "the same 16 bit states, coordinates scaled by the chosen model",
+    "cut_xyz": "(x,y,z), discards w",
+    "cut_xyw": "(x,y,w), discards z",
+    "calibration_assumption": "axis identities and Euclidean units are fixed across both labelled cuts",
+    "outcomes": {
+      "A_third_axis_long": {
+        "scales": [
+          1,
+          1,
+          2,
+          1
+        ],
+        "tip": [
+          1,
+          1,
+          2,
+          1
+        ],
+        "tip_cut_norm_squared_xyz_xyw": [
+          6,
+          3
+        ],
+        "single_cut_fiber_size": 2,
+        "ordered_cut_pair_fiber_size": 1,
+        "routes": {
+          "SL": {
+            "bit_states": [
+              [
+                1,
+                1,
+                0,
+                0
+              ],
+              [
+                1,
+                1,
+                1,
+                0
+              ],
+              [
+                1,
+                1,
+                1,
+                1
+              ]
+            ],
+            "coords": [
+              [
+                1,
+                1,
+                0,
+                0
+              ],
+              [
+                1,
+                1,
+                2,
+                0
+              ],
+              [
+                1,
+                1,
+                2,
+                1
+              ]
+            ],
+            "radial_norm_squared": [
+              2,
+              6,
+              7
+            ],
+            "cut_xyz_norm_squared": [
+              2,
+              6,
+              6
+            ],
+            "cut_xyw_norm_squared": [
+              2,
+              2,
+              3
+            ],
+            "orientation_codes": [
+              "47",
+              "47",
+              "74"
+            ],
+            "step_norm_squared": [
+              4,
+              1
+            ]
+          },
+          "LS": {
+            "bit_states": [
+              [
+                1,
+                1,
+                0,
+                0
+              ],
+              [
+                1,
+                1,
+                0,
+                1
+              ],
+              [
+                1,
+                1,
+                1,
+                1
+              ]
+            ],
+            "coords": [
+              [
+                1,
+                1,
+                0,
+                0
+              ],
+              [
+                1,
+                1,
+                0,
+                1
+              ],
+              [
+                1,
+                1,
+                2,
+                1
+              ]
+            ],
+            "radial_norm_squared": [
+              2,
+              3,
+              7
+            ],
+            "cut_xyz_norm_squared": [
+              2,
+              2,
+              6
+            ],
+            "cut_xyw_norm_squared": [
+              2,
+              3,
+              3
+            ],
+            "orientation_codes": [
+              "47",
+              "74",
+              "74"
+            ],
+            "step_norm_squared": [
+              1,
+              4
+            ]
+          }
+        }
+      },
+      "B_fourth_axis_long": {
+        "scales": [
+          1,
+          1,
+          1,
+          2
+        ],
+        "tip": [
+          1,
+          1,
+          1,
+          2
+        ],
+        "tip_cut_norm_squared_xyz_xyw": [
+          3,
+          6
+        ],
+        "single_cut_fiber_size": 2,
+        "ordered_cut_pair_fiber_size": 1,
+        "routes": {
+          "SL": {
+            "bit_states": [
+              [
+                1,
+                1,
+                0,
+                0
+              ],
+              [
+                1,
+                1,
+                1,
+                0
+              ],
+              [
+                1,
+                1,
+                1,
+                1
+              ]
+            ],
+            "coords": [
+              [
+                1,
+                1,
+                0,
+                0
+              ],
+              [
+                1,
+                1,
+                1,
+                0
+              ],
+              [
+                1,
+                1,
+                1,
+                2
+              ]
+            ],
+            "radial_norm_squared": [
+              2,
+              3,
+              7
+            ],
+            "cut_xyz_norm_squared": [
+              2,
+              3,
+              3
+            ],
+            "cut_xyw_norm_squared": [
+              2,
+              2,
+              6
+            ],
+            "orientation_codes": [
+              "47",
+              "47",
+              "74"
+            ],
+            "step_norm_squared": [
+              1,
+              4
+            ]
+          },
+          "LS": {
+            "bit_states": [
+              [
+                1,
+                1,
+                0,
+                0
+              ],
+              [
+                1,
+                1,
+                0,
+                1
+              ],
+              [
+                1,
+                1,
+                1,
+                1
+              ]
+            ],
+            "coords": [
+              [
+                1,
+                1,
+                0,
+                0
+              ],
+              [
+                1,
+                1,
+                0,
+                2
+              ],
+              [
+                1,
+                1,
+                1,
+                2
+              ]
+            ],
+            "radial_norm_squared": [
+              2,
+              6,
+              7
+            ],
+            "cut_xyz_norm_squared": [
+              2,
+              2,
+              3
+            ],
+            "cut_xyw_norm_squared": [
+              2,
+              6,
+              6
+            ],
+            "orientation_codes": [
+              "47",
+              "74",
+              "74"
+            ],
+            "step_norm_squared": [
+              4,
+              1
+            ]
+          }
+        }
+      }
+    },
+    "end_diagonal_norm_squared_alone_distinguishes_models": false,
+    "unlabelled_pair_of_cut_norms_distinguishes_models": false,
+    "labelled_calibrated_cut_signature_distinguishes_models": true,
+    "orientation_47_74_history_alone_distinguishes_models": false,
+    "shadow_analogy_scope": "projection information loss only; this is not the optical ray model",
+    "inference_boundary": "This synthetic distinction cannot establish which metric the existing NEXAH sources or physical measurements select."
+  },
+  "interpretation": "A sequence index is not a measured duration; a 4D Euclidean coordinate is not physical time. No canonical map from the sqrt(7) sign channel to w or 4774 is established."
+}

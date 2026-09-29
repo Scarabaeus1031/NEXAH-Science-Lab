@@ -1,0 +1,606 @@
+{
+  "check_count": 17,
+  "checks": [
+    {
+      "expected": [
+        3,
+        1,
+        4,
+        5,
+        9,
+        14,
+        23,
+        37,
+        60,
+        97
+      ],
+      "id": "recurrence_reaches_97",
+      "observed": [
+        3,
+        1,
+        4,
+        5,
+        9,
+        14,
+        23,
+        37,
+        60,
+        97
+      ],
+      "pass": true
+    },
+    {
+      "expected": 101,
+      "id": "typed_gap4_cut_reaches_101",
+      "observed": 101,
+      "pass": true
+    },
+    {
+      "expected": {
+        "C4_after_D": 198,
+        "D_after_C4": 202
+      },
+      "id": "operator_order_is_not_interchangeable",
+      "observed": {
+        "C4_after_D": 198,
+        "D_after_C4": 202
+      },
+      "pass": true
+    },
+    {
+      "expected": [
+        101,
+        202,
+        404,
+        808,
+        1616
+      ],
+      "id": "dyadic_B_channel",
+      "observed": [
+        101,
+        202,
+        404,
+        808,
+        1616
+      ],
+      "pass": true
+    },
+    {
+      "expected": [
+        97,
+        194,
+        388,
+        776,
+        1552
+      ],
+      "id": "paired_A_channel",
+      "observed": [
+        97,
+        194,
+        388,
+        776,
+        1552
+      ],
+      "pass": true
+    },
+    {
+      "expected": [
+        198,
+        396,
+        792,
+        1584,
+        3168
+      ],
+      "id": "whole_scales_from_198",
+      "observed": [
+        198,
+        396,
+        792,
+        1584,
+        3168
+      ],
+      "pass": true
+    },
+    {
+      "expected": [
+        4,
+        8,
+        16,
+        32,
+        64
+      ],
+      "id": "delta_scales_from_4",
+      "observed": [
+        4,
+        8,
+        16,
+        32,
+        64
+      ],
+      "pass": true
+    },
+    {
+      "expected": [
+        "99",
+        "198",
+        "396",
+        "792",
+        "1584"
+      ],
+      "id": "midpoint_scales_from_99",
+      "observed": [
+        "99",
+        "198",
+        "396",
+        "792",
+        "1584"
+      ],
+      "pass": true
+    },
+    {
+      "expected": [
+        [
+          97,
+          101
+        ],
+        [
+          194,
+          202
+        ],
+        [
+          388,
+          404
+        ],
+        [
+          776,
+          808
+        ]
+      ],
+      "id": "whole_difference_return_exact",
+      "observed": [
+        [
+          97,
+          101
+        ],
+        [
+          194,
+          202
+        ],
+        [
+          388,
+          404
+        ],
+        [
+          776,
+          808
+        ]
+      ],
+      "pass": true
+    },
+    {
+      "expected": {
+        "A_over_B": "97/101",
+        "Delta_over_S": "2/99"
+      },
+      "id": "normalized_relation_invariants",
+      "observed": {
+        "A_over_B": "97/101",
+        "Delta_over_S": "2/99"
+      },
+      "pass": true
+    },
+    {
+      "expected": {
+        "nodes": 2,
+        "relation_edges": 1,
+        "scales_tested": 11
+      },
+      "id": "two_node_relation_topology_constant",
+      "observed": {
+        "nodes": 2,
+        "relation_edges": 1,
+        "scales_tested": 11
+      },
+      "pass": true
+    },
+    {
+      "expected": [
+        true,
+        true,
+        true,
+        true,
+        false
+      ],
+      "id": "decimal_palindrome_window",
+      "observed": [
+        true,
+        true,
+        true,
+        true,
+        false
+      ],
+      "pass": true
+    },
+    {
+      "expected": [
+        808,
+        1616
+      ],
+      "id": "decimal_carry_boundary_at_1616",
+      "observed": [
+        808,
+        1616
+      ],
+      "pass": true
+    },
+    {
+      "expected": [
+        2,
+        4,
+        8,
+        5,
+        10,
+        9,
+        7,
+        3,
+        6,
+        1,
+        2
+      ],
+      "id": "mod11_dyadic_trace",
+      "observed": [
+        2,
+        4,
+        8,
+        5,
+        10,
+        9,
+        7,
+        3,
+        6,
+        1,
+        2
+      ],
+      "pass": true
+    },
+    {
+      "expected": {
+        "B": 404,
+        "residue": 8,
+        "return": false
+      },
+      "id": "404_is_lift_not_mod11_return",
+      "observed": {
+        "B": 404,
+        "residue": 8
+      },
+      "pass": true
+    },
+    {
+      "expected": {
+        "k": 10,
+        "residue": 2
+      },
+      "id": "mod11_return_occurs_at_tenth_lift",
+      "observed": {
+        "B": 103424,
+        "k": 10,
+        "residue": 2
+      },
+      "pass": true
+    },
+    {
+      "expected": [
+        "RECURRENCE",
+        "CUT_4",
+        "LIFT_2^2",
+        "TWO_CUTS",
+        "RELATION",
+        "GHOSTGRID",
+        "RETURN"
+      ],
+      "id": "trace_retains_operator_phases",
+      "observed": [
+        "RECURRENCE",
+        "CUT_4",
+        "LIFT_2^2",
+        "TWO_CUTS",
+        "RELATION",
+        "GHOSTGRID",
+        "RETURN"
+      ],
+      "pass": true
+    }
+  ],
+  "classification": "SCALE_EQUIVARIANT_RELATION_GRAPH_M_CANDIDATE_NOT_PROMOTED",
+  "date": "2026-09-28",
+  "decision": {
+    "404": "B_2=404 is an exact dyadic lift state but not a mod-11 return",
+    "M_candidate": "same two-node one-edge relation graph and exact normalized invariants across scales",
+    "M_class_status": "NOT_PROMOTED; controlling C/E/S/M labels remain EXPRESSION_ONLY",
+    "carry": "the visible m0m decimal palindrome window ends at 808; 1616 crosses the carry boundary",
+    "ghostgrid_connection": "two cuts plus whole/difference relation reconstruct every scaled pair with trace",
+    "return": "whole/difference return holds at every tested scale; mod-11 return first occurs after ten lifts"
+  },
+  "passed": true,
+  "passed_count": 17,
+  "records": [
+    {
+      "A": 97,
+      "B": 101,
+      "B_mod_11": 2,
+      "Delta": 4,
+      "S": 198,
+      "k": 0,
+      "midpoint": "99",
+      "normalized_delta": "2/99",
+      "ratio_A_B": "97/101",
+      "return": [
+        97,
+        101
+      ],
+      "scale": 1,
+      "trace": [
+        "RECURRENCE",
+        "CUT_4",
+        "LIFT_2^0",
+        "TWO_CUTS",
+        "RELATION",
+        "GHOSTGRID",
+        "RETURN"
+      ]
+    },
+    {
+      "A": 194,
+      "B": 202,
+      "B_mod_11": 4,
+      "Delta": 8,
+      "S": 396,
+      "k": 1,
+      "midpoint": "198",
+      "normalized_delta": "2/99",
+      "ratio_A_B": "97/101",
+      "return": [
+        194,
+        202
+      ],
+      "scale": 2,
+      "trace": [
+        "RECURRENCE",
+        "CUT_4",
+        "LIFT_2^1",
+        "TWO_CUTS",
+        "RELATION",
+        "GHOSTGRID",
+        "RETURN"
+      ]
+    },
+    {
+      "A": 388,
+      "B": 404,
+      "B_mod_11": 8,
+      "Delta": 16,
+      "S": 792,
+      "k": 2,
+      "midpoint": "396",
+      "normalized_delta": "2/99",
+      "ratio_A_B": "97/101",
+      "return": [
+        388,
+        404
+      ],
+      "scale": 4,
+      "trace": [
+        "RECURRENCE",
+        "CUT_4",
+        "LIFT_2^2",
+        "TWO_CUTS",
+        "RELATION",
+        "GHOSTGRID",
+        "RETURN"
+      ]
+    },
+    {
+      "A": 776,
+      "B": 808,
+      "B_mod_11": 5,
+      "Delta": 32,
+      "S": 1584,
+      "k": 3,
+      "midpoint": "792",
+      "normalized_delta": "2/99",
+      "ratio_A_B": "97/101",
+      "return": [
+        776,
+        808
+      ],
+      "scale": 8,
+      "trace": [
+        "RECURRENCE",
+        "CUT_4",
+        "LIFT_2^3",
+        "TWO_CUTS",
+        "RELATION",
+        "GHOSTGRID",
+        "RETURN"
+      ]
+    },
+    {
+      "A": 1552,
+      "B": 1616,
+      "B_mod_11": 10,
+      "Delta": 64,
+      "S": 3168,
+      "k": 4,
+      "midpoint": "1584",
+      "normalized_delta": "2/99",
+      "ratio_A_B": "97/101",
+      "return": [
+        1552,
+        1616
+      ],
+      "scale": 16,
+      "trace": [
+        "RECURRENCE",
+        "CUT_4",
+        "LIFT_2^4",
+        "TWO_CUTS",
+        "RELATION",
+        "GHOSTGRID",
+        "RETURN"
+      ]
+    },
+    {
+      "A": 3104,
+      "B": 3232,
+      "B_mod_11": 9,
+      "Delta": 128,
+      "S": 6336,
+      "k": 5,
+      "midpoint": "3168",
+      "normalized_delta": "2/99",
+      "ratio_A_B": "97/101",
+      "return": [
+        3104,
+        3232
+      ],
+      "scale": 32,
+      "trace": [
+        "RECURRENCE",
+        "CUT_4",
+        "LIFT_2^5",
+        "TWO_CUTS",
+        "RELATION",
+        "GHOSTGRID",
+        "RETURN"
+      ]
+    },
+    {
+      "A": 6208,
+      "B": 6464,
+      "B_mod_11": 7,
+      "Delta": 256,
+      "S": 12672,
+      "k": 6,
+      "midpoint": "6336",
+      "normalized_delta": "2/99",
+      "ratio_A_B": "97/101",
+      "return": [
+        6208,
+        6464
+      ],
+      "scale": 64,
+      "trace": [
+        "RECURRENCE",
+        "CUT_4",
+        "LIFT_2^6",
+        "TWO_CUTS",
+        "RELATION",
+        "GHOSTGRID",
+        "RETURN"
+      ]
+    },
+    {
+      "A": 12416,
+      "B": 12928,
+      "B_mod_11": 3,
+      "Delta": 512,
+      "S": 25344,
+      "k": 7,
+      "midpoint": "12672",
+      "normalized_delta": "2/99",
+      "ratio_A_B": "97/101",
+      "return": [
+        12416,
+        12928
+      ],
+      "scale": 128,
+      "trace": [
+        "RECURRENCE",
+        "CUT_4",
+        "LIFT_2^7",
+        "TWO_CUTS",
+        "RELATION",
+        "GHOSTGRID",
+        "RETURN"
+      ]
+    },
+    {
+      "A": 24832,
+      "B": 25856,
+      "B_mod_11": 6,
+      "Delta": 1024,
+      "S": 50688,
+      "k": 8,
+      "midpoint": "25344",
+      "normalized_delta": "2/99",
+      "ratio_A_B": "97/101",
+      "return": [
+        24832,
+        25856
+      ],
+      "scale": 256,
+      "trace": [
+        "RECURRENCE",
+        "CUT_4",
+        "LIFT_2^8",
+        "TWO_CUTS",
+        "RELATION",
+        "GHOSTGRID",
+        "RETURN"
+      ]
+    },
+    {
+      "A": 49664,
+      "B": 51712,
+      "B_mod_11": 1,
+      "Delta": 2048,
+      "S": 101376,
+      "k": 9,
+      "midpoint": "50688",
+      "normalized_delta": "2/99",
+      "ratio_A_B": "97/101",
+      "return": [
+        49664,
+        51712
+      ],
+      "scale": 512,
+      "trace": [
+        "RECURRENCE",
+        "CUT_4",
+        "LIFT_2^9",
+        "TWO_CUTS",
+        "RELATION",
+        "GHOSTGRID",
+        "RETURN"
+      ]
+    },
+    {
+      "A": 99328,
+      "B": 103424,
+      "B_mod_11": 2,
+      "Delta": 4096,
+      "S": 202752,
+      "k": 10,
+      "midpoint": "101376",
+      "normalized_delta": "2/99",
+      "ratio_A_B": "97/101",
+      "return": [
+        99328,
+        103424
+      ],
+      "scale": 1024,
+      "trace": [
+        "RECURRENCE",
+        "CUT_4",
+        "LIFT_2^10",
+        "TWO_CUTS",
+        "RELATION",
+        "GHOSTGRID",
+        "RETURN"
+      ]
+    }
+  ],
+  "scientific_hash": "f71a4776258f15e2da6dc8f32525b98315433924d0fefda30f61aff40eb6b410",
+  "test_id": "NEXAH_GHOSTGRID_DYADIC_M_LIFT_001"
+}

@@ -1,0 +1,197 @@
+{
+  "test_id": "ELINE_FOURIER_POINCARE_VIEW_EQUIVALENCE_01",
+  "classification": "PASS_ELINE_FOURIER_POINCARE_VIEW_EQUIVALENCE__CURVE_NOT_GEODESIC",
+  "preregistration_sha256": "06c91fa39a97791aa7dec254ff24827db14ba094894792175fc19e3e81ff181f",
+  "lock_sha256": "00cc4d42840cf11ce48b7702f26e3e92abf21a44b02d9f52320bc8a9df679b04",
+  "frozen_source_hashes": {
+    "eline_fourier_result": {
+      "expected": "189e5b7b83ba42d2b1764960c3208c031c1fbffcbbe09418a909f849454c592d",
+      "actual": "189e5b7b83ba42d2b1764960c3208c031c1fbffcbbe09418a909f849454c592d",
+      "pass": true
+    },
+    "poincare_visual": {
+      "expected": "917f0ca08f6c60ccd19acdf7dc2a99b6bf0df20f8cd7569d682243e8cff9a546",
+      "actual": "917f0ca08f6c60ccd19acdf7dc2a99b6bf0df20f8cd7569d682243e8cff9a546",
+      "pass": true
+    },
+    "splinter_triptych": {
+      "expected": "7624988449276f40618385d5962049cbee88182b3b3a5704d5b2d10bcb16c337",
+      "actual": "7624988449276f40618385d5962049cbee88182b3b3a5704d5b2d10bcb16c337",
+      "pass": true
+    },
+    "shadow_projection": {
+      "expected": "3a917aeb106d8a4caaf49960a93039bf18b58a9e9bbe334d78311c98fdec3d63",
+      "actual": "3a917aeb106d8a4caaf49960a93039bf18b58a9e9bbe334d78311c98fdec3d63",
+      "pass": true
+    },
+    "slice_cinema": {
+      "expected": "68a8b7bb63e9ff4b07620aada601054de6d512661fb3b82d966bb6b3647bb1ec",
+      "actual": "68a8b7bb63e9ff4b07620aada601054de6d512661fb3b82d966bb6b3647bb1ec",
+      "pass": true
+    }
+  },
+  "checks": {
+    "frozen_hashes_match": true,
+    "upper_half_plane_embedding": true,
+    "all_points_inside_unit_disk": true,
+    "cayley_inverse_roundtrip_exact": true,
+    "all_pairwise_hyperbolic_distances_preserved": true,
+    "fourier_reconstruction_commutes_at_samples": true,
+    "eline_curve_correctly_rejected_as_geodesic": true,
+    "vertical_reference_maps_to_disk_diameter": true,
+    "projection_visuals_retained_as_controls_only": true,
+    "same_carrier_not_same_shape_and_not_geodesic": true
+  },
+  "checks_passed": 10,
+  "checks_total": 10,
+  "embedding": {
+    "formula": "w_t=(-1.5+0.3t)+i(1.5+0.4s_t)",
+    "upper_half_plane_points": [
+      {
+        "re": -1.5,
+        "im": 1.449820788530466
+      },
+      {
+        "re": -1.2,
+        "im": 1.7623655913978495
+      },
+      {
+        "re": -0.9,
+        "im": 1.9
+      },
+      {
+        "re": -0.6000000000000001,
+        "im": 1.8225806451612905
+      },
+      {
+        "re": -0.30000000000000004,
+        "im": 1.5874551971326163
+      },
+      {
+        "re": 0,
+        "im": 1.3121863799283155
+      },
+      {
+        "re": 0.2999999999999998,
+        "im": 1.1200716845878136
+      },
+      {
+        "re": 0.6000000000000001,
+        "im": 1.1
+      },
+      {
+        "re": 0.8999999999999999,
+        "im": 1.2376344086021505
+      },
+      {
+        "re": 1.1999999999999997,
+        "im": 1.4584229390681005
+      },
+      {
+        "re": 1.5,
+        "im": 1.650537634408602
+      }
+    ],
+    "disk_points": [
+      {
+        "re": 0.40622078436653697,
+        "im": 0.363564889162552
+      },
+      {
+        "re": 0.3909231573836645,
+        "im": 0.26458923953282615
+      },
+      {
+        "re": 0.3709327548806941,
+        "im": 0.1952277657266811
+      },
+      {
+        "re": 0.32206228029506856,
+        "im": 0.14411018956013402
+      },
+      {
+        "re": 0.23729284346561447,
+        "im": 0.08843134644954714
+      },
+      {
+        "re": 0.13501782669353596,
+        "im": 0
+      },
+      {
+        "re": 0.07515437911348624,
+        "im": -0.13086995514488786
+      },
+      {
+        "re": 0.11949685534591199,
+        "im": -0.25157232704402516
+      },
+      {
+        "re": 0.23065792376662897,
+        "im": -0.30943744248310023
+      },
+      {
+        "re": 0.3430052380924997,
+        "im": -0.32069083873251353
+      },
+      {
+        "re": 0.42847704820966687,
+        "im": -0.3234379382342859
+      }
+    ],
+    "max_disk_radius": 0.5451557156291614
+  },
+  "equivalence": {
+    "cayley_inverse_max_error": 4.965068306494546e-16,
+    "pair_count": 55,
+    "hyperbolic_distance_max_error": 7.771561172376096e-16,
+    "fourier_then_cayley_max_error": 2.0816681711721685e-16
+  },
+  "geodesic_audit": {
+    "vertical": false,
+    "real_axis_circle_center_fit": 0.32325359814665033,
+    "circle_squared_radius_fit": 5.426234002009808,
+    "max_circle_equation_residual": 4.17113269356766,
+    "classification": "NOT_A_POINCARE_GEODESIC"
+  },
+  "reference_geodesic": {
+    "upper_half_plane": [
+      {
+        "re": 0,
+        "im": 0.5
+      },
+      {
+        "re": 0,
+        "im": 1
+      },
+      {
+        "re": 0,
+        "im": 2
+      },
+      {
+        "re": 0,
+        "im": 4
+      }
+    ],
+    "disk": [
+      {
+        "re": -0.3333333333333333,
+        "im": 0
+      },
+      {
+        "re": 0,
+        "im": 0
+      },
+      {
+        "re": 0.3333333333333333,
+        "im": 0
+      },
+      {
+        "re": 0.6,
+        "im": 0
+      }
+    ],
+    "max_roundtrip_error": 2.220446049250313e-16,
+    "max_imaginary_part_in_disk": 0
+  },
+  "claim_boundary": "Reversible Cayley view and hyperbolic metric invariance for the frozen samples; the eLinie curve is not a Poincare geodesic and no physical hyperbolic dynamics is inferred."
+}

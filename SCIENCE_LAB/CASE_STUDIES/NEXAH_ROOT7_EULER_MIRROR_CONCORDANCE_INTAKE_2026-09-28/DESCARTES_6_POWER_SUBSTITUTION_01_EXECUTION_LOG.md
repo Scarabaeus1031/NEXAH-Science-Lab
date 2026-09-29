@@ -1,0 +1,17 @@
+# DESCARTES_6_POWER_SUBSTITUTION_01 execution log
+
+Date: `2026-09-29`
+
+- preregistration SHA-256: `053e9de7982abbadee9daa5f01e5bd70ec50bf96a5cccbf6262d3c46a4976ae9`
+- lock SHA-256: `1366d3f3c4bccbccf1d33a57f4ce5697316fc3bf361dc903291f1270f7350373`
+- runner SHA-256: `830b396875cd22c093e4fa79fd7f4a9ab065190204800585b89bd1675bf32fcb`
+
+Primary and two replays were byte-identical:
+
+```text
+5246683edd7301c3e9136a5963f0a7e166f36c73ea551a80ff320372f8fa9b60
+5246683edd7301c3e9136a5963f0a7e166f36c73ea551a80ff320372f8fa9b60
+5246683edd7301c3e9136a5963f0a7e166f36c73ea551a80ff320372f8fa9b60
+```
+
+Result: `PASS`, `8/8` checks.

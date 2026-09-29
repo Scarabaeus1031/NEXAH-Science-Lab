@@ -1,0 +1,290 @@
+{
+  "classification": "PASS_SOURCE_BOUND_PIQ_MASK_COMPATIBILITY__MASK_EFFECT_EVALUABLE",
+  "checks": {
+    "source_hashes_match": true,
+    "input_has_8_gates_and_5_unique_declared_clocks": true,
+    "projection_is_finite_and_deterministic": true,
+    "gate_and_clock_identity_remain_attached": true,
+    "mask_classification_covers_every_gate_once": true,
+    "mask_classification_has_no_overlap": true,
+    "full_trace_switch_has_only_legal_class_effects_and_no_geometry_effect": true,
+    "shuffled_input_is_key_order_independent": true,
+    "mask_does_not_mutate_source_record": true,
+    "positive_1_over_8_turn_control_changes_projection": true
+  },
+  "checks_passed": 10,
+  "checks_total": 10,
+  "preregistration_sha256": "b5411cfb472c169f54008e5b82e401b9f25f2d1a4dcec04a0aab9e16a9fb7257",
+  "frozen_source_hashes": {
+    "preregistration": "b5411cfb472c169f54008e5b82e401b9f25f2d1a4dcec04a0aab9e16a9fb7257",
+    "hqResult": "79d767e7d4df682a663c09a87af6f46f185c9894c16763eca4c2a53bb1433480",
+    "doubleCutContract": "5ed622e3bce1a51512e4a931ab398ccfea52af6d04850398c0f02a81918c74ce",
+    "doubleCutModel": "35c49ac53760c0df79411822568f924e86b6bf697f2041690a04d705ab623849",
+    "doubleCutTest": "d04c9cf8c4e421a968d10aa64a9d052ebbbfe283fe43a0d34d37dc8ab9f67449",
+    "doubleCutHtml": "e766fed5e0f7086a7f71ebb099e0206e0dd608620e396528d22b7d6d1723ac71",
+    "threadLoomContract": "50c451623b8490d2e87490a698356daa9389bae65ddafbf498a2d3815746b40b",
+    "threadLoomModel": "f6f48b8a1d5c043ad4d59e4dc4c31937953f65d72cd139c3753ebf295462b56e",
+    "threadLoomTest": "f382c1aac36470b578582a7afd81224cfbdc68e03c97eac44ba776597b5021ff"
+  },
+  "adapter": {
+    "clock_order": [
+      "H1_SOLAR_DAY",
+      "H2_SYNODIC_MONTH",
+      "H3_ANNUAL_ORBIT",
+      "H4_PRINCIPAL_NODES",
+      "H5_AXIAL_PRECESSION"
+    ],
+    "conversion": "angle_radians = 2*pi*phase_turns",
+    "day_field": "gate_hour / 24",
+    "projection_operator": "unchanged Double Cut Lab 0.2 projectState",
+    "weights": [
+      0.32,
+      0.27,
+      0.2,
+      0.13,
+      0.08
+    ]
+  },
+  "mask": {
+    "options": {
+      "widthPercent": 18,
+      "positionPercent": 50,
+      "moving": false,
+      "driftPercent": 12,
+      "boundaryTolerancePx": 0.75
+    },
+    "inside_count": 2,
+    "outside_count": 6,
+    "boundary_count": 0,
+    "effect_status": "MASK_EFFECT_EVALUABLE",
+    "full_trace_class_counts": {
+      "GENERATED_UNMASKED": 6,
+      "GENERATED_MASKED_RECOVERABLE": 2,
+      "UNKNOWN": 0,
+      "BOUNDARY": 0
+    },
+    "no_trace_class_counts": {
+      "GENERATED_UNMASKED": 6,
+      "GENERATED_MASKED_RECOVERABLE": 0,
+      "UNKNOWN": 2,
+      "BOUNDARY": 0
+    }
+  },
+  "positive_control": {
+    "transform": "+1/8 turn on every channel",
+    "distances_px_by_gate": {
+      "3": 186.2493295275001,
+      "6": 186.96300594771859,
+      "9": 153.4243476800755,
+      "12": 106.79895739989934,
+      "24": 158.72544944356395,
+      "36": 112.6169033348222,
+      "42": 79.92880292246136,
+      "48": 163.7890939099198
+    },
+    "maximum_distance_px": 186.96300594771859
+  },
+  "information_loss": {
+    "source_dimension": 5,
+    "projected_dimension": 2,
+    "inverse_decoder_declared": false,
+    "status": "NON_INVERTIBLE_WITHOUT_DECLARED_DECODER",
+    "provenance_retained": true,
+    "thread_loom_role": "INDEPENDENT_BOUNDARY_CONTROL_ONLY"
+  },
+  "projection_records": [
+    {
+      "gate_hour": 3,
+      "x": 516.3214847005461,
+      "y": 166.3535009082427,
+      "mask_left": 272.24,
+      "mask_right": 391.76,
+      "zone": "outside",
+      "class_full_trace": "GENERATED_UNMASKED",
+      "class_no_trace": "GENERATED_UNMASKED",
+      "source_clock_ids": [
+        "H1_SOLAR_DAY",
+        "H2_SYNODIC_MONTH",
+        "H3_ANNUAL_ORBIT",
+        "H4_PRINCIPAL_NODES",
+        "H5_AXIAL_PRECESSION"
+      ],
+      "source_cell_keys": [
+        "3:H1_SOLAR_DAY",
+        "3:H2_SYNODIC_MONTH",
+        "3:H3_ANNUAL_ORBIT",
+        "3:H4_PRINCIPAL_NODES",
+        "3:H5_AXIAL_PRECESSION"
+      ]
+    },
+    {
+      "gate_hour": 6,
+      "x": 454.8314905250384,
+      "y": 158.6388852296928,
+      "mask_left": 272.24,
+      "mask_right": 391.76,
+      "zone": "outside",
+      "class_full_trace": "GENERATED_UNMASKED",
+      "class_no_trace": "GENERATED_UNMASKED",
+      "source_clock_ids": [
+        "H1_SOLAR_DAY",
+        "H2_SYNODIC_MONTH",
+        "H3_ANNUAL_ORBIT",
+        "H4_PRINCIPAL_NODES",
+        "H5_AXIAL_PRECESSION"
+      ],
+      "source_cell_keys": [
+        "6:H1_SOLAR_DAY",
+        "6:H2_SYNODIC_MONTH",
+        "6:H3_ANNUAL_ORBIT",
+        "6:H4_PRINCIPAL_NODES",
+        "6:H5_AXIAL_PRECESSION"
+      ]
+    },
+    {
+      "gate_hour": 9,
+      "x": 393.2946563164411,
+      "y": 152.02511707344783,
+      "mask_left": 272.24,
+      "mask_right": 391.76,
+      "zone": "outside",
+      "class_full_trace": "GENERATED_UNMASKED",
+      "class_no_trace": "GENERATED_UNMASKED",
+      "source_clock_ids": [
+        "H1_SOLAR_DAY",
+        "H2_SYNODIC_MONTH",
+        "H3_ANNUAL_ORBIT",
+        "H4_PRINCIPAL_NODES",
+        "H5_AXIAL_PRECESSION"
+      ],
+      "source_cell_keys": [
+        "9:H1_SOLAR_DAY",
+        "9:H2_SYNODIC_MONTH",
+        "9:H3_ANNUAL_ORBIT",
+        "9:H4_PRINCIPAL_NODES",
+        "9:H5_AXIAL_PRECESSION"
+      ]
+    },
+    {
+      "gate_hour": 12,
+      "x": 367.2345206648536,
+      "y": 146.960538733245,
+      "mask_left": 272.24,
+      "mask_right": 391.76,
+      "zone": "inside",
+      "class_full_trace": "GENERATED_MASKED_RECOVERABLE",
+      "class_no_trace": "UNKNOWN",
+      "source_clock_ids": [
+        "H1_SOLAR_DAY",
+        "H2_SYNODIC_MONTH",
+        "H3_ANNUAL_ORBIT",
+        "H4_PRINCIPAL_NODES",
+        "H5_AXIAL_PRECESSION"
+      ],
+      "source_cell_keys": [
+        "12:H1_SOLAR_DAY",
+        "12:H2_SYNODIC_MONTH",
+        "12:H3_ANNUAL_ORBIT",
+        "12:H4_PRINCIPAL_NODES",
+        "12:H5_AXIAL_PRECESSION"
+      ]
+    },
+    {
+      "gate_hour": 24,
+      "x": 534.5379291286924,
+      "y": 169.41513997898087,
+      "mask_left": 272.24,
+      "mask_right": 391.76,
+      "zone": "outside",
+      "class_full_trace": "GENERATED_UNMASKED",
+      "class_no_trace": "GENERATED_UNMASKED",
+      "source_clock_ids": [
+        "H1_SOLAR_DAY",
+        "H2_SYNODIC_MONTH",
+        "H3_ANNUAL_ORBIT",
+        "H4_PRINCIPAL_NODES",
+        "H5_AXIAL_PRECESSION"
+      ],
+      "source_cell_keys": [
+        "24:H1_SOLAR_DAY",
+        "24:H2_SYNODIC_MONTH",
+        "24:H3_ANNUAL_ORBIT",
+        "24:H4_PRINCIPAL_NODES",
+        "24:H5_AXIAL_PRECESSION"
+      ]
+    },
+    {
+      "gate_hour": 36,
+      "x": 358.11532648704656,
+      "y": 141.6668365836387,
+      "mask_left": 272.24,
+      "mask_right": 391.76,
+      "zone": "inside",
+      "class_full_trace": "GENERATED_MASKED_RECOVERABLE",
+      "class_no_trace": "UNKNOWN",
+      "source_clock_ids": [
+        "H1_SOLAR_DAY",
+        "H2_SYNODIC_MONTH",
+        "H3_ANNUAL_ORBIT",
+        "H4_PRINCIPAL_NODES",
+        "H5_AXIAL_PRECESSION"
+      ],
+      "source_cell_keys": [
+        "36:H1_SOLAR_DAY",
+        "36:H2_SYNODIC_MONTH",
+        "36:H3_ANNUAL_ORBIT",
+        "36:H4_PRINCIPAL_NODES",
+        "36:H5_AXIAL_PRECESSION"
+      ]
+    },
+    {
+      "gate_hour": 42,
+      "x": 441.1827402310438,
+      "y": 137.3565058015647,
+      "mask_left": 272.24,
+      "mask_right": 391.76,
+      "zone": "outside",
+      "class_full_trace": "GENERATED_UNMASKED",
+      "class_no_trace": "GENERATED_UNMASKED",
+      "source_clock_ids": [
+        "H1_SOLAR_DAY",
+        "H2_SYNODIC_MONTH",
+        "H3_ANNUAL_ORBIT",
+        "H4_PRINCIPAL_NODES",
+        "H5_AXIAL_PRECESSION"
+      ],
+      "source_cell_keys": [
+        "42:H1_SOLAR_DAY",
+        "42:H2_SYNODIC_MONTH",
+        "42:H3_ANNUAL_ORBIT",
+        "42:H4_PRINCIPAL_NODES",
+        "42:H5_AXIAL_PRECESSION"
+      ]
+    },
+    {
+      "gate_hour": 48,
+      "x": 524.0984097803624,
+      "y": 164.1071537504365,
+      "mask_left": 272.24,
+      "mask_right": 391.76,
+      "zone": "outside",
+      "class_full_trace": "GENERATED_UNMASKED",
+      "class_no_trace": "GENERATED_UNMASKED",
+      "source_clock_ids": [
+        "H1_SOLAR_DAY",
+        "H2_SYNODIC_MONTH",
+        "H3_ANNUAL_ORBIT",
+        "H4_PRINCIPAL_NODES",
+        "H5_AXIAL_PRECESSION"
+      ],
+      "source_cell_keys": [
+        "48:H1_SOLAR_DAY",
+        "48:H2_SYNODIC_MONTH",
+        "48:H3_ANNUAL_ORBIT",
+        "48:H4_PRINCIPAL_NODES",
+        "48:H5_AXIAL_PRECESSION"
+      ]
+    }
+  ],
+  "claim_boundary": "Source-bound Five-H-to-Pi_Q projection and mask compatibility only; no re-feed benefit, decoder, physical observation, astronomy prediction, SCN/NCS292/404, E8/H4 or M-Class claim."
+}

@@ -1,0 +1,269 @@
+{
+  "check_count": 14,
+  "checks": [
+    {
+      "expected": "T_a o T_b = T_(a+b) for all frozen states and steps",
+      "id": "rotation_composition",
+      "observed": 4834467,
+      "pass": true
+    },
+    {
+      "expected": "Q_B^2=id",
+      "id": "q_involution",
+      "observed": 921,
+      "pass": true
+    },
+    {
+      "expected": "R_B^2=id",
+      "id": "r_involution",
+      "observed": 921,
+      "pass": true
+    },
+    {
+      "expected": "Q_B T_k Q_B = T_-k",
+      "id": "q_conjugates_rotation_to_inverse",
+      "observed": 49485,
+      "pass": true
+    },
+    {
+      "expected": "R_B T_k R_B = T_-k",
+      "id": "r_conjugates_rotation_to_inverse",
+      "observed": 49485,
+      "pass": true
+    },
+    {
+      "expected": "+1 tick mirrors to -1 tick in bases 7, 12 and 112",
+      "id": "draft_drift_direction_reversal",
+      "observed": {
+        "7": {
+          "Q_Tplus1_Q_at_0": 6,
+          "R_Tplus1_R_at_0": 6,
+          "Tminus1_at_0": 6
+        },
+        "12": {
+          "Q_Tplus1_Q_at_0": 11,
+          "R_Tplus1_R_at_0": 11,
+          "Tminus1_at_0": 11
+        },
+        "112": {
+          "Q_Tplus1_Q_at_0": 111,
+          "R_Tplus1_R_at_0": 111,
+          "Tminus1_at_0": 111
+        }
+      },
+      "pass": true
+    },
+    {
+      "expected": [
+        [
+          1,
+          6
+        ],
+        [
+          2,
+          5
+        ],
+        [
+          3,
+          4
+        ]
+      ],
+      "id": "z7_mirror_pairs",
+      "observed": [
+        [
+          1,
+          6
+        ],
+        [
+          2,
+          5
+        ],
+        [
+          3,
+          4
+        ]
+      ],
+      "pass": true
+    },
+    {
+      "expected": "id and swap both map 11 to 11",
+      "id": "two_wheel_prefix_action_unidentifiable",
+      "observed": {
+        "id": [
+          1,
+          1
+        ],
+        "swap": [
+          1,
+          1
+        ]
+      },
+      "pass": true
+    },
+    {
+      "expected": [],
+      "id": "single_d3_operator_rejected",
+      "observed": [],
+      "pass": true
+    },
+    {
+      "expected": [],
+      "id": "single_d2xd3_operator_rejected",
+      "observed": [],
+      "pass": true
+    },
+    {
+      "expected": "at least one two-operator decomposition",
+      "id": "alternating_decomposition_exists",
+      "observed": {
+        "first": [
+          "ref:2"
+        ],
+        "pairs": [
+          [
+            "ref:2",
+            "rot:2"
+          ]
+        ],
+        "second": [
+          "rot:2"
+        ]
+      },
+      "pass": true
+    },
+    {
+      "expected": "every admitted explanation changes operator between transitions",
+      "id": "alternating_decomposition_is_not_single_operator",
+      "observed": [
+        [
+          "ref:2",
+          "rot:2"
+        ]
+      ],
+      "pass": true
+    },
+    {
+      "expected": "a phase/operator label is required to replay both transitions",
+      "id": "operator_change_requires_phase_record",
+      "observed": {
+        "alternating": [
+          [
+            "ref:2",
+            "rot:2"
+          ]
+        ],
+        "fixed": []
+      },
+      "pass": true
+    },
+    {
+      "expected": "wrap gives state 0; lift gives carry 1 plus digit 0",
+      "id": "cyclic_return_not_carry_lift",
+      "observed": {
+        "10": {
+          "carry": [
+            1,
+            0
+          ],
+          "cyclic": 0,
+          "lifted_value": 10
+        },
+        "12": {
+          "carry": [
+            1,
+            0
+          ],
+          "cyclic": 0,
+          "lifted_value": 12
+        },
+        "112": {
+          "carry": [
+            1,
+            0
+          ],
+          "cyclic": 0,
+          "lifted_value": 112
+        }
+      },
+      "pass": true
+    }
+  ],
+  "classification": "DIHEDRAL_DIRECTION_REVERSAL_CONFIRMED_SINGLE_2PLUS3_OPERATOR_REJECTED",
+  "date": "2026-09-28",
+  "decision": {
+    "counterrotation": "Q and R conjugate every cyclic step to its inverse",
+    "draft_drift": "+1 and -1 ticks are mirror directions after base and axis are declared",
+    "mobius": "orientation reversal is algebraic only; no surface embedding established",
+    "residual": "an alternating operator/phase record is necessary but nonunique",
+    "two_plus_three": "no one fixed D2xD3 element generates both supplied transitions"
+  },
+  "domain": {
+    "bases": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31,
+      32,
+      33,
+      34,
+      35,
+      36,
+      112,
+      144
+    ],
+    "corrected_2plus3_sequence": [
+      "11|537",
+      "11|573",
+      "11|357"
+    ],
+    "corrected_full_sequence": [
+      11537,
+      11573,
+      11357
+    ],
+    "d2_elements": [
+      "id",
+      "swap"
+    ],
+    "d3_elements": [
+      "rot:0",
+      "rot:1",
+      "rot:2",
+      "ref:0",
+      "ref:1",
+      "ref:2"
+    ],
+    "reflection_step_state_tuples": 49485,
+    "rotation_composition_tuples": 4834467
+  },
+  "passed": true,
+  "passed_count": 14,
+  "scientific_hash": "87010914170ef220f48dee7475a1dbc6075b39e29e94ba7274e840211654ce60",
+  "test_id": "NEXAH_DIHEDRAL_COUNTERROTATION_001"
+}

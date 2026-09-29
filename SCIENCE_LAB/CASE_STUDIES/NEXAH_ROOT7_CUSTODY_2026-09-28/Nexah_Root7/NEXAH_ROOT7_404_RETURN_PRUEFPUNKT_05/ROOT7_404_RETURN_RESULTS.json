@@ -1,0 +1,993 @@
+{
+  "status": "PASS_BOUNDED",
+  "carrier": "model A, a 24-point integer lattice",
+  "404_gate_status": "synthetic conjunction of screenshot roles; not an observed map to q",
+  "gate_definition": "exact phase=0, tilt=0, error=0, open_gap, slow; no measured tolerances",
+  "corner_state_count": 16,
+  "full_lattice_point_count": 24,
+  "forward_313_trace": [
+    [
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      1,
+      1,
+      1,
+      0
+    ],
+    [
+      1,
+      1,
+      1,
+      1
+    ],
+    [
+      1,
+      1,
+      2,
+      1
+    ]
+  ],
+  "route_templates": {
+    "direct_first": {
+      "states": [
+        [
+          1,
+          1,
+          2,
+          1
+        ],
+        [
+          1,
+          1,
+          2,
+          0
+        ],
+        [
+          1,
+          1,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "r_squared": [
+        7,
+        6,
+        2,
+        1,
+        0
+      ],
+      "codes": [
+        "74",
+        "47",
+        "47",
+        "47",
+        "47"
+      ],
+      "all_states_in_16_corners": true
+    },
+    "inner_hinge": {
+      "states": [
+        [
+          1,
+          1,
+          2,
+          1
+        ],
+        [
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          1,
+          1,
+          1,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "r_squared": [
+        7,
+        4,
+        3,
+        0
+      ],
+      "codes": [
+        "74",
+        "74",
+        "47",
+        "47"
+      ],
+      "all_states_in_16_corners": false
+    }
+  },
+  "scenarios": {
+    "both_sites_aligned": {
+      "direct_first": {
+        "route": "direct_first",
+        "completed": true,
+        "state_trace": [
+          [
+            1,
+            1,
+            2,
+            1
+          ],
+          [
+            1,
+            1,
+            2,
+            0
+          ],
+          [
+            1,
+            1,
+            0,
+            0
+          ],
+          [
+            1,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0
+          ]
+        ],
+        "record": [
+          {
+            "from": [
+              1,
+              1,
+              2,
+              1
+            ],
+            "to": [
+              1,
+              1,
+              2,
+              0
+            ],
+            "delta_radius_squared": -1,
+            "segment_length_squared": 1,
+            "w_flip": true,
+            "role_from_to": [
+              "74",
+              "47"
+            ],
+            "gate_site": "tip",
+            "gate_input": {
+              "phase_deg": 0,
+              "tilt_deg": 0,
+              "error": 0.0,
+              "open_gap": true,
+              "slow": true
+            },
+            "permitted": true
+          },
+          {
+            "from": [
+              1,
+              1,
+              2,
+              0
+            ],
+            "to": [
+              1,
+              1,
+              0,
+              0
+            ],
+            "delta_radius_squared": -4,
+            "segment_length_squared": 4,
+            "w_flip": false,
+            "role_from_to": [
+              "47",
+              "47"
+            ],
+            "gate_site": null,
+            "gate_input": null,
+            "permitted": true
+          },
+          {
+            "from": [
+              1,
+              1,
+              0,
+              0
+            ],
+            "to": [
+              1,
+              0,
+              0,
+              0
+            ],
+            "delta_radius_squared": -1,
+            "segment_length_squared": 1,
+            "w_flip": false,
+            "role_from_to": [
+              "47",
+              "47"
+            ],
+            "gate_site": null,
+            "gate_input": null,
+            "permitted": true
+          },
+          {
+            "from": [
+              1,
+              0,
+              0,
+              0
+            ],
+            "to": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "delta_radius_squared": -1,
+            "segment_length_squared": 1,
+            "w_flip": false,
+            "role_from_to": [
+              "47",
+              "47"
+            ],
+            "gate_site": null,
+            "gate_input": null,
+            "permitted": true
+          }
+        ]
+      },
+      "inner_hinge": {
+        "route": "inner_hinge",
+        "completed": true,
+        "state_trace": [
+          [
+            1,
+            1,
+            2,
+            1
+          ],
+          [
+            1,
+            1,
+            1,
+            1
+          ],
+          [
+            1,
+            1,
+            1,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0
+          ]
+        ],
+        "record": [
+          {
+            "from": [
+              1,
+              1,
+              2,
+              1
+            ],
+            "to": [
+              1,
+              1,
+              1,
+              1
+            ],
+            "delta_radius_squared": -3,
+            "segment_length_squared": 1,
+            "w_flip": false,
+            "role_from_to": [
+              "74",
+              "74"
+            ],
+            "gate_site": null,
+            "gate_input": null,
+            "permitted": true
+          },
+          {
+            "from": [
+              1,
+              1,
+              1,
+              1
+            ],
+            "to": [
+              1,
+              1,
+              1,
+              0
+            ],
+            "delta_radius_squared": -1,
+            "segment_length_squared": 1,
+            "w_flip": true,
+            "role_from_to": [
+              "74",
+              "47"
+            ],
+            "gate_site": "inner_hinge",
+            "gate_input": {
+              "phase_deg": 0,
+              "tilt_deg": 0,
+              "error": 0.0,
+              "open_gap": true,
+              "slow": true
+            },
+            "permitted": true
+          },
+          {
+            "from": [
+              1,
+              1,
+              1,
+              0
+            ],
+            "to": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "delta_radius_squared": -3,
+            "segment_length_squared": 3,
+            "w_flip": false,
+            "role_from_to": [
+              "47",
+              "47"
+            ],
+            "gate_site": null,
+            "gate_input": null,
+            "permitted": true
+          }
+        ]
+      }
+    },
+    "only_tip_aligned": {
+      "direct_first": {
+        "route": "direct_first",
+        "completed": true,
+        "state_trace": [
+          [
+            1,
+            1,
+            2,
+            1
+          ],
+          [
+            1,
+            1,
+            2,
+            0
+          ],
+          [
+            1,
+            1,
+            0,
+            0
+          ],
+          [
+            1,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0
+          ]
+        ],
+        "record": [
+          {
+            "from": [
+              1,
+              1,
+              2,
+              1
+            ],
+            "to": [
+              1,
+              1,
+              2,
+              0
+            ],
+            "delta_radius_squared": -1,
+            "segment_length_squared": 1,
+            "w_flip": true,
+            "role_from_to": [
+              "74",
+              "47"
+            ],
+            "gate_site": "tip",
+            "gate_input": {
+              "phase_deg": 0,
+              "tilt_deg": 0,
+              "error": 0.0,
+              "open_gap": true,
+              "slow": true
+            },
+            "permitted": true
+          },
+          {
+            "from": [
+              1,
+              1,
+              2,
+              0
+            ],
+            "to": [
+              1,
+              1,
+              0,
+              0
+            ],
+            "delta_radius_squared": -4,
+            "segment_length_squared": 4,
+            "w_flip": false,
+            "role_from_to": [
+              "47",
+              "47"
+            ],
+            "gate_site": null,
+            "gate_input": null,
+            "permitted": true
+          },
+          {
+            "from": [
+              1,
+              1,
+              0,
+              0
+            ],
+            "to": [
+              1,
+              0,
+              0,
+              0
+            ],
+            "delta_radius_squared": -1,
+            "segment_length_squared": 1,
+            "w_flip": false,
+            "role_from_to": [
+              "47",
+              "47"
+            ],
+            "gate_site": null,
+            "gate_input": null,
+            "permitted": true
+          },
+          {
+            "from": [
+              1,
+              0,
+              0,
+              0
+            ],
+            "to": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "delta_radius_squared": -1,
+            "segment_length_squared": 1,
+            "w_flip": false,
+            "role_from_to": [
+              "47",
+              "47"
+            ],
+            "gate_site": null,
+            "gate_input": null,
+            "permitted": true
+          }
+        ]
+      },
+      "inner_hinge": {
+        "route": "inner_hinge",
+        "completed": false,
+        "state_trace": [
+          [
+            1,
+            1,
+            2,
+            1
+          ],
+          [
+            1,
+            1,
+            1,
+            1
+          ]
+        ],
+        "record": [
+          {
+            "from": [
+              1,
+              1,
+              2,
+              1
+            ],
+            "to": [
+              1,
+              1,
+              1,
+              1
+            ],
+            "delta_radius_squared": -3,
+            "segment_length_squared": 1,
+            "w_flip": false,
+            "role_from_to": [
+              "74",
+              "74"
+            ],
+            "gate_site": null,
+            "gate_input": null,
+            "permitted": true
+          },
+          {
+            "from": [
+              1,
+              1,
+              1,
+              1
+            ],
+            "to": [
+              1,
+              1,
+              1,
+              0
+            ],
+            "delta_radius_squared": -1,
+            "segment_length_squared": 1,
+            "w_flip": true,
+            "role_from_to": [
+              "74",
+              "47"
+            ],
+            "gate_site": "inner_hinge",
+            "gate_input": {
+              "phase_deg": 7,
+              "tilt_deg": -3,
+              "error": 0.2,
+              "open_gap": true,
+              "slow": true
+            },
+            "permitted": false
+          }
+        ]
+      }
+    },
+    "only_inner_hinge_aligned": {
+      "direct_first": {
+        "route": "direct_first",
+        "completed": false,
+        "state_trace": [
+          [
+            1,
+            1,
+            2,
+            1
+          ]
+        ],
+        "record": [
+          {
+            "from": [
+              1,
+              1,
+              2,
+              1
+            ],
+            "to": [
+              1,
+              1,
+              2,
+              0
+            ],
+            "delta_radius_squared": -1,
+            "segment_length_squared": 1,
+            "w_flip": true,
+            "role_from_to": [
+              "74",
+              "47"
+            ],
+            "gate_site": "tip",
+            "gate_input": {
+              "phase_deg": 7,
+              "tilt_deg": -3,
+              "error": 0.2,
+              "open_gap": true,
+              "slow": true
+            },
+            "permitted": false
+          }
+        ]
+      },
+      "inner_hinge": {
+        "route": "inner_hinge",
+        "completed": true,
+        "state_trace": [
+          [
+            1,
+            1,
+            2,
+            1
+          ],
+          [
+            1,
+            1,
+            1,
+            1
+          ],
+          [
+            1,
+            1,
+            1,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0
+          ]
+        ],
+        "record": [
+          {
+            "from": [
+              1,
+              1,
+              2,
+              1
+            ],
+            "to": [
+              1,
+              1,
+              1,
+              1
+            ],
+            "delta_radius_squared": -3,
+            "segment_length_squared": 1,
+            "w_flip": false,
+            "role_from_to": [
+              "74",
+              "74"
+            ],
+            "gate_site": null,
+            "gate_input": null,
+            "permitted": true
+          },
+          {
+            "from": [
+              1,
+              1,
+              1,
+              1
+            ],
+            "to": [
+              1,
+              1,
+              1,
+              0
+            ],
+            "delta_radius_squared": -1,
+            "segment_length_squared": 1,
+            "w_flip": true,
+            "role_from_to": [
+              "74",
+              "47"
+            ],
+            "gate_site": "inner_hinge",
+            "gate_input": {
+              "phase_deg": 0,
+              "tilt_deg": 0,
+              "error": 0.0,
+              "open_gap": true,
+              "slow": true
+            },
+            "permitted": true
+          },
+          {
+            "from": [
+              1,
+              1,
+              1,
+              0
+            ],
+            "to": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "delta_radius_squared": -3,
+            "segment_length_squared": 3,
+            "w_flip": false,
+            "role_from_to": [
+              "47",
+              "47"
+            ],
+            "gate_site": null,
+            "gate_input": null,
+            "permitted": true
+          }
+        ]
+      }
+    },
+    "gap_closed_at_both": {
+      "direct_first": {
+        "route": "direct_first",
+        "completed": false,
+        "state_trace": [
+          [
+            1,
+            1,
+            2,
+            1
+          ]
+        ],
+        "record": [
+          {
+            "from": [
+              1,
+              1,
+              2,
+              1
+            ],
+            "to": [
+              1,
+              1,
+              2,
+              0
+            ],
+            "delta_radius_squared": -1,
+            "segment_length_squared": 1,
+            "w_flip": true,
+            "role_from_to": [
+              "74",
+              "47"
+            ],
+            "gate_site": "tip",
+            "gate_input": {
+              "phase_deg": 0,
+              "tilt_deg": 0,
+              "error": 0.0,
+              "open_gap": false,
+              "slow": true
+            },
+            "permitted": false
+          }
+        ]
+      },
+      "inner_hinge": {
+        "route": "inner_hinge",
+        "completed": false,
+        "state_trace": [
+          [
+            1,
+            1,
+            2,
+            1
+          ],
+          [
+            1,
+            1,
+            1,
+            1
+          ]
+        ],
+        "record": [
+          {
+            "from": [
+              1,
+              1,
+              2,
+              1
+            ],
+            "to": [
+              1,
+              1,
+              1,
+              1
+            ],
+            "delta_radius_squared": -3,
+            "segment_length_squared": 1,
+            "w_flip": false,
+            "role_from_to": [
+              "74",
+              "74"
+            ],
+            "gate_site": null,
+            "gate_input": null,
+            "permitted": true
+          },
+          {
+            "from": [
+              1,
+              1,
+              1,
+              1
+            ],
+            "to": [
+              1,
+              1,
+              1,
+              0
+            ],
+            "delta_radius_squared": -1,
+            "segment_length_squared": 1,
+            "w_flip": true,
+            "role_from_to": [
+              "74",
+              "47"
+            ],
+            "gate_site": "inner_hinge",
+            "gate_input": {
+              "phase_deg": 0,
+              "tilt_deg": 0,
+              "error": 0.0,
+              "open_gap": false,
+              "slow": true
+            },
+            "permitted": false
+          }
+        ]
+      }
+    },
+    "too_fast_at_both": {
+      "direct_first": {
+        "route": "direct_first",
+        "completed": false,
+        "state_trace": [
+          [
+            1,
+            1,
+            2,
+            1
+          ]
+        ],
+        "record": [
+          {
+            "from": [
+              1,
+              1,
+              2,
+              1
+            ],
+            "to": [
+              1,
+              1,
+              2,
+              0
+            ],
+            "delta_radius_squared": -1,
+            "segment_length_squared": 1,
+            "w_flip": true,
+            "role_from_to": [
+              "74",
+              "47"
+            ],
+            "gate_site": "tip",
+            "gate_input": {
+              "phase_deg": 0,
+              "tilt_deg": 0,
+              "error": 0.0,
+              "open_gap": true,
+              "slow": false
+            },
+            "permitted": false
+          }
+        ]
+      },
+      "inner_hinge": {
+        "route": "inner_hinge",
+        "completed": false,
+        "state_trace": [
+          [
+            1,
+            1,
+            2,
+            1
+          ],
+          [
+            1,
+            1,
+            1,
+            1
+          ]
+        ],
+        "record": [
+          {
+            "from": [
+              1,
+              1,
+              2,
+              1
+            ],
+            "to": [
+              1,
+              1,
+              1,
+              1
+            ],
+            "delta_radius_squared": -3,
+            "segment_length_squared": 1,
+            "w_flip": false,
+            "role_from_to": [
+              "74",
+              "74"
+            ],
+            "gate_site": null,
+            "gate_input": null,
+            "permitted": true
+          },
+          {
+            "from": [
+              1,
+              1,
+              1,
+              1
+            ],
+            "to": [
+              1,
+              1,
+              1,
+              0
+            ],
+            "delta_radius_squared": -1,
+            "segment_length_squared": 1,
+            "w_flip": true,
+            "role_from_to": [
+              "74",
+              "47"
+            ],
+            "gate_site": "inner_hinge",
+            "gate_input": {
+              "phase_deg": 0,
+              "tilt_deg": 0,
+              "error": 0.0,
+              "open_gap": true,
+              "slow": false
+            },
+            "permitted": false
+          }
+        ]
+      }
+    }
+  },
+  "outcome": "Equal carrier endpoint Q0 and final code 47 do not recover which return route was taken. A typed history records gate site and route. Both routes require an independently assigned gate schedule; neither 404 nor the images fixes it."
+}

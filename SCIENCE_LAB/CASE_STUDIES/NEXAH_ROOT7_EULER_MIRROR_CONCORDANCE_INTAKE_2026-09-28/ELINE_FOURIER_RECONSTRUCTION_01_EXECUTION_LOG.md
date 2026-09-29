@@ -1,0 +1,17 @@
+# ELINE_FOURIER_RECONSTRUCTION_01 execution log
+
+Date: `2026-09-29`
+
+- preregistration SHA-256: `4d1c3c5de59139350821b8ae4170585db3190d0488d7b6a3b636fefd05f2e719`
+- lock SHA-256: `b9e2d1d53833dda8def3186d48133402baaae7997619b3d569e81e51f748ae39`
+- runner SHA-256: `c62a39568973b6129171b71b481b8e76f5e190f7a8342a3cf0c394937e5e71e6`
+
+Primary and two replays were byte-identical:
+
+```text
+189e5b7b83ba42d2b1764960c3208c031c1fbffcbbe09418a909f849454c592d
+189e5b7b83ba42d2b1764960c3208c031c1fbffcbbe09418a909f849454c592d
+189e5b7b83ba42d2b1764960c3208c031c1fbffcbbe09418a909f849454c592d
+```
+
+Result: `PASS`, `10/10` checks.

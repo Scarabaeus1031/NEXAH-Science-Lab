@@ -26,6 +26,36 @@ Maßgeblich ist Mission Control `CURRENT/UTILITY_01R_FINAL_STOP.md` mit der
 Science-Lab-Stop-Evidenz unter
 `SCIENCE_LAB/CASE_STUDIES/UTILITY01R_RFLC_REPAIR_R1_2026-09-23/`.
 
+## Additive Konsolidierung vom 29. September 2026
+
+Der owner-autorisierte Root7-/Euler-/Mirror-Follow-on ist inzwischen als ein
+geschlossenes Portfolioobjekt zusammengeführt. Die vielen Addenda, Tests und
+HTML-Ansichten werden nicht als neue Forschungsfamilien gezählt. Sie ordnen
+sich fünf Rollen zu:
+
+1. exakte diskrete Adress- und Arithmetik-Fixtures;
+2. eine begrenzte Record-, Projektions-, Masken- und View-Pipeline;
+3. ein verlustfreies, aber nicht prädiktives SNCE-Trägerprofil;
+4. reversible Koordinaten- und Basisansichten über Descartes, Fourier und
+   Cayley/Poincare;
+5. bekannte Referenz- und Kalibrationsmathematik.
+
+Die wichtigsten Grenzen sind ebenso verbindlich: Es wurde kein ausführbarer
+H_Q-Next-State-Operator gefunden; `F_50` enthält 101 exakt, wählt 101 aber
+nicht intrinsisch und eindeutig aus; die eLinie ist endlich exakt
+Fourier-rekonstruierbar und als Poincare-Disk-Record darstellbar, aber weder
+eine exakte einzelne Sinuswelle noch eine Poincare-Geodäte.
+
+Die drei möglichen Folgefragen — Zustandsupdate, unabhängiger 101-Selektor und
+weiterer hyperbolischer Kurvenvergleich — sind gemeinsam als inaktiver
+Builder-Abgleich geparkt. Sie dürfen nur zurückkehren, wenn ein konkreter
+Build-Gap einen benannten Vertrag, Test, Owner und Claim Ceiling erfordert.
+Es entsteht keine Active Queue, Capability, Produkt-, Physik- oder
+Publikationsänderung.
+
+Controlling Science-Lab report:
+[`44_MISSION_CONTROL_MASTER_CONSOLIDATION_2026-09-29.md`](CASE_STUDIES/NEXAH_ROOT7_EULER_MIRROR_CONCORDANCE_INTAKE_2026-09-28/44_MISSION_CONTROL_MASTER_CONSOLIDATION_2026-09-29.md).
+
 ## Orientation beginnt beim Menschen
 
 Der menschliche Ausgangspunkt ist einfach:

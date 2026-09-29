@@ -1,0 +1,168 @@
+{
+  "classification": "PASS_SOURCE_AUDIT__STATE_UPDATE_OPERATOR_ABSENT",
+  "checks": {
+    "source_hashes_match": true,
+    "common_runtime_conformance_18_of_18_pass": true,
+    "five_h_profile_method_surface_inventoried": true,
+    "runtime_session_method_surface_inventoried": true,
+    "cut_connection_leaves_immutable_session_input_unchanged": true,
+    "closure_transit_boundary_return_does_not_mean_reset_present": true,
+    "five_h_visual_return_labels_present_but_executable_update_name_absent": true,
+    "double_cut_method_surface_inventoried_without_state_update": true,
+    "all_frozen_candidates_scored_against_all_five_criteria": true
+  },
+  "checks_passed": 9,
+  "checks_total": 9,
+  "preregistration_sha256": "db8545d685472f8647763beeb3d8157a02321ad6da207d7896d6398b425e4023",
+  "frozen_source_hashes": {
+    "preregistration": "db8545d685472f8647763beeb3d8157a02321ad6da207d7896d6398b425e4023",
+    "runtimeKernel": "56d2c9128418615f9fb92f33ebfee4ad2ac287653b4c5222d575206225565ef1",
+    "runtimeProfiles": "9e2a55497ae2c7fe5510398818e75658d6d27b83b6e7c89606465e26f85cd71d",
+    "runtimeTest": "44a879fc3f7343639371f9f5d51200d128ab828ef148449b52466ea231166566",
+    "runtimeHtml": "8d7c533db5f59139d09c9aa740a22d93df2f840226b317141ca469e317e812eb",
+    "fiveHHtml": "8c733218dfd1ae6e8632653439877c059429286fa45e09889d0ccfdce0e123ca",
+    "closureHtml": "936708636b7193543bdc31e3069c7836b14057730f39633319e909e5e2f3fb84",
+    "fiveHSynthesis": "14a4cd59e6cfcdddcc50d1bb125c15cf6f4cecd4ecfe74c151ef6fd2f9c5ac62",
+    "doubleCutModel": "35c49ac53760c0df79411822568f924e86b6bf697f2041690a04d705ab623849",
+    "piqMaskResult": "226f3aace443b0ffff74dc58b45d7aa9e01ef2bb854fd2fc6168acf6949590bc"
+  },
+  "runtime_conformance": {
+    "tests": 18,
+    "passed": 18,
+    "profiles_registered": 6,
+    "profiles_executable": 4,
+    "receipt_sha256": "6d7219070adf748d2608927845504b4549925a31ae36d707afb2cf878d5ff494",
+    "tamper_rejected": true,
+    "pending_profile_fail_closed": true
+  },
+  "inventories": {
+    "five_h_profile_methods": [
+      "bind",
+      "compare",
+      "residual",
+      "sample",
+      "validateInput"
+    ],
+    "runtime_session_methods": [
+      "_event",
+      "connect",
+      "freezeCut",
+      "receipt"
+    ],
+    "double_cut_exported_methods": [
+      "classifyHistory",
+      "classifySample",
+      "complement",
+      "currentClassification",
+      "deriveBoundaryEvents",
+      "diagnostics",
+      "generateTrace",
+      "geometricZone",
+      "maskGeometryAt",
+      "phase",
+      "phaseState",
+      "projectState",
+      "retainedHistory",
+      "sampleAt",
+      "segmentByClass"
+    ],
+    "connection_residual_classification": "DIFFERENCE",
+    "session_input_unchanged_after_connection": true
+  },
+  "mandatory_criteria": [
+    "callable",
+    "consumes_return_record",
+    "emits_next_five_h_source_state",
+    "defines_step_advancement",
+    "has_no_refeed_control_test"
+  ],
+  "candidates": [
+    {
+      "id": "five_h_visual_return_path",
+      "label": "Five-H RETURN · RE-FEED path",
+      "evidence": "The HTML draws a return path and changes display text; it does not call a returned-record-to-next-state function.",
+      "criteria": {
+        "callable": false,
+        "consumes_return_record": false,
+        "emits_next_five_h_source_state": false,
+        "defines_step_advancement": false,
+        "has_no_refeed_control_test": false
+      },
+      "passed_count": 0,
+      "qualifies_as_state_update": false
+    },
+    {
+      "id": "five_h_profile_binder_comparator_residual",
+      "label": "five-h-q binder / comparator / residual",
+      "evidence": "Callable operators align Cut B by clock ID and compare it with Cut A; they do not replace or advance the session input.",
+      "criteria": {
+        "callable": true,
+        "consumes_return_record": false,
+        "emits_next_five_h_source_state": false,
+        "defines_step_advancement": false,
+        "has_no_refeed_control_test": false
+      },
+      "passed_count": 1,
+      "qualifies_as_state_update": false
+    },
+    {
+      "id": "common_runtime_connection_and_receipt",
+      "label": "Common Runtime connection / receipt",
+      "evidence": "connect() creates a frozen comparison record and receipt() seals provenance; neither emits a next Five-H input.",
+      "criteria": {
+        "callable": true,
+        "consumes_return_record": false,
+        "emits_next_five_h_source_state": false,
+        "defines_step_advancement": false,
+        "has_no_refeed_control_test": false
+      },
+      "passed_count": 1,
+      "qualifies_as_state_update": false
+    },
+    {
+      "id": "closure_transit_comparator",
+      "label": "Closure Transit return / comparator",
+      "evidence": "drawClosureTransit() displays transport and residual classes and explicitly states that return does not mean reset.",
+      "criteria": {
+        "callable": true,
+        "consumes_return_record": false,
+        "emits_next_five_h_source_state": false,
+        "defines_step_advancement": false,
+        "has_no_refeed_control_test": false
+      },
+      "passed_count": 1,
+      "qualifies_as_state_update": false
+    },
+    {
+      "id": "double_cut_projection_and_mask",
+      "label": "Double-Cut projection / mask classification",
+      "evidence": "projectState() and classifySample() emit projected and classified records, not a next five-phase source state.",
+      "criteria": {
+        "callable": true,
+        "consumes_return_record": false,
+        "emits_next_five_h_source_state": false,
+        "defines_step_advancement": false,
+        "has_no_refeed_control_test": false
+      },
+      "passed_count": 1,
+      "qualifies_as_state_update": false
+    },
+    {
+      "id": "synthesis_declared_routing",
+      "label": "Synthesis return declaration",
+      "evidence": "The synthesis types return/re-feed as routing into a later comparison, without an executable update equation.",
+      "criteria": {
+        "callable": false,
+        "consumes_return_record": false,
+        "emits_next_five_h_source_state": false,
+        "defines_step_advancement": false,
+        "has_no_refeed_control_test": false
+      },
+      "passed_count": 0,
+      "qualifies_as_state_update": false
+    }
+  ],
+  "qualifying_candidate_ids": [],
+  "next_gate": "BLOCK_REFEED_EFFICACY_TEST_UNTIL_SEPARATELY_DEFINED_STATE_UPDATE_OPERATOR",
+  "claim_boundary": "Source audit of bounded Five-H/Common-Runtime/Closure/Double-Cut artifacts only. Absence means no independently pre-existing H_Q next-state operator was found in the frozen sources; it is not proof that no future operator can be specified."
+}

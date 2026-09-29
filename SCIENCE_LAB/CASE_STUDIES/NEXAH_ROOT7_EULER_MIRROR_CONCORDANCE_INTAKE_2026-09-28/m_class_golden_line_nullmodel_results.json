@@ -1,0 +1,385 @@
+{
+  "check_count": 20,
+  "checks": [
+    {
+      "expected": [
+        404,
+        808,
+        1616,
+        3232,
+        6464,
+        12928
+      ],
+      "id": "golden_line_exact_dyadic_segment",
+      "observed": [
+        404,
+        808,
+        1616,
+        3232,
+        6464,
+        12928
+      ],
+      "pass": true
+    },
+    {
+      "expected": [],
+      "id": "scale_and_ghostgrid_invariants_are_generic",
+      "observed": [],
+      "pass": true
+    },
+    {
+      "expected": 4,
+      "id": "bounded_seed_scan_maximum_run_is_four",
+      "observed": 4,
+      "pass": true
+    },
+    {
+      "expected": [
+        1,
+        11,
+        101,
+        111
+      ],
+      "id": "bounded_seed_scan_all_maximizers",
+      "observed": [
+        1,
+        11,
+        101,
+        111
+      ],
+      "pass": true
+    },
+    {
+      "expected": [
+        101,
+        111
+      ],
+      "id": "three_digit_maximizers",
+      "observed": [
+        101,
+        111
+      ],
+      "pass": true
+    },
+    {
+      "expected": 15,
+      "id": "three_digit_palindromic_prime_population_size",
+      "observed": 15,
+      "pass": true
+    },
+    {
+      "expected": {
+        "run": 4,
+        "unique_maximizer": 101
+      },
+      "id": "101_unique_in_three_digit_palindromic_prime_null",
+      "observed": {
+        "101": 4,
+        "131": 2,
+        "151": 1,
+        "181": 1,
+        "191": 1,
+        "313": 2,
+        "353": 1,
+        "373": 1,
+        "383": 1,
+        "727": 1,
+        "757": 1,
+        "787": 1,
+        "797": 1,
+        "919": 1,
+        "929": 1
+      },
+      "pass": true
+    },
+    {
+      "expected": [
+        101,
+        202,
+        404,
+        808
+      ],
+      "id": "101_palindrome_prefix",
+      "observed": [
+        101,
+        202,
+        404,
+        808
+      ],
+      "pass": true
+    },
+    {
+      "expected": "not a decimal palindrome",
+      "id": "carry_breaks_prefix_at_1616",
+      "observed": 1616,
+      "pass": true
+    },
+    {
+      "expected": [],
+      "id": "carrier_klein_four_algebra_all_90_states",
+      "observed": [],
+      "pass": true
+    },
+    {
+      "expected": [
+        999,
+        898,
+        696,
+        292
+      ],
+      "id": "golden_window_J1100_images",
+      "observed": [
+        999,
+        898,
+        696,
+        292
+      ],
+      "pass": true
+    },
+    {
+      "expected": "all decimal palindromes",
+      "id": "golden_and_J_images_all_palindromes",
+      "observed": [
+        101,
+        202,
+        404,
+        808,
+        999,
+        898,
+        696,
+        292
+      ],
+      "pass": true
+    },
+    {
+      "expected": {
+        "J_partner": 292,
+        "last_palindrome": 808,
+        "next": 1616,
+        "next_J_negative": true
+      },
+      "id": "808_triple_boundary",
+      "observed": {
+        "J_partner": 292,
+        "last_palindrome": 808,
+        "next": 1616,
+        "next_J": -516
+      },
+      "pass": true
+    },
+    {
+      "expected": {
+        "232": {
+          "H": 262,
+          "J": 868,
+          "K": 838
+        },
+        "282": {
+          "H": 212,
+          "J": 818,
+          "K": 888
+        },
+        "292": {
+          "H": 202,
+          "J": 808,
+          "K": 898
+        }
+      },
+      "id": "232_282_292_exact_carrier_orbits",
+      "observed": {
+        "232": {
+          "H": 262,
+          "J": 868,
+          "K": 838
+        },
+        "282": {
+          "H": 212,
+          "J": 818,
+          "K": 888
+        },
+        "292": {
+          "H": 202,
+          "J": 808,
+          "K": 898
+        }
+      },
+      "pass": true
+    },
+    {
+      "expected": [
+        808
+      ],
+      "id": "292_bridge_unique_golden_intersection",
+      "observed": [
+        808
+      ],
+      "pass": true
+    },
+    {
+      "expected": {
+        "H": 202,
+        "J": 808
+      },
+      "id": "292_has_two_typed_nonidentical_reflections",
+      "observed": {
+        "H": 202,
+        "J": 808,
+        "K": 898
+      },
+      "pass": true
+    },
+    {
+      "expected": "69+112=181",
+      "id": "181_exact_relational_split",
+      "observed": [
+        69,
+        112,
+        181
+      ],
+      "pass": true
+    },
+    {
+      "expected": {
+        "large": 112,
+        "small": 69
+      },
+      "id": "181_split_is_nearest_integer_phi_split",
+      "observed": {
+        "large": 112,
+        "small": 69
+      },
+      "pass": true
+    },
+    {
+      "expected": {
+        "population": 290,
+        "rank": 65
+      },
+      "id": "181_phi_split_not_top_ranked_in_frozen_null",
+      "observed": {
+        "absolute_ratio_error": "0.0051544170472066010707754844749415924246183564261",
+        "population": 290,
+        "rank": 65,
+        "relative_error": "0.0031856049273655507088945717239343360097772193948483"
+      },
+      "pass": true
+    },
+    {
+      "expected": {
+        "181+111": 292,
+        "292+808": 1100,
+        "69+112+111+808": 1100
+      },
+      "id": "affine_closure_181_292_808_1100",
+      "observed": {
+        "181+111": 292,
+        "292+808": 1100,
+        "69+112+111+808": 1100
+      },
+      "pass": true
+    }
+  ],
+  "claim_boundary": "No resonance, physical transition, causal switch, universal phi law, or new theorem is established.",
+  "classification": "BOUNDED_DECIMAL_CROSS_CARRIER_M_CANDIDATE_NOT_PROMOTED",
+  "cross_carrier_bridge": {
+    "golden_intersection_with_a2_J_images": [
+      808
+    ],
+    "golden_window": [
+      101,
+      202,
+      404,
+      808
+    ],
+    "images": [
+      999,
+      898,
+      696,
+      292
+    ],
+    "operator": "J(n)=1100-n",
+    "selected_state_orbits": {
+      "232": {
+        "H": 262,
+        "J": 868,
+        "K": 838
+      },
+      "282": {
+        "H": 212,
+        "J": 818,
+        "K": 888
+      },
+      "292": {
+        "H": 202,
+        "J": 808,
+        "K": 898
+      }
+    }
+  },
+  "date": "2026-09-28",
+  "decision": {
+    "181_split": "unique nearest integer phi split for total 181 but only rank 65/290 in the frozen null",
+    "232_282": "exact members of the same carrier/reflection algebra, not Golden-Line hits",
+    "292": "exact half-edge state and J_1100 bridge partner of 808; NCS input/output rule remains unvalidated",
+    "808": "validated as a bounded representation turning point, not a physical or dynamical switch",
+    "M_class": "bounded decimal cross-carrier candidate only; independent confirmation required before promotion",
+    "scale_invariants": "generic across all matched pair and multiplier controls"
+  },
+  "golden_line": [
+    101,
+    202,
+    404,
+    808,
+    1616,
+    3232,
+    6464,
+    12928,
+    25856,
+    51712,
+    103424
+  ],
+  "palindrome_null": {
+    "all_maximizers": [
+      1,
+      11,
+      101,
+      111
+    ],
+    "maximum_prefix_length": 4,
+    "seed_domain": [
+      1,
+      999
+    ],
+    "three_digit_palindromic_prime_runs": {
+      "101": 4,
+      "131": 2,
+      "151": 1,
+      "181": 1,
+      "191": 1,
+      "313": 2,
+      "353": 1,
+      "373": 1,
+      "383": 1,
+      "727": 1,
+      "757": 1,
+      "787": 1,
+      "797": 1,
+      "919": 1,
+      "929": 1
+    }
+  },
+  "passed": true,
+  "passed_count": 20,
+  "phi_split": {
+    "absolute_ratio_error": "0.0051544170472066010707754844749415924246183564261",
+    "equation": "181=69+112",
+    "phi": "1.6180339887498948482045868343656381177203091798058",
+    "population": 290,
+    "rank": 65,
+    "ratio_112_over_69": "1.6231884057971014492753623188405797101449275362319",
+    "relative_error": "0.0031856049273655507088945717239343360097772193948483"
+  },
+  "scientific_hash": "76bb5ca7648b384a079fa20efe3030c53331f6b32afbecc7d86eac75946c5d0f",
+  "status": "RETROSPECTIVE_EXPLORATORY_DISCOVERY_INFORMED",
+  "test_id": "NEXAH_M_CLASS_GOLDEN_LINE_NULLMODEL_001"
+}

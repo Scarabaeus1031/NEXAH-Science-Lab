@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="980" viewBox="0 0 1440 980" role="img" aria-labelledby="title desc">
+<title id="title">NEXAH: XI-Hinge 97–99–101 und 101/404-Kanal</title>
+<desc id="desc">Geprüfte lokale Primzahl-Symmetrie um 99, daraus gewählte 101er-Verdopplung und additive 404er-Unterteilung. Vergleichszahlen für Moduli 9, 10, 11, 12, 13 und 15 im Bereich 1 bis 121.</desc>
+<defs>
+  <style>
+    text {font-family:Inter,Arial,Helvetica,sans-serif;fill:#eaf2ff}
+    .title{font-size:39px;font-weight:750}.subtitle{font-size:18px;fill:#aabbd1}
+    .label{font-size:20px;font-weight:700}.small{font-size:17px;fill:#adc1db}
+    .number{font-size:42px;font-weight:750}.mid{font-size:25px;font-weight:700}
+    .gold{fill:#f7c668}.cyan{fill:#60d4ef}.muted{fill:#aabbd1}
+    .card{fill:#101c30;stroke:#2a4660;stroke-width:1.5}
+    .line{stroke:#617b97;stroke-width:2.4;fill:none}
+    .dash{stroke:#627789;stroke-width:2;stroke-dasharray:7 8}
+  </style>
+  <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10Z" fill="#8daec7"/></marker>
+</defs>
+<rect width="1440" height="980" fill="#081321"/>
+<text x="70" y="74" class="title">XI-Hinge → 101-Kanal → 404er-Bogen</text>
+<text x="70" y="108" class="subtitle">Korrigierter Prüfmarker zur Tafel „X : XI : XII Grid Hinges &amp; Mirror Channels“ · 28.09.2026</text>
+
+<rect x="60" y="148" width="1320" height="228" rx="19" class="card"/>
+<text x="94" y="190" class="label">01  Lokaler Primzahl-Hinge</text>
+<circle cx="330" cy="274" r="54" fill="#13334b" stroke="#60d4ef" stroke-width="3"/>
+<circle cx="720" cy="274" r="54" fill="#413118" stroke="#f7c668" stroke-width="3"/>
+<circle cx="1110" cy="274" r="54" fill="#13334b" stroke="#60d4ef" stroke-width="3"/>
+<text x="303" y="289" class="number cyan">97</text><text x="691" y="289" class="number gold">99</text><text x="1070" y="289" class="number cyan">101</text>
+<path d="M390 274 H659 M781 274 H1049" class="line" marker-end="url(#arrow)"/>
+<text x="502" y="254" class="mid">+2</text><text x="887" y="254" class="mid">+2</text>
+<text x="234" y="356" class="small">P₂₅ · prim</text><text x="637" y="356" class="small">9 × 11 · Zentrum</text><text x="1003" y="356" class="small">P₂₆ · prim</text>
+
+<rect x="60" y="395" width="1320" height="283" rx="19" class="card"/>
+<text x="94" y="438" class="label">02  Gewählte Kanalregel: cₖ = 101 · 2ᵏ</text>
+<text x="106" y="498" class="mid cyan">101</text><text x="269" y="498" class="mid cyan">202</text><text x="438" y="498" class="mid gold">404</text><text x="620" y="498" class="mid cyan">808</text><text x="861" y="498" class="mid cyan">1616</text><text x="1150" y="498" class="mid cyan">3232</text>
+<path d="M180 489 H244 M345 489 H409 M521 489 H594 M701 489 H828 M957 489 H1119" class="line" marker-end="url(#arrow)"/>
+<text x="133" y="531" class="small">×2</text><text x="312" y="531" class="small">×2</text><text x="489" y="531" class="small">×2</text><text x="785" y="531" class="small">×2</text><text x="1058" y="531" class="small">×2</text>
+<path d="M647 557 V607 M881 557 V607 M1176 557 V607" class="dash"/>
+<text x="94" y="618" class="small">Additive Unterteilung:</text>
+<text x="394" y="618" class="mid">808  →  <tspan class="gold">1212</tspan>  →  1616</text>
+<text x="892" y="618" class="small">je +404</text>
+<text x="94" y="652" class="small">Nächster Bogen: 1616 → 2020 → <tspan class="gold">2424</tspan> → 2828 → 3232  (vier Schritte à 404)</text>
+
+<rect x="60" y="697" width="1320" height="228" rx="19" class="card"/>
+<text x="94" y="738" class="label">03  Vergleich und Aussagegrenze</text>
+<text x="94" y="782" class="small">Kriterium: c ist Vielfaches von m; c−2 und c+2 sind prim; 1 ≤ c±2 ≤ 121.</text>
+<text x="94" y="822" class="mid">m</text><text x="189" y="822" class="mid">9</text><text x="314" y="822" class="mid">10</text><text x="442" y="822" class="mid gold">11</text><text x="569" y="822" class="mid">12</text><text x="693" y="822" class="mid">13</text><text x="819" y="822" class="mid">15</text>
+<text x="94" y="858" class="mid">Anzahl</text><text x="189" y="858" class="mid">4</text><text x="314" y="858" class="mid">0</text><text x="442" y="858" class="mid gold">1</text><text x="569" y="858" class="mid">0</text><text x="693" y="858" class="mid">1</text><text x="819" y="858" class="mid">3</text>
+<path d="M928 795 V870" stroke="#39536b" stroke-width="2"/>
+<text x="957" y="818" class="small">Bei 10 und 12 sind die Zentren gerade:</text>
+<text x="957" y="846" class="small">c±2 bleibt gerade, also hier nicht prim.</text>
+<text x="957" y="874" class="small">Der Vergleich allein zeichnet XI nicht aus.</text>
+<text x="70" y="957" class="small">Exakt: 97–99–101 und die arithmetische Leiter. Modellwahl: den Primzahlsprung 4 als Faktor der 404er-Einheit zu verwenden.</text>
+</svg>

@@ -1,0 +1,791 @@
+{
+  "check_count": 18,
+  "checks": [
+    {
+      "expected": "all 665 states",
+      "id": "q_involution_all_bases",
+      "observed": 665,
+      "pass": true
+    },
+    {
+      "expected": "all 665 states",
+      "id": "r_involution_all_bases",
+      "observed": 665,
+      "pass": true
+    },
+    {
+      "expected": "R_B=Q_B o T_1",
+      "id": "r_equals_q_after_plus_one",
+      "observed": 665,
+      "pass": true
+    },
+    {
+      "expected": "Q: two fixed states in even bases, one in odd bases",
+      "id": "q_fixed_point_parity",
+      "observed": {
+        "2": {
+          "Q": 2,
+          "R": 0
+        },
+        "3": {
+          "Q": 1,
+          "R": 1
+        },
+        "4": {
+          "Q": 2,
+          "R": 0
+        },
+        "5": {
+          "Q": 1,
+          "R": 1
+        },
+        "6": {
+          "Q": 2,
+          "R": 0
+        },
+        "7": {
+          "Q": 1,
+          "R": 1
+        },
+        "8": {
+          "Q": 2,
+          "R": 0
+        },
+        "9": {
+          "Q": 1,
+          "R": 1
+        },
+        "10": {
+          "Q": 2,
+          "R": 0
+        },
+        "11": {
+          "Q": 1,
+          "R": 1
+        },
+        "12": {
+          "Q": 2,
+          "R": 0
+        },
+        "13": {
+          "Q": 1,
+          "R": 1
+        },
+        "14": {
+          "Q": 2,
+          "R": 0
+        },
+        "15": {
+          "Q": 1,
+          "R": 1
+        },
+        "16": {
+          "Q": 2,
+          "R": 0
+        },
+        "17": {
+          "Q": 1,
+          "R": 1
+        },
+        "18": {
+          "Q": 2,
+          "R": 0
+        },
+        "19": {
+          "Q": 1,
+          "R": 1
+        },
+        "20": {
+          "Q": 2,
+          "R": 0
+        },
+        "21": {
+          "Q": 1,
+          "R": 1
+        },
+        "22": {
+          "Q": 2,
+          "R": 0
+        },
+        "23": {
+          "Q": 1,
+          "R": 1
+        },
+        "24": {
+          "Q": 2,
+          "R": 0
+        },
+        "25": {
+          "Q": 1,
+          "R": 1
+        },
+        "26": {
+          "Q": 2,
+          "R": 0
+        },
+        "27": {
+          "Q": 1,
+          "R": 1
+        },
+        "28": {
+          "Q": 2,
+          "R": 0
+        },
+        "29": {
+          "Q": 1,
+          "R": 1
+        },
+        "30": {
+          "Q": 2,
+          "R": 0
+        },
+        "31": {
+          "Q": 1,
+          "R": 1
+        },
+        "32": {
+          "Q": 2,
+          "R": 0
+        },
+        "33": {
+          "Q": 1,
+          "R": 1
+        },
+        "34": {
+          "Q": 2,
+          "R": 0
+        },
+        "35": {
+          "Q": 1,
+          "R": 1
+        },
+        "36": {
+          "Q": 2,
+          "R": 0
+        }
+      },
+      "pass": true
+    },
+    {
+      "expected": "R: no fixed state in even bases, one in odd bases",
+      "id": "r_fixed_point_parity",
+      "observed": {
+        "2": {
+          "Q": 2,
+          "R": 0
+        },
+        "3": {
+          "Q": 1,
+          "R": 1
+        },
+        "4": {
+          "Q": 2,
+          "R": 0
+        },
+        "5": {
+          "Q": 1,
+          "R": 1
+        },
+        "6": {
+          "Q": 2,
+          "R": 0
+        },
+        "7": {
+          "Q": 1,
+          "R": 1
+        },
+        "8": {
+          "Q": 2,
+          "R": 0
+        },
+        "9": {
+          "Q": 1,
+          "R": 1
+        },
+        "10": {
+          "Q": 2,
+          "R": 0
+        },
+        "11": {
+          "Q": 1,
+          "R": 1
+        },
+        "12": {
+          "Q": 2,
+          "R": 0
+        },
+        "13": {
+          "Q": 1,
+          "R": 1
+        },
+        "14": {
+          "Q": 2,
+          "R": 0
+        },
+        "15": {
+          "Q": 1,
+          "R": 1
+        },
+        "16": {
+          "Q": 2,
+          "R": 0
+        },
+        "17": {
+          "Q": 1,
+          "R": 1
+        },
+        "18": {
+          "Q": 2,
+          "R": 0
+        },
+        "19": {
+          "Q": 1,
+          "R": 1
+        },
+        "20": {
+          "Q": 2,
+          "R": 0
+        },
+        "21": {
+          "Q": 1,
+          "R": 1
+        },
+        "22": {
+          "Q": 2,
+          "R": 0
+        },
+        "23": {
+          "Q": 1,
+          "R": 1
+        },
+        "24": {
+          "Q": 2,
+          "R": 0
+        },
+        "25": {
+          "Q": 1,
+          "R": 1
+        },
+        "26": {
+          "Q": 2,
+          "R": 0
+        },
+        "27": {
+          "Q": 1,
+          "R": 1
+        },
+        "28": {
+          "Q": 2,
+          "R": 0
+        },
+        "29": {
+          "Q": 1,
+          "R": 1
+        },
+        "30": {
+          "Q": 2,
+          "R": 0
+        },
+        "31": {
+          "Q": 1,
+          "R": 1
+        },
+        "32": {
+          "Q": 2,
+          "R": 0
+        },
+        "33": {
+          "Q": 1,
+          "R": 1
+        },
+        "34": {
+          "Q": 2,
+          "R": 0
+        },
+        "35": {
+          "Q": 1,
+          "R": 1
+        },
+        "36": {
+          "Q": 2,
+          "R": 0
+        }
+      },
+      "pass": true
+    },
+    {
+      "expected": "integer conjugacy only in odd bases; even bases require half-step",
+      "id": "integer_translation_conjugacy_iff_odd",
+      "observed": {
+        "2": [],
+        "3": [
+          1
+        ],
+        "4": [],
+        "5": [
+          2
+        ],
+        "6": [],
+        "7": [
+          3
+        ],
+        "8": [],
+        "9": [
+          4
+        ],
+        "10": [],
+        "11": [
+          5
+        ],
+        "12": [],
+        "13": [
+          6
+        ],
+        "14": [],
+        "15": [
+          7
+        ],
+        "16": [],
+        "17": [
+          8
+        ],
+        "18": [],
+        "19": [
+          9
+        ],
+        "20": [],
+        "21": [
+          10
+        ],
+        "22": [],
+        "23": [
+          11
+        ],
+        "24": [],
+        "25": [
+          12
+        ],
+        "26": [],
+        "27": [
+          13
+        ],
+        "28": [],
+        "29": [
+          14
+        ],
+        "30": [],
+        "31": [
+          15
+        ],
+        "32": [],
+        "33": [
+          16
+        ],
+        "34": [],
+        "35": [
+          17
+        ],
+        "36": []
+      },
+      "pass": true
+    },
+    {
+      "expected": "exactly state zero emits carry one in every base",
+      "id": "raw_radix_complement_carry_boundary",
+      "observed": {
+        "2": [
+          [
+            0,
+            1,
+            0
+          ]
+        ],
+        "3": [
+          [
+            0,
+            1,
+            0
+          ]
+        ],
+        "4": [
+          [
+            0,
+            1,
+            0
+          ]
+        ],
+        "5": [
+          [
+            0,
+            1,
+            0
+          ]
+        ],
+        "6": [
+          [
+            0,
+            1,
+            0
+          ]
+        ],
+        "7": [
+          [
+            0,
+            1,
+            0
+          ]
+        ],
+        "8": [
+          [
+            0,
+            1,
+            0
+          ]
+        ],
+        "9": [
+          [
+            0,
+            1,
+            0
+          ]
+        ],
+        "10": [
+          [
+            0,
+            1,
+            0
+          ]
+        ],
+        "11": [
+          [
+            0,
+            1,
+            0
+          ]
+        ],
+        "12": [
+          [
+            0,
+            1,
+            0
+          ]
+        ],
+        "13": [
+          [
+            0,
+            1,
+            0
+          ]
+        ],
+        "14": [
+          [
+            0,
+            1,
+            0
+          ]
+        ],
+        "15": [
+          [
+            0,
+            1,
+            0
+          ]
+        ],
+        "16": [
+          [
+            0,
+            1,
+            0
+          ]
+        ],
+        "17": [
+          [
+            0,
+            1,
+            0
+          ]
+        ],
+        "18": [
+          [
+            0,
+            1,
+            0
+          ]
+        ],
+        "19": [
+          [
+            0,
+            1,
+            0
+          ]
+        ],
+        "20": [
+          [
+            0,
+            1,
+            0
+          ]
+        ],
+        "21": [
+          [
+            0,
+            1,
+            0
+          ]
+        ],
+        "22": [
+          [
+            0,
+            1,
+            0
+          ]
+        ],
+        "23": [
+          [
+            0,
+            1,
+            0
+          ]
+        ],
+        "24": [
+          [
+            0,
+            1,
+            0
+          ]
+        ],
+        "25": [
+          [
+            0,
+            1,
+            0
+          ]
+        ],
+        "26": [
+          [
+            0,
+            1,
+            0
+          ]
+        ],
+        "27": [
+          [
+            0,
+            1,
+            0
+          ]
+        ],
+        "28": [
+          [
+            0,
+            1,
+            0
+          ]
+        ],
+        "29": [
+          [
+            0,
+            1,
+            0
+          ]
+        ],
+        "30": [
+          [
+            0,
+            1,
+            0
+          ]
+        ],
+        "31": [
+          [
+            0,
+            1,
+            0
+          ]
+        ],
+        "32": [
+          [
+            0,
+            1,
+            0
+          ]
+        ],
+        "33": [
+          [
+            0,
+            1,
+            0
+          ]
+        ],
+        "34": [
+          [
+            0,
+            1,
+            0
+          ]
+        ],
+        "35": [
+          [
+            0,
+            1,
+            0
+          ]
+        ],
+        "36": [
+          [
+            0,
+            1,
+            0
+          ]
+        ]
+      },
+      "pass": true
+    },
+    {
+      "expected": {
+        "Q10": 101,
+        "R10": 191,
+        "raw_10_minus_z": 201
+      },
+      "id": "carrier_101_three_typed_outcomes",
+      "observed": {
+        "Q10": 101,
+        "R10": 191,
+        "raw_10_minus_z": 201
+      },
+      "pass": true
+    },
+    {
+      "expected": [
+        37,
+        41
+      ],
+      "id": "fixed_width_bit_mirror_41_37",
+      "observed": [
+        37,
+        41
+      ],
+      "pass": true
+    },
+    {
+      "expected": {
+        "width4": 2,
+        "width_dropped_not": 2
+      },
+      "id": "width_is_required_for_return",
+      "observed": {
+        "width4": 2,
+        "width_dropped": 1
+      },
+      "pass": true
+    },
+    {
+      "expected": {
+        "expected_index": 233,
+        "observed_index": 232,
+        "prime_gap": 12
+      },
+      "id": "terminal_prime_gap",
+      "observed": {
+        "expected_index": 233,
+        "observed_index": 232,
+        "prime_gap": 12
+      },
+      "pass": true
+    },
+    {
+      "expected": [
+        -12,
+        -1
+      ],
+      "id": "signed_residual_vector",
+      "observed": [
+        -12,
+        -1
+      ],
+      "pass": true
+    },
+    {
+      "expected": [
+        12,
+        1
+      ],
+      "id": "correction_vector",
+      "observed": [
+        12,
+        1
+      ],
+      "pass": true
+    },
+    {
+      "expected": "same residue; +12 is one full mod-12 turn",
+      "id": "mod12_lens_hides_error",
+      "observed": {
+        "1459": 7,
+        "1471": 7
+      },
+      "pass": true
+    },
+    {
+      "expected": "difference +12/112, not +1/112",
+      "id": "mod112_lens_is_twelve_microticks",
+      "observed": {
+        "1459": 3,
+        "1471": 15
+      },
+      "pass": true
+    },
+    {
+      "expected": {
+        "P465": 3307,
+        "index_sum": 465,
+        "midpoint": 1465,
+        "value_sum": 2930
+      },
+      "id": "pair_aggregate_not_P465",
+      "observed": {
+        "P465": 3307,
+        "index_sum": 465,
+        "midpoint": 1465,
+        "value_sum": 2930
+      },
+      "pass": true
+    },
+    {
+      "expected": true,
+      "id": "pair_factorization",
+      "observed": {
+        "1465": "5*293",
+        "2930": "10*293"
+      },
+      "pass": true
+    },
+    {
+      "expected": "gap 12 is not unique",
+      "id": "gap12_frequency_control",
+      "observed": {
+        "fraction": 0.10081008100810081,
+        "gap12_count_first_9999_gaps": 1008
+      },
+      "pass": true
+    }
+  ],
+  "classification": "TYPED_MIRROR_FAMILY_CONFIRMED_PHASE_IDENTITY_REJECTED",
+  "date": "2026-09-28",
+  "decision": {
+    "draft_drift": "may label correction/error orientation only after an explicit coordinate convention",
+    "mirror_family": "confirmed only with base, phase, width and carry types",
+    "one_over_112": "not matched; the value correction is 12/112",
+    "one_over_twelve": "available only as a newly normalized reciprocal slope; not the existing c12 tick",
+    "prime_gap_residual": "(-12,-1) observed-minus-expected; (+12,+1) correction"
+  },
+  "passed": true,
+  "passed_count": 18,
+  "prime_gap_control": {
+    "gap_12_count": 1008,
+    "gap_12_fraction": 0.10081008100810081,
+    "population": "first 10,000 primes / 9,999 adjacent gaps"
+  },
+  "scientific_hash": "f5e87d128d839582ff5d3209e1a8b2aba14906905811f6e8dfc836960dbf5d84",
+  "test_id": "NEXAH_MIRROR_CARRY_TYPED_OPERATOR_001"
+}

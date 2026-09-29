@@ -1,0 +1,338 @@
+{
+  "boundaries": [
+    "1459=P232 is a representation error for the strict +20 lane; P233=1471",
+    "the corrected ladder has 11 of 12 +20 transitions, not 10 of 12",
+    "the 8+4 split at 883 survives as an ordinal decimal-threshold view",
+    "41+60=101 and prime-index doubling are exact selected relations, not a generator",
+    "angle lane 7,17,...,97 is not a prime lane",
+    "image semantics do not establish a physical or universal mechanism"
+  ],
+  "check_count": 25,
+  "checks": [
+    {
+      "expected": 41,
+      "id": "carrier_41_views",
+      "observed": {
+        "131_5": 41,
+        "29_16": 41,
+        "51_8": 41,
+        "56_7": 41
+      },
+      "pass": true
+    },
+    {
+      "expected": "same value 131",
+      "id": "carrier_131_views",
+      "observed": {
+        "decimal": 131,
+        "digits": [
+          1,
+          3,
+          1
+        ],
+        "roman": 131
+      },
+      "pass": true
+    },
+    {
+      "expected": 37,
+      "id": "bit_mirror_41_to_37",
+      "observed": 37,
+      "pass": true
+    },
+    {
+      "expected": 41,
+      "id": "bit_mirror_roundtrip",
+      "observed": 41,
+      "pass": true
+    },
+    {
+      "expected": true,
+      "id": "bit_mirror_prime_boundary",
+      "observed": {
+        "37_prime": true,
+        "41_prime": true
+      },
+      "pass": true
+    },
+    {
+      "expected": "E_-(n)=E_+(n-1)",
+      "id": "euler_index_handoff",
+      "observed": "n=-1000..1000",
+      "pass": true
+    },
+    {
+      "expected": 1681,
+      "id": "euler_41_marker",
+      "observed": 1681,
+      "pass": true
+    },
+    {
+      "expected": {
+        "1031": 173,
+        "1033": 174
+      },
+      "id": "prime_gate_1031_1033",
+      "observed": {
+        "1031": 173,
+        "1033": 174
+      },
+      "pass": true
+    },
+    {
+      "expected": false,
+      "id": "composite_center_1032",
+      "observed": false,
+      "pass": true
+    },
+    {
+      "expected": {
+        "delta": 7
+      },
+      "id": "seven_index_arch",
+      "observed": {
+        "from": 174,
+        "to": 181
+      },
+      "pass": true
+    },
+    {
+      "expected": {
+        "forward": 7801,
+        "return": 1087
+      },
+      "id": "decimal_reverse_1087",
+      "observed": {
+        "forward": 7801,
+        "return": 1087
+      },
+      "pass": true
+    },
+    {
+      "expected": "prime -> composite; 7801=29*269",
+      "id": "reverse_prime_composite_boundary",
+      "observed": {
+        "1087_prime": true,
+        "7801_prime": false,
+        "factorization": [
+          29,
+          269
+        ]
+      },
+      "pass": true
+    },
+    {
+      "expected": {
+        "0": 0,
+        "1": 6,
+        "2": 5,
+        "3": 4,
+        "4": 3,
+        "5": 2,
+        "6": 1
+      },
+      "id": "z7_reflection",
+      "observed": {
+        "0": 0,
+        "1": 6,
+        "2": 5,
+        "3": 4,
+        "4": 3,
+        "5": 2,
+        "6": 1
+      },
+      "pass": true
+    },
+    {
+      "expected": [
+        [
+          1,
+          6
+        ],
+        [
+          2,
+          5
+        ],
+        [
+          3,
+          4
+        ]
+      ],
+      "id": "z7_three_pairs",
+      "observed": [
+        [
+          1,
+          6
+        ],
+        [
+          2,
+          5
+        ],
+        [
+          3,
+          4
+        ]
+      ],
+      "pass": true
+    },
+    {
+      "expected": "7+10k for k=0..9",
+      "id": "angle_lane",
+      "observed": [
+        7,
+        17,
+        27,
+        37,
+        47,
+        57,
+        67,
+        77,
+        87,
+        97
+      ],
+      "pass": true
+    },
+    {
+      "expected": "theta+180",
+      "id": "antipodal_angle_view",
+      "observed": [
+        187,
+        197,
+        207,
+        217,
+        227,
+        237,
+        247,
+        257,
+        267,
+        277
+      ],
+      "pass": true
+    },
+    {
+      "expected": "at least one composite",
+      "id": "angle_lane_not_prime_lane",
+      "observed": [
+        27,
+        57,
+        77,
+        87
+      ],
+      "pass": true
+    },
+    {
+      "expected": {
+        "1459_index": 232,
+        "P233": 1471
+      },
+      "id": "detect_1459_terminal_error",
+      "observed": {
+        "1459_index": 232,
+        "P233": 1471
+      },
+      "pass": true
+    },
+    {
+      "expected": [
+        7,
+        20,
+        20,
+        20,
+        20,
+        20,
+        20,
+        20,
+        20,
+        20,
+        20,
+        20
+      ],
+      "id": "corrected_plus20_lane",
+      "observed": [
+        7,
+        20,
+        20,
+        20,
+        20,
+        20,
+        20,
+        20,
+        20,
+        20,
+        20,
+        20
+      ],
+      "pass": true
+    },
+    {
+      "expected": {
+        "prime_index_delta": 147,
+        "steps": 8
+      },
+      "id": "eight_step_13_to_883",
+      "observed": {
+        "prime_index_delta": 147,
+        "steps": 8
+      },
+      "pass": true
+    },
+    {
+      "expected": {
+        "split": [
+          8,
+          4
+        ],
+        "total_steps": 12
+      },
+      "id": "decimal_threshold_8_plus_4",
+      "observed": {
+        "after_threshold": 4,
+        "before_threshold": 8,
+        "total_steps": 12
+      },
+      "pass": true
+    },
+    {
+      "expected": {
+        "prime": true,
+        "sum": 101
+      },
+      "id": "41_plus_60_bridge",
+      "observed": {
+        "prime": true,
+        "sum": 101
+      },
+      "pass": true
+    },
+    {
+      "expected": {
+        "pi101": 26,
+        "pi41": 13
+      },
+      "id": "prime_index_doubling_41_101",
+      "observed": {
+        "pi101": 26,
+        "pi41": 13
+      },
+      "pass": true
+    },
+    {
+      "expected": 60,
+      "id": "timegear_gcd_60",
+      "observed": 60,
+      "pass": true
+    },
+    {
+      "expected": 0,
+      "id": "q10_center_fix_101",
+      "observed": 0,
+      "pass": true
+    }
+  ],
+  "classification": "CONSOLIDATED_EXISTING_FAMILY_WITH_TERMINAL_CORRECTION",
+  "date": "2026-09-28",
+  "passed": true,
+  "passed_count": 25,
+  "scientific_hash": "cd6a653df65c90222a4e3b67603f14722ad22b3c7d718bf6e8236b8da9df45db",
+  "test_id": "NEXAH_ROOT7_EULER_MIRROR_CONCORDANCE_001"
+}

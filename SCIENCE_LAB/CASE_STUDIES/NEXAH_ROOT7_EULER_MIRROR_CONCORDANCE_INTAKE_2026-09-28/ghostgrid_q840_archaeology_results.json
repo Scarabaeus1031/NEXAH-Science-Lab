@@ -1,0 +1,435 @@
+{
+  "check_count": 21,
+  "checks": [
+    {
+      "expected": [
+        2,
+        3,
+        5,
+        7,
+        11,
+        13,
+        17
+      ],
+      "id": "first_seven_prime_record",
+      "observed": [
+        2,
+        3,
+        5,
+        7,
+        11,
+        13,
+        17
+      ],
+      "pass": true
+    },
+    {
+      "expected": {
+        "357": [
+          2,
+          3,
+          4
+        ],
+        "537": [
+          3,
+          2,
+          4
+        ],
+        "735": [
+          4,
+          2,
+          3
+        ]
+      },
+      "id": "prime_index_permutation_codes",
+      "observed": {
+        "357": [
+          2,
+          3,
+          4
+        ],
+        "537": [
+          3,
+          2,
+          4
+        ],
+        "735": [
+          4,
+          2,
+          3
+        ]
+      },
+      "pass": true
+    },
+    {
+      "expected": [
+        537,
+        375,
+        753,
+        537
+      ],
+      "id": "ghostgrid_fixed_rotation_cycle",
+      "observed": [
+        537,
+        375,
+        753,
+        537
+      ],
+      "pass": true
+    },
+    {
+      "expected": [
+        537,
+        753,
+        375,
+        537
+      ],
+      "id": "ghostgrid_drawn_rotation_cycle",
+      "observed": [
+        537,
+        753,
+        375,
+        537
+      ],
+      "pass": true
+    },
+    {
+      "expected": "all nodes have digit multiset 357",
+      "id": "ghostgrid_visual_nodes_share_digits",
+      "observed": [
+        537,
+        735,
+        357
+      ],
+      "pass": true
+    },
+    {
+      "expected": "displayed order is not a single left/right digit rotation",
+      "id": "ghostgrid_visual_arrow_not_fixed_rotation",
+      "observed": [
+        537,
+        735,
+        357
+      ],
+      "pass": true
+    },
+    {
+      "expected": [],
+      "id": "ghostgrid_no_fixed_s3_position_permutation",
+      "observed": [],
+      "pass": true
+    },
+    {
+      "expected": [
+        [
+          2,
+          1,
+          0
+        ],
+        [
+          1,
+          2,
+          0
+        ],
+        [
+          1,
+          0,
+          2
+        ]
+      ],
+      "id": "ghostgrid_edges_require_three_position_actions",
+      "observed": [
+        [
+          2,
+          1,
+          0
+        ],
+        [
+          1,
+          2,
+          0
+        ],
+        [
+          1,
+          0,
+          2
+        ]
+      ],
+      "pass": true
+    },
+    {
+      "expected": "same digit family but distinct state sets because 573 replaces 735",
+      "id": "corrected_path_distinct_from_ghostgrid_nodes",
+      "observed": {
+        "corrected": [
+          537,
+          573,
+          357
+        ],
+        "ghostgrid": [
+          537,
+          735,
+          357
+        ]
+      },
+      "pass": true
+    },
+    {
+      "expected": "all carriers have digit multiset 11357",
+      "id": "qrt_digit_family_11357",
+      "observed": [
+        11357,
+        11537,
+        11573,
+        11735,
+        13571
+      ],
+      "pass": true
+    },
+    {
+      "expected": {
+        "factorization": [
+          5,
+          2347
+        ],
+        "grid": [
+          586,
+          15
+        ]
+      },
+      "id": "11735_registered_arithmetic",
+      "observed": {
+        "factorization": [
+          5,
+          2347
+        ],
+        "grid": [
+          586,
+          15
+        ]
+      },
+      "pass": true
+    },
+    {
+      "expected": {
+        "difference": 198,
+        "residues": [
+          9,
+          9
+        ]
+      },
+      "id": "11735_mod11_collision_with_11537",
+      "observed": {
+        "difference": 198,
+        "residues": [
+          9,
+          9
+        ]
+      },
+      "pass": true
+    },
+    {
+      "expected": {
+        "lcm": 210,
+        "q": 840
+      },
+      "id": "q840_is_four_lcm210",
+      "observed": {
+        "lcm": 210,
+        "q": 840
+      },
+      "pass": true
+    },
+    {
+      "expected": 64,
+      "id": "q840_union_has_64_ticks",
+      "observed": 64,
+      "pass": true
+    },
+    {
+      "expected": {
+        "gold": [
+          0,
+          210,
+          420,
+          630
+        ],
+        "only": {
+          "30": 24,
+          "35": 20,
+          "42": 16
+        }
+      },
+      "id": "q840_class_counts",
+      "observed": {
+        "gold": [
+          0,
+          210,
+          420,
+          630
+        ],
+        "only": {
+          "30": 24,
+          "35": 20,
+          "42": 16
+        }
+      },
+      "pass": true
+    },
+    {
+      "expected": "all pair intersections already equal the gold triple intersection",
+      "id": "q840_pair_only_classes_empty",
+      "observed": {
+        "30&35": [],
+        "30&42": [],
+        "35&42": []
+      },
+      "pass": true
+    },
+    {
+      "expected": {
+        "735_class": "35-only",
+        "mirror": 105
+      },
+      "id": "q840_735_class_and_mirror",
+      "observed": {
+        "735_class": "35-only",
+        "mirror": 105
+      },
+      "pass": true
+    },
+    {
+      "expected": [
+        "7|7",
+        "2|7|7|2",
+        "4|7|7|4"
+      ],
+      "id": "prime_lens_separator_labels",
+      "observed": [
+        "7|7",
+        "2|7|7|2",
+        "4|7|7|4"
+      ],
+      "pass": true
+    },
+    {
+      "expected": "all three token sequences are reflection-symmetric",
+      "id": "prime_lens_token_palindromes",
+      "observed": [
+        [
+          7,
+          7
+        ],
+        [
+          2,
+          7,
+          7,
+          2
+        ],
+        [
+          4,
+          7,
+          7,
+          4
+        ]
+      ],
+      "pass": true
+    },
+    {
+      "expected": {
+        "core": [
+          7,
+          7
+        ],
+        "parameters": [
+          2,
+          4
+        ],
+        "reconstructed": [
+          [
+            2,
+            7,
+            7,
+            2
+          ],
+          [
+            4,
+            7,
+            7,
+            4
+          ]
+        ]
+      },
+      "id": "prime_lens_common_core_and_shell_rule",
+      "observed": {
+        "core": [
+          7,
+          7
+        ],
+        "parameters": [
+          2,
+          4
+        ],
+        "reconstructed": [
+          [
+            2,
+            7,
+            7,
+            2
+          ],
+          [
+            4,
+            7,
+            7,
+            4
+          ]
+        ]
+      },
+      "pass": true
+    },
+    {
+      "expected": {
+        "digits_without_markers": [
+          "77",
+          "2772",
+          "4774"
+        ],
+        "separator_labels": [
+          "7|7",
+          "2|7|7|2",
+          "4|7|7|4"
+        ]
+      },
+      "id": "prime_lens_not_decimal_palindrome_records",
+      "observed": {
+        "digits_without_markers": [
+          "77",
+          "2772",
+          "4774"
+        ],
+        "separator_labels": [
+          "7|7",
+          "2|7|7|2",
+          "4|7|7|4"
+        ]
+      },
+      "pass": true
+    }
+  ],
+  "classification": "EXISTING_ARTIFACTS_COMPRESSED_SEPARATOR_GRAMMAR_RECOVERED",
+  "date": "2026-09-28",
+  "decision": {
+    "11735": "retained as registered 11357-digit-family carrier and mod11 collision partner of 11537",
+    "735": "retained as Ghostgrid permutation, prime-index code 423 and Q840 35-only tick; not the corrected sequence endpoint",
+    "ghostgrid_generator": "all six fixed position permutations rejected for the displayed directed cycle; three edge-specific actions are required",
+    "prime_lens_generator": "exact parameterized shell W_a(7|7)=a|7|7|a recovered for a in {2,4}; no sequential recurrence claimed",
+    "prime_lens_labels": "OCR corrected to separator tokens 7|7, 2|7|7|2 and 4|7|7|4",
+    "prime_lens_source_sha256": "5b272af3c3713a714e7dc2423e6382e9985cace35ab4049bc86a7eb775dd3ffa",
+    "q840": "64 ticks arise exactly from the union of multiples of 30, 35 and 42 modulo 840",
+    "visual_boundary": "arithmetic closure does not identify historical visual meaning"
+  },
+  "passed": true,
+  "passed_count": 21,
+  "scientific_hash": "ba07e5651e0243d7496e16b5dade7de03219c2e1d98afc69055ce3be8c8bb733",
+  "test_id": "NEXAH_GHOSTGRID_Q840_ARCHAEOLOGY_001"
+}

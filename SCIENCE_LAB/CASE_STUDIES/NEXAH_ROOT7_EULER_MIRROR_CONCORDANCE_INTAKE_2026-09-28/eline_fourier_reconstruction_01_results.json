@@ -1,0 +1,153 @@
+{
+  "test_id": "ELINE_FOURIER_RECONSTRUCTION_01",
+  "classification": "PASS_ELINE_FOURIER_RECONSTRUCTION__FINITE_VIEW_EQUIVALENCE",
+  "preregistration_sha256": "4d1c3c5de59139350821b8ae4170585db3190d0488d7b6a3b636fefd05f2e719",
+  "lock_sha256": "b9e2d1d53833dda8def3186d48133402baaae7997619b3d569e81e51f748ae39",
+  "frozen_source_hashes": {
+    "descartes_result": {
+      "expected": "5246683edd7301c3e9136a5963f0a7e166f36c73ea551a80ff320372f8fa9b60",
+      "actual": "5246683edd7301c3e9136a5963f0a7e166f36c73ea551a80ff320372f8fa9b60",
+      "pass": true
+    },
+    "fourier_visual": {
+      "expected": "ea895bb471c434b73d4ae8a28bf97e80803f4d549d4384aec682a66ca9ca06ad",
+      "actual": "ea895bb471c434b73d4ae8a28bf97e80803f4d549d4384aec682a66ca9ca06ad",
+      "pass": true
+    },
+    "eline_visual": {
+      "expected": "553e606a47aeb0e242c25046f145d5df6dbc7c85e71c710bb38c1b6541b969b3",
+      "actual": "553e606a47aeb0e242c25046f145d5df6dbc7c85e71c710bb38c1b6541b969b3",
+      "pass": true
+    }
+  },
+  "runtime": {
+    "python": "3.12.14",
+    "numpy": "2.3.5",
+    "pillow": "12.3.0"
+  },
+  "checks": {
+    "frozen_hashes_match": true,
+    "source_dimensions_and_trace_exact": true,
+    "normalization_spans_minus_one_to_plus_one": true,
+    "full_dft_roundtrip_exact": true,
+    "parseval_exact": true,
+    "conjugate_symmetry_exact": true,
+    "first_harmonic_energy_in_frozen_band": true,
+    "one_harmonic_dominant_but_not_exact": true,
+    "two_harmonics_exceed_94_percent_energy": true,
+    "finite_representation_claim_only": true
+  },
+  "checks_passed": 10,
+  "checks_total": 10,
+  "trace": {
+    "source_size": [
+      748,
+      360
+    ],
+    "sample_x": [
+      40,
+      107,
+      174,
+      240,
+      307,
+      374,
+      441,
+      508,
+      574,
+      641,
+      708
+    ],
+    "sample_y": [
+      212,
+      103,
+      55,
+      82,
+      164,
+      260,
+      327,
+      334,
+      286,
+      209,
+      142
+    ],
+    "normalized_samples": [
+      -0.125448028673835,
+      0.655913978494624,
+      1.0,
+      0.806451612903226,
+      0.218637992831541,
+      -0.469534050179211,
+      -0.949820788530466,
+      -1.0,
+      -0.655913978494624,
+      -0.103942652329749,
+      0.376344086021505
+    ]
+  },
+  "fourier": {
+    "coefficients": [
+      {
+        "k": 0,
+        "real": -0.247311827956989,
+        "imag": 0.0
+      },
+      {
+        "k": 1,
+        "real": 2.967298942830777,
+        "imag": -3.659106826219886
+      },
+      {
+        "k": 2,
+        "real": -1.510702970936052,
+        "imag": 0.789282718391063
+      },
+      {
+        "k": 3,
+        "real": -0.797422601416186,
+        "imag": 0.342684904110098
+      },
+      {
+        "k": 4,
+        "real": -0.642225195220216,
+        "imag": 0.184360938456024
+      },
+      {
+        "k": 5,
+        "real": -0.583256418985922,
+        "imag": 0.046004341271134
+      },
+      {
+        "k": 6,
+        "real": -0.583256418985922,
+        "imag": -0.046004341271134
+      },
+      {
+        "k": 7,
+        "real": -0.642225195220216,
+        "imag": -0.184360938456024
+      },
+      {
+        "k": 8,
+        "real": -0.797422601416186,
+        "imag": -0.342684904110098
+      },
+      {
+        "k": 9,
+        "real": -1.510702970936052,
+        "imag": -0.789282718391063
+      },
+      {
+        "k": 10,
+        "real": 2.967298942830777,
+        "imag": 3.659106826219886
+      }
+    ],
+    "max_roundtrip_error": 1.1102230246251565e-16,
+    "parseval_relative_error": 0.0,
+    "conjugate_symmetry_max_error": 0.0,
+    "first_harmonic_energy_fraction": 0.8332598610856908,
+    "first_harmonic_rmse": 0.27112416817526735,
+    "through_second_harmonic_energy_fraction": 0.9421837054135614
+  },
+  "claim_boundary": "Lossless finite Fourier coordinates for eleven source-bound samples; no unique continuous curve, causal dynamics or physical spectrum."
+}

@@ -1,0 +1,72 @@
+{
+  "test_id": "DESCARTES_6_POWER_SUBSTITUTION_01",
+  "classification": "PASS_DESCARTES_6_POWER_SUBSTITUTION__EXACT_COORDINATE_CHANGE_ONLY",
+  "preregistration_sha256": "053e9de7982abbadee9daa5f01e5bd70ec50bf96a5cccbf6262d3c46a4976ae9",
+  "lock_sha256": "1366d3f3c4bccbccf1d33a57f4ce5697316fc3bf361dc903291f1270f7350373",
+  "frozen_source_hashes": {
+    "fig25": {
+      "expected": "5c7d6570a11735eee67887245cbde3e968d07bc25a5fea661e99848fb4a6d630",
+      "actual": "5c7d6570a11735eee67887245cbde3e968d07bc25a5fea661e99848fb4a6d630",
+      "pass": true
+    },
+    "fig11": {
+      "expected": "e227bddf922466f61853a59baf65a8eced6b24a4473b1756c8eb05e7585c5ed4",
+      "actual": "e227bddf922466f61853a59baf65a8eced6b24a4473b1756c8eb05e7585c5ed4",
+      "pass": true
+    },
+    "polynomial": {
+      "expected": "68ca4cb4699f7211e2e12820fb3244a9b738bfe35ad29bec33b3c8673ab877b6",
+      "actual": "68ca4cb4699f7211e2e12820fb3244a9b738bfe35ad29bec33b3c8673ab877b6",
+      "pass": true
+    }
+  },
+  "checks": {
+    "frozen_hashes_match": true,
+    "exact_forward_binomial_substitution": true,
+    "transformed_polynomial_exact": true,
+    "alternating_power_tail_exact": true,
+    "reverse_substitution_recovers_source": true,
+    "signs_alternate": true,
+    "positive_six_power_ladder_exact": true,
+    "geometric_figures_retained_as_context_only": true
+  },
+  "checks_passed": 8,
+  "checks_total": 8,
+  "source_polynomial_ascending": [
+    0,
+    -27216,
+    15120,
+    -3780,
+    504,
+    -35,
+    1
+  ],
+  "substitution": "y=x+6n",
+  "transformed_polynomial_ascending": [
+    -7776,
+    1296,
+    -216,
+    36,
+    -6,
+    1,
+    1
+  ],
+  "alternating_tail": [
+    1,
+    -6,
+    36,
+    -216,
+    1296,
+    -7776
+  ],
+  "positive_power_ladder": [
+    6,
+    36,
+    216,
+    1296,
+    7776,
+    46656
+  ],
+  "interpretation": "The complex y-coefficients are the exact shifted-coordinate image of a simple alternating power-of-six tail.",
+  "claim_boundary": "Exact symbolic coordinate change only; no imported SNCE, Fourier, Poincare or physical semantics."
+}

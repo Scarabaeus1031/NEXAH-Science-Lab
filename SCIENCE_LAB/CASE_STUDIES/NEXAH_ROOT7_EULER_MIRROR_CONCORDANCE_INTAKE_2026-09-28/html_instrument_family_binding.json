@@ -1,0 +1,54 @@
+{
+  "binding_id": "NEXAH_HTML_INSTRUMENT_FAMILY_SOURCE_BINDING_2026-09-29",
+  "status": "SOURCE_BOUND_LOCAL_EXECUTABLES_RECOVERED",
+  "screenshots_are_instructions": false,
+  "sources": [
+    {
+      "screenshots": [1, 2, 3, 4],
+      "path": "SCIENCE_LAB/EXPORTS/NEXAH_FIVE_H_ONE_Q_CUT.html",
+      "sha256": "8c733218dfd1ae6e8632653439877c059429286fa45e09889d0ccfdce0e123ca",
+      "role": "five_h_multi_view_phase_and_gate_fixture"
+    },
+    {
+      "screenshots": [5],
+      "path": "SCIENCE_LAB/EXPORTS/NEXAH_COMMON_RUNTIME_ADAPTER.html",
+      "sha256": "8d7c533db5f59139d09c9aa740a22d93df2f840226b317141ca469e317e812eb",
+      "role": "cut_bind_compare_residual_receipt_runtime_view"
+    },
+    {
+      "screenshots": [6],
+      "path": "SCIENCE_LAB/EXPORTS/NEXAH_TESSERACT_ROOT_SPACE_8_TO_16.html",
+      "sha256": "fcae2a8d1955be4102622747fb48d585c066352e784f0a749b424fa81fe25388",
+      "role": "eight_to_sixteen_sign_state_projection"
+    },
+    {
+      "screenshots": [7, 8],
+      "path": "SCIENCE_LAB/EXPORTS/MIWA_PINEAP_AN_DROMEDA.html",
+      "sha256": "936708636b7193543bdc31e3069c7836b14057730f39633319e909e5e2f3fb84",
+      "role": "closure_comparator_and_q4_green_bridge_projection"
+    }
+  ],
+  "screenshot_sha256": {
+    "1": "7569460f5350773b6c007925c1c796f3d7a1a0841bf6b2529ce6e793daacb7d9",
+    "2": "d546a5a8ee5e72bcc3160ae69aec5ac7d99c000d17dc8763c0535b9b3f06e788",
+    "3": "a679ac05d1186852a3789efae2cf8f685ed4fd9a54d100d7ec7d026f539591c8",
+    "4": "b7158be039430ec5977d4e0f60e3d4363f886aff90b125e2d1c264dacdd33bdd",
+    "5": "0ac0964f495a6912076b3dcbbd34eb8d9b9ee4ab4bcb9b190d5fa311024e8e1d",
+    "6": "65f9feac68550a7eb1e791f38fa852e32e398734a0c6f5dd0697452d502ebbb2",
+    "7": "6b66298fd7c0f03603a8911fd6e524c04768fb133261b1fd7e426e367bffb8e8",
+    "8": "f79343e8818092cfc80b7f9fb0e56e0c9a9ccf45b91e75da93680554efdc2233"
+  },
+  "runtime_conformance_rerun": {
+    "date": "2026-09-29",
+    "tests": 18,
+    "passed": 18,
+    "profiles_registered": 6,
+    "profiles_executable_or_replayable": 4,
+    "receipt_sha256": "6d7219070adf748d2608927845504b4549925a31ae36d707afb2cf878d5ff494",
+    "tamper_rejected": true,
+    "pending_profile_fail_closed": true,
+    "result": "PASS_LOCAL_PROTOTYPE_SCOPE"
+  },
+  "bridge_status": "NOT_EVALUABLE_WITHOUT_INDEPENDENT_SOURCE_BOUND_H",
+  "next_bounded_test": "H_Q_RECORD_01"
+}

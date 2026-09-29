@@ -1,0 +1,50 @@
+{
+  "status": "PASS_BOUNDED",
+  "source": "unaltered NEXAH_E8_REP_03_BENCHMARK.zip",
+  "E8_edge_rule": "squared 8D Euclidean distance = 2",
+  "E8_roots": 240,
+  "E8_degree": 56,
+  "E8_edges": 6720,
+  "E8_edges_within_small_and_large_shell": [
+    1920,
+    1920
+  ],
+  "E8_edges_between_shells": 2880,
+  "H4_edge_rule": "minimum nonzero 4D projected distance within each 120-point shell",
+  "H4_shells": [
+    {
+      "shell": "small",
+      "vertices": 120,
+      "nearest_neighbor_edges_in_projected_4d": 720,
+      "nearest_neighbor_degree": 12,
+      "nearest_neighbor_squared_distance_in_projected_4d": 0.2111456180001668,
+      "original_E8_squared_distance_of_these_720_pairs": [
+        4.0
+      ],
+      "overlap_with_E8_edges_among_same_shell_points": 0,
+      "all_E8_edges_among_same_shell_points": 1920
+    },
+    {
+      "shell": "large",
+      "vertices": 120,
+      "nearest_neighbor_edges_in_projected_4d": 720,
+      "nearest_neighbor_degree": 12,
+      "nearest_neighbor_squared_distance_in_projected_4d": 0.5527864045000406,
+      "original_E8_squared_distance_of_these_720_pairs": [
+        2.0
+      ],
+      "overlap_with_E8_edges_among_same_shell_points": 720,
+      "all_E8_edges_among_same_shell_points": 1920
+    }
+  ],
+  "six_times_720": 4320,
+  "six_times_720_equals_E8_edges": false,
+  "exact_number_relations": {
+    "6=2*3": true,
+    "6=3+3": true,
+    "2+3=5": true,
+    "V+V=X_as_roman_values": true
+  },
+  "type_boundary": "6 is a squared projected length in ROOT7 test, 720 counts H4 nearest-neighbor edges, 6720 counts E8 edges under a different metric; arithmetic equalities alone do not map these types.",
+  "provenance_boundary": "The E8/H4 projection is a calibrated representation, not an identification of the sqrt(7) sign model with either root system."
+}

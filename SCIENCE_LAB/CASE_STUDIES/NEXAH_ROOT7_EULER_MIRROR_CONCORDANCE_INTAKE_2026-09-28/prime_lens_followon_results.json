@@ -1,0 +1,225 @@
+{
+  "check_count": 15,
+  "checks": [
+    {
+      "expected": [
+        [
+          2,
+          7,
+          7,
+          2
+        ],
+        [
+          4,
+          7,
+          7,
+          4
+        ]
+      ],
+      "id": "separator_shell_family",
+      "observed": [
+        [
+          2,
+          7,
+          7,
+          2
+        ],
+        [
+          4,
+          7,
+          7,
+          4
+        ]
+      ],
+      "pass": true
+    },
+    {
+      "expected": "two 2 coefficients and two 4 coefficients",
+      "id": "shell_parameters_match_quaternion_coefficient_pairs",
+      "observed": [
+        2,
+        2,
+        4,
+        4
+      ],
+      "pass": true
+    },
+    {
+      "expected": 40,
+      "id": "quaternion_norm_is_40",
+      "observed": 40,
+      "pass": true
+    },
+    {
+      "expected": 40,
+      "id": "root40_euclidean_view",
+      "observed": 40,
+      "pass": true
+    },
+    {
+      "expected": 40,
+      "id": "root40_hyperbolic_view",
+      "observed": 40,
+      "pass": true
+    },
+    {
+      "expected": {
+        "17+23": 40,
+        "17+33": 50,
+        "7+23": 30,
+        "7+33": 40
+      },
+      "id": "binding_cross_sums",
+      "observed": {
+        "17+23": 40,
+        "17+33": 50,
+        "7+23": 30,
+        "7+33": 40
+      },
+      "pass": true
+    },
+    {
+      "expected": [
+        2500,
+        2500
+      ],
+      "id": "binding_30_40_50_triangle",
+      "observed": [
+        2500,
+        2500
+      ],
+      "pass": true
+    },
+    {
+      "expected": [
+        163,
+        162,
+        1
+      ],
+      "id": "binding_hinge_channels",
+      "observed": [
+        163,
+        162,
+        1
+      ],
+      "pass": true
+    },
+    {
+      "expected": {
+        "channel_difference": 1,
+        "factor_product": 1
+      },
+      "id": "binding_hinge_factor_identity",
+      "observed": {
+        "channel_difference": 1,
+        "factor_product": 1
+      },
+      "pass": true
+    },
+    {
+      "expected": [
+        3,
+        1,
+        4,
+        5,
+        9,
+        14,
+        23,
+        37,
+        60,
+        97
+      ],
+      "id": "binding_fibonacci_return",
+      "observed": [
+        3,
+        1,
+        4,
+        5,
+        9,
+        14,
+        23,
+        37,
+        60,
+        97
+      ],
+      "pass": true
+    },
+    {
+      "expected": {
+        "boundary_peer": 101,
+        "gap": 4,
+        "return": 97
+      },
+      "id": "return_meets_prime_lens_boundary",
+      "observed": {
+        "boundary_peer": 101,
+        "gap": 4,
+        "return": 97
+      },
+      "pass": true
+    },
+    {
+      "expected": {
+        "boundary_peer": 101,
+        "recurrence_successor": 157
+      },
+      "id": "boundary_peer_not_recurrence_successor",
+      "observed": {
+        "boundary_peer": 101,
+        "recurrence_successor": 157
+      },
+      "pass": true
+    },
+    {
+      "expected": [
+        3565,
+        107
+      ],
+      "id": "mirror_whole_difference",
+      "observed": [
+        3565,
+        107
+      ],
+      "pass": true
+    },
+    {
+      "expected": [
+        1836,
+        1729
+      ],
+      "id": "mirror_exact_return",
+      "observed": [
+        1836,
+        1729
+      ],
+      "pass": true
+    },
+    {
+      "expected": [
+        10,
+        2,
+        1
+      ],
+      "id": "mirror_mod11_projection",
+      "observed": [
+        10,
+        2,
+        1
+      ],
+      "pass": true
+    }
+  ],
+  "classification": "EXISTING_VIEWS_CONNECTED_NO_NEW_RECURRENCE",
+  "date": "2026-09-28",
+  "decision": {
+    "claim_boundary": "exact cross-visual concordance only; no unseen generator or new theory",
+    "fibonacci_boundary": "the (3,1) recurrence reaches 97; 101 is its gap-4 boundary peer, not its recurrence successor",
+    "root40": "the shell parameters recur as the paired coefficients 2,2,4,4 of a norm-40 quaternion record",
+    "separator_shell": "7|7 is the fixed core; 2 and 4 are parallel mirrored shell parameters",
+    "whole_difference": "1836 and 1729 are exactly reconstructed from whole 3565 and difference 107 and retain the registered mod-11 projection"
+  },
+  "passed": true,
+  "passed_count": 15,
+  "scientific_hash": "cc7d402a48416df4ad08875245c92384c625d66247abc8ce00b4b06a4ec523ee",
+  "test_id": "NEXAH_PRIME_LENS_FOLLOWON_CONCORDANCE_001"
+}
