@@ -73,6 +73,10 @@ human-inspectable relation/return contract are deliberately separated.
 7. [Fibonacci Spiral and Root-Shrinking visual intake](07_FIBONACCI_SPIRAL_AND_ROOT_SHRINKING_VISUAL_INTAKE.md)
 8. [Machine-readable candidate record](candidate_record.json)
 
+## Authorized follow-on project
+
+- [OLS Prime Generation Profile 0.1](../OLS_PRIME_GENERATION_PROFILE_0_1_2026-09-30/00_README.md) applies a bounded `3+1` grammar to the ordered prime sequence while keeping OLS unchanged and preserving phase, type and representation controls.
+
 ## Current boundary
 
 The source folder was read only. It was not moved, renamed, normalized or
