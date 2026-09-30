@@ -124,3 +124,5 @@ Read order:
 112. `64_37_NEXUS_SELECTOR_01_EXECUTION_LOG.md`
 113. `64_37_nexus_selector_01_results.json`
 114. `46_64_37_NEXUS_SELECTOR_01_RESULT_REPORT.md`
+115. `47_PORTALSTONE_SCARAB_RELATION_BINDING_2026-09-29.md`
+116. `portalstone_scarab_relation_binding_2026-09-29.json`

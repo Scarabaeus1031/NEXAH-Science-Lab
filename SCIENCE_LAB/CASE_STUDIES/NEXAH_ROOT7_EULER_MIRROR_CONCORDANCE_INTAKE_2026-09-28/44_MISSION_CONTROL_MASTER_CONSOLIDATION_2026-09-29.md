@@ -30,6 +30,31 @@ physical mechanism. The later preregistered `64/37 Nexus Selector 01` binds
 base 101 by a separate finite contract; it does not derive that selection from
 `F_50`.
 
+## Post-closeout relation binding — Portalstone / Scarab / root hinge
+
+The Human Owner's Portalstone plate is bound in
+`47_PORTALSTONE_SCARAB_RELATION_BINDING_2026-09-29.md`. The binding adds no
+active research row and does not reopen this closeout.
+
+Its exact core is one commutative relation diamond:
+
+```text
+2101 + 2901 = 2 x 2501 = 5002
+2 x 5002 = 10004
+```
+
+`2501` is therefore simultaneously the arithmetic midpoint of `2101` and
+`2901` and the shared integer labeled `Bridge Node` on the historical Scarab
+plate. The midpoint/doubling equations are proven; the Scarab architectural
+role remains historical and underdefined. The digit splits `50|02` and
+`30|01` are views only. `3001` is prime, but is distinct from the Scarab prime
+`3301` and is not a node of the Portalstone diamond.
+
+This also supplies a precise, bounded meaning for “the hinge is the
+relation”: the Portalstone diamond and the `101` dual ladder both have
+different paths meeting at one endpoint. Their operators are not identical,
+and neither construction establishes a physical `404` gate.
+
 ## Policy review
 
 The closeout was checked against the current Mission Control and Science Lab
@@ -53,6 +78,11 @@ Root7, Euler/prime-index lanes, CRT/QRT addresses, mirror/carry operators,
 the `111` grid and the `404/808/1212/1616` taxonomy remain bounded exact
 fixtures. The exact relations survive; a unique Root7 axis, endpoint-only
 history recovery and an intrinsic SCN/NCS-to-404 bridge do not.
+
+The post-closeout Portalstone binding adds the exact relation
+`2101+2901=2*2501=5002` and `2*5002=10004`. Its decimal digit sums and split
+views are retained as representations; they do not alter the operator
+taxonomy.
 
 ### B. Record, projection and view pipeline
 
@@ -119,6 +149,7 @@ not become identities of Root7, Ghostgrid, SNCE or Five-H.
 | `ELINE_FOURIER_RECONSTRUCTION_01` | `10/10 PASS` | exact finite DFT view | exact single sine or physical spectrum |
 | `ELINE_FOURIER_POINCARE_VIEW_EQUIVALENCE_01` | `10/10 PASS` | reversible Cayley view and metric invariance | same Euclidean shape or geodesic status |
 | `64_37_NEXUS_SELECTOR_01` | `8/8 PASS` | finite multi-path selector contract for `101` | intrinsic `F_50` choice, physical law or universal calendar invariant |
+| `PORTALSTONE_SCARAB_RELATION_BINDING_2026_09_29` | exact arithmetic verified / role bounded | midpoint-sum diamond, doubling, digit sums, factorizations and shared `2501` label | Scarab transition operator, `3001=3301`, physical gate or causal geometry |
 
 All named final runs are deterministic within their reports. The useful
 negative findings are retained as boundaries rather than treated as failed

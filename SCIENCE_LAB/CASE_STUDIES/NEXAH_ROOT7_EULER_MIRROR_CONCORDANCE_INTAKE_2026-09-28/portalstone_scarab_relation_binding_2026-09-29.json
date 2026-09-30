@@ -1,0 +1,60 @@
+{
+  "record_id": "PORTALSTONE_SCARAB_RELATION_BINDING_2026_09_29",
+  "status": "EXACT_ARITHMETIC_VERIFIED_ROLE_BOUNDED",
+  "source_image": {
+    "path": "/Users/tho2020/Pictures/Photos Library.photoslibrary/resources/derivatives/E/E415A59E-6D48-4F99-9582-99A60D22D9D6_1_105_c.jpeg",
+    "sha256": "ce5a5e3c8f91e67287a7177c442502d47adf91fbda009b5ef97588b9993638fb"
+  },
+  "nodes": {
+    "left": 2101,
+    "center": 2501,
+    "right": 2901,
+    "portal": 5002,
+    "double_portal": 10004,
+    "prime_register_candidate": 3001,
+    "distinct_scarab_prime": 3301
+  },
+  "checks": {
+    "center_minus_left": 400,
+    "right_minus_center": 400,
+    "side_sum": 5002,
+    "twice_center": 5002,
+    "twice_portal": 10004,
+    "digit_sums": {
+      "2101": 4,
+      "2501": 8,
+      "2901": 12,
+      "5002": 7,
+      "10004": 5,
+      "3001": 4,
+      "3301": 7
+    },
+    "prime": {
+      "2101": false,
+      "2501": false,
+      "2901": false,
+      "3001": true,
+      "3301": true,
+      "5002": false,
+      "10004": false
+    },
+    "factorizations": {
+      "2101": [11, 191],
+      "2501": [41, 61],
+      "2901": [3, 967],
+      "3001": [3001],
+      "3301": [3301],
+      "5002": [2, 41, 61],
+      "10004": [2, 2, 41, 61]
+    }
+  },
+  "typed_relations": {
+    "portal_diamond": "2101 + 2901 = 2 * 2501 = 5002",
+    "double_portal": "2 * 5002 = 4 * 2501 = 10004",
+    "decimal_splits": ["50|02", "30|01"],
+    "scarab_overlap": "2501 is a shared integer label; the Scarab bridge role remains historical/visual",
+    "root_hinge_overlap": "same abstract path-equality schema; different operators",
+    "euler_gate_boundary": "phi(1033)=1032 is exact and not the midpoint/doubling operator"
+  },
+  "claim_ceiling": "exact arithmetic, prime predicates, digit-sum views, source binding and path-equality analogy only"
+}
