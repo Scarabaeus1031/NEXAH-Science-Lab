@@ -1,6 +1,6 @@
 # Scientific Contribution Candidates
 
-Maintained through: `2026-09-27`
+Maintained through: `2026-09-30`
 
 Status: `CANDIDATE_REGISTER / NO_NOVELTY_PRESUMPTION / NO_ACTIVATION`
 
@@ -18,6 +18,7 @@ scientific authority remain separate questions.
 | ID | Candidate contribution type | Present evidence | Current verdict | Missing gates | Owning assessment |
 |---|---|---|---|---|---|
 | `SCC-001 / TOP-BOUNDARY-01` | optical/imaging measurement protocol and interaction-residual benchmark | preregistered synthetic operator; 24/24 records; 12/12 tests; linear null and coherent positive controls; eight-orientation return analysis | `PLAUSIBLE_METHOD_CONTRIBUTION_CANDIDATE / NOT_YET_A_PHYSICAL_OR_NOVEL_RESULT` | targeted prior-art review; bound apparatus and uncertainty budget; physical positive control; baseline comparison; repeated/independent execution; contribution decision | [Assessment](../CASE_STUDIES/TOP_BOUNDARY_01_ORIENTATION_COMPLEMENT_INTERACTION_2026-09-26/16_SCIENTIFIC_CONTRIBUTION_ASSESSMENT.md) |
+| `SCC-002 / NEXAH n+1 RELATIONAL STACK` | relation-preserving representation method and Builder architecture benchmark | R0 design record; 92-file provenance-bound historical source intake; formal `n+1` object; predecessor crosswalk; claim ledger; minimum test specification | `SCIENTIFIC_BUILDER_CONTRIBUTION_CANDIDATE / NOT_VALIDATED` | targeted prior-art and nearest-baseline review; Structure Freeze; executable reference fixture; single-master-frame comparison; cycle-consistency, loss-localization and Human-inspectability evaluation; contribution decision | [Assessment](../CASE_STUDIES/NEXAH_N_PLUS_ONE_RELATIONAL_STACK_CONTRIBUTION_2026-09-30/03_CONTRIBUTION_CANDIDATE.md) |
 
 The machine-readable companion is
 [`SCIENTIFIC_CONTRIBUTION_CANDIDATES.csv`](SCIENTIFIC_CONTRIBUTION_CANDIDATES.csv).
@@ -110,3 +111,25 @@ detector linearity → source stability → registration/interpolation → mask
 geometry → alignment → polarization/coherence → established optical model →
 independent replication. Failure at a lower level blocks every higher physical
 or novelty interpretation.
+
+## SCC-002 application
+
+For `NEXAH n+1 RELATIONAL STACK`, the candidate is presently admitted only at
+the documented design-feasibility level. It does not add a Builder capability,
+research result, adopted format or active workstream. Promotion requires:
+
+1. a targeted comparison with local coordinate frames, scene graphs, map
+   synchronization, cycle consistency, provenance graphs and redundant residue
+   systems;
+2. a frozen relation schema that keeps local records and the Binder distinct;
+3. a minimal `3+1` executable fixture plus a strong single-master-frame
+   baseline using the same information;
+4. preregistered measures for closure, representation loss, discrepancy
+   localization, provenance retention and Human inspection cost;
+5. positive, null and deliberately inconsistent mapping controls;
+6. deterministic replay and an explicit assessment of whether the additional
+   contract provides value beyond established tools.
+
+If ordinary scene-graph, provenance or map-synchronization practice provides
+the same diagnosis without additional value, the candidate is downgraded to an
+internal architecture pattern, teaching model or historical design record.
