@@ -1,6 +1,6 @@
 # B3 implementation and historical qualification
 
-Status: `FIFTH_REPAIR_IMPLEMENTED_PENDING_INDEPENDENT_REVIEW / NO PROSPECTIVE RESULT`
+Status: `FIFTH_REPAIR_INDEPENDENTLY_ACCEPTED / NO PROSPECTIVE RESULT`
 
 ## Comparator
 
@@ -72,5 +72,6 @@ forecast origins, declared horizons and the fixed 2025 calendar; missing,
 extra, duplicate and undeclared-domain inputs now make the result not
 assessable. Its review found a numeric/boolean/string horizon-coercion bypass;
 the fifth repair applies one strict, non-coercing horizon validator to B3, M2
-and the expected map. Another independent review and a separate Human Owner
-release remain required before prospective use.
+and the expected map. Independent fifth-repair review accepted the historical
+method closure. Prospective source custody and a separate Human Owner release
+remain required before prospective use.

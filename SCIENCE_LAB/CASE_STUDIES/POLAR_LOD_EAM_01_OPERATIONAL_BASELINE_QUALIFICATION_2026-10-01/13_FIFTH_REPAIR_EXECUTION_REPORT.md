@@ -1,7 +1,7 @@
 # POLAR-LOD-EAM-01 — fifth repair execution report
 
 Date: 2026-10-01
-Status: `IMPLEMENTED_AND_LOCALLY_VERIFIED / INDEPENDENT_REVIEW_REQUIRED`
+Status: `IMPLEMENTED_AND_LOCALLY_VERIFIED / INDEPENDENTLY_ACCEPTED_BY_14`
 Prospective data accessed: `NO`
 
 ## Trigger
@@ -40,7 +40,7 @@ limit and visible out-of-population M2 domain.
 
 ## Disposition
 
-Repair 5 is locally verified but not self-approved. Independent adversarial
-review must attempt canonical-type bypasses across all three horizon-bearing
-inputs, recheck the prior missingness/domain attacks and reproduce the sealed
-replay. No prospective execution or operational-baseline lock is authorized.
+Repair 5 was locally verified and subsequently accepted by the independent
+review in `14_FIFTH_REPAIR_INDEPENDENT_REVIEW.md`. That acceptance closes the
+historical M1–M6 repair loop only. No prospective execution, Research Result
+or Human Owner release is authorized.

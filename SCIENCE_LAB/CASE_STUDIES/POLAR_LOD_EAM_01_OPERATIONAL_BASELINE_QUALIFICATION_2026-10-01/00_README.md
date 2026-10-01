@@ -1,7 +1,7 @@
 # POLAR-LOD-EAM-01 — operational baseline qualification
 
 Date: 2026-10-01
-Status: `FIFTH_REPAIR_IMPLEMENTED_PENDING_INDEPENDENT_REVIEW / HISTORICAL_METHOD_ONLY`
+Status: `FIFTH_REPAIR_INDEPENDENTLY_ACCEPTED / HISTORICAL_METHOD_ONLY`
 Classification: `HISTORICAL METHOD QUALIFICATION / NO PROSPECTIVE RESULT`
 
 ## Purpose
@@ -17,9 +17,9 @@ found remaining domain-custody gaps. The fourth repair derives the expected
 population only from admitted forecast origins, declared horizons and the
 fixed 2025 calendar, and fails closed on missing, extra, duplicate or
 out-of-domain inputs. Its review exposed horizon-type coercion; the fifth
-repair now admits only exact non-boolean integer horizons, pending independent
-acceptance. B3 is therefore not yet a sealed
-operational comparator. This package does not run the prospective candidate
+repair now admits only exact non-boolean integer horizons. Independent Repair-5
+review accepted closure of M1–M6. B3 is therefore a sealed historical method
+comparator, but it has no prospective execution authority. This package does not run the prospective candidate
 test and creates no Research Result.
 
 ## Disposition
@@ -38,8 +38,8 @@ test and creates no Research Result.
   M2, equivalently M2 is 29.45% higher relative to B3;
 - an independent clean replay reproduced the committed CSV outputs
   byte-for-byte and confirmed the sign, units and exact-date pairing;
-- M1–M5 are closed; the fifth repair implements the remaining M6 type/domain-
-  custody control, pending another independent review before a B3 seal.
+- M1–M6 are independently accepted for the historical method replay; separate
+  prospective source custody and Human Owner release remain open.
 
 The last comparison qualifies comparator strength only. It is outcome-known,
 retrospective and cannot count toward the future primary decision.
@@ -59,6 +59,7 @@ retrospective and cannot count toward the future primary decision.
 - [Fourth repair execution report](11_FOURTH_REPAIR_EXECUTION_REPORT.md)
 - [Independent fourth-repair review](12_FOURTH_REPAIR_INDEPENDENT_REVIEW.md)
 - [Fifth repair execution report](13_FIFTH_REPAIR_EXECUTION_REPORT.md)
+- [Independent fifth-repair review](14_FIFTH_REPAIR_INDEPENDENT_REVIEW.md)
 - [Canonical sealed-replay trust root](SEALED_REPLAY_TRUST_ROOT.json)
 - [Runtime receipt](RUNTIME_ENVIRONMENT.json)
 - [Hash-locked runtime dependencies](requirements-macos-arm64.lock)
@@ -82,5 +83,6 @@ availability at forecast origin remains unprovable and is explicitly labelled;
 future use requires append-only first-seen receipts. No explicit redistribution
 licence was inferred from public access. The fifth repair completes the
 fail-closed expected-population, input-domain and horizon-type controls around the
-commit-bound trust root, reproducible runtime and executable M6 evaluator;
-independent re-review remains mandatory.
+commit-bound trust root, reproducible runtime and executable M6 evaluator.
+Independent review accepted that closure; prospective custody and release are
+separate gates.
