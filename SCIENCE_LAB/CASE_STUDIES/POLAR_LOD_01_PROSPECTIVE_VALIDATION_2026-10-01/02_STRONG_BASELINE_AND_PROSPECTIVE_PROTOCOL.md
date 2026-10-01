@@ -70,21 +70,31 @@ prediction. Only a product issued at or before the forecast origin is
 admissible. Analysis or reanalysis values that became available later may not
 stand in for a forecast.
 
-Before execution, an EAM preflight must freeze:
+The historical implementation preflight is completed and frozen in
+`../POLAR_LOD_EAM_01_OPERATIONAL_BASELINE_QUALIFICATION_2026-10-01/`. It binds
+the combined EAM90 axial forecast plus IERS ZONT2 correction, a complete URL
+and SHA-256 ledger, deterministic structural rejection and one-vintage-per-
+Issue-Date selection. It found 344 independent valid 2025 Issue Dates and one
+unrepaired corrupt archive file. Raw GFZ files are not redistributed because
+no redistribution permission was inferred from public access.
 
-1. product names, provider URLs, release timestamps and licenses;
+For the prospective execution, the same EAM preflight must re-freeze:
+
+1. product names, provider URLs, Issue Dates and then-current licence/terms;
 2. raw file hashes and a missing-vintage ledger;
 3. the exact EAM-to-LOD transformation and units;
 4. the maximum supported forecast horizon;
 5. a fallback rule fixed without outcome access.
 
-`B3` is required for an operational-relevance claim. If historical forecast
-vintages cannot be proven, the run may at most test the core B1/B2 question
-and must be labelled non-operational.
+`B3` is required for an operational-relevance claim. The implementation and
+historical-vintage gate are closed; prospective source custody remains a run-
+time gate. If forecast vintages cannot be proven for the new window, the run
+may at most test the core B1/B2 question and must be labelled non-operational.
 
-The implementation and historical qualification are fixed in
-`../POLAR_LOD_BL_01_BASELINE_QUALIFICATION_2026-10-01/`. No additional lag
-bank, tidal model or period may be introduced after prospective freeze.
+The B1/B2/M2 implementation and historical qualification are fixed in
+`../POLAR_LOD_BL_01_BASELINE_QUALIFICATION_2026-10-01/`; B3 is fixed in the
+EAM package above. No additional lag bank, tidal model or period may be
+introduced after prospective freeze.
 
 The six-period model must beat both B1 and B2 to support core incremental
 utility. It must also beat B3 on the supported horizons to support operational

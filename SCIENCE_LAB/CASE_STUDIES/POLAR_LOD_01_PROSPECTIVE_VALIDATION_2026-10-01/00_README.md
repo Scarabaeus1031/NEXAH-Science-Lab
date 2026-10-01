@@ -2,7 +2,7 @@
 
 Date: 2026-10-01
 Owner: Human Owner
-Native status: `EXTENDED_PROTOCOL_FROZEN / DATA_EAM_AND_RELEASE_GATES_OPEN`
+Native status: `EXTENDED_PROTOCOL_FROZEN / DATA_CUSTODY_REVIEW_AND_RELEASE_GATES_OPEN`
 Lab status: `FILED / NO_RESULT / NO_ACTIVATION`
 
 ## Question
@@ -38,7 +38,13 @@ case, and found retrospectively that the old six-period candidate did not beat
 the geophysical comparator on the already-known 2025 holdout. This is method
 qualification, not a prospective result.
 
-The prospective contract is now expanded without changing M2. Horizon `1`
+`POLAR-LOD-EAM-01` has now closed the historical GFZ archive-vintage preflight
+and qualified B3. It found 344 independent valid 2025 Issue Dates after
+deduplication, rejected one corrupt file without repair, and showed that B3 is
+a materially strong comparator. That historical diagnostic is not a
+prospective result.
+
+The prospective contract is expanded without changing M2. Horizon `1`
 remains primary; horizons `3`, `7`, and `30`, an archived-forecast EAM
 benchmark, frequency-matched negative controls and fixed ablations test
 robustness, specificity and possible operational relevance. These secondary
@@ -52,6 +58,7 @@ no scientific result was created.
 - [Provenance and readiness audit](01_PROVENANCE_AND_READINESS_AUDIT.md)
 - [Strong-baseline and prospective protocol](02_STRONG_BASELINE_AND_PROSPECTIVE_PROTOCOL.md)
 - [Completed baseline qualification](../POLAR_LOD_BL_01_BASELINE_QUALIFICATION_2026-10-01/00_README.md)
+- [Completed EAM/B3 qualification](../POLAR_LOD_EAM_01_OPERATIONAL_BASELINE_QUALIFICATION_2026-10-01/00_README.md)
 
 ## Claim ceiling
 

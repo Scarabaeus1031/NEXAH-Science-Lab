@@ -1,0 +1,84 @@
+{
+  "id": "POLAR-LOD-EAM-01",
+  "date": "2026-10-01",
+  "status": "B3_READY_WITH_DECLARED_SOURCE_EXCEPTIONS",
+  "classification": "historical operational-baseline qualification; no prospective result",
+  "source": {
+    "provider": "GFZ ESMGFZ",
+    "product": "daily archived EAM 90-day prediction",
+    "base_url": "https://rz-vm480.gfz.de/files/ESMGFZ/EAM/archive_90d_prediction",
+    "index_url": "https://rz-vm480.gfz.de/files/ESMGFZ/EAM/archive_90d_prediction/",
+    "index_sha256_at_audit": "5d1dd745fb27653b3c5eddd2f6e56a8e3a33b981d1ba2c2b21064d2defc7cad2",
+    "vintages_requested": 365,
+    "vintages_structurally_valid": 364,
+    "forecast_issue_dates_admitted": 344,
+    "invalid_vintages": [
+      "ESMGFZ_EAM-90d_03h_2025_108F.asc"
+    ],
+    "raw_files_redistributed": false
+  },
+  "transformation": "LOD_hat(t+h) = 86400 * EAM90_x3(issue,t+h) + IERS_RG_ZONT2_DLOD(t+h)",
+  "horizon_metrics": {
+    "1": {
+      "n": 344,
+      "rmse_seconds": 2.647930401625292e-05,
+      "mae_seconds": 2.0913615140014733e-05
+    },
+    "3": {
+      "n": 342,
+      "rmse_seconds": 3.242705741388876e-05,
+      "mae_seconds": 2.56795942045079e-05
+    },
+    "7": {
+      "n": 338,
+      "rmse_seconds": 4.883048741280505e-05,
+      "mae_seconds": 3.96105348305138e-05
+    },
+    "30": {
+      "n": 315,
+      "rmse_seconds": 0.00016168451547889564,
+      "mae_seconds": 0.00012215763714581272
+    }
+  },
+  "paired_h1_forensic_2025": {
+    "B1_AR17": {
+      "n": 344,
+      "rmse_seconds": 3.6559794901029325e-05,
+      "mae_seconds": 2.835349220248234e-05
+    },
+    "M2_AR17_plus_six_period": {
+      "n": 344,
+      "rmse_seconds": 3.427752848252445e-05,
+      "mae_seconds": 2.6482753069828154e-05
+    },
+    "B2_IERS_ZONT2": {
+      "n": 344,
+      "rmse_seconds": 2.7778852082019418e-05,
+      "mae_seconds": 2.1586351686342357e-05
+    },
+    "B3_GFZ_EAM90_ZONT2": {
+      "n": 344,
+      "rmse_seconds": 2.647930401625292e-05,
+      "mae_seconds": 2.0913615140014733e-05
+    }
+  },
+  "m2_vs_b3_rmse_difference_pct": 29.450262217938217,
+  "conversion_sanity": {
+    "n": 90,
+    "rmse_seconds": 1.7015127162365282e-05,
+    "mae_seconds": 1.3552723561352708e-05
+  },
+  "gates": {
+    "all_365_vintages_downloaded": true,
+    "364_structurally_valid_and_one_declared_invalid": true,
+    "systematic_header_defect_bound": true,
+    "one_invalid_vintage_declared_not_repaired": true,
+    "one_vintage_selected_per_issue_date": true,
+    "at_least_90_pct_calendar_coverage": true,
+    "all_admitted_targets_are_prediction_state": true,
+    "conversion_sanity_rmse_below_0_05_ms": true,
+    "paired_h1_population_at_least_340": true,
+    "b3_beats_m2_on_paired_h1_forensic_window": true
+  },
+  "boundary": "Closes the B3 source-vintage and implementation preflight only; no prospective execution authority or Research Result."
+}
