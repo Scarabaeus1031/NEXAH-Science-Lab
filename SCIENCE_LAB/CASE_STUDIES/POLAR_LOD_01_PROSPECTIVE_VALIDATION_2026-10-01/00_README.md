@@ -1,8 +1,9 @@
 # POLAR-LOD-01 — prospective LOD validation
 
 Date: 2026-10-01
+Updated: 2026-10-02
 Owner: Human Owner
-Native status: `EXTENDED_PROTOCOL_FROZEN / B3_REPAIR_ACCEPTED_DATA_CUSTODY_AND_RELEASE_GATES_OPEN`
+Native status: `CUSTODY_IMPLEMENTED / COLLECTION_RELEASE_NOT_GRANTED / NOT_READY_FOR_EXECUTION`
 Lab status: `FILED / NO_RESULT / NO_ACTIVATION`
 
 ## Question
@@ -53,7 +54,7 @@ remaining domain-custody gaps. The fourth repair now derives expectations only
 from admitted origins, declared horizons and the fixed calendar, and makes
 missing, extra, duplicate or undeclared-domain inputs not assessable. Its
 review found a horizon-type coercion bypass. The fifth repair now requires
-exact, non-boolean integer horizons across B3, M2 and expectation inputs. A
+exact, non-boolean integer horizons across B3, M2 and expectation inputs. An
 independent review accepted that repair and found no further data-driven
 `SUPPORTED` bypass. That closes the historical B3 method-repair gate only;
 the diagnostic is not a prospective result.
@@ -67,10 +68,24 @@ routes cannot rescue a failed primary result.
 No model was executed, no threshold was inspected against a new outcome and
 no scientific result was created.
 
+On 2026-10-02 a pre-outcome custody collector was added without retrieving or
+opening C04 or EAM source content. It stores opaque bytes under a hash-chained
+first-seen ledger, derives EAM Issue Dates from the provider filename, enforces
+the same-day UTC cutoff, verifies the bound runtime and rejects redirects or
+URLs outside the frozen source set. Collection remains blocked by the
+canonical `NOT_GRANTED` Human Owner record. R1/R2 therefore have an executable
+mechanism but no admitted receipts yet; R3 has not started.
+
 ## Package
 
 - [Provenance and readiness audit](01_PROVENANCE_AND_READINESS_AUDIT.md)
 - [Strong-baseline and prospective protocol](02_STRONG_BASELINE_AND_PROSPECTIVE_PROTOCOL.md)
+- [Prospective custody and release gate](03_PROSPECTIVE_CUSTODY_AND_RELEASE_GATE.md)
+- [Custody contract](CUSTODY_CONTRACT.json)
+- [Human Owner release record](HUMAN_OWNER_RELEASE.json)
+- [Fail-closed custody collector](prospective_custody.py)
+- [Bound custody entrypoint](run_prospective_custody.py)
+- [Custody tests](test_prospective_custody.py)
 - [Completed baseline qualification](../POLAR_LOD_BL_01_BASELINE_QUALIFICATION_2026-10-01/00_README.md)
 - [Conditional EAM/B3 historical qualification](../POLAR_LOD_EAM_01_OPERATIONAL_BASELINE_QUALIFICATION_2026-10-01/00_README.md)
 - [Independent EAM/B3 adversarial review](../POLAR_LOD_EAM_01_OPERATIONAL_BASELINE_QUALIFICATION_2026-10-01/03_INDEPENDENT_ADVERSARIAL_REVIEW.md)

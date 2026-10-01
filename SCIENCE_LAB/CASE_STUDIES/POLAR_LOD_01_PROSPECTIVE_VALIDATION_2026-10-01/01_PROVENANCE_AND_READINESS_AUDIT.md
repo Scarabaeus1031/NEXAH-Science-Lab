@@ -1,7 +1,7 @@
 # POLAR-LOD-01 provenance and readiness audit
 
 Date: 2026-10-01
-Disposition: `COMPLETE / NOT_READY_FOR_CONFIRMATORY_EXECUTION`
+Disposition: `CUSTODY_IMPLEMENTED / COLLECTION_NOT_AUTHORIZED / NOT_READY_FOR_CONFIRMATORY_EXECUTION`
 
 ## Historical claim reconstructed
 
@@ -92,9 +92,9 @@ a new NEXAH contribution.
 
 | Gate | Requirement | State |
 |---|---|---|
-| R1 custody | source, code, environment and preregistration hash-bound before outcomes | `OPEN` for the new test |
-| R2 chronology | evaluation rows must postdate the new freeze | `OPEN` |
-| R3 minimum window | at least 180 newly admitted daily rows and at least six complete synodic cycles | `FAIL_NOW`; only 14 rows follow the historical run in the inspected C04 snapshot |
+| R1 custody | source, code, environment and preregistration hash-bound before outcomes | `IMPLEMENTATION FROZEN / NO RECEIPTS YET`; opaque-byte collector, contract, runtime and release gate added 2026-10-02 |
+| R2 chronology | evaluation rows must postdate the new freeze | `NOT STARTED`; collection release is not granted |
+| R3 minimum window | at least 180 newly admitted daily rows and at least six complete synodic cycles | `NOT STARTED`; no post-release receipt population exists |
 | R4 strong baseline | validated established tidal/geophysical comparator plus strong statistical baseline | `PASS / BASELINE_READY`; see `POLAR-LOD-BL-01` |
 | R5 semantics | primary and secondary horizons, allowed information, inference, specificity and claim ceilings frozen | `PASS / EXTENDED CONTRACT FROZEN` |
 | R6 execution release | separate Human Owner release after R1–R5 close | `NOT_GRANTED` |
@@ -108,6 +108,10 @@ non-operational.
 
 `NOT_READY_FOR_CONFIRMATORY_EXECUTION`. The historical 10.969% figure remains
 a screened reproduction candidate, not a confirmed application result.
-`POLAR-LOD-BL-01` later closes R4 only; custody, prospective chronology,
-minimum-window and owner-release gates remain open. No prospective runner is
-executed under this audit and no Research Result row is created.
+`POLAR-LOD-BL-01` closes R4 and the independently accepted EAM repair closes
+the historical B3 method gate. The 2026-10-02 custody package makes R1/R2
+executable but deliberately refuses collection under the unchanged
+`NOT_GRANTED` owner record. Custody receipts, prospective chronology,
+minimum-window and execution-release gates therefore remain open. No source
+content or prospective runner is executed under this audit and no Research
+Result row is created.

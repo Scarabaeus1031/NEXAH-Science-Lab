@@ -1,0 +1,48 @@
+{
+  "id": "POLAR-LOD-01-CUSTODY-CONTRACT-01",
+  "date": "2026-10-02",
+  "classification": "pre-outcome collection contract; no execution authority",
+  "sources": {
+    "c04": {
+      "url": "https://datacenter.iers.org/data/csv/eopc04_20u24.dPsi_dEps.1962-now.csv",
+      "role": "maintained target series snapshot"
+    },
+    "eam_index": {
+      "url": "https://rz-vm480.gfz.de/files/ESMGFZ/EAM/archive_90d_prediction/",
+      "role": "provider index snapshot"
+    },
+    "eam_vintage": {
+      "url_prefix": "https://rz-vm480.gfz.de/files/ESMGFZ/EAM/archive_90d_prediction/",
+      "filename_regex": "^ESMGFZ_EAM-90d_03h_[0-9]{4}_[0-9]{3}F\\.asc$",
+      "role": "forecast vintage"
+    }
+  },
+  "eam_cutoff": "23:59:59 UTC on embedded Issue Date",
+  "receipt_schema_version": 1,
+  "runtime": {
+    "path": "../POLAR_LOD_EAM_01_OPERATIONAL_BASELINE_QUALIFICATION_2026-10-01/RUNTIME_ENVIRONMENT.json",
+    "sha256": "54a7bf31850b06b7be364caeaf6d115ee5849ba93c8e5308528368572fdd728a",
+    "python_binary_sha256": "1ab9f4350597af34ada540e5f3083ddb6771e46d9d589f8837a926c85acbcc80"
+  },
+  "required_receipt_fields": [
+    "schema_version",
+    "source_id",
+    "requested_url",
+    "final_url",
+    "retrieval_started_utc",
+    "retrieval_finished_utc",
+    "http_status",
+    "response_headers",
+    "byte_count",
+    "sha256",
+    "raw_relative_path",
+    "release_sha256",
+    "previous_entry_sha256",
+    "entry_sha256"
+  ],
+  "raw_files_in_git": false,
+  "ledger_anchor_required": true,
+  "ledger_anchor_remote_git_commit_required_for_admission": true,
+  "content_parsing_during_collection": false,
+  "prospective_execution_authority": false
+}
