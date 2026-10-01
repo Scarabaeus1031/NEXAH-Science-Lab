@@ -2,7 +2,7 @@
 
 Date: 2026-10-01
 Owner: Human Owner
-Native status: `EXTENDED_PROTOCOL_FROZEN / B3_REPAIR_DATA_CUSTODY_AND_RELEASE_GATES_OPEN`
+Native status: `EXTENDED_PROTOCOL_FROZEN / B3_RE-REVIEW_DATA_CUSTODY_AND_RELEASE_GATES_OPEN`
 Lab status: `FILED / NO_RESULT / NO_ACTIVATION`
 
 ## Question
@@ -39,12 +39,13 @@ the geophysical comparator on the already-known 2025 holdout. This is method
 qualification, not a prospective result.
 
 `POLAR-LOD-EAM-01` has now received an independent adversarial review with a
-`CONDITIONAL_PASS`. It found 344 independent valid 2025 Issue Dates after
-deduplication, rejected one corrupt file without repair, reproduced the
-committed CSV outputs, and supported B3 as a materially strong historical
-comparator. Six major integrity and protocol repairs remain open before B3 can
-be called a sealed operational comparator. That historical diagnostic is not
-a prospective result.
+`CONDITIONAL_PASS`. M1–M6 have since been implemented under a sealed repair
+lock. The repaired replay enforced all 365 expected hashes, admitted the same
+344 unique Issue Dates, excluded one corrupt file and five boundary-conflict
+backfills, and reproduced the prediction and metric CSVs byte-for-byte. An
+independent re-review remains required before B3 can be called a sealed
+operational comparator. That historical diagnostic is not a prospective
+result.
 
 The prospective contract is expanded without changing M2. Horizon `1`
 remains primary; horizons `3`, `7`, and `30`, an archived-forecast EAM

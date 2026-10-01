@@ -15,9 +15,13 @@ import csv
 import hashlib
 import importlib.util
 import json
+import math
+import platform
 import re
+import sys
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import date, datetime, timedelta
+from importlib.metadata import version as package_version
 from pathlib import Path
 from urllib.request import urlopen
 
@@ -39,11 +43,14 @@ DEFAULT_SOURCE = (
 )
 BASE_URL = "https://rz-vm480.gfz.de/files/ESMGFZ/EAM/archive_90d_prediction"
 INDEX_URL = BASE_URL + "/"
-INDEX_SHA256_AT_AUDIT = "5d1dd745fb27653b3c5eddd2f6e56a8e3a33b981d1ba2c2b21064d2defc7cad2"
 YEAR = 2025
 HORIZONS = (1, 3, 7, 30)
 NOMINAL_DAY_SECONDS = 86400.0
 PHYSICAL_ABS_LIMIT = 1e-3
+GRID_STEP_DAYS = 0.125
+EXPECTED_ROWS = 1448
+EXPECTED_LEDGER = PACKAGE / "EXPECTED_RAW_VINTAGE_LEDGER.csv"
+EXECUTION_LOCK = PACKAGE / "EXECUTION_LOCK.json"
 
 
 def sha256(path: Path) -> str:
@@ -52,6 +59,68 @@ def sha256(path: Path) -> str:
         for chunk in iter(lambda: handle.read(1024 * 1024), b""):
             digest.update(chunk)
     return digest.hexdigest()
+
+
+def require_sha256(path: Path, expected: str, label: str) -> None:
+    actual = sha256(path)
+    if actual != expected:
+        raise RuntimeError(f"{label} SHA-256 mismatch: expected {expected}, got {actual}")
+
+
+def load_expected_ledger(path: Path) -> dict[str, dict[str, str]]:
+    with path.open(newline="") as handle:
+        rows = list(csv.DictReader(handle))
+    required = {"filename", "url", "sha256", "bytes"}
+    if not rows or not required.issubset(rows[0]):
+        raise RuntimeError("Expected raw-vintage ledger lacks required columns")
+    by_name = {row["filename"]: row for row in rows}
+    expected_names = {filename_for(doy) for doy in range(1, 366)}
+    if len(rows) != 365 or len(by_name) != 365 or set(by_name) != expected_names:
+        raise RuntimeError("Expected raw-vintage ledger must bind exactly 365 unique 2025 files")
+    for name, row in by_name.items():
+        if row["url"] != f"{BASE_URL}/{name}":
+            raise RuntimeError(f"Unexpected provider URL in expected ledger: {name}")
+        if not re.fullmatch(r"[0-9a-f]{64}", row["sha256"]):
+            raise RuntimeError(f"Invalid SHA-256 in expected ledger: {name}")
+        if int(row["bytes"]) <= 0:
+            raise RuntimeError(f"Invalid byte count in expected ledger: {name}")
+    return by_name
+
+
+def verify_execution_lock(path: Path, source: Path, expected_ledger: Path) -> dict:
+    lock = json.loads(path.read_text())
+    if lock.get("id") != "POLAR-LOD-EAM-01-REPAIR-LOCK-01":
+        raise RuntimeError("Unexpected execution-lock identity")
+    files = lock.get("files", {})
+    bound = {
+        "runner": Path(__file__).resolve(),
+        "baseline_runner": BASELINE_RUNNER,
+        "baseline_manifest": BASELINE_RUNNER.parent / "SHA256_MANIFEST.txt",
+        "historical_source": source.resolve(),
+        "expected_raw_vintage_ledger": expected_ledger.resolve(),
+        "repair_contract": PACKAGE / "04_REPAIR_AND_PREOUTPUT_LOCK.md",
+        "prospective_protocol": SCIENCE_CASES
+        / "POLAR_LOD_01_PROSPECTIVE_VALIDATION_2026-10-01"
+        / "02_STRONG_BASELINE_AND_PROSPECTIVE_PROTOCOL.md",
+    }
+    if set(files) != set(bound):
+        raise RuntimeError("Execution lock does not contain the exact required file set")
+    for label, file_path in bound.items():
+        if not file_path.is_file():
+            raise RuntimeError(f"Bound file missing: {label}: {file_path}")
+        require_sha256(file_path, files[label]["sha256"], label)
+    runtime = lock.get("runtime", {})
+    actual_runtime = {
+        "python": platform.python_version(),
+        "numpy": np.__version__,
+        "pandas": package_version("pandas"),
+    }
+    if runtime != actual_runtime:
+        raise RuntimeError(
+            f"Runtime mismatch: expected {runtime}, got {actual_runtime}; "
+            f"executable={sys.executable}"
+        )
+    return lock
 
 
 def load_baseline_module():
@@ -67,20 +136,40 @@ def filename_for(doy: int) -> str:
     return f"ESMGFZ_EAM-90d_03h_{YEAR}_{doy:03d}F.asc"
 
 
-def fetch_one(cache: Path, doy: int) -> tuple[int, Path]:
+def fetch_one(
+    cache: Path,
+    doy: int,
+    mode: str,
+    expected: dict[str, dict[str, str]],
+) -> tuple[int, Path]:
     name = filename_for(doy)
     path = cache / name
     if not path.exists():
+        if mode == "replay":
+            raise RuntimeError(f"Sealed replay cache is missing {name}")
         with urlopen(f"{BASE_URL}/{name}", timeout=60) as response:
             path.write_bytes(response.read())
+    if mode == "replay":
+        row = expected[name]
+        if path.stat().st_size != int(row["bytes"]):
+            raise RuntimeError(f"Raw-vintage byte-count mismatch: {name}")
+        require_sha256(path, row["sha256"], f"raw vintage {name}")
     return doy, path
 
 
-def fetch_all(cache: Path, workers: int) -> list[Path]:
+def fetch_all(
+    cache: Path,
+    workers: int,
+    mode: str,
+    expected: dict[str, dict[str, str]],
+) -> list[Path]:
     cache.mkdir(parents=True, exist_ok=True)
     paths: dict[int, Path] = {}
     with ThreadPoolExecutor(max_workers=workers) as executor:
-        futures = {executor.submit(fetch_one, cache, doy): doy for doy in range(1, 366)}
+        futures = {
+            executor.submit(fetch_one, cache, doy, mode, expected): doy
+            for doy in range(1, 366)
+        }
         for future in as_completed(futures):
             doy, path = future.result()
             paths[doy] = path
@@ -94,38 +183,81 @@ def parse_vintage(path: Path) -> dict:
     if issue_match is None or records_match is None:
         raise ValueError(f"Missing header fields in {path.name}")
     issue = date.fromisoformat(issue_match.group(1))
-    rows = {}
-    invalid_reason = ""
+    raw_rows = []
+    invalid_reasons = []
     for line in text.splitlines():
         fields = line.split()
-        if len(fields) != 5:
+        if not fields:
             continue
         try:
             mjd = float(fields[0])
-            xyz = tuple(float(value) for value in fields[1:4])
         except ValueError:
             continue
-        if max(map(abs, xyz)) > PHYSICAL_ABS_LIMIT:
-            invalid_reason = "EXCITATION_ABS_GT_1E_MINUS_3"
-        rows[round(mjd, 3)] = (xyz, fields[4])
+        # The provider header contains the postal address "14473 Potsdam".
+        # Only plausible modern-EOP MJDs begin a data row.
+        if mjd < 40000.0:
+            continue
+        if len(fields) != 5:
+            invalid_reasons.append("DATA_ROW_FIELD_COUNT_NOT_5")
+            continue
+        try:
+            xyz = tuple(float(value) for value in fields[1:4])
+        except ValueError:
+            invalid_reasons.append("NON_NUMERIC_EXCITATION")
+            continue
+        state = fields[4]
+        raw_rows.append((mjd, xyz, state))
+
+    if not raw_rows:
+        invalid_reasons.append("NO_DATA_ROWS")
+    if any(not math.isfinite(mjd) or not all(map(math.isfinite, xyz)) for mjd, xyz, _ in raw_rows):
+        invalid_reasons.append("NON_FINITE_VALUE")
+    if any(max(map(abs, xyz)) > PHYSICAL_ABS_LIMIT for _, xyz, _ in raw_rows):
+        invalid_reasons.append("EXCITATION_ABS_GT_1E_MINUS_3")
+    if any(state not in {"C", "P"} for _, _, state in raw_rows):
+        invalid_reasons.append("UNKNOWN_STATE")
+
+    mjds = [mjd for mjd, _, _ in raw_rows]
+    if len(set(mjds)) != len(mjds):
+        invalid_reasons.append("DUPLICATE_MJD")
+    if any(right <= left for left, right in zip(mjds, mjds[1:])):
+        invalid_reasons.append("NON_MONOTONIC_MJD")
+    if any(abs((right - left) - GRID_STEP_DAYS) > 1e-9 for left, right in zip(mjds, mjds[1:])):
+        invalid_reasons.append("GRID_STEP_NOT_0_125_DAY")
+    if len(raw_rows) == EXPECTED_ROWS and abs((mjds[-1] - mjds[0]) - ((EXPECTED_ROWS - 1) * GRID_STEP_DAYS)) > 1e-9:
+        invalid_reasons.append("GRID_COVERAGE_MISMATCH")
+    if len(raw_rows) != EXPECTED_ROWS:
+        invalid_reasons.append("EXPECTED_1448_ACTUAL_RECORDS")
+
+    states = [state for _, _, state in raw_rows]
+    c = [mjd for mjd, _, state in raw_rows if state == "C"]
+    p = [mjd for mjd, _, state in raw_rows if state == "P"]
+    if not c or not p:
+        invalid_reasons.append("MISSING_C_OR_P_STATE")
+    elif states != (["C"] * len(c) + ["P"] * len(p)):
+        invalid_reasons.append("NON_CONTIGUOUS_C_TO_P_TRANSITION")
+
+    first_p_mjd = min(p) if p else None
+    issue_mjd = mjd_for(issue)
+    boundary_offset = first_p_mjd - issue_mjd if first_p_mjd is not None else None
+    if boundary_offset not in {0.0, -1.0}:
+        invalid_reasons.append("ISSUE_DATE_P_BOUNDARY_CONFLICT")
+
+    rows = {mjd: (xyz, state) for mjd, xyz, state in raw_rows}
     # Every audited 2025 file declares 1440 records but contains 1448 unique
     # 3-hour rows: 181 inclusive days times eight. Preserve both values in the
     # ledger and reject only a departure from the observed complete structure.
-    if len(rows) != 1448:
-        invalid_reason = invalid_reason or "EXPECTED_1448_ACTUAL_RECORDS"
-    c = [mjd for mjd, (_, state) in rows.items() if state == "C"]
-    p = [mjd for mjd, (_, state) in rows.items() if state == "P"]
-    if not c or not p:
-        invalid_reason = invalid_reason or "MISSING_C_OR_P_STATE"
     return {
         "text": text,
         "issue": issue,
         "records": rows,
         "declared_records": int(records_match.group(1)),
+        "raw_records": len(raw_rows),
         "actual_records": len(rows),
         "last_c_mjd": max(c) if c else None,
-        "first_p_mjd": min(p) if p else None,
-        "invalid_reason": invalid_reason,
+        "first_p_mjd": first_p_mjd,
+        "prediction_boundary_offset_days": boundary_offset,
+        "invalid_reason": ";".join(dict.fromkeys(invalid_reasons)),
     }
 
 
@@ -186,8 +318,20 @@ def main() -> None:
     parser.add_argument("--cache-dir", type=Path, required=True)
     parser.add_argument("--output-dir", type=Path, default=PACKAGE)
     parser.add_argument("--workers", type=int, default=12)
+    parser.add_argument("--mode", choices=("replay", "acquisition"), default="replay")
+    parser.add_argument("--expected-ledger", type=Path, default=EXPECTED_LEDGER)
+    parser.add_argument("--execution-lock", type=Path, default=EXECUTION_LOCK)
     args = parser.parse_args()
 
+    expected = {}
+    execution_lock = None
+    if args.mode == "replay":
+        expected = load_expected_ledger(args.expected_ledger)
+        execution_lock = verify_execution_lock(
+            args.execution_lock,
+            args.source,
+            args.expected_ledger,
+        )
     baseline = load_baseline_module()
     frame = baseline.load_source(args.source)
     observed = {float(row.MJD): float(row.LOD) for row in frame.itertuples()}
@@ -198,7 +342,7 @@ def main() -> None:
             frame["zonal_dlod"].to_numpy(),
         )
     }
-    paths = fetch_all(args.cache_dir, args.workers)
+    paths = fetch_all(args.cache_dir, args.workers, args.mode, expected)
     ledger_rows = []
     vintages = []
     prediction_rows = []
@@ -219,9 +363,11 @@ def main() -> None:
             "issue_date": parsed["issue"].isoformat(),
             "issue_before_label_days": issue_delta,
             "declared_records": parsed["declared_records"],
+            "raw_records": parsed["raw_records"],
             "actual_records": parsed["actual_records"],
             "last_c_mjd": parsed["last_c_mjd"],
             "first_p_mjd": parsed["first_p_mjd"],
+            "prediction_boundary_offset_days": parsed["prediction_boundary_offset_days"],
             "selected_for_issue": "NO",
             "invalid_reason": invalid_reason,
         }
@@ -311,52 +457,77 @@ def main() -> None:
             sanity_errors.append(NOMINAL_DAY_SECONDS * xyz[2] + tide[mjd] - observed[mjd])
     sanity = metrics(np.array(sanity_errors))
 
-    gates = {
-        "all_365_vintages_downloaded": len(paths) == 365,
-        "364_structurally_valid_and_one_declared_invalid": sum(not item["invalid_reason"] for item in vintages) == 364,
+    integrity_gates = {
+        "execution_lock_verified": args.mode == "replay" and execution_lock is not None,
+        "all_365_expected_raw_vintages_hash_verified": args.mode == "replay" and len(paths) == 365,
+        "external_code_data_and_runtime_bound": args.mode == "replay" and execution_lock is not None,
+        "parser_enforces_finite_unique_ordered_exact_grid_allowed_states_single_transition": True,
+        "359_admissible_and_six_declared_rejections": sum(not item["invalid_reason"] for item in vintages) == 359,
         "systematic_header_defect_bound": all(
             row["declared_records"] == 1440
             and (row["actual_records"] == 1448 or row["invalid_reason"] != "")
             for row in ledger_rows
         ),
-        "one_invalid_vintage_declared_not_repaired": invalid_files == ["ESMGFZ_EAM-90d_03h_2025_108F.asc"],
+        "corrupt_and_boundary_conflict_vintages_rejected_not_repaired": invalid_files
+        == [filename_for(doy) for doy in range(108, 114)],
         "one_vintage_selected_per_issue_date": len(selected) == len(by_issue),
-        "at_least_90_pct_calendar_coverage": len(selected) / 365.0 >= 0.90,
         "all_admitted_targets_are_prediction_state": all(row["target_state"] == "P" for row in prediction_rows),
+        "historical_utc_availability_limit_declared": True,
+    }
+    retrospective_criteria = {
+        "at_least_90_pct_calendar_coverage": len(selected) / 365.0 >= 0.90,
         "conversion_sanity_rmse_below_0_05_ms": sanity["rmse_seconds"] < 0.00005,
         "paired_h1_population_at_least_340": len(paired_mjds) >= 340,
         "b3_beats_m2_on_paired_h1_forensic_window": b3_rmse < m2_rmse,
     }
-    status = "B3_READY_WITH_DECLARED_SOURCE_EXCEPTIONS" if all(gates.values()) else "B3_NOT_READY"
+    if args.mode == "acquisition":
+        status = "UNSEALED_ACQUISITION_CANDIDATE_NOT_QUALIFICATION"
+    elif all(integrity_gates.values()):
+        status = "HISTORICAL_METHOD_REPLAY_VERIFIED_WITH_UTC_CUSTODY_LIMIT"
+    else:
+        status = "HISTORICAL_METHOD_REPLAY_REJECTED"
     result = {
         "id": "POLAR-LOD-EAM-01",
         "date": "2026-10-01",
         "status": status,
-        "classification": "historical operational-baseline qualification; no prospective result",
+        "classification": "source-labelled forecast-state retrospective; no prospective result",
+        "execution_mode": args.mode,
+        "execution_lock_sha256": sha256(args.execution_lock) if execution_lock is not None else None,
+        "expected_raw_vintage_ledger_sha256": sha256(args.expected_ledger) if expected else None,
+        "runtime": {
+            "python": platform.python_version(),
+            "numpy": np.__version__,
+            "pandas": package_version("pandas"),
+        },
         "source": {
             "provider": "GFZ ESMGFZ",
             "product": "daily archived EAM 90-day prediction",
             "base_url": BASE_URL,
             "index_url": INDEX_URL,
-            "index_sha256_at_audit": INDEX_SHA256_AT_AUDIT,
             "vintages_requested": 365,
             "vintages_structurally_valid": sum(not item["invalid_reason"] for item in vintages),
             "forecast_issue_dates_admitted": len(selected),
             "invalid_vintages": invalid_files,
             "raw_files_redistributed": False,
+            "historical_utc_availability_proven": False,
+            "availability_classification": "SOURCE_LABELLED_FORECAST_STATE_RETROSPECTIVE",
         },
         "transformation": "LOD_hat(t+h) = 86400 * EAM90_x3(issue,t+h) + IERS_RG_ZONT2_DLOD(t+h)",
         "horizon_metrics": horizon_metrics,
         "paired_h1_forensic_2025": paired,
-        "m2_vs_b3_rmse_difference_pct": 100.0 * (m2_rmse - b3_rmse) / b3_rmse,
+        "b3_rmse_lower_than_m2_pct_m2_denominator": 100.0 * (m2_rmse - b3_rmse) / m2_rmse,
+        "m2_rmse_higher_than_b3_pct_b3_denominator": 100.0 * (m2_rmse - b3_rmse) / b3_rmse,
         "conversion_sanity": sanity,
-        "gates": gates,
-        "boundary": "Closes the B3 source-vintage and implementation preflight only; no prospective execution authority or Research Result.",
+        "integrity_gates": integrity_gates,
+        "retrospective_qualification_criteria_not_preregistered_evidence": retrospective_criteria,
+        "operational_lock_ready": False,
+        "prospective_execution_authority": False,
+        "boundary": "Verifies the repaired historical replay under an enforced input/dependency lock while preserving the UTC availability limit; it does not authorize prospective execution or create a Research Result.",
     }
     args.output_dir.mkdir(parents=True, exist_ok=True)
     write_csv(
         args.output_dir / "gfz_2025_vintage_ledger.csv",
-        ["filename", "url", "sha256", "bytes", "label_date", "issue_date", "issue_before_label_days", "declared_records", "actual_records", "last_c_mjd", "first_p_mjd", "selected_for_issue", "invalid_reason"],
+        ["filename", "url", "sha256", "bytes", "label_date", "issue_date", "issue_before_label_days", "declared_records", "raw_records", "actual_records", "last_c_mjd", "first_p_mjd", "prediction_boundary_offset_days", "selected_for_issue", "invalid_reason"],
         ledger_rows,
     )
     write_csv(

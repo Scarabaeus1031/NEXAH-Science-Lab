@@ -90,12 +90,16 @@ For the prospective execution, the same EAM preflight must re-freeze:
 4. the maximum supported forecast horizon;
 5. a fallback rule fixed without outcome access.
 
+Forecast origin `t` is the embedded GFZ Issue Date. The exact admissibility
+cutoff is `23:59:59 UTC` on that date, proven by an append-only first-seen
+receipt binding URL, retrieval timestamps, response metadata, bytes and
+SHA-256. A later archive label or server modification time is not sufficient.
+
 `B3` is required for an operational-relevance claim. Its historical method is
-conditionally supported, but the implementation seal and vintage-custody gate
-remain open. Before prospective use, the six major findings in the independent
-review must be repaired and independently re-reviewed. If forecast vintages
-cannot be proven for the new window, the run may at most test the core B1/B2
-question and must be labelled non-operational.
+conditionally supported and the six major findings now have a sealed repair
+implementation. Independent re-review and prospective vintage custody remain
+open. If forecast vintages cannot be proven for the new window, the run may at
+most test the core B1/B2 question and must be labelled non-operational.
 
 The B1/B2/M2 implementation and historical qualification are fixed in
 `../POLAR_LOD_BL_01_BASELINE_QUALIFICATION_2026-10-01/`; B3 is fixed in the
@@ -177,14 +181,20 @@ relevance, not the primary scientific decision.
 - `INVALID`: leakage, source ambiguity, baseline-validation failure,
   insufficient evaluation population or contract violation.
 
-An additional `OPERATIONAL_RELEVANCE_SUPPORTED` annotation is allowed only if
-M2 also beats the valid B3 benchmark under a separately preregistered rule. At
-minimum, that amendment must freeze the identical-date population, exact
-metric and denominator, minimum effect, uncertainty rule, multiplicity
-treatment, required horizons, missing-vintage fallback and incomplete-pair
-handling before new outcomes are available. The annotation is not executable
-until that amendment is hash-sealed and independently reviewed. It is not a
-substitute for `PASS_BOUNDED` and cannot change that primary outcome class.
+An additional `OPERATIONAL_RELEVANCE_SUPPORTED` annotation is allowed only on
+the identical-date intersection of observed target, M2 and valid B3 at all
+four horizons `1`, `3`, `7`, and `30`, with at least 180 paired targets per
+horizon. At each horizon M2 must have at least 5% lower RMSE than B3 using B3
+as denominator, lower MAE, and a positive one-sided lower confidence bound for
+mean paired squared-error improvement under the same 30-day circular moving-
+block bootstrap, 20,000 replicates and seed `20261001`. The four horizon tests
+use Holm familywise correction at alpha `0.05`. Missing dates and reasons are
+reported before scoring; there is no imputation, fallback or partial-horizon
+pass. If any horizon or custody requirement is unavailable, the annotation is
+`OPERATIONAL_RELEVANCE_NOT_ASSESSABLE`; a valid non-pass is
+`OPERATIONAL_RELEVANCE_NOT_SUPPORTED`. This annotation cannot alter the
+primary `PASS_BOUNDED`, `FAIL_BOUNDED` or `INVALID` class. The rule is frozen
+in the EAM repair lock and remains unusable until independent re-review.
 
 ## STOP
 

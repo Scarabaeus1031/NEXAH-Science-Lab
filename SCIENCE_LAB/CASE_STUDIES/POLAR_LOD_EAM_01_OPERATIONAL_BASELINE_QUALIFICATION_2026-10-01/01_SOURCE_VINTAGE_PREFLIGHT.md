@@ -1,6 +1,6 @@
 # GFZ ESMGFZ source-vintage preflight
 
-Status: `CONDITIONAL / SOURCE_LABELS_VERIFIED / UTC_AVAILABILITY_UNPROVEN`
+Status: `REPAIRED_REPLAY_VERIFIED / UTC_AVAILABILITY_UNPROVEN / RE-REVIEW_OPEN`
 
 ## Bound source
 
@@ -36,8 +36,11 @@ Issue Date, declared and actual row counts, prediction boundary and admission.
    before an exact operational UTC cutoff. The sampled public archive objects
    also carry current server modification times of 2026-05-28, after the 2025
    outcomes, so those timestamps cannot supply historical first-seen proof.
-9. The committed ledger records the retrieved hashes, but the current runner
-   does not compare cached inputs against it before parsing and scoring.
+9. Sealed replay now rejects any cache byte-count or SHA-256 mismatch before
+   parsing and scoring.
+10. Stronger boundary validation excludes five additional unselected April
+    backfills (days 109–113). This leaves 359 fully admissible files but does
+    not change the 344 selected Issue Dates or historical predictions.
 
 ## Frozen admission rules
 
@@ -51,8 +54,7 @@ Issue Date, declared and actual row counts, prediction boundary and admission.
 ## Licence and custody boundary
 
 Public retrieval is documented. No explicit redistribution permission was
-assumed. Raw files remain outside Git. The URL/hash ledger permits manual
-identity checking but is not yet an enforced replay input contract. A future
-prospective run must capture the then-current licence or terms position,
-retain raw files in authorized private custody, bind exact UTC publication or
-first-seen evidence, and reject every ledger mismatch before scoring.
+assumed. Raw files remain outside Git. The URL/hash ledger is now an enforced
+replay input contract. A future prospective run must still capture the
+then-current licence or terms position, retain raw files in authorized private
+custody and bind exact UTC first-seen evidence before the frozen cutoff.

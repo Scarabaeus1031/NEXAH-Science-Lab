@@ -1,0 +1,35 @@
+{
+  "id": "POLAR-LOD-EAM-01-REPAIR-LOCK-01",
+  "date": "2026-10-01",
+  "classification": "historical repaired replay lock; no prospective authority",
+  "runtime": {
+    "python": "3.12.14",
+    "numpy": "2.3.5",
+    "pandas": "2.2.3"
+  },
+  "files": {
+    "runner": {
+      "sha256": "483f3291fe8b26d69687688740f589cbdb34619c1e3de413d9a9ac6541940b41"
+    },
+    "baseline_runner": {
+      "sha256": "1b6f5a7670dfaa34c83024249abd18c7c0d28dfc145e1510f97a276b01dc3b83"
+    },
+    "baseline_manifest": {
+      "sha256": "0ac94aa68e0d1abaa497cd86be2eed741fa035b53f3bbbf2d3f71a9fe750b0bf"
+    },
+    "historical_source": {
+      "sha256": "5a4df1e393b3feaceb695c636c1a8b363c08a5464f448ba890b678c9cc396996"
+    },
+    "expected_raw_vintage_ledger": {
+      "sha256": "de03baf23c822c4f692725823b49c7edb7eb9b05d468080c7b3b67fc2d9cc101"
+    },
+    "repair_contract": {
+      "sha256": "74d8162a691eab979704ef63ee14465ee4fec01c2f55f47431f85a4b1576aaf8"
+    },
+    "prospective_protocol": {
+      "sha256": "a8adb29f13a36c573826bfb005e3e61b3a52c39b9c3caf252ec6a545397047dc"
+    }
+  },
+  "historical_utc_availability_proven": false,
+  "prospective_execution_authority": false
+}

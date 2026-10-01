@@ -1,7 +1,7 @@
 # POLAR-LOD-EAM-01 — operational baseline qualification
 
 Date: 2026-10-01
-Status: `CONDITIONAL_PASS / HISTORICAL_METHOD_QUALIFICATION_ONLY`
+Status: `REPAIRED_PENDING_INDEPENDENT_REVIEW / HISTORICAL_METHOD_ONLY`
 Classification: `HISTORICAL METHOD QUALIFICATION / NO PROSPECTIVE RESULT`
 
 ## Purpose
@@ -9,15 +9,18 @@ Classification: `HISTORICAL METHOD QUALIFICATION / NO PROSPECTIVE RESULT`
 This package records the GFZ ESMGFZ historical source-vintage preflight and a
 bounded qualification of the `B3` method required by `POLAR-LOD-01`. The
 independent adversarial review supersedes the runner's package-local READY
-label: the historical diagnostic is supported, but B3 is not yet a sealed
-operational comparator. This package does not run the prospective candidate
-test and creates no Research Result.
+label. M1–M6 have now been implemented under a pre-output repair lock and a
+sealed historical replay passed, but the repair has not yet received the
+required independent re-review. B3 is therefore not yet a sealed operational
+comparator. This package does not run the prospective candidate test and
+creates no Research Result.
 
 ## Disposition
 
-- all 365 named 2025 daily archive files were retrieved and SHA-256 ledgered;
-- 364 files are structurally usable; day-of-year 108 is physically and
-  structurally invalid and was rejected without repair;
+- all 365 named 2025 daily archive files were retrieved and are now enforced
+  against a sealed byte-count/SHA-256 ledger before parsing;
+- 359 files pass the strengthened structural rules; day 108 is corrupt and
+  days 109–113 are rejected as Issue-Date/P-boundary-conflict backfills;
 - the archive contains 344 unique valid Issue Dates after deterministic
   deduplication, or 94.2% calendar coverage;
 - all accepted forecast targets are marked `P` by the source;
@@ -28,8 +31,8 @@ test and creates no Research Result.
   M2, equivalently M2 is 29.45% higher relative to B3;
 - an independent clean replay reproduced the committed CSV outputs
   byte-for-byte and confirmed the sign, units and exact-date pairing;
-- six major integrity and protocol findings remain open before B3 can be
-  sealed for prospective operational-relevance use.
+- all six major findings have a repair implementation and frozen contract;
+  independent re-review remains open before a B3 operational seal.
 
 The last comparison qualifies comparator strength only. It is outcome-known,
 retrospective and cannot count toward the future primary decision.
@@ -39,6 +42,10 @@ retrospective and cannot count toward the future primary decision.
 - [Source-vintage preflight](01_SOURCE_VINTAGE_PREFLIGHT.md)
 - [B3 implementation and historical qualification](02_B3_IMPLEMENTATION_AND_RESULT.md)
 - [Independent adversarial review](03_INDEPENDENT_ADVERSARIAL_REVIEW.md)
+- [Repair and pre-output lock](04_REPAIR_AND_PREOUTPUT_LOCK.md)
+- [Repair execution report](05_REPAIR_EXECUTION_REPORT.md)
+- [Execution dependency lock](EXECUTION_LOCK.json)
+- [Expected raw-vintage ledger](EXPECTED_RAW_VINTAGE_LEDGER.csv)
 - [Machine-readable result](qualification_results.json)
 - [Complete 2025 vintage ledger](gfz_2025_vintage_ledger.csv)
 - [Historical B3 predictions](b3_2025_predictions.csv)
@@ -48,12 +55,11 @@ retrospective and cannot count toward the future primary decision.
 
 ## Boundary
 
-Raw GFZ files are not redistributed. The current ledger records their provider
-URLs, sizes and hashes, but the runner does not yet enforce that ledger on
-replay. It also does not fully bind external dependencies, prove UTC
-availability at forecast origin, fail closed on every structural predicate, or
-carry independently preregistered readiness and operational-relevance rules.
-No explicit redistribution licence was inferred from public access. These six
-major findings do not overturn the bounded historical diagnostic; they block a
-sealed operational-baseline claim and must be closed by a separate repair and
-re-review before prospective use.
+Raw GFZ files are not redistributed. Sealed replay now enforces their URLs,
+sizes and hashes and binds external dependencies and runtime. Structural
+admission is fail closed, retrospective criteria are separated from evidence,
+and the future operational-relevance rule is frozen. Historical UTC
+availability at forecast origin remains unprovable and is explicitly labelled;
+future use requires append-only first-seen receipts. No explicit redistribution
+licence was inferred from public access. Independent re-review remains the last
+repair-stage gate before an operational-baseline seal.

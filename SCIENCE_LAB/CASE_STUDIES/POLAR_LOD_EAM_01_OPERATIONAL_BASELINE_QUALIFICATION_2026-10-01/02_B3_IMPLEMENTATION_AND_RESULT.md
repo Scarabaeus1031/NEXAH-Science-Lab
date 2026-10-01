@@ -1,6 +1,6 @@
 # B3 implementation and historical qualification
 
-Status: `CONDITIONAL_PASS / HISTORICAL_METHOD_ONLY / NO PROSPECTIVE RESULT`
+Status: `REPAIRED_REPLAY_VERIFIED / INDEPENDENT RE-REVIEW OPEN / NO PROSPECTIVE RESULT`
 
 ## Comparator
 
@@ -57,11 +57,10 @@ the package.
 
 ## Decision
 
-The independent review conditionally supports the physical conversion,
-historical pairing and reported diagnostics. It does not approve the current
-runner as a sealed operational comparator. Before prospective use, a separate
-repair cycle must close the six major findings: enforce raw-vintage hashes,
-bind external code/data/runtime dependencies, prove exact UTC availability,
-make structural admission fully fail closed, preregister readiness thresholds,
-and specify the operational-relevance rule. A new independent re-review and a
-separate Human Owner release remain required.
+The repaired runner now enforces raw-vintage identity, binds external
+code/data/runtime dependencies, fails closed on structural predicates,
+separates retrospective criteria from preregistered evidence and freezes an
+executable operational-relevance rule. Historical UTC availability remains
+explicitly unproven rather than reconstructed. The sealed replay preserved the
+reviewed predictions and metrics byte-for-byte. Independent re-review and a
+separate Human Owner release remain required before prospective use.

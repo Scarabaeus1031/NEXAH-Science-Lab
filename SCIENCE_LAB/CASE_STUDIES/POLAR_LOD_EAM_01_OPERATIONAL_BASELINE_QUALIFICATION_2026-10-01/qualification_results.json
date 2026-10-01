@@ -1,21 +1,35 @@
 {
   "id": "POLAR-LOD-EAM-01",
   "date": "2026-10-01",
-  "status": "B3_READY_WITH_DECLARED_SOURCE_EXCEPTIONS",
-  "classification": "historical operational-baseline qualification; no prospective result",
+  "status": "HISTORICAL_METHOD_REPLAY_VERIFIED_WITH_UTC_CUSTODY_LIMIT",
+  "classification": "source-labelled forecast-state retrospective; no prospective result",
+  "execution_mode": "replay",
+  "execution_lock_sha256": "5b3efc73131ed2c171d700ba7f2acc2996099030f1ea21e44d4b13b6779c5101",
+  "expected_raw_vintage_ledger_sha256": "de03baf23c822c4f692725823b49c7edb7eb9b05d468080c7b3b67fc2d9cc101",
+  "runtime": {
+    "python": "3.12.14",
+    "numpy": "2.3.5",
+    "pandas": "2.2.3"
+  },
   "source": {
     "provider": "GFZ ESMGFZ",
     "product": "daily archived EAM 90-day prediction",
     "base_url": "https://rz-vm480.gfz.de/files/ESMGFZ/EAM/archive_90d_prediction",
     "index_url": "https://rz-vm480.gfz.de/files/ESMGFZ/EAM/archive_90d_prediction/",
-    "index_sha256_at_audit": "5d1dd745fb27653b3c5eddd2f6e56a8e3a33b981d1ba2c2b21064d2defc7cad2",
     "vintages_requested": 365,
-    "vintages_structurally_valid": 364,
+    "vintages_structurally_valid": 359,
     "forecast_issue_dates_admitted": 344,
     "invalid_vintages": [
-      "ESMGFZ_EAM-90d_03h_2025_108F.asc"
+      "ESMGFZ_EAM-90d_03h_2025_108F.asc",
+      "ESMGFZ_EAM-90d_03h_2025_109F.asc",
+      "ESMGFZ_EAM-90d_03h_2025_110F.asc",
+      "ESMGFZ_EAM-90d_03h_2025_111F.asc",
+      "ESMGFZ_EAM-90d_03h_2025_112F.asc",
+      "ESMGFZ_EAM-90d_03h_2025_113F.asc"
     ],
-    "raw_files_redistributed": false
+    "raw_files_redistributed": false,
+    "historical_utc_availability_proven": false,
+    "availability_classification": "SOURCE_LABELLED_FORECAST_STATE_RETROSPECTIVE"
   },
   "transformation": "LOD_hat(t+h) = 86400 * EAM90_x3(issue,t+h) + IERS_RG_ZONT2_DLOD(t+h)",
   "horizon_metrics": {
@@ -62,23 +76,32 @@
       "mae_seconds": 2.0913615140014733e-05
     }
   },
-  "m2_vs_b3_rmse_difference_pct": 29.450262217938217,
+  "b3_rmse_lower_than_m2_pct_m2_denominator": 22.75025304186462,
+  "m2_rmse_higher_than_b3_pct_b3_denominator": 29.450262217938217,
   "conversion_sanity": {
     "n": 90,
     "rmse_seconds": 1.7015127162365282e-05,
     "mae_seconds": 1.3552723561352708e-05
   },
-  "gates": {
-    "all_365_vintages_downloaded": true,
-    "364_structurally_valid_and_one_declared_invalid": true,
+  "integrity_gates": {
+    "execution_lock_verified": true,
+    "all_365_expected_raw_vintages_hash_verified": true,
+    "external_code_data_and_runtime_bound": true,
+    "parser_enforces_finite_unique_ordered_exact_grid_allowed_states_single_transition": true,
+    "359_admissible_and_six_declared_rejections": true,
     "systematic_header_defect_bound": true,
-    "one_invalid_vintage_declared_not_repaired": true,
+    "corrupt_and_boundary_conflict_vintages_rejected_not_repaired": true,
     "one_vintage_selected_per_issue_date": true,
-    "at_least_90_pct_calendar_coverage": true,
     "all_admitted_targets_are_prediction_state": true,
+    "historical_utc_availability_limit_declared": true
+  },
+  "retrospective_qualification_criteria_not_preregistered_evidence": {
+    "at_least_90_pct_calendar_coverage": true,
     "conversion_sanity_rmse_below_0_05_ms": true,
     "paired_h1_population_at_least_340": true,
     "b3_beats_m2_on_paired_h1_forensic_window": true
   },
-  "boundary": "Closes the B3 source-vintage and implementation preflight only; no prospective execution authority or Research Result."
+  "operational_lock_ready": false,
+  "prospective_execution_authority": false,
+  "boundary": "Verifies the repaired historical replay under an enforced input/dependency lock while preserving the UTC availability limit; it does not authorize prospective execution or create a Research Result."
 }
