@@ -11,15 +11,17 @@ archives are intentionally excluded.
 
 ## Start here
 
-1. [Scientific introduction](10_NEXAH_GESAMTREPORT_SCIENTIFIC_INTRODUCTION.md)
-2. [Canonical grid grammar](01_CANONICAL_GRID_GRAMMAR.md)
-3. [Mathematical foundations](11_NEXAH_MATHEMATICAL_FOUNDATIONS_BASELINE.md)
-4. [3+1 Dual Belt implementation record](05_3_PLUS_1_DUAL_BELT_IMPLEMENTATION_RECORD.md)
-5. [Milky Way · Pineal Aperture · Andromeda implementation record](06_MILKY_WAY_PINEAL_APERTURE_ANDROMEDA_IMPLEMENTATION_RECORD.md)
-6. [Tessarec · Root Space · Iota Pearl frame record](07_TESSAREC_ROOT_IOTA_FRAME_IMPLEMENTATION_RECORD.md)
+1. [Crownpiece Instrument Gallery](08_CROWNPIECE_INSTRUMENT_GALLERY.md)
+2. [Scientific introduction](10_NEXAH_GESAMTREPORT_SCIENTIFIC_INTRODUCTION.md)
+3. [Canonical grid grammar](01_CANONICAL_GRID_GRAMMAR.md)
+4. [Mathematical foundations](11_NEXAH_MATHEMATICAL_FOUNDATIONS_BASELINE.md)
+5. [3+1 Dual Belt implementation record](05_3_PLUS_1_DUAL_BELT_IMPLEMENTATION_RECORD.md)
+6. [Milky Way · Pineal Aperture · Andromeda implementation record](06_MILKY_WAY_PINEAL_APERTURE_ANDROMEDA_IMPLEMENTATION_RECORD.md)
+7. [Tessarec · Root Space · Iota Pearl frame record](07_TESSAREC_ROOT_IOTA_FRAME_IMPLEMENTATION_RECORD.md)
 
 ## Executable artifacts
 
+- [NEXAH Ecosystem Status Marker — 01.10.2026](../../EXPORTS/NEXAH_ECOSYSTEM_STATUS_MARKER_2026-10-01.png)
 - [3+1 Dual Belt HTML5 instrument](../../EXPORTS/NEXAH_3_PLUS_1_DUAL_BELT.html)
 - [3+1 machine-readable record](../../EXPORTS/NEXAH_3_PLUS_1_DUAL_BELT_RECORD.json)
 - [3+1 download package](../../EXPORTS/NEXAH_ERITH_SOURCE_SEED_FIELD_DOWNLOAD.zip)
