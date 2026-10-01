@@ -281,6 +281,47 @@ class OperationalRelevanceTests(unittest.TestCase):
         self.assertIn("DUPLICATE_B3_HORIZON_TARGET", reasons)
         self.assertIn("UNDECLARED_B3_HORIZON", reasons)
 
+    def test_noncanonical_b3_horizon_types_are_not_assessable(self) -> None:
+        for invalid in (1.0, 1.5, 1.9, True, "1"):
+            with self.subTest(invalid=invalid):
+                rows, m2, observed, expected = synthetic_operational_case(0.0, 1.0, n=250)
+                row = next(item for item in rows if item["horizon_days"] == 1)
+                row["horizon_days"] = invalid
+                result = MODULE.evaluate_operational_relevance(
+                    rows, m2, observed, expected, custody_available=True, replicates=50
+                )
+                self.assertEqual(result["annotation"], "OPERATIONAL_RELEVANCE_NOT_ASSESSABLE")
+                reasons = {item["reason"] for item in result["input_domain_violations"]}
+                self.assertIn("UNDECLARED_B3_HORIZON", reasons)
+
+    def test_noncanonical_m2_horizon_key_types_are_not_assessable(self) -> None:
+        for invalid in (1.0, 1.5, 1.9, True, "1"):
+            with self.subTest(invalid=invalid):
+                rows, m2, observed, expected = synthetic_operational_case(0.0, 1.0, n=250)
+                values = m2.pop(1)
+                m2[invalid] = values
+                result = MODULE.evaluate_operational_relevance(
+                    rows, m2, observed, expected, custody_available=True, replicates=50
+                )
+                self.assertEqual(result["annotation"], "OPERATIONAL_RELEVANCE_NOT_ASSESSABLE")
+                reasons = {item["reason"] for item in result["input_domain_violations"]}
+                self.assertIn("UNDECLARED_M2_HORIZON", reasons)
+                self.assertIn("MISSING_M2_HORIZON", reasons)
+
+    def test_noncanonical_expected_horizon_key_types_are_not_assessable(self) -> None:
+        for invalid in (1.0, 1.5, 1.9, True, "1"):
+            with self.subTest(invalid=invalid):
+                rows, m2, observed, expected = synthetic_operational_case(0.0, 1.0, n=250)
+                values = expected.pop(1)
+                expected[invalid] = values
+                result = MODULE.evaluate_operational_relevance(
+                    rows, m2, observed, expected, custody_available=True, replicates=50
+                )
+                self.assertEqual(result["annotation"], "OPERATIONAL_RELEVANCE_NOT_ASSESSABLE")
+                reasons = {item["reason"] for item in result["input_domain_violations"]}
+                self.assertIn("UNDECLARED_EXPECTED_HORIZON", reasons)
+                self.assertIn("MISSING_EXPECTED_HORIZON", reasons)
+
     def test_holm_stops_after_first_failed_ordered_hypothesis(self) -> None:
         rejected = MODULE.holm_rejections({1: 0.01, 3: 0.02, 7: 0.03, 30: 0.04})
         self.assertEqual(rejected, {1: True, 3: False, 7: False, 30: False})

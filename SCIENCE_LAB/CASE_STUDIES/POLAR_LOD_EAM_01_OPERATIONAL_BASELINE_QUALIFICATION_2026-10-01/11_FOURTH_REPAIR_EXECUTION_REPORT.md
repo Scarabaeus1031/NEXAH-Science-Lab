@@ -1,7 +1,7 @@
 # POLAR-LOD-EAM-01 — fourth repair execution report
 
 Date: 2026-10-01
-Status: `IMPLEMENTED_AND_LOCALLY_VERIFIED / INDEPENDENT_REVIEW_REQUIRED`
+Status: `FOURTH_REPAIR_ATTEMPT / SUPERSEDED_BY_12_REVIEW_FAIL`
 Prospective data accessed: `NO`
 
 ## Trigger
@@ -52,8 +52,11 @@ unproven UTC custody limit and the now-visible out-of-population M2 domain.
 
 ## Disposition
 
-Repair 4 is locally verified but not self-approved. Independent adversarial
-review must reproduce the fail-closed domain behavior and the sealed replay
-before the historical B3 comparator can be considered operationally locked.
+Repair 4 was locally verified but not self-approved. The subsequent review in
+`12_FOURTH_REPAIR_INDEPENDENT_REVIEW.md` accepted the missingness, extra-target
+and integer-domain closures but found a horizon-type coercion bypass. Repair 5
+supersedes this attempt. Independent adversarial review must reproduce the
+strict fail-closed domain behavior and the sealed replay before the historical
+B3 comparator can be considered operationally locked.
 This work does not authorize prospective execution, inspect prospective
 outcomes or create a Research Result.

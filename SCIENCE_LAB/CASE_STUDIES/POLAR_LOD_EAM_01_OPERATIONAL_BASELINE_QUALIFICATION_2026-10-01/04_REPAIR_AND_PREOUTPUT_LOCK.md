@@ -1,7 +1,7 @@
 # POLAR-LOD-EAM-01 — repair and pre-output lock
 
 Date: 2026-10-01
-Status: `FOURTH_REPAIR IMPLEMENTED / INDEPENDENT RE-REVIEW REQUIRED`
+Status: `FIFTH_REPAIR IMPLEMENTED / INDEPENDENT RE-REVIEW REQUIRED`
 Authority class: `IMPLEMENTATION REPAIR / FUTURE DECISION CONTRACT`
 Supersedes: package-local `B3_READY_WITH_DECLARED_SOURCE_EXCEPTIONS`
 
@@ -137,6 +137,12 @@ listed and force the same fail-closed annotation. The input horizon domain must
 be exactly `{1,3,7,30}`; undeclared horizons and duplicate B3 horizon-target
 keys are explicit domain violations and cannot produce a supported result.
 
+Horizon identity is type-strict before any grouping or lookup: only exact,
+non-boolean Python integers in `{1,3,7,30}` are canonical. Numeric coercion is
+forbidden. B3 rows and M2/expected map keys such as `1.0`, `1.5`, `1.9`,
+`True`, or `"1"` are undeclared-domain inputs and make the result not
+assessable.
+
 ## Exit condition
 
 The repair implementation may advance only after:
@@ -148,5 +154,5 @@ The repair implementation may advance only after:
 5. a new independent review accepts closure of M1–M6.
 
 Until item 5 closes, status remains
-`SECOND_REPAIR_IMPLEMENTED_PENDING_INDEPENDENT_REVIEW` and no prospective
+`FIFTH_REPAIR_IMPLEMENTED_PENDING_INDEPENDENT_REVIEW` and no prospective
 execution is authorized.

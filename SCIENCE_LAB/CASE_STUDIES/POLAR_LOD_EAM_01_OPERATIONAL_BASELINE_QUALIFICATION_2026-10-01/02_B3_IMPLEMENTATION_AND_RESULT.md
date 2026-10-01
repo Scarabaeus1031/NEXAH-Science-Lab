@@ -1,6 +1,6 @@
 # B3 implementation and historical qualification
 
-Status: `FOURTH_REPAIR_IMPLEMENTED_PENDING_INDEPENDENT_REVIEW / NO PROSPECTIVE RESULT`
+Status: `FIFTH_REPAIR_IMPLEMENTED_PENDING_INDEPENDENT_REVIEW / NO PROSPECTIVE RESULT`
 
 ## Comparator
 
@@ -70,5 +70,7 @@ that path, but its review found remaining extra-target, observation-filter and
 domain-cardinality gaps. The fourth repair derives the frozen population from
 forecast origins, declared horizons and the fixed 2025 calendar; missing,
 extra, duplicate and undeclared-domain inputs now make the result not
-assessable. Another independent review and a separate Human Owner release
-remain required before prospective use.
+assessable. Its review found a numeric/boolean/string horizon-coercion bypass;
+the fifth repair applies one strict, non-coercing horizon validator to B3, M2
+and the expected map. Another independent review and a separate Human Owner
+release remain required before prospective use.

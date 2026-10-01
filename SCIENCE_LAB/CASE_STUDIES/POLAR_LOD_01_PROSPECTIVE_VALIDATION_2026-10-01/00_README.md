@@ -2,7 +2,7 @@
 
 Date: 2026-10-01
 Owner: Human Owner
-Native status: `EXTENDED_PROTOCOL_FROZEN / B3_FOURTH_REPAIR_REVIEW_DATA_CUSTODY_AND_RELEASE_GATES_OPEN`
+Native status: `EXTENDED_PROTOCOL_FROZEN / B3_FIFTH_REPAIR_REVIEW_DATA_CUSTODY_AND_RELEASE_GATES_OPEN`
 Lab status: `FILED / NO_RESULT / NO_ACTIVATION`
 
 ## Question
@@ -51,9 +51,11 @@ third repair required an independently frozen expected-target population and
 closed the jointly missing component path. Its review found extra-target and
 remaining domain-custody gaps. The fourth repair now derives expectations only
 from admitted origins, declared horizons and the fixed calendar, and makes
-missing, extra, duplicate or undeclared-domain inputs not assessable. A new
-independent review is still required. That historical diagnostic is not a
-prospective result.
+missing, extra, duplicate or undeclared-domain inputs not assessable. Its
+review found a horizon-type coercion bypass. The fifth repair now requires
+exact, non-boolean integer horizons across B3, M2 and expectation inputs. A
+new independent review is still required. That historical diagnostic is not
+a prospective result.
 
 The prospective contract is expanded without changing M2. Horizon `1`
 remains primary; horizons `3`, `7`, and `30`, an archived-forecast EAM
@@ -77,6 +79,8 @@ no scientific result was created.
 - [Third EAM/B3 repair execution](../POLAR_LOD_EAM_01_OPERATIONAL_BASELINE_QUALIFICATION_2026-10-01/09_THIRD_REPAIR_EXECUTION_REPORT.md)
 - [Independent third-repair review](../POLAR_LOD_EAM_01_OPERATIONAL_BASELINE_QUALIFICATION_2026-10-01/10_THIRD_REPAIR_INDEPENDENT_REVIEW.md)
 - [Fourth EAM/B3 repair execution](../POLAR_LOD_EAM_01_OPERATIONAL_BASELINE_QUALIFICATION_2026-10-01/11_FOURTH_REPAIR_EXECUTION_REPORT.md)
+- [Independent fourth-repair review](../POLAR_LOD_EAM_01_OPERATIONAL_BASELINE_QUALIFICATION_2026-10-01/12_FOURTH_REPAIR_INDEPENDENT_REVIEW.md)
+- [Fifth EAM/B3 repair execution](../POLAR_LOD_EAM_01_OPERATIONAL_BASELINE_QUALIFICATION_2026-10-01/13_FIFTH_REPAIR_EXECUTION_REPORT.md)
 
 ## Claim ceiling
 
