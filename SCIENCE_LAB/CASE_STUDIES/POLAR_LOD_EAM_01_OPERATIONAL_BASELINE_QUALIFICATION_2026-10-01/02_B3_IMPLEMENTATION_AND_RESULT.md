@@ -1,6 +1,6 @@
 # B3 implementation and historical qualification
 
-Status: `REPAIRED_REPLAY_VERIFIED / INDEPENDENT RE-REVIEW OPEN / NO PROSPECTIVE RESULT`
+Status: `REPAIR_REVIEW_FAIL / M1_M2_M6_OPEN / NO PROSPECTIVE RESULT`
 
 ## Comparator
 
@@ -57,10 +57,11 @@ the package.
 
 ## Decision
 
-The repaired runner now enforces raw-vintage identity, binds external
-code/data/runtime dependencies, fails closed on structural predicates,
-separates retrospective criteria from preregistered evidence and freezes an
-executable operational-relevance rule. Historical UTC availability remains
-explicitly unproven rather than reconstructed. The sealed replay preserved the
-reviewed predictions and metrics byte-for-byte. Independent re-review and a
-separate Human Owner release remain required before prospective use.
+The repaired runner enforces raw-vintage identity against the canonical ledger,
+fails closed on structural predicates and separates retrospective criteria
+from preregistered evidence. Historical UTC availability remains explicitly
+unproven rather than reconstructed. The independent repair review nevertheless
+demonstrated that caller-selected alternative ledger and lock files can obtain
+the same verified status, and the four-horizon operational-relevance rule is
+not implemented. A second repair, another independent review and a separate
+Human Owner release remain required before prospective use.

@@ -1,7 +1,7 @@
 # POLAR-LOD-EAM-01 — repair execution report
 
 Date: 2026-10-01
-Status: `REPAIRED_PENDING_INDEPENDENT_REVIEW`
+Status: `REPAIR_ATTEMPT_RECORDED / SUPERSEDED_BY_REVIEW_FAIL`
 Prospective data accessed: `NO`
 Prospective execution authority: `NO`
 
@@ -56,8 +56,9 @@ This closes the demonstrated M1 tamper path in sealed replay mode.
 
 ## Disposition
 
-M1–M6 are implemented at the repair/contract level. The historical UTC
+This document is the repair executor's self-report. The subsequent independent
+review in `06_INDEPENDENT_REPAIR_REVIEW.md` supersedes its readiness assessment:
+M3–M5 are closed, while M1/M2 remain bypassable through a replaceable trust root
+and M6 remains a contract without an executable evaluator. The historical UTC
 availability gap is preserved explicitly rather than retroactively repaired.
-The package remains `REPAIRED_PENDING_INDEPENDENT_REVIEW`; an independent
-review must accept the implementation and lock before any operational-baseline
-seal or prospective use.
+No operational-baseline seal or prospective use is authorized.

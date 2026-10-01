@@ -2,7 +2,7 @@
 
 Date: 2026-10-01
 Owner: Human Owner
-Native status: `EXTENDED_PROTOCOL_FROZEN / B3_RE-REVIEW_DATA_CUSTODY_AND_RELEASE_GATES_OPEN`
+Native status: `EXTENDED_PROTOCOL_FROZEN / B3_SECOND_REPAIR_DATA_CUSTODY_AND_RELEASE_GATES_OPEN`
 Lab status: `FILED / NO_RESULT / NO_ACTIVATION`
 
 ## Question
@@ -38,14 +38,15 @@ case, and found retrospectively that the old six-period candidate did not beat
 the geophysical comparator on the already-known 2025 holdout. This is method
 qualification, not a prospective result.
 
-`POLAR-LOD-EAM-01` has now received an independent adversarial review with a
-`CONDITIONAL_PASS`. M1–M6 have since been implemented under a sealed repair
-lock. The repaired replay enforced all 365 expected hashes, admitted the same
-344 unique Issue Dates, excluded one corrupt file and five boundary-conflict
-backfills, and reproduced the prediction and metric CSVs byte-for-byte. An
-independent re-review remains required before B3 can be called a sealed
-operational comparator. That historical diagnostic is not a prospective
-result.
+`POLAR-LOD-EAM-01` first received an independent adversarial review with a
+`CONDITIONAL_PASS`. The subsequent repair enforced all 365 expected hashes,
+strengthened parsing and preserved the historical outputs byte-for-byte. Its
+independent repair review nevertheless returned `FAIL`: caller-selected
+alternative ledger and lock files can still obtain a verified status, the
+exact runtime is not portably provisioned, and the four-horizon M6 decision
+rule is not executable. M3–M5 are closed; M1/M2 and M6 require a second repair
+and another independent review. That historical diagnostic is not a
+prospective result.
 
 The prospective contract is expanded without changing M2. Horizon `1`
 remains primary; horizons `3`, `7`, and `30`, an archived-forecast EAM
@@ -63,6 +64,7 @@ no scientific result was created.
 - [Completed baseline qualification](../POLAR_LOD_BL_01_BASELINE_QUALIFICATION_2026-10-01/00_README.md)
 - [Conditional EAM/B3 historical qualification](../POLAR_LOD_EAM_01_OPERATIONAL_BASELINE_QUALIFICATION_2026-10-01/00_README.md)
 - [Independent EAM/B3 adversarial review](../POLAR_LOD_EAM_01_OPERATIONAL_BASELINE_QUALIFICATION_2026-10-01/03_INDEPENDENT_ADVERSARIAL_REVIEW.md)
+- [Independent EAM/B3 repair review](../POLAR_LOD_EAM_01_OPERATIONAL_BASELINE_QUALIFICATION_2026-10-01/06_INDEPENDENT_REPAIR_REVIEW.md)
 
 ## Claim ceiling
 
