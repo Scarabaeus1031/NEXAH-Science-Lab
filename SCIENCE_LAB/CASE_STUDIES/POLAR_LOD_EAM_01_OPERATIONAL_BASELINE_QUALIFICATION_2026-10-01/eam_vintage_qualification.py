@@ -45,6 +45,8 @@ BASE_URL = "https://rz-vm480.gfz.de/files/ESMGFZ/EAM/archive_90d_prediction"
 INDEX_URL = BASE_URL + "/"
 YEAR = 2025
 HORIZONS = (1, 3, 7, 30)
+FROZEN_EVALUATION_START = date(YEAR, 1, 1)
+FROZEN_EVALUATION_END = date(YEAR, 12, 31)
 NOMINAL_DAY_SECONDS = 86400.0
 PHYSICAL_ABS_LIMIT = 1e-3
 GRID_STEP_DAYS = 0.125
@@ -54,7 +56,7 @@ EXECUTION_LOCK = PACKAGE / "EXECUTION_LOCK.json"
 TRUST_ROOT = PACKAGE / "SEALED_REPLAY_TRUST_ROOT.json"
 RUNTIME_LOCK = PACKAGE / "requirements-macos-arm64.lock"
 RUNTIME_ENVIRONMENT = PACKAGE / "RUNTIME_ENVIRONMENT.json"
-CANONICAL_TRUST_ROOT_SHA256 = "c7ed20f6f6821d9522c1783c0f52ed0fd5b5b79de04daa305446202efa38e5de"
+CANONICAL_TRUST_ROOT_SHA256 = "e5bc9fe7e7918ed1470f3ed77bd958edc2eee8466ac652e853f67647547d47b2"
 M6_BOOTSTRAP_REPLICATES = 20_000
 M6_BLOCK_LENGTH = 30
 M6_SEED = 20261001
@@ -101,7 +103,7 @@ def verify_canonical_trust_root(path: Path = TRUST_ROOT) -> dict:
         raise RuntimeError("Custom trust-root paths cannot produce a sealed replay")
     require_sha256(path, CANONICAL_TRUST_ROOT_SHA256, "canonical trust root")
     root = json.loads(path.read_text())
-    if root.get("id") != "POLAR-LOD-EAM-01-SEALED-ROOT-03":
+    if root.get("id") != "POLAR-LOD-EAM-01-SEALED-ROOT-04":
         raise RuntimeError("Unexpected sealed trust-root identity")
     bound = {
         "execution_lock": EXECUTION_LOCK,
@@ -121,7 +123,7 @@ def verify_canonical_trust_root(path: Path = TRUST_ROOT) -> dict:
 
 def verify_execution_lock(source: Path) -> dict:
     lock = json.loads(EXECUTION_LOCK.read_text())
-    if lock.get("id") != "POLAR-LOD-EAM-01-REPAIR-LOCK-03":
+    if lock.get("id") != "POLAR-LOD-EAM-01-REPAIR-LOCK-04":
         raise RuntimeError("Unexpected execution-lock identity")
     files = lock.get("files", {})
     bound = {
@@ -451,6 +453,32 @@ def evaluate_operational_relevance(
     diagnostics = {}
     p_values = {}
     assessable = bool(custody_available)
+    domain_violations = []
+    seen_b3_pairs = set()
+    for row in b3_rows:
+        horizon = int(row["horizon_days"])
+        target = float(row["target_mjd"])
+        pair = (horizon, target)
+        if horizon not in HORIZONS:
+            domain_violations.append(
+                {"reason": "UNDECLARED_B3_HORIZON", "horizon_days": horizon, "target_mjd": target}
+            )
+        if pair in seen_b3_pairs:
+            domain_violations.append(
+                {"reason": "DUPLICATE_B3_HORIZON_TARGET", "horizon_days": horizon, "target_mjd": target}
+            )
+        seen_b3_pairs.add(pair)
+    for horizon in sorted(set(m2_by_horizon) - set(HORIZONS)):
+        domain_violations.append({"reason": "UNDECLARED_M2_HORIZON", "horizon_days": horizon})
+    for horizon in sorted(set(expected_targets_by_horizon) - set(HORIZONS)):
+        domain_violations.append({"reason": "UNDECLARED_EXPECTED_HORIZON", "horizon_days": horizon})
+    for horizon in HORIZONS:
+        if horizon not in m2_by_horizon:
+            domain_violations.append({"reason": "MISSING_M2_HORIZON", "horizon_days": horizon})
+        if horizon not in expected_targets_by_horizon:
+            domain_violations.append({"reason": "MISSING_EXPECTED_HORIZON", "horizon_days": horizon})
+    if domain_violations:
+        assessable = False
     for horizon in HORIZONS:
         expected = set(expected_targets_by_horizon.get(horizon, set()))
         rows = [row for row in b3_rows if int(row["horizon_days"]) == horizon]
@@ -477,6 +505,8 @@ def evaluate_operational_relevance(
                 "expected_without_b3",
                 "expected_without_m2",
                 "expected_without_observed",
+                "unexpected_b3_outside_frozen_population",
+                "unexpected_m2_outside_frozen_population",
             )
         )
         if not expected or len(dates) < minimum_paired or incomplete_expected_population:
@@ -527,6 +557,7 @@ def evaluate_operational_relevance(
         "block_length_days": M6_BLOCK_LENGTH,
         "base_seed": M6_SEED,
         "holm_familywise_alpha": M6_ALPHA,
+        "input_domain_violations": domain_violations,
         "horizons": diagnostics,
     }
 
@@ -689,7 +720,9 @@ def main() -> None:
             horizon: {
                 mjd_for(vintage["parsed"]["issue"]) + horizon
                 for vintage in selected
-                if mjd_for(vintage["parsed"]["issue"]) + horizon in observed
+                if FROZEN_EVALUATION_START
+                <= vintage["parsed"]["issue"] + timedelta(days=horizon)
+                <= FROZEN_EVALUATION_END
             }
             for horizon in HORIZONS
         },

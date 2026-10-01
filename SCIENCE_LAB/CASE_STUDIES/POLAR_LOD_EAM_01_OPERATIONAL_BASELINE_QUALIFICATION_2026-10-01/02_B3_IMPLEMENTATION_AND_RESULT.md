@@ -1,6 +1,6 @@
 # B3 implementation and historical qualification
 
-Status: `THIRD_REPAIR_IMPLEMENTED_PENDING_INDEPENDENT_REVIEW / NO PROSPECTIVE RESULT`
+Status: `FOURTH_REPAIR_IMPLEMENTED_PENDING_INDEPENDENT_REVIEW / NO PROSPECTIVE RESULT`
 
 ## Comparator
 
@@ -65,8 +65,10 @@ unproven rather than reconstructed. The independent repair review nevertheless
 demonstrated that caller-selected alternative ledger and lock files could
 obtain the same verified status and that the four-horizon rule was not
 implemented. The second repair removed those overrides and implemented M6, but
-its review found a jointly missing prediction bypass. The third repair requires
-an independently frozen expected-target population, makes any incomplete
-population not assessable and binds the interpreter hash even for direct runner
-use. Another independent review and a separate Human Owner release remain
-required before prospective use.
+its review found a jointly missing prediction bypass. The third repair closed
+that path, but its review found remaining extra-target, observation-filter and
+domain-cardinality gaps. The fourth repair derives the frozen population from
+forecast origins, declared horizons and the fixed 2025 calendar; missing,
+extra, duplicate and undeclared-domain inputs now make the result not
+assessable. Another independent review and a separate Human Owner release
+remain required before prospective use.

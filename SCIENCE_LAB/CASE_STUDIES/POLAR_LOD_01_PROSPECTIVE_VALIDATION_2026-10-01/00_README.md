@@ -2,7 +2,7 @@
 
 Date: 2026-10-01
 Owner: Human Owner
-Native status: `EXTENDED_PROTOCOL_FROZEN / B3_THIRD_REPAIR_REVIEW_DATA_CUSTODY_AND_RELEASE_GATES_OPEN`
+Native status: `EXTENDED_PROTOCOL_FROZEN / B3_FOURTH_REPAIR_REVIEW_DATA_CUSTODY_AND_RELEASE_GATES_OPEN`
 Lab status: `FILED / NO_RESULT / NO_ACTIVATION`
 
 ## Question
@@ -47,10 +47,13 @@ exact runtime is not portably provisioned, and the four-horizon M6 decision
 rule is not executable. M3–M5 are closed. The second repair now removes custom
 lock roots, binds a hash-locked reproducible runtime and implements the full
 four-horizon M6 evaluator. Its review found one joint missingness bypass. The
-third repair now requires an independently frozen expected-target population,
-reports every absent component and makes incomplete populations not
-assessable. A new independent review is still required. That historical
-diagnostic is not a prospective result.
+third repair required an independently frozen expected-target population and
+closed the jointly missing component path. Its review found extra-target and
+remaining domain-custody gaps. The fourth repair now derives expectations only
+from admitted origins, declared horizons and the fixed calendar, and makes
+missing, extra, duplicate or undeclared-domain inputs not assessable. A new
+independent review is still required. That historical diagnostic is not a
+prospective result.
 
 The prospective contract is expanded without changing M2. Horizon `1`
 remains primary; horizons `3`, `7`, and `30`, an archived-forecast EAM
@@ -72,6 +75,8 @@ no scientific result was created.
 - [Second EAM/B3 repair execution](../POLAR_LOD_EAM_01_OPERATIONAL_BASELINE_QUALIFICATION_2026-10-01/07_SECOND_REPAIR_EXECUTION_REPORT.md)
 - [Independent second-repair review](../POLAR_LOD_EAM_01_OPERATIONAL_BASELINE_QUALIFICATION_2026-10-01/08_SECOND_REPAIR_INDEPENDENT_REVIEW.md)
 - [Third EAM/B3 repair execution](../POLAR_LOD_EAM_01_OPERATIONAL_BASELINE_QUALIFICATION_2026-10-01/09_THIRD_REPAIR_EXECUTION_REPORT.md)
+- [Independent third-repair review](../POLAR_LOD_EAM_01_OPERATIONAL_BASELINE_QUALIFICATION_2026-10-01/10_THIRD_REPAIR_INDEPENDENT_REVIEW.md)
+- [Fourth EAM/B3 repair execution](../POLAR_LOD_EAM_01_OPERATIONAL_BASELINE_QUALIFICATION_2026-10-01/11_FOURTH_REPAIR_EXECUTION_REPORT.md)
 
 ## Claim ceiling
 

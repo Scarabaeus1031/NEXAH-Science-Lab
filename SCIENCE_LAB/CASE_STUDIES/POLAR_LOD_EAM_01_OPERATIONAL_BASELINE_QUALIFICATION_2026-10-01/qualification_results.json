@@ -4,8 +4,8 @@
   "status": "HISTORICAL_METHOD_REPLAY_VERIFIED_WITH_UTC_CUSTODY_LIMIT",
   "classification": "source-labelled forecast-state retrospective; no prospective result",
   "execution_mode": "replay",
-  "sealed_trust_root_sha256": "c7ed20f6f6821d9522c1783c0f52ed0fd5b5b79de04daa305446202efa38e5de",
-  "execution_lock_sha256": "82dfb253c5f36c918e2cd6258123a91f8bd972992ebfc96513ad3500e838e1fe",
+  "sealed_trust_root_sha256": "e5bc9fe7e7918ed1470f3ed77bd958edc2eee8466ac652e853f67647547d47b2",
+  "execution_lock_sha256": "09efdae8a0dfba886ac3ab8ec3acd469448ea90db4c9bde1c979fc6b0acf6153",
   "expected_raw_vintage_ledger_sha256": "de03baf23c822c4f692725823b49c7edb7eb9b05d468080c7b3b67fc2d9cc101",
   "runtime": {
     "python": "3.12.14",
@@ -96,6 +96,7 @@
     "block_length_days": 30,
     "base_seed": 20261001,
     "holm_familywise_alpha": 0.05,
+    "input_domain_violations": [],
     "horizons": {
       "1": {
         "paired_n": 344,

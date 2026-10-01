@@ -1,7 +1,7 @@
 # POLAR-LOD-EAM-01 — third repair execution report
 
 Date: 2026-10-01
-Status: `THIRD_REPAIR_IMPLEMENTED_PENDING_INDEPENDENT_REVIEW`
+Status: `THIRD_REPAIR_ATTEMPT / SUPERSEDED_BY_10_REVIEW_FAIL`
 Prospective data accessed: `NO`
 Prospective execution authority: `NO`
 
@@ -75,6 +75,8 @@ Bindings:
 
 ## Disposition
 
-Repair 3 is implemented and locally verified, not self-approved. A new
-independent adversarial review must accept the expected-population closure and
-direct-interpreter binding before the operational-baseline lock can close.
+Repair 3 was implemented and locally verified, not self-approved. The
+subsequent review in `10_THIRD_REPAIR_INDEPENDENT_REVIEW.md` accepted the
+jointly missing expected-target closure but found remaining unexpected-target,
+observation-filter, undeclared-horizon and duplicate-key routes. Repair 4
+supersedes this readiness assessment.

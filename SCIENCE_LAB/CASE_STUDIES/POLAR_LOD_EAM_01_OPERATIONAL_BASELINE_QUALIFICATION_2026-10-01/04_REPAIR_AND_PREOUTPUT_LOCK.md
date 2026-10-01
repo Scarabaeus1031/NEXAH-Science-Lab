@@ -1,7 +1,7 @@
 # POLAR-LOD-EAM-01 — repair and pre-output lock
 
 Date: 2026-10-01
-Status: `THIRD_REPAIR IMPLEMENTED / INDEPENDENT RE-REVIEW REQUIRED`
+Status: `FOURTH_REPAIR IMPLEMENTED / INDEPENDENT RE-REVIEW REQUIRED`
 Authority class: `IMPLEMENTATION REPAIR / FUTURE DECISION CONTRACT`
 Supersedes: package-local `B3_READY_WITH_DECLARED_SOURCE_EXCEPTIONS`
 
@@ -126,12 +126,16 @@ become prospective evidence. Synthetic fixtures test supported, unsupported,
 missing-custody and partial-horizon paths.
 
 The expected target population is an explicit required evaluator input and is
-independent of both model-output maps. For every horizon the evaluator reports
+independent of both model-output maps and the actually present observation
+map. It is derived from admitted forecast origins, declared horizons and the
+frozen 2025 evaluation calendar. For every horizon the evaluator reports
 expected targets missing from B3, M2 or observations before pairing. Any
 incomplete expected population forces
 `OPERATIONAL_RELEVANCE_NOT_ASSESSABLE`, including a target jointly absent from
 both models. Unexpected predictions outside the frozen population are also
-listed and cannot silently enter scoring.
+listed and force the same fail-closed annotation. The input horizon domain must
+be exactly `{1,3,7,30}`; undeclared horizons and duplicate B3 horizon-target
+keys are explicit domain violations and cannot produce a supported result.
 
 ## Exit condition
 

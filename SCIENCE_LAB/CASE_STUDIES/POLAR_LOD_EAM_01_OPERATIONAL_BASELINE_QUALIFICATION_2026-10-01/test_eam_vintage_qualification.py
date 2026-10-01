@@ -199,27 +199,87 @@ class OperationalRelevanceTests(unittest.TestCase):
         self.assertEqual(result["horizons"]["30"]["paired_n"], 100)
 
     def test_common_model_outage_is_visible_and_not_assessable(self) -> None:
-        rows, m2, observed, expected = synthetic_operational_case(0.0, 1.0)
-        removed = min(expected[1])
-        rows = [
-            row
-            for row in rows
-            if not (row["horizon_days"] == 1 and row["target_mjd"] == removed)
-        ]
-        del m2[1][removed]
+        rows, m2, observed, expected = synthetic_operational_case(0.0, 1.0, n=250)
+        removed = {horizon: min(expected[horizon]) for horizon in MODULE.HORIZONS}
+        rows = [row for row in rows if row["target_mjd"] != removed[row["horizon_days"]]]
+        for horizon, target in removed.items():
+            del m2[horizon][target]
         result = MODULE.evaluate_operational_relevance(
             rows, m2, observed, expected, custody_available=True, replicates=50
         )
         self.assertEqual(result["annotation"], "OPERATIONAL_RELEVANCE_NOT_ASSESSABLE")
-        self.assertEqual(result["horizons"]["1"]["paired_n"], 199)
+        for horizon, target in removed.items():
+            diagnostic = result["horizons"][str(horizon)]
+            self.assertEqual(diagnostic["paired_n"], 249)
+            self.assertEqual(
+                diagnostic["missing_before_scoring"]["expected_without_b3"]["target_mjds"],
+                [target],
+            )
+            self.assertEqual(
+                diagnostic["missing_before_scoring"]["expected_without_m2"]["target_mjds"],
+                [target],
+            )
+
+    def test_joint_observation_and_model_outage_is_not_assessable(self) -> None:
+        rows, m2, observed, expected = synthetic_operational_case(0.0, 1.0, n=250)
+        removed = min(expected[1])
+        rows = [row for row in rows if row["target_mjd"] != removed]
+        del m2[1][removed]
+        del observed[removed]
+        result = MODULE.evaluate_operational_relevance(
+            rows, m2, observed, expected, custody_available=True, replicates=50
+        )
+        self.assertEqual(result["annotation"], "OPERATIONAL_RELEVANCE_NOT_ASSESSABLE")
+        missing = result["horizons"]["1"]["missing_before_scoring"]
+        self.assertEqual(missing["expected_without_b3"]["target_mjds"], [removed])
+        self.assertEqual(missing["expected_without_m2"]["target_mjds"], [removed])
+        self.assertEqual(missing["expected_without_observed"]["target_mjds"], [removed])
+
+    def test_unexpected_b3_target_is_not_assessable(self) -> None:
+        rows, m2, observed, expected = synthetic_operational_case(0.0, 1.0)
+        rows.append({"horizon_days": 1, "target_mjd": 999999.0, "predicted_lod_seconds": 1.0})
+        result = MODULE.evaluate_operational_relevance(
+            rows, m2, observed, expected, custody_available=True, replicates=50
+        )
+        self.assertEqual(result["annotation"], "OPERATIONAL_RELEVANCE_NOT_ASSESSABLE")
+
+    def test_unexpected_m2_target_is_not_assessable(self) -> None:
+        rows, m2, observed, expected = synthetic_operational_case(0.0, 1.0)
+        m2[1][999999.0] = 0.0
+        result = MODULE.evaluate_operational_relevance(
+            rows, m2, observed, expected, custody_available=True, replicates=50
+        )
+        self.assertEqual(result["annotation"], "OPERATIONAL_RELEVANCE_NOT_ASSESSABLE")
+
+    def test_unexpected_b3_and_m2_targets_are_not_assessable(self) -> None:
+        rows, m2, observed, expected = synthetic_operational_case(0.0, 1.0)
+        rows.append({"horizon_days": 1, "target_mjd": 999999.0, "predicted_lod_seconds": 1.0})
+        m2[1][999998.0] = 0.0
+        result = MODULE.evaluate_operational_relevance(
+            rows, m2, observed, expected, custody_available=True, replicates=50
+        )
+        self.assertEqual(result["annotation"], "OPERATIONAL_RELEVANCE_NOT_ASSESSABLE")
+        missing = result["horizons"]["1"]["missing_before_scoring"]
         self.assertEqual(
-            result["horizons"]["1"]["missing_before_scoring"]["expected_without_b3"]["target_mjds"],
-            [removed],
+            missing["unexpected_b3_outside_frozen_population"]["target_mjds"],
+            [999999.0],
         )
         self.assertEqual(
-            result["horizons"]["1"]["missing_before_scoring"]["expected_without_m2"]["target_mjds"],
-            [removed],
+            missing["unexpected_m2_outside_frozen_population"]["target_mjds"],
+            [999998.0],
         )
+
+    def test_undeclared_horizon_and_duplicate_are_not_assessable(self) -> None:
+        rows, m2, observed, expected = synthetic_operational_case(0.0, 1.0)
+        rows.append(dict(rows[0]))
+        rows.append({"horizon_days": 2, "target_mjd": 999998.0, "predicted_lod_seconds": 1.0})
+        result = MODULE.evaluate_operational_relevance(
+            rows, m2, observed, expected, custody_available=True, replicates=50
+        )
+        self.assertEqual(result["annotation"], "OPERATIONAL_RELEVANCE_NOT_ASSESSABLE")
+        reasons = {item["reason"] for item in result["input_domain_violations"]}
+        self.assertIn("DUPLICATE_B3_HORIZON_TARGET", reasons)
+        self.assertIn("UNDECLARED_B3_HORIZON", reasons)
 
     def test_holm_stops_after_first_failed_ordered_hypothesis(self) -> None:
         rejected = MODULE.holm_rejections({1: 0.01, 3: 0.02, 7: 0.03, 30: 0.04})
