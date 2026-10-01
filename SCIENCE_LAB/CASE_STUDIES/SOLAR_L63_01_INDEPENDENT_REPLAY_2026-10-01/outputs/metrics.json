@@ -1,0 +1,88 @@
+{
+  "agreement": {
+    "relative_crossing_count_difference": 0.03614457831325301,
+    "y_quantile_rmse_normalized": 0.07817648081550649,
+    "z_quantile_rmse_normalized": 0.09234415030678673
+  },
+  "decision": "FAIL_BOUNDED",
+  "gates": {
+    "G1_reference_reproduction": false,
+    "G2_independent_event_validity": true,
+    "G3_cross_integrator_agreement": true,
+    "G4_sampling_width_scaling": true,
+    "G5_raw_sampling_negative_control": true,
+    "G6_return_order_null": true
+  },
+  "independent": {
+    "accepted_steps": 86234,
+    "crossings": 240,
+    "max_abs_event_x": 3.383143157303535e-11,
+    "negative_direction": 120,
+    "positive_direction": 120,
+    "rejected_steps": 1120
+  },
+  "parameters": {
+    "atol": 1e-11,
+    "beta": 2.6666666666666665,
+    "event_locator": "cubic Hermite plus bracketed bisection",
+    "h_initial": 0.01,
+    "h_max": 0.02,
+    "h_min": 1e-08,
+    "independent_integrator": "Dormand-Prince 5(4)",
+    "initial_state": [
+      1.0,
+      1.0,
+      1.0
+    ],
+    "reference_dt": 0.001,
+    "rho": 28.0,
+    "rtol": 1e-09,
+    "sigma": 10.0,
+    "t_burn": 50.0,
+    "t_end": 500.0
+  },
+  "python": "3.12.14 (main, Aug 25 2026, 13:50:33) [Clang 22.1.3 ]",
+  "raw_sampling": {
+    "metrics": [
+      {
+        "crossings": 240,
+        "dt": 0.02,
+        "raw_abs_x_max": 1.0678431655518805,
+        "raw_abs_x_mean": 0.2633758443692814,
+        "raw_abs_x_p95": 0.7478003655166442
+      },
+      {
+        "crossings": 240,
+        "dt": 0.01,
+        "raw_abs_x_max": 0.5899016405647897,
+        "raw_abs_x_mean": 0.13675764236350618,
+        "raw_abs_x_p95": 0.4140897836355771
+      },
+      {
+        "crossings": 240,
+        "dt": 0.005,
+        "raw_abs_x_max": 0.2901247250455503,
+        "raw_abs_x_mean": 0.06917251896524287,
+        "raw_abs_x_p95": 0.19056121788579636
+      },
+      {
+        "crossings": 240,
+        "dt": 0.0025,
+        "raw_abs_x_max": 0.1504151159813164,
+        "raw_abs_x_mean": 0.036749940418918305,
+        "raw_abs_x_p95": 0.12166786812271904
+      }
+    ],
+    "width_scaling_exponent": 0.8978803970249271
+  },
+  "reference": {
+    "crossings": 249
+  },
+  "return_null": {
+    "draws": 2000,
+    "null_abs_correlation_p99": 0.16362517655297737,
+    "observed_lag1_correlation": -0.34954084209545133,
+    "seed": 20261001
+  },
+  "schema": "nexah.solar-l63-01.metrics.v1"
+}

@@ -1,0 +1,18 @@
+{
+  "schema": "nexah.solar-l63-01.execution-lock.v1",
+  "date": "2026-10-01",
+  "state": "FROZEN_BEFORE_FIRST_EXECUTION",
+  "authority": "Human Owner authorization in Mission Control",
+  "maximum_cycles": 1,
+  "python_executable": "/Users/tho2020/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+  "python_version": "3.12.14",
+  "external_python_dependencies": [],
+  "preregistration_sha256": "ee63045936aadaf633f7febfe1752d3d59394bed21dbdd68d16bffa4c78362f5",
+  "runner_sha256": "ba76c4c9a52e7de2d0088baf00bc2c74e9c6918d4461fd521fd1ffc2bfe0816e",
+  "command": [
+    "/Users/tho2020/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+    "run_solar_l63_01.py"
+  ],
+  "claim_ceiling": "CANONICAL_LORENZ63_NUMERICAL_METHOD_RESULT_ONLY_NO_ASTRONOMY_PHYSICS_GENERAL_CHAOS_CAPABILITY_OR_NOVELTY_CLAIM",
+  "stop": "STOP_AFTER_FIRST_FROZEN_EXECUTION_REPORT_OUTCOME_WITHOUT_TUNING_OR_SUCCESSOR"
+}
