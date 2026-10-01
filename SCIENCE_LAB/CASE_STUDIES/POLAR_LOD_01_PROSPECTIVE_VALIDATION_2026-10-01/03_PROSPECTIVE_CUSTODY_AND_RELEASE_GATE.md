@@ -1,7 +1,7 @@
 # POLAR-LOD-01 — prospective custody and release gate
 
 Date: 2026-10-02
-Status: `IMPLEMENTED / COLLECTION_RELEASE_NOT_GRANTED / NO OUTCOME ACCESS`
+Status: `REPAIR_IMPLEMENTED / INDEPENDENT_RE-REVIEW_REQUIRED / COLLECTION_RELEASE_NOT_GRANTED / NO OUTCOME ACCESS`
 
 ## Purpose
 
@@ -43,7 +43,9 @@ with the externally anchored head.
 Ledger verification uses:
 
 ```text
-./run_prospective_custody.py verify-ledger --custody-root <private-root>
+./run_prospective_custody.py verify-ledger \
+  --custody-root <private-root> \
+  --anchor-export-dir <git-anchor-directory>
 ```
 
 ## Release separation
@@ -74,7 +76,9 @@ request is made by the tests.
 
 ## Current decision
 
-The custody implementation is ready for independent review. Collection has
-not started because Human Owner authority is absent. R2 chronology and R3
+The first independent review returned `FAIL`; the four findings and their
+bounded repairs are recorded in `04_CUSTODY_GATE_REPAIR_REPORT.md`. Repair 1
+is implemented and awaits an independent re-review. Collection has not
+started because Human Owner authority is absent. R2 chronology and R3
 minimum-window accumulation therefore remain open. No prospective values were
 accessed and no Research Result was created.

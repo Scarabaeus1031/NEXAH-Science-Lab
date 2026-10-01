@@ -3,7 +3,7 @@
 Date: 2026-10-01
 Updated: 2026-10-02
 Owner: Human Owner
-Native status: `CUSTODY_IMPLEMENTED / COLLECTION_RELEASE_NOT_GRANTED / NOT_READY_FOR_EXECUTION`
+Native status: `CUSTODY_REPAIR_IMPLEMENTED_PENDING_REVIEW / COLLECTION_RELEASE_NOT_GRANTED / NOT_READY_FOR_EXECUTION`
 Lab status: `FILED / NO_RESULT / NO_ACTIVATION`
 
 ## Question
@@ -76,11 +76,20 @@ URLs outside the frozen source set. Collection remains blocked by the
 canonical `NOT_GRANTED` Human Owner record. R1/R2 therefore have an executable
 mechanism but no admitted receipts yet; R3 has not started.
 
+The first independent custody review returned `FAIL` on four implementation
+boundaries: non-canonical URL suffixes, insufficient binding of an authorized
+release to the reviewed remote commit, a ledger-anchor concurrency gap and a
+raw-directory symlink escape. Custody Repair 1 closes those four paths and
+adds exact prefix-anchor verification. Nine local no-network tests pass. The
+repair still requires independent re-review before the collector may be
+called implementation-accepted.
+
 ## Package
 
 - [Provenance and readiness audit](01_PROVENANCE_AND_READINESS_AUDIT.md)
 - [Strong-baseline and prospective protocol](02_STRONG_BASELINE_AND_PROSPECTIVE_PROTOCOL.md)
 - [Prospective custody and release gate](03_PROSPECTIVE_CUSTODY_AND_RELEASE_GATE.md)
+- [Custody gate Repair 1 report](04_CUSTODY_GATE_REPAIR_REPORT.md)
 - [Custody contract](CUSTODY_CONTRACT.json)
 - [Human Owner release record](HUMAN_OWNER_RELEASE.json)
 - [Fail-closed custody collector](prospective_custody.py)

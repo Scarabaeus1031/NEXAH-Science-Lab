@@ -3,7 +3,9 @@ from __future__ import annotations
 import importlib.util
 import json
 import tempfile
+import threading
 import unittest
+from concurrent.futures import ThreadPoolExecutor
 from unittest import mock
 from datetime import date, datetime, timezone
 from pathlib import Path
@@ -26,6 +28,11 @@ class CustodyTests(unittest.TestCase):
         with self.assertRaisesRegex(RuntimeError, "not authorized"):
             MODULE.load_collection_release()
 
+    def test_release_hash_is_compiled_and_fail_closed(self) -> None:
+        with mock.patch.object(MODULE, "EXPECTED_RELEASE_SHA256", "0" * 64):
+            with self.assertRaisesRegex(RuntimeError, "release SHA-256 mismatch"):
+                MODULE.load_collection_release()
+
     def test_wrong_interpreter_is_rejected(self) -> None:
         contract = MODULE.load_contract()
         with mock.patch.object(MODULE.sys, "executable", "/usr/bin/false"):
@@ -43,6 +50,10 @@ class CustodyTests(unittest.TestCase):
             MODULE.validate_url(contract, "eam_vintage", contract["sources"]["eam_vintage"]["url_prefix"] + "../x")
         with self.assertRaises(ValueError):
             MODULE.validate_url(contract, "eam_vintage", vintage + "?alternate=1")
+        for suffix in (";x", "?", "#"):
+            with self.subTest(suffix=suffix):
+                with self.assertRaises(ValueError):
+                    MODULE.validate_url(contract, "eam_vintage", vintage + suffix)
         self.assertEqual(MODULE.issue_date_from_vintage_url(contract, vintage), date(2026, 10, 2))
         invalid_day = contract["sources"]["eam_vintage"]["url_prefix"] + "ESMGFZ_EAM-90d_03h_2026_999F.asc"
         with self.assertRaises(ValueError):
@@ -76,12 +87,12 @@ class CustodyTests(unittest.TestCase):
                 {},
                 b"opaque-two",
                 "release-hash",
-                date(2026, 10, 2),
-                anchors,
+                issue_date=date(2026, 10, 2),
+                anchor_export_dir=anchors,
             )
             self.assertEqual(second["previous_entry_sha256"], first["entry_sha256"])
             self.assertTrue(second["eam_cutoff_provisionally_admissible"])
-            self.assertEqual(MODULE.verify_custody_root(root), second["entry_sha256"])
+            self.assertEqual(MODULE.verify_custody_root(root, anchors), second["entry_sha256"])
             anchor_files = sorted(anchors.glob("*.json"))
             self.assertEqual(len(anchor_files), 2)
             latest_anchor = json.loads(anchor_files[-1].read_text())
@@ -91,7 +102,7 @@ class CustodyTests(unittest.TestCase):
             raw_path = root / second["raw_relative_path"]
             raw_path.write_bytes(b"tampered")
             with self.assertRaisesRegex(RuntimeError, "Raw byte count mismatch"):
-                MODULE.verify_custody_root(root)
+                MODULE.verify_custody_root(root, anchors)
             raw_path.write_bytes(b"opaque-two")
             ledger = root / "FIRST_SEEN_LEDGER.jsonl"
             lines = ledger.read_text().splitlines()
@@ -101,6 +112,105 @@ class CustodyTests(unittest.TestCase):
             ledger.write_text("\n".join(lines) + "\n")
             with self.assertRaisesRegex(RuntimeError, "hash mismatch"):
                 MODULE.verify_ledger(ledger)
+
+    def test_raw_symlink_escape_is_rejected_before_write(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            base = Path(directory)
+            root = base / "custody"
+            outside = base / "outside"
+            (root / "raw").mkdir(parents=True)
+            outside.mkdir()
+            (root / "raw" / "c04").symlink_to(outside, target_is_directory=True)
+            with self.assertRaisesRegex(RuntimeError, "symlink directory"):
+                MODULE.append_capture(
+                    root,
+                    "c04",
+                    "https://example.invalid/c04",
+                    "https://example.invalid/c04",
+                    datetime(2026, 10, 2, 8, 0, tzinfo=timezone.utc),
+                    datetime(2026, 10, 2, 8, 0, 1, tzinfo=timezone.utc),
+                    200,
+                    {},
+                    b"must-not-escape",
+                    "release-hash",
+                )
+            self.assertEqual(list(outside.iterdir()), [])
+
+            lock_root = base / "lock-custody"
+            lock_root.mkdir()
+            outside_lock = base / "outside-lock"
+            outside_lock.write_text("unchanged")
+            (lock_root / ".ledger.lock").symlink_to(outside_lock)
+            with self.assertRaisesRegex(RuntimeError, "symlink lock"):
+                MODULE.append_capture(
+                    lock_root,
+                    "c04",
+                    "https://example.invalid/c04",
+                    "https://example.invalid/c04",
+                    datetime(2026, 10, 2, 8, 1, tzinfo=timezone.utc),
+                    datetime(2026, 10, 2, 8, 1, 1, tzinfo=timezone.utc),
+                    200,
+                    {},
+                    b"must-not-touch-lock-target",
+                    "release-hash",
+                )
+            self.assertEqual(outside_lock.read_text(), "unchanged")
+
+            anchor_root = base / "anchor-custody"
+            outside_anchors = base / "outside-anchors"
+            outside_anchors.mkdir()
+            anchor_link = base / "anchor-link"
+            anchor_link.symlink_to(outside_anchors, target_is_directory=True)
+            with self.assertRaisesRegex(RuntimeError, "symlink directory"):
+                MODULE.append_capture(
+                    anchor_root,
+                    "c04",
+                    "https://example.invalid/c04",
+                    "https://example.invalid/c04",
+                    datetime(2026, 10, 2, 8, 2, tzinfo=timezone.utc),
+                    datetime(2026, 10, 2, 8, 2, 1, tzinfo=timezone.utc),
+                    200,
+                    {},
+                    b"must-not-write-before-anchor-preflight",
+                    "release-hash",
+                    anchor_export_dir=anchor_link,
+                )
+            self.assertFalse((anchor_root / "raw").exists())
+            self.assertEqual(list(outside_anchors.iterdir()), [])
+
+    def test_parallel_anchors_bind_consistent_ledger_prefixes(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory) / "custody"
+            anchors = Path(directory) / "anchors"
+            barrier = threading.Barrier(2)
+
+            def capture(index: int) -> dict:
+                barrier.wait()
+                return MODULE.append_capture(
+                    root,
+                    "c04",
+                    f"https://example.invalid/c04/{index}",
+                    f"https://example.invalid/c04/{index}",
+                    datetime(2026, 10, 2, 10, 0, index, tzinfo=timezone.utc),
+                    datetime(2026, 10, 2, 10, 0, index, 1, tzinfo=timezone.utc),
+                    200,
+                    {},
+                    f"opaque-{index}".encode(),
+                    "release-hash",
+                    anchor_export_dir=anchors,
+                )
+
+            with ThreadPoolExecutor(max_workers=2) as executor:
+                list(executor.map(capture, (0, 1)))
+            ledger_lines = (root / "FIRST_SEEN_LEDGER.jsonl").read_bytes().splitlines()
+            heads = [json.loads(line)["entry_sha256"] for line in ledger_lines]
+            for path in anchors.glob("*.json"):
+                anchor = json.loads(path.read_text())
+                index = heads.index(anchor["ledger_head_sha256"])
+                prefix = b"\n".join(ledger_lines[: index + 1]) + b"\n"
+                self.assertEqual(anchor["ledger_entry_count"], index + 1)
+                self.assertEqual(anchor["ledger_sha256"], MODULE.sha256_bytes(prefix))
+            MODULE.verify_anchors(root, anchors)
 
     def test_late_eam_capture_is_marked_inadmissible(self) -> None:
         with tempfile.TemporaryDirectory() as directory:
@@ -115,8 +225,8 @@ class CustodyTests(unittest.TestCase):
                 {},
                 b"opaque",
                 "release-hash",
-                date(2026, 10, 2),
-                Path(directory) / "anchors",
+                issue_date=date(2026, 10, 2),
+                anchor_export_dir=Path(directory) / "anchors",
             )
             self.assertFalse(entry["eam_cutoff_provisionally_admissible"])
 
