@@ -1,7 +1,7 @@
 # POLAR-LOD-EAM-01 — repair and pre-output lock
 
 Date: 2026-10-01
-Status: `SECOND_REPAIR IMPLEMENTED / INDEPENDENT RE-REVIEW REQUIRED`
+Status: `THIRD_REPAIR IMPLEMENTED / INDEPENDENT RE-REVIEW REQUIRED`
 Authority class: `IMPLEMENTATION REPAIR / FUTURE DECISION CONTRACT`
 Supersedes: package-local `B3_READY_WITH_DECLARED_SOURCE_EXCEPTIONS`
 
@@ -124,6 +124,14 @@ annotations. Historical replay calls it with custody unavailable, so its
 diagnostic is necessarily `OPERATIONAL_RELEVANCE_NOT_ASSESSABLE` and cannot
 become prospective evidence. Synthetic fixtures test supported, unsupported,
 missing-custody and partial-horizon paths.
+
+The expected target population is an explicit required evaluator input and is
+independent of both model-output maps. For every horizon the evaluator reports
+expected targets missing from B3, M2 or observations before pairing. Any
+incomplete expected population forces
+`OPERATIONAL_RELEVANCE_NOT_ASSESSABLE`, including a target jointly absent from
+both models. Unexpected predictions outside the frozen population are also
+listed and cannot silently enter scoring.
 
 ## Exit condition
 

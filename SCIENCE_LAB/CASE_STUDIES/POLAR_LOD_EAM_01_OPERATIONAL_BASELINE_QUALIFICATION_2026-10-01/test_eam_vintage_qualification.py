@@ -120,12 +120,15 @@ def synthetic_operational_case(m2_error: float, b3_error: float, n: int = 200):
     observed = {}
     rows = []
     m2 = {}
+    expected = {}
     for horizon in MODULE.HORIZONS:
         m2[horizon] = {}
+        expected[horizon] = set()
         for index in range(n):
             mjd = float(70000 + horizon * 1000 + index)
             observed[mjd] = 0.0
             m2[horizon][mjd] = m2_error
+            expected[horizon].add(mjd)
             rows.append(
                 {
                     "horizon_days": horizon,
@@ -133,7 +136,7 @@ def synthetic_operational_case(m2_error: float, b3_error: float, n: int = 200):
                     "predicted_lod_seconds": b3_error,
                 }
             )
-    return rows, m2, observed
+    return rows, m2, observed, expected
 
 
 class OperationalRelevanceTests(unittest.TestCase):
@@ -143,35 +146,35 @@ class OperationalRelevanceTests(unittest.TestCase):
             self.assertGreaterEqual(MODULE.direct_lag_offset(horizon, 17), horizon)
 
     def test_supported_fixture(self) -> None:
-        rows, m2, observed = synthetic_operational_case(0.0, 1.0)
+        rows, m2, observed, expected = synthetic_operational_case(0.0, 1.0)
         result = MODULE.evaluate_operational_relevance(
-            rows, m2, observed, custody_available=True, replicates=200
+            rows, m2, observed, expected, custody_available=True, replicates=200
         )
         self.assertEqual(result["annotation"], "OPERATIONAL_RELEVANCE_SUPPORTED")
         self.assertTrue(all(item["holm_rejects_null"] for item in result["horizons"].values()))
 
     def test_valid_nonpass_fixture(self) -> None:
-        rows, m2, observed = synthetic_operational_case(1.0, 0.5)
+        rows, m2, observed, expected = synthetic_operational_case(1.0, 0.5)
         result = MODULE.evaluate_operational_relevance(
-            rows, m2, observed, custody_available=True, replicates=200
+            rows, m2, observed, expected, custody_available=True, replicates=200
         )
         self.assertEqual(result["annotation"], "OPERATIONAL_RELEVANCE_NOT_SUPPORTED")
 
     def test_below_five_percent_rmse_gate_is_not_supported(self) -> None:
-        rows, m2, observed = synthetic_operational_case(0.951, 1.0)
+        rows, m2, observed, expected = synthetic_operational_case(0.951, 1.0)
         result = MODULE.evaluate_operational_relevance(
-            rows, m2, observed, custody_available=True, replicates=200
+            rows, m2, observed, expected, custody_available=True, replicates=200
         )
         self.assertEqual(result["annotation"], "OPERATIONAL_RELEVANCE_NOT_SUPPORTED")
 
     def test_mae_gate_cannot_be_rescued_by_rmse(self) -> None:
-        rows, m2, observed = synthetic_operational_case(1.5, 0.0)
+        rows, m2, observed, expected = synthetic_operational_case(1.5, 0.0)
         for horizon in MODULE.HORIZONS:
             horizon_rows = [row for row in rows if row["horizon_days"] == horizon]
             for index, row in enumerate(horizon_rows):
                 row["predicted_lod_seconds"] = 10.0 if index < 10 else 0.0
         result = MODULE.evaluate_operational_relevance(
-            rows, m2, observed, custody_available=True, replicates=200
+            rows, m2, observed, expected, custody_available=True, replicates=200
         )
         self.assertEqual(result["annotation"], "OPERATIONAL_RELEVANCE_NOT_SUPPORTED")
         self.assertGreater(
@@ -180,20 +183,43 @@ class OperationalRelevanceTests(unittest.TestCase):
         )
 
     def test_missing_custody_is_not_assessable(self) -> None:
-        rows, m2, observed = synthetic_operational_case(0.0, 1.0)
+        rows, m2, observed, expected = synthetic_operational_case(0.0, 1.0)
         result = MODULE.evaluate_operational_relevance(
-            rows, m2, observed, custody_available=False, replicates=50
+            rows, m2, observed, expected, custody_available=False, replicates=50
         )
         self.assertEqual(result["annotation"], "OPERATIONAL_RELEVANCE_NOT_ASSESSABLE")
 
     def test_partial_horizon_is_not_assessable(self) -> None:
-        rows, m2, observed = synthetic_operational_case(0.0, 1.0, n=200)
+        rows, m2, observed, expected = synthetic_operational_case(0.0, 1.0, n=200)
         rows = [row for row in rows if row["horizon_days"] != 30 or row["target_mjd"] % 1000 < 100]
         result = MODULE.evaluate_operational_relevance(
-            rows, m2, observed, custody_available=True, replicates=50
+            rows, m2, observed, expected, custody_available=True, replicates=50
         )
         self.assertEqual(result["annotation"], "OPERATIONAL_RELEVANCE_NOT_ASSESSABLE")
         self.assertEqual(result["horizons"]["30"]["paired_n"], 100)
+
+    def test_common_model_outage_is_visible_and_not_assessable(self) -> None:
+        rows, m2, observed, expected = synthetic_operational_case(0.0, 1.0)
+        removed = min(expected[1])
+        rows = [
+            row
+            for row in rows
+            if not (row["horizon_days"] == 1 and row["target_mjd"] == removed)
+        ]
+        del m2[1][removed]
+        result = MODULE.evaluate_operational_relevance(
+            rows, m2, observed, expected, custody_available=True, replicates=50
+        )
+        self.assertEqual(result["annotation"], "OPERATIONAL_RELEVANCE_NOT_ASSESSABLE")
+        self.assertEqual(result["horizons"]["1"]["paired_n"], 199)
+        self.assertEqual(
+            result["horizons"]["1"]["missing_before_scoring"]["expected_without_b3"]["target_mjds"],
+            [removed],
+        )
+        self.assertEqual(
+            result["horizons"]["1"]["missing_before_scoring"]["expected_without_m2"]["target_mjds"],
+            [removed],
+        )
 
     def test_holm_stops_after_first_failed_ordered_hypothesis(self) -> None:
         rejected = MODULE.holm_rejections({1: 0.01, 3: 0.02, 7: 0.03, 30: 0.04})

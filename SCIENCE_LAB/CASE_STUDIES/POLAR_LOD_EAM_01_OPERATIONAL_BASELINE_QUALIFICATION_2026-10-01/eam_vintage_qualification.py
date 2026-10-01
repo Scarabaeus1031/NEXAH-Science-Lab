@@ -54,7 +54,7 @@ EXECUTION_LOCK = PACKAGE / "EXECUTION_LOCK.json"
 TRUST_ROOT = PACKAGE / "SEALED_REPLAY_TRUST_ROOT.json"
 RUNTIME_LOCK = PACKAGE / "requirements-macos-arm64.lock"
 RUNTIME_ENVIRONMENT = PACKAGE / "RUNTIME_ENVIRONMENT.json"
-CANONICAL_TRUST_ROOT_SHA256 = "1451a19e9d7c65689fed9979eb7ee9df4b57193164ab4849c6a32115b6fa7c96"
+CANONICAL_TRUST_ROOT_SHA256 = "c7ed20f6f6821d9522c1783c0f52ed0fd5b5b79de04daa305446202efa38e5de"
 M6_BOOTSTRAP_REPLICATES = 20_000
 M6_BLOCK_LENGTH = 30
 M6_SEED = 20261001
@@ -101,7 +101,7 @@ def verify_canonical_trust_root(path: Path = TRUST_ROOT) -> dict:
         raise RuntimeError("Custom trust-root paths cannot produce a sealed replay")
     require_sha256(path, CANONICAL_TRUST_ROOT_SHA256, "canonical trust root")
     root = json.loads(path.read_text())
-    if root.get("id") != "POLAR-LOD-EAM-01-SEALED-ROOT-02":
+    if root.get("id") != "POLAR-LOD-EAM-01-SEALED-ROOT-03":
         raise RuntimeError("Unexpected sealed trust-root identity")
     bound = {
         "execution_lock": EXECUTION_LOCK,
@@ -121,7 +121,7 @@ def verify_canonical_trust_root(path: Path = TRUST_ROOT) -> dict:
 
 def verify_execution_lock(source: Path) -> dict:
     lock = json.loads(EXECUTION_LOCK.read_text())
-    if lock.get("id") != "POLAR-LOD-EAM-01-REPAIR-LOCK-02":
+    if lock.get("id") != "POLAR-LOD-EAM-01-REPAIR-LOCK-03":
         raise RuntimeError("Unexpected execution-lock identity")
     files = lock.get("files", {})
     bound = {
@@ -157,6 +157,12 @@ def verify_execution_lock(source: Path) -> dict:
             f"Runtime mismatch: expected {runtime}, got {actual_runtime}; "
             f"executable={sys.executable}"
         )
+    runtime_receipt = json.loads(RUNTIME_ENVIRONMENT.read_text())
+    require_sha256(
+        Path(sys.executable).resolve(),
+        runtime_receipt["python"]["binary_sha256"],
+        "runtime interpreter binary",
+    )
     return lock
 
 
@@ -436,6 +442,7 @@ def evaluate_operational_relevance(
     b3_rows: list[dict],
     m2_by_horizon: dict[int, dict[float, float]],
     observed: dict[float, float],
+    expected_targets_by_horizon: dict[int, set[float]],
     custody_available: bool,
     minimum_paired: int = M6_MINIMUM_PAIRED,
     replicates: int = M6_BOOTSTRAP_REPLICATES,
@@ -445,14 +452,17 @@ def evaluate_operational_relevance(
     p_values = {}
     assessable = bool(custody_available)
     for horizon in HORIZONS:
+        expected = set(expected_targets_by_horizon.get(horizon, set()))
         rows = [row for row in b3_rows if int(row["horizon_days"]) == horizon]
         b3 = {float(row["target_mjd"]): float(row["predicted_lod_seconds"]) for row in rows}
         m2 = m2_by_horizon.get(horizon, {})
-        dates = sorted(set(b3) & set(m2) & set(observed))
+        dates = sorted(expected & set(b3) & set(m2) & set(observed))
         missing_sets = {
-            "b3_without_m2": set(b3) - set(m2),
-            "m2_without_b3": set(m2) - set(b3),
-            "paired_without_observed": (set(b3) & set(m2)) - set(observed),
+            "expected_without_b3": expected - set(b3),
+            "expected_without_m2": expected - set(m2),
+            "expected_without_observed": expected - set(observed),
+            "unexpected_b3_outside_frozen_population": set(b3) - expected,
+            "unexpected_m2_outside_frozen_population": set(m2) - expected,
         }
         missing = {
             reason: {
@@ -461,7 +471,15 @@ def evaluate_operational_relevance(
             }
             for reason, mjds in missing_sets.items()
         }
-        if len(dates) < minimum_paired:
+        incomplete_expected_population = any(
+            missing_sets[reason]
+            for reason in (
+                "expected_without_b3",
+                "expected_without_m2",
+                "expected_without_observed",
+            )
+        )
+        if not expected or len(dates) < minimum_paired or incomplete_expected_population:
             assessable = False
         if not dates:
             diagnostics[str(horizon)] = {"paired_n": 0, "missing_before_scoring": missing}
@@ -667,6 +685,14 @@ def main() -> None:
         prediction_rows,
         m2_horizons,
         observed,
+        {
+            horizon: {
+                mjd_for(vintage["parsed"]["issue"]) + horizon
+                for vintage in selected
+                if mjd_for(vintage["parsed"]["issue"]) + horizon in observed
+            }
+            for horizon in HORIZONS
+        },
         custody_available=False,
     )
 

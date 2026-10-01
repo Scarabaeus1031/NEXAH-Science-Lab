@@ -4,8 +4,8 @@
   "status": "HISTORICAL_METHOD_REPLAY_VERIFIED_WITH_UTC_CUSTODY_LIMIT",
   "classification": "source-labelled forecast-state retrospective; no prospective result",
   "execution_mode": "replay",
-  "sealed_trust_root_sha256": "1451a19e9d7c65689fed9979eb7ee9df4b57193164ab4849c6a32115b6fa7c96",
-  "execution_lock_sha256": "0f2e414c4b135d143823821fdc10c660e6266c4b113c43c9e6933aa88e45fdbf",
+  "sealed_trust_root_sha256": "c7ed20f6f6821d9522c1783c0f52ed0fd5b5b79de04daa305446202efa38e5de",
+  "execution_lock_sha256": "82dfb253c5f36c918e2cd6258123a91f8bd972992ebfc96513ad3500e838e1fe",
   "expected_raw_vintage_ledger_sha256": "de03baf23c822c4f692725823b49c7edb7eb9b05d468080c7b3b67fc2d9cc101",
   "runtime": {
     "python": "3.12.14",
@@ -100,11 +100,23 @@
       "1": {
         "paired_n": 344,
         "missing_before_scoring": {
-          "b3_without_m2": {
+          "expected_without_b3": {
             "count": 0,
             "target_mjds": []
           },
-          "m2_without_b3": {
+          "expected_without_m2": {
+            "count": 0,
+            "target_mjds": []
+          },
+          "expected_without_observed": {
+            "count": 0,
+            "target_mjds": []
+          },
+          "unexpected_b3_outside_frozen_population": {
+            "count": 0,
+            "target_mjds": []
+          },
+          "unexpected_m2_outside_frozen_population": {
             "count": 21,
             "target_mjds": [
               60720.0,
@@ -129,10 +141,6 @@
               60959.0,
               60983.0
             ]
-          },
-          "paired_without_observed": {
-            "count": 0,
-            "target_mjds": []
           }
         },
         "m2": {
@@ -154,11 +162,23 @@
       "3": {
         "paired_n": 342,
         "missing_before_scoring": {
-          "b3_without_m2": {
+          "expected_without_b3": {
             "count": 0,
             "target_mjds": []
           },
-          "m2_without_b3": {
+          "expected_without_m2": {
+            "count": 0,
+            "target_mjds": []
+          },
+          "expected_without_observed": {
+            "count": 0,
+            "target_mjds": []
+          },
+          "unexpected_b3_outside_frozen_population": {
+            "count": 0,
+            "target_mjds": []
+          },
+          "unexpected_m2_outside_frozen_population": {
             "count": 23,
             "target_mjds": [
               60676.0,
@@ -185,10 +205,6 @@
               60961.0,
               60985.0
             ]
-          },
-          "paired_without_observed": {
-            "count": 0,
-            "target_mjds": []
           }
         },
         "m2": {
@@ -210,11 +226,23 @@
       "7": {
         "paired_n": 338,
         "missing_before_scoring": {
-          "b3_without_m2": {
+          "expected_without_b3": {
             "count": 0,
             "target_mjds": []
           },
-          "m2_without_b3": {
+          "expected_without_m2": {
+            "count": 0,
+            "target_mjds": []
+          },
+          "expected_without_observed": {
+            "count": 0,
+            "target_mjds": []
+          },
+          "unexpected_b3_outside_frozen_population": {
+            "count": 0,
+            "target_mjds": []
+          },
+          "unexpected_m2_outside_frozen_population": {
             "count": 27,
             "target_mjds": [
               60676.0,
@@ -245,10 +273,6 @@
               60965.0,
               60989.0
             ]
-          },
-          "paired_without_observed": {
-            "count": 0,
-            "target_mjds": []
           }
         },
         "m2": {
@@ -270,11 +294,23 @@
       "30": {
         "paired_n": 315,
         "missing_before_scoring": {
-          "b3_without_m2": {
+          "expected_without_b3": {
             "count": 0,
             "target_mjds": []
           },
-          "m2_without_b3": {
+          "expected_without_m2": {
+            "count": 0,
+            "target_mjds": []
+          },
+          "expected_without_observed": {
+            "count": 0,
+            "target_mjds": []
+          },
+          "unexpected_b3_outside_frozen_population": {
+            "count": 0,
+            "target_mjds": []
+          },
+          "unexpected_m2_outside_frozen_population": {
             "count": 50,
             "target_mjds": [
               60676.0,
@@ -328,10 +364,6 @@
               60988.0,
               61012.0
             ]
-          },
-          "paired_without_observed": {
-            "count": 0,
-            "target_mjds": []
           }
         },
         "m2": {

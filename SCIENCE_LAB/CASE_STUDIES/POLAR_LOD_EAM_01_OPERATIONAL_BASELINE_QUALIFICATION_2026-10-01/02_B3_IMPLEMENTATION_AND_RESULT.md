@@ -1,6 +1,6 @@
 # B3 implementation and historical qualification
 
-Status: `SECOND_REPAIR_IMPLEMENTED_PENDING_INDEPENDENT_REVIEW / NO PROSPECTIVE RESULT`
+Status: `THIRD_REPAIR_IMPLEMENTED_PENDING_INDEPENDENT_REVIEW / NO PROSPECTIVE RESULT`
 
 ## Comparator
 
@@ -47,13 +47,14 @@ unseen window and does not decide `POLAR-LOD-01`.
 Run the committed script with a private cache directory:
 
 ```text
-python eam_vintage_qualification.py --cache-dir <private-cache>
+./run_sealed_replay.py --cache-dir <private-cache>
 ```
 
-The runner downloads only absent archive files, validates every file,
-deduplicates Issue Dates, writes the ledger and predictions, and fails the
-ready status if any frozen gate fails. Raw provider files are not copied into
-the package.
+The sealed entrypoint verifies the bound interpreter before invoking the
+runner. In replay mode the runner never downloads archive files; it validates
+every cached file, deduplicates Issue Dates, writes the ledger and predictions,
+and fails the verified status if any frozen gate fails. Raw provider files are
+not copied into the package.
 
 ## Decision
 
@@ -63,7 +64,9 @@ from preregistered evidence. Historical UTC availability remains explicitly
 unproven rather than reconstructed. The independent repair review nevertheless
 demonstrated that caller-selected alternative ledger and lock files could
 obtain the same verified status and that the four-horizon rule was not
-implemented. The second repair removes those overrides, binds a canonical
-trust root and reproducible runtime, and implements the full four-horizon M6
-evaluator. Another independent review and a separate Human Owner release
-remain required before prospective use.
+implemented. The second repair removed those overrides and implemented M6, but
+its review found a jointly missing prediction bypass. The third repair requires
+an independently frozen expected-target population, makes any incomplete
+population not assessable and binds the interpreter hash even for direct runner
+use. Another independent review and a separate Human Owner release remain
+required before prospective use.

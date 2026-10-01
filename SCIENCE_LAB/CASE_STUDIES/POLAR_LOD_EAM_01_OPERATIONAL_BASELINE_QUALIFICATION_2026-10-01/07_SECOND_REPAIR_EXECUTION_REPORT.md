@@ -1,7 +1,7 @@
 # POLAR-LOD-EAM-01 — second repair execution report
 
 Date: 2026-10-01
-Status: `SECOND_REPAIR_IMPLEMENTED_PENDING_INDEPENDENT_REVIEW`
+Status: `SECOND_REPAIR_ATTEMPT / SUPERSEDED_BY_08_REVIEW_FAIL`
 Prospective data accessed: `NO`
 Prospective execution authority: `NO`
 
@@ -92,6 +92,8 @@ The expanded machine result is
 
 ## Disposition
 
-The second repair is implemented and locally verified. This is not self-
-approval. A new independent adversarial review must accept R1–R3 before the B3
-operational-baseline lock can close. No prospective run is authorized here.
+The second repair was implemented and locally verified but was not
+self-approval. The subsequent independent review in
+`08_SECOND_REPAIR_INDEPENDENT_REVIEW.md` accepted R1, reproduced R2 and found
+the remaining R3 jointly missing target bypass. Repair 3 supersedes this
+readiness assessment. No prospective run was authorized here.
