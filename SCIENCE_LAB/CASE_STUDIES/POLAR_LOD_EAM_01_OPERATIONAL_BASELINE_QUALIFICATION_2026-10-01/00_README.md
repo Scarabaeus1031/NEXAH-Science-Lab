@@ -1,7 +1,7 @@
 # POLAR-LOD-EAM-01 — operational baseline qualification
 
 Date: 2026-10-01
-Status: `REPAIR_REVIEW_FAIL / M1_M2_M6_OPEN / HISTORICAL_METHOD_ONLY`
+Status: `SECOND_REPAIR_IMPLEMENTED_PENDING_INDEPENDENT_REVIEW / HISTORICAL_METHOD_ONLY`
 Classification: `HISTORICAL METHOD QUALIFICATION / NO PROSPECTIVE RESULT`
 
 ## Purpose
@@ -9,9 +9,10 @@ Classification: `HISTORICAL METHOD QUALIFICATION / NO PROSPECTIVE RESULT`
 This package records the GFZ ESMGFZ historical source-vintage preflight and a
 bounded qualification of the `B3` method required by `POLAR-LOD-01`. The
 independent adversarial review supersedes the runner's package-local READY
-label. The first repair closes M3–M5, but the independent repair review found
-that the M1/M2 trust root can still be replaced by caller-selected ledger and
-lock files and that M6 is not executable. B3 is therefore not a sealed
+label. The first repair closed M3–M5, while the independent repair review found
+the M1/M2 trust root replaceable and M6 non-executable. The second repair now
+removes custom lock roots, binds a reproducible runtime and implements M6, but
+it still requires independent acceptance. B3 is therefore not yet a sealed
 operational comparator. This package does not run the prospective candidate
 test and creates no Research Result.
 
@@ -31,8 +32,8 @@ test and creates no Research Result.
   M2, equivalently M2 is 29.45% higher relative to B3;
 - an independent clean replay reproduced the committed CSV outputs
   byte-for-byte and confirmed the sign, units and exact-date pairing;
-- M3–M5 are closed; M1/M2 and M6 require a second repair and another
-  independent review before a B3 operational seal.
+- M3–M5 are closed; the second repair implements the remaining M1/M2 and M6
+  controls, pending another independent review before a B3 operational seal.
 
 The last comparison qualifies comparator strength only. It is outcome-known,
 retrospective and cannot count toward the future primary decision.
@@ -45,6 +46,11 @@ retrospective and cannot count toward the future primary decision.
 - [Repair and pre-output lock](04_REPAIR_AND_PREOUTPUT_LOCK.md)
 - [Repair execution report](05_REPAIR_EXECUTION_REPORT.md)
 - [Independent repair review](06_INDEPENDENT_REPAIR_REVIEW.md)
+- [Second repair execution report](07_SECOND_REPAIR_EXECUTION_REPORT.md)
+- [Canonical sealed-replay trust root](SEALED_REPLAY_TRUST_ROOT.json)
+- [Runtime receipt](RUNTIME_ENVIRONMENT.json)
+- [Hash-locked runtime dependencies](requirements-macos-arm64.lock)
+- [Sealed replay entrypoint](run_sealed_replay.py)
 - [Execution dependency lock](EXECUTION_LOCK.json)
 - [Expected raw-vintage ledger](EXPECTED_RAW_VINTAGE_LEDGER.csv)
 - [Machine-readable result](qualification_results.json)
@@ -62,6 +68,6 @@ admission is fail closed, retrospective criteria are separated from evidence,
 and the future operational-relevance rule is frozen. Historical UTC
 availability at forecast origin remains unprovable and is explicitly labelled;
 future use requires append-only first-seen receipts. No explicit redistribution
-licence was inferred from public access. A second repair must establish an
-external immutable trust root, a reproducibly provisioned runtime and an
-executable M6 evaluator before another independent review.
+licence was inferred from public access. The second repair establishes a
+canonical commit-bound trust root, reproducibly provisioned runtime and
+executable M6 evaluator; independent re-review remains mandatory.

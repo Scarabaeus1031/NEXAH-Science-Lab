@@ -1,0 +1,22 @@
+{
+  "id": "POLAR-LOD-EAM-01-RUNTIME-02",
+  "platform": "macOS-arm64",
+  "python": {
+    "version": "3.12.14",
+    "implementation": "CPython",
+    "cache_tag": "cpython-312",
+    "provided_entrypoint": "/Users/tho2020/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+    "binary_sha256": "1ab9f4350597af34ada540e5f3083ddb6771e46d9d589f8837a926c85acbcc80"
+  },
+  "dependencies": {
+    "lock_file": "requirements-macos-arm64.lock",
+    "install_mode": "pip --require-hashes",
+    "numpy": "2.3.5",
+    "pandas": "2.2.3",
+    "python-dateutil": "2.9.0.post0",
+    "pytz": "2026.3.post1",
+    "six": "1.17.0",
+    "tzdata": "2026.4"
+  },
+  "prospective_execution_authority": false
+}

@@ -1,6 +1,6 @@
 # B3 implementation and historical qualification
 
-Status: `REPAIR_REVIEW_FAIL / M1_M2_M6_OPEN / NO PROSPECTIVE RESULT`
+Status: `SECOND_REPAIR_IMPLEMENTED_PENDING_INDEPENDENT_REVIEW / NO PROSPECTIVE RESULT`
 
 ## Comparator
 
@@ -61,7 +61,9 @@ The repaired runner enforces raw-vintage identity against the canonical ledger,
 fails closed on structural predicates and separates retrospective criteria
 from preregistered evidence. Historical UTC availability remains explicitly
 unproven rather than reconstructed. The independent repair review nevertheless
-demonstrated that caller-selected alternative ledger and lock files can obtain
-the same verified status, and the four-horizon operational-relevance rule is
-not implemented. A second repair, another independent review and a separate
-Human Owner release remain required before prospective use.
+demonstrated that caller-selected alternative ledger and lock files could
+obtain the same verified status and that the four-horizon rule was not
+implemented. The second repair removes those overrides, binds a canonical
+trust root and reproducible runtime, and implements the full four-horizon M6
+evaluator. Another independent review and a separate Human Owner release
+remain required before prospective use.

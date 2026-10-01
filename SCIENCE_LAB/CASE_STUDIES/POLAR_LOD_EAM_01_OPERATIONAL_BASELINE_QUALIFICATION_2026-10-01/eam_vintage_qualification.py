@@ -51,6 +51,15 @@ GRID_STEP_DAYS = 0.125
 EXPECTED_ROWS = 1448
 EXPECTED_LEDGER = PACKAGE / "EXPECTED_RAW_VINTAGE_LEDGER.csv"
 EXECUTION_LOCK = PACKAGE / "EXECUTION_LOCK.json"
+TRUST_ROOT = PACKAGE / "SEALED_REPLAY_TRUST_ROOT.json"
+RUNTIME_LOCK = PACKAGE / "requirements-macos-arm64.lock"
+RUNTIME_ENVIRONMENT = PACKAGE / "RUNTIME_ENVIRONMENT.json"
+CANONICAL_TRUST_ROOT_SHA256 = "1451a19e9d7c65689fed9979eb7ee9df4b57193164ab4849c6a32115b6fa7c96"
+M6_BOOTSTRAP_REPLICATES = 20_000
+M6_BLOCK_LENGTH = 30
+M6_SEED = 20261001
+M6_MINIMUM_PAIRED = 180
+M6_ALPHA = 0.05
 
 
 def sha256(path: Path) -> str:
@@ -87,21 +96,45 @@ def load_expected_ledger(path: Path) -> dict[str, dict[str, str]]:
     return by_name
 
 
-def verify_execution_lock(path: Path, source: Path, expected_ledger: Path) -> dict:
-    lock = json.loads(path.read_text())
-    if lock.get("id") != "POLAR-LOD-EAM-01-REPAIR-LOCK-01":
+def verify_canonical_trust_root(path: Path = TRUST_ROOT) -> dict:
+    if path.resolve() != TRUST_ROOT.resolve():
+        raise RuntimeError("Custom trust-root paths cannot produce a sealed replay")
+    require_sha256(path, CANONICAL_TRUST_ROOT_SHA256, "canonical trust root")
+    root = json.loads(path.read_text())
+    if root.get("id") != "POLAR-LOD-EAM-01-SEALED-ROOT-02":
+        raise RuntimeError("Unexpected sealed trust-root identity")
+    bound = {
+        "execution_lock": EXECUTION_LOCK,
+        "expected_raw_vintage_ledger": EXPECTED_LEDGER,
+        "runtime_dependency_lock": RUNTIME_LOCK,
+        "runtime_environment": RUNTIME_ENVIRONMENT,
+    }
+    files = root.get("files", {})
+    if set(files) != set(bound):
+        raise RuntimeError("Trust root does not contain the exact canonical file set")
+    for label, file_path in bound.items():
+        if not file_path.is_file():
+            raise RuntimeError(f"Trust-root file missing: {label}: {file_path}")
+        require_sha256(file_path, files[label]["sha256"], label)
+    return root
+
+
+def verify_execution_lock(source: Path) -> dict:
+    lock = json.loads(EXECUTION_LOCK.read_text())
+    if lock.get("id") != "POLAR-LOD-EAM-01-REPAIR-LOCK-02":
         raise RuntimeError("Unexpected execution-lock identity")
     files = lock.get("files", {})
     bound = {
-        "runner": Path(__file__).resolve(),
         "baseline_runner": BASELINE_RUNNER,
         "baseline_manifest": BASELINE_RUNNER.parent / "SHA256_MANIFEST.txt",
         "historical_source": source.resolve(),
-        "expected_raw_vintage_ledger": expected_ledger.resolve(),
+        "expected_raw_vintage_ledger": EXPECTED_LEDGER.resolve(),
         "repair_contract": PACKAGE / "04_REPAIR_AND_PREOUTPUT_LOCK.md",
         "prospective_protocol": SCIENCE_CASES
         / "POLAR_LOD_01_PROSPECTIVE_VALIDATION_2026-10-01"
         / "02_STRONG_BASELINE_AND_PROSPECTIVE_PROTOCOL.md",
+        "runtime_dependency_lock": RUNTIME_LOCK,
+        "runtime_environment": RUNTIME_ENVIRONMENT,
     }
     if set(files) != set(bound):
         raise RuntimeError("Execution lock does not contain the exact required file set")
@@ -114,6 +147,10 @@ def verify_execution_lock(path: Path, source: Path, expected_ledger: Path) -> di
         "python": platform.python_version(),
         "numpy": np.__version__,
         "pandas": package_version("pandas"),
+        "python-dateutil": package_version("python-dateutil"),
+        "pytz": package_version("pytz"),
+        "six": package_version("six"),
+        "tzdata": package_version("tzdata"),
     }
     if runtime != actual_runtime:
         raise RuntimeError(
@@ -305,6 +342,177 @@ def predict_2025(baseline, frame, target: str, periods: dict[str, float], add_ti
     }
 
 
+def predict_direct_horizon_2025(
+    baseline,
+    frame,
+    target: str,
+    periods: dict[str, float],
+    horizon: int,
+) -> dict[float, float]:
+    """Fit a direct h-day model using only values available by target-h."""
+    lags = baseline.LAG_BANKS["L17"]
+    data = frame.copy()
+    for lag in lags:
+        # For target T and horizon h, lag 1 is the latest value known at T-h.
+        data[f"{target}_lag_{lag}"] = data[target].shift(direct_lag_offset(horizon, lag))
+    data = data.dropna().copy()
+    train = data[(data.date >= "2010-01-01") & (data.date <= "2023-12-31")]
+    valid = data[(data.date >= "2024-01-01") & (data.date <= "2024-12-31")]
+    test = data[(data.date >= "2025-01-01") & (data.date <= "2025-12-31")]
+    origin = float(train["MJD"].iloc[0])
+    matrices = [baseline.design(part, origin, target, lags, periods) for part in (train, valid, test)]
+    mean, scale = matrices[0].mean(axis=0), matrices[0].std(axis=0)
+    mean[0], scale[0] = 0.0, 1.0
+    scale[scale < 1e-12] = 1.0
+    x_train, x_valid, x_test = ((matrix - mean) / scale for matrix in matrices)
+    y_train, y_valid = train[target].to_numpy(), valid[target].to_numpy()
+    best = None
+    for alpha in baseline.ALPHAS:
+        penalty = np.eye(x_train.shape[1])
+        penalty[0, 0] = 0.0
+        beta = np.linalg.solve(x_train.T @ x_train + alpha * penalty, x_train.T @ y_train)
+        score = float(np.sqrt(np.mean((x_valid @ beta - y_valid) ** 2)))
+        if best is None or score < best[0]:
+            best = (score, float(alpha), beta)
+    prediction = x_test @ best[2]
+    return {
+        float(mjd): float(value)
+        for mjd, value in zip(test["MJD"].to_numpy(), prediction)
+    }
+
+
+def direct_lag_offset(horizon: int, lag: int) -> int:
+    if horizon not in HORIZONS or lag < 1:
+        raise ValueError("Direct-horizon lag requires a frozen horizon and positive lag")
+    return horizon + lag - 1
+
+
+def circular_block_bootstrap(
+    improvements: np.ndarray,
+    replicates: int = M6_BOOTSTRAP_REPLICATES,
+    block_length: int = M6_BLOCK_LENGTH,
+    seed: int = M6_SEED,
+) -> dict[str, float]:
+    """One-sided circular moving-block inference for mean improvement."""
+    values = np.asarray(improvements, dtype=float)
+    if values.ndim != 1 or len(values) == 0 or not np.isfinite(values).all():
+        raise ValueError("Bootstrap requires a finite non-empty one-dimensional sample")
+    if replicates <= 0 or block_length <= 0:
+        raise ValueError("Bootstrap replicates and block length must be positive")
+    rng = np.random.default_rng(seed)
+    blocks = math.ceil(len(values) / block_length)
+    offsets = np.arange(block_length)
+    means = np.empty(replicates, dtype=float)
+    chunk = 500
+    for start in range(0, replicates, chunk):
+        count = min(chunk, replicates - start)
+        block_starts = rng.integers(0, len(values), size=(count, blocks))
+        indices = (block_starts[..., None] + offsets) % len(values)
+        samples = values[indices.reshape(count, -1)[:, : len(values)]]
+        means[start : start + count] = samples.mean(axis=1)
+    return {
+        "mean_squared_error_improvement_seconds_squared": float(values.mean()),
+        "one_sided_95pct_lower_bound": float(np.quantile(means, M6_ALPHA)),
+        "one_sided_bootstrap_p_value": float(
+            (1 + np.count_nonzero((means - values.mean()) >= values.mean()))
+            / (replicates + 1)
+        ),
+    }
+
+
+def holm_rejections(p_values: dict[int, float], alpha: float = M6_ALPHA) -> dict[int, bool]:
+    ordered = sorted(p_values, key=lambda horizon: (p_values[horizon], horizon))
+    rejected = {horizon: False for horizon in p_values}
+    for index, horizon in enumerate(ordered):
+        threshold = alpha / (len(ordered) - index)
+        if p_values[horizon] <= threshold:
+            rejected[horizon] = True
+        else:
+            break
+    return rejected
+
+
+def evaluate_operational_relevance(
+    b3_rows: list[dict],
+    m2_by_horizon: dict[int, dict[float, float]],
+    observed: dict[float, float],
+    custody_available: bool,
+    minimum_paired: int = M6_MINIMUM_PAIRED,
+    replicates: int = M6_BOOTSTRAP_REPLICATES,
+) -> dict:
+    """Evaluate the frozen four-horizon M6 rule without altering primary status."""
+    diagnostics = {}
+    p_values = {}
+    assessable = bool(custody_available)
+    for horizon in HORIZONS:
+        rows = [row for row in b3_rows if int(row["horizon_days"]) == horizon]
+        b3 = {float(row["target_mjd"]): float(row["predicted_lod_seconds"]) for row in rows}
+        m2 = m2_by_horizon.get(horizon, {})
+        dates = sorted(set(b3) & set(m2) & set(observed))
+        missing_sets = {
+            "b3_without_m2": set(b3) - set(m2),
+            "m2_without_b3": set(m2) - set(b3),
+            "paired_without_observed": (set(b3) & set(m2)) - set(observed),
+        }
+        missing = {
+            reason: {
+                "count": len(mjds),
+                "target_mjds": sorted(mjds),
+            }
+            for reason, mjds in missing_sets.items()
+        }
+        if len(dates) < minimum_paired:
+            assessable = False
+        if not dates:
+            diagnostics[str(horizon)] = {"paired_n": 0, "missing_before_scoring": missing}
+            continue
+        m2_errors = np.array([m2[mjd] - observed[mjd] for mjd in dates])
+        b3_errors = np.array([b3[mjd] - observed[mjd] for mjd in dates])
+        inference = circular_block_bootstrap(
+            b3_errors**2 - m2_errors**2,
+            replicates=replicates,
+            seed=M6_SEED,
+        )
+        m2_metrics, b3_metrics = metrics(m2_errors), metrics(b3_errors)
+        improvement = (b3_metrics["rmse_seconds"] - m2_metrics["rmse_seconds"]) / b3_metrics["rmse_seconds"]
+        p_values[horizon] = inference["one_sided_bootstrap_p_value"]
+        diagnostics[str(horizon)] = {
+            "paired_n": len(dates),
+            "missing_before_scoring": missing,
+            "m2": m2_metrics,
+            "b3": b3_metrics,
+            "m2_rmse_improvement_fraction_b3_denominator": float(improvement),
+            **inference,
+        }
+    holm = holm_rejections(p_values) if len(p_values) == len(HORIZONS) else {}
+    for horizon in HORIZONS:
+        if str(horizon) in diagnostics:
+            diagnostics[str(horizon)]["holm_rejects_null"] = holm.get(horizon, False)
+    supported = assessable and all(
+        diagnostics[str(horizon)]["m2_rmse_improvement_fraction_b3_denominator"] >= 0.05
+        and diagnostics[str(horizon)]["m2"]["mae_seconds"] < diagnostics[str(horizon)]["b3"]["mae_seconds"]
+        and diagnostics[str(horizon)]["one_sided_95pct_lower_bound"] > 0.0
+        and diagnostics[str(horizon)]["holm_rejects_null"]
+        for horizon in HORIZONS
+    )
+    if not assessable:
+        annotation = "OPERATIONAL_RELEVANCE_NOT_ASSESSABLE"
+    elif supported:
+        annotation = "OPERATIONAL_RELEVANCE_SUPPORTED"
+    else:
+        annotation = "OPERATIONAL_RELEVANCE_NOT_SUPPORTED"
+    return {
+        "annotation": annotation,
+        "custody_available": bool(custody_available),
+        "minimum_paired_per_horizon": minimum_paired,
+        "bootstrap_replicates": replicates,
+        "block_length_days": M6_BLOCK_LENGTH,
+        "base_seed": M6_SEED,
+        "holm_familywise_alpha": M6_ALPHA,
+        "horizons": diagnostics,
+    }
+
+
 def write_csv(path: Path, fieldnames: list[str], rows: list[dict]) -> None:
     with path.open("w", newline="") as handle:
         writer = csv.DictWriter(handle, fieldnames=fieldnames, lineterminator="\n")
@@ -319,19 +527,15 @@ def main() -> None:
     parser.add_argument("--output-dir", type=Path, default=PACKAGE)
     parser.add_argument("--workers", type=int, default=12)
     parser.add_argument("--mode", choices=("replay", "acquisition"), default="replay")
-    parser.add_argument("--expected-ledger", type=Path, default=EXPECTED_LEDGER)
-    parser.add_argument("--execution-lock", type=Path, default=EXECUTION_LOCK)
     args = parser.parse_args()
 
     expected = {}
     execution_lock = None
+    trust_root = None
     if args.mode == "replay":
-        expected = load_expected_ledger(args.expected_ledger)
-        execution_lock = verify_execution_lock(
-            args.execution_lock,
-            args.source,
-            args.expected_ledger,
-        )
+        trust_root = verify_canonical_trust_root()
+        expected = load_expected_ledger(EXPECTED_LEDGER)
+        execution_lock = verify_execution_lock(args.source)
     baseline = load_baseline_module()
     frame = baseline.load_source(args.source)
     observed = {float(row.MJD): float(row.LOD) for row in frame.itertuples()}
@@ -449,6 +653,22 @@ def main() -> None:
         paired[name] = metrics(errors)
     m2_rmse = paired["M2_AR17_plus_six_period"]["rmse_seconds"]
     b3_rmse = paired["B3_GFZ_EAM90_ZONT2"]["rmse_seconds"]
+    m2_horizons = {
+        horizon: predict_direct_horizon_2025(
+            baseline,
+            frame,
+            "LOD",
+            baseline.BASE_PERIODS | baseline.LUNAR_PERIODS,
+            horizon,
+        )
+        for horizon in HORIZONS
+    }
+    operational_relevance = evaluate_operational_relevance(
+        prediction_rows,
+        m2_horizons,
+        observed,
+        custody_available=False,
+    )
 
     first = parse_vintage(paths[0])
     sanity_errors = []
@@ -459,6 +679,7 @@ def main() -> None:
 
     integrity_gates = {
         "execution_lock_verified": args.mode == "replay" and execution_lock is not None,
+        "canonical_external_trust_root_verified": args.mode == "replay" and trust_root is not None,
         "all_365_expected_raw_vintages_hash_verified": args.mode == "replay" and len(paths) == 365,
         "external_code_data_and_runtime_bound": args.mode == "replay" and execution_lock is not None,
         "parser_enforces_finite_unique_ordered_exact_grid_allowed_states_single_transition": True,
@@ -492,12 +713,17 @@ def main() -> None:
         "status": status,
         "classification": "source-labelled forecast-state retrospective; no prospective result",
         "execution_mode": args.mode,
-        "execution_lock_sha256": sha256(args.execution_lock) if execution_lock is not None else None,
-        "expected_raw_vintage_ledger_sha256": sha256(args.expected_ledger) if expected else None,
+        "sealed_trust_root_sha256": sha256(TRUST_ROOT) if trust_root is not None else None,
+        "execution_lock_sha256": sha256(EXECUTION_LOCK) if execution_lock is not None else None,
+        "expected_raw_vintage_ledger_sha256": sha256(EXPECTED_LEDGER) if expected else None,
         "runtime": {
             "python": platform.python_version(),
             "numpy": np.__version__,
             "pandas": package_version("pandas"),
+            "python-dateutil": package_version("python-dateutil"),
+            "pytz": package_version("pytz"),
+            "six": package_version("six"),
+            "tzdata": package_version("tzdata"),
         },
         "source": {
             "provider": "GFZ ESMGFZ",
@@ -518,6 +744,7 @@ def main() -> None:
         "b3_rmse_lower_than_m2_pct_m2_denominator": 100.0 * (m2_rmse - b3_rmse) / m2_rmse,
         "m2_rmse_higher_than_b3_pct_b3_denominator": 100.0 * (m2_rmse - b3_rmse) / b3_rmse,
         "conversion_sanity": sanity,
+        "historical_m6_diagnostic_not_prospective_evidence": operational_relevance,
         "integrity_gates": integrity_gates,
         "retrospective_qualification_criteria_not_preregistered_evidence": retrospective_criteria,
         "operational_lock_ready": False,

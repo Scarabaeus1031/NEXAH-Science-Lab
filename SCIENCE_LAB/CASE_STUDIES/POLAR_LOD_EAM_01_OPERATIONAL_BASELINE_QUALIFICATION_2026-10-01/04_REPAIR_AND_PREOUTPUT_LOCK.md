@@ -1,7 +1,7 @@
 # POLAR-LOD-EAM-01 — repair and pre-output lock
 
 Date: 2026-10-01
-Status: `FROZEN BEFORE ANY PROSPECTIVE OUTCOME ACCESS`
+Status: `SECOND_REPAIR IMPLEMENTED / INDEPENDENT RE-REVIEW REQUIRED`
 Authority class: `IMPLEMENTATION REPAIR / FUTURE DECISION CONTRACT`
 Supersedes: package-local `B3_READY_WITH_DECLARED_SOURCE_EXCEPTIONS`
 
@@ -14,26 +14,41 @@ the prospective candidate, or create a Research Result.
 
 ## M1 — enforced raw-vintage identity
 
-Sealed replay requires `EXPECTED_RAW_VINTAGE_LEDGER.csv`. It must contain
+Sealed replay requires the package-canonical
+`EXPECTED_RAW_VINTAGE_LEDGER.csv`. It must contain
 exactly the 365 expected filenames and bind each provider URL, byte count and
 SHA-256. Replay never downloads a missing file and rejects any byte-count or
 hash mismatch before parsing. `acquisition` mode may download candidate files,
 but its result is always `UNSEALED_ACQUISITION_CANDIDATE_NOT_QUALIFICATION`.
 
+The second repair removes the former `--expected-ledger` and
+`--execution-lock` overrides. `SEALED_REPLAY_TRUST_ROOT.json` binds the one
+canonical ledger, execution lock and runtime files; its SHA-256 is compiled
+into the committed runner. A custom trust-root path is rejected. The runner's
+own identity is externally bound by the reviewed Git commit and package
+manifest, avoiding a circular self-hash inside the trust root. Custom roots
+cannot produce a verified status.
+
 ## M2 — execution dependency lock
 
 `EXECUTION_LOCK.json` binds:
 
-- the EAM runner;
 - the external baseline runner and its package manifest;
 - the historical IERS source CSV;
 - the expected raw-vintage ledger;
 - this repair contract and the parent prospective protocol;
-- exact Python, NumPy and pandas versions.
+- the hash-locked runtime dependency file and runtime receipt;
+- exact Python, NumPy, pandas, python-dateutil, pytz, six and tzdata versions.
 
 Replay rejects any mismatch. The machine result records the execution-lock and
 expected-ledger hashes. Floating outputs remain serialized by the locked
 runtime; cross-runtime execution is rejected rather than called deterministic.
+
+`run_sealed_replay.py` is the sole documented replay entrypoint. It resolves
+the provided CPython 3.12.14 interpreter, verifies its binary SHA-256 and then
+invokes the runner. `requirements-macos-arm64.lock` binds every direct and
+transitive wheel with `pip --require-hashes`, while `RUNTIME_ENVIRONMENT.json`
+records the platform, interpreter receipt and exact environment.
 
 ## M3 — availability boundary and future cutoff
 
@@ -99,6 +114,17 @@ or custody requirement is unavailable, the annotation is
 `OPERATIONAL_RELEVANCE_NOT_SUPPORTED`. Neither class may alter the primary
 `PASS_BOUNDED`, `FAIL_BOUNDED` or `INVALID` outcome.
 
+The second repair implements this rule in
+`evaluate_operational_relevance`. Four direct M2 models use, for target `T`
+and horizon `h`, only lagged LOD values available at or before `T-h`. The
+evaluator materializes missingness before scoring, computes paired RMSE, MAE
+and squared-error improvements, runs the deterministic circular moving-block
+bootstrap, applies Holm correction and emits exactly one of the three frozen
+annotations. Historical replay calls it with custody unavailable, so its
+diagnostic is necessarily `OPERATIONAL_RELEVANCE_NOT_ASSESSABLE` and cannot
+become prospective evidence. Synthetic fixtures test supported, unsupported,
+missing-custody and partial-horizon paths.
+
 ## Exit condition
 
 The repair implementation may advance only after:
@@ -109,5 +135,6 @@ The repair implementation may advance only after:
 4. package manifests verify;
 5. a new independent review accepts closure of M1–M6.
 
-Until item 5 closes, status remains `REPAIRED_PENDING_INDEPENDENT_REVIEW` and
-no prospective execution is authorized.
+Until item 5 closes, status remains
+`SECOND_REPAIR_IMPLEMENTED_PENDING_INDEPENDENT_REVIEW` and no prospective
+execution is authorized.
