@@ -96,8 +96,13 @@ a new NEXAH contribution.
 | R2 chronology | evaluation rows must postdate the new freeze | `OPEN` |
 | R3 minimum window | at least 180 newly admitted daily rows and at least six complete synodic cycles | `FAIL_NOW`; only 14 rows follow the historical run in the inspected C04 snapshot |
 | R4 strong baseline | validated established tidal/geophysical comparator plus strong statistical baseline | `PASS / BASELINE_READY`; see `POLAR-LOD-BL-01` |
-| R5 semantics | one-step-ahead protocol, update cadence and allowed lag information explicit | `DEFINED_IN_DRAFT` |
+| R5 semantics | primary and secondary horizons, allowed information, inference, specificity and claim ceilings frozen | `PASS / EXTENDED CONTRACT FROZEN` |
 | R6 execution release | separate Human Owner release after R1–R5 close | `NOT_GRANTED` |
+
+The extended contract additionally requires an EAM source-vintage preflight
+before any operational-relevance comparison. Failure of EAM custody does not
+change the frozen B1/B2 core question, but it caps any eventual run as
+non-operational.
 
 ## Decision
 
