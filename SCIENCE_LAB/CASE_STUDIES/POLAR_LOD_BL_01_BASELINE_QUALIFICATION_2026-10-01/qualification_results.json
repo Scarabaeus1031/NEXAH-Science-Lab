@@ -1,0 +1,131 @@
+{
+  "id": "POLAR-LOD-BL-01",
+  "date": "2026-10-01",
+  "status": "BASELINE_READY",
+  "classification": "historical method-development audit; no prospective result",
+  "source": {
+    "path": "/Users/tho2020/Documents/NEXAH ECOSYSTEM/30 SCIENCE LAB/NEXAH-Science-Lab/SCIENCE_LAB/CASE_STUDIES/Orion_POLAR:Pass Maastricht/Polar-Janus-Test-08-LOD-Holdout/test_08_iers_lod_2010_2025.csv",
+    "sha256": "5a4df1e393b3feaceb695c636c1a8b363c08a5464f448ba890b678c9cc396996",
+    "rows": 5844,
+    "start": "2010-01-01",
+    "end": "2025-12-31"
+  },
+  "upstream": {
+    "RG_ZONT2_F_sha256": "5aab78a0bb47f3ccb363a707b9aa6db8433aacd73038d5e15b631c592bcb9b0f",
+    "FUNDARG_F_sha256": "18263cbb1289e222e6ee6e59d52beb343eb77a63ed3212e4f05a4c85d475ae78",
+    "reference_case_absolute_errors": {
+      "dut_seconds": 1.3877787807814457e-17,
+      "dlod_seconds": 1.4230153513872246e-19,
+      "domega_rad_per_second": 1.8932661725304283e-29
+    }
+  },
+  "development_years": [
+    2018,
+    2019,
+    2020,
+    2021,
+    2022,
+    2023,
+    2024
+  ],
+  "candidate_architectures": {
+    "L5": {
+      "n": 2557,
+      "rmse_seconds": 4.810585254511835e-05,
+      "mae_seconds": 3.867095591860619e-05
+    },
+    "L9": {
+      "n": 2557,
+      "rmse_seconds": 3.6253930381087405e-05,
+      "mae_seconds": 2.729707183636107e-05
+    },
+    "L13": {
+      "n": 2557,
+      "rmse_seconds": 3.535971451423645e-05,
+      "mae_seconds": 2.678494783663823e-05
+    },
+    "L17": {
+      "n": 2557,
+      "rmse_seconds": 3.51126392829487e-05,
+      "mae_seconds": 2.6708671740610584e-05
+    }
+  },
+  "selected_architecture": "L17",
+  "selected_lags_days": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    10,
+    14,
+    21,
+    28,
+    30,
+    45,
+    60,
+    90,
+    120,
+    180
+  ],
+  "development_comparators": {
+    "B0_persistence": {
+      "n": 2557,
+      "rmse_seconds": 0.00014779825267023246,
+      "mae_seconds": 0.00012455498631208447
+    },
+    "B1_selected": {
+      "n": 2557,
+      "rmse_seconds": 3.51126392829487e-05,
+      "mae_seconds": 2.6708671740610584e-05
+    },
+    "B2_IERS_ZONT2": {
+      "n": 2557,
+      "rmse_seconds": 2.6276407539050335e-05,
+      "mae_seconds": 1.9130152204264923e-05
+    }
+  },
+  "b2_vs_b1_rmse_improvement_pct": 25.165387519557353,
+  "forensic_2025": {
+    "B1_AR17": {
+      "year": 2025,
+      "n": 365,
+      "alpha": 0.01,
+      "rmse_seconds": 3.62917442400418e-05,
+      "mae_seconds": 2.826381662977909e-05,
+      "sse": 4.807381054943817e-07,
+      "sae": 0.010316293069869368
+    },
+    "M2_AR17_plus_six_period": {
+      "year": 2025,
+      "n": 365,
+      "alpha": 0.01,
+      "rmse_seconds": 3.410669662853952e-05,
+      "mae_seconds": 2.6464969122550035e-05,
+      "sse": 4.2459236554259853e-07,
+      "sae": 0.009659713729730762
+    },
+    "B2_IERS_ZONT2": {
+      "year": 2025,
+      "n": 365,
+      "alpha": 0.1,
+      "rmse_seconds": 2.7584036562267173e-05,
+      "mae_seconds": 2.1469162970440678e-05,
+      "sse": 2.7772086166999965e-07,
+      "sae": 0.007836244484210848
+    }
+  },
+  "forensic_2025_m2_vs_b1_rmse_improvement_pct": 6.020784223127681,
+  "forensic_2025_m2_vs_b2_rmse_difference_pct": 23.64650311983286,
+  "gates": {
+    "iers_reference_case": true,
+    "daily_complete_source": true,
+    "same_day_target_excluded": true,
+    "b1_beats_persistence": true,
+    "b1_beats_historical_l5": true,
+    "b2_beats_b1": true
+  },
+  "boundary": "Closes readiness gate R4 only; no result registration or prospective execution authority."
+}

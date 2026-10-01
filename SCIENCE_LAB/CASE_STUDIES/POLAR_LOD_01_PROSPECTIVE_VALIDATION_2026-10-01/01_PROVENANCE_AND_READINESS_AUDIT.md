@@ -95,12 +95,14 @@ a new NEXAH contribution.
 | R1 custody | source, code, environment and preregistration hash-bound before outcomes | `OPEN` for the new test |
 | R2 chronology | evaluation rows must postdate the new freeze | `OPEN` |
 | R3 minimum window | at least 180 newly admitted daily rows and at least six complete synodic cycles | `FAIL_NOW`; only 14 rows follow the historical run in the inspected C04 snapshot |
-| R4 strong baseline | validated established tidal/geophysical comparator plus strong statistical baseline | `OPEN` |
+| R4 strong baseline | validated established tidal/geophysical comparator plus strong statistical baseline | `PASS / BASELINE_READY`; see `POLAR-LOD-BL-01` |
 | R5 semantics | one-step-ahead protocol, update cadence and allowed lag information explicit | `DEFINED_IN_DRAFT` |
 | R6 execution release | separate Human Owner release after R1–R5 close | `NOT_GRANTED` |
 
 ## Decision
 
 `NOT_READY_FOR_CONFIRMATORY_EXECUTION`. The historical 10.969% figure remains
-a screened reproduction candidate, not a confirmed application result. No
-runner is executed under this audit and no Research Result row is created.
+a screened reproduction candidate, not a confirmed application result.
+`POLAR-LOD-BL-01` later closes R4 only; custody, prospective chronology,
+minimum-window and owner-release gates remain open. No prospective runner is
+executed under this audit and no Research Result row is created.

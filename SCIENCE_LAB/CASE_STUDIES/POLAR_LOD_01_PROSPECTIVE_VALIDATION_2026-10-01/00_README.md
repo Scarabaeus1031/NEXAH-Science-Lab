@@ -2,7 +2,7 @@
 
 Date: 2026-10-01
 Owner: Human Owner
-Native status: `READINESS_AUDIT_COMPLETE / EXECUTION_NOT_READY`
+Native status: `BASELINE_READY / DATA_AND_RELEASE_GATES_OPEN`
 Lab status: `FILED / NO_RESULT / NO_ACTIVATION`
 
 ## Question
@@ -30,6 +30,13 @@ audit closes `NOT_READY_FOR_CONFIRMATORY_EXECUTION`:
 5. the official source snapshot checked on 2026-10-01 ended at 2026-09-01,
    leaving only fourteen new daily values after the historical execution.
 
+`POLAR-LOD-BL-01` subsequently closed the strong-baseline gate. It froze a
+17-lag ridge comparator and an IERS-Conventions-2010 long-period zonal-tide
+comparator, validated the IERS implementation against the official reference
+case, and found retrospectively that the old six-period candidate did not beat
+the geophysical comparator on the already-known 2025 holdout. This is method
+qualification, not a prospective result.
+
 No model was executed, no threshold was inspected against a new outcome and
 no scientific result was created.
 
@@ -37,6 +44,7 @@ no scientific result was created.
 
 - [Provenance and readiness audit](01_PROVENANCE_AND_READINESS_AUDIT.md)
 - [Strong-baseline and prospective protocol](02_STRONG_BASELINE_AND_PROSPECTIVE_PROTOCOL.md)
+- [Completed baseline qualification](../POLAR_LOD_BL_01_BASELINE_QUALIFICATION_2026-10-01/00_README.md)
 
 ## Claim ceiling
 
