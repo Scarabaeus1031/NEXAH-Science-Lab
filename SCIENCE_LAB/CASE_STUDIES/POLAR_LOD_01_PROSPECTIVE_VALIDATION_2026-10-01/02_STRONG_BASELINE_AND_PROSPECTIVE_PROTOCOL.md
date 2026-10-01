@@ -70,13 +70,17 @@ prediction. Only a product issued at or before the forecast origin is
 admissible. Analysis or reanalysis values that became available later may not
 stand in for a forecast.
 
-The historical implementation preflight is completed and frozen in
-`../POLAR_LOD_EAM_01_OPERATIONAL_BASELINE_QUALIFICATION_2026-10-01/`. It binds
-the combined EAM90 axial forecast plus IERS ZONT2 correction, a complete URL
-and SHA-256 ledger, deterministic structural rejection and one-vintage-per-
-Issue-Date selection. It found 344 independent valid 2025 Issue Dates and one
-unrepaired corrupt archive file. Raw GFZ files are not redistributed because
-no redistribution permission was inferred from public access.
+The historical implementation preflight in
+`../POLAR_LOD_EAM_01_OPERATIONAL_BASELINE_QUALIFICATION_2026-10-01/` has an
+independent `CONDITIONAL_PASS`. The combined EAM90 axial forecast plus IERS
+ZONT2 correction, one-vintage-per-Issue-Date selection and historical metrics
+were independently reproduced. It found 344 independent valid 2025 Issue
+Dates and one unrepaired corrupt archive file. The current runner is not yet a
+sealed operational implementation: raw hashes and external dependencies are
+not fully enforced, exact UTC availability is unproven, structural admission
+needs stronger fail-closed checks, and readiness criteria were not sealed
+before the historical outputs. Raw GFZ files are not redistributed because no
+redistribution permission was inferred from public access.
 
 For the prospective execution, the same EAM preflight must re-freeze:
 
@@ -86,10 +90,12 @@ For the prospective execution, the same EAM preflight must re-freeze:
 4. the maximum supported forecast horizon;
 5. a fallback rule fixed without outcome access.
 
-`B3` is required for an operational-relevance claim. The implementation and
-historical-vintage gate are closed; prospective source custody remains a run-
-time gate. If forecast vintages cannot be proven for the new window, the run
-may at most test the core B1/B2 question and must be labelled non-operational.
+`B3` is required for an operational-relevance claim. Its historical method is
+conditionally supported, but the implementation seal and vintage-custody gate
+remain open. Before prospective use, the six major findings in the independent
+review must be repaired and independently re-reviewed. If forecast vintages
+cannot be proven for the new window, the run may at most test the core B1/B2
+question and must be labelled non-operational.
 
 The B1/B2/M2 implementation and historical qualification are fixed in
 `../POLAR_LOD_BL_01_BASELINE_QUALIFICATION_2026-10-01/`; B3 is fixed in the
@@ -172,8 +178,13 @@ relevance, not the primary scientific decision.
   insufficient evaluation population or contract violation.
 
 An additional `OPERATIONAL_RELEVANCE_SUPPORTED` annotation is allowed only if
-M2 also beats the valid B3 benchmark on its supported horizons. It is not a
-substitute for `PASS_BOUNDED`.
+M2 also beats the valid B3 benchmark under a separately preregistered rule. At
+minimum, that amendment must freeze the identical-date population, exact
+metric and denominator, minimum effect, uncertainty rule, multiplicity
+treatment, required horizons, missing-vintage fallback and incomplete-pair
+handling before new outcomes are available. The annotation is not executable
+until that amendment is hash-sealed and independently reviewed. It is not a
+substitute for `PASS_BOUNDED` and cannot change that primary outcome class.
 
 ## STOP
 

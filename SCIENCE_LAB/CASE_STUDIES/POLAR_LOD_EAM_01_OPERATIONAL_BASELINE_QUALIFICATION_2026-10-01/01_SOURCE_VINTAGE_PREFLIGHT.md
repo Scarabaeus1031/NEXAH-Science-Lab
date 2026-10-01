@@ -1,6 +1,6 @@
 # GFZ ESMGFZ source-vintage preflight
 
-Status: `PASS_WITH_DECLARED_ARCHIVE_EXCEPTIONS`
+Status: `CONDITIONAL / SOURCE_LABELS_VERIFIED / UTC_AVAILABILITY_UNPROVEN`
 
 ## Bound source
 
@@ -31,6 +31,13 @@ Issue Date, declared and actual row counts, prediction boundary and admission.
    a same-day archive label and never averages or repairs values.
 6. The result is 344 independent valid Issue Dates, 94.2% of a 365-day year.
 7. All evaluated target rows carry source state `P`.
+8. The independent review found no direct target-value leakage, but the
+   date-level Issue Date and archive label do not prove provider availability
+   before an exact operational UTC cutoff. The sampled public archive objects
+   also carry current server modification times of 2026-05-28, after the 2025
+   outcomes, so those timestamps cannot supply historical first-seen proof.
+9. The committed ledger records the retrieved hashes, but the current runner
+   does not compare cached inputs against it before parsing and scoring.
 
 ## Frozen admission rules
 
@@ -44,7 +51,8 @@ Issue Date, declared and actual row counts, prediction boundary and admission.
 ## Licence and custody boundary
 
 Public retrieval is documented. No explicit redistribution permission was
-assumed. Raw files remain outside Git; the committed URL/hash ledger permits
-re-acquisition and identity checking. A future prospective run must capture
-the then-current licence or terms position and retain raw files in authorized
-private custody.
+assumed. Raw files remain outside Git. The URL/hash ledger permits manual
+identity checking but is not yet an enforced replay input contract. A future
+prospective run must capture the then-current licence or terms position,
+retain raw files in authorized private custody, bind exact UTC publication or
+first-seen evidence, and reject every ledger mismatch before scoring.

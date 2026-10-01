@@ -1,6 +1,6 @@
 # B3 implementation and historical qualification
 
-Status: `IMPLEMENTATION_QUALIFIED / NO PROSPECTIVE RESULT`
+Status: `CONDITIONAL_PASS / HISTORICAL_METHOD_ONLY / NO PROSPECTIVE RESULT`
 
 ## Comparator
 
@@ -37,9 +37,10 @@ Paired one-day forensic comparison:
 | B2-IERS-ZONT2 | 344 | 0.027779 | 0.021586 |
 | B3-GFZ-EAM90-ZONT2 | 344 | 0.026479 | 0.020914 |
 
-B3 RMSE is 29.45% lower than M2 relative to B3 on these same historical
-dates. This demonstrates that B3 is a materially strong comparator; it is not
-evidence from a newly unseen window and does not decide `POLAR-LOD-01`.
+B3 RMSE is 22.75% lower than M2 relative to M2 on these same historical dates;
+equivalently, M2 RMSE is 29.45% higher than B3 relative to B3. This supports B3
+as a materially strong historical comparator; it is not evidence from a newly
+unseen window and does not decide `POLAR-LOD-01`.
 
 ## Reproduction
 
@@ -56,7 +57,11 @@ the package.
 
 ## Decision
 
-The B3 implementation and archive-vintage method are ready for binding into a
-future authorized prospective run. Remaining blockers belong to the parent
-study: genuinely new targets, prospective source custody, independent review
-and a separate Human Owner release.
+The independent review conditionally supports the physical conversion,
+historical pairing and reported diagnostics. It does not approve the current
+runner as a sealed operational comparator. Before prospective use, a separate
+repair cycle must close the six major findings: enforce raw-vintage hashes,
+bind external code/data/runtime dependencies, prove exact UTC availability,
+make structural admission fully fail closed, preregister readiness thresholds,
+and specify the operational-relevance rule. A new independent re-review and a
+separate Human Owner release remain required.
