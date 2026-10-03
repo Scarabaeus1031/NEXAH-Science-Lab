@@ -1,10 +1,12 @@
 # NEXAH — aktuelle Gesamtübersicht
 
-**Rolle:** ausführlicher Gesamtreport und Quellendokument der Human View.
+**Rolle:** ausführliche, Human-first Gesamtsynthese für öffentliche Leserinnen
+und Leser.
 
-Der kurze Einstieg liegt in Mission Control unter
-`00_OVERVIEW/HUMAN_VIEW.md`. Dieser Report bewahrt die ausführliche
-Zusammenführung; er ist nicht der erste Leseschritt.
+Der kurze wissenschaftliche Einstieg liegt im öffentlichen
+[Artefakt- und Relevanzkatalog](ARTIFACT_CATALOG/README.md). Dieser Report
+bewahrt die ausführliche Zusammenführung; er ist nicht der erste
+wissenschaftliche Leseschritt.
 
 > **NEXAH beginnt bei einem Menschen, der sich in einem Feld befindet, nicht
 > alles überblickt und trotzdem verantwortlich handeln muss.**

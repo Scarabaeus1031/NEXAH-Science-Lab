@@ -11,8 +11,9 @@ who should review it.
 
 Start with the [Artifact and Significance Catalog](ARTIFACT_CATALOG/README.md)
 when the question is why a family matters rather than only which subject owns
-it. The Lab Register remains the status navigator; case-study packages retain
-evidence authority; Mission Control retains the current portfolio view.
+it. The Lab Register remains the public status navigator; case-study packages
+retain evidence authority. Private planning may schedule work, but it does not
+silently change public evidence or result status.
 
 ## Two complementary views
 
