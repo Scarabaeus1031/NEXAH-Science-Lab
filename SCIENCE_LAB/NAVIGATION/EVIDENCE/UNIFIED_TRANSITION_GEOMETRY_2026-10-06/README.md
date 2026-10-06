@@ -24,8 +24,9 @@ Framework
 ```
 
 The first level is current. Formal models exist only where separate sources
-define their objects and tests. A validated application of UTG as a whole is
-not established.
+define their objects and tests. `UTG-FORMAL-01` now supplies one passing
+object-specific Lorenz-63 crossing control. A validated application of UTG as
+a whole is not established.
 
 ## Evidence binder
 
@@ -43,6 +44,12 @@ The first bounded source and formal pass is recorded in
 It separates observation aperture from transition gate and retains the Series
 XIV aperture equation as an undefined formal candidate rather than promoting it.
 
+The authorized control test is recorded in
+[`UTG_FORMAL_01_LORENZ_CROSSING_CONTROL_2026-10-06/`](UTG_FORMAL_01_LORENZ_CROSSING_CONTROL_2026-10-06/).
+It binds `X`, `T`, `g`, `B`, `W`, `G` and identity `R`, passes crossing,
+direction, tangency, near-miss, nontransversal and sampling controls, and
+promotes only that object-specific classifier.
+
 The existing Prime · Bridge binder remains the authority for its verified and
 census-only GLB records. UTG links to that binder; it does not duplicate or
 promote those assets.
@@ -57,6 +64,7 @@ priorities, or authorizing public release.
 
 ```bash
 node validate_utg_binder.mjs
+python3 UTG_FORMAL_01_LORENZ_CROSSING_CONTROL_2026-10-06/validate_utg_formal_01.py
 node build_utg_data.mjs
 node ../../APP/audit_app.mjs
 ```

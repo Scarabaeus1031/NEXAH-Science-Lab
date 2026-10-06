@@ -1,6 +1,6 @@
 # Mission Control Return — UTG Framework Integration
 
-Status: `PREPARED / NOT SUBMITTED / NO ACTIVATION`
+Status: `COMPLETED RETURN / ONE BOUNDED CONTROL PASS / NO CONTINUING ACTIVATION`
 
 Date: `2026-10-06`
 
@@ -20,14 +20,16 @@ UTG as a whole.
 
 Source & Formal Concordance 01 is complete. It resolves one vocabulary defect:
 an observation aperture is not a transition gate unless a boundary and explicit
-admissibility rule are declared. `Aperture / Transition` is now a candidate
-specification, not an adopted formal model.
+admissibility rule are declared. The subsequently authorized `UTG-FORMAL-01`
+bound this distinction to a Lorenz-63 carrier and passed all preregistered
+crossing, direction, tangency, near-miss, nontransversal and sampling controls.
+This is one object-specific formal control result, not an adopted generic model.
 
 ## Operational effect
 
 - no mission activated;
 - no priority changed;
-- no scientific result reclassified;
+- one new object-specific computational control result recorded;
 - no public release authorized;
 - no external repository modified;
 - no equation promoted from visual specification to formal result;
@@ -41,7 +43,7 @@ levels and require object-specific authority for every promotion.
 
 ## Next permitted action
 
-Owner review of the candidate specification, followed—only if requested—by one
-bounded crossing-control test on an existing executable carrier. Recover the
-source-book/page lineage separately. Do not open a general validation program
-merely because the framework is now visible in the Navigator.
+Recover the source-book/page lineage separately. Open a second carrier,
+nontrivial reset-map test or application comparison only if an exact A1/A2 or
+application need is identified and separately authorized. Do not open a general
+validation programme from this single passing control.

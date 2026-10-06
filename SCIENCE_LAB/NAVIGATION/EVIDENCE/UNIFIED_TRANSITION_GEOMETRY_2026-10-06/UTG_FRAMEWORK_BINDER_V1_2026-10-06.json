@@ -37,7 +37,7 @@
     {
       "level_id": "MATURITY:FORMAL_MODEL",
       "title": "Formal Model",
-      "state": "PARTIAL / OBJECT-SPECIFIC",
+      "state": "PARTIAL / OBJECT-SPECIFIC / ONE CONTROL PASS",
       "definition": "A mathematically defined substructure with declared objects, operators, assumptions and reproducible derivations or computations.",
       "entry_rule": "Promotion occurs per object only after definitions, domains, boundary conditions and tests are inspectable.",
       "does_not_imply": "That every UTG visual term has one formal meaning or that a formal model describes nature."
@@ -147,12 +147,19 @@
     {
       "candidate_id": "UTG:FORMAL:APERTURE_TRANSITION:V0.1",
       "title": "Aperture / Transition",
-      "state": "CANDIDATE SPECIFICATION / NOT ADOPTED",
+      "state": "OBJECT-SPECIFIC CONTROL PASS / GENERIC MODEL NOT ADOPTED",
       "record": "SCIENCE_LAB/NAVIGATION/EVIDENCE/UNIFIED_TRANSITION_GEOMETRY_2026-10-06/UTG_SOURCE_AND_FORMAL_CONCORDANCE_01.md",
+      "control_test": {
+        "test_id": "UTG-FORMAL-01",
+        "carrier": "Lorenz-63",
+        "record": "SCIENCE_LAB/NAVIGATION/EVIDENCE/UNIFIED_TRANSITION_GEOMETRY_2026-10-06/UTG_FORMAL_01_LORENZ_CROSSING_CONTROL_2026-10-06/01_RESULT_REPORT.md",
+        "result": "PASS / 8 OF 8 ACCEPTANCE GATES",
+        "scope": "one object-specific crossing classifier"
+      },
       "resolved_distinction": "An aperture is an admitted observation window. A gate adds an explicit admissibility or transition rule at a declared boundary.",
       "minimum_objects": ["state space X", "time/index set T", "trajectory x", "event function g", "boundary B", "observation aperture W", "gate G", "optional transition map R"],
-      "promotion_blockers": ["plate equation symbols undefined", "no mapping from plate equation to event-surface specification", "no generic crossing-control battery", "source-book page lineage unresolved"],
-      "claim_boundary": "Candidate formal specification only; no theorem, universal mechanism or validated application."
+      "promotion_blockers": ["plate equation symbols undefined", "no mapping from plate equation to event-surface specification", "only one numerical carrier controlled", "no application comparison", "source-book page lineage unresolved"],
+      "claim_boundary": "The Lorenz-63 classifier passed its controls; no theorem, universal mechanism, plate-equation validation or validated application follows."
     }
   ],
   "open_questions": [

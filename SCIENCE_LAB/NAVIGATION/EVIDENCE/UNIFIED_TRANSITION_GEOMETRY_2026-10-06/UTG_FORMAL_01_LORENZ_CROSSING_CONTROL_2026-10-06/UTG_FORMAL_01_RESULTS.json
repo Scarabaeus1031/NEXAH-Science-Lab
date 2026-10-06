@@ -1,0 +1,135 @@
+{
+  "test_id": "UTG-FORMAL-01",
+  "status": "PASS",
+  "carrier": {
+    "system": "Lorenz-63",
+    "state_space": "R^3",
+    "parameters": {
+      "sigma": 10.0,
+      "rho": 28.0,
+      "beta": 2.6666666666666665
+    },
+    "initial_state": [
+      1.0,
+      1.0,
+      1.0
+    ],
+    "integrator": "fixed-step RK4",
+    "reference_dt": 0.001,
+    "t_burn": 10.0,
+    "t_end": 100.0
+  },
+  "utg_binding": {
+    "event_function": "g(x,y,z,t)=x",
+    "boundary": "B={(x,y,z) in R^3 | x=0}",
+    "observation_aperture": "W={(x,y,z) in R^3 | |x|<=1}",
+    "crossing_rule": "strict sampled sign change with linear interpolation",
+    "transversality": "dg/dt=sigma*y != 0 at B",
+    "gate": "negative-to-positive and dg/dt>1e-9",
+    "return_map": "identity on section record; no dynamics reset"
+  },
+  "controls": [
+    {
+      "control": "positive_transversal",
+      "expected_classification": "TRANSVERSAL_CROSSING",
+      "observed_classification": "TRANSVERSAL_CROSSING",
+      "expected_admitted": true,
+      "observed_admitted": true,
+      "pass": true
+    },
+    {
+      "control": "negative_transversal",
+      "expected_classification": "TRANSVERSAL_CROSSING",
+      "observed_classification": "TRANSVERSAL_CROSSING",
+      "expected_admitted": false,
+      "observed_admitted": false,
+      "pass": true
+    },
+    {
+      "control": "same_side_near_miss",
+      "expected_classification": "NO_CROSSING",
+      "observed_classification": "NO_CROSSING",
+      "expected_admitted": false,
+      "observed_admitted": false,
+      "pass": true
+    },
+    {
+      "control": "boundary_touch",
+      "expected_classification": "TOUCH_OR_UNRESOLVED",
+      "observed_classification": "TOUCH_OR_UNRESOLVED",
+      "expected_admitted": false,
+      "observed_admitted": false,
+      "pass": true
+    },
+    {
+      "control": "nontransversal_sign_change",
+      "expected_classification": "NONTRANSVERSAL_SIGN_CHANGE",
+      "observed_classification": "NONTRANSVERSAL_SIGN_CHANGE",
+      "expected_admitted": false,
+      "observed_admitted": false,
+      "pass": true
+    }
+  ],
+  "sampling": [
+    {
+      "dt": 0.001,
+      "samples": 90001,
+      "aperture_samples_abs_x_le_1": 8841,
+      "events": 50,
+      "admitted_positive": 25,
+      "rejected_negative": 25,
+      "nontransversal": 0,
+      "max_abs_g_at_interpolated_event": 0.0,
+      "event_time_mae_vs_reference": 0.0,
+      "event_z_mae_vs_reference": 0.0
+    },
+    {
+      "dt": 0.005,
+      "samples": 18001,
+      "aperture_samples_abs_x_le_1": 1768,
+      "events": 50,
+      "admitted_positive": 25,
+      "rejected_negative": 25,
+      "nontransversal": 0,
+      "max_abs_g_at_interpolated_event": 0.0,
+      "event_time_mae_vs_reference": 2.122713890937433e-05,
+      "event_z_mae_vs_reference": 0.0007822659918368302
+    },
+    {
+      "dt": 0.01,
+      "samples": 9001,
+      "aperture_samples_abs_x_le_1": 883,
+      "events": 50,
+      "admitted_positive": 25,
+      "rejected_negative": 25,
+      "nontransversal": 0,
+      "max_abs_g_at_interpolated_event": 0.0,
+      "event_time_mae_vs_reference": 8.620557606800361e-05,
+      "event_z_mae_vs_reference": 0.003189277948426117
+    },
+    {
+      "dt": 0.02,
+      "samples": 4501,
+      "aperture_samples_abs_x_le_1": 441,
+      "events": 50,
+      "admitted_positive": 25,
+      "rejected_negative": 25,
+      "nontransversal": 0,
+      "max_abs_g_at_interpolated_event": 0.0,
+      "event_time_mae_vs_reference": 0.0003633602763087751,
+      "event_z_mae_vs_reference": 0.013412892148379853
+    }
+  ],
+  "acceptance_gates": {
+    "controls": true,
+    "both_directions_present": true,
+    "event_boundary_residual": true,
+    "transversal_direction_consistency": true,
+    "sampling_event_count": true,
+    "coarse_time_mae": true,
+    "coarse_z_mae": true,
+    "identity_return": true
+  },
+  "decision": "OBJECT_SPECIFIC_FORMAL_CONTROL_SUPPORTED",
+  "claim_boundary": "This controls one crossing classifier on one Lorenz-63 trajectory. It does not validate the Series XIV equation, a universal UTG mechanism, a new Lorenz result, a physical application or UTG as a whole."
+}

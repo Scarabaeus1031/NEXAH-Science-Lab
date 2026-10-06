@@ -1,6 +1,6 @@
 # UTG Source & Formal Concordance 01
 
-Status: `COMPLETED BASELINE / FORMAL CANDIDATE NOT ADOPTED`
+Status: `COMPLETED BASELINE / OBJECT-SPECIFIC CONTROL PASS ADDED`
 
 Date: `2026-10-06`
 
@@ -118,15 +118,20 @@ gates.
 | Level | Decision | Reason |
 |---|---|---|
 | Framework | `CURRENT` | vocabulary and distinction are explicit |
-| Formal Model | `CANDIDATE SPECIFICATION` | minimum objects are stated; plate equation remains undefined |
+| Formal Model | `OBJECT-SPECIFIC CONTROL PASS` | the Lorenz-63 crossing classifier passed its preregistered controls; the plate equation remains undefined |
 | Validated Application | `NOT ESTABLISHED` | no controlled test of this generic event/gate model exists |
+
+The result is recorded in
+`UTG_FORMAL_01_LORENZ_CROSSING_CONTROL_2026-10-06/01_RESULT_REPORT.md`.
+It supports one classifier, not a generic application claim; therefore the
+Validated Application level remains unchanged.
 
 ## 8. Next smallest step
 
-Choose one existing executable carrier with an already declared state space and
-trajectory, bind a single event function `g`, and test crossing classification
-against tangency, near-miss, sampling and false-transition controls. Do not
-generalize from the optical aperture case without an explicit mapping contract.
+Recover the source-book/page lineage for the four plates. Open a second carrier
+or nontrivial reset-map test only if a concrete application or A1/A2 reading
+exposes that need. Do not generalize from the Lorenz control or the optical
+aperture case without an explicit mapping contract.
 
 ## Controlling records
 
@@ -134,6 +139,7 @@ generalize from the optical aperture case without an explicit mapping contract.
 - `RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/15_BOUNDARY_ESCAPE_RELATION_SYNTHESIS_2026-10-03.md`
 - `SCIENCE_LAB/CASE_STUDIES/TOP_BOUNDARY_01_ORIENTATION_COMPLEMENT_INTERACTION_2026-09-26/00_README.md`
 - `SCIENCE_LAB/CASE_STUDIES/CIKADA_3301_MANDELBROT_INTAKE/Cikada 3301 Mandelbrot/NEXAH — Harmonic Transition Physics_ Mathematical Research Report.md`
+- `SCIENCE_LAB/NAVIGATION/EVIDENCE/UNIFIED_TRANSITION_GEOMETRY_2026-10-06/UTG_FORMAL_01_LORENZ_CROSSING_CONTROL_2026-10-06/01_RESULT_REPORT.md`
 
 ## Claim boundary
 
