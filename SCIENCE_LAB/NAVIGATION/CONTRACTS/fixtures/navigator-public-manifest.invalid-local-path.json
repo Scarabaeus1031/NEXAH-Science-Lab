@@ -1,0 +1,50 @@
+{
+  "schema": "nexah.navigator.public-manifest",
+  "version": "1.0.0",
+  "profile": "public",
+  "release_state": "released",
+  "publication_authorized": false,
+  "generated_at": "2026-10-06T12:00:00Z",
+  "as_of": "2026-10-06",
+  "title": "Invalid fixture",
+  "language": "en",
+  "governance": {
+    "release_owner": "NEXAH",
+    "selection_record_id": "REC:PRIVATE",
+    "claim_ceiling": "This deliberately invalid fixture must never be published.",
+    "privacy_check": "PASS"
+  },
+  "entities": [
+    {
+      "entity_id": "MOD:LEAKED_INTERNAL_MODULE",
+      "entity_type": "module",
+      "title": "Invalid leaked module",
+      "summary": "This deliberately invalid fixture must be rejected by the contract checks.",
+      "status": "internal-only",
+      "visibility": "public",
+      "claim_ceiling": "No public claim is authorized.",
+      "controlling_record_ids": ["REC:PRIVATE"],
+      "internal": {
+        "repository": "LOCAL",
+        "local_path": "/Users/example/private/module.html",
+        "sha256": "2222222222222222222222222222222222222222222222222222222222222222",
+        "source_state": "private"
+      },
+      "public": {
+        "slug": "invalid",
+        "url": "file:///Users/example/private/module.html",
+        "rights_status": "linked",
+        "attribution": "Unknown",
+        "language": "en"
+      }
+    }
+  ],
+  "relations": [],
+  "build_receipt": {
+    "generated_at": "2026-10-06T12:00:00Z",
+    "generator_version": "invalid-fixture",
+    "source_manifest_sha256": "3333333333333333333333333333333333333333333333333333333333333333",
+    "payload_sha256": "4444444444444444444444444444444444444444444444444444444444444444",
+    "validator_status": "PASS"
+  }
+}

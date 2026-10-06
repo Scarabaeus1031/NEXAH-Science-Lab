@@ -1,0 +1,144 @@
+{
+  "as_of": "2026-10-06",
+  "base_url": "https://nexah.de/navigator/",
+  "build_receipt": {
+    "generated_at": "2026-10-06T12:00:00Z",
+    "generator_version": "navigator-fixture-exporter-0.1.0",
+    "payload_sha256": "b1552cf4c340123a59d193d3095fd8f65d4c4195f00806993c215019187583ee",
+    "rejected_items_report": "rejected-public-items.json",
+    "schema_dialect": "https://json-schema.org/draft/2020-12/schema",
+    "source_manifest_sha256": "64955c5a9257dd70417fbee05ba2cd6e26c96bd20595af2606668ae9a5120a1f",
+    "validator_status": "PASS"
+  },
+  "entities": [
+    {
+      "claim_ceiling": "Orientation and comparison instrument; no physical-law claim.",
+      "connection_family_ids": [
+        "CF:F1",
+        "CF:F2",
+        "CF:F3",
+        "CF:F7"
+      ],
+      "controlling_record_ids": [
+        "REC:DUAL_BELT_PUBLIC_NOTE"
+      ],
+      "entity_id": "MOD:ERITH_DUAL_BELT",
+      "entity_type": "module",
+      "public": {
+        "attribution": "NEXAH",
+        "language": "en",
+        "rights_status": "original",
+        "slug": "dual-belt",
+        "url": "modules/dual-belt/"
+      },
+      "related_entity_ids": [
+        "MOD:TESSAREC_PACKAGING"
+      ],
+      "roles": [
+        "human",
+        "science"
+      ],
+      "status": "public-pilot-candidate",
+      "summary": "A shared seed is read through three address channels while outward and return paths remain distinguishable.",
+      "title": "NEXAH → ERITH · Dual Belt",
+      "visibility": "public"
+    },
+    {
+      "claim_ceiling": "Method illustration; numerical results require a released evidence record.",
+      "connection_family_ids": [
+        "CF:F3",
+        "CF:F5"
+      ],
+      "controlling_record_ids": [
+        "REC:TESSAREC_PUBLIC_NOTE"
+      ],
+      "entity_id": "MOD:TESSAREC_PACKAGING",
+      "entity_type": "module",
+      "public": {
+        "attribution": "NEXAH",
+        "language": "en",
+        "rights_status": "original",
+        "slug": "tessarec-packaging",
+        "url": "modules/tessarec-packaging/"
+      },
+      "related_entity_ids": [
+        "MOD:ERITH_DUAL_BELT"
+      ],
+      "roles": [
+        "human",
+        "science"
+      ],
+      "status": "public-pilot-candidate",
+      "summary": "A continuous projection is compared with bounded Q7 and Q11 staircase readings.",
+      "title": "Tessarec Packaging Channel",
+      "visibility": "public"
+    },
+    {
+      "claim_ceiling": "Explains the interface and its limits; does not validate a physical hypothesis.",
+      "connection_family_ids": [
+        "CF:F2"
+      ],
+      "entity_id": "REC:DUAL_BELT_PUBLIC_NOTE",
+      "entity_type": "record",
+      "public": {
+        "attribution": "NEXAH",
+        "language": "en",
+        "rights_status": "original",
+        "slug": "dual-belt-interpretation",
+        "url": "records/dual-belt-interpretation/"
+      },
+      "related_entity_ids": [
+        "MOD:ERITH_DUAL_BELT"
+      ],
+      "roles": [
+        "editorial",
+        "governance"
+      ],
+      "status": "preview-record",
+      "summary": "Released summary of the observer-relative inside and outside interpretation used by the public module.",
+      "title": "Dual Belt public interpretation note",
+      "visibility": "public"
+    }
+  ],
+  "generated_at": "2026-10-06T12:00:00Z",
+  "governance": {
+    "claim_ceiling": "Orientation and structural comparison; no new physical-law claim.",
+    "privacy_check": "PASS",
+    "release_owner": "NEXAH",
+    "rights_check": "PASS",
+    "selection_record_id": "REC:PUBLIC_SELECTION_FIXTURE"
+  },
+  "language": "en",
+  "profile": "public",
+  "publication_authorized": false,
+  "relations": [
+    {
+      "claim_boundary": "Structural comparison only; empirical performance remains separately testable.",
+      "confidence": "medium",
+      "does_not_imply": [
+        "identical mechanism",
+        "a new physical law",
+        "interchangeable grids"
+      ],
+      "evidence_record_ids": [
+        "REC:DUAL_BELT_PUBLIC_NOTE"
+      ],
+      "explanation": "Both modules separate a continuous carrier from a bounded reading and make the selected cut explicit.",
+      "preserves": [
+        "carrier identity",
+        "declared cut",
+        "return path"
+      ],
+      "relation_id": "REL:DUAL_BELT_TO_TESSAREC",
+      "relation_type": "method-grammar",
+      "source_id": "MOD:ERITH_DUAL_BELT",
+      "status": "bounded",
+      "target_id": "MOD:TESSAREC_PACKAGING",
+      "visibility": "public"
+    }
+  ],
+  "release_state": "preview",
+  "schema": "nexah.navigator.public-manifest",
+  "title": "NEXAH Navigator public contract fixture",
+  "version": "1.0.0"
+}

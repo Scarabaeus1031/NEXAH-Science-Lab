@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://nexah.de/schemas/navigator-internal-manifest.schema.json",
+  "title": "NEXAH Navigator Internal Manifest",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "version",
+    "profile",
+    "generated_at",
+    "as_of",
+    "title",
+    "authority_statement",
+    "currentness",
+    "entities",
+    "relations"
+  ],
+  "properties": {
+    "schema": {"const": "nexah.navigator.internal-manifest"},
+    "version": {"type": "string", "pattern": "^[0-9]+[.][0-9]+[.][0-9]+$"},
+    "profile": {"const": "internal"},
+    "generated_at": {"type": "string", "format": "date-time"},
+    "as_of": {"type": "string", "format": "date"},
+    "title": {"type": "string", "minLength": 2},
+    "authority_statement": {"type": "string", "minLength": 24},
+    "currentness": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "controlling_sources_verified", "errors"],
+      "properties": {
+        "status": {"enum": ["VALID", "INVALID"]},
+        "controlling_sources_verified": {"type": "integer", "minimum": 0},
+        "errors": {"type": "array", "items": {"type": "string"}}
+      }
+    },
+    "entities": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {"$ref": "navigator-entity.schema.json"}
+    },
+    "relations": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {"$ref": "navigator-relation.schema.json"}
+    },
+    "build_receipt": {"$ref": "navigator-release-receipt.schema.json"}
+  }
+}

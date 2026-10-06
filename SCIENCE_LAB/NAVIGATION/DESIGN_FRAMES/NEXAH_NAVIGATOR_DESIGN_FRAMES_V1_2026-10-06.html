@@ -1,0 +1,318 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <title>NEXAH Navigator · Design frames v1</title>
+  <style>
+    :root {
+      --bg: #050b12;
+      --night: #071c33;
+      --panel: #0b1824;
+      --raised: #102333;
+      --paper: #f7f4ed;
+      --soft: #b9c4ce;
+      --faint: #7f909e;
+      --line: rgba(154, 181, 198, .22);
+      --gold: #d9be84;
+      --sage: #86a08a;
+      --sky: #9ab5c6;
+      --cyan: #42d7ed;
+      --amber: #f0b548;
+      --magenta: #e64bab;
+      --green: #55ce96;
+      --violet: #a67af2;
+      --red: #ef6b6b;
+      --serif: Georgia, "Times New Roman", serif;
+      --sans: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      --mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background:
+        radial-gradient(circle at 82% 5%, rgba(154,181,198,.10), transparent 26rem),
+        var(--bg);
+      color: var(--paper);
+      font-family: var(--sans);
+      line-height: 1.55;
+    }
+    a { color: inherit; }
+    a:focus-visible { outline: 3px solid var(--gold); outline-offset: 4px; }
+    button { font: inherit; }
+    .skip {
+      position: fixed; left: 1rem; top: -5rem; z-index: 20;
+      padding: .75rem 1rem; background: var(--paper); color: var(--night);
+    }
+    .skip:focus { top: 1rem; }
+    .prototype-bar {
+      position: sticky; top: 0; z-index: 10;
+      display: flex; justify-content: space-between; gap: 1rem; align-items: center;
+      padding: .65rem clamp(1rem, 4vw, 3rem);
+      background: rgba(5,11,18,.94); border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(14px); color: var(--soft); font-size: .77rem;
+      letter-spacing: .08em; text-transform: uppercase;
+    }
+    .prototype-bar strong { color: var(--amber); }
+    .prototype-bar nav { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .prototype-bar a { text-decoration: none; }
+    .frame {
+      min-height: 100vh;
+      padding: clamp(1.25rem, 4vw, 4.5rem);
+      border-bottom: 1px solid var(--line);
+    }
+    .frame-inner { max-width: 1260px; margin: 0 auto; }
+    .brandline, .utility-row, .eyebrow-row, .split, .path, .status-row {
+      display: flex; align-items: center;
+    }
+    .brandline { justify-content: space-between; gap: 1.5rem; margin-bottom: clamp(4rem, 10vw, 8rem); }
+    .mark { font-weight: 760; letter-spacing: .18em; }
+    .profile { color: var(--faint); font-size: .8rem; }
+    .eyebrow { color: var(--gold); font-size: .75rem; letter-spacing: .18em; text-transform: uppercase; }
+    h1, h2, .display { font-family: var(--serif); font-weight: 400; letter-spacing: -.035em; }
+    h1 { max-width: 920px; margin: .55rem 0 1.4rem; font-size: clamp(3rem, 8vw, 7.4rem); line-height: .96; }
+    h2 { margin: .5rem 0 1.25rem; font-size: clamp(2.25rem, 5vw, 4.8rem); line-height: 1.04; }
+    h3 { margin: 0 0 .65rem; font-size: 1rem; }
+    p { margin: 0; }
+    .lede { max-width: 750px; color: var(--soft); font-size: clamp(1.05rem, 2vw, 1.35rem); }
+    .entrances {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem;
+      margin-top: clamp(3rem, 7vw, 6rem);
+    }
+    .entrance, .panel, .module-card, .relation-card, .boundary, .evidence-card {
+      border: 1px solid var(--line); background: linear-gradient(145deg, rgba(16,35,51,.78), rgba(7,28,51,.40));
+      border-radius: 2px;
+    }
+    .entrance { min-height: 245px; padding: 1.4rem; display: flex; flex-direction: column; justify-content: space-between; text-decoration: none; }
+    .entrance:hover { border-color: var(--gold); transform: translateY(-2px); }
+    .number { color: var(--gold); font-family: var(--mono); font-size: .78rem; }
+    .entrance strong { display: block; font-family: var(--serif); font-size: 1.75rem; font-weight: 400; }
+    .entrance p { color: var(--soft); margin-top: .55rem; }
+    .action { color: var(--sky); font-size: .84rem; }
+    .footnote { margin-top: 2rem; color: var(--faint); font-size: .78rem; }
+
+    .utility-row { justify-content: space-between; gap: 1rem; margin-bottom: 4rem; }
+    .breadcrumb { color: var(--faint); font-size: .8rem; }
+    .tag, .status {
+      display: inline-flex; align-items: center; gap: .45rem;
+      min-height: 32px; padding: .35rem .65rem; border: 1px solid var(--line);
+      color: var(--soft); font-size: .72rem; letter-spacing: .07em; text-transform: uppercase;
+    }
+    .status::before { content: ""; width: .55rem; height: .55rem; border-radius: 50%; background: var(--green); }
+    .status.provisional::before { background: var(--amber); }
+    .path { gap: 1rem; align-items: stretch; margin: 2.5rem 0 1rem; }
+    .module-card { flex: 1; padding: 1.4rem; }
+    .module-card .code { color: var(--faint); font-family: var(--mono); font-size: .72rem; }
+    .module-card h3 { margin-top: 1.2rem; font-family: var(--serif); font-size: 1.8rem; font-weight: 400; }
+    .module-card p { color: var(--soft); }
+    .relation-card { flex: 1.15; padding: 1.4rem; border-color: rgba(217,190,132,.55); background: rgba(143,101,38,.08); }
+    .relation-card h3 { color: var(--gold); }
+    .relation-card dl, .meta-grid dl { margin: 1.2rem 0 0; }
+    dt { color: var(--faint); font-size: .7rem; letter-spacing: .1em; text-transform: uppercase; }
+    dd { margin: .25rem 0 1rem; color: var(--soft); }
+    .arrow { display: grid; place-items: center; color: var(--gold); font-size: 1.4rem; }
+    .detail-grid { display: grid; grid-template-columns: 1.45fr .8fr; gap: 1rem; margin-top: 1rem; }
+    .panel, .boundary { padding: 1.4rem; }
+    .boundary { border-left: 4px solid var(--amber); }
+    .boundary p, .panel p { color: var(--soft); }
+    .residual { border-left-color: var(--violet); }
+    .residual h3 { color: var(--violet); }
+
+    .internal { background: linear-gradient(180deg, rgba(7,28,51,.54), rgba(5,11,18,1)); }
+    .internal-head { display: grid; grid-template-columns: 1fr auto; gap: 1rem; align-items: end; margin-bottom: 2rem; }
+    .internal h2 { font-family: var(--sans); font-size: clamp(2rem, 4vw, 3.5rem); font-weight: 650; letter-spacing: -.04em; }
+    .status-row { gap: .65rem; flex-wrap: wrap; justify-content: flex-end; }
+    .inspector { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(280px, .65fr); gap: 1rem; }
+    .evidence-card { overflow: hidden; }
+    .evidence-head { padding: 1.25rem; border-bottom: 1px solid var(--line); display: flex; justify-content: space-between; gap: 1rem; }
+    .evidence-head code { color: var(--sky); font-family: var(--mono); font-size: .75rem; }
+    .evidence-pair { display: grid; grid-template-columns: 1fr 1fr; }
+    .verdict { padding: 1.4rem; min-height: 250px; }
+    .verdict + .verdict { border-left: 1px solid var(--line); }
+    .verdict .big { margin: 1.2rem 0 .45rem; font-size: 2rem; font-weight: 720; }
+    .verdict p { color: var(--soft); }
+    .verdict.negative .big { color: var(--red); }
+    .verdict.current .big { color: var(--amber); }
+    .meta-grid { display: grid; grid-template-columns: repeat(3, 1fr); padding: 1rem 1.4rem; border-top: 1px solid var(--line); }
+    .meta-grid dd { font-family: var(--mono); font-size: .75rem; overflow-wrap: anywhere; }
+    .checklist { padding: 1.25rem; }
+    .checklist h3 { margin-bottom: 1rem; }
+    .check { display: grid; grid-template-columns: 1.1rem 1fr auto; gap: .65rem; align-items: start; padding: .8rem 0; border-top: 1px solid var(--line); color: var(--soft); font-size: .86rem; }
+    .check .icon { color: var(--green); }
+    .check.open .icon, .check.open strong { color: var(--amber); }
+    .check.stop .icon, .check.stop strong { color: var(--red); }
+    .check strong { color: var(--green); font-size: .72rem; }
+    .gate { margin-top: 1rem; padding: 1rem; border: 1px solid rgba(239,107,107,.55); color: var(--red); font-weight: 700; }
+    .legend { color: var(--faint); font-size: .75rem; margin-top: 1rem; }
+
+    @media (max-width: 900px) {
+      .entrances, .detail-grid, .inspector { grid-template-columns: 1fr; }
+      .path { flex-direction: column; }
+      .arrow { transform: rotate(90deg); min-height: 34px; }
+      .brandline { margin-bottom: 4rem; }
+      .internal-head { grid-template-columns: 1fr; }
+      .status-row { justify-content: flex-start; }
+    }
+    @media (max-width: 620px) {
+      .prototype-bar { position: static; align-items: flex-start; flex-direction: column; }
+      .frame { padding: 1.2rem; }
+      .brandline { align-items: flex-start; flex-direction: column; }
+      .evidence-pair, .meta-grid { grid-template-columns: 1fr; }
+      .verdict + .verdict { border-left: 0; border-top: 1px solid var(--line); }
+      .entrance { min-height: 190px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { transition: none !important; animation: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#frame-public">Skip to design frames</a>
+  <header class="prototype-bar">
+    <strong>Design frame · not a release</strong>
+    <nav aria-label="Frame navigation">
+      <a href="#frame-public">01 Public home</a>
+      <a href="#frame-relation">02 Relation</a>
+      <a href="#frame-internal">03 Inspector</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="frame" id="frame-public" aria-labelledby="public-title">
+      <div class="frame-inner">
+        <div class="brandline">
+          <div class="mark">✦ NEXAH</div>
+          <div class="profile">Navigator · public orientation frame</div>
+        </div>
+        <div class="eyebrow">Explore relations between bounded views</div>
+        <h1 id="public-title">One field.<br>Many ways to read it.</h1>
+        <p class="lede">NEXAH connects instruments, models and evidence without pretending that similar views are identical. Start with a field, follow a relation, and keep the boundary visible.</p>
+
+        <div class="entrances" aria-label="Three public entrances">
+          <a class="entrance" href="#frame-relation">
+            <span class="number">01 · ORIENT</span>
+            <span><strong>See the field</strong><p>Begin with carrier, boundary, observer and trace.</p></span>
+            <span class="action">Enter orientation →</span>
+          </a>
+          <a class="entrance" href="#frame-relation">
+            <span class="number">02 · CONNECT</span>
+            <span><strong>Follow a relation</strong><p>See why two modules connect—and what the connection does not mean.</p></span>
+            <span class="action">Follow one path →</span>
+          </a>
+          <a class="entrance" href="#frame-relation">
+            <span class="number">03 · INSPECT</span>
+            <span><strong>Read the evidence</strong><p>Compare a package verdict with its current interpretation.</p></span>
+            <span class="action">Inspect released evidence →</span>
+          </a>
+        </div>
+        <p class="footnote">Sample content for visual review. No module, result or publication state is released by this frame.</p>
+      </div>
+    </section>
+
+    <section class="frame" id="frame-relation" aria-labelledby="relation-title">
+      <div class="frame-inner">
+        <div class="utility-row">
+          <div class="breadcrumb">Navigator / Modules / Dual Belt / Relations</div>
+          <span class="status">Curated connection</span>
+        </div>
+        <div class="eyebrow-row"><span class="eyebrow">Module relation · CF:F3 / CF:F5</span></div>
+        <h2 id="relation-title">From address channels<br>to comparable cuts.</h2>
+        <p class="lede">The relation is useful because it carries a method grammar forward. It is bounded because the mechanisms and evidence packages remain distinct.</p>
+
+        <div class="path" aria-label="Relation path from Dual Belt to Tessarec Packaging">
+          <article class="module-card">
+            <span class="code">MOD:ERITH_DUAL_BELT</span>
+            <h3>NEXAH → ERITH · Dual Belt</h3>
+            <p>One carrier, three directed address channels and two distinguishable paths.</p>
+          </article>
+          <div class="arrow" aria-hidden="true">→</div>
+          <article class="relation-card">
+            <h3>Method grammar</h3>
+            <p>A continuous carrier is rendered as a bounded reading whose cut and return path remain explicit.</p>
+            <dl>
+              <dt>Preserves</dt>
+              <dd>Carrier identity · declared cut · return path</dd>
+              <dt>Does not imply</dt>
+              <dd>Identical mechanism · interchangeable grids · new physical law</dd>
+            </dl>
+          </article>
+          <div class="arrow" aria-hidden="true">→</div>
+          <article class="module-card">
+            <span class="code">MOD:TESSAREC_PACKAGING</span>
+            <h3>Tessarec Packaging Channel</h3>
+            <p>A continuous projection compared with bounded Q7 and Q11 staircase readings.</p>
+          </article>
+        </div>
+
+        <div class="detail-grid">
+          <aside class="boundary" aria-labelledby="claim-boundary-title">
+            <h3 id="claim-boundary-title">Claim boundary</h3>
+            <p>This page shows a structural comparison. Q11’s measured advantage belongs to its named test and does not prove a general property of every grid, field or physical system.</p>
+          </aside>
+          <aside class="boundary residual" aria-labelledby="residual-title">
+            <h3 id="residual-title">The Rest · still open</h3>
+            <p>Transfer outside the tested packaging setup remains provisional and requires a separate record.</p>
+          </aside>
+        </div>
+        <p class="footnote">The textual path is primary. A spatial graph may supplement it, never replace this explanation.</p>
+      </div>
+    </section>
+
+    <section class="frame internal" id="frame-internal" aria-labelledby="internal-title">
+      <div class="frame-inner">
+        <div class="internal-head">
+          <div>
+            <div class="eyebrow">Mission Control · internal profile</div>
+            <h2 id="internal-title">Evidence & admission inspector</h2>
+          </div>
+          <div class="status-row">
+            <span class="tag">Currentness · valid</span>
+            <span class="status provisional">Public admission · open</span>
+          </div>
+        </div>
+
+        <div class="inspector">
+          <article class="evidence-card">
+            <header class="evidence-head">
+              <div><strong>Polar-Janus · Test 09 · Phase-Schlieren</strong><br><span class="profile">Evidence pair</span></div>
+              <code>EVID:POLAR_JANUS_TEST_09</code>
+            </header>
+            <div class="evidence-pair">
+              <section class="verdict negative" aria-labelledby="local-verdict-title">
+                <span class="eyebrow" id="local-verdict-title">Package-local verdict</span>
+                <div class="big">NO_SUPPORT</div>
+                <p>The named holdout does not support the tested improvement claim. This state is retained, not overwritten.</p>
+              </section>
+              <section class="verdict current" aria-labelledby="current-interpretation-title">
+                <span class="eyebrow" id="current-interpretation-title">Current interpretation</span>
+                <div class="big">Bounded negative result</div>
+                <p>Useful as a constraint on the phase-channel proposal. It does not invalidate the broader orientation architecture.</p>
+              </section>
+            </div>
+            <div class="meta-grid">
+              <dl><dt>Controlling record</dt><dd>REC:POLAR_JANUS_09</dd></dl>
+              <dl><dt>Source state</dt><dd>retained · hash verified</dd></dl>
+              <dl><dt>Relation use</dt><dd>negative-control</dd></dl>
+            </div>
+          </article>
+
+          <aside class="panel checklist" aria-labelledby="admission-title">
+            <h3 id="admission-title">Public admission</h3>
+            <div class="check"><span class="icon">✓</span><span>Human-readable title and summary</span><strong>PASS</strong></div>
+            <div class="check"><span class="icon">✓</span><span>Claim boundary retained</span><strong>PASS</strong></div>
+            <div class="check"><span class="icon">✓</span><span>Negative result remains visible</span><strong>PASS</strong></div>
+            <div class="check open"><span class="icon">◇</span><span>Rights and public source summary</span><strong>OPEN</strong></div>
+            <div class="check stop"><span class="icon">×</span><span>Explicit release authorization</span><strong>STOP</strong></div>
+            <div class="gate">NOT ADMITTED TO PUBLIC BUILD</div>
+            <p class="legend">Color is always paired with a word and symbol. Local paths and private Mission Control fields never enter the public manifest.</p>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

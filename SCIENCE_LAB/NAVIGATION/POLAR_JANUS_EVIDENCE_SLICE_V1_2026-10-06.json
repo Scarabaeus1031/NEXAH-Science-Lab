@@ -1,0 +1,226 @@
+{
+  "schema": "nexah.evidence-connection-slice/1.0.0",
+  "date": "2026-10-06",
+  "scope": "POLAR_JANUS_HISTORICAL_AND_CURRENT_BRIDGE",
+  "status": "PARTIAL_TYPED_SLICE / NAVIGATION_METADATA / NO_CLAIM_PROMOTION",
+  "controlling_intakes": [
+    "SCIENCE_LAB/CASE_STUDIES/INTAKE_REPORT_GEMINI_POLARPASS_SUITE_2026-08-22.md",
+    "SCIENCE_LAB/CASE_STUDIES/INTAKE_REPORT_ORION_POLAR_PASS_MAASTRICHT_2026-08-22.md"
+  ],
+  "governance": {
+    "historical_packages": "ARCHIVED_EVIDENCE_CASE_STUDY / SCIENTIFIC_CLAIMS_NOT_ADOPTED",
+    "current_study": "POLAR_LOD_01_PROSPECTIVE_VALIDATION_2026_10_01 / FILED / NO_RESULT / NO_ACTIVATION",
+    "rule": "Preserve package-local verdicts, then apply the later intake and current-study claim ceiling. A PASS label never propagates automatically into NEXAH Core."
+  },
+  "evidence_nodes": [
+    {
+      "evidence_id": "EVID:PJ:TEST02",
+      "title": "Polar-Janus Test 02 — navigation simulation",
+      "kind": "simulation",
+      "local_verdict": "PASS / 66.5_PERCENT_RMS_REDUCTION",
+      "current_interpretation": "Retained-phase simulation; not human-use evidence and not new astronomy.",
+      "record": "SCIENCE_LAB/CASE_STUDIES/Orion_POLAR:Pass Maastricht/Polar-Janus-Test-02-Download/test_02_navigation_report_de.md",
+      "related_modules": ["MOD:TRANSVERSUM_TWO_CUT", "MOD:OPERATOR_DEMONSTRATOR"],
+      "connection_families": ["CF:F1", "CF:F3", "CF:F7"],
+      "thesis_routes": ["TM-10", "TM-13"]
+    },
+    {
+      "evidence_id": "EVID:PJ:TEST03",
+      "title": "Polar-Janus Test 03 — simulated generalisation",
+      "kind": "simulation",
+      "local_verdict": "PASS_OVER_32_SIMULATED_CONDITIONS",
+      "current_interpretation": "Classical dynamic correction transfers; a site/angle invariant was rejected.",
+      "record": "SCIENCE_LAB/CASE_STUDIES/Orion_POLAR:Pass Maastricht/Polar-Janus-Test-03-Download/test_03_generalisation_report_de.md",
+      "related_modules": ["MOD:OPERATOR_DEMONSTRATOR"],
+      "connection_families": ["CF:F3", "CF:F7"],
+      "thesis_routes": ["TM-13"]
+    },
+    {
+      "evidence_id": "EVID:PJ:TEST04",
+      "title": "Polar-Janus Test 04 — field package",
+      "kind": "preregistered_field_package",
+      "local_verdict": "READY / DRY_RUN_PASS",
+      "current_interpretation": "No field data; readiness and dry-run status are not empirical evidence.",
+      "record": "SCIENCE_LAB/CASE_STUDIES/Orion_POLAR:Pass Maastricht/Polar-Janus-Test-04-Field-Package/test_04_status_de.txt",
+      "related_modules": ["MOD:OPERATOR_DEMONSTRATOR"],
+      "connection_families": ["CF:F1", "CF:F7"],
+      "thesis_routes": ["TM-01"]
+    },
+    {
+      "evidence_id": "EVID:PJ:TEST04A",
+      "title": "Polar-Janus Test 04A — archive coordinate benchmark",
+      "kind": "archive_benchmark",
+      "local_verdict": "PASS",
+      "current_interpretation": "Standards-based coordinate-translation evidence; not smartphone or new-field validation.",
+      "record": "SCIENCE_LAB/CASE_STUDIES/Orion_POLAR:Pass Maastricht/Polar-Janus-Test-04A-Archive/test_04a_archive_report_de.md",
+      "related_modules": ["MOD:OBSERVATORY_MIWA", "MOD:TRANSVERSUM_TWO_CUT"],
+      "connection_families": ["CF:F1", "CF:F3", "CF:F7"],
+      "thesis_routes": ["TM-09", "TM-13"]
+    },
+    {
+      "evidence_id": "EVID:PJ:TEST04C",
+      "title": "Polar-Janus Test 04C — five clocks, one observer",
+      "kind": "archive_comparison",
+      "local_verdict": "PASS",
+      "current_interpretation": "Established astronomical beat periods reorganized as observer-relative orientation grammar.",
+      "record": "SCIENCE_LAB/CASE_STUDIES/Orion_POLAR:Pass Maastricht/Polar-Janus-Test-04C-Five-Clocks-One-Observer/test_04c_report_de.md",
+      "related_modules": ["MOD:OBSERVATORY_MIWA", "MOD:FIVE_H_PHASE_CUT"],
+      "connection_families": ["CF:F1", "CF:F4", "CF:F7"],
+      "thesis_routes": ["TM-01", "TM-13"]
+    },
+    {
+      "evidence_id": "EVID:PJ:TEST05_Q7",
+      "title": "Polar-Janus Test 05 — Q7 axis",
+      "kind": "finite_algebraic_test",
+      "local_verdict": "ALGEBRAIC_PASS / COMMON_PATTERN",
+      "current_interpretation": "Exact modular orientation grammar, but 12 of 40 null progressions also match; no distinctive or physical pass.",
+      "record": "SCIENCE_LAB/CASE_STUDIES/Orion_POLAR:Pass Maastricht/Polar-Janus-Test-05-Q7-Axis/test_05_q7_report_de.txt",
+      "related_modules": ["MOD:TESSAREC", "MOD:NUMBER_VIEW_SUITE"],
+      "connection_families": ["CF:F2", "CF:F3", "CF:F7"],
+      "thesis_routes": ["TM-13"]
+    },
+    {
+      "evidence_id": "EVID:PJ:TEST06",
+      "title": "Polar-Janus Test 06 — lunar aperture elevator",
+      "kind": "representation_test",
+      "local_verdict": "REPRESENTATIONAL_PASS",
+      "current_interpretation": "Ephemeris trace representation; not a new astronomical mechanism.",
+      "record": "SCIENCE_LAB/CASE_STUDIES/Orion_POLAR:Pass Maastricht/Polar-Janus-Test-06-Lunar-Aperture-Elevator/test_06_report_de.txt",
+      "related_modules": ["MOD:TRANSVERSUM_TWO_CUT", "MOD:OPERATOR_DEMONSTRATOR"],
+      "connection_families": ["CF:F1", "CF:F2", "CF:F4"],
+      "thesis_routes": ["TM-03", "TM-04", "TM-13"]
+    },
+    {
+      "evidence_id": "EVID:PJ:TEST07",
+      "title": "Polar-Janus Test 07 — theta seam and closure",
+      "kind": "mixed_preregistered_and_robustness_test",
+      "local_verdict": "07A_PREREG_FAIL / 07B_ROBUSTNESS_PASS / MODEL_MIXED",
+      "current_interpretation": "Theta is confirmed as a seam-free translation coordinate; a constant ring is not a complete ephemeris model.",
+      "record": "SCIENCE_LAB/CASE_STUDIES/Orion_POLAR:Pass Maastricht/Polar-Janus-Test-07-Theta-Seam-Closure/test_07_report_de.txt",
+      "related_modules": ["MOD:TRANSVERSUM_TWO_CUT", "MOD:TESSAREC"],
+      "connection_families": ["CF:F3", "CF:F4", "CF:F7"],
+      "thesis_routes": ["TM-09", "TM-10", "TM-13"]
+    },
+    {
+      "evidence_id": "EVID:PJ:TEST08",
+      "title": "Polar-Janus Test 08 — historical LOD holdout",
+      "kind": "historical_prediction_test",
+      "local_verdict": "PASS / 10.969_PERCENT_GAIN_VS_ORIGINAL_M1",
+      "current_interpretation": "Screened reproduction candidate only; chronology is not independently sealed and the candidate does not beat the later qualified geophysical baseline on known 2025 data.",
+      "record": "SCIENCE_LAB/CASE_STUDIES/Orion_POLAR:Pass Maastricht/Polar-Janus-Test-08-LOD-Holdout/test_08_lod_report_de.txt",
+      "related_modules": ["MOD:FIVE_H_PHASE_CUT", "MOD:RUNTIME_COMPARISON"],
+      "connection_families": ["CF:F4", "CF:F6", "CF:F7"],
+      "thesis_routes": ["TM-11", "TM-13"]
+    },
+    {
+      "evidence_id": "EVID:PJ:TEST08C",
+      "title": "Polar-Janus Test 08C — local specificity",
+      "kind": "post_hoc_robustness_test",
+      "local_verdict": "PASS_IN_KNOWN_HOLDOUTS",
+      "current_interpretation": "Post-hoc robustness context; not independent confirmation and not causality.",
+      "record": "SCIENCE_LAB/CASE_STUDIES/Orion_POLAR:Pass Maastricht/NEXAH-Test-08C-Paket/test_08c_report_de.txt",
+      "related_modules": ["MOD:FIVE_H_PHASE_CUT", "MOD:RUNTIME_COMPARISON"],
+      "connection_families": ["CF:F4", "CF:F7"],
+      "thesis_routes": ["TM-11", "TM-13"]
+    },
+    {
+      "evidence_id": "EVID:PJ:TEST09",
+      "title": "Polar-Janus Test 09 — phase quadrature and schlieren",
+      "kind": "feasibility_holdout",
+      "local_verdict": "NO_SUPPORT",
+      "current_interpretation": "Quadrature is mathematically exact, but the +9.361% apparent gain ranks only at the 27.0th percentile of circular-shift nulls.",
+      "record": "SCIENCE_LAB/CASE_STUDIES/Orion_POLAR:Pass Maastricht/NEXAH-Polar-Janus-Test-09-Phase-Schlieren/results/report_de.txt",
+      "related_modules": ["MOD:FIVE_H_PHASE_CUT", "MOD:OPERATOR_DEMONSTRATOR"],
+      "connection_families": ["CF:F3", "CF:F4", "CF:F7"],
+      "thesis_routes": ["TM-11", "TM-13"]
+    },
+    {
+      "evidence_id": "EVID:PJ:Q11_TESSAREC",
+      "title": "Q11 Tessarec packaging and Euler staircase",
+      "kind": "historical_preregistration_and_simulation_family",
+      "local_verdict": "MULTIPLE_UPDATED_PREREGISTRATIONS / NO_FUTURE_RESULT",
+      "current_interpretation": "Q7/Q11/Tesserac/SU(3) expansion remains unresolved and speculative; the simulation scales a constructed trace into historical gain ranges and is not an independent physical model.",
+      "record": "SCIENCE_LAB/CASE_STUDIES/GEMINI POLARPASS Suite/test_08d_preregistration_q11-v8.md",
+      "related_modules": ["MOD:TESSAREC", "MOD:TRANSVERSUM_TWO_CUT", "MOD:NUMBER_VIEW_SUITE"],
+      "connection_families": ["CF:F2", "CF:F3", "CF:F4", "CF:F7"],
+      "thesis_routes": ["TM-09", "TM-10", "TM-13"]
+    },
+    {
+      "evidence_id": "EVID:POLAR_LOD:CURRENT",
+      "title": "POLAR-LOD-01 — prospective LOD validation",
+      "kind": "current_preregistered_study",
+      "local_verdict": "FILED / NO_RESULT / NO_ACTIVATION",
+      "current_interpretation": "Current authoritative route for the bounded prediction-method question; collection release is not granted and no prospective execution has occurred.",
+      "record": "SCIENCE_LAB/CASE_STUDIES/POLAR_LOD_01_PROSPECTIVE_VALIDATION_2026-10-01/00_README.md",
+      "related_modules": ["MOD:RUNTIME_COMPARISON", "MOD:FIVE_H_PHASE_CUT", "MOD:MISSION_CONTROL_COMPASS"],
+      "connection_families": ["CF:F4", "CF:F6", "CF:F7"],
+      "thesis_routes": ["TM-11", "TM-13"]
+    },
+    {
+      "evidence_id": "EVID:POLAR_LOD:BASELINE",
+      "title": "POLAR-LOD-BL-01 — strong baseline qualification",
+      "kind": "historical_method_qualification",
+      "local_verdict": "BASELINE_READY / NO_PROSPECTIVE_RESULT",
+      "current_interpretation": "Qualifies statistical and IERS zonal-tide comparators; on known 2025 data the old candidate does not beat the geophysical baseline.",
+      "record": "SCIENCE_LAB/CASE_STUDIES/POLAR_LOD_BL_01_BASELINE_QUALIFICATION_2026-10-01/00_README.md",
+      "related_modules": ["MOD:RUNTIME_COMPARISON"],
+      "connection_families": ["CF:F6", "CF:F7"],
+      "thesis_routes": ["TM-11"]
+    },
+    {
+      "evidence_id": "EVID:POLAR_LOD:EAM",
+      "title": "POLAR-LOD-EAM-01 — operational baseline qualification",
+      "kind": "sealed_historical_method_qualification",
+      "local_verdict": "FIFTH_REPAIR_INDEPENDENTLY_ACCEPTED / HISTORICAL_METHOD_ONLY",
+      "current_interpretation": "Accepted historical B3 comparator method; no prospective execution authority or prospective result.",
+      "record": "SCIENCE_LAB/CASE_STUDIES/POLAR_LOD_EAM_01_OPERATIONAL_BASELINE_QUALIFICATION_2026-10-01/00_README.md",
+      "related_modules": ["MOD:RUNTIME_COMPARISON", "MOD:MISSION_CONTROL_COMPASS"],
+      "connection_families": ["CF:F6", "CF:F7"],
+      "thesis_routes": ["TM-11"]
+    }
+  ],
+  "relations": [
+    {
+      "relation_id": "EVIDREL:PJ08_TO_POLAR_LOD",
+      "source": "EVID:PJ:TEST08",
+      "target": "EVID:POLAR_LOD:CURRENT",
+      "type": "screened_historical_predecessor",
+      "explanation": "The historical 10.969% result motivates the bounded prospective question but is not confirmation."
+    },
+    {
+      "relation_id": "EVIDREL:PJ08C_TO_POLAR_LOD",
+      "source": "EVID:PJ:TEST08C",
+      "target": "EVID:POLAR_LOD:CURRENT",
+      "type": "post_hoc_context",
+      "explanation": "Local specificity informs controls but cannot serve as independent confirmation."
+    },
+    {
+      "relation_id": "EVIDREL:BASELINE_TO_POLAR_LOD",
+      "source": "EVID:POLAR_LOD:BASELINE",
+      "target": "EVID:POLAR_LOD:CURRENT",
+      "type": "qualified_comparator",
+      "explanation": "The prospective study must compare against the stronger statistical and geophysical baselines."
+    },
+    {
+      "relation_id": "EVIDREL:EAM_TO_POLAR_LOD",
+      "source": "EVID:POLAR_LOD:EAM",
+      "target": "EVID:POLAR_LOD:CURRENT",
+      "type": "qualified_operational_comparator",
+      "explanation": "The sealed historical B3 method supports a future bounded operational comparison, not a current result."
+    },
+    {
+      "relation_id": "EVIDREL:Q7_TO_Q11",
+      "source": "EVID:PJ:TEST05_Q7",
+      "target": "EVID:PJ:Q11_TESSAREC",
+      "type": "representation_expansion",
+      "explanation": "An exact but non-distinctive Q7 grammar was expanded into Q11/Tessarec representations; empirical authority does not transfer."
+    },
+    {
+      "relation_id": "EVIDREL:SCHLIEREN_NEGATIVE_CONTROL",
+      "source": "EVID:PJ:TEST09",
+      "target": "EVID:POLAR_LOD:CURRENT",
+      "type": "negative_boundary",
+      "explanation": "The exact quadrature construction did not show specific predictive support and therefore constrains stronger phase-channel claims."
+    }
+  ]
+}

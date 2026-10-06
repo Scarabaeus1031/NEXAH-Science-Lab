@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://nexah.de/schemas/navigator-release-receipt.schema.json",
+  "title": "NEXAH Navigator Release Receipt",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "generated_at",
+    "generator_version",
+    "source_manifest_sha256",
+    "payload_sha256",
+    "validator_status"
+  ],
+  "properties": {
+    "generated_at": {"type": "string", "format": "date-time"},
+    "generator_version": {"type": "string", "minLength": 1},
+    "source_manifest_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "payload_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "bundle_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "validator_status": {"const": "PASS"},
+    "schema_dialect": {"const": "https://json-schema.org/draft/2020-12/schema"},
+    "rejected_items_report": {
+      "type": "string",
+      "pattern": "^(https://|[.]/|[.][.]/|[A-Za-z0-9][A-Za-z0-9._~/-]*)",
+      "not": {"pattern": "^(file:|/Users/)"}
+    },
+    "previous_release_id": {"type": "string", "minLength": 2}
+  }
+}

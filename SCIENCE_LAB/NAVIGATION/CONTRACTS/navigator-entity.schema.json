@@ -1,0 +1,117 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://nexah.de/schemas/navigator-entity.schema.json",
+  "title": "NEXAH Navigator Entity",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "entity_id",
+    "entity_type",
+    "title",
+    "summary",
+    "status",
+    "visibility",
+    "claim_ceiling"
+  ],
+  "properties": {
+    "entity_id": {
+      "type": "string",
+      "pattern": "^(CF|HL|3D|SUBJ|MOD|ART|MEDIA|EVID|REC|RELEASE):[A-Z0-9][A-Z0-9:_-]*$"
+    },
+    "entity_type": {
+      "enum": ["family", "module", "surface", "media", "evidence", "record", "release"]
+    },
+    "title": {"type": "string", "minLength": 2},
+    "summary": {"type": "string", "minLength": 12},
+    "status": {"type": "string", "minLength": 2},
+    "visibility": {"enum": ["internal", "public_candidate", "public"]},
+    "claim_ceiling": {"type": "string", "minLength": 12},
+    "controlling_record_ids": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {"type": "string", "minLength": 2}
+    },
+    "aliases": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {"type": "string"}
+    },
+    "tags": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {"type": "string"}
+    },
+    "roles": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {"enum": ["human", "builder", "science", "editorial", "governance"]}
+    },
+    "connection_family_ids": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {"type": "string", "pattern": "^CF:F[1-7]$"}
+    },
+    "related_entity_ids": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {"type": "string"}
+    },
+    "public": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["slug", "url", "rights_status", "attribution", "language"],
+      "properties": {
+        "slug": {"type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"},
+        "url": {
+          "type": "string",
+          "pattern": "^(https://|\\./|\\.\\./|[A-Za-z0-9][A-Za-z0-9._~/-]*)",
+          "not": {"pattern": "^(file:|/Users/|[A-Za-z]:\\\\)"}
+        },
+        "rights_status": {"enum": ["cleared", "original", "linked", "public_domain"]},
+        "attribution": {"type": "string", "minLength": 2},
+        "language": {"type": "string", "pattern": "^[a-z]{2}(?:-[A-Z]{2})?$"},
+        "release_notes": {"type": "string"}
+      }
+    },
+    "internal": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "repository": {"type": "string"},
+        "local_path": {"type": "string"},
+        "sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+        "source_state": {"type": "string"}
+      }
+    },
+    "attributes": {"type": "object"}
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "entity_type": {
+            "enum": ["family", "module", "surface", "media", "evidence"]
+          }
+        },
+        "required": ["entity_type"]
+      },
+      "then": {
+        "required": ["controlling_record_ids"],
+        "properties": {
+          "controlling_record_ids": {"type": "array", "minItems": 1}
+        }
+      }
+    },
+    {
+      "if": {"properties": {"visibility": {"const": "public"}}, "required": ["visibility"]},
+      "then": {
+        "properties": {"public": {}},
+        "required": ["public"],
+        "not": {
+          "properties": {"internal": {}},
+          "required": ["internal"]
+        }
+      }
+    }
+  ]
+}

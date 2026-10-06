@@ -1,0 +1,105 @@
+{
+  "schema": "nexah.navigator.public-manifest",
+  "version": "1.0.0",
+  "profile": "public",
+  "release_state": "preview",
+  "publication_authorized": false,
+  "generated_at": "2026-10-06T12:00:00Z",
+  "as_of": "2026-10-06",
+  "title": "NEXAH Navigator public contract fixture",
+  "language": "en",
+  "base_url": "https://nexah.de/navigator/",
+  "governance": {
+    "release_owner": "NEXAH",
+    "selection_record_id": "REC:PUBLIC_SELECTION_FIXTURE",
+    "claim_ceiling": "Orientation and structural comparison; no new physical-law claim.",
+    "privacy_check": "PASS",
+    "rights_check": "PASS"
+  },
+  "entities": [
+    {
+      "entity_id": "MOD:ERITH_DUAL_BELT",
+      "entity_type": "module",
+      "title": "NEXAH → ERITH · Dual Belt",
+      "summary": "A shared seed is read through three address channels while outward and return paths remain distinguishable.",
+      "status": "public-pilot-candidate",
+      "visibility": "public",
+      "claim_ceiling": "Orientation and comparison instrument; no physical-law claim.",
+      "controlling_record_ids": ["REC:DUAL_BELT_PUBLIC_NOTE"],
+      "roles": ["human", "science"],
+      "connection_family_ids": ["CF:F1", "CF:F2", "CF:F3", "CF:F7"],
+      "related_entity_ids": ["MOD:TESSAREC_PACKAGING"],
+      "public": {
+        "slug": "dual-belt",
+        "url": "modules/dual-belt/",
+        "rights_status": "original",
+        "attribution": "NEXAH",
+        "language": "en"
+      }
+    },
+    {
+      "entity_id": "MOD:TESSAREC_PACKAGING",
+      "entity_type": "module",
+      "title": "Tessarec Packaging Channel",
+      "summary": "A continuous projection is compared with bounded Q7 and Q11 staircase readings.",
+      "status": "public-pilot-candidate",
+      "visibility": "public",
+      "claim_ceiling": "Method illustration; numerical results require a released evidence record.",
+      "controlling_record_ids": ["REC:TESSAREC_PUBLIC_NOTE"],
+      "roles": ["human", "science"],
+      "connection_family_ids": ["CF:F3", "CF:F5"],
+      "related_entity_ids": ["MOD:ERITH_DUAL_BELT"],
+      "public": {
+        "slug": "tessarec-packaging",
+        "url": "modules/tessarec-packaging/",
+        "rights_status": "original",
+        "attribution": "NEXAH",
+        "language": "en"
+      }
+    },
+    {
+      "entity_id": "REC:DUAL_BELT_PUBLIC_NOTE",
+      "entity_type": "record",
+      "title": "Dual Belt public interpretation note",
+      "summary": "Released summary of the observer-relative inside and outside interpretation used by the public module.",
+      "status": "preview-record",
+      "visibility": "public",
+      "claim_ceiling": "Explains the interface and its limits; does not validate a physical hypothesis.",
+      "roles": ["editorial", "governance"],
+      "connection_family_ids": ["CF:F2"],
+      "related_entity_ids": ["MOD:ERITH_DUAL_BELT"],
+      "public": {
+        "slug": "dual-belt-interpretation",
+        "url": "records/dual-belt-interpretation/",
+        "rights_status": "original",
+        "attribution": "NEXAH",
+        "language": "en"
+      }
+    }
+  ],
+  "relations": [
+    {
+      "relation_id": "REL:DUAL_BELT_TO_TESSAREC",
+      "source_id": "MOD:ERITH_DUAL_BELT",
+      "target_id": "MOD:TESSAREC_PACKAGING",
+      "relation_type": "method-grammar",
+      "explanation": "Both modules separate a continuous carrier from a bounded reading and make the selected cut explicit.",
+      "evidence_record_ids": ["REC:DUAL_BELT_PUBLIC_NOTE"],
+      "preserves": ["carrier identity", "declared cut", "return path"],
+      "does_not_imply": ["identical mechanism", "a new physical law", "interchangeable grids"],
+      "claim_boundary": "Structural comparison only; empirical performance remains separately testable.",
+      "status": "bounded",
+      "visibility": "public",
+      "confidence": "medium"
+    }
+  ],
+  "build_receipt": {
+    "generated_at": "2026-10-06T12:00:00Z",
+    "generator_version": "planning-fixture-1",
+    "source_manifest_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+    "payload_sha256": "1111111111111111111111111111111111111111111111111111111111111111",
+    "validator_status": "PASS",
+    "schema_dialect": "https://json-schema.org/draft/2020-12/schema",
+    "rejected_items_report": "fixtures/rejected-items.json"
+  }
+}

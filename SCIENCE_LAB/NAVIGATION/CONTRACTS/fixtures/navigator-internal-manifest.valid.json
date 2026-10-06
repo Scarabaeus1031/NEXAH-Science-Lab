@@ -1,0 +1,59 @@
+{
+  "schema": "nexah.navigator.internal-manifest",
+  "version": "1.0.0",
+  "profile": "internal",
+  "generated_at": "2026-10-06T12:00:00Z",
+  "as_of": "2026-10-06",
+  "title": "NEXAH Navigator internal contract fixture",
+  "authority_statement": "Read-only Mission Control projection; source records retain all scientific and release authority.",
+  "currentness": {
+    "status": "VALID",
+    "controlling_sources_verified": 1,
+    "errors": []
+  },
+  "entities": [
+    {
+      "entity_id": "MOD:INTERNAL_FIXTURE",
+      "entity_type": "module",
+      "title": "Internal fixture module",
+      "summary": "A minimal internal entity retaining repository and local custody metadata.",
+      "status": "internal-review",
+      "visibility": "internal",
+      "claim_ceiling": "Contract fixture only; no scientific or publication claim.",
+      "controlling_record_ids": ["REC:INTERNAL_FIXTURE"],
+      "roles": ["builder", "governance"],
+      "internal": {
+        "repository": "NEXAH-Science-Lab",
+        "local_path": "SCIENCE_LAB/NAVIGATION/CONTRACTS/fixtures",
+        "sha256": "5555555555555555555555555555555555555555555555555555555555555555",
+        "source_state": "fixture"
+      }
+    },
+    {
+      "entity_id": "REC:INTERNAL_FIXTURE",
+      "entity_type": "record",
+      "title": "Internal fixture record",
+      "summary": "A minimal record demonstrating that record entities need not control themselves.",
+      "status": "internal-review",
+      "visibility": "internal",
+      "claim_ceiling": "Contract fixture only; no authority transfer.",
+      "roles": ["governance"]
+    }
+  ],
+  "relations": [
+    {
+      "relation_id": "REL:INTERNAL_FIXTURE_RECORD",
+      "source_id": "MOD:INTERNAL_FIXTURE",
+      "target_id": "REC:INTERNAL_FIXTURE",
+      "relation_type": "represents",
+      "explanation": "The record controls the interpretation boundary of the internal fixture module.",
+      "evidence_record_ids": ["REC:INTERNAL_FIXTURE"],
+      "preserves": ["source identity", "claim ceiling"],
+      "does_not_imply": ["publication approval", "scientific validation"],
+      "claim_boundary": "Internal contract demonstration only.",
+      "status": "bounded",
+      "visibility": "internal",
+      "confidence": "not_applicable"
+    }
+  ]
+}

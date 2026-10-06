@@ -1,0 +1,73 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://nexah.de/schemas/navigator-public-manifest.schema.json",
+  "title": "NEXAH Navigator Public Manifest",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "version",
+    "profile",
+    "release_state",
+    "publication_authorized",
+    "generated_at",
+    "as_of",
+    "title",
+    "language",
+    "governance",
+    "entities",
+    "relations",
+    "build_receipt"
+  ],
+  "properties": {
+    "schema": {"const": "nexah.navigator.public-manifest"},
+    "version": {"type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"},
+    "profile": {"const": "public"},
+    "release_state": {"enum": ["preview", "release_candidate", "released"]},
+    "publication_authorized": {"type": "boolean"},
+    "generated_at": {"type": "string", "format": "date-time"},
+    "as_of": {"type": "string", "format": "date"},
+    "title": {"type": "string", "minLength": 2},
+    "language": {"type": "string", "pattern": "^[a-z]{2}(?:-[A-Z]{2})?$"},
+    "base_url": {"type": "string", "pattern": "^https://"},
+    "governance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["release_owner", "selection_record_id", "claim_ceiling", "privacy_check"],
+      "properties": {
+        "release_owner": {"type": "string", "minLength": 2},
+        "selection_record_id": {"type": "string", "minLength": 2},
+        "claim_ceiling": {"type": "string", "minLength": 12},
+        "privacy_check": {"const": "PASS"},
+        "rights_check": {"const": "PASS"}
+      }
+    },
+    "entities": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "allOf": [
+          {"$ref": "navigator-entity.schema.json"},
+          {"type": "object", "properties": {"visibility": {"const": "public"}, "public": {}}, "required": ["visibility", "public"]}
+        ]
+      }
+    },
+    "relations": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "allOf": [
+          {"$ref": "navigator-relation.schema.json"},
+          {"type": "object", "properties": {"visibility": {"const": "public"}}, "required": ["visibility"]}
+        ]
+      }
+    },
+    "build_receipt": {"$ref": "navigator-release-receipt.schema.json"}
+  },
+  "allOf": [
+    {
+      "if": {"properties": {"release_state": {"const": "released"}}, "required": ["release_state"]},
+      "then": {"type": "object", "properties": {"publication_authorized": {"const": true}}}
+    }
+  ]
+}

@@ -1,0 +1,83 @@
+{
+  "as_of": "2026-10-06",
+  "authority_statement": "Read-only Mission Control projection; source records retain all scientific and release authority.",
+  "build_receipt": {
+    "generated_at": "2026-10-06T12:00:00Z",
+    "generator_version": "navigator-fixture-exporter-0.1.0",
+    "payload_sha256": "2e98e00ab522b9ff53a9124e9229ddceb46411c43053c1288737d3941172bedc",
+    "rejected_items_report": "rejected-public-items.json",
+    "schema_dialect": "https://json-schema.org/draft/2020-12/schema",
+    "source_manifest_sha256": "5be63ddfef4ac3274bf9fd58617abc4eee3b2e984ad035dd1e673709f6adbeee",
+    "validator_status": "PASS"
+  },
+  "currentness": {
+    "controlling_sources_verified": 1,
+    "errors": [],
+    "status": "VALID"
+  },
+  "entities": [
+    {
+      "claim_ceiling": "Contract fixture only; no scientific or publication claim.",
+      "controlling_record_ids": [
+        "REC:INTERNAL_FIXTURE"
+      ],
+      "entity_id": "MOD:INTERNAL_FIXTURE",
+      "entity_type": "module",
+      "internal": {
+        "local_path": "SCIENCE_LAB/NAVIGATION/CONTRACTS/fixtures",
+        "repository": "NEXAH-Science-Lab",
+        "sha256": "5555555555555555555555555555555555555555555555555555555555555555",
+        "source_state": "fixture"
+      },
+      "roles": [
+        "builder",
+        "governance"
+      ],
+      "status": "internal-review",
+      "summary": "A minimal internal entity retaining repository and local custody metadata.",
+      "title": "Internal fixture module",
+      "visibility": "internal"
+    },
+    {
+      "claim_ceiling": "Contract fixture only; no authority transfer.",
+      "entity_id": "REC:INTERNAL_FIXTURE",
+      "entity_type": "record",
+      "roles": [
+        "governance"
+      ],
+      "status": "internal-review",
+      "summary": "A minimal record demonstrating that record entities need not control themselves.",
+      "title": "Internal fixture record",
+      "visibility": "internal"
+    }
+  ],
+  "generated_at": "2026-10-06T12:00:00Z",
+  "profile": "internal",
+  "relations": [
+    {
+      "claim_boundary": "Internal contract demonstration only.",
+      "confidence": "not_applicable",
+      "does_not_imply": [
+        "publication approval",
+        "scientific validation"
+      ],
+      "evidence_record_ids": [
+        "REC:INTERNAL_FIXTURE"
+      ],
+      "explanation": "The record controls the interpretation boundary of the internal fixture module.",
+      "preserves": [
+        "source identity",
+        "claim ceiling"
+      ],
+      "relation_id": "REL:INTERNAL_FIXTURE_RECORD",
+      "relation_type": "represents",
+      "source_id": "MOD:INTERNAL_FIXTURE",
+      "status": "bounded",
+      "target_id": "REC:INTERNAL_FIXTURE",
+      "visibility": "internal"
+    }
+  ],
+  "schema": "nexah.navigator.internal-manifest",
+  "title": "NEXAH Navigator internal contract fixture",
+  "version": "1.0.0"
+}

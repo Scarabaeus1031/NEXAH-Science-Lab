@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en" data-profile="internal">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <meta name="description" content="Internal NEXAH Navigator for modules, surfaces, evidence and bounded relations.">
+  <title>NEXAH Navigator · Internal</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#workspace">Skip to Navigator workspace</a>
+
+  <header class="topbar">
+    <a class="brand" href="#home" aria-label="NEXAH Navigator home">
+      <span class="brand-mark" aria-hidden="true">✦</span>
+      <span>NEXAH</span>
+      <span class="brand-product">Navigator</span>
+    </a>
+    <div class="topbar-status">
+      <span class="scope-label">Mission Control · Internal Profile</span>
+      <span class="security-badge">Internal / not public</span>
+    </div>
+  </header>
+
+  <div class="app-shell">
+    <aside class="sidebar" aria-label="Primary navigation">
+      <nav class="primary-nav">
+        <a data-route-link="home" href="#home"><span>01</span> Orientation</a>
+        <a data-route-link="utg" href="#utg"><span>02</span> UTG</a>
+        <a data-route-link="atlas" href="#atlas"><span>03</span> Atlas</a>
+        <a data-route-link="sequence" href="#sequence"><span>04</span> Sequence</a>
+        <a data-route-link="lineage" href="#lineage"><span>05</span> Lineage</a>
+        <a data-route-link="catalog" href="#catalog"><span>06</span> Catalog</a>
+        <a data-route-link="relations" href="#relations"><span>07</span> Relations</a>
+        <a data-route-link="families" href="#families"><span>08</span> Families</a>
+        <a data-route-link="evidence" href="#evidence"><span>09</span> Evidence</a>
+        <a data-route-link="admission" href="#admission"><span>10</span> Admission</a>
+      </nav>
+
+      <section class="sidebar-section" aria-labelledby="family-nav-title">
+        <h2 id="family-nav-title">Connection families</h2>
+        <div id="family-nav" class="family-nav"></div>
+      </section>
+
+      <section class="sidebar-section build-state" aria-labelledby="build-state-title">
+        <h2 id="build-state-title">Build state</h2>
+        <p><strong id="build-entity-count">—</strong> entities</p>
+        <p><strong id="build-relation-count">—</strong> typed relations</p>
+        <p class="muted" id="build-date">Loading validated manifest…</p>
+      </section>
+    </aside>
+
+    <main id="workspace" class="workspace" tabindex="-1">
+      <noscript>
+        <section class="empty-state"><h1>JavaScript is required</h1><p>This internal static tool renders the validated Navigator manifest in your browser.</p></section>
+      </noscript>
+      <div id="app" aria-live="polite"></div>
+    </main>
+
+    <aside class="context-panel" aria-label="Persistent claim boundary and source context">
+      <section class="context-card boundary-card">
+        <p class="overline">Persistent boundary</p>
+        <h2>Relation ≠ identity</h2>
+        <p id="context-boundary">A registered connection preserves a comparison route. It does not establish that its carriers, mechanisms or evidence classes are identical.</p>
+      </section>
+      <section class="context-card">
+        <p class="overline">Current selection</p>
+        <dl id="context-selection" class="compact-definition">
+          <div><dt>Object</dt><dd>Orientation</dd></div>
+          <div><dt>Profile</dt><dd>Internal</dd></div>
+          <div><dt>Release</dt><dd>Not authorized</dd></div>
+        </dl>
+      </section>
+      <section class="context-card receipt-card">
+        <p class="overline">Source receipt</p>
+        <p id="context-receipt" class="mono wrap">Validated registry adapter · awaiting selection</p>
+      </section>
+    </aside>
+  </div>
+
+  <footer class="footer">
+    <span>NEXAH Navigator · internal read-only pilot</span>
+    <span>One manifest · bounded views · explicit residuals</span>
+  </footer>
+
+  <script src="data.internal.js"></script>
+  <script src="lineage.internal.js"></script>
+  <script src="utg.internal.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
