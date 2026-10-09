@@ -1,7 +1,10 @@
-# NEXAH Science Navigator
+# NEXAH Orientation
 
-Bounded public preview of the source-bound Science Navigator.
+Curated static publication surface for the NEXAH A0 Foundation Book and the
+source-bound Science Navigator.
 
-- Live: https://scarabaeus1031.github.io/NEXAH-Science-Lab/navigator/
-- A0 Foundation Book: https://scarabaeus1031.github.io/NEXAH/book/
-- Full source admission remains a separate curation task.
+- `/book/` — guided reading surface
+- `/navigator/` — research map
+- `/SOURCE_RECEIPT.json` — build provenance and boundary
+
+Mission Control is intentionally not included in this public repository.
