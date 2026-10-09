@@ -18,24 +18,53 @@
       <span class="brand-product">Navigator</span>
     </a>
     <div class="topbar-status">
-      <span class="scope-label">Mission Control · Internal Profile</span>
-      <span class="security-badge">Internal / not public</span>
+      <a class="scope-label mission-control-link" href="../../../../../00%20EXECUTIVE/NEXAH-Mission-Control/INTERNAL_NAVIGATOR/index.html#home" title="Open Mission Control Navigator">Mission Control · Internal Profile ↗</a>
+      <span class="security-badge">Internal / v2 preview / not public</span>
     </div>
   </header>
 
   <div class="app-shell">
     <aside class="sidebar" aria-label="Primary navigation">
       <nav class="primary-nav">
-        <a data-route-link="home" href="#home"><span>01</span> Orientation</a>
-        <a data-route-link="utg" href="#utg"><span>02</span> UTG</a>
-        <a data-route-link="atlas" href="#atlas"><span>03</span> Atlas</a>
-        <a data-route-link="sequence" href="#sequence"><span>04</span> Sequence</a>
-        <a data-route-link="lineage" href="#lineage"><span>05</span> Lineage</a>
-        <a data-route-link="catalog" href="#catalog"><span>06</span> Catalog</a>
-        <a data-route-link="relations" href="#relations"><span>07</span> Relations</a>
-        <a data-route-link="families" href="#families"><span>08</span> Families</a>
-        <a data-route-link="evidence" href="#evidence"><span>09</span> Evidence</a>
-        <a data-route-link="admission" href="#admission"><span>10</span> Admission</a>
+        <section class="nav-domain" aria-labelledby="nav-orientation">
+          <h2 id="nav-orientation">Orientation</h2>
+          <a data-route-link="home" href="#home"><span>01</span> Start</a>
+        </section>
+        <section class="nav-domain" aria-labelledby="nav-framework">
+          <h2 id="nav-framework">Framework</h2>
+          <a data-route-link="utg" href="#utg"><span>02</span> UTG</a>
+          <a data-route-link="dynamics" href="#dynamics"><span>03</span> Dynamics</a>
+          <a data-route-link="ladders" href="#ladders"><span>04</span> Ladders</a>
+        </section>
+        <section class="nav-domain" aria-labelledby="nav-families">
+          <h2 id="nav-families">Families</h2>
+          <a data-route-link="families" href="#families"><span>05</span> Family map</a>
+          <a data-route-link="sequence" href="#sequence"><span>06</span> Sequence</a>
+          <a data-route-link="lineage" href="#lineage"><span>07</span> Lineage</a>
+        </section>
+        <section class="nav-domain" aria-labelledby="nav-language">
+          <h2 id="nav-language">Language</h2>
+          <a data-route-link="envelope" href="#envelope"><span>08</span> Envelope</a>
+          <a data-route-link="glossary" href="#glossary"><span>09</span> Vocabulary</a>
+        </section>
+        <section class="nav-domain" aria-labelledby="nav-atlas">
+          <h2 id="nav-atlas">Atlas</h2>
+          <a data-route-link="atlas" href="#atlas"><span>10</span> Connection atlas</a>
+          <a data-route-link="catalog" href="#catalog"><span>11</span> Catalog</a>
+        </section>
+        <section class="nav-domain" aria-labelledby="nav-evidence">
+          <h2 id="nav-evidence">Evidence</h2>
+          <a data-route-link="life-orbit" href="#life-orbit"><span>12</span> Life Orbit</a>
+          <a data-route-link="observatory" href="#observatory"><span>13</span> Observatory</a>
+          <a data-route-link="root7" href="#root7"><span>14</span> ROOT7 · LOOK</a>
+          <a data-route-link="ilau-orientation" href="#ilau-orientation"><span>15</span> ILAU instruments</a>
+          <a data-route-link="evidence" href="#evidence"><span>16</span> Evidence</a>
+          <a data-route-link="relations" href="#relations"><span>17</span> Relations</a>
+          <a data-route-link="admission" href="#admission"><span>18</span> Admission</a>
+        </section>
+        <section class="nav-utility" aria-label="Navigator information">
+          <a data-route-link="about" href="#about"><span>i</span> About</a>
+        </section>
       </nav>
 
       <section class="sidebar-section" aria-labelledby="family-nav-title">
@@ -80,13 +109,21 @@
   </div>
 
   <footer class="footer">
-    <span>NEXAH Navigator · internal read-only pilot</span>
+    <span>NEXAH Navigator · internal v2 preview · v1 freeze retained</span>
     <span>One manifest · bounded views · explicit residuals</span>
   </footer>
 
   <script src="data.internal.js"></script>
+  <script src="entry.internal.js"></script>
   <script src="lineage.internal.js"></script>
   <script src="utg.internal.js"></script>
+  <script src="ladders.internal.js"></script>
+  <script src="life-orbit.internal.js"></script>
+  <script src="life-program.internal.js"></script>
+  <script src="prime-crystal.internal.js"></script>
+  <script src="observatory.internal.js"></script>
+  <script src="root7.internal.js"></script>
+  <script src="ilau-orientation.internal.js"></script>
   <script src="app.js"></script>
 </body>
 </html>
