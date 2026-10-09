@@ -18,10 +18,10 @@ remain separate Owner decisions.
 
 - [Introduction and Fundamentals Index](index.html)
 
-The entry now names the `00 · Introduction` contract before the cultural
-Record / Play scene. Its first transition is therefore explicit: lived
-experience becomes a bounded record before the mathematical chapter route
-begins.
+The entry now opens with the cultural Record / Play scene before the formal
+`00 · Introduction` promise. Its first transition is therefore explicit:
+lived experience becomes a bounded record; the Introduction then names the
+mathematical questions and the limits of what the book claims.
 
 The reader-facing header links to [nexah.de](https://nexah.de/) rather than to
 an internal package README. Science Navigator links retain their repository

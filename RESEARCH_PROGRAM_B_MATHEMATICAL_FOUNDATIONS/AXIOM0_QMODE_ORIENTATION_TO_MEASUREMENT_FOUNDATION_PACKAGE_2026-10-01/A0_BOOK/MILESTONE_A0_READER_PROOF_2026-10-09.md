@@ -4,7 +4,7 @@
 
 **Milestone:** `A0_READER_PROOF_2026-10-09`
 
-**Disposition:** `FROZEN_LOCAL_READER_PROOF / INTERNAL / NOT_PUBLIC`
+**Disposition:** `REVISED_FROZEN_LOCAL_READER_PROOF / INTERNAL / NOT_PUBLIC`
 
 **Operational effect:** `NONE`
 
@@ -31,14 +31,15 @@ can still be incomplete. A single cultural reference to a *Theory of
 Everything* names the largest form of that hope without turning the book into
 a TOE proposal, refutation or physical theory.
 
-The entry order now treats `00 · Introduction` as the explicit beginning. The
-cover routes first to `00`; the eight-chapter map follows immediately, before
-the large Record / Play scene. Book Thesis, orientation route and repeatable
-method remain available as deeper reading after the chapter choice instead of
-creating additional competing beginnings.
+The revised entry order begins with the bounded Record / Play scene. The
+formal `00 · Introduction` then states the book's promise before the
+eight-chapter map. The chapter entries are phrased as Human questions, with
+their mathematical objects retained as compact subtitles. Book Thesis,
+orientation route and repeatable method remain available as deeper reading
+after the chapter choice instead of creating additional competing beginnings.
 
-Record / Play remains the bounded cultural demonstration of voice, cut,
-record and replay, but no longer delays access to the chapter route. Both local
+Record / Play is the bounded cultural demonstration of voice, cut, record and
+replay that makes the later mathematical route concrete. Both local
 GLB viewers expose camera controls, Safari-compatible pointer gestures and a
 slow auto-rotation that makes their interactive status visible; user drag or
 zoom remains a view change only and does not alter the artifact. The

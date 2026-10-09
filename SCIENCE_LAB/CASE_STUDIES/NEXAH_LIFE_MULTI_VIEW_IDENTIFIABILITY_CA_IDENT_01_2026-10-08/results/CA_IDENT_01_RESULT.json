@@ -1,0 +1,22 @@
+{
+  "experiment": "CA-IDENT-01",
+  "date": "2026-10-08",
+  "status": "EXECUTED_INTERNAL_FIXTURE",
+  "verdict": "LIMITED_VIEW_SIGNAL",
+  "target": "8-generation behavior class on translated finite-dead holdouts",
+  "carrier": "40x40 finite-dead Conway B3/S23",
+  "train_rows": 42,
+  "holdout_rows": 84,
+  "results": [
+    {"family": "baseline", "correct": 82, "total": 84, "accuracy": 0.9761904761904762},
+    {"family": "grid", "correct": 35, "total": 84, "accuracy": 0.4166666666666667},
+    {"family": "fourier", "correct": 83, "total": 84, "accuracy": 0.9880952380952381},
+    {"family": "memory", "correct": 82, "total": 84, "accuracy": 0.9761904761904762},
+    {"family": "polygons", "correct": 83, "total": 84, "accuracy": 0.9880952380952381},
+    {"family": "e8_adapter", "correct": 36, "total": 84, "accuracy": 0.42857142857142855},
+    {"family": "combined", "correct": 82, "total": 84, "accuracy": 0.9761904761904762}
+  ],
+  "best_views": ["fourier", "polygons"],
+  "best_delta": 0.011904761904761973,
+  "claim_ceiling": "Deterministic in-repository fixture only. A gain on translated Conway seeds does not establish external utility, E8 specificity, physical resonance, biological meaning or a universal projection law."
+}
