@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>CA-IDENT-03 · LIFE Cube / Fourier Return Gate</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="annex.css">
+</head>
+<body><main>
+  <header class="hero">
+    <div>
+      <p class="eyebrow">CA-IDENT-03 · executed against preregistration lock</p>
+      <h1>Exact return.<br><em>No utility gain.</em></h1>
+      <p>Drei aufeinanderfolgende LIFE-Zustände werden als x–y–time cube gelesen. Face-Projektionen, Fourier-Magnitude, komplexe Phase und Shadow Memory treten gegen einen unabhängigen Holdout an.</p>
+    </div>
+    <div class="verdict"><span>RETURN PASS</span><strong>FUSION NO GAIN</strong><small>lock 969dd51f… before execution</small></div>
+  </header>
+
+  <section class="stats">
+    <article><span>Training</span><strong>300</strong></article>
+    <article><span>Holdout</span><strong>100</strong></article>
+    <article><span>Rules</span><strong>5</strong></article>
+    <article><span>Cube</span><strong>3 frames</strong></article>
+    <article><span>Target</span><strong>+12 gen</strong></article>
+  </section>
+
+  <section class="split-result">
+    <article class="pass">
+      <p class="eyebrow">Mathematical control</p>
+      <h2>Complex Fourier return passes</h2>
+      <dl><div><dt>Inverse error</dt><dd>1.22×10⁻16</dd></div><div><dt>Shift magnitude error</dt><dd>0</dd></div><div><dt>Carriers differ</dt><dd>true</dd></div></dl>
+      <p>Die komplexen Koeffizienten erhalten den exakten Return. Die Magnitude bleibt unter zyklischer Verschiebung gleich und verliert dadurch die Adresse.</p>
+    </article>
+    <article class="fail">
+      <p class="eyebrow">Registered utility gate</p>
+      <h2>Cube fusion fails</h2>
+      <dl><div><dt>vs. best single</dt><dd>−0.2509 F1</dd></div><div><dt>vs. baseline</dt><dd>+0.0708 F1</dd></div><div><dt>Required</dt><dd>+0.03 / +0.10</dd></div></dl>
+      <p>Der Cube ist ein sauberer Transformations- und Return-Träger, aber in dieser Aufgabe kein besserer Prädiktor.</p>
+    </article>
+  </section>
+
+  <header class="section"><p class="eyebrow">Independent behavior holdout</p><h2>Radial Fourier remains strongest</h2><p>Macro-F1 für die zwölf Generationen spätere Verhaltensklasse. Höher ist besser.</p></header>
+  <section class="bars">
+    <article class="baseline"><span>Baseline</span><i style="--v:55.97%"></i><strong>0.5597</strong></article>
+    <article class="candidate"><span>Shadow Memory</span><i style="--v:78.92%"></i><strong>0.7892</strong></article>
+    <article class="best"><span>Radial Fourier</span><i style="--v:88.14%"></i><strong>0.8814</strong></article>
+    <article><span>Cube faces XY / XT / YT</span><i style="--v:49.47%"></i><strong>0.4947</strong></article>
+    <article><span>Cube magnitude</span><i style="--v:66.40%"></i><strong>0.6640</strong></article>
+    <article><span>Cube complex phase</span><i style="--v:60.06%"></i><strong>0.6006</strong></article>
+    <article class="fusion"><span>Memory + Fourier + Cube</span><i style="--v:63.05%"></i><strong>0.6305</strong></article>
+  </section>
+
+  <header class="section"><p class="eyebrow">Cube Face connection</p><h2>One carrier, three faces, two questions</h2><p>Projection and prediction must remain separate. A reversible chart can be mathematically valuable without improving the registered target.</p></header>
+  <section class="cube-map">
+    <article><span>XY</span><strong>spatial carrier</strong><p>Der letzte LIFE-Zustand als Fläche.</p></article>
+    <article><span>XT</span><strong>horizontal history</strong><p>Zeitspur durch Reihen des Trägers.</p></article>
+    <article><span>YT</span><strong>vertical history</strong><p>Zeitspur durch Spalten des Trägers.</p></article>
+    <div class="cube" aria-label="three cube faces"><i></i><i></i><i></i></div>
+    <article class="return"><span>Complex DFT</span><strong>exact return</strong><p>Phase bewahrt die Adresse.</p></article>
+    <article class="loss"><span>Magnitude</span><strong>address loss</strong><p>Gleiche Magnitude bedeutet nicht gleicher Carrier.</p></article>
+  </section>
+
+  <header class="section"><p class="eyebrow">Fourier view contract</p><h2>One distribution · two transformations · three nonidentical views</h2><p>Ein Objekt darf mehrere nützliche Darstellungen besitzen, ohne dass die Darstellungen identisch oder gleich informationshaltig werden.</p></header>
+  <section class="three-views">
+    <article><span>01 · CARRIER</span><div class="surface spatial"></div><h3>p(x,y)</h3><p>Räumliche Verteilung mit expliziter Adresse.</p></article>
+    <article><span>02 · FOURIER</span><div class="surface spectral"></div><h3>F[p] and |F[p]|</h3><p>Komplexe Phase erlaubt Return; Magnitude allein verliert Translation.</p></article>
+    <article><span>03 · ENTROPY</span><div class="surface entropy"></div><h3>−p log p</h3><p>Lokale Entropiedichte; ihre Summe ist eine weitere, viele-zu-eins Sicht.</p></article>
+    <p class="view-boundary">Same carrier ≠ same representation ≠ equal retained information</p>
+  </section>
+
+  <header class="section"><p class="eyebrow">Exact arithmetic annex · outside locked utility gate</p><h2>The 29/31 gate meets the open 49/51 register</h2><p>Beide Paare sind koprime Spiegelregister um eine gerade Mitte. Das ist ein exakter CRT-Anschluss, kein neuer Mechanismus.</p></header>
+  <section class="crt-gates">
+    <article><span>29 ← 30 → 31</span><strong>29×31 = 30²−1 = 899</strong><p>11357 ↦ (18,11)<br>19643 ↦ (10,20)<br>31000 ↦ (28,0)</p><b>CRT return: 434 mod 899</b></article>
+    <div class="gate-arrow">same schema<br>≠ same semantics</div>
+    <article><span>49 ← 50 → 51</span><strong>49×51 = 50²−1 = 2499</strong><p>11357 ↦ (38,35)<br>19643 ↦ (43,8)<br>31000 ↦ (32,43)</p><b>CRT return: 1012 mod 2499</b></article>
+    <aside><strong>What may help LIFE</strong><p><em>Translation-invariant spectral signature</em> + <em>explicit CRT address sidecar</em>. Der Sidecar bewahrt Provenienz und Shift-Adresse; er wird nicht aus der Fourier-Magnitude zurückgewonnen.</p></aside>
+  </section>
+
+  <section class="fourier-boundary">
+    <div><p class="eyebrow">64-point DFT · exact address boundary</p><h2>63 is the last bin—and the −1 frequency.</h2><p>Ein 64er-Träger besitzt 64 Fourier-Adressen <code>k=0…63</code>. Für reelle Daten bilden <code>k=1</code> und <code>k=63</code> ein konjugiertes Paar. Eine zyklische Verschiebung ändert ihre Phase, nicht ihre Magnitude.</p></div>
+    <ol aria-label="selected 64-point Fourier bins"><li>0<small>DC</small></li><li class="pair">1<small>+1</small></li><li>2<small>+2</small></li><li class="ellipsis">…</li><li>32<small>Nyquist</small></li><li class="ellipsis">…</li><li class="pair">63<small>−1</small></li></ol>
+    <aside><strong>REPUNIT-14B lineage</strong><p>Dominante Perioden <code>T=2,3,6</code>; erklärt durch mod‑2-/mod‑3-Synchronisation. Starker methodischer Vorgänger, aber ein anderer Carrier.</p></aside>
+    <p class="boundary-warning">63/64 = index / phase / return boundary · not a quantum-link claim</p>
+  </section>
+
+  <section class="decision">
+    <div><p class="eyebrow">Resonance Cathedral disposition</p><h2>Keep the cube as a return transept</h2><p>BLOCK-01 bleibt als exakter Kontrollraum für Projektion, Phase, Informationsverlust und Return wertvoll. Für die LIFE-Anwendung führt der nächste Pfad über radial Fourier und Shadow Memory—not über weitere ungeprüfte Layer-Fusion.</p></div>
+    <nav><a href="README.md">Read result</a><a href="CRT_SHADOW_ANNEX.md">Fourier / CRT annex</a><a href="results/CRT_SHADOW_ANNEX.json">Exact annex record</a><a href="PREREGISTRATION_LOCK.json">Lock</a><a href="results/CA_IDENT_03_RESULT.json">Frozen result</a><a href="https://scarabaeus1031.github.io/NEXAH-Science-Lab/navigator/#life-orbit">Navigator · LIFE</a></nav>
+  </section>
+  <footer><strong>Claim ceiling:</strong> Internal deterministic fixture. No external utility, physical resonance, biological mechanism, Life/E8 identity or universal projection law is established.</footer>
+</main></body></html>

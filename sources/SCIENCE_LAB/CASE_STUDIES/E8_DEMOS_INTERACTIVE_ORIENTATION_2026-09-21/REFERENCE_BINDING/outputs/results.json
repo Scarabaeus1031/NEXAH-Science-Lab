@@ -1,0 +1,474 @@
+{
+  "benchmark": "E8-REP-03",
+  "date": "2026-09-21",
+  "decision": "PASS",
+  "scope": "representation benchmark; no novelty claim for E8/H4 mathematics",
+  "runtime": {
+    "python": "3.12.14",
+    "numpy": "2.3.5",
+    "platform": "Linux-6.18.44-x86_64-with-glibc2.39",
+    "absolute_tolerance": 1e-08
+  },
+  "e8": {
+    "roots": 240,
+    "unique": 240,
+    "norm_squared": 2.0,
+    "edges": 6720,
+    "degree": 56
+  },
+  "coxeter": {
+    "exact_order": 30,
+    "exponents": [
+      1,
+      7,
+      11,
+      13,
+      17,
+      19,
+      23,
+      29
+    ],
+    "orbit_sizes": [
+      30,
+      30,
+      30,
+      30,
+      30,
+      30,
+      30,
+      30
+    ]
+  },
+  "projection_2d": {
+    "ring_radii": [
+      0.23823540452879624,
+      0.3854729818511728,
+      0.4738606521116113,
+      0.5729245036480813,
+      0.7042941832281753,
+      0.7667226410477771,
+      0.9270113198902585,
+      1.1395719265420337
+    ],
+    "ring_multiplicities": [
+      30,
+      30,
+      30,
+      30,
+      30,
+      30,
+      30,
+      30
+    ],
+    "phi_pairs": [
+      {
+        "small_ring": 1,
+        "large_ring": 2,
+        "ratio": 1.6180339887498942
+      },
+      {
+        "small_ring": 3,
+        "large_ring": 6,
+        "ratio": 1.6180339887498956
+      },
+      {
+        "small_ring": 4,
+        "large_ring": 7,
+        "ratio": 1.6180339887498945
+      },
+      {
+        "small_ring": 5,
+        "large_ring": 8,
+        "ratio": 1.6180339887498947
+      }
+    ]
+  },
+  "projection_4d": {
+    "shell_sizes": [
+      120,
+      120
+    ],
+    "shell_radii": [
+      0.7434960689203689,
+      1.2030019100150915
+    ],
+    "radius_ratio": 1.6180339887498951,
+    "phi_error": 2.220446049250313e-16,
+    "direct_set_max_error": 2.232938208154006e-15,
+    "canonical_gram_match": [
+      true,
+      true
+    ],
+    "reflection_closure": [
+      {
+        "passed": 14400,
+        "total": 14400,
+        "max_nearest_error": 7.365344012956984e-09
+      },
+      {
+        "passed": 14400,
+        "total": 14400,
+        "max_nearest_error": 7.365342849200869e-09
+      }
+    ],
+    "simple_root_gram_max_error": [
+      8.881784197001252e-16,
+      4.876024587359806e-16
+    ],
+    "subspace_invariance_error": 6.661338147750939e-16
+  },
+  "negative_controls": {
+    "generic_projection": {
+      "seed": 20260921,
+      "radius_cluster_count": 120,
+      "multiplicity_histogram": [
+        [
+          2,
+          120
+        ]
+      ],
+      "matches_e8_coxeter_signature": false
+    },
+    "modular_graphs": [
+      {
+        "modulus": 37,
+        "node_count": 37,
+        "gcd_37_N": 37,
+        "image_size": 1,
+        "operator_order": null,
+        "fixed_points": 1,
+        "matches_e8_identity_gate": false
+      },
+      {
+        "modulus": 137,
+        "node_count": 137,
+        "gcd_37_N": 1,
+        "image_size": 137,
+        "operator_order": 4,
+        "fixed_points": 1,
+        "matches_e8_identity_gate": false
+      },
+      {
+        "modulus": 237,
+        "node_count": 237,
+        "gcd_37_N": 1,
+        "image_size": 237,
+        "operator_order": 78,
+        "fixed_points": 3,
+        "matches_e8_identity_gate": false
+      },
+      {
+        "modulus": 11357,
+        "node_count": 11357,
+        "gcd_37_N": 1,
+        "image_size": 11357,
+        "operator_order": 460,
+        "fixed_points": 1,
+        "matches_e8_identity_gate": false
+      }
+    ]
+  },
+  "assertions": [
+    {
+      "assertion": "E8_ROOT_COUNT",
+      "layer": "8D",
+      "status": "PASS",
+      "measured": 240,
+      "expected": 240
+    },
+    {
+      "assertion": "E8_UNIQUE_ROOTS",
+      "layer": "8D",
+      "status": "PASS",
+      "measured": 240,
+      "expected": 240
+    },
+    {
+      "assertion": "E8_ROOT_NORM_SQUARED",
+      "layer": "8D",
+      "status": "PASS",
+      "measured": 0.0,
+      "expected": "0 error"
+    },
+    {
+      "assertion": "E8_EDGE_COUNT",
+      "layer": "8D",
+      "status": "PASS",
+      "measured": 6720,
+      "expected": 6720
+    },
+    {
+      "assertion": "E8_VERTEX_DEGREE",
+      "layer": "8D",
+      "status": "PASS",
+      "measured": 56,
+      "expected": 56
+    },
+    {
+      "assertion": "COXETER_EXACT_ORDER",
+      "layer": "operator",
+      "status": "PASS",
+      "measured": 30,
+      "expected": 30
+    },
+    {
+      "assertion": "COXETER_EXPONENTS",
+      "layer": "operator",
+      "status": "PASS",
+      "measured": [
+        1,
+        7,
+        11,
+        13,
+        17,
+        19,
+        23,
+        29
+      ],
+      "expected": [
+        1,
+        7,
+        11,
+        13,
+        17,
+        19,
+        23,
+        29
+      ]
+    },
+    {
+      "assertion": "COXETER_ORBITS",
+      "layer": "operator",
+      "status": "PASS",
+      "measured": [
+        30,
+        30,
+        30,
+        30,
+        30,
+        30,
+        30,
+        30
+      ],
+      "expected": [
+        30,
+        30,
+        30,
+        30,
+        30,
+        30,
+        30,
+        30
+      ]
+    },
+    {
+      "assertion": "COXETER_2D_RINGS",
+      "layer": "2D",
+      "status": "PASS",
+      "measured": [
+        30,
+        30,
+        30,
+        30,
+        30,
+        30,
+        30,
+        30
+      ],
+      "expected": [
+        30,
+        30,
+        30,
+        30,
+        30,
+        30,
+        30,
+        30
+      ]
+    },
+    {
+      "assertion": "COXETER_PHI_RING_PAIRS",
+      "layer": "2D",
+      "status": "PASS",
+      "measured": [
+        [
+          1,
+          2
+        ],
+        [
+          3,
+          6
+        ],
+        [
+          4,
+          7
+        ],
+        [
+          5,
+          8
+        ]
+      ],
+      "expected": [
+        [
+          1,
+          2
+        ],
+        [
+          3,
+          6
+        ],
+        [
+          4,
+          7
+        ],
+        [
+          5,
+          8
+        ]
+      ]
+    },
+    {
+      "assertion": "H4_TWO_SHELLS",
+      "layer": "4D",
+      "status": "PASS",
+      "measured": [
+        120,
+        120
+      ],
+      "expected": [
+        120,
+        120
+      ]
+    },
+    {
+      "assertion": "H4_RADIUS_RATIO_PHI",
+      "layer": "4D",
+      "status": "PASS",
+      "measured": 1.6180339887498951,
+      "expected": 1.618033988749895
+    },
+    {
+      "assertion": "H4_DIRECT_SET_EQUALITY",
+      "layer": "4D",
+      "status": "PASS",
+      "measured": 2.232938208154006e-15,
+      "expected": "< 1e-12"
+    },
+    {
+      "assertion": "H4_CANONICAL_GRAM",
+      "layer": "4D",
+      "status": "PASS",
+      "measured": [
+        true,
+        true
+      ],
+      "expected": [
+        true,
+        true
+      ]
+    },
+    {
+      "assertion": "H4_SIMPLE_ROOT_GRAM",
+      "layer": "4D",
+      "status": "PASS",
+      "measured": [
+        8.881784197001252e-16,
+        4.876024587359806e-16
+      ],
+      "expected": "each < 1e-12"
+    },
+    {
+      "assertion": "H4_REFLECTION_CLOSURE",
+      "layer": "4D",
+      "status": "PASS",
+      "measured": [
+        [
+          14400,
+          14400
+        ],
+        [
+          14400,
+          14400
+        ]
+      ],
+      "expected": [
+        [
+          14400,
+          14400
+        ],
+        [
+          14400,
+          14400
+        ]
+      ]
+    },
+    {
+      "assertion": "H4_SUBSPACE_INVARIANCE",
+      "layer": "4D",
+      "status": "PASS",
+      "measured": 6.661338147750939e-16,
+      "expected": "< 1e-12"
+    },
+    {
+      "assertion": "NEG_GENERIC_REJECTED",
+      "layer": "negative",
+      "status": "PASS",
+      "measured": {
+        "seed": 20260921,
+        "radius_cluster_count": 120,
+        "multiplicity_histogram": [
+          [
+            2,
+            120
+          ]
+        ],
+        "matches_e8_coxeter_signature": false
+      },
+      "expected": "not 8 rings x 30"
+    },
+    {
+      "assertion": "NEG_MODULAR_REJECTED",
+      "layer": "negative",
+      "status": "PASS",
+      "measured": [
+        {
+          "modulus": 37,
+          "node_count": 37,
+          "gcd_37_N": 37,
+          "image_size": 1,
+          "operator_order": null,
+          "fixed_points": 1,
+          "matches_e8_identity_gate": false
+        },
+        {
+          "modulus": 137,
+          "node_count": 137,
+          "gcd_37_N": 1,
+          "image_size": 137,
+          "operator_order": 4,
+          "fixed_points": 1,
+          "matches_e8_identity_gate": false
+        },
+        {
+          "modulus": 237,
+          "node_count": 237,
+          "gcd_37_N": 1,
+          "image_size": 237,
+          "operator_order": 78,
+          "fixed_points": 3,
+          "matches_e8_identity_gate": false
+        },
+        {
+          "modulus": 11357,
+          "node_count": 11357,
+          "gcd_37_N": 1,
+          "image_size": 11357,
+          "operator_order": 460,
+          "fixed_points": 1,
+          "matches_e8_identity_gate": false
+        }
+      ],
+      "expected": "all false"
+    }
+  ]
+}

@@ -1,0 +1,213 @@
+{
+  "advantage_conditions": {
+    "full_orbit_and_return": true,
+    "minimum_distance_percentiles_at_least_095": false,
+    "n16_strictly_beats_all_composites": false,
+    "n8_strictly_beats_complement": false
+  },
+  "decision": "SUPPORTED_AS_REPRODUCIBLE_PRIME_SELECTOR_WITHOUT_CODING_ADVANTAGE",
+  "development_n8": {
+    "complement_score": [
+      4,
+      1.0,
+      0.10714285714285714
+    ],
+    "complete_control_count": 70,
+    "dft_return": {
+      "max_inverse_error": 1.2398116134574892e-15,
+      "recovered_shifts": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ]
+    },
+    "minimum_distance_distribution": {
+      "0": 6,
+      "2": 16,
+      "4": 48
+    },
+    "minimum_distance_percentile": 1.0,
+    "nonprime_complement": {
+      "minimum_cyclic_hamming_distance": 4,
+      "one_bit": {
+        "accuracy": 1.0,
+        "ambiguity_rate": 0.0,
+        "ambiguous": 0,
+        "correct_unique": 64,
+        "error_weight": 1,
+        "masks_per_codeword": 8,
+        "time_frequency_agree": true,
+        "total_cases": 64
+      },
+      "orbit_size": 8,
+      "selected": [
+        0,
+        1,
+        4,
+        6
+      ],
+      "size": 8,
+      "two_bit": {
+        "accuracy": 0.10714285714285714,
+        "ambiguity_rate": 0.8928571428571429,
+        "ambiguous": 200,
+        "correct_unique": 24,
+        "error_weight": 2,
+        "masks_per_codeword": 28,
+        "time_frequency_agree": true,
+        "total_cases": 224
+      }
+    },
+    "prime": {
+      "minimum_cyclic_hamming_distance": 4,
+      "one_bit": {
+        "accuracy": 1.0,
+        "ambiguity_rate": 0.0,
+        "ambiguous": 0,
+        "correct_unique": 64,
+        "error_weight": 1,
+        "masks_per_codeword": 8,
+        "time_frequency_agree": true,
+        "total_cases": 64
+      },
+      "orbit_size": 8,
+      "selected": [
+        2,
+        3,
+        5,
+        7
+      ],
+      "size": 8,
+      "two_bit": {
+        "accuracy": 0.10714285714285714,
+        "ambiguity_rate": 0.8928571428571429,
+        "ambiguous": 200,
+        "correct_unique": 24,
+        "error_weight": 2,
+        "masks_per_codeword": 28,
+        "time_frequency_agree": true,
+        "total_cases": 224
+      }
+    },
+    "prime_score": [
+      4,
+      1.0,
+      0.10714285714285714
+    ]
+  },
+  "experiment": "PRIMEGRID-BLOCK-3",
+  "gates": {
+    "G01_UPSTREAM_CONTRACTS": true,
+    "G02_SELECTOR_DEFINITIONS": true,
+    "G03_CONTROL_COUNTS": true,
+    "G04_FULL_ORBIT": true,
+    "G05_DFT_RETURN": true,
+    "G06_DECODER_EQUIVALENCE": true,
+    "G07_EXHAUSTIVE_ERROR_ACCOUNTING": true,
+    "G08_COMPLEMENT_CONTROL": true,
+    "G09_RANDOMIZATION_ACCOUNTING": true,
+    "G10_REPLAY": true
+  },
+  "holdout_n16": {
+    "best_composite_score": [
+      6,
+      1.0,
+      1.0
+    ],
+    "complete_control_count": 8008,
+    "dft_return": {
+      "max_inverse_error": 3.580099429924491e-15,
+      "recovered_shifts": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ]
+    },
+    "minimum_distance_distribution": {
+      "0": 56,
+      "2": 144,
+      "4": 3200,
+      "6": 4608
+    },
+    "minimum_distance_percentile": 0.4245754245754246,
+    "prime": {
+      "minimum_cyclic_hamming_distance": 4,
+      "one_bit": {
+        "accuracy": 1.0,
+        "ambiguity_rate": 0.0,
+        "ambiguous": 0,
+        "correct_unique": 256,
+        "error_weight": 1,
+        "masks_per_codeword": 16,
+        "time_frequency_agree": true,
+        "total_cases": 256
+      },
+      "orbit_size": 16,
+      "selected": [
+        2,
+        3,
+        5,
+        7,
+        11,
+        13
+      ],
+      "size": 16,
+      "two_bit": {
+        "accuracy": 0.95,
+        "ambiguity_rate": 0.05,
+        "ambiguous": 96,
+        "correct_unique": 1824,
+        "error_weight": 2,
+        "masks_per_codeword": 120,
+        "time_frequency_agree": true,
+        "total_cases": 1920
+      }
+    },
+    "prime_score": [
+      4,
+      1.0,
+      0.95
+    ],
+    "strict_composite_control_count": 28
+  },
+  "prime_specific_advantage": false,
+  "replay_sha256": "e35188f21235153c41d08f168615c2b8bb2a86909d339f99347cda207e63b0cd",
+  "upstream": [
+    {
+      "decision": "SUPPORTED_AS_BINARY_STATE_LIFT_GENERATOR",
+      "file": "PRIMEGRID_BLOCK01_RESULTS.json",
+      "sha256": "b84eeeaa490d4e8264cb25c67be26c3bb17ce275d2083762fe94070ff2ae75cd",
+      "valid": true
+    },
+    {
+      "decision": "SUPPORTED_AS_DFT_SHIFT_PHASE_RETURN_FIXTURE",
+      "file": "PRIMEGRID_BLOCK02_RESULTS.json",
+      "sha256": "31eadccd49936554ad458f3da27faf92dc055806d53a44118c11610960eb0468",
+      "valid": true
+    },
+    {
+      "decision": "SUPPORTED_AS_PASCAL_WEIGHT_QUOTIENT_WITH_COUNT_BOUNDARIES",
+      "file": "PRIMEGRID_BLOCK02A_RESULTS.json",
+      "sha256": "b29eaee672710534c0e4d1e69a4de25e9f64472b0c6f3d9983cd88addeea5830",
+      "valid": true
+    }
+  ]
+}

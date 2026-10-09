@@ -1,0 +1,61 @@
+{
+  "annex": "CA-IDENT-03-CRT-SHADOW",
+  "status": "EXACT_ARITHMETIC_ANNEX_NOT_PART_OF_LOCKED_UTILITY_GATE",
+  "gates": [
+    {
+      "center": 30,
+      "moduli": [29, 31],
+      "gcd": 1,
+      "product": 899,
+      "identity": "29 * 31 = 30^2 - 1",
+      "records": [
+        {"value": 11357, "residues": [18, 11]},
+        {"value": 19643, "residues": [10, 20]},
+        {"value": 31000, "residues": [28, 0], "canonical_crt_address": 434}
+      ],
+      "componentwise_sum_pass": true,
+      "reconstruction_pass": true
+    },
+    {
+      "center": 50,
+      "moduli": [49, 51],
+      "gcd": 1,
+      "product": 2499,
+      "identity": "49 * 51 = 50^2 - 1",
+      "records": [
+        {"value": 11357, "residues": [38, 35]},
+        {"value": 19643, "residues": [43, 8]},
+        {"value": 31000, "residues": [32, 43], "canonical_crt_address": 1012}
+      ],
+      "componentwise_sum_pass": true,
+      "reconstruction_pass": true,
+      "historical_semantics": "OPEN"
+    }
+  ],
+  "fourier_64_boundary": {
+    "sample_count": 64,
+    "bin_address_range": [0, 63],
+    "last_bin_signed_frequency": -1,
+    "real_signal_conjugate_pair": [1, 63],
+    "shift_phase_factor": "exp(-2*pi*i*k*delta/64)",
+    "magnitude_preserved_under_cyclic_shift": true,
+    "gcd_63_64": 1,
+    "crt_interpretation_inherent_to_dft": false,
+    "claim": "INDEX_PHASE_RETURN_BOUNDARY_ONLY"
+  },
+  "repunit_fourier_lineage": {
+    "record": "EXP-JANUS-14B",
+    "dominant_periods": [2, 3, 6],
+    "interpretation": "mod-2 and mod-3 synchronization",
+    "transfer_to_life": "NOT_ESTABLISHED"
+  },
+  "bounded_use": "translation-invariant spectral signature plus explicit CRT address sidecar for provenance and reconstruction",
+  "does_not_establish": [
+    "prediction gain",
+    "address recovery from Fourier magnitude alone",
+    "new CRT theorem",
+    "Rath 49/51 semantics",
+    "physical resonance",
+    "quantum link from 63/64"
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "schema": "nexah.ca-ident.preregistration/1.0.0",
+  "experiment": "CA-IDENT-05",
+  "date": "2026-10-08",
+  "status": "LOCKED_BEFORE_EXECUTION",
+  "authority": "Human Owner: test P=A+B with A=63/64 and B=1/64",
+  "question": "Does a small Shadow Memory residual improve a dominant radial-Fourier metric on a larger fresh LIFE holdout?",
+  "dependency": "CA-IDENT-03 frozen features and classifier; CA-IDENT-04 balancing failure",
+  "carrier": {"width": 48, "height": 48, "boundary": "finite-dead", "clock": "synchronous", "generations": 56},
+  "rules": ["B3/S23", "B36/S23", "B2/S", "B34/S34", "B3678/S34678"],
+  "training_seeds": "R00-R24",
+  "holdout_seeds": "R25-R124",
+  "holdout_transform": "quarter-turn id mod 4 plus fixed shift [5,-4]",
+  "sample_generations": [10, 20, 30, 40],
+  "future_horizon": 12,
+  "target": "12-generation behavior class",
+  "classifier": "deterministic standardized 3-nearest-neighbour with lexicographic tie break",
+  "view_roles": {
+    "A": "radial Fourier, current dominant view",
+    "B": "Shadow Memory, residual view",
+    "P": "weighted concatenated metric after per-view coordinate standardization and per-view dimension normalization"
+  },
+  "metric_definition": "d_P^2 = w_A * mean(z_A distance squared) + w_B * mean(z_B distance squared); implemented by multiplying each standardized coordinate by sqrt(w_view / dimension_view)",
+  "registered_models": [
+    {"id": "fourier_A", "weights": {"fourier_radial": 1, "shadow_memory": 0}},
+    {"id": "P_63_1", "weights": {"fourier_radial": 0.984375, "shadow_memory": 0.015625}},
+    {"id": "P_equal", "weights": {"fourier_radial": 0.5, "shadow_memory": 0.5}},
+    {"id": "P_1_63_reverse_control", "weights": {"fourier_radial": 0.015625, "shadow_memory": 0.984375}}
+  ],
+  "coverage_gate": "Every behavior class present in training must have at least 10 holdout rows; if this fails, utility gates are not interpreted.",
+  "primary_gate": "With coverage passing, P_63_1 macro-F1 must exceed fourier_A by at least 0.01 and must not reduce recall for any class with at least 10 holdout rows.",
+  "specificity_gate": "P_63_1 must exceed both P_equal and P_1_63_reverse_control in macro-F1.",
+  "interpretation": "63/64 and 1/64 are tested only as declared mixture weights. The arithmetic identity P=A+B does not itself imply a physical, resonant or universal mechanism.",
+  "prohibited_changes_after_lock": [
+    "No rule, seed range, transform, generation, target, feature, classifier, weight, coverage threshold or success threshold may change for this execution.",
+    "No holdout label or metric may be inspected before this file is locked.",
+    "No physical resonance, radiance, Life/E8 identity, biological mechanism, quantum link or external utility may be inferred."
+  ]
+}

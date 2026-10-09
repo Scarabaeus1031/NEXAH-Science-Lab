@@ -1,0 +1,11 @@
+{
+  "name": "nexah-life-orbit-p2",
+  "version": "0.2.0",
+  "private": true,
+  "scripts": {
+    "test": "node --test tests/*.test.cjs",
+    "audit": "node audit-p2.cjs",
+    "receipts": "node scripts/build-receipts.cjs",
+    "validate": "npm test && npm run audit && npm run receipts"
+  }
+}

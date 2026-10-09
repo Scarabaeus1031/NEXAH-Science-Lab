@@ -1,0 +1,8 @@
+html, body { max-width: 100%; overflow-x: hidden; }
+.grammar header > *, .section-heading > * { min-width: 0; }
+@media (max-width: 700px) {
+  .topbar nav { display: none; }
+  .grammar h2, .section-heading h2, .closeout h2, .eyebrow, .lead { overflow-wrap: anywhere; }
+  .instrument footer { flex-direction: column; }
+}
+

@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>NEXAH · HZ/FZ Compass Mission Control</title>
+  <style>
+    :root{color-scheme:dark;--bg:#080c12;--panel:#101722;--ink:#e5edf7;--muted:#91a0b4;--grid:#2a3749;--blue:#54c8ff;--yellow:#f3cf65;--orange:#ff9842;--pink:#ec70bd;--green:#62d18b;--red:#f16f75}
+    *{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 55% 0,#142033 0,#080c12 48%);color:var(--ink);font:14px/1.45 Inter,ui-sans-serif,system-ui,-apple-system,sans-serif}button,select,input{font:inherit}.shell{max-width:1680px;margin:auto;padding:26px}.mast{display:flex;gap:20px;align-items:flex-start;justify-content:space-between}.eyebrow{color:var(--yellow);letter-spacing:.18em;text-transform:uppercase;font-size:12px}h1{font-size:clamp(25px,3vw,42px);font-weight:500;letter-spacing:.04em;margin:5px 0}.subtitle{color:var(--muted);max-width:820px}.status{display:grid;grid-template-columns:repeat(3,minmax(120px,1fr));gap:1px;background:var(--grid);border:1px solid var(--grid);min-width:410px}.status div{background:var(--panel);padding:12px}.status small{display:block;color:var(--muted);text-transform:uppercase;letter-spacing:.1em}.status b{font-weight:500;color:var(--green)}.mission-route{display:flex;gap:8px;flex-wrap:wrap;margin:16px 0 2px}.mission-route a{color:var(--ink);text-decoration:none;border:1px solid var(--grid);background:#0d1420;padding:7px 10px}.mission-route a:hover,.mission-route a:focus-visible{border-color:var(--yellow);outline:none}.controls{display:flex;align-items:end;gap:18px;flex-wrap:wrap;margin:22px 0;padding:13px 0;border-top:1px solid var(--grid);border-bottom:1px solid var(--grid)}.controls label{display:grid;gap:6px;color:var(--muted)}.seg{display:flex}.seg button,.controls select,.download{border:1px solid var(--grid);background:#0d1420;color:var(--ink);padding:8px 11px}.seg button[aria-pressed=true]{background:var(--ink);color:var(--bg)}.controls input[type=range]{width:210px;accent-color:var(--pink)}.check{display:flex!important;grid-auto-flow:column;align-items:center;gap:8px!important}.download{text-decoration:none;cursor:pointer;margin-left:auto}.grid{display:grid;grid-template-columns:1.15fr 1fr 1fr;gap:16px}.panel{min-width:0;background:color-mix(in srgb,var(--panel) 82%,transparent);border:1px solid var(--grid);padding:14px}.panel h2{font-size:14px;font-weight:500;letter-spacing:.05em;margin:0 0 8px}.panel p{color:var(--muted);margin:0 0 8px;font-size:12px}.chart{width:100%;aspect-ratio:1.36/1;display:block}.chart text{font-family:inherit;fill:var(--muted);font-size:11px}.detail{margin-top:16px;display:grid;grid-template-columns:1.15fr 1fr;gap:16px}.record{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:var(--grid);border:1px solid var(--grid)}.metric{background:var(--panel);padding:13px}.metric small{display:block;color:var(--muted)}.metric strong{display:block;font-size:20px;font-weight:500;margin-top:3px}.boundary{border-left:3px solid var(--yellow);padding:12px 15px;background:rgba(243,207,101,.06)}.boundary strong{font-weight:500}.boundary p{color:var(--muted);margin:4px 0 0}.legend{display:flex;gap:14px;flex-wrap:wrap;color:var(--muted);font-size:12px}.sw{display:inline-block;width:16px;height:3px;margin-right:5px;vertical-align:middle}.backloop{margin-top:16px}.backloop-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:var(--grid)}.backloop-grid div{background:var(--panel);padding:12px}.backloop-grid small{display:block;color:var(--muted)}.backloop-grid b{font-weight:500}.backloop a{color:var(--yellow)}.footer{margin-top:18px;color:var(--muted);font-size:12px}.pink{color:var(--pink)}
+    .operator-lens{margin-top:16px}.operator-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:var(--grid);margin-top:10px}.operator-card{background:var(--panel);padding:13px;border-top:3px solid var(--blue)}.operator-card:nth-child(2){border-color:var(--pink)}.operator-card:nth-child(3){border-color:var(--green)}.operator-card.legacy{border-color:var(--red)}.operator-card small{display:block;color:var(--muted);letter-spacing:.08em;text-transform:uppercase}.operator-card strong{display:block;margin:6px 0;font-size:17px;font-weight:500}.operator-card code{color:var(--yellow)}.operator-card p{min-height:52px}.operator-card a,.operator-lens a{color:var(--yellow)}.operator-verdict{margin-top:10px;padding:10px;border-left:3px solid var(--green);background:rgba(98,209,139,.06);color:var(--muted)}.operator-verdict b{color:var(--green)}
+    @media(max-width:1050px){.mast{display:block}.status{margin-top:18px;min-width:0}.grid{grid-template-columns:1fr}.chart{aspect-ratio:1.7/1}.detail{grid-template-columns:1fr}.operator-grid{grid-template-columns:1fr 1fr}}
+    @media(max-width:650px){.shell{padding:16px}.status,.record{grid-template-columns:1fr 1fr}.download{margin-left:0}.chart{aspect-ratio:1.2/1}.operator-grid{grid-template-columns:1fr}}
+  </style>
+  <script defer src="../NAVIGATION/NEXAH_MODULE_REGISTRY_RING1.js"></script>
+  <script defer src="../NAVIGATION/NEXAH_NAVIGATION_RING1.js" data-module="mission-control"></script>
+</head>
+<body>
+<main class="shell">
+  <header class="mast">
+    <div><div class="eyebrow">NEXAH · Mission Control / E3 Adapter</div><h1>HZ/FZ Compass-Binder</h1><div class="subtitle">Eine gekoppelte Ansicht der Ursprungskurven, des Kontrastpfads und desselben Pfads im Polarkoordinatenraum. Die Ansichten sind Transformationen desselben Datensatzes, keine zusätzlichen Messungen.</div></div>
+    <section class="status" aria-label="Status">
+      <div><small>Binder</small><b>cross-dataset ACR pass</b></div><div><small>Evidence</small><b>E3 adapter transport</b></div><div><small>Profile</small><b>fail-closed · inactive</b></div>
+    </section>
+  </header>
+
+  <nav class="mission-route" aria-label="Mission-Control Familienrouten">
+    <a href="../CASE_STUDIES/E8_DEMOS_INTERACTIVE_ORIENTATION_2026-09-21/NEXAH_E8_MUTATION_FAMILY_GRAPH.html">Coxeter Orbit Lab</a>
+    <a href="../CASE_STUDIES/E8_DEMOS_INTERACTIVE_ORIENTATION_2026-09-21/COXETER_ORBIT_TOPOLOGY_LAB_2026-10-05/NEXAH_TYPED_COUPLING_WORKBENCH.html">Typed Coupling</a>
+    <a href="../CASE_STUDIES/E8_DEMOS_INTERACTIVE_ORIENTATION_2026-09-21/COXETER_ORBIT_TOPOLOGY_LAB_2026-10-05/NEXAH_WORD_ORBIT_SEQUENCER.html">Word Sequencer</a>
+    <a href="../CASE_STUDIES/E8_DEMOS_INTERACTIVE_ORIENTATION_2026-09-21/COXETER_ORBIT_TOPOLOGY_LAB_2026-10-05/README.md">Modulakte</a>
+    <a href="../FAMILY_CONNECTION_MAP_2026-09-30.md">Family Connection Map</a>
+    <a href="../SUBJECT_OVERVIEW.md">Science Overview</a>
+    <a href="https://scarabaeus1031.github.io/NEXAH-Science-Lab/navigator/#sequence">Primegrid Circle</a>
+    <a href="../CASE_STUDIES/NEXAH_DESKTOP_GOLD_CUSTODY_AND_NAVIGATOR_INTAKE_2026-10-07/NEXAH_READOUT_RECONSTRUCTION_GLB_GATEWAY.html">Readout / GLB Gateway</a>
+    <a href="../MISSION_CONTROL_RETURN_PRIMEGRID_NAVIGATOR_CONSOLIDATION_2026-10-07.md">Current Return</a>
+  </nav>
+
+  <section class="controls" aria-label="Ansichtssteuerung">
+    <div><div style="color:var(--muted);margin-bottom:6px">Paarung</div><div class="seg"><button id="activeBtn" type="button" aria-pressed="true">Aktive Reihenfolge</button><button id="nominalBtn" type="button" aria-pressed="false">Zykluslabel</button></div></div>
+    <label>Knoten <span id="nodeLabel" class="pink">1 / 8</span><input id="node" type="range" min="1" max="8" value="1" step="1"></label>
+    <label>Referenzstrahl<select id="reference"></select></label>
+    <label class="check"><input id="cloud" type="checkbox" checked> Bootstrap-Schimmer</label>
+    <button id="download" class="download" type="button">Binder-Record laden</button>
+  </section>
+
+  <section class="grid">
+    <article class="panel"><h2>A · Ursprungskurven</h2><p>40 mm · drei Frequenzen · markierter Knoten folgt der gewählten Paarung</p><svg id="sourceChart" class="chart" role="img" aria-label="Loop area source curves"></svg><div class="legend"><span><i class="sw" style="background:var(--blue)"></i>0.1 Hz</span><span><i class="sw" style="background:var(--yellow)"></i>0.5 Hz</span><span><i class="sw" style="background:var(--orange)"></i>1.0 Hz</span></div></article>
+    <article class="panel"><h2>B · Zykluspfad</h2><p>ΔL = 0.5−0.1 · ΔR = 0.5−1.0 · J/cycle</p><svg id="pathChart" class="chart" role="img" aria-label="Cartesian contrast cycle path"></svg><div class="legend"><span><i class="sw" style="background:var(--pink)"></i>Pfad</span><span><i class="sw" style="background:var(--yellow)"></i>Referenz, explorativ</span></div></article>
+    <article class="panel"><h2>C · Polarer Kompass</h2><p>Gleiche Koordinaten als Richtung + Radius; Schimmer = Bootstrap, nicht zweite Quelle</p><svg id="polarChart" class="chart" role="img" aria-label="Polar contrast compass"></svg><div class="legend"><span><i class="sw" style="background:var(--blue)"></i>Bootstrap</span><span><i class="sw" style="background:var(--pink)"></i>Beobachteter Medianvektor</span></div></article>
+  </section>
+
+  <section class="detail">
+    <div class="record" aria-live="polite">
+      <div class="metric"><small>Knoten</small><strong id="mNode">—</strong></div>
+      <div class="metric"><small>ΔL</small><strong id="mX">—</strong></div>
+      <div class="metric"><small>ΔR</small><strong id="mY">—</strong></div>
+      <div class="metric"><small>Winkel</small><strong id="mAngle">—</strong></div>
+      <div class="metric"><small>Kreuzungen</small><strong id="mCross">—</strong></div>
+      <div class="metric"><small>2. Schritt / 1.</small><strong id="mRatio">—</strong></div>
+      <div class="metric"><small>Referenz Δ</small><strong id="mRef">—</strong></div>
+      <div class="metric"><small>Bootstrap ±10°</small><strong id="mBoot">—</strong></div>
+    </div>
+    <div class="boundary"><strong>Interpretationsgrenze</strong><p id="boundaryText"></p></div>
+  </section>
+  <section class="panel operator-lens" aria-label="Geprüfter View-Operator-Vergleich">
+    <h2>E · View-Operator Vergleich</h2>
+    <p>Gleiche Return-Grammatik, verschiedene Operatoren. Diese Vergleichslinse verändert weder die HZ/FZ-Daten noch die drei Messansichten.</p>
+    <div class="operator-grid">
+      <article class="operator-card"><small>Q-Mirror</small><strong><code>Q(z)=1/z</code></strong><p>Involutiv für z ≠ 0. Reziproker Radius, negierter Winkel; bei Null undefiniert.</p><a href="../CASE_STUDIES/NEXAH_ORION_REF02_Q_MIRROR_2026-10-01/02_RESULT.md">REF02 öffnen</a></article>
+      <article class="operator-card"><small>HZ/FZ Compass</small><strong><code>(x,y) ↔ (r,θ)</code></strong><p>Invertierbarer Koordinatenwechsel für den beobachteten Kontrastvektor; am Ursprung ist der Winkel nicht identifizierbar.</p><a href="../CASE_STUDIES/HZ_FZ_PUBLIC_01_RWTH_SMA_DAMPER_2026-09-15/07_CONTRAST_COMPASS_REPORT.md">Compass-Record öffnen</a></article>
+      <article class="operator-card"><small>Finite DFT</small><strong><code>x ↔ DFT(x)</code></strong><p>Exakter komplexer Return im Block-02-Fixture. Betrag allein kollidiert achtfach.</p><a href="../CASE_STUDIES/NEXAH_PRIMEGRID_BLOCK02_DFT_SHIFT_RETURN_2026-10-06/01_RESULT_ASSESSMENT.md">Block 02 öffnen</a></article>
+      <article class="operator-card legacy"><small>Q-Time Legacy · HTML-0513</small><strong><code>operator = unknown</code></strong><p>Historisches Spiralvisual von 2025. Quelle am registrierten Pfad nicht wiedergefunden; Mechanismus unvalidiert.</p><a href="../REVIEWS/THREE_D_MODULE_ATLAS_2026-09-29/HTML5_LEGACY_TRIAGE_REGISTER.csv">Legacy-Register öffnen</a></article>
+    </div>
+    <div class="operator-verdict"><b>VIEW-OPERATOR AUDIT 01 · 9/9 PASS</b> — gemeinsame View–Binder–Return-Grammatik bestätigt; Operatoridentität zurückgewiesen. <a href="../CASE_STUDIES/NEXAH_VIEW_OPERATOR_AUDIT_01_RECIPROCAL_POLAR_DFT_2026-10-07/01_RESULT_ASSESSMENT.md">Assessment öffnen</a></div>
+  </section>
+  <section class="panel backloop" aria-label="Mission-Control Backloop">
+    <h2>D · Math–Asset / ACR Backloop</h2>
+    <p>Strukturelle Integration, keine Profilaktivierung und keine neue wissenschaftliche Behauptung.</p>
+    <div class="backloop-grid">
+      <div><small>Matrix</small><b>67 Records</b></div>
+      <div><small>GLB Intake</small><b>11 / 11 parsed</b></div>
+      <div><small>ACR sequence</small><b>33 ✓ → 44 ✓ → 35 ✓ → 43/45 ✓</b></div>
+      <div><small>External gates</small><b>MIT-BIH 101 ✓ · UCI T1/T2 ✓</b></div>
+      <div><small>Sealed controls</small><b>24 / 24 executed mutations rejected</b></div>
+      <div><small>Prediction gate</small><b>valid FAIL · P2 1.33% worse than P1</b></div>
+      <div><small>Discrimination gate</small><b>valid FAIL · P2 −8.92 pp vs P1</b></div>
+      <div><small>Palindrome holdout</small><b>PASS · 13/1,798 vs 0/3,596 · base-10 representation</b></div>
+      <div><small>Independent seal review</small><b>QUALIFIED · boundary exception at control 10000 · robust at 12/1,797 vs 0/3,594</b></div>
+      <div><small>Palindrome Holdout II</small><b>PRESEALED · 16,786 matched triplets · OpenTimestamps submitted · Bitcoin confirmation pending · outcomes unopened</b></div>
+      <div><small>Matched inference</small><b>PREREGISTERED · exact conditional triplet test · D ≥ 0.002 · p ≤ 0.001</b></div>
+      <div><small>Parked next action</small><b>TIMESTAMP CHECK · ots upgrade → ots verify → external receipt → final seal → execute once</b></div>
+      <div><small>Execution lock</small><b>ACTIVE · no Holdout-II outcome access before verified Bitcoin attestation</b></div>
+      <div><small>Theory / physics</small><b>unchanged · no promotion</b></div>
+      <div><small>Cross-family instrument return</small><b>Word/Orbit Sequencer · P2/P3 bounded · E8/H3 exact · Fibonacci/Euler method lane · no activation</b></div>
+      <div><small>Reliability gates</small><b>G06 guard STOP · G07 FAIL_CLOSED · no Unit-5 score</b></div>
+      <div><small>Navigator registry</small><b>170 entities · 23 typed relations · 140 registered HTML surfaces</b></div>
+      <div><small>Primegrid chain</small><b>01 → 02 → 02A → 02B → 03 · replay PASS · representation-bound</b></div>
+      <div><small>Block 02B seam lane</small><b>6 O-states · ø = cut/rift · œ = seam/transition · O8 bijection open</b></div>
+      <div><small>OIL / RIS Multi-Lens</small><b>12/12 gates · aligned reveal · source remains 2-fold ambiguous · mismatch ABSTAINS</b></div>
+      <div><small>Desktop Gold custody</small><b>6/6 gates · MRB 9/9 · GLB V1–V7 portable reproduction · ACR‑42 font contour quarantined</b></div>
+    </div>
+    <p style="margin-top:10px"><a href="../CASE_STUDIES/NEXAH_DESKTOP_GOLD_CUSTODY_AND_NAVIGATOR_INTAKE_2026-10-07/NEXAH_READOUT_RECONSTRUCTION_GLB_GATEWAY.html">Readout Reconstruction & GLB Gateway</a> · <a href="../CASE_STUDIES/NEXAH_DESKTOP_GOLD_CUSTODY_AND_NAVIGATOR_INTAKE_2026-10-07/results/INTAKE_AUDIT_REPORT.md">Gold Intake Audit</a> · <a href="../CASE_STUDIES/NEXAH_OIL_RIS_MULTI_LENS_REVEAL_AUDIT_2026-10-07/01_RESULT_ASSESSMENT.md">OIL/RIS Multi-Lens Audit</a> · <a href="../../outputs/01a08619-e6aa-7cc0-856e-279b2eadaca5/NEXAH_MATH_ASSET_MATRIX_2026-09-15.xlsx">Workbook öffnen</a> · <a href="../CASE_STUDIES/NUMBER_RELATION_SANDBOX_01_2026-09-16/03_HOLDOUT_EXECUTION_REPORT.md">Palindrome holdout report</a> · <a href="../CASE_STUDIES/NUMBER_RELATION_SANDBOX_01_2026-09-16/SEALED_HOLDOUT_RESULT.json">Palindrome result JSON</a> · <a href="../CASE_STUDIES/NUMBER_RELATION_SANDBOX_01_2026-09-16/04_INDEPENDENT_SEAL_REVIEW.md">Independent seal review</a> · <a href="../CASE_STUDIES/NUMBER_RELATION_HOLDOUT_02_2026-09-16/01_PREREGISTERED_PROTOCOL.md">Holdout II protocol</a> · <a href="../CASE_STUDIES/NUMBER_RELATION_HOLDOUT_02_2026-09-16/WITNESS_REQUEST.json">Holdout II witness request</a> · <a href="../CASE_STUDIES/ACR_EXTERNAL_BLIND_02_PHYSIONET_MITBIH_RECORD101_2026-09-16/02_EXECUTION_REPORT.md">MIT-BIH 101 Report</a> · <a href="../CASE_STUDIES/ACR_CROSS_DATASET_BLIND_03_UCI_APPLIANCES_2026-09-16/02_EXECUTION_REPORT.md">UCI Cross-Dataset Report</a> · <a href="../CASE_STUDIES/ACR_PREDICTION_GATE_04_UCI_T1_T2_2026-09-16/02_EXECUTION_REPORT.md">Prediction Gate 04</a> · <a href="../CASE_STUDIES/ACR_DISCRIMINATION_GATE_05_UCI_GAS_DRIFT_2026-09-16/02_EXECUTION_REPORT.md">Discrimination Gate 05</a> · <a href="../CASE_STUDIES/ACR_DISCRIMINATION_GATE_05_UCI_GAS_DRIFT_2026-09-16/03_POSTHOC_DRIFT_DIAGNOSTIC_AND_FORWARD_PLAN.md">Post-hoc drift diagnostic</a> · <a href="../CASE_STUDIES/ACR_RELIABILITY_BINDER_GATE_06_UCI_TWIN_ARRAYS_2026-09-16/03_GUARD_EXECUTION_REPORT.md">Gate 06 guard result</a> · <a href="../CASE_STUDIES/ACR_SHARPENED_RELIABILITY_GATE_07_UCI_TWIN_ARRAYS_2026-09-16/01_PREREGISTERED_PROTOCOL.md">Gate 07 protocol</a> · <a href="../CASE_STUDIES/ACR_SHARPENED_RELIABILITY_GATE_07_UCI_TWIN_ARRAYS_2026-09-16/03_FAIL_CLOSED_EXECUTION_REPORT.md">Gate 07 fail-closed report</a></p>
+  </section>
+  <div class="footer">Quelle: HZ_FZ_PUBLIC_01 · Compass-Binder <code>hz-fz-contrast-compass:paired-median-contrast-v1</code> · keine Profilaktivierung</div>
+</main>
+
+<script src="NEXAH_HZ_FZ_MISSION_DATA.js"></script>
+<script>
+(() => {
+  'use strict';
+  const packet = window.NEXAH_MISSION_DATA;
+  if (!packet) { document.body.innerHTML = '<p style="padding:2rem">Mission data missing.</p>'; return; }
+  const R = packet.result, refs = R.reference_screen, cloud = packet.bootstrap_cloud_j;
+  const colors = {blue:'#54c8ff',yellow:'#f3cf65',orange:'#ff9842',pink:'#ec70bd',green:'#62d18b',grid:'#2a3749',ink:'#e5edf7',muted:'#91a0b4'};
+  let mode = 'active_order', index = 0;
+  const $ = id => document.getElementById(id);
+  refs.forEach((r,i) => { const o=document.createElement('option'); o.value=i; o.textContent=`${r.name} · ${r.ratio.toFixed(4)}`; $('reference').appendChild(o); });
+  $('reference').value = refs.findIndex(r => r.name === 'gamma^-2');
+  function el(name,attrs={}){const n=document.createElementNS('http://www.w3.org/2000/svg',name);Object.entries(attrs).forEach(([k,v])=>n.setAttribute(k,v));return n}
+  function line(svg,x1,y1,x2,y2,stroke,width=1,opacity=1,dash=''){svg.appendChild(el('line',{x1,y1,x2,y2,stroke,'stroke-width':width,opacity,'stroke-dasharray':dash}))}
+  function text(svg,x,y,value,anchor='middle',fill=colors.muted){const n=el('text',{x,y,'text-anchor':anchor,fill});n.textContent=value;svg.appendChild(n)}
+  function path(svg,points,stroke,width=2,opacity=1){const p=el('path',{d:points.map((q,i)=>`${i?'L':'M'}${q[0].toFixed(2)},${q[1].toFixed(2)}`).join(' '),fill:'none',stroke,'stroke-width':width,opacity,'stroke-linejoin':'round','stroke-linecap':'round'});svg.appendChild(p);return p}
+  function scale(domain,range){const d=domain[1]-domain[0],r=range[1]-range[0];return v=>range[0]+(v-domain[0])*r/d}
+  function view(){return mode==='active_order'?R.active_order_view:R.nominal_cycle_view}
+  function frame(svg){svg.replaceChildren();svg.setAttribute('viewBox','0 0 520 380');line(svg,58,326,500,326,colors.grid);line(svg,58,22,58,326,colors.grid);}
+  function drawSource(){const svg=$('sourceChart'),v=view();frame(svg);const vals=Object.values(v.series_j).flat();const min=Math.min(...vals),max=Math.max(...vals),pad=(max-min)*.08;const sx=scale([Math.min(...v.axis),Math.max(...v.axis)],[62,492]),sy=scale([min-pad,max+pad],[320,26]);for(let i=0;i<5;i++){const y=26+i*73.5;line(svg,58,y,500,y,colors.grid,1,.7);text(svg,50,y+4,(max+pad-i*(max-min+2*pad)/4).toFixed(0),'end')}Object.entries(v.series_j).forEach(([key,arr])=>{const c=key==='0.1'?colors.blue:key==='0.5'?colors.yellow:colors.orange;path(svg,arr.map((y,i)=>[sx(v.axis[i]),sy(y)]),c,2);arr.forEach((y,i)=>{const q=el('circle',{cx:sx(v.axis[i]),cy:sy(y),r:i===index?6:3,fill:c,stroke:i===index?colors.ink:'none','stroke-width':2});svg.appendChild(q)})});v.axis.forEach(a=>text(svg,sx(a),346,String(a)));text(svg,278,371,mode==='active_order'?'active-cycle order':'nominal cycle label');}
+  function drawPath(){const svg=$('pathChart'),v=view(),ref=refs[+$('reference').value];frame(svg);const pts=v.path,allX=pts.map(p=>p.delta_l_j).concat(cloud.map(p=>p[0])),allY=pts.map(p=>p.delta_r_j).concat(cloud.map(p=>p[1]));const dx=Math.max(Math.abs(Math.min(...allX)),Math.abs(Math.max(...allX)),20)*1.08,dy=Math.max(Math.abs(Math.min(...allY)),Math.abs(Math.max(...allY)),20)*1.08;const sx=scale([-dx,dx],[60,496]),sy=scale([-dy,dy],[324,24]);line(svg,sx(0),24,sx(0),324,colors.ink,1,.35);line(svg,60,sy(0),496,sy(0),colors.ink,1,.35);if($('cloud').checked)cloud.forEach(q=>{const c=el('circle',{cx:sx(q[0]),cy:sy(q[1]),r:1.2,fill:colors.blue,opacity:.10});svg.appendChild(c)});const rr=Math.max(dx,dy),rx=-rr/Math.sqrt(1+ref.ratio*ref.ratio),ry=ref.ratio*rx;line(svg,sx(0),sy(0),sx(rx),sy(ry),colors.yellow,2,.9,'5 4');path(svg,pts.map(p=>[sx(p.delta_l_j),sy(p.delta_r_j)]),colors.pink,2.5);pts.forEach((p,i)=>{const c=el('circle',{cx:sx(p.delta_l_j),cy:sy(p.delta_r_j),r:i===index?7:4,fill:i===index?colors.ink:colors.pink,stroke:colors.pink,'stroke-width':2});svg.appendChild(c);text(svg,sx(p.delta_l_j)+8,sy(p.delta_r_j)-7,String(p.axis_value),'start',colors.ink)});text(svg,278,371,'ΔL (J/cycle)');const ylab=el('text',{x:15,y:180,transform:'rotate(-90 15 180)','text-anchor':'middle',fill:colors.muted});ylab.textContent='ΔR (J/cycle)';svg.appendChild(ylab)}
+  function drawPolar(){const svg=$('polarChart'),v=view(),ref=refs[+$('reference').value];svg.replaceChildren();svg.setAttribute('viewBox','0 0 520 380');const cx=260,cy=184,maxR=Math.max(...cloud.map(p=>Math.hypot(...p)),...v.path.map(p=>p.radius_j))*1.05,sr=r=>Math.min(148,r/maxR*148);[.25,.5,.75,1].forEach(f=>{svg.appendChild(el('circle',{cx,cy,r:148*f,fill:'none',stroke:colors.grid,'stroke-width':1}));});[0,45,90,135,180,225,270,315].forEach(a=>{const t=a*Math.PI/180;line(svg,cx,cy,cx+148*Math.cos(t),cy-148*Math.sin(t),colors.grid,1,.8);text(svg,cx+165*Math.cos(t),cy-165*Math.sin(t)+4,`${a}°`)});if($('cloud').checked)cloud.forEach(q=>{const t=Math.atan2(q[1],q[0]),r=sr(Math.hypot(...q));svg.appendChild(el('circle',{cx:cx+r*Math.cos(t),cy:cy-r*Math.sin(t),r:1.2,fill:colors.blue,opacity:.11}))});const rt=ref.negative_ray_angle_deg*Math.PI/180;line(svg,cx,cy,cx+148*Math.cos(rt),cy-148*Math.sin(rt),colors.yellow,2,.9,'5 4');const obs=R.observed_vector_j,ot=Math.atan2(obs[1],obs[0]),or=sr(Math.hypot(...obs));line(svg,cx,cy,cx+or*Math.cos(ot),cy-or*Math.sin(ot),colors.pink,3);v.path.forEach((p,i)=>{const t=p.angle_deg*Math.PI/180,r=sr(p.radius_j);svg.appendChild(el('circle',{cx:cx+r*Math.cos(t),cy:cy-r*Math.sin(t),r:i===index?7:3.5,fill:i===index?colors.ink:colors.green,stroke:colors.green,'stroke-width':2}))});text(svg,260,374,'angle / radial contrast magnitude')}
+  function update(){const v=view();index=Math.min(index,v.path.length-1);$('node').max=v.path.length;$('node').value=index+1;$('nodeLabel').textContent=`${index+1} / ${v.path.length}`;const p=v.path[index],ref=refs[+$('reference').value],delta=((p.angle_deg-ref.negative_ray_angle_deg+540)%360)-180;$('mNode').textContent=p.label;$('mX').textContent=`${p.delta_l_j.toFixed(2)} J`;$('mY').textContent=`${p.delta_r_j.toFixed(2)} J`;$('mAngle').textContent=`${p.angle_deg.toFixed(1)}°`;$('mCross').textContent=String(v.crossing_count);$('mRatio').textContent=R.crossing_step_screen.second_over_first.toFixed(4);$('mRef').textContent=`${delta>=0?'+':''}${delta.toFixed(1)}°`;$('mBoot').textContent=`${(100*ref.bootstrap_within_10_deg_fraction).toFixed(1)}%`;$('boundaryText').textContent=R.claim_boundary;drawSource();drawPath();drawPolar();}
+  $('activeBtn').onclick=()=>{mode='active_order';$('activeBtn').setAttribute('aria-pressed','true');$('nominalBtn').setAttribute('aria-pressed','false');update()};
+  $('nominalBtn').onclick=()=>{mode='nominal_cycle_label';$('nominalBtn').setAttribute('aria-pressed','true');$('activeBtn').setAttribute('aria-pressed','false');update()};
+  $('node').oninput=e=>{index=+e.target.value-1;update()};$('reference').onchange=update;$('cloud').onchange=update;
+  $('download').onclick=()=>{const binder={schema:'nexah-compass-binder/0.1.0',binder_id:'hz-fz-contrast-compass:paired-median-contrast-v1',case_id:R.case_id,status:'DESCRIPTIVE_E2_SUPPLEMENT_NO_PROFILE_ACTIVATION',alignment:mode,selected_node:view().path[index],observed_vector_j:R.observed_vector_j,reference:refs[+$('reference').value],decision:R.classification,claim_boundary:R.claim_boundary};const blob=new Blob([JSON.stringify(binder,null,2)+'\n'],{type:'application/json'}),a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='NEXAH_COMPASS_BINDER_RECORD.json';a.click();setTimeout(()=>URL.revokeObjectURL(a.href),500)};
+  update();
+})();
+</script>
+</body>
+</html>

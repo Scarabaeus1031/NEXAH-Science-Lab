@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>NEXAH · Word & Orbit Sequencer</title>
+  <style>
+    :root{color-scheme:dark;--bg:#050d15;--panel:#091724;--panel2:#102334;--line:#29495f;--text:#e8f2f9;--muted:#91a7b8;--cyan:#55d5ff;--mint:#55e0af;--gold:#f5c85f;--pink:#f263b5;--orange:#ff9a60;--violet:#a78bfa;--red:#ff7d86}
+    *{box-sizing:border-box}body{margin:0;min-height:100vh;background:radial-gradient(circle at 50% 0,#102b40 0,#06101a 48%,#040a10 100%);color:var(--text);font:14px/1.45 Inter,ui-sans-serif,system-ui,-apple-system,sans-serif}button,select,input{font:inherit}main{max-width:1680px;margin:auto;padding:22px}.eyebrow{color:var(--gold);font-size:12px;letter-spacing:.15em;text-transform:uppercase;font-weight:700}h1{font-size:clamp(30px,4vw,54px);line-height:1.04;margin:5px 0 7px}p{color:var(--muted);margin:0}.routes{display:flex;gap:8px;flex-wrap:wrap;margin:15px 0}.routes a{color:var(--text);text-decoration:none;border:1px solid var(--line);background:rgba(11,24,37,.82);border-radius:999px;padding:7px 11px;font-size:12px}.routes a:hover,.routes a:focus-visible{border-color:var(--cyan);outline:none}.pipeline{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:12px;overflow:hidden;margin:16px 0}.stage{background:rgba(9,20,31,.97);padding:11px 13px;position:relative}.stage:not(:last-child)::after{content:'→';position:absolute;right:-8px;top:50%;z-index:2;color:var(--gold);transform:translateY(-50%)}.stage small{display:block;color:var(--gold);letter-spacing:.08em}.stage b{display:block;margin-top:3px;font-size:13px}.stage span{display:block;color:var(--muted);font-size:12px;margin-top:2px}.controls{display:flex;gap:10px;align-items:end;flex-wrap:wrap;margin:16px 0}.field{display:grid;gap:5px}.field span{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em}.field.word{min-width:250px;flex:1}.field.speed input{width:115px}select,input,button{color:var(--text);background:var(--panel2);border:1px solid var(--line);border-radius:8px;padding:9px 11px}input[type=range]{padding:0;accent-color:var(--pink)}button:hover,button:focus-visible,select:focus-visible,input:focus-visible{border-color:var(--cyan);outline:none}button.primary{background:var(--gold);border-color:var(--gold);color:#101820;font-weight:700}button[aria-pressed=true]{background:var(--mint);border-color:var(--mint);color:#07131c}.stats{display:grid;grid-template-columns:repeat(6,minmax(130px,1fr));gap:9px;margin-bottom:12px}.stat{background:rgba(11,24,37,.88);border:1px solid var(--line);border-radius:10px;padding:11px 13px}.stat small{display:block;color:var(--muted);letter-spacing:.07em;text-transform:uppercase}.stat strong{display:block;color:var(--mint);font-size:19px;margin-top:3px;overflow-wrap:anywhere}.work{display:grid;grid-template-columns:minmax(255px,.72fr) minmax(620px,1.75fr) minmax(280px,.78fr);gap:12px}.panel{background:rgba(8,19,30,.93);border:1px solid var(--line);border-radius:12px;padding:14px;min-width:0}.panel h2{margin:0 0 10px;color:var(--muted);font-size:13px;letter-spacing:.09em;text-transform:uppercase}.system-card{border-left:3px solid var(--cyan);padding:9px 10px;background:#08141f;margin-bottom:10px}.system-card b{display:block}.system-card span{display:block;color:var(--muted);font-size:12px;margin-top:3px}.formula{background:#07121c;color:var(--gold);font-family:ui-monospace,SFMono-Regular,Menlo,monospace;padding:10px;border-radius:8px;white-space:pre-line;margin:10px 0}.relation{display:grid;gap:1px;background:var(--line);border:1px solid var(--line);margin-top:10px}.relation div{display:flex;justify-content:space-between;gap:12px;background:#091622;padding:8px 10px}.relation span{color:var(--muted);font-size:12px}.relation b{font-size:12px;text-align:right}.trace{list-style:none;padding:0;margin:10px 0 0;max-height:235px;overflow:auto}.trace li{border-bottom:1px solid rgba(41,70,92,.55);padding:5px 0;font:12px ui-monospace,SFMono-Regular,Menlo,monospace}.visual{position:relative;min-height:610px}.visual svg{width:100%;height:100%;position:absolute;inset:0}.gridline{stroke:var(--line);stroke-width:1;opacity:.45;fill:none}.lane{stroke:var(--line);stroke-width:1;opacity:.8;fill:none}.lane.selected{stroke:var(--cyan);stroke-width:2;opacity:.9}.phase-node{fill:var(--line);opacity:.85}.phase-node.word-boundary{fill:var(--cyan)}.phase-node.current{fill:var(--gold);stroke:#fff;stroke-width:1.5}.phase-node.previous{fill:var(--pink)}.micro-node{fill:#13283a;stroke:var(--line);stroke-width:1.4}.micro-node.done{fill:var(--mint);stroke:var(--mint)}.micro-node.current{fill:var(--gold);stroke:#fff;stroke-width:1.5}.micro-node text{pointer-events:none}.transition{stroke:var(--pink);stroke-width:2.5;opacity:.82}.transition-ghost{stroke:var(--pink);stroke-width:1;opacity:.25;stroke-dasharray:4 5}.graph-edge{stroke:var(--line);stroke-width:1.1;opacity:.7}.graph-node{fill:var(--cyan);opacity:.72}.graph-node.current{fill:var(--gold);stroke:#fff;stroke-width:1.5;opacity:1}.graph-node.previous{fill:var(--pink);opacity:1}.orbit-label,.svg-note,.node-label{fill:var(--muted);font-size:11px}.svg-title{fill:var(--text);font-size:12px;font-weight:700;letter-spacing:.08em}.svg-value{fill:var(--gold);font-size:12px;font-weight:700}.fib-node{fill:var(--cyan)}.euler-node{fill:var(--pink)}.euler-node.fail{fill:var(--red);stroke:#fff;stroke-width:1.3}.sequence-link{stroke:var(--gold);stroke-width:1.6;opacity:.75}.legend{position:absolute;left:14px;bottom:12px;display:flex;gap:12px;flex-wrap:wrap;color:var(--muted);font-size:11px}.sw{display:inline-block;width:15px;height:3px;margin-right:5px;vertical-align:middle}.record{display:grid;gap:1px;background:var(--line);border:1px solid var(--line);margin-bottom:12px}.record div{background:#091622;padding:9px 10px}.record small{display:block;color:var(--muted);text-transform:uppercase;letter-spacing:.07em}.record b{display:block;margin-top:2px;overflow-wrap:anywhere}.boundary{border-left:3px solid var(--gold);padding:10px 12px;background:rgba(245,200,95,.06);color:var(--muted);font-size:12px}.status-key{margin-top:11px}.status-key div{display:grid;grid-template-columns:55px 1fr;gap:8px;border-bottom:1px solid var(--line);padding:7px 3px;font-size:12px}.exact{color:var(--mint)}.method{color:var(--gold)}.open{color:var(--pink)}.hidden{display:none!important}
+    @media(max-width:1200px){.work{grid-template-columns:280px 1fr}.record-panel{grid-column:1/-1}.visual{min-height:570px}.stats{grid-template-columns:repeat(3,1fr)}}
+    @media(max-width:760px){main{padding:14px}.pipeline{grid-template-columns:1fr}.stage:not(:last-child)::after{content:'↓';right:10px}.work{grid-template-columns:1fr}.visual{min-height:520px}.stats{grid-template-columns:repeat(2,1fr)}.field.word{min-width:100%}}
+  </style>
+  <script defer src="../../../NAVIGATION/NEXAH_MODULE_REGISTRY_RING1.js"></script>
+  <script defer src="../../../NAVIGATION/NEXAH_NAVIGATION_RING1.js" data-module="word-orbit"></script>
+</head>
+<body>
+<main>
+  <header>
+    <div class="eyebrow">NEXAH Science Lab · executable operator language</div>
+    <h1>Letter → Word → Power → Orbit → Return</h1>
+    <p>Ein Generatorwort wird als Folge überprüfbarer Zustandsübergänge ausgeführt. Bewegung ist Darstellung des Operators — keine zusätzliche Evidenz.</p>
+  </header>
+  <nav class="routes" aria-label="Modulrouten">
+    <a href="NEXAH_TYPED_COUPLING_WORKBENCH.html">Typed Coupling</a>
+    <a href="NEXAH_FAMILY_SYNTHESIS_DEMONSTRATOR.html">Roman Stack</a>
+    <a href="../NEXAH_E8_MUTATION_FAMILY_GRAPH.html">Coxeter Orbit Lab</a>
+    <a href="README.md">Modulakte</a>
+    <a href="MISSION_CONTROL_RETURN_WORD_ORBIT_SEQUENCER_2026-10-05.md">Mission-Control Return</a>
+    <a href="../../../NEXAH_FAMILY_CONNECTION_MAP_V2.html">Family Connection Map v2</a>
+    <a href="../../../RESEARCH_AREAS/FIELD_GLYPH_NUMBER_ARCHITECTURE_STAGE_0_2026-09-14/NEXAH_EULER_ANTIPODE_TWO_CUT_INSTRUMENT.html">Euler · Antipode · Two-Cut</a>
+    <a href="../../../EXPORTS/NEXAH_HZ_FZ_COMPASS_MISSION_CONTROL.html">Mission Control</a>
+  </nav>
+
+  <section class="pipeline" aria-label="Operator pipeline">
+    <div class="stage"><small>1 · CARRIER</small><b id="pipeCarrier">E8 · 240 roots</b><span>deklarierter Zustandsraum</span></div>
+    <div class="stage"><small>2 · LETTER</small><b id="pipeLetter">μ₁ … μ₈</b><span>lokale Involution</span></div>
+    <div class="stage"><small>3 · WORD</small><b id="pipeWord">C=μ₁…μ₈</b><span>geordnete Komposition</span></div>
+    <div class="stage"><small>4 · POWER / ORBIT</small><b id="pipePower">C⁰ … C²⁹</b><span>Makroschritt und Bahnphase</span></div>
+    <div class="stage"><small>5 · RETURN</small><b id="pipeReturn">C³⁰=I</b><span>Rückkehrtest + Provenienz</span></div>
+  </section>
+
+  <section class="controls" aria-label="Sequencer-Steuerung">
+    <label class="field"><span>System</span><select id="system"><option value="e8">E8 · 8 × 30 Coxeter orbits</option><option value="h3">H3 · [5,3] reflection orbit</option><option value="sequence">Fibonacci inside · Euler outside</option></select></label>
+    <label class="field word"><span id="wordLabel">Generatorwort</span><input id="word" value="1-2-3-4-5-6-7-8" spellcheck="false"></label>
+    <label class="field" id="seedField"><span id="seedLabel">E8-Bahn</span><select id="seed"></select></label>
+    <button id="prev" type="button">← zurück</button>
+    <button id="step" type="button">Buchstabe →</button>
+    <button id="stepWord" type="button">Wort →</button>
+    <button id="play" class="primary" type="button" aria-pressed="false">▶ laufen</button>
+    <button id="reset" type="button">Reset</button>
+    <label class="field speed"><span>Tempo <b id="speedValue">480 ms</b></span><input id="speed" type="range" min="160" max="1200" step="40" value="480"></label>
+  </section>
+
+  <section class="stats" aria-live="polite">
+    <div class="stat"><small>State</small><strong id="sState">—</strong></div>
+    <div class="stat"><small>Letter</small><strong id="sLetter">—</strong></div>
+    <div class="stat"><small>Word power</small><strong id="sPower">0</strong></div>
+    <div class="stat"><small>Orbit / phase</small><strong id="sOrbit">1 / 0</strong></div>
+    <div class="stat"><small>Return period</small><strong id="sPeriod">30</strong></div>
+    <div class="stat"><small>Claim status</small><strong id="sStatus">EXACT</strong></div>
+  </section>
+
+  <section class="work">
+    <aside class="panel">
+      <h2>Word contract</h2>
+      <div class="system-card"><b id="systemName">E8 Coxeter action</b><span id="systemSummary">Acht einfache Spiegelungen wirken auf 240 Wurzeln.</span></div>
+      <div id="formula" class="formula">μᵢ²=I
+C=μ₁μ₂…μ₈
+C³⁰=I</div>
+      <div class="relation">
+        <div><span>Eingabewort</span><b id="rInput">1−2−3−4−5−6−7−8</b></div>
+        <div><span>freie Involutionsreduktion</span><b id="rReduced">1−2−3−4−5−6−7−8</b></div>
+        <div><span>Konvention</span><b id="rConvention">links → rechts</b></div>
+        <div><span>Aktueller Schritt</span><b id="rStep">START</b></div>
+      </div>
+      <h2 style="margin-top:14px">Trace</h2>
+      <ol id="trace" class="trace"></ol>
+    </aside>
+
+    <section class="panel visual" aria-label="Animierte Wort- und Orbitansicht">
+      <h2 id="viewTitle">E8 · innere Wortuhr / äußere 8 × 30 Bahnen</h2>
+      <svg id="view" role="img" aria-label="Schrittweise Ausführung eines Generatorwortes auf einem endlichen Orbit"></svg>
+      <div id="legend" class="legend"><span><i class="sw" style="background:var(--gold)"></i>aktuell</span><span><i class="sw" style="background:var(--pink)"></i>vorher</span><span><i class="sw" style="background:var(--mint)"></i>ausgeführte Buchstaben</span><span><i class="sw" style="background:var(--cyan)"></i>Wortgrenze</span></div>
+    </section>
+
+    <aside class="panel record-panel">
+      <h2>Execution record</h2>
+      <div class="record">
+        <div><small>Carrier</small><b id="xCarrier">E8 root set · 240</b></div>
+        <div><small>Operator</small><b id="xOperator">Coxeter word C</b></div>
+        <div><small>Micro position</small><b id="xMicro">0 / 8</b></div>
+        <div><small>Macro position</small><b id="xMacro">0 / 30</b></div>
+        <div><small>Current coordinate</small><b id="xCoordinate">—</b></div>
+        <div><small>Return</small><b id="xReturn">START</b></div>
+        <div><small>Invariant</small><b id="xInvariant">finite E8 root carrier</b></div>
+        <div><small>Provenance</small><b id="xProvenance">E8-REP-03 / bounded mutation model</b></div>
+      </div>
+      <div id="boundary" class="boundary"><strong>EXACT:</strong> Die Zustandsübergänge und die 8×30-Zerlegung werden aus dem deklarierten E8-Operator berechnet. Die Ringpositionen sind nur eine Ansicht.</div>
+      <div class="status-key">
+        <div><b class="exact">EXACT</b><span>Operator, Zustand, Orbit und Rückkehr sind berechnet.</span></div>
+        <div><b class="method">METHOD</b><span>Layout, Vergleichslane oder gemeinsame Indexansicht.</span></div>
+        <div><b class="open">OPEN</b><span>Keine Identität zwischen verschiedenen Familien ohne Strukturabbildung.</span></div>
+      </div>
+    </aside>
+  </section>
+</main>
+
+<script>
+(()=>{
+  'use strict';
+  const NS='http://www.w3.org/2000/svg',$=id=>document.getElementById(id),S=(tag,a={})=>{const n=document.createElementNS(NS,tag);Object.entries(a).forEach(([k,v])=>n.setAttribute(k,v));return n};
+  const dot=(a,b)=>a.reduce((s,x,i)=>s+x*b[i],0),key=v=>v.join(','),key3=v=>v.map(x=>Math.abs(x)<1e-7?0:+x.toFixed(7)).join(','),norm=v=>Math.hypot(...v),reflect=(v,a)=>{const d=2*dot(v,a)/dot(a,a);return v.map((x,i)=>x-d*a[i])};
+  function text(svg,value,x,y,cls='svg-note',anchor='middle'){const t=S('text',{x,y,class:cls,'text-anchor':anchor});t.textContent=value;svg.append(t);return t}
+  function neighbours(edges,n){const out=Array.from({length:n},()=>[]);edges.forEach(([a,b])=>{out[a].push(b);out[b].push(a)});return out}
+  const E8_EDGES=[[0,1],[1,2],[2,3],[3,4],[4,5],[5,6],[2,7]],E8_N=neighbours(E8_EDGES,8);
+  function mutateE8(v,i){const t=v.slice();t[i]=-v[i]+E8_N[i].reduce((s,j)=>s+v[j],0);return t}
+  function e8Data(){const seed=[1,0,0,0,0,0,0,0],states=[seed],map=new Map([[key(seed),0]]);for(let q=0;q<states.length;q++)for(let i=0;i<8;i++){const t=mutateE8(states[q],i),k=key(t);if(!map.has(k)){map.set(k,states.length);states.push(t)}}return{states,map}}
+  const PHI=(1+Math.sqrt(5))/2,H3S=Math.sqrt(1-PHI*PHI/4),H3_ROOTS=[[1,0,0],[-PHI/2,H3S,0],[0,-.5/H3S,Math.sqrt(1-.25/(H3S*H3S))]];
+  function inverse3(A){const[a,b,c]=A,d=a[0]*(b[1]*c[2]-b[2]*c[1])-a[1]*(b[0]*c[2]-b[2]*c[0])+a[2]*(b[0]*c[1]-b[1]*c[0]);return[[(b[1]*c[2]-b[2]*c[1])/d,(a[2]*c[1]-a[1]*c[2])/d,(a[1]*b[2]-a[2]*b[1])/d],[(b[2]*c[0]-b[0]*c[2])/d,(a[0]*c[2]-a[2]*c[0])/d,(a[2]*b[0]-a[0]*b[2])/d],[(b[0]*c[1]-b[1]*c[0])/d,(a[1]*c[0]-a[0]*c[1])/d,(a[0]*b[1]-a[1]*b[0])/d]]}
+  const H3_WEIGHTS=inverse3(H3_ROOTS);
+  function h3Data(){const seed=H3_WEIGHTS.map(r=>r[0]),states=[seed],map=new Map([[key3(seed),0]]);for(let q=0;q<states.length;q++)for(let i=0;i<3;i++){const t=reflect(states[q],H3_ROOTS[i]),k=key3(t);if(!map.has(k)){map.set(k,states.length);states.push(t)}}return{states,map}}
+  const DATA={e8:e8Data(),h3:h3Data()};
+  function applyGenerator(system,state,i){if(system==='e8')return DATA.e8.map.get(key(mutateE8(DATA.e8.states[state],i)));if(system==='h3')return DATA.h3.map.get(key3(reflect(DATA.h3.states[state],H3_ROOTS[i])));return state}
+  function applyWord(system,state,word){for(const i of word)state=applyGenerator(system,state,i);return state}
+  function cyclesForWord(system,word){const count=DATA[system].states.length,perm=Array.from({length:count},(_,i)=>applyWord(system,i,word)),seen=new Set(),cycles=[];for(let i=0;i<count;i++){if(seen.has(i))continue;const cycle=[];let j=i;while(!seen.has(j)){seen.add(j);cycle.push(j);j=perm[j]}cycles.push(cycle)}return cycles}
+  function freeReduce(word){const stack=[];for(const x of word){if(stack.at(-1)===x)stack.pop();else stack.push(x)}return stack}
+  function parseWord(){if(model.system==='sequence')return[];const max=model.system==='e8'?8:3;return $('word').value.split(/[^0-9]+/).filter(Boolean).map(x=>Number(x)-1).filter(x=>x>=0&&x<max)}
+  function minEdges(points){let min=Infinity;for(let i=0;i<points.length;i++)for(let j=i+1;j<points.length;j++){const d=norm(points[i].map((x,k)=>x-points[j][k]));if(d>1e-7&&d<min)min=d}const out=[];for(let i=0;i<points.length;i++)for(let j=i+1;j<points.length;j++){const d=norm(points[i].map((x,k)=>x-points[j][k]));if(Math.abs(d-min)<1e-5)out.push([i,j])}return out}
+  const H3_EDGES=minEdges(DATA.h3.states);
+  const model={system:'e8',word:[0,1,2,3,4,5,6,7],cycles:[],cycle:0,state:0,previous:0,micro:0,power:0,history:[],trace:[],running:false,timer:null,n:0};
+  function wordText(word=model.word){return word.length?word.map(i=>i+1).join('−'):'∅'}
+  function locate(state){for(let c=0;c<model.cycles.length;c++){const p=model.cycles[c].indexOf(state);if(p>=0)return{cycle:c,phase:p}}return{cycle:-1,phase:-1}}
+  function chosenSeed(){if(model.system==='sequence')return 0;return model.cycles[model.cycle]?.[0]??0}
+  function setSeedOptions(){const s=$('seed');s.replaceChildren();if(model.system==='sequence'){s.add(new Option('shared index n','0'));s.disabled=true;return}s.disabled=false;model.cycles.forEach((c,i)=>s.add(new Option(model.system==='e8'?`Orbit ${i+1} · ${c.length} states`:`Cycle ${i+1} · ${c.length} states`,String(i))));s.value=String(Math.min(model.cycle,model.cycles.length-1))}
+  function configure(resetAll=true){stop();if(model.system!=='sequence'){model.word=parseWord();if(!model.word.length){model.word=model.system==='e8'?[0,1,2,3,4,5,6,7]:[0,1];$('word').value=wordText()}model.cycles=cyclesForWord(model.system,model.word).sort((a,b)=>b.length-a.length||a[0]-b[0]);model.cycle=Math.min(model.cycle,model.cycles.length-1)}else{model.word=[];model.cycles=[];model.cycle=0}setSeedOptions();if(resetAll)reset();else render()}
+  function reset(){stop();model.micro=0;model.power=0;model.n=0;model.history=[];model.trace=[];model.state=chosenSeed();model.previous=model.state;render()}
+  function snapshot(){return{state:model.state,previous:model.previous,micro:model.micro,power:model.power,n:model.n,trace:model.trace.slice()}}
+  function retainHistory(){if(model.history.length>500)model.history.shift();if(model.trace.length>300)model.trace.shift()}
+  function stepLetter(){if(model.system==='sequence'){model.history.push(snapshot());model.n=model.n>=40?0:model.n+1;model.trace.push(`n=${model.n} · F=${fib(model.n)} · q=${euler(model.n)}`);retainHistory();render();return}if(!model.word.length)return;model.history.push(snapshot());model.previous=model.state;const letter=model.word[model.micro];model.state=applyGenerator(model.system,model.state,letter);model.micro++;model.trace.push(`${model.system==='e8'?'μ':'r'}${letter+1} → ${stateShort()}`);if(model.micro>=model.word.length){model.micro=0;model.power++}retainHistory();render()}
+  function stepWholeWord(){if(model.system==='sequence'){stepLetter();return}const remaining=model.micro===0?model.word.length:model.word.length-model.micro;for(let i=0;i<remaining;i++)stepLetter()}
+  function back(){stop();const h=model.history.pop();if(!h)return;model.state=h.state;model.previous=h.previous;model.micro=h.micro;model.power=h.power;model.n=h.n;model.trace=h.trace;render()}
+  function play(){if(model.running){stop();render();return}if(matchMedia('(prefers-reduced-motion: reduce)').matches){stepLetter();return}model.running=true;$('play').setAttribute('aria-pressed','true');$('play').textContent='Ⅱ Pause';const tick=()=>{if(!model.running)return;stepLetter();model.timer=setTimeout(tick,+$('speed').value)};model.timer=setTimeout(tick,120)}
+  function stop(){model.running=false;if(model.timer)clearTimeout(model.timer);model.timer=null;if($('play')){$('play').setAttribute('aria-pressed','false');$('play').textContent='▶ laufen'}}
+  function fib(n){let a=0n,b=1n;for(let i=0;i<n;i++)[a,b]=[b,a+b];return a}
+  const euler=n=>n*n+n+41;
+  function isPrime(n){if(n<2)return false;for(let d=2;d*d<=n;d++)if(n%d===0)return false;return true}
+  function stateShort(){if(model.system==='e8')return '['+DATA.e8.states[model.state].join(',')+']';if(model.system==='h3')return DATA.h3.states[model.state].map(x=>x.toFixed(3)).join(',');return `n=${model.n}`}
+  function svgSize(){const box=$('view').parentElement.getBoundingClientRect();return{w:Math.max(620,box.width),h:Math.max(550,box.height)}}
+  function drawWordClock(svg,cx,cy,r){text(svg,'WORD · MICROSTEPS',cx,cy-r-28,'svg-title');const word=model.word;if(!word.length)return;word.forEach((letter,i)=>{const a=-Math.PI/2+2*Math.PI*i/word.length,x=cx+r*Math.cos(a),y=cy+r*Math.sin(a),cls=i<model.micro?'micro-node done':i===model.micro?'micro-node current':'micro-node';svg.append(S('line',{x1:cx,y1:cy,x2:x,y2:y,class:'gridline'}));svg.append(S('circle',{cx:x,cy:y,r:15,class:cls}));text(svg,(model.system==='e8'?'μ':'r')+(letter+1),x,y+4,'node-label')});svg.append(S('circle',{cx,cy,r:24,class:'micro-node'}));text(svg,'w'+(model.power?`^${model.power}`:''),cx,cy+4,'svg-value')}
+  function drawE8(svg,w,h){const left=w*.2,right=w*.66,cy=h*.49,maxR=Math.min(w*.3,h*.42),minR=maxR*.32;drawWordClock(svg,left,cy,Math.min(105,w*.115));text(svg,'COXETER PARTITION · 8 ORBITS × 30 PHASES',right,cy-maxR-28,'svg-title');const canonical=cyclesForWord('e8',[0,1,2,3,4,5,6,7]).sort((a,b)=>a[0]-b[0]),position=new Map();canonical.forEach((cycle,ci)=>{const r=minR+(maxR-minR)*ci/7,selected=cycle.includes(model.state);svg.append(S('circle',{cx:right,cy,r,class:'lane '+(selected?'selected':'')}));cycle.forEach((state,phase)=>{const a=-Math.PI/2+2*Math.PI*phase/30,x=right+r*Math.cos(a),y=cy+r*Math.sin(a);position.set(state,[x,y,ci,phase]);const cls='phase-node '+(state===model.state?'current':state===model.previous?'previous':phase===0?'word-boundary':'');svg.append(S('circle',{cx:x,cy:y,r:state===model.state?5:phase%5===0?2.6:1.7,class:cls}))});text(svg,String(ci+1),right+r+10,cy+4,'orbit-label','start')});const p=position.get(model.previous),q=position.get(model.state);if(p&&q&&model.previous!==model.state){svg.append(S('line',{x1:p[0],y1:p[1],x2:q[0],y2:q[1],class:'transition'}))}const loc=position.get(model.state);if(loc){text(svg,`orbit ${loc[2]+1} · phase ${loc[3]}`,right,cy+5,'svg-value');text(svg,'Ringlage = Projektion · Zustand = berechnete E8-Wurzel',right,cy+maxR+35,'svg-note')}}
+  function projectH3(v,cx,cy,s){const yaw=.48,pitch=.32,cyw=Math.cos(yaw),syw=Math.sin(yaw),cp=Math.cos(pitch),sp=Math.sin(pitch),x=cyw*v[0]+syw*v[2],z=-syw*v[0]+cyw*v[2],y=cp*v[1]-sp*z;return[cx+x*s,cy-y*s]}
+  function drawH3(svg,w,h){const left=w*.22,right=w*.7,cy=h*.49;drawWordClock(svg,left,cy,Math.min(115,w*.13));text(svg,'H3 · DODECAHEDRON ORBIT',right,cy-235,'svg-title');const raw=DATA.h3.states,max=Math.max(...raw.flatMap(v=>v.map(Math.abs))),scale=Math.min(w*.26,h*.34)/max,pts=raw.map(v=>projectH3(v,right,cy,scale));H3_EDGES.forEach(([a,b])=>svg.append(S('line',{x1:pts[a][0],y1:pts[a][1],x2:pts[b][0],y2:pts[b][1],class:'graph-edge'})));pts.forEach((p,i)=>svg.append(S('circle',{cx:p[0],cy:p[1],r:i===model.state?7:4,class:'graph-node '+(i===model.state?'current':i===model.previous?'previous':'')})));const p=pts[model.previous],q=pts[model.state];if(p&&q&&model.previous!==model.state)svg.append(S('line',{x1:p[0],y1:p[1],x2:q[0],y2:q[1],class:'transition'}));const loc=locate(model.state);text(svg,`word-cycle ${loc.cycle+1} · phase ${loc.phase}`,right,cy+235,'svg-value');text(svg,'20 vertices · 30 nearest-neighbour edges',right,cy+255,'svg-note')}
+  function drawSequence(svg,w,h){const cx=w*.53,cy=h*.48,rInner=Math.min(w,h)*.22,rOuter=Math.min(w,h)*.38,N=41;svg.append(S('circle',{cx,cy,r:rInner,class:'lane selected'}));svg.append(S('circle',{cx,cy,r:rOuter,class:'lane'}));text(svg,'FIBONACCI · INNER LANE',cx,cy-rInner-18,'svg-title');text(svg,'EULER POLYNOMIAL q(n)=n²+n+41 · OUTER LANE',cx,cy-rOuter-24,'svg-title');for(let n=0;n<N;n++){const a=-Math.PI/2+2*Math.PI*n/N,xi=cx+rInner*Math.cos(a),yi=cy+rInner*Math.sin(a),xo=cx+rOuter*Math.cos(a),yo=cy+rOuter*Math.sin(a),active=n===model.n;svg.append(S('line',{x1:xi,y1:yi,x2:xo,y2:yo,class:active?'sequence-link':'gridline'}));svg.append(S('circle',{cx:xi,cy:yi,r:active?6:2.3,class:'fib-node '+(active?'current':'')}));svg.append(S('circle',{cx:xo,cy:yo,r:active?7:2.5,class:'euler-node '+(!isPrime(euler(n))?'fail ':'')+(active?'current':'')}))}text(svg,`n = ${model.n}`,cx,cy-18,'svg-value');text(svg,`Fₙ = ${fib(model.n)}`,cx,cy+5,'svg-title');text(svg,`q(n) = ${euler(model.n)} · ${isPrime(euler(model.n))?'prime':'composite'}`,cx,cy+27,'svg-title');text(svg,'Gemeinsamer Index = Vergleichsrahmen, kein gemeinsamer Generator',cx,cy+rOuter+37,'svg-note')}
+  function draw(){const svg=$('view'),{w,h}=svgSize();svg.setAttribute('viewBox',`0 0 ${w} ${h}`);svg.replaceChildren();if(model.system==='e8')drawE8(svg,w,h);else if(model.system==='h3')drawH3(svg,w,h);else drawSequence(svg,w,h)}
+  function metadata(){if(model.system==='e8')return{name:'E8 Coxeter action',summary:'Acht einfache Spiegelungen erzeugen den 240-Wurzel-Träger.',formula:'μᵢ²=I\nC=μ₁μ₂…μ₈\nC³⁰=I',carrier:'E8 root set · 240',operator:'declared generator word',invariant:'root carrier · canonical C partition 8×30',prov:'E8-REP-03 / bounded mutation model',status:'EXACT',boundary:'Die Zustandsübergänge werden auf dem endlichen E8-Wurzelträger berechnet. Für das kanonische Wort C=μ₁…μ₈ gilt die registrierte 8×30-Zerlegung; bei einem anderen Wort wird dessen eigene Zyklusstruktur berechnet. Die Ringlage bleibt eine Projektion.'};if(model.system==='h3')return{name:'H3 reflection action',summary:'Drei euklidische Spiegelungen wirken auf dem 20-Punkt-Dodekaederorbit.',formula:'rᵢ(v)=v−2⟨v,αᵢ⟩αᵢ\n(r₁r₂)⁵=(r₂r₃)³=(r₁r₃)²=I',carrier:'H3 dodecahedron orbit · 20',operator:'declared reflection word',invariant:'H3 finite orbit · nearest-neighbour hull',prov:'Coxeter Orbit Lab · [5,3]',status:'EXACT',boundary:'Die Spiegelungen, Wortpfade und Rückkehrzyklen sind für den deklarierten H3-Träger exakt. Die Bildschirmprojektion des Dodekaeders ist nur eine Ansicht; ein gleich aussehendes Prime-Grid ist dadurch nicht als H3-System identifiziert.'};return{name:'Indexed sequence comparison',summary:'Fibonacci-Rekurrenz innen; Eulers 40-Werte-Primlauf außen.',formula:'F₀=0, F₁=1, Fₙ₊₁=Fₙ+Fₙ₋₁\nq(n)=n²+n+41\nq(0)…q(39) prime; q(40)=41²',carrier:'shared index n = 0…40',operator:'two distinct update/evaluation rules',invariant:'exact values; no shared dynamics claimed',prov:'Root7/Fibonacci intake + Euler audit',status:'METHOD',boundary:'Beide Spuren teilen nur den Index n und die gemeinsame Anzeige. Fibonacci-Rekurrenz und Euler-Polynom sind verschiedene mathematische Objekte. Innen/Außen bezeichnet das Layout, nicht Ursache, Kopplung oder eine gemeinsame physikalische Dynamik.'}}
+  function render(){const m=metadata(),loc=model.system==='sequence'?{cycle:'—',phase:model.n}:locate(model.state),period=model.system==='sequence'?'none':model.cycles[model.cycle]?.length??'—',atReturn=model.system==='sequence'?model.n===0:model.state===chosenSeed()&&model.micro===0;$('systemName').textContent=m.name;$('systemSummary').textContent=m.summary;$('formula').textContent=m.formula;$('rInput').textContent=model.system==='sequence'?'Fibonacci | Euler q(n)':wordText();$('rReduced').textContent=model.system==='sequence'?'not one shared word':wordText(freeReduce(model.word));$('rConvention').textContent=model.system==='sequence'?'shared index only':'apply left → right';$('rStep').textContent=model.system==='sequence'?`n=${model.n}`:model.micro===0?'WORD BOUNDARY':`${model.micro} / ${model.word.length}`;$('sState').textContent=model.system==='sequence'?`n=${model.n}`:`#${model.state}`;$('sLetter').textContent=model.system==='sequence'?'index +1':model.word.length?(model.system==='e8'?'μ':'r')+(model.word[model.micro]+1):'—';$('sPower').textContent=model.system==='sequence'?model.n:model.power;$('sOrbit').textContent=model.system==='sequence'?`F${model.n} | q${model.n}`:`${loc.cycle+1} / ${loc.phase}`;$('sPeriod').textContent=period;$('sStatus').textContent=m.status;$('xCarrier').textContent=m.carrier;$('xOperator').textContent=m.operator;$('xMicro').textContent=model.system==='sequence'?`index ${model.n}`:`${model.micro} / ${model.word.length}`;$('xMacro').textContent=model.system==='sequence'?`n=${model.n}`:`power ${model.power} · cycle ${loc.cycle+1}:${loc.phase}`;$('xCoordinate').textContent=model.system==='sequence'?`(${fib(model.n)}, ${euler(model.n)})`:stateShort();$('xReturn').textContent=atReturn?(model.power||model.n?'EXACT RETURN':'START'):'OPEN PATH';$('xInvariant').textContent=m.invariant;$('xProvenance').textContent=m.prov;$('boundary').innerHTML=`<strong>${m.status}:</strong> ${m.boundary}`;$('viewTitle').textContent=model.system==='e8'?'E8 · innere Wortuhr / äußere 8 × 30 Bahnen':model.system==='h3'?'H3 · Wortuhr / Dodekaederorbit':'Zwei exakte Folgen · eine methodische Innen/Außen-Ansicht';$('pipeCarrier').textContent=m.carrier;$('pipeLetter').textContent=model.system==='e8'?'μ₁ … μ₈':model.system==='h3'?'r₁ · r₂ · r₃':'index n → n+1';$('pipeWord').textContent=model.system==='sequence'?'T_F | q(n)':`w=${wordText()}`;$('pipePower').textContent=model.system==='sequence'?'n=0…40':`w^${model.power} · period ${period}`;$('pipeReturn').textContent=model.system==='sequence'?'q(40)=41² boundary':atReturn?'return':'open path';const trace=$('trace');trace.replaceChildren();(model.trace.length?model.trace.slice(-24):['START → '+stateShort()]).forEach((v,i)=>{const li=document.createElement('li');li.textContent=`${Math.max(0,model.trace.length-24)+i}. ${v}`;trace.append(li)});draw()}
+  $('system').onchange=()=>{model.system=$('system').value;model.cycle=0;if(model.system==='e8'){$('word').value='1-2-3-4-5-6-7-8';$('word').disabled=false;$('wordLabel').textContent='Generatorwort';$('seedLabel').textContent='E8-Bahn';$('step').textContent='Buchstabe →';$('stepWord').classList.remove('hidden')}else if(model.system==='h3'){$('word').value='1-2';$('word').disabled=false;$('wordLabel').textContent='Generatorwort';$('seedLabel').textContent='Wortzyklus';$('step').textContent='Buchstabe →';$('stepWord').classList.remove('hidden')}else{$('word').value='Fibonacci | Euler q(n)';$('word').disabled=true;$('wordLabel').textContent='Getrennte Sequenzen';$('seedLabel').textContent='Vergleichsrahmen';$('step').textContent='Index →';$('stepWord').classList.add('hidden')}configure(true)};
+  $('word').onchange=()=>configure(true);$('seed').onchange=()=>{model.cycle=+$('seed').value;reset()};$('step').onclick=stepLetter;$('stepWord').onclick=stepWholeWord;$('prev').onclick=back;$('play').onclick=play;$('reset').onclick=reset;$('speed').oninput=()=>{$('speedValue').textContent=$('speed').value+' ms'};new ResizeObserver(draw).observe($('view').parentElement);configure(true);
+})();
+</script>
+</body>
+</html>

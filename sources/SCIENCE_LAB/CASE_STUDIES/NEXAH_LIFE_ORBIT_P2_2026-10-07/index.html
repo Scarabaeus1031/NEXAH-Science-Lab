@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <title>NEXAH LIFE//ORBIT</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="app-shell">
+    <header class="topbar">
+      <div class="brand"><span class="brand-mark">N</span><span>NEXAH LIFE//ORBIT</span></div>
+      <div class="run-state"><i></i><span id="run-state">READY</span><b id="generation-label">GEN 0</b></div>
+      <div class="boundary">B3/S23 · SYNCHRONOUS · FINITE-DEAD</div>
+    </header>
+
+    <section class="controlbar" aria-label="Simulation controls">
+      <label>Seed
+        <select id="seed-select">
+          <option value="block">Block</option>
+          <option value="blinker">Blinker</option>
+          <option value="glider" selected>Glider</option>
+        </select>
+      </label>
+      <div class="button-group">
+        <button id="reset-button" type="button">Reset</button>
+        <button id="step-button" type="button">Step</button>
+        <button id="play-button" type="button" class="primary">Play</button>
+      </div>
+      <label class="speed">Speed <span id="speed-value">5 gen/s</span>
+        <input id="speed-range" type="range" min="1" max="12" value="5">
+      </label>
+      <div class="mode-note">Click a cell at generation 0 to edit the seed.</div>
+    </section>
+
+    <section class="workspace">
+      <article class="pane field-pane">
+        <div class="pane-heading">
+          <div><span class="eyebrow">V1 · FIELD</span><h1>Current state</h1></div>
+          <div class="pane-metric"><strong id="live-count">5</strong><span>live cells</span></div>
+        </div>
+        <div class="canvas-wrap field-wrap">
+          <canvas id="field-canvas" aria-label="Current Conway Life field"></canvas>
+        </div>
+        <div class="field-legend">
+          <span><i class="live"></i>alive</span>
+          <span><i class="selected"></i>selected</span>
+          <span><i class="birth"></i>birth next</span>
+          <span><i class="death"></i>death next</span>
+        </div>
+      </article>
+
+      <article class="pane time-pane">
+        <div class="pane-heading">
+          <div><span class="eyebrow">V2 · SPACE-TIME BODY</span><h1>History becomes form</h1></div>
+          <div class="pane-metric"><strong id="layer-count">1</strong><span>layers</span></div>
+        </div>
+        <div class="canvas-wrap time-wrap">
+          <canvas id="time-canvas" aria-label="Stacked Life generations as a space-time body"></canvas>
+          <div class="axis-label">TIME ↑</div>
+        </div>
+        <div class="view-controls">
+          <label>Layer spacing
+            <input id="spacing-range" type="range" min="5" max="20" value="11">
+          </label>
+          <label>Cell size
+            <input id="cell-range" type="range" min="5" max="15" value="9">
+          </label>
+        </div>
+      </article>
+    </section>
+
+    <section class="lower-deck">
+      <article class="slice-panel">
+        <div class="slice-heading"><span class="eyebrow">V3 · SLICE</span><strong id="slice-label">Generation 0</strong></div>
+        <div class="slice-control">
+          <span>0</span>
+          <input id="slice-range" type="range" min="0" max="0" value="0" aria-label="Selected generation">
+          <span id="slice-max">0</span>
+        </div>
+        <code id="state-hash">P2 browser state · parity-bound to sealed P1</code>
+      </article>
+
+      <article class="return-panel">
+        <span class="eyebrow">RETURN</span>
+        <strong id="return-type">OPEN_TRANSIENT</strong>
+        <div id="return-detail">No return detected yet.</div>
+      </article>
+
+      <article class="causal-panel">
+        <div class="causal-heading"><span class="eyebrow">V6 · CAUSAL INSPECTOR</span><strong id="cell-address">CELL —</strong></div>
+        <div class="causal-grid">
+          <div><span>current</span><strong id="cell-current">—</strong></div>
+          <div><span>neighbors</span><strong id="cell-neighbors">—</strong></div>
+          <div><span>next</span><strong id="cell-next">—</strong></div>
+        </div>
+        <p id="cell-rule">Select a cell to reveal the exact local transition.</p>
+      </article>
+    </section>
+
+    <footer>
+      <span>LOCAL RULE → STATE HISTORY → LIVING GEOMETRY</span>
+      <span>P2 LOCAL INSTRUMENT · NO GLB · NO E8 · NO CLAIM PROMOTION</span>
+    </footer>
+  </main>
+  <script src="life-browser.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

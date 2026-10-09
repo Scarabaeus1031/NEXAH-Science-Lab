@@ -1,0 +1,386 @@
+Kapitel 1: Introduction to the game
+0:000 SekundenOkay, so what if there was a mathematical game that you could play that revealed all the secrets of the universe? That would be pretty wild,
+0:077 Sekundenright? Well, maybe it doesn't reveal all the secrets of the universe, but this game I'm going to talk about here called the mutation game is one of the most
+0:1616 Sekundenfascinating things that I know in mathematics. I've been a mathematician for about 20 years and I don't think I found anything else that gives you so
+0:2525 Sekundenmuch kind of structure and understanding from so from such simple rules. So this mutation game connects to so many different areas of mathematics and
+0:3434 Sekundenmathematical physics. And I'm especially interested in how this kind of game can let us understand about these kind of regular shapes that we have in
+0:4141 Sekundenmathematics like polyhedra or these kind of highdimensional polytopes. So here's an example. This is a picture of this E8
+0:5050 Sekundenroot polytope here. And this is some amazing crystallin structure in eight dimensions that some physicists think kind of encodes the laws of the
+0:5858 Sekundenuniverse. So on one hand, we've got a game that a kid can play and on the other hand, we've got the laws of physics. You know, stuff like this is
+1:061 Minute, 6 Sekundenkind of why I became a mathematician. So let me tell you how we play this mutation game and how it can be used to generate these shapes. How do we play this game? Well, we start with a graph.
+Kapitel 2: Rules of the mutation game
+1:181 Minute, 18 SekundenSo, a graph is just a load of dots with some lines connecting them. So, I've drawn a a graph here. And we're going to
+1:261 Minute, 26 Sekundenthink of the vertices of this graph as cities and the edges, the links, we're going to think of those as roads. Okay?
+1:371 Minute, 37 SekundenSo, that's one thing that we need. We need to start with a graph. The other thing is that we need to associate each
+1:451 Minute, 45 Sekundenof these vertices with a whole number and we can think of that as the population of that city. So this city
+1:531 Minute, 53 Sekundenhas five occupants. This has seven. This has three. This has one. All right. So this is our initial setup for the game.
+2:022 Minuten, 2 SekundenHow do we play the game? Well, it's very simple.
+2:062 Minuten, 6 SekundenWe pick a vertex and what we're going to do is we're going to update that vertex.
+2:112 Minuten, 11 SekundenThat means somehow we're going to change the population at that vertex. And there's a definite rule for how that works. And once I've told you that rule,
+2:202 Minuten, 20 Sekundenyou know how to play the game. So what's the rule? Well, let me show you. So say we're going to update this vertex. Well, there's two steps that we have to do.
+2:312 Minuten, 31 SekundenThe first step is we multiply the population at that vertex by minus one.
+2:372 Minuten, 37 SekundenAll right? So it's five. So we're going to make it minus five. And then the second step is that we're going to add
+2:462 Minuten, 46 Sekundenthe populations of all of the vertices that are linked to it. So we're going to add [snorts] seven
+2:532 Minuten, 53 Sekundenand three and one.
+2:572 Minuten, 57 SekundenAnd so and so that makes six
+3:053 Minuten, 5 Sekundenand that's going to be the new population at that vertex.
+3:133 Minuten, 13 SekundenAll right, that's all you need to know.
+3:163 Minuten, 16 SekundenAll we do in this game is we keep picking a vertex and we keep updating it according to that rule. So that was our
+3:253 Minuten, 25 Sekundenfirst move. Maybe our next move could be to update let's say at this vertex here.
+3:313 Minuten, 31 SekundenSo we do the same thing. First we times the population by minus one and then we add the populations of the
+3:393 Minuten, 39 Sekundenneighbors the vertices that are linked to it.
+3:463 Minuten, 46 SekundenSo that makes eight. So we so we just start with a graph with populations associated with the vertices and then we
+3:543 Minuten, 54 Sekundenjust keep updating one vertex at a time according to this rule. Now which vertices do we update? Well that's up to
+4:024 Minuten, 2 Sekundenus. Okay. So this isn't like a two-player game. This is a kind of one player game kind of like solitaire. And
+4:104 Minuten, 10 Sekundenyou can decide where you want to go. You can decide how you want to update your network. You can decide I want to update at this vertex and then that vertex and
+4:184 Minuten, 18 Sekundenyou're going to see how these populations change. All right, so that's it. You might be feeling a bit confused
+Kapitel 3: Connecting games to geometry
+4:264 Minuten, 26 Sekundenat this point. What's so amazing about that? That sounds like just some number crunching exercise, right? Well, the
+4:344 Minuten, 34 Sekundenthing is that by looking at this game and looking at a very particular kind of problem in this game, we connect with so
+4:414 Minuten, 41 Sekundenmany other areas of mathematics. It's just amazing. For me personally, I'm very interested in how this game relates
+4:494 Minuten, 49 Sekundento highdimensional geometry. How does it relate to these perfect shapes that we find? For example, the cube, the
+4:594 Minuten, 59 Sekundentetrahedrin, the ocahedron, and kind of highdimensional versions of those things. And I'm going to explain
+5:085 Minuten, 8 Sekundenhow this game relates to those things and how basically once we understand this game and a few other connections,
+5:145 Minuten, 14 Sekundenwe just get full access to an enormous range of these highdimensional shapes and we can really even generate them
+5:225 Minuten, 22 Sekundenjust using pencil and paper. But that's by no means the end of this story. This game relates to really fancy subjects
+5:305 Minuten, 30 Sekundenlike lee theory which are used all over the place in mathematical physics. even in this standard model which is like the
+5:385 Minuten, 38 Sekundenbest physical theory that we have at the moment. So this is very powerful mathematics. So let me tell you how you
+5:465 Minuten, 46 Sekundencan use this game to get at some of that structure. So I started from a fairly arbitrary game state before but let me start from something a bit more
+5:545 Minuten, 54 Sekundenparticular. What I want to do is I want to start from what I'm going to call a singleton state. So, I'm just going to have a population of one at one of these
+6:026 Minuten, 2 Sekundenvertices and zero at the others. So, now I'm going to play this game and I'm not just going to like update vertices at
+6:126 Minuten, 12 Sekundenrandom. I've got a kind of objective in mind. It's not really that important, but it's going to help to guide me. And
+6:196 Minuten, 19 Sekundenmy objective is to make the populations as big as I can. All right, I want to
+6:266 Minuten, 26 Sekundenincrease things. So what I want to do is um I want to start by updating at this vertex here. So I times the population there by minus one. So I get minus0.
+6:376 Minuten, 37 SekundenThen I add the populations of the neighbors. So that's going to be a one.
+6:426 Minuten, 42 SekundenSo when I update there, I get a one. Now I'm going to update here. So times it by minus one. Add the population's behaviors.
+6:526 Minuten, 52 SekundenNow I'm going to update here. So, times the population by minus one. Add the populations of the neighbors.
+7:007 MinutenNow, I'm going to update here. Times the population by minus one. Add the populations of the neighbors.
+7:087 Minuten, 8 SekundenNow, I'm going to update here.
+7:117 Minuten, 11 SekundenTimes it by minus one. Add the populations of the neighbors. And you can see what's going to happen. Okay. As I keep playing this, it's going to keep
+7:207 Minuten, 20 Sekundenincreasing the population up and up and up. All right, what's so special about
+7:267 Minuten, 26 Sekundenthat? Well, watch this. So, okay, I said that this game is related to shapes, maybe shapes in higher dimensions. So,
+Kapitel 4: Generating the hexagon
+7:357 Minuten, 35 Sekundenhow is that the case? Well, let me just start with a a much simpler kind of setting and it's going to reveal that.
+7:427 Minuten, 42 SekundenSo, now we're just going to think about this graph here. It's one of the simplest ones we can draw.
+7:497 Minuten, 49 SekundenAnd let's just start with a really simple initial condition.
+7:547 Minuten, 54 SekundenWe're going to start with one of these singleton population states. So let's start with a population of zero here and
+8:018 Minuten, 1 Sekundeone here. Okay. Well, now let's play the game. So I don't know, let's update this vertex first.
+8:138 Minuten, 13 SekundenSo we'll times that population by minus one. Add the population of the neighbor. We get here.
+8:208 Minuten, 20 SekundenNow what do we do? Well, these are both one. So, it doesn't really matter where we update. But, let's update over here.
+8:288 Minuten, 28 SekundenSo, we're going to times this population by minus one. Then, we're going to add the population of a neighbor. That's
+8:368 Minuten, 36 Sekundengoing to change it to a zero. And so, we're going to get this state here. All right. So, this was our first update and this is our second update.
+8:468 Minuten, 46 SekundenAll right. Then, so let's just carry on.
+8:508 Minuten, 50 SekundenWhat about now? If we get this stay here and we update here.
+8:578 Minuten, 57 SekundenSo we'll times the population here by minus one. Add the population of the neighbor.
+9:089 Minuten, 8 SekundenNow we can update here. So the new population is going to be minus 0 + -1.
+9:179 Minuten, 17 SekundenNow we're going to update here and we're going to get zero minus one.
+9:239 Minuten, 23 SekundenAnd then if we update this state at this vertex, we end up getting back to here.
+9:289 Minuten, 28 SekundenAll right. So we've come full circle. So but in fact what I'm showing you here are all of the different states that we
+9:359 Minuten, 35 Sekundencan get in this game from our initial condition. You see, the thing is that if we update a vertex twice in a row, it just gets us back to where we started.
+9:469 Minuten, 46 SekundenBecause like if we started here, let's say, and we updated at this vertex, well, we times it by minus one, add
+9:549 Minuten, 54 Sekundenpopulation. If we do it again, we just get back here again. So, basically, if we update a vertex twice, it's kind of
+10:0210 Minuten, 2 Sekundenlike doing nothing. And so you can see that since I updated alternate vertices
+10:0910 Minuten, 9 Sekundenas I went round that means I I got all the states. So I claim now that this
+10:1610 Minuten, 16 Sekundenactually corresponds to a shape that you know. So you might be a bit confused at this point but but here's the thing.
+10:2510 Minuten, 25 SekundenEach of these states has a pair of numbers associated with them. You know like this is one comma zero. And so if
+10:3310 Minuten, 33 Sekundenwe think of those numbers as coordinates, then we can plot these points. And if we do that,
+10:3910 Minuten, 39 Sekunden[clears throat]
+10:4010 Minuten, 40 Sekundenmaybe we're going to see a shape that we know. All right. So what happens when we plot these points? Well, if you'll forgive me, I'll just show you on my
+10:4710 Minuten, 47 Sekundencomputer so I can keep this as a nice um kind of me talking in front of a camera video. But I'm showing a plot of the
+10:5610 Minuten, 56 Sekundenpoints here, and you can see that they make this beautiful hexagon here. Is it
+11:0211 Minuten, 2 Sekundenbeautiful? It's kind of nice. I mean I mean a lot of people like regular hexagons and I don't blame them. And
+11:1211 Minuten, 12 Sekundenthis isn't quite a regular hexagon. You can see that it's a bit sort of skewed.
+11:1711 Minuten, 17 SekundenNow it turns out that in some sense the information behind this really is a regular hexagon. It's just that we're
+11:2511 Minuten, 25 Sekundensort of looking at it through a sort of skewed basis. Now if you don't understand what that means, don't worry.
+11:3211 Minuten, 32 SekundenWe're going to get into the details later, but basically there is a sort of regular hexagon hiding behind this kind
+11:3911 Minuten, 39 Sekundenof pattern here. And in fact, there's lots of cases where we play this mutation game on [snorts] a particular
+11:4711 Minuten, 47 Sekundengraph and then we get one of these beautiful regular shapes. Often it's one of these regular shapes that lives in
+11:5411 Minuten, 54 Sekundenhigher dimensions. Something called a regular polar tape or a uniform polar tape.
+12:0112 Minuten, 1 SekundeOkay. So now let's go again. We're going to start with this graph this time and we might even find that we get a pretty
+Kapitel 5: Creating 3D polytopes
+12:0812 Minuten, 8 Sekundeninteresting shape out. So once again we'll start with a singleton population state.
+12:1712 Minuten, 17 SekundenWhy don't we start with this one? Now, what I want to do just the same as last time, I want to show you all the
+12:2412 Minuten, 24 Sekundendifferent ways that this mutation game can evolve. And once we've got all the different states, we're going to find that they relate to something pretty interesting.
+12:3412 Minuten, 34 SekundenSo, I kind of want to save work. So, let me just write this as one 0 0.
+12:4212 Minuten, 42 SekundenSo this is kind of like shorthand for this population state you know where we're associating with these vertices
+12:5012 Minuten, 50 Sekundenwith these numbers. All right then. So let's start by updating it this central vertex here. So we times the population
+13:0013 Minutenthere by minus one. We get minus0. Then we add the populations of the neighbors the vertices which are linked to that.
+13:0713 Minuten, 7 SekundenSo we end up getting that changes to a one.
+13:1113 Minuten, 11 Sekundenand the populations of the other vertices remain unchanged.
+13:1713 Minuten, 17 SekundenOkay, so that's one thing that we could have done starting from here. Actually, we want to track all the possible moves.
+13:2513 Minuten, 25 SekundenSo, what about if we did a different move? What about if we updated it this vertex? Well, that wouldn't change anything. If we update here, we times
+13:3413 Minuten, 34 Sekundenthe population by minus one. We add the populations of the neighbors.
+13:4013 Minuten, 40 SekundenSo we get minus one 0 0.
+13:4513 Minuten, 45 SekundenSo you might want to pause the video now and write down the rest of this. I'm just going to do it now. So here you
+13:5213 Minuten, 52 Sekundenhave it. So here we have it. This kind of diagram here is showing us all the states we can get to starting from a
+13:5913 Minuten, 59 Sekundensingleton state. And how many of them are there? Well, we've got these kind of six positive ones and these six with negative numbers. So that's 12 in total.
+14:0814 Minuten, 8 SekundenOkay. So this is the finished article and this is something actually really lovely. So basically all we have to do
+14:1614 Minuten, 16 Sekundennow is just think about each of these three numbers as a coordinate you know like an x y and z coordinate and so that
+14:2414 Minuten, 24 Sekundeneach of these we can sort of plot it as a point in three-dimensional space and if we do that we actually get a really
+14:3214 Minuten, 32 Sekundenreally lovely shape the koboted.
+14:3614 Minuten, 36 SekundenOkay, so this is getting a bit surprising, right? It's sort of surprising that we can get this geometry from this game. But I tell you that we
+14:4514 Minuten, 45 Sekundencan actually get an enorm but I tell you that actually we can get an enormous amount of geometry out of this game. In fact, this game really it doesn't just
+14:5414 Minuten, 54 Sekundengenerate shapes. It gives us a way to understand the symmetries of shapes.
+14:5914 Minuten, 59 SekundenIt's it's very very deep. But this particular set of vertices here, if we plot them in 3D, we get a cub opted.
+15:0815 Minuten, 8 SekundenNow, this is a lovely shape. It's basically what you get if you take a cube and then you place a vertex. It's
+15:1615 Minuten, 16 Sekundenbasically what you get if you take a cube and then you place a point in the middle of every edge.
+15:2615 Minuten, 26 SekundenSort sort of like this.
+15:3015 Minuten, 30 SekundenAnd then you connect those points. And you can see it has sort of triangular faces and square faces. So if you plot
+15:3715 Minuten, 37 Sekundenthese points, you might want to try it in GeoGebra. Um you're going to see one of these called octahedra. In fact, it's going to look a little bit wonky. Okay?
+15:4615 Minuten, 46 SekundenA little bit like that hexagon that we saw before. Now it turns out there is a way to straighten this out. basically in some sense this um mutation game.
+15:5915 Minuten, 59 SekundenThe way it works sort of mimics this kind of kaleidoscope construction that I've done other videos
+16:0616 Minuten, 6 Sekundenon. So actually one of the most enlightening ways to think about polyhedra and polytopes and the
+16:1416 Minuten, 14 Sekundensymmetries of them is to use mirrors to use the kind of idea of a kaleidoscope construction. This is sometimes called
+16:2116 Minuten, 21 Sekundenthe Wyth construction. I've done other videos on it, but basically the idea is that you set up some mirrors and then
+16:2816 Minuten, 28 Sekundenyou light up a light source and you look at the images of that light source in the mirrors and you kind of think of those as your vertices. So this is
+16:3816 Minuten, 38 Sekundenbasically a way that you can get your polotope which has symmetry and you're very aware of that symmetry and in fact
+16:4616 Minuten, 46 Sekundenyou really hardly put in any kind of structure. You just sort of set up those symmetries and start with a point and
+16:5316 Minuten, 53 Sekundenthen apply those symmetries. Use those mirrors and find out all the different points that you get. In fact, doing one
+17:0117 Minuten, 1 Sekundeof these mutation moves corresponds to reflecting in a mirror, but it's in a slightly sort of wonky setting. And that
+17:1017 Minuten, 10 Sekundenkind of explains the wonkiness of the hexagon and so on. We'll get to this later. Okay, so that was fun. Now let's
+Kapitel 6: Exploring 4D and 8D shapes
+17:1717 Minuten, 17 Sekundendo it again and get one of the most beautiful fourdimensional shapes. So right so first we've played the game on
+17:2617 Minuten, 26 Sekundenthis graph here. This is called A2 because it has two vertices that are kind of linked in a chain. This one here is called A3.
+17:3717 Minuten, 37 SekundenThe next one we're going to consider is this baby here.
+17:4617 Minuten, 46 SekundenThis is called D4. And when we're playing a mutation game on this, it might just blow your mind. So, we're
+17:5317 Minuten, 53 Sekundengoing to start from a singleton population state. Now, you might have noticed from the previous pictures that we can kind of go from one singleton state to another in a sequence of moves.
+18:0318 Minuten, 3 SekundenMaybe you want to think about that. But let's just start with this singleton states here.
+18:1018 Minuten, 10 SekundenNow again I'm going to use some sort of shorthand and I'm going to write it like this because I don't want to have to draw graphs over and over again. But you
+18:1818 Minuten, 18 Sekundencan see you know this means that this vertex at the top has a population of zero and the vertex on the right has a population of zero and so on.
+18:2818 Minuten, 28 SekundenSo let's play it again. We're going to start with this state here.
+18:3618 Minuten, 36 SekundenNow, if we update the middle vertex, then we're going to get this state here because we follow the same rule as
+18:4418 Minuten, 44 Sekundenbefore. If we we times the population by minus one, that gives us minus0. Then we add the population of the neighbors. So,
+18:5218 Minuten, 52 Sekundenwe get then we add the population of the neighbors, which totals to one. So, this changes to a one.
+19:0019 MinutenAll right. So, I think the finished job is shown here. Hopefully, I haven't missed out any edges. Now remember each
+19:0819 Minuten, 8 Sekundenof these is a population state and each of these arrows is showing us a possible update that we can do. Now it doesn't
+19:1619 Minuten, 16 Sekundenreally matter about the directions of these arrows. I could have just drawn them as links because you know if you can update this uh here to get to here
+19:2519 Minuten, 25 Sekundenwell you can also if you update this here you get back again. So these are kind of birectional links. Anyway, the
+19:3219 Minuten, 32 Sekundenpoint is that if you count how many vertices there are here, there are 24.
+19:3919 Minuten, 39 SekundenIt just so happens that there's a four-dimensional shape called the 24 cell and it has 24 vertices and these correspond to those vertices.
+19:5119 Minuten, 51 SekundenAll right? So if you kind of get your graph, this D4 graph and we number the vertices
+20:0120 Minuten, 1 Sekunde1 2 3 and four then we can think of something like this
+20:0720 Minuten, 7 Sekundenas a vector a point in a point in four dimensional space
+20:1820 Minuten, 18 Sekunden- one - 1 0
+20:2420 Minuten, 24 Sekunden- one - one 0 0. Okay. And the way you can kind of visualize that is it's got
+20:3120 Minuten, 31 Sekundenlike x coordinate, ycoordinate, z coordinate, and this kind of extra coordinate like t or something which is
+20:3920 Minuten, 39 Sekundenin some kind of mystical fourth direction perpendicular to all of the ones that we have in 3D space. And so
+20:4820 Minuten, 48 Sekundenone of the shapes you might have heard about in four dimensions is the hyper cube. All right? So it's what you get if
+20:5520 Minuten, 55 Sekundenyou take an ordinary cube and you kind of shift it in the fourth dimension and you look at the kind of trail that it
+21:0321 Minuten, 3 Sekundenmakes. You can sort of draw it as a cube inside a cube. Anyway, if you take one of these hyper cubes and you place a
+21:1121 Minuten, 11 Sekundenpoint in the center of each of its kind of square faces, then those points are going to form this 24 cell here. Now,
+21:1921 Minuten, 19 Sekundenthis is one of the most beautiful shapes in geometry. Actually, it's got extraordinary properties that I'm not really going to get into, but I just
+21:2821 Minuten, 28 Sekundenthought it's remarkable that just by playing this simple game, if we look at these as coordinates, we get the 24
+21:3521 Minuten, 35 Sekundencell. Now once again like with our hexagon and our co-ophedrin it turns out a bit wonky and there's a way to
+21:4221 Minuten, 42 Sekundenstraighten it out but we get the structure here and this is really just the beginning of the story. It turns out that this is really a kind of doorway
+21:5121 Minuten, 51 Sekundeninto an amazing world where we can not only get our 24 cell but we can really understand the symmetries of it and how
+21:5921 Minuten, 59 Sekundenit relates to other shapes in an extremely deep way. And here's what I love about this mutation game. You see, once we've got to this point, I can then
+22:0822 Minuten, 8 Sekundensay something very, very, very short, which means a lot and that is what if we play the mutation game on this graph
+22:1622 Minuten, 16 Sekundenhere. It turns out that this graph here is called E8. And when we played the mutation game on that, we get this
+22:2422 Minuten, 24 Sekundencrystallin sort of structure in eight dimensions, which is called the 421 gossip polyotope. And it's really one of
+22:3122 Minuten, 31 Sekundenthe most remarkable structures in mathematics. So Lucy Garrett wrote a paper a few years ago where he was basically saying that this eh structure
+22:4022 Minuten, 40 Sekundenmight lie behind some kind of grand unified theory unifying all these ideas in physics.
+22:4722 Minuten, 47 SekundenAnd now the payoff. Okay. So this game that we've looked at gives
+Kapitel 7: Defining AD graphs
+22:5522 Minuten, 55 Sekundenrise to one of the most fascinating mathematical problems that I've ever encountered.
+23:0223 Minuten, 2 SekundenIt's such a simple problem to state uh but it but it probably takes a few weeks of playing the mutation game to kind of
+23:1023 Minuten, 10 Sekundensolve it. It's amazing. So here's the problem. If you start with a graph and you start with one of these singleton states, you can evolve the population.
+23:2223 Minuten, 22 SekundenSo I showed you earlier this graph here and I kind of demonstrated to you that if you play the mutation game on this
+23:2923 Minuten, 29 Sekundenstarting with a singleton state, you can really play it forever. You can just keep kind of updating round and round that triangle and keeping pumping the
+23:3823 Minuten, 38 Sekundenpopulation up and you can do that for as long as you want. So the number of states that you can reach starting from
+23:4623 Minuten, 46 Sekundena singles and state in this case is infinite right there's an infinite kind of number of states that you can reach
+23:5323 Minuten, 53 Sekundenbut we also saw that if we started with this graph here A2 that there was only six states that we
+24:0124 Minuten, 1 Sekundecould reach. Okay so the problem is for which graphs is the number of states you
+24:0724 Minuten, 7 Sekundencan reach finite. So when you start from a singleton state and you play the population game any way you like, you
+24:1524 Minuten, 15 Sekundencan only reach finitely many states. So we've seen a few examples of graphs like that, but the problem is to find all of
+24:2324 Minuten, 23 Sekundenthem. Okay. So I claim that this is one of the best kind of exercises you can do
+24:3224 Minuten, 32 Sekundenbecause this kind of theory relates to so many other subjects and that particular exercise lies at the heart of so much mathematics.
+24:4224 Minuten, 42 SekundenNow I'm actually going to tell you the answer to this problem. Um, you might want to, you know, stop the video here
+24:5124 Minuten, 51 Sekundenand go away and think about this. Um, I would say that as with a lot of mathematics, it's not
+24:5924 Minuten, 59 Sekundenso much getting the answer as it is kind of proving or verifying to yourself that
+25:0625 Minuten, 6 Sekundenum that you've that you've got that you've got the correct answer. So the real kind of meat of this is to sort of prove that
+25:1525 Minuten, 15 Sekundenyou found all of these graphs that have this feature. If you start from a singleton state and run the um mutation
+25:2225 Minuten, 22 Sekundengame, you're only going to get finitely many states.
+25:2625 Minuten, 26 SekundenAnyway, the answer anyway, the answer to this problem is a certain family of graphs. All right, so
+25:3425 Minuten, 34 Sekundenwe know it contains for example A2 and we know it contains A3 and D4. It turns out that actually the graphs that answer
+25:4225 Minuten, 42 Sekundenthis problem are what's called the A D graphs.
+25:4825 Minuten, 48 SekundenNow um over the years I've had an interest in physics and I've heard a lot of
+25:5525 Minuten, 55 Sekundenclaims about uh theories of everything and grand unified theories and so on.
+26:0026 Minuten[snorts]
+26:0126 Minuten, 1 SekundeI kind of think that these AD graphs are probably the closest thing to a sort of
+26:0826 Minuten, 8 Sekundentheory of everything that I know in the sense that it's just kind of one family of structures that connect to so many other subjects. It's just ridiculous.
+26:2026 Minuten, 20 SekundenSo, so what are AD graphs? Well, they're
+26:2726 Minuten, 27 Sekundeneither these a n graphs we've already seen. They're just like a chain of n vertices or a path of n vertices. So,
+26:3526 Minuten, 35 Sekundenthis subscript here always refers to the number of vertices in the graph. Um, so they're the A family. There's also the D
+26:4226 Minuten, 42 Sekundenfamily, which is very similar to the A family except there's this extra kind of branch off just before the end. So, for
+26:5026 Minuten, 50 Sekundenexample, this is D6. It has six vertices and they're all kind of in a chain except just before the end that we have this little branch.
+27:0027 MinutenAnd so this A family goes on forever.
+27:0327 Minuten, 3 SekundenAnd this DN family goes on forever. And in addition to those, there's just three more. E6, E7, and E8. All right. Right.
+27:1227 Minuten, 12 SekundenSo, it turns out that they're the only graphs, the only kind of well to be precise, the only connected simple undirected graphs, which is what we're
+27:2127 Minuten, 21 Sekundenfocusing on. Um, the only ones of those that have the feature that playing this mutation game from a singleton state only gives us finitely many states.
+27:3327 Minuten, 33 SekundenAll right, then. So this is pretty awesome because these AD graphs relate to tons and tons of other mathematics.
+27:4327 Minuten, 43 SekundenOkay, so I want to say something as a bit of an aside here. So I want to say an enormous thank you to Norman
+Kapitel 8: Geometric transformations
+27:5027 Minuten, 50 SekundenWildberger who was the inventor of this mutation game. I mean he has videos on this which explain it all from the
+27:5827 Minuten, 58 Sekundenbeginning. There's a wonderful course on his wild egg maths channel which basically there's a wonderful course on his wild egg maths channel called
+28:0728 Minuten, 7 Sekundendynamics on graphs which is all about this mutation game and it really starts just from the basics and it builds through to some amazing combinotaurics.
+28:1728 Minuten, 17 SekundenSo I'll put some links to that in the description. Anyway, where do we go from here? So what I want to do is give you the key to generate an enormous family
+28:2628 Minuten, 26 Sekundenof different kinds of polotopes. So what's a polytope? Well, think about like a polygon or a polyhedrin, but
+28:3428 Minuten, 34 Sekundensomething like that that's possibly in higher dimensional space. For example, this 24 cell here is like a four-dimensional shape. I mean, this is
+28:4328 Minuten, 43 Sekundenjust like a kind of three-dimensional shadow of it that I'm holding in my hands. So, so I've kind of already told you how to do this in the sense, so I've
+28:5228 Minuten, 52 Sekundenkind of already told you a bit about how to do this. I've said that if we run this mutation game from a singleton state um then we can look at all the
+29:0129 Minuten, 1 Sekundestates that we get as long as we have a ad graph otherwise we'll be going on forever. In fact, in those cases where
+29:0929 Minuten, 9 Sekundenwe go on forever, they have geometric interpretations too, but we won't get into that. But for these AD graphs, uh,
+29:1629 Minuten, 16 Sekundenwhen we do this game, it's going to stop at some point. We'll have all our states and we can already interpret those as
+29:2429 Minuten, 24 Sekundenpoints in kind of n dimensional space if n is the number of vertices that we have. So that's cool.
+29:3329 Minuten, 33 SekundenSo that's cool. But like we saw before, like that hexagon was a bit wonky. And I was telling you that a lot of these kind
+29:4029 Minuten, 40 Sekundenof polytopes that we were getting were sort of distorted. So how do we undo that distortion? Well, basically there's
+29:4829 Minuten, 48 Sekundena kind of linear map that we can use to send our kind of distorted polytope into a nice lovely regular polytope. And
+29:5729 Minuten, 57 Sekundenthat's what I'm describing here. So we're going to do a little bit of linear algebra now. Simple stuff. But we're
+30:0530 Minuten, 5 Sekundengoing to have to start by numbering our vertices. So we'll just number the vertices of a n like this and the
+30:1430 Minuten, 14 Sekundenvertices of dn like this. So 1 2 3 4 all the way to n minus one. And then we'll call this branch vertex number n. And
+30:2230 Minuten, 22 Sekundenthen I'm showing the numberings of E6, E7, and E8 here. So then what we're going to do is we're going to associate
+30:3030 Minuten, 30 Sekundeneach of these vertices with a vector that we're going to call alpha.
+30:3830 Minuten, 38 SekundenAnd the idea is that the sort of unit vectors the singleton states in other words um that we were looking at before
+30:4630 Minuten, 46 Sekundenum like the if singleton state is going to get sent to alpha i by this kind of linear map and these alpha vectors are
+30:5530 Minuten, 55 Sekundengoing to be specially chosen so that they end up making everything regular.
+30:5930 Minuten, 59 SekundenIt's kind of like a change of basis really. So the easiest case to describe is what we do for this dn case. So I'll
+31:0731 Minuten, 7 Sekundengo through what we do for D6 and you'll kind of get the idea. So D6 looks like this. And um we're going to have these
+31:1631 Minuten, 16 Sekundenunit vectors here in n dimensional space. So E1 is the first unit vector, E2 is the second one. It has a one in the second entry and zeros elsewhere.
+31:2731 Minuten, 27 SekundenAnd so these are just kind of vectors in n dimensional space. And then we're going to use them to build these alpha
+31:3331 Minuten, 33 Sekundenvectors here. So alpha 1 is e1 take away e2.
+31:4431 Minuten, 44 SekundenSo it's going to look like that. 1 minus one and then zero's elsewhere. Alpha 2 is e2 take away e3. And that pattern continues all the way down this chain.
+31:5431 Minuten, 54 SekundenAnd then this top branch is actually the pattern changes. This is like alpha 5 is
+32:0032 MinutenE5 take away E6 and alpha 6 is E5 plus E6. That's is that difficult to read?
+32:0832 Minuten, 8 SekundenOkay. Alpha 4 is E4 take away E5. Alpha 5 is E5 take away E6. And the change to
+32:1632 Minuten, 16 Sekundenthe pattern is that alpha 6 is E5 plus E6. So we have the same pattern going all the way along the chain. But then
+32:2532 Minuten, 25 Sekundenfor this top branch um we actually add these two E vectors to we actually add these two E unit vectors together.
+32:3432 Minuten, 34 SekundenAnd so if we pick these alpha vectors like that and then we do this kind of operation here. So this will be our population vector and we basically
+32:4332 Minuten, 43 Sekundenchange this to be this sort of weighted sum of these alphas and that basically does the job for us. This is going to send population vectors to points in
+32:5332 Minuten, 53 Sekundenn-dimensional space and it's going to do it in such a way that it's going to kind of give us these nice symmetric shapes.
+33:0033 MinutenSo I said that for example in the A3 case we ended up getting a distorted coophedrin from the coordinates that the
+33:0733 Minuten, 7 Sekundenmutation gain gave us. But this map turns it into a lovely symmetric co-oped.
+33:1533 Minuten, 15 SekundenNow again, if you'll forgive me for being a little messy, I'll just quickly show you the kind of alpha vectors that are associated with E6, E7, and E8 using
+33:2533 Minuten, 25 Sekundenmy laptop. So, I got these from Wikipedia. So, the rows of this matrix here give you the alphas that we're
+33:3433 Minuten, 34 Sekundengoing to use for E6. Here are the ones for E7, and the rows of this matrix give us the alphas that we can use for E8.
+33:4533 Minuten, 45 SekundenSo that's pretty lovely. We just have to finish the job now and talk about the A case. Now the A case is a bit strange
+33:5333 Minuten, 53 Sekundenbecause it's the simplest one in many ways. Um however this kind of task of
+34:0234 Minuten, 2 Sekundenvisualizing it is a little bit weird. Um basically basically when we have n vertices and we do this kind of
+34:1134 Minuten, 11 Sekundenprocedure we do get a shape that naturally lives in n dimensional space.
+34:1634 Minuten, 16 SekundenBut it turns out that for the a case it works a lot more nicely if we actually
+34:2334 Minuten, 23 Sekundenembed it in n +1 dimensional space. So the way that we do that is we're we're
+34:3034 Minuten, 30 Sekundengoing to have these other kind of unit vectors here E1 dash and E2 dash and so on. And these actually live in n + one
+34:3934 Minuten, 39 Sekundendimensional space. So these are unit vectors in n + one dimensional space.
+34:4434 Minuten, 44 SekundenAnd using these this is how we define the alphas for am. So we've got alpha 1
+34:5034 Minuten, 50 Sekundenis e1- take away e2 dash. Alpha 2 is e2 dash take away e3 dash. And that pattern just continues all the way to the end.
+34:5834 Minuten, 58 SekundenAlpha 4 is E4 dash take away E5 dash. So these alphas really live in n plus one
+35:0735 Minuten, 7 Sekundendimensional space. But it turns out that they're all confined to the sort of hyper plane which consists of all the points whose coordinates add up to zero.
+35:1735 Minuten, 17 SekundenSo it kind of lives in a n dimensional hyper plane within n plus one dimensional space. And again, if we sort
+35:2435 Minuten, 24 Sekundenof apply this map, it's going to take our sort of mutation game state space and um or we can think of that as a kind
+35:3235 Minuten, 32 Sekundenof distorted polotope. And this is going to make it all nice and straightened out, but it's going to live in n plus one dimensional space. Actually, we
+35:4135 Minuten, 41 Sekundencould go further and there's an extra map we could do from that n dimensional hyper plane back down to n dimensional
+35:4835 Minuten, 48 Sekundenspace, but it's kind of complicated. It has like square roots in it and stuff.
+35:5235 Minuten, 52 SekundenSo, so we're not going to discuss that now, but actually I am making a longer video on this topic called from symmetry
+35:5935 Minuten, 59 Sekundento form um where I go through all of the details. All right, then. So, I've showed you how we can use this mutation
+Kapitel 9: Wythoff construction connection
+36:0636 Minuten, 6 Sekundengame to generate loads of polotopes and how we can then do this kind of transformation to kind of straighten things out so it looks nice and
+36:1436 Minuten, 14 Sekundensymmetric. So you can really start your mutation game with any numbers you want on your vertices, any kind of
+36:2236 Minuten, 22 Sekundenpopulations. They don't even have to be whole numbers. We can have fractions if we want. And we can still play the mutation game using just the same rule
+36:3136 Minuten, 31 Sekundenas I've talked about before. And every time you do that, you are going to get one of these kind of polytopes. But it
+36:3936 Minuten, 39 Sekundenturns out that there's a very special family of polytopes that we can get. And it's really extremely interesting
+36:4836 Minuten, 48 Sekundenand these and these are really and these are really corresponding to the kind of things that we can make using these sort of kaleidoscope shapes. So there's
+36:5636 Minuten, 56 Sekundensomething called the Wyth construction which is which which is essentially a way of cooking up polotopes using these
+37:0437 Minuten, 4 Sekundenkaleidoscopes. Basically you set up mirrors at particular angles. You light up an LED in a particular place. You
+37:1237 Minuten, 12 Sekundenlook at the images of that and that gives you the vertex set of your polytope. And so I'm going to show you how this works because it opens the door
+37:2037 Minuten, 20 Sekundento a massive new family of polytopes that we can look at.
+37:2537 Minuten, 25 SekundenAll right. So here's how it works. We start with our graph. It could be any graph, but we probably like to suppose
+37:3237 Minuten, 32 Sekundenit's a ad graph, right? So once we have that we get something called the adjacency matrix
+37:4137 Minuten, 41 Sekundenassociated with that graph. So this has four vertices. So the adjacy matrix is a 4x4 matrix. And basically we put a one
+37:5037 Minuten, 50 Sekundenin the matrix when those two vertices are linked. You know like so if we look at the i row and the j column there's
+37:5937 Minuten, 59 Sekundengoing to be a one there when vertex i is linked to vertex j by an edge. Otherwise there's going to be a zero. So this is
+38:0538 Minuten, 5 Sekundenjust recording which vertices are linked to each other. And we also want this identity matrix here just has ones along the main diagonal and zeros elsewhere.
+38:1738 Minuten, 17 SekundenAnd then what we're going to do is we're going to form a new matrix. This is called the cartan matrix and you get it
+38:2438 Minuten, 24 Sekundenby uh it it's the formula for it is 2 * I take away a. So it's this matrix with twos along the main diagonal and apart
+38:3338 Minuten, 33 Sekundenfrom that it looks like the negative of the adjacency matrix. So it turns out that this cart matrix is really the kind
+38:4338 Minuten, 43 Sekundenof star player in connecting this mutation game with this kind of wolf construction, this kind of kaleidoscope construction.
+38:5538 Minuten, 55 SekundenAnd actually and actually this connection and actually this connection is extremely simple really. All we have
+39:0239 Minuten, 2 Sekundento do is let's say we have one of these graphs and we're numbering the vertices from one to n as I said before. So let's
+39:1139 Minuten, 11 Sekundensay that the ar vertex is the one that's ringed. Okay. So in this case r would be one because one is our ringed vertex. So
+39:2139 Minuten, 21 Sekundenwhat we do is we take the ar unit vector e r. So this has one in the ar entry and
+39:2839 Minuten, 28 Sekundenzeros elsewhere. So we take that vector and then we multiply it by the inverse
+39:3539 Minuten, 35 Sekundenof the cartan matrix. And what this does is it gives us our seedvertex.
+39:4239 Minuten, 42 SekundenAnd we just use that to play the mutation game. And what we get is this kind of polotope that corresponds to
+39:4939 Minuten, 49 Sekundenthis kind of wifth construction. Now I'm not going to explain the ordinary geometry behind the wof construction. I
+39:5739 Minuten, 57 Sekundendid that in my video on perfect shapes and the code behind geometry and also in this new video I've got coming out. Um
+40:0540 Minuten, 5 Sekundenbut you can really think of this as kind of like the definition. So basically we start with this as our starting point
+40:1240 Minuten, 12 Sekundenfor the mutation game. It might not have all of the populations as integers, but it's still something we can play the
+40:2040 Minuten, 20 Sekundenmutation game from. And when we play it, if we're running it on an AD graph, we're going to get just a finite number
+40:2840 Minuten, 28 Sekundenof different kind of states. And then we're going to interpret those as the kind of vertex set of our polytope.
+40:3740 Minuten, 37 SekundenOkay.
+40:3840 Minuten, 38 Sekundenum we might want to apply those kind of transformations that I was talking about just now just to kind of straighten things out. But that's kind of an
+40:4740 Minuten, 47 Sekundenaesthetic choice in a way. In fact, there's actually advantages to working in the sort of uh with these kind of
+40:5440 Minuten, 54 Sekundenwonky polotopes that the mutation gives you directly. It turns out that that kind of wonkiness is actually encoding
+41:0141 Minuten, 1 Sekundeimportant information. And in fact, in that case with A2, all the numbers that come out are actually like intimately
+41:0941 Minuten, 9 Sekundenrelated with quantum numbers and quarks and stuff like this and things in the standard model. And Norman Wildberger
+41:1641 Minuten, 16 Sekundenhas a video on that that I'll link in the description. So now under So now with this under our belt, we have access to an enormous number of extra
+41:2541 Minuten, 25 Sekundenpolytopes. I mean, I know I've only showed you how to get the vertex sets of these polotopes, but soon I'm going to tell you how to get all the structure.
+41:3341 Minuten, 33 SekundenIt's actually also surprisingly simple, but I just wanted to tell you a few of the different polytopes that we get from this sort of procedure. Okay, so how
+41:4141 Minuten, 41 Sekundenabout this one with uh D4? [snorts] Well, it turns out that if we ring this vertex, if we do this kind of wifoth
+41:4841 Minuten, 48 Sekundenconstruction, what we get is this lovely polytope called the 16 cell. So basically you can get this by taking a
+41:5841 Minuten, 58 Sekundenhyper cube and putting a point in the center of each of its 3D kind of faces and those form the vertex set of this
+42:0642 Minuten, 6 Sekundenbaby. There's also this one going down in dimension. So if we get the A2 graph and ring one of the vertices, we get the
+42:1442 Minuten, 14 Sekundenlovely equilateral triangle. This one here gives us a tetrahedrin. If we ring the middle vertex, we get an ocahedron.
+42:2342 Minuten, 23 SekundenWhat happens if we ring the central vertex of D4? We get the 24 cell. Okay, so we've seen the 24 cell appear in kind
+42:3242 Minuten, 32 Sekundenof two different ways. Now, one of them is from this sort of wif-off construction, and the other one is what
+42:3942 Minuten, 39 Sekundenwe saw earlier, which is basically what we'd call a root polytope. So, a root polytope is the thing you get if you
+42:4642 Minuten, 46 Sekundenjust run the mutation game from a singleton state. And here's another one.
+42:5042 Minuten, 50 SekundenThis is E8. And if we ring this far away vertex here, we get this 421 gossip polotope. That's what I showed you
+42:5742 Minuten, 57 Sekundenbefore. This is actually a root polotope as well. So you, as I said earlier, you could have just got it directly from playing the mutation game starting from
+43:0643 Minuten, 6 Sekundena singleton state. So basically what's going on here is that this is telling us where to put our LED.
+43:1543 Minuten, 15 SekundenAnd when we do the mutation at the I vertex, think about like the current population as like a point in n
+43:2343 Minuten, 23 Sekundendimensional space. And what we're actually essentially doing is reflecting it in a kind of mirror. And so it's going to jump over here. And so for
+43:3243 Minuten, 32 Sekundenevery one of the different n mutations that we can do, we have a different sort of mirror. And then the way that we can
+43:4143 Minuten, 41 Sekundencompose reflections and make virtual mirrors and sort of move the image around um is basically filling out the
+43:4943 Minuten, 49 Sekundenvertex sets of our polytope. It's a really beautiful idea. But okay, you might be thinking, well, all right, so I
+Kapitel 10: Analyzing polytope structure
+43:5743 Minuten, 57 Sekundencan get some set of numbers and somehow, you know, take it for granted from Richard that that corresponds to some
+44:0544 Minuten, 5 Sekundenshape in n dimensional space. like how do I actually interface with that shape?
+44:1044 Minuten, 10 SekundenHow do I understand how many edges it has or how many faces it has or what the faces are? Stuff like that. So it turns
+44:1944 Minuten, 19 Sekundenout that there's a really simple answer to that question as well. And basically the idea is that
+44:2744 Minuten, 27 Sekundenlet's say we're interested in the kdimensional faces. All right. So in this case for example this corresponds
+44:3544 Minuten, 35 Sekundento this 16 cell which is a shape in four dimensions because it has four vertices.
+44:4144 Minuten, 41 SekundenI'm just showing the 3D shadow here. But we have this kind of fourdimensional polytope. Let's say we're interested in
+44:4944 Minuten, 49 Sekundenwhat the different three-dimensional faces are. So what we do is we look at our kind of graph
+44:5644 Minuten, 56 Sekundenand then we find a kind of subgraph a connected subgraph that contains our
+45:0245 Minuten, 2 Sekundenringed vertex and that is of size k. So let's say k equals 3.
+45:1745 Minuten, 17 SekundenSo we look at this. So we look at this kind of connected subgraph with three vertices that contains the ringed vertex. And basically this tells us
+45:2645 Minuten, 26 Sekundenabout one of the kind of three-dimensional faces which this polytope has. In fact, if we look at the
+45:3345 Minuten, 33 Sekundenshape of this subgraph, well it looks like A3 with this ring vertex. And I kind of told you already that this
+45:4245 Minuten, 42 Sekundencorresponds to a tetrahedrin. So this means that one of the kind of three-dimensional faces that this thing has is tetrahedrin shaped.
+45:5345 Minuten, 53 SekundenThe other kind of three-dimensional shape it has corresponds to this. The other kind of connected subgraph on
+46:0046 Minutenthree vertices that contains the ringed vertex. And it turns out well in this case this is also and it turns out in this case that this is also tetrahedrin
+46:0946 Minuten, 9 Sekundenshaped. All right this is a unusual kind of um occurrence. But basically what this is saying is that we've got two
+46:1646 Minuten, 16 Sekundendifferent families of three-dimensional faces within this and they're both tetrahedra
+46:2346 Minuten, 23 Sekundenbut anyway but anyway they're separate families so we can think about them separately. So let's say we think about these tetrahedra here. Well, how can we
+46:3246 Minuten, 32 Sekundenreally make contact with those tetrahedra?
+46:3646 Minuten, 36 SekundenAnd how can we relate them to this vertex set that we just found out how to generate? Well, the idea goes like this.
+46:4546 Minuten, 45 SekundenEach of these vertices here corresponds to a different kind of mutation. This would be like corresponding to mutating at one. This is corresponding to
+46:5446 Minuten, 54 Sekundenmutating at two. This is mutating at three or mutating at four. If you like, each vertex corresponds to a different
+47:0147 Minuten, 1 Sekundesort of mirror. When I say mirror, I mean like a n minus one dimensional hyper plane that reflects stuff. And so how would we generate this tetrahedrin
+47:1047 Minuten, 10 Sekundenhere? Well, we just start with our seed vertex and we only are allowed to use the mirrors which are in our kind of subgraph, our kind of green region here.
+47:2247 Minuten, 22 SekundenSo to understand what this tetrahedrin looks like, we start from our seed vertex and then we're only allowed to do
+47:2947 Minuten, 29 Sekundenmutating at one, two or four. And so we look at all of the kind of vertices that we get with that kind of procedure. And that gives us one of the tetrahedra.
+47:4247 Minuten, 42 SekundenAnd then what we do is we kind of take that tetrahedrin and then we can apply a mutation to it.
+47:5047 Minuten, 50 SekundenAnd what I mean by that is we apply the mutation to each of the vertices inside simultaneously. So we could have a
+47:5847 Minuten, 58 Sekundentetrahedrin uh with vertices A, B, C, D, and then we could like mutate it at one. And so then
+48:0648 Minuten, 6 Sekundenwe'd be doing the mutation at one on A and the mutation at one on B and the mutation at one on C and on D all
+48:1448 Minuten, 14 Sekundensimultaneously. And what that'll do is move that tetrahedrin somewhere else to another tetrahedra which is within this kind of pattern.
+48:2348 Minuten, 23 SekundenAnd this same kind of procedure works in general. So in general, so in general, if you want the K- dimensional FA, So in
+48:3148 Minuten, 31 Sekundengeneral, if you want the K- dimensional faces, you look at the different connected subgraphs containing that ringed node that you can draw. And for
+48:3948 Minuten, 39 Sekundeneach of those, you look at the different mutations that are in there, the different mirrors that you're allowed to use. You iterate those on your seed
+48:4848 Minuten, 48 Sekundenvertex to get you iterate those on your seed vertex and that gives you the vertices of your
+48:5548 Minuten, 55 Sekundensort of fundamental face of that kind of shape and then you take that face and you apply all possible mutations to it
+49:0249 Minuten, 2 Sekundento move it around. So this is beautiful because it really opens the door and allows us to understand all of this
+49:1049 Minuten, 10 Sekundenlovely geometry. And so we can now take any AD graph and ring any node. And then
+49:1749 Minuten, 17 Sekundenso now we can take any AD graph and ring any vertex and we can get that polotope and we can understand it.
+
+Mit Video synchronisieren

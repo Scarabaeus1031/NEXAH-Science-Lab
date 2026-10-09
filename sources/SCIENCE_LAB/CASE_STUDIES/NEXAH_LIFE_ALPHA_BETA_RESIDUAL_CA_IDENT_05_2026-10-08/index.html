@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>CA-IDENT-05 · Alpha/Beta Residual Audit</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body><main>
+  <header>
+    <p class="eyebrow">NEXAH LIFE · PREREGISTERED · 2,000 FRESH HOLDOUT ROWS</p>
+    <h1>P = A + B</h1>
+    <p class="lead">Is a 1/64 Memory residual the missing correction to a 63/64 Fourier carrier?</p>
+    <div class="equation"><span><b>A</b> · Fourier</span><strong>63/64</strong><i>+</i><span><b>B</b> · Memory</span><strong>1/64</strong><i>=</i><span><b>P</b> · metric</span></div>
+    <div class="status">REGISTERED VERDICT · <b>ALPHA–BETA NO GAIN</b></div>
+  </header>
+
+  <section class="metrics">
+    <article><span>Fourier alone</span><strong>0.5307</strong><small>macro-F1</small></article>
+    <article class="tested"><span>63/64 + 1/64</span><strong>0.5277</strong><small>Δ −0.0031</small></article>
+    <article><span>Equal split</span><strong>0.5853</strong><small>macro-F1</small></article>
+    <article class="winner"><span>Reverse control</span><strong>0.6084</strong><small>1/64 Fourier + 63/64 Memory</small></article>
+  </section>
+
+  <section class="panel">
+    <div class="title"><div><p class="eyebrow">SPECIFICITY TEST</p><h2>The arithmetic holds. The assigned direction does not.</h2></div><p>Weights are exact squared-distance contributions after view standardization and dimension normalization.</p></div>
+    <div class="bars">
+      <div><label>Reverse 1/63</label><span><i style="width:60.84%"></i></span><b>0.6084</b></div>
+      <div><label>Equal 32/32</label><span><i style="width:58.53%"></i></span><b>0.5853</b></div>
+      <div><label>Fourier A</label><span><i style="width:53.07%"></i></span><b>0.5307</b></div>
+      <div class="fail"><label>Proposed 63/1</label><span><i style="width:52.77%"></i></span><b>0.5277</b></div>
+    </div>
+  </section>
+
+  <section class="split">
+    <article class="panel">
+      <p class="eyebrow">WHAT THE FAIL SAYS</p><h2>The residual is not the missing correction</h2>
+      <p>A 1/64 Memory contribution improves accuracy slightly but lowers macro-F1 and loses the preregistered non-inferiority condition. The 63/64 Fourier orientation is not supported.</p>
+    </article>
+    <article class="panel alert">
+      <p class="eyebrow">THE ACTUAL GAP</p><h2>A class absent from training</h2>
+      <div class="novel"><strong>19</strong><span>constant-count motion rows<br><b>0 training examples · 0 recall</b></span></div>
+      <p>No mixture of two trained views can name a behavior class absent from their label support.</p>
+    </article>
+  </section>
+
+  <section class="panel coverage">
+    <p class="eyebrow">HOLDOUT COVERAGE</p><h2>The rare-class sample problem is repaired—then an open-set problem appears.</h2>
+    <div class="chips"><span>extinct 1128</span><span>growth 438</span><span>fixed 193</span><span>period-2 143</span><span>transient 49</span><span>decay 30</span><span class="new">constant-count 19 · unseen</span></div>
+    <p><strong>Next:</strong> freeze a discovery bank, establish minimum training support for every discovered class, then reserve a later untouched evaluation bank. Coverage before weights.</p>
+  </section>
+
+  <footer><a href="README.md">Research record</a><a href="00_PREREGISTRATION.md">Preregistration</a><a href="results/CA_IDENT_05_RESULT.json">Machine result</a><a href="../NEXAH_LIFE_BALANCED_FUSION_CA_IDENT_04_2026-10-08/index.html">CA04</a></footer>
+</main></body></html>

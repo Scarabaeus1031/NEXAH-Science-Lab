@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>CA-IDENT-01 · LIFE Multi-View Usefulness Lab</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main>
+    <header class="hero">
+      <div>
+        <p class="eyebrow">CA-IDENT-01 · internal executed fixture · 2026-10-08</p>
+        <h1>LIFE → Grid → Shadow-gon → Orbit</h1>
+        <p class="lede">Ein LIFE-Carrier, mehrere deklarierte Ansichten. Der Holdout-Test fragt, ob eine Projektion die kommende Verhaltensklasse verschobener Läufe besser identifiziert als Dichte, Entropie und Komponenten allein.</p>
+      </div>
+      <div class="status-stack"><span>FINITE-DEAD</span><span>B3/S23</span><span>NOT PUBLIC</span></div>
+    </header>
+
+    <section class="contract" aria-label="Typed projection contract">
+      <article><span>1 · Carrier</span><strong>40×40 binary cells</strong><small>exact state</small></article>
+      <i>→</i><article><span>2 · Memory</span><strong>five retained frames</strong><small>lossy temporal record</small></article>
+      <i>→</i><article><span>3 · Views</span><strong>grid · DFT · 17/19/29-gon</strong><small>separate projections</small></article>
+      <i>→</i><article><span>4 · Adapter</span><strong>8-coordinate mutation record</strong><small>experimental, non-identical</small></article>
+      <i>→</i><article><span>5 · Return</span><strong>8-generation class</strong><small>translated holdout</small></article>
+    </section>
+
+    <section class="controls" aria-label="Run controls">
+      <label>Seed <select id="pattern"></select></label>
+      <label>Generation <input id="generation" type="range" min="0" max="40" value="18"><b id="generationValue">18</b></label>
+      <label>Shadow-gon <select id="gon"><option>17</option><option>19</option><option>29</option></select></label>
+      <button id="play" type="button">▶ Play</button>
+      <button id="rerun" type="button">Run CA-IDENT-01</button>
+    </section>
+
+    <section class="record-strip" aria-label="Current record">
+      <article><span>Live cells</span><strong id="live">–</strong></article>
+      <article><span>Components</span><strong id="components">–</strong></article>
+      <article><span>Entropy</span><strong id="entropy">–</strong></article>
+      <article><span>Future class</span><strong id="future">–</strong></article>
+      <article><span>Frame hash</span><strong id="hash">–</strong></article>
+    </section>
+
+    <nav class="tabs" aria-label="Projection views">
+      <button class="active" data-view="carrier">Carrier</button>
+      <button data-view="grid">Grid</button>
+      <button data-view="fourier">Fourier</button>
+      <button data-view="shadow">Shadow Memory</button>
+      <button data-view="gon">Shadow-gon</button>
+      <button data-view="poincare">Descartes ↔ Poincaré</button>
+      <button data-view="e8">E8 adapter</button>
+      <button data-view="results">Usefulness test</button>
+    </nav>
+
+    <section class="workspace">
+      <article class="view active" id="view-carrier"><header><span>Exact carrier</span><b>no projection</b></header><svg id="carrierSvg" viewBox="0 0 640 640" role="img" aria-label="LIFE cell carrier"></svg><p>Der Zellzustand bleibt die Autorität. Alle weiteren Ansichten werden aus diesem Frame oder seiner deklarierten Historie abgeleitet.</p></article>
+      <article class="view" id="view-grid"><header><span>5×5 block projection</span><b>position-sensitive</b></header><svg id="gridSvg" viewBox="0 0 640 640" role="img" aria-label="Aggregated grid projection"></svg><p>Eine grobe Rasteransicht reduziert 1.600 Zellen auf 25 Blockdichten. Verschiebungen verändern diese Ansicht.</p></article>
+      <article class="view" id="view-fourier"><header><span>Low-mode DFT magnitude</span><b>phase discarded</b></header><svg id="fourierSvg" viewBox="0 0 760 500" role="img" aria-label="Fourier magnitude projection"></svg><p>Die Magnitude ist translationsrobuster, verliert aber Phase und kann verschiedene Zellträger kollabieren lassen.</p></article>
+      <article class="view" id="view-shadow"><header><span>Shadow Memory</span><b>five-frame trace</b></header><svg id="memorySvg" viewBox="0 0 760 500" role="img" aria-label="Five-frame memory trace"></svg><p>Das Memory ist kein zweiter LIFE-Operator. Es speichert Dichte und Zelländerung der letzten Schritte als explizite Beobachtungsspur.</p></article>
+      <article class="view" id="view-gon"><header><span id="gonTitle">17-gon shadow</span><b>sector + radial projection</b></header><svg id="gonSvg" viewBox="0 0 640 640" role="img" aria-label="Regular polygon shadow projection"></svg><p>17-, 19- und 29-gon sind hier Schatten-gons: reguläre Beobachtungsrahmen, in deren Sektoren Zellmassen projiziert werden. Sie sind nicht der LIFE-Carrier.</p></article>
+      <article class="view" id="view-poincare"><header><span>Same cell addresses, another chart</span><b>reversible Cayley view</b></header><div class="paired"><svg id="descartesSvg" viewBox="0 0 520 520" role="img" aria-label="Cartesian cell coordinates"></svg><svg id="poincareSvg" viewBox="0 0 520 520" role="img" aria-label="Cayley mapped Poincare disk"></svg></div><p>Die Koordinaten werden reversibel in die Disk abgebildet. Das verändert die Darstellung, nicht den Träger und nicht die LIFE-Regel.</p></article>
+      <article class="view" id="view-e8"><header><span>Experimental 8-coordinate adapter</span><b>not an E8 identity</b></header><svg id="e8Svg" viewBox="0 0 760 500" role="img" aria-label="Eight-coordinate mutation adapter"></svg><p>Messwerte werden verlustbehaftet auf acht Koordinaten quantisiert und mit der E8-Graphnachbarschaft gespiegelt. Das prüft eine Adapteridee; es macht den LIFE-Zustand nicht zu einer E8-Wurzel.</p></article>
+      <article class="view results-view" id="view-results"><header><span>Translated holdout</span><b id="verdict">running…</b></header><div id="resultSummary" class="result-summary"></div><div id="resultBars" class="result-bars"></div><p id="resultBoundary" class="boundary"></p></article>
+    </section>
+
+    <section class="interpretation">
+      <article><span>EXACT</span><h2>Carrier and LIFE update</h2><p>Every state and B3/S23 step is computed directly on the finite-dead 40×40 carrier.</p></article>
+      <article><span>METHOD</span><h2>Projection and chart</h2><p>Grid, Fourier, polygon, Poincaré and mutation records expose different fibers and invariances.</p></article>
+      <article><span>OPEN</span><h2>External usefulness</h2><p>One internal fixture cannot establish general prediction, E8 specificity or a Resonance Cathedral mechanism.</p></article>
+    </section>
+
+    <footer>
+      <p><strong>Claim ceiling:</strong> deterministic in-repository fixture only. Similar silhouettes, equal scores or a shared graph grammar do not establish carrier, operator, causal, physical or biological identity.</p>
+      <nav><a href="README.md">Method record</a><a href="https://scarabaeus1031.github.io/NEXAH-Science-Lab/navigator/#life-orbit">NEXAH Navigator · LIFE</a><a href="../E8_DEMOS_INTERACTIVE_ORIENTATION_2026-09-21/NEXAH_E8_MUTATION_FAMILY_GRAPH.html">E8 Mutation Family Graph</a><a href="../NEXAH_ROOT7_EULER_MIRROR_CONCORDANCE_INTAKE_2026-09-28/ELINE_FOURIER_POINCARE_TEST_SUITE_01.html">Descartes/Fourier/Poincaré control</a></nav>
+    </footer>
+  </main>
+  <script src="engine.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

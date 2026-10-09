@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>NEXAH · Family Connection Map</title>
+  <style>
+    :root{color-scheme:dark;--bg:#050c14;--panel:#0a1723;--panel2:#102235;--line:#28475c;--text:#edf5f8;--muted:#94aabd;--cyan:#56d7ef;--gold:#f2bd55;--green:#58d69c;--pink:#ef69b8;--violet:#a78bfa;--red:#ff7885;--orange:#f49a5c}
+    *{box-sizing:border-box}html,body{margin:0;min-height:100%;overflow-x:hidden}body{background:radial-gradient(circle at 50% -20%,#183a50 0,#07131e 44%,var(--bg) 100%);color:var(--text);font:14px/1.45 Inter,ui-sans-serif,system-ui,-apple-system,sans-serif}button{font:inherit}main{max-width:1680px;margin:auto;padding:20px}.top{display:flex;justify-content:space-between;align-items:flex-start;gap:20px}.eyebrow{color:var(--gold);font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase}h1{font-size:clamp(30px,4vw,52px);line-height:1.02;margin:5px 0 8px}h2{font-size:15px;margin:0 0 10px}p{margin:0;color:var(--muted)}.scope{max-width:760px}.status{border:1px solid var(--line);border-radius:999px;padding:7px 11px;color:var(--green);font-size:11px;letter-spacing:.06em;white-space:nowrap}.nav,.filters,.legend,.links{display:flex;gap:8px;align-items:center;flex-wrap:wrap}.nav{margin:15px 0 12px}.nav a,.links a{color:var(--text);text-decoration:none;border:1px solid var(--line);border-radius:999px;padding:7px 10px;background:rgba(9,21,32,.78);font-size:12px}.nav a:hover,.nav a:focus-visible,.links a:hover,.links a:focus-visible{border-color:var(--cyan);outline:none}.filters{border-block:1px solid var(--line);padding:12px 0;margin-bottom:12px}.filters button{color:var(--muted);background:transparent;border:1px solid var(--line);border-radius:999px;padding:8px 12px}.filters button:hover,.filters button:focus-visible{color:var(--text);border-color:var(--cyan);outline:none}.filters button[aria-pressed=true]{color:#06121b;background:var(--gold);border-color:var(--gold);font-weight:700}.layout{display:grid;grid-template-columns:minmax(680px,1.7fr) minmax(340px,.8fr);gap:12px}.panel{border:1px solid var(--line);border-radius:12px;background:rgba(8,21,32,.9);padding:14px;min-width:0}.graph-panel{min-height:670px}.panel-head{display:flex;justify-content:space-between;align-items:baseline;gap:16px;margin-bottom:8px}.panel-head span{color:var(--muted);font-size:11px}.graph-wrap{height:555px;position:relative}.graph{width:100%;height:100%;display:block}.edge{fill:none;stroke:var(--line);stroke-width:2;opacity:.3;transition:opacity .18s,stroke-width .18s,stroke .18s}.edge.exact{stroke:var(--green)}.edge.method{stroke:var(--cyan);stroke-dasharray:7 6}.edge.empirical{stroke:var(--gold)}.edge.open{stroke:var(--red);stroke-dasharray:3 7}.edge.negative{stroke:var(--violet);stroke-dasharray:10 5 2 5}.edge.active{opacity:1;stroke-width:4}.edge.dim{opacity:.08}.node{transition:opacity .18s}.node.dim{opacity:.22}.node circle{fill:var(--panel2);stroke:var(--line);stroke-width:2}.node.active circle{stroke:var(--text);stroke-width:3}.node.family-f7 circle{fill:#18213a}.node text{fill:var(--text);text-anchor:middle}.node .id{font-size:18px;font-weight:800}.node .name{font-size:10px;fill:var(--muted)}.node-hit{fill:transparent}.node:hover circle,.node:focus-visible circle{stroke:var(--cyan)}.node:focus-visible{outline:none}.legend{justify-content:center;color:var(--muted);font-size:11px;margin-top:5px}.legend i{width:22px;height:3px;border-radius:2px;display:inline-block}.legend .exact{background:var(--green)}.legend .method{background:repeating-linear-gradient(90deg,var(--cyan) 0 7px,transparent 7px 11px)}.legend .empirical{background:var(--gold)}.legend .open{background:repeating-linear-gradient(90deg,var(--red) 0 3px,transparent 3px 7px)}.detail{display:grid;align-content:start;gap:12px}.detail-kicker{color:var(--gold);font-size:11px;letter-spacing:.1em;text-transform:uppercase}.detail h2{font-size:25px;line-height:1.05;margin:2px 0}.chain{font:700 14px/1.6 ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--cyan);padding:10px 11px;border-left:3px solid var(--cyan);background:rgba(86,215,239,.06)}.steps{display:grid;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:9px;overflow:hidden}.step{display:grid;grid-template-columns:54px 1fr;gap:10px;padding:9px;background:var(--panel)}.step b{color:var(--gold)}.step span{color:var(--muted);font-size:12px}.boundary{border-left:3px solid var(--gold);background:rgba(242,189,85,.08);padding:10px 11px;color:var(--muted)}.boundary strong{color:var(--gold)}.visuals{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px}.visuals img{width:100%;height:92px;object-fit:cover;border:1px solid var(--line);border-radius:7px;background:var(--panel2)}.visuals.one{grid-template-columns:1fr}.visuals.one img{height:180px}.frontier{margin-top:12px;display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.frontier article{border:1px solid var(--line);border-radius:9px;padding:10px;background:rgba(8,21,32,.65)}.frontier b{display:block;color:var(--red);font-size:12px}.frontier span{display:block;color:var(--muted);font-size:11px;margin-top:4px}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}@media(max-width:1050px){.layout{grid-template-columns:1fr}.graph-panel{min-height:610px}.graph-wrap{height:500px}.detail{grid-template-columns:1fr 1fr}.detail>header,.detail>.chain,.detail>.boundary,.detail>.links{grid-column:1/-1}}@media(max-width:680px){main{padding:14px}.top{display:block}.status{display:inline-block;margin-top:10px}.graph-panel{padding:8px;min-height:500px}.graph-wrap{height:410px}.detail{grid-template-columns:1fr}.detail>*{grid-column:1!important}.frontier{grid-template-columns:1fr}.visuals img{height:80px}.node .name{display:none}}
+    .node circle.node-hit{fill:transparent;stroke:transparent}
+    .reading-key{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin:12px 0}.reading-key article{border:1px solid var(--line);border-radius:9px;padding:10px;background:rgba(8,21,32,.65)}.reading-key b{display:block;color:var(--gold);font-size:12px}.reading-key span{display:block;color:var(--muted);font-size:11px;margin-top:4px}.route-label{margin:0 0 7px;color:var(--gold);font-size:11px;font-weight:750;letter-spacing:.1em;text-transform:uppercase}.registry-note{margin-top:8px;padding:9px 11px;border-left:3px solid var(--cyan);background:rgba(86,215,239,.06);color:var(--muted);font-size:12px}.registry-note strong{color:var(--cyan)}.links a.primary{border-color:var(--gold);color:var(--gold)}
+    .typed-field-map{display:grid;grid-template-columns:repeat(8,minmax(0,1fr));gap:6px;margin:0 0 12px}.typed-field-map a{min-width:0;padding:8px 7px;border:1px solid var(--line);border-radius:8px;background:rgba(86,215,239,.045);color:var(--text);text-decoration:none}.typed-field-map a:hover,.typed-field-map a:focus-visible{border-color:var(--cyan);outline:none}.typed-field-map b,.typed-field-map span{display:block;overflow:hidden;text-overflow:ellipsis}.typed-field-map b{color:var(--cyan);font:700 10px ui-monospace,SFMono-Regular,Menlo,monospace}.typed-field-map span{margin-top:3px;color:var(--muted);font-size:10px;white-space:nowrap}
+    .node:hover circle:not(.node-hit),.node:focus-visible circle:not(.node-hit){stroke:var(--cyan)}
+    .step{grid-template-columns:90px 1fr}
+    @media(max-width:1050px){.reading-key{grid-template-columns:repeat(2,minmax(0,1fr))}.typed-field-map{grid-template-columns:repeat(4,minmax(0,1fr))}}
+    @media(max-width:680px){.step{grid-template-columns:74px 1fr}.reading-key{grid-template-columns:1fr}.typed-field-map{grid-template-columns:repeat(2,minmax(0,1fr))}}
+  </style>
+  <script defer src="NAVIGATION/NEXAH_MODULE_REGISTRY_RING1.js"></script>
+  <script defer src="NAVIGATION/NEXAH_NAVIGATION_RING1.js" data-module="atlas"></script>
+</head>
+<body>
+<main>
+  <header class="top">
+    <div>
+      <div class="eyebrow">Interactive research orientation · internal edition 2.1</div>
+      <h1>NEXAH Family Connection Map</h1>
+      <p class="scope">Sieben funktionale Familien, typisierte Beziehungen und konkrete Forschungsrouten. Die Karte zeigt, was miteinander verbunden ist; der Connection Atlas zeigt, welche Module und Instrumente in den Familien registriert sind.</p>
+    </div>
+    <div class="status">NO CLAIM PROMOTION · NO ACTIVATION</div>
+  </header>
+
+  <nav class="nav" aria-label="Dokumentnavigation">
+    <a href="https://scarabaeus1031.github.io/NEXAH-Science-Lab/navigator/#home">Science Navigator</a>
+    <a href="https://scarabaeus1031.github.io/NEXAH-Science-Lab/navigator/#atlas">Connection Atlas</a>
+    <a href="https://scarabaeus1031.github.io/NEXAH-Science-Lab/navigator/#observatory">7×8 Observatory</a>
+    <a href="https://scarabaeus1031.github.io/NEXAH-Science-Lab/navigator/#life-orbit">LIFE Program</a>
+    <a href="FAMILY_CONNECTION_MAP_V2_2026-10-05.md">Lesefassung</a>
+    <a href="FAMILY_CONNECTION_MAP_2026-09-30.md">V1-Baseline</a>
+    <a href="SUBJECT_OVERVIEW.md">Subject Overview</a>
+    <a href="LAB_REGISTER.md">Lab Register</a>
+  </nav>
+
+  <section class="reading-key" aria-label="So liest man die Karte">
+    <article><b>Kreise · Families</b><span>Sieben funktionale Fragen von Beobachtung bis Validierung.</span></article>
+    <article><b>Pfeile · Relations</b><span>Exakte, empirische, methodische, offene oder negative Verbindungen.</span></article>
+    <article><b>Buttons · Research routes</b><span>Konkrete Beispiele, die mehrere Families miteinander verbinden.</span></article>
+    <article><b>TF:01–TF:08 · Inspection fields</b><span>Acht transversale Prüffelder; ausdrücklich keine achte Family.</span></article>
+  </section>
+
+  <p class="route-label">Canonical inspection record · fields across all families</p>
+  <section class="typed-field-map" id="typedFieldMap" aria-label="Acht typisierte Observatory-Prüffelder"></section>
+
+  <p class="route-label">Example routes through the families</p>
+  <div class="filters" role="group" aria-label="Forschungsroute auswählen" id="filters"></div>
+
+  <section class="layout">
+    <div class="panel graph-panel">
+      <div class="panel-head"><h2>Familiennetz</h2><span>Route wählen oder Familie anklicken</span></div>
+      <div class="graph-wrap"><svg class="graph" id="graph" viewBox="0 0 980 560" role="img" aria-labelledby="graphTitle graphDesc"><title id="graphTitle">NEXAH Familiennetz F1 bis F7</title><desc id="graphDesc">Interaktive Karte der exakten, empirischen, methodischen, offenen und negativen Verbindungen zwischen sieben Forschungsfamilien.</desc></svg></div>
+      <div class="legend" aria-label="Verbindungstypen"><span><i class="exact"></i> exakt</span><span><i class="empirical"></i> empirisch</span><span><i class="method"></i> Methode</span><span><i class="open"></i> offen</span><span><i style="background:var(--violet)"></i> Nicht-Identität</span></div>
+    </div>
+
+    <aside class="panel detail" id="detail" aria-live="polite">
+      <header><div class="detail-kicker" id="detailKicker"></div><h2 id="detailTitle"></h2><p id="detailSummary"></p></header>
+      <div class="chain" id="detailChain"></div>
+      <div class="steps" id="detailSteps"></div>
+      <div class="visuals" id="detailVisuals"></div>
+      <div class="boundary" id="detailBoundary"></div>
+      <div class="links" id="detailLinks"></div>
+    </aside>
+  </section>
+
+  <section class="frontier" aria-label="Offene Grenzen">
+    <article><b>F4 → F5</b><span>Phase, Winding oder Holonomie ergeben nicht automatisch darstellungsunabhängige Topologie.</span></article>
+    <article><b>F4/F5 → F6</b><span>Synchronisation, Aktivierung und Kontrolle bleiben der größte noch nicht geschlossene Familienbereich.</span></article>
+    <article><b>REST → NEXT</b><span>Ein Residuum wird erst durch eine deklarierte Auswahlregel zum Next-State-Operator.</span></article>
+  </section>
+</main>
+<script src="https://scarabaeus1031.github.io/NEXAH-Science-Lab/navigator/data.internal.js"></script>
+<script src="https://scarabaeus1031.github.io/NEXAH-Science-Lab/navigator/life-program.internal.js"></script>
+<script src="https://scarabaeus1031.github.io/NEXAH-Science-Lab/navigator/observatory.internal.js"></script>
+<script>
+(()=>{
+  'use strict';
+  const NS='http://www.w3.org/2000/svg';
+  const $=id=>document.getElementById(id);
+  const nodes={
+    F1:{x:120,y:160,name:'Observation / Record',short:'Frame · Cut · Residual'},
+    F2:{x:150,y:400,name:'Address / Boundary',short:'Prime · Grid · Rest'},
+    F3:{x:390,y:245,name:'Transition / Operator',short:'Word · Flow · Current'},
+    F4:{x:520,y:455,name:'Phase / Drift',short:'Phase · Winding · Holonomy'},
+    F5:{x:735,y:245,name:'Connectivity / Topology',short:'Graph · Orbit · Fiber'},
+    F6:{x:840,y:455,name:'Synchronization / Control',short:'Gate · Policy · Cost'},
+    F7:{x:500,y:70,name:'Validation / Governance',short:'Replay · Null · Ceiling'}
+  };
+  const edges={
+    'F1-F2':{a:'F1',b:'F2',status:'exact'},'F2-F3':{a:'F2',b:'F3',status:'empirical'},'F3-F4':{a:'F3',b:'F4',status:'empirical'},
+    'F4-F5':{a:'F4',b:'F5',status:'open'},'F4-F6':{a:'F4',b:'F6',status:'open'},'F5-F6':{a:'F5',b:'F6',status:'open'},
+    'F1-F3':{a:'F1',b:'F3',status:'exact'},'F3-F5':{a:'F3',b:'F5',status:'exact'},'F5-F7':{a:'F5',b:'F7',status:'method'},
+    'F2-F5':{a:'F2',b:'F5',status:'exact'},'F1-F5':{a:'F1',b:'F5',status:'method'},'F1-F7':{a:'F1',b:'F7',status:'method'},
+    'F2-F7':{a:'F2',b:'F7',status:'method'},'F3-F7':{a:'F3',b:'F7',status:'method'},'F4-F7':{a:'F4',b:'F7',status:'method'},
+    'F6-F7':{a:'F6',b:'F7',status:'method'},'F1-F4':{a:'F1',b:'F4',status:'method'},'F3-F1':{a:'F3',b:'F1',status:'method'},
+    'F2-F1':{a:'F2',b:'F1',status:'exact'},'F5-F4':{a:'F5',b:'F4',status:'negative'}
+  };
+  const src='SOURCE_VISUALS_FAMILY_CONNECTION_MAP_V2_2026-10-05/';
+  const navigatorAtlas='https://scarabaeus1031.github.io/NEXAH-Science-Lab/navigator/#atlas';
+  const navigatorFamily=id=>`https://scarabaeus1031.github.io/NEXAH-Science-Lab/navigator/#family=${encodeURIComponent(`CF:${id}`)}`;
+  const lifeProgram=globalThis.NEXAH_LIFE_PROGRAM;
+  const observatory=globalThis.NEXAH_OBSERVATORY_BINDING;
+  const registryEntities=globalThis.NEXAH_NAVIGATOR_MANIFEST?.entities||[];
+  const familyCounts=Object.fromEntries(Object.keys(nodes).map(id=>[id,registryEntities.filter(entity=>(entity.connection_family_ids||[]).includes(`CF:${id}`)).length]));
+  const familyNotes={
+    F6:'Die Family ist belegt. Offen bleiben die generischen Brücken F4→F6 und F5→F6; offen bedeutet nicht leer.',
+    F7:'F7 ist eine transversale Validierungs- und Governance-Ebene, kein leerer Endpunkt.'
+  };
+  const routes={
+    all:{label:'All connections',kicker:'Kanonische Übersicht',title:'Mehr verbunden — nicht gleichgesetzt',summary:'Die Karte trennt sieben funktionale Families, konkrete Forschungsrouten und den Status ihrer Verbindungen. F7 bleibt transversal; die generischen Brücken nach F6 bleiben größtenteils offen.',chain:'F1 ↔ F2 → F3 → F4 ↔ F5 · F6 bridges open · F7 transversal',edges:Object.keys(edges),nodes:Object.keys(nodes),steps:[['EXACT','deterministische, typisierte Abbildung'],['EMPIRICAL','reproduzierter Befund im registrierten Scope'],['METHOD','gemeinsame Prüf- oder Darstellungsgrammatik'],['OPEN','formulierte, aber nicht geschlossene Brücke']],visuals:['10_dual_view_residual_trinity.jpeg'],boundary:'Die Karte komprimiert Beziehungen, nicht Mechanismen. Gleiches Vokabular oder ähnliche Geometrie erzeugt keine Identität.',links:[['Open Connection Atlas',navigatorAtlas],['Lesefassung','FAMILY_CONNECTION_MAP_V2_2026-10-05.md']]},
+    observatory:{label:'7×8 Observatory',kicker:'Transversale Prüfgrammatik',title:'Sieben Families × acht typisierte Felder',summary:'Das Observatory legt einen gemeinsamen, prüfbaren Record über alle sieben Families. Die acht Felder strukturieren Inspektion und Vergleich; sie sind keine neue Family und keine Behauptung eines gemeinsamen Mechanismus.',chain:'CF:F1–F7 × TF:01–TF:08',edges:['F1-F7','F2-F7','F3-F7','F4-F7','F5-F7','F6-F7'],nodes:Object.keys(nodes),steps:(observatory?.typed_fields||[]).map(field=>[field.id,`${field.title} · ${field.question}`]),visuals:[],boundary:observatory?.claim_ceiling||'Internal read-only inspection lens; no public admission or authority transfer.',links:[['Open Navigator lens','https://scarabaeus1031.github.io/NEXAH-Science-Lab/navigator/#observatory'],['Open Observatory V1.3','CASE_STUDIES/NEXAH_TRANSITION_IDENTIFIABILITY_OBSERVATORY_V1_2026-10-07/index.html']]},
+    life:{label:'LIFE01–LIFE06D',kicker:'Ausführbares Forschungsprogramm',title:'Regel → Verlauf → Vergleich → Holdout → Sprache',summary:`${lifeProgram?.records?.length||20} kontrollierte Records, ${lifeProgram?.counts?.dedicated_html_apps||18} eigenständige HTML-Instrumente und vier Programmlinien werden als navigative Route sichtbar. Jeder Record behält Status, Autorität und Claim Ceiling seines Quellpakets.`,chain:'F1 → F2 → F3 → F4 ↔ F5 → F7',edges:['F1-F2','F2-F3','F3-F4','F4-F5','F1-F3','F3-F5','F1-F7','F2-F7','F3-F7','F4-F7','F5-F7'],nodes:['F1','F2','F3','F4','F5','F7'],steps:(lifeProgram?.program_lines||[]).map(line=>[line.id,`${line.sequence.length} Records · ${String(line.kind).replaceAll('_',' ')}`]),visuals:[],boundary:lifeProgram?.global_claim_ceiling||'No biological-life claim, universal transition claim, mechanism claim, theorem or public release.',links:[['Open LIFE Navigator','https://scarabaeus1031.github.io/NEXAH-Science-Lab/navigator/#life-orbit'],['Program consolidation','CASE_STUDIES/NEXAH_LIFE_PROGRAM_CONSOLIDATION_2026-10-07/00_README.md']]},
+    e8:{label:'Finite Orbit / Return · E8 / H3',kicker:'Exakte Coxeter-Kette',title:'Generator → Orbit → Return',summary:'E8 und H3 verbinden einen deklarierten Träger mit involutiven Generatoren, endlichen Orbits, Graphen und exakten Rückkehrtests.',chain:'F1 → F3 → F5 → F7',edges:['F1-F3','F3-F5','F5-F7'],nodes:['F1','F3','F5','F7'],steps:[['F1','E8- oder H3-Träger und gewählter Frame'],['F3','Spiegelgeneratoren, Wörter und Potenzen'],['F5','endlicher Orbit, Graph, Hull und Projektion'],['F7','C³⁰=I beziehungsweise H3-Rückkehr und Claim-Grenze']],visuals:[],boundary:'Prime- oder Grid-Labels machen einen Träger nicht zum Coxeter-System. Dafür wäre eine strukturtreue Abbildung nötig.',links:[['Coxeter Orbit Lab','CASE_STUDIES/E8_DEMOS_INTERACTIVE_ORIENTATION_2026-09-21/COXETER_ORBIT_TOPOLOGY_LAB_2026-10-05/README.md'],['Word Sequencer','CASE_STUDIES/E8_DEMOS_INTERACTIVE_ORIENTATION_2026-09-21/COXETER_ORBIT_TOPOLOGY_LAB_2026-10-05/NEXAH_WORD_ORBIT_SEQUENCER.html']]},
+    erith:{label:'Source–Seed / Dual Belt · ERITH',kicker:'Ausführbare 3+1-Kette',title:'Source–Seed · Dual Belt',summary:'Ein gemeinsamer Seed wird in drei adressierte Kanäle entfaltet, über eine typisierte Seam gebunden und durch getrennte Outward-/Return-Belts beobachtet.',chain:'F1 → F2 → F3 → F1 → F7',edges:['F1-F2','F2-F3','F3-F1','F1-F7'],nodes:['F1','F2','F3','F7'],steps:[['F1','SOURCE_0, Beobachterframe und Mask'],['F2','drei Elevator-Adressen mit je vier Stationen'],['F3','1→3-Unfolding, Seam, 3→1-Binding und zwei gerichtete Belts'],['F7','exportierbarer observer-relative State Record']],visuals:['01_nexah_erith_source_seed.jpeg','02_3_plus_1_dual_belt_outside.jpeg','03_3_plus_1_dual_belt_closeup.jpeg'],boundary:'Inside ist eine Kamera im aktiven Seed, kein zusätzlicher physischer Himmel. 3+1 bezeichnet Kanäle plus Träger, nicht den Dreikörperfall.',links:[['Instrument','EXPORTS/NEXAH_3_PLUS_1_DUAL_BELT.html'],['Implementation Record','REPORTS/NEXAH_GRID_OBSERVATORY_PUBLIC_RELEASE_2026-09-17/05_3_PLUS_1_DUAL_BELT_IMPLEMENTATION_RECORD.md']]},
+    inside:{label:'Observer Frame · Inside / Outside',kicker:'Observer-relative geometry',title:'Der Frame wechselt — der Träger bleibt',summary:'Inside/Outside verbindet Beobachtung und Einbettung. F2 tritt hinzu, sobald der Träger endliche Adressen oder Sign-States besitzt.',chain:'F1 ↔ F5 · +F2 bei adressiertem Träger · → F7',edges:['F1-F5','F1-F2','F2-F5','F1-F7','F5-F7'],nodes:['F1','F2','F5','F7'],steps:[['F1','Inside/Outside, Front/Back, Fokus und Sichtmaske'],['F5','räumlicher Träger, Einbettung und Projektion'],['F2','optionale diskrete Adresse des betrachteten Zustands'],['F7','View-Wechsel und Verlust werden im Record deklariert']],visuals:['02_3_plus_1_dual_belt_outside.jpeg','03_3_plus_1_dual_belt_closeup.jpeg'],boundary:'Gepaarte Ansichten fügen weder automatisch eine Dimension noch eine Algebra hinzu.',links:[['Inside/Outside Control','CASE_STUDIES/VST01_V_FAMILY_SHELL_CUT_TRIANGLE_MULTIVIEW_INVARIANCE_AUDIT/16_Q0_INSIDE_OUTSIDE_CONTROL.md']]},
+    tessarec:{label:'Sign-State / Cut · Tessarec',kicker:'Sign-State / Cut / Return',title:'Q4-Träger und Iota-Schnitt',summary:'Der exakte 8→16-Sign-State-Träger wird als Graph gebunden, geschnitten, lokal adressiert und mit einer typisierten Return Trace aufgezeichnet.',chain:'F2 → F5 → F1 → F2 → F7',edges:['F2-F5','F1-F5','F2-F1','F2-F7'],nodes:['F1','F2','F5','F7'],steps:[['F2','Q3 mit 8 und Q4 mit 16 Sign-States'],['F5','acht Green-Bridge-Kanten zwischen zwei Q3-Layern'],['F1','Q°-Layer, gerichteter Iota-Cut und Pearl-Aperture'],['F2/F7','Acht-Adressen-Zylinder, Rücklauf und Residual Record']],visuals:['05_tessarec_q_iota_pearl.jpeg'],boundary:'Q4 ist ein diskreter Sign-State-Graph. Die gezeichnete 4D-Box ist Projektion, keine physikalische Raumbehauptung.',links:[['Q · Iota · Pearl','EXPORTS/NEXAH_TESSAREC_Q_IOTA_PEARL.html'],['Root Space 8→16','EXPORTS/NEXAH_TESSERACT_ROOT_SPACE_8_TO_16.html'],['Record','REPORTS/NEXAH_GRID_OBSERVATORY_PUBLIC_RELEASE_2026-09-17/07_TESSAREC_ROOT_IOTA_FRAME_IMPLEMENTATION_RECORD.md']]},
+    hopf:{label:'Fiber / Phase · Hopf / F40',kicker:'Bedingt exakte Brücke + Negativbefund',title:'Sign-State → Hopf → Phase → Record',summary:'F40 ordnet sechzehn Sign-States bedingt exakt Quaternionen zu. Die Hopf-Abbildung und lokale Charts sind exakt; die globale Rückkehr in das endliche C4-Alphabet scheitert.',chain:'F2 → F5 → F4 → F1 → F7 · C4 global ≠ Hopf return',edges:['F2-F5','F5-F4','F1-F4','F1-F7'],nodes:['F1','F2','F4','F5','F7'],steps:[['F2','Σ4: sechzehn Sign-States und deklarierter F40-Encoder'],['F5','S³→S² Hopf-Faserung und vier Basisbilder'],['F4','U(1)-Phase, Verbindung und Holonomie exp(−i·2π/5)'],['F1/F7','Chart-Rekonstruktion, Requantisierungstest und erhaltenes Phasenresiduum']],visuals:['09_polar_cut.jpeg','08_xyz_fold.jpeg','07_hopf_return.jpeg'],boundary:'C4-Chartwerte, diskrete Phasenlabels und kontinuierliche Holonomie sind verwandt, aber nicht identisch. Stepwise closure ist ein Requantisierungseffekt.',links:[['Meta Trace · P13=41','NAVIGATION/EVIDENCE/NEXAH_META_ARCHITECTURE_TRACE_2026-10-06/NEXAH_META_ARCHITECTURE_41_TRACE.html'],['Bridge Contract','CASE_STUDIES/NEXAH_PCA_PHASE_SPACE_CORE_INTAKE_2026-10-03/03_ROOT_SIGN_QUATERNION_HOPF_OBSERVATION_BRIDGE.md'],['Hopf Audit','CASE_STUDIES/NEXAH_PCA_PHASE_SPACE_CORE_INTAKE_2026-10-03/08_HOPF_CONNECTION_HOLONOMY_AND_FOLIATION_AUDIT.md'],['Zipper Synthesis','CASE_STUDIES/NEXAH_PCA_PHASE_SPACE_CORE_INTAKE_2026-10-03/05_ZIPPER_SHEAR_HOPF_TRANSITION_SYNTHESIS.md']]},
+    rest:{label:'Residual Space · The Rest',kicker:'Transversale Residual-Achse',title:'Der Rest bleibt typisiert',summary:'The Rest verbindet exakte orientierte Arithmetik mit Vergleichsraum, ILAU und Return. Erst eine deklarierte Auswahlregel macht aus dem Rest einen Next-State-Operator.',chain:'F2 → F1 → F7 · F1 ⇢ F3 nur mit Next-State-Regel',edges:['F2-F1','F1-F7','F1-F3'],nodes:['F1','F2','F3','F7'],steps:[['F2','8451=4·2112+3=4·2113−1: exakter orientierter Rest'],['F1','Vergleichsraum zwischen zwei begrenzten Ansichten'],['F7','retained/lost/added/unresolved und explizites Residuum'],['F3','nEXiT bleibt Kandidat, bis REST→NEXT als Operator definiert ist']],visuals:['10_dual_view_residual_trinity.jpeg','06_nexit_next_state.jpeg'],boundary:'Der Vergleichsraum ist kein drittes Universum. Ein Residuum ist nicht automatisch Fehler und nicht automatisch der richtige nächste Schritt.',links:[['Split Rest / Seam','RESEARCH_AREAS/FIELD_GLYPH_NUMBER_ARCHITECTURE_STAGE_0_2026-09-14/09_SPLIT_REST_SEAM_INTERPHASE_THREAD.md'],['Evolutionary Spine','RESEARCH_AREAS/FIELD_GLYPH_NUMBER_ARCHITECTURE_STAGE_0_2026-09-14/08_EVOLUTIONARY_TRANSFORMATION_SPINE.md']]},
+    transversum:{label:'Two-Cut / Return · Transversum',kicker:'Two-Cut / Antipode',title:'Ein Träger · zwei Schnitte · ein Return',summary:'Two-Cut transportiert zwei begrenzte Lesarten in einen gemeinsamen Vergleichsframe und behält Adresse, Residuum und Provenienz.',chain:'F1 → F2 → F7',edges:['F1-F2','F2-F7','F1-F7'],nodes:['F1','F2','F7'],steps:[['F1','Carrier, zwei Cuts, Binder und Vergleichsraum'],['F2','persistente Adresse und exakte 20-Clock-Antipode'],['F7','Return-Residual, ILAU und Replay Trace']],visuals:[],boundary:'A²=id gilt für den deklarierten Antipodenoperator. Es folgt keine Invarianz aller Observablen und kein gemeinsamer physikalischer Mechanismus.',links:[['Euler Two-Cut Instrument','RESEARCH_AREAS/FIELD_GLYPH_NUMBER_ARCHITECTURE_STAGE_0_2026-09-14/NEXAH_EULER_ANTIPODE_TWO_CUT_INSTRUMENT.html'],['Synthesis','RESEARCH_AREAS/FIELD_GLYPH_NUMBER_ARCHITECTURE_STAGE_0_2026-09-14/26_TRANSVERSUM_TWO_CUT_ANTIPODE_SYNTHESIS.md']]},
+    frontier:{label:'Open Research Frontier',kicker:'Nicht geschlossen',title:'F6 und der globale Return',summary:'Die Karte zeigt bewusst, wo Verbindung noch nicht Ergebnis bedeutet: Topologie, Synchronisation, Kontrolle und ein allgemeiner Rest→Next-Operator.',chain:'F4 ⇢ F5 · F4 ⇢ F6 · F5 ⇢ F6 · REST ⇢ NEXT',edges:['F4-F5','F4-F6','F5-F6','F1-F3'],nodes:['F1','F3','F4','F5','F6','F7'],steps:[['F4→F5','Phase oder Winding ist noch keine Topologie'],['F4→F6','Phasenereignisse sind noch keine Synchronisation'],['F5→F6','Graphstruktur ist noch keine Kontrollwirkung'],['REST→NEXT','ohne Auswahlregel bleibt nEXiT eine offene Operatoridee']],visuals:['06_nexit_next_state.jpeg'],boundary:'Diese offenen Pfeile sind Forschungsgrenzen, keine versteckten positiven Resultate.',links:[['Lesefassung','FAMILY_CONNECTION_MAP_V2_2026-10-05.md']]}
+  };
+  const familyDetail={F1:'Carrier, Frame, Cut, Projektion, Record und Residuum.',F2:'Endliche Arithmetik, Adresse, Grenze, Sign-State und orientierter Rest.',F3:'Übergänge, Operatorwörter, gerichtete Flüsse, Rekurrenz und Current.',F4:'Phase, Drift, Winding, Verbindung, Holonomie und kontinuierliche Koordinaten.',F5:'Graph, Orbit, Einbettung, Quotient, Faser und Topologiekandidat.',F6:'Synchronisation, Gate, Aktivierung, Intervention, Policy und Kosten.',F7:'Null, Replay, Holdout, Stopregel, Evidenzgrenze und Claim Ceiling.'};
+  const typedFieldMap=$('typedFieldMap');
+  (observatory?.typed_fields||[]).forEach(field=>{const a=document.createElement('a');a.href='#observatory';a.title=field.question;const b=document.createElement('b');b.textContent=field.id;const span=document.createElement('span');span.textContent=field.title;a.append(b,span);typedFieldMap.append(a)});
+  let selected='all';
+  const S=(tag,a={})=>{const n=document.createElementNS(NS,tag);for(const[k,v]of Object.entries(a))n.setAttribute(k,v);return n};
+  function edgeKey(a,b){return edges[`${a}-${b}`]?`${a}-${b}`:edges[`${b}-${a}`]?`${b}-${a}`:null}
+  function draw(){const svg=$('graph');svg.replaceChildren();const defs=S('defs'),marker=S('marker',{id:'arrow',viewBox:'0 0 10 10',refX:'8',refY:'5',markerWidth:'7',markerHeight:'7',orient:'auto-start-reverse'}),tip=S('path',{d:'M 0 0 L 10 5 L 0 10 z',fill:'context-stroke'});marker.append(tip);defs.append(marker);svg.append(defs);const active=new Set(routes[selected].edges),activeNodes=new Set(routes[selected].nodes);for(const[k,e]of Object.entries(edges)){const a=nodes[e.a],b=nodes[e.b],dx=b.x-a.x,dy=b.y-a.y,len=Math.hypot(dx,dy),pad=48,x1=a.x+dx/len*pad,y1=a.y+dy/len*pad,x2=b.x-dx/len*pad,y2=b.y-dy/len*pad;const line=S('line',{x1,y1,x2,y2,'marker-end':'url(#arrow)',class:`edge ${e.status} ${active.has(k)?'active':selected==='all'?'':'dim'}`});svg.append(line)}for(const[id,n]of Object.entries(nodes)){const g=S('g',{class:`node family-${id.toLowerCase()} ${activeNodes.has(id)?'active':selected==='all'?'':'dim'}`,role:'button','aria-label':`${id}: ${n.name}`,tabindex:'0',transform:`translate(${n.x} ${n.y})`});g.append(S('circle',{r:48}));const idText=S('text',{class:'id',y:-4});idText.textContent=id;g.append(idText);const name=S('text',{class:'name',y:16});name.textContent=n.name;g.append(name);g.append(S('circle',{r:56,class:'node-hit'}));g.addEventListener('click',()=>showFamily(id));g.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();showFamily(id)}});svg.append(g)}}
+  function addLink(container,label,href,primary=false){const a=document.createElement('a');a.href=href;a.textContent=label;if(primary)a.className='primary';container.append(a)}
+  function renderRoute(id,syncHash=false){
+    if(!routes[id])id='all';selected=id;
+    if(syncHash&&location.hash.slice(1)!==id)history.pushState(null,'','#'+id);
+    document.querySelectorAll('#filters button').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.route===id)));
+    const r=routes[id];$('detailKicker').textContent=r.kicker;$('detailTitle').textContent=r.title;$('detailSummary').textContent=r.summary;$('detailChain').textContent=r.chain;
+    const steps=$('detailSteps');steps.replaceChildren();r.steps.forEach(([a,b])=>{const d=document.createElement('div');d.className='step';d.innerHTML=`<b>${a}</b><span>${b}</span>`;steps.append(d)});
+    const visuals=$('detailVisuals');visuals.replaceChildren();visuals.className='visuals '+(r.visuals.length===1?'one':'');r.visuals.forEach(v=>{const img=document.createElement('img');img.src=src+v;img.alt='Quellvisual zur ausgewählten Verbindung';img.loading='lazy';visuals.append(img)});
+    $('detailBoundary').innerHTML=`<strong>BOUNDARY:</strong> ${r.boundary}`;
+    const links=$('detailLinks');links.replaceChildren();
+    if(id!=='all')addLink(links,'Open Connection Atlas',navigatorAtlas,true);
+    r.links.forEach(([label,href])=>addLink(links,label,href));draw();
+  }
+  function showFamily(id){
+    const n=nodes[id],count=familyCounts[id]||0;
+    $('detailKicker').textContent=`Familie ${id} · ${count} registered objects`;
+    $('detailTitle').textContent=n.name;
+    $('detailSummary').textContent=familyDetail[id];
+    $('detailChain').textContent=`${id} · ${n.short}`;
+    const rs=Object.entries(routes).filter(([k,r])=>k!=='all'&&r.nodes.includes(id));
+    const steps=$('detailSteps');steps.replaceChildren();rs.forEach(([k,r])=>{const d=document.createElement('div');d.className='step';d.innerHTML=`<b>${r.label}</b><span>${r.chain}</span>`;d.addEventListener('click',()=>renderRoute(k));steps.append(d)});
+    const visuals=$('detailVisuals');visuals.replaceChildren();visuals.className='visuals';
+    $('detailBoundary').innerHTML=`<strong>LESART:</strong> Die Family erhält ihre Bedeutung aus dem typisierten Träger und der jeweiligen Verbindung; sie ist kein universelles Modul.${familyNotes[id]?`<div class="registry-note"><strong>REGISTRY STATUS:</strong> ${count} registrierte Objekte. ${familyNotes[id]}</div>`:''}`;
+    const links=$('detailLinks');links.replaceChildren();addLink(links,`Open ${id} in Connection Atlas`,navigatorFamily(id),true);addLink(links,'Open complete Connection Atlas',navigatorAtlas);
+    draw();
+  }
+  const routeFromHash=()=>routes[decodeURIComponent(location.hash.slice(1).toLowerCase())]?decodeURIComponent(location.hash.slice(1).toLowerCase()):'all';
+  const filters=$('filters');Object.entries(routes).forEach(([id,r])=>{const b=document.createElement('button');b.type='button';b.dataset.route=id;b.textContent=r.label;b.setAttribute('aria-pressed','false');b.onclick=()=>renderRoute(id,true);filters.append(b)});window.addEventListener('hashchange',()=>renderRoute(routeFromHash()));renderRoute(routeFromHash());
+})();
+</script>
+</body>
+</html>

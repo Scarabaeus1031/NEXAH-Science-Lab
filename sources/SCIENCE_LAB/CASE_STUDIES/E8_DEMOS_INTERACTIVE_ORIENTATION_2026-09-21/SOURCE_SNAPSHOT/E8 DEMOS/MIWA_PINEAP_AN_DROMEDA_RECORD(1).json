@@ -1,0 +1,264 @@
+{
+  "record_id": "MIWA-PINEAP-AN-DROMEDA-HTML5-01",
+  "date": "2026-09-21",
+  "artifact": "MIWA_PINEAP_AN_DROMEDA(1).html",
+  "display_title": "Milky Way · Pineal Aperture · Andromeda",
+  "status": "EXECUTABLE_VISUAL_FIXTURE_EXTENDED",
+  "conformance_level": "G2",
+  "claim_ceiling": "EXPRESSION_PROFILE_AND_EXECUTABLE_VISUAL_FIXTURE",
+  "carriers": [
+    {
+      "id": "C_A",
+      "name": "Milky Way",
+      "role": "independently rotating carrier A",
+      "visual_code": "cyan / four-arm procedural field"
+    },
+    {
+      "id": "C_B",
+      "name": "Andromeda",
+      "role": "independently rotating carrier B",
+      "visual_code": "amber / three-arm procedural field"
+    }
+  ],
+  "aperture": {
+    "id": "Q_P",
+    "name": "Pineal Aperture",
+    "role": "observer-local selection aperture and comparison cut",
+    "boundary": "not a third carrier and not a model of pineal physiology"
+  },
+  "source": {
+    "id": "SOURCE_0",
+    "role": "declared model source address behind the aperture",
+    "boundary": "not a cosmological origin claim"
+  },
+  "grammar": "Milky Way <-> Pineal Aperture <-> Andromeda; declared model source -> aperture -> typed residual -> return",
+  "controls": [
+    "whole or component focus",
+    "both, single-carrier or difference mask",
+    "aperture width",
+    "phase offset",
+    "pulse rate",
+    "trace, residual, address and pause toggles",
+    "observer-state JSON export",
+    "rule-based figure selection",
+    "graph node, edge and trinity accounting",
+    "characteristic polynomial of the displayed adjacency graph",
+    "E8 Coxeter reference and AXIS08 weighted-quotient frame",
+    "Tessarec Q-layer, directed iota cut and Pearl aperture frame"
+  ],
+  "inside_frame_navigator": {
+    "frames": [
+      "Outside Carrier View",
+      "Earth Sky",
+      "Solar System",
+      "Saturn and Titan",
+      "Uranus and Moons",
+      "Green Bridge and Loki Frame",
+      "E8 and AXIS08 Projection Lab",
+      "Tessarec Q and Iota Pearl",
+      "Closure Transit"
+    ],
+    "earth_sky_rule": "Milky Way becomes the background field, Pineal Aperture becomes the observer window, and Andromeda is represented as a deep-sky object. Imported right ascension and declination are used when available; otherwise the view is labeled procedural.",
+    "solar_rule": "The Sun is the heliocentric origin, planets form nested orbit traces, Earth carries a local Moon orbit, and the Oort Cloud is shown only as a schematic outer shell.",
+    "saturn_rule": "Saturn is the planetocentric origin; its ring plane and seven named moon tracks form the local orientation grid, with Titan highlighted.",
+    "uranus_rule": "Uranus is the planetocentric origin; the strongly tilted local axis, rings and five named moon tracks define the orientation grid.",
+    "loki_rule": "Two Q3 sign-state layers of eight nodes are joined by eight green fourth-coordinate edges into the 16-node, 32-edge Q4 carrier. Iota marks the directed cut and Pearl marks the bounded aperture.",
+    "loki_fixture": {
+      "carrier": "Q4 sign-state graph",
+      "nodes": 16,
+      "edges": 32,
+      "degree": 4,
+      "states_per_layer": 8,
+      "green_bridge_edges": 8,
+      "bridge_coordinate": "independent square-root-of-seven sign"
+    },
+    "closure_transit_rule": "A declared carrier passes through Transform/Trace, Query/Cut and Reconstruct/Return. HRT records the seam crossing; a declared comparator assigns exact return, tolerance closure, near-closure or visual closure only.",
+    "closure_modes": {
+      "exact": "d(M, M_hat) equals zero on the complete declared comparison domain",
+      "tolerance": "zero is less than d(M, M_hat), which is less than or equal to declared epsilon",
+      "near": "d(M, M_hat) exceeds declared epsilon and remains a typed residual trace",
+      "visual": "contours align in the selected view but no mathematical closure authority is asserted"
+    },
+    "scale_boundary": "Solar and planetary frames are schematic orientation views, not scale models, measured ephemerides or claims of simultaneous alignment.",
+    "e8_axis08_rule": "Active procedural or imported star nodes are normalized, assigned to the nearest root in an exact 240-root E8 Coxeter-plane reference projection, grouped through eight physical pole sectors and displayed with the AXIS08 p7-p8 weighted quotient to seven effective coordinates.",
+    "e8_axis08_fixture": {
+      "e8_roots": 240,
+      "root_norm": "sqrt(2)",
+      "coxeter_order": 30,
+      "coxeter_orbits": 8,
+      "roots_per_orbit": 30,
+      "physical_poles": 8,
+      "coupled_pair": [
+        "p7",
+        "p8"
+      ],
+      "effective_coordinates": 7,
+      "controls": [
+        "log10 pair coupling kappa",
+        "axis split epsilon"
+      ],
+      "boundary": "E8 is established reference geometry. Star assignment and the AXIS08 link are declared projection operators, not a physical identity."
+    },
+    "tessarec_q_iota_pearl_rule": "The active star map is sampled inside a projected 16-node, 32-edge Q4 sign-state carrier. Q selects a layer, iota sets the directed cut, cut depth shifts it and Pearl bounds the local aperture. Cut hits are observer-frame selections.",
+    "tessarec_q_iota_pearl_fixture": {
+      "nodes": 16,
+      "edges": 32,
+      "degree": 4,
+      "controls": [
+        "Q layer",
+        "iota angle",
+        "cut depth",
+        "IN or OUT direction",
+        "Pearl aperture"
+      ],
+      "boundary": "Projected carrier and observer cut; not a physical four-dimensional object or astrophysical mechanism."
+    }
+  },
+  "figure_inspector": {
+    "name": "Trinity and Polynomial Inspector",
+    "presets": [
+      "triangle",
+      "hexagon",
+      "pentagram",
+      "trinity bridge",
+      "Lissajous 3:2"
+    ],
+    "selection_rule": "For every declared local figure target, select the nearest unused procedural carrier node.",
+    "graph_rule": "Connect selected nodes in the declared preset order. In two-carrier mode, add the aperture and a three-edge bridge between the first selected node of each carrier and the aperture.",
+    "trinity_rule": "Enumerate every three-vertex clique in the displayed adjacency graph.",
+    "polynomial_rule": "Compute the characteristic polynomial det(lambda I minus A) of the displayed undirected adjacency matrix A.",
+    "export": [
+      "selected node addresses",
+      "edge list",
+      "trinity vertex lists",
+      "characteristic polynomial"
+    ]
+  },
+  "stellar_node_mapper": {
+    "default_mode": "PROCEDURAL_STELLAR_PROXY",
+    "catalog_status": "NO_ASTRONOMICAL_CATALOG_LOADED",
+    "node_classes": [
+      "CATALOG_STAR",
+      "STAR_CANDIDATE",
+      "PROCEDURAL_STELLAR_PROXY",
+      "PROCEDURAL_SUPPORT",
+      "APERTURE_NODE",
+      "SOURCE_NODE",
+      "RESIDUAL_NODE"
+    ],
+    "proxy_fields": [
+      "stable carrier-qualified node address",
+      "spectral class O, B, A, F, G, K or M",
+      "proxy apparent magnitude",
+      "normalized near, middle or far depth band",
+      "variability flag",
+      "multiple-system flag",
+      "proxy confidence",
+      "provenance"
+    ],
+    "visual_encoding": {
+      "node_size": "proxy apparent magnitude",
+      "node_color": "spectral class",
+      "opacity": "selection and node role",
+      "pulse": "variability flag",
+      "outer_ring": "multiple-system flag",
+      "white_core": "figure-selected node"
+    },
+    "filters": [
+      "all classes",
+      "hot O-B-A",
+      "solar F-G",
+      "cool K-M",
+      "variable",
+      "multiple system"
+    ],
+    "interaction": "Click a visible stellar node to inspect its complete deterministic proxy record.",
+    "export": "The selected stellar node and the active mapper mode and filter are included in the observer-state record.",
+    "catalog_ingest_boundary": "Measured right ascension, declination, distance, photometry, uncertainty and source identifiers require a named external catalog and are not synthesized by this fixture."
+  },
+  "star_map_importer": {
+    "formats": [
+      "CSV",
+      "JSON"
+    ],
+    "json_containers": [
+      "top-level array",
+      "stars",
+      "data",
+      "rows",
+      "nodes",
+      "catalog",
+      "objects",
+      "entries",
+      "results",
+      "features",
+      "N",
+      "nested object arrays",
+      "object maps"
+    ],
+    "execution": "local browser only; the selected file is not uploaded",
+    "maximum_rows": 20000,
+    "maximum_file_size_megabytes": 15,
+    "accepted_coordinates": [
+      "right ascension and declination in degrees",
+      "normalized x and y with optional z"
+    ],
+    "required_carrier_values": [
+      "Milky Way",
+      "Andromeda"
+    ],
+    "fallback_carrier": "User may explicitly assign rows without a carrier column to Milky Way or Andromeda.",
+    "recognized_fields": [
+      "source identifier or designation",
+      "carrier or galaxy",
+      "right ascension",
+      "declination",
+      "distance in parsec",
+      "apparent magnitude",
+      "color index",
+      "spectral class",
+      "variability flag",
+      "multiple-system flag",
+      "uncertainty or confidence"
+    ],
+    "projection": "Coordinates are normalized separately inside each carrier. Raw source fields remain attached to the selected node record.",
+    "validation": "Instrument records and observer-state records are rejected. Missing or blank coordinates remain null and are never coerced to zero.",
+    "template": "MIWA_PINEAP_STAR_MAP_TEMPLATE.csv",
+    "template_boundary": "Template rows are explicitly labeled demonstration data and are not catalog measurements."
+  },
+  "residual_types": [
+    "NUMERIC",
+    "STRUCTURAL",
+    "DIFFERENCE",
+    "PROVENANCE",
+    "OUT_OF_SUPPORT",
+    "UNRESOLVED"
+  ],
+  "interpretation": "Two procedural carrier fields are observed through one adjustable aperture. The display makes selection, phase relation, support and residual observer-relative and exportable.",
+  "nonclaims": [
+    "The artifact does not establish a physical coupling between the Milky Way and the Andromeda Galaxy.",
+    "Pineal Aperture is an expression-layer observer and aperture operator, not a biological measurement or pineal-gland model.",
+    "Visual synchrony, pulsing or overlap is not evidence of causal synchrony.",
+    "SOURCE_0 is a declared model address, not a claim about the origin of nature.",
+    "The procedural carrier fields are schematic and are not astronomical sky maps.",
+    "The Green Bridge and Loki view is a projected discrete sign-state fixture, not a physical four-dimensional object or substance ontology.",
+    "Visual closure is view-local and is not exact or tolerance closure without a declared comparator, domain, metric and threshold.",
+    "A generated figure is a declared nearest-node selection, not a discovered astronomical object or natural law.",
+    "Stellar proxy properties are deterministic test data and are not astronomical measurements or catalog entries.",
+    "Importing a file does not by itself authenticate its astronomical provenance or measurement quality.",
+    "The E8 frame does not establish that astronomical star distributions instantiate the E8 root system.",
+    "Nearest-root assignment is an explicit observer-layer projection and not a discovered cosmological correspondence.",
+    "The AXIS08 eight-to-seven quotient is a supported linear-model reduction and not evidence for a universal physical reduction law.",
+    "The Tessarec Q and iota frame is a projected sign-state fixture; Pearl cut hits are view-local selections, not physical four-dimensional intersections."
+  ],
+  "extension_version": "02_E8_AXIS08_TESSAREC",
+  "projection_lab": {
+    "input": "active procedural or locally imported star map",
+    "frames": [
+      "E8_AXIS08",
+      "TESSAREC_Q_IOTA_PEARL"
+    ],
+    "export": "observer-state record includes all projection parameters and evidence boundaries",
+    "claim_ceiling": "EXECUTABLE_VISUAL_FIXTURE_AND_DECLARED_PROJECTION_OPERATORS"
+  }
+}

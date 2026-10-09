@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>NEXAH · Euler Ladder · Antipode Frame · Two-Cut Return</title>
+  <style>
+    :root{color-scheme:dark;--bg:#06101a;--panel:#0b1825;--panel2:#102235;--line:#29465b;--text:#edf4f8;--muted:#91a8b8;--cyan:#56d7ef;--gold:#f2bd55;--green:#57d59b;--pink:#ec63b5;--red:#ff7681;--violet:#a78bfa;--orange:#f59b5e}
+    *{box-sizing:border-box}body{margin:0;min-height:100vh;background:radial-gradient(circle at 45% -10%,#17364a 0,#07131e 46%,#040a10 100%);color:var(--text);font:14px/1.45 Inter,ui-sans-serif,system-ui,-apple-system,sans-serif}button,input,select{font:inherit}main{max-width:1720px;margin:auto;padding:22px}.eyebrow{font-size:12px;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);font-weight:700}h1{margin:5px 0 7px;font-size:clamp(30px,4vw,54px);line-height:1.03}h2{font-size:15px;margin:0 0 10px}p{margin:0;color:var(--muted)}.routes,.controls,.legend,.actions{display:flex;align-items:center;gap:8px;flex-wrap:wrap}.routes{margin:15px 0}.routes a{color:var(--text);text-decoration:none;border:1px solid var(--line);border-radius:999px;padding:7px 11px;background:rgba(9,21,32,.8);font-size:12px}.routes a:hover,.routes a:focus-visible{border-color:var(--cyan);outline:none}.pipeline{display:grid;grid-template-columns:repeat(7,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:12px;overflow:hidden;margin:16px 0}.stage{background:rgba(9,20,31,.97);padding:10px 12px;position:relative;min-height:66px}.stage:not(:last-child)::after{content:'→';position:absolute;right:-8px;top:50%;z-index:2;color:var(--gold);transform:translateY(-50%)}.stage small{display:block;color:var(--gold);font-size:10px;letter-spacing:.08em}.stage b{display:block;font-size:12px;margin-top:4px}.stage span{display:block;color:var(--muted);font-size:11px;margin-top:2px}.controls{align-items:end;margin:14px 0}.field{display:grid;gap:5px}.field span{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}.field.range{min-width:240px;flex:1}.field.range label{display:flex;justify-content:space-between;gap:15px}.field select{min-width:210px}button,select,input{color:var(--text);background:var(--panel2);border:1px solid var(--line);border-radius:8px;padding:9px 11px}input[type=range]{padding:0;accent-color:var(--gold);width:100%}button:hover,button:focus-visible,select:focus-visible,input:focus-visible{border-color:var(--cyan);outline:none}button.primary{background:var(--gold);color:#0a151f;border-color:var(--gold);font-weight:700}button[aria-pressed=true]{background:var(--green);color:#071710;border-color:var(--green)}.stats{display:grid;grid-template-columns:repeat(6,minmax(130px,1fr));gap:9px;margin-bottom:12px}.stat,.panel{border:1px solid var(--line);background:rgba(9,22,34,.87);border-radius:11px}.stat{padding:10px 12px}.stat small,.record small{display:block;color:var(--muted);font-size:10px;text-transform:uppercase;letter-spacing:.08em}.stat b{display:block;font-size:17px;margin-top:4px}.layout{display:grid;grid-template-columns:minmax(720px,1.8fr) minmax(330px,.8fr);gap:12px}.panel{padding:14px}.visual{min-height:610px}#view{display:block;width:100%;height:570px}.record{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:9px;overflow:hidden}.record>div{background:var(--panel);padding:10px}.record b{display:block;margin-top:4px;font-size:12px;overflow-wrap:anywhere}.boundary{margin-top:12px;border-left:3px solid var(--gold);background:rgba(242,189,85,.08);padding:10px 11px;color:var(--muted)}.boundary strong{color:var(--gold)}.ilau{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-top:12px}.ilau div{padding:9px;border:1px solid var(--line);border-radius:8px}.ilau b{display:block;font-size:12px}.ilau span{display:block;color:var(--muted);font-size:11px;margin-top:3px}.trace{margin:12px 0 0;padding-left:20px;color:var(--muted);max-height:185px;overflow:auto}.trace li{padding:2px 0;font-size:12px}.legend{font-size:11px;color:var(--muted);justify-content:center}.sw{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:5px}.hidden{display:none!important}.svg-title{fill:var(--text);font-size:12px;font-weight:700;letter-spacing:.06em}.svg-value{fill:var(--text);font-size:13px;font-weight:700}.svg-note{fill:var(--muted);font-size:11px}.clock-line,.ladder-line{stroke:var(--line);stroke-width:1}.clock-ring{fill:none;stroke:var(--line);stroke-width:1.5}.clock-node{fill:var(--panel2);stroke:var(--line);stroke-width:1.5}.clock-node.source{fill:var(--cyan);stroke:var(--text);stroke-width:2}.clock-node.anti{fill:var(--pink);stroke:var(--text);stroke-width:2}.clock-node.returned{fill:var(--green);stroke:var(--text);stroke-width:2}.clock-label{fill:var(--muted);font-size:10px}.clock-label.active{fill:var(--text);font-size:12px;font-weight:700}.antipode-axis{stroke:var(--gold);stroke-width:3}.antipode-arrow{fill:none;stroke:var(--gold);stroke-width:2.5;stroke-linecap:round}.ladder-node{fill:var(--panel2);stroke:var(--line);stroke-width:1.5}.ladder-node.selected{fill:var(--cyan);stroke:var(--text);stroke-width:2}.ladder-node.counter{fill:var(--pink);stroke:var(--text);stroke-width:2}.cut-box{fill:var(--panel2);stroke:var(--line);stroke-width:1.5}.cut-box.active{stroke:var(--gold);stroke-width:2}.return-line{stroke:var(--green);stroke-width:3;fill:none}.residual-open{stroke:var(--red);stroke-width:3}.residual-closed{stroke:var(--green);stroke-width:3}.status-pill{fill:var(--panel2);stroke:var(--line)}.status-text{fill:var(--text);font-size:10px;font-weight:700}.animating .clock-node.source,.animating .clock-node.anti{transition:transform .28s ease,fill .28s ease}@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}@media(max-width:1100px){.layout{grid-template-columns:1fr}.pipeline{grid-template-columns:repeat(4,1fr)}.visual{min-height:560px}#view{height:520px}}@media(max-width:720px){main{padding:14px}.pipeline{grid-template-columns:repeat(2,1fr)}.stats{grid-template-columns:repeat(2,1fr)}.field.range{min-width:100%}.visual{min-height:490px;padding:8px}#view{height:450px}.record{grid-template-columns:1fr}.ilau{grid-template-columns:1fr}}
+    html,body{overflow-x:hidden}.layout,.panel,.pipeline,.stage,.controls,.routes,.stats{min-width:0}h1,.stage b{overflow-wrap:anywhere}
+    @media(max-width:720px){.visual{min-height:850px}#view{height:820px}.controls button{flex:1 1 auto}.routes a{max-width:100%;overflow-wrap:anywhere}}
+  </style>
+  <script defer src="../../NAVIGATION/NEXAH_MODULE_REGISTRY_RING1.js"></script>
+  <script defer src="../../NAVIGATION/NEXAH_NAVIGATION_RING1.js" data-module="two-cut"></script>
+</head>
+<body>
+<main>
+  <div class="eyebrow">FGN-25 · bounded executable method fixture</div>
+  <h1>Euler Ladder · Antipode Frame · Two-Cut Return</h1>
+  <p>Ein Primträger, zwei typisierte Schnitte, eine 20er-Adressantipode und ein prüfbarer Rückweg.</p>
+  <nav class="routes" aria-label="Verwandte NEXAH-Dokumente">
+    <a href="26_TRANSVERSUM_TWO_CUT_ANTIPODE_SYNTHESIS.md">Methodensynthese</a>
+    <a href="12_DUAL_CUT_ANTIPODE_PERSISTENT_ADDRESS_METHOD.md">Dual-Cut-Methode</a>
+    <a href="27_MISSION_CONTROL_RETURN_TRANSVERSUM_TWO_CUT_ANTIPODE_2026-10-05.md">Mission Control</a>
+    <a href="../../NEXAH_FAMILY_CONNECTION_MAP_V2.html">Family Connection Map v2</a>
+    <a href="../../CASE_STUDIES/E8_DEMOS_INTERACTIVE_ORIENTATION_2026-09-21/COXETER_ORBIT_TOPOLOGY_LAB_2026-10-05/NEXAH_WORD_ORBIT_SEQUENCER.html">Word &amp; Orbit Sequencer</a>
+    <a href="../../CASE_STUDIES/NEXAH_ELEVEN_SPACE_JANUS_NUMBER_VIEW_2026-10-06/NEXAH_ELEVEN_SPACE_FOUR_VIEWS.html">11-Space · Four Views</a>
+    <a href="../../CASE_STUDIES/NEXAH_ELEVEN_SPACE_JANUS_NUMBER_VIEW_2026-10-06/NEXAH_JANUS_ARITHMETIC_LADDER.html">Janus Arithmetic Ladder</a>
+  </nav>
+
+  <section class="pipeline" aria-label="Operatorpipeline">
+    <div class="stage"><small>1 · DECLARE</small><b id="pipeCarrier">X = p₁₃ = 41</b><span>source record</span></div>
+    <div class="stage"><small>2 · CUT R₁</small><b id="pipeCut1">value / Euler</b><span>arithmetic view</span></div>
+    <div class="stage"><small>3 · CUT R₂</small><b id="pipeCut2">index / clock</b><span>address view</span></div>
+    <div class="stage"><small>4 · BIND</small><b>P(index) = value</b><span>prime enumerator</span></div>
+    <div class="stage"><small>5 · ANTIPODE</small><b id="pipeFlip">13 → 3</b><span>A₂₀</span></div>
+    <div class="stage"><small>6 · RETURN</small><b id="pipeReturn">3 → 13</b><span>A₂₀² = id</span></div>
+    <div class="stage"><small>7 · RECORD</small><b id="pipeResidual">Δ = 0</b><span>ILAU + replay</span></div>
+  </section>
+
+  <section class="controls" aria-label="Instrumentsteuerung">
+    <label class="field"><span>Trägerfamilie</span><select id="family"><option value="exact">exakte 13+20j-Lane</option><option value="historical">historischer 1459-Branch</option></select></label>
+    <label class="field range"><span>Leiterstufe <b id="jLabel">j = 0</b></span><input id="j" type="range" min="0" max="11" step="1" value="0"></label>
+    <label class="field range"><span>Euler-Stufe <b id="nLabel">n = 0</b></span><input id="n" type="range" min="0" max="40" step="1" value="0"></label>
+    <button id="prev" type="button">← Stufe</button>
+    <button id="next" type="button">Stufe →</button>
+    <button id="flip" type="button" class="primary" aria-pressed="false">A₂₀ anwenden</button>
+    <button id="return" type="button">Return</button>
+    <button id="reset" type="button">Reset</button>
+  </section>
+
+  <section class="stats" aria-live="polite">
+    <div class="stat"><small>Source value</small><b id="sValue">41</b></div>
+    <div class="stat"><small>Prime index</small><b id="sIndex">13</b></div>
+    <div class="stat"><small>Clock address</small><b id="sAddress">13 mod 20</b></div>
+    <div class="stat"><small>Euler value</small><b id="sEuler">41</b></div>
+    <div class="stat"><small>Counter carrier</small><b id="sCounter">5</b></div>
+    <div class="stat"><small>Return status</small><b id="sStatus">START</b></div>
+  </section>
+
+  <section class="layout">
+    <section class="panel visual" aria-label="Euler-Leiter und Antipodenansicht">
+      <h2 id="viewTitle">Primindex-Leiter und 20er-Antipode</h2>
+      <svg id="view" role="img" aria-labelledby="viewTitle viewDesc"><desc id="viewDesc">Interaktive Darstellung einer Primindex-Leiter, eines 20er-Adresskreises und eines Two-Cut-Return-Records.</desc></svg>
+      <div class="legend"><span><i class="sw" style="background:var(--cyan)"></i>Source lane</span><span><i class="sw" style="background:var(--pink)"></i>Antipode lane</span><span><i class="sw" style="background:var(--green)"></i>exact return</span><span><i class="sw" style="background:var(--gold)"></i>typed transport</span></div>
+    </section>
+
+    <aside class="panel">
+      <h2>Two-Cut execution record</h2>
+      <div class="record">
+        <div><small>Carrier X</small><b id="rCarrier">p₁₃ = 41</b></div>
+        <div><small>Persistent source ID</small><b id="rId">lane13:j0</b></div>
+        <div><small>Cut R₁</small><b id="rCut1">c=41; E₄₁(0)=41</b></div>
+        <div><small>Cut R₂</small><b id="rCut2">index=13; address=13 mod20</b></div>
+        <div><small>Binder</small><b id="rBinder">P(13)=41 · exact</b></div>
+        <div><small>Antipode</small><b id="rAnti">p₃=5</b></div>
+        <div><small>Return</small><b id="rReturn">not executed</b></div>
+        <div><small>Residual</small><b id="rResidual">open path</b></div>
+      </div>
+      <div class="ilau">
+        <div><b style="color:var(--green)">I · retained</b><span id="iRetained">source ID, prime enumeration</span></div>
+        <div><b style="color:var(--red)">L · lost</b><span id="iLost">none in declared roundtrip</span></div>
+        <div><b style="color:var(--gold)">A · added</b><span id="iAdded">clock view, counter-carrier</span></div>
+        <div><b style="color:var(--violet)">U · unresolved</b><span id="iUnresolved">no shared Euler dynamics claimed</span></div>
+      </div>
+      <div id="boundary" class="boundary"><strong>EXACT ADDRESS FIXTURE:</strong> Der Antipodenoperator wirkt auf einer deklarierten 20er-Primindexadresse. Gegenlane und Rückkehr werden berechnet; daraus folgt keine gemeinsame Physik.</div>
+      <ol id="trace" class="trace" aria-label="Ausführungsspur"></ol>
+    </aside>
+  </section>
+</main>
+
+<script>
+(()=>{
+  'use strict';
+  const NS='http://www.w3.org/2000/svg';
+  const $=id=>document.getElementById(id);
+  const S=(tag,a={})=>{const n=document.createElementNS(NS,tag);for(const[k,v]of Object.entries(a))n.setAttribute(k,v);return n};
+  const text=(svg,value,x,y,cls='svg-note',anchor='middle')=>{const t=S('text',{x,y,class:cls,'text-anchor':anchor});t.textContent=value;svg.append(t);return t};
+  const isPrime=n=>{if(n<2)return false;if(n%2===0)return n===2;for(let d=3;d*d<=n;d+=2)if(n%d===0)return false;return true};
+  const primes=[];for(let x=2;primes.length<260;x++)if(isPrime(x))primes.push(x);
+  const p=i=>primes[i-1];
+  const laneIndex=j=>13+20*j;
+  const counterIndex=j=>3+20*j;
+  const euler=(c,n)=>n*n+n+c;
+  const sub=n=>String(n).replace(/\d/g,d=>'₀₁₂₃₄₅₆₇₈₉'[d]);
+  const model={j:0,n:0,family:'exact',phase:0,trace:[]};
+  function sourceIndex(){return model.family==='historical'&&model.j===11?232:laneIndex(model.j)}
+  function sourceValue(){return p(sourceIndex())}
+  function sourceAddress(){return sourceIndex()%20}
+  function antiAddress(){return(sourceAddress()+10)%20}
+  function block(){return Math.floor((sourceIndex()-1)/20)}
+  function antiIndex(){let i=20*block()+antiAddress();if(i<1)i+=20;return i}
+  function addTrace(s){model.trace.push(s);if(model.trace.length>60)model.trace.shift()}
+  function phaseName(){return['START','ANTIPODE VIEW','EXACT RETURN'][model.phase]}
+  function resetPhase(withTrace=true){model.phase=0;if(withTrace)addTrace(`DECLARE p_${sourceIndex()}=${sourceValue()}`)}
+  function setFamily(){model.family=$('family').value;resetPhase();render()}
+  function setJ(v){model.j=+v;resetPhase();render()}
+  function setN(v){model.n=+v;model.phase=0;addTrace(`CUT R1: E_${sourceValue()}(${model.n})=${euler(sourceValue(),model.n)}`);render()}
+  function applyFlip(){if(model.phase===0){model.phase=1;addTrace(`A20: address ${sourceAddress()} -> ${antiAddress()} · p_${antiIndex()}=${p(antiIndex())}`)}else if(model.phase===1){model.phase=2;addTrace(`A20²: address ${antiAddress()} -> ${sourceAddress()} · exact return`)}else{model.phase=1;addTrace(`A20: returned source -> antipode view`)}render()}
+  function doReturn(){if(model.phase!==2){model.phase=2;addTrace(`RETURN: A20²(source)=source · Δindex=0 · Δvalue=0`)}render()}
+  function svgSize(){const box=$('view').parentElement.getBoundingClientRect(),w=Math.max(620,box.width-28);return{w,h:w<860?900:Math.max(500,Math.min(570,box.width*.56))}}
+  function currentVisibleAddress(){return model.phase===1?antiAddress():sourceAddress()}
+  function drawLadder(svg,x,y,w,h){
+    text(svg,'PRIME-INDEX LADDER',x+w/2,y-16,'svg-title');
+    const rows=12,step=h/(rows-1);svg.append(S('line',{x1:x+w*.25,y1:y,x2:x+w*.25,y2:y+h,class:'ladder-line'}));svg.append(S('line',{x1:x+w*.75,y1:y,x2:x+w*.75,y2:y+h,class:'ladder-line'}));
+    for(let j=0;j<rows;j++){const yy=y+j*step,si=laneIndex(j),ci=counterIndex(j),sv=p(si),cv=p(ci),sel=j===model.j;svg.append(S('line',{x1:x+w*.25,y1:yy,x2:x+w*.75,y2:yy,class:'ladder-line'}));svg.append(S('circle',{cx:x+w*.25,cy:yy,r:sel?7:4,class:'ladder-node '+(sel?'selected':'')}));svg.append(S('circle',{cx:x+w*.75,cy:yy,r:sel?7:4,class:'ladder-node '+(sel?'counter':'')}));if(sel||j%2===0){text(svg,String(sv),x+w*.25-12,yy+4,sel?'svg-value':'svg-note','end');text(svg,String(cv),x+w*.75+12,yy+4,sel?'svg-value':'svg-note','start')}}
+    text(svg,'13 mod 20',x+w*.25,y+h+24,'svg-note');text(svg,'3 mod 20',x+w*.75,y+h+24,'svg-note');
+    if(model.family==='historical'&&model.j===11){text(svg,'historical branch: 1459 = p232',x+w/2,y+h+45,'svg-note')}
+  }
+  function drawClock(svg,cx,cy,r){
+    text(svg,'20-CLOCK · ADDRESS FRAME',cx,cy-r-30,'svg-title');svg.append(S('circle',{cx,cy,r,class:'clock-ring'}));
+    const source=sourceAddress(),anti=antiAddress(),visible=currentVisibleAddress();let sp,ap;
+    for(let k=0;k<20;k++){const a=-Math.PI/2+2*Math.PI*k/20,x=cx+r*Math.cos(a),y=cy+r*Math.sin(a),lx=cx+(r+22)*Math.cos(a),ly=cy+(r+22)*Math.sin(a)+4,cls=k===visible?(model.phase===2?'clock-node returned':k===source?'clock-node source':'clock-node anti'):'clock-node';svg.append(S('line',{x1:cx+(r-9)*Math.cos(a),y1:cy+(r-9)*Math.sin(a),x2:x,y2:y,class:'clock-line'}));svg.append(S('circle',{cx:x,cy:y,r:k===visible?7:3.5,class:cls}));if(k===source){sp=[x,y]}if(k===anti){ap=[x,y]}if(k%2===0||k===source||k===anti)text(svg,String(k),lx,ly,k===source||k===anti?'clock-label active':'clock-label')}
+    if(sp&&ap){svg.append(S('line',{x1:sp[0],y1:sp[1],x2:ap[0],y2:ap[1],class:'antipode-axis'}))}
+    const arcR=r*.46,a0=model.phase===1?Math.PI/2:-Math.PI/2,a1=a0+Math.PI*.9;svg.append(S('path',{d:`M ${cx+arcR*Math.cos(a0)} ${cy+arcR*Math.sin(a0)} A ${arcR} ${arcR} 0 0 1 ${cx+arcR*Math.cos(a1)} ${cy+arcR*Math.sin(a1)}`,class:'antipode-arrow'}));
+    text(svg,model.phase===1?`A₂₀(${source}) = ${anti}`:model.phase===2?'A₂₀² = id':`source address ${source}`,cx,cy-5,'svg-value');text(svg,model.phase===1?`counter p${sub(antiIndex())} = ${p(antiIndex())}`:`source p${sub(sourceIndex())} = ${sourceValue()}`,cx,cy+18,'svg-note');
+  }
+  function drawCuts(svg,x,y,w,h){
+    text(svg,'TWO-CUT RETURN',x+w/2,y-16,'svg-title');const bh=72,gap=22;const boxes=[['R₁ · VALUE',`c=${sourceValue()} · E(${model.n})=${euler(sourceValue(),model.n)}`],['R₂ · ADDRESS',`p${sub(sourceIndex())} · ${sourceAddress()} mod 20`],['BINDER',`P(${sourceIndex()})=${sourceValue()}`],['RETURN',model.phase===2?'Δindex=0 · Δvalue=0':'open until A₂₀²']];boxes.forEach((b,i)=>{const yy=y+i*(bh+gap);svg.append(S('rect',{x,y:yy,width:w,height:bh,rx:8,class:'cut-box '+((i===3&&model.phase===2)?'active':'')}));text(svg,b[0],x+14,yy+24,'svg-title','start');text(svg,b[1],x+14,yy+49,i===3&&model.phase===2?'svg-value':'svg-note','start');if(i<boxes.length-1)svg.append(S('line',{x1:x+w/2,y1:yy+bh,x2:x+w/2,y2:yy+bh+gap,class:i===2&&model.phase===2?'return-line':'clock-line'}))});
+    const yy=y+3*(bh+gap)+bh+24;text(svg,model.phase===2?'BOUNDED RETURN · EXACT':'OPEN PATH',x+w/2,yy,'svg-value');svg.append(S('line',{x1:x+15,y1:yy+16,x2:x+w-15,y2:yy+16,class:model.phase===2?'residual-closed':'residual-open'}));
+  }
+  function draw(){const svg=$('view'),{w,h}=svgSize();svg.setAttribute('viewBox',`0 0 ${w} ${h}`);svg.replaceChildren();const narrow=w<860;if(narrow){drawClock(svg,w*.5,h*.29,Math.min(120,w*.25));drawLadder(svg,20,h*.61,w*.45,h*.28);drawCuts(svg,w*.54,h*.59,w*.42,h*.28)}else{drawLadder(svg,10,58,w*.25,h*.72);drawClock(svg,w*.49,h*.43,Math.min(h*.29,w*.16));drawCuts(svg,w*.72,58,w*.26,h*.72)}}
+  function render(){
+    const si=sourceIndex(),sv=sourceValue(),sa=sourceAddress(),ai=antiIndex(),av=p(ai),ev=euler(sv,model.n),prime=isPrime(ev),returned=model.phase===2,historical=model.family==='historical'&&model.j===11;
+    $('j').value=model.j;$('n').value=model.n;$('jLabel').textContent=`j = ${model.j}`;$('nLabel').textContent=`n = ${model.n}`;$('flip').setAttribute('aria-pressed',model.phase===1?'true':'false');$('flip').textContent=model.phase===1?'A₂₀ erneut':'A₂₀ anwenden';
+    $('pipeCarrier').textContent=`X = p${sub(si)} = ${sv}`;$('pipeCut1').textContent=`E${sub(sv)}(${model.n})=${ev}`;$('pipeCut2').textContent=`index ${si} · addr ${sa}`;$('pipeFlip').textContent=`${sa} → ${antiAddress()}`;$('pipeReturn').textContent=`${antiAddress()} → ${sa}`;$('pipeResidual').textContent=returned?'Δ = 0':'open path';
+    $('sValue').textContent=sv;$('sIndex').textContent=si;$('sAddress').textContent=`${sa} mod 20`;$('sEuler').textContent=`${ev} · ${prime?'prime':'composite'}`;$('sCounter').textContent=`p${sub(ai)} = ${av}`;$('sStatus').textContent=phaseName();
+    $('rCarrier').textContent=`p${sub(si)} = ${sv}`;$('rId').textContent=`${historical?'historical':'lane13'}:j${model.j}:p${si}`;$('rCut1').textContent=`c=${sv}; E${sub(sv)}(${model.n})=${ev} (${prime?'prime':'composite'})`;$('rCut2').textContent=`index=${si}; address=${sa} mod20`;$('rBinder').textContent=`P(${si})=${sv} · exact`;$('rAnti').textContent=`address ${antiAddress()} · p${sub(ai)}=${av}`;$('rReturn').textContent=returned?`p${sub(si)}=${sv} recovered`:'not executed';$('rResidual').textContent=returned?'(Δindex, Δvalue) = (0,0)':'open path';
+    $('iRetained').textContent='source ID, prime enumeration, full index';$('iLost').textContent='none in declared A₂₀ roundtrip';$('iAdded').textContent=`clock view; counter p${ai}=${av}`;$('iUnresolved').textContent=historical?'1459 is not on the 13+20j lane':'no shared Euler or physical dynamics claimed';
+    $('boundary').innerHTML=historical?'<strong>HISTORICAL BRANCH:</strong> 1459=p₂₃₂ has address 12 mod20. Its own antipodal roundtrip is exact, but it is not the continuation of the 13+20j lane; 1471=p₂₃₃ is.':'<strong>EXACT ADDRESS FIXTURE:</strong> A₂₀ acts on the declared prime-index clock. The source and counter carriers are distinct values; only the two-step address return is identity.';
+    const trace=$('trace');trace.replaceChildren();(model.trace.length?model.trace.slice(-16):[`DECLARE p_${si}=${sv}`]).forEach((v,i)=>{const li=document.createElement('li');li.textContent=`${Math.max(0,model.trace.length-16)+i}. ${v}`;trace.append(li)});draw();
+  }
+  $('family').onchange=setFamily;$('j').oninput=e=>setJ(e.target.value);$('n').oninput=e=>setN(e.target.value);$('prev').onclick=()=>setJ((model.j+11)%12);$('next').onclick=()=>setJ((model.j+1)%12);$('flip').onclick=applyFlip;$('return').onclick=doReturn;$('reset').onclick=()=>{model.j=0;model.n=0;model.family='exact';$('family').value='exact';model.trace=[];resetPhase(false);render()};new ResizeObserver(draw).observe($('view').parentElement);render();
+})();
+</script>
+</body>
+</html>

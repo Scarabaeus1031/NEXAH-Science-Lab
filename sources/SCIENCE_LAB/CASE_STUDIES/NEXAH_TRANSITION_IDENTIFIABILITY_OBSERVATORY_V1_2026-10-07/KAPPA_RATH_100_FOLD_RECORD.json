@@ -1,0 +1,20 @@
+{
+  "schema": "nexah.kappa-rath-fold/1.0.0",
+  "record_id": "KAPPA_RATH_100_FOLD_001",
+  "status": "EXACT_FOLD__DECLARED_7X7_BRIDGE",
+  "carrier": {"definition": "X_100 = {0,...,100}", "cardinality": 101},
+  "involution": {"definition": "J(k) = 100 - k", "fixed_points": [50]},
+  "quotient": {
+    "cardinality": 51,
+    "identity": "51 = 49 + 1 + 1 = 7*7 + boundary + hinge",
+    "interior_pairs": {"count": 49, "index_range": [1, 49], "definition": "P_k = {k, 100-k}"},
+    "boundary_pair": [0, 100],
+    "hinge_fixed_point": [50]
+  },
+  "return_contract": {
+    "quotient_only": "AMBIGUOUS_FOR_49_INTERIOR_AND_BOUNDARY_CLASSES",
+    "required_key": "side in {lower, upper}; hinge requires no side key",
+    "exact_return": true
+  },
+  "claim_boundary": "The 0..100 fold and its 51 quotient classes are exact. Arranging the 49 interior pair classes as a 7x7 Rath view is a declared bridge construction, not recovery or proof of a historical Rath operator."
+}

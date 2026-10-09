@@ -1,0 +1,35 @@
+{
+  "case": "MRB-10",
+  "title": "Y/T Junction \u2014 Pascal Thread Multiplicity \u2014 11x11 Bridge",
+  "status": "PASS_WITH_REPRESENTATION_BOUNDARY",
+  "primary_results": {
+    "YT_same_abstract_topology": true,
+    "pascal_recurrence": true,
+    "independent_thread_count_equals_binomial": true,
+    "row_sum_equals_2_power_n": true,
+    "base_b_121_equals_b_plus_1_squared": true,
+    "decimal_121_equals_11x11_cells": true
+  },
+  "auxiliary_mod7": {
+    "conserves_total_thread_count": true,
+    "classification": "QUOTIENT_PROJECTION_ONLY"
+  },
+  "exact_findings": {
+    "row_2": [
+      1,
+      2,
+      1
+    ],
+    "decimal_reading": 121,
+    "grid_cells": 121,
+    "general_identity": "[1,2,1]_b = b^2+2b+1 = (b+1)^2",
+    "junction_invariant": "incidence/degree signature [1,1,2]"
+  },
+  "boundaries": [
+    "121=11^2 is the base-10 instance of a general radix identity.",
+    "An 11x11 grid also has 121 cells, but numerical equality does not prove structural identity.",
+    "Y and T are topologically equal only while their incidence relation is unchanged.",
+    "The mod-7 layer is a residue quotient; no musical or physical interpretation was tested.",
+    "One thread is a path through the grid; multiplicity counts how many paths reach a node."
+  ]
+}

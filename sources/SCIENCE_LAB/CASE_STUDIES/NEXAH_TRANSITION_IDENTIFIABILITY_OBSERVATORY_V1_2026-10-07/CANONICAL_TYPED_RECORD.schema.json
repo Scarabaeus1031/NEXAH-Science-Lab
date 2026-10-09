@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "nexah://schemas/canonical-transition-record/1.0.0",
+  "title": "NEXAH Canonical Transition and Identifiability Record",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["record_id", "carrier", "state", "operator", "view", "fiber", "return", "residual", "evidence"],
+  "properties": {
+    "record_id": {"type": "string", "minLength": 1},
+    "carrier": {"type": "string", "description": "Declared finite or mathematical source domain X."},
+    "state": {"type": "string", "description": "Addressed source state x in X."},
+    "operator": {"type": "string", "description": "Declared transformation T."},
+    "view": {"type": "string", "description": "Observation or projection O(T(x))."},
+    "fiber": {
+      "type": "object",
+      "required": ["definition", "multiplicity"],
+      "properties": {
+        "definition": {"type": "string"},
+        "multiplicity": {"oneOf": [{"type": "integer", "minimum": 0}, {"type": "string"}]},
+        "status": {"enum": ["identified", "ambiguous", "undefined", "not_measured"]}
+      }
+    },
+    "return": {"type": "string", "description": "Declared reconstruction R(y,c) or explicit absence."},
+    "residual": {"type": "string", "description": "Exact or declared discrepancy after return."},
+    "evidence": {
+      "type": "object",
+      "required": ["status", "claim_ceiling", "source"],
+      "properties": {
+        "status": {"enum": ["exact", "bounded", "valid_negative", "post_hoc", "open", "historical"]},
+        "claim_ceiling": {"type": "string"},
+        "source": {"type": "string"}
+      }
+    }
+  }
+}
+

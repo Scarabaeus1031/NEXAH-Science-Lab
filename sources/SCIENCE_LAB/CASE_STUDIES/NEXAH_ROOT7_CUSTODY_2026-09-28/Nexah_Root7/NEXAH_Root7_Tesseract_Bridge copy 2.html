@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>NEXAH · √7 zwischen Zustandsraum und Gitterlänge</title>
+<style>
+:root{color-scheme:dark;--bg:#0d1724;--panel:#142439;--ink:#f2f5f8;--muted:#afc0d1;--a:#54c9df;--b:#eaa44a;--c:#e477a8;--d:#a894f7}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.5 system-ui,-apple-system,sans-serif}
+main{max-width:1190px;margin:auto;padding:30px 23px 60px}h1{font-size:clamp(29px,4vw,49px);line-height:1.13;margin:0 0 12px}h2{font-size:24px;margin:0 0 8px}
+p{margin:0 0 16px}.lead{color:var(--muted);max-width:900px}.grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:24px}
+.panel{border:1px solid #35516c;background:var(--panel);border-radius:20px;padding:24px;min-width:0}
+.note{color:var(--muted);font-size:15px}.formula{font-size:clamp(21px,2.4vw,30px);font-weight:650;margin:14px 0;color:#e9f3fc}
+.diagram{width:100%;height:auto;display:block;margin:15px 0 3px}button{font:inherit;color:var(--ink);background:#243b55;border:1px solid #6685a2;border-radius:10px;padding:8px 12px;cursor:pointer;margin:0 6px 12px 0}
+button[aria-pressed="true"]{background:#3a365e;border-color:var(--d)}button:focus-visible{outline:3px solid white}
+.legend{display:flex;gap:18px;flex-wrap:wrap;font-size:14px;color:var(--muted)}.legend span:before{content:"";display:inline-block;width:12px;height:12px;border-radius:50%;margin-right:7px;background:var(--a)}.legend span:nth-child(2):before{background:var(--d)}
+.bridge{margin-top:18px;border:1px solid #4d6077;border-radius:20px;padding:20px 24px;background:#192739}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.step{border-left:3px solid var(--b);padding:5px 12px;color:#dce7f1}
+.tag{display:inline-block;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:#f8ca83;margin-bottom:9px}.warning{color:#f1c9d7}
+.ratio{display:flex;margin:13px 0 8px;height:25px;gap:3px}.ratio div{background:#306079;text-align:center;flex:1;border-radius:4px;font-size:15px}.ratio div:nth-child(2){flex:2;background:#826440}
+.seam{border-top:1px solid #52667b;margin-top:17px;padding-top:17px}.seam-svg{max-width:960px;margin:6px auto;display:block;width:100%;height:auto}.mapping{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:15px}.mapping>div{border-left:3px solid #6c86a3;padding-left:13px}.mapping strong{display:block;margin-bottom:3px}
+.rootpath{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:17px 0}.rootpath>div{border-top:4px solid #54c9df;padding:12px 8px 2px}.rootpath>div:nth-child(2){border-color:#a894f7}.rootpath>div:nth-child(3){border-color:#eaa44a}.rootpath strong{font-size:clamp(26px,3vw,39px);display:block}.rootpath small{font-size:14px;color:#b7c8d8;display:block}
+@media(max-width:800px){.grid{grid-template-columns:1fr}.steps{grid-template-columns:1fr}}
+@media(max-width:600px){.mapping{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<main>
+ <span class="tag">NEXAH · Geometrische Brücke · Arbeitsmodell</span>
+ <h1>√7: vierter Kanal und volle 4D-Länge</h1>
+ <p class="lead">Drei Ebenen treffen sich hier: ein orientierter Übergang von Blau nach Gold, ein vierter binärer Kanal mit 8 → 16 Zuständen und eine messbare Strecke der Länge √7. Die Brücke zu √2 und die Übersetzung zwischen diesen Ebenen werden unten ausdrücklich festgelegt.</p>
+ <div class="grid">
+  <section class="panel" aria-labelledby="statesTitle">
+   <h2 id="statesTitle">A · Der Zustands-Cube</h2>
+   <p class="note">Dein bestehendes Modell: drei unabhängige Wurzelzeichen bilden 2³ = 8 Zustände. √7 fügt ein viertes Vorzeichen hinzu: 2⁴ = 16. Wir markieren die zwei Vorzeichenlagen als Blau und Gold.</p>
+   <button id="eight" type="button" aria-pressed="false">8 Zustände</button><button id="sixteen" type="button" aria-pressed="true">+ √7 · 16 Zustände</button>
+   <svg class="diagram" viewBox="0 0 520 305" role="img" aria-label="Zwei 8-Ecken-Cubes, deren entsprechende Ecken durch einen vierten Kanal verbunden werden">
+    <g id="cubeA"></g><g id="cubeB"></g><g id="connectors"></g>
+    <text x="16" y="284" fill="#a8e6f1" font-size="17">Blau · s = −1 · w = 0</text>
+    <text id="labelB" x="285" y="284" fill="#fac887" font-size="17">Gold · s = +1 · w = 1</text>
+   </svg>
+   <div class="legend"><span>Drei bestehende Zeichenachsen</span><span>√7 ist hier das Label der vierten</span></div>
+   <p class="formula" id="stateFormula">8 + 8 = 16</p>
+   <p class="note">Die Kanten zwischen den Kopien codieren einen Vorzeichenwechsel von √7. Ihre gezeichnete Länge sagt nichts über √7 als metrische Länge.</p>
+  </section>
+  <section class="panel" aria-labelledby="metricTitle">
+   <h2 id="metricTitle">B · Die gemessene Gitterstrecke</h2>
+   <p class="note">Ein 3D-Doppelwürfel hat die Ecken (0,0,0) und (2,1,1). Im 4D-Gitter ergänzt ein Schritt w = 1 den Endpunkt (2,1,1,1).</p>
+   <svg class="diagram" viewBox="0 0 520 305" role="img" aria-label="Rechtwinkliges Längendiagramm mit Grundseite Quadratwurzel sechs, senkrechter vierter Koordinate eins und Hypotenuse Quadratwurzel sieben">
+    <path d="M48 238 H388 V99 Z" fill="rgba(228,119,168,.08)" stroke="#e477a8" stroke-width="4"/>
+    <path d="M368 238 V218 H388" fill="none" stroke="#d4deea" stroke-width="2"/>
+    <path d="M48 238 H388" stroke="#54c9df" stroke-width="7"/>
+    <path d="M388 238 V99" stroke="#eaa44a" stroke-width="7"/>
+    <circle cx="48" cy="238" r="7" fill="white"/><circle cx="388" cy="238" r="7" fill="#54c9df"/><circle cx="388" cy="99" r="7" fill="#e477a8"/>
+    <text x="30" y="268" fill="white" font-size="17">O</text><text x="265" y="270" fill="#9aebfa" font-size="18">√6 · 3D</text>
+    <text x="407" y="183" fill="#fac887" font-size="18">w = 1</text><text x="190" y="148" fill="#ffcde0" font-size="20">√7 · 4D</text>
+    <text x="343" y="291" fill="#afc0d1" font-size="15">P = (2,1,1)</text>
+    <text x="278" y="67" fill="#afc0d1" font-size="15">Q = (2,1,1,1)</text>
+   </svg>
+   <p class="formula">2² + 1² + 1² + 1² = 7</p>
+   <p class="note">Hier ist √7 die Länge von O nach Q. Dazu braucht man in 4D zwei benachbarte Einheits-Tesserakte entlang der ersten Achse, denn Δx = 2.</p>
+  </section>
+ </div>
+ <section class="bridge" aria-labelledby="primeTitle">
+  <span class="tag">Von der ersten zur vierten Primzahl</span>
+  <h2 id="primeTitle">√2 → √6 → √7</h2>
+  <p class="note">Die Radikanden 2 und 7 sind die erste und die vierte Primzahl (2, 3, 5, 7). Ihre Quadratwurzeln sind selbst keine Primzahlen. Wir verbinden die zugehörigen Strecken durch eine konkret gewählte Folge von Gitterpunkten:</p>
+  <div class="rootpath" role="img" aria-label="Koordinatenfolge: 1 1 0 0 hat Länge Wurzel 2; 1 1 2 0 hat Länge Wurzel 6; 1 1 2 1 hat Länge Wurzel 7. Quadratlängen steigen von 2 über 6 auf 7.">
+   <div><strong>√2</strong><small>erste Primzahl · (1, 1, 0, 0)<br>1² + 1² = 2 · Flächendiagonale</small></div>
+   <div><strong>√6</strong><small>Zwischenstufe · (1, 1, 2, 0)<br>2 + 2² = 6 · 1 : 2 : 1 in 3D</small></div>
+   <div><strong>√7</strong><small>vierte Primzahl · (1, 1, 2, 1)<br>6 + 1² = 7 · Länge in 4D</small></div>
+  </div>
+  <p class="formula">2 → 2 + 4 = 6 → 6 + 1 = 7</p>
+  <p class="note">Erst ergänzen wir eine dritte orthogonale Koordinate mit Länge 2, dann eine vierte mit Länge 1. Alle Strecken beginnen im selben Ursprung. Die Koordinaten (1, 1, 2) und (2, 1, 1) aus der Skizze oben beschreiben denselben 1 : 2 : 1-Block bei vertauschten Achsen. Die Zwischenstufe 6 ist zusammengesetzt; „erste → vierte Primzahl“ beschreibt die Endpunkte der Zahlenfolge, keine besondere Primzahloperation.</p>
+ </section>
+ <section class="bridge" aria-labelledby="seamTitle">
+  <span class="tag">Die zwei Einsen · ein Übergang, zwei Lesarten</span>
+  <h2 id="seamTitle">Blau −1 → Gold +1</h2>
+  <p class="note">In deiner Five-Zone-Seam-Grafik stehen die zwei Einsen auf verschiedenen Seiten der grauen Mitte. Der Spiegeloperator ändert die Orientierung; die Betragsprojektion vergisst sie.</p>
+  <svg class="seam-svg" viewBox="0 0 960 220" role="img" aria-label="Links blauer Zustand minus eins, in der Mitte graue Trennfläche null, rechts goldener Zustand plus eins. Die Spiegelung kehrt das Vorzeichen um, während die Betragsprojektion beide auf eins abbildet.">
+   <defs><marker id="arrowGold" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0 0 L9 4.5 L0 9" fill="#f6c36e"/></marker></defs>
+   <rect x="434" y="20" width="92" height="146" rx="12" fill="#687684" fill-opacity=".28" stroke="#96a7b6" stroke-dasharray="5 5"/>
+   <line x1="107" y1="105" x2="853" y2="105" stroke="#7890a3" stroke-width="3"/>
+   <path d="M255 66 Q480 -29 704 66" fill="none" stroke="#f6c36e" stroke-width="3" marker-end="url(#arrowGold)"/>
+   <circle cx="208" cy="105" r="23" fill="#54c9df"/><circle cx="480" cy="105" r="15" fill="#cbd5de"/><circle cx="752" cy="105" r="23" fill="#eaa44a"/>
+   <text x="208" y="152" fill="#9aebfa" text-anchor="middle" font-size="24" font-weight="700">−1</text>
+   <text x="480" y="152" fill="#d9e2e9" text-anchor="middle" font-size="22">0</text>
+   <text x="752" y="152" fill="#fac887" text-anchor="middle" font-size="24" font-weight="700">+1</text>
+   <text x="480" y="23" fill="#fac887" text-anchor="middle" font-size="18">J(s) = −s · Spiegelung</text>
+   <text x="208" y="187" fill="#9aebfa" text-anchor="middle" font-size="17">Blau · links</text>
+   <text x="480" y="187" fill="#d9e2e9" text-anchor="middle" font-size="17">graue Mitte</text>
+   <text x="752" y="187" fill="#fac887" text-anchor="middle" font-size="17">Gold · rechts</text>
+  </svg>
+  <div class="mapping">
+   <div><strong>Orientierung / Projektion</strong><span class="note">J(−1) = +1, aber |−1| = |+1| = 1. Die „1“ bleibt als Betrag gleich; die Seite geht beim Betrag verloren.</span></div>
+   <div><strong>Gewählte 4D-Kodierung</strong><span class="note">Setze w = (s + 1)/2. Dann wird aus Blau w = 0 und aus Gold w = 1: Δw = 1, obwohl Δs = 2.</span></div>
+  </div>
+  <p class="note warning seam">Erst die Definition von w verbindet den Orientierungswechsel mit einem räumlichen Einheitsschritt. Spiegelung allein erzeugt noch keine √7-Strecke; dafür braucht es zusätzlich die orthogonale 4D-Metrik und die Endpunkte O = (0,0,0,0), Q = (2,1,1,1).</p>
+ </section>
+ <section class="bridge" aria-labelledby="bridgeTitle">
+  <h2 id="bridgeTitle">Die Verbindung – mit klarer Grenze</h2>
+  <div class="steps">
+   <div class="step"><strong>8 → 16</strong><br>Ein vierter binärer Kanal verbindet zwei 8-Ecken-Cubes zu <em>einem</em> Tesserakt.</div>
+   <div class="step"><strong>√6 → √7</strong><br>Ein vierter orthogonaler <em>Einheitsschritt</em> hebt eine konkrete Strecke aus 3D nach 4D.</div>
+   <div class="step"><strong>Übersetzung</strong><br>Die Kodierung w = (s + 1)/2 macht aus den Orientierungen −1/+1 zwei Lagen 0/1. Ihre metrische Bedeutung ist eine zusätzliche Modellwahl.</div>
+  </div>
+  <p class="note warning" style="margin-top:17px">Ein einzelner Einheits-Tesserakt hat 16 Ecken, aber seine längste Eckendiagonale ist √4 = 2; die Strecke √7 liegt in einem Block aus zwei Tesserakten.</p>
+ </section>
+ <section class="bridge" aria-labelledby="ratioTitle">
+  <h2 id="ratioTitle">1 : 2 : 1 · Stretch Cube</h2>
+  <div class="ratio" role="img" aria-label="Proportionsskizze eins zu zwei zu eins"><div>1</div><div>2</div><div>1</div></div>
+  <p class="note">Hier ist die Proportion ausdrücklich als räumliche Wahl definiert: (Δy : Δx : Δz) = (1 : 2 : 1). Der zusätzlich definierte Schritt Δw = 1 ist die 4D-Achse unseres Modells. Damit ist der 3D-Stretch Cube 1 × 2 × 1 und die gewählte 4D-Strecke hat Länge √7. Die in deinen Grafiken so genannte „Shadow Axis“ kann diese Rolle übernehmen, sofern wir diese Zuordnung ausdrücklich setzen.</p>
+  <p class="note warning">Open Shell verwendet ebenfalls 1 : 2 : 1, dort jedoch als Gewichtungsmaske 1/4 : 1/2 : 1/4. Gleiche Zahlen machen Gewichtungen und Seitenlängen nicht zu demselben Operator.</p>
+ </section>
+ <section class="bridge" aria-labelledby="timeTitle">
+  <h2 id="timeTitle">Sequenz als Zeit: die INTAKT-Lesart</h2>
+  <p class="note">Wir ordnen die Zustände q₀ = (1, 1, 0, 0), q₁ = (1, 1, 2, 0), q₂ = (1, 1, 2, 1) und setzen τ(qᵢ) = i. Dann entsteht die Nachfolger-Relation R = {(q₀, q₁), (q₁, q₂)} <em>aus dieser gewählten Abfolge</em>. Das ist „Zeit“ als Reihenfolge von Transformationen: Fläche → Stretch Cube → vierte Lage. Andere gewählte Abfolgen ergeben andere Nachfolger-Relationen.</p>
+  <p class="note">Die Wurzeln √2, √6 und √7 bezeichnen jeweils den Abstand <em>vom gemeinsamen Ursprung</em> zu einem Zustand. Die Schritte zwischen den Zuständen haben dagegen die Längen |q₁ − q₀| = 2 und |q₂ − q₁| = 1. Ein Zeitindex sagt noch nicht, wie lange diese Schritte dauern.</p>
+  <p class="note warning">Die vierte Koordinate w bleibt in dieser Längenrechnung euklidisch: x² + y² + z² + w². Physikalische Raumzeit verwendet eine andere Vorzeichenstruktur, etwa Δs² = Δx² + Δy² + Δz² − c²Δt². Der Sequenzindex τ und die 4D-Koordinate w sind zwei verschiedene Rollen, solange wir keine zusätzliche Beziehung definieren.</p>
+ </section>
+</main>
+<script>
+const NS="http://www.w3.org/2000/svg";
+const ga=document.getElementById("cubeA"),gb=document.getElementById("cubeB"),gc=document.getElementById("connectors");
+function node(parent,name,attrs){const el=document.createElementNS(NS,name);for(const [k,v] of Object.entries(attrs))el.setAttribute(k,v);parent.appendChild(el)}
+const p=[[42,108],[162,108],[42,228],[162,228],[92,48],[212,48],[92,168],[212,168]];
+const edges=[];for(let i=0;i<8;i++)for(let bit=0;bit<3;bit++){const j=i^(1<<bit);if(i<j)edges.push([i,j])}
+function cube(parent,shift,color){for(const [a,b] of edges)node(parent,"line",{x1:p[a][0]+shift,y1:p[a][1],x2:p[b][0]+shift,y2:p[b][1],stroke:color,"stroke-width":"2.2",opacity:".8"});for(const q of p)node(parent,"circle",{cx:q[0]+shift,cy:q[1],r:"5",fill:color})}
+cube(ga,0,"#54c9df");cube(gb,260,"#eaa44a");
+for(const q of p)node(gc,"line",{x1:q[0],y1:q[1],x2:q[0]+260,y2:q[1],stroke:"#a894f7","stroke-width":"1.7",opacity:".85"});
+function stage(on){gb.style.display=gc.style.display=on?"":"none";document.getElementById("labelB").style.display=on?"":"none";document.getElementById("stateFormula").textContent=on?"8 + 8 = 16":"2³ = 8";document.getElementById("eight").setAttribute("aria-pressed",String(!on));document.getElementById("sixteen").setAttribute("aria-pressed",String(on))}
+document.getElementById("eight").onclick=()=>stage(false);document.getElementById("sixteen").onclick=()=>stage(true);
+</script>
+</body>
+</html>

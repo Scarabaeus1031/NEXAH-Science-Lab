@@ -1,0 +1,294 @@
+{
+  "schema": "nexah.multi-grid-recovery-and-operator-test/1.0.0",
+  "date": "2026-10-07",
+  "status": "PASS_BOUNDED_RECONSTRUCTION",
+  "usdz_recovery": {
+    "exact_name_search_scope": "[local path omitted in public preview]",
+    "usdz_binaries_found": 0,
+    "source_format_counterparts_found": 5,
+    "interpretation": "All five screenshot-visible USDZ names have retained GLB counterparts. This recovers source-format lineage, not the missing USDZ binaries or conversion receipts.",
+    "counterparts": [
+      {
+        "visible_usdz": "trinity_enhanced_patch.usdz",
+        "recovered_glb": "trinity_enhanced_patch.glb",
+        "path": "[local path omitted in public preview]",
+        "sha256": "a1eb59689ac0d11decf91ebbf2102e817d189af00aa8472963dea7a0c62456ff",
+        "bytes": 13132,
+        "nodes": 15,
+        "named_nodes": 15,
+        "meshes": 15,
+        "materials": 10,
+        "animations": 0
+      },
+      {
+        "visible_usdz": "cathedral_with_trinity_frankfurt.usdz",
+        "recovered_glb": "cathedral_with_trinity_frankfurt.glb",
+        "path": "[local path omitted in public preview]",
+        "sha256": "8b65cefab1c12ef70abbb27aeb3384813c1dcedc0181eeee58f97ef02aa86f88",
+        "bytes": 88692,
+        "nodes": 508,
+        "named_nodes": 508,
+        "meshes": 18,
+        "materials": 12,
+        "animations": 3
+      },
+      {
+        "visible_usdz": "ullinirium_patch_planes_v3_rosette_sky.usdz",
+        "recovered_glb": "ullinirium_patch_planes_v3_rosette_sky.glb",
+        "path": "[local path omitted in public preview]",
+        "sha256": "13265de476a4deb00554dd4eb57b3989d6a5d40fd9235135515389963ea71772",
+        "bytes": 3773976,
+        "nodes": 5,
+        "named_nodes": 5,
+        "meshes": 5,
+        "materials": 5,
+        "animations": 0
+      },
+      {
+        "visible_usdz": "diptych_window_scientific.usdz",
+        "recovered_glb": "diptych_window_scientific.glb",
+        "path": "[local path omitted in public preview]",
+        "sha256": "cf93c9e4d87a278447170c938d2253c8d9a8c4f96db6b4697e9e1097361ca51a",
+        "bytes": 233788,
+        "nodes": 1,
+        "named_nodes": 1,
+        "meshes": 1,
+        "materials": 1,
+        "animations": 0
+      },
+      {
+        "visible_usdz": "Quaternion_Playground.usdz",
+        "recovered_glb": "Quaternion_Playground.glb",
+        "path": "[local path omitted in public preview]",
+        "sha256": "5bfa0acf79d0e91b5c0804d1e4bebfdf4a1a6f692f1aca069d04c18d5e7286e9",
+        "bytes": 3513976,
+        "nodes": 13226,
+        "named_nodes": 13226,
+        "meshes": 13225,
+        "materials": 0,
+        "animations": 0
+      }
+    ]
+  },
+  "retained_grid_binary_tests": [
+    {
+      "id": "G6",
+      "file": "grid_6x6.glb",
+      "sha256": "0c9f24ed65a5583307acdf1b7410de6a69f16a655ba54e2cc2b144197b6d6441",
+      "declared_n": 6,
+      "inferred_n": 6,
+      "vertices": 112,
+      "indices": 504,
+      "axis_line_centers": [
+        -1,
+        -0.666667,
+        -0.333333,
+        0,
+        0.333333,
+        0.666667,
+        1
+      ],
+      "z_levels": [
+        -0.002,
+        0.002
+      ],
+      "template_checks": {
+        "two_named_nodes": true,
+        "one_triangle_mesh": true,
+        "vertex_formula_16_n_plus_1": true,
+        "index_formula_72_n_plus_1": true,
+        "equal_xy_lines": true,
+        "normalized_equidistant_lines": true
+      },
+      "max_normalized_line_error": 3.3300000001901253e-7
+    },
+    {
+      "id": "G7",
+      "file": "grid_7x7.glb",
+      "sha256": "60e37ac1bc49505be06d0d9773cbfb58c84e577c8aeb4ee1870a6a83a1b34960",
+      "declared_n": 7,
+      "inferred_n": 7,
+      "vertices": 128,
+      "indices": 576,
+      "axis_line_centers": [
+        -1.05,
+        -0.75,
+        -0.45,
+        -0.15,
+        0.15,
+        0.45,
+        0.75,
+        1.05
+      ],
+      "z_levels": [
+        0.018,
+        0.022
+      ],
+      "template_checks": {
+        "two_named_nodes": true,
+        "one_triangle_mesh": true,
+        "vertex_formula_16_n_plus_1": true,
+        "index_formula_72_n_plus_1": true,
+        "equal_xy_lines": true,
+        "normalized_equidistant_lines": true
+      },
+      "max_normalized_line_error": 0
+    },
+    {
+      "id": "G10",
+      "file": "grid_10x10.glb",
+      "sha256": "a5ba0701ec8cb00fdb77f80ed7260e63427ecfcec77e3842e0463a73911714ed",
+      "declared_n": 10,
+      "inferred_n": 10,
+      "vertices": 176,
+      "indices": 792,
+      "axis_line_centers": [
+        -1.2,
+        -0.96,
+        -0.72,
+        -0.48,
+        -0.24,
+        0,
+        0.24,
+        0.48,
+        0.72,
+        0.96,
+        1.2
+      ],
+      "z_levels": [
+        0.038,
+        0.042
+      ],
+      "template_checks": {
+        "two_named_nodes": true,
+        "one_triangle_mesh": true,
+        "vertex_formula_16_n_plus_1": true,
+        "index_formula_72_n_plus_1": true,
+        "equal_xy_lines": true,
+        "normalized_equidistant_lines": true
+      },
+      "max_normalized_line_error": 0
+    }
+  ],
+  "reconstructed_generator": {
+    "family": "square line-mesh G(n)",
+    "recovered_from": [
+      "grid_6x6.glb",
+      "grid_7x7.glb",
+      "grid_10x10.glb"
+    ],
+    "binary_invariants": [
+      "16(n+1) vertices",
+      "72(n+1) indices",
+      "n+1 equidistant line centers per axis",
+      "two z levels",
+      "two named nodes",
+      "one triangle mesh"
+    ],
+    "synthetic_only_sizes": [
+      8,
+      9
+    ],
+    "historical_source_code_recovered": false,
+    "claim_ceiling": "The retained binaries determine a reproducible mesh-family contract. They do not identify the original authoring code or historical inter-grid semantics."
+  },
+  "operator_tests": [
+    {
+      "source": "6x6",
+      "target": "7x7",
+      "operator": "NORM_NEAREST(i,j)=(round(i*m/n),round(j*m/n))",
+      "evidence": "BOTH_RETAINED_GLB",
+      "exact_shared_vertices": 4,
+      "source_vertex_addresses": 49,
+      "target_vertex_addresses": 64,
+      "forward_axis_injective": true,
+      "source_address_roundtrip_exact": true,
+      "max_axis_coordinate_residual": 0.071428571429,
+      "max_2d_coordinate_residual": 0.101015254455,
+      "claim_ceiling": "A declared normalized nearest-lattice operator; not the recovered historical generator and not cell identity across resolutions."
+    },
+    {
+      "source": "7x7",
+      "target": "8x8",
+      "operator": "NORM_NEAREST(i,j)=(round(i*m/n),round(j*m/n))",
+      "evidence": "SOURCE_GLB__TARGET_SYNTHETIC_CONTROL",
+      "exact_shared_vertices": 4,
+      "source_vertex_addresses": 64,
+      "target_vertex_addresses": 81,
+      "forward_axis_injective": true,
+      "source_address_roundtrip_exact": true,
+      "max_axis_coordinate_residual": 0.053571428571,
+      "max_2d_coordinate_residual": 0.075761440841,
+      "claim_ceiling": "A declared normalized nearest-lattice operator; not the recovered historical generator and not cell identity across resolutions."
+    },
+    {
+      "source": "8x8",
+      "target": "9x9",
+      "operator": "NORM_NEAREST(i,j)=(round(i*m/n),round(j*m/n))",
+      "evidence": "BOTH_SYNTHETIC_CONTROLS",
+      "exact_shared_vertices": 4,
+      "source_vertex_addresses": 81,
+      "target_vertex_addresses": 100,
+      "forward_axis_injective": true,
+      "source_address_roundtrip_exact": true,
+      "max_axis_coordinate_residual": 0.055555555556,
+      "max_2d_coordinate_residual": 0.078567420132,
+      "claim_ceiling": "A declared normalized nearest-lattice operator; not the recovered historical generator and not cell identity across resolutions."
+    },
+    {
+      "source": "9x9",
+      "target": "10x10",
+      "operator": "NORM_NEAREST(i,j)=(round(i*m/n),round(j*m/n))",
+      "evidence": "SOURCE_SYNTHETIC_CONTROL__TARGET_GLB",
+      "exact_shared_vertices": 4,
+      "source_vertex_addresses": 100,
+      "target_vertex_addresses": 121,
+      "forward_axis_injective": true,
+      "source_address_roundtrip_exact": true,
+      "max_axis_coordinate_residual": 0.044444444444,
+      "max_2d_coordinate_residual": 0.062853936105,
+      "claim_ceiling": "A declared normalized nearest-lattice operator; not the recovered historical generator and not cell identity across resolutions."
+    },
+    {
+      "source": "7x7",
+      "target": "10x10",
+      "operator": "NORM_NEAREST(i,j)=(round(i*m/n),round(j*m/n))",
+      "evidence": "BOTH_RETAINED_GLB",
+      "exact_shared_vertices": 4,
+      "source_vertex_addresses": 64,
+      "target_vertex_addresses": 121,
+      "forward_axis_injective": true,
+      "source_address_roundtrip_exact": true,
+      "max_axis_coordinate_residual": 0.042857142857,
+      "max_2d_coordinate_residual": 0.060609152673,
+      "claim_ceiling": "A declared normalized nearest-lattice operator; not the recovered historical generator and not cell identity across resolutions."
+    },
+    {
+      "source": "6x6",
+      "target": "10x10",
+      "operator": "NORM_NEAREST(i,j)=(round(i*m/n),round(j*m/n))",
+      "evidence": "BOTH_RETAINED_GLB",
+      "exact_shared_vertices": 9,
+      "source_vertex_addresses": 49,
+      "target_vertex_addresses": 121,
+      "forward_axis_injective": true,
+      "source_address_roundtrip_exact": true,
+      "max_axis_coordinate_residual": 0.033333333333,
+      "max_2d_coordinate_residual": 0.047140452079,
+      "claim_ceiling": "A declared normalized nearest-lattice operator; not the recovered historical generator and not cell identity across resolutions."
+    }
+  ],
+  "rath_49_51": {
+    "arithmetic": "51 = 49 interior J-orbits + boundary orbit + fixed hinge",
+    "arithmetic_status": "EXACT_FOR_DECLARED_J_K_EQUALS_100_MINUS_K_QUOTIENT",
+    "source_visual": "NEXAH Infinity — Grids, Relations, Roots & Phi-Layers",
+    "source_visual_sha256": "e115d4c2441c71c7526d436be97e26e0b9b060e26e2ce326d040e9f18137e033",
+    "visual_labels": [
+      "Rath center 49",
+      "resonance 51"
+    ],
+    "historical_semantic_operator_recovered": false,
+    "status": "CARDINALITY_CONCORDANCE__SEMANTIC_IDENTITY_OPEN"
+  },
+  "claim_boundary": "PASS applies to binary template recovery and the declared normalized resampling operator. It does not establish a universal grid, a historical Rath operator, or GLB-to-USDZ identity."
+}

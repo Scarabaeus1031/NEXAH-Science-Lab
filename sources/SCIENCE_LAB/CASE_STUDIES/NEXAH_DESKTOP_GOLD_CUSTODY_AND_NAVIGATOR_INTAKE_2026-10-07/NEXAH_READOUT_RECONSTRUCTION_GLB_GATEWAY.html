@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>NEXAH · Readout Reconstruction & GLB Gateway</title>
+  <script type="module" src="https://unpkg.com/@google/model-viewer@4.1.0/dist/model-viewer.min.js"></script>
+  <style>
+    :root{color-scheme:dark;--bg:#050912;--panel:#0d1726;--line:#253a52;--ink:#edf5ff;--muted:#93a7bb;--cyan:#28c7e8;--gold:#f3b43a;--pink:#e94bb8;--green:#5ee0a1;--red:#ff6f7f}
+    *{box-sizing:border-box} body{margin:0;background:radial-gradient(circle at 50% 0,#10223a 0,var(--bg) 42%);color:var(--ink);font:15px/1.55 Inter,ui-sans-serif,system-ui,sans-serif}
+    a{color:var(--cyan)} code{color:#f8d487} main{width:min(1220px,94vw);margin:auto;padding:34px 0 64px} header{display:grid;gap:8px;margin-bottom:24px}.eyebrow{color:var(--gold);font-weight:700;letter-spacing:.11em;text-transform:uppercase}h1,h2,h3,p{margin:0}h1{font-size:clamp(2rem,4vw,4rem);line-height:1.02;letter-spacing:-.04em}h2{font-size:1.35rem}h3{font-size:1rem}.sub{max-width:850px;color:var(--muted);font-size:1.04rem}.status{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}.chip{padding:5px 9px;border:1px solid var(--line);border-radius:999px;color:var(--muted)}.chip.pass{color:var(--green);border-color:#285d4a}.chip.hold{color:var(--gold);border-color:#745d25}
+    .hero{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(300px,.8fr);gap:16px}.panel{background:rgba(13,23,38,.9);border:1px solid var(--line);border-radius:18px;padding:18px}.viewer{min-height:570px;display:grid;grid-template-rows:auto 1fr auto;gap:12px}model-viewer{width:100%;height:460px;background:radial-gradient(circle,#17283e,#050912 70%);border-radius:12px;--poster-color:transparent}.toolbar{display:flex;gap:8px;flex-wrap:wrap}.toolbar button,.toolbar a{border:1px solid var(--line);background:#132338;color:var(--ink);padding:9px 12px;border-radius:9px;text-decoration:none;font:inherit;cursor:pointer}.toolbar button[aria-pressed="true"]{background:var(--cyan);color:#001017;border-color:var(--cyan)}.model-meta{color:var(--muted)}
+    .grammar{display:grid;gap:12px}.operator{display:grid;grid-template-columns:48px 1fr;gap:12px;padding:12px 0;border-bottom:1px solid var(--line)}.operator:last-child{border:0}.glyph{font:500 2rem/1 Georgia,serif;text-align:center}.cut{color:var(--cyan)}.seam{color:var(--pink)}.phase{color:var(--gold)}.sigma{color:var(--green)}.operator p,.boundary p{color:var(--muted)}
+    .route{margin-top:16px}.route-grid{display:grid;grid-template-columns:repeat(8,1fr);gap:8px;margin-top:12px}.step{min-height:116px;border-top:3px solid var(--cyan);background:#0a1422;padding:10px;border-radius:4px 4px 12px 12px}.step:nth-child(2n){border-color:var(--gold)}.step strong{display:block;color:var(--ink)}.step small{display:block;color:var(--muted);margin-top:7px}.step a{text-decoration:none}
+    .evidence{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:16px}.evidence article{overflow:hidden;background:#0a1422;border:1px solid var(--line);border-radius:14px}.evidence img{width:100%;aspect-ratio:16/10;object-fit:cover;display:block}.evidence div{padding:12px}.evidence p{color:var(--muted);font-size:.9rem}.evidence a{display:inline-block;margin-top:7px}.boundary{margin-top:16px;border-color:#725528}.boundary strong{color:var(--gold)}
+    footer{margin-top:20px;color:var(--muted);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+    @media(max-width:900px){.hero{grid-template-columns:1fr}.route-grid{grid-template-columns:repeat(2,1fr)}.evidence{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:560px){main{width:min(94vw,720px);padding-top:20px}.route-grid,.evidence{grid-template-columns:1fr}.viewer{min-height:480px}model-viewer{height:370px}}
+  </style>
+</head>
+<body>
+<main>
+  <header>
+    <p class="eyebrow">NEXAH Lab · tested custody route</p>
+    <h1>Readout Reconstruction<br>& GLB Gateway</h1>
+    <p class="sub">Die mathematische Rückseite des OIL/RIS Multi-Lens Scanners: Pascal-Fäden, Split/Closure, Rille→Zeit, Kompatibilität, reversible Mischung, Projektion und Residual-Rekonstruktion führen zu zwei kanonischen 3D-Ansichten.</p>
+    <div class="status"><span class="chip pass">INTAKE AUDIT · 6/6 GATES</span><span class="chip pass">MRB · 9/9 TESTS</span><span class="chip pass">GLB V1–V7 · PORTABLE REPRODUCTION PASS</span><span class="chip hold">ACR‑42 FONT CONTOUR · QUARANTINE</span></div>
+  </header>
+
+  <section class="hero">
+    <article class="panel viewer">
+      <div><p class="eyebrow">Interactive 3D custody object</p><h2 id="model-title">V6 · OIL / RIS Orbital Closure</h2></div>
+      <model-viewer id="glb-viewer" src="sources/clockwork/reference/nexah_oil_ris_orbital_closure_v6.glb" camera-controls auto-rotate shadow-intensity="1" exposure="1.1" alt="Interaktives OIL/RIS Orbital-Closure-Modell"></model-viewer>
+      <div>
+        <div class="toolbar" role="group" aria-label="3D-Modell wählen">
+          <button type="button" data-model="v6" aria-pressed="true">V6 · OIL/RIS</button>
+          <button type="button" data-model="v7" aria-pressed="false">V7 · P/Q</button>
+          <a id="download-glb" href="sources/clockwork/reference/nexah_oil_ris_orbital_closure_v6.glb">GLB direkt öffnen</a>
+        </div>
+        <p class="model-meta" id="model-meta">1,253 Nodes · 56 Meshes · 1 Animation · 21 Channels · SHA-256 e7728e6e…ddd8</p>
+      </div>
+    </article>
+
+    <aside class="panel grammar">
+      <div><p class="eyebrow">Typed glyph grammar</p><h2>Teilung ist nicht Übergang</h2></div>
+      <div class="operator"><div class="glyph">o</div><div><h3>Carrier / Hülle</h3><p>Ein ungeteilter lokaler Träger. Noch kein Operator.</p></div></div>
+      <div class="operator"><div class="glyph cut">ø</div><div><h3>Split / Cut / Rift</h3><p>Ein Träger wird explizit in zwei Seiten oder Zweige geteilt. Exakte Rückkehr verlangt beide Zweige plus Adresse.</p></div></div>
+      <div class="operator"><div class="glyph seam">œ</div><div><h3>Seam / Übergang / Bindung</h3><p>Ein gebundener <em>o→e</em>-Übergang bzw. eine lokale Ligatur. Das ist kein Synonym für den Schnitt <strong>ø</strong>.</p></div></div>
+      <div class="operator"><div class="glyph phase">ö ô ò ó õ ō</div><div><h3>Modifizierte Zustandsmarken</h3><p>Unterschiedliche Unicode-/Diakritik-Repräsentationen. Phase oder Zustand nur nach expliziter Codebook-Regel.</p></div></div>
+      <div class="operator"><div class="glyph sigma">σ+ σ−</div><div><h3>Signierte Operatorzustände</h3><p>Vorwärts-/Rückwärts- oder positive/negative Orientierung; nicht automatisch durch die Form eines o-Glyphen bewiesen.</p></div></div>
+    </aside>
+  </section>
+
+  <section class="panel route">
+    <p class="eyebrow">Tested route · same carrier, typed views</p>
+    <h2>Vom Pascal-Faden zum Multi-Channel Reveal</h2>
+    <div class="route-grid">
+      <div class="step"><strong>01 · MRB / Pascal</strong><small>Pfadmultiplikität, 121-Brücke, Trägeradresse.</small><a href="sources/mrb/MRB10_YT_PASCAL_THREAD_GRID/mrb10_overview.html">MRB‑10 öffnen</a></div>
+      <div class="step"><strong>02 · Closure / Split</strong><small>Winkelabschluss und komplementäre Schnitte.</small><a href="sources/acr/NEXAH_ACR28_COMPLEMENTARY_SPLIT_MARKER.png">ACR‑28</a></div>
+      <div class="step"><strong>03 · Groove → Time</strong><small>Räumliche Rille wird durch Abtastung zur Zeitfolge.</small><a href="sources/acr/NEXAH_ACR31_GRAMOPHONE_READOUT_MARKER.png">ACR‑31</a></div>
+      <div class="step"><strong>04 · Compatibility</strong><small>Format, Achse, Tempo, Laufrichtung und Wandler.</small><a href="sources/acr/NEXAH_ACR33_COMPATIBILITY_TEST.md">ACR‑33</a></div>
+      <div class="step"><strong>05 · Reversible Mix</strong><small>Orthogonaler 45°-Mix mit idealer Rekonstruktion.</small><a href="sources/acr/NEXAH_ACR34_MIX_MIZ_LISSAJOUS_MARKER.png">ACR‑34</a></div>
+      <div class="step"><strong>06 · Projection</strong><small>Eine sichtbare Lage kann vier Phasenzustände bündeln.</small><a href="sources/acr/NEXAH_ACR35_PHASE_TORUS_UNFOLDING_MARKER.png">ACR‑35</a></div>
+      <div class="step"><strong>07 · Residual Return</strong><small>A+B rekonstruiert; eine Seite allein bleibt lossy.</small><a href="sources/acr/NEXAH_ACR38_AB_SIDE_CLAMP_RECONSTRUCTION_MARKER.png">ACR‑38</a></div>
+      <div class="step"><strong>08 · OIL/RIS + P/Q</strong><small>Mehrere Masken überlagern eine Relation; Quelle bleibt größer als eine Ansicht.</small><a href="results/INTAKE_AUDIT_REPORT.md">Audit öffnen</a></div>
+    </div>
+  </section>
+
+  <section class="evidence" aria-label="Ausgewählte Evidenzmarker">
+    <article><img src="sources/mrb/MRB10_MARKER_PASCAL_LAYER_THREADS_121.png" alt="MRB-10 Pascal-Layer-Marker"><div><h3>MRB‑10 wiedergefunden</h3><p>Originalpaket, Test, CSVs und HTML sind nun in Custody. Block02A bleibt als spätere Rekonstruktion erhalten.</p><a href="sources/mrb/MRB10_YT_PASCAL_THREAD_GRID/MRB10_RESULTS.json">Ergebnis</a></div></article>
+    <article><img src="sources/acr/NEXAH_ACR41_GREEK_SEVEN_VARIANT_GRID_MARKER.png" alt="ACR-41 Greek seven-variant grid"><div><h3>Sieben Varianten</h3><p>Codepoints und Fontkonturen bleiben getrennt; Operatorbedeutung wird nicht aus der Glyphform abgeleitet.</p><a href="sources/acr/NEXAH_ACR41_TEST_REPORT.md">Bericht</a></div></article>
+    <article><img src="sources/acr/NEXAH_ACR42_DIACRITIC_CASEFOLD_GLYPH_MARKER.png" alt="ACR-42 Diacritic and casefold audit"><div><h3>Diakritik / Casefold</h3><p>NFC/NFD und ß/ẞ sind typisierte Repräsentationsfragen. Der vierte Font-Contour-Run bleibt quarantänisiert.</p><a href="sources/acr/NEXAH_ACR42_TEST_REPORT.md">Grenze lesen</a></div></article>
+    <article><img src="sources/acr/NEXAH_ACR45_MULTIMODAL_CLOSURE_MARKER.png" alt="ACR-45 multimodal closure marker"><div><h3>Multi-Channel Reveal</h3><p>Gemeinsame Ledger- und Zeitbasis kann Modalitäten registrieren; der Container allein beweist keine Synchronität.</p><a href="sources/acr/NEXAH_ACR45_TEST_REPORT.md">ACR‑45</a></div></article>
+  </section>
+
+  <section class="panel boundary">
+    <h2><strong>Aussagegrenze</strong></h2>
+    <p>Das Gateway zeigt eine geprüfte Darstellungs- und Rekonstruktionskette. Es behauptet weder Orbitalphysik noch eine vollständige Quellrekonstruktion, keine universelle O8-Glyphbijektion und keine automatische Identität zwischen Zahl, Buchstabe, Ton, Form oder GLB-Geometrie.</p>
+  </section>
+
+  <footer><span>Custody package · 2026‑10‑07</span><span><a href="00_README.md">Provenienz</a> · <a href="results/SOURCE_LEDGER.csv">SHA‑256 Ledger</a> · <a href="results/INTAKE_AUDIT_RESULTS.json">Maschinenresultat</a></span></footer>
+</main>
+<script>
+  const models={
+    v6:{title:'V6 · OIL / RIS Orbital Closure',src:'sources/clockwork/reference/nexah_oil_ris_orbital_closure_v6.glb',alt:'Interaktives OIL/RIS Orbital-Closure-Modell',meta:'1,253 Nodes · 56 Meshes · 1 Animation · 21 Channels · SHA-256 e7728e6e…ddd8'},
+    v7:{title:'V7 · P/Q Conjugate Orbits',src:'sources/clockwork/reference/nexah_pq_conjugate_orbit_v7.glb',alt:'Interaktives P/Q Conjugate-Orbit-Modell',meta:'1,270 Nodes · 59 Meshes · 1 Animation · 23 Channels · SHA-256 c390d4c6…ecae'}
+  };
+  const viewer=document.getElementById('glb-viewer'),title=document.getElementById('model-title'),meta=document.getElementById('model-meta'),direct=document.getElementById('download-glb');
+  document.querySelectorAll('[data-model]').forEach(button=>button.addEventListener('click',()=>{
+    const item=models[button.dataset.model]; viewer.src=item.src;viewer.alt=item.alt;title.textContent=item.title;meta.textContent=item.meta;direct.href=item.src;
+    document.querySelectorAll('[data-model]').forEach(peer=>peer.setAttribute('aria-pressed',String(peer===button)));
+  }));
+</script>
+</body>
+</html>

@@ -1,0 +1,18 @@
+{
+  "schema": "nexah.life06d.pqb-audit-contract/1.0.0",
+  "date": "2026-10-07",
+  "status": "DESCRIPTIVE_FORMAL_AUDIT_NO_NEW_PRIMARY_HYPOTHESIS",
+  "source": "LIFE06C frozen fixtures and event-word recurrence metric",
+  "prime_centers": [5, 7, 11, 13, 17, 19, 23, 29],
+  "window_domain": {"min": 2, "max": 32},
+  "relations": {
+    "additive": "Q- = P-1 and Q+ = P+1",
+    "scale_conjugate": "q- = P/alpha and q+ = P*alpha, hence q-*q+ = P^2",
+    "integer_realization": "round q- and q+ independently; report log-balance residual, never call this exact conjugation unless product equals P^2",
+    "pearl": "B_P(alpha) binds P, exact real Q pair, integer representation, observations and residuals",
+    "fiber": "E_delta(r) = {L in [2,32] : |R(L)-r| <= delta}; multiplicity mu_delta = |E_delta(r)|"
+  },
+  "default_alpha": 1.618033988749895,
+  "declared_fiber_tolerances": [0, 0.001, 0.005, 0.01, 0.02],
+  "claim_ceiling": "Formal representation and identifiability audit only. LIFE06C remains negative. Approximate integer displays are not exact scale conjugates; tolerance fibers are conditional equivalence classes, not identities or mechanisms."
+}

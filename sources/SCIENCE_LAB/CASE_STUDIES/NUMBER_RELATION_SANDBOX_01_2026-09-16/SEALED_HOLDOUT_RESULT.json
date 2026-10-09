@@ -1,0 +1,117 @@
+{
+  "claim_boundary": "A pass supports a base-10 representation enrichment on this holdout only. It does not establish a universal number invariant, privileged ontology, physical cycle or causal mechanism.",
+  "destruction_controls": {
+    "identity_predicate": {
+      "control_palindromic_roots": 0,
+      "control_total": 3596,
+      "label": "IDENTITY_PREDICATE_DESTRUCTION_CONTROL",
+      "target_palindromic_roots": 1798,
+      "target_total": 1798
+    },
+    "pooled_control_recount_matches": true
+  },
+  "eligible_targets": 1798,
+  "primary": {
+    "decision_rule": "eligible_targets >= 500 AND target_99pct_wilson_lower > control_99pct_wilson_upper AND risk_ratio >= 2.0",
+    "pooled_controls": {
+      "base": 10,
+      "rate": 0.0,
+      "successes": 0,
+      "total": 3596,
+      "wilson_99": [
+        0.0,
+        0.0018416788798890056
+      ]
+    },
+    "risk_ratio": "Infinity",
+    "target": {
+      "base": 10,
+      "rate": 0.007230255839822024,
+      "successes": 13,
+      "total": 1798,
+      "wilson_99": [
+        0.0035946957880606915,
+        0.014489237234894876
+      ]
+    }
+  },
+  "protocol_id": "NRS01-PAL-HOLDOUT-01",
+  "seal_verification": {
+    "checks": {
+      "protocol_json": true,
+      "protocol_md": true,
+      "runner": true
+    },
+    "seal_id": "NRS01-PAL-HOLDOUT-01-SEAL-2026-09-16",
+    "status": "PASS"
+  },
+  "secondary_descriptive_bases": {
+    "12": {
+      "control": {
+        "base": 12,
+        "rate": 0.00027808676307007786,
+        "successes": 1,
+        "total": 3596,
+        "wilson_99": [
+          3.264974747812697e-05,
+          0.0023641783655143885
+        ]
+      },
+      "target": {
+        "base": 12,
+        "rate": 0.0,
+        "successes": 0,
+        "total": 1798,
+        "wilson_99": [
+          0.0,
+          0.0036765866677619134
+        ]
+      }
+    },
+    "16": {
+      "control": {
+        "base": 16,
+        "rate": 0.0,
+        "successes": 0,
+        "total": 3596,
+        "wilson_99": [
+          0.0,
+          0.0018416788798890056
+        ]
+      },
+      "target": {
+        "base": 16,
+        "rate": 0.0,
+        "successes": 0,
+        "total": 1798,
+        "wilson_99": [
+          0.0,
+          0.0036765866677619134
+        ]
+      }
+    },
+    "8": {
+      "control": {
+        "base": 8,
+        "rate": 0.0,
+        "successes": 0,
+        "total": 3596,
+        "wilson_99": [
+          0.0,
+          0.0018416788798890056
+        ]
+      },
+      "target": {
+        "base": 8,
+        "rate": 0.0005561735261401557,
+        "successes": 1,
+        "total": 1798,
+        "wilson_99": [
+          6.53011791240739e-05,
+          0.004719542900575812
+        ]
+      }
+    }
+  },
+  "status": "PASS"
+}

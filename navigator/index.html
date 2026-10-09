@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en" data-profile="internal">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <meta name="description" content="Source-bound NEXAH Navigator preview for modules, surfaces, evidence and bounded relations.">
+  <title>NEXAH Navigator · Public Preview</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#workspace">Skip to Navigator workspace</a>
+
+  <header class="topbar">
+    <a class="brand" href="#home" aria-label="NEXAH Navigator home">
+      <span class="brand-mark" aria-hidden="true">✦</span>
+      <span>NEXAH</span>
+      <span class="brand-product">Navigator</span>
+    </a>
+    <div class="topbar-status">
+      <a class="scope-label mission-control-link" href="https://scarabaeus1031.github.io/NEXAH/book/" title="Open A0 Foundation Book">A0 Book · Guided Reading ↗</a>
+      <span class="security-badge">Public preview / source-bound</span>
+    </div>
+  </header>
+
+  <div class="app-shell">
+    <aside class="sidebar" aria-label="Primary navigation">
+      <nav class="primary-nav">
+        <section class="nav-domain" aria-labelledby="nav-orientation">
+          <h2 id="nav-orientation">Orientation</h2>
+          <a data-route-link="home" href="#home"><span>01</span> Start</a>
+        </section>
+        <section class="nav-domain" aria-labelledby="nav-framework">
+          <h2 id="nav-framework">Framework</h2>
+          <a data-route-link="utg" href="#utg"><span>02</span> UTG</a>
+          <a data-route-link="dynamics" href="#dynamics"><span>03</span> Dynamics</a>
+          <a data-route-link="ladders" href="#ladders"><span>04</span> Ladders</a>
+        </section>
+        <section class="nav-domain" aria-labelledby="nav-families">
+          <h2 id="nav-families">Families</h2>
+          <a data-route-link="families" href="#families"><span>05</span> Family map</a>
+          <a data-route-link="sequence" href="#sequence"><span>06</span> Sequence</a>
+          <a data-route-link="lineage" href="#lineage"><span>07</span> Lineage</a>
+        </section>
+        <section class="nav-domain" aria-labelledby="nav-language">
+          <h2 id="nav-language">Language</h2>
+          <a data-route-link="envelope" href="#envelope"><span>08</span> Envelope</a>
+          <a data-route-link="glossary" href="#glossary"><span>09</span> Vocabulary</a>
+        </section>
+        <section class="nav-domain" aria-labelledby="nav-atlas">
+          <h2 id="nav-atlas">Atlas</h2>
+          <a data-route-link="atlas" href="#atlas"><span>10</span> Connection atlas</a>
+          <a data-route-link="catalog" href="#catalog"><span>11</span> Catalog</a>
+        </section>
+        <section class="nav-domain" aria-labelledby="nav-evidence">
+          <h2 id="nav-evidence">Evidence</h2>
+          <a data-route-link="life-orbit" href="#life-orbit"><span>12</span> Life Orbit</a>
+          <a data-route-link="observatory" href="#observatory"><span>13</span> Observatory</a>
+          <a data-route-link="root7" href="#root7"><span>14</span> ROOT7 · LOOK</a>
+          <a data-route-link="ilau-orientation" href="#ilau-orientation"><span>15</span> ILAU instruments</a>
+          <a data-route-link="evidence" href="#evidence"><span>16</span> Evidence</a>
+          <a data-route-link="relations" href="#relations"><span>17</span> Relations</a>
+          <a data-route-link="admission" href="#admission"><span>18</span> Admission</a>
+        </section>
+        <section class="nav-utility" aria-label="Navigator information">
+          <a data-route-link="about" href="#about"><span>i</span> About</a>
+        </section>
+      </nav>
+
+      <section class="sidebar-section" aria-labelledby="family-nav-title">
+        <h2 id="family-nav-title">Connection families</h2>
+        <div id="family-nav" class="family-nav"></div>
+      </section>
+
+      <section class="sidebar-section build-state" aria-labelledby="build-state-title">
+        <h2 id="build-state-title">Build state</h2>
+        <p><strong id="build-entity-count">—</strong> entities</p>
+        <p><strong id="build-relation-count">—</strong> typed relations</p>
+        <p class="muted" id="build-date">Loading validated manifest…</p>
+      </section>
+    </aside>
+
+    <main id="workspace" class="workspace" tabindex="-1">
+      <noscript>
+        <section class="empty-state"><h1>JavaScript is required</h1><p>This internal static tool renders the validated Navigator manifest in your browser.</p></section>
+      </noscript>
+      <div id="app" aria-live="polite"></div>
+    </main>
+
+    <aside class="context-panel" aria-label="Persistent claim boundary and source context">
+      <section class="context-card boundary-card">
+        <p class="overline">Persistent boundary</p>
+        <h2>Relation ≠ identity</h2>
+        <p id="context-boundary">A registered connection preserves a comparison route. It does not establish that its carriers, mechanisms or evidence classes are identical.</p>
+      </section>
+      <section class="context-card">
+        <p class="overline">Current selection</p>
+        <dl id="context-selection" class="compact-definition">
+          <div><dt>Object</dt><dd>Orientation</dd></div>
+          <div><dt>Profile</dt><dd>Public preview</dd></div>
+          <div><dt>Release</dt><dd>Preview</dd></div>
+        </dl>
+      </section>
+      <section class="context-card receipt-card">
+        <p class="overline">Source receipt</p>
+        <p id="context-receipt" class="mono wrap">Validated registry adapter · awaiting selection</p>
+      </section>
+    </aside>
+  </div>
+
+  <footer class="footer">
+    <span>NEXAH Navigator · public source-bound preview · v1 freeze retained</span>
+    <span>One manifest · bounded views · explicit residuals</span>
+  </footer>
+
+  <script src="data.internal.js"></script>
+  <script src="entry.internal.js"></script>
+  <script src="lineage.internal.js"></script>
+  <script src="utg.internal.js"></script>
+  <script src="ladders.internal.js"></script>
+  <script src="life-orbit.internal.js"></script>
+  <script src="life-program.internal.js"></script>
+  <script src="prime-crystal.internal.js"></script>
+  <script src="observatory.internal.js"></script>
+  <script src="root7.internal.js"></script>
+  <script src="ilau-orientation.internal.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

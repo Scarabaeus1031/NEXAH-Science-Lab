@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>PRIMEGRID BLOCK 1 · Binary State-Lift Lab</title>
+<style>
+:root{color-scheme:dark;--bg:#071018;--panel:#0d1923;--line:#263948;--text:#e8f5fa;--muted:#8ca7b5;--cyan:#43d9e8;--gold:#f2bd58;--pink:#ed6fa7;--green:#6ee7a0;--blue:#6aa9ff}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 50% -20%,#173148 0,var(--bg) 45%);color:var(--text);font:15px/1.5 ui-monospace,SFMono-Regular,Menlo,monospace}button,a{font:inherit}.shell{max-width:1200px;margin:auto;padding:24px}.eyebrow{color:var(--cyan);letter-spacing:.16em;text-transform:uppercase}.hero{display:flex;justify-content:space-between;gap:24px;align-items:end;border-bottom:1px solid var(--line);padding-bottom:18px}.hero h1{font:500 clamp(25px,4vw,46px)/1.08 system-ui;margin:6px 0}.hero p{max-width:720px;color:var(--muted);margin:0}.status{color:var(--green);white-space:nowrap}.ladder{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin:22px 0}.step,.panel{background:color-mix(in srgb,var(--panel) 94%,transparent);border:1px solid var(--line);border-radius:14px}.step{padding:12px;color:var(--muted);text-align:left}.step b{display:block;color:var(--text);font-size:20px}.step.active{border-color:var(--cyan);box-shadow:0 0 0 1px color-mix(in srgb,var(--cyan) 40%,transparent);color:var(--cyan)}button.step{cursor:pointer}.grid{display:grid;grid-template-columns:minmax(0,1.65fr) minmax(270px,.75fr);gap:16px}.panel{padding:16px}.head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:8px}.head h2{font:500 19px system-ui;margin:0}.metrics{display:flex;gap:16px;color:var(--muted);flex-wrap:wrap}.metrics strong{color:var(--text)}svg{display:block;width:100%;min-height:590px}.layer-label{font-size:13px;fill:var(--muted)}.bridge{stroke:var(--gold);stroke-width:1.5;opacity:.65}.inner{stroke:var(--line);stroke-width:1;opacity:.72}.node{stroke-width:2;transition:transform .15s}.node.even{fill:color-mix(in srgb,var(--cyan) 28%,var(--panel));stroke:var(--cyan)}.node.odd{fill:color-mix(in srgb,var(--pink) 25%,var(--panel));stroke:var(--pink)}.node.selected{stroke:var(--gold);stroke-width:4}.node-label{fill:var(--text);font-size:11px;text-anchor:middle;pointer-events:none}.trace h3{font:500 17px system-ui;margin:0 0 12px}.readout{padding:12px 0;border-bottom:1px solid var(--line)}.readout small{display:block;color:var(--muted);margin-bottom:3px}.binary{font-size:24px;color:var(--gold);letter-spacing:.1em}.neighbors{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}.chip{border:1px solid var(--line);border-radius:999px;padding:3px 8px;color:var(--muted)}.gate-list{display:grid;gap:7px;margin-top:14px}.gate{display:flex;justify-content:space-between;border-bottom:1px dotted var(--line);padding-bottom:6px}.pass{color:var(--green)}.holdout{margin-top:16px;padding:13px;border-left:3px solid var(--blue);background:#0a1620;color:var(--muted)}.holdout strong{color:var(--text)}.boundary{margin-top:16px;color:var(--muted);font-size:13px}.links{display:flex;gap:14px;flex-wrap:wrap;margin-top:12px}.links a{color:var(--cyan)}@media(max-width:800px){.hero{align-items:start;flex-direction:column}.grid{grid-template-columns:1fr}.ladder{grid-template-columns:repeat(2,1fr)}svg{min-height:500px}}@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+</style>
+</head>
+<body>
+<main class="shell">
+  <header class="hero">
+    <div><div class="eyebrow">PRIMEGRID · BLOCK 1 · frozen carrier contract</div><h1>Binary State-Lift Lab</h1><p>Jede neue unabhängige Binärkoordinate verdoppelt den Carrier. Die Ansicht trennt Zustand, Adresse, Nachbarschaft, Lift und Projektion.</p></div>
+    <div class="status">9/9 GATES · PASS</div>
+  </header>
+
+  <nav class="ladder" aria-label="Dimension wählen" id="dimensionNav"></nav>
+
+  <section class="grid">
+    <div class="panel">
+      <div class="head"><h2 id="stageTitle">Q3 · 8 Zustände</h2><div class="metrics"><span>V <strong id="metricV">8</strong></span><span>E <strong id="metricE">12</strong></span><span>Grad <strong id="metricD">3</strong></span><span>Brücken <strong id="metricB">4</strong></span></div></div>
+      <svg id="carrier" viewBox="0 0 760 590" role="img" aria-label="Binäre Zustands-Layer und Lift-Brücken"></svg>
+    </div>
+    <aside class="panel trace" aria-live="polite">
+      <h3>Ausgewählte Adresse</h3>
+      <div class="readout"><small>Binärzustand</small><div class="binary" id="binaryValue">000</div></div>
+      <div class="readout"><small>Dezimaladresse</small><strong id="decimalValue">0</strong></div>
+      <div class="readout"><small>Parität / Layer</small><strong id="parityValue">gerade · letzter Bit-Layer 0</strong></div>
+      <div class="readout"><small>Hamming-Nachbarn</small><div class="neighbors" id="neighbors"></div></div>
+      <div class="readout"><small>Projektionsfaser</small><strong id="fiberValue">00 ← {000, 001}</strong></div>
+      <div class="gate-list" id="gateList"></div>
+      <div class="holdout"><strong>Q8 HOLDOUT · PASS</strong><br>256 Zustände · 1024 Kanten · Grad 8 · Gray-Zyklus 256</div>
+      <p class="boundary">Grenze: Dies ist noch kein DFT- oder Prime-Code. Block 1 erzeugt ausschließlich den geprüften endlichen Carrier.</p>
+    </aside>
+  </section>
+
+  <footer class="links">
+    <a href="00_PREREGISTRATION.md">Präregistrierung</a>
+    <a href="01_RESULT_ASSESSMENT.md">Result assessment</a>
+    <a href="../NEXAH_BLOCK01_CUBE_FACE_PROJECTION_RETURN_2026-10-06/NEXAH_BLOCK01_CUBE_LAB.html">Cube BLOCK-01</a>
+    <a href="https://scarabaeus1031.github.io/NEXAH-Science-Lab/navigator/#entity=MOD:TESSAREC">Navigator · Tessarec</a>
+  </footer>
+</main>
+<script>
+const dimensions=[1,2,3,4,5];
+const gateNames=['STATE COUNTS','EDGE COUNTS','ADDRESS BIJECTION','LIFT PARTITION','PROJECTION FIBERS','LOCAL GEOMETRY','GRAY CYCLE','HOLDOUT Q8','REPLAY'];
+let dimension=3,selected=0;
+const $=id=>document.getElementById(id);
+const bits=(value,n)=>value.toString(2).padStart(n,'0');
+const hamming=(a,b)=>{let x=a^b,c=0;while(x){c+=x&1;x>>=1}return c};
+const gray=i=>i^(i>>1);
+function buildNav(){
+  $('dimensionNav').innerHTML=dimensions.map(n=>`<button class="step ${n===dimension?'active':''}" data-n="${n}" type="button"><span>Q${n}</span><b>${2**n} states</b>${n===1?'binary seed':`Q${n-1} × {0,1}`}</button>`).join('');
+  document.querySelectorAll('.step').forEach(button=>button.addEventListener('click',()=>{dimension=+button.dataset.n;selected=0;render()}));
+}
+function edgePairs(n){const out=[];for(let a=0;a<2**n;a++)for(let b=a+1;b<2**n;b++)if(hamming(a,b)===1)out.push([a,b]);return out}
+function positions(n){
+  if(n===1)return new Map([[0,[250,290]],[1,[510,290]]]);
+  const parentN=n-1,count=2**parentN,map=new Map(),top=64,bottom=548;
+  for(let row=0;row<count;row++){
+    const parent=gray(row),y=count===1?300:top+row*(bottom-top)/(count-1);
+    map.set(parent*2,[220,y]);map.set(parent*2+1,[540,y]);
+  }return map;
+}
+function renderGraph(){
+  const n=dimension,pos=positions(n),edges=edgePairs(n),svg=$('carrier');
+  const inner=edges.filter(([a,b])=>n===1||((a&1)===(b&1))).map(([a,b])=>`<line class="inner" x1="${pos.get(a)[0]}" y1="${pos.get(a)[1]}" x2="${pos.get(b)[0]}" y2="${pos.get(b)[1]}"/>`).join('');
+  const bridges=edges.filter(([a,b])=>n>1&&((a&1)!==(b&1))).map(([a,b])=>`<line class="bridge" x1="${pos.get(a)[0]}" y1="${pos.get(a)[1]}" x2="${pos.get(b)[0]}" y2="${pos.get(b)[1]}"/>`).join('');
+  const nodes=[...pos].map(([value,[x,y]])=>{const parity=bits(value,n).split('').reduce((s,v)=>s+ +v,0)%2;return `<g data-state="${value}" role="button" aria-label="Adresse ${value}, Zustand ${bits(value,n)}"><circle class="node ${parity?'odd':'even'} ${value===selected?'selected':''}" cx="${x}" cy="${y}" r="${n>4?11:15}"/><text class="node-label" x="${x}" y="${y+(n>4?27:31)}">${bits(value,n)} · ${value}</text></g>`}).join('');
+  const labels=n===1?'':`<text class="layer-label" x="220" y="28" text-anchor="middle">Layer 0 · Q${n-1}</text><text class="layer-label" x="540" y="28" text-anchor="middle">Layer 1 · Q${n-1}</text><text class="layer-label" x="380" y="575" text-anchor="middle">${2**(n-1)} parent-matched lift bridges</text>`;
+  svg.innerHTML=`${labels}${inner}${bridges}${nodes}`;
+  svg.querySelectorAll('[data-state]').forEach(node=>node.addEventListener('click',()=>{selected=+node.dataset.state;renderGraph();renderReadout()}));
+}
+function renderReadout(){
+  const n=dimension,word=bits(selected,n),neighborValues=Array.from({length:2**n},(_,v)=>v).filter(v=>hamming(v,selected)===1);
+  $('stageTitle').textContent=`Q${n} · ${2**n} Zustände`;$('metricV').textContent=2**n;$('metricE').textContent=n*2**(n-1);$('metricD').textContent=n;$('metricB').textContent=n===1?'—':2**(n-1);
+  $('binaryValue').textContent=word;$('decimalValue').textContent=selected;$('parityValue').textContent=`${word.split('').reduce((s,v)=>s+ +v,0)%2?'ungerade':'gerade'}${n>1?` · letzter Bit-Layer ${selected&1}`:''}`;
+  $('neighbors').innerHTML=neighborValues.map(v=>`<span class="chip">${bits(v,n)} · ${v}</span>`).join('');
+  $('fiberValue').textContent=n===1?'Q1 ist der Startcarrier':`${word.slice(0,-1)} ← {${word.slice(0,-1)}0, ${word.slice(0,-1)}1}`;
+}
+function renderGates(){$('gateList').innerHTML=gateNames.map((name,i)=>`<div class="gate"><span>G${String(i+1).padStart(2,'0')} · ${name}</span><strong class="pass">PASS</strong></div>`).join('')}
+function render(){buildNav();renderGraph();renderReadout();renderGates()}
+render();
+</script>
+</body>
+</html>
+

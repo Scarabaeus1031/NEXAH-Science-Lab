@@ -1,0 +1,58 @@
+{
+  "active_gate": "P2_LOCAL_BROWSER_INSTRUMENT",
+  "build_authority": "HUMAN_OWNER_2026-10-07",
+  "overall": "PASS",
+  "delivery": "DIRECT_FILE_HTML",
+  "network_required": false,
+  "engine_contract": {
+    "rule": "B3/S23",
+    "update": "synchronous",
+    "boundary": "finite-dead",
+    "p1_parity_fixtures": [
+      "block",
+      "blinker",
+      "glider"
+    ],
+    "p1_parity_tests": 3
+  },
+  "views": [
+    "V1_FIELD",
+    "V2_SPACE_TIME_BODY",
+    "V3_SYNCHRONIZED_SLICE",
+    "V6_CAUSAL_INSPECTOR",
+    "RETURN_CLASS_DISPLAY"
+  ],
+  "validation": {
+    "node_tests": {
+      "passed": 5,
+      "failed": 0
+    },
+    "static_audit": {
+      "passed": 13,
+      "failed": 0
+    },
+    "syntax_checked": [
+      "app.js",
+      "life-browser.js"
+    ]
+  },
+  "excluded": [
+    "GLB export",
+    "E8/ADE adapter",
+    "Science Navigator integration",
+    "publication",
+    "deployment",
+    "claim promotion"
+  ],
+  "sha256": {
+    "README.md": "1cbc13411ab2c9e697bd57e49af250c6a2882479cb69f773d85f5c5dea3303e2",
+    "index.html": "f80d353bd3999308634dc0c74be2e2b3183c52f4c5a23a9b3cf9e356ba5e6f39",
+    "styles.css": "2e400f8b1f9aec738e8082762433c40f0f4e591c260d0ca39b8d3bd49264f08d",
+    "life-browser.js": "bd82b110b33624a53e9c2dccf58333eab0bfec44bdca70d8fe78fdfaf8297f7e",
+    "app.js": "32df3c2fb1dd06f06dad40f653125cec036f45774a4e3385533980d0f6ab4608",
+    "audit-p2.cjs": "9fdef5e9298b4e0aba735c8dc9d2c61fcc7abf3b5ccef89953d46b029e69b254",
+    "package.json": "6832377131f1e56bbbf09e276c179a29a4d9e08e3bb3a1715fba0a5a4dc9ac5c",
+    "tests/p2-parity.test.cjs": "acb8a705badf864d45adfbabb7f0320ef28a289679e740dc2861f3e633b29b9d",
+    "scripts/build-receipts.cjs": "7fb8f09ed6c552b26d4f643db09159a219e956cfd96f3eaa20f751342d53a271"
+  }
+}

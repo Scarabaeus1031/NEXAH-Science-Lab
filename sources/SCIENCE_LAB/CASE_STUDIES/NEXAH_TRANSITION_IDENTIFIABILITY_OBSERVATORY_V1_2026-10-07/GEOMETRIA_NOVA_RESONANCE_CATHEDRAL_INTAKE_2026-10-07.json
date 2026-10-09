@@ -1,0 +1,49 @@
+{
+  "schema": "nexah.model-lineage-intake/1.0.0",
+  "date": "2026-10-07",
+  "status": "HASH_BOUND_EXTERNAL_ASSET_INTAKE__NO_BINARY_COPY",
+  "scope": "Geometria Nova / Resonance Cathedral / multi-grid model lineage",
+  "source_roots": [
+    "[local path omitted in public preview]",
+    "[local path omitted in public preview]"
+  ],
+  "model_assets": [
+    {"id":"RC08","file":"resonance_cathedral_v0_8_extended.glb","path":"[local path omitted in public preview]","sha256":"ddff799102ac7a40f98ee125c6d4a76f17a869786d182da0e9859023b6584443","bytes":74644,"nodes":494,"named_nodes":494,"meshes":4,"materials":5},
+    {"id":"RC88","file":"cathedral_v8_8_fusion.glb","path":"[local path omitted in public preview]","sha256":"45496d09f7b86d42fc5d0f10e249498f2aa531b8b97f61d6a776983526a55613","bytes":6218380,"nodes":18080,"named_nodes":18080,"meshes":15745,"materials":5},
+    {"id":"PRIMEWEB","file":"Prime_Web_Ulam3D.glb","path":"[local path omitted in public preview]","sha256":"190da6dc6d624f29b0d2cd199257f8713368fcf37ba86d4eb71669e140de3995","bytes":2982420,"nodes":7080,"named_nodes":7080,"meshes":19745,"materials":0},
+    {"id":"QPLAY","file":"Quaternion_Playground.glb","path":"[local path omitted in public preview]","sha256":"5bfa0acf79d0e91b5c0804d1e4bebfdf4a1a6f692f1aca069d04c18d5e7286e9","bytes":3513976,"nodes":13226,"named_nodes":13226,"meshes":13225,"materials":0},
+    {"id":"G6","file":"grid_6x6.glb","path":"[local path omitted in public preview]","sha256":"0c9f24ed65a5583307acdf1b7410de6a69f16a655ba54e2cc2b144197b6d6441","bytes":4788,"nodes":2,"named_nodes":2,"meshes":1,"materials":0},
+    {"id":"G7","file":"grid_7x7.glb","path":"[local path omitted in public preview]","sha256":"60e37ac1bc49505be06d0d9773cbfb58c84e577c8aeb4ee1870a6a83a1b34960","bytes":5328,"nodes":2,"named_nodes":2,"meshes":1,"materials":0},
+    {"id":"G10","file":"grid_10x10.glb","path":"[local path omitted in public preview]","sha256":"a5ba0701ec8cb00fdb77f80ed7260e63427ecfcec77e3842e0463a73911714ed","bytes":6960,"nodes":2,"named_nodes":2,"meshes":1,"materials":0},
+    {"id":"RC7","file":"cathedral_v7_TH_rotated_plus_cosmic_web.glb","path":"[local path omitted in public preview]","sha256":"51c6b287525a02ee9924694a25ad6c89781e29a79d0d31a4215d1d198d1a27a4","bytes":6101912,"nodes":16906,"named_nodes":16906,"meshes":15738,"materials":3},
+    {"id":"RC8","file":"cathedral_v8_with_lotus.glb","path":"[local path omitted in public preview]","sha256":"cccd684768126038b13f6baa88001ee283a3fb8c628cb1b26bf21a083ff459eb","bytes":6108020,"nodes":16908,"named_nodes":16908,"meshes":15740,"materials":3}
+  ],
+  "verified_relations": [
+    {"source":"RC08","target":"RC88","method":"independent GLB JSON-chunk named-node set comparison","result":"492/494 source names retained","missing":["CameraProxy","LightBurst"],"added_named_nodes":17588,"claim_ceiling":"identifier inheritance only; no geometry-level derivation asserted"},
+    {"source":"01_Resonance_Cathedral","target":"02_RA_TH_Standing_Wave","method":"module documentation and retained binary inventory","result":"documented program order from static lattice to quaternion coordinate framework","claim_ceiling":"no direct binary derivation asserted"}
+  ],
+  "owner_screenshot_session": {
+    "date_utc":"2026-05-02",
+    "interpretation":"coherent owner work session linking pi-Omega compass, alpha-Omega sub-grids, Cathedral previews and USDZ patch experiments",
+    "assets":[
+      {"sha256":"26c270d0dd8d956ca566dbbe7a393e2b543c4275bdfc8747c14ae75f3d30682b","note":"pi-Omega Compass v2","time_utc":"04:17:26"},
+      {"sha256":"c93da2a80b53dc472dff0ca092510ac6429d5c0df7e5bb8ef59b7351b04c039c","note":"Alpha-Omega top view","time_utc":"04:26:53"},
+      {"sha256":"2c7cff91b9b6557e489fa7d5f5c70677f4c5fdf771e232c71d2efc04078a3a2f","note":"Alpha-Omega front view","time_utc":"04:44:06"},
+      {"sha256":"9600e990ce39f8d58a53a884afacf8024203cf2dda4807a0b008c763a66dba62","note":"Cathedral model preview","time_utc":"04:46:48"},
+      {"sha256":"6a8b325bf39322f96a10f654b4e088f1d2c4f771a17a34576343b0de571bd3ab","note":"Alpha-Omega isometric view","time_utc":"04:47:52"},
+      {"sha256":"a935289804879c1f523814f63541ec3d3b25025e4748b5904634a001f726d80c","note":"pi-Omega window grids","time_utc":"05:06:23"},
+      {"sha256":"06c2bcc7d18342098650b9f7b27f6cf48db9f8906cdcab555563d058245efe87","note":"three QuickLook USDZ windows","time_utc":"05:07:51"},
+      {"sha256":"54ea5d646cba04bf5332f9ee302205171a8791d512ad829a3965172e5147aea5","note":"diptych and Quaternion USDZ preview","time_utc":"05:08:31"},
+      {"sha256":"26bfadd37db99ab81d02d9ff6b9cf4a50aa4a7c00c7e371e8e69ea240824954f","note":"Cathedral 8.9+ module-layer schema","time_utc":"05:17:19"}
+    ]
+  },
+  "visible_usdz_names": [
+    {"name":"trinity_enhanced_patch.usdz","status":"USDZ_BINARY_NOT_RECOVERED__HASHED_GLB_COUNTERPART_FOUND"},
+    {"name":"cathedral_with_trinity_frankfurt.usdz","status":"USDZ_BINARY_NOT_RECOVERED__HASHED_GLB_COUNTERPART_FOUND"},
+    {"name":"ullinirium_patch_planes_v3_rosette_sky.usdz","status":"TRANSCRIPTION_RESOLVED_FROM_GLB__USDZ_BINARY_NOT_RECOVERED__HASHED_GLB_COUNTERPART_FOUND"},
+    {"name":"diptych_window_scientific.usdz","status":"USDZ_BINARY_NOT_RECOVERED__HASHED_GLB_COUNTERPART_FOUND"},
+    {"name":"Quaternion_Playground.usdz","status":"USDZ_BINARY_NOT_RECOVERED__HASHED_GLB_COUNTERPART_FOUND"}
+  ],
+  "recovery_result": "RECOVERY_AND_GRID_OPERATOR_RESULTS_2026-10-07.json",
+  "claim_boundary": "The intake binds external assets by path, hash and parsed counts without copying binaries. Matching hashed GLB counterparts recover source-format lineage but do not prove GLB-to-USDZ conversion identity, model composition or a universal grid operator."
+}

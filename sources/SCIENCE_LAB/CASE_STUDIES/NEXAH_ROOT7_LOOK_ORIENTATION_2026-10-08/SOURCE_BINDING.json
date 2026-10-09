@@ -1,0 +1,45 @@
+{
+  "schema": "nexah.root7.look.source-binding",
+  "version": "1.0.0",
+  "record_id": "NEXAH:ROOT7:LOOK:ORIENTATION:2026-10-08",
+  "status": "INTERNAL_READ_ONLY_ORIENTATION",
+  "publication_authorized": false,
+  "reopens_root7_closeout": false,
+  "family_placement": ["MOD:TESSAREC", "MOD:NUMBER_VIEW_SUITE"],
+  "exact_statements": {
+    "q3_cardinality": "2^3 = 8",
+    "q4_cardinality": "2^4 = 16",
+    "declared_vector": [2, 1, 1, 1],
+    "euclidean_norm_squared": 7,
+    "euclidean_norm": "sqrt(7)"
+  },
+  "sources": [
+    {
+      "role": "exact-sign-state-fixture",
+      "path": "SCIENCE_LAB/EXPORTS/NEXAH_TESSERACT_ROOT_SPACE_8_TO_16.html",
+      "sha256": "fcae2a8d1955be4102622747fb48d585c066352e784f0a749b424fa81fe25388"
+    },
+    {
+      "role": "historical-family-master",
+      "path": "SCIENCE_LAB/CASE_STUDIES/NEXAH_ROOT7_CUSTODY_2026-09-28/Nexah_Root7/NEXAH_Root7_Tesseract_Bridge copy 2.html",
+      "sha256": "bf1dbfdcf5f4ed06b22cd0d1c88b227e711415036ab790cc46d3c86a4231e670"
+    },
+    {
+      "role": "scientific-decision-authority",
+      "path": "SCIENCE_LAB/CASE_STUDIES/NEXAH_ROOT7_CUSTODY_2026-09-28/NEXAH_ROOT7_BOUNDED_CLOSEOUT_2026-09-28/FINAL_REPORT.md",
+      "sha256": "05c44e39e62f71093d2056b8179800c88ccfb09b97b48422184f9bd735c99149"
+    },
+    {
+      "role": "custody-status-authority",
+      "path": "SCIENCE_LAB/CASE_STUDIES/NEXAH_ROOT7_CUSTODY_2026-09-28/00_README.md",
+      "sha256": "0298659e9e90900e7c2ca00b7b731c067f8e0ee4241a2c3c8e3ebf2eb7b3c852"
+    }
+  ],
+  "decisions": {
+    "axis_selection": "NON_IDENTIFIABLE",
+    "endpoint_routing": "ENDPOINT_INSUFFICIENT_HISTORY_REQUIRED",
+    "scn_root7_angle_404": "NOT_IDENTIFIED"
+  },
+  "claim_ceiling": "Exact finite constructions and bounded representation fixtures only; no spacetime metric, routing capability, encryption, physical mechanism, E8 identity or Core readiness."
+}
+

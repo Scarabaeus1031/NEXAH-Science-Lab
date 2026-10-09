@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>NEXAH · Typed Coupling Workbench</title>
+<style>
+:root{color-scheme:dark;--bg:#050d15;--panel:#091724;--panel2:#102334;--line:#29495f;--text:#e8f2f9;--muted:#91a7b8;--cyan:#55d5ff;--mint:#55e0af;--gold:#f5c85f;--pink:#f263b5;--orange:#ff9a60;--violet:#a78bfa}
+*{box-sizing:border-box}body{margin:0;min-height:100vh;background:radial-gradient(circle at 50% 0,#123148 0,#06111c 46%,#03080d 100%);color:var(--text);font:14px/1.45 Inter,ui-sans-serif,system-ui,-apple-system,sans-serif}button,select,input{font:inherit}main{max-width:1580px;margin:auto;padding:22px}.eyebrow{color:var(--gold);font-size:12px;letter-spacing:.15em;text-transform:uppercase;font-weight:700}h1{font-size:clamp(29px,4vw,52px);line-height:1.04;margin:5px 0 7px}p{color:var(--muted);margin:0}.routes{display:flex;gap:8px;flex-wrap:wrap;margin:15px 0}.routes a{color:var(--text);text-decoration:none;border:1px solid var(--line);background:rgba(9,23,36,.86);border-radius:999px;padding:7px 11px;font-size:12px}.routes a:hover,.routes a:focus-visible{border-color:var(--cyan);outline:none}.pipeline{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:12px;overflow:hidden;margin:16px 0}.stage{background:rgba(8,20,31,.97);padding:11px 13px;position:relative}.stage:not(:last-child)::after{content:'→';position:absolute;right:-8px;top:50%;z-index:2;color:var(--gold);transform:translateY(-50%)}.stage small{display:block;color:var(--gold);letter-spacing:.08em}.stage b{display:block;margin-top:3px;font-size:13px}.stage span{display:block;color:var(--muted);font-size:12px;margin-top:2px}.controls{display:flex;gap:10px;align-items:end;flex-wrap:wrap;margin:16px 0}.field{display:grid;gap:5px;min-width:190px}.field span{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em}.field.offset{min-width:150px}.field.offset input{width:160px}select,input{color:var(--text);background:var(--panel2);border:1px solid var(--line);border-radius:8px;padding:9px 11px}input[type=range]{padding:0;accent-color:var(--pink)}.hidden{display:none!important}.stats{display:grid;grid-template-columns:repeat(6,minmax(120px,1fr));gap:9px;margin-bottom:12px}.stat{background:rgba(9,23,36,.9);border:1px solid var(--line);border-radius:10px;padding:10px 12px}.stat small{display:block;color:var(--muted);letter-spacing:.07em;text-transform:uppercase}.stat strong{display:block;color:var(--mint);font-size:18px;margin-top:3px;overflow-wrap:anywhere}.work{display:grid;grid-template-columns:minmax(245px,.72fr) minmax(560px,1.7fr) minmax(265px,.8fr);gap:12px}.panel{background:rgba(7,18,29,.94);border:1px solid var(--line);border-radius:12px;padding:14px;min-width:0}.panel h2{margin:0 0 10px;color:var(--muted);font-size:13px;letter-spacing:.09em;text-transform:uppercase}.typed{border-left:3px solid var(--cyan);padding:10px 11px;background:#07131e;margin-bottom:10px}.typed b{display:block}.typed span{display:block;color:var(--muted);font-size:12px;margin-top:4px}.formula{background:#06111a;color:var(--gold);font:12px/1.55 ui-monospace,SFMono-Regular,Menlo,monospace;padding:11px;border-radius:8px;white-space:pre-wrap;overflow-wrap:anywhere}.checklist{display:grid;gap:1px;background:var(--line);border:1px solid var(--line);margin-top:12px}.checklist div{display:flex;justify-content:space-between;gap:10px;background:#081522;padding:8px 10px}.checklist span{color:var(--muted);font-size:12px}.checklist b{font-size:12px}.yes{color:var(--mint)}.no{color:var(--pink)}.na{color:var(--gold)}.visual{position:relative;min-height:570px;overflow:hidden}.visual svg{width:100%;height:100%;position:absolute;inset:0}.plane{fill:rgba(85,213,255,.035);stroke:var(--cyan);stroke-width:1.2}.plane.rp{fill:rgba(242,99,181,.035);stroke:var(--pink)}.plane-label{fill:var(--text);font-size:12px;font-weight:700;letter-spacing:.11em}.plane-note{fill:var(--muted);font-size:10px;letter-spacing:.05em}.map-line{stroke:var(--line);stroke-width:1;opacity:.5}.map-line.collision{stroke:var(--orange);opacity:.7}.map-line.relation{stroke:var(--violet);opacity:.58}.map-line.bundle{stroke:var(--gold);stroke-width:2;opacity:.68}.orbit-edge{stroke:var(--line);stroke-width:1;fill:none;opacity:.58}.source-node{fill:var(--cyan);opacity:.84}.target-node{fill:var(--pink);opacity:.88}.target-node.missing{fill:none;stroke:var(--muted);stroke-width:1;stroke-dasharray:3 3;opacity:.55}.residual-node{fill:var(--gold);stroke:#fff;stroke-width:1.2}.node-label{fill:var(--text);font-size:10px;text-anchor:middle;dominant-baseline:middle}.center-label{fill:var(--muted);font-size:11px;text-anchor:middle}.badge-exact{fill:var(--mint)}.badge-method{fill:var(--gold)}.badge-open{fill:var(--pink)}.legend{position:absolute;left:14px;bottom:11px;display:flex;gap:12px;flex-wrap:wrap;color:var(--muted);font-size:11px}.sw{display:inline-block;width:15px;height:3px;margin-right:5px;vertical-align:middle}.record{display:grid;gap:1px;background:var(--line);border:1px solid var(--line);margin-bottom:12px}.record div{background:#081522;padding:9px 10px}.record small{display:block;color:var(--muted);text-transform:uppercase;letter-spacing:.07em}.record b{display:block;margin-top:2px;overflow-wrap:anywhere}.boundary{border-left:3px solid var(--gold);padding:10px 12px;background:rgba(245,200,95,.06);color:var(--muted);font-size:12px}.boundary strong{color:var(--text)}.matrix{width:100%;border-collapse:collapse;margin-top:12px;font-size:12px}.matrix th,.matrix td{text-align:left;border-bottom:1px solid rgba(41,73,95,.62);padding:7px 5px;vertical-align:top}.matrix th{color:var(--muted);font-weight:600}.matrix td:last-child{color:var(--muted)}
+@media(max-width:1120px){.work{grid-template-columns:1fr 1.5fr}.work aside{grid-column:1/-1}.stats{grid-template-columns:repeat(3,1fr)}.pipeline{grid-template-columns:repeat(3,1fr)}.stage::after{display:none}}@media(max-width:740px){main{padding:13px}.pipeline{grid-template-columns:1fr 1fr}.stats{grid-template-columns:1fr 1fr}.work{grid-template-columns:1fr}.work aside{grid-column:auto}.visual{min-height:470px}.field{min-width:calc(50% - 7px);flex:1}.field.offset{min-width:100%}}
+</style>
+<script defer src="../../../NAVIGATION/NEXAH_MODULE_REGISTRY_RING1.js"></script>
+<script defer src="../../../NAVIGATION/NEXAH_NAVIGATION_RING1.js" data-module="typed-coupling"></script>
+</head>
+<body>
+<main>
+  <div class="eyebrow">NEXAH Science Lab · Typed Translation Instrument</div>
+  <h1>Carrier → Adapter → View → Return</h1>
+  <p>Ein Instrument für exakte Maps, kontrollierte Schnitte und offene Brücken. Gleiches Bild bedeutet nicht gleicher Träger.</p>
+  <nav class="routes" aria-label="Modulnavigation">
+    <a href="NEXAH_FAMILY_SYNTHESIS_DEMONSTRATOR.html">Roman Stack</a>
+    <a href="NEXAH_WORD_ORBIT_SEQUENCER.html">Word Sequencer</a>
+    <a href="../NEXAH_E8_MUTATION_FAMILY_GRAPH.html">Coxeter Orbit Lab</a>
+    <a href="README.md">Modulakte</a>
+    <a href="GROMA_ASTROLABE_DODECAHEDRON_RESEARCH_QUESTION_2026-10-05.md">Forschungsfrage</a>
+    <a href="../../../EXPORTS/NEXAH_HZ_FZ_COMPASS_MISSION_CONTROL.html">Mission Control</a>
+    <a href="../../../SUBJECT_OVERVIEW.md">Science Overview</a>
+  </nav>
+
+  <section class="pipeline" aria-label="Typisierte Verarbeitungskette">
+    <div class="stage"><small>1 · CARRIER</small><b id="pipeSource">H3 · 20 vertices</b><span>mathematischer Träger</span></div>
+    <div class="stage"><small>2 · ADAPTER</small><b id="pipeAdapter">prime polygon cut</b><span>explizite Regel</span></div>
+    <div class="stage"><small>3 · TARGET VIEW</small><b id="pipeTarget">P19 · cyclic view</b><span>Darstellung oder Quotient</span></div>
+    <div class="stage"><small>4 · RETURN</small><b id="pipeReturn">exact on retained image</b><span>Fasern und Residuen</span></div>
+    <div class="stage"><small>5 · RECORD</small><b>map + provenance</b><span>kein Identitätsclaim</span></div>
+  </section>
+
+  <section class="controls" aria-label="Kopplungssteuerung">
+    <label class="field"><span>Source carrier</span><select id="source"></select></label>
+    <label class="field"><span>Typed adapter</span><select id="adapter"></select></label>
+    <label class="field"><span>Target view</span><select id="target"></select></label>
+    <label class="field offset" id="offsetField"><span>Index offset <b id="offsetValue">0</b></span><input id="offset" type="range" min="0" max="28" value="0"></label>
+  </section>
+
+  <section class="stats" aria-live="polite">
+    <div class="stat"><small>Source</small><strong id="sSource">20</strong></div>
+    <div class="stat"><small>Target</small><strong id="sTarget">19</strong></div>
+    <div class="stat"><small>Mapped</small><strong id="sMapped">19</strong></div>
+    <div class="stat"><small>Collision excess</small><strong id="sCollision">0</strong></div>
+    <div class="stat"><small>Residual</small><strong id="sResidual">1 source</strong></div>
+    <div class="stat"><small>Claim status</small><strong id="sStatus">METHOD</strong></div>
+  </section>
+
+  <section class="work">
+    <article class="panel">
+      <h2>Typed map</h2>
+      <div class="typed"><b id="mapName">H3 vertex order → P19 cut</b><span id="mapSummary">Deklarierte Indexordnung; kein H3-Isomorphismus zum 19-gon.</span></div>
+      <div id="formula" class="formula">π(k)=k, 0≤k&lt;19
+k=19 → residual</div>
+      <div class="checklist">
+        <div><span>Total auf Quelle</span><b id="cTotal">NO</b></div>
+        <div><span>Injektiv</span><b id="cInjective">YES · on domain</b></div>
+        <div><span>Surjektiv auf Ziel</span><b id="cSurjective">YES</b></div>
+        <div><span>Adjazenz erhalten</span><b id="cAdjacency">NOT CLAIMED</b></div>
+        <div><span>Rückkehr</span><b id="cReturn">19 exact + 1 residual</b></div>
+      </div>
+      <table class="matrix" aria-label="Typgrenzen">
+        <thead><tr><th>Ebene</th><th>Bedeutung</th></tr></thead>
+        <tbody>
+          <tr><td>Carrier</td><td>Objekt vor der Abbildung</td></tr>
+          <tr><td>Address</td><td>Index oder Label, keine Metrik</td></tr>
+          <tr><td>View</td><td>Darstellung, Quotient oder Schnitt</td></tr>
+          <tr><td>Return</td><td>Faser, Kandidaten oder Residual</td></tr>
+        </tbody>
+      </table>
+    </article>
+
+    <article class="panel visual">
+      <h2 id="viewTitle">PP/RP · H3 carrier to P19 view</h2>
+      <svg id="view" role="img" aria-label="Quelle und Ziel einer typisierten mathematischen Abbildung"></svg>
+      <div class="legend"><span><i class="sw" style="background:var(--cyan)"></i>Source carrier</span><span><i class="sw" style="background:var(--pink)"></i>Target view</span><span><i class="sw" style="background:var(--gold)"></i>Residual</span><span><i class="sw" style="background:var(--orange)"></i>Collision fiber</span></div>
+    </article>
+
+    <aside class="panel">
+      <h2>Coupling record</h2>
+      <div class="record">
+        <div><small>Map class</small><b id="rClass">PARTIAL INJECTION</b></div>
+        <div><small>Fiber profile</small><b id="rFibers">19 × 1</b></div>
+        <div><small>Source residual</small><b id="rSourceResidual">1</b></div>
+        <div><small>Target residual</small><b id="rTargetResidual">0</b></div>
+        <div><small>Return fidelity</small><b id="rReturn">exact on retained image</b></div>
+        <div><small>Provenance</small><b id="rProvenance">declared index adapter</b></div>
+      </div>
+      <div id="boundary" class="boundary"><strong>METHOD:</strong> Die 19-gon-Ansicht ist ein deklarierter Schnitt des 20-Knoten-Trägers. Sie beweist weder eine H3-Identität noch eine Prime-Resonanz.</div>
+      <table class="matrix" aria-label="Claim-Legende">
+        <tbody>
+          <tr><td class="yes">EXACT</td><td>strukturtreue oder vollständig definierte Beziehung</td></tr>
+          <tr><td class="na">METHOD</td><td>deklarierte Auswahl, Projektion oder Adresse</td></tr>
+          <tr><td class="no">OPEN</td><td>nicht identifizierte Brücke oder Modellwahl</td></tr>
+        </tbody>
+      </table>
+    </aside>
+  </section>
+</main>
+<script>
+(()=>{
+  'use strict';
+  const NS='http://www.w3.org/2000/svg',$=id=>document.getElementById(id),S=(tag,a={})=>{const n=document.createElementNS(NS,tag);Object.entries(a).forEach(([k,v])=>n.setAttribute(k,v));return n};
+  const SOURCES={
+    h3v:{label:'H3 · 20 vertices',count:20,note:'Dodekaeder-Eckenträger'},
+    h3f:{label:'H3 · 12 face normals',count:12,note:'Dodekaederflächen / duale Normalen'},
+    q4:{label:'LOKI · Q4 / 16 states',count:16,note:'A1⁴ sign-state carrier'},
+    q4a:{label:'Q4 · X/Y/Z/W axes',count:4,note:'vier unterscheidbare Achsenrollen'},
+    e8:{label:'E8 · 240 roots',count:240,note:'registrierter Root-Träger'}
+  };
+  const ADAPTERS={
+    cut:{label:'Prime polygon cut'},mod:{label:'Prime modulo projection'},embed:{label:'Prime polygon embedding'},
+    cube:{label:'Five-cube incidence'},dual:{label:'Polyhedral duality'},forget:{label:'Forget W quotient'},
+    label:{label:'Prime axis labeling'},metric:{label:'Root7 metric candidate'},partition:{label:'Coxeter 8×30 partition'}
+  };
+  const TARGETS={
+    p7:{label:'P7 · cyclic view',count:7},p17:{label:'P17 · cyclic view',count:17},p19:{label:'P19 · cyclic view',count:19},p29:{label:'P29 · cyclic view',count:29},
+    cubes5:{label:'5 cubes · incidence target',count:5},icosa12:{label:'Icosahedron · 12 vertices',count:12},q3:{label:'Q3 · 8 states',count:8},
+    primes:{label:'Prime labels · 2/3/5/7',count:4},mx:{label:'Metric candidate · stretch X',count:4},my:{label:'Metric candidate · stretch Y',count:4},mz:{label:'Metric candidate · stretch Z',count:4},mw:{label:'Metric candidate · stretch W',count:4},
+    orbits:{label:'8 Coxeter orbits × 30',count:8}
+  };
+  const ALLOWED={
+    h3v:{cut:['p7','p17','p19'],mod:['p7','p17','p19'],embed:['p29'],cube:['cubes5']},
+    h3f:{dual:['icosa12']},q4:{forget:['q3']},q4a:{label:['primes'],metric:['mx','my','mz','mw']},e8:{partition:['orbits']}
+  };
+  const META={
+    cut:{status:'METHOD',cls:'PARTIAL INJECTION',adj:'NOT CLAIMED',prov:'declared retained index order'},
+    mod:{status:'METHOD',cls:'TOTAL MODULO MAP',adj:'NOT CLAIMED',prov:'declared modular address'},
+    embed:{status:'METHOD',cls:'INJECTIVE EMBEDDING',adj:'NOT CLAIMED',prov:'declared cyclic placement'},
+    cube:{status:'EXACT',cls:'INCIDENCE RELATION',adj:'INCIDENCE PRESERVED',prov:'five-cube compound combinatorics'},
+    dual:{status:'EXACT',cls:'BIJECTION',adj:'DUAL INCIDENCE',prov:'polyhedral duality'},
+    forget:{status:'EXACT',cls:'2:1 QUOTIENT',adj:'Q3 EDGES PRESERVED',prov:'Q4 coordinate projection'},
+    label:{status:'EXACT',cls:'LABEL BIJECTION',adj:'NO METRIC CLAIM',prov:'declared axis names'},
+    metric:{status:'OPEN',cls:'METRIC CANDIDATE',adj:'MODEL-DEPENDENT',prov:'Root7 axis alternatives'},
+    partition:{status:'EXACT',cls:'ORBIT PARTITION',adj:'COXETER ORDER',prov:'registered E8 Coxeter decomposition'}
+  };
+  const model={source:'h3v',adapter:'cut',target:'p19',offset:0};
+  const sourceSel=$('source'),adapterSel=$('adapter'),targetSel=$('target');
+  Object.entries(SOURCES).forEach(([v,o])=>sourceSel.add(new Option(o.label,v)));
+  sourceSel.value=model.source;
+  function fillAdapters(){adapterSel.replaceChildren();Object.keys(ALLOWED[model.source]).forEach(v=>adapterSel.add(new Option(ADAPTERS[v].label,v)));if(!ALLOWED[model.source][model.adapter])model.adapter=Object.keys(ALLOWED[model.source])[0];adapterSel.value=model.adapter;fillTargets()}
+  function fillTargets(){targetSel.replaceChildren();ALLOWED[model.source][model.adapter].forEach(v=>targetSel.add(new Option(TARGETS[v].label,v)));if(!ALLOWED[model.source][model.adapter].includes(model.target))model.target=ALLOWED[model.source][model.adapter][0];targetSel.value=model.target;const prime=['cut','mod','embed'].includes(model.adapter);$('offsetField').classList.toggle('hidden',!prime);$('offset').max=Math.max(0,TARGETS[model.target].count-1);if(model.offset>=TARGETS[model.target].count)model.offset=0;$('offset').value=model.offset;render()}
+  function pairs5(){const p=[];for(let a=0;a<5;a++)for(let b=a+1;b<5;b++)p.push([a,b]);return p}
+  function build(){const sc=SOURCES[model.source],tg=TARGETS[model.target],assign=[],residual=[];let relation=false,formula='',name='',summary='',boundary='';
+    if(model.adapter==='cut'){for(let i=0;i<sc.count;i++)i<tg.count?assign.push([i,(i+model.offset)%tg.count]):residual.push(i);formula=`π(k)=(k+${model.offset}) mod ${tg.count}, 0≤k<${tg.count}\nk≥${tg.count} → source residual`;name=`H3 vertex order → ${tg.label} cut`;summary='Deklarierte Indexordnung; kein Polygon-/H3-Isomorphismus.';boundary=`Die ${tg.count}-gon-Ansicht ist ein deklarierter Schnitt. Prime-Ordnung ist hier Zieladresse, nicht H3-Identität.`}
+    if(model.adapter==='mod'){for(let i=0;i<sc.count;i++)assign.push([i,(i+model.offset)%tg.count]);formula=`π(k)=(k+${model.offset}) mod ${tg.count}`;name=`H3 vertex order → ${tg.label} modulo`;summary='Totale Projektion; Kollisionsfasern werden sichtbar gehalten.';boundary='Die modulare Adresse ist vollständig definiert, erhält aber weder H3-Adjazenz noch metrische Struktur.'}
+    if(model.adapter==='embed'){for(let i=0;i<sc.count;i++)assign.push([i,(i+model.offset)%tg.count]);formula=`ι(k)=(k+${model.offset}) mod ${tg.count}, 0≤k<20`;name='H3 vertex order → P29 embedding';summary='Injektive Platzierung mit neun unbelegten Zielpositionen.';boundary='Die Einbettung ordnet 20 Adressen in P29 an. Sie erzeugt keinen 29-Knoten-H3-Träger.'}
+    if(model.adapter==='cube'){relation=true;const ps=pairs5();for(let i=0;i<20;i++){const p=ps[Math.floor(i/2)];assign.push([i,p[0]],[i,p[1]])}formula='vᵢ R Cₐ,Cᵦ\n20 vertices × 2 memberships = 5 cubes × 8 vertices';name='Dodekaeder vertices ↔ five-cube compound';summary='Exakte Inzidenzrelation: jede Ecke gehört zu zwei Würfeln.';boundary='Dies ist keine Funktion in einen einzelnen Würfel, sondern eine exakte Mehrfachzugehörigkeit im Fünf-Würfel-Verbund.'}
+    if(model.adapter==='dual'){for(let i=0;i<12;i++)assign.push([i,i]);formula='faceᵢ ↔ outward normalᵢ ↔ dual icosahedron vertexᵢ';name='Dodecahedron faces ↔ icosahedron vertices';summary='Exakte polyhedrale Dualität.';boundary='Flächen, Normalen und duale Ecken sind bijektiv gekoppelt; ihre Rollen bleiben verschieden.'}
+    if(model.adapter==='forget'){for(let i=0;i<16;i++)assign.push([i,i&7]);formula='π(x,y,z,w)=(x,y,z)\nfiber(q)={(q,−1),(q,+1)}';name='LOKI Q4 → Q3 quotient';summary='W wird vergessen; jede Zieladresse besitzt zwei Urbilder.';boundary='Der Quotient ist exakt. Die Rückkehr benötigt zusätzlich das verlorene W-Bit.'}
+    if(model.adapter==='label'){for(let i=0;i<4;i++)assign.push([i,i]);formula='(X,Y,Z,W) ↔ (2,3,5,7)';name='Q4 axes ↔ prime labels';summary='Exakte Namenszuordnung ohne Längen- oder Physikclaim.';boundary='Primzahlen adressieren die vier Achsen. Sie bestimmen keine metrischen Kantenlängen.'}
+    if(model.adapter==='metric'){for(let i=0;i<4;i++)assign.push([i,i]);const axis=model.target.at(-1).toUpperCase(),weights=['X','Y','Z','W'].map(x=>x===axis?2:1);formula=`M_${axis}=diag(${weights.join(',')})\n||M_${axis}(1,1,1,1)||²=7`;name=`Root7 candidate · stretch ${axis}`;summary='Eine von vier achsenvertauschten Arbeitsdefinitionen.';boundary='Der Root7-Audit identifiziert keine ausgezeichnete Streckachse. Diese Wahl ist ein Modellparameter, keine Ableitung aus Prime-Labels oder E8.'}
+    if(model.adapter==='partition'){for(let i=0;i<240;i++)assign.push([i,Math.floor(i/30)]);formula='E8 roots ↔ (orbit index 0…7, phase index 0…29)\n240 = 8 × 30';name='E8 roots → Coxeter orbit partition';summary='Registrierte Zerlegung in acht disjunkte 30er-Bahnen.';boundary='Die Partition ist exakt für den registrierten Coxeter-Operator; die Ringansicht bleibt eine Projektion.'}
+    const fibers=Array.from({length:tg.count},()=>[]);assign.forEach(([a,b])=>fibers[b].push(a));const mappedSources=new Set(assign.map(x=>x[0])),missing=fibers.map((f,i)=>f.length?null:i).filter(x=>x!==null),collisionExcess=fibers.reduce((s,f)=>s+Math.max(0,f.length-1),0),maxFiber=Math.max(0,...fibers.map(f=>f.length)),total=mappedSources.size===sc.count,injective=!relation&&maxFiber<=1,surjective=missing.length===0,meta=META[model.adapter];
+    let ret=relation?'two memberships retained':maxFiber>1?`ambiguous · up to ${maxFiber} candidates`:residual.length?`exact for ${mappedSources.size} · ${residual.length} residual`:'exact on image';
+    return{sc,tg,assign,residual,missing,fibers,collisionExcess,maxFiber,total,injective,surjective,relation,formula,name,summary,boundary,ret,meta}
+  }
+  function ring(n,cx,cy,r,start=-Math.PI/2){return Array.from({length:n},(_,i)=>{const a=start+2*Math.PI*i/n;return[cx+r*Math.cos(a),cy+r*Math.sin(a)]})}
+  function text(svg,value,x,y,cls='plane-label',anchor='start'){const t=S('text',{x,y,class:cls,'text-anchor':anchor});t.textContent=value;svg.append(t);return t}
+  function draw(){const d=build(),svg=$('view'),box=svg.parentElement.getBoundingClientRect(),w=Math.max(560,box.width),h=Math.max(500,box.height),lx=w*.27,rx=w*.73,cy=h*.51,rr=Math.min(h*.34,w*.2);svg.setAttribute('viewBox',`0 0 ${w} ${h}`);svg.replaceChildren();
+    svg.append(S('ellipse',{cx:lx,cy,rx:rr*1.18,ry:rr*.92,class:'plane'}));svg.append(S('ellipse',{cx:rx,cy,rx:rr*1.18,ry:rr*.92,class:'plane rp'}));text(svg,'PP · SOURCE CARRIER',lx-rr*1.05,cy-rr-35);text(svg,d.sc.label,lx-rr*1.05,cy-rr-18,'plane-note');text(svg,'RP · TARGET VIEW',rx-rr*1.05,cy-rr-35);text(svg,d.tg.label,rx-rr*1.05,cy-rr-18,'plane-note');
+    let sp,tp;
+    if(model.source==='e8'){sp=[];for(let g=0;g<8;g++){const r=rr*(.28+.075*g),pts=ring(30,lx,cy,r);pts.forEach(p=>sp.push(p));svg.append(S('polygon',{points:pts.map(p=>p.join(',')).join(' '),class:'orbit-edge'}))}}else sp=ring(d.sc.count,lx,cy,rr*.78);
+    tp=ring(d.tg.count,rx,cy,rr*.78);
+    if(['p7','p17','p19','p29'].includes(model.target))svg.append(S('polygon',{points:tp.map(p=>p.join(',')).join(' '),class:'orbit-edge'}));
+    if(model.adapter==='partition'){for(let g=0;g<8;g++){const a=sp.slice(g*30,(g+1)*30).reduce((z,p)=>[z[0]+p[0]/30,z[1]+p[1]/30],[0,0]);svg.append(S('line',{x1:a[0],y1:a[1],x2:tp[g][0],y2:tp[g][1],class:'map-line bundle'}))}}else d.assign.forEach(([a,b])=>{const klass=d.relation?'relation':d.fibers[b].length>1?'collision':'';svg.append(S('line',{x1:sp[a][0],y1:sp[a][1],x2:tp[b][0],y2:tp[b][1],class:'map-line '+klass}))});
+    const residualSet=new Set(d.residual),missingSet=new Set(d.missing);sp.forEach((p,i)=>{svg.append(S('circle',{cx:p[0],cy:p[1],r:model.source==='e8'?2.1:residualSet.has(i)?7:4.5,class:residualSet.has(i)?'residual-node':'source-node'}));if(d.sc.count<=20)text(svg,String(i),p[0],p[1],'node-label','middle')});
+    const labels=model.target==='primes'?['2','3','5','7']:model.target.startsWith('m')?['X','Y','Z','W']:null;tp.forEach((p,i)=>{svg.append(S('circle',{cx:p[0],cy:p[1],r:missingSet.has(i)?6:5.5,class:'target-node '+(missingSet.has(i)?'missing':'')}));if(d.tg.count<=29)text(svg,labels?labels[i]:String(i),p[0],p[1],'node-label','middle')});
+    text(svg,d.sc.count+' source items',lx,cy+rr+38,'center-label','middle');text(svg,d.tg.count+' target positions',rx,cy+rr+38,'center-label','middle');const statusClass=d.meta.status==='EXACT'?'badge-exact':d.meta.status==='OPEN'?'badge-open':'badge-method';text(svg,d.meta.status,w/2,cy-12,statusClass,'middle');text(svg,d.meta.cls,w/2,cy+9,'center-label','middle');text(svg,d.ret,w/2,cy+28,'center-label','middle');
+  }
+  function flag(id,value,kind){const e=$(id);e.textContent=value;e.className=kind==='yes'?'yes':kind==='no'?'no':'na'}
+  function render(){const d=build(),fiberCounts=d.fibers.filter(f=>f.length).map(f=>f.length),profile=[...new Set(fiberCounts)].sort((a,b)=>a-b).map(n=>`${d.fibers.filter(f=>f.length===n).length} × ${n}`).join(' · ')||'none';$('pipeSource').textContent=d.sc.label;$('pipeAdapter').textContent=ADAPTERS[model.adapter].label;$('pipeTarget').textContent=d.tg.label;$('pipeReturn').textContent=d.ret;$('sSource').textContent=d.sc.count;$('sTarget').textContent=d.tg.count;$('sMapped').textContent=new Set(d.assign.map(x=>x[0])).size;$('sCollision').textContent=d.relation?'relation':d.collisionExcess;$('sResidual').textContent=d.residual.length?d.residual.length+' source':d.missing.length?d.missing.length+' target':'0';$('sStatus').textContent=d.meta.status;$('mapName').textContent=d.name;$('mapSummary').textContent=d.summary;$('formula').textContent=d.formula;flag('cTotal',d.total?'YES':'NO',d.total?'yes':'no');flag('cInjective',d.relation?'N/A · RELATION':d.injective?'YES':'NO',d.relation?'na':d.injective?'yes':'no');flag('cSurjective',d.surjective?'YES':'NO',d.surjective?'yes':'no');flag('cAdjacency',d.meta.adj,d.meta.status==='EXACT'?'yes':'na');flag('cReturn',d.ret,d.maxFiber<=1?'yes':'na');$('rClass').textContent=d.meta.cls;$('rFibers').textContent=profile;$('rSourceResidual').textContent=d.residual.length;$('rTargetResidual').textContent=d.missing.length;$('rReturn').textContent=d.ret;$('rProvenance').textContent=d.meta.prov;$('boundary').innerHTML=`<strong>${d.meta.status}:</strong> ${d.boundary}`;$('viewTitle').textContent=`PP/RP · ${d.sc.label} → ${d.tg.label}`;$('offsetValue').textContent=model.offset;draw()}
+  sourceSel.onchange=()=>{model.source=sourceSel.value;model.adapter='';model.target='';model.offset=0;fillAdapters()};adapterSel.onchange=()=>{model.adapter=adapterSel.value;model.target='';model.offset=0;fillTargets()};targetSel.onchange=()=>{model.target=targetSel.value;model.offset=0;fillTargets()};$('offset').oninput=()=>{model.offset=+$('offset').value;render()};new ResizeObserver(draw).observe($('view').parentElement);fillAdapters();
+})();
+</script>
+</body>
+</html>

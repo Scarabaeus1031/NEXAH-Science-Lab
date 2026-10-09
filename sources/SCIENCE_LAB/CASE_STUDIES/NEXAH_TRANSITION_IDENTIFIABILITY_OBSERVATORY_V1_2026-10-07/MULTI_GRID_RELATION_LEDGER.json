@@ -1,0 +1,40 @@
+{
+  "schema": "nexah.multi-grid-relation-ledger/1.1.0",
+  "status": "BOUNDED_ORIENTATION__NO_UNIVERSAL_GRID_CLAIM",
+  "finding": "NEXAH uses a family of grids and typed relations between grids; a recurring number, nested drawing or co-located model is not an operator.",
+  "nodes": [
+    {"id":"X101","label":"0..100","size":"101 states","kind":"carrier","role":"inclusive Janus carrier","evidence":"exact"},
+    {"id":"Q51","label":"Q51","size":"51 classes","kind":"quotient","role":"49 interior + boundary + hinge","evidence":"exact"},
+    {"id":"G6","label":"6x6","size":"36 cells","kind":"grid","role":"retained public-release platform mesh","evidence":"hash-bound"},
+    {"id":"G7","label":"7x7","size":"49 cells","kind":"grid","role":"Rath payload / center field / retained platform mesh","evidence":"bounded"},
+    {"id":"G8","label":"8x8","size":"64 cells","kind":"frame","role":"7x7 payload with frame and corner","evidence":"bounded"},
+    {"id":"G9","label":"9x9","size":"81 cells","kind":"grid","role":"Prime-index state view","evidence":"bounded"},
+    {"id":"G10","label":"10x10","size":"100 cells","kind":"grid","role":"retained public-release platform mesh","evidence":"hash-bound"},
+    {"id":"G11","label":"11x11","size":"121 cells","kind":"grid","role":"relation cross / observer lattice","evidence":"exact"},
+    {"id":"G111","label":"111x111","size":"12321 cells","kind":"macro-grid","role":"elevator / coupling-key carrier","evidence":"bounded"},
+    {"id":"PASCAL","label":"Pascal","size":"variable","kind":"layer-grid","role":"multiplicity and fiber projection","evidence":"exact"},
+    {"id":"POLAR","label":"Compass","size":"coordinate view","kind":"projection","role":"orientation and navigation view","evidence":"bounded"},
+    {"id":"RC08","label":"Cathedral 0.8","size":"494 named nodes","kind":"3D model","role":"legacy extended Cathedral reference","evidence":"hash-bound"},
+    {"id":"RC88","label":"Cathedral 8.8","size":"18080 named nodes","kind":"3D model","role":"fusion model / retained lineage target","evidence":"hash-bound"},
+    {"id":"PRIMEWEB","label":"Prime Web","size":"7080 named nodes","kind":"3D model","role":"Ulam 3D / grid-topology model","evidence":"hash-bound"},
+    {"id":"QPLAY","label":"Quaternion","size":"13226 named nodes","kind":"coordinate model","role":"quaternion and Hopf coordinate playground","evidence":"hash-bound"}
+  ],
+  "edges": [
+    {"id":"E01","source":"X101","target":"Q51","operator":"J(k)=100-k quotient","status":"exact","preserves":"orbit identity","loses":"representative side","return_key":"lower/upper side"},
+    {"id":"E02","source":"Q51","target":"G7","operator":"49 + boundary + hinge decomposition","status":"declared","preserves":"49 interior orbit addresses","loses":"canonical cell ordering","return_key":"address rule plus side"},
+    {"id":"E03","source":"G7","target":"G8","operator":"payload/frame embedding","status":"bounded","preserves":"7x7 payload address","loses":"meaning of 14 frame cells and corner unless typed","return_key":"frame profile"},
+    {"id":"E04","source":"G8","target":"G9","operator":"normalized nearest-lattice resampling (synthetic controls)","status":"bounded","preserves":"injective source addresses and exact source-address roundtrip","loses":"exact coordinate and historical semantics","return_key":"source grid size and normalized address"},
+    {"id":"E05","source":"G9","target":"G11","operator":"index / relation reframing","status":"candidate","preserves":"selected index markers","loses":"unregistered intermediate structure","return_key":"operator not recovered"},
+    {"id":"E06","source":"G11","target":"G111","operator":"elevator recursion","status":"candidate","preserves":"11-family address grammar","loses":"canonical lift path","return_key":"lift rule not recovered"},
+    {"id":"E07","source":"PASCAL","target":"G11","operator":"Hamming-weight / Pascal projection","status":"bounded","preserves":"registered multiplicity","loses":"full binary carrier state","return_key":"fiber index"},
+    {"id":"E08","source":"G11","target":"POLAR","operator":"coordinate reprojection","status":"bounded","preserves":"declared node record","loses":"Cartesian presentation","return_key":"frame and coordinate convention"},
+    {"id":"E09","source":"G7","target":"G11","operator":"scale / relation lift","status":"visual-only","preserves":"center and axis motifs","loses":"cell identity","return_key":"operator not recovered"},
+    {"id":"E10","source":"G6","target":"G7","operator":"normalized nearest-lattice resampling over retained GLBs","status":"bounded","preserves":"shared mesh grammar, injective source addresses and exact source-address roundtrip","loses":"exact coordinate and historical semantics","return_key":"source grid size, normalized address and both SHA-256 hashes"},
+    {"id":"E11","source":"G7","target":"G10","operator":"normalized nearest-lattice resampling over retained GLBs","status":"bounded","preserves":"shared mesh grammar, injective source addresses and exact source-address roundtrip","loses":"exact coordinate and historical semantics","return_key":"source grid size, normalized address and both SHA-256 hashes"},
+    {"id":"E12","source":"RC08","target":"RC88","operator":"named-node inheritance audit","status":"exact","preserves":"492 of 494 legacy named-node identifiers","loses":"CameraProxy and LightBurst; geometry-level derivation not asserted","return_key":"both SHA-256 hashes plus name-set diff"},
+    {"id":"E13","source":"PRIMEWEB","target":"RC88","operator":"Module 01 co-location / fusion context","status":"candidate","preserves":"documented module membership","loses":"proof of mesh-level composition","return_key":"module inventory plus model hashes"},
+    {"id":"E14","source":"RC88","target":"QPLAY","operator":"documented Module 01 to Module 02 continuum transition","status":"bounded","preserves":"static-lattice to quaternion-coordinate program order","loses":"proof of direct binary derivation","return_key":"module documentation plus model hashes"},
+    {"id":"E15","source":"POLAR","target":"G8","operator":"pi-Omega window-grid projection","status":"visual-only","preserves":"visible 7x7 / 8x8 / 9x9 window orientation","loses":"coordinate generator and cell identity","return_key":"owner screenshot plus recovered generator"}
+  ],
+  "claim_boundary": "The ledger records candidate and tested relations. It does not assert one universal grid, infer binary derivation from co-location, or transfer evidence between carriers."
+}

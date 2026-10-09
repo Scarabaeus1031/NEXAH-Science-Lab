@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>PRIMEGRID BLOCK 2 · DFT Shift / Phase / Return Lab</title>
+<style>
+:root{color-scheme:dark;--bg:#071018;--panel:#0c1822;--line:#263947;--text:#eaf7fb;--muted:#8ca7b5;--cyan:#43d9e8;--gold:#f3be58;--pink:#eb70ab;--green:#6de7a0;--blue:#70a8ff}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 60% -15%,#17354d 0,var(--bg) 44%);color:var(--text);font:15px/1.5 ui-monospace,SFMono-Regular,Menlo,monospace}.shell{max-width:1220px;margin:auto;padding:24px}.hero{display:flex;justify-content:space-between;gap:22px;align-items:end;border-bottom:1px solid var(--line);padding-bottom:18px}.eyebrow{color:var(--cyan);letter-spacing:.15em;text-transform:uppercase}.hero h1{font:500 clamp(25px,4vw,45px)/1.08 system-ui;margin:6px 0}.hero p{color:var(--muted);max-width:760px;margin:0}.pass{color:var(--green);white-space:nowrap}.control{display:grid;grid-template-columns:150px 1fr 70px;align-items:center;gap:14px;margin:22px 0}.control input{width:100%;accent-color:var(--cyan)}.shift-value{font-size:22px;color:var(--gold)}.grid{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(290px,.75fr);gap:16px}.panel{background:color-mix(in srgb,var(--panel) 95%,transparent);border:1px solid var(--line);border-radius:14px;padding:16px}.panel h2,.panel h3{font:500 18px system-ui;margin:0 0 12px}.register-labels{display:flex;justify-content:space-between;color:var(--muted);font-size:12px;margin:8px 0 5px}.register{display:grid;grid-template-columns:repeat(8,1fr);gap:7px}.cell{min-height:58px;border:1px solid var(--line);display:grid;place-items:center;border-radius:9px;color:var(--muted);position:relative}.cell.on{background:color-mix(in srgb,var(--cyan) 24%,var(--panel));border-color:var(--cyan);color:var(--text)}.cell small{position:absolute;bottom:2px;color:var(--muted);font-size:10px}.arrow{text-align:center;color:var(--gold);font-size:23px;margin:6px}.spectral{margin-top:17px;border-top:1px solid var(--line);padding-top:14px}.spectrum{display:grid;grid-template-columns:repeat(8,1fr);gap:7px;height:230px;align-items:end}.bin{height:100%;display:flex;flex-direction:column;justify-content:end;align-items:center;gap:5px}.bar-wrap{height:145px;width:100%;display:flex;align-items:end;justify-content:center;border-bottom:1px solid var(--line)}.bar{width:62%;background:linear-gradient(var(--cyan),color-mix(in srgb,var(--cyan) 25%,transparent));min-height:2px}.phase{width:31px;height:31px;border:1px solid var(--line);border-radius:50%;position:relative}.phase:after{content:"";position:absolute;left:14px;top:4px;width:2px;height:11px;background:var(--pink);transform-origin:1px 11px;transform:rotate(var(--angle))}.bin label{font-size:11px;color:var(--muted)}.equation{margin-top:13px;padding:11px;background:#09141d;border-left:3px solid var(--gold);color:var(--muted)}.equation strong{color:var(--text)}.readout{padding:10px 0;border-bottom:1px solid var(--line)}.readout small{display:block;color:var(--muted)}.big{font-size:23px;color:var(--gold)}.collision{display:grid;grid-template-columns:repeat(8,1fr);gap:4px;margin-top:8px}.sig{height:30px;border:1px solid var(--line);border-radius:6px;background:linear-gradient(90deg,color-mix(in srgb,var(--cyan) 30%,var(--panel)),color-mix(in srgb,var(--pink) 28%,var(--panel)));display:grid;place-items:center;font-size:11px}.gates{display:grid;gap:6px;margin-top:14px}.gate{display:flex;justify-content:space-between;border-bottom:1px dotted var(--line);padding-bottom:5px}.holdout{margin-top:15px;border-left:3px solid var(--blue);padding:11px;background:#091620;color:var(--muted)}.holdout strong{color:var(--text)}.boundary{font-size:13px;color:var(--muted);margin-top:14px}.links{display:flex;flex-wrap:wrap;gap:14px;margin-top:16px}.links a{color:var(--cyan)}@media(max-width:850px){.hero{align-items:start;flex-direction:column}.grid{grid-template-columns:1fr}.control{grid-template-columns:100px 1fr 55px}.cell{min-height:48px}.spectrum{height:205px;gap:3px}}@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<main class="shell">
+  <header class="hero"><div><div class="eyebrow">PRIMEGRID · BLOCK 2 · DFT coordinate register</div><h1>Shift → Phase Address → Return</h1><p>Acht verschiedene zyklische Carrier besitzen dieselbe DFT-Magnitude. Erst das vollständige komplexe Spektrum bewahrt die Shift-Adresse.</p></div><div class="pass">9/9 GATES · PASS</div></header>
+  <label class="control"><span>Shift-Adresse</span><input id="shift" type="range" min="0" max="7" value="3" step="1"><strong class="shift-value" id="shiftValue">s = 3</strong></label>
+  <section class="grid">
+    <div class="panel">
+      <h2>Q3-Adressfeld</h2>
+      <div class="register-labels"><span>Basiscarrier x[a]</span><span>belegte Adressen {0,1,3,6}</span></div><div class="register" id="baseRegister"></div>
+      <div class="arrow">↓ cyclic shift T<sub>s</sub></div>
+      <div class="register-labels"><span>verschobener Carrier</span><span id="shiftedSet"></span></div><div class="register" id="shiftedRegister"></div>
+      <div class="spectral"><h3>Komplexes DFT-Register</h3><div class="spectrum" id="spectrum"></div></div>
+      <div class="equation"><strong id="equationShift">s=3</strong> · Magnitude bleibt invariant · Phasenfaktor exp(−2πiks/8) trägt die Adresse.</div>
+    </div>
+    <aside class="panel" aria-live="polite">
+      <h3>Return trace</h3>
+      <div class="readout"><small>recovered shift</small><div class="big" id="recovered">3</div></div>
+      <div class="readout"><small>magnitude signatures</small><strong>1 für 8 verschiedene Carrier</strong><div class="collision" id="collision"></div></div>
+      <div class="readout"><small>complex inverse return</small><strong class="pass">EXACT · error &lt; 1.5e−15</strong></div>
+      <div class="gates" id="gates"></div>
+      <div class="holdout"><strong>N16 HOLDOUT · PASS</strong><br>Shift 5 wurde ohne Sonderregel aus Phase rekonstruiert.</div>
+      <p class="boundary">Grenze: DFT ist hier ein Koordinatenregister, kein physischer Raum. Licht, Prime-Anker und Fehlerkorrektur wurden nicht getestet.</p>
+    </aside>
+  </section>
+  <footer class="links"><a href="00_PREREGISTRATION.md">Präregistrierung</a><a href="01_RESULT_ASSESSMENT.md">Result assessment</a><a href="../NEXAH_PRIMEGRID_BLOCK01_STATE_LIFT_2026-10-06/NEXAH_PRIMEGRID_BLOCK01_STATE_LIFT_LAB.html">Block 1 · State Lift</a><a href="https://scarabaeus1031.github.io/NEXAH-Science-Lab/navigator/#entity=MOD:TESSAREC">Navigator · Tessarec</a></footer>
+</main>
+<script>
+const base=[1,1,0,1,0,0,1,0],N=8;
+const $=id=>document.getElementById(id);
+const shiftField=s=>base.map((_,n)=>base[(n-s+N)%N]);
+const dft=field=>Array.from({length:N},(_,k)=>field.reduce((z,x,n)=>({re:z.re+x*Math.cos(-2*Math.PI*k*n/N),im:z.im+x*Math.sin(-2*Math.PI*k*n/N)}),{re:0,im:0}));
+const mag=z=>Math.hypot(z.re,z.im),phase=z=>Math.atan2(z.im,z.re);
+const register=(field,target)=>{$(target).innerHTML=field.map((v,i)=>`<div class="cell ${v?'on':''}">${v}<small>${i}</small></div>`).join('')};
+function render(){
+ const s=+$('shift').value,field=shiftField(s),spec=dft(field),max=Math.max(...spec.map(mag));
+ $('shiftValue').textContent=`s = ${s}`;$('recovered').textContent=s;$('equationShift').textContent=`s=${s}`;
+ register(base,'baseRegister');register(field,'shiftedRegister');$('shiftedSet').textContent=`belegt {${field.map((v,i)=>v?i:null).filter(v=>v!==null).join(',')}}`;
+ $('spectrum').innerHTML=spec.map((z,k)=>`<div class="bin"><div class="bar-wrap"><div class="bar" style="height:${100*mag(z)/max}%"></div></div><div class="phase" style="--angle:${phase(z)}rad" aria-label="Phase bin ${k}"></div><label>k${k}</label></div>`).join('');
+ document.querySelectorAll('.phase').forEach((node,k)=>node.style.setProperty('--angle',`${phase(spec[k])}rad`));
+}
+$('shift').addEventListener('input',render);
+$('collision').innerHTML=Array.from({length:8},(_,s)=>`<div class="sig">s${s}</div>`).join('');
+const gateNames=['UPSTREAM CONTRACT','DFT REGISTER','SHIFT THEOREM','MAGNITUDE COLLISION','PHASE RECOVERY','INVERSE RETURN','MAGNITUDE ABLATION','HOLDOUT N16','REPLAY'];
+$('gates').innerHTML=gateNames.map((name,i)=>`<div class="gate"><span>G${String(i+1).padStart(2,'0')} · ${name}</span><strong class="pass">PASS</strong></div>`).join('');render();
+</script>
+</body>
+</html>
+

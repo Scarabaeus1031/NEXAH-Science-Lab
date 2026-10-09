@@ -1,0 +1,383 @@
+{
+  "schema": "nexah.desktop-gold-intake-audit.v1",
+  "generated_utc": "2026-10-06T23:39:18.221866+00:00",
+  "status": "PASS",
+  "checks": [
+    {
+      "gate": "source_ledger",
+      "pass": true,
+      "count": 277
+    },
+    {
+      "gate": "json_parse",
+      "pass": true,
+      "count": 34,
+      "failures": []
+    },
+    {
+      "gate": "html_document_structure",
+      "pass": true,
+      "count": 16,
+      "failures": [],
+      "declared_fragments": [
+        "sources/mrb/MRB01_MODULAR_REDUNDANCY_BINDER_TEST/modular-binder-lab.html"
+      ]
+    },
+    {
+      "gate": "mrb_executable_tests",
+      "pass": true,
+      "count": 9,
+      "runs": [
+        {
+          "test": "sources/mrb/MRB01_MODULAR_REDUNDANCY_BINDER_TEST/mrb01_test.py",
+          "command": [
+            "python3",
+            "mrb01_test.py"
+          ],
+          "exit_code": 0,
+          "stdout_tail": "{\n  \"status\": \"PASS_WITH_BOUNDED_ERROR_DETECTION\",\n  \"global_modulus\": 23832900,\n  \"overall_detection_rate\": 0.13636363636363635\n}\n",
+          "stderr_tail": "",
+          "pass": true
+        },
+        {
+          "test": "sources/mrb/MRB02_PRIME_CROSS_POWER_CROSS_PERSISTENCE/mrb02_test.py",
+          "command": [
+            "python3",
+            "mrb02_test.py"
+          ],
+          "exit_code": 0,
+          "stdout_tail": "{\n  \"status\": \"PASS_WITH_LAYERED_BOUNDARIES\",\n  \"prime_rate\": 0.9343434343434344,\n  \"power_rate\": 1.0,\n  \"first_unique_k\": 5\n}\n",
+          "stderr_tail": "",
+          "pass": true
+        },
+        {
+          "test": "sources/mrb/MRB04_EULER41_BASE_MIRROR_INDEX_SHIFT/mrb04_test.py",
+          "command": [
+            "python3",
+            "mrb04_test.py"
+          ],
+          "exit_code": 0,
+          "stdout_tail": "{\n  \"status\": \"PASS_WITH_REPRESENTATION_BOUNDARIES\",\n  \"headline\": {\n    \"binary\": \"101001\",\n    \"binary_mirror\": \"100101\",\n    \"binary_mirror_value\": 37,\n    \"binary_mirror_pair\": [\n      41,\n      37\n    ],\n    \"pair_sum\": 78,\n    \"pair_difference\": 4,\n    \"connector_zero_u_mod_41\": [\n      0,\n      40\n    ],\n    \"euler_break\": {\n      \"n\": 41,\n      \"u\": 40,\n      \"value\": 1681\n    },\n    \"palindromic_bases\": [\n      5,\n      40,\n      42\n    ]\n  }\n}\n",
+          "stderr_tail": "",
+          "pass": true
+        },
+        {
+          "test": "sources/mrb/MRB05_CENTER_INVOLUTION_EULER_CONNECTOR/mrb05_test.py",
+          "command": [
+            "python3",
+            "mrb05_test.py"
+          ],
+          "exit_code": 0,
+          "stdout_tail": "{\n  \"status\": \"PASS_WITH_TYPED_OPERATOR_EQUIVALENCE\",\n  \"headline\": {\n    \"bounded_full_corridor_primes\": [\n      2,\n      3,\n      5,\n      11,\n      17,\n      41\n    ],\n    \"universal_connector_normal_form\": \"u -> -u-1; x=u+1/2 -> -x\",\n    \"riemann_type_normal_form\": \"s -> 1-s\",\n    \"modular_upper_half_plane_fixed_point\": \"i\",\n    \"quaternion_order_split\": \"ij=k; ji=-k\"\n  }\n}\n",
+          "stderr_tail": "",
+          "pass": true
+        },
+        {
+          "test": "sources/mrb/MRB06_KL_SPLIT_ROTATION_RETURN/mrb06_test.py",
+          "command": [
+            "python3",
+            "mrb06_test.py"
+          ],
+          "exit_code": 0,
+          "stdout_tail": "{\n  \"status\": \"PASS_WITH_INFORMATION_PRESERVATION_GATE\",\n  \"headline\": {\n    \"carrier\": \"Z14\",\n    \"half_turn\": \"R^7=H\",\n    \"return\": \"H^2=R^14=I\",\n    \"adjacency_crossings\": {\n      \"contiguous_7_7\": 2,\n      \"alternating_7_7\": 14\n    },\n    \"typed_KL\": \"invertible when channel and local index are retained\",\n    \"collapsed_K\": \"non-invertible when only channel is retained\",\n    \"90_50\": \"ratio 9|5 is valid; angle binding to 7|7 is not\"\n  }\n}\n",
+          "stderr_tail": "",
+          "pass": true
+        },
+        {
+          "test": "sources/mrb/MRB07_PRIME_INDEX_EXPONENT_LATTICE/mrb07_test.py",
+          "command": [
+            "python3",
+            "mrb07_test.py"
+          ],
+          "exit_code": 0,
+          "stdout_tail": "{\n  \"status\": \"PASS_TARGET_EMBEDDED_IN_BOUNDED_FAMILY\",\n  \"headline\": {\n    \"target\": \"2P_41=P_22+P_31; 2*7=3^2+5=14\",\n    \"target_is_isolated\": false,\n    \"solution_count\": 344,\n    \"solutions_by_diagonal_b\": {\n      \"2\": 168,\n      \"3\": 116,\n      \"4\": 60\n    },\n    \"target_solution_row_1_based\": 1,\n    \"reachable_diagonal_tracks\": [\n      \"P_11\",\n      \"P_22\",\n      \"P_33\",\n      \"P_44\"\n    ],\n    \"split_invariant\": \"sum 14 only; balance, gcd, product change\"\n  }\n}\n",
+          "stderr_tail": "",
+          "pass": true
+        },
+        {
+          "test": "sources/mrb/MRB08_RADIX_CRT_ANCHOR70/mrb08_test.py",
+          "command": [
+            "python3",
+            "mrb08_test.py"
+          ],
+          "exit_code": 0,
+          "stdout_tail": "{\n  \"status\": \"PASS_WITH_RADIX_AND_OPERATOR_TYPE_GATES\",\n  \"headline\": {\n    \"carrier_family\": \"M_k(q)=2^k*q; q in {5,7}\",\n    \"crt_anchor\": \"lcm(2,5,7)=70\",\n    \"anchor_split\": \"50|90=70\\u00b120; sum=140\",\n    \"vigesimal_split\": \"2A_20|4A_20 centered at 3A_20\",\n    \"typed_path\": \"41 -(reverse_2)-> 37 -(*2)-> 74 -(reverse_10)-> 47\",\n    \"twin_frame\": \"71|72|73; 72=2^3*3^2\"\n  }\n}\n",
+          "stderr_tail": "",
+          "pass": true
+        },
+        {
+          "test": "sources/mrb/MRB09_GRID_ZIPPER_CENTER_RETURN/mrb09_test.py",
+          "command": [
+            "python3",
+            "mrb09_test.py"
+          ],
+          "exit_code": 0,
+          "stdout_tail": "{\n  \"status\": \"PASS_WITH_PARTIAL_DOMAIN_AND_AUXILIARY_BIT_GATE\",\n  \"headline\": {\n    \"grid\": \"OV->PI->FC\",\n    \"local_commutation_domains\": {\n      \"RU\": [\n        \"V\",\n        \"I\"\n      ],\n      \"R2U\": [\n        \"V\"\n      ]\n    },\n    \"zipper\": \"(ER,TIM) <-> ETRIM under Z_23\",\n    \"schema_free_ambiguity_count\": 10,\n    \"schema_free_entropy_bits\": 3.321928094887362,\n    \"reversal_center\": \"R\",\n    \"central_collapse\": \"PI->R requires 1 auxiliary bit\"\n  }\n}\n",
+          "stderr_tail": "",
+          "pass": true
+        },
+        {
+          "test": "sources/mrb/MRB10_YT_PASCAL_THREAD_GRID/mrb10_test.py",
+          "command": [
+            "python3",
+            "mrb10_test.py"
+          ],
+          "exit_code": 0,
+          "stdout_tail": "{\n  \"case\": \"MRB-10\",\n  \"title\": \"Y/T Junction \\u2014 Pascal Thread Multiplicity \\u2014 11x11 Bridge\",\n  \"status\": \"PASS_WITH_REPRESENTATION_BOUNDARY\",\n  \"primary_results\": {\n    \"YT_same_abstract_topology\": true,\n    \"pascal_recurrence\": true,\n    \"independent_thread_count_equals_binomial\": true,\n    \"row_sum_equals_2_power_n\": true,\n    \"base_b_121_equals_b_plus_1_squared\": true,\n    \"decimal_121_equals_11x11_cells\": true\n  },\n  \"auxiliary_mod7\": {\n    \"conserves_total_thread_count\": true,\n    \"classification\": \"QUOTIENT_PROJECTION_ONLY\"\n  },\n  \"exact_findings\": {\n    \"row_2\": [\n      1,\n      2,\n      1\n    ],\n    \"decimal_reading\": 121,\n    \"grid_cells\": 121,\n    \"general_identity\": \"[1,2,1]_b = b^2+2b+1 = (b+1)^2\",\n    \"junction_invariant\": \"incidence/degree signature [1,1,2]\"\n  },\n  \"boundaries\": [\n    \"121=11^2 is the base-10 instance of a general radix identity.\",\n    \"An 11x11 grid also has 121 cells, but numerical equality does not prove structural identity.\",\n    \"Y and T are topologically equal only while their incidence relation is unchanged.\",\n    \"The mod-7 layer is a residue quotient; no musical or physical interpretation was tested.\",\n    \"One thread is a path through the grid; multiplicity counts how many paths reach a node.\"\n  ]\n}\n",
+          "stderr_tail": "",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "gate": "clockwork_v1_v7_reproduction",
+      "pass": true,
+      "generate": {
+        "command": [
+          "node",
+          "generate_all.mjs"
+        ],
+        "exit_code": 0,
+        "stdout_tail": "Reassembled snapshot: nexah_clockwork_orange_v1.glb\nReassembled snapshot: nexah_clockwork_orange_v2_visible_phase.glb\n{\n  \"out\": \"[local path omitted in public preview]",\n  \"bytes\": 456424,\n  \"nodes\": 1070,\n  \"meshes\": 27,\n  \"animations\": 1\n}\n{\n  \"out\": \"[local path omitted in public preview]",\n  \"bytes\": 487324,\n  \"nodes\": 1181,\n  \"meshes\": 35,\n  \"animations\": 1\n}\n{\n  \"out\": \"[local path omitted in public preview]",\n  \"bytes\": 772188,\n  \"nodes\": 1215,\n  \"meshes\": 45,\n  \"animations\": 1\n}\n{\n  \"out\": \"[local path omitted in public preview]",\n  \"bytes\": 1009204,\n  \"nodes\": 1253,\n  \"meshes\": 56,\n  \"animations\": 1\n}\n{\n  \"out\": \"[local path omitted in public preview]",\n  \"bytes\": 1118496,\n  \"nodes\": 1270,\n  \"meshes\": 59,\n  \"animations\": 1\n}\nAll seven GLBs generated in reproduced/.\n",
+        "stderr_tail": "",
+        "pass": true
+      },
+      "verify": {
+        "command": [
+          "python3",
+          "verify_outputs.py"
+        ],
+        "exit_code": 1,
+        "stdout_tail": "FAIL\nv1 True 92181330d26d0ffb639e68c46a32b4e42e79e3628794bdcd2f46c8a8335161cd\nv2 True ba1271425392079907a5e382bb20ada4bf1ea464ca22bfa75e9253cf70be4fef\nv3 False 2bb73c6d0ddb24abf3b2be268a7f3f92ab2a673e35d9a3ad8501db2c9efee389\nv4 False 1f712ee8a304463c67d5be7750070bd2a295a9a7a49aec2a4af19219f27dca19\nv5 False f4e08add47c8e10340932635203fd5361ab5db475ffc85ce5f49057eed3909b3\nv6 False e7728e6ee483abb40aef7bcf174d5c363cd5177db5fae0e16e722977a43cddd8\nv7 False c390d4c6a6e1054116cfdd2c96953d810a333e97f654d815b2e1fe47cd60ecae\n",
+        "stderr_tail": "",
+        "pass": false
+      },
+      "glbs": [
+        {
+          "file": "nexah_clockwork_orange_v1.glb",
+          "reference_sha256": "92181330d26d0ffb639e68c46a32b4e42e79e3628794bdcd2f46c8a8335161cd",
+          "reproduced_sha256": "92181330d26d0ffb639e68c46a32b4e42e79e3628794bdcd2f46c8a8335161cd",
+          "hash_expected": true,
+          "byte_exact": true,
+          "json_numeric_equivalent_1e_14": true,
+          "json_max_numeric_delta": 0.0,
+          "binary_exact": true,
+          "nodes": 31,
+          "meshes": 13,
+          "materials": 9,
+          "animations": 1,
+          "animation_channels": 3
+        },
+        {
+          "file": "nexah_clockwork_orange_v2_visible_phase.glb",
+          "reference_sha256": "ba1271425392079907a5e382bb20ada4bf1ea464ca22bfa75e9253cf70be4fef",
+          "reproduced_sha256": "ba1271425392079907a5e382bb20ada4bf1ea464ca22bfa75e9253cf70be4fef",
+          "hash_expected": true,
+          "byte_exact": true,
+          "json_numeric_equivalent_1e_14": true,
+          "json_max_numeric_delta": 0.0,
+          "binary_exact": true,
+          "nodes": 89,
+          "meshes": 20,
+          "materials": 9,
+          "animations": 1,
+          "animation_channels": 4
+        },
+        {
+          "file": "nexah_clockwork_orange_v3_qwarp_resolution.glb",
+          "reference_sha256": "2bb73c6d0ddb24abf3b2be268a7f3f92ab2a673e35d9a3ad8501db2c9efee389",
+          "reproduced_sha256": "4e793c4f322a42ea2c9730f9c793ef73114eaab24a386668907d749096fa0e62",
+          "hash_expected": true,
+          "byte_exact": false,
+          "json_numeric_equivalent_1e_14": true,
+          "json_max_numeric_delta": 8.881784197001252e-16,
+          "binary_exact": true,
+          "nodes": 1070,
+          "meshes": 27,
+          "materials": 13,
+          "animations": 1,
+          "animation_channels": 9
+        },
+        {
+          "file": "nexah_clockwork_orange_v4_triple19_bridge.glb",
+          "reference_sha256": "1f712ee8a304463c67d5be7750070bd2a295a9a7a49aec2a4af19219f27dca19",
+          "reproduced_sha256": "34c5298ef2413138f77009dc31eb5827326cb516b30172cf29699cc2e6d67861",
+          "hash_expected": true,
+          "byte_exact": false,
+          "json_numeric_equivalent_1e_14": true,
+          "json_max_numeric_delta": 8.881784197001252e-16,
+          "binary_exact": true,
+          "nodes": 1181,
+          "meshes": 35,
+          "materials": 13,
+          "animations": 1,
+          "animation_channels": 12
+        },
+        {
+          "file": "nexah_crown_aperture_phase_flip_v5.glb",
+          "reference_sha256": "f4e08add47c8e10340932635203fd5361ab5db475ffc85ce5f49057eed3909b3",
+          "reproduced_sha256": "cddd37ff3ec0bde80a06064d86476b92bbde5db5fd2d9edf1f6343d6add930e9",
+          "hash_expected": true,
+          "byte_exact": false,
+          "json_numeric_equivalent_1e_14": true,
+          "json_max_numeric_delta": 8.881784197001252e-16,
+          "binary_exact": true,
+          "nodes": 1215,
+          "meshes": 45,
+          "materials": 17,
+          "animations": 1,
+          "animation_channels": 18
+        },
+        {
+          "file": "nexah_oil_ris_orbital_closure_v6.glb",
+          "reference_sha256": "e7728e6ee483abb40aef7bcf174d5c363cd5177db5fae0e16e722977a43cddd8",
+          "reproduced_sha256": "890a922cc0510c13dca2a299bc78ecc096dd128aefad1cdb4b8cff8628b3b405",
+          "hash_expected": true,
+          "byte_exact": false,
+          "json_numeric_equivalent_1e_14": true,
+          "json_max_numeric_delta": 8.881784197001252e-16,
+          "binary_exact": true,
+          "nodes": 1253,
+          "meshes": 56,
+          "materials": 17,
+          "animations": 1,
+          "animation_channels": 21
+        },
+        {
+          "file": "nexah_pq_conjugate_orbit_v7.glb",
+          "reference_sha256": "c390d4c6a6e1054116cfdd2c96953d810a333e97f654d815b2e1fe47cd60ecae",
+          "reproduced_sha256": "c819195b69c1bb9b0513f4d582c80fc5856a2e5415d4fa58c501adb784494fc9",
+          "hash_expected": true,
+          "byte_exact": false,
+          "json_numeric_equivalent_1e_14": true,
+          "json_max_numeric_delta": 8.881784197001252e-16,
+          "binary_exact": true,
+          "nodes": 1270,
+          "meshes": 59,
+          "materials": 18,
+          "animations": 1,
+          "animation_channels": 23
+        }
+      ]
+    },
+    {
+      "gate": "acr_isolated_runners_and_declared_font_quarantine",
+      "pass": true,
+      "count": 9,
+      "runs": [
+        {
+          "runner": "run_acr36.py",
+          "command": [
+            "/opt/anaconda3/bin/python3",
+            "run_acr36.py"
+          ],
+          "exit_code": 0,
+          "stdout_tail": "{\"mobius_normal_dot\": -1.0, \"fascia_epsilon\": 0.12}\n",
+          "stderr_tail": "",
+          "pass": true
+        },
+        {
+          "runner": "run_acr37.py",
+          "command": [
+            "/opt/anaconda3/bin/python3",
+            "run_acr37.py"
+          ],
+          "exit_code": 0,
+          "stdout_tail": "{\n  \"rankings\": {\n    \"natural\": [\n      11,\n      13,\n      17,\n      19\n    ],\n    \"equal_budget\": [\n      19,\n      11,\n      13,\n      17\n    ]\n  },\n  \"decision\": {\n    \"mod7_transport_clock\": \"IMPLEMENTED_AS_SYNTHETIC_WORKLOAD\",\n    \"max_simultaneous_gate_arrivals\": 3,\n    \"lissajous_carriers\": [\n      \"3:2\",\n      \"8\"\n    ],\n    \"mod17_unique_stabilization\": \"NOT_SUPPORTED\",\n    \"mod17_natural_rank\": 3,\n    \"mod17_equal_budget_rank\": 4,\n    \"claim_boundary\": \"SYNTHETIC_CONTROL_ARCHITECTURE_ONLY\",\n    \"ramanujan_theta_weights\": \"OFF\"\n  }\n}\n",
+          "stderr_tail": "",
+          "pass": true
+        },
+        {
+          "runner": "run_acr39.py",
+          "command": [
+            "/opt/anaconda3/bin/python3",
+            "run_acr39.py"
+          ],
+          "exit_code": 0,
+          "stdout_tail": "{\n  \"test\": \"NEXAH ACR-39 DUAL-VIEW ARCHIVE/CARRIER AUDIT\",\n  \"parameters\": {\n    \"core_limit\": 3,\n    \"moduli\": [\n      11,\n      13,\n      17,\n      19\n    ]\n  },\n  \"tests\": {\n    \"record_count\": 5460,\n    \"C_view_collisions\": 3780,\n    \"D_view_collisions\": 1260,\n    \"full_record_collisions\": 0,\n    \"joint_reconstruction_all\": true,\n    \"flip_involution_and_sum_all\": true,\n    \"phase_address_preserved_by_flip\": true\n  },\n  \"glyph_tokens\": {\n    \"AR\": {\n      \"A1Z26\": 19,\n      \"length\": 2\n    },\n    \"CH\": {\n      \"A1Z26\": 11,\n      \"length\": 2\n    },\n    \"E\": {\n      \"A1Z26\": 5,\n      \"length\": 1\n    },\n    \"NO\": {\n      \"A1Z26\": 29,\n      \"length\": 2\n    },\n    \"RA\": {\n      \"A1Z26\": 19,\n      \"length\": 2\n    },\n    \"TH\": {\n      \"A1Z26\": 28,\n      \"length\": 2\n    },\n    \"ONATH\": {\n      \"A1Z26\": 58,\n      \"length\": 5\n    },\n    \"RATH\": {\n      \"A1Z26\": 47,\n      \"length\": 4\n    },\n    \"ARCHE\": {\n      \"A1Z26\": 35,\n      \"length\": 5\n    }\n  },\n  \"glyph_checks\": {\n    \"AR_equals_100_under_A1Z26\": false,\n    \"CH_equals_40_under_A1Z26\": false,\n    \"ON_A_TH_is_textual_segmentation\": true,\n    \"NO_RA_TH_is_textual_segmentation\": true,\n    \"RATH_7x7_bridge_defined_by_supplied_rule\": false\n  },\n  \"decision\": {\n    \"C_VIEW_ALONE\": \"LOSSY\",\n    \"D_VIEW_ALONE\": \"LOSSY\",\n    \"ARCHIVE_RECORD\": \"EXACTLY_RECONSTRUCTABLE\",\n    \"CD_VIEW_SWAP\": \"ADDRESS_AND_SUM_PRESERVING_INVOLUTION\",\n    \"ARCHE\": \"ADMISSIBLE_CARRIER_MNEMONIC\",\n    \"NOA_H_ON_A_TH\": \"TEXTUAL_GLYPH_SEGMENTATION_ONLY\",\n    \"AR_100_CH_40\": \"CUSTOM_CODEBOOK_REQUIRED\",\n    \"RATH_7X7_BRIDGE\": \"UNDERDEFINED\",\n    \"NEW_SCIENTIFIC_CLAIM\": \"NO\"\n  }\n}\n",
+          "stderr_tail": "",
+          "pass": true
+        },
+        {
+          "runner": "run_acr40.py",
+          "command": [
+            "/opt/anaconda3/bin/python3",
+            "run_acr40.py"
+          ],
+          "exit_code": 0,
+          "stdout_tail": "{\n  \"tests\": {\n    \"composition_cases\": 21,\n    \"composition_noncommuting_cases\": 9,\n    \"composition_commutes_globally\": false,\n    \"G_equals_N_plus_B_all\": true,\n    \"value_transition_evaluation_failures\": 0,\n    \"value_transition_commutes_with_evaluation\": true,\n    \"address_shift_changed_samples\": 30,\n    \"address_shift_is_pointwise_value_transition\": false\n  },\n  \"channel_control\": {\n    \"2\": {\n      \"exact\": 14,\n      \"total\": 14,\n      \"rate\": 1.0\n    },\n    \"3\": {\n      \"exact\": 21,\n      \"total\": 21,\n      \"rate\": 1.0\n    },\n    \"4\": {\n      \"exact\": 28,\n      \"total\": 28,\n      \"rate\": 1.0\n    },\n    \"5\": {\n      \"exact\": 35,\n      \"total\": 35,\n      \"rate\": 1.0\n    },\n    \"6\": {\n      \"exact\": 42,\n      \"total\": 42,\n      \"rate\": 1.0\n    }\n  },\n  \"decision\": {\n    \"N_DEFINITION\": \"N = K_AFTER_G\",\n    \"ORDER_GK_VS_KG\": \"NONCOMMUTING_AT_BOUNDARIES\",\n    \"RESIDUAL_IDENTITY\": \"G = N + B VERIFIED\",\n    \"AT_VALUE_TRANSITION\": \"COMMUTES_WITH_EVALUATION\",\n    \"AT_ADDRESS_SHIFT\": \"CHANGES_LOOKUP_ADDRESS\",\n    \"LAMBDA_TRINITY\": \"ADMISSIBLE_NOT_PRIVILEGED\",\n    \"GK_GV_90_DEGREES\": \"CONSTRUCTIBLE_NOT_DERIVED\",\n    \"OPERATOR_ORTHOGONALITY\": \"VALID_FOR_CHOSEN_PROJECTORS_ONLY\",\n    \"GEN_KEN\": \"MNEMONIC_TYPING_ONLY\",\n    \"NEW_SCIENTIFIC_CLAIM\": \"NO\"\n  }\n}\n",
+          "stderr_tail": "",
+          "pass": true
+        },
+        {
+          "runner": "run_acr41.py",
+          "command": [
+            "/opt/anaconda3/bin/python3",
+            "run_acr41.py"
+          ],
+          "exit_code": 0,
+          "stdout_tail": "{\n  \"tests\": {\n    \"variant_carrier_count\": 7,\n    \"source_claim_exactly_seven\": true,\n    \"alphabet_positions\": [\n      5,\n      8,\n      10,\n      16,\n      17,\n      18,\n      21\n    ],\n    \"subset_partition\": [\n      3,\n      1,\n      3\n    ],\n    \"center_is_pi\": true,\n    \"adjacent_pairs_without_pi\": [\n      [\n        \"Epsilon\",\n        \"Theta\"\n      ],\n      [\n        \"Kappa\",\n        \"Rho\"\n      ],\n      [\n        \"Sigma\",\n        \"Phi\"\n      ]\n    ],\n    \"mirror_pairs_about_pi\": [\n      [\n        \"Epsilon\",\n        \"Phi\"\n      ],\n      [\n        \"Theta\",\n        \"Sigma\"\n      ],\n      [\n        \"Kappa\",\n        \"Rho\"\n      ]\n    ],\n    \"stable_pair_intersection\": [\n      [\n        \"Kappa\",\n        \"Rho\"\n      ]\n    ],\n    \"KR_is_stable_pair\": true,\n    \"all_pairs_have_distinct_codepoints\": true,\n    \"sigma_is_contextual_exception\": true\n  },\n  \"all_font_pairs_distinct\": true,\n  \"decision\": {\n    \"SEVEN_VARIANT_ROWS\": \"VERIFIED_FOR_SOURCE_GRID\",\n    \"THREE_ONE_THREE_WITH_PI_CENTER\": \"VERIFIED\",\n    \"ET_KR_SP_PARTITION\": \"VALID_AFTER_REMOVING_PI\",\n    \"MIRROR_PAIRING\": \"E_PHI__THETA_SIGMA__KAPPA_RHO\",\n    \"KR_PAIR_INVARIANT_BETWEEN_TWO_PAIRINGS\": \"VERIFIED\",\n    \"PAIR_IDENTITY\": \"SAME_LETTER_RECORD_DISTINCT_CODEPOINTS\",\n    \"SIGMA_STATUS\": \"CONTEXTUAL_NOT_FREE_STYLE\",\n    \"FONT_GEOMETRY\": \"DISTINCT_BUT_FONT_DEPENDENT\",\n    \"OPERATOR_MEANING_FROM_GLYPHS\": \"NOT_ESTABLISHED\",\n    \"NEW_SCIENTIFIC_CLAIM\": \"NO\"\n  }\n}\n",
+          "stderr_tail": "findfont: Font family 'Latin Modern Math' not found.\nfindfont: Font family 'Latin Modern Math' not found.\nfindfont: Font family 'Latin Modern Math' not found.\nfindfont: Font family 'Latin Modern Math' not found.\nfindfont: Font family 'Latin Modern Math' not found.\nfindfont: Font family 'Latin Modern Math' not found.\nfindfont: Font family 'Latin Modern Math' not found.\nfindfont: Font family 'Latin Modern Math' not found.\nfindfont: Font family 'Latin Modern Math' not found.\nfindfont: Font family 'Latin Modern Math' not found.\nfindfont: Font family 'Latin Modern Math' not found.\nfindfont: Font family 'Latin Modern Math' not found.\nfindfont: Font family 'Latin Modern Math' not found.\nfindfont: Font family 'Latin Modern Math' not found.\n",
+          "pass": true
+        },
+        {
+          "runner": "run_acr42.py",
+          "command": [
+            "/opt/anaconda3/bin/python3",
+            "run_acr42.py"
+          ],
+          "exit_code": 1,
+          "stdout_tail": "",
+          "stderr_tail": "Traceback (most recent call last):\n  File \"/private/var/folders/3d/xzcg7l8n4kv1fk25bbmfgzx40000gn/T/nexah-acr-njpvoc3w/run_acr42.py\", line 89, in <module>\n    masks={n:glyph_mask(ch,font) for n,ch in zip(GREEK_NAMES,GREEK_UPPER)}\n             ^^^^^^^^^^^^^^^^^^^\n  File \"/private/var/folders/3d/xzcg7l8n4kv1fk25bbmfgzx40000gn/T/nexah-acr-njpvoc3w/run_acr42.py\", line 68, in glyph_mask\n    path = findfont(FontProperties(family=family), fallback_to_default=False)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/anaconda3/lib/python3.12/site-packages/matplotlib/font_manager.py\", line 1301, in findfont\n    raise ret.klass(ret.message)\nValueError: Failed to find font Latin Modern Math:style=normal:variant=normal:weight=normal:stretch=normal:size=10.0, and fallback to the default font was disabled\n",
+          "pass": false
+        },
+        {
+          "runner": "run_acr43.py",
+          "command": [
+            "/opt/anaconda3/bin/python3",
+            "run_acr43.py"
+          ],
+          "exit_code": 0,
+          "stdout_tail": "{\n  \"tests\": {\n    \"event_count_all_forward_views\": true,\n    \"forward_order_preserved\": true,\n    \"transpose_preserves_pitch_intervals\": true,\n    \"transpose_changes_absolute_frequency\": true,\n    \"time_stretch_preserves_interval_ratios\": true,\n    \"time_stretch_changes_absolute_tempo\": true,\n    \"reverse_preserves_event_multiset\": true,\n    \"reverse_preserves_order\": false,\n    \"permuted_codebook_preserves_numbers\": false,\n    \"codebook_is_required_for_token_number_inverse\": true\n  },\n  \"invariants\": {\n    \"token_to_event_count\": \"preserved in all forward encodings\",\n    \"order\": \"preserved only with read direction\",\n    \"absolute_frequency\": \"not preserved by transposition\",\n    \"pitch_interval_vector\": \"preserved by uniform transposition\",\n    \"absolute_tempo\": \"not preserved by time stretch\",\n    \"relative_time_scale\": \"preserved up to factor 2\",\n    \"event_multiset\": \"preserved by reversal\",\n    \"token_number_identity\": \"requires the explicit codebook\"\n  },\n  \"decision\": {\n    \"CROSS_REPRESENTATION_CARRIER\": \"SUPPORTED_FOR_EXPLICIT_CODEBOOK\",\n    \"FZS\": \"ADMISSIBLE_RECORD_FREQUENCY_TIME_SIGNAL\",\n    \"NEEDLE_PATH\": \"SPATIAL_TIME_CARRIER_REQUIRES_DIRECTION\",\n    \"BEAT_BOX\": \"DISCRETE_TIME_GRID\",\n    \"SOUND_TO_TEXT_INVERSE\": \"UNDERDETERMINED_WITHOUT_CODEBOOK_AND_METADATA\",\n    \"A1Z26_TO_TONE\": \"ARBITRARY_EXPLICIT_DEMONSTRATOR\",\n    \"NATURAL_LETTER_FREQUENCIES\": \"NOT_ESTABLISHED\",\n    \"NEW_SCIENTIFIC_CLAIM\": \"NO\"\n  }\n}\n",
+          "stderr_tail": "",
+          "pass": true
+        },
+        {
+          "runner": "run_acr44.py",
+          "command": [
+            "/opt/anaconda3/bin/python3",
+            "run_acr44.py"
+          ],
+          "exit_code": 0,
+          "stdout_tail": "{\n  \"tests\": {\n    \"all_four_rational_ratios_close\": true,\n    \"two_to_one_closes\": true,\n    \"mid_side_exactly_reconstructs_axes\": true,\n    \"frequency_ratio_survives_bounded_noise_quantization_jitter_gain\": true,\n    \"forward_phase_survives_bounded_noise_quantization_jitter_gain\": true,\n    \"reverse_or_wrong_start_can_break_forward_phase\": true\n  },\n  \"decision\": {\n    \"TWO_AXIS_RECONSTRUCTION\": \"SUPPORTED_FOR_BOUNDED_SYNTHETIC_SIGNALS\",\n    \"MID_SIDE_TRANSFORM\": \"EXACT_INVERTIBLE_LINEAR_CHANGE_OF_BASIS\",\n    \"RATIONAL_LISSAJOUS_CLOSURE\": \"VERIFIED_FOR_1:1_3:2_11:9_2:1\",\n    \"TWO_TO_ONE_PREVIOUS_NONCLOSURE\": \"CORRECTED_FALSE\",\n    \"FREQUENCY_RATIO\": \"ROBUST_UNDER_TESTED_CONTROLS\",\n    \"PHASE_AND_EVENT_ORIGIN\": \"DEPEND_ON_START_AND_DIRECTION_METADATA\",\n    \"N_M_GAIN_DIFFERENCE\": \"NORMALIZABLE_NOT_IDENTITY_BEARING_IN_THIS_TEST\",\n    \"REAL_GROOVE_OR_AUDIO_VALIDATION\": \"NOT_PERFORMED\",\n    \"NEW_SCIENTIFIC_CLAIM\": \"NO\"\n  }\n}\n",
+          "stderr_tail": "",
+          "pass": true
+        },
+        {
+          "runner": "run_acr45.py",
+          "command": [
+            "/opt/anaconda3/bin/python3",
+            "run_acr45.py"
+          ],
+          "exit_code": 0,
+          "stdout_tail": "{\n  \"tests\": {\n    \"event_identity_preserved_across_registered_modalities\": true,\n    \"event_order_preserved\": true,\n    \"baseline_video_quantization_within_half_frame\": true,\n    \"two_frame_video_drift_detected\": true,\n    \"audio_80ms_drift_detected\": true,\n    \"scale_jump_1_18_percent_detected\": true,\n    \"film_container_alone_guarantees_alignment\": false\n  },\n  \"decision\": {\n    \"MULTIMODAL_FILM_CARRIER\": \"SUPPORTED_WITH_SHARED_LEDGER_AND_TIMEBASE\",\n    \"OPTIC_VIDEO_MICRO_AUDIO_IDENTITY\": \"NO_MODALITIES_REMAIN_DISTINCT\",\n    \"REGISTERED_CLOSURE\": \"PASS\",\n    \"DRIFT_CONTROL\": \"DETECTED\",\n    \"FILM_AS_BINDER\": \"CONTAINER_NOT_PROOF_OF_SYNCHRONY\",\n    \"VISUAL_6_TO_7_SCALE_RESIDUAL\": \"REPRESENTED_AS_MINUS_1.18_PERCENT_CONTROL\",\n    \"FINAL_ACR_GATE\": \"CLOSED_SYNTHETIC_DEMONSTRATOR\",\n    \"REAL_INSTRUMENT_VALIDATION\": \"OPEN\",\n    \"NEW_SCIENTIFIC_CLAIM\": \"NO\"\n  }\n}\n",
+          "stderr_tail": "",
+          "pass": true
+        }
+      ],
+      "python": "/opt/anaconda3/bin/python3",
+      "acr42_status": "QUARANTINED_MISSING_LATIN_MODERN_MATH",
+      "acr42_unicode_core": {
+        "umlaut_nfc_equivalent": true,
+        "umlaut_raw_bytes_distinct": true,
+        "eszett_casefold_converges": true
+      },
+      "boundary": "ACR27–35 and ACR38 include static records where no runner was supplied."
+    }
+  ],
+  "nonclaims": [
+    "Custody and reproducibility do not establish historical originality.",
+    "A visual or GLB relation is not by itself a physical law.",
+    "Glyph meanings are local typed operators, not universal semantic identities."
+  ]
+}

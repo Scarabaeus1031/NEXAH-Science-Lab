@@ -1,0 +1,29 @@
+{
+  "experiment": "CA-IDENT-04",
+  "date": "2026-10-08",
+  "status": "EXECUTED_AGAINST_LOCK",
+  "preregistration_sha256": "605fe1baae13300aa39478b87e0f7b7dd22ef6f9c7771dfef0e864da1536ab39",
+  "train_rows": 400,
+  "holdout_rows": 100,
+  "train_distribution": {"decay": 3, "extinct": 212, "fixed": 51, "growth": 88, "period-2": 19, "transient": 27},
+  "holdout_distribution": {"extinct": 60, "fixed": 12, "growth": 20, "period-2": 7, "transient": 1},
+  "results": [
+    {"family": "shadow_memory", "dimensions": 18, "accuracy": 0.98, "macro_f1": 0.7763181219307701, "per_class_recall": {"extinct": 1, "fixed": 0.9166666666666666, "growth": 1, "period-2": 1, "transient": 0}},
+    {"family": "fourier_radial", "dimensions": 4, "accuracy": 1, "macro_f1": 1, "per_class_recall": {"extinct": 1, "fixed": 1, "growth": 1, "period-2": 1, "transient": 1}},
+    {"family": "cube_magnitude", "dimensions": 8, "accuracy": 0.98, "macro_f1": 0.7852189023098115, "per_class_recall": {"extinct": 1, "fixed": 1, "growth": 0.95, "period-2": 1, "transient": 0}},
+    {"family": "memory_fourier_cube", "dimensions": 110, "accuracy": 0.99, "macro_f1": 0.9868717948717949, "per_class_recall": {"extinct": 1, "fixed": 1, "growth": 0.95, "period-2": 1, "transient": 1}},
+    {"family": "balanced_memory_fourier", "dimensions": 22, "accuracy": 0.98, "macro_f1": 0.7699999999999999, "per_class_recall": {"extinct": 1, "fixed": 0.9166666666666666, "growth": 1, "period-2": 1, "transient": 0}},
+    {"family": "balanced_memory_fourier_cube", "dimensions": 30, "accuracy": 0.97, "macro_f1": 0.7632189023098114, "per_class_recall": {"extinct": 1, "fixed": 0.9166666666666666, "growth": 0.95, "period-2": 1, "transient": 0}}
+  ],
+  "best_single": "fourier_radial",
+  "best_single_macro_f1": 1,
+  "balanced_core_macro_f1": 0.7699999999999999,
+  "balanced_core_delta_vs_best_single": -0.2300000000000001,
+  "cube_delta_vs_balanced_core": -0.006781097690188531,
+  "primary_gate_pass": false,
+  "cube_increment_gate_pass": false,
+  "verdict": "BALANCED_FUSION_NO_GAIN",
+  "interpretation": "Post-standardization balancing does not rescue fusion on R20-R24. CA-IDENT-03 failure is not explained by coordinate-count domination alone. The legacy fusion is split-sensitive, while radial Fourier is the only registered view perfect on this holdout. Cube incremental utility remains unobserved.",
+  "limitation": "The fresh holdout contains only one transient row; rare-class conclusions require a larger preregistered class-coverage audit.",
+  "claim_ceiling": "Internal deterministic fixture. No external utility, physical resonance, biological mechanism, Life/E8 identity, quantum link or universal projection law is established."
+}

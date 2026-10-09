@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>PRIMEGRID BLOCK 2B · Trinary Pascal Antipode</title>
+<style>
+:root{color-scheme:dark;--bg:#07121d;--panel:#0d1e2c;--panel2:#102638;--line:#29465c;--text:#edf7ff;--muted:#94abba;--cyan:#43d7e8;--pink:#ed70b2;--gold:#f2c45f;--green:#69e1a0;--orange:#ff9860;--blue:#73a9ff}
+*{box-sizing:border-box}body{margin:0;min-height:100vh;background:radial-gradient(circle at 50% -20%,#194b67 0,var(--bg) 45%,#050b12 100%);color:var(--text);font:15px/1.48 ui-monospace,SFMono-Regular,Menlo,monospace}.shell{max-width:1380px;margin:auto;padding:24px}.hero{display:flex;justify-content:space-between;gap:24px;align-items:end;border-bottom:1px solid var(--line);padding-bottom:18px}.eyebrow{color:var(--cyan);letter-spacing:.14em;text-transform:uppercase}.hero h1{font:500 clamp(27px,4vw,48px)/1.06 system-ui;margin:6px 0}.hero p{max-width:800px;margin:0;color:var(--muted)}.pass{color:var(--green);white-space:nowrap}.controls{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin:20px 0}.controls label{display:flex;align-items:center;gap:10px}.controls input{width:min(330px,50vw);accent-color:var(--cyan)}button{font:inherit;color:var(--text);background:var(--panel2);border:1px solid var(--line);border-radius:8px;padding:8px 12px;cursor:pointer}button:hover,button:focus-visible{border-color:var(--cyan);outline:none}button.active{background:var(--gold);border-color:var(--gold);color:#111b24}.depth{font-size:20px;color:var(--gold)}.metrics{display:grid;grid-template-columns:repeat(4,minmax(130px,1fr));gap:9px;margin-bottom:14px}.metric{background:rgba(13,30,44,.86);border:1px solid var(--line);border-radius:10px;padding:11px}.metric small{display:block;color:var(--muted)}.metric strong{display:block;font-size:22px;margin-top:2px}.workspace,.bridge{display:grid;grid-template-columns:minmax(460px,1.55fr) minmax(310px,.8fr);gap:15px}.bridge{grid-template-columns:1fr 1fr;margin-top:15px}.panel{background:rgba(8,21,32,.92);border:1px solid var(--line);border-radius:13px;padding:16px;min-width:0}.panel h2{font:500 18px system-ui;margin:0 0 10px}.panel h3{font:500 15px system-ui;margin:14px 0 7px;color:var(--cyan)}.pyramid{width:100%;min-height:570px;display:block}.gridline{stroke:var(--line);stroke-width:1;opacity:.5}.node{stroke:var(--line);stroke-width:1.2;cursor:pointer}.node.plus{fill:var(--cyan)}.node.minus{fill:var(--pink)}.node.selected{stroke:var(--gold);stroke-width:4}.antipode-ring{fill:none;stroke:var(--gold);stroke-width:2;stroke-dasharray:5 4}.axis-label{fill:var(--muted);font-size:13px}.node-label{fill:var(--text);font-size:11px;pointer-events:none}.legend{display:flex;gap:15px;flex-wrap:wrap;color:var(--muted);font-size:12px}.swatch{display:inline-block;width:14px;height:3px;margin-right:5px;vertical-align:middle}.readout{padding:10px 0;border-bottom:1px solid var(--line)}.readout small{display:block;color:var(--muted)}.readout strong{display:block;margin-top:3px}.big{font-size:21px;color:var(--gold)}.rail{display:grid;gap:9px;margin-top:13px}.handle{background:var(--panel2);border-left:3px solid var(--cyan);padding:10px 11px;border-radius:0 8px 8px 0}.handle b{display:block;color:var(--gold);margin-bottom:3px}.handle span{display:block;color:var(--muted);font-size:12px}.handle.reversal{border-color:var(--pink)}.handle.page{border-color:var(--green)}.handle.anchor{border-color:var(--orange)}.equations{display:grid;gap:8px}.equation{display:grid;grid-template-columns:minmax(180px,.65fr) 1fr;gap:12px;align-items:center;background:var(--panel2);border:1px solid var(--line);border-radius:9px;padding:10px}.equation strong{color:var(--gold);font-size:18px}.equation span{color:var(--muted);font-size:12px}.glyph-grid{display:grid;grid-template-columns:repeat(8,1fr);gap:6px;margin:12px 0}.glyph{font-size:21px;padding:8px 3px}.glyph.division{border-color:var(--orange)}.glyph.transition{border-color:var(--green)}.glyph.active{background:var(--pink);border-color:var(--pink);color:#111b24}.glyph.division.active{background:var(--orange)}.glyph.transition.active{background:var(--green)}.o8-readout{display:grid;grid-template-columns:repeat(3,1fr);gap:7px}.o8-readout div{background:var(--panel2);border:1px solid var(--line);border-radius:8px;padding:8px}.o8-readout small{display:block;color:var(--muted)}.o8-readout strong{display:block;margin-top:3px}.source-list{margin:10px 0 0;padding-left:18px;color:var(--muted);font-size:12px}.source-list a,.links a{color:var(--cyan)}.boundary{margin-top:13px;color:var(--muted);font-size:12px;border-top:1px solid var(--line);padding-top:11px}.links{display:flex;flex-wrap:wrap;gap:14px;margin-top:16px}.links a{color:var(--cyan)}@media(max-width:930px){.hero{align-items:start;flex-direction:column}.workspace,.bridge{grid-template-columns:1fr}.pyramid{min-height:480px}}@media(max-width:600px){.shell{padding:14px}.metrics{grid-template-columns:1fr 1fr}.pyramid{min-height:390px}.controls input{width:100%}.glyph-grid{grid-template-columns:repeat(4,1fr)}.equation{grid-template-columns:1fr}}@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<main class="shell">
+  <header class="hero"><div><div class="eyebrow">PRIMEGRID · BLOCK 2B · trinary lift</div><h1>Pascal-Pyramide × Antipode</h1><p>Drei lokale Pfade erzeugen die trinomiale Schicht. Eine globale Orientierung verdoppelt ihre Ansicht, ohne den Carrier in einen unabhängigen 6ⁿ-Prozess umzudeuten.</p></div><div class="pass">12/12 GATES · PASS</div></header>
+  <section class="controls" aria-label="Steuerung">
+    <label><span>Tiefe</span><input id="depth" type="range" min="0" max="11" value="5" step="1"><strong class="depth" id="depthValue">n = 5</strong></label>
+    <button type="button" class="active" data-view="plus">σ = +</button>
+    <button type="button" data-view="minus">σ = −</button>
+    <button type="button" data-view="both">Antipodenpaar</button>
+  </section>
+  <section class="metrics" aria-live="polite">
+    <div class="metric"><small>Makroknoten</small><strong id="macro">21</strong></div>
+    <div class="metric"><small>Trinäre Pfade · 3ⁿ</small><strong id="paths">243</strong></div>
+    <div class="metric"><small>Global orientiert · 2·3ⁿ</small><strong id="oriented">486</strong></div>
+    <div class="metric"><small>Lokales Alphabet</small><strong>3×2 = 6</strong></div>
+  </section>
+  <section class="workspace">
+    <article class="panel">
+      <h2>Trinomiale Schicht</h2>
+      <svg id="pyramid" class="pyramid" viewBox="0 0 760 590" role="img" aria-label="Trinomiale Pascal-Schicht mit antipodischer Orientierung"></svg>
+      <div class="legend"><span><i class="swatch" style="background:var(--cyan)"></i>σ=+</span><span><i class="swatch" style="background:var(--pink)"></i>σ=−</span><span><i class="swatch" style="background:var(--gold)"></i>gewählter Zustand und Antipode</span></div>
+    </article>
+    <aside class="panel" aria-live="polite">
+      <h2>Zustand und Handles</h2>
+      <div class="readout"><small>Gewählter Makrozustand</small><strong class="big" id="state">(5,0,0; +)</strong></div>
+      <div class="readout"><small>Multiplizität Ω</small><strong id="omega">1</strong></div>
+      <div class="readout"><small>Antipode A(i,j,k;σ)</small><strong id="antipode">(0,0,5; −)</strong></div>
+      <div class="readout"><small>Count boundary</small><strong>global: 2·3ⁿ · per-step: 6ⁿ not used</strong></div>
+      <div class="rail">
+        <div class="handle"><b>41 · 42 · 43 → 1031 · 1032 · 1033</b><span>gleiche Projektion (5,6,7) mod 9 · exakter Carry: 1032 = 24·43</span></div>
+        <div class="handle reversal"><b>1078 ↔ 8701</b><span>dezimale Umkehr · gemeinsamer Handle: 77·14 ↔ 77·113</span></div>
+        <div class="handle page"><b>73 → 79 → 83 → 89 → 97 → 101</b><span>P21 → P22 → P23 → P24 → P25 → P26 · Page Flip 97→101</span></div>
+        <div class="handle anchor"><b>3299 · 3301</b><span>Zwillingsprimzahl und externer Anchor · not a selector</span></div>
+      </div>
+      <p class="boundary">Die Handles sind typisierte Relationen. Sie beweisen weder Coxeter-/E8-Identität noch einen physikalischen Mechanismus. Auch 100/2=50 bleibt eine neutrale Residualgrenze, kein Primselektor.</p>
+    </aside>
+  </section>
+  <section class="bridge" aria-label="101- und O8-Repräsentationsbrücke">
+    <article class="panel">
+      <div class="eyebrow">Addendum · exakte Relationen</div>
+      <h2>101: Hinge, Kanal und Rest</h2>
+      <div class="equations">
+        <div class="equation"><strong>97 — 99 — 101</strong><span>XI-Hinge: P25 und P26 liegen exakt ±2 um 99.</span></div>
+        <div class="equation"><strong>101 → 202 → 404</strong><span>Gewählte dyadische Leiter; 404 = 4·101. Nicht durch den Primzahlsprung erzwungen.</span></div>
+        <div class="equation"><strong>3301 − 3200 = 101</strong><span>Exakte neue Restzerlegung. 3200 ist hier eine gewählte Blockgrenze, kein bereits nachgewiesener Operator.</span></div>
+        <div class="equation"><strong>851<sub>20</sub> − 800<sub>20</sub> = 51<sub>20</sub></strong><span>Dieselbe Differenz in Basis 20: 3301 − 3200 = 101 dezimal.</span></div>
+      </div>
+      <h3>Zwei benachbarte Schnitte bleiben getrennt</h3>
+      <p class="boundary">XI-Hinge: 97–99–101. Janus-Achse: 97–100–103. Der Wechsel 99→100 verschiebt nur den Schnitt; er ist keine Translation des ganzen Zahlenpaares.</p>
+      <ul class="source-list">
+        <li><a href="../NEXAH_ROOT7_CUSTODY_2026-09-28/NEXAH_ROOT7_DELTA_INTAKT_SEIT_PRUEFPUNKT_19_2026-09-28/02_Neue_Pruefvisuals/NEXAH_X_XI_XII_HINGE_101_404_KORRIGIERT_2026-09-28.svg">editierbares XI-Hinge/404-Prüfvisual</a></li>
+        <li><a href="../NEXAH_ROOT7_CUSTODY_2026-09-28/NEXAH_ROOT7_DELTA_INTAKT_SEIT_PRUEFPUNKT_19_2026-09-28/02_Neue_Pruefvisuals/NEXAH_96_103_ZWEI_ACHSEN_PRUEFUNG_2026-09-28.svg">editierbares 96–103-Zwei-Achsen-Prüfvisual</a></li>
+      </ul>
+    </article>
+    <article class="panel">
+      <div class="eyebrow">Addendum · O-Lane und O8-Grenze</div>
+      <h2>Sechs O-Zustände + zwei Zwischenstellen</h2>
+      <p>Das gesperrte 2B-Modell benutzt ein globales <strong>σ∈{−,+}</strong>. Der algebraische O8-Kandidat <strong>(Z/2Z)³</strong> besitzt separat acht Vorzeichentripel. Für die sichtbaren Glyphen ist jedoch keine Bijektion zu diesen acht Tripeln eingefroren.</p>
+      <div id="glyphGrid" class="glyph-grid" aria-label="Sechs O-Zustandszeichen sowie Teilungs- und Übergangsstelle"></div>
+      <div class="o8-readout">
+        <div><small>Glyph-Adresse</small><strong id="glyphValue">ö</strong></div>
+        <div><small>Typisierte Rolle</small><strong id="glyphRole">O-Zustand</strong></div>
+        <div><small>Lesart</small><strong id="glyphMeaning">stabile Marke · σ-map offen</strong></div>
+      </div>
+      <div class="readout"><small>Separater algebraischer O8-Kandidat</small><strong id="o8Paths">8·3⁵ = 1944</strong></div>
+      <p class="boundary"><strong>ö ô ò ó õ ō</strong> bilden die Zustandslane. <strong>ø</strong> bezeichnet die Teilung / den Cut / Riss; <strong>œ</strong> die Ligatur / Seam / den Übergang („oe“). Ein separater Multi-Lens-Audit testet diese beiden Rollen als paketlokalen Split und registrierte Naht; er rekonstruiert weder den historischen OIL/RIS-Operator noch eine Identität mit Block 2B. Die OEIL/OIL-Riss-Lesart bleibt eine offene Owner-Hypothese. Weder die Glyphenlane noch O8 ersetzen den aktuellen 2B-Carrier <strong>2·3ⁿ</strong>. <a href="../NEXAH_OIL_RIS_MULTI_LENS_REVEAL_AUDIT_2026-10-07/01_RESULT_ASSESSMENT.md">Audit öffnen</a>.</p>
+      <ul class="source-list">
+        <li><a href="../NEXAH_ZERO_GLYPH_IOTA_BOUNDARY_TEST_2026-09-28/FINAL_REPORT.md">Unicode-/Zero-Glyph-Prüfbericht</a></li>
+        <li><a href="../../RESEARCH_AREAS/FIELD_GLYPH_NUMBER_ARCHITECTURE_STAGE_0_2026-09-14/13_12321_COUPLING_KEY_JANUS_AXIS.md">8-Zustands-Kandidat und 16-Zustands-Grenze</a></li>
+      </ul>
+    </article>
+  </section>
+  <footer class="links"><a href="00_PREREGISTRATION.md">Präregistrierung</a><a href="01_RESULT_ASSESSMENT.md">Result assessment</a><a href="02_101_O8_PASCAL_BRIDGE_ADDENDUM.md">101/O8-Addendum</a><a href="../NEXAH_PRIMEGRID_BLOCK02A_PASCAL_THREAD_QUOTIENT_2026-10-07/NEXAH_PRIMEGRID_BLOCK02A_PASCAL_THREAD_LAB.html">Block 2A</a><a href="../NEXAH_PRIMEGRID_BLOCK03_PRIME_ADDRESS_CONTROL_2026-10-07/NEXAH_PRIMEGRID_BLOCK03_PRIME_ADDRESS_CONTROL_LAB.html">Block 3</a><a href="../E8_DEMOS_INTERACTIVE_ORIENTATION_2026-09-21/NEXAH_E8_MUTATION_FAMILY_GRAPH.html">E8 Mutation Lab</a><a href="https://scarabaeus1031.github.io/NEXAH-Science-Lab/navigator/#sequence">Navigator</a></footer>
+</main>
+<script>
+(() => {
+  const NS='http://www.w3.org/2000/svg',$=id=>document.getElementById(id),root=$('pyramid');
+  let view='plus',selected=[5,0,0,1],glyphIndex=0;
+  const glyphs=[
+    {mark:'ö',role:'O-Zustand',meaning:'stabile Marke · σ-map offen'},
+    {mark:'ô',role:'O-Zustand',meaning:'stabile Marke · σ-map offen'},
+    {mark:'ò',role:'O-Zustand',meaning:'stabile Marke · σ-map offen'},
+    {mark:'ó',role:'O-Zustand',meaning:'stabile Marke · σ-map offen'},
+    {mark:'õ',role:'O-Zustand',meaning:'stabile Marke · σ-map offen'},
+    {mark:'œ',role:'Übergang / Seam',meaning:'Ligatur · oe · Bindestelle',tone:'transition'},
+    {mark:'ø',role:'Teilung / Cut',meaning:'Durchstreichung · Riss · 1→2',tone:'division'},
+    {mark:'ō',role:'O-Zustand',meaning:'stabile Marke · σ-map offen'}
+  ];
+  const factorial=n=>{let value=1;for(let i=2;i<=n;i++)value*=i;return value};
+  const omega=([i,j,k])=>factorial(i+j+k)/(factorial(i)*factorial(j)*factorial(k));
+  const states=n=>{const out=[];for(let i=0;i<=n;i++)for(let j=0;j<=n-i;j++)out.push([i,j,n-i-j]);return out};
+  const point=(state,n)=>{if(!n)return[380,285];const [i,j,k]=state,A=[380,55],B=[80,525],C=[680,525];return[(i*A[0]+j*B[0]+k*C[0])/n,(i*A[1]+j*B[1]+k*C[1])/n]};
+  const antipode=([i,j,k,sigma])=>[k,j,i,-sigma];
+  const same=(a,b)=>a.every((value,index)=>value===b[index]);
+  const node=(tag,attrs={})=>{const value=document.createElementNS(NS,tag);Object.entries(attrs).forEach(([key,item])=>value.setAttribute(key,item));return value};
+  const format=([i,j,k,sigma])=>`(${i},${j},${k}; ${sigma>0?'+':'−'})`;
+  function renderGlyphs(n){
+    const grid=$('glyphGrid');grid.replaceChildren();
+    glyphs.forEach((item,index)=>{const button=document.createElement('button');button.type='button';button.className=`glyph ${item.tone||''} ${index===glyphIndex?'active':''}`;button.textContent=item.mark;button.setAttribute('aria-label',`${item.mark}: ${item.role}; ${item.meaning}`);button.addEventListener('click',()=>{glyphIndex=index;render()});grid.append(button)});
+    const item=glyphs[glyphIndex];$('glyphValue').textContent=item.mark;$('glyphRole').textContent=item.role;$('glyphMeaning').textContent=item.meaning;$('o8Paths').textContent=`8·3${sup(n)} = ${8*3**n}`;
+  }
+  const sup=value=>String(value).replace(/\d/g,d=>'⁰¹²³⁴⁵⁶⁷⁸⁹'[d]);
+  function render(){
+    const n=+$('depth').value,layer=states(n),max=Math.max(...layer.map(omega));
+    if(selected[0]+selected[1]+selected[2]!==n)selected=[n,0,0,view==='minus'?-1:1];
+    $('depthValue').textContent=`n = ${n}`;$('macro').textContent=layer.length;$('paths').textContent=3**n;$('oriented').textContent=2*3**n;
+    root.replaceChildren();
+    const title=node('title');title.textContent=`Pascal-Pyramide Tiefe ${n}, ${layer.length} Makroknoten und ${3**n} Pfade`;root.append(title);
+    if(n){for(const state of layer){for(const [a,b,c] of [[1,-1,0],[1,0,-1],[0,1,-1]]){const next=[state[0]+a,state[1]+b,state[2]+c];if(next.every(value=>value>=0)&&next.reduce((x,y)=>x+y,0)===n){const p=point(state,n),q=point(next,n);root.append(node('line',{x1:p[0],y1:p[1],x2:q[0],y2:q[1],class:'gridline'}))}}}}
+    const sigma=view==='minus'?-1:1,anti=antipode(selected);
+    layer.forEach(state=>{
+      const [x,y]=point(state,n),value=omega(state),r=7+15*Math.sqrt(value/max),current=[...state,sigma],isSelected=same(current,selected),isAnti=same(current,anti);
+      const circle=node('circle',{cx:x,cy:y,r,class:`node ${sigma>0?'plus':'minus'} ${isSelected?'selected':''}`,'aria-label':`${format(current)}, Multiplizität ${value}`});
+      circle.addEventListener('click',()=>{selected=current;render()});root.append(circle);
+      if(isAnti)root.append(node('circle',{cx:x,cy:y,r:r+6,class:'antipode-ring'}));
+      if(value===max||isSelected){const label=node('text',{x,y:y+4,'text-anchor':'middle',class:'node-label'});label.textContent=value;root.append(label)}
+      if(view==='both'){
+        const mirror=antipode(current),[mx,my]=point(mirror,n),ring=node('circle',{cx:mx,cy:my,r:r+4,class:'antipode-ring'});root.append(ring);
+      }
+    });
+    [['i',[380,35]],['j',[55,550]],['k',[705,550]]].forEach(([label,[x,y]])=>{const text=node('text',{x,y,'text-anchor':'middle',class:'axis-label'});text.textContent=label;root.append(text)});
+    const chosen=selected,paired=antipode(chosen);$('state').textContent=format(chosen);$('omega').textContent=omega(chosen);$('antipode').textContent=format(paired);renderGlyphs(n);
+  }
+  $('depth').addEventListener('input',render);
+  document.querySelectorAll('[data-view]').forEach(button=>button.addEventListener('click',()=>{view=button.dataset.view;document.querySelectorAll('[data-view]').forEach(item=>item.classList.toggle('active',item===button));selected=[selected[0],selected[1],selected[2],view==='minus'?-1:1];render()}));
+  render();
+})();
+</script>
+</body>
+</html>

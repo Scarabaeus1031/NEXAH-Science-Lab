@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="dark light">
+<title>BLOCK-01 · Cube Face / Projection / Return Lab</title>
+<style>
+:root{
+  color-scheme:dark;
+  --bg:#07121c;--panel:#0c1c29;--panel2:#102536;--line:#29485d;
+  --text:#ecf6ff;--muted:#9db2c2;--cyan:#61dff5;--gold:#f4bf4f;
+  --green:#65dda5;--red:#ff7885;--purple:#c59aff;--ink:#061018;
+}
+*{box-sizing:border-box}
+html{background:var(--bg);color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}
+body{margin:0;min-width:320px;background:radial-gradient(circle at 50% -10%,#16384e 0,transparent 38%),var(--bg)}
+button,input{font:inherit}
+button{color:inherit}
+button:focus-visible,a:focus-visible,input:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+a{color:var(--cyan)}
+.shell{width:min(1440px,100%);margin:auto;padding:20px}
+.topline{display:flex;justify-content:space-between;gap:16px;align-items:flex-start;border-bottom:1px solid var(--line);padding-bottom:18px}
+.eyebrow{margin:0 0 7px;color:var(--gold);font-size:12px;letter-spacing:.15em;text-transform:uppercase;font-weight:700}
+h1{font-size:clamp(28px,4vw,52px);line-height:1.02;margin:0;letter-spacing:-.035em}
+.lede{margin:9px 0 0;color:var(--muted);max-width:780px;line-height:1.5}
+.status{border:1px solid var(--green);color:var(--green);border-radius:999px;padding:8px 12px;font-size:12px;white-space:nowrap}
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin:16px 0}
+.stat{border:1px solid var(--line);background:color-mix(in srgb,var(--panel) 90%,transparent);padding:12px;border-radius:12px}
+.stat span{display:block;color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:.1em}
+.stat strong{display:block;margin-top:4px;font-size:18px}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0}
+.tab,.control,.voxel{border:1px solid var(--line);background:var(--panel);border-radius:9px;padding:9px 12px;cursor:pointer}
+.tab[aria-selected="true"],.control.active,.voxel[aria-pressed="true"]{background:var(--cyan);border-color:var(--cyan);color:var(--ink)}
+.tab:hover,.control:hover,.voxel:hover{border-color:var(--cyan)}
+.workspace{display:grid;grid-template-columns:260px minmax(0,1fr) 270px;gap:14px;align-items:stretch}
+.panel{border:1px solid var(--line);background:color-mix(in srgb,var(--panel) 94%,transparent);border-radius:14px;padding:14px;min-width:0}
+.panel h2,.panel h3{margin:0 0 10px;font-size:15px}
+.panel p{color:var(--muted);font-size:13px;line-height:1.45}
+.controls{display:grid;gap:14px;align-content:start}
+.control-row{display:flex;gap:7px;flex-wrap:wrap}
+.control{padding:8px 10px}
+.control.primary{background:var(--gold);border-color:var(--gold);color:var(--ink)}
+.layers{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.layer{border-top:1px solid var(--line);padding-top:9px}
+.layer-title{font-size:12px;color:var(--muted);margin-bottom:6px}
+.voxel-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:5px}
+.voxel{aspect-ratio:1;padding:0;min-width:42px;position:relative}
+.voxel::after{content:attr(data-label);font-size:11px}
+.stage{min-height:580px;display:grid;align-items:center;justify-items:center;position:relative;overflow:hidden;background:radial-gradient(circle at 50% 45%,rgba(97,223,245,.09),transparent 42%)}
+.stage svg{width:100%;height:auto;max-height:620px}
+.stage-title{position:absolute;left:16px;top:14px;color:var(--muted);font-size:12px;letter-spacing:.08em;text-transform:uppercase}
+.stage-note{position:absolute;left:16px;right:16px;bottom:13px;text-align:center;color:var(--muted);font-size:12px}
+.trace{display:grid;align-content:start;gap:10px}
+.trace-line{display:grid;grid-template-columns:28px 1fr;gap:8px;align-items:start;padding:9px 0;border-bottom:1px solid var(--line)}
+.trace-line:last-child{border-bottom:0}
+.trace-line b{display:grid;place-items:center;width:25px;height:25px;border-radius:50%;background:var(--panel2);color:var(--cyan);font-size:11px}
+.trace-line strong{display:block;font-size:13px}
+.trace-line small{display:block;color:var(--muted);margin-top:3px;line-height:1.35}
+.readout{background:var(--panel2);border-left:3px solid var(--gold);padding:10px 12px;font-size:13px;line-height:1.45}
+.readout strong{color:var(--gold)}
+.projection-wrap{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;width:min(720px,94%)}
+.projection h3,.matrix-panel h3{text-align:center;color:var(--muted);font-size:13px;font-weight:600}
+.mini-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:5px;aspect-ratio:1}
+.mini-cell,.matrix-cell{border:1px solid var(--line);background:#08131e;border-radius:5px}
+.mini-cell.on,.matrix-cell.on{background:var(--cyan);border-color:var(--cyan)}
+.fourier-wrap,.entropy-wrap{display:grid;grid-template-columns:1fr 1fr;gap:28px;width:min(850px,96%);align-items:center}
+.matrix{display:grid;grid-template-columns:repeat(8,1fr);gap:2px;aspect-ratio:1}
+.matrix-cell{border-radius:2px;min-width:0}
+.heat-cell{border:0;border-radius:1px;min-width:0}
+.metric-strip{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:16px;color:var(--muted);font-size:12px}
+.metric-strip strong{color:var(--text)}
+.range{width:100%;accent-color:var(--cyan)}
+.hidden{display:none!important}
+.claim{margin-top:15px;border:1px solid var(--gold);background:rgba(244,191,79,.06);border-radius:12px;padding:12px 14px;color:var(--muted);font-size:12px;line-height:1.5}
+.claim strong{color:var(--gold)}
+.links{display:flex;gap:12px;flex-wrap:wrap;margin-top:10px}
+@media(max-width:980px){.workspace{grid-template-columns:230px 1fr}.trace{grid-column:1/-1;grid-template-columns:repeat(3,1fr)}.stage{min-height:500px}}
+@media(max-width:720px){.shell{padding:12px}.topline{display:block}.status{display:inline-block;margin-top:12px}.stats{grid-template-columns:1fr 1fr}.workspace{display:block}.panel{margin-bottom:10px}.stage{min-height:430px}.trace{display:grid;grid-template-columns:1fr}.fourier-wrap,.entropy-wrap{grid-template-columns:1fr}.projection-wrap{gap:10px}.layers{grid-template-columns:1fr 1fr}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+<main class="shell">
+  <header class="topline">
+    <div>
+      <p class="eyebrow">BLOCK-01 · bounded executable fixture</p>
+      <h1>Cube Face / Projection / Return Lab</h1>
+      <p class="lede">Ein diskreter Blockträger, sechs gerichtete Flächen, exakte Rotationen und kontrollierte Ansichten. Baue den Carrier – und beobachte, wo Projektion, Spektrum und Entropie Information verlieren.</p>
+    </div>
+    <div class="status">9/9 GATES · PASS</div>
+  </header>
+
+  <section class="stats" aria-label="Validierte Trägerwerte">
+    <div class="stat"><span>Q3 carrier</span><strong>8 · 12</strong><small>vertices · edges</small></div>
+    <div class="stat"><span>Q4 carrier</span><strong>16 · 32</strong><small>vertices · edges</small></div>
+    <div class="stat"><span>Boundary</span><strong>6 = 3 + 3</strong><small>faces · Janus pairs</small></div>
+    <div class="stat"><span>Rotation group</span><strong>24</strong><small>proper orientations</small></div>
+  </section>
+
+  <nav class="tabs" role="tablist" aria-label="BLOCK-01 Ansichten">
+    <button class="tab" role="tab" aria-selected="true" data-tab="build">Block</button>
+    <button class="tab" role="tab" aria-selected="false" data-tab="projection">Projektion</button>
+    <button class="tab" role="tab" aria-selected="false" data-tab="fourier">Fourier</button>
+    <button class="tab" role="tab" aria-selected="false" data-tab="entropy">Entropie</button>
+  </nav>
+
+  <section class="workspace">
+    <aside class="panel controls" aria-label="Steuerung">
+      <div id="buildControls">
+        <h2>2×2×2 Carrier</h2>
+        <div class="control-row">
+          <button class="control active" data-preset="22">Mask 22</button>
+          <button class="control" data-preset="23">Mask 23</button>
+          <button class="control" data-preset="255">Full</button>
+          <button class="control" data-preset="0">Clear</button>
+        </div>
+        <div class="layers" id="layers"></div>
+        <h3>Rotation</h3>
+        <div class="control-row">
+          <button class="control" data-rotate="x">X +90°</button>
+          <button class="control" data-rotate="y">Y +90°</button>
+          <button class="control" data-rotate="z">Z +90°</button>
+          <button class="control primary" id="returnBtn">Return</button>
+        </div>
+      </div>
+      <div id="projectionControls" class="hidden">
+        <h2>Collision control</h2>
+        <p>Mask 22 und 23 unterscheiden sich in einem Voxel, besitzen aber dieselben drei Max-Projektionen.</p>
+        <div class="control-row">
+          <button class="control active" data-preset="22">Mask 22</button>
+          <button class="control" data-preset="23">Mask 23</button>
+        </div>
+      </div>
+      <div id="fourierControls" class="hidden">
+        <h2>Cyclic address shift</h2>
+        <label for="shiftX">X shift <strong id="shiftXValue">2</strong></label>
+        <input class="range" id="shiftX" type="range" min="0" max="7" value="2">
+        <label for="shiftY">Y shift <strong id="shiftYValue">1</strong></label>
+        <input class="range" id="shiftY" type="range" min="0" max="7" value="1">
+        <p>Die Translation ändert die komplexe Phase, nicht den Fourier-Betrag.</p>
+      </div>
+      <div id="entropyControls" class="hidden">
+        <h2>Equal mass, different geometry</h2>
+        <p>Beide Masken tragen fünf gleich gewichtete Pixel. Nur ihre Nachbarschaftsstruktur unterscheidet sich.</p>
+      </div>
+    </aside>
+
+    <section class="panel stage" aria-live="polite">
+      <div class="stage-title" id="stageTitle">Block carrier · mask 22</div>
+      <svg id="cubeSvg" viewBox="0 0 720 560" role="img" aria-label="Isometrische Ansicht des 2 mal 2 mal 2 Voxelblocks"></svg>
+      <div id="projectionView" class="projection-wrap hidden"></div>
+      <div id="fourierView" class="fourier-wrap hidden"></div>
+      <div id="entropyView" class="entropy-wrap hidden"></div>
+      <div class="stage-note" id="stageNote">Carrier-Adresse bleibt unter Rotation erhalten.</div>
+    </section>
+
+    <aside class="panel trace" aria-label="Typed trace">
+      <h2>Typed return trace</h2>
+      <div class="trace-line"><b>F2</b><div><strong>Carrier / Address</strong><small id="carrierReadout">mask 22 · 3 voxels</small></div></div>
+      <div class="trace-line"><b>F5</b><div><strong>Boundary / Connectivity</strong><small id="boundaryReadout">14 exposed faces</small></div></div>
+      <div class="trace-line"><b>F3</b><div><strong>Transform</strong><small id="transformReadout">identity orientation</small></div></div>
+      <div class="trace-line"><b>F1</b><div><strong>Observe / Project</strong><small id="observeReadout">carrier view active</small></div></div>
+      <div class="trace-line"><b>F7</b><div><strong>Return / Residual</strong><small id="returnReadout">exact address return available</small></div></div>
+      <div class="readout" id="decision"><strong>BLOCK:</strong> same carrier, transformed view.</div>
+    </aside>
+  </section>
+
+  <footer class="claim">
+    <strong>Persistent claim ceiling:</strong> Q3/Q4, cube rotations, voxel projection, DFT and Shannon controls are exact finite fixtures. Equal projection, equal Fourier magnitude or equal entropy does not establish carrier identity. No Φ-field, Boltzmann, microwave, biological or physical tesseract claim is promoted.
+    <div class="links">
+      <a href="https://scarabaeus1031.github.io/NEXAH-Science-Lab/navigator/#entity=MOD:TESSAREC">Navigator · Tessarec</a>
+      <a href="01_RESULT_ASSESSMENT.md">Result assessment</a>
+      <a href="../../EXPORTS/NEXAH_TESSERACT_ROOT_SPACE_8_TO_16.html">Root Space 8→16</a>
+      <a href="../../REPORTS/NEXAH_GRID_OBSERVATORY_PUBLIC_RELEASE_2026-09-17/07_TESSAREC_ROOT_IOTA_FRAME_IMPLEMENTATION_RECORD.md">Tessarec record</a>
+    </div>
+  </footer>
+</main>
+
+<script>
+const $=id=>document.getElementById(id);
+const state={mask:22,tab:'build',orientation:[[1,0,0],[0,1,0],[0,0,1]],history:[],shiftX:2,shiftY:1};
+const rotations={
+  x:[[1,0,0],[0,0,-1],[0,1,0]],
+  y:[[0,0,1],[0,1,0],[-1,0,0]],
+  z:[[0,-1,0],[1,0,0],[0,0,1]]
+};
+const mul=(a,b)=>a.map(row=>b[0].map((_,j)=>row.reduce((s,v,k)=>s+v*b[k][j],0)));
+const mv=(m,v)=>m.map(row=>row.reduce((s,x,i)=>s+x*v[i],0));
+const popcount=n=>n.toString(2).split('').filter(x=>x==='1').length;
+const bit=(x,y,z)=>x*4+y*2+z;
+const occupied=()=>{const out=[];for(let x=0;x<2;x++)for(let y=0;y<2;y++)for(let z=0;z<2;z++)if(state.mask&(1<<bit(x,y,z)))out.push([x,y,z]);return out};
+const normals=[[1,0,0],[-1,0,0],[0,1,0],[0,-1,0],[0,0,1],[0,0,-1]];
+function boundaryCount(){const set=new Set(occupied().map(v=>v.join(',')));let n=0;for(const v of occupied())for(const d of normals){const q=v.map((x,i)=>x+d[i]);if(!set.has(q.join(',')))n++}return n}
+function layers(){let html='';for(let z=0;z<2;z++){html+=`<div class="layer"><div class="layer-title">z = ${z}</div><div class="voxel-grid">`;for(let y=0;y<2;y++)for(let x=0;x<2;x++){const i=bit(x,y,z),on=!!(state.mask&(1<<i));html+=`<button class="voxel" aria-pressed="${on}" data-voxel="${i}" data-label="${x}${y}${z}" aria-label="Voxel ${x}, ${y}, ${z}"></button>`}html+='</div></div>'}$('layers').innerHTML=html;document.querySelectorAll('[data-voxel]').forEach(b=>b.onclick=()=>{state.mask^=1<<Number(b.dataset.voxel);state.history=[];renderAll()})}
+function project3(v){const p=mv(state.orientation,v.map(x=>x-.5));return [360+(p[0]-p[1])*95,300+(p[0]+p[1])*48-p[2]*95,p]}
+function cubeFaces(cell){const [x,y,z]=cell;const P=(a,b,c)=>project3([x+a,y+b,z+c]);const pts={a:P(0,0,0),b:P(1,0,0),c:P(1,1,0),d:P(0,1,0),e:P(0,0,1),f:P(1,0,1),g:P(1,1,1),h:P(0,1,1)};return [
+  {p:[pts.e,pts.f,pts.g,pts.h],fill:'var(--gold)'},
+  {p:[pts.a,pts.b,pts.f,pts.e],fill:'var(--cyan)'},
+  {p:[pts.b,pts.c,pts.g,pts.f],fill:'var(--purple)'},
+  {p:[pts.c,pts.d,pts.h,pts.g],fill:'var(--green)'},
+  {p:[pts.d,pts.a,pts.e,pts.h],fill:'var(--red)'}
+]}
+function renderCube(){const svg=$('cubeSvg');const cells=occupied().sort((a,b)=>project3(a)[2].reduce((s,x)=>s+x,0)-project3(b)[2].reduce((s,x)=>s+x,0));let html='<defs><filter id="glow"><feGaussianBlur stdDeviation="5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>';for(const cell of cells)for(const f of cubeFaces(cell)){html+=`<polygon points="${f.p.map(q=>q[0]+','+q[1]).join(' ')}" fill="${f.fill}" fill-opacity=".64" stroke="var(--text)" stroke-opacity=".55" stroke-width="1.5"/>`}if(!cells.length)html+='<text x="360" y="280" text-anchor="middle" fill="var(--muted)" font-size="18">Carrier leer · Voxel wählen</text>';svg.innerHTML=html}
+function projections(mask=state.mask){const pts=[];for(let x=0;x<2;x++)for(let y=0;y<2;y++)for(let z=0;z<2;z++)if(mask&(1<<bit(x,y,z)))pts.push([x,y,z]);return [[1,2],[0,2],[0,1]].map(([a,b])=>{const values=[];for(let i=0;i<2;i++)for(let j=0;j<2;j++)values.push(pts.some(p=>p[a]===i&&p[b]===j)?1:0);return values})}
+function renderProjection(){const labels=['along X','along Y','along Z'];$('projectionView').innerHTML=projections().map((p,i)=>`<div class="projection"><h3>${labels[i]}</h3><div class="mini-grid">${p.map(v=>`<div class="mini-cell ${v?'on':''}"></div>`).join('')}</div></div>`).join('')}
+const crossPoints=[[3,3],[2,3],[4,3],[3,2],[3,4]], dispersedPoints=[[0,0],[0,7],[7,0],[7,7],[3,3]];
+function matrix(points,shift=[0,0]){const set=new Set(points.map(([y,x])=>((y+shift[0]+8)%8)+','+((x+shift[1]+8)%8)));return Array.from({length:64},(_,i)=>set.has(Math.floor(i/8)+','+(i%8))?1:0)}
+function dft(values){const out=[];for(let u=0;u<8;u++)for(let v=0;v<8;v++){let re=0,im=0;for(let y=0;y<8;y++)for(let x=0;x<8;x++){const a=-2*Math.PI*(u*y/8+v*x/8),q=values[y*8+x];re+=q*Math.cos(a);im+=q*Math.sin(a)}out.push({re,im,mag:Math.hypot(re,im)})}return out}
+function gridHtml(values,heat=false){const max=Math.max(...values,1);return `<div class="matrix">${values.map(v=>heat?`<div class="heat-cell" style="background:color-mix(in srgb,var(--gold) ${Math.round(v/max*100)}%,var(--bg))"></div>`:`<div class="matrix-cell ${v?'on':''}"></div>`).join('')}</div>`}
+function renderFourier(){const source=matrix(crossPoints,[state.shiftY,state.shiftX]),spec=dft(source),mags=spec.map(x=>x.mag);$('fourierView').innerHTML=`<div class="matrix-panel"><h3>Shifted carrier · (${state.shiftX}, ${state.shiftY})</h3>${gridHtml(source)}</div><div class="matrix-panel"><h3>|DFT| · address removed</h3>${gridHtml(mags,true)}</div>`}
+function adj(v){let n=0;for(let y=0;y<8;y++)for(let x=0;x<8;x++)if(v[y*8+x]){if(x<7&&v[y*8+x+1])n++;if(y<7&&v[(y+1)*8+x])n++}return n}
+function renderEntropy(){const a=matrix(crossPoints),b=matrix(dispersedPoints);$('entropyView').innerHTML=`<div class="matrix-panel"><h3>Cross · H=ln(5) · adjacency ${adj(a)}</h3>${gridHtml(a)}</div><div class="matrix-panel"><h3>Dispersed · H=ln(5) · adjacency ${adj(b)}</h3>${gridHtml(b)}</div>`}
+function setTab(tab){state.tab=tab;document.querySelectorAll('.tab').forEach(b=>b.setAttribute('aria-selected',String(b.dataset.tab===tab)));['build','projection','fourier','entropy'].forEach(x=>$(x+'Controls').classList.toggle('hidden',x!==tab));$('cubeSvg').classList.toggle('hidden',tab!=='build');$('projectionView').classList.toggle('hidden',tab!=='projection');$('fourierView').classList.toggle('hidden',tab!=='fourier');$('entropyView').classList.toggle('hidden',tab!=='entropy');renderAll()}
+function setPreset(n){state.mask=Number(n);state.history=[];document.querySelectorAll('[data-preset]').forEach(b=>b.classList.toggle('active',Number(b.dataset.preset)===state.mask));renderAll()}
+function readouts(){const count=popcount(state.mask),boundary=boundaryCount();$('carrierReadout').textContent=`mask ${state.mask} · ${count} voxels`;$('boundaryReadout').textContent=`${boundary} exposed faces`;$('transformReadout').textContent=state.history.length?`${state.history.length} proper rotations applied`:'identity orientation';$('returnReadout').textContent=state.history.length?'inverse return ready':'exact address return · residual 0';const titles={build:`Block carrier · mask ${state.mask}`,projection:`Three projections · mask ${state.mask}`,fourier:'Fourier magnitude / phase boundary',entropy:'Equal entropy / different geometry'};$('stageTitle').textContent=titles[state.tab];const notes={build:'Carrier-Adresse bleibt unter Rotation erhalten.',projection:'Mask 22 ≠ Mask 23, obwohl alle drei Ansichten gleich sind.',fourier:'Translation verändert Phase – der Betrag verliert die Adresse.',entropy:'H = ln(5) bleibt gleich; räumliche Nachbarschaft nicht.'};$('stageNote').textContent=notes[state.tab];const obs={build:'carrier view active',projection:'three max projections',fourier:'magnitude projection',entropy:'scalar summary'};$('observeReadout').textContent=obs[state.tab];const decisions={build:'<strong>BLOCK:</strong> same carrier, transformed view.',projection:'<strong>COLLISION:</strong> same views ≠ same carrier.',fourier:'<strong>PHASE:</strong> same magnitude ≠ same address.',entropy:'<strong>ENTROPY:</strong> same scalar ≠ same geometry.'};$('decision').innerHTML=decisions[state.tab]}
+function renderAll(){layers();renderCube();renderProjection();renderFourier();renderEntropy();readouts()}
+document.querySelectorAll('.tab').forEach(b=>b.onclick=()=>setTab(b.dataset.tab));document.querySelectorAll('[data-preset]').forEach(b=>b.onclick=()=>setPreset(b.dataset.preset));document.querySelectorAll('[data-rotate]').forEach(b=>b.onclick=()=>{const r=rotations[b.dataset.rotate];state.orientation=mul(r,state.orientation);state.history.push(r);renderAll()});$('returnBtn').onclick=()=>{state.orientation=[[1,0,0],[0,1,0],[0,0,1]];state.history=[];renderAll()};$('shiftX').oninput=e=>{state.shiftX=Number(e.target.value);$('shiftXValue').textContent=state.shiftX;renderFourier()};$('shiftY').oninput=e=>{state.shiftY=Number(e.target.value);$('shiftYValue').textContent=state.shiftY;renderFourier()};
+renderAll();
+</script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+{
+  "schema": "nexah.ca-ident-09.result.v1",
+  "experiment": "CA-IDENT-09",
+  "alias": "PBC-01",
+  "generated_at": "2026-10-08",
+  "carrier": { "min": 1, "max": 3000, "train_max": 2000, "evaluation_min": 2001, "widths": [20, 19, 21] },
+  "identity_audit": {
+    "identity_mismatches": 0,
+    "exact_returns": 9000,
+    "return_failures": 0,
+    "prime_count": 430,
+    "twin_prime_member_count": 162,
+    "euler_41_member_count": 50
+  },
+  "topology": {
+    "19": { "horizontal_prime_edges": 1, "vertical_prime_edges": 0, "total_prime_edges": 1, "jaccard_to_width_20": 0.009259 },
+    "20": { "horizontal_prime_edges": 1, "vertical_prime_edges": 107, "total_prime_edges": 108, "jaccard_to_width_20": 1 },
+    "21": { "horizontal_prime_edges": 1, "vertical_prime_edges": 1, "total_prime_edges": 2, "jaccard_to_width_20": 0.009174 }
+  },
+  "models": {
+    "stable": {
+      "threshold": 0.53,
+      "training_macro_f1": 0.984608,
+      "evaluation": {
+        "19": { "accuracy": 0.978, "macro_f1": 0.953764, "tp": 127, "tn": 851, "fp": 22, "fn": 0, "disagreement_from_width_20": 0 },
+        "20": { "accuracy": 0.978, "macro_f1": 0.953764, "tp": 127, "tn": 851, "fp": 22, "fn": 0, "disagreement_from_width_20": 0 },
+        "21": { "accuracy": 0.978, "macro_f1": 0.953764, "tp": 127, "tn": 851, "fp": 22, "fn": 0, "disagreement_from_width_20": 0 }
+      }
+    },
+    "view": {
+      "threshold": 0.64,
+      "training_macro_f1": 0.638774,
+      "evaluation": {
+        "19": { "accuracy": 0.649, "macro_f1": 0.424, "tp": 12, "tn": 637, "fp": 236, "fn": 115, "disagreement_from_width_20": 0.504 },
+        "20": { "accuracy": 0.683, "macro_f1": 0.56736, "tp": 83, "tn": 600, "fp": 273, "fn": 44, "disagreement_from_width_20": 0 },
+        "21": { "accuracy": 0.682, "macro_f1": 0.474915, "tp": 27, "tn": 655, "fp": 218, "fn": 100, "disagreement_from_width_20": 0.513 }
+      }
+    },
+    "combined": {
+      "threshold": 0.55,
+      "training_macro_f1": 0.985589,
+      "evaluation": {
+        "19": { "accuracy": 0.974, "macro_f1": 0.943631, "tp": 120, "tn": 854, "fp": 19, "fn": 7, "disagreement_from_width_20": 0.01 },
+        "20": { "accuracy": 0.978, "macro_f1": 0.953764, "tp": 127, "tn": 851, "fp": 22, "fn": 0, "disagreement_from_width_20": 0 },
+        "21": { "accuracy": 0.971, "macro_f1": 0.937326, "tp": 119, "tn": 852, "fp": 21, "fn": 8, "disagreement_from_width_20": 0.009 }
+      }
+    }
+  },
+  "gates": {
+    "G1_identity": "PASS",
+    "G2_return": "PASS",
+    "G3_topology_residual": "PASS",
+    "G4_stable_invariance": "PASS",
+    "G5_view_sensitivity": "PASS"
+  },
+  "verdict": "CALIBRATION_PASS_VIEW_NONINVARIANT",
+  "interpretation": "The persistent address and arithmetic identity survive all cuts exactly; grid adjacency is a view property and must not be promoted to carrier identity.",
+  "claim_ceiling": "Internal deterministic calibration; no new prime theorem, physical crystal, universal topology, Euler/Ramanujan causation, or LIFE mechanism."
+}

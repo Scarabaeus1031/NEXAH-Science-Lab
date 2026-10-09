@@ -1,0 +1,32 @@
+{
+  "schema": "nexah.ca-ident.preregistration/1.0.0",
+  "experiment": "CA-IDENT-06",
+  "date": "2026-10-08",
+  "status": "LOCKED_BEFORE_EXECUTION",
+  "authority": "Human Owner: visual 3 is our kappa channel, the gap",
+  "question": "Can a Kappa support-distance channel abstain on constant-count motion, a behavior absent from classifier training, without rejecting more than 5% of known LIFE behavior rows?",
+  "dependency": "CA-IDENT-05 discovered constant-count motion as a novel holdout class and registered the reverse-weighted Memory-dominant metric as the strongest control",
+  "carrier": {"width": 48, "height": 48, "boundary": "finite-dead", "clock": "synchronous", "generations": 56},
+  "rules": ["B3/S23", "B36/S23", "B2/S", "B34/S34", "B3678/S34678"],
+  "discovery_training_seeds": "R00-R124",
+  "untouched_evaluation_seeds": "R125-R224",
+  "holdout_transform": "quarter-turn id mod 4 plus fixed shift [5,-4]",
+  "sample_generations": [10, 20, 30, 40],
+  "future_horizon": 12,
+  "known_training_policy": "Rows labelled constant-count motion are excluded from classifier and Kappa calibration; all other behavior classes are known.",
+  "registered_unknown_class": "constant-count motion",
+  "metric": "P_reverse from CA-IDENT-05: squared distance contribution 1/64 radial Fourier plus 63/64 Shadow Memory after per-view standardization and dimension normalization",
+  "classifier": "deterministic 3-nearest-neighbour with lexicographic tie break on known training rows",
+  "kappa_definition": "kappa(x) is the minimum registered P_reverse squared distance from x to any known training row",
+  "threshold_calibration": "For every known training row, compute nearest P_reverse squared distance to a known row with a different seed id. Tau is the nearest-rank 99th percentile of these leave-one-seed-out distances.",
+  "decision": "Return ABSTAIN_UNKNOWN when kappa(x) > tau; otherwise return the deterministic 3-nearest-neighbour known-class prediction.",
+  "coverage_gate": "The untouched evaluation bank must contain at least 10 registered-unknown rows and at least 10 rows for every known training class.",
+  "primary_gate": "With coverage passing, registered-unknown recall must be at least 0.50 and known-row specificity (one minus false-abstain rate) must be at least 0.95.",
+  "secondary_record": "Record Fourier-versus-Memory classifier disagreement separately as a seam indicator; it is descriptive and not part of the primary gate.",
+  "interpretation": "Kappa is an abstention and residual channel at the representation seam. It is not a forced class, new carrier, physical field or proof that the unknown has been identified.",
+  "prohibited_changes_after_lock": [
+    "No rule, seed range, transform, generation, unknown class, feature, metric weight, calibration exclusion, percentile, classifier or success threshold may change for this execution.",
+    "No R125-R224 label, distance or prediction may be inspected before this file is locked.",
+    "No physical Kappa field, resonance, biological mechanism, Life/E8 identity, quantum link or external utility may be inferred."
+  ]
+}
