@@ -41,6 +41,10 @@ The smallest viable program begins with representation maps and information loss
 17. [Scarab, 2501 Keystone and GLB Geometry Source Concordance](16_SCARAB_KEYSTONE_GLB_GEOMETRY_SOURCE_CONCORDANCE.md)
 18. [Hopf/C4 Requantization Commutation Test](../SCIENCE_LAB/CASE_STUDIES/NEXAH_PCA_PHASE_SPACE_CORE_INTAKE_2026-10-03/09_HOPF_C4_REQUANTIZATION_COMMUTATION_TEST.md)
 19. [UTG Source & Formal Concordance 01](../SCIENCE_LAB/NAVIGATION/EVIDENCE/UNIFIED_TRANSITION_GEOMETRY_2026-10-06/UTG_SOURCE_AND_FORMAL_CONCORDANCE_01.md)
+20. [Complex Numbers, Phase and Readout — NEXAH Fundamentals Crosswalk](AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/17_COMPLEX_NUMBERS_PHASE_AND_READOUT_NEXAH_FUNDAMENTALS_CROSSWALK_2026-10-08.md)
+    — established complex-number and quantum basics separated from NEXAH
+    bookkeeping, metric mixtures, partitions and Prephysics; educational and
+    documentary only.
 
 ## Current bridge control
 
