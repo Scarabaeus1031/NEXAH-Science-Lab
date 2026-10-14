@@ -1,0 +1,669 @@
+{
+  "schema": "nexah.navigator.mrb-acr-ncs-q106-return-crosswalk-binder/1.0.0",
+  "version": "1.14.0",
+  "binder_id": "NEXAH:NAVIGATOR:MRB_ACR_NCS_Q106_RETURN_CROSSWALK:2026-10-11",
+  "node_id": "NN:MRB_ACR_NCS_Q106_RETURN_CROSSWALK",
+  "title": "MRB · ACR · NCS/Q106 Return Crosswalk",
+  "status": "INTERNAL_SOURCE_BOUND_EVIDENCE_LENS",
+  "publication_authorized": false,
+  "changes_canonical_module_count": false,
+  "changes_canonical_family_count": false,
+  "owner_request": "Bind the complete MRB series, ACR-44/Lissajous, NCS-292/Q106, OIL/RIS and the related Triple-19 Pc/Pd bridge into one claim-safe Navigator reading route.",
+  "identity_reuse": {
+    "module_ids": [
+      "MOD:NUMBER_VIEW_SUITE",
+      "MOD:READOUT_RECONSTRUCTION"
+    ],
+    "artifact_ids": [
+      "ART:NUMBER:PRIMEGRID_BLOCK02B_TRINARY_ANTIPODE"
+    ],
+    "source_identity": "SCC-003 / A0OE:PASCAL_PENTAGON_D5_TEST",
+    "new_source_bound_node_id": "NN:MRB_ACR_NCS_Q106_RETURN_CROSSWALK",
+    "duplicate_risk": "REVIEWED_NO_EXACT_EXISTING_LENS; existing modules, Primegrid artifact and SCC-003/Q106 source identity reused"
+  },
+  "route_grammar": [
+    "representation and redundancy views",
+    "typed split / reconstruction",
+    "two-axis basis change and metadata gate",
+    "phase / orientation return",
+    "NCS quotient and Q106 interface",
+    "OIL/RIS closure with memory",
+    "source-contract gate before adjacency comparison",
+    "related Triple-19 constructor / antipode compatibility",
+    "shared C2 orientation factor and X40-to-X20 quotient loss",
+    "Clockwork p/q unlabeled C2 display lift and global labeling ambiguity",
+    "Owner-declared P/Q to 17/18 counter-rotation parity selector with reverse-assignment control",
+    "Clockwork C5 counter-rotating bead quotient, conditional dihedral Janus selection and P4 residual Return",
+    "Owner-declared 17→29 / 18→36 opposite order-five C30 steps with a typed P4 wobble gate",
+    "existing Pascal-quaternion connector reuse, Root-40 non-image control, Fibonacci C6 concordance and exact negative NCS P4 operator-adapter gate",
+    "LIFE06D typed scale-conjugacy and observation-fibre non-identity control",
+    "TripleSix S3 axis/orientation address and bounded 64-to-63 cube-grid fold",
+    "general 2m-to-(2m-1) coordinate fold, exact fibre profile and minimal residual Return",
+    "declared envelope/interface, quotient assembly, admissible update and exact branch-aware Return",
+    "non-evidentiary GAME 4 LIFE +1 application projection over addressed snapshots"
+  ],
+  "mrb_series": [
+    {
+      "id": "MRB-01",
+      "role": "exact CRT reconstruction plus bounded error-detection boundary",
+      "status": "PASS_WITH_BOUNDED_ERROR_DETECTION",
+      "route_stage": "representation and redundancy views"
+    },
+    {
+      "id": "MRB-02",
+      "role": "Prime-Cross / Power-Cross persistence and detection-not-correction boundary",
+      "status": "PASS_WITH_LAYERED_BOUNDARIES",
+      "route_stage": "representation and redundancy views"
+    },
+    {
+      "id": "MRB-03",
+      "role": "reserved series position",
+      "status": "DOCUMENTATION_GAP_NO_SOURCE_PACKAGE",
+      "route_stage": null,
+      "boundary": "No result or mechanism is inferred from the missing ordinal."
+    },
+    {
+      "id": "MRB-04",
+      "role": "Euler-41 base mirror and exact index handoff",
+      "status": "PASS_WITH_REPRESENTATION_BOUNDARIES",
+      "route_stage": "representation and redundancy views"
+    },
+    {
+      "id": "MRB-05",
+      "role": "centered involution and typed Euler/Riemann operator equivalence",
+      "status": "PASS_WITH_TYPED_OPERATOR_EQUIVALENCE",
+      "route_stage": "phase / orientation return"
+    },
+    {
+      "id": "MRB-06",
+      "role": "typed K/L split, exact inverse and information-preservation gate",
+      "status": "PASS_WITH_INFORMATION_PRESERVATION_GATE",
+      "route_stage": "typed split / reconstruction"
+    },
+    {
+      "id": "MRB-07",
+      "role": "prime-index exponent lattice with bounded-family control",
+      "status": "PASS_TARGET_EMBEDDED_IN_BOUNDED_FAMILY",
+      "route_stage": "representation and redundancy views"
+    },
+    {
+      "id": "MRB-08",
+      "role": "radix/CRT carrier and operator-type gates",
+      "status": "PASS_WITH_RADIX_AND_OPERATOR_TYPE_GATES",
+      "route_stage": "typed split / reconstruction"
+    },
+    {
+      "id": "MRB-09",
+      "role": "zipper, reversal, center retention and auxiliary-bit gate",
+      "status": "PASS_WITH_PARTIAL_DOMAIN_AND_AUXILIARY_BIT_GATE",
+      "route_stage": "phase / orientation return"
+    },
+    {
+      "id": "MRB-10",
+      "role": "Pascal thread carrier, path multiplicities and representation boundary",
+      "status": "PASS_WITH_REPRESENTATION_BOUNDARY",
+      "route_stage": "typed split / reconstruction"
+    }
+  ],
+  "crosswalk": [
+    {
+      "object": "MRB-06",
+      "supplies": ["typed split K", "exact inverse L", "loss gate"],
+      "does_not_supply": ["Q106 node map", "physical return mechanism"]
+    },
+    {
+      "object": "MRB-09",
+      "supplies": ["reversal", "center retention", "auxiliary orientation bit"],
+      "does_not_supply": ["Janus selection", "Q106 adjacency"]
+    },
+    {
+      "object": "MRB-10",
+      "supplies": ["Pascal path multiplicity carrier", "thread conservation"],
+      "does_not_supply": ["identity with SCC-003/Q106", "prime mechanism"]
+    },
+    {
+      "object": "ACR-44",
+      "supplies": ["Ix/Iz two-axis carrier", "exact M/S inverse", "rational Lissajous closure", "origin metadata gate"],
+      "does_not_supply": ["Möbius topology", "real-signal validation", "X20 adjacency"]
+    },
+    {
+      "object": "LISSAJOUS_MOBIUS_RETURN_CANDIDATE",
+      "supplies": ["C5 x C30 x C2 orientation fibre", "one-turn reversal", "two-turn exact return"],
+      "does_not_supply": ["admitted PENT-08", "Q106 intertwiner"]
+    },
+    {
+      "object": "NCS-292/Q106",
+      "supplies": ["X40 to X20 quotient", "unique connected Q106 twenty-node D5 interface", "six-plus-one-hundred residual", "open Janus laws"],
+      "does_not_supply": ["X20 source adjacency", "typed X20-to-Q106 intertwiner", "canonical beta"]
+    },
+    {
+      "object": "CLOCKWORK_PQ_C2_DISPLAY_LIFT",
+      "supplies": ["source-bound p/q mirror pair", "unlabeled two-sheet display lift L_PQ=X20 x {p,q}", "two admissible global orientation-bit labelings", "symmetric and antisymmetric display basis"],
+      "does_not_supply": ["canonical orientation-bit-to-p/q labeling", "Clockwork GLB-node-to-X20 map", "X20 adjacency", "Triple-19-to-X20 map", "typed X20-to-Q106 intertwiner", "historical Janus selection"]
+    },
+    {
+      "object": "PQ_17_18_COUNTERROTATION_SELECTOR",
+      "supplies": ["Owner-declared ordered bridge P-to-17 and Q-to-18", "parity selector e(n)=n mod 2", "sign agreement turn=2e-1", "conditional labeling e=1 to P and e=0 to Q", "reverse-assignment control"],
+      "does_not_supply": ["historical recovery of the ordered bridge", "labeling without the Owner contract", "Clockwork GLB-node-to-X20 map", "X20 adjacency", "typed X20-to-Q106 intertwiner", "historical Janus selection"]
+    },
+    {
+      "object": "CLOCKWORK_BEAD_X40_P4_RESIDUAL_RETURN",
+      "supplies": ["ten-node B10=C5×{P,Q} display quotient", "five counter-rotation-equivariant C5 phase charts", "four-state P4 fibre at every bead", "two-bit P4 residual for exact Return after chart declaration", "conditional selection of Jd over Jc on the displayed C5×C2 quotient"],
+      "does_not_supply": ["historical C5 phase origin", "unique GLB-node-to-X40 state", "unique GLB-node-to-X20 state", "historical NCS Janus selection", "X20 adjacency", "typed X20-to-Q106 intertwiner", "GLB-node-to-Q106 map"]
+    },
+    {
+      "object": "LIFE06D_PQB_CONJUGACY_IDENTIFIABILITY_AUDIT",
+      "supplies": ["exact real scale-conjugate pair Q-=P/alpha and Q+=P*alpha", "product invariant Q-*Q+=P^2", "integer representation residual", "tolerance-dependent observation fibres and multiplicity", "typed non-identity boundary"],
+      "does_not_supply": ["Clockwork mirror-sheet identity", "orientation-bit-to-p/q labeling", "X20 carrier or adjacency", "Janus operator selection", "Q106 intertwiner"]
+    },
+    {
+      "object": "OIL/RIS",
+      "supplies": ["return-with-memory reading grammar", "A to AE to A-prime orientation sequence"],
+      "does_not_supply": ["independent graph evidence", "Q106 identity"]
+    },
+    {
+      "object": "TRIPLE19_PC_PD",
+      "supplies": ["P_c/P_d oriented-state constructors", "fixed-point-free antipode involution A", "37/57/97/120 exact bridge arithmetic"],
+      "does_not_supply": ["Triple-19-to-X20 map", "full-carrier intertwiner", "NCS identity", "Q106 node map"]
+    },
+    {
+      "object": "TRIPLESIX_S3_CUBE_GRID_FOLD",
+      "supplies": ["six S3 permutation states", "three reversal-axis pairs", "parity C2 orientation", "declared coordinatewise 64-to-63 fold and exact fibre profiles"],
+      "does_not_supply": ["full 63-to-64 inverse", "multi-axis pivot reconstruction", "historical visual generator", "historical Janus selection", "cube mechanism identity"]
+    },
+    {
+      "object": "GENERAL_COORDINATE_FOLD_MINIMAL_RESIDUAL_RETURN",
+      "supplies": ["general 2m-to-(2m-1) coordinate fold", "exact C(d,k)(2m-2)^(d-k) fibre profile", "pointwise-minimal k-bit residual", "uniform-minimal d-bit Return", "two non-identical controls"],
+      "does_not_supply": ["historical visual generator", "physical fold or channel", "full Grid-Fold-Channel specification", "admitted A0-BL-025 Study", "new carrier identity"]
+    },
+    {
+      "object": "GRID_FOLD_CHANNEL_INTERFACE_ASSEMBLY_UPDATE_RETURN",
+      "supplies": ["complete typed carrier-fold-embedding-envelope-interface-assembly-update-Return chain", "two labelled carriers glued only at declared interface anchors", "interface-preserving update criterion", "assembled fibre law 2^(k+g)", "pointwise-minimal k+g fold-and-branch residual bits", "path and square controls"],
+      "does_not_supply": ["historical visual generator", "physical stability or flow", "empirical channel", "admitted A0-BL-025 Study", "new carrier identity"]
+    }
+  ],
+  "intertwiner_gate": {
+    "audit_contract": "A0-BL-023:NCS_X20_Q106_ADJACENCY_INTERTWINER_AUDIT:V1",
+    "status": "PASS_UNDEFINED_CONTRACT_ADJACENCY_MISSING",
+    "target_interface": "unique connected Q106 union of four five-node D5 orbits",
+    "target_profile": {
+      "nodes": 20,
+      "undirected_internal_edges": 20,
+      "degree_profile": {"1": 5, "2": 10, "3": 5}
+    },
+    "rotation_equivariant_bijections": 15000,
+    "d5_equivariant_bijections": 24,
+    "typed_intertwiner_to_q106": null,
+    "missing_input": "independently sourced X20 adjacency/edge rule and edge-type semantics",
+    "forbidden_shortcut": "do not pull Q106 adjacency back through a selected target chart"
+  },
+  "source_contract_gate": {
+    "audit_contract": "A0-BL-023:NCS_X20_TYPED_CARRIER_PCPD_Q106_INTERTWINER_AUDIT:V1",
+    "status": "PASS_SOURCE_AUDIT_WITH_UNRECOVERED_CONTRACT",
+    "classification": "SOURCE_CONTRACT_UNRECOVERED",
+    "checks": "60/60",
+    "x20_edge_set": null,
+    "x20_edge_types": null,
+    "triple19_oriented_states": 14,
+    "triple19_to_x20_map": null,
+    "charts_enumerated": 24,
+    "charts_evaluated": 0,
+    "typed_intertwiner_to_q106": null,
+    "correction": "P_c and P_d are oriented-state constructors; A is the Triple-19 involution."
+  },
+  "triple19_relation": {
+    "status": "RELATED_NON_IDENTITY_SHARED_C2_FACTOR_ONLY",
+    "constructors": "P_c(r)=(r,c_r,+1), P_d(r)=(r,c_r,-1)",
+    "operator": "A(P_c(r))=P_d(6-r), A(P_d(r))=P_c(6-r)",
+    "compatibility_test": "C2 orientation factor only",
+    "reason": "The antipode and both X40 Janus laws induce the same C2 flip, but q:X40->X20 erases that bit and no typed Triple-19-to-X20-or-Q106 carrier map exists."
+  },
+  "orientation_factor_gate": {
+    "audit_contract": "A0-BL-023:TRIPLE19_X40_C2_ORIENTATION_FACTOR_AUDIT:V1",
+    "status": "PASS_SHARED_C2_ORIENTATION_FACTOR_WITH_QUOTIENT_LOSS",
+    "classification": "SHARED_C2_FACTOR_ORIENTATION_LOST_IN_X20_QUOTIENT",
+    "checks": "50/50",
+    "shared_factor": "C2_orientation",
+    "triple19_projection": "pi_T(u,sigma)=sigma",
+    "x40_projection": "pi_X(s,p,e)=e",
+    "compatible_x40_operators": ["J_c", "J_d"],
+    "orientation_factors_through_x20": false,
+    "hom_c7_c5_nontrivial": 0,
+    "historical_janus_selection": null,
+    "full_carrier_intertwiner": null,
+    "triple19_to_x20": null
+  },
+  "clockwork_pq_c2_lift_gate": {
+    "audit_contract": "A0-BL-023:CLOCKWORK_PQ_C2_LIFT_SOURCE_CONTRACT_AUDIT:V1",
+    "status": "PASS_UNLABELED_C2_DISPLAY_LIFT",
+    "classification": "CLOCKWORK_PQ_REALIZES_TWO_SHEET_DISPLAY_LIFT_WITH_GLOBAL_LABEL_AMBIGUITY",
+    "checks": "37/37",
+    "carrier": "L_PQ=X20 x {p,q}",
+    "states": 40,
+    "base_states": 20,
+    "fibre_size": 2,
+    "admissible_global_labelings": 2,
+    "canonical_orientation_bit_to_pq_labeling": null,
+    "compatible_x40_operators": ["J_c", "J_d"],
+    "gamma_basis_status": "DISPLAY_BASIS_ONLY_NOT_NUMERIC_NCS_OPERATOR",
+    "clockwork_glb_nodes_to_x20": null,
+    "x20_adjacency": null,
+    "typed_x20_to_q106_intertwiner": null,
+    "historical_janus_selection": null
+  },
+  "pq_17_18_counterrotation_selector_gate": {
+    "audit_contract": "A0-BL-023:PQ_17_18_COUNTERROTATION_SELECTOR_AUDIT:V1",
+    "status": "PASS_CONDITIONAL_ORDERED_17_18_SELECTOR",
+    "classification": "OWNER_DECLARED_ORDER_BREAKS_GLOBAL_PQ_LABEL_AMBIGUITY_WITHIN_DECLARED_SIGN_PARITY_CONVENTION",
+    "checks": "18/18",
+    "owner_declared_order": {"P": 17, "Q": 18},
+    "parity": "e(n)=n mod 2",
+    "turn_encoding": "turn=2e-1",
+    "selected_labeling": {"e=1": "P / 17 / +1 turn", "e=0": "Q / 18 / -1 turn"},
+    "reverse_control": "P-to-18 and Q-to-17 is valid only with the reversed sign-to-bit convention",
+    "canonical_within_declared_contract": true,
+    "canonical_without_owner_contract": false,
+    "historical_source_recovery": null,
+    "clockwork_glb_nodes_to_x20": null,
+    "x20_adjacency": null,
+    "typed_x20_to_q106_intertwiner": null,
+    "historical_janus_selection": null
+  },
+  "clockwork_bead_x40_p4_return_gate": {
+    "audit_contract": "A0-BL-023:CLOCKWORK_BEAD_X40_P4_RESIDUAL_RETURN_AUDIT:V1",
+    "status": "PASS_CONDITIONAL_DIHEDRAL_BEAD_QUOTIENT_WITH_P4_RESIDUAL_RETURN",
+    "classification": "CLOCKWORK_BEADS_REALIZE_C5_COUNTERROTATING_C2_QUOTIENT_OF_X40_WITH_FIVE_PHASE_CHARTS_AND_FOUR_STATE_P4_FIBRES",
+    "checks": "49/49",
+    "source_carrier": "X40=C5×P4×C2",
+    "display_carrier": "B10=C5×{P,Q}",
+    "map": "d_k(s,p,1)=P[s+k]; d_k(s,p,0)=Q[-s+k], indices mod 5",
+    "global_phase_charts": 5,
+    "historical_phase_chart": null,
+    "fibre_size": 4,
+    "lost_coordinate": "p∈P4",
+    "minimal_residual_bits": 2,
+    "conditional_display_operator": "J_d",
+    "rejected_display_operator": "J_c",
+    "historical_ncs_janus_selection": null,
+    "unique_glb_node_to_x40_state": null,
+    "unique_glb_node_to_x20_state": null,
+    "x20_adjacency": null,
+    "typed_x20_to_q106_intertwiner": null
+  },
+  "pq_17_29_18_36_c30_p4_wobble_gate": {
+    "audit_contract": "A0-BL-023:PQ_17_29_18_36_C30_P4_WOBBLE_AUDIT:V1",
+    "status": "PASS_CONDITIONAL_C30_COUNTERSTEP_WITH_P4_WOBBLE_TYPE_GATE",
+    "classification": "OWNER_DECLARED_17_29_18_36_PAIR_FORMS_OPPOSITE_ORDER5_C30_STEPS_AND_CONDITIONAL_P4_TAG",
+    "checks": "38/38",
+    "owner_declared_transitions": {"P": "17→29", "Q": "18→36"},
+    "increments_c30": {"P": 12, "Q": 18},
+    "embedded_c5_steps": {"P": 2, "Q": -2},
+    "same_index_mirror_compatible": true,
+    "counterrotation_compatible": true,
+    "phase_charts_from_mirror_pairs_alone": 5,
+    "conditional_numeric_address_chart": 0,
+    "historical_phase_chart": null,
+    "full_mod4_tag_closes_p4": true,
+    "binary_every_four_pulse_closes_p4": false,
+    "source_wobble_semantics": null,
+    "glb_wobble_to_p4": null,
+    "x20_adjacency": null,
+    "typed_x20_to_q106_intertwiner": null
+  },
+  "root40_fibonacci_c30_p4_source_gate": {
+    "audit_contract": "A0-BL-023:ROOT40_FIBONACCI_C30_P4_SOURCE_BINDING_AUDIT:V1",
+    "status": "PASS_EXISTING_PASCAL_QUATERNION_CONNECTOR_REUSED_ROOT40_OUTSIDE_IMAGE_NCS_P4_ADAPTER_NULL",
+    "classification": "C30_SCHEDULE_CLOSES_EXISTING_PASCAL_FOUR_SLOT_SEMANTICS_REUSED_WITH_TYPED_NON_IDENTITY",
+    "checks": "59/59",
+    "existing_root40_result": "PASS_15_OF_15_EXISTING_VIEWS_CONNECTED_NO_NEW_RECURRENCE",
+    "root40_scientific_hash": "cc7d402a48416df4ad08875245c92384c625d66247abc8ce00b4b06a4ec523ee",
+    "existing_pascal_connector": "CLOSED_OWNER_ACCEPTED_EXACT_FOUR_CHANNEL_CONNECTOR_PASS",
+    "pascal_connector_formula": "Phi(a,b,c)=(a+b+c)1+ai+bj+ck",
+    "pascal_slot_semantics": {"scalar": "depth=a+b+c", "i": "a", "j": "b", "k": "c"},
+    "pascal_all_n_scope": "all N>=0; faithful restricted carrier-action wording requires N>=1",
+    "root40_in_pascal_phi_image": false,
+    "root40_pascal_required_scalar": 10,
+    "root40_observed_scalar": 2,
+    "ncs_phase_successor": "29→0",
+    "fibonacci_pair_period_mod4": 6,
+    "c5_counterstep_period": 5,
+    "joint_period": 30,
+    "quaternion_slots": ["1", "i", "j", "k"],
+    "ordered_signed_integer_norm40_records": 144,
+    "p4_role_bijections": 24,
+    "canonical_slot_to_p4_role_map": null,
+    "canonical_ncs_p4_role_adapter": null,
+    "triple19_full_carrier_intertwiner": null,
+    "con_dao_8_plus_4_shared_generator": false,
+    "fibonacci_to_x20_or_x40": null,
+    "x20_adjacency": null,
+    "typed_x20_to_q106_intertwiner": null
+  },
+  "pascal_quaternion_ncs_p4_adapter_gate": {
+    "audit_contract": "A0-BL-023:PASCAL_QUATERNION_NCS_P4_ADAPTER_GATE_AUDIT:V1",
+    "status": "PASS_NO_OPERATOR_EQUIVARIANT_ADAPTER_UNDER_DECLARED_NCS_ACTION",
+    "classification": "STATIC_24_RETURN_BIJECTIONS_ZERO_C3_INTERTWINERS",
+    "checks": "31/31",
+    "source_cycle_type": [1, 3],
+    "target_declared_cycle_type": [1, 1, 1, 1],
+    "static_bijections": 24,
+    "exact_address_return_bijections": 24,
+    "operator_equivariant_adapters": 0,
+    "distinct_induced_role_c3_actions": 8,
+    "adapters_per_induced_action": 3,
+    "lexical_candidate_source_declared": false,
+    "lexical_candidate_operator_equivariant": false,
+    "canonical_ncs_p4_adapter": null,
+    "minimal_new_source_input": "a complete declared slot-to-role map, or an NCS role action of cycle type (1,3) plus one typed slot-to-role anchor"
+  },
+  "life06d_pqb_control_gate": {
+    "record_id": "LIFE06D_PQB_CONJUGACY_IDENTIFIABILITY_AUDIT",
+    "status": "CLOSED_CONDITIONAL_IDENTIFIABILITY_LIFE06C_NEGATIVE_PRESERVED",
+    "validation": "18/18",
+    "operator": "scale conjugacy q-=P/alpha and q+=P*alpha",
+    "invariant": "q-*q+=P^2",
+    "observation_fibre": "E_delta(r) with multiplicity mu_delta",
+    "relation_to_clockwork_pq": "TYPED_ANALOGY_NON_IDENTITY_CONTROL",
+    "preserves": ["paired-conjugate grammar", "representation residual", "fibre multiplicity and conditional identifiability"],
+    "does_not_identify": ["scale conjugates with mirror sheets", "Q-/Q+ with the C2 orientation bit", "observation compatibility with carrier identity"],
+    "canonical_orientation_bit_to_pq_labeling": null
+  },
+  "triplesix_cube_grid_fold_gate": {
+    "audit_contract": "A0-BL-023:TRIPLESIX_S3_CUBE_GRID_FOLD_BRIDGE_AUDIT:V1",
+    "status": "PASS_PARTIAL_AXIS_SIDE_BRIDGE_WITH_MULTIAXIS_FOLD_LOSS",
+    "classification": "S3_AXIS_C2_ADDRESS_SINGLE_AXIS_SUFFICIENT_MULTIAXIS_INSUFFICIENT",
+    "checks": "58/58",
+    "state_address": "S3 -> {A,B,C} x C2 is a bijection of state sets, not a direct-product group identity",
+    "grid_map": "q64_63(i)=i for i<=31 else i-1, applied coordinatewise",
+    "single_selected_axis": "supported by one axis selector plus one orientation bit",
+    "three_axis_pivot_fibre_size": 8,
+    "triplesix_state_count": 6,
+    "canonical_63_to_64_inverse": null,
+    "historical_visual_generator": null,
+    "historical_janus_selection": null
+  },
+  "general_coordinate_fold_return_gate": {
+    "audit_contract": "A0-BL-025:GENERAL_COORDINATE_FOLD_MINIMAL_RESIDUAL_RETURN_AUDIT:V1",
+    "status": "PASS_GENERAL_COORDINATE_FOLD_PROFILE_AND_MINIMAL_RESIDUAL_RETURN",
+    "classification": "EXACT_FIBRE_PROFILE_POINTWISE_K_BITS_UNIFORM_D_BITS",
+    "checks": "101/101",
+    "fibre_theorem": "a target with k central coordinates has fibre size 2^k; C(d,k)(2m-2)^(d-k) targets have that size",
+    "pointwise_minimal_residual_bits": "k(y)",
+    "uniform_fixed_width_minimal_bits": "d",
+    "controls": ["m=1,d=4", "m=2,d=3"],
+    "recovered_special_case": "m=32 gives the 64-to-63 profiles in dimensions 1, 2 and 3",
+    "full_a0_bl_025_status": "OPEN_ADMISSION_REQUIRED_FOR_EMBEDDING_ENVELOPE_CHANNEL_ASSEMBLY_AND_UPDATE"
+  },
+  "grid_fold_channel_contract_gate": {
+    "audit_contract": "A0-BL-025:GRID_FOLD_CHANNEL_INTERFACE_ASSEMBLY_UPDATE_RETURN_AUDIT:V1",
+    "status": "PASS_COMPLETE_FINITE_GRID_FOLD_CHANNEL_FORMAL_DESIGN",
+    "classification": "TYPED_INTERFACE_QUOTIENT_UPDATE_AND_MINIMAL_RESIDUAL_RETURN",
+    "checks": "55/55",
+    "typed_chain": ["carrier", "fold", "embedding", "envelope", "interface", "assembly", "update", "Return"],
+    "assembly": "two labelled folded carriers quotiented only at corresponding declared interface anchors",
+    "admissible_update": "branch bijections preserve the interface and agree through one interface permutation",
+    "fibre_size": "2^(k(y)+g(y))",
+    "minimal_residual": "k(y) fold bits plus g(y) branch bit",
+    "controls": ["path seam with reflection", "square boundary with quarter rotation"],
+    "a0_bl_025_formal_design": "COMPLETE_ON_TWO_NON_IDENTICAL_CONTROLS",
+    "study_admission": "NOT_ADMITTED_REQUIRES_SEPARATE_OWNER_DECISION"
+  },
+  "game4life_ncs_application_gate": {
+    "status": "DURABLE_INTERNAL_VIEW_ADAPTER",
+    "application_path": "10 NEXAH CORE/NEXAH/APPLICATIONS/game4life_plus1",
+    "input_contract": "addressed LIFE snapshot with exact event inverse",
+    "views": ["P/Q counter-rotation", "C5×C6/C30 address clock", "full mod-4 wobble phase", "event and P4 Return", "adapter null gate"],
+    "reuses_lens_id": "NN:MRB_ACR_NCS_Q106_RETURN_CROSSWALK",
+    "scientific_authority": "NONE_APPLICATION_IS_NON_EVIDENTIARY",
+    "changes_life_operator": false,
+    "changes_canonical_counts": false,
+    "publication_authorized": false
+  },
+  "relations": [
+    {
+      "relation_id": "REL:NN_MRB_ACR_NCS_Q106_LENS_OF_NUMBER_VIEW_SUITE",
+      "source_id": "NN:MRB_ACR_NCS_Q106_RETURN_CROSSWALK",
+      "relation_type": "source-bound-lens-of",
+      "target_id": "MOD:NUMBER_VIEW_SUITE",
+      "status": "bounded",
+      "evidence": "complete MRB ordinal census plus source-hash-bound MRB-01/02/04-10 results",
+      "preserves": ["series gaps", "package-local statuses", "representation boundaries"],
+      "does_not_imply": ["new module", "MRB-03 recovery", "canonical Family"]
+    },
+    {
+      "relation_id": "REL:NN_MRB_ACR_NCS_Q106_ROUTES_TO_READOUT_RECONSTRUCTION",
+      "source_id": "NN:MRB_ACR_NCS_Q106_RETURN_CROSSWALK",
+      "relation_type": "routes-to",
+      "target_id": "MOD:READOUT_RECONSTRUCTION",
+      "status": "bounded-open",
+      "evidence": "MRB typed return, ACR-44 basis reconstruction, NCS/Q106 finite audits, source-bound Clockwork v7 p/q display-lift audit, Owner-declared ordered 17/18 selector audit, conditional C5 counter-rotating bead quotient with P4 residual Return, Owner-declared 17→29 / 18→36 C30 counter-step and typed wobble audit, existing A0-BL-052/053 Pascal-quaternion connector, Root-40 non-image control, Fibonacci C30 concordance, exhaustive Pascal-C3-to-NCS-P4 operator-adapter gate, Triple-19 and CON–DAO operator controls, and existing LIFE06D conjugacy/fibre control",
+      "preserves": ["typed split/reconstruction", "metadata dependence", "unlabeled C2 display lift", "conditional Owner-declared p/q labeling", "reverse-assignment control", "five unresolved C5 phase charts", "four-state P4 display fibres", "opposite order-five C30 steps projecting to C5 steps +2/-2", "full mod-4 phase tag versus insufficient binary every-four pulse distinction", "canonical Pascal slot semantics scalar/depth, i/a, j/b, k/c", "exact Pascal C3 equivariance and Return", "24 reversible static slot-to-role address encodings", "zero operator-equivariant adapters under the declared NCS identity role action", "Root-40 outside-Phi non-identity control", "Fibonacci mod-4 C6 schedule", "C5×C6 joint period 30", "Triple-19 and CON–DAO typed operator boundaries", "conditional Jd selection on the displayed quotient", "scale-conjugacy versus mirror-sheet distinction", "conditional observation-fibre non-identity", "open adjacency contract"],
+      "does_not_imply": ["historical recovery of the P/Q-to-17/18 order", "historical C5 phase origin", "historical wobble semantics or GLB wobble-to-P4 map", "canonical adapter from Pascal or Root-40 slots to NCS P4 roles", "an NCS C3 action on P4 roles", "Fibonacci transport into X20 or X40", "Root-40 membership in the Pascal Phi image", "Root-40 value identity with X40", "Triple-19 full-carrier intertwiner", "shared CON–DAO 8+4 generator", "historical NCS Janus selection", "identity between LIFE06D Q-/Q+ and Clockwork p/q", "unique Clockwork GLB-node-to-X20 map", "typed X20-to-Q106 intertwiner", "canonical beta"]
+    },
+    {
+      "relation_id": "REL:NN_MRB_ACR_NCS_Q106_RELATED_TRIPLE19",
+      "source_id": "NN:MRB_ACR_NCS_Q106_RETURN_CROSSWALK",
+      "relation_type": "related-non-identity",
+      "target_id": "ART:NUMBER:PRIMEGRID_BLOCK02B_TRINARY_ANTIPODE",
+      "status": "bounded-factor-only",
+      "evidence": "source-bound Triple-19 Pc/Pd binding plus 50-of-50 shared C2 orientation-factor audit",
+      "preserves": ["P_c/P_d constructors", "antipode involution A", "shared C2 flip", "X40-to-X20 orientation loss", "Clockwork p/q two-sheet display lift", "conditional Owner-declared P/Q-to-17/18 labeling", "conditional Jd action on the C5×C2 bead quotient", "P4 residual Return boundary", "Owner-declared C30/C5 counter-step compatibility and P4 wobble type gate", "TripleSix axis-plus-side bridge", "general coordinate-fold fibre theorem", "minimal residual Return boundary", "multi-axis cube-fold loss", "null full-carrier intertwiner"],
+      "does_not_imply": ["NCS mechanism identity", "Q106 node map", "full-carrier compatibility", "cube-grid identity", "historical Janus selection"]
+    }
+  ],
+  "sources": [
+    {
+      "source_id": "SRC:NN:MRB_INTAKE",
+      "path": "30 SCIENCE LAB/NEXAH-Science-Lab/SCIENCE_LAB/CASE_STUDIES/NEXAH_DESKTOP_GOLD_CUSTODY_AND_NAVIGATOR_INTAKE_2026-10-07/sources/mrb/00_INTAKE_AUDIT_2026-09-02/MRB_INTAKE_RESULTS.json",
+      "sha256": "24be7f6c735b7f91f74c99982f57338e68a61c6fc7a1cb324c4e7af9e39ce68e",
+      "role": "complete series custody and MRB-03 gap authority"
+    },
+    {
+      "source_id": "SRC:NN:MRB01",
+      "path": "30 SCIENCE LAB/NEXAH-Science-Lab/SCIENCE_LAB/CASE_STUDIES/NEXAH_DESKTOP_GOLD_CUSTODY_AND_NAVIGATOR_INTAKE_2026-10-07/sources/mrb/MRB01_MODULAR_REDUNDANCY_BINDER_TEST/MRB01_RESULTS.json",
+      "sha256": "7b0cfe2fffc65452436fd5572ed965f758b7bd8e5ccded11f451b6471fb88f3c",
+      "role": "MRB-01 result"
+    },
+    {
+      "source_id": "SRC:NN:MRB02",
+      "path": "30 SCIENCE LAB/NEXAH-Science-Lab/SCIENCE_LAB/CASE_STUDIES/NEXAH_DESKTOP_GOLD_CUSTODY_AND_NAVIGATOR_INTAKE_2026-10-07/sources/mrb/MRB02_PRIME_CROSS_POWER_CROSS_PERSISTENCE/MRB02_RESULTS.json",
+      "sha256": "1b0e4ae15076af43a3c92667f261664ff6585b47bcbc060caa120f7472389a60",
+      "role": "MRB-02 result"
+    },
+    {
+      "source_id": "SRC:NN:MRB04",
+      "path": "30 SCIENCE LAB/NEXAH-Science-Lab/SCIENCE_LAB/CASE_STUDIES/NEXAH_DESKTOP_GOLD_CUSTODY_AND_NAVIGATOR_INTAKE_2026-10-07/sources/mrb/MRB04_EULER41_BASE_MIRROR_INDEX_SHIFT/MRB04_RESULTS.json",
+      "sha256": "bf3c507dd77ee4d25f743164e8594295b03bb1ccef5e260a386df427d81c0c9b",
+      "role": "MRB-04 result"
+    },
+    {
+      "source_id": "SRC:NN:MRB05",
+      "path": "30 SCIENCE LAB/NEXAH-Science-Lab/SCIENCE_LAB/CASE_STUDIES/NEXAH_DESKTOP_GOLD_CUSTODY_AND_NAVIGATOR_INTAKE_2026-10-07/sources/mrb/MRB05_CENTER_INVOLUTION_EULER_CONNECTOR/MRB05_RESULTS.json",
+      "sha256": "ff9b97fbab5d506a64364dff59b4c92e46593dd9dbadb40bb3d78815b51da518",
+      "role": "MRB-05 result"
+    },
+    {
+      "source_id": "SRC:NN:MRB06",
+      "path": "30 SCIENCE LAB/NEXAH-Science-Lab/SCIENCE_LAB/CASE_STUDIES/NEXAH_DESKTOP_GOLD_CUSTODY_AND_NAVIGATOR_INTAKE_2026-10-07/sources/mrb/MRB06_KL_SPLIT_ROTATION_RETURN/MRB06_RESULTS.json",
+      "sha256": "032145a21e281b2a8c39635d6d85f9ad07bc7e5b73c3c8512eb7a72cc91eae59",
+      "role": "MRB-06 result"
+    },
+    {
+      "source_id": "SRC:NN:MRB07",
+      "path": "30 SCIENCE LAB/NEXAH-Science-Lab/SCIENCE_LAB/CASE_STUDIES/NEXAH_DESKTOP_GOLD_CUSTODY_AND_NAVIGATOR_INTAKE_2026-10-07/sources/mrb/MRB07_PRIME_INDEX_EXPONENT_LATTICE/MRB07_RESULTS.json",
+      "sha256": "80c7f65748948c171e757770bc92a1ab59024cff31a9012ad0284c658ff1d1d8",
+      "role": "MRB-07 result"
+    },
+    {
+      "source_id": "SRC:NN:MRB08",
+      "path": "30 SCIENCE LAB/NEXAH-Science-Lab/SCIENCE_LAB/CASE_STUDIES/NEXAH_DESKTOP_GOLD_CUSTODY_AND_NAVIGATOR_INTAKE_2026-10-07/sources/mrb/MRB08_RADIX_CRT_ANCHOR70/MRB08_RESULTS.json",
+      "sha256": "17ba8bea8bb19bf8b9d776e43904608e7bbfca5a9f0198ca3debf12d79748295",
+      "role": "MRB-08 result"
+    },
+    {
+      "source_id": "SRC:NN:MRB09",
+      "path": "30 SCIENCE LAB/NEXAH-Science-Lab/SCIENCE_LAB/CASE_STUDIES/NEXAH_DESKTOP_GOLD_CUSTODY_AND_NAVIGATOR_INTAKE_2026-10-07/sources/mrb/MRB09_GRID_ZIPPER_CENTER_RETURN/MRB09_RESULTS.json",
+      "sha256": "075c034f377f2679d2cd015c533229edd16230f541a6c2ff1f3adf9ea032a6bb",
+      "role": "MRB-09 result"
+    },
+    {
+      "source_id": "SRC:NN:MRB10",
+      "path": "30 SCIENCE LAB/NEXAH-Science-Lab/SCIENCE_LAB/CASE_STUDIES/NEXAH_DESKTOP_GOLD_CUSTODY_AND_NAVIGATOR_INTAKE_2026-10-07/sources/mrb/MRB10_YT_PASCAL_THREAD_GRID/MRB10_RESULTS.json",
+      "sha256": "47d004356ad7a45fbe78b57a1a7733da22ead41f937c8566c66940650efe4200",
+      "role": "MRB-10 result"
+    },
+    {
+      "source_id": "SRC:NN:ACR44",
+      "path": "30 SCIENCE LAB/NEXAH-Science-Lab/SCIENCE_LAB/CASE_STUDIES/NEXAH_DESKTOP_GOLD_CUSTODY_AND_NAVIGATOR_INTAKE_2026-10-07/sources/acr/NEXAH_ACR44_RESULTS.json",
+      "sha256": "2d013a7437664d49328367319e4dd03813e2dab3c4300e0fa5887124aeb37f46",
+      "role": "two-axis reconstruction and Lissajous metadata gate"
+    },
+    {
+      "source_id": "SRC:NN:OIL_RIS_RETURN",
+      "path": "30 SCIENCE LAB/NEXAH-Science-Lab/SCIENCE_LAB/CASE_STUDIES/NEXAH_OIL_RIS_VERTICAL_UTILITY_PILOT_2026-10-07/NEXAH_OIL_RIS_VERTICAL_UTILITY_RETURN.html",
+      "sha256": "2be9caa4ec6f292482fc83164b696c6e4746c57cdc9de9ab5736cffbf23ca7c4",
+      "role": "OIL/RIS return-with-memory explanatory surface"
+    },
+    {
+      "source_id": "SRC:NN:LISSAJOUS_MOBIUS_RETURN",
+      "path": "10 NEXAH CORE/NEXAH/RESEARCH/NOTES/PASCAL_PENTAGON_D5_TEST_2026-10-10/PASCAL_ROSETTA_JOINT_DESIGN_2026-10-11/LISSAJOUS_MOBIUS_RETURN_CANDIDATE_2026-10-11/RESULT.json",
+      "sha256": "6ef488193f11771b0315c3c68741def357f7b4dd7419a0d5c5153489db41cb20",
+      "role": "formal Lissajous/Mobius orientation-fibre candidate"
+    },
+    {
+      "source_id": "SRC:NN:NCS_Q106_PARENT",
+      "path": "10 NEXAH CORE/NEXAH/RESEARCH/NOTES/PASCAL_PENTAGON_D5_TEST_2026-10-10/PASCAL_ROSETTA_JOINT_DESIGN_2026-10-11/NCS_292_Q106_INTERTWINER_RETURN_PACKAGE_2026-10-11/RESULT.json",
+      "sha256": "303e299694ebad23c422f2400532a521adc2e24a28686fc4a9d75cca162f6b0b",
+      "role": "parent NCS/Q106 finite return result"
+    },
+    {
+      "source_id": "SRC:NN:NCS_X20_Q106_INTERTWINER_AUDIT",
+      "path": "10 NEXAH CORE/NEXAH/RESEARCH/NOTES/PASCAL_PENTAGON_D5_TEST_2026-10-10/PASCAL_ROSETTA_JOINT_DESIGN_2026-10-11/NCS_292_Q106_INTERTWINER_RETURN_PACKAGE_2026-10-11/NCS_X20_Q106_ADJACENCY_INTERTWINER_AUDIT_2026-10-11/RESULT.json",
+      "sha256": "c89b58bd8178fde96b5669136450e1dddd8ef60c04c28449cfcdfdcc8fd0796e",
+      "role": "localized missing-adjacency contract result"
+    },
+    {
+      "source_id": "SRC:NN:NCS_X20_TYPED_CARRIER_PCPD_Q106_AUDIT",
+      "path": "10 NEXAH CORE/NEXAH/RESEARCH/NOTES/PASCAL_PENTAGON_D5_TEST_2026-10-10/PASCAL_ROSETTA_JOINT_DESIGN_2026-10-11/NCS_292_Q106_INTERTWINER_RETURN_PACKAGE_2026-10-11/NCS_X20_TYPED_CARRIER_PCPD_Q106_INTERTWINER_AUDIT_2026-10-11/RESULT.json",
+      "sha256": "0d50cc19cf69669ef84c247d1282f79c5ad47ccb6fcf0c61e2c1876ec1270fe6",
+      "role": "closed-gate source audit preserving null X20 adjacency, corrected Triple-19 typing and twenty-four blocked charts"
+    },
+    {
+      "source_id": "SRC:NN:TRIPLE19_PC_PD",
+      "path": "30 SCIENCE LAB/NEXAH-Science-Lab/SCIENCE_LAB/CASE_STUDIES/NEXAH_PRIMEGRID_BLOCK02B_TRINARY_PASCAL_ANTIPODE_2026-10-07/TRIPLE19_ANTIPODE_PAIR_BRIDGE_BINDING.json",
+      "sha256": "2e20786a1c2c829acccef86af9c953e8d231602f68e0e8b642d88d2e7e69d786",
+      "role": "related Pc/Pd representation bridge with null intertwiner"
+    },
+    {
+      "source_id": "SRC:NN:TRIPLE19_X40_C2_FACTOR_AUDIT",
+      "path": "10 NEXAH CORE/NEXAH/RESEARCH/NOTES/PASCAL_PENTAGON_D5_TEST_2026-10-10/PASCAL_ROSETTA_JOINT_DESIGN_2026-10-11/NCS_292_Q106_INTERTWINER_RETURN_PACKAGE_2026-10-11/TRIPLE19_X40_C2_ORIENTATION_FACTOR_AUDIT_2026-10-11/RESULT.json",
+      "sha256": "d8caf0e18e3aa7687d8d7a09e40169e4716cb73d1aebe430bb771b41e2ee01b6",
+      "role": "exact shared C2 orientation-factor audit with proved loss in the X40-to-X20 quotient and null Janus selection"
+    },
+    {
+      "source_id": "SRC:NN:CLOCKWORK_PQ_C2_LIFT_AUDIT",
+      "path": "10 NEXAH CORE/NEXAH/RESEARCH/NOTES/PASCAL_PENTAGON_D5_TEST_2026-10-10/PASCAL_ROSETTA_JOINT_DESIGN_2026-10-11/NCS_292_Q106_INTERTWINER_RETURN_PACKAGE_2026-10-11/TRIPLE19_X40_C2_ORIENTATION_FACTOR_AUDIT_2026-10-11/CLOCKWORK_PQ_C2_LIFT_SOURCE_CONTRACT_AUDIT_2026-10-12/RESULT.json",
+      "sha256": "8ffaf5d53433fbb685a0a6b0a40b663136c95e0986d6ed5c83f5a0aab48bd217",
+      "role": "source-bound Clockwork v7 p/q two-sheet C2 display-lift audit with two admissible global labelings, no canonical bit assignment and no recovered X20 graph"
+    },
+    {
+      "source_id": "SRC:NN:PQ_17_18_COUNTERROTATION_SELECTOR_AUDIT",
+      "path": "10 NEXAH CORE/NEXAH/RESEARCH/NOTES/PASCAL_PENTAGON_D5_TEST_2026-10-10/PASCAL_ROSETTA_JOINT_DESIGN_2026-10-11/NCS_292_Q106_INTERTWINER_RETURN_PACKAGE_2026-10-11/TRIPLE19_X40_C2_ORIENTATION_FACTOR_AUDIT_2026-10-11/CLOCKWORK_PQ_C2_LIFT_SOURCE_CONTRACT_AUDIT_2026-10-12/PQ_17_18_COUNTERROTATION_SELECTOR_AUDIT_2026-10-12/RESULT.json",
+      "sha256": "040bab1e9c0b1c44a00b765b0f8d66c796a0734ea59ac9283c03e459571a32d5",
+      "role": "conditional Owner-declared ordered P/Q-to-17/18 counter-rotation parity selector; reverse assignment retained as control and historical recovery remains null"
+    },
+    {
+      "source_id": "SRC:NN:CLOCKWORK_BEAD_X40_P4_RETURN_AUDIT",
+      "path": "10 NEXAH CORE/NEXAH/RESEARCH/NOTES/PASCAL_PENTAGON_D5_TEST_2026-10-10/PASCAL_ROSETTA_JOINT_DESIGN_2026-10-11/NCS_292_Q106_INTERTWINER_RETURN_PACKAGE_2026-10-11/TRIPLE19_X40_C2_ORIENTATION_FACTOR_AUDIT_2026-10-11/CLOCKWORK_PQ_C2_LIFT_SOURCE_CONTRACT_AUDIT_2026-10-12/PQ_17_18_COUNTERROTATION_SELECTOR_AUDIT_2026-10-12/CLOCKWORK_BEAD_X40_P4_RESIDUAL_RETURN_AUDIT_2026-10-12/RESULT.json",
+      "sha256": "91b946ee5d8750639d7639f8f2b04cf93d46057b4afeb1db7c80d152f8d2d59a",
+      "role": "conditional ten-bead C5×C2 quotient of X40 with five phase charts, exact two-bit P4 residual Return and Jd selection restricted to the displayed quotient"
+    },
+    {
+      "source_id": "SRC:NN:PQ_17_29_18_36_C30_P4_WOBBLE_AUDIT",
+      "path": "10 NEXAH CORE/NEXAH/RESEARCH/NOTES/PASCAL_PENTAGON_D5_TEST_2026-10-10/PASCAL_ROSETTA_JOINT_DESIGN_2026-10-11/NCS_292_Q106_INTERTWINER_RETURN_PACKAGE_2026-10-11/TRIPLE19_X40_C2_ORIENTATION_FACTOR_AUDIT_2026-10-11/CLOCKWORK_PQ_C2_LIFT_SOURCE_CONTRACT_AUDIT_2026-10-12/PQ_17_18_COUNTERROTATION_SELECTOR_AUDIT_2026-10-12/CLOCKWORK_BEAD_X40_P4_RESIDUAL_RETURN_AUDIT_2026-10-12/PQ_17_29_18_36_C30_P4_WOBBLE_AUDIT_2026-10-12/RESULT.json",
+      "sha256": "68232d93343495fc067575a239a2c5c450733bc2890c966841c5c7610371c494",
+      "role": "Owner-declared 17→29 / 18→36 audit proving opposite order-five C30 increments and C5 +2/-2 counter-steps, while separating a full P4 phase tag from an insufficient binary every-four pulse"
+    },
+    {
+      "source_id": "SRC:NN:ROOT40_FIBONACCI_C30_P4_SOURCE_BINDING_AUDIT",
+      "path": "10 NEXAH CORE/NEXAH/RESEARCH/NOTES/PASCAL_PENTAGON_D5_TEST_2026-10-10/PASCAL_ROSETTA_JOINT_DESIGN_2026-10-11/NCS_292_Q106_INTERTWINER_RETURN_PACKAGE_2026-10-11/TRIPLE19_X40_C2_ORIENTATION_FACTOR_AUDIT_2026-10-11/CLOCKWORK_PQ_C2_LIFT_SOURCE_CONTRACT_AUDIT_2026-10-12/PQ_17_18_COUNTERROTATION_SELECTOR_AUDIT_2026-10-12/CLOCKWORK_BEAD_X40_P4_RESIDUAL_RETURN_AUDIT_2026-10-12/PQ_17_29_18_36_C30_P4_WOBBLE_AUDIT_2026-10-12/ROOT40_FIBONACCI_C30_P4_SOURCE_BINDING_AUDIT_2026-10-12/RESULT.json",
+      "sha256": "53970eccdce890b472abed6df6567d20ee5d820f2ef6c4d0a1ddbb2067973299",
+      "role": "corrected audit reusing the closed A0-BL-052/053 Pascal-quaternion connector, proving Root-40 lies outside its Phi image, retaining the Fibonacci C5×C6 C30 concordance and keeping only the cross-type NCS P4 adapter null"
+    },
+    {
+      "source_id": "SRC:NN:PASCAL_QUATERNION_NCS_P4_ADAPTER_GATE_AUDIT",
+      "path": "10 NEXAH CORE/NEXAH/RESEARCH/NOTES/PASCAL_PENTAGON_D5_TEST_2026-10-10/PASCAL_ROSETTA_JOINT_DESIGN_2026-10-11/NCS_292_Q106_INTERTWINER_RETURN_PACKAGE_2026-10-11/TRIPLE19_X40_C2_ORIENTATION_FACTOR_AUDIT_2026-10-11/CLOCKWORK_PQ_C2_LIFT_SOURCE_CONTRACT_AUDIT_2026-10-12/PQ_17_18_COUNTERROTATION_SELECTOR_AUDIT_2026-10-12/CLOCKWORK_BEAD_X40_P4_RESIDUAL_RETURN_AUDIT_2026-10-12/PQ_17_29_18_36_C30_P4_WOBBLE_AUDIT_2026-10-12/ROOT40_FIBONACCI_C30_P4_SOURCE_BINDING_AUDIT_2026-10-12/PASCAL_QUATERNION_NCS_P4_ADAPTER_GATE_AUDIT_2026-10-12/RESULT.json",
+      "sha256": "24fca12725f8cd8fc726f8a1f1ea2ed799c305a2e51a43a28ee9399cf58e2283",
+      "role": "exhaustive source-bound adapter gate distinguishing 24 reversible address bijections from zero Pascal-C3-to-declared-NCS-role-action intertwiners and retaining a null canonical adapter"
+    },
+    {
+      "source_id": "SRC:NN:LIFE06D_PQB_CONTRACT",
+      "path": "30 SCIENCE LAB/NEXAH-Science-Lab/SCIENCE_LAB/CASE_STUDIES/NEXAH_LIFE_PQB_CONJUGACY_AUDIT_LIFE06D_2026-10-07/AUDIT_CONTRACT.json",
+      "sha256": "4b8496e2c05511878bc13d21e155aee0e73ea1b985d6ce56b1c39b11369f9923",
+      "role": "existing LIFE06D typed contract separating additive neighbours, exact real scale conjugates, integer representation and tolerance-dependent observation fibres"
+    },
+    {
+      "source_id": "SRC:NN:LIFE06D_PQB_REPORT",
+      "path": "30 SCIENCE LAB/NEXAH-Science-Lab/SCIENCE_LAB/CASE_STUDIES/NEXAH_LIFE_PQB_CONJUGACY_AUDIT_LIFE06D_2026-10-07/results/LIFE06D_PQB_AUDIT_REPORT.json",
+      "sha256": "07c7881535e42f24ba0fc1d39c811aa988fd33ca930d13965b667fd370def0bc",
+      "role": "closed conditional-identifiability result and nontrivial integer scale-conjugacy negative control"
+    },
+    {
+      "source_id": "SRC:NN:LIFE06D_VALIDATION",
+      "path": "30 SCIENCE LAB/NEXAH-Science-Lab/SCIENCE_LAB/CASE_STUDIES/NEXAH_LIFE_PQB_CONJUGACY_AUDIT_LIFE06D_2026-10-07/results/LIFE06D_VALIDATION_REPORT.json",
+      "sha256": "f504b699491fb02272b96b4b6a15bb9ec471702a942b70fc0bac7817b5d5cf3f",
+      "role": "18-of-18 validation authority for the existing LIFE06D audit"
+    },
+    {
+      "source_id": "SRC:NN:TRIPLESIX_S3_CUBE_GRID_FOLD_AUDIT",
+      "path": "10 NEXAH CORE/NEXAH/RESEARCH/NOTES/PASCAL_PENTAGON_D5_TEST_2026-10-10/PASCAL_ROSETTA_JOINT_DESIGN_2026-10-11/NCS_292_Q106_INTERTWINER_RETURN_PACKAGE_2026-10-11/TRIPLE19_X40_C2_ORIENTATION_FACTOR_AUDIT_2026-10-11/TRIPLESIX_S3_CUBE_GRID_FOLD_BRIDGE_AUDIT_2026-10-12/RESULT.json",
+      "sha256": "5eedc70bdd713607fb2ade4d20752cd8e476b6dcc6c20ccaa7a309762291704d",
+      "role": "exact S3 axis-plus-parity address and declared 64-to-63 coordinate-fold audit with single-axis support, multi-axis loss and null historical Janus selection"
+    },
+    {
+      "source_id": "SRC:NN:GENERAL_COORDINATE_FOLD_RETURN_AUDIT",
+      "path": "10 NEXAH CORE/NEXAH/RESEARCH/NOTES/PASCAL_PENTAGON_D5_TEST_2026-10-10/PASCAL_ROSETTA_JOINT_DESIGN_2026-10-11/NCS_292_Q106_INTERTWINER_RETURN_PACKAGE_2026-10-11/TRIPLE19_X40_C2_ORIENTATION_FACTOR_AUDIT_2026-10-11/TRIPLESIX_S3_CUBE_GRID_FOLD_BRIDGE_AUDIT_2026-10-12/GENERAL_COORDINATE_FOLD_MINIMAL_RESIDUAL_RETURN_AUDIT_2026-10-12/RESULT.json",
+      "sha256": "b0d03440c0db6cff2eda79b2baa7f785a9ddf4ad8cd776e9db48affb718a2c86",
+      "role": "general exact coordinate-fold fibre theorem and pointwise-minimal versus uniform-minimal residual Return audit; full Grid-Fold-Channel specification remains open"
+    },
+    {
+      "source_id": "SRC:NN:GRID_FOLD_CHANNEL_CONTRACT_AUDIT",
+      "path": "10 NEXAH CORE/NEXAH/RESEARCH/NOTES/PASCAL_PENTAGON_D5_TEST_2026-10-10/PASCAL_ROSETTA_JOINT_DESIGN_2026-10-11/NCS_292_Q106_INTERTWINER_RETURN_PACKAGE_2026-10-11/TRIPLE19_X40_C2_ORIENTATION_FACTOR_AUDIT_2026-10-11/TRIPLESIX_S3_CUBE_GRID_FOLD_BRIDGE_AUDIT_2026-10-12/GENERAL_COORDINATE_FOLD_MINIMAL_RESIDUAL_RETURN_AUDIT_2026-10-12/GRID_FOLD_CHANNEL_INTERFACE_ASSEMBLY_UPDATE_RETURN_AUDIT_2026-10-12/RESULT.json",
+      "sha256": "f8c1387b7e1db2b904da798277031aca43ba751f2a900ba5d25880b354706df5",
+      "role": "complete finite Grid-Fold-Channel typed-chain formal-design audit with explicit interface quotient, admissible update and minimal branch-aware Return; not an admitted Study or physical model"
+    },
+    {
+      "source_id": "SRC:NN:GAME4LIFE_NCS_RETURN_LENS_BINDING",
+      "path": "10 NEXAH CORE/NEXAH/APPLICATIONS/game4life_plus1/SOURCE_BINDING.json",
+      "sha256": "584cc72d8e205a4bb7ca3eb74e821d1b7d314e8a65a11e0736de5c30f4fb843c",
+      "role": "durable internal non-evidentiary application binding that reuses this Navigator lens over addressed LIFE snapshots and adds the typed k=g mod 6 prime-channel view projection while preserving the null operator-adapter and Q106 boundaries"
+    }
+  ],
+  "open_boundaries": [
+    "MRB-03 has no source package in the recovered series",
+    "X20 source contract remains unrecovered: adjacency and edge types are null",
+    "typed_intertwiner_to_q106 is null",
+    "24 D5-equivariant charts are enumerated but blocked before target comparison",
+    "beta remains null across 720 assignments",
+    "historical Janus law remains unselected",
+    "Triple-19 and X40 share only a C2 orientation factor; the full Triple-19-to-X20 map remains null",
+    "the X40-to-X20 quotient erases the shared orientation bit in all twenty fibres",
+    "Clockwork p/q alone realizes an unlabeled two-sheet display lift; the Owner-declared ordered bridge P-to-17 and Q-to-18 conditionally selects e=1-to-P and e=0-to-Q, while historical recovery of that order remains null",
+    "the ten Clockwork transfer beads represent C5×C2 only: five global C5 phase charts remain, every bead has a four-state P4 fibre, and no unique GLB-node-to-X40-or-X20 state exists",
+    "same-index mirror plus counter-rotation selects Jd rather than Jc only on the declared bead quotient; the historical NCS Janus law remains unselected",
+    "the Owner-declared 17→29 and 18→36 pairs give exact opposite order-five C30 steps and mirror-compatible C5 addresses; k=0 follows only under the explicit numeric-address convention and is not a recovered historical phase origin",
+    "a full t mod 4 wobble tag would close the P4 fibre, but a binary every-four pulse would not; the source wobble semantics and GLB wobble-to-P4 map remain null",
+    "A0-BL-052/053 already fix the Pascal-quaternion slots as scalar/depth, i/a, j/b and k/c with exact C3 Return; the Root-40 quaternion 2+2i+4j+4k lies outside that Phi image because the required scalar is 10, not 2",
+    "all 24 Pascal-slot-to-NCS-role bijections are reversible address encodings, but zero intertwine the Pascal cycle type (1,3) with the declared NCS identity role action (1,1,1,1); no canonical NCS P4 adapter exists under the current contract",
+    "a complete declared slot-to-role map, or an NCS role action of cycle type (1,3) plus one typed slot-to-role anchor, is required before the adapter gate can reopen",
+    "Triple-19 supplies an exact antipode with null full-carrier intertwiner, and CON–DAO's 8+4 display is a grouping lens rather than a shared generator",
+    "the Fibonacci C6 schedule supplies no typed transport into X20 or X40 and no X20 adjacency or Q106 intertwiner",
+    "Clockwork GLB nodes are not mapped to X20 and supply no X20 adjacency or typed Q106 intertwiner",
+    "LIFE06D Q-/Q+ are scale conjugates, not Clockwork mirror sheets; shared P/Q notation creates no carrier or operator identity",
+    "TripleSix resolves one selected fold axis but not simultaneous two- or three-axis pivot choices",
+    "the declared 64-to-63 quotient has no canonical inverse and is not a recovered historical visual generator",
+    "the full A0-BL-025 typed-chain formal-design checklist is complete on two finite controls, but Study admission, independent review, physical stability/flow and the historical visual generator remain open",
+    "ACR-44 real-signal validation remains open"
+  ],
+  "claim_ceiling": "Internal source-bound navigation and evidence crosswalk only. It creates no carrier identity, canonical Family, Study admission, claim promotion, physical mechanism or publication state."
+}

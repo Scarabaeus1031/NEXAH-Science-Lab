@@ -23,6 +23,12 @@ const primeCrystalData = read("prime-crystal.internal.js");
 const observatoryData = read("observatory.internal.js");
 const root7Data = read("root7.internal.js");
 const ilauOrientationData = read("ilau-orientation.internal.js");
+const primeBaseModeData = read("prime-base-mode.internal.js");
+const labRegisterData = read("lab-register.internal.js");
+const findingsFrontiersData = read("findings-frontiers.internal.js");
+const a0OrientationEvidenceData = read("a0-orientation-evidence.internal.js");
+const orionEvidenceData = read("orion.internal.js");
+const orientationCatalogData = read("orientation-catalog.internal.js");
 const lifeUsefulnessPath = path.resolve(here, "../../CASE_STUDIES/NEXAH_LIFE_MULTI_VIEW_IDENTIFIABILITY_CA_IDENT_01_2026-10-08/results/CA_IDENT_01_RESULT.json");
 const lifeUsefulness = JSON.parse(fs.readFileSync(lifeUsefulnessPath, "utf8"));
 const lifeUtilityGatePath = path.resolve(here, "../../CASE_STUDIES/NEXAH_LIFE_MULTI_VIEW_UTILITY_CA_IDENT_02_2026-10-08/results/CA_IDENT_02_RESULT.json");
@@ -42,6 +48,11 @@ const lifeConditionalObserver = JSON.parse(fs.readFileSync(lifeConditionalObserv
 const lifeOrbitSource = fs.readFileSync(path.resolve(here, "../NAVIGATOR_V2_ADMISSION_LIFE_ORBIT_2026-10-07.json"), "utf8");
 const primeCrystalSource = fs.readFileSync(path.resolve(here, "../EVIDENCE/BREATHING_PRIME_CRYSTAL_INSTRUMENT_2026-10-08/BREATHING_PRIME_CRYSTAL_BINDER_V1_2026-10-08.json"), "utf8");
 const ilauOrientationSource = fs.readFileSync(path.resolve(here, "../EVIDENCE/ILAU_ORIENTATION_INSTRUMENTS_2026-10-09/ILAU_ORIENTATION_INSTRUMENTS_BINDER_V1_2026-10-09.json"), "utf8");
+const primeBaseModeSource = fs.readFileSync(path.resolve(here, "../EVIDENCE/PRIME_BASE_MODE_2026-10-10/PRIME_BASE_MODE_BINDER_V1_2026-10-10.json"), "utf8");
+const findingsFrontiersSource = fs.readFileSync(path.resolve(here, "../EVIDENCE/FINDINGS_AND_FRONTIERS_2026-10-10/FINDINGS_AND_FRONTIERS_BINDER_V1_2026-10-10.json"), "utf8");
+const a0OrientationEvidenceSource = fs.readFileSync(path.resolve(here, "../EVIDENCE/A0_ORIENTATION_EVIDENCE_LINEAGE_2026-10-10/A0_ORIENTATION_EVIDENCE_LINEAGE_BINDER_V1_2026-10-10.json"), "utf8");
+const orionEvidenceSource = fs.readFileSync(path.resolve(here, "../EVIDENCE/ORION_CAPABILITY_EVIDENCE_2026-10-10/ORION_CAPABILITY_EVIDENCE_BINDER_V1_2026-10-10.json"), "utf8");
+const orientationCatalogSource = fs.readFileSync(path.resolve(here, "../EVIDENCE/ORIENTATION_CATALOG_2026-10-10/ORIENTATION_CATALOG_BINDER_V1_2026-10-10.json"), "utf8");
 const handbook = fs.readFileSync(path.resolve(here, "../../NEXAH_SCIENCE_LAB_AND_NAVIGATOR_HANDBOOK_2026-10-07.md"), "utf8");
 const familyMap = fs.readFileSync(path.resolve(here, "../../NEXAH_FAMILY_CONNECTION_MAP_V2.html"), "utf8");
 const ringNavigation = fs.readFileSync(path.resolve(here, "../NEXAH_NAVIGATION_RING1.js"), "utf8");
@@ -55,6 +66,12 @@ vm.runInNewContext(primeCrystalData, context);
 vm.runInNewContext(observatoryData, context);
 vm.runInNewContext(root7Data, context);
 vm.runInNewContext(ilauOrientationData, context);
+vm.runInNewContext(primeBaseModeData, context);
+vm.runInNewContext(labRegisterData, context);
+vm.runInNewContext(findingsFrontiersData, context);
+vm.runInNewContext(a0OrientationEvidenceData, context);
+vm.runInNewContext(orionEvidenceData, context);
+vm.runInNewContext(orientationCatalogData, context);
 const manifest = context.window.NEXAH_NAVIGATOR_MANIFEST;
 const entry = context.window.NEXAH_NAVIGATOR_ENTRY;
 const admission = context.window.NEXAH_NAVIGATOR_ADMISSION;
@@ -66,34 +83,105 @@ const primeCrystal = context.window.NEXAH_PRIME_CRYSTAL_INSTRUMENT;
 const observatoryBinding = context.window.NEXAH_OBSERVATORY_BINDING;
 const root7Look = context.window.NEXAH_ROOT7_LOOK;
 const ilauOrientation = context.window.NEXAH_ILAU_ORIENTATION_INSTRUMENTS;
+const primeBaseMode = context.window.NEXAH_PRIME_BASE_MODE;
+const labRegister = context.window.NEXAH_LAB_REGISTER;
+const findingsFrontiers = context.window.NEXAH_FINDINGS_FRONTIERS;
+const a0OrientationEvidence = context.window.NEXAH_A0_ORIENTATION_EVIDENCE;
+const orionEvidence = context.window.NEXAH_ORION_CAPABILITY_EVIDENCE;
+const orientationCatalog = context.window.NEXAH_ORIENTATION_CATALOG;
 const lifeOrbitJson = JSON.parse(lifeOrbitSource);
 const primeCrystalJson = JSON.parse(primeCrystalSource);
 const ilauOrientationJson = JSON.parse(ilauOrientationSource);
+const primeBaseModeJson = JSON.parse(primeBaseModeSource);
+const findingsFrontiersJson = JSON.parse(findingsFrontiersSource);
+const a0OrientationEvidenceJson = JSON.parse(a0OrientationEvidenceSource);
+const orionEvidenceJson = JSON.parse(orionEvidenceSource);
+const orientationCatalogJson = JSON.parse(orientationCatalogSource);
+const a0RuntimeSourceCount = Number(
+  js.match(/a0OrientationEvidence\?\.sources\?\.length !== (\d+)/)?.[1]
+);
 
 const checks = [
   ["internal profile", manifest?.profile === "internal"],
-  ["registry entities loaded", manifest?.entities?.length === 173],
+  ["registry entities loaded", manifest?.entities?.length === 266],
   ["29 typed relations", manifest?.relations?.length === 29],
   ["no public authorization", release?.publication_authorized === false && release?.public_entity_count === 0],
   ["entry content fail-closed", entry?.profile === "internal" && entry?.publication_authorized === false],
   ["six governed domains", entry?.domains?.length === 6 && /nav-domain/.test(html + css)],
   ["five current-focus records with plain status", entry?.current_focus?.length === 5 && /plainFocusStatus/.test(js) && /focus-grid/.test(css)],
-  ["homepage navigator compass", /Find the record/.test(js) && /Five moves/.test(js) && /navigator-compass/.test(css)],
-  ["homepage LIFE and E8 remain bounded laboratories", /Two comparison laboratories/.test(js) && /not the whole map/.test(js) && /do not define the Navigator/.test(js)],
-  ["homepage four deeper routes", /7×8 Observatory/.test(js) && /Transversum · Two-Cut/.test(js) && /Tessarec · LOKI/.test(js) && /ROOT7 · beautiful bridge, bounded negative/.test(js) && /depth-grid/.test(css)],
-  ["homepage human status and optional A0 orientation", /Human View · If the map feels too dense/.test(js) && /Verified record/.test(js) && /Candidate \/ open/.test(js) && /not the Navigator structure/.test(js) && /navigator-human-view/.test(css)],
+  ["Science Lab Navigator display identity", /NEXAH Science Lab Navigator · Internal/.test(html) && /Science Lab Navigator/.test(html) && /Source &amp; Relation Graph/.test(js)],
+  ["homepage five-pointer compass", /Five pointers/.test(js) && /Findings &amp; Frontiers/.test(js) && /Lab Register/.test(js) && /Source Catalog/.test(js) && /navigator-compass/.test(css)],
+  ["homepage remains pointer-first", /The Start page only keeps the overview/.test(js) && /Original packages retain scientific authority/.test(js)],
+  ["homepage human entry retained", /Human View · How do I begin/.test(js) && /What am I looking at, which source says it/.test(js) && /navigator-human-view/.test(css)],
+  ["homepage current flagships visible", /Current internal flagships/.test(js) && /A0<br>Foundation/.test(js) && /GAME 4/.test(js) && /LIFE \+1/.test(js) && /flagship-grid/.test(css) && /a0-flagship/.test(css) && /life-flagship/.test(css)],
+  ["homepage flagship authority bounded", /does not reopen LIFE08/.test(js) && /does not establish a physical channel/.test(js) && /not the same object/.test(js) && /ART:A0:MATHEMATICAL_JOINTS/.test(js)],
   ["ROOT7 source-first lens wired", /root7\.internal\.js/.test(html) && /data-route-link="root7"/.test(html) && /case "root7": renderRoot7Look/.test(js) && root7Look?.status === "INTERNAL_READ_ONLY_ORIENTATION_LENS"],
   ["ROOT7 exact distinctions retained", root7Look?.exact?.q3 === "2^3 = 8" && root7Look?.exact?.q4 === "2^4 = 16" && root7Look?.exact?.norm_squared === 7 && /Metric calculation, not state-count identity/.test(js)],
   ["ROOT7 negative closeout retained", JSON.stringify(root7Look?.decisions?.map((item) => item.result)) === JSON.stringify(["NON_IDENTIFIABLE","ENDPOINT_INSUFFICIENT_HISTORY_REQUIRED","NOT_IDENTIFIED"])],
   ["ROOT7 lens changes no canonical counts", root7Look?.changes_canonical_module_count === false && root7Look?.changes_canonical_family_count === false && root7Look?.publication_authorized === false],
   ["ILAU source-bound lens wired", /ilau-orientation\.internal\.js/.test(html) && /data-route-link="ilau-orientation"/.test(html) && /case "ilau-orientation": renderIlauOrientation/.test(js) && ilauOrientation?.status === "INTERNAL_READ_ONLY_SOURCE_BOUND_LENS"],
-  ["ILAU three curated instruments retained", ilauOrientation?.instruments?.length === 3 && JSON.stringify(ilauOrientation.instruments.map((item) => item.instrument_id)) === JSON.stringify(["ILAU:ORIENTATION_MACHINE","ILAU:CARTOGRAPHY_EXTENSION","ILAU:RETURN_RESIDUAL_LOCK"])],
+  ["ILAU nineteen curated instruments retained", ilauOrientation?.instruments?.length === 19 && JSON.stringify(ilauOrientation.instruments.map((item) => item.instrument_id)) === JSON.stringify(["ILAU:HOOK_MIRROR_ROPE","ILAU:ORIENTATION_MACHINE","ILAU:CARTOGRAPHY_EXTENSION","ILAU:OEIS_RELATION_MACHINE","ILAU:SEAM_RECONSTRUCTION_GATE","ILAU:KHIPPU_THREADS","ILAU:RETURN_RESIDUAL_LOCK","ILAU:HEAR_SHADOW","ILAU:RECORD_PLAY_432","ILAU:INTERTWINED_CLEFS","ILAU:RELATIONAL_COORDINATE_40_41_42","ILAU:CROWN_SEAM_ROOT","ILAU:KNOT_ROPE_BODY","ILAU:THERMO_ROTATION_STATE_SPACE","ILAU:DEL_T_RIS_RETURN_SEAM","ILAU:ALPHA_RESIDUAL_CODE","ILAU:NEON_CARTOGRAPHY_ONTOLOGY","ILAU:BPS_MS_COVER_CUT_KERNEL_GAP","ILAU:FROM_GAP_TO_RETURN"])],
   ["ILAU instrument hashes bound", ilauOrientation?.instruments?.every((item) => /^[a-f0-9]{64}$/.test(item.sha256)) && JSON.stringify(ilauOrientation?.instruments) === JSON.stringify(ilauOrientationJson?.instruments)],
   ["ILAU vocabulary and decision boundary visible", ilauOrientation?.ilau?.map((item) => item.code).join("") === "ILAU" && /classification remains distinct from decision/i.test(js) && /ILAU classification != causal explanation != decision rule/.test(ilauOrientation?.claim_ceiling || "")],
   ["ILAU lens changes no canonical counts", ilauOrientation?.changes_canonical_registry_counts === false && ilauOrientation?.changes_canonical_family_count === false && ilauOrientation?.publication_authorized === false],
+  ["Prime Base Mode source-bound lens wired", /prime-base-mode\.internal\.js/.test(html) && /data-route-link="prime-base-mode"/.test(html) && /case "prime-base-mode": renderPrimeBaseMode/.test(js) && primeBaseMode?.status === "INTERNAL_READ_ONLY_SOURCE_BOUND_LENS"],
+  ["Prime Base Mode inventory retained", primeBaseMode?.type_boundaries?.length === 8 && primeBaseMode?.sources?.length === 9 && primeBaseMode?.nodes?.length === 14 && primeBaseMode?.relations?.length === 16],
+  ["Prime Base Mode generated data matches binder", JSON.stringify(primeBaseMode) === JSON.stringify(primeBaseModeJson)],
+  ["Prime Base Mode type boundaries visible", /Similar notation does not create identity/.test(js) && /prime value, a modulus, a base, a grid width and a polygon/.test(js) && /Not identical to/.test(js)],
+  ["Prime Base Mode negative boundaries visible", /Unique Mod-17 predictive privilege/.test(primeBaseModeData) && /Dominant Mod-7 × Mod-11 charge separation/.test(primeBaseModeData) && /Rejected \/ not supported/.test(js)],
+  ["Prime Base Mode non-identity relation retained", primeBaseMode?.relations?.some((item) => item.type === "non-identity" && item.source === "PBM:MOD11" && item.target === "PBM:GRID11")],
+  ["Prime Base Mode changes no canonical counts", primeBaseMode?.changes_canonical_registry_counts === false && primeBaseMode?.changes_canonical_family_count === false && primeBaseMode?.publication_authorized === false],
+  ["Findings and Frontiers lead lens wired", /findings-frontiers\.internal\.js/.test(html) && /data-route-link="findings-frontiers"/.test(html) && /case "findings-frontiers": renderFindingsFrontiers/.test(js) && findingsFrontiers?.status === "INTERNAL_READ_ONLY_SOURCE_BOUND_LEAD_LENS"],
+  ["Findings and Frontiers binder retained", JSON.stringify(findingsFrontiers) === JSON.stringify(findingsFrontiersJson) && findingsFrontiers?.sources?.length === 11 && findingsFrontiers?.classes?.length === 5 && findingsFrontiers?.inspection_grammar?.length === 8],
+  ["Findings and Frontiers closed A0 results retained", ["SRC:FF:A0_BL021_LABREPORT", "SRC:FF:A0_BL035_LABREPORT", "SRC:FF:A0_BL045_LABREPORT"].every((id) => findingsFrontiers?.sources?.some((item) => item.source_id === id)) && findingsFrontiers?.navigator_evidence_surfaces?.some((item) => item.route === "#a0-orientation-evidence")],
+  ["Findings and Frontiers evidence classes visible", ["exact", "bounded", "negative", "historical", "open"].every((value) => findingsFrontiers?.classes?.some((item) => item.evidence_class === value)) && /One lead route, several distinct inspectors/.test(js)],
+  ["Findings and Frontiers authority fail-closed", findingsFrontiers?.changes_canonical_registry_counts === false && findingsFrontiers?.changes_canonical_family_count === false && findingsFrontiers?.publication_authorized === false && findingsFrontiers?.frontier?.activation_status === "OWNER_SELECTED_RESEARCH_BACKLOG_PREPARATION_ONLY_NOT_ACTIVE" && findingsFrontiers?.frontier?.owner_selection?.authorization === "PREPARATION_ONLY"],
+  ["Findings and Frontiers six-gate backlog visible", findingsFrontiers?.frontier?.readiness_gates?.length === 6 && findingsFrontiers?.frontier?.readiness_gates?.find((item) => item.gate_id === "GATE:05")?.status === "OPEN_NEXT_DECISIVE_GATE" && /Six gates, one next decisive test/.test(js)],
+  ["A0 orientation evidence lineage wired", /a0-orientation-evidence\.internal\.js/.test(html) && /data-route-link="a0-orientation-evidence"/.test(html) && /case "a0-orientation-evidence": renderA0OrientationEvidence/.test(js) && a0OrientationEvidence?.status === "INTERNAL_READ_ONLY_SOURCE_BOUND_LENS"],
+  ["A0 lineage generated payload matches binder", JSON.stringify(a0OrientationEvidence) === JSON.stringify(a0OrientationEvidenceJson) && a0OrientationEvidence?.sources?.length === 98 && a0OrientationEvidence?.a0_surface_coverage?.bound_surfaces === 34 && a0OrientationEvidence?.nodes?.length === 27 && a0OrientationEvidence?.relations?.length === 39 && a0OrientationEvidence?.aliases?.length === 21],
+  ["A0 runtime shape guard matches generated source count", Number.isInteger(a0RuntimeSourceCount) && a0RuntimeSourceCount === a0OrientationEvidence?.sources?.length],
+  ["A0 context navigation assets source-bound", ["SRC:A0OE:A0_CONTEXT_NAVIGATION_CSS", "SRC:A0OE:A0_CONTEXT_NAVIGATION_JS"].every((id) => a0OrientationEvidence?.sources?.some((item) => item.source_id === id && /^[a-f0-9]{64}$/.test(item.sha256)))],
+  ["A0 reader architecture and current research entry retained", a0OrientationEvidence?.reader_architecture?.works?.map((item) => item.label).join("→") === "A0 Book→Mathfield→Pascal Joint→SCC-003 Paper→Return Paper→Backlog" && a0OrientationEvidence?.reader_architecture?.current_research_entry?.entries?.map((item) => item.label).join("→") === "Living Protocol→Backlog→Findings & Papers→SCC-003 Review Packet→Scientific Assessment→Paper C · Return→Evidence Lineage" && /non-executable/.test(a0OrientationEvidence?.reader_architecture?.current_research_entry?.closeout || "")],
+  ["SCC-003 external review authorization retained", ["SRC:A0OE:SCC003_EXTERNAL_REVIEW_PACKET_MANIFEST", "SRC:A0OE:SCC003_EXTERNAL_REVIEW_OWNER_DECISION"].every((id) => a0OrientationEvidence?.sources?.some((item) => item.source_id === id)) && a0OrientationEvidence?.pascal_pentagon_suite?.external_review?.state === "OWNER_AUTHORIZED_PACKET_VALIDATED_AWAITING_NAMED_REVIEWER" && /No novelty promotion/.test(a0OrientationEvidence?.pascal_pentagon_suite?.external_review?.claim_boundary || "")],
+  ["A0 findings workspace and D30 companion retained", ["SRC:A0OE:FINDINGS_PAPER_WORKSPACE", "SRC:A0OE:PASCAL_ROSETTA_D30_PAPER_DRAFT"].every((id) => a0OrientationEvidence?.sources?.some((item) => item.source_id === id)) && a0OrientationEvidence?.pascal_pentagon_suite?.companion_paper_draft?.status === "INTERNAL_R0_FORMAL_DESIGN_NOTE_NOT_ADMITTED_NOT_SUBMITTED"],
+  ["A0 findings and paper flow visible", a0OrientationEvidence?.findings_paper_flow?.findings?.length === 16 && a0OrientationEvidence?.findings_paper_flow?.paper_lanes?.map((item) => item.lane).join("→") === "A→B→C→D" && /Sixteen findings, four paper lanes, explicit gates/.test(js) && /Existing paper, companion note, or parked outline/.test(js)],
+  ["A0 runtime findings guard matches generated count", /findings_paper_flow\?\.findings\?\.length !== 16/.test(js)],
+  ["A0 NN Return crosswalk binding visible", a0OrientationEvidence?.nn_return_crosswalk_binding?.node_id === "NN:MRB_ACR_NCS_Q106_RETURN_CROSSWALK" && a0OrientationEvidence?.nn_return_crosswalk_binding?.a0_finding_id === "F-A0-16" && /interface assembly → A0/.test(js) && /Completed formal question/.test(js) && /no new identity/.test(js)],
+  ["A0-BL-021 closed Study retained", a0OrientationEvidence?.nodes?.some((item) => item.node_id === "A0_BL_021_DYNAMIC_BOUNDARY_CONFLUENCE_2026_10_10" && item.state === "CLOSED_VALIDATED_NEGATIVE_RESULT") && a0OrientationEvidence?.relations?.some((item) => item.relation_id === "A0OE:REL:A0_BL021_PENT06" && /100 seven-face histories and 56 exact typed terminal classes/.test(item.statement)) && a0OrientationEvidence?.relations?.some((item) => item.relation_id === "A0OE:REL:A0_BL021_A0" && /258 versus 264/.test(item.statement) && /7×8 slot-address grid/.test(item.statement))],
+  ["A0 EMP04 ZERO01 Test Atlas and T1-T7 bindings retained", ["A0OE:EMP04", "A0OE:ZERO01", "A0OE:TEST_ATLAS", "A0OE:T1_T7"].every((id) => a0OrientationEvidence?.nodes?.some((item) => item.node_id === id)) && ["SRC:A0OE:EMP04", "SRC:A0OE:ZERO01", "SRC:A0OE:TEST_ATLAS", "SRC:A0OE:T1_T7"].every((id) => a0OrientationEvidence?.sources?.some((item) => item.source_id === id))],
+  ["A0 orientation operator cycle crosswalk retained", a0OrientationEvidence?.orientation_operator_cycle?.status === "WORKING_CROSSWALK_NOT_CANONICAL" && a0OrientationEvidence?.orientation_operator_cycle?.stages?.length === 4 && a0OrientationEvidence?.orientation_operator_cycle?.stages?.flatMap((item) => item.operators || []).length === 12 && /Working crosswalk · not canonical taxonomy/.test(js)],
+  ["A0 Five Stacks and Nine Groups entry map visible", a0OrientationEvidence?.a0_entry_map?.status === "HISTORICAL_CROSSCUTS_DOCUMENTATION_ONLY" && a0OrientationEvidence?.a0_entry_map?.vertical_crosscut?.length === 5 && a0OrientationEvidence?.a0_entry_map?.horizontal_crosscut?.length === 10 && /A0 entrance · historical crosscuts/.test(js) && /Open A0 System Map/.test(js)],
+  ["A0 numeric anchors and ledger boundaries retained", a0OrientationEvidence?.a0_entry_map?.numeric_anchors?.map((item) => item.label).join("/") === "540 / 1080/14/1729" && /sigma=\+1 at 1080°/.test(a0OrientationEvidence?.a0_entry_map?.numeric_anchors?.[0]?.return_levels || "") && /generation g=6/.test(a0OrientationEvidence?.a0_entry_map?.numeric_anchors?.[0]?.return_levels || "") && /1³\+12³ = 9³\+10³/.test(a0OrientationEvidence?.a0_entry_map?.numeric_anchors?.[2]?.exact || "") && /compatible types and units/.test(a0OrientationEvidence?.a0_entry_map?.ledger_boundary || "") && /U-field unresolved/.test(js)],
+  ["A0 Point 03 grid-interaction atlas visible", a0OrientationEvidence?.grid_interaction_atlas?.status === "HISTORICAL_GRID_INTERACTION_CROSSWALK_DOCUMENTATION_ONLY" && a0OrientationEvidence?.grid_interaction_atlas?.layers?.length === 4 && a0OrientationEvidence?.grid_interaction_atlas?.channel_contract?.length === 6 && /Carrier → fold → envelope → channel/.test(js) && /Envelope ≠ carrier/.test(js)],
+  ["A0 grid exact and open boundaries retained", a0OrientationEvidence?.grid_interaction_atlas?.layers?.some((item) => item.layer === "cyclic-phase-cover" && item.status === "BOUNDED_EXISTING_PENT07_RESULT") && a0OrientationEvidence?.grid_interaction_atlas?.visual_markers?.length === 3 && /Coupled-channel contract · not a flow law/.test(js) && /documentary hypotheses/.test(a0OrientationEvidence?.grid_interaction_atlas?.claim_boundary || "")],
+  ["A0 demonstrator identity reused with gaps visible", a0OrientationEvidence?.nodes?.some((item) => item.node_id === "MOD:ORIENTATION_DEMONSTRATORS" && item.state === "REUSED_CLOSED_INCOMPLETE_SERIES") && a0OrientationEvidence?.relations?.some((item) => item.type === "illustrative-crosswalk" && /positions 8, 9, 12 and 13 remain explicit source gaps/.test(item.claim_boundary)) && /no missing HTML or unfinished operator page is reconstructed/.test(js)],
+  ["A0 operator cycle and T1-T7 remain distinct", a0OrientationEvidence?.relations?.some((item) => item.type === "contextualizes" && item.source === "A0OE:ORIENTATION_OPERATOR_CYCLE" && item.target === "A0OE:T1_T7" && /no one-to-one equivalence/.test(item.claim_boundary)) && /contextualized, never merged/.test(js)],
+  ["A0 operator storyboard source-bound through HP-007", a0OrientationEvidence?.orientation_operator_cycle?.visual_reference === "HP-007/PART_I_Index.png_SOURCE_BOUND_NONCANONICAL" && a0OrientationEvidence?.relations?.some((item) => item.type === "documentary-source" && item.source === "HP-007" && item.target === "A0OE:ORIENTATION_OPERATOR_CYCLE") && /HP-007 source bound/.test(js)],
+  ["A0 Pascal pentagon D5 boundary retained", a0OrientationEvidence?.nodes?.some((item) => item.node_id === "A0OE:PASCAL_PENTAGON_D5_TEST" && item.state === "BOUNDED_CANDIDATE_WITH_A0_BL045_CLOSED") && a0OrientationEvidence?.relations?.some((item) => item.source === "A0OE:PASCAL_PENTAGON_D5_TEST" && /four inner layers/.test(item.claim_boundary)) && a0OrientationEvidence?.pascal_pentagon_suite?.a0_bl_045_return_fork?.status === "CLOSED_OWNER_ACCEPTED_2026_10_10" && /epsilon I/.test(a0OrientationEvidence?.pascal_pentagon_suite?.a0_bl_045_return_fork?.exact_result || "") && a0OrientationEvidence?.relations?.some((item) => item.relation_id === "A0OE:REL:PPD5_GENERATION_CORNER" && item.type === "illustrative-crosswalk")],
+  ["A0 Pascal pentagon metric label 3D root dynamic-boundary and coupling extensions retained", ["SRC:A0OE:PASCAL_PENTAGON_METRIC_TEST", "SRC:A0OE:PASCAL_PENTAGON_LABEL_AUDIT", "SRC:A0OE:PASCAL_PENTAGON_3D_LIFT_TEST", "SRC:A0OE:PASCAL_PENTAGON_ROOT_COMPLETION_TEST", "SRC:A0OE:PASCAL_PENTAGON_DYNAMIC_BOUNDARY_TEST", "SRC:A0OE:PASCAL_PENTAGON_HEXAGON_COUPLING_AUDIT"].every((id) => a0OrientationEvidence?.sources?.some((item) => item.source_id === id)) && a0OrientationEvidence?.relations?.some((item) => item.relation_id === "A0OE:REL:PPD5_METRIC_GLF01" && /phi does not generate Pascal coefficients/.test(item.claim_boundary)) && a0OrientationEvidence?.relations?.some((item) => item.relation_id === "A0OE:REL:PPD5_LABEL_AUDIT_A0" && /does not validate the prime labels/.test(item.claim_boundary)) && a0OrientationEvidence?.relations?.some((item) => item.relation_id === "A0OE:REL:PPD5_3D_T1_T7" && /182 glued Pascal nodes/.test(item.statement)) && a0OrientationEvidence?.relations?.some((item) => item.relation_id === "A0OE:REL:PPD5_ROOT_GLF01" && /H2 direct-sum A1/.test(item.statement) && /full five-position orbit is 100/.test(item.claim_boundary)) && a0OrientationEvidence?.relations?.some((item) => item.relation_id === "A0OE:REL:PPD5_DYNAMIC_T1_T7" && /112 Pascal nodes/.test(item.statement) && /No map from that historical fixture/.test(item.claim_boundary)) && a0OrientationEvidence?.relations?.some((item) => item.relation_id === "A0OE:REL:PPD5_COUPLING_GLF01" && /direct C5-to-C6 cycle identification fails/.test(item.statement) && /110\/111\/112 remain provenance markers/.test(item.claim_boundary))],
+  ["A0 Pascal pentagon explorer and paper are source-bound and visible", a0OrientationEvidence?.pascal_pentagon_suite?.instrument_source_id === "SRC:A0OE:PASCAL_PENTAGON_EXPLORER" && a0OrientationEvidence?.pascal_pentagon_suite?.paper_draft?.source_id === "SRC:A0OE:SCC003_PAPER_DRAFT" && a0OrientationEvidence?.pascal_pentagon_suite?.paper_draft?.html_source_id === "SRC:A0OE:SCC003_PAPER_HTML" && a0OrientationEvidence?.pascal_pentagon_suite?.tests?.length === 7 && a0OrientationEvidence?.pascal_pentagon_suite?.embedded_surfaces?.length === 3 && /PENT-01 → PENT-02 → PENT-03 → PENT-04 → PENT-05 → PENT-06 → PENT-07/.test(js) && /Open Pascal Pentagon Explorer/.test(js) && /Open embedded Point 03/.test(js) && /Open embedded companion/.test(js) && /not an eighth test/.test(a0OrientationEvidence?.pascal_pentagon_suite?.claim_boundary || "") && /not a new graph identity/.test(a0OrientationEvidence?.pascal_pentagon_suite?.paper_draft?.claim_boundary || "")],
+  ["A0 existing identities reused", a0OrientationEvidence?.identity_reuse?.a0_surface_entity_id === "ART:A0:MATHEMATICAL_JOINTS" && a0OrientationEvidence?.identity_reuse?.a0_module_entity_id === "MOD:NUMBER_VIEW_SUITE" && /A0 remains one existing object/.test(js)],
+  ["OVR NVC remains distinct from normative OLS", a0OrientationEvidence?.relations?.some((item) => item.type === "non-identity" && item.source === "A0OE:OVR_NVC" && item.target === "OLS-RELEASE-1.0.0") && /Aligned, but not identical/.test(js)],
+  ["GLF-01 object representation boundary retained", a0OrientationEvidence?.relations?.some((item) => item.type === "qualified-comparator" && item.source === "A0OE:GLF01" && /Complexity is ambiguous without a declared metric/.test(item.claim_boundary)) && /regular polygons/i.test(a0OrientationEvidenceData)],
+  ["A0 operation event result chain visible", a0OrientationEvidence?.a0_core_statement?.typed_chain?.join("→") === "SOURCE→OPERATION→EVENT→RESULT→OBSERVATION→VIEW" && /A0 core principle/.test(js)],
+  ["A0 return state history boundary visible", /You may return to the state/.test(a0OrientationEvidence?.a0_core_statement?.strongest_statement || "") && a0OrientationEvidence?.relations?.some((item) => item.source === "A0OE:RRR01" && /Return is not erasure/.test(item.claim_boundary))],
+  ["A0 lineage changes no canonical counts", a0OrientationEvidence?.changes_canonical_registry_counts === false && a0OrientationEvidence?.changes_canonical_family_count === false && a0OrientationEvidence?.publication_authorized === false && /visual marker boards are summaries, not additional trials/i.test(a0OrientationEvidenceData)],
+  ["ORION source-bound evidence lens wired", /orion\.internal\.js/.test(html) && /renderOrionEvidenceLens/.test(js) && orionEvidence?.status === "INTERNAL_READ_ONLY_SOURCE_BOUND_LENS"],
+  ["ORION binder matches generated payload", JSON.stringify(orionEvidence) === JSON.stringify(orionEvidenceJson) && orionEvidence?.evidence_ladder?.length === 5 && orionEvidence?.interfaces?.length === 4],
+  ["ORION L0-L3 and L4 boundary retained", orionEvidence?.evidence_ladder?.slice(0, 4).every((item) => item.status === "IMPLEMENTED_AND_TESTED") && orionEvidence?.evidence_ladder?.[4]?.status === "INVALID_EXPERIMENT" && /negative result retained/.test(js)],
+  ["ORION authority chain remains separated", JSON.stringify(orionEvidence?.authority_chain?.map((item) => item.layer)) === JSON.stringify(["OLS 1.0", "ORION Certified V1", "Science Lab", "Builder / Human Return"]) && /Science Lab evidence does not extend ORION product authority/.test(js)],
+  ["ORION lens changes no canonical counts", orionEvidence?.changes_canonical_registry_counts === false && orionEvidence?.changes_canonical_family_count === false && orionEvidence?.publication_authorized === false],
+  ["ORION open gates and non-identities visible", orionEvidence?.open_gates?.length === 5 && orionEvidence?.non_identities?.length === 6 && /What still has to be earned/.test(js) && /What must not collapse/.test(js)],
+  ["Orientation Catalog source-bound lens wired", /orientation-catalog\.internal\.js/.test(html) && /data-route-link="orientation-catalog"/.test(html) && /case "orientation-catalog": renderOrientationCatalog/.test(js) && orientationCatalog?.status === "INTERNAL_READ_ONLY_SOURCE_BOUND_LENS"],
+  ["Orientation Catalog generated payload matches binder", JSON.stringify(orientationCatalog) === JSON.stringify(orientationCatalogJson)],
+  ["Orientation Catalog inventory retained", orientationCatalog?.records?.length === 61 && orientationCatalog?.featured_keys?.length === 12 && orientationCatalog?.registered_works?.length === 10 && orientationCatalog?.concepts?.length === 17 && orientationCatalog?.navigator_pointers?.length === 11],
+  ["Orientation Catalog reuses registered Work identities", orientationCatalog?.registered_works?.every((work) => /^NX-\d{6}$/.test(work.work_id) && orientationCatalog.records.some((record) => record.registered_work_id === work.work_id))],
+  ["Orientation Catalog boundaries visible", /Catalog relation ≠ scientific relation/.test(js) && /Editorial series, shelves and doors are not Science Navigator Connection Families/.test(orientationCatalog?.source_boundaries?.join(" ") || "") && /catalog-only/.test(orientationCatalog?.source_boundaries?.join(" ") || "")],
+  ["Orientation Catalog external links constrained", /function safeExternalHref/.test(js) && /www\\\.are\\\.na/.test(js)],
+  ["Orientation Catalog changes no canonical counts", orientationCatalog?.changes_canonical_registry_counts === false && orientationCatalog?.changes_canonical_family_count === false && orientationCatalog?.publication_authorized === false],
   ["controlled vocabulary records", entry?.terms?.length === 12 && /renderGlossary/.test(js) && /data-route-link="glossary"/.test(html)],
   ["framework handbook linked from About", /NEXAH_SCIENCE_LAB_AND_NAVIGATOR_HANDBOOK_2026-10-07\.md/.test(js) && /Read the framework handbook/.test(js)],
-  ["framework handbook baseline current", /16 conceptual modules/.test(handbook) && /44 registered module surfaces/.test(handbook) && /140 of 140 inventoried HTML artifacts/.test(handbook) && /173 deduplicated internal entities/.test(handbook) && /29 typed relations/.test(handbook) && /0 publicly admitted entities/.test(handbook)],
+  ["framework handbook baseline current", /16 conceptual modules/.test(handbook) && /45 registered module surfaces/.test(handbook) && /235 inventoried HTML artifacts/.test(handbook) && /266 deduplicated internal entities/.test(handbook) && /29 typed relations/.test(handbook) && /0 publicly admitted entities/.test(handbook) && /33 HTML surfaces in nine work/.test(handbook)],
   ["all entities fail-closed", admission?.rejected?.length === manifest?.entities?.length && admission?.reason_summary?.NO_PUBLIC_ALLOWLIST === manifest?.entities?.length],
   ["semantic main", /<main\b/.test(html)],
   ["semantic navigation", /<nav\b/.test(html)],
@@ -102,7 +190,7 @@ const checks = [
   ["Mission Control header link works under file and local server", /<a class="scope-label mission-control-link" href="\.\.\/\.\.\/\.\.\/\.\.\/\.\.\/00%20EXECUTIVE\/NEXAH-Mission-Control\/INTERNAL_NAVIGATOR\/index\.html#home"/.test(html)],
   ["v1 entry source retained", /NEXAH:NAVIGATOR:ENTRY:V1/.test(v1EntrySource) && !/featured_evidence_case/.test(v1EntrySource)],
   ["Multi-View v2 delta staged", /STAGED_NOT_ADMITTED/.test(v2DeltaSource) && entry?.content_id === "NEXAH:NAVIGATOR:ENTRY:V2:PREVIEW"],
-  ["Multi-View feature visible on Start Evidence and Atlas", /renderFeaturedEvidenceCase\("home"\)/.test(js) && /renderFeaturedEvidenceCase\("evidence"\)/.test(js) && /renderFeaturedEvidenceCase\("atlas"\)/.test(js) && /Current Evidence Case/.test(js)],
+  ["Multi-View feature visible on Evidence and Atlas", /renderFeaturedEvidenceCase\("evidence"\)/.test(js) && /renderFeaturedEvidenceCase\("atlas"\)/.test(js) && /Current Evidence Case/.test(js)],
   ["persistent claim boundary", /Persistent boundary/.test(html)],
   ["search control", /type="search"/.test(js)],
   ["role filters", /name=\"role\"/.test(js)],
@@ -164,9 +252,9 @@ const checks = [
   ["LIFE ORBIT admission source and browser data agree", JSON.stringify(lifeOrbit) === JSON.stringify(lifeOrbitJson)],
   ["LIFE ORBIT internally admitted not public", lifeOrbit?.status === "INTERNAL_ADMITTED" && lifeOrbit?.publication_authorized === false && lifeOrbit?.public_entity_count === 0],
   ["LIFE ORBIT route and navigation", lifeOrbit?.route === "#life-orbit" && /data-route-link="life-orbit"/.test(html) && /case "life-orbit": renderLifeOrbit/.test(js)],
-  ["complete LIFE program lens wired", /life-program\.internal\.js/.test(html) && lifeProgram?.status === "INTERNAL_READ_ONLY_PROGRAM_LENS" && lifeProgram?.records?.length === 20 && lifeProgram?.program_lines?.length === 4],
-  ["LIFE HTML inventory retained", lifeProgram?.counts?.dedicated_html_apps === 18 && lifeProgram?.counts?.html_surfaces_total === 19 && lifeProgram?.counts?.non_html_engine_packages === 1],
-  ["LIFE program lens visible", /Complete LIFE program/.test(js) && /lifeProgram\.program_lines/.test(js) && /All twenty records/.test(js)],
+  ["complete LIFE program lens wired", /life-program\.internal\.js/.test(html) && lifeProgram?.status === "INTERNAL_READ_ONLY_PROGRAM_LENS" && lifeProgram?.records?.length === 21 && lifeProgram?.program_lines?.length === 5],
+  ["LIFE HTML inventory retained", lifeProgram?.counts?.dedicated_html_apps === 19 && lifeProgram?.counts?.html_surfaces_total === 20 && lifeProgram?.counts?.non_html_engine_packages === 1],
+  ["LIFE program lens visible", /Complete LIFE program/.test(js) && /lifeProgram\.program_lines/.test(js) && /All twenty-one records/.test(js)],
   ["LIFE closing visual series integrated and bounded", ["NEXAH_LIFE_FROM_CELL_TO_EVIDENCE_2026-10-08.png", "NEXAH_LIFE_HIT_BECAME_METHOD_2026-10-08.png", "NEXAH_LIFE_EVENT_CRYSTAL_2026-10-08.png"].every((name) => js.includes(name)) && /life-visual-story/.test(css) && /add no samples, tests or evidence/.test(js)],
   ["CA-IDENT-01 usefulness result visible and bounded", lifeUsefulness?.verdict === "LIMITED_VIEW_SIGNAL" && lifeUsefulness?.holdout_rows === 84 && /Do the extra views add usefulness/.test(js) && /E8 adapter does not/.test(js) && /External utility<\/dt><dd>not tested/.test(js)],
   ["CA-IDENT-01 instrument linked from LIFE", /NEXAH_LIFE_MULTI_VIEW_IDENTIFIABILITY_CA_IDENT_01_2026-10-08\/index\.html/.test(js) && /Open Multi-View Lab/.test(js) && /life-usefulness-card/.test(css)],
@@ -227,11 +315,16 @@ const checks = [
   ["UTG maturity boundary", /Framework is not validation/.test(js) && /NOT ESTABLISHED FOR UTG AS A WHOLE/.test(utgData)],
   ["UTG media constellations", /Media constellation model/.test(js) && /CONST:UTG:FORMAL_CANDIDATES/.test(utgData)],
   ["interactive entry family map", /renderEntryFamilyMap/.test(js) && /Interactive orientation map/.test(js) && /entry-map-grid/.test(css)],
-  ["plain-language value proposition", /Find the record/.test(js) && /What was tested/.test(js) && /keep the unresolved remainder visible/.test(js)],
+  ["plain-language value proposition", /See what was found/.test(js) && /What has NEXAH found/.test(js) && /Keep the open visible/.test(js)],
   ["framework family object evidence hierarchy", /Framework → families → objects → evidence/.test(js) && /package-local/.test(js)],
-  ["central research question", /Can transitions across different systems share a common, inspectable grammar/.test(js)],
+  ["central research question", /What remains identifiable and invariant/.test(js) && /introduced by view, cut or coupling/.test(js)],
   ["about route and navigation", /renderAboutV2/.test(js) && /case "about": renderAboutV2/.test(js) && /data-route-link="about"/.test(html)],
+  ["Lab Register source-bound lens", /lab-register\.internal\.js/.test(html) && /data-route-link="lab-register"/.test(html) && /case "lab-register": renderLabRegister/.test(js) && labRegister?.status === "INTERNAL_READ_ONLY_SOURCE_BOUND_LENS" && labRegister?.study_count === 48 && labRegister?.studies?.length === 48],
+  ["Lab Register authority boundary", /LAB_REGISTER\.md remains the authority/.test(js) && /Window, not replacement/.test(js) && /does not create, rename, activate, close or promote a study/.test(js)],
+  ["Navigator governance visible", /SEARCH → MATCH → BIND → BUILD → RETURN → GOVERN/.test(js) && /NAVIGATOR_GOVERNANCE_INDEX_2026-10-10\.md/.test(js) && /One Lab register\. One Source Graph/.test(js)],
   ["ecosystem responsibility map", /One ecosystem · distinct responsibilities/.test(js) && /NEXAHEDRON/.test(js) && /ORION/.test(js)],
+  ["About exposes repository coverage boundary", /NEXAH Core \/ NEXAH/.test(js) && /NEXAH-CODEX/.test(js) && /authoritative for its governed bindings, not exhaustive/.test(js)],
+  ["About exposes Source Field consolidation boundary", /DISCOVER \/ INTAKE \/ UNBOUND/.test(js) && /Mission Control Source Field/.test(js) && /index\.html#source-field/.test(js)],
   ["cross-system visual retained in governed data", /MEDIA:DYN:CROSS_SYSTEM_STRUCTURE/.test(js + utgData) && /renderDynamics/.test(js)],
   ["first-use terminology boundaries", /Multi-view reconstruction is the human-facing method/.test(entryData) && /OIL = outer orbit, inner orbit, link\/transfer orbit/.test(entryData) && /empty set ∅/.test(entryData) && /standard mathematical operator/.test(entryData)],
   ["ACR expansion remains unresolved", entry?.terms?.some((term) => term.term_id === "TERM:ACR" && term.status === "unresolved" && /established series-wide expansion/.test(term.does_not_mean?.join(" ") || ""))],

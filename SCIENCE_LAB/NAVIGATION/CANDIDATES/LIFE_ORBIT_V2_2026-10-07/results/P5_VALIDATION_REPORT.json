@@ -1,0 +1,41 @@
+{
+  "gate": "P5_NAVIGATOR_V2_CANDIDATE_INTEGRATION",
+  "authority": "HUMAN_OWNER_2026-10-07",
+  "status": "PASS_INTERNAL_CANDIDATE_NOT_ADMITTED",
+  "route": "#life-orbit",
+  "candidate_source": "SCIENCE_LAB/NAVIGATION/NAVIGATOR_V2_DELTA_LIFE_ORBIT_2026-10-07.json",
+  "candidate_source_sha256": "8d4721017db67721355a73ecc5a5b131e2d3702751a48ab57d84e0b4c5807683",
+  "validation": {
+    "candidate_checks": 21,
+    "p4_tests": 14,
+    "p4_static_checks": 30,
+    "p4_package_files": 25,
+    "headless_chrome_render": "PASS",
+    "v1_files_modified_by_p5": 0
+  },
+  "v1_baseline": {
+    "original_freeze_status": "FAIL_PREEXISTING",
+    "matched": 11,
+    "mismatches": 6,
+    "unchanged_by_p5": true
+  },
+  "boundaries": [
+    "no canonical v1 admission",
+    "no public admission",
+    "no publication",
+    "no deployment",
+    "no Life/E8 mechanism identity"
+  ],
+  "sha256": {
+    "README.md": "3340a5c0403e4b6aad3563b08910278aa61cf250840c916a6d28877cadb29f14",
+    "index.html": "5e823e2a04ada0982eded0fbf713b55ce7dc8b4aef356d39341c1ee81f1afd7c",
+    "styles.css": "f50fb37fa3e0059ca5fdbdbd1a4eaea3a722d1b94c417a8e71ccb8d5a63358cf",
+    "app.js": "80d0a6025d66daadc49414e4cefdb2e224e5f7f1a9b229dc37e499b4b7efb941",
+    "candidate.js": "22d9c52072d8de93e6f737359264f3e17236f59fe8c4bd4f6bc13a75a3b77406",
+    "package.json": "26bf9038f2b252bf94d15c06eb22f7999eba8f8b6815e51f83d174c902f114d9",
+    "build_candidate.mjs": "2963f1b0570766d23445c06abbcbee00b0b6f049b5f20bbaa7026dc789d21891",
+    "audit_candidate.mjs": "3737c3d14310b67aa37883bcf33e95ce91ea0e99b32109af221c749ae653b9d8",
+    "build_receipts.mjs": "de5dda61a353dbe3bbdea7471de1f0b5d7f58be835dd549c3b46b1f4c9059c3c",
+    "results/V1_P5_BASELINE.json": "758bfe8074a1df80ce904c04dfbe53e2579083288a5f72d78eaeda89aa46c499"
+  }
+}

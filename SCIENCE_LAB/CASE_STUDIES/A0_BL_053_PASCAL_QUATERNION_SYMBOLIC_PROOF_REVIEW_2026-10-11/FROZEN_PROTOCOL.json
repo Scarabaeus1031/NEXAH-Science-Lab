@@ -1,0 +1,30 @@
+{
+  "schema": "nexah.a0-bl-053.protocol/1.0.0",
+  "date": "2026-10-11",
+  "clean_room_max_depth": 14,
+  "theorem_scope": "all integers N>=0",
+  "result_classes": [
+    "INTERNAL_SYMBOLIC_PROOF_PASS",
+    "QUALIFIED_GENERALIZATION",
+    "CHALLENGED_BY_COUNTEREXAMPLE",
+    "INVALID_REVIEW"
+  ],
+  "proof_obligations": [
+    "P1_INJECTIVITY",
+    "P2_SCALAR_DEPTH",
+    "P3_C3_BASIS_ACTION",
+    "P4_ORDER_AND_INVERSE_RETURN",
+    "P5_REFLECTION_BOUNDARY",
+    "P6_SUBGROUP_CLASSIFICATION",
+    "P7_CLAIM_CEILING"
+  ],
+  "clean_room_tests": [
+    "C1_EXACT_BASIS_CYCLE",
+    "C2_U_CUBE_MINUS_ONE",
+    "C3_ENUMERATION_0_14",
+    "C4_EXACT_INVERSE_RETURN",
+    "C5_OPPOSITE_CYCLE_MUTATION_REJECTED",
+    "C6_REFLECTION_NOT_PROPER_ROTATION"
+  ],
+  "reviewer_status": "INTERNAL_ADVERSARIAL_REVIEW_NOT_EXTERNAL_INDEPENDENT"
+}

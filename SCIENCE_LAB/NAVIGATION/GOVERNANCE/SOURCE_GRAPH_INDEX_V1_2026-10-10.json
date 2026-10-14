@@ -1,0 +1,202 @@
+{
+  "schema": "nexah.science-lab.source-graph-index/1.0.0",
+  "index_id": "NEXAH:SCIENCE_LAB:SOURCE_GRAPH:V1",
+  "date": "2026-10-14",
+  "status": "CURRENT_INTERNAL_GOVERNED_NOT_PUBLIC",
+  "owning_home": "30 SCIENCE LAB/NEXAH-Science-Lab/SCIENCE_LAB/NAVIGATION",
+  "parent_constitution": "30 SCIENCE LAB/NEXAH-Science-Lab/SCIENCE_LAB/LAB_CONSTITUTION.md",
+  "navigator_charter": "30 SCIENCE LAB/NEXAH-Science-Lab/SCIENCE_LAB/NAVIGATION/GOVERNANCE/NAVIGATOR_CONSTITUTION_V1_2026-10-10.md",
+  "mission_control_role": "Currentness, priority, activation, lifecycle and release governance; no scientific authority transfer.",
+  "source_repository_role": "Original content, implementation and evidence authority.",
+  "publication_authorized": false,
+  "public_entity_count": 0,
+  "canonical_counts": {
+    "base_entities": 266,
+    "base_relations": 29,
+    "admitted_overlay_entities": 3,
+    "admitted_overlay_relations": 3,
+    "composed_entities": 269,
+    "composed_relations": 32
+  },
+  "components": [
+    {
+      "component_id": "SG:BASE:REGISTRY",
+      "class": "canonical-base",
+      "route": "#catalog",
+      "ecosystem_path": "30 SCIENCE LAB/NEXAH-Science-Lab/SCIENCE_LAB/NAVIGATION/BUILD/registry-dist/navigator.internal.json",
+      "sha256": "b13be9994348c73af4054632f93e9907742c67578338c2119fdc2c0a5a72b0ac",
+      "changes_canonical_counts": true,
+      "authority": "validated Science Lab registries"
+    },
+    {
+      "component_id": "SG:LENS:LAB_REGISTER",
+      "class": "lifecycle-register-lens",
+      "route": "#lab-register",
+      "ecosystem_path": "30 SCIENCE LAB/NEXAH-Science-Lab/SCIENCE_LAB/LAB_REGISTER.md",
+      "sha256": "fb3ab2408ceeeef2f70c779c167f18f8e653190fd12698ab0fba049234159061",
+      "changes_canonical_counts": false,
+      "authority": "Human Owner-maintained Science Lab study identity, lifecycle and disposition register"
+    },
+    {
+      "component_id": "SG:OVERLAY:LIFE_ORBIT",
+      "class": "admitted-overlay",
+      "route": "#life-orbit",
+      "ecosystem_path": "30 SCIENCE LAB/NEXAH-Science-Lab/SCIENCE_LAB/NAVIGATION/NAVIGATOR_V2_ADMISSION_LIFE_ORBIT_2026-10-07.json",
+      "sha256": "8b05a87b911366e10b0c0de1b7fd68786e891ee31ad1cd0b6722aef276fc01e5",
+      "changes_canonical_counts": false,
+      "authority": "separate internal admission record"
+    },
+    {
+      "component_id": "SG:LENS:PRIME_BRIDGE_LINEAGE",
+      "class": "source-bound-lens",
+      "route": "#lineage",
+      "ecosystem_path": "30 SCIENCE LAB/NEXAH-Science-Lab/SCIENCE_LAB/NAVIGATION/EVIDENCE/PRIME_BRIDGE_LINEAGE_2026-10-06/PRIME_BRIDGE_LINEAGE_BINDER_V1_2026-10-06.json",
+      "sha256": "cc495709844493a859e7e9d5e85689359f4bd2427414288cdfdf1ac8f4c82b08",
+      "changes_canonical_counts": false,
+      "authority": "source-bound evidence binder"
+    },
+    {
+      "component_id": "SG:LENS:UTG",
+      "class": "framework-lens",
+      "route": "#utg",
+      "ecosystem_path": "30 SCIENCE LAB/NEXAH-Science-Lab/SCIENCE_LAB/NAVIGATION/EVIDENCE/UNIFIED_TRANSITION_GEOMETRY_2026-10-06/UTG_FRAMEWORK_BINDER_V1_2026-10-06.json",
+      "sha256": "0027945b6338a027870d0237f8fc53abddef5996877f1aff16c41cfd7451ab41",
+      "changes_canonical_counts": false,
+      "authority": "exploratory framework binder"
+    },
+    {
+      "component_id": "SG:LENS:LADDER_ATLAS",
+      "class": "source-bound-lens",
+      "route": "#ladders",
+      "ecosystem_path": "30 SCIENCE LAB/NEXAH-Science-Lab/SCIENCE_LAB/NAVIGATION/EVIDENCE/LADDER_ATLAS_2026-10-06/LADDER_ATLAS_BINDER_V1_2026-10-06.json",
+      "sha256": "55be9c96dd4428c79e418b85cf44fc5d671034d77e793e1cca5fc97d88ee3108",
+      "changes_canonical_counts": false,
+      "authority": "comparison binder"
+    },
+    {
+      "component_id": "SG:LENS:OBSERVATORY",
+      "class": "governed-lens",
+      "route": "#observatory",
+      "ecosystem_path": "30 SCIENCE LAB/NEXAH-Science-Lab/SCIENCE_LAB/NAVIGATION/EVIDENCE/TRANSITION_IDENTIFIABILITY_OBSERVATORY_2026-10-07/OBSERVATORY_NAVIGATOR_BINDING_V1_2026-10-07.json",
+      "sha256": "4c882e258c6e8e1a5f108689444c31650ced03d3b57c40578cbabf50bb807ea0",
+      "changes_canonical_counts": false,
+      "authority": "Observatory binding record"
+    },
+    {
+      "component_id": "SG:LENS:PRIME_CRYSTAL",
+      "class": "calibration-lens",
+      "route": "#life-orbit",
+      "ecosystem_path": "30 SCIENCE LAB/NEXAH-Science-Lab/SCIENCE_LAB/NAVIGATION/EVIDENCE/BREATHING_PRIME_CRYSTAL_INSTRUMENT_2026-10-08/BREATHING_PRIME_CRYSTAL_BINDER_V1_2026-10-08.json",
+      "sha256": "1ceda9ed987597a177325f88b98b6192312dafa0a3f550cb09e35c0d496d376e",
+      "changes_canonical_counts": false,
+      "authority": "calibration binder"
+    },
+    {
+      "component_id": "SG:LENS:ROOT7_LOOK",
+      "class": "source-bound-lens",
+      "route": "#root7",
+      "ecosystem_path": "30 SCIENCE LAB/NEXAH-Science-Lab/SCIENCE_LAB/NAVIGATION/EVIDENCE/ROOT7_LOOK_ORIENTATION_2026-10-08/ROOT7_LOOK_BINDER_V1_2026-10-08.json",
+      "sha256": "7aa5400e1af766fd8e7e80beed2c301eddaeae68056cc2fae7d6d05277374d2d",
+      "changes_canonical_counts": false,
+      "authority": "bounded negative orientation binder"
+    },
+    {
+      "component_id": "SG:LENS:ILAU_ORIENTATION",
+      "class": "source-bound-lens",
+      "route": "#ilau-orientation",
+      "ecosystem_path": "30 SCIENCE LAB/NEXAH-Science-Lab/SCIENCE_LAB/NAVIGATION/EVIDENCE/ILAU_ORIENTATION_INSTRUMENTS_2026-10-09/ILAU_ORIENTATION_INSTRUMENTS_BINDER_V1_2026-10-09.json",
+      "sha256": "b4516945d0bd80c5308995e2028d283bc6f6d6f8e3fed26dadf5b86c02b1958e",
+      "changes_canonical_counts": false,
+      "authority": "documentary source binder"
+    },
+    {
+      "component_id": "SG:LENS:PRIME_BASE_MODE",
+      "class": "source-bound-lens",
+      "route": "#prime-base-mode",
+      "ecosystem_path": "30 SCIENCE LAB/NEXAH-Science-Lab/SCIENCE_LAB/NAVIGATION/EVIDENCE/PRIME_BASE_MODE_2026-10-10/PRIME_BASE_MODE_BINDER_V1_2026-10-10.json",
+      "sha256": "92ecff6d74b01a4999ac76198d47f9ae28283131232d721e6badeba771fcd16a",
+      "changes_canonical_counts": false,
+      "authority": "source-bound representation archaeology"
+    },
+    {
+      "component_id": "SG:LENS:FINDINGS_FRONTIERS",
+      "class": "source-bound-lead-lens",
+      "route": "#findings-frontiers",
+      "ecosystem_path": "30 SCIENCE LAB/NEXAH-Science-Lab/SCIENCE_LAB/NAVIGATION/EVIDENCE/FINDINGS_AND_FRONTIERS_2026-10-10/FINDINGS_AND_FRONTIERS_BINDER_V1_2026-10-10.json",
+      "sha256": "c4c881ab80521cc71b7fabcf8ebea01414fbb2057f8016f99a8e953379dcc07f",
+      "changes_canonical_counts": false,
+      "authority": "claim-preserving evidence synthesis and frontier orientation lens"
+    },
+    {
+      "component_id": "SG:LENS:A0_ORIENTATION_EVIDENCE",
+      "class": "source-bound-lens",
+      "route": "#a0-orientation-evidence",
+      "ecosystem_path": "30 SCIENCE LAB/NEXAH-Science-Lab/SCIENCE_LAB/NAVIGATION/EVIDENCE/A0_ORIENTATION_EVIDENCE_LINEAGE_2026-10-10/A0_ORIENTATION_EVIDENCE_LINEAGE_BINDER_V1_2026-10-10.json",
+      "sha256": "d8b319c293c186a3ffc2569543cea3b89d725fc5b51e05615b5a5ab9b4f9d585",
+      "changes_canonical_counts": false,
+      "authority": "source-bound A0 experiment genealogy with 98 sources including reciprocal Mission Control return, Check 58 integration freeze, machine-readable 34-of-34 A0 surface coverage, the internal A0 Asset Index workspace view, shared six-flagship axial adapter, the bounded M7 paired plate/cylinder projection plus backlog-only moving-window question, the post-model development stop and explicit reuse of existing Return identities without canonical-count change"
+    },
+    {
+      "component_id": "SG:LENS:ORION_CAPABILITY_EVIDENCE",
+      "class": "source-bound-capability-evidence-lens",
+      "route": "#evidence",
+      "ecosystem_path": "30 SCIENCE LAB/NEXAH-Science-Lab/SCIENCE_LAB/NAVIGATION/EVIDENCE/ORION_CAPABILITY_EVIDENCE_2026-10-10/ORION_CAPABILITY_EVIDENCE_BINDER_V1_2026-10-10.json",
+      "sha256": "f51e4f39a16d0bba4f8c7e31a21e288eba84c0acac235b8f54f8bba984d132c1",
+      "changes_canonical_counts": false,
+      "authority": "source-bound separation of ORION product scope, Science Lab evidence, interfaces and open gates"
+    },
+    {
+      "component_id": "SG:LENS:ORIENTATION_CATALOG",
+      "class": "source-bound-catalog-lens",
+      "route": "#orientation-catalog",
+      "ecosystem_path": "30 SCIENCE LAB/NEXAH-Science-Lab/SCIENCE_LAB/NAVIGATION/EVIDENCE/ORIENTATION_CATALOG_2026-10-10/ORIENTATION_CATALOG_BINDER_V1_2026-10-10.json",
+      "sha256": "5123f9766c95e42402d4c5c38833e12faa45c527e5a118bd8dfc094cac811a08",
+      "changes_canonical_counts": false,
+      "authority": "read-only projection of Experience publication catalog and Core Library identities"
+    },
+    {
+      "component_id": "SG:LENS:CRT_QRT_37_CARRIER_LADDER",
+      "class": "source-bound-lens",
+      "route": "#evidence",
+      "ecosystem_path": "30 SCIENCE LAB/NEXAH-Science-Lab/SCIENCE_LAB/NAVIGATION/EVIDENCE/CRT_QRT_37_CARRIER_LADDER_2026-10-11/CRT_QRT_37_CARRIER_LADDER_BINDER_V1_2026-10-11.json",
+      "sha256": "371b85c386ab9521ed4fb56ec71b8c436cb32b7d5f7eea283c505f6523cfdf57",
+      "changes_canonical_counts": false,
+      "authority": "source-bound exact carrier/view evidence and historical connector boundary"
+    },
+    {
+      "component_id": "SG:LENS:MRB_ACR_NCS_Q106_RETURN_CROSSWALK",
+      "class": "source-bound-lens",
+      "route": "#evidence",
+      "ecosystem_path": "30 SCIENCE LAB/NEXAH-Science-Lab/SCIENCE_LAB/NAVIGATION/EVIDENCE/MRB_ACR_NCS_Q106_RETURN_CROSSWALK_2026-10-11/MRB_ACR_NCS_Q106_RETURN_CROSSWALK_BINDER_V1_2026-10-11.json",
+      "sha256": "f0dcd5bcbce43b373ac8ceac60629fa7224d241f0cc2faadf49c65f5a56f8fdf",
+      "changes_canonical_counts": false,
+      "authority": "source-bound MRB/ACR/NCS-Q106 return crosswalk with completed null source-contract gate, exact shared Triple-19/X40 C2 factor, Clockwork p/q two-sheet display lift, conditional Owner-declared P/Q-to-17/18 counter-rotation parity selector, ten-bead C5×C2 quotient with five phase charts, four-state P4 fibres, exact two-bit residual Return, Owner-declared 17→29 / 18→36 opposite C30/C5 counter-step compatibility with a full-tag-versus-binary-pulse P4 wobble gate, reuse of the closed A0-BL-052/053 Pascal-quaternion connector with canonical depth/a/b/c slots, Root-40 outside-Phi non-identity control, Fibonacci C6 compatibility closing a joint C30 schedule, exhaustive separation of 24 reversible static slot-to-role encodings from zero operator-equivariant Pascal-C3-to-declared-NCS-P4 adapters, Triple-19 and CON–DAO typed operator controls, Jd selected only on the declared display quotient, existing LIFE06D scale-conjugacy and observation-fibre non-identity control, bounded TripleSix axis/side bridge, general coordinate-fold theorem, complete finite interface/assembly/update/Return formal-design contract, non-evidentiary GAME 4 LIFE +1 addressed-snapshot projection, proved quotient losses and null full-carrier identity"
+    },
+    {
+      "component_id": "SG:LENS:A0_JOINT_APPLICATION_RETURN_PROTOCOL",
+      "class": "source-bound-engineering-lens",
+      "route": "#evidence",
+      "ecosystem_path": "30 SCIENCE LAB/NEXAH-Science-Lab/SCIENCE_LAB/NAVIGATION/EVIDENCE/A0_JOINT_APPLICATION_RETURN_PROTOCOL_2026-10-13/A0_JOINT_APPLICATION_RETURN_PROTOCOL_BINDER_V1_2026-10-13.json",
+      "sha256": "356c538b8ddc0ab5f6a2d89c066ff23052f4488602f3e16590403982c47f54f1",
+      "changes_canonical_counts": false,
+      "authority": "source-bound A0 application protocol with frozen ten-case V1 core plus eight-case X1 Cross-Lens extension, 52 core and 64 extension assertions, live parameterized source-operator-view-fiber simulator, fail-closed Return/residual/identifiability audit, LIFE/E8 matched non-identity control, exact ROOT7 with unresolved epsilon7 alias gate, and documentary bindings to Paper F, GAME 4 LIFE +1, Research Desk and Mission Control"
+    },
+    {
+      "component_id": "SG:LENS:FOLD_ENVELOPE_FRAME_STATE_CROSSWALK",
+      "class": "source-bound-comparison-lens",
+      "route": "#evidence",
+      "ecosystem_path": "30 SCIENCE LAB/NEXAH-Science-Lab/SCIENCE_LAB/NAVIGATION/EVIDENCE/FOLD_ENVELOPE_FRAME_STATE_CROSSWALK_2026-10-14/FOLD_ENVELOPE_FRAME_STATE_CROSSWALK_BINDER_V1_2026-10-14.json",
+      "sha256": "c4a35ab2aafb3858aea09b62acbf794faf3ab98ac4d0a8d1dd2b0b5f9fbc1ca5",
+      "changes_canonical_counts": false,
+      "authority": "source-bound artifact/check/mode/state sorting for Blue Body Check 63, bounded Lunar Still Point comparison and a visual/number/Return extension reusing Record Play 432, Ninefold Return, Number/View, Two-Cut and Orientation identities; exact arithmetic is separated from constructed reference coordinates, historical symbolism, open 1.21/Möbius relation and the correction-gated 11357 view; preserves 181/202 as open and distinct from source-local 110/112"
+    }
+  ],
+  "required_governance_records": [
+    "30 SCIENCE LAB/NEXAH-Science-Lab/SCIENCE_LAB/LAB_CONSTITUTION.md",
+    "30 SCIENCE LAB/NEXAH-Science-Lab/SCIENCE_LAB/NAVIGATION/GOVERNANCE/NAVIGATOR_CONSTITUTION_V1_2026-10-10.md",
+    "30 SCIENCE LAB/NEXAH-Science-Lab/SCIENCE_LAB/NAVIGATION/GOVERNANCE/SOURCE_GRAPH_POLICY_V1_2026-10-10.md",
+    "30 SCIENCE LAB/NEXAH-Science-Lab/SCIENCE_LAB/NAVIGATION/GOVERNANCE/NAVIGATOR_WORKFLOW_V1_2026-10-10.md",
+    "30 SCIENCE LAB/NEXAH-Science-Lab/SCIENCE_LAB/NAVIGATION/AGENTS.md"
+  ],
+  "mission_control_projection": "00 EXECUTIVE/NEXAH-Mission-Control/CURRENT/NAVIGATOR_SOURCE_GRAPH_CONTROL.json"
+}

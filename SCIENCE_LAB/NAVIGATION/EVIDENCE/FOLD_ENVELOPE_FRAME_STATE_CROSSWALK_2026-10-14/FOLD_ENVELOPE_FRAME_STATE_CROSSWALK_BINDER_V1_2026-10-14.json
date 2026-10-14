@@ -1,0 +1,447 @@
+{
+  "schema": "nexah.navigator.fold-envelope-frame-state-crosswalk-binder/1.0.0",
+  "version": "1.1.0",
+  "binder_id": "NEXAH:NAVIGATOR:FOLD_ENVELOPE_FRAME_STATE_CROSSWALK:2026-10-14",
+  "node_id": "NN:FOLD_ENVELOPE_FRAME_STATE_CROSSWALK",
+  "title": "Fold / Envelope / Frame / State Crosswalk",
+  "status": "INTERNAL_SOURCE_BOUND_COMPARISON_LENS",
+  "publication_authorized": false,
+  "science_run_activated": false,
+  "changes_canonical_entity_count": false,
+  "changes_canonical_relation_count": false,
+  "changes_canonical_module_count": false,
+  "changes_canonical_family_count": false,
+  "owner_correction": "The first three supplied screenshots are photographed states of Check 63 inside one Blue Body HTML artifact, not three separate sources.",
+  "identity_reuse": {
+    "module_ids": [
+      "MOD:TESSAREC",
+      "MOD:NUMBER_VIEW_SUITE",
+      "MOD:TRANSVERSUM_TWO_CUT",
+      "MOD:ORIENTATION_DEMONSTRATORS"
+    ],
+    "artifact_ids": [
+      "ART:HTML:3EF48700E12A",
+      "ART:HTML:D671E2655A18",
+      "ART:HTML:9DFCB2983C26",
+      "ART:HTML:5EA92A749063"
+    ],
+    "operator_ids": [
+      "NEXAH:CON_DAO_BREATH:V1"
+    ],
+    "new_source_bound_node_id": "NN:FOLD_ENVELOPE_FRAME_STATE_CROSSWALK",
+    "duplicate_risk": "REVIEWED_NO_EXISTING_ARTIFACT_MODE_STATE_CROSSWALK; EXISTING_ARTIFACT_AND_MODULE_IDENTITIES_REUSED"
+  },
+  "artifact_hierarchy": [
+    {
+      "artifact_id": "ART:HTML:3EF48700E12A",
+      "title": "Tessarec Blue Body Lab · A0",
+      "module_id": "MOD:TESSAREC",
+      "surface_anchor": "#fold-contact",
+      "check_id": "A0:CHECK:63",
+      "check_title": "Pentagon fold / contact operator / A7–Root7 guard",
+      "capture_group": "OWNER_CAPTURES_1_TO_3",
+      "capture_interpretation": "ONE_ARTIFACT_ONE_CHECK_MULTIPLE_MODES_AND_STATES",
+      "modes": [
+        {
+          "mode_id": "CHECK63:MODE:SQUARE_FOUR_WALL",
+          "label": "4 × square box",
+          "geometry": "square rim with four walls and four regular pentagon flaps"
+        },
+        {
+          "mode_id": "CHECK63:MODE:TRIANGULAR_KITE_BRANCH",
+          "label": "3 × kite branch",
+          "geometry": "separate triangular three-panel / kite topology"
+        }
+      ],
+      "states": [
+        "OPEN",
+        "TOUCH",
+        "OVERLAP_TUCK",
+        "RETURN"
+      ],
+      "state_operator_id": "NEXAH:CON_DAO_BREATH:V1",
+      "local_views": [
+        "square rim",
+        "pink diamond / kite overlay",
+        "central circle in square",
+        "inside / outside fold",
+        "A7 / Root7 typed guard",
+        "decimal label side-view"
+      ],
+      "source_numbers": {
+        "decimal_labels": [1111, 3333, 4444, 7777],
+        "historical_tick_trace": 21,
+        "current_state_count": 13,
+        "residual": 8
+      }
+    },
+    {
+      "artifact_id": "ART:HTML:D671E2655A18",
+      "title": "Nexah Lunar Still Point",
+      "module_id": null,
+      "capture_group": "OWNER_CAPTURE_4",
+      "capture_interpretation": "SEPARATE_COMPARISON_ARTIFACT",
+      "modes": [
+        {
+          "mode_id": "LUNAR:MODE:MOON_GREY_NOISE",
+          "label": "Moon · Grey Noise"
+        },
+        {
+          "mode_id": "LUNAR:MODE:SUN_CARRIER",
+          "label": "Sun · Carrier"
+        }
+      ],
+      "states": [
+        "CON",
+        "STILL_POINT",
+        "DAO_RETURN"
+      ],
+      "local_views": [
+        "dual-lobe signal envelope",
+        "grey-space aperture",
+        "central still point",
+        "channel mask",
+        "visible residual",
+        "CARO closing / return"
+      ],
+      "source_numbers": {
+        "channel_mask_left": 110,
+        "channel_mask_right": 112
+      }
+    }
+  ],
+  "typed_crosswalk": [
+    {
+      "crosswalk_id": "FESX:01",
+      "left": "CHECK63:MODE:SQUARE_FOUR_WALL",
+      "relation_type": "comparison-shares-envelope-vocabulary-with",
+      "right": "ART:HTML:D671E2655A18",
+      "status": "SOURCE_BOUND_COMPARISON_ONLY",
+      "shared_roles": [
+        "bounded envelope",
+        "central aperture / contact",
+        "inside-outside transition",
+        "return state"
+      ],
+      "does_not_imply": [
+        "same geometry",
+        "same operator",
+        "same channel address",
+        "same artifact",
+        "physical identity"
+      ]
+    },
+    {
+      "crosswalk_id": "FESX:02",
+      "left": "OWNER_CAPTURES_1_TO_3",
+      "relation_type": "are-state-captures-of",
+      "right": "A0:CHECK:63",
+      "status": "OWNER_CONFIRMED",
+      "does_not_imply": [
+        "three artifacts",
+        "three Navigator entities",
+        "three independent tests"
+      ]
+    },
+    {
+      "crosswalk_id": "FESX:03",
+      "left": "ART:HTML:5EA92A749063",
+      "relation_type": "comparison-shares-rotate-sample-overlap-return-grammar-with",
+      "right": "ART:HTML:3EF48700E12A",
+      "status": "SOURCE_BOUND_METHOD_GRAMMAR",
+      "shared_roles": [
+        "declared center / register",
+        "rotation or phase view",
+        "overlap / contact state",
+        "return receipt"
+      ],
+      "does_not_imply": [
+        "same carrier",
+        "same numeric scale",
+        "same operator",
+        "physical resonance"
+      ]
+    },
+    {
+      "crosswalk_id": "FESX:04",
+      "left": "OWNER_VISUAL:MOBIUS_STARWHEEL_4774",
+      "relation_type": "historical-visual-candidate-for",
+      "right": "ART:HTML:9DFCB2983C26",
+      "status": "SOURCE_BOUND_VISUAL_RELATION_NON_IDENTITY",
+      "shared_roles": [
+        "one registry with two orientations",
+        "mod-12 full-cycle walks",
+        "turn / return reading"
+      ],
+      "does_not_imply": [
+        "Möbius-band topology",
+        "equal angular speed",
+        "identity of +7 and +11 operators",
+        "physical counterrotation"
+      ]
+    },
+    {
+      "crosswalk_id": "FESX:05",
+      "left": "OWNER_VISUAL:ROOT_432_CROWN",
+      "relation_type": "constructed-scale-view-related-to",
+      "right": "ART:HTML:5EA92A749063",
+      "status": "SOURCE_BOUND_CONSTRUCTED_NUMBER_VIEW",
+      "shared_roles": [
+        "432 as declared reference coordinate",
+        "nested scale view",
+        "turn / return orientation"
+      ],
+      "does_not_imply": [
+        "preferred natural frequency",
+        "universal scale law",
+        "identity of ring radii and polygon normalization",
+        "physical mechanism"
+      ]
+    },
+    {
+      "crosswalk_id": "FESX:06",
+      "left": "A0:VIEW:1.21_HULL",
+      "relation_type": "open-view-transition-candidate",
+      "right": "OWNER_VISUAL:MOBIUS_STARWHEEL_4774",
+      "status": "OPEN_UNBOUND_NON_IDENTITY",
+      "shared_roles": [
+        "envelope / hull",
+        "dual orientation",
+        "return view"
+      ],
+      "does_not_imply": [
+        "1.21 equals a Möbius operator",
+        "topological equivalence",
+        "carrier identity",
+        "scientific adoption"
+      ]
+    },
+    {
+      "crosswalk_id": "FESX:07",
+      "left": "OWNER_VISUAL:MODULAR_SHADOW_WHEEL_11357",
+      "relation_type": "negative-arithmetic-and-generator-boundary",
+      "right": "MOD:NUMBER_VIEW_SUITE",
+      "status": "CORRECTION_REQUIRED_BEFORE_DEMONSTRATOR_USE",
+      "shared_roles": [
+        "modular coordinate view",
+        "visible / shadow pairing",
+        "return by residue"
+      ],
+      "does_not_imply": [
+        "the displayed factorization is correct",
+        "the historical image generator is recovered",
+        "Möbius topology",
+        "resonance or protection mechanism"
+      ]
+    }
+  ],
+  "visual_number_return_extension": {
+    "status": "INTERNAL_SOURCE_BOUND_EXTENSION_NO_NEW_IDENTITY",
+    "owner_request": "Bind the supplied visual concepts into the existing Navigator route so Blue Body, number views, inside/outside and Return demonstrators can be connected without promoting number symbolism.",
+    "custody": [
+      {
+        "visual_id": "OWNER_VISUAL:RECORD_PLAY_432_NORMALIZATION",
+        "title": "432 polygon normalization / 4:3:2 view",
+        "custody_status": "CONCEPT_BOUND_TO_EXISTING_HTML_INSTRUMENT",
+        "bound_artifact_id": "ART:HTML:5EA92A749063",
+        "owner_reference_sha256": "875d6c166c745bba76299424a0ed23b5453f00875140c0cee91f2e4e7e4e2982"
+      },
+      {
+        "visual_id": "OWNER_VISUAL:STILL_POINT_BANDS",
+        "title": "Still-Point Bands 420 / 424 / 432 / 440 / 444",
+        "custody_status": "OWNER_LOCAL_REFERENCE_NOT_COPIED",
+        "bound_artifact_id": "ART:HTML:D671E2655A18",
+        "owner_reference_sha256": "4b86a2d584dd98b907a24a373c06ddf93d9e8e5b67efc067c876a5ecba0cf218"
+      },
+      {
+        "visual_id": "OWNER_VISUAL:MODULAR_SHADOW_WHEEL_11357",
+        "title": "Modular Shadow Wheel 11357",
+        "custody_status": "OWNER_LOCAL_REFERENCE_CORRECTION_REQUIRED",
+        "bound_module_id": "MOD:NUMBER_VIEW_SUITE",
+        "owner_reference_sha256": "baa128c0a90cba32175a33dba086c349f2893b76dcbf29a83015cc181e1f155e"
+      },
+      {
+        "visual_id": "OWNER_VISUAL:ROOT_432_CROWN",
+        "title": "Root-432 Crown",
+        "custody_status": "REPOSITORY_SOURCE_VARIANT_HASH_BOUND",
+        "repository_source_sha256": "0489f2b9359b2ed4e4b1e76db6bacd460bc2d1b99f234917694d0bde7a4bbeef"
+      },
+      {
+        "visual_id": "OWNER_VISUAL:RETURN_FLIP_DARK",
+        "title": "Return Flip / Inside Out → Outside In",
+        "custody_status": "OWNER_LOCAL_REFERENCE_NOT_COPIED",
+        "bound_artifact_id": "ART:HTML:9DFCB2983C26",
+        "owner_reference_sha256": "efb8d25b5ea03d28f7c7d519fe05f531c3ec6bf8e464a22ce0c57de358de37ab"
+      },
+      {
+        "visual_id": "OWNER_VISUAL:RETURN_FLIP_LIGHT",
+        "title": "Return Flip / twelve-step ring variant",
+        "custody_status": "OWNER_LOCAL_REFERENCE_NOT_COPIED",
+        "bound_artifact_id": "ART:HTML:9DFCB2983C26",
+        "owner_reference_sha256": "371a4e159717861671c271249c99918256cb35054332108ab263eb8a6c9bc7ce"
+      },
+      {
+        "visual_id": "OWNER_VISUAL:MOBIUS_STARWHEEL_4774",
+        "title": "Möbius Starwheel 4 · 7 · 7 · 4",
+        "custody_status": "EXACT_REPOSITORY_SOURCE_HASH_BOUND",
+        "repository_source_sha256": "eaa23763e458475c83c5ee72c4d0fb83cc5888981cf37a86b717320945b62e12"
+      },
+      {
+        "visual_id": "OWNER_VISUAL:IKS_WHEEL",
+        "title": "IKS Wheel",
+        "custody_status": "OWNER_LOCAL_REFERENCE_NOT_COPIED",
+        "bound_module_id": "MOD:ORIENTATION_DEMONSTRATORS",
+        "owner_reference_sha256": "11f8c375b7469e084dd92346d9df8fa301a52579b9505e65657e22eb15789c5b"
+      }
+    ],
+    "typed_number_ledger": [
+      {
+        "record_id": "FESN:432_NORMALIZATION",
+        "classification": "EXACT_ARITHMETIC_CONSTRUCTED_REFERENCE",
+        "statement": "432/540 = 4/5, 432/720 = 3/5 and 432/1080 = 2/5, hence 4:3:2 after common rescaling.",
+        "boundary": "The ratios are exact; choosing 432 and interpreting the rings is a declared construction, not a universal law."
+      },
+      {
+        "record_id": "FESN:STILL_POINT_BANDS",
+        "classification": "EXACT_SYMMETRIC_LABEL_CONSTRUCTION",
+        "statement": "420 and 444 are 432±12; 424 and 440 are 432±8; gcd(8,12)=4 and lcm(8,12)=24.",
+        "boundary": "This establishes a symmetric number view, not a lunar, acoustic or physical frequency mechanism."
+      },
+      {
+        "record_id": "FESN:MOD12_RETURN",
+        "classification": "EXACT_FINITE_MODULAR_OPERATOR",
+        "statement": "+11 ≡ -1 (mod 12); +7 ≡ -5 (mod 12); both steps are coprime to 12 and each visits all twelve residues.",
+        "boundary": "Full-cycle coverage does not make the two operators equal-speed counterrotations or a Möbius band."
+      },
+      {
+        "record_id": "FESN:4774",
+        "classification": "EXACT_PALINDROME_PLUS_CONSTRUCTED_ROLE_CODE",
+        "statement": "4774 is reversal-invariant and separates into directed half-labels 47 and 74 only after a reading rule is declared.",
+        "boundary": "4774 is not proportional to 1:2:1 and does not recover Stretch→Lift versus Lift→Stretch without an operator record."
+      },
+      {
+        "record_id": "FESN:11357",
+        "classification": "EXACT_CORRECTION_AND_OPEN_GENERATOR",
+        "statement": "11357 = 41×277; the displayed 3×5×757 expression equals 11355 and is rejected.",
+        "boundary": "The exact CRT decomposition does not recover the historical visual generator or establish resonance, shadow protection or Möbius topology."
+      },
+      {
+        "record_id": "FESN:1_21_MOBIUS",
+        "classification": "OPEN_VIEW_RELATION_NOT_IDENTITY",
+        "statement": "The owner proposes the 1.21 hull as a transition into a Möbius/Return view.",
+        "boundary": "No equality, topology or operator equivalence between 1.21 and the Möbius Starwheel is established."
+      }
+    ]
+  },
+  "number_view_sidecar": {
+    "status": "OPEN_UNBOUND_OWNER_PROPOSAL",
+    "owner_proposed_channel_addresses": [181, 202],
+    "source_local_lunar_channel_mask": [110, 112],
+    "binding_decision": "DO_NOT_IDENTIFY",
+    "required_next_witness": "An explicit source or declared operator mapping from 181/202 to the two channels. Visual resemblance or arithmetic association is insufficient."
+  },
+  "owner_transition_hypothesis": {
+    "status": "OWNER_PROPOSED_OPERATIONAL_GRAMMAR_NOT_ESTABLISHED_MECHANISM",
+    "name": "Inside / Outside Portal Interaction",
+    "cycle": [
+      {
+        "phase": "OUTSIDE",
+        "role": "available exterior state before crossing"
+      },
+      {
+        "phase": "CARO_IN_BREATH",
+        "alias": "THETA_APERTURE",
+        "role": "inward opening / threshold crossing"
+      },
+      {
+        "phase": "INSIDE",
+        "role": "bounded interior occupancy"
+      },
+      {
+        "phase": "TAO_OUT_BREATH",
+        "alias": "AU_NA_RETURN",
+        "role": "outward release / return crossing"
+      },
+      {
+        "phase": "STILL_POINT",
+        "alias": "DAO_CIRCLE",
+        "role": "clocked neutral or reset state from which the cycle can reopen"
+      }
+    ],
+    "portal_operator_contract": {
+      "input": "declared outside or inside state plus direction",
+      "transition": "one typed boundary crossing through the aperture",
+      "observable": "state, side, direction, aperture/contact status and Return receipt",
+      "falsifier": "the same declared input and operator yield an untracked side change, missing Return receipt or non-reproducible state sequence"
+    },
+    "interpretation_boundary": "This is an operational state-machine hypothesis. CARO, Theta, TAO, AU-NA and DAO remain owner vocabulary aliases unless separately bound to measured variables or source-defined operators."
+  },
+  "boundaries": [
+    "A screenshot state is not a new artifact identity.",
+    "A mode inside Check 63 is not a canonical module or family.",
+    "Shared pink, circle, square, kite or envelope motifs do not establish identity.",
+    "Check 63's square and triangular modes remain distinct topologies inside one instrument.",
+    "The Lunar Still Point source is a separate comparison artifact.",
+    "The 181/202 channel proposal remains open and is not substituted for the source-local 110/112 labels.",
+    "No A7 / Root7 identity is created; the existing typed guard remains in force.",
+    "The portal cycle is registered as an owner-proposed operational grammar, not as an established physical mechanism."
+    ,
+    "Exact arithmetic inside a visual does not validate the visual's physical or topological interpretation.",
+    "Möbius remains a historical visual label or open view candidate; the available audits do not establish Möbius-band topology.",
+    "The 11357 visual requires arithmetic correction before demonstrator use.",
+    "Owner-local reference hashes record provenance but do not create repository custody or publication authority."
+  ],
+  "sources": [
+    {
+      "path": "RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/A0_TESSAREC_BLUE_BODY_LAB.html",
+      "sha256": "e83533c95aec2fefcf36d51e061f6bb6d5aa7980804c39157e8e1cd01628fa49",
+      "role": "Blue Body interactive artifact and Check 63 state surface"
+    },
+    {
+      "path": "RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/63_A0_TESSAREC_PENTAGON_FOLD_CONTACT_AND_A7_ROOT7_GUARD_2026-10-13.md",
+      "sha256": "f4c9da1a02538a54dbbb80a5954f1e71d491b60120dd9e1c872de56de4b24322",
+      "role": "controlling Check 63 engineering record and boundary"
+    },
+    {
+      "path": "SCIENCE_LAB/CASE_STUDIES/THREE_LIFE_SYSTEMS_PLUS_ONE_BINDER_VISUAL_SERIES_2026-08-24/SOURCE_ASSETS/NEXAH Anatomy_Dual_Tripple_Core_CA|CON-DAO|AU/nexah-lunar-still-point-download.html",
+      "sha256": "808810195317f4bb74c8e8aa9776855af5635826e58b51e24d4306fae8d4d03f",
+      "role": "separate Lunar Still Point comparison artifact"
+    },
+    {
+      "path": "SCIENCE_LAB/NAVIGATION/EVIDENCE/ILAU_ORIENTATION_INSTRUMENTS_2026-10-09/INSTRUMENTS/Record_Play_Operator_432.html",
+      "sha256": "51b897def80d533bae5c71e9a9bf92f9fecf5b097c3e6c861c44521425042d24",
+      "role": "existing 432 rotate/sample/overlap/shadow/return instrument and exact 4:3:2 normalization source"
+    },
+    {
+      "path": "SCIENCE_LAB/CASE_STUDIES/THREE_LIFE_SYSTEMS_PLUS_ONE_BINDER_VISUAL_SERIES_2026-08-24/SOURCE_ASSETS/NEXAH Anatomy_Dual_Tripple_Core_CA|CON-DAO|AU/nexah-ninefold-return-download.html",
+      "sha256": "86fcd610ea3e1cb726ec4460a0d903aaadb476f9ac9a65e3de664ddcd15b0c61",
+      "role": "existing modular turn/return demonstrator reused for the bounded Return Flip and Starwheel comparison"
+    },
+    {
+      "path": "SCIENCE_LAB/CASE_STUDIES/NEXAH_CHEOPS_SYMMETRIC_TRIPLE_BREATHING_CRYSTAL_INTAKE_2026-10-08/SOURCE_SNAPSHOT/ATTACHED_VIEWS/CF22FDB3-0F66-4BA8-A1A8-EB1D09F9E77A_1_105_c.jpeg",
+      "sha256": "eaa23763e458475c83c5ee72c4d0fb83cc5888981cf37a86b717320945b62e12",
+      "role": "exact repository-custodied Möbius Starwheel visual supplied by the owner"
+    },
+    {
+      "path": "SCIENCE_LAB/CASE_STUDIES/E8_DEMOS_INTERACTIVE_ORIENTATION_2026-09-21/MUTATION_FAMILY_GRAPH_ADDENDUM_2026-10-05/SOURCE_MATERIAL/07_ROOT_432_CROWN.jpeg",
+      "sha256": "0489f2b9359b2ed4e4b1e76db6bacd460bc2d1b99f234917694d0bde7a4bbeef",
+      "role": "repository-custodied Root-432 Crown visual variant retained as a constructed scale view"
+    },
+    {
+      "path": "SCIENCE_LAB/CASE_STUDIES/NEXAH_ROOT7_CUSTODY_2026-09-28/Nexah_Root7/NEXAH_Root7_Sequenz_Abgleich_2026-09-28-2.md",
+      "sha256": "2ed1e86ac88df07a8b1d80657c4a70805eaff5f4ae9a82b981265c8463fb5391",
+      "role": "controlling 4774 role-code, non-proportionality and operator-record boundary"
+    },
+    {
+      "path": "SCIENCE_LAB/CASE_STUDIES/NEXAH_DESKTOP_GOLD_CUSTODY_AND_NAVIGATOR_INTAKE_2026-10-07/sources/mrb/00_PROVENANCE/NEXAH_CRT_RBA_02_CODE_FORENSICS/06_MOBIUS_STATUS_AUDIT.md",
+      "sha256": "f9a30dba14013690983c2b28733c9b8d44c2c6c8afb69c5f4afa1ea17d4a96ca",
+      "role": "Möbius typing gate that rejects unsupported Möbius-function, transformation and band-topology readings"
+    },
+    {
+      "path": "SCIENCE_LAB/CASE_STUDIES/CRT_RBA01_HISTORICAL_GENERATOR_RECONSTRUCTION_BOUNDARY_AUDIT/10_37_137_237_537_11357_GENERATOR_AUDIT.md",
+      "sha256": "de63d9f6be3edd2b97484630c7a23e860bb78bd2b946c3032d15b8185d6914a0",
+      "role": "11357 = 41×277 correction and explicit null historical-generator boundary"
+    }
+  ],
+  "claim_ceiling": "Documentary artifact/mode/state sorting, exact arithmetic typing and bounded visual/return comparison only; no geometry identity, channel identity, Möbius topology, preferred natural number, physical mechanism, new canonical family, scientific activation or publication authority."
+}

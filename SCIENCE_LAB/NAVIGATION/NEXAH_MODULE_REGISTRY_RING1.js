@@ -11,7 +11,7 @@ globalThis.NEXAH_MODULE_REGISTRY_RING1 = Object.freeze({
   missionControl: 'mission-control',
   modules: Object.freeze({
     'atlas': {
-      title: 'Family Connection Map v2',
+      title: 'NEXAH Family Connection Map',
       short: 'Family Map',
       path: 'NEXAH_FAMILY_CONNECTION_MAP_V2.html',
       record: 'FAMILY_CONNECTION_MAP_V2_2026-10-05.md',

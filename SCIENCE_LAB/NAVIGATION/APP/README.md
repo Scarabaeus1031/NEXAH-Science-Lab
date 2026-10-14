@@ -1,12 +1,29 @@
-# NEXAH Navigator · internal V2.1 current preview
+# NEXAH Science Lab Navigator · internal V2.1 current preview
+
+`NEXAH Science Lab Navigator` is the full display name. Existing Navigator IDs,
+routes, registries and governance identities remain stable; the expanded name
+makes its institutional home and Source Graph role explicit without creating a
+second system.
 
 Status: `V2.1 CURRENT PREVIEW / INTERNAL / READ-ONLY / NOT PUBLIC / V1 FREEZE RETAINED`
 
 Current-state authority:
 [`../NEXAH_NAVIGATOR_V2_1_CURRENT_STATE_2026-10-07.md`](../NEXAH_NAVIGATOR_V2_1_CURRENT_STATE_2026-10-07.md).
-The verified application audit is `182/182 PASS`. The historical frozen v1
-baseline remains `170 / 23`; the current base build is `173 / 29`, and the
-admitted LIFE overlay composes the present internal `176 / 32` view.
+The verified application audit is `244/244 PASS`. The historical frozen v1
+baseline remains `170 / 23`; the current base build is `266 / 29`, and the
+admitted LIFE overlay composes the present internal `269 / 32` view. The
+existing Blue Body workbench is documented under `MOD:TESSAREC`; its E8,
+Number View and CON–DAO lenses remain typed reuse rather than merged identities.
+
+The `#lab-register` route is a generated read-only window over all 43
+Human Owner-maintained study rows in `SCIENCE_LAB/LAB_REGISTER.md`. It adds
+search and source return without changing study identity, lifecycle,
+disposition, graph counts or publication state.
+
+The `#prime-base-mode` route is a source-bound research lens over nine
+SHA-256-verified records, fourteen bounded nodes, sixteen typed relations and
+eight explicit type distinctions. It changes neither canonical registry nor
+family counts and does not authorize publication.
 
 The Human Owner froze the current Navigator v1 baseline on `2026-10-07`.
 Assessment and evidence-preserving repair remain permitted; new routes,
@@ -90,6 +107,44 @@ changing the validated 170-entity manifest or public admission state. Its
 source is:
 
 - `../EVIDENCE/PRIME_BRIDGE_LINEAGE_2026-10-06/PRIME_BRIDGE_LINEAGE_BINDER_V1_2026-10-06.json`
+
+The `#findings-frontiers` route is the lead lens for the Evidence domain. It
+orders exact, bounded, negative, historical and open records without replacing
+the Lab Register or package-local reports. Its source-bound binder lives at
+[`../EVIDENCE/FINDINGS_AND_FRONTIERS_2026-10-10/`](../EVIDENCE/FINDINGS_AND_FRONTIERS_2026-10-10/).
+
+The `#a0-orientation-evidence` route binds the existing
+`ART:A0:MATHEMATICAL_JOINTS` surface to RUN01–04, EMP-01–06, the operator audit
+chain, SRA-01, ASY-01, GLF-01, WFR/WNI, FP/RR/OE and the OVR/NVC vocabulary-control
+records. OVR/NVC are recorded as OLS-aligned and explicitly non-identical to
+the normative `OLS-RELEASE-1.0.0`; the route adds no semantics, experiment,
+canonical entity or family count. Its binder lives at
+[`../EVIDENCE/A0_ORIENTATION_EVIDENCE_LINEAGE_2026-10-10/`](../EVIDENCE/A0_ORIENTATION_EVIDENCE_LINEAGE_2026-10-10/).
+The same lens now binds GAVP-01 and RRR-01 as the formal source for the A0
+principle `SOURCE → OPERATION → EVENT → RESULT → OBSERVATION → VIEW` and the
+boundary `return to state != return to history`; neither statement creates a
+new operator, ontology or execution.
+
+The `#about` route now names the Navigator's role as the internal **Source &
+Toolbox Map** while preserving its constitutional boundary: it is authoritative
+for governed bindings and relations, not exhaustive for every repository or
+asset. NEXAH Core is shown as an authoritative but only partially bound source;
+the historical `NEXAH-CODEX` clone is shown as provenance, not current NEXAH
+authority. The broader Mission Control Source Field remains the read-only
+discovery/intake surface for admitted, supporting, candidate, unbound and
+excluded-historical records. About records the intended consolidation as one
+visible path — `DISCOVER / INTAKE / UNBOUND → MATCH → BIND → RELATE → EVIDENCE
+→ RETURN` — without copying the Source Field, changing graph counts or silently
+promoting intake records.
+
+Point 03 also exposes a typed Grid Interaction Atlas. It separates the exact
+`111×111` address/return maps, exact residue projections, the bounded existing
+PENT-07 `C5/C6 -> C30` phase cover and an open envelope/coupled-channel
+contract. The three owner-supplied plates are hash-bound search markers only;
+the phrase `symmetric asymmetry creates stable flow` is not promoted to a law.
+The A0 lens also routes to both registered embedded projections of the same
+Core Pascal–Pentagon Explorer: Point 03 and the successor companion page.
+Those links reuse PENT-01–PENT-07 and do not create PENT-08.
 - generated browser data: `lineage.internal.js`
 
 The lens contains 11 hashed owner-supplied visuals, 4 currently verified GLBs,
@@ -264,14 +319,21 @@ CA-IDENT-11, route, family or visual series.
 
 ## Home flagship hierarchy
 
-The v2 preview home now begins with two executable flagships rather than an
-abstract framework choice: LIFE as local-rule history and E8 Mutatio as an
-exact finite-orbit positive control. Their carrier, operator, clock and claim
-boundaries remain visibly non-identical. Four deeper routes then expose the
-7×8 Observatory inspection grammar, Transversum / Two-Cut method, Tessarec /
-LOKI projection geometry and ROOT7 bounded negative identifiability result.
-This is an editorial orientation layer only; it does not modify the frozen
-entity registry, package-local verdicts or public admission state.
+The current preview home now begins with two bounded internal flagships:
+
+- **A0 Foundation** reuses `ART:A0:MATHEMATICAL_JOINTS` and points to the A0
+  evidence lineage and frozen local reader proof;
+- **GAME 4 LIFE +1** reuses the closed LIFE08 carrier as a post-close
+  observation instrument and points to the existing `#life-orbit` programme
+  lens and Mission Control Return.
+
+The bridge between them is methodological, not ontological. A0 supplies a
+typed representation grammar; LIFE08 supplies one deterministic carrier with
+synchronized field, event, control, 3D and residual readings. This update adds
+no Navigator entity, typed relation, Study, Functional Family or publication
+authority. The three-domain montage retains Chemistry, Life and Spin as
+different models with a shared comparison ledger; it is not evidence of a
+shared mechanism.
 
 ## Capability and connector governance
 
@@ -418,10 +480,11 @@ A high-contrast Human View restates the task in ordinary language, while a plain
 status key distinguishes verified records, bounded comparisons, open candidates
 and material that is neither public nor admitted.
 
-The A0 Book appears only as an optional, source-bound local reading route. It does
-not supply the Navigator's chapter structure, create a registry entity, change a
-Functional Family or authorize publication. LIFE and E8 remain visible as two
-comparison laboratories, not as the definition of the map. Route and registry
+The A0 Book appears as a source-bound local reading route beside its evidence
+lineage. It does not supply the Navigator's chapter structure, create a registry
+entity, change a Functional Family or authorize publication. A0 Foundation and
+GAME 4 LIFE +1 are visible as two connected but non-identical reading routes,
+not as the definition of the map. Route and registry
 counts remain unchanged: 19 routes including About, 173 base entities / 29 base
 relations, 176 composed entities / 32 composed relations and 0 public entities.
 
@@ -438,3 +501,16 @@ existing ILAU Field Lab intake:
 The route adds no registry entity, typed relation, canonical Functional Family
 or public admission. Its controlling package is
 [`../EVIDENCE/ILAU_ORIENTATION_INSTRUMENTS_2026-10-09/`](../EVIDENCE/ILAU_ORIENTATION_INSTRUMENTS_2026-10-09/).
+
+## Orientation Catalog · read-only lens
+
+The `#orientation-catalog` route projects the existing Experience publication
+catalog into the Navigator without creating a second book database. It exposes
+all 61 catalog records, highlights 12 orientation-relevant works, reuses 10
+registered `NX-*` Work identities and 17 `NX-OP-*` Concept identities, and adds
+11 bounded reading pointers into existing Navigator routes. Catalog selection,
+shared vocabulary and editorial pointers remain distinct from scientific
+evidence, executable ORION operators, canonical Connection Families and typed
+Source Graph relations. The route changes no canonical count and authorizes no
+publication. Its controlling package is
+[`../EVIDENCE/ORIENTATION_CATALOG_2026-10-10/`](../EVIDENCE/ORIENTATION_CATALOG_2026-10-10/).

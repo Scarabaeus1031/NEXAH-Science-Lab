@@ -1,0 +1,69 @@
+{
+  "schema": "nexah.navigator.freeze-reconciliation/1.0.0",
+  "reconciliation_id": "NEXAH:NAVIGATOR:INTERNAL_V1:P5R:2026-10-07",
+  "date": "2026-10-07",
+  "authority": "Human Owner",
+  "authority_phrase": "ok, dann next step, würde ich sagen.",
+  "scope": "Reconcile exactly six pre-existing hash mismatches while preserving the original and current states.",
+  "original_freeze": {
+    "freeze_id": "NEXAH:NAVIGATOR:INTERNAL_V1:2026-10-07",
+    "manifest": "../NAVIGATOR_INTERNAL_V1_2026-10-07/MANIFEST_SHA256.txt",
+    "manifest_sha256": "8bee2e6c69cbef98d11999b19899f5166963cae7a4caa3d94ed5d52ee61e60c4",
+    "record_sha256": "dcf2e729c06c2faec95093899862ee0d3684f7afc5f36272a53232f040db3056",
+    "status_after_reconciliation": "PRESERVED_HISTORICAL_BASELINE"
+  },
+  "pre_p5_baseline": {
+    "record": "../../CANDIDATES/LIFE_ORBIT_V2_2026-10-07/results/V1_P5_BASELINE.json",
+    "sha256": "758bfe8074a1df80ce904c04dfbe53e2579083288a5f72d78eaeda89aa46c499",
+    "files": 17,
+    "matched_original": 11,
+    "mismatched_original": 6,
+    "p5_modified_v1_files": false
+  },
+  "reconciled_state": {
+    "manifest": "MANIFEST_SHA256_RECONCILED.txt",
+    "files": 17,
+    "relation_to_original": "EVIDENCE_PRESERVING_HASH_SUCCESSOR",
+    "semantic_admission": false,
+    "life_orbit_candidate_admitted": false
+  },
+  "delta": [
+    {
+      "file": "SCIENCE_LAB/NAVIGATION/APP/index.html",
+      "original_sha256": "873225a1213d3114aef33addbd5ed4c722ecec8bf447344d23378310b1fd23df",
+      "reconciled_sha256": "6f6ade59167321ab28ee0f8780973d4483e63ee2e66ae7b5f9ea0b4a58bf3c2c"
+    },
+    {
+      "file": "SCIENCE_LAB/NAVIGATION/APP/app.js",
+      "original_sha256": "d839abc731e786737c974719dbd0deff48c70ab4640748e2d3400fa0a26c2e62",
+      "reconciled_sha256": "43399506150207b5dac4767d6377707ee020587d723eb8faac17952d6b6c0e67"
+    },
+    {
+      "file": "SCIENCE_LAB/NAVIGATION/APP/styles.css",
+      "original_sha256": "16a5554781677e305f186a409a023c566115884ef3f67023b053e595959692cc",
+      "reconciled_sha256": "a53e10b643c32111eac4a86ec3b8926d1071dac69d832dfaae1649a70c97fe2e"
+    },
+    {
+      "file": "SCIENCE_LAB/NAVIGATION/APP/audit_app.mjs",
+      "original_sha256": "059a779d3e8d112abff39dfb09057bd4b506f1896fb5461be4690d23508b848c",
+      "reconciled_sha256": "4dcc2fdb7fa985e6306cc63c074f242f569fd7d9c797c61f69111335fb7d7984"
+    },
+    {
+      "file": "SCIENCE_LAB/NAVIGATION/APP/build_entry_data.mjs",
+      "original_sha256": "5334d35275164065d8152c3a86b7d990dbf7ee5316b8da3a3cc5e740358ed487",
+      "reconciled_sha256": "0c999c2a7dafa379417a80f37278e5fd774462167e5b5ce4121286c618a71600"
+    },
+    {
+      "file": "SCIENCE_LAB/NAVIGATION/APP/entry.internal.js",
+      "original_sha256": "edf591f638fcfa0a3e720046b6976bc4752fa843011fb5b08776ab8abd97cb57",
+      "reconciled_sha256": "506ec5b17aa933901d4492e4f5d2c87d757359fbf1139627d12520b40117f2be"
+    }
+  ],
+  "boundaries": [
+    "The original freeze remains byte-for-byte unchanged.",
+    "The reconciliation changes no Navigator application file.",
+    "This record reconciles hashes; it does not retroactively authorize semantic changes.",
+    "The LIFE ORBIT candidate remains isolated and not canonically admitted.",
+    "Publication, deployment, research activation and outreach remain unauthorized."
+  ]
+}

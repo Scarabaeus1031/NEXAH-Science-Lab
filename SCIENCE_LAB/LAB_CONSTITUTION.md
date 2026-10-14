@@ -1,8 +1,10 @@
 # NEXAH Science Lab Constitution V1
 
-Version: `1.0.0`
+Version: `1.1.0`
 
 Adoption date: `2026-08-14`
+
+Last amendment: `2026-10-10` · `SL-GOV-004`
 
 Status: `OWNER_ADOPTED`
 
@@ -207,6 +209,23 @@ does not become scientific authority through formatting.
 - **Outreach/Experience** presents approved material and cannot upgrade its
   scientific status.
 
+### Science Navigator and Source Graph
+
+The NEXAH Science Navigator is a Science Lab instrument and the Lab's central
+Source and Relation Graph. It records stable identity, provenance, typed
+relations, evidence state, claim boundaries and returns to original sources.
+
+`LAB_REGISTER.md` remains the canonical Study and lifecycle register. The
+Navigator does not replace it, create research authority or become a source
+warehouse. Mission Control governs Navigator currentness, priority,
+activation, lifecycle and release through a generated control projection.
+Original repositories retain content, implementation and evidence authority.
+
+The controlling subordinate Charter and operating policy live in
+`NAVIGATION/GOVERNANCE/`. Every new Lab work object must be checked against
+the Source Graph and Mission Control Source Field before a new identity,
+registry or database is created.
+
 ## 12. Directory policy
 
 Existing package paths remain stable until a separate path-impact audit proves
@@ -248,13 +267,15 @@ WIP, admission, promotion or closure authority.
 ## 15. Machine-readable conclusion
 
 ```text
-SCIENCE_LAB_CONSTITUTION_VERSION = 1.0.0
+SCIENCE_LAB_CONSTITUTION_VERSION = 1.1.0
 OWNER_ADOPTED = YES
 LAB_OPERATIONS_STATE = STRUCTURE_FREEZE
 ACTIVE_RESEARCH_CYCLES_ALLOWED_NOW = 0
 NORMAL_WIP_LIMIT_ACTIVE = 1
 NORMAL_WIP_LIMIT_OPEN = 2
-CENTRAL_NAVIGATOR = SCIENCE_LAB/LAB_REGISTER.md
+CENTRAL_LAB_REGISTER = SCIENCE_LAB/LAB_REGISTER.md
+CENTRAL_SOURCE_GRAPH = SCIENCE_LAB/NAVIGATION
+MISSION_CONTROL_NAVIGATOR_PROJECTION = GENERATED_READ_ONLY
 PUBLIC_ENTRY = README.md
 PRIVATE_BACKSTAGE = NEXAH_MISSION_CONTROL/00_LAB_RESEARCH_DIRECTOR_DESK
 AUTOMATIC_HISTORICAL_IMPORT = NO

@@ -1,0 +1,68 @@
+{
+  "schema": "nexah.a0.mod2501-crt-two-channel-operator-result",
+  "version": "1.0.0",
+  "date": "2026-10-13",
+  "record_id": "A0_MOD2501_CRT_TWO_CHANNEL_OPERATOR_RUN_001",
+  "status": "VALIDATED_BOUNDED_ENGINEERING_RESULT_STOP_REACHED",
+  "disposition": "EXACT_CRT_OPERATOR_SYSTEM_WITH_CARRIER_SPECIFIC_M64_DYNAMICS",
+  "systems": {
+    "365": {
+      "factorization": [5, 73],
+      "multiplier": 64,
+      "inverse": 154,
+      "order": 6,
+      "seed": 137,
+      "seed_channels": [2, 64],
+      "output": 8,
+      "output_channels": [3, 8],
+      "cycle_census": {"1": 1, "2": 2, "3": 24, "6": 48}
+    },
+    "2501": {
+      "factorization": [41, 61],
+      "unit_group_size": 2400,
+      "unit_group_exponent": 120,
+      "multiplier": 64,
+      "multiplier_channels": [23, 3],
+      "inverse": 1993,
+      "order": 10,
+      "seed": 137,
+      "seed_channels": [14, 15],
+      "output": 1265,
+      "output_channels": [35, 45],
+      "cycle_census": {"1": 1, "10": 250},
+      "controls": {
+        "multiply_41": {"kernel_size": 41, "image_size": 61, "output_at_137": 615},
+        "multiply_61": {"kernel_size": 61, "image_size": 41, "output_at_137": 854},
+        "mirror": {"cycle_census": {"1": 1, "2": 1250}},
+        "translate_100": {"cycle_census": {"2501": 1}}
+      }
+    }
+  },
+  "visual_template_fixture": {
+    "moduli": [131, 83],
+    "product": 10873,
+    "integer": 13183,
+    "residues": [83, 69],
+    "crt_class": 2310,
+    "shell_quotient": 1,
+    "reconstruction": "13183=1*10873+2310",
+    "visual_semantics_established": false
+  },
+  "negative_control": {
+    "moduli": [5, 15],
+    "expected": "REJECT_NON_COPRIME_CHANNEL_DECLARATION",
+    "passed": true
+  },
+  "registry": "A0_BOOK/operator-registry/modular-crt-operator-registry-v0.1.json",
+  "governance": {
+    "local_engineering_registry_only": true,
+    "physical_coupling_established": false,
+    "privileged_modulus_established": false,
+    "new_navigator_identity": false,
+    "new_navigator_relation": false,
+    "orion_registry_changed": false,
+    "claim_promotion_authorized": false,
+    "publication_authorized": false
+  }
+}
+

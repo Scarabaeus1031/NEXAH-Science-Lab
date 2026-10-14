@@ -1,0 +1,254 @@
+{
+  "schema": "nexah.navigator.crt-qrt-37-carrier-ladder-binder",
+  "version": "1.0.0",
+  "binder_id": "NEXAH:NAVIGATOR:CRT_QRT_37_CARRIER_LADDER:2026-10-11",
+  "node_id": "NN:CRT_QRT_37_CARRIER_LADDER",
+  "title": "CRT/QRT · 37 Carrier Ladder",
+  "status": "INTERNAL_SOURCE_BOUND_EVIDENCE_LENS",
+  "publication_authorized": false,
+  "changes_canonical_module_count": false,
+  "changes_canonical_family_count": false,
+  "owner_request": "Create a NEXAH Science Navigator node for the current CRT/QRT carrier ladder through 11537, while retaining the 1461 AI-HU Fibonacci proposal as a bounded open attachment.",
+  "identity_reuse": {
+    "module_id": "MOD:NUMBER_VIEW_SUITE",
+    "artifact_ids": [
+      "ART:NUMBER:ELEVEN_SPACE",
+      "ART:NUMBER:H_Q_FORMAT"
+    ],
+    "new_source_bound_node_id": "NN:CRT_QRT_37_CARRIER_LADDER",
+    "duplicate_risk": "REVIEWED_NO_EXACT_EXISTING_NODE; existing module and artifacts reused"
+  },
+  "carrier_ladder": [
+    {"n": 37, "q20": 1, "r20": 17, "mod11": 4, "factorization": "37"},
+    {"n": 137, "q20": 6, "r20": 17, "mod11": 5, "factorization": "137"},
+    {"n": 237, "q20": 11, "r20": 17, "mod11": 6, "factorization": "3*79"},
+    {"n": 537, "q20": 26, "r20": 17, "mod11": 9, "factorization": "3*179"},
+    {"n": 11357, "q20": 567, "r20": 17, "mod11": 5, "factorization": "41*277", "crt_7_11_13_19": [3, 5, 8, 14]},
+    {"n": 11537, "q20": 576, "r20": 17, "mod11": 9, "factorization": "83*139", "crt_7_11_13_19": [1, 9, 6, 4]}
+  ],
+  "typed_structures": {
+    "qrt_elevator": {
+      "operator": "n -> (q,r) where n=20q+r and 0<=r<20",
+      "shared_invariant": "r=17",
+      "interpretation": "shared grid column among distinct integer carriers"
+    },
+    "historical_multiplier_graph": {
+      "operator": "i -> 37i mod N",
+      "edge_rendering": "undirected graph edge {i,37i mod N}",
+      "status": "HISTORICAL_CODE_RECOVERED_LABEL_NOT_TOPOLOGY",
+      "mobius_topology_established": false,
+      "boundary_identification_declared": false,
+      "degenerate_case": "N=37 maps every i to 0",
+      "permutation_cases": [137, 237, 537, 11357, 11537]
+    }
+  },
+  "non_identity_records": [
+    {
+      "left": 11357,
+      "right": 11537,
+      "shared": ["r20=17", "digit multiset {1,1,3,5,7}"],
+      "different": ["integer value", "q20", "factorization", "CRT fingerprint", "mod11 residue"],
+      "delta": 180,
+      "status": "EXACT_DISTINCT_CARRIERS"
+    },
+    {
+      "left": "modular multiplier connectors",
+      "right": "Möbius seam or twisted boundary",
+      "shared": ["historical Möbius vocabulary"],
+      "different": ["defined operator", "topological evidence"],
+      "status": "NON_IDENTITY"
+    }
+  ],
+  "open_operator_attachment": {
+    "attachment_id": "OPEN:AI_HU_1461_FIBONACCI",
+    "label": "1461 Core Node with AI-HU Fibonacci Expansion",
+    "status": "OPEN_OPERATOR_ATTACHMENT",
+    "exact_seed_decomposition": {
+      "decimal_cut": "14|61",
+      "reconstruction": "1461=100*14+61",
+      "left_field": {
+        "value": 14,
+        "additive_form": "7+7",
+        "factorization": "2*7"
+      },
+      "right_field": {
+        "value": 61,
+        "prime": true,
+        "prime_index_one_based": 18
+      },
+      "prime_index_factorization": "18=2*3^2",
+      "whole_integer_factorization": "1461=3*487",
+      "factor_487_prime": true,
+      "status": "EXACT_ARITHMETIC_SEED_NOT_OPERATOR"
+    },
+    "known": [
+      "1461 admits the exact decimal cut 14|61",
+      "14=7+7=2*7",
+      "61 is the 18th prime under p_1=2",
+      "18=2*3^2",
+      "historical marker is plotted at (0,0)",
+      "historical curve uses trigonometric functions and exponential factors",
+      "1461 is absent from the recovered plot equations"
+    ],
+    "not_established": [
+      "Fibonacci recurrence",
+      "Q-matrix action",
+      "1461 Core identity",
+      "AI/HU mechanism",
+      "Möbius topology"
+    ],
+    "required_for_test": [
+      "select the typed seed: 1461, (14,61), or (2*7,p_18)",
+      "true Fibonacci recurrence or Q-matrix",
+      "carrier domain",
+      "return map",
+      "invariant",
+      "failure condition"
+    ]
+  },
+  "historical_visual_provenance": {
+    "status": "HISTORICAL_CONCEPT_VISUAL_PROVENANCE_ONLY",
+    "artifact_provenance_authority": true,
+    "scientific_evidence_authority": false,
+    "conceptual_symbolic_context_only": true,
+    "artifact_origin_repository": {
+      "name": "NEXAH-CODEX",
+      "url": "https://github.com/Scarabaeus1031/NEXAH",
+      "revision": "cc1962237940867becb7beb7d4d9fb9f6b613253",
+      "local_checkout_relative_to_science_lab_repo": "../../../GitHub/NEXAH-CODEX"
+    },
+    "module_path": "SYSTEM_5_META_BLOOM_ROSETTA/ULLINIRIUM",
+    "desktop_duplicate_audit": {
+      "status": "BYTE_IDENTICAL_DUPLICATES_NOT_SOURCES",
+      "verified_duplicate_count": 3
+    },
+    "records": [
+      {
+        "path": "SYSTEM_5_META_BLOOM_ROSETTA/ULLINIRIUM/MANIFEST.MD",
+        "sha256": "f10ff97f062d43ff40fec36832d58d0705344bc4a62c12fc283a5f3b6514f4c7",
+        "role": "historical module identity and visual-directory boundary"
+      },
+      {
+        "path": "SYSTEM_5_META_BLOOM_ROSETTA/ULLINIRIUM/FADEN I/KAPITEL 1: Kosmische Herkunft & Goldene Brücke.md",
+        "sha256": "a5433650f762c1e2324e691ce76209a299a9278f4356aaf0b9e0723adbe864a4",
+        "role": "historical symbolic Golden Bridge description"
+      },
+      {
+        "path": "SYSTEM_5_META_BLOOM_ROSETTA/ULLINIRIUM/🖼️ VISUALS – ULLINIRIUM Resonanzarchitektur.md",
+        "sha256": "d75ed9ccd8365c6de67c6851ddd5cfc9989ebef387d8c0d49019682f89927d4e",
+        "role": "historical visual index"
+      },
+      {
+        "path": "SYSTEM_5_META_BLOOM_ROSETTA/ULLINIRIUM/visuals/static/Bogenanalyse - Kreis vs. Ellipse + Krümmung.png",
+        "sha256": "59014cacd405212ea789488d88658531e7546b4c9aa60019c140efef1a82d493",
+        "role": "render containing the rounded annotation k≈0.1461",
+        "observed_value": "0.1461",
+        "observed_quantity": "right-side ellipse curvature",
+        "integer_1461_identity_established": false
+      },
+      {
+        "path": "SYSTEM_5_META_BLOOM_ROSETTA/ULLINIRIUM/visuals/static/Die Goldene Brücke - Hilfslinien & Phi-Gitter.png",
+        "sha256": "7b31412e909c971f434e5b3b31f3ab5b0643783b6145904d5a8eae5707c0e136",
+        "role": "historical Golden Bridge/Phi-grid render"
+      },
+      {
+        "path": "SYSTEM_5_META_BLOOM_ROSETTA/ULLINIRIUM/visuals/static/Die Goldene Brücke - Visualisierung mit Phi-Gitter, Spiralachsen & Flächenanalyse.png",
+        "sha256": "aabdc69bf39e3ffb8d27789bbe69af21d011f422c6f939ee5a1563fddf26066e",
+        "role": "historical Golden Bridge area-analysis render"
+      }
+    ],
+    "generator_status": "NOT_LOCATED",
+    "relation_to_open_attachment": "CONCEPT_CONTEXT_ONLY_NOT_EVIDENCE_OF_1461_IDENTITY",
+    "evidence_priority": {
+      "policy": "TEST_FIRST",
+      "ranked": [
+        "reproducible test or exact derivation",
+        "executable implementation with declared parameters",
+        "historical conceptual text or visual"
+      ],
+      "next_test_id": "CURVATURE_1461_ORIGIN_01",
+      "test_status": "FORMAL_DESIGN_ONLY_NOT_ACTIVATED"
+    },
+    "test_gate": {
+      "null_hypothesis": "0.1461 is ordinary four-decimal rounding of an ellipse-curvature value",
+      "alternative_hypothesis": "the unrounded curvature is generated by an explicit 1461 seed or operator",
+      "required": [
+        "recover or restate ellipse parameters and evaluation point",
+        "declare curvature formula and unrounded output",
+        "declare rounding interval and tolerance",
+        "compare a null parameterization and neighboring precisions",
+        "require 1461 to enter the generator before rounding"
+      ],
+      "failure_condition": "no explicit pre-rounding dependency on 1461",
+      "execution_status": "NOT_RUN_STRUCTURE_FREEZE"
+    }
+  },
+  "relations": [
+    {
+      "relation_id": "REL:NN_CRT_QRT_37_TO_NUMBER_VIEW_SUITE",
+      "source_id": "NN:CRT_QRT_37_CARRIER_LADDER",
+      "relation_type": "source-bound-lens-of",
+      "target_id": "MOD:NUMBER_VIEW_SUITE",
+      "status": "bounded",
+      "evidence": "exact carrier/view arithmetic and current QRT/Eleven-Space sources",
+      "does_not_imply": ["new module", "new Connection Family", "public admission"]
+    },
+    {
+      "relation_id": "REL:NN_CRT_QRT_37_CONTEXT_ELEVEN_SPACE",
+      "source_id": "NN:CRT_QRT_37_CARRIER_LADDER",
+      "relation_type": "contextualized-by",
+      "target_id": "ART:NUMBER:ELEVEN_SPACE",
+      "status": "bounded",
+      "evidence": "mod-11 carrier/view separation",
+      "does_not_imply": ["same residue means same integer", "generator identity"]
+    },
+    {
+      "relation_id": "REL:NN_CRT_QRT_37_CONTEXT_HQ_FORMAT",
+      "source_id": "NN:CRT_QRT_37_CARRIER_LADDER",
+      "relation_type": "representation-boundary-from",
+      "target_id": "ART:NUMBER:H_Q_FORMAT",
+      "status": "bounded",
+      "evidence": "format-invariance result preserves normalized geometry while rejecting raw-coordinate identity",
+      "does_not_imply": ["CRT carrier arithmetic imported into H_Q coordinates"]
+    }
+  ],
+  "sources": [
+    {
+      "path": "00_INCOMING/THE_PRIME_GENESIS_CRT_ELEVATOR_QRT_FORMAT_LENS_GATE_01_2026-09-08/00_README.md",
+      "sha256": "bf723f820eb6e75a5528645d799f01124b214631eb5d5f81fea893ce40cf8d8d",
+      "role": "controlling method boundary"
+    },
+    {
+      "path": "00_INCOMING/THE_PRIME_GENESIS_CRT_ELEVATOR_QRT_FORMAT_LENS_GATE_01_2026-09-08/03_CRT_FINGERPRINT_REGISTER.csv",
+      "sha256": "4b01866f26dbc2d86dace29774d643fed0df668985461d76ad404cf00e9d72fb",
+      "role": "exact carrier and CRT register"
+    },
+    {
+      "path": "00_INCOMING/THE_PRIME_GENESIS_CRT_ELEVATOR_QRT_FORMAT_LENS_GATE_01_2026-09-08/05_FIBONACCI_ADJACENT_DIGIT_LENS.md",
+      "sha256": "ebc34c914e426c4443abe1f1bdda887497ecf657fa224c70ff75ac1139b223c9",
+      "role": "Fibonacci nonclaim boundary"
+    },
+    {
+      "path": "00_INCOMING/THE_PRIME_GENESIS_CRT_ELEVATOR_QRT_FORMAT_LENS_GATE_01_2026-09-08/FINAL_DECISION.md",
+      "sha256": "9a45b51b4bf06cb2a6efe7c1f7eb1ee400c9da64d57d62fbd69ba0c79fadac1f",
+      "role": "bounded method decision"
+    },
+    {
+      "path": "SCIENCE_LAB/CASE_STUDIES/NEXAH_ELEVEN_SPACE_JANUS_NUMBER_VIEW_2026-10-06/README.md",
+      "sha256": "cdba0a8594f78764a2247c67a05ac6e03417eb5c545e5aa24a7f4d06f5d7286a",
+      "role": "current modular carrier/view instrument"
+    },
+    {
+      "path": "SCIENCE_LAB/CASE_STUDIES/NEXAH_ROOT7_EULER_MIRROR_CONCORDANCE_INTAKE_2026-09-28/08_QRT_CARRIER_CONNECTION_ADDENDUM.md",
+      "sha256": "06fa7628fbd16507ffff99b206a786b60a35377b9663fe8cc5ee040c52da2077",
+      "role": "11357/11537 correction and QRT relation"
+    },
+    {
+      "path": "SCIENCE_LAB/CASE_STUDIES/NEXAH_ROOT7_EULER_MIRROR_CONCORDANCE_INTAKE_2026-09-28/33_H_Q_FORMAT_ELEVATOR_INVARIANCE_01_RESULT_REPORT.md",
+      "sha256": "7d08814aee5f32478ca1c9263740477d9366ba518f792225d77b98bff3c5fccd",
+      "role": "current format-view invariance boundary"
+    }
+  ],
+  "claim_ceiling": "Exact modular arithmetic, source lineage and representation typing only; no Möbius topology, Fibonacci mechanism, AI/HU mechanism, physical claim, Core promotion, canonical count change or public admission."
+}
+

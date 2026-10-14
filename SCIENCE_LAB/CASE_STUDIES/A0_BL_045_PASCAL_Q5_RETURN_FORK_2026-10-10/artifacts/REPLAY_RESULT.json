@@ -1,0 +1,87 @@
+{
+  "checks": {
+    "compensating_seam_closes_by_construction": true,
+    "compensating_seam_is_q5_inverse": true,
+    "five_position_orbit_total_100": true,
+    "pascal_midpoint_weight_20": true,
+    "q5_determinant_minus_1": true,
+    "q5_exact": true,
+    "q5_trace_11": true,
+    "same_q5_for_both_topologies": true,
+    "twisted_boundary_components_1": true,
+    "twisted_no_nonzero_rational_fixed_state": true,
+    "untwisted_boundary_components_2": true,
+    "untwisted_no_nonzero_rational_fixed_state": true
+  },
+  "claim_boundary": "Finite exact separation of linear monodromy and seam topology; no canonical phi, physical mechanism or universal return law.",
+  "classification": "RETURN_TYPE_UNDERDETERMINED",
+  "interpretation": [
+    "Q5, trace 11 and determinant -1 are identical for the untwisted and twisted strip quotients.",
+    "Neither preregistered standard seam produces a nonzero rational fixed state.",
+    "Exact state closure is obtainable with Q^-5 only as a tailored compensating control.",
+    "Therefore determinant -1 does not identify a Mobius return and the Pascal-to-Fibonacci state map remains undefined."
+  ],
+  "monodromy": {
+    "Q5": [
+      [
+        8,
+        5
+      ],
+      [
+        5,
+        3
+      ]
+    ],
+    "determinant": -1,
+    "trace": 11
+  },
+  "pascal_orbit": {
+    "displayed_total": 100,
+    "positions": 5,
+    "weight_each": 20
+  },
+  "return_fork": {
+    "compensating_control": {
+      "map": [
+        [
+          -3,
+          5
+        ],
+        [
+          5,
+          -8
+        ]
+      ],
+      "product_with_Q5": [
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "status": "TAILORED_INVERSE_NOT_TOPOLOGY_DERIVED"
+    },
+    "twisted": {
+      "boundary_components": 1,
+      "fixed_state_determinant": -3,
+      "state_reflection": [
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          -1
+        ]
+      ]
+    },
+    "untwisted": {
+      "boundary_components": 2,
+      "fixed_state_determinant": -11
+    }
+  },
+  "study_id": "A0_BL_045_PASCAL_Q5_RETURN_FORK_2026_10_10"
+}

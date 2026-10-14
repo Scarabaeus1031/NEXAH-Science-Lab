@@ -42,6 +42,8 @@ be promoted from visual or historical language into formal work.
 | MG-D25 | test whether nearest-C4 requantization commutes with the standard Hopf quarter-arc and a `+1 mod 4` RIS candidate | completed; global commutation is rejected, exact C4 starts pass one step and fail the end-only four-step comparison, while stepwise requantization closes by discarding the phase residual |
 | MG-D26 | register UTG, its maturity ladder and the Aperture / Transition distinction | completed; UTG is typed as a local exploratory framework, media repetition is not independent evidence, observation aperture is separated from event boundary, gate, crossing and transition map, and the Series XIV equation remains an undefined formal candidate |
 | MG-D27 | execute the first UTG Aperture / Transition control battery | completed in `UTG-FORMAL-01`; one Lorenz-63 carrier passes 8/8 preregistered gates across crossing, direction, tangency, near-miss, nontransversal, sampling and identity-return controls; no generic or application promotion |
+| MG-D28 | type the recurring NEXAH Envelope vocabulary and resolve the undefined Navigator entry | completed at framework level; nine subtypes separate signal, geometry, dynamics, bounds, observer, record, layers, integration/return and stability, while `S=g(zeta)` remains an unformalized candidate and Envelope is not a new family |
+| MG-D29 | register the Pascal–Pentagon 106-node quotient without promoting the novelty claim | completed and extended; the five-face weighted carrier, `112 -> 106` seam closure, 180 directed quotient edges, exact typed `D5` action, formal specification, compact proofs, canonical reference export, independent `177/177` verifier, nearest established neighbours and the incomplete prior-art gate are explicit; SCC-003 reuses the existing A0OE/PENT identity and is not active |
 
 ## Open term and source tasks
 
@@ -71,6 +73,7 @@ be promoted from visual or historical language into formal work.
 | MG-22 | medium | bind the September `RELATED != IDENTICAL` register family to current mathematical cases | unit-bearing source/target types and declared maps are recorded for C4, light-time, transform-view and naming cases | convertible, isomorphic and same-valued records remain nonidentical unless an explicit identity criterion is met |
 | MG-23 | high | determine whether any source-defined finite transport/requantization links the standard Hopf holonomy to the OIL/RIS C4 alphabet | exact path, connection, edge transport, quantizer, composition order and closed-loop comparison are supplied and replayed | the nearest-C4 / `+1 mod 4` fixture rejects global commutation; stepwise closure is a requantization effect, and a historical rule remains unrecovered |
 | MG-25 | medium | recover the original book/page lineage for the four UTG plates | source edition, page/order, export file, date/version and hashes are bound or the plates remain explicitly received-only | repository custody and visual hashes do not establish original publication lineage |
+| MG-26 | medium | formalize or reject one `ENV-STAB` instance | carrier, stability quantity, `zeta`, construction `g`, time horizon, comparator, sensitivity and stop rule are preregistered and replayable | phi powers and repeated envelope imagery do not establish stability |
 
 ## Intake rule for future discoveries
 

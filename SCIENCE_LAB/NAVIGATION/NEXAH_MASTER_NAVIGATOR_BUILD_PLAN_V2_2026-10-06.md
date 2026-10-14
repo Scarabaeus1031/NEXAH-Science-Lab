@@ -115,7 +115,7 @@ RELATION      typed edge with explanation and claim boundary
 RELEASE       public selection, rights state, URLs and build receipt
 ```
 
-Module Registry v2, the 111-row HTML Artifact Registry and the Polar-Janus
+Module Registry v2, the 115-row HTML Artifact Registry and the Polar-Janus
 evidence slice are input adapters, not the final public schema.
 
 ### 5.2 Required relation contract
@@ -252,7 +252,7 @@ The internal profile adds:
 
 - Mission Control truth and currentness;
 - repository/path/hash inspection;
-- complete 111-row HTML inventory;
+- complete 115-row HTML inventory;
 - validation failures and broken locators;
 - private, frozen, provisional and incoming filters;
 - public-admission readiness and export diagnostics.
@@ -315,7 +315,7 @@ Exit gate: schema validation passes; no bare `F` identifiers or untyped edges.
 Status: `THREE-REGISTRY INTERNAL ADAPTER PASS / PUBLIC FAIL-CLOSED / ALLOWLIST OPEN`
 
 - ingest Module Registry v2;
-- ingest all 111 HTML Artifact records;
+- ingest all 115 HTML Artifact records;
 - ingest the Polar-Janus slice and later evidence slices;
 - bind Mission Control sources only in the internal adapter;
 - emit deterministic internal and public manifests;
@@ -323,10 +323,10 @@ Status: `THREE-REGISTRY INTERNAL ADAPTER PASS / PUBLIC FAIL-CLOSED / ALLOWLIST O
 
 The fixture pilot emits canonical Internal/Public manifests plus a rejected
 items report. The first real-source adapter now joins Module Registry v2, HTML
-Artifact Registry v1 and the Polar-Janus evidence slice into 140 deduplicated
-Internal entities and 14 typed relations. Two isolated runs are byte-identical
+Artifact Registry v1 and the registered evidence slices into 170 deduplicated
+Internal entities and 23 typed relations. Two isolated runs are byte-identical
 and strict Draft 2020-12 validation passes. With no Human Owner allowlist, the
-Public manifest remains empty and all 140 entities are rejected as
+Public manifest remains empty and all 170 entities are rejected as
 `NO_PUBLIC_ALLOWLIST`; publication authority remains false.
 
 Exit gate: repeated builds are byte-identical and the public bundle contains
@@ -334,7 +334,7 @@ no absolute path or non-allowlisted object.
 
 ### WP3 — Shared Navigator UI core
 
-Status: `INTERNAL READ-ONLY PILOT IMPLEMENTED / 34-CHECK APP AUDIT PASS / WP6 PREFLIGHT 5_OF_5`
+Status: `INTERNAL READ-ONLY PILOT IMPLEMENTED / 97-CHECK APP AUDIT PASS / WP6 PREFLIGHT 5_OF_5`
 
 - implement route state, search, filters and accessible detail panels;
 - implement relation explanations and claim-boundary display;
@@ -347,11 +347,11 @@ Exit gate: all core views operate on fixture manifests with keyboard-only use.
 The first functional shell is available at
 [`APP/index.html`](APP/index.html). It uses the approved dark Instrument Mode
 and the same validated entity/relation contract intended for both profiles.
-The internal build packages the 140-entity, 14-relation manifest for direct
+The internal build packages the 170-entity, 23-relation manifest for direct
 `file://` use and implements stable hash routes, full-text search, type and
 family filters, module/surface/evidence detail, typed relation explanations,
 claim ceilings, package-local verdict/current-interpretation pairs and source
-receipts. Its current dependency-free app audit passes 39 checks. No public entity
+receipts. Its current dependency-free app audit passes 97 checks. No public entity
 catalog is wired into this pilot; only the fail-closed release state is shown.
 
 The first utility preflight prompted a bounded UI refinement: role filters,
@@ -363,7 +363,7 @@ audit passed 24 checks at that checkpoint. The frozen five-task answerability ru
 This is a machine-readable preflight, not a human utility result.
 
 The first Human Owner walkthrough identified one concrete access-depth defect:
-the 111 HTMLs were registered but module pages made users inspect a Surface
+the 115 HTMLs were registered but module pages made users inspect a Surface
 before opening its instrument. The repaired shell is now instrument-first:
 each module exposes its declared master HTML as the primary action, every
 registered module Surface has separate `Open HTML` and `Inspect` actions, and
@@ -384,6 +384,13 @@ descriptions lead; ERITH, Tessarec, E8/H3, Hopf/F40 and other established terms
 remain visible aliases and all stable registry IDs remain unchanged. The view
 retains `F4→F6`, `F5→F6` and `REST→F3` as `OPEN_BRIDGE` rather than treating F6
 as a demonstrated derived mechanism.
+
+The current architecture consolidation is governed by
+[`NEXAH_NAVIGATOR_CAPABILITY_AND_CONNECTOR_REGISTER_2026-10-06.md`](NEXAH_NAVIGATOR_CAPABILITY_AND_CONNECTOR_REGISTER_2026-10-06.md).
+It groups future navigation under Orientation, Framework, Families, Language,
+Atlas and Evidence, keeps About persistently reachable, and places Envelope
+under Language with UTG and instrument cross-links. This is a planning lock;
+the existing menu and deep links remain unchanged until a reviewed UI pass.
 
 The next Owner synthesis extends the visual grammar without changing the
 canonical registry. The Navigator now distinguishes three namespaces:

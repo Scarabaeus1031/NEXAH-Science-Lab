@@ -1,0 +1,11 @@
+{
+  "name": "nexah-navigator-v2-life-orbit-candidate",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "build": "node build_candidate.mjs",
+    "audit": "node audit_candidate.mjs",
+    "receipts": "node build_receipts.mjs",
+    "validate": "npm run build && npm run receipts && npm run audit"
+  }
+}

@@ -8,8 +8,8 @@ Status: `WP2 INTERNAL ADAPTER / PUBLIC FAIL-CLOSED / NO ALLOWLIST`
 
 | Input | Native objects | Adapter result |
 |---|---:|---|
-| Module Registry v2 | 14 modules, 33 surfaces, 8 relations | Module and Surface entities plus typed relations |
-| HTML Artifact Registry v1 | 111 artifacts | Surface entities; overlapping Registry surfaces are enriched, not duplicated |
+| Module Registry v2 | 14 modules, 35 surfaces, 14 relations | Module and Surface entities plus typed relations |
+| HTML Artifact Registry v1 | 115 artifacts | Surface entities; overlapping Registry surfaces are enriched, not duplicated |
 | Polar-Janus Evidence Slice v1 | 15 evidence nodes, 6 relations | Evidence entities plus evidence-specific typed relations |
 
 ## Identity rules

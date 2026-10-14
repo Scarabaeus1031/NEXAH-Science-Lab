@@ -1,0 +1,27 @@
+{
+  "schema": "nexah.a0-bl-045.double-pentagon-qprime-fork/1.0.0",
+  "date": "2026-10-10",
+  "carrier": {
+    "pentagons": 2,
+    "positions_per_pentagon": 5,
+    "total_positions": 10
+  },
+  "q": [[1, 1], [1, 0]],
+  "local_steps": 5,
+  "candidates": [
+    "sequential_10",
+    "parallel_5_5",
+    "same_direction_bridge",
+    "reciprocal_bridge_Qprime_plus",
+    "reciprocal_bridge_Qprime_minus"
+  ],
+  "level_signs": [1, -1],
+  "result_vocabulary": [
+    "DOUBLE_RETURN_REQUIRES_RECIPROCAL_BRIDGE",
+    "SIGNED_DOUBLE_RETURN_IDENTIFIED",
+    "TEN_STEP_RETURN_IDENTIFIED",
+    "DOUBLE_RETURN_UNDERDETERMINED",
+    "INVALID_EXPERIMENT"
+  ],
+  "status": "FROZEN_BEFORE_EXECUTION"
+}

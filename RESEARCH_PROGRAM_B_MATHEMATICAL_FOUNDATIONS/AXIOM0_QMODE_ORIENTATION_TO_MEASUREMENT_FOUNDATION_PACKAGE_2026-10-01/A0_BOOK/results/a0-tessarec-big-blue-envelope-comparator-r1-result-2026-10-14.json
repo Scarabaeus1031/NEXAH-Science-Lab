@@ -1,0 +1,54 @@
+{
+  "schema": "nexah.a0.tessarec-big-blue-envelope-comparator-result",
+  "version": "1.0.0",
+  "record_id": "A0_TESSAREC_BIG_BLUE_ENVELOPE_COMPARATOR_RUN_001",
+  "date": "2026-10-14",
+  "status": "PASS_BOUNDED_INTEGRATION_DEMONSTRATOR",
+  "module_id": "MOD:TESSAREC",
+  "fixture": {
+    "phase_degrees": 175,
+    "phase_reference_degrees": 180,
+    "observer_angle_degrees": 42,
+    "observer_reference_degrees": 45,
+    "state_index": 3
+  },
+  "gates": {
+    "I1_STATE_SYNC": { "status": "PASS", "state_index": 3, "expected": 3 },
+    "I2_PARAMETER_TYPING": { "status": "PASS", "phase_to_reference_degrees": 5, "phase_and_view_distinct": true },
+    "I3_APERTURE_LEDGER": { "status": "PASS", "per_side_degrees": 3, "bilateral_degrees": 6, "separation_at_42": 84, "separation_at_45": 90 },
+    "I4_INTRINSIC_INVARIANCE": { "status": "PASS", "axes": [89.309934, 138.730369], "observer_delta": 0 },
+    "I5_OBSERVED_RESPONSE": { "status": "PASS", "at_42": [74.399117, 125.877912], "at_45": [72.307056, 127.353077], "mirror_pair": [-42, 42] },
+    "I6_NAMESPACE_GUARD": {
+      "status": "PASS",
+      "distinct_object_ids": true,
+      "host_pentagons": 16,
+      "registered_pentagon_16_17_connector": false,
+      "seam_heptagons": 12,
+      "adapter_types": [
+        "VERTEX_BIJECTION_WITH_ROUTED_EDGES_NOT_GRAPH_IDENTITY",
+        "PROJECTION_ONLY_VIEW_TO_TOOL_HANDOFF",
+        "H7_12_COMBINATORIAL_SEAM_CANDIDATE"
+      ]
+    }
+  },
+  "objects": {
+    "carrier": { "id": "Q4_VIEW_OF_Q4_X_P3", "states": 16, "edges": 32 },
+    "intrinsic": { "id": "H_T_REACHABLE_FRAME_AGGREGATE" },
+    "observed": { "id": "PI_PLUS_MINUS_THETA_OF_H" },
+    "host": { "id": "O2_P16_H8_BLUE_BODY", "vertices": 48, "edges": 72, "faces": 26, "octagons": 2, "pentagons": 16, "hexagons": 8 },
+    "delivery": { "id": "FOUR_TRUNCATED_PENTAGON_WALL_FOLD", "walls": 4 },
+    "seam": { "id": "DOUBLE_BLUE_BODY_H7_12_COMBINATORIAL_CANDIDATE", "heptagons": 12 }
+  },
+  "adapters": [
+    { "from": "Q4_X_P3_CARRIER", "to": "O2_P16_H8_BLUE_BODY", "type": "VERTEX_BIJECTION_WITH_ROUTED_EDGES_NOT_GRAPH_IDENTITY" },
+    { "from": "FOUR_O8_OVERLAP_VIEW", "to": "FOUR_TRUNCATED_PENTAGON_WALL_FOLD", "type": "PROJECTION_ONLY_VIEW_TO_TOOL_HANDOFF" },
+    { "from": "TWO_DISJOINT_BLUE_BODIES", "to": "DOUBLE_BLUE_BODY_H7_12_COMBINATORIAL_CANDIDATE", "type": "H7_12_COMBINATORIAL_SEAM_CANDIDATE" }
+  ],
+  "governance": {
+    "engineering_demonstrator": true,
+    "authorized_science_run": false,
+    "new_navigator_identity": false,
+    "new_navigator_relation": false,
+    "claim_promotion_authorized": false
+  }
+}

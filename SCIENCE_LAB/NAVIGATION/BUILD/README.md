@@ -13,7 +13,7 @@ node verify_fixture_exports.mjs
 
 The pilot proves separation, canonical serialization, payload/source receipts,
 rejection reporting and byte-identical repeated builds. It does not yet ingest
-Module Registry v2, the 111-row HTML Artifact Registry or evidence slices.
+Module Registry v2, the 115-row HTML Artifact Registry or evidence slices.
 Generated Public data remains a non-authorized preview.
 
 `build_registry_exports.mjs` is the first real-source adapter. It joins Module

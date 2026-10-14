@@ -1,0 +1,37 @@
+{
+  "schema": "nexah.life01.p5r-validation/1.0.0",
+  "date": "2026-10-07",
+  "mission": "M-LIFE01",
+  "gate": "P5R_V1_FREEZE_RECONCILIATION",
+  "status": "PASS",
+  "freeze_reconciliation": {
+    "status": "PASS",
+    "original_files": 17,
+    "reconciled_files": 17,
+    "delta_files": 6,
+    "unchanged_files": 11,
+    "original_state_preserved": true,
+    "current_state_verified": true,
+    "application_files_modified_by_p5r": 0
+  },
+  "navigator_audit": {
+    "status": "PASS",
+    "passed": 103,
+    "checks": 103
+  },
+  "boundaries": {
+    "life_orbit_candidate_admitted": false,
+    "public_entities_admitted": 0,
+    "publication_authorized": false,
+    "deployment_authorized": false
+  },
+  "bindings": {
+    "original_manifest_sha256": "8bee2e6c69cbef98d11999b19899f5166963cae7a4caa3d94ed5d52ee61e60c4",
+    "pre_p5_baseline_sha256": "758bfe8074a1df80ce904c04dfbe53e2579083288a5f72d78eaeda89aa46c499",
+    "reconciled_manifest_sha256": "212fd5716ab1d6e189fa893981660cfd8ad44dca89b3ad632ccddb186137cbe5",
+    "reconciliation_delta_sha256": "2bd0e03696921cd176a67a729a0250870b4a8ff976b4a51da71e04074eaa81b4",
+    "reconciliation_record_sha256": "ce33ee6972ebc1737bafcf3df876d66bcca025c42bb7ad6cb840496c41014467",
+    "verifier_sha256": "4c6c6d9305658f918e336bfb88aacebcd5e51654b34b57e259fe3f3b0e0521be"
+  },
+  "next_gate": "P6_NAVIGATOR_CANDIDATE_ADMISSION_OWNER_DECISION"
+}

@@ -1,0 +1,92 @@
+{
+  "audit_boundary": "Independent witness-certificate audit only; does not independently recompute all 100 histories or 56 terminal classes.",
+  "checks": {
+    "both_terminal_carriers_are_connected": true,
+    "both_terminal_carriers_have_154_nodes": true,
+    "cyclic_edge_profile_transition_multisets_differ": true,
+    "declared_signatures_differ": true,
+    "directed_pascal_edge_counts_differ": true
+  },
+  "left_boundary_profile_word": [
+    "radial",
+    "base",
+    "base",
+    "base",
+    "base",
+    "base",
+    "base",
+    "base",
+    "radial"
+  ],
+  "left_cyclic_pair_counts": [
+    [
+      [
+        "base",
+        "base"
+      ],
+      6
+    ],
+    [
+      [
+        "base",
+        "radial"
+      ],
+      1
+    ],
+    [
+      [
+        "radial",
+        "base"
+      ],
+      1
+    ],
+    [
+      [
+        "radial",
+        "radial"
+      ],
+      1
+    ]
+  ],
+  "left_directed_edges": 258,
+  "left_history_id": "H011",
+  "primary_sha256": "e8952baf391f430a6b02d7301461d8392d55bb24f85bb3f8e7415af77dfe4705",
+  "right_boundary_profile_word": [
+    "base",
+    "radial",
+    "base",
+    "base",
+    "base",
+    "base",
+    "base",
+    "base",
+    "radial"
+  ],
+  "right_cyclic_pair_counts": [
+    [
+      [
+        "base",
+        "base"
+      ],
+      5
+    ],
+    [
+      [
+        "base",
+        "radial"
+      ],
+      2
+    ],
+    [
+      [
+        "radial",
+        "base"
+      ],
+      2
+    ]
+  ],
+  "right_directed_edges": 264,
+  "right_history_id": "H008",
+  "schema": "nexah.a0-bl-021.witness-audit/1.0.0",
+  "status": "PASS"
+}

@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>NEXAH A0 — Fields &amp; Joints Atlas</title>
+  <meta name="description" content="Interaktive Field-Note-Karte der von A0 berührten Forschungsfelder, Perspektiven, Fugen und Statusgrenzen.">
+  <style>
+    :root{
+      --paper:#f3efe5;--white:#fffdf8;--ink:#111922;--muted:#5d6871;--line:#cbc2b2;
+      --night:#07131e;--night2:#0b1c29;--night3:#102735;--nightline:#2c4656;
+      --gold:#e7b544;--cyan:#43cae7;--mint:#58dda2;--pink:#e34cac;--orange:#e38b45;
+      --serif:Georgia,"Times New Roman",serif;--sans:Inter,ui-sans-serif,system-ui,-apple-system,sans-serif;
+      --mono:"SFMono-Regular",Consolas,"Liberation Mono",monospace;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);line-height:1.58}
+    a{color:inherit}
+    button,select{font:inherit}
+    button:focus-visible,select:focus-visible,a:focus-visible{outline:3px solid var(--cyan);outline-offset:3px}
+    .top{position:sticky;top:0;z-index:20;display:flex;align-items:center;justify-content:space-between;gap:20px;padding:14px 5vw;background:rgba(255,253,248,.94);border-bottom:1px solid var(--line);backdrop-filter:blur(12px)}
+    .brand{font-weight:850;letter-spacing:.15em;text-decoration:none}.brand span{font-weight:500;color:var(--muted);letter-spacing:.03em}
+    .top nav{display:flex;gap:16px;flex-wrap:wrap}.top nav a{text-decoration:none;font:700 .65rem var(--mono);letter-spacing:.08em;text-transform:uppercase}
+    .hero{padding:8vh 7vw 8vh;background:radial-gradient(circle at 80% 15%,rgba(67,202,231,.17),transparent 27%),linear-gradient(135deg,var(--white),#eae2d4)}
+    .hero-grid{max-width:1250px;margin:auto;display:grid;grid-template-columns:minmax(0,1.35fr) minmax(280px,.65fr);gap:52px;align-items:end}
+    .eyebrow,.label{font:750 .68rem var(--mono);letter-spacing:.14em;text-transform:uppercase;color:#85620c}
+    h1{font:700 clamp(4rem,9vw,8.4rem)/.8 var(--serif);letter-spacing:-.065em;margin:.3em 0 .25em}
+    h1 span{display:block;font:650 clamp(1.5rem,3.5vw,3.25rem)/1.05 var(--sans);letter-spacing:-.04em;margin-top:.45em}
+    .lead{font:400 clamp(1.05rem,2vw,1.48rem)/1.5 var(--serif);max-width:780px}
+    .status-box{border:1px solid var(--line);background:rgba(255,253,248,.72);padding:24px}.status-box strong{display:block;font:700 1.5rem var(--serif);margin:.45rem 0}.status-box p{color:var(--muted);font-size:.87rem;margin:.5rem 0 0}
+    .status-list{display:flex;flex-wrap:wrap;gap:7px;margin-top:16px}.status-list span{border:1px solid var(--line);padding:6px 8px;font:700 .59rem var(--mono);letter-spacing:.05em;text-transform:uppercase}
+    main section{scroll-margin-top:72px}
+    .spread{max-width:1250px;margin:auto;padding:72px 6vw}
+    .section-head{display:grid;grid-template-columns:105px 1fr;gap:24px;margin-bottom:34px}.no{font:700 3rem/.8 var(--serif);color:#a47a19}
+    h2{font:700 clamp(2.35rem,5vw,4.6rem)/.95 var(--serif);letter-spacing:-.045em;margin:0}.sub{max-width:850px;color:#4f5a63;font:400 1.03rem/1.58 var(--serif);margin:16px 0 0}
+    .black{background:var(--night);color:#dce8ee;border-top:4px solid var(--gold);border-bottom:1px solid var(--nightline)}.black h2{color:white}.black .no{color:var(--cyan)}.black .sub{color:#98acb7}.black .label{color:var(--gold)}
+    .map-shell{display:grid;grid-template-columns:minmax(0,1.45fr) minmax(300px,.55fr);gap:22px;align-items:stretch}
+    .map-stage{position:relative;min-height:560px;border:1px solid var(--nightline);background:radial-gradient(circle at 50% 49%,rgba(67,202,231,.11),transparent 24%),var(--night2);overflow:hidden}
+    .map-lines{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}.map-lines line{stroke:#355364;stroke-width:1.25}.map-lines circle{fill:var(--night);stroke:var(--gold);stroke-width:2}.map-lines path{fill:none;stroke:rgba(231,181,68,.45);stroke-width:1.3;stroke-dasharray:5 7}
+    .field-node{position:absolute;transform:translate(-50%,-50%);width:145px;min-height:72px;border:1px solid #416072;background:#0d2533;color:#dbe8ee;padding:10px 9px;cursor:pointer;text-align:center;transition:.18s ease}.field-node:hover,.field-node[aria-pressed="true"]{border-color:var(--cyan);background:#123344;box-shadow:0 0 0 2px rgba(67,202,231,.14)}.field-node b{display:block;font:700 1rem var(--serif);color:white}.field-node small{display:block;color:#8fa8b5;font:650 .56rem/1.35 var(--mono);text-transform:uppercase;margin-top:4px}.field-node.core{width:184px;min-height:104px;border-color:var(--gold);background:#172b34}.field-node.core b{color:var(--gold);font-size:1.2rem}.field-node.core small{color:#b9cbd3}
+    .node-physics{left:18%;top:15%}.node-biology{left:50%;top:10%}.node-chemistry{left:82%;top:15%}.node-formal{left:13%;top:49%}.node-core{left:50%;top:49%}.node-observation{left:87%;top:49%}.node-representation{left:18%;top:83%}.node-human{left:50%;top:89%}.node-provenance{left:82%;top:83%}
+    .inspector{border:1px solid var(--nightline);background:var(--night2);padding:25px;display:flex;flex-direction:column}.inspector h3{font:700 1.8rem/1.12 var(--serif);color:white;margin:.45rem 0}.inspector p{color:#9fb3bd}.inspector dl{margin:12px 0 0}.inspector dt{font:750 .58rem var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-top:14px}.inspector dd{margin:4px 0;color:#c5d4da;font-size:.84rem}.boundary{margin-top:auto;border-left:4px solid var(--pink);background:rgba(227,76,172,.08);padding:13px;color:#ff9cda;font:750 .68rem/1.48 var(--mono);text-transform:uppercase}
+    .grammar{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.grammar article{border:1px solid var(--line);background:var(--white);padding:22px;position:relative}.grammar article:before{content:"";position:absolute;top:-1px;left:-1px;right:-1px;height:4px;background:var(--cyan)}.grammar article:nth-child(2):before{background:var(--gold)}.grammar article:nth-child(3):before{background:var(--pink)}.grammar article:nth-child(4):before{background:var(--mint)}.grammar b{display:block;font:700 1.7rem var(--serif);color:#9c7316}.grammar h3{font:700 1.1rem var(--serif);margin:.4rem 0}.grammar p{font-size:.83rem;color:#59656d}
+    .joint-contract{margin-top:22px;border:1px solid var(--ink);background:var(--white);padding:24px}.joint-contract code{display:block;white-space:pre-wrap;font:650 .78rem/1.7 var(--mono)}
+    .tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.tile{border:1px solid var(--line);background:var(--white);padding:19px;text-align:left;cursor:pointer;min-height:132px;transition:.16s ease}.tile:hover,.tile[aria-pressed="true"]{border-color:#188099;transform:translateY(-2px)}.tile b{display:block;font:700 1.2rem var(--serif)}.tile small{display:block;color:#8b650c;font:700 .57rem var(--mono);text-transform:uppercase;margin:7px 0}.tile span{display:block;color:#5b6670;font-size:.78rem}.tile-detail{margin-top:15px;border-left:5px solid var(--cyan);background:var(--white);padding:20px 23px}.tile-detail h3{font:700 1.35rem var(--serif);margin:0 0 .4rem}.tile-detail p{margin:0;color:#56616a}
+    .builder{display:grid;grid-template-columns:minmax(0,.78fr) minmax(0,1.22fr);gap:22px}.controls{border:1px solid var(--nightline);background:var(--night2);padding:24px}.controls label{display:block;color:#a9bdc7;font:700 .59rem var(--mono);letter-spacing:.08em;text-transform:uppercase;margin:0 0 15px}.controls select{display:block;width:100%;margin-top:7px;border:1px solid #476373;background:#081722;color:white;padding:11px}.controls .swap{width:100%;border:1px solid var(--gold);background:transparent;color:var(--gold);padding:10px;cursor:pointer;font:700 .65rem var(--mono);letter-spacing:.08em;text-transform:uppercase}.joint-output{border:1px solid var(--nightline);background:#091a26;padding:24px}.joint-output h3{font:700 1.65rem var(--serif);color:white;margin:.2rem 0 1rem}.joint-output dl{display:grid;grid-template-columns:130px 1fr;gap:9px 14px;margin:0}.joint-output dt{color:var(--gold);font:700 .57rem var(--mono);text-transform:uppercase}.joint-output dd{margin:0;color:#c4d3d9;font-size:.83rem}.joint-output .open{color:#ff9cda}.joint-output button{margin-top:18px;border:1px solid var(--cyan);background:transparent;color:var(--cyan);padding:9px 11px;cursor:pointer;font:700 .62rem var(--mono);text-transform:uppercase}.copy-note{margin-left:10px;color:#86a0ad;font-size:.75rem}
+    .ledger-tools{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px}.ledger-tools button{border:1px solid var(--line);background:var(--white);padding:8px 10px;cursor:pointer;font:700 .61rem var(--mono);text-transform:uppercase}.ledger-tools button[aria-pressed="true"]{background:var(--night);color:white;border-color:var(--night)}
+    .ledger-list{display:grid;gap:10px}.joint-row{display:grid;grid-template-columns:80px minmax(210px,.8fr) 1fr 1fr;gap:16px;align-items:start;border:1px solid var(--line);background:var(--white);padding:17px}.joint-row .jid{font:700 .8rem var(--mono);color:#9a7012}.joint-row h3{font:700 1.03rem var(--serif);margin:0}.joint-row p{font-size:.78rem;color:#5b6670;margin:0}.joint-row .tag{display:inline-block;margin-top:7px;font:700 .55rem var(--mono);letter-spacing:.04em;text-transform:uppercase;color:#14778b}.joint-row[data-status="open"] .tag{color:#a62472}.joint-row[data-status="provenance"] .tag{color:#8c650f}.joint-row[data-status="working"] .tag{color:#1d815c}
+    .source-hero{display:grid;grid-template-columns:minmax(260px,.8fr) minmax(0,1.2fr);gap:24px;align-items:center;margin:0 0 18px;border:1px solid var(--nightline);background:var(--night2);padding:18px}.source-hero img{display:block;width:100%;height:auto;border:1px solid #365263}.source-hero figcaption{color:#9eb1ba;font:400 .9rem/1.6 var(--serif)}.source-hero strong{display:block;color:white;font:700 1.55rem var(--serif);margin:.35rem 0}.source-hero a{color:var(--cyan);text-decoration:none;font:700 .62rem var(--mono);text-transform:uppercase;letter-spacing:.05em}.source-hero code{color:#c7d5db;font-size:.68rem;overflow-wrap:anywhere}
+    .sources{display:grid;grid-template-columns:repeat(3,1fr);gap:13px}.source-card{border:1px solid var(--nightline);background:var(--night2);padding:22px}.source-card h3{font:700 1.25rem var(--serif);color:white;margin:.45rem 0}.source-card p{font-size:.82rem;color:#96abb6}.source-card a{display:inline-block;margin:.35rem .7rem .2rem 0;color:var(--cyan);text-decoration:none;font:700 .59rem var(--mono);letter-spacing:.04em;text-transform:uppercase}.source-card .status{color:var(--gold)}
+    .policy{display:grid;grid-template-columns:1fr 1fr;gap:18px}.policy article{border:1px solid var(--line);background:var(--white);padding:25px}.policy h3{font:700 1.35rem var(--serif);margin:.4rem 0}.policy ul{padding-left:1.15rem}.policy li{margin:.45rem 0;color:#56616a;font-size:.86rem}
+    .btns{display:flex;flex-wrap:wrap;gap:9px;margin-top:22px}.btn{display:inline-block;text-decoration:none;border:1px solid currentColor;padding:10px 13px;font:700 .65rem var(--mono);text-transform:uppercase;letter-spacing:.05em;color:#147489}.btn.gold{color:#8b640c}
+    .return{background:linear-gradient(135deg,#e5eee8,#fffdf8);border-top:1px solid var(--line)}.return-grid{display:grid;grid-template-columns:1fr 1fr;gap:50px}.return blockquote{font:700 clamp(1.9rem,4vw,3.45rem)/1.12 var(--serif);margin:0}.return ol{padding-left:1.25rem}.return li{margin:.55rem 0}
+    footer{background:#050d14;color:#8ba1ad;padding:44px 6vw;border-top:4px solid var(--gold)}footer div{max-width:1250px;margin:auto;display:flex;justify-content:space-between;gap:24px}footer strong{color:white;letter-spacing:.12em}
+    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+    @media(max-width:980px){.hero-grid,.map-shell,.builder,.return-grid{grid-template-columns:1fr}.map-stage{min-height:610px}.grammar,.tiles{grid-template-columns:1fr 1fr}.sources{grid-template-columns:1fr 1fr}.joint-row{grid-template-columns:75px 1fr}.joint-row p{grid-column:2}.top nav{display:none}}
+    @media(max-width:640px){.section-head,.source-hero{grid-template-columns:1fr}.no{font-size:2.2rem}.spread{padding:52px 5vw}.grammar,.tiles,.sources,.policy{grid-template-columns:1fr}.map-stage{min-height:auto;padding:14px}.map-lines{display:none}.field-node{position:static;transform:none;width:100%!important;min-height:64px;margin-bottom:8px}.joint-output dl{grid-template-columns:1fr}.joint-row{grid-template-columns:1fr}.joint-row p{grid-column:auto}h1{font-size:4rem}}
+  </style>
+  <link rel="stylesheet" href="a0-context-navigation.css">
+</head>
+<body>
+  <header class="top">
+    <a class="brand" href="index.html">NEXAH <span>· A0 FIELD NOTES</span></a>
+    <nav aria-label="Atlas navigation">
+      <a href="#map">Feldkarte</a><a href="#perspectives">Perspektiven</a><a href="#builder">Fuge bauen</a><a href="#ledger">Ledger</a><a href="#sources">Quellen</a><a href="index.html">A0 Book</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="hero-grid">
+        <div><div class="eyebrow">A0 · Fields and Joints Atlas · 2026-10-10</div><h1>A0<span>Die Felder sind die Steine. Die Forschung liegt in den Fugen.</span></h1><p class="lead">Diese Karte verbindet mathematische Perspektiven, empirische Domänen, Beobachtung und Human Return. Sie behauptet nicht, dass diese Felder ein Mechanismus sind. Sie zeigt, welche Übersetzung erst deklariert werden muss, bevor ein Vergleich wissenschaftlich tragfähig werden kann.</p><div class="btns"><a class="btn gold" href="#map">Karte öffnen</a><a class="btn" href="A0_MATHEMATICAL_JOINTS.html">Mathe‑Feld vertiefen</a><a class="btn" href="../20_A0_FIELDS_AND_JOINTS_ATLAS_2026-10-10.md">Grundakte lesen</a></div></div>
+        <aside class="status-box"><div class="label">Documentary companion</div><strong>Eine Arbeitskarte, kein neues System.</strong><p>Post-milestone companion des eingefrorenen Acht-Kapitel-Readers. Bestehende Identität wird wiederverwendet; keine Navigator-Aufnahme und keine wissenschaftliche Promotion.</p><div class="status-list"><span>Field note</span><span>Unreviewed</span><span>No new study</span><span>No graph effect</span></div></aside>
+      </div>
+    </section>
+
+    <section class="black" id="map"><div class="spread">
+      <header class="section-head"><div class="no">01</div><div><div class="label">One field · many local descriptions</div><h2>Die Karte der berührten Felder.</h2><p class="sub">Wähle ein Feld. Rechts erscheint nicht seine Totaldefinition, sondern seine gegenwärtige A0-Fuge: Rolle, typische Übergänge und harte Nicht-Identität.</p></div></header>
+      <div class="map-shell">
+        <div class="map-stage" id="fieldMap" aria-label="Interaktive Karte der acht A0-Felder">
+          <svg class="map-lines" viewBox="0 0 900 560" preserveAspectRatio="none" aria-hidden="true">
+            <line x1="162" y1="84" x2="450" y2="274"/><line x1="450" y1="56" x2="450" y2="274"/><line x1="738" y1="84" x2="450" y2="274"/>
+            <line x1="117" y1="274" x2="450" y2="274"/><line x1="783" y1="274" x2="450" y2="274"/>
+            <line x1="162" y1="465" x2="450" y2="274"/><line x1="450" y1="498" x2="450" y2="274"/><line x1="738" y1="465" x2="450" y2="274"/>
+            <path d="M162 84Q450 8 738 84M117 274Q450 520 783 274"/><circle cx="450" cy="274" r="9"/>
+          </svg>
+          <button class="field-node node-physics" data-field="physics" aria-pressed="false"><b>Physics</b><small>model · dynamics · measurement</small></button>
+          <button class="field-node node-biology" data-field="biology" aria-pressed="false"><b>Biology</b><small>boundary · persistence · repair</small></button>
+          <button class="field-node node-chemistry" data-field="chemistry" aria-pressed="false"><b>Chemistry</b><small>bond · reaction · exchange</small></button>
+          <button class="field-node node-formal" data-field="formal" aria-pressed="false"><b>Formal controls</b><small>carrier · map · invariant</small></button>
+          <button class="field-node core node-core" data-field="core" aria-pressed="true"><b>A0 comparative seam</b><small>cut · translate · compare · Return</small></button>
+          <button class="field-node node-observation" data-field="observation" aria-pressed="false"><b>Observation</b><small>source · medium · instrument</small></button>
+          <button class="field-node node-representation" data-field="representation" aria-pressed="false"><b>Representation</b><small>encoding · projection · readout</small></button>
+          <button class="field-node node-human" data-field="human" aria-pressed="false"><b>Human Return</b><small>selection · judgment · responsibility</small></button>
+          <button class="field-node node-provenance" data-field="provenance" aria-pressed="false"><b>Provenance</b><small>history · image · question origin</small></button>
+        </div>
+        <aside class="inspector" aria-live="polite"><div class="label">Selected seam</div><h3 id="fieldTitle">A0 comparative seam</h3><p id="fieldSummary">Das Zentrum wird durch deklarierte Beziehungen erzeugt. Es ist kein Weltzentrum, kein äußerer Beobachter und kein physikalisches Objekt.</p><dl><dt>Typical joints</dt><dd id="fieldJoints">cut · translation · comparison · binding · readout · residual · Return</dd><dt>Required declaration</dt><dd id="fieldRequired">Endpunkte, Träger, Map, Invariant, Verlust, Zusatz, Residual und STOP.</dd></dl><div class="boundary" id="fieldBoundary">RELATIONAL CENTRE ≠ PRE-EXISTING CENTRE</div></aside>
+      </div>
+    </div></section>
+
+    <section class="spread" id="grammar">
+      <header class="section-head"><div class="no">02</div><div><div class="label">Four-layer reading</div><h2>Ein Atlas mit vier getrennten Ebenen.</h2><p class="sub">Die Karte wird erst belastbar, wenn Feld, Ansicht, Fuge und Return nicht ineinanderfallen.</p></div></header>
+      <div class="grammar"><article><b>01</b><h3>Fields</h3><p>Lokale Wissensgebiete mit eigenen Gegenständen, Methoden, Einheiten und Evidenzformen.</p></article><article><b>02</b><h3>Views</h3><p>Repräsentationen, Koordinaten, Projektionen oder Readouts innerhalb und zwischen Feldern.</p></article><article><b>03</b><h3>Joints</h3><p>Deklarierte Schnitte, Maps, Vergleiche, Bindungen, Übersetzungen und Übergänge.</p></article><article><b>04</b><h3>Return</h3><p>Was erhalten blieb, verloren ging, ergänzt wurde oder unaufgelöst bleiben muss.</p></article></div>
+      <div class="joint-contract"><div class="label">Minimal joint record</div><code>J = (left object, right object, carriers, units, map, compatibility,
+     preserved, lost, added, residual, evidence, status, Return / STOP)</code></div>
+    </section>
+
+    <section class="spread" id="perspectives">
+      <header class="section-head"><div class="no">03</div><div><div class="label">Pattern of Orientation · twelve perspective tiles</div><h2>Zwölf Ansichten. Keine zwölf neuen Axiome.</h2><p class="sub">Jede Tafel ist ein Ort, von dem aus ein Orientierungsproblem beschrieben werden kann. Wähle eine Perspektive für ihre begrenzte Rolle und Fugenfrage.</p></div></header>
+      <div class="tiles" id="perspectiveTiles"></div><div class="tile-detail" aria-live="polite"><h3 id="tileTitle">Direction</h3><p id="tileText">Rolle: Richtungsrecord. Fugenfrage: Was definiert Vorzeichen, Betrag und Umkehr?</p></div>
+    </section>
+
+    <section class="black" id="builder"><div class="spread">
+      <header class="section-head"><div class="no">04</div><div><div class="label">Joint builder · question before claim</div><h2>Eine Fuge typisieren.</h2><p class="sub">Wähle zwei Felder und einen Fugentyp. Das Ergebnis ist kein Beweis, sondern die kleinste Checkliste, die vor einer wissenschaftlichen Verbindung ausgefüllt werden muss.</p></div></header>
+      <div class="builder">
+        <div class="controls">
+          <label>Left field<select id="leftField"></select></label>
+          <label>Joint type<select id="jointType"></select></label>
+          <label>Right field<select id="rightField"></select></label>
+          <button class="swap" id="swapFields" type="button">Left ↔ Right tauschen</button>
+        </div>
+        <div class="joint-output" aria-live="polite"><div class="label">Draft relation record</div><h3 id="jointTitle"></h3><dl><dt>Objects</dt><dd id="jointObjects"></dd><dt>Map</dt><dd id="jointMap"></dd><dt>Must preserve</dt><dd id="jointPreserve"></dd><dt>Must disclose</dt><dd id="jointDisclose"></dd><dt>Status now</dt><dd class="open" id="jointStatus">OPEN_QUESTION — no relation evidence has been supplied by this selection.</dd><dt>STOP</dt><dd id="jointStop">Stop if carrier, units, domain, codomain or comparison rule are undefined.</dd></dl><button id="copyJoint" type="button">Record kopieren</button><span class="copy-note" id="copyNote"></span></div>
+      </div>
+    </div></section>
+
+    <section class="spread" id="ledger">
+      <header class="section-head"><div class="no">05</div><div><div class="label">Initial joint ledger · A0-J01 to A0-J10</div><h2>Die ersten zehn Fugen.</h2><p class="sub">Der Status gehört zur Relation, nicht automatisch zu ihren Endpunkten. Zwei etablierte Felder können durch eine offene oder falsche Map verbunden sein.</p></div></header>
+      <div class="ledger-tools" aria-label="Ledger filter"><button data-filter="all" aria-pressed="true">Alle</button><button data-filter="established" aria-pressed="false">Established</button><button data-filter="working" aria-pressed="false">Working</button><button data-filter="open" aria-pressed="false">Open / Unknown</button><button data-filter="provenance" aria-pressed="false">Provenance</button></div>
+      <div class="ledger-list" id="ledgerList"></div>
+    </section>
+
+    <section class="black" id="sources"><div class="spread">
+      <header class="section-head"><div class="no">06</div><div><div class="label">Sources and instrument boundaries</div><h2>Verbunden, aber nicht verschmolzen.</h2><p class="sub">Die hellen Pattern-Tafeln liefern die Feldkarte. Die dunklen Q°-Studien untersuchen Steuerung, Maske und Bindung. Ihre Herkunft bleibt sichtbar; ihr historischer Status wird nicht durch die HTML-Verbindung aufgewertet.</p></div></header>
+      <figure class="source-hero"><a href="assets/fields-and-joints/05_THE_PATTERN_OF_ORIENTATION_MASTERPLATE.png"><img src="assets/fields-and-joints/05_THE_PATTERN_OF_ORIENTATION_MASTERPLATE.png" alt="Pattern of Orientation Masterplate mit zwölf mathematischen Perspektivfeldern um ein relationales Q-Grad-Zentrum"></a><figcaption><div class="label">Local reading copy · source authority remains NEXAH Core</div><strong>The Pattern of Orientation — Masterplate</strong>Die Masterplate ist hier als visuelle Feldkarte lesbar, nicht als Beweis eines einheitlichen Mechanismus. Alle eingebetteten Quellen sind byte-identische Lesekopien; Originalpfade, Prüfsummen, Rollen und Grenzen stehen im <a href="assets/fields-and-joints/MANIFEST.json">Asset-Manifest →</a><br><code>Source: 10 NEXAH CORE/NEXAH/docs/library/architecture-of-orientation-vol-iv/pattern-of-orientation/</code></figcaption></figure>
+      <div class="sources">
+        <article class="source-card"><div class="label">Retained source series</div><h3>Pattern of Orientation</h3><p>Mathematics, Masonry, Channels, Relational Center, Masterplate, River und Whip als konzeptuelle visuelle Synthese.</p><p class="status">CONCEPTUAL_VISUAL_SYNTHESIS</p><a href="assets/fields-and-joints/05_THE_PATTERN_OF_ORIENTATION_MASTERPLATE.png">Masterplate öffnen →</a><a href="assets/fields-and-joints/MANIFEST.json">Provenienz →</a></article>
+        <article class="source-card"><div class="label">Historical player</div><h3>Relational Joystick</h3><p>Normalisierung und relationaler Kontrollwert innerhalb deklarierter Grenzen. Kein fünfter Quaternion-Anteil und kein physikalischer Universaloperator.</p><p class="status">HISTORICAL_NONCANONICAL</p><a href="assets/fields-and-joints/Q_DEGREE_RELATIONAL_JOYSTICK_PLAYER.html">Player öffnen →</a><a href="assets/fields-and-joints/q0-relational-joystick.html">Current fragment →</a></article>
+        <article class="source-card"><div class="label">Incomplete experiment</div><h3>Orientation / Shadow Switchyard</h3><p>Rails, Masken und bewegliches Entscheidungsfenster. Verdeckter Inhalt bleibt ohne legitime Vollspur und Recovery-Regel unbekannt.</p><p class="status">INCOMPLETE_NONCANONICAL</p><a href="assets/fields-and-joints/Q_DEGREE_SHADOW_SWITCHYARD_PLAYER.html">Player öffnen →</a></article>
+        <article class="source-card"><div class="label">Historical synthesis</div><h3>Mathematical Backbone</h3><p>Maps, Gewichtung, Binder-Gleichung, Konsistenz und Alignment. Jede Gleichung benötigt getypte Domänen und relationale Evidenz.</p><p class="status">NONCANONICAL_SYNTHESIS</p><a href="assets/fields-and-joints/MATHEMATICAL_BACKBONE_PLAYER_NONCANONICAL.html">Player öffnen →</a></article>
+        <article class="source-card"><div class="label">Current documentary source</div><h3>A0 Fields and Joints Atlas</h3><p>Vollständige Textakte mit Feldern, Perspektivtafeln, Fugenrecord, Statussprache und Initial Ledger.</p><p class="status">FIELD_NOTE_ATLAS</p><a href="../20_A0_FIELDS_AND_JOINTS_ATLAS_2026-10-10.md">Markdown record →</a><a href="FIELD_NOTES_A0.md#12-owner-placement-decision---a0-fields-and-joints-atlas">Owner placement →</a></article>
+        <article class="source-card"><div class="label">Routing boundary</div><h3>Science Lab &amp; Navigator Routing</h3><p>Legt fest, welche AXIOM-Bestandteile als begrenzte Fragen zurückkehren dürfen und welche in der privaten Archäologie verbleiben.</p><p class="status">NO_NAVIGATOR_EFFECT</p><a href="../18_AXIOM_SERIES_SCIENCE_LAB_AND_NAVIGATOR_ROUTING_2026-10-10.md">Routing record →</a><a href="../19_SMALL_TYPED_RECORDS_GENERATIVE_COMPARISON_QUESTION_CANDIDATE_2026-10-10.md">Question candidate →</a></article>
+      </div>
+    </div></section>
+
+    <section class="spread" id="governance">
+      <header class="section-head"><div class="no">07</div><div><div class="label">Claim and lifecycle boundary</div><h2>Was diese Karte tut — und nicht tut.</h2></div></header>
+      <div class="policy"><article><div class="label">Permitted documentary work</div><h3>Fragen und Relationen präzisieren.</h3><ul><li>Quellen und Begriffe zusammenführen, ohne ihre Autorität zu vermischen.</li><li>Endpunkte, Träger, Maps, Verluste und Residuen benennen.</li><li>Unbekannte, gescheiterte und nicht-identische Fugen sichtbar halten.</li><li>Eine einzelne begrenzte Kandidatenfrage für spätere Aufnahme vorbereiten.</li></ul></article><article><div class="label">Explicit STOP</div><h3>Keine stille Aktivierung.</h3><ul><li>Kein neues Study- oder Navigator-Objekt.</li><li>Keine Kanonisierung von Q° oder der historischen AXIOM Chain.</li><li>Keine Ausführung, Simulation oder Evidenzproduktion während Structure Freeze.</li><li>Keine Veröffentlichung oder Erhöhung des Claim Ceiling.</li></ul></article></div>
+    </section>
+
+    <section class="return"><div class="spread return-grid"><blockquote>Eine gute Fuge beweist nicht, dass zwei Felder dasselbe sind. Sie macht prüfbar, was zwischen ihnen übersetzt werden darf.</blockquote><div><div class="label">Human Return</div><ol><li>Beginne mit zwei klar benannten Gegenständen.</li><li>Typisiere Träger, Einheiten und Vergleichsregel.</li><li>Notiere Erhalt, Verlust, Zusatz und Residual.</li><li>Ordne der Relation einen ehrlichen Status zu.</li><li>Stoppe, bevor Analogie zur Identität wird.</li></ol><div class="btns"><a class="btn gold" href="#builder">Neue Fuge prüfen</a><a class="btn" href="index.html">Return to A0 Book</a></div></div></div></section>
+  </main>
+
+  <footer><div><span><strong>NEXAH · A0 FIELDS &amp; JOINTS</strong><br>Internal post-milestone companion · documentary Field Note</span><span class="label">Existing identity · no Navigator admission</span></div></footer>
+
+  <script>
+    const fields={
+      core:{title:'A0 comparative seam',summary:'Das Zentrum wird durch deklarierte Beziehungen erzeugt. Es ist kein Weltzentrum, kein äußerer Beobachter und kein physikalisches Objekt.',joints:'cut · translation · comparison · binding · readout · residual · Return',required:'Endpunkte, Träger, Map, Invariant, Verlust, Zusatz, Residual und STOP.',boundary:'RELATIONAL CENTRE ≠ PRE-EXISTING CENTRE'},
+      physics:{title:'Physics ↔ A0',summary:'A0 fragt, wo ein physikalisches Modell gilt, welche Observablen es produziert und was sein Rest verantwortbar bedeutet.',joints:'model fit · boundary condition · measurement · residual',required:'Zustand, Zeitparameter, Gleichung, Randbedingungen, Einheiten und Observable.',boundary:'SHARED GEOMETRY ≠ SHARED PHYSICS'},
+      biology:{title:'Biology ↔ A0',summary:'Lebende Systeme sind eine Kandidatenfuge zwischen physikalischem Fluss und chemischem Austausch durch erhaltene Organisation und Geschichte.',joints:'boundary maintenance · metabolism · repair · reproduction · adaptation',required:'Organismus oder System, Systemgrenze, Zeitskala, Austausch und Persistenzkriterium.',boundary:'LIVING BINDER = QUESTION · NOT ONTOLOGICAL CENTRE'},
+      chemistry:{title:'Chemistry ↔ A0',summary:'Zusammensetzung, Bindung und Reaktion bilden eine Transformationsspur mit domänenspezifischen Identitätskriterien.',joints:'composition · bond · interface · reaction · exchange',required:'Spezies, Stöchiometrie, Bedingungen, Reaktionsweg, Messung und Erhaltungssätze.',boundary:'CHEMICAL IDENTITY ≠ NUMERICAL RESEMBLANCE'},
+      formal:{title:'Formal controls ↔ A0',summary:'Mathematik liefert Träger, Maps, Invarianten und Gegenbeispiele über alle Domänen hinweg.',joints:'definition · transition map · proof · counterexample · equivalence',required:'Menge oder Raum, Typen, Domäne, Kodomäne, Operation und Gültigkeitsbedingungen.',boundary:'FORMAL VALIDITY ≠ EMPIRICAL INSTANTIATION'},
+      observation:{title:'Observation ↔ A0',summary:'Ein Record entsteht durch Quelle, Medium, Grenze, Instrument und Beobachtungsbedingungen.',joints:'projection · aperture · calibration · sensor response · readout',required:'Quelle, Transferkanal, Instrumentantwort, Kalibration, Unsicherheit und Auflösung.',boundary:'ABSENT FROM RECORD ≠ NON-EXISTENT'},
+      representation:{title:'Representation ↔ A0',summary:'Kodierung, Projektion und Readout bestimmen, welche Unterschiede sichtbar und vergleichbar werden.',joints:'encoding · projection · coordinate change · mask · reconstruction',required:'Quellraum, Zielraum, Map, Fasern, Invertierbarkeit, Verlust und hinzugefügte Konvention.',boundary:'DISPLAY ≠ OBJECT'},
+      human:{title:'Human Return ↔ A0',summary:'Return macht sichtbar, was nach Auswahl und Vergleich verantwortlich gesagt werden kann und wo Urteil beginnt.',joints:'selection · interpretation · decision boundary · responsibility',required:'Zweck, Auswahlregel, betroffene Entscheidung, Unsicherheit und STOP-Verantwortung.',boundary:'CLASSIFICATION ≠ DECISION RULE'},
+      provenance:{title:'Provenance ↔ A0',summary:'Historische Bilder und Metaphern bewahren die Entstehung einer Frage, übertragen aber keine Evidenz.',joints:'source lineage · version · motif · question origin · custody',required:'Originalquelle, Hash oder Pfad, Datum, Status, Bearbeitung und zulässige Rückkehr.',boundary:'QUESTION-GENERATING MOTIF ≠ CONFIRMATION'}
+    };
+    const perspectives=[
+      ['Direction','directional record','Was definiert Vorzeichen, Betrag und Umkehr?'],['Frame','basis / coordinate frame','Welche Frame-Änderung bewahrt die Aussage?'],['Handedness','orientation class','Ist Reflexion erlaubt, erkannt oder herausquotientiert?'],['Rotation','declared rotation representation','Was rotiert relativ zu welchem Frame?'],
+      ['Spin / periodic state','loop / phase representation','Ist der Zyklus geometrisch, dynamisch oder nur grafisch?'],['Local maps','charts / local representations','Was ist die Überlappungsdomäne?'],['Transition','map between local descriptions','Sind Domäne, Kodomäne und Inverse deklariert?'],['Transport','comparison along a path','Welcher Pfad und welche Connection bestimmen den Vergleich?'],
+      ['Holonomy / Return','accumulated loop transform','Was kehrt zurück: Punkt, Zustand, Frame oder Relation?'],['Dynamics','state change under a rule','Was sind Zustand, Zeit und Evolutionsregel?'],['Gluing','compatibility of local data','Welche Konsistenz- oder Cocycle-Bedingung gilt?'],['Navigation','path under cost and constraints','Ist der Weg berechnet, beobachtet oder metaphorisch?']
+    ];
+    const jointTypes={
+      'Projection':{map:'Declare a map from the left carrier into a representation on the right.',preserve:'Name the exact invariant or readable content that survives.',disclose:'Fibres, lost distinctions, mask, resolution and any added convention.'},
+      'Translation':{map:'Declare syntax, semantics, domain and codomain of the translation.',preserve:'Show which typed meaning or relation is conserved.',disclose:'Ambiguity, untranslatable content and imported assumptions.'},
+      'Comparison':{map:'Declare one criterion, scale and compatibility contract.',preserve:'Retain the objects as separate records under a shared test.',disclose:'Normalization, units, baseline and multiplicity.'},
+      'Transition map':{map:'Declare overlap, direction, inverse conditions and composition rule.',preserve:'Demonstrate compatibility on the declared overlap.',disclose:'Failure of invertibility, singularities and excluded regions.'},
+      'Transport':{map:'Declare path, connection and object being transported.',preserve:'State which quantity is parallel or covariantly retained.',disclose:'Path dependence, curvature and accumulated residual.'},
+      'Gluing':{map:'Declare local pieces, overlaps and consistency condition.',preserve:'Show the compatible local data used in the construction.',disclose:'Mismatch, obstruction and failure of global closure.'},
+      'Weighting / binding':{map:'Declare compatible inputs, weights and normalization.',preserve:'Retain input provenance and the exact coefficient rule.',disclose:'Scale dependence, selection bias and discarded alternatives.'},
+      'Readout':{map:'Declare how a state or model becomes an observable record.',preserve:'Name the measured or computed statistic.',disclose:'Hidden state, instrument response and undecidable alternatives.'},
+      'Return':{map:'Declare what recovery or re-relation counts as Return.',preserve:'State the recovered point, state, frame or relation.',disclose:'Residual, drift, information loss and STOP condition.'}
+    };
+    const joints=[
+      ['A0-J01','local chart ↔ local chart','established','ESTABLISHED_STRUCTURE','Transition map and overlap declared.','No universal NEXAH transition follows.'],
+      ['A0-J02','source event ↔ observed record','working','BOUNDED_METHOD_CONTRACT','Declared response of medium, boundary and instrument.','The unrecorded source remainder stays unknown.'],
+      ['A0-J03','representation A ↔ representation B','open','OPEN_QUESTION','Declared invariant, if demonstrated.','Visual similarity does not supply the map.'],
+      ['A0-J04','five references ↔ weighted centre','working','ESTABLISHED + NEXAH_WORKING_SYNTHESIS','Weights and compatible coordinates.','No absolute or physical centre is inferred.'],
+      ['A0-J05','local alignments ↔ navigated path','working','NEXAH_WORKING_SYNTHESIS','Ordered local constraints and selected route.','No global optimality or natural law.'],
+      ['A0-J06','physical system ↔ mathematical model','open','OPEN_QUESTION PER MODEL','Declared variables, fit domain and observables.','Reality is not exhausted by the model record.'],
+      ['A0-J07','physics ↔ biology ↔ chemistry','open','OPEN_QUESTION','Flow, composition and maintained organization.','Biology is not pre-adopted as universal binder.'],
+      ['A0-J08','historical visual ↔ research question','provenance','PROVENANCE_ONLY','Source lineage and question-generating motif.','No evidentiary confirmation transfers.'],
+      ['A0-J09','mask / occlusion ↔ reconstruction','open','UNKNOWN_OR_UNDEFINED_MAP','Only declared visible and recoverable content.','Hidden content remains UNKNOWN, not absent.'],
+      ['A0-J10','typed grammar ↔ held-out target','open','UNADMITTED_OPEN_QUESTION','Only preregistered compression or prediction gain.','Recurrence and selected examples are insufficient.']
+    ];
+
+    const $=id=>document.getElementById(id);
+    document.querySelectorAll('[data-field]').forEach(button=>button.addEventListener('click',()=>{
+      const key=button.dataset.field,d=fields[key];
+      document.querySelectorAll('[data-field]').forEach(b=>b.setAttribute('aria-pressed',String(b===button)));
+      $('fieldTitle').textContent=d.title;$('fieldSummary').textContent=d.summary;$('fieldJoints').textContent=d.joints;$('fieldRequired').textContent=d.required;$('fieldBoundary').textContent=d.boundary;
+    }));
+
+    perspectives.forEach((p,i)=>{const button=document.createElement('button');button.className='tile';button.type='button';button.setAttribute('aria-pressed',String(i===0));button.innerHTML=`<b>${p[0]}</b><small>${p[1]}</small><span>${p[2]}</span>`;button.addEventListener('click',()=>{document.querySelectorAll('.tile').forEach(t=>t.setAttribute('aria-pressed',String(t===button)));$('tileTitle').textContent=p[0];$('tileText').textContent=`Rolle: ${p[1]}. Fugenfrage: ${p[2]}`});$('perspectiveTiles').appendChild(button)});
+
+    const fieldNames=Object.fromEntries(Object.entries(fields).filter(([k])=>k!=='core').map(([k,v])=>[k,v.title.replace(' ↔ A0','')]));
+    Object.entries(fieldNames).forEach(([key,name])=>{['leftField','rightField'].forEach(id=>{const option=document.createElement('option');option.value=key;option.textContent=name;$(id).appendChild(option)})});
+    Object.keys(jointTypes).forEach(name=>{const option=document.createElement('option');option.value=name;option.textContent=name;$('jointType').appendChild(option)});
+    $('leftField').value='formal';$('rightField').value='physics';$('jointType').value='Translation';
+    function renderJoint(){const left=fieldNames[$('leftField').value],right=fieldNames[$('rightField').value],type=$('jointType').value,d=jointTypes[type];$('jointTitle').textContent=`${left} — ${type} — ${right}`;$('jointObjects').textContent=`Name one typed ${left} object and one typed ${right} object.`;$('jointMap').textContent=d.map;$('jointPreserve').textContent=d.preserve;$('jointDisclose').textContent=d.disclose}
+    ['leftField','rightField','jointType'].forEach(id=>$(id).addEventListener('change',renderJoint));$('swapFields').addEventListener('click',()=>{const v=$('leftField').value;$('leftField').value=$('rightField').value;$('rightField').value=v;renderJoint()});
+    $('copyJoint').addEventListener('click',async()=>{const text=[$('jointTitle').textContent,`Objects: ${$('jointObjects').textContent}`,`Map: ${$('jointMap').textContent}`,`Must preserve: ${$('jointPreserve').textContent}`,`Must disclose: ${$('jointDisclose').textContent}`,`Status: ${$('jointStatus').textContent}`,`STOP: ${$('jointStop').textContent}`].join('\n');try{await navigator.clipboard.writeText(text);$('copyNote').textContent='Kopiert.'}catch{$('copyNote').textContent='Kopieren im Browser nicht verfügbar.'}setTimeout(()=>$('copyNote').textContent='',2200)});renderJoint();
+
+    function renderLedger(filter='all'){$('ledgerList').innerHTML='';joints.filter(j=>filter==='all'||j[2]===filter).forEach(j=>{const row=document.createElement('article');row.className='joint-row';row.dataset.status=j[2];row.innerHTML=`<div class="jid">${j[0]}</div><div><h3>${j[1]}</h3><span class="tag">${j[3]}</span></div><p><strong>Preserves:</strong> ${j[4]}</p><p><strong>Boundary:</strong> ${j[5]}</p>`;$('ledgerList').appendChild(row)})}
+    document.querySelectorAll('[data-filter]').forEach(button=>button.addEventListener('click',()=>{document.querySelectorAll('[data-filter]').forEach(b=>b.setAttribute('aria-pressed',String(b===button)));renderLedger(button.dataset.filter)}));renderLedger();
+  </script>
+  <script src="a0-context-navigation.js"></script>
+</body>
+</html>

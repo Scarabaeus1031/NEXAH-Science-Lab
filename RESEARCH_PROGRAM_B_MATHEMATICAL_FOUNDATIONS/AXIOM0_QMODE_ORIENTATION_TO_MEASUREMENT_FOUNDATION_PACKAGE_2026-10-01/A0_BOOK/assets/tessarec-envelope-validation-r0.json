@@ -1,0 +1,79 @@
+{
+  "schema": "nexah.a0.tessarec-envelope-validation-design.v0.1",
+  "date": "2026-10-12",
+  "status": "R0_DESIGN_PACKAGE_NOT_RUNNABLE",
+  "lab_state": "STRUCTURE_FREEZE",
+  "identity": {
+    "owning_package": "AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01",
+    "reused_module_id": "MOD:TESSAREC",
+    "new_study": false,
+    "new_navigator_entity": false,
+    "new_relation": false
+  },
+  "question": "Can a frozen Q4 frame sequence produce an intrinsic envelope that is invariant under observer-angle change while its declared projection changes and remains auditable?",
+  "primary_fixture": {
+    "carrier": "Q4",
+    "vertices": 16,
+    "edges": 32,
+    "traversal": "binary_reflected_gray_cycle",
+    "closure_required": true
+  },
+  "secondary_fixture": {
+    "carrier": "Q4_x_P3",
+    "vertices": 48,
+    "inner_edges": 96,
+    "layer_bridges": 32,
+    "total_edges": 128,
+    "claim_role": "engineering_comparison_only"
+  },
+  "design": {
+    "frame_rule": {
+      "name": "dyadic_Q4_vertex_projection_v0_1",
+      "input_vertex": "[x,y,z,w] in {-1,+1}^4 from the four address bits",
+      "output_point": "[x + y/2 - z/4 + w/8, x/4 - y + z/2 - w/8]"
+    },
+    "window": {
+      "candidate": "W3_cyclic",
+      "members": ["F_k_minus_1", "F_k", "F_k_plus_1"]
+    },
+    "aggregators": {
+      "primary_candidate": "convex_hull_of_W3_frame_points",
+      "primary_candidate_status": "frozen_for_R0_engineering_verification_only",
+      "secondary_comparison": "union_or_reachable_set_outline",
+      "current_atlas_status": "schematic_not_frozen_result"
+    },
+    "observer_angles_degrees": [0, 42, -42, 45, -45, 90, -90, 180],
+    "observer_map": "pi_theta([x,y]) = [cos(theta)*x - 0.5*sin(theta)*y, 0.5*sin(theta)*x + cos(theta)*y]",
+    "sampling_arms": ["UNIFORM", "SEEDED_RANDOM", "FIBONACCI_INDEXED"],
+    "sampling_status": "planned_not_scored",
+    "euler_role": "complex_phase_parameterization_only"
+  },
+  "gates": [
+    {"id": "G1_CARRIER", "assertion": "all consecutive traversal states are carrier-adjacent and closure passes"},
+    {"id": "G2_FRAME", "assertion": "replayed frame coordinates or digests match under frozen tolerance"},
+    {"id": "G3_INTRINSIC", "assertion": "intrinsic envelope does not change when only observer angle changes"},
+    {"id": "G4_OBSERVED", "assertion": "observed envelope equals the declared projection of the intrinsic envelope"},
+    {"id": "G5_CONTACT", "assertion": "Q-line contact class is numerical and tolerance-bound"},
+    {"id": "G6_SAMPLING", "assertion": "sampling arms use matched counts and one frozen metric"},
+    {"id": "G7_ABLATION", "assertion": "temporal-order ablation effect is reported including exact zero"},
+    {"id": "G8_RETURN", "assertion": "carrier frame view format and residual addresses remain resolvable"}
+  ],
+  "result_vocabulary": [
+    "SUPPORTED_WITHIN_FROZEN_FIXTURE",
+    "VALIDATED_NEGATIVE_RESULT",
+    "UNINFORMATIVE_BENCHMARK",
+    "INVALID_EXPERIMENT",
+    "INFORMATION_LOST",
+    "UNDEFINED_CONTRACT",
+    "ABSTAIN_INSUFFICIENT_RESOLUTION"
+  ],
+  "execution": {
+    "authorized": false,
+    "engineering_verifier": "A0_BOOK/assets/tessarec-envelope-g1-g4.mjs",
+    "engineering_verify_command": "node A0_BOOK/assets/tessarec-envelope-g1-g4.mjs --verify",
+    "engineering_verification_status": "PASS_NOT_A_SCIENTIFIC_RESULT",
+    "results": [],
+    "next_permitted_action": "owner review of the hash-bound Run Contract candidate; no science execution during Structure Freeze"
+  },
+  "claim_boundary": "Finite declared fixtures and representation contracts only; no new theorem, physical mechanism, Fibonacci privilege, Euler resonance law or publication claim."
+}

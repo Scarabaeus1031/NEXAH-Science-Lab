@@ -1,0 +1,233 @@
+{
+  "schema": "nexah.navigator.instrument-family/1.0.0",
+  "instrument_id": "NEXAH:INSTRUMENT:BREATHING_PRIME_CRYSTAL:V1",
+  "date": "2026-10-08",
+  "status": "INTERNAL_READ_ONLY_CALIBRATION_FAMILY",
+  "title": "Breathing / Prime Crystal Instrument Family",
+  "subtitle": "Known carrier · three grid cuts · explicit view residual",
+  "purpose": "Use a completely known integer carrier to distinguish persistent arithmetic identity from topology introduced by a chosen view, then carry that distinction into LIFE and CA-IDENT as a negative control.",
+  "publication_authorized": false,
+  "changes_canonical_family_count": false,
+  "connection_family_ids": ["CF:F1", "CF:F2", "CF:F3", "CF:F4", "CF:F5", "CF:F7"],
+  "carrier": {
+    "kind": "finite_integer_interval",
+    "domain": "1..3000",
+    "size": 3000,
+    "persistent_address": "integer n",
+    "known_truth_fields": ["primality", "twin-prime membership", "residue mod 19", "residue mod 29", "Euler-41 membership", "root-band membership"]
+  },
+  "exact_inventory": {
+    "primes": 430,
+    "twin_prime_members": 162,
+    "twin_prime_members_with_partner_inside_carrier": 161,
+    "twin_membership_scope": "global arithmetic property; 2999↔3001 contributes the boundary member 2999",
+    "euler_41_values": 54,
+    "euler_41_prime_values": 50,
+    "root_band_primes": 37
+  },
+  "three_cut_control": [
+    {
+      "cut_id": "CUT:WIDTH:19",
+      "columns": 19,
+      "prime_vertical_edges": 0,
+      "prime_horizontal_edges": 1,
+      "view_edges_total": 1,
+      "prime_column_cv": 0.2352
+    },
+    {
+      "cut_id": "CUT:WIDTH:20",
+      "columns": 20,
+      "prime_vertical_edges": 107,
+      "prime_horizontal_edges": 1,
+      "view_edges_total": 108,
+      "prime_column_cv": 1.218
+    },
+    {
+      "cut_id": "CUT:WIDTH:21",
+      "columns": 21,
+      "prime_vertical_edges": 1,
+      "prime_horizontal_edges": 1,
+      "view_edges_total": 2,
+      "prime_column_cv": 0.8601
+    }
+  ],
+  "three_cut_finding": "The carrier and arithmetic truth fields are unchanged, while the 20-column cut introduces 107 additional vertical prime-prime adjacencies. The strong prime lattice is therefore a view-local topology, not a carrier invariant.",
+  "overlap_control": {
+    "euler_twin_overlap": 18,
+    "euler_root_overlap": 7,
+    "twin_root_overlap": 10,
+    "hypergeometric_upper_tail": {
+      "euler_twin": 0.644446,
+      "euler_root": 0.121839,
+      "twin_root": 0.941795
+    },
+    "interpretation": "The exploratory overlaps do not support a special Euler-Twin-Root coupling. They are retained as a control against visually persuasive but non-specific overlays."
+  },
+  "instrument_layers": [
+    {
+      "layer_id": "BPC:L1:EXACT_CARRIER",
+      "title": "Exact arithmetic carrier",
+      "role": "Ground truth for identity, residues, primality, twins, Euler-41 and root-band labels.",
+      "evidence_state": "exact"
+    },
+    {
+      "layer_id": "BPC:L2:VIEW_CUTS",
+      "title": "Vendessimal and width controls",
+      "role": "Compare width 19, 20 and 21 without changing integer identity.",
+      "evidence_state": "bounded_computational_control"
+    },
+    {
+      "layer_id": "BPC:L3:BREATHING_CORE",
+      "title": "Breathing comparison core",
+      "role": "Use three membranes as three views, the regulator as comparison space and blend as explicit residual.",
+      "evidence_state": "instrument_specification"
+    },
+    {
+      "layer_id": "BPC:L4:LIFE_CONTROL",
+      "title": "LIFE / CA-IDENT negative control",
+      "role": "CA-IDENT-09 validates the split on the prime fixture; CA-IDENT-10 transfers it to one frozen LIFE05D event carrier.",
+      "evidence_state": "single_life_fixture_transfer_pass"
+    }
+  ],
+  "ilau_return": {
+    "retained": ["integer address", "primality", "mod-19/29 residues", "declared exact labels"],
+    "lost": ["view-local adjacencies absent under another width", "full relation context in a single overlay"],
+    "introduced": ["20-column vertical prime chains", "triad-band emphasis", "square-root rail appearance"],
+    "unresolved": ["a non-arbitrary binding for 0.429/0.456/0.487", "selective square-root rails", "a unique 1061-1064 mechanism"],
+    "return_rule": "A relation may return as carrier-level only if it survives declared re-encodings or is explicitly retained as view-local."
+  },
+  "life_bridge": {
+    "target_id": "MOD:LIFE_ORBIT",
+    "relation_type": "negative-control-and-method-grammar",
+    "preserves": ["persistent-address discipline", "separate carrier and view fields", "explicit residual", "claim ceiling"],
+    "does_not_imply": ["Prime causes LIFE", "shared operator", "shared clock", "shared physical mechanism", "new prime theory"],
+    "next_test": "Stop broad expansion. Replicate on additional frozen LIFE runs only under a new preregistration if cross-run generality becomes the explicit question."
+  },
+  "calibration_result": {
+    "experiment": "CA-IDENT-09",
+    "alias": "PBC-01",
+    "verdict": "CALIBRATION_PASS_VIEW_NONINVARIANT",
+    "gates_passed": "5/5",
+    "identity_mismatches": 0,
+    "exact_returns": 9000,
+    "stable_prediction_disagreement": { "width_19": 0, "width_21": 0 },
+    "view_prediction_disagreement": { "width_19": 0.504, "width_21": 0.513 },
+    "interpretation": "Persistent address and arithmetic identity survive all cuts exactly; grid adjacency is a view property and must not be promoted to carrier identity.",
+    "package": "SCIENCE_LAB/CASE_STUDIES/NEXAH_VIEW_INDUCED_TOPOLOGY_CALIBRATION_CA_IDENT_09_2026-10-08",
+    "result": "SCIENCE_LAB/CASE_STUDIES/NEXAH_VIEW_INDUCED_TOPOLOGY_CALIBRATION_CA_IDENT_09_2026-10-08/CA_IDENT_09_RESULT.json",
+    "preregistration_lock": "SCIENCE_LAB/CASE_STUDIES/NEXAH_VIEW_INDUCED_TOPOLOGY_CALIBRATION_CA_IDENT_09_2026-10-08/PREREGISTRATION_LOCK.json",
+    "mission_control_return": "SCIENCE_LAB/MISSION_CONTROL_RETURN_CA_IDENT_09_VIEW_INDUCED_TOPOLOGY_2026-10-08.md"
+  },
+  "life_transfer_result": {
+    "experiment": "CA-IDENT-10",
+    "alias": "LIFE-VIEW-01",
+    "source_run": "LIFE05D / RANDOM-17",
+    "verdict": "TRANSFER_PASS_VIEW_NONINVARIANT",
+    "gates_passed": "6/6",
+    "eligible_event_occurrences": 14132,
+    "evaluation_event_occurrences": 3530,
+    "identity_mismatches": 0,
+    "exact_returns": 42396,
+    "topology_jaccard": { "width_31": 0.338011, "width_33": 0.347484 },
+    "stable_prediction_disagreement": { "width_31": 0, "width_33": 0 },
+    "view_prediction_disagreement": { "width_31": 0.226629, "width_33": 0.268839 },
+    "interpretation": "Event identity and the lag-2 target survive re-encoding exactly; coordinate-neighbour topology and view-only decisions do not.",
+    "package": "SCIENCE_LAB/CASE_STUDIES/NEXAH_LIFE_THREE_CUT_EVENT_TRANSFER_CA_IDENT_10_2026-10-08",
+    "result": "SCIENCE_LAB/CASE_STUDIES/NEXAH_LIFE_THREE_CUT_EVENT_TRANSFER_CA_IDENT_10_2026-10-08/CA_IDENT_10_RESULT.json",
+    "preregistration_lock": "SCIENCE_LAB/CASE_STUDIES/NEXAH_LIFE_THREE_CUT_EVENT_TRANSFER_CA_IDENT_10_2026-10-08/PREREGISTRATION_LOCK.json",
+    "mission_control_return": "SCIENCE_LAB/MISSION_CONTROL_RETURN_CA_IDENT_10_LIFE_THREE_CUT_TRANSFER_2026-10-08.md"
+  },
+  "canonical_synthesis": {
+    "title": "NEXAH Carrier–View–Residual Finding",
+    "status": "BOUNDED_METHOD_FINDING / TWO-CARRIER DEMONSTRATION / NO UNIVERSAL CLAIM",
+    "short_rule": "Preserve identity, declare the cut, compare relations, keep the residual.",
+    "path": "SCIENCE_LAB/LABREPORTS/SYNTHESIS/NEXAH_CARRIER_VIEW_RESIDUAL_FINDING_2026-10-08.md",
+    "mission_control_return": "SCIENCE_LAB/MISSION_CONTROL_RETURN_CA_IDENT_09_10_CARRIER_VIEW_RESIDUAL_2026-10-08.md",
+    "portfolio_disposition": "STOP_AND_CONSOLIDATE / NO_AUTOMATIC_CA_IDENT_11 / NO_NEW_VISUAL_SERIES"
+  },
+  "closed_control_lineage": [
+    {
+      "control_id": "WNI-01",
+      "role": "positive_invariant_recovery_control",
+      "status": "CLOSED",
+      "finding": "Winding survives Q7/Q11/Q13/Q17 under adequate order, closure, reference, orientation and representation capacity even when exact coordinates do not return.",
+      "boundary": "No prime-grid topology, universal winding law or LIFE evidence.",
+      "path": "SCIENCE_LAB/CASE_STUDIES/WNI01_WINDING_NUMBER_GRID_INVARIANCE_AUDIT/20_FINAL_WNI01_DECISION.md",
+      "marker": "SCIENCE_LAB/CASE_STUDIES/WNI01_WINDING_NUMBER_GRID_INVARIANCE_AUDIT/WNI01_CLOSED_MARKER.png"
+    },
+    {
+      "control_id": "ETRI-01",
+      "role": "declared_transform_invariance_control",
+      "status": "CLOSED",
+      "finding": "Reflection preserves declared Euclidean relations while changing coordinates and handedness; graph augmentation and affine shear delimit the invariant class.",
+      "boundary": "Standard Euclidean geometry; no new operator or scientific claim.",
+      "path": "SCIENCE_LAB/CASE_STUDIES/ETRI01_EUCLIDEAN_TRANSFORM_REFLECTION_INCIDENCE_INVARIANCE_AUDIT/20_FINAL_ETRI01_DECISION.md"
+    },
+    {
+      "control_id": "NOS-01",
+      "role": "architecture_and_fail_closed_boundary",
+      "status": "CLOSED",
+      "finding": "State, representation, view, result, trace, history and provenance remain separately typed; unresolved and undefined are not zero.",
+      "boundary": "Coherent architecture is not truth or external validation.",
+      "path": "SCIENCE_LAB/CASE_STUDIES/NOS01_NEXAH_ORION_NEXA_NEXUS_SYSTEM_SYNTHESIS/14_FINAL_NOS01_DECISION.md"
+    },
+    {
+      "control_id": "TITAN-01",
+      "role": "external_nonidentity_control",
+      "status": "CLOSED",
+      "finding": "Bounded relation survival across observation and material regime changes does not establish shared identity or mechanism.",
+      "boundary": "External standard science remains external; model is not target.",
+      "path": "SCIENCE_LAB/CASE_STUDIES/TITAN01_SYSTEM_REGIME_CHANNEL_RELATION_SURVIVAL_CONTROL/12_FINAL_TITAN01_DECISION.md"
+    }
+  ],
+  "contextual_examples": {
+    "status": "EXPLANATORY_ONLY_NOT_ADDITIONAL_EVIDENCE",
+    "eleven_space_janus": "SCIENCE_LAB/CASE_STUDIES/NEXAH_ELEVEN_SPACE_JANUS_NUMBER_VIEW_2026-10-06/README.md",
+    "crt_rba_boundary": "SCIENCE_LAB/CASE_STUDIES/CRT_RBA01_HISTORICAL_GENERATOR_RECONSTRUCTION_BOUNDARY_AUDIT/13_FINAL_DECISION.md",
+    "hma01_visual_only": "SCIENCE_LAB/CASE_STUDIES/T_RAN_S_FORMATION/Operator Test Results/HMA01_DOWNLOAD/HMA01_FINAL_DECISION.md",
+    "interpretation": "CRT and Janus surfaces illustrate exact carrier/view/return grammar; HMA-01 does not establish a historical mapping or invariant. None supplies LIFE evidence."
+  },
+  "utility_assessment": {
+    "experiment": "NAV-UTILITY-01",
+    "status": "READY_FOR_FIRST_HUMAN_OWNER_RUN",
+    "result": "UNKNOWN_PENDING_HUMAN_INPUT",
+    "execution_disposition": "DEFERRED_BY_HUMAN_OWNER_NO_DATE",
+    "decision_question": "Should multi-run CA-IDENT-10 replication be activated automatically now?",
+    "time_limit_seconds": 720,
+    "registered_gates": 5,
+    "participant_scope": "one highly familiar Human Owner",
+    "instrument": "SCIENCE_LAB/CASE_STUDIES/NEXAH_NAVIGATOR_DECISION_UTILITY_NAV_UTILITY_01_2026-10-08/index.html",
+    "preregistration": "SCIENCE_LAB/CASE_STUDIES/NEXAH_NAVIGATOR_DECISION_UTILITY_NAV_UTILITY_01_2026-10-08/00_PREREGISTRATION.md",
+    "preregistration_lock": "SCIENCE_LAB/CASE_STUDIES/NEXAH_NAVIGATOR_DECISION_UTILITY_NAV_UTILITY_01_2026-10-08/PREREGISTRATION_LOCK.json",
+    "mission_control_return": "SCIENCE_LAB/MISSION_CONTROL_RETURN_NAV_UTILITY_01_READINESS_2026-10-08.md",
+    "interpretation_boundary": "A pass can support internal owner usefulness for this one decision task only; independent-reader and external utility remain open."
+  },
+  "source_records": [
+    {
+      "role": "forensic control",
+      "path": "SCIENCE_LAB/CASE_STUDIES/NEXAH_VENDESSIMAL_PRIME_GRID_FORENSIC_AUDIT_2026-09-28/FINAL_REPORT.md",
+      "sha256": "4c1b4385848fb15e21e356c05ab55f88e042ef7444d12de3ed1c148584a0658e"
+    },
+    {
+      "role": "package inventory",
+      "path": "SCIENCE_LAB/CASE_STUDIES/CIKADA_3301_LATER_MARKER_PROVENANCE_INTAKE/CIKADA 3301 LATER MARKER CORPUS/🧭🧭🧭GITHUB-TODO_UPLOAD NAVIGATION/🜂🜂🜂 ANKH 2040 — QED Summary Index/Breathing Crystal · Π‑ring · LIC_Resonant Atlas_Tesla Staricase/Breathing_Crystal_Package_v0_3/README_BreathingCrystal_v0_3.md",
+      "sha256": "3ef027b6b9f2cf779331d1a54d4779911570118c2e190b3df820b5924e93df9b"
+    },
+    {
+      "role": "historical field notes",
+      "path": "SCIENCE_LAB/CASE_STUDIES/CIKADA_3301_LATER_MARKER_PROVENANCE_INTAKE/CIKADA 3301 LATER MARKER CORPUS/🧭🧭🧭GITHUB-TODO_UPLOAD NAVIGATION/🜂🜂🜂 ANKH 2040 — QED Summary Index/Breathing Crystal · Π‑ring · LIC_Resonant Atlas_Tesla Staricase/Breathing_Crystal_Package_v0_3/vendessimal_readme.md",
+      "sha256": "8656a4b49c54fee3fd72833b17f00a0e27c1fea74fd77d3d88e68caeb913bd39"
+    },
+    {
+      "role": "scene and timeline specification",
+      "path": "SCIENCE_LAB/CASE_STUDIES/CIKADA_3301_LATER_MARKER_PROVENANCE_INTAKE/CIKADA 3301 LATER MARKER CORPUS/🧭🧭🧭GITHUB-TODO_UPLOAD NAVIGATION/🜂🜂🜂 ANKH 2040 — QED Summary Index/Breathing Crystal · Π‑ring · LIC_Resonant Atlas_Tesla Staricase/Breathing_Crystal_Package_v0_3/breathing_crystal_glb_spec_v0_3.json",
+      "sha256": "639278904ef4c20094bfc3d2aa4c7d05972939ac0cc63b0daf5593b22a53eb40"
+    },
+    {
+      "role": "canonical local GLB variant",
+      "path": "SCIENCE_LAB/CASE_STUDIES/CIKADA_3301_LATER_MARKER_PROVENANCE_INTAKE/CIKADA 3301 LATER MARKER CORPUS/🧭🧭🧭GITHUB-TODO_UPLOAD NAVIGATION/🜂🜂🜂 ANKH 2040 — QED Summary Index/GLBs Breathing Chrystal./breathing_crystal_nbands_prime_wiring.glb",
+      "sha256": "34baf77dceb12aa0a283ecdd4cd57f93710fb3879bea9a7f6917eb90f6a858c9"
+    }
+  ],
+  "claim_ceiling": "Internal calibration and navigation only. The family does not establish a new prime theory, Euler-Twin-Root resonance, selective square-root mechanism, unique 1061-1064 threshold, Prime/LIFE causality, physical crystal, Root-432 mechanism, public release or external utility result."
+}

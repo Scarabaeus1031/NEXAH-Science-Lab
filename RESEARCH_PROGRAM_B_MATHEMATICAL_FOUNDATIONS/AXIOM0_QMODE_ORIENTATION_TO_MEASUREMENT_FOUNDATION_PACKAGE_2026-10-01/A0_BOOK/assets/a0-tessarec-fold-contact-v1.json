@@ -1,0 +1,33 @@
+{
+  "id": "A0:TESSAREC:FOLD_CONTACT:V1",
+  "date": "2026-10-13",
+  "status": "BOUNDED_ENGINEERING_DEMONSTRATOR",
+  "surface": "../A0_TESSAREC_BLUE_BODY_LAB.html#fold-contact",
+  "source": "../../63_A0_TESSAREC_PENTAGON_FOLD_CONTACT_AND_A7_ROOT7_GUARD_2026-10-13.md",
+  "work": "MOD:TESSAREC",
+  "operator": {
+    "cutEdge": "phi*t*s",
+    "flapLeg": "extension*t*s",
+    "flapAltitude": "sqrt(flapLeg^2-(cutEdge/2)^2)",
+    "exactSquareApexExtension": "phi/sqrt(2)",
+    "regularPentagonAtT05": "OPEN"
+  },
+  "numberProfiles": {
+    "1111": {"totient": 1000, "gap": 111},
+    "3333": {"totient": 2000, "gap": 1333},
+    "4444": {"totient": 2000, "gap": 2444},
+    "7777": {"totient": 6000, "gap": 1777}
+  },
+  "a7Root7": {
+    "a7": {"namespace": "SHELL_VERTEX_ADDRESS", "degree": 3, "incidentFaces": [5,5,8], "regularFaceDefectDeg": 9, "mappingInvariant": false},
+    "root7": {"namespace": "EXACT_METRIC_LENS", "identity": "NEXAH:NAVIGATOR:ROOT7:LOOK:2026-10-08", "normSquared": 7, "axisIdentifiable": false, "epsilon7": "UNRESOLVED"},
+    "verdict": "REJECT_IDENTITY_COLLAPSE"
+  },
+  "addressFoldAdapters": {
+    "A2": {"panels": 3, "mode": "triangle", "status": "HYPOTHESIS_ONLY"},
+    "A7": {"panels": 8, "mode": "octagon", "status": "HYPOTHESIS_ONLY"}
+  },
+  "projectionLens": {"label": "4xO8 overlap", "baseline": 560, "animation": "breathing overlap while selected", "adapter": "four indexed overlap cells -> four square-base wall slots", "adapterParameters": {"t": 0.5, "extension": 1.25, "foldDeg": 180}, "changesFaceVector": false},
+  "conDaoAdapter": {"sourceIdentity": "NEXAH:CON_DAO_BREATH:V1", "carrierStates": 13, "carrierPartition": "6+1+6", "sequence": "CON-6 -> CON-1 -> STILL x2 -> DAO-1 -> DAO-6", "displayTicksPerPass": 14, "historicalSourceTicks": 21, "historicalTickFactorization": "3x7", "dualClockResidual": 8, "dualClockResidualFactorization": "2^3", "stateTickIdentity": false, "residualEqualsEightPlusFourOctaveGroup": "UNESTABLISHED", "foldProjection": "state depth -> normalized closure phase -> fold angle", "quarterClosure": {"normalizedHinge": 0.5, "halfHinge": 0.25, "slots": 4, "sum": 1}, "sapphireAxisLedger": {"axis": 1.5, "closure": 1, "axialReserve": 0.5}, "status": "SOURCE_BOUND_VIEW_ADAPTER_NOT_MECHANISM_IDENTITY"},
+  "claimBoundary": "SCHEMATIC_KINEMATIC_CONTACT_AUDIT_NOT_PHYSICAL_REALIZATION"
+}

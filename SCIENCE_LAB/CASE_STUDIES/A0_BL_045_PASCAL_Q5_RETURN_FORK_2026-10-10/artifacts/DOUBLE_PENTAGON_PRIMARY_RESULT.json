@@ -1,0 +1,298 @@
+{
+  "candidate_operators": {
+    "parallel_5_5": {
+      "coupling": "NONE",
+      "determinant": 1,
+      "matrix": [
+        [
+          8,
+          5,
+          0,
+          0
+        ],
+        [
+          5,
+          3,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          8,
+          5
+        ],
+        [
+          0,
+          0,
+          5,
+          3
+        ]
+      ],
+      "trace": 22
+    },
+    "reciprocal_bridge_Qprime_minus": {
+      "determinant": 1,
+      "fourth_power": [
+        [
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          1
+        ]
+      ],
+      "level_sign": -1,
+      "matrix": [
+        [
+          0,
+          0,
+          3,
+          -5
+        ],
+        [
+          0,
+          0,
+          -5,
+          8
+        ],
+        [
+          8,
+          5,
+          0,
+          0
+        ],
+        [
+          5,
+          3,
+          0,
+          0
+        ]
+      ],
+      "return_after_four": "EXACT_ORIENTED_STATE",
+      "return_after_two": "ANTI_RETURN_OR_PROJECTIVE_RETURN",
+      "square": [
+        [
+          -1,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          -1,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          -1
+        ]
+      ],
+      "trace": 0
+    },
+    "reciprocal_bridge_Qprime_plus": {
+      "determinant": 1,
+      "level_sign": 1,
+      "matrix": [
+        [
+          0,
+          0,
+          -3,
+          5
+        ],
+        [
+          0,
+          0,
+          5,
+          -8
+        ],
+        [
+          8,
+          5,
+          0,
+          0
+        ],
+        [
+          5,
+          3,
+          0,
+          0
+        ]
+      ],
+      "return_after_two": "EXACT_ORIENTED_STATE",
+      "square": [
+        [
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          1
+        ]
+      ],
+      "trace": 0
+    },
+    "same_direction_bridge": {
+      "is_involution": false,
+      "matrix": [
+        [
+          0,
+          0,
+          8,
+          5
+        ],
+        [
+          0,
+          0,
+          5,
+          3
+        ],
+        [
+          8,
+          5,
+          0,
+          0
+        ],
+        [
+          5,
+          3,
+          0,
+          0
+        ]
+      ],
+      "square": [
+        [
+          89,
+          55,
+          0,
+          0
+        ],
+        [
+          55,
+          34,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          89,
+          55
+        ],
+        [
+          0,
+          0,
+          55,
+          34
+        ]
+      ]
+    },
+    "sequential_10": {
+      "determinant": 1,
+      "is_identity": false,
+      "matrix": [
+        [
+          89,
+          55
+        ],
+        [
+          55,
+          34
+        ]
+      ],
+      "trace": 123
+    }
+  },
+  "checks": {
+    "carrier_is_two_times_five_positions": true,
+    "parallel_trace_22_det_plus_1": true,
+    "q10_exact": true,
+    "q10_trace_123_det_plus_1": true,
+    "q5_entry_8_equals_2_cubed": true,
+    "q5_exact": true,
+    "reciprocal_bridge_minus_fourth_power_is_identity": true,
+    "reciprocal_bridge_minus_squares_to_minus_identity": true,
+    "reciprocal_bridge_plus_squares_to_plus_identity": true,
+    "reciprocal_bridge_plus_trace_0_det_plus_1": true,
+    "reciprocal_leg_is_explicit_not_implied_by_count_10": true,
+    "same_direction_bridge_not_closed_after_two": true
+  },
+  "claim_boundary": "Exact conditional double-pentagon closure; no derivation of the reciprocal leg from Pascal weights, archaeology, imagery or physical topology.",
+  "classification": "SIGNED_DOUBLE_RETURN_IDENTIFIED",
+  "interpretation": [
+    "Q5 is the local monodromy of one pentagon and is retained as a half-orbit control.",
+    "Q10 is sequential composition, while Q5 direct-sum Q5 is two uncoupled copies; neither is a double-pentagon return.",
+    "A block-swap bridge between equal-direction copies exchanges carriers but accumulates Q10 and does not close the state.",
+    "The typed reciprocal bridge Q' closes exactly after two applications at level sign +1, but only because the second leg is explicitly Q^-5.",
+    "At level sign -1, Q' squared is -I: this is an anti-return, or a projective return only if global sign is explicitly quotiented; the oriented state closes after four applications.",
+    "The exact entry 8=2^3 is recorded in Q5 but does not determine the level sign.",
+    "Therefore two pentagons and ten positions do not determine Q'; reciprocal bridge and level orientation are indispensable data."
+  ],
+  "local_half_orbit": {
+    "Q5": [
+      [
+        8,
+        5
+      ],
+      [
+        5,
+        3
+      ]
+    ],
+    "determinant": -1,
+    "inverse_Q5": [
+      [
+        -3,
+        5
+      ],
+      [
+        5,
+        -8
+      ]
+    ],
+    "trace": 11
+  },
+  "study_id": "A0_BL_045_DOUBLE_PENTAGON_QPRIME_FORK_2026_10_10"
+}

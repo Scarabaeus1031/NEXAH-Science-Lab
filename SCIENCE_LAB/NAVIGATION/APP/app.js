@@ -12,6 +12,12 @@
   const observatoryBinding = window.NEXAH_OBSERVATORY_BINDING;
   const root7Look = window.NEXAH_ROOT7_LOOK;
   const ilauOrientation = window.NEXAH_ILAU_ORIENTATION_INSTRUMENTS;
+  const primeBaseMode = window.NEXAH_PRIME_BASE_MODE;
+  const labRegister = window.NEXAH_LAB_REGISTER;
+  const findingsFrontiers = window.NEXAH_FINDINGS_FRONTIERS;
+  const a0OrientationEvidence = window.NEXAH_A0_ORIENTATION_EVIDENCE;
+  const orientationCatalog = window.NEXAH_ORIENTATION_CATALOG;
+  const orionEvidence = window.NEXAH_ORION_CAPABILITY_EVIDENCE;
   const baseAdmission = window.NEXAH_NAVIGATOR_ADMISSION || { rejected: [], reason_summary: {} };
   const release = window.NEXAH_NAVIGATOR_RELEASE || { publication_authorized: false, public_entity_count: 0, release_state: "unknown" };
   const app = document.querySelector("#app");
@@ -67,8 +73,12 @@
     return text.length > max ? `${text.slice(0, max - 1).trim()}…` : text;
   };
 
-  if (!manifest || !Array.isArray(manifest.entities) || !Array.isArray(manifest.relations) || !entry || !Array.isArray(entry.domains) || !Array.isArray(entry.current_focus) || !Array.isArray(entry.terms) || lifeOrbit?.status !== "INTERNAL_ADMITTED" || !Array.isArray(lifeOrbit.entities) || !Array.isArray(lifeOrbit.relations) || lifeProgram?.status !== "INTERNAL_READ_ONLY_PROGRAM_LENS" || lifeProgram?.records?.length !== 20 || primeCrystal?.status !== "INTERNAL_READ_ONLY_CALIBRATION_FAMILY" || primeCrystal?.three_cut_control?.length !== 3 || observatoryBinding?.status !== "INTERNAL_READ_ONLY_LENS" || observatoryBinding?.typed_fields?.length !== 8 || observatoryBinding?.family_bindings?.length !== 7 || root7Look?.status !== "INTERNAL_READ_ONLY_ORIENTATION_LENS" || root7Look?.decisions?.length !== 3 || ilauOrientation?.status !== "INTERNAL_READ_ONLY_SOURCE_BOUND_LENS" || ilauOrientation?.instruments?.length !== 3) {
+  if (!manifest || !Array.isArray(manifest.entities) || !Array.isArray(manifest.relations) || !entry || !Array.isArray(entry.domains) || !Array.isArray(entry.current_focus) || !Array.isArray(entry.terms) || lifeOrbit?.status !== "INTERNAL_ADMITTED" || !Array.isArray(lifeOrbit.entities) || !Array.isArray(lifeOrbit.relations) || lifeProgram?.status !== "INTERNAL_READ_ONLY_PROGRAM_LENS" || lifeProgram?.records?.length !== 21 || primeCrystal?.status !== "INTERNAL_READ_ONLY_CALIBRATION_FAMILY" || primeCrystal?.three_cut_control?.length !== 3 || observatoryBinding?.status !== "INTERNAL_READ_ONLY_LENS" || observatoryBinding?.typed_fields?.length !== 8 || observatoryBinding?.family_bindings?.length !== 7 || root7Look?.status !== "INTERNAL_READ_ONLY_ORIENTATION_LENS" || root7Look?.decisions?.length !== 3 || ilauOrientation?.status !== "INTERNAL_READ_ONLY_SOURCE_BOUND_LENS" || ilauOrientation?.instruments?.length !== 19 || primeBaseMode?.status !== "INTERNAL_READ_ONLY_SOURCE_BOUND_LENS" || primeBaseMode?.type_boundaries?.length !== 8 || primeBaseMode?.sources?.length !== 9 || primeBaseMode?.nodes?.length !== 14 || primeBaseMode?.relations?.length !== 16 || labRegister?.status !== "INTERNAL_READ_ONLY_SOURCE_BOUND_LENS" || !Array.isArray(labRegister.studies) || labRegister.studies.length !== labRegister.study_count || findingsFrontiers?.status !== "INTERNAL_READ_ONLY_SOURCE_BOUND_LEAD_LENS" || findingsFrontiers?.classes?.length !== 5 || findingsFrontiers?.sources?.length !== 11 || a0OrientationEvidence?.status !== "INTERNAL_READ_ONLY_SOURCE_BOUND_LENS" || a0OrientationEvidence?.sources?.length !== 98 || a0OrientationEvidence?.a0_surface_coverage?.bound_surfaces !== 33 || a0OrientationEvidence?.nodes?.length !== 27 || a0OrientationEvidence?.relations?.length !== 39 || a0OrientationEvidence?.pascal_pentagon_suite?.tests?.length !== 7 || a0OrientationEvidence?.orientation_operator_cycle?.stages?.length !== 4 || a0OrientationEvidence?.a0_entry_map?.numeric_anchors?.length !== 3 || a0OrientationEvidence?.grid_interaction_atlas?.layers?.length !== 4 || a0OrientationEvidence?.grid_interaction_atlas?.channel_contract?.length !== 6 || a0OrientationEvidence?.a0_core_statement?.typed_chain?.length !== 6 || orientationCatalog?.status !== "INTERNAL_READ_ONLY_SOURCE_BOUND_LENS" || orientationCatalog?.records?.length !== 61 || orientationCatalog?.registered_works?.length !== 10 || orientationCatalog?.concepts?.length !== 17 || orionEvidence?.status !== "INTERNAL_READ_ONLY_SOURCE_BOUND_LENS" || orionEvidence?.evidence_ladder?.length !== 5) {
     app.innerHTML = `<section class="empty-state error-state"><p class="eyebrow">Load error</p><h1>Validated manifest unavailable</h1><p>Rebuild <span class="mono">data.internal.js</span> and reload this page.</p></section>`;
+    return;
+  }
+  if (a0OrientationEvidence?.findings_paper_flow?.findings?.length !== 16 || a0OrientationEvidence?.findings_paper_flow?.paper_lanes?.length !== 4) {
+    app.innerHTML = `<section class="empty-state error-state"><p class="eyebrow">Load error</p><h1>A0 findings flow unavailable</h1><p>Rebuild <span class="mono">a0-orientation-evidence.internal.js</span> and reload this page.</p></section>`;
     return;
   }
 
@@ -250,7 +260,7 @@
           <span class="card-action">Open evidence inspector →</span>
         </a>
       </section>
-      <nav class="home-link-rail" aria-label="Secondary research routes"><a href="../EVIDENCE/NEXAH_META_ARCHITECTURE_TRACE_2026-10-06/NEXAH_META_ARCHITECTURE_41_TRACE.html">Trace one motif across the architecture →</a><a href="#envelope">Understand Envelope →</a><a href="#ladders">Compare recurring ladders →</a><a href="#atlas">Browse the complete atlas →</a><a href="#relations">Follow bounded relations →</a><a href="#lineage">Trace visual and model lineage →</a><a href="#catalog">Search all registered objects →</a></nav>
+      <nav class="home-link-rail" aria-label="Secondary research routes"><a href="#lab-register">Open the Lab Register →</a><a href="../EVIDENCE/NEXAH_META_ARCHITECTURE_TRACE_2026-10-06/NEXAH_META_ARCHITECTURE_41_TRACE.html">Trace one motif across the architecture →</a><a href="#envelope">Understand Envelope →</a><a href="#ladders">Compare recurring ladders →</a><a href="#atlas">Browse the complete atlas →</a><a href="#relations">Follow bounded relations →</a><a href="#lineage">Trace visual and model lineage →</a><a href="#prime-base-mode">Inspect Prime · Base · Mode →</a><a href="#catalog">Search all registered objects →</a></nav>
 
       <section class="home-invitation">
         <p class="eyebrow">The invitation</p><h2>Bring a system in motion.</h2>
@@ -262,7 +272,7 @@
   }
 
   function renderAbout() {
-    app.innerHTML = `${pageHeader("About the Science Navigator", "Making transition research inspectable.", "The NEXAH Science Navigator is an internal research instrument for exploring relationships among mathematical models, visual experiments, formal tests and evidence records. It makes the programme visible without turning proximity, analogy or shared vocabulary into proof.")}
+    app.innerHTML = `${pageHeader("About the Science Lab Navigator", "Making transition research inspectable.", "The NEXAH Science Lab Navigator is an internal research instrument for exploring relationships among mathematical models, visual experiments, formal tests and evidence records. It makes the programme visible without turning proximity, analogy or shared vocabulary into proof.")}
       <section class="about-statement"><span>01</span><div><p class="eyebrow">The research problem</p><h2>Finding a pattern is not yet understanding a transition.</h2><p>Complex systems can display recurring forms: basins, crossings, phase drift, return structures and navigable corridors. These forms may be useful to compare, but visual similarity alone cannot establish a shared mechanism. The Navigator preserves both sides of the work: the possible connection and the reason it may fail.</p></div></section>
       <section class="about-statement"><span>02</span><div><p class="eyebrow">The exploratory roof</p><h2>UTG is a framework under development—not a finished universal theory.</h2><p>Unified Transition Geometry is the working name for a common descriptive architecture around transitions between regimes. It brings event surfaces, direction, transversality, return semantics, fields and navigation into one inspectable grammar. Formal validity must still be established separately for each object, system and application domain.</p><a class="secondary-action" href="#utg">Inspect the UTG framework →</a></div></section>
       <section class="about-statement"><span>03</span><div><p class="eyebrow">The connection architecture</p><h2>Families organize recurring relational work.</h2><p>The seven Connection Families are functional lenses. They locate whether an object contributes a record, an address or boundary, a transition operator, a direction field, a connectivity structure, a synchronization or control relation, or a validation and governance record. They organize comparison; they do not certify identity.</p><a class="secondary-action" href="#families">Open the seven families →</a></div></section>
@@ -271,14 +281,14 @@
       <header class="section-heading home-section-heading"><p class="eyebrow">One ecosystem · distinct responsibilities</p><h2>The Navigator is a research place within a larger journey.</h2><p>The surfaces should feel connected while remaining explicit about the kind of authority each one holds.</p></header>
       <section class="ecosystem-grid">
         <article><span>PUBLIC HOME</span><h3>NEXAH</h3><p>The public and intellectual home: Orientation, Library, Atlas and routes into the ecosystem.</p><a href="https://nexah.de/" target="_blank" rel="noreferrer">Visit nexah.de ↗</a></article>
-        <article class="is-current"><span>RESEARCH MAP · YOU ARE HERE</span><h3>Science Navigator</h3><p>An inspectable projection of frameworks, experiments, methods, evidence and limits.</p><a href="#atlas">Open the research atlas →</a></article>
+        <article class="is-current"><span>RESEARCH MAP · YOU ARE HERE</span><h3>Science Lab Navigator</h3><p>An inspectable projection of frameworks, experiments, methods, evidence and limits.</p><a href="#atlas">Open the research atlas →</a></article>
         <article><span>DETERMINISTIC CORE</span><h3>ORION</h3><p>Certified structural artifacts within declared responsibility boundaries; no ownership of Human meaning.</p></article>
         <article><span>HUMAN-FACING WORKSPACE</span><h3>NEXAHEDRON</h3><p>One person, one question, one bounded Workspace and a Human-owned Orientation Record.</p><span class="future-link">Public route planned · not released</span></article>
       </section>
 
       <section class="research-question about-question"><p class="eyebrow">The central question</p><h2>Can transitions across different systems share a common, inspectable grammar without losing their distinct mathematics, evidence and claim boundaries?</h2></section>
       <section class="home-invitation about-invitation"><p class="eyebrow">Begin with a question</p><h2>Explore a connection. Inspect its boundary. Propose a better map.</h2><p>Find a system, follow one family across several objects, or open an evidence package and test whether the claimed connection survives inspection.</p><div class="hero-actions"><a class="instrument-action" href="#dynamics">Explore comparative dynamics</a><a class="secondary-action" href="https://nexah.de/about/" target="_blank" rel="noreferrer">About the NEXAH ecosystem ↗</a></div></section>`;
-    setContext({ object: "About the Science Navigator", boundary: "The Navigator organizes research orientation. It does not authorize publication, transfer evidence between domains or replace Human interpretation.", receipt: "Editorial copy V1 · 2026-10-06 · internal implementation" });
+    setContext({ object: "About the Science Lab Navigator", boundary: "The Navigator organizes research orientation. It does not authorize publication, transfer evidence between domains or replace Human interpretation.", receipt: "Editorial copy V1 · 2026-10-06 · internal implementation" });
   }
 
   function navigatorMark(kind) {
@@ -312,6 +322,9 @@
     const lokiHref = safeLocalHref("SCIENCE_LAB/EXPORTS/MIWA_PINEAP_AN_DROMEDA.html");
     const transversumHref = safeLocalHref("SCIENCE_LAB/RESEARCH_AREAS/FIELD_GLYPH_NUMBER_ARCHITECTURE_STAGE_0_2026-09-14/NEXAH_EULER_ANTIPODE_TWO_CUT_INSTRUMENT.html");
     const bookHref = safeLocalHref("RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/index.html");
+    const researchDeskHref = safeLocalHref("RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/A0_RESEARCH_DESK.html");
+    const game4LifeA0Href = safeLocalHref("RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/A0_GAME_4_LIFE_PLUS_1.html");
+    const life08ReturnHref = safeLocalHref("SCIENCE_LAB/MISSION_CONTROL_RETURN_LIFE08_BOUNDARY_CYLINDER_2026-10-11.md");
     const domainById = new Map(domains.map((domain) => [domain.domain_id, domain]));
     const routeLabel = (route) => route === "home" ? "Start" : titleCase(route);
     const domainCards = domains.map((domain) => {
@@ -343,93 +356,160 @@
 
     app.innerHTML = `<section class="hero home-hero navigator-home-hero">
       <div>
-        <p class="eyebrow">NEXAH Science Lab · map of records, relations and open questions</p>
-        <h1>Find the record.<br>Read its status.<br>Follow the relation.</h1>
-        <p class="lede">The Navigator helps you enter a dense laboratory without pretending that everything belongs to one story. Start with the question you have, inspect the source that carries an answer, and keep the unresolved remainder visible.</p>
-        <div class="hero-actions home-actions"><a class="instrument-action" href="#evidence">What was tested?</a><a class="secondary-action" href="#catalog">What exists?</a><a class="secondary-action" href="#relations">What is connected?</a></div>
+        <p class="eyebrow">NEXAH Science Lab Navigator · Source &amp; Relation Graph</p>
+        <h1>See what was found.<br>Trace what supports it.<br>Keep the open visible.</h1>
+        <p class="lede">This is the Science Lab's central map. It points to findings, studies, sources, relations and open frontiers without repeating the records that govern them.</p>
+        <div class="hero-actions home-actions"><a class="instrument-action" href="#findings-frontiers">What has NEXAH found?</a><a class="secondary-action" href="#lab-register">Which studies exist?</a><a class="secondary-action" href="#catalog">Find a source</a></div>
       </div>
-      <aside class="home-question navigator-role" aria-label="What the Navigator does"><p class="overline">This is a laboratory map</p><p>It locates.</p><p>It distinguishes.</p><p>It preserves sources.</p><p>It does not decide for you.</p></aside>
+      <aside class="home-question navigator-role" aria-label="What the Science Lab Navigator does"><p class="overline">START · use it as a map</p><p>Find the claim.</p><p>Open its record.</p><p>Follow its relation.</p><p>Retain its boundary.</p></aside>
     </section>
-    <p class="home-boundary">The Navigator maps the Science Lab. It is not the A0 Book, not a Theory of Everything and not an authority to turn resemblance into proof.</p>
+    <p class="home-boundary">The Navigator belongs to the NEXAH Science Lab. Original packages retain scientific authority; Mission Control governs currentness and release. The map does not turn resemblance into proof.</p>
 
     <section class="navigator-compass" aria-labelledby="navigator-compass-title">
-      <header><p class="eyebrow">Five moves · one inspectable route</p><h2 id="navigator-compass-title">Use the map without losing the source.</h2><p>These are navigation actions, not chapters and not a universal sequence.</p></header>
+      <header><p class="eyebrow">Five pointers · the shortest route</p><h2 id="navigator-compass-title">Start with the question you actually have.</h2><p>Each pointer opens the responsible view. The Start page only keeps the overview.</p></header>
       <div class="navigator-compass-grid">
-        <a href="#home">${navigatorMark("question")}<span>01</span><strong>Choose a question</strong><small>What are you trying to understand?</small></a>
-        <a href="#evidence">${navigatorMark("status")}<span>02</span><strong>Read the status</strong><small>Verified, bounded, candidate or open?</small></a>
-        <a href="#catalog">${navigatorMark("source")}<span>03</span><strong>Open the source</strong><small>Which record actually carries the statement?</small></a>
-        <a href="#relations">${navigatorMark("relation")}<span>04</span><strong>Follow a relation</strong><small>What transfers—and what explicitly does not?</small></a>
-        <a href="#admission">${navigatorMark("residual")}<span>05</span><strong>Keep the residual</strong><small>What remains unresolved or not admitted?</small></a>
+        <a href="#findings-frontiers">${navigatorMark("question")}<span>01</span><strong>Findings &amp; Frontiers</strong><small>What is exact, bounded, negative, historical or open?</small></a>
+        <a href="#lab-register">${navigatorMark("status")}<span>02</span><strong>Lab Register</strong><small>Which study carries the work and what is its lifecycle?</small></a>
+        <a href="#catalog">${navigatorMark("source")}<span>03</span><strong>Source Catalog</strong><small>Which record actually carries the statement?</small></a>
+        <a href="#relations">${navigatorMark("relation")}<span>04</span><strong>Relations</strong><small>What is connected—and what is explicitly not identical?</small></a>
+        <a href="#admission">${navigatorMark("residual")}<span>05</span><strong>Admission</strong><small>What remains candidate, unresolved or outside the graph?</small></a>
       </div>
     </section>
 
-    <details class="navigator-human-view" open><summary>Human View · If the map feels too dense</summary><div><p>You do not need to understand every code or framework first. Ask one ordinary question: <strong>What am I looking at, who says it, and how well is it supported?</strong></p><p>The labels, source links and boundaries answer those three questions. Everything else can wait.</p></div></details>
+    <details class="navigator-human-view"><summary>Human View · How do I begin?</summary><div><p>You do not need the whole system first. Ask: <strong>What am I looking at, which source says it, and how well is it supported?</strong></p><p>Begin with Findings &amp; Frontiers. Open a source only when you want the evidence behind the summary.</p></div></details>
 
-    <section class="navigator-status-key" aria-label="Plain-language status key">
-      <header><p class="eyebrow">Status before spectacle</p><h2>What kind of thing am I looking at?</h2></header>
-      <div><article class="status-verified"><strong>Verified record</strong><p>Executed or source-checked inside its declared scope.</p></article><article class="status-bounded"><strong>Bounded comparison</strong><p>Useful locally; does not transfer a whole mechanism.</p></article><article class="status-candidate"><strong>Candidate / open</strong><p>Worth inspecting; not established or automatically admitted.</p></article><article class="status-not-admitted"><strong>Not public / not admitted</strong><p>Visible internally without publication authority.</p></article></div>
-    </section>
-
-    <section class="orientation-shelf" aria-labelledby="orientation-shelf-title">
-      <header><p class="eyebrow">Optional orientation · distinct surfaces</p><h2 id="orientation-shelf-title">Read, inspect or search—without collapsing the roles.</h2><p>The Book offers a guided human journey. ILAU offers a local comparison vocabulary. The Navigator remains the map.</p></header>
-      <div>${bookHref ? `<a href="${bookHref}"><span>GUIDED READING · LOCAL PROOF</span><strong>A0 Book</strong><p>Eight investigations from distinction to responsible return.</p><small>Linked source · not the Navigator structure · not public ↗</small></a>` : ""}<a href="#ilau-orientation"><span>COMPARISON VOCABULARY</span><strong>ILAU instruments</strong><p>Retained, lost, added and unresolved under a declared change of view.</p><small>Open source-bound lens →</small></a><a href="#about"><span>ROLE AND AUTHORITY</span><strong>About this Navigator</strong><p>What this map can organize—and what it cannot decide.</p><small>Read the boundary →</small></a><a href="#catalog"><span>INVENTORY</span><strong>Search the Lab</strong><p>Find registered modules, surfaces and evidence records directly.</p><small>Open catalog →</small></a></div>
-    </section>
-
-    <header class="section-heading home-section-heading flagship-heading"><p class="eyebrow">Two comparison laboratories · not the whole map</p><h2>Enter through a transition if that is your question.</h2><p>LIFE and E8 remain strong executable entrances. They demonstrate different forms of history and return; they do not define the Navigator or become one shared mechanism.</p></header>
-    <section class="flagship-grid" aria-label="LIFE and E8 Mutatio flagship instruments">
+    <header class="section-heading flagship-heading"><p class="eyebrow">Current internal flagships · one foundation, one live instrument</p><h2>Two entry points now carry the clearest NEXAH reading.</h2><p>They are connected by a declared representation method. They are not the same object, and neither card changes scientific or publication authority.</p></header>
+    <section class="flagship-grid" aria-label="Current internal flagships">
+      <article class="flagship-card a0-flagship">
+        <header><span>FOUNDATION · ART:A0:MATHEMATICAL_JOINTS</span><strong>Source-bound · documentary + exact instruments</strong></header>
+        <h2>A0<br>Foundation</h2>
+        <p>The book, mathematical joints, Research Desk and evidence lineage now form one inspectable route from orientation grammar to exact representation instruments, work protocols and retained research questions.</p>
+        <dl><div><dt>Carrier</dt><dd>A0 Book, A0-BL-031 and the existing Mathematical Joints surface.</dd></div><div><dt>Shows</dt><dd>How area, boundary, graph and joint can remain synchronized without becoming identical.</dd></div><div><dt>State</dt><dd>Internal foundation and evidence route; no new graph identity and no public release.</dd></div></dl>
+        <p class="flagship-boundary"><strong>Boundary</strong> Exact representation arithmetic does not establish a physical channel, shared mechanism or universal ontology.</p>
+        <footer><a class="mini-action primary" href="#a0-orientation-evidence">Open A0 evidence lineage →</a>${researchDeskHref ? `<a class="mini-action" href="${researchDeskHref}">Open A0 Research Desk ↗</a>` : ""}${bookHref ? `<a class="mini-action" href="${bookHref}">Read A0 Book ↗</a>` : ""}${game4LifeA0Href ? `<a class="mini-action" href="${game4LifeA0Href}">Open GAME 4 LIFE +1 ↗</a>` : ""}</footer>
+      </article>
       <article class="flagship-card life-flagship">
-        <header><span>01 · EXECUTABLE PROGRAMME</span><strong>Local rule → living geometry</strong></header>
-        <h2>LIFE</h2>
-        <p>Follow cells through generation history, slices, worldlines, event space-time, transition language, controls and independent holdouts.</p>
-        <dl><div><dt>Programme</dt><dd>${lifeProgram.records.length} records · ${lifeProgram.counts.dedicated_html_apps} standalone HTML instruments</dd></div><div><dt>Evidence</dt><dd>Exact stages, valid negatives, one mixed holdout and explicit claim ceilings</dd></div></dl>
-        <p class="flagship-boundary"><strong>Boundary</strong> No biological-life, Life/E8 identity, universal transition law or public-release claim.</p>
-        <footer><a class="instrument-action" href="#life-orbit">Enter the LIFE programme →</a><a class="mini-action" href="#observatory">Inspect its typed record</a></footer>
-      </article>
-      <article class="flagship-card e8-flagship">
-        <header><span>02 · EXACT POSITIVE CONTROL</span><strong>Generator → orbit → exact return</strong></header>
-        <h2>E8 Mutatio</h2>
-        <p>Explore local mutations, Coxeter words, finite orbit families and the address code while keeping the mathematical carrier distinct from every application analogy.</p>
-        <dl><div><dt>Carrier</dt><dd>240 roots · eight 30-cycles · C³⁰ = I</dd></div><div><dt>Repair</dt><dd>12/12 deterministic checks including root construction, quotient and lossless State return</dd></div></dl>
-        <p class="flagship-boundary"><strong>Boundary</strong> Exact E8 mathematics and bounded operators do not establish a physical mechanism or universal 8→7 law.</p>
-        <footer>${e8MutatioHref ? `<a class="instrument-action alternate" href="${e8MutatioHref}">Play E8 Mutatio ↗</a>` : ""}<a class="mini-action" href="${entityHref("ART:E8:FAMILY_GRAPH")}">Inspect the registered instrument</a></footer>
+        <header><span>INSTRUMENT · LIFE08 POST-CLOSE LAYER</span><strong>Closed Study · synchronized observation</strong></header>
+        <h2>GAME 4<br>LIFE +1</h2>
+        <p>One deterministic Conway transition is read through the field, event register, phase/control reading, 3D observatory and boundary residual while every event keeps its address and identity.</p>
+        <dl><div><dt>4</dt><dd>Event, birth, survival and death remain distinct quaternion slots.</dd></div><div><dt>+1</dt><dd>Q° carries the declared rule, boundary and time control instead of acting as a fifth Life force.</dd></div><div><dt>Shows</dt><dd>Which patterns appear only when synchronized views can be compared and inverted.</dd></div></dl>
+        <p class="flagship-boundary"><strong>Boundary</strong> The instrument does not reopen LIFE08, change B3/S23, create a biological mechanism or make Chemistry, Life and Spin identical.</p>
+        <footer><a class="mini-action primary" href="#life-orbit">Open LIFE programme lens →</a>${game4LifeA0Href ? `<a class="mini-action" href="${game4LifeA0Href}">Open A0 instrument window ↗</a>` : ""}${life08ReturnHref ? `<a class="mini-action" href="${life08ReturnHref}">Open LIFE08 Return ↗</a>` : ""}</footer>
       </article>
     </section>
-    <section class="flagship-bridge" aria-label="LIFE and E8 comparison boundary"><div><span>LIFE</span><strong>local update · retained history · tested projections</strong></div><b>≠</b><div><span>E8 MUTATIO</span><strong>declared generators · finite orbit · exact return</strong></div><a href="#observatory">Compare through CF:F1–F7 × TF:01–TF:08 →</a></section>
-    <header class="section-heading home-section-heading depth-heading"><p class="eyebrow">Four ways deeper</p><h2>Inspect the grammar, the method, the geometry and the failure case.</h2></header>
-    <section class="depth-grid" aria-label="Four deeper research routes">
-      <a href="#observatory"><span>INSPECTION</span><strong>7×8 Observatory</strong><p>Seven functional families meet eight typed fields from Carrier to Evidence.</p><em>See how the comparison is governed →</em></a>
-      ${transversumHref ? `<a href="${transversumHref}"><span>METHOD</span><strong>Transversum · Two-Cut</strong><p>Cut, bind, compare, return and preserve the residual.</p><em>Open the comparison method ↗</em></a>` : ""}
-      ${lokiHref ? `<a href="${lokiHref}"><span>GEOMETRY</span><strong>Tessarec · LOKI</strong><p>Inspect the Q3→Q4 Green Bridge, Iota cut and bounded Pearl aperture.</p><em>Open the multi-frame instrument ↗</em></a>` : ""}
-      <a href="${root7Href}"><span>IDENTIFIABILITY</span><strong>ROOT7 · beautiful bridge, bounded negative</strong><p>See why exact construction and equal endpoints still do not identify one model or path.</p><em>Open the source-bound dossier →</em></a>
-    </section>
-    ${renderFeaturedEvidenceCase("home")}
-    <section class="research-question compact-question" aria-labelledby="research-question-title"><p class="eyebrow">The research question</p><h2 id="research-question-title">Can transitions across different systems share a common, inspectable grammar without erasing their mathematics, evidence and limits?</h2></section>
+    <section class="flagship-bridge" aria-label="Flagship relation"><div><span>A0 supplies</span><strong>a typed grammar for comparing representations</strong></div><b>↔</b><div><span>LIFE08 supplies</span><strong>one deterministic carrier with synchronized readings</strong></div><a href="#relations">Inspect relations →</a></section>
+
+    <section class="research-question compact-question" aria-labelledby="research-question-title"><p class="eyebrow">Current research direction</p><h2 id="research-question-title">What remains identifiable and invariant when the same carrier is transformed, observed or represented differently—and what is introduced by view, cut or coupling?</h2><div class="hero-actions"><a class="secondary-action" href="#families">Seven research families</a><a class="secondary-action" href="#prime-base-mode">Prime · Base · Mode</a><a class="secondary-action" href="#observatory">7×8 inspection record</a></div></section>
     <header class="section-heading home-section-heading"><p class="eyebrow">Current work · explicitly bounded</p><h2>What the Lab is connecting now.</h2><p>These routes record active orientation work—not promotion, universal validity or public release.</p></header>
     <section class="focus-grid" aria-label="Current governed work">${focusCards}</section>
-    <header class="section-heading home-section-heading"><p class="eyebrow">Six ways into the research</p><h2>Choose the kind of question you have.</h2></header>
-    <section class="domain-grid" aria-label="Navigator domains">${domainCards}</section>
     <section class="home-handoff"><div><p class="eyebrow">Responsibility before depth</p><h2>Know what this instrument can—and cannot—decide.</h2><p>Read the role and authority map, or open the controlled vocabulary before entering the dense research views.</p></div><div class="hero-actions"><a class="instrument-action" href="#about">About the Navigator</a><a class="secondary-action" href="#glossary">Open Vocabulary</a></div></section>`;
-    setContext({ object: "Orientation", boundary: manifest.authority_statement, receipt: `${entry?.content_id || "Entry content unavailable"} · ${entry?.maintained || "unknown date"}` });
+    setContext({ object: "NEXAH Science Lab Navigator", boundary: manifest.authority_statement, receipt: `${entry?.content_id || "Entry content unavailable"} · ${entry?.maintained || "unknown date"}` });
+  }
+
+  function labRecordHref(sourcePath) {
+    if (!sourcePath || sourcePath.startsWith("/") || /^[a-z]+:/i.test(sourcePath)) return "";
+    const upOne = sourcePath.startsWith("../");
+    const clean = upOne ? sourcePath.slice(3) : sourcePath;
+    if (!clean || clean.includes("../")) return "";
+    const encoded = clean.split("/").map(encodeURIComponent).join("/");
+    return `${upOne ? "../../../" : "../../"}${encoded}`;
+  }
+
+  function registerStatusClass(status) {
+    const value = String(status || "").toUpperCase();
+    if (value.includes("BLOCKED")) return "blocked";
+    if (value.includes("ACTIVE") || value.includes("READY")) return "active";
+    if (value.includes("AWAITING") || value.includes("PENDING") || value.includes("PREREGISTERED")) return "pending";
+    if (value.includes("CLOSED") || value.includes("FILED")) return "closed";
+    return "other";
+  }
+
+  function renderLabRegisterCards(studies) {
+    if (!studies.length) return `<section class="empty-state"><h2>No matching register entry</h2><p>Try a study ID, question, status, evidence term or next action.</p></section>`;
+    return `<div class="lab-register-list">${studies.map((study) => {
+      const recordHref = labRecordHref(study.primary_record?.path);
+      const statusClass = registerStatusClass(study.common_status);
+      return `<article class="lab-register-card status-${statusClass}">
+        <header><span class="idline">${esc(study.study_id)}</span><span class="register-state ${statusClass}">${esc(statusClass)}</span></header>
+        <h2>${esc(study.question)}</h2>
+        <dl class="register-fields">
+          <div><dt>Common Lab status</dt><dd>${esc(study.common_status)}</dd></div>
+          <div><dt>Native state</dt><dd>${esc(trimText(study.native_state, 260))}</dd></div>
+          <div><dt>Evidence scope</dt><dd>${esc(trimText(study.evidence_summary, 300))}</dd></div>
+          <div><dt>Next authorized action</dt><dd>${esc(trimText(study.next_action, 260))}</dd></div>
+        </dl>
+        <footer>${recordHref ? `<a class="secondary-action" href="${recordHref}">${esc(study.primary_record.label)} ↗</a>` : `<span class="muted">Primary record retained in canonical register</span>`}</footer>
+      </article>`;
+    }).join("")}</div>`;
+  }
+
+  function renderLabRegister() {
+    const studies = labRegister.studies;
+    const classes = studies.reduce((acc, study) => {
+      const key = registerStatusClass(study.common_status);
+      acc[key] = (acc[key] || 0) + 1;
+      return acc;
+    }, {});
+    app.innerHTML = `${pageHeader("Science Lab · canonical lifecycle window", "Lab Register", "Search the maintained Science Lab studies by identity, question, evidence state or next authorized action. This is a read-only view: LAB_REGISTER.md remains the authority.", `<a class="secondary-action" href="../../LAB_REGISTER.md">Open canonical register ↗</a>`)}
+      <section class="metric-strip lab-register-metrics">
+        <article><span>Studies</span><strong>${studies.length}</strong><small>owner-maintained identities</small></article>
+        <article><span>Closed / filed</span><strong>${classes.closed || 0}</strong><small>bounded dispositions retained</small></article>
+        <article><span>Active / ready</span><strong>${classes.active || 0}</strong><small>not automatic activation</small></article>
+        <article><span>Blocked</span><strong>${classes.blocked || 0}</strong><small>explicit gates preserved</small></article>
+        <article><span>Pending</span><strong>${classes.pending || 0}</strong><small>awaiting review or input</small></article>
+      </section>
+      <section class="panel register-authority"><p class="overline">Authority boundary</p><h2>Window, not replacement.</h2><p>${esc(labRegister.authority)}</p><p><strong>Source receipt:</strong> <span class="mono">${esc(labRegister.source_sha256)}</span></p></section>
+      <section class="register-search" aria-label="Search Lab Register"><label for="lab-register-query">Find a study</label><input id="lab-register-query" type="search" placeholder="Study ID, question, status, evidence, next action…" autocomplete="off"><span id="lab-register-result-count">${studies.length} entries</span></section>
+      <div id="lab-register-results">${renderLabRegisterCards(studies)}</div>`;
+    const query = document.querySelector("#lab-register-query");
+    const results = document.querySelector("#lab-register-results");
+    const count = document.querySelector("#lab-register-result-count");
+    query?.addEventListener("input", () => {
+      const needle = query.value.trim().toLowerCase();
+      const filtered = needle ? studies.filter((study) => Object.values(study).some((value) => {
+        const text = typeof value === "object" ? JSON.stringify(value) : String(value || "");
+        return text.toLowerCase().includes(needle);
+      })) : studies;
+      results.innerHTML = renderLabRegisterCards(filtered);
+      count.textContent = `${filtered.length} ${filtered.length === 1 ? "entry" : "entries"}`;
+    });
+    setContext({ object: "Lab Register", boundary: "This lens does not create, rename, activate, close or promote a study. LAB_REGISTER.md and the linked package records retain authority.", receipt: `${labRegister.source} · SHA-256 ${labRegister.source_sha256}` });
   }
 
   function renderAboutV2() {
-    app.innerHTML = `${pageHeader("About the Science Navigator", "A map of research relationships—not a claim engine.", "The NEXAH Science Navigator is an internal research instrument for exploring relationships among mathematical models, visual experiments, formal tests and evidence records. It makes the research landscape inspectable without turning proximity, analogy or shared vocabulary into proof.")}
-      <section class="about-statement"><span>01</span><div><p class="eyebrow">Why it exists</p><h2>Finding a pattern is not yet understanding a transition.</h2><p>Complex systems can display recurring boundaries, crossings, phase drift, return structures and possible paths. These forms may be useful to compare. Visual similarity alone cannot establish a common mechanism.</p><p>The Navigator preserves both sides of a connection: what can be compared and what the comparison does not imply.</p></div></section>
-      <section class="about-statement"><span>02</span><div><p class="eyebrow">How it is organized</p><h2>Framework → families → objects → evidence.</h2><p>The framework supplies shared questions and declarations. Functional families organize recurring relational work. Concrete objects retain their mathematics and provenance. Evidence remains package-local and keeps negative controls and maturity visible.</p></div></section>
-      <section class="does-grid" aria-label="Navigator responsibilities"><article><p class="eyebrow">The Navigator does</p><ul><li>Orient across governed records.</li><li>Expose typed connections and their limits.</li><li>Launch registered instruments.</li><li>Retain negative and no-result states.</li><li>Show public-admission gates.</li></ul></article><article class="does-not"><p class="eyebrow">The Navigator does not</p><ul><li>Certify a universal theory.</li><li>Turn resemblance into proof.</li><li>Activate a research or runtime profile.</li><li>Rewrite package-local verdicts.</li><li>Authorize publication.</li></ul></article></section>
+    app.innerHTML = `${pageHeader("About the Science Lab Navigator", "The Source & Toolbox Map for Orientation research.", "NEXAH is an independent research and design laboratory developing Orientation as a discipline. The Navigator is its internal map for finding governed sources, tools, instruments, relations and evidence without turning proximity, analogy or shared vocabulary into proof.")}
+      <section class="about-statement"><span>01</span><div><p class="eyebrow">The position</p><h2>Orientation begins between representations.</h2><p>A model selects variables. A map selects relations. An image selects a frame. A story selects a sequence. None contains the whole situation.</p><p>The practical question is therefore not only whether one representation is correct, but where we are, which view we are using, what it preserves or omits, how it relates to other views and which paths remain possible.</p><a class="secondary-action" href="https://nexah.de/about/" target="_blank" rel="noreferrer">Read the public About page ↗</a></div></section>
+      <section class="about-statement"><span>02</span><div><p class="eyebrow">Why this instrument exists</p><h2>Finding a pattern is not yet understanding a transition.</h2><p>Complex systems can display recurring boundaries, crossings, phase drift, return structures and possible paths. These forms may be useful to compare. Visual similarity alone cannot establish a common mechanism.</p><p>The Navigator preserves both sides of a connection: what can be compared and what the comparison does not imply.</p></div></section>
+      <section class="about-statement"><span>03</span><div><p class="eyebrow">How it is organized</p><h2>Framework → families → objects → evidence.</h2><p>The framework supplies shared questions and declarations. Functional families organize recurring relational work. Concrete objects retain their mathematics and provenance. Evidence remains package-local and keeps negative controls and maturity visible.</p></div></section>
+      <section class="about-language source-standard"><p class="eyebrow">Science Lab source standard</p><h2>No detached claim enters as a fact.</h2><p>A governed Navigator record must retain a named source, identity or version, custody, role, relation type, evidence state, claim boundary and return path. Missing information stays missing. Negative, historical, open and non-identity states remain visible.</p><p>An item may be discoverable before it is bound. Discoverability is not admission; a link is not evidence; navigation placement is not authority.</p></section>
+      <section class="does-grid" aria-label="Navigator responsibilities"><article><p class="eyebrow">The Navigator does</p><ul><li>Orient across governed and source-bound records.</li><li>Expose typed connections and their limits.</li><li>Launch registered tools and instruments.</li><li>Retain negative, historical and no-result states.</li><li>Return every bound statement to its owning source.</li></ul></article><article class="does-not"><p class="eyebrow">The Navigator does not</p><ul><li>Claim that every repository or asset is already indexed.</li><li>Certify a universal theory or turn resemblance into proof.</li><li>Silently admit an unbound intake.</li><li>Rewrite package-local verdicts or repository authority.</li><li>Activate research, runtime or publication.</li></ul></article></section>
+      <section class="panel governance-panel intake-panel"><p class="overline">Consolidation boundary · Source Field → Source Graph</p><h2>One entrance, two explicit states.</h2><p>The Mission Control Source Field is the broader discovery and intake catalog: it answers <em>what may exist and where?</em> The Science Navigator is the governed Source and Relation Graph: it answers <em>what has been matched, bound, typed and returned to authority?</em></p><p class="governance-cycle"><strong>Discovery path</strong> DISCOVER / INTAKE / UNBOUND → MATCH → BIND → RELATE → EVIDENCE → RETURN</p><p>The intended consolidation is a read-only Source Field lens inside the Navigator—not a copied database and not the silent promotion of its currently unbound records.</p><div class="governance-actions"><a class="instrument-action" href="../../../../../00%20EXECUTIVE/NEXAH-Mission-Control/INTERNAL_NAVIGATOR/index.html#source-field">Open Source Field ↗</a><a class="secondary-action" href="#catalog">Search bound objects</a><a class="secondary-action" href="#admission">Inspect admission rules</a></div></section>
+      <header class="section-heading home-section-heading"><p class="eyebrow">Repository constellation · coverage is not completeness</p><h2>The clean source remains distributed.</h2><p>The Navigator connects repository authorities; it does not absorb them. These are the principal source homes and their current relationship to this map.</p></header>
+      <section class="ecosystem-grid repository-grid" aria-label="Repository source homes">
+        <article class="is-current"><span>BOUND CORE · SCIENCE AUTHORITY</span><h3>NEXAH Science Lab</h3><p>Questions, preregistrations, fixtures, results, negative findings, Labreports and Navigator governance. Primary source of the present graph.</p><a href="../../../README.md">Open Science Lab ↗</a></article>
+        <article><span>AUTHORITATIVE SOURCE · PARTIALLY BOUND</span><h3>NEXAH Core / NEXAH</h3><p>Framework, Orientation Language, Kernel, reference applications, Library and long-term research record. The full repository is not ingested here.</p><a href="../../../../../10%20NEXAH%20CORE/NEXAH/README.md">Open NEXAH Core ↗</a></article>
+        <article><span>DISCOVERY / CURRENTNESS · READ-ONLY BRIDGE</span><h3>Mission Control</h3><p>Broader Source Field, intake and currentness. Its records remain unbound until matched to a governed Navigator identity or relation.</p><a href="../../../../../00%20EXECUTIVE/NEXAH-Mission-Control/INTERNAL_NAVIGATOR/index.html#source-field">Open Source Field ↗</a></article>
+        <article class="repo-historical"><span>HISTORICAL / AMBIGUOUS CLONE</span><h3>NEXAH-CODEX</h3><p>Historical Codex lineage and provenance archive. It is not current NEXAH authority and is not bulk-imported; relevant records require explicit source binding.</p><a href="../../../../../00%20EXECUTIVE/NEXAH-Mission-Control/CURRENT/ECOSYSTEM_REGISTER.md">Read the custody classification ↗</a></article>
+        <article><span>DETERMINISTIC AUTHORITY · SELECTIVE LINKS</span><h3>ORION</h3><p>Certified structural artifacts and ORION-owned contracts within its frozen responsibility boundary.</p><a href="../../../../../20%20ORION/NEXAH-ORION/README.md">Open ORION ↗</a></article>
+        <article><span>HUMAN / INTERACTION AUTHORITY</span><h3>NEXAHEDRON</h3><p>Human-facing workspace, presentation and explicit confirmation. Interaction does not become scientific evidence automatically.</p><a href="../../../../../40%20EXPERIENCE%20PRODUCTION/NEXAHEDRON/README.md">Open NEXAHEDRON ↗</a></article>
+        <article><span>PUBLIC PRESENTATION AUTHORITY</span><h3>NEXAH Experience</h3><p>Source of nexah.de, the public Library, Living Atlas, reading spaces and routes into the ecosystem.</p><a href="../../../../../40%20EXPERIENCE%20PRODUCTION/NEXAH-Experience/README.md">Open Experience source ↗</a></article>
+        <article><span>PUBLIC AND INTELLECTUAL HOME</span><h3>nexah.de</h3><p>The public entrance to Orientation, the research record and the invitation to inspect, challenge and propose better maps.</p><a href="https://nexah.de/" target="_blank" rel="noreferrer">Visit nexah.de ↗</a></article>
+      </section>
+      <p class="coverage-note"><strong>Coverage statement:</strong> the current Navigator is authoritative for its governed bindings and relations, not exhaustive for the ecosystem. Absence here does not mean absence from NEXAH; presence here does not transfer ownership from the source repository.</p>
+      <section class="panel governance-panel"><p class="overline">Science Lab governance · source graph</p><h2>One Lab register. One Source Graph. No second scientific database.</h2><p>The Lab Constitution governs the Science Lab. <span class="mono">LAB_REGISTER.md</span> retains study identity, lifecycle and disposition authority. The Science Navigator is the Lab's central Source and Relation Graph and presents a read-only register lens. Mission Control receives a generated control projection for currentness, priority, activation, lifecycle and release.</p><p class="governance-cycle"><strong>Required cycle</strong> SEARCH → MATCH → BIND → BUILD → RETURN → GOVERN</p><div class="governance-actions"><a class="instrument-action" href="#lab-register">Open Lab Register</a><a class="secondary-action" href="../GOVERNANCE/NAVIGATOR_GOVERNANCE_INDEX_2026-10-10.md">Governance index ↗</a><a class="secondary-action" href="../GOVERNANCE/NAVIGATOR_CONSTITUTION_V1_2026-10-10.md">Navigator Charter ↗</a><a class="secondary-action" href="../GOVERNANCE/NAVIGATOR_WORKFLOW_V1_2026-10-10.md">Workflow ↗</a></div></section>
       <header class="section-heading home-section-heading"><p class="eyebrow">One ecosystem · distinct responsibilities</p><h2>The Navigator is a research place within a larger journey.</h2><p>The surfaces should feel connected while remaining explicit about the kind of authority each one holds.</p></header>
       <section class="ecosystem-grid authority-grid">
         <article><span>PUBLIC HOME</span><h3>NEXAH</h3><p>The public and intellectual entrance to the wider ecosystem.</p><a href="https://nexah.de/" target="_blank" rel="noreferrer">Visit nexah.de ↗</a></article>
-        <article class="is-current"><span>RESEARCH MAP · YOU ARE HERE</span><h3>Science Navigator</h3><p>Orientation, retrieval, comparison and explicit connection paths.</p><a href="#atlas">Open the research atlas →</a></article>
+        <article class="is-current"><span>RESEARCH MAP · YOU ARE HERE</span><h3>Science Lab Navigator</h3><p>Orientation, retrieval, comparison and explicit connection paths.</p><a href="#atlas">Open the research atlas →</a></article>
         <article><span>CURRENTNESS / AUTHORITY</span><h3>Mission Control</h3><p>Currentness, activation, authority and portfolio priority.</p></article>
-        <article><span>RESEARCH RECORD</span><h3>Science Lab</h3><p>Discovery, experiments, evidence and bounded interpretation.</p></article>
+        <article><span>RESEARCH RECORD</span><h3>Science Lab</h3><p>Discovery, experiments, evidence and bounded interpretation. The Lab Register remains the lifecycle authority.</p><a href="#lab-register">Inspect the register →</a></article>
         <article><span>SEMANTIC AUTHORITY</span><h3>OLS 1.0</h3><p>Normative semantic language; no silent extension from Navigator visuals.</p></article>
         <article><span>DETERMINISTIC CORE</span><h3>ORION</h3><p>Certified structural artifacts within declared responsibility boundaries.</p></article>
         <article><span>HUMAN / VISUAL SPACE</span><h3>NEXAHEDRON / OVS</h3><p>Human-facing and experimental representation spaces, not automatic scientific authority.</p></article>
       </section>
       <section class="about-language"><p class="eyebrow">How to read the language</p><h2>Meaning first. Vocabulary connected. Codes retained.</h2><p>The Navigator begins with a plain-language function, connects it to established or adjacent vocabulary, identifies any NEXAH-specific usage and shows the internal code only as secondary provenance.</p><p>A locally defined term is not presented as a standard scientific term. An unresolved expansion remains unresolved rather than being completed for editorial convenience.</p><div class="hero-actions"><a class="secondary-action" href="#glossary">Open Vocabulary →</a><a class="secondary-action" href="${safeLocalHref("SCIENCE_LAB/NEXAH_SCIENCE_LAB_AND_NAVIGATOR_HANDBOOK_2026-10-07.md")}">Read the framework handbook ↗</a></div></section>
       <section class="home-invitation about-invitation"><p class="eyebrow">Closing invitation</p><h2>Follow one connection all the way to its boundary.</h2><p>Choose one transition, open its instrument, inspect the relation and read the evidence beside the claim ceiling. Use the map to find a missing distinction, a counterexample or a better next test.</p><div class="hero-actions"><a class="instrument-action" href="#families">Explore a relation</a><a class="secondary-action" href="https://nexah.de/about/" target="_blank" rel="noreferrer">About the NEXAH ecosystem ↗</a></div></section>`;
-    setContext({ object: "About the Science Navigator", boundary: "The Navigator organizes research orientation. It does not authorize publication, transfer evidence between domains or replace Human interpretation.", receipt: "Editorial copy V2 · 2026-10-07 · internal implementation" });
+    setContext({ object: "About the Science Lab Navigator · Source & Toolbox Map", boundary: "The Navigator is authoritative for its governed bindings, not exhaustive for every repository or asset. It does not admit unbound intake, authorize publication, transfer evidence between domains or replace Human interpretation.", receipt: "Editorial copy V3 · 2026-10-12 · source-field consolidation boundary · no graph-count change" });
   }
 
   function renderGlossary() {
@@ -588,6 +668,7 @@
     app.innerHTML = `${pageHeader("Internal comparison surface · eight-card core", ladders.title, ladders.summary)}
       <section class="ladder-boundary"><strong>Comparison boundary</strong><p>${esc(ladders.claim_boundary)}</p></section>
       ${renderBreathBridge("Ladder → executable sequence")}
+      ${renderCarrierViewJoint()}
       <section class="ladder-question-grid" aria-label="Four ladder orientation questions">${ladders.questions.map((item, index) => `<article class="accent-${esc(item.accent)}"><span>Q${index + 1}</span><h2>${esc(item.title)}</h2><p>${esc(item.question)}</p></article>`).join("")}</section>
 
       <section class="ladder-status-key" aria-label="Ladder status key">${ladders.status_legend.map((item) => `<article class="ladder-status-${esc(item.class)}"><strong>${esc(item.label)}</strong><p>${esc(item.definition)}</p></article>`).join("")}</section>
@@ -611,6 +692,24 @@
         <article class="panel residual-panel"><p class="overline">Known version conflicts</p><h2>Nothing is silently harmonized</h2>${ladders.known_version_conflicts.map((item) => `<div class="version-conflict"><strong>${esc(item.title)}</strong><p>${esc(item.resolution)}</p></div>`).join("")}</article>
       </section>`;
     setContext({ object: "Ladder Atlas · eight-card core", boundary: ladders.claim_boundary, receipt: `${ladders.binder_id} · ${ladders.maintained} · ${ladders.core_ladders.length} core · internal only` });
+  }
+
+  function renderCarrierViewJoint() {
+    const joint = ladders?.carrier_view_joint;
+    const comparator = ladders?.spectral_comparator;
+    if (!joint || !Array.isArray(joint.bindings)) return "";
+    const recordHref = safeLocalHref(joint.controlling_record);
+    return `<section class="carrier-view-joint">
+      <header><div><p class="overline">Existing identities · source-bound crosswalk</p><h2>${esc(joint.title)}</h2><p>${esc(joint.summary)}</p></div><span class="joint-status">${esc(joint.status)}</span></header>
+      <div class="joint-grammar" aria-label="Carrier view slice boundary residual return grammar">${list(joint.grammar).map((step, index) => `<span><small>${String(index + 1).padStart(2, "0")}</small>${esc(step.replaceAll("_", " / "))}</span>`).join("")}</div>
+      <p class="lineage-boundary"><strong>Slice rule</strong> ${esc(joint.slice_rule)}</p>
+      <div class="joint-binding-grid">${joint.bindings.map((binding) => {
+        const evidenceHref = safeLocalHref(binding.evidence?.[0]);
+        return `<article><span class="idline">${esc(binding.relation)}</span><h3>${esc(binding.source)} <b>→</b> ${esc(binding.target)}</h3><p><strong>Preserves</strong> ${esc(list(binding.preserves).join(" · "))}</p><p class="lineage-boundary"><strong>Boundary</strong> ${esc(binding.boundary)}</p>${evidenceHref ? `<a class="secondary-action" href="${evidenceHref}">Open evidence →</a>` : ""}</article>`;
+      }).join("")}</div>
+      ${comparator ? `<article class="spectral-comparator"><div><p class="overline">${esc(comparator.status)}</p><h3>${esc(comparator.title)}</h3><p>${esc(comparator.graph_object)} ${esc(comparator.comparison_object)}</p><p>${esc(comparator.use)}</p>${comparator.result ? `<p class="lineage-boundary"><strong>Result</strong> ${esc(comparator.result)} · ${esc(comparator.result_summary)}</p>` : ""}${comparator.secondary_diagnostic_result ? `<p class="lineage-boundary"><strong>Secondary localization</strong> ${esc(comparator.secondary_diagnostic_result)} · ${esc(comparator.secondary_diagnostic_summary)}</p>` : ""}<p class="lineage-boundary"><strong>Offset guard</strong> ${esc(comparator.offset_guard)}</p><p class="lineage-boundary"><strong>Rank amendment</strong> ${esc(comparator.rank_direction_amendment)}</p></div><div class="comparator-boundary"><strong>Primary</strong><p>${esc(comparator.primary_statistic)}</p><strong>Nulls</strong><p>${esc(comparator.null_population)}</p><strong>Correction</strong><p>${esc(comparator.terminal_correction)}</p><strong>STOP</strong><p>${esc(comparator.stop_rule)}</p>${safeLocalHref(comparator.secondary_diagnostic_report) ? `<a class="secondary-action" href="${safeLocalHref(comparator.secondary_diagnostic_report)}">Open Check 73 diagnostic →</a>` : ""}${safeLocalHref(comparator.result_report) ? `<a class="secondary-action" href="${safeLocalHref(comparator.result_report)}">Open Check 71 result →</a>` : ""}${safeLocalHref(comparator.preregistration) ? `<a class="secondary-action" href="${safeLocalHref(comparator.preregistration)}">Open Check 69 preregistration →</a>` : ""}${safeLocalHref(comparator.run_contract_candidate) ? `<a class="secondary-action" href="${safeLocalHref(comparator.run_contract_candidate)}">Open Check 70 run contract →</a>` : ""}</div></article>` : ""}
+      <div class="joint-actions">${recordHref ? `<a class="instrument-action" href="${recordHref}">Open Check 68 binding ↗</a>` : ""}</div>
+    </section>`;
   }
 
   function renderBreathBridge(kicker) {
@@ -988,6 +1087,50 @@
     setContext({ object: "Prime · Bridge · 2–3 / 8.8 lineage", boundary: lineage.claim_boundary, receipt: `${lineage.binder_id} · ${lineage.maintained} · ${lineage.visuals.length} visual hashes · ${lineage.glb_assets.length} GLB records` });
   }
 
+  function renderPrimeBaseMode() {
+    const nodeById = new Map(list(primeBaseMode.nodes).map((node) => [node.node_id, node]));
+    const shortHash = (hash) => hash ? `${hash.slice(0, 12)}…${hash.slice(-8)}` : "not available";
+    const ledger = primeBaseMode.claim_ledger || {};
+    const ledgerColumns = [
+      ["Exact", "exact"],
+      ["Supported · bounded", "supported_bounded"],
+      ["Rejected / not supported", "rejected_or_not_supported"],
+      ["Open", "open"]
+    ];
+
+    app.innerHTML = `${pageHeader("Source-bound research atlas", "Prime · Base · Mode", "A bounded map of how one finite number carrier can be viewed through prime order, modular residues, bases, products, grids and polygons. The route connects records while keeping representation, operator and evidence class distinct.")}
+      <section class="metric-grid pbm-metrics" aria-label="Prime Base Mode lens inventory">
+        <div class="metric"><strong>${list(primeBaseMode.sources).length}</strong><span>hash-bound sources</span></div>
+        <div class="metric"><strong>${list(primeBaseMode.nodes).length}</strong><span>bounded nodes</span></div>
+        <div class="metric"><strong>${list(primeBaseMode.relations).length}</strong><span>typed relations</span></div>
+        <div class="metric"><strong>${list(primeBaseMode.type_boundaries).length}</strong><span>type boundaries</span></div>
+      </section>
+
+      <section class="panel boundary-panel pbm-question"><p class="overline">Research object · not a result announcement</p><h2>How much structure can basic number operators generate—and what survives a change of view?</h2><p>${esc(primeBaseMode.purpose)}</p><p class="lineage-boundary"><strong>Claim ceiling</strong> ${esc(primeBaseMode.claim_ceiling)}</p></section>
+
+      <header class="section-heading"><p class="eyebrow">Development layers</p><h2>From visual seed to controlled question</h2><p>The archive is not flattened. Historical imagery, exact mathematics, executable experiments, validation and synthesis retain different evidence roles.</p></header>
+      <section class="pbm-layer-flow">${list(primeBaseMode.development_layers).map((item) => `<article><span>${esc(item.layer)} · ${esc(item.state)}</span><h3>${esc(item.title)}</h3><p>${esc(item.summary)}</p></article>`).join("")}</section>
+
+      <header class="section-heading"><p class="eyebrow">Type discipline</p><h2>Similar notation does not create identity</h2><p>This is the central guardrail for numbers such as 7, 11 and 17: a prime value, a modulus, a base, a grid width and a polygon are different mathematical objects.</p></header>
+      <section class="pbm-type-grid">${list(primeBaseMode.type_boundaries).map((item) => `<article><span>${esc(item.example)}</span><h3>${esc(item.type)}</h3><p>${esc(item.meaning)}</p><p class="lineage-boundary"><strong>Not identical to</strong> ${esc(item.not_identity)}</p></article>`).join("")}</section>
+
+      <header class="section-heading"><p class="eyebrow">Research graph</p><h2>Fourteen objects · sixteen declared routes</h2><p>Exact equivalence, tested support, negative control, historical lineage and open questions remain visibly different.</p></header>
+      <section class="pbm-node-grid">${list(primeBaseMode.nodes).map((node) => `<article><span class="idline">${esc(node.node_id)} · ${esc(node.status)}</span><h3>${esc(node.title)}</h3><p>${esc(node.summary)}</p><div class="tag-row">${list(node.families).map((item) => `<span class="tag family">${esc(item)}</span>`).join("")}${list(node.fields).map((item) => `<span class="tag">${esc(item)}</span>`).join("")}</div><p class="lineage-boundary"><strong>Boundary</strong> ${esc(node.claim_boundary)}</p></article>`).join("")}</section>
+      <section class="lineage-relations pbm-relations">${list(primeBaseMode.relations).map((relation) => `<article><div class="lineage-route"><strong>${esc(nodeById.get(relation.source)?.title || relation.source)}</strong><span>${esc(relation.type)} · ${esc(relation.status)} →</span><strong>${esc(nodeById.get(relation.target)?.title || relation.target)}</strong></div><p>${esc(relation.explanation)}</p><p><strong>Preserves</strong> ${esc(list(relation.preserves).join(" · "))}</p><p class="lineage-boundary"><strong>Does not imply</strong> ${esc(list(relation.does_not_imply).join(" · "))}</p></article>`).join("")}</section>
+
+      <header class="section-heading"><p class="eyebrow">Number genealogy</p><h2>One token · several legitimate roles</h2></header>
+      <section class="pbm-number-strip">${list(primeBaseMode.number_genealogy).map((item) => `<article><strong>${esc(item.number)}</strong><p>${esc(list(item.roles).join(" · "))}</p><small>${esc(item.current_reading)}</small></article>`).join("")}</section>
+
+      <header class="section-heading"><p class="eyebrow">Evidence ledger</p><h2>What is known, bounded, rejected or open</h2></header>
+      <section class="pbm-ledger">${ledgerColumns.map(([title, key]) => `<article class="ledger-${key}"><h3>${esc(title)}</h3><ul>${list(ledger[key]).map((item) => `<li>${esc(item)}</li>`).join("")}</ul></article>`).join("")}</section>
+
+      <header class="section-heading"><p class="eyebrow">Source receipts</p><h2>Nine records · no detached claim</h2><p>Every source in this lens is repository-bound and SHA-256 checked by the binder validator.</p></header>
+      <section class="pbm-source-list">${list(primeBaseMode.sources).map((source) => `<article><div><span class="idline">${esc(source.source_id)} · ${esc(source.repository)}</span><h3>${esc(source.title)}</h3><p>${esc(source.role)}</p></div><div><span class="mono">${esc(shortHash(source.sha256))}</span><a class="secondary-action" href="${esc(source.href)}">Open source →</a></div></article>`).join("")}</section>
+
+      <section class="panel open-questions"><p class="overline">Next archaeological passes</p><h2>Continue by binding operators—not by multiplying metaphors</h2><ol>${list(primeBaseMode.next_passes).map((item) => `<li>${esc(item)}</li>`).join("")}</ol></section>`;
+    setContext({ object: "Prime · Base · Mode lens", boundary: primeBaseMode.claim_ceiling, receipt: `${primeBaseMode.binder_id} · ${primeBaseMode.maintained} · ${primeBaseMode.sources.length} verified source hashes · canonical counts unchanged` });
+  }
+
   function filterMarkup() {
     const typeChips = ["module", "surface", "evidence"].map((type) => `
       <label class="filter-chip"><input type="checkbox" name="type" value="${type}" ${state.types.has(type) ? "checked" : ""}><span>${titleCase(type)} · ${typeCounts[type] || 0}</span></label>`).join("");
@@ -1066,6 +1209,59 @@
     const results = filteredEntities();
     target.innerHTML = `<div class="result-summary"><span>${results.length} of ${entities.length} entities</span><span>${state.query ? `Query: “${esc(state.query)}”` : "Validated internal manifest"}</span></div>
       <div class="entity-list">${results.length ? results.map(renderEntityCard).join("") : `<section class="empty-state"><h2>No matching objects</h2><p>Broaden the query or remove one filter.</p></section>`}</div>`;
+  }
+
+  function renderOrientationCatalog() {
+    const recordByKey = new Map(list(orientationCatalog.records).map((record) => [record.catalog_key, record]));
+    const conceptById = new Map(list(orientationCatalog.concepts).map((concept) => [concept.concept_id, concept]));
+    const pointersByKey = list(orientationCatalog.navigator_pointers).reduce((map, pointer) => {
+      if (!map.has(pointer.catalog_key)) map.set(pointer.catalog_key, []);
+      map.get(pointer.catalog_key).push(pointer);
+      return map;
+    }, new Map());
+    const featured = list(orientationCatalog.featured_keys).map((key) => recordByKey.get(key)).filter(Boolean);
+    const registeredWorkByKey = new Map(list(orientationCatalog.registered_works).map((work) => [work.catalog_key, work]));
+    const renderRecord = (record, featuredCard = false) => {
+      const registered = registeredWorkByKey.get(record.catalog_key);
+      const pointers = pointersByKey.get(record.catalog_key) || [];
+      return `<article class="orientation-catalog-card ${featuredCard ? "is-featured" : ""}">
+        <header><span class="idline">${esc(registered?.work_id || record.catalog_key)}</span><span class="catalog-classification">${esc(record.classification_state)} · ${esc(record.revision_state)}</span></header>
+        <h3>${esc(record.title)}</h3>
+        <p>${esc(record.summary)}</p>
+        <div class="tag-row"><span class="tag">${esc(record.type)}</span><span class="tag family">${esc(record.form)}</span>${record.series ? `<span class="tag">${esc(record.series)}</span>` : ""}</div>
+        <footer><a class="mini-action primary" href="${esc(safeExternalHref(record.source_url))}" target="_blank" rel="noreferrer">Open source ↗</a>${pointers.map((pointer) => `<a class="mini-action" href="${esc(pointer.target_route)}">${esc(pointer.relation_type)} →</a>`).join("")}</footer>
+      </article>`;
+    };
+    const registeredCards = list(orientationCatalog.registered_works).map((work) => `<article class="orientation-work-card">
+      <header><span class="idline">${esc(work.work_id)} · ${esc(work.current_edition || "edition not registered")}</span><h3>${esc(work.title)}</h3></header>
+      <p>${esc(work.summary)}</p>
+      <div class="orientation-concept-chips">${list(work.concept_ids).map((id) => `<span title="${esc(conceptById.get(id)?.definition)}"><b>${esc(id)}</b>${esc(conceptById.get(id)?.label || id)}</span>`).join("")}</div>
+    </article>`).join("");
+    const pointerRows = list(orientationCatalog.navigator_pointers).map((pointer) => {
+      const record = recordByKey.get(pointer.catalog_key);
+      return `<article class="orientation-pointer"><div><span class="idline">${esc(pointer.pointer_id)} · ${esc(pointer.relation_type)}</span><h3>${esc(record?.title || pointer.catalog_key)}</h3><p>${esc(pointer.claim_boundary)}</p></div><a class="secondary-action" href="${esc(pointer.target_route)}">Open NN lens →</a></article>`;
+    }).join("");
+
+    app.innerHTML = `${pageHeader("Experience catalog · read-only projection", "Orientation Catalog", "Sixty-one existing Experience records remain in their owning catalog. This lens foregrounds twelve orientation-relevant works, reuses ten registered Library Work identities and exposes their existing Concept links without turning books into Families or evidence.")}
+      <section class="metric-grid orientation-catalog-metrics">
+        <article class="metric"><strong>${orientationCatalog.records.length}</strong><span>Experience records</span></article>
+        <article class="metric"><strong>${orientationCatalog.featured_keys.length}</strong><span>orientation selection</span></article>
+        <article class="metric"><strong>${orientationCatalog.registered_works.length}</strong><span>registered NX Works</span></article>
+        <article class="metric"><strong>${orientationCatalog.concepts.length}</strong><span>registered NX-OP Concepts</span></article>
+      </section>
+      <section class="panel orientation-catalog-boundary"><p class="overline">Authority boundary</p><h2>Catalog relation ≠ scientific relation</h2><p>${esc(orientationCatalog.claim_ceiling)}</p><ul>${list(orientationCatalog.source_boundaries).map((item) => `<li>${esc(item)}</li>`).join("")}</ul></section>
+
+      <header class="section-heading"><p class="eyebrow">Curated beginning</p><h2>Twelve orientation-relevant works</h2><p>These are editorial starting points. Their status remains exactly as recorded by Experience.</p></header>
+      <section class="orientation-catalog-grid">${featured.map((record) => renderRecord(record, true)).join("")}</section>
+
+      <header class="section-heading"><p class="eyebrow">Stable Library graph</p><h2>Ten Works · seventeen Concepts</h2><p>The IDs and Work-to-Concept assignments come from the NEXAH Core Library Registry. They are reused here, not recreated.</p></header>
+      <section class="orientation-work-grid">${registeredCards}</section>
+
+      <header class="section-heading"><p class="eyebrow">NN reading pointers</p><h2>Connected without authority transfer</h2><p>Each pointer has an explicit boundary. It guides reading but does not enter the canonical relation count.</p></header>
+      <section class="orientation-pointer-list">${pointerRows}</section>
+
+      <details class="orientation-full-catalog"><summary>Show the complete Experience catalog · ${orientationCatalog.records.length} records</summary><section class="orientation-catalog-grid">${list(orientationCatalog.records).map((record) => renderRecord(record)).join("")}</section></details>`;
+    setContext({ object: "Orientation Catalog", boundary: orientationCatalog.claim_ceiling, receipt: `${orientationCatalog.binder_id} · Experience catalog ${orientationCatalog.source_catalog.sha256.slice(0, 12)}… · canonical counts unchanged` });
   }
 
   function renderFamilies() {
@@ -1431,7 +1627,7 @@
         <p class="life-usefulness-boundary"><strong>Claim boundary:</strong> ${esc(primeCrystal.claim_ceiling)}</p>
       </section>
 
-      <header class="section-heading"><p class="eyebrow">Complete LIFE program</p><h2>All twenty records · eighteen standalone HTML instruments</h2><p>The admitted P6 route is the entrance, not the whole programme. Every package keeps its own status, authority and claim ceiling.</p></header>
+      <header class="section-heading"><p class="eyebrow">Complete LIFE program</p><h2>All twenty-one records · nineteen standalone HTML instruments</h2><p>The admitted P6 route is the entrance, not the whole programme. Every package keeps its own status, authority and claim ceiling.</p></header>
       <section class="life-program-summary" aria-label="LIFE program counts">
         <article><strong>${lifeProgram.records.length}</strong><span>program records</span></article>
         <article><strong>${lifeProgram.counts.dedicated_html_apps}</strong><span>standalone HTML apps</span></article>
@@ -1488,16 +1684,16 @@
         ${href ? `<a class="secondary-action" href="${href}">Open HTML instrument ↗</a>` : ""}
       </article>`;
     }).join("");
-    app.innerHTML = `${pageHeader("SOURCE-BOUND DOCUMENTARY LENS · ADDED 2026-10-09", ilauOrientation.title, ilauOrientation.subtitle, bookHref ? `<a class="instrument-action" href="${bookHref}">Open A0 Chapter 08 ↗</a>` : "")}
+    app.innerHTML = `${pageHeader("SOURCE-BOUND DOCUMENTARY LENS · EXTENDED 2026-10-10", ilauOrientation.title, ilauOrientation.subtitle, bookHref ? `<a class="instrument-action" href="${bookHref}">Open A0 Chapter 08 ↗</a>` : "")}
       <section class="ilau-route-chain" aria-label="ILAU return chain">${ilauOrientation.return_chain.map((step) => `<span>${esc(step)}</span>`).join("<i>→</i>")}</section>
-      ${primaryHref ? `<section class="life-instrument-shell ilau-primary-instrument"><iframe title="Orientation Machine source-bound instrument" src="${primaryHref}" sandbox="allow-scripts allow-same-origin" loading="lazy"></iframe></section>` : ""}
-      <header class="section-heading"><p class="eyebrow">Three curated entries</p><h2>One family, three different jobs.</h2><p>The route keeps overview, cartographic encoding and return gate separate while preserving their common documentary source.</p></header>
+      ${primaryHref ? `<section class="life-instrument-shell ilau-primary-instrument"><iframe title="${esc(primary.title)} source-bound instrument" src="${primaryHref}" sandbox="allow-scripts allow-same-origin" loading="lazy"></iframe></section>` : ""}
+      <header class="section-heading"><p class="eyebrow">Nineteen source-bound entries</p><h2>One lineage, several distinct jobs.</h2><p>The route keeps carrier, aperture, seam, cartographic encoding, residual, music/register and return views separate while preserving their common documentary source.</p></header>
       <section class="ilau-instrument-grid">${cards}</section>
       <header class="section-heading"><p class="eyebrow">Local comparison vocabulary</p><h2>I · L · A · U</h2><p>These states classify a declared comparison. They do not explain cause or choose a decision rule.</p></header>
       <section class="ilau-status-grid">${ilauOrientation.ilau.map((item) => `<article data-code="${esc(item.code)}"><strong>${esc(item.code)}</strong><h3>${esc(item.label)}</h3><p>${esc(item.definition)}</p></article>`).join("")}</section>
       <section class="ilau-source-strip"><article><span>CONTROLLING INTAKE</span><strong>${esc(ilauOrientation.source_family.source_count)} source files · ${esc(ilauOrientation.source_family.html_instrument_count)} HTML instruments</strong>${sourceHref ? `<a href="${sourceHref}">Open intake README ↗</a>` : ""}${inventoryHref ? `<a href="${inventoryHref}">Open exact inventory ↗</a>` : ""}</article><article><span>DECISION BOUNDARY</span><strong>Classification remains distinct from decision.</strong>${boundaryHref ? `<a href="${boundaryHref}">Open Human Owner closure ↗</a>` : ""}</article></section>
       <p class="root7-boundary"><strong>Claim ceiling</strong> ${esc(ilauOrientation.claim_ceiling)}</p>`;
-    setContext({ object: ilauOrientation.title, boundary: ilauOrientation.claim_ceiling, receipt: `${ilauOrientation.binder_id} · 3/3 instrument hashes bound · publication false` });
+    setContext({ object: ilauOrientation.title, boundary: ilauOrientation.claim_ceiling, receipt: `${ilauOrientation.binder_id} · ${ilauOrientation.instruments.length}/${ilauOrientation.instruments.length} instrument hashes bound · publication false` });
   }
 
   function renderRelations() {
@@ -1580,9 +1776,133 @@
   function renderEvidence() {
     const evidence = entities.filter((entity) => entity.entity_type === "evidence");
     app.innerHTML = `${pageHeader("Evidence inspector", "Verdict and interpretation", "Evidence remains package-local. The current Navigator interpretation is shown beside—not over—the recorded local result.")}
+      ${renderOrionEvidenceLens()}
       ${renderFeaturedEvidenceCase("evidence")}
       <div class="entity-list">${evidence.map(renderEntityCard).join("")}</div>`;
-    setContext({ object: "Evidence", boundary: "A negative or null package result remains negative or null in its original scope. Later orientation may contextualize it but cannot rewrite it.", receipt: `${evidence.length} evidence nodes · package-local verdict retained` });
+    setContext({ object: "Evidence · ORION lens", boundary: "A negative or null package result remains negative or null in its original scope. Science Lab evidence does not extend ORION product authority.", receipt: `${evidence.length} evidence nodes · ORION L0–L4 source-bound · canonical counts unchanged` });
+  }
+
+  function renderOrionEvidenceLens() {
+    const sourceLink = (source, label = "Source") => {
+      const href = safeLocalHref(source);
+      return href ? `<a href="${href}">${esc(label)} ↗</a>` : "";
+    };
+    const authority = orionEvidence.authority_chain.map((item) => `<article><span>${esc(item.layer)}</span><h3>${esc(item.role)}</h3><p>${esc(item.boundary)}</p>${sourceLink(item.source)}</article>`).join("");
+    const levels = orionEvidence.evidence_ladder.map((item) => `<article class="orion-level orion-${esc(item.status_class)}"><header><strong>${esc(item.level)}</strong><span>${esc(item.status.replaceAll("_", " "))}</span></header><h3>${esc(item.carrier)}</h3><p>${esc(item.result)}</p><small>${esc(item.claim_boundary)}</small><nav>${sourceLink(item.source, "Primary")}${item.secondary_source ? sourceLink(item.secondary_source, "Second run") : ""}</nav></article>`).join("");
+    const interfaces = orionEvidence.interfaces.map((item) => `<article><span>${esc(item.state.replaceAll("_", " "))}</span><h3>${esc(item.name)}</h3><p>${esc(item.role)}</p><small>${esc(item.boundary)}</small>${sourceLink(item.source)}</article>`).join("");
+    return `<section id="orion-capability-evidence" class="orion-evidence-lens">
+      <header class="orion-lead"><div><p class="eyebrow">Source-bound method and capability view</p><h2>${esc(orionEvidence.title)}</h2><p>${esc(orionEvidence.summary)}</p></div><div class="orion-status"><span>CERTIFIED CORE</span><strong>bounded</strong><span>SCIENCE EVIDENCE</span><strong>L0–L3</strong><span>OPEN / INVALID</span><strong>L4</strong></div></header>
+      <div class="orion-authority-chain" aria-label="ORION authority chain">${authority}</div>
+      <details open class="orion-drawer"><summary><span>Validation ladder</span><small>L0–L4 · negative result retained</small></summary><div class="orion-level-grid">${levels}</div></details>
+      <details class="orion-drawer"><summary><span>Certified scope</span><small>included and explicitly excluded</small></summary><div class="orion-scope-grid"><article><h3>Certified V1 includes</h3><ul>${orionEvidence.certified_core.included.map((item) => `<li>${esc(item)}</li>`).join("")}</ul></article><article class="orion-excluded"><h3>Certified V1 excludes</h3><ul>${orionEvidence.certified_core.excluded.map((item) => `<li>${esc(item)}</li>`).join("")}</ul></article></div></details>
+      <details class="orion-drawer"><summary><span>Interfaces and lineage</span><small>not one runtime</small></summary><div class="orion-interface-grid">${interfaces}</div></details>
+      <div class="orion-bottom-grid"><article><p class="eyebrow">OPEN GATES</p><h3>What still has to be earned</h3><ol>${orionEvidence.open_gates.map((item) => `<li>${esc(item)}</li>`).join("")}</ol></article><article class="orion-boundary"><p class="eyebrow">NON-IDENTITIES</p><h3>What must not collapse</h3><ul>${orionEvidence.non_identities.map((item) => `<li>${esc(item)}</li>`).join("")}</ul></article></div>
+      <footer><strong>Claim ceiling</strong><p>${esc(orionEvidence.claim_ceiling)}</p><a href="#ladders">Open comparative Ladder Atlas →</a><a href="#findings-frontiers">Open Findings &amp; Frontiers →</a></footer>
+    </section>`;
+  }
+
+  function renderFindingsFrontiers() {
+    const sourceById = new Map(findingsFrontiers.sources.map((source) => [source.source_id, source]));
+    const classCards = findingsFrontiers.classes.map((group) => `
+      <article class="findings-class-card tone-${esc(group.evidence_class)}">
+        <header><span>${esc(group.evidence_class.toUpperCase())}</span><h2>${esc(group.label)}</h2></header>
+        <p>${esc(group.summary)}</p>
+        <ul>${group.items.map((item) => `<li>${esc(item)}</li>`).join("")}</ul>
+        <div class="findings-source-links">${group.source_ids.map((id) => {
+          const source = sourceById.get(id);
+          const href = source ? safeLocalHref(source.href) : "";
+          return source && href ? `<a href="${href}">${esc(source.title)} ↗</a>` : "";
+        }).join("")}</div>
+        <p class="findings-boundary"><strong>Boundary</strong> ${esc(group.claim_boundary)}</p>
+      </article>`).join("");
+    const surfaces = findingsFrontiers.navigator_evidence_surfaces.map((surface) => `
+      <a class="findings-surface-card" href="${esc(surface.route)}"><span>${esc(surface.title)}</span><p>${esc(surface.role)}</p><small>Open governed evidence surface →</small></a>`).join("");
+    const sourceLinks = findingsFrontiers.sources.map((source) => {
+      const href = safeLocalHref(source.href);
+      return href ? `<a href="${href}"><span>${esc(source.title)}</span><small>${esc(source.authority_role)} ↗</small></a>` : "";
+    }).join("");
+    const readinessGates = findingsFrontiers.frontier.readiness_gates.map((gate) => `
+      <article class="findings-gate">
+        <div><span>${esc(gate.gate_id)}</span><small>${esc(gate.status.replaceAll("_", " "))}</small></div>
+        <h3>${esc(gate.label)}</h3>
+        <p>${esc(gate.evidence)}</p>
+      </article>`).join("");
+    app.innerHTML = `${pageHeader("Evidence · lead synthesis · internal", findingsFrontiers.title, "One claim-preserving route through what is exact, bounded, negative, historical and still open. Original packages remain the result authorities.", `<a class="secondary-action" href="../EVIDENCE/FINDINGS_AND_FRONTIERS_2026-10-10/README.md">Open lead document ↗</a>`)}
+      <section class="findings-lead">
+        <p class="eyebrow">Current research object</p>
+        <h2>${esc(findingsFrontiers.research_object)}</h2>
+        <blockquote>${esc(findingsFrontiers.lead_finding)}</blockquote>
+        <p class="findings-return">${esc(findingsFrontiers.operational_return)}</p>
+        <div class="findings-grammar">${findingsFrontiers.inspection_grammar.map((field, index) => `<span><small>TF:${String(index + 1).padStart(2, "0")}</small>${esc(field)}</span>`).join("")}</div>
+      </section>
+      <section class="findings-class-grid" aria-label="Evidence classes">${classCards}</section>
+      <section class="findings-frontier">
+        <div>
+          <p class="eyebrow">Owner-selected research backlog · preparation only · not active</p>
+          <h2>${esc(findingsFrontiers.frontier.title)}</h2>
+          <p class="findings-human-question">${esc(findingsFrontiers.frontier.human_question)}</p>
+          <p>${esc(findingsFrontiers.frontier.hypothesis)}</p>
+          <div class="tag-row">${findingsFrontiers.frontier.decomposition.map((item) => `<span class="tag">${esc(item)}</span>`).join("")}</div>
+        </div>
+        <div class="findings-test-grid">
+          <article><span>MINIMUM TEST</span><ol>${findingsFrontiers.frontier.minimum_test.map((item) => `<li>${esc(item)}</li>`).join("")}</ol></article>
+          <article><span>FAIL / STOP</span><ul>${findingsFrontiers.frontier.fail_conditions.map((item) => `<li>${esc(item)}</li>`).join("")}</ul></article>
+        </div>
+      </section>
+      <section class="findings-gates">
+        <header class="section-heading"><p class="eyebrow">Scientific readiness</p><h2>Six gates, one next decisive test</h2><p>Internal evidence is not the same as external validation. Gate 5 is the next permitted preparation target; execution still requires admission.</p></header>
+        <div class="findings-gate-grid">${readinessGates}</div>
+        <div class="findings-next-action"><span>NEXT PERMITTED ACTION</span><p>${esc(findingsFrontiers.frontier.owner_selection.next_permitted_action)}</p></div>
+      </section>
+      <section>
+        <header class="section-heading"><p class="eyebrow">Evidence surfaces</p><h2>One lead route, several distinct inspectors</h2><p>The lead document orders these surfaces; it does not merge their evidence or authority.</p></header>
+        <div class="findings-surface-grid">${surfaces}</div>
+      </section>
+      <section>
+        <header class="section-heading"><p class="eyebrow">Controlling sources</p><h2>Follow every synthesis back to its record</h2></header>
+        <div class="findings-source-register">${sourceLinks}</div>
+      </section>
+      <section class="panel boundary-panel"><p class="overline">Claim ceiling</p><h2>Lead document ≠ evidence authority</h2><p>${esc(findingsFrontiers.claim_ceiling)}</p></section>`;
+    setContext({ object: findingsFrontiers.binder_id, boundary: findingsFrontiers.claim_ceiling, receipt: `${findingsFrontiers.sources.length} hash-bound sources · ${findingsFrontiers.classes.length} evidence classes · canonical counts unchanged` });
+  }
+
+  function renderA0OrientationEvidence() {
+    const sourceLinks = a0OrientationEvidence.sources.map((source) => `<a class="secondary-action" href="${esc(source.href)}"><span>${esc(source.title)}</span><small>${esc(source.authority_role)} · ${esc(source.sha256.slice(0, 12))}… ↗</small></a>`).join("");
+    const aliases = a0OrientationEvidence.aliases.map((item) => `<article class="panel"><p class="overline">${esc(item.canonical)}</p><div class="tag-row">${item.search_terms.map((term) => `<span class="tag">${esc(term)}</span>`).join("")}</div></article>`).join("");
+    const nodes = a0OrientationEvidence.nodes.map((node) => `<article class="panel"><span class="idline">${esc(node.node_id)}</span><h3>${esc(node.label)}</h3><p>${esc(node.kind.replaceAll("-", " "))}</p><div class="tag-row"><span class="tag">${esc(node.state.replaceAll("_", " "))}</span>${node.node_id.startsWith("ART:") || node.node_id.startsWith("MOD:") ? `<span class="tag family">existing identity</span>` : `<span class="tag">lens-local reference</span>`}</div></article>`).join("");
+    const relationRows = a0OrientationEvidence.relations.map((relation) => `<article class="panel"><p class="overline">${esc(relation.type)} · ${esc(relation.status)}</p><h3>${esc(relation.source)} → ${esc(relation.target)}</h3><p>${esc(relation.statement)}</p><p class="findings-boundary"><strong>Boundary</strong> ${esc(relation.claim_boundary)}</p></article>`).join("");
+    const orientationCycle = a0OrientationEvidence.orientation_operator_cycle;
+    const stageCards = orientationCycle.stages.map((stage) => `<article class="panel"><p class="overline">${esc(stage.range)} · ${esc(stage.stage)}</p><h3>${stage.operators.map(esc).join(" · ")}</h3><p>${esc(stage.function)}</p><div class="tag-row"><span class="tag">HTML positions ${stage.demonstrator_positions.join("–")}</span><span class="tag ${stage.source_state.includes("GAP") ? "warning" : "family"}">${esc(stage.source_state.replaceAll("_", " "))}</span></div></article>`).join("");
+    const entryMap = a0OrientationEvidence.a0_entry_map;
+    const entryNumberCards = entryMap.numeric_anchors.map((item) => `<article class="panel"><p class="overline">Exact numeric anchor · ${esc(item.label)}</p><h3>${esc(item.exact)}</h3><p class="findings-boundary"><strong>Boundary</strong> ${esc(item.boundary)}</p></article>`).join("");
+    const gridAtlas = a0OrientationEvidence.grid_interaction_atlas;
+    const gridLayerCards = gridAtlas.layers.map((item) => `<article class="panel"><p class="overline">${esc(item.layer)} · ${esc(item.status.replaceAll("_", " "))}</p><h3>${esc(item.contract)}</h3>${item.operators.length ? `<div class="tag-row">${item.operators.map((operator) => `<span class="tag">${esc(operator)}</span>`).join("")}</div>` : `<p class="findings-boundary">Contract required before execution.</p>`}</article>`).join("");
+    const pascalSuite = a0OrientationEvidence.pascal_pentagon_suite;
+    const pascalEmbeddingLinks = pascalSuite.embedded_surfaces.map((item) => `<a class="instrument-action" href="${esc(item.href)}">${esc(item.role === "embedded current Point 03 view" ? "Open embedded Point 03" : "Open embedded companion")} ↗</a>`).join("");
+    const pascalCards = pascalSuite.tests.map((test) => `<article class="panel"><p class="overline">${esc(test.test_id)} · ${esc(test.layer)}</p><h3>${esc(test.status.replaceAll("_", " "))}</h3><p>${esc(test.result)}</p></article>`).join("");
+    const findingsFlow = a0OrientationEvidence.findings_paper_flow;
+    const surfaceCoverage = a0OrientationEvidence.a0_surface_coverage;
+    const findingCards = findingsFlow.findings.map((item) => `<article class="panel"><p class="overline">${esc(item.finding_id)} · ${esc(item.state.replaceAll("_", " "))}</p><h3>${esc(item.statement)}</h3><p class="findings-boundary"><strong>Route</strong> ${esc(item.disposition)}</p></article>`).join("");
+    const paperLaneCards = findingsFlow.paper_lanes.map((item) => `<article class="panel"><p class="overline">Paper ${esc(item.lane)} · ${esc(item.state.replaceAll("_", " "))}</p><h3>${esc(item.title)}</h3><p><strong>Next gate:</strong> ${esc(item.next_gate)}</p><a class="instrument-action" href="${esc(item.href)}">Open controlled source ↗</a></article>`).join("");
+    app.innerHTML = `${pageHeader("Evidence · source-bound lineage · internal", a0OrientationEvidence.title, a0OrientationEvidence.summary, `<a class="secondary-action" href="../EVIDENCE/A0_ORIENTATION_EVIDENCE_LINEAGE_2026-10-10/README.md">Open binder note ↗</a>`)}
+      <section class="findings-lead"><p class="eyebrow">Identity reuse</p><h2>A0 remains one existing object</h2><p>${esc(a0OrientationEvidence.purpose)}</p><div class="findings-grammar"><span><small>SURFACE</small>${esc(a0OrientationEvidence.identity_reuse.a0_surface_entity_id)}</span><span><small>MODULE</small>${esc(a0OrientationEvidence.identity_reuse.a0_module_entity_id)}</span><span><small>LANGUAGE AUTHORITY</small>${esc(a0OrientationEvidence.identity_reuse.ols_release_id)}</span><span><small>PACKAGE</small>${esc(a0OrientationEvidence.identity_reuse.source_package_state)}</span></div></section>
+      <section class="panel boundary-panel"><p class="overline">A0 module/surface return · ${esc(surfaceCoverage.status.replaceAll("_", " "))}</p><h2>${surfaceCoverage.bound_surfaces} / ${surfaceCoverage.registered_surfaces} registered A0 surfaces are bound to NN</h2><p>Nine work groups reuse the existing A0, Number View, Orientation, Return, LIFE and Tessarec identities. This is a complete machine-readable coverage projection, not 33 new modules.</p><div class="tag-row"><span class="tag family">33 / 33 bound</span><span class="tag">${surfaceCoverage.work_groups} work groups</span><span class="tag">0 unbound</span><span class="tag warning">canonical count effect: ${esc(surfaceCoverage.canonical_count_effect)}</span></div><a class="instrument-action" href="../EVIDENCE/A0_ORIENTATION_EVIDENCE_LINEAGE_2026-10-10/A0_MODULE_SURFACE_COVERAGE_V1_2026-10-14.json">Open machine-readable coverage ↗</a></section>
+      <header class="section-heading"><p class="eyebrow">NN binding · existing lens reused</p><h2>MRB → ACR/Lissajous → NCS/Q106 → Triple-19 → TripleSix → general fold → interface assembly → A0</h2><p>${esc(a0OrientationEvidence.nn_return_crosswalk_binding.a0_extension)}</p><div class="tag-row"><span class="tag family">${esc(a0OrientationEvidence.nn_return_crosswalk_binding.node_id)}</span><span class="tag">F-A0-14</span><span class="tag">F-A0-15</span><span class="tag">F-A0-16</span><span class="tag warning">no new identity</span></div><p class="findings-boundary"><strong>Completed formal question</strong> ${esc(a0OrientationEvidence.nn_return_crosswalk_binding.completed_formal_question)}</p><p class="findings-boundary"><strong>Next package boundary</strong> ${esc(a0OrientationEvidence.nn_return_crosswalk_binding.next_formal_question)}</p><p class="findings-boundary"><strong>Boundary</strong> ${esc(a0OrientationEvidence.nn_return_crosswalk_binding.claim_boundary)}</p></header>
+      <header class="section-heading"><p class="eyebrow">Findings · source-bound · no claim promotion</p><h2>Sixteen findings, four paper lanes, explicit gates</h2><p>The research journey is now readable from bounded source to finding, claim ceiling, paper lane and decision gate. A visual or a Navigator placement never upgrades the evidence state.</p></header><section class="detail-layout">${findingCards}</section>
+      <header class="section-heading"><p class="eyebrow">Paper routing · preparation only</p><h2>Existing paper, companion note, or parked outline?</h2><p>Each lane has a different scope and next permitted action. The narrow SCC-003 theorem remains separate from D30, Return synthesis and documentary archaeology.</p></header><section class="detail-layout">${paperLaneCards}</section><section class="panel boundary-panel"><p class="overline">Controlled editorial flow</p><h2>${findingsFlow.flow.map(esc).join(" → ")}</h2><p>${esc(findingsFlow.claim_boundary)}</p></section>
+      <header class="section-heading"><p class="eyebrow">A0 entrance · historical crosscuts · ${esc(entryMap.verified_local_source_date)}</p><h2>${esc(entryMap.editorial_thesis)}</h2><p>Five vertical stacks and nine thematic groups plus the Applications lane are retained as different readings of one documentary surface—not as one proven universal geometry.</p></header><section class="detail-layout"><article class="panel"><p class="overline">Vertical condensation</p><h3>${entryMap.vertical_crosscut.map(esc).join(" → ")}</h3><p>A possible route from carrier to navigable path. Every arrow still needs an explicit map.</p></article><article class="panel"><p class="overline">Horizontal editorial map</p><h3>${entryMap.horizontal_crosscut.map(esc).join(" → ")}</h3><p>Organizes representations and tools; it is not automatically a causal sequence.</p></article></section><section class="detail-layout">${entryNumberCards}</section><section class="panel boundary-panel"><p class="overline">Ledger and unresolved alias</p><h2>${esc(entryMap.ledger_rule)}</h2><p>${esc(entryMap.ledger_boundary)}</p><div class="tag-row"><span class="tag warning">U-field unresolved</span><span class="tag">4 source visuals</span><span class="tag">2 July date verified</span></div><p class="findings-boundary"><strong>Boundary</strong> ${esc(entryMap.claim_boundary)}</p><a class="instrument-action" href="${esc(entryMap.book_href)}">Open A0 System Map ↗</a></section>
+      <header class="section-heading"><p class="eyebrow">Point 03 · typed grid interactions</p><h2>Carrier → fold → envelope → channel</h2><p>The pentagon envelope is not silently identified with its source grid. Exact finite maps, bounded phase coupling and open visual hypotheses remain status-separated.</p></header><section class="detail-layout">${gridLayerCards}</section><section class="panel boundary-panel"><p class="overline">Coupled-channel contract · not a flow law</p><h2>Symmetric asymmetry becomes testable only after six declarations</h2><div class="tag-row">${gridAtlas.channel_contract.map((item) => `<span class="tag">${esc(item)}</span>`).join("")}</div><p class="findings-boundary"><strong>Boundary</strong> ${esc(gridAtlas.claim_boundary)}</p><div class="tag-row"><span class="tag">3 hash-bound search markers</span><span class="tag">C5/C6 remain non-identical</span><span class="tag warning">Envelope ≠ carrier</span></div><a class="instrument-action" href="${esc(gridAtlas.book_href)}">Open Grid Interaction Atlas ↗</a></section>
+      <section class="panel boundary-panel"><p class="overline">A0 core principle</p><h2>${esc(a0OrientationEvidence.a0_core_statement.principle)}</h2><blockquote>${esc(a0OrientationEvidence.a0_core_statement.strongest_statement)}</blockquote><div class="findings-grammar">${a0OrientationEvidence.a0_core_statement.typed_chain.map((item, index) => `<span><small>${String(index + 1).padStart(2, "0")}</small>${esc(item)}</span>`).join("")}</div><div class="tag-row">${a0OrientationEvidence.a0_core_statement.protected_distinctions.map((item) => `<span class="tag">${esc(item)}</span>`).join("")}</div></section>
+      <section class="panel boundary-panel"><p class="overline">Vocabulary control and OLS</p><h2>Aligned, but not identical</h2><p>${esc(a0OrientationEvidence.vocabulary_boundary.answer)}</p><div class="detail-layout"><div><h3>Preserved</h3><ul>${a0OrientationEvidence.vocabulary_boundary.preserved.map((item) => `<li>${esc(item)}</li>`).join("")}</ul></div><div><h3>Not transferred</h3><ul>${a0OrientationEvidence.vocabulary_boundary.not_transferred.map((item) => `<li>${esc(item)}</li>`).join("")}</ul></div></div></section>
+      <header class="section-heading"><p class="eyebrow">Working crosswalk · not canonical taxonomy</p><h2>${esc(orientationCycle.title)}</h2><p>The existing HTML demonstrator identity is reused; the twelve process operators remain distinct from the T1–T7 transformation battery.</p></header><section class="detail-layout">${stageCards}</section>
+      <section class="panel boundary-panel"><p class="overline">Closure / Return · position ${orientationCycle.closure.position}</p><h2>${esc(orientationCycle.closure.label)}</h2><p>${esc(orientationCycle.closure.source_state.replaceAll("_", " "))}. The supplied storyboard is hash-bound through HP-007, but remains noncanonical; no missing HTML or unfinished operator page is reconstructed.</p><div class="tag-row"><span class="tag">HP-007 source bound</span><span class="tag">T1–T4 controls</span><span class="tag">T5–T7 candidates</span><span class="tag warning">contextualized, never merged</span></div></section>
+      <header class="section-heading"><p class="eyebrow">Bounded interactive test suite</p><h2>Pascal pentagon · structure, metric, boundary, 3D lift, roots, growth, coupling</h2><p>One lens-local identity, seven replay records and one non-evidentiary interactive view.</p></header><section class="detail-layout">${pascalCards}</section><section class="detail-layout"><article class="panel"><p class="overline">PENT-07 view · D1…D5 × D30</p><h3>${esc(pascalSuite.d30_formal_extension.status.replaceAll("_", " "))}</h3><p>${esc(pascalSuite.d30_formal_extension.interactive_view)}</p><div class="tag-row"><span class="tag family">${esc(pascalSuite.d30_formal_extension.word_audit)}</span><span class="tag">65 / 150 register-phase places</span><span class="tag warning">no PENT-08</span></div><p class="findings-boundary"><strong>Boundary</strong> ${esc(pascalSuite.d30_formal_extension.claim_boundary)}</p></article></section><section class="panel boundary-panel"><p class="overline">Interactive source-bound view</p><h2>PENT-01 → PENT-02 → PENT-03 → PENT-04 → PENT-05 → PENT-06 → PENT-07</h2><p>${esc(pascalSuite.claim_boundary)}</p><a class="instrument-action" href="${esc(pascalSuite.instrument_href)}">Open Pascal Pentagon Explorer ↗</a>${pascalEmbeddingLinks}</section>
+      <header class="section-heading"><p class="eyebrow">Search vocabulary</p><h2>Aliases lead to one bound object</h2><p>These terms improve retrieval. They do not create new canonical names.</p></header><section class="detail-layout">${aliases}</section>
+      <header class="section-heading"><p class="eyebrow">Bound objects</p><h2>Existing identities and lens-local references</h2></header><section class="detail-layout">${nodes}</section>
+      <header class="section-heading"><p class="eyebrow">Typed relations</p><h2>What is connected—and where it stops</h2></header><section class="detail-layout">${relationRows}</section>
+      <header class="section-heading"><p class="eyebrow">Controlling sources</p><h2>${a0OrientationEvidence.sources.length} hash-bound records</h2><p>${esc(a0OrientationEvidence.visual_policy)}</p></header><section class="findings-source-register">${sourceLinks}</section>
+      <section class="panel boundary-panel"><p class="overline">Claim ceiling</p><h2>Navigation ≠ activation</h2><p>${esc(a0OrientationEvidence.claim_ceiling)}</p></section>`;
+    setContext({ object: a0OrientationEvidence.binder_id, boundary: a0OrientationEvidence.claim_ceiling, receipt: `${a0OrientationEvidence.sources.length} verified source hashes · ${a0OrientationEvidence.relations.length} bounded relations · canonical counts unchanged` });
   }
 
   function renderFeaturedEvidenceCase(placement = "home") {
@@ -1629,6 +1949,10 @@
   function safeLocalHref(localPath) {
     if (!localPath || localPath.startsWith("/") || localPath.includes("..") || /^[a-z]+:/i.test(localPath)) return "";
     return `../../../${localPath.split("/").map(encodeURIComponent).join("/")}`;
+  }
+
+  function safeExternalHref(value) {
+    return /^https:\/\/www\.are\.na\//.test(String(value || "")) ? String(value) : "#orientation-catalog";
   }
 
   function sourceActionLabel(entity) {
@@ -1784,7 +2108,9 @@
     }
     switch (route) {
       case "catalog": renderCatalog(); break;
+      case "orientation-catalog": renderOrientationCatalog(); break;
       case "atlas": renderAtlas(); break;
+      case "lab-register": renderLabRegister(); break;
       case "about": renderAboutV2(); break;
       case "glossary": renderGlossary(); break;
       case "utg": renderUTG(); break;
@@ -1797,11 +2123,14 @@
       case "ilau-orientation": renderIlauOrientation(); break;
       case "sequence": renderSequence(); break;
       case "lineage": renderLineage(); break;
+      case "prime-base-mode": renderPrimeBaseMode(); break;
       case "relations": renderRelations(); break;
       case "relation": renderRelation(value); break;
       case "families": renderFamilies(); break;
       case "family": renderCatalog({ family: value }); break;
       case "evidence": renderEvidence(); break;
+      case "findings-frontiers": renderFindingsFrontiers(); break;
+      case "a0-orientation-evidence": renderA0OrientationEvidence(); break;
       case "admission": renderAdmission(); break;
       case "entity": renderEntity(value); break;
       default: renderHomeV2(); break;

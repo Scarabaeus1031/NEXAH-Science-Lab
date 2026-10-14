@@ -45,6 +45,11 @@ The smallest viable program begins with representation maps and information loss
     — established complex-number and quantum basics separated from NEXAH
     bookkeeping, metric mixtures, partitions and Prephysics; educational and
     documentary only.
+21. [NEXAH Foundational Record Grammar](NEXAH_FOUNDATIONAL_RECORD_GRAMMAR_2026-10-09/README.md)
+    — Owner-selected design-phase Grundlagenforschung on small typed records,
+    elementary operators, generated representations and bounded Mathematics–
+    Physics–Biology–Chemistry comparisons; no theorem, domain identity or new
+    physical claim.
 
 ## Current bridge control
 

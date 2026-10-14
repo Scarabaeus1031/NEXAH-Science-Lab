@@ -1,0 +1,167 @@
+{
+  "schema": "nexah.a0-bl-053.clean-room-result/1.0.0",
+  "date": "2026-10-11",
+  "status": "PASS",
+  "classification": "INTERNAL_CLEAN_ROOM_CONTROL_PASS",
+  "implementation_lineage": "NEW_STANDARD_LIBRARY_JAVASCRIPT_NO_IMPORT_FROM_A0_BL_052",
+  "reviewer_status": "INTERNAL_NOT_EXTERNAL_INDEPENDENT",
+  "theorem_scope_note": "Finite enumeration is a control only; the all-N claim depends on the separate symbolic proof audit.",
+  "tests": {
+    "C1_EXACT_BASIS_CYCLE": {
+      "pass": true,
+      "action": {
+        "i": [
+          "0",
+          "0",
+          "1",
+          "0"
+        ],
+        "j": [
+          "0",
+          "0",
+          "0",
+          "1"
+        ],
+        "k": [
+          "0",
+          "1",
+          "0",
+          "0"
+        ]
+      }
+    },
+    "C2_U_CUBE_MINUS_ONE": {
+      "pass": true,
+      "value": [
+        "-1",
+        "0",
+        "0",
+        "0"
+      ],
+      "conjugation_order": 3
+    },
+    "C3_ENUMERATION_0_14": {
+      "pass": true,
+      "max_depth_count": 680,
+      "records": [
+        {
+          "N": 0,
+          "point_count": 1,
+          "collision_count": 0,
+          "c3_equivariant": true,
+          "inverse_return": true
+        },
+        {
+          "N": 1,
+          "point_count": 4,
+          "collision_count": 0,
+          "c3_equivariant": true,
+          "inverse_return": true
+        },
+        {
+          "N": 2,
+          "point_count": 10,
+          "collision_count": 0,
+          "c3_equivariant": true,
+          "inverse_return": true
+        },
+        {
+          "N": 3,
+          "point_count": 20,
+          "collision_count": 0,
+          "c3_equivariant": true,
+          "inverse_return": true
+        },
+        {
+          "N": 4,
+          "point_count": 35,
+          "collision_count": 0,
+          "c3_equivariant": true,
+          "inverse_return": true
+        },
+        {
+          "N": 5,
+          "point_count": 56,
+          "collision_count": 0,
+          "c3_equivariant": true,
+          "inverse_return": true
+        },
+        {
+          "N": 6,
+          "point_count": 84,
+          "collision_count": 0,
+          "c3_equivariant": true,
+          "inverse_return": true
+        },
+        {
+          "N": 7,
+          "point_count": 120,
+          "collision_count": 0,
+          "c3_equivariant": true,
+          "inverse_return": true
+        },
+        {
+          "N": 8,
+          "point_count": 165,
+          "collision_count": 0,
+          "c3_equivariant": true,
+          "inverse_return": true
+        },
+        {
+          "N": 9,
+          "point_count": 220,
+          "collision_count": 0,
+          "c3_equivariant": true,
+          "inverse_return": true
+        },
+        {
+          "N": 10,
+          "point_count": 286,
+          "collision_count": 0,
+          "c3_equivariant": true,
+          "inverse_return": true
+        },
+        {
+          "N": 11,
+          "point_count": 364,
+          "collision_count": 0,
+          "c3_equivariant": true,
+          "inverse_return": true
+        },
+        {
+          "N": 12,
+          "point_count": 455,
+          "collision_count": 0,
+          "c3_equivariant": true,
+          "inverse_return": true
+        },
+        {
+          "N": 13,
+          "point_count": 560,
+          "collision_count": 0,
+          "c3_equivariant": true,
+          "inverse_return": true
+        },
+        {
+          "N": 14,
+          "point_count": 680,
+          "collision_count": 0,
+          "c3_equivariant": true,
+          "inverse_return": true
+        }
+      ]
+    },
+    "C4_EXACT_INVERSE_RETURN": {
+      "pass": true
+    },
+    "C5_OPPOSITE_CYCLE_MUTATION_REJECTED": {
+      "pass": true,
+      "rejected_mutation": "(a,b,c)->(b,c,a) for Ad_u"
+    },
+    "C6_REFLECTION_NOT_PROPER_ROTATION": {
+      "pass": true,
+      "reflection_determinant": -1,
+      "quaternion_inner_rotation_determinant": 1
+    }
+  }
+}

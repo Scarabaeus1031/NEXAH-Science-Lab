@@ -1,0 +1,50 @@
+{
+  "schema": "nexah.a0.tessarec-blue-body/1.0.0",
+  "record_id": "A0:TESSAREC:BLUE_BODY:V1",
+  "date": "2026-10-13",
+  "status": "INTERNAL_DETERMINISTIC_ENGINEERING_PROTOTYPE_NOT_SCIENCE_RUN",
+  "identity_reuse": [
+    "MOD:TESSAREC",
+    "NEXAH:A0_ORIENTATION_EVIDENCE_LINEAGE:V1"
+  ],
+  "carrier": {
+    "graph": "Q4 cartesian-product P3",
+    "vertices": 48,
+    "edges": 128,
+    "layer_partition": "3 x 16"
+  },
+  "host_shell": {
+    "label": "O2-P16-H8 closed cubic planar shell",
+    "vertices": 48,
+    "edges": 72,
+    "faces": 26,
+    "face_vector": { "octagons": 2, "pentagons": 16, "hexagons": 8 },
+    "ring_partition": "6 x 8",
+    "euler_characteristic": 2
+  },
+  "deterministic_fixture": {
+    "algorithm": "seeded simulated annealing over vertex bijections; shortest host paths use sorted BFS tie-breaking",
+    "layer_preserving": {
+      "seed": 4802168,
+      "iterations": 120000,
+      "wirelength": 280,
+      "mean_dilation": 2.1875,
+      "max_dilation": 6,
+      "max_congestion": 6,
+      "direct_carrier_edges": 40,
+      "layer_addresses_retained": 48
+    },
+    "unconstrained": {
+      "seed": 7,
+      "iterations": 120000,
+      "wirelength": 280,
+      "mean_dilation": 2.1875,
+      "max_dilation": 6,
+      "max_congestion": 6,
+      "direct_carrier_edges": 45,
+      "layer_addresses_retained": 14
+    }
+  },
+  "bounded_result": "The natural 3x16 to 6x8 Gray-ring adapter ties the recorded unconstrained candidate on wirelength, dilation and congestion while retaining all 48 layer addresses. This is a deterministic candidate comparison, not an optimality proof.",
+  "claim_boundary": "NO_NEW_POLYHEDRON_NO_TESSERACT_IDENTITY_NO_OPTIMALITY_PROOF_NO_SCIENCE_RUN_NO_PHYSICAL_MECHANISM_NO_NOVELTY_CERTIFICATE_NO_PUBLICATION"
+}

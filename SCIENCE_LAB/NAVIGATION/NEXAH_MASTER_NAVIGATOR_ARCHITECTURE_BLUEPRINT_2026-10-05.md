@@ -51,7 +51,7 @@ Current repository counts:
 
 | Measure | Count |
 |---|---:|
-| all HTML files in the present repository tree | 111 |
+| all HTML files in the present repository tree | 113 |
 | HTML files below `SCIENCE_LAB/` | 90 |
 | active Navigation Ring 1 pages | 9 |
 | `00_INCOMING` HTMLs | 14 |
@@ -421,7 +421,7 @@ They are archive entrances, not twelve newly active research programmes.
 Status: `DONE FOR CURRENT TREE`
 
 - preserve existing files;
-- generate the 111-row catalog snapshot;
+- generate the 115-row catalog snapshot;
 - retain the frozen legacy census separately;
 - make no new master claims.
 
@@ -449,7 +449,9 @@ Status: `DONE / CURATED BASELINE / NO AUTOMATIC PROMOTION`
 - register MIWA, LOKI and Tessarec as an explicit overlap case;
 - retain file hashes and predecessor/successor lineage.
 
-Implemented as 14 module families, 33 physical surfaces and 8 typed relations:
+Current as of 2026-10-07: 14 module families, 39 physical surfaces and 15
+typed module relations. The original implementation baseline was 33 surfaces
+and 8 relations:
 
 - [`NEXAH_MODULE_REGISTRY_V2_2026-10-05.json`](NEXAH_MODULE_REGISTRY_V2_2026-10-05.json)
 - [`validate_module_registry_v2.mjs`](validate_module_registry_v2.mjs)
@@ -459,7 +461,7 @@ are resolved by the validator rather than duplicated as a second mutable copy.
 
 ### WP2.5 — Complete HTML artifact curation layer
 
-Status: `DONE / 111 OF 111 COVERED / 2 PROVISIONAL / NO AUTOMATIC PROMOTION`
+Status: `DONE / 121 OF 121 COVERED / 6 PROVISIONAL / NO AUTOMATIC PROMOTION`
 
 - evaluate every HTML by centrality, content role, representation role,
   interaction level and lifecycle;

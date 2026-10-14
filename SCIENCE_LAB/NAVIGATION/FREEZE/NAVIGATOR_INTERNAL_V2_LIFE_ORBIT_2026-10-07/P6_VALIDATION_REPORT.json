@@ -1,0 +1,45 @@
+{
+  "schema": "nexah.life01.p6-validation/1.0.0",
+  "date": "2026-10-07",
+  "mission": "M-LIFE01",
+  "gate": "P6_NAVIGATOR_INTERNAL_ADMISSION",
+  "status": "PASS",
+  "navigator": {
+    "route": "#life-orbit",
+    "base_entities": 170,
+    "admitted_entities": 3,
+    "composed_entities": 173,
+    "base_relations": 23,
+    "admitted_relations": 3,
+    "composed_relations": 26,
+    "family_route": ["CF:F1", "CF:F3", "CF:F4", "CF:F5", "CF:F7"],
+    "relation_types": ["version-successor", "application-analogy", "method-grammar"]
+  },
+  "validation": {
+    "successor_freeze": "PASS_19_OF_19",
+    "navigator_audit": "PASS_114_OF_114",
+    "javascript_syntax": "PASS",
+    "json_syntax": "PASS",
+    "headless_chrome_render": "PASS",
+    "relation_endpoints_resolved": true,
+    "predecessor_p5r_preserved": true
+  },
+  "boundaries": {
+    "internal_admission": true,
+    "public_entities": 0,
+    "publication_authorized": false,
+    "deployment_authorized": false,
+    "external_utility_validated": false,
+    "life_e8_mechanism_identity_claimed": false,
+    "new_functional_family_created": false
+  },
+  "bindings": {
+    "admission_record_sha256": "8b05a87b911366e10b0c0de1b7fd68786e891ee31ad1cd0b6722aef276fc01e5",
+    "browser_data_sha256": "2172436a2a77e310175d4b539a1769c3d2d583cb6c510eaa94e69c737647fe9c",
+    "successor_manifest_sha256": "752f67a8a48ed63159f8eaa8ad9567f007216ee75513e112bdc2e0ae41709e31",
+    "freeze_record_sha256": "b57a65db23cbf3927ee285689e5707d9ef9a738ff6e05c933a5a3ee2528ef2a6",
+    "freeze_verifier_sha256": "fc7440d32f15ab78f2434d974845b74583b6460e05804b2534751f891317998d",
+    "p5r_validation_sha256": "674a7777b0490380bee6a7b514ad87e80c2a65b40240a9ba8f4657fbd1b5692b"
+  },
+  "next_gate": "NONE_PROJECT_BUILD_COMPLETE_OWNER_REVIEW_ONLY"
+}

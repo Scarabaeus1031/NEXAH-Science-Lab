@@ -1,0 +1,114 @@
+{
+  "schema": "nexah.a0.m64-janus-sector-transfer-result",
+  "version": "1.0.0",
+  "date": "2026-10-14",
+  "record_id": "A0_M64_JANUS_SECTOR_TRANSFER_RUN_001",
+  "status": "VALIDATED_BOUNDED_ENGINEERING_RESULT_STOP_REACHED",
+  "systems": {
+    "365": {
+      "factorization": [5, 73],
+      "multiplier": 64,
+      "multiplier_channels": [4, 64],
+      "local_orders": [2, 3],
+      "mirror_equalizer": {
+        "equation": "65x = 0 mod 365",
+        "predicted_size": 5,
+        "enumerated_size": 5,
+        "generator_step": 73,
+        "elements": [0, 73, 146, 219, 292],
+        "nonzero_size": 4
+      },
+      "factor_axes": [
+        {
+          "coordinate_modulus": 5,
+          "embedding_step": 73,
+          "size": 5,
+          "induced_multiplier": 4,
+          "induced_order": 2,
+          "is_full_mirror_sector": true,
+          "mirror_agreement_count": 5,
+          "mirror_agreement_elements": [0, 73, 146, 219, 292]
+        },
+        {
+          "coordinate_modulus": 73,
+          "embedding_step": 5,
+          "size": 73,
+          "induced_multiplier": 64,
+          "induced_order": 3,
+          "is_full_mirror_sector": false,
+          "mirror_agreement_count": 1,
+          "mirror_agreement_elements": [0]
+        }
+      ],
+      "controls": {
+        "full_mirror": {"multiplier": 364, "agreement_size": 365, "expected_size": 365},
+        "identity_on_odd_carrier": {"multiplier": 1, "agreement_size": 1, "expected_size": 1}
+      }
+    },
+    "2501": {
+      "factorization": [41, 61],
+      "multiplier": 64,
+      "multiplier_channels": [23, 3],
+      "local_orders": [10, 10],
+      "mirror_equalizer": {
+        "equation": "65x = 0 mod 2501",
+        "predicted_size": 1,
+        "enumerated_size": 1,
+        "generator_step": 2501,
+        "elements": [0],
+        "nonzero_size": 0
+      },
+      "factor_axes": [
+        {
+          "coordinate_modulus": 41,
+          "embedding_step": 61,
+          "size": 41,
+          "induced_multiplier": 23,
+          "induced_order": 10,
+          "is_full_mirror_sector": false,
+          "mirror_agreement_count": 1,
+          "mirror_agreement_elements": [0]
+        },
+        {
+          "coordinate_modulus": 61,
+          "embedding_step": 41,
+          "size": 61,
+          "induced_multiplier": 3,
+          "induced_order": 10,
+          "is_full_mirror_sector": false,
+          "mirror_agreement_count": 1,
+          "mirror_agreement_elements": [0]
+        }
+      ],
+      "controls": {
+        "full_mirror": {"multiplier": 2500, "agreement_size": 2501, "expected_size": 2501},
+        "identity_on_odd_carrier": {"multiplier": 1, "agreement_size": 1, "expected_size": 1}
+      }
+    }
+  },
+  "transfer_verdict": {
+    "code": "CARRIER_BOUND_JANUS_SECTOR_AT_365_NO_NONTRIVIAL_TRANSFER_TO_2501",
+    "invariant": [
+      "CRT channel action",
+      "equalizer equation (a+1)x=0 mod m",
+      "equalizer cardinality gcd(a+1,m)"
+    ],
+    "carrier_specific": [
+      "nontrivial mirror-sector existence",
+      "factor-axis mirror action",
+      "local orders",
+      "global orbit census"
+    ],
+    "interpretation": "M64 agrees with mirror on the five-state 73*Z_5 axis of Z_365, but only at zero on Z_2501. Janus behavior is a carrier-and-sector relation, not an intrinsic meaning of the numeral 64."
+  },
+  "governance": {
+    "physical_janus_mechanism": false,
+    "privileged_modulus": false,
+    "universal_meaning_of_64": false,
+    "navigator_identity_created": false,
+    "orion_registry_changed": false,
+    "claim_promotion_authorized": false,
+    "publication_authorized": false
+  }
+}
+

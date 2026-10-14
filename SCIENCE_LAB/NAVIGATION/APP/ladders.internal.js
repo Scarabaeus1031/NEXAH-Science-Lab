@@ -3,7 +3,7 @@ window.NEXAH_LADDER_ATLAS_BINDER = {
   "schema": "nexah.navigator.ladder-atlas-binder",
   "version": "1.0.0",
   "binder_id": "NEXAH:LADDER_ATLAS:V1",
-  "maintained": "2026-10-06",
+  "maintained": "2026-10-13",
   "title": "Ladder Atlas",
   "status": "INTERNAL_BOUNDED_ORIENTATION",
   "summary": "A compact comparison surface for recurring NEXAH ladder forms. It compares order, carrier, operator, invariant, loss and return without treating visual resemblance as a shared mechanism.",
@@ -47,6 +47,122 @@ window.NEXAH_LADDER_ATLAS_BINDER = {
       3
     ],
     "claim_boundary": "The 13-state executable carrier is exact only for the declared demonstrator. The 21-tick Root Breath trace is historical provenance, not an identified generator or physical mechanism."
+  },
+  "carrier_view_joint": {
+    "title": "Carrier / View / Slice / Boundary Crosswalk",
+    "status": "SOURCE_BOUND_BINDING / NO_IDENTITY_MERGE",
+    "summary": "Existing executable carriers are ordered by carrier, address, view or slice, operator, fiber or boundary, residual and return. The crosswalk exposes shared method grammar without identifying the carriers or their operators.",
+    "grammar": [
+      "carrier",
+      "address",
+      "view_or_slice",
+      "operator",
+      "fiber_or_boundary",
+      "residual",
+      "return"
+    ],
+    "slice_rule": "A slice is a declared view or fiber of a carrier. It is not automatically a tile, state, seam, physical face or new identity.",
+    "bindings": [
+      {
+        "source": "NEXAH:CON_DAO_BREATH:V1",
+        "target": "LAD:JANUS",
+        "relation": "method-grammar / non-identity",
+        "preserves": [
+          "ordered state address",
+          "involution",
+          "fixed center or Stillpoint"
+        ],
+        "boundary": "The CON–DAO clock is a thirteen-state display carrier; an affine Janus ladder is an integer reflection. Shared J²=id grammar does not identify their state spaces or mechanisms.",
+        "evidence": [
+          "SCIENCE_LAB/CASE_STUDIES/NEXAH_CON_DAO_JANUS_BREATH_SEQUENCER_2026-10-06/README.md",
+          "SCIENCE_LAB/CASE_STUDIES/NEXAH_ELEVEN_SPACE_JANUS_NUMBER_VIEW_2026-10-06/README.md"
+        ]
+      },
+      {
+        "source": "ART:NUMBER:JANUS_LADDER",
+        "target": "ART:NUMBER:ELEVEN_SPACE",
+        "relation": "coordinated arithmetic views",
+        "preserves": [
+          "integer carrier",
+          "declared arithmetic map",
+          "return or collision record"
+        ],
+        "boundary": "Affine reflection and residue projection are different operations; equal residues do not identify integers.",
+        "evidence": [
+          "SCIENCE_LAB/CASE_STUDIES/NEXAH_ELEVEN_SPACE_JANUS_NUMBER_VIEW_2026-10-06/README.md"
+        ]
+      },
+      {
+        "source": "ART:TESSAREC:PRIMEGRID_BLOCK01_STATE_LIFT",
+        "target": "ART:NUMBER:PRIMEGRID_BLOCK02A_PASCAL",
+        "relation": "existing tested representation chain",
+        "preserves": [
+          "binary carrier address",
+          "Hamming weight",
+          "within-fiber ordinal for exact return"
+        ],
+        "boundary": "The Hamming-weight quotient is many-to-one without the residual ordinal and does not establish a physical Tessarec or universal Pascal mechanism.",
+        "evidence": [
+          "SCIENCE_LAB/CASE_STUDIES/NEXAH_PRIMEGRID_BLOCK01_STATE_LIFT_2026-10-06/01_RESULT_ASSESSMENT.md",
+          "SCIENCE_LAB/CASE_STUDIES/NEXAH_PRIMEGRID_BLOCK02A_PASCAL_THREAD_QUOTIENT_2026-10-07/01_RESULT_ASSESSMENT.md"
+        ]
+      },
+      {
+        "source": "ART:NUMBER:PRIMEGRID_BLOCK02A_PASCAL",
+        "target": "SCC-003 / A0OE:PASCAL_PENTAGON_D5_TEST",
+        "relation": "open Pascal-carrier comparison / non-identity",
+        "preserves": [
+          "typed quotient vocabulary",
+          "explicit fiber or seam",
+          "return boundary"
+        ],
+        "boundary": "The binary Hamming-weight fiber and the five-face side-chain seam are different quotients. No adjacency-preserving intertwiner is supplied.",
+        "evidence": [
+          "SCIENCE_LAB/CASE_STUDIES/NEXAH_PRIMEGRID_BLOCK02A_PASCAL_THREAD_QUOTIENT_2026-10-07/01_RESULT_ASSESSMENT.md",
+          "RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/25_A0_SCC_003_PASCAL_PENTAGON_PAPER_DRAFT_2026-10-10.md"
+        ]
+      }
+    ],
+    "controlling_record": "RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/68_A0_CARRIER_VIEW_SLICE_BOUNDARY_EULER_SPECTRUM_BINDING_2026-10-13.md"
+  },
+  "spectral_comparator": {
+    "title": "Euler polynomial family as a graph-spectrum shape control",
+    "status": "OWNER_ACCEPTED_NEGATIVE_WITH_VALIDATED_SECONDARY_LOCALIZATION",
+    "graph_object": "The Tessarec shell record contains 48 adjacency eigenvalues of one declared finite cubic graph.",
+    "comparison_object": "E_c(n)=n²+n+c is a deterministic polynomial curve family, not a graph spectrum.",
+    "use": "The R0.1 preregistration freezes one constrained Euler rank shape, descending source order, contiguous-block cross-validation, affine and unrestricted-quadratic controls, one primary advantage statistic and 10,000 matched connected simple 3-regular null graphs. The R1 implementation candidate is hash-bound and fails closed without a separate owner receipt.",
+    "preregistration": "RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/69_A0_EULER_TESSAREC_SPECTRUM_COMPARATOR_R0_PREREGISTRATION_2026-10-13.md",
+    "machine_contract": "RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/assets/a0-euler-spectrum-comparator-r0-preregistration.json",
+    "run_contract_candidate": "RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/70_A0_EULER_TESSAREC_SPECTRUM_COMPARATOR_R1_RUN_CONTRACT_CANDIDATE_2026-10-13.md",
+    "implementation": "RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/a0_euler_tessarec_spectrum_comparator_r1.py",
+    "implementation_lock": "RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/assets/a0-euler-spectrum-comparator-r1-lock.json",
+    "result_report": "RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/71_A0_EULER_TESSAREC_SPECTRUM_COMPARATOR_R1_RESULT_2026-10-13.md",
+    "result_json": "RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/results/a0-euler-spectrum-comparator-r1-result-2026-10-13.json",
+    "result_figure": "RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/results/a0-euler-spectrum-comparator-r1-null-ae-2026-10-13.svg",
+    "result_lock": "RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/assets/a0-euler-spectrum-comparator-r1-result-lock.json",
+    "result_validator": "RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/validate_euler_spectrum_comparator_r1_result.mjs",
+    "result": "NO_EULER_SPECIFIC_SPECTRAL_SUPPORT",
+    "result_summary": "A_E=-2.025658 fails the positive-direction gate and G_Q=1.424134 fails the free-quadratic proximity gate. The matched-null q95 gate passes but cannot rescue the registered all-gates rule. Check 73 localizes 82.3926% of positive Euler excess SSE in F1+F8; the 47-value and multiplicity controls do not rescue the result.",
+    "owner_disposition": "ACCEPTED_BOUNDED_NEGATIVE_2026-10-13",
+    "secondary_diagnostic_protocol": "RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/72_A0_EULER_TESSAREC_RESIDUAL_FOLD_AUDIT_PROTOCOL_2026-10-13.md",
+    "secondary_diagnostic_report": "RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/73_A0_EULER_TESSAREC_RESIDUAL_FOLD_AUDIT_RESULT_2026-10-13.md",
+    "secondary_diagnostic_json": "RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/results/a0-euler-tessarec-residual-fold-audit-r1-result-2026-10-13.json",
+    "secondary_diagnostic_figure": "RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/results/a0-euler-tessarec-residual-fold-audit-r1-figure-2026-10-13.svg",
+    "secondary_diagnostic_result": "EXTREME_CONCENTRATED",
+    "secondary_diagnostic_summary": "F1+F8 carry 82.39262880796299% of positive Euler excess SSE. Removing the trivial eigenvalue leaves A_E=-1.872203 and G_Q=1.425874; repeated values do not carry larger Euler residuals than singletons. Parent negative unchanged; diagnostic awaits Owner disposition.",
+    "rank_direction_amendment": "R0 said ascending; the unchanged source bytes are descending, so R0.1 corrects the contract before any model fit or null simulation.",
+    "primary_statistic": "A_E=(CV_NRMSE(affine)-CV_NRMSE(Euler))/CV_NRMSE(affine)",
+    "null_population": "10,000 connected simple 3-regular graphs on 48 vertices; seed 20261013",
+    "offset_guard": "All E_c(n)=n²+n+c curves collapse to one shape after centering or intercept fitting; c is provenance only and no best-c search is allowed.",
+    "terminal_correction": "The historical +20 prime-index lane displays 1459=P232; the corrected terminal value is 1471=P233.",
+    "stop_rule": "No Euler-specific interpretation unless A_E>=0.05, A_E exceeds the matched-null 95th percentile, the constrained Euler form is within 5% of the free quadratic held-out error, and every gate passes.",
+    "sources": [
+      "RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/14_EULER_LADDERS_BLOOM_XLI_RETURN_CROSSWALK_2026-10-03.md",
+      "SCIENCE_LAB/CASE_STUDIES/NEXAH_ROOT7_EULER_MIRROR_CONCORDANCE_INTAKE_2026-09-28/FINAL_INTAKE_DECISION.md",
+      "RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/62_A0_TESSAREC_A7_GAUSS_RAMANUJAN_IHARA_AUDIT_2026-10-13.md",
+      "RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/assets/a0-tessarec-spectral-audit-v1.json"
+    ],
+    "claim_boundary": "The Owner-accepted negative result and its secondary edge localization apply to one finite rank-shape comparator. They neither support nor universally exclude other Euler-related graph questions and do not establish a common operator, prime mechanism, physical law, optimality or novelty."
   },
   "questions": [
     {
@@ -367,7 +483,8 @@ window.NEXAH_LADDER_ATLAS_BINDER = {
     },
     {
       "title": "ORION Validation Ladder",
-      "role": "Validation architecture and reproducibility gates",
+      "role": "Validation architecture and reproducibility gates; current capability and L0–L4 evidence are consolidated in the Evidence lens",
+      "route": "#evidence",
       "source": "ORION_MATH_THE_MATH_VALIDATION_ARCHITECTURE_PASS/04_ORION_VALIDATION_LADDER.md",
       "status": "supporting method"
     },

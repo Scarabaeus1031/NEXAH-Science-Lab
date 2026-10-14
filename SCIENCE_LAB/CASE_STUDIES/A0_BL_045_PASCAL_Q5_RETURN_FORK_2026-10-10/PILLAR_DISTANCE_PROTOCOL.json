@@ -1,0 +1,31 @@
+{
+  "schema": "nexah.a0-bl-045.pillar-distance-audit/1.0.0",
+  "date": "2026-10-10",
+  "identity_reuse": {
+    "study_id": "A0_BL_045_PASCAL_Q5_RETURN_FORK_2026_10_10",
+    "node_id": "A0OE:PASCAL_PENTAGON_D5_TEST",
+    "surface_id": "ART:A0:MATHEMATICAL_JOINTS"
+  },
+  "scalar_shells": {
+    "primary": {"center": 12555, "radii": [6, 12, 18, 1198]},
+    "nested": {"center": 11947, "radii": [590]}
+  },
+  "pascal_fixture": {
+    "equatorial_root_count": 10,
+    "axial_root_count": 2,
+    "pillar_count": 6,
+    "reflection": "J_z(x,y,z)=(x,y,-z)",
+    "tolerance": 1e-10
+  },
+  "q": [[1, 1], [1, 0]],
+  "local_steps": 5,
+  "level_signs": [1, -1],
+  "source_evidence": [
+    {"role": "current Pascal Pentagon Demonstrator screenshot", "sha256": "15b40515d23b0b680402d4ad99fdc1263bbefcfbe232e67aeb83e53b9ca83457"},
+    {"role": "CROWN SEAM ROOT hypothesis visual", "sha256": "0a291d481b802dbeb1480a653b78a53cbcc0b90b705f5534f8b9404b227c9f80"},
+    {"role": "PENT-04 verified result", "sha256": "ed8173444e28fbb1f70e76dcb7f3997c6d3141259e76fcdb50f27098664b39cc"},
+    {"role": "PENT-05 verified result", "sha256": "eb7cb6a549f1eec866164484998ec56dfa7b6aea9eaddef78218da940aa28afd"}
+  ],
+  "excluded_undefined_labels": ["+18% growth asymmetry", "sqrt(2)", "pi", "e", "lambda", "g"],
+  "status": "FROZEN_BEFORE_EXECUTION"
+}

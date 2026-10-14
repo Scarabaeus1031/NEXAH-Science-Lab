@@ -1,0 +1,26 @@
+{
+  "schema": "nexah.a0-bl-052.protocol/1.0.0",
+  "date": "2026-10-11",
+  "max_depth": 11,
+  "generic_control": {
+    "axis": [1, 2, 3],
+    "degrees": 37,
+    "integer_tolerance": 1e-09
+  },
+  "q432_samples": ["1/3", "4", "6", "8", "16", "25", "27", "36", "54", "72", "108", "432", "540", "720", "1080", "1440"],
+  "quaternion_slots": ["scalar", "i", "j", "k"],
+  "controller_roles": ["scalar", "i", "j", "k", "q_degree"],
+  "prime_readouts": {"16": 53, "25": 97},
+  "test_ids": [
+    "T1_PHI_INJECTIVE",
+    "T2_SCALAR_DEPTH",
+    "T3_C3_EQUIVARIANCE",
+    "T4_S3_REFLECTION_BOUNDARY",
+    "T5_GENERIC_VIEW_CONTROL",
+    "T6_QUATERNION_RETURN",
+    "T7_Q432_RETURN",
+    "T8_Q_DEGREE_SEPARATION",
+    "T9_16_VS_25_TYPED",
+    "T10_PRIME_READOUT_BOUNDARY"
+  ]
+}

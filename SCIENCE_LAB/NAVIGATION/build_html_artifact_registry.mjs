@@ -29,6 +29,7 @@ for (const [index, group] of catalog.exact_duplicate_groups.entries()) {
 }
 
 const moduleRules = [
+  ['MOD:TESSAREC', /^RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS\/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01\/A0_BOOK\/A0_TESSAREC_BLUE_BODY_LAB\.html$/],
   ['MOD:ROSETTA_GEODESIC', /^00_INCOMING\/NEXAH_DUAL_VIEW_ROSETTA_INTAKE/],
   ['MOD:THREAD_LOOM', /^NEXAH_TRANSLATION_AUDIT_REPORT_01\/.*THREAD_LOOM/i],
   ['MOD:E8_COXETER', /^SCIENCE_LAB\/CASE_STUDIES\/E8_DEMOS_INTERACTIVE_ORIENTATION_2026-09-21\/(?!SOURCE_SNAPSHOT\/E8 DEMOS\/MIWA)/],
@@ -37,6 +38,7 @@ const moduleRules = [
   ['MOD:TESSAREC', /^SCIENCE_LAB\/CASE_STUDIES\/NEXAH_ROOT7_CUSTODY_2026-09-28\/.*Tesseract_Bridge/i],
   ['MOD:E8_COXETER', /^SCIENCE_LAB\/CASE_STUDIES\/NEXAH_ROOT7_CUSTODY_2026-09-28\/.*E8_/i],
   ['MOD:NUMBER_VIEW_SUITE', /^SCIENCE_LAB\/CASE_STUDIES\/NEXAH_ROOT7_EULER_MIRROR_CONCORDANCE_INTAKE_2026-09-28\//],
+  ['MOD:NUMBER_VIEW_SUITE', /^SCIENCE_LAB\/CASE_STUDIES\/NEXAH_ELEVEN_SPACE_JANUS_NUMBER_VIEW_2026-10-06\//],
   ['MOD:OBSERVATORY_MIWA', /^SCIENCE_LAB\/EXPORTS\/(MIWA_|ROEDELHEIM_OBSERVATORY_SEVEN_VIEWS)/],
   ['MOD:RUNTIME_COMPARISON', /^SCIENCE_LAB\/EXPORTS\/NEXAH_COMMON_RUNTIME_ADAPTER\.html$/]
 ];
@@ -124,6 +126,24 @@ const rosettaBase = '00_INCOMING/NEXAH_DUAL_VIEW_ROSETTA_INTAKE_2026-09-05/';
 const root7Base = 'SCIENCE_LAB/CASE_STUDIES/NEXAH_ROOT7_CUSTODY_2026-09-28/Nexah_Root7/';
 
 function documentedDecision(path) {
+  if (path === 'RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/A0_TESSAREC_BLUE_BODY_LAB.html') return {
+    representation_role: 'source-bound-workbench',
+    content_role: 'functional_instrument',
+    centrality_score: 3,
+    lifecycle: 'current_bounded',
+    evidence_status: 'CHECKS_59_TO_66_AND_87_TO_88_BOUND_ENGINEERING_NOT_SCIENCE_RUN',
+    record: 'RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/67_A0_TESSAREC_CHECKS_59_66_SCIENCE_DESK_NAVIGATOR_RETURN_2026-10-13.md',
+    decision_sources: [
+      'RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/A0_BOOK_MANIFEST.json',
+      'RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/59_A0_TESSAREC_BLUE_BODY_HOST_EMBEDDING_PROTOTYPE_2026-10-13.md',
+      'RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/66_A0_TESSAREC_ANTIPODE_RETURN_BRIDGE_2026-10-13.md',
+      'RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/87_A0_FIBONACCI_RING_OPERATOR_COMPARATOR_PROTOCOL_2026-10-14.md',
+      'RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/88_A0_FIBONACCI_RING_OPERATOR_COMPARATOR_RESULT_2026-10-14.md'
+    ],
+    claim_ceiling: 'Source-bound Checks 59–66 and 87–88 with exact finite representation returns and a deterministic synthetic sampling comparator only. G5–G8 remain open; no natural Fibonacci law, privileged constant, E8 specificity, new identity, science run, physical mechanism, novelty certificate or publication.',
+    note: 'Existing A0-VIEW-TESSAREC-BLUE-BODY under MOD:TESSAREC; E8, Number View and CON–DAO are typed reused lenses, not merged identities.'
+  };
+
   if (path.startsWith(orientationBase)) {
     const name = path.slice(orientationBase.length);
     const core = new Set([
@@ -368,9 +388,9 @@ const artifacts = catalog.entries.map((entry) => {
   const familyHint = moduleId ? null : candidateFamily(entry.path);
   const duplicate = duplicateGroups.get(entry.path) ?? null;
   const isExactCopy = duplicate?.copy_role === 'exact_copy';
-  const purpose = isExactCopy ? 'custody_copy' : documented?.content_role ?? inferredPurpose(entry, duplicate, curated);
+  const purpose = isExactCopy ? 'custody_copy' : curated?.content_role ?? documented?.content_role ?? inferredPurpose(entry, duplicate, curated);
   const representation = isExactCopy ? 'exact_copy' : documented?.representation_role ?? representationRole(entry, duplicate, curated);
-  const life = lifecycle(entry, curated);
+  const life = documented?.lifecycle ?? lifecycle(entry, curated);
   const score = isExactCopy ? 1 : documented?.centrality_score ?? centrality(entry, moduleId, curated, purpose, duplicate);
   const basis = curated ? 'curated_registry_v2' : documented ? 'documented_family_decision' : moduleId || familyHint ? 'path_family_rule' : 'catalog_rule';
   const confidence = curated || documented ? 'high' : moduleId || familyHint ? 'medium' : 'low';
@@ -413,8 +433,10 @@ const artifacts = catalog.entries.map((entry) => {
       relation_explanation: documented?.relation_explanation ?? null,
       duplicate
     },
-    record: module?.owning_record ?? candidateRecord?.record ?? null,
+    record: curated?.owning_record ?? documented?.record ?? module?.owning_record ?? candidateRecord?.record ?? null,
     decision_sources: [
+      curated?.owning_record,
+      ...(documented?.decision_sources ?? []),
       module?.owning_record,
       candidateRecord?.record,
       ...(candidateRecord?.decision_sources ?? []),
@@ -428,10 +450,10 @@ const artifacts = catalog.entries.map((entry) => {
       documented && entry.path.includes('/NEXAH LAB Operator demonstrator/') ? 'SCIENCE_LAB/CASE_STUDIES/NEXAH LAB Operator demonstrator/NEXAH_Operator_HTML_Prototypes_Description.md' : null,
       documented && entry.path.includes('/ROOT7_INTAKT_RECORD_TEST_01 4/') ? 'SCIENCE_LAB/CASE_STUDIES/NEXAH_ROOT7_CUSTODY_2026-09-28/Nexah_Root7/ROOT7_INTAKT_RECORD_TEST_01 4/README.md' : null
     ].filter(Boolean).filter((value, index, values) => values.indexOf(value) === index),
-    claim_ceiling: module?.claim_ceiling ?? candidateRecord?.claim_ceiling ?? 'UNRESOLVED — no module-level claim boundary assigned.',
+    claim_ceiling: curated?.claim_ceiling ?? documented?.claim_ceiling ?? module?.claim_ceiling ?? candidateRecord?.claim_ceiling ?? 'UNRESOLVED — no module-level claim boundary assigned.',
     explanation: explanation({ entry, moduleId, familyHint, purpose, representation, life, score, duplicate, basis, documented }),
     technology: entry.technology,
-    concepts: entry.concepts,
+    concepts: curated?.concepts ?? entry.concepts,
     assessment_review_required: curationState === 'provisional',
     promotion_review_required: !curated || !['active', 'current', 'current_bounded'].includes(life)
   };
@@ -445,7 +467,7 @@ const provisionalArtifacts = artifacts.filter((artifact) => artifact.assessment.
 
 const registry = {
   schema: 'nexah.html-artifact-registry/1.0.0',
-  generated_at: '2026-10-06',
+  generated_at: '2026-10-07',
   status: 'COMPLETE_FILE_COVERAGE / CURATED_DOCUMENTED_AND_PROVISIONAL_ASSESSMENT / NO_AUTOMATIC_PROMOTION',
   sources: {
     html_catalog: 'SCIENCE_LAB/NAVIGATION/HTML_CATALOG_SNAPSHOT_2026-10-05.json',
@@ -481,9 +503,9 @@ writeFileSync(outputPath, `${JSON.stringify(registry, null, 2)}\n`);
 const lines = [];
 lines.push('# NEXAH HTML Curation Coverage');
 lines.push('');
-lines.push('Date: `2026-10-06`');
+lines.push('Date: `2026-10-07`');
 lines.push('');
-lines.push('Status: `111/111 COVERED / CURATED + DOCUMENTED + PROVISIONAL / NO AUTOMATIC PROMOTION`');
+lines.push(`Status: \`${artifacts.length}/${artifacts.length} COVERED / CURATED + DOCUMENTED + PROVISIONAL / NO AUTOMATIC PROMOTION\``);
 lines.push('');
 lines.push('## Coverage result');
 lines.push('');

@@ -1,0 +1,40 @@
+{
+  "schema": "nexah.navigator.v2-delta-candidate.v1",
+  "date": "2026-10-07",
+  "status": "STAGED_NOT_ADMITTED",
+  "v1_freeze_unchanged": true,
+  "candidate": {
+    "candidate_id": "V2:CASE:MULTI_VIEW_RECONSTRUCTION:01",
+    "title": "Multi-View Reconstruction",
+    "subtitle": "Reconstructing structure from incomplete views",
+    "internal_provenance_label": "OIL/RIS",
+    "entity_type": "evidence_case",
+    "module_id": "MOD:READOUT_RECONSTRUCTION",
+    "relation_ids": [
+      "REL:NUMBER_READOUT_RECONSTRUCTION",
+      "REL:READOUT_MULTI_LENS_COMPASS"
+    ],
+    "connection_family_ids": ["CF:F1", "CF:F2", "CF:F3", "CF:F7"],
+    "entry_domains": ["Framework", "Atlas", "Evidence"],
+    "question": "Can several incomplete registered views recover a declared relation state while preserving what remains unknown?",
+    "result": "PASS_WITH_RECORDED_CONFORMANCE_EXCEPTION",
+    "human_utility_status": "READY_FOR_HUMAN_REVIEW",
+    "external_utility_status": "NOT_YET_TESTED",
+    "evidence_grade": "BOUNDED_EXECUTABLE_INTERNAL_PILOT",
+    "controlling_records": [
+      "SCIENCE_LAB/CASE_STUDIES/NEXAH_OIL_RIS_VERTICAL_UTILITY_PILOT_2026-10-07/VERTICAL_UTILITY_RESULT.json",
+      "SCIENCE_LAB/CASE_STUDIES/NEXAH_OIL_RIS_VERTICAL_UTILITY_PILOT_2026-10-07/01_CONFORMANCE_AND_REVIEW_CONTRACT.md",
+      "SCIENCE_LAB/CASE_STUDIES/NEXAH_OIL_RIS_VERTICAL_UTILITY_PILOT_2026-10-07/02_RESULT_AND_NEXT_ACTION.md"
+    ],
+    "surface": "SCIENCE_LAB/CASE_STUDIES/NEXAH_OIL_RIS_VERTICAL_UTILITY_PILOT_2026-10-07/NEXAH_OIL_RIS_VERTICAL_UTILITY_RETURN.html",
+    "source_packages": [
+      "SCIENCE_LAB/CASE_STUDIES/NEXAH_OIL_RIS_MULTI_LENS_REVEAL_AUDIT_2026-10-07/",
+      "SCIENCE_LAB/CASE_STUDIES/NEXAH_DESKTOP_GOLD_CUSTODY_AND_NAVIGATOR_INTAKE_2026-10-07/"
+    ],
+    "supported_finding": "Registered three-view alignment recovers the declared relation state while retaining source ambiguity.",
+    "abstention": ["ADDRESS_MISMATCH", "OVERLAP_MISMATCH"],
+    "conformance_exception": "Q_C is preregistered as (b2,b3) and implemented as (b1,b3); the implementation passes, but the original preregistration is not claimed conformant.",
+    "claim_ceiling": "Bounded finite reconstruction, abstention, GLB custody and internal navigation only; no full source recovery, historical OIL/RIS semantics, physical mechanism, public admission or validated external utility.",
+    "admission_gate": "One independent reviewer completes the four-question Human Return and the response, time, uncertainty and confusions are recorded."
+  }
+}

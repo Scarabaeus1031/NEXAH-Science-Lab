@@ -1,0 +1,316 @@
+{
+  "checks": {
+    "Jz_fixes_seam_and_exchanges_axial_crown_root": true,
+    "Jz_maps_root_set_and_preserves_all_pairwise_distances": true,
+    "Qprime_minus_squares_to_minus_identity": true,
+    "Qprime_plus_squares_to_plus_identity": true,
+    "different_centers_compose_to_nonzero_translation": true,
+    "root_fixture_has_12_unit_vectors": true,
+    "scalar_shell_pairs_are_exact_centered_reflections": true,
+    "signed_Qprime_bridges_are_not_euclidean_isometries": true,
+    "six_antipodal_pillars_have_zero_midpoint_and_length_two": true
+  },
+  "claim_boundary": "Exact finite reflection and matrix audit only; no growth law, +18 percent estimator, physical field, resonance, historical derivation, new Family or PENT-08.",
+  "classification": "PILLAR_REFLECTION_PASS_QPRIME_NOT_EUCLIDEAN_ISOMETRY",
+  "interpretation": [
+    "The Janus shell pairs and the Pascal root pillars share an exact centered-reflection grammar.",
+    "The Pascal crown/root reflection Jz is a Euclidean isometry, fixes the equatorial seam and swaps Zenith with Nadir.",
+    "Two different Janus centers define nested relations; composing their reflections gives a translation, not one global mirror.",
+    "The signed reciprocal Q' bridge has the preregistered return law but is not a Euclidean distance-preserving operator.",
+    "Therefore the pillar analogy is valid at the reflection/invariant layer, while return dynamics remain operator-specific."
+  ],
+  "operator_separation": {
+    "Q5": [
+      [
+        8,
+        5
+      ],
+      [
+        5,
+        3
+      ]
+    ],
+    "Qprime_minus": {
+      "basis_e1_output_norm_squared": 89,
+      "gram": [
+        [
+          89,
+          55,
+          0,
+          0
+        ],
+        [
+          55,
+          34,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          34,
+          -55
+        ],
+        [
+          0,
+          0,
+          -55,
+          89
+        ]
+      ],
+      "is_euclidean_isometry": false,
+      "matrix": [
+        [
+          0,
+          0,
+          3,
+          -5
+        ],
+        [
+          0,
+          0,
+          -5,
+          8
+        ],
+        [
+          8,
+          5,
+          0,
+          0
+        ],
+        [
+          5,
+          3,
+          0,
+          0
+        ]
+      ],
+      "square": [
+        [
+          -1,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          -1,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          -1
+        ]
+      ]
+    },
+    "Qprime_plus": {
+      "basis_e1_output_norm_squared": 89,
+      "gram": [
+        [
+          89,
+          55,
+          0,
+          0
+        ],
+        [
+          55,
+          34,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          34,
+          -55
+        ],
+        [
+          0,
+          0,
+          -55,
+          89
+        ]
+      ],
+      "is_euclidean_isometry": false,
+      "matrix": [
+        [
+          0,
+          0,
+          -3,
+          5
+        ],
+        [
+          0,
+          0,
+          5,
+          -8
+        ],
+        [
+          8,
+          5,
+          0,
+          0
+        ],
+        [
+          5,
+          3,
+          0,
+          0
+        ]
+      ],
+      "square": [
+        [
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          1
+        ]
+      ]
+    },
+    "inverse_Q5": [
+      [
+        -3,
+        5
+      ],
+      [
+        5,
+        -8
+      ]
+    ]
+  },
+  "pascal_pillars": {
+    "crown_face_count": 5,
+    "pillar_count": 6,
+    "pillar_length": 2.0,
+    "pillar_midpoint": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "root_count": 12,
+    "root_face_count": 5,
+    "seam_fixed_point_count": 10
+  },
+  "scalar_janus_shells": {
+    "center_composition": {
+      "J_second_after_J_first_translation": -1216,
+      "first_center": 12555,
+      "image": 10141,
+      "probe": 11357,
+      "second_center": 11947
+    },
+    "records": [
+      {
+        "center": 12555,
+        "diameter": 12,
+        "midpoint": 12555,
+        "pair": [
+          12549,
+          12561
+        ],
+        "radius": 6,
+        "reflection": [
+          12561,
+          12549
+        ],
+        "shell": "primary"
+      },
+      {
+        "center": 12555,
+        "diameter": 24,
+        "midpoint": 12555,
+        "pair": [
+          12543,
+          12567
+        ],
+        "radius": 12,
+        "reflection": [
+          12567,
+          12543
+        ],
+        "shell": "primary"
+      },
+      {
+        "center": 12555,
+        "diameter": 36,
+        "midpoint": 12555,
+        "pair": [
+          12537,
+          12573
+        ],
+        "radius": 18,
+        "reflection": [
+          12573,
+          12537
+        ],
+        "shell": "primary"
+      },
+      {
+        "center": 12555,
+        "diameter": 2396,
+        "midpoint": 12555,
+        "pair": [
+          11357,
+          13753
+        ],
+        "radius": 1198,
+        "reflection": [
+          13753,
+          11357
+        ],
+        "shell": "primary"
+      },
+      {
+        "center": 11947,
+        "diameter": 1180,
+        "midpoint": 11947,
+        "pair": [
+          11357,
+          12537
+        ],
+        "radius": 590,
+        "reflection": [
+          12537,
+          11357
+        ],
+        "shell": "nested"
+      }
+    ]
+  },
+  "study_id": "A0_BL_045_PILLAR_DISTANCE_AUDIT_2026_10_10",
+  "untested_labels": [
+    "+18% growth asymmetry",
+    "sqrt(2)",
+    "pi",
+    "e",
+    "lambda",
+    "g"
+  ]
+}

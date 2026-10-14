@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <meta name="description" content="Interner NEXAH-Test: ein typisierter Trace von P13=41 bis zur getrennten F40-Quaternion-Hopf-Route.">
+  <title>NEXAH · Coordinate Trace · P13=41</title>
+  <style>
+    :root{color-scheme:dark;--bg:#050b12;--panel:#0b1824;--raised:#102333;--text:#f7f4ed;--muted:#aebdca;--faint:#7f909e;--line:rgba(154,181,198,.25);--gold:#d9be84;--cyan:#62d8ed;--green:#78d6a8;--amber:#f2bd55;--violet:#b39af4;--red:#ff7780}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;min-height:100vh;background:radial-gradient(circle at 50% -15%,#173b52 0,#071522 42%,var(--bg) 100%);color:var(--text);font:14px/1.5 Inter,ui-sans-serif,system-ui,-apple-system,sans-serif}a{color:inherit}button{font:inherit}.skip{position:absolute;left:-999px;top:8px;background:var(--text);color:var(--bg);padding:9px 12px;z-index:20}.skip:focus{left:8px}.shell{max-width:1660px;margin:auto;padding:18px}.topbar{display:flex;justify-content:space-between;gap:18px;align-items:center;border:1px solid var(--line);border-radius:12px;padding:10px 13px;background:rgba(5,13,21,.85)}.brand{font-weight:800;letter-spacing:.04em}.brand b{color:var(--gold)}.toplinks,.filters,.actions,.legend{display:flex;gap:8px;flex-wrap:wrap;align-items:center}.toplinks a,.actions a,.filters button{border:1px solid var(--line);border-radius:999px;text-decoration:none;padding:8px 11px;background:rgba(10,24,36,.86);color:var(--muted)}.toplinks a:hover,.toplinks a:focus-visible,.actions a:hover,.actions a:focus-visible,.filters button:hover,.filters button:focus-visible{outline:none;border-color:var(--cyan);color:var(--text)}.hero{display:grid;grid-template-columns:minmax(0,1.45fr) minmax(310px,.55fr);gap:16px;align-items:stretch;margin:18px 0}.hero-copy,.ceiling,.panel{border:1px solid var(--line);border-radius:14px;background:rgba(9,22,34,.9)}.hero-copy{padding:clamp(22px,4vw,52px)}.eyebrow,.overline{color:var(--gold);font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase}.hero h1{font:700 clamp(36px,5.6vw,76px)/.98 Georgia,"Times New Roman",serif;margin:8px 0 15px;letter-spacing:-.035em}.lede{max-width:850px;color:var(--muted);font-size:clamp(16px,1.7vw,21px)}.correction{display:inline-flex;gap:12px;align-items:center;margin-top:20px;border-left:3px solid var(--amber);padding:9px 12px;background:rgba(242,189,85,.08)}.correction strong{color:var(--amber)}.ceiling{padding:22px;border-color:rgba(242,189,85,.55);display:flex;flex-direction:column;justify-content:space-between}.ceiling h2{font:700 26px/1.1 Georgia,serif;margin:6px 0 10px}.ceiling p{color:var(--muted);margin:0}.ceiling .seal{margin-top:22px;border-top:1px solid var(--line);padding-top:14px;color:var(--amber);font:700 12px/1.4 ui-monospace,SFMono-Regular,Menlo,monospace}.panel{padding:16px;margin:12px 0}.section-head{display:flex;justify-content:space-between;gap:18px;align-items:end;margin-bottom:14px}.section-head h2{font:700 clamp(24px,3vw,38px)/1.05 Georgia,serif;margin:4px 0}.section-head p{color:var(--muted);max-width:720px;margin:0}.filters button{cursor:pointer}.filters button[aria-pressed=true]{background:var(--gold);border-color:var(--gold);color:#07131e;font-weight:800}.trace{display:grid;grid-template-columns:repeat(7,minmax(140px,1fr));gap:8px;overflow-x:auto;padding-bottom:5px}.node{position:relative;min-height:166px;border:1px solid var(--line);border-radius:12px;padding:13px;background:var(--panel);transition:opacity .18s,border-color .18s,transform .18s}.node:not(:last-child)::after{content:"→";position:absolute;right:-9px;top:48%;z-index:2;color:var(--gold);font-weight:900}.node[data-active=false]{opacity:.24}.node[data-focus=true]{border-color:var(--cyan);transform:translateY(-2px)}.node small{display:block;color:var(--faint);font-size:10px;letter-spacing:.1em;text-transform:uppercase}.node h3{font-size:16px;margin:7px 0}.node code{display:block;color:var(--cyan);font:700 13px/1.5 ui-monospace,SFMono-Regular,Menlo,monospace}.node p{color:var(--muted);font-size:12px;margin:7px 0 0}.status{display:inline-block;margin-top:10px;border:1px solid currentColor;border-radius:999px;padding:3px 7px;font-size:9px;font-weight:800;letter-spacing:.08em}.exact{color:var(--green)}.transition{color:var(--cyan)}.model{color:var(--violet)}.method{color:var(--gold)}.negative{color:var(--red)}.architecture{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(330px,.7fr);gap:12px}.stack{display:grid;gap:7px}.layer{display:grid;grid-template-columns:92px 170px minmax(0,1fr) 135px;gap:12px;align-items:center;border:1px solid var(--line);border-radius:10px;padding:11px 13px;background:rgba(7,18,29,.72)}.layer b{color:var(--gold)}.layer code{color:var(--cyan);font-size:12px}.layer span{color:var(--muted)}.layer em{font-style:normal;text-align:right;color:var(--faint);font-size:11px}.inspector{border:1px solid var(--line);border-radius:12px;padding:16px;background:var(--raised)}.inspector h3{font:700 24px/1.1 Georgia,serif;margin:5px 0 8px}.inspector p{color:var(--muted)}.inspector dl{display:grid;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:9px;overflow:hidden;margin:14px 0}.inspector dl div{display:grid;grid-template-columns:95px 1fr;gap:10px;background:var(--panel);padding:9px}.inspector dt{color:var(--faint);font-size:10px;text-transform:uppercase;letter-spacing:.08em}.inspector dd{margin:0;font-size:12px}.boundary{border-left:3px solid var(--amber);background:rgba(242,189,85,.08);padding:11px 12px;color:var(--muted)}.boundary strong{color:var(--amber)}.split{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.lane{border:1px solid var(--line);border-radius:12px;padding:15px;background:rgba(8,20,31,.8)}.lane h3{margin:6px 0 9px}.lane p{color:var(--muted)}.lane .formula{min-height:63px;margin:12px 0;padding:10px;background:#07121d;border-radius:8px;color:var(--cyan);font:700 13px/1.65 ui-monospace,SFMono-Regular,Menlo,monospace}.lane .does-not{border-top:1px solid var(--line);padding-top:10px;color:var(--red);font-size:12px}.ledger{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}.ledger article{border:1px solid var(--line);border-radius:10px;padding:12px;background:rgba(8,20,31,.75)}.ledger h3{font-size:13px;margin:6px 0}.ledger p{color:var(--muted);font-size:12px}.sources{display:grid;grid-template-columns:1fr 1fr;gap:10px}.sources a{display:block;border:1px solid var(--line);border-radius:10px;padding:11px 12px;text-decoration:none;background:rgba(8,20,31,.75)}.sources a:hover,.sources a:focus-visible{outline:none;border-color:var(--cyan)}.sources b{display:block}.sources span{display:block;color:var(--muted);font-size:11px;margin-top:4px}.footer{display:flex;justify-content:space-between;gap:16px;color:var(--faint);font-size:11px;padding:18px 4px}.legend{color:var(--muted);font-size:11px}.legend i{width:9px;height:9px;border-radius:50%;display:inline-block;background:currentColor}@media(max-width:1100px){.hero,.architecture{grid-template-columns:1fr}.trace{grid-template-columns:repeat(7,190px)}.ledger{grid-template-columns:1fr 1fr}}@media(max-width:760px){.shell{padding:10px}.topbar,.section-head,.footer{align-items:flex-start;flex-direction:column}.hero-copy{padding:23px}.split,.sources,.ledger{grid-template-columns:1fr}.layer{grid-template-columns:70px 1fr}.layer span,.layer em{grid-column:2;text-align:left}.toplinks{width:100%}.toplinks a{flex:1;text-align:center}}@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+  </style>
+</head>
+<body>
+<a class="skip" href="#main">Zum Inhalt springen</a>
+<main class="shell" id="main">
+  <header class="topbar">
+    <div class="brand"><b>✦ NEXAH</b> · META TRACE 01 · INTERNAL</div>
+    <nav class="toplinks" aria-label="Verbundene Instrumente">
+      <a href="../../APP/index.html#home">Navigator</a>
+      <a href="../../../NEXAH_FAMILY_CONNECTION_MAP_V2.html#hopf">Family Map · Hopf</a>
+      <a href="../../APP/index.html#ladders">Ladder Atlas</a>
+      <a href="../../APP/index.html#evidence">Evidence</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-copy">
+      <p class="eyebrow">Bounded navigation fixture · one motif · several typed layers</p>
+      <h1>Where does 41 go?</h1>
+      <p class="lede">Ein einzelner Trace zeigt, wie eine Zahl als Prime-Adresse, Übergang, Binder-Motiv und algebraischer Nachbar erscheinen kann, ohne dass daraus eine gemeinsame Ursache oder Identität konstruiert wird.</p>
+      <div class="correction"><strong>Prime-index lock</strong><span>41 = P13 · 43 = P14</span></div>
+    </div>
+    <aside class="ceiling" aria-labelledby="ceiling-title">
+      <div><p class="overline">Persistent claim ceiling</p><h2 id="ceiling-title">Typed concordance only</h2><p>Diese Testseite demonstriert Navigation, Quellenbindung und Nicht-Identität. Sie behauptet weder einen universellen Zahlenmechanismus noch physische Quaterniondynamik oder eine kausale Ableitung von F40 aus P13.</p></div>
+      <div class="seal">NO FAMILY PROMOTION<br>NO PHYSICAL CLAIM<br>NO HIDDEN EQUIVALENCE</div>
+    </aside>
+  </section>
+
+  <section class="panel" aria-labelledby="trace-title">
+    <header class="section-head">
+      <div><p class="eyebrow">Trace the motif</p><h2 id="trace-title">Ein Weg durch sechs Ebenen</h2><p>Die Filter isolieren eine Lesart. Der vollständige Trace bleibt die Referenz.</p></div>
+      <div class="filters" role="group" aria-label="Trace filtern">
+        <button type="button" data-filter="all" aria-pressed="true">Whole trace</button>
+        <button type="button" data-filter="prime" aria-pressed="false">P13 → 42</button>
+        <button type="button" data-filter="binder" aria-pressed="false">N+1 Binder</button>
+        <button type="button" data-filter="hopf" aria-pressed="false">F40 / Hopf</button>
+      </div>
+    </header>
+    <div class="trace" id="trace">
+      <article class="node" data-groups="all prime binder hopf"><small>01 · SUBJ</small><h3>Question</h3><code>Where does 41 go?</code><p>Leserfrage und Einstieg, noch keine mathematische Behauptung.</p><span class="status method">ORIENTATION</span></article>
+      <article class="node" data-groups="all prime"><small>02 · HL:F6</small><h3>Number shelf</h3><code>Prime · Euler · Mirror</code><p>Historisches Funktionsregal für Auffindbarkeit.</p><span class="status method">CATALOG</span></article>
+      <article class="node" data-groups="all prime"><small>03 · ADDRESS</small><h3>Prime hinge</h3><code>P13 = 41<br>41 + 1 = 42<br>42 = 6 × 7</code><p>Wert, Index und Übergang bleiben getrennt typisiert.</p><span class="status exact">EXACT</span></article>
+      <article class="node" data-groups="all binder"><small>04 · MODEL</small><h3>N+1 binder</h3><code>4 + 1 · 5 + 1</code><p>Lokale Teile plus Seam, Observer oder Meta-Carrier.</p><span class="status model">BOUNDED MODEL</span></article>
+      <article class="node" data-groups="all hopf"><small>05 · CARRIER</small><h3>Σ4 sign states</h3><code>2⁴ = 16</code><p>Vier Signgeneratoren; keine Folge aus dem Primindex.</p><span class="status exact">EXACT CARRIER</span></article>
+      <article class="node" data-groups="all hopf"><small>06 · MAP</small><h3>F40 → Hopf</h3><code>q=(2,2,4,4)<br>N(q)=40<br>S³ → S²</code><p>Deklarierte Quaternionabbildung und Standard-Hopf-Mathematik.</p><span class="status transition">DECLARED MAP</span></article>
+      <article class="node" data-groups="all prime binder hopf"><small>07 · CF:F7</small><h3>Audit</h3><code>C4 global ≠ Hopf return</code><p>Der Negativbefund begrenzt die Verbindung.</p><span class="status negative">NON-EQUIVALENCE</span></article>
+    </div>
+  </section>
+
+  <section class="architecture" aria-label="Koordinatenmodell und Inspektor">
+    <div class="panel">
+      <header class="section-head"><div><p class="eyebrow">Meta architecture</p><h2>Die Ebene über der Family Map</h2></div></header>
+      <div class="stack">
+        <div class="layer"><b>ENTER</b><code>SUBJ</code><span>Welche Frage führt in das System?</span><em>reader entrance</em></div>
+        <div class="layer"><b>LOCATE</b><code>DOMAIN · HL · MOD</code><span>Wo liegt das Objekt, und welches Modul besitzt es?</span><em>navigation</em></div>
+        <div class="layer"><b>CONNECT</b><code>CF:F1–F7</code><span>Welche typisierte Relation verbindet die Objekte?</span><em>Family Map</em></div>
+        <div class="layer"><b>EXECUTE</b><code>DEMO · CARRIER</code><span>Welche Zustände, Operatoren und Returns sind ausführbar?</span><em>instrument</em></div>
+        <div class="layer"><b>TRACE</b><code>ART · RECORD</code><span>Welche Quelle und welches Artefakt tragen den Befund?</span><em>provenance</em></div>
+        <div class="layer"><b>DECIDE</b><code>EVIDENCE · CEILING</code><span>Was ist exakt, modelliert, offen oder widerlegt?</span><em>governance</em></div>
+      </div>
+    </div>
+    <aside class="inspector" aria-live="polite">
+      <p class="overline">Current selection</p><h3 id="inspect-title">Whole trace</h3>
+      <p id="inspect-copy">Eine koordinierte Route verbindet Navigation, Mathematik, Demonstrator und Evidenz, ohne ihre Typen zu verschmelzen.</p>
+      <dl><div><dt>Status</dt><dd id="inspect-status">MIXED · TYPED</dd></div><div><dt>Preserves</dt><dd id="inspect-preserves">source · type · boundary</dd></div><div><dt>Does not imply</dt><dd id="inspect-no">one generator or mechanism</dd></div></dl>
+      <div class="boundary"><strong>BOUNDARY</strong><br><span id="inspect-boundary">Die Route ist eine nachvollziehbare Koordinate, kein Beweis einer universellen Identität.</span></div>
+    </aside>
+  </section>
+
+  <section class="panel" aria-labelledby="lanes-title">
+    <header class="section-head"><div><p class="eyebrow">Three lanes · do not collapse</p><h2 id="lanes-title">Verwandt sichtbar – getrennt begründet</h2></div></header>
+    <div class="split">
+      <article class="lane"><p class="overline">Lane A · exact arithmetic</p><h3>Prime-index hinge</h3><div class="formula">P13 = 41<br>41 + 1 = 42<br>42 = 6 × 7</div><p>Der Übergang verbindet eine Prime-Adresse mit einem zusammengesetzten Produkt.</p><p class="does-not">Does not imply: Quaternionbasis oder N+1-Mechanismus.</p></article>
+      <article class="lane"><p class="overline">Lane B · bounded architecture</p><h3>N+1 binder</h3><div class="formula">n local parts<br>+ 1 seam / observer<br>→ relation record</div><p>4+1 und 5+1 benennen unterschiedliche lokale Belegungen derselben Bindergrammatik.</p><p class="does-not">Does not imply: weitere Raumdimension oder privilegierte Zahl.</p></article>
+      <article class="lane"><p class="overline">Lane C · declared algebra</p><h3>F40 / Quaternion / Hopf</h3><div class="formula">Σ4 → H\{0}<br>q=(2,2,4,4)<br>S³ → S² → U(1)</div><p>Vier Koeffizientenachsen und sechzehn Signzustände tragen die Abbildung.</p><p class="does-not">Does not imply: P13 erzeugt F40 oder C4 schließt global.</p></article>
+    </div>
+  </section>
+
+  <section class="panel" aria-labelledby="ledger-title">
+    <header class="section-head"><div><p class="eyebrow">Claim ledger</p><h2 id="ledger-title">Was diese Seite tatsächlich festhält</h2></div><div class="legend"><span class="exact"><i></i> exact</span><span class="model"><i></i> model</span><span class="negative"><i></i> non-identity</span></div></header>
+    <div class="ledger">
+      <article><span class="status exact">EXACT</span><h3>Prime ledger</h3><p>41=P13, 41+1=42 und 42=6×7 sind exakte Arithmetik.</p></article>
+      <article><span class="status model">MODEL</span><h3>Binder grammar</h3><p>N+1 ist eine typisierte Kompositionsfamilie, keine einzelne Gleichung.</p></article>
+      <article><span class="status transition">DECLARED MAP</span><h3>F40 route</h3><p>Unter den deklarierten Axiomen rekonstruiert Basepoint plus Phasenindex alle 16 Zustände.</p></article>
+      <article><span class="status negative">REJECTED</span><h3>Global C4 return</h3><p>Kontinuierliche Hopf-Holonomie und endliches C4-Alphabet kommutieren global nicht.</p></article>
+    </div>
+  </section>
+
+  <section class="panel" aria-labelledby="sources-title">
+    <header class="section-head"><div><p class="eyebrow">Source receipts</p><h2 id="sources-title">Direkt zu den kontrollierenden Records</h2></div></header>
+    <div class="sources">
+      <a href="../../NEXAH_TAXONOMY_CROSSWALK_V2_2026-10-05.md"><b>Taxonomy Crosswalk v2</b><span>CF, HL, MOD, SUBJ, ART und 3D als getrennte Namensräume.</span></a>
+      <a href="../../../RESEARCH_AREAS/FIELD_GLYPH_NUMBER_ARCHITECTURE_STAGE_0_2026-09-14/13_12321_COUPLING_KEY_JANUS_AXIS.md"><b>12321 Coupling Key / Janus Axis</b><span>P13=41, +1-Hinge, 6×7 und Achsenabgrenzungen.</span></a>
+      <a href="../../../RESEARCH_AREAS/DYNAMICAL_SYSTEMS_TRANSITION_FIELDS_STAGE_0_2026-09-14/03_N_PLUS_ONE_ARCHITECTURE_LEDGER.md"><b>N+1 Architecture Ledger</b><span>3+1, 4+1 und 5+1 mit lokaler Binderrolle.</span></a>
+      <a href="../../../CASE_STUDIES/NEXAH_PCA_PHASE_SPACE_CORE_INTAKE_2026-10-03/03_ROOT_SIGN_QUATERNION_HOPF_OBSERVATION_BRIDGE.md"><b>Root/sign → Quaternion → Hopf</b><span>F40-Vertrag, sechzehn Zustände und Beobachtungsbrücke.</span></a>
+      <a href="../../../CASE_STUDIES/NEXAH_PCA_PHASE_SPACE_CORE_INTAKE_2026-10-03/09_HOPF_C4_REQUANTIZATION_COMMUTATION_TEST.md"><b>Hopf / C4 commutation test</b><span>Negativbefund und erhaltenes Phasenresiduum.</span></a>
+      <a href="../../../CASE_STUDIES/NEXAH_ROOT7_EULER_MIRROR_CONCORDANCE_INTAKE_2026-09-28/12_PRIME_LENS_FOLLOWON_ADDENDUM.md"><b>Prime Lens follow-on</b><span>2|7|7|2, 4|7|7|4 und die begrenzte (2,2,4,4)-Konkordanz.</span></a>
+    </div>
+    <div class="actions" style="margin-top:14px"><a href="../../../NEXAH_FAMILY_CONNECTION_MAP_V2.html#hopf">Open relation view →</a><a href="../../APP/index.html#atlas">Open inventory view →</a><a href="../../APP/index.html#sequence">Open sequence view →</a></div>
+  </section>
+
+  <footer class="footer"><span>META-TRACE-01 · internal test fixture · 2026-10-06</span><span>Relation ≠ identity · concordance ≠ generator · navigation ≠ claim promotion</span></footer>
+</main>
+<script>
+(()=>{
+  "use strict";
+  const info={
+    all:{title:"Whole trace",copy:"Eine koordinierte Route verbindet Navigation, Mathematik, Demonstrator und Evidenz, ohne ihre Typen zu verschmelzen.",status:"MIXED · TYPED",preserves:"source · type · boundary",no:"one generator or mechanism",boundary:"Die Route ist eine nachvollziehbare Koordinate, kein Beweis einer universellen Identität."},
+    prime:{title:"P13 → 42",copy:"Die exakte Spur führt vom Primindex über einen deklarierten +1-Übergang zum zusammengesetzten 6×7-Produkt.",status:"EXACT ARITHMETIC",preserves:"prime index · value · transition",no:"Quaternion or binder derivation",boundary:"41 ist P13. 43 ist P14. Der +1-Schritt ist ein Operator, keine Identität."},
+    binder:{title:"N+1 Binder",copy:"Mehrere lokale Teile werden durch Seam, Observer oder Meta-Carrier in einem Relationsrecord gehalten.",status:"BOUNDED MODEL",preserves:"part identity · seam · provenance",no:"universal center or extra dimension",boundary:"4+1 und 5+1 sind typisierte lokale Architekturen; gleiche Form bedeutet nicht gleichen Mechanismus."},
+    hopf:{title:"F40 / Hopf",copy:"Ein 16-State-Signcarrier wird koeffizientenweise in Quaternionen eingebettet, normalisiert und durch Hopf projiziert.",status:"DECLARED EXACT MAP + NEGATIVE RETURN",preserves:"sign address · basepoint · phase residual",no:"causal derivation from P13",boundary:"Die F40-Route ist algebraisch deklariert. Der globale Return in C4 wurde zurückgewiesen."}
+  };
+  const nodes=[...document.querySelectorAll(".node")],buttons=[...document.querySelectorAll("[data-filter]")];
+  const set=(id,value)=>document.getElementById(id).textContent=value;
+  function select(key){buttons.forEach(button=>button.setAttribute("aria-pressed",String(button.dataset.filter===key)));nodes.forEach(node=>{const active=node.dataset.groups.split(" ").includes(key);node.dataset.active=String(active);node.dataset.focus=String(key!=="all"&&active)});const item=info[key];set("inspect-title",item.title);set("inspect-copy",item.copy);set("inspect-status",item.status);set("inspect-preserves",item.preserves);set("inspect-no",item.no);set("inspect-boundary",item.boundary)}
+  buttons.forEach(button=>button.addEventListener("click",()=>select(button.dataset.filter)));select("all");
+})();
+</script>
+</body>
+</html>

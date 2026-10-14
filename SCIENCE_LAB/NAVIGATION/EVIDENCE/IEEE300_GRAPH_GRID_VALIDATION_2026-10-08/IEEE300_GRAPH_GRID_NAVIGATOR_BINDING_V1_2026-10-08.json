@@ -1,0 +1,203 @@
+{
+  "schema": "nexah.navigator.ieee300-graph-grid-binding",
+  "version": "1.6.0",
+  "date": "2026-10-08",
+  "status": "INTERNAL_READ_ONLY_BOUNDED_PASS",
+  "module_id": "MOD:IEEE300_GRAPH_GRID",
+  "surface_id": "ART:IEEE300:GRAPH_GRID:R2",
+  "verdict": "R1_FAIL_R2_GRAPH_GRID_CONTRACT_PASS_MORPHOLOGY01_MIXED_NEGATIVE",
+  "representation_contract": [
+    "solved_ieee300_network_state",
+    "local_label_independent_relations",
+    "fixed_12_by_12_moving_grid"
+  ],
+  "r2_metrics": {
+    "converged_frames": 7,
+    "load_scale_start": 1.0,
+    "load_scale_end": 1.03,
+    "accumulated_adjacent_grid_l1": 0.6281069426603223,
+    "moving_grid_threshold_gte": 0.05
+  },
+  "controls": {
+    "topology_perturbation": {
+      "line_index": 228,
+      "endpoints": [168, 209],
+      "grid_l1": 0.1324453089485916,
+      "signature_max_abs_delta": 24.033324295605,
+      "status": "PASS"
+    },
+    "bus_relabeling": {
+      "permuted_bus_count": 298,
+      "grid_max_abs_delta": 0.0,
+      "signature_max_abs_delta": 0.0,
+      "status": "PASS"
+    },
+    "synthetic_carrier_ablation": {
+      "grid_l1": 1.6501677828271906,
+      "real_vertical_coordinate_spread": 0.25994625063135884,
+      "synthetic_vertical_coordinate_spread": 1.942890293094024e-16,
+      "status": "PASS"
+    }
+  },
+  "morphology_01": {
+    "status": "EXECUTED_VALID_MIXED_NEGATIVE",
+    "boundary": {
+      "continuation_converged": [1.03, 1.031, 1.032],
+      "independent_converged": [1.03, 1.031, 1.032],
+      "first_failed_scale": 1.033,
+      "classification": "BOUNDARY_POLICY_CONCORDANT"
+    },
+    "view_reference_spearman": {
+      "rect_12x12": 1.0,
+      "polar_12x12": 1.0,
+      "h3_12x12": 1.0,
+      "circle_12x7x144": 0.5
+    },
+    "classifications": {
+      "cross_view_order": "CROSS_VIEW_ORDER_NOT_PRESERVED",
+      "bus_relabeling": "PASS",
+      "synthetic_ablation": "PASS",
+      "held_out_topology": "INSUFFICIENT",
+      "grid_resolution": "FAIL",
+      "h3_specificity": "NEGATIVE_HOLM_P_1_0",
+      "circle_specificity": "NEGATIVE_HOLM_P_1_0"
+    },
+    "boundary_note": "Only three boundary frames were available; H3 and Circle do not beat 32 matched random rotations."
+  },
+  "relations": {
+    "life": {
+      "type": "methodological_predecessor_only",
+      "boundary": "No carrier, engine, score or experiment identity; no LIFE06E is created."
+    },
+    "e8": {
+      "type": "non_identity_unmapped_untested",
+      "mapping_defined": false,
+      "specificity_tested": false,
+      "boundary": "No IEEE-to-E8 mapping or E8-specific prediction exists; LIFE04 and LIFE04B valid-negative results remain unchanged."
+    }
+  },
+  "open_research_bridges": {
+    "number_address": {
+      "relation_id": "REL:IEEE300_GRAPH_GRID_NUMBER_ADDRESS",
+      "status": "PARTIALLY_EXECUTED_VALID_NEGATIVE_CIRCLE_SPECIFICITY",
+      "adapter": "A_1000(lambda)=round(1000*lambda) on an explicitly frozen 0.001 sampling lattice",
+      "addressed_samples": [1.03, 1.031, 1.032, 1.033],
+      "addresses": [1030, 1031, 1032, 1033],
+      "recovered_visual_precursor": {
+        "status": "RECONSTRUCTED_GENERATOR_RECOVERED_HISTORICAL_GENERATOR_UNRECOVERED",
+        "visible_label": "12 x 1008 Euler-Free Paths",
+        "exact_total": "12*1008=12096",
+        "owner_offset": "1008+2*11=1030",
+        "source_image": "6F3F8C24-08DC-42ED-A7E5-63ABAAA8BE0A_1_102_o.jpeg",
+        "reconstructed_generator": {
+          "path": "../../00 EXECUTIVE/NEXAH-Mission-Control/INTAKE/NEXAH_12X1008_EULER_FIBONACCI_MOBIUS_2PLUS3_INTAKE_2026-09-28/artifacts/nexah-12x1008-generator.html",
+          "sha256": "f1f38a71c041a4bd924327db8292e43524ccbe27f35faceceb9de8b2f51075e1",
+          "state_space": "12096=12*7*144",
+          "local_motion": "T_tau(s,a,t)=(s,a,t+tau mod 144)",
+          "path_rule": "C_u(t)=t+u mod 144; full cycle iff gcd(u,144)=1",
+          "fibonacci_view": "u=F_11=89 with F_12=144",
+          "status": "SESSION_BUILT_FROZEN_BOUNDED_NOT_INDEPENDENTLY_REPLICATED"
+        },
+        "boundary": "The bounded reconstructed generator is recovered; the historical Euler-Free point rule, a topological Mobius realization and the operational meaning of 2*11 remain unrecovered."
+      },
+      "exact_existing_relations": [
+        "1008+2*11=1030",
+        "A_1000(1.030)=1030",
+        "41,42,43 and 1031,1032,1033 both project to 5,6,7 modulo 9",
+        "41,42,43 = 6*7 + (-1,0,1)",
+        "1031,1032,1033 = 6*172 + (-1,0,1)",
+        "1032 = 24*43"
+      ],
+      "six_number_gate": {
+        "small_carriers": [41, 42, 43],
+        "large_carriers": [1031, 1032, 1033],
+        "translation": "h -> h+990",
+        "shared_mod_9_residues": [5, 6, 7],
+        "prime_typing": "41=P13, 43=P14, 42=6*7; 1031=P173, 1033=P174, 1032=24*43",
+        "boundary": "Prime position, carrier value, residue and multiplicative identity remain separate typed fields."
+      },
+      "residue_antipode_translation": {
+        "local_gate_reflection": "J_9(r)=3-r mod 9",
+        "gate_action": "5<->7 with 6 fixed",
+        "oriented_lift": "(r,sigma)->(3-r mod 9,-sigma)",
+        "registered_primegrid_antipode": "A(i,j,k,sigma)=(k,j,i,-sigma)",
+        "status": "STRUCTURALLY_COMPATIBLE_NOT_OPERATOR_IDENTICAL",
+        "boundary": "An explicit state-to-residue map and intertwiner are required before the local residue reflection can be identified with the global PRIMEGRID antipode."
+      },
+      "audited_number_room": {
+        "grammar": "carrier -> declared address system -> view/neighborhood -> return to carrier",
+        "carrier_1031_views": {
+          "prime_index": 173,
+          "index_digit_view": "17.3",
+          "decimal_cut": "10|31",
+          "mod_11": 8,
+          "mod_60": 11,
+          "time_rendering": "00:17:11"
+        },
+        "large_carrier_prime_indices": [173, 193, 213, 232],
+        "index_gaps": [20, 20, 19],
+        "terminal_correction": "1459 is P_232; P_233 is 1471, so the terminal +20 lane does not end at 1459.",
+        "residue_boundary": "same residue != same integer"
+      },
+      "required_address_controls": [
+        "alternate sampling lattice",
+        "nearby non-special integer labels",
+        "blind number-room labels until scoring is complete",
+        "separate carrier, address, view and return fields"
+      ],
+      "boundary": "Exact finite arithmetic and a bounded reconstructed 12*7*144 moving-grid model are recovered. The historical Euler-Free construction and any IEEE, physical, predictive, Coxeter or E8 identity remain unverified."
+    },
+    "persistent_address_register": {
+      "relation_id": "REL:IEEE300_GRAPH_GRID_PERSISTENT_ADDRESS",
+      "status": "EXACT_SOURCE_BOUND_TRANSLATION_NOT_IEEE_IDENTITY",
+      "frame_translation": "7^2 -> 8^2",
+      "shell_decomposition": "64=49+14+1",
+      "typed_parts": {
+        "payload": 49,
+        "headers": 14,
+        "corner": 1
+      },
+      "view_relation": "M_A(p) != M_B(p)",
+      "persistent_address": "ADDRESS_A(p)=ADDRESS_B(p)=C2",
+      "row_residual": "G is missing; H occupies row 7",
+      "boundary": "The register preserves a typed address across two map frames; it does not preserve glyph, operator or meaning. Header count 14 and P14=43 are not interchangeable types, and no IEEE carrier identity is claimed."
+    },
+    "h3_polyhedral_view": {
+      "relation_id": "REL:IEEE300_GRAPH_GRID_H3_VIEW",
+      "status": "EXECUTED_VALID_NEGATIVE_SPECIFICITY",
+      "candidate_view": "12 dodecahedron face normals equivalent to 12 dual icosahedron vertices",
+      "required_controls": [
+        "rotated H3 channels",
+        "channel permutation",
+        "matched random 12-direction spherical views",
+        "grid-resolution sweep",
+        "registered topology, relabeling and synthetic-carrier controls"
+      ],
+      "boundary": "H3 preserved the three-frame order but did not beat matched random rotations (Holm p=1.0); the current grid is not thereby a dodecahedron, icosahedron or E8 carrier."
+    }
+  },
+  "claim_ceiling": "The declared solved IEEE-300 continuation drives the declared relational grid under the registered controls; no early-warning, resonance, E8, universality, optimality or utility claim.",
+  "sources": {
+    "result_summary": "SCIENCE_LAB/CASE_STUDIES/NEXAH_IEEE300_GRAPH_TO_GRID_VALIDATION_2026-10-08/RESULT_SUMMARY.md",
+    "machine_result": "SCIENCE_LAB/CASE_STUDIES/NEXAH_IEEE300_GRAPH_TO_GRID_VALIDATION_2026-10-08/artifacts_r2/GRAPH_GRID_RESULT_R2.json",
+    "html_surface": "SCIENCE_LAB/CASE_STUDIES/NEXAH_IEEE300_GRAPH_TO_GRID_VALIDATION_2026-10-08/artifacts_r2/graph-grid-report-r2.html",
+    "gif": "SCIENCE_LAB/CASE_STUDIES/NEXAH_IEEE300_GRAPH_TO_GRID_VALIDATION_2026-10-08/artifacts_r2/ieee300-graph-grid-r2.gif",
+    "mission_control_return": "SCIENCE_LAB/MISSION_CONTROL_RETURN_IEEE300_GRAPH_GRID_VALIDATION_2026-10-08.md",
+    "open_bridge_intake": "SCIENCE_LAB/CASE_STUDIES/NEXAH_IEEE300_GRAPH_TO_GRID_VALIDATION_2026-10-08/GRAPH_GRID_NUMBER_H3_BRIDGE_INTAKE_2026-10-08.md",
+    "primegrid_number_handle_result": "SCIENCE_LAB/CASE_STUDIES/NEXAH_PRIMEGRID_BLOCK02B_TRINARY_PASCAL_ANTIPODE_2026-10-07/01_RESULT_ASSESSMENT.md",
+    "h3_geometry_record": "SCIENCE_LAB/CASE_STUDIES/E8_DEMOS_INTERACTIVE_ORIENTATION_2026-09-21/COXETER_ORBIT_TOPOLOGY_LAB_2026-10-05/README.md",
+    "number_room_forensic_audit": "SCIENCE_LAB/CASE_STUDIES/NEXAH_VENDESSIMAL_PRIME_GRID_FORENSIC_AUDIT_2026-09-28/FINAL_REPORT.md",
+    "e11_specificity_audit": "SCIENCE_LAB/CASE_STUDIES/E11_01_DECIMAL_ELEVATOR_AUDIT_2026-09-20/07_REPORT.md",
+    "reconstructed_12x1008_intake": "../../00 EXECUTIVE/NEXAH-Mission-Control/INTAKE/NEXAH_12X1008_EULER_FIBONACCI_MOBIUS_2PLUS3_INTAKE_2026-09-28/FINAL_INTAKE_DECISION.md",
+    "reconstructed_12x1008_html": "../../00 EXECUTIVE/NEXAH-Mission-Control/INTAKE/NEXAH_12X1008_EULER_FIBONACCI_MOBIUS_2PLUS3_INTAKE_2026-09-28/artifacts/nexah-12x1008-generator.html",
+    "hq_format_elevator_control": "SCIENCE_LAB/CASE_STUDIES/NEXAH_ROOT7_EULER_MIRROR_CONCORDANCE_INTAKE_2026-09-28/H_Q_FORMAT_ELEVATOR_INVARIANCE_01_EXECUTION_LOG.md",
+    "morphology_01_summary": "SCIENCE_LAB/CASE_STUDIES/NEXAH_IEEE300_GRAPH_TO_GRID_VALIDATION_2026-10-08/morphology_01/RESULT_SUMMARY.md",
+    "morphology_01_machine_result": "SCIENCE_LAB/CASE_STUDIES/NEXAH_IEEE300_GRAPH_TO_GRID_VALIDATION_2026-10-08/morphology_01/artifacts/GRAPH_GRID_MORPHOLOGY_01.json",
+    "morphology_01_html": "SCIENCE_LAB/CASE_STUDIES/NEXAH_IEEE300_GRAPH_TO_GRID_VALIDATION_2026-10-08/morphology_01/artifacts/graph-grid-morphology-01.html",
+    "morphology_01_gif": "SCIENCE_LAB/CASE_STUDIES/NEXAH_IEEE300_GRAPH_TO_GRID_VALIDATION_2026-10-08/morphology_01/artifacts/ieee300-morphology-01.gif"
+    ,"primegrid_antipode_html": "SCIENCE_LAB/CASE_STUDIES/NEXAH_PRIMEGRID_BLOCK02B_TRINARY_PASCAL_ANTIPODE_2026-10-07/NEXAH_PRIMEGRID_BLOCK02B_TRINARY_PASCAL_ANTIPODE_LAB.html"
+    ,"persistent_address_html": "00_INCOMING/NEXAH_DUAL_VIEW_ROSETTA_INTAKE_2026-09-05/02_MODULE_II_G_RT_ROSETTA/NEXAH_MAP_GRID_PERSISTENT_ADDRESS.html"
+    ,"persistent_address_method": "SCIENCE_LAB/RESEARCH_AREAS/FIELD_GLYPH_NUMBER_ARCHITECTURE_STAGE_0_2026-09-14/12_DUAL_CUT_ANTIPODE_PERSISTENT_ADDRESS_METHOD.md"
+    ,"rosetta_qrt_audit": "SCIENCE_LAB/CASE_STUDIES/NEXAH_ROSETTA_QRT_MODULE_AUDIT_2026-09-22/NEXAH_ROSETTA_QRT_MODULE_AUDIT.md"
+  }
+}

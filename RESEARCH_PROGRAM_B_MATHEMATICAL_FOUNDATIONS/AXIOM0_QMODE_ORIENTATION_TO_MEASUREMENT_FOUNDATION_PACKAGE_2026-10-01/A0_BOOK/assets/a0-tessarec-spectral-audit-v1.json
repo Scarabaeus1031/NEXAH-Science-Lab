@@ -1,0 +1,65 @@
+{
+  "record_id": "A0:TESSAREC:SPECTRAL_AUDIT:V1",
+  "date": "2026-10-13",
+  "identity_reuse": ["MOD:TESSAREC", "MOD:NUMBER_VIEW_SUITE"],
+  "status": "ENGINEERING_AUDIT_NOT_SCIENCE_RUN",
+  "graph": {
+    "name": "O2-P16-H8 Blue Body shell",
+    "vertices": 48,
+    "edges": 72,
+    "degree": 3,
+    "connected": true,
+    "bipartite": false
+  },
+  "a7_robustness": {
+    "protocol": "16 deterministic unconstrained host-mapping searches, seeds 0..15, 120000 iterations each",
+    "a7_count": 2,
+    "rate": 0.125,
+    "best_wirelength": 280,
+    "best_witnesses": [{"seed": 7, "middle_1111_host": "A7"}, {"seed": 11, "middle_1111_host": "D4"}],
+    "result": "A7_NOT_INVARIANT"
+  },
+  "curvature": {
+    "face_charge_formula": "sum_k (6-k) f_k",
+    "groups": [{"sides": 5, "count": 16, "total_charge": 16}, {"sides": 6, "count": 8, "total_charge": 0}, {"sides": 8, "count": 2, "total_charge": -4}],
+    "charge_total": 12,
+    "regular_face_angle_defect_total": 12.566370614359158,
+    "gauss_bonnet_target": "4*pi"
+  },
+  "spectrum": {
+    "solver": "symmetric Jacobi rotations",
+    "solver_residual_max_off_diagonal": 9.869733560528489e-14,
+    "trace": -8.881784197001252e-16,
+    "sum_squares": 144,
+    "expected_sum_squares": 144,
+    "max_nontrivial_abs_eigenvalue": 2.7313013160030897,
+    "ramanujan_bound": 2.8284271247461903,
+    "margin": 0.09712580874310062,
+    "result": "NUMERICAL_RAMANUJAN_PASS",
+    "eigenvalues": [3.0000000000000075,2.7313013160030897,2.731301316003087,2.6457513110645894,2.248913637203184,2.2489136372031795,2.170086486626036,2.1700864866260305,1.732050807568879,1.5042776182198474,1.5042776182198454,1.4811943040920168,1.4811943040920141,1.3108348905889187,1.3108348905889171,0.9999999999999989,0.9999999999999987,0.783475582820947,0.7834755828209456,0.6776033153286968,0.6776033153286953,0.4142135623730954,0.4142135623730952,0.311107817465982,0.3111078174659816,0.057714958980193035,0.057714958980192944,-0.3111078174659823,-0.31110781746598265,-1.0000000000000007,-1.1270761168206274,-1.127076116820629,-1.4811943040920141,-1.4811943040920148,-1.6279226442189123,-1.6279226442189139,-1.7320508075688763,-1.976206139573133,-1.9762061395731334,-2.070613028373415,-2.0706130283734168,-2.1700864866260337,-2.170086486626035,-2.4142135623730927,-2.414213562373097,-2.5123033901587815,-2.512303390158785,-2.6457513110645903],
+    "display_slice_contract": {
+      "mode": "INDEX_PACKING_NOT_SPECTRAL_COORDINATE",
+      "formula": "lane = sorted eigenvalue index mod 8",
+      "lanes": 8,
+      "members_per_lane": 6,
+      "pink_handle": "trivial eigenvalue lambda=3 remains fixed on x; vertical motion selects a display lane only"
+    }
+  },
+  "ihara": {
+    "formula": "Z_G(u)^-1=(1-u^2)^(E-V) det(I-uA+(d-1)u^2 I)",
+    "nontrivial_pole_count": 94,
+    "target_radius": 0.7071067811865475,
+    "max_radius_error": 1.1102230246251565e-16,
+    "result": "NONTRIVIAL_POLES_ON_REGULAR_CIRCLE_NUMERICALLY"
+  },
+  "randomized_cubic_controls": {
+    "protocol": "24 connected degree-preserving 2-switch controls, 720 accepted swaps each",
+    "pass_count": 22,
+    "count": 24,
+    "min_max_nontrivial": 2.685879616099859,
+    "median_max_nontrivial": 2.7858693773288308,
+    "max_max_nontrivial": 2.8554132912215286,
+    "interpretation": "The shell passes, but the property is not rare in this small control ensemble."
+  },
+  "claim_boundary": "A7 is rejected as an invariant address. Ramanujan and Ihara are graph-spectral labels under the declared finite operator only; this is not a Riemann-zeta, modular-form, physical-mechanism, novelty or optimality claim."
+}

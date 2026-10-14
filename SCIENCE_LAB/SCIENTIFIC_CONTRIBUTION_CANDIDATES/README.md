@@ -1,6 +1,6 @@
 # Scientific Contribution Candidates
 
-Maintained through: `2026-09-30`
+Maintained through: `2026-10-10`
 
 Status: `CANDIDATE_REGISTER / NO_NOVELTY_PRESUMPTION / NO_ACTIVATION`
 
@@ -18,7 +18,8 @@ scientific authority remain separate questions.
 | ID | Candidate contribution type | Present evidence | Current verdict | Missing gates | Owning assessment |
 |---|---|---|---|---|---|
 | `SCC-001 / TOP-BOUNDARY-01` | optical/imaging measurement protocol and interaction-residual benchmark | preregistered synthetic operator; 24/24 records; 12/12 tests; linear null and coherent positive controls; eight-orientation return analysis | `PLAUSIBLE_METHOD_CONTRIBUTION_CANDIDATE / NOT_YET_A_PHYSICAL_OR_NOVEL_RESULT` | targeted prior-art review; bound apparatus and uncertainty budget; physical positive control; baseline comparison; repeated/independent execution; contribution decision | [Assessment](../CASE_STUDIES/TOP_BOUNDARY_01_ORIENTATION_COMPLEMENT_INTERACTION_2026-09-26/16_SCIENTIFIC_CONTRIBUTION_ASSESSMENT.md) |
-| `SCC-002 / NEXAH n+1 RELATIONAL STACK` | relation-preserving representation method and Builder architecture benchmark | R0 design record; 92-file provenance-bound historical source intake; formal `n+1` object; predecessor crosswalk; claim ledger; minimum test specification | `SCIENTIFIC_BUILDER_CONTRIBUTION_CANDIDATE / NOT_VALIDATED` | targeted prior-art and nearest-baseline review; Structure Freeze; executable reference fixture; single-master-frame comparison; cycle-consistency, loss-localization and Human-inspectability evaluation; contribution decision | [Assessment](../CASE_STUDIES/NEXAH_N_PLUS_ONE_RELATIONAL_STACK_CONTRIBUTION_2026-09-30/03_CONTRIBUTION_CANDIDATE.md) |
+| `SCC-002 / NEXAH n+1 RELATIONAL STACK` | relation-preserving representation method and Builder architecture benchmark | R0 design record; 92-file provenance-bound historical source intake; formal `n+1` object; predecessor crosswalk; claim ledger; minimum test specification; targeted primary-source novelty audit; Human Owner disposition | `CONTRIBUTION_NOT_SUPPORTED / CLOSED_NO_SCIENTIFIC_NOVELTY` | original BDL-01 is `NO-GO`; retain only the internal audit/interface profile; any narrow interoperability, Human-factors, research-software or benchmark question requires a new candidate | [Assessment](../CASE_STUDIES/NEXAH_N_PLUS_ONE_RELATIONAL_STACK_CONTRIBUTION_2026-09-30/03_CONTRIBUTION_CANDIDATE.md) · [Novelty audit](../CASE_STUDIES/NEXAH_N_PLUS_ONE_RELATIONAL_STACK_CONTRIBUTION_2026-09-30/08_PRIOR_ART_AND_NOVELTY_AUDIT_2026-10-08.md) |
+| `SCC-003 / PASCAL–PENTAGON 106-NODE QUOTIENT` | finite combinatorial construction and reproducible quotient-graph object | bounded PENT-01–PENT-07 replays; explicit five-face seam quotient; `28,49,70,91,112 -> 106`; formal definition and compact proofs; canonical 106-node/180-edge typed reference object; independent union-find verification `177/177`; metric and 3D returns; initial web-level nearest-neighbour search | `POTENTIAL_COMBINATORIAL_CONSTRUCTION_CANDIDATE / PRIOR_ART_CHECK_INCOMPLETE / NOT_ACTIVE` | systematic MathSciNet/zbMATH/Crossref/arXiv audit; strongest-baseline comparison; independent mathematical review | [Assessment](SCC_003_PASCAL_PENTAGON_106_NODE_QUOTIENT_2026-10-10.md) |
 
 The machine-readable companion is
 [`SCIENTIFIC_CONTRIBUTION_CANDIDATES.csv`](SCIENTIFIC_CONTRIBUTION_CANDIDATES.csv).
@@ -114,22 +115,22 @@ or novelty interpretation.
 
 ## SCC-002 application
 
-For `NEXAH n+1 RELATIONAL STACK`, the candidate is presently admitted only at
-the documented design-feasibility level. It does not add a Builder capability,
-research result, adopted format or active workstream. Promotion requires:
+The targeted primary-source audit completed on `2026-10-08` found strong
+overlap with multiary delta lenses, Triple Graph Grammars, transformation
+synchronization, sheaf-based heterogeneous consistency, W3C PROV and RO-Crate.
+The independent BDL-01 review also found the Candidate and strong baseline
+behaviorally equivalent under the fair equal-information contract. The current
+recommendation was therefore a downgrade to an internal architecture or
+audit-interface pattern. The Human Owner accepted that recommendation on
+`2026-10-08`.
 
-1. a targeted comparison with local coordinate frames, scene graphs, map
-   synchronization, cycle consistency, provenance graphs and redundant residue
-   systems;
-2. a frozen relation schema that keeps local records and the Binder distinct;
-3. a minimal `3+1` executable fixture plus a strong single-master-frame
-   baseline using the same information;
-4. preregistered measures for closure, representation loss, discrepancy
-   localization, provenance retention and Human inspection cost;
-5. positive, null and deliberately inconsistent mapping controls;
-6. deterministic replay and an explicit assessment of whether the additional
-   contract provides value beyond established tools.
+`SCC-002` is closed as `CONTRIBUTION_NOT_SUPPORTED` for its registered broad
+scientific and machine-utility proposition. It adds no Builder capability,
+research result, adopted format or active workstream. The original BDL-01 must
+not be executed as a novelty or machine-utility test; it may be preserved only
+as a non-promotional equivalence fixture. The I-L-A-U/provenance/residual/claim-
+ceiling combination remains an internal audit-interface profile.
 
-If ordinary scene-graph, provenance or map-synchronization practice provides
-the same diagnosis without additional value, the candidate is downgraded to an
-internal architecture pattern, teaching model or historical design record.
+A later narrow interoperability, Human-factors, research-software or benchmark
+question requires a new candidate record, established-field terminology and a
+frozen strongest-baseline comparison. It does not reopen SCC-002.

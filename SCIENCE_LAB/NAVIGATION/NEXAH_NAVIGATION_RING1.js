@@ -12,6 +12,7 @@
   const current = registry.modules[moduleId];
   const urlFor = path => new URL(path, root).href;
   const atlasFor = route => `${urlFor(registry.modules[registry.atlas].path)}#${route || 'all'}`;
+  const connectionAtlas = urlFor('NAVIGATION/APP/index.html#atlas');
   const escapeHtml = value => String(value).replace(/[&<>'"]/g, char => ({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[char]));
   const link = (label, href, kind = '') => `<a class="link ${kind}" href="${escapeHtml(href)}">${escapeHtml(label)}</a>`;
   const related = current.related.map(id => registry.modules[id]).filter(Boolean);
@@ -21,6 +22,12 @@
       if (this.shadowRoot) return;
       const shadow = this.attachShadow({mode:'open'});
       const relatedLinks = related.map(item => link(item.short, urlFor(item.path))).join('');
+      const primaryAtlasLink = moduleId === registry.atlas
+        ? link('Connection Atlas', connectionAtlas, 'primary')
+        : link('Family Map', atlasFor(current.route), 'primary');
+      const routeAtlasLink = moduleId === registry.atlas
+        ? link('Connection Atlas öffnen', connectionAtlas, 'primary')
+        : link('Route in der Family Map', atlasFor(current.route), 'primary');
       shadow.innerHTML = `
         <style>
           :host{display:block;position:relative;z-index:2147480000;margin:0 0 12px;color:#edf5f8;font:12px/1.35 Inter,ui-sans-serif,system-ui,-apple-system,sans-serif}
@@ -36,7 +43,7 @@
             <span class="ring">NEXAH · Ring 1</span>
             <span class="current">${escapeHtml(current.short)}</span>
             <span class="chain">${escapeHtml(current.chain)}</span>
-            ${link('Atlas', atlasFor(current.route), 'primary')}
+            ${primaryAtlasLink}
             ${link('Mission Control', urlFor(registry.modules[registry.missionControl].path))}
             <button class="toggle" type="button" aria-expanded="false" aria-controls="nexah-ring-detail">Verbindungen</button>
           </div>
@@ -45,7 +52,7 @@
             <div class="meta">
               <span class="label">Route</span><span class="chain">${escapeHtml(current.chain)}</span>
               <span class="label">Weiter</span><span class="links">${relatedLinks}</span>
-              <span class="label">Record</span><span class="links">${link('Modulakte öffnen', urlFor(current.record))}${link('Route im Atlas', atlasFor(current.route), 'primary')}</span>
+              <span class="label">Record</span><span class="links">${link('Modulakte öffnen', urlFor(current.record))}${routeAtlasLink}</span>
             </div>
           </div>
         </nav>`;

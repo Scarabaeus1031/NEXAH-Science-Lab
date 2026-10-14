@@ -1,0 +1,56 @@
+{
+  "schema": "nexah.navigator.unbound-lens-candidate/1.0.0",
+  "date": "2026-10-11",
+  "status": "INTERNAL_CANDIDATE_NOT_ADMITTED_NOT_PUBLIC",
+  "candidate_label": "Q106_SQUARE_INDEX_READOUT_LENS",
+  "stable_identity": null,
+  "identity_status": "UNBOUND_NO_STABLE_NAVIGATOR_ID",
+  "thematic_home": "NEXAH_NAVIGATOR",
+  "question": "Can Q106 be read through a typed square-index and prime-index lens whose exact return is locally and finitely selective?",
+  "typed_chain": [
+    "Q106",
+    "R(Q106)=(9,16,25,106)",
+    "(9,16,25)=(3^2,4^2,5^2)",
+    "P_square(3,4,5)=(23,53,97)",
+    "106=2*p16=p25+3^2"
+  ],
+  "contrast": {
+    "definition": "C_k=2*p_(k^2)",
+    "direct_carriers": {"k3": 46, "k4": 106, "k5": 194},
+    "return_equation": "C_k-p_((k+1)^2)=(k-1)^2",
+    "direct_hits": [4],
+    "finite_scan": {"minimum_k": 2, "maximum_k": 1000, "hits": [4]},
+    "local_perturbation_window": {"minimum": 104, "maximum": 108, "hits": [106]}
+  },
+  "evidence_bindings": [
+    {
+      "role": "evidence-supported-by",
+      "authority": "A0/Q106 bounded audit record",
+      "path": "10 NEXAH CORE/NEXAH/RESEARCH/NOTES/PASCAL_PENTAGON_D5_TEST_2026-10-10/PASCAL_ROSETTA_JOINT_DESIGN_2026-10-11/NCS_292_Q106_INTERTWINER_RETURN_PACKAGE_2026-10-11/Q106_PRIME_INDEX_RADIX_ROOT_GROWTH_AUDIT_2026-10-11/Q106_SQUARE_INDEX_PRIME_READOUT_AUDIT_2026-10-11/RESULT.json",
+      "sha256": "31e4315f9e1a3de86fdb0212d135b71d269de8ef3f3c18a6c859ca5724e02492",
+      "classification": "PASS_EXACT_SQUARE_INDEX_PRIME_READOUT_WITH_NO_D5_INVARIANT_53_SUBCARRIER"
+    },
+    {
+      "role": "contrast-evidence-supported-by",
+      "authority": "bounded 46/106/194 contrast audit",
+      "path": "10 NEXAH CORE/NEXAH/RESEARCH/NOTES/PASCAL_PENTAGON_D5_TEST_2026-10-10/PASCAL_ROSETTA_JOINT_DESIGN_2026-10-11/NCS_292_Q106_INTERTWINER_RETURN_PACKAGE_2026-10-11/Q106_PRIME_INDEX_RADIX_ROOT_GROWTH_AUDIT_2026-10-11/Q106_SQUARE_INDEX_PRIME_READOUT_AUDIT_2026-10-11/Q106_46_106_194_CONTRAST_AUDIT_2026-10-11/RESULT.json",
+      "sha256": "016758c50f249742ea06101979474c6c68af893af92051a343abdb9f0ea1918f",
+      "classification": "PASS_Q106_LOCAL_AND_BOUNDED_HOMOLOGUE_SELECTIVITY"
+    }
+  ],
+  "relation_boundary": {
+    "thematic_ownership": "Navigator candidate",
+    "evidence_provenance": "A0/Q106 source records",
+    "relation_type": "evidence-supported-by",
+    "does_not_imply": [
+      "identity with A0",
+      "canonical Navigator admission",
+      "new Study, Family, PENT layer or operator",
+      "R(Q46) or R(Q194)",
+      "global prime law",
+      "Prime Pascal Pyramid",
+      "publication"
+    ]
+  },
+  "next_gate": "Human Owner may later name/admit the lens or keep it as an unbound Navigator candidate after thematic sorting."
+}

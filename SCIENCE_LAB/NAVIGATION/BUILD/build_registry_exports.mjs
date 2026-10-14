@@ -12,7 +12,7 @@ const inputNames = {
   html: "HTML_ARTIFACT_REGISTRY_V1_2026-10-06.json",
   evidence: "POLAR_JANUS_EVIDENCE_SLICE_V1_2026-10-06.json"
 };
-const generatedAt = "2026-10-06T12:00:00Z";
+const generatedAt = "2026-10-07T12:00:00Z";
 
 const load = (name) => JSON.parse(readFileSync(join(navigation, name), "utf8"));
 
@@ -75,8 +75,8 @@ function registrySurfaceEntity(surface, modulesById) {
     summary: `${surface.role} ${surface.lifecycle} surface for ${owner?.title ?? surface.module_id}.`,
     status: surface.lifecycle,
     visibility: "internal",
-    claim_ceiling: owner?.claim_ceiling ?? "Navigation surface only; no authority or claim promotion.",
-    controlling_record_ids: compact([owner?.owning_record]),
+    claim_ceiling: surface.claim_ceiling ?? owner?.claim_ceiling ?? "Navigation surface only; no authority or claim promotion.",
+    controlling_record_ids: compact([surface.owning_record, owner?.owning_record]),
     roles: owner?.roles ?? ["builder"],
     connection_family_ids: owner?.connection_families ?? [],
     related_entity_ids: compact([surface.module_id, surface.predecessor, surface.successor]),
@@ -240,7 +240,7 @@ export function buildRegistryExports(outputDirectory) {
     version: "1.0.0",
     profile: "internal",
     generated_at: generatedAt,
-    as_of: "2026-10-06",
+    as_of: "2026-10-07",
     title: "NEXAH Navigator internal registry projection",
     authority_statement: "Read-only projection of the three validated Science Lab registries; native records retain authority.",
     currentness: { status: "VALID", controlling_sources_verified: 3, errors: [] },
@@ -259,7 +259,7 @@ export function buildRegistryExports(outputDirectory) {
     release_state: "preview",
     publication_authorized: false,
     generated_at: generatedAt,
-    as_of: "2026-10-06",
+    as_of: "2026-10-07",
     title: "NEXAH Navigator public preview — no admitted objects",
     language: "en",
     governance: {

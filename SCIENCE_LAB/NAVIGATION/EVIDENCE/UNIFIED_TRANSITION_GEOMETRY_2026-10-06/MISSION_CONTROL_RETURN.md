@@ -25,6 +25,14 @@ bound this distinction to a Lorenz-63 carrier and passed all preregistered
 crossing, direction, tangency, near-miss, nontransversal and sampling controls.
 This is one object-specific formal control result, not an adopted generic model.
 
+The thread-wide total report is returned as
+[`UTG_THREAD_TOTAL_REPORT_2026-10-06.md`](UTG_THREAD_TOTAL_REPORT_2026-10-06.md).
+It consolidates the canonical F1–F7 family architecture, the separate exact
+E8 `240 = 8 * 30` Coxeter result, the Prime/Bridge and media lineages, and the
+equations discussed in the source thread. It explicitly records that no F8
+family is currently adopted; an F8 label remains at most a candidate
+integration/atlas layer pending a typed definition.
+
 ## Operational effect
 
 - no mission activated;

@@ -1,0 +1,216 @@
+{
+  "schema": "nexah.navigator.a0-joint-application-return-protocol-binder",
+  "version": "1.1.0",
+  "binder_id": "NEXAH:NAVIGATOR:A0_JOINT_APPLICATION_RETURN_PROTOCOL:2026-10-13",
+  "node_id": "NN:A0_JOINT_APPLICATION_RETURN_PROTOCOL",
+  "title": "A0 Joint Application Return Protocol",
+  "status": "INTERNAL_SOURCE_BOUND_ENGINEERING_LENS",
+  "publication_authorized": false,
+  "changes_canonical_module_count": false,
+  "changes_canonical_family_count": false,
+  "science_run_activated": false,
+  "owner_request": "Build A0 JARP Cross-Lens Extension completely, improve the GAME 4 LIFE and E8 connections, retain ROOT7 exactly, gate epsilon7 as unresolved, and return-bind the result to A0, Paper F, the Desk, Mission Control and the Science Navigator.",
+  "identity_reuse": {
+    "module_ids": ["MOD:TESSAREC", "MOD:NUMBER_VIEW_SUITE"],
+    "lens_ids": [
+      "NN:CRT_QRT_37_CARRIER_LADDER",
+      "NN:MRB_ACR_NCS_Q106_RETURN_CROSSWALK",
+      "NEXAH:NAVIGATOR:ROOT7:LOOK:2026-10-08",
+      "NEXAH_LIFE_BOUNDARY_CYLINDER_LIFE08_2026_10_11"
+    ],
+    "new_source_bound_node_id": "NN:A0_JOINT_APPLICATION_RETURN_PROTOCOL",
+    "duplicate_risk": "REVIEWED_NO_EXACT_EXISTING_JOINT_APPLICATION_OR_RETURN_PROTOCOL_NODE"
+  },
+  "protocol": {
+    "protocol_id": "A0:JARP:V1",
+    "case_count": 10,
+    "validator_check_count": 52,
+    "validator_status": "PASS",
+    "result_vocabulary": [
+      "PASS_EXACT_RETURN",
+      "PASS_EXACT_PROFILE",
+      "PASS_NEGATIVE_CONTROL",
+      "HOLD_MISSING_WITNESS",
+      "REJECT_IDENTITY_COLLAPSE"
+    ],
+    "case_results": {
+      "APP-01": "PASS_EXACT_RETURN",
+      "APP-02": "HOLD_MISSING_WITNESS",
+      "APP-03": "HOLD_MISSING_WITNESS",
+      "APP-04": "HOLD_MISSING_WITNESS",
+      "APP-05": "PASS_NEGATIVE_CONTROL",
+      "APP-06": "HOLD_MISSING_WITNESS",
+      "APP-07": "HOLD_MISSING_WITNESS",
+      "APP-08": "HOLD_MISSING_WITNESS",
+      "APP-09": "REJECT_IDENTITY_COLLAPSE",
+      "APP-10": "PASS_EXACT_PROFILE"
+    }
+  },
+  "extension": {
+    "extension_id": "A0:JARP:X1",
+    "extends_protocol": "A0:JARP:V1",
+    "frozen_core_unchanged": true,
+    "case_count": 8,
+    "validator_check_count": 64,
+    "validator_status": "PASS",
+    "case_results": {
+      "APP-11": "PASS_EXACT_RETURN",
+      "APP-12": "PASS_EXACT_PROFILE",
+      "APP-13": "PASS_EXACT_RETURN",
+      "APP-14": "PASS_EXACT_RETURN",
+      "APP-15": "PASS_EXACT_RETURN",
+      "APP-16": "PASS_NEGATIVE_CONTROL",
+      "APP-17": "HOLD_UNRESOLVED_ALIAS",
+      "APP-18": "HOLD_MISSING_WITNESS"
+    },
+    "identity_findings": {
+      "life_e8_identity": false,
+      "e8_specificity": false,
+      "root7_norm_squared": 7,
+      "root7_axis_identifiable": false,
+      "epsilon7_source_definition_found": false
+    }
+  },
+  "relations": [
+    {
+      "relation_id": "REL:NN_A0_JARP_TO_TESSAREC",
+      "source_id": "NN:A0_JOINT_APPLICATION_RETURN_PROTOCOL",
+      "relation_type": "application-fixture-for",
+      "target_id": "MOD:TESSAREC",
+      "status": "bounded",
+      "evidence": "APP-08 same-address frame/layer/shadow return fixture",
+      "does_not_imply": ["new module", "physical shadow mechanism", "Study activation"]
+    },
+    {
+      "relation_id": "REL:NN_A0_JARP_TO_NUMBER_VIEW_SUITE",
+      "source_id": "NN:A0_JOINT_APPLICATION_RETURN_PROTOCOL",
+      "relation_type": "application-fixture-for",
+      "target_id": "MOD:NUMBER_VIEW_SUITE",
+      "status": "bounded",
+      "evidence": "APP-01 through APP-07, APP-09 and APP-10 exact finite number-view fixtures",
+      "does_not_imply": ["natural-number privilege", "causal identity", "new module"]
+    },
+    {
+      "relation_id": "REL:NN_A0_JARP_EXTENDS_CRT_QRT_37",
+      "source_id": "NN:A0_JOINT_APPLICATION_RETURN_PROTOCOL",
+      "relation_type": "operationalizes-source-bound-lens",
+      "target_id": "NN:CRT_QRT_37_CARRIER_LADDER",
+      "status": "bounded",
+      "evidence": "APP-01 through APP-03 freeze full, withheld-coordinate and QRT-only return behavior",
+      "does_not_imply": ["carrier identity from shared remainder", "canonical relation-count change"]
+    },
+    {
+      "relation_id": "REL:NN_A0_JARP_OPERATIONALIZES_Q106_RETURN",
+      "source_id": "NN:A0_JOINT_APPLICATION_RETURN_PROTOCOL",
+      "relation_type": "operationalizes-source-bound-lens",
+      "target_id": "NN:MRB_ACR_NCS_Q106_RETURN_CROSSWALK",
+      "status": "bounded",
+      "evidence": "APP-14 freezes a three-bit residual budget for two coordinate folds plus one interface branch bit",
+      "does_not_imply": ["full-carrier identity", "new Q106 mechanism", "Study activation"]
+    },
+    {
+      "relation_id": "REL:NN_A0_JARP_FIXTURE_FOR_LIFE08",
+      "source_id": "NN:A0_JOINT_APPLICATION_RETURN_PROTOCOL",
+      "relation_type": "application-fixture-for",
+      "target_id": "NEXAH_LIFE_BOUNDARY_CYLINDER_LIFE08_2026_10_11",
+      "status": "bounded",
+      "evidence": "APP-15 binds five typed views to one deterministic addressed LIFE08 transition record",
+      "does_not_imply": ["new LIFE rule", "biological mechanism", "research reactivation"]
+    },
+    {
+      "relation_id": "REL:NN_A0_JARP_NEGATIVE_CONTROL_E8_LIFE",
+      "source_id": "NN:A0_JOINT_APPLICATION_RETURN_PROTOCOL",
+      "relation_type": "matched-negative-control-for",
+      "target_id": "NEXAH_LIFE_BOUNDARY_CYLINDER_LIFE08_2026_10_11",
+      "status": "bounded",
+      "evidence": "APP-16 retains the coordinate/root residual while channel permutation reproduces the observed rate",
+      "does_not_imply": ["E8 specificity", "LIFE/E8 identity", "physical mechanism"]
+    },
+    {
+      "relation_id": "REL:NN_A0_JARP_FIXTURE_FOR_ROOT7",
+      "source_id": "NN:A0_JOINT_APPLICATION_RETURN_PROTOCOL",
+      "relation_type": "application-fixture-for",
+      "target_id": "NEXAH:NAVIGATOR:ROOT7:LOOK:2026-10-08",
+      "status": "bounded",
+      "evidence": "APP-17 preserves norm squared 7 and sqrt(7) while holding axis selection and epsilon7 alias resolution open",
+      "does_not_imply": ["ROOT7/epsilon7 identity", "E8 identity", "selected physical axis"]
+    },
+    {
+      "relation_id": "REL:NN_A0_JARP_HANDOFF_TO_ILAU",
+      "source_id": "NN:A0_JOINT_APPLICATION_RETURN_PROTOCOL",
+      "relation_type": "residual-completeness-gate-for",
+      "target_id": "ILAU:RETURN_RESIDUAL_LOCK",
+      "status": "bounded",
+      "evidence": "APP-18 requires curvature and history/provenance in addition to point and direction",
+      "does_not_imply": ["complete reconstruction from a visual", "new ILAU identity", "mechanism claim"]
+    }
+  ],
+  "sources": [
+    {
+      "path": "RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/54_A0_JOINT_APPLICATION_RETURN_PROTOCOL_SUITE_2026-10-13.md",
+      "sha256": "d62d3aa1943a5c2af2cec817eaae60548185f69dd0cb24e9841180371663d61b",
+      "role": "controlling engineering check and claim boundary"
+    },
+    {
+      "path": "RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/assets/a0-joint-application-return-protocol-v1.json",
+      "sha256": "faa920d76df33b5e1d497f4d15ee0be3a6d2ca7cb47d183ad73f683026168640",
+      "role": "machine-readable protocol authority"
+    },
+    {
+      "path": "RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/assets/validate-a0-joint-application-return-protocol.mjs",
+      "sha256": "f6dc9abecfca7a23c539127401bc9166fd1b8e98fe4db6c758c3833868beb793",
+      "role": "executable protocol validator"
+    },
+    {
+      "path": "RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/A0_JOINT_APPLICATION_DEMONSTRATOR.html",
+      "sha256": "308a595e987616ecb573a847c836377e37507432a64914b93c9ac84216ed7746",
+      "role": "interactive application and protocol runner"
+    },
+    {
+      "path": "RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/A0_TESSAREC_FRAME_ENVELOPE_OBSERVER_PAPER.html",
+      "sha256": "65a7efd0966300e4fa7af5df1f7f747a43772c5b65ea0bb86dd1b7701db3d45e",
+      "role": "Paper F application binding"
+    },
+    {
+      "path": "RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/A0_RESEARCH_DESK.html",
+      "sha256": "0eb78b74bafa5df32e99649ea2d365093acd47c8325618cfebe4c4e336717adb",
+      "role": "A0 Research Desk return surface"
+    },
+    {
+      "path": "../../00 EXECUTIVE/NEXAH-Mission-Control/00_LAB_RESEARCH_DIRECTOR_DESK/RETURN_2026-10-13_A0_JOINT_APPLICATION_RETURN_PROTOCOL.md",
+      "sha256": "280c728b8a46859d78e5a0e205744a511b9eb7b67846f8d2fc6147c2e47bd2fe",
+      "role": "Mission Control documentary return"
+    },
+    {
+      "path": "RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/57_A0_JARP_CROSS_LENS_EXTENSION_RETURN_RESIDUAL_IDENTIFIABILITY_2026-10-13.md",
+      "sha256": "efe53d613a668557c04420568f640a378159c44416d16277006a6bf4e98c4160",
+      "role": "Cross-Lens controlling engineering check and claim boundary"
+    },
+    {
+      "path": "RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/assets/a0-jarp-cross-lens-extension-v1.json",
+      "sha256": "f8531ed906e6ec7b5b3f14ead742dcb6397b1b815c3abcada011f9451053d804",
+      "role": "Cross-Lens machine-readable extension authority"
+    },
+    {
+      "path": "RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/assets/validate-a0-jarp-cross-lens-extension.mjs",
+      "sha256": "5ceeac603e2ba2fcf6f7bcf022f5985c195acdc282554b774075566fc0b69a1f",
+      "role": "Cross-Lens executable validator"
+    },
+    {
+      "path": "RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/A0_JARP_CROSS_LENS_EXTENSION.html",
+      "sha256": "275a1dd56c3246e7856abcc4b1598f9e4e7016603c546ac6610f530cee671c77",
+      "role": "interactive Cross-Lens application demonstrator"
+    },
+    {
+      "path": "RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/A0_GAME_4_LIFE_PLUS_1.html",
+      "sha256": "cde520146387fd2d854d2898fcf812672e24028a19034e809b4b2ff9ad8c235c",
+      "role": "GAME 4 LIFE +1 Cross-Lens return surface"
+    },
+    {
+      "path": "../../00 EXECUTIVE/NEXAH-Mission-Control/00_LAB_RESEARCH_DIRECTOR_DESK/RETURN_2026-10-13_A0_JARP_CROSS_LENS_EXTENSION.md",
+      "sha256": "7b08311681a29389812f87897fee95b3e3f5d05f59c27e0acd4e6d3d105c3788",
+      "role": "Mission Control Cross-Lens documentary return"
+    }
+  ],
+  "claim_ceiling": "Exact finite representation, Return, residual and matched-control engineering only; no scientific activation, LIFE/E8 mechanism, E8 specificity, ROOT7/epsilon7 identity, natural-number privilege, physical mechanism, canonical count change or publication authority."
+}
