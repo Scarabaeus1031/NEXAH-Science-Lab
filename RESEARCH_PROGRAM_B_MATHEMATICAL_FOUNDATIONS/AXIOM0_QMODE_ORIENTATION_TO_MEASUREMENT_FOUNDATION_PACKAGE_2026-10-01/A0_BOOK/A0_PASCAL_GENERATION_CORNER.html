@@ -12,7 +12,7 @@
     .view-switch{grid-template-columns:repeat(5,1fr)}
     @media(max-width:900px){.view-switch{grid-template-columns:1fr 1fr}}@media(max-width:560px){.view-switch{grid-template-columns:1fr}}
   </style>
-  <link rel="stylesheet" href="a0-context-navigation.css">
+  <link rel="stylesheet" href="a0-context-navigation.css?rev=connect-entry-20261014">
 </head>
 <body>
   <header class="top"><a class="brand" href="index.html">NEXAH · A0</a><nav><a href="A0_RESEARCH_BACKLOG.html">Backlog</a><a href="A0_PASCAL_PENTAGON_OPERATOR_JOINTS.html">Pascal joint</a><a href="A0_MATHEMATICAL_JOINTS.html">Mathfield</a></nav></header>
@@ -178,6 +178,6 @@
     function animateCompanion(now){if(!companionPlaying||!['t60','fold1080'].includes(activeCompanion))return;const progress=Math.min(1,(now-companionStart)/12000),maximum=activeCompanion==='fold1080'?1080:60,step=Math.round(progress*maximum);if(activeCompanion==='fold1080')drawFold1080(step);else drawT60(step);if(progress<1)requestAnimationFrame(animateCompanion);else{companionPlaying=false;document.getElementById('companion-play').textContent='Noch einmal';}}
     setScenario(activeScenario);renderCompanion();
   </script>
-  <script src="a0-context-navigation.js"></script>
+  <script src="a0-context-navigation.js?rev=human-home-20261014"></script>
 </body>
 </html>

@@ -5,8 +5,8 @@
   "status": "INTERNAL_SOURCE_BOUND_COVERAGE_NO_NEW_IDENTITY",
   "parent_binder_id": "NEXAH:A0_ORIENTATION_EVIDENCE_LINEAGE:V1",
   "source_manifest": "30 SCIENCE LAB/NEXAH-Science-Lab/RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/A0_BOOK_MANIFEST.json",
-  "expected_surface_count": 34,
-  "bound_surface_count": 34,
+  "expected_surface_count": 46,
+  "bound_surface_count": 46,
   "unbound_surfaces": [],
   "identity_reuse": [
     "ART:A0:MATHEMATICAL_JOINTS",
@@ -69,8 +69,18 @@
     },
     {
       "work": "Paper F",
-      "identity_targets": ["ART:A0:MATHEMATICAL_JOINTS", "MOD:TESSAREC"],
-      "surfaces": ["A0_TESSAREC_BLUE_BODY_LAB.html", "A0_TESSAREC_FRAME_ENVELOPE_OBSERVER_PAPER.html"]
+      "identity_targets": ["ART:A0:MATHEMATICAL_JOINTS", "ART:E8:FAMILY_SYNTHESIS", "MOD:E8_COXETER", "MOD:TESSAREC"],
+      "surfaces": ["A0_AXIS08_FOLD_RETURN_SEQUENCER.html", "A0_BLACK_SUN_BIG_MOON.html", "A0_BLUE_BODY_DODECA_COUNTERSHOT.html", "A0_BLUE_PINK_DODECA_CELL_RETURN.html", "A0_IHARA_HASHIMOTO_CYCLE_BRIDGE.html", "A0_NEON_TRAP_DOOR.html", "A0_NEWTON_GOETHE_OBSERVER_LENS.html", "A0_NEXAH_APERTURE_JOURNEY.html", "A0_RAINBOW_PURPLE_RAIN.html", "A0_TESSAREC_BLUE_BODY_LAB.html", "A0_TESSAREC_FRAME_ENVELOPE_OBSERVER_PAPER.html", "A0_THE_LIVING_INTERIOR.html"]
+    },
+    {
+      "work": "B1 Builder",
+      "identity_targets": ["ART:A0:MATHEMATICAL_JOINTS", "MOD:ORIENTATION_DEMONSTRATORS"],
+      "surfaces": ["A0_BUILDER_TOY_STORE.html"]
+    },
+    {
+      "work": "C Connect",
+      "identity_targets": ["ART:A0:MATHEMATICAL_JOINTS"],
+      "surfaces": ["NEXAH_C_CONNECT.html"]
     }
   ],
   "claim_boundary": "This record binds every registered A0 surface to existing Navigator objects. It is a coverage projection, not a new module catalog, scientific relation, Study activation, evidence promotion, physical-mechanism claim or publication authorization."

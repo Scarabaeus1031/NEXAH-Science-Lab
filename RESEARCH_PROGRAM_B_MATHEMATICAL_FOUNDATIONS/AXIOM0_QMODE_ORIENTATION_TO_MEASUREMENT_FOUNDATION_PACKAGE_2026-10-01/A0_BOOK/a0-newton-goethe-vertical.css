@@ -1,0 +1,103 @@
+/* Two projections of one governed Newton / Goethe observer-lens identity. */
+.view-modes {
+  align-items: center;
+  background: #06131d;
+  border-bottom: 1px solid #294b5b;
+  border-top: 1px solid #294b5b;
+  display: flex;
+  gap: 7px;
+  padding: 9px 14px;
+}
+
+.view-modes-label {
+  color: #728f9b;
+  font: 750 .55rem var(--mono);
+  letter-spacing: .12em;
+  margin-right: 3px;
+  text-transform: uppercase;
+}
+
+.view-modes button {
+  min-width: 118px;
+  padding: 8px 11px;
+}
+
+.view-mode-note {
+  color: #7895a0;
+  font: .56rem/1.4 var(--mono);
+  margin-left: auto;
+  text-align: right;
+}
+
+.instrument .lens,
+.instrument .lens canvas {
+  min-height: 0;
+  min-width: 0;
+}
+
+@media (min-width: 901px) {
+  .instrument .triptych {
+    height: 690px;
+    min-height: 0;
+  }
+}
+
+.instrument.is-vertical .triptych {
+  grid-template-columns: .82fr 1.18fr .82fr;
+  height: clamp(1120px, 145vh, 1640px);
+  min-height: 0;
+}
+
+.instrument.is-vertical .lens-caption {
+  background: linear-gradient(90deg, rgba(2,13,21,.94), rgba(2,13,21,0));
+  padding: 6px 28px 7px 0;
+}
+
+.instrument.is-vertical .observer-pin {
+  box-shadow: 0 0 48px rgba(229,179,64,.38);
+}
+
+@media (max-width: 900px) and (min-width: 621px) {
+  .instrument.is-vertical .triptych {
+    grid-template-columns: .72fr 1.15fr .72fr;
+    height: 1180px;
+    min-height: 0;
+  }
+
+  .instrument.is-vertical .lens {
+    border-bottom: 0;
+    border-right: 1px solid #294b5b;
+    height: auto;
+  }
+
+  .instrument.is-vertical .lens:last-child { border-right: 0; }
+  .view-mode-note { display: none; }
+}
+
+@media (max-width: 620px) {
+  .view-modes {
+    align-items: stretch;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .view-modes-label,
+  .view-mode-note { grid-column: 1 / -1; }
+
+  .view-mode-note {
+    margin-left: 0;
+    text-align: left;
+  }
+
+  .instrument.is-vertical .triptych {
+    grid-template-columns: 1fr;
+    height: auto;
+    min-height: 0;
+  }
+
+  .instrument.is-vertical .lens {
+    border-bottom: 1px solid #294b5b;
+    border-right: 0;
+    height: 620px;
+  }
+}

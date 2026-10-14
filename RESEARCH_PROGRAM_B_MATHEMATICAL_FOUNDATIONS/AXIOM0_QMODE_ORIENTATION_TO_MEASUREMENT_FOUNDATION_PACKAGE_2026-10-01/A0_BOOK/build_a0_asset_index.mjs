@@ -6,6 +6,7 @@ import { fileURLToPath } from "node:url";
 
 const root = dirname(fileURLToPath(import.meta.url));
 const manifestPath = join(root, "A0_BOOK_MANIFEST.json");
+const apertureJourneyPath = join(root, "assets/a0-nexah-aperture-journey-v1.json");
 const coveragePath = join(
   root,
   "../../../SCIENCE_LAB/NAVIGATION/EVIDENCE/A0_ORIENTATION_EVIDENCE_LINEAGE_2026-10-10/A0_MODULE_SURFACE_COVERAGE_V1_2026-10-14.json"
@@ -68,6 +69,7 @@ const familyOrder = [
   "Pascal / Pentagon",
   "LIFE",
   "Tessarec / Blue Body",
+  "External Instruments",
   "Papers & Review",
   "Fields & Joints",
   "Evidence & Results",
@@ -75,6 +77,64 @@ const familyOrder = [
   "Visual & 3D Assets",
   "Repository Records"
 ];
+
+const externalInstruments = [
+  {
+    entity_id: "ART:E8:FAMILY_SYNTHESIS",
+    title: "Family Synthesis Demonstrator",
+    description: "H3 / dodecahedron cross-family instrument: 20 vertices, 12 pentagonal faces and six opposite pairs. The φ coordinate realization remains distinct from graph topology.",
+    href: "../../../SCIENCE_LAB/CASE_STUDIES/E8_DEMOS_INTERACTIVE_ORIENTATION_2026-09-21/COXETER_ORBIT_TOPOLOGY_LAB_2026-10-05/NEXAH_FAMILY_SYNTHESIS_DEMONSTRATOR.html",
+    source_path: "SCIENCE_LAB/CASE_STUDIES/E8_DEMOS_INTERACTIVE_ORIENTATION_2026-09-21/COXETER_ORBIT_TOPOLOGY_LAB_2026-10-05/NEXAH_FAMILY_SYNTHESIS_DEMONSTRATOR.html",
+    marker: "polyhedron", role: "source instrument", work: "Coxeter / Polyhedron"
+  },
+  {
+    entity_id: "ART:E8:FAMILY_GRAPH",
+    title: "E8 Mutation Family Graph",
+    description: "Finite ADE mutation and Coxeter-orbit surface with explicit return states. Prime labels are names; topology determines the mutation.",
+    href: "../../../SCIENCE_LAB/CASE_STUDIES/E8_DEMOS_INTERACTIVE_ORIENTATION_2026-09-21/NEXAH_E8_MUTATION_FAMILY_GRAPH.html",
+    source_path: "SCIENCE_LAB/CASE_STUDIES/E8_DEMOS_INTERACTIVE_ORIENTATION_2026-09-21/NEXAH_E8_MUTATION_FAMILY_GRAPH.html",
+    marker: "orbit", role: "source instrument", work: "Coxeter / Return"
+  },
+  {
+    entity_id: "ART:E8:WORD_ORBIT",
+    title: "Word & Orbit Sequencer",
+    description: "Executable generator words, orbit phases and exact Return. This is the nearest source surface for translating words into Hashimoto directed-edge states.",
+    href: "../../../SCIENCE_LAB/CASE_STUDIES/E8_DEMOS_INTERACTIVE_ORIENTATION_2026-09-21/COXETER_ORBIT_TOPOLOGY_LAB_2026-10-05/NEXAH_WORD_ORBIT_SEQUENCER.html",
+    source_path: "SCIENCE_LAB/CASE_STUDIES/E8_DEMOS_INTERACTIVE_ORIENTATION_2026-09-21/COXETER_ORBIT_TOPOLOGY_LAB_2026-10-05/NEXAH_WORD_ORBIT_SEQUENCER.html",
+    marker: "word", role: "source instrument", work: "Word / Orbit / Return"
+  },
+  {
+    entity_id: "LIFE06B_PRIME_SHELL_WINDING",
+    title: "Euler Stair / Fibonacci Rail",
+    description: "Prime shells, Euler height, winding phase and a descriptive Fibonacci rail. Observation coordinates only; prime specificity and Fibonacci privilege remain open.",
+    href: "../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_LIFE_PRIME_SHELL_WINDING_LIFE06B_2026-10-07/index.html",
+    source_path: "SCIENCE_LAB/CASE_STUDIES/NEXAH_LIFE_PRIME_SHELL_WINDING_LIFE06B_2026-10-07/index.html",
+    marker: "shell", role: "source instrument", work: "Prime Shell / Winding"
+  },
+  {
+    entity_id: "NEXAH:PRIMEGRID:TRIPLE19:ANTIPODE_PAIR_BRIDGE",
+    title: "Triple-19 Antipode Pair Bridge",
+    description: "37-node visible core, three 19-phase envelopes and pentagon/hexagon coupling. A visual marker for finite phase neighborhoods, not a resonance claim.",
+    href: "../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_PRIMEGRID_BLOCK02B_TRINARY_PASCAL_ANTIPODE_2026-10-07/NEXAH_PRIMEGRID_BLOCK02B_TRIPLE19_ANTIPODE_PAIR_BRIDGE.html",
+    source_path: "SCIENCE_LAB/CASE_STUDIES/NEXAH_PRIMEGRID_BLOCK02B_TRINARY_PASCAL_ANTIPODE_2026-10-07/NEXAH_PRIMEGRID_BLOCK02B_TRIPLE19_ANTIPODE_PAIR_BRIDGE.html",
+    marker: "triple", role: "source instrument", work: "Prime Grid / Phase"
+  },
+  {
+    entity_id: "F50_FACTOR_TO_SNCE_CHANNEL_01",
+    title: "F50 → 101 → SNCE",
+    description: "A preregistered negative-selection result: factor transition exact, selector not unique. Kept as a methodological control for typed choice and frozen decisions.",
+    href: "../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_ROOT7_EULER_MIRROR_CONCORDANCE_INTAKE_2026-09-28/F50_FACTOR_TO_SNCE_CHANNEL_01.html",
+    source_path: "SCIENCE_LAB/CASE_STUDIES/NEXAH_ROOT7_EULER_MIRROR_CONCORDANCE_INTAKE_2026-09-28/F50_FACTOR_TO_SNCE_CHANNEL_01.html",
+    marker: "factor", role: "source instrument", work: "Factor / Negative Control"
+  }
+].map((item) => ({
+  ...item,
+  family: "External Instruments",
+  format: "HTML",
+  publication_state: "internal_source_bound",
+  status: "INTERNAL_SOURCE_BOUND_NOT_PUBLIC",
+  claim_boundary: "SOURCE_ROUTE_AND_VISUAL_MARKER_ONLY_NO_IDENTITY_COLLAPSE_EVIDENCE_PROMOTION_STUDY_ACTIVATION_OR_PUBLICATION"
+}));
 
 const inferFamily = (path, work, role) => {
   const name = path.toUpperCase();
@@ -104,9 +164,10 @@ async function walk(directory) {
   return files;
 }
 
-const [manifest, coverage, discovered] = await Promise.all([
+const [manifest, coverage, apertureJourney, discovered] = await Promise.all([
   readFile(manifestPath, "utf8").then(JSON.parse),
   readFile(coveragePath, "utf8").then(JSON.parse),
+  readFile(apertureJourneyPath, "utf8").then(JSON.parse),
   walk(root)
 ]);
 
@@ -168,20 +229,23 @@ const payload = {
   identity_reuse: [
     "NEXAH:A0:FROM_DISTINCTION_TO_READOUT",
     "ART:A0:MATHEMATICAL_JOINTS",
-    "NEXAH:A0_ORIENTATION_EVIDENCE_LINEAGE:V1"
+    "NEXAH:A0_ORIENTATION_EVIDENCE_LINEAGE:V1",
+    apertureJourney.view_id
   ],
   authority_boundary: "Repository inventory and navigation only. No new research identity, relation, evidence promotion, Study activation or publication authority.",
   root: "A0_BOOK",
   counts: {
     files: files.length,
+    album_apertures: apertureJourney.sequence.length,
     html: files.filter((item) => item.extension === ".html").length,
     registered_surfaces: files.filter((item) => item.registered_surface).length,
-    families: new Set(files.map((item) => item.family)).size,
+    families: new Set([...files.map((item) => item.family), ...externalInstruments.map((item) => item.family)]).size,
     formats: Object.keys(byExtension).length
   },
   by_extension: byExtension,
   by_role: byRole,
   family_order: familyOrder,
+  external_instruments: externalInstruments,
   files
 };
 

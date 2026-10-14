@@ -100,6 +100,9 @@ const orientationCatalogJson = JSON.parse(orientationCatalogSource);
 const a0RuntimeSourceCount = Number(
   js.match(/a0OrientationEvidence\?\.sources\?\.length !== (\d+)/)?.[1]
 );
+const a0RuntimeBoundSurfaceCount = Number(
+  js.match(/a0OrientationEvidence\?\.a0_surface_coverage\?\.bound_surfaces !== (\d+)/)?.[1]
+);
 
 const checks = [
   ["internal profile", manifest?.profile === "internal"],
@@ -138,8 +141,9 @@ const checks = [
   ["Findings and Frontiers authority fail-closed", findingsFrontiers?.changes_canonical_registry_counts === false && findingsFrontiers?.changes_canonical_family_count === false && findingsFrontiers?.publication_authorized === false && findingsFrontiers?.frontier?.activation_status === "OWNER_SELECTED_RESEARCH_BACKLOG_PREPARATION_ONLY_NOT_ACTIVE" && findingsFrontiers?.frontier?.owner_selection?.authorization === "PREPARATION_ONLY"],
   ["Findings and Frontiers six-gate backlog visible", findingsFrontiers?.frontier?.readiness_gates?.length === 6 && findingsFrontiers?.frontier?.readiness_gates?.find((item) => item.gate_id === "GATE:05")?.status === "OPEN_NEXT_DECISIVE_GATE" && /Six gates, one next decisive test/.test(js)],
   ["A0 orientation evidence lineage wired", /a0-orientation-evidence\.internal\.js/.test(html) && /data-route-link="a0-orientation-evidence"/.test(html) && /case "a0-orientation-evidence": renderA0OrientationEvidence/.test(js) && a0OrientationEvidence?.status === "INTERNAL_READ_ONLY_SOURCE_BOUND_LENS"],
-  ["A0 lineage generated payload matches binder", JSON.stringify(a0OrientationEvidence) === JSON.stringify(a0OrientationEvidenceJson) && a0OrientationEvidence?.sources?.length === 98 && a0OrientationEvidence?.a0_surface_coverage?.bound_surfaces === 34 && a0OrientationEvidence?.nodes?.length === 27 && a0OrientationEvidence?.relations?.length === 39 && a0OrientationEvidence?.aliases?.length === 21],
+  ["A0 lineage generated payload matches binder", JSON.stringify(a0OrientationEvidence) === JSON.stringify(a0OrientationEvidenceJson) && a0OrientationEvidence?.sources?.length === 100 && a0OrientationEvidence?.a0_surface_coverage?.bound_surfaces === 46 && a0OrientationEvidence?.nodes?.length === 27 && a0OrientationEvidence?.relations?.length === 39 && a0OrientationEvidence?.aliases?.length === 21],
   ["A0 runtime shape guard matches generated source count", Number.isInteger(a0RuntimeSourceCount) && a0RuntimeSourceCount === a0OrientationEvidence?.sources?.length],
+  ["A0 runtime shape guard matches bound surface count", Number.isInteger(a0RuntimeBoundSurfaceCount) && a0RuntimeBoundSurfaceCount === a0OrientationEvidence?.a0_surface_coverage?.bound_surfaces],
   ["A0 context navigation assets source-bound", ["SRC:A0OE:A0_CONTEXT_NAVIGATION_CSS", "SRC:A0OE:A0_CONTEXT_NAVIGATION_JS"].every((id) => a0OrientationEvidence?.sources?.some((item) => item.source_id === id && /^[a-f0-9]{64}$/.test(item.sha256)))],
   ["A0 reader architecture and current research entry retained", a0OrientationEvidence?.reader_architecture?.works?.map((item) => item.label).join("→") === "A0 Book→Mathfield→Pascal Joint→SCC-003 Paper→Return Paper→Backlog" && a0OrientationEvidence?.reader_architecture?.current_research_entry?.entries?.map((item) => item.label).join("→") === "Living Protocol→Backlog→Findings & Papers→SCC-003 Review Packet→Scientific Assessment→Paper C · Return→Evidence Lineage" && /non-executable/.test(a0OrientationEvidence?.reader_architecture?.current_research_entry?.closeout || "")],
   ["SCC-003 external review authorization retained", ["SRC:A0OE:SCC003_EXTERNAL_REVIEW_PACKET_MANIFEST", "SRC:A0OE:SCC003_EXTERNAL_REVIEW_OWNER_DECISION"].every((id) => a0OrientationEvidence?.sources?.some((item) => item.source_id === id)) && a0OrientationEvidence?.pascal_pentagon_suite?.external_review?.state === "OWNER_AUTHORIZED_PACKET_VALIDATED_AWAITING_NAMED_REVIEWER" && /No novelty promotion/.test(a0OrientationEvidence?.pascal_pentagon_suite?.external_review?.claim_boundary || "")],
@@ -187,7 +191,7 @@ const checks = [
   ["semantic navigation", /<nav\b/.test(html)],
   ["skip link", /skip-link/.test(html)],
   ["internal v2 preview status label", /Internal \/ v2 preview \/ not public/i.test(html) && /v1 freeze retained/i.test(html)],
-  ["Mission Control header link works under file and local server", /<a class="scope-label mission-control-link" href="\.\.\/\.\.\/\.\.\/\.\.\/\.\.\/00%20EXECUTIVE\/NEXAH-Mission-Control\/INTERNAL_NAVIGATOR\/index\.html#home"/.test(html)],
+  ["Navigator header returns to A0 exhibition", /<a class="exhibition-back" href="\.\.\/\.\.\/\.\.\/RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS\/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01\/A0_BOOK\/A0_ASSET_INDEX\.html"/.test(html) && /Back to the exhibition/.test(html)],
   ["v1 entry source retained", /NEXAH:NAVIGATOR:ENTRY:V1/.test(v1EntrySource) && !/featured_evidence_case/.test(v1EntrySource)],
   ["Multi-View v2 delta staged", /STAGED_NOT_ADMITTED/.test(v2DeltaSource) && entry?.content_id === "NEXAH:NAVIGATOR:ENTRY:V2:PREVIEW"],
   ["Multi-View feature visible on Evidence and Atlas", /renderFeaturedEvidenceCase\("evidence"\)/.test(js) && /renderFeaturedEvidenceCase\("atlas"\)/.test(js) && /Current Evidence Case/.test(js)],

@@ -60,6 +60,8 @@ button, .button { cursor: pointer; }
 .scope-label { color: var(--faint); }
 .mission-control-link { text-decoration: none; }
 .mission-control-link:hover, .mission-control-link:focus-visible { color: var(--paper); text-decoration: underline; text-underline-offset: .2rem; }
+.exhibition-back { padding: .42rem .68rem; color: var(--paper); border: 1px solid var(--line); background: rgba(255,255,255,.035); text-decoration: none; font-weight: 750; }
+.exhibition-back:hover, .exhibition-back:focus-visible { color: var(--void); border-color: var(--mint); background: var(--mint); outline: none; }
 .security-badge { padding: .34rem .55rem; color: var(--amber); border: 1px solid rgba(240,181,72,.45); background: rgba(240,181,72,.07); }
 
 .app-shell { display: grid; grid-template-columns: var(--sidebar) minmax(0, 1fr) var(--context); min-height: calc(100vh - 108px); }

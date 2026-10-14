@@ -9,7 +9,7 @@ Status: `V2.1 CURRENT PREVIEW / INTERNAL / READ-ONLY / NOT PUBLIC / V1 FREEZE RE
 
 Current-state authority:
 [`../NEXAH_NAVIGATOR_V2_1_CURRENT_STATE_2026-10-07.md`](../NEXAH_NAVIGATOR_V2_1_CURRENT_STATE_2026-10-07.md).
-The verified application audit is `244/244 PASS`. The historical frozen v1
+The verified application audit is `245/245 PASS`. The historical frozen v1
 baseline remains `170 / 23`; the current base build is `266 / 29`, and the
 admitted LIFE overlay composes the present internal `269 / 32` view. The
 existing Blue Body workbench is documented under `MOD:TESSAREC`; its E8,

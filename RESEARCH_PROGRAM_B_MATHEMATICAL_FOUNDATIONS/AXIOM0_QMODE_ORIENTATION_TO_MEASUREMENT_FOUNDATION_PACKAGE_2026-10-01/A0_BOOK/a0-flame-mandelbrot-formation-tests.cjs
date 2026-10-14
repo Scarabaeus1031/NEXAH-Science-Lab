@@ -1,0 +1,13 @@
+const assert=require('node:assert/strict');
+const lens=require('./assets/a0-flame-mandelbrot-formation-v1.js');
+const receipt=lens.validate();
+assert.equal(receipt.layerCount,4);
+assert.equal(receipt.interior,true);
+assert.equal(receipt.boundary,true);
+assert.equal(receipt.exterior,true);
+assert.equal(receipt.addressParameterSeparated,true);
+assert.equal(lens.criticalOrbit(.26,0,1000).escapeIteration,30);
+assert.equal(lens.classify(-.1087,0,1000).code,'EXACT_INTERIOR');
+assert.equal(lens.classify(-.75,0,1000).code,'EXACT_BOUNDARY');
+assert.equal(lens.classify(.26,0,1000).code,'EXACT_EXTERIOR');
+console.log(JSON.stringify({status:'PASS',assertions:9,receipt},null,2));

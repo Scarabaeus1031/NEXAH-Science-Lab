@@ -18,7 +18,7 @@
     @media(max-width:950px){.hero-grid,.calc{grid-template-columns:1fr}.representation{grid-template-columns:1fr}.arrow{transform:rotate(90deg)}.experiments{grid-template-columns:repeat(2,1fr)}.joint{grid-template-columns:70px 1fr}.joint p{grid-column:2}.top nav{display:none}.formal-grid{grid-template-columns:1fr}}
     @media(max-width:650px){.section{padding:54px 5vw}.head,.definition-grid,.reading-grid,.proof-grid,.plate-grid,.experiments,.shell-grid,.source-strip,.viewpoint-grid,.euler-types,.source-links,.grid-source-strip,.channel-contract{grid-template-columns:1fr}.world,.representation{padding:14px}.joint{grid-template-columns:1fr}.joint p{grid-column:auto}.read-table{display:block;overflow-x:auto}h1{font-size:3.7rem}.readout{grid-template-columns:1fr}.operator-layout{display:block}.cycle-field,.shell-field{padding:12px}.cycle-stage{width:92px;min-height:62px;padding:6px}.cycle-stage b{font-size:.76rem}.cycle-stage small{font-size:.46rem}.cycle-center{width:86px;height:86px;font-size:1.2rem}.pascal-row span{min-width:26px;height:26px;font-size:.6rem}}
   </style>
-  <link rel="stylesheet" href="a0-context-navigation.css">
+  <link rel="stylesheet" href="a0-context-navigation.css?rev=connect-entry-20261014">
 </head>
 <body>
   <header class="top"><a class="brand" href="index.html">NEXAH <span>· A0</span></a><nav aria-label="Seitennavigation"><a href="#qdef">Q°</a><a href="#grid">111 Grid</a><a href="#boundary-graph-demo">Boundary Graph</a><a href="#pascal-pentagon-demo">Pascal Demo</a><a href="A0_PASCAL_PENTAGON_OPERATOR_JOINTS.html">Pascal Joint</a><a href="A0_SCC_003_PASCAL_PENTAGON_PAPER.html">SCC-003 Paper</a><a href="../32_A0_FINDINGS_AND_PAPER_WORKSPACE_2026-10-11.md">Findings & Papers</a><a href="A0_RESEARCH_DESK.html">Research Desk</a><a href="#experiments">Experimente</a><a href="#operators">Operator Spine</a><a href="#joints">Fugen</a><a href="A0_RESEARCH_DESK.html#log">Research Log</a><a href="A0_FIELDS_AND_JOINTS_ATLAS.html">Atlas</a><a href="index.html">A0 Overview</a></nav></header>
@@ -180,6 +180,6 @@
     const transformButtons=[...document.querySelectorAll('[data-transform]')];
     transformButtons.forEach(button=>button.addEventListener('click',()=>{transformButtons.forEach(item=>item.setAttribute('aria-pressed','false'));button.setAttribute('aria-pressed','true');const item=transformMeanings[button.dataset.transform];document.getElementById('tStatus').textContent=item.status;document.getElementById('tTitle').textContent=item.title;document.getElementById('tText').textContent=item.text;document.getElementById('tTest').textContent=item.test;}));
   </script>
-  <script src="a0-context-navigation.js"></script>
+  <script src="a0-context-navigation.js?rev=human-home-20261014"></script>
 </body>
 </html>

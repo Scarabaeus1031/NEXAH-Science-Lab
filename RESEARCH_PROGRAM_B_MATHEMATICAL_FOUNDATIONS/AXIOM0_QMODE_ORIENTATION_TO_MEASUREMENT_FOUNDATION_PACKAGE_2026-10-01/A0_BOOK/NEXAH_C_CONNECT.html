@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="C Connect ist die source-bound Übergangskarte durch das NEXAH Ecosystem: öffentliche Eingänge, Repositories, Forschungsräume, kulturelle Kanäle und die Einladung an neue Builder.">
+  <title>NEXAH · C Connect</title>
+  <link rel="stylesheet" href="nexah-c-connect.css?rev=builder-invitation-20261014">
+  <link rel="stylesheet" href="a0-context-navigation.css?rev=connect-entry-20261014">
+</head>
+<body>
+  <header class="top">
+    <a class="brand" href="#top">NEXAH <span>· C Connect</span></a>
+    <nav><a href="#routes">Routes</a><a href="#ecosystem">Ecosystem</a><a href="#channels">Channels</a><a href="#builders">Builders</a><a href="#return">Return</a></nav>
+  </header>
+
+  <main id="top">
+    <section class="connect-hero" aria-labelledby="connectTitle">
+      <canvas id="connectCanvas" aria-hidden="true"></canvas>
+      <div class="connect-copy">
+        <p class="kicker">C CONNECT · THE LIVING SOURCE MAP</p>
+        <h1 id="connectTitle">Everything<br>has a <em>source.</em></h1>
+        <p class="lead">NEXAH ist kein einzelnes Fenster. Es ist ein lebendes Ecosystem aus Menschen, Fragen, Forschung, Code, Bildern und gebauten Instrumenten — verbunden, ohne ihre Unterschiede zu verlieren.</p>
+        <div class="hero-actions"><a class="button hot" href="#routes">Choose a route</a><a class="button" href="https://nexah.de" target="_blank" rel="noopener">Enter nexah.de ↗</a></div>
+      </div>
+      <div class="connect-readout" aria-live="polite">
+        <span id="readoutType">PUBLIC ENTRANCE</span>
+        <strong id="readoutTitle">NEXAH</strong>
+        <p id="readoutCopy">Die lesbare Einladung in das Ecosystem.</p>
+        <small id="readoutTrace">EXPERIENCE → ORIENTATION → RETURN</small>
+      </div>
+      <div class="hero-line"><span>ONE FIELD</span><span>MANY DOORS</span><span>VISIBLE SOURCES</span><span>DECLARED RETURNS</span></div>
+    </section>
+
+    <section class="routes" id="routes" aria-labelledby="routesTitle">
+      <header class="section-head"><div><p class="kicker">CHOOSE BY INTENT · NOT BY HIERARCHY</p><h2 id="routesTitle">Where do you want to enter?</h2></div><p>Jede Tür zeigt einen anderen Ausschnitt. Keine einzelne Seite ist „das Ganze“ — die Verbindung entsteht erst durch die gewählte Route.</p></header>
+      <div class="route-grid">
+        <a class="route route-human" href="A0_NEXAH_APERTURE_JOURNEY.html#human-view"><span>01 · HUMAN</span><h3>Begin with a question.</h3><p>Leben, Bedeutung, Wahrnehmung und die Wahl eines Blickwinkels.</p><b>ENTER HUMAN →</b></a>
+        <a class="route route-science" href="A0_SCIENCE.html"><span>02 · SCIENCE</span><h3>Follow the evidence.</h3><p>Quelle, Cut, Relation, Test, Residuum und nachvollziehbarer Return.</p><b>ENTER SCIENCE →</b></a>
+        <a class="route route-builder" href="A0_BUILDER_TOY_STORE.html"><span>03 · BUILDER</span><h3>Make it touchable.</h3><p>Flagships, Demonstratoren und Werkzeuge als spielbare Instrumente.</p><b>ENTER BUILDER →</b></a>
+        <a class="route route-connect" href="#ecosystem"><span>04 · CONNECT</span><h3>See what carries what.</h3><p>Repositories, öffentliche Oberflächen und Kanäle als sichtbare Quelllandschaft.</p><b>OPEN THE FIELD ↓</b></a>
+      </div>
+    </section>
+
+    <section class="ecosystem" id="ecosystem" aria-labelledby="ecosystemTitle">
+      <header class="section-head light"><div><p class="kicker">SOURCE-BOUND ECOSYSTEM · LOCAL RECORDS + PUBLIC DOORS</p><h2 id="ecosystemTitle">One constellation.<br>Different responsibilities.</h2></div><p>Die Karte zeigt Funktionen und Wege. Sie erklärt keine Repositories für identisch und macht aus Nähe keine wissenschaftliche Relation.</p></header>
+      <div class="system-board">
+        <div class="orbit-map" id="orbitMap" role="group" aria-label="Interaktive Karte des NEXAH Ecosystems">
+          <div class="orbit-ring ring-a"></div><div class="orbit-ring ring-b"></div><div class="orbit-ring ring-c"></div>
+          <button class="map-playback" id="mapPlayback" type="button" aria-pressed="false"><span aria-hidden="true">Ⅱ</span><b>PAUSE MAP</b><small>selection holds</small></button>
+          <button class="system-node core active" data-key="nexah"><span>C</span><b>CONNECT</b><small>orientation hub</small></button>
+          <button class="system-node n1" data-key="experience"><span>01</span><b>Experience</b><small>public entrance</small></button>
+          <button class="system-node n2" data-key="science"><span>02</span><b>Science Lab</b><small>research &amp; evidence</small></button>
+          <button class="system-node n3" data-key="orion"><span>03</span><b>ORION</b><small>certified core</small></button>
+          <button class="system-node n4" data-key="workspace"><span>04</span><b>NEXAHEDRON</b><small>human workspace</small></button>
+          <button class="system-node n5" data-key="library"><span>05</span><b>Are.na</b><small>public library</small></button>
+          <button class="system-node n6" data-key="signals"><span>06</span><b>Signals</b><small>social channels</small></button>
+          <svg viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><path d="M50 50 L50 10 M50 50 L84 28 M50 50 L85 72 M50 50 L50 90 M50 50 L15 72 M50 50 L16 28"/></svg>
+        </div>
+        <article class="system-card" id="systemCard">
+          <p class="card-type" id="cardType">ORIENTATION HUB</p>
+          <h3 id="cardTitle">C Connect</h3>
+          <p id="cardCopy">Die Karte zwischen den Karten: Sie macht Wege und Zuständigkeiten sichtbar, ohne die Quellen zu verschmelzen.</p>
+          <dl><div><dt>ROLE</dt><dd id="cardRole">Route &amp; return</dd></div><div><dt>BOUNDARY</dt><dd id="cardBoundary">Navigation, keine neue Authority</dd></div><div><dt>TRACE</dt><dd id="cardTrace">Every door keeps its source</dd></div></dl>
+          <div class="system-actions"><a id="cardLink" href="#routes">CHOOSE A ROUTE →</a><a id="cardSource" class="secondary" href="#" hidden>OPEN SOURCE ↗</a></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="source-shelf" aria-labelledby="sourceTitle">
+      <header class="section-head"><div><p class="kicker">CODE · RESEARCH · EXPERIENCE · WORKSPACE</p><h2 id="sourceTitle">The repositories carry different work.</h2></div><p>Öffentliche Links führen nach außen. Der lokale Navigator und Asset Index bleiben die präziseren Instrumente für Herkunft, aktuelle Records und A0-Artefakte.</p></header>
+      <div class="repo-grid">
+        <a href="https://github.com/Scarabaeus1031/NEXAH" target="_blank" rel="noopener"><span>CORE / GOVERNANCE</span><h3>NEXAH</h3><p>Ecosystem architecture, governance, orientation records and public coordination.</p><b>GITHUB ↗</b></a>
+        <a href="https://github.com/Scarabaeus1031/NEXAH-Science-Lab" target="_blank" rel="noopener"><span>RESEARCH / EVIDENCE</span><h3>Science Lab</h3><p>Research programs, evidence instruments, methods, books and bounded experiments.</p><b>GITHUB ↗</b></a>
+        <a href="https://github.com/Scarabaeus1031/NEXAH-ORION" target="_blank" rel="noopener"><span>CORE / IMPLEMENTATION</span><h3>NEXAH-ORION</h3><p>Certified deterministic core for structural representation and navigation.</p><b>GITHUB ↗</b></a>
+        <a href="https://github.com/Scarabaeus1031/NEXAH-Experience" target="_blank" rel="noopener"><span>PUBLIC / EXPERIENCE</span><h3>NEXAH-Experience</h3><p>Source of the public presentation, Library, Living Atlas and reading spaces.</p><b>GITHUB ↗</b></a>
+      </div>
+      <div class="instrument-return"><a href="../../../SCIENCE_LAB/NAVIGATION/APP/index.html#home"><span>N</span><strong>NEXAH Navigator</strong><small>sources · identities · relations · evidence</small></a><a href="A0_ASSET_INDEX.html"><span>I</span><strong>A0 Asset Index</strong><small>pages · instruments · records · files</small></a></div>
+    </section>
+
+    <section class="channels" id="channels" aria-labelledby="channelsTitle">
+      <header class="section-head light"><div><p class="kicker">PUBLIC WINDOWS · CULTURAL SIGNALS</p><h2 id="channelsTitle">Follow the work.<br>Keep the source.</h2></div><p>Website, workspace, library and social channels sind öffentliche Erscheinungsformen. Sie sind Eingänge und Signale — nicht automatisch Belege für Forschungsclaims.</p></header>
+      <div class="channel-track">
+        <a href="https://nexah.de" target="_blank" rel="noopener"><i>WEB</i><h3>nexah.de</h3><p>The public and intellectual entrance.</p><span>OPEN ↗</span></a>
+        <a href="https://nexahedron.com" target="_blank" rel="noopener"><i>SPACE</i><h3>NEXAHEDRON</h3><p>The bounded human-facing workspace.</p><span>OPEN ↗</span></a>
+        <a href="https://www.are.na/nexah-scarabaeus1031/channels" target="_blank" rel="noopener"><i>LIBRARY</i><h3>Are.na</h3><p>Atlases, books, traces and visual research channels.</p><span>EXPLORE ↗</span></a>
+        <a href="https://www.instagram.com/scarabaeus1033/" target="_blank" rel="noopener"><i>SIGNAL</i><h3>Instagram</h3><p>Fragments, images and moments from the living process.</p><span>FOLLOW ↗</span></a>
+        <a href="https://x.com/Scarabaeus1033" target="_blank" rel="noopener"><i>SIGNAL</i><h3>X</h3><p>Short signals, questions and public traces.</p><span>FOLLOW ↗</span></a>
+        <a href="https://github.com/Scarabaeus1031" target="_blank" rel="noopener"><i>CODE</i><h3>GitHub</h3><p>Repositories and inspectable implementation history.</p><span>INSPECT ↗</span></a>
+      </div>
+    </section>
+
+    <section class="builders" id="builders" aria-labelledby="buildersTitle">
+      <div class="builder-beacon" aria-hidden="true">
+        <div class="beacon-ring ring-one"></div><div class="beacon-ring ring-two"></div><div class="beacon-ring ring-three"></div>
+        <span class="beacon-word word-code">CODE</span><span class="beacon-word word-form">FORM</span><span class="beacon-word word-meaning">MEANING</span>
+        <div class="beacon-core"><b>＋</b><small>BUILD<br>THE JOINT</small></div>
+      </div>
+      <div class="builder-invitation">
+        <p class="kicker">OPEN INVITATION · BUILD WHAT IS MISSING</p>
+        <h2 id="buildersTitle">Some connections<br>need <em>builders.</em></h2>
+        <p class="builder-lead">Wir suchen Menschen, die Beziehungen nicht nur sehen, sondern in etwas Lesbares, Prüfbares oder Berührbares übersetzen — mit Neugier, handwerklicher Sorgfalt und Respekt vor den Grenzen eines Claims.</p>
+        <div class="builder-types" aria-label="Gesuchte Builder-Perspektiven">
+          <article><span>01 · EXPERIENCE</span><h3>Make it visible.</h3><p>Interfaces, Interaction, Visual Systems, 3D und räumliches Storytelling.</p></article>
+          <article><span>02 · SYSTEMS</span><h3>Make it work.</h3><p>Code, Daten, Werkzeuge, Prototypen und verlässliche Infrastruktur.</p></article>
+          <article><span>03 · TRANSLATION</span><h3>Keep the trace.</h3><p>Science × Design, Dokumentation, Testing und nachvollziehbare Übergänge.</p></article>
+        </div>
+        <blockquote>Komm nicht mit einer perfekten Bewerbung. Komm mit etwas, das du gebaut hast, einer Frage, die dich nicht loslässt — und einer Grenze, die du ernst nimmst.</blockquote>
+        <div class="builder-contact">
+          <a class="builder-mail" href="mailto:info@nexah.de?subject=NEXAH%20Builder%20Introduction">INTRODUCE YOURSELF <span>↗</span></a>
+          <a class="builder-store" href="A0_BUILDER_TOY_STORE.html">SEE WHAT WE ARE BUILDING →</a>
+          <p><span>EMAIL</span><a href="mailto:info@nexah.de">info@nexah.de</a></p>
+        </div>
+        <p class="builder-prompt">SEND THREE THINGS · WHAT YOU BUILD · WHAT YOU WANT TO UNDERSTAND · ONE THING WE CAN INSPECT</p>
+        <p class="builder-note">Eine Einladung zum ersten Gespräch — keine formale Stellenausschreibung und noch kein Versprechen einer Zusammenarbeit.</p>
+      </div>
+    </section>
+
+    <section class="return" id="return" aria-labelledby="returnTitle">
+      <div class="return-orb"><span>C</span></div>
+      <div><p class="kicker">THE RETURN · CONNECTION WITHOUT COLLAPSE</p><h2 id="returnTitle">You do not need every door.<br>You need to know <em>which door you chose.</em></h2><p>Connect heißt nicht: alles ist dasselbe. Connect heißt: Herkunft bleibt sichtbar, Unterschiede bleiben lesbar und ein Rückweg bleibt offen.</p><div class="return-links"><a href="A0_NEXAH_APERTURE_JOURNEY.html#human-view">A1 HUMAN</a><a href="A0_SCIENCE.html">A0 SCIENCE</a><a href="A0_BUILDER_TOY_STORE.html">B1 BUILDER</a></div></div>
+    </section>
+
+    <aside class="boundary"><strong>Boundary:</strong> C Connect ist eine source-bound Orientierungs- und Übergangskarte. Sie beschreibt vorhandene öffentliche Türen und lokale Arbeitsräume aus den bestehenden Ecosystem-Records; sie erzeugt keine neue Repository-Authority, Study, Relation, Publikationsfreigabe oder Aussage über den aktuellen Live-Status externer Ziele.</aside>
+  </main>
+
+  <footer><strong>NEXAH · C CONNECT</strong><span>Many doors · one responsibility: keep the trace.</span></footer>
+  <script src="nexah-c-connect.js?rev=connect-entry-20261014"></script>
+  <script src="a0-context-navigation.js?rev=science-desk-entry-20261014"></script>
+</body>
+</html>

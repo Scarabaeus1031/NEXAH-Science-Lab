@@ -11,7 +11,7 @@
     .extension-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}.extension{border:1px solid var(--line);background:var(--white);padding:26px}.extension.wide{grid-column:1/-1}.extension h3{margin:.15rem 0 .7rem;font:700 1.55rem var(--serif)}.extension p{color:#52606a;font-size:.9rem}.formula{padding:14px 16px;background:var(--night);color:#dce8ee;overflow:auto;font:700 .8rem/1.7 var(--mono)}.growth{width:100%;border-collapse:collapse;margin-top:14px;font:700 .74rem var(--mono)}.growth th,.growth td{padding:9px 7px;border:1px solid var(--line);text-align:center}.growth th{background:#ece4d6}.visual-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:18px}.visual{margin:0;border:1px solid var(--line);background:var(--white)}.visual img{display:block;width:100%;aspect-ratio:1.22/1;object-fit:cover;background:#111}.visual figcaption{padding:14px;color:#58646d;font-size:.76rem}.visual strong{display:block;color:var(--ink);font:700 .95rem var(--serif);margin-bottom:4px}@media(max-width:900px){.extension-grid,.visual-grid{grid-template-columns:1fr}.extension.wide{grid-column:auto}}
     .metric.active{border-top:3px solid var(--gold)}.item[data-state="active"]:before{background:var(--gold)}.item[data-state="active"] .tag{color:#89620a}@media(min-width:901px){.metrics{grid-template-columns:repeat(6,1fr)}}
   </style>
-  <link rel="stylesheet" href="a0-context-navigation.css">
+  <link rel="stylesheet" href="a0-context-navigation.css?rev=connect-entry-20261014">
 </head>
 <body>
   <header class="top"><a class="brand" href="index.html">NEXAH <span>· A0 BACKLOG</span></a><nav aria-label="Bereichsnavigation"><a href="index.html">A0 Overview</a><a href="A0_MATHEMATICAL_JOINTS.html">Mathfield</a><a href="A0_PASCAL_PENTAGON_OPERATOR_JOINTS.html">Pascal Joint</a><a href="A0_SCC_003_PASCAL_PENTAGON_PAPER.html">SCC-003 Paper</a><a href="../32_A0_FINDINGS_AND_PAPER_WORKSPACE_2026-10-11.md">Findings & Papers</a><a href="#remaining">Open Work</a><a href="#extensions">Extensions</a><a href="#boundary">STOP</a></nav></header>
@@ -89,6 +89,6 @@
     const buttons=[...document.querySelectorAll('[data-filter]')],items=[...document.querySelectorAll('.item[data-state]')];
     buttons.forEach(button=>button.addEventListener('click',()=>{const f=button.dataset.filter;buttons.forEach(b=>b.setAttribute('aria-pressed',String(b===button)));items.forEach(item=>{const state=item.dataset.state;const show=f==='all'||state===f||(f==='remaining'&&state!=='bound'&&state!=='stop');item.classList.toggle('hidden',!show)});}));
   </script>
-  <script src="a0-context-navigation.js"></script>
+  <script src="a0-context-navigation.js?rev=human-home-20261014"></script>
 </body>
 </html>

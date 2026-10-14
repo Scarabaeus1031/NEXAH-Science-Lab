@@ -25,7 +25,7 @@ it appears in a visual or in the Navigator.
 - 29 typed relations after the IEEE-300, Morphology and persistent-address reconciliation;
 - 3 admitted LIFE overlay entities and 3 overlay relations, yielding a composed
   internal view of 269 entities and 32 relations without rewriting the base registry;
-- 19 governed component slices and a `244/244 PASS` application audit;
+- 19 governed component slices and a `245/245 PASS` application audit;
 - 20 governed LIFE programme records and a 7-family × 8-field Observatory lens;
 - 0 publicly admitted entities and `publication_authorized = false`;
 - 5/5 frozen answerability tasks passed; Human utility is not yet validated.
@@ -45,7 +45,7 @@ it appears in a visual or in the Navigator.
 | Family Connection Map | implemented | relation view; not mechanism identity |
 | Connection Atlas | implemented | inventory view; not a family claim |
 | Module, surface and evidence detail | implemented | source records remain controlling |
-| A0 work/module surface coverage | implemented, 34/34 source-bound | reuses existing A0, Number View, Orientation, Return, LIFE and Tessarec identities; includes the internal A0 Asset Index without creating a module, node, relation or authority |
+| A0 work/module surface coverage | implemented, 46/46 source-bound | reuses existing A0, Number View, Orientation, Return, LIFE and Tessarec identities; includes the A1 Human aperture album, B1 Toy Store, C Connect and the internal A0 Asset Index without creating a module, node, relation or authority |
 | Instrument-first launch | implemented | launch is not approval or publication |
 | Typed relations and negative boundaries | implemented | every edge requires evidence and a claim ceiling |
 | Sequence, Lineage and comparative carrier lenses | implemented | bounded readings; open edges stay open |
