@@ -1,0 +1,59 @@
+{
+  "schema": "nexah.a0.tessarec-big-blue-envelope-comparator-protocol",
+  "version": "1.0.0",
+  "record_id": "A0_TESSAREC_BIG_BLUE_ENVELOPE_COMPARATOR_R1_PROTOCOL",
+  "date": "2026-10-14",
+  "module_id": "MOD:TESSAREC",
+  "surface": "A0_BOOK/A0_FAMILY_CONNECTION_ATLAS.html#tessarec",
+  "classification": "BOUNDED_ENGINEERING_BUILD_TO_TEST_NOT_SCIENCE_RUN",
+  "fixture": {
+    "phase_degrees": 175,
+    "phase_reference_degrees": 180,
+    "observer_angle_degrees": 42,
+    "observer_reference_degrees": 45,
+    "grid": "Q4",
+    "expected_state_index": 3
+  },
+  "objects": {
+    "carrier": "Q4_VIEW_OF_Q4_X_P3",
+    "intrinsic_envelope": "H_T_REACHABLE_FRAME_AGGREGATE",
+    "observed_envelope": "PI_PLUS_MINUS_THETA_OF_H",
+    "host": "O2_P16_H8_BLUE_BODY",
+    "delivery": "FOUR_TRUNCATED_PENTAGON_WALL_FOLD",
+    "seam": "DOUBLE_BLUE_BODY_H7_12_COMBINATORIAL_CANDIDATE"
+  },
+  "adapters": [
+    {
+      "from": "Q4_X_P3_CARRIER",
+      "to": "O2_P16_H8_BLUE_BODY",
+      "type": "VERTEX_BIJECTION_WITH_ROUTED_EDGES_NOT_GRAPH_IDENTITY"
+    },
+    {
+      "from": "FOUR_O8_OVERLAP_VIEW",
+      "to": "FOUR_WALL_DELIVERY_FOLD",
+      "type": "PROJECTION_ONLY_VIEW_TO_TOOL_HANDOFF"
+    },
+    {
+      "from": "TWO_DISJOINT_BLUE_BODIES",
+      "to": "CONNECTED_DOUBLE_BODY",
+      "type": "H7_12_COMBINATORIAL_SEAM_CANDIDATE"
+    }
+  ],
+  "gates": [
+    "I1_STATE_SYNC",
+    "I2_PARAMETER_TYPING",
+    "I3_APERTURE_LEDGER",
+    "I4_INTRINSIC_INVARIANCE",
+    "I5_OBSERVED_RESPONSE",
+    "I6_NAMESPACE_GUARD"
+  ],
+  "boundaries": {
+    "same_carrier_does_not_mean_same_envelope": true,
+    "visual_similarity_is_not_identity": true,
+    "pentagon_tiles_16_17_registered_as_connectors": false,
+    "three_dimensional_realization_established": false,
+    "physical_mechanism_established": false,
+    "new_navigator_identity": false,
+    "new_navigator_relation": false
+  }
+}

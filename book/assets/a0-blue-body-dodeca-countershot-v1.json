@@ -1,0 +1,37 @@
+{
+  "schema": "nexah.a0.blue-body-dodeca-countershot/1.0.0",
+  "view_id": "A0-VIEW-BLUE-BODY-DODECA-COUNTERSHOT",
+  "title": "Blue Body / Dodeca Countershot",
+  "date": "2026-10-14",
+  "status": "INTERNAL_SOURCE_BOUND_COMPARISON_VIEW_NOT_PUBLIC",
+  "identity_reuse": [
+    "MOD:TESSAREC",
+    "ART:E8:FAMILY_SYNTHESIS",
+    "MOD:E8_COXETER",
+    "FESN:4774"
+  ],
+  "sources": {
+    "blue_body": {
+      "surface": "../A0_TESSAREC_BLUE_BODY_LAB.html",
+      "machine_record": "a0-tessarec-blue-body-v1.json",
+      "role": "48-vertex O2-P16-H8 host and open sunflower projection"
+    },
+    "dodecahedron": {
+      "surface": "../../../../../SCIENCE_LAB/CASE_STUDIES/E8_DEMOS_INTERACTIVE_ORIENTATION_2026-09-21/COXETER_ORBIT_TOPOLOGY_LAB_2026-10-05/NEXAH_FAMILY_SYNTHESIS_DEMONSTRATOR.html",
+      "artifact_id": "ART:E8:FAMILY_SYNTHESIS",
+      "role": "exact H3 [5,3] dodecahedron source with 20 vertices, 30 edges and 12 pentagonal faces"
+    },
+    "typed_word": {
+      "record": "../../../../../SCIENCE_LAB/NAVIGATION/EVIDENCE/FOLD_ENVELOPE_FRAME_STATE_CROSSWALK_2026-10-14/FOLD_ENVELOPE_FRAME_STATE_CROSSWALK_BINDER_V1_2026-10-14.json",
+      "record_id": "FESN:4774",
+      "role": "exact palindrome plus constructed role-code boundary"
+    }
+  },
+  "objects": {
+    "blue_body": { "vertices": 48, "edges": 72, "faces": 26, "face_vector": { "octagons": 2, "pentagons": 16, "hexagons": 8 } },
+    "dodecahedron": { "vertices": 20, "edges": 30, "faces": 12, "face_vector": { "pentagons": 12 }, "opposite_face_pairs": 6 },
+    "typed_word": { "tokens": [4, 7, 7, 4], "four": "2^2", "seven_display": "2^2 + 3", "three_by_three_cells": 9, "selected_cells": 7, "residual_cells": 2 }
+  },
+  "relation_policy": "COMPARISON_VIEW_ONLY_NO_GRAPH_RELATION_ADDED",
+  "claim_boundary": "The view compares an open O2-P16-H8 host projection with the exact H3 dodecahedron and displays the typed palindrome 4774. It establishes no carrier identity, topology morphism, natural derivation of 4774, historical mechanism, physical mechanism, Study activation, evidence promotion or publication authority."
+}

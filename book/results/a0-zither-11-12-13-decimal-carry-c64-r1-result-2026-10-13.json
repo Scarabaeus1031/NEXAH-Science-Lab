@@ -1,0 +1,94 @@
+{
+  "schema": "nexah.a0.zither-11-12-13-decimal-carry-c64-result",
+  "version": "1.0.0",
+  "date": "2026-10-13",
+  "study_id": "A0_ZITHER_11_12_13_DECIMAL_CARRY_C64_2026_10_13",
+  "record_id": "A0_ZITHER_11_12_13_DECIMAL_CARRY_C64_RUN_001",
+  "status": "VALIDATED_BOUNDED_FORMAL_DERIVATION_STOP_REACHED",
+  "zither": {
+    "left": {"prime_index": 5, "value": 11},
+    "center": {"value": 12, "factorization": "2^2*3"},
+    "right": {"prime_index": 6, "value": 13},
+    "boundary": [5.5, 6.5]
+  },
+  "operator": {
+    "x_n": "(n+7)+(n+1)/10",
+    "b_n": "n+1/2",
+    "Y_n": "10*(x_n+b_n)=21n+76",
+    "step": 21,
+    "rows": [
+      {"n": 5, "x": "12.6", "boundary": "5.5", "sum": "18.1", "Y": 181},
+      {"n": 6, "x": "13.7", "boundary": "6.5", "sum": "20.2", "Y": 202},
+      {"n": 7, "x": "14.8", "boundary": "7.5", "sum": "22.3", "Y": 223}
+    ]
+  },
+  "arithmetic": {
+    "181": {"prime": true, "prime_index": 42, "palindrome": true},
+    "202": {"prime": false, "factorization": "2*101", "palindrome": true},
+    "223": {"prime": true, "prime_index": 48, "palindrome": false},
+    "383": {"identity": "181+202", "prime": true, "prime_index": 76, "palindrome": true},
+    "404": {"identity": "181+223=2*202", "palindrome": true},
+    "progression": "181,202,223 with common difference 21"
+  },
+  "c64_mod365": {
+    "operator": "T64(k)=64k mod 365",
+    "inverse": 154,
+    "order": 6,
+    "janus_sector": [0, 73, 146, 219, 292],
+    "janus_action": "T64(k)=-k mod 365 on the five-axis sector only",
+    "links": [
+      "404 mod 365=39",
+      "2*Y_6 mod 365=39",
+      "T64(Y_7)=T64(223)=37"
+    ],
+    "unique_congruence_solutions": {
+      "2Y_n=39 mod 365": 6,
+      "T64(Y_n)=37 mod 365": 7
+    },
+    "orbits": {
+      "181": [181, 269, 61, 254, 196, 134],
+      "202": [202, 153, 302, 348, 7, 83],
+      "223": [223, 37, 178, 77, 183, 32],
+      "39": [39, 306, 239, 331, 14, 166]
+    },
+    "full_cycle_census": {"length_1": 1, "length_2": 2, "length_3": 24, "length_6": 48, "total_orbits": 75, "total_states": 365}
+  },
+  "palindrome_census": {
+    "status": "EXPLORATORY_POST_HOC",
+    "n_min": 0,
+    "n_max": 10000000,
+    "palindromic_term_count": 1469,
+    "consecutive_index_pairs": [{"left": {"n": 5, "Y": 181}, "right": {"n": 6, "Y": 202}}],
+    "global_uniqueness_claim": false
+  },
+  "glyph_annotation": {
+    "status": "REPRESENTATION_DEPENDENT_NOT_ARITHMETIC",
+    "convention": "8 has two enclosed counters; 0 has one",
+    "two_loop_examples": [181, 383],
+    "one_loop_examples": [202, 404],
+    "test_gate": false
+  },
+  "visual_provenance": [
+    {"label": "C6_Zeta_Mobius", "sha256": "5e13863794acc3c162ce7d7f745df8718defc1cb832efa4458f3efa432994746"},
+    {"label": "Operator_Decides", "sha256": "3cf1edab3db2aa02b5fced58ea2f48d1e8db0ec86abbe13a5eced7ab7234ad89"},
+    {"label": "Janus_5_Axis", "sha256": "0a76625a49c11174140c6dbedfa019d53765982781f52aa4037273722ec0232f"},
+    {"label": "AD_TEST_05_C64_MODULO_365", "sha256": "1e182b0d25ab192cb43d1394c9fce9620996bbf9a41f85cd0a72cee872433df2"}
+  ],
+  "source_bindings": {
+    "orion_spec": "30 SCIENCE LAB/NEXAH-Science-Lab/ORION_LEVEL_0_CALIBRATION_AND_L1_PREP/01_ORION_L0_CALIBRATION_SPEC.md",
+    "orion_result": "30 SCIENCE LAB/NEXAH-Science-Lab/ORION_LEVEL_0_CALIBRATION_AND_L1_PREP/outputs/orion_l0_results.json",
+    "invariant_ledger": "30 SCIENCE LAB/NEXAH-Science-Lab/ORION_MATH_THE_MATH_VALIDATION_ARCHITECTURE_PASS/03_ORION_INVARIANT_LEDGER.md"
+  },
+  "disposition": "EXACT_DECIMAL_CARRY_AND_Z365_BRIDGE_WITH_EXPLORATORY_PALINDROME_CENSUS",
+  "governance": {
+    "operator_reconstructed_post_hoc": true,
+    "mobius_topology_established": false,
+    "loop_count_arithmetic_invariant": false,
+    "external_significance_established": false,
+    "new_navigator_identity": false,
+    "new_navigator_relation": false,
+    "claim_promotion_authorized": false,
+    "publication_authorized": false,
+    "owner_disposition": "AWAITING_OWNER_DISPOSITION"
+  }
+}

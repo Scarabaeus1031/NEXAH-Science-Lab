@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Source-bound A0 instrument for Hashimoto non-backtracking transitions, primitive cycles and the Ihara–Bass determinant.">
+  <title>A0 · Ihara / Hashimoto Cycle Bridge</title>
+  <link rel="stylesheet" href="assets/a0-ihara-hashimoto-cycle-bridge.css">
+</head>
+<body>
+  <header class="hero">
+    <nav><a href="A0_ASSET_INDEX.html">← A0 Asset Index</a><a href="A0_TESSAREC_BLUE_BODY_LAB.html#spectral-audit">Check 62 · spectral audit</a></nav>
+    <p class="eyebrow">A0 · CHECK 62 EXTENSION · FINITE GRAPH CYCLE INSTRUMENT</p>
+    <h1>Edge → Turn → Cycle → Zeta</h1>
+    <p class="lede">Hashimoto macht aus ungerichteten Kanten gerichtete Zustände. Ihara bündelt die primitiven geschlossenen, nicht unmittelbar rücklaufenden Wege. Die Bass-Determinante prüft dieselbe endliche Struktur unabhängig.</p>
+    <div class="flow" aria-label="Operator pipeline">
+      <span>G=(V,E)</span><i>→</i><span>2|E| directed edges</span><i>→</i><span>B: (a→b)↦(b→c), c≠a</span><i>→</i><span>primitive cycles</span><i>→</i><span>Z<sub>G</sub>(u)</span>
+    </div>
+  </header>
+
+  <main>
+    <section class="controls" aria-label="Instrument controls">
+      <label>Graph<select id="graphSelect"><option value="pentagon">Pentagon C5</option><option value="dodecahedron" selected>Dodekaeder G(10,2)</option><option value="word">Word-return carrier</option><option value="tree">Tree control · acyclic</option></select></label>
+      <label>Max. Zykluslänge <b id="depthValue">10</b><input id="depth" type="range" min="5" max="12" value="10"></label>
+      <label>u <b id="uValue">0.180</b><input id="uRange" type="range" min="20" max="450" value="180"></label>
+      <button id="nextCycle" type="button">Nächster primitiver Zyklus →</button>
+    </section>
+
+    <section class="metrics" aria-label="Graph metrics">
+      <div><b id="metricVertices">20</b><span>vertices</span></div><div><b id="metricEdges">30</b><span>edges</span></div><div><b id="metricDirected">60</b><span>directed-edge states</span></div><div><b id="metricDegree">3</b><span>degree / range</span></div><div><b id="metricCycles">—</b><span>primitive oriented cycles</span></div>
+    </section>
+
+    <section class="lab-grid">
+      <article class="panel graph-panel">
+        <div class="panel-head"><div><p class="label">01 · GRAPH / SELECTED PRIME CLASS</p><h2 id="graphTitle">Dodekaeder</h2></div><p id="graphNote"></p></div>
+        <svg id="graphSvg" viewBox="0 0 760 610" role="img" aria-label="Interactive finite graph with selected primitive cycle"></svg>
+        <div class="cycle-readout"><b id="cycleName">cycle —</b><code id="cycleWord">—</code></div>
+      </article>
+
+      <article class="panel operator-panel">
+        <div class="panel-head"><div><p class="label">02 · HASHIMOTO EDGE OPERATOR</p><h2>No immediate return.</h2></div></div>
+        <svg id="edgeSvg" viewBox="0 0 560 250" role="img" aria-label="Hashimoto directed edge transition"></svg>
+        <p class="formula">B<sub>(a→b),(c→d)</sub> = 1 ⇔ b=c and d≠a</p>
+        <div id="traceBars" class="trace-bars" aria-label="Hashimoto trace values"></div>
+        <p class="micro">tr(B<sup>k</sup>) zählt verwurzelte geschlossene non-backtracking walks der Länge k. Ein primitiver Zyklus erscheint daher mit seinen zyklischen Startpunkten.</p>
+      </article>
+    </section>
+
+    <section class="audit panel">
+      <div class="panel-head"><div><p class="label">03 · IHARA–BASS DOUBLE ENTRY</p><h2>Zwei Rechnungen. Ein endlicher Graph.</h2></div><p>Das Euler-Produkt ist bis zur gewählten Zykluslänge abgeschnitten; die Bass-Seite ist für den vollständigen Graphen numerisch ausgewertet.</p></div>
+      <div class="equation">Z<sub>G</sub>(u)<sup>−1</sup> = ∏<sub>[P] primitive</sub>(1−u<sup>ℓ(P)</sup>) = (1−u²)<sup>|E|−|V|</sup> det(I−uA+u²(D−I))</div>
+      <div class="audit-grid">
+        <div><span>truncated Euler inverse</span><b id="eulerValue">—</b></div>
+        <div><span>Bass inverse</span><b id="bassValue">—</b></div>
+        <div><span>absolute gap</span><b id="gapValue">—</b></div>
+        <div><span>non-backtracking spectral radius</span><b id="rhoValue">—</b></div>
+      </div>
+      <div id="cycleHistogram" class="histogram"></div>
+    </section>
+
+    <section class="bindings">
+      <div class="section-head"><div><p class="label">04 · SOURCE BINDINGS</p><h2>Die Brücke spricht mit bestehenden Instrumenten.</h2></div><p>Dies ist eine neue A0-Ansicht derselben typisierten Objekte — keine neue Study und keine Gleichsetzung der Quellen.</p></div>
+      <div class="binding-grid">
+        <a href="A0_TESSAREC_BLUE_BODY_LAB.html#spectral-audit"><b>Check 62 · Blue Body</b><span>48-node shell spectrum, Ramanujan bound and numerical Ihara pole circle.</span></a>
+        <a href="../sources/SCIENCE_LAB/CASE_STUDIES/E8_DEMOS_INTERACTIVE_ORIENTATION_2026-09-21/COXETER_ORBIT_TOPOLOGY_LAB_2026-10-05/NEXAH_WORD_ORBIT_SEQUENCER.html"><b>ART:E8:WORD_ORBIT</b><span>Finite generator words, orbit and exact Return become candidate edge-state sequences.</span></a>
+        <a href="../sources/SCIENCE_LAB/CASE_STUDIES/E8_DEMOS_INTERACTIVE_ORIENTATION_2026-09-21/COXETER_ORBIT_TOPOLOGY_LAB_2026-10-05/NEXAH_FAMILY_SYNTHESIS_DEMONSTRATOR.html"><b>ART:E8:FAMILY_SYNTHESIS</b><span>H3 / dodecahedron supplies the 20-vertex, 30-edge cubic carrier used here.</span></a>
+        <a href="../sources/SCIENCE_LAB/CASE_STUDIES/NEXAH_LIFE_PRIME_SHELL_WINDING_LIFE06B_2026-10-07/index.html"><b>LIFE06B · PRIME SHELL WINDING</b><span>Shell and winding coordinates remain an observation layer; no Fibonacci privilege is imported.</span></a>
+      </div>
+    </section>
+
+    <aside class="boundary"><strong>Typed boundary.</strong> Hashimoto and Ihara refer here only to finite graph operators and cycle classes. The Dodekaeder graph is exact; its golden-ratio coordinate realizations are a separate geometric layer. Fibonacci, Riemann zeta, physical resonance, chemical causation, E8 identity and universal dynamics are not inferred. The tree is the negative control: without cycles its Ihara product is 1.</aside>
+  </main>
+  <script src="assets/a0-ihara-hashimoto-cycle-bridge.js"></script>
+</body>
+</html>

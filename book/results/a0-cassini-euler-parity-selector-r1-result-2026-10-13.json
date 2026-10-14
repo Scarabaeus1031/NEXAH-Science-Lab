@@ -1,0 +1,75 @@
+{
+  "schema": "nexah.a0.cassini-euler-parity-selector-result",
+  "version": "1.0.0",
+  "date": "2026-10-13",
+  "study_id": "A0_CASSINI_EULER_PARITY_SELECTOR_2026_10_13",
+  "record_id": "A0_CASSINI_EULER_PARITY_SELECTOR_RUN_001",
+  "status": "VALIDATED_BOUNDED_FORMAL_RESULT_STOP_REACHED",
+  "domain": {
+    "n_min": 1,
+    "n_max": 81,
+    "row_count": 81
+  },
+  "definitions": {
+    "fibonacci": "F(0)=0; F(1)=1; F(n+1)=F(n)+F(n-1)",
+    "cassini_selector": "C(n)=F(n+1)F(n-1)-F(n)^2",
+    "cassini_closed_form": "C(n)=(-1)^n",
+    "euler_plus": "E+(n)=n^2+n+41",
+    "euler_minus": "E-(n)=n^2-n+41",
+    "selected": "S(n)=n^2+C(n)n+41",
+    "parity_control": "S_parity(n)=n^2+(-1)^n*n+41"
+  },
+  "exact_gates": {
+    "cassini_equals_parity_all_rows": true,
+    "selected_equals_parity_control_all_rows": true,
+    "branch_selection_all_rows": true,
+    "euler_shift_handoff_all_rows": true,
+    "pair_fold_all_40_pairs": true,
+    "unique_value_count": 41
+  },
+  "derived_pair_law": {
+    "domain": "k=1..40",
+    "identity": "S(2k)=S(2k+1)=E+(2k)=4k^2+2k+41",
+    "pair_count": 40,
+    "unpaired_initial_value": "S(1)=E+(0)=41"
+  },
+  "information_audit": {
+    "cassini_information_used_by_selector": "SIGN_ONLY",
+    "parity_surrogate_exactly_equivalent": true,
+    "fibonacci_magnitude_used": false,
+    "fibonacci_state_pair_used": false,
+    "output_rows": 81,
+    "unique_outputs": 41,
+    "duplicate_rows_created_by_pair_fold": 40
+  },
+  "descriptive_primality": {
+    "success_gate": false,
+    "prime_rows": 73,
+    "prime_unique_values": 37,
+    "composite_unique_values": 4,
+    "first_composite": {
+      "n": 40,
+      "paired_n": 41,
+      "value": 1681,
+      "factorization": "41^2"
+    },
+    "composite_unique_ledger": [
+      {"even_index": 40, "value": 1681, "factorization": "41^2"},
+      {"even_index": 44, "value": 2021, "factorization": "43*47"},
+      {"even_index": 56, "value": 3233, "factorization": "53*61"},
+      {"even_index": 76, "value": 5893, "factorization": "71*83"}
+    ]
+  },
+  "disposition": "EXACT_PARITY_REPARAMETERIZATION",
+  "scientific_reading": "Cassini is a valid exact two-channel selector here, but replacing it by the parity bit (-1)^n leaves every selected Euler output unchanged. The construction interleaves and duplicates the even-index E+ subsequence; it does not establish a deeper Fibonacci-Euler generator.",
+  "governance": {
+    "new_theorem": false,
+    "new_prime_generator_claim": false,
+    "tessarec_spectral_result_changed": false,
+    "new_navigator_identity": false,
+    "new_navigator_relation": false,
+    "publication_authorized": false,
+    "claim_promotion_authorized": false,
+    "owner_disposition": "AWAITING_OWNER_DISPOSITION"
+  }
+}

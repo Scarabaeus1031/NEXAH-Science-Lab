@@ -1,0 +1,61 @@
+{
+  "schema": "nexah.a0.cassini-41-prime-triple-decoder-result",
+  "version": "1.0.0",
+  "date": "2026-10-13",
+  "study_id": "A0_CASSINI_41_PRIME_TRIPLE_DECODER_2026_10_13",
+  "record_id": "A0_CASSINI_41_PRIME_TRIPLE_DECODER_RUN_001",
+  "status": "VALIDATED_BOUNDED_FORMAL_DERIVATION_STOP_REACHED",
+  "domain": {"n_min": 1, "n_max": 81, "prime_search_first_n": 100},
+  "decoder": {
+    "cassini_sign": "epsilon(n)=(-1)^n",
+    "offset": "delta(epsilon)=(3*epsilon-1)/2",
+    "carrier_map": "T(n)=41+delta(epsilon(n))",
+    "negative_channel": {"epsilon": -1, "offset": -2, "output": 39, "row_count": 41},
+    "positive_channel": {"epsilon": 1, "offset": 1, "output": 42, "row_count": 40},
+    "unique_outputs": [39, 42],
+    "affine_parameters": {"slope": "3/2", "intercept": "-1/2"},
+    "specificity": "SATURATED_TWO_POINT_AFFINE_DECODER"
+  },
+  "prime_index_bindings": {
+    "P1": 2,
+    "P2": 3,
+    "P4": 7,
+    "P6": 13,
+    "upper_neighbor": "42=P1*P2*P4=2*3*7",
+    "lower_neighbor": "39=P2*(P1*P2+P4)=3*(6+7)=3*13=P2*P6"
+  },
+  "double_path": {
+    "equation_class": "abc-1=b(ab+c)+a for strictly increasing primes a<b<c",
+    "selected_triple": [2, 3, 7],
+    "selected_prime_indices": [1, 2, 4],
+    "upper_path": "2*3*7-1=41",
+    "lower_path": "3*(2*3+7)+2=41",
+    "carrier": 41,
+    "symbolic_reduction": "b(ac-ab-c)=a+1",
+    "uniqueness_proof": "b divides a+1. With primes a<b, this forces a=2 and b=3; substitution forces c=7.",
+    "unique_over_all_strictly_increasing_prime_triples": true,
+    "first_100_primes_crosscheck_solution_count": 1
+  },
+  "gates": {
+    "cassini_decoder_81_rows": true,
+    "channel_counts_41_and_40": true,
+    "prime_index_product_42": true,
+    "factor_sum_path_39": true,
+    "two_paths_return_41": true,
+    "global_prime_triple_uniqueness_proved": true,
+    "first_100_primes_crosscheck": true,
+    "decoder_nonspecificity_recorded": true
+  },
+  "disposition": "EXACT_UNIQUE_PRIME_TRIPLE_DOUBLE_PATH_WITH_SATURATED_DECODER",
+  "interpretation": "The (2,3,7) prime triple is uniquely determined within the declared double-path equation, while the Cassini-to-neighbor affine decoder is a saturated encoding of two chosen outputs. The exact internal uniqueness is retained; external significance remains untested and post-hoc.",
+  "governance": {
+    "formula_class_post_hoc": true,
+    "new_theorem_claim": false,
+    "external_significance_established": false,
+    "new_navigator_identity": false,
+    "new_navigator_relation": false,
+    "claim_promotion_authorized": false,
+    "publication_authorized": false,
+    "owner_disposition": "AWAITING_OWNER_DISPOSITION"
+  }
+}

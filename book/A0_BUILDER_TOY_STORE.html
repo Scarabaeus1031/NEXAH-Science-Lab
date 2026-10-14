@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="NEXAH Builder Toy Store: eine spielbare Auslage der A0 Flagships, Demonstratoren und quellgebundenen Werkzeuge.">
+  <title>NEXAH · B1 Builder Toy Store</title>
+  <link rel="stylesheet" href="a0-builder-toy-store.css?rev=life-header-toy-20261014">
+  <link rel="stylesheet" href="a0-context-navigation.css?rev=connect-entry-20261014">
+</head>
+<body>
+  <header class="top">
+    <a class="brand" href="#top">NEXAH <span>· B1 Builder</span></a>
+    <nav><a href="#shelf">Flagships</a><a href="#tools">Tool Wall</a><a href="A0_SCIENCE.html">Science</a><a href="A0_NEXAH_APERTURE_JOURNEY.html#human-view">Human</a></nav>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="kicker">B1 BUILDER · THE PLAYABLE LAYER</p>
+        <h1>Welcome to the<br><em>Toy Store.</em></h1>
+        <p class="intro">Science describes. Human gives meaning. Builder makes the relation touchable.</p>
+        <p class="hero-note">Eine lebendige Auslage der Flagships, Demonstratoren und Werkzeuge – aus dem vorhandenen A0-Bestand, mit sichtbarer Herkunft und ohne die Grenzen der Forschung zu verwischen.</p>
+        <div class="actions"><a class="button hot" href="#shelf">Pick a flagship</a><a class="button" href="#tools">Open every drawer</a></div>
+      </div>
+      <div class="machine-console">
+        <div class="machine" id="life-machine" aria-label="Spielbares Three-Domain-Transition-Feld">
+          <canvas class="life-field" id="builder-life-field" aria-hidden="true"></canvas>
+          <div class="orbit orbit-a"></div><div class="orbit orbit-b"></div><div class="orbit orbit-c"></div>
+          <button class="machine-core" id="machine-core" type="button" aria-pressed="false" aria-label="LIFE-Feld starten">
+            <span id="machine-state">TOUCH</span><strong>↻</strong><small>START LIFE</small>
+          </button>
+          <button class="satellite s-one active" type="button" data-domain="human" aria-pressed="true"><b>H</b><span>meaning</span></button>
+          <button class="satellite s-two" type="button" data-domain="science" aria-pressed="false"><b>S</b><span>method</span></button>
+          <button class="satellite s-three" type="button" data-domain="builder" aria-pressed="false"><b>B</b><span>making</span></button>
+          <div class="scanline"></div>
+        </div>
+        <div class="domain-deck" id="domain-deck" aria-label="Drei Ansichten desselben LIFE-Laufs">
+          <button class="active" type="button" data-domain-card="human"><span>H · HUMAN</span><strong id="human-readout">meaning waits</strong><small>pattern view</small></button>
+          <button type="button" data-domain-card="science"><span>S · SCIENCE</span><strong id="science-readout">method waits</strong><small>neighbour view</small></button>
+          <button type="button" data-domain-card="builder"><span>B · BUILDER</span><strong id="builder-readout">making waits</strong><small>transition view</small></button>
+        </div>
+        <div class="machine-actions">
+          <button class="life-toggle" id="life-toggle" type="button" aria-pressed="false">Start 3-domain</button>
+          <a href="A0_GAME_4_LIFE_PLUS_1.html">Open GAME 4 LIFE +1 →</a>
+        </div>
+        <p class="machine-boundary">One bounded LIFE carrier · three synchronized views · visual demonstrator</p>
+      </div>
+      <div class="hero-ledger"><span>HUMAN <b>asks</b></span><span>SCIENCE <b>tests</b></span><span>BUILDER <b>makes</b></span><span>RETURN <b>keeps the trace</b></span></div>
+    </section>
+
+    <section class="ticker" aria-label="Builder Prinzipien"><div>TOUCH THE MODEL <i>◆</i> KEEP THE SEAM <i>◆</i> CHANGE THE VIEW <i>◆</i> TEST THE RETURN <i>◆</i> BUILD WHAT CAN BE INSPECTED <i>◆</i></div></section>
+
+    <section class="shelf section" id="shelf">
+      <header class="section-head">
+        <div><p class="kicker">01 · FLAGSHIP SHELF</p><h2>The windows that<br>already <em>move.</em></h2></div>
+        <p>Nicht alles ist dasselbe Instrument. Aber jedes macht eine andere Fuge spielbar. Die Auslage wechselt automatisch; Auswahl und Bewegung bleiben jederzeit unter deiner Kontrolle.</p>
+      </header>
+      <div class="showcase">
+        <article class="stage" id="flagship-stage" aria-live="polite">
+          <div class="stage-visual" id="stage-visual"><span class="stage-number">01</span><div class="stage-glyph"></div><div class="stage-rings"></div></div>
+          <div class="stage-copy"><p class="tag" id="stage-tag">APPEARANCE · SPECTRUM</p><h3 id="stage-title">Rainbow / Purple Rain</h3><p id="stage-description">Sieben Fenster zeigen, wie ein Spektrum nicht nur zerlegt, sondern als Bedingung von Erscheinung gelesen werden kann.</p><div class="stage-meta"><span id="stage-kind">EXPERIENCE</span><span id="stage-index">01 / 10</span></div><a class="button hot" id="stage-link" href="A0_RAINBOW_PURPLE_RAIN.html">Enter the window →</a></div>
+        </article>
+        <div class="selector" id="flagship-selector" aria-label="Flagship auswählen"></div>
+        <div class="stage-controls"><button type="button" id="flagship-prev" aria-label="Vorheriges Flagship">←</button><button type="button" id="flagship-toggle" aria-pressed="false">Pause auto</button><button type="button" id="flagship-next" aria-label="Nächstes Flagship">→</button></div>
+      </div>
+    </section>
+
+    <section class="bridge">
+      <div><p class="kicker">FROM VIEW TO USE</p><h2>A demonstrator is a question<br>with handles.</h2></div>
+      <div class="bridge-flow"><span>LOOK</span><b>→</b><span>TOUCH</span><b>→</b><span>COMPARE</span><b>→</b><span>RETURN</span></div>
+    </section>
+
+    <section class="tools section" id="tools">
+      <header class="section-head inverse">
+        <div><p class="kicker">02 · THE COMPLETE CABINET</p><h2>Every instrument<br>gets a <em>door.</em></h2></div>
+        <p>Diese Wand liest den bestehenden A0 Asset Index. Suche nach Titel, Funktion oder Family; Filter ändern nur die Ansicht, nicht den Bestand.</p>
+      </header>
+      <div class="tool-controls">
+        <label class="search"><span>FIND A TOOL</span><input id="tool-search" type="search" placeholder="rainbow, Pascal, LIFE, field …" autocomplete="off"></label>
+        <div class="filters" id="tool-filters" aria-label="Werkzeuge filtern">
+          <button class="active" type="button" data-filter="all">All HTML</button>
+          <button type="button" data-filter="instrument">Instruments</button>
+          <button type="button" data-filter="experience">Experiences</button>
+          <button type="button" data-filter="reader">Readers</button>
+          <button type="button" data-filter="external">External</button>
+        </div>
+        <p class="result-count" id="result-count">Loading the cabinet …</p>
+      </div>
+      <div class="tool-grid" id="tool-grid" aria-live="polite"></div>
+      <noscript><p class="empty">JavaScript ist für die dynamische Tool Wall erforderlich. Der vollständige Bestand bleibt im <a href="A0_ASSET_INDEX.html">Asset Index</a> erreichbar.</p></noscript>
+    </section>
+
+    <section class="exit">
+      <p class="kicker">THREE DOORS · ONE RETURN</p>
+      <h2>Ask. Test. Make.<br><em>Then look again.</em></h2>
+      <div class="exit-doors">
+        <a href="A0_NEXAH_APERTURE_JOURNEY.html#human-view"><small>A1</small><strong>HUMAN</strong><span>What matters?</span></a>
+        <a href="A0_SCIENCE.html"><small>A0</small><strong>SCIENCE</strong><span>What holds?</span></a>
+        <a class="current" href="#top"><small>B1</small><strong>BUILDER</strong><span>What can we make?</span></a>
+      </div>
+      <p class="boundary"><strong>Boundary:</strong> This is an internal navigation and experience surface. It introduces no new research identity, relation, evidence state, Study activation or publication claim.</p>
+    </section>
+  </main>
+
+  <footer><strong>NEXAH · BUILDER TOY STORE</strong><span>Tools are invitations. Sources remain attached.</span><a href="A0_ASSET_INDEX.html">Full Asset Index →</a></footer>
+  <script src="assets/a0-asset-index-v1.js"></script>
+  <script src="a0-builder-toy-store.js?rev=life-header-toy-20261014"></script>
+  <script src="a0-context-navigation.js?rev=human-home-20261014"></script>
+</body>
+</html>

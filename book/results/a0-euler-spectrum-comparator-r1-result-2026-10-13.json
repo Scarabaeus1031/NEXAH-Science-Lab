@@ -1,0 +1,77 @@
+{
+  "audit": {
+    "best_c_search_performed": false,
+    "primary_statistic": "A_E=(CV_NRMSE(M1)-CV_NRMSE(ME))/CV_NRMSE(M1)",
+    "secondary_results_can_rescue": false
+  },
+  "authorization": {
+    "claim_promotion_authorized": false,
+    "decision_date": "2026-10-13",
+    "execution_authorized": true,
+    "implementation_sha256": "352bb425f9e31e54b4bfc861b6beac142008afb6609d5da7a9a6b21c3907b44d",
+    "lab_state": "ACTIVE",
+    "owner_role": "Human Owner",
+    "preregistration_sha256": "01bb9a7f0a6295b8bcaefa363910c4a978e16d181b8c6a3e636184e8cbc33b56",
+    "publication_authorized": false,
+    "record_id": "A0_EULER_TESSAREC_SPECTRUM_COMPARATOR_RUN_001",
+    "schema": "nexah.science-lab.owner-run-authorization",
+    "scope": "One primary R1 execution under Check 69 R0.1 and Check 70; stop after immutable result exposure and return for audit.",
+    "source_revision": "bd3277e34c908edf96fe97f542103a2ddb2c9dc4 plus hash-bound Check 69/70 working-tree files",
+    "source_spectrum_sha256": "a2310b0846fab46733d44c4342f8b04da5ba77cd4ac3eaf56553c872b06ea77e",
+    "status": "OWNER_AUTHORIZED",
+    "study_id": "A0_EULER_TESSAREC_SPECTRUM_COMPARATOR_2026_10_13",
+    "successor_authorized": false,
+    "version": "1.0.0"
+  },
+  "claim_boundary": "A rank-curve fit cannot establish a common generator, Euler-specific graph identity, prime mechanism, physical law, rarity, optimality or external novelty.",
+  "decision_gates": {
+    "A_E_above_null_q95": true,
+    "A_E_at_least_0_05": false,
+    "G_Q_at_most_0_05": false,
+    "all_gates_pass": false
+  },
+  "disposition": "NO_EULER_SPECIFIC_SPECTRAL_SUPPORT",
+  "environment": {
+    "numpy": "2.3.5",
+    "platform": "macOS-26.5.2-arm64-arm-64bit",
+    "python": "3.12.14 (main, Aug 25 2026, 13:50:33) [Clang 22.1.3 ]"
+  },
+  "hashes": {
+    "implementation": "352bb425f9e31e54b4bfc861b6beac142008afb6609d5da7a9a6b21c3907b44d",
+    "preregistration": "01bb9a7f0a6295b8bcaefa363910c4a978e16d181b8c6a3e636184e8cbc33b56",
+    "source_spectrum": "a2310b0846fab46733d44c4342f8b04da5ba77cd4ac3eaf56553c872b06ea77e"
+  },
+  "null": {
+    "A_E_max": -2.7146403951094262,
+    "A_E_mean": -5.150782197937101,
+    "A_E_median": -4.96237512612921,
+    "A_E_min": -11.763776122079998,
+    "A_E_q05": -7.13752742953524,
+    "A_E_q95": -3.8414341842112982,
+    "A_E_sd_population": 1.0309817167797575,
+    "accepted": 10000,
+    "attempts": 77971,
+    "monte_carlo_p_upper": 9.999000099990002e-05,
+    "observed_exceedances": 0,
+    "rejected": {
+      "disconnected": 2,
+      "parallel_edge": 28262,
+      "self_loop": 39707
+    },
+    "seed": 20261013
+  },
+  "observed": {
+    "A_E": -2.0256582943779393,
+    "G_Q": 1.4241343752996423,
+    "cv_nrmse": {
+      "M0": 1.1399954805010974,
+      "M1": 0.13822681058289338,
+      "M2": 0.17252636661028473,
+      "ME": 0.41822709594553964
+    }
+  },
+  "rank_direction": "descending",
+  "record_id": "A0_EULER_TESSAREC_SPECTRUM_COMPARATOR_RUN_001",
+  "schema": "nexah.a0.euler-spectrum-comparator-result",
+  "version": "1.0.0"
+}

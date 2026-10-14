@@ -1,0 +1,84 @@
+{
+  "schema": "nexah.a0.euler-spectrum-comparator-preregistration",
+  "version": "0.1.1",
+  "date": "2026-10-13",
+  "status": "PREREGISTERED_DESIGN_R0_1_AMENDED_BEFORE_EXECUTION_NOT_EXECUTED",
+  "execution_authorized": false,
+  "lab_state": "STRUCTURE_FREEZE",
+  "reused_identities": [
+    "MOD:TESSAREC",
+    "MOD:NUMBER_VIEW_SUITE",
+    "NEXAH:LADDER_ATLAS:V1"
+  ],
+  "question": "Does the constrained Euler rank shape n^2+n improve held-out prediction of the 48-value Tessarec adjacency spectrum over an affine rank curve, and is that improvement unusual among matched simple connected 3-regular graphs?",
+  "source": {
+    "path": "RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/assets/a0-tessarec-spectral-audit-v1.json",
+    "sha256": "a2310b0846fab46733d44c4342f8b04da5ba77cd4ac3eaf56553c872b06ea77e",
+    "field": "spectrum.eigenvalues",
+    "expected_count": 48,
+    "rank_direction": "descending",
+    "primary_includes_trivial_eigenvalue": true
+  },
+  "euler_family": {
+    "formula": "E_c(n)=n^2+n+c",
+    "primary_shape": "n^2+n",
+    "offset_c_role": "provenance_label_only",
+    "best_c_search_allowed": false,
+    "historical_display_lane": [13, 41, 137, 241, 367, 487, 617, 751, 883, 1031, 1171, 1303, 1459],
+    "corrected_strict_prime_index_lane": [13, 41, 137, 241, 367, 487, 617, 751, 883, 1031, 1171, 1303, 1471],
+    "terminal_correction": "1459=P232; 1471=P233"
+  },
+  "models": [
+    {"id": "M0", "formula": "b", "role": "intercept_only_audit"},
+    {"id": "M1", "formula": "a*n+b", "role": "affine_baseline"},
+    {"id": "ME", "formula": "a*(n^2+n)+b", "role": "constrained_euler_shape"},
+    {"id": "M2", "formula": "a*n^2+b*n+d", "role": "unrestricted_quadratic_control"}
+  ],
+  "cross_validation": {
+    "type": "contiguous_rank_blocks",
+    "folds": 8,
+    "values_per_fold": 6,
+    "training_values_per_fold": 42,
+    "fit": "ordinary_least_squares",
+    "error": "pooled_held_out_nrmse_divided_by_population_sd"
+  },
+  "statistics": {
+    "primary": "A_E=(CV_NRMSE(M1)-CV_NRMSE(ME))/CV_NRMSE(M1)",
+    "quadratic_gap": "G_Q=(CV_NRMSE(ME)-CV_NRMSE(M2))/CV_NRMSE(M2)",
+    "secondary_only": ["model_error_table", "second_differences", "nontrivial_47_value_track"]
+  },
+  "null_population": {
+    "accepted_graphs": 10000,
+    "vertices": 48,
+    "degree": 3,
+    "simple": true,
+    "connected": true,
+    "seed": 20261013,
+    "filter_by_spectral_result": false,
+    "implementation": "Python 3.12.14 plus NumPy 2.3.5; local configuration-model rejection sampler; exact implementation hash required before execution",
+    "maximum_generation_attempts": 1000000
+  },
+  "decision": {
+    "positive_label": "EULER_SHAPE_SIGNAL",
+    "negative_label": "NO_EULER_SPECIFIC_SPECTRAL_SUPPORT",
+    "invalid_label": "INVALID_COMPARATOR_RUN",
+    "requirements": [
+      "A_E >= 0.05",
+      "A_E > empirical null percentile 0.95",
+      "G_Q <= 0.05",
+      "all source, multiplicity, rank, convergence and generation gates pass"
+    ],
+    "secondary_results_cannot_rescue_primary_failure": true
+  },
+  "claim_boundary": "A rank-curve fit cannot establish a common generator, Euler-specific graph identity, prime mechanism, physical law, rarity, optimality or external novelty.",
+  "execution_gate": "Separate Human Owner reopen decision, synchronized Lab status, hash-locked implementation and complete Run Contract required.",
+  "pre_run_amendment": {
+    "id": "R0.1",
+    "reason": "The frozen source array is stored in descending order although R0 said ascending.",
+    "execution_before_amendment": false,
+    "source_bytes_changed": false,
+    "rank_direction_before": "ascending",
+    "rank_direction_after": "descending"
+  }
+}
+

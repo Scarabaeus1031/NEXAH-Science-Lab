@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Interner visueller Asset- und Instrumentenindex des A0 Workspace. Repository-Navigation, keine Publikation.">
+  <title>A0 ASSET INDEX · Internal Workspace</title>
+  <link rel="stylesheet" href="assets/a0-asset-index.css?rev=flagship-groups-20261014">
+</head>
+<body data-view="cards">
+  <header class="masthead">
+    <div class="masthead__top">
+      <span class="brand">NEXAH <span>· A0 WORKSPACE</span></span>
+      <a class="back-link" href="A0_SCIENCE.html" data-context-back aria-label="Zurück zur vorherigen Seite">← BACK</a>
+    </div>
+    <div>
+      <p class="eyebrow">Repository map · visual instruments · records · source assets</p>
+      <h1>A0 ASSET<br>INDEX</h1>
+      <p class="lede">Eine visuelle Werkbank für den gesamten A0-Bestand: Einstiegspunkte, HTML-Instrumente, Paper, Records, Daten, Skripte, Bilder und 3D-Assets — durchsuchbar, filterbar und direkt im Repository geöffnet.</p>
+    </div>
+    <div class="masthead__meta" id="stats" aria-label="Bestandsstatistik"></div>
+  </header>
+
+  <main class="workspace">
+    <aside class="source-utility" aria-labelledby="source-system-title">
+      <div>
+        <span class="section-kicker">SOURCE SYSTEM · INTERNAL UTILITY</span>
+        <h2 id="source-system-title">The map behind the rooms.</h2>
+      </div>
+      <p>Der NEXAH Science Navigator ist Quellen- und Recorderansicht des Labs — Referenzsystem, kein Ausstellungsartefakt.</p>
+      <a href="../navigator/index.html#home">NEXAH SCIENCE NAVIGATOR ↗</a>
+    </aside>
+
+    <section aria-labelledby="entry-title">
+      <div class="section-head">
+        <div><span class="section-kicker">01 · WORKSPACE ENTRY POINTS</span><h2 id="entry-title">Wo willst du hinein?</h2></div>
+        <p class="section-copy">Sieben stabile Türen in denselben Workspace. Sie ordnen das Material, ohne neue Forschungsobjekte oder Publikationszustände zu erzeugen.</p>
+      </div>
+      <div class="entry-grid" id="entry-grid"></div>
+    </section>
+
+    <section aria-labelledby="family-title">
+      <div class="section-head">
+        <div><span class="section-kicker">02 · FAMILY MAP</span><h2 id="family-title">Ein Workspace. Dreizehn Families.</h2></div>
+        <p class="section-copy">Die Größe folgt der Zahl der zugeordneten Assets. Farbe und Position sind Navigationshilfen — keine wissenschaftliche Hierarchie oder Identitätsbehauptung.</p>
+      </div>
+      <div class="family-map-shell">
+        <svg id="family-map" class="family-map" viewBox="0 0 760 620" role="img" aria-label="Karte der A0 Asset Families"></svg>
+        <div class="family-legend" id="family-legend" aria-label="Legende der A0 Families"></div>
+      </div>
+    </section>
+
+    <section aria-labelledby="inventory-title">
+      <div class="toolbar" aria-label="Asset-Filter">
+        <label class="search-wrap"><span hidden>Assets durchsuchen</span><input id="search" type="search" placeholder="Titel, Pfad, Werk, Rolle …" autocomplete="off"></label>
+        <select id="family-filter" aria-label="Family filtern"><option value="all">Alle Families</option></select>
+        <select id="role-filter" aria-label="Rolle filtern"><option value="all">Alle Rollen</option></select>
+        <select id="work-filter" aria-label="Werk filtern"><option value="all">Alle Werke</option></select>
+        <select id="format-filter" aria-label="Format filtern"><option value="all">Alle Formate</option></select>
+        <div class="view-switch" aria-label="Ansicht">
+          <button type="button" data-view="cards" aria-pressed="true" title="Kartenansicht">▦</button>
+          <button type="button" data-view="compact" aria-pressed="false" title="Kompakte Ansicht">☷</button>
+        </div>
+      </div>
+      <details class="inventory-disclosure">
+        <summary>
+          <span><span class="section-kicker">03 · COMPLETE REPOSITORY INVENTORY</span><strong id="inventory-title">Der ganze Bestand</strong></span>
+          <span class="inventory-summary-meta"><em id="result-count">Inventar wird geladen …</em><b>Liste öffnen</b></span>
+        </summary>
+        <div class="inventory-disclosure__body">
+          <p class="section-copy">Alle Dateien sind zuerst nach Family, dann nach Pfad sortiert. Die Farbleiste entspricht der Family Map.</p>
+          <div class="inventory" id="inventory"></div>
+          <div class="empty" id="empty-state">Keine Assets entsprechen dieser Auswahl.</div>
+          <button class="show-more" id="show-more" type="button">Weitere Dateien anzeigen</button>
+        </div>
+      </details>
+    </section>
+
+    <section aria-labelledby="external-title">
+      <div class="section-head">
+        <div><span class="section-kicker">04 · SOURCE-BOUND EXTERNAL INSTRUMENTS</span><h2 id="external-title">Marker zu den Quellinstrumenten</h2></div>
+        <p class="section-copy">Diese Karten binden A0 an bestehende Science-Lab-Instrumente. Sie zeigen Quelle und stabile Identität, kopieren aber weder HTML noch wissenschaftliche Autorität in den A0 Workspace.</p>
+      </div>
+      <div class="external-grid" id="external-grid"></div>
+    </section>
+
+    <section aria-labelledby="flagship-title">
+      <div class="section-head">
+        <div><span class="section-kicker">05 · FLAGSHIPS</span><h2 id="flagship-title">Flagships nach Funktion</h2></div>
+        <p class="section-copy">Zehn zentrale Oberflächen in drei Navigationsgruppen. Die Gruppierung verändert weder Family noch Evidenz- oder Publikationsstatus.</p>
+      </div>
+      <div class="flagship-grid" id="flagship-grid"></div>
+    </section>
+
+    <section aria-labelledby="html-title">
+      <div class="section-head">
+        <div><span class="section-kicker">06 · HTML SURFACES</span><h2 id="html-title">Seiten als Instrumente</h2></div>
+        <p class="section-copy">Die Vorschau zeigt den tatsächlichen oberen Bereich jeder HTML-Fläche. Öffnen führt immer direkt zur Datei — nicht zu einer Kopie.</p>
+      </div>
+      <div class="cards" id="html-cards"></div>
+    </section>
+
+    <aside class="repository-note">
+      <strong>Repository ≠ Publikation.</strong> Dieser Index macht interne Arbeitsflächen und Assets auffindbar. Die Anzeige eines Objekts verändert weder seine wissenschaftliche Autorität noch seinen Review-, Evidence- oder Publikationsstatus.
+    </aside>
+    <p id="load-state" role="status">Asset-Datensatz wird geladen …</p>
+  </main>
+
+  <script src="assets/a0-asset-index-v1.js?rev=album-index-20261014"></script>
+  <script src="assets/a0-asset-index-app.js?rev=flagship-groups-20261014"></script>
+</body>
+</html>

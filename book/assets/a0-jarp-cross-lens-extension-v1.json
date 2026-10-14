@@ -1,0 +1,176 @@
+{
+  "schema": "nexah.a0.jarp-cross-lens-extension/1.0.0",
+  "extension_id": "A0:JARP:X1",
+  "extends_protocol": "A0:JARP:V1",
+  "date": "2026-10-13",
+  "status": "INTERNAL_SOURCE_BOUND_ENGINEERING_EXTENSION_NOT_SCIENCE_RUN",
+  "publication_authorized": false,
+  "frozen_core_unchanged": true,
+  "result_vocabulary": [
+    "PASS_EXACT_RETURN",
+    "PASS_EXACT_PROFILE",
+    "PASS_NEGATIVE_CONTROL",
+    "HOLD_MISSING_WITNESS",
+    "HOLD_UNRESOLVED_ALIAS",
+    "REJECT_IDENTITY_COLLAPSE"
+  ],
+  "cases": [
+    {
+      "id": "APP-11",
+      "title": "Q4 placement and complement return",
+      "class": "representation-return",
+      "input": {
+        "addresses": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15],
+        "one_based_magic_square": [16, 2, 3, 13, 5, 11, 10, 8, 9, 7, 6, 12, 4, 14, 15, 1]
+      },
+      "operator": "v=x-1, four-bit complement c(v)=15-v, declared 4x4 placement",
+      "expected": {
+        "address_count": 16,
+        "complement_involution": true,
+        "complement_pair_sum_zero_based": 15,
+        "magic_line_sum_one_based": 34,
+        "result": "PASS_EXACT_RETURN"
+      },
+      "required_witness": ["placement operator", "label convention"],
+      "application": "return between Q4 addresses, decimal labels and one declared magic-square placement",
+      "source_roles": ["ART:A0:MATHEMATICAL_JOINTS", "MOD:NUMBER_VIEW_SUITE"]
+    },
+    {
+      "id": "APP-12",
+      "title": "Boundary graph and Pascal mirror",
+      "class": "typed-joint",
+      "input": {"a": 47, "b": 74},
+      "operator": "n=a+b with Pascal comparator C(n,a)=C(n,b)",
+      "expected": {
+        "n": 121,
+        "mirror_index": 74,
+        "grid_side": 11,
+        "grid_area": 121,
+        "result": "PASS_EXACT_PROFILE"
+      },
+      "required_witness": ["ordered rectangle sides", "declared n=a+b bridge"],
+      "application": "typed bridge between boundary inputs and Pascal mirror symmetry without carrier identity",
+      "source_roles": ["ART:A0:MATHEMATICAL_JOINTS", "ART:NUMBER:PRIMEGRID_BLOCK02A_PASCAL"]
+    },
+    {
+      "id": "APP-13",
+      "title": "Pascal to quaternion four-channel return",
+      "class": "exact-connector",
+      "input": {"pascal_triple": [3, 4, 5]},
+      "operator": "Phi(a,b,c)=(a+b+c)1+ai+bj+ck",
+      "expected": {
+        "quaternion_channels": [12, 3, 4, 5],
+        "inverse_coordinates": [3, 4, 5],
+        "injective_on_declared_carrier": true,
+        "c3_equivariant": true,
+        "result": "PASS_EXACT_RETURN"
+      },
+      "required_witness": ["channel order", "declared carrier"],
+      "application": "lossless four-channel serializer with an exact inverse on the declared Pascal carrier",
+      "source_roles": ["A0OE:PASCAL_QUATERNION_TEST", "ART:A0:MATHEMATICAL_JOINTS"]
+    },
+    {
+      "id": "APP-14",
+      "title": "Q106 fold and interface residual",
+      "class": "residual-return",
+      "input": {"dimension": 3, "folded_coordinates": 2, "interface_branch_bits": 1},
+      "operator": "coordinate fold plus declared interface assembly",
+      "expected": {
+        "fiber_size": 8,
+        "pointwise_minimal_witness_bits": 3,
+        "uniform_coordinate_witness_bits": 3,
+        "result": "PASS_EXACT_RETURN"
+      },
+      "required_witness": ["two fold bits", "one interface branch bit"],
+      "application": "minimal residual budget for branch-aware Return after a lossy fold and interface gluing",
+      "source_roles": ["NN:MRB_ACR_NCS_Q106_RETURN_CROSSWALK", "A0OE:PASCAL_PENTAGON_D5_TEST"]
+    },
+    {
+      "id": "APP-15",
+      "title": "GAME 4 LIFE +1 synchronized view return",
+      "class": "multi-view-identifiability",
+      "input": {
+        "carrier": "LIFE08-BOUNDARY-CYLINDER",
+        "view_keys": ["field", "event-register", "q-control", "parallel-3d", "residual"]
+      },
+      "operator": "project one deterministic transition record into five typed synchronized views",
+      "expected": {
+        "view_count": 5,
+        "shared_carrier": true,
+        "new_life_rule": false,
+        "result": "PASS_EXACT_RETURN"
+      },
+      "required_witness": ["persistent cell/event addresses", "transition index", "view type"],
+      "application": "cross-view synchronization and exact source return without cross-domain mechanism transfer",
+      "source_roles": ["NEXAH_LIFE_BOUNDARY_CYLINDER_LIFE08_2026_10_11", "ART:A0:MATHEMATICAL_JOINTS"]
+    },
+    {
+      "id": "APP-16",
+      "title": "LIFE08 and E8 coordinate non-identity control",
+      "class": "matched-control",
+      "input": {
+        "holdout_half_residuals": 33,
+        "spinor_half_selections": 97,
+        "holdout_records": 150,
+        "permutation_reproduces_rate": true
+      },
+      "operator": "compare observed coordinate/root residuals with random-axis, rotated-E8 and permuted-channel controls",
+      "expected": {
+        "half_residual_explained_by_coordinate_root_family": true,
+        "semantic_channel_order_specific": false,
+        "e8_specificity_established": false,
+        "life_e8_identity": false,
+        "result": "PASS_NEGATIVE_CONTROL"
+      },
+      "required_witness": ["coordinate convention", "root family", "matched control class"],
+      "application": "retain the useful residual explanation while rejecting an E8-specific LIFE mechanism",
+      "source_roles": ["LIFE04B1", "LIFE08-BOUNDARY-CYLINDER"]
+    },
+    {
+      "id": "APP-17",
+      "title": "ROOT7 and epsilon7 alias gate",
+      "class": "alias-and-namespace-control",
+      "input": {"vector": [2, 1, 1, 1], "candidate_alias": "epsilon7"},
+      "operator": "compute norm and search the bound ROOT7 source contract for the candidate alias",
+      "expected": {
+        "norm_squared": 7,
+        "norm": "sqrt(7)",
+        "root7_axis_identifiable": false,
+        "epsilon7_source_definition_found": false,
+        "result": "HOLD_UNRESOLVED_ALIAS"
+      },
+      "required_witness": ["dated epsilon7 source definition", "typed map to ROOT7", "operator and return rule"],
+      "application": "keep exact ROOT7 arithmetic while preventing an unsupported epsilon7 identity",
+      "source_roles": ["NEXAH:NAVIGATOR:ROOT7:LOOK:2026-10-08", "MOD:TESSAREC", "MOD:NUMBER_VIEW_SUITE"]
+    },
+    {
+      "id": "APP-18",
+      "title": "ILAU typed residual completeness gate",
+      "class": "residual-schema",
+      "input": {
+        "required_fields": ["point", "direction", "curvature", "history"],
+        "provided_fields": ["point", "direction"]
+      },
+      "operator": "typed Return/Residual completeness audit",
+      "expected": {
+        "missing_fields": ["curvature", "history"],
+        "complete": false,
+        "result": "HOLD_MISSING_WITNESS"
+      },
+      "required_witness": ["curvature residual", "history/provenance address"],
+      "application": "fail-closed handoff between visual orientation instruments and machine-readable Return records",
+      "source_roles": ["ILAU:RETURN_RESIDUAL_LOCK", "ILAU:FROM_GAP_TO_RETURN"]
+    }
+  ],
+  "identity_reuse": [
+    "NN:A0_JOINT_APPLICATION_RETURN_PROTOCOL",
+    "ART:A0:MATHEMATICAL_JOINTS",
+    "MOD:TESSAREC",
+    "MOD:NUMBER_VIEW_SUITE",
+    "NN:MRB_ACR_NCS_Q106_RETURN_CROSSWALK",
+    "NEXAH:NAVIGATOR:ROOT7:LOOK:2026-10-08",
+    "NEXAH_LIFE_BOUNDARY_CYLINDER_LIFE08_2026_10_11",
+    "A0OE:PASCAL_QUATERNION_TEST"
+  ],
+  "claim_ceiling": "Exact finite representation, Return, residual and matched-control engineering only. LIFE, E8, ROOT7, epsilon7, Q4, Pascal and ILAU remain non-identical source domains; no new Study, E8/LIFE mechanism, epsilon7 identity, physical law, canonical count change or publication authority."
+}

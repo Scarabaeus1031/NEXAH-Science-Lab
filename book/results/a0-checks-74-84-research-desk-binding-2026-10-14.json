@@ -1,0 +1,101 @@
+{
+  "schema": "nexah.a0.research-desk-check-binding",
+  "version": "1.0.0",
+  "record_id": "A0_CHECKS_74_84_RESEARCH_DESK_BINDING_2026_10_14",
+  "date": "2026-10-14",
+  "status": "BOUND_TO_EXISTING_A0_RESEARCH_DESK",
+  "desk": {
+    "source_id": "NEXAH_A0_RESEARCH_DESK",
+    "surface": "A0_BOOK/A0_RESEARCH_DESK.html",
+    "action": "EXTEND_EXISTING_IDENTITY",
+    "new_navigator_identity": false,
+    "new_navigator_relation": false
+  },
+  "scope": {
+    "checks": [74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84],
+    "purpose": "Return the recent number/operator tests to the existing A0 Research Desk as a typed, machine-readable test chain.",
+    "claim_policy": "Exact identities and bounded operator results remain distinct from visual analogy, glyph language, external significance and physical mechanism."
+  },
+  "chains": [
+    {
+      "id": "A0_DESK_CHAIN_CASSINI_SELECTOR",
+      "checks": [74, 75],
+      "title": "Cassini / Euler parity selector",
+      "status": "VALIDATED_BOUNDED_FORMAL_RESULT_STOP_REACHED",
+      "finding": "The Cassini sign is an exact two-channel selector, but parity alone reproduces every selected Euler output.",
+      "boundary": "No deeper Fibonacci-to-Euler generator is established.",
+      "protocol": "74_A0_CASSINI_EULER_PARITY_SELECTOR_PROTOCOL_2026-10-13.md",
+      "result_note": "75_A0_CASSINI_EULER_PARITY_SELECTOR_RESULT_2026-10-13.md",
+      "result": "A0_BOOK/results/a0-cassini-euler-parity-selector-r1-result-2026-10-13.json",
+      "lock": "A0_BOOK/assets/a0-cassini-euler-parity-selector-r1-result-lock.json"
+    },
+    {
+      "id": "A0_DESK_CHAIN_PRIME_TRIPLE_DECODER",
+      "checks": [76, 77],
+      "title": "41 prime-triple decoder",
+      "status": "VALIDATED_BOUNDED_FORMAL_DERIVATION_STOP_REACHED",
+      "finding": "The declared double path uniquely returns (P1,P2,P4)=(2,3,7), while the two-point affine decoder is saturated.",
+      "boundary": "Internal uniqueness is exact; external significance remains untested and post-hoc.",
+      "protocol": "76_A0_CASSINI_41_PRIME_TRIPLE_DECODER_PROTOCOL_2026-10-13.md",
+      "result_note": "77_A0_CASSINI_41_PRIME_TRIPLE_DECODER_RESULT_2026-10-13.md",
+      "result": "A0_BOOK/results/a0-cassini-41-prime-triple-decoder-r1-result-2026-10-13.json",
+      "lock": "A0_BOOK/assets/a0-cassini-41-prime-triple-decoder-r1-result-lock.json"
+    },
+    {
+      "id": "A0_DESK_CHAIN_ZITHER_CARRY_RING",
+      "checks": [78, 79, 80],
+      "title": "11–12–13 zither / decimal carry / T64 ring",
+      "status": "VALIDATED_EXACT_BOUNDED_CHAIN",
+      "finding": "The chain fixes 181,202,223 with step 21, proves the 383/404 identities, and cross-checks 137→8 under T64 on Z365.",
+      "boundary": "Palindrome and loop/glyph readings are representation-dependent; typed appearances of 8 are not identified.",
+      "protocol": "78_A0_ZITHER_11_12_13_DECIMAL_CARRY_C64_PROTOCOL_2026-10-13.md",
+      "result_note": "79_A0_ZITHER_11_12_13_DECIMAL_CARRY_C64_RESULT_2026-10-13.md",
+      "crosscheck_note": "80_A0_T64_137_TO_8_RING_CROSSCHECK_2026-10-13.md",
+      "result": "A0_BOOK/results/a0-zither-11-12-13-decimal-carry-c64-r1-result-2026-10-13.json",
+      "crosscheck": "A0_BOOK/results/a0-t64-137-to-8-ring-crosscheck-2026-10-13.json",
+      "lock": "A0_BOOK/assets/a0-zither-11-12-13-decimal-carry-c64-r1-result-lock.json",
+      "crosscheck_lock": "A0_BOOK/assets/a0-t64-137-to-8-ring-crosscheck-lock.json"
+    },
+    {
+      "id": "A0_DESK_CHAIN_MOD_CRT_OPERATOR_SYSTEM",
+      "checks": [81, 82],
+      "title": "MOD2501 / CRT two-channel operator system",
+      "status": "VALIDATED_BOUNDED_ENGINEERING_RESULT_STOP_REACHED",
+      "finding": "CRT split/bind and registered operators work on Z365 and Z2501; the M64 orbit structure changes with the carrier.",
+      "boundary": "A modulus is a declared carrier and operator context, not an intrinsic meaning of a numeral.",
+      "protocol": "81_A0_MOD2501_CRT_TWO_CHANNEL_OPERATOR_PROTOCOL_2026-10-13.md",
+      "result_note": "82_A0_MOD2501_CRT_TWO_CHANNEL_OPERATOR_RESULT_2026-10-13.md",
+      "result": "A0_BOOK/results/a0-mod2501-crt-two-channel-operator-r1-result-2026-10-13.json",
+      "lock": "A0_BOOK/assets/a0-mod2501-crt-two-channel-operator-r1-result-lock.json",
+      "registry": "A0_BOOK/operator-registry/modular-crt-operator-registry-v0.1.json"
+    },
+    {
+      "id": "A0_DESK_CHAIN_M64_JANUS_TRANSFER",
+      "checks": [83, 84],
+      "title": "M64 Janus-sector transfer",
+      "status": "VALIDATED_BOUNDED_ENGINEERING_RESULT_STOP_REACHED",
+      "finding": "The mirror equalizer has size gcd(65,m): five states on Z365 and only zero on Z2501.",
+      "boundary": "The nontrivial Janus sector is carrier-bound; it does not transfer as an intrinsic property of 64.",
+      "protocol": "83_A0_M64_JANUS_SECTOR_TRANSFER_PROTOCOL_2026-10-14.md",
+      "result_note": "84_A0_M64_JANUS_SECTOR_TRANSFER_RESULT_2026-10-14.md",
+      "machine_protocol": "A0_BOOK/assets/a0-m64-janus-sector-transfer-r1-protocol.json",
+      "result": "A0_BOOK/results/a0-m64-janus-sector-transfer-r1-result-2026-10-14.json",
+      "lock": "A0_BOOK/assets/a0-m64-janus-sector-transfer-r1-result-lock.json",
+      "verdict": "CARRIER_BOUND_JANUS_SECTOR_AT_365_NO_NONTRIVIAL_TRANSFER_TO_2501"
+    }
+  ],
+  "method_guards": {
+    "role": "POINTER_ONLY_NOT_REANALYZED_HERE",
+    "evidence_lineage_binder": "../../SCIENCE_LAB/NAVIGATION/EVIDENCE/A0_ORIENTATION_EVIDENCE_LINEAGE_2026-10-10/A0_ORIENTATION_EVIDENCE_LINEAGE_BINDER_V1_2026-10-10.json",
+    "emp03": "Separate observable invariants from representation domains and boundary crossings.",
+    "emp04": "Keep partition, state and label as orthogonal layers.",
+    "emp06": "Contradiction triggers diagnosis and bounded revision rather than claim inflation."
+  },
+  "governance": {
+    "authority": "SOURCE_RECORDS_AND_EXISTING_A0_PACKAGE",
+    "desk_role": "CURATED_READ_ONLY_ORIENTATION",
+    "study_activation": false,
+    "claim_promotion": false,
+    "publication_authorized": false
+  }
+}
