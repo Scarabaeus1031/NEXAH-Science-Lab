@@ -23,7 +23,7 @@ for (const token of [
   'C · Connect'
 ]) assert.ok(navigation.includes(token), `navigation contract missing: ${token}`);
 
-assert.match(navigation, /entry: "A0_RESEARCH_DESK\.html"/);
+assert.match(navigation, /entry: "A0_SCIENCE\.html"/);
 assert.match(navigation, /A0_SCIENTIFIC_POSITION_REPORT\.html/);
 assert.match(navigation, /A0_RESEARCH_DESK\.html#achievements-reader/);
 

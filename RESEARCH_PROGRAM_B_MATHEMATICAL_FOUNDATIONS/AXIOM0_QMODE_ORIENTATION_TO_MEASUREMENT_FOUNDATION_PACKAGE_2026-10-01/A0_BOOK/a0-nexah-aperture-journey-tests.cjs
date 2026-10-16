@@ -99,7 +99,7 @@ assert.match(html, /id="toggleWorldLoop"/);
 assert.match(html, /OPEN THIS WORLD/);
 assert.match(html, /THE GREY LENS/);
 assert.match(html, /The boundary<br>is not the exit/);
-assert.match(html, /class="grey-door science-door" href="A0_RESEARCH_DESK\.html"/);
+assert.match(html, /class="grey-door science-door" href="A0_SCIENCE\.html"/);
 assert.match(html, /class="grey-door builder-door" href="[^"]*BUILDER_STATUS_REPORT\.html"/);
 assert.match(html, /NEXAH_C_CONNECT\.html/);
 

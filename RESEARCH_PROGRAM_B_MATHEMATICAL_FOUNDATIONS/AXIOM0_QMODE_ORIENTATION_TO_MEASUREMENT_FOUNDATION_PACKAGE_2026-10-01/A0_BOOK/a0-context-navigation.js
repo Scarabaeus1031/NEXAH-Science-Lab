@@ -28,13 +28,8 @@
       ]
     },
     {
-      key: "science", code: "S", label: "Science", description: "Begriffe, Methode und Evidenz", entry: "A0_RESEARCH_DESK.html",
+      key: "science", code: "S", label: "Science", description: "Begriffe, Methode und Evidenz", entry: "A0_SCIENCE.html",
       sections: [
-        { label: "Authority & Currentness", items: [
-          ["A0_RESEARCH_DESK.html", "Science Desk", "A0-Autorität, Arbeitsstand und nächste Gates"],
-          ["A0_SCIENTIFIC_POSITION_REPORT.html", "Scientific Position", "Wo NEXAH wissenschaftlich steht"],
-          ["A0_ORIENTATION_CONTROLLER_BENCH.html", "Orientation Controller Bench", "Apertur, Projektion, Zustand und Return"]
-        ]},
         { label: "Lesen & Methode", items: [
           ["A0_SCIENCE.html", "A0 Science", "Ruhiger wissenschaftlicher Einstieg"],
           ["index.html", "A0 Fundamentals", "Buch und Kapitelübersicht"],
@@ -62,6 +57,11 @@
           ["A0_RETURN_WITHOUT_IDENTITY_PAPER.html", "Paper C · Return", ""],
           ["A0_NEXAH_FAMILY_METHOD_WHITE_PAPER.html", "Paper E · Family Method", ""],
           ["A0_TESSAREC_FRAME_ENVELOPE_OBSERVER_PAPER.html", "Paper F · Tessarec", ""]
+        ]},
+        { label: "Authority & Currentness · Arbeitsfläche", items: [
+          ["A0_RESEARCH_DESK.html", "Science Desk", "A0-Autorität, Arbeitsstand und nächste Gates"],
+          ["A0_SCIENTIFIC_POSITION_REPORT.html", "Scientific Position", "Wo NEXAH wissenschaftlich steht"],
+          ["A0_ORIENTATION_CONTROLLER_BENCH.html", "Orientation Controller Bench", "Apertur, Projektion, Zustand und Return"]
         ]}
       ]
     },
