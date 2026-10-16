@@ -69,6 +69,7 @@
       key: "builder", code: "B", label: "Builder", description: "Instrumente bauen und testen", entry: "A0_BUILDER_TOY_STORE.html",
       sections: [
         { label: "Start & Atlanten", items: [
+          ["A0_RESEARCH_DESK.html#builder", "Builder · Tools & Anwendungen", "Bewertete Toolbox, Neuerungen und Einbauorte"],
           ["A0_BUILDER_TOY_STORE.html", "Builder Toy Store", "Werkzeug-Einstieg"],
           ["A0_MATHEMATICAL_JOINTS.html", "Mathematical Joints", "Mathematikwerkstatt"],
           ["A0_FIELDS_AND_JOINTS_ATLAS.html", "Fields & Joints", "Atlas"],
