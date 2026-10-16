@@ -15,7 +15,7 @@
       sections: [
         { label: "Beginnen", items: [
           ["A0_NEXAH_APERTURE_JOURNEY.html", "Aperture Journey", "Geführter Lesepfad"],
-          ["A0_LIVING_BLUEPRINT.html#orientation-shelf", "Living Blueprint · Gesamtregal", "Tools, Grids, Operatoren und Crosswalk"]
+          ["A0_LIVING_BLUEPRINT.html#situated-orientation", "Living Blueprint · Gesamtkarte", "Leitgedanke, Werkzeugregal und Crosswalk"]
         ]},
         { label: "Szenen · Deep Links", compact: true, items: [
           ["A0_RAINBOW_PURPLE_RAIN.html", "Rainbow / Purple Rain", "Sieben Erscheinungsfenster"],
