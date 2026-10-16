@@ -99,7 +99,8 @@ assert.match(html, /id="toggleWorldLoop"/);
 assert.match(html, /OPEN THIS WORLD/);
 assert.match(html, /THE GREY LENS/);
 assert.match(html, /The boundary<br>is not the exit/);
-assert.match(html, /A0_BUILDER_TOY_STORE\.html/);
+assert.match(html, /class="grey-door science-door" href="A0_RESEARCH_DESK\.html"/);
+assert.match(html, /class="grey-door builder-door" href="[^"]*BUILDER_STATUS_REPORT\.html"/);
 assert.match(html, /NEXAH_C_CONNECT\.html/);
 
 console.log(JSON.stringify({status:'PASS',assertions:90,viewId:record.view_id,stages:model.STAGES.map(stage=>stage.key),worldLoop:model.WORLD_LOOP.map(room=>room.key),domains:model.DOMAIN_KEYS,boundary:'transition map only; existing views reused; no new graph relation, Study or publication'},null,2));

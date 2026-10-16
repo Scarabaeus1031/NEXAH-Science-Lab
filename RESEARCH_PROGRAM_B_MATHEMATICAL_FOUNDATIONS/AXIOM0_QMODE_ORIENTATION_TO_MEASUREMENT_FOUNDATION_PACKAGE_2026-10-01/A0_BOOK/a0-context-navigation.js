@@ -180,8 +180,33 @@
       links.forEach((link) => section.append(link));
       body.append(section);
     };
-    addLinks("Auf dieser Seite", localLinks);
-    addLinks("Verwandte Wege", contextualLinks);
+    if (quietEntry) {
+      const journeyIndex = [
+        ["human-view", "01 · Human · die erste Frage"],
+        ["cube-view", "02 · One State · Many Views"],
+        ["invitation", "03 · Purple Rain"],
+        ["instrument", "04 · Album · neun Apertures"],
+        ["window", "05 · Live Window"],
+        ["return", "06 · Return"],
+        ["fields", "07 · Fields · die Fachgebiete"],
+        ["world-map", "08 · World Map · die Erlebnisräume"],
+        ["doors", "09 · Weiter zu Science, Builder & Connect"]
+      ].map(([id, label]) => {
+        const link = document.createElement("a");
+        link.href = `#${id}`;
+        link.textContent = label;
+        return link;
+      });
+      addLinks("Die Reise · vollständiger Index", journeyIndex);
+      addLinks("Weiterführende Einstiege", [
+        makeReaderLink(["A0_RESEARCH_DESK.html", "Science Desk", ""]),
+        makeReaderLink([readerLanes[2].entry, "Builder Startseite", ""]),
+        makeReaderLink(["NEXAH_C_CONNECT.html", "Connect", ""])
+      ]);
+    } else {
+      addLinks("Auf dieser Seite", localLinks);
+      addLinks("Verwandte Wege", contextualLinks);
+    }
     details.append(summary, body);
     pageTools.append(details);
   }
