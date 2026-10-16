@@ -37,7 +37,7 @@
     <div class="overture-route" aria-label="Bench route">
       <span><b>01</b>ORIENT</span><i>→</i><span><b>02</b>TRANSLATE</span><i>→</i><span><b>03</b>RETURN</span><i>→</i><span><b>04</b>VERIFY</span>
     </div>
-    <div class="overture-actions"><button class="primary" id="watchBenchRun">WATCH THE RUN</button><button id="enterBench">ENTER THE BENCH</button></div>
+    <div class="overture-actions"><button class="primary" id="watchBenchRun">ZUR DEMONSTRATION</button><button id="enterBench">SELBST BEDIENEN</button></div>
   </section>
 
   <section class="master-cockpit" id="masterCockpit" aria-labelledby="masterDemoTitle">
@@ -52,6 +52,7 @@
         <button class="master-start" id="masterDemoStart">START DEMONSTRATION</button>
       </div>
       <p id="masterDemoCopy">Prime address and carrier enter the bench. Every later carrier change is declared as a typed handoff.</p>
+      <p>Eigene Eingaben pausieren die Vorführung. Mit START / FORTSETZEN läuft sie bewusst weiter.</p>
       <div class="demo-signal" id="masterDemoSignal" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
       <div class="master-progress" id="masterDemoProgress" aria-label="Demonstration progress"></div>
       <div class="master-controls">
@@ -1049,7 +1050,7 @@
   function resetMasterInstruments(){
     stopMasterDemo();stopRootEngine();
     initial=C.createState();state=C.createState();edgeState=C.createEdgeState();familyThetaStep=0;goReturnPathIndex=0;defgSeriesStep=0;root838Mode='q4';rootEngineState=C.createRootSpaceEngine();
-    resetPxaJourney(true);render();renderEdgeCore();renderPascalShadow();renderFamilyOrientation();renderExperimentCorridor();renderGoReturnLab();renderRoot838();
+    resetPxaJourney(false);render();renderEdgeCore();renderPascalShadow();renderFamilyOrientation();renderExperimentCorridor();renderGoReturnLab();renderRoot838();
   }
   function executeMasterPhase(phase){
     stopPascalLensMotion();setRootEngineRunning(false);
@@ -1071,9 +1072,9 @@
   function renderMasterDemo(scroll=false,execute=false){
     const phase=masterDemoState.currentPhase,last=masterDemoState.history[masterDemoState.history.length-1];
     $('masterCockpit').dataset.running=String(masterDemoState.running);document.body.classList.toggle('demo-running',masterDemoState.running);
-    $('masterCockpit').dataset.autoTour=String(masterAutoTour);$('masterTourMode').textContent=masterAutoTour?'AUTO TOUR · LIVE':masterDemoState.running?'MANUAL RUN · LIVE':'AUTO TOUR READY';
+    $('masterCockpit').dataset.autoTour=String(masterAutoTour);$('masterTourMode').textContent=masterDemoState.running?'DEMONSTRATION · LIVE':'PAUSIERT · DU STEUERST';
     $('masterDemoCarrier').textContent=phase.carrier;$('masterDemoPhase').textContent=`${String(masterDemoState.phaseIndex).padStart(2,'0')} · ${phase.id}`;$('masterDemoTitle').textContent=phase.title;$('masterDemoCopy').textContent=phase.copy;$('masterDemoHandoff').textContent=phase.handoff;
-    $('masterDemoStart').textContent=masterDemoState.running?'PAUSE DEMONSTRATION':masterDemoState.phaseIndex===9?'REPLAY DEMONSTRATION':'START DEMONSTRATION';$('masterDemoStart').classList.toggle('running',masterDemoState.running);
+    $('masterDemoStart').textContent=masterDemoState.running?'PAUSE':masterDemoState.phaseIndex===9?'ERNEUT STARTEN':masterDemoState.history.length?'FORTSETZEN':'START DEMONSTRATION';$('masterDemoStart').classList.toggle('running',masterDemoState.running);
     $('masterDemoRecord').textContent=last?`${last.from} → ${last.to}\n${last.carrierFrom} → ${last.carrierTo}\n${last.sameCarrier?'SAME CARRIER':'TYPED HANDOFF'} · ${last.handoff}`:'READY · no transition committed';
     $('masterDemoProgress').innerHTML=C.MASTER_DEMO_PHASES.map((item,index)=>`<button data-master-phase="${index}" class="${index===masterDemoState.phaseIndex?'active':''} ${index<masterDemoState.phaseIndex?'done':''}" title="${item.title}">${String(index).padStart(2,'0')}<br>${item.id}</button>`).join('');
     const act=masterDemoState.phaseIndex<2?0:masterDemoState.phaseIndex<6?2:masterDemoState.phaseIndex<9?6:9;qsa('[data-story-phase]').forEach(button=>button.classList.toggle('active',Number(button.dataset.storyPhase)===act));
@@ -1093,14 +1094,26 @@
   function setMasterDemoRunning(running,auto=false){
     masterAutoTour=Boolean(running&&auto);
     if(running&&masterDemoState.phaseIndex===C.MASTER_DEMO_PHASES.length-1){resetMasterInstruments();masterDemoState=C.createMasterDemonstratorState({speedMs:masterDemoState.speedMs})}
-    masterDemoState=C.createMasterDemonstratorState({...masterDemoState,running:Boolean(running)});renderMasterDemo(false,running);scheduleMasterDemo();
+    masterDemoState=C.createMasterDemonstratorState({...masterDemoState,running:Boolean(running)});renderMasterDemo(false,running&&masterDemoState.phaseIndex===0&&masterDemoState.history.length===0);scheduleMasterDemo();
   }
   function stepMasterDemo(){masterAutoTour=false;stopMasterDemo();masterDemoState=C.stepMasterDemonstrator({...masterDemoState,running:false});renderMasterDemo(true,true)}
   function startMasterAutoTour(){
     if(window.matchMedia('(prefers-reduced-motion: reduce)').matches||document.hidden)return;
     resetMasterInstruments();masterDemoState=C.createMasterDemonstratorState({speedMs:Number($('masterDemoSpeed').value)});setMasterDemoRunning(true,true);
   }
-  function interruptMasterAutoTour(){if(!masterAutoTour)return;masterAutoTour=false;masterDemoState=C.createMasterDemonstratorState({...masterDemoState,running:false});stopMasterDemo();renderMasterDemo(false,false)}
+  function interruptMasterAutoTour(){masterAutoTour=false;stopMasterDemo();if(masterDemoState.running){masterDemoState=C.createMasterDemonstratorState({...masterDemoState,running:false});renderMasterDemo(false,false)}}
+  function pauseBenchAutomation(exceptControl=''){
+    if(exceptControl!=='masterDemoStart')interruptMasterAutoTour();
+    if(exceptControl!=='pxaJourneyPlay')holdPxaJourney();
+    if(exceptControl!=='rootEnginePlay'&&rootEngineState.running)setRootEngineRunning(false);
+    if(exceptControl!=='pascalLensPlay'&&pascalLensTimer)stopPascalLensMotion();
+    document.querySelector('[data-demo-phase="FOLD"]')?.classList.remove('fold-demo-motion');
+  }
+  function pauseForHumanInteraction(event){
+    if(event.isTrusted===false)return;
+    const control=event.target.closest?.('button,input,select,textarea,a');
+    pauseBenchAutomation(control?.id||'');
+  }
 
   qsa('#carrier,#familyRole,#position,[data-prime-index]').forEach(el=>el.addEventListener('input',syncInputsToState));
   qsa('[data-state-relation]').forEach(button=>button.addEventListener('click',()=>{stateRelationMode=button.dataset.stateRelation;render()}));
@@ -1156,15 +1169,15 @@
   $('masterDemoProgress').addEventListener('click',event=>{const button=event.target.closest('[data-master-phase]');if(!button)return;masterAutoTour=false;stopMasterDemo();masterDemoState=C.createMasterDemonstratorState({...masterDemoState,phaseIndex:Number(button.dataset.masterPhase),running:false});renderMasterDemo(true,false)});
   $('storySpine').addEventListener('click',event=>{const button=event.target.closest('[data-story-phase]');if(!button)return;interruptMasterAutoTour();masterDemoState=C.createMasterDemonstratorState({...masterDemoState,phaseIndex:Number(button.dataset.storyPhase),running:false});renderMasterDemo(true,true)});
   $('masterDemoExport').addEventListener('click',()=>downloadJson('a0-orientation-cockpit-run.json',{tool:'A0 Orientation Controller Bench · Master Demonstrator',version:C.VERSION,mode:'TYPED_HANDOFF_ORCHESTRATOR',state:masterDemoState,phases:C.MASTER_DEMO_PHASES,records:{orientation:C.stateCore(state),edge:edgeState,rootSpace:rootEngineState},boundary:'Typed handoffs coordinate distinct carriers; no carrier identity or physics claim.'}));
-  $('watchBenchRun').addEventListener('click',()=>{$('masterCockpit').scrollIntoView({behavior:'smooth',block:'start'});resetMasterInstruments();masterDemoState=C.createMasterDemonstratorState({speedMs:Number($('masterDemoSpeed').value)});setMasterDemoRunning(true,false)});
+  $('watchBenchRun').addEventListener('click',()=>{$('masterCockpit').scrollIntoView({behavior:'smooth',block:'start'})});
   $('enterBench').addEventListener('click',()=>{$('act-orient').scrollIntoView({behavior:'smooth',block:'start'})});
-  $('pxaDemonstrator').addEventListener('pointerdown',holdPxaJourney,{capture:true});
-  $('pxaDemonstrator').addEventListener('input',holdPxaJourney,{capture:true});
-  document.addEventListener('pointerdown',event=>{if(masterAutoTour&&!event.target.closest('#masterCockpit'))interruptMasterAutoTour()},{capture:true});
-  document.addEventListener('visibilitychange',()=>{if(document.hidden){interruptMasterAutoTour();holdPxaJourney()}});
+  ['pointerdown','input','change','click'].forEach(type=>document.addEventListener(type,pauseForHumanInteraction,{capture:true}));
+  document.addEventListener('keydown',event=>{if(['Tab','Enter',' ','ArrowUp','ArrowDown','ArrowLeft','ArrowRight','PageUp','PageDown','Home','End'].includes(event.key))pauseForHumanInteraction(event)},{capture:true});
+  document.addEventListener('wheel',()=>pauseBenchAutomation(),{passive:true,capture:true});
+  document.addEventListener('touchmove',()=>pauseBenchAutomation(),{passive:true,capture:true});
+  document.addEventListener('visibilitychange',()=>{if(document.hidden)pauseBenchAutomation()});
   render();renderBlind();renderEdgeCore();renderEdgeBlind();renderPascalShadow();renderFamilyOrientation();renderExperimentCorridor();renderGoReturnLab();renderRoot838();renderMasterDemo(false,false);renderPxaJourney();
-  if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches)setPxaJourneyRunning(true);
-  masterAutoTimer=setTimeout(startMasterAutoTour,1100);
+  // Automation starts only through an explicit play action.
 })();
 </script>
 </body>
