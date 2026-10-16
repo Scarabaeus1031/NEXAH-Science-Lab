@@ -66,9 +66,10 @@
       ]
     },
     {
-      key: "builder", code: "B", label: "Builder", description: "Instrumente bauen und testen", entry: "A0_BUILDER_TOY_STORE.html",
+      key: "builder", code: "B", label: "Builder", description: "Tools, Neuerungen und Anwendungen", entry: "../../../../../00%20EXECUTIVE/NEXAH-Mission-Control/00_OVERVIEW/BUILDER_STATUS_REPORT.html",
       sections: [
         { label: "Start & Atlanten", items: [
+          ["../../../../../00%20EXECUTIVE/NEXAH-Mission-Control/00_OVERVIEW/BUILDER_STATUS_REPORT.html", "Builder Startseite", "Was ist neu? Was kann ich nutzen? Wo ist es eingebaut?"],
           ["A0_RESEARCH_DESK.html#builder", "Builder · Tools & Anwendungen", "Bewertete Toolbox, Neuerungen und Einbauorte"],
           ["A0_BUILDER_TOY_STORE.html", "Builder Toy Store", "Werkzeug-Einstieg"],
           ["A0_MATHEMATICAL_JOINTS.html", "Mathematical Joints", "Mathematikwerkstatt"],
