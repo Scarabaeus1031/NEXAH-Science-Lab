@@ -5,7 +5,9 @@
 
 /* The Aperture Journey opens as an experience, not as a catalogue. */
 .a0-context-ready.a0-context-quiet{display:flex;justify-content:flex-start;gap:18px;padding-left:4vw;padding-right:4vw}
-.a0-context-ready.a0-context-quiet .a0-reader-lanes,.a0-context-ready.a0-context-quiet .a0-page-context,.a0-context-ready.a0-context-quiet .a0-quick-nav,.a0-context-ready.a0-context-quiet .a0-connect-link{display:none}
+.a0-context-ready.a0-context-quiet .a0-reader-lanes,.a0-context-ready.a0-context-quiet .a0-page-context,.a0-context-ready.a0-context-quiet .a0-quick-nav{display:none}
+.a0-context-quiet .a0-connect-link{display:inline-block;padding:10px;color:#9bb0b9}
+.a0-page-menu-body.a0-explore-index{left:clamp(14px,4vw,64px);right:clamp(14px,4vw,64px);width:auto;max-height:78vh;grid-template-columns:repeat(3,minmax(0,1fr));align-items:start;gap:22px;padding:22px}.a0-explore-column{min-width:0}.a0-explore-column>h2{margin:0 0 14px}.a0-explore-column>h2 a{display:block;font:750 23px/1.2 Georgia,serif;border:0;border-bottom:2px solid #259ab4;border-radius:0;padding:0 0 12px}.a0-explore-column section{margin-bottom:15px}.a0-explore-column section a{display:block;flex:1 1 100%;border-radius:6px}.a0-explore-column a strong{display:block}.a0-explore-column a span{display:block;color:#718087;font-weight:500;margin-top:3px}@media(max-width:760px){.a0-page-menu-body.a0-explore-index{grid-template-columns:1fr;gap:20px;max-height:75vh}}
 .a0-context-ready.a0-context-quiet .a0-page-tools{width:auto;padding-top:0;border-top:0;justify-content:flex-start}
 .a0-context-ready.a0-context-quiet .a0-page-menu>summary{padding:9px 13px;border:1px solid #ff4fb4;border-radius:999px;background:#ff4fb4;color:#07121a;box-shadow:0 0 22px rgba(255,79,180,.24);font-weight:850;letter-spacing:.13em;text-transform:uppercase;transition:transform .2s ease,box-shadow .2s ease}
 .a0-context-ready.a0-context-quiet .a0-page-menu>summary:hover,.a0-context-ready.a0-context-quiet .a0-page-menu>summary:focus-visible{transform:translateY(-1px);box-shadow:0 0 30px rgba(255,79,180,.42);outline:none}

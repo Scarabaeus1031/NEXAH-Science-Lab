@@ -119,7 +119,7 @@
     const link = document.createElement("a");
     link.href = href;
     link.innerHTML = `<strong>${label}</strong>${description ? `<span>${description}</span>` : ""}`;
-    if (targetFile(href) === file) link.setAttribute("aria-current", "page");
+    if (!quietEntry && targetFile(href) === file) link.setAttribute("aria-current", "page");
     return link;
   };
 
@@ -181,28 +181,26 @@
       body.append(section);
     };
     if (quietEntry) {
-      const journeyIndex = [
-        ["human-view", "01 · Human · die erste Frage"],
-        ["cube-view", "02 · One State · Many Views"],
-        ["invitation", "03 · Purple Rain"],
-        ["instrument", "04 · Album · neun Apertures"],
-        ["window", "05 · Live Window"],
-        ["return", "06 · Return"],
-        ["fields", "07 · Fields · die Fachgebiete"],
-        ["world-map", "08 · World Map · die Erlebnisräume"],
-        ["doors", "09 · Weiter zu Science, Builder & Connect"]
-      ].map(([id, label]) => {
-        const link = document.createElement("a");
-        link.href = `#${id}`;
-        link.textContent = label;
-        return link;
+      body.classList.add("a0-explore-index");
+      readerLanes.forEach((lane) => {
+        const column = document.createElement("div");
+        column.className = "a0-explore-column";
+        const heading = document.createElement("h2");
+        const entry = document.createElement("a");
+        entry.href = lane.entry;
+        entry.textContent = `${lane.label} →`;
+        heading.append(entry);
+        column.append(heading);
+        lane.sections.forEach((section) => {
+          const group = document.createElement("section");
+          const label = document.createElement("h3");
+          label.textContent = section.label;
+          group.append(label);
+          section.items.forEach((item) => group.append(makeReaderLink(item)));
+          column.append(group);
+        });
+        body.append(column);
       });
-      addLinks("Die Reise · vollständiger Index", journeyIndex);
-      addLinks("Weiterführende Einstiege", [
-        makeReaderLink(["A0_RESEARCH_DESK.html", "Science Desk", ""]),
-        makeReaderLink([readerLanes[2].entry, "Builder Startseite", ""]),
-        makeReaderLink(["NEXAH_C_CONNECT.html", "Connect", ""])
-      ]);
     } else {
       addLinks("Auf dieser Seite", localLinks);
       addLinks("Verwandte Wege", contextualLinks);
