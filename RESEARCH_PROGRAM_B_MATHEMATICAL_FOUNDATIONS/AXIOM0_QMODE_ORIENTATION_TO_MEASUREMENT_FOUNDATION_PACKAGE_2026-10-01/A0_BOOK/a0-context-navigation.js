@@ -15,7 +15,7 @@
       sections: [
         { label: "Beginnen", items: [
           ["A0_NEXAH_APERTURE_JOURNEY.html", "Aperture Journey", "Geführter Lesepfad"],
-          ["A0_LIVING_BLUEPRINT.html", "Living Blueprint", "Orientierungskarte"]
+          ["A0_LIVING_BLUEPRINT.html#orientation-shelf", "Living Blueprint · Gesamtregal", "Tools, Grids, Operatoren und Crosswalk"]
         ]},
         { label: "Szenen · Deep Links", compact: true, items: [
           ["A0_RAINBOW_PURPLE_RAIN.html", "Rainbow / Purple Rain", "Sieben Erscheinungsfenster"],
@@ -32,6 +32,7 @@
       sections: [
         { label: "Lesen & Methode", items: [
           ["A0_SCIENCE.html", "A0 Science", "Ruhiger wissenschaftlicher Einstieg"],
+          ["A0_LIVING_BLUEPRINT.html#orientation-shelf", "Gesamtregal & Crosswalk", "Träger, Operatoren, Linsen und Return"],
           ["A0_NEXAH_RESEARCH_METHOD.html", "Research Method", "Geführter Prüf- und Vergleichsweg"],
           ["A0_METHOD.html", "About / Method", "Vertiefende Methodenkarte"],
           ["LAB_ORIENTATION_MACHINE.html", "Orientation Machine", "Interaktive Orientierung"]
@@ -69,6 +70,7 @@
       key: "builder", code: "B", label: "Builder", description: "Tools, Neuerungen und Anwendungen", entry: "../../../../../00%20EXECUTIVE/NEXAH-Mission-Control/00_OVERVIEW/BUILDER_STATUS_REPORT.html",
       sections: [
         { label: "Start & Atlanten", items: [
+          ["A0_LIVING_BLUEPRINT.html#orientation-shelf", "Gesamtregal & Crosswalk", "Welches Werkzeug macht was?"],
           ["../../../../../00%20EXECUTIVE/NEXAH-Mission-Control/00_OVERVIEW/BUILDER_STATUS_REPORT.html", "Builder Startseite", "Was ist neu? Was kann ich nutzen? Wo ist es eingebaut?"],
           ["A0_RESEARCH_DESK.html#builder", "Builder · Tools & Anwendungen", "Bewertete Toolbox, Neuerungen und Einbauorte"],
           ["A0_BUILDER_TOY_STORE.html", "Builder Toy Store", "Werkzeug-Einstieg"],

@@ -31,11 +31,12 @@
   </style>
   <link rel="stylesheet" href="a0-context-navigation.css?rev=reader-lanes-20261015">
   <link rel="stylesheet" href="a0-blue-body-topology-atlas.css?rev=atari-prototype-20261015">
+  <link rel="stylesheet" href="a0-orientation-shelf.css">
 </head>
 <body>
   <header class="top"><a class="brand" href="index.html">NEXAH · A0</a><nav><a href="#blue-body-topology">Topology Atlas</a><a href="#utg-map">UTG Ordnung</a><a href="#tube">Rohrpost</a><a href="#integration-crosswalk">Crosswalk</a><a href="#ghost-grid">Ghost Grid</a><a href="#phase-hypothesis">Hypothese</a><a href="#view-coupling">Coupling</a><a href="#black-sun-big-moon-orientation">Black Sun / Big Moon</a><a href="#tracks">Zwei Lesespuren</a><a href="#rooms">Module</a><a href="#open-questions">Offene Fragen</a><a href="#boundary">Grenzen</a></nav></header>
   <section class="hero">
-    <div><p class="kicker">A0 mathematical orientation map · source-bound</p><h1>The Living<em>Blueprint.</em></h1><p class="lead">Eine interaktive Orientierungskarte für Carrier, Aperture, Projection, Envelope, Seam, Channel und Return. Nicht acht lose Räume, sondern ein Transportweg: Derselbe adressierte Record passiert verschiedene Fenster, Hüllen und Grenzen. Was unterwegs verändert wird, muss sichtbar bleiben. Was zurückkehrt, muss seine Herkunft behalten.</p><div class="hero-rule">One carrier · many rooms · typed joints · declared return</div></div>
+    <div><p class="kicker">A0 · Gesamtübersicht &amp; Crosswalk · source-bound</p><h1>The Living<em>Blueprint.</em></h1><p class="lead">Das gemeinsame Regal für Träger und Grids, Operatoren, modulare Linsen, Körperansichten und Return. Jedes Werkzeug hat eine Aufgabe, einen Eingang und einen Ausgang. Der Crosswalk zeigt, wo die Werkzeuge zusammenarbeiten und welche Verbindung noch offen ist.</p><div class="hero-rule">Declared carriers · clear roles · typed joints · source-bound return</div><div class="controls" style="margin-top:22px"><a class="button primary" href="#orientation-shelf">Gesamtregal öffnen ↓</a><a class="button" href="#tube">Tube · der Ablauf ↓</a></div></div>
     <div class="hero-map" aria-label="Schematische Rohrpost zwischen Innenraum, Membran und äußerer Hülle">
       <svg viewBox="0 0 720 470" role="img">
         <defs><linearGradient id="heroGradient" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#39d5ef"/><stop offset=".5" stop-color="#ffc94d"/><stop offset="1" stop-color="#f35fa7"/></linearGradient></defs>
@@ -47,6 +48,16 @@
     </div>
   </section>
   <main>
+    <section id="orientation-shelf" class="orientation-shelf" aria-labelledby="shelfTitle">
+      <header class="shelf-heading"><div><p class="label">DER GESAMTÜBERBLICK · BESTEHENDE TOOLS, KLARE AUFGABEN</p><h2 id="shelfTitle">Ein Regal.<br>Viele Ansichten.</h2></div><div><p>Was ist der Träger? Was verändert ihn? Welche Ansicht entsteht? Und was kommt zurück? Hier stehen die vorhandenen Werkzeuge nach ihrer Aufgabe zusammen.</p><a href="#tube">Zur Tube · Carrier bis Return ↓</a></div></header>
+      <div class="shelf-source"><span>QUELLE</span><strong>Ein deklarierter Ausgangspunkt</strong><p>Die Mod-Kacheln lesen dieselben Zahlen 0–59. Die Werkzeuge darunter besitzen jeweils ihren eigenen, ausdrücklich benannten Träger.</p></div>
+      <div id="shelfModLenses" class="shelf-mods" aria-label="Modulare Ansichten der Zahlen 0 bis 59"></div>
+      <div class="shelf-coordinate-key"><strong>BASE ≠ MOD ≠ GRID ≠ MODE</strong><p>Base schreibt eine Zahl als Ziffernwort. Mod liefert einen Rest. Ein Grid ordnet Adressen räumlich an. Ein Mode gehört zu einem benannten Operator. Ein Modul ist ein Werkzeugbaustein.</p><a href="A0_PINK_DIAMOND_GRID_ATLAS.html#representationMode">Base · Mod · Grid · CRT im Grid Atlas →</a><a href="../../../SCIENCE_LAB/NAVIGATION/APP/index.html#prime-base-mode">Prime · Base · Mode · vorhandener Research Atlas →</a></div>
+      <div class="shelf-controls"><label for="shelfSearch">Werkzeug oder Aufgabe suchen<input id="shelfSearch" type="search" placeholder="z. B. Mathfield, Grid, Phase, Innen, Return …"></label><span id="shelfCount" role="status"></span></div>
+      <div id="shelfRows" class="shelf-rows"></div>
+      <p id="shelfEmpty" hidden>Kein Eintrag für diese Suche. Versuche eine Aufgabe wie „Grid“, „Operator“ oder „Return“.</p>
+      <aside class="shelf-map-note"><strong>Wie die Reihen zusammenarbeiten</strong><p>Träger / Grid → deklarierter Operator → Projektion / sichtbare Form → Vergleich / Fuge → Return mit Quelle und Residuum. Die Reihen sind Arbeitskategorien vorhandener Instrumente; F1–F7 bleiben die bestehenden funktionalen Familien.</p><p>Torus, Möbiusband und Klein-Flasche haben unterschiedliche Verklebungen. Ihre Platzierung im selben Regal macht sie nicht zu Ansichten desselben Trägers. Belt-Trick und Zwei-Band-Verklebung bleiben getrennte Vergleichsfragen.</p></aside>
+    </section>
     <section class="topology-atlas" id="blue-body-topology" aria-labelledby="topologyAtlasTitle">
       <header class="topology-atlas__intro">
         <div>
@@ -365,6 +376,7 @@
     </section>
   </main>
   <footer class="foot"><span>A0-VIEW-LIVING-BLUEPRINT · INTERNAL SOURCE-BOUND LENS</span><span>NO NEW STUDY · NO NEW GRAPH RELATION · NOT PUBLIC</span></footer>
+  <script src="a0-orientation-shelf.js"></script>
   <script src="a0-context-navigation.js?rev=reader-lanes-20261015"></script>
   <script src="a0-blue-body-topology-atlas.js?rev=atari-prototype-20261015"></script>
   <script>

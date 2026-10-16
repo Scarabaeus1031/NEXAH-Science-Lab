@@ -181,10 +181,10 @@ assert.match(html, /Read-only desk projection/);
 assert.match(html, /Keine lokale Task-Autorität/);
 assert.match(html, /A0-BL-025 · Grid–Fold–Channel/);
 assert.match(html, /A0-BL-051 · Reconstruction \/ Return/);
-assert.match(navigation, /\["A0_LIVING_BLUEPRINT\.html", "Living Blueprint", "Orientierungskarte"\]/);
+assert.match(navigation, /\["A0_LIVING_BLUEPRINT\.html#orientation-shelf", "Living Blueprint · Gesamtregal"/);
 assert.match(navigation, /label: "Human", description: "Fragen, Bilder und Erfahrung"/);
 assert.match(navigation, /label: "Science", description: "Begriffe, Methode und Evidenz"/);
-assert.match(navigation, /label: "Builder", description: "Instrumente bauen und testen"/);
+assert.match(navigation, /label: "Builder", description: "Tools, Neuerungen und Anwendungen"/);
 assert.match(navigation, /pageContext\.innerHTML = `<span>\$\{currentLane\.label\} Reader<\/span>/);
 assert.equal((html.match(/title:'/g) || []).length, 8);
 
