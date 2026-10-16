@@ -5,6 +5,7 @@ const path = require('node:path');
 const html = fs.readFileSync(path.join(__dirname, 'A0_RESEARCH_DESK.html'), 'utf8');
 const hero = html.match(/<section class="hero"[\s\S]*?<\/section>/)?.[0] || '';
 const topNav = html.match(/<header class="top">[\s\S]*?<\/header>/)?.[0] || '';
+const currentWork = html.match(/<section class="desk-current"[\s\S]*?<section class="spread" id="method">/)?.[0] || '';
 const inlineScript = html.match(/<script>\s*([\s\S]*?)\s*<\/script>/)?.[1] || '';
 
 assert.match(hero, /A0 Science Desk/);
@@ -15,6 +16,7 @@ assert.doesNotMatch(hero, /Tessarec Validation/);
 assert.doesNotMatch(hero, /A0 Science Einstieg/);
 assert.doesNotMatch(hero, /Achievements ansehen/);
 assert.doesNotMatch(hero, />Arbeitsstand<|href="#flagships"/);
+assert.match(topNav, /#current-work/);
 assert.match(topNav, /#tests/);
 assert.match(topNav, /#workbench/);
 assert.match(topNav, /#backlog/);
@@ -30,6 +32,14 @@ assert.match(html, /backlogSection\.before\(workbench\)/);
 assert.match(html, /Active research cycles/);
 assert.match(html, /Structure freeze/);
 assert.match(html, /Not authorized/);
+assert.match(currentWork, /Aktuell im Desk/);
+assert.equal((currentWork.match(/<article class="current-work-card/g) || []).length, 4);
+assert.match(currentWork, /Orientation Controller Bench/);
+assert.match(currentWork, /A0-BL-054/);
+assert.match(currentWork, /A0-BL-025/);
+assert.match(currentWork, /Three Lissajous · 3 \+ 1 Seam Mode/);
+assert.match(currentWork, /Es bedeutet nicht <code>ACTIVE<\/code>/);
+assert.match(currentWork, /Lab-Zähler bleibt bei <code>0<\/code>/);
 assert.match(html, /id="lissajous-seam-mode-return"/);
 assert.match(html, /Drei Projektionen \+ ein Seam-Ereignis/);
 assert.match(html, /D=0 ⇔ s₁=s₂=s₃/);
@@ -41,9 +51,9 @@ assert.doesNotThrow(() => new Function(inlineScript));
 
 console.log(JSON.stringify({
   status: 'PASS',
-  assertions: 32,
+  assertions: 41,
   surface: 'A0_RESEARCH_DESK',
-  firstWorkSection: '02 · Tests & Lücken',
+  firstWorkSection: '01 · Aktuell im Desk',
   families: 7,
   identity: 'existing A0 desk and tool identities reused; no new route or relation'
 }, null, 2));
