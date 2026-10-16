@@ -32,12 +32,12 @@
       sections: [
         { label: "Lesen & Methode", items: [
           ["A0_SCIENCE.html", "A0 Science", "Ruhiger wissenschaftlicher Einstieg"],
-          ["index.html", "A0 Fundamentals", "Buch und Kapitelübersicht"],
           ["A0_NEXAH_RESEARCH_METHOD.html", "Research Method", "Geführter Prüf- und Vergleichsweg"],
           ["A0_METHOD.html", "About / Method", "Vertiefende Methodenkarte"],
           ["LAB_ORIENTATION_MACHINE.html", "Orientation Machine", "Interaktive Orientierung"]
         ]},
         { label: "Kapitel 01–08", compact: true, items: [
+          ["index.html", "A0 Fundamentals →", "Übersichtsseite öffnen · Buch & Kapitel"],
           ["01_FROM_LINE_TO_READOUT.html", "01 · Line to Readout", ""],
           ["02_POINT_LINE_COORDINATE.html", "02 · Punkt, Linie, Koordinate", ""],
           ["03_THREE_POSITIONS_SEAM_RETURN.html", "03 · Position, Naht, Return", ""],
