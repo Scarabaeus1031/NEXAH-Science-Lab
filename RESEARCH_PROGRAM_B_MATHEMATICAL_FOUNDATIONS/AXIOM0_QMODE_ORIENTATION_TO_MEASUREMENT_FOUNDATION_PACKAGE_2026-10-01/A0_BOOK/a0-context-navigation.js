@@ -12,25 +12,34 @@
     {
       key: "human", code: "H", label: "Human", description: "Fragen, Bilder und Erfahrung",
       entry: "A0_NEXAH_APERTURE_JOURNEY.html#human-view",
-      items: [
-        ["A0_NEXAH_APERTURE_JOURNEY.html", "Aperture Journey", "Geführter Einstieg"],
-        ["A0_LIVING_BLUEPRINT.html", "Living Blueprint", "Orientierungskarte"],
-        ["A0_RAINBOW_PURPLE_RAIN.html", "Rainbow / Purple Rain", "Sieben Erscheinungsfenster"],
-        ["A0_NEWTON_GOETHE_OBSERVER_LENS.html", "Observer Lens", "Quelle, Relation, Erscheinung"],
-        ["A0_THE_LIVING_INTERIOR.html", "The Living Interior", "Innerer Rundgang"],
-        ["A0_BLACK_SUN_BIG_MOON.html", "Black Sun / Big Moon", "Zwei Seiten der Sichtbarkeit"],
-        ["A0_NEON_TRAP_DOOR.html", "NEON / Trap Door", "Übergang und Rückkehr"],
-        ["A0_BLUE_PINK_DODECA_CELL_RETURN.html", "Blue / Pink Cell Return", "Visuelles Zellenregister"]
+      sections: [
+        { label: "Beginnen", items: [
+          ["A0_NEXAH_APERTURE_JOURNEY.html", "Aperture Journey", "Geführter Lesepfad"],
+          ["A0_LIVING_BLUEPRINT.html", "Living Blueprint", "Orientierungskarte"]
+        ]},
+        { label: "Szenen · Deep Links", compact: true, items: [
+          ["A0_RAINBOW_PURPLE_RAIN.html", "Rainbow / Purple Rain", "Sieben Erscheinungsfenster"],
+          ["A0_NEWTON_GOETHE_OBSERVER_LENS.html", "Observer Lens", "Quelle, Relation, Erscheinung"],
+          ["A0_THE_LIVING_INTERIOR.html", "The Living Interior", "Innerer Rundgang"],
+          ["A0_BLACK_SUN_BIG_MOON.html", "Black Sun / Big Moon", "Zwei Seiten der Sichtbarkeit"],
+          ["A0_NEON_TRAP_DOOR.html", "NEON / Trap Door", "Übergang und Rückkehr"],
+          ["A0_BLUE_PINK_DODECA_CELL_RETURN.html", "Blue / Pink Cell Return", "Human View auf die Blue-Body-Familie"]
+        ]}
       ]
     },
     {
-      key: "science", code: "S", label: "Science", description: "Begriffe, Methode und Evidenz", entry: "A0_SCIENCE.html",
+      key: "science", code: "S", label: "Science", description: "Begriffe, Methode und Evidenz", entry: "A0_RESEARCH_DESK.html",
       sections: [
-        { label: "Start & Methode", items: [
-          ["A0_SCIENCE.html", "A0 Science", "Wissenschaftlicher Einstieg"],
+        { label: "Authority & Currentness", items: [
+          ["A0_RESEARCH_DESK.html", "Science Desk", "A0-Autorität, Arbeitsstand und nächste Gates"],
+          ["A0_SCIENTIFIC_POSITION_REPORT.html", "Scientific Position", "Wo NEXAH wissenschaftlich steht"],
+          ["A0_ORIENTATION_CONTROLLER_BENCH.html", "Orientation Controller Bench", "Apertur, Projektion, Zustand und Return"]
+        ]},
+        { label: "Lesen & Methode", items: [
+          ["A0_SCIENCE.html", "A0 Science", "Ruhiger wissenschaftlicher Einstieg"],
           ["index.html", "A0 Fundamentals", "Buch und Kapitelübersicht"],
-          ["A0_NEXAH_RESEARCH_METHOD.html", "Research Method", "Prüf- und Vergleichsweg"],
-          ["A0_METHOD.html", "About / Method", "Große Methodenkarte"],
+          ["A0_NEXAH_RESEARCH_METHOD.html", "Research Method", "Geführter Prüf- und Vergleichsweg"],
+          ["A0_METHOD.html", "About / Method", "Vertiefende Methodenkarte"],
           ["LAB_ORIENTATION_MACHINE.html", "Orientation Machine", "Interaktive Orientierung"]
         ]},
         { label: "Kapitel 01–08", compact: true, items: [
@@ -43,12 +52,10 @@
           ["07_EVIDENCE_COMPARISON_DECISION.html", "07 · Evidenz & Entscheidung", ""],
           ["08_RETURN_ONE_CARRIER_SEVEN_QUESTIONS.html", "08 · Return", ""]
         ]},
-        { label: "Desk & Status", items: [
-          ["A0_RESEARCH_DESK.html", "Science Desk", "Tests, Lücken, Arbeitsstand"],
-          ["A0_ORIENTATION_CONTROLLER_BENCH.html", "Orientation Controller Bench", "Apertur, Projektion, Zustand und Return"],
-          ["A0_LABORATORY.html", "Laboratory", "Runs und Resultate"],
+        { label: "Gates & Status", items: [
+          ["A0_LABORATORY.html", "Laboratory", "Admission, Runs und Resultate"],
           ["A0_RESEARCH_BACKLOG.html", "Research Backlog", "Offene Fugen"],
-          ["A0_SCIENTIFIC_POSITION_REPORT.html", "Scientific Position", "Stärke und Grenzen"]
+          ["A0_RESEARCH_DESK.html#log", "Research Log", "Chronologie und Returns"]
         ]},
         { label: "Papers", compact: true, items: [
           ["A0_SCC_003_PASCAL_PENTAGON_PAPER.html", "Paper A · SCC-003", ""],
@@ -65,7 +72,9 @@
           ["A0_BUILDER_TOY_STORE.html", "Builder Toy Store", "Werkzeug-Einstieg"],
           ["A0_MATHEMATICAL_JOINTS.html", "Mathematical Joints", "Mathematikwerkstatt"],
           ["A0_FIELDS_AND_JOINTS_ATLAS.html", "Fields & Joints", "Atlas"],
-          ["A0_FAMILY_CONNECTION_ATLAS.html", "Family Atlas", "Synchrone Ansichten"],
+          ["A0_FAMILY_CONNECTION_ATLAS.html", "Family Atlas", "Synchrone Ansichten"]
+        ]},
+        { label: "Indizes", compact: true, items: [
           ["A0_VISUAL_FIELD_LIBRARY.html", "Visual Field Library", "Visuelle Quellen"],
           ["A0_ASSET_INDEX.html", "Asset Index", "Vollständiges Repository-Inventar"]
         ]},
@@ -151,7 +160,7 @@
   const quickNav = document.createElement("nav");
   quickNav.className = "a0-quick-nav";
   quickNav.setAttribute("aria-label", "Schnellzugänge");
-  quickNav.innerHTML = '<a href="A0_RESEARCH_DESK.html"><span>S</span><strong>Science Desk</strong></a><a href="A0_ASSET_INDEX.html"><span>I</span><strong>Index</strong></a>';
+  quickNav.innerHTML = '<a href="A0_RESEARCH_DESK.html"><span>S</span><strong>Science Desk</strong></a><a href="A0_RESEARCH_DESK.html#achievements-reader"><span>A</span><strong>Achievements</strong></a><a href="A0_ASSET_INDEX.html"><span>I</span><strong>Index</strong></a>';
 
   const pageTools = document.createElement("div");
   pageTools.className = "a0-page-tools";

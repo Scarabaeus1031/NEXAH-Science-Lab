@@ -415,6 +415,25 @@ A0 Science Desk
   -> Mission Control return
 ```
 
+### 7.6 A0 Reader roles and toolbox boundary
+
+The shared A0 Reader is one inventory with three reading intentions:
+
+| Lane | Primary entrance | Subordinate material |
+|---|---|---|
+| Human | Aperture Journey; Living Blueprint | six stable experience scenes and their deep links |
+| Science | A0 Science Desk | Scientific Position, OCB, A0 Science, Method, Laboratory, Backlog, chapters and papers |
+| Builder | Builder Toy Store | full Blue Body, OCB, AXIS08, Countershot, Ihara, atlases and operator tools |
+
+Visual Field Library and Asset Index are toolbox indices. They expose sources
+and implementation inventory, but are not Human front doors or evidence
+authorities. Blue / Pink Cell Return may be read as a Human scene while its
+full Blue Body source and focused operators remain Builder/Science surfaces.
+That is a typed view relation, not an identity merge.
+
+No registered HTML was deleted. The existing 50/50 binding and all stable deep
+links remain intact; only navigation rank and reader language changed.
+
 ## 8. Connection Families
 
 The canonical `CF:F1–F7` namespace organizes relational work. It must not be
@@ -743,11 +762,12 @@ one inspectable navigation architecture without erasing their differences.
 ### A0 Orientation Controller reader
 
 1. [A0 Science Desk](../RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/A0_RESEARCH_DESK.html)
-2. [Orientation Controller Bench](../RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/A0_ORIENTATION_CONTROLLER_BENCH.html)
-3. [OCB Gap Register](../RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/100_A0_ORIENTATION_CONTROLLER_BENCH_GAP_REGISTER_2026-10-16.md)
-4. [A0 Crosswalk](../RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/07_NEXAH_CROSSWALK.md)
-5. `#a0-orientation-evidence` in the Science Navigator
-6. Mission Control currentness return; scientific authority remains at step 1
+2. [A0 Scientific Position](../RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/A0_SCIENTIFIC_POSITION_REPORT.html)
+3. [Orientation Controller Bench](../RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/A0_ORIENTATION_CONTROLLER_BENCH.html)
+4. [OCB Gap Register](../RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/100_A0_ORIENTATION_CONTROLLER_BENCH_GAP_REGISTER_2026-10-16.md)
+5. [A0 Crosswalk](../RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/07_NEXAH_CROSSWALK.md)
+6. `#a0-orientation-evidence` in the Science Navigator
+7. Mission Control currentness return; scientific authority remains at step 1
 
 ### Navigator maintainer
 

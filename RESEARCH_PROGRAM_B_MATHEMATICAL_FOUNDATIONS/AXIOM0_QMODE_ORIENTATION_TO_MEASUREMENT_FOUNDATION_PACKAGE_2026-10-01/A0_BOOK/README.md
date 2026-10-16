@@ -20,6 +20,9 @@ remain separate Owner decisions.
 
 - [A0 ASSET INDEX](A0_ASSET_INDEX.html) — searchable internal workspace inventory with visual HTML previews and direct routes to source assets
 - [A0 Science Desk](A0_RESEARCH_DESK.html) — primary A0 entry
+- [A0 Scientific Position](A0_SCIENTIFIC_POSITION_REPORT.html) — Assessment vom 13. Oktober mit Currentness Addendum vom 16. Oktober
+- [Aperture Journey](A0_NEXAH_APERTURE_JOURNEY.html) — primärer geführter Human-Lesepfad
+- [Living Blueprint](A0_LIVING_BLUEPRINT.html) — ruhige Human-/Systemkarte
 - [A0 Book](index.html) — eight-chapter Foundation reader
 - [Laboratory Orientation Machine](LAB_ORIENTATION_MACHINE.html) — direct visual orientation instrument
 - [Axial Carrier Adapter Suite](A0_AXIAL_CARRIER_ADAPTER_SUITE.html) — shared Temporal-Z adapter for all six internal flagships
@@ -44,6 +47,28 @@ The generator writes `assets/a0-asset-index-v1.json` and the file-compatible
 by `A0_BOOK_MANIFEST.json` and the Navigator coverage sidecar rather than by
 raw file discovery.
 
+## Reader consolidation · 16 October 2026
+
+The shared header now exposes three typed reading intentions instead of a flat
+list of equally weighted pages:
+
+- **Human** begins with only two primary choices: Aperture Journey and Living
+  Blueprint. Rainbow / Purple Rain, Observer Lens, The Living Interior, Black
+  Sun / Big Moon, NEON / Trap Door and Blue / Pink Cell Return remain stable
+  source-bound deep links, but are presented as scenes inside the journey.
+- **Science** begins at the A0 Science Desk, which remains the A0 scientific
+  authority. Scientific Position and OCB currentness sit directly below that
+  entrance; A0 Science, Research Method and About / Method are ordered as
+  introduction, guided method and deeper method map.
+- **Builder** keeps the full Blue Body, OCB, AXIS08, Countershot, Ihara and
+  related instruments. Visual Field Library and Asset Index are subordinate
+  indices rather than Human entrances.
+
+No HTML surface is deleted, merged or given a new identity. The change reduces
+competing entrances while preserving all registered paths, provenance and
+claim boundaries. Achievements are reachable from every shared Reader header
+and have a compact A0 return inside the Science Desk.
+
 The Science Desk now frames A0 as one series with four reader works, three
 separate paper essences and one Research Desk before
 the cultural Record / Play scene and the formal `00 · Introduction` promise:
@@ -63,9 +88,9 @@ separate from works: each preserves a research line considered worth pursuing
 toward publication, while retaining its review and publication boundary.
 Boundary Graph, Generation Corner and comparable
 interactive surfaces remain instruments inside the works. The persistent
-header keeps the Science Desk at the left and the seven works visible, the breadcrumb identifies the current
-work, and the subordinate navigation contains only that work's sections,
-related pages and declared external sources.
+header groups them by Human, Science and Builder intent; the breadcrumb
+identifies the current lane and surface, while subordinate sections preserve
+work-local pages and declared external sources.
 
 `A0_GAME_4_LIFE_PLUS_1.html` extends the existing
 `ART:A0:MATHEMATICAL_JOINTS` reader identity and points back to the closed
@@ -126,6 +151,7 @@ Chapter 08 links one complementary Lab instrument:
 
 ## Cultural and interactive layer
 
+- [A0 Living Blueprint — UTG/A0 orientation map, interactive concept spine and application crosswalk](A0_LIVING_BLUEPRINT.html#integration-crosswalk) — typed hierarchy from the existing UTG framework roof through A0, Mathematical Joints and the Pascal–Pentagon case to SCC-003, followed by the read-only route from Carrier and Aperture through Projection, Blue Body, Envelope, Seam and candidate Channel to typed Return. Its two-story crosswalk links the implemented Blue Body `16×3` interior adapter with the implemented GAME 4 LIFE +1 negative transfer control. The first supplies four synchronized views and exact Return; the second maps 48 keys to an `8×6` one-hot display, then shows why unchanged `B3/S23` requires the retained Source Key. No Study, graph relation, gate closure or publication state is created.
 - The opening Record / Play scene makes `source -> cut -> record -> replay`
   graspable through a locally hosted 3D object.
 - Chapter 06 uses the Crystal View only where projection and conditioned
@@ -143,6 +169,7 @@ Chapter 08 links one complementary Lab instrument:
 - [A0 Findings and Paper Workspace](../32_A0_FINDINGS_AND_PAPER_WORKSPACE_2026-10-11.md) — documentary editorial router for bounded findings, the existing SCC-003 paper, the separate Pascal–Rosetta D30 companion draft and parked synthesis outlines. It creates no Study, paper claim, Navigator identity or publication state.
 - [Pascal–Rosetta D30 companion paper draft](../33_A0_PASCAL_ROSETTA_D30_COMPANION_PAPER_DRAFT_2026-10-11.md) — an `R0_DOCUMENTED` formal-design note for `A0-BL-023 / 051`. It explains relational quotient return, the five-register partial D30 lift, old-gear non-factorization and the H3/E8 selection boundary without treating the fixture as an admitted result.
 - [FIELD NOTES A0 — Void, mirror center and the 101 → 202 → 404 ladder](FIELD_NOTES_A0.md) — source-bound working note; not a chapter and not reader-facing.
+- [Pentagon Double-Cover / Tube-Gate Engineering Test Package](../91_A0_PENTAGON_DOUBLE_COVER_TUBE_GATE_ENGINEERING_TEST_PACKAGE_2026-10-15.md) — source-bound A0 workbench for the two-sheet `C10 -> C5` proposal. Thirty-five finite checks bind the five `20=C(6,3)` anchors, their ten-spoke umbrella lift, paired `D1..D5 / E1..E5` sheet registers, two gate edges, one-bit Return, D30 phase separation, the typed `24` cross-carrier controls and the Hashimoto length-five-to-length-ten cycle signature without creating a Lab, `PENT-08`, geometric tiling or physical tube claim.
 - [Mobile thread reconstruction — Mathematical Fieldbook and domain lanes](MOBILE_THREAD_RECONSTRUCTION_2026-10-09.md) — edited reconstruction of the mobile continuation; records the interview origin, mathematical and physics lanes, actual research subject and provisional Physics–Biology–Chemistry architecture; not a verbatim transcript or claim promotion.
 - [A0 Fields and Joints Atlas — interactive HTML](A0_FIELDS_AND_JOINTS_ATLAS.html) · [documentary source record](../20_A0_FIELDS_AND_JOINTS_ATLAS_2026-10-10.md) — connected map of fields, mathematical views, typed joints, a joint builder, the initial ledger and source boundaries. This is a post-milestone companion, not a ninth chapter; it reuses the existing A0 package identity and has no Navigator or scientific-admission effect.
   Its Pattern Masterplate and four related HTML instruments are available as
@@ -159,9 +186,10 @@ Chapter 08 links one complementary Lab instrument:
 - [A0 Paper C — Return without identity](A0_RETURN_WITHOUT_IDENTITY_PAPER.html) · [source manuscript](../34_A0_RETURN_WITHOUT_IDENTITY_PAPER_DRAFT_2026-10-11.md) — a source-bound synthesis over five closed A0 Studies. Two code-native figures state the typed Return hierarchy and exact quaternion `C3` connector; a governed HTML atlas links Record/Play, Return/Residual, Knot/Rope and Gap/Return as illustrative sources only. The Labreports remain authoritative. This is not a new Study, Family, module, route, mechanism, submission or publication authorization.
 - [A0 Paper E — NEXAH Family Method](A0_NEXAH_FAMILY_METHOD_WHITE_PAPER.html) · [full working draft](../35_NEXAH_ORIENTATION_METHOD_POSITION_PAPER_DRAFT_2026-10-12.md) — a concise internal White Paper separating bounded results, functional models, working hypotheses and parked tests. It links the Family Atlas and existing HTML instruments, while keeping the complete draft available as a folded appendix. It reuses the A0 package identity and creates no Study, Family, Navigator identity, activation or publication authority.
 - [A0 Joint Application Demonstrator](A0_JOINT_APPLICATION_DEMONSTRATOR.html) · [RATH 49/51, Phi-5 and Shadow source audit](../52_A0_RATH_49_51_PHI5_SHADOW_JOINT_SOURCE_AUDIT_2026-10-13.md) · [CRT/QRT, Palindrome and Return engineering check](../53_A0_CRT_QRT_PALINDROME_RETURN_JOINT_ENGINEERING_CHECK_2026-10-13.md) · [Joint Application Return Protocol Suite](../54_A0_JOINT_APPLICATION_RETURN_PROTOCOL_SUITE_2026-10-13.md) — reader-facing application surface for Checks 37–54. It turns the shadow fiber, Totient profiles, CRT/QRT reconstruction, palindrome closure, collision preimages, return witnesses and source-audit controls into inspectable joints. The RATH extension preserves the exact chain `49=7²`, `φ(49)=42`, `49−42=7`; the address laboratory demonstrates unique four-coordinate CRT return, a 13-candidate `mod 13` withholding control and the common QRT `r=17` column without carrier collapse. The palindrome laboratory compares `404+707=1111`, the negative control `444+767=1211` and the neighbor `444+777=1221` over the complete frozen population of 90 three-digit palindromes. Check 54 freezes ten applications in `A0:JARP:V1`, validates 52 assertions and exposes one result vocabulary for exact returns, exact profiles, negative controls, missing witnesses and rejected namespace collapse. The typed JSON composer and protocol runner make these views reusable without turning them into a physical mechanism or new Study; one internal source-bound NN evidence lens records the return path without changing canonical module or family counts.
-- [A0 Scientific Position Report](A0_SCIENTIFIC_POSITION_REPORT.html) · [full literature-informed assessment](../55_A0_SCIENTIFIC_POSITION_AND_NOVELTY_ASSESSMENT_2026-10-13.md) — a documentary evaluation of where the research now stands. It distinguishes exact result, novelty candidate, established mathematical neighborhood, internal instrument, post-hoc number fixture, empirical evidence and unsupported physical interpretation. Its main verdict is `FORMAL RESULTS PRESENT / NOVELTY CANDIDATES PRESENT / EXTERNAL NOVELTY NOT ESTABLISHED`; SCC-003 is the strongest current mathematical novelty candidate, while Paper C is positioned as a methods synthesis and JARP as an unvalidated internal research instrument. The report reuses the A0 identity and recommends one external SCC-003 review package without activating or authorizing it.
+- [A0 Scientific Position Report](A0_SCIENTIFIC_POSITION_REPORT.html) · [full literature-informed assessment](../55_A0_SCIENTIFIC_POSITION_AND_NOVELTY_ASSESSMENT_2026-10-13.md) — a documentary evaluation of where the research now stands. The HTML view keeps the 13 October assessment baseline and adds a 16 October currentness layer for OCB v0.11.0, 50/50 registered-surface binding and Reader consolidation. It distinguishes exact result, novelty candidate, established mathematical neighborhood, internal instrument, post-hoc number fixture, empirical evidence and unsupported physical interpretation. Its main verdict remains `FORMAL RESULTS PRESENT / NOVELTY CANDIDATES PRESENT / EXTERNAL NOVELTY NOT ESTABLISHED`; SCC-003 is the strongest current mathematical novelty candidate, while Paper C is positioned as a methods synthesis and JARP as an unvalidated internal research instrument. The report reuses the A0 identity and recommends one external SCC-003 review package without activating or authorizing it.
 
 - [Tessarec Blue Body · Fold/Contact extension](A0_TESSAREC_BLUE_BODY_LAB.html#fold-contact) · [Check 63](../63_A0_TESSAREC_PENTAGON_FOLD_CONTACT_AND_A7_ROOT7_GUARD_2026-10-13.md) — extends the existing flagship with a four-wall square-box fold operator, a separate triangular/kite branch, an animated `OPEN / TOUCH / OVERLAP_TUCK` contact cycle and the exact closure threshold `phi/sqrt(2)`. Number labels `1111/3333/4444/7777` remain a Totient sidecar; A7 and the existing Root7 lens are explicitly nonidentical namespaces. This is a bounded engineering demonstrator, not a new surface, Study, Navigator identity or physical realization.
+- [Blue / Pink Dodeca Cell Return](A0_BLUE_PINK_DODECA_CELL_RETURN.html#cells) · [3D Pentagon Body Player](A0_TESSAREC_BLUE_BODY_LAB.html#pentagon-body-player) — two linked projections of the existing `MOD:TESSAREC` body family. The first exposes Day/Blue and Night/Pink simultaneously as four H3 satellite bodies plus one central Return body with `4×12+12=60` selectable pentagonal face slots. The second drives the existing 48-state record through eleven complete sequence schedules, a rotatable body, three live pentagon layers, an `8×6` LIFE projection, a synchronized Blue/Pink shell, a Q4 House ledger and a typed Return trace. Its Ihara C5 inner-ring relay is a bounded non-backtracking cycle adapter; the Fibonacci extension reuses the deterministic `u_k=frac(k/φ)` schedule as a rank-quantized switch; the coupled extension exposes `exp(2πiu_k)` as Euler circle phase and then applies the existing `×7 mod 48` permutation; and the Rose extension applies the exact `+2 mod 5` pentagram orbit on every declared C5 ring. The visible Fibonacci–Euler regularity is construction-bound, while the owner-visual labels `13`, `157`, `2041` and Venus are provenance only. The House types `Pillar=vertex`, `Channel=edge` and `Hinge=incidence`, while its Kite remains the declared `A2 → 3-fold` hypothesis. The historical Q° One-Pillar sources motivate only the View/Mirror display axis. These source-bound demonstrators do not establish carrier identity, a deeper Fibonacci–Euler generator, a natural Fibonacci law, a Venus relation, a canonical VM operator, natural common body dynamics, physical mechanism, packing or tiling theorem.
 - [Fibonacci Ring Operator Comparator figure](results/a0-fibonacci-ring-operator-comparator-r1-figure-2026-10-14.svg) · [Check 87 protocol](../87_A0_FIBONACCI_RING_OPERATOR_COMPARATOR_PROTOCOL_2026-10-14.md) · [Check 88 result](../88_A0_FIBONACCI_RING_OPERATOR_COMPARATOR_RESULT_2026-10-14.md) — separates grid address `(1,1)` from decimal scalar `1.1`, verifies `1.1²=1.21` and `1.1×3.68=4.048`, then compares matched uniform, Fibonacci and seeded-random schedules. The deterministic synthetic fixture ranks `UNIFORM < FIBONACCI < SEEDED_RANDOM`; it is an engineering preflight and does not close scientific `G6_SAMPLING`.
 
 The current Point 03 and the Pascal–Pentagon companion now embed the registered Core explorer as two book projections of the same PENT-01–PENT-07 source-bound instrument. Neither projection is PENT-08, a new run or a second evidence identity.

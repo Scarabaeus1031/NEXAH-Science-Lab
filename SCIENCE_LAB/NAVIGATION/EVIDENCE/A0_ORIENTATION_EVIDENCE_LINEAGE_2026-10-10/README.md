@@ -18,6 +18,25 @@ The vocabulary route is deliberately split:
 The visual plates are navigation aids only. They are not counted as additional
 experiments or evidence.
 
+## Reader-role crosswalk return · 2026-10-16
+
+The existing 50-of-50 surface binding is unchanged. A later editorial pass
+clarifies navigation rank without creating or merging any graph identity:
+
+- `A0_NEXAH_APERTURE_JOURNEY.html` and `A0_LIVING_BLUEPRINT.html` are the two
+  primary Human entrances;
+- Rainbow / Purple Rain, Observer Lens, The Living Interior, Black Sun / Big
+  Moon, NEON / Trap Door and Blue / Pink Cell Return remain registered
+  source-bound scenes under the Journey;
+- `A0_RESEARCH_DESK.html` remains the scientific authority entrance, with
+  Scientific Position, OCB, Backlog and Research Log as subordinate returns;
+- full Blue Body, OCB, AXIS08, Countershot and Ihara surfaces remain Builder /
+  Science instruments; Visual Field Library and Asset Index remain indices.
+
+This is a role and reading-order crosswalk only. Canonical entities, relations,
+surface coverage, evidence status, lifecycle, activation and publication
+state are unchanged.
+
 The ONE LOOP Human View also exposes one deliberately small mathematical
 check. For the hypercube graph `Q_n`, `V(Q_n)=2^n` and
 `E(Q_n)=n*2^(n-1)`. Therefore `Q3` has `8` vertices and `12` edges. The exact

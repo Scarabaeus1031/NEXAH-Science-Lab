@@ -1719,3 +1719,22 @@ wissenschaftliche A0-Autorität bleibt beim Science Desk.
 Status:
 `ENGINEERING_BASELINE / DOCUMENTARY_BACKLOG / NO_NEW_STUDY / NO_ACTIVATION`.
 
+### 2026-10-16 — A0 Reader-Rollen und wissenschaftliche Position konsolidiert
+
+Die vorhandenen A0-Flächen wurden als Lesearchitektur geordnet, nicht zu
+neuen Forschungsobjekten umgedeutet. Für Menschen bilden **Aperture Journey**
+und **Living Blueprint** die primären Einstiege; die visuellen Einzelwelten
+bleiben Szenen und Deep Links. Der **A0 Science Desk** hält weiterhin die
+wissenschaftliche Autorität, während vollständige Maschinen, Register und
+Diagnosen in der Builder-/Science-Schicht verbleiben.
+
+Der Scientific Position Report erhält einen Currentness-Addendum vom
+16. Oktober: OCB `v0.11.0`, die `50/50`-Kontrolllage und die Reader-Rollen
+sind sichtbar, das Urteil bleibt jedoch unverändert. Achievements werden als
+Reader-Zusammenfassung projiziert; sie erzeugen weder Finding noch Evidence-
+Rang. Mission Control und Navigator erhalten ausschließlich Read-only-
+Rückbindungen auf dieselben A0-Quellen.
+
+Status:
+`NAVIGATION_CONSOLIDATION / NO_IDENTITY_MERGE / NO_NEW_RELATION / NO_CLAIM_CHANGE`.
+

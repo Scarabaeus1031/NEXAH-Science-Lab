@@ -19,7 +19,9 @@ const ignored = /^(?:https?:|mailto:|tel:|data:|javascript:|blob:|#)/i;
 const deadLinks = [];
 for (const surface of htmlSurfaces) {
   const html = readFileSync(resolve(bookDir, surface), "utf8");
-  const references = [...html.matchAll(/\b(?:href|src)\s*=\s*["']([^"']+)["']/gi)].map((match) => match[1]);
+  const references = [...html.matchAll(/\b(?:href|src)\s*=\s*["']([^"']+)["']/gi)]
+    .map((match) => match[1])
+    .filter((reference) => !reference.includes('${'));
   for (const reference of references) {
     if (!reference || ignored.test(reference)) continue;
     let local = reference.split("#")[0].split("?")[0];

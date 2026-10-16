@@ -45,7 +45,7 @@ it appears in a visual or in the Navigator.
 | Family Connection Map | implemented | relation view; not mechanism identity |
 | Connection Atlas | implemented | inventory view; not a family claim |
 | Module, surface and evidence detail | implemented | source records remain controlling |
-| A0 work/module surface coverage | implemented, 46/46 source-bound | reuses existing A0, Number View, Orientation, Return, LIFE and Tessarec identities; includes the A1 Human aperture album, B1 Toy Store, C Connect and the internal A0 Asset Index without creating a module, node, relation or authority |
+| A0 work/module surface coverage and Reader roles | implemented, 50/50 source-bound | reuses existing A0, Number View, Orientation, Return, LIFE and Tessarec identities; two primary Human entries, subordinate scenes, Science Desk authority, full Builder instruments and locator-only indices change navigation rank without creating a module, node, relation or authority |
 | Instrument-first launch | implemented | launch is not approval or publication |
 | Typed relations and negative boundaries | implemented | every edge requires evidence and a claim ceiling |
 | Sequence, Lineage and comparative carrier lenses | implemented | bounded readings; open edges stay open |
