@@ -18,6 +18,16 @@ The vocabulary route is deliberately split:
 The visual plates are navigation aids only. They are not counted as additional
 experiments or evidence.
 
+The ONE LOOP Human View also exposes one deliberately small mathematical
+check. For the hypercube graph `Q_n`, `V(Q_n)=2^n` and
+`E(Q_n)=n*2^(n-1)`. Therefore `Q3` has `8` vertices and `12` edges. The exact
+product decomposition `Q4 = Q3 box-product K2` gives two eight-vertex Q3
+layers and eight matching cross-layer edges, hence `8+8=16` vertices and
+`12+12+8=32` edges. This is elementary finite-graph combinatorics only. `P1`
+and `P2` remain source/projection labels until separately defined; the check
+creates no Numbermagick or NEXAH Codex, physical mechanism, dimensional
+ontology, stage identity or evidence claim.
+
 The 2026-10-13 Check 58 integration-freeze extension raises the bound source
 inventory to 98 without adding a node or relation. It makes the Laboratory
 Orientation Machine, the six-flagship Axial Carrier Adapter, its machine
@@ -284,3 +294,15 @@ admitted.
 node validate_a0_orientation_evidence_binder.mjs
 node build_a0_orientation_evidence_data.mjs
 ```
+
+## 2026-10-16 — A0 Science Desk authority and OCB currentness
+
+The A0 Science Desk remains the scientific authority for the Foundation
+package. The registered `A0_ORIENTATION_CONTROLLER_BENCH.html` surface is
+current at `v0.11.0` and remains an engineering lens under the existing A0
+identity. Its gap register and Science Desk return are package-local records;
+this Navigator lens exposes their route without adopting their authority or
+creating a new entity, relation, Family or Study.
+
+Mission Control may consume the generated currentness projection only. It may
+not amend the OCB evidence state, backlog or claim ceiling.

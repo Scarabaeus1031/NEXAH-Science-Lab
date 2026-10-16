@@ -1,0 +1,1165 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="referrer" content="no-referrer">
+  <title>NEXAH · Orientation Controller Bench v0.11.0</title>
+  <link rel="stylesheet" href="a0-orientation-controller-bench.css?rev=20261016-iris-octagon">
+</head>
+<body>
+<main class="shell" id="orientationBench">
+  <header class="topbar">
+    <div>
+    <div class="kicker">A0 · source-bound engineering lens · v0.11.0</div>
+      <h1>Orientation Controller Bench</h1>
+      <p>Ein State-Record, drei gebundene Operatoradapter und vier getrennte Return-Stufen. Die Werkbank orchestriert vorhandene Träger und Views; sie erzeugt keine neue wissenschaftliche Identität.</p>
+    </div>
+    <div class="status-strip" aria-label="Status">
+      <span class="status good">EXECUTABLE CORE</span><span class="status">LOCAL LENS</span><span class="status">FAIL CLOSED</span><span class="status">NOT A LAB RUN</span>
+    </div>
+  </header>
+
+  <div class="boundary"><b>BOUNDARY ·</b> Engineering dry run während STRUCTURE_FREEZE. J, Rθ und Eₛ sind deklarierte lokale Adapter. Fourier, JT, VIII und weitere Ketten bleiben bis zur eigenen Quellen- und Vertragsprüfung deaktiviert.</div>
+
+  <section class="bench-overture" aria-labelledby="benchOvertureTitle">
+    <div class="overture-copy">
+      <small>ONE STATE · FOUR ACTS · ONE INSPECTABLE RETURN</small>
+      <h2 id="benchOvertureTitle">See the relation move before you operate it.</h2>
+      <p>A state enters, changes view, attempts a return and leaves a typed record. Every carrier handoff stays visible.</p>
+    </div>
+    <div class="overture-route" aria-label="Bench route">
+      <span><b>01</b>ORIENT</span><i>→</i><span><b>02</b>TRANSLATE</span><i>→</i><span><b>03</b>RETURN</span><i>→</i><span><b>04</b>VERIFY</span>
+    </div>
+    <div class="overture-actions"><button class="primary" id="watchBenchRun">WATCH THE RUN</button><button id="enterBench">ENTER THE BENCH</button></div>
+  </section>
+
+  <section class="master-cockpit" id="masterCockpit" aria-labelledby="masterDemoTitle">
+    <div class="cockpit-source">
+      <small>ACTIVE SOURCE / CARRIER</small>
+      <b id="masterDemoCarrier">A0.CRT.CHANNEL/5x73</b>
+      <span><i id="masterDemoLight"></i><output id="masterDemoPhase">00 · SOURCE</output></span>
+    </div>
+    <div class="cockpit-stage">
+      <div class="cockpit-stage-head">
+        <div><small>MASTER DEMONSTRATOR <span class="tour-mode" id="masterTourMode">AUTO TOUR READY</span></small><h2 id="masterDemoTitle">One bench · typed handoffs · one visible run</h2></div>
+        <button class="master-start" id="masterDemoStart">START DEMONSTRATION</button>
+      </div>
+      <p id="masterDemoCopy">Prime address and carrier enter the bench. Every later carrier change is declared as a typed handoff.</p>
+      <div class="demo-signal" id="masterDemoSignal" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+      <div class="master-progress" id="masterDemoProgress" aria-label="Demonstration progress"></div>
+      <div class="master-controls">
+        <button id="masterDemoStep">STEP</button><button id="masterDemoReset">RESET</button>
+        <label>SPEED<select id="masterDemoSpeed"><option value="3600">SLOW</option><option value="2400" selected>NORMAL</option><option value="1400">FAST</option></select></label>
+        <button id="masterDemoExport">EXPORT RUN</button>
+      </div>
+    </div>
+    <div class="cockpit-record">
+      <small>TYPED HANDOFF / RUN RECORD</small>
+      <b id="masterDemoHandoff">STATE_RECORD</b>
+      <pre id="masterDemoRecord">READY · no transition committed</pre>
+      <span>BOUNDARY · carriers remain distinct</span>
+    </div>
+  </section>
+
+  <nav class="story-spine" id="storySpine" aria-label="Four-act bench story">
+    <button class="active" data-story-phase="0"><small>ACT I · ORIENT</small><b>What is the state?</b><span>Address → position → declared operator</span></button>
+    <button data-story-phase="2"><small>ACT II · TRANSLATE</small><b>What changes in the view?</b><span>Edge → shadow → role → separated grid</span></button>
+    <button data-story-phase="6"><small>ACT III · RETURN</small><b>Can it come back?</b><span>Cycle → fold → finite root-space replay</span></button>
+    <button data-story-phase="9"><small>ACT IV · VERIFY &amp; RECORD</small><b>What survives the run?</b><span>Receipt → residual → blind check → boundary</span></button>
+  </nav>
+
+  <div class="layout">
+    <section class="panel cockpit-console" id="statePanel">
+      <div class="section-head"><h2>1 · State / Prime Address</h2><small>F2 address · F3 operator</small></div>
+      <div class="field-grid">
+        <label>Carrier<select id="carrier"><option value="A0.CRT.CHANNEL/5x73">A0.CRT.CHANNEL/5x73</option><option value="MOD:TESSAREC/Q4-P3">MOD:TESSAREC · Q4×P3</option></select></label>
+        <label>Family role<select id="familyRole"><option>F1</option><option>F2</option><option selected>F3</option><option>F4</option><option>F5</option><option>F6</option><option>F7</option></select></label>
+        <label>Position u <output id="positionValue">0.25</output><input id="position" type="range" min="-0.5" max="1.5" value="0.25" step="0.05"></label>
+        <label>Elevator factor<select id="eFactor"><option value="0.5">× 0.5</option><option value="2" selected>× 2</option><option value="-1">× −1</option></select></label>
+      </div>
+      <div class="prime-row" aria-label="Prime exponent address">
+        <label>2<input data-prime-index="0" type="number" min="-5" max="5" value="1"></label>
+        <label>3<input data-prime-index="1" type="number" min="-5" max="5" value="0"></label>
+        <label>5<input data-prime-index="2" type="number" min="-5" max="5" value="0"></label>
+        <label>7<input data-prime-index="3" type="number" min="-5" max="5" value="0"></label>
+        <label>11<input data-prime-index="4" type="number" min="-5" max="5" value="0"></label>
+      </div>
+      <div class="address-readout" id="addressReadout">x = 2¹</div>
+
+      <div class="state-relation-lens" aria-label="State relation orienter">
+        <div><small>RELATION ORIENTER · SAME STATE</small><b id="stateRelationReadout">PENTAGON · family position view</b></div>
+        <button class="primary" data-state-relation="state">STATE</button>
+        <button data-state-relation="rhombus">7|7 RHOMBUS</button>
+        <button data-state-relation="heart">HEART / MIRROR</button>
+      </div>
+
+      <div class="machine" id="stateMachine" data-relation-mode="state">
+        <svg viewBox="0 0 460 390" role="img" aria-labelledby="machineTitle machineDesc">
+          <title id="machineTitle">Family pentagon and IOTA 360/365 register</title>
+          <desc id="machineDesc">Five inner family roles form a pentagon. F7 is the validation crown, F6 the external synchronization controller. Two rings distinguish 360 degrees from the 365-register.</desc>
+          <circle class="ring outer" cx="220" cy="194" r="166"/><circle class="ring register" cx="220" cy="194" r="151"/>
+          <g id="tickNodes"></g><line class="needle" id="iotaNeedle" x1="220" y1="194" x2="220" y2="48"/>
+          <g id="familyRelationOverlay" class="family-relation-overlay" aria-hidden="true">
+            <path id="familyRelationShape" class="relation-shape" d=""/><path id="familyRelationPairA" class="relation-pair pair-a" d=""/><path id="familyRelationPairB" class="relation-pair pair-b" d=""/>
+            <path id="familyRelationDiagonal8" class="relation-diagonal diagonal-eight" d=""/><path id="familyRelationDiagonal6" class="relation-diagonal diagonal-six" d=""/><path id="familyHeartShape" class="relation-heart" d=""/>
+            <path id="familyOpenBranch" class="relation-open-branch" d=""/><circle id="familyOpenGap" class="relation-open-gap" cx="365" cy="213" r="7"/>
+            <text id="familyPairLabelA" class="relation-label gold" text-anchor="middle"></text><text id="familyPairLabelB" class="relation-label gold" text-anchor="middle"></text>
+            <text id="familyDiagonalLabel8" class="relation-label cyan" text-anchor="middle"></text><text id="familyDiagonalLabel6" class="relation-label magenta" text-anchor="middle"></text><text id="familyAxisLabel" class="relation-label green" text-anchor="middle"></text>
+            <text id="familyOpenLabel" class="relation-label violet" text-anchor="middle"></text><text id="familyBoundaryLabel" class="relation-label boundary-label" text-anchor="middle"></text>
+          </g>
+          <g class="family-edges"><path id="familyStateEdges" class="family-edge" d="M220 92L302 151L270 248L170 248L138 151Z" fill="none"/><path id="familyStateLinks" class="family-edge" d="M220 92L220 52M302 151L383 214"/></g>
+          <g><circle id="familyNodeF1" class="family-node" cx="220" cy="92" r="25"/><text id="familyLabelF1" x="220" y="96" text-anchor="middle">F1</text><circle id="familyNodeF2" class="family-node" cx="302" cy="151" r="25"/><text id="familyLabelF2" x="302" y="155" text-anchor="middle">F2</text><circle id="familyNodeF3" class="family-node" cx="270" cy="248" r="25"/><text id="familyLabelF3" x="270" y="252" text-anchor="middle">F3</text><circle id="familyNodeF4" class="family-node" cx="170" cy="248" r="25"/><text id="familyLabelF4" x="170" y="252" text-anchor="middle">F4</text><circle id="familyNodeF5" class="family-node" cx="138" cy="151" r="25"/><text id="familyLabelF5" x="138" y="155" text-anchor="middle">F5</text></g>
+          <g><circle id="familyNodeF7" class="family-node crown" cx="220" cy="42" r="27"/><text id="familyLabelF7" x="220" y="46" text-anchor="middle">F7</text><text class="muted" x="220" y="17" text-anchor="middle">VALIDATION CROWN</text><circle class="family-node control" cx="394" cy="220" r="27"/><text x="394" y="224" text-anchor="middle">F6</text><text class="muted" x="392" y="258" text-anchor="middle">SYNC / CONTROL</text></g>
+          <circle class="hub" cx="220" cy="194" r="8"/><text id="ringReadout" x="220" y="325" text-anchor="middle">0° · tick 0/365 · drift 0</text><text class="muted" x="220" y="344" text-anchor="middle">5 × 72° = 360° · 5 × 73 ticks = 365</text><text class="muted" x="220" y="359" text-anchor="middle">+1 tick / sector = 2 × 0.5 microsteps</text>
+        </svg>
+      </div>
+    </section>
+
+    <section class="panel cockpit-console" id="operatorPanel">
+      <div class="section-head"><h2>2 · Operator chain</h2><small>J · Rθ · Eₛ</small></div>
+      <div class="operator-bank">
+        <button class="operator" id="applyJ"><b>J</b>Janus mirror<span>u ↦ 1 − u · involution</span></button>
+        <button class="operator" id="applyR"><b>Rθ</b>IOTA sector<span>+72° · +73 register ticks</span></button>
+        <button class="operator" id="applyE"><b>Eₛ</b>Centered elevator<span>u ↦ ½ + s(u − ½)</span></button>
+      </div>
+      <div class="control-row">
+        <label>R direction<select id="rDirection"><option value="1">forward +</option><option value="-1">return −</option></select></label>
+        <label>R sectors<select id="rSectors"><option value="1">1 sector</option><option value="2">2 sectors</option><option value="5">5 sectors / closure</option></select></label>
+      </div>
+      <div class="transport"><button id="undo">UNDO</button><button id="replay">REPLAY</button><button id="reset">RESET</button><button id="exportState">EXPORT RECORD</button></div>
+
+      <div class="views" aria-label="Synchronized bounded views">
+        <div class="view"><b>BODY / POSITION</b><div class="body-view"><div class="orb" id="bodyOrb"></div></div></div>
+        <div class="view"><b>GRAPH / PRIME ADDRESS</b><div class="bars" id="primeBars"></div></div>
+        <div class="view wave" id="waveView" data-relation-mode="state"><b>WAVE / ORIENTATION</b><svg viewBox="0 0 240 70" role="img" aria-label="Orientation wave and reflected relation lens"><line id="waveMirrorAxis" x1="120" y1="5" x2="120" y2="65"/><path id="waveMirrorPath" d=""></path><path id="wavePath" d=""></path></svg><small id="waveRelationReadout">single orientation trace</small></div>
+        <div class="view"><b>FOURIER / POINCARÉ</b><div class="deferred">DEFERRED ADAPTER<br>source binding retained</div></div>
+      </div>
+
+      <section class="ihara-core" data-cockpit-module="left" data-demo-phase="EDGE" aria-labelledby="iharaCoreTitle">
+        <div class="section-head"><h2 id="iharaCoreTitle">3 · Ihara Edge–Turn Core</h2><small>C5 typed adapter · non-backtracking</small></div>
+        <p class="ihara-rule"><code>(a→b) ↦ (b→c)</code> only when <code>c ≠ a</code>. Blue is the persistent incoming edge; pink is the proposed turn; white confirms a committed transition; gold appears only as a closure witness.</p>
+        <div class="ihara-grid">
+          <div class="spinner-wrap">
+            <svg id="iharaSpinner" class="ihara-spinner" viewBox="0 0 380 300" role="img" aria-labelledby="iharaSvgTitle iharaSvgDesc">
+              <title id="iharaSvgTitle">Directed C5 edge-turn spinner</title>
+              <desc id="iharaSvgDesc">Three typed registers show incoming edge, outgoing candidate, and pentagon layer. Immediate reversal is rejected.</desc>
+              <polygon id="ringLayer" class="register-shape layer" points="190,31 299,110 257,238 123,238 81,110"/>
+              <polygon id="ringOut" class="register-shape out" points="190,58 273,118 241,216 139,216 107,118"/>
+              <polygon id="ringIn" class="register-shape in" points="190,86 246,127 225,193 155,193 134,127"/>
+              <g id="iharaNodes"></g>
+              <line id="incomingEdge" class="edge-line incoming"/>
+              <line id="candidateEdge" class="edge-line candidate"/>
+              <line id="confirmedEdge" class="edge-line confirmed"/>
+              <circle id="closureWitness" class="closure-witness" cx="190" cy="145" r="17"/>
+              <circle class="spinner-hub" cx="190" cy="145" r="5"/>
+              <text x="18" y="276" class="svg-label in-label">R_in · BLUE</text>
+              <text x="139" y="276" class="svg-label out-label">R_out · PINK</text>
+              <text x="279" y="276" class="svg-label layer-label">R_layer · P0/P1/P2</text>
+            </svg>
+            <div class="edge-legend"><span class="blue">incoming</span><span class="pink">candidate</span><span class="white">committed</span><span class="gold">closure</span></div>
+          </div>
+          <div class="edge-console">
+            <div class="edge-readout" id="edgeReadout"></div>
+            <div class="edge-controls">
+              <button id="candidateLeft">TURN ←</button><button id="candidateRight">TURN →</button>
+              <button class="primary" id="commitTurn">COMMIT</button><button id="nextEdgeLayer">LAYER</button><button id="resetEdge">RESET</button>
+            </div>
+            <div class="edge-status" id="edgeStatus" aria-live="polite">READY</div>
+            <div class="trace-title">Hashimoto trace ledger · rooted directed walks</div>
+            <div class="trace-ledger" id="traceLedger"></div>
+            <ol class="edge-log" id="edgeLedger"><li>No turn committed.</li></ol>
+          </div>
+        </div>
+        <div class="edge-blind">
+          <div><b>3B · Blind gate</b><small>Judge the proposed edge transition without color.</small></div>
+          <code id="edgeBlindCase"></code>
+          <div class="blind-actions"><button data-edge-answer="ALLOW">ALLOW</button><button data-edge-answer="BLOCK">BLOCK</button><button data-edge-answer="HOLD">HOLD</button><button id="newEdgeBlind">NEW CASE</button></div>
+          <output id="edgeBlindResult">Apply the transition law.</output>
+        </div>
+        <div class="ihara-boundary"><b>BOUNDARY:</b> finite C5 instrument; primitive oriented cycle classes and <code>tr(B^k)</code> only. This is not a Riemann identity and not an equality between prime numbers and graph cycles.</div>
+      </section>
+
+      <section class="pascal-shadow" data-cockpit-module="right" data-demo-phase="SHADOW" aria-labelledby="pascalShadowTitle">
+        <div class="section-head"><h2 id="pascalShadowTitle">4 · Pascal × Antipode → Shadow-gon</h2><small>carrier ≠ orientation ≠ projection</small></div>
+        <section class="pxa-movement" id="pxaDemonstrator" data-stage="CARRIER" aria-labelledby="pxaJourneyTitle">
+          <header class="pxa-head">
+            <div><small>LIVE SOURCE-BOUND VIEW JOURNEY · P × A</small><h3 id="pxaJourneyTitle">One carrier enters</h3><p id="pxaJourneyCopy">The declared carrier enters before either view is drawn.</p></div>
+            <div class="pxa-status"><span><i></i> AMBIENT MOTION</span><b id="pxaJourneyPhase">00 · CARRIER</b><em>Guide pauses on human input; the field keeps breathing.</em></div>
+          </header>
+          <div class="pxa-workspace">
+            <div class="pxa-scene" aria-label="One carrier viewed through Pascal and antipode lenses with binder and residual">
+              <div class="pxa-field-lines" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+              <div class="pxa-carrier" aria-label="Declared carrier x"><b>x</b><small>ONE CARRIER</small></div>
+              <div class="pxa-orbit pxa-pascal" id="pxaPascalView"><div class="pxa-globe-grid"></div><div class="pxa-iris" id="pxaIris" aria-label="Blue circular aperture"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><span></span></div><b>P(x)</b><small>PASCAL · CYAN IRIS / APERTURE</small><i></i><i></i><i></i><i></i><i></i><i></i></div>
+              <div class="pxa-binder" id="pxaBinder"><i></i><i></i><b>│</b><small>BINDER / SEAM</small></div>
+              <div class="pxa-aperture-beam" id="pxaApertureBeam" aria-hidden="true"><i></i><i></i><b>APERTURE → C8 VIEW</b></div>
+              <div class="pxa-orbit pxa-antipode" id="pxaAntipodeView"><div class="pxa-globe-grid"></div><div class="pxa-octagon" id="pxaOctagonProjection" aria-label="Projected octagon target view"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><b>C8</b></div><b>A(x)</b><small>ANTIPODE · PROJECTED OCTAGON VIEW</small><i></i><i></i><i></i><i></i><i></i><i></i></div>
+              <div class="pxa-residual" id="pxaResidual"><b>π / r</b><small>THE REST · RETAINED</small><i></i><i></i><i></i></div>
+              <div class="pxa-flow" id="pxaCarrierPulse" aria-hidden="true"><i></i><i></i><i></i></div>
+              <div class="pxa-return" aria-hidden="true">COMPARE → RETURN ↺</div>
+            </div>
+            <aside class="pxa-navigator">
+              <small>INSIDE FRAME NAVIGATOR</small>
+              <nav id="pxaJourneyNavigator" aria-label="Pascal antipode journey phases">
+                <button class="active" data-pxa-phase="0">00 CARRIER</button><button data-pxa-phase="1">01 P VIEW</button><button data-pxa-phase="2">02 BINDER</button><button data-pxa-phase="3">03 A VIEW</button><button data-pxa-phase="4">04 RESIDUAL</button><button data-pxa-phase="5">05 RETURN</button>
+              </nav>
+              <div class="pxa-controls"><button class="primary" id="pxaJourneyPlay">PAUSE GUIDE</button><button id="pxaJourneyStep">STEP</button><button id="pxaJourneyReset">RESET</button><label>SPEED <select id="pxaJourneySpeed"><option value="3000">CALM</option><option value="2100" selected>NORMAL</option><option value="1200">FAST</option></select></label><label class="pxa-aperture-control">IRIS <input id="pxaAperture" type="range" min="18" max="72" value="42"><output id="pxaApertureValue">42%</output></label><button id="pxaJourneyExport">EXPORT VIEW RUN</button></div>
+              <pre id="pxaJourneyRecord">READY · one declared carrier</pre>
+            </aside>
+          </div>
+          <div class="pxa-source-rail">
+            <a href="../../../SCIENCE_LAB/EXPORTS/MIWA_PINEAP_AN_DROMEDA.html"><b>ART:MIWA:MAIN</b><span>interaction + inside/outside frame</span></a>
+            <a href="../../../SCIENCE_LAB/EXPORTS/NEXAH_3_PLUS_1_DUAL_BELT.html"><b>ART:ERITH:DUAL_BELT</b><span>3+1 · two belts · mask · return</span></a>
+            <a href="../../../SCIENCE_LAB/EXPORTS/ROEDELHEIM_OBSERVATORY_SEVEN_VIEWS_REFERENCE.html"><b>LOKI SUBVIEW</b><span>registered bridge · not an independent master</span></a>
+            <a href="../../../SCIENCE_LAB/CASE_STUDIES/E8_DEMOS_INTERACTIVE_ORIENTATION_2026-09-21/COXETER_ORBIT_TOPOLOGY_LAB_2026-10-05/NEXAH_FAMILY_SYNTHESIS_DEMONSTRATOR.html"><b>ART:E8:FAMILY_SYNTHESIS</b><span>orbit → topology → bounded view</span></a>
+            <a href="../../../SCIENCE_LAB/CASE_STUDIES/E8_DEMOS_INTERACTIVE_ORIENTATION_2026-09-21/COXETER_ORBIT_TOPOLOGY_LAB_2026-10-05/NEXAH_TYPED_COUPLING_WORKBENCH.html"><b>ART:E8:TYPED_COUPLING</b><span>carrier → adapter → view → return</span></a>
+            <a href="../../../00_INCOMING/THe%20Prime%20Genesis/THE%20MACHINE%20BUILT/c3a12c0d-b463-43e3-89b1-a1634c93ce01.png"><b>HISTORICAL VISUAL 1</b><span>movement grammar · source-only</span></a>
+          </div>
+          <div class="pxa-boundary"><b>BOUNDARY:</b> <code>P(x)</code>, <code>A(x)</code>, the binder and residual are typed views of one declared carrier. The blue iris selects and projects a local <code>C8</code> target view; the octagon is not a new carrier. MIWA supplies interaction grammar; ERITH supplies a neighboring seed/belt/mask pattern; LOKI remains a registered subview/bridge. The two E8 supporting surfaces contribute typed view grammar only. No E8, carrier or mechanism identity is asserted.</div>
+        </section>
+        <div class="pascal-controls">
+          <label>Depth n <input id="pascalDepth" type="range" min="0" max="11" value="4" step="1"><output id="pascalDepthValue">4</output></label>
+          <div class="gon-buttons" aria-label="Shadow-gon frame"><button data-gon="7" class="active">7-gon</button><button data-gon="8">8-gon</button><button data-gon="17">17-gon</button><button data-gon="19">19-gon</button><button data-gon="29">29-gon</button></div>
+        </div>
+        <div class="pascal-metrics"><div><small>Macro nodes</small><b id="pascalMacro">15</b></div><div><small>Trinary paths</small><b id="pascalPaths">81</b></div><div><small>Globally oriented</small><b id="pascalOriented">162</b></div><div><small>Local alphabet</small><b>3×2 = 6</b></div></div>
+        <div class="seed-rail"><span><b>2² = 4</b><small>power marker</small></span><i>→</i><span><b>3³ = 27</b><small>power marker</small></span><i>→</i><span><b>5</b><small>next declared marker</small></span><em>markers only · no selector law inferred</em></div>
+        <div class="visual-aperture-rail" id="visualApertureRail">
+          <div class="umbrella-mark" aria-hidden="true"><i></i><i></i><i></i><i></i><b id="umbrellaApertureValue">7</b></div>
+          <div><small>HISTORICAL VISUAL UMBRELLA</small><strong id="activeOpeningLabel">Yellow 7 · active opening</strong><span>The series is read as one envelope with specific apertures—not as one shared mechanism.</span></div>
+          <div class="dual-four"><span><b>4⁺</b><small>cyan orientation</small></span><i>↔</i><span><b>4⁻</b><small>pink orientation</small></span></div>
+          <div class="lineage-question"><b>OKO? / OLGO?</b><span>historical label test · OPEN</span></div>
+        </div>
+        <div class="pascal-lens-console" id="pascalLensControls">
+          <div><small>ONE CARRIER · THREE DISPLAY LENSES</small><b id="pascalLensReadout">ALGO GRID · TRACE BALLS</b></div>
+          <button data-pascal-lens="algo" class="primary">ALGO GRID</button><button data-pascal-lens="pentagon">PENTAGON CUT</button><button data-pascal-lens="caro">CARO / 2 PYRAMIDS</button><button id="pascalLensPlay">PLAY 3 LENSES</button>
+        </div>
+        <div class="pascal-exterior-console" id="pascalExteriorControls">
+          <div class="exterior-intro"><small>ONE CARRIER · TWO ORIENTED SHEETS · THREE EXTERIOR CONTRACTS</small><b id="pascalExteriorFormula">P₇(x) → S₇</b></div>
+          <div class="exterior-buttons" role="group" aria-label="Pascal exterior contract">
+            <button class="primary" data-pascal-exterior="shadow">01 · SHADOW</button>
+            <button data-pascal-exterior="signed">02 · SIGNED</button>
+            <button data-pascal-exterior="body">03 · BLUE BODY</button>
+          </div>
+          <div class="exterior-contracts">
+            <article data-exterior-card="shadow" class="active"><small>SHADOW EXTERIOR</small><b>Pₘ(x)</b><span>sector mass retained</span><em>σ collides · no return</em></article>
+            <article data-exterior-card="signed"><small>SIGNED EXTERIOR</small><b>(Pₘ(x), σ)</b><span>cyan / pink sheet retained</span><em>residual absent</em></article>
+            <article data-exterior-card="body"><small>BODY HOST</small><b>B(Pₘ(x), σ, r)</b><span>address + sign + residual</span><em>return-ready contract</em></article>
+          </div>
+          <div class="exterior-readout"><span id="pascalExteriorRetains">RETAINS · sector mass</span><span id="pascalExteriorDiscards">LOSES · orientation σ · carrier microstate</span><strong id="pascalExteriorDecision">SHADOW COLLISION VISIBLE</strong></div>
+          <div class="polygon-parity-readout" id="polygonParityReadout"><b>C7 · ODD</b><span>half-turn lands in an edge gap</span><strong>2 candidates · σ required</strong></div>
+          <div class="countershot-readout" id="countershotReadout" hidden><b>17 = 8 + 1 + 8</b><span>C8 core · pivot · mirror wing</span><strong>countershot → edge gap 8|9</strong><small>12 display nodes = 3+1+3+1+3+1 · tongue excluded from C17</small></div>
+          <div class="cube-square-bridge" id="cubeSquareBridge" hidden aria-label="Historical 8 and 9 reading bridge">
+            <article class="cube-register"><small>CUBE REGISTER</small><b>8</b><strong>2³</strong><span>inner C8 core</span></article>
+            <div class="bridge-seam"><small>33 BRIDGE</small><b>3│3</b><span>typed seam · not 33 = 8 or 9</span></div>
+            <article class="square-register"><small>SQUARE REGISTER</small><b>9</b><strong>3²</strong><span>opposite-gap candidate</span></article>
+            <div class="orientation-rendering"><small>ORIENTATION RENDERING</small><b>069</b><i>⇄</i><b>616</b><span>ordered strings · equality not asserted</span></div>
+            <div class="glyph-channel"><small>OWNER GLYPH TRACE · SOURCE HTML UNRECOVERED</small><b>ö · ô · ò · ó · õ · œ · o</b><span>NINI CHANNELS</span><strong>ø │ ō</strong><em>“6 + II states” retained as owner wording; binding open</em></div>
+          </div>
+          <a class="body-host-link" href="A0_TESSAREC_BLUE_BODY_LAB.html#antipode-return">OPEN SOURCE-BOUND BLUE BODY HOST ↗</a>
+        </div>
+        <div class="pascal-shadow-grid">
+          <div class="projection-card"><header><b>Trinomial carrier</b><span id="pascalCarrierLabel">n=7 · σ=+</span></header><svg id="pascalPyramid" viewBox="0 0 440 350" role="img" aria-label="Trinomial Pascal layer"></svg><div class="pascal-state" id="pascalState"></div></div>
+          <div class="projection-card"><header><b id="shadowTitle">7-gon comparison frame</b><span>sector projection</span></header><svg id="pascalShadowGon" viewBox="0 0 440 350" role="img" aria-label="Pascal mass projected into a regular polygon frame"></svg><div class="shadow-legend"><span class="plus">σ=+</span><span class="minus">A(i,j,k;σ)</span><span class="frame">frame only</span></div><div class="neon-polaroid-rail" id="neonPolaroidRail" hidden aria-label="Historical Neon extension in three editorial polaroids"><article><small>POLAROID 01</small><b>7</b><span>LOCAL CORE</span></article><i>→</i><article class="active"><small>POLAROID 02</small><b>17</b><span>COUNTERSHOT</span></article><i>→</i><article><small>POLAROID 03</small><b>19</b><span>NEXT FRAME</span></article><em>NEON EXTENSION · EDITORIAL SEQUENCE ONLY</em></div><div class="shadow-collision" id="shadowCollision"></div></div>
+        </div>
+        <div class="channel-warning" id="channelWarning"><b>INDEPENDENT CHANNELS:</b> depth <code>n=7</code> and frame <code>m=7</code> coincide numerically here; neither selects the other.</div>
+        <div class="fail-visual">
+          <div class="fail-head"><span>FAIL VISUAL · LIFE04B STRESS</span><b>NO E8 ANTIPODAL SPECIFICITY</b></div>
+          <div class="fail-split"><div class="exact-side"><strong>PASS</strong><b>Exact antipodal return</b><small>pair + sign + residual reconstruct the input</small></div><div class="fail-side"><strong>FAIL 0/4</strong><b>Specificity gates</b><small>exact bookkeeping did not outperform matched controls</small></div></div>
+          <div class="fail-metrics"><span>residual <b>0.8042</b></span><span>axes <b>4/120</b></span><span>max return error <b>4.72e−17</b></span><span>collisions <b>56</b></span><span>random p <b>0.375</b></span></div>
+        </div>
+        <section class="handle-ablation" aria-labelledby="handleAblationTitle">
+          <div class="section-head"><h3 id="handleAblationTitle">4A · White Cross / Handle Ablation</h3><small id="handleDecision">testing information boundary</small></div>
+          <div class="white-cross-test">
+            <div class="cross-number"><span id="crossSource">2187</span><i>×2</i><b id="crossOriented">43│74</b><small>decimal seam marker only</small></div>
+            <div class="cross-glyph" aria-hidden="true"><i></i><b></b></div>
+            <div class="handle-readouts">
+              <article><small>SHADOW ONLY</small><strong id="shadowAccuracy">50%</strong><span id="shadowBits">0 bit about σ</span></article>
+              <article><small>+ SIGNED HANDLE</small><strong id="handleAccuracy">100%</strong><span id="handleBits">1 retained bit</span></article>
+            </div>
+          </div>
+          <div class="handle-gates" id="handleGates"></div>
+          <div class="handle-boundary"><b>RESULT BOUNDARY:</b> the handle restores a declared orientation bit because it stores <code>σ</code>. It does not make the colliding Shadow-gon intrinsically specific and does not alter the frozen LIFE04B 0/4 result.</div>
+        </section>
+        <section class="pascal-elevator" aria-labelledby="pascalElevatorTitle">
+          <div class="section-head"><h3 id="pascalElevatorTitle">4B · Small Pascal Elevator</h3><small>known-math specificity calibration</small></div>
+          <div class="elevator-track"><span>BINOMIAL CARRIER</span><i>↓</i><b>Eᴅ</b><i>↓</i><b>EΣ</b><i>↓</i><b>Eₚ</b><i>↓</i><span>GATED RETURN</span></div>
+          <div class="elevator-readouts">
+            <article><small>DIAGONAL EXTRACTOR</small><strong id="diagonalValue">21 = F₈</strong><code id="diagonalTerms">1+6+10+4</code><em>Pascal diagonals → Fibonacci</em></article>
+            <article><small>ROW AGGREGATOR</small><strong id="rowSumValue">128 = 2⁷</strong><code id="pascalRowValue">1 7 21 35 35 21 7 1</code><em>row sum → binary path mass</em></article>
+            <article><small>MODULAR SPECIFICITY</small><strong id="modGateValue">m=7 · PRIME PASS</strong><code id="modResidues">1 | 0 0 0 0 0 0 | 1</code><em>interior zeros characterize prime m</em></article>
+          </div>
+          <div class="modulus-controls" aria-label="Pascal modulus candidate"><span>candidate m</span><button data-pascal-mod="5">5</button><button data-pascal-mod="6">6</button><button data-pascal-mod="7" class="active">7</button><button data-pascal-mod="8">8</button><button data-pascal-mod="11">11</button></div>
+          <div class="specificity-gates" id="specificityGates"></div>
+          <div class="elevator-boundary"><b>CALIBRATION BOUNDARY:</b> these are established binomial identities. They verify that the gate machinery can distinguish a genuinely specific modular property. They do not rescue or imply E8 specificity, and the binomial <code>2ⁿ</code> channel remains separate from the trinomial <code>3ⁿ</code> carrier above.</div>
+        </section>
+        <div class="ihara-boundary"><b>BOUNDARY:</b> the Pascal carrier has <code>3ⁿ</code> path mass and one global ± view, hence <code>2·3ⁿ</code>, not <code>6ⁿ</code>. Shadow-gons are observation frames, not carriers. Exact antipodal return does not establish E8 specificity.</div>
+      </section>
+
+      <section class="family-orientation" data-cockpit-module="left" data-demo-phase="FAMILY" aria-labelledby="familyOrientationTitle">
+        <div class="section-head"><h2 id="familyOrientationTitle">5 · Family Orientation / Echo Trace</h2><small>OPEN ROLE HYPOTHESIS · no canonical edge</small></div>
+        <div class="family-controls"><button class="primary" id="stepFamilyTheta">STEP F7 θ(t)</button><button id="resetFamilyTheta">RESET α</button><span id="familyFrameReadout">TAO · θ=90°</span></div>
+        <div class="family-hypothesis-grid">
+          <div class="family-map-card">
+            <svg viewBox="0 0 540 285" role="img" aria-label="Open family role hypothesis with F1 alpha, moving F7 theta, two declared axes, and epsilon trace">
+              <defs><radialGradient id="moonGlow"><stop offset="0" stop-color="#fff"/><stop offset=".45" stop-color="#b78cff"/><stop offset="1" stop-color="#2a1744"/></radialGradient></defs>
+              <path class="family-axis main" d="M74 145L230 218L430 218"/><path class="family-axis link" d="M74 145L230 72"/><path class="family-axis validate" d="M74 145Q290 5 470 137"/><path class="family-axis control" d="M470 137L430 218"/>
+              <circle class="family-black-sun" cx="74" cy="145" r="28"/><circle class="family-core" cx="74" cy="145" r="7"/><text x="74" y="149" text-anchor="middle">F1</text><text x="74" y="184" text-anchor="middle">α · BLACK SUN</text>
+              <g class="family-small-node"><circle cx="230" cy="218" r="22"/><text x="230" y="222" text-anchor="middle">F2</text></g><g class="family-small-node"><circle cx="430" cy="218" r="22"/><text x="430" y="222" text-anchor="middle">F6</text></g><g class="family-small-node"><circle cx="230" cy="72" r="22"/><text x="230" y="76" text-anchor="middle">F5</text></g>
+              <circle id="familyEcho2" class="family-echo faint" cx="310" cy="50" r="20"/><circle id="familyEcho1" class="family-echo" cx="400" cy="78" r="22"/><circle id="familyF7" class="family-big-moon" cx="310" cy="50" r="29"/><text id="familyF7Label" x="310" y="54" text-anchor="middle">F7</text>
+              <text class="family-terminal" x="310" y="18" text-anchor="middle">TAO · 90°</text><text class="family-terminal" x="400" y="45" text-anchor="middle">DAO · 180°</text><text class="family-terminal" x="492" y="101" text-anchor="middle">IOTA · 270°</text>
+              <text class="family-marker" x="250" y="98">H27 · 3³ · F1↔F7?</text><text class="family-marker" x="447" y="184">H13 · F7↔F6?</text><text class="family-axis-label" x="252" y="247">F1 → F2 → F6 · observation / address / sync</text><text class="family-axis-label" x="112" y="91">F1 ↔ F5 · record / connectivity</text>
+            </svg>
+          </div>
+          <div class="family-echo-card">
+            <h3>ε · Echo / retained trace</h3><p><code>ε</code> records where the moving F7 validation view has been. It is history, not a fourth terminal frame and not the existing elevator operator <code>Eₛ</code>.</p>
+            <div class="epsilon-ledger" id="epsilonLedger">No echo yet · F7 at TAO</div>
+            <div class="candidate-sum"><span><b>H21</b><small>E / TA candidate</small></span><i>+</i><span><b>H50</b><small>complement candidate</small></span><i>=</i><span><b>71</b><small>exact sum · meaning OPEN</small></span></div>
+            <div class="family-boundary"><b>BOUNDARY:</b> F1≈α and F7≈θ(t) are role analogies in this lens. 27, 13, 21, 50 and 71 are visible hypothesis markers; none currently binds, selects or renames a canonical Family relation.</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="experiment-corridor" data-cockpit-module="wide" data-demo-phase="GRID" aria-labelledby="experimentCorridorTitle">
+        <div class="section-head"><h2 id="experimentCorridorTitle">6 · Noise → Grid → Transport → Memory</h2><small>four sources · separated evidence states</small></div>
+        <article class="noise-grid-card" aria-labelledby="noiseGridTitle">
+          <header><small>VISUAL 1 · CONTROL CONTRACT</small><b id="noiseGridTitle">The 12321 Palindromic Transition</b><span id="noiseDecision">GRID NOT YET IDENTIFIED</span></header>
+          <div class="register-lane" aria-label="Three independent numeric registers">
+            <div><small>CARRIER</small><b id="noiseCarrier">111² = 12,321</b><span>odd square / Janus field</span></div><i>≠</i>
+            <div><small>CRT ADDRESS</small><b id="noiseCrt">777 = 21 × 37</b><span>coprime exact product</span></div><i>≠</i>
+            <div><small>READOUT</small><b id="noiseAlphabet">8 states</b><span>declared operator alphabet</span></div>
+          </div>
+          <div class="noise-grid-visual">
+            <div class="noise-field" aria-label="Unresolved input field"></div><strong>MAP</strong><div class="grid-field" aria-label="Rendered eight-state grid"></div><strong>TEST</strong>
+            <div class="cube-readout" aria-label="Eight-state cube readout"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+          </div>
+          <div class="null-gates" id="noiseNullGates"></div>
+          <p><b>Die interessante Frage ist nicht, ob der Renderer ein Grid zeichnen kann,</b> sondern ob dieselbe Ordnung gegen Permutations- und Phasen-Nullmodelle sowie in einer unabhängigen Wiederholung bestehen bleibt. Bis dahin ist der Cube eine Ausleseansicht, kein entdeckter Mechanismus.</p>
+        </article>
+        <div class="corridor-flow"><b>ANGLE</b><i>→</i><b>ORBIT</b><i>→</i><b>TRANSPORT</b><i>→</i><b>MEMORY GATE</b></div>
+        <div class="corridor-grid">
+          <article class="corridor-card janus-card">
+            <header><small>VISUAL 4 · EXECUTED FINITE TEST</small><b>Janus Grid · Korb → Karte → Rückprojektion</b></header>
+            <div class="fold-mini"><span>KORB<br><b>11×11</b></span><i>J</i><span>KARTE<br><b id="janusOrbitCount">66</b></span><i>+σ</i><span>RETURN<br><b>121</b></span></div>
+            <div class="corridor-metrics"><span>adjacency <b id="janusAdjacency">1.000</b></span><span>null p <b id="janusP">0.000900</b></span><span>111² → <b id="janusLarge">6,216</b></span></div>
+            <p>Die Karte ist der Quotient. Das Seitenbit rekonstruiert die Handedness; ohne Handle bleibt die ursprüngliche Seite unentscheidbar.</p>
+          </article>
+          <article class="corridor-card polar-card">
+            <header><small>VISUAL 5 · DECLARED RASTER</small><b>POLARPASS LAB / FINAL</b></header>
+            <div class="orbit-mini"><div class="orbit-ring transport-ring"></div><div class="orbit-ring phase-ring"></div><div class="orbit-core">A</div></div>
+            <div class="polar-counts"><span><b id="polarAngleStates">144</b><small>angle</small></span><span><b id="polarOrbitStates">144,000</b><small>orbit</small></span><span><b id="polarTransportStates">144,000,000</b><small>transport</small></span></div>
+            <p><code>12² × 10³ × 10³</code> ist eine exakte Rastergröße. Welche physikalische Bedeutung P oder T trägt, entscheidet erst ein Messmodell.</p>
+          </article>
+          <article class="corridor-card memory-card">
+            <header><small>VISUAL 6 · CONDITIONAL ARCHIVE</small><b>Experimentreihe · Memory Gate / Radial Bands</b></header>
+            <div class="memory-equation">τ<sub>M</sub> ≈ log(|δz₀| / ε<sub>M</sub>) / |λ|</div>
+            <div class="radial-bands" id="radialBands" aria-label="Reported radial band taxonomy"></div>
+            <div class="memory-status" id="memoryStatus">CONDITIONAL · NO INDEPENDENT REPLAY</div>
+            <p>Die Gleichung ist als lokale Kontraktionslinse lesbar. Die historischen EXP‑JANUS‑18D‑Gatezeilen und der eingefrorene Klassifikator fehlen; daher keine neue Ausführung oder Claim‑Promotion.</p>
+          </article>
+        </div>
+        <div class="core-control-strip"><b>CORE CONTROL FAMILY · LORENZ</b><span>V2 quantile phase map = rank-based colouring</span><span>raw phase map = baseline</span><span>risk dips = bottom-5% local minima</span><em>unseeded demos · descriptive only · no bridge to 12321 inferred</em></div>
+        <div class="corridor-boundary"><b>SEPARATION:</b> Visual 1 ist ein noch nicht ausgeführter Kontrollvertrag. Visual 4 besitzt einen ausgeführten endlichen Test. Visual 5 zählt einen gewählten Zustandsraum. Visual 6 bleibt eine historische, bedingte Hypothesenkarte. Die Lorenz-Reihe ist eine separate Core-Demofamilie. Gemeinsame Darstellung bedeutet keine gemeinsame Evidenzklasse.</div>
+      </section>
+
+      <section class="go-return-lab" data-cockpit-module="left" data-demo-phase="RETURN" aria-labelledby="goReturnTitle">
+        <div class="section-head"><h2 id="goReturnTitle">6A · Triple Gate / Odd Antipode Go–Return</h2><small>exhaustive C6 · C7 · C8 control battery</small></div>
+        <div class="go-return-contract"><span><b>4</b><small>channels</small></span><i>:</i><span><b>3</b><small>gate roles</small></span><i>:</i><span><b>1</b><small>white seam</small></span><i>:</i><span><b>1</b><small>bounded return</small></span><em>typed architecture · not a product count</em></div>
+        <div class="go-return-controls">
+          <label>Cycle<select id="goReturnOrder"><option value="6">C6 · even control</option><option value="7" selected>C7 · odd test</option><option value="8">C8 · even control</option></select></label>
+          <label>Go step<select id="goReturnSteps"><option value="1" selected>+1</option><option value="2">+2</option><option value="3">+3</option></select></label>
+          <label>Projection<select id="goReturnSheet"><option value="retain" selected>retain σ handle</option><option value="erase">erase σ / shadow only</option></select></label>
+          <button id="goReturnStep">STEP PATH</button><button class="primary" id="goReturnRun">RUN TO RETURN</button><button id="goReturnReset">RESET TRACE</button>
+        </div>
+        <div class="go-return-grid">
+          <article class="go-return-card">
+            <header><b>Carrier / Triple Gate</b><span id="goReturnPhase">SOURCE</span></header>
+            <svg id="goReturnCycle" viewBox="0 0 440 350" role="img" aria-label="Finite cycle with go, odd antipode knick and bounded return"></svg>
+            <div class="triple-gate-key"><span class="difference">DIFFERENCE</span><span class="relation">RELATION</span><span class="emergence">EMERGENCE</span></div>
+          </article>
+          <article class="go-return-card rose-card">
+            <header><b>Computed Return Rosette</b><span>result surface</span></header>
+            <svg id="returnRosette" viewBox="0 0 440 350" role="img" aria-label="Return rosette generated from exhaustive finite-cycle results"></svg>
+            <div class="rose-legend"><span class="cyan">σ− / inverse sheet</span><span class="gold">σ+ / source sheet</span><span class="white">I/J seam</span></div>
+          </article>
+          <article class="go-return-card audit-card">
+            <header><b>Exhaustive Ledger</b><span id="goReturnDecision">READY</span></header>
+            <div class="go-return-metrics"><span><small>tested</small><b id="goReturnTested">14</b></span><span><small>resolved</small><b id="goReturnResolved">14</b></span><span><small>exact</small><b id="goReturnExact">14</b></span><span><small>ambiguity</small><b id="goReturnAmbiguous">0</b></span></div>
+            <div class="battery-table" id="goReturnBattery"></div>
+            <div class="go-return-gates" id="goReturnGates"></div>
+          </article>
+        </div>
+        <section class="s3-gate-extension" id="tripleS3Extension" aria-labelledby="tripleS3Title">
+          <header><div><small>CYAN / BLUE INNER REGISTER</small><h3 id="tripleS3Title">TripleSix S₃ → three axes × two sides</h3></div><span id="s3AxisReadout">AXIS A · 123 ↔ 321</span></header>
+          <div class="s3-extension-grid">
+            <article class="s3-permutation-card">
+              <div class="s3-card-head"><b>Six permutation states</b><code id="complexOrientationMarker">2¹·i · typed orientation marker</code></div>
+              <div class="s3-permutation-grid" id="s3PermutationGrid" role="group" aria-label="Six S3 permutation states"></div>
+              <div class="s3-axis-pairs" id="s3AxisPairs"></div>
+            </article>
+            <article class="repunit-gate-card">
+              <div class="s3-card-head"><b>Repunit root / odd mirror closure</b><span>two constructions · one output</span></div>
+              <div class="repunit-controls" role="group" aria-label="Repunit length"><button data-repunit-length="3" class="primary">3 ONES</button><button data-repunit-length="4">4 ONES</button><button data-repunit-length="5">5 ONES</button></div>
+              <div class="repunit-equation"><span><small>NUMERIC ROOT</small><b id="repunitSquare">111² = 12321</b></span><i>=</i><span><small>HALF-SEED CLOSE</small><b id="repunitMirror">123 | 21 = 12321</b></span></div>
+              <p id="repunitRule">carry-free decimal identity for lengths 1…9</p>
+            </article>
+          </div>
+          <div class="s3-extension-boundary"><b>BOUNDARY:</b> the six states and three reversal pairs reuse the audited TripleSix <code>S₃ → {A,B,C}×C₂</code> state address. This is not a direct-product group identity. Repunit squaring and word-level mirror closure are distinct maps; their outputs coincide here exactly.</div>
+        </section>
+        <section class="defg-series-bridge" id="defgSeriesBridge" aria-labelledby="defgSeriesTitle">
+          <header>
+            <div><small>HISTORICAL SERIES ADDRESS TEST · SOURCE-BOUND · NO RECONSTRUCTION</small><h3 id="defgSeriesTitle">9·DEFG? → 10·F? · relation becomes field</h3></div>
+            <button id="stepDefgSeries" type="button">STEP 9 → 10</button>
+            <output id="defgSeriesReadout">9 · RELATION REGISTER</output>
+          </header>
+          <div class="defg-series-grid">
+            <article class="defg-register">
+              <div class="defg-object-row"><span>A</span><span>B</span><span>C</span></div>
+              <div class="defg-relation-row"><span><b>D</b><small>A∩B</small></span><span><b>E</b><small>B∩C</small></span><span><b>F</b><small>C∩A</small></span><span class="triple"><b>G</b><small>A∩B∩C</small></span></div>
+              <p><b>G remains inside DEFG:</b> three pair relations plus the declared triple relation.</p>
+            </article>
+            <article class="qh-recursion">
+              <div><span>Q<small>source / impulse</small></span><i>→</i><span>H<small>court / field</small></span></div>
+              <b>Hₙ → Qₙ₊₁</b>
+              <small>role recursion · origin retained · state not reset</small>
+            </article>
+            <article class="defg-cross">
+              <div class="cross-cell plus">D⁺</div><div class="cross-cell plus">E⁺</div><div class="cross-cell minus">D⁻</div><div class="cross-cell minus">E⁻</div>
+              <p>two declared splits → four addressable cells<br><b>F and G remain outside this 2×2 projection.</b></p>
+            </article>
+          </div>
+          <div class="defg-source-ledger">
+            <span><b>09 · Recursive Source–Court Tree</b><small>STATIC DOCUMENTARY ONLY · SOURCE HTML MISSING</small></span>
+            <i>→</i>
+            <a href="../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_HTML_ORIENTATION_DEMONSTRATOR_SERIES/closed-loop-moving-world-standalone.html"><b>10 · Closed Loop Moving World</b><small>EXECUTABLE HTML PRESENT ↗</small></a>
+            <a href="../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_HTML_ORIENTATION_DEMONSTRATOR_SERIES/00_SERIES_INDEX.md">SERIES LEDGER ↗</a>
+            <a href="../../../ORION_OCTAGON_OPERATOR_GRID_STRUCTURE_HARVEST_PHASE_0/01_O8_ALGEBRA_AND_GRAPH.md">O8 / Q3 BOUNDARY ↗</a>
+          </div>
+          <div class="defg-series-boundary"><b>BOUNDARY:</b> <code>9·DEFG?</code> and <code>10·F?</code> are open address labels over an existing historical series. This lens does not reconstruct the missing position-9 HTML. The octagon is a display of eight Q3 states; polygon-neighbour order is not Q3 adjacency.</div>
+        </section>
+        <div class="go-return-boundary"><b>RESULT BOUNDARY:</b> on even cycles the antipodal vertex is unique. On odd cycles the projected vertex has two neighboring antipode candidates; the retained bit <code>σ</code> selects the branch and makes <code>J² = I</code>. The rosette is generated from this finite census. It does not establish E8, physical or universal antipodal specificity.</div>
+      </section>
+
+      <section class="fold45-gate" data-cockpit-module="right" data-demo-phase="FOLD" aria-labelledby="fold45Title">
+        <div class="section-head"><h2 id="fold45Title">6B · 4:5 / 45° Fold / 54 Return</h2><small>typed comparator · covariant views + true mirror</small></div>
+        <div class="fold45-flow">
+          <article><small>INPUT PAIR</small><b id="fold45Source">(4,5)</b><span id="fold45SourceNumeral">C(4,5) = 45</span></article>
+          <i>— S<sub>45</sub> : (x,y)↦(y,x) →</i>
+          <article><small>RETURN PAIR</small><b id="fold45Return">(5,4)</b><span id="fold45ReturnNumeral">C(5,4) = 54</span></article>
+          <article class="factor"><small>SEPARATE FACTOR MARKER</small><b id="fold45Factor">54 = 6 × 9</b><span>exact arithmetic annotation</span></article>
+        </div>
+        <div class="fold45-checks"><span><b>S² = I</b> involutive swap</span><span id="fold45Control"><b>control</b> (2,3) → 23 / 32</span><span><b>invariants</b> sum 9 · product 20</span></div>
+        <div class="record-code" id="recordMirrorCode" data-provenance="EXP-LAB-01" data-date="2025-05-24">
+          <article><small>FORMAT</small><b>7″ EP</b><span>diameter · Iota + II remains open</span></article>
+          <article><small>COVARIANT VIEWS</small><b>A · B</b><span>one record · different faces</span></article>
+          <article><small>SIDE TURN</small><b>90° | EDGE | 90°</b><span>declared 180° display decomposition</span></article>
+          <article><small>PLAYBACK SPEEDS</small><b>33⅓ · 45 · 78 rpm</b><span>units stay typed</span></article>
+          <article class="true-mirror"><small>TRUE MIRROR · EXP-LAB-01 · 24 MAY 2025</small><b>41 ↔ 37</b><span>41 + 37 = 78 · 41 − 37 = 4</span></article>
+        </div>
+        <div class="fold45-boundary"><b>REPRESENTATION BOUNDARY:</b> the angle <code>45°</code>, decimal numeral <code>45</code>, playback speed <code>45 rpm</code>, and 7-inch format are distinct typed objects. A/B and Blue/Pink are covariant views of a retained carrier; the value-changing mirror is a separate operator.</div>
+      </section>
+
+      <section class="root838-lab" data-cockpit-module="wide" data-demo-phase="ROOT" aria-labelledby="root838Title">
+        <div class="section-head"><h2 id="root838Title">6C · Root Space 8→16 / 8|3|8 Reading Mask</h2><small>exact graph census · decimal mnemonic kept separate</small></div>
+        <div class="root838-controls" role="group" aria-label="Root-space display mode">
+          <button data-root-mode="q3">Q3 · 8 states</button><button data-root-mode="double">DOUBLE · 8+8</button><button class="primary" data-root-mode="q4">Q4 · 16 states</button><button data-root-mode="mask">8|3|8 MASK</button>
+          <span id="root838Decision">EXACT FINITE CENSUS</span>
+        </div>
+        <div class="root-engine-bar" id="rootEngineBar" data-engine-state="paused">
+          <span class="root-engine-light" aria-hidden="true"></span>
+          <button class="primary" id="rootEnginePlay" type="button">PLAY ENGINE</button>
+          <button id="rootEngineStep" type="button">STEP</button>
+          <button id="rootEngineReset" type="button">RESET</button>
+          <label>SPEED<select id="rootEngineSpeed"><option value="1200">SLOW</option><option value="720" selected>NORMAL</option><option value="320">FAST</option><option value="160">PULSE</option></select></label>
+          <output id="rootEngineStatus">TICK 00 · 0000 · READY</output>
+          <button id="rootEngineExport" type="button">EXPORT REPLAY</button>
+        </div>
+        <div class="root838-grid">
+          <article class="root838-graph-card">
+            <header><b id="root838GraphTitle">Q4 · two Q3 layers plus matching bridges</b><span>MOD:TESSAREC · existing carrier</span></header>
+            <svg id="root838Graph" viewBox="0 0 720 390" role="img" aria-label="Q3 and Q4 graph viewer with two eight-state layers, three internal transition types and eight bridges"></svg>
+            <div class="root838-equation" id="root838Equation">|E(Q4)| = 2·12 + 8 = 32</div>
+          </article>
+          <article class="root838-ledger-card">
+            <header><b>Typed ledger</b><span>COUNT BEFORE INTERPRETATION</span></header>
+            <div class="root838-metrics">
+              <span><small>states / layer</small><b id="root838States">8</b></span><span><small>internal types</small><b id="root838Types">3</b></span><span><small>matching bridges</small><b id="root838Bridges">8</b></span><span><small>Q4 edges</small><b id="root838Edges">32</b></span>
+            </div>
+            <div class="root838-mask"><i>CYAN</i><b>8</b><em>|</em><i>AXES</i><b>3</b><em>|</em><i>GOLD</i><b>8</b></div>
+            <div class="root838-chain">
+              <small>SEPARATE DECIMAL CHECK</small>
+              <b>p₈ = 19 → 2p₈ = 38 → rev(38) = 83 = p₂₃</b>
+              <span>concat(8,38) = concat(83,8) = <strong>838</strong></span>
+            </div>
+            <div class="root838-gates" id="root838Gates"></div>
+            <div class="root-engine-trace" id="rootEngineTrace"><span>00</span></div>
+          </article>
+        </div>
+        <div class="root838-boundary"><b>READING BOUNDARY:</b> <code>8|3|8</code> means eight states in each Q3 layer, three internal bit-flip transition types, and eight matching bridge edges. The decimal chain is a mnemonic word-level check only—not an integer equation, graph derivation, identity proof, or physics claim. <a href="../../../SCIENCE_LAB/EXPORTS/NEXAH_TESSERACT_ROOT_SPACE_8_TO_16.html">Open the existing Root Space 8→16 source.</a></div>
+      </section>
+
+      <section class="history-panel panel cockpit-console" id="historyPanel">
+        <div class="section-head"><h2>7 · History / deterministic replay</h2><small id="historyCount">0 operations</small></div>
+        <ol class="history" id="history"><li><span>—</span><b>∅</b><span>No operator applied.</span></li></ol>
+      </section>
+    </section>
+
+    <div class="right-column">
+      <section class="panel cockpit-console" id="recordPanel">
+        <div class="section-head"><h2>8 · Gate 11 return</h2><small>identity is not assumed</small></div>
+        <div class="gate11-frame">
+          <svg viewBox="0 0 300 190" role="img" aria-label="Two one-valued seed rings projected from a circle to a square boundary">
+            <rect class="gate-square" x="66" y="16" width="158" height="158" rx="3"/>
+            <circle class="gate-ring one" cx="145" cy="95" r="48"/><circle class="gate-ring two" cx="145" cy="95" r="68"/>
+            <line id="gateProjectionLine" class="gate-projection" x1="145" y1="95" x2="145" y2="27"/>
+            <circle id="gateCirclePoint" class="gate-circle-point" cx="145" cy="27" r="5"/><circle id="gateSquarePoint" class="gate-square-point" cx="145" cy="16" r="6"/>
+            <text x="91" y="91">F₁=1</text><text x="69" y="115">F₂=1</text><text x="145" y="187" text-anchor="middle">polar circle → square frame</text>
+          </svg>
+          <div><b>1,1 seed pair</b><p>Fibonacci begins with a declared seed pair, but G11/POLAR is not thereby a Fibonacci carrier. The displayed map sends the current polar direction to the square boundary by max-norm normalization.</p><small>circle ≠ square · sequence ≠ coordinate view · representation link only</small></div>
+        </div>
+        <div class="return-grid" id="returnGrid"></div>
+        <h3 style="margin-top:14px">Current state record</h3>
+        <pre class="state-json" id="stateJson" aria-live="polite"></pre>
+      </section>
+
+      <section class="panel blind">
+        <div class="section-head"><h2>9 · Blind operator test</h2><small>labels and colors withheld</small></div>
+        <div class="blind-display"><div class="blind-state" id="blindBefore"></div><div class="blind-arrow">→</div><div class="blind-state" id="blindAfter"></div></div>
+        <div class="blind-actions"><button data-answer="J">J</button><button data-answer="R">Rθ</button><button data-answer="E">Eₛ</button><button data-answer="HOLD">HOLD</button><button class="primary" id="newBlind">NEW CASE</button></div>
+        <div class="blind-result" id="blindResult" aria-live="polite">Select the operator or HOLD.</div>
+      </section>
+    </div>
+  </div>
+
+  <div class="cockpit-lab-grid" id="cockpitLabGrid" aria-label="Expanded left and right laboratory modules"></div>
+
+  <details class="panel sources">
+    <summary>Source bindings and adapter queue</summary>
+    <div class="source-list">
+      <a href="operator-registry/modular-crt-operator-registry-v0.1.json"><b>A0.CRT.CHANNEL/5x73</b><small>validated local 365 carrier · reused identity</small></a>
+      <a href="A0_FAMILY_CONNECTION_ATLAS.html"><b>A0 Family Connection Atlas</b><small>F1–F7 functional roles · relational host</small></a>
+      <a href="A0_TESSAREC_BLUE_BODY_LAB.html#pentagon-body-player"><b>Tessarec Blue Body Lab</b><small>existing MOD:TESSAREC carrier/view host · not modified</small></a>
+      <a href="../../../SCIENCE_LAB/EXPORTS/NEXAH_TESSERACT_ROOT_SPACE_8_TO_16.html"><b>ART:TESSAREC:ROOT_SPACE_8_16</b><small>existing Q3→Q4 root-space source · 8|3|8 reading mask tested here without re-identification</small></a>
+      <a href="A0_IHARA_HASHIMOTO_CYCLE_BRIDGE.html"><b>Ihara–Hashimoto Cycle Bridge</b><small>finite directed-edge and non-backtracking source contract · reused, not re-identified</small></a>
+      <a href="../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_PRIMEGRID_BLOCK02B_TRINARY_PASCAL_ANTIPODE_2026-10-07/NEXAH_PRIMEGRID_BLOCK02B_TRINARY_PASCAL_ANTIPODE_LAB.html"><b>ART:NUMBER:PRIMEGRID_BLOCK02B_TRINARY_ANTIPODE</b><small>exact trinomial multiplicity and global antipode source</small></a>
+      <a href="../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_PRIMEGRID_BLOCK02A_PASCAL_THREAD_QUOTIENT_2026-10-07/NEXAH_PRIMEGRID_BLOCK02A_PASCAL_THREAD_LAB.html"><b>PRIMEGRID BLOCK‑02A · Pascal Thread Quotient</b><small>binomial recurrence, fibers and exact row-sum calibration source</small></a>
+      <a href="../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_LIFE_MULTI_VIEW_IDENTIFIABILITY_CA_IDENT_01_2026-10-08/index.html"><b>ART:HTML:D5EB37391C26 · CA-IDENT-01</b><small>17/19/29 shadow-gon observation grammar; carrier identity not transferred</small></a>
+      <a href="../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_LIFE_E8_ANTIPODAL_RETURN_LIFE04B_2026-10-07/index.html"><b>ART:HTML:9C1F6CA02076 · LIFE04B</b><small>exact return plus retained negative E8-specificity result</small></a>
+      <a href="../../../SCIENCE_LAB/CASE_STUDIES/Orion_POLAR:Pass Maastricht/test_07_janus_grid_fold_report.txt"><b>CAND:POLARPASS · Test 07 Janus Grid Fold</b><small>executed finite quotient test · involution, adjacency null and side-bit return</small></a>
+      <a href="../../../SCIENCE_LAB/NAVIGATION/POLAR_JANUS_EVIDENCE_SLICE_V1_2026-10-06.json"><b>CAND:POLARPASS · governed evidence slice</b><small>existing candidate-series identity and source routing; not promoted here</small></a>
+      <a href="../../../ORION_MATH_THE_MATH_VALIDATION_ARCHITECTURE_PASS/06_REPRODUCIBILITY_GAP_REPORT.md"><b>EXP-JANUS-18D reproducibility boundary</b><small>memory/gate archive remains conditional until raw rows, frozen rule and replay are recovered</small></a>
+      <a href="../../../SCIENCE_LAB/RESEARCH_AREAS/FIELD_GLYPH_NUMBER_ARCHITECTURE_STAGE_0_2026-09-14/13_12321_COUPLING_KEY_JANUS_AXIS.md"><b>12321 Coupling Key / Janus Axis</b><small>owner-declared role with exact bounded odd-square quotient mechanism</small></a>
+      <a href="../../../../../10 NEXAH CORE/NEXAH/RESEARCH/NOTES/PASCAL_PENTAGON_D5_TEST_2026-10-10/PASCAL_ROSETTA_JOINT_DESIGN_2026-10-11/NCS_292_Q106_INTERTWINER_RETURN_PACKAGE_2026-10-11/TRIPLE19_X40_C2_ORIENTATION_FACTOR_AUDIT_2026-10-11/TRIPLESIX_S3_CUBE_GRID_FOLD_BRIDGE_AUDIT_2026-10-12/RESULT.json"><b>SRC:A0OE:TRIPLESIX_S3_CUBE_GRID_FOLD_AUDIT</b><small>58/58 · six S₃ states · three reversal axes · C₂ side bit; reused without historical generator claim</small></a>
+      <a href="../31_A0_CON_DAO_RETURN_SERIES_ARCHAEOLOGY_2026-10-11.md"><b>CON–DAO Return Series Archaeology</b><small>nine views, Triple Gate switch, bounded return and source-local claim boundaries</small></a>
+      <a href="../../../SCIENCE_LAB/CASE_STUDIES/THREE_LIFE_SYSTEMS_PLUS_ONE_BINDER_VISUAL_SERIES_2026-08-24/SOURCE_ASSETS/NEXAH%20Anatomy_Dual_Tripple_Core_CA%7CCON-DAO%7CAU/nexah-ninefold-return-download.html"><b>Ninefold Return HTML</b><small>historical visual source: nine views around one bounded return; reused as view grammar only</small></a>
+      <a href="../../../../../10 NEXAH CORE/NEXAH/APPLICATIONS/core_demos/lorenz/analysis/lorenz_orbit_phase_map_v2.py"><b>NEXAH Core · Lorenz quantile phase demo</b><small>rank-based colouring; stochastic and unseeded; kept separate from the 12321 contract</small></a>
+      <a href="../../../../../10 NEXAH CORE/NEXAH/APPLICATIONS/core_demos/lorenz/analysis/lorenz_orbit_structure_demo.py"><b>NEXAH Core · Lorenz risk-dip demo</b><small>bottom-five-percent local-minimum detector; descriptive control family only</small></a>
+      <a href="../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_ROOT7_EULER_MIRROR_CONCORDANCE_INTAKE_2026-09-28/ELINE_FOURIER_POINCARE_TEST_SUITE_01.html"><b>ART:NUMBER:ELINE_POINCARE</b><small>current bounded Fourier/Poincaré master · deferred adapter source</small></a>
+      <div><b>Controller + Ihara + Pascal/Shadow + experiment-corridor contract</b><small>local engineering specification in assets/a0-orientation-controller-bench-v0.5.json; no canonical vocabulary change</small></div>
+    </div>
+    <div class="queue" aria-label="Deferred adapters"><span>RIEMANN / EULER VIEW</span><span>FOURIER</span><span>JT</span><span>VIII</span><span>TAN→TAO→DAO→IOTA</span><span>PASCAL Y/T</span></div>
+  </details>
+
+  <footer class="footer"><span>One run · typed handoffs · separated carriers.</span><span>NO NEW MODULE · NO SCIENCE CLAIM · NO PUBLICATION AUTHORITY</span></footer>
+</main>
+  <script src="a0-orientation-controller-bench.js?rev=20261016-iris-octagon"></script>
+<script>
+(function(){
+  'use strict';
+  const C = window.A0OrientationController;
+  let initial = C.createState();
+  let state = C.createState();
+  let blindSeed = 101;
+  let challenge = C.createBlindChallenge(blindSeed);
+  let edgeState = C.createEdgeState();
+  let edgeBlindSeed = 701;
+  let edgeChallenge = C.createEdgeBlindChallenge(edgeBlindSeed);
+  let shadowSides = 7;
+  let pascalSelected = {i:4,j:0,k:0,sigma:1};
+  let pascalModulus = 7;
+  let pascalLensMode = 'algo';
+  let pascalLensTimer = null;
+  let pascalExteriorMode = 'shadow';
+  let stateRelationMode = 'state';
+  let familyThetaStep = 0;
+  let goReturnPathIndex = 0;
+  let s3SelectedWord = '123';
+  let repunitLength = 3;
+  let defgSeriesStep = 0;
+  let root838Mode = 'q4';
+  let rootEngineState = C.createRootSpaceEngine();
+  let rootEngineTimer = null;
+  let masterDemoState = C.createMasterDemonstratorState();
+  let masterDemoTimer = null;
+  let masterAutoTimer = null;
+  let masterAutoTour = false;
+  let pxaJourneyState = C.createPxaJourneyState({running:true});
+  let pxaJourneyTimer = null;
+  const $ = id => document.getElementById(id);
+  const qsa = selector => Array.from(document.querySelectorAll(selector));
+  const layerColors = ['#48d7f3','#ed63cb','#f4bd50'];
+
+  function assembleCockpitLayout(){
+    const grid=$('cockpitLabGrid');
+    const modules=Object.fromEntries(qsa('[data-cockpit-module]').map(module=>[module.dataset.demoPhase,module]));
+    const acts=[
+      {id:'ORIENT',number:'ACT I',question:'What is the state?',copy:'Address, position and declared operator establish the reading frame.',nodes:[$('statePanel'),$('operatorPanel')],links:[['Family Atlas','A0_FAMILY_CONNECTION_ATLAS.html'],['Axial adapters','A0_AXIAL_CARRIER_ADAPTER_SUITE.html']]},
+      {id:'TRANSLATE',number:'ACT II',question:'What changes in the view?',copy:'Edge, shadow, role and grid remain typed translations—not carrier identities.',nodes:[modules.EDGE,modules.SHADOW,modules.FAMILY,modules.GRID],links:[['Ihara bridge','A0_IHARA_HASHIMOTO_CYCLE_BRIDGE.html'],['Pascal joints','A0_PASCAL_PENTAGON_OPERATOR_JOINTS.html'],['Boundary graph','A0_BOUNDARY_GRAPH_DEMONSTRATOR.html']]},
+      {id:'RETURN',number:'ACT III',question:'Can it come back?',copy:'Cycle, fold and finite root-space replay test what a return requires.',nodes:[modules.RETURN,modules.FOLD,modules.ROOT],links:[['Fold sequencer','A0_AXIS08_FOLD_RETURN_SEQUENCER.html'],['JARP cross lens','A0_JARP_CROSS_LENS_EXTENSION.html'],['Blue Body','A0_TESSAREC_BLUE_BODY_LAB.html#antipode-return']]},
+      {id:'VERIFY',number:'ACT IV',question:'What survives the run?',copy:'History, receipt and blind checks expose residuals, ambiguity and boundary.',nodes:[$('historyPanel'),$('recordPanel'),document.querySelector('.panel.blind')],links:[['Laboratory','A0_LABORATORY.html'],['Research Desk','A0_RESEARCH_DESK.html'],['All instruments','A0_BUILDER_TOY_STORE.html']]}
+    ];
+    acts.forEach(act=>{
+      const section=document.createElement('section');section.className=`bench-act bench-act-${act.id.toLowerCase()}`;section.id=`act-${act.id.toLowerCase()}`;section.dataset.benchAct=act.id;
+      const header=document.createElement('header');header.className='bench-act-head';header.innerHTML=`<div><small>${act.number} · ${act.id}</small><h2>${act.question}</h2><p>${act.copy}</p></div><nav aria-label="Related ${act.id.toLowerCase()} instruments">${act.links.map(([label,href])=>`<a href="${href}">${label} ↗</a>`).join('')}</nav>`;section.appendChild(header);
+      const stage=document.createElement('div');stage.className='bench-act-stage';act.nodes.filter(Boolean).forEach(node=>{node.classList.add('cockpit-module');stage.appendChild(node)});section.appendChild(stage);grid.appendChild(section);
+    });
+  }
+  assembleCockpitLayout();
+
+  const tickNodes = $('tickNodes');
+  for(let i=0;i<5;i++){
+    const angle=-90+i*72, rad=angle*Math.PI/180, x=220+166*Math.cos(rad), y=194+166*Math.sin(rad);
+    const circle=document.createElementNS('http://www.w3.org/2000/svg','circle');
+    circle.setAttribute('class','tick-node');circle.setAttribute('data-sector',String(i));circle.setAttribute('cx',x);circle.setAttribute('cy',y);circle.setAttribute('r','6');tickNodes.appendChild(circle);
+  }
+
+  const iharaNodes = $('iharaNodes');
+  function edgePoint(index){const angle=(-90+Number(index)*72)*Math.PI/180;return {x:190+110*Math.cos(angle),y:145+110*Math.sin(angle)}}
+  for(let i=0;i<5;i++){
+    const point=edgePoint(i),group=document.createElementNS('http://www.w3.org/2000/svg','g');
+    group.setAttribute('class','ihara-node');group.setAttribute('data-node',String(i));
+    group.innerHTML=`<circle cx="${point.x}" cy="${point.y}" r="14"></circle><text x="${point.x}" y="${point.y+4}" text-anchor="middle">${i}</text>`;
+    iharaNodes.appendChild(group);
+  }
+
+  function setLine(id,from,to){const a=edgePoint(from),b=edgePoint(to),line=$(id);line.setAttribute('x1',a.x);line.setAttribute('y1',a.y);line.setAttribute('x2',b.x);line.setAttribute('y2',b.y)}
+  function edgeText(value){return `${value.from}→${value.to}`}
+  function renderEdgeCore(){
+    setLine('incomingEdge',edgeState.incoming.from,edgeState.incoming.to);
+    setLine('candidateEdge',edgeState.candidate.from,edgeState.candidate.to);
+    const lastCommitted=[...edgeState.ledger].reverse().find(item=>item.committed);
+    if(lastCommitted){setLine('confirmedEdge',lastCommitted.committed.from,lastCommitted.committed.to);$('confirmedEdge').classList.add('visible')}else{$('confirmedEdge').classList.remove('visible')}
+    $('ringIn').setAttribute('transform',`rotate(${edgeState.incoming.from*72} 190 145)`);
+    $('ringOut').setAttribute('transform',`rotate(${edgeState.candidate.to*72} 190 145)`);
+    $('ringLayer').setAttribute('transform',`rotate(${edgeState.layer*24} 190 145)`);
+    $('ringLayer').style.stroke=layerColors[edgeState.layer];
+    qsa('.ihara-node').forEach((node,index)=>{node.classList.toggle('from',index===edgeState.incoming.from);node.classList.toggle('pivot',index===edgeState.incoming.to);node.classList.toggle('target',index===edgeState.candidate.to)});
+    $('closureWitness').classList.toggle('active',edgeState.status==='PRIMITIVE_C5_CLOSURE');
+    const verdict=C.classifyEdgeTurn(edgeState.incoming,edgeState.candidate);
+    $('edgeReadout').innerHTML=`<b>R_in</b> ${edgeText(edgeState.incoming)}<br><b>R_out</b> ${edgeText(edgeState.candidate)} · ${verdict}<br><b>R_layer</b> P${edgeState.layer}<br><b>path</b> ${edgeState.path.join('→')}<br><b>primitive</b> ${edgeState.primitiveClass||'open'}`;
+    $('edgeStatus').textContent=`${edgeState.status} · turns ${edgeState.committedTurns} · blocked ${edgeState.rejectedBacktracks} · closures ${edgeState.closures}`;
+    $('edgeStatus').className=`edge-status ${edgeState.status.includes('BLOCK')?'blocked':edgeState.status.includes('CLOSURE')?'closed':''}`;
+    $('traceLedger').innerHTML=Array.from({length:10},(_,i)=>i+1).map(k=>`<span class="trace-cell ${C.traceC5(k)?'hit':''}"><b>k=${k}</b><small>${C.traceC5(k)}</small></span>`).join('');
+    $('edgeLedger').innerHTML=edgeState.ledger.length?edgeState.ledger.slice().reverse().map(item=>`<li><b>${item.index}</b> ${edgeText(item.incoming)} → ${edgeText(item.candidate)} · ${item.status}</li>`).join(''):'<li>No turn committed.</li>';
+  }
+  function renderEdgeBlind(){
+    $('edgeBlindCase').textContent=`${edgeText(edgeChallenge.incoming)}  ↦  ${edgeText(edgeChallenge.candidate)}`;
+    $('edgeBlindResult').textContent='Apply the transition law.';$('edgeBlindResult').className='';
+  }
+
+  const NS='http://www.w3.org/2000/svg';
+  function svgNode(tag,attrs={},text=''){const node=document.createElementNS(NS,tag);Object.entries(attrs).forEach(([key,value])=>node.setAttribute(key,String(value)));if(text)node.textContent=text;return node}
+  function pascalPoint(item,n){if(!n)return{x:220,y:175};const A={x:220,y:28},B={x:35,y:315},D={x:405,y:315};return{x:(item.i*A.x+item.j*B.x+item.k*D.x)/n,y:(item.i*A.y+item.j*B.y+item.k*D.y)/n}}
+  function drawShadowPath(root,projection,className,dotClass){
+    const points=projection.normalized.map((value,index)=>{const angle=-Math.PI/2+index*2*Math.PI/projection.sides,radius=28+value*108;return{x:220+Math.cos(angle)*radius,y:175+Math.sin(angle)*radius}});
+    root.appendChild(svgNode('polygon',{points:points.map(p=>`${p.x},${p.y}`).join(' '),class:className}));
+    points.forEach(point=>root.appendChild(svgNode('circle',{cx:point.x,cy:point.y,r:3.2,class:dotClass})));
+  }
+  function drawPolygonCountershot(root,contract){
+    if(!contract.enabled)return;
+    const point=(index,sides,radius)=>{const angle=-Math.PI/2+index*2*Math.PI/sides;return{x:220+Math.cos(angle)*radius,y:175+Math.sin(angle)*radius}};
+    const group=svgNode('g',{class:'countershot-overlay','aria-label':'C17 countershot overlay with C8 core, twelve-node display cadence and uncounted tongue'});
+    const inner=Array.from({length:8},(_,index)=>point(index,8,61));
+    group.appendChild(svgNode('polygon',{points:inner.map(p=>`${p.x},${p.y}`).join(' '),class:'countershot-c8'}));
+    inner.forEach(p=>group.appendChild(svgNode('circle',{cx:p.x,cy:p.y,r:4.2,class:'countershot-c8-node'})));
+    const cadence=Array.from({length:12},(_,index)=>point(index,12,101));
+    cadence.forEach((p,index)=>group.appendChild(svgNode('circle',{cx:p.x,cy:p.y,r:(index+1)%4===0?5:3.2,class:`countershot-cadence ${index<4?'cyan':index<8?'gold':'pink'} ${(index+1)%4===0?'gate':''}`})));
+    const outer=Array.from({length:17},(_,index)=>point(index,17,145));
+    outer.forEach((p,index)=>group.appendChild(svgNode('circle',{cx:p.x,cy:p.y,r:index===0?5.8:4.1,class:`countershot-outer ${index===0?'pivot':index<=8?'cyan':'pink'}`})));
+    const source=outer[contract.countershot.sourceIndex],minus=outer[contract.countershot.minus.selected],plus=outer[contract.countershot.plus.selected];
+    group.appendChild(svgNode('line',{x1:source.x,y1:source.y,x2:minus.x,y2:minus.y,class:'countershot-beam minus'}));
+    group.appendChild(svgNode('line',{x1:source.x,y1:source.y,x2:plus.x,y2:plus.y,class:'countershot-beam plus'}));
+    const tongueStart={x:(minus.x+plus.x)/2,y:(minus.y+plus.y)/2};
+    group.appendChild(svgNode('path',{d:`M${tongueStart.x},${tongueStart.y} Q220,326 220,340`,class:'countershot-tongue'}));
+    group.appendChild(svgNode('circle',{cx:220,cy:340,r:4.5,class:'countershot-tongue-node'}));
+    group.appendChild(svgNode('text',{x:220,y:169,'text-anchor':'middle',class:'countershot-core-label'},'C8 · 2³'));
+    group.appendChild(svgNode('text',{x:220,y:183,'text-anchor':'middle',class:'countershot-equation'},'2³ + 1² + 2³ = 17'));
+    group.appendChild(svgNode('text',{x:220,y:199,'text-anchor':'middle',class:'countershot-cadence-label'},'12 · 3+1 · 3+1 · 3+1'));
+    root.appendChild(group);
+  }
+  function drawPascalExterior(root,contract){
+    root.dataset.exterior=contract.mode;
+    if(contract.mode==='shadow'){
+      root.appendChild(svgNode('text',{x:220,y:341,'text-anchor':'middle',class:'exterior-svg-label shadow'},'Pₘ(x) · BLUE / PINK COLLIDE'));
+      return;
+    }
+    if(contract.mode==='signed'){
+      root.appendChild(svgNode('circle',{cx:220,cy:175,r:157,class:'signed-sheet-ring plus'}));
+      root.appendChild(svgNode('circle',{cx:220,cy:175,r:166,class:'signed-sheet-ring minus'}));
+      root.appendChild(svgNode('text',{x:42,y:42,class:'signed-sheet-label plus'},'σ=+ · CYAN SHEET'));
+      root.appendChild(svgNode('text',{x:398,y:42,'text-anchor':'end',class:'signed-sheet-label minus'},'σ=− · PINK SHEET'));
+      root.appendChild(svgNode('text',{x:220,y:341,'text-anchor':'middle',class:'exterior-svg-label signed'},'(Pₘ(x), σ) · HANDLE RETAINED'));
+      return;
+    }
+    const points=Array.from({length:12},(_,index)=>{const angle=-Math.PI/2+index*Math.PI/6,r=index%2?163:174;return`${220+Math.cos(angle)*r},${175+Math.sin(angle)*r}`}).join(' ');
+    root.appendChild(svgNode('polygon',{points,class:'blue-body-host'}));
+    root.appendChild(svgNode('line',{x1:220,y1:18,x2:220,y2:332,class:'body-host-axis'}));
+    root.appendChild(svgNode('circle',{cx:220,cy:175,r:21,class:'body-host-core'}));
+    root.appendChild(svgNode('text',{x:220,y:171,'text-anchor':'middle',class:'body-host-mark'},'σ · r'));
+    root.appendChild(svgNode('text',{x:220,y:188,'text-anchor':'middle',class:'body-host-submark'},'HOST'));
+    root.appendChild(svgNode('text',{x:220,y:341,'text-anchor':'middle',class:'exterior-svg-label body'},'B(Pₘ(x), σ, r) · z = σα + r'));
+  }
+  function renderPascalExterior(contract){
+    const formulas={shadow:`P${contract.sides}(x) → S${contract.sides}`,signed:`(P${contract.sides}(x), σ) → S${contract.sides} × {+,-}`,body:`B(P${contract.sides}(x), σ, r) → HBLUE`};
+    $('pascalExteriorFormula').textContent=formulas[contract.mode];
+    $('pascalExteriorRetains').textContent=`RETAINS · ${contract.retained.join(' · ')}`;
+    $('pascalExteriorDiscards').textContent=contract.discarded.length?`LOSES · ${contract.discarded.join(' · ')}`:'LOSES · none declared';
+    $('pascalExteriorDecision').textContent=contract.mode==='shadow'?'SHADOW COLLISION VISIBLE':contract.mode==='signed'?'ORIENTATION VISIBLE · RETURN STILL OPEN':'RETURN-READY HOST CONTRACT · NOT CARRIER IDENTITY';
+    qsa('[data-pascal-exterior]').forEach(button=>button.classList.toggle('primary',button.dataset.pascalExterior===contract.mode));
+    qsa('[data-exterior-card]').forEach(card=>card.classList.toggle('active',card.dataset.exteriorCard===contract.mode));
+  }
+  function drawPascalCavityEnvelope(root,n){
+    if(n!==4)return;
+    const shellClasses=['cyan','green','gold','violet','magenta'];
+    [[54,37],[82,57],[112,78],[143,101],[174,124]].forEach(([rx,ry],index)=>root.appendChild(svgNode('ellipse',{cx:220,cy:176,rx,ry,class:`cavity-shell ${shellClasses[index]}`})));
+    root.appendChild(svgNode('path',{d:'M45,210 Q220,-8 395,210',class:'cavity-canopy upper'}));
+    root.appendChild(svgNode('path',{d:'M45,210 Q220,350 395,210',class:'cavity-canopy lower'}));
+    ['M52,176 C112,112 143,118 220,176 C297,234 328,240 388,176','M52,176 C112,240 143,234 220,176 C297,118 328,112 388,176'].forEach(d=>root.appendChild(svgNode('path',{d,class:'cavity-flow'})));
+    const line=(a,b)=>root.appendChild(svgNode('line',{x1:a.x,y1:a.y,x2:b.x,y2:b.y,class:'algo-grid-line'}));
+    for(let level=1;level<n;level++){
+      line(pascalPoint({i:level,j:n-level,k:0},n),pascalPoint({i:level,j:0,k:n-level},n));
+      line(pascalPoint({i:n-level,j:level,k:0},n),pascalPoint({i:0,j:level,k:n-level},n));
+      line(pascalPoint({i:n-level,j:0,k:level},n),pascalPoint({i:0,j:n-level,k:level},n));
+    }
+    root.appendChild(svgNode('text',{x:52,y:36,class:'cavity-envelope-label'},'UMBRELLA / CAVITY ENVELOPE'));
+  }
+  function drawPascalViewLens(root,n){
+    if(n!==4)return;
+    const traceBall=(className,offset)=>root.appendChild(svgNode('circle',{cx:0,cy:0,r:7,class:`trace-ball ${className}`,style:`--ball-offset:${offset}%;--ball-delay:${(-offset*.045).toFixed(2)}s`}));
+    if(pascalLensMode==='algo'){
+      root.appendChild(svgNode('polygon',{points:'220,101 153,205 287,205',class:'algo-gray-zone'}));
+      root.appendChild(svgNode('path',{d:'M220,42 Q115,112 74,286 Q171,255 220,176',class:'algo-trace trace-a'}));
+      root.appendChild(svgNode('path',{d:'M220,42 Q325,112 366,286 Q269,255 220,176',class:'algo-trace trace-b'}));
+      root.appendChild(svgNode('path',{d:'M74,286 Q220,228 366,286',class:'algo-trace trace-c'}));
+      traceBall('ball-a',12);traceBall('ball-a',68);traceBall('ball-b',30);traceBall('ball-b',82);traceBall('ball-c',48);
+      root.appendChild(svgNode('text',{x:220,y:340,'text-anchor':'middle',class:'quartal-count-label'},'ALGO = DISPLAY GRID · COLOUR = TRACE · GRAY = RESIDUAL'));
+    }
+    if(pascalLensMode==='pentagon'){
+      root.appendChild(svgNode('polygon',{points:'220,48 368,155 312,306 128,306 72,155',class:'lens-frame pentagon-frame'}));
+      root.appendChild(svgNode('polygon',{points:'220,74 104,278 202,278',class:'lens-face left-face'}));
+      root.appendChild(svgNode('polygon',{points:'220,74 238,278 336,278',class:'lens-face right-face'}));
+      root.appendChild(svgNode('polygon',{points:'220,116 155,244 285,244',class:'lens-inner-triangle'}));
+      root.appendChild(svgNode('line',{x1:220,y1:64,x2:220,y2:294,class:'lens-axis'}));
+      root.appendChild(svgNode('path',{d:'M220,58 L104,278 L202,278 L220,170',class:'algo-trace trace-a'}));
+      root.appendChild(svgNode('path',{d:'M220,58 L336,278 L238,278 L220,170',class:'algo-trace trace-b'}));
+      traceBall('ball-pentagon-a',18);traceBall('ball-pentagon-a',66);traceBall('ball-pentagon-b',40);traceBall('ball-pentagon-b',88);
+      root.appendChild(svgNode('text',{x:220,y:340,'text-anchor':'middle',class:'quartal-count-label'},'ONE APEX · TWO TRIANGLES · | · TRIANGLE IN TRIANGLE'));
+    }
+    if(pascalLensMode==='caro'){
+      root.appendChild(svgNode('polygon',{points:'220,45 376,176 220,310 64,176',class:'lens-frame caro-frame'}));
+      root.appendChild(svgNode('polygon',{points:'220,45 310,176 130,176',class:'lens-face upper-pyramid'}));
+      root.appendChild(svgNode('polygon',{points:'220,310 130,176 310,176',class:'lens-face lower-pyramid'}));
+      root.appendChild(svgNode('polygon',{points:'220,112 291,176 220,243 149,176',class:'algo-gray-zone caro-core'}));
+      root.appendChild(svgNode('line',{x1:220,y1:45,x2:220,y2:310,class:'lens-axis'}));
+      root.appendChild(svgNode('path',{d:'M220,45 L376,176 L220,310',class:'algo-trace trace-a'}));
+      root.appendChild(svgNode('path',{d:'M220,45 L64,176 L220,310',class:'algo-trace trace-b'}));
+      traceBall('ball-caro-a',15);traceBall('ball-caro-a',72);traceBall('ball-caro-b',38);traceBall('ball-caro-b',90);
+      root.appendChild(svgNode('text',{x:220,y:340,'text-anchor':'middle',class:'quartal-count-label'},'CARO · TWO SMALL PYRAMIDS · GRAY INTERMEDIATE FIELD'));
+    }
+  }
+  function renderPascalShadow(){
+    const n=Number($('pascalDepth').value),layer=C.trinomialLayer(n),max=Math.max(...layer.map(item=>item.multiplicity));
+    if(pascalSelected.i+pascalSelected.j+pascalSelected.k!==n)pascalSelected={i:n,j:0,k:0,sigma:1};
+    const anti=C.antipodePascal(pascalSelected),root=$('pascalPyramid');root.replaceChildren();
+    const defs=svgNode('defs'),gradient=svgNode('linearGradient',{id:'pascalCarrierGradient',x1:'0%',y1:'100%',x2:'100%',y2:'0%'});
+    gradient.append(svgNode('stop',{offset:'0%','stop-color':'#48d7f3','stop-opacity':'.18'}),svgNode('stop',{offset:'52%','stop-color':'#f4bd50','stop-opacity':'.2'}),svgNode('stop',{offset:'100%','stop-color':'#ed63cb','stop-opacity':'.18'}));defs.appendChild(gradient);
+    const traceGradient=svgNode('linearGradient',{id:'traceAGradient',x1:'0%',y1:'0%',x2:'100%',y2:'100%'});traceGradient.append(svgNode('stop',{offset:'0%','stop-color':'#f4bd50'}),svgNode('stop',{offset:'100%','stop-color':'#68dea9'}));defs.appendChild(traceGradient);root.appendChild(defs);
+    root.appendChild(svgNode('polygon',{points:'220,28 35,315 405,315',class:'pascal-carrier-envelope',fill:'url(#pascalCarrierGradient)'}));
+    root.appendChild(svgNode('path',{d:'M58,291 Q220,6 382,291',class:'pascal-aperture-halo'}));
+    root.appendChild(svgNode('text',{x:220,y:17,'text-anchor':'middle',class:'pascal-aperture-label'},n===7?'7 · ACTIVE APERTURE':`n=${n} · CARRIER DEPTH`));
+    drawPascalCavityEnvelope(root,n);
+    layer.forEach(item=>{
+      const p=pascalPoint(item,n),radius=5+10*Math.sqrt(item.multiplicity/max),selected=item.i===pascalSelected.i&&item.j===pascalSelected.j&&item.k===pascalSelected.k,isAnti=item.i===anti.i&&item.j===anti.j&&item.k===anti.k,zeroCount=[item.i,item.j,item.k].filter(value=>value===0).length,quartalClass=n===4?(zeroCount===2?'quartal-corner':zeroCount===1?'quartal-edge':'quartal-interior'):'';
+      const mix=(a,b,t)=>a.map((value,index)=>Math.round(value+(b[index]-value)*t)),cyan=[72,215,243],gold=[244,189,80],pink=[237,99,203],horizontal=Math.max(0,Math.min(1,p.x/440)),base=mix(cyan,pink,horizontal),goldWeight=Math.max(0,1-Math.abs(p.x-220)/220)*Math.max(0,1-p.y/350)*.72,color=mix(base,gold,goldWeight),alpha=(.42+.58*Math.sqrt(item.multiplicity/max)).toFixed(2);
+      const circle=svgNode('circle',{cx:p.x,cy:p.y,r:radius,class:`pascal-node ${quartalClass} ${selected?'selected':''} ${isAnti?'antipode':''}`,style:`fill:rgba(${color.join(',')},${alpha})`});
+      circle.addEventListener('click',()=>{pascalSelected={...item,sigma:1};renderPascalShadow()});root.appendChild(circle);
+      if(selected||item.multiplicity===max)root.appendChild(svgNode('text',{x:p.x,y:p.y+3,'text-anchor':'middle',class:'pascal-label'},String(item.multiplicity)));
+    });
+    root.appendChild(svgNode('circle',{cx:55,cy:326,r:15,class:'pascal-four-handle plus'}));root.appendChild(svgNode('text',{x:55,y:330,'text-anchor':'middle',class:'pascal-four-label'},'4⁺'));
+    root.appendChild(svgNode('circle',{cx:385,cy:326,r:15,class:'pascal-four-handle minus'}));root.appendChild(svgNode('text',{x:385,y:330,'text-anchor':'middle',class:'pascal-four-label'},'4⁻'));
+    drawPascalViewLens(root,n);
+    $('pascalDepthValue').textContent=String(n);$('pascalMacro').textContent=String(layer.length);$('pascalPaths').textContent=String(3**n);$('pascalOriented').textContent=String(2*3**n);$('pascalCarrierLabel').textContent=`n=${n} · σ=+`;
+    $('pascalState').innerHTML=`state <b>(${pascalSelected.i},${pascalSelected.j},${pascalSelected.k}; +)</b> · Ω=${C.trinomialMultiplicity(pascalSelected.i,pascalSelected.j,pascalSelected.k)}<br>antipode <b>(${anti.i},${anti.j},${anti.k}; −)</b>`;
+    const plus=C.shadowGonProjection(n,shadowSides,1),minus=C.shadowGonProjection(n,shadowSides,-1),gon=$('pascalShadowGon');gon.replaceChildren();
+    const frame=Array.from({length:shadowSides},(_,index)=>{const angle=-Math.PI/2+index*2*Math.PI/shadowSides;return`${220+Math.cos(angle)*145},${175+Math.sin(angle)*145}`}).join(' ');gon.appendChild(svgNode('polygon',{points:frame,class:'shadow-frame'}));
+    for(let index=0;index<shadowSides;index++){const angle=-Math.PI/2+index*2*Math.PI/shadowSides;gon.appendChild(svgNode('line',{x1:220,y1:175,x2:220+Math.cos(angle)*145,y2:175+Math.sin(angle)*145,class:'shadow-ray'}))}
+    drawShadowPath(gon,minus,'shadow-minus','shadow-dot-minus');drawShadowPath(gon,plus,'shadow-plus','shadow-dot-plus');
+    const exterior=C.pascalExteriorContract(n,shadowSides,1,pascalExteriorMode);drawPascalExterior(gon,exterior);renderPascalExterior(exterior);
+    const countershot=C.polygonCountershotOverlayContract(shadowSides);drawPolygonCountershot(gon,countershot);
+    const countershotReadout=$('countershotReadout');countershotReadout.hidden=!countershot.enabled;$('neonPolaroidRail').hidden=!countershot.enabled;$('cubeSquareBridge').hidden=!countershot.enabled;
+    if(countershot.enabled){countershotReadout.innerHTML=`<b>${countershot.outerDecomposition.expression}</b><span>C8 core · pivot · mirror wing</span><strong>countershot → edge gap ${countershot.countershot.minus.selected}|${countershot.countershot.plus.selected}</strong><small>${countershot.displayCadence.expression} · display orbit · tongue excluded from C17</small>`}
+    const polygon=C.polygonAntipodeContract(shadowSides,0,1),parity=$('polygonParityReadout');
+    parity.classList.toggle('even',polygon.parity==='EVEN');
+    parity.innerHTML=polygon.parity==='EVEN'
+      ? `<b>C${shadowSides} · EVEN</b><span>half-turn lands on vertex ${polygon.selected}</span><strong>1 candidate · no branch bit</strong>`
+      : `<b>C${shadowSides} · ODD</b><span>half-turn lands between vertices ${polygon.candidates.join(' / ')}</span><strong>2 candidates · σ required</strong>`;
+    $('shadowTitle').textContent=`${shadowSides}-gon comparison frame`;$('umbrellaApertureValue').textContent=String(shadowSides);$('activeOpeningLabel').textContent=`Yellow ${shadowSides} · active opening`;qsa('[data-gon]').forEach(button=>button.classList.toggle('active',Number(button.dataset.gon)===shadowSides));
+    const lensLabels={algo:n===4?'ALGO GRID · TRACE BALLS · GRAY RESIDUAL':`N=${n} · DISPLAY GRID REQUIRES 4`,pentagon:n===4?'PENTAGON · 2 TRIANGLES + AXIS':`N=${n} · PENTAGON LENS REQUIRES 4`,caro:n===4?'CARO · 2 PYRAMIDS + INTERMEDIATE FIELD':`N=${n} · CARO LENS REQUIRES 4`};$('pascalLensReadout').textContent=lensLabels[pascalLensMode];qsa('[data-pascal-lens]').forEach(button=>button.classList.toggle('primary',button.dataset.pascalLens===pascalLensMode));
+    const projectionCollision=plus.sectors.every((value,index)=>value===minus.sectors[index]);
+    $('shadowCollision').innerHTML=projectionCollision?`<b>PROJECTION COLLISION:</b> blue and pink are distinct oriented carrier states, but this symmetric full-layer sector sum maps them to the same ${shadowSides}-gon trace.`:`<b>ORIENTATION VISIBLE:</b> this frame separates the two oriented traces.`;
+    const ablation=C.antipodalSpecificityAblation(n,shadowSides),percent=value=>`${Math.round(value*100)}%`;
+    $('shadowAccuracy').textContent=percent(ablation.shadowOnlyAccuracyCeiling);$('shadowBits').textContent=`${ablation.shadowInformationBits} bit about σ`;
+    $('handleAccuracy').textContent=percent(ablation.signedHandleAccuracy);$('handleBits').textContent=`${ablation.signedHandleInformationBits} retained bit`;
+    $('handleDecision').textContent=ablation.specificityEstablished?'specificity established':ablation.decision.toLowerCase();
+    $('crossSource').textContent=String(ablation.pathMass);$('crossOriented').textContent=ablation.whiteCross?ablation.whiteCross.seam:String(ablation.orientedMass);
+    const handleLabels={exactAntipodeInvolution:'exact involution',projectionCollisionExposed:'collision exposed',handleRecoversDeclaredSign:'handle returns σ',leakageRejectedAsSpecificity:'no leakage claim'};
+    $('handleGates').innerHTML=Object.entries(ablation.gates).map(([key,pass])=>`<span class="${pass?'pass':'fail'}"><b>${pass?'PASS':'FAIL'}</b><small>${handleLabels[key]}</small></span>`).join('');
+    const warning=$('channelWarning');warning.classList.toggle('separate',n!==shadowSides);warning.innerHTML=n===shadowSides?`<b>INDEPENDENT CHANNELS:</b> depth <code>n=${n}</code> and frame <code>m=${shadowSides}</code> coincide numerically here; neither selects the other.`:`<b>SEPARATE CHANNELS:</b> carrier depth <code>n=${n}</code> is projected into frame <code>m=${shadowSides}</code>; no equality or selector is implied.`;
+    renderPascalElevator();
+  }
+
+  function stopPascalLensMotion(){if(pascalLensTimer){clearInterval(pascalLensTimer);pascalLensTimer=null}document.querySelector('.pascal-shadow').classList.remove('lens-moving');$('pascalLensPlay').classList.remove('running');$('pascalLensPlay').textContent='PLAY 3 LENSES'}
+  function setPascalLens(mode){
+    if(!['algo','pentagon','caro'].includes(mode))return;
+    pascalLensMode=mode;
+    if(Number($('pascalDepth').value)!==4){$('pascalDepth').value='4';pascalSelected={i:4,j:0,k:0,sigma:1}}
+    renderPascalShadow();
+  }
+  function togglePascalLensMotion(){
+    if(pascalLensTimer){stopPascalLensMotion();return}
+    setPascalLens('algo');document.querySelector('.pascal-shadow').classList.add('lens-moving');$('pascalLensPlay').classList.add('running');$('pascalLensPlay').textContent='PAUSE LENSES';
+    const modes=['algo','pentagon','caro'];pascalLensTimer=setInterval(()=>setPascalLens(modes[(modes.indexOf(pascalLensMode)+1)%modes.length]),2200);
+  }
+
+  function renderPascalElevator(){
+    const n=Number($('pascalDepth').value),result=C.pascalSpecificityCalibration(n,pascalModulus),fibSub=String(result.fibonacciIndex).replace(/\d/g,d=>'₀₁₂₃₄₅₆₇₈₉'[Number(d)]),powerSub=String(n).replace(/\d/g,d=>'⁰¹²³⁴⁵⁶⁷⁸⁹'[Number(d)]);
+    $('diagonalValue').textContent=`${result.diagonalSum} = F${fibSub}`;$('diagonalTerms').textContent=result.diagonalTerms.join(' + ');
+    $('rowSumValue').textContent=`${result.rowSum} = 2${powerSub}`;$('pascalRowValue').textContent=result.row.join('  ');
+    $('modGateValue').textContent=`m=${pascalModulus} · ${result.primePattern?'PRIME PASS':'COMPOSITE REJECT'}`;$('modResidues').textContent=`1 | ${result.interiorResidues.join(' ')} | 1`;
+    qsa('[data-pascal-mod]').forEach(button=>button.classList.toggle('active',Number(button.dataset.pascalMod)===pascalModulus));
+    const labels={diagonal:'Diagonal = Fibonacci',rowSum:'Row sum = 2ⁿ',primeCharacterization:'Prime characterization',compositeNegative:'Composite control m=6'};
+    $('specificityGates').innerHTML=Object.entries(result.gates).map(([key,pass])=>`<span class="${pass?'pass':'fail'}"><b>${pass?'PASS':'FAIL'}</b><small>${labels[key]}</small></span>`).join('');
+  }
+
+  function renderExperimentCorridor(){
+    const noise=C.noiseGridControlContract(111,8),small=C.janusGridFoldSummary(11),large=C.janusGridFoldSummary(111),polar=C.polarPassRaster(12**2,10**3,10**3),memory=C.memoryGateLens();
+    $('noiseCarrier').textContent=`${noise.gridSize}² = ${noise.carrierStates.toLocaleString('en-US')}`;
+    $('noiseCrt').textContent=`${noise.crtAddress.modulus} = ${noise.crtAddress.factors.join(' × ')}`;
+    $('noiseAlphabet').textContent=`${noise.operatorStates} states`;
+    $('noiseDecision').textContent=noise.decision.replaceAll('_',' ');
+    $('noiseNullGates').innerHTML=Object.entries(noise.controls).map(([key,value])=>`<span class="${value===true?'declared':'pending'}"><b>${key.replace(/([A-Z])/g,' $1')}</b><small>${value===true?'DECLARED':String(value).replaceAll('_',' ')}</small></span>`).join('');
+    $('janusOrbitCount').textContent=small.quotientOrbits.toLocaleString('en-US');$('janusAdjacency').textContent=small.cyclicAdjacencyRetention.toFixed(3);$('janusP').textContent=small.monteCarloP.toFixed(6);$('janusLarge').textContent=large.quotientOrbits.toLocaleString('en-US');
+    $('polarAngleStates').textContent=polar.angleStates.toLocaleString('en-US');$('polarOrbitStates').textContent=polar.orbitStates.toLocaleString('en-US');$('polarTransportStates').textContent=polar.transportStates.toLocaleString('en-US');
+    $('radialBands').innerHTML=memory.radialBands.map((band,index)=>`<span style="--band:${index}">${band}</span>`).join('');$('memoryStatus').textContent=memory.evidenceStatus.replaceAll('_',' ');
+  }
+
+  function rootPoint(value,layer){
+    const bits=value.toString(2).padStart(3,'0').split('').map(Number),offset=layer?{x:205,y:58}:{x:25,y:-12};
+    return {x:165+offset.x+bits[2]*145+bits[1]*62,y:82+offset.y+bits[0]*170-bits[1]*40};
+  }
+  function renderRoot838(){
+    const audit=C.rootSpace838Audit(),root=$('root838Graph');root.replaceChildren();
+    const showA=true,showB=root838Mode!=='q3',showBridges=root838Mode==='q4'||root838Mode==='mask';
+    const axisColors=['#48d7f3','#f4bd50','#b78cff'];
+    const drawLayer=(layer,visible)=>{
+      if(!visible)return;
+      audit.q3.edges.forEach(edge=>{const a=rootPoint(edge.from,layer),b=rootPoint(edge.to,layer),lo=Math.min(edge.from,edge.to),hi=Math.max(edge.from,edge.to);root.appendChild(svgNode('line',{x1:a.x,y1:a.y,x2:b.x,y2:b.y,class:`root-edge axis-${edge.axis}`,stroke:axisColors[edge.axis],'data-root-edge':`${layer}-${lo}-${hi}`}))});
+      audit.q3.vertices.forEach(vertex=>{const p=rootPoint(vertex.value,layer);root.appendChild(svgNode('circle',{cx:p.x,cy:p.y,r:10,class:`root-node layer-${layer}`,'data-root-node':`${layer}-${vertex.value}`}));root.appendChild(svgNode('text',{x:p.x,y:p.y+4,'text-anchor':'middle',class:'root-label'},vertex.bits))});
+      root.appendChild(svgNode('text',{x:layer?575:108,y:layer?54:42,'text-anchor':'middle',class:`root-layer-label layer-${layer}`},layer?'GOLD · Q3ᵦ':'CYAN · Q3ₐ'));
+    };
+    drawLayer(0,showA);drawLayer(1,showB);
+    if(showBridges)audit.double.bridgeEdges.forEach(edge=>{const a=rootPoint(edge.from,0),b=rootPoint(edge.from,1);root.insertBefore(svgNode('line',{x1:a.x,y1:a.y,x2:b.x,y2:b.y,class:'root-bridge','data-root-bridge':edge.from}),root.firstChild)});
+    if(root838Mode==='mask')root.appendChild(svgNode('text',{x:360,y:365,'text-anchor':'middle',class:'root-mask-label'},'8 STATES  |  3 INTERNAL TYPES  |  8 BRIDGES'));
+    const titles={q3:'Q3 · one eight-state layer',double:'Two Q3 layers · bridge register hidden',q4:'Q4 · two Q3 layers plus matching bridges',mask:'8|3|8 · declared reading mask'};
+    const equations={q3:'|E(Q3)| = 8·3/2 = 12',double:'2·|E(Q3)| = 24 internal edges',q4:'|E(Q4)| = 2·12 + 8 = 32',mask:'8 states | 3 internal transition types | 8 matching bridges'};
+    $('root838GraphTitle').textContent=titles[root838Mode];$('root838Equation').textContent=equations[root838Mode];
+    $('root838States').textContent=String(audit.double.verticesPerLayer);$('root838Types').textContent=String(audit.double.internalTransitionTypes);$('root838Bridges').textContent=String(audit.double.bridgeEdges.length);$('root838Edges').textContent=String(audit.q4.edgeCount);
+    const labels={q3Handshake:'Q3 handshake = 12',q4LayerDecomposition:'Q4 = 12+12+8',declaredReadingMask:'8|3|8 typed',decimalPalindrome:'838 palindrome',reversedIsPrime23:'83 = p₂₃'};
+    $('root838Gates').innerHTML=Object.entries(audit.gates).map(([key,pass])=>`<span class="${pass?'pass':'fail'}"><b>${pass?'PASS':'FAIL'}</b><small>${labels[key]}</small></span>`).join('');
+    qsa('[data-root-mode]').forEach(button=>button.classList.toggle('primary',button.dataset.rootMode===root838Mode));
+    const frame=rootEngineState.frame,node=root.querySelector(`[data-root-node="${frame.layer}-${frame.vertex}"]`);if(node)node.classList.add('active');
+    rootEngineState.history.slice(-8).forEach(item=>{const f=C.rootSpaceEngineFrame(item.toTick),visited=root.querySelector(`[data-root-node="${f.layer}-${f.vertex}"]`);if(visited&&!visited.classList.contains('active'))visited.classList.add('visited')});
+    if(rootEngineState.history.length){if(frame.axis===3){const bridge=root.querySelector(`[data-root-bridge="${frame.vertex}"]`);if(bridge)bridge.classList.add('active')}else{const lo=Math.min(frame.previousVertex,frame.vertex),hi=Math.max(frame.previousVertex,frame.vertex),edge=root.querySelector(`[data-root-edge="${frame.layer}-${lo}-${hi}"]`);if(edge)edge.classList.add('active')}}
+    const engineState=rootEngineState.running?'RUNNING':rootEngineState.history.length?frame.transitionType:'READY';$('rootEngineStatus').textContent=`TICK ${String(frame.tick).padStart(2,'0')} · ${frame.bits} · ${engineState} · CYCLE ${rootEngineState.cycles}`;
+    $('rootEngineBar').dataset.engineState=rootEngineState.running?'running':'paused';$('rootEnginePlay').textContent=rootEngineState.running?'PAUSE ENGINE':'PLAY ENGINE';$('rootEnginePlay').setAttribute('aria-pressed',String(rootEngineState.running));
+    $('rootEngineTrace').innerHTML=(rootEngineState.history.length?rootEngineState.history.slice(-16).map(item=>`<span class="${item.transitionType.toLowerCase()}">${String(item.toTick).padStart(2,'0')}<small>${item.bits}</small></span>`):'<span class="current">00<small>0000</small></span>');
+  }
+
+  function stopRootEngine(){if(rootEngineTimer){clearInterval(rootEngineTimer);rootEngineTimer=null}}
+  function scheduleRootEngine(){stopRootEngine();if(!rootEngineState.running)return;rootEngineTimer=setInterval(()=>{rootEngineState=C.stepRootSpaceEngine(rootEngineState);renderRoot838()},rootEngineState.speedMs)}
+  function setRootEngineRunning(running){rootEngineState=C.createRootSpaceEngine({...rootEngineState,running:Boolean(running)});if(rootEngineState.running&&root838Mode!=='q4'&&root838Mode!=='mask')root838Mode='q4';scheduleRootEngine();renderRoot838()}
+  function stepRootEngine(){rootEngineState=C.stepRootSpaceEngine({...rootEngineState,running:false});stopRootEngine();if(root838Mode!=='q4'&&root838Mode!=='mask')root838Mode='q4';renderRoot838()}
+
+  const familyStops={TAO:{x:310,y:50},DAO:{x:400,y:78},IOTA:{x:470,y:137}};
+  function renderFamilyOrientation(){
+    const snapshot=C.familyOrientationSnapshot(familyThetaStep),stop=familyStops[snapshot.terminalFrame];
+    $('familyF7').setAttribute('cx',stop.x);$('familyF7').setAttribute('cy',stop.y);$('familyF7Label').setAttribute('x',stop.x);$('familyF7Label').setAttribute('y',stop.y+4);
+    [$('familyEcho1'),$('familyEcho2')].forEach((node,index)=>{const frame=snapshot.epsilonTrace[index],point=frame?familyStops[frame]:stop;node.setAttribute('cx',point.x);node.setAttribute('cy',point.y);node.style.opacity=frame?String(.55-index*.2):'0'});
+    $('familyFrameReadout').textContent=`${snapshot.terminalFrame} · θ=${snapshot.theta}° · step ${snapshot.step}`;
+    $('epsilonLedger').textContent=snapshot.epsilonTrace.length?`ε trail: ${snapshot.epsilonTrace.join(' ← ')} · retained, not reset`:`No echo yet · F7 at ${snapshot.terminalFrame}`;
+  }
+
+  function cyclePoint(vertex,order,radius=125){const angle=-Math.PI/2+Number(vertex)*2*Math.PI/Number(order);return{x:220+radius*Math.cos(angle),y:175+radius*Math.sin(angle),angle}}
+  function rosePetalPath(angle,length,width){
+    const cx=220,cy=175,tip={x:cx+length*Math.cos(angle),y:cy+length*Math.sin(angle)},left=angle-width,right=angle+width;
+    const c1={x:cx+length*.48*Math.cos(left),y:cy+length*.48*Math.sin(left)},c2={x:cx+length*.88*Math.cos(left),y:cy+length*.88*Math.sin(left)},c3={x:cx+length*.88*Math.cos(right),y:cy+length*.88*Math.sin(right)},c4={x:cx+length*.48*Math.cos(right),y:cy+length*.48*Math.sin(right)};
+    return `M${cx},${cy} C${c1.x},${c1.y} ${c2.x},${c2.y} ${tip.x},${tip.y} C${c3.x},${c3.y} ${c4.x},${c4.y} ${cx},${cy}Z`;
+  }
+  function renderGoReturnLab(){
+    const order=Number($('goReturnOrder').value),steps=Number($('goReturnSteps').value),retainSheet=$('goReturnSheet').value==='retain';
+    const run=C.cycleGoReturn(order,0,1,steps,retainSheet),audit=C.exhaustiveCycleGoReturn(order,retainSheet,steps),battery=C.oddAntipodeBattery([6,7,8],steps);
+    const cycle=$('goReturnCycle');cycle.replaceChildren();
+    cycle.appendChild(svgNode('circle',{cx:220,cy:175,r:125,class:'go-cycle-ring'}));
+    cycle.appendChild(svgNode('circle',{cx:220,cy:175,r:42,class:'triple-gate-core'}));
+    cycle.appendChild(svgNode('line',{x1:197,y1:175,x2:243,y2:175,class:'white-seam'}));cycle.appendChild(svgNode('line',{x1:220,y1:152,x2:220,y2:198,class:'white-seam'}));
+    cycle.appendChild(svgNode('text',{x:220,y:169,'text-anchor':'middle',class:'go-center-label'},'TRIPLE'));cycle.appendChild(svgNode('text',{x:220,y:184,'text-anchor':'middle',class:'go-center-label'},'GATE'));
+    for(let vertex=0;vertex<order;vertex+=1){const p=cyclePoint(vertex,order);cycle.appendChild(svgNode('line',{x1:220,y1:175,x2:p.x,y2:p.y,class:'go-cycle-spoke'}));cycle.appendChild(svgNode('circle',{cx:p.x,cy:p.y,r:13,class:'go-cycle-node'}));cycle.appendChild(svgNode('text',{x:p.x,y:p.y+4,'text-anchor':'middle',class:'go-node-label'},String(vertex)))}
+    const visibleTrace=run.trace.slice(0,Math.min(run.trace.length,goReturnPathIndex+1));
+    if(visibleTrace.length>1){cycle.appendChild(svgNode('polyline',{points:visibleTrace.map(item=>{const p=cyclePoint(item.vertex,order);return `${p.x},${p.y}`}).join(' '),class:'go-trace'}))}
+    visibleTrace.forEach((item,index)=>{const p=cyclePoint(item.vertex,order);cycle.appendChild(svgNode('circle',{cx:p.x,cy:p.y,r:index===visibleTrace.length-1?9:5,class:`go-trace-point ${item.sheet<0?'cyan':'gold'}`}));cycle.appendChild(svgNode('text',{x:p.x,y:p.y-18,'text-anchor':'middle',class:'go-phase-label'},item.phase))});
+    if(!run.resolved){run.ambiguity.forEach(candidate=>{const p=cyclePoint(candidate.vertex,order);cycle.appendChild(svgNode('circle',{cx:p.x,cy:p.y,r:20,class:'go-ambiguity'}))})}
+    const phase=run.resolved?(visibleTrace.at(-1)?.phase||'SOURCE'):'HOLD · TWO CANDIDATES';$('goReturnPhase').textContent=phase;
+
+    const rose=$('returnRosette');rose.replaceChildren();
+    rose.appendChild(svgNode('circle',{cx:220,cy:175,r:145,class:'rose-boundary'}));
+    for(let vertex=0;vertex<order;vertex+=1){const angle=-Math.PI/2+vertex*2*Math.PI/order;const length=92+48*audit.exactRate;rose.appendChild(svgNode('path',{d:rosePetalPath(angle-.035,length,.2),class:`rose-petal cyan ${retainSheet?'':'collapsed'}`}));rose.appendChild(svgNode('path',{d:rosePetalPath(angle+.035,length,.2),class:`rose-petal gold ${retainSheet?'':'collapsed'}`}))}
+    rose.appendChild(svgNode('circle',{cx:220,cy:175,r:31,class:`rose-seam ${audit.ambiguous?'open':''}`}));rose.appendChild(svgNode('line',{x1:198,y1:175,x2:242,y2:175,class:'white-seam'}));rose.appendChild(svgNode('line',{x1:220,y1:153,x2:220,y2:197,class:'white-seam'}));
+    rose.appendChild(svgNode('text',{x:220,y:228,'text-anchor':'middle',class:'rose-readout'},`${order%2?'ODD · σ REQUIRED':'EVEN · UNIQUE'}`));rose.appendChild(svgNode('text',{x:220,y:244,'text-anchor':'middle',class:'rose-readout'},`${audit.exact}/${audit.testedStates} EXACT`));
+
+    $('goReturnTested').textContent=String(audit.testedStates);$('goReturnResolved').textContent=String(audit.resolved);$('goReturnExact').textContent=String(audit.exact);$('goReturnAmbiguous').textContent=String(audit.ambiguous);$('goReturnDecision').textContent=audit.decision.replaceAll('_',' ');
+    $('goReturnDecision').className=audit.decision.startsWith('PASS')?'pass':audit.decision.startsWith('HOLD')?'hold':'fail';
+    $('goReturnBattery').innerHTML=battery.controls.map(control=>`<div><b>C${control.order}</b><span>shadow ${control.projected.exact}/${control.projected.testedStates}</span><span>+σ ${control.handled.exact}/${control.handled.testedStates}</span><em>${control.projected.ambiguous?'AMBIGUOUS':'UNIQUE'}</em></div>`).join('');
+    const labels={evenControlsUniqueWithoutSheet:'C6/C8 unique',oddProjectionExposesAmbiguity:'C7 shadow holds',oddSheetRestoresDeterminism:'σ resolves branch',oddSheetClosesExactReturn:'J² closes'};
+    $('goReturnGates').innerHTML=Object.entries(battery.gates).map(([key,pass])=>`<span class="${pass?'pass':'fail'}"><b>${pass?'PASS':'FAIL'}</b><small>${labels[key]}</small></span>`).join('');
+    renderS3GateExtension();
+  }
+
+  function renderS3GateExtension(){
+    const register=C.s3PermutationRegister(),selected=register.states.find(state=>state.word===s3SelectedWord)||register.states[0];
+    $('s3PermutationGrid').innerHTML=register.states.map(state=>`<button data-s3-word="${state.word}" class="side-${state.side>0?'plus':'minus'} ${state.axis===selected.axis?'paired':''} ${state.word===selected.word?'primary':''}"><small>${state.axis}${state.side>0?'+':'−'}</small><b>${state.word}</b></button>`).join('');
+    $('s3AxisPairs').innerHTML=register.reversalPairs.map(([left,right],index)=>`<button data-s3-word="${left}" class="${selected.axis===String.fromCharCode(65+index)?'active':''}"><small>AXIS ${String.fromCharCode(65+index)}</small><b>${left} ↔ ${right}</b></button>`).join('');
+    $('s3AxisReadout').textContent=`AXIS ${selected.axis} · ${selected.word} ↔ ${selected.reverse} · C₂ ${selected.side>0?'+':'−'}`;
+    $('complexOrientationMarker').textContent=`${register.orientationMarker.notation} · square ${register.orientationMarker.square}`;
+    const gate=C.repunitPalindromeGate(repunitLength),right=[...gate.halfSeed.slice(0,-1)].reverse().join('');
+    $('repunitSquare').textContent=`${gate.root}² = ${gate.square}`;$('repunitMirror').textContent=`${gate.halfSeed} | ${right} = ${gate.mirrorClosure}`;
+    $('repunitRule').textContent=`EXACT · ${gate.halfSeed} closes without carry · numeric square = mirror word`;
+    qsa('[data-repunit-length]').forEach(button=>button.classList.toggle('primary',Number(button.dataset.repunitLength)===repunitLength));
+    renderDefgSeriesBridge();
+  }
+
+  function renderDefgSeriesBridge(){
+    const contract=C.qhDefgSeriesContract(),atLoop=defgSeriesStep%2===1,bridge=$('defgSeriesBridge');
+    bridge.dataset.step=atLoop?'10':'9';
+    $('defgSeriesReadout').textContent=atLoop?'10 · CLOSED LOOP / F?':'9 · RELATION REGISTER / DEFG?';
+    $('stepDefgSeries').textContent=atLoop?'RETURN 10 → 9':'STEP 9 → 10';
+    bridge.querySelectorAll('.defg-source-ledger>span,.defg-source-ledger>a').forEach((node,index)=>node.classList.toggle('active',atLoop?index===1:index===0));
+    bridge.title=contract.boundary;
+  }
+
+  function addressText(address){
+    const parts=address.map((e,i)=>({e:Number(e),p:C.PRIMES[i]})).filter(v=>v.e!==0).map(v=>v.e===1?String(v.p):`${v.p}^${v.e}`);
+    return `x = ${parts.length?parts.join(' · '):'1'}  ·  address [${address.join(', ')}]`;
+  }
+  const stateRelationLayouts={
+    state:{F1:[220,92],F2:[302,151],F3:[270,248],F4:[170,248],F5:[138,151],F7:[220,42]},
+    rhombus:{F1:[220,70],F2:[220,112],F3:[320,194],F4:[220,276],F5:[120,194],F7:[220,28]},
+    heart:{F1:[220,92],F2:[305,142],F3:[280,235],F4:[160,235],F5:[135,142],F7:[220,38]}
+  };
+  function pointPath(...points){return points.map((point,index)=>`${index?'L':'M'}${point[0]} ${point[1]}`).join(' ')}
+  function renderStateRelationLens(){
+    const layout=stateRelationLayouts[stateRelationMode]||stateRelationLayouts.state,machine=$('stateMachine');machine.dataset.relationMode=stateRelationMode;
+    Object.entries(layout).forEach(([family,[x,y]])=>{const node=$(`familyNode${family}`),label=$(`familyLabel${family}`);node.setAttribute('cx',x);node.setAttribute('cy',y);label.setAttribute('x',x);label.setAttribute('y',y+4)});
+    const {F1,F2,F3,F4,F5,F7}=layout,isState=stateRelationMode==='state';
+    $('familyStateEdges').setAttribute('d',isState?`${pointPath(F1,F2,F3,F4,F5)} Z`:'');$('familyStateLinks').setAttribute('d',isState?`${pointPath(F1,F7)} ${pointPath(F2,[383,214])}`:'');
+    $('familyRelationShape').setAttribute('d',isState?'':`${pointPath(F5,F2,F3,F4)} Z`);$('familyRelationPairA').setAttribute('d',isState?'':pointPath(F5,F2));$('familyRelationPairB').setAttribute('d',isState?'':pointPath(F4,F3));
+    $('familyRelationDiagonal8').setAttribute('d',isState?'':pointPath(F5,F3));$('familyRelationDiagonal6').setAttribute('d',isState?'':pointPath(F4,F2));
+    $('familyHeartShape').setAttribute('d',stateRelationMode==='heart'?`M220 300 C170 270 105 220 110 155 C114 104 177 87 220 130 C263 87 326 104 330 155 C335 220 270 270 220 300 Z`:'');
+    $('familyOpenBranch').setAttribute('d',isState?'':`${pointPath(F2,[342,180])} ${pointPath(F3,[342,222])} M342 180 Q354 201 342 222 M349 201L363 213`);$('familyOpenGap').style.opacity=isState?'0':'1';
+    const labels={state:['PENTAGON · family position view','single orientation trace'],rhombus:['PAIR AXIS 7|7 · DIAGONALS 8|6','paired trace · 7|7 / 8|6'],heart:['HEART / MIRROR · F7+F1=8','mirrored trace · vertical 8-axis']},copy=labels[stateRelationMode];
+    $('stateRelationReadout').textContent=copy[0];$('waveRelationReadout').textContent=copy[1];$('waveView').dataset.relationMode=stateRelationMode;
+    const setLabel=(id,text,x,y)=>{const el=$(id);el.textContent=isState?'':text;el.setAttribute('x',x);el.setAttribute('y',y)};
+    setLabel('familyPairLabelA','5 + 2 = 7',(F5[0]+F2[0])/2-24,(F5[1]+F2[1])/2-8);setLabel('familyPairLabelB','4 + 3 = 7',(F4[0]+F3[0])/2+28,(F4[1]+F3[1])/2+18);
+    setLabel('familyDiagonalLabel8','5 + 3 = 8',(F5[0]+F3[0])/2,(F5[1]+F3[1])/2-8);setLabel('familyDiagonalLabel6','4 + 2 = 6',(F4[0]+F2[0])/2+34,(F4[1]+F2[1])/2+5);setLabel('familyAxisLabel','7 + 1 = 8',F1[0]+42,(F1[1]+F7[1])/2+4);
+    setLabel('familyOpenLabel','3 + 2 = 5 · OPEN',337,247);setLabel('familyBoundaryLabel','1 + i · GOLDILOCKS GAP',349,171);
+    qsa('[data-state-relation]').forEach(button=>button.classList.toggle('primary',button.dataset.stateRelation===stateRelationMode));
+  }
+  function stateLine(s){ return `u ${s.position.toFixed(3)}\nθ ${s.orientation.toFixed(0)}° · tick ${s.iotaTick}\nscale ${s.scale.toFixed(3)}\nside ${s.side}\naddress [${s.address.join(',')}]`; }
+  function syncInputsToState(){
+    state.carrierId=$('carrier').value;state.familyRole=$('familyRole').value;
+    state.position=Number($('position').value);state.side=C.classifySide(state.position);
+    state.address=qsa('[data-prime-index]').map(input=>Number(input.value));
+    if(state.history.length===0) initial=C.createState({...state,history:[]});
+    render();
+  }
+  function apply(id, params={}){ state=C.applyOperator(state,id,params); render(); }
+  function render(){
+    renderStateRelationLens();
+    $('position').value=String(state.position);$('positionValue').textContent=state.position.toFixed(2);
+    $('carrier').value=state.carrierId;$('familyRole').value=state.familyRole;
+    qsa('[data-prime-index]').forEach((input,i)=>input.value=String(state.address[i]));
+    $('addressReadout').textContent=addressText(state.address);
+    const rad=(state.orientation-90)*Math.PI/180;$('iotaNeedle').setAttribute('x2',220+146*Math.cos(rad));$('iotaNeedle').setAttribute('y2',194+146*Math.sin(rad));
+    const gate=C.polarToSquare(state.orientation-90),cx=145,cy=95,circleRadius=68,squareHalf=79,circlePoint={x:cx+gate.circle[0]*circleRadius,y:cy+gate.circle[1]*circleRadius},squarePoint={x:cx+gate.square[0]*squareHalf,y:cy+gate.square[1]*squareHalf};
+    $('gateCirclePoint').setAttribute('cx',circlePoint.x);$('gateCirclePoint').setAttribute('cy',circlePoint.y);$('gateSquarePoint').setAttribute('cx',squarePoint.x);$('gateSquarePoint').setAttribute('cy',squarePoint.y);$('gateProjectionLine').setAttribute('x1',circlePoint.x);$('gateProjectionLine').setAttribute('y1',circlePoint.y);$('gateProjectionLine').setAttribute('x2',squarePoint.x);$('gateProjectionLine').setAttribute('y2',squarePoint.y);
+    $('ringReadout').textContent=`${state.orientation.toFixed(0)}° · tick ${state.iotaTick}/365 · drift ${state.iotaDrift>=0?'+':''}${state.iotaDrift}`;
+    const active=Math.round(state.orientation/72)%5;qsa('.tick-node').forEach((n,i)=>n.classList.toggle('active',i===active));
+    $('bodyOrb').style.setProperty('--body-scale',String(Math.max(.45,Math.min(1.35,Math.abs(state.scale)))));$('bodyOrb').style.setProperty('--body-offset',`${Math.max(-20,Math.min(20,(state.position-.5)*45))}px`);
+    $('primeBars').innerHTML=state.address.map((v,i)=>`<i style="height:${Math.max(4,12+Math.abs(v)*18)}px" aria-label="prime ${C.PRIMES[i]} exponent ${v}"></i>`).join('');
+    let d='',mirror='';for(let x=0;x<=240;x+=4){const phase=(x/240*Math.PI*2)+(state.orientation*Math.PI/180),amplitude=stateRelationMode==='state'?22:stateRelationMode==='rhombus'?17:20,y=35+amplitude*Math.sin(phase),my=35-amplitude*Math.sin(phase);d+=(x===0?'M':'L')+x+' '+y.toFixed(2);mirror+=(x===0?'M':'L')+x+' '+my.toFixed(2)}$('wavePath').setAttribute('d',d);$('waveMirrorPath').setAttribute('d',stateRelationMode==='state'?'':mirror);
+    const result=C.assessReturn(initial,state);$('returnGrid').innerHTML=Object.values(result).map((item,i)=>`<div class="return-item ${item.pass?'pass':''}"><span class="number">${i+1}</span><span><b>${item.label}</b><small>${item.condition}</small></span><output>${item.pass?'PASS':'OPEN'}</output></div>`).join('');
+    $('stateJson').textContent=JSON.stringify(C.stateCore(state),null,2);
+    $('historyCount').textContent=`${state.history.length} operation${state.history.length===1?'':'s'}`;
+    $('history').innerHTML=state.history.length?state.history.map(h=>`<li><span>${h.index}</span><b>${h.operatorId}</b><span>${JSON.stringify(h.parameters)} · u ${h.after.position.toFixed(3)} · θ ${h.after.orientation.toFixed(0)}°</span></li>`).join(''):'<li><span>—</span><b>∅</b><span>No operator applied.</span></li>';
+  }
+  function renderBlind(){ $('blindBefore').textContent=stateLine(challenge.before);$('blindAfter').textContent=stateLine(challenge.after);$('blindResult').textContent='Select the operator or HOLD.';$('blindResult').className='blind-result'; }
+
+  function downloadJson(filename,payload){const blob=new Blob([JSON.stringify(payload,null,2)],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=filename;a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000)}
+  function stopPxaJourney(){if(pxaJourneyTimer){clearInterval(pxaJourneyTimer);pxaJourneyTimer=null}}
+  function renderPxaAperture(){
+    const opening=Number($('pxaAperture').value),irisSize=38+opening*.62,holeSize=8+opening*.4,octagonSize=56+opening*.7;
+    $('pxaIris').style.setProperty('--iris-size',`${irisSize.toFixed(1)}px`);$('pxaIris').style.setProperty('--iris-hole',`${holeSize.toFixed(1)}px`);
+    $('pxaOctagonProjection').style.setProperty('--octagon-size',`${octagonSize.toFixed(1)}px`);$('pxaOctagonProjection').style.setProperty('--octagon-opacity',String(.35+opening/100*.65));
+    $('pxaApertureValue').textContent=`${opening}%`;$('pxaDemonstrator').dataset.aperture=String(opening);
+  }
+  function renderPxaJourney(){
+    const phase=pxaJourneyState.currentPhase,last=pxaJourneyState.history[pxaJourneyState.history.length-1];
+    $('pxaDemonstrator').dataset.stage=phase.id;$('pxaDemonstrator').dataset.guide=pxaJourneyState.running?'running':'paused';
+    $('pxaJourneyTitle').textContent=phase.title;$('pxaJourneyCopy').textContent=phase.copy;$('pxaJourneyPhase').textContent=`${String(pxaJourneyState.phaseIndex).padStart(2,'0')} · ${phase.id}`;
+    $('pxaJourneyPlay').textContent=pxaJourneyState.running?'PAUSE GUIDE':'PLAY GUIDE';$('pxaJourneyPlay').classList.toggle('running',pxaJourneyState.running);
+    qsa('[data-pxa-phase]').forEach(button=>button.classList.toggle('active',Number(button.dataset.pxaPhase)===pxaJourneyState.phaseIndex));
+    $('pxaJourneyRecord').textContent=last?`${last.from} → ${last.to}\n${last.carrier} · SAME CARRIER\n${last.handoff}\n${phase.retains}\nIRIS ${$('pxaAperture').value}% → C8 VIEW`:`READY · ${pxaJourneyState.carrierId}\n${phase.retains}\nIRIS ${$('pxaAperture').value}% → C8 VIEW`;
+    renderPxaAperture();
+  }
+  function schedulePxaJourney(){
+    stopPxaJourney();if(!pxaJourneyState.running||document.hidden)return;
+    pxaJourneyTimer=setInterval(()=>{pxaJourneyState=C.stepPxaJourney(pxaJourneyState);renderPxaJourney()},pxaJourneyState.speedMs);
+  }
+  function setPxaJourneyRunning(running){
+    pxaJourneyState=C.createPxaJourneyState({...pxaJourneyState,running:Boolean(running),speedMs:Number($('pxaJourneySpeed').value)});renderPxaJourney();schedulePxaJourney();
+  }
+  function holdPxaJourney(){if(!pxaJourneyState.running)return;pxaJourneyState=C.createPxaJourneyState({...pxaJourneyState,running:false});stopPxaJourney();renderPxaJourney()}
+  function resetPxaJourney(running=false){stopPxaJourney();pxaJourneyState=C.createPxaJourneyState({running:Boolean(running),speedMs:Number($('pxaJourneySpeed').value)});renderPxaJourney();schedulePxaJourney()}
+  function stopMasterDemo(){if(masterDemoTimer){clearInterval(masterDemoTimer);masterDemoTimer=null}if(masterAutoTimer){clearTimeout(masterAutoTimer);masterAutoTimer=null}}
+  function resetMasterInstruments(){
+    stopMasterDemo();stopRootEngine();
+    initial=C.createState();state=C.createState();edgeState=C.createEdgeState();familyThetaStep=0;goReturnPathIndex=0;defgSeriesStep=0;root838Mode='q4';rootEngineState=C.createRootSpaceEngine();
+    resetPxaJourney(true);render();renderEdgeCore();renderPascalShadow();renderFamilyOrientation();renderExperimentCorridor();renderGoReturnLab();renderRoot838();
+  }
+  function executeMasterPhase(phase){
+    stopPascalLensMotion();setRootEngineRunning(false);
+    if(phase.id==='SOURCE'){stateRelationMode='state';state=C.createState(initial);state.history=[];render()}
+    if(phase.id==='OPERATOR'){stateRelationMode='rhombus';state=C.applyOperator(state,'J');render()}
+    if(phase.id==='EDGE'){edgeState=C.commitEdgeTurn(edgeState);renderEdgeCore()}
+    if(phase.id==='SHADOW'){shadowSides=17;pascalLensMode='pentagon';resetPxaJourney(true);renderPascalShadow();document.querySelector('.pascal-shadow').classList.add('lens-moving')}
+    if(phase.id==='FAMILY'){stateRelationMode='heart';render();familyThetaStep+=1;renderFamilyOrientation()}
+    if(phase.id==='GRID')renderExperimentCorridor();
+    if(phase.id==='RETURN'){const run=C.cycleGoReturn(Number($('goReturnOrder').value),0,1,Number($('goReturnSteps').value),$('goReturnSheet').value==='retain');goReturnPathIndex=Math.max(0,run.trace.length-1);renderGoReturnLab()}
+    if(phase.id==='FOLD')document.querySelector('[data-demo-phase="FOLD"]')?.classList.add('fold-demo-motion');
+    if(phase.id==='ROOT'){rootEngineState=C.stepRootSpaceEngine({...rootEngineState,running:false});root838Mode='q4';renderRoot838()}
+    if(phase.id==='RECORD'){stateRelationMode='state';render()}
+  }
+  function focusMasterPhase(phase,scroll=false){
+    qsa('.demo-focus').forEach(node=>node.classList.remove('demo-focus'));
+    const target=document.querySelector(phase.target);if(target){target.classList.add('demo-focus');if(scroll)target.scrollIntoView({behavior:'smooth',block:'center'})}
+  }
+  function renderMasterDemo(scroll=false,execute=false){
+    const phase=masterDemoState.currentPhase,last=masterDemoState.history[masterDemoState.history.length-1];
+    $('masterCockpit').dataset.running=String(masterDemoState.running);document.body.classList.toggle('demo-running',masterDemoState.running);
+    $('masterCockpit').dataset.autoTour=String(masterAutoTour);$('masterTourMode').textContent=masterAutoTour?'AUTO TOUR · LIVE':masterDemoState.running?'MANUAL RUN · LIVE':'AUTO TOUR READY';
+    $('masterDemoCarrier').textContent=phase.carrier;$('masterDemoPhase').textContent=`${String(masterDemoState.phaseIndex).padStart(2,'0')} · ${phase.id}`;$('masterDemoTitle').textContent=phase.title;$('masterDemoCopy').textContent=phase.copy;$('masterDemoHandoff').textContent=phase.handoff;
+    $('masterDemoStart').textContent=masterDemoState.running?'PAUSE DEMONSTRATION':masterDemoState.phaseIndex===9?'REPLAY DEMONSTRATION':'START DEMONSTRATION';$('masterDemoStart').classList.toggle('running',masterDemoState.running);
+    $('masterDemoRecord').textContent=last?`${last.from} → ${last.to}\n${last.carrierFrom} → ${last.carrierTo}\n${last.sameCarrier?'SAME CARRIER':'TYPED HANDOFF'} · ${last.handoff}`:'READY · no transition committed';
+    $('masterDemoProgress').innerHTML=C.MASTER_DEMO_PHASES.map((item,index)=>`<button data-master-phase="${index}" class="${index===masterDemoState.phaseIndex?'active':''} ${index<masterDemoState.phaseIndex?'done':''}" title="${item.title}">${String(index).padStart(2,'0')}<br>${item.id}</button>`).join('');
+    const act=masterDemoState.phaseIndex<2?0:masterDemoState.phaseIndex<6?2:masterDemoState.phaseIndex<9?6:9;qsa('[data-story-phase]').forEach(button=>button.classList.toggle('active',Number(button.dataset.storyPhase)===act));
+    qsa('#masterDemoSignal i').forEach((node,index)=>node.classList.toggle('active',index===masterDemoState.phaseIndex));
+    focusMasterPhase(phase,scroll);if(execute)executeMasterPhase(phase);
+  }
+  function scheduleMasterDemo(){
+    stopMasterDemo();if(!masterDemoState.running)return;
+    masterDemoTimer=setInterval(()=>{
+      masterDemoState=C.stepMasterDemonstrator(masterDemoState);
+      const completes=masterDemoState.phaseIndex===C.MASTER_DEMO_PHASES.length-1;
+      if(completes){masterDemoState=C.createMasterDemonstratorState({...masterDemoState,running:false});stopMasterDemo()}
+      renderMasterDemo(true,true);
+      if(completes)masterAutoTimer=setTimeout(()=>{$('masterCockpit').scrollIntoView({behavior:'smooth',block:'start'});masterAutoTour=false;renderMasterDemo(false,false)},1100);
+    },masterDemoState.speedMs);
+  }
+  function setMasterDemoRunning(running,auto=false){
+    masterAutoTour=Boolean(running&&auto);
+    if(running&&masterDemoState.phaseIndex===C.MASTER_DEMO_PHASES.length-1){resetMasterInstruments();masterDemoState=C.createMasterDemonstratorState({speedMs:masterDemoState.speedMs})}
+    masterDemoState=C.createMasterDemonstratorState({...masterDemoState,running:Boolean(running)});renderMasterDemo(false,running);scheduleMasterDemo();
+  }
+  function stepMasterDemo(){masterAutoTour=false;stopMasterDemo();masterDemoState=C.stepMasterDemonstrator({...masterDemoState,running:false});renderMasterDemo(true,true)}
+  function startMasterAutoTour(){
+    if(window.matchMedia('(prefers-reduced-motion: reduce)').matches||document.hidden)return;
+    resetMasterInstruments();masterDemoState=C.createMasterDemonstratorState({speedMs:Number($('masterDemoSpeed').value)});setMasterDemoRunning(true,true);
+  }
+  function interruptMasterAutoTour(){if(!masterAutoTour)return;masterAutoTour=false;masterDemoState=C.createMasterDemonstratorState({...masterDemoState,running:false});stopMasterDemo();renderMasterDemo(false,false)}
+
+  qsa('#carrier,#familyRole,#position,[data-prime-index]').forEach(el=>el.addEventListener('input',syncInputsToState));
+  qsa('[data-state-relation]').forEach(button=>button.addEventListener('click',()=>{stateRelationMode=button.dataset.stateRelation;render()}));
+  $('applyJ').addEventListener('click',()=>apply('J'));
+  $('applyR').addEventListener('click',()=>apply('R',{direction:Number($('rDirection').value),sectors:Number($('rSectors').value)}));
+  $('applyE').addEventListener('click',()=>apply('E',{factor:Number($('eFactor').value)}));
+  $('undo').addEventListener('click',()=>{const history=state.history.slice(0,-1);state=C.replay(initial,history);render()});
+  $('replay').addEventListener('click',()=>{state=C.replay(initial,state.history);render()});
+  $('reset').addEventListener('click',()=>{state=C.createState(initial);state.history=[];render()});
+  $('exportState').addEventListener('click',()=>{const payload={tool:'A0 Orientation Controller Bench',version:C.VERSION,mode:'ENGINEERING_DRY_RUN',initial:C.stateCore(initial),current:C.stateCore(state),history:state.history,return:C.assessReturn(initial,state)};const blob=new Blob([JSON.stringify(payload,null,2)],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='a0-orientation-controller-record.json';a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000)});
+  qsa('[data-answer]').forEach(button=>button.addEventListener('click',()=>{const result=C.verifyBlindAnswer(challenge,button.dataset.answer);$('blindResult').textContent=result.status==='HOLD'?`HOLD · expected ${result.expected} remains disclosed only after abstention.`:`${result.status} · expected ${result.expected}`;$('blindResult').className=`blind-result ${result.status.toLowerCase()}`}));
+  $('newBlind').addEventListener('click',()=>{challenge=C.createBlindChallenge(++blindSeed);renderBlind()});
+  $('candidateLeft').addEventListener('click',()=>{edgeState=C.rotateEdgeCandidate(edgeState,-1);renderEdgeCore()});
+  $('candidateRight').addEventListener('click',()=>{edgeState=C.rotateEdgeCandidate(edgeState,1);renderEdgeCore()});
+  $('commitTurn').addEventListener('click',()=>{edgeState=C.commitEdgeTurn(edgeState);renderEdgeCore()});
+  $('nextEdgeLayer').addEventListener('click',()=>{edgeState=C.createEdgeState({...edgeState,layer:edgeState.layer+1});renderEdgeCore()});
+  $('resetEdge').addEventListener('click',()=>{edgeState=C.createEdgeState();renderEdgeCore()});
+  qsa('[data-edge-answer]').forEach(button=>button.addEventListener('click',()=>{const result=C.verifyEdgeBlindAnswer(edgeChallenge,button.dataset.edgeAnswer);$('edgeBlindResult').textContent=`${result.status} · expected ${result.expected}`;$('edgeBlindResult').className=result.status.toLowerCase()}));
+  $('newEdgeBlind').addEventListener('click',()=>{edgeChallenge=C.createEdgeBlindChallenge(++edgeBlindSeed);renderEdgeBlind()});
+  $('pascalDepth').addEventListener('input',()=>{stopPascalLensMotion();const n=Number($('pascalDepth').value);if(n!==4)pascalLensMode='algo';pascalSelected={i:n,j:0,k:0,sigma:1};renderPascalShadow()});
+  qsa('[data-gon]').forEach(button=>button.addEventListener('click',()=>{shadowSides=Number(button.dataset.gon);renderPascalShadow()}));
+  qsa('[data-pascal-lens]').forEach(button=>button.addEventListener('click',()=>{stopPascalLensMotion();setPascalLens(button.dataset.pascalLens)}));
+  $('pascalLensPlay').addEventListener('click',togglePascalLensMotion);
+  $('pxaJourneyPlay').addEventListener('click',()=>setPxaJourneyRunning(!pxaJourneyState.running));
+  $('pxaJourneyStep').addEventListener('click',()=>{stopPxaJourney();pxaJourneyState=C.stepPxaJourney({...pxaJourneyState,running:false});renderPxaJourney()});
+  $('pxaJourneyReset').addEventListener('click',()=>resetPxaJourney(false));
+  $('pxaJourneySpeed').addEventListener('change',()=>{pxaJourneyState=C.createPxaJourneyState({...pxaJourneyState,speedMs:Number($('pxaJourneySpeed').value)});renderPxaJourney();schedulePxaJourney()});
+  $('pxaAperture').addEventListener('input',()=>{renderPxaAperture();renderPxaJourney()});
+  $('pxaJourneyNavigator').addEventListener('click',event=>{const button=event.target.closest('[data-pxa-phase]');if(!button)return;stopPxaJourney();pxaJourneyState=C.createPxaJourneyState({...pxaJourneyState,phaseIndex:Number(button.dataset.pxaPhase),running:false});renderPxaJourney()});
+  $('pxaJourneyExport').addEventListener('click',()=>downloadJson('a0-pascal-antipode-view-journey.json',{tool:'A0 Pascal × Antipode Movement Stage',version:C.VERSION,mode:'SOURCE_BOUND_LIVE_VIEW_JOURNEY',state:pxaJourneyState,phases:C.PXA_JOURNEY_PHASES,projection:{adapter:'BLUE_IRIS_APERTURE',openingPercent:Number($('pxaAperture').value),targetView:'C8_OCTAGON',carrierIdentityTransferred:false},sources:['ART:NUMBER:PRIMEGRID_BLOCK02B_TRINARY_ANTIPODE','ART:MIWA:MAIN','ART:ERITH:DUAL_BELT','ART:E8:FAMILY_SYNTHESIS','ART:E8:TYPED_COUPLING','LOKI_REGISTERED_SUBVIEW'],boundary:pxaJourneyState.boundary}));
+  qsa('[data-pascal-exterior]').forEach(button=>button.addEventListener('click',()=>{pascalExteriorMode=button.dataset.pascalExterior;renderPascalShadow()}));
+  qsa('[data-pascal-mod]').forEach(button=>button.addEventListener('click',()=>{pascalModulus=Number(button.dataset.pascalMod);renderPascalElevator()}));
+  $('stepFamilyTheta').addEventListener('click',()=>{familyThetaStep+=1;renderFamilyOrientation()});
+  $('resetFamilyTheta').addEventListener('click',()=>{familyThetaStep=0;renderFamilyOrientation()});
+  qsa('#goReturnOrder,#goReturnSteps,#goReturnSheet').forEach(el=>el.addEventListener('change',()=>{goReturnPathIndex=0;renderGoReturnLab()}));
+  $('goReturnStep').addEventListener('click',()=>{const order=Number($('goReturnOrder').value),steps=Number($('goReturnSteps').value),retain=$('goReturnSheet').value==='retain',run=C.cycleGoReturn(order,0,1,steps,retain);goReturnPathIndex=(goReturnPathIndex+1)%Math.max(1,run.trace.length);renderGoReturnLab()});
+  $('goReturnRun').addEventListener('click',()=>{const run=C.cycleGoReturn(Number($('goReturnOrder').value),0,1,Number($('goReturnSteps').value),$('goReturnSheet').value==='retain');goReturnPathIndex=Math.max(0,run.trace.length-1);renderGoReturnLab()});
+  $('goReturnReset').addEventListener('click',()=>{goReturnPathIndex=0;renderGoReturnLab()});
+  $('s3PermutationGrid').addEventListener('click',event=>{const button=event.target.closest('[data-s3-word]');if(!button)return;s3SelectedWord=button.dataset.s3Word;renderS3GateExtension()});
+  $('s3AxisPairs').addEventListener('click',event=>{const button=event.target.closest('[data-s3-word]');if(!button)return;s3SelectedWord=button.dataset.s3Word;renderS3GateExtension()});
+  qsa('[data-repunit-length]').forEach(button=>button.addEventListener('click',()=>{repunitLength=Number(button.dataset.repunitLength);renderS3GateExtension()}));
+  $('stepDefgSeries').addEventListener('click',()=>{defgSeriesStep=(defgSeriesStep+1)%2;renderDefgSeriesBridge()});
+  qsa('[data-root-mode]').forEach(button=>button.addEventListener('click',()=>{root838Mode=button.dataset.rootMode;renderRoot838()}));
+  $('rootEnginePlay').addEventListener('click',()=>setRootEngineRunning(!rootEngineState.running));
+  $('rootEngineStep').addEventListener('click',stepRootEngine);
+  $('rootEngineReset').addEventListener('click',()=>{stopRootEngine();rootEngineState=C.createRootSpaceEngine();renderRoot838()});
+  $('rootEngineSpeed').addEventListener('change',()=>{rootEngineState=C.createRootSpaceEngine({...rootEngineState,speedMs:Number($('rootEngineSpeed').value)});scheduleRootEngine();renderRoot838()});
+  $('rootEngineExport').addEventListener('click',()=>{const payload={tool:'A0 Root Space Transition Engine',version:C.VERSION,mode:'DETERMINISTIC_Q4_GRAY_CYCLE',carrierId:rootEngineState.carrierId,artifactId:rootEngineState.artifactId,schedule:C.Q4_GRAY_AXIS_SCHEDULE,state:rootEngineState,boundary:'Finite Q4 graph replay plus visual pulse; no physics claim.'};const blob=new Blob([JSON.stringify(payload,null,2)],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='a0-root-space-engine-replay.json';a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000)});
+  $('masterDemoStart').addEventListener('click',()=>setMasterDemoRunning(!masterDemoState.running,false));
+  $('masterDemoStep').addEventListener('click',stepMasterDemo);
+  $('masterDemoReset').addEventListener('click',()=>{masterAutoTour=false;resetMasterInstruments();masterDemoState=C.createMasterDemonstratorState({speedMs:Number($('masterDemoSpeed').value)});renderMasterDemo(false,false)});
+  $('masterDemoSpeed').addEventListener('change',()=>{masterDemoState=C.createMasterDemonstratorState({...masterDemoState,speedMs:Number($('masterDemoSpeed').value)});renderMasterDemo(false,false);scheduleMasterDemo()});
+  $('masterDemoProgress').addEventListener('click',event=>{const button=event.target.closest('[data-master-phase]');if(!button)return;masterAutoTour=false;stopMasterDemo();masterDemoState=C.createMasterDemonstratorState({...masterDemoState,phaseIndex:Number(button.dataset.masterPhase),running:false});renderMasterDemo(true,false)});
+  $('storySpine').addEventListener('click',event=>{const button=event.target.closest('[data-story-phase]');if(!button)return;interruptMasterAutoTour();masterDemoState=C.createMasterDemonstratorState({...masterDemoState,phaseIndex:Number(button.dataset.storyPhase),running:false});renderMasterDemo(true,true)});
+  $('masterDemoExport').addEventListener('click',()=>downloadJson('a0-orientation-cockpit-run.json',{tool:'A0 Orientation Controller Bench · Master Demonstrator',version:C.VERSION,mode:'TYPED_HANDOFF_ORCHESTRATOR',state:masterDemoState,phases:C.MASTER_DEMO_PHASES,records:{orientation:C.stateCore(state),edge:edgeState,rootSpace:rootEngineState},boundary:'Typed handoffs coordinate distinct carriers; no carrier identity or physics claim.'}));
+  $('watchBenchRun').addEventListener('click',()=>{$('masterCockpit').scrollIntoView({behavior:'smooth',block:'start'});resetMasterInstruments();masterDemoState=C.createMasterDemonstratorState({speedMs:Number($('masterDemoSpeed').value)});setMasterDemoRunning(true,false)});
+  $('enterBench').addEventListener('click',()=>{$('act-orient').scrollIntoView({behavior:'smooth',block:'start'})});
+  $('pxaDemonstrator').addEventListener('pointerdown',holdPxaJourney,{capture:true});
+  $('pxaDemonstrator').addEventListener('input',holdPxaJourney,{capture:true});
+  document.addEventListener('pointerdown',event=>{if(masterAutoTour&&!event.target.closest('#masterCockpit'))interruptMasterAutoTour()},{capture:true});
+  document.addEventListener('visibilitychange',()=>{if(document.hidden){interruptMasterAutoTour();holdPxaJourney()}});
+  render();renderBlind();renderEdgeCore();renderEdgeBlind();renderPascalShadow();renderFamilyOrientation();renderExperimentCorridor();renderGoReturnLab();renderRoot838();renderMasterDemo(false,false);renderPxaJourney();
+  if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches)setPxaJourneyRunning(true);
+  masterAutoTimer=setTimeout(startMasterAutoTour,1100);
+})();
+</script>
+</body>
+</html>

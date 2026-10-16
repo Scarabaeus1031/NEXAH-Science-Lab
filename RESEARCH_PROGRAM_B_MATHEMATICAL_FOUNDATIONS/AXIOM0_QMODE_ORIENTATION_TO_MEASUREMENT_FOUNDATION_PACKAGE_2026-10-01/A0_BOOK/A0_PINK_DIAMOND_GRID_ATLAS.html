@@ -1,0 +1,669 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Dokumentarischer A0 Grid Atlas: CRT-Doppeladressierung, 11×111-Lift, mod 101/111, Q840/Ghostgrid und steuerbare CRT16-Pentagonanzeige.">
+<title>A0 · Pink Diamond Grid Atlas</title>
+<link rel="stylesheet" href="a0-grid-atlas.css?rev=animated-de-r4-20261015">
+<link rel="stylesheet" href="a0-context-navigation.css?rev=connect-entry-20261014">
+</head>
+<body>
+<header class="mast">
+<div class="topline">
+<a class="brand" href="A0_PASCAL_PENTAGON_OPERATOR_JOINTS.html">NEXAH <span>· A0 GRID ATLAS</span>
+</a>
+<nav class="nav">
+<a href="#crt">CRT-Takt</a>
+<a href="#grids">Grid Ladder</a>
+<a href="#address-spine">Address Spine</a>
+<a href="#crt16-tile">16/17-Fliese</a>
+<a href="#poster">Poster-Module</a>
+<a href="A0_VISUAL_FIELD_LIBRARY.html">Visual Library</a>
+</nav>
+</div>
+<div class="hero">
+<p class="eyebrow">Source-bound documentary instrument · no new experiment</p>
+<h1>PINK DIAMOND<span>GRID ATLAS</span>
+</h1>
+<p>Das starke Bild bleibt erhalten, aber seine Ebenen werden getrennt: exakte endliche Arithmetik, bestehende Quellinstrumente, historische Visuals und offene Posterbehauptungen.</p>
+</div>
+<div class="statusbar">
+<div class="metric">
+<b>8</b>
+<small>getrennte Grid-Carrier</small>
+</div>
+<div class="metric">
+<b>16 / 17</b>
+<small>CRT-Kanäle / Startmodulus</small>
+</div>
+<div class="metric">
+<b>10 + 1</b>
+<small>1232er-Zyklen / Schritt</small>
+</div>
+<div class="metric">
+<b>OPEN</b>
+<small>Poster-Mechanismus</small>
+</div>
+</div>
+</header>
+<main>
+<section class="carrier-switch" aria-labelledby="carrierSwitchTitle">
+<div>
+<span class="kicker">Live carrier + fold switch</span>
+<h2 id="carrierSwitchTitle">Welche Schicht soll die Fliese zeigen?</h2>
+<p>D/E sind dodekaedrische Flächenadressen. Dürer liefert ein exaktes 4×4-Adressraster; der Pascal-Träger liefert die C5-Hülle. Die Faltansicht ergänzt die Rechtecke um fünf Kites beziehungsweise zehn Dreiecke. Eine ausgewählte <code>+1</code>-Kante bleibt eine deklarierte Falthypothese — sie folgt weder aus Σ34 noch aus F₅₀.</p>
+</div>
+<label>
+<span>Trägeransicht</span>
+<select id="carrierView">
+<option value="crt16">CRT16 · 15+1 Pentagon</option>
+<option value="d30">D30 / C10 · Phase + Zehnerstern</option>
+<option value="record">Grid-Record · 33/7 ↔ 45/78/90</option>
+<option value="duerer">Dürer Q4 · 16 Rechtecke</option>
+<option value="DE">D/E · gekoppelte Doppelschicht</option>
+<option value="D">D1–D12 · Flächenträger</option>
+<option value="E">E1–E12 · Flächenträger</option>
+<option value="f50">F₅₀ · 101 / 151</option>
+</select>
+</label>
+<label id="recordLensLabel">
+<span>Grid-Record-Linse</span>
+<select id="recordLens">
+<option value="register">3×5 Register · offene Joints</option>
+<option value="mod77">HMA‑01 · Mod‑77 CRT</option>
+<option value="clamp">ACR‑38 · Core + Residual</option>
+<option value="positions">P1/P2/P3 · Maskenpositionen</option>
+<option value="palindrome">4774/4114 · 8888</option>
+</select>
+</label>
+<label>
+<span>Faltgeometrie</span>
+<select id="foldView">
+<option value="addresses">Adressen / Rechtecke</option>
+<option value="kites">Pascal C5 · 5er-Kite-Hülle</option>
+<option value="triangles">5 Kites × 2 · 10 Dreiecke</option>
+</select>
+</label>
+<label>
+<span>Projektion / Schatten</span>
+<select id="shadowView">
+<option value="single">1 Ebene · Quellansicht</option>
+<option value="triple">3 C5-Ebenen · Projektion</option>
+<option value="turn270">270° · Ansichtsrotation</option>
+</select>
+</label>
+<a class="btn" href="#crt16-tile">Zur steuerbaren Fliese ↓</a>
+<div class="carrier-sources">
+<a href="A0_PASCAL_PENTAGON_OPERATOR_JOINTS.html#demonstrator">Pascal-Pentagon ↗</a>
+<a href="A0_TESSAREC_BLUE_BODY_LAB.html#fold-contact">Dürer + Fold Lab ↗</a>
+<a href="A0_BLACK_SUN_BIG_MOON.html#eclipse">Black Sun / Big Moon ↗</a>
+<span>display adapter · no identity collapse</span>
+</div>
+</section>
+<section class="section" id="crt">
+<div class="section-head">
+<div>
+<span class="kicker">01 · base instrument</span>
+<h2>QRT × CRT · Herkunft → Wert → Adresse</h2>
+</div>
+<p>Die vom Owner benannte HTML ist die Basislogik: QRT bewahrt die Herkunft, CRT gibt demselben Zahlenwert prüfbare Adressen. Das ist keine automatische Schalt- oder Feldmechanik.</p>
+</div>
+<div class="card full">
+<div class="control">
+<label for="crtN">Zahlenwert <output id="crtNOut">1729</output>
+</label>
+<input id="crtN" type="range" min="0" max="12320" value="1729">
+</div>
+<div class="crt-flow">
+<div class="flow-step">
+<span class="kicker">Quelle · QRT-Provenienz</span>
+<div class="big">9³ + 10³</div>
+<p>1729 · Ramanujan-Zahl; Herkunft bleibt ein eigener Record.</p>
+</div>
+<div class="arrow">→</div>
+<div class="flow-step">
+<span class="kicker">Wert · erhalten</span>
+<div class="big" id="crtValue">1729</div>
+<p>Ein Zahlenwert, zwei deklarierte Raster.</p>
+</div>
+<div class="arrow">→</div>
+<div class="flow-step">
+<span class="kicker">Adresse · CRT</span>
+<div class="big">prüfbar</div>
+<p>Koordinaten entstehen aus dem jeweiligen Rastervertrag.</p>
+</div>
+</div>
+<div class="address-grid">
+<div class="address">
+<h3>111 × 111 · Quadrat</h3>
+<div class="big mono" id="addr111">(64,15)</div>
+<p id="mods111">mod 7 = 0 · mod 11 = 2 · mod 77 = 35</p>
+</div>
+<div class="address">
+<h3>112 × 110 · Rechteck</h3>
+<div class="big mono" id="addr112">(49,15)</div>
+<p id="mods112">mod 112 = 49 · mod 11 = 2 · CRT mod 1232 = 497</p>
+</div>
+</div>
+<div class="ticks" aria-label="X XI XII Takt">
+<b>XI-Takt</b>
+<span class="tick">X · 10<br>
+<small>Rest 10</small>
+</span>
+<span>→</span>
+<span class="tick active">XI · 11<br>
+<small>Rest 0</small>
+</span>
+<span>→</span>
+<span class="tick">XII · 12<br>
+<small>Rest 1</small>
+</span>
+</div>
+<p>
+<b>Exakter Takt:</b> 112×110 = 12.320 = 10×1.232; 111×111 = 12.321 = 10×1.232+1. Der zusätzliche Schritt ist arithmetisch. Er beweist noch keinen Schaltmechanismus.</p>
+</div>
+</section>
+<section class="section" id="grids">
+<div class="section-head">
+<div>
+<span class="kicker">02 · glossary ladder</span>
+<h2>Alle Grids – aber typisiert.</h2>
+</div>
+<p>„Grid“ bezeichnet hier nicht eine einzige Struktur. Jede Zeile nennt Carrier, Rolle, belegten Status und offenen Return.</p>
+</div>
+<div class="grid">
+<div class="card wide">
+<table class="ledger">
+<thead>
+<tr>
+<th>Carrier</th>
+<th>Rolle</th>
+<th>Status</th>
+<th>Grenze / offene Stelle</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<b>G₇×₁₁</b>
+<br>
+<code>77 cells</code>
+</td>
+<td>kleine CRT-/Rath-Ansicht</td>
+<td>
+<span class="tag exact">exact carrier</span>
+</td>
+<td>Keine Identität mit 11×111.</td>
+</tr>
+<tr>
+<td>
+<b>G₁₁×₁₁</b>
+<br>
+<code>121 cells</code>
+</td>
+<td>lokale Nachbarschaft</td>
+<td>
+<span class="tag exact">exact finite</span>
+</td>
+<td>Lift-Key fehlt außerhalb des erklärten Tests.</td>
+</tr>
+<tr>
+<td>
+<b>G₁₁×₁₁₁</b>
+<br>
+<code>1221 cells</code>
+</td>
+<td>Elevator / Zwischenregister</td>
+<td>
+<span class="tag bounded">bounded</span>
+</td>
+<td>
+<code>L:G11×K→G111</code> nicht kanonisch geschlossen.</td>
+</tr>
+<tr>
+<td>
+<b>G₁₁₁×₁₁₁</b>
+<br>
+<code>12321 cells</code>
+</td>
+<td>Makrogrid / Zielträger</td>
+<td>
+<span class="tag exact">exact carrier</span>
+</td>
+<td>Adresse ist exakt; Transportidentität bleibt offen.</td>
+</tr>
+<tr>
+<td>
+<b>G₁₁₂×₁₁₀</b>
+<br>
+<code>12320 cells</code>
+</td>
+<td>CRT-Kontrollraster</td>
+<td>
+<span class="tag exact">exact control</span>
+</td>
+<td>Rechteck und Quadrat sind verschiedene Views.</td>
+</tr>
+<tr>
+<td>
+<b>G₁₀₁×₁₀₁</b>
+<br>
+<code>10201 cells</code>
+</td>
+<td>Poster „Prime Overlay“</td>
+<td>
+<span class="tag open">source open</span>
+</td>
+<td>Kein Generator / keine Primselektionsregel gebunden.</td>
+</tr>
+<tr>
+<td>
+<b>G₈₄₀</b>
+<br>
+<code>Q840 ghostgrid</code>
+</td>
+<td>35-only Residualadresse</td>
+<td>
+<span class="tag bounded">source-bound</span>
+</td>
+<td>
+<code>840−735=105=3×5×7</code>; keine automatische Q106-Identität.</td>
+</tr>
+<tr>
+<td>
+<b>G₁₀₀₀×₁₀₀₀</b>
+<br>
+<code>subpixel field</code>
+</td>
+<td>Poster „Ghost Memory“</td>
+<td>
+<span class="tag open">visual only</span>
+</td>
+<td>Viewport unten ist schematisch; Speicherbehauptung ungetestet.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="card">
+<h3>Grid Address Reader</h3>
+<label class="control">
+<span>Carrier</span>
+<select id="carrier">
+<option value="77">7×11</option>
+<option value="121">11×11</option>
+<option value="1221">11×111</option>
+<option value="12321" selected>111×111</option>
+<option value="12320">112×110</option>
+<option value="10201">101×101</option>
+<option value="840">Q840 ring</option>
+<option value="1000000">1000×1000</option>
+</select>
+</label>
+<label class="control">
+<span>n</span>
+<input id="gridN" type="number" min="0" value="1729">
+</label>
+<label class="control">
+<span>Marker-Linse</span>
+<select id="gridLens">
+<option value="trace">Adresse + Bewegungs-Trace</option>
+<option value="prime-value">Primwerte im 11×11-Viewport</option>
+<option value="prime-fold">Prim-Faltung c+r</option>
+<option value="address">Nur aktive Adresse</option>
+</select>
+</label>
+<div class="big mono" id="gridReadout">64 · 15</div>
+<p id="gridMeta">111×111 · address 1729 / 12320</p>
+<div class="grid-analysis">
+<b id="gridFold">σ₁₁₁(1729)=64+15=79=p₂₂</b>
+<span id="gridDrift">Trace startet mit der nächsten Eingabe.</span>
+</div>
+<div class="grid-preview" id="miniGrid" aria-label="11×11-Residuenviewport mit typisierten Markern">
+</div>
+<div class="code-rail">
+<b>Codewort-Linse</b>
+<p class="mono" id="gridCode">bin₂ · tri₃ · Wₖ=1·0ᵏ·1</p>
+<small>
+<span class="thread-key">1 · Faden</span>
+<span class="eyelet-key">0 · Öse</span>
+<span class="binding-key">x · Bindung</span> · semantische Lesart, kein Zahloperator</small>
+</div>
+<div class="ledger-split">
+<article>
+<b>Adress-Ledger · aktuelle Buchung</b>
+<p class="mono" id="gridAddressLedger">q=15 · r=64 · q+r=79=p₂₂</p>
+<small>Quotient und Rest bleiben getrennt; die Primrolle entsteht erst im deklarierten Fold. <code>22</code> ist Index, keine zweite Primzahl.</small>
+</article>
+<article>
+<b>Prime-Status-Ledger · Kontrollspur</b>
+<p class="mono">
+<span class="prime-ledger">1031</span> · 1032 · <span class="prime-ledger">1033</span> → P|C|P → 1|0|1</p>
+<small>
+<code>1087</code> ist prim; <code>reverse₁₀(1087)=7801=29·269</code> ist komposit. Umkehr erhält die Primrolle nicht.</small>
+</article>
+</div>
+<a class="source-return" href="../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_PRIMEGRID_BLOCK02B_TRINARY_PASCAL_ANTIPODE_2026-10-07/NEXAH_PRIMEGRID_BLOCK02B_TRINARY_PASCAL_ANTIPODE_LAB.html">Source return · Trinary Pascal Antipode / 1031–1033 →</a>
+</div>
+</div>
+</section>
+<section class="section" id="address-spine">
+<div class="section-head">
+<div>
+<span class="kicker">03 · address spine</span>
+<h2>101, 404, 1008, 105, 106.</h2>
+</div>
+<p>Die Suchmarker führen zu mehreren Modulen. Gleiche Zahlen werden nur verbunden, wenn Träger und Operator mitgeführt werden.</p>
+</div>
+<div class="grid">
+<div class="card">
+<span class="tag exact">source-bound</span>
+<h3>101 · typed carrier</h3>
+<p>
+<code>c<sub>k</sub>=101·2<sup>k</sup>
+</code> liefert <code>101→202→404→808→…</code>. Im F₅₀-Faktorfeld ist 101 exakt, aber neben 151 nicht eindeutig selektiert.</p>
+<a class="btn" href="../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_ROOT7_EULER_MIRROR_CONCORDANCE_INTAKE_2026-09-28/F50_FACTOR_TO_SNCE_CHANNEL_01.html">F₅₀ / SNCE öffnen</a>
+</div>
+<div class="card">
+<span class="tag bounded">declared view</span>
+<h3>404 · dyadic gate marker</h3>
+<p>404 ist ein designierter Marker in der 11/111-Ansicht. Die Verdopplungsfolge allein erzeugt weder 4D-Koordinaten noch den unabhängigen 404-Reglerzustand.</p>
+<a class="btn" href="../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_ROOT7_CUSTODY_2026-09-28/Nexah_Root7/NEXAH_ROOT7_111_FIELD_PRUEFPUNKT_06/ROOT7_111_FIELD_README.md">Prüfpunkt 06</a>
+</div>
+<div class="card">
+<span class="tag historical">visual search marker</span>
+<h3>12×1008 · 7×144</h3>
+<p>Der Screenshot markiert <code>1008=7·144=9·112</code>, <code>12·1008=12096</code> und die Radix-12-Schreibweise. Er dient zur Modulsuche; er behauptet keine eigenständige HTML-Identität.</p>
+</div>
+<div class="card">
+<span class="tag bounded">role split</span>
+<h3>105 · drei Rollen</h3>
+<p>
+<code>105=3·5·7</code>, <code>105=106−1</code> und die 105L/105R-Inzidenz sind getrennte Rollen desselben Werts. Die Rolle muss im Record stehen.</p>
+</div>
+<div class="card">
+<span class="tag open">typed return open</span>
+<h3>106 · 100+6</h3>
+<p>Q106 besitzt einen eindeutigen sechs-node Residual innerhalb seines gefrorenen Vertrags. Der Transport von 20/40/101/404 in diesen Träger ist nicht automatisch gegeben.</p>
+<a class="btn" href="../../../../../10%20NEXAH%20CORE/NEXAH/RESEARCH/NOTES/PASCAL_PENTAGON_D5_TEST_2026-10-10/PASCAL_ROSETTA_JOINT_DESIGN_2026-10-11/NCS_292_Q106_INTERTWINER_RETURN_PACKAGE_2026-10-11/NCS_292_Q106_INTERTWINER_RETURN_EXPLORER.html">Q106 Explorer</a>
+</div>
+<div class="card">
+<span class="tag historical">visual search marker</span>
+<h3>A272899(16) · CRT plate</h3>
+<p>
+<code>M=∏mᵢ</code> und <code>ℤ/Mℤ≅∏ℤ/mᵢℤ</code> gelten bei paarweise teilerfremden Moduli. <code>1000×1000</code> ist dort Darstellungsauflösung, nicht Zustandszahl; <code>272|899</code> ist ein Glyph-Cut, keine Sequenzregel.</p>
+</div>
+</div>
+<div class="boundary" style="margin-top:14px">
+<b>Search-marker protocol</b>
+<p>Ein Visual ohne HTML ist ein dokumentarischer Suchschlüssel. Titel, Gleichungen, Labels und Claim-Grenzen werden zur Quellenarchäologie benutzt; sie werden nicht automatisch als ausführbares Modul, Datensatz oder Evidenzobjekt registriert.</p>
+</div>
+</section>
+<section class="section" id="crt16-tile">
+<div class="section-head">
+<div>
+<span class="kicker">04 · recovered display contract</span>
+<h2>16/17 · steuerbare Pentagonfliese</h2>
+</div>
+<p>Der A272899(16)-Suchmarker wird hier als neues dokumentarisches View übersetzt: 16 CRT-Kanäle beginnen bei Modulus 17. Die 15+1-Anordnung ist eine deklarierte Pentagonanzeige – keine rekonstruierte Original-HTML und kein Tiling-Beweis. Die Animation taktet ausschließlich diskrete Adressen und Anzeigephasen.</p>
+</div>
+<div class="tile-layout">
+<div class="card tile-stage">
+<div class="tile-toolbar">
+<label>
+<span>Zahlenwert n</span>
+<input id="tileN" type="number" min="0" value="105">
+</label>
+<label>
+<span>Linse</span>
+<select id="tileLens">
+<option value="residue">CRT-Reste</option>
+<option value="abc">ABC-Anzeige</option>
+<option value="pq">P/Q-Komparator</option>
+<option value="q106">Q106 · I15-Vergleich</option>
+</select>
+</label>
+<label>
+<span>Rotation · C5</span>
+<input id="tileRotation" type="range" min="0" max="4" step="1" value="0">
+</label>
+<label><span>Kite-Apertur</span><input id="tileAperture" type="range" min="0" max="100" step="5" value="100"></label>
+<label><span>Takt</span><select id="tileTempo"><option value="1100">langsam</option><option value="650" selected>mittel</option><option value="320">schnell</option></select></label>
+<div class="animation-control"><span>Diskrete Phase</span><button type="button" id="tilePlay" aria-pressed="false">▶ Animation</button><output id="tilePhase">φ 00/29 · aperture 100%</output></div>
+</div>
+<div class="preset-row" aria-label="Zahlenwert-Presets">
+<button type="button" data-tile-n="105">105 · 3×5×7</button>
+<button type="button" data-tile-n="106">106 · 100+6</button>
+<button type="button" data-tile-n="1729">1729 · QRT</button>
+<button type="button" id="showCoupling">D/E Kopplung</button>
+<button type="button" id="tilePrev">← Kanal</button>
+<button type="button" id="tileNext">Kanal →</button>
+</div>
+<svg id="crt16Svg" class="crt16-svg" viewBox="0 0 760 640" role="img" aria-labelledby="crt16Title crt16Desc">
+<title id="crt16Title">Interaktive CRT-16-Pentagonanzeige</title>
+<desc id="crt16Desc">Fünf Sektoren mit je drei CRT-Kanälen und einem sechzehnten Zentrumskanal. Auswahl und Rotation verändern nur die Anzeige.</desc>
+</svg>
+<div class="tile-projections" id="tileProjections" aria-label="Vier Projektionen desselben 16-Kanal-Zustands">
+<figure><figcaption>I · Front · II + Kern</figcaption><svg id="tileViewFront" viewBox="0 0 240 190" role="img" aria-label="Frontprojektion"></svg></figure>
+<figure><figcaption>II · Top · Pentagon</figcaption><svg id="tileViewTop" viewBox="0 0 240 190" role="img" aria-label="Topprojektion"></svg></figure>
+<figure><figcaption>III · Side · 1–0–1</figcaption><svg id="tileViewSide" viewBox="0 0 240 190" role="img" aria-label="Seitenprojektion"></svg></figure>
+<figure><figcaption>IV · Iso · 3D carrier</figcaption><svg id="tileViewIso" viewBox="0 0 240 190" role="img" aria-label="Isometrische Projektion"></svg></figure>
+</div>
+<p class="mono projection-meta" id="tileProjectionMeta">Vier Ansichten · ein 16-Kanal-Träger · gleiche aktive Adresse</p>
+<div class="tile-legend">
+<span>
+<i class="dot cyan">
+</i>CRT-Kanal</span>
+<span>
+<i class="dot gold">
+</i>aktive Adresse</span>
+<span>
+<i class="dot pink">
+</i>typisierter Vergleich</span>
+</div>
+</div>
+<aside class="tile-side">
+<div class="card">
+<span class="tag exact">exact arithmetic</span>
+<h3>Aktiver Kanal</h3>
+<div class="tile-readout">
+<b id="tileChannel">Kanal 1</b>
+<span id="tileModulus">m₁ = 17</span>
+<strong id="tileResidue">105 mod 17 = 3</strong>
+</div>
+<p id="tileAddress">Residue tuple component 1/16.</p>
+</div>
+<div class="card">
+<span class="tag bounded">declared display</span>
+<h3>15 + 1 · fünf Sektoren</h3>
+<p>Drei Ringe × fünf C5-Sektoren bilden 15 Slots; Kanal 16 liegt im Zentrum. Das visualisiert <code>15+1=16</code>, identifiziert die Slots aber nicht mit Q106-Nodes.</p>
+<div class="mini-equation">
+<span>3 × 5</span>
+<b>+</b>
+<span>1</span>
+<b>=</b>
+<span>16</span>
+</div>
+</div>
+<div class="card">
+<span class="tag exact">typed representation</span>
+<h3>Base · Mod · Grid · CRT</h3>
+<label class="control stacked">
+<span>Darstellung</span>
+<select id="representationMode">
+<option value="base">Base b · vollständiges Wort</option>
+<option value="mod">Mod b · Restklasse</option>
+<option value="grid">Grid b · Koordinate</option>
+<option value="crt">CRT · Resttupel</option>
+</select>
+</label>
+<div class="big mono representation-output" id="representationOutput">105 = [6,3]₍17₎</div>
+<p id="representationMeta">Base 17 bewahrt n als vollständiges Ziffernwort.</p>
+</div>
+<div class="card">
+<span class="tag bounded">dodecahedral address carrier</span>
+<h3>D/E · Flächen-Umschalter</h3>
+<label class="control stacked">
+<span>Träger</span>
+<select id="faceCarrier">
+<option value="DE">D/E · gekoppelte Doppelschicht</option>
+<option value="D">D · Flächensatz</option>
+<option value="E">E · Flächensatz</option>
+</select>
+</label>
+<label class="control compact">
+<span>Adresse</span>
+<input id="faceAddress" type="range" min="1" max="12" value="6">
+</label>
+<div class="big mono" id="returnLabel">D6</div>
+<p id="returnMeta">oberer Pentagonring · Kandidatentor D6/E6</p>
+<div class="face-jump" aria-label="Direkte Flächenwahl">
+<button type="button" data-face="1">1</button>
+<button type="button" data-face="2">2</button>
+<button type="button" data-face="3">3</button>
+<button type="button" data-face="4">4</button>
+<button type="button" data-face="5">5</button>
+<button type="button" data-face="6">6</button>
+<button type="button" data-face="7">7</button>
+<button type="button" data-face="8">8</button>
+<button type="button" data-face="9">9</button>
+<button type="button" data-face="10">10</button>
+<button type="button" data-face="11">11</button>
+<button type="button" data-face="12">12</button>
+</div>
+<p>D1/E1: Nordpol · 2–6: oberer Ring · 7–11: unterer Ring · D12/E12: Südpol. Die D/E-Doppelschicht zeigt D2…D6, E2…E6 und E7…E11 gleichzeitig. D/E sind Adressen, keine Dynkin-Typen. Nur D2/E2 bis D6/E6 sind die fünf geprüften offenen Tore.</p>
+</div>
+<div class="card">
+<span class="tag historical">typed comparator</span>
+<h3 id="tileLensTitle">CRT residue lens</h3>
+<p id="tileLensText">Jeder Kanal zeigt den Rest desselben Zahlenwerts in seinem eigenen Primmodulus.</p>
+<div class="pq-strip">
+<span id="pqSource">P · 17</span>
+<b>→</b>
+<span id="pqTarget">29 · +12</span>
+</div>
+</div>
+</aside>
+</div>
+<div class="boundary tile-boundary">
+<b>Identitätsgrenze</b>
+<p>
+<code>M=107147677900122307955347471</code> ist das Produkt der 16 dargestellten Primmoduli 17…79. CRT-Rekonstruktion gilt modulo M. Base-Wort, Mod-Rest, Grid-Koordinate und CRT-Tupel sind verschiedene Abbildungen, auch wenn sie denselben Parameter tragen. Pentagonform, ABC-Zyklus, P/Q-Linse, Q106-I15 und D/E-Flächenträger bleiben getrennte Darstellungen; zwischen ihnen wird hier kein unbelegter Intertwiner eingeführt.</p>
+</div>
+<div class="grid tile-source-ledger">
+<article class="card"><span class="tag exact">read source</span><h3>M · Golden Line</h3><p><code>101→202→404→808</code> ist im endlichen Dezimaltest der maximale Palindrom-Prefix; <code>808↔292</code> ist der exakte <code>J₁₁₀₀</code>-Partner. Status: bounded M-candidate, nicht promoviert.</p><a href="../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_ROOT7_EULER_MIRROR_CONCORDANCE_INTAKE_2026-09-28/16_M_CLASS_GOLDEN_LINE_NULLMODEL_ADDENDUM.md">M-Class Result →</a></article>
+<article class="card"><span class="tag bounded">separate metric</span><h3>√5 · √2 · Apertur</h3><p><code>√5·√2=√10</code> ist exakt, aber noch keine S-Achse. Source-bound ist dagegen die quadratische Vierklappen-Schwelle <code>φ/√2≈1,1441</code>. Die fünf Kites dieser Fliese bleiben eine eigene Anzeigegeometrie.</p><a href="../63_A0_TESSAREC_PENTAGON_FOLD_CONTACT_AND_A7_ROOT7_GUARD_2026-10-13.md">Fold/Contact Record →</a></article>
+<article class="card"><span class="tag historical">role marker</span><h3>I → II → III · Mirror ledger</h3><p>Der CXXXI-Marker bindet Rollen: Select/Cut/Record/Mirror/Return. Exakt sind <code>1033=p₁₇₄</code>, <code>1087=p₁₈₁</code>, Indexabstand <code>7</code> und <code>reverse₁₀(1087)=7801=29·269</code>. „Pillar“ und Sichel bleiben Ansichtsrollen, bis eine Abbildung definiert ist.</p><a href="../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_ROOT7_CUSTODY_2026-09-28/Nexah_Root7/NEXAH_SCN_1087_GEGENPROBE_PRUEFPUNKT_10_2026-09-28.md">1087 Gegenprobe →</a></article>
+</div>
+</section>
+<section class="section" id="poster">
+<div class="section-head">
+<div>
+<span class="kicker">05 · poster decomposition</span>
+<h2>Konzeptionell stark. Evidenziell getrennt.</h2>
+</div>
+<p>Die 15 Posterfelder werden nicht zu einem vermeintlich einheitlichen Experiment verschmolzen.</p>
+</div>
+<div class="grid">
+<div class="card">
+<span class="tag exact">exact arithmetic</span>
+<h3>Root harmonic layers</h3>
+<p>√2…√10 sind exakte Werte. Eine harmonische Feldwirkung folgt daraus nicht.</p>
+<div id="roots" class="mono">
+</div>
+</div>
+<div class="card">
+<span class="tag open">source open</span>
+<h3>101×101 Prime Overlay</h3>
+<p>Als Carrier registriert; Posterbild und Primregel ohne Runner. Keine Neuberechnung unter Structure Freeze.</p>
+</div>
+<div class="card">
+<span class="tag open">unavailable</span>
+<h3>X/O · mod 101 vs mod 111</h3>
+<p>EXP11 ist im VST01-Ledger als <code>SOURCE_OBJECT_UNAVAILABLE</code> geführt. Unten werden nur Restadressen verglichen.</p>
+<label class="control">
+<span>n</span>
+<input id="xoN" type="number" value="1729">
+</label>
+<div class="dualmap">
+<div class="address">
+<b>mod 101</b>
+<div class="big mono" id="m101">12</div>
+</div>
+<div class="address">
+<b>mod 111</b>
+<div class="big mono" id="m111">64</div>
+</div>
+</div>
+</div>
+<div class="card">
+<span class="tag historical">poster geometry</span>
+<h3>Extreme mirror distances</h3>
+<p>
+<code>p ↔ reverse(p) mod 111</code> ist als Vergleich formulierbar; die extreme Verteilung ist nicht source-bound.</p>
+<label class="control">
+<span>p</span>
+<input id="mirrorP" type="number" value="97">
+</label>
+<div class="big mono" id="mirrorOut">97 ↔ 79</div>
+</div>
+<div class="card wide">
+<span class="tag open">typed colour fixture</span>
+<h3>Ghost Tiles · Root Room / π–τ–Trinity</h3>
+<p>Ein adressierbarer Ghost-Carrier kann jetzt deterministisch eingefärbt, durch Aperturen gelesen und an die diskrete Pentagonphase gekoppelt werden. Das Arbeitsfeld beginnt bei <code>100×100</code>; <code>1000×1000</code> bleibt als Vergleich verfügbar. <code>NP;RR</code> bezeichnet die getrennten Koordinaten: NP links, Root Room rechts; <code>n=S·NP+RR</code> ist für Seitenlänge <code>S</code> nur die verlustfreie flache Serialisierung. Die Root-Matrizen und System-X-Lagen sind Transkriptionen der Owner-Visuals 10/11 — Test-Fixtures, keine abgeleitete Rootspace-Theorie.</p>
+<div class="ghost-controls">
+<label><span>Fixture</span><select id="ghostPreset"><option value="procedural">Ghost address field</option><option value="root5">Visual 10 · Root 5×5</option><option value="root7">Visual 10 · Root 7×6</option><option value="systemx">Visual 11 · System X</option><option value="dyadic">Ghostgrid · dyadic M-lift</option></select></label>
+<label><span>Adressfeld</span><select id="ghostFieldSize"><option value="100">100×100 · work</option><option value="1000">1000×1000 · comparison</option></select></label>
+<label><span>Viewport</span><select id="ghostViewport"><option value="6">6×6</option><option value="7" selected>7×7</option><option value="8">8×8</option><option value="25">25×25</option></select></label>
+<label><span>Farboperator</span><select id="ghostColor"><option value="minus-1-12">−1/12 phase grid</option><option value="pi-tau-3">π / τ / Trinity</option><option value="trinity">Trinity χ₃</option><option value="tau">τ Vollzyklus</option><option value="pi">π Spiegelparität</option><option value="lrrl">LRRL Return trace</option><option value="source">Quell-/Fixturefarbe</option></select></label>
+<label><span>Aperture</span><select id="ghostAperture"><option value="golden">φ gate · 51,83°</option><option value="kite">Kite / Diamond</option><option value="vertical">Visual 6 · vertical gate</option><option value="crescent">Black Sun · crescent</option><option value="open">offen</option></select></label>
+<label class="ghost-coordinate"><span>NP · links</span><input id="ghostNp" type="number" min="0" max="999" step="1" value="0"></label>
+<label class="ghost-coordinate"><span>RR · rechts</span><input id="ghostRr" type="number" min="0" max="999" step="1" value="0"></label>
+<label class="ghost-check"><input id="ghostFollowTile" type="checkbox" checked><span>Pentagonphase folgen</span></label>
+<button type="button" id="ghostPlay" aria-pressed="false">▶ Ghost clock</button>
+<output id="ghostPhase">t 00 · τ phase 0.000 · χ₃ 0</output>
+</div>
+<div class="grid-preview ghost-grid-preview" id="ghostGrid" aria-label="Steuerbares Ghost-Tile-Feld"></div>
+<div class="ghost-legend" id="ghostLegend"><span><i class="swatch s0"></i>c₁₂=0</span><span><i class="swatch s1"></i>c₁₂=1…11</span><span><i class="swatch aperture"></i>Aperture</span></div>
+<p class="mono" id="ghostOut">NP 00; RR 00 · flat 0 · viewport cell (0,0)</p>
+<p class="mono ghost-meta" id="ghostMeta">NP;RR ↔ S·NP+RR · c₁₂(n,t)=(n−t) mod 12 · χ₃(RR,NP,t)=(RR+2NP+t) mod 3 · Anzeigeoperator</p>
+<div class="ghost-source-links"><a href="../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_ROOT7_EULER_MIRROR_CONCORDANCE_INTAKE_2026-09-28/14_GHOSTGRID_DYADIC_M_LIFT_ADDENDUM.md">Ghostgrid M-lift</a><a href="../92_A0_TWIN_PRIME_TUBE_PHASE_X20_ENGINEERING_RESULT_2026-10-15.md">LRRL control</a><a href="../../../NEXAH_SEALED_COMPARISON_METHOD_0_1_2026-09-17/ROOT_ROOM_VIEW_RETURN_AUDIT.md">Root-Room audit</a></div>
+<script type="application/json" id="ghostTileFixtures">{"status":"DOCUMENTARY_TRANSCRIPTION_NOT_FORMULA","root5":{"label":"Visual 10 · Root matrix 5×5","cols":5,"rows":5,"values":[1,2,3,4,5,6,7,6,7,8,9,9,11,15,15,16,14,16,17,20,21,22,23,24,25]},"root7":{"label":"Visual 10 · Root matrix 7×6","cols":7,"rows":6,"values":[1,2,3,4,5,6,7,8,9,10,11,15,13,14,15,16,17,18,19,20,21,23,23,24,29,26,27,28,29,40,31,32,33,34,35,36,37,38,38,40,42,43]},"systemx":{"label":"Visual 11 · System X layers","cols":5,"rows":3,"values":[null,7,8,9,null,5,null,4,null,3,1,2,3,4,5],"lanes":["7·8·9","5·4·3","1·2·3·4·5"]}}</script>
+</div>
+<div class="card">
+<span class="tag bounded">source-bound residual</span>
+<h3>105 auf dem Ghostgrid</h3>
+<p>
+<code>840−735=105=3×5×7</code>. Derselbe Wert erscheint außerdem als <code>106−1</code> und als 105L/105R-Inzidenzzahl; das sind drei Rollen, keine erzwungene Identität.</p>
+<a class="btn" href="../../../../../10%20NEXAH%20CORE/NEXAH/RESEARCH/NOTES/PASCAL_PENTAGON_D5_TEST_2026-10-10/PASCAL_ROSETTA_JOINT_DESIGN_2026-10-11/NCS_292_Q106_INTERTWINER_RETURN_PACKAGE_2026-10-11/NCS_292_Q106_INTERTWINER_RETURN_EXPLORER.html">Q106 Explorer öffnen</a>
+</div>
+<div class="card half">
+<span class="tag historical">historical image</span>
+<h3>Theta Ramanujan Grid</h3>
+<p>Der Titel ist im Are.na-Poster gebunden. Formel, Parameter und Generator sind nicht lokalisiert; daher kein Riemann-/Ihara- oder Drift-Claim.</p>
+</div>
+<div class="card half">
+<span class="tag negative">non-identity</span>
+<h3>Drift &amp; Split</h3>
+<p>NCS-Drift, <code>1/112</code> und <code>ζ(−1)=−1/12</code> bleiben typisierte Vergleichsmarker. Visuelle Nähe ist keine Gleichung.</p>
+<a class="btn" href="A0_IHARA_HASHIMOTO_CYCLE_BRIDGE.html">Ihara-Brücke</a>
+</div>
+</div>
+</section>
+<section class="section">
+<div class="boundary">
+<b>Claim ceiling</b>
+<p>Interne dokumentarische A0-Oberfläche. Sie rechnet nur elementare Adressen und Restklassen aus bereits benannten Carriern. Keine neue Studie, kein Lab-Run, keine Evidenzpromotion, keine Riemann-/Ramanujan-/Ihara-Identität, kein physischer Mechanismus und keine Publikation.</p>
+</div>
+</section>
+</main>
+<footer class="footer">
+<span>NEXAH · A0 GRID ATLAS · 2026-10-15</span>
+<a href="A0_VISUAL_FIELD_LIBRARY.html">Weiter zur Visual Field Library →</a>
+</footer>
+<script src="a0-grid-atlas.js?rev=ghost-tiles-r7-grid-switch-3d-20261015">
+</script>
+<script src="a0-context-navigation.js?rev=human-home-20261014">
+</script>
+</body>
+</html>

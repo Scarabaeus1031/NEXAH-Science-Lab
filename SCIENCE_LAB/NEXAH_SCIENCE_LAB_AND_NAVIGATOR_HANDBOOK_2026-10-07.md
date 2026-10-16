@@ -376,8 +376,8 @@ controlling workspace is the
 
 ### 7.4 A0 module and surface coverage
 
-The A0 Book manifest currently registers **33 HTML surfaces in nine work
-groups**. All 33 are bound through the existing
+The governed A0 coverage record currently binds **50 registered surfaces in
+eleven work groups**. All 50 are bound through the existing
 `NEXAH:A0_ORIENTATION_EVIDENCE_LINEAGE:V1` lens and its already governed A0,
 Number View, Orientation, Return, LIFE and Tessarec identities. The exact
 mapping is machine-readable in the
@@ -387,6 +387,33 @@ This is complete coverage, not module multiplication: it creates no new
 canonical node or relation, activates no Study, promotes no evidence and
 authorizes no publication. The 16 conceptual modules above therefore remain
 the governed baseline.
+
+### 7.5 A0 Science Desk and Orientation Controller Bench
+
+The **A0 Science Desk** is the scientific authority for A0. It owns the
+research log, backlog routing, test interpretation, gap state and claim
+ceilings of the Foundation package. The Science Navigator exposes a read-only
+source/relation lens; Mission Control receives currentness, priority and
+release projections. Neither projection can amend A0 evidence or activate a
+Study.
+
+The Orientation Controller Bench `v0.11.0` is one local engineering surface
+under `NEXAH_AX0_QMODE_FOUNDATION_PACKAGE`. Its iris-to-octagon relation is
+typed as Aperture/Projection, not carrier identity. MIWA, ERITH, LOKI,
+Pascal × Antipode and E8 remain source or interaction grammars until an exact
+adapter and evidence contract says otherwise. The OCB creates no new Family,
+canonical entity, graph relation, physical mechanism or public claim.
+
+The documentary gap route is:
+
+```text
+A0 Science Desk
+  -> OCB v0.11.0 engineering baseline
+  -> OCB Gap Register
+  -> canonical A0 backlog / STOP
+  -> Science Navigator currentness lens
+  -> Mission Control return
+```
 
 ## 8. Connection Families
 
@@ -712,6 +739,15 @@ one inspectable navigation architecture without erasing their differences.
 3. [Family Connection Map v2](FAMILY_CONNECTION_MAP_V2_2026-10-05.md)
 4. package-local preregistration, result and decision records
 5. [Mathematical Foundations Glossary](../RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/11_MATHEMATICAL_FOUNDATIONS_GLOSSARY.md)
+
+### A0 Orientation Controller reader
+
+1. [A0 Science Desk](../RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/A0_RESEARCH_DESK.html)
+2. [Orientation Controller Bench](../RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/A0_ORIENTATION_CONTROLLER_BENCH.html)
+3. [OCB Gap Register](../RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/100_A0_ORIENTATION_CONTROLLER_BENCH_GAP_REGISTER_2026-10-16.md)
+4. [A0 Crosswalk](../RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/07_NEXAH_CROSSWALK.md)
+5. `#a0-orientation-evidence` in the Science Navigator
+6. Mission Control currentness return; scientific authority remains at step 1
 
 ### Navigator maintainer
 

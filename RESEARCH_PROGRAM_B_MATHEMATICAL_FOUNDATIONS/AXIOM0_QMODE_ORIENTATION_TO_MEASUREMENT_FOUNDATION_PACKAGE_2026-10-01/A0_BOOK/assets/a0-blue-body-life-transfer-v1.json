@@ -1,0 +1,44 @@
+{
+  "schema": "nexah.a0.blue-body-life-transfer/1.0.0",
+  "record_id": "A0:BLUE_BODY:LIFE:TRANSFER_CONTROL:V1",
+  "date": "2026-10-15",
+  "status": "INTERNAL_DETERMINISTIC_ENGINEERING_CONTROL_NOT_SCIENCE_RUN",
+  "identity": {
+    "reuses": [
+      "A0:TESSAREC:BLUE_BODY:V1",
+      "MOD:TESSAREC",
+      "ART:A0:MATHEMATICAL_JOINTS",
+      "NEXAH_LIFE_PROGRAM_2026_10_07"
+    ],
+    "new_navigator_identity": false,
+    "new_graph_relation": false,
+    "new_study": false,
+    "life08_reopened": false
+  },
+  "source": {
+    "carrier": "MOD:TESSAREC:Q4xP3",
+    "address_space": "Q4 x P3",
+    "states": 48
+  },
+  "transport": {
+    "target_view": "finite-dead 8x6 one-hot LIFE display",
+    "formula": "x=q4 mod 8; y=2*layer+floor(q4/8)",
+    "pre_dynamics_bijective": true,
+    "source_key_sidecar": true
+  },
+  "negative_control": {
+    "rule": "B3/S23",
+    "input": "one live cell",
+    "output": "empty state",
+    "distinct_post_signatures": 1,
+    "dynamics_only_candidate_count": 48,
+    "interpretation": "the native update erases the transported address; exact Return depends on the declared address witness"
+  },
+  "return": {
+    "pre_dynamics": "PASS_PRE_DYNAMICS_COORDINATE_RETURN",
+    "typed_witness": "PASS_TYPED_TRANSPORT_RETURN",
+    "dynamics_only": "HOLD_DYNAMICS_ONLY_AMBIGUOUS",
+    "mismatch": "HOLD_SOURCE_KEY_MISMATCH"
+  },
+  "claim_boundary": "EXACT_COORDINATE_TRANSPORT_ONLY_B3S23_SINGLETON_COLLAPSE_IS_A_NEGATIVE_CONTROL_NO_CARRIER_IDENTITY_NO_LIFE08_REOPEN_NO_NEW_LIFE_RULE_NO_MECHANISM_TRANSFER_NO_PUBLICATION"
+}

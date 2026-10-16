@@ -1,7 +1,7 @@
 {
   "schema": "nexah.navigator.a0-orientation-evidence-lineage-binder/1.0.0",
   "binder_id": "NEXAH:A0_ORIENTATION_EVIDENCE_LINEAGE:V1",
-  "date": "2026-10-14",
+  "date": "2026-10-15",
   "status": "INTERNAL_READ_ONLY_SOURCE_BOUND_LENS",
   "route": "#a0-orientation-evidence",
   "title": "A0 Orientation Evidence Lineage",
@@ -24,8 +24,8 @@
     "coverage_id": "NEXAH:A0_MODULE_SURFACE_COVERAGE:V1",
     "status": "INTERNAL_SOURCE_BOUND_COVERAGE_NO_NEW_IDENTITY",
     "source_id": "SRC:A0OE:A0_MODULE_SURFACE_COVERAGE",
-    "registered_surfaces": 46,
-    "bound_surfaces": 46,
+    "registered_surfaces": 50,
+    "bound_surfaces": 50,
     "unbound_surfaces": 0,
     "work_groups": 11,
     "canonical_count_effect": "NONE",
@@ -36,7 +36,7 @@
     "status": "EDITORIAL_NAVIGATION_FRAME_NO_NEW_IDENTITY",
     "series_label": "A0",
     "entry_surface": "A0_BOOK/index.html#wegweiser",
-    "navigation_rule": "Persistent works first; current-work breadcrumb second; work-local sections, related pages and external sources third.",
+    "navigation_rule": "One shared inventory is exposed through three editorial Reader lanes: Human, Science and Builder. The current surface remains separate from work-local anchors and contextual links.",
     "works": [
       {
         "label": "A0 Book",
@@ -402,6 +402,25 @@
         "Base 20 Base 40",
         "Root Room 537"
       ]
+    },
+    {
+      "canonical": "ONE LOOP Human View",
+      "search_terms": [
+        "ONE LOOP",
+        "Vg One Loop",
+        "Visual Galleries I–XI",
+        "human view",
+        "pin",
+        "aperture",
+        "half-shadow",
+        "fold",
+        "envelope",
+        "seam",
+        "channel",
+        "field within",
+        "neon return",
+        "Möbius-like visual"
+      ]
     }
   ],
   "sources": [
@@ -411,7 +430,7 @@
       "repository": "NEXAH Science Lab",
       "ecosystem_path": "30 SCIENCE LAB/NEXAH-Science-Lab/RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/README.md",
       "href": "../../../RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/README.md",
-      "sha256": "33cc50ea5f4057427865184e84b58ec7bf3d2cea4981c8ced04a1b02c96c1f5a",
+      "sha256": "eb60127279cbf760f7e53c09e0ee755aca959c414eeec86038b1d0960a4d5fdd",
       "authority_role": "A0 reader-proof and editorial entry frame for six sibling reader works under one reused A0 surface identity; not six new scientific identities"
     },
     {
@@ -420,8 +439,8 @@
       "repository": "NEXAH Science Lab / A0 Book",
       "ecosystem_path": "30 SCIENCE LAB/NEXAH-Science-Lab/RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/a0-context-navigation.css",
       "href": "../../../RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/a0-context-navigation.css",
-      "sha256": "4e6d4491e0b2b5e4d54bff2f10f782103e0a3fbbb1d0fd2fd5624da8145fc409",
-      "authority_role": "shared readable three-level presentation for persistent A0 works, current-work breadcrumb, subordinate navigation and a distinct right-edge Asset Index entry; no content or evidence-authority change"
+      "sha256": "5b5e1faf9f1b843f58228ecf6efa043dc7482ca38d1ca416207e4809810cee73",
+      "authority_role": "shared responsive presentation for the Human, Science and Builder Reader lanes, including the Aperture Journey quiet-entry reduction, current-surface context and subordinate page navigation; no content or evidence-authority change"
     },
     {
       "source_id": "SRC:A0OE:A0_CONTEXT_NAVIGATION_JS",
@@ -429,8 +448,8 @@
       "repository": "NEXAH Science Lab / A0 Book",
       "ecosystem_path": "30 SCIENCE LAB/NEXAH-Science-Lab/RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/a0-context-navigation.js",
       "href": "../../../RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/a0-context-navigation.js",
-      "sha256": "4aaf5fc9fbffddd38e4cd62b36902f226ef0e60ae45fe30f5a8a2ef223d5b80f",
-      "authority_role": "shared deterministic A0-work navigation, including the Family Connection Atlas, current-work breadcrumb, grouped context drawers and a persistent rightmost Asset Index button; no identity, evidence or claim change"
+      "sha256": "2424b111848da68ae60e1426b36e55620dfbf4210c96c708d663c05a2b400c36",
+      "authority_role": "shared deterministic classification of all registered A0 surfaces into Human, Science and Builder Reader lanes, with one declared quiet-entry header for the Aperture Journey, plus local anchors and quick returns; no identity, evidence or claim change"
     },
     {
       "source_id": "SRC:A0OE:A0_RESEARCH_BACKLOG",
@@ -438,7 +457,7 @@
       "repository": "NEXAH Science Lab / A0",
       "ecosystem_path": "30 SCIENCE LAB/NEXAH-Science-Lab/RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/24_A0_RESEARCH_BACKLOG_AND_OPEN_JOINTS_2026-10-10.md",
       "href": "../../../RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/24_A0_RESEARCH_BACKLOG_AND_OPEN_JOINTS_2026-10-10.md",
-      "sha256": "8fcec8ced81aaa726543e8ae2e290c5dd77669719e7db6fd50bbf12d36ecd822",
+      "sha256": "9f8f7aa6f4387cfd2d96cc7e2b279d27b0c12b1655dcf915f0af99093ac79a4b",
       "authority_role": "documentary A0 subledger recording closed, preparation and disposition lanes, including the Owner-accepted internal closure of A0-BL-053, the bounded M7 paired plate/cylinder projection, the backlog-only Dürer/Khajuraho moving-window question and the 2026-10-14 post-model development stop; not the Lab Register, research activation or publication authority"
     },
     {
@@ -483,7 +502,7 @@
       "repository": "NEXAH Science Lab / A0",
       "ecosystem_path": "30 SCIENCE LAB/NEXAH-Science-Lab/RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/32_A0_FINDINGS_AND_PAPER_WORKSPACE_2026-10-11.md",
       "href": "../../../RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/32_A0_FINDINGS_AND_PAPER_WORKSPACE_2026-10-11.md",
-      "sha256": "b6b0da9f3956e7535c48a76150bfe881a7da5bec9b40f0d1f65e3aed4bd3767a",
+      "sha256": "08541152ffc8578bf2056592006144c327115b23a52153249ca6f53fa2b26b59",
       "authority_role": "documentary finding ledger, collected internal paper corpus and paper-routing workspace over existing A0 records; it creates no Study, Family, canonical relation, active cycle, submission or publication authority"
     },
     {
@@ -501,7 +520,7 @@
       "repository": "NEXAH Science Lab / A0 Book",
       "ecosystem_path": "30 SCIENCE LAB/NEXAH-Science-Lab/RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/A0_SCIENTIFIC_POSITION_REPORT.html",
       "href": "../../../RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/A0_SCIENTIFIC_POSITION_REPORT.html",
-      "sha256": "c5f869166786093ee7b8ab19ff3b5608758ab5ba71266038f3079db87b34d4f2",
+      "sha256": "6261962436e3277ef441c3addab9b0251e5ace27b5224430afc9e7f426a8e69f",
       "authority_role": "reader-facing projection of the A0 scientific position assessment; no new Study, Family, route, canonical relation, evidence or publication authority"
     },
     {
@@ -879,7 +898,7 @@
       "repository": "NEXAH Core",
       "ecosystem_path": "10 NEXAH CORE/NEXAH/RESEARCH/NOTES/PASCAL_PENTAGON_D5_TEST_2026-10-10/PASCAL_ROSETTA_JOINT_DESIGN_2026-10-11/NCS_292_Q106_INTERTWINER_RETURN_PACKAGE_2026-10-11/README.md",
       "href": "../../../../../10%20NEXAH%20CORE/NEXAH/RESEARCH/NOTES/PASCAL_PENTAGON_D5_TEST_2026-10-10/PASCAL_ROSETTA_JOINT_DESIGN_2026-10-11/NCS_292_Q106_INTERTWINER_RETURN_PACKAGE_2026-10-11/README.md",
-      "sha256": "ca52ed7ea286067985296d3ea1c8710531805248370527adc1dd55b3988ce43b",
+      "sha256": "7d4cf776da545ee39f245440dc3b559952564800b234e22819f8166b341f7982",
       "authority_role": "A0 evidence and provenance source for the NN-owned source-bound crosswalk containing the Q106 square-index working lens: bounded follow-ups include the 71-of-71 prime-index binding, 17-of-17 Q106 readout and 16-of-16 46/106/194 contrast; this evidence role does not identify the lens with A0, promote the working label to a separate stable identity or close the adjacency-preserving X20-to-Q106 intertwiner"
     },
     {
@@ -888,7 +907,7 @@
       "repository": "NEXAH Core",
       "ecosystem_path": "10 NEXAH CORE/NEXAH/RESEARCH/NOTES/PASCAL_PENTAGON_D5_TEST_2026-10-10/PASCAL_ROSETTA_JOINT_DESIGN_2026-10-11/NCS_292_Q106_INTERTWINER_RETURN_PACKAGE_2026-10-11/NCS_292_Q106_INTERTWINER_RETURN_EXPLORER.html",
       "href": "../../../../../10%20NEXAH%20CORE/NEXAH/RESEARCH/NOTES/PASCAL_PENTAGON_D5_TEST_2026-10-10/PASCAL_ROSETTA_JOINT_DESIGN_2026-10-11/NCS_292_Q106_INTERTWINER_RETURN_PACKAGE_2026-10-11/NCS_292_Q106_INTERTWINER_RETURN_EXPLORER.html",
-      "sha256": "74fe3ec574617bdef417e225fce40c38bccf807063e0d01e4cb5eee65bc80121",
+      "sha256": "c35021e6ca29c87095adf2e2e31686118484e44f475598dbfcfe02a202b5cac5",
       "authority_role": "source-bound interactive view of the formal package; creates no new test, evidence identity, Study, Family, activation or publication authority"
     },
     {
@@ -969,7 +988,7 @@
       "repository": "NEXAH Science Lab / A0 Mathfield",
       "ecosystem_path": "30 SCIENCE LAB/NEXAH-Science-Lab/RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/25_A0_SCC_003_PASCAL_PENTAGON_PAPER_DRAFT_2026-10-10.md",
       "href": "../../../RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/25_A0_SCC_003_PASCAL_PENTAGON_PAPER_DRAFT_2026-10-10.md",
-      "sha256": "a23ee217edc9af96cd250ad66b07a9c056179a83fd9bdb005017e9b2e122d0b5",
+      "sha256": "efa1e446a041f20230e7dd27c19f0620ae21a1e37d7fd90b901b2222ca20c86a",
       "authority_role": "narrow source-bound mathematics-note view over SCC-003; reuses the existing evidence identity, explicitly excludes the D30/Rosetta companion from its theorem scope and creates no experiment, novelty determination, submission or publication authority"
     },
     {
@@ -1203,7 +1222,7 @@
       "repository": "NEXAH Science Lab",
       "ecosystem_path": "30 SCIENCE LAB/NEXAH-Science-Lab/RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/A0_AXIAL_CARRIER_ADAPTER_SUITE.html",
       "href": "../../../../RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/A0_AXIAL_CARRIER_ADAPTER_SUITE.html",
-      "sha256": "bde6af3dc04dc8b34d379bb471935f988eaf99f23d72d5622dce6483ba83aaa8",
+      "sha256": "f1636cd8f0ba867a0085821251dc72e8edb1c6b6743785d46a2656b652cb368d",
       "authority_role": "shared six-flagship Q4-by-P3 view adapter; an instrument projection, not a common physical mechanism or new Study"
     },
     {
@@ -1230,8 +1249,8 @@
       "repository": "NEXAH Science Lab",
       "ecosystem_path": "30 SCIENCE LAB/NEXAH-Science-Lab/RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/A0_BOOK_MANIFEST.json",
       "href": "../../../../RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/A0_BOOK_MANIFEST.json",
-      "sha256": "5fa6cb4808511ecab97c133f0b3f5be9d7870b7124d00df63be84e6d789b6b12",
-      "authority_role": "machine-readable 40-surface A0 registry, including the internal composed Rainbow / Purple Rain experience and its source-bound predecessor views, under the unchanged Check 58 authority boundary"
+      "sha256": "fc9364b59c7212ad42958156976b4fce12c7d13284bfcc1ea02f903698c42ac2",
+      "authority_role": "machine-readable 50-surface A0 registry, including the internal read-only Living Blueprint and Orientation Controller engineering lenses and their source-bound module routes, under the unchanged Check 58 authority boundary"
     },
     {
       "source_id": "SRC:A0OE:A0_ORIENTATION_MACHINE",
@@ -1248,8 +1267,8 @@
       "repository": "NEXAH Science Lab",
       "ecosystem_path": "30 SCIENCE LAB/NEXAH-Science-Lab/RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/A0_RESEARCH_DESK.html",
       "href": "../../../../RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/A0_RESEARCH_DESK.html",
-      "sha256": "66c6988b21770fd97791d3f8a9134bea65bd3a60da45f3f72f242be1f9e7f8f6",
-      "authority_role": "current read-only A0 control surface with JARP, Temporal-Z and the 2026-10-14 Blue Body research-log closeout; no authority transfer"
+      "sha256": "adee660f9f46bbe983608183cea2b486b0f7177197f8b2ba17d2c3db1cf773bc",
+      "authority_role": "scientifically authoritative A0 Science Desk with JARP, Temporal-Z, Blue Body and OCB v0.11.0 research-log/currentness returns; Navigator and Mission Control receive read-only projections only"
     },
     {
       "source_id": "SRC:A0OE:A0_CHECK58_FREEZE_RECORD",
@@ -1280,12 +1299,12 @@
     },
     {
       "source_id": "SRC:A0OE:A0_MODULE_SURFACE_COVERAGE",
-      "title": "A0 Module and Surface Coverage — 46 of 46",
+      "title": "A0 Module and Surface Coverage — 50 of 50",
       "repository": "NEXAH Science Lab / Navigator",
       "ecosystem_path": "30 SCIENCE LAB/NEXAH-Science-Lab/SCIENCE_LAB/NAVIGATION/EVIDENCE/A0_ORIENTATION_EVIDENCE_LINEAGE_2026-10-10/A0_MODULE_SURFACE_COVERAGE_V1_2026-10-14.json",
       "href": "A0_MODULE_SURFACE_COVERAGE_V1_2026-10-14.json",
-      "sha256": "5b4a4e83bf9e62d51cc5b58dc78b7e24f46d68e90fd07cd672a53b0a8e1ab4da",
-      "authority_role": "machine-readable 46-of-46 A0 surface coverage projection onto existing Navigator identities; no new identity, relation, Study, evidence promotion or publication authority"
+      "sha256": "514c0d0269281791c47d467d04590399568b76a33994dc1461f928f022e6e105",
+      "authority_role": "machine-readable 50-of-50 A0 surface coverage projection onto existing Navigator identities; no new identity, relation, Study, evidence promotion or publication authority"
     },
     {
       "source_id": "SRC:A0OE:A0_EXPERIENCE_NAVIGATION_FREEZE_RETURN",
@@ -1304,6 +1323,87 @@
       "href": "../../../../../../00 EXECUTIVE/NEXAH-Mission-Control/00_LAB_RESEARCH_DIRECTOR_DESK/RETURN_2026-10-14_A0_EXPERIENCE_NAVIGATION_FREEZE.md",
       "sha256": "75daa38e884890065e6aac73fdd1a757f0f405b7cfc9d4a81c43a5bce7c99a29",
       "authority_role": "reciprocal Mission Control acceptance of the internal A0 experience and navigation freeze; no new graph identity, research activation or publication authority"
+    },
+    {
+      "source_id": "SRC:A0OE:PINK_DIAMOND_GRID_ATLAS",
+      "title": "A0 Pink Diamond Grid Atlas",
+      "repository": "NEXAH Science Lab / A0 Book",
+      "ecosystem_path": "30 SCIENCE LAB/NEXAH-Science-Lab/RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/A0_PINK_DIAMOND_GRID_ATLAS.html",
+      "href": "../../../RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/A0_PINK_DIAMOND_GRID_ATLAS.html",
+      "sha256": "3d345da76e1b3507699d106d2e69260d39d593e02ed58dfe5d8b1c55bcd9c0f9",
+      "authority_role": "Science Lab-owned documentary HTML atlas for typed carrier, grid, residue, mirror, ghost-memory and a CRT16 15+1 pentagon rendered as four synchronized projections; the procedural Ghost view selects 6x6, 7x7, 8x8 or 25x25 viewports over a 100x100 working field or 1000x1000 comparison field, addresses both as NP;RR with flat serialization n=S*NP+RR, and adds source-bounded minus-1/12 and 51.83-degree display lenses; projections, diagonal seams, apertures and display scales create no new state, identity, transition operator, tiling result, historical cardinality or evidence claim"
+    },
+    {
+      "source_id": "SRC:A0OE:VISUAL_FIELD_LIBRARY",
+      "title": "A0 Visual Field Library",
+      "repository": "NEXAH Science Lab / A0 Book",
+      "ecosystem_path": "30 SCIENCE LAB/NEXAH-Science-Lab/RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/A0_VISUAL_FIELD_LIBRARY.html",
+      "href": "../../../RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/A0_VISUAL_FIELD_LIBRARY.html",
+      "sha256": "40a716783979283e470d5f9b6f70141de2890738aa569f87efd08a592dc7889d",
+      "authority_role": "Science Lab-owned searchable HTML projection of source-bound grids, frames and instruments with a visible 101-to-106 consolidation and Navigator return; no source duplication or claim promotion"
+    },
+    {
+      "source_id": "SRC:A0OE:VISUAL_FIELD_LIBRARY_REGISTRY",
+      "title": "A0 Visual Field Library source registry",
+      "repository": "NEXAH Science Lab / A0 Book",
+      "ecosystem_path": "30 SCIENCE LAB/NEXAH-Science-Lab/RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/a0-visual-field-library.js",
+      "href": "../../../RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/a0-visual-field-library.js",
+      "sha256": "d87fbe319a6c58d9187ce1d89a15fe0141c9d75c5a8d4c6d80aa0fa12e8af76c",
+      "authority_role": "machine-readable client-side registry for 31 source records; CRT16 and the existing PRIMEGRID Block 2B instrument return to bounded interactive views while remaining distinct from evidence and substitute sources"
+    },
+    {
+      "source_id": "SRC:A0OE:DEMONSTRATOR_CONSOLIDATION_101_106",
+      "title": "A0 101-to-106 Demonstrator Consolidation",
+      "repository": "NEXAH Science Lab / A0",
+      "ecosystem_path": "30 SCIENCE LAB/NEXAH-Science-Lab/RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/100_A0_101_TO_106_DEMONSTRATOR_CONSOLIDATION_2026-10-15.md",
+      "href": "../../../RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/100_A0_101_TO_106_DEMONSTRATOR_CONSOLIDATION_2026-10-15.md",
+      "sha256": "755b0b461a375aa8aa6e3258ce915a85506bf819ac4a9192f9b7c85e04d39d7c",
+      "authority_role": "documentary source-bound crosswalk from carrier 101 through views and addresses to the open Q106 Return; records the bounded four-projection CRT16 display, selectable NP;RR scales and viewports, minus-1/12 phase lens and golden-angle aperture while separating equations, projections, visual labels, executable instruments, state cardinality and unresolved operators"
+    },
+    {
+      "source_id": "SRC:A0OE:ONE_LOOP_README",
+      "title": "VGs I–XI — ONE LOOP README",
+      "repository": "NEXAH Science Lab / CIKADA later-marker provenance intake",
+      "ecosystem_path": "30 SCIENCE LAB/NEXAH-Science-Lab/SCIENCE_LAB/CASE_STUDIES/CIKADA_3301_LATER_MARKER_PROVENANCE_INTAKE/CIKADA 3301 LATER MARKER CORPUS/🧭🧭🧭GITHUB-TODO_UPLOAD NAVIGATION/🧭🧭THE COSMIC BRIDGE – From Muon to Mind_VG I-XIII_ Rexonance Applications_Q Model Framework. /Vg One Loop Readme.pdf",
+      "href": "../../CASE_STUDIES/CIKADA_3301_LATER_MARKER_PROVENANCE_INTAKE/CIKADA%203301%20LATER%20MARKER%20CORPUS/🧭🧭🧭GITHUB-TODO_UPLOAD%20NAVIGATION/🧭🧭THE%20COSMIC%20BRIDGE%20–%20From%20Muon%20to%20Mind_VG%20I-XIII_%20Rexonance%20Applications_Q%20Model%20Framework.%20/Vg%20One%20Loop%20Readme.pdf",
+      "sha256": "c9dcf9424bd33a56b0a12940f24a1c5207627fc5809807c7f21813e15e8b4346",
+      "authority_role": "historical visual-series narrative and Human View source; documents a wave, mirror, lens and Return flow but supplies no validated physical mechanism, recovered generator, topological proof or evidence promotion"
+    },
+    {
+      "source_id": "SRC:A0OE:ONE_LOOP_PRIME_PETALS",
+      "title": "Möbius Harmonic Prime Petals — animated overlay",
+      "repository": "NEXAH Science Lab / CIKADA later-marker provenance intake",
+      "ecosystem_path": "30 SCIENCE LAB/NEXAH-Science-Lab/SCIENCE_LAB/CASE_STUDIES/CIKADA_3301_LATER_MARKER_PROVENANCE_INTAKE/CIKADA 3301 LATER MARKER CORPUS/🧭🧭🧭GITHUB-TODO_UPLOAD NAVIGATION/🧭🧭THE COSMIC BRIDGE – From Muon to Mind_VG I-XIII_ Rexonance Applications_Q Model Framework. /🎨 Visual Gallery IV – Λ:Φ Crown & Orient Metrics/recycled Visuals/Mobius_Harmonic_PrimePetals_Overlay_Animated.gif",
+      "href": "../../CASE_STUDIES/CIKADA_3301_LATER_MARKER_PROVENANCE_INTAKE/CIKADA%203301%20LATER%20MARKER%20CORPUS/🧭🧭🧭GITHUB-TODO_UPLOAD%20NAVIGATION/🧭🧭THE%20COSMIC%20BRIDGE%20–%20From%20Muon%20to%20Mind_VG%20I-XIII_%20Rexonance%20Applications_Q%20Model%20Framework.%20/🎨%20Visual%20Gallery%20IV%20–%20Λ:Φ%20Crown%20&%20Orient%20Metrics/recycled%20Visuals/Mobius_Harmonic_PrimePetals_Overlay_Animated.gif",
+      "sha256": "7c0ca0af6ab870a361f2ef2168ab4fdc5bb4065eef37bd3b88bb0c9a02c2a335",
+      "authority_role": "historical animated Human View of a petal/crown envelope; visual recurrence only, not proof of a Möbius surface, prime mechanism or physical field"
+    },
+    {
+      "source_id": "SRC:A0OE:ONE_LOOP_PETALS",
+      "title": "Möbius Harmonic Petals — animation",
+      "repository": "NEXAH Science Lab / CIKADA later-marker provenance intake",
+      "ecosystem_path": "30 SCIENCE LAB/NEXAH-Science-Lab/SCIENCE_LAB/CASE_STUDIES/CIKADA_3301_LATER_MARKER_PROVENANCE_INTAKE/CIKADA 3301 LATER MARKER CORPUS/🧭🧭🧭GITHUB-TODO_UPLOAD NAVIGATION/🧭🧭THE COSMIC BRIDGE – From Muon to Mind_VG I-XIII_ Rexonance Applications_Q Model Framework. /🎨 Visual Gallery IV – Λ:Φ Crown & Orient Metrics/recycled Visuals/Mobius_Harmonic_Petals_Animation.gif",
+      "href": "../../CASE_STUDIES/CIKADA_3301_LATER_MARKER_PROVENANCE_INTAKE/CIKADA%203301%20LATER%20MARKER%20CORPUS/🧭🧭🧭GITHUB-TODO_UPLOAD%20NAVIGATION/🧭🧭THE%20COSMIC%20BRIDGE%20–%20From%20Muon%20to%20Mind_VG%20I-XIII_%20Rexonance%20Applications_Q%20Model%20Framework.%20/🎨%20Visual%20Gallery%20IV%20–%20Λ:Φ%20Crown%20&%20Orient%20Metrics/recycled%20Visuals/Mobius_Harmonic_Petals_Animation.gif",
+      "sha256": "319086c722b879b7eea4e4cfbc3eca5b51e00770cb6756f21897b25badd2cf13",
+      "authority_role": "historical animated Human View of repeated fold/envelope motion; it is an orientation aid and does not establish channel dynamics or topology"
+    },
+    {
+      "source_id": "SRC:A0OE:ONE_LOOP_SPIRAL_PULSE",
+      "title": "Möbius Harmonic Spiral Pulse",
+      "repository": "NEXAH Science Lab / CIKADA later-marker provenance intake",
+      "ecosystem_path": "30 SCIENCE LAB/NEXAH-Science-Lab/SCIENCE_LAB/CASE_STUDIES/CIKADA_3301_LATER_MARKER_PROVENANCE_INTAKE/CIKADA 3301 LATER MARKER CORPUS/🧭🧭🧭GITHUB-TODO_UPLOAD NAVIGATION/🧭🧭THE COSMIC BRIDGE – From Muon to Mind_VG I-XIII_ Rexonance Applications_Q Model Framework. /🎨 Visual Gallery IV – Λ:Φ Crown & Orient Metrics/recycled Visuals/Mobius_Harmonic_SpiralPulse.gif",
+      "href": "../../CASE_STUDIES/CIKADA_3301_LATER_MARKER_PROVENANCE_INTAKE/CIKADA%203301%20LATER%20MARKER%20CORPUS/🧭🧭🧭GITHUB-TODO_UPLOAD%20NAVIGATION/🧭🧭THE%20COSMIC%20BRIDGE%20–%20From%20Muon%20to%20Mind_VG%20I-XIII_%20Rexonance%20Applications_Q%20Model%20Framework.%20/🎨%20Visual%20Gallery%20IV%20–%20Λ:Φ%20Crown%20&%20Orient%20Metrics/recycled%20Visuals/Mobius_Harmonic_SpiralPulse.gif",
+      "sha256": "b0401e9ac6b5820677925295d498be1b850991b382f33fb75c4b8f5310a256f9",
+      "authority_role": "historical animated Human View of pulse, field and Return; no Sun identity, energetic substance or scientific mechanism is asserted"
+    },
+    {
+      "source_id": "SRC:A0OE:ONE_LOOP_JANUS_NEON",
+      "title": "OLGO Janus Bridge — Neon Field",
+      "repository": "NEXAH Science Lab / CIKADA later-marker provenance intake",
+      "ecosystem_path": "30 SCIENCE LAB/NEXAH-Science-Lab/SCIENCE_LAB/CASE_STUDIES/CIKADA_3301_LATER_MARKER_PROVENANCE_INTAKE/CIKADA 3301 LATER MARKER CORPUS/🧭🧭🧭GITHUB-TODO_UPLOAD NAVIGATION/🧭🧭THE COSMIC BRIDGE – From Muon to Mind_VG I-XIII_ Rexonance Applications_Q Model Framework. /🎨 Visual Gallery IV – Λ:Φ Crown & Orient Metrics/OLGO_Janus_Bridge_NEON.gif",
+      "href": "../../CASE_STUDIES/CIKADA_3301_LATER_MARKER_PROVENANCE_INTAKE/CIKADA%203301%20LATER%20MARKER%20CORPUS/🧭🧭🧭GITHUB-TODO_UPLOAD%20NAVIGATION/🧭🧭THE%20COSMIC%20BRIDGE%20–%20From%20Muon%20to%20Mind_VG%20I-XIII_%20Rexonance%20Applications_Q%20Model%20Framework.%20/🎨%20Visual%20Gallery%20IV%20–%20Λ:Φ%20Crown%20&%20Orient%20Metrics/OLGO_Janus_Bridge_NEON.gif",
+      "sha256": "434ab16b77e04e827d83e181b4ccd3abd0ab3321e56d9392fc69a1635d627395",
+      "authority_role": "historical animated Human View for Janus-axis and neon visibility language; a cartographic view, not a physical-field identity or evidence source"
     }
   ],
   "nodes": [
@@ -1349,7 +1449,11 @@
         "SRC:A0OE:A0_CHECK58_FREEZE_RECORD",
         "SRC:A0OE:A0_CHECK58_FREEZE_MANIFEST",
         "SRC:A0OE:A0_CHECK58_MISSION_CONTROL_RETURN",
-        "SRC:A0OE:A0_MODULE_SURFACE_COVERAGE"
+        "SRC:A0OE:A0_MODULE_SURFACE_COVERAGE",
+        "SRC:A0OE:PINK_DIAMOND_GRID_ATLAS",
+        "SRC:A0OE:VISUAL_FIELD_LIBRARY",
+        "SRC:A0OE:VISUAL_FIELD_LIBRARY_REGISTRY",
+        "SRC:A0OE:DEMONSTRATOR_CONSOLIDATION_101_106"
       ]
     },
     {
@@ -1359,7 +1463,11 @@
       "state": "REUSED_NOT_DUPLICATED",
       "source_ids": [
         "SRC:A0OE:A0_BOOK",
-        "SRC:A0OE:A0_MODULE_SURFACE_COVERAGE"
+        "SRC:A0OE:A0_MODULE_SURFACE_COVERAGE",
+        "SRC:A0OE:PINK_DIAMOND_GRID_ATLAS",
+        "SRC:A0OE:VISUAL_FIELD_LIBRARY",
+        "SRC:A0OE:VISUAL_FIELD_LIBRARY_REGISTRY",
+        "SRC:A0OE:DEMONSTRATOR_CONSOLIDATION_101_106"
       ]
     },
     {
@@ -1624,6 +1732,19 @@
       "state": "REUSED_FILED_NO_ACTIVATION",
       "source_ids": [
         "SRC:A0OE:PCA_QUATERNION_BRIDGE"
+      ]
+    },
+    {
+      "node_id": "A0OE:ONE_LOOP_HUMAN_VIEW",
+      "kind": "historical-human-view",
+      "label": "ONE LOOP · animated visual lineage",
+      "state": "HISTORICAL_SOURCE_BOUND_NON_EVIDENTIARY",
+      "source_ids": [
+        "SRC:A0OE:ONE_LOOP_README",
+        "SRC:A0OE:ONE_LOOP_PRIME_PETALS",
+        "SRC:A0OE:ONE_LOOP_PETALS",
+        "SRC:A0OE:ONE_LOOP_SPIRAL_PULSE",
+        "SRC:A0OE:ONE_LOOP_JANUS_NEON"
       ]
     }
   ],
@@ -1978,6 +2099,24 @@
       "status": "bounded",
       "statement": "Local seam orientation distinguishes all 100 frozen histories, but SPL_LOCAL adds no compression or gain beyond that already unique oriented-seam representation.",
       "claim_boundary": "Splinter remains a bounded descriptive corridor term, not an autonomous operator, canonical A0 vocabulary, C5 symmetry, physical inside/outside mechanism, PENT-08 or generalized Family."
+    },
+    {
+      "relation_id": "A0OE:REL:ONE_LOOP_A0",
+      "source": "A0OE:ONE_LOOP_HUMAN_VIEW",
+      "target": "ART:A0:MATHEMATICAL_JOINTS",
+      "type": "historical-predecessor",
+      "status": "bounded",
+      "statement": "The historical ONE LOOP animation family supplies a Human View of a sequence from wave opening through mirror and lens imagery to field Return. It is bound to the current A0 themes carrier/pin, aperture/orientation, projection/half-shadow, fold/envelope, seam/channel and Return as a documentary comparison route.",
+      "claim_boundary": "The thematic binding does not recover the historical generator, identify the visual stages with current A0 operators, prove a Möbius topology, establish a three-body solution or upgrade symbolic physics language into evidence."
+    },
+    {
+      "relation_id": "A0OE:REL:ONE_LOOP_ORIENTATION_DEMONSTRATORS",
+      "source": "A0OE:ONE_LOOP_HUMAN_VIEW",
+      "target": "MOD:ORIENTATION_DEMONSTRATORS",
+      "type": "illustrative-crosswalk",
+      "status": "historical",
+      "statement": "The animated sequence is exposed beside the preserved Orientation Demonstrator identity as a movement-first visual aid: selected reference, opening, split view, repeated fold, populated field and Return.",
+      "claim_boundary": "Shared colors, crossings, phases or narrative order do not establish version succession, operator identity, complete stage correspondence or current-master status."
     }
   ],
   "pascal_pentagon_suite": {
@@ -2467,7 +2606,29 @@
     "surface_entity_id": "ART:A0:MATHEMATICAL_JOINTS",
     "module_entity_id": "MOD:NUMBER_VIEW_SUITE",
     "pascal_pentagon_node_id": "A0OE:PASCAL_PENTAGON_D5_TEST",
-    "book_href": "../../../RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/A0_MATHEMATICAL_JOINTS.html#grid-interactions",
+    "book_href": "../../../RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/A0_PINK_DIAMOND_GRID_ATLAS.html",
+    "current_surfaces": [
+      {
+        "source_id": "SRC:A0OE:PINK_DIAMOND_GRID_ATLAS",
+        "role": "typed grid, carrier, mirror, CRT and ghost-memory comparison surface with four synchronized CRT16 projections and selectable NP;RR-addressed 6x6, 7x7, 8x8 and 25x25 viewports"
+      },
+      {
+        "source_id": "SRC:A0OE:VISUAL_FIELD_LIBRARY",
+        "role": "searchable frame, grid and instrument registry with visible Navigator return"
+      }
+    ],
+    "typed_carriers": [
+      {"carrier": "7×11", "role": "CRT product address", "status": "EXACT_WHEN_MODULI_AND_MAP_ARE_DECLARED"},
+      {"carrier": "11×11", "role": "grid reshape", "status": "VIEW_NOT_MODULUS"},
+      {"carrier": "11×111", "role": "rectangular display carrier", "status": "RETURN_CONTRACT_OPEN"},
+      {"carrier": "111×111", "role": "square address field", "status": "EXACT_ADDRESS_VIEW"},
+      {"carrier": "112×110", "role": "CRT comparison frame", "status": "EXACT_DECLARED_ADDRESS_VIEW"},
+      {"carrier": "101×101", "role": "prime overlay and residue field", "status": "DOCUMENTARY_VIEW_WITH_EXACT_LOCAL_ARITHMETIC"},
+      {"carrier": "Q840", "role": "multi-factor quotient carrier", "status": "SOURCE_BOUND_EXISTING_VIEW"},
+      {"carrier": "100×100", "role": "declared Ghost working field addressed as NP;RR, with RR typed as Root Room", "status": "DECLARED_ADDRESS_VIEW_NOT_HISTORICAL_CARDINALITY"},
+      {"carrier": "1000×1000", "role": "historical ghost-memory comparison display field addressed as NP;RR", "status": "DISPLAY_RESOLUTION_NOT_STATE_CARDINALITY"}
+    ],
+    "search_marker_policy": "Visuals without located HTML or generator are retained as hash-bound search markers for source archaeology. They do not become surrogate instruments, evidence or reconstructed source code.",
     "source_asset_count": 3,
     "source_dates": [
       "2026-08-03",
@@ -2540,6 +2701,52 @@
     ],
     "claim_boundary": "The square-grid maps and the existing PENT-07 C30 phase embedding are exact only within their declared finite carriers. The visual folding sequences, pentagon envelope and statement 'symmetric asymmetry creates stable flow' remain documentary hypotheses; they establish no universal geometry, physical flow, new experiment, Navigator identity or Family."
   },
+  "demonstrator_source_registry": {
+    "owner": "NEXAH Science Lab",
+    "authority": "CENTRAL_SOURCE_AND_RELATION_GRAPH_LENS",
+    "status": "INTERNAL_SOURCE_BOUND_NAVIGATION_NO_NEW_IDENTITY",
+    "identity_effect": "Reuses ART:A0:MATHEMATICAL_JOINTS, MOD:NUMBER_VIEW_SUITE and existing Navigator lenses; creates no second database, Study, Family or canonical vocabulary.",
+    "records": [
+      {
+        "label": "Pink Diamond Grid Atlas",
+        "source_id": "SRC:A0OE:PINK_DIAMOND_GRID_ATLAS",
+        "object_kind": "documentary-html-instrument",
+        "connects_to": ["ART:A0:MATHEMATICAL_JOINTS", "MOD:NUMBER_VIEW_SUITE", "PBM:GRID11", "NN:CRT_QRT_37_CARRIER_LADDER", "NN:MRB_ACR_NCS_Q106_RETURN_CROSSWALK"],
+        "return_path": "Original sources and executable instruments remain authoritative; the Atlas returns by source link and hash."
+      },
+      {
+        "label": "Visual Field Library",
+        "source_id": "SRC:A0OE:VISUAL_FIELD_LIBRARY",
+        "object_kind": "searchable-source-index",
+        "connects_to": ["ART:A0:MATHEMATICAL_JOINTS", "MOD:NUMBER_VIEW_SUITE", "SG:LENS:ILAU_ORIENTATION", "SG:LENS:FOLD_ENVELOPE_FRAME_STATE_CROSSWALK"],
+        "return_path": "Every catalog record returns to a repository source, report or explicitly marked visual search marker."
+      },
+      {
+        "label": "101-to-106 Demonstrator Consolidation",
+        "source_id": "SRC:A0OE:DEMONSTRATOR_CONSOLIDATION_101_106",
+        "object_kind": "source-bound-crosswalk",
+        "connects_to": ["SG:LENS:PRIME_BASE_MODE", "SG:LENS:CRT_QRT_37_CARRIER_LADDER", "SG:LENS:MRB_ACR_NCS_Q106_RETURN_CROSSWALK", "SG:LENS:A0_JOINT_APPLICATION_RETURN_PROTOCOL"],
+        "return_path": "Carrier, view, address, selector and Return statements remain separated and point back to their controlling source records."
+      }
+    ],
+    "existing_bindings": [
+      {"id": "SG:LENS:PRIME_BASE_MODE", "reuse": "prime, base, modulus, grid and view type boundaries"},
+      {"id": "SG:LENS:CRT_QRT_37_CARRIER_LADDER", "reuse": "QRT provenance, CRT address and carrier/view arithmetic"},
+      {"id": "SG:LENS:MRB_ACR_NCS_Q106_RETURN_CROSSWALK", "reuse": "101/404/20 to Q106 Return and residual boundaries"},
+      {"id": "SG:LENS:FOLD_ENVELOPE_FRAME_STATE_CROSSWALK", "reuse": "fold, envelope, frame, state and view distinctions"},
+      {"id": "SG:LENS:ILAU_ORIENTATION", "reuse": "governed documentary HTML instruments"},
+      {"id": "SG:LENS:PRIME_CRYSTAL", "reuse": "carrier identity versus grid-view calibration"},
+      {"id": "SG:LENS:LADDER_ATLAS", "reuse": "comparison and ladder navigation"},
+      {"id": "SG:LENS:ROOT7_LOOK", "reuse": "root-seven orientation and non-identity controls"},
+      {"id": "SG:LENS:OBSERVATORY", "reuse": "typed observation and identifiability fields"},
+      {"id": "MOD:IEEE300_GRAPH_GRID", "reuse": "existing graph-to-grid validation module; canonical registry object, not a new lens"}
+    ],
+    "new_demonstrator_template": {
+      "required_fields": ["source_id", "owner_repository", "canonical_path", "sha256", "object_kind", "carrier_type", "operation", "preserved", "lost_or_open", "evidence_state", "claim_ceiling", "relation_targets", "return_path", "visual_search_markers"],
+      "rule": "SEARCH -> MATCH -> BIND -> BUILD -> RETURN -> GOVERN",
+      "claim_boundary": "A demonstrator registration changes discoverability only. It does not activate research, promote evidence, prove a visual analogy, authorize publication or change a canonical identity."
+    }
+  },
   "a0_core_statement": {
     "principle": "See the relation. Keep the difference. Type the change.",
     "strongest_statement": "You may return to the state. You do not therefore return to the history.",
@@ -2585,6 +2792,72 @@
       "syllable meanings",
       "universal language claim"
     ]
+  },
+  "human_view": {
+    "view_id": "A0OE:ONE_LOOP_HUMAN_VIEW",
+    "status": "HISTORICAL_SOURCE_BOUND_NON_EVIDENTIARY",
+    "title": "ONE LOOP · Human View",
+    "subtitle": "Pin → Öffnung → Projektion → Faltung → Feld → Return",
+    "summary": "A movement-first historical visual lineage presented for human orientation and bound to current A0 themes without claiming stage identity or scientific validation.",
+    "source_ids": [
+      "SRC:A0OE:ONE_LOOP_README",
+      "SRC:A0OE:ONE_LOOP_PRIME_PETALS",
+      "SRC:A0OE:ONE_LOOP_PETALS",
+      "SRC:A0OE:ONE_LOOP_SPIRAL_PULSE",
+      "SRC:A0OE:ONE_LOOP_JANUS_NEON"
+    ],
+    "a0_theme_bindings": [
+      {
+        "theme": "carrier / pin",
+        "reading": "selected reference or phase address before motion"
+      },
+      {
+        "theme": "aperture / orientation",
+        "reading": "opening and declared direction of the view"
+      },
+      {
+        "theme": "projection / half-shadow",
+        "reading": "split or partial appearance under a chosen view"
+      },
+      {
+        "theme": "fold / envelope / seam / channel",
+        "reading": "animated crossing and containment grammar; visually Möbius-like only"
+      },
+      {
+        "theme": "neon / field within / Return",
+        "reading": "visibility and orientation mnemonic for the returning view"
+      }
+    ],
+    "mathematical_check": {
+      "status": "EXACT_ELEMENTARY_HYPERCUBE_COMBINATORICS",
+      "title": "Three binary axes: eight states and twelve transitions",
+      "general_rule": {
+        "vertices": "V(Q_n)=2^n",
+        "edges": "E(Q_n)=n*2^(n-1)"
+      },
+      "q3": {
+        "dimension": 3,
+        "vertices": 8,
+        "edges": 12,
+        "vertex_derivation": "2^3=8",
+        "edge_derivation": "3*2^2=12"
+      },
+      "q4": {
+        "dimension": 4,
+        "vertices": 16,
+        "edges": 32,
+        "vertex_derivation": "2^4=16",
+        "edge_derivation": "4*2^3=32",
+        "layer_decomposition": "Q4 = Q3 box-product K2: two Q3 layers with 8 vertices and 12 internal edges each, joined by 8 matching edges",
+        "layer_counts": {
+          "vertices": "8+8=16",
+          "edges": "12+12+8=32"
+        }
+      },
+      "label_boundary": "P1 and P2 remain source or projection labels unless a separate mathematical definition is supplied.",
+      "claim_boundary": "This check states finite graph counts only. It introduces no Numbermagick or NEXAH Codex, physical mechanism, dimensional ontology, stage identity or scientific evidence claim."
+    },
+    "claim_boundary": "Human View means a source-bound orientation aid. It is not an admitted Study, current master, evidence source, recovered generator, literal Sun, physical field, Möbius proof, three-body solution or publication object."
   },
   "visual_policy": "Uploaded or repository visuals are navigation aids and documentary summaries only. The bound text, data and decision records remain the evidence authorities.",
   "claim_ceiling": "This lens records discoverability, provenance and bounded relations among already existing sources. It executes no experiment, reopens no series, changes no canonical identity or family count, modifies no OLS semantics, and authorizes no publication or scientific claim promotion.",

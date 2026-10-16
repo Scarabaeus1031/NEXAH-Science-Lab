@@ -1,0 +1,86 @@
+{
+  "schema": "nexah.a0.orientation-controller-bench",
+  "version": "0.1.0",
+  "date": "2026-10-15",
+  "status": "LOCAL_SOURCE_BOUND_ENGINEERING_LENS_NOT_CANONICAL",
+  "identity_action": "EXTENDS_EXISTING_LENSES_WITHOUT_NEW_CANONICAL_IDENTITY",
+  "host_candidates": [
+    "A0_FAMILY_CONNECTION_ATLAS.html",
+    "A0_TESSAREC_BLUE_BODY_LAB.html#pentagon-body-player"
+  ],
+  "state_contract": {
+    "fields": ["carrierId", "address", "familyRole", "position", "orientation", "scale", "side", "iotaTick", "iotaDrift", "degreeSignature", "residual", "history"],
+    "prime_basis": [2, 3, 5, 7, 11],
+    "address_rule": "x = 2^a1 * 3^a2 * 5^a3 * 7^a4 * 11^a5",
+    "junction_signature": [1, 1, 2]
+  },
+  "operators": [
+    {
+      "adapter_id": "A0.LOCAL.JANUS.J",
+      "symbol": "J",
+      "rule": "u -> 1-u",
+      "status": "LOCAL_DECLARED_ADAPTER",
+      "inverse": "self",
+      "preserved": ["carrierId", "address", "degreeSignature", "scale", "orientation"],
+      "changed": ["position", "side"]
+    },
+    {
+      "adapter_id": "A0.LOCAL.IOTA.R72_73",
+      "symbol": "Rtheta",
+      "rule": "orientation -> orientation +/- 72 degrees; iotaTick -> iotaTick +/- 73 mod 365",
+      "status": "LOCAL_DECLARED_ADAPTER",
+      "inverse": "opposite direction",
+      "preserved": ["carrierId", "address", "degreeSignature", "position", "scale"],
+      "changed": ["orientation", "iotaTick", "iotaDrift"],
+      "reuses": "A0.CRT.CHANNEL/5x73"
+    },
+    {
+      "adapter_id": "A0.LOCAL.ELEVATOR.E",
+      "symbol": "Es",
+      "rule": "u -> 1/2+s(u-1/2)",
+      "status": "LOCAL_DECLARED_ADAPTER",
+      "inverse": "factor 1/s when s != 0",
+      "preserved": ["carrierId", "address", "degreeSignature", "orientation"],
+      "changed": ["position", "scale", "side"]
+    }
+  ],
+  "return_levels": [
+    {"level": 1, "id": "exact", "condition": "all declared state fields coincide"},
+    {"level": 2, "id": "carrier", "condition": "carrier and prime address coincide"},
+    {"level": 3, "id": "structural", "condition": "declared degree signature is retained"},
+    {"level": 4, "id": "invariant", "condition": "declared prime support is retained"}
+  ],
+  "blind_test": {
+    "mode": "SYNTHETIC_OPERATOR_IDENTIFICATION",
+    "answers": ["J", "R", "E", "HOLD"],
+    "disclosed": ["before_state", "after_state"],
+    "withheld": ["operator_id", "operator_color", "experiment_label"],
+    "boundary": "Engineering fixture only; not an authorized Science Lab run."
+  },
+  "deferred_adapters": ["FOURIER", "JT", "VIII", "TAN_TAO_DAO_IOTA", "PASCAL_Y_T"],
+  "source_bindings": [
+    {
+      "id": "A0.CRT.CHANNEL/5x73",
+      "path": "operator-registry/modular-crt-operator-registry-v0.1.json",
+      "role": "validated local 365 carrier"
+    },
+    {
+      "id": "A0-VIEW-TESSAREC-BLUE-BODY",
+      "path": "A0_TESSAREC_BLUE_BODY_LAB.html",
+      "role": "existing carrier and view host"
+    },
+    {
+      "id": "ART:NUMBER:ELINE_POINCARE",
+      "path": "../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_ROOT7_EULER_MIRROR_CONCORDANCE_INTAKE_2026-09-28/ELINE_FOURIER_POINCARE_TEST_SUITE_01.html",
+      "role": "deferred Fourier/Poincare adapter master"
+    }
+  ],
+  "governance": {
+    "new_module_created": false,
+    "new_family_created": false,
+    "navigator_identity_created": false,
+    "research_activated": false,
+    "claim_promotion_authorized": false,
+    "publication_authorized": false
+  }
+}

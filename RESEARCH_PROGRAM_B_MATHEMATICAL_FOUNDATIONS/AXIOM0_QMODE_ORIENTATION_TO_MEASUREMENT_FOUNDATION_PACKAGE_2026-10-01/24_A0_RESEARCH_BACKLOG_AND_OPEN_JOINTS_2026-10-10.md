@@ -2,7 +2,7 @@
 
 Date: `2026-10-10`
 
-Status: `DOCUMENTARY_SUBLEDGER / A0-BL-021, A0-BL-035, A0-BL-045, A0-BL-052 AND A0-BL-053 CLOSED / A0-BL-050 BOUND`
+Status: `DOCUMENTARY_SUBLEDGER / A0-BL-021, A0-BL-035, A0-BL-045, A0-BL-052 AND A0-BL-053 CLOSED / A0-BL-050 BOUND / A0-BL-054 OWNER-SELECTED PRIORITY PREPARATION / OCB GAP REGISTER ADDED`
 
 Owning identity: `NEXAH_AX0_QMODE_FOUNDATION_PACKAGE`
 
@@ -24,8 +24,11 @@ Only the Human Owner may admit, prioritize or activate a research cycle. The
 Owner admitted `A0-BL-021`, its separately gated successor `A0-BL-035` and
 `A0-BL-045`, then accepted their bounded results on 2026-10-10. All three are
 closed. The Owner also authorized the documentary A0-BL-050 crosswalk; it
-creates no new Study, run or Family. All other entries retain their previous
-preservation, preparation or admission status.
+creates no new Study, run or Family. On 2026-10-15 the Owner selected
+`A0-BL-054` as a priority test preparation in the current Critical-Orbit /
+Ghostgrid strand. This prioritizes protocol design only: no IEEE run, Study
+activation or claim promotion is authorized. All other entries retain their
+previous preservation, preparation or admission status.
 
 ## Status key
 
@@ -111,12 +114,57 @@ an active Science Lab cycle.
 | `A0-BL-022` | `ADMISSION_REQUIRED` | coupled-channel dynamics for `C5` and `C6`, and the proposed local `O-C-O` / `MONAD(t)` composition | two carriers, typed ports, coupling and assembly maps, update rule, invariant/tolerance, perturbation and failure/return condition |
 | `A0-BL-023` | `ADMISSION_REQUIRED` | existence of a Pascal intertwiner between hub, phase-cover and quotient carriers | formal Core design supplies the C12 relation and the exact D30 lift `p=2k-n mod 30`; the nested audit passes 24/24 checks over all 127 depth-six branch words. Its five one-based registers `D1..D5` are exactly the existing `f in C5` face addresses, each with 28 raw incidences, 127 branch words and 13 observed phases: 65 of the `5 x 30 = 150` register-phase places are occupied. `D1..D5` are registers, not the dihedral group `D5` and not five new operators. None of 900 old-gear characters realizes the signed unit schedule; H3/E8 remain separate carriers. The existing Core Explorer now exposes this frozen adapter through a source-bound `D30 joint` view without adding PENT-08 or executing a run; [Core Explorer](<../../../../10 NEXAH CORE/NEXAH/RESEARCH/NOTES/PASCAL_PENTAGON_D5_TEST_2026-10-10/PASCAL_PENTAGON_EXPLORER.html>) · [design fixture](<../../../../10 NEXAH CORE/NEXAH/RESEARCH/NOTES/PASCAL_PENTAGON_D5_TEST_2026-10-10/PASCAL_ROSETTA_JOINT_DESIGN_2026-10-11/README.md>) · [D30 audit](<../../../../10 NEXAH CORE/NEXAH/RESEARCH/NOTES/PASCAL_PENTAGON_D5_TEST_2026-10-10/PASCAL_ROSETTA_JOINT_DESIGN_2026-10-11/D30_BRANCH_WORD_AUDIT_2026-10-11/README.md>) · [companion paper draft](33_A0_PASCAL_ROSETTA_D30_COMPANION_PAPER_DRAFT_2026-10-11.md) · remains non-active until Admission |
 | `A0-BL-024` | `ADMISSION_REQUIRED` | relation between the `4 x 2 x 2 = 16` orientation product and the 106-node carrier | explicit state map, information accounting and collision test |
-| `A0-BL-025` | `ADMISSION_REQUIRED` | general Grid–Fold–Channel and local-unit-to-surface specification | carrier, fold, embedding, envelope, interface, assembly, update and Return must be formalized on at least two non-identical controls |
+| `A0-BL-025` | `ADMISSION_REQUIRED / OWNER-SELECTED PREPARATION 2026-10-15` | general Grid–Fold–Channel and local-unit-to-surface specification; SCC-003 continuation asks whether a compatible Pascal seam becomes a useful typed zipper/channel | carrier, fold, embedding, envelope, interface, assembly, update and Return must be formalized on at least two non-identical controls; compare disjoint, apex-only, untyped quotient, arbitrary matched gluing and typed seam conditions; measure recurrence, provenance, Return metadata and ambiguity; [research addendum](89_A0_SCC_003_SEAM_ZIPPER_CHANNEL_USEFULNESS_ADDENDUM_2026-10-15.md) |
 | `A0-BL-045` | `CLOSED` | Pascal-to-Fibonacci transfer, double-pentagon `Q'`, cylinder/Möbius seam fork and Pascal-pyramid pillar distances | Owner-accepted bounded classification: the same `Q^5`, trace `11` and determinant `-1` occur on both strip quotients, so topology is underdetermined. `Q^10` and `Q^5 direct-sum Q^5` do not return; only the explicitly typed bridge satisfies `(Q'_epsilon)^2=epsilon I`. `J_z` preserves pillar distances, whereas `Q'_epsilon` is non-orthogonal (`||Q'e_1||^2=89`). The `+18%` marker remains undefined; [canonical Labreport](../../SCIENCE_LAB/LABREPORTS/MATHEMATICS/LABREPORT_A0_BL_045_PASCAL_Q5_RETURN_FORK_001.md) |
 | `A0-BL-046` | `ADMISSION_REQUIRED` | Root‑Room 537 coordinate reconstruction | one frozen plate, extracted coordinates, grid origin and units, explicit number-to-position map, shuffled-digit and nearby-integer controls, information-loss ledger and STOP if placement is underdetermined |
 | `A0-BL-047` | `ADMISSION_REQUIRED` | double Pascal pentagon/pyramid split: `4+1` to two candidate `5+1` hexagons | define the shared four-part carrier, the added node or face, both split maps, overlap and closure; distinguish two hexagonal views from two hexagon identities |
 | `A0-BL-048` | `ADMISSION_REQUIRED` | prime-index nesting around `7`, `17`, `4`, `7`, `717717`, `4774` and `1771` | freeze the selection rule before search, compare prime-index, decimal reversal and palindrome baselines, use matched null strings and report multiplicity rather than selecting resonant examples post hoc |
 | `A0-BL-049` | `ADMISSION_REQUIRED` | IOTA/THOTH and `1737 -> 137 / 737` operator typing | declare whether iota is index, injection, state or generator; type decimal deletion maps, record collisions and lost information, and keep glyph/title provenance separate from algebra |
+| `A0-BL-054` | `ADMISSION_REQUIRED / OWNER-SELECTED PRIORITY PREPARATION 2026-10-15` | IEEE-300 Critical-Orbit Shadow / Ghostgrid representation-stress test: can a non-leaky finite orbit signature remain stable under view changes while responding specifically to load and topology changes? | reuse `MOD:IEEE300_GRAPH_GRID`; freeze one source-state-to-`c` adapter, mask the trivial `z1=c` leak, fix orbit length, ordering, quantization and Ghostgrid views; compare direct-signature and matched random-projection baselines; require bus-relabel invariance, declared load/topology sensitivity, collision and reconstruction accounting, resolution/phase/viewport controls, negative outcome vocabulary and STOP; separate Owner admission and Run Contract before execution |
+
+### C.1 Owner-selected priority preparation — `A0-BL-054`
+
+This candidate belongs to the current strand at the **formal-design level**:
+
+```text
+IEEE-300 solved carrier state
+  -> frozen non-leaky adapter c=f(state)
+  -> z0=0, z(n+1)=z(n)^2+c
+  -> finite ordered orbit signature
+  -> Ghostgrid projections
+  -> stress / residual / typed Return
+```
+
+The relation is worth preparing now because the existing A0 instrument has
+made the Critical Orbit legible as a finite ordered shadow, while the existing
+IEEE-300 Graph-to-Grid result already supplies the correct carrier controls:
+bus-label invariance, topology perturbation, synthetic ablation and a known
+negative resolution-stability boundary.
+
+The execution does **not** belong to the current documentary strand. The map
+`f` can otherwise manufacture the result, and the full orbit contains the
+trivial identity `z1=c`. Before admission, the protocol must therefore:
+
+1. freeze and justify `f` without post-result tuning;
+2. mask `z1` and any equivalent direct parameter leakage;
+3. distinguish ordered orbit information from an unordered point cloud;
+4. register orbit length `N`, escape handling, quantization and collision
+   semantics;
+5. compare against the direct IEEE relation signature, lossy projections and
+   matched random complex projections;
+6. test Ghostgrid scale, resolution, phase, viewport and permutation stress;
+7. retain `PASS`, `MIXED_NEGATIVE`, `INFORMATION_LOST`, `UNINFORMATIVE` and
+   `INVALID_ADAPTER` as possible outcomes;
+8. stop without early-warning, prediction, resonance or mechanism claims.
+
+Identity effect:
+
+```text
+REUSE   NEXAH_AX0_QMODE_FOUNDATION_PACKAGE
+REUSE   MOD:IEEE300_GRAPH_GRID
+CREATE  local backlog item A0-BL-054 only
+CREATE  no Study, Navigator node, relation or active cycle
+```
 
 ## D. Provenance and terminology work
 
@@ -583,7 +631,7 @@ Priorität bei einer späteren redaktionellen Wiederaufnahme:
 5. Paper E um die Zweisprachen-Legende `NEXAH-Name <-> Standardbegriff`
    ergänzen, ohne daraus Evidenz oder externe Utility abzuleiten.
 
-Die vollständige Disposition liegt im bestehenden
+Die vollständige Paper-Disposition liegt im bestehenden
 `32_A0_FINDINGS_AND_PAPER_WORKSPACE_2026-10-11.md`. Diese Notiz verändert
 keinen Paperstatus, keine Evidence-Klasse und keine Publikationsberechtigung.
 
@@ -596,6 +644,43 @@ FORMALIZATION OUTLINE
   -> PAPER / RETAIN / DOWNGRADE DECISION
   -> choose at most one admitted branch from C
 ```
+
+### F.5 OCB-Lückenregister — 2026-10-16
+
+`DOCUMENTARY_BACKLOG / NO_BUILD_AUTHORIZATION / NO_NEW_IDENTITY`
+
+Der Arbeitsfaden zum **A0 Orientation Controller Bench** ist in einem eigenen
+[OCB Gap Register](100_A0_ORIENTATION_CONTROLLER_BENCH_GAP_REGISTER_2026-10-16.md)
+zusammengeführt. Das Register hängt an den bestehenden Routen `A0-BL-025` und
+`A0-BL-033`; es erzeugt keine neue Backlog-, Study-, Navigator- oder
+Family-Identität.
+
+Der nächste sachliche Kern ist die noch fehlende Apertur-Messstrecke:
+
+```text
+M3(t) = (Höhe h(t), Azimut A(t), Apertur I(t))
+  -> ungewalzte Spur
+  -> gewalzte / zylindrische Spur
+  -> Draufsicht
+  -> Aperturschnitt
+```
+
+Die Daten müssen über alle vier Darstellungen unverändert bleiben; nur Karte,
+Schnitt und sichtbarer Informationsanteil dürfen wechseln. Danach folgen der
+explizite `A/B/Δ(A,B)`-Beobachtungsschnitt, ein kalibrierter Apertur-Stapel,
+Quellenrückgewinnung, Browser-/Accessibility-QA und höchstens ein ausgewählter
+Ausbau aus `A·i·l`, Four-Hole/Ninefold oder Three-Systems-plus-Binder.
+
+Bereits gebaut und geschützt bleiben OCB `v0.11.0`, die sechsphasige
+Pascal×Antipode-Reise, die blaue Iris mit `18–72%`, die lokale Projektion auf
+die `C8`-Oktagonansicht, unterbrechbare Führung bei weiterlaufender
+Ambientbewegung, getypte Exporte und die bestehenden Finite-Control-Tests.
+
+Der Navigator-Return bleibt bis zum Owner-Abschluss geparkt. Mission Controls
+Source Field führt die OCB-Datei derzeit noch als `v0.5.2 / unbound`, während
+die Live-Linse `v0.11.0` ist und bereits in der A0-Surface-Coverage erscheint.
+Diese Currentness-Lücke wird beim Abschluss über die bestehende A0 Orientation
+Evidence Lens korrigiert, nicht durch eine neue Identität.
 
 ## Routing
 

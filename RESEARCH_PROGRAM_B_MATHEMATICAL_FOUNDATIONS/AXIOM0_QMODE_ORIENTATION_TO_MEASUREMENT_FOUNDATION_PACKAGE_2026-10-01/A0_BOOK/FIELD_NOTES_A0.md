@@ -2,7 +2,7 @@
 
 Date: `2026-10-08`
 
-Updated: `2026-10-13`
+Updated: `2026-10-15`
 
 ## Check 60 addendum — doubled shell and heptagon seam
 
@@ -87,6 +87,367 @@ sum of regular-face angular defects = 4*pi.
 Sources: `../62_A0_TESSAREC_A7_GAUSS_RAMANUJAN_IHARA_AUDIT_2026-10-13.md`,
 `assets/a0-tessarec-spectral-audit-v1.json` and
 `A0_TESSAREC_BLUE_BODY_LAB.html#spectral-audit`.
+
+## 2026-10-15 coupling note — inside/outside, the Ihara circle and the Ramanujan condition
+
+For a connected `(q+1)`-regular finite graph, the nontrivial factors of the
+Ihara--Bass denominator have the form
+
+```text
+1 - lambda*u + q*u^2.
+```
+
+If a nontrivial adjacency eigenvalue satisfies the Ramanujan bound
+`|lambda| <= 2*sqrt(q)`, the two corresponding reciprocal pole parameters
+have modulus
+
+```text
+|u| = 1/sqrt(q).
+```
+
+For the declared cubic Blue Body shell, `q+1=3`, hence `q=2` and the tested
+circle is exactly
+
+```text
+|u| = 1/sqrt(2).
+```
+
+This supports a precise inside / boundary / outside reading in the complex
+`u`-plane. It is an analytic partition of the graph-zeta coordinate, not a
+physical interior, membrane or resonance field. `sqrt(2)` enters because the
+graph is cubic. It is not supplied by a visual grid.
+
+The Human Owner's "critical line / critical circle" intuition has a standard
+mathematical normalization. Under
+
+```text
+u = q^(-s),
+```
+
+the circle `|u|=q^(-1/2)` corresponds to the vertical line
+`Re(s)=1/2`. For `q=2`, the angular parametrization may be written
+
+```text
+u(theta) = 2^(-1/2) * exp(i*theta),  0 <= theta < 2*pi.
+```
+
+Thus `pi` enters through ordinary circle phase and periodicity, while
+`sqrt(2)` fixes the radius. `phi` and the Fibonacci seed `1,1` do **not**
+belong to the general Ihara--Ramanujan statement. They may enter only through
+a separately declared pentagon, sampling or carrier map and must then survive
+their own return test. The visual phrase "polar rings" is therefore retained
+as an orientation proposal, not as an Ihara theorem.
+
+The exact relation is:
+
+```text
+Ramanujan adjacency bound on the declared regular graph
+-> nontrivial Ihara poles on the graph-zeta critical circle.
+```
+
+It remains explicitly distinct from the Riemann zeta function. The change of
+coordinate explains the analogy to a critical line; it does not identify the
+two zeta functions.
+
+Sources: `../62_A0_TESSAREC_A7_GAUSS_RAMANUJAN_IHARA_AUDIT_2026-10-13.md`,
+`A0_IHARA_HASHIMOTO_CYCLE_BRIDGE.html` and the standard regular-graph
+Ihara--Bass / Ramanujan criterion; see Hau-Wen Huang,
+[*Ihara zeta function, coefficients of Maclaurin series, and Ramanujan
+graphs*](https://arxiv.org/abs/1905.13485), for the `(q+1)`-regular formulation.
+
+## 2026-10-15 coupling candidate — 26 / 62 reversal and the Pascal centre
+
+The following arithmetic is exact:
+
+```text
+13 <-> 31                 decimal reversal; both prime
+26 = 2*13
+62 = 2*31
+26 <-> 62                 induced decimal reversal
+42 = P1*P2*P4 = 2*3*7    standard prime indexing
+20 = C(6,3)               central coefficient of 1,6,15,20,15,6,1
+42 + 20 = 62
+```
+
+This makes `62` a plausible cross-module return marker joining the local
+Euler-41 operator neighborhood, the Pascal centre and the `26 -> 62` reversal.
+It is not yet a declared transport operator, uniqueness result or mechanism.
+In particular, the title `Check 62` remains an audit ordinal; its provenance is
+not retroactively derived from `42+20`.
+
+Notation boundary: in the standard prime sequence `P1=2`, `P3=5`, `P4=7`,
+`P6=13` and `P7=17`, so `P1+P3=P4` is the exact equality `2+5=7`. If `1` is
+used as a seed or unit address, it requires a separate symbol and must not also
+be called `P1`.
+
+Status:
+
+```text
+EXACT_ARITHMETIC
+CROSS_MODULE_BINDING_CANDIDATE
+OPERATOR_ROLE_UNTESTED
+CHECK_62_ORDINAL_NOT_REINTERPRETED
+NO_NEW_NAVIGATOR_IDENTITY
+NO_STUDY_ACTIVATION
+```
+
+## 2026-10-15 coupling note — aperture flap, contact switch and envelope
+
+The remembered takeout-box construction already has a bounded mathematical
+operator in Check 63. For regular-pentagon side `s`, cut fraction `t` and flap
+extension multiplier `e`, use
+
+```text
+cut edge:        b = phi*t*s
+flap leg:        L = e*t*s
+first contact:   L = b/sqrt(2)
+therefore:       e* = phi/sqrt(2) = 1.1441228056...
+```
+
+This separates two different occurrences of `1`:
+
+1. every glued Pascal side value is `1`, so the SCC-003 seam quotient has a
+   well-defined shared weight;
+2. a geometrically unextended flap has multiplier `e=1`, but that flap remains
+   open and does **not** close the square aperture.
+
+The excess over the unextended flap is therefore
+
+```text
+e* - 1 = phi/sqrt(2) - 1 = 0.1441228056... .
+```
+
+The existing animation correctly exposes three kinematic regimes:
+
+```text
+OPEN -> TOUCH -> OVERLAP_TUCK.
+```
+
+These regime boundaries are admissible **switch points**. A more precise
+inside / outside notation can be introduced only relative to the oriented rim
+plane. Let `sigma=-1` denote the selected inner side, `sigma=0` contact with
+the rim/contact set, and `sigma=+1` the selected outer side. This sign is a
+declared orientation coordinate; it is not inferred from screen depth.
+
+The envelope is then the swept set of flap positions over a declared fold
+parameter. It must remain distinct from:
+
+- the intrinsic carrier;
+- the observed envelope under a viewing map;
+- the Blue Body shell graph;
+- a filled solid or physical material body.
+
+The Tessarec flip and the aperture fold can therefore share a typed transition
+grammar without being identified:
+
+```text
+state + oriented side + fold parameter
+-> contact event / side change
+-> envelope trace
+-> Return with side and residual retained.
+```
+
+### Prime-whip / eyelet hypothesis boundary
+
+`prime whip`, `eyelet` and the glyph family `o / O / 0 / degree` are retained
+as Owner working vocabulary. No recovered source presently proves that prime
+labels leave geometric sites free. Primality alone does not imply freedom,
+nonintersection or an aperture.
+
+A mathematically testable version would have to declare the carrier and the
+meaning of free. For example, in `Z/nZ` a prime-labelled residue is invertible
+only when it is coprime to `n`; a prime dividing `n` is not a unit. In a graph
+or fold carrier, freedom would instead require an explicit occupancy,
+incidence or stabilizer test. Until such a rule is declared:
+
+```text
+PRIME_LABEL -> FREE_EYELET        UNESTABLISHED
+COPRIME_RESIDUE -> UNIT           EXACT AFTER MODULUS IS DECLARED
+CONTACT_ROOT -> SWITCH_POINT      EXACT FOR THE DECLARED FOLD OPERATOR
+```
+
+### Blue Body interior boundary
+
+The Blue Body currently has a declared finite cubic shell graph and several
+host/envelope views. A filled interior, internal cell complex, winding law or
+body constitutive rule has not been defined. The existing work is therefore
+substantial but stops at shell, contact, envelope and return. The interior is
+an open construction question, not missing evidence for an already completed
+model.
+
+Sources: `../63_A0_TESSAREC_PENTAGON_FOLD_CONTACT_AND_A7_ROOT7_GUARD_2026-10-13.md`,
+`../86_A0_TESSAREC_BIG_BLUE_ENVELOPE_COMPARATOR_RESULT_2026-10-14.md`,
+`../89_A0_SCC_003_SEAM_ZIPPER_CHANNEL_USEFULNESS_ADDENDUM_2026-10-15.md`,
+`assets/a0-tessarec-fold-contact-v1.json` and
+`A0_TESSAREC_BLUE_BODY_LAB.html#fold-contact`.
+
+## 2026-10-15 coupling note — Euler product, five-joint cycles and the Rootroom boundary
+
+The exact Riemann/Ihara bridge is an Euler-product analogy, not an identity of
+the two zeta functions:
+
+```text
+Riemann: zeta(s) = product over primes p of (1-p^(-s))^(-1)
+Ihara:   Z_G(u)  = product over primitive non-backtracking cycles [P]
+                   of (1-u^length(P))^(-1).
+```
+
+Primitive graph cycles occupy the structural position of primes in the
+factorization. They are not prime numbers. `Euler` therefore names the product
+organization here; it does not by itself insert Euler's number `e`, Euler
+characteristic or an Euler spiral.
+
+For one adjacency eigenvalue `lambda` of a connected `(q+1)`-regular graph,
+the nontrivial Bass factor is
+
+```text
+1 - lambda*u + q*u^2.
+```
+
+Its two roots are
+
+```text
+u_plus/minus(lambda) = (lambda +/- sqrt(lambda^2-4*q))/(2*q).
+```
+
+If `|lambda| <= 2*sqrt(q)`, write
+
+```text
+lambda = 2*sqrt(q)*cos(theta).
+```
+
+Then the roots form a conjugate pair
+
+```text
+u_plus/minus = q^(-1/2)*exp(+/- i*theta).
+```
+
+This is the rigorous `Rootroom` for the present graph-zeta question: one
+spectral value opens into two oriented phase roots on the critical circle. For
+the cubic Blue Body, `q=2`, so the radius is `1/sqrt(2)`.
+
+### Five-joint result and negative control
+
+The declared Blue Body shell contains sixteen pentagonal faces, eight
+hexagonal faces and two octagonal faces. Each oriented pentagonal face gives a
+primitive length-five non-backtracking circuit and therefore a length-five
+Euler factor. This makes the local five-joint reading mathematically relevant.
+
+It does **not** imply that the complete graph has five equally spaced
+nontrivial Ihara poles. Equal pentagonal pole phases would require adjacency
+eigenvalues
+
+```text
+lambda_k = 2*sqrt(2)*cos(2*pi*k/5),  k=0,...,4.
+```
+
+The corresponding distinct targets are approximately
+
+```text
+ 2.8284271247,  0.8740320489,  -2.2882456113.
+```
+
+The frozen Blue Body spectrum does not contain these values. Its nearest
+recorded eigenvalues are respectively
+
+```text
+ 2.7313013160,  0.7834755828,  -2.1700864866.
+```
+
+Therefore:
+
+```text
+PENTAGON_FACES_CREATE_LENGTH_5_CYCLES            EXACT
+ALL_NONTRIVIAL_POLES_LIE_ON_RADIUS_1_OVER_SQRT2  NUMERICAL_PASS
+FIVE_EQUAL_GLOBAL_POLE_PHASES                    REJECTED_FOR_FROZEN_SHELL
+```
+
+The current shell is globally an `O2-P16-H8` graph with eight-position rings;
+it is not a single `C5` carrier. Local pentagonal joints and the global pole
+distribution must remain separate.
+
+There is nevertheless a precise radical-field bridge behind the Owner's
+Rootroom intuition. The regular pentagon introduces `sqrt(5)` through
+
+```text
+phi = (1+sqrt(5))/2,
+cos(2*pi/5) = (sqrt(5)-1)/4,
+cos(4*pi/5) = -(sqrt(5)+1)/4.
+```
+
+Combining this phase with the cubic Ihara scale gives
+
+```text
+2*sqrt(2)*cos(2*pi/5) =  sqrt(2)*(sqrt(5)-1)/2,
+2*sqrt(2)*cos(4*pi/5) = -sqrt(2)*(sqrt(5)+1)/2.
+```
+
+Hence the proposed five-phase target eigenvalues lie in the real biquadratic
+field `Q(sqrt(2),sqrt(5))`. The existing sign-state Root Space contains
+independent `sqrt(2)` and `sqrt(5)` coordinates, so it can host a future typed
+comparison. Presence in the same radical carrier is not evidence that the
+frozen Blue Body realizes those eigenvalues; the numerical negative control
+above remains decisive.
+
+### Root Space, Iota and the outside point
+
+The existing Tessarec Root Space is independently defined as the sign-state
+carrier
+
+```text
+Q3 = sign choices for sqrt(2), sqrt(3), sqrt(5)       -> 8 states
+Q4 = Q3 plus an independent sqrt(7) sign coordinate  -> 16 states.
+```
+
+This is a legitimate finite root carrier. By itself it is not the Ihara
+Rootroom, because the recovered operator-incidence route is a tree with cycle
+rank zero and therefore has trivial Ihara product `1`. A future bridge must
+declare a cyclic graph on these sign states and test whether its spectrum maps
+to the Blue Body pole data.
+
+In the existing `Q · Iota · Pearl` instrument, `iota` is a directed cut and the
+outside point is retained as a witness outside the bounded Pearl region. It is
+not presently an eigenvalue, a pole, an electron or a sixth pentagon vertex.
+Any such role requires a new typed map. The most conservative CRT/QRT
+candidate is to read it as a retained return witness or residual coordinate:
+the part deliberately kept outside a quotient or aperture so that the source
+can be reconstructed. This matches the existing NEXAH return discipline, but
+`IOTA = RESIDUAL` has not yet been declared or tested.
+
+### CRT / QRT and the `12321` correction
+
+CRT can address or reconstruct a finite carrier after moduli and domain are
+declared. QRT in the current A0 package is a bounded cut/flip/return procedure
+or a Euclidean address lens, not a universal dynamics. Neither construction
+automatically produces Ihara cycles. A valid bridge needs a graph map that
+preserves adjacency or closed non-backtracking circuits.
+
+The established symmetric grid number is
+
+```text
+12321 = 111^2 = 3^2*37^2,
+```
+
+not `32123`. It is the cardinality and first off-grid address of the `111x111`
+carrier. `32123=7*13*353` is exact arithmetic but has no recovered conceptual
+binding in the current A0 sources.
+
+### Mandelbrot boundary
+
+The Mandelbrot recurrence `z_(n+1)=z_n^2+c` is an iterated dynamical system.
+The Bass equation `1-lambda*u+q*u^2=0` is an algebraic spectral factor. Their
+common quadratic appearance does not establish a relation. A `Mandelbrot
+shadow` remains a visual hypothesis unless an explicit iteration on the graph
+roots is declared and compared against a null model.
+
+Sources: `assets/a0-tessarec-blue-body-v1.js`,
+`assets/a0-tessarec-spectral-audit-v1.json`,
+`A0_IHARA_HASHIMOTO_CYCLE_BRIDGE.html`,
+`../../../SCIENCE_LAB/REPORTS/NEXAH_GRID_OBSERVATORY_PUBLIC_RELEASE_2026-09-17/07_TESSAREC_ROOT_IOTA_FRAME_IMPLEMENTATION_RECORD.md`,
+`../../../NUMBER_OPERATOR_ARCHITECTURE_CONCORDANCE_AUDIT/NUMBERMAGICK_GRAPH_SOURCE_EXTRACTION_PACKET_2026-10-13/README.md`,
+`../21_A0_MATHEMATICAL_JOINTS_11_GRID_ORIENTATION_2026-10-10.md` and
+Hau-Wen Huang, [*Ihara zeta function, coefficients of Maclaurin series, and
+Ramanujan graphs*](https://arxiv.org/abs/1905.13485).
 
 Status:
 
@@ -1450,3 +1811,463 @@ Sources:
 `../88_A0_FIBONACCI_RING_OPERATOR_COMPARATOR_RESULT_2026-10-14.md`,
 `assets/a0-fibonacci-ring-operator-comparator-r1.json` and
 `results/a0-fibonacci-ring-operator-comparator-r1-result-2026-10-14.json`.
+
+## 21. `I0I <-> 0I0` complement seam, pillar and NEON root-window candidate
+
+Date: `2026-10-15`
+
+Status:
+
+```text
+FORMAL_DESIGN_ONLY_NOT_ACTIVATED
+EXISTING_A0_AND_NEON_IDENTITIES_REUSED
+NO_NEW_TILE_TYPE
+NO_NEW_NAVIGATOR_RELATION
+NO_SCIENTIFIC_RUN
+```
+
+### 21.1 Typed carrier before interpretation
+
+The Owner's new record is first treated as a three-position word, not as a
+number, a physical object or an imaginary-unit expression. To prevent a
+collision with `i=sqrt(-1)`, the machine form uses bits:
+
+```text
+human glyph     I 0 I       0 I 0
+machine word    1 0 1       0 1 0
+```
+
+Here `I` means only **marked/occupied position**. It does not yet mean the
+identity operator, Roman numeral one, electrical current, the complex unit
+`i`, quaternion unit `i` or the ILAU class `I`. Any later use of one of those
+meanings needs a separate typed map.
+
+Let
+
+```text
+Sigma = {0,1}
+x = (x_L,x_C,x_R) in Sigma^3
+kappa(x_L,x_C,x_R) = (1-x_L,1-x_C,1-x_R)
+rho(x_L,x_C,x_R)   = (x_R,x_C,x_L).
+```
+
+Then the proposed side change is exact:
+
+```text
+kappa(101) = 010
+kappa(010) = 101
+kappa^2 = identity.
+```
+
+This is a **complement involution**. It is not produced by reflection:
+
+```text
+rho(101)=101
+rho(010)=010.
+```
+
+Both words are palindromes. A diagram that changes `101` into `010` is
+therefore performing a state complement, even if it also looks like a mirror
+or a fold. Nonsymmetric controls such as `100` and `001` are required to tell
+reflection, complement and complement-after-reflection apart.
+
+### 21.2 What the pillar can mean
+
+The middle coordinate `C` is a fixed **position** under the reflection `rho`,
+but its state changes under `kappa`. Therefore the proposed black/red pillar,
+obelisk or stick can consistently denote:
+
+- the retained middle axis or coordinate address;
+- a carrier for the side key needed by a Return;
+- the boundary record across which occupancy is complemented;
+- a visual witness that the same position is read from two sides.
+
+It cannot simultaneously mean an invariant middle value, because `0` becomes
+`1` in the proposed transition. Black/red remains a display state, not a
+mathematical type. If colour later carries sign, direction or evidence state,
+that map must be declared independently.
+
+This extends the existing A0 distinction in
+`03_THREE_POSITIONS_SEAM_RETURN.html`: `1|0|1` is already separated into
+glyph, decimal prime `101=p26` and tested dyadic carrier `101*2^k`. The new
+`101 <-> 010` record adds a candidate operator relation; it does not alter any
+of those three existing identities.
+
+### 21.3 Complementary gluing and the candidate transition cell
+
+For `y=kappa(x)`, complementary seam coverage can be stated without metaphor:
+
+```text
+x XOR y = 111       full coverage
+x AND y = 000       no double occupancy
+```
+
+This makes `101|010` a useful candidate for a typed gluing seam. The seam
+still needs side labels; after quotienting the two sides, the visible bit word
+alone does not retain which side supplied each occupied position.
+
+The proposed "16 -> 17 tile" is therefore provisionally recorded as an
+**interface-state hypothesis**:
+
+```text
+16 internal states + 1 seam / overlap witness
+```
+
+The seventeenth item would be a transition record, residual or gluing cell,
+not automatically another stable pentagonal face. No claim is made that this
+is a sixteenth or seventeenth family of convex pentagonal monotiles. The
+external classification problem is separate: Rao's exhaustive result reports
+the already known fifteen families of convex pentagons that tile the plane
+(`https://arxiv.org/abs/1708.00274`). A NEXAH transition cell may still be
+useful, but it must not be named as a new classical tiling type without a
+geometric proof against that classification.
+
+### 21.4 NEON and roots: an admissible extension, not a redefinition
+
+The current source-bound NEON role is:
+
+```text
+one field -> low-B hidden / B* retained / high-B false-gate records.
+```
+
+NEON is explicitly a visibility and cartography operator, not substance,
+ontology or proof. It does not currently generate algebraic roots. The Owner's
+"the roots would be NEON" proposal can be made precise without breaking that
+boundary by putting the roots upstream:
+
+```text
+R(F)                 declared root or branch set of an operator F
+N_B(F,R(F))          visibility record of those roots under window B
+```
+
+Under this formulation NEON selects, suppresses or overdraws a **root
+record**; it does not create the roots and is not identical to them. A branch
+choice, multiplicity, tolerance and false-positive rule are mandatory. This
+is compatible with the existing Rootroom convention that exact root operation
+and resonance interpretation remain separable.
+
+The phrase "black/red pillar" can then be tested as the retained coordinate
+or branch-key carrier through the NEON window. It is not yet a zero, pole,
+root, critical line or physical axis.
+
+### 21.5 Formal test packet — design only during Structure Freeze
+
+| ID | Formal question | Minimal pass condition | Primary negative control |
+|---|---|---|---|
+| `CP-01` | Is complement the declared operation? | `kappa(101)=010`, `kappa(010)=101`, `kappa^2=id` for all eight words | an arbitrary lookup that works only for `101` |
+| `CP-02` | Is reflection distinct? | `rho^2=id`; `rho` and `kappa` differ on nonsymmetric words | testing only the two palindromes |
+| `CP-03` | Is the seam complementary? | `x XOR y=111` and `x AND y=000` at every site | random three-bit pairs with equal Hamming weight |
+| `CP-04` | Does the pillar retain provenance? | Return reconstructs side, orientation and source word | quotient after side labels are removed |
+| `CP-05` | Is there a genuine level lift? | declared `L(x,y)=z` and `R(z)=(x,y)` or an explicit residual | merely renaming the pair as level 17 |
+| `CP-06` | Is adjacency preserved? | every source edge has a declared image and every new edge is typed | visual overlap without a graph map |
+| `CP-07` | Does gluing change cycles? | Hashimoto/Ihara cycle inventory before and after gluing, with the new primitive cycles named | a tree carrier, whose Ihara product is trivial |
+| `CP-08` | Does NEON expose roots faithfully? | retained-window precision/recall against a declared root set and tolerance | low/high windows and shuffled roots |
+| `CP-09` | Does a pentagonal geometry close? | declared edge lengths, angles, orientation, non-overlap and closure residual | a visually pentagonal but metrically open seam |
+| `CP-10` | Are namespaces collision-free? | `I`, `1`, `i`, `j`, `k`, ILAU-`I` and identity are machine-distinct | typography-only distinction |
+
+No test in this packet has been admitted or executed. The packet is a
+fail-closed specification for a later Owner decision.
+
+### 21.6 Scientific assessment
+
+- **Established mathematics:** bitwise complement, reflection, involutions,
+  gluing with retained side data, graph cycle spectra and root visibility are
+  standard mathematical tools.
+- **Potential NEXAH contribution:** their typed composition into one reusable
+  seam/Return protocol across A0 modules may be operationally useful.
+- **Not yet established:** a new pentagonal tiling, a universal aperture, a
+  NEON root law, a Riemann/Ihara equivalence or a physical pillar.
+- **Usefulness test:** the construction earns a role only if it preserves a
+  source distinction or enables a reversible transition that the current
+  carrier cannot express. A visually satisfying symbol is insufficient.
+
+### 21.7 Visual custody and quick search handles
+
+Two newly resurfaced posters already have machine-readable custody in the
+IJQ01 source ledger as `CLASS_D_VISUAL_REPRESENTATION`:
+
+```text
+THE UNIVERSAL SPINE
+sha256 a73aae46282d3c7ada026686cf5d047cf6429ab216613096a0996dbeefc09670
+
+NESTED POLYHEDRAL FIELD
+sha256 4e14415dd3fb300ef609578302848b2619d4f2a30a4eb17f80b5403eb3a6bd83
+```
+
+Their visible claims remain image text, not validated mathematics. The six
+other supplied boards/plots did not match those hashes in the current Science
+Lab search and remain unbound visual leads until a source ledger records path,
+hash, role and claim boundary.
+
+Fast repository search terms for this line are:
+
+```text
+"1|0|1"  "three positions seam return"  "Root-Pillar"
+"Pascal Q5 return fork"  "pillar distance audit"
+"NEON_IS_A_VISIBILITY"  "one field / three records"
+"THE UNIVERSAL SPINE"  "NESTED POLYHEDRAL FIELD"
+```
+
+## 22. Period-40 gap, dual-sheet pillar and `4|7|7|4` decoder ledger
+
+Date: `2026-10-15`
+
+Status:
+
+```text
+SOURCE-BOUND A0 / SCIENCE NAVIGATOR NOTE
+EXISTING IDENTITIES REUSED
+NO NEW NAVIGATOR RELATION
+NO OPERATOR IDENTITY INFERRED FROM EQUAL NUMBERS
+NO SCIENCE RUN
+```
+
+### 22.1 The `40/3` remainder is real only in an integer partition
+
+The existing Tessarec heptagon bridge already records the relevant negative
+result:
+
+```text
+40/3 = 13 + 1/3
+40    = 3*13 + 1
+gcd(3,40) = 1
+```
+
+As a rational scalar, `40/3` is exact and has no missing quantity. As a split
+of forty discrete positions into three equal integer blocks, three blocks of
+size thirteen leave one position over. Equivalently, the additive group
+`Z_40` contains no nonzero element of order three. A visual third-turn can
+therefore be a scalar phase view, but it is not an exact three-cycle on the
+forty-state carrier without an additional residual or enlarged carrier.
+
+This is already classified in
+`assets/a0-tessarec-heptagon-bridge-v1.json` as
+`HOLD_SCALAR_ONLY_NOT_DISCRETE_THIRDS`. The open `1/3` language must not be
+used to infer `33 degrees`: one third of a full circle is `120 degrees`.
+Any `33`-based angle needs its own declared map.
+
+The Owner's `16+17=33` observation is exact arithmetic. It is not presently a
+bound A0 operator. A useful future question is whether the `+1` remainder of
+`40=13+13+13+1` is carried by an already declared seam/branch bit; that must be
+tested rather than assigned after inspection.
+
+### 22.2 Two decoders for `P4*P3`
+
+The notation needs an explicit type because two valid readings give different
+answers:
+
+```text
+index/cardinality reading:     |P4|*|P3| = 4*3 = 12
+prime-value reading:           p_4*p_3   = 7*5 = 35
+```
+
+Thus `12` and `35` are not competing results. They are outputs of different
+decoders. A claim such as "7x5 is optimal" is currently unsupported in A0;
+`35` is only the exact prime-value product until a carrier, objective function
+and comparison population are declared.
+
+The same rule applies to the existing prime addresses in the heptagon record:
+
+```text
+7  = p_4
+17 = p_7
+34 = p_1*p_7 = 2*17
+```
+
+Subscripts name positions in the prime sequence; the values must not be
+silently replaced by those positions.
+
+### 22.3 `4|7|7|4` and decimal `4774` are related views, not one operator
+
+The heptagon bridge defines the typed palindrome
+
+```text
+4|7|7|4
+```
+
+and permits `4774` as its decimal concatenation. It explicitly classifies the
+word as `TOKEN_WORD_NOT_PRODUCT`. A separate A0 source binding studies decimal
+`4774` in the arithmetic relation `4774+4114=8888`. Equality of the displayed
+digits supplies a cross-reference, not an operator identity between the seam
+word and that palindrome arithmetic.
+
+No standalone `3773` record, operator or named relation was found in the
+scoped A0 and Science Navigator search. It remains an Owner lead, not a
+recovered module fact.
+
+### 22.4 The strongest existing model for two plugs is a two-sheet lift
+
+The Science Navigator crosswalk already contains a mathematically controlled
+version of the two-sided image:
+
+```text
+X40 = C5 x P4 x C2
+X20 = C5 x P4
+L_PQ = X20 x {p,q}
+```
+
+The quotient `X40 -> X20` erases one `C2` orientation bit in each of twenty
+fibres. Clockwork `p/q` realizes an unlabeled two-sheet display lift. Both
+global bit-to-sheet assignments are compatible, so the two sheets alone do
+not canonically decide which one is `P` and which one is `Q`.
+
+Under the explicitly Owner-declared bridge `P->17`, `Q->18`, the convention
+can be fixed conditionally:
+
+```text
+e=1 <-> P <-> 17 <-> +1
+e=0 <-> Q <-> 18 <-> -1
+```
+
+This is a contract, not a historically recovered fact. The ten displayed
+Clockwork beads encode `C5 x C2`; each bead still has a four-state `P4` fibre.
+After a phase chart is declared, two residual bits are necessary and
+sufficient for exact Return of that `P4` coordinate.
+
+This is the best current formal reading of the Owner's "two plugs / forward
+and return / same but phase-different" picture. The plugs can denote two
+sheets or orientations; phase is an additional coordinate and must not be
+collapsed into the binary sheet bit.
+
+### 22.5 `P/Q/B` is a control, not the missing third plug
+
+The Navigator does contain `LIFE06D · P/Q/B Audit`, but its role is bounded:
+it compares paired scale conjugates and observation fibres. The crosswalk
+marks its relation to Clockwork `p/q` as
+`TYPED_ANALOGY_NON_IDENTITY_CONTROL`. In particular it does not identify
+scale conjugates with mirror sheets and supplies no canonical orientation-bit
+labeling.
+
+Therefore `B` must not be imported as the phase, pillar, branch bit or third
+contact of the present construction without a new typed map.
+
+### 22.6 E8 and Root-40 remain separate
+
+The E8 record uses the established set of `240` E8 roots, organized in one
+view as eight Coxeter orbits of length thirty. This means **240 roots**, not
+`sqrt(240)`.
+
+The Root-40 comparator is a different object:
+
+```text
+q = 2 + 2i + 4j + 4k
+||q||^2 = 2^2 + 2^2 + 4^2 + 4^2 = 40
+```
+
+The Navigator explicitly retains this as an outside-Phi non-identity control.
+No Tessarec or pillar construction is derived from E8, and neither `3+2+3`
+nor `5+3` is accepted as an E8 theorem.
+
+### 22.7 Minimal next tests
+
+| ID | Question | Pass condition | Failure meaning |
+|---|---|---|---|
+| `PG-01` | Can the forty states be split into three reversible channels? | declared quotient plus residual reconstructs all 40 states | `40/3` remains scalar only |
+| `PG-02` | Is the leftover `+1` the existing branch bit? | predeclared bijection preserves operator action and Return | post-hoc numerical coincidence |
+| `PG-03` | Is `II` a two-sheet address? | two labeled contacts map bijectively to `C2` with orientation control | visual duplication only |
+| `PG-04` | Is phase independent of sheet? | full state factors as sheet x phase and both coordinates are recoverable | sheet/phase collapse |
+| `PG-05` | Does `4|7|7|4` operate, rather than label? | declared action on a carrier plus inverse or residual | palindrome remains a typed word |
+| `PG-06` | Does a `7x5` construction optimize anything? | frozen objective, baseline population and unique/pass threshold | exact product only |
+| `PG-07` | Does `3773` have source custody? | A0/Navigator path, identity, operator role and claim boundary | Owner lead remains unbound |
+
+No test above is activated. During Structure Freeze this section is a formal
+design and provenance note only.
+
+## 23. Pentagon double-cover / tube-gate workbench
+
+Date: `2026-10-15`
+
+The large finite test package requested by the Owner is assembled under the existing A0 identity in `../91_A0_PENTAGON_DOUBLE_COVER_TUBE_GATE_ENGINEERING_TEST_PACKAGE_2026-10-15.md`. It tests the side-change proposal as a connected double cover `C10 -> C5`, keeps the `D5` reflection `m` distinct from full Return, retains `C30` phase as an independent coordinate, and compares the connected lift against the disconnected `C5 disjoint-union C5` control and all 32 binary seam-voltage assignments.
+
+This is an A0 engineering workbench, not a Lab admission. Its strongest decidable signature is the Hashimoto trace change from a primitive length-five cycle on the base to a primitive length-ten cycle on the connected lift.
+
+The existing carrier also fixes the missing umbrella anchor: its five
+`C(6,3)=20` nodes at `(face,6,3)` form a regular midpoint pentagon. Their
+two-sheet lift yields ten addressed rim positions and ten spokes. One shared
+hub is a branched eleven-vertex umbrella; two hub copies form the unbranched
+twelve-vertex two-fold wheel cover. Both are retained until the centre rule is
+declared.
+
+### 23.1 The `24` junction: two dodecahedral shells, Blue Body and number ladder
+
+The exact H3 dodecahedron source has twelve pentagonal faces. Two separately
+addressed dodecahedral plates or shells therefore have the exact face count
+
+```text
+12 + 12 = 24.
+```
+
+The Blue Body record must be read with different types. Its host has `48`
+vertices and the exact face vector `O2-P16-H8`; it does **not** have three
+octagonal faces. Its registered partitions are
+
+```text
+48 = 3*16 = 6*8 = 2*24.
+```
+
+Thus `24` is presently a legitimate cross-carrier cardinality junction: two
+dodecahedral face sets contain 24 pentagons, while one half of the Blue Body
+vertex carrier contains 24 addresses. It is not yet a face-to-vertex map, a
+gluing rule or a topology identity.
+
+The arithmetic carrier is independently source-bound. Check 78 fixes
+`11-12-13` with `12=2^2*3`; Check 42 fixes the doubled ladder
+
+```text
+6/7 -> 12/13 -> 24/25 -> 48/49 -> 96/97.
+```
+
+Consequently `12 -> 24` is an existing doubling step and the local window has
+typed roles `23=prime`, `24=2^3*3=2*12`, `25=5^2`. This makes `24` a useful
+candidate interface address. It does not by itself bind the dodecahedral
+faces, the Blue Body addresses and the number ladder; that requires an
+explicit bijection or incidence-preserving adapter.
+
+### 23.2 Paired register tiles: `D1..D5` and `E1..E5`
+
+The connected double cover admits a direct two-tile view:
+
+```text
+D1 -> D2 -> D3 -> D4 -> D5 -> E1 -> E2 -> E3 -> E4 -> E5 -> D1.
+```
+
+The deck involution is `tau(Di)=Ei`, `tau(Ei)=Di`; projection forgets the
+letter and retains register index `i`. The two cross-tile gates are `D5-E1`
+and `E5-D1`.
+
+This notation extends the existing D30 reader view without rewriting it. In
+the source companion `D1..D5` are five address registers and
+`p=2k-n mod30` is an independent phase coordinate with `L:-1`, `R:+1`.
+`E1..E5` is therefore recorded only as the second-sheet alias. The proposed
+display state is
+
+```text
+(register i, sheet D/E, phase p) in C5 x C2 x C30,
+```
+
+with 300 possible display addresses before depth/support restrictions. No
+current source determines whether the sheet switch drives phase, phase drives
+the sheet switch, or the coordinates evolve independently; all three remain
+controls for a later coupling test.
+
+## 24. Orientation Controller Bench: aperture-to-octagon return
+
+Date: `2026-10-16`
+
+The OCB `v0.11.0` is returned to the A0 Science Desk as an existing engineering
+lens. Its blue circle is typed as an aperture/iris and its octagon as a
+projected local `C8` view. This is a source-to-view relation, not an identity
+between circle, octagon, carrier or mechanism.
+
+The next measurable carrier is reserved as `M3(t)=(h(t),A(t),I(t))` for
+height, azimuth and aperture. Unrolled, cylindrical, top and aperture-slice
+views must preserve sample values and ordering while declaring their maps and
+loss. Until that test exists, the three-measure/four-projection instrument is
+`PARTIAL`, not a completed scientific result.
+
+Controlling gap record:
+`../100_A0_ORIENTATION_CONTROLLER_BENCH_GAP_REGISTER_2026-10-16.md`.
+
+Authority boundary: A0 Science Desk owns the scientific record. Science
+Navigator and Mission Control may expose currentness and routes, but neither
+may promote the OCB to a Study, Family, physical model or public claim.

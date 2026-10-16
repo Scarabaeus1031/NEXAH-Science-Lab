@@ -1675,3 +1675,47 @@ Kollisionsrisiken zu prüfen.
 Closeout-Status:
 `BACKLOG_ONLY / NO_BUILD / NO_RUN / NO_NEW_IDENTITY / NO_MECHANISM_CLAIM`.
 
+### 2026-10-15 — Drei Lissajous-Ebenen: 3+1 Seam-Mode-Return
+
+Die drei GIF-artig getrennten Lissajous-Ebenen wurden im bestehenden Blue-
+Pink-Return-Instrument als ein gemeinsamer zeitgetriebener Träger mit drei
+zyklischen Projektionen ausführbar gemacht: `AM=(s1,s2)`, `VM=(s2,s3)` und
+`PM=(s3,s1)`. Im gemeinsamen Overlay bilden die drei synchronen Marker ein
+Dreieck. Dessen Dispersion
+
+`D=(s1-s2)^2+(s2-s3)^2+(s3-s1)^2=4|A|`
+
+verschwindet genau dann, wenn `s1=s2=s3`. Damit ist die `3+1`-Lesart präzise:
+drei Projektionen plus ein gemeinsames Koinzidenz-/Seam-Ereignis. Das `+1`
+ist kein vierter Körper. Ein Return setzt zusätzlich ein geordnetes
+Zeitprotokoll der Re-Separation voraus.
+
+Für das Default-Preset `3:2 / pi/2` ergibt die aktuelle numerische Diagnose
+`D_min≈0.01339446`; es wird daher als `NEAR_SEAM_NOT_EXACT` dokumentiert, nicht
+als exakter Seam. Der controlling record ist
+`105_A0_THREE_LISSAJOUS_3_PLUS_1_SEAM_MODE_SCIENCE_DESK_RETURN_2026-10-15.md`.
+
+Status: dokumentarischer Formal-Design-Return unter der bestehenden A0-
+Identität. Keine Newtonsche Dreikörperlösung, kein physikalischer Mechanismus,
+keine externe Neuheitsfeststellung, keine Study, kein Finding und keine neue
+Navigator-Identität oder Relation.
+
+### 2026-10-16 — Orientation Controller Bench v0.11.0 zurückgebunden
+
+Der A0 Science Desk führt das Orientation Controller Bench (OCB) als lokale,
+source-bound Engineering-Linse unter der bestehenden Identität
+`NEXAH_AX0_QMODE_FOUNDATION_PACKAGE`. Der aktuelle Stand besteht 65
+deterministische Checks. Die blaue Iris ist als kontrollierte Apertur lesbar,
+die einen lokalen `C8`-Oktagon-View projiziert; sie ist weder der Carrier noch
+ein wissenschaftlicher Mechanismus.
+
+Der separate Gap Register `100_A0_ORIENTATION_CONTROLLER_BENCH_GAP_REGISTER_2026-10-16.md`
+hält die verbleibenden Aufgaben fest: `M3(t)=(h(t),A(t),I(t))`, vier
+repräsentationsinvariante Views, Aperturkalibrierung, Observing Cut,
+I/L/A/U-Record, Binder und bounded Return. Die Science-Navigator- und
+Mission-Control-Flächen erhalten nur Read-only-Projektionen. Die
+wissenschaftliche A0-Autorität bleibt beim Science Desk.
+
+Status:
+`ENGINEERING_BASELINE / DOCUMENTARY_BACKLOG / NO_NEW_STUDY / NO_ACTIVATION`.
+
