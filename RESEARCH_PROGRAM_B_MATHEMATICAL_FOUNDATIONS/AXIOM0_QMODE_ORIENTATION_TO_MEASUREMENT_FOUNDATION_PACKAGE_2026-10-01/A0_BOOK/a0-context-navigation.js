@@ -36,7 +36,7 @@
           ["A0_METHOD.html", "About / Method", "Vertiefende Methodenkarte"],
           ["LAB_ORIENTATION_MACHINE.html", "Orientation Machine", "Interaktive Orientierung"]
         ]},
-        { label: "Kapitel 01–08", compact: true, items: [
+        { label: "Buch · A0 Fundamentals", compact: true, items: [
           ["index.html", "A0 Fundamentals →", "Übersichtsseite öffnen · Buch & Kapitel"],
           ["01_FROM_LINE_TO_READOUT.html", "01 · Line to Readout", ""],
           ["02_POINT_LINE_COORDINATE.html", "02 · Punkt, Linie, Koordinate", ""],
