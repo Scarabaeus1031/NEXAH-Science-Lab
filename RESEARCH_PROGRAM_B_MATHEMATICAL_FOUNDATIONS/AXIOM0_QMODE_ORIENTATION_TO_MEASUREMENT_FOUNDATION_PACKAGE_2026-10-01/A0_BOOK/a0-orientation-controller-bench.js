@@ -5,7 +5,7 @@
 })(typeof globalThis !== 'undefined' ? globalThis : this, function () {
   'use strict';
 
-  const VERSION = '0.19.0';
+  const VERSION = '0.20.0';
   const EPSILON = 1e-9;
   const PRIMES = [2, 3, 5, 7, 11];
   const OPERATOR_IDS = ['J', 'R', 'E'];
