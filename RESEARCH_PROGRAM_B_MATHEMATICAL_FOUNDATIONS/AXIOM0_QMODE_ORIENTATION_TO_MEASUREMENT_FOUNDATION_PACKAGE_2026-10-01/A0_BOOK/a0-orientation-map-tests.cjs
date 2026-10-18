@@ -18,6 +18,7 @@ ok(M.drawing('coupling','coupling').includes('Du bist hier'));ok(M.tubeDrawing(M
 eq(M.connectedKeys('bench').length,4,'selected module plus three connected modules');eq(M.connectedKeys('bench')[0],'bench');eq(new Set(M.connectedKeys('bench')).size,M.connectedKeys('bench').length);
 const deckEntries=M.sourceDeckEntries('bench',href=>new URL(href,base).href);eq(deckEntries.length,4);ok(deckEntries.every(entry=>entry.href.startsWith('file:')));ok(deckEntries.slice(1).every(entry=>entry.relation!=='Ausgewähltes Modul'));
 const deckMarkup=M.sourceDeckMarkup('bench',href=>new URL(href,base).href);eq((deckMarkup.match(/<iframe /g)||[]).length,4);ok(deckMarkup.includes('data-source-deck-layout="focus"'));ok(deckMarkup.includes('getrennte Laufzeiten'));assert.throws(()=>M.connectedKeys('missing'));checks++;
+const readerMarkup=M.readerMarkup(new URL('A0_TOURS.html#tour-01',base).href,'Tour 01');eq((readerMarkup.match(/<iframe /g)||[]).length,1);ok(readerMarkup.includes('DIE MAP BLEIBT AN IHRER STELLE'));ok(readerMarkup.includes('Lesefaden bleibt erhalten'));
 // Minimal DOM harness: executes the actual mount, events and rendered markup. No browser.
 let active=null;
 class El{
@@ -28,7 +29,7 @@ class El{
  querySelectorAll(s){return this.children.flatMap(c=>[...(c.matches(s)?[c]:[]),...c.querySelectorAll(s)]);}querySelector(s){return this.querySelectorAll(s)[0]||null;}
  addEventListener(k,f){(this.events[k]??=[]).push(f);}fire(k,extra={}){for(const f of this.events[k]||[])f({target:this,preventDefault(){},...extra});}focus(){active=this;}
 }
-const body=new El('body'),head=new El('head'),home=new El('section',{id:'a0-map-home'}),tube=new El('section',{id:'a0-rohrpost-routes'});body.append(home,tube);const docEvents={};
+const body=new El('body'),head=new El('head'),home=new El('section',{id:'a0-map-home'}),tube=new El('section',{id:'a0-rohrpost-routes'}),tourScope=new El('main',{'data-a0-reader-scope':''}),tourLink=new El('a',{href:'A0_THEORY_STORYBOARD.html#scene-1'});tourLink.textContent='Storyboard Tour';tourScope.append(tourLink);body.append(home,tube,tourScope);const docEvents={};
 const doc={body,head,title:'Test A0',createElement:t=>new El(t),getElementById(id){return[body,...body.querySelectorAll('*')].find(e=>e.id===id||e.attrs.id===id)||find(body,id);},querySelectorAll:s=>body.querySelectorAll(s),addEventListener(k,f){(docEvents[k]??=[]).push(f);}};
 function find(root,id){for(const c of root.children){if(c.id===id||c.attrs.id===id)return c;const nested=find(c,id);if(nested)return nested;}return null;}
 const winEvents={},win={location:{href:new URL('A0_LIVING_BLUEPRINT.html#a0-map-home',base).href},addEventListener(k,f){(winEvents[k]??=[]).push(f);},postMessage(){throw Error('map must not command sources');},setInterval(){throw Error('no automatic map clock');}};win.self=win;win.top=win;
@@ -46,6 +47,7 @@ api.openSourceDeck('bench');const sourceDialog=doc.getElementById('a0-source-dec
 sourceDialog.querySelector('[data-source-deck-layout-choice="overview"]').fire('click');eq(api.snapshot().sourceDeckMode,'overview');eq(sourceDialog.querySelector('[data-source-deck-grid]').getAttribute('data-source-deck-layout'),'overview');
 const sourceFocus=sourceDialog.querySelectorAll('[data-source-deck-focus]')[1];sourceFocus.fire('click');eq(sourceDialog.querySelectorAll('[data-source-deck-panel]').filter(panel=>panel.getAttribute('data-source-deck-active')==='true').length,1);eq(sourceFocus.getAttribute('aria-pressed'),'true');
 sourceDialog.querySelector('[data-source-deck-close]').fire('click');ok(!sourceDialog.open);ok(!api.snapshot().sourceDeckOpen);eq(sourceDialog.querySelector('[data-source-deck-content]').innerHTML,'','closing unloads original frames');
+tourLink.fire('click');ok(sourceDialog.open,'tour link opens in reader');eq(api.snapshot().sourceDeckKind,'reader');eq(sourceDialog.querySelectorAll('iframe').length,1);ok(sourceDialog.querySelector('[data-source-deck-title]').textContent.includes('Storyboard Tour'));sourceDialog.querySelector('[data-source-deck-maximize]').fire('click');ok(api.snapshot().sourceDeckMaximized);sourceDialog.querySelector('[data-source-deck-close]').fire('click');ok(!sourceDialog.open);eq(active,tourLink,'reader returns focus to tour link');
 for(const n of M.nodes){
  home.querySelector('[data-a0-node="'+n.key+'"]').fire('click');
  ok(nodeDialog.open,'every node opens details');eq(api.snapshot().selected,n.key);

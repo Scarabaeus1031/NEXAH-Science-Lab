@@ -1,17 +1,17 @@
 {
   "schema": "nexah.a0.orientation-map.local/1",
-  "date": "2026-10-17",
-  "status": "ENGINEERING_PASS_SOURCE_DECK_BROWSER_ACCEPTANCE_OPEN",
+  "date": "2026-10-18",
+  "status": "ENGINEERING_PASS_READING_THREAD_VIEWER_BROWSER_ACCEPTANCE_OPEN",
   "entry": "A0_LIVING_BLUEPRINT.html#a0-map-home",
   "viewReuse": "A0-VIEW-LIVING-BLUEPRINT and existing A0/E8 surfaces; no new canonical identity",
   "implementationFiles": [
     {
       "path": "a0-orientation-map.js",
-      "sha256": "c3e8177bbc637125a65335ebf13276c228c555d4c1edd166f2d68c46f8421d9c"
+      "sha256": "a6d6c8b32d4b64456965388c9f062420ed1fe24d3954f32bc46eecda0d49c7eb"
     },
     {
       "path": "a0-orientation-map.css",
-      "sha256": "88a46272bbf95280a306be0eeff43a63f20d2fac66a09eff8c32880ffad33bcf"
+      "sha256": "17c58c52e87114c650d9308891d49c2ad509969bd8002ec7cfa72d75376c36e5"
     },
     {
       "path": "a0-context-navigation.js",
@@ -23,7 +23,7 @@
     },
     {
       "path": "A0_BUILDER_LOG.html",
-      "sha256": "c954dbe2dbbb77a956070ae1a5b1ffc69042b62bf85d2ea3470be67b810a5e77"
+      "sha256": "f6cd6f69fefac3b56cef65c032427fd958cfb0a747fb9f717025033bc074c9ea"
     },
     {
       "path": "A0_ASSET_INDEX.html",
@@ -31,7 +31,7 @@
     },
     {
       "path": "A0_ORIENTATION_CONTROLLER_BENCH.html",
-      "sha256": "77e6345892c0475de59ef2ad95546de46b02a3bc5269f6da0a1a8f2a40973894"
+      "sha256": "918f73b54ab11f29801817334888df02bad8aa0dd1feed4e01c6a0c38e5939df"
     },
     {
       "path": "A0_THEORY_STORYBOARD.html",
@@ -51,15 +51,15 @@
     },
     {
       "path": "A0_TOURS.html",
-      "sha256": "0867e90f8e699b3cb648edf76fa1775e47ee53a2d4045693a1b81dc7a6f125c7"
+      "sha256": "509f3df0f5125d2b14007a77f6d4e30663ee0bfb49e99b80ac0fab9501db9c03"
     },
     {
       "path": "a0-orientation-map-tests.cjs",
-      "sha256": "40c6ab5e46f999371967944d45f462737058bd3d7f302ad39d5accdf8978d23e"
+      "sha256": "6a39dc4d38d3d66c9707637b15a41e0abac15195379373564afd648639a1e561"
     },
     {
       "path": "a0-current-reading-tests.cjs",
-      "sha256": "ee15ead468829e8e337416e1406e4b257ca5019a6cae8435a1eb86ad78b36442"
+      "sha256": "a2346521181a08d6a970d21a929749d7a39c0ddc398141f195e1f5c51861599d"
     },
     {
       "path": "assets/a0-living-blueprint-v1.json",
@@ -75,7 +75,8 @@
     "documentedEdges": 30,
     "completeTechnicalNetwork": false,
     "embeddedSourceDock": true,
-    "embeddedSourceDeck": "SELECTED_NODE_PLUS_UP_TO_THREE_DIRECT_NEIGHBORS_FOCUS_OR_FOUR_UP"
+    "embeddedSourceDeck": "SELECTED_NODE_PLUS_UP_TO_THREE_DIRECT_NEIGHBORS_FOCUS_OR_FOUR_UP",
+    "readingThreadViewer": "MAP_LINKS_AND_CURATED_TOUR_HTMLS_OPEN_IN_RESTORABLE_IFRAME_VIEWER"
   },
   "map": {
     "columns": [
@@ -111,8 +112,8 @@
     "sourceCommands": false,
     "liveTelemetry": false,
     "sourceClock": false,
-    "menu": "Native details/summary, Escape/close, focus restored after keyboard selection, horizontally scrollable diagram on small screens; source deck adds Focus+3 and 4-up original-page views",
-    "sourceDeckBoundary": "Separate original iframe runtimes; no postMessage commands, common carrier, common clock, live telemetry, research run or finding promotion. Closing unloads all frames."
+    "menu": "Native details/summary, Escape/close, exact focus and scroll restoration, horizontally scrollable diagram on small screens; source deck adds Focus+3, 4-up and a maximizable reading-thread viewer",
+    "sourceDeckBoundary": "Separate original iframe runtimes; no postMessage commands, common carrier, common clock, live telemetry, research run or finding promotion. Closing unloads all frames and restores the map or tour reading place."
   },
   "rohrpost": {
     "routes": [
@@ -414,7 +415,7 @@
       "status": "link",
       "scope": "Bauabschnitt / Quellen / offene Abnahme",
       "proof": "A0_BUILDER_LOG.html#nested-lens",
-      "sha256": "c954dbe2dbbb77a956070ae1a5b1ffc69042b62bf85d2ea3470be67b810a5e77"
+      "sha256": "f6cd6f69fefac3b56cef65c032427fd958cfb0a747fb9f717025033bc074c9ea"
     },
     {
       "from": "blue",
@@ -502,7 +503,7 @@
       "status": "link",
       "scope": "Phasenbestand und offene Abnahme dokumentiert",
       "proof": "A0_BUILDER_LOG.html#bench-quellfuge-parked",
-      "sha256": "c954dbe2dbbb77a956070ae1a5b1ffc69042b62bf85d2ea3470be67b810a5e77"
+      "sha256": "f6cd6f69fefac3b56cef65c032427fd958cfb0a747fb9f717025033bc074c9ea"
     },
     {
       "from": "joint",
@@ -510,7 +511,7 @@
       "status": "read",
       "scope": "Integer / Primexponenten / Totient / Gap; für 1111 explizit Q4=1111 und P0/F10, P1/F26 oder P2/F42; andere Schichtkarten bleiben HOLD",
       "proof": "A0_BUILDER_LOG.html#source-seam-1111-layer-witness",
-      "sha256": "c954dbe2dbbb77a956070ae1a5b1ffc69042b62bf85d2ea3470be67b810a5e77"
+      "sha256": "f6cd6f69fefac3b56cef65c032427fd958cfb0a747fb9f717025033bc074c9ea"
     },
     {
       "from": "fold",
@@ -518,7 +519,7 @@
       "status": "control",
       "scope": "Quellen-SET / STEP / CAPTURE / RETURN einschließlich pausiertem CON–DAO-Cursor",
       "proof": "A0_BUILDER_LOG.html#source-seam-con-dao-return",
-      "sha256": "c954dbe2dbbb77a956070ae1a5b1ffc69042b62bf85d2ea3470be67b810a5e77"
+      "sha256": "f6cd6f69fefac3b56cef65c032427fd958cfb0a747fb9f717025033bc074c9ea"
     },
     {
       "from": "native",
@@ -526,7 +527,7 @@
       "status": "link",
       "scope": "Engineering-PASS, Grenzen und offene Browserabnahme",
       "proof": "A0_BUILDER_LOG.html#source-seam-con-dao-return",
-      "sha256": "c954dbe2dbbb77a956070ae1a5b1ffc69042b62bf85d2ea3470be67b810a5e77"
+      "sha256": "f6cd6f69fefac3b56cef65c032427fd958cfb0a747fb9f717025033bc074c9ea"
     },
     {
       "from": "joint",
