@@ -1,14 +1,27 @@
 {
   "schema": "nexah.a0.family-grid-coupler",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "date": "2026-10-18",
   "status": "LOCAL_DISPLAY_FIXTURE_NOT_A_RESEARCH_RUN",
   "reuses": ["NEXAH_A0_ORIENTATION_CONTROLLER_BENCH", "A0_FAMILY_CONNECTION_ATLAS.html", "A0_GAME_4_LIFE_PLUS_1.html", "A0_IHARA_HASHIMOTO_CYCLE_BRIDGE.html", "A0_PINK_DIAMOND_GRID_ATLAS.html"],
+  "typed_input": {
+    "source": "existing OCB state record",
+    "fields": ["carrierId", "address", "familyRole", "position", "orientation", "scale", "side", "iotaTick", "iotaDrift", "history"],
+    "route": "Prime Address -> J/Rtheta/Es operator chain -> three view windows -> +1 controller ledger",
+    "projection": "deterministic P11 engineering display; explicitly non-invertible"
+  },
+  "source_sides": [
+    {"id":"BLUE_BODY","role":"Q4xP3 source/body host with 48 addressed states","identity_merge":false},
+    {"id":"BLUE_PINK_DODECA","role":"native face register with 48 body cells plus 12 return faces","identity_merge":false}
+  ],
   "views": {
     "life": "eleven-cell source display",
     "plate": "FINITE_DEAD_FIELD flat view",
     "cylinder": "CYLINDER_CARRIER view with theta = 2*pi*q/11"
   },
+  "window_contract": {"simultaneous_windows": 3, "collapsible": true, "focusable": true, "shared_view_tick": true},
+  "plus_one_controller": {"four_read_channels": ["field", "event", "boundary", "history"], "role": "one shared view clock and run-context ledger", "new_carrier": false},
+  "local_717_reading": {"path": ["F7 source/validation", "F1 +1 view controller", "F7 return/check"], "canonical_family_relation": false},
   "glb_export_channels": [
     {"id": "LIFE_CRYSTAL_4_PLUS_1", "producer": "game4life_plus1/crystal-scene.js", "role": "five synchronized rooms with persistent event ID"},
     {"id": "TEMPORAL_Z_CYLINDER", "producer": "game4life_plus1/cylinder-comparison.js", "role": "wrapped address to theta; generation to world Z"}

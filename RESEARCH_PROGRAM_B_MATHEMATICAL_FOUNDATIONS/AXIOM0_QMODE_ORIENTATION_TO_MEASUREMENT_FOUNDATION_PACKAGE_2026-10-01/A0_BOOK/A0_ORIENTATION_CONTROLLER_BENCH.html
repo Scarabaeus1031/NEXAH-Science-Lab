@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="referrer" content="no-referrer">
-  <title>NEXAH · Orientation Controller Bench v0.18.0</title>
+  <title>NEXAH · Orientation Controller Bench v0.19.0</title>
   <link rel="stylesheet" href="a0-orientation-controller-bench.css?rev=20261016-iris-octagon">
   <link rel="stylesheet" href="a0-aperture-measurement.css?rev=20261018-m3-ilau">
   <link rel="stylesheet" href="a0-aperture-stack-calibration.css?rev=20261018-gap02-gap09">
@@ -15,7 +15,7 @@
   <link rel="stylesheet" href="a0-return-economy.css?rev=20261018-bl055-r1">
   <link rel="stylesheet" href="a0-coupled-window.css?rev=20261018-reader-r1">
   <link rel="stylesheet" href="a0-bench-workspace.css?rev=20261018-workspace-r1">
-  <link rel="stylesheet" href="a0-family-grid-coupler.css?rev=20261018-fgc-r1">
+  <link rel="stylesheet" href="a0-family-grid-coupler.css?rev=20261018-fgc-r3">
 <link rel="stylesheet" href="a0-root7-q4-coupling.css">
 </head>
 <body>
@@ -40,7 +40,7 @@
 <main class="shell" id="orientationBench">
   <header class="topbar">
     <div>
-    <div class="kicker">A0 · source-bound engineering lens · v0.18.0</div>
+    <div class="kicker">A0 · source-bound engineering lens · v0.19.0</div>
       <h1>Orientation Controller Bench</h1>
       <p>Eine ruhige Steuerzentrale öffnet gekoppelte Arbeitsfenster über vorhandenen Modulen. State-Records, Operatoradapter und Return-Stufen bleiben getrennt typisiert; das Fenster verbindet ihre Bedienung, nicht ihre Carrier oder Uhren.</p>
     </div>
@@ -1135,7 +1135,7 @@
   <script>window.A0FoldLagView=window.A0FoldLagLens.mount(document);</script>
   <script>window.A0FoldLagView.onRender=record=>window.A0OverlayView.accept('5b',record);window.A0FoldLagView.render();</script>
   <script>window.A0LayeredSceneView=window.A0LayeredPentagonScene.mount(document,record=>window.A0OverlayView.accept('stack',record));</script>
-  <script src="a0-family-grid-coupler.js?rev=20261018-fgc-r1"></script>
+  <script src="a0-family-grid-coupler.js?rev=20261018-fgc-r4"></script>
   <script>
     try{window.A0FamilyGridCouplerController=window.A0FamilyGridCoupler.mount(document,window)}
     catch(error){const root=document.querySelector('[data-family-grid-coupler]');if(root)root.textContent=`FAMILY GRID COUPLER HOLD · ${error&&error.message?error.message:String(error)}`;console.error(error)}
@@ -1574,6 +1574,12 @@
     render();
   }
   function apply(id, params={}){ state=C.applyOperator(state,id,params); render(); }
+  document.addEventListener('a0:family-grid-operator',event=>{
+    const id=event.detail?.operatorId;
+    if(id==='J')apply('J');
+    if(id==='R')apply('R',{direction:Number($('rDirection').value),sectors:Number($('rSectors').value)});
+    if(id==='E')apply('E',{factor:Number($('eFactor').value)});
+  });
   function render(){
     renderStateRelationLens();
     $('position').value=String(state.position);$('positionValue').textContent=state.position.toFixed(2);
@@ -1592,6 +1598,7 @@
     $('stateJson').textContent=JSON.stringify(C.stateCore(state),null,2);
     $('historyCount').textContent=`${state.history.length} operation${state.history.length===1?'':'s'}`;
     $('history').innerHTML=state.history.length?state.history.map(h=>`<li><span>${h.index}</span><b>${h.operatorId}</b><span>${JSON.stringify(h.parameters)} · u ${h.after.position.toFixed(3)} · θ ${h.after.orientation.toFixed(0)}°</span></li>`).join(''):'<li><span>—</span><b>∅</b><span>No operator applied.</span></li>';
+    window.A0FamilyGridCouplerController?.bindBenchState(state);
   }
   function renderBlind(){ $('blindBefore').textContent=stateLine(challenge.before);$('blindAfter').textContent=stateLine(challenge.after);$('blindResult').textContent='Select the operator or HOLD.';$('blindResult').className='blind-result'; }
 
