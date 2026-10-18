@@ -1,0 +1,609 @@
+{
+  "schema": "nexah.a0.orientation-map.local/1",
+  "date": "2026-10-17",
+  "status": "ENGINEERING_PASS_SOURCE_DECK_BROWSER_ACCEPTANCE_OPEN",
+  "entry": "A0_LIVING_BLUEPRINT.html#a0-map-home",
+  "viewReuse": "A0-VIEW-LIVING-BLUEPRINT and existing A0/E8 surfaces; no new canonical identity",
+  "implementationFiles": [
+    {
+      "path": "a0-orientation-map.js",
+      "sha256": "c3e8177bbc637125a65335ebf13276c228c555d4c1edd166f2d68c46f8421d9c"
+    },
+    {
+      "path": "a0-orientation-map.css",
+      "sha256": "88a46272bbf95280a306be0eeff43a63f20d2fac66a09eff8c32880ffad33bcf"
+    },
+    {
+      "path": "a0-context-navigation.js",
+      "sha256": "5f8a0ba0d0649d633fc31e36ebc1101de73a18634e5b17bbe782c344cc54f261"
+    },
+    {
+      "path": "A0_LIVING_BLUEPRINT.html",
+      "sha256": "ecb7c2156b25a342ca73dacb26e9dfed054960b4425862420c34f1eb882d6ec6"
+    },
+    {
+      "path": "A0_BUILDER_LOG.html",
+      "sha256": "c954dbe2dbbb77a956070ae1a5b1ffc69042b62bf85d2ea3470be67b810a5e77"
+    },
+    {
+      "path": "A0_ASSET_INDEX.html",
+      "sha256": "683208fff85c4e3396fe38ea146176c07ab132337a53f0e743442db54533c53e"
+    },
+    {
+      "path": "A0_ORIENTATION_CONTROLLER_BENCH.html",
+      "sha256": "77e6345892c0475de59ef2ad95546de46b02a3bc5269f6da0a1a8f2a40973894"
+    },
+    {
+      "path": "A0_THEORY_STORYBOARD.html",
+      "sha256": "140408f4e1b1be1e1408579e24a468b7d8fd62be39ff2c145fa343a999d1e724"
+    },
+    {
+      "path": "LAB_ORIENTATION_MACHINE.html",
+      "sha256": "3af070109c14f498aa35d3af6dcdddd4a9d3097b96e4ace7694dc5af368885b5"
+    },
+    {
+      "path": "../../../SCIENCE_LAB/CASE_STUDIES/E8_DEMOS_INTERACTIVE_ORIENTATION_2026-09-21/COXETER_ORBIT_TOPOLOGY_LAB_2026-10-05/NEXAH_TYPED_COUPLING_WORKBENCH.html",
+      "sha256": "55949e4e6ced2a83227583a23cecc8c78143dd0441c30e33abac4a0acd99bd28"
+    },
+    {
+      "path": "../../../SCIENCE_LAB/CASE_STUDIES/E8_DEMOS_INTERACTIVE_ORIENTATION_2026-09-21/COXETER_ORBIT_TOPOLOGY_LAB_2026-10-05/NEXAH_WORD_ORBIT_SEQUENCER.html",
+      "sha256": "1856487d70cb487d0b470372cf26b4504f6f210ed58779dd6bc76e523e0184f6"
+    },
+    {
+      "path": "A0_TOURS.html",
+      "sha256": "0867e90f8e699b3cb648edf76fa1775e47ee53a2d4045693a1b81dc7a6f125c7"
+    },
+    {
+      "path": "a0-orientation-map-tests.cjs",
+      "sha256": "40c6ab5e46f999371967944d45f462737058bd3d7f302ad39d5accdf8978d23e"
+    },
+    {
+      "path": "a0-current-reading-tests.cjs",
+      "sha256": "ee15ead468829e8e337416e1406e4b257ca5019a6cae8435a1eb86ad78b36442"
+    },
+    {
+      "path": "assets/a0-living-blueprint-v1.json",
+      "sha256": "99f7776523ced2b0a65a00a6f38eb7c0e5c79282d5f73f3cacaa9ff82c0bc0f4"
+    }
+  ],
+  "coverage": {
+    "bookPages": 54,
+    "sharedNavigationPages": 48,
+    "standalonePages": 5,
+    "externalE8Pages": 2,
+    "selectedNodes": 26,
+    "documentedEdges": 30,
+    "completeTechnicalNetwork": false,
+    "embeddedSourceDock": true,
+    "embeddedSourceDeck": "SELECTED_NODE_PLUS_UP_TO_THREE_DIRECT_NEIGHBORS_FOCUS_OR_FOUR_UP"
+  },
+  "map": {
+    "columns": [
+      "QUELLEN / BACKEND",
+      "JOINTS / ADAPTER",
+      "ANSICHTEN / FRONTEND",
+      "RECORD / ORIENTIERUNG"
+    ],
+    "states": {
+      "link": {
+        "label": "Verlinkt",
+        "color": "#8098ad"
+      },
+      "read": {
+        "label": "Lesend",
+        "color": "#53d5ed"
+      },
+      "control": {
+        "label": "Steuernd · lokal geprüft",
+        "color": "#65e0ac"
+      },
+      "return": {
+        "label": "Quell-Return · lokal geprüft",
+        "color": "#ffd06a"
+      },
+      "open": {
+        "label": "Offen",
+        "color": "#f177b8"
+      }
+    },
+    "location": "Exact URL path/deep-link match where curated; title and filename always shown. Search directory retains all A0 pages.",
+    "familyFilter": "Local presentation roles F1..F7, not canonical reclassification",
+    "sourceCommands": false,
+    "liveTelemetry": false,
+    "sourceClock": false,
+    "menu": "Native details/summary, Escape/close, focus restored after keyboard selection, horizontally scrollable diagram on small screens; source deck adds Focus+3 and 4-up original-page views",
+    "sourceDeckBoundary": "Separate original iframe runtimes; no postMessage commands, common carrier, common clock, live telemetry, research run or finding promotion. Closing unloads all frames."
+  },
+  "rohrpost": {
+    "routes": [
+      {
+        "key": "sequence",
+        "title": "Zwei Geländer · Sequencer → Workbench → Beleg",
+        "nodes": [
+          "word",
+          "coupling",
+          "receipt"
+        ],
+        "edges": [
+          0,
+          13
+        ],
+        "note": "Originalprogramm steuert n; der Beleg ist Dokumentation, kein aktueller Laufrecord."
+      },
+      {
+        "key": "pink",
+        "title": "Pink lesen → Workbench → offene Synchronisierung",
+        "nodes": [
+          "pink",
+          "coupling",
+          "pink"
+        ],
+        "edges": [
+          2,
+          3
+        ],
+        "note": "Lesen ist implementiert. Der zweite Übergang bleibt HOLD, bis eine Zustandsabbildung festgelegt ist."
+      },
+      {
+        "key": "faces",
+        "title": "Pascal → Bench → offene Blue/Pink-Flächen",
+        "nodes": [
+          "pascal",
+          "bench",
+          "blue"
+        ],
+        "edges": [
+          4,
+          7
+        ],
+        "note": "Der PENT-Anschluss ersetzt nicht den fehlenden nativen 60-Flächen-Anschluss."
+      },
+      {
+        "key": "body",
+        "title": "CRT16 → Innenregister → Body Player",
+        "nodes": [
+          "crt",
+          "interior",
+          "body"
+        ],
+        "edges": [
+          9,
+          10
+        ],
+        "note": "Lokale Adapter und Ansichten sind dokumentiert; hier navigiert nur das Erklärungspaket."
+      },
+      {
+        "key": "life",
+        "title": "LIFE03 → Bench → Schichtenansicht",
+        "nodes": [
+          "life03",
+          "bench",
+          "layers"
+        ],
+        "edges": [
+          5,
+          6
+        ],
+        "note": "Zwei verschiedene Teilketten im selben Host; keine gemeinsame Quelldynamik."
+      },
+      {
+        "key": "janus",
+        "title": "Janus → native Steuerbank → geparkter Ausbau",
+        "nodes": [
+          "janus",
+          "native",
+          "log"
+        ],
+        "edges": [
+          19,
+          28
+        ],
+        "note": "Quellensteuerung und begrenzter Return lokal geprüft; Browserabnahme offen. Weiterbau nur nach erneuter Freigabe."
+      },
+      {
+        "key": "two-cut",
+        "title": "Two-Cut → native Steuerbank → geparkter Ausbau",
+        "nodes": [
+          "two-cut",
+          "native",
+          "log"
+        ],
+        "edges": [
+          21,
+          28
+        ],
+        "note": "Wert, Adresse und gespeicherter Quellzustand bleiben getrennt. Kein Gesamtmaschinen-Return."
+      },
+      {
+        "key": "phase",
+        "title": "Schichten → gemeinsamer Phasenpfad → Baustand",
+        "nodes": [
+          "layers",
+          "phase",
+          "log"
+        ],
+        "edges": [
+          24,
+          25
+        ],
+        "note": "Ein vorhandener Szenentakt, abgeleitete Ansichten und begrenzter Ansichts-Return; kein nativer Körperanschluss."
+      },
+      {
+        "key": "joint",
+        "title": "Joint Applications → offene Quellfuge → Steuerbank",
+        "nodes": [
+          "joint",
+          "native",
+          "log"
+        ],
+        "edges": [
+          26,
+          28
+        ],
+        "note": "Das Erklärungspaket hält vor der geparkten Fuge. Kein neuer Joint-Adapter implementiert."
+      },
+      {
+        "key": "fold",
+        "title": "Box / Laschen → offene Quellfuge → Steuerbank",
+        "nodes": [
+          "fold",
+          "native",
+          "log"
+        ],
+        "edges": [
+          27,
+          28
+        ],
+        "note": "Die Box ist vorhanden; Steueradapter und konkurrierende Spieler sind noch nicht zusammengeführt."
+      }
+    ],
+    "packet": "User-stepped documentation/navigation packet, not source-state transport",
+    "openBoundary": "HOLD before open edge; no clock and no automatic continuation",
+    "legacy": "Eight-station conceptual loop retained in collapsed details; starts paused for all entry modes and pauses on collapse"
+  },
+  "engineering": {
+    "sourceDeckUpdate20261018": {
+      "scope": "All 26 curated nodes; selected original plus up to three direct graph neighbors; Focus+3 and 4-up layouts",
+      "interactionChecks": 1041,
+      "currentReadingChecks": 55,
+      "frameUnloadOnClose": true,
+      "browserAcceptance": false,
+      "browserBlocker": "Browser URL policy denies observation of local file://; no workaround attempted",
+      "sourceCommands": 0,
+      "sharedCarrier": false,
+      "sharedClock": false
+    },
+    "readabilityUpdate20261018": {
+      "scope": "26 node-detail dialogs, visual role/line/location key, focus-only edge emphasis, compact card layout and smaller Blueprint entry",
+      "interactionChecks": 1005,
+      "verification": "DOM harness and mocked native-dialog calls only; excludes receipt-pin integrity",
+      "browserAcceptance": false,
+      "browserBlocker": "Browser URL policy denies observation of local file://; no workaround attempted",
+      "sourceCommands": 0
+    },
+    "mapChecks": 923,
+    "blueprintChecks": 167,
+    "readerNavigation": "PASS 50 registered readers, 53 pages",
+    "humanCrosswalkChecks": 242,
+    "integrationCrosswalkChecks": "Historical 181; current legacy assertion expects obsolete no-adapter wording, not repaired by this navigation update",
+    "nativeCouplingChecks": 233,
+    "layeredSceneChecks": 32829,
+    "overlayChecks": 5013,
+    "foldLagChecks": 27902,
+    "root7WingChecks": 11234,
+    "life03Checks": 137,
+    "visualQA": "Current 26-node / 30-edge SVG overview rasterized and inspected: all nodes inside expanded bounds, labels readable. Full host CSS/browser acceptance remains open.",
+    "navigationUpdate": "read-only; current map expanded to 26 nodes / 30 edges / 10 routes; no source commands or source clocks"
+  },
+  "sources": [
+    {
+      "from": "word",
+      "to": "coupling",
+      "status": "control",
+      "scope": "Originalindex und Quellbefehle",
+      "proof": "../../../SCIENCE_LAB/CASE_STUDIES/E8_DEMOS_INTERACTIVE_ORIENTATION_2026-09-21/COXETER_ORBIT_TOPOLOGY_LAB_2026-10-05/typed-sequence-coupling-return.json",
+      "sha256": "27a09c41e8ae3489eef88effcf04b63de7a1dae9babb6fe496653213618fdb71"
+    },
+    {
+      "from": "coupling",
+      "to": "word",
+      "status": "return",
+      "scope": "Quell-Checkpoint / Historie / Spur",
+      "proof": "../../../SCIENCE_LAB/CASE_STUDIES/E8_DEMOS_INTERACTIVE_ORIENTATION_2026-09-21/COXETER_ORBIT_TOPOLOGY_LAB_2026-10-05/typed-sequence-coupling-return.json",
+      "sha256": "27a09c41e8ae3489eef88effcf04b63de7a1dae9babb6fe496653213618fdb71"
+    },
+    {
+      "from": "pink",
+      "to": "coupling",
+      "status": "read",
+      "scope": "Originale Ghost-Auswahl und Phase",
+      "proof": "../../../SCIENCE_LAB/CASE_STUDIES/E8_DEMOS_INTERACTIVE_ORIENTATION_2026-09-21/COXETER_ORBIT_TOPOLOGY_LAB_2026-10-05/typed-sequence-coupling-return.json",
+      "sha256": "27a09c41e8ae3489eef88effcf04b63de7a1dae9babb6fe496653213618fdb71"
+    },
+    {
+      "from": "coupling",
+      "to": "pink",
+      "status": "open",
+      "scope": "Index oder Folgenwert → Grid noch unbestimmt",
+      "proof": "../../../SCIENCE_LAB/CASE_STUDIES/E8_DEMOS_INTERACTIVE_ORIENTATION_2026-09-21/COXETER_ORBIT_TOPOLOGY_LAB_2026-10-05/typed-sequence-coupling-return.json",
+      "sha256": "27a09c41e8ae3489eef88effcf04b63de7a1dae9babb6fe496653213618fdb71"
+    },
+    {
+      "from": "pascal",
+      "to": "bench",
+      "status": "control",
+      "scope": "Sechs native UI-Felder / Readback",
+      "proof": "assets/a0-pentagon-bench-binding-v1.json",
+      "sha256": "58c0964a54bcd5f0543470e95b551c8312f9cd9ffcb57a5bb6f55bf86ee783e9"
+    },
+    {
+      "from": "life03",
+      "to": "bench",
+      "status": "control",
+      "scope": "Source-Owned STEP / CAPTURE / RETURN",
+      "proof": "assets/a0-life03-bench-binding-v1.json",
+      "sha256": "b5f3de0903c9f29fc7d1eb9916d10e8ae80d0193b80fa79bbff96d2c6d865ed6"
+    },
+    {
+      "from": "bench",
+      "to": "layers",
+      "status": "link",
+      "scope": "Lokale Ansichtssteuerung im selben Host",
+      "proof": "assets/a0-layered-pentagon-scene-v1.json",
+      "sha256": "be31e782394e80320d9f04be24a1479976ba7ee25bc6cf7931b16769b8eb1cd1"
+    },
+    {
+      "from": "bench",
+      "to": "blue",
+      "status": "open",
+      "scope": "Nativer 60-Flächen-Anschluss fehlt",
+      "proof": "assets/a0-face-integration-package-v1.json",
+      "sha256": "ecee346c27ca0ae4b8793f74887060eb9d916416f868c8c19bf98177a56ce0eb"
+    },
+    {
+      "from": "pink",
+      "to": "crt",
+      "status": "link",
+      "scope": "Andere Linse desselben Atlas",
+      "proof": "A0_PINK_DIAMOND_GRID_ATLAS.html",
+      "sha256": "53fe4e816468ec4c7c70c31f2b557edcaff7831d59578f7e691949871fc5573c"
+    },
+    {
+      "from": "crt",
+      "to": "interior",
+      "status": "link",
+      "scope": "Dokumentierter lokaler CRT16-Adapter",
+      "proof": "assets/a0-blue-body-interior-crt16-v1.json",
+      "sha256": "4afc602d66aadedeae4240610b148df59ed5b55665c5387321dfcf65daf7d68c"
+    },
+    {
+      "from": "interior",
+      "to": "body",
+      "status": "link",
+      "scope": "Innenregister und Player im selben Instrument",
+      "proof": "A0_TESSAREC_BLUE_BODY_LAB.html",
+      "sha256": "0813b67551f282a8ba2d3abfca8e0e22db137c6ccdfbafc51b4c7be1e8c799bc"
+    },
+    {
+      "from": "body",
+      "to": "life",
+      "status": "link",
+      "scope": "Deklarierte Transferkontrolle, nicht gemeinsamer Carrier",
+      "proof": "assets/a0-blue-body-life-transfer-v1.json",
+      "sha256": "8d45641e286907695066c0aad57d6feb3438c78539e2a28b63317234a0c60326"
+    },
+    {
+      "from": "math",
+      "to": "fields",
+      "status": "link",
+      "scope": "Im gemeinsamen Fugen-Arbeitsraum öffnen",
+      "proof": "A0_FIELDS_AND_JOINTS_ATLAS.html#joint-workspace",
+      "sha256": "57d00831c9ba16dd616ac3a3fa4bef15ad090ed93d9d63bae4115d5bec74f327"
+    },
+    {
+      "from": "coupling",
+      "to": "receipt",
+      "status": "link",
+      "scope": "Engineering-Beleg öffnen",
+      "proof": "../../../SCIENCE_LAB/CASE_STUDIES/E8_DEMOS_INTERACTIVE_ORIENTATION_2026-09-21/COXETER_ORBIT_TOPOLOGY_LAB_2026-10-05/typed-sequence-coupling-return.json",
+      "sha256": "27a09c41e8ae3489eef88effcf04b63de7a1dae9babb6fe496653213618fdb71"
+    },
+    {
+      "from": "layers",
+      "to": "log",
+      "status": "link",
+      "scope": "Bauabschnitt / Quellen / offene Abnahme",
+      "proof": "A0_BUILDER_LOG.html#nested-lens",
+      "sha256": "c954dbe2dbbb77a956070ae1a5b1ffc69042b62bf85d2ea3470be67b810a5e77"
+    },
+    {
+      "from": "blue",
+      "to": "desk",
+      "status": "link",
+      "scope": "Ergebnisse und offene Adapter",
+      "proof": "A0_RESEARCH_DESK.html",
+      "sha256": "eddc5b175bcbb5db0658a97de227c6bb08a3bc3f10fa15af4d64ca53db3f65eb"
+    },
+    {
+      "from": "fields",
+      "to": "families",
+      "status": "link",
+      "scope": "Family-Lesepfad",
+      "proof": "A0_FAMILY_CONNECTION_ATLAS.html#map",
+      "sha256": "b9b02a77b10c5d074f6a41185a9fd204a0139e37313a262bf5d5b06a267148da"
+    },
+    {
+      "from": "story",
+      "to": "home",
+      "status": "link",
+      "scope": "Human-/Modell-Rückbindung",
+      "proof": "A0_LIVING_BLUEPRINT.html",
+      "sha256": "ecb7c2156b25a342ca73dacb26e9dfed054960b4425862420c34f1eb882d6ec6"
+    },
+    {
+      "from": "log",
+      "to": "home",
+      "status": "link",
+      "scope": "Zur Gesamtkarte",
+      "proof": "A0_LIVING_BLUEPRINT.html#a0-map-home",
+      "sha256": "ecb7c2156b25a342ca73dacb26e9dfed054960b4425862420c34f1eb882d6ec6"
+    },
+    {
+      "from": "janus",
+      "to": "native",
+      "status": "control",
+      "scope": "Quellen-SET / STEP / MIRROR und Readback",
+      "proof": "assets/a0-native-source-bank-v1.json",
+      "sha256": "85b02c9f145691206eb608dc336fbde449c7ea2e78255cd917728541b8924497"
+    },
+    {
+      "from": "native",
+      "to": "janus",
+      "status": "return",
+      "scope": "Checkpoint: Ansicht und Leiterindex; kein Gesamt-Return",
+      "proof": "assets/a0-native-source-bank-v1.json",
+      "sha256": "85b02c9f145691206eb608dc336fbde449c7ea2e78255cd917728541b8924497"
+    },
+    {
+      "from": "two-cut",
+      "to": "native",
+      "status": "control",
+      "scope": "Quellen-SET / STEP und Readback",
+      "proof": "assets/a0-native-source-bank-v1.json",
+      "sha256": "85b02c9f145691206eb608dc336fbde449c7ea2e78255cd917728541b8924497"
+    },
+    {
+      "from": "native",
+      "to": "two-cut",
+      "status": "return",
+      "scope": "Checkpoint: Familie, j, n, Phase und Spur",
+      "proof": "assets/a0-native-source-bank-v1.json",
+      "sha256": "85b02c9f145691206eb608dc336fbde449c7ea2e78255cd917728541b8924497"
+    },
+    {
+      "from": "native",
+      "to": "bench",
+      "status": "read",
+      "scope": "Typisiertes Journal, letzte Rückmeldungen; nicht simultan",
+      "proof": "assets/a0-native-source-bank-v1.json",
+      "sha256": "85b02c9f145691206eb608dc336fbde449c7ea2e78255cd917728541b8924497"
+    },
+    {
+      "from": "layers",
+      "to": "phase",
+      "status": "control",
+      "scope": "Bestehende Szenenphase → abgeleitete Ansichten",
+      "proof": "assets/a0-phase-wiring-package-v1.json",
+      "sha256": "b3d318a29a6dbb267d64abd5e19ffdd0d0150f63cfcb17ceac937002edfcb904"
+    },
+    {
+      "from": "phase",
+      "to": "log",
+      "status": "link",
+      "scope": "Phasenbestand und offene Abnahme dokumentiert",
+      "proof": "A0_BUILDER_LOG.html#bench-quellfuge-parked",
+      "sha256": "c954dbe2dbbb77a956070ae1a5b1ffc69042b62bf85d2ea3470be67b810a5e77"
+    },
+    {
+      "from": "joint",
+      "to": "native",
+      "status": "read",
+      "scope": "Integer / Primexponenten / Totient / Gap; für 1111 explizit Q4=1111 und P0/F10, P1/F26 oder P2/F42; andere Schichtkarten bleiben HOLD",
+      "proof": "A0_BUILDER_LOG.html#source-seam-1111-layer-witness",
+      "sha256": "c954dbe2dbbb77a956070ae1a5b1ffc69042b62bf85d2ea3470be67b810a5e77"
+    },
+    {
+      "from": "fold",
+      "to": "native",
+      "status": "control",
+      "scope": "Quellen-SET / STEP / CAPTURE / RETURN einschließlich pausiertem CON–DAO-Cursor",
+      "proof": "A0_BUILDER_LOG.html#source-seam-con-dao-return",
+      "sha256": "c954dbe2dbbb77a956070ae1a5b1ffc69042b62bf85d2ea3470be67b810a5e77"
+    },
+    {
+      "from": "native",
+      "to": "log",
+      "status": "link",
+      "scope": "Engineering-PASS, Grenzen und offene Browserabnahme",
+      "proof": "A0_BUILDER_LOG.html#source-seam-con-dao-return",
+      "sha256": "c954dbe2dbbb77a956070ae1a5b1ffc69042b62bf85d2ea3470be67b810a5e77"
+    },
+    {
+      "from": "joint",
+      "to": "fold",
+      "status": "link",
+      "scope": "Gemeinsame Lesefolge, keine ausgeführte Zustandsübergabe",
+      "proof": "A0_JOINT_APPLICATION_DEMONSTRATOR.html#mechanism",
+      "sha256": "bcf361b30e9fe300b8cd50d5737c073f495521bcd00b06b11f4aa6ce82d49fb3"
+    }
+  ],
+  "ownerReference": {
+    "path": "/Users/tho2020/Desktop/mermaid-diagram (2).png",
+    "sha256": "181d92f0807ffb3aa7de3babdf6bd00dec1fca9ee32459da7eb28e703e4a09db",
+    "role": "Conceptual reference; not an executable wiring specification, no original altered"
+  },
+  "knownGovernanceBoundary": "Canonical baseline pins are not rewritten. A0 evidence binder currently reports nine hash mismatches: eight pre-existing targets plus A0_ORIENTATION_MACHINE after the explicitly requested standalone map loader was added. Only affected local implementation hashes are reconciled; canonical currentness acceptance remains open.",
+  "evidenceBinder": {
+    "status": "FAIL",
+    "hashMismatchCount": 9,
+    "newTarget": "SRC:A0OE:A0_ORIENTATION_MACHINE",
+    "reason": "Standalone orientation-machine HTML now loads the shared map; its canonical baseline was deliberately not overwritten",
+    "otherEightTargetsPreExisting": true
+  },
+  "authority": {
+    "newCanonicalIdentity": false,
+    "newCanonicalRelation": false,
+    "newFamily": false,
+    "newRegistry": false,
+    "researchActivation": false,
+    "scientificClaimPromotion": false,
+    "publication": false
+  },
+  "readingPath": {
+    "entry": "A0_TOURS.html#current-reading",
+    "sequence": [
+      "concepts / contact strip",
+      "state",
+      "matrix",
+      "contract",
+      "event ledger",
+      "tester",
+      "existing instruments",
+      "parked Quellfuge"
+    ],
+    "benchBuildPaused": true,
+    "browserAcceptance": false,
+    "visuals": [
+      {
+        "path": "assets/reading-sequence/01-state.png",
+        "originalPath": "/var/folders/3d/xzcg7l8n4kv1fk25bbmfgzx40000gn/T/TemporaryItems/NSIRD_screencaptureui_9ztCTK/Screenshot 2026-10-17 at 7.35.02 PM.png",
+        "sha256": "2acd9e1eca9259d59c8580bece4700626da64f1024cce5f9850863b044176a3a",
+        "role": "unchanged owner screenshot, not live telemetry or scientific evidence promotion"
+      },
+      {
+        "path": "assets/reading-sequence/02-matrix.jpeg",
+        "originalPath": "/Users/tho2020/Pictures/Photos Library.photoslibrary/resources/derivatives/6/664756B1-D578-4C4C-932F-BBBF8AEC7237_1_105_c.jpeg",
+        "sha256": "5c2190bf30aa05327a198fa4383cd81212fbaed0375b12651a6bc0ae26bd79d7",
+        "role": "unchanged owner screenshot, not live telemetry or scientific evidence promotion"
+      },
+      {
+        "path": "assets/reading-sequence/03-contract.jpeg",
+        "originalPath": "/Users/tho2020/Pictures/Photos Library.photoslibrary/resources/derivatives/7/7092290F-48BD-4960-BC3F-0B066EBA4A2D_1_105_c.jpeg",
+        "sha256": "d92bc9c2d947fc259a3a685b592cae7ddccaff2c80d17d0752e0c9c2a89fcccf",
+        "role": "unchanged owner screenshot, not live telemetry or scientific evidence promotion"
+      },
+      {
+        "path": "assets/reading-sequence/04-events.jpeg",
+        "originalPath": "/Users/tho2020/Pictures/Photos Library.photoslibrary/resources/derivatives/5/575C9A50-5C3A-422F-A935-2551A00113F5_1_105_c.jpeg",
+        "sha256": "f4dcbbe8e0576fa9e9716a3bfdce6e2ee4c3b1e074d12a53c3df871bfa8568ea",
+        "role": "unchanged owner screenshot, not live telemetry or scientific evidence promotion"
+      },
+      {
+        "path": "assets/reading-sequence/05-tester.png",
+        "originalPath": "/Users/tho2020/Pictures/Photos Library.photoslibrary/originals/5/53782D8F-D6E4-4DEF-B025-045421DFCCA0.png",
+        "sha256": "5fd3079f1b9b0e6c4e223f92fbd0efff31bc6582c1ba0cfc47ac8baa4975ebf7",
+        "role": "unchanged owner screenshot, not live telemetry or scientific evidence promotion"
+      }
+    ]
+  }
+}
