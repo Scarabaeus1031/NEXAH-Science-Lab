@@ -1,0 +1,80 @@
+{
+  "schema": "nexah.a0.projection-overlay.local/1",
+  "version": "1.0.0",
+  "asOf": "2026-10-17",
+  "status": "ENGINEERING_IMPLEMENTED_BROWSER_ACCEPTANCE_OPEN",
+  "identity": "Extends existing OCB / Root7 book and 5B view lenses; no new canonical identity or graph relation.",
+  "implementationFiles": [
+    {
+      "path": "A0_ORIENTATION_CONTROLLER_BENCH.html",
+      "sha256": "d111d3474ef663847b52392b798e7a56fcdf5d5cc44cc11500c77165f4e6edd5"
+    },
+    {
+      "path": "a0-projection-overlay.js",
+      "sha256": "deca38f24b82ad627e8fae2d50479f5f62146af2801bab7266507eade9eead04"
+    },
+    {
+      "path": "a0-fold-lag-lens.js",
+      "sha256": "091c8fb0ee0a5b136dd43efad6dea62e3b6814ec30c90fbdaae2e57e74ac0f42"
+    },
+    {
+      "path": "a0-root7-wing-sequence.js",
+      "sha256": "ba2b92721ba8cc138fca056edd98007f76567de9ccd600173dfb6ac47dfa49c7"
+    }
+  ],
+  "visualReferences": [
+    {
+      "path": "/Users/tho2020/Pictures/Photos Library.photoslibrary/resources/derivatives/3/3B00D911-950A-4672-9FD5-21E439E0B3EF_1_105_c.jpeg",
+      "sha256": "e70c43cd228908d2049b055df340159ae75f7c3131f3e6aca1ff009370018e69",
+      "role": "Owner grayscale-to-spectrum display reference only; image not copied."
+    },
+    {
+      "path": "/Users/tho2020/Pictures/Photos Library.photoslibrary/resources/derivatives/8/87CCE20D-529B-43C2-91B9-481C407DF880_1_105_c.jpeg",
+      "sha256": "daef0463292606c01c40637c9e16eee7c86e1668e822e64a12e4b37b33f442b3",
+      "role": "Owner Light Organ / Grey Space / retained trace reference only; no physical light or channel-constant claim."
+    }
+  ],
+  "contract": {
+    "streams": [
+      "book: actual wingSequence.facets/cuts via existing Q4 render",
+      "5b: actual synthetic pose via cloned onRender callback, including player frames",
+      "stack: layered-pentagon scene with common phase, reused H3 geometry, separate retained stream; see a0-layered-pentagon-scene-v1.json"
+    ],
+    "history": "64 latest visited snapshots per source since page load, consecutive identical snapshots deduplicated; no old-chat import, no reconstruction of unvisited frames; discarded count visible; local clear retains current pose.",
+    "projection": "Book shadow: model point [x,y,z] -> [x,y,0] -> original W.pose(turn,tilt). 5B shadow: reuses exact source-computed shadow coordinates including reflection. Echo retains old screen-frame projections; no physical illumination.",
+    "colours": "Red/blue book channel = source left/right; 5B = 1/3 versus 2/4. Spectrum = four facet colours and three cut colours, fixed source order.",
+    "greyshift": "g=(R+G+B)/3 on 8-bit display channels; output round(g+a*(channel-g)), a in [0,1]. Colour display transform only, not physical luminance, wavelength, additive-light law, or geometric equality.",
+    "layers": [
+      "current facets",
+      "parallel projected shadow",
+      "visited-pose echo plus historical shadow/cuts when enabled",
+      "exact current cuts (book only)"
+    ],
+    "clock": "No overlay timer, source writes, network or cross-window commands. Book, 5B and layered scene clocks feed passive updates. The layered scene itself has an explicitly local view player; it does not command the native Blue/Pink runtime.",
+    "export": "Selected source current snapshot, retained history, dropped count, settings and boundaries in a0-projection-overlay.json; replay drawing from exported geometry.",
+    "invalid": "HOLD hides geometry for invalid source; successful new source read recovers."
+  },
+  "openBoundaries": [
+    "No 60-face Blue/Pink/Dodeca runtime binding introduced; central stack geometry is a direct reuse of the H3 geometry factory, not a remote native face operator",
+    "No AM/VM/PM or M/LRRL canonical vocabulary binding",
+    "Other attached spiral/prime formulas, numbers 42–47, resonances and physics are not executed or adopted",
+    "No equality measurement inferred from a grey pixel"
+  ],
+  "localPinReconciliation": {
+    "previousHostHash": "e8cce469d553f05088844d98d23587804c775e517c08310f31306231928bed7e",
+    "currentHostHash": "1eca6b604c7cd6af833256121c57f61b45c824e673eb237fddf4d739ac049300",
+    "files": [
+      "assets/a0-life03-bench-binding-v1.json",
+      "assets/a0-root7-wing-sequence-v1.json",
+      "assets/a0-fold-lag-lens-v1.json"
+    ],
+    "reason": "Host overlay UI, passive Root7 read hook, and optional cloned 5B observer callback. Only local implementation pins updated; no scientific or canonical baseline repaired."
+  },
+  "authority": {
+    "newIdentity": false,
+    "newGraphRelation": false,
+    "researchActivation": false,
+    "scientificClaimPromotion": false,
+    "publication": false
+  }
+}

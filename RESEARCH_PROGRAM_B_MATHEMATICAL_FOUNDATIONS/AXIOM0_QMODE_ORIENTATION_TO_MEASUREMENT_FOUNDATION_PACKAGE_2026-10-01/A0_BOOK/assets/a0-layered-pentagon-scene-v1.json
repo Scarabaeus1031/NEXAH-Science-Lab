@@ -1,0 +1,109 @@
+{
+  "schema": "nexah.a0.layered-pentagon-scene.local/1",
+  "asOf": "2026-10-17",
+  "version": "1.0.0",
+  "status": "ENGINEERING_IMPLEMENTED_BROWSER_ACCEPTANCE_OPEN",
+  "entry": "A0_ORIENTATION_CONTROLLER_BENCH.html#root7ProjectionOverlay",
+  "reuse": "Extends the existing projection overlay; no new main HTML, canonical identity, graph relation, source face ledger or native runtime authority.",
+  "implementationFiles": [
+    {
+      "path": "A0_ORIENTATION_CONTROLLER_BENCH.html",
+      "sha256": "d111d3474ef663847b52392b798e7a56fcdf5d5cc44cc11500c77165f4e6edd5"
+    },
+    {
+      "path": "a0-layered-pentagon-scene.js",
+      "sha256": "319c8d35e19d2eebe65b526bab23ca212d7caf7465bca3bbda966423af99082d"
+    },
+    {
+      "path": "a0-projection-overlay.js",
+      "sha256": "deca38f24b82ad627e8fae2d50479f5f62146af2801bab7266507eade9eead04"
+    },
+    {
+      "path": "assets/a0-blue-body-dodeca-countershot-v1.js",
+      "sha256": "754d35adb0bfe30be44fe88db93bbc7e70e6e6b803c48b09873d143346318bc2"
+    }
+  ],
+  "ownerVisuals": [
+    {
+      "path": "/Users/tho2020/Pictures/Photos Library.photoslibrary/resources/derivatives/5/51384042-9E60-4682-97EA-3BDC0EA60FE4_1_102_o.jpeg",
+      "sha256": "9fbab0e85e9c893fbcc13b93f7c521b9062b8988abec3a0ed32517bc79cb9381",
+      "role": "Three transparent pentagons; layout reference only."
+    },
+    {
+      "path": "/Users/tho2020/Pictures/Photos Library.photoslibrary/resources/derivatives/7/7F8DA149-6C52-4A36-90A2-A5CCF85D15CE_1_102_o.jpeg",
+      "sha256": "49d03cd9a15f35d074e3d133bd3279f7b569fc17b7ebb5c043ae70858caa4c56",
+      "role": "Red/green overlap with white edges; not a measured 3D reconstruction."
+    },
+    {
+      "path": "/Users/tho2020/Pictures/Photos Library.photoslibrary/resources/derivatives/5/52222ECD-52B5-4375-A7BD-C5D492FA658A_1_102_o.jpeg",
+      "sha256": "e6990b89aeb944990b35f5ea55e41fe71414286014f03541cdb5ac1e84045e63",
+      "role": "Rings and magenta two-lobe curve; display reference only."
+    }
+  ],
+  "contract": {
+    "pentagons": "Three regular planar pentagons with common center and unit radius; C fixed at 18°. IDs P-A/P-B/P-C are local layer labels, not new canonical faces.",
+    "motion": {
+      "counter": "A=3φ, B=36°−2φ, C=18°",
+      "together": "A=φ, B=36°+φ, C=18°",
+      "phase": "0..360°; central H3 orientation and magenta marker use the same φ",
+      "classification": "Owner-proposed constructed view rule, not derived from image measurements or numeric markers"
+    },
+    "geometry": "CCW convex half-plane clipping computes A∩B, A\\B and B\\A. At φ=0 the differences have five components each and the intersection ten vertices. Counts are recomputed, not fixed; aligned poses have zero difference and five intersection vertices.",
+    "negativeSpace": "SVG mask: disk of radius 1.12 minus the union of visible pentagons. This is bounded 2D negative space, not black 3D pyramids or a packing proof.",
+    "dodeca": "Unchanged existing H3 geometry factory supplies original 20 vertices, 30 edges, 12 face IDs/index lists. A uniform 0.65/maxRadius display scale and rigid rotations are applied; no native 60-cell controller commands.",
+    "lenses": "Two elliptic clipping windows of the same scene: centers (−.35,0),(+.35,0), radii (.82,.68). No refraction or physical light model.",
+    "curve": "Declared planar reference x=1.12 sin(t), y=.43 sin(2t); not a literal Möbius band.",
+    "colours": "Source palette A red, B green, C violet; alternative palette red/blue/yellow. Uses existing arithmetic greyshift display transform; no geometric equality inferred.",
+    "history": "Third independent overlay stream stack, latest 64 visited snapshots; record/pause/clear/export use existing overlay mechanisms. Existing book and 5B histories stay separate.",
+    "playback": "One scene interval, 40ms per 2° phase step, explicitly started by owner. Stops at 360° unless Repeat enabled. Manual phase/mode or hidden tab pauses. Host interlocks pause Q4/5B/Master before scene play; source selection away from stack pauses scene. Q4/5B/Master play pauses scene.",
+    "return": "Geometry at φ=360 equals φ=0 within exact normalized-angle construction. This is pose Return only, never native source Return.",
+    "export": "Overlay JSON retains full constructed scene per recorded frame; global integration snapshot adds layeredScene state and stack history."
+  },
+  "open": [
+    "No native Blue/Pink face selection/hinge/ACK/Return connection",
+    "No 1836/1729/19/1929 mapping, primeness/frequency or AM/VM/PM/M/LRRL adoption",
+    "No spatial pyramid construction, solid assembly, gap-free packing, optical lens or Möbius topology claim",
+    "Full host browser/pixel acceptance remains open"
+  ],
+  "localPinReconciliation": {
+    "previousHost": "0a3b00b9e00ec164a5f2aef784735a7a0ed6aed84ef6f5d5f5b7abb25d92bb6d",
+    "currentHost": "d111d3474ef663847b52392b798e7a56fcdf5d5cc44cc11500c77165f4e6edd5",
+    "scope": "Only affected local host/overlay implementation pins, not canonical currentness baselines."
+  },
+  "authority": {
+    "newCanonicalIdentity": false,
+    "newGraphRelation": false,
+    "researchActivation": false,
+    "scientificClaimPromotion": false,
+    "publication": false
+  },
+  "nestedLensExtension": {
+    "status": "ENGINEERING_IMPLEMENTED_BROWSER_ACCEPTANCE_OPEN",
+    "sameState": true,
+    "secondClock": false,
+    "focus": "(.65 sin(t), .35 sin(2t)); t=(phase+360*offset) degrees",
+    "radius": 0.43,
+    "overviewCenter": [
+      250,
+      230
+    ],
+    "overviewScale": 120,
+    "transform": "detail(q)=overview(focus)+120*magnification*(q-focus), screen y inverted",
+    "ratios": [
+      "1",
+      "13/8",
+      "21/13",
+      "34/21"
+    ],
+    "offset": "0..1, view-only μ; manual input pauses shared player",
+    "trail": "last 64 visited source focus positions, cleared with existing source history",
+    "physicalOptics": false,
+    "primeRGB": "Owner arithmetic mapping 29+41+13=83; not a frequency or RGB transfer function",
+    "fibonacciBridge": "41 → F → 13 is an unadopted hypothesis; 13 is Fibonacci, 41 is not",
+    "elevenWinds": {
+      "source": "../../../SCIENCE_LAB/CASE_STUDIES/WFR01_WIND_FIELD_FLOW_RETYPING_AUDIT/10_PLUS11_WIND_RECOVERY.md",
+      "semanticsRecovered": false,
+      "implementedStates": false
+    }
+  }
+}

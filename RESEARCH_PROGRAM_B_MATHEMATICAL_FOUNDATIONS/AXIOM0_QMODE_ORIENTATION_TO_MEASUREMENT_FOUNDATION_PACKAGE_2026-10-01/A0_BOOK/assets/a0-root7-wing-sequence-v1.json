@@ -1,0 +1,137 @@
+{
+  "schema": "nexah.a0.root7-wing-sequence.local/1",
+  "asOf": "2026-10-17",
+  "version": "1.0.0",
+  "status": "ENGINEERING_IMPLEMENTED_BROWSER_ACCEPTANCE_OPEN",
+  "identity": "Extends the existing A0 Root7/book view, no new canonical identity or relation.",
+  "implementationFiles": [
+    {
+      "path": "a0-root7-wing-sequence.js",
+      "sha256": "ba2b92721ba8cc138fca056edd98007f76567de9ccd600173dfb6ac47dfa49c7"
+    },
+    {
+      "path": "a0-root7-open-book.js",
+      "sha256": "e06d63fa65855fa6f620f7b84c40983dcea2d938fb61ea41312c3f923bd41709"
+    },
+    {
+      "path": "a0-root7-q4-coupling.js",
+      "sha256": "5036d0f8d6521a40917e951bd600ac38e33d6260980d0b920b96f8cf19c924d4"
+    },
+    {
+      "path": "A0_ORIENTATION_CONTROLLER_BENCH.html",
+      "sha256": "d111d3474ef663847b52392b798e7a56fcdf5d5cc44cc11500c77165f4e6edd5"
+    },
+    {
+      "path": "a0-root7-q4-coupling.css",
+      "sha256": "a950b46b248facfce45540156ba09012b30b3d26a63c6594598c40ae69a9c7ab"
+    }
+  ],
+  "originalBookVisual": {
+    "path": "/Users/tho2020/Pictures/Photos Library.photoslibrary/resources/derivatives/6/6A30A94D-989F-4B23-B308-9499A5F4745A_1_105_c.jpeg",
+    "sha256": "3c8df3d4f731c2a810c77d300eba477a1f083fa73964706455b040209ee8d0d3",
+    "title": "PRIME–Riemann Transport Dynamics / Dual Pentagon System",
+    "source": "user attachment visual 4 (also repeated as visual 5)",
+    "role": "visual correspondence only; image claims and equations not adopted; local-only attachment path"
+  },
+  "ownerVisuals": [
+    {
+      "role": "postit-1",
+      "path": "/Users/tho2020/Pictures/Photos Library.photoslibrary/resources/derivatives/8/8AFBBBEE-E4E2-4B00-BBCD-EA922EB69310_1_105_c.jpeg",
+      "sha256": "78b4cdf73913a27ff1eb5f6cb8b50e257aef57fe4d7cc1199263dec83e48ccf5",
+      "copied": false,
+      "evidenceRole": "Owner-supplied visual/source reading; not recovered coordinates, angles or physical law."
+    },
+    {
+      "role": "postit-2",
+      "path": "/Users/tho2020/Pictures/Photos Library.photoslibrary/resources/derivatives/A/A17E15B3-D76B-44A9-9797-6AECDF5BF253_1_105_c.jpeg",
+      "sha256": "f77d5d20804ad028b3b6cfe6fdf7ca6290cd260b7192f43fe0d68baa73cfa73b",
+      "copied": false,
+      "evidenceRole": "Owner-supplied visual/source reading; not recovered coordinates, angles or physical law."
+    },
+    {
+      "role": "postit-3",
+      "path": "/Users/tho2020/Pictures/Photos Library.photoslibrary/resources/derivatives/6/6C47966A-F6AE-4A29-B158-F26D318AEBFE_1_105_c.jpeg",
+      "sha256": "a9e2ee6675695f1b113a63b12203a7a86aeb8a085a70bae9069af5caab6a7d70",
+      "copied": false,
+      "evidenceRole": "Owner-supplied visual/source reading; not recovered coordinates, angles or physical law."
+    },
+    {
+      "role": "hourglass-source-reading",
+      "path": "/Users/tho2020/Pictures/Photos Library.photoslibrary/resources/derivatives/B/B01BCDE0-B965-4122-80BF-D7F3C9C6F9D5_1_102_o.jpeg",
+      "sha256": "c2b283f1e72df23c0968bb0d5c70f693880d900232a5ded95b8d001185a620a6",
+      "copied": false,
+      "evidenceRole": "Owner-supplied visual/source reading; not recovered coordinates, angles or physical law."
+    },
+    {
+      "role": "wing-field-source-reading",
+      "path": "/Users/tho2020/Pictures/Photos Library.photoslibrary/resources/derivatives/0/02406BB3-E906-4795-B810-0D660FF328E3_1_105_c.jpeg",
+      "sha256": "b018d3587cb49d94c87dc1b3e68543b755ce18b93bbaecfdf6248d7d4b448aa3",
+      "copied": false,
+      "evidenceRole": "Owner-supplied visual/source reading; not recovered coordinates, angles or physical law."
+    }
+  ],
+  "geometry": {
+    "carrier": "Two declared nonregular pentagon sheets on the existing rhombus construction; split into four rigid facets for alternate crease use.",
+    "operations": [
+      "Signed opening through closure to opposite branch",
+      "One active intrinsic crease: spine or local transverse middle",
+      "Rigid whole-motif CCW rotation about orthographic view normal",
+      "Independent inspection tilt",
+      "Three explicit plane/facet intersections in camera coordinates"
+    ],
+    "reference": "Outer screen-plane cross stays fixed; intrinsic crease rotates with the object.",
+    "creaseSwitch": "Only performed flat in manual UI; sequence changes crease at the common front-flat material registration. No simultaneous independent origami-crease compatibility claim.",
+    "facing": "V/R comes from facet normal. Source violet/gold or owner-proposed green/black plus red/black; reverse is black with dashed colored edge.",
+    "cutEquation": "sin(gamma)*cameraX + cos(gamma)*cameraZ = offset; three planes gamma-20, gamma, gamma+20; exact segment/tangent/coplanar cases.",
+    "projection": "Orthographic declared camera; no recovered photograph metric. Camera coordinates and model coordinates retained per facet."
+  },
+  "sequence": {
+    "stations": 16,
+    "phases": "Declared construction in a0-root7-wing-sequence.js; not recovered historical video timing or Θ/TAO/DAO identification.",
+    "clock": "Existing Q4 source only; no new timer. Explicit button restarts Q4 sequence at tick 0, automatic pause at tick 15.",
+    "return": "Phase 15 restores the phase-0 pose and material identities; Q4 address/tick and history do not return. Manual pose reset also does not reset Q4."
+  },
+  "scopeBoundaries": [
+    "No Sun/Moon ephemeris or astronomical gate",
+    "No physical time-field, resonance or universal operator",
+    "No identification of phi / sqrt3 labels with the model metric",
+    "Historical syllables, 6-C¡D-6 and additional stage correspondences remain unresolved",
+    "No new source-state or global Master return claimed"
+  ],
+  "authority": {
+    "newCanonicalIdentity": false,
+    "newGraphRelation": false,
+    "researchRun": false,
+    "claimPromotion": false,
+    "publication": false,
+    "browserAcceptance": false
+  },
+  "localPinReconciliation": [
+    {
+      "file": "assets/a0-root7-q4-coupling-v1.json",
+      "updated": [
+        {
+          "path": "a0-root7-q4-coupling.js",
+          "previous": "555870cd53c25f794641c4db35b42b7e334ab694c71fd7b55f63862c7676ee73",
+          "observed": "5036d0f8d6521a40917e951bd600ac38e33d6260980d0b920b96f8cf19c924d4"
+        },
+        {
+          "path": "a0-root7-open-book.js",
+          "previous": "9df1fdece058ddc503d54ffe42c0c5259c3a65758a2bb2217109e773c874a054",
+          "observed": "e06d63fa65855fa6f620f7b84c40983dcea2d938fb61ea41312c3f923bd41709"
+        }
+      ]
+    },
+    {
+      "file": "assets/a0-life03-bench-binding-v1.json",
+      "updated": [
+        {
+          "path": "A0_ORIENTATION_CONTROLLER_BENCH.html",
+          "previous": "623810ac4c4c4bf71fcf58bb4b9efe7db1e88b4b18d3f5af95d3d1aab928fe54",
+          "observed": "b19a638d7b52520184e33a574b24d06e70041e3a59a425c26e335f57122f82f0"
+        }
+      ]
+    }
+  ],
+  "engineeringTests": "a0-root7-wing-sequence-tests.cjs"
+}

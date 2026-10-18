@@ -1,0 +1,1093 @@
+{
+  "schema": "nexah.a0.pentagon-joint-demo/1",
+  "run": {
+    "status": "COMPLETE",
+    "confirmed": 10,
+    "phase": "RECORD",
+    "message": "Gemeinsamer Lauf bestanden · 10/10 Cues bestätigt · UI_STATE_RETURN_EXACT",
+    "acceptance": {
+      "status": "MASTER_PENT_UI_RETURN_EXACT",
+      "baseline": {
+        "sourceHash": "4cfc870b3fcbe0d97c34098a1cd0767c79e0d3e316208da5a43575f17cc846f6",
+        "revision": 10,
+        "state": {
+          "mode": "coupling",
+          "op": "m",
+          "growthStep": "5",
+          "couplingView": "cycles",
+          "dRegister": 1,
+          "branchWord": "LRRL"
+        },
+        "rendered": {
+          "mode": "coupling",
+          "op": "m",
+          "growthStep": "5",
+          "couplingView": "cycles",
+          "dRegister": 1,
+          "branchWord": "LRRL"
+        },
+        "phase": 0,
+        "resultText": "PENT-07 · PASS WITH BOUNDARY · carrier cycles · carrier, register and mask remain distinct",
+        "svgElements": 91
+      },
+      "receipt": {
+        "status": "UI_STATE_RETURN_EXACT",
+        "scope": "six fields + rendered controls",
+        "before": {
+          "sourceHash": "4cfc870b3fcbe0d97c34098a1cd0767c79e0d3e316208da5a43575f17cc846f6",
+          "revision": 19,
+          "state": {
+            "mode": "d30",
+            "op": "m",
+            "growthStep": "5",
+            "couplingView": "triangles",
+            "dRegister": 2,
+            "branchWord": "LRRL"
+          },
+          "rendered": {
+            "mode": "d30",
+            "op": "m",
+            "growthStep": "5",
+            "couplingView": "triangles",
+            "dRegister": 2,
+            "branchWord": "LRRL"
+          },
+          "phase": 0,
+          "resultText": "PENT-07 · D30 VIEW · formal design validation · exact state key (Dj,n,p); (Dj,p) remains lossy",
+          "svgElements": 55
+        },
+        "anchor": {
+          "sourceHash": "4cfc870b3fcbe0d97c34098a1cd0767c79e0d3e316208da5a43575f17cc846f6",
+          "revision": 10,
+          "state": {
+            "mode": "coupling",
+            "op": "m",
+            "growthStep": "5",
+            "couplingView": "cycles",
+            "dRegister": 1,
+            "branchWord": "LRRL"
+          },
+          "kind": "MASTER_START_UI_ANCHOR"
+        },
+        "after": {
+          "sourceHash": "4cfc870b3fcbe0d97c34098a1cd0767c79e0d3e316208da5a43575f17cc846f6",
+          "revision": 20,
+          "state": {
+            "mode": "coupling",
+            "op": "m",
+            "growthStep": "5",
+            "couplingView": "cycles",
+            "dRegister": 1,
+            "branchWord": "LRRL"
+          },
+          "rendered": {
+            "mode": "coupling",
+            "op": "m",
+            "growthStep": "5",
+            "couplingView": "cycles",
+            "dRegister": 1,
+            "branchWord": "LRRL"
+          },
+          "phase": 0,
+          "resultText": "PENT-07 · PASS WITH BOUNDARY · carrier cycles · carrier, register and mask remain distinct",
+          "svgElements": 91
+        },
+        "historyEqual": false,
+        "full106NodeAddressProvided": false
+      },
+      "confirmedCues": [
+        "SOURCE",
+        "OPERATOR",
+        "EDGE",
+        "SHADOW",
+        "FAMILY",
+        "GRID",
+        "RETURN",
+        "FOLD",
+        "ROOT",
+        "RECORD"
+      ],
+      "scope": "Six UI fields + rendered controls; no whole-machine or scientific acceptance"
+    }
+  },
+  "pentagon": {
+    "schema": "nexah.a0.pentagon-bench-connection/1",
+    "sourceHash": "4cfc870b3fcbe0d97c34098a1cd0767c79e0d3e316208da5a43575f17cc846f6",
+    "status": "READY",
+    "followMaster": false,
+    "pending": null,
+    "lastConfirmed": {
+      "sourceHash": "4cfc870b3fcbe0d97c34098a1cd0767c79e0d3e316208da5a43575f17cc846f6",
+      "revision": 20,
+      "state": {
+        "mode": "coupling",
+        "op": "m",
+        "growthStep": "5",
+        "couplingView": "cycles",
+        "dRegister": 1,
+        "branchWord": "LRRL"
+      },
+      "rendered": {
+        "mode": "coupling",
+        "op": "m",
+        "growthStep": "5",
+        "couplingView": "cycles",
+        "dRegister": 1,
+        "branchWord": "LRRL"
+      },
+      "phase": 0,
+      "resultText": "PENT-07 · PASS WITH BOUNDARY · carrier cycles · carrier, register and mask remain distinct",
+      "svgElements": 91
+    },
+    "currentWitness": {
+      "sourceHash": "4cfc870b3fcbe0d97c34098a1cd0767c79e0d3e316208da5a43575f17cc846f6",
+      "revision": 20,
+      "state": {
+        "mode": "coupling",
+        "op": "m",
+        "growthStep": "5",
+        "couplingView": "cycles",
+        "dRegister": 1,
+        "branchWord": "LRRL"
+      },
+      "rendered": {
+        "mode": "coupling",
+        "op": "m",
+        "growthStep": "5",
+        "couplingView": "cycles",
+        "dRegister": 1,
+        "branchWord": "LRRL"
+      },
+      "phase": 0,
+      "resultText": "PENT-07 · PASS WITH BOUNDARY · carrier cycles · carrier, register and mask remain distinct",
+      "svgElements": 91
+    },
+    "anchor": {
+      "sourceHash": "4cfc870b3fcbe0d97c34098a1cd0767c79e0d3e316208da5a43575f17cc846f6",
+      "revision": 2,
+      "state": {
+        "mode": "structure",
+        "op": "m",
+        "growthStep": "5",
+        "couplingView": "cycles",
+        "dRegister": 0,
+        "branchWord": "LRRL"
+      },
+      "kind": "EXPLICIT_UI_ANCHOR"
+    },
+    "returnReceipt": {
+      "status": "UI_STATE_RETURN_EXACT",
+      "scope": "six fields + rendered controls",
+      "before": {
+        "sourceHash": "4cfc870b3fcbe0d97c34098a1cd0767c79e0d3e316208da5a43575f17cc846f6",
+        "revision": 19,
+        "state": {
+          "mode": "d30",
+          "op": "m",
+          "growthStep": "5",
+          "couplingView": "triangles",
+          "dRegister": 2,
+          "branchWord": "LRRL"
+        },
+        "rendered": {
+          "mode": "d30",
+          "op": "m",
+          "growthStep": "5",
+          "couplingView": "triangles",
+          "dRegister": 2,
+          "branchWord": "LRRL"
+        },
+        "phase": 0,
+        "resultText": "PENT-07 · D30 VIEW · formal design validation · exact state key (Dj,n,p); (Dj,p) remains lossy",
+        "svgElements": 55
+      },
+      "anchor": {
+        "sourceHash": "4cfc870b3fcbe0d97c34098a1cd0767c79e0d3e316208da5a43575f17cc846f6",
+        "revision": 10,
+        "state": {
+          "mode": "coupling",
+          "op": "m",
+          "growthStep": "5",
+          "couplingView": "cycles",
+          "dRegister": 1,
+          "branchWord": "LRRL"
+        },
+        "kind": "MASTER_START_UI_ANCHOR"
+      },
+      "after": {
+        "sourceHash": "4cfc870b3fcbe0d97c34098a1cd0767c79e0d3e316208da5a43575f17cc846f6",
+        "revision": 20,
+        "state": {
+          "mode": "coupling",
+          "op": "m",
+          "growthStep": "5",
+          "couplingView": "cycles",
+          "dRegister": 1,
+          "branchWord": "LRRL"
+        },
+        "rendered": {
+          "mode": "coupling",
+          "op": "m",
+          "growthStep": "5",
+          "couplingView": "cycles",
+          "dRegister": 1,
+          "branchWord": "LRRL"
+        },
+        "phase": 0,
+        "resultText": "PENT-07 · PASS WITH BOUNDARY · carrier cycles · carrier, register and mask remain distinct",
+        "svgElements": 91
+      },
+      "historyEqual": false,
+      "full106NodeAddressProvided": false
+    },
+    "history": [
+      {
+        "kind": "LOAD",
+        "sourceHash": "4cfc870b3fcbe0d97c34098a1cd0767c79e0d3e316208da5a43575f17cc846f6"
+      },
+      {
+        "kind": "ACK",
+        "seq": 1,
+        "action": "HELLO",
+        "witness": {
+          "sourceHash": "4cfc870b3fcbe0d97c34098a1cd0767c79e0d3e316208da5a43575f17cc846f6",
+          "revision": 0,
+          "state": {
+            "mode": "structure",
+            "op": "0",
+            "growthStep": "5",
+            "couplingView": "cycles",
+            "dRegister": 0,
+            "branchWord": "LRRL"
+          },
+          "rendered": {
+            "mode": "structure",
+            "op": "0",
+            "growthStep": "5",
+            "couplingView": "cycles",
+            "dRegister": 0,
+            "branchWord": "LRRL"
+          },
+          "phase": 0,
+          "resultText": "PENT-01 · PASS · connected weighted recurrence carrier",
+          "svgElements": 330
+        }
+      },
+      {
+        "kind": "MASTER_CUE",
+        "phase": "SOURCE",
+        "rule": "VIEW:structure; op=0"
+      },
+      {
+        "kind": "ACK",
+        "seq": 2,
+        "action": "SET",
+        "witness": {
+          "sourceHash": "4cfc870b3fcbe0d97c34098a1cd0767c79e0d3e316208da5a43575f17cc846f6",
+          "revision": 1,
+          "state": {
+            "mode": "structure",
+            "op": "0",
+            "growthStep": "5",
+            "couplingView": "cycles",
+            "dRegister": 0,
+            "branchWord": "LRRL"
+          },
+          "rendered": {
+            "mode": "structure",
+            "op": "0",
+            "growthStep": "5",
+            "couplingView": "cycles",
+            "dRegister": 0,
+            "branchWord": "LRRL"
+          },
+          "phase": 0,
+          "resultText": "PENT-01 · PASS · connected weighted recurrence carrier",
+          "svgElements": 330
+        }
+      },
+      {
+        "kind": "MASTER_CUE",
+        "phase": "OPERATOR",
+        "rule": "STRUCTURE_OP:m"
+      },
+      {
+        "kind": "ACK",
+        "seq": 3,
+        "action": "SET",
+        "witness": {
+          "sourceHash": "4cfc870b3fcbe0d97c34098a1cd0767c79e0d3e316208da5a43575f17cc846f6",
+          "revision": 2,
+          "state": {
+            "mode": "structure",
+            "op": "m",
+            "growthStep": "5",
+            "couplingView": "cycles",
+            "dRegister": 0,
+            "branchWord": "LRRL"
+          },
+          "rendered": {
+            "mode": "structure",
+            "op": "m",
+            "growthStep": "5",
+            "couplingView": "cycles",
+            "dRegister": 0,
+            "branchWord": "LRRL"
+          },
+          "phase": 0,
+          "resultText": "PENT-01 · PASS · connected weighted recurrence carrier",
+          "svgElements": 330
+        }
+      },
+      {
+        "kind": "ACK",
+        "seq": 4,
+        "action": "READ",
+        "witness": {
+          "sourceHash": "4cfc870b3fcbe0d97c34098a1cd0767c79e0d3e316208da5a43575f17cc846f6",
+          "revision": 2,
+          "state": {
+            "mode": "structure",
+            "op": "m",
+            "growthStep": "5",
+            "couplingView": "cycles",
+            "dRegister": 0,
+            "branchWord": "LRRL"
+          },
+          "rendered": {
+            "mode": "structure",
+            "op": "m",
+            "growthStep": "5",
+            "couplingView": "cycles",
+            "dRegister": 0,
+            "branchWord": "LRRL"
+          },
+          "phase": 0,
+          "resultText": "PENT-01 · PASS · connected weighted recurrence carrier",
+          "svgElements": 330
+        }
+      },
+      {
+        "kind": "ACK",
+        "seq": 5,
+        "action": "SET",
+        "witness": {
+          "sourceHash": "4cfc870b3fcbe0d97c34098a1cd0767c79e0d3e316208da5a43575f17cc846f6",
+          "revision": 3,
+          "state": {
+            "mode": "d30",
+            "op": "m",
+            "growthStep": "5",
+            "couplingView": "cycles",
+            "dRegister": 1,
+            "branchWord": "LRRL"
+          },
+          "rendered": {
+            "mode": "d30",
+            "op": "m",
+            "growthStep": "5",
+            "couplingView": "cycles",
+            "dRegister": 1,
+            "branchWord": "LRRL"
+          },
+          "phase": 0,
+          "resultText": "PENT-07 · D30 VIEW · formal design validation · exact state key (Dj,n,p); (Dj,p) remains lossy",
+          "svgElements": 55
+        }
+      },
+      {
+        "kind": "ACK",
+        "seq": 6,
+        "action": "RETURN",
+        "witness": {
+          "sourceHash": "4cfc870b3fcbe0d97c34098a1cd0767c79e0d3e316208da5a43575f17cc846f6",
+          "revision": 4,
+          "state": {
+            "mode": "structure",
+            "op": "m",
+            "growthStep": "5",
+            "couplingView": "cycles",
+            "dRegister": 0,
+            "branchWord": "LRRL"
+          },
+          "rendered": {
+            "mode": "structure",
+            "op": "m",
+            "growthStep": "5",
+            "couplingView": "cycles",
+            "dRegister": 0,
+            "branchWord": "LRRL"
+          },
+          "phase": 0,
+          "resultText": "PENT-01 · PASS · connected weighted recurrence carrier",
+          "svgElements": 330
+        }
+      },
+      {
+        "kind": "RETURN",
+        "receipt": {
+          "status": "UI_STATE_RETURN_EXACT",
+          "scope": "six fields + rendered controls",
+          "before": {
+            "sourceHash": "4cfc870b3fcbe0d97c34098a1cd0767c79e0d3e316208da5a43575f17cc846f6",
+            "revision": 3,
+            "state": {
+              "mode": "d30",
+              "op": "m",
+              "growthStep": "5",
+              "couplingView": "cycles",
+              "dRegister": 1,
+              "branchWord": "LRRL"
+            },
+            "rendered": {
+              "mode": "d30",
+              "op": "m",
+              "growthStep": "5",
+              "couplingView": "cycles",
+              "dRegister": 1,
+              "branchWord": "LRRL"
+            },
+            "phase": 0,
+            "resultText": "PENT-07 · D30 VIEW · formal design validation · exact state key (Dj,n,p); (Dj,p) remains lossy",
+            "svgElements": 55
+          },
+          "anchor": {
+            "sourceHash": "4cfc870b3fcbe0d97c34098a1cd0767c79e0d3e316208da5a43575f17cc846f6",
+            "revision": 2,
+            "state": {
+              "mode": "structure",
+              "op": "m",
+              "growthStep": "5",
+              "couplingView": "cycles",
+              "dRegister": 0,
+              "branchWord": "LRRL"
+            },
+            "kind": "EXPLICIT_UI_ANCHOR"
+          },
+          "after": {
+            "sourceHash": "4cfc870b3fcbe0d97c34098a1cd0767c79e0d3e316208da5a43575f17cc846f6",
+            "revision": 4,
+            "state": {
+              "mode": "structure",
+              "op": "m",
+              "growthStep": "5",
+              "couplingView": "cycles",
+              "dRegister": 0,
+              "branchWord": "LRRL"
+            },
+            "rendered": {
+              "mode": "structure",
+              "op": "m",
+              "growthStep": "5",
+              "couplingView": "cycles",
+              "dRegister": 0,
+              "branchWord": "LRRL"
+            },
+            "phase": 0,
+            "resultText": "PENT-01 · PASS · connected weighted recurrence carrier",
+            "svgElements": 330
+          },
+          "historyEqual": false,
+          "full106NodeAddressProvided": false
+        }
+      },
+      {
+        "kind": "MASTER_CUE",
+        "phase": "SOURCE",
+        "rule": "VIEW:structure; op=0"
+      },
+      {
+        "kind": "ACK",
+        "seq": 7,
+        "action": "SET",
+        "witness": {
+          "sourceHash": "4cfc870b3fcbe0d97c34098a1cd0767c79e0d3e316208da5a43575f17cc846f6",
+          "revision": 5,
+          "state": {
+            "mode": "structure",
+            "op": "0",
+            "growthStep": "5",
+            "couplingView": "cycles",
+            "dRegister": 0,
+            "branchWord": "LRRL"
+          },
+          "rendered": {
+            "mode": "structure",
+            "op": "0",
+            "growthStep": "5",
+            "couplingView": "cycles",
+            "dRegister": 0,
+            "branchWord": "LRRL"
+          },
+          "phase": 0,
+          "resultText": "PENT-01 · PASS · connected weighted recurrence carrier",
+          "svgElements": 330
+        }
+      },
+      {
+        "kind": "MASTER_CUE",
+        "phase": "OPERATOR",
+        "rule": "STRUCTURE_OP:m"
+      },
+      {
+        "kind": "ACK",
+        "seq": 8,
+        "action": "SET",
+        "witness": {
+          "sourceHash": "4cfc870b3fcbe0d97c34098a1cd0767c79e0d3e316208da5a43575f17cc846f6",
+          "revision": 6,
+          "state": {
+            "mode": "structure",
+            "op": "m",
+            "growthStep": "5",
+            "couplingView": "cycles",
+            "dRegister": 0,
+            "branchWord": "LRRL"
+          },
+          "rendered": {
+            "mode": "structure",
+            "op": "m",
+            "growthStep": "5",
+            "couplingView": "cycles",
+            "dRegister": 0,
+            "branchWord": "LRRL"
+          },
+          "phase": 0,
+          "resultText": "PENT-01 · PASS · connected weighted recurrence carrier",
+          "svgElements": 330
+        }
+      },
+      {
+        "kind": "MASTER_CUE",
+        "phase": "EDGE",
+        "rule": "D30_ROTATE"
+      },
+      {
+        "kind": "ACK",
+        "seq": 9,
+        "action": "SET",
+        "witness": {
+          "sourceHash": "4cfc870b3fcbe0d97c34098a1cd0767c79e0d3e316208da5a43575f17cc846f6",
+          "revision": 7,
+          "state": {
+            "mode": "d30",
+            "op": "m",
+            "growthStep": "5",
+            "couplingView": "cycles",
+            "dRegister": 1,
+            "branchWord": "LRRL"
+          },
+          "rendered": {
+            "mode": "d30",
+            "op": "m",
+            "growthStep": "5",
+            "couplingView": "cycles",
+            "dRegister": 1,
+            "branchWord": "LRRL"
+          },
+          "phase": 0,
+          "resultText": "PENT-07 · D30 VIEW · formal design validation · exact state key (Dj,n,p); (Dj,p) remains lossy",
+          "svgElements": 55
+        }
+      },
+      {
+        "kind": "MASTER_CUE",
+        "phase": "SHADOW",
+        "rule": "VIEW:lift"
+      },
+      {
+        "kind": "ACK",
+        "seq": 10,
+        "action": "SET",
+        "witness": {
+          "sourceHash": "4cfc870b3fcbe0d97c34098a1cd0767c79e0d3e316208da5a43575f17cc846f6",
+          "revision": 8,
+          "state": {
+            "mode": "lift",
+            "op": "m",
+            "growthStep": "5",
+            "couplingView": "cycles",
+            "dRegister": 1,
+            "branchWord": "LRRL"
+          },
+          "rendered": {
+            "mode": "lift",
+            "op": "m",
+            "growthStep": "5",
+            "couplingView": "cycles",
+            "dRegister": 1,
+            "branchWord": "LRRL"
+          },
+          "phase": 0,
+          "resultText": "PENT-04 · PASS · Euler 2 · 182 glued nodes · 20 verified actions",
+          "svgElements": 52
+        }
+      },
+      {
+        "kind": "MASTER_CUE",
+        "phase": "FAMILY",
+        "rule": "VIEW:roots"
+      },
+      {
+        "kind": "ACK",
+        "seq": 11,
+        "action": "SET",
+        "witness": {
+          "sourceHash": "4cfc870b3fcbe0d97c34098a1cd0767c79e0d3e316208da5a43575f17cc846f6",
+          "revision": 9,
+          "state": {
+            "mode": "roots",
+            "op": "m",
+            "growthStep": "5",
+            "couplingView": "cycles",
+            "dRegister": 1,
+            "branchWord": "LRRL"
+          },
+          "rendered": {
+            "mode": "roots",
+            "op": "m",
+            "growthStep": "5",
+            "couplingView": "cycles",
+            "dRegister": 1,
+            "branchWord": "LRRL"
+          },
+          "phase": 0,
+          "resultText": "PENT-05 · PASS · rank 3 · 12 roots · reflection group order 20",
+          "svgElements": 31
+        }
+      },
+      {
+        "kind": "MASTER_CUE",
+        "phase": "GRID",
+        "rule": "COUPLING:cycles"
+      },
+      {
+        "kind": "ACK",
+        "seq": 12,
+        "action": "SET",
+        "witness": {
+          "sourceHash": "4cfc870b3fcbe0d97c34098a1cd0767c79e0d3e316208da5a43575f17cc846f6",
+          "revision": 10,
+          "state": {
+            "mode": "coupling",
+            "op": "m",
+            "growthStep": "5",
+            "couplingView": "cycles",
+            "dRegister": 1,
+            "branchWord": "LRRL"
+          },
+          "rendered": {
+            "mode": "coupling",
+            "op": "m",
+            "growthStep": "5",
+            "couplingView": "cycles",
+            "dRegister": 1,
+            "branchWord": "LRRL"
+          },
+          "phase": 0,
+          "resultText": "PENT-07 · PASS WITH BOUNDARY · carrier cycles · carrier, register and mask remain distinct",
+          "svgElements": 91
+        }
+      },
+      {
+        "kind": "MASTER_CUE",
+        "phase": "SOURCE",
+        "rule": "VIEW:structure; op=0"
+      },
+      {
+        "kind": "ACK",
+        "seq": 13,
+        "action": "SET",
+        "witness": {
+          "sourceHash": "4cfc870b3fcbe0d97c34098a1cd0767c79e0d3e316208da5a43575f17cc846f6",
+          "revision": 11,
+          "state": {
+            "mode": "structure",
+            "op": "0",
+            "growthStep": "5",
+            "couplingView": "cycles",
+            "dRegister": 1,
+            "branchWord": "LRRL"
+          },
+          "rendered": {
+            "mode": "structure",
+            "op": "0",
+            "growthStep": "5",
+            "couplingView": "cycles",
+            "dRegister": 1,
+            "branchWord": "LRRL"
+          },
+          "phase": 0,
+          "resultText": "PENT-01 · PASS · connected weighted recurrence carrier",
+          "svgElements": 330
+        }
+      },
+      {
+        "kind": "MASTER_CUE",
+        "phase": "OPERATOR",
+        "rule": "STRUCTURE_OP:m"
+      },
+      {
+        "kind": "ACK",
+        "seq": 14,
+        "action": "SET",
+        "witness": {
+          "sourceHash": "4cfc870b3fcbe0d97c34098a1cd0767c79e0d3e316208da5a43575f17cc846f6",
+          "revision": 12,
+          "state": {
+            "mode": "structure",
+            "op": "m",
+            "growthStep": "5",
+            "couplingView": "cycles",
+            "dRegister": 1,
+            "branchWord": "LRRL"
+          },
+          "rendered": {
+            "mode": "structure",
+            "op": "m",
+            "growthStep": "5",
+            "couplingView": "cycles",
+            "dRegister": 1,
+            "branchWord": "LRRL"
+          },
+          "phase": 0,
+          "resultText": "PENT-01 · PASS · connected weighted recurrence carrier",
+          "svgElements": 330
+        }
+      },
+      {
+        "kind": "MASTER_CUE",
+        "phase": "EDGE",
+        "rule": "D30_ROTATE"
+      },
+      {
+        "kind": "ACK",
+        "seq": 15,
+        "action": "SET",
+        "witness": {
+          "sourceHash": "4cfc870b3fcbe0d97c34098a1cd0767c79e0d3e316208da5a43575f17cc846f6",
+          "revision": 13,
+          "state": {
+            "mode": "d30",
+            "op": "m",
+            "growthStep": "5",
+            "couplingView": "cycles",
+            "dRegister": 2,
+            "branchWord": "LRRL"
+          },
+          "rendered": {
+            "mode": "d30",
+            "op": "m",
+            "growthStep": "5",
+            "couplingView": "cycles",
+            "dRegister": 2,
+            "branchWord": "LRRL"
+          },
+          "phase": 0,
+          "resultText": "PENT-07 · D30 VIEW · formal design validation · exact state key (Dj,n,p); (Dj,p) remains lossy",
+          "svgElements": 55
+        }
+      },
+      {
+        "kind": "MASTER_CUE",
+        "phase": "SHADOW",
+        "rule": "VIEW:lift"
+      },
+      {
+        "kind": "ACK",
+        "seq": 16,
+        "action": "SET",
+        "witness": {
+          "sourceHash": "4cfc870b3fcbe0d97c34098a1cd0767c79e0d3e316208da5a43575f17cc846f6",
+          "revision": 14,
+          "state": {
+            "mode": "lift",
+            "op": "m",
+            "growthStep": "5",
+            "couplingView": "cycles",
+            "dRegister": 2,
+            "branchWord": "LRRL"
+          },
+          "rendered": {
+            "mode": "lift",
+            "op": "m",
+            "growthStep": "5",
+            "couplingView": "cycles",
+            "dRegister": 2,
+            "branchWord": "LRRL"
+          },
+          "phase": 0,
+          "resultText": "PENT-04 · PASS · Euler 2 · 182 glued nodes · 20 verified actions",
+          "svgElements": 52
+        }
+      },
+      {
+        "kind": "MASTER_CUE",
+        "phase": "FAMILY",
+        "rule": "VIEW:roots"
+      },
+      {
+        "kind": "ACK",
+        "seq": 17,
+        "action": "SET",
+        "witness": {
+          "sourceHash": "4cfc870b3fcbe0d97c34098a1cd0767c79e0d3e316208da5a43575f17cc846f6",
+          "revision": 15,
+          "state": {
+            "mode": "roots",
+            "op": "m",
+            "growthStep": "5",
+            "couplingView": "cycles",
+            "dRegister": 2,
+            "branchWord": "LRRL"
+          },
+          "rendered": {
+            "mode": "roots",
+            "op": "m",
+            "growthStep": "5",
+            "couplingView": "cycles",
+            "dRegister": 2,
+            "branchWord": "LRRL"
+          },
+          "phase": 0,
+          "resultText": "PENT-05 · PASS · rank 3 · 12 roots · reflection group order 20",
+          "svgElements": 31
+        }
+      },
+      {
+        "kind": "MASTER_CUE",
+        "phase": "GRID",
+        "rule": "COUPLING:cycles"
+      },
+      {
+        "kind": "ACK",
+        "seq": 18,
+        "action": "SET",
+        "witness": {
+          "sourceHash": "4cfc870b3fcbe0d97c34098a1cd0767c79e0d3e316208da5a43575f17cc846f6",
+          "revision": 16,
+          "state": {
+            "mode": "coupling",
+            "op": "m",
+            "growthStep": "5",
+            "couplingView": "cycles",
+            "dRegister": 2,
+            "branchWord": "LRRL"
+          },
+          "rendered": {
+            "mode": "coupling",
+            "op": "m",
+            "growthStep": "5",
+            "couplingView": "cycles",
+            "dRegister": 2,
+            "branchWord": "LRRL"
+          },
+          "phase": 0,
+          "resultText": "PENT-07 · PASS WITH BOUNDARY · carrier cycles · carrier, register and mask remain distinct",
+          "svgElements": 91
+        }
+      },
+      {
+        "kind": "MASTER_CUE",
+        "phase": "RETURN",
+        "rule": "VIEW:boundary"
+      },
+      {
+        "kind": "ACK",
+        "seq": 19,
+        "action": "SET",
+        "witness": {
+          "sourceHash": "4cfc870b3fcbe0d97c34098a1cd0767c79e0d3e316208da5a43575f17cc846f6",
+          "revision": 17,
+          "state": {
+            "mode": "boundary",
+            "op": "m",
+            "growthStep": "5",
+            "couplingView": "cycles",
+            "dRegister": 2,
+            "branchWord": "LRRL"
+          },
+          "rendered": {
+            "mode": "boundary",
+            "op": "m",
+            "growthStep": "5",
+            "couplingView": "cycles",
+            "dRegister": 2,
+            "branchWord": "LRRL"
+          },
+          "phase": 0,
+          "resultText": "PENT-03 · PASS WITH BOUNDARY · arithmetic retained, geometry not admitted",
+          "svgElements": 25
+        }
+      },
+      {
+        "kind": "MASTER_CUE",
+        "phase": "FOLD",
+        "rule": "COUPLING:triangles"
+      },
+      {
+        "kind": "ACK",
+        "seq": 20,
+        "action": "SET",
+        "witness": {
+          "sourceHash": "4cfc870b3fcbe0d97c34098a1cd0767c79e0d3e316208da5a43575f17cc846f6",
+          "revision": 18,
+          "state": {
+            "mode": "coupling",
+            "op": "m",
+            "growthStep": "5",
+            "couplingView": "triangles",
+            "dRegister": 2,
+            "branchWord": "LRRL"
+          },
+          "rendered": {
+            "mode": "coupling",
+            "op": "m",
+            "growthStep": "5",
+            "couplingView": "triangles",
+            "dRegister": 2,
+            "branchWord": "LRRL"
+          },
+          "phase": 0,
+          "resultText": "PENT-07 · PASS WITH BOUNDARY · ▲/▼ parity mask · carrier, register and mask remain distinct",
+          "svgElements": 95
+        }
+      },
+      {
+        "kind": "MASTER_CUE",
+        "phase": "ROOT",
+        "rule": "WORD:LRRL"
+      },
+      {
+        "kind": "ACK",
+        "seq": 21,
+        "action": "SET",
+        "witness": {
+          "sourceHash": "4cfc870b3fcbe0d97c34098a1cd0767c79e0d3e316208da5a43575f17cc846f6",
+          "revision": 19,
+          "state": {
+            "mode": "d30",
+            "op": "m",
+            "growthStep": "5",
+            "couplingView": "triangles",
+            "dRegister": 2,
+            "branchWord": "LRRL"
+          },
+          "rendered": {
+            "mode": "d30",
+            "op": "m",
+            "growthStep": "5",
+            "couplingView": "triangles",
+            "dRegister": 2,
+            "branchWord": "LRRL"
+          },
+          "phase": 0,
+          "resultText": "PENT-07 · D30 VIEW · formal design validation · exact state key (Dj,n,p); (Dj,p) remains lossy",
+          "svgElements": 55
+        }
+      },
+      {
+        "kind": "MASTER_CUE",
+        "phase": "RECORD",
+        "rule": "RETURN_TO_CAPTURED_UI_STATE"
+      },
+      {
+        "kind": "ACK",
+        "seq": 22,
+        "action": "RETURN",
+        "witness": {
+          "sourceHash": "4cfc870b3fcbe0d97c34098a1cd0767c79e0d3e316208da5a43575f17cc846f6",
+          "revision": 20,
+          "state": {
+            "mode": "coupling",
+            "op": "m",
+            "growthStep": "5",
+            "couplingView": "cycles",
+            "dRegister": 1,
+            "branchWord": "LRRL"
+          },
+          "rendered": {
+            "mode": "coupling",
+            "op": "m",
+            "growthStep": "5",
+            "couplingView": "cycles",
+            "dRegister": 1,
+            "branchWord": "LRRL"
+          },
+          "phase": 0,
+          "resultText": "PENT-07 · PASS WITH BOUNDARY · carrier cycles · carrier, register and mask remain distinct",
+          "svgElements": 91
+        }
+      },
+      {
+        "kind": "RETURN",
+        "receipt": {
+          "status": "UI_STATE_RETURN_EXACT",
+          "scope": "six fields + rendered controls",
+          "before": {
+            "sourceHash": "4cfc870b3fcbe0d97c34098a1cd0767c79e0d3e316208da5a43575f17cc846f6",
+            "revision": 19,
+            "state": {
+              "mode": "d30",
+              "op": "m",
+              "growthStep": "5",
+              "couplingView": "triangles",
+              "dRegister": 2,
+              "branchWord": "LRRL"
+            },
+            "rendered": {
+              "mode": "d30",
+              "op": "m",
+              "growthStep": "5",
+              "couplingView": "triangles",
+              "dRegister": 2,
+              "branchWord": "LRRL"
+            },
+            "phase": 0,
+            "resultText": "PENT-07 · D30 VIEW · formal design validation · exact state key (Dj,n,p); (Dj,p) remains lossy",
+            "svgElements": 55
+          },
+          "anchor": {
+            "sourceHash": "4cfc870b3fcbe0d97c34098a1cd0767c79e0d3e316208da5a43575f17cc846f6",
+            "revision": 10,
+            "state": {
+              "mode": "coupling",
+              "op": "m",
+              "growthStep": "5",
+              "couplingView": "cycles",
+              "dRegister": 1,
+              "branchWord": "LRRL"
+            },
+            "kind": "MASTER_START_UI_ANCHOR"
+          },
+          "after": {
+            "sourceHash": "4cfc870b3fcbe0d97c34098a1cd0767c79e0d3e316208da5a43575f17cc846f6",
+            "revision": 20,
+            "state": {
+              "mode": "coupling",
+              "op": "m",
+              "growthStep": "5",
+              "couplingView": "cycles",
+              "dRegister": 1,
+              "branchWord": "LRRL"
+            },
+            "rendered": {
+              "mode": "coupling",
+              "op": "m",
+              "growthStep": "5",
+              "couplingView": "cycles",
+              "dRegister": 1,
+              "branchWord": "LRRL"
+            },
+            "phase": 0,
+            "resultText": "PENT-07 · PASS WITH BOUNDARY · carrier cycles · carrier, register and mask remain distinct",
+            "svgElements": 91
+          },
+          "historyEqual": false,
+          "full106NodeAddressProvided": false
+        }
+      }
+    ],
+    "scope": "Six Explorer UI fields and rendered control readback only; not the full 106-node carrier, pixel rendering or PENT evidence. History/revision do not return."
+  }
+}

@@ -1,0 +1,70 @@
+{
+  "schema": "nexah.a0.pentagon-joint-browser-acceptance/1",
+  "checkedOn": "2026-10-17",
+  "timezone": "Europe/Berlin",
+  "status": "PASS_BOUNDED_MASTER_PENT_UI_RUN",
+  "method": "Owner-operated local browser run observed in supplied screenshot at 14:50:25; independent offline verification of exported trace against declared command maps. No browser automation or new research run.",
+  "export": {
+    "path": "results/a0-pentagon-joint-browser-run-2026-10-17.json",
+    "sha256": "cc913e5d0b84a2fb5366a1e9a201801ae6379f4918599cce7143c473c7d566be",
+    "bytes": 32316,
+    "originalFile": "a0-pentagon-joint-demo-2.json",
+    "originalSHA256": "658dfc2c225526fa28f3ed242cf8fa046ed47b4b2ed735577854bb4dd3cb4cce",
+    "copyNote": "JSON content preserved; repository text copy adds one trailing LF to original export."
+  },
+  "result": {
+    "status": "PASS",
+    "scope": "MASTER_PENT_UI_RUN_ONLY",
+    "confirmedCues": [
+      "SOURCE",
+      "OPERATOR",
+      "EDGE",
+      "SHADOW",
+      "FAMILY",
+      "GRID",
+      "RETURN",
+      "FOLD",
+      "ROOT",
+      "RECORD"
+    ],
+    "acknowledgements": {
+      "SET": 9,
+      "RETURN": 1
+    },
+    "startRevision": 10,
+    "endRevision": 20,
+    "returnStatus": "UI_STATE_RETURN_EXACT",
+    "wholeMachineAccepted": false,
+    "scientificClaimsAccepted": false
+  },
+  "reproduce": "node a0-pentagon-browser-run-verify.cjs",
+  "negativeControls": "node a0-pentagon-browser-run-tests.cjs",
+  "browserScope": {
+    "jointRun": true,
+    "manualExactReturn": true,
+    "interruptionObserved": true,
+    "exactInterruptionEventLogged": false,
+    "pauseButtonSeparatelyObserved": false,
+    "wholeMachine": false,
+    "complete106NodeAddress": false,
+    "scientificResultPromotion": false,
+    "crossBrowserAndResponsiveQA": false
+  },
+  "boundaries": [
+    "This saved PASS is distinct from the status of any new run.",
+    "Six Explorer UI fields and rendered controls only; revision/history continue.",
+    "Earlier paused attempts in history are preserved; verifier isolates and validates the final SOURCE-to-RECORD run.",
+    "LIFE04B exact return does not change specificity FAIL 0/4.",
+    "Full multi-instrument machine state and common return are not accepted."
+  ],
+  "authority": {
+    "reuse": [
+      "SCC-003",
+      "A0OE:PASCAL_PENTAGON_D5_TEST"
+    ],
+    "newIdentity": false,
+    "newGraphRelation": false,
+    "researchActivation": false,
+    "publication": false
+  }
+}

@@ -1,0 +1,105 @@
+{
+  "schema": "nexah.a0.fold-lag-lens.local/1",
+  "asOf": "2026-10-17",
+  "status": "ENGINEERING_IMPLEMENTED_BROWSER_ACCEPTANCE_OPEN",
+  "identity": "Existing OCB extended in-place at #foldLagLens. No new canonical identity or relation.",
+  "implementationFiles": [
+    {
+      "path": "A0_ORIENTATION_CONTROLLER_BENCH.html",
+      "sha256": "d111d3474ef663847b52392b798e7a56fcdf5d5cc44cc11500c77165f4e6edd5"
+    },
+    {
+      "path": "a0-fold-lag-lens.js",
+      "sha256": "091c8fb0ee0a5b136dd43efad6dea62e3b6814ec30c90fbdaae2e57e74ac0f42"
+    },
+    {
+      "path": "a0-root7-wing-sequence.js",
+      "sha256": "ba2b92721ba8cc138fca056edd98007f76567de9ccd600173dfb6ac47dfa49c7"
+    }
+  ],
+  "contract": {
+    "syntheticSlices": 29,
+    "targetStops": [
+      0,
+      90,
+      45,
+      33,
+      7
+    ],
+    "incrementStops": [
+      0,
+      90,
+      135,
+      168,
+      175
+    ],
+    "stationIndices": [
+      0,
+      7,
+      14,
+      21,
+      28
+    ],
+    "interpolation": "linear turn between stations; ±70° sine hinge excursion",
+    "lag": "Fourth independent wing only, clamped at start, integer 0..7 synthetic slices, default 3; no cyclic wrap.",
+    "geometry": "Four independent rigid panels around local radial hinges; not continuous origami.",
+    "reference": "Fixed screen-plane white cross; positive rotations CCW.",
+    "shadow": "Model z=0 parallel projection followed by same view transform; no physical lighting.",
+    "echo": "Synthetic pose outlines 3 and 6 prior slices; separately derived from shadow.",
+    "z": "Synthetic sequence index, not spatial depth or physical time and not LIFE08 generation.",
+    "clock": "Owner-requested view-only playback: one local 400ms interval advances synthetic slices 0..28, stops at end, pause/resume and replay. First play starts at 0. Manual changes, Q4-follow or hidden tab pause. Host interlocks pause Q4 on view play and view playback on Q4 play. Source tick is never advanced by the view timer. Optional read-only Q4 mapping remains round(tick*28/15).",
+    "reflection": "Horizontal y negation; double x/y negation equivalent to a half-turn in model plane. No 77 law.",
+    "export": "Current pose, options, Q4 readout and all 29 synthetic poses, reconstructible with snapshot().",
+    "return": "No return claimed at 7° or 175°. Reset is view-only."
+  },
+  "arithmetic": {
+    "primeIndices": [
+      7,
+      8,
+      10
+    ],
+    "primeValues": [
+      17,
+      19,
+      29
+    ],
+    "ramanujanFactors": [
+      7,
+      13,
+      19
+    ],
+    "F50": "12586269025",
+    "openOnly": [
+      "H50↔F50",
+      "77",
+      "half-hourglass",
+      "17|29 concatenation"
+    ],
+    "noInference": "R/T=8/7 is not 64/64; no selector, canonical Family or scientific result is rebound."
+  },
+  "localPinReconciliation": {
+    "files": [
+      "assets/a0-life03-bench-binding-v1.json",
+      "assets/a0-root7-wing-sequence-v1.json"
+    ],
+    "field": "Host implementation HTML pin only",
+    "previous": "b19a638d7b52520184e33a574b24d06e70041e3a59a425c26e335f57122f82f0",
+    "current": "3a36cd3ca6413232fa1a64dd9385e18c1ea0d0a6b8e66f8c806a09ad9ba96bec",
+    "reason": "Owner-authorized 5B controls, markup and guarded read-only Q4 render hook; original engines and scientific sources unchanged."
+  },
+  "animationAmendment": {
+    "version": "1.1.0",
+    "asOf": "2026-10-17",
+    "authorization": "Owner requested an animation button to play the sequence.",
+    "previousHostHash": "3a36cd3ca6413232fa1a64dd9385e18c1ea0d0a6b8e66f8c806a09ad9ba96bec",
+    "currentHostHash": "e8cce469d553f05088844d98d23587804c775e517c08310f31306231928bed7e",
+    "scope": "Local view player, controls and mutually exclusive Q4 clock controls; original source engine unchanged. Historical no-view-timer contract superseded for this explicitly requested synthetic playback."
+  },
+  "authority": {
+    "newCanonicalIdentity": false,
+    "newCanonicalRelation": false,
+    "researchActivation": false,
+    "scientificClaimPromotion": false,
+    "publication": false
+  }
+}

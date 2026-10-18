@@ -1,0 +1,765 @@
+{
+  "schema": "nexah.a0.integration-crosswalk.local.v1",
+  "asOf": "2026-10-17",
+  "scope": "Gezielter Abgleich der vom Owner gezeigten A0-, LIFE-, CA-IDENT- und IEEE-Instrumente; kein Vollinventar des Ökosystems.",
+  "authority": {
+    "reuseExistingIdentities": true,
+    "newCanonicalIdentities": false,
+    "newGraphRelations": false,
+    "researchExecution": false,
+    "evidencePromotion": false,
+    "publication": false
+  },
+  "method": {
+    "discovery": "Science Navigator HTML registry, source-bound lenses and Mission Control Source Field searched before build.",
+    "navigationBaseline": "Direct hrefs in existing A0_BOOK main HTMLs before this change; excludes shared JS navigation and indirect Navigator routes. Empty list does not mean absent from Navigator or absent from A0 prose.",
+    "runtime": "Source inspection, not a new browser or scientific run. NO_CONFIRMED_OCB_STATE_CONTRACT denotes no accepted OCB state/command/return contract for this selected source.",
+    "statusAuthority": "Native source records retain scientific status; registry curation and navigation admission remain separate."
+  },
+  "entries": [
+    {
+      "key": "suite",
+      "group": "A0 · bestehende Anschlüsse",
+      "title": "Axial Carrier Adapter Suite",
+      "primary": "A0_AXIAL_CARRIER_ADAPTER_SUITE.html",
+      "evidence": "assets/a0-axial-carrier-adapter-v1.js",
+      "existing": "Bereits im A0-Desk: sechs View-Adapter, gemeinsame Darstellung und JSON-Export.",
+      "boundary": "Deklarierte Punktformeln; keine Live-Übernahme der sechs Quellzustände. Zeitsemantik bei LIFE08/Three-Domain ist keine gemeinsame Quelluhr.",
+      "gap": "Source-Records statt Darstellungspunkten; je Lane Readiness, State-Witness, Stop und Return binden.",
+      "existingArtifactId": "ART:HTML:9F6E3FCB5D53",
+      "a0DirectInboundBefore": [
+        "A0_GAME_4_LIFE_PLUS_1.html",
+        "A0_RESEARCH_DESK.html",
+        "index.html"
+      ],
+      "masterConnection": "NO_CONFIRMED_OCB_STATE_CONTRACT",
+      "sources": [
+        {
+          "path": "A0_AXIAL_CARRIER_ADAPTER_SUITE.html",
+          "sha256": "f1636cd8f0ba867a0085821251dc72e8edb1c6b6743785d46a2656b652cb368d"
+        },
+        {
+          "path": "assets/a0-axial-carrier-adapter-v1.js",
+          "sha256": "ee45c6ec84d907753173643901ec5324c47e1f24cec08f85fbb240b9161f5ef7"
+        }
+      ]
+    },
+    {
+      "key": "pent",
+      "group": "A0 · bestehende Anschlüsse",
+      "title": "Master ↔ PENT",
+      "primary": "A0_ORIENTATION_CONTROLLER_BENCH.html#pentagonBrowserAcceptance",
+      "evidence": "results/a0-pentagon-joint-browser-acceptance-2026-10-17.json",
+      "existing": "Owner-Browserlauf: 10/10 Cues, neun SETs, ein RETURN.",
+      "boundary": "Begrenzter UI-PASS für sechs Felder, nicht sämtliche 106 Knoten oder die Gesamtmaschine.",
+      "gap": "Kein Neubau dieses UI-Anschlusses; umfassendere Verträge getrennt halten.",
+      "existingArtifactId": null,
+      "a0DirectInboundBefore": [
+        "A0_AXIS08_FOLD_RETURN_SEQUENCER.html",
+        "A0_BUILDER_LOG.html",
+        "A0_BUILDER_TOY_STORE.html",
+        "A0_LIVING_BLUEPRINT.html",
+        "A0_NEXAH_APERTURE_JOURNEY.html",
+        "A0_PASCAL_PENTAGON_OPERATOR_JOINTS.html",
+        "A0_RAINBOW_PURPLE_RAIN.html",
+        "A0_RESEARCH_DESK.html",
+        "A0_SCIENTIFIC_POSITION_REPORT.html",
+        "A0_TOURS.html"
+      ],
+      "masterConnection": "BOUNDED_UI_BROWSER_PASS",
+      "sources": [
+        {
+          "path": "results/a0-pentagon-joint-browser-acceptance-2026-10-17.json",
+          "sha256": "337b0e1beb949e4f46215ce89400ee40928dc0b3968e4db764c4650ef92d4bfc"
+        }
+      ]
+    },
+    {
+      "key": "observatory",
+      "group": "LIFE · Instrumente und Hub",
+      "title": "Transition & Identifiability Observatory",
+      "primary": "../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_TRANSITION_IDENTIFIABILITY_OBSERVATORY_V1_2026-10-07/index.html",
+      "evidence": "../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_TRANSITION_IDENTIFIABILITY_OBSERVATORY_V1_2026-10-07/FAMILY_RELATIONS_MATRIX.json",
+      "existing": "Vorhandener Hub mit 11 Instrumentgruppen und typisierten Relationen.",
+      "boundary": "Navigation und Ergebnislesung, keine gemeinsame Laufzeit. Bestehenden Hub wiederverwenden.",
+      "gap": "A0-Einstieg hier hergestellt; Quellgruppen nicht nochmals als Registry anlegen.",
+      "existingArtifactId": "ART:HTML:5A99DF8EFC9C",
+      "a0DirectInboundBefore": [
+        "04_DISCRETE_CARRIERS_NEIGHBORHOODS.html",
+        "A0_MATHEMATICAL_JOINTS.html"
+      ],
+      "masterConnection": "NO_CONFIRMED_OCB_STATE_CONTRACT",
+      "sources": [
+        {
+          "path": "../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_TRANSITION_IDENTIFIABILITY_OBSERVATORY_V1_2026-10-07/index.html",
+          "sha256": "a609a6dc171a844be3467f29685c469a4fac500b4237e1c0ba216e27b9cc38ae"
+        },
+        {
+          "path": "../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_TRANSITION_IDENTIFIABILITY_OBSERVATORY_V1_2026-10-07/FAMILY_RELATIONS_MATRIX.json",
+          "sha256": "42f4efebd1c9c40619775bd12ba5e05f0187c0d446e74a9a32252013eb3edaeb"
+        }
+      ]
+    },
+    {
+      "key": "scale",
+      "group": "LIFE · Instrumente und Hub",
+      "title": "LIFE02 · Scale Lab",
+      "primary": "../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_LIFE_ORBIT_SCALE_LAB_V2_2026-10-07/index.html",
+      "evidence": "../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_LIFE_ORBIT_SCALE_LAB_V2_2026-10-07/README.md",
+      "existing": "B3/S23 auf 16–128er Trägern; RLE, History und sechs Ansichten.",
+      "boundary": "Eigenständiger Lauf. Größere Spektren sind 16×16-Aggregate.",
+      "gap": "Expliziter Lauf-/Snapshot-Transfer zum gewünschten A0-Verbraucher fehlt.",
+      "existingArtifactId": "ART:HTML:2972691C8297",
+      "a0DirectInboundBefore": [
+        "A0_TESSAREC_BLUE_BODY_LAB.html"
+      ],
+      "masterConnection": "NO_CONFIRMED_OCB_STATE_CONTRACT",
+      "sources": [
+        {
+          "path": "../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_LIFE_ORBIT_SCALE_LAB_V2_2026-10-07/index.html",
+          "sha256": "ab94ac208033f148f2e79aa6d564d5b591dcd9224be74957ac39b77dd2b3141b"
+        },
+        {
+          "path": "../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_LIFE_ORBIT_SCALE_LAB_V2_2026-10-07/README.md",
+          "sha256": "578915bd4401d6f36a30f1791ad85e0a6a34d81f1bec886e871a1b100a77134d"
+        }
+      ]
+    },
+    {
+      "key": "life03",
+      "group": "LIFE · Instrumente und Hub",
+      "title": "LIFE03 · Life × E8 Workbench",
+      "primary": "../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_LIFE_E8_DUAL_CLOCK_LIFE03_2026-10-07/index.html",
+      "evidence": "../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_LIFE_E8_DUAL_CLOCK_LIFE03_2026-10-07/README.md",
+      "existing": "Importiert die echte Scale-Engine; Produkttakt, Observer Word und Root Projection sind implementiert.",
+      "boundary": "Eigene Life-Sitzung; kein Live-Zustand eines separat geöffneten Scale Labs. Projektion beweist keine Life–E8-Identität.",
+      "gap": "Keinen zweiten Life/E8-Kern bauen; Sitzung, Befehle, Witness und Return für A0 spezifizieren.",
+      "existingArtifactId": "ART:HTML:EBD57F76EA4F",
+      "a0DirectInboundBefore": [],
+      "masterConnection": "NO_CONFIRMED_OCB_STATE_CONTRACT",
+      "sources": [
+        {
+          "path": "../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_LIFE_E8_DUAL_CLOCK_LIFE03_2026-10-07/index.html",
+          "sha256": "6234a12fe8baf91b8b4fcd162871e74881aa7b0d1130c314bb926517bb4486e3"
+        },
+        {
+          "path": "../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_LIFE_E8_DUAL_CLOCK_LIFE03_2026-10-07/README.md",
+          "sha256": "5e12182261b75dfa5e9edcd7daa9323121d533e0882a3ab27b3bf7a411f4e1ee"
+        }
+      ]
+    },
+    {
+      "key": "p3",
+      "group": "LIFE · Instrumente und Hub",
+      "title": "LIFE01 · P3 / GLB",
+      "primary": "../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_LIFE_ORBIT_P3_2026-10-07/index.html",
+      "evidence": "../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_LIFE_ORBIT_P3_2026-10-07/README.md",
+      "existing": "Vorhandene Raum-Zeit-Darstellung mit GLB-Export.",
+      "boundary": "Darstellungsobjekt bleibt vom autoritativen Quelllauf getrennt.",
+      "gap": "GLB-/Run-Receipt an A0-Auswahl binden; Export ist kein synchronisierter Masterzustand.",
+      "existingArtifactId": "ART:HTML:91AD95BEC351",
+      "a0DirectInboundBefore": [],
+      "masterConnection": "NO_CONFIRMED_OCB_STATE_CONTRACT",
+      "sources": [
+        {
+          "path": "../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_LIFE_ORBIT_P3_2026-10-07/index.html",
+          "sha256": "b193fca54c6f4a728de9e146a6c284e0c421d4cca2e74dc5bfbc1014396cdbbb"
+        },
+        {
+          "path": "../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_LIFE_ORBIT_P3_2026-10-07/README.md",
+          "sha256": "64a40155bf6f773bb5290d5c8b647e83cbac4d11c17c8866f8a7141b79664731"
+        }
+      ]
+    },
+    {
+      "key": "life04b",
+      "group": "LIFE · Instrumente und Hub",
+      "title": "LIFE04B · Antipodal Return",
+      "primary": "../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_LIFE_E8_ANTIPODAL_RETURN_LIFE04B_2026-10-07/index.html",
+      "evidence": "../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_LIFE_E8_ANTIPODAL_RETURN_LIFE04B_2026-10-07/README.md",
+      "existing": "Exakter typisierter Return und kontrollierter E8-Spezifitätstest vorhanden.",
+      "boundary": "NO E8 ANTIPODAL SPECIFICITY · FAIL 0/4. Exaktes Bookkeeping ändert diesen Befund nicht.",
+      "gap": "Ergebnis zugänglich halten; keine Wiederholung oder PASS-Promotion durch UI-Anbindung.",
+      "existingArtifactId": "ART:HTML:9C1F6CA02076",
+      "a0DirectInboundBefore": [
+        "A0_ORIENTATION_CONTROLLER_BENCH.html",
+        "A0_TESSAREC_BLUE_BODY_LAB.html"
+      ],
+      "masterConnection": "NO_CONFIRMED_OCB_STATE_CONTRACT",
+      "sources": [
+        {
+          "path": "../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_LIFE_E8_ANTIPODAL_RETURN_LIFE04B_2026-10-07/index.html",
+          "sha256": "aa1f960dbcfdb28028ccc2956b63d5555836b9b178c07cf75ca7760cf827b553"
+        },
+        {
+          "path": "../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_LIFE_E8_ANTIPODAL_RETURN_LIFE04B_2026-10-07/README.md",
+          "sha256": "5dc9b053fa3b5e8d0ca5fd8c17c30026e51ddb1273ab90b1f9dc2f8a72f7cce1"
+        }
+      ]
+    },
+    {
+      "key": "life05a",
+      "group": "LIFE · Instrumente und Hub",
+      "title": "LIFE05A · Prime/N Transition",
+      "primary": "../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_LIFE_PRIME_N_TRANSITION_LIFE05A_2026-10-07/index.html",
+      "evidence": "../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_LIFE_PRIME_N_TRANSITION_LIFE05A_2026-10-07/README.md",
+      "existing": "Endliche Primzahlsummen, Returns und Ordnungskontrollen.",
+      "boundary": "Exakte Arithmetik vor einer Life-Kopplung; kein universeller Life-Code.",
+      "gap": "Lesepfad herstellen; jede spätere Ereigniszuordnung separat deklarieren.",
+      "existingArtifactId": "ART:HTML:4FB12A1B7133",
+      "a0DirectInboundBefore": [],
+      "masterConnection": "NO_CONFIRMED_OCB_STATE_CONTRACT",
+      "sources": [
+        {
+          "path": "../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_LIFE_PRIME_N_TRANSITION_LIFE05A_2026-10-07/index.html",
+          "sha256": "e0a6541d9f01b58d5e3e977dddd6a89947c9c2e82689b3a3891a58535e905ddf"
+        },
+        {
+          "path": "../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_LIFE_PRIME_N_TRANSITION_LIFE05A_2026-10-07/README.md",
+          "sha256": "9d57d199b6a9e3e1467935cd0f2f1d93e9a11857a60d36d5cb9c9b042a1d180d"
+        }
+      ]
+    },
+    {
+      "key": "life05b",
+      "group": "LIFE · Instrumente und Hub",
+      "title": "LIFE05B · Event → Prime/N",
+      "primary": "../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_LIFE_EVENT_PRIME_N_BRIDGE_LIFE05B_2026-10-07/index.html",
+      "evidence": "../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_LIFE_EVENT_PRIME_N_BRIDGE_LIFE05B_2026-10-07/README.md",
+      "existing": "Registrierter gepoolter Test: 4/4 Gates PASS.",
+      "boundary": "PRIMARY PASS / FIXTURE LOCALIZED / NOT GENERAL; Glider trägt 186/243 Prime Returns.",
+      "gap": "Nicht als allgemeine Prime-Regel verdrahten; mit Holdout LIFE05D zusammen lesen.",
+      "existingArtifactId": "ART:HTML:DE23103CD410",
+      "a0DirectInboundBefore": [],
+      "masterConnection": "NO_CONFIRMED_OCB_STATE_CONTRACT",
+      "sources": [
+        {
+          "path": "../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_LIFE_EVENT_PRIME_N_BRIDGE_LIFE05B_2026-10-07/index.html",
+          "sha256": "9e39ebb1aecbe9101d3c47c040ec06c48f380d9240ea324434a8dc37914e3b49"
+        },
+        {
+          "path": "../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_LIFE_EVENT_PRIME_N_BRIDGE_LIFE05B_2026-10-07/README.md",
+          "sha256": "a3f03c1cc988997cb3f3de1e6b0778d687b81c69b99da7851291ce154673cc40"
+        }
+      ]
+    },
+    {
+      "key": "life05d",
+      "group": "LIFE · Instrumente und Hub",
+      "title": "LIFE05D · Cell Event Holdout",
+      "primary": "../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_LIFE_CELL_EVENT_HOLDOUT_LIFE05D_2026-10-07/index.html",
+      "evidence": "../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_LIFE_CELL_EVENT_HOLDOUT_LIFE05D_2026-10-07/README.md",
+      "existing": "Zellgenaue Ereignistopologie und unabhängiger Holdout vorhanden.",
+      "boundary": "MIXED / NON-IDENTIFIABLE; Prime-Vorteil nicht repliziert, 3/4 Gates.",
+      "gap": "Ereignis-IDs, native Adresse und View-Adresse getrennt anbinden.",
+      "existingArtifactId": "ART:HTML:2CF628A70156",
+      "a0DirectInboundBefore": [],
+      "masterConnection": "NO_CONFIRMED_OCB_STATE_CONTRACT",
+      "sources": [
+        {
+          "path": "../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_LIFE_CELL_EVENT_HOLDOUT_LIFE05D_2026-10-07/index.html",
+          "sha256": "6e22c20fdce28ff64e91ca5cabb860b61f0da6ab04f7a88275306c907af946ee"
+        },
+        {
+          "path": "../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_LIFE_CELL_EVENT_HOLDOUT_LIFE05D_2026-10-07/README.md",
+          "sha256": "71b62f72e188adc5aaf3d9e65b49cff783c288007e59e46981b5f44f41e40a46"
+        }
+      ]
+    },
+    {
+      "key": "life06",
+      "group": "LIFE · Instrumente und Hub",
+      "title": "LIFE06 · Transition Alphabet",
+      "primary": "../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_LIFE_TRANSITION_ALPHABET_LIFE06_2026-10-07/index.html",
+      "evidence": "../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_LIFE_TRANSITION_ALPHABET_LIFE06_2026-10-07/README.md",
+      "existing": "00/01/11/10 als zeitlich abgeleitete Ereignissprache.",
+      "boundary": "Exaktes deskriptives Instrument; kein Wechsel zu einer Drei-Zustands-Regel.",
+      "gap": "Ereignisrecord statt Symbolfarbe als mögliche A0-Schnittstelle festhalten.",
+      "existingArtifactId": "ART:HTML:3683F105DE7A",
+      "a0DirectInboundBefore": [],
+      "masterConnection": "NO_CONFIRMED_OCB_STATE_CONTRACT",
+      "sources": [
+        {
+          "path": "../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_LIFE_TRANSITION_ALPHABET_LIFE06_2026-10-07/index.html",
+          "sha256": "b93cedaf7f7116d58ab4b93787d91d95944ac362fea1cab3655759e1b008fa53"
+        },
+        {
+          "path": "../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_LIFE_TRANSITION_ALPHABET_LIFE06_2026-10-07/README.md",
+          "sha256": "f3a903bf6f2bc35a2a99d1cc9da6c66c62e310fd1e7fa9ddec5b781016aad4a9"
+        }
+      ]
+    },
+    {
+      "key": "life06b",
+      "group": "LIFE · Instrumente und Hub",
+      "title": "LIFE06B · Euler / Fibonacci Rail",
+      "primary": "../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_LIFE_PRIME_SHELL_WINDING_LIFE06B_2026-10-07/index.html",
+      "evidence": "../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_LIFE_PRIME_SHELL_WINDING_LIFE06B_2026-10-07/README.md",
+      "existing": "Primfenster, Euler-Höhen und Fibonacci-Ansicht implementiert.",
+      "boundary": "Beobachtungskoordinaten ändern die Life-Regel nicht.",
+      "gap": "Ansichtsparameter von Carrier-/Ereigniszustand trennen; LIFE06C mitführen.",
+      "existingArtifactId": "ART:HTML:DB7656F2E81A",
+      "a0DirectInboundBefore": [
+        "A0_IHARA_HASHIMOTO_CYCLE_BRIDGE.html",
+        "A0_VISUAL_FIELD_LIBRARY.html"
+      ],
+      "masterConnection": "NO_CONFIRMED_OCB_STATE_CONTRACT",
+      "sources": [
+        {
+          "path": "../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_LIFE_PRIME_SHELL_WINDING_LIFE06B_2026-10-07/index.html",
+          "sha256": "129ec07188c9893fbd26ead25ed73620a197922fcf2942ad86f23588c7746a6f"
+        },
+        {
+          "path": "../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_LIFE_PRIME_SHELL_WINDING_LIFE06B_2026-10-07/README.md",
+          "sha256": "10d118d6660808d5143a09e7904ad03099f35c027dabc5eb9901c31dc8f5ed7b"
+        }
+      ]
+    },
+    {
+      "key": "life06c",
+      "group": "LIFE · Instrumente und Hub",
+      "title": "LIFE06C · Prime/Composite Benchmark",
+      "primary": "../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_LIFE_PRIME_COMPOSITE_WINDOW_LIFE06C_2026-10-07/index.html",
+      "evidence": "../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_LIFE_PRIME_COMPOSITE_WINDOW_LIFE06C_2026-10-07/README.md",
+      "existing": "Registrierter Holdout des Primfenster-Vorteils vorhanden.",
+      "boundary": "NO PRIME WINDOW RECURRENCE ADVANTAGE ON HOLDOUT · 1/5 Gates.",
+      "gap": "Negativresultat bleibt am Rail-Lesepfad sichtbar; kein neuer Run.",
+      "existingArtifactId": "ART:HTML:D9D3FD2D23BF",
+      "a0DirectInboundBefore": [],
+      "masterConnection": "NO_CONFIRMED_OCB_STATE_CONTRACT",
+      "sources": [
+        {
+          "path": "../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_LIFE_PRIME_COMPOSITE_WINDOW_LIFE06C_2026-10-07/index.html",
+          "sha256": "e944a782f62c1efb67577387658402fda0b261336b7c2cce7dddec6f72df1af6"
+        },
+        {
+          "path": "../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_LIFE_PRIME_COMPOSITE_WINDOW_LIFE06C_2026-10-07/README.md",
+          "sha256": "19cf044ea2160c153c539935e16d4386c470e5bc021935fc415dfa543d00fa0c"
+        }
+      ]
+    },
+    {
+      "key": "life06d",
+      "group": "LIFE · Instrumente und Hub",
+      "title": "LIFE06D · P/Q/B Audit",
+      "primary": "../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_LIFE_PQB_CONJUGACY_AUDIT_LIFE06D_2026-10-07/index.html",
+      "evidence": "../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_LIFE_PQB_CONJUGACY_AUDIT_LIFE06D_2026-10-07/README.md",
+      "existing": "Q−=P/α, Q+=Pα; Produkt P², Rundungsrest und Beobachtungsfiber.",
+      "boundary": "B ist der gebundene Pearl-Vergleichsrecord, nicht automatisch β. Bedingte Identifizierbarkeit; LIFE06C bleibt negativ.",
+      "gap": "Parameter, Integeransicht und Toleranzfiber bei einer späteren Kopplung getrennt führen.",
+      "existingArtifactId": "ART:HTML:ABF118EAE77B",
+      "a0DirectInboundBefore": [
+        "03_THREE_POSITIONS_SEAM_RETURN.html"
+      ],
+      "masterConnection": "NO_CONFIRMED_OCB_STATE_CONTRACT",
+      "sources": [
+        {
+          "path": "../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_LIFE_PQB_CONJUGACY_AUDIT_LIFE06D_2026-10-07/index.html",
+          "sha256": "ff00429a61b893d32f636d6366e453421ffa0c67fe555070e3da43c7307eaffd"
+        },
+        {
+          "path": "../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_LIFE_PQB_CONJUGACY_AUDIT_LIFE06D_2026-10-07/README.md",
+          "sha256": "a8da5e6c20ffd0b9251ad0fc0598c4949cc00f26f1e306bf87ef5218958d6ec7"
+        }
+      ]
+    },
+    {
+      "key": "ca01",
+      "group": "CA-IDENT · vorhandene Testkette",
+      "title": "CA-IDENT-01 · Multi-View",
+      "primary": "../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_LIFE_MULTI_VIEW_IDENTIFIABILITY_CA_IDENT_01_2026-10-08/index.html",
+      "evidence": "../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_LIFE_MULTI_VIEW_IDENTIFIABILITY_CA_IDENT_01_2026-10-08/README.md",
+      "existing": "Life, Grid, Fourier, Shadow Memory, Shadow-gons und E8-Adapter vorhanden.",
+      "boundary": "LIMITED_VIEW_SIGNAL; E8-Adapter und kombinierter Raum liefern keinen Nutzenbeleg.",
+      "gap": "Als bestehendes Instrument anbinden; nicht aus Formähnlichkeit rekonstruieren.",
+      "existingArtifactId": "ART:HTML:D5EB37391C26",
+      "a0DirectInboundBefore": [
+        "01_FROM_LINE_TO_READOUT.html",
+        "A0_ORIENTATION_CONTROLLER_BENCH.html"
+      ],
+      "masterConnection": "NO_CONFIRMED_OCB_STATE_CONTRACT",
+      "sources": [
+        {
+          "path": "../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_LIFE_MULTI_VIEW_IDENTIFIABILITY_CA_IDENT_01_2026-10-08/index.html",
+          "sha256": "d45e06701e52f04e48ba04af01f2025a16d2c78f21fda5fe131f2c0e308208e5"
+        },
+        {
+          "path": "../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_LIFE_MULTI_VIEW_IDENTIFIABILITY_CA_IDENT_01_2026-10-08/README.md",
+          "sha256": "7439cb30c1e4799a046d901ac1044c72fbd1a17bc8c03af28e187875a0909a30"
+        }
+      ]
+    },
+    {
+      "key": "ca02",
+      "group": "CA-IDENT · vorhandene Testkette",
+      "title": "CA-IDENT-02 · Utility Gate",
+      "primary": "../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_LIFE_MULTI_VIEW_UTILITY_CA_IDENT_02_2026-10-08/index.html",
+      "evidence": "../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_LIFE_MULTI_VIEW_UTILITY_CA_IDENT_02_2026-10-08/README.md",
+      "existing": "Größerer Rule-/Seed-Holdout; Fourier und Memory tragen Teilsignal.",
+      "boundary": "PARTIAL SIGNAL / GATE FAIL; keine Promotion der kombinierten Pipeline.",
+      "gap": "Die Ergebnisse der einzelnen Linsen bei einer A0-Zusammenstellung beibehalten.",
+      "existingArtifactId": "ART:HTML:4AA4B0325513",
+      "a0DirectInboundBefore": [],
+      "masterConnection": "NO_CONFIRMED_OCB_STATE_CONTRACT",
+      "sources": [
+        {
+          "path": "../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_LIFE_MULTI_VIEW_UTILITY_CA_IDENT_02_2026-10-08/index.html",
+          "sha256": "3e68262d2f36a14f170c90d90dcc6189e2b8a7a3dc319ed9546661e0c2596a54"
+        },
+        {
+          "path": "../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_LIFE_MULTI_VIEW_UTILITY_CA_IDENT_02_2026-10-08/README.md",
+          "sha256": "b8a5fdf08711025ca60e1e3652a8baba47579355cf0a21608b6049cbab7c9e62"
+        }
+      ]
+    },
+    {
+      "key": "ca03",
+      "group": "CA-IDENT · vorhandene Testkette",
+      "title": "CA-IDENT-03 · Cube / Fourier / Memory",
+      "primary": "../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_LIFE_CUBE_MEMORY_FOURIER_CA_IDENT_03_2026-10-08/index.html",
+      "evidence": "../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_LIFE_CUBE_MEMORY_FOURIER_CA_IDENT_03_2026-10-08/README.md",
+      "existing": "Komplexer Fourier-Return PASS; Cube-Face- und CRT-Anschluss dokumentiert.",
+      "boundary": "FUSION NO GAIN; exakte Inversion ist kein Vorhersagegewinn. Magnitude verliert Adresse.",
+      "gap": "Return und Utility getrennt anbinden; CRT-Sidecar bleibt außerhalb des gesperrten Utility-Tests.",
+      "existingArtifactId": "ART:HTML:ADAE8E92E961",
+      "a0DirectInboundBefore": [],
+      "masterConnection": "NO_CONFIRMED_OCB_STATE_CONTRACT",
+      "sources": [
+        {
+          "path": "../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_LIFE_CUBE_MEMORY_FOURIER_CA_IDENT_03_2026-10-08/index.html",
+          "sha256": "79e94a23d7de2c52d558c019d01821655a94e62ae6ba1598bb08b618e9443373"
+        },
+        {
+          "path": "../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_LIFE_CUBE_MEMORY_FOURIER_CA_IDENT_03_2026-10-08/README.md",
+          "sha256": "f9c59957a8baabec0f62c0241787a009c8c20201b0555e1c2ede1c3565e88882"
+        }
+      ]
+    },
+    {
+      "key": "ca04",
+      "group": "CA-IDENT · vorhandene Testkette",
+      "title": "CA-IDENT-04 · Balanced Fusion",
+      "primary": "../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_LIFE_BALANCED_FUSION_CA_IDENT_04_2026-10-08/index.html",
+      "evidence": "../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_LIFE_BALANCED_FUSION_CA_IDENT_04_2026-10-08/README.md",
+      "existing": "Korrigierte Balance und unabhängiger Split bereits getestet.",
+      "boundary": "BALANCED FUSION NO GAIN; Rare-Class-Support ist begrenzt.",
+      "gap": "Keine erneute Balance-Reparatur als ungetestete Lösung ausgeben.",
+      "existingArtifactId": "ART:HTML:86BED2506E9E",
+      "a0DirectInboundBefore": [],
+      "masterConnection": "NO_CONFIRMED_OCB_STATE_CONTRACT",
+      "sources": [
+        {
+          "path": "../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_LIFE_BALANCED_FUSION_CA_IDENT_04_2026-10-08/index.html",
+          "sha256": "bfb48791107676ef73187ced9e75c63182d96e53b1891bb20733f9d5f6197c37"
+        },
+        {
+          "path": "../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_LIFE_BALANCED_FUSION_CA_IDENT_04_2026-10-08/README.md",
+          "sha256": "0efaf8e685d6397a53beb875e75e44a842d7ee82c154401972a9b95cc3d200f1"
+        }
+      ]
+    },
+    {
+      "key": "ca05",
+      "group": "CA-IDENT · vorhandene Testkette",
+      "title": "CA-IDENT-05 · P=A+B / 63:1",
+      "primary": "../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_LIFE_ALPHA_BETA_RESIDUAL_CA_IDENT_05_2026-10-08/index.html",
+      "evidence": "../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_LIFE_ALPHA_BETA_RESIDUAL_CA_IDENT_05_2026-10-08/README.md",
+      "existing": "63/64 Fourier + 1/64 Memory als normierte Distanzmischung tatsächlich getestet.",
+      "boundary": "ALPHA-BETA NO GAIN; exakte Normierung, aber diese Rollenrichtung nicht gestützt. Kein allgemeines Urteil über symbolische Namen.",
+      "gap": "Arithmetik, konkrete Metrik und historische β-Darstellung nicht gleichsetzen.",
+      "existingArtifactId": "ART:HTML:7B0AE7E44451",
+      "a0DirectInboundBefore": [
+        "07_EVIDENCE_COMPARISON_DECISION.html"
+      ],
+      "masterConnection": "NO_CONFIRMED_OCB_STATE_CONTRACT",
+      "sources": [
+        {
+          "path": "../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_LIFE_ALPHA_BETA_RESIDUAL_CA_IDENT_05_2026-10-08/index.html",
+          "sha256": "ec21ef9a79b018394ca04193f9b806d10374cb2e06dfda96055ab58439cdba4e"
+        },
+        {
+          "path": "../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_LIFE_ALPHA_BETA_RESIDUAL_CA_IDENT_05_2026-10-08/README.md",
+          "sha256": "f9b0258a0b79193a93d6df2b4671539ee5e8555b092450477514810cac1ccd5c"
+        }
+      ]
+    },
+    {
+      "key": "ca06",
+      "group": "CA-IDENT · vorhandene Testkette",
+      "title": "CA-IDENT-06 · Kappa / Abstention",
+      "primary": "../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_LIFE_KAPPA_OPEN_SET_CA_IDENT_06_2026-10-08/index.html",
+      "evidence": "../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_LIFE_KAPPA_OPEN_SET_CA_IDENT_06_2026-10-08/README.md",
+      "existing": "Abstention aus Abstand zu eingefrorenem bekanntem Support.",
+      "boundary": "COVERAGE GATE FAIL / UNKNOWN RESULT; kein unbekanntes Zielereignis im Holdout.",
+      "gap": "UNKNOWN unverändert führen, nicht als erfolgreichen Detektor anzeigen.",
+      "existingArtifactId": "ART:HTML:44337F402C8B",
+      "a0DirectInboundBefore": [
+        "07_EVIDENCE_COMPARISON_DECISION.html"
+      ],
+      "masterConnection": "NO_CONFIRMED_OCB_STATE_CONTRACT",
+      "sources": [
+        {
+          "path": "../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_LIFE_KAPPA_OPEN_SET_CA_IDENT_06_2026-10-08/index.html",
+          "sha256": "259dc2860225023a279d54b2e4afa5610a88892bb212131450eb968ffa29974e"
+        },
+        {
+          "path": "../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_LIFE_KAPPA_OPEN_SET_CA_IDENT_06_2026-10-08/README.md",
+          "sha256": "d48fe1883c8182bf045a1f4614ee42da824c6ff5202228842591595f8acc36c9"
+        }
+      ]
+    },
+    {
+      "key": "ca07",
+      "group": "CA-IDENT · vorhandene Testkette",
+      "title": "CA-IDENT-07 · Generational Binder",
+      "primary": "../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_LIFE_GENERATIONAL_BINDER_CA_IDENT_07_2026-10-08/index.html",
+      "evidence": "../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_LIFE_GENERATIONAL_BINDER_CA_IDENT_07_2026-10-08/README.md",
+      "existing": "Vier Zeitschnitte, signierte erste und zweite Differenzen; C-Taxonomie vorhanden.",
+      "boundary": "COVERAGE GATE FAIL / PRIMARY RESULT UNKNOWN; beschreibende Scores kein negativer Primärentscheid.",
+      "gap": "C_obj, C_cmp und Beobachtungsklassen getrennt führen; CA08 daneben lesen.",
+      "existingArtifactId": "ART:HTML:538786C76550",
+      "a0DirectInboundBefore": [],
+      "masterConnection": "NO_CONFIRMED_OCB_STATE_CONTRACT",
+      "sources": [
+        {
+          "path": "../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_LIFE_GENERATIONAL_BINDER_CA_IDENT_07_2026-10-08/index.html",
+          "sha256": "a0e39498b9f9bcd3c9455866690a26d7543bf70110aa4a4945762411da80d009"
+        },
+        {
+          "path": "../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_LIFE_GENERATIONAL_BINDER_CA_IDENT_07_2026-10-08/README.md",
+          "sha256": "05b0be2e71450a27db394e4b9a0e0b311ddb1fcefdf7d40a67d635ae86ea607a"
+        }
+      ]
+    },
+    {
+      "key": "ca08",
+      "group": "CA-IDENT · vorhandene Testkette",
+      "title": "CA-IDENT-08 · Conditional History",
+      "primary": "../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_LIFE_CONDITIONAL_RESIDUAL_OBSERVER_CA_IDENT_08_2026-10-08/index.html",
+      "evidence": "../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_LIFE_CONDITIONAL_RESIDUAL_OBSERVER_CA_IDENT_08_2026-10-08/README.md",
+      "existing": "3.600 frische Records; History-Gewinn +0,0488 Macro-F1; endlicher Auflösungsaudit 7→5→2→1.",
+      "boundary": "PRIMARY GAIN PASS / GATE SPECIFICITY FAIL / RESOLUTION AUDIT PASS. Kein universelles Beobachtergesetz.",
+      "gap": "Gewinn, Gate-Spezifität und Auflösungszahl als getrennte Felder erhalten.",
+      "existingArtifactId": "ART:HTML:237A127F1B20",
+      "a0DirectInboundBefore": [],
+      "masterConnection": "NO_CONFIRMED_OCB_STATE_CONTRACT",
+      "sources": [
+        {
+          "path": "../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_LIFE_CONDITIONAL_RESIDUAL_OBSERVER_CA_IDENT_08_2026-10-08/index.html",
+          "sha256": "4c7e8c51cf7ec834d488d1f92a81e747399283646a73314c7f9460212d1edd81"
+        },
+        {
+          "path": "../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_LIFE_CONDITIONAL_RESIDUAL_OBSERVER_CA_IDENT_08_2026-10-08/README.md",
+          "sha256": "630484bed5e5bc69d0eb7d24bc3dd0dc4c6f2a3aae3a100eef81d3a1e98577f7"
+        }
+      ]
+    },
+    {
+      "key": "ca09",
+      "group": "CA-IDENT · vorhandene Testkette",
+      "title": "CA-IDENT-09 · View-Topology Calibration",
+      "primary": "../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_VIEW_INDUCED_TOPOLOGY_CALIBRATION_CA_IDENT_09_2026-10-08/README.md",
+      "evidence": "../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_VIEW_INDUCED_TOPOLOGY_CALIBRATION_CA_IDENT_09_2026-10-08/README.md",
+      "existing": "3.000 Integer-Identitäten; 9.000 exakte Returns, fünf Gates PASS.",
+      "boundary": "CALIBRATION_PASS_VIEW_NONINVARIANT: Identität bleibt, Nachbarschaft wechselt mit dem Cut.",
+      "gap": "Als vorhandene Kontrollmethode nutzen; keine Prime/Life-Mechanismusidentität.",
+      "existingArtifactId": null,
+      "a0DirectInboundBefore": [],
+      "masterConnection": "NO_CONFIRMED_OCB_STATE_CONTRACT",
+      "sources": [
+        {
+          "path": "../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_VIEW_INDUCED_TOPOLOGY_CALIBRATION_CA_IDENT_09_2026-10-08/README.md",
+          "sha256": "8a1aa445b33e65dfc22c31c680b548b9bab4a168882d754b4744f81c2ad83cb6"
+        }
+      ]
+    },
+    {
+      "key": "ca10",
+      "group": "CA-IDENT · vorhandene Testkette",
+      "title": "CA-IDENT-10 · Three-Cut Event Transfer",
+      "primary": "../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_LIFE_THREE_CUT_EVENT_TRANSFER_CA_IDENT_10_2026-10-08/README.md",
+      "evidence": "../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_LIFE_THREE_CUT_EVENT_TRANSFER_CA_IDENT_10_2026-10-08/README.md",
+      "existing": "14.132 LIFE05D-Ereignisse; 42.396 exakte inverse Returns, sechs Gates PASS.",
+      "boundary": "TRANSFER_PASS_VIEW_NONINVARIANT für einen eingefrorenen Lauf; View-Topologie bleibt lokal.",
+      "gap": "Persistente Event-ID und native Adresse sind der konkrete vorhandene Anschlussansatz.",
+      "existingArtifactId": null,
+      "a0DirectInboundBefore": [],
+      "masterConnection": "NO_CONFIRMED_OCB_STATE_CONTRACT",
+      "sources": [
+        {
+          "path": "../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_LIFE_THREE_CUT_EVENT_TRANSFER_CA_IDENT_10_2026-10-08/README.md",
+          "sha256": "f1f83c71d3adda35e8bc5667b7b2ba343d6d228841342172e265213b963f4eb3"
+        }
+      ]
+    },
+    {
+      "key": "ieee",
+      "group": "IEEE300 · getrennte Ergebnisse",
+      "title": "IEEE300 · R2 Graph-to-Grid",
+      "primary": "../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_IEEE300_GRAPH_TO_GRID_VALIDATION_2026-10-08/artifacts_r2/graph-grid-report-r2.html",
+      "evidence": "../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_IEEE300_GRAPH_TO_GRID_VALIDATION_2026-10-08/RESULT_SUMMARY.md",
+      "existing": "Realer AC-Load-Flow, relationale Abbildung und registrierte Kontrollen.",
+      "boundary": "R2 GRAPH GRID CONTRACT PASS; nur der deklarierte Repräsentationsvertrag.",
+      "gap": "R2-Records statt synthetischer Zylinderpunkte übernehmen; keine Solverkopplung behaupten.",
+      "existingArtifactId": "ART:IEEE300:GRAPH_GRID:R2",
+      "a0DirectInboundBefore": [
+        "A0_AXIAL_CARRIER_ADAPTER_SUITE.html",
+        "A0_METHOD.html",
+        "A0_RESEARCH_DESK.html"
+      ],
+      "masterConnection": "NO_CONFIRMED_OCB_STATE_CONTRACT",
+      "sources": [
+        {
+          "path": "../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_IEEE300_GRAPH_TO_GRID_VALIDATION_2026-10-08/artifacts_r2/graph-grid-report-r2.html",
+          "sha256": "6932100cfd2ef5cec467048b8dc6c3e2f20c20b4bf2772333e85c1a5415766f7"
+        },
+        {
+          "path": "../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_IEEE300_GRAPH_TO_GRID_VALIDATION_2026-10-08/RESULT_SUMMARY.md",
+          "sha256": "3fd65dd3a03febd5d3ccaac94deeebb33c5b69743d71be10089c317feb97d070"
+        }
+      ]
+    },
+    {
+      "key": "morphology",
+      "group": "IEEE300 · getrennte Ergebnisse",
+      "title": "IEEE300 · Morphology 01",
+      "primary": "../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_IEEE300_GRAPH_TO_GRID_VALIDATION_2026-10-08/morphology_01/artifacts/graph-grid-morphology-01.html",
+      "evidence": "../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_IEEE300_GRAPH_TO_GRID_VALIDATION_2026-10-08/morphology_01/RESULT_SUMMARY.md",
+      "existing": "Vier Ansichten und zwei Solverpolitiken; Relabeling und Ablation geprüft.",
+      "boundary": "VALID MIXED-NEGATIVE: CROSS_VIEW_ORDER_NOT_PRESERVED; H3/Circle ohne spezifischen Vorteil.",
+      "gap": "Mit R2 gemeinsam zugänglich, aber Ergebnisstatus nicht mit dessen PASS verschmelzen.",
+      "existingArtifactId": "ART:IEEE300:GRAPH_GRID:MORPHOLOGY01",
+      "a0DirectInboundBefore": [
+        "A0_RESEARCH_DESK.html"
+      ],
+      "masterConnection": "NO_CONFIRMED_OCB_STATE_CONTRACT",
+      "sources": [
+        {
+          "path": "../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_IEEE300_GRAPH_TO_GRID_VALIDATION_2026-10-08/morphology_01/artifacts/graph-grid-morphology-01.html",
+          "sha256": "b9375a3ad04cd6ab9b6c98dd836f026070567f0d2db47358bb2340f73a54b166"
+        },
+        {
+          "path": "../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_IEEE300_GRAPH_TO_GRID_VALIDATION_2026-10-08/morphology_01/RESULT_SUMMARY.md",
+          "sha256": "ad9ee872b6627f53adca8d9c123911abe7b95d32ec730dc252626a242358c010"
+        }
+      ]
+    }
+  ],
+  "supportingSources": [
+    {
+      "path": "../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_LIFE_ORBIT_SCALE_LAB_V2_2026-10-07/scale-engine.js",
+      "sha256": "f92b3c8a6dca74ee55a398191b64431740c1777f288fe395912a0345951ca660"
+    },
+    {
+      "path": "../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_LIFE_ORBIT_SCALE_LAB_V2_2026-10-07/app.js",
+      "sha256": "b3afbbd23fe48de2fc4862ecb8e20c44802f94f09486bcd5ca745dc64be74cd9"
+    },
+    {
+      "path": "../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_LIFE_E8_DUAL_CLOCK_LIFE03_2026-10-07/life-e8-engine.js",
+      "sha256": "4c98cde7a75b36f1fd7bea644aa6cd5b095c0367ac3e2e2ec141fdefece1aa7e"
+    },
+    {
+      "path": "../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_LIFE_E8_DUAL_CLOCK_LIFE03_2026-10-07/app.js",
+      "sha256": "f3e5c1d07ac97166c1adeb1ecd43f9ea2eb5c8d18431f8863a796567502214dd"
+    },
+    {
+      "path": "../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_LIFE_MULTI_VIEW_IDENTIFIABILITY_CA_IDENT_01_2026-10-08/results/CA_IDENT_01_RESULT.json",
+      "sha256": "51e570404a4a7c630e53695564d6252092ca248f8d2da088b91e01ffc2652697"
+    },
+    {
+      "path": "../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_LIFE_MULTI_VIEW_UTILITY_CA_IDENT_02_2026-10-08/results/CA_IDENT_02_RESULT.json",
+      "sha256": "0099e484a3be20a9c6c0a7f63b29683f65a23a212d6c5a1701a0d5242aed038c"
+    },
+    {
+      "path": "../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_LIFE_CUBE_MEMORY_FOURIER_CA_IDENT_03_2026-10-08/results/CA_IDENT_03_RESULT.json",
+      "sha256": "5344fd304db6be4473e5a4277990471dd9056ebf302af0d163d7be2d658a3701"
+    },
+    {
+      "path": "../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_LIFE_BALANCED_FUSION_CA_IDENT_04_2026-10-08/results/CA_IDENT_04_RESULT.json",
+      "sha256": "8122ea5ee326c89a05e64cfe0994c256b04b54bb6ed02841887dfa4c77489c07"
+    },
+    {
+      "path": "../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_LIFE_ALPHA_BETA_RESIDUAL_CA_IDENT_05_2026-10-08/results/CA_IDENT_05_RESULT.json",
+      "sha256": "df80ea8ec71ef4a6e73fb46713d57e7bc93ab951564de8e8ff341250d270d1b7"
+    },
+    {
+      "path": "../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_LIFE_KAPPA_OPEN_SET_CA_IDENT_06_2026-10-08/results/CA_IDENT_06_RESULT.json",
+      "sha256": "ad342eb7455efb05e111edc0900d0042c3ffc27c68a979298ca3db5e5a64565f"
+    },
+    {
+      "path": "../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_LIFE_GENERATIONAL_BINDER_CA_IDENT_07_2026-10-08/results/CA_IDENT_07_RESULT.json",
+      "sha256": "6da447eeaa5c0b3512c97a117eea4e779cf1a26bc6966f7bf5693b5df6433e5d"
+    },
+    {
+      "path": "../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_LIFE_CONDITIONAL_RESIDUAL_OBSERVER_CA_IDENT_08_2026-10-08/results/CA_IDENT_08_RESULT.json",
+      "sha256": "e42dc3f9c35b796629d684aa35b87babad8d3b25b6c8648599cdd11213da1bd0"
+    },
+    {
+      "path": "../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_VIEW_INDUCED_TOPOLOGY_CALIBRATION_CA_IDENT_09_2026-10-08/CA_IDENT_09_RESULT.json",
+      "sha256": "749115cc5f9f09dc67315cbda24a62dd41009278f4d2f0068362e172e5aac439"
+    },
+    {
+      "path": "../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_LIFE_THREE_CUT_EVENT_TRANSFER_CA_IDENT_10_2026-10-08/CA_IDENT_10_RESULT.json",
+      "sha256": "bb7a3fb7f054d324d31269d92231b5961c1e28b5fdde4ba9d43ff32460673e2e"
+    },
+    {
+      "path": "../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_IEEE300_GRAPH_TO_GRID_VALIDATION_2026-10-08/artifacts_r2/GRAPH_GRID_RESULT_R2.json",
+      "sha256": "c4e36047129ca54faaf13189a50b7f94b13b57fa1ef3aa21ee0ef5491f1ca514"
+    },
+    {
+      "path": "../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_IEEE300_GRAPH_TO_GRID_VALIDATION_2026-10-08/morphology_01/artifacts/GRAPH_GRID_MORPHOLOGY_01.json",
+      "sha256": "c4d1f6d9f01d9b092554c326edb36b2788242d3e916780eae83b989d1fb79e77"
+    }
+  ],
+  "unchangedRuntimeGuards": [
+    {
+      "path": "a0-orientation-controller-bench.js",
+      "sha256": "1e29f568d8456ce47319dfcaeef7b0667f5bd9176320226c062ba8270116796f"
+    },
+    {
+      "path": "a0-pentagon-contract.js",
+      "sha256": "0272ee2bb842fd29891c1251a71d1ef71bddac541dd9d78d77809242394a9d8a"
+    },
+    {
+      "path": "a0-pentagon-child.js",
+      "sha256": "6e7ff1dee7f1bcf770e3bf3b042c7cc1e9481cc949ae8d49e8d19269ae67f3a1"
+    },
+    {
+      "path": "a0-pentagon-bench-adapter.js",
+      "sha256": "299d917cca9db59053189aefb9b31cf72e71505c4948c9096c732bfb45cea8df"
+    },
+    {
+      "path": "a0-pentagon-joint-demo.js",
+      "sha256": "c497d021b0d5ea7e11a065855f1b047bb42f676f31d9c9d8858033910671dd77"
+    },
+    {
+      "path": "assets/a0-axial-carrier-adapter-v1.js",
+      "sha256": "ee45c6ec84d907753173643901ec5324c47e1f24cec08f85fbb240b9161f5ef7"
+    },
+    {
+      "path": "results/a0-pentagon-joint-browser-run-2026-10-17.json",
+      "sha256": "cc913e5d0b84a2fb5366a1e9a201801ae6379f4918599cce7143c473c7d566be"
+    }
+  ],
+  "nextEngineeringGate": {
+    "sourceKey": "life03",
+    "state": [
+      "mode",
+      "size",
+      "pattern / seed identity",
+      "Life generation and addressed state",
+      "E8 mutation state",
+      "observer micro / macro clock",
+      "projection record with residual"
+    ],
+    "contract": [
+      "pause source-local timer before master control",
+      "READY plus source/version witness",
+      "one declared step with ACK and source readback",
+      "Stop/HOLD on missing witness",
+      "restore complete declared start anchor, retain trajectory provenance"
+    ],
+    "implemented": false,
+    "browserAccepted": false
+  }
+}

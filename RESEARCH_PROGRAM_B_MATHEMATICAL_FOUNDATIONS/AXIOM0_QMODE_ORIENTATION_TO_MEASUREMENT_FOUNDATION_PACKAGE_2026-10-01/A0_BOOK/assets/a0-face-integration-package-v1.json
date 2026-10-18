@@ -1,0 +1,192 @@
+{
+  "schema": "nexah.a0.face-integration-work-package/1",
+  "asOf": "2026-10-17",
+  "title": "Bench → Blue/Dodeca/Pink: gemeinsames Integrationspaket 1–5",
+  "status": "M1_M2_M3_ENGINEERING_IMPLEMENTED_BROWSER_ACCEPTANCE_OPEN",
+  "scope": "One local engineering work package inside the existing A0 Book. Not a new Lab, study, canonical module or registry.",
+  "ownerAuthorization": "Owner requested points 1–5 as one package to consolidate implementation.",
+  "goal": "Existing Bench command → addressed actual Dodeca face → confirmed pose → source-derived shadow/echo → exact scoped source Return → unified record → actual browser acceptance.",
+  "existing": {
+    "bench": "A0_ORIENTATION_CONTROLLER_BENCH.html",
+    "nativeSource": "A0_BLUE_PINK_DODECA_CELL_RETURN.html",
+    "geometry": "assets/a0-blue-body-dodeca-countershot-v1.js",
+    "ledger": "assets/a0-blue-pink-dodeca-cell-return-v1.js",
+    "sourceIdentity": "A0-VIEW-BLUE-PINK-DODECA-CELL-RETURN",
+    "slots": "4×12 body face slots +12 Return face slots; reuse all existing IDs",
+    "localViews": [
+      "a0-root7-wing-sequence.js",
+      "a0-fold-lag-lens.js",
+      "a0-projection-overlay.js"
+    ],
+    "sourceSet": "Existing actual native renderer and geometry are authority. A separately redrawn dodecahedron does not count as runtime binding."
+  },
+  "executionOrder": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "milestones": [
+    {
+      "id": "M1",
+      "goal": "One owner-selected actual face through the complete chain 1–5",
+      "status": "ENGINEERING_PASS",
+      "defaultPolicy": "Selected face and hinge edge must be declared in the run record; geometric edge order is not historical meaning."
+    },
+    {
+      "id": "M2",
+      "goal": "Four selected faces, one per Blue/Pink satellite, only after M1 acceptance",
+      "status": "ENGINEERING_PASS"
+    },
+    {
+      "id": "M3",
+      "goal": "Broader multi-face use without replacing existing 60-slot ledger",
+      "status": "ENGINEERING_PASS_VERSIONED_REPLAY"
+    }
+  ],
+  "tasks": [
+    {
+      "point": 1,
+      "title": "Echte Flächensteuerung",
+      "status": "ENGINEERING_PASS_NATIVE_RENDERER_BOUND",
+      "dependsOn": [],
+      "deliverables": [
+        "Native renderer control adapter, actual face ID and selected edge (two original vertex IDs)",
+        "Single selected face hinge motion with fixed edge, rigid facet metrics and explicit non-closed-solid boundary during opening",
+        "Readback from actual renderer state rather than a parent-side recomputation"
+      ],
+      "acceptance": [
+        "Existing face/cell IDs preserved; no new geometry authority",
+        "Five selected vertices and hinge endpoint positions verified through motion",
+        "Other faces unchanged unless an explicit operator says otherwise",
+        "No second free-running source clock"
+      ],
+      "gap": "Closed for deterministic engineering: native renderer exposes selection, explicit hinge edge, rigid-facet readback and parent transport. Rendered browser acceptance remains under point 5."
+    },
+    {
+      "point": 2,
+      "title": "Gemeinsame Sequenz",
+      "status": "ENGINEERING_PASS_BOUNDED_4X2_PLUS_1",
+      "dependsOn": [
+        1
+      ],
+      "deliverables": [
+        "One bounded coordinator, typed commands, one pending mutation, source revision/nonce/sequence and ACK readback",
+        "Explicit sequence table relating 29 display poses, 16 book stations and actual source commands, without equating their carriers",
+        "Pause/HOLD/Return, lost-ACK recovery via read only; no mutation retry"
+      ],
+      "acceptance": [
+        "Next step waits for the prior confirmed source state",
+        "No simultaneous unsynchronized players",
+        "All steps record requested parameters and actual readback",
+        "Sequence schedule, endpoints and any repeat/return policy are explicit"
+      ],
+      "gap": "Book and 5B have separate players with mutual pause; Q4-follow is only a display resampling."
+    },
+    {
+      "point": 3,
+      "title": "Achsen und Übergangslesart",
+      "status": "PARTIAL_GEOMETRY_OPEN_SEMANTICS",
+      "dependsOn": [
+        1,
+        2
+      ],
+      "deliverables": [
+        "Book material polylines 2–O–5, 3–O–6 and 1–O–4 as explicit source-labelled measurement references",
+        "Separate fixed outer reference and moving hinge",
+        "AM/VM/PM transition labels only with an explicit view-role mapping; V/R material-face labels remain distinct",
+        "M/Umlauf marker separated from LRRL branch trace"
+      ],
+      "acceptance": [
+        "No identification of book polygon with a regular dodeca face without a declared mapping",
+        "No mix of independent point-number registers",
+        "No new canonical Family/vocabulary adoption",
+        "LRRL excursion and true winding are not equated"
+      ],
+      "openChoices": [
+        "Exact AM/VM/PM stage boundaries",
+        "Meaning of M as a view label, not recovered historical operator",
+        "Mapping of book axes onto a selected native face"
+      ]
+    },
+    {
+      "point": 4,
+      "title": "Gemeinsamer Record und Source-Return",
+      "status": "ENGINEERING_PASS_NATIVE_SOURCE_RETURN_AND_REPLAY",
+      "dependsOn": [
+        1,
+        2,
+        3
+      ],
+      "deliverables": [
+        "One export holding source address/hinge, commands, ACKs/revisions, book, 5B, overlay settings and separate histories",
+        "Source-owned capture/Return covering all declared native cell-view state including motion phase, not just selected UI fields",
+        "Importer/replay with source/hash validation and bounded history semantics"
+      ],
+      "acceptance": [
+        "A snapshot export is not labelled a completed or accepted run",
+        "Return compares restored source state with the captured source anchor",
+        "View-only Return does not substitute for source Return",
+        "History truncation, source scopes and missing components remain explicit"
+      ],
+      "nowImplemented": "Native source runtime captures the full declared renderer view state, confirms commands, returns readback and restores an exact fingerprinted source anchor. A versioned fail-closed envelope exports Native Face, A·i·l and Ninefold records, validates source/schema identity, replays serial source commands and finishes with RESTORE_RECORD plus exact fingerprint receipt. Binder System D retains the confirmed source record.",
+      "gap": "Rendered browser acceptance remains open; importer/replay engineering coverage is complete."
+    },
+    {
+      "point": 5,
+      "title": "Abnahme und Currentness",
+      "status": "OPEN",
+      "dependsOn": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "deliverables": [
+        "Engineering tests for geometry, transport, sequence, export/replay and Return failure modes (PASS)",
+        "Actual owner/browser run with visible addressed face movement and returned source state",
+        "Separate bounded currentness reconciliation against approved baselines"
+      ],
+      "acceptance": [
+        "End-to-end browser receipt from the actual native source, not mock DOM alone",
+        "Timeout, wrong window/nonce/revision, malformed geometry, pause and lost ACK handled fail-closed",
+        "No silent canonical pin updates to turn known failures green",
+        "Package accepted only when all required checks pass; report remaining open items"
+      ],
+      "knownLimits": [
+        "Prior file-browser automation denial remains respected",
+        "Existing A0 evidence binder retains eight known hash mismatches",
+        "Existing engineering test passes do not establish full end-to-end browser acceptance"
+      ]
+    }
+  ],
+  "exportPolicy": {
+    "schema": "nexah.a0.integration-package-snapshot/1",
+    "entry": "A0_ORIENTATION_CONTROLLER_BENCH.html#masterDemoExport",
+    "scope": "Read-only composite snapshot of currently connected local views, not a synchronized run receipt.",
+    "missingSource": "Dodeca remains HOLD until its iframe runtime acknowledges HELLO and CAPTURE; no parent-side substitute is accepted.",
+    "history": "Overlay retains latest 64 visited poses per source since page load; not a whole-research archive."
+  },
+  "layeredSceneProgress": {
+    "asOf": "2026-10-17",
+    "status": "LOCAL_LAYERED_SCENE_IMPLEMENTED_NOT_NATIVE_BINDING",
+    "contract": "a0-layered-pentagon-scene-v1.json",
+    "implemented": "One phase drives three planar pentagon layers, central reused H3 geometry, exact 2D overlap/differences, two mask windows and a reference curve. Third separate overlay history and shared export are wired.",
+    "stillOpen": "Native 60-cell control/hinge/readback, global 16/29/native-source coordination, exact native Source-Return and browser acceptance."
+  },
+  "stopConditions": [
+    "Need for undeclared canonical Family/vocabulary changes",
+    "Need for research execution or new scientific claims",
+    "Missing source contract, exact hinge mapping or authoritative readback",
+    "Browser access denial: do not bypass with another path"
+  ],
+  "authority": {
+    "newCanonicalIdentity": false,
+    "newCanonicalRelation": false,
+    "newStudy": false,
+    "researchActivation": false,
+    "scientificClaimPromotion": false,
+    "publication": false
+  }
+}
