@@ -1,7 +1,7 @@
 {
   "schema": "nexah.a0.coupled-window-system/1",
   "date": "2026-10-18",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "benchVersion": "0.17.0",
   "identity": "NEXAH_A0_ORIENTATION_CONTROLLER_BENCH",
   "reuses": [
@@ -55,6 +55,13 @@
     "copiesSources": false,
     "mergesCarriers": false
   },
+  "readingContinuity": {
+    "mode": "MODAL_SOURCE_VIEWER_WITH_EXACT_SCROLL_RETURN",
+    "layouts": ["INSET", "MAXIMIZED", "PHONE_FULL_VIEWPORT"],
+    "actions": ["OPEN_DOCUMENT", "MAXIMIZE", "FIT", "CLOSE_AND_RETURN"],
+    "duplicatesSources": false,
+    "changesNavigationIdentity": false
+  },
   "sources": [
     {
       "role": "BOUND_A0_BL_036_READER_INSTRUMENT",
@@ -68,9 +75,9 @@
     }
   ],
   "implementation": [
-    {"path": "a0-coupled-window.js", "sha256": "466ef5c062718a811b9877b0da2c307b9434b9df59102a40d1fd4817b0ba1763"},
-    {"path": "a0-coupled-window.css", "sha256": "698b6e58d61fb16b98950a942fe962a6019644c0987b0656d194862b75c7c9c4"},
-    {"path": "a0-coupled-window-tests.cjs", "sha256": "946d278d47d38bdc98e9d7bcf29ef2d89738d274dd6a9d721c9a86666a993415"},
+    {"path": "a0-coupled-window.js", "sha256": "2c8ff7f407f078dbdbe34b310597d07035a53b2d4b169dfee01adf78e9a7778a"},
+    {"path": "a0-coupled-window.css", "sha256": "8abc604d1c4b41589ad2f14ac0d6ef233913e845d2ad3dbc951fc88a3381e1fc"},
+    {"path": "a0-coupled-window-tests.cjs", "sha256": "a6a98b373d905e712d83daac6c1a4acd6eff14a0fc7162dc21d0e908a2cdb432"},
     {"path": "a0-aperture-invariance-observatory.js", "sha256": "a36ed5d47f4fd12acc047b1902ab5f7d2494d1e2c0a79bb3932487a69cc9ba67"},
     {"path": "a0-aperture-invariance-observatory-tests.cjs", "sha256": "bd7dc17ced30dcb8e8bc809ec4d8b44d21cf393b5bb957cca8019b361edaa8c8"},
     {"path": "a0-bench-session-ledger.js", "sha256": "4689ec272c6bc2613155245015084faa93fbfbcdfe443c2c838833c00e235650"},
