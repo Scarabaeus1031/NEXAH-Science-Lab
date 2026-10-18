@@ -1,0 +1,28 @@
+{
+  "schema": "nexah.a0.ocb-showcase-tour-package/1",
+  "date": "2026-10-18",
+  "status": "ENGINEERING_PASS_LIVE_BROWSER_ACCEPTANCE_OPEN",
+  "identity": "NEXAH_A0_ORIENTATION_CONTROLLER_BENCH",
+  "entry": "A0_ORIENTATION_CONTROLLER_BENCH.html#benchShowcase",
+  "stationCount": 16,
+  "m3Views": ["unrolled", "cylinder", "top", "slice"],
+  "engineScope": ["M3", "APERTURE_STACK", "MASTER", "PENT_SOURCE_ADAPTER", "LIFE03_SOURCE_ADAPTER", "NATIVE_DODECA_FACE", "AIL_APERTURE_CONTROL", "FOUR_APERTURE_NINEFOLD", "OCB_RECORD_REPLAY", "JARP_SOURCE_READER", "AXIAL_SOURCE_READER", "AXIS08_SOURCE_READER", "BOUNDARY_SOURCE_READER"],
+  "implementationFiles": [
+    {"path":"a0-bench-showcase-tour.js","sha256":"8a14b19a28b6150fed99939f55d3011d5428cecee8ef6332322a84353242f09c"},
+    {"path":"a0-bench-showcase-tour.css","sha256":"b9824c5e7dec2aec53bd2fd4c61cfc78cd2f1136f1b71593ce0f0e3e667128b1"},
+    {"path":"a0-bench-showcase-tour-tests.cjs","sha256":"90b803d1ddee92b43e0e00a72ec4d478e86b355ff89f2dc949bd99acc4682630"},
+    {"path":"A0_ORIENTATION_CONTROLLER_BENCH.html","sha256":"4fe4e7bf9f33ab0faefaff9c022c62d27f9bcf7eb571e908ea9b83a762651ac4"}
+  ],
+  "acceptance": {
+    "singlePrimaryTourControl": true,
+    "setupCollapsedAtLoad": true,
+    "binderPlayInvoked": true,
+    "allM3ViewsVisited": true,
+    "sourceAdaptersRemainDistinct": true,
+    "pauseAndRestart": true,
+    "reducedMotionRespected": true,
+    "liveBrowserPixels": false
+  },
+  "authority": {"newCanonicalIdentity":false,"newCanonicalRelation":false,"newFamily":false,"researchExecution":false,"claimPromotion":false,"publication":false},
+  "boundary": "Presentation orchestration of existing source-bound controllers. The tour creates no shared carrier, shared clock, whole-machine return, scientific result or new research object."
+}

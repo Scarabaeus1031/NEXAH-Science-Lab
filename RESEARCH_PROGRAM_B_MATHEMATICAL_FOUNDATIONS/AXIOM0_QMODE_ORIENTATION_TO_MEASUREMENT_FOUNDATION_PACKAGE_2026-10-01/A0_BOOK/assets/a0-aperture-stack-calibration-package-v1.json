@@ -1,0 +1,49 @@
+{
+  "schema": "nexah.a0.aperture-stack-calibration-package/1",
+  "date": "2026-10-18",
+  "status": "GAP02_ENGINEERING_PASS_GAP09_AUTOMATED_PASS_MANUAL_VISUAL_OPEN",
+  "identity": "NEXAH_AX0_QMODE_FOUNDATION_PACKAGE",
+  "instrument": "NEXAH_A0_ORIENTATION_CONTROLLER_BENCH",
+  "entry": "A0_ORIENTATION_CONTROLLER_BENCH.html#apertureStackCalibration",
+  "backlog": ["OCB-GAP-02", "OCB-GAP-09"],
+  "source": "PXA_BLUE_IRIS_APERTURE",
+  "reference": {"plate": "P3", "angleDegrees": 51.83, "toleranceDegrees": 0.02},
+  "sourceAnglesDegrees": [51.63, 51.73, 51.83, 51.93, 52.03, 52.13],
+  "controlAnglesDegrees": [37, 41, 46, 54, 63, 71],
+  "sampleCount": 48,
+  "implementationFiles": [
+    {"path":"a0-aperture-stack-calibration.js","sha256":"5cc0b0c32dbb7c987846353dde9c077cddbca88789b024c5e8817a62d33630b6"},
+    {"path":"a0-aperture-stack-calibration.css","sha256":"2f3612839bac3df8adfdd0bda065a2c4fae750a29ee9a7779a1364b39c1dffe0"},
+    {"path":"a0-aperture-stack-calibration-tests.cjs","sha256":"0b543a54dc36ef187b91f8190591d7e2e8077ea7ade79c29ef9788741413f623"},
+    {"path":"a0-ocb-browser-qa.js","sha256":"122b07ffbf645fb089508856a0cdbfb855b634775d1df078e47c0877aaac9ce2"},
+    {"path":"a0-ocb-browser-qa-tests.cjs","sha256":"380c854485d21a9d73b9cdae6ddaa8bb2ef92e918344eed4b1bf11ab5932f2b5"},
+    {"path":"A0_ORIENTATION_CONTROLLER_BENCH.html","sha256":"d111d3474ef663847b52392b798e7a56fcdf5d5cc44cc11500c77165f4e6edd5"},
+    {"path":"../100_A0_ORIENTATION_CONTROLLER_BENCH_GAP_REGISTER_2026-10-16.md","sha256":"470573c324aee2cb0f184c8320fbda05f32f7720e8733ec337d98b5aa2b6e72d"},
+    {"path":"../106_A0_ORIENTATION_CONTROLLER_BENCH_SCIENCE_DESK_RETURN_2026-10-16.md","sha256":"35bae59039ec9da60a2a13352aea85f39b47890990c265e99d999830a5ebb839"},
+    {"path":"A0_BUILDER_LOG.html","sha256":"d335023fbaddf1d7efaa625f8daa71b2af46f3fe92810000681d128ce0217ed9"},
+    {"path":"assets/a0-ocb-browser-qa-matrix-v1.json","sha256":"569c9652a4aca9e5ebe4ed264547b996b6cca7048545c73e171f984c78132017"},
+    {"path":"results/a0-aperture-stack-engineering-return-2026-10-18.json","sha256":"5a4e06779af3a4559c490e2901246d42799206e1046a77d056982149b755faf0"}
+  ],
+  "verification": {
+    "baseChecks": 65,
+    "m3Checks": 97,
+    "stackChecks": 73,
+    "browserQaChecks": 31,
+    "allAutomatedPass": true,
+    "sourceFingerprintInvariant": true,
+    "orderedSamplesInvariant": true,
+    "signedReferenceComparison": true,
+    "ilauExported": true,
+    "exactSourceReturn": true,
+    "manualMultiViewportPixels": false
+  },
+  "authority": {
+    "newCanonicalIdentity": false,
+    "newCanonicalRelation": false,
+    "newFamily": false,
+    "researchExecution": false,
+    "scientificClaimPromotion": false,
+    "publication": false
+  },
+  "boundary": "Source-local engineering calibration fixture and browser contract audit. The six plates are typed views of the existing aperture carrier; no physical, optical, astronomical, prime, causal or external-validity claim is made."
+}

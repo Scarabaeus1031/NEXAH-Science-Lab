@@ -1,0 +1,43 @@
+{
+  "schema": "nexah.a0.ocb-system-binder-engineering-return/1",
+  "date": "2026-10-18",
+  "status": "ENGINEERING_PASS_LIVE_ADAPTER_BROWSER_ACCEPTANCE_OPEN",
+  "identity": "NEXAH_AX0_QMODE_FOUNDATION_PACKAGE",
+  "instrument": "NEXAH_A0_ORIENTATION_CONTROLLER_BENCH",
+  "backlog": ["OCB-GAP-06", "OCB-GAP-07"],
+  "systems": [
+    {"id":"orientation","carrier":"P×A / M3 / APERTURE_STACK","adapter":"local confirmed controllers","return":"ordered 48-sample source fingerprint"},
+    {"id":"pentagon","carrier":"PENTAGON_UI_STATE","adapter":"existing source-owned PENT adapter","return":"six UI fields plus rendered readback"},
+    {"id":"life03","carrier":"LIFE03_64×64_BLINKER","adapter":"existing source-owned LIFE03 adapter","return":"declared Life/E8 source state"},
+    {"id":"dodeca","carrier":"BLUE_PINK_DODECA_60_CELL_SOURCE","adapter":"native source-owned Face Bridge","return":"four addressed faces plus exact source fingerprint"}
+  ],
+  "masterProgram": ["SOURCE","OPERATOR","EDGE","SHADOW","FAMILY","GRID","RETURN","FOLD","ROOT","RECORD"],
+  "controls": ["CONNECT_VERIFY_ALL","PLAY_ALL_ENGINES","PAUSE_SESSION","STEP_ALL","RESET_BINDER","EXPORT_SESSION"],
+  "checks": 51,
+  "acceptance": {
+    "typedSystemLedger": true,
+    "sourceAcknowledgementVisible": true,
+    "holdVisible": true,
+    "manualPause": true,
+    "hiddenDocumentPause": true,
+    "pageHideCleanup": true,
+    "sessionExport": true,
+    "liveAdapterBrowserRun": false,
+    "manualMultiViewportPixels": false
+  },
+  "nonClaims": {
+    "sharedCarrier": false,
+    "sharedClock": false,
+    "simultaneousSnapshot": false,
+    "wholeMachineReturn": false,
+    "mechanismIdentity": false
+  },
+  "authority": {
+    "newCanonicalIdentity": false,
+    "newCanonicalRelation": false,
+    "newFamily": false,
+    "researchExecution": false,
+    "scientificClaimPromotion": false,
+    "publication": false
+  }
+}

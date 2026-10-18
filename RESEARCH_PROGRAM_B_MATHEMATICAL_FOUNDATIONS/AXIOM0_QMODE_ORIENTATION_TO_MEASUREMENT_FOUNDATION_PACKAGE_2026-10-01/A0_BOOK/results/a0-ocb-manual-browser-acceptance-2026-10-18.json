@@ -1,0 +1,44 @@
+{
+  "schema": "nexah.a0.ocb-manual-browser-acceptance/1",
+  "date": "2026-10-18",
+  "identity": "NEXAH_A0_ORIENTATION_CONTROLLER_BENCH",
+  "gap": "OCB-GAP-09",
+  "status": "HUMAN_OWNER_REVIEW_REQUIRED_LOCAL_FILE_AUTOMATION_BLOCKED",
+  "requested": [
+    {"id": "tablet", "viewport": "820x1100", "renderedPixelAcceptance": "OPEN"},
+    {"id": "phone", "viewport": "390x844", "renderedPixelAcceptance": "OPEN"},
+    {"id": "highZoom", "zoom": "200%", "renderedPixelAcceptance": "OPEN"},
+    {"id": "nativeLiveAdapters", "surface": "A·i·l / Ninefold / Replay / Binder", "renderedInteractionAcceptance": "OPEN"}
+  ],
+  "automatedEvidence": {
+    "receipt": "../assets/a0-ocb-browser-qa-matrix-v1.json",
+    "checks": 31,
+    "status": "PASS",
+    "covers": ["1440x900 layout contract", "820x1100 layout contract", "390x844 layout contract", "900px breakpoint", "560px breakpoint", "native keyboard controls", "visible focus contract", "reduced-motion policy", "hidden-document pause", "pagehide cleanup"]
+  },
+  "attempts": [
+    {
+      "surface": "A0_ORIENTATION_CONTROLLER_BENCH.html#systemBinder",
+      "result": "BLOCKED_BEFORE_RENDERED_INSPECTION",
+      "reason": "The governed browser automation surface rejects local file:// navigation and interaction. No alternate browser, local server or policy workaround was used.",
+      "visualPassClaimed": false
+    },
+    {
+      "surface": "A0_ORIENTATION_CONTROLLER_BENCH.html?rev=20261018-gap04-replay-r1#ailApertureControl",
+      "target": "OCB v0.13.0 A·i·l, Record/Replay and live adapter acceptance",
+      "result": "BLOCKED_BEFORE_RENDERED_INSPECTION",
+      "reason": "The in-app browser exposes the local file tab, but governed UI control prohibits observing or operating file:// content. No policy bypass, alternate browser or temporary HTTP server was used.",
+      "visualPassClaimed": false
+    }
+  ],
+  "humanChecklist": [
+    "At 820x1100 confirm no horizontal page overflow, clipped controls or unreadable ledgers.",
+    "At 390x844 confirm each control group stacks, labels remain attached and every button stays reachable.",
+    "At 200% zoom confirm text reflows, focus remains visible and boundaries do not overlap the canvases.",
+    "Run Connect / Verify All, Play All Engines, Pause, Step, Reset and Export; confirm HOLD remains visible on adapter failure.",
+    "Run A → i → l, the bounded A·i·l program, Ninefold and imported replay; confirm the native face moves and RESTORE_RECORD returns the captured fingerprint.",
+    "Confirm guide interruption does not stop ambient state indicators and backgrounding pauses active timers.",
+    "Record PASS or the exact failing section; do not infer pixel acceptance from automated contracts."
+  ],
+  "boundary": "This record documents an attempted acceptance and a policy block. It is not a manual PASS, a browser equivalence claim or a scientific run."
+}

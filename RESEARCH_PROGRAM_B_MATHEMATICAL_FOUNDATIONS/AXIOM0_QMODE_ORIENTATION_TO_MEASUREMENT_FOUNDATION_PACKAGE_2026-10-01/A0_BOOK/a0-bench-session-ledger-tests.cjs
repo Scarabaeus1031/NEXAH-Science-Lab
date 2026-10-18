@@ -1,0 +1,15 @@
+'use strict';
+const assert=require('node:assert/strict'),fs=require('node:fs'),L=require('./a0-bench-session-ledger.js');
+let checks=0;const eq=(a,b,m)=>{assert.deepEqual(a,b,m);checks++},ok=(v,m)=>{assert.ok(v,m);checks++};
+let ledger=L.createLedger({sessionId:'OCB-TEST',createdAt:'2026-10-18T00:00:00.000Z'});eq(L.validate(ledger),true,'empty ledger valid');
+ledger=L.add(ledger,{id:'R1',capturedAt:'2026-10-18T00:01:00.000Z',scenario:'window',title:'Moving Window',payload:{sum:34,address:'DURER:00:K2:PLANAR'}});
+ledger=L.add(ledger,{id:'R2',capturedAt:'2026-10-18T00:02:00.000Z',scenario:'window',title:'Moving Window',payload:{sum:34,address:'KHAJURAHO:00:K2:PLANAR'}});
+eq(ledger.entries.length,2,'two captures');eq(ledger.entries[0].authority,'ENGINEERING_RECEIPT_NOT_SCIENTIFIC_EVIDENCE','authority boundary');
+let comparison=L.compare(ledger.entries[0],ledger.entries[1]);eq(comparison.sameScenario,true,'same window');eq(comparison.samePayload,false,'different typed state');eq(comparison.classification,'SAME_WINDOW_STATE_CHANGED','delta classification');
+const exact=L.compare(ledger.entries[0],ledger.entries[0]);eq(exact.classification,'EXACT_REPLAY_MATCH','exact replay');
+ledger=L.add(ledger,{id:'R3',capturedAt:'2026-10-18T00:03:00.000Z',scenario:'observatory',title:'Observatory',payload:{classification:'LOCATION_DEPENDENT'}});comparison=L.compare(ledger.entries[1],ledger.entries[2]);eq(comparison.classification,'CROSS_WINDOW_TYPED_COMPARISON','cross-window comparison');
+const receipt=L.receipt(ledger);eq(receipt.entryCount,3,'receipt count');eq(receipt.authority.sharedCarrier,false,'no shared carrier');eq(receipt.authority.sharedClock,false,'no shared clock');eq(receipt.authority.researchRun,false,'not a run');eq(L.validate(receipt),true,'receipt validates');
+ledger=L.remove(ledger,'R2');eq(ledger.entries.map(x=>x.id),['R1','R3'],'remove exact record');eq(L.validate({...receipt,version:'2.0.0'}),false,'wrong version rejected');
+const memory={value:null,getItem(){return this.value},setItem(key,value){this.value=value}};L.captureStored(memory,{id:'RS',capturedAt:'2026-10-18T00:04:00.000Z',scenario:'observatory',payload:{classification:'INVARIANT'}});eq(L.load(memory).entries.length,1,'headless capture persists before ledger opens');
+const html=fs.readFileSync('A0_ORIENTATION_CONTROLLER_BENCH.html','utf8');ok(html.includes('data-coupled-open="ledger"'),'ledger launcher');ok(html.includes('a0-bench-session-ledger.js'),'ledger mounted');
+console.log(JSON.stringify({status:'PASS',checks,schema:L.SCHEMA,authority:'ENGINEERING_RECEIPT_NOT_SCIENTIFIC_EVIDENCE'}));

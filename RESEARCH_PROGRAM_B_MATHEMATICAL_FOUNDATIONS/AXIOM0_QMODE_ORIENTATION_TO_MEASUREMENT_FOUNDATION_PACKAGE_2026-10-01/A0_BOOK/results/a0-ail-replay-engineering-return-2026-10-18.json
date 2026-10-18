@@ -1,0 +1,16 @@
+{
+  "schema": "nexah.a0.ail-replay-engineering-return/1",
+  "date": "2026-10-18",
+  "identity": "NEXAH_A0_ORIENTATION_CONTROLLER_BENCH",
+  "version": "0.13.0",
+  "status": "ENGINEERING_PASS_MANUAL_BROWSER_ACCEPTANCE_OPEN",
+  "completed": [
+    {"gap":"OCB-GAP-04","result":"A·i·l domains, codomains, changed fields and preserved fields are explicit; native command/readback and source Return are wired.","checks":29},
+    {"package":"OCB_RECORD_REPLAY","result":"Native Face, A·i·l and Ninefold export/import validates source and schemas, replays serially and restores the exact captured source fingerprint.","checks":17},
+    {"package":"SHOWCASE_TOUR","result":"Tour expanded to 14 stations and includes A·i·l plus Record/Replay while cycling all four M3 views.","checks":35},
+    {"package":"SYSTEM_BINDER","result":"Binder runs A·i·l before Ninefold on the shared native source adapter; four carriers remain separately typed.","checks":51}
+  ],
+  "manualAcceptance": {"gap":"OCB-GAP-09 / OCB-GAP-07 live adapter","status":"OPEN","reason":"Governed browser automation rejects inspection of the already-open local file:// surface; no alternate server/browser workaround was used."},
+  "methodFinding": "Operator scope and replay identity must be independently typed: changing a native pose is not changing source identity, and reproducing a command sequence is not exact Return until the captured source fingerprint is restored.",
+  "authority": {"newCanonicalIdentity":false,"newCanonicalRelation":false,"newFamily":false,"researchExecution":false,"scientificFinding":false,"claimPromotion":false,"publication":false}
+}

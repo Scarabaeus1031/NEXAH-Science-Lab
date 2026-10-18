@@ -1,0 +1,84 @@
+{
+  "schema": "nexah.a0.coupled-window-system/1",
+  "date": "2026-10-18",
+  "version": "1.1.0",
+  "benchVersion": "0.17.0",
+  "identity": "NEXAH_A0_ORIENTATION_CONTROLLER_BENCH",
+  "reuses": [
+    "MOD:ORIENTATION_DEMONSTRATORS",
+    "ART:A0:MATHEMATICAL_JOINTS",
+    "A0-BL-036"
+  ],
+  "status": "SOURCE_BOUND_ENGINEERING_WINDOW_SYSTEM",
+  "windows": [
+    "moving-aperture-return",
+    "control-plane",
+    "native-return",
+    "measurement",
+    "source-bridges",
+    "external-adapters",
+    "return-economy",
+    "root-projection",
+    "aperture-invariance-observatory",
+    "coupled-session-ledger"
+  ],
+  "movingAperture": {
+    "carriers": ["DÜRER_Q4_PLACEMENT", "KHAJURAHO_Q4_PLACEMENT"],
+    "windowSizes": [2, 3],
+    "boundaries": ["PLANAR", "TOROIDAL"],
+    "declaredRecords": 90,
+    "exactStatements": [
+      "Dürer planar 2x2 sums are 34,26,34 / 30,34,38 / 34,42,34",
+      "Khajuraho planar and toroidal 2x2 windows all sum to 34",
+      "Dürer and Khajuraho toroidal 3x3 sums each permute 69 through 84 exactly once"
+    ],
+    "returnContract": "The local sum is the view. Carrier, address, window size and boundary are a typed residual. View plus residual reconstructs the declared source window exactly; it does not reconstruct history."
+  },
+  "invarianceObservatory": {
+    "operators": ["identity", "otherCarrier", "rotate90", "rotate180", "reflectX", "translate22", "control"],
+    "comparisonCases": 56,
+    "classifications": ["INVARIANT", "LOCATION_DEPENDENT", "PLACEMENT_DEPENDENT"],
+    "status": "FINITE_ENGINEERING_COMPARISON_NOT_RESEARCH_RUN"
+  },
+  "sessionLedger": {
+    "schema": "nexah.a0.bench-session-ledger/1",
+    "operations": ["capture", "compare", "replay", "export"],
+    "persistentLocalStorage": true,
+    "sharedCarrier": false,
+    "sharedClock": false,
+    "scientificEvidence": false
+  },
+  "sources": [
+    {
+      "role": "BOUND_A0_BL_036_READER_INSTRUMENT",
+      "path": "A0_Q4_MAGIC_SQUARE_JOINT_AUDIT.html",
+      "sha256": "cf2948701151a4e483f2f120fe126aee96ba8726e542bb4baed65c37d90badd2"
+    },
+    {
+      "role": "CANONICAL_DOCUMENTARY_BACKLOG_AND_MOVING_WINDOW_STATEMENTS",
+      "path": "../24_A0_RESEARCH_BACKLOG_AND_OPEN_JOINTS_2026-10-10.md",
+      "sha256": "73fbba6ef7b7a0a1165b6b01898f1f9a402178ed8b4e0e3a7fa275ff6e7d9164"
+    }
+  ],
+  "implementation": [
+    {"path": "a0-coupled-window.js", "sha256": "92b3e8aef2337cacea9e5674679c686b7e3e7b324b51d50c26962a3490106308"},
+    {"path": "a0-coupled-window.css", "sha256": "927a985bec28f96ed8ff85d9d6e6a88cdce3783b7711e8c7203d4abfe32e3d45"},
+    {"path": "a0-coupled-window-tests.cjs", "sha256": "9d5c4dd59c15e6e2090d85056890eca37576ab33ff426b3778ba2692d372962d"},
+    {"path": "a0-aperture-invariance-observatory.js", "sha256": "a36ed5d47f4fd12acc047b1902ab5f7d2494d1e2c0a79bb3932487a69cc9ba67"},
+    {"path": "a0-aperture-invariance-observatory-tests.cjs", "sha256": "bd7dc17ced30dcb8e8bc809ec4d8b44d21cf393b5bb957cca8019b361edaa8c8"},
+    {"path": "a0-bench-session-ledger.js", "sha256": "4689ec272c6bc2613155245015084faa93fbfbcdfe443c2c838833c00e235650"},
+    {"path": "a0-bench-session-ledger-tests.cjs", "sha256": "1577ab02463828d98a6645e1901329ac849b17c9566e069c97a27be091924d5a"},
+    {"path": "a0-bench-workspace.css", "sha256": "e0c385a5ddbde3932beefff1c2475e7bdd9d6511365d625e65f9fcae494fba96"}
+  ],
+  "authority": {
+    "newStudy": false,
+    "newCanonicalIdentity": false,
+    "newCanonicalRelation": false,
+    "newFamily": false,
+    "newCarrier": false,
+    "researchExecution": false,
+    "claimPromotion": false,
+    "publication": false
+  },
+  "claimBoundary": "The window system is a reusable presentation and control shell over existing source-bound modules. Visual proximity, synchronized presentation and shared controls do not establish carrier identity, common mechanism, common clock, empirical calibration or publication authority."
+}

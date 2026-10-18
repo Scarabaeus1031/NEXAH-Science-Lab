@@ -1,0 +1,15 @@
+{
+  "schema": "nexah.a0.native-face-bridge-package/1",
+  "date": "2026-10-18",
+  "status": "ENGINEERING_PASS_BROWSER_ACCEPTANCE_OPEN",
+  "identity": "NEXAH_A0_ORIENTATION_CONTROLLER_BENCH",
+  "reusesSourceIdentity": "A0-VIEW-BLUE-PINK-DODECA-CELL-RETURN",
+  "source": "A0_BLUE_PINK_DODECA_CELL_RETURN.html",
+  "contract": "a0-native-face-bridge.js",
+  "transport": "a0-dodeca-source-runtime.js <-> a0-native-face-bench.js",
+  "capabilities": ["HELLO", "CAPTURE", "READ", "SET_FACE", "RETURN"],
+  "defaultFaces": [0, 12, 24, 36],
+  "hinge": {"edge": "first declared polygon edge unless supplied explicitly", "facetRigid": true, "otherSourceFacesMutated": false},
+  "acceptance": {"engineering": "PASS_33_OF_33", "renderedBrowser": "OPEN_HUMAN_OWNER_REVIEW_REQUIRED"},
+  "authority": {"newCanonicalIdentity": false, "newCanonicalRelation": false, "researchExecution": false, "claimPromotion": false, "publication": false}
+}

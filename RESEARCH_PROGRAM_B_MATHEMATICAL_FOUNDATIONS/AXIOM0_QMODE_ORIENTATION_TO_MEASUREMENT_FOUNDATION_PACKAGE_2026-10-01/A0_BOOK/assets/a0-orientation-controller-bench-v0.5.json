@@ -1,6 +1,6 @@
 {
   "schema": "nexah.a0.orientation-controller-bench",
-  "version": "0.11.0",
+  "version": "0.17.0",
   "date": "2026-10-16",
   "status": "LOCAL_SOURCE_BOUND_ENGINEERING_LENS_NOT_CANONICAL",
   "identity_action": "EXTENDS_EXISTING_LENSES_WITHOUT_NEW_CANONICAL_IDENTITY_OR_RELATION",
@@ -350,6 +350,26 @@
     "max_return_error": 4.718958039861916e-17,
     "pair_collisions": 56,
     "random_axis_p": 0.375
+  },
+  "coupled_window_system": {
+    "status": "SOURCE_BOUND_ENGINEERING_WINDOW_LAYER",
+    "version": "1.0.0",
+    "window_count": 10,
+    "tour_station_count": 20,
+    "windows": ["window", "control", "native", "measurement", "bridges", "adapters", "economy", "root", "observatory", "ledger"],
+    "application_window": {
+      "id": "window",
+      "backlog_binding": "A0-BL-036",
+      "carriers": ["DUERER", "KHAJURAHO"],
+      "sizes": [2, 3],
+      "boundaries": ["PLANAR", "TOROIDAL"],
+      "declared_window_records": 90,
+      "return_key": ["carrier", "address", "size", "boundary"]
+    },
+    "interaction_rule": "Opening a window groups existing modules on one stage; it does not merge their carriers. The guided tour changes windows and starts existing controllers. Human interaction pauses the guide and leaves the current state inspectable.",
+    "session_ledger": {"schema":"nexah.a0.bench-session-ledger/1","operations":["capture","compare","replay","export"],"shared_carrier":false,"shared_clock":false,"scientific_evidence":false},
+    "invariance_observatory": {"binding":"A0-BL-036","operators":["identity","otherCarrier","rotate90","rotate180","reflectX","translate22","control"],"classifications":["INVARIANT","LOCATION_DEPENDENT","PLACEMENT_DEPENDENT"],"research_run":false},
+    "boundary": "The windows are engineering projections over existing source-bound instruments. They create no new carrier, Study, canonical relation, scientific run or finding."
   },
   "deferred_adapters": ["RIEMANN_EULER_VIEW", "FOURIER", "JT", "VIII", "PASCAL_FIBONACCI_INTERTWINER"],
   "source_bindings": [

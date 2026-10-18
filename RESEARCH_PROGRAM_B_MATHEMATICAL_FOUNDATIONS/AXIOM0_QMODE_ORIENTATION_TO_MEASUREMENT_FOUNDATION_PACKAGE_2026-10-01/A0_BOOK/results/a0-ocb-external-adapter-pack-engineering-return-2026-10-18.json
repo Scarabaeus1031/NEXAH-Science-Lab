@@ -1,0 +1,35 @@
+{
+  "schema": "nexah.a0.ocb-external-adapter-pack-engineering-return/1",
+  "date": "2026-10-18",
+  "identity": "NEXAH_A0_ORIENTATION_CONTROLLER_BENCH",
+  "version": "0.14.0",
+  "status": "ENGINEERING_PASS_MANUAL_BROWSER_ACCEPTANCE_OPEN",
+  "packages": {
+    "A": {"adapters": ["jarp", "axial"], "status": "PASS"},
+    "B": {"adapters": ["axis08", "boundary"], "status": "PASS"}
+  },
+  "verification": {
+    "externalAdapterPack": "PASS_46_OF_46",
+    "showcaseTour": "PASS_39_OF_39_16_STATIONS",
+    "systemBinder": "PASS_51_OF_51",
+    "recordReplay": "PASS_17_OF_17",
+    "axialSourceContract": "PASS_8_OF_8",
+    "axis08SourceAdapter": "PASS_13_OF_13",
+    "manualFileBrowser": "OPEN_URL_POLICY_BLOCKED_BEFORE_VISUAL_INSPECTION"
+  },
+  "contracts": {
+    "sharedCarrier": false,
+    "sharedClock": false,
+    "wholeMachineReturn": false,
+    "localAdapterAnchors": true,
+    "typedSourceRecords": true
+  },
+  "authority": {
+    "newCanonicalIdentity": false,
+    "newCanonicalRelation": false,
+    "researchExecution": false,
+    "claimPromotion": false,
+    "publication": false
+  },
+  "boundary": "Engineering integration of four existing source identities. No full source runtime attestation, Science Lab run, carrier identity, synchronized clock or whole-machine return."
+}

@@ -1,0 +1,19 @@
+{
+  "schema": "nexah.a0.ocb-browser-qa-matrix/1",
+  "date": "2026-10-18",
+  "status": "AUTOMATED_QA_PASS_MANUAL_MULTI_VIEWPORT_ACCEPTANCE_OPEN",
+  "identity": "NEXAH_A0_ORIENTATION_CONTROLLER_BENCH",
+  "gap": "OCB-GAP-09",
+  "viewports": [
+    {"id":"wide","width":1440,"height":900,"layoutContract":"PASS","manualPixelAcceptance":"OPEN"},
+    {"id":"tablet","width":820,"height":1100,"layoutContract":"PASS","manualPixelAcceptance":"OPEN"},
+    {"id":"phone","width":390,"height":844,"layoutContract":"PASS","manualPixelAcceptance":"OPEN"}
+  ],
+  "automated": {
+    "checks": 31,
+    "status": "PASS",
+    "coverage": ["control anchors","keyboard-native controls","landmark and live-region labels","900px breakpoint","560px breakpoint","prefers-reduced-motion policy","hidden-document pause","pagehide timer cleanup","Reset Step Play Export paths","visible error channel","current viewport audit"]
+  },
+  "manualOpen": ["rendered tablet pixels","rendered phone pixels","high zoom","no-colour readability","full-bench keyboard order","background-tab behavior in the owner browser"],
+  "boundary": "Static and restricted-DOM checks do not attest rendered pixels, assistive-technology behavior or cross-browser equivalence."
+}

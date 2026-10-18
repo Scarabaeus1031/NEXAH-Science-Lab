@@ -1,0 +1,33 @@
+{
+  "asOf": "2026-10-18",
+  "status": "ENGINEERING_PASS_BROWSER_ACCEPTANCE_OPEN",
+  "package": "assets/a0-aperture-measurement-package-v1.json",
+  "entry": "A0_ORIENTATION_CONTROLLER_BENCH.html#apertureMeasurement",
+  "closedGaps": ["OCB-GAP-01", "OCB-GAP-03"],
+  "tests": {
+    "focusedChecks": 94,
+    "ocbRegression": "PASS",
+    "method": "Deterministic Node model and static HTML wiring checks; no browser pixels."
+  },
+  "implemented": [
+    "One ordered 48-sample M3 trace with normalized height h, radian azimuth A and normalized aperture I.",
+    "Four automatically cycling projections: unrolled, cylindrical, top and aperture slice.",
+    "Invariant source fingerprint and sample order across all representations.",
+    "Pairwise normalized 2D display RMSE and maximum distance with explicit metric boundary.",
+    "Exportable Retained / Lost / Added / Unresolved ledger with spatially hidden fields separated from record loss.",
+    "Exact zero-residual source Return that preserves the comparison ledger."
+  ],
+  "open": [
+    "Visible browser and accessibility acceptance.",
+    "OCB-GAP-02 calibrated aperture stack with matched control stack.",
+    "Physical units or empirical calibration remain intentionally undeclared."
+  ],
+  "authority": {
+    "reusedIdentity": "NEXAH_AX0_QMODE_FOUNDATION_PACKAGE",
+    "newCanonicalIdentities": 0,
+    "newCanonicalRelations": 0,
+    "researchRuns": 0,
+    "scientificClaimPromotion": false,
+    "publication": false
+  }
+}

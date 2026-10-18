@@ -4,8 +4,18 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="referrer" content="no-referrer">
-  <title>NEXAH · Orientation Controller Bench v0.11.0</title>
+  <title>NEXAH · Orientation Controller Bench v0.17.0</title>
   <link rel="stylesheet" href="a0-orientation-controller-bench.css?rev=20261016-iris-octagon">
+  <link rel="stylesheet" href="a0-aperture-measurement.css?rev=20261018-m3-ilau">
+  <link rel="stylesheet" href="a0-aperture-stack-calibration.css?rev=20261018-gap02-gap09">
+  <link rel="stylesheet" href="a0-bench-showcase-tour.css?rev=20261018-r1">
+  <link rel="stylesheet" href="a0-native-face-ninefold.css?rev=20261018-gap05-r1">
+  <link rel="stylesheet" href="a0-ail-replay.css?rev=20261018-gap04-replay-r1">
+  <link rel="stylesheet" href="a0-external-adapter-pack.css?rev=20261018-pack-ab-r1">
+  <link rel="stylesheet" href="a0-return-economy.css?rev=20261018-bl055-r1">
+  <link rel="stylesheet" href="a0-coupled-window.css?rev=20261018-cw-r1">
+  <link rel="stylesheet" href="a0-bench-workspace.css?rev=20261018-workspace-r1">
+<link rel="stylesheet" href="a0-root7-q4-coupling.css">
 </head>
 <body>
 <nav aria-label="Zurück zu A0 und Builder" style="position:sticky;top:0;z-index:100;display:flex;flex-wrap:wrap;gap:12px;padding:12px 24px;background:#06131e;border-bottom:1px solid #315367;font:700 .8rem system-ui,sans-serif">
@@ -13,13 +23,24 @@
   <a href="../../../../../00%20EXECUTIVE/NEXAH-Mission-Control/00_OVERVIEW/BUILDER_STATUS_REPORT.html">← Builder Startseite</a>
   <a href="A0_BUILDER_TOY_STORE.html#benches">Toy Store</a>
   <a href="#orientationBench">Bench ↑</a>
+  <a href="#integrationCrosswalk">Bestand → A0</a>
+  <a href="#life03Workbench">LIFE03 ↔ Master</a>
+  <a href="#root7ProjectionOverlay">Schichtenanimation</a>
+  <a href="#wiringPackage">Integrationspaket</a>
+  <a href="#nativeSourceBank">Native Quellen</a>
+  <a href="#phaseWiring">Gemeinsame Phase</a>
+  <a href="#nativeFaceBridge">Native Face / 4×2+1</a>
+  <a href="#ailApertureControl">A·i·l / Replay</a>
+  <a href="#externalAdapterPack">Adapter A+B</a>
+  <a href="#coupledWindowHub">Bench Windows</a>
+  <a href="#returnEconomyDemonstrator">Return Economy</a>
 </nav>
 <main class="shell" id="orientationBench">
   <header class="topbar">
     <div>
-    <div class="kicker">A0 · source-bound engineering lens · v0.11.0</div>
+    <div class="kicker">A0 · source-bound engineering lens · v0.17.0</div>
       <h1>Orientation Controller Bench</h1>
-      <p>Ein State-Record, drei gebundene Operatoradapter und vier getrennte Return-Stufen. Die Werkbank orchestriert vorhandene Träger und Views; sie erzeugt keine neue wissenschaftliche Identität.</p>
+      <p>Eine ruhige Steuerzentrale öffnet gekoppelte Arbeitsfenster über vorhandenen Modulen. State-Records, Operatoradapter und Return-Stufen bleiben getrennt typisiert; das Fenster verbindet ihre Bedienung, nicht ihre Carrier oder Uhren.</p>
     </div>
     <div class="status-strip" aria-label="Status">
       <span class="status good">EXECUTABLE CORE</span><span class="status">LOCAL LENS</span><span class="status">FAIL CLOSED</span><span class="status">NOT A LAB RUN</span>
@@ -28,17 +49,343 @@
 
   <div class="boundary"><b>BOUNDARY ·</b> Engineering dry run während STRUCTURE_FREEZE. J, Rθ und Eₛ sind deklarierte lokale Adapter. Fourier, JT, VIII und weitere Ketten bleiben bis zur eigenen Quellen- und Vertragsprüfung deaktiviert.</div>
 
-  <section class="bench-overture" aria-labelledby="benchOvertureTitle">
-    <div class="overture-copy">
-      <small>ONE STATE · FOUR ACTS · ONE INSPECTABLE RETURN</small>
-      <h2 id="benchOvertureTitle">See the relation move before you operate it.</h2>
-      <p>A state enters, changes view, attempts a return and leaves a typed record. Every carrier handoff stays visible.</p>
+  <section class="bench-showcase" id="benchShowcase" aria-labelledby="benchShowcaseTitle">
+    <span id="benchOvertureTitle" hidden>Showcase compatibility anchor</span><span id="watchBenchRun" hidden></span><span id="enterBench" hidden></span>
+    <div class="showcase-copy">
+      <small>GUIDED SHOWROOM · ONE BENCH · TYPED HANDOFFS</small>
+      <h2 id="benchShowcaseTitle">Die ganze Bench in einer Tour.</h2>
+      <p>Die Tour öffnet die gekoppelten Bench Windows, startet die gebundenen Engines, wechselt die M3-Ansichten und führt durch Control, Native Return, Messung, PENT/LIFE03, Adapter A+B, das Moving Aperture Window, Return Economy und Root/Projection.</p>
+      <div class="showcase-actions"><button class="showcase-start" id="benchTourStart" type="button" aria-pressed="false">▶ BENCH TOUR STARTEN</button></div>
     </div>
-    <div class="overture-route" aria-label="Bench route">
-      <span><b>01</b>ORIENT</span><i>→</i><span><b>02</b>TRANSLATE</span><i>→</i><span><b>03</b>RETURN</span><i>→</i><span><b>04</b>VERIFY</span>
+    <div class="showcase-stage" aria-live="polite">
+      <small id="benchTourCounter">00 / 20 · READY</small>
+      <strong id="benchTourTitle">Alles vorbereitet. Ein Knopf startet den Rundgang.</strong>
+      <p id="benchTourCopy">Technische Hintergründe bleiben eingeklappt; jede Station öffnet nur das gekoppelte Fenster der gerade benötigten Module.</p>
+      <div class="showcase-progress" id="benchTourProgress" aria-label="Tourfortschritt"></div>
     </div>
-    <div class="overture-actions"><button class="primary" id="watchBenchRun">ZUR DEMONSTRATION</button><button id="enterBench">SELBST BEDIENEN</button></div>
   </section>
+
+  <section class="coupled-window-hub" id="coupledWindowHub" aria-labelledby="coupledWindowHubTitle">
+    <header>
+      <div><small>OCB COUPLED WINDOW SYSTEM · REUSABLE BENCH STAGE</small><h2 id="coupledWindowHubTitle">Ein Fenster öffnet die gekoppelte Bench.</h2><p>Wähle eine Anwendung. Das Fenster schiebt nur die benötigten Module zu einer lesbaren Arbeitsfläche zusammen, startet vorhandene Engines und hält Source, View, Residual und Return auseinander.</p></div>
+      <span class="coupled-window-hub-badge">10 WINDOWS · 0 NEW IDENTITIES</span>
+    </header>
+    <div class="coupled-window-launchers" aria-label="Coupled Bench Windows">
+      <button class="coupled-window-card" type="button" data-coupled-open="window"><small>A0-BL-036 · APPLICATION</small><b>Moving Aperture · Return Window</b><span>Dürer und Khajuraho · 2×2/3×3 · planar/torisch · Collision + Residual + Return</span><em>OPEN LIVE WINDOW ↗</em></button>
+      <button class="coupled-window-card" type="button" data-coupled-open="control"><small>CONTROL</small><b>Master + System Binder</b><span>Regie, gekoppelte Engines und versionierter Laufnachweis</span><em>OPEN ↗</em></button>
+      <button class="coupled-window-card" type="button" data-coupled-open="native"><small>NATIVE RETURN</small><b>Face + A·i·l + Ninefold</b><span>Echte Quelle, lokaler Punkt, Scharnier, Orbit und Replay</span><em>OPEN ↗</em></button>
+      <button class="coupled-window-card" type="button" data-coupled-open="measurement"><small>MEASUREMENT</small><b>M3 + Aperture Stack</b><span>Vier Ansichten eines Records plus Kalibrierung</span><em>OPEN ↗</em></button>
+      <button class="coupled-window-card" type="button" data-coupled-open="bridges"><small>SOURCE BRIDGES</small><b>PENT + LIFE03</b><span>Getrennte Carrier und Sitzungen mit bestätigten Handoffs</span><em>OPEN ↗</em></button>
+      <button class="coupled-window-card" type="button" data-coupled-open="adapters"><small>ADAPTERS A+B</small><b>JARP + Axial + AXIS08 + Boundary</b><span>Vier Quellenleser in einer getypten Inspektionsfläche</span><em>OPEN ↗</em></button>
+      <button class="coupled-window-card" type="button" data-coupled-open="economy"><small>BL-055 · RESULT</small><b>Return Economy</b><span>Drei exakte Returns, eine positive Economy</span><em>OPEN ↗</em></button>
+      <button class="coupled-window-card" type="button" data-coupled-open="root"><small>ROOT / PROJECTION</small><b>Q4 + Root7 Overlay</b><span>16-State Gray cycle, Projektion und Closure</span><em>OPEN ↗</em></button>
+      <button class="coupled-window-card" type="button" data-coupled-open="observatory"><small>BL-036 · COMPARISON</small><b>Aperture Invariance Observatory</b><span>Rotation, Spiegelung, Translation, Kontrolle und Window-Sum-Heatmaps</span><em>OPEN LIVE OBSERVATORY ↗</em></button>
+      <button class="coupled-window-card" type="button" data-coupled-open="ledger"><small>BENCH MEMORY</small><b>Coupled Session Ledger</b><span>Capture, Compare, Replay und exportierbarer Session-Receipt</span><em>OPEN LEDGER ↗</em></button>
+    </div>
+  </section>
+
+  <dialog class="coupled-window" id="coupledWindow" aria-labelledby="coupledWindowTitle" aria-describedby="coupledWindowCopy">
+    <header class="coupled-window-head"><div><small id="coupledWindowEyebrow">COUPLED WINDOW</small><h2 id="coupledWindowTitle">Bench Window</h2><p id="coupledWindowCopy">Bestehende Module werden in einer getypten Arbeitsfläche sichtbar.</p></div><button class="coupled-window-close" id="coupledWindowClose" type="button" aria-label="Fenster schließen">×</button></header>
+    <div class="coupled-window-body" id="coupledWindowStage"></div>
+    <footer class="coupled-window-foot"><output id="coupledWindowStatus" role="status" aria-live="polite">READY</output><span>VIEW COUPLING ≠ CARRIER IDENTITY · RETURN ≠ HISTORY REVERSAL · NOT A SCIENCE RUN</span></footer>
+  </dialog>
+
+  <section class="return-economy" id="returnEconomyDemonstrator" aria-labelledby="returnEconomyTitle" data-phase="source" data-running="false">
+    <header>
+      <div><small>A0-BL-055 · SOURCE-BOUND RESULT DEMONSTRATOR</small><h2 id="returnEconomyTitle">Drei Carrier. Dreimal Return. Nur einmal Economy.</h2><p>Q106/O16, Typed Seam und Decimal D4 laufen durch dieselbe sichtbare Prüfgrammatik. Die Lanes bleiben getrennt; der Vergleich zeigt Rekonstruktion und Kosten, nicht Carrier-Identität.</p></div>
+      <div class="return-economy-master" aria-label="Return Economy controls"><output id="returnEconomyStatus" role="status" aria-live="polite">READY</output><button id="returnEconomyPlay" type="button" aria-pressed="false">▶ PLAY ALL</button><button id="returnEconomyStep" type="button">STEP</button><button id="returnEconomyReset" type="button">RESET</button></div>
+    </header>
+    <div class="return-economy-phase">
+      <div class="return-economy-rail" aria-label="Demonstrator phases"><button type="button" data-return-phase>01 SOURCE</button><button type="button" data-return-phase>02 VIEW</button><button type="button" data-return-phase>03 RESIDUAL</button><button type="button" data-return-phase>04 RETURN</button><button type="button" data-return-phase>05 CONTROL</button><button type="button" data-return-phase>06 COMPARE</button></div>
+      <div class="return-economy-narration" aria-live="polite"><b id="returnEconomyPhaseTitle">Drei getrennte Quellen</b><p id="returnEconomyPhaseCopy">Jede Lane beginnt bei ihrem eigenen Carrier. Gleiche Bedienung bedeutet keine gemeinsame Identität.</p></div>
+    </div>
+    <div class="return-economy-grid">
+      <article class="return-lane" data-return-lane="q106" data-advantage="false">
+        <div class="return-lane-head"><div><small>BL-024 · Q106 → O16 + RESIDUAL</small><h3>Q106 / O16</h3></div><span class="return-lane-tag">RETURN · NO SAVING</span></div>
+        <div class="return-pipeline"><div class="return-node source"><small>SOURCE</small><b data-return-source>Q037</b></div><i class="return-arrow">→</i><div class="return-node view"><small>VIEW</small><b data-return-view>O16:05</b></div><i class="return-arrow">+</i><div class="return-node residual"><small>RESIDUAL</small><b data-return-residual>rank 2 · 3 bit</b></div><i class="return-arrow">→</i><div class="return-node return"><small>RETURN</small><b data-return-returned>Q037</b></div></div>
+        <p class="return-loss" data-return-lost>90 collisions · fibre 6/7</p><p class="return-control" data-return-control>MATCHED SHUFFLE · same 7 bit · 100 assignments differ</p>
+        <label class="return-sample">SOURCE SAMPLE<input type="range" min="0" max="105" value="37" step="1"></label>
+        <div class="return-bit-meter"><span>RECORD</span><div class="return-bit-track" style="--record-width:100%"><i class="return-bit-raw"></i><i class="return-bit-record"></i></div><b>7 / 7</b></div><div class="return-bit-values"><span>106/106 exact</span><b>0 bit saving</b></div>
+      </article>
+      <article class="return-lane" data-return-lane="seam" data-advantage="true">
+        <div class="return-lane-head"><div><small>BL-025 · 140 INCIDENCES → 106 ADDRESSES</small><h3>Typed Seam</h3></div><span class="return-lane-tag">RETURN + ECONOMY</span></div>
+        <div class="return-pipeline"><div class="return-node source"><small>SOURCE</small><b data-return-source>I073</b></div><i class="return-arrow">→</i><div class="return-node view"><small>VIEW</small><b data-return-view>S055</b></div><i class="return-arrow">+</i><div class="return-node residual"><small>RESIDUAL</small><b data-return-residual>typed member</b></div><i class="return-arrow">→</i><div class="return-node return"><small>RETURN</small><b data-return-returned>I073</b></div></div>
+        <p class="return-loss" data-return-lost>34 address merges · typed classes</p><p class="return-control" data-return-control>INVALID GLUE · 30 mixed levels · 106/140 return</p>
+        <label class="return-sample">SOURCE SAMPLE<input type="range" min="0" max="139" value="73" step="1"></label>
+        <div class="return-bit-meter"><span>MEAN</span><div class="return-bit-track" style="--record-width:94.196425%"><i class="return-bit-raw"></i><i class="return-bit-record"></i></div><b>7.535714 / 8</b></div><div class="return-bit-values"><span>140/140 exact</span><b>0.464286 bit saving</b></div>
+      </article>
+      <article class="return-lane" data-return-lane="decimal" data-advantage="false">
+        <div class="return-lane-head"><div><small>BL-049 · TWO LOSSY DECIMAL VIEWS</small><h3>Decimal D4</h3></div><span class="return-lane-tag">RETURN · NO SAVING</span></div>
+        <div class="return-pipeline"><div class="return-node source"><small>SOURCE</small><b data-return-source>1737</b></div><i class="return-arrow">→</i><div class="return-node view"><small>VIEW</small><b data-return-view>δ₁ 737</b></div><i class="return-arrow">+</i><div class="return-node residual"><small>SECOND VIEW</small><b data-return-residual>δ₂ 137</b></div><i class="return-arrow">→</i><div class="return-node return"><small>RETURN</small><b data-return-returned>1737</b></div></div>
+        <p class="return-loss" data-return-lost>δ₁ fibre 9 · δ₂ fibre 10</p><p class="return-control" data-return-control>MIDDLE SWAP · bijective · no compression</p>
+        <label class="return-sample">SOURCE SAMPLE<input type="range" min="1000" max="9999" value="1737" step="1"></label>
+        <div class="return-bit-meter"><span>RECORD</span><div class="return-bit-track" style="--record-width:100%"><i class="return-bit-raw"></i><i class="return-bit-record"></i></div><b>14 / 14</b></div><div class="return-bit-values"><span>9000/9000 exact</span><b>0 bit saving</b></div>
+      </article>
+    </div>
+    <div class="return-economy-result" aria-label="Cross-carrier result"><div><b>3 / 3</b><span>exact Return</span></div><div><b>1 / 3</b><span>positive Economy</span></div><div><b>2 / 3</b><span>frozen threshold missed</span></div><div class="verdict"><b>MIXED RESULT</b><span>Return grammar passes · Economy generalization fails</span></div></div>
+    <p class="return-economy-links"><a href="../../../SCIENCE_LAB/LABREPORTS/MATHEMATICS/LABREPORT_A0_BL_055_CROSS_CARRIER_RETURN_ECONOMY_001.md">Canonical BL-055 Labreport</a> · <a href="../110_A0_EXPERIMENT_LEARNING_MAP_2026-10-18.md">A0 Experiment Learning Map</a> · <a href="../../../SCIENCE_LAB/CASE_STUDIES/A0_BL_055_CROSS_CARRIER_RETURN_ECONOMY_2026-10-18/DEMONSTRATOR_SPEC.md">Source-bound specification</a></p>
+    <div class="return-economy-boundary"><b>BOUNDARY ·</b> Der Demonstrator visualisiert geschlossene Ergebnisse. Er erzeugt keinen neuen Carrier, keine neue Study, keine universelle Kompression, keine physikalische Informationsaussage und keine Publikationsfreigabe.</div>
+  </section>
+
+  <details class="bench-setup-drawer" id="benchSetupDrawer">
+    <summary><span>TECHNIK &amp; QUELLEN</span><b>Integrationsstand, Crosswalk, Adapter und Herkunft öffnen</b></summary>
+    <div class="bench-setup-drawer-body">
+
+  <details class="panel" id="faceIntegrationPackage" style="margin:20px 0;padding:20px;scroll-margin-top:110px">
+    <summary>Integrationspaket 1–5 · Bench → echte Blue/Dodeca/Pink-Fläche → Return</summary>
+    <p>Der native Engineering-Lauf ist gekoppelt: eine echte adressierte Fläche mit ausdrücklich gewählter Scharnierkante sowie vier ausgewählte Satellitenflächen laufen durch Quellenbefehl, Readback und Source-Return. Die gerenderte Human-Browserabnahme bleibt offen.</p>
+    <ol>
+      <li><strong>Flächensteuerung — Engineering PASS:</strong> vorhandene Zell-/Flächen-IDs und native Geometrie bedienen; tatsächlichen Rendererzustand samt Starrheitswitness zurücklesen.</li>
+      <li><strong>Gemeinsame Sequenz — teilweise:</strong> 16 Buchstationen und 29 Anzeigeposen ausdrücklich zuordnen; jeder Quellschritt wird bestätigt, kein gleichgesetzter Träger.</li>
+      <li><strong>Achsen / Übergänge — teilweise:</strong> 2–O–5, 3–O–6 und 1–O–4; äußere Referenz, Knicklinie und AM/VM/PM-Lesart getrennt halten. M/Umlauf ist nicht automatisch LRRL.</li>
+      <li><strong>Record / Return — Engineering PASS:</strong> native Dodeca-Quelle, Befehlsnachweise, Fingerprint und exakter Source-Return sind im System-D-Record gebunden.</li>
+      <li><strong>Abnahme — offen:</strong> echte Browserkette, Fehlerfälle und deklarierter Source-Return; Engineering-PASS allein genügt nicht. Bekannte Binder-Abweichungen bleiben sichtbar.</li>
+    </ol>
+    <p><a href="assets/a0-face-integration-package-v1.json">Gemeinsamer Auftrag · Abhängigkeiten und Abnahmekriterien</a> · <a href="A0_BUILDER_LOG.html#face-integration-package">Builder-Log · Paket 1–5</a> · <a href="#masterDemoExport">Gemeinsamen aktuellen Stand exportieren</a> · <a href="A0_BLUE_PINK_DODECA_CELL_RETURN.html">Native Blue/Dodeca/Pink-Quelle</a></p>
+  </details>
+
+  <details class="panel" id="life03Workbench" style="margin:20px 0;padding:20px;scroll-margin-top:110px">
+    <summary>LIFE03 ↔ A0-Master · vorhandene Scale-Engine, bestätigte Schritte und Source-Return</summary>
+    <p>Quellabgeleitete LIFE03-Oberfläche auf der unveränderten LIFE02-Scale-Engine. Begrenztes Engineering-Profil: <strong>Blinker · 64×64 · höchstens 32 Generationen</strong>. Die lokale Quelluhr und ihre nativen Controls sind gesperrt; ausschließlich bestätigte Parent-Befehle verändern den Lauf. Keine Übernahme eines separat geöffneten Scale-Lab-Fensters.</p>
+    <div style="display:flex;flex-wrap:wrap;gap:10px;margin:14px 0">
+      <button id="life03Start" type="button">LIFE03 verbinden &amp; Master-Demo starten</button>
+      <button id="life03Pause" type="button" disabled>Pause</button>
+      <button id="life03Export" type="button">Laufnachweis exportieren</button>
+    </div>
+    <p><output id="life03RunStatus" role="status" aria-live="polite">Bereit · noch kein Browser-PASS.</output></p>
+    <progress id="life03Progress" value="0" max="10" aria-label="Bestätigte Master-LIFE03-Cues" style="width:min(100%,650px);height:20px"></progress>
+    <p><small>Eine vorhandene Master-Uhr; pro Cue höchstens ein ausstehender Quellbefehl. Scrollen oder manuelle Parent-Bedienung pausiert die Demo. PENT- und LIFE03-Demoläufe werden ausdrücklich getrennt gestartet. Ein Pause ist kein erfolgreicher Return; spätes ACK darf keine pausierte Demo abschließen.</small></p>
+    <details><summary>Einzelsteuerung · Quelle laden, lesen und zurückführen</summary>
+      <button id="life03Load" type="button">Quelle laden / neu verbinden</button>
+      <output id="life03SourceStatus" aria-live="polite">NOT_LOADED · kein bestätigter Witness</output>
+      <div style="display:flex;flex-wrap:wrap;gap:10px;margin:14px 0">
+        <label>Quellansicht <select id="life03View" disabled><option value="dual">Dual Clock</option><option value="observer">Observer Word</option><option value="projection">Root Projection</option></select></label>
+        <button id="life03Step" type="button" disabled>Ein bestätigter Quellschritt</button>
+        <button id="life03Capture" type="button" disabled>Vollständigen Startanker merken</button>
+        <button id="life03Return" type="button" disabled>Return zum Startanker</button>
+      </div>
+    </details>
+    <iframe id="life03Frame" hidden sandbox="allow-scripts" referrerpolicy="no-referrer" title="LIFE03 source-derived runtime · original renderer and existing Scale engine" style="width:100%;height:850px;border:1px solid #416375;margin-top:16px"></iframe>
+    <details><summary>Welche Zustände und Cues sind wirklich verbunden?</summary><p>SOURCE: vollständigen Quellanker merken; OPERATOR/EDGE: je ein nativer Produktschritt; SHADOW: Observer-Ansicht; FAMILY: ein nativer Observer-Mikroschritt; GRID: Root-Projektion; RETURN: Quelle lesen; FOLD: Dual-Ansicht; ROOT: Produktschritt; RECORD: vollständiger deklarierter Source-Return. Dies sind Regie-Cues, keine Identität mit den gleichnamigen OCB-Trägern.</p><p>Der Anker enthält Mode und Speed sowie das vollständige native Work-Objekt: Pattern, Größe, Life-Session-ID, alle gespeicherten adressierten Frames, Ereignisklassifikation, E8-Mutationsindex, Mikro-/Makrotakt, Projektionsrecords und Joint-Return. Der Return stellt diesen deklarierten Zustand exakt wieder her. Adapterrevision und Auditverlauf laufen weiter; das ist kein physikalischer Zeitrücklauf.</p><p>Version/Quellhash, Fensterreferenz, Sitzung, Befehlsnummer und Revision werden geprüft. Fehlender oder widersprüchlicher Witness führt zu HOLD. View-ACK darf die Trajektorie nicht ändern, STEP-ACK muss Uhrfortschritt und Historienpräfix erhalten. Kein Retry eines unbestätigten STEP.</p></details>
+    <details><summary>Bestätigter Zustand / Return-Receipt</summary><pre id="life03Witness" style="white-space:pre-wrap;overflow-wrap:anywhere">Noch kein Source-Witness.</pre></details>
+    <p><strong>Abnahme:</strong> neue Engineering-Kopplung; Browser-/Pixeldarstellung und Owner-Erfolgsweg noch separat offen. Keine gemeinsame Scale-Fenster-Sitzung, Gesamtmaschinen- oder wissenschaftliche Abnahme. E8-Projektionsabstand und bestehende Negativresultate bleiben erhalten.</p>
+    <p><a href="../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_LIFE_E8_DUAL_CLOCK_LIFE03_2026-10-07/index.html" target="_blank" rel="noopener">Unveränderte LIFE03-Quelle</a> · <a href="../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_LIFE_ORBIT_SCALE_LAB_V2_2026-10-07/index.html" target="_blank" rel="noopener">Vorhandenes Scale Lab</a> · <a href="assets/a0-life03-bench-binding-v1.json">Vertrag &amp; Quellhashes</a> · <a href="a0-life03-bench-tests.cjs">Engineering-Prüfung</a> · <a href="#integrationCrosswalk">Bestandsabgleich</a></p>
+  </details>
+  <section class="panel" id="integrationCrosswalk" aria-labelledby="integrationCrosswalkTitle" style="margin:20px 0;padding:20px;scroll-margin-top:100px">
+    <h2 id="integrationCrosswalkTitle">Bestand → A0 · Was ist verbunden, was fehlt wirklich?</h2>
+    <p><strong>Fortsetzung nach diesem dokumentarischen Abgleich:</strong> Der enge <a href="#life03Workbench">LIFE03-Master-Anschluss</a> ist jetzt implementiert; seine neue Browserabnahme bleibt offen. Die Vorher-Zahlen und Lückenbeschreibungen unten bewahren den Stand vor diesem Anschluss.</p>
+    <p><strong>Vorhandene Instrumente weiterverwenden, nicht neu erfinden.</strong> Dieser gezielte Abgleich bindet 26 vorhandene Quellen und Anschlüsse aus den Owner-Beispielen zurück. Er ist kein neues Gesamtinventar. Navigator und Originalpakete bleiben die Quellenautorität.</p>
+    <p><strong>Lesepfad ≠ gemeinsamer Code ≠ gemeinsamer Laufzustand.</strong> Die Adapter Suite liegt schon in A0; Scale → LIFE03 nutzt bereits dieselbe Life-Engine. Beides ist etwas anderes als ein bestätigter OCB-Steuervertrag. Der vorhandene Master–PENT-UI-PASS bleibt erhalten.</p>
+    <p><a href="A0_AXIAL_CARRIER_ADAPTER_SUITE.html">Vorhandene Adapter Suite</a> · <a href="../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_TRANSITION_IDENTIFIABILITY_OBSERVATORY_V1_2026-10-07/index.html">Vorhandenes Transition Observatory</a> · <a href="../../../SCIENCE_LAB/NAVIGATION/APP/index.html#atlas">Science Navigator / Atlas</a></p>
+    <p style="border-left:3px solid #d6af58;padding:12px;background:#112735"><strong>Präzisierung der Suite:</strong> Der aktuelle Renderer berechnet deklarierte Punktformeln und exportiert <code>projection_only: true</code>. LIFE08 und Three-Domain tragen Zeitsemantik, werden hier aber nicht live aus ihren Quellläufen gelesen. Ein Source-Label allein ist kein State-Witness. Diese Lücke wird sichtbar gemacht, nicht durch einen neuen Namen geschlossen.</p>
+    <details style="margin:14px 0;border:1px solid #416375;border-radius:8px;padding:12px">
+      <summary>A0 · bestehende Anschlüsse · 2 Einträge</summary>
+      <div role="region" aria-label="A0 · bestehende Anschlüsse" tabindex="0" style="overflow-x:auto"><table style="min-width:850px;width:100%;border-collapse:collapse;text-align:left">
+        <thead><tr><th scope="col" style="padding:12px">Vorhandene Quelle</th><th scope="col" style="padding:12px">Implementierter Bestand</th><th scope="col" style="padding:12px">Ergebnis / Grenze</th><th scope="col" style="padding:12px">Konkrete Anschlusslücke</th></tr></thead>
+        <tbody>
+          <tr data-integration-key="suite" style="border-top:1px solid #315367;vertical-align:top"><th scope="row" style="padding:12px;width:22%"><a href="A0_AXIAL_CARRIER_ADAPTER_SUITE.html">Axial Carrier Adapter Suite</a><br><small><a href="assets/a0-axial-carrier-adapter-v1.js">Quellrecord</a> · ART:HTML:9F6E3FCB5D53</small><p style="font-weight:400">Vor Abgleich: 3 direkte A0-HTML-Einstiege.</p></th><td style="padding:12px">Bereits im A0-Desk: sechs View-Adapter, gemeinsame Darstellung und JSON-Export.</td><td style="padding:12px">Deklarierte Punktformeln; keine Live-Übernahme der sechs Quellzustände. Zeitsemantik bei LIFE08/Three-Domain ist keine gemeinsame Quelluhr.</td><td style="padding:12px">Source-Records statt Darstellungspunkten; je Lane Readiness, State-Witness, Stop und Return binden.</td></tr>
+          <tr data-integration-key="pent" style="border-top:1px solid #315367;vertical-align:top"><th scope="row" style="padding:12px;width:22%"><a href="A0_ORIENTATION_CONTROLLER_BENCH.html#pentagonBrowserAcceptance">Master ↔ PENT</a><br><small><a href="results/a0-pentagon-joint-browser-acceptance-2026-10-17.json">Quellrecord</a> · vorhandener Quellenpfad</small><p style="font-weight:400">Vor Abgleich: 10 direkte A0-HTML-Einstiege.</p></th><td style="padding:12px">Owner-Browserlauf: 10/10 Cues, neun SETs, ein RETURN.</td><td style="padding:12px">Begrenzter UI-PASS für sechs Felder, nicht sämtliche 106 Knoten oder die Gesamtmaschine.</td><td style="padding:12px">Kein Neubau dieses UI-Anschlusses; umfassendere Verträge getrennt halten.</td></tr>
+        </tbody>
+      </table></div>
+    </details>
+    <details style="margin:14px 0;border:1px solid #416375;border-radius:8px;padding:12px">
+      <summary>LIFE · Instrumente und Hub · 12 Einträge</summary>
+      <div role="region" aria-label="LIFE · Instrumente und Hub" tabindex="0" style="overflow-x:auto"><table style="min-width:850px;width:100%;border-collapse:collapse;text-align:left">
+        <thead><tr><th scope="col" style="padding:12px">Vorhandene Quelle</th><th scope="col" style="padding:12px">Implementierter Bestand</th><th scope="col" style="padding:12px">Ergebnis / Grenze</th><th scope="col" style="padding:12px">Konkrete Anschlusslücke</th></tr></thead>
+        <tbody>
+          <tr data-integration-key="observatory" style="border-top:1px solid #315367;vertical-align:top"><th scope="row" style="padding:12px;width:22%"><a href="../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_TRANSITION_IDENTIFIABILITY_OBSERVATORY_V1_2026-10-07/index.html">Transition &amp; Identifiability Observatory</a><br><small><a href="../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_TRANSITION_IDENTIFIABILITY_OBSERVATORY_V1_2026-10-07/FAMILY_RELATIONS_MATRIX.json">Quellrecord</a> · ART:HTML:5A99DF8EFC9C</small><p style="font-weight:400">Vor Abgleich: 2 direkte A0-HTML-Einstiege.</p></th><td style="padding:12px">Vorhandener Hub mit 11 Instrumentgruppen und typisierten Relationen.</td><td style="padding:12px">Navigation und Ergebnislesung, keine gemeinsame Laufzeit. Bestehenden Hub wiederverwenden.</td><td style="padding:12px">A0-Einstieg hier hergestellt; Quellgruppen nicht nochmals als Registry anlegen.</td></tr>
+          <tr data-integration-key="scale" style="border-top:1px solid #315367;vertical-align:top"><th scope="row" style="padding:12px;width:22%"><a href="../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_LIFE_ORBIT_SCALE_LAB_V2_2026-10-07/index.html">LIFE02 · Scale Lab</a><br><small><a href="../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_LIFE_ORBIT_SCALE_LAB_V2_2026-10-07/README.md">Quellrecord</a> · ART:HTML:2972691C8297</small><p style="font-weight:400">Vor Abgleich: 1 direkte A0-HTML-Einstiege.</p></th><td style="padding:12px">B3/S23 auf 16–128er Trägern; RLE, History und sechs Ansichten.</td><td style="padding:12px">Eigenständiger Lauf. Größere Spektren sind 16×16-Aggregate.</td><td style="padding:12px">Expliziter Lauf-/Snapshot-Transfer zum gewünschten A0-Verbraucher fehlt.</td></tr>
+          <tr data-integration-key="life03" style="border-top:1px solid #315367;vertical-align:top"><th scope="row" style="padding:12px;width:22%"><a href="../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_LIFE_E8_DUAL_CLOCK_LIFE03_2026-10-07/index.html">LIFE03 · Life × E8 Workbench</a><br><small><a href="../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_LIFE_E8_DUAL_CLOCK_LIFE03_2026-10-07/README.md">Quellrecord</a> · ART:HTML:EBD57F76EA4F</small><p style="font-weight:400">Vor Abgleich: 0 direkte A0-HTML-Einstiege.</p></th><td style="padding:12px">Importiert die echte Scale-Engine; Produkttakt, Observer Word und Root Projection sind implementiert.</td><td style="padding:12px">Eigene Life-Sitzung; kein Live-Zustand eines separat geöffneten Scale Labs. Projektion beweist keine Life–E8-Identität.</td><td style="padding:12px">Keinen zweiten Life/E8-Kern bauen; Sitzung, Befehle, Witness und Return für A0 spezifizieren.</td></tr>
+          <tr data-integration-key="p3" style="border-top:1px solid #315367;vertical-align:top"><th scope="row" style="padding:12px;width:22%"><a href="../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_LIFE_ORBIT_P3_2026-10-07/index.html">LIFE01 · P3 / GLB</a><br><small><a href="../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_LIFE_ORBIT_P3_2026-10-07/README.md">Quellrecord</a> · ART:HTML:91AD95BEC351</small><p style="font-weight:400">Vor Abgleich: 0 direkte A0-HTML-Einstiege.</p></th><td style="padding:12px">Vorhandene Raum-Zeit-Darstellung mit GLB-Export.</td><td style="padding:12px">Darstellungsobjekt bleibt vom autoritativen Quelllauf getrennt.</td><td style="padding:12px">GLB-/Run-Receipt an A0-Auswahl binden; Export ist kein synchronisierter Masterzustand.</td></tr>
+          <tr data-integration-key="life04b" style="border-top:1px solid #315367;vertical-align:top"><th scope="row" style="padding:12px;width:22%"><a href="../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_LIFE_E8_ANTIPODAL_RETURN_LIFE04B_2026-10-07/index.html">LIFE04B · Antipodal Return</a><br><small><a href="../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_LIFE_E8_ANTIPODAL_RETURN_LIFE04B_2026-10-07/README.md">Quellrecord</a> · ART:HTML:9C1F6CA02076</small><p style="font-weight:400">Vor Abgleich: 2 direkte A0-HTML-Einstiege.</p></th><td style="padding:12px">Exakter typisierter Return und kontrollierter E8-Spezifitätstest vorhanden.</td><td style="padding:12px">NO E8 ANTIPODAL SPECIFICITY · FAIL 0/4. Exaktes Bookkeeping ändert diesen Befund nicht.</td><td style="padding:12px">Ergebnis zugänglich halten; keine Wiederholung oder PASS-Promotion durch UI-Anbindung.</td></tr>
+          <tr data-integration-key="life05a" style="border-top:1px solid #315367;vertical-align:top"><th scope="row" style="padding:12px;width:22%"><a href="../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_LIFE_PRIME_N_TRANSITION_LIFE05A_2026-10-07/index.html">LIFE05A · Prime/N Transition</a><br><small><a href="../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_LIFE_PRIME_N_TRANSITION_LIFE05A_2026-10-07/README.md">Quellrecord</a> · ART:HTML:4FB12A1B7133</small><p style="font-weight:400">Vor Abgleich: 0 direkte A0-HTML-Einstiege.</p></th><td style="padding:12px">Endliche Primzahlsummen, Returns und Ordnungskontrollen.</td><td style="padding:12px">Exakte Arithmetik vor einer Life-Kopplung; kein universeller Life-Code.</td><td style="padding:12px">Lesepfad herstellen; jede spätere Ereigniszuordnung separat deklarieren.</td></tr>
+          <tr data-integration-key="life05b" style="border-top:1px solid #315367;vertical-align:top"><th scope="row" style="padding:12px;width:22%"><a href="../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_LIFE_EVENT_PRIME_N_BRIDGE_LIFE05B_2026-10-07/index.html">LIFE05B · Event → Prime/N</a><br><small><a href="../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_LIFE_EVENT_PRIME_N_BRIDGE_LIFE05B_2026-10-07/README.md">Quellrecord</a> · ART:HTML:DE23103CD410</small><p style="font-weight:400">Vor Abgleich: 0 direkte A0-HTML-Einstiege.</p></th><td style="padding:12px">Registrierter gepoolter Test: 4/4 Gates PASS.</td><td style="padding:12px">PRIMARY PASS / FIXTURE LOCALIZED / NOT GENERAL; Glider trägt 186/243 Prime Returns.</td><td style="padding:12px">Nicht als allgemeine Prime-Regel verdrahten; mit Holdout LIFE05D zusammen lesen.</td></tr>
+          <tr data-integration-key="life05d" style="border-top:1px solid #315367;vertical-align:top"><th scope="row" style="padding:12px;width:22%"><a href="../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_LIFE_CELL_EVENT_HOLDOUT_LIFE05D_2026-10-07/index.html">LIFE05D · Cell Event Holdout</a><br><small><a href="../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_LIFE_CELL_EVENT_HOLDOUT_LIFE05D_2026-10-07/README.md">Quellrecord</a> · ART:HTML:2CF628A70156</small><p style="font-weight:400">Vor Abgleich: 0 direkte A0-HTML-Einstiege.</p></th><td style="padding:12px">Zellgenaue Ereignistopologie und unabhängiger Holdout vorhanden.</td><td style="padding:12px">MIXED / NON-IDENTIFIABLE; Prime-Vorteil nicht repliziert, 3/4 Gates.</td><td style="padding:12px">Ereignis-IDs, native Adresse und View-Adresse getrennt anbinden.</td></tr>
+          <tr data-integration-key="life06" style="border-top:1px solid #315367;vertical-align:top"><th scope="row" style="padding:12px;width:22%"><a href="../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_LIFE_TRANSITION_ALPHABET_LIFE06_2026-10-07/index.html">LIFE06 · Transition Alphabet</a><br><small><a href="../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_LIFE_TRANSITION_ALPHABET_LIFE06_2026-10-07/README.md">Quellrecord</a> · ART:HTML:3683F105DE7A</small><p style="font-weight:400">Vor Abgleich: 0 direkte A0-HTML-Einstiege.</p></th><td style="padding:12px">00/01/11/10 als zeitlich abgeleitete Ereignissprache.</td><td style="padding:12px">Exaktes deskriptives Instrument; kein Wechsel zu einer Drei-Zustands-Regel.</td><td style="padding:12px">Ereignisrecord statt Symbolfarbe als mögliche A0-Schnittstelle festhalten.</td></tr>
+          <tr data-integration-key="life06b" style="border-top:1px solid #315367;vertical-align:top"><th scope="row" style="padding:12px;width:22%"><a href="../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_LIFE_PRIME_SHELL_WINDING_LIFE06B_2026-10-07/index.html">LIFE06B · Euler / Fibonacci Rail</a><br><small><a href="../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_LIFE_PRIME_SHELL_WINDING_LIFE06B_2026-10-07/README.md">Quellrecord</a> · ART:HTML:DB7656F2E81A</small><p style="font-weight:400">Vor Abgleich: 2 direkte A0-HTML-Einstiege.</p></th><td style="padding:12px">Primfenster, Euler-Höhen und Fibonacci-Ansicht implementiert.</td><td style="padding:12px">Beobachtungskoordinaten ändern die Life-Regel nicht.</td><td style="padding:12px">Ansichtsparameter von Carrier-/Ereigniszustand trennen; LIFE06C mitführen.</td></tr>
+          <tr data-integration-key="life06c" style="border-top:1px solid #315367;vertical-align:top"><th scope="row" style="padding:12px;width:22%"><a href="../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_LIFE_PRIME_COMPOSITE_WINDOW_LIFE06C_2026-10-07/index.html">LIFE06C · Prime/Composite Benchmark</a><br><small><a href="../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_LIFE_PRIME_COMPOSITE_WINDOW_LIFE06C_2026-10-07/README.md">Quellrecord</a> · ART:HTML:D9D3FD2D23BF</small><p style="font-weight:400">Vor Abgleich: 0 direkte A0-HTML-Einstiege.</p></th><td style="padding:12px">Registrierter Holdout des Primfenster-Vorteils vorhanden.</td><td style="padding:12px">NO PRIME WINDOW RECURRENCE ADVANTAGE ON HOLDOUT · 1/5 Gates.</td><td style="padding:12px">Negativresultat bleibt am Rail-Lesepfad sichtbar; kein neuer Run.</td></tr>
+          <tr data-integration-key="life06d" style="border-top:1px solid #315367;vertical-align:top"><th scope="row" style="padding:12px;width:22%"><a href="../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_LIFE_PQB_CONJUGACY_AUDIT_LIFE06D_2026-10-07/index.html">LIFE06D · P/Q/B Audit</a><br><small><a href="../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_LIFE_PQB_CONJUGACY_AUDIT_LIFE06D_2026-10-07/README.md">Quellrecord</a> · ART:HTML:ABF118EAE77B</small><p style="font-weight:400">Vor Abgleich: 1 direkte A0-HTML-Einstiege.</p></th><td style="padding:12px">Q−=P/α, Q+=Pα; Produkt P², Rundungsrest und Beobachtungsfiber.</td><td style="padding:12px">B ist der gebundene Pearl-Vergleichsrecord, nicht automatisch β. Bedingte Identifizierbarkeit; LIFE06C bleibt negativ.</td><td style="padding:12px">Parameter, Integeransicht und Toleranzfiber bei einer späteren Kopplung getrennt führen.</td></tr>
+        </tbody>
+      </table></div>
+    </details>
+    <details style="margin:14px 0;border:1px solid #416375;border-radius:8px;padding:12px">
+      <summary>CA-IDENT · vorhandene Testkette · 10 Einträge</summary>
+      <div role="region" aria-label="CA-IDENT · vorhandene Testkette" tabindex="0" style="overflow-x:auto"><table style="min-width:850px;width:100%;border-collapse:collapse;text-align:left">
+        <thead><tr><th scope="col" style="padding:12px">Vorhandene Quelle</th><th scope="col" style="padding:12px">Implementierter Bestand</th><th scope="col" style="padding:12px">Ergebnis / Grenze</th><th scope="col" style="padding:12px">Konkrete Anschlusslücke</th></tr></thead>
+        <tbody>
+          <tr data-integration-key="ca01" style="border-top:1px solid #315367;vertical-align:top"><th scope="row" style="padding:12px;width:22%"><a href="../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_LIFE_MULTI_VIEW_IDENTIFIABILITY_CA_IDENT_01_2026-10-08/index.html">CA-IDENT-01 · Multi-View</a><br><small><a href="../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_LIFE_MULTI_VIEW_IDENTIFIABILITY_CA_IDENT_01_2026-10-08/README.md">Quellrecord</a> · ART:HTML:D5EB37391C26</small><p style="font-weight:400">Vor Abgleich: 2 direkte A0-HTML-Einstiege.</p></th><td style="padding:12px">Life, Grid, Fourier, Shadow Memory, Shadow-gons und E8-Adapter vorhanden.</td><td style="padding:12px">LIMITED_VIEW_SIGNAL; E8-Adapter und kombinierter Raum liefern keinen Nutzenbeleg.</td><td style="padding:12px">Als bestehendes Instrument anbinden; nicht aus Formähnlichkeit rekonstruieren.</td></tr>
+          <tr data-integration-key="ca02" style="border-top:1px solid #315367;vertical-align:top"><th scope="row" style="padding:12px;width:22%"><a href="../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_LIFE_MULTI_VIEW_UTILITY_CA_IDENT_02_2026-10-08/index.html">CA-IDENT-02 · Utility Gate</a><br><small><a href="../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_LIFE_MULTI_VIEW_UTILITY_CA_IDENT_02_2026-10-08/README.md">Quellrecord</a> · ART:HTML:4AA4B0325513</small><p style="font-weight:400">Vor Abgleich: 0 direkte A0-HTML-Einstiege.</p></th><td style="padding:12px">Größerer Rule-/Seed-Holdout; Fourier und Memory tragen Teilsignal.</td><td style="padding:12px">PARTIAL SIGNAL / GATE FAIL; keine Promotion der kombinierten Pipeline.</td><td style="padding:12px">Die Ergebnisse der einzelnen Linsen bei einer A0-Zusammenstellung beibehalten.</td></tr>
+          <tr data-integration-key="ca03" style="border-top:1px solid #315367;vertical-align:top"><th scope="row" style="padding:12px;width:22%"><a href="../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_LIFE_CUBE_MEMORY_FOURIER_CA_IDENT_03_2026-10-08/index.html">CA-IDENT-03 · Cube / Fourier / Memory</a><br><small><a href="../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_LIFE_CUBE_MEMORY_FOURIER_CA_IDENT_03_2026-10-08/README.md">Quellrecord</a> · ART:HTML:ADAE8E92E961</small><p style="font-weight:400">Vor Abgleich: 0 direkte A0-HTML-Einstiege.</p></th><td style="padding:12px">Komplexer Fourier-Return PASS; Cube-Face- und CRT-Anschluss dokumentiert.</td><td style="padding:12px">FUSION NO GAIN; exakte Inversion ist kein Vorhersagegewinn. Magnitude verliert Adresse.</td><td style="padding:12px">Return und Utility getrennt anbinden; CRT-Sidecar bleibt außerhalb des gesperrten Utility-Tests.</td></tr>
+          <tr data-integration-key="ca04" style="border-top:1px solid #315367;vertical-align:top"><th scope="row" style="padding:12px;width:22%"><a href="../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_LIFE_BALANCED_FUSION_CA_IDENT_04_2026-10-08/index.html">CA-IDENT-04 · Balanced Fusion</a><br><small><a href="../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_LIFE_BALANCED_FUSION_CA_IDENT_04_2026-10-08/README.md">Quellrecord</a> · ART:HTML:86BED2506E9E</small><p style="font-weight:400">Vor Abgleich: 0 direkte A0-HTML-Einstiege.</p></th><td style="padding:12px">Korrigierte Balance und unabhängiger Split bereits getestet.</td><td style="padding:12px">BALANCED FUSION NO GAIN; Rare-Class-Support ist begrenzt.</td><td style="padding:12px">Keine erneute Balance-Reparatur als ungetestete Lösung ausgeben.</td></tr>
+          <tr data-integration-key="ca05" style="border-top:1px solid #315367;vertical-align:top"><th scope="row" style="padding:12px;width:22%"><a href="../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_LIFE_ALPHA_BETA_RESIDUAL_CA_IDENT_05_2026-10-08/index.html">CA-IDENT-05 · P=A+B / 63:1</a><br><small><a href="../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_LIFE_ALPHA_BETA_RESIDUAL_CA_IDENT_05_2026-10-08/README.md">Quellrecord</a> · ART:HTML:7B0AE7E44451</small><p style="font-weight:400">Vor Abgleich: 1 direkte A0-HTML-Einstiege.</p></th><td style="padding:12px">63/64 Fourier + 1/64 Memory als normierte Distanzmischung tatsächlich getestet.</td><td style="padding:12px">ALPHA-BETA NO GAIN; exakte Normierung, aber diese Rollenrichtung nicht gestützt. Kein allgemeines Urteil über symbolische Namen.</td><td style="padding:12px">Arithmetik, konkrete Metrik und historische β-Darstellung nicht gleichsetzen.</td></tr>
+          <tr data-integration-key="ca06" style="border-top:1px solid #315367;vertical-align:top"><th scope="row" style="padding:12px;width:22%"><a href="../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_LIFE_KAPPA_OPEN_SET_CA_IDENT_06_2026-10-08/index.html">CA-IDENT-06 · Kappa / Abstention</a><br><small><a href="../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_LIFE_KAPPA_OPEN_SET_CA_IDENT_06_2026-10-08/README.md">Quellrecord</a> · ART:HTML:44337F402C8B</small><p style="font-weight:400">Vor Abgleich: 1 direkte A0-HTML-Einstiege.</p></th><td style="padding:12px">Abstention aus Abstand zu eingefrorenem bekanntem Support.</td><td style="padding:12px">COVERAGE GATE FAIL / UNKNOWN RESULT; kein unbekanntes Zielereignis im Holdout.</td><td style="padding:12px">UNKNOWN unverändert führen, nicht als erfolgreichen Detektor anzeigen.</td></tr>
+          <tr data-integration-key="ca07" style="border-top:1px solid #315367;vertical-align:top"><th scope="row" style="padding:12px;width:22%"><a href="../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_LIFE_GENERATIONAL_BINDER_CA_IDENT_07_2026-10-08/index.html">CA-IDENT-07 · Generational Binder</a><br><small><a href="../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_LIFE_GENERATIONAL_BINDER_CA_IDENT_07_2026-10-08/README.md">Quellrecord</a> · ART:HTML:538786C76550</small><p style="font-weight:400">Vor Abgleich: 0 direkte A0-HTML-Einstiege.</p></th><td style="padding:12px">Vier Zeitschnitte, signierte erste und zweite Differenzen; C-Taxonomie vorhanden.</td><td style="padding:12px">COVERAGE GATE FAIL / PRIMARY RESULT UNKNOWN; beschreibende Scores kein negativer Primärentscheid.</td><td style="padding:12px">C_obj, C_cmp und Beobachtungsklassen getrennt führen; CA08 daneben lesen.</td></tr>
+          <tr data-integration-key="ca08" style="border-top:1px solid #315367;vertical-align:top"><th scope="row" style="padding:12px;width:22%"><a href="../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_LIFE_CONDITIONAL_RESIDUAL_OBSERVER_CA_IDENT_08_2026-10-08/index.html">CA-IDENT-08 · Conditional History</a><br><small><a href="../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_LIFE_CONDITIONAL_RESIDUAL_OBSERVER_CA_IDENT_08_2026-10-08/README.md">Quellrecord</a> · ART:HTML:237A127F1B20</small><p style="font-weight:400">Vor Abgleich: 0 direkte A0-HTML-Einstiege.</p></th><td style="padding:12px">3.600 frische Records; History-Gewinn +0,0488 Macro-F1; endlicher Auflösungsaudit 7→5→2→1.</td><td style="padding:12px">PRIMARY GAIN PASS / GATE SPECIFICITY FAIL / RESOLUTION AUDIT PASS. Kein universelles Beobachtergesetz.</td><td style="padding:12px">Gewinn, Gate-Spezifität und Auflösungszahl als getrennte Felder erhalten.</td></tr>
+          <tr data-integration-key="ca09" style="border-top:1px solid #315367;vertical-align:top"><th scope="row" style="padding:12px;width:22%"><a href="../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_VIEW_INDUCED_TOPOLOGY_CALIBRATION_CA_IDENT_09_2026-10-08/README.md">CA-IDENT-09 · View-Topology Calibration</a><br><small><a href="../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_VIEW_INDUCED_TOPOLOGY_CALIBRATION_CA_IDENT_09_2026-10-08/README.md">Quellrecord</a> · vorhandener Quellenpfad</small><p style="font-weight:400">Vor Abgleich: 0 direkte A0-HTML-Einstiege.</p></th><td style="padding:12px">3.000 Integer-Identitäten; 9.000 exakte Returns, fünf Gates PASS.</td><td style="padding:12px">CALIBRATION_PASS_VIEW_NONINVARIANT: Identität bleibt, Nachbarschaft wechselt mit dem Cut.</td><td style="padding:12px">Als vorhandene Kontrollmethode nutzen; keine Prime/Life-Mechanismusidentität.</td></tr>
+          <tr data-integration-key="ca10" style="border-top:1px solid #315367;vertical-align:top"><th scope="row" style="padding:12px;width:22%"><a href="../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_LIFE_THREE_CUT_EVENT_TRANSFER_CA_IDENT_10_2026-10-08/README.md">CA-IDENT-10 · Three-Cut Event Transfer</a><br><small><a href="../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_LIFE_THREE_CUT_EVENT_TRANSFER_CA_IDENT_10_2026-10-08/README.md">Quellrecord</a> · vorhandener Quellenpfad</small><p style="font-weight:400">Vor Abgleich: 0 direkte A0-HTML-Einstiege.</p></th><td style="padding:12px">14.132 LIFE05D-Ereignisse; 42.396 exakte inverse Returns, sechs Gates PASS.</td><td style="padding:12px">TRANSFER_PASS_VIEW_NONINVARIANT für einen eingefrorenen Lauf; View-Topologie bleibt lokal.</td><td style="padding:12px">Persistente Event-ID und native Adresse sind der konkrete vorhandene Anschlussansatz.</td></tr>
+        </tbody>
+      </table></div>
+    </details>
+    <details style="margin:14px 0;border:1px solid #416375;border-radius:8px;padding:12px">
+      <summary>IEEE300 · getrennte Ergebnisse · 2 Einträge</summary>
+      <div role="region" aria-label="IEEE300 · getrennte Ergebnisse" tabindex="0" style="overflow-x:auto"><table style="min-width:850px;width:100%;border-collapse:collapse;text-align:left">
+        <thead><tr><th scope="col" style="padding:12px">Vorhandene Quelle</th><th scope="col" style="padding:12px">Implementierter Bestand</th><th scope="col" style="padding:12px">Ergebnis / Grenze</th><th scope="col" style="padding:12px">Konkrete Anschlusslücke</th></tr></thead>
+        <tbody>
+          <tr data-integration-key="ieee" style="border-top:1px solid #315367;vertical-align:top"><th scope="row" style="padding:12px;width:22%"><a href="../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_IEEE300_GRAPH_TO_GRID_VALIDATION_2026-10-08/artifacts_r2/graph-grid-report-r2.html">IEEE300 · R2 Graph-to-Grid</a><br><small><a href="../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_IEEE300_GRAPH_TO_GRID_VALIDATION_2026-10-08/RESULT_SUMMARY.md">Quellrecord</a> · ART:IEEE300:GRAPH_GRID:R2</small><p style="font-weight:400">Vor Abgleich: 3 direkte A0-HTML-Einstiege.</p></th><td style="padding:12px">Realer AC-Load-Flow, relationale Abbildung und registrierte Kontrollen.</td><td style="padding:12px">R2 GRAPH GRID CONTRACT PASS; nur der deklarierte Repräsentationsvertrag.</td><td style="padding:12px">R2-Records statt synthetischer Zylinderpunkte übernehmen; keine Solverkopplung behaupten.</td></tr>
+          <tr data-integration-key="morphology" style="border-top:1px solid #315367;vertical-align:top"><th scope="row" style="padding:12px;width:22%"><a href="../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_IEEE300_GRAPH_TO_GRID_VALIDATION_2026-10-08/morphology_01/artifacts/graph-grid-morphology-01.html">IEEE300 · Morphology 01</a><br><small><a href="../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_IEEE300_GRAPH_TO_GRID_VALIDATION_2026-10-08/morphology_01/RESULT_SUMMARY.md">Quellrecord</a> · ART:IEEE300:GRAPH_GRID:MORPHOLOGY01</small><p style="font-weight:400">Vor Abgleich: 1 direkte A0-HTML-Einstiege.</p></th><td style="padding:12px">Vier Ansichten und zwei Solverpolitiken; Relabeling und Ablation geprüft.</td><td style="padding:12px">VALID MIXED-NEGATIVE: CROSS_VIEW_ORDER_NOT_PRESERVED; H3/Circle ohne spezifischen Vorteil.</td><td style="padding:12px">Mit R2 gemeinsam zugänglich, aber Ergebnisstatus nicht mit dessen PASS verschmelzen.</td></tr>
+        </tbody>
+      </table></div>
+    </details>
+    <p><small>Die Einstiegszahl zählt direkte <code>href</code>-Links der A0-Haupt-HTMLs vor diesem Bau, keine indirekten Navigator-Wege, geteilten Menüs oder Textnennungen. Null heißt nicht „Quelle fehlte“. Heutige Quellhashes und vorhandene Artifact-IDs werden getrennt vom historischen Registry-Assessment geführt; keine automatische Admission.</small></p>
+    <details style="margin:14px 0"><summary>Was bei P=A+B, P/Q/B und β getrennt bleibt</summary><p><code>63/64 + 1/64 = 1</code> ist vollständig normiert. CA-IDENT-05 prüfte eine konkrete Fourier-/Memory-Distanzmischung und stützte deren vorgeschlagene Rollenrichtung nicht. LIFE06D behandelt dagegen reelle Skalenkonjugierte; sein B ist ein gebundener Vergleichsrecord. Der historische β-Splitter ist nicht allein durch den Buchstaben mit einem dieser Verträge identifiziert. Symbolische Namen bleiben erhalten, ohne ungeprüfte Parametergleichsetzung.</p></details>
+    <p><strong>LIFE03-Laufzeitanschluss:</strong> Der vorhandene State-/Befehls-/Return-Adapter ist implementiert und technisch geprüft; die Browserabnahme bleibt offen. Quelltimer, Readiness, Startanker und Stop/HOLD sind im <a href="assets/a0-life03-bench-binding-v1.json">bestehenden Adaptervertrag</a> getrennt festgehalten. Keine neue Forschung und keine automatische Fusion der Ergebnisse.</p>
+    <p><a href="assets/a0-integration-crosswalk-v1.json">Abgleich, Quellhashes und Vorher-Einstiege · JSON</a> · <a href="a0-integration-crosswalk-tests.cjs">Engineering-Prüfung</a> · <a href="A0_BUILDER_LOG.html#integration-crosswalk">Builder-Return · Eintrag 16</a></p>
+  </section>
+  <details class="panel" id="pentagonWorkbench" style="margin:20px 0;padding:20px;scroll-margin-top:110px">
+    <summary>PENT ↔ Master · Zustand, Operatoren und überprüfbarer UI-Return</summary>
+    <section id="pentagonBrowserAcceptance" aria-label="Dokumentierter Browser-Test" style="border-left:4px solid #70d79b;padding:12px 18px;margin:16px 0;background:#082b29">
+      <strong style="color:#70d79b">PASS · Master–PENT · dokumentierter Browserlauf vom 17.10.2026</strong>
+      <p>Owner-bedienter Ein-Klick-Lauf: 10/10 Cues, neun bestätigte SETs und ein RETURN; Revision 10 → 20. Alle sechs UI-Felder samt Control-Readback kehren exakt zum Start dieses Laufs zurück. Erfolgsanzeige im Screenshot 14:50:25 und exportierter Trace wurden geprüft. Dies ist ein gespeicherter Testnachweis, nicht der Status eines neu gestarteten Laufs.</p>
+      <p><a href="results/a0-pentagon-joint-browser-acceptance-2026-10-17.json">Prüfbericht · PASS</a> · <a href="results/a0-pentagon-joint-browser-run-2026-10-17.json">Geprüfter Browser-Export</a> · <a href="a0-pentagon-browser-run-verify.cjs">Nachprüfbarer Verifier</a> · <a href="a0-pentagon-browser-run-tests.cjs">Verifier-Gegenproben</a> · <a href="a0-pentagon-bench-tests.cjs">717 Engineering-Prüfungen</a></p>
+      <small>Begrenzte UI-Funktionsabnahme. Keine Gesamtmaschinen-, vollständige 106-Knoten-, wissenschaftliche oder umfassende Pixel-/Browser-Kompatibilitätsabnahme. LIFE04B-Spezifität bleibt FAIL 0/4.</small>
+    </section>
+    <details id="machineWiringStatus"><summary>Gesamtverschaltung offen · Was läuft bereits zusammen?</summary>
+      <div style="overflow-x:auto"><table style="width:100%;border-collapse:collapse;text-align:left">
+        <thead><tr><th>Teil</th><th>Verbindung heute</th><th>Was noch fehlt</th></tr></thead>
+        <tbody>
+          <tr><td>Master ↔ PENT-Explorer</td><td>Browser-PASS: Cues, bestätigter Readback, sechs UI-Felder, frischer Return.</td><td>Vollständige 106-Knoten-Adresse ist nicht Teil dieses Vertrags.</td></tr>
+          <tr><td>OCB-Instrumente / Q4 / Root7</td><td>Bestehende Master-Regie und getrennte lokale Adapter; Root7 ist eine Q4-gebundene Ansicht.</td><td>Ein gemeinsamer bestätigter End-to-End-Trace und Return über alle Teilzustände ist nicht abgenommen. Zehn Regiephasen sind keine gemeinsame Simulation.</td></tr>
+          <tr><td>Schichtenphase → Resonator / Euler</td><td>Neuer lokaler Phasenpfad mit echtem Schichten-Readback, abgeleiteten Ansichten und begrenztem Startanker-Return. <a href="#phaseWiring">Bedienen ↓</a></td><td>Browserabnahme offen; keine Steuerung der ursprünglichen Resonator-HTML-Laufzeit und kein Gesamtmaschinen-Return.</td></tr>
+          <tr><td>Pascal-/Grid-Quellseiten → Sewing</td><td>Vorhandene lesende Snapshot-Brücke.</td><td>Kein allgemeiner schreibender Maschinenbus oder gemeinsamer Steuervertrag.</td></tr>
+          <tr><td>Living Blueprint / NEON / Blue Body</td><td>Quelllinks, Crosswalks und eigene lokale Werkzeuge. Die Träger bleiben verschieden.</td><td>Explizite Adapter für gemeinsam zu steuernde Parameter, Rückmeldungen und Return. Verlinkung und ähnliche Bilder reichen nicht.</td></tr>
+          <tr><td>Core-Dynamik: Lorenz, Rössler, Kuramoto usw.</td><td>Forschungsbestand und Lesepfade; keine Anbindung an diesen PENT-Lauf.</td><td>Je gewähltem Fall reproduzierbarer Quellrecord, Parameter, Ein-/Ausgaben und begründeter Vergleichsvertrag; keine neuen Forschungsruns durch die Demo.</td></tr>
+          <tr><td>Fourier / JT / VIII und weitere Ketten</td><td>Bis zur eigenen Quellen- und Vertragsprüfung deaktiviert.</td><td>Erst prüfen, dann einzeln anbinden; kein stilles Einschalten durch diesen PASS.</td></tr>
+        </tbody>
+      </table></div>
+      <p><strong>Nächster sinnvoller Bau:</strong> einen konkreten Gesamtpfad auswählen und für jeden beteiligten Adapter Zustand, erlaubte Befehle, Readiness, Stop/HOLD und Return festlegen. Danach denselben Start/Pause-Takt nutzen und den gesamten Pfad mit Gegenproben abnehmen. Erst dann darf dieser Pfad „gemeinsam verschaltet“ heißen.</p>
+      <p>Separat offen: genauere Pausenursache und weniger empfindliche Beobachtungsbedienung; bekannte Binder-/Mission-Control-Hash-Abweichungen. Diese Verwaltungspunkte ändern weder den begrenzten UI-PASS noch bestehende wissenschaftliche FAIL-/Negativresultate. <a href="#orientationRoleMap">Regenbogen / Scarabaeus / CIKADA / Titan · Anschlusskarte ↓</a></p>
+    </details>
+    <div style="padding:18px;margin:16px 0;border:2px solid #65d9e8;border-radius:12px;background:#071e2a">
+      <button id="pentagonJointStart" type="button" style="font-size:1.05rem;padding:14px 20px;background:#155b6d">Verbinden &amp; gemeinsame Demo starten</button>
+      <button id="pentagonJointPause" type="button" disabled>Pause</button>
+      <button id="pentagonJointExport" type="button">Laufnachweis exportieren</button>
+      <p><output id="pentagonJointStatus" role="status" aria-live="polite">Bereit · ein Klick verbindet und startet beide Instrumente.</output></p>
+      <progress id="pentagonJointProgress" max="10" value="0" aria-label="Bestätigte Master–PENT-Cues" style="width:min(100%,650px);height:20px"></progress>
+      <p id="pentagonJointResult">Abfolge: SOURCE → OPERATOR → EDGE → SHADOW → FAMILY → GRID → RETURN → FOLD → ROOT → RECORD</p>
+      <small>Der Explorer bleibt hier sichtbar. Manuelles Bedienen oder Scrollen pausiert den Lauf. Ein neuer Start beginnt bei SOURCE; ein älterer Return zählt nicht als Nachweis dieses Laufs.</small>
+    </div>
+    <p>Die Laufzeitfassung übernimmt die authored Explorer-Ansichten aus dem hashgebundenen Core-Snapshot. Dazu kommt eine eigene schmale Schnittstelle. Original und Ergebnisrecords bleiben unverändert. PENT-04-Lift, PENT-07-Hub und D30 sind verschiedene Operationen.</p>
+    <details><summary>Einzelsteuerung &amp; Verbindung · erweitert</summary>
+    <button id="pentagonWorkbenchLoad" type="button">PENT-Adapter laden / neu verbinden</button>
+    <output id="pentagonWorkbenchStatus" aria-live="polite">NOT_LOADED · erst laden, dann Source-Witness prüfen</output>
+    <p><label><input id="pentagonFollowMaster" type="checkbox"> PENT den Master-Phasen folgen lassen (erst nach READY)</label>. Die sichtbare Cue-Liste ordnet Ansichten zu; sie identifiziert PENT nicht mit CRT, Schatten, Grid oder Q4. Es gibt keine zweite Demo-Uhr. Eine fehlende oder widersprüchliche Rückmeldung stoppt die PENT-Folge und pausiert den Master.</p>
+    <div style="display:flex;flex-wrap:wrap;gap:8px;margin:12px 0">
+      <label>Ansicht <select id="pentagonView"><option value="structure">Structure</option><option value="metric">Metric</option><option value="boundary">Boundary</option><option value="lift">3D lift</option><option value="roots">Roots</option><option value="growth">Growth</option><option value="coupling">5/6 coupling</option><option value="d30">D30 joint</option></select></label>
+      <button id="pentagonApplyView" type="button" disabled>Ansicht senden</button>
+      <button id="pentagonLeft" type="button" disabled>D30 · L</button><button id="pentagonRight" type="button" disabled>D30 · R</button><button id="pentagonRotate" type="button" disabled>D30 · Register drehen</button><button id="pentagonMirror" type="button" disabled>D30 · Register spiegeln</button>
+      <button id="pentagonRead" type="button" disabled>Source lesen / HOLD prüfen</button><button id="pentagonCapture" type="button" disabled>UI-Anker merken</button><button id="pentagonReturn" type="button" disabled>Return zum UI-Anker</button>
+      <button id="pentagonExport" type="button">PENT-Record exportieren</button><label>Exportzustand wiederherstellen <input id="pentagonImport" type="file" accept=".json,application/json" disabled></label>
+    </div>
+    </details>
+    <iframe id="pentagonWorkbenchFrame" hidden sandbox="allow-scripts" referrerpolicy="no-referrer" title="Source-derived PENT runtime adapter · typed UI state bridge" style="width:100%;height:780px;border:1px solid #416375;margin-top:16px"></iframe>
+    <details><summary>Master-Cues und Return-Grenze</summary><p>SOURCE: Structure / Identität und UI-Anker; OPERATOR: Strukturspiegel; EDGE: D30-Register +1; SHADOW: 3D lift; FAMILY: Roots; GRID: 5/6 cycles; RETURN: Boundary-Lesung; FOLD: Dreiecksmasken; ROOT: D30 mit Wort LRRL; RECORD: exakter UI-Return zum Startanker. Das sind deklarierte Regie-Cues, keine mathematischen Carrier-Abbildungen.</p><p>Geprüft werden sechs UI-Felder plus ihre gerenderten Bedienelemente: mode, op, growthStep, couplingView, dRegister, branchWord. Der vollständige 106-Knoten-Zustand ist damit nicht adressiert. Revision und Geschichte laufen weiter. Weder Pixelrendering noch wissenschaftliche Resultate werden über die Nachrichtenschnittstelle attestiert.</p></details>
+    <details><summary>Letzter Source-Witness / Return-Receipt</summary><pre id="pentagonWitness" style="white-space:pre-wrap;overflow-wrap:anywhere">Noch kein bestätigter Quellrecord.</pre></details>
+    <p><a href="assets/core-snapshots/PASCAL_PENTAGON_EXPLORER_2026-10-15.html?rev=flattened-20261015" target="_blank" rel="noopener">Unverändertes Quellinstrument ↗</a> · <a href="assets/core-snapshots/PASCAL_PENTAGON_EXPLORER_2026-10-15.receipt.json">Original-Receipt</a> · <a href="assets/a0-pentagon-bench-binding-v1.json">Adaptervertrag &amp; Quellhashes</a> · <a href="A0_PASCAL_PENTAGON_OPERATOR_JOINTS.html#connection-status">Anschlusskarte</a> · <a href="A0_TOURS.html#core-lorenz">Forschungsbuch</a></p>
+  </details>
+  <details class="panel" id="orientationRoleMap" style="margin:20px 0;padding:20px;scroll-margin-top:100px">
+    <summary>Regenbogen · Scarabaeus · CIKADA · Titan — Bestand und fehlende Anschlüsse</summary>
+    <p><strong>Vier Rollen, keine vier neu erfundenen Module.</strong> Die vom Owner gelieferte Architekturtafel trennt Transport, Reorganisation und Stabilisierung. Der Regenbogen ist eine vorhandene Erscheinungsansicht. Diese Karte bindet Bilder, Werkzeuge und Ergebnisse zurück an ihre Quellen; sie verbindet noch keine Controller.</p>
+    <p style="padding:12px;border-left:3px solid #d6af58;background:#112735"><strong>Bildgrammatik:</strong> Scarabaeus / Transport → CIKADA / Reorganisation → Titan / Stabilisierung. Regenbogen: Ansicht auf Erscheinung und Beobachterrelation. Die Pfeile sind eine Lesereihenfolge, keine ausgeführte Maschinenpipeline.</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:14px">
+      <article data-role-card="rainbow" style="border:1px solid #416375;border-top:4px solid #ad81ed;border-radius:10px;padding:16px">
+        <h3>Regenbogen / Purple Rain</h3><p><strong>Rolle:</strong> Erscheinungs- und Beobachteransicht.</p>
+        <p><strong>Gebaut:</strong> Prisma, drei Darstellungen, Newton-/Goethe-/Leibniz-Fragen, Farbrad und Purple Rain; eigener lokaler View-Record. Über die Aperture Journey bereits navigierbar.</p>
+        <p><strong>Offen:</strong> kein bestätigter Master-Steueradapter. Für eine Kopplung müssen gemeinsam zu steuernde Felder, eigene Animation, Stop und Return ausdrücklich vereinbart werden.</p>
+        <p><a href="A0_RAINBOW_PURPLE_RAIN.html">Vorhandene Ansicht öffnen</a> · <a href="a0-rainbow-purple-rain-tests.cjs">Vorhandene Tests</a> · <a href="A0_NEXAH_APERTURE_JOURNEY.html#invitation">Aperture-Einstieg</a></p>
+      </article>
+      <article data-role-card="scarabaeus" style="border:1px solid #416375;border-top:4px solid #55cfe6;border-radius:10px;padding:16px">
+        <h3>Scarabaeus</h3><p><strong>Rolle auf der Tafel:</strong> Transport durch Struktur.</p>
+        <p><strong>Vorhanden:</strong> historische Scarab-/Crown-Bildfamilien und korrigierter Totient-/Operator-Spine-Quellenaudit. Der Audit prüft Arithmetik und Provenienz, nicht einen universellen Transportoperator.</p>
+        <p><strong>Offen:</strong> Träger, Quell-/Zieladresse, Transportregel und mitzuführender Rest sind für diese Rolle am Master nicht definiert. Bestehender Thread Loom, Janus und Scarab sind nicht automatisch identisch.</p>
+        <p><a href="../49_A0_SCARAB_TOTIENT_OPERATOR_SPINE_SOURCE_AUDIT_2026-10-13.md">Scarab-Quellenaudit</a> · <a href="A0_JOINT_APPLICATION_DEMONSTRATOR.html#rath-joint">Vorhandener typisierter Joint</a></p>
+      </article>
+      <article data-role-card="cikada" style="border:1px solid #416375;border-top:4px solid #73d6a4;border-radius:10px;padding:16px">
+        <h3>CIKADA</h3><p><strong>Rolle auf der Tafel:</strong> Reorganisation / Strukturwechsel.</p>
+        <p><strong>Mehr als Bildmaterial:</strong> abgeschlossener Mandelbrot-Operator-Return-Test: Parameter-Return begrenzt etabliert, Raster-Return winkelabhängig und verlustbehaftet; alle nichttrivialen Cross-Space-Versuche scheitern. Ein separater synthetischer Kronentest kommt innerhalb seiner geprüften Familie zu C_STRUCTURED_GEOMETRY_REQUIRED.</p>
+        <p><strong>Getrennter Status:</strong> der spätere Marker-Corpus bleibt HOLD_CONFLICTING_DEFINITIONS / NO_CANDIDATE_ADMITTED. Dieser Intake überschreibt nicht die abgeschlossenen Tests; jene Tests validieren nicht sämtliche CIKADA-Behauptungen.</p>
+        <p><strong>Offen:</strong> Zuordnung der Reorganisationsrolle zu genau einem Quellvertrag und Master-Adapter. Die ORION-Platzierungsprüfung benennt nur einen externen Fixture-Kandidaten mit separatem Implementierungsgate.</p>
+        <p><a href="../../../SCIENCE_LAB/CASE_STUDIES/CIKADA_3301_MANDELBROT_OPERATOR_RETURN_TEST/FINAL_DECISION.md">Operator-Return · Entscheidung</a> · <a href="../../../SCIENCE_LAB/CASE_STUDIES/CIKADA_3301_CONCAVE_CROWN_CONVEX_PROJECTION_LAB/FINAL_DECISION.md">Kronengeometrie · Entscheidung</a> · <a href="../../../SCIENCE_LAB/CASE_STUDIES/CIKADA_3301_LATER_MARKER_PROVENANCE_INTAKE/FINAL_INTAKE_DECISION.md">Marker-Intake · HOLD</a> · <a href="../../../SCIENCE_LAB/CASE_STUDIES/CIKADA_MANDELBROT_DESK_03_INTEGRATION_PLACEMENT_REVIEW_2026-08-24/FINAL_DESK_03_DECISION.md">Platzierung · Gate offen</a></p>
+      </article>
+      <article data-role-card="titan" style="border:1px solid #416375;border-top:4px solid #e6ad66;border-radius:10px;padding:16px">
+        <h3>Titan</h3><p><strong>Rolle auf der Tafel:</strong> Stabilisierung der neuen Struktur.</p>
+        <p><strong>Vorhanden:</strong> die dokumentierte Rollenidee. Damit ist noch kein allgemeiner Stabilisierungsalgorithmus bezeichnet. Gleichnamige TITAN-Inventare oder Kontrollfälle werden hier nicht als Implementierung dieser Rolle ausgegeben.</p>
+        <p><strong>Offen:</strong> Was soll stabil bleiben? Welche Messgröße, Toleranz, Regel und Gegenprobe entscheiden PASS oder HOLD? Erst danach kann ein vorhandener geeigneter Regler zugeordnet werden.</p>
+        <p><a href="assets/a0-orientation-role-map-v1.json">Owner-Tafeln · Rollen- und Quellbindungen</a></p>
+      </article>
+    </div>
+    <details><summary>Crown, Regenbogen und Frequenztafeln richtig auseinanderhalten</summary>
+      <p>Die Scarab-Crown-/Nested-Polyhedral-Field-Tafel beschreibt eine verschachtelte Architektur mit Region → Apertur → Region. Sie illustriert eine Verbindung zu Lorenz, Mandelbrot und CIKADA/Regenbogen; damit sind deren Träger und Operatoren nicht identifiziert. Auch der synthetische Kronentest identifiziert keine historische Bildherkunft.</p>
+      <p>Die Polar-Janus-/420-Wheel-/Solfeggio-Tafeln sind als Owner-Bildquellen erfasst. Frequenzlabels, ±43, 682 und P=R/T sind nicht als Treiber oder validiertes Naturgesetz angeschlossen; insbesondere bleibt ein Quotient bei T=0 ohne zusätzliche Definition offen. Die Karte führt keinen dieser historischen Tests erneut aus.</p>
+    </details>
+    <p><strong>Nächster begrenzter Anschluss:</strong> zuerst einen vorhandenen Fall und seine tatsächlichen Ein-/Ausgaben auswählen, dann einen Adapter spezifizieren und denselben bestätigten Start/Pause/Return-Vertrag prüfen. Nicht die vier Rollen durch vier gleichnamige Knöpfe ersetzen.</p>
+    <p><a href="assets/a0-orientation-role-map-v1.json">Quellen, Rollen und Grenzen · JSON</a> · <a href="a0-orientation-role-map-tests.cjs">Karten-, Link- und Quellhash-Prüfung</a> · <a href="#pentagonBrowserAcceptance">Bereits bestätigter Master–PENT-Lauf ↑</a></p>
+  </details>
+  <details class="panel" id="wiringPackage" style="padding:24px;scroll-margin-top:100px">
+    <summary>Integrationspaket · Konzept → Kontaktstrecke → Instrument → Return</summary>
+    <p>Die Owner-Tafeln sind konzeptuelle Lesefenster, keine neuen Quellmodelle oder historischen Physiknachweise. Anklicken öffnet die vollständige Tafel; der Instrumentlink führt zu einer vorhandenen, getrennt definierten Umsetzung.</p>
+    <div class="wiring-contact-strip">
+      <article><a href="assets/wiring-concepts/01-layers.jpeg"><img loading="lazy" src="assets/wiring-concepts/01-layers.jpeg" alt="Russell X-Tensions III: Träger, Rahmen und Beobachter bewegen sich getrennt"></a><h3>1 · Schichten / Matroschka</h3><p>Träger, Raster und Beobachter unterscheiden.</p><a href="#root7ProjectionOverlay">Schichten-Instrument ↓</a></article>
+      <article><a href="assets/wiring-concepts/02-two-cuts.jpeg"><img loading="lazy" src="assets/wiring-concepts/02-two-cuts.jpeg" alt="Zwei Schnitte durch denselben kugelförmigen Träger"></a><h3>2 · Zwei Schnitte / Linse</h3><p>Gleiche Quelle, begrenzte Ansichten.</p><a href="#root7ProjectionOverlay">Vorhandene Vergleichslinsen ↓</a></article>
+      <article><a href="assets/wiring-concepts/03-split-rest.jpeg"><img loading="lazy" src="assets/wiring-concepts/03-split-rest.jpeg" alt="Split Rest: zwei gerichtete Ansätze und ein Vergleichspunkt"></a><h3>3 · Doppelhälfte / Rest</h3><p>Die Richtungen bleiben getrennt.</p><a href="#seamOrigins">Herkunft und Mehrdeutigkeit ↓</a></article>
+      <article><a href="assets/wiring-concepts/04-room.jpeg"><img loading="lazy" src="assets/wiring-concepts/04-room.jpeg" alt="Resonant Room: drei Quellen und mehrere Messansichten im Würfel"></a><h3>4 · Raum / Cube</h3><p>Quellen und Messpunkte deklarieren.</p><a href="A0_TESSAREC_BLUE_BODY_LAB.html">Vorhandenes Body-Lab →</a></article>
+      <article><a href="assets/wiring-concepts/05-tube.jpeg"><img loading="lazy" src="assets/wiring-concepts/05-tube.jpeg" alt="Standing Shadow: hinlaufende und reflektierte Welle im Schlauch"></a><h3>5 · Schlauch / Überlagerung</h3><p>Knotenlesung ist nicht das ganze Feld.</p><a href="A0_BLUE_PINK_DODECA_CELL_RETURN.html">Getrenntes Return-Instrument →</a></article>
+      <article><a href="assets/wiring-concepts/06-qrt.jpeg"><img loading="lazy" src="assets/wiring-concepts/06-qrt.jpeg" alt="QRT Code Mechanism: deklarierter Schnitt, Frame-Flip und adressierter Return"></a><h3>6 · QRT / aufgeschlüsselte Folge</h3><p>Schnitt, inverse Abbildung, Adressvergleich.</p><a href="A0_MATHEMATICAL_JOINTS.html">Vorhandene QRT-Verträge →</a></article>
+    </div>
+    <p><strong>Arbeitsweg:</strong> <a href="#phaseWiring">Phasenpfad bedienen ↓</a> · <a href="#machineWiringStatus">Bestand und offene Gesamtanschlüsse ↑</a> · <a href="assets/a0-phase-wiring-package-v1.json">Paketvertrag / Quellbindungen</a> · <a href="a0-phase-wiring-run-verify.cjs">Export-Verifier · begrenzter Ansichts-Return</a></p>
+    <ul>
+      <li><strong>Implementiert, Browserabnahme offen:</strong> Schichtenphase → abgeleiteter Resonator/Euler → lokaler Readback/Return.</li>
+      <li><strong>Vorhanden:</strong> Master–PENT mit begrenztem Browser-PASS; LIFE03-Adapter mit eigener offener Browserabnahme. Keine erneute Erfindung dieser Anschlüsse.</li>
+      <li><strong>Offen:</strong> native Blue/Pink-Einzelfläche; Ihara-Graphabbildung; gemeinsame Format-/Grid-Übergabe einschließlich Adresse für „537 GG“; weitergehender Gesamtmaschinen-Return.</li>
+      <li><strong>Darstellungsfehler separat offen:</strong> zweiter Herkunftspunkt der Mod-11-Kollision im bestehenden 11-Space-Instrument.</li>
+    </ul>
+  </details>
+  <link rel="stylesheet" href="a0-native-source-bank.css">
+  <link rel="stylesheet" href="a0-system-binder.css?rev=20261018-gap06-r1">
+  <aside class="boundary" aria-label="Aktives Quellfugen-Paket"><strong>Aktives enges Package:</strong> Joint Applications + Box / Laschen. Die bestehende Blue-Body-Quelle liefert Faltparameter, Kontaktstatus, CON–DAO-Cursor/Display-Checkpoint und das getrennte Integer-/Totient-Profil an das typisierte Bench-Journal. Für 1111 sind P0/F10, P1/F26 und P2/F42 explizit wähl- und rückkehrbar; andere Q4-/Schichtkarten, sichtbare Browserabnahme und Gesamtmaschinen-Return bleiben offen. <a href="assets/a0-source-seam-joint-box-package-v1.json">Paketvertrag →</a></aside>
+  <section id="nativeSourceBank" aria-label="Vorhandene HTML-Instrumente direkt bedienen"></section>
+  <script src="a0-native-source-bank.js"></script>
+  <link rel="stylesheet" href="a0-phase-wiring.css">
+  <section id="phaseWiring" aria-label="Gemeinsamer Phasenpfad und überprüfbarer Ansichts-Return"></section>
+  <link rel="stylesheet" href="a0-seam-origins.css">
+  <section id="seamOrigins" aria-label="Farbige Einser und Herkunft der gemischten Pfade"></section>
+  <script src="a0-seam-origins.js"></script>
+    </div>
+  </details>
+
+  <details class="external-adapter-pack" id="externalAdapterPack">
+    <summary><span>EXTERNAL ADAPTERS · PACK A+B</span><b>Vier vorhandene HTML-Instrumente verbinden, bewegen und lokal zurückführen</b></summary>
+    <div class="external-adapter-body">
+      <div class="external-adapter-head">
+        <p>Die Bench liest vier bestehende Quellverträge über dieselbe Bediengrammatik. Jeder Adapter besitzt einen eigenen Anker, eigenen Schrittzähler und eigenen Return. Es gibt keine gemeinsame Quelluhr und keinen Gesamtmaschinen-Return.</p>
+        <div><b id="externalAdapterPackStatus">0/4 CONNECTED</b><div class="external-adapter-actions"><button id="externalAdapterPlayAll" type="button">▶ ALLE ADAPTER</button><button id="externalAdapterReturnAll" type="button">↩ ALLE ZUM ANKER</button><button id="externalAdapterExport" type="button">EXPORT A+B</button></div></div>
+      </div>
+      <section id="adapterPackA" aria-labelledby="adapterPackATitle">
+        <h2 id="adapterPackATitle">Paket A · Joint Application + Axial Carrier</h2>
+        <div class="external-adapter-grid">
+          <article class="external-adapter-card" data-external-adapter="jarp" data-package="A"><div class="adapter-card-head"><div><small>FROZEN PROTOCOL READER · 10 CASES</small><h3>Joint Application / JARP</h3></div><span class="adapter-state" data-adapter-status>DISCONNECTED</span></div><div class="adapter-receipt"><span>SEQ <b data-adapter-sequence>00</b></span><span data-adapter-receipt>NO RETURN RECEIPT</span></div><pre class="adapter-readout" data-adapter-readout></pre><div class="adapter-actions"><button data-adapter-action="connect">CONNECT</button><button data-adapter-action="capture">CAPTURE</button><button data-adapter-action="step">STEP</button><button data-adapter-action="play">PLAY</button><button data-adapter-action="return">RETURN</button></div><p class="adapter-links"><a href="A0_JOINT_APPLICATION_DEMONSTRATOR.html">Quellinstrument</a><a href="assets/a0-joint-application-return-protocol-v1.json">JARP V1</a></p></article>
+          <article class="external-adapter-card" data-external-adapter="axial" data-package="A"><div class="adapter-card-head"><div><small>PROJECTION-ONLY RECORD · 6 LANES</small><h3>Axial Carrier Suite</h3></div><span class="adapter-state" data-adapter-status>DISCONNECTED</span></div><div class="adapter-receipt"><span>SEQ <b data-adapter-sequence>00</b></span><span data-adapter-receipt>NO RETURN RECEIPT</span></div><pre class="adapter-readout" data-adapter-readout></pre><div class="adapter-actions"><button data-adapter-action="connect">CONNECT</button><button data-adapter-action="capture">CAPTURE</button><button data-adapter-action="step">STEP</button><button data-adapter-action="play">PLAY</button><button data-adapter-action="return">RETURN</button></div><p class="adapter-links"><a href="A0_AXIAL_CARRIER_ADAPTER_SUITE.html">Quellinstrument</a><a href="assets/a0-axial-carrier-adapter-v1.json">Adapterrecord</a></p></article>
+        </div>
+      </section>
+      <section id="adapterPackB" aria-labelledby="adapterPackBTitle">
+        <h2 id="adapterPackBTitle">Paket B · Fold / Boundary Connector</h2>
+        <div class="external-adapter-grid">
+          <article class="external-adapter-card" data-external-adapter="axis08" data-package="B"><div class="adapter-card-head"><div><small>8→7 + RESIDUAL →8 · 8 PHASES</small><h3>AXIS08 Fold / Return</h3></div><span class="adapter-state" data-adapter-status>DISCONNECTED</span></div><div class="adapter-receipt"><span>SEQ <b data-adapter-sequence>00</b></span><span data-adapter-receipt>NO RETURN RECEIPT</span></div><pre class="adapter-readout" data-adapter-readout></pre><div class="adapter-actions"><button data-adapter-action="connect">CONNECT</button><button data-adapter-action="capture">CAPTURE</button><button data-adapter-action="step">STEP</button><button data-adapter-action="play">PLAY</button><button data-adapter-action="return">RETURN</button></div><p class="adapter-links"><a href="A0_AXIS08_FOLD_RETURN_SEQUENCER.html">Quellinstrument</a><a href="assets/a0-axis08-fold-return-sequencer-v1.json">Sequencerrecord</a></p></article>
+          <article class="external-adapter-card" data-external-adapter="boundary" data-package="B"><div class="adapter-card-head"><div><small>AREA → BOUNDARY → GRAPH → PASCAL</small><h3>Boundary Graph</h3></div><span class="adapter-state" data-adapter-status>DISCONNECTED</span></div><div class="adapter-receipt"><span>SEQ <b data-adapter-sequence>00</b></span><span data-adapter-receipt>NO RETURN RECEIPT</span></div><pre class="adapter-readout" data-adapter-readout></pre><div class="adapter-actions"><button data-adapter-action="connect">CONNECT</button><button data-adapter-action="capture">CAPTURE</button><button data-adapter-action="step">STEP</button><button data-adapter-action="play">PLAY</button><button data-adapter-action="return">RETURN</button></div><p class="adapter-links"><a href="A0_BOUNDARY_GRAPH_DEMONSTRATOR.html">Quellinstrument</a><a href="assets/a0-ocb-external-adapter-pack-v1.json">Pack-Vertrag</a></p></article>
+        </div>
+      </section>
+      <p class="boundary"><strong>Grenze:</strong> JARP bleibt ein eingefrorener Engineering-Protocol-Reader. Axial Carrier bleibt <code>projection_only</code>. AXIS08 attestiert nur den exakten Quotient-plus-Residual-Return. Boundary Graph verbindet Darstellungen, nicht Strukturen oder physikalische Mechanismen.</p>
+    </div>
+  </details>
 
   <section class="master-cockpit" id="masterCockpit" aria-labelledby="masterDemoTitle">
     <div class="cockpit-source">
@@ -67,6 +414,41 @@
       <pre id="masterDemoRecord">READY · no transition committed</pre>
       <span>BOUNDARY · carriers remain distinct</span>
     </div>
+  </section>
+
+  <section class="system-binder" id="systemBinder" aria-labelledby="systemBinderTitle" data-status="IDLE">
+    <header class="system-binder-head">
+      <div><small>OCB-GAP-06 + NATIVE FACE BRIDGE · FOUR SYSTEMS + ONE TYPED BINDER</small><h2 id="systemBinderTitle">One session. Four carriers. No silent merge.</h2><p>M3/Aperture Stack, PENT, LIFE03 und die native Blue/Pink/Dodeca-Quelle werden über source-owned Adapter koordiniert. Der Binder speichert Zustände, Hand-offs und Returns; er behauptet weder gemeinsamen Träger noch gemeinsame Uhr.</p></div>
+      <div class="binder-master-state"><small>SESSION / MASTER PHASE</small><output id="systemBinderStatus" role="status" aria-live="polite">IDLE</output><output id="systemBinderPhase">00 · SOURCE</output></div>
+    </header>
+    <div class="binder-systems" aria-label="Gebundene Systeme">
+      <article class="binder-system" data-binder-system="orientation" data-status="DISCONNECTED"><small>SYSTEM A</small><b>Orientation · M3 · Stack</b><code>P×A / 48 ordered samples</code><output data-binder-state>DISCONNECTED</output><p data-binder-detail>not connected</p></article>
+      <article class="binder-system" data-binder-system="pentagon" data-status="DISCONNECTED"><small>SYSTEM B</small><b>PENT Source Adapter</b><code>six-field UI state / rendered readback</code><output data-binder-state>DISCONNECTED</output><p data-binder-detail>not connected</p></article>
+      <article class="binder-system" data-binder-system="life03" data-status="DISCONNECTED"><small>SYSTEM C</small><b>LIFE03 Source Adapter</b><code>64×64 blinker / Life + E8 record</code><output data-binder-state>DISCONNECTED</output><p data-binder-detail>not connected</p></article>
+      <article class="binder-system" data-binder-system="dodeca" data-status="DISCONNECTED"><small>SYSTEM D</small><b>Native Dodeca Face Bridge</b><code>4 addressed faces / hinge readback / return</code><output data-binder-state>DISCONNECTED</output><p data-binder-detail>not connected</p></article>
+    </div>
+    <div class="binder-controls" aria-label="System Binder controls"><button type="button" id="systemBinderConnect">CONNECT / VERIFY ALL</button><button type="button" class="primary" id="systemBinderStart">PLAY ALL ENGINES</button><button type="button" id="systemBinderPause">PAUSE SESSION</button><button type="button" id="systemBinderStep">STEP ALL</button><button type="button" id="systemBinderReset">RESET BINDER</button><button type="button" id="systemBinderExport">EXPORT SESSION</button></div>
+    <div class="binder-ledger"><div><small>BOUNDARY</small><h3>Typed handoffs, not carrier identity.</h3><p>Ein Adapter darf `READY`, `WAITING`, `RETURNED` oder `HOLD` melden. Ein einzelnes HOLD bleibt sichtbar und verhindert einen falschen Whole-machine-PASS. Der Session-Return ist ein Binder-Record, kein gemeinsamer physikalischer oder mathematischer Zustand.</p><p><a href="assets/a0-system-binder-package-v1.json">Paketvertrag</a> · <a href="a0-system-binder-tests.cjs">Engineering-Prüfung</a></p></div><pre id="systemBinderLedger" aria-label="System Binder session ledger">READY · no session</pre></div>
+  </section>
+
+  <section class="native-face-lab" id="nativeFaceBridge" aria-labelledby="nativeFaceTitle">
+    <header><div><small>OCB FACE PACKAGE · SOURCE-OWNED RENDERER</small><h2 id="nativeFaceTitle">Native Face Bridge</h2><p>Eine echte adressierte Fläche wird im bestehenden Blue/Pink/Dodeca-Renderer gewählt, an ihrer expliziten Kante bewegt, aus der Quelle zurückgelesen und zum Ankerzustand zurückgeführt.</p></div><output id="nativeFaceStatus" role="status" aria-live="polite">WAITING · source frame</output></header>
+    <div class="native-face-grid"><iframe class="native-face-frame" id="nativeFaceSourceFrame" title="Native Blue Pink Dodeca source" src="A0_BLUE_PINK_DODECA_CELL_RETURN.html?bridge=1#cell-machine"></iframe><aside class="native-face-console"><div class="native-face-controls"><button id="nativeFaceConnect" type="button">CONNECT SOURCE</button><button id="nativeFaceCapture" type="button">CAPTURE ANCHOR</button></div><div class="native-face-controls"><label>Native face<select id="nativeFaceSelect"><option value="0">BLUE-01:F01</option><option value="12">BLUE-02:F01</option><option value="24">PINK-01:F01</option><option value="36">PINK-02:F01</option></select></label><label>Hinge <output id="nativeFaceHingeOut">28°</output><input id="nativeFaceHinge" type="range" min="-60" max="60" value="28" step="1"></label></div><div class="native-face-controls"><button class="primary" id="nativeFaceApply" type="button">APPLY + READ BACK</button><button id="nativeFaceReturn" type="button">RETURN TO SOURCE</button></div><pre id="nativeFaceReadback">WAITING</pre></aside></div>
+  </section>
+
+  <section class="native-face-lab" id="fourApertureNinefold" aria-labelledby="ninefoldTitle">
+    <header><div><small>OCB-GAP-05 · FOUR APERTURES / NINE VIEWS</small><h2 id="ninefoldTitle">Four Apertures · Ninefold Return</h2><p>Vier bestätigte native Flächen werden outbound und inbound gelesen; der zentrale Return-Pivot bildet die neunte Ansicht. Das ist eine View-Grammatik `4×2+1`, kein neuer Träger.</p></div><output id="ninefoldStatus" role="status" aria-live="polite">READY · 4×2+1</output></header>
+    <div class="native-face-console"><div class="ninefold-trace" id="ninefoldTrace" aria-label="Ninefold sequence"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="native-face-controls"><button class="primary" id="ninefoldPlay" type="button">▶ PLAY 4×2+1</button><button id="ninefoldStep" type="button">STEP</button><button id="ninefoldReset" type="button">RESET</button></div><pre class="ninefold-record" id="ninefoldRecord"></pre><p><a href="assets/a0-native-face-bridge-package-v1.json">Native Face receipt</a> · <a href="assets/a0-four-aperture-ninefold-package-v1.json">Ninefold receipt</a></p></div>
+  </section>
+
+  <section class="native-face-lab" id="ailApertureControl" aria-labelledby="ailTitle">
+    <header><div><small>OCB-GAP-04 · TYPED APERTURE CONTROL</small><h2 id="ailTitle">A · i · l — global selection, local point, local turn</h2><p><code>S(t) → A·i·l → visible form</code>. Jeder Operator besitzt eine erklärte Domain, Codomain und Änderungsmenge; Glyph-, Achsen- und Familienidentitäten werden nicht übertragen.</p></div><output id="ailStatus" role="status" aria-live="polite">READY</output></header>
+    <div class="native-face-console"><div class="ail-grid"><article class="ail-operator"><strong>A</strong><b>Global selection</b><code>source state × face[0..47] → source state</code><label>Fläche<select id="ailFace"><option value="0">BLUE-01:F01</option><option value="12">BLUE-02:F01</option><option value="24">PINK-01:F01</option><option value="36">PINK-02:F01</option></select></label><button id="ailApplyA" type="button">APPLY A</button></article><article class="ail-operator"><strong>i</strong><b>Local point</b><code>selected pentagon × vertex slot[0..4] → point witness</code><label>Punkt<select id="ailPoint"><option value="0">vertex 0</option><option value="1">vertex 1</option><option value="2">vertex 2</option><option value="3">vertex 3</option><option value="4">vertex 4</option></select></label><button id="ailApplyI" type="button">APPLY i</button></article><article class="ail-operator"><strong>l</strong><b>Local turn</b><code>face × hinge × angle[-60..60] → visible pose</code><label>Turn <output id="ailTurnOut">32°</output><input id="ailTurn" type="range" min="-60" max="60" value="32" step="1"></label><button id="ailApplyL" type="button">APPLY l</button></article></div><div class="native-face-controls"><button class="primary" id="ailRun" type="button">▶ RUN A·i·l</button><button id="ailReturn" type="button">RETURN TO SOURCE</button></div><pre id="ailRecord"></pre></div>
+  </section>
+
+  <section class="native-face-lab" id="ocbRecordReplay" aria-labelledby="replayTitle">
+    <header><div><small>OCB RECORD · IMPORT · DETERMINISTIC REPLAY</small><h2 id="replayTitle">Native session replay</h2><p>Exportiert Native Face, A·i·l und Ninefold als versioniertes Envelope. Import prüft Schema und Quellenidentität fail-closed, spielt bestätigte Mutationen seriell und stellt abschließend den importierten nativen Fingerprint wieder her.</p></div><output id="replayStatus" role="status" aria-live="polite">READY</output></header>
+    <div class="native-face-console replay-grid"><div><div class="native-face-controls"><button class="primary" id="replayExport" type="button">EXPORT RECORD</button><label>IMPORT JSON<input id="replayFile" type="file" accept="application/json,.json"></label><button id="replayValidate" type="button">VALIDATE</button><button id="replayRun" type="button">REPLAY</button></div><textarea class="replay-text" id="replayJSON" spellcheck="false" aria-label="Replay JSON"></textarea></div><pre id="replayReceipt">READY</pre></div>
   </section>
 
   <nav class="story-spine" id="storySpine" aria-label="Four-act bench story">
@@ -187,8 +569,9 @@
         <div class="ihara-boundary"><b>BOUNDARY:</b> finite C5 instrument; primitive oriented cycle classes and <code>tr(B^k)</code> only. This is not a Riemann identity and not an equality between prime numbers and graph cycles.</div>
       </section>
 
-      <section class="pascal-shadow" data-cockpit-module="right" data-demo-phase="SHADOW" aria-labelledby="pascalShadowTitle">
+      <section class="pascal-shadow" id="pascalShadow" data-cockpit-module="right" data-demo-phase="SHADOW" aria-labelledby="pascalShadowTitle">
         <div class="section-head"><h2 id="pascalShadowTitle">4 · Pascal × Antipode → Shadow-gon</h2><small>carrier ≠ orientation ≠ projection</small></div>
+        <p><a href="A0_AXIS08_FOLD_RETURN_SEQUENCER.html#orientationReading" target="_top">Gemeinsamer Orientierungsraum · Sewing / Apertur / Grid ↗</a> · Vergleichsrecord hält unterschiedliche Quellen getrennt.</p>
         <section class="pxa-movement" id="pxaDemonstrator" data-stage="CARRIER" aria-labelledby="pxaJourneyTitle">
           <header class="pxa-head">
             <div><small>LIVE SOURCE-BOUND VIEW JOURNEY · P × A</small><h3 id="pxaJourneyTitle">One carrier enters</h3><p id="pxaJourneyCopy">The declared carrier enters before either view is drawn.</p></div>
@@ -224,6 +607,25 @@
             <a href="../../../00_INCOMING/THe%20Prime%20Genesis/THE%20MACHINE%20BUILT/c3a12c0d-b463-43e3-89b1-a1634c93ce01.png"><b>HISTORICAL VISUAL 1</b><span>movement grammar · source-only</span></a>
           </div>
           <div class="pxa-boundary"><b>BOUNDARY:</b> <code>P(x)</code>, <code>A(x)</code>, the binder and residual are typed views of one declared carrier. The blue iris selects and projects a local <code>C8</code> target view; the octagon is not a new carrier. MIWA supplies interaction grammar; ERITH supplies a neighboring seed/belt/mask pattern; LOKI remains a registered subview/bridge. The two E8 supporting surfaces contribute typed view grammar only. No E8, carrier or mechanism identity is asserted.</div>
+        </section>
+        <section class="m3-instrument" id="apertureMeasurement" aria-labelledby="m3Title">
+          <header class="m3-head"><div><small>PRIORITY 0 · OCB-GAP-01 + OCB-GAP-03</small><h3 id="m3Title">Eine Spur. Drei Maße. Vier Projektionen.</h3><p><code>M3(t)=(h(t), A(t), I(t))</code> bleibt ein geordneter 48-Sample-Record. Die vier Ansichten verändern nur die Darstellung; Observing Cut und I/L/A/U halten Retained, Lost, Added und Unresolved getrennt.</p></div><span class="m3-live" id="m3Status" data-state="boot">SOURCE · P×A BLUE IRIS · BOOT</span></header>
+          <div class="m3-controls"><div class="m3-view-buttons" role="group" aria-label="Vier Darstellungen desselben M3-Records"><button type="button" class="active" data-m3-view="unrolled">Unrolled</button><button type="button" data-m3-view="cylinder">Cylinder</button><button type="button" data-m3-view="top">Top</button><button type="button" data-m3-view="slice">Aperture Slice</button></div><button type="button" class="primary" id="m3Play" aria-pressed="false">Play M3 + views</button><button type="button" id="m3Step">Step</button><button type="button" id="m3Reset">Reset</button><label>Clock<select id="m3Speed"><option value="760">Calm</option><option value="420" selected>Normal</option><option value="180">Fast</option></select></label></div>
+          <div class="m3-stage"><div><svg id="m3MeasureSvg" viewBox="0 0 740 400" role="img" aria-label="M3 aperture trace in the selected projection"></svg></div><aside class="m3-console"><div class="m3-coordinates"><div><small>H · HEIGHT</small><b id="m3H">—</b></div><div><small>A · AZIMUTH</small><b id="m3A">—</b></div><div><small>I · APERTURE</small><b id="m3I">—</b></div><div><small>SAMPLE</small><b id="m3Index">—</b></div></div><label>Observing cut <input id="m3Cut" type="range" min="0" max="1" step="0.01" value="0.50"></label><div class="m3-compare"><label>View A<select id="m3CompareA"><option value="unrolled">Unrolled</option><option value="cylinder">Cylinder</option><option value="top">Top</option><option value="slice">Aperture Slice</option></select></label><label>View B<select id="m3CompareB"><option value="top" selected>Top</option><option value="unrolled">Unrolled</option><option value="cylinder">Cylinder</option><option value="slice">Aperture Slice</option></select></label><output id="m3Metric">—</output></div><div class="m3-readout" id="m3Readout">—</div><button type="button" id="m3Export">Export M3 + I/L/A/U record</button></aside></div>
+          <div class="m3-ledger" id="m3Ledger" aria-live="polite"></div>
+          <div class="m3-boundary"><b>BOUNDARY:</b> Height and aperture are normalized; azimuth is radians. The trajectory is a deterministic engineering trace tied to the existing iris control, not an empirical calibration or physical law. Display RMSE compares normalized screen coordinates only. Equal-looking views do not identify carriers, and Return preserves the difference ledger.</div>
+        </section>
+        <section class="aps-instrument" id="apertureStackCalibration" aria-labelledby="apStackTitle">
+          <header class="aps-head"><div><small>PRIORITY 1 · OCB-GAP-02</small><h3 id="apStackTitle">Aperture Stack · six plates, one retained trace.</h3><p>Die source-lokale Folge <code>51.63° … 52.13°</code> wird als deklarierte Engineering-Fixture gegen sechs unregelmäßige Kontrollplatten gelesen. Jede Platte sieht denselben 48-Sample-M3-Record; Δθ und Sichtbarkeit verändern nur die Darstellung.</p></div><span class="aps-status" id="apStackStatus" data-state="boot" aria-live="polite">STACK · BOOT</span></header>
+          <div class="aps-controls"><label>Stack<select id="apStackMode"><option value="source">Muindi source-local</option><option value="control">Irregular control</option></select></label><button type="button" class="primary" id="apStackPlay" aria-pressed="false">Play stack</button><button type="button" id="apStackStep">Step</button><button type="button" id="apStackReset">Reset</button><label>Clock<select id="apStackSpeed"><option value="1100">Calm</option><option value="700" selected>Normal</option><option value="360">Fast</option></select></label><label>Visibility window <input id="apStackWindow" type="range" min="12" max="120" step="2" value="52"><output id="apStackWindowOut">52°</output></label></div>
+          <div class="aps-stage"><div><svg id="apStackSvg" viewBox="0 0 760 440" role="img" aria-label="Six ordered aperture plates and one shared M3 trace"></svg></div><aside class="aps-console"><div class="aps-readouts"><div><small>PLATE</small><b id="apStackPlate">—</b></div><div><small>NOMINAL θ</small><b id="apStackAngle">—</b></div><div><small>SIGNED Δθ</small><b id="apStackDelta">—</b></div><div><small>VISIBLE</small><b id="apStackVisible">—</b></div></div><output class="aps-metric" id="apStackMetric">—</output><button type="button" id="apStackExport">Export calibration + I/L/A/U</button></aside></div>
+          <div class="aps-ledger" id="apStackLedger" aria-live="polite"></div>
+          <div class="aps-boundary"><b>BOUNDARY:</b> Die Winkel sind eine source-lokale Fixture aus einer Owner-supplied Concept Visual; der ausführbare Originalgenerator wurde nicht wiedergefunden. Toleranz, Visibility Gate und Display-RMSE sind Engineering-Konventionen, keine empirische, optische, astronomische, primzahlbezogene oder kausale Kalibrierung.</div>
+        </section>
+        <section class="ocb-qa" id="ocbBrowserQa" aria-labelledby="ocbQaTitle">
+          <header><div><small>PRIORITY 1 · OCB-GAP-09</small><h3 id="ocbQaTitle">Browser, accessibility and interaction QA</h3></div><button type="button" id="ocbQaRun">Run current viewport QA</button></header>
+          <div class="ocb-qa-grid"><article><small>WIDE · 1440×900</small><b>AUTOMATED CONTRACT PASS</b><span>Manual pixel acceptance remains open.</span></article><article><small>TABLET · 820×1100</small><b>RESPONSIVE CONTRACT PASS</b><span>Single-column stages below 900 px.</span></article><article><small>PHONE · 390×844</small><b>RESPONSIVE CONTRACT PASS</b><span>Scrollable SVG, stacked controls, no motion requirement.</span></article></div>
+          <output class="ocb-qa-output" id="ocbQaOutput" aria-live="polite">READY · run the current viewport audit · visual multi-viewport acceptance remains open</output>
         </section>
         <div class="pascal-controls">
           <label>Depth n <input id="pascalDepth" type="range" min="0" max="11" value="4" step="1"><output id="pascalDepthValue">4</output></label>
@@ -325,6 +727,31 @@
             <div class="family-boundary"><b>BOUNDARY:</b> F1≈α and F7≈θ(t) are role analogies in this lens. 27, 13, 21, 50 and 71 are visible hypothesis markers; none currently binds, selects or renames a canonical Family relation.</div>
           </div>
         </div>
+      </section>
+
+      <section id="foldLagLens" class="experiment-corridor" data-cockpit-module="wide" aria-labelledby="foldLagTitle">
+        <div class="section-head"><h2 id="foldLagTitle">5B · Klappfolge / Nachlauf / Z-Schnitt</h2><small>CONSTRUCTED VIEW · no scientific adoption</small></div>
+        <p>Das weiße Referenzkreuz bleibt fest. Vier unabhängige Flügel drehen als Ganzes; positive Winkel zählen gegen den Uhrzeigersinn. Flügel 4 kann verspätet klappen. Dies ist eine einstellbare Scharnier-Demonstration, keine zusammenhängende Origami-Fläche und keine rekonstruierte historische Bewegungsregel.</p>
+        <p>Stationen Z=0 / 7 / 14 / 21 / 28: Zielwinkel <code>0° → 90° → 45° → 33° → 7°</code> (dreht nach 90° zurück); zusätzliche Drehungen <code>0° → 90° → 135° → 168° → 175°</code>. Zwischen den Stationen wird linear gedreht. Die separate Klappbewegung ist eine deklarierte Sinusfahrt von ±70°.</p>
+        <div class="family-controls" style="flex-wrap:wrap;gap:12px">
+          <label>90° → 45° → 33° → 7° <select id="foldLagMode"><option value="target">Zielwinkel · Ende 7°</option><option value="increment">Zusätzliche Drehungen · Ende 175°</option></select></label>
+          <label>Nachlauf Flügel 4 <input id="foldLagDelay" type="range" min="0" max="7" value="3" aria-label="Flügel-4-Nachlauf in synthetischen Schritten"></label>
+          <label>Spiegeloperator <select id="foldLagMirror"><option value="none">Keine Spiegelung</option><option value="horizontal">An lokaler Horizontalen · y → −y</option><option value="double">Horizontal + vertikal · (x,y) → (−x,−y)</option></select></label>
+          <label>Z-Schnitt <input id="foldLagSlice" type="range" min="0" max="28" value="7" aria-label="Sequenz-Z-Schnitt 0 bis 28"></label>
+          <label><input id="foldLagFollow" type="checkbox"> Vorhandenem Q4-Takt folgen</label>
+          <button class="primary" type="button" id="foldLagPlay" aria-pressed="false">▶ Sequenz abspielen</button><button type="button" id="foldLagNext">Ein Z-Schritt</button><button type="button" id="foldLagReset">Pose ab Anfang</button><button type="button" id="foldLagExport">5B JSON exportieren</button>
+          <a href="#rootEngineBar">Q4-Takt · Play / Pause ↗</a>
+        </div>
+        <p>Abspielen startet erstmals bei Z=0 und läuft einmal bis Z=28 (0,4 s pro Schritt). Pause setzt später an derselben Pose fort; nach dem Ende beginnt die nächste Wiedergabe wieder bei 0. Manuelle Änderungen und ein ausgeblendeter Tab pausieren. Die Ansichtswiedergabe pausiert den Q4-Takt und schaltet dessen Quellzustand nicht weiter.</p>
+        <p id="foldLagReadout" role="status" aria-live="polite"></p>
+        <div style="overflow-x:auto"><svg id="foldLagSvg" viewBox="0 0 850 500" style="display:block;width:100%;min-width:620px;max-width:1100px;margin:auto" role="img" aria-label="Vier Flügel und 29 synthetische Sequenzebenen"></svg></div>
+        <p>Helllila: aktuelle Pose · dunkellila Fläche: Parallelprojektion auf die lokale Ebene z=0 · gestrichelt: frühere Posen (−3/−6 Schritte). Schatten und Echo sind getrennte Daten. Der goldene Z-Schnitt wählt eine Pose aus 29; Z ist hier ein synthetischer Sequenzindex, keine Tiefe oder physikalische Zeit. Q4-Folgen tastet 16 Quellticks auf diesen 29er-Anzeigestapel ab; es erzeugt keine 29 neuen Quellzustände. Bei 7° beziehungsweise 175° endet die Drehfolge — kein behaupteter Return.</p>
+        <p><a href="assets/a0-fold-lag-lens-v1.json">5B · Bewegungsvertrag und lokale Bindung</a> · <a href="a0-fold-lag-lens-tests.cjs">Engineering-Prüfungen</a></p>
+        <details><summary>Zahlenbrücke · exakt gerechnet / Zuordnungen offen</summary>
+          <table><thead><tr><th>Index n</th><th>7</th><th>8</th><th>10</th></tr></thead><tbody><tr><th>Primwert p(n)</th><td>17</td><td>19</td><td>29</td></tr></tbody></table>
+          <p><code>1729 = 7 × 13 × 19 = 1³ + 12³ = 9³ + 10³</code> ist zusammengesetzt. <code>17 | 29</code> wäre eine separate Schreibkonvention, kein Primindexgesetz. <code>T=7, R=8 ⇒ R/T=8/7 ≠ 64/64=1</code>; Quotient und normierte Gewichtssumme bleiben getrennt.</p>
+          <p>H50 bleibt ein Hypothesenmarker; Fibonacci <code>F₅₀=12 586 269 025</code> (F₀=0, F₁=1) ist ein anderer Typ. H50↔F50, „77“ und „halbe Sanduhr“ sind offene Zuordnungsvorschläge. Doppelte Spiegelung ist hier nur der ausdrücklich gewählte geometrische Operator, kein Nachweis dieser Zahlendeutung. Kein Selector, Family-Name oder Lab-Ergebnis wird umgebunden.</p>
+        </details>
       </section>
 
       <section class="experiment-corridor" data-cockpit-module="wide" data-demo-phase="GRID" aria-labelledby="experimentCorridorTitle">
@@ -502,6 +929,108 @@
             <div class="root-engine-trace" id="rootEngineTrace"><span>00</span></div>
           </article>
         </div>
+        <section id="root7Coupling" aria-labelledby="root7CouplingTitle" data-status="WAITING">
+          <header><h3 id="root7CouplingTitle">Root7 mitlesen · ein Zustand, drei Ansichten</h3><output id="root7Source" aria-live="off">WAITING · source frame required</output></header>
+          <p>Die vorhandene Engine führt. Vorzeichen, Q4-Adresse und Stretch-Einbettung lesen denselben Tick; keine zweite Uhr. Bits werden links als b3 b2 b1 b0 gedruckt. Deklariert: b0→√2/x, b1→√3/y, b2→√5/z, b3→√7/w.</p>
+          <div class="root7-grid"><svg id="root7StretchSvg" viewBox="0 0 820 380" role="img" aria-label="Gekoppelte Root7-Stretch-Ansicht"></svg><dl>
+            <div><dt>Vier Vorzeichen · signᵢ = 2bᵢ − 1</dt><dd id="root7Signs">—</dd></div>
+            <div><dt>Gewählte Einbettung · v = (2b0, b1, b2, b3)</dt><dd id="root7Point">—</dd></div>
+            <div><dt>Aktueller Abstand vom Ursprung · nicht die Schrittlänge</dt><dd id="root7Length">—</dd></div>
+            <div><dt>Letzter Engine-Schritt</dt><dd id="root7Transition">—</dd></div>
+            <div><dt>Adresse rücklesen · nicht Projektionsinversion</dt><dd id="root7Return">—</dd></div>
+          </dl></div>
+          <p id="root7Visibility">Noch keine gültige Quellbindung.</p>
+          <p class="root7-boundary">Die Referenz 1111 liegt bei (2,1,1,1), Abstand √7. Eine grüne w-Brücke hat in dieser Metrik Länge 1. Der Graph besitzt acht solche Brücken; der unveränderte Gray-Zyklus benutzt zwei pro Umlauf. Bildabstände sind eine nicht kalibrierte Projektion. Die x-Streckung ist eine Modellwahl, keine Identifizierung der historischen Stretch-Achse. Keine physikalische Dynamik oder Wurzelkörpernorm.</p>
+          <p><a href="../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_ROOT7_LOOK_ORIENTATION_2026-10-08/index.html" target="_blank" rel="noopener">Root7 LOOK · gebundene Quellen öffnen ↗ (neuer Tab)</a> · <a href="assets/a0-root7-q4-coupling-v1.json">Kodierung &amp; Quellhashes</a> · <a href="A0_TOURS.html#crosswalk">Touren / Crosswalk</a></p>
+          <section id="root7OpenBook" aria-labelledby="root7BookTitle">
+            <h3 id="root7BookTitle">Das offene Buch · Dual Pentagon auf Rhombenbasis</h3>
+            <p>Deine Referenz ist Visual 4 „PRIME–Riemann Transport Dynamics / Dual Pentagon System“: violette und goldene Seite, gemeinsamer Rücken 1–Zentrum–4, Zuordnung 6↔2 und 5↔3. Hier wird daraus eine <strong>deklarierte, nicht-regelmäßige Pentagon-Konstruktion</strong>, keine vermessene Rekonstruktion der Grafik.</p>
+            <div class="root7-controls">
+              <label>Buchführung <select id="root7BookMode"><option value="manual">Hand · frei aufklappen</option><option value="follow">Q4-Tick · öffnen / schließen</option><option value="sequence">Doppelflügel-Sequenz · Q4-Takt</option></select></label>
+              <label>Öffnung α · 0°–180° <input id="root7BookAngle" type="range" min="0" max="180" step="0.5" value="120"></label>
+              <label>Seiten hervorheben <select id="root7BookFocus"><option value="both">Beide Seiten</option><option value="left">Links · violett</option><option value="right">Rechts · gold</option></select></label>
+              <button id="root7BookClosed" type="button">0° · zu</button><button id="root7BookOpen" type="button">120° · Buch</button><button id="root7BookFlat" type="button">180° · Basis</button>
+              <label>Knicklinie <select id="root7BookCrease"><option value="spine">Buchrücken</option><option value="horizontal">Horizontale Mitte · lokal, dreht mit</option></select></label>
+              <label>Öffnungszweig <select id="root7BookBranch"><option value="front">Vorderer Zweig</option><option value="back">Gegenseite</option></select></label>
+              <label>Gesamtdrehung · CCW <input id="root7BookTurn" type="range" min="0" max="360" step="1" value="0"></label>
+              <button id="root7BookQuarter" type="button">Ganzes +90° ↺</button>
+              <label>Ansichtsneigung · keine Klappung <input id="root7BookTilt" type="range" min="-60" max="60" step="1" value="0"></label>
+              <label>Seitenfarben <select id="root7BookPalette"><option value="source">Violett / Gold · Quellkarte</option><option value="owner">Grün/Schwarz + Rot/Schwarz · Owner-Vorschlag</option></select></label>
+              <button id="root7BookSequence" type="button">Sequenz ab Anfang spielen</button><button id="root7BookPause" type="button">Sequenz pausieren</button><button id="root7BookPoseReturn" type="button">Zur flachen Ausgangspose</button>
+            </div>
+            <svg id="root7BookSvg" viewBox="0 0 820 395" role="img" aria-label="Aufklappbares Dual-Pentagon-Buch mit zwei Rhomben und vier Randdreiecken"></svg>
+            <output id="root7BookLedger" aria-live="polite">WAITING</output>
+            <div class="root7-controls"><label>Beobachterschnitt · Neigung <input id="root7BookCutAngle" type="range" min="-60" max="60" step="1" value="0"></label><label>Schnittabstand von O <input id="root7BookCutOffset" type="range" min="-1.5" max="1.5" step="0.01" value="0"></label></div>
+            <svg id="root7WingCutSvg" viewBox="0 0 820 285" role="img" aria-label="Berechnete Schnittlinien dreier Ebenen durch dieselbe bewegte Flügelpose"></svg>
+            <section id="root7ProjectionOverlay" aria-labelledby="projectionOverlayTitle">
+              <h4 id="projectionOverlayTitle">Gemeinsamer Overlay · Red–Blue / Greyshift / Spektrum</h4>
+              <div class="root7-controls">
+                <label>Quelle <select id="projectionOverlaySource"><option value="stack" selected>Gemeinsamer Schichtenaufbau · 3 Pentagone + H3</option><option value="book">Buch · aktuelle Flügel-/Schnittpose</option><option value="5b">5B · aktuelle Sequenzpose</option></select></label>
+                <label>Farblesart <select id="projectionOverlayPalette"><option value="redblue">Quellrollen · Rot/Blau bzw. Rot/Grün/Violett</option><option value="spectrum">Alternative Displaypalette</option></select></label>
+                <label>Greyshift · Grau 0 ↔ Farbe 1 <input id="projectionOverlayGrey" type="range" min="0" max="1" step="0.01" value="1"></label>
+                <label><input id="projectionOverlayCurrent" type="checkbox" checked> Aktuelle Pose</label>
+                <label><input id="projectionOverlayShadow" type="checkbox" checked> Projizierter Schatten</label>
+                <label><input id="projectionOverlayEcho" type="checkbox" checked> Echo / aufgezeichnete Posen</label>
+                <label><input id="projectionOverlayCuts" type="checkbox" checked> Berechnete Schnitte</label>
+                <label><input id="projectionOverlayRecord" type="checkbox" checked> Spur aufzeichnen</label>
+                <button type="button" id="projectionOverlayClear">Spur dieser Quelle leeren</button><button type="button" id="projectionOverlayExport">Overlay JSON exportieren</button>
+              </div>
+              <fieldset style="border:1px solid #315367;padding:12px;margin:12px 0"><legend>Gemeinsamer Schichtenlauf · ein Phasenwert</legend>
+                <div class="root7-controls"><button id="layerScenePlay" type="button" aria-pressed="false">▶ Schichten gemeinsam abspielen</button><button id="layerSceneReset" type="button">Phase 0°</button>
+                  <label><input id="layerSceneRepeat" type="checkbox"> Wiederholen</label>
+                  <label>Phase <input id="layerScenePhase" type="range" min="0" max="360" step="1" value="0"></label>
+                  <label>Bewegungsregel <select id="layerSceneMotion"><option value="counter">Vorschlag · A +3φ / B −2φ +36°</option><option value="together">Vergleich · A +φ / B +φ +36°</option></select></label>
+                  <label>Detailmaßstab <select id="layerSceneZoom"><option value="1">1:1 · Kontrolle</option><option value="13/8" selected>13/8 · Fibonacci</option><option value="21/13">21/13 · Fibonacci</option><option value="34/21">34/21 · Fibonacci</option></select></label>
+                  <label>Fokusversatz μ · nur Ansicht <input id="layerSceneFocusOffset" type="range" min="0" max="1" step="0.01" value="0"></label>
+                </div>
+                <div class="root7-controls">
+                  <label><input type="checkbox" id="layerScene_a" checked> Pentagon A · Rot</label><label><input type="checkbox" id="layerScene_b" checked> Pentagon B · Grün</label><label><input type="checkbox" id="layerScene_c" checked> Pentagon C · Violett</label>
+                  <label><input type="checkbox" id="layerScene_tips" checked> Rot-/Grün-Differenzflächen</label><label><input type="checkbox" id="layerScene_gaps" checked> Schwarze Zwischenräume</label><label><input type="checkbox" id="layerScene_edges" checked> Weiße Kanten</label>
+                  <label><input type="checkbox" id="layerScene_dodeca" checked> H3-Dodekaeder</label><label><input type="checkbox" id="layerScene_lensA" checked> Linse A</label><label><input type="checkbox" id="layerScene_lensB" checked> Linse B</label>
+                  <label><input type="checkbox" id="layerScene_loopCurve" checked> Magenta-Schleife</label><label><input type="checkbox" id="layerScene_rings" checked> Referenzringe</label>
+                  <label><input type="checkbox" id="layerScene_nestedLens" checked> Linse in Linse · bewegliches Detail</label>
+                </div>
+                <output id="layerSceneStatus" aria-live="off">WAITING</output>
+                <p>Drei ebene regelmäßige Pentagone mit gemeinsamem Mittelpunkt; C bleibt als Referenz bei 18°. A/B starten mit 36° Versatz. Ihre Überlappung und Differenzflächen werden geometrisch geschnitten: anfangs fünf rote/fünf grüne Bereiche, bei anderen Phasen kann die Zahl wechseln. Schwarze Zwischenräume sind eine Negativmaske innerhalb eines Referenzkreises, keine räumlichen Pyramiden oder ein Füllbeweis.</p>
+                <p>Linse in Linse: Der goldene Detailkreis liegt innerhalb der Übersicht und vergrößert exakt denselben Zustand um den beweglichen Fokus. Fokus und Geometrie folgen derselben Phase; μ verschiebt nur die Fokusbahn, ohne zweite Uhr. Die Maßstäbe 13/8, 21/13 und 34/21 sind aufeinanderfolgende Fibonacci-Verhältnisse; 1:1 dient als Kontrolle. A/B rechts bleiben optionale Vergleichsmasken. Keine optische Simulation.</p>
+                <p>Prime RGB · Rot 29 / Grün 41 / Blau 13; 29+41+13=83 ist die vom Owner genannte arithmetische Zuordnung, hier keine Frequenz- oder Farbkanalsteuerung. 41 → F → 13 bleibt eine Verbindungshypothese: 13 ist Fibonacci, 41 nicht. Die Zuordnung zu „11 Winds“ ist offen, nicht durch elf erfundene Stationen ersetzt. <a href="../../../SCIENCE_LAB/CASE_STUDIES/WFR01_WIND_FIELD_FLOW_RETYPING_AUDIT/10_PLUS11_WIND_RECOVERY.md">Bestehender +11-WIND-Quellenstand</a>.</p>
+                <p>Der zentrale Dodekaeder übernimmt die vorhandene H3-Geometrie (20 Ecken, 30 Kanten, 12 Flächen); keine Fernsteuerung der 60 nativen Blue/Pink-Zellflächen. Die Magenta-Schleife ist eine erklärte ebene Referenzkurve, kein Nachweis eines Möbiusbandes. 1836/1729/19/1929 und √ / ∫ / ~ sind nicht als Operatoren zugeordnet; μ bezeichnet ausschließlich den Fokusversatz dieser Ansicht.</p>
+                <p><a href="assets/a0-layered-pentagon-scene-v1.json">Schichtenvertrag / Quellen</a> · <a href="a0-layered-pentagon-scene-tests.cjs">Schichten- und Spielerprüfungen</a>. Einmaliger Lauf bis 360°; das ist ein Ansichts-Return, kein nativer Source-Return. Der Spieler nutzt eine lokale Ansichtsuhr; Q4 und 5B werden beim Start pausiert.</p>
+              </fieldset>
+              <output id="projectionOverlayStatus" aria-live="off">WAITING</output>
+              <div style="overflow-x:auto"><svg id="projectionOverlaySvg" viewBox="0 0 820 460" style="display:block;width:100%;min-width:620px" role="img" aria-label="Gemeinsame Projektion von Pose, Schatten, Echo und tatsächlichen Schnitten"></svg></div>
+              <p>Rot kennzeichnet die linke, Blau die rechte Buchseite; bei 5B sind Flügel 1/3 rot und 2/4 blau. Die Spektrum-Lesart nutzt vier Flächen- und drei Schnittfarben als Displaycode, keine Wellenlängen. Greyshift blendet jede Farbe zu ihrem arithmetischen Kanal-Mittelgrau: <code>g=(R+G+B)/3; C(a)=g+a(C−g)</code>. Das ist keine physikalische Lichtmischung, keine Übereinstimmungsprüfung und keine Ableitung der Bildformeln.</p>
+              <p>Der Schatten ist die Parallelprojektion auf die lokale Modell-Ebene z=0, danach dieselbe Kameratransformation wie die Pose. Das Echo enthält tatsächlich besuchte Posen seit diesem Seitenaufruf — maximal die letzten 64 je Quelle. Ältere werden gezählt und verworfen; nicht besuchte Stationen oder frühere Chats werden nicht hinzuerfunden. Buch und 5B bleiben getrennte Spuren. Leeren entfernt nur die lokale Spur, nicht die aktuelle Pose oder Quelle. Die vorhandenen Sequenzknöpfe speisen den Overlay ohne weitere Uhr.</p>
+              <p><a href="#foldLagLens">5B-Sequenz bedienen ↑</a> · <a href="assets/a0-projection-overlay-v1.json">Overlay-Vertrag und Referenzen</a> · <a href="a0-projection-overlay-tests.cjs">Prüfungen</a></p>
+            </section>
+            <p>Drei Ebenen mit Neigungen γ−20°, γ und γ+20° schneiden die tatsächlichen ebenen Teilflächen in dieser Pose. Der Ursprung O und die Schnittebenen sind Referenzen im Ansichtsrahmen. Deckung, Tangente, flächige Überdeckung oder leerer Schnitt werden geometrisch behandelt, nicht als Sonnen-/Mondbahn oder physikalisches Gate.</p>
+            <p><strong>Bewegt wird das Objekt, nicht das äußere Referenzkreuz.</strong> Die Knicklinie wird mit dem gesamten Motiv gedreht. V/R kennzeichnet Vorder- und Rückseite unabhängig von ihrer Bildschirmposition. Schwarze Rückseiten behalten eine farbige gestrichelte Kontur. Jede aktive Teilfläche bleibt starr.</p>
+            <p>Rücken- und horizontale Klappung werden nacheinander benutzt; beim Achsenwechsel wird die flache Lage gesetzt. Die 16-Stationen-Folge nutzt ausschließlich den vorhandenen Q4-Takt: schließen → Gegenseite → Gesamtdrehung +90° gegen den Uhrzeigersinn → horizontale Klappung → wieder öffnen → weiterdrehen → Ansichts-Return. Die Q4-Adresse ist am Ansichts-Return noch nicht selbst zurückgekehrt.</p>
+            <p>Θ / TAO / DAO, CA‑RO‑THÉ‑MA‑NU / CON‑DAO / AU‑NA‑HE‑TI und die Sanduhr-/Knickfeld-Bilder bleiben historische bzw. symbolische Quellenlesarten. Den neuen Stationen werden keine ungeklärten Namen, weiteren Winkel, Frequenzen oder physikalischen Mechanismen zugewiesen. Die Ansichtsneigung ist ein Kameraparameter, kein zusätzlicher Feldoperator.</p>
+            <p><a href="assets/a0-root7-wing-sequence-v1.json">Erweiterung · Quellen, Farben und Bewegungsvertrag</a> · <a href="a0-root7-wing-sequence-tests.cjs">Prüfungen der Flächen, Folge und Schnitte</a>. EXPORT REPLAY erhält die bisherigen Konstruktionsfelder; die tatsächlich aktive Pose und die Schnittsegmente stehen unter <code>bookView.wingSequence</code>.</p>
+            <details><summary>Konstruktion · Rhombenbasis, Rücken und Spiegelvertrag</summary>
+              <p>In jeder lokalen Seitenkarte (u,v): a=1/√3; Rhombus mit Ecken O=(0,0), U=(a,1), T=(2a,0), D=(a,−1). Vier gleiche Seiten, Länge √(a²+1). Zwei Randdreiecke ergänzen den Rhombus zur Pentagon-Seite [(0,1), U, T, D, (0,−1)]. Der Rücken ist u=0 von v=−1 bis +1; O ist sein Mittelpunkt, keine zusätzliche Pentagonecke. L*/R* sind ausdrücklich ergänzte Modellspitzen, keine aus der Quelle wiedergewonnenen Flimmerpunkte.</p>
+              <p>Falten: (u,v) → (±u·sin(α/2), v, u·cos(α/2)). Der Rücken bleibt fest, jede Seite bleibt starr. M(x,y,z)=(−x,y,z) tauscht die Seiten; M²=id. Bei 0° überdecken sich die zwei Seiten, ihre Identitäten bleiben getrennt. Bei 180° bilden zwei Rhomben plus vier Randdreiecke hier ein flaches Hexagon. Dieses Buch-Hexagon ist <strong>nicht</strong> als der bereits gezeigte Stretch-Quaderschnitt identifiziert.</p>
+              <p>Tick-Lesefahrt: α=22.5°·min(Tick,16−Tick), 0→180→0 über den vorhandenen Q4-Umlauf. Kein eigener Timer. Gegenrotation aus der Bildreferenz ist nicht mit Aufklappen gleichgesetzt und hier nicht zusätzlich implementiert. Spiegelung, räumliche Faltung, ebener Doppelspiegel und vierter Bitkanal bleiben verschiedene Operationen. Keine Prime-/Riemann-, Transport- oder Physikbehauptung wird übernommen.</p>
+            </details>
+            <p><a href="#root7Sections">Zum separaten Quaderschnitt / ebenen Doppelspiegel ↓</a> · <a href="assets/a0-root7-q4-coupling-v1.json">Quellbindung &amp; Konstruktion</a> · <a href="A0_TOURS.html#crosswalk">Zur Tourenkarte</a>. EXPORT REPLAY speichert Winkel, Seiten, Rhomben, Spiegelzuordnung und Quelltick gemeinsam.</p>
+          </section>
+          <section id="root7Sections" aria-labelledby="root7SectionsTitle">
+            <h3 id="root7SectionsTitle">Schnitte &amp; Doppelspiegel · durch den Stretch-Raum</h3>
+            <p>Im aktiven w-Blatt schneiden wir den 2×1×1-Quader mit <code>x/2 + y + z = t</code>. Der mittlere Schnitt ist ein Hexagon, kein Würfelschatten. Rechts folgt derselbe Schnitt in einer orthonormalen Ebenenkarte: Original → erster Spiegel → zweiter Spiegel.</p>
+            <div class="root7-controls">
+              <label>Schnittführung <select id="root7CutMode"><option value="manual">Hand · unabhängig vom Tick</option><option value="follow">Q4-Tick mitlesen · 0 → 3</option></select></label>
+              <label>Schnittposition t <input id="root7CutPosition" type="range" min="0" max="3" step="0.01" value="1.5"></label>
+              <button id="root7CutCenter" type="button">Hexagon · t = 1.5</button>
+              <label>Winkel A → B <input id="root7MirrorAngle" type="range" min="0" max="90" step="1" value="45"></label>
+              <label>Reihenfolge <select id="root7MirrorOrder"><option value="AB">A → B</option><option value="BA">B → A</option></select></label>
+            </div>
+            <svg id="root7SectionSvg" viewBox="0 0 820 325" role="img" aria-label="Echter Quaderschnitt mit zwei Ebenenspiegelungen"></svg>
+            <output id="root7SectionLedger" aria-live="polite">WAITING</output>
+            <p class="root7-boundary">A spiegelt an der horizontalen Achse der Schnittkarte; B an der um θ gedrehten Achse. A → B ergibt Rotation +2θ, B → A Rotation −2θ. Ein Spiegel kehrt Orientierung um, zwei erhalten sie. Längen und Fläche bleiben rechts erhalten; der pinke Eckmarker macht die Reihenfolge sichtbar. Das sind Schnittebenen-Spiegel, keine Q4-Bitwechsel und kein Q-Mirror z→1/z. Die vier Dreiecke sind eine gewählte Fächerzerlegung des Hexagons; eine Zwei-Rhomben-Zerlegung ist nicht identifiziert.</p>
+            <p>„Tick mitlesen“ setzt t = 3·Tick/15: eine deklarierte Lesefahrt mit Rücksprung beim Umlauf, keine physikalische Bewegung. Es gibt keine zweite Uhr. Der Schnitt ist dreidimensional bei festem w, kein vollständiger 4D-Hyperschnitt. EXPORT REPLAY hält Schnittregel, Ecken und Spiegelreihenfolge zusammen mit der Root7-Adresse fest. Eingefrorene Quellen bleiben unverändert.</p>
+          </section>
+        </section>
         <div class="root838-boundary"><b>READING BOUNDARY:</b> <code>8|3|8</code> means eight states in each Q3 layer, three internal bit-flip transition types, and eight matching bridge edges. The decimal chain is a mnemonic word-level check only—not an integer equation, graph derivation, identity proof, or physics claim. <a href="../../../SCIENCE_LAB/EXPORTS/NEXAH_TESSERACT_ROOT_SPACE_8_TO_16.html">Open the existing Root Space 8→16 source.</a></div>
       </section>
 
@@ -570,6 +1099,30 @@
   <footer class="footer"><span>One run · typed handoffs · separated carriers.</span><span>NO NEW MODULE · NO SCIENCE CLAIM · NO PUBLICATION AUTHORITY</span></footer>
 </main>
   <script src="a0-orientation-controller-bench.js?rev=20261016-iris-octagon"></script>
+  <script src="a0-aperture-measurement.js?rev=20261018-m3-ilau-r3"></script>
+  <script>
+    try{window.A0ApertureMeasurementController=window.A0ApertureMeasurement.mount(document)}
+    catch(error){const status=document.getElementById('m3Status'),metric=document.getElementById('m3Metric');const message=`M3 MOUNT ERROR · ${error&&error.message?error.message:String(error)}`;if(status){status.textContent=message;status.dataset.state='error'}if(metric)metric.textContent=message;console.error(error)}
+  </script>
+  <script src="a0-aperture-stack-calibration.js?rev=20261018-gap02-r1"></script>
+  <script>
+    try{window.A0ApertureStackController=window.A0ApertureStackCalibration.mount(document)}
+    catch(error){const status=document.getElementById('apStackStatus'),metric=document.getElementById('apStackMetric');const message=`STACK MOUNT ERROR · ${error&&error.message?error.message:String(error)}`;if(status){status.textContent=message;status.dataset.state='error'}if(metric)metric.textContent=message;console.error(error)}
+  </script>
+  <script src="a0-ocb-browser-qa.js?rev=20261018-gap09-r1"></script>
+  <script>window.A0OcbBrowserQaController=window.A0OcbBrowserQa.mount(document);</script>
+  <script src="a0-root7-section-mirror.js"></script>
+  <script src="a0-root7-wing-sequence.js"></script>
+  <script src="assets/a0-blue-body-dodeca-countershot-v1.js"></script>
+  <script src="a0-layered-pentagon-scene.js"></script>
+  <script src="a0-projection-overlay.js"></script>
+  <script>window.A0OverlayView=window.A0ProjectionOverlay.mount(document);</script>
+  <script src="a0-fold-lag-lens.js"></script>
+  <script>window.A0FoldLagView=window.A0FoldLagLens.mount(document);</script>
+  <script>window.A0FoldLagView.onRender=record=>window.A0OverlayView.accept('5b',record);window.A0FoldLagView.render();</script>
+  <script>window.A0LayeredSceneView=window.A0LayeredPentagonScene.mount(document,record=>window.A0OverlayView.accept('stack',record));</script>
+  <script src="a0-root7-open-book.js"></script>
+  <script src="a0-root7-q4-coupling.js"></script>
 <script>
 (function(){
   'use strict';
@@ -890,11 +1443,14 @@
     const engineState=rootEngineState.running?'RUNNING':rootEngineState.history.length?frame.transitionType:'READY';$('rootEngineStatus').textContent=`TICK ${String(frame.tick).padStart(2,'0')} · ${frame.bits} · ${engineState} · CYCLE ${rootEngineState.cycles}`;
     $('rootEngineBar').dataset.engineState=rootEngineState.running?'running':'paused';$('rootEnginePlay').textContent=rootEngineState.running?'PAUSE ENGINE':'PLAY ENGINE';$('rootEnginePlay').setAttribute('aria-pressed',String(rootEngineState.running));
     $('rootEngineTrace').innerHTML=(rootEngineState.history.length?rootEngineState.history.slice(-16).map(item=>`<span class="${item.transitionType.toLowerCase()}">${String(item.toTick).padStart(2,'0')}<small>${item.bits}</small></span>`):'<span class="current">00<small>0000</small></span>');
+    window.A0Root7CoupledRecord=window.A0Root7Coupling.render(document,rootEngineState,C,root838Mode);
+    if(window.A0OverlayView)window.A0OverlayView.accept('book',window.A0Root7CoupledRecord?.bookView?.wingSequence);
+    if(window.A0FoldLagView)window.A0FoldLagView.sync(rootEngineState.tick);
   }
 
   function stopRootEngine(){if(rootEngineTimer){clearInterval(rootEngineTimer);rootEngineTimer=null}}
-  function scheduleRootEngine(){stopRootEngine();if(!rootEngineState.running)return;rootEngineTimer=setInterval(()=>{rootEngineState=C.stepRootSpaceEngine(rootEngineState);renderRoot838()},rootEngineState.speedMs)}
-  function setRootEngineRunning(running){rootEngineState=C.createRootSpaceEngine({...rootEngineState,running:Boolean(running)});if(rootEngineState.running&&root838Mode!=='q4'&&root838Mode!=='mask')root838Mode='q4';scheduleRootEngine();renderRoot838()}
+  function scheduleRootEngine(){stopRootEngine();if(!rootEngineState.running)return;rootEngineTimer=setInterval(()=>{rootEngineState=C.stepRootSpaceEngine(rootEngineState);if($('root7BookMode').value==='sequence'&&rootEngineState.tick===15){rootEngineState=C.createRootSpaceEngine({...rootEngineState,running:false});stopRootEngine()}renderRoot838()},rootEngineState.speedMs)}
+  function setRootEngineRunning(running){if(running&&window.A0LayeredSceneView)window.A0LayeredSceneView.pause();if(running&&window.A0FoldLagView)window.A0FoldLagView.pause();rootEngineState=C.createRootSpaceEngine({...rootEngineState,running:Boolean(running)});if(rootEngineState.running&&root838Mode!=='q4'&&root838Mode!=='mask')root838Mode='q4';scheduleRootEngine();renderRoot838()}
   function stepRootEngine(){rootEngineState=C.stepRootSpaceEngine({...rootEngineState,running:false});stopRootEngine();if(root838Mode!=='q4'&&root838Mode!=='mask')root838Mode='q4';renderRoot838()}
 
   const familyStops={TAO:{x:310,y:50},DAO:{x:400,y:78},IOTA:{x:470,y:137}};
@@ -1047,7 +1603,9 @@
   function holdPxaJourney(){if(!pxaJourneyState.running)return;pxaJourneyState=C.createPxaJourneyState({...pxaJourneyState,running:false});stopPxaJourney();renderPxaJourney()}
   function resetPxaJourney(running=false){stopPxaJourney();pxaJourneyState=C.createPxaJourneyState({running:Boolean(running),speedMs:Number($('pxaJourneySpeed').value)});renderPxaJourney();schedulePxaJourney()}
   function stopMasterDemo(){if(masterDemoTimer){clearInterval(masterDemoTimer);masterDemoTimer=null}if(masterAutoTimer){clearTimeout(masterAutoTimer);masterAutoTimer=null}}
+  function masterSourcePending(){return Boolean((window.A0PentagonBench?.isFollowing()&&window.A0PentagonBench.isPending())||(window.A0Life03Bench?.isFollowing()&&window.A0Life03Bench.isPending()));}
   function resetMasterInstruments(){
+    if(window.A0PentagonBench?.isFollowing())window.A0PentagonBench.masterReset().catch(error=>window.A0PentagonBench.fail(error.message));
     stopMasterDemo();stopRootEngine();
     initial=C.createState();state=C.createState();edgeState=C.createEdgeState();familyThetaStep=0;goReturnPathIndex=0;defgSeriesStep=0;root838Mode='q4';rootEngineState=C.createRootSpaceEngine();
     resetPxaJourney(false);render();renderEdgeCore();renderPascalShadow();renderFamilyOrientation();renderExperimentCorridor();renderGoReturnLab();renderRoot838();
@@ -1064,6 +1622,8 @@
     if(phase.id==='FOLD')document.querySelector('[data-demo-phase="FOLD"]')?.classList.add('fold-demo-motion');
     if(phase.id==='ROOT'){rootEngineState=C.stepRootSpaceEngine({...rootEngineState,running:false});root838Mode='q4';renderRoot838()}
     if(phase.id==='RECORD'){stateRelationMode='state';render()}
+    if(window.A0PentagonBench?.isFollowing())window.A0PentagonBench.masterPhase(phase.id).catch(error=>window.A0PentagonBench.fail(error.message));
+    if(window.A0Life03Bench?.isFollowing())window.A0Life03Bench.masterPhase(phase.id).catch(error=>window.A0Life03Bench.fail(error.message));
   }
   function focusMasterPhase(phase,scroll=false){
     qsa('.demo-focus').forEach(node=>node.classList.remove('demo-focus'));
@@ -1079,30 +1639,35 @@
     $('masterDemoProgress').innerHTML=C.MASTER_DEMO_PHASES.map((item,index)=>`<button data-master-phase="${index}" class="${index===masterDemoState.phaseIndex?'active':''} ${index<masterDemoState.phaseIndex?'done':''}" title="${item.title}">${String(index).padStart(2,'0')}<br>${item.id}</button>`).join('');
     const act=masterDemoState.phaseIndex<2?0:masterDemoState.phaseIndex<6?2:masterDemoState.phaseIndex<9?6:9;qsa('[data-story-phase]').forEach(button=>button.classList.toggle('active',Number(button.dataset.storyPhase)===act));
     qsa('#masterDemoSignal i').forEach((node,index)=>node.classList.toggle('active',index===masterDemoState.phaseIndex));
-    focusMasterPhase(phase,scroll);if(execute)executeMasterPhase(phase);
+    focusMasterPhase(phase,scroll&&!window.A0PentagonJointDemo?.isActive()&&!window.A0Life03JointDemo?.isActive());if(execute)executeMasterPhase(phase);
   }
   function scheduleMasterDemo(){
     stopMasterDemo();if(!masterDemoState.running)return;
     masterDemoTimer=setInterval(()=>{
+      if(masterSourcePending())return;
       masterDemoState=C.stepMasterDemonstrator(masterDemoState);
       const completes=masterDemoState.phaseIndex===C.MASTER_DEMO_PHASES.length-1;
       if(completes){masterDemoState=C.createMasterDemonstratorState({...masterDemoState,running:false});stopMasterDemo()}
       renderMasterDemo(true,true);
-      if(completes)masterAutoTimer=setTimeout(()=>{$('masterCockpit').scrollIntoView({behavior:'smooth',block:'start'});masterAutoTour=false;renderMasterDemo(false,false)},1100);
+      if(completes&&!window.A0PentagonJointDemo?.isActive()&&!window.A0Life03JointDemo?.isActive())masterAutoTimer=setTimeout(()=>{$('masterCockpit').scrollIntoView({behavior:'smooth',block:'start'});masterAutoTour=false;renderMasterDemo(false,false)},1100);
     },masterDemoState.speedMs);
   }
   function setMasterDemoRunning(running,auto=false){
+    if(running&&masterSourcePending())return;
+    if(running)window.A0LayeredSceneView?.pause();
     masterAutoTour=Boolean(running&&auto);
     if(running&&masterDemoState.phaseIndex===C.MASTER_DEMO_PHASES.length-1){resetMasterInstruments();masterDemoState=C.createMasterDemonstratorState({speedMs:masterDemoState.speedMs})}
     masterDemoState=C.createMasterDemonstratorState({...masterDemoState,running:Boolean(running)});renderMasterDemo(false,running&&masterDemoState.phaseIndex===0&&masterDemoState.history.length===0);scheduleMasterDemo();
   }
-  function stepMasterDemo(){masterAutoTour=false;stopMasterDemo();masterDemoState=C.stepMasterDemonstrator({...masterDemoState,running:false});renderMasterDemo(true,true)}
+  function stepMasterDemo(){if(masterSourcePending())return;masterAutoTour=false;stopMasterDemo();masterDemoState=C.stepMasterDemonstrator({...masterDemoState,running:false});renderMasterDemo(true,true)}
   function startMasterAutoTour(){
     if(window.matchMedia('(prefers-reduced-motion: reduce)').matches||document.hidden)return;
     resetMasterInstruments();masterDemoState=C.createMasterDemonstratorState({speedMs:Number($('masterDemoSpeed').value)});setMasterDemoRunning(true,true);
   }
   function interruptMasterAutoTour(){masterAutoTour=false;stopMasterDemo();if(masterDemoState.running){masterDemoState=C.createMasterDemonstratorState({...masterDemoState,running:false});renderMasterDemo(false,false)}}
   function pauseBenchAutomation(exceptControl=''){
+    if(!['life03Start','life03Pause','masterDemoStart'].includes(exceptControl))window.A0Life03JointDemo?.interrupt('Manueller Eingriff / Scrollen');
+    if(!['pentagonJointStart','pentagonJointPause','masterDemoStart'].includes(exceptControl))window.A0PentagonJointDemo?.interrupt('Manueller Eingriff / Scrollen');
     if(exceptControl!=='masterDemoStart')interruptMasterAutoTour();
     if(exceptControl!=='pxaJourneyPlay')holdPxaJourney();
     if(exceptControl!=='rootEnginePlay'&&rootEngineState.running)setRootEngineRunning(false);
@@ -1157,28 +1722,120 @@
   qsa('[data-repunit-length]').forEach(button=>button.addEventListener('click',()=>{repunitLength=Number(button.dataset.repunitLength);renderS3GateExtension()}));
   $('stepDefgSeries').addEventListener('click',()=>{defgSeriesStep=(defgSeriesStep+1)%2;renderDefgSeriesBridge()});
   qsa('[data-root-mode]').forEach(button=>button.addEventListener('click',()=>{root838Mode=button.dataset.rootMode;renderRoot838()}));
+  ['root7BookMode','root7BookAngle','root7BookFocus'].forEach(id=>$(id).addEventListener('input',()=>renderRoot838()));
+  [['root7BookClosed',0],['root7BookOpen',120],['root7BookFlat',180]].forEach(([id,angle])=>$(id).addEventListener('click',()=>{$('root7BookMode').value='manual';$('root7BookAngle').value=String(angle);renderRoot838()}));
+  ['root7BookBranch','root7BookTurn','root7BookTilt','root7BookPalette','root7BookCutAngle','root7BookCutOffset'].forEach(id=>$(id).addEventListener('input',()=>renderRoot838()));
+  $('root7BookCrease').addEventListener('input',()=>{$('root7BookAngle').value='180';renderRoot838()});
+  $('root7BookQuarter').addEventListener('click',()=>{$('root7BookMode').value='manual';$('root7BookTurn').value=String((Number($('root7BookTurn').value)+90)%360);renderRoot838()});
+  $('root7BookSequence').addEventListener('click',()=>{$('root7BookMode').value='sequence';rootEngineState=C.createRootSpaceEngine({speedMs:rootEngineState.speedMs});root838Mode='q4';setRootEngineRunning(true)});
+  $('root7BookPause').addEventListener('click',()=>setRootEngineRunning(false));
+  $('root7BookPoseReturn').addEventListener('click',()=>{setRootEngineRunning(false);$('root7BookMode').value='manual';$('root7BookAngle').value='180';$('root7BookCrease').value='spine';$('root7BookBranch').value='front';$('root7BookTurn').value='0';$('root7BookTilt').value='0';renderRoot838()});
+  ['root7CutMode','root7CutPosition','root7MirrorAngle','root7MirrorOrder'].forEach(id=>$(id).addEventListener('input',()=>renderRoot838()));
+  $('root7CutCenter').addEventListener('click',()=>{$('root7CutMode').value='manual';$('root7CutPosition').value='1.5';renderRoot838()});
+  if(window.A0FoldLagView)window.A0FoldLagView.beforePlay=()=>{window.A0LayeredSceneView?.pause();setRootEngineRunning(false);};
+  if(window.A0LayeredSceneView)window.A0LayeredSceneView.beforePlay=()=>{pauseBenchAutomation();window.A0FoldLagView?.pause();};
+  $('projectionOverlaySource').addEventListener('input',()=>{if($('projectionOverlaySource').value!=='stack')window.A0LayeredSceneView?.pause();});
   $('rootEnginePlay').addEventListener('click',()=>setRootEngineRunning(!rootEngineState.running));
   $('rootEngineStep').addEventListener('click',stepRootEngine);
   $('rootEngineReset').addEventListener('click',()=>{stopRootEngine();rootEngineState=C.createRootSpaceEngine();renderRoot838()});
   $('rootEngineSpeed').addEventListener('change',()=>{rootEngineState=C.createRootSpaceEngine({...rootEngineState,speedMs:Number($('rootEngineSpeed').value)});scheduleRootEngine();renderRoot838()});
-  $('rootEngineExport').addEventListener('click',()=>{const payload={tool:'A0 Root Space Transition Engine',version:C.VERSION,mode:'DETERMINISTIC_Q4_GRAY_CYCLE',carrierId:rootEngineState.carrierId,artifactId:rootEngineState.artifactId,schedule:C.Q4_GRAY_AXIS_SCHEDULE,state:rootEngineState,boundary:'Finite Q4 graph replay plus visual pulse; no physics claim.'};const blob=new Blob([JSON.stringify(payload,null,2)],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='a0-root-space-engine-replay.json';a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000)});
-  $('masterDemoStart').addEventListener('click',()=>setMasterDemoRunning(!masterDemoState.running,false));
+  $('rootEngineExport').addEventListener('click',()=>{const payload={tool:'A0 Root Space Transition Engine',version:C.VERSION,mode:'DETERMINISTIC_Q4_GRAY_CYCLE',carrierId:rootEngineState.carrierId,artifactId:rootEngineState.artifactId,schedule:C.Q4_GRAY_AXIS_SCHEDULE,state:rootEngineState,viewAdapters:{root7:window.A0Root7Coupling.snapshot(rootEngineState,C,root838Mode,window.A0Root7Sections.readOptions(document),window.A0Root7Book.readOptions(document))},boundary:'Finite Q4 graph replay plus visual pulse; no physics claim.'};const blob=new Blob([JSON.stringify(payload,null,2)],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='a0-root-space-engine-replay.json';a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000)});
+  $('masterDemoStart').addEventListener('click',()=>{if(window.A0Life03JointDemo?.isActive()){window.A0Life03JointDemo.interrupt('Master pausiert');return;}if(window.A0PentagonJointDemo?.isActive()){window.A0PentagonJointDemo.interrupt('Master pausiert');return;}setMasterDemoRunning(!masterDemoState.running,false);});
   $('masterDemoStep').addEventListener('click',stepMasterDemo);
-  $('masterDemoReset').addEventListener('click',()=>{masterAutoTour=false;resetMasterInstruments();masterDemoState=C.createMasterDemonstratorState({speedMs:Number($('masterDemoSpeed').value)});renderMasterDemo(false,false)});
+  $('masterDemoReset').addEventListener('click',()=>{if(masterSourcePending())return;masterAutoTour=false;resetMasterInstruments();masterDemoState=C.createMasterDemonstratorState({speedMs:Number($('masterDemoSpeed').value)});renderMasterDemo(false,false)});
   $('masterDemoSpeed').addEventListener('change',()=>{masterDemoState=C.createMasterDemonstratorState({...masterDemoState,speedMs:Number($('masterDemoSpeed').value)});renderMasterDemo(false,false);scheduleMasterDemo()});
-  $('masterDemoProgress').addEventListener('click',event=>{const button=event.target.closest('[data-master-phase]');if(!button)return;masterAutoTour=false;stopMasterDemo();masterDemoState=C.createMasterDemonstratorState({...masterDemoState,phaseIndex:Number(button.dataset.masterPhase),running:false});renderMasterDemo(true,false)});
-  $('storySpine').addEventListener('click',event=>{const button=event.target.closest('[data-story-phase]');if(!button)return;interruptMasterAutoTour();masterDemoState=C.createMasterDemonstratorState({...masterDemoState,phaseIndex:Number(button.dataset.storyPhase),running:false});renderMasterDemo(true,true)});
-  $('masterDemoExport').addEventListener('click',()=>downloadJson('a0-orientation-cockpit-run.json',{tool:'A0 Orientation Controller Bench · Master Demonstrator',version:C.VERSION,mode:'TYPED_HANDOFF_ORCHESTRATOR',state:masterDemoState,phases:C.MASTER_DEMO_PHASES,records:{orientation:C.stateCore(state),edge:edgeState,rootSpace:rootEngineState},boundary:'Typed handoffs coordinate distinct carriers; no carrier identity or physics claim.'}));
-  $('watchBenchRun').addEventListener('click',()=>{$('masterCockpit').scrollIntoView({behavior:'smooth',block:'start'})});
-  $('enterBench').addEventListener('click',()=>{$('act-orient').scrollIntoView({behavior:'smooth',block:'start'})});
+  $('masterDemoProgress').addEventListener('click',event=>{if(masterSourcePending())return;const button=event.target.closest('[data-master-phase]');if(!button)return;masterAutoTour=false;stopMasterDemo();masterDemoState=C.createMasterDemonstratorState({...masterDemoState,phaseIndex:Number(button.dataset.masterPhase),running:false});renderMasterDemo(true,false)});
+  $('storySpine').addEventListener('click',event=>{if(masterSourcePending())return;const button=event.target.closest('[data-story-phase]');if(!button)return;interruptMasterAutoTour();masterDemoState=C.createMasterDemonstratorState({...masterDemoState,phaseIndex:Number(button.dataset.storyPhase),running:false});renderMasterDemo(true,true)});
+  function captureFaceIntegrationPackage(){
+    return JSON.parse(JSON.stringify({schema:'nexah.a0.integration-package-snapshot/1',packageContract:'assets/a0-face-integration-package-v1.json',status:'LOCAL_COMPONENT_SNAPSHOT_NOT_END_TO_END_RUN',components:{rootSpace:rootEngineState,root7:window.A0Root7Coupling.snapshot(rootEngineState,C,root838Mode,window.A0Root7Sections.readOptions(document),window.A0Root7Book.readOptions(document)),foldLag:window.A0FoldLagView?.snapshot()??null,overlay:window.A0OverlayView?.exportState()??null,layeredScene:window.A0LayeredSceneView?.exportState()??null,dodecaSource:null},evidence:{synchronizedSequence:false,nativeFaceBinding:false,exactDodecaSourceReturn:false,endToEndBrowserAcceptance:false},boundary:'Read-only snapshot of currently available local views. Layered scene reuses H3 geometry but does not bind the native 60-face runtime. Missing Dodeca source is explicitly null. Separate clocks/carriers and truncated local overlay histories are not a completed joint run.'}));
+  }
+  $('masterDemoExport').addEventListener('click',()=>downloadJson('a0-orientation-cockpit-run.json',{tool:'A0 Orientation Controller Bench · Master Demonstrator',version:C.VERSION,mode:'TYPED_HANDOFF_ORCHESTRATOR',state:masterDemoState,phases:C.MASTER_DEMO_PHASES,records:{life03:window.A0Life03Bench?.exportRecord()??null,pentagon:window.A0PentagonBench?.exportRecord()??null,orientation:C.stateCore(state),edge:edgeState,rootSpace:rootEngineState,root7:window.A0Root7Coupling.snapshot(rootEngineState,C,root838Mode,window.A0Root7Sections.readOptions(document),window.A0Root7Book.readOptions(document))},integrationPackage:captureFaceIntegrationPackage(),boundary:'Typed handoffs coordinate distinct carriers; no carrier identity or physics claim.'}));
   ['pointerdown','input','change','click'].forEach(type=>document.addEventListener(type,pauseForHumanInteraction,{capture:true}));
   document.addEventListener('keydown',event=>{if(['Tab','Enter',' ','ArrowUp','ArrowDown','ArrowLeft','ArrowRight','PageUp','PageDown','Home','End'].includes(event.key))pauseForHumanInteraction(event)},{capture:true});
   document.addEventListener('wheel',()=>pauseBenchAutomation(),{passive:true,capture:true});
   document.addEventListener('touchmove',()=>pauseBenchAutomation(),{passive:true,capture:true});
   document.addEventListener('visibilitychange',()=>{if(document.hidden)pauseBenchAutomation()});
   render();renderBlind();renderEdgeCore();renderEdgeBlind();renderPascalShadow();renderFamilyOrientation();renderExperimentCorridor();renderGoReturnLab();renderRoot838();renderMasterDemo(false,false);renderPxaJourney();
+  window.A0PentagonPauseMaster=()=>{stopMasterDemo();masterAutoTour=false;masterDemoState=C.createMasterDemonstratorState({...masterDemoState,running:false});renderMasterDemo(false,false)};
+  window.A0PentagonMaster={
+    pause:()=>window.A0PentagonPauseMaster(),
+    start:()=>{
+      if(window.A0Life03Bench?.isPending())throw Error('LIFE03 acknowledgement pending');
+      window.A0Life03JointDemo?.interrupt('PENT-Demo gestartet');window.A0Life03Bench?.setFollow(false);
+      resetMasterInstruments();
+      masterDemoState=C.createMasterDemonstratorState({speedMs:Number($('masterDemoSpeed').value)});
+      window.A0PentagonBench.setFollow(true);setMasterDemoRunning(true,false);
+    }
+  };
+  window.A0Life03Master={
+    pause:()=>window.A0PentagonPauseMaster(),
+    start:()=>{
+      if(window.A0PentagonBench?.isPending())throw Error('PENT acknowledgement pending');
+      window.A0PentagonJointDemo?.interrupt('LIFE03-Demo gestartet');window.A0PentagonBench?.setFollow(false);
+      resetMasterInstruments();masterDemoState=C.createMasterDemonstratorState({speedMs:Number($('masterDemoSpeed').value)});
+      window.A0Life03Bench.setFollow(true);setMasterDemoRunning(true,false);
+    }
+  };
+  window.A0MasterDemoBridge={
+    start:()=>setMasterDemoRunning(true,false),
+    pause:()=>interruptMasterAutoTour(),
+    step:()=>stepMasterDemo(),
+    reset:()=>{masterAutoTour=false;resetMasterInstruments();masterDemoState=C.createMasterDemonstratorState({speedMs:Number($('masterDemoSpeed').value)});renderMasterDemo(false,false)},
+    snapshot:()=>JSON.parse(JSON.stringify(masterDemoState)),
+    isPending:()=>masterSourcePending()
+  };
   // Automation starts only through an explicit play action.
 })();
+</script>
+<script src="a0-pentagon-contract.js"></script>
+<script src="a0-pentagon-bench-adapter.js"></script>
+<script>window.A0PentagonBench=window.A0PentagonBenchAdapter.mount(window,document);</script>
+<script src="a0-pentagon-joint-demo.js"></script>
+<script>window.A0PentagonJointDemo=window.A0PentagonJointDemoUI.mount(window,document,window.A0PentagonBench);</script>
+<script src="a0-life03-contract.js"></script>
+<script src="a0-life03-bench-adapter.js"></script>
+<script>window.A0Life03Bench=window.A0Life03BenchAdapter.mount(window,document);</script>
+<script src="a0-native-face-bridge.js?rev=20261018-gap05-r1"></script>
+<script src="a0-native-face-bench.js?rev=20261018-gap05-r1"></script>
+<script>window.A0NativeFaceBenchController=window.A0NativeFaceBench.mount(document,window);</script>
+<script src="a0-four-aperture-ninefold.js?rev=20261018-gap05-r1"></script>
+<script src="a0-four-aperture-ninefold-ui.js?rev=20261018-gap05-r1"></script>
+<script>window.A0FourApertureNinefoldController=window.A0FourApertureNinefoldUI.mount(document,window);</script>
+<script src="a0-ail-aperture-control.js?rev=20261018-gap04-r1"></script>
+<script src="a0-ail-aperture-control-ui.js?rev=20261018-gap04-r1"></script>
+<script>window.A0AILApertureControlController=window.A0AILApertureControlUI.mount(document,window);</script>
+<script src="a0-ocb-record-replay.js?rev=20261018-replay-r1"></script>
+<script src="a0-ocb-record-replay-ui.js?rev=20261018-replay-r1"></script>
+<script>window.A0OCBRecordReplayController=window.A0OCBRecordReplayUI.mount(document,window);</script>
+<script src="a0-system-binder.js?rev=20261018-gap06-r1"></script>
+<script>
+  try{window.A0SystemBinderController=window.A0SystemBinder.mount(document,window)}
+  catch(error){const status=document.getElementById('systemBinderStatus'),ledger=document.getElementById('systemBinderLedger');const message=`SYSTEM BINDER MOUNT ERROR · ${error&&error.message?error.message:String(error)}`;if(status)status.textContent=message;if(ledger)ledger.textContent=message;console.error(error)}
+</script>
+<script src="a0-orientation-source-bridge.js"></script>
+<script src="a0-orientation-map.js"></script>
+<script src="a0-phase-wiring.js"></script>
+<script src="a0-external-adapter-pack.js?rev=20261018-pack-ab-r1"></script>
+<script>
+  try{window.A0ExternalAdapterPackController=window.A0ExternalAdapterPack.mount(document,window)}
+  catch(error){const status=document.getElementById('externalAdapterPackStatus');if(status)status.textContent=`ADAPTER PACK HOLD · ${error&&error.message?error.message:String(error)}`;console.error(error)}
+</script>
+<script src="a0-return-economy.js?rev=20261018-bl055-r1"></script>
+<script>
+  try{window.A0ReturnEconomyController=window.A0ReturnEconomy.mount(document,window)}
+  catch(error){const status=document.getElementById('returnEconomyStatus');if(status)status.textContent=`RETURN ECONOMY HOLD · ${error&&error.message?error.message:String(error)}`;console.error(error)}
+</script>
+<script src="a0-aperture-invariance-observatory.js?rev=20261018-aio-r1"></script>
+<script src="a0-bench-session-ledger.js?rev=20261018-bsl-r1"></script>
+<script src="a0-coupled-window.js?rev=20261018-cw-r2"></script>
+<script>
+  try{window.A0CoupledWindowController=window.A0CoupledWindow.mount(document,window)}
+  catch(error){const status=document.getElementById('coupledWindowStatus');if(status)status.textContent=`COUPLED WINDOW HOLD · ${error&&error.message?error.message:String(error)}`;console.error(error)}
+</script>
+<script src="a0-bench-showcase-tour.js?rev=20261018-r1"></script>
+<script>
+  try{window.A0BenchShowcaseTourController=window.A0BenchShowcaseTour.mount(document,window)}
+  catch(error){const title=document.getElementById('benchTourTitle');if(title)title.textContent=`TOUR HOLD · ${error&&error.message?error.message:String(error)}`;console.error(error)}
 </script>
 </body>
 </html>

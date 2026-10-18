@@ -1,0 +1,19 @@
+{
+  "schema": "nexah.a0.aperture-stack-engineering-return/1",
+  "asOf": "2026-10-18",
+  "status": "ENGINEERING_PASS_MANUAL_BROWSER_ACCEPTANCE_OPEN",
+  "identity": "NEXAH_A0_ORIENTATION_CONTROLLER_BENCH",
+  "owningIdentity": "NEXAH_AX0_QMODE_FOUNDATION_PACKAGE",
+  "gap": "OCB-GAP-02",
+  "entry": "A0_ORIENTATION_CONTROLLER_BENCH.html#apertureStackCalibration",
+  "sourceFixture": {
+    "anglesDeg": [51.63,51.73,51.83,51.93,52.03,52.13],
+    "reference": "P3 / 51.83 deg",
+    "toleranceDeg": 0.02,
+    "sourceState": "OWNER_SUPPLIED_CONCEPT_VISUAL_EXECUTABLE_SOURCE_NOT_RECOVERED"
+  },
+  "controlFixture": {"anglesDeg":[37,41,46,54,63,71],"role":"IRREGULAR_NON_SPECIAL_SIX_PLATE_CONTROL"},
+  "verification": {"focusedChecks":73,"status":"PASS","samples":48,"sourceFingerprintInvariant":true,"exactReturn":true},
+  "authority": {"newStudy":false,"newNavigatorIdentity":false,"newCanonicalRelation":false,"newFamily":false,"researchExecution":false,"publication":false},
+  "boundary": "Engineering representation fixture only; no empirical, optical, astronomical, prime, causal or physical calibration claim."
+}
