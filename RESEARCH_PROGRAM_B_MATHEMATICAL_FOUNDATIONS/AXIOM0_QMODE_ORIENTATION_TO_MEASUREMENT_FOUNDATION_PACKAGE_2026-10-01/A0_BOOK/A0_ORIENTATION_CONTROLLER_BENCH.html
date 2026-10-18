@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="referrer" content="no-referrer">
-  <title>NEXAH · Orientation Controller Bench v0.17.0</title>
+  <title>NEXAH · Orientation Controller Bench v0.18.0</title>
   <link rel="stylesheet" href="a0-orientation-controller-bench.css?rev=20261016-iris-octagon">
   <link rel="stylesheet" href="a0-aperture-measurement.css?rev=20261018-m3-ilau">
   <link rel="stylesheet" href="a0-aperture-stack-calibration.css?rev=20261018-gap02-gap09">
@@ -15,6 +15,7 @@
   <link rel="stylesheet" href="a0-return-economy.css?rev=20261018-bl055-r1">
   <link rel="stylesheet" href="a0-coupled-window.css?rev=20261018-reader-r1">
   <link rel="stylesheet" href="a0-bench-workspace.css?rev=20261018-workspace-r1">
+  <link rel="stylesheet" href="a0-family-grid-coupler.css?rev=20261018-fgc-r1">
 <link rel="stylesheet" href="a0-root7-q4-coupling.css">
 </head>
 <body>
@@ -34,11 +35,12 @@
   <a href="#externalAdapterPack">Adapter A+B</a>
   <a href="#coupledWindowHub">Bench Windows</a>
   <a href="#returnEconomyDemonstrator">Return Economy</a>
+  <a href="#familyGridCoupler">Family / Life Coupler</a>
 </nav>
 <main class="shell" id="orientationBench">
   <header class="topbar">
     <div>
-    <div class="kicker">A0 · source-bound engineering lens · v0.17.0</div>
+    <div class="kicker">A0 · source-bound engineering lens · v0.18.0</div>
       <h1>Orientation Controller Bench</h1>
       <p>Eine ruhige Steuerzentrale öffnet gekoppelte Arbeitsfenster über vorhandenen Modulen. State-Records, Operatoradapter und Return-Stufen bleiben getrennt typisiert; das Fenster verbindet ihre Bedienung, nicht ihre Carrier oder Uhren.</p>
     </div>
@@ -54,7 +56,7 @@
     <div class="showcase-copy">
       <small>GUIDED SHOWROOM · ONE BENCH · TYPED HANDOFFS</small>
       <h2 id="benchShowcaseTitle">Die ganze Bench in einer Tour.</h2>
-      <p>Die Tour öffnet die gekoppelten Bench Windows, startet die gebundenen Engines, wechselt die M3-Ansichten und führt durch Control, Native Return, Messung, PENT/LIFE03, Adapter A+B, das Moving Aperture Window, Return Economy und Root/Projection.</p>
+      <p>Die Tour öffnet die gekoppelten Bench Windows, startet die gebundenen Engines, wechselt M3 sowie Life Grid / Platte / Zylinder und führt durch Control, Native Return, Messung, Family/Pink Ghost, PENT/LIFE03, Adapter A+B, das Moving Aperture Window, Return Economy und Root/Projection.</p>
       <div class="showcase-actions"><button class="showcase-start" id="benchTourStart" type="button" aria-pressed="false">▶ BENCH TOUR STARTEN</button></div>
     </div>
     <div class="showcase-stage" aria-live="polite">
@@ -566,6 +568,13 @@
           <div class="blind-actions"><button data-edge-answer="ALLOW">ALLOW</button><button data-edge-answer="BLOCK">BLOCK</button><button data-edge-answer="HOLD">HOLD</button><button id="newEdgeBlind">NEW CASE</button></div>
           <output id="edgeBlindResult">Apply the transition law.</output>
         </div>
+        <div class="ihara-cubic-fork" data-ihara-cubic-fork data-branch="c">
+          <div><small>CUBIC SOURCE FORK · THE OTHER 3-BRANCH</small><h3>Ihara degree 3 · zwei Vorwärtswege, ein Rückweg gesperrt</h3></div>
+          <div class="ihara-fork-diagram"><span><b>a → b</b><small> incoming</small></span><span><b>b → c / b → d</b><small> two allowed turns</small></span><span class="blocked"><b>b → a</b><small> immediate reverse</small></span></div>
+          <button class="primary" data-ihara-branch="c">TURN C ↗</button><button data-ihara-branch="d">TURN D ↘</button>
+          <output>a→b · b→c ALLOW · b→a BLOCK</output>
+          <p><a href="A0_IHARA_HASHIMOTO_CYCLE_BRIDGE.html">Vollständige G(10,2)-Quelle öffnen ↗</a> · 20 Knoten · 30 Kanten · 60 gerichtete Kantenzustände. Dieses kleine Fork ist nur die lokale Abzweiglesart.</p>
+        </div>
         <div class="ihara-boundary"><b>BOUNDARY:</b> finite C5 instrument; primitive oriented cycle classes and <code>tr(B^k)</code> only. This is not a Riemann identity and not an equality between prime numbers and graph cycles.</div>
       </section>
 
@@ -727,6 +736,11 @@
             <div class="family-boundary"><b>BOUNDARY:</b> F1≈α and F7≈θ(t) are role analogies in this lens. 27, 13, 21, 50 and 71 are visible hypothesis markers; none currently binds, selects or renames a canonical Family relation.</div>
           </div>
         </div>
+      </section>
+
+      <section id="familyGridCoupler" class="family-grid-coupler" data-cockpit-module="wide" data-demo-phase="COUPLER" aria-label="Family Life Grid Plate Cylinder Coupler">
+        <div data-family-grid-coupler></div>
+        <noscript>JavaScript is required for the local display coupler.</noscript>
       </section>
 
       <section id="foldLagLens" class="experiment-corridor" data-cockpit-module="wide" aria-labelledby="foldLagTitle">
@@ -1121,6 +1135,11 @@
   <script>window.A0FoldLagView=window.A0FoldLagLens.mount(document);</script>
   <script>window.A0FoldLagView.onRender=record=>window.A0OverlayView.accept('5b',record);window.A0FoldLagView.render();</script>
   <script>window.A0LayeredSceneView=window.A0LayeredPentagonScene.mount(document,record=>window.A0OverlayView.accept('stack',record));</script>
+  <script src="a0-family-grid-coupler.js?rev=20261018-fgc-r1"></script>
+  <script>
+    try{window.A0FamilyGridCouplerController=window.A0FamilyGridCoupler.mount(document,window)}
+    catch(error){const root=document.querySelector('[data-family-grid-coupler]');if(root)root.textContent=`FAMILY GRID COUPLER HOLD · ${error&&error.message?error.message:String(error)}`;console.error(error)}
+  </script>
   <script src="a0-root7-open-book.js"></script>
   <script src="a0-root7-q4-coupling.js"></script>
 <script>
@@ -1559,7 +1578,7 @@
     renderStateRelationLens();
     $('position').value=String(state.position);$('positionValue').textContent=state.position.toFixed(2);
     $('carrier').value=state.carrierId;$('familyRole').value=state.familyRole;
-    qsa('[data-prime-index]').forEach((input,i)=>input.value=String(state.address[i]));
+    qsa('[data-prime-index]').forEach((input,i)=>{input.value=String(state.address[i]);input.dataset.bitState=state.address[i]>0?'one':state.address[i]<0?'negative':'zero'});
     $('addressReadout').textContent=addressText(state.address);
     const rad=(state.orientation-90)*Math.PI/180;$('iotaNeedle').setAttribute('x2',220+146*Math.cos(rad));$('iotaNeedle').setAttribute('y2',194+146*Math.sin(rad));
     const gate=C.polarToSquare(state.orientation-90),cx=145,cy=95,circleRadius=68,squareHalf=79,circlePoint={x:cx+gate.circle[0]*circleRadius,y:cy+gate.circle[1]*circleRadius},squarePoint={x:cx+gate.square[0]*squareHalf,y:cy+gate.square[1]*squareHalf};
