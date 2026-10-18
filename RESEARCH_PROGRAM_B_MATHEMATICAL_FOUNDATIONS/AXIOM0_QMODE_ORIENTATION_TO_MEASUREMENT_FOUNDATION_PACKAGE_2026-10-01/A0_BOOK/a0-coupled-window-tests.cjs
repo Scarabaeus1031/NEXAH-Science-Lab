@@ -9,7 +9,7 @@ function equal(actual,expected,message){checks++;assert.equal(actual,expected,me
 function deep(actual,expected,message){checks++;assert.deepEqual(actual,expected,message)}
 function ok(value,message){checks++;assert.ok(value,message)}
 
-equal(C.VERSION,'1.1.0','component version');
+equal(C.VERSION,'1.2.0','component version');
 equal(Object.keys(C.SCENARIOS).length,10,'ten coupled windows');
 deep(Object.keys(C.SCENARIOS),['window','control','native','measurement','bridges','adapters','economy','observatory','ledger','root'],'scenario order');
 equal(C.DÜRER[1][1],10,'Dürer inner upper left');
@@ -55,6 +55,11 @@ ok(tour.includes('A0CoupledWindowController.open'),'tour opens coupled stage');
 ok(css.includes('@media(max-width:680px)'),'phone layout');
 ok(css.includes('@media(prefers-reduced-motion:reduce)'),'reduced motion layout');
 ok(css.includes('.coupled-window::backdrop'),'modal backdrop');
+equal(C.SCENARIOS.native.custom,'source-chain','native window mounts live source chain');
+ok(C.SCENARIOS.native.modules.every(module=>['nativeFaceBridge','ailApertureControl','fourApertureNinefold','ocbRecordReplay'].includes(module.target)),'four existing native source targets reused');
+ok(css.includes('.cw-source-deck[data-mode="focus"]'),'focus plus three source layout');
+ok(css.includes('.cw-source-deck[data-mode="overview"]'),'four-source overview layout');
+ok(fs.readFileSync(path.join(__dirname,'a0-coupled-window.js'),'utf8').includes('cw-source-return:'),'source modules return to original DOM positions');
 equal(packageRecord.benchVersion,'0.17.0','package bench version');
 equal(packageRecord.windows.length,10,'package window count');
 equal(packageRecord.authority.newCanonicalIdentity,false,'no identity creation');

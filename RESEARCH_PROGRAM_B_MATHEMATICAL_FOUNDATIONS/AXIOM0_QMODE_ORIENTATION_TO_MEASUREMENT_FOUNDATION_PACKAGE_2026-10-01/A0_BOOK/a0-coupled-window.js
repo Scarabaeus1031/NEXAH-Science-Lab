@@ -5,7 +5,7 @@
 })(typeof globalThis!=='undefined'?globalThis:this,function(){
   'use strict';
 
-  const VERSION='1.1.0';
+  const VERSION='1.2.0';
   const DÜRER=Object.freeze([
     Object.freeze([16,3,2,13]),
     Object.freeze([5,10,11,8]),
@@ -47,7 +47,7 @@
         Object.freeze({id:'ail',label:'CONTROL',title:'A · i · l',target:'ailApertureControl',tone:'gold'}),
         Object.freeze({id:'ninefold',label:'ORBIT',title:'4×2+1 Ninefold',target:'fourApertureNinefold',tone:'pink'}),
         Object.freeze({id:'replay',label:'RETURN',title:'Versioned Replay',target:'ocbRecordReplay',tone:'green'})
-      ]),action:'native'
+      ]),action:'native',custom:'source-chain'
     }),
     measurement:Object.freeze({
       id:'measurement',eyebrow:'MEASUREMENT WINDOW',title:'M3 Trace · Aperture Stack',
@@ -159,12 +159,37 @@
     function closeDialog(){clear();customController?.stop?.();customController=null;state=createState({...state,open:false,running:false});win.A0SystemBinderController?.pause?.(false);win.A0ExternalAdapterPackController?.pause?.();win.A0ReturnEconomyController?.pause?.();const rootPlay=doc.getElementById('rootEnginePlay');if(rootPlay&&String(rootPlay.textContent).toLowerCase().includes('pause'))rootPlay.click();if(typeof dialog.close==='function'&&dialog.open)dialog.close();else{dialog.removeAttribute('open');dialog.hidden=true}doc.body.classList.remove('coupled-window-open');lastFocus?.focus?.()}
     function renderModules(scenario){
       customController?.stop?.();customController=null;
-      const custom=scenario.custom==='moving-window'?movingWindowMarkup():scenario.custom==='observatory'?'<div id="cwObservatoryMount"></div>':scenario.custom==='ledger'?'<div id="cwLedgerMount"></div>':`<div class="cw-live-note"><small>LIVE COUPLING</small><b>${scenario.modules.length} bestehende Module · eine getypte Ansicht</b><span>Das Fenster steuert oder öffnet die vorhandenen Quellen. Es kopiert keinen Carrier und erzeugt keine gemeinsame Uhr.</span></div>`;
+      const custom=scenario.custom==='moving-window'?movingWindowMarkup():scenario.custom==='observatory'?'<div id="cwObservatoryMount"></div>':scenario.custom==='ledger'?'<div id="cwLedgerMount"></div>':scenario.custom==='source-chain'?'<div class="cw-source-workspace"><div class="cw-source-toolbar"><div><small>LIVE SOURCE DECK</small><b>Ein Modul groß · drei darunter</b></div><div><button type="button" data-cw-source-mode="focus" aria-pressed="true">FOCUS + 3</button><button type="button" data-cw-source-mode="overview" aria-pressed="false">4 OVERVIEW</button></div></div><div class="cw-source-deck" data-mode="focus"></div></div>':`<div class="cw-live-note"><small>LIVE COUPLING</small><b>${scenario.modules.length} bestehende Module · eine getypte Ansicht</b><span>Das Fenster steuert oder öffnet die vorhandenen Quellen. Es kopiert keinen Carrier und erzeugt keine gemeinsame Uhr.</span></div>`;
       stage.innerHTML=`<div class="cw-module-line">${scenario.modules.map(moduleMarkup).join('<i class="cw-connector" aria-hidden="true">→</i>')}</div>${custom}`;
-      stage.querySelectorAll('[data-cw-reveal]').forEach(button=>button.addEventListener('click',()=>reveal(button.dataset.cwReveal)));
+      if(scenario.custom==='source-chain')customController=wireSourceChain(scenario);
+      else stage.querySelectorAll('[data-cw-reveal]').forEach(button=>button.addEventListener('click',()=>reveal(button.dataset.cwReveal)));
       if(scenario.custom==='moving-window')wireMovingWindow();
       if(scenario.custom==='observatory'){customController=win.A0ApertureInvarianceObservatory.mount(stage.querySelector('#cwObservatoryMount'),{window:win,carriers:CARRIERS});win.A0ApertureObservatoryController=customController}
       if(scenario.custom==='ledger'){customController=win.A0BenchSessionLedger.mount(stage.querySelector('#cwLedgerMount'),{window:win,scenarios:Object.keys(SCENARIOS).filter(id=>id!=='ledger')});win.A0BenchSessionLedgerController=customController}
+    }
+    function wireSourceChain(scenario){
+      const deck=stage.querySelector('.cw-source-deck'),workspace=stage.querySelector('.cw-source-workspace'),moved=[];
+      let selected=scenario.modules[0].id,mode='focus';
+      for(const module of scenario.modules){
+        const source=doc.getElementById(module.target);if(!source)continue;
+        const marker=doc.createComment(`cw-source-return:${module.target}`);source.parentNode.insertBefore(marker,source);
+        const panel=doc.createElement('article');panel.className='cw-source-panel';panel.dataset.sourcePanel=module.id;panel.dataset.tone=module.tone;
+        panel.innerHTML=`<header><small>${module.label} · SOURCE-OWNED</small><b>${module.title}</b><button type="button" data-cw-source-select="${module.id}">FOCUS</button></header>`;
+        panel.appendChild(source);deck.appendChild(panel);moved.push({source,marker});
+      }
+      function render(){
+        deck.dataset.mode=mode;
+        deck.querySelectorAll('[data-source-panel]').forEach(panel=>panel.classList.toggle('active',panel.dataset.sourcePanel===selected));
+        stage.querySelectorAll('[data-cw-reveal]').forEach(button=>{const module=scenario.modules.find(item=>item.target===button.dataset.cwReveal),active=module?.id===selected;button.textContent=active?'IM FOKUS':'SOURCE ZEIGEN';button.setAttribute('aria-pressed',String(active));button.closest('.cw-module')?.classList.toggle('active',active)});
+        stage.querySelectorAll('[data-cw-source-mode]').forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.cwSourceMode===mode)));
+        status.textContent=mode==='overview'?'4 SOURCES · OVERVIEW · DISTINCT CARRIERS':`${String(selected).toUpperCase()} · FOCUS + 3 SOURCES`;
+      }
+      function select(id){selected=id;mode='focus';render();deck.querySelector(`[data-source-panel="${id}"]`)?.scrollIntoView({behavior:reduced()?'auto':'smooth',block:'start'})}
+      stage.querySelectorAll('[data-cw-reveal]').forEach(button=>button.addEventListener('click',()=>{const module=scenario.modules.find(item=>item.target===button.dataset.cwReveal);if(module)select(module.id)}));
+      deck.querySelectorAll('[data-cw-source-select]').forEach(button=>button.addEventListener('click',()=>select(button.dataset.cwSourceSelect)));
+      workspace.querySelectorAll('[data-cw-source-mode]').forEach(button=>button.addEventListener('click',()=>{mode=button.dataset.cwSourceMode;render()}));
+      render();
+      return Object.freeze({select,setMode(next){mode=next==='overview'?'overview':'focus';render()},stop(){for(const item of moved)if(item.marker.parentNode)item.marker.replaceWith(item.source)}});
     }
     function openScenario(id,options={}){const scenario=SCENARIOS[id]||SCENARIOS.window;clear();lastFocus=options.trigger||doc.activeElement;state=createState({...state,scenario:scenario.id,open:true,running:false,index:0});eyebrow.textContent=scenario.eyebrow;title.textContent=options.title||scenario.title;copy.textContent=options.copy||scenario.copy;status.textContent='LIVE · TYPED COUPLING';renderModules(scenario);openDialog();runAction(scenario.action,options);return snapshot(state)}
     function reveal(targetId){const target=doc.getElementById(targetId);closeDialog();if(!target)return;for(let node=target;node;node=node.parentElement)if(node.tagName==='DETAILS')node.open=true;target.scrollIntoView({behavior:reduced()?'auto':'smooth',block:'center'});target.classList.add('bench-tour-focus');win.setTimeout?.(()=>target.classList.remove('bench-tour-focus'),2400)}

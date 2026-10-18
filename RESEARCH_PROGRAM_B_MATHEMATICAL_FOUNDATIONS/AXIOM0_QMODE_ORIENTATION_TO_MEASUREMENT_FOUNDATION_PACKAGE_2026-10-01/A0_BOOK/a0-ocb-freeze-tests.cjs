@@ -31,7 +31,7 @@ eq(manual.attempts.every(attempt => attempt.visualPassClaimed === false), true, 
 eq(manual.requested.length, 4, 'tablet phone high zoom and live adapters retained');
 eq(freeze.authority.newCanonicalIdentity, false, 'no new identity');
 eq(freeze.authority.researchExecution, false, 'not a research run');
-eq(freeze.acceptance.coupledWindows, 'PASS_10_WINDOWS_90_APERTURE_RECORDS', 'coupled window acceptance');
+eq(freeze.acceptance.coupledWindows, 'PASS_10_WINDOWS_90_APERTURE_RECORDS_4_SOURCE_DECK', 'coupled window and live source deck acceptance');
 eq(freeze.acceptance.invarianceObservatory, 'PASS_235_OF_235_56_COMPARISONS', 'observatory acceptance');
 eq(freeze.acceptance.sessionLedger, 'PASS_18_OF_18', 'session ledger acceptance');
 eq(freeze.acceptance.showcaseTour, 'PASS_48_OF_48_20_STATIONS', 'twenty-station tour acceptance');

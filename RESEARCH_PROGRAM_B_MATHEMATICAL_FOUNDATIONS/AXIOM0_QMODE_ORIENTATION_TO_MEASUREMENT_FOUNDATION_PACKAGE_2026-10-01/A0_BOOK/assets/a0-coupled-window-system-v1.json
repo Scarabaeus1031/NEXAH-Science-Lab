@@ -1,7 +1,7 @@
 {
   "schema": "nexah.a0.coupled-window-system/1",
   "date": "2026-10-18",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "benchVersion": "0.17.0",
   "identity": "NEXAH_A0_ORIENTATION_CONTROLLER_BENCH",
   "reuses": [
@@ -48,6 +48,13 @@
     "sharedClock": false,
     "scientificEvidence": false
   },
+  "nativeSourceDeck": {
+    "mode": "LIVE_DOM_REPARENTING_WITH_EXACT_RESTORE",
+    "layouts": ["FOCUS_PLUS_THREE", "FOUR_SOURCE_OVERVIEW"],
+    "sourceTargets": ["nativeFaceBridge", "ailApertureControl", "fourApertureNinefold", "ocbRecordReplay"],
+    "copiesSources": false,
+    "mergesCarriers": false
+  },
   "sources": [
     {
       "role": "BOUND_A0_BL_036_READER_INSTRUMENT",
@@ -61,9 +68,9 @@
     }
   ],
   "implementation": [
-    {"path": "a0-coupled-window.js", "sha256": "92b3e8aef2337cacea9e5674679c686b7e3e7b324b51d50c26962a3490106308"},
-    {"path": "a0-coupled-window.css", "sha256": "927a985bec28f96ed8ff85d9d6e6a88cdce3783b7711e8c7203d4abfe32e3d45"},
-    {"path": "a0-coupled-window-tests.cjs", "sha256": "9d5c4dd59c15e6e2090d85056890eca37576ab33ff426b3778ba2692d372962d"},
+    {"path": "a0-coupled-window.js", "sha256": "466ef5c062718a811b9877b0da2c307b9434b9df59102a40d1fd4817b0ba1763"},
+    {"path": "a0-coupled-window.css", "sha256": "698b6e58d61fb16b98950a942fe962a6019644c0987b0656d194862b75c7c9c4"},
+    {"path": "a0-coupled-window-tests.cjs", "sha256": "946d278d47d38bdc98e9d7bcf29ef2d89738d274dd6a9d721c9a86666a993415"},
     {"path": "a0-aperture-invariance-observatory.js", "sha256": "a36ed5d47f4fd12acc047b1902ab5f7d2494d1e2c0a79bb3932487a69cc9ba67"},
     {"path": "a0-aperture-invariance-observatory-tests.cjs", "sha256": "bd7dc17ced30dcb8e8bc809ec4d8b44d21cf393b5bb957cca8019b361edaa8c8"},
     {"path": "a0-bench-session-ledger.js", "sha256": "4689ec272c6bc2613155245015084faa93fbfbcdfe443c2c838833c00e235650"},
