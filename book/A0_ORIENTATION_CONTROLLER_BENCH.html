@@ -13,7 +13,7 @@
   <link rel="stylesheet" href="a0-ail-replay.css?rev=20261018-gap04-replay-r1">
   <link rel="stylesheet" href="a0-external-adapter-pack.css?rev=20261018-pack-ab-r1">
   <link rel="stylesheet" href="a0-return-economy.css?rev=20261018-bl055-r1">
-  <link rel="stylesheet" href="a0-coupled-window.css?rev=20261018-cw-r1">
+  <link rel="stylesheet" href="a0-coupled-window.css?rev=20261018-reader-r1">
   <link rel="stylesheet" href="a0-bench-workspace.css?rev=20261018-workspace-r1">
 <link rel="stylesheet" href="a0-root7-q4-coupling.css">
 </head>
@@ -85,9 +85,9 @@
   </section>
 
   <dialog class="coupled-window" id="coupledWindow" aria-labelledby="coupledWindowTitle" aria-describedby="coupledWindowCopy">
-    <header class="coupled-window-head"><div><small id="coupledWindowEyebrow">COUPLED WINDOW</small><h2 id="coupledWindowTitle">Bench Window</h2><p id="coupledWindowCopy">Bestehende Module werden in einer getypten Arbeitsfläche sichtbar.</p></div><button class="coupled-window-close" id="coupledWindowClose" type="button" aria-label="Fenster schließen">×</button></header>
+    <header class="coupled-window-head"><div><small id="coupledWindowEyebrow">COUPLED WINDOW</small><h2 id="coupledWindowTitle">Bench Window</h2><p id="coupledWindowCopy">Bestehende Module werden in einer getypten Arbeitsfläche sichtbar.</p></div><div class="coupled-window-head-actions"><button class="coupled-window-size" id="coupledWindowSize" type="button" aria-pressed="false" aria-label="Fenster maximieren">⛶ VERGRÖSSERN</button><button class="coupled-window-close" id="coupledWindowClose" type="button" aria-label="Fenster schließen und zur Lesestelle zurückkehren">×</button></div></header>
     <div class="coupled-window-body" id="coupledWindowStage"></div>
-    <footer class="coupled-window-foot"><output id="coupledWindowStatus" role="status" aria-live="polite">READY</output><span>VIEW COUPLING ≠ CARRIER IDENTITY · RETURN ≠ HISTORY REVERSAL · NOT A SCIENCE RUN</span></footer>
+    <footer class="coupled-window-foot"><output id="coupledWindowStatus" role="status" aria-live="polite">READY</output><span>VIEW COUPLING ≠ CARRIER IDENTITY · RETURN ≠ HISTORY REVERSAL · NOT A SCIENCE RUN</span><button id="coupledWindowReturn" type="button">SCHLIESSEN · ZUR LESESTELLE</button></footer>
   </dialog>
 
   <section class="return-economy" id="returnEconomyDemonstrator" aria-labelledby="returnEconomyTitle" data-phase="source" data-running="false">
@@ -399,7 +399,7 @@
         <button class="master-start" id="masterDemoStart">START DEMONSTRATION</button>
       </div>
       <p id="masterDemoCopy">Prime address and carrier enter the bench. Every later carrier change is declared as a typed handoff.</p>
-      <p>Eigene Eingaben pausieren die Vorführung. Mit START / FORTSETZEN läuft sie bewusst weiter.</p>
+      <p>Eigene Eingaben pausieren die Vorführung. Der große Knopf startet oder pausiert ausdrücklich den automatischen Ablauf; STEP bleibt manuell.</p>
       <div class="demo-signal" id="masterDemoSignal" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
       <div class="master-progress" id="masterDemoProgress" aria-label="Demonstration progress"></div>
       <div class="master-controls">
@@ -1634,7 +1634,7 @@
     $('masterCockpit').dataset.running=String(masterDemoState.running);document.body.classList.toggle('demo-running',masterDemoState.running);
     $('masterCockpit').dataset.autoTour=String(masterAutoTour);$('masterTourMode').textContent=masterDemoState.running?'DEMONSTRATION · LIVE':'PAUSIERT · DU STEUERST';
     $('masterDemoCarrier').textContent=phase.carrier;$('masterDemoPhase').textContent=`${String(masterDemoState.phaseIndex).padStart(2,'0')} · ${phase.id}`;$('masterDemoTitle').textContent=phase.title;$('masterDemoCopy').textContent=phase.copy;$('masterDemoHandoff').textContent=phase.handoff;
-    $('masterDemoStart').textContent=masterDemoState.running?'PAUSE':masterDemoState.phaseIndex===9?'ERNEUT STARTEN':masterDemoState.history.length?'FORTSETZEN':'START DEMONSTRATION';$('masterDemoStart').classList.toggle('running',masterDemoState.running);
+    $('masterDemoStart').textContent=masterDemoState.running?'Ⅱ AUTO-DEMO PAUSIEREN':masterDemoState.phaseIndex===9?'↻ AUTO-DEMO NEU ABSPIELEN':masterDemoState.history.length?'▶ AUTO-DEMO WEITER ABSPIELEN':'▶ AUTO-DEMO ABSPIELEN';$('masterDemoStart').classList.toggle('running',masterDemoState.running);$('masterDemoStart').setAttribute('aria-pressed',String(masterDemoState.running));
     $('masterDemoRecord').textContent=last?`${last.from} → ${last.to}\n${last.carrierFrom} → ${last.carrierTo}\n${last.sameCarrier?'SAME CARRIER':'TYPED HANDOFF'} · ${last.handoff}`:'READY · no transition committed';
     $('masterDemoProgress').innerHTML=C.MASTER_DEMO_PHASES.map((item,index)=>`<button data-master-phase="${index}" class="${index===masterDemoState.phaseIndex?'active':''} ${index<masterDemoState.phaseIndex?'done':''}" title="${item.title}">${String(index).padStart(2,'0')}<br>${item.id}</button>`).join('');
     const act=masterDemoState.phaseIndex<2?0:masterDemoState.phaseIndex<6?2:masterDemoState.phaseIndex<9?6:9;qsa('[data-story-phase]').forEach(button=>button.classList.toggle('active',Number(button.dataset.storyPhase)===act));
@@ -1827,7 +1827,7 @@
 </script>
 <script src="a0-aperture-invariance-observatory.js?rev=20261018-aio-r1"></script>
 <script src="a0-bench-session-ledger.js?rev=20261018-bsl-r1"></script>
-<script src="a0-coupled-window.js?rev=20261018-cw-r2"></script>
+<script src="a0-coupled-window.js?rev=20261018-reader-r1"></script>
 <script>
   try{window.A0CoupledWindowController=window.A0CoupledWindow.mount(document,window)}
   catch(error){const status=document.getElementById('coupledWindowStatus');if(status)status.textContent=`COUPLED WINDOW HOLD · ${error&&error.message?error.message:String(error)}`;console.error(error)}
