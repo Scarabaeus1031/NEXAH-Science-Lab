@@ -1,0 +1,60 @@
+.topology-atlas{
+  --atlas-bg:#020a10;
+  --atlas-panel:#061923;
+  --atlas-grid:#153642;
+  margin:0 0 76px;
+  border:1px solid var(--line);
+  background:var(--atlas-bg);
+  box-shadow:0 26px 80px rgba(0,0,0,.28)
+}
+.topology-atlas__intro{
+  display:grid;
+  grid-template-columns:minmax(280px,.88fr) minmax(360px,1.12fr);
+  gap:36px;
+  padding:34px;
+  border-bottom:1px solid var(--line);
+  background:radial-gradient(circle at 82% 24%,rgba(57,213,239,.12),transparent 32%),linear-gradient(135deg,#061923,#020d14)
+}
+.topology-atlas__intro h2{margin:.3rem 0 0}
+.topology-atlas__intro>p{align-self:end;max-width:780px;margin:0;color:#abc0c9;font:400 1.04rem/1.65 var(--serif)}
+.topology-atlas__workbench{display:grid;grid-template-columns:minmax(255px,.58fr) minmax(480px,1.42fr);min-height:620px}
+.topology-atlas__console{padding:26px;border-right:1px solid var(--line);background:var(--atlas-panel)}
+.topology-atlas__readout{min-height:108px;padding:17px;border:1px solid #315462;background:#020d14}
+.topology-atlas__readout small{display:block;color:var(--gold);font:800 .54rem var(--mono);letter-spacing:.08em;text-transform:uppercase}
+.topology-atlas__readout strong{display:block;margin:.35rem 0;color:#fff;font:760 1.65rem/1.05 var(--serif)}
+.topology-atlas__readout span{color:var(--cyan);font:750 .62rem var(--mono);text-transform:uppercase}
+.topology-atlas__control{display:block;margin-top:24px}
+.topology-atlas__control>span{display:flex;justify-content:space-between;gap:18px;margin-bottom:9px;font:800 .6rem var(--mono);letter-spacing:.05em;text-transform:uppercase}
+.topology-atlas__control b{color:#ddecf1}.topology-atlas__control output{color:var(--pink)}
+.topology-atlas__control input{width:100%;accent-color:var(--cyan);cursor:pointer}
+.topology-atlas__control i{display:flex;justify-content:space-between;color:#78929d;font:700 .48rem var(--mono);font-style:normal;text-transform:uppercase}
+.topology-atlas__play{width:100%;margin-top:25px;border-color:var(--pink);background:#351329;color:#ffb6d8}
+.topology-atlas__ledger{display:grid;gap:1px;margin:24px 0 0;background:var(--line)}
+.topology-atlas__ledger div{padding:11px 13px;background:#04131d}
+.topology-atlas__ledger dt{color:#78929d;font:800 .49rem var(--mono);text-transform:uppercase}
+.topology-atlas__ledger dd{margin:4px 0 0;color:#eaf6fa;font:700 .59rem/1.4 var(--mono)}
+.topology-atlas__stage{position:relative;display:grid;place-items:center;min-width:0;padding:24px;background:radial-gradient(circle at 50% 48%,rgba(57,213,239,.07),transparent 48%),#01080d;overflow:hidden}
+.topology-atlas__stage canvas{display:block;width:min(100%,720px);height:auto;aspect-ratio:9/7;image-rendering:pixelated;border:1px solid #20434f;background:#01070b;box-shadow:0 0 0 6px #030e14,0 0 0 7px #173743}
+.topology-atlas__legend{position:absolute;left:38px;right:38px;bottom:34px;display:flex;gap:16px;flex-wrap:wrap;pointer-events:none}
+.topology-atlas__legend span{font:800 .47rem var(--mono);text-transform:uppercase}
+.topology-atlas__legend span::before{content:'';display:inline-block;width:8px;height:8px;margin-right:6px;background:currentColor;vertical-align:-1px}
+.topology-atlas__legend .rest{color:#244b59}.topology-atlas__legend .flow{color:var(--cyan)}.topology-atlas__legend .joint{color:var(--gold)}.topology-atlas__legend .phase{color:var(--pink)}.topology-atlas__legend .selected{color:#fff}
+.topology-atlas__route{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;border-top:1px solid var(--line);background:var(--line)}
+.topology-atlas__route a{display:flex;min-height:136px;flex-direction:column;padding:18px;background:#04131d;color:inherit;text-decoration:none}
+.topology-atlas__route a:hover,.topology-atlas__route a:focus-visible{background:#082534;outline:0}
+.topology-atlas__route small{color:var(--gold);font:800 .52rem var(--mono);text-transform:uppercase}
+.topology-atlas__route strong{margin:.3rem 0;color:#fff;font:750 1.18rem var(--serif)}
+.topology-atlas__route span{margin-top:auto;color:#91a8b2;font-size:.68rem}
+.topology-atlas__boundary{padding:17px 22px;border-top:1px solid var(--line);color:#8fa6af;font-size:.72rem}
+.topology-atlas__boundary strong{color:var(--pink)}
+@media(max-width:980px){
+  .topology-atlas__intro,.topology-atlas__workbench{grid-template-columns:1fr}
+  .topology-atlas__console{border-right:0;border-bottom:1px solid var(--line)}
+  .topology-atlas__route{grid-template-columns:1fr}
+}
+@media(max-width:620px){
+  .topology-atlas__intro{padding:24px}
+  .topology-atlas__stage{padding:12px 12px 54px}
+  .topology-atlas__legend{left:20px;right:20px;bottom:18px}
+}
+@media(prefers-reduced-motion:reduce){.topology-atlas__stage canvas{scroll-behavior:auto}}
