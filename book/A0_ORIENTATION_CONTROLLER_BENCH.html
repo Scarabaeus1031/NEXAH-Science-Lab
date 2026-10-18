@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="referrer" content="no-referrer">
-  <title>NEXAH · Orientation Controller Bench v0.19.0</title>
+  <title>NEXAH · Orientation Controller Bench v0.20.0</title>
   <link rel="stylesheet" href="a0-orientation-controller-bench.css?rev=20261016-iris-octagon">
   <link rel="stylesheet" href="a0-aperture-measurement.css?rev=20261018-m3-ilau">
   <link rel="stylesheet" href="a0-aperture-stack-calibration.css?rev=20261018-gap02-gap09">
@@ -16,6 +16,7 @@
   <link rel="stylesheet" href="a0-coupled-window.css?rev=20261018-reader-r1">
   <link rel="stylesheet" href="a0-bench-workspace.css?rev=20261018-workspace-r1">
   <link rel="stylesheet" href="a0-family-grid-coupler.css?rev=20261018-fgc-r3">
+  <link rel="stylesheet" href="a0-visual1-grid-generator.css?rev=20261018-v1-grid-r1">
 <link rel="stylesheet" href="a0-root7-q4-coupling.css">
 </head>
 <body>
@@ -40,7 +41,7 @@
 <main class="shell" id="orientationBench">
   <header class="topbar">
     <div>
-    <div class="kicker">A0 · source-bound engineering lens · v0.19.0</div>
+    <div class="kicker">A0 · source-bound engineering lens · v0.20.0</div>
       <h1>Orientation Controller Bench</h1>
       <p>Eine ruhige Steuerzentrale öffnet gekoppelte Arbeitsfenster über vorhandenen Modulen. State-Records, Operatoradapter und Return-Stufen bleiben getrennt typisiert; das Fenster verbindet ihre Bedienung, nicht ihre Carrier oder Uhren.</p>
     </div>
@@ -575,6 +576,14 @@
           <output>a→b · b→c ALLOW · b→a BLOCK</output>
           <p><a href="A0_IHARA_HASHIMOTO_CYCLE_BRIDGE.html">Vollständige G(10,2)-Quelle öffnen ↗</a> · 20 Knoten · 30 Kanten · 60 gerichtete Kantenzustände. Dieses kleine Fork ist nur die lokale Abzweiglesart.</p>
         </div>
+        <aside class="visual1-generator" id="visual1GridGenerator" aria-labelledby="visual1GridTitle">
+          <header><div><small>HISTORICAL VISUAL 1 · SOURCE-BOUND 3 + 1</small><h3 id="visual1GridTitle">Visual 1 Grid Generator</h3><p>Drei getrennte Reads speisen einen gemeinsamen TESA-View-Controller.</p></div><div class="visual1-generator-controls"><button type="button" data-v1-follow>FOLLOW VISUAL 1</button><button type="button" data-v1-step>STEP GRID</button></div></header>
+          <div class="visual1-read-triad" aria-label="Three typed Visual 1 reads"><article><small>READ 1 · P</small><b data-v1-p>IRIS</b></article><article><small>READ 2 · A</small><b data-v1-a>C6 ⊃ C8</b></article><article><small>READ 3 · EDGE</small><b data-v1-e>IHARA</b></article></div>
+          <section class="visual1-plus-one" aria-label="Plus one TESA controller"><h4>ORANGE BOX · TESA 4×7</h4><div class="visual1-tesa-grid" data-visual1-tesa-grid></div></section>
+          <div class="visual1-residual-egg"><b>π / r · RETAINED</b></div>
+          <output data-v1-status role="status">READY</output>
+          <p class="boundary"><b>BOUNDARY:</b> 3+1 ist eine gekoppelte Ansichtsgrammatik. TESA bleibt der dokumentierte 28er-Kandidat; C6, C8, Ihara und der violette Residualkörper werden weder zu einem Carrier noch zu einem rekonstruierten historischen Generator verschmolzen.</p>
+        </aside>
         <div class="ihara-boundary"><b>BOUNDARY:</b> finite C5 instrument; primitive oriented cycle classes and <code>tr(B^k)</code> only. This is not a Riemann identity and not an equality between prime numbers and graph cycles.</div>
       </section>
 
@@ -592,8 +601,9 @@
               <div class="pxa-carrier" aria-label="Declared carrier x"><b>x</b><small>ONE CARRIER</small></div>
               <div class="pxa-orbit pxa-pascal" id="pxaPascalView"><div class="pxa-globe-grid"></div><div class="pxa-iris" id="pxaIris" aria-label="Blue circular aperture"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><span></span></div><b>P(x)</b><small>PASCAL · CYAN IRIS / APERTURE</small><i></i><i></i><i></i><i></i><i></i><i></i></div>
               <div class="pxa-binder" id="pxaBinder"><i></i><i></i><b>│</b><small>BINDER / SEAM</small></div>
+              <div class="pxa-tesa-generator" id="pxaTesaGenerator"><header><span>+1 · TESA GRID</span><button type="button" data-v1-mini-follow>FOLLOW</button></header><div class="visual1-tesa-grid" data-visual1-tesa-grid></div><output data-v1-mini-status>READY</output></div>
               <div class="pxa-aperture-beam" id="pxaApertureBeam" aria-hidden="true"><i></i><i></i><b>APERTURE → C8 VIEW</b></div>
-              <div class="pxa-orbit pxa-antipode" id="pxaAntipodeView"><div class="pxa-globe-grid"></div><div class="pxa-octagon" id="pxaOctagonProjection" aria-label="Projected octagon target view"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><b>C8</b></div><b>A(x)</b><small>ANTIPODE · PROJECTED OCTAGON VIEW</small><i></i><i></i><i></i><i></i><i></i><i></i></div>
+              <div class="pxa-orbit pxa-antipode" id="pxaAntipodeView"><div class="pxa-globe-grid"></div><div class="pxa-hexagon" aria-label="Hexagon frame containing projected octagon"><div class="pxa-octagon" id="pxaOctagonProjection" aria-label="Projected octagon target view"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><b>C8</b></div></div><b>A(x)</b><small>ANTIPODE · C6 FRAME ⊃ C8 VIEW</small><i></i><i></i><i></i><i></i><i></i><i></i></div>
               <div class="pxa-residual" id="pxaResidual"><b>π / r</b><small>THE REST · RETAINED</small><i></i><i></i><i></i></div>
               <div class="pxa-flow" id="pxaCarrierPulse" aria-hidden="true"><i></i><i></i><i></i></div>
               <div class="pxa-return" aria-hidden="true">COMPARE → RETURN ↺</div>
@@ -615,7 +625,7 @@
             <a href="../../../SCIENCE_LAB/CASE_STUDIES/E8_DEMOS_INTERACTIVE_ORIENTATION_2026-09-21/COXETER_ORBIT_TOPOLOGY_LAB_2026-10-05/NEXAH_TYPED_COUPLING_WORKBENCH.html"><b>ART:E8:TYPED_COUPLING</b><span>carrier → adapter → view → return</span></a>
             <a href="../../../00_INCOMING/THe%20Prime%20Genesis/THE%20MACHINE%20BUILT/c3a12c0d-b463-43e3-89b1-a1634c93ce01.png"><b>HISTORICAL VISUAL 1</b><span>movement grammar · source-only</span></a>
           </div>
-          <div class="pxa-boundary"><b>BOUNDARY:</b> <code>P(x)</code>, <code>A(x)</code>, the binder and residual are typed views of one declared carrier. The blue iris selects and projects a local <code>C8</code> target view; the octagon is not a new carrier. MIWA supplies interaction grammar; ERITH supplies a neighboring seed/belt/mask pattern; LOKI remains a registered subview/bridge. The two E8 supporting surfaces contribute typed view grammar only. No E8, carrier or mechanism identity is asserted.</div>
+          <div class="pxa-boundary"><b>BOUNDARY:</b> <code>P(x)</code>, <code>A(x)</code>, Ihara and TESA form a 3+1 view grammar around the retained binder/residual. The blue iris selects a local <code>C8</code> target inside a declared C6 display frame; neither polygon is a new carrier. The orange TESA box reuses the documentary 4×7 fixture and is not identified with the 60-cell body ledger. MIWA supplies interaction grammar; ERITH supplies a neighboring seed/belt/mask pattern; LOKI remains a registered subview/bridge. No E8, carrier, historical-generator or mechanism identity is asserted.</div>
         </section>
         <section class="m3-instrument" id="apertureMeasurement" aria-labelledby="m3Title">
           <header class="m3-head"><div><small>PRIORITY 0 · OCB-GAP-01 + OCB-GAP-03</small><h3 id="m3Title">Eine Spur. Drei Maße. Vier Projektionen.</h3><p><code>M3(t)=(h(t), A(t), I(t))</code> bleibt ein geordneter 48-Sample-Record. Die vier Ansichten verändern nur die Darstellung; Observing Cut und I/L/A/U halten Retained, Lost, Added und Unresolved getrennt.</p></div><span class="m3-live" id="m3Status" data-state="boot">SOURCE · P×A BLUE IRIS · BOOT</span></header>
@@ -1230,6 +1240,7 @@
     $('edgeStatus').className=`edge-status ${edgeState.status.includes('BLOCK')?'blocked':edgeState.status.includes('CLOSURE')?'closed':''}`;
     $('traceLedger').innerHTML=Array.from({length:10},(_,i)=>i+1).map(k=>`<span class="trace-cell ${C.traceC5(k)?'hit':''}"><b>k=${k}</b><small>${C.traceC5(k)}</small></span>`).join('');
     $('edgeLedger').innerHTML=edgeState.ledger.length?edgeState.ledger.slice().reverse().map(item=>`<li><b>${item.index}</b> ${edgeText(item.incoming)} → ${edgeText(item.candidate)} · ${item.status}</li>`).join(''):'<li>No turn committed.</li>';
+    window.A0Visual1GridController?.render();
   }
   function renderEdgeBlind(){
     $('edgeBlindCase').textContent=`${edgeText(edgeChallenge.incoming)}  ↦  ${edgeText(edgeChallenge.candidate)}`;
@@ -1618,6 +1629,7 @@
     qsa('[data-pxa-phase]').forEach(button=>button.classList.toggle('active',Number(button.dataset.pxaPhase)===pxaJourneyState.phaseIndex));
     $('pxaJourneyRecord').textContent=last?`${last.from} → ${last.to}\n${last.carrier} · SAME CARRIER\n${last.handoff}\n${phase.retains}\nIRIS ${$('pxaAperture').value}% → C8 VIEW`:`READY · ${pxaJourneyState.carrierId}\n${phase.retains}\nIRIS ${$('pxaAperture').value}% → C8 VIEW`;
     renderPxaAperture();
+    window.A0Visual1GridController?.render();
   }
   function schedulePxaJourney(){
     stopPxaJourney();if(!pxaJourneyState.running||document.hidden)return;
@@ -1810,8 +1822,15 @@
     snapshot:()=>JSON.parse(JSON.stringify(masterDemoState)),
     isPending:()=>masterSourcePending()
   };
+  window.A0Visual1BenchState=()=>({edge:JSON.parse(JSON.stringify(edgeState)),journey:JSON.parse(JSON.stringify(pxaJourneyState)),aperture:Number($('pxaAperture').value)});
   // Automation starts only through an explicit play action.
 })();
+</script>
+<script src="assets/a0-tesa-grid-candidate.js?rev=20261018-v1-grid-r1"></script>
+<script src="a0-visual1-grid-generator.js?rev=20261018-v1-grid-r1"></script>
+<script>
+  try{window.A0Visual1GridController=window.A0Visual1GridGenerator.mount(document,window)}
+  catch(error){const status=document.querySelector('[data-v1-status]');if(status)status.textContent=`VISUAL 1 GRID HOLD · ${error&&error.message?error.message:String(error)}`;console.error(error)}
 </script>
 <script src="a0-pentagon-contract.js"></script>
 <script src="a0-pentagon-bench-adapter.js"></script>
