@@ -1,0 +1,2140 @@
+<!doctype html>
+<html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'"><title>PENT runtime adapter · source-derived UI</title><style>:root {
+  color-scheme: light dark;
+  background-color: var(
+    --background,
+    var(--color-background-primary, light-dark(rgb(255 255 255), rgb(24 24 24)))
+  ) !important;
+
+  /* Agent-facing contract; keep in sync with SKILL.md. */
+  --background: var(
+    --color-background-primary,
+    light-dark(rgb(255 255 255), rgb(24 24 24))
+  );
+  --foreground: var(
+    --color-text-primary,
+    light-dark(rgb(26 28 31), rgb(255 255 255))
+  );
+  --card: color-mix(in oklab, var(--foreground) 5%, var(--background));
+  --card-foreground: var(
+    --color-text-primary,
+    light-dark(rgb(26 28 31), rgb(255 255 255))
+  );
+  --popover: var(
+    --color-background-secondary,
+    light-dark(rgb(255 255 255), rgb(45 45 45))
+  );
+  --popover-foreground: var(
+    --color-text-primary,
+    light-dark(rgb(26 28 31), rgb(255 255 255))
+  );
+  --primary: var(
+    --color-text-info,
+    light-dark(rgb(51 156 255), rgb(131 195 255))
+  );
+  --primary-foreground: var(
+    --color-text-inverse,
+    light-dark(rgb(255 255 255), rgb(13 13 13))
+  );
+  --secondary: var(
+    --color-background-secondary,
+    light-dark(rgb(255 255 255 / 96%), rgb(54 54 54 / 96%))
+  );
+  --secondary-foreground: var(
+    --color-text-primary,
+    light-dark(rgb(26 28 31), rgb(255 255 255))
+  );
+  --muted: color-mix(in srgb, var(--foreground) 10%, transparent);
+  --muted-foreground: var(
+    --color-text-secondary,
+    light-dark(rgb(26 28 31 / 49.4%), rgb(255 255 255 / 49.8%))
+  );
+  --accent: var(
+    --color-background-info,
+    light-dark(rgb(229 242 255), rgb(13 39 63))
+  );
+  --accent-foreground: var(
+    --color-text-info,
+    light-dark(rgb(51 156 255), rgb(131 195 255))
+  );
+  --destructive: var(
+    --color-text-warning,
+    light-dark(rgb(226 85 7), rgb(255 133 73))
+  );
+  --border: var(
+    --color-border-secondary,
+    light-dark(rgb(26 28 31 / 8%), rgb(255 255 255 / 8.2%))
+  );
+  --input: var(
+    --color-border-primary,
+    light-dark(
+      rgb(26 28 31 / 11.8%),
+      color-mix(in oklab, rgb(0 0 0) 10%, transparent)
+    )
+  );
+  --ring: var(
+    --color-ring-primary,
+    light-dark(rgb(51 156 255), rgb(131 195 255 / 76%))
+  );
+  --font-size-base: var(--font-text-md-size, 16px);
+  --blue: light-dark(rgb(51 156 255), rgb(51 156 255));
+  --orange: light-dark(rgb(226 85 7), rgb(251 106 34));
+  --green: light-dark(rgb(0 162 64), rgb(64 201 119));
+  --red: light-dark(rgb(224 46 42), rgb(255 103 100));
+  --purple: light-dark(rgb(146 79 247), rgb(173 123 249));
+  --yellow: light-dark(rgb(255 195 0), rgb(255 210 64));
+  --viz-series-1: var(--primary);
+  --viz-series-2: light-dark(rgb(243 136 59), rgb(245 154 86));
+  --viz-series-3: light-dark(rgb(93 201 119), rgb(116 213 139));
+  --viz-series-4: light-dark(rgb(235 119 177), rgb(240 143 192));
+  --viz-series-5: light-dark(rgb(155 121 236), rgb(170 145 239));
+  --viz-series-6: light-dark(rgb(58 185 177), rgb(90 203 194));
+
+  /* Internal implementation variables; not part of the agent contract. */
+  --font-sans:
+    -apple-system-body, ui-sans-serif, -apple-system, system-ui, "Segoe UI",
+    Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji",
+    "Segoe UI Symbol";
+  --font-mono:
+    ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono",
+    monospace;
+  --font-size-normal: max(11px, var(--font-size-base));
+  --font-size-tooltip: calc(var(--font-size-base) - 1px);
+  --font-size-small: max(11px, calc(var(--font-size-base) - 2px));
+  --font-size-h1: calc(var(--font-size-normal) * 1.7142857143);
+  --font-size-h2: calc(var(--font-size-normal) * 1.4285714286);
+  --font-size-h3: calc(var(--font-size-normal) * 1.2857142857);
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --icon-size: 16px;
+  --line-height-normal: calc(var(--font-size-normal) * 1.5);
+  --line-height-tooltip: calc(var(--font-size-tooltip) * 1.4285714286);
+  --line-height-small: calc(var(--font-size-small) + 4px);
+  --corner-shape: round;
+  --radius: var(--border-radius-lg, 8px);
+  --radius-sm: calc(var(--radius) * 0.5);
+  --radius-md: calc(var(--radius) * 0.75);
+  --radius-lg: var(--radius);
+  --radius-2xl: calc(var(--radius) * 2);
+  --radius-full: 9999px;
+  --shadow-sm: 0 1px 2px -1px rgb(0 0 0 / 8%);
+  --checkmark-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 17 17'%3E%3Cpath d='M12.8961 3.64101C13.1297 3.41418 13.4984 3.37523 13.7779 3.56581C14.0571 3.75635 14.1554 4.11331 14.0299 4.41347L13.9615 4.53847L7.71151 13.7045C7.59411 13.8767 7.4063 13.9877 7.19881 14.0072C6.99136 14.0267 6.78564 13.9533 6.63826 13.806L2.88826 10.056L2.79842 9.9457C2.6192 9.67407 2.64927 9.30496 2.88826 9.06581C3.12738 8.82669 3.49647 8.79676 3.76815 8.97597L3.8785 9.06581L7.03084 12.2182L12.8053 3.74941L12.8961 3.64101Z'/%3E%3C/svg%3E");
+
+  /* Legacy aliases; not part of the current agent contract. */
+  --viz-bg: transparent;
+  --viz-panel: var(--card);
+  --viz-border: var(--border);
+  --viz-text: var(--foreground);
+  --viz-muted: var(--muted-foreground);
+  --viz-accent: var(--primary);
+  --viz-accent-text: var(--primary-foreground);
+  --viz-accent-bg: var(--accent);
+  --viz-font-size: var(--font-size-base);
+  --viz-warning: var(--destructive);
+}
+
+:root[data-theme="light"] {
+  color-scheme: light;
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html > body {
+  /* Preserve MCP aliases for older inline renderers without creating :root cycles. */
+  --color-background-primary: var(
+    --background,
+    light-dark(rgb(255 255 255), rgb(24 24 24))
+  );
+  --color-text-primary: var(
+    --foreground,
+    light-dark(rgb(26 28 31), rgb(255 255 255))
+  );
+  --color-border-secondary: var(
+    --border,
+    light-dark(rgb(26 28 31 / 8%), rgb(255 255 255 / 8.2%))
+  );
+
+  margin: 0;
+  padding: var(--visualize-paint-gutter, 0px);
+  color: var(--foreground);
+  background: transparent !important;
+  font-family: var(--font-sans) !important;
+  -webkit-font-smoothing: antialiased;
+  font-size: var(--font-size-base);
+  line-height: calc(var(--font-size-base) * 1.625);
+  font-weight: var(--font-weight-normal);
+}
+
+.cursor-interaction {
+  cursor: var(--cursor-interaction, pointer);
+}
+
+a {
+  color: color-mix(in srgb, var(--viz-accent) 80%, var(--viz-text) 20%);
+  cursor: var(--cursor-interaction, pointer);
+  text-decoration: none;
+  text-underline-offset: 2px;
+  font-weight: inherit;
+}
+
+a:is(:hover, :focus-visible) {
+  text-decoration-line: underline;
+  text-decoration-style: dashed;
+  text-decoration-thickness: 0.5px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin-block: 0;
+}
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+li,
+.table {
+  font-family: var(--font-sans);
+}
+
+h1 {
+  font-size: calc(var(--font-size-base) * 1.5);
+  line-height: 1.3333333333;
+}
+
+h2 {
+  font-size: calc(var(--font-size-base) * 1.25);
+  line-height: 1.4;
+}
+h3 {
+  font-size: calc(var(--font-size-base) * 1.125);
+  line-height: 1.5555555556;
+}
+h4 {
+  font-size: var(--font-size-base);
+  line-height: 1.5;
+}
+h5,
+h6 {
+  font-size: var(--font-size-base);
+  line-height: calc(var(--font-size-base) * 1.625);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+b,
+strong,
+th {
+  font-weight: 600;
+}
+
+code:not(pre code) {
+  display: inline;
+  padding: 1px 6px;
+  border-radius: var(--radius-sm);
+  corner-shape: var(--corner-shape);
+  background: var(--muted);
+  font-family: var(--font-mono);
+  font-size: 0.92em;
+  overflow-wrap: anywhere;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+  word-break: break-word;
+}
+pre,
+pre code {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  line-height: 20px;
+}
+
+.table-responsive {
+  width: 100%;
+  overflow-x: auto;
+  scrollbar-width: thin;
+}
+
+.table {
+  width: 100%;
+  color: var(--foreground);
+  font: inherit;
+  text-align: start;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-size: calc(var(--font-size-base) * 0.875);
+  line-height: calc(var(--font-size-base) * 1.625);
+  font-family: var(--font-sans);
+}
+
+.table :is(th, td) {
+  padding-block: 10px;
+  padding-inline: 0 24px;
+  overflow-wrap: anywhere;
+  border-bottom: 1px solid var(--border);
+  text-align: start;
+  vertical-align: top;
+  border-bottom-color: color-mix(in srgb, var(--foreground) 5%, transparent);
+}
+.table :is(th, td):not(:last-child) {
+  padding-inline-end: calc(var(--font-size-base) * 1.5);
+}
+
+.table-responsive > .table :is(th, td) {
+  overflow-wrap: break-word;
+}
+
+.table :is(th, td):last-child {
+  padding-inline-end: 0;
+}
+
+.table :is(caption, thead th) {
+  font-weight: 600;
+}
+
+.table thead :is(th, td) {
+  border-bottom-color: var(--border-strong, var(--input));
+  padding-block: calc(var(--font-size-base) / 2);
+  line-height: var(--font-size-base);
+}
+
+.table tbody tr:last-child :is(th, td) {
+  border-bottom: 0;
+}
+.table tbody :is(th, td) {
+  padding-block: calc(var(--font-size-base) * 0.625);
+}
+
+.table.table-sm :is(th, td) {
+  padding-block: 8px;
+}
+
+.table.table-sm :is(th, td):not(:last-child) {
+  padding-inline-end: 16px;
+}
+
+.table :is(.text-end, [align="right"]) {
+  text-align: end;
+  font-variant-numeric: tabular-nums;
+}
+
+.table :is(.text-center, [align="center"]) {
+  text-align: center;
+}
+
+.table .text-nowrap {
+  white-space: nowrap;
+}
+
+#widget {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  padding: 0;
+  background: transparent !important;
+}
+
+.card {
+  min-width: 0;
+  padding: 12px;
+  overflow: hidden;
+  overflow-wrap: break-word;
+  border-radius: var(--radius-2xl);
+  corner-shape: var(--corner-shape);
+  color: var(--card-foreground);
+  background: var(--card);
+}
+
+.widget {
+  min-width: 0;
+  overflow: hidden;
+  border: 0;
+  border-radius: var(--radius-lg);
+  corner-shape: var(--corner-shape);
+  box-shadow: 0 0 0 0.5px var(--border-strong, var(--border));
+  color: var(--foreground);
+  background: var(--background);
+}
+
+#widget > :not(.card, .widget, .progress) {
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+.tooltip {
+  position: fixed;
+  z-index: 50;
+  top: 0;
+  left: 0;
+  width: max-content;
+  max-width: min(
+    20rem,
+    var(--tooltip-available-width, calc(100vw - 10px)),
+    calc(100vw - 10px)
+  );
+  max-height: min(
+    var(--tooltip-available-height, calc(100vh - 10px)),
+    calc(100vh - 10px)
+  );
+  border: 1px solid var(--border);
+  corner-shape: var(--corner-shape);
+  overflow-wrap: break-word;
+  white-space: normal;
+  pointer-events: none;
+  user-select: none;
+  font-family: var(--font-sans);
+  padding: 5px 12px;
+  border-color: color-mix(
+    in oklab,
+    light-dark(var(--primary-foreground), var(--foreground)) 5%,
+    transparent
+  );
+  border-radius: var(--radius-2xl);
+  color: light-dark(var(--primary-foreground), var(--foreground));
+  background: light-dark(var(--foreground), var(--popover));
+  box-shadow: 0 8px 18px rgb(15 23 42 / 20%);
+  letter-spacing: -0.15px;
+  font-size: calc(var(--font-size-base) * 14 / 16);
+  font-size: round(nearest, calc(var(--font-size-base) * 14 / 16), 1px);
+  font-weight: 600;
+  line-height: 18px;
+  text-align: center;
+}
+
+.viz-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(max(180px, 24%), 1fr));
+  gap: 10px;
+}
+
+.viz-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.viz-stat-value {
+  font-size: var(--font-size-h2);
+  font-weight: var(--font-weight-medium);
+  line-height: 1.25;
+}
+
+.viz-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+
+hr {
+  width: 100%;
+  height: 1px;
+  margin-block: 6px;
+  border: 0;
+  background: var(--border);
+}
+
+.nav {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  gap: 4px;
+}
+
+.progress {
+  display: flex;
+  height: 8px;
+  margin-block: calc((var(--line-height-normal, 1.5em) - 8px) / 2);
+  overflow: hidden;
+  border: 0;
+  border-radius: var(--radius-full);
+  background: var(--muted);
+}
+
+.progress-bar:only-child {
+  border-radius: var(--radius-full);
+}
+
+.progress-bar {
+  height: 100%;
+  flex-shrink: 0;
+  border: 0;
+  background: var(--viz-series-1);
+}
+
+.viz-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 8px;
+  border-radius: var(--radius-sm);
+  color: color-mix(in srgb, var(--foreground) 40%, var(--muted-foreground));
+  background: color-mix(in srgb, var(--foreground) 5%, transparent);
+  font-family: var(--font-sans);
+  font-size: calc(var(--font-size-base) * 14 / 16);
+  font-size: round(nearest, calc(var(--font-size-base) * 14 / 16), 1px);
+  font-weight: var(--font-weight-normal);
+  line-height: 1;
+}
+
+small,
+.text-small {
+  font-size: var(--font-size-small);
+  line-height: var(--line-height-small);
+}
+
+.text-muted {
+  color: var(--muted-foreground);
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.viz-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.viz-controls > .form-label {
+  display: grid;
+  min-width: min(100%, 260px);
+  flex: 1 1 280px;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: baseline;
+  gap: 2px 12px;
+  margin-bottom: 0;
+}
+
+.viz-controls > .form-label > :is(.form-control, .form-range, .form-select) {
+  grid-column: 1 / -1;
+}
+
+.btn,
+.nav-link,
+.form-check-input,
+.form-control,
+.form-range,
+.form-select {
+  font: inherit;
+}
+
+/* Match inline alignment without overriding a containing flex or grid layout. */
+.btn,
+.nav-link,
+.form-control,
+.form-select,
+.form-range,
+.form-check {
+  vertical-align: middle;
+}
+
+.btn,
+.nav-link {
+  appearance: button;
+  display: inline-flex;
+  inline-size: fit-content;
+  max-inline-size: 100%;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  margin: 0;
+  padding: 0 8px;
+  -webkit-app-region: no-drag;
+  border: 1px solid var(--input);
+  corner-shape: var(--corner-shape);
+  cursor: var(--cursor-interaction, pointer);
+  text-align: center;
+  text-decoration: none;
+  white-space: nowrap;
+  user-select: none;
+  -webkit-font-smoothing: inherit;
+  font-family: var(--font-sans);
+  height: fit-content;
+  min-height: calc(12px + 2 * var(--control-spacing, 12px));
+  padding-inline: var(--control-spacing, 12px);
+  border-color: transparent;
+  border-radius: var(--radius-full);
+  color: var(--foreground);
+  background: color-mix(in srgb, var(--foreground) 5%, transparent);
+  font-size: calc(var(--font-size-base) * 14 / 16);
+  font-size: round(nearest, calc(var(--font-size-base) * 14 / 16), 1px);
+  font-weight: var(--font-weight-normal);
+  line-height: 18px;
+}
+
+.btn {
+  border-color: var(--border);
+  color: var(--secondary-foreground);
+  background: var(--secondary);
+}
+
+.btn:is(.btn-block, .viz-tile) {
+  inline-size: 100%;
+}
+
+.btn.viz-tile {
+  min-width: 0;
+  overflow-wrap: anywhere;
+  white-space: normal;
+}
+
+a.btn {
+  cursor: var(--cursor-interaction, pointer);
+  text-decoration: none;
+}
+
+.btn:not(:disabled):hover {
+  background: light-dark(
+    color-mix(in srgb, var(--foreground) 5.5%, transparent),
+    color-mix(in srgb, var(--foreground) 8%, transparent)
+  );
+}
+
+.nav-link:not(:disabled):not([aria-disabled="true"]):hover {
+  background: color-mix(in srgb, var(--foreground) 10%, transparent);
+}
+
+.btn-primary {
+  border-color: var(--border);
+  color: var(--primary-foreground);
+  background: var(--foreground);
+  background-clip: border-box;
+}
+
+.btn-primary .text-muted {
+  color: color-mix(in srgb, var(--primary-foreground) 50%, transparent);
+}
+
+.btn-primary:not(:disabled):hover {
+  background: color-mix(in srgb, var(--foreground) 80%, transparent);
+  background-clip: border-box;
+}
+
+.btn-ghost {
+  border-color: transparent;
+  color: var(--muted-foreground);
+  background: transparent;
+}
+
+.btn-ghost:not(:disabled):hover {
+  color: var(--muted-foreground);
+  background: light-dark(
+    color-mix(in srgb, var(--foreground) 5.5%, transparent),
+    color-mix(in srgb, var(--foreground) 8%, transparent)
+  );
+}
+
+.nav-pills .nav-link {
+  min-width: 0;
+  border-color: transparent;
+  color: var(--muted-foreground);
+  background: transparent;
+}
+
+.nav-justified .nav-link {
+  flex: 1 1 0;
+  overflow-wrap: anywhere;
+  white-space: normal;
+}
+
+.nav-pills .nav-link.active {
+  color: var(--foreground);
+  background: var(--muted);
+}
+
+/* Shared preview chrome; product styles stay inside each variant. */
+.viz-dotted-background {
+  background-image: radial-gradient(
+    circle,
+    color-mix(in srgb, var(--foreground) 14%, transparent) 0.8px,
+    transparent 0.8px
+  );
+  background-position: center;
+  background-size: 16px 16px;
+}
+
+.viz-carousel {
+  position: relative;
+  min-width: 0;
+}
+
+.viz-carousel:has(> .viz-carousel-controls) {
+  min-height: calc(60px + var(--viz-carousel-picker-height, 0px));
+  padding-bottom: 60px;
+}
+
+.viz-carousel > [data-variant][hidden] {
+  display: none !important;
+}
+
+.viz-carousel > [data-variant] {
+  isolation: isolate;
+}
+
+.viz-carousel-controls {
+  --viz-carousel-hover: light-dark(
+    color-mix(in srgb, var(--foreground) 5.4%, transparent),
+    color-mix(in srgb, var(--foreground) 7.8%, transparent)
+  );
+  position: absolute;
+  z-index: 2;
+  bottom: 8px;
+  left: 50%;
+  display: flex;
+  width: max-content;
+  /* Leave room for the host's design-controls launcher at the trailing edge. */
+  max-width: calc(100% - 96px);
+  align-items: center;
+  gap: 0;
+  padding: 0;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  color: var(--foreground);
+  background: var(--background);
+  font-family: var(--font-sans);
+  /* Match the settings dropdown chrome independently of the content font size. */
+  font-size: 13px;
+  font-weight: var(--font-weight-normal);
+  line-height: 18px;
+  transform: translateX(-50%);
+  user-select: none;
+}
+
+/* Keep authored mockup button styles out of the shared carousel chrome. */
+.viz-carousel-controls button,
+.viz-carousel-picker > summary {
+  display: flex !important;
+  height: auto !important;
+  min-height: 30px;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 4px;
+  padding: 0 6px !important;
+  -webkit-app-region: no-drag;
+  border: 0 !important;
+  border-radius: 14px !important;
+  color: inherit !important;
+  background: transparent !important;
+  font: inherit !important;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.viz-carousel-controls > button,
+.viz-carousel-picker > summary {
+  position: relative;
+  isolation: isolate;
+}
+
+.viz-carousel-controls > button {
+  --icon-size: 16px;
+  width: 30px !important;
+  padding: 0 !important;
+}
+
+.viz-carousel-picker > summary {
+  padding-inline: 12px !important;
+}
+
+.viz-carousel-controls .viz-carousel-caret {
+  width: 14px;
+  height: 14px;
+  flex: none;
+  margin: 0;
+  color: inherit;
+  transform: rotate(180deg);
+}
+
+.viz-carousel-controls > button > svg,
+.viz-carousel-controls .viz-carousel-caret,
+.viz-carousel-count {
+  opacity: 0.5;
+}
+
+.viz-carousel-controls > button::before,
+.viz-carousel-picker > summary::before {
+  position: absolute;
+  z-index: -1;
+  inset: 3px;
+  border-radius: 12px;
+  content: "";
+  pointer-events: none;
+}
+
+.viz-carousel-controls > button:hover::before,
+.viz-carousel-picker > summary:hover::before {
+  background: var(--viz-carousel-hover);
+}
+
+.viz-carousel-controls > button,
+.viz-carousel-controls [data-lucide],
+.viz-carousel-controls .lucide {
+  flex-shrink: 0;
+}
+
+.viz-carousel-picker {
+  min-width: 0;
+}
+
+.viz-carousel-picker > summary {
+  min-width: 0;
+  list-style: none;
+}
+
+.viz-carousel-picker > summary::-webkit-details-marker {
+  display: none;
+}
+
+.viz-carousel-count {
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+.viz-carousel-name {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.viz-carousel-options {
+  position: absolute;
+  right: 0;
+  bottom: calc(100% + 4px);
+  left: 0;
+  display: flex;
+  max-height: 240px;
+  flex-direction: column;
+  gap: 2px;
+  overflow: auto;
+  padding: 4px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--background);
+  box-shadow: 0 4px 12px light-dark(rgb(0 0 0 / 6%), rgb(0 0 0 / 25%));
+}
+
+.viz-carousel-options > button {
+  border-radius: max(0px, calc(var(--radius-lg) - 5px)) !important;
+  width: 100% !important;
+  min-height: 28px;
+  justify-content: flex-start !important;
+  padding: 4px 8px !important;
+  font-size: var(--font-size-small) !important;
+  text-align: start;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
+.viz-carousel-options > [aria-current="true"],
+.viz-carousel-options > button:hover {
+  background: var(--viz-carousel-hover) !important;
+}
+
+.btn:disabled,
+.nav-link:disabled,
+.nav-link[aria-disabled="true"] {
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+
+[data-lucide] {
+  stroke-width: 1.6;
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--foreground);
+}
+
+.form-control {
+  display: block;
+  width: 100%;
+  padding: 0 8px;
+  outline: none;
+  border: 1px solid var(--input);
+  corner-shape: var(--corner-shape);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  height: calc(12px + 2 * var(--control-spacing, 12px));
+  min-height: calc(12px + 2 * var(--control-spacing, 12px));
+  padding-inline: calc(4px + var(--control-spacing, 12px) / 2);
+  border-color: var(--input);
+  border-radius: var(--radius-md);
+  background: color-mix(in srgb, var(--popover) 96%, transparent);
+  font-size: calc(var(--font-size-base) * 14 / 16);
+  font-size: round(nearest, calc(var(--font-size-base) * 14 / 16), 1px);
+  font-weight: var(--font-weight-normal);
+  line-height: 1.4285714286;
+}
+.form-control:is(
+  [type="file"],
+  [type="date"],
+  [type="datetime-local"],
+  [type="month"],
+  [type="week"],
+  [type="color"]
+) {
+  height: calc(12px + 2 * var(--control-spacing, 12px));
+  min-height: calc(12px + 2 * var(--control-spacing, 12px));
+  line-height: 18px;
+}
+.form-control:is(
+  [type="date"],
+  [type="datetime-local"],
+  [type="month"],
+  [type="week"]
+) {
+  padding-inline: var(--control-spacing, 12px);
+}
+
+.form-control::placeholder {
+  color: var(--muted-foreground);
+}
+
+.form-control[type="file"] {
+  overflow: hidden;
+  cursor: var(--cursor-interaction, pointer);
+  padding: 0;
+}
+
+.form-control[type="file"]::file-selector-button {
+  padding: 0 8px;
+  border: 0;
+  border-right: 1px solid var(--input);
+  color: var(--secondary-foreground);
+  background: var(--secondary);
+  cursor: inherit;
+  font: inherit;
+  min-height: calc(10px + 2 * var(--control-spacing, 12px));
+  padding-inline: var(--control-spacing, 12px);
+  margin-inline-end: var(--control-spacing, 12px);
+}
+
+.form-control[type="file"]:not(:disabled):hover::file-selector-button {
+  background: color-mix(in srgb, var(--foreground) 6%, var(--secondary));
+}
+
+.form-control-color[type="color"] {
+  width: 40px;
+  height: calc(12px + 2 * var(--control-spacing, 12px));
+  padding: 3px;
+  cursor: var(--cursor-interaction, pointer);
+}
+
+.form-control-color[type="color"]::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+
+.form-control-color[type="color"]::-webkit-color-swatch {
+  border: 0;
+  border-radius: calc(var(--radius-lg) - 4px);
+  corner-shape: var(--corner-shape);
+}
+
+textarea.form-control {
+  height: auto;
+  resize: vertical;
+  min-height: 96px;
+  padding: 8px 10px;
+}
+
+.form-control:focus-visible {
+  border-color: var(--ring);
+  box-shadow: none;
+}
+.form-control:disabled {
+  color: var(--muted-foreground);
+  background: color-mix(in srgb, var(--foreground) 5%, transparent);
+  opacity: 1;
+}
+.form-control[aria-invalid="true"] {
+  border-color: var(--red);
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--red) 20%, transparent);
+}
+
+.form-control:disabled,
+.form-select:disabled {
+  cursor: not-allowed;
+}
+
+.form-select {
+  appearance: none;
+  display: block;
+  width: 100%;
+  height: fit-content;
+  min-height: calc(12px + 2 * var(--control-spacing, 12px));
+  margin: 0;
+  /* The secondary icon role is 14px at compact density and 16px at web density. */
+  --icon-size: calc(10px + var(--control-spacing, 12px) / 2);
+  /* Settings dropdowns retain a 12px inset and a 4px text-to-chevron gap. */
+  padding: 0 calc(16px + var(--icon-size)) 0 12px;
+  outline: none;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-full);
+  corner-shape: var(--corner-shape);
+  color: var(--foreground);
+  background-color: var(--secondary);
+  background-image:
+    linear-gradient(
+      45deg,
+      transparent calc(50% - 0.6px),
+      var(--muted-foreground) calc(50% - 0.6px) calc(50% + 0.6px),
+      transparent calc(50% + 0.6px)
+    ),
+    linear-gradient(
+      135deg,
+      transparent calc(50% - 0.6px),
+      var(--muted-foreground) calc(50% - 0.6px) calc(50% + 0.6px),
+      transparent calc(50% + 0.6px)
+    );
+  background-position:
+    calc(100% - 12px - var(--icon-size) / 2) 50%,
+    calc(100% - 12px - var(--icon-size) * 0.18) 50%;
+  background-repeat: no-repeat;
+  background-size: calc(var(--icon-size) * 0.32) calc(var(--icon-size) * 0.32);
+  cursor: var(--cursor-interaction, default);
+  font-size: calc(var(--font-size-base) * 14 / 16);
+  font-size: round(nearest, calc(var(--font-size-base) * 14 / 16), 1px);
+  font-weight: var(--font-weight-normal);
+  line-height: 18px;
+}
+
+.form-select option {
+  color: var(--popover-foreground);
+  background-color: var(--popover);
+}
+
+.form-select:not(:disabled):hover {
+  background-color: light-dark(
+    color-mix(in srgb, var(--foreground) 5.5%, transparent),
+    color-mix(in srgb, var(--foreground) 8%, transparent)
+  );
+}
+
+.form-select:focus-visible {
+  box-shadow: 0 0 0 2px var(--ring);
+}
+.form-select:disabled {
+  opacity: 0.4;
+}
+
+.form-check {
+  display: flex;
+  min-height: calc(12px + 2 * var(--control-spacing, 12px));
+  align-items: center;
+  gap: 6px;
+}
+
+.form-check-input {
+  appearance: none;
+  width: 14px;
+  height: 14px;
+  flex: 0 0 auto;
+  margin: 0;
+  border: 1px solid var(--input);
+  color: var(--primary-foreground);
+  background-color: transparent;
+  cursor: var(--cursor-interaction, default);
+  transition:
+    background-color 150ms,
+    border-color 150ms,
+    box-shadow 150ms;
+}
+
+.form-check:not(.form-switch) .form-check-input[type="checkbox"] {
+  corner-shape: round;
+  box-shadow: var(--shadow-sm);
+  position: relative;
+  width: calc(10px + var(--control-spacing, 12px) / 2);
+  height: calc(10px + var(--control-spacing, 12px) / 2);
+  border-color: var(--border-strong, var(--input));
+  border-radius: calc(var(--radius-sm) / 2);
+  background-color: transparent;
+  color: var(--foreground);
+}
+
+.form-check:not(.form-switch)
+  .form-check-input:not(:disabled):not(:checked):hover {
+  background-color: var(--card);
+}
+
+.form-check:not(.form-switch)
+  .form-check-input[type="checkbox"]:is(:checked, :indeterminate) {
+  border-color: var(--border-strong, var(--input));
+  background-color: color-mix(in srgb, var(--popover) 96%, transparent);
+}
+
+.form-check:not(.form-switch)
+  .form-check-input[type="checkbox"]:checked::before {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: var(--primary-foreground);
+  content: "";
+  mask: var(--checkmark-image) center / 12px 12px no-repeat;
+  background-color: var(--foreground);
+}
+.form-check:not(.form-switch)
+  .form-check-input[type="checkbox"]:indeterminate::before {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 65%;
+  height: 6.65%;
+  margin: auto;
+  border-radius: var(--radius-full);
+  background: var(--foreground);
+  mask: none;
+  content: "";
+}
+
+.form-check-input[type="radio"] {
+  border-radius: var(--radius-full);
+  width: 16px;
+  height: 16px;
+  border: 0;
+  box-shadow: inset 0 0 0 1px var(--input);
+}
+
+.form-check-input[type="radio"]:checked {
+  border: 0;
+  background: radial-gradient(
+    circle,
+    var(--primary-foreground) 0 3px,
+    var(--foreground) 3px
+  );
+  box-shadow: none;
+}
+
+.form-check:not(.form-switch) .form-check-input:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+}
+.form-check:not(.form-switch) .form-check-input[type="checkbox"]:focus-visible {
+  border-color: var(--ring);
+  outline: none;
+  box-shadow: 0 0 0 2px var(--ring);
+}
+
+.form-check:not(.form-switch) .form-check-input:disabled {
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.form-check:not(.form-switch) .form-check-input:disabled + .form-check-label {
+  cursor: not-allowed;
+}
+.form-check:not(.form-switch) .form-check-input[type="radio"]:disabled,
+.form-check:not(.form-switch)
+  .form-check-input[type="radio"]:disabled
+  + .form-check-label {
+  opacity: 0.5;
+}
+
+.form-switch .form-check-input:disabled,
+.form-switch .form-check-input:disabled + .form-check-label {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.form-check-label {
+  color: var(--foreground);
+  cursor: var(--cursor-interaction, default);
+}
+
+.form-switch .form-check-input {
+  position: relative;
+  width: 32px;
+  height: 20px;
+  border: 0;
+  border-radius: var(--radius-full);
+  background: var(--muted);
+  box-shadow: none;
+  transition: background-color 200ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.form-switch .form-check-input::before {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 16px;
+  height: 16px;
+  box-sizing: border-box;
+  border: 1px solid light-dark(var(--primary-foreground), var(--foreground));
+  border-radius: var(--radius-full);
+  box-shadow: var(--shadow-sm);
+  content: "";
+  transform: translate(2px, -50%);
+  transition: transform 200ms cubic-bezier(0, 0, 0.2, 1);
+  border-color: #fff;
+  background: #fff;
+}
+
+.form-switch .form-check-input:checked {
+  background: var(--blue);
+}
+
+.form-switch .form-check-input:checked::before {
+  transform: translate(14px, -50%);
+}
+
+.form-switch .form-check-input:focus-visible {
+  box-shadow: 0 0 0 2px var(--ring);
+  outline: none;
+}
+
+.form-range {
+  appearance: none;
+  display: block;
+  width: 100%;
+  flex: 1;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  accent-color: var(--primary);
+  height: calc(12px + 2 * var(--control-spacing, 12px));
+  min-height: calc(12px + 2 * var(--control-spacing, 12px));
+  outline: none;
+  border-radius: var(--radius-full);
+  color: var(--foreground);
+  background: transparent;
+}
+
+.form-range::-webkit-slider-runnable-track {
+  background: var(--form-range-track, var(--border));
+  height: 2px;
+  border-radius: var(--radius-full);
+}
+
+.form-range::-webkit-slider-thumb {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-full);
+  margin-top: -9px;
+  border-color: transparent;
+  background: currentColor;
+  box-shadow: var(--shadow-sm);
+}
+
+/* Outline the native track and thumb, preserving the larger input hit area. */
+.form-range:focus-visible::-webkit-slider-runnable-track {
+  outline: 2px auto Highlight;
+  outline-color: -webkit-focus-ring-color;
+}
+
+.form-range::-moz-range-track {
+  background: var(--form-range-track, var(--border));
+  height: 2px;
+  border-radius: var(--radius-full);
+}
+
+.form-range::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-full);
+  border-color: transparent;
+  background: currentColor;
+  box-shadow: var(--shadow-sm);
+}
+
+.form-range:focus-visible::-moz-range-thumb {
+  outline: 2px solid Highlight;
+  outline-offset: 2px;
+}
+
+.form-range:disabled {
+  opacity: 1;
+  cursor: default;
+}
+
+.btn:not(.btn-primary, .viz-tile):is(
+  [aria-pressed="true"],
+  [aria-selected="true"],
+  .is-selected
+) {
+  border-color: transparent;
+  color: var(--primary-foreground);
+  background: var(--blue);
+}
+
+.btn.viz-tile:is([aria-pressed="true"], [aria-selected="true"], .is-selected) {
+  border-color: var(--primary);
+  box-shadow: inset 0 0 0 1px var(--primary);
+}
+
+.btn:focus-visible,
+.nav-link:focus-visible {
+  outline-offset: 2px;
+  outline: none;
+  box-shadow: 0 0 0 2px var(--ring);
+}
+
+.viz-carousel-controls :is(button, summary):focus-visible {
+  outline: 2px solid var(--ring) !important;
+  outline-offset: 2px !important;
+}
+
+/* Web recipes are the default, including on renderers without inline style queries. */
+@supports (border-radius: if(style(--corner-shape: round): 1px; else: 2px)) {
+  /* Match the host's proportional text-sm scale at every text preference. */
+  .tooltip,
+  .viz-badge,
+  .btn,
+  .nav-link,
+  .form-control,
+  .form-select {
+    font-size: if(
+      style(--corner-shape: round): round(
+          nearest,
+          calc(var(--font-size-base) * 14 / 16),
+          1px
+        );
+        else: round(nearest, calc(var(--font-size-base) * 13 / 14), 1px)
+    );
+  }
+
+  .btn,
+  .nav-link,
+  .form-select {
+    border-radius: if(
+      style(--corner-shape: round): var(--radius-full); else: var(--radius-lg)
+    );
+  }
+
+  .form-check:not(.form-switch) .form-check-input[type="checkbox"] {
+    border-radius: if(
+      style(--corner-shape: round): calc(var(--radius-sm) / 2);
+        else: calc(var(--radius-lg) * 0.4)
+    );
+  }
+
+  .tooltip {
+    font-weight: if(
+      style(--corner-shape: round): 600; else: var(--font-weight-normal)
+    );
+  }
+}
+
+@media (pointer: coarse) {
+  .viz-carousel:has(> .viz-carousel-controls) {
+    min-height: calc(76px + var(--viz-carousel-picker-height, 0px));
+    padding-bottom: 76px;
+  }
+
+  .btn,
+  .nav-link,
+  .viz-carousel-controls button,
+  .viz-carousel-picker > summary,
+  .form-control,
+  .form-select {
+    min-width: 44px;
+    min-height: 44px;
+  }
+
+  /* Keep small-screen WebKit from zooming when a text field receives focus. */
+  .form-control,
+  .form-select {
+    font-size: max(16px, calc(var(--font-size-base) * 14 / 16));
+    font-size: max(
+      16px,
+      round(nearest, calc(var(--font-size-base) * 14 / 16), 1px)
+    );
+  }
+  .form-control:is(
+    [type="file"],
+    [type="date"],
+    [type="datetime-local"],
+    [type="month"],
+    [type="week"],
+    [type="time"],
+    [type="color"]
+  ) {
+    height: 44px;
+    min-height: 44px;
+    font-size: max(16px, calc(var(--font-size-base) * 14 / 16));
+    font-size: max(
+      16px,
+      round(nearest, calc(var(--font-size-base) * 14 / 16), 1px)
+    );
+  }
+
+  .form-control[type="file"]::file-selector-button {
+    min-width: 44px;
+    min-height: 44px;
+  }
+
+  .form-control-color[type="color"] {
+    width: 44px;
+    height: 44px;
+  }
+
+  .form-control:is(
+    [type="date"],
+    [type="datetime-local"],
+    [type="month"],
+    [type="time"],
+    [type="week"]
+  ) {
+    min-width: 0;
+    max-width: 100%;
+    padding-block: 8px;
+  }
+
+  .form-check {
+    min-height: 44px;
+    padding-inline: 15px;
+  }
+
+  .form-check-input {
+    position: relative;
+  }
+
+  .form-check-input::after {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 44px;
+    height: 44px;
+    content: "";
+    transform: translate(-50%, -50%);
+  }
+
+  .form-check-label {
+    display: inline-flex;
+    min-width: 44px;
+    min-height: 44px;
+    align-items: center;
+  }
+
+  .form-range {
+    height: 44px;
+    touch-action: pan-y;
+  }
+}
+
+svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+#widget > svg {
+  width: 100%;
+}
+
+/* Model-authored chart rules can otherwise stretch icons after these styles load. */
+svg.lucide {
+  display: block;
+  width: var(--icon-size) !important;
+  height: var(--icon-size) !important;
+  flex: none;
+  margin: 0 !important;
+  stroke-width: 1.6;
+}
+
+.text-warning,
+.text-destructive {
+  color: var(--destructive);
+}
+
+html>body{padding:0}
+body{padding:14px}.adapter-notice{padding:12px;border:1px solid var(--border);margin-bottom:14px;font:12px/1.5 monospace}</style></head><body><div class="adapter-notice">A0 Laufzeitadapter · abgeleitete Bedienoberfläche aus dem gefrorenen Core-Snapshot · sechs UI-Felder, kein vollständiger 106-Knoten-Zustand · Source SHA-256 4cfc870b3fcbe0d97c34098a1cd0767c79e0d3e316208da5a43575f17cc846f6</div><script>(function(root,factory){const api=factory();if(typeof module==='object'&&module.exports)module.exports=api;root.A0PentagonContract=api})(typeof globalThis!=='undefined'?globalThis:this,function(){
+'use strict';
+const VERSION='1.0.0',PROTOCOL='A0_PENTAGON_UI_V1',SOURCE_HASH='4cfc870b3fcbe0d97c34098a1cd0767c79e0d3e316208da5a43575f17cc846f6';
+const DEFAULT={mode:'structure',op:'0',growthStep:'5',couplingView:'cycles',dRegister:0,branchWord:'LRRL'};
+const FIELDS=Object.keys(DEFAULT),MODES=['structure','metric','boundary','lift','roots','growth','coupling','d30'];
+function state(s){
+ if(!s||typeof s!=='object'||Array.isArray(s)||Object.keys(s).sort().join('|')!==FIELDS.slice().sort().join('|'))throw Error('six-field UI record required');
+ if(!MODES.includes(s.mode)||!['0','1','2','3','4','m'].includes(s.op)||!['1','2','3','4','5','closed'].includes(s.growthStep)||!['cycles','triangles','handle7','octagon'].includes(s.couplingView)||!Number.isInteger(s.dRegister)||s.dRegister<0||s.dRegister>4||typeof s.branchWord!=='string'||!/^[LR]{0,6}$/.test(s.branchWord))throw Error('invalid PENT UI state');
+ return Object.fromEntries(FIELDS.map(k=>[k,s[k]]));
+}
+const equal=(a,b)=>FIELDS.every(k=>a[k]===b[k]);
+function phase(word){if(typeof word!=='string'||!/^[LR]{0,6}$/.test(word))throw Error('invalid branch word');return((Array.from(word).reduce((sum,c)=>sum+(c==='R'?1:-1),0)%30)+30)%30;}
+function command(input,action,value){const s=state(input);
+ switch(action){
+ case 'VIEW':s.mode=value;break;
+ case 'STRUCTURE_OP':s.mode='structure';s.op=value;break;
+ case 'GROWTH':s.mode='growth';s.growthStep=value;break;
+ case 'COUPLING':s.mode='coupling';s.couplingView=value;break;
+ case 'D30_ROTATE':s.mode='d30';s.dRegister=(s.dRegister+1)%5;break;
+ case 'D30_MIRROR':s.mode='d30';s.dRegister=[0,4,3,2,1][s.dRegister];break;
+ case 'LEFT':case 'RIGHT':if(s.branchWord.length>=6)throw Error('six-letter branch boundary');s.mode='d30';s.branchWord+=action==='LEFT'?'L':'R';break;
+ case 'WORD':s.mode='d30';s.branchWord=value;break;
+ case 'REGISTER':s.mode='d30';s.dRegister=value;break;
+ default:throw Error('unknown PENT command');
+ }return state(s);
+}
+const MASTER_CUES=Object.freeze({SOURCE:'VIEW:structure; op=0',OPERATOR:'STRUCTURE_OP:m',EDGE:'D30_ROTATE',SHADOW:'VIEW:lift',FAMILY:'VIEW:roots',GRID:'COUPLING:cycles',RETURN:'VIEW:boundary',FOLD:'COUPLING:triangles',ROOT:'WORD:LRRL',RECORD:'RETURN_TO_CAPTURED_UI_STATE'});
+function master(input,id){if(!Object.hasOwn(MASTER_CUES,id))throw Error('unknown Master phase');if(id==='RECORD')return null;if(id==='SOURCE')return command(input,'STRUCTURE_OP','0');if(id==='OPERATOR')return command(input,'STRUCTURE_OP','m');if(id==='EDGE')return command(input,'D30_ROTATE');if(id==='SHADOW')return command(input,'VIEW','lift');if(id==='FAMILY')return command(input,'VIEW','roots');if(id==='GRID')return command(input,'COUPLING','cycles');if(id==='RETURN')return command(input,'VIEW','boundary');if(id==='FOLD')return command(input,'COUPLING','triangles');return command(input,'WORD','LRRL');}
+function witness(w){
+ if(!w||w.sourceHash!==SOURCE_HASH||!Number.isSafeInteger(w.revision)||w.revision<0)throw Error('source/revision mismatch');
+ const s=state(w.state),rendered=state(w.rendered);if(!equal(s,rendered))throw Error('rendered UI disagrees with source state');
+ if(w.phase!==phase(s.branchWord)||typeof w.resultText!=='string'||w.resultText.length>3000||!Number.isSafeInteger(w.svgElements)||w.svgElements<=0)throw Error('invalid rendered witness');
+ return{sourceHash:SOURCE_HASH,revision:w.revision,state:s,rendered,phase:w.phase,resultText:w.resultText,svgElements:w.svgElements};
+}
+return{VERSION,PROTOCOL,SOURCE_HASH,DEFAULT,FIELDS,MODES,MASTER_CUES,state,equal,phase,command,master,witness};
+});
+</script>
+<script>/* Installed only in the separately generated runtime derivative, never in the frozen source. */
+(function(root,factory){const api=factory();if(typeof module==='object'&&module.exports)module.exports=api;root.A0PentagonChild=api})(typeof globalThis!=='undefined'?globalThis:this,function(){
+'use strict';
+function install(env,api,P){
+ let session=null,revision=0,lastSeq=0;
+ const witness=()=>P.witness({sourceHash:P.SOURCE_HASH,revision,state:api.getState(),rendered:api.readRendered(),phase:P.phase(api.getState().branchWord),resultText:api.resultText(),svgElements:api.svgElements()});
+ const send=(type,seq,extra={})=>{if(session)env.parent.postMessage({protocol:P.PROTOCOL,session,type,seq,...extra},'*');};
+ env.addEventListener('message',event=>{
+  const m=event.data;if(event.source!==env.parent||!m||m.protocol!==P.PROTOCOL||typeof m.session!=='string'||!/^[a-f0-9]{32}$/.test(m.session)||!Number.isSafeInteger(m.seq)||m.seq<=0)return;
+  if(m.action==='HELLO'){
+   if(session&&session!==m.session)return;
+   session=m.session;if(m.seq<=lastSeq)return;lastSeq=m.seq;
+   try{send('READY',m.seq,{witness:witness()});}catch(e){send('ERROR',m.seq,{error:e.message});}return;
+  }
+  if(m.session!==session||m.seq<=lastSeq)return;lastSeq=m.seq;
+  try{
+   if(m.action==='READ'){send('ACK',m.seq,{witness:witness()});return;}
+   if(m.action!=='SET'&&m.action!=='RETURN')throw Error('unsupported action');
+   if(m.baseRevision!==revision)throw Error('revision conflict');
+   const next=P.state(m.state);api.setState(next);revision++;
+   const w=witness();if(!P.equal(w.state,next))throw Error('target/readback mismatch');
+   send('ACK',m.seq,{witness:w,operation:m.action});
+  }catch(e){send('ERROR',m.seq,{error:e.message});}
+ });
+ // Native Explorer interactions call this through its original save() method.
+ env.__pentagonNativeChange=()=>{revision++;try{send('CHANGED',0,{witness:witness()});}catch(e){send('ERROR',0,{error:e.message});}};
+ for(const kind of ['pointerdown','keydown','wheel','touchmove'])env.addEventListener(kind,()=>send('INTERACTION',0),{passive:true});
+ return{witness};
+}
+return{install};
+});
+</script><script>window.openai={widgetState:null,setWidgetState:async function(s){this.widgetState=s;if(window.__pentagonNativeChange)window.__pentagonNativeChange();}};</script><div id="pascal-pentagon-suite">
+  <style>
+    #pascal-pentagon-suite { color: var(--foreground); }
+    #pascal-pentagon-suite .pps-head { display:flex; justify-content:space-between; align-items:end; gap:16px; margin-bottom:14px; }
+    #pascal-pentagon-suite .pps-head p { margin:4px 0 0; color:var(--muted-foreground); }
+    #pascal-pentagon-suite .pps-status { color:var(--green); font-weight:500; white-space:nowrap; }
+    #pascal-pentagon-suite .pps-layout { display:grid; grid-template-columns:minmax(0,1fr) 250px; gap:16px; margin-top:14px; }
+    #pascal-pentagon-suite .pps-figure { min-width:0; }
+    #pascal-pentagon-suite .pps-figure svg { display:block; width:100%; height:auto; max-height:570px; }
+    #pascal-pentagon-suite .pps-side { display:flex; flex-direction:column; gap:12px; }
+    #pascal-pentagon-suite .pps-controls { display:flex; flex-wrap:wrap; gap:6px; }
+    #pascal-pentagon-suite .pps-controls[hidden] { display:none; }
+    #pascal-pentagon-suite .pps-controls .btn { min-width:40px; }
+    #pascal-pentagon-suite .pps-detail { min-height:84px; }
+    #pascal-pentagon-suite .pps-detail strong { display:block; margin-bottom:6px; }
+    #pascal-pentagon-suite .pps-detail p { margin:0; color:var(--muted-foreground); }
+    #pascal-pentagon-suite .pps-metrics { display:grid; grid-template-columns:1fr 1fr; gap:8px; }
+    #pascal-pentagon-suite .pps-metrics .card { min-width:0; }
+    #pascal-pentagon-suite .pps-metrics .viz-stat-value { white-space:nowrap; }
+    #pascal-pentagon-suite .pps-node { fill:var(--background); stroke:var(--viz-series-1); stroke-width:1.1; }
+    #pascal-pentagon-suite .pps-seam { stroke:var(--viz-series-2); stroke-width:2; fill:none; }
+    #pascal-pentagon-suite .pps-edge { stroke:var(--border); stroke-width:1; fill:none; }
+    #pascal-pentagon-suite .pps-diagonal { stroke:var(--viz-series-3); stroke-width:1.7; fill:none; }
+    #pascal-pentagon-suite .pps-lift-top { fill:color-mix(in srgb, var(--viz-series-1) 12%, transparent); stroke:none; }
+    #pascal-pentagon-suite .pps-lift-bottom { fill:color-mix(in srgb, var(--viz-series-3) 10%, transparent); stroke:none; }
+    #pascal-pentagon-suite .pps-root-carrier { fill:var(--viz-series-1); stroke:var(--foreground); stroke-width:1.5; }
+    #pascal-pentagon-suite .pps-root-complete { fill:var(--background); stroke:var(--viz-series-3); stroke-width:2; }
+    #pascal-pentagon-suite .pps-growth-face { fill:color-mix(in srgb, var(--viz-series-1) 14%, transparent); stroke:none; }
+    #pascal-pentagon-suite .pps-control-ring { fill:none; stroke:var(--border); stroke-width:1.2; }
+    #pascal-pentagon-suite .pps-control-spoke { stroke:var(--border); stroke-width:1; }
+    #pascal-pentagon-suite .pps-address-ring { fill:none; stroke:var(--viz-series-5); stroke-width:1.4; stroke-dasharray:4 4; }
+    #pascal-pentagon-suite .pps-mask-up { fill:none; stroke:var(--viz-series-3); stroke-width:2.4; }
+    #pascal-pentagon-suite .pps-mask-down { fill:none; stroke:var(--viz-series-4); stroke-width:2.4; }
+    #pascal-pentagon-suite .pps-observer { fill:none; stroke:var(--viz-series-6); stroke-width:1.8; stroke-dasharray:3 3; }
+    #pascal-pentagon-suite .pps-phase-ring { fill:none; stroke:var(--border); stroke-width:1.2; }
+    #pascal-pentagon-suite .pps-phase-tick { stroke:var(--muted-foreground); stroke-width:1; }
+    #pascal-pentagon-suite .pps-phase-axis { stroke:var(--viz-series-2); stroke-width:2; }
+    #pascal-pentagon-suite .pps-phase-path { fill:none; stroke:var(--viz-series-4); stroke-width:3; stroke-linecap:round; stroke-linejoin:round; }
+    #pascal-pentagon-suite .pps-phase-current { fill:var(--primary); stroke:var(--foreground); stroke-width:1.5; }
+    #pascal-pentagon-suite .pps-register-link { stroke:var(--border); stroke-width:1; }
+    #pascal-pentagon-suite .pps-register-link-active { stroke:var(--viz-series-1); stroke-width:2.2; }
+    #pascal-pentagon-suite .pps-active { fill:var(--viz-series-4); stroke:var(--foreground); stroke-width:2.5; }
+    #pascal-pentagon-suite .pps-warning { fill:var(--destructive); stroke:var(--foreground); stroke-width:2; }
+    #pascal-pentagon-suite .pps-ok { fill:var(--green); stroke:var(--foreground); stroke-width:2; }
+    #pascal-pentagon-suite .pps-label { fill:var(--foreground); font:500 13px ui-monospace, SFMono-Regular, Menlo, monospace; text-anchor:middle; dominant-baseline:middle; }
+    #pascal-pentagon-suite .pps-small { fill:var(--muted-foreground); font:400 11px ui-sans-serif, system-ui, sans-serif; text-anchor:middle; }
+    #pascal-pentagon-suite .pps-gold { fill:var(--viz-series-2); }
+    #pascal-pentagon-suite .pps-result { margin-top:12px; color:var(--muted-foreground); }
+    @media (max-width:760px) {
+      #pascal-pentagon-suite .pps-head { align-items:start; flex-direction:column; }
+      #pascal-pentagon-suite .pps-layout { grid-template-columns:1fr; }
+      #pascal-pentagon-suite .pps-side { display:grid; grid-template-columns:1fr 1fr; }
+      #pascal-pentagon-suite .pps-detail { grid-column:1 / -1; }
+    }
+    @media (max-width:480px) { #pascal-pentagon-suite .pps-side { display:flex; } }
+  </style>
+
+  <div class="pps-head">
+    <div><h2>Pascal pentagon</h2><p>PENT-01 structure · PENT-02 metric · PENT-03 boundary · PENT-04 3D lift · PENT-05 roots · PENT-06 growth · PENT-07 coupling + D30 phase view</p></div>
+    <div class="pps-status" aria-live="polite">Bounded candidate evidence</div>
+  </div>
+
+  <div class="nav nav-pills nav-justified" role="tablist" aria-label="Test layer">
+    <button class="nav-link active" type="button" role="tab" aria-selected="true" data-mode="structure">Structure</button>
+    <button class="nav-link" type="button" role="tab" aria-selected="false" data-mode="metric">Metric</button>
+    <button class="nav-link" type="button" role="tab" aria-selected="false" data-mode="boundary">Boundary</button>
+    <button class="nav-link" type="button" role="tab" aria-selected="false" data-mode="lift">3D lift</button>
+    <button class="nav-link" type="button" role="tab" aria-selected="false" data-mode="roots">Roots</button>
+    <button class="nav-link" type="button" role="tab" aria-selected="false" data-mode="growth">Growth</button>
+    <button class="nav-link" type="button" role="tab" aria-selected="false" data-mode="coupling">5/6 coupling</button>
+    <button class="nav-link" type="button" role="tab" aria-selected="false" data-mode="d30">D30 joint</button>
+  </div>
+
+  <div class="pps-layout">
+    <div class="pps-figure">
+      <svg viewBox="0 0 650 570" role="img" aria-labelledby="pps-title pps-desc">
+        <title id="pps-title">Interactive Pascal pentagon test suite</title>
+        <desc id="pps-desc">Five glued depth-six Pascal faces with structural, metric, boundary, pentagonal-bipyramid, root-completion, dynamic-boundary growth and typed pentagon/hexagon coupling views.</desc>
+      </svg>
+      <div class="pps-result text-small" aria-live="polite"></div>
+    </div>
+    <aside class="pps-side">
+      <div class="pps-controls pps-operator-controls" aria-label="Structure operator">
+        <button class="btn btn-primary" type="button" aria-pressed="true" data-op="0">e</button>
+        <button class="btn" type="button" aria-pressed="false" data-op="1">r</button>
+        <button class="btn" type="button" aria-pressed="false" data-op="2">r²</button>
+        <button class="btn" type="button" aria-pressed="false" data-op="3">r³</button>
+        <button class="btn" type="button" aria-pressed="false" data-op="4">r⁴</button>
+        <button class="btn" type="button" aria-pressed="false" data-op="m">m</button>
+      </div>
+      <div class="pps-controls pps-growth-controls" aria-label="Growth state" hidden>
+        <button class="btn" type="button" aria-pressed="false" data-step="1">1</button>
+        <button class="btn" type="button" aria-pressed="false" data-step="2">2</button>
+        <button class="btn" type="button" aria-pressed="false" data-step="3">3</button>
+        <button class="btn" type="button" aria-pressed="false" data-step="4">4</button>
+        <button class="btn btn-primary" type="button" aria-pressed="true" data-step="5">5</button>
+        <button class="btn" type="button" aria-pressed="false" data-step="closed">Close</button>
+      </div>
+      <div class="pps-controls pps-coupling-controls" aria-label="Coupling mask" hidden>
+        <button class="btn btn-primary" type="button" aria-pressed="true" data-coupling-view="cycles">Cycles</button>
+        <button class="btn" type="button" aria-pressed="false" data-coupling-view="triangles">▲ / ▼</button>
+        <button class="btn" type="button" aria-pressed="false" data-coupling-view="handle7">P1–P3 · H7</button>
+        <button class="btn" type="button" aria-pressed="false" data-coupling-view="octagon">Octagon view</button>
+      </div>
+      <div class="pps-controls pps-d30-controls" aria-label="D30 phase lift" hidden>
+        <label class="form-label" for="pps-d-register">Register
+          <select class="form-select" id="pps-d-register">
+            <option value="0">D1 · f=0</option><option value="1">D2 · f=1</option><option value="2">D3 · f=2</option><option value="3">D4 · f=3</option><option value="4">D5 · f=4</option>
+          </select>
+        </label>
+        <label class="form-label" for="pps-branch-word">Branch word
+          <input class="form-control" id="pps-branch-word" value="LRRL" maxlength="6" inputmode="text">
+        </label>
+        <button class="btn btn-primary" type="button" data-d30-action="apply">Apply</button>
+        <button class="btn" type="button" data-d30-action="left">L · −12°</button>
+        <button class="btn" type="button" data-d30-action="right">R · +12°</button>
+        <button class="btn" type="button" data-d30-action="rotate">C5 · D+1</button>
+        <button class="btn" type="button" data-d30-action="reflect">D5 · mirror</button>
+      </div>
+      <div class="pps-metrics"></div>
+      <div class="card pps-detail" aria-live="polite"></div>
+    </aside>
+  </div>
+
+  <script>
+    (() => {
+      const root = document.getElementById('pascal-pentagon-suite');
+      const svg = root.querySelector('svg');
+      const operatorControls = root.querySelector('.pps-operator-controls');
+      const growthControls = root.querySelector('.pps-growth-controls');
+      const couplingControls = root.querySelector('.pps-coupling-controls');
+      const d30Controls = root.querySelector('.pps-d30-controls');
+      const metrics = root.querySelector('.pps-metrics');
+      const detail = root.querySelector('.pps-detail');
+      const result = root.querySelector('.pps-result');
+      const NS = 'http://www.w3.org/2000/svg';
+      const center = { x: 325, y: 285 };
+      const radius = 232;
+      const depth = 6;
+      const saved = window.openai?.widgetState?.modelContent || {};
+      let mode = ['structure', 'metric', 'boundary', 'lift', 'roots', 'growth', 'coupling', 'd30'].includes(saved.mode) ? saved.mode : 'structure';
+      let op = ['0', '1', '2', '3', '4', 'm'].includes(String(saved.op)) ? String(saved.op) : '0';
+      let growthStep = ['1', '2', '3', '4', '5', 'closed'].includes(String(saved.growthStep)) ? String(saved.growthStep) : '5';
+      let couplingView = ['cycles', 'triangles', 'handle7', 'octagon'].includes(saved.couplingView) ? saved.couplingView : 'cycles';
+      let dRegister = Number.isInteger(saved.dRegister) && saved.dRegister >= 0 && saved.dRegister < 5 ? saved.dRegister : 0;
+      let branchWord = typeof saved.branchWord === 'string' && /^[LR]{0,6}$/.test(saved.branchWord) ? saved.branchWord : 'LRRL';
+      const vertices = Array.from({ length: 5 }, (_, i) => {
+        const angle = -Math.PI / 2 + i * 2 * Math.PI / 5;
+        return { x: center.x + radius * Math.cos(angle), y: center.y + radius * Math.sin(angle) };
+      });
+      const make = (name, attrs = {}) => {
+        const node = document.createElementNS(NS, name);
+        Object.entries(attrs).forEach(([key, value]) => node.setAttribute(key, value));
+        return node;
+      };
+      const line = (a, b, className) => make('line', { x1:a.x, y1:a.y, x2:b.x, y2:b.y, class:className });
+      const textNode = (x, y, value, className = 'pps-label') => {
+        const node = make('text', { x, y, class:className });
+        node.textContent = value;
+        return node;
+      };
+      const polar = (cx, cy, r, degrees) => {
+        const angle = (degrees - 90) * Math.PI / 180;
+        return { x:cx + r*Math.cos(angle), y:cy + r*Math.sin(angle) };
+      };
+      const branchPhases = word => {
+        let phase = 0;
+        const path = [phase];
+        for (const branch of word) {
+          phase = (phase + (branch === 'R' ? 1 : 29)) % 30;
+          path.push(phase);
+        }
+        return path;
+      };
+      const point = (face, n, k) => {
+        if (n === 0) return center;
+        const t = n / depth;
+        const q = k / n;
+        const a = vertices[face];
+        const b = vertices[(face + 1) % 5];
+        return { x:center.x*(1-t)+t*((1-q)*a.x+q*b.x), y:center.y*(1-t)+t*((1-q)*a.y+q*b.y) };
+      };
+      const choose = (n, k) => {
+        let value = 1;
+        for (let i = 1; i <= k; i++) value = value * (n - i + 1) / i;
+        return value;
+      };
+      const stat = (label, value) => `<div class="card viz-stat"><span class="text-muted">${label}</span><div class="viz-stat-value tabular-nums">${value}</div></div>`;
+      const activeFace = () => op === 'm' ? 4 : Number(op);
+
+      function drawCarrier(showGrid = true) {
+        const edges = make('g');
+        const seams = make('g');
+        const nodes = make('g');
+        svg.append(edges, seams, nodes);
+        if (showGrid) {
+          for (let face = 0; face < 5; face++) for (let n = 0; n < depth; n++) for (let k = 0; k <= n; k++) {
+            const p = point(face, n, k);
+            edges.append(line(p, point(face, n + 1, k), 'pps-edge'));
+            edges.append(line(p, point(face, n + 1, k + 1), 'pps-edge'));
+          }
+        }
+        for (let face = 0; face < 5; face++) seams.append(line(center, vertices[face], 'pps-seam'));
+        for (let face = 0; face < 5; face++) for (let n = 1; n <= depth; n++) {
+          const seam = point(face, n, 0);
+          nodes.append(make('circle', { cx:seam.x, cy:seam.y, r:3, class:'pps-node' }));
+          for (let k = 1; k < n; k++) {
+            const p = point(face, n, k);
+            const isTwenty = n === depth && k === 3;
+            const className = isTwenty && mode === 'structure' && face === activeFace() ? 'pps-node pps-active' : 'pps-node';
+            nodes.append(make('circle', { cx:p.x, cy:p.y, r:isTwenty ? 14 : 2.5 + Math.log2(choose(n,k)+1), class:className }));
+            if (isTwenty) nodes.append(textNode(p.x, p.y, '20'));
+          }
+        }
+        nodes.append(make('circle', { cx:center.x, cy:center.y, r:17, class:'pps-node' }));
+        nodes.append(textNode(center.x, center.y, mode === 'structure' ? (op === 'm' ? 'm' : op === '0' ? 'e' : `r${op}`) : '1', 'pps-label pps-gold'));
+      }
+
+      function drawStructure() {
+        drawCarrier(true);
+        metrics.innerHTML = stat('Layers','7') + stat('Nodes','106') + stat('Rotation','C₅') + stat('Full group','D₅');
+        detail.innerHTML = '<strong>4 turns + return</strong><p>r⁵ = e · m² = e · mrm = r⁻¹</p>';
+        result.textContent = 'PENT-01 · PASS · connected weighted recurrence carrier';
+      }
+
+      function drawMetric() {
+        drawCarrier(false);
+        const diagonals = make('g');
+        svg.prepend(diagonals);
+        for (let i = 0; i < 5; i++) {
+          diagonals.append(line(vertices[i], vertices[(i+2)%5], 'pps-diagonal'));
+          diagonals.append(line(vertices[i], vertices[(i+1)%5], 'pps-edge'));
+        }
+        const sideMid = { x:(vertices[1].x+vertices[2].x)/2, y:(vertices[1].y+vertices[2].y)/2 };
+        const diagMid = { x:(vertices[0].x+vertices[2].x)/2, y:(vertices[0].y+vertices[2].y)/2 };
+        svg.append(textNode(sideMid.x+25, sideMid.y, 'd'));
+        svg.append(textNode(diagMid.x-18, diagMid.y-12, 'φd'));
+        metrics.innerHTML = stat('Side','1.17557') + stat('Diagonal','1.90211') + stat('Ratio','φ') + stat('Tolerance','10⁻¹⁰');
+        detail.innerHTML = '<strong>Exact metric realization</strong><p>Diagonal / side = golden section = φ ≈ 1.61803398875.</p>';
+        result.textContent = 'PENT-02 · PASS · C₅/D₅ acts by Euclidean isometries';
+      }
+
+      function drawBoundary() {
+        const positions = [43,83,83,97,137];
+        const group = make('g');
+        svg.append(group);
+        for (let i = 0; i < 5; i++) {
+          group.append(line(vertices[i], vertices[(i+1)%5], 'pps-edge'));
+          group.append(line(vertices[i], vertices[(i+2)%5], 'pps-diagonal'));
+          group.append(make('circle', { cx:vertices[i].x, cy:vertices[i].y, r:22, class:i===1||i===2 ? 'pps-warning' : 'pps-node' }));
+          group.append(textNode(vertices[i].x, vertices[i].y, String(positions[i])));
+        }
+        group.append(make('circle', { cx:center.x, cy:center.y, r:48, class:'pps-ok' }));
+        group.append(textNode(center.x, center.y-8, '360'));
+        group.append(textNode(center.x, center.y+16, '4 labels', 'pps-small'));
+        group.append(textNode(center.x, 548, 'five positions = 443 · duplicated 83', 'pps-small'));
+        metrics.innerHTML = stat('4-label sum','360') + stat('5-position sum','443') + stat('Unique labels','4') + stat('3D lift','PENT-04 PASS');
+        detail.innerHTML = '<strong>Boundary detected</strong><p>17+3=20 · 13+7=20 · 17+13=30. Labels and resonance remain undefined; PENT-04 answers only the carrier question.</p>';
+        result.textContent = 'PENT-03 · PASS WITH BOUNDARY · arithmetic retained, geometry not admitted';
+      }
+
+      function drawLift() {
+        const equator = Array.from({ length:5 }, (_, i) => {
+          const angle = -Math.PI / 2 + i * 2 * Math.PI / 5;
+          return { x:325 + 206*Math.cos(angle), y:285 + 76*Math.sin(angle) };
+        });
+        const zenith = { x:325, y:62 };
+        const nadir = { x:325, y:508 };
+        const faces = make('g');
+        const edges = make('g');
+        const nodes = make('g');
+        svg.append(faces, edges, nodes);
+        for (let i=0; i<5; i++) {
+          const next = (i+1)%5;
+          const topFace = make('polygon', { points:`${zenith.x},${zenith.y} ${equator[i].x},${equator[i].y} ${equator[next].x},${equator[next].y}`, class:'pps-lift-top' });
+          const bottomFace = make('polygon', { points:`${nadir.x},${nadir.y} ${equator[next].x},${equator[next].y} ${equator[i].x},${equator[i].y}`, class:'pps-lift-bottom' });
+          faces.append(topFace, bottomFace);
+          edges.append(line(equator[i], equator[next], 'pps-edge'));
+          edges.append(line(zenith, equator[i], 'pps-seam'));
+          edges.append(line(nadir, equator[i], 'pps-diagonal'));
+          const midpoint = { x:(equator[i].x+equator[next].x)/2, y:(equator[i].y+equator[next].y)/2 };
+          nodes.append(make('circle', { cx:midpoint.x, cy:midpoint.y, r:14, class:'pps-node pps-active' }));
+          nodes.append(textNode(midpoint.x, midpoint.y, '20'));
+        }
+        [zenith, nadir].forEach((apex, index) => {
+          nodes.append(make('circle', { cx:apex.x, cy:apex.y, r:18, class:'pps-node' }));
+          nodes.append(textNode(apex.x, apex.y, index===0 ? 'Z' : 'N'));
+        });
+        equator.forEach((vertex, index) => {
+          nodes.append(make('circle', { cx:vertex.x, cy:vertex.y, r:7, class:'pps-node' }));
+          nodes.append(textNode(vertex.x, vertex.y-16, `V${index}`, 'pps-small'));
+        });
+        metrics.innerHTML = stat('Carrier','7 · 15 · 10') + stat('Nodes','182') + stat('Full action','D₅ × C₂') + stat('Projection','106 + 106');
+        detail.innerHTML = '<strong>Two hemispheres, one carrier</strong><p>r⁵ = m² = h² = e. Five top and five mirrored bottom faces share one equatorial pentagon.</p>';
+        result.textContent = 'PENT-04 · PASS · Euler 2 · 182 glued nodes · 20 verified actions';
+      }
+
+      function drawRoots() {
+        const rootCenter = { x:270, y:285 };
+        const rootRadius = 205;
+        const roots = Array.from({ length:10 }, (_, i) => {
+          const angle = -Math.PI / 2 + i * Math.PI / 5;
+          return { x:rootCenter.x + rootRadius*Math.cos(angle), y:rootCenter.y + rootRadius*Math.sin(angle) };
+        });
+        const structure = make('g');
+        const marks = make('g');
+        svg.append(structure, marks);
+        roots.forEach((rootPoint, index) => {
+          structure.append(line(rootCenter, rootPoint, index%2===0 ? 'pps-seam' : 'pps-diagonal'));
+          marks.append(make('circle', { cx:rootPoint.x, cy:rootPoint.y, r:index%2===0 ? 10 : 8, class:index%2===0 ? 'pps-root-carrier' : 'pps-root-complete' }));
+        });
+        structure.append(make('circle', { cx:rootCenter.x, cy:rootCenter.y, r:rootRadius, class:'pps-edge' }));
+        marks.append(make('circle', { cx:rootCenter.x, cy:rootCenter.y, r:6, class:'pps-node' }));
+        marks.append(textNode(rootCenter.x, 548, 'H₂ · 10 equatorial roots · alternating carrier / completion', 'pps-small'));
+
+        const axisX = 560;
+        const axisTop = { x:axisX, y:170 };
+        const axisBottom = { x:axisX, y:400 };
+        structure.append(line(axisTop, axisBottom, 'pps-seam'));
+        [axisTop, axisBottom].forEach((axisRoot, index) => {
+          marks.append(make('circle', { cx:axisRoot.x, cy:axisRoot.y, r:12, class:'pps-root-carrier' }));
+          marks.append(textNode(axisRoot.x, axisRoot.y, index===0 ? '+α₃' : '−α₃', 'pps-small'));
+        });
+        marks.append(textNode(axisX, 438, 'A₁ · 2 axial roots', 'pps-small'));
+        metrics.innerHTML = stat('Root system','H₂ ⊕ A₁') + stat('Roots','10 + 2') + stat('Group','D₅ × C₂') + stat('Orbit','80 → 100');
+        detail.innerHTML = '<strong>Root completion</strong><p>Five carrier rays + five antipodes + Zenith/Nadir. The system is non-crystallographic; 80 is the four-turn subtotal.</p>';
+        result.textContent = 'PENT-05 · PASS · rank 3 · 12 roots · reflection group order 20';
+      }
+
+      function drawCycle(centerPoint, ringRadius, count, label) {
+        const ring = make('g');
+        const points = Array.from({ length:count }, (_, index) => {
+          const angle = -Math.PI/2 + index*2*Math.PI/count;
+          return { x:centerPoint.x + ringRadius*Math.cos(angle), y:centerPoint.y + ringRadius*Math.sin(angle) };
+        });
+        points.forEach((point, index) => {
+          ring.append(line(point, points[(index+1)%count], 'pps-control-ring'));
+          ring.append(line(centerPoint, point, 'pps-control-spoke'));
+          ring.append(make('circle', { cx:point.x, cy:point.y, r:3.5, class:'pps-node' }));
+        });
+        ring.append(make('circle', { cx:centerPoint.x, cy:centerPoint.y, r:5, class:'pps-active' }));
+        ring.append(textNode(centerPoint.x, centerPoint.y + ringRadius + 18, label, 'pps-small'));
+        svg.append(ring);
+      }
+
+      function drawGrowth() {
+        const closed = growthStep === 'closed';
+        const faces = closed ? 5 : Number(growthStep);
+        const fanCenter = { x:230, y:285 };
+        const fanRadius = 210;
+        const rays = Array.from({ length:faces + 1 }, (_, index) => {
+          const angle = (-210 + index*60) * Math.PI/180;
+          return { x:fanCenter.x + fanRadius*Math.cos(angle), y:fanCenter.y + fanRadius*Math.sin(angle) };
+        });
+        const layers = make('g');
+        const edges = make('g');
+        const marks = make('g');
+        svg.append(layers, edges, marks);
+
+        if (closed) {
+          for (let index=0; index<5; index++) {
+            const a = vertices[index];
+            const b = vertices[(index+1)%5];
+            layers.append(make('polygon', { points:`${center.x},${center.y} ${a.x},${a.y} ${b.x},${b.y}`, class:'pps-growth-face' }));
+            edges.append(line(center, a, 'pps-seam'));
+            edges.append(line(a, b, 'pps-edge'));
+          }
+          marks.append(make('circle', { cx:center.x, cy:center.y, r:16, class:'pps-ok' }));
+          marks.append(textNode(center.x, center.y, '106'));
+          marks.append(textNode(center.x, 548, 'closure: 112 − 6 identified seam nodes = 106', 'pps-small'));
+        } else {
+          for (let index=0; index<faces; index++) {
+            layers.append(make('polygon', { points:`${fanCenter.x},${fanCenter.y} ${rays[index].x},${rays[index].y} ${rays[index+1].x},${rays[index+1].y}`, class:'pps-growth-face' }));
+            edges.append(line(rays[index], rays[index+1], 'pps-edge'));
+          }
+          rays.forEach((ray, index) => edges.append(line(fanCenter, ray, index===0 || index===faces ? 'pps-diagonal' : 'pps-seam')));
+          marks.append(make('circle', { cx:fanCenter.x, cy:fanCenter.y, r:16, class:'pps-node' }));
+          marks.append(textNode(fanCenter.x, fanCenter.y, String(21*faces+7)));
+          marks.append(textNode(fanCenter.x, 548, `${faces} face${faces===1?'':'s'} · open radial seams remain state`, 'pps-small'));
+        }
+
+        if (!closed) {
+          drawCycle({x:530,y:165}, 50, 5, 'C₅');
+          drawCycle({x:530,y:300}, 50, 6, 'C₆ A');
+          drawCycle({x:530,y:435}, 50, 6, 'C₆ B');
+          svg.append(textNode(530, 520, 'historical control: hub-coupled', 'pps-small'));
+        }
+
+        const nodeCount = closed ? 106 : 21*faces+7;
+        const boundaryCount = closed ? 5 : faces+2;
+        metrics.innerHTML = stat('Faces', String(faces)) + stat('Nodes', String(nodeCount)) + stat('Boundary edges', String(boundaryCount)) + stat('Euler χ', '1');
+        detail.innerHTML = closed
+          ? '<strong>Closure is an operation</strong><p>The last radial seam identifies six non-apex nodes. The outer pentagon remains the single boundary component.</p>'
+          : '<strong>Boundary is state</strong><p>Each attachment consumes one open radial edge, adds 21 nodes and exposes one net additional boundary edge.</p>';
+        result.textContent = closed
+          ? 'PENT-06 · PASS WITH BOUNDARY · closed five-face carrier recovered'
+          : 'PENT-06 · PASS · open growth state · C₅+C₆+C₆ retained as separate hub control';
+      }
+
+      function drawCoupling() {
+        const couplingCenter = { x:325, y:270 };
+        const phaseRadius = 225;
+        const addressRadius = 165;
+        const phase = make('g');
+        const cycles = make('g');
+        const marks = make('g');
+        svg.append(phase, cycles, marks);
+        phase.append(make('circle', { cx:couplingCenter.x, cy:couplingCenter.y, r:phaseRadius, class:'pps-control-ring' }));
+        for (let tick=0; tick<30; tick++) {
+          const angle = -Math.PI/2 + tick*2*Math.PI/30;
+          const point = { x:couplingCenter.x + phaseRadius*Math.cos(angle), y:couplingCenter.y + phaseRadius*Math.sin(angle) };
+          phase.append(make('circle', { cx:point.x, cy:point.y, r:tick===0 ? 5 : 2, class:tick===0 ? 'pps-active' : 'pps-node' }));
+        }
+        const drawTypedCycle = (count, ringRadius, edgeClass, label) => {
+          const points = Array.from({ length:count }, (_, index) => {
+            const angle = -Math.PI/2 + index*2*Math.PI/count;
+            return { x:couplingCenter.x + ringRadius*Math.cos(angle), y:couplingCenter.y + ringRadius*Math.sin(angle) };
+          });
+          points.forEach((point, index) => {
+            cycles.append(line(point, points[(index+1)%count], edgeClass));
+            marks.append(make('circle', { cx:point.x, cy:point.y, r:index===0 ? 7 : 4, class:index===0 ? 'pps-active' : 'pps-node' }));
+          });
+          marks.append(textNode(couplingCenter.x + ringRadius + 28, couplingCenter.y, label, 'pps-small'));
+        };
+        drawTypedCycle(5, 190, 'pps-seam', 'C₅');
+        cycles.append(make('circle', { cx:couplingCenter.x, cy:couplingCenter.y, r:addressRadius, class:'pps-address-ring' }));
+        for (let index=0; index<5; index++) {
+          const angle=-Math.PI/2+index*2*Math.PI/5;
+          const outer={x:couplingCenter.x+190*Math.cos(angle),y:couplingCenter.y+190*Math.sin(angle)};
+          const address={x:couplingCenter.x+addressRadius*Math.cos(angle),y:couplingCenter.y+addressRadius*Math.sin(angle)};
+          cycles.append(line(outer,address,'pps-control-spoke'));
+          marks.append(make('circle',{cx:address.x,cy:address.y,r:index===0?7:4,class:index===0?'pps-active':'pps-node'}));
+          marks.append(textNode(address.x,address.y+18,`D${index+1}`,'pps-small'));
+        }
+        marks.append(textNode(couplingCenter.x+addressRadius+32,couplingCenter.y-18,'C₅ᴰ registers','pps-small'));
+        drawTypedCycle(6, 135, 'pps-diagonal', 'C₆ A');
+        drawTypedCycle(6, 90, 'pps-control-ring', 'C₆ B');
+        marks.append(make('circle', { cx:couplingCenter.x, cy:couplingCenter.y, r:14, class:'pps-ok' }));
+        marks.append(textNode(couplingCenter.x, couplingCenter.y, 'hub', 'pps-small'));
+        const sixPoints=Array.from({length:6},(_,index)=>{const angle=-Math.PI/2+index*2*Math.PI/6;return{x:couplingCenter.x+76*Math.cos(angle),y:couplingCenter.y+76*Math.sin(angle)};});
+        const appendPolygon=(indices,className)=>{const polygon=make('polygon',{points:indices.map(index=>`${sixPoints[index].x},${sixPoints[index].y}`).join(' '),class:className});cycles.append(polygon);};
+        if (couplingView==='triangles' || couplingView==='handle7') {
+          appendPolygon([0,2,4],'pps-mask-up'); appendPolygon([1,3,5],'pps-mask-down');
+          marks.append(textNode(couplingCenter.x-46,couplingCenter.y-100,'▲ up','pps-small'));
+          marks.append(textNode(couplingCenter.x+46,couplingCenter.y+108,'▼ down','pps-small'));
+        }
+        if (couplingView==='handle7') {
+          const labels=['P1','P2','P2','P1','P3','P3'];
+          sixPoints.forEach((point,index)=>marks.append(textNode(point.x,point.y+4,labels[index],'pps-small')));
+          marks.append(textNode(couplingCenter.x,couplingCenter.y+4,'H7','pps-label'));
+        }
+        if (couplingView==='octagon') {
+          const octagon=Array.from({length:8},(_,index)=>{const angle=-Math.PI/2+index*2*Math.PI/8;return{x:couplingCenter.x+68*Math.cos(angle),y:couplingCenter.y+68*Math.sin(angle)};});
+          cycles.append(make('polygon',{points:octagon.map(point=>`${point.x},${point.y}`).join(' '),class:'pps-observer'}));
+          octagon.forEach((point,index)=>marks.append(make('circle',{cx:point.x,cy:point.y,r:3,class:'pps-node'})));
+          marks.append(textNode(couplingCenter.x,couplingCenter.y+108,'8-position observer mask','pps-small'));
+        }
+        const viewLabel={cycles:'carrier cycles',triangles:'▲/▼ parity mask',handle7:'P1–P3 + H7 mask',octagon:'octagon observer'}[couplingView];
+        marks.append(textNode(couplingCenter.x, 530, 'C₅ ↛ C₆ directly · C₃₀ phase cover · masks remain views', 'pps-small'));
+        metrics.innerHTML = stat('5 + 6','11') + stat('6 + 6','12') + stat('5 + 6 + 6','17') + stat('Phase cover','C₃₀') + stat('D-registers','5 × 30') + stat('View',viewLabel);
+        detail.innerHTML = couplingView==='cycles'
+          ? '<strong>Typed coupling, not visual fusion</strong><p>The added dashed shell is the D1…D5 address view of the existing C₅ carrier, not another carrier. C₆A→C₆B still requires one selected dihedral map.</p>'
+          : '<strong>Mask over retained carriers</strong><p>Triangle, seven-handle and octagon modes are observer masks Mⱼ:X→Yⱼ. They do not replace C₅, C₆A, C₆B or create a new PENT test.</p>';
+        result.textContent = `PENT-07 · PASS WITH BOUNDARY · ${viewLabel} · carrier, register and mask remain distinct`;
+      }
+
+      function drawD30() {
+        const jointCenter = { x:325, y:270 };
+        const carrierRadius = 225;
+        const phaseRadius = 118;
+        const carrier = make('g');
+        const phase = make('g');
+        const marks = make('g');
+        svg.append(carrier, phase, marks);
+        const registers = Array.from({ length:5 }, (_, index) => polar(jointCenter.x, jointCenter.y, carrierRadius, index*72));
+        carrier.append(make('polygon', { points:registers.map(point => `${point.x},${point.y}`).join(' '), class:'pps-seam' }));
+        registers.forEach((register, index) => {
+          const linkEnd = polar(jointCenter.x, jointCenter.y, phaseRadius+12, index*72);
+          carrier.append(line(register, linkEnd, index === dRegister ? 'pps-register-link-active' : 'pps-register-link'));
+          marks.append(make('circle', { cx:register.x, cy:register.y, r:index === dRegister ? 10 : 7, class:index === dRegister ? 'pps-active' : 'pps-node' }));
+          const label = polar(jointCenter.x, jointCenter.y, carrierRadius+28, index*72);
+          marks.append(textNode(label.x, label.y, `D${index+1}`, 'pps-label'));
+        });
+        phase.append(make('circle', { cx:jointCenter.x, cy:jointCenter.y, r:phaseRadius, class:'pps-phase-ring' }));
+        for (let tick=0; tick<30; tick++) {
+          const inner = polar(jointCenter.x, jointCenter.y, phaseRadius-6, tick*12);
+          const outer = polar(jointCenter.x, jointCenter.y, phaseRadius+6, tick*12);
+          phase.append(line(inner, outer, tick === 0 ? 'pps-phase-axis' : 'pps-phase-tick'));
+        }
+        const path = branchPhases(branchWord);
+        const phasePath = path.map(value => polar(jointCenter.x, jointCenter.y, phaseRadius, value*12));
+        phase.append(make('polyline', { points:phasePath.map(point => `${point.x},${point.y}`).join(' '), class:'pps-phase-path' }));
+        const currentPhase = path[path.length-1];
+        const current = polar(jointCenter.x, jointCenter.y, phaseRadius, currentPhase*12);
+        marks.append(make('circle', { cx:current.x, cy:current.y, r:7, class:'pps-phase-current' }));
+        marks.append(textNode(jointCenter.x, jointCenter.y-8, `D${dRegister+1} · p${currentPhase}`));
+        marks.append(textNode(jointCenter.x, jointCenter.y+16, branchWord || 'ε', 'pps-small'));
+        marks.append(textNode(jointCenter.x, 530, 'L/R: local phase · C5 rotation / D5 reflection: register address', 'pps-small'));
+        metrics.innerHTML = stat('Carrier','C₅ · 106 nodes') + stat('Register',`D${dRegister+1} ↔ f=${dRegister}`) + stat('Phase',`p=${currentPhase} · ${currentPhase*12}°`) + stat('Word',branchWord || 'ε') + stat('Observed','65 / 150') + stat('Audit','24 / 24 PASS');
+        detail.innerHTML = '<strong>D30 phase lift inside PENT-07</strong><p>D1…D5 are one-based addresses of the existing C₅ face register. L and R move by −1/+1 in C₃₀; rotation and reflection act on the register address. This is a formal view, not PENT-08 or a new run.</p>';
+        result.textContent = 'PENT-07 · D30 VIEW · formal design validation · exact state key (Dj,n,p); (Dj,p) remains lossy';
+      }
+
+      function render() {
+        svg.replaceChildren();
+        operatorControls.hidden = mode !== 'structure';
+        growthControls.hidden = mode !== 'growth';
+        couplingControls.hidden = mode !== 'coupling';
+        d30Controls.hidden = mode !== 'd30';
+        if (mode === 'structure') drawStructure();
+        if (mode === 'metric') drawMetric();
+        if (mode === 'boundary') drawBoundary();
+        if (mode === 'lift') drawLift();
+        if (mode === 'roots') drawRoots();
+        if (mode === 'growth') drawGrowth();
+        if (mode === 'coupling') drawCoupling();
+        if (mode === 'd30') drawD30();
+        root.querySelectorAll('[data-mode]').forEach(button => {
+          const selected = button.dataset.mode === mode;
+          button.classList.toggle('active', selected);
+          button.setAttribute('aria-selected', String(selected));
+        });
+        root.querySelectorAll('[data-op]').forEach(button => {
+          const selected = button.dataset.op === op;
+          button.classList.toggle('btn-primary', selected);
+          button.setAttribute('aria-pressed', String(selected));
+        });
+        root.querySelectorAll('[data-step]').forEach(button => {
+          const selected = button.dataset.step === growthStep;
+          button.classList.toggle('btn-primary', selected);
+          button.setAttribute('aria-pressed', String(selected));
+        });
+        root.querySelectorAll('[data-coupling-view]').forEach(button => {
+          const selected = button.dataset.couplingView === couplingView;
+          button.setAttribute('aria-pressed', String(selected));
+          button.classList.toggle('btn-primary', selected);
+        });
+        root.querySelector('#pps-d-register').value = String(dRegister);
+        root.querySelector('#pps-branch-word').value = branchWord;
+      }
+
+      function save() {
+        window.openai?.setWidgetState?.({ modelContent:{ mode, op, growthStep, couplingView, dRegister, branchWord }, privateContent:null }).catch(() => {});
+      }
+      root.querySelectorAll('[data-mode]').forEach(button => button.addEventListener('click', () => { mode=button.dataset.mode; render(); save(); }));
+      root.querySelectorAll('[data-op]').forEach(button => button.addEventListener('click', () => { op=button.dataset.op; render(); save(); }));
+      root.querySelectorAll('[data-step]').forEach(button => button.addEventListener('click', () => { growthStep=button.dataset.step; render(); save(); }));
+      root.querySelectorAll('[data-coupling-view]').forEach(button => button.addEventListener('click', () => { couplingView=button.dataset.couplingView; render(); save(); }));
+      const applyBranchWord = () => {
+        const value = root.querySelector('#pps-branch-word').value.toUpperCase().replace(/\s/g, '');
+        if (!/^[LR]{0,6}$/.test(value)) return;
+        branchWord = value;
+        render();
+        save();
+      };
+      root.querySelector('#pps-d-register').addEventListener('change', event => { dRegister=Number(event.target.value); render(); save(); });
+      root.querySelector('#pps-branch-word').addEventListener('keydown', event => { if (event.key === 'Enter') applyBranchWord(); });
+      root.querySelectorAll('[data-d30-action]').forEach(button => button.addEventListener('click', () => {
+        const action=button.dataset.d30Action;
+        if (action === 'apply') return applyBranchWord();
+        if (action === 'left' && branchWord.length < 6) branchWord += 'L';
+        if (action === 'right' && branchWord.length < 6) branchWord += 'R';
+        if (action === 'rotate') dRegister=(dRegister+1)%5;
+        if (action === 'reflect') dRegister=[0,4,3,2,1][dRegister];
+        render(); save();
+      }));
+      window.addEventListener('openai:set_globals', event => {
+        const next = event.detail?.globals?.widgetState?.modelContent;
+        if (!next) return;
+        if (['structure','metric','boundary','lift','roots','growth','coupling','d30'].includes(next.mode)) mode=next.mode;
+        if (['0','1','2','3','4','m'].includes(String(next.op))) op=String(next.op);
+        if (['1','2','3','4','5','closed'].includes(String(next.growthStep))) growthStep=String(next.growthStep);
+        if (['cycles','triangles','handle7','octagon'].includes(next.couplingView)) couplingView=next.couplingView;
+        if (Number.isInteger(next.dRegister) && next.dRegister >= 0 && next.dRegister < 5) dRegister=next.dRegister;
+        if (typeof next.branchWord === 'string' && /^[LR]{0,6}$/.test(next.branchWord)) branchWord=next.branchWord;
+        render();
+      });
+      globalThis.A0PentagonChild.install(window,{
+        getState:()=>({mode,op,growthStep,couplingView,dRegister,branchWord}),
+        setState:s=>{mode=s.mode;op=s.op;growthStep=s.growthStep;couplingView=s.couplingView;dRegister=s.dRegister;branchWord=s.branchWord;render();},
+        readRendered:()=>({
+          mode:root.querySelector('[data-mode][aria-selected="true"]').dataset.mode,
+          op:root.querySelector('[data-op][aria-pressed="true"]').dataset.op,
+          growthStep:root.querySelector('[data-step][aria-pressed="true"]').dataset.step,
+          couplingView:root.querySelector('[data-coupling-view][aria-pressed="true"]').dataset.couplingView,
+          dRegister:Number(root.querySelector('#pps-d-register').value),branchWord:root.querySelector('#pps-branch-word').value
+        }),resultText:()=>result.textContent,svgElements:()=>svg.querySelectorAll('*').length
+      },globalThis.A0PentagonContract);
+      render();
+    })();
+  </script>
+</div></body></html>
