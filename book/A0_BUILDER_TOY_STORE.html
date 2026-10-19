@@ -5,13 +5,16 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="description" content="NEXAH Builder Toy Store: eine spielbare Auslage der A0 Flagships, Demonstratoren und quellgebundenen Werkzeuge.">
   <title>NEXAH · B1 Builder Toy Store</title>
-  <link rel="stylesheet" href="a0-builder-toy-store.css?rev=life-header-toy-20261014">
-  <link rel="stylesheet" href="a0-context-navigation.css?rev=connect-entry-20261014">
+  <link rel="stylesheet" href="a0-builder-toy-store.css?rev=ocb-bench-20261016">
+  <link rel="stylesheet" href="a0-arkade.css?rev=arkade-20261019">
+  <link rel="stylesheet" href="a0-builder-story-bridge.css?rev=20261019-a0-story">
+  <link rel="stylesheet" href="a0-application-demonstrator-suite.css?rev=20261018-app-suite-r1">
+  <link rel="stylesheet" href="a0-context-navigation.css?rev=reader-lanes-20261015">
 </head>
 <body>
   <header class="top">
     <a class="brand" href="#top">NEXAH <span>· B1 Builder</span></a>
-    <nav><a href="#shelf">Flagships</a><a href="#tools">Tool Wall</a><a href="A0_SCIENCE.html">Science</a><a href="A0_NEXAH_APERTURE_JOURNEY.html#human-view">Human</a></nav>
+    <nav><a href="#story-bridge">A0 Story</a><a href="#arkade">Arkade</a><a href="#shelf">Flagships</a><a href="#benches">Benches</a><a href="#applications">Applications</a><a href="#tools">Tool Wall</a><a href="A0_RESEARCH_DESK.html">Science Desk</a><a href="A0_SCIENTIFIC_POSITION_REPORT.html">Scientific Position</a><a href="A0_NEXAH_APERTURE_JOURNEY.html#human-view">Human</a></nav>
   </header>
 
   <main id="top">
@@ -21,7 +24,7 @@
         <h1>Welcome to the<br><em>Toy Store.</em></h1>
         <p class="intro">Science describes. Human gives meaning. Builder makes the relation touchable.</p>
         <p class="hero-note">Eine lebendige Auslage der Flagships, Demonstratoren und Werkzeuge – aus dem vorhandenen A0-Bestand, mit sichtbarer Herkunft und ohne die Grenzen der Forschung zu verwischen.</p>
-        <div class="actions"><a class="button hot" href="#shelf">Pick a flagship</a><a class="button" href="#tools">Open every drawer</a></div>
+        <div class="actions"><a class="button hot" href="#arkade">Enter the Arkade</a><a class="button" href="#shelf">Pick a flagship</a><a class="button" href="A0_FAMILY_CONNECTION_ATLAS.html#spatial-navigation">Family Raumkarte · 3D →</a><a class="button" href="#applications">Run an application</a><a class="button" href="#tools">Open every drawer</a><a class="button" href="A0_ASSET_INDEX.html">Bewertete Builder-Toolbox →</a></div>
       </div>
       <div class="machine-console">
         <div class="machine" id="life-machine" aria-label="Spielbares Three-Domain-Transition-Feld">
@@ -51,6 +54,25 @@
 
     <section class="ticker" aria-label="Builder Prinzipien"><div>TOUCH THE MODEL <i>◆</i> KEEP THE SEAM <i>◆</i> CHANGE THE VIEW <i>◆</i> TEST THE RETURN <i>◆</i> BUILD WHAT CAN BE INSPECTED <i>◆</i></div></section>
 
+    <section class="builder-story-bridge" id="story-bridge" aria-labelledby="builderStoryTitle">
+      <div><p class="arkade-kicker">A0 STORY · BUILDER MAKES IT TOUCHABLE</p><h2 id="builderStoryTitle">Dreh es um.<span>Schau noch einmal.</span></h2></div>
+      <div class="builder-story-copy"><p><strong>Ein Record ist nicht die ganze Welt.</strong> A0 erzählt, wie Ansichten entstehen, was sie bewahren und was sie weglassen.</p><p>Builder macht diese Frage berührbar. Die ARKADE darunter ist das spielbare Werkzeug: eingreifen, den Blick wechseln und den Return prüfen.</p><div class="builder-story-actions"><a class="primary" href="#arkade">Zur ARKADE ↓</a><a href="index.html#arkade-tool">Zur Geschichte in A0</a></div><p class="builder-story-boundary">A0 erzählt · Builder macht spielbar · das Instrument bleibt ein Instrument</p></div>
+    </section>
+
+    <section class="arkade-shell" id="arkade" aria-labelledby="arkadeTitle">
+      <div class="arkade-main">
+        <div class="arkade-hero"><div><p class="arkade-kicker">00 · GAME HALL · INSERT CURIOSITY</p><h2 class="arkade-title" id="arkadeTitle">NEXAH <span>ARKADE</span></h2></div><div><p class="arkade-intro"><strong>Drei Welten. Drei Arten zu sehen.</strong> Wähle ein Cabinet, bewege den Zustand und kehre mit sichtbarer Spur zurück.</p><div class="arkade-status"><span><i></i> 3 cabinets online</span><span>Return enabled</span></div></div></div>
+        <div class="arkade-cabinets">
+          <a class="arkade-cabinet" data-world="life" href="../previews/numbers-return-20261019/book/A0_GAME_OF_WORLDS_PLAY.html?world=life#life"><span class="arkade-no">01 · ORGANISM <b>READY</b></span><span class="arkade-screen"><span class="arkade-glyph life" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span></span><h2>LIFE</h2><p>Setze ein Muster, beobachte Nachbarschaften und sieh, wie eine Welt Schritt für Schritt entsteht.</p><span class="arkade-start">Start world <b>▶</b></span></a>
+          <a class="arkade-cabinet" data-world="domains" href="../previews/numbers-return-20261019/book/A0_GAME_OF_WORLDS_PLAY.html?world=domains#domains"><span class="arkade-no">02 · TRANSITION <b>READY</b></span><span class="arkade-screen"><span class="arkade-glyph domains" aria-hidden="true"></span></span><h2>THREE DOMAINS</h2><p>Wechsle die Perspektive auf einen Lauf und erkunde Felder, Channels und Übergänge.</p><span class="arkade-start">Enter domains <b>▶</b></span></a>
+          <a class="arkade-cabinet" data-world="numbers" href="../previews/numbers-return-20261019/book/A0_GAME_OF_WORLDS_PLAY.html?world=numbers#numbers"><span class="arkade-no">03 · RETURN <b>READY</b></span><span class="arkade-screen"><span class="arkade-glyph numbers" aria-hidden="true">20</span></span><h2>NUMBERS</h2><p>Fahre den Zahlenturm, wechsle die Linse und prüfe Bewegung, Rest und Return.</p><span class="arkade-start">Run numbers <b>▶</b></span></a>
+          <article class="arkade-cabinet arkade-coming" data-world="mobile" aria-label="Freier Slot für ein künftiges Mobile Game"><span class="arkade-no">04 · MOBILE <b>OPEN SLOT</b></span><span class="arkade-screen"><span class="arkade-glyph mobile" aria-hidden="true">?</span></span><h2>MOBILE GAME</h2><p>Ein Platz ist reserviert. Die Spielidee entsteht erst aus dem echten iPhone-Test der drei vorhandenen Welten.</p><span class="arkade-start">Coming after playtest <b>◇</b></span></article>
+        </div>
+        <div class="arkade-return" aria-label="Arkade Rückweg"><b>Choose</b><i></i><b>Play</b><i></i><b>Return</b></div>
+        <div class="arkade-foot"><span>First visit? Beginne mit LIFE. Jede Welt behält ihren eigenen Zustand.</span><span>GAME OF WORLDS · bestehende Spielidentität</span></div>
+      </div>
+    </section>
+
     <section class="shelf section" id="shelf">
       <header class="section-head">
         <div><p class="kicker">01 · FLAGSHIP SHELF</p><h2>The windows that<br>already <em>move.</em></h2></div>
@@ -59,11 +81,29 @@
       <div class="showcase">
         <article class="stage" id="flagship-stage" aria-live="polite">
           <div class="stage-visual" id="stage-visual"><span class="stage-number">01</span><div class="stage-glyph"></div><div class="stage-rings"></div></div>
-          <div class="stage-copy"><p class="tag" id="stage-tag">APPEARANCE · SPECTRUM</p><h3 id="stage-title">Rainbow / Purple Rain</h3><p id="stage-description">Sieben Fenster zeigen, wie ein Spektrum nicht nur zerlegt, sondern als Bedingung von Erscheinung gelesen werden kann.</p><div class="stage-meta"><span id="stage-kind">EXPERIENCE</span><span id="stage-index">01 / 10</span></div><a class="button hot" id="stage-link" href="A0_RAINBOW_PURPLE_RAIN.html">Enter the window →</a></div>
+          <div class="stage-copy"><p class="tag" id="stage-tag">APPEARANCE · SPECTRUM</p><h3 id="stage-title">Rainbow / Purple Rain</h3><p id="stage-description">Sieben Fenster zeigen, wie ein Spektrum nicht nur zerlegt, sondern als Bedingung von Erscheinung gelesen werden kann.</p><div class="stage-meta"><span id="stage-kind">EXPERIENCE</span><span id="stage-index">01 / 12</span></div><a class="button hot" id="stage-link" href="A0_RAINBOW_PURPLE_RAIN.html">Enter the window →</a></div>
         </article>
         <div class="selector" id="flagship-selector" aria-label="Flagship auswählen"></div>
         <div class="stage-controls"><button type="button" id="flagship-prev" aria-label="Vorheriges Flagship">←</button><button type="button" id="flagship-toggle" aria-pressed="false">Pause auto</button><button type="button" id="flagship-next" aria-label="Nächstes Flagship">→</button></div>
       </div>
+    </section>
+
+    <section class="benches section" id="benches">
+      <header class="section-head inverse">
+        <div><p class="kicker">02 · ENGINEERING BENCH</p><h2>Control the aperture.<br>Inspect the <em>projection.</em></h2></div>
+        <p>Die Orientation Controller Bench ist die aktuelle A0-Werkbank für Apertur, Orientierung, lokale C8-Projektion und Return. Sie ist ein reproduzierbarer Engineering-Baseline — kein kalibriertes Messsystem und kein Mechanismusbeweis.</p>
+      </header>
+      <article class="bench-card">
+        <div class="bench-visual" aria-hidden="true"><div class="bench-iris"><span>C8</span></div><div class="bench-axis"></div></div>
+        <div class="bench-copy">
+          <p class="tag">OCB v0.17.0 · OBSERVATORY · SESSION LEDGER</p>
+          <h3>Orientation Controller Bench</h3>
+          <p>Eine ruhige Steuerzentrale öffnet acht gekoppelte Arbeitsfenster. Outside/Inside, Frame, Scale, Tilt, Aperture, Observer und Return bleiben getrennt bedien- und prüfbar, während nur die benötigten Module gemeinsam auf die Bühne fahren.</p>
+          <div class="bench-metrics"><span><b>10</b> coupled windows</span><span><b>56</b> finite comparisons</span><span><b>20</b> guided stations</span></div>
+          <ul><li>Moving Aperture, M3, Stack, Native Face, A·i·l, Ninefold, Binder und Replay verbunden</li><li>Dürer/Khajuraho zeigen lokale Kollision, Residual und exakten Return</li><li>manuelle Multi-Viewport- und Live-Adapter-Abnahme bleibt offen</li></ul>
+          <div class="actions"><a class="button hot" href="A0_ORIENTATION_CONTROLLER_BENCH.html">Open the bench →</a><a class="button" href="A0_ORIENTATION_CONTROLLER_BENCH.html">Read gap register</a></div>
+        </div>
+      </article>
     </section>
 
     <section class="bridge">
@@ -71,9 +111,48 @@
       <div class="bridge-flow"><span>LOOK</span><b>→</b><span>TOUCH</span><b>→</b><span>COMPARE</span><b>→</b><span>RETURN</span></div>
     </section>
 
+    <section class="application-suite" id="applications" aria-labelledby="applicationSuiteTitle">
+      <header class="section-head inverse">
+        <div><p class="kicker">03 · APPLICATION DEMONSTRATOR SUITE</p><h2 id="applicationSuiteTitle">Three missions.<br><em>Tools become use.</em></h2></div>
+        <p>Jede Mission beginnt mit einer konkreten Frage, führt mehrere vorhandene Instrumente als getrennte Quellen zusammen und endet mit einem sichtbaren Return-Receipt. Die Animation erklärt die Anwendung; die verlinkten Quellinstrumente bleiben autoritativ.</p>
+      </header>
+      <div class="suite-command">
+        <div class="suite-intro"><p class="kicker">PACKAGE A · BUILT 18 OCTOBER 2026</p><h3>One click shows the application layer.</h3><p>Messung, Route und Strukturtransfer laufen als drei begrenzte Geschichten. Carrier, Uhren und wissenschaftliche Resultate werden nicht still zusammengelegt.</p></div>
+        <div class="suite-master"><strong>GUIDED APPLICATION TOUR</strong><output id="suiteMasterStatus" aria-live="polite">READY · three bounded application stories</output><div class="suite-master-actions"><button class="primary" id="suiteMasterStart" type="button" aria-pressed="false">▶ Start all 3 missions</button><button id="suiteMasterReset" type="button">Reset</button></div></div>
+      </div>
+      <div class="mission-grid">
+        <article class="mission" data-mission="measurement">
+          <header><small>APP-01 · OBSERVE</small><h3>Measurement &amp; Calibration</h3><p>Welche Ansicht bewahrt welche Information – und welche Apertur ist für die erklärte Beobachtung geeignet?</p></header>
+          <div class="mission-stage"><canvas aria-label="Animierte M3-Mess- und Projektionsansicht"></canvas><div class="stage-readout"><small data-stage-code></small><strong data-stage-title></strong><p data-stage-copy></p></div></div>
+          <div class="stage-strip" data-stage-strip aria-label="Messmission Schritte"></div>
+          <div class="mission-actions"><button data-action="play" type="button" aria-pressed="false">Play mission</button><button data-action="step" type="button">Step</button><button data-action="reset" type="button">Reset</button><button data-action="export" type="button">Export receipt</button></div>
+          <div class="mission-ledger" data-ledger></div>
+          <div class="mission-source"><a href="A0_ORIENTATION_CONTROLLER_BENCH.html#apertureMeasurement">M3 / Observing Cut ↗</a><a href="A0_ORIENTATION_CONTROLLER_BENCH.html#apertureStackCalibration">Aperture Stack ↗</a></div>
+        </article>
+        <article class="mission" data-mission="route">
+          <header><small>APP-02 · NAVIGATE</small><h3>Route &amp; Return</h3><p>Kann eine Route ohne stillen Rücksprung, verlorenes Seitenbit oder erfundenen Rückweg zurückgeführt werden?</p></header>
+          <div class="mission-stage"><canvas aria-label="Animierter gerichteter Graph mit Route"></canvas><div class="stage-readout"><small data-stage-code></small><strong data-stage-title></strong><p data-stage-copy></p></div></div>
+          <div class="stage-strip" data-stage-strip aria-label="Routenmission Schritte"></div>
+          <div class="mission-actions"><button data-action="play" type="button" aria-pressed="false">Play mission</button><button data-action="step" type="button">Step</button><button data-action="reset" type="button">Reset</button><button data-action="export" type="button">Export receipt</button></div>
+          <div class="mission-ledger" data-ledger></div>
+          <div class="mission-source"><a href="A0_IHARA_HASHIMOTO_CYCLE_BRIDGE.html">Ihara / Hashimoto ↗</a><a href="A0_AXIS08_FOLD_RETURN_SEQUENCER.html">AXIS08 ↗</a><a href="A0_BOUNDARY_GRAPH_DEMONSTRATOR.html">Boundary Graph ↗</a></div>
+        </article>
+        <article class="mission" data-mission="structure">
+          <header><small>APP-03 · RECOVER</small><h3>Structure Transfer &amp; Recovery</h3><p>Was bleibt über Q4, Root7, lokale Bewegung, Ninefold, Binder und Replay rekonstruierbar?</p></header>
+          <div class="mission-stage"><canvas aria-label="Animierte geschichtete Strukturansicht"></canvas><div class="stage-readout"><small data-stage-code></small><strong data-stage-title></strong><p data-stage-copy></p></div></div>
+          <div class="stage-strip" data-stage-strip aria-label="Strukturmission Schritte"></div>
+          <div class="mission-actions"><button data-action="play" type="button" aria-pressed="false">Play mission</button><button data-action="step" type="button">Step</button><button data-action="reset" type="button">Reset</button><button data-action="export" type="button">Export receipt</button></div>
+          <div class="mission-ledger" data-ledger></div>
+          <div class="mission-source"><a href="A0_ORIENTATION_CONTROLLER_BENCH.html#root7Coupling">Q4 / Root7 ↗</a><a href="A0_ORIENTATION_CONTROLLER_BENCH.html#ailApertureControl">A·i·l / Replay ↗</a><a href="A0_ORIENTATION_CONTROLLER_BENCH.html#systemBinder">System Binder ↗</a></div>
+        </article>
+      </div>
+      <details class="coverage-ledger"><summary>Welche Bench-Werkzeuge deckt Paket A ab?</summary><div class="coverage-grid"><article><b>M3 · Stack · Cut · I/L/A/U</b><span>APP-01</span><p>Eine Messfrage statt vier unverbundener Ansichten.</p></article><article><b>Ihara · S₃ · AXIS08 · Boundary · Antipode</b><span>APP-02</span><p>Eine adressierte Route mit sichtbarem Residual und Return.</p></article><article><b>Q4/Root7 · A·i·l · Ninefold · Binder · Replay</b><span>APP-03</span><p>Eine Strukturübertragung mit getrennten Carriern und Recovery.</p></article></div></details>
+      <p class="suite-boundary"><strong>Boundary:</strong> Paket A ist eine source-bound Anwendungs- und Erklärlinse über bestehenden Instrumenten. Es startet keinen wissenschaftlichen Run, erzeugt keine neue Family oder kanonische Relation und behauptet keinen gemeinsamen Gesamtcarrier.</p>
+    </section>
+
     <section class="tools section" id="tools">
       <header class="section-head inverse">
-        <div><p class="kicker">02 · THE COMPLETE CABINET</p><h2>Every instrument<br>gets a <em>door.</em></h2></div>
+        <div><p class="kicker">04 · THE COMPLETE CABINET</p><h2>Every instrument<br>gets a <em>door.</em></h2></div>
         <p>Diese Wand liest den bestehenden A0 Asset Index. Suche nach Titel, Funktion oder Family; Filter ändern nur die Ansicht, nicht den Bestand.</p>
       </header>
       <div class="tool-controls">
@@ -96,7 +175,7 @@
       <h2>Ask. Test. Make.<br><em>Then look again.</em></h2>
       <div class="exit-doors">
         <a href="A0_NEXAH_APERTURE_JOURNEY.html#human-view"><small>A1</small><strong>HUMAN</strong><span>What matters?</span></a>
-        <a href="A0_SCIENCE.html"><small>A0</small><strong>SCIENCE</strong><span>What holds?</span></a>
+        <a href="A0_RESEARCH_DESK.html"><small>A0</small><strong>SCIENCE DESK</strong><span>What holds?</span></a>
         <a class="current" href="#top"><small>B1</small><strong>BUILDER</strong><span>What can we make?</span></a>
       </div>
       <p class="boundary"><strong>Boundary:</strong> This is an internal navigation and experience surface. It introduces no new research identity, relation, evidence state, Study activation or publication claim.</p>
@@ -105,7 +184,8 @@
 
   <footer><strong>NEXAH · BUILDER TOY STORE</strong><span>Tools are invitations. Sources remain attached.</span><a href="A0_ASSET_INDEX.html">Full Asset Index →</a></footer>
   <script src="assets/a0-asset-index-v1.js"></script>
-  <script src="a0-builder-toy-store.js?rev=life-header-toy-20261014"></script>
-  <script src="a0-context-navigation.js?rev=human-home-20261014"></script>
+  <script src="a0-builder-toy-store.js?rev=ocb-bench-20261016"></script>
+  <script src="a0-application-demonstrator-suite.js?rev=20261018-app-suite-r1"></script>
+  <script src="a0-context-navigation.js?rev=reader-lanes-20261015"></script>
 </body>
 </html>

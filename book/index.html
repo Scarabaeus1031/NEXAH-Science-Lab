@@ -41,18 +41,23 @@
     .entry-switch-head{display:flex;justify-content:space-between;gap:28px;align-items:end;margin-bottom:18px}
     .entry-switch h2{font-size:clamp(2rem,4vw,3.6rem)}
     .entry-switch-intro{max-width:610px;margin:0;color:#53606a;font:400 1rem/1.55 var(--serif)}
-    .entry-switch-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-    .entry-route{display:grid;grid-template-columns:auto 1fr;gap:18px;min-height:190px;border:1px solid var(--line);padding:24px;text-decoration:none;background:#f7f2e8;transition:transform .16s ease,border-color .16s ease,background .16s ease}
+    .entry-switch-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+    .entry-route{display:block;min-height:220px;border:1px solid var(--line);padding:24px;text-decoration:none;background:#f7f2e8;transition:transform .16s ease,border-color .16s ease,background .16s ease}
     .entry-route:hover{transform:translateY(-2px);border-color:#258da6;background:#f0fafb}
     .entry-route.research{background:#0b1d2a;border-color:#315064;color:#fff}
     .entry-route.research:hover{border-color:var(--cyan);background:#0d2231}
-    .entry-route-no{font:750 .65rem var(--mono);color:#8a6512;letter-spacing:.1em;text-transform:uppercase}
+    .entry-route-no{display:block;margin-bottom:18px;font:750 .65rem var(--mono);color:#8a6512;letter-spacing:.1em;text-transform:uppercase}
     .entry-route.research .entry-route-no{color:var(--gold)}
     .entry-route h3{font:700 1.65rem/1.08 var(--serif);margin:0 0 .65rem}
     .entry-route p{margin:0;color:#58646d;font-size:.88rem;line-height:1.55}
     .entry-route.research p{color:#a8bbc5}
     .entry-route span:last-child{display:block;margin-top:18px;color:#13778d;font:750 .62rem var(--mono);letter-spacing:.07em;text-transform:uppercase}
     .entry-route.research span:last-child{color:var(--cyan)}
+    .entry-route.play{background:#120918;border-color:#7e366d;color:#fff}
+    .entry-route.play:hover{border-color:var(--pink);background:#1b0b20}
+    .entry-route.play .entry-route-no{color:#ff7bd0}
+    .entry-route.play p{color:#cdb6c8}
+    .entry-route.play span:last-child{color:#ff7bd0}
     .book-index .human-view{border-color:var(--nightline);background:rgba(255,255,255,.035)}
     .book-index .human-view summary{color:var(--gold)}
     .book-index .human-view[open] summary{border-color:var(--nightline)}
@@ -173,15 +178,17 @@
     @media(max-width:680px){.a0-guide-grid{grid-template-columns:1fr}.a0-guide-card{min-height:0}.a0-guide-note{flex-direction:column;gap:6px}}
     @media(max-width:580px){.head{grid-template-columns:1fr}.no{font-size:2.3rem}.sequence,.research-now-grid{grid-template-columns:1fr}.delta{grid-template-columns:1fr}.record-journey{grid-template-columns:1fr 1fr}.entry-route{grid-template-columns:1fr;min-height:0}.entry{grid-template-columns:35px 62px 1fr;gap:11px;padding:17px}.chapter-mark{width:62px;height:58px}.chapter-mark svg{width:52px}.spread,.culture-grid,.a0-guide-inner,.entry-switch-inner{padding:55px 5vw}.research-now-inner{padding:32px 5vw 36px}model-viewer{min-height:330px}h1{font-size:4rem}}
   </style>
-  <link rel="stylesheet" href="a0-context-navigation.css?rev=connect-entry-20261014">
+  <link rel="stylesheet" href="a0-context-navigation.css?rev=reader-lanes-20261015">
 </head>
 <body>
   <header class="top">
     <a class="brand" href="#top">NEXAH <span>· A0 BOOK</span></a>
     <nav>
       <a href="#wegweiser">Wegweiser</a>
+      <a href="A0_LIVING_BLUEPRINT.html#utg-map">UTG / A0 Karte</a>
       <a href="#research-now">Forschung aktuell</a>
       <a href="#record-player">Record / Play</a>
+      <a href="#arkade-tool">ARKADE</a>
       <a href="#introduction">Introduction</a>
       <a href="#index">Kapitel</a>
       <a href="A0_MATHEMATICAL_JOINTS.html">Mathfield</a>
@@ -209,31 +216,47 @@
     <section class="entry-switch" id="choose-entry" aria-labelledby="choose-entry-title">
       <div class="entry-switch-inner">
         <div class="entry-switch-head">
-          <div><div class="label">Zwei Einstiege · ein A0</div><h2 id="choose-entry-title">Welche Reise brauchst du gerade?</h2></div>
-          <p class="entry-switch-intro">Der erste Weg erklärt, warum A0 überhaupt nötig wurde. Der zweite führt direkt zu Ergebnissen, Grenzen und offenen Fragen. Beide Wege benutzen dieselben Quellen; keiner erzeugt eine zweite A0-Identität.</p>
+          <div><div class="label">Drei Einstiege · ein A0</div><h2 id="choose-entry-title">Welche Reise brauchst du gerade?</h2></div>
+          <p class="entry-switch-intro">Lesen führt durch die Geschichte, Science zu Ergebnissen und Grenzen, Spielen in ein Werkzeug zum eigenen Ausprobieren. Alle drei Wege gehören zu demselben A0; keiner erzeugt eine zweite Identität.</p>
         </div>
         <div class="entry-switch-grid">
           <a class="entry-route" href="#record-player"><span class="entry-route-no">01 · Zum ersten Mal</span><div><h3>Von einem Record zur verantwortbaren Aussage.</h3><p>Beginne bei Stimme, Cut und Replay. Folge anschließend den acht Kapiteln von Unterschied und Koordinate bis Evidence, Residual und Human Return.</p><span>Die A0-Reise beginnen →</span></div></a>
           <a class="entry-route research" href="A0_RESEARCH_DESK.html#tests"><span class="entry-route-no">02 · Forschung vorfiltern</span><div><h3>Was trägt, was ist offen und was muss später validiert werden?</h3><p>Science Mission Control verbindet drei Linsen, Flagships, Hypothesen, Tests, offene Lücken, Backlog und source-bound Evidence vor einer möglichen Lab-Admission.</p><span>Science Mission Control öffnen →</span></div></a>
+          <a class="entry-route play" id="arkade-tool" href="A0_BUILDER_TOY_STORE.html#arkade"><span class="entry-route-no">03 · Spielend prüfen</span><div><h3>Was verändert sich, wenn ich selbst eingreife?</h3><p>Die NEXAH ARKADE ist ein A0-Werkzeug: Drei spielbare Welten machen Unterschied, Übergang, Ansicht und Return berührbar. Das Spiel illustriert die Fragen; es ersetzt weder Beleg noch Erklärung.</p><span>Game of Worlds in der ARKADE öffnen →</span></div></a>
         </div>
+      </div>
+    </section>
+
+    <section class="entry-switch" id="scientific-position-entry" aria-labelledby="scientific-position-entry-title">
+      <div class="entry-switch-inner">
+        <div class="entry-switch-head">
+          <div><div class="label">Scientific Position · Quellenstand 19. Oktober 2026</div><h2 id="scientific-position-entry-title">Was macht NEXAH konkret?</h2></div>
+          <p class="entry-switch-intro">Quellen benennen, Transformationen und Ansichten bedienbar machen, erhaltene Eigenschaften prüfen und mögliche Rückwege dokumentieren. Der Positionsbericht erklärt die gemeinsame Frage hinter Buch, Bildern und Instrumenten — und unterscheidet erreichte Resultate, Engineering und offene Forschung.</p>
+        </div>
+        <p class="entry-switch-intro"><strong>Was trägt bereits? Was ist nur eine Darstellung? Was bleibt offen?</strong> Die Bewertung vom 13.10. bleibt erhalten; der Nachtrag vom 19.10. ordnet den angenommenen Pascal-Audit, neuere Instrumente und die separat freigegebene öffentliche Engineering-Testversion ein. Keine neue Physik oder extern bestätigte Neuheit behauptet.</p>
+        <div class="btns"><a class="btn gold" href="A0_SCIENTIFIC_POSITION_REPORT.html">Was NEXAH macht · Positionsbericht lesen →</a><a class="btn" href="A0_SCIENTIFIC_POSITION_REPORT.html#currentness-20261019">Aktuellen Stand und Grenzen ansehen →</a><a class="btn" href="A0_TOURS.html#explanation-path">Lieber Schritt für Schritt? Erklärweg ohne Vorwissen →</a></div>
       </div>
     </section>
 
     <section class="a0-guide" id="wegweiser" aria-labelledby="wegweiser-title">
       <div class="a0-guide-inner">
         <div class="a0-guide-head">
-          <div><div class="label">A0 Wegweiser · vier Werke · drei Papers · ein Desk</div><h2 id="wegweiser-title">Wo beginne ich?</h2></div>
-          <p class="a0-guide-intro"><strong>A0 ist der gemeinsame Rahmen.</strong> Werke tragen Lesewelten und Instrumente. Papers verdichten ausgewählte, ertragreiche Forschungsspuren unter Review- und Publikationsvorbehalt. Der Desk hält ihren Status auseinander.</p>
+          <div><div class="label">A0 Wegweiser · eine Dachkarte · vier Werke · drei Papers · ein Desk</div><h2 id="wegweiser-title">Wo beginne ich?</h2></div>
+          <p class="a0-guide-intro"><strong>UTG ist das Orientierungsdach; A0 ist die mathematische Werkstatt.</strong> Die Living-Blueprint-Karte ordnet ihre Rollen. Werke tragen Lesewelten und Instrumente. Papers verdichten ausgewählte Forschungsspuren; der Desk hält ihren Status auseinander.</p>
         </div>
         <nav class="a0-guide-grid" aria-label="A0 Werke und ihre Aufgaben">
           <a class="a0-guide-card" aria-current="page" href="#introduction"><span class="work-no">Werk 01 · Lesen</span><h3>A0 Book</h3><p>Acht Kapitel vom ersten Unterschied bis zu Evidence, Return und verantwortbarer Entscheidung.</p><span class="work-action">Im Buch beginnen →</span></a>
+          <a class="a0-guide-card" href="A0_LIVING_BLUEPRINT.html#utg-map"><span class="work-no">Dachkarte · Ordnen</span><h3>UTG → A0 → Joint</h3><p>Die eindeutige Hierarchie von Framework, A0-Werkstatt, Mathematical Joints, Pascal-Fall, Result Paper, Instrumenten und Registern.</p><span class="work-action">Orientierungskarte öffnen →</span></a>
+          <a class="a0-guide-card" href="A0_LIVING_BLUEPRINT.html#integration-crosswalk"><span class="work-no">Crosswalk · Durchführen</span><h3>Grid → Operator → Anwendung</h3><p>Zwei implementierte Geschichten führen Quelle, Adresse, Operator und vier Ansichten bis zum Test: Blue Body kehrt exakt zurück; LIFE zeigt den kontrollierten Informationsverlust.</p><span class="work-action">Durchgang als HTML öffnen →</span></a>
+          <a class="a0-guide-card" href="A0_TESSAREC_BLUE_BODY_LAB.html#pentagon-body-player"><span class="work-no">Demonstrator · Ausführen</span><h3>Pentagon Body Player · 3D</h3><p>48 typisierte Adressen, drei bespielte Pentagonlagen, drehbarer Körper, gekoppeltes 8×6-LIFE-Feld und Return-Trace in vier synchronisierten Ansichten.</p><span class="work-action">3D Body Player starten →</span></a>
+          <a class="a0-guide-card" href="A0_BLUE_PINK_DODECA_CELL_RETURN.html#cells"><span class="work-no">Körperatlas · Bespielen</span><h3>Blue / Pink Dodeca Cell Return</h3><p>Day und Night bleiben gleichzeitig sichtbar: vier Satellitenkörper, ein zentraler Return-Körper und 60 direkt adressierbare Pentagon-Flächenslots mit Spiegelung, Schatten und Return-Lauf.</p><span class="work-action">Pink / Blue Body öffnen →</span></a>
           <a class="a0-guide-card" href="A0_MATHEMATICAL_JOINTS.html"><span class="work-no">Werk 02 · Untersuchen</span><h3>Mathfield</h3><p>Die mathematische Werkstatt: Grids, Operatoren, Fugen, exakte Beispiele und typisierte Instrumente.</p><span class="work-action">Werk öffnen →</span></a>
           <article class="a0-guide-card a0-guide-card--group"><span class="work-no">Werk 03 · Vertiefen</span><h3>Pascal Joint</h3><p>Der fokussierte Fall: Pascal-Träger, Pentagon-Quotient, Kopplungen und Übersetzer. Der Generation Corner ist das zugehörige Instrument für Generation und Return.</p><span class="work-links"><a class="work-link" href="A0_PASCAL_PENTAGON_OPERATOR_JOINTS.html">Pascal Joint öffnen →</a><a class="work-link work-link--instrument" href="A0_PASCAL_GENERATION_CORNER.html">Generation Corner öffnen →</a></span></article>
-          <a class="a0-guide-card" href="A0_GAME_4_LIFE_PLUS_1.html"><span class="work-no">Werk 04 · Beobachten</span><h3>GAME 4 LIFE +1</h3><p>Ein Conway-Übergang in fünf synchronisierten Fenstern: Feld, 4+1 Register, Phase, Boundary-Residual und 3D-Geschichte.</p><span class="work-action">Instrumentfenster öffnen →</span></a>
+          <a class="a0-guide-card" href="A0_GAME_4_LIFE_PLUS_1.html#blue-body-transfer"><span class="work-no">Werk 04 · Prüfen</span><h3>GAME 4 LIFE +1 · Transfer</h3><p>Der 48er Blue-Body-Record wird exakt in ein 8×6-LIFE-Feld übertragen. Danach zeigt unverändertes B3/S23, warum der Source Key für den Return nötig bleibt.</p><span class="work-action">Transfer-Control öffnen →</span></a>
           <a class="a0-guide-card" href="A0_SCC_003_PASCAL_PENTAGON_PAPER.html"><span class="work-no">Paper A · Ergebnis</span><h3>SCC-003</h3><p>Die enge mathematische Notiz zum zyklischen Fünf-Flächen-Quotienten — ohne den gesamten A0-Kontext.</p><span class="work-action">Paper lesen →</span></a>
           <a class="a0-guide-card" href="A0_RETURN_WITHOUT_IDENTITY_PAPER.html"><span class="work-no">Paper C · Synthese</span><h3>Return without identity</h3><p>Fünf geschlossene Studien zu typisiertem Return, Residual und Identitätsgrenze.</p><span class="work-action">Paper C lesen →</span></a>
           <a class="a0-guide-card" href="A0_NEXAH_FAMILY_METHOD_WHITE_PAPER.html"><span class="work-no">Paper E · Methode</span><h3>The NEXAH Family Method</h3><p>Die NEXAH-Familienmethode, ihr vorhandener Kern, ihre Hypothesen und Grenzen als kurze Essence.</p><span class="work-action">White Paper lesen →</span></a>
-          <a class="a0-guide-card" href="A0_RESEARCH_DESK.html#tests"><span class="work-no">Mission Control · Vorfiltern</span><h3>A0 Science Mission Control</h3><p>Die Steuerungsfläche verbindet drei stabile Linsen mit Teststatus, Hypothesen, Lücken und späteren Validation-Gates.</p><span class="work-action">Prüfkarte öffnen →</span></a>
+          <a class="a0-guide-card" href="A0_SCIENTIFIC_POSITION_REPORT.html"><span class="work-no">Science · Einordnen</span><h3>Scientific Position</h3><p>Was NEXAH konkret macht, welche Ergebnisse tragen und welche Fragen offen bleiben. Arbeitsaufträge bleiben im internen Science Desk.</p><span class="work-action">Ergebnisse und Grenzen lesen →</span></a>
           <a class="a0-guide-card" href="LAB_ORIENTATION_MACHINE.html"><span class="work-no">Reader instrument · Orientieren</span><h3>Laboratory Orientation Machine</h3><p>Direkter Zugang zur dokumentarischen Orientierungsmaschine aus Kapitel 08; Instrument, nicht Evidenzautorität.</p><span class="work-action">Orientation Machine öffnen →</span></a>
           <a class="a0-guide-card" href="A0_AXIAL_CARRIER_ADAPTER_SUITE.html"><span class="work-no">Cross-flagship view adapter</span><h3>Axial Carrier Suite</h3><p>Sechs Flagships auf einer gemeinsamen Zylinderansicht — mit getrennten Zeit-, Sequenz-, Layer- und Pipeline-Achsen.</p><span class="work-action">Adapter-Suite öffnen →</span></a>
         </nav>
@@ -244,13 +267,13 @@
     <section class="research-now" id="research-now" aria-labelledby="research-now-title">
       <div class="research-now-inner">
         <div class="research-now-head">
-          <div><div class="label">A0 Forschung aktuell · Currentness 12 October 2026</div><h2 id="research-now-title">Den Stand sehen. Dann weiterlesen.</h2></div>
-          <div class="research-now-status" aria-label="Aktueller A0 Forschungsstatus"><span class="closed">Mission Control valid · 393 sources</span><span class="closed">Navigator composed · 259 / 32</span><span class="bound">LIFE08 closed · 44 / 44</span><span class="prepare">Active research · 0</span><span class="prepare">Not public</span></div>
+          <div><div class="label">Forschungswege · historischer Status-Snapshot 12. Oktober 2026</div><h2 id="research-now-title">Den Stand sehen. Dann weiterlesen.</h2><p>Die Zahlenleiste dokumentiert den damaligen Stand. <a href="A0_SCIENTIFIC_POSITION_REPORT.html#currentness-20261019">Aktuelle Einordnung vom 19.10. im Positionsbericht →</a></p></div>
+          <div class="research-now-status" aria-label="Historischer A0 Status vom 12. Oktober 2026"><span class="closed">MC damals · 393 sources</span><span class="closed">Navigator damals · 259 / 32</span><span class="bound">LIFE08 damals · 44 / 44</span><span class="prepare">Active research damals · 0</span><span class="prepare">Publikationsstatus damals · intern</span></div>
         </div>
         <div class="research-now-grid">
           <a class="research-now-card" href="A0_RESEARCH_DESK.html#tests"><b>A0 Science Mission Control</b><h3>Was trägt — und was vor dem Lab noch fehlt.</h3><p>Science, Builder und Human bilden die Leselogik; die Prüfkarte ergänzt Hypothese, Teststatus, offene Lücke, Kontrolle und nächstes Gate.</p><span class="work-action">Tests &amp; Lücken öffnen →</span></a>
           <a class="research-now-card" href="A0_RESEARCH_DESK.html#protocols"><b>Protocols & Log</b><h3>Welcher Vertrag gilt für welches Werk?</h3><p>Ein Master-Protokoll und Work-Protokolle ersetzen parallele globale Logs in einzelnen HTML-Instrumenten.</p><span class="work-action">Protokollbereich öffnen →</span></a>
-          <a class="research-now-card" href="../32_A0_FINDINGS_AND_PAPER_WORKSPACE_2026-10-11.md"><b>Findings & Papers</b><h3>Welcher Befund gehört wohin?</h3><p>Das Workspace trennt das enge SCC-003-Paper, den D30-Companion, geparkte Synthesen und backlog-only Ideen.</p><span class="work-action">Paper Workspace öffnen →</span></a>
+          <a class="research-now-card" href="A0_RESEARCH_DESK.html#findings"><b>Findings & Papers</b><h3>Welcher Befund gehört wohin?</h3><p>Das Workspace trennt das enge SCC-003-Paper, den D30-Companion, geparkte Synthesen und backlog-only Ideen.</p><span class="work-action">Paper Workspace öffnen →</span></a>
           <a class="research-now-card" href="A0_RETURN_WITHOUT_IDENTITY_PAPER.html"><b>Paper C · Return</b><h3>Was kehrt zurück — und auf welcher Ebene?</h3><p>Fünf geschlossene Studien, zwei neue Strukturdiagramme und ein governed HTML-Quellenatlas.</p><span class="work-action">Return Paper öffnen →</span></a>
           <a class="research-now-card" href="A0_NEXAH_FAMILY_METHOD_WHITE_PAPER.html"><b>Paper E · Method</b><h3>Was ist die gemeinsame Forschungsbewegung?</h3><p>Kurze Essence vorne, vollständiger Arbeitsentwurf einklappbar hinten.</p><span class="work-action">Method White Paper öffnen →</span></a>
           <a class="research-now-card" href="../navigator/index.html#a0-orientation-evidence"><b>Evidence Lineage</b><h3>Woher Resultate und Grenzen stammen.</h3><p>Der Science Navigator führt zu Quellen, Tests, negativen Befunden und typisierten Relationen zurück.</p><span class="work-action">Evidence Lens öffnen ↗</span></a>
@@ -325,14 +348,15 @@
           <a class="entry" href="06_PROJECTION_FOURIER_SHADOWS.html"><span class="id">06</span><span class="chapter-mark"><svg viewBox="0 0 64 50" aria-hidden="true"><path d="M4 27c6-20 11 20 17 0s11 20 17 0 11 20 20 0" fill="none" stroke="currentColor" stroke-width="2"/><path d="M10 44V36M20 44V31M30 44V39M40 44V24M50 44V34" stroke="currentColor" opacity=".7"/></svg></span><span><h3>Warum zeigen verschiedene Ansichten nicht dasselbe?</h3><p>Projektion · Fourier · Schatten · erhaltener Anteil</p><span class="chapter-action">Kapitel öffnen →</span></span></a>
           <a class="entry" href="07_EVIDENCE_COMPARISON_DECISION.html"><span class="id">07</span><span class="chapter-mark"><svg viewBox="0 0 64 50" aria-hidden="true"><rect x="5" y="12" width="17" height="25" fill="none" stroke="currentColor"/><rect x="42" y="12" width="17" height="25" fill="none" stroke="currentColor"/><path d="M22 25h20" stroke="currentColor" stroke-dasharray="3 3"/><path d="M32 8v34" stroke="currentColor" opacity=".55"/><circle cx="32" cy="25" r="4" fill="currentColor"/></svg></span><span><h3>Wann trägt ein Vergleich eine Entscheidung?</h3><p>Evidence · Vergleichsregel · Gegenprobe · offener Ausgang</p><span class="chapter-action">Kapitel öffnen →</span></span></a>
           <a class="entry" href="08_RETURN_ONE_CARRIER_SEVEN_QUESTIONS.html"><span class="id">08</span><span class="chapter-mark"><svg viewBox="0 0 64 50" aria-hidden="true"><path d="M50 29A19 19 0 1 1 44 12" fill="none" stroke="currentColor" stroke-width="2"/><path d="M39 7l8 4-6 6" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="31" cy="25" r="5" fill="none" stroke="currentColor"/><circle cx="52" cy="34" r="3" fill="currentColor"/></svg></span><span><h3>Was muss zum Ausgangspunkt zurückkehren?</h3><p>Carrier · sieben Fragen · ILAU · Residual · Human Return</p><span class="chapter-action">Kapitel öffnen →</span></span></a>
-          <div class="group-title">Weiterführende A0-Flächen · Feld, Joint und Paper</div>
+          <div class="group-title">Weiterführende A0-Flächen · Dachkarte, Feld, Joint und Paper</div>
+          <a class="entry" href="A0_LIVING_BLUEPRINT.html#utg-map"><span class="id">UTG</span><span class="chapter-mark"><svg viewBox="0 0 64 50" aria-hidden="true"><path d="M6 39h52M13 31h38M20 23h24M27 15h10" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="32" cy="8" r="4" fill="currentColor"/></svg></span><span><h3>UTG / A0 Orientation Map</h3><p>Framework · Werkstatt · Joint · Fallakte · Paper · Instrument</p><span class="chapter-action">Hierarchie öffnen →</span></span></a>
           <a class="entry" href="A0_MATHEMATICAL_JOINTS.html"><span class="id">MF</span><span class="chapter-mark"><svg viewBox="0 0 64 50" aria-hidden="true"><path d="M7 10h50M7 25h50M7 40h50M16 5v40M32 5v40M48 5v40" fill="none" stroke="currentColor" opacity=".62"/><circle cx="32" cy="25" r="6" fill="currentColor"/></svg></span><span><h3>A0 Mathfield</h3><p>Felder · Grids · Operatoren · Fugen · Forschungsprotokoll</p><span class="chapter-action">Mathfield öffnen →</span></span></a>
           <a class="entry" href="A0_BOUNDARY_GRAPH_DEMONSTRATOR.html"><span class="id">BG</span><span class="chapter-mark"><svg viewBox="0 0 64 50" aria-hidden="true"><rect x="7" y="7" width="50" height="36" fill="none" stroke="currentColor" stroke-width="2"/><path d="M41 7v36M7 31h50" stroke="currentColor" stroke-width="2"/><circle cx="41" cy="31" r="4" fill="currentColor"/></svg></span><span><h3>Boundary Graph</h3><p>Vier Flächen · zwei Pillars · Hinge · Adjazenzgraph</p><span class="chapter-action">Demonstrator öffnen →</span></span></a>
           <a class="entry" href="A0_PASCAL_PENTAGON_OPERATOR_JOINTS.html"><span class="id">PJ</span><span class="chapter-mark"><svg viewBox="0 0 64 50" aria-hidden="true"><path d="M12 8l17 5 1 18-17 7L4 23zM52 8l8 15-9 15-17-7 1-18z" fill="none" stroke="currentColor" stroke-width="2"/><path d="M26 16l12 18M38 16L26 34" stroke="currentColor"/></svg></span><span><h3>Pascal Joint</h3><p>Pascal-Träger · Pentagon-Quotient · Kopplung · Übersetzer</p><span class="chapter-action">Joint öffnen →</span></span></a>
           <a class="entry" href="A0_PASCAL_GENERATION_CORNER.html"><span class="id">GC</span><span class="chapter-mark"><svg viewBox="0 0 64 50" aria-hidden="true"><path d="M10 25a16 16 0 1 1 7 13" fill="none" stroke="currentColor" stroke-width="2"/><path d="M13 42l3-8 7 5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="32" cy="25" r="5" fill="currentColor"/><path d="M32 6v38M13 25h38" stroke="currentColor" opacity=".45"/></svg></span><span><h3>Generation Corner</h3><p>Fünf Phasen · Relationsfamilien · Generation · typisierter Return</p><span class="chapter-action">Instrument im Pascal Joint öffnen →</span></span></a>
           <a class="entry" href="A0_SCC_003_PASCAL_PENTAGON_PAPER.html"><span class="id">P</span><span class="chapter-mark"><svg viewBox="0 0 64 50" aria-hidden="true"><path d="M15 5h28l8 8v32H15z" fill="none" stroke="currentColor" stroke-width="2"/><path d="M43 5v10h8M22 22h22M22 29h22M22 36h15" stroke="currentColor"/></svg></span><span><h3>SCC-003 Paper</h3><p>A cyclic five-face quotient of depth-six Pascal carriers</p><span class="chapter-action">Paper lesen →</span></span></a>
           <a class="entry" href="A0_NEXAH_FAMILY_METHOD_WHITE_PAPER.html"><span class="id">WE</span><span class="chapter-mark"><svg viewBox="0 0 64 50" aria-hidden="true"><path d="M15 5h28l8 8v32H15z" fill="none" stroke="currentColor" stroke-width="2"/><path d="M43 5v10h8M22 22h22M22 29h16M22 36h20" stroke="currentColor"/><circle cx="45" cy="34" r="4" fill="currentColor"/></svg></span><span><h3>Method White Paper</h3><p>Families · Records · Fugen · Grey Lens · Human Return</p><span class="chapter-action">Paper E lesen →</span></span></a>
-          <a class="entry" href="../32_A0_FINDINGS_AND_PAPER_WORKSPACE_2026-10-11.md"><span class="id">FP</span><span class="chapter-mark"><svg viewBox="0 0 64 50" aria-hidden="true"><path d="M10 9h18v32H10zM36 9h18v32H36z" fill="none" stroke="currentColor" stroke-width="2"/><path d="M15 17h8M15 24h8M15 31h8M41 17h8M41 24h8M41 31h8M28 24h8" stroke="currentColor"/></svg></span><span><h3>Findings &amp; Papers</h3><p>SCC-003 · D30 Companion · geparkte Synthesen · Claim-Grenzen</p><span class="chapter-action">Workspace öffnen →</span></span></a>
+          <a class="entry" href="A0_RESEARCH_DESK.html#findings"><span class="id">FP</span><span class="chapter-mark"><svg viewBox="0 0 64 50" aria-hidden="true"><path d="M10 9h18v32H10zM36 9h18v32H36z" fill="none" stroke="currentColor" stroke-width="2"/><path d="M15 17h8M15 24h8M15 31h8M41 17h8M41 24h8M41 31h8M28 24h8" stroke="currentColor"/></svg></span><span><h3>Findings &amp; Papers</h3><p>SCC-003 · D30 Companion · geparkte Synthesen · Claim-Grenzen</p><span class="chapter-action">Workspace öffnen →</span></span></a>
           <a class="entry" href="A0_RESEARCH_DESK.html#tests"><span class="id">MC</span><span class="chapter-mark"><svg viewBox="0 0 64 50" aria-hidden="true"><path d="M12 9h40v32H12z" fill="none" stroke="currentColor" stroke-width="2"/><path d="M20 18h5M30 18h15M20 25h5M30 25h15M20 32h5M30 32h15" stroke="currentColor" stroke-width="2"/></svg></span><span><h3>Science Mission Control</h3><p>3 Linsen · Tests · Hypothesen · Lücken · Validation Gates</p><span class="chapter-action">Prüfkarte öffnen →</span></span></a>
         </div>
       </div>
@@ -410,7 +434,7 @@
         <a class="btn gold" href="06_PROJECTION_FOURIER_SHADOWS.html">Open Chapter 06</a>
         <a class="btn gold" href="07_EVIDENCE_COMPARISON_DECISION.html">Open Chapter 07</a>
         <a class="btn gold" href="08_RETURN_ONE_CARRIER_SEVEN_QUESTIONS.html">Open Chapter 08</a>
-        <a class="btn" href="../17_COMPLEX_NUMBERS_PHASE_AND_READOUT_NEXAH_FUNDAMENTALS_CROSSWALK_2026-10-08.md">Open foundation record</a>
+        <a class="btn" href="../sources/RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/17_COMPLEX_NUMBERS_PHASE_AND_READOUT_NEXAH_FUNDAMENTALS_CROSSWALK_2026-10-08.md">Open foundation record</a>
         <a class="btn" href="../navigator/index.html#home">Open Science Navigator</a>
       </div>
     </section>
@@ -419,6 +443,6 @@
   <footer>
     <div><span><strong>NEXAH · A0 BOOK</strong><br>Internal guided-reading surface · documentation layer</span><span class="label">Introduction + Index · 2026-10-09</span></div>
   </footer>
-  <script src="a0-context-navigation.js?rev=human-home-20261014"></script>
+  <script src="a0-context-navigation.js?rev=reader-lanes-20261015"></script>
 </body>
 </html>

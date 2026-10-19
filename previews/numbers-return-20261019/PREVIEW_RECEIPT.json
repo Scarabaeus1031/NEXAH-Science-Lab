@@ -1,23 +1,21 @@
 {
   "mobile_navigation": {
-    "revision": "20261019-human-builder-2",
+    "revision": "20261019-a0-tool-3",
     "source_sha256": "7d24cf96827f38d84e3f4b974f6a1352661b52197461ede60d4ec0592a3510c5",
-    "scope": "Shared Human Experience and Builder Arkade entrance plus sticky in-game navigation; existing world/view controls only"
+    "scope": "A0-linked Builder Arkade plus sticky in-game navigation; existing world/view controls only"
   },
   "public_entry": {
-    "source_sha256": "e79eb593ec63da2795212c74a37213354d7552ae758650d0085b19aba60e371d",
-    "views": [
-      "human",
-      "builder-arkade"
-    ],
+    "source_sha256": "77e7bc3c1c783c8a773d48d22d2af83aa8cadaa657b4d69e95b25570f2e92df4",
+    "role": "A0_TOOL",
+    "returns_to": "https://scarabaeus1031.github.io/NEXAH-Science-Lab/book/index.html#arkade-tool",
     "canonical_identity_created": false,
     "graph_relation_created": false
   },
   "schema": "a0.public-play-preview/1",
   "date": "2026-10-19",
-  "owner_authorization": "Public iPhone test and integrated Human/Builder entrance approved in chat",
+  "owner_authorization": "Public iPhone test and A0 story integration approved in chat",
   "source_revision_is_dirty": true,
-  "boundary": "Bounded experience and engineering preview; not canonical graph admission or scientific publication",
+  "boundary": "Bounded engineering preview linked from the existing A0 story; not canonical graph admission or scientific publication",
   "provenance_redaction": "Local Photos and home paths withheld in generated JSON; source receipts unchanged",
   "sources": [
     {
@@ -31,10 +29,6 @@
     {
       "dest": "book/a0-arkade.css",
       "source_sha256": "55580d759e84daddbe689fb26a23f2ff46d73d3b1118723449844e8075f43592"
-    },
-    {
-      "dest": "book/a0-arkade-experience.css",
-      "source_sha256": "013fe481e624cf993ccf6793dac94f53dfa7876ace6671ae67c3ffa5f764eb3f"
     },
     {
       "dest": "book/assets/3d/nexah_pq_conjugate_orbit_v7.glb",
