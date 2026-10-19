@@ -1,7 +1,7 @@
 (function(){
   'use strict';
   const $=id=>document.getElementById(id),kind=document.body.dataset.worldsKind,isLife=kind==='life',play=$(isLife?'playPause':'play'),loop=$(isLife?'loopPlayback':'loop'),status=$(isLife?'playbackStatus':'runStatus');
-  const allowed=isLife?['rooms','boundary','field','register','phase','rosette']:['domains','montage','euler'];
+  const allowed=isLife?['rooms','boundary','field','register','phase','rosette','cathedral']:['domains','montage','euler'];
   function running(){return play.textContent==='Pause'}
   function publish(ready=false){if(parent!==window)parent.postMessage({type:'worlds-play-state',ready,kind,running:running(),loop:loop.checked,status:status.textContent},'*')}
   function change(el,value){el.value=value;el.dispatchEvent(new Event('change',{bubbles:true}))}
