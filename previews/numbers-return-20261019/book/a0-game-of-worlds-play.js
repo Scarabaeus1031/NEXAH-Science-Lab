@@ -5,6 +5,7 @@
   function send(kind,action,value){if(ready[kind])frames[kind].contentWindow.postMessage({type:'worlds-play-command',action,value},'*')}
   function controls(){const s=states[active];for(const id of ['play','step','reset'])$(id).disabled=!ready[active];$('numberFlip').disabled=$('numberTouch').disabled=!ready.numbers;$('numberRule').disabled=!ready.numbers;$('seed').disabled=!ready.life;$('play').textContent=s?.running?'PAUSE Ⅱ':'PLAY ▶';$('play').setAttribute('aria-pressed',String(Boolean(s?.running)));$('position').textContent=s?s.status:'Welt lädt …';$('loop').checked=s?s.loop:true;$('orbit').disabled=!ready[active]||active==='domains'||active==='numbers'&&['rails','elevator','joint','mixer','rgb','pq','groups','wheels'].includes(views.numbers)||active==='life'&&!['rooms','boundary'].includes(views.life);$('orbit').setAttribute('aria-pressed',String(orbits[active]));}
   function choose(kind){if(!Object.hasOwn(frames,kind))return;if(kind!==active){send(active,'pause');orbits[active]=false;active=kind;}
+    try{window.localStorage?.setItem('nexah.arkade.lastWorld',kind)}catch{}
     for(const k of Object.keys(frames)){frames[k].hidden=k!==kind;$(groups[k]).hidden=k!==kind;$(picks[k]).setAttribute('aria-pressed',String(k===kind));}
     $('numberFlip').hidden=kind!=='numbers';$('numberTouch').hidden=kind!=='numbers';$('seedLabel').hidden=kind!=='life';$('numberRuleLabel').hidden=kind!=='numbers';
     if(urls[kind]&&!frames[kind].getAttribute('src'))frames[kind].src=urls[kind];
@@ -24,6 +25,6 @@
   document.addEventListener('visibilitychange',()=>{if(document.hidden)for(const kind of Object.keys(frames)){send(kind,'pause');orbits[kind]=false;}});
   for(const kind of Object.keys(frames))frames[kind].addEventListener('load',()=>frames[kind].contentWindow.postMessage({type:'worlds-play-command',action:'hello'},'*'));
   frames.life.contentWindow.postMessage({type:'worlds-play-command',action:'hello'},'*');controls();
-  function route(){if(window.location.hash==='#numbers')choose('numbers');}
+  function route(){let requested='';try{requested=new URLSearchParams(window.location.search||'').get('world')||''}catch{}const hash=(window.location.hash||'').slice(1);if(Object.hasOwn(frames,hash))requested=hash;if(!requested)try{requested=window.localStorage?.getItem('nexah.arkade.lastWorld')||''}catch{}if(Object.hasOwn(frames,requested))choose(requested);}
   window.addEventListener('hashchange',route);route();
 })();
