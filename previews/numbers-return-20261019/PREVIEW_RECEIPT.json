@@ -1,4 +1,9 @@
 {
+  "mobile_navigation": {
+    "revision": "20261019-mobile-nav-1",
+    "source_sha256": "b33635aba441f65334a4304e5fffc9366de67cfa2ce9003e9313813a16ffb140",
+    "scope": "sticky test navigation; existing world/view controls only"
+  },
   "schema": "a0.public-play-preview/1",
   "date": "2026-10-19",
   "owner_authorization": "Public iPhone test approved in chat",
@@ -8,7 +13,7 @@
   "sources": [
     {
       "dest": "book/A0_GAME_OF_WORLDS_PLAY.html",
-      "source_sha256": "c63bc3094eca1c77b1b1f3b0f58301dd9c57600c4c430ce0f28dbb01dbc36edf"
+      "source_sha256": "64162186939ed7e40e49bd706094e550169ade353aa22b88d7ea4a33f91177fb"
     },
     {
       "dest": "book/A0_NUMBERMAGICK_GRID_RESEARCH.html",
@@ -28,7 +33,7 @@
     },
     {
       "dest": "book/a0-game-of-worlds-play.css",
-      "source_sha256": "28ec668f4cb995631276d4a9fc4f4f16c7ff919914770a5aaf57eb13ae41f195"
+      "source_sha256": "851785e897be4a32447c488e9a8762f8cc342879fd7c9325920fb340609e31de"
     },
     {
       "dest": "book/assets/game-of-worlds-play/index.html",
@@ -40,7 +45,7 @@
     },
     {
       "dest": "book/a0-game-of-worlds-play.js",
-      "source_sha256": "699faccfb579997b56de0cb37d46580aede4544fdbb243e62f588a33cd6a34c0"
+      "source_sha256": "22398f23c5887479d9bef402a3b66b8d91c805f6319a3b4a5a757973f1b141f0"
     },
     {
       "dest": "book/a0-context-navigation.js",
@@ -414,11 +419,5 @@
   "external_dependencies": [
     "https://cdn.jsdelivr.net/npm/three@0.149.0/examples/jsm/loaders/LottieLoader.js"
   ],
-  "excluded_link_count": 69,
-  "mobile_navigation": {
-    "revision": "20261019-mobile-nav-1",
-    "scope": "sticky public test links; world/view selectors delegate to existing controls; no model changes",
-    "source_sha256": "b33635aba441f65334a4304e5fffc9366de67cfa2ce9003e9313813a16ffb140",
-    "verification": "14 static contracts and inline JS parse; device acceptance pending"
-  }
+  "excluded_link_count": 69
 }
