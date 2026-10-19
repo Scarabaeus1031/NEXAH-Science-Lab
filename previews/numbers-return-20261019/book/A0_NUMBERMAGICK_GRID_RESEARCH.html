@@ -37,7 +37,7 @@
 <p class="lead">Eine Zahl wird zur Adresse. Aus Adressen entstehen Nachbarschaften, aus Wegen Fäden. Wir schichten, falten und spiegeln — und fragen: Was bleibt beim Wechsel der Ansicht erhalten?</p>
 <div class="links story-actions">
 <a href="#reading-paths">Einen Lesepfad wählen ↓</a>
-<a href="#pascal-thread-demonstrator">Return direkt testen →</a>
+<a href="#ghReturnGateTitle">Return Gate direkt testen →</a>
 <a href="#research-apparatus">Quellen und Grenzen prüfen</a>
 </div>
 <p class="story-intro">Numbermagick ist hier nicht nur eine Sammlung besonderer Zahlen. Es ist die Arbeit daran, Zahlen, Zeichen und Relationen in verschiedenen Karten lesbar zu machen. Rootroom, Portalstone, Euler-L, Tessarec und die heutigen A0-Instrumente tragen unterschiedliche Teile dieser Entwicklung.</p>
@@ -181,8 +181,17 @@
 <p class="eyebrow">Zweiter Lesemodus · ausprobieren</p>
 <h2 id="instrumentsTitle">Instrumente: vom Zahlrecord zum Return.</h2>
 <p>Jedes Instrument besitzt einen eigenen Vertrag. Gemeinsam ist ihnen nur die Frage, was ein Ansichtswechsel bewahrt, verliert oder für die Rückkehr zusätzlich braucht.</p>
-<nav aria-label="Instrumente auf dieser Seite"><a href="#number-shell-lens">Zahlenlinse</a><a href="#field-geometry-book">Buchbrücke</a><a href="#gh-hinge">GH-Hinge</a><a href="#grid-collection">Grid-Sammlung</a><a href="#six-marker-comparison">Sechs Marker</a><a href="#pascal-thread-demonstrator">Pascal-Return</a></nav>
+<nav aria-label="Instrumente auf dieser Seite"><a href="#number-shell-lens">Zahlenlinse</a><a href="#field-geometry-book">Buchbrücke</a><a href="#gh-hinge">GH-Hinge</a><a href="#ghReturnGateTitle">Return Gate</a><a href="#grid-collection">Grid-Sammlung</a><a href="#six-marker-comparison">Sechs Marker</a><a href="#pascal-thread-demonstrator">Pascal-Return</a></nav>
 </div>
+<aside class="handoff-bridge" aria-labelledby="handoffTitle">
+<div class="handoff-heading"><p class="eyebrow">Producer → typisierte Grenze → Receiver</p><h2 id="handoffTitle">Der Return ist verbunden — ohne Records zu vermischen.</h2><p>PLAY und das Return Gate bauen aufeinander zu. Sie behalten trotzdem getrennte Zustandsverträge.</p></div>
+<ol>
+<li><span>01 · PRODUCER</span><strong>Numbers / PLAY</strong><p>Erzeugt replaybare Zahlenrecords und prüft ihre numerische Rückkehr im eigenen Modell.</p><a href="A0_GAME_OF_WORLDS_PLAY.html#numbers">Producer öffnen →</a></li>
+<li><span>02 · VERTRAG</span><strong><code>a0.return-gate.v1</code></strong><p>Akzeptiert vollständige Winkel-Preset-Receipts mit Anker, Abgangszustand und passendem Schlüssel.</p><a href="a0-return-gate-v1.schema.json">Schema lesen →</a></li>
+<li><span>03 · RECEIVER</span><strong>Return Gate</strong><p>Klassifiziert ausschließlich als <code>EXACT</code>, <code>AMBIGUOUS</code> oder <code>WRONG_KEY</code>.</p><a href="#ghReturnGateTitle">Gate testen ↓</a></li>
+</ol>
+<p class="handoff-open"><strong>Bewusst offen:</strong> Ein Numbers-Record ist kein Winkel-Preset. Ohne deklarierte Zahlen→Winkel-Abbildung wird er <code>AMBIGUOUS</code>, niemals stillschweigend <code>EXACT</code>. Das ist die korrekte Grenze, kein fehlgeschlagener Return.</p>
+</aside>
 <section id="number-shell-lens" aria-labelledby="numberLensTitle">
 <p class="eyebrow">NUMBERMAGICK · SPIELBARE ZAHLENLINSE · 19.10.2026</p>
 <h2 id="numberLensTitle">Game of Magic Numbers</h2>
