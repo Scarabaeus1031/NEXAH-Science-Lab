@@ -1,0 +1,27 @@
+.journey-gates {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  gap: 12px;
+}
+
+.builder-gate {
+  display: grid;
+  gap: 3px;
+  min-width: 210px;
+  padding: 11px 18px;
+  border: 1px solid var(--blue);
+  border-radius: 5px;
+  color: var(--paper);
+  text-decoration: none;
+}
+
+.builder-gate span {
+  color: var(--blue);
+  font: 700 9px ui-monospace, monospace;
+  letter-spacing: .15em;
+}
+
+.builder-gate:hover {
+  background: #102832;
+}

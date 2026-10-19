@@ -5,12 +5,12 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="description" content="A1 Human Album: neun Apertures als Rundgang durch bestehende NEXAH Module — von Frage, Licht und Relation bis Körper, LIFE und Return.">
   <title>NEXAH · The Aperture Journey</title>
-  <link rel="stylesheet" href="a0-nexah-aperture-journey.css?rev=20261014-world-album">
-  <link rel="stylesheet" href="a0-context-navigation.css?rev=minimal-entry-20261014">
+  <link rel="stylesheet" href="a0-nexah-aperture-journey.css?rev=top-question-arrows-20261020">
+  <link rel="stylesheet" href="a0-context-navigation.css?rev=human-draft-link-20261020">
 </head>
 <body>
   <header class="top">
-    <a class="brand" href="#human-view">NEXAH <span>· LIFE &amp; COSMOS</span></a>
+    <a class="brand" href="index.html">NEXAH <span>· HUMAN VIEW</span></a>
     <nav><a href="#human-view">Human View</a><a href="#invitation">Rainbow</a><a href="#instrument">Album · 09</a><a href="#return">Return</a><a href="#fields">Method</a><a href="#world-map">World Map</a></nav>
   </header>
 
@@ -31,18 +31,17 @@
       </div>
 
       <div class="human-aperture" tabindex="-1" aria-live="polite">
-        <div class="human-index"><span id="humanQuestionNumber">01</span><small>OF 07 · HUMAN APERTURES</small></div>
+        <div class="human-index">
+          <span id="humanQuestionNumber">01</span>
+          <div class="human-top-nav" role="group" aria-label="Human questions browse controls">
+            <button id="previousHumanQuestion" type="button" aria-label="Previous human question">←</button>
+            <button id="nextHumanQuestion" type="button" aria-label="Next human question">→</button>
+          </div>
+        </div>
         <p class="human-question" id="humanQuestion">What is real?</p>
         <p class="human-bridge" id="humanBridge">Before an answer, there is a world — and a position from which we meet it.</p>
-        <div class="human-card-nav" role="group" aria-label="Human questions browse controls">
-          <button id="previousHumanQuestion" type="button" aria-label="Previous human question">←</button>
-          <button class="human-loop-toggle" id="toggleHumanQuestions" type="button" aria-pressed="true">QUESTION LOOP · AUTO</button>
-          <button id="nextHumanQuestion" type="button" aria-label="Next human question">→</button>
-        </div>
-        <div class="human-actions">
-          <button id="enterQuestion" type="button">ENTER THROUGH THIS QUESTION <span>↘</span></button>
-          <a href="#invitation">FIND THE RAINBOW ↓</a>
-          <button class="human-reveal" id="revealQuestions" type="button" hidden>WHAT'S BEHIND THESE QUESTIONS? <span>✦</span></button>
+        <div class="human-actions" id="humanFinalAction" hidden>
+          <button class="human-reveal" id="revealQuestions" type="button">WHAT'S BEHIND THESE QUESTIONS? <span>✦</span></button>
         </div>
       </div>
 
@@ -252,8 +251,8 @@
       </header>
       <a class="doors-return" href="#human-view">↺ ASK ANOTHER HUMAN QUESTION</a>
       <div class="door-field is-three" aria-label="Choose the next NEXAH entrance">
-        <a class="grey-door science-door" href="A0_SCIENCE.html"><small>02 · A0 SCIENCE</small><strong>LOOK CLOSER</strong><span>Explore orientation, reading &amp; method</span><b>→</b></a>
-        <a class="grey-door builder-door" href="../../../../../00%20EXECUTIVE/NEXAH-Mission-Control/00_OVERVIEW/BUILDER_STATUS_REPORT.html"><small>03 · B1 BUILDER</small><strong>MAKE IT REAL</strong><span>Start with tools, ideas &amp; applications</span><b>→</b></a>
+        <a class="grey-door science-door" href="A0_SCIENCE.html"><small>02 · A0 SCIENCE</small><strong>LOOK CLOSER</strong><span>Enter the instruments</span><b>→</b></a>
+        <a class="grey-door builder-door" href="A0_BUILDER_TOY_STORE.html"><small>03 · B1 BUILDER</small><strong>MAKE IT REAL</strong><span>Open the Toy Store</span><b>→</b></a>
         <a class="grey-door connect-door" href="NEXAH_C_CONNECT.html"><small>04 · C CONNECT</small><strong>FOLLOW THE SOURCES</strong><span>Enter the ecosystem</span><b>↗</b></a>
       </div>
       <p class="door-invitation">CHOOSE A DOOR · EACH WINDOW PRESERVES THE RETURN</p>
@@ -261,7 +260,7 @@
   </main>
 
   <footer><span><strong>A0-VIEW-NEXAH-APERTURE-JOURNEY</strong><br>One carrier · many windows · declared return</span><span>INTERNAL · SOURCE-BOUND EXPERIENCE · NOT PUBLIC</span></footer>
-  <script src="a0-context-navigation.js?rev=album-return-20261014"></script>
-  <script src="assets/a0-nexah-aperture-journey-v1.js?rev=20261014-world-album"></script>
+  <script src="a0-context-navigation.js?rev=human-draft-link-20261020"></script>
+  <script src="assets/a0-nexah-aperture-journey-v1.js?rev=quiet-question-controls-20261020"></script>
 </body>
 </html>
