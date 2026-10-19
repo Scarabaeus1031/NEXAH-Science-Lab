@@ -61,6 +61,7 @@
       key: "science", code: "S", label: "Science", description: "Begriffe, Methode und Evidenz", entry: "A0_SCIENCE.html",
       sections: [
         { label: "Lesen & Methode", items: [
+          ["A0_SCIENTIFIC_POSITION_REPORT.html", "Scientific Position · Was NEXAH konkret macht", "Resultate, Instrumente und offene Grenzen · Quellenstand 19.10.2026"],
           ["A0_TOURS.html", "A0 Touren · Welche Tour wählst du?", "Sechs Einstiege und alle erhaltenen HTML-Demonstratoren"],
           ["A0_THEORY_STORYBOARD.html#overview", "Theorie-Storyboard · Gesamtkarte", "Sieben Szenen und 3+1-Architektur"],
           ["A0_ORIENTATION_CONTROLLER_BENCH.html#root7Coupling", "Root7 · mitlaufende Q4-Ansicht", "Ein Quelltakt, Vorzeichen und deklarierter Stretch"],
@@ -104,8 +105,7 @@
         ]},
         { label: "Ergebnisse & Einordnung · Reader", items: [
           ["A0_RESEARCH_DESK.html#achievements-reader", "09 · Achievements", "Konkrete Beiträge und ihre Grenzen"],
-          ["A0_RESEARCH_DESK.html#scientific-position", "10 · Wissenschaftliche Einordnung", "Zusammenfassung und vollständiger Position Report"],
-          ["A0_SCIENTIFIC_POSITION_REPORT.html", "Scientific Position", "Wo NEXAH wissenschaftlich steht"]
+          ["A0_RESEARCH_DESK.html#scientific-position", "10 · Wissenschaftliche Einordnung", "Zusammenfassung und vollständiger Position Report"]
         ]},
         { label: "Authority & Currentness · Arbeitsfläche", items: [
           ["A0_RESEARCH_DESK.html", "Science Desk", "A0-Autorität, Arbeitsstand und nächste Gates"],
@@ -369,6 +369,16 @@
       laneNav.querySelectorAll("details[open]").forEach((other) => { if (other !== group) other.open = false; });
     });
     laneNav.append(group);
+    if (lane.key === "science") {
+      // Direct sibling of Science, not inside a collapsed Reader panel.
+      const positionLink = document.createElement("a");
+      positionLink.className = "a0-scientific-position-direct";
+      positionLink.href = "A0_SCIENTIFIC_POSITION_REPORT.html";
+      positionLink.textContent = "Scientific Position";
+      positionLink.setAttribute("aria-label", "Scientific Position · Was NEXAH konkret macht");
+      if (file === "A0_SCIENTIFIC_POSITION_REPORT.html") positionLink.setAttribute("aria-current", "page");
+      laneNav.append(positionLink);
+    }
   });
 
   const pageContext = document.createElement("div");

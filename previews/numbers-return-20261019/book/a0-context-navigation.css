@@ -43,3 +43,8 @@
 @media(max-width:600px){.a0-directory-grid{grid-template-columns:1fr}.a0-navigation-directory{padding:16px;margin:16px 10px}}
 @media(prefers-reduced-motion:reduce){.a0-reader-panel,.a0-page-menu-body{scroll-behavior:auto}}
 @media(max-width:820px){.top.a0-context-ready.a0-context-quiet{display:flex;gap:14px}.top.a0-context-ready.a0-context-quiet .a0-page-tools{width:auto;padding-top:0;border-top:0}}
+
+/* Position Report is a visible Science entry, including on narrow screens. */
+.top.a0-context-ready:not(.a0-context-quiet)>.a0-reader-lanes{display:flex}
+.a0-scientific-position-direct{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:8px 11px;border:1px solid #54d7ef;border-radius:8px;color:#78e6f5;background:#102a39;font:750 11px/1.2 Inter,ui-sans-serif,system-ui,sans-serif;text-decoration:none;white-space:nowrap;flex-shrink:0}.a0-scientific-position-direct:hover,.a0-scientific-position-direct:focus-visible,.a0-scientific-position-direct[aria-current=page]{color:#fff;border-color:#ffd066;outline:2px solid #ffd066;outline-offset:2px}
+@media(max-width:560px){.a0-reader-lanes{flex-wrap:wrap;overflow-x:visible}.a0-scientific-position-direct{font-size:10px;padding-inline:9px}}
