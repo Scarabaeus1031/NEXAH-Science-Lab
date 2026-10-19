@@ -1,0 +1,161 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:nexah:a0:return-gate:v1",
+  "title": "A0 Return Gate v1 receipt",
+  "description": "Versioned engineering receipt for exact replay of a complete stored angle-preset anchor. It is not a derived inverse or a physical operator.",
+  "type": "object",
+  "required": [
+    "schema",
+    "identity_reuse",
+    "state_schema",
+    "operation",
+    "anchor",
+    "departure",
+    "residual_to_anchor",
+    "history",
+    "return_key",
+    "integrity",
+    "result_vocabulary",
+    "claim_boundary"
+  ],
+  "properties": {
+    "schema": {
+      "const": "a0.return-gate.v1"
+    },
+    "identity_reuse": {
+      "const": "MOD:NUMBER_VIEW_SUITE"
+    },
+    "state_schema": {
+      "const": "a0.angle-preset-state.v1"
+    },
+    "operation": {
+      "type": "object",
+      "required": [
+        "type",
+        "forward_from",
+        "forward_to"
+      ],
+      "properties": {
+        "type": {
+          "const": "restore_stored_anchor"
+        },
+        "forward_from": {
+          "type": "string"
+        },
+        "forward_to": {
+          "type": "string"
+        }
+      }
+    },
+    "anchor": {
+      "$ref": "#/$defs/presetState"
+    },
+    "departure": {
+      "$ref": "#/$defs/presetState"
+    },
+    "residual_to_anchor": {
+      "type": "object"
+    },
+    "history": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "return_key": {
+      "type": "string",
+      "pattern": "^a0rk-[0-9a-f]{8}$"
+    },
+    "integrity": {
+      "type": "object",
+      "required": [
+        "algorithm",
+        "anchor_fingerprint"
+      ],
+      "properties": {
+        "algorithm": {
+          "const": "fnv1a32-canonical-json-noncryptographic"
+        },
+        "anchor_fingerprint": {
+          "type": "string",
+          "pattern": "^a0rk-[0-9a-f]{8}$"
+        }
+      }
+    },
+    "result_vocabulary": {
+      "const": [
+        "EXACT",
+        "AMBIGUOUS",
+        "WRONG_KEY"
+      ]
+    },
+    "claim_boundary": {
+      "type": "string"
+    }
+  },
+  "$defs": {
+    "nullableAngle": {
+      "type": [
+        "number",
+        "null"
+      ]
+    },
+    "nullableString": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "presetState": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "key",
+        "label",
+        "beta",
+        "iota",
+        "delta",
+        "phantom",
+        "executable",
+        "source_file",
+        "source_sha256",
+        "source_status"
+      ],
+      "properties": {
+        "key": {
+          "type": "string"
+        },
+        "label": {
+          "type": "string"
+        },
+        "beta": {
+          "$ref": "#/$defs/nullableAngle"
+        },
+        "iota": {
+          "$ref": "#/$defs/nullableAngle"
+        },
+        "delta": {
+          "$ref": "#/$defs/nullableAngle"
+        },
+        "phantom": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "executable": {
+          "type": "boolean"
+        },
+        "source_file": {
+          "$ref": "#/$defs/nullableString"
+        },
+        "source_sha256": {
+          "$ref": "#/$defs/nullableString"
+        },
+        "source_status": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

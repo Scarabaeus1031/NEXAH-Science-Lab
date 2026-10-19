@@ -1,0 +1,72 @@
+{
+  "schema": "nexah.a0.blue-body-interior-crt16/1.0.0",
+  "record_id": "A0:BLUE_BODY:INTERIOR:CRT16:ORDINAL_GRAY_RING:V1",
+  "date": "2026-10-15",
+  "status": "INTERNAL_DETERMINISTIC_ENGINEERING_LENS_NOT_SCIENCE_RUN",
+  "identity": {
+    "reuses": [
+      "A0:TESSAREC:BLUE_BODY:V1",
+      "MOD:TESSAREC",
+      "NEXAH:A0_ORIENTATION_EVIDENCE_LINEAGE:V1"
+    ],
+    "new_navigator_identity": false,
+    "new_graph_relation": false,
+    "new_study": false
+  },
+  "carrier": {
+    "id": "MOD:TESSAREC:Q4xP3",
+    "address_space": "Q4 x P3",
+    "states": 48,
+    "layers": 3,
+    "states_per_layer": 16
+  },
+  "adapter": {
+    "type": "ORDINAL_CHANNEL_TO_LAYERED_GRAY_RING_ADDRESS",
+    "domain": "I16 x P3",
+    "codomain": "Q4 x P3",
+    "formula": "B(c,l)=(P_l, (c&8)|gray3(c&7))",
+    "bijective": true,
+    "topology_claim": false
+  },
+  "crt16": {
+    "moduli": [
+      17,
+      19,
+      23,
+      29,
+      31,
+      37,
+      41,
+      43,
+      47,
+      53,
+      59,
+      61,
+      67,
+      71,
+      73,
+      79
+    ],
+    "role": "CHANNEL_LABELS_ONLY",
+    "labels_define_q4_topology": false
+  },
+  "projection": {
+    "views": [
+      "front",
+      "top",
+      "side",
+      "isometric"
+    ],
+    "source_key_shared": true,
+    "aperture_is_display_only": true,
+    "phase_period": 12,
+    "tile_layout": "15_PLUS_1_PER_LAYER"
+  },
+  "return": {
+    "pass": "PASS_EXACT_ADDRESS_RETURN",
+    "missing_witness": "HOLD_MISSING_WITNESS",
+    "invalid_address": "HOLD_INVALID_ADDRESS",
+    "view_divergence": "HOLD_VIEW_DIVERGENCE"
+  },
+  "claim_boundary": "ORDINAL_CHANNEL_ADAPTER_ONLY_PRIME_LABELS_DO_NOT_DEFINE_Q4_TOPOLOGY_DISPLAY_APERTURE_DOES_NOT_MUTATE_SOURCE_NO_INTRINSIC_INTERIOR_GEOMETRY_NO_PHYSICAL_MECHANISM_NO_NEW_FINDING_NO_PUBLICATION"
+}

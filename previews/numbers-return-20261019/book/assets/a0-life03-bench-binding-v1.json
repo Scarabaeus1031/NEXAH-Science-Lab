@@ -1,0 +1,117 @@
+{
+  "schema": "nexah.a0.life03-bench-binding.local/1",
+  "asOf": "2026-10-17",
+  "status": "IMPLEMENTED_ENGINEERING_BROWSER_ACCEPTANCE_OPEN",
+  "reuse": {
+    "life03": "ART:HTML:EBD57F76EA4F",
+    "scale": "ART:HTML:2972691C8297"
+  },
+  "sourceSetHash": "3faceb0876d3bb13339a146a48f4c6c9ba92a1bad457d36fd40d2d8cb8876e9f",
+  "sourceFiles": [
+    {
+      "path": "../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_LIFE_ORBIT_SCALE_LAB_V2_2026-10-07/scale-engine.js",
+      "sha256": "f92b3c8a6dca74ee55a398191b64431740c1777f288fe395912a0345951ca660"
+    },
+    {
+      "path": "../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_LIFE_E8_DUAL_CLOCK_LIFE03_2026-10-07/index.html",
+      "sha256": "6234a12fe8baf91b8b4fcd162871e74881aa7b0d1130c314bb926517bb4486e3"
+    },
+    {
+      "path": "../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_LIFE_E8_DUAL_CLOCK_LIFE03_2026-10-07/app.js",
+      "sha256": "f3e5c1d07ac97166c1adeb1ecd43f9ea2eb5c8d18431f8863a796567502214dd"
+    },
+    {
+      "path": "../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_LIFE_E8_DUAL_CLOCK_LIFE03_2026-10-07/life-e8-engine.js",
+      "sha256": "4c98cde7a75b36f1fd7bea644aa6cd5b095c0367ac3e2e2ec141fdefece1aa7e"
+    },
+    {
+      "path": "../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_LIFE_E8_DUAL_CLOCK_LIFE03_2026-10-07/styles.css",
+      "sha256": "c3b58b3df4e996d44f9cc16e99d03d6e60f606653aa773d8fcff6ed2f166cef3"
+    }
+  ],
+  "contract": {
+    "protocol": "nexah.a0.life03-source/1",
+    "profile": "Blinker, 64×64, existing synchronous B3/S23 finite-dead source; max 32 generations",
+    "actions": [
+      "HELLO",
+      "READ",
+      "CAPTURE",
+      "STEP",
+      "VIEW",
+      "RETURN",
+      "STOP"
+    ],
+    "modes": [
+      "dual",
+      "observer",
+      "projection"
+    ],
+    "state": "Complete native work object, mode, speed. Source-owned anchor; history frames and projection records restored, adapter revision and audit trace continue.",
+    "singleClock": "Existing OCB Master only. Child-local play/timers disabled. Manual STEP has no timer.",
+    "readiness": "frame source reference + random session + source-set hash + seq + revision + rendered control readback; source-local timer must be stopped",
+    "pending": "one request; no unacknowledged step retry; all Master mutation controls guarded while following and pending",
+    "hold": "4s ACK timeout; 8s connection timeout; wrong readback/revision -> HOLD and pause; explicit READ or reload for recovery",
+    "coexistence": "PENT and LIFE03 joint demos mutually detached on explicit start; pending other-source request blocks start",
+    "notConnected": "No transfer of state from a separately opened Scale Lab; no whole-machine, external utility, E8-identity or scientific acceptance."
+  },
+  "masterCues": [
+    "CAPTURE",
+    "STEP",
+    "STEP",
+    "VIEW observer",
+    "STEP observer",
+    "VIEW projection",
+    "READ",
+    "VIEW dual",
+    "STEP dual",
+    "RETURN"
+  ],
+  "engineeringTests": "a0-life03-bench-tests.cjs",
+  "exportVerifier": "a0-life03-browser-run-verify.cjs",
+  "browserAcceptance": false,
+  "authority": {
+    "newCanonicalIdentity": false,
+    "newGraphRelation": false,
+    "researchExecution": false,
+    "claimPromotion": false,
+    "publication": false
+  },
+  "implementationFiles": [
+    {
+      "path": "A0_ORIENTATION_CONTROLLER_BENCH.html",
+      "sha256": "d111d3474ef663847b52392b798e7a56fcdf5d5cc44cc11500c77165f4e6edd5"
+    },
+    {
+      "path": "a0-life03-contract.js",
+      "sha256": "f806d7ef3384df6bf454de328f571794cae668a233bcf9ab356776bd06c615a7"
+    },
+    {
+      "path": "a0-life03-child.js",
+      "sha256": "b6ac3c6a8badf86722a24adb6bec0f5aeb5c5a470878d44f7ceb178294765902"
+    },
+    {
+      "path": "a0-life03-bench-adapter.js",
+      "sha256": "67944f89d77dfaa0a1476176c825a12f3c74f351c61b2cc4979b62d24038b7b8"
+    },
+    {
+      "path": "a0-life03-runtime-build.cjs",
+      "sha256": "2fed2e12185c41db232c31e43db2fbaff658692a54b4c37caa84c8f0cedb1dad"
+    },
+    {
+      "path": "assets/a0-life03-runtime.html",
+      "sha256": "1ca3639283a2c7aabfe96ceebc358307226eb37489ee919ac7de03f9f20a2655"
+    },
+    {
+      "path": "a0-life03-browser-run-verify.cjs",
+      "sha256": "5167a13de92c062f966a9c88c0e5f42b2d4bedd635e7e93a8eee6f9ce3e282cb"
+    },
+    {
+      "path": "a0-life03-bench-tests.cjs",
+      "sha256": "9fbe91d02fc9ac135be327eb95f011bbf593e84772dc6092097797f375fafb58"
+    },
+    {
+      "path": "a0-orientation-controller-bench.js",
+      "sha256": "1e29f568d8456ce47319dfcaeef7b0667f5bd9176320226c062ba8270116796f"
+    }
+  ]
+}

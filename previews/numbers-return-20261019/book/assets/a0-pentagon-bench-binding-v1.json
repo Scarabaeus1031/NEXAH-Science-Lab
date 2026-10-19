@@ -1,0 +1,120 @@
+{
+  "schema": "nexah.a0.pentagon-bench-binding/1",
+  "asOf": "2026-10-17",
+  "status": "PASS_BOUNDED_MASTER_PENT_UI_RUN",
+  "reusedIdentities": [
+    "SCC-003",
+    "A0OE:PASCAL_PENTAGON_D5_TEST"
+  ],
+  "sources": [
+    {
+      "path": "assets/core-snapshots/PASCAL_PENTAGON_EXPLORER_2026-10-15.html",
+      "sha256": "4cfc870b3fcbe0d97c34098a1cd0767c79e0d3e316208da5a43575f17cc846f6"
+    },
+    {
+      "path": "assets/core-snapshots/PASCAL_PENTAGON_EXPLORER_2026-10-15.receipt.json",
+      "sha256": "edb3c09f9cfe525af23887b973b37922c6f512943da1d8f328041ef8ac9c4799"
+    },
+    {
+      "path": "a0-orientation-controller-bench.js",
+      "sha256": "1e29f568d8456ce47319dfcaeef7b0667f5bd9176320226c062ba8270116796f"
+    },
+    {
+      "path": "a0-pentagon-contract.js",
+      "sha256": "0272ee2bb842fd29891c1251a71d1ef71bddac541dd9d78d77809242394a9d8a"
+    },
+    {
+      "path": "a0-pentagon-child.js",
+      "sha256": "6e7ff1dee7f1bcf770e3bf3b042c7cc1e9481cc949ae8d49e8d19269ae67f3a1"
+    },
+    {
+      "path": "a0-pentagon-bench-adapter.js",
+      "sha256": "299d917cca9db59053189aefb9b31cf72e71505c4948c9096c732bfb45cea8df"
+    },
+    {
+      "path": "a0-pentagon-runtime-build.cjs",
+      "sha256": "329ed574f8ac527e6afe0848f6d7c7f2328f9a3ae237afc1a25e86e190ee6633"
+    },
+    {
+      "path": "assets/a0-pentagon-runtime.html",
+      "sha256": "bf8547bc0592d5ec6dfd560121c7e7775295962684df6cab6f3273ac3840e5d2"
+    },
+    {
+      "path": "a0-pentagon-bench-tests.cjs",
+      "sha256": "e42f1b8597e34dcc7c4388410ff5de14cdfc56b113732c8acacd5f040344013d"
+    },
+    {
+      "path": "a0-pentagon-joint-demo.js",
+      "sha256": "c497d021b0d5ea7e11a065855f1b047bb42f676f31d9c9d8858033910671dd77"
+    },
+    {
+      "path": "a0-pentagon-browser-run-verify.cjs",
+      "sha256": "809b937e11b5fb417ca3710626e7b2efc68ee07d995e85cea6e42947435f0eca"
+    },
+    {
+      "path": "a0-pentagon-browser-run-tests.cjs",
+      "sha256": "6547286f42c4a68050ad92200c75e44708e73c4475242a8ecc6abcbe7c88671b"
+    },
+    {
+      "path": "results/a0-pentagon-joint-browser-run-2026-10-17.json",
+      "sha256": "cc913e5d0b84a2fb5366a1e9a201801ae6379f4918599cce7143c473c7d566be"
+    }
+  ],
+  "fields": [
+    "mode",
+    "op",
+    "growthStep",
+    "couplingView",
+    "dRegister",
+    "branchWord"
+  ],
+  "protocol": {
+    "name": "A0_PENTAGON_UI_V1",
+    "authentication": "Expected Window reference + random session nonce; not an independent security attestation",
+    "ordering": "Monotonic sequence, optimistic revision, single outstanding request",
+    "failure": "HOLD and pause Master on timeout, source error or inconsistent readback",
+    "nativeInput": "Pauses Master; committed native state is reported back",
+    "return": "Exact six UI fields plus rendered control readback; revision/history continue",
+    "masterCues": "SOURCE structure identity; OPERATOR mirror; EDGE register+1; SHADOW lift; FAMILY roots; GRID coupling cycles; RETURN boundary; FOLD triangles; ROOT word LRRL; RECORD return to Master-start UI anchor",
+    "timing": "Existing Master clock waits for acknowledgement; 4-second timeout is not an animation clock"
+  },
+  "validation": {
+    "pentEngineeringChecks": 717,
+    "researchBookChecks": 321,
+    "sourceGraph": "PASS 19 components; base266/29 composed269/32",
+    "appAudit": "PASS246",
+    "utgBinder": "PASS",
+    "a0Binder": "Unchanged eight known hash-mismatch IDs; not reconciled",
+    "missionControlCurrentness": "Unchanged six known hash-mismatch IDs; not reconciled",
+    "browserQA": "PASS_BOUNDED_OWNER_OPERATED_MASTER_PENT_UI_RUN",
+    "researchRunsExecuted": false,
+    "manualBrowserEvidence": "Owner screenshots 2026-10-17 14:33:36 and 14:34:27 display READY and UI_STATE_RETURN_EXACT for the manual adapter return only.",
+    "jointBrowserAcceptance": "results/a0-pentagon-joint-browser-acceptance-2026-10-17.json",
+    "browserExportVerifierChecks": 25,
+    "completeMachineAcceptance": false
+  },
+  "authority": {
+    "newCanonicalIdentity": false,
+    "newGraphRelation": false,
+    "researchActivation": false,
+    "publication": false,
+    "frozenSourceModified": false,
+    "coreEngineModified": false
+  },
+  "limits": [
+    "Not the complete 106-node address or arbitrary graph-node state.",
+    "Master cues are presentation orchestration, not mathematical carrier maps.",
+    "Rendered control values and SVG element presence are not a pixel-rendering attestation.",
+    "Original frozen Explorer and PENT scientific records retain their own authority.",
+    "No total NEXAH machine integration claim; other modules require their own contracts."
+  ],
+  "jointDemo": {
+    "entry": "One explicit button connects and starts the existing Master at SOURCE",
+    "progress": "Confirmed source ACKs 0..10; no second animation clock",
+    "acceptance": "Ten ordered cues; nine SET ACKs and one RETURN ACK; fresh master-start anchor; exact six-field return; no HOLD or SOURCE_CHANGE in this run",
+    "pause": "Connection cancellation, parent/child manual interaction, wheel/touch scroll; late ACK cannot complete a paused run",
+    "export": "Separate joint-run record including baseline, confirmed cues, acceptance receipt and source history",
+    "advancedControls": "Explicit load/follow and individual controls remain available in collapsed details",
+    "viewport": "Existing Master focus does not scroll the joint run away from its controls"
+  }
+}

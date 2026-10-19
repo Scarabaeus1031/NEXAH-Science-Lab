@@ -1,0 +1,29 @@
+(function(){
+  'use strict';
+  const $=id=>document.getElementById(id),frames={life:$('lifeFrame'),domains:$('domainFrame'),numbers:$('numberFrame')},ready={life:false,domains:false,numbers:false},states={},views={life:'rooms',domains:'domains',numbers:'rings'},orbits={life:false,domains:false,numbers:false};
+  const names={life:'LIFE',domains:'THREE DOMAINS',numbers:'GAME OF NUMBERS'},groups={life:'lifeLenses',domains:'domainLenses',numbers:'numberLenses'},picks={life:'pickLife',domains:'pickDomains',numbers:'pickNumbers'},urls={domains:'assets/game-of-worlds-play/three-domain-transition-test/index.html',numbers:'assets/game-of-worlds-play/numbers/index.html'};let active='life',hood=false;
+  function send(kind,action,value){if(ready[kind])frames[kind].contentWindow.postMessage({type:'worlds-play-command',action,value},'*')}
+  function controls(){const s=states[active];for(const id of ['play','step','reset'])$(id).disabled=!ready[active];$('numberFlip').disabled=$('numberTouch').disabled=!ready.numbers;$('numberRule').disabled=!ready.numbers;$('seed').disabled=!ready.life;$('play').textContent=s?.running?'PAUSE Ⅱ':'PLAY ▶';$('play').setAttribute('aria-pressed',String(Boolean(s?.running)));$('position').textContent=s?s.status:'Welt lädt …';$('loop').checked=s?s.loop:true;$('orbit').disabled=!ready[active]||active==='domains'||active==='numbers'&&['rails','elevator','joint','mixer','rgb','pq','groups','wheels'].includes(views.numbers)||active==='life'&&!['rooms','boundary'].includes(views.life);$('orbit').setAttribute('aria-pressed',String(orbits[active]));}
+  function choose(kind){if(!Object.hasOwn(frames,kind))return;if(kind!==active){send(active,'pause');orbits[active]=false;active=kind;}
+    for(const k of Object.keys(frames)){frames[k].hidden=k!==kind;$(groups[k]).hidden=k!==kind;$(picks[k]).setAttribute('aria-pressed',String(k===kind));}
+    $('numberFlip').hidden=kind!=='numbers';$('numberTouch').hidden=kind!=='numbers';$('seedLabel').hidden=kind!=='life';$('numberRuleLabel').hidden=kind!=='numbers';
+    if(urls[kind]&&!frames[kind].getAttribute('src'))frames[kind].src=urls[kind];
+    send(kind,'view',views[kind]);send(kind,'hood',hood);send(kind,'speed',$('speed').value);title();controls();
+  }
+  function title(){$('viewNote').textContent=active==='numbers'?'PLAY verändert den Zahlenzustand · Flip wechselt nur die Ansichtsseite · TOUCH prüft die Kodierung am X.':'Ziehen zum Erkunden · PLAY bewegt die Welt · Orbit bewegt nur den Blick.';$('sceneName').textContent=names[active]+' · '+(hood?'Motorhaube':document.querySelector('#'+groups[active]+' [data-view="'+views[active]+'"]')?.textContent||views[active]);$('hood').setAttribute('aria-pressed',String(hood));}
+  window.addEventListener('message',event=>{const kind=Object.keys(frames).find(k=>frames[k].contentWindow===event.source);if(!kind||event.data?.type!=='worlds-play-state')return;ready[kind]=true;states[kind]=event.data;if(typeof event.data.orbit==='boolean')orbits[kind]=event.data.orbit;if(kind==='numbers'&&event.data.side)$('numberFlip').setAttribute('aria-pressed',String(event.data.side==='back'));
+    if(event.data.ready){send(kind,'view',views[kind]);send(kind,'hood',hood);send(kind,'speed',$('speed').value);if(kind!==active)send(kind,'pause');}
+    if(kind==='numbers'&&['euler','fibonacci','zero','repunit','dyadic','carrier','elevator','sumlift','mixer','pq','groups','wheels'].includes(event.data.rule))$('numberRule').value=event.data.rule;controls();
+  });
+  for(const k of Object.keys(picks))$(picks[k]).onclick=()=>choose(k);
+  $('play').onclick=()=>send(active,'play');$('step').onclick=()=>send(active,'step');$('reset').onclick=()=>send(active,'reset');$('loop').onchange=()=>send(active,'loop',$('loop').checked);$('speed').onchange=()=>send(active,'speed',$('speed').value);$('seed').onchange=()=>send('life','seed',$('seed').value);
+  $('numberFlip').onclick=()=>send('numbers','flip');$('numberTouch').onclick=()=>send('numbers','touch');
+  $('numberRule').onchange=()=>{orbits.numbers=false;send('numbers','rule',$('numberRule').value);const v={elevator:'elevator',sumlift:'joint',mixer:'mixer',pq:'pq',groups:'groups',wheels:'wheels'}[$('numberRule').value];if(v){views.numbers=v;for(const b of document.querySelectorAll('#numberLenses [data-view]'))b.setAttribute('aria-pressed',String(b.dataset.view===v));send('numbers','view',v)}title();controls()};
+  $('hood').onclick=()=>{hood=!hood;send(active,'hood',hood);title();};$('orbit').onclick=()=>{orbits[active]=!orbits[active];send(active,'orbit',orbits[active]);controls();};
+  for(const button of document.querySelectorAll('[data-view]'))button.onclick=()=>{if(!button.closest('#'+groups[active]))return;views[active]=button.dataset.view;if(active==='numbers'&&views.numbers==='joint'){orbits.numbers=false;$('numberRule').value='sumlift';send('numbers','rule','sumlift')}hood=false;for(const b of document.querySelectorAll('#'+groups[active]+' [data-view]'))b.setAttribute('aria-pressed',String(b===button));send(active,'view',views[active]);send(active,'hood',false);title();controls();};
+  document.addEventListener('visibilitychange',()=>{if(document.hidden)for(const kind of Object.keys(frames)){send(kind,'pause');orbits[kind]=false;}});
+  for(const kind of Object.keys(frames))frames[kind].addEventListener('load',()=>frames[kind].contentWindow.postMessage({type:'worlds-play-command',action:'hello'},'*'));
+  frames.life.contentWindow.postMessage({type:'worlds-play-command',action:'hello'},'*');controls();
+  function route(){if(window.location.hash==='#numbers')choose('numbers');}
+  window.addEventListener('hashchange',route);route();
+})();

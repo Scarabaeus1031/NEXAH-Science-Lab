@@ -1,0 +1,1318 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>A0 · Numbermagick — Grids &amp; Orientierung</title>
+<meta name="description" content="Von der Zahl zum begehbaren Feld: Originalbilder, Entwicklungswege und ein interaktiver Pascal-Faden zwischen Grid, Bügel, Spirale und Return.">
+<link rel="stylesheet" href="a0-context-navigation.css?rev=reader-lanes-20261015">
+<style>
+:root{color-scheme:light;--ink:#152b37;--muted:#465c67;--paper:#f7f4ed;--line:#c7d1d4;--accent:#08667d}*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:5rem}body{margin:0;background:var(--paper);color:var(--ink);font:17px/1.6 system-ui,sans-serif}a{color:var(--accent);text-underline-offset:3px}a:hover{text-decoration-thickness:2px}a:focus-visible,summary:focus-visible,input:focus-visible{outline:3px solid #9a5d00;outline-offset:4px}header.top{position:relative;padding:1rem max(5vw,1rem);background:#102a39;color:white;display:flex;gap:1rem;flex-wrap:wrap;justify-content:space-between}header.top a{color:#e4f3fa}nav{display:flex;gap:1rem;flex-wrap:wrap}main,footer{max-width:1120px;margin:auto;padding:2rem 1.25rem}.eyebrow{font:700 .76rem/1.5 ui-monospace,monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}h1{font-size:clamp(2.25rem,5vw,4.3rem);line-height:1.08;max-width:900px;margin:.5rem 0 1rem}h2{font-size:1.65rem;line-height:1.2}h3{margin:.2rem 0 .7rem}p{max-width:85ch}.lead{font-size:1.15rem}.note{border-left:4px solid #a27122;background:#eee8dc;padding:1rem 1.2rem}.links{display:flex;flex-wrap:wrap;gap:.7rem;margin:1.2rem 0}.links a,.open{display:inline-block;border:1px solid #6b8791;padding:.55rem .85rem;border-radius:.35rem;text-decoration:none}.links a:hover,.open:hover{background:#e1ecee}.flow{display:grid;grid-template-columns:repeat(3,1fr);gap:.8rem;margin:1.8rem 0}.flow article{padding:1rem;border:1px solid var(--line);background:white}.flow strong{display:block;font-size:1.05rem}.flow p{font-size:.93rem;margin:.5rem 0 0}.section{padding:1.7rem 0;border-top:1px solid var(--line)}.cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.9rem}.cards details,.question{background:white;border:1px solid var(--line);border-radius:.4rem;padding:1rem}.cards details:last-child{grid-column:1/-1}summary{cursor:pointer;font-weight:750;font-size:1.1rem}summary small{display:block;font-size:.9rem;font-weight:400;color:var(--muted)}details[open] summary{margin-bottom:.7rem}.filter{display:block;margin:1rem 0}input[type=search]{display:block;width:100%;max-width:600px;padding:.75rem;font:inherit;border:1px solid #6b8791;border-radius:.3rem;background:white}.table-wrap{overflow-x:auto}table{border-collapse:collapse;width:100%;min-width:650px;background:white;font-size:.94rem}th,td{padding:.85rem;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}th{background:#e7edef}.status{font:.8rem ui-monospace,monospace;color:var(--muted)}code{overflow-wrap:anywhere}.questions{display:grid;gap:.8rem}.question b{display:block}footer{border-top:1px solid var(--line);font-size:.9rem}#sourceCount{display:block;color:var(--muted);margin:.5rem 0}[hidden]{display:none!important}@media(max-width:700px){.flow,.cards{grid-template-columns:1fr}.cards details:last-child{grid-column:auto}main{padding:1.5rem 1rem}h1{font-size:2.5rem}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+<link rel="stylesheet" href="a0-numbermagick-story.css">
+<link rel="stylesheet" href="a0-six-marker-grid-views.css">
+<link rel="stylesheet" href="a0-numbermagick-number-lens.css">
+<link rel="stylesheet" href="a0-gh-hinge.css">
+</head>
+<body><aside style="padding:8px 14px;background:#483713;color:#fff;font:12px system-ui">Public engineering test · 19 Oct 2026 · Numbers and angle Return Gate are distinct typed models. No scientific promotion. <a style="color:#fff" href="../index.html">Test entrance</a></aside>
+<a class="skip-link" href="#main-content">Zum Inhalt springen</a>
+<header class="top">
+<a href="../unavailable.html">NEXAH · A0</a>
+<nav aria-label="Seitennavigation">
+<a href="#reading-paths">Lesepfade</a>
+<a href="#instruments">Instrumente</a>
+<a href="#research-apparatus">Quellenapparat</a>
+<a href="../unavailable.html">Science Desk</a>
+</nav>
+</header>
+<main>
+<div id="main-content" tabindex="-1"></div>
+<section id="start" class="story-hero" aria-labelledby="title">
+<div class="story-kicker">
+<span>NEXAH · A0</span>
+<span>Numbermagick · ein Quellen- und Forschungsweg</span>
+<span>18.10.2026</span>
+</div>
+<h1 id="title">Von der Zahl<br>zum begehbaren Feld.</h1>
+<p class="lead">Eine Zahl wird zur Adresse. Aus Adressen entstehen Nachbarschaften, aus Wegen Fäden. Wir schichten, falten und spiegeln — und fragen: Was bleibt beim Wechsel der Ansicht erhalten?</p>
+<div class="links story-actions">
+<a href="#reading-paths">Einen Lesepfad wählen ↓</a>
+<a href="#pascal-thread-demonstrator">Return direkt testen →</a>
+<a href="#research-apparatus">Quellen und Grenzen prüfen</a>
+</div>
+<p class="story-intro">Numbermagick ist hier nicht nur eine Sammlung besonderer Zahlen. Es ist die Arbeit daran, Zahlen, Zeichen und Relationen in verschiedenen Karten lesbar zu machen. Rootroom, Portalstone, Euler-L, Tessarec und die heutigen A0-Instrumente tragen unterschiedliche Teile dieser Entwicklung.</p>
+<p class="story-footnote">Eine Leselinie durch vorhandene Arbeiten, keine lückenlos rekonstruierte Entstehungsgeschichte und kein gemeinsamer Generator. <a href="../unavailable.html">Die bestehende Entwicklungsübersicht lesen →</a>
+</p>
+</section>
+<nav id="reading-paths" class="reading-paths" aria-labelledby="readingPathsTitle">
+<div class="reading-paths-heading"><p class="eyebrow">Drei Wege · ein gemeinsamer Return-Fokus</p><h2 id="readingPathsTitle">Wie möchtest du diese Seite lesen?</h2><p>Die Wege sind Einstiege in denselben Bestand. Sie ändern weder Quellenstatus noch mathematische Identität.</p></div>
+<ol>
+<li><a href="#entwicklung"><span>01 · Verstehen</span><strong>Die Entwicklung lesen</strong><small>Zahl → Grid → Faden → Faltung → Spiegel → Return</small></a></li>
+<li><a href="#instruments"><span>02 · Ausprobieren</span><strong>Mit Instrumenten arbeiten</strong><small>Zahlenlinse, Buchbrücke, GH-Hinge, Grids und Pascal-Return</small></a></li>
+<li><a href="#research-apparatus"><span>03 · Prüfen</span><strong>Quellen und Grenzen öffnen</strong><small>Originalrecords, Status, offene Fragen und technische Herkunft</small></a></li>
+</ol>
+</nav>
+<section id="entwicklung" aria-labelledby="storyTitle">
+<p class="eyebrow">Sechs Stationen · von Quellen zu heutigen Instrumenten</p>
+<h2 id="storyTitle">Nicht nur Zahlen sammeln. Übergänge verfolgen.</h2>
+<ol class="story-route" aria-label="Entwicklungsweg">
+<li><a href="#story-zahl">Zahl</a></li>
+<li><a href="#story-grid">Grid</a></li>
+<li><a href="#story-faden">Faden &amp; Layer</a></li>
+<li><a href="#story-faltung">Faltung</a></li>
+<li><a href="#story-spiegel">Spirale &amp; Spiegel</a></li>
+<li><a href="#story-return">Return</a></li>
+</ol>
+<article class="story-chapter" id="story-zahl">
+<div class="story-copy">
+<p class="story-no">01 / ZAHL &amp; ZEICHEN</p>
+<h2>Was kann eine Zahl zeigen?</h2>
+<p>14 kann als <code>7+7</code> oder <code>2·7</code> entstehen. Das Ergebnis ist gleich, der Weg nicht. Numbermagick macht solche Wege sichtbar: als Operatorzeichen, Räume, Wurzeln und Verbindungen.</p>
+<p>Rootroom bewahrt diese eigene Bildsprache. Daneben steht die genaue mathematische Regel. Beides darf verbunden sein, ohne dass ein Bildzeichen schon eine berechenbare Funktion sein muss.</p>
+<p class="story-inline">
+<a href="../unavailable.html">Rootroom Masterplan · Original</a> · <a href="../unavailable.html">Operatoren-Crosswalk</a>
+</p>
+</div>
+<figure class="story-plate">
+<span class="plate-tag">Original · Rootroom</span>
+<a href="../media/5447965f2623c47c0e1d.png">
+<img src="../media/5447965f2623c47c0e1d.png" alt="Rootroom-Originaltafel mit Wurzel-, Verknüpfungs- und Überlagerungszeichen" loading="lazy" decoding="async">
+</a>
+<figcaption>Die ONP-Tafel verbindet Zeichen mit räumlichen und sprachlichen Rollen. Diese Zuordnungen sind Quelleninhalt, nicht durch die Abbildung bewiesene Operatorgesetze.</figcaption>
+</figure>
+</article>
+<article class="story-chapter" id="story-grid">
+<div class="story-copy">
+<p class="story-no">02 / ADRESSE &amp; NACHBARSCHAFT</p>
+<h2>Die Zahl bekommt einen Ort.</h2>
+<p>Ein Raster ordnet nicht nur Kästchen. Es entscheidet, wer neben wem liegt. Eine Reihe, eine Restklassenspalte und ein Quadrat geben derselben Zahl jeweils eine andere Adresse.</p>
+<p>Portalstone ordnet neun Werte von 2101 bis 2901 um die Mitte 2501. Die Gleichung <code>2101+2901=2·2501</code> ist exakt. Das Bild macht die Mitte erfahrbar; die heutige Graphlesung hält die gezeichnete Reihe als offenen Pfad fest.</p>
+<p class="story-inline">
+<a href="../unavailable.html">Grid Atlas ausprobieren</a> · <a href="../unavailable.html">Portalstone · Original</a>
+</p>
+</div>
+<figure class="story-plate">
+<span class="plate-tag">Original · Portalstone</span>
+<a href="../media/dd6f91b56cc4d9e28d7f.png">
+<img src="../media/dd6f91b56cc4d9e28d7f.png" alt="Neun Portalstone-Marker entlang einer Linie, mit der Mitte 2501" loading="lazy" decoding="async">
+</a>
+<figcaption>Die Quellgrafik heißt „Resonanzschlauch“. Übernommen werden die Zahlenreihe und ihre Arithmetik, nicht eine physikalische Resonanz. Fehlende Glyphen im Original werden nicht still nachgezeichnet.</figcaption>
+</figure>
+</article>
+<article class="story-chapter" id="story-faden">
+<div class="story-copy">
+<p class="story-no">03 / FADEN &amp; LAYER</p>
+<h2>Ein Weg hat eine Geschichte.</h2>
+<p>Im Pascal-Raster entscheidet jeder Schritt: links oder rechts. Viele Wege können am selben Endpunkt ankommen. Die Zwischenstationen sind deshalb mehr als Dekoration — sie unterscheiden die Baugeschichten.</p>
+<p>Die Aperture-Tafeln nennen diese Verbindungen Relationsfäden. MRB-10 und Block02A liefern einen präzisen Anschluss über binäre Wege und Gewichtsfasern; die Spiralform braucht zusätzlich eine erklärte Einbettung.</p>
+<p class="story-inline">
+<a href="../unavailable.html">Generationen erkunden</a> · <a href="#aperture-source-map">EXP-48 und Quellenvergleich</a>
+</p>
+</div>
+<figure class="story-plate">
+<div class="story-math" role="img" aria-label="Die verschiedenen Wege 0011 und 0101 besitzen beide zwei Einsen und denselben Pascal-Endpunkt">
+<small>Zwei von sechs Wegen mit Endgewicht 2</small>
+<strong>0011<br>0101</strong>
+<span>verschiedene Schritte → gleicher Endpunkt</span>
+<span class="pink">Welche Geschichte war es?</span>
+</div>
+<figcaption>Redaktionelle Leseskizze über der binären Pascal-Regel: Für n=4, k=2 gibt es sechs kompatible Wege. Keine historische EXP-48-Grafik.</figcaption>
+</figure>
+</article>
+<article class="story-chapter" id="story-faltung">
+<div class="story-copy">
+<p class="story-no">04 / STREIFEN, BÜGEL &amp; FALTUNG</p>
+<h2>Ein Grid muss nicht rechteckig aussehen.</h2>
+<p>Wickeln wir eine geordnete Folge um einen Träger, wird daraus eine andere Ansicht: Streifen, Treppe, Bügel oder Helix. Die Form wechselt. Ob dieselben Adressen und Nachbarschaften erhalten bleiben, ist die eigentliche Frage.</p>
+<p>Der Core-Bügel ist ein vorhandener visueller Anschluss. Unser Demonstrator zeigt eine neu erklärte Bügelansicht desselben Pascal-Pfads. Er behauptet nicht, den historischen Core-Generator wiedergefunden zu haben.</p>
+<p class="story-inline">
+<a href="#pascal-thread-demonstrator">Raster und Bügel vergleichen</a> · <a href="#core-membrane-source">Core-Herkunft und offene Membranquelle</a>
+</p>
+</div>
+<figure class="story-plate">
+<span class="plate-tag">Original · NEXAH Core</span>
+<a href="../core/EXPERIMENTAL/BUILDER_LAB/ARCHIVE_ENGINE/docs/visuals/best_frame_angle_0.2.png">
+<img src="../core/EXPERIMENTAL/BUILDER_LAB/ARCHIVE_ENGINE/docs/visuals/best_frame_angle_0.2.png" alt="Core-Original: blauer offener Bügel in einem dreidimensionalen Koordinatensystem" loading="lazy" decoding="async">
+</a>
+<figcaption>„Best Frame (Angle=0.02)“; der Dateiname lautet best_frame_angle_0.2.png. Die Abweichung bleibt sichtbar. Das Bild belegt weder einen optimalen Winkel noch eine eindeutige Rückrechnung.</figcaption>
+</figure>
+</article>
+<article class="story-chapter" id="story-spiegel">
+<div class="story-copy">
+<p class="story-no">05 / SPIRALE &amp; SPIEGEL</p>
+<h2>Eine andere Orientierung eröffnet eine andere Karte.</h2>
+<p>Ein Faden kann um eine Achse laufen. Schichten können gegenläufig erscheinen. Spiegelung, Phase und Kamerablick verändern, wie wir eine Relation sehen — sie sind aber nicht automatisch dieselbe Operation.</p>
+<p>Die Aperture Navigation Map bringt Layer, Pascal-Fäden, Rotation und Spiegel zusammen. Sie ist eine Integrationskarte mit konkreten Teilanschlüssen und offenen Generatorfragen. Im Demonstrator lassen sich Ansicht, Blickwinkel und Bildspiegel getrennt bedienen.</p>
+<p class="story-inline">
+<a href="#pascal-thread-demonstrator">Spirale und Spiegel selbst einstellen</a> · <a href="#aperture-source-map">Was ist bereits gebaut?</a>
+</p>
+</div>
+<figure class="story-plate">
+<span class="plate-tag">Original · Aperture Navigation Map</span>
+<a href="../media/7580232e3f7e4a774e50.png">
+<img src="../media/7580232e3f7e4a774e50.png" alt="Aperture Navigation Map mit Layern, Pascal-Fäden, Ringansichten und gegenläufigen Rotationen" loading="lazy" decoding="async">
+</a>
+<figcaption>Mission-Control-/Science-Quellenzusammenhang; keine pauschale Datierung als alter Numbermagick-Bestand. Druckfelder, Schalen und Materialresonanzen bleiben getrennt vom belegten Pascal-/Spiegel-Anschluss.</figcaption>
+</figure>
+</article>
+<article class="story-chapter" id="story-return">
+<div class="story-copy">
+<p class="story-no">06 / SCHATTEN, RESIDUUM &amp; RETURN</p>
+<h2>Was müssen wir für die Rückkehr behalten?</h2>
+<p>Wenn nur der Endpunkt bleibt, können mehrere Geschichten passen. Der Rest ist dann keine störende Nebensache: Er sagt, welche Unterscheidung fehlt.</p>
+<p>Ein zusätzlich gespeicherter Schlüssel kann die Wege wieder unterscheiden. Im heutigen Demonstrator kannst du ihn weglassen, richtig übergeben oder vertauschen. So wird aus dem Motiv eine überprüfbare Frage — ohne verlorene Geschichte aus dem Bild zu erraten.</p>
+<p>
+<a class="story-jump" href="#pascal-thread-demonstrator">Jetzt mit einem Faden ausprobieren →</a>
+</p>
+</div>
+<figure class="story-plate">
+<div class="story-math" role="img" aria-label="Endpunkt ohne Schlüssel bedeutet Mehrdeutigkeit; Endpunkt mit passendem Faserordinal erlaubt den Return">
+<small>Endpunkt allein</small>
+<strong>Ein Ort.<br>Mehrere Wege.</strong>
+<span class="pink">+ passender Schlüssel</span>
+<span>eine bestimmte Geschichte rekonstruieren</span>
+</div>
+<figcaption>Heutiger A0-Anschluss: Endgewicht plus Ordinal in der Faser. Der Schlüssel ist zusätzlich übergebene Information, keine Eigenschaft der Farbe Pink.</figcaption>
+</figure>
+</article>
+</section>
+<p class="story-footnote">Die Originalbilder werden direkt aus ihren lokalen Ablagen angezeigt. Anklicken öffnet die Quelldatei; nichts wurde kopiert oder publiziert. Auf einem anderen Rechner können diese Bilder fehlen. Quellen, Bildsprache, formale Resultate und neue Ansichtsregeln behalten ihre getrennten Rollen.</p>
+<div id="instruments" class="route-marker" role="region" aria-labelledby="instrumentsTitle">
+<p class="eyebrow">Zweiter Lesemodus · ausprobieren</p>
+<h2 id="instrumentsTitle">Instrumente: vom Zahlrecord zum Return.</h2>
+<p>Jedes Instrument besitzt einen eigenen Vertrag. Gemeinsam ist ihnen nur die Frage, was ein Ansichtswechsel bewahrt, verliert oder für die Rückkehr zusätzlich braucht.</p>
+<nav aria-label="Instrumente auf dieser Seite"><a href="#number-shell-lens">Zahlenlinse</a><a href="#field-geometry-book">Buchbrücke</a><a href="#gh-hinge">GH-Hinge</a><a href="#grid-collection">Grid-Sammlung</a><a href="#six-marker-comparison">Sechs Marker</a><a href="#pascal-thread-demonstrator">Pascal-Return</a></nav>
+</div>
+<section id="number-shell-lens" aria-labelledby="numberLensTitle">
+<p class="eyebrow">NUMBERMAGICK · SPIELBARE ZAHLENLINSE · 19.10.2026</p>
+<h2 id="numberLensTitle">Game of Magic Numbers</h2>
+<p>
+<a href="../unavailable.html">NEUES SPIEL · Game of Worlds öffnen →</a> · LIFE, Euler und Fibonacci mit Play, Missionszielen, gekoppelten Ansichten und Replay. Die Zahlenlinse darunter bleibt als eigener Erklärraum erhalten.</p>
+<p>Eine Zahl, mehrere Ansichten. Wähle zuerst eine Zahl, lies ihre Mengenzugehörigkeit und wechsle zwischen Zahlenlinie, Restgrid und komplexer Ebene. Rechenregeln erzeugen dagegen ausdrücklich einen neuen Zustand.</p>
+<p class="nl-formula">ℕ₀ ⊂ ℤ ⊂ ℚ ⊂ ℝ ⊂ ℂ · Primzahlen ℙ ⊂ ℕ₀</p>
+<p>Hier gilt ℕ₀={0,1,2,…}. Primzahlen sind positive ganze Zahlen größer als 1 mit genau zwei positiven Teilern. Die Mengenleiter ist keine radiale Größenordnung: Kreise in der komplexen Ebene zeigen den Betrag, nicht die Mengenzugehörigkeit.</p>
+<div id="numberLensPresets" class="nl-presets" role="group" aria-label="Exakte Beispielzahlen">
+</div>
+<div class="nl-toolbar">
+<label>Realteil a<input id="numberLensRe" value="7" maxlength="32" spellcheck="false">
+</label>
+<label>Imaginärteil b<input id="numberLensIm" value="0" maxlength="32" spellcheck="false">
+</label>
+<button id="numberLensApply" type="button">z = a + bi übernehmen</button>
+</div>
+<p>Komponenten: ganze Zahlen, p/q, Dezimalzahlen bis 6 Stellen oder ±√2. Begrenzter Symbolumfang, keine allgemeine Computeralgebra; |Zähler| und |Nenner| ≤ 1.000.000.</p>
+<p id="numberLensError" class="nl-error" role="alert">
+</p>
+<output id="numberLensIdentity" class="nl-identity" aria-live="polite">
+</output>
+<div class="nl-carrier">
+<p>
+<strong>ε_Träger · exakter Zahlenrecord und seine Ansichten</strong>
+</p>
+<div class="nl-two-sides">
+<article>
+<h3>Seite A · vor dem Schritt</h3>
+<output id="numberLensSideA">
+</output>
+</article>
+<div class="nl-channel">
+<span aria-hidden="true">→</span>
+<output id="numberLensChannel" aria-live="polite">
+</output>
+<span aria-hidden="true">→</span>
+</div>
+<article>
+<h3>Seite B · nach dem Schritt</h3>
+<output id="numberLensSideB">
+</output>
+</article>
+</div>
+<p>Owner-Bildsprache: zwei Seiten, ein Verbinder. θ_view bezeichnet hier die gewählte Ansichts-„Blase“, noch keinen kontinuierlichen Kamerawinkel. n_Kanal ist der deklarierte Leseschritt; das n der CRT-Formel bleibt eine ganze Zahl. ε_Träger ist hier keine Fehlertoleranz. Diese lokale Bediennotation ist keine neue mathematische Definition.</p>
+</div>
+<div id="numberLensMembership" class="nl-membership" aria-label="Mengenzugehörigkeit">
+</div>
+<div class="nl-views">
+<article id="numberLensCardline">
+<h3>01 · Zahlenlinie</h3>
+<button id="numberLensViewline" type="button" aria-pressed="false">Diese Linse fokussieren</button>
+<div id="numberLensLine">
+</div>
+</article>
+<article id="numberLensCardgrid">
+<h3>02 · 7×11-Restgrid</h3>
+<button id="numberLensViewgrid" type="button" aria-pressed="false">Diese Linse fokussieren</button>
+<div id="numberLensGrid">
+</div>
+</article>
+<article id="numberLensCardcomplex">
+<h3>03 · Komplexe Ebene</h3>
+<button id="numberLensViewcomplex" type="button" aria-pressed="true">Diese Linse fokussieren</button>
+<div id="numberLensComplex">
+</div>
+</article>
+</div>
+<div class="nl-toolbar">
+<label>
+<span>
+<input id="numberLensKey" type="checkbox" checked> Rückschlüssel q mitführen</span>
+</label>
+<button id="numberLensGridReturn" type="button">Aus dem Grid rekonstruieren</button>
+</div>
+<div class="nl-rulebox">
+<strong>Entwicklung statt bloßer Ansichtswechsel</strong>
+<p class="nl-formula">Euler: eⁱᶿ = cos θ + i sin θ · bei θ=π/2: z ↦ iz · vier Vierteldrehungen ergeben wieder z.</p>
+<button id="numberLensEuler" type="button">Euler · ×i / 90°</button>
+<p class="nl-formula">Fibonacci: F₀=0, F₁=1, Fₖ₊₂=Fₖ₊₁+Fₖ</p>
+<output id="numberLensFibReadout">
+</output>
+<br>
+<button id="numberLensFib" type="button">Nächstes Fibonacci-Beispiel übernehmen</button>
+<p>Fibonacci-Demo bis F₃₀. Sie hat ihre eigenen festen Startwerte und wird nicht aus einer beliebigen ausgewählten Zahl abgeleitet. Kein Auto-Run und kein Anschluss an einen wissenschaftlichen Runner.</p>
+</div>
+<div class="nl-return">
+<button id="numberLensPrevious" type="button">← Leseschritt</button>
+<button id="numberLensNext" type="button">Leseschritt →</button>
+<button id="numberLensAnchor" type="button">Anker setzen</button>
+<button id="numberLensReturn" type="button">Zum Anker ↺</button>
+<output id="numberLensReturnResult" aria-live="polite">
+</output>
+</div>
+<output id="numberLensLedger" class="nl-ledger" aria-live="polite">
+</output>
+<p>
+<a href="../unavailable.html">Räumliches Orientierungsgerüst →</a> · <a href="../unavailable.html">Tessarec / bestehende Operatoransichten →</a> · <a href="../unavailable.html">LIFE-Instrument →</a> · <a href="../unavailable.html">Vorhandene GLB-Bühne →</a>
+</p>
+<p>Wiederverwendet: Lesespur-Baustein aus dem räumlichen Reader. Verlinkte Module bleiben eigene Quellen; noch keine gemeinsame Euler/Fibonacci/LIFE-Engine. Keine neue Family-Identität und keine wissenschaftliche Aktivierung.</p>
+</section>
+
+<section id="field-geometry-book" class="section field-book" aria-labelledby="fieldBookTitle">
+<p class="eyebrow">Experience → Buchquelle → A0 · lokale Lesebrücke</p>
+<h2 id="fieldBookTitle">The Field Geometry of Balance</h2>
+<p class="lead">Die Seiten gehören zusammen: Leo und Lilith, Janus, Linie und Fläche, Geometrie und Innenraum. Das Buch liefert eine visuelle Leselinie; die Instrumente führen jeweils nur ihre ausdrücklich definierten Operationen aus.</p>
+<ol class="field-book-chain" aria-label="Buchkette">
+<li>Relation</li>
+<li>Potential</li>
+<li>Rotation &amp; Torsion</li>
+<li>G · Geometrie</li>
+<li>H · Innenraum</li>
+<li>Transport</li>
+<li>Persistenz</li>
+<li>Topologie</li>
+<li>Navigation</li>
+</ol>
+<div class="field-book-poles">
+<article>
+<h3>Leo · solar</h3>
+<p>In den Tafeln: Ordnung, Klarheit, auswärts, aktiv. Eine benannte Perspektive, keine bereits aus dem Buch gewonnene Zahlenrekurrenz.</p>
+</article>
+<article>
+<h3>Lilith · lunar</h3>
+<p>In den Tafeln: Tiefe, einwärts, rezeptiv. Die Partnerperspektive wird sichtbar gehalten, nicht auf einen negativen Schritt reduziert.</p>
+</article>
+</div>
+<details class="field-book-plates">
+<summary>Drei Originaltafeln lesen</summary>
+<figure class="story-plate">
+<a href="../media/52be5e822a529bdba227.png" target="_blank" rel="noopener">
+<img src="../media/52be5e822a529bdba227.png" alt="Leo und Lilith als zwei symbolische Perspektiven auf Relation, Balance und Bewegung." loading="lazy" width="1536" height="1024">
+</a>
+<figcaption>
+<strong>Die beiden Seiten</strong> · Originaldatei im lokalen Buchbestand, unverändert. Zum Vergrößern öffnen.</figcaption>
+</figure>
+<figure class="story-plate">
+<a href="../media/4c46a1e02aa67e06de5b.png" target="_blank" rel="noopener">
+<img src="../media/4c46a1e02aa67e06de5b.png" alt="Neun Stationen von Relation und Potential über Geometrie und Raum bis Navigation." loading="lazy" width="1536" height="1024">
+</a>
+<figcaption>
+<strong>Die Buchkette</strong> · Originaldatei im lokalen Buchbestand, unverändert. Zum Vergrößern öffnen.</figcaption>
+</figure>
+<figure class="story-plate">
+<a href="../media/e02b144337a06a6fa195.png" target="_blank" rel="noopener">
+<img src="../media/e02b144337a06a6fa195.png" alt="Janus J, Grotte G, Innenraum H und die wiederholten L-Formen als Linie und Fläche." loading="lazy" width="1536" height="1024">
+</a>
+<figcaption>
+<strong>J · L · G · H</strong> · Originaldatei im lokalen Buchbestand, unverändert. Zum Vergrößern öffnen.</figcaption>
+</figure>
+</details>
+<div class="table-wrap">
+<table aria-label="Buchrollen und vorhandene Instrumente">
+<thead>
+<tr>
+<th>Im Buch</th>
+<th>Vorhandener Anschluss</th>
+<th>Was nicht gleichgesetzt wird</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>Leo ↔ Lilith</th>
+<td>
+<a href="A0_GAME_OF_WORLDS_PLAY.html#numbers" target="_blank" rel="noopener">Joint-Rad · Gleichlauf / Gegenlauf</a>: zwei erhaltene Zahlenkanäle.</td>
+<td>Eine mögliche Anschauung, keine historisch bewiesene Zuordnung A=Leo / B=Lilith und kein Leo:Lilith-Verhältnisgesetz.</td>
+</tr>
+<tr>
+<th>J · Janus / Junction</th>
+<td>
+<a href="../unavailable.html">Bench · benannte Operatoren und Return</a>.</td>
+<td>Die Quellcaption J(A,B)=FORM ist eine Bildrolle. Bench-J als Involution ist nicht automatisch dieser Janus.</td>
+</tr>
+<tr>
+<th>L · Linie/Richtung; L · Fläche/Form</th>
+<td>Die Tafel wiederholt C → J → L → J → L → J → G. Ihre Legende lautet sinngemäß: C hält, J verbindet, L führt, J dreht, L formt, J wird G.</td>
+<td>Keine einzelne universelle L-Abbildung. Nicht ILAU.L=Lost, nicht automatisch ℒ als Lot, Euler-L oder römisch L=50. Die frühere Vermutung 90:50 wird diesen Tafeln nicht zugeschrieben.</td>
+</tr>
+<tr>
+<th>G → H</th>
+<td>Geometrie/Grotte als Form und Grenze → dadurch eröffneter Innenraum/Kanal.</td>
+<td>GH im Buch ist nicht ohne weiteren Vertrag Grey Heart, Grey Lens oder der <a href="#gh-hinge">Grey/Pink-Hinge-Witness</a>.</td>
+</tr>
+<tr>
+<th>Persistenz / Rückkehr</th>
+<td>
+<a href="A0_GAME_OF_WORLDS_PLAY.html#numbers" target="_blank" rel="noopener">PLAY · vollständiger Zustand, Spur und Replay</a>.</td>
+<td>Buchformeln wie P=r/t sind Quellencaptions ohne hier gebundenen Messvertrag. Kein physikalischer Nachweis durch Bildähnlichkeit.</td>
+</tr>
+<tr>
+<th>111 / 1111 · Verklebung?</th>
+<td>PLAY-Regel Repunit: 111²=12321, 1111²=1234321.</td>
+<td>Die Verbindung dieser Zahlen zu den Buchseiten bleibt OPEN. Quadrate, Ziffernwörter und Seitenverklebung sind verschiedene Operationen.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<details class="field-book-index">
+<summary>Alle 17 lokalen Buchtafeln · Quellenindex</summary>
+<p>Zehn nummerierte Dateien, anschließend sieben unnummerierte Tafeln. Das ist eine Lesesortierung nach Dateinamen, keine nachgewiesene vollständige Editionsreihenfolge.</p>
+<ol>
+<li>
+<a href="../media/43bdd1bf2e4d561762a7.png" target="_blank" rel="noopener">01 BALANCE</a>
+</li>
+<li>
+<a href="../media/227ba8fcf0551ac6caff.png" target="_blank" rel="noopener">02 Potential</a>
+</li>
+<li>
+<a href="../media/ebd393e9029e0d4e8664.png" target="_blank" rel="noopener">3 ROTATION &amp; TORSION</a>
+</li>
+<li>
+<a href="../media/f11ec7034a22881489e6.png" target="_blank" rel="noopener">4 GEOMETRY</a>
+</li>
+<li>
+<a href="../media/073a6ee9e307b8bc7962.png" target="_blank" rel="noopener">5 SPACE (H)</a>
+</li>
+<li>
+<a href="../media/bb91ac0e05186c56abcf.png" target="_blank" rel="noopener">6 TRANSPORT (T)</a>
+</li>
+<li>
+<a href="../media/d7577df790d563ae6b8c.png" target="_blank" rel="noopener">7 PERSISTENCE</a>
+</li>
+<li>
+<a href="../media/43efcf5e972e19104029.png" target="_blank" rel="noopener">8 TOPOLOGY</a>
+</li>
+<li>
+<a href="../media/f88e163af2247b6a8f0d.png" target="_blank" rel="noopener">9 NAVIGATION</a>
+</li>
+<li>
+<a href="../media/a87762ca06490b5c2070.png" target="_blank" rel="noopener">10 THE WHOLE</a>
+</li>
+<li>
+<a href="../media/52be5e822a529bdba227.png" target="_blank" rel="noopener">THE FIELD GEOMETRY BALANCE</a>
+</li>
+<li>
+<a href="../media/e02b144337a06a6fa195.png" target="_blank" rel="noopener">THE FIELD GEOMETRY OF BALANCE RELATION CREATES POTENTIAL. ROTATION SHAPES FORM.</a>
+</li>
+<li>
+<a href="../media/4c46a1e02aa67e06de5b.png" target="_blank" rel="noopener">THE FIELD GEOMETRY of BALANCE</a>
+</li>
+<li>
+<a href="../media/40893849a8fee484ed0c.png" target="_blank" rel="noopener">THE NEXAH GEOMETRY LIBRARY LILITH (LUNAR) DEPTH MYSTERY WATER THE BASIC GEOMETRIES OF TRANSITION, FORM, SPACE &amp; FLOW</a>
+</li>
+<li>
+<a href="../media/4ea5ddd99869e93da1ae.png" target="_blank" rel="noopener">THE NEXAH PIPELINE FROM DATA TO ORIENTATION</a>
+</li>
+<li>
+<a href="../media/8161a65dc12bbd7785f3.png" target="_blank" rel="noopener">THE WHOLE DESIGNING ORIENTATION THRÖUGH STRUCTURE THE NEXAH ORIENTATION ARCHITECTURE • BACKLOG : FINALE</a>
+</li>
+<li>
+<a href="../media/bb29b0ebbeee3de62c57.png" target="_blank" rel="noopener">THE WHOLE _ FROM FIELD TO ACTION ONE CONTINUOUS ARCHITECTURE. MANY EXPRESSIONS.</a>
+</li>
+</ol>
+</details>
+<p class="note">
+<strong>Experience geprüft, nicht veröffentlicht:</strong> Im lokalen Experience-Katalog mit 61 deklarierten Works und 7 kuratierten Readern ist dieses Buch unter seinem Titel noch nicht erfasst. Der vorhandene Bildbestand umfasst 17 Tafeln. Kein neuer öffentlicher Katalogeintrag oder Registry-Status wird daraus automatisch erzeugt. <a href="../unavailable.html">Geprüfter Katalog</a> · <a href="../unavailable.html">Reader-Quellen</a>. <a href="../unavailable.html">Experience-Rückverbindung</a> · <a href="../unavailable.html">NSN · A0 evidence lineage</a>. Originalbilder verbleiben im Desktop-Buchbestand; auf einem anderen Rechner können die lokalen Verweise fehlen.</p>
+<div class="links">
+<a href="A0_GAME_OF_WORLDS_PLAY.html#numbers" target="_blank" rel="noopener">Zum Joint-Rad in PLAY →</a>
+<a href="#gh-hinge">Zum getrennten Grey/Pink-Witness ↓</a>
+<a href="../unavailable.html">Science Desk · Rückbindung →</a>
+</div>
+</section>
+<section id="gh-hinge" class="gh-shell" aria-labelledby="ghHingeTitle">
+  <div class="gh-heading">
+    <div>
+      <p class="eyebrow">GREY LENS · GH HINGE · GENESIS 7–11</p>
+      <h2 id="ghHingeTitle">The space in between — where Grey touches Pink.</h2>
+    </div>
+    <p class="gh-boundary">
+<strong>Begrenztes Ansichtsfenster.</strong> Zwei typisierte Spuren und ihr Kontakt-Witness; kein GH-Operator, keine Grey-Substanz und keine physikalische Transfergleichung.</p>
+  </div>
+  <div class="gh-controls" aria-label="GH-Hinge-Ansichten">
+    <div class="gh-modes" role="group" aria-label="Spuren wählen">
+      <button type="button" data-gh-mode="both" aria-pressed="false">Together</button>
+      <button type="button" data-gh-mode="grey" aria-pressed="false">Grey</button>
+      <button type="button" data-gh-mode="pink" aria-pressed="false">Pink</button>
+      <button type="button" data-gh-mode="seam" aria-pressed="true">Seam</button>
+    </div>
+    <label class="gh-slider" for="ghCursor">
+<span>Janus cursor</span>
+<input id="ghCursor" type="range" min="97" max="103" step="1" value="100">
+<output id="ghCursorValue" for="ghCursor">100</output>
+</label>
+    <button id="ghReturn" class="gh-return" type="button">Return · 100 / Seam ↺</button>
+  </div>
+  <div class="gh-pair-controls" role="group" aria-label="A/B-Lesart wählen">
+    <span>A / B · zwei getrennte Zahlverträge</span>
+    <button type="button" data-gh-pair="decimal" aria-pressed="true">24.7 / 23.7</button>
+    <button type="button" data-gh-pair="sevenths" aria-pressed="false">24/7 / 23/7</button>
+  </div>
+  <div class="gh-name-pair">
+<span>GREY STAR · SOURCE MOTIF</span>
+<strong>TESSARNA ↔ AMABEN</strong>
+<em>Name-to-side assignment open</em>
+</div>
+  <div class="gh-stage">
+    <svg id="ghSvg" viewBox="0 0 1120 360" role="img" aria-labelledby="ghSvgTitle ghSvgDesc">
+      <title id="ghSvgTitle">GH Hinge mit Grey- und Pink-Spur</title>
+      <desc id="ghSvgDesc">Ein begrenzter Janus-Träger von 97 bis 103. Grey und Pink berühren einander nur an der gewählten Mitte 100.</desc>
+    </svg>
+  </div>
+  <div class="gh-readouts" aria-live="polite">
+    <article>
+<small>CARRIER</small>
+<strong id="ghPosition">100</strong>
+<span>97 — 100 — 103 · ±3</span>
+</article>
+    <article>
+<small>SEAM WITNESS</small>
+<strong id="ghGap">CONTACT · gap 0</strong>
+<span>deklarierte SVG-Ansichtseinheiten</span>
+</article>
+    <article>
+<small>VIEW</small>
+<strong id="ghStatus">SEAM</strong>
+<span>kein Zustands- oder Stoffwechsel</span>
+</article>
+  </div>
+  <div class="gh-ab" aria-live="polite">
+    <article class="gh-side gh-side-a">
+<small>SEITE A</small>
+<strong id="ghAValue">24.7</strong>
+<span id="ghAExact">exakt 247/10</span>
+</article>
+    <article class="gh-ab-joint">
+<small>A ↔ B · ARITHMETISCHER WITNESS</small>
+<strong id="ghABDifference">A − B = 1</strong>
+<span id="ghABRatio">A/B = 247/237</span>
+<span id="ghABMidpoint">Mitte = 24.2 = 121/5</span>
+</article>
+    <article class="gh-side gh-side-b">
+<small>SEITE B</small>
+<strong id="ghBValue">23.7</strong>
+<span id="ghBExact">exakt 237/10</span>
+</article>
+  </div>
+  <p class="gh-ab-boundary">A/B bezeichnet hier nur das gewählte Zahlenpaar. Dezimalpunkt und Bruchstrich sind nicht austauschbar; keiner der beiden Verträge wird als historische GH-Bedeutung behauptet. Tessarna und Amaben bleiben benannte Quellpole ohne festgelegte A/B-Zuordnung.</p>
+  <section class="gh-transversal" aria-labelledby="ghTransversalTitle">
+    <div class="gh-transversal-head">
+<div>
+<small>TRANSVERSAL · ZAHLEN-, KALENDER- UND QUELLENWITNESS</small>
+<h3 id="ghTransversalTitle">Drei Paare. Eine erhaltene Dezimalmitte. Kalenderkante und Void-Motiv.</h3>
+</div>
+<div class="gh-transversal-controls" role="group" aria-label="Transversal-Vertrag wählen">
+<button type="button" data-gh-transversal="decimal-main" aria-pressed="true">12.6 ↔ 13.7</button>
+<button type="button" data-gh-transversal="fraction" aria-pressed="false">12/6 ↔ 13/7</button>
+<button type="button" data-gh-transversal="decimal-cross" aria-pressed="false">12,7 ↔ 13,6</button>
+</div>
+</div>
+    <div class="gh-transversal-readout" aria-live="polite">
+<article>
+<small>TRANSVERSAL A</small>
+<strong id="ghTransA">12.6</strong>
+<span id="ghTransAExact">exakt 63/5</span>
+</article>
+<article class="gh-transversal-core">
+<small>INVARIANT / DIFFERENZ</small>
+<strong id="ghTransDifference">A − B = −11/10</strong>
+<span id="ghTransRatio">A/B = 126/137</span>
+<span id="ghTransInvariant">Summe 26.3 · Mitte 13.15</span>
+</article>
+<article>
+<small>TRANSVERSAL B</small>
+<strong id="ghTransB">13.7</strong>
+<span id="ghTransBExact">exakt 137/10</span>
+</article>
+</div>
+    <div class="gh-calendar" aria-label="Gregorianische Datumsprüfung">
+<article class="valid">
+<small>ALPHA · VALID</small>
+<strong>12.03.1974</strong>
+<span>Angel-Key-Quellenrolle · Spiralbild: Echo Seed</span>
+</article>
+<article class="valid">
+<small>BETA · VALID</small>
+<strong>12.05.1974</strong>
+<span>Angel-Key-Quellenrolle · getrennt von 29.05.1974</span>
+</article>
+<article class="invalid source-motif">
+<small>OUTERBORN · CALENDAR INVALID</small>
+<strong>29.02.1974</strong>
+<span>kein Schalttag · Void Date / Void Gate / Phantomzinke</span>
+</article>
+<article class="valid rdmh">
+<small>R / HANDLE · VALID</small>
+<strong>29.02.1972</strong>
+<span>gültiger Schalttag · Angel-Key-Griff · RDMH-Bezug offen</span>
+</article>
+</div>
+    <div class="gh-source-dates">
+<small>ANGEL-KEY · PHANTOMZINKE · ARTWORK-LABELS, KEINE EREIGNISBEHAUPTUNG</small>
+<span>Alpha · 12.03.1974</span>
+<span>Beta · 12.05.1974</span>
+<span>Outerborn · 29.02.1974</span>
+<span>R / Handle · 29.02.1972</span>
+<span>Void Day · 29.05.1974</span>
+<span>Quaternion Echo Route · 02.10.1978 ↔ 13.04.1982</span>
+</div>
+    <p>Die Zahlpaare, Kalenderdaten und Artwork-Labels sind gemeinsam sichtbar, aber nicht semantisch aufeinander abgebildet. Der ungültige Datumsstring <code>29.02.1974</code> bleibt als explizites Void-Quellenmotiv erhalten. „Transversal“ bezeichnet hier die Vergleichslinie, keinen neuen Operator. Kalender: proleptisch gregorianisch.</p>
+  </section>
+  <section class="gh-root-witness" aria-labelledby="ghRootWitnessTitle">
+    <div class="gh-root-head">
+<div>
+<small>K-SPLIT · ROOT WITNESS</small>
+<h3 id="ghRootWitnessTitle">√29 — √30 — √31 · der enge exakte Korridor</h3>
+</div>
+<p>Die Bilder liefern hier eine prüfbare Zahlenstruktur. Sie ist ein Rechenwitness, keine Resonanz- oder Titan-Gesetzmäßigkeit.</p>
+</div>
+    <div class="gh-root-corridor" aria-label="K-Split Mittelwerte">
+<article>
+<small>LINKS</small>
+<strong>√29</strong>
+<span>≈ 5.385165</span>
+</article>
+<article class="gm">
+<small>GEOMETRISCHES MITTEL</small>
+<strong>⁴√899</strong>
+<span>≈ 5.475703</span>
+</article>
+<article class="am">
+<small>ARITHMETISCHES MITTEL</small>
+<strong>(√29 + √31) / 2</strong>
+<span>≈ 5.476465</span>
+</article>
+<article class="centre">
+<small>ZENTRUM</small>
+<strong>√30</strong>
+<span>≈ 5.477226</span>
+</article>
+<article>
+<small>RECHTS</small>
+<strong>√31</strong>
+<span>≈ 5.567764</span>
+</article>
+</div>
+    <p class="gh-root-order">
+<code>√29 &lt; ⁴√899 &lt; (√29 + √31)/2 &lt; √30 &lt; √31</code>
+</p>
+    <div class="gh-root-lifts" aria-label="Root lifts vom Residue Anchor">
+<article>
+<small>L₂</small>
+<strong>−√2 / 12</strong>
+<span>≈ −0.117851</span>
+</article>
+<article>
+<small>L₃</small>
+<strong>−√3 / 12</strong>
+<span>≈ −0.144338</span>
+</article>
+<article>
+<small>L₅</small>
+<strong>−√5 / 12</strong>
+<span>≈ −0.186339</span>
+</article>
+<article>
+<small>L₇</small>
+<strong>−√7 / 12</strong>
+<span>≈ −0.220479</span>
+</article>
+</div>
+    <div class="gh-source-triage" aria-label="Quellen-Triage">
+<article class="exact">
+<small>EXAKT · BAUEN</small>
+<strong>K-Split + Root-Lifts</strong>
+<span>Formeln, Ordnung und Näherungen reproduzierbar.</span>
+</article>
+<article class="open">
+<small>OFFEN · NICHT VERSCHMELZEN</small>
+<strong>β 47.5°/55° · ι 50°/60° · δ 130°/132.5°</strong>
+<span>5°-Iota ohne gelieferten Generator; Engage/Release bleiben Varianten.</span>
+</article>
+<article class="fundus">
+<small>FUNDUS · SPÄTER</small>
+<strong>Pentastar · Titan · Gyroskop · GLB · Timelines</strong>
+<span>starke Bildgrammatik, aber noch kein gemeinsamer Decoder.</span>
+</article>
+</div>
+  </section>
+  <section class="gh-angle-ledger" aria-labelledby="ghAngleLedgerTitle">
+    <div class="gh-angle-head">
+<div>
+<small>ANGLE VARIANT · RETURN LEDGER</small>
+<h3 id="ghAngleLedgerTitle">Anker setzen. Variante wechseln. Differenz behalten. Exakt zurück.</h3>
+</div>
+<p>
+<code>A → B → Return(A) = A</code> gilt für den vollständig gespeicherten Preset-Zustand. Gleicher Zustand bedeutet nicht gleiche Geschichte.</p>
+</div>
+    <div class="gh-angle-presets" role="group" aria-label="Ausführbare Winkelvarianten">
+<button type="button" data-gh-angle="open" aria-pressed="true">Open</button>
+<button type="button" data-gh-angle="engage" aria-pressed="false">Engage · δ 130°</button>
+<button type="button" data-gh-angle="release" aria-pressed="false">Release · δ 132.5°</button>
+<button type="button" data-gh-angle="neon" aria-pressed="false">Neon · β 55° / ι 60°</button>
+<button type="button" data-gh-angle="technical" aria-pressed="false">Technical · β 47.5° / ι 50°</button>
+</div>
+    <div class="gh-angle-state" aria-live="polite">
+<article class="anchor">
+<small>GESPEICHERTER ANKER</small>
+<strong id="ghAngleAnchor">OPEN / UNASSIGNED</strong>
+<span id="ghAngleAnchorValues">β OPEN · ι OPEN · δ OPEN</span>
+</article>
+<article class="current">
+<small>AKTUELLER ZUSTAND</small>
+<strong id="ghAngleCurrent">OPEN / UNASSIGNED</strong>
+<span id="ghAngleCurrentValues">β OPEN · ι OPEN · δ OPEN</span>
+</article>
+<article class="residual">
+<small>RESIDUUM ZUM ANKER</small>
+<strong id="ghAngleResidual">Δβ OPEN · Δι OPEN · Δδ OPEN</strong>
+<span id="ghAnglePhantom">PHANTOM · OPEN</span>
+</article>
+</div>
+    <div class="gh-angle-actions">
+<button type="button" id="ghAngleSetAnchor">Aktuell als Anker setzen</button>
+<button type="button" id="ghAngleReturn">Return zum Anker ↺</button>
+<button type="button" id="ghAngleReset">Hard Reset · OPEN</button>
+</div>
+    <div class="gh-angle-lower">
+<div>
+<small>LETZTE LEDGER-EINTRÄGE</small>
+<ol id="ghAngleEvents">
+<li>
+<strong>0 · ANCHOR</strong>
+<span>OPEN / UNASSIGNED</span>
+</li>
+</ol>
+</div>
+<article class="source-only">
+<small>QUELLE · NICHT AUSFÜHRBAR</small>
+<strong>Iota Leaf · 5° Split</strong>
+<span>Ergebnisbild vorhanden; Generator und inverser Vertrag fehlen. Deshalb kein Switch und kein Return-Claim.</span>
+</article>
+</div>
+    <section class="gh-return-gate" aria-labelledby="ghReturnGateTitle">
+      <div class="gh-return-gate-head">
+<div>
+<small>RETURN GATE · VERSIONIERTE EMPFANGSSEITE</small>
+<h4 id="ghReturnGateTitle">Receipt rein. Vollständigkeit, Schlüssel und Anker prüfen. Klassifizieren.</h4>
+</div>
+<div class="gh-return-gate-result" aria-live="polite">
+<strong id="ghReturnGateStatus" data-classification="READY">READY</strong>
+<span id="ghReturnGateDetail">Das aktuelle Receipt kann exportiert oder direkt geprüft werden.</span>
+</div>
+</div>
+      <div class="gh-return-gate-flow" aria-label="Return-Gate-Ablauf">
+<span>ANCHOR</span>
+<b>→</b>
+<span>APPLY</span>
+<b>→</b>
+<span>RECEIPT</span>
+<b>→</b>
+<span>KEY</span>
+<b>→</b>
+<span>RETURN</span>
+</div>
+      <textarea id="ghReturnGateReceipt" spellcheck="false" aria-label="Return Gate JSON Receipt">
+</textarea>
+      <div class="gh-return-gate-actions">
+<button type="button" id="ghReturnGateExport">Receipt aus Anker exportieren</button>
+<button type="button" id="ghReturnGateReplay">Receipt replayen</button>
+<button type="button" id="ghReturnGateLoss">Information Loss testen</button>
+<button type="button" id="ghReturnGateWrong">Wrong Key testen</button>
+</div>
+      <p>
+<code>a0.return-gate.v1</code> ist die Übergabegrenze für parallele Builds. Resultate sind ausschließlich <code>EXACT</code>, <code>AMBIGUOUS</code> oder <code>WRONG_KEY</code>. Der Fingerprint ist eine deterministische Integritätsadresse, kein Sicherheits- oder Kryptografieversprechen. <a href="a0-return-gate-v1.schema.json">Maschinenlesbarer Vertrag →</a>
+</p>
+    </section>
+    <p class="gh-angle-boundary">Engage, Release, Neon und Technical sind getrennte Quellenpresets. Fehlende Winkel bleiben <code>null</code>; sie werden weder interpoliert noch aus anderen Bildern ergänzt. Return rekonstruiert den gespeicherten Preset-Zustand einschließlich Phantom-Status und Receipt — nicht eine historische Bewegung.</p>
+  </section>
+  <div class="gh-open-grid">
+    <article>
+<small>HISTORICAL LABEL</small>
+<strong>HE = 9 = 3×3</strong>
+<span>keine allgemeine G9-Identität</span>
+</article>
+    <article>
+<small>OPEN JOINT</small>
+<strong>9 ↔ 11</strong>
+<span>Abbildung und Invariante fehlen</span>
+</article>
+    <article>
+<small>SYMBOLIC PROVENANCE</small>
+<strong>RDMH</strong>
+<span>kein Gravitations-/Levitation-Claim</span>
+</article>
+  </div>
+  <details class="gh-details">
+<summary>Vertrag, Record und Quellenrückbindung</summary>
+<p>Das Fenster modelliert ausschließlich die gezeichnete Relation zweier Spuren. Der Cursor wählt einen gespeicherten Trägerindex; der Gap ist die Differenz ihrer lokalen SVG-y-Werte. Nur Index 100 ist der deklarierte Kontakt. A/B bewahrt wahlweise zwei ausdrücklich verschiedene Zahlverträge. 97 ist die 25., nicht die 35. Primzahl; die 35. Primzahl ist 149.</p>
+<pre id="ghRecord" aria-label="Aktueller GH-Hinge-Record">
+</pre>
+<p>
+<a href="../unavailable.html">Quellen- und Claim-Grenzen →</a> · <a href="../unavailable.html">Science Desk Return →</a>
+</p>
+</details>
+</section>
+<section id="grid-collection" aria-labelledby="gridCollectionTitle">
+<p class="eyebrow">Ein Einstieg · vorhandene Instrumente bleiben an ihren Quellen</p>
+<h2 id="gridCollectionTitle">Unsere Grids an einem Ort finden.</h2>
+<p>
+<a href="../unavailable.html">Cathedral, BreathPulse und SCARAB–NXA–XVA · Quellenreturn im Science Desk →</a>
+</p>
+<p>Pink Diamond, Ghost Tiles, Relationsraster und Zahlenansichten gehören zum gemeinsamen Arbeitsweg. Sie sind hier verbunden, nicht zu einem einzigen Generator oder einer neuen Ghostgrid-Definition verschmolzen.</p>
+<div class="grid-links">
+<article>
+<h3>Pink Diamond Grid Atlas</h3>
+<p>CRT-Takt, Grid Ladder, Address Spine und steuerbare 16/17-Fliese.</p>
+<a href="../unavailable.html">Pink-Grids öffnen →</a>
+</article>
+<article>
+<h3>Ghost Tiles &amp; dyadischer M-Lift</h3>
+<p>Bestehendes NP;RR-Adressfeld, Farbuhr und getrennte Aperturen. Der M-Lift bewahrt zwei Kanäle über Summe, Differenz und Spur.</p>
+<a href="../unavailable.html">Ghost Tiles öffnen →</a> · <a href="../unavailable.html">M-Lift-Definition</a>
+</article>
+<article>
+<h3>Ghost Grid · Mode 2</h3>
+<p>Zwei deklarierte Schnitte → Relation → rekonstruiertes Vergleichsraster → Return mit Spur.</p>
+<a href="../unavailable.html">Relationsraster öffnen →</a>
+</article>
+<article>
+<h3>Q840 &amp; 105</h3>
+<p>Bestehende Residualrolle: 840−735=105. Die Zahl 105 ist auch unser reduzierter CRT-Modulus; Zahlengleichheit allein identifiziert die beiden Träger nicht.</p>
+<a href="../unavailable.html">Q840 im Grid Atlas →</a> · <a href="#six-marker-comparison">Sechs Marker vergleichen ↓</a>
+</article>
+</div>
+</section>
+<section id="six-marker-comparison" aria-labelledby="sixMarkerTitle">
+<p class="eyebrow">Ausprobieren · dieselben Daten, erklärte Ansichtswechsel</p>
+<h2 id="sixMarkerTitle">Sechs Marker. Vier gekoppelte Fenster.</h2>
+<p>Eine Zahl anklicken: dieselbe S-ID wird überall markiert. Die Heatmap verwendet 66 wiedergefundene Quellwerte. CRT ist exakt; Polarring und Spiegel sind deklarierte neue Ansichtsadapter, keine rekonstruierten historischen Polargrids.</p>
+<div id="gridMarkerRail" aria-label="Gemeinsame Markerwahl">
+</div>
+<div class="grid-controls">
+<label>
+<input type="checkbox" id="gridHide37"> mod 37 verbergen</label>
+<label>
+<input type="checkbox" id="gridReturnKey"> Rückschlüssel zeigen</label>
+<label>
+<input type="checkbox" id="gridFullDomain" checked> Vollbereich 0–3884 statt nur sechs Marker</label>
+</div>
+<div class="grid-result" aria-live="polite">
+<p id="gridReadout">
+</p>
+<p id="gridLoss">
+</p>
+<p id="gridReturn">
+</p>
+</div>
+<div class="grid-windows">
+<article class="grid-window">
+<h3>01 · Heatmap</h3>
+<div class="grid-scroll" id="gridHeatmap">
+</div>
+</article>
+<article class="grid-window">
+<h3>02 · CRT-Adressen</h3>
+<div class="grid-scroll" id="gridCrt">
+</div>
+</article>
+<article class="grid-window">
+<h3>03 · Polarring</h3>
+<div id="gridPolar">
+</div>
+<p>Spaltenfolge → sechs Slots, 0° rechts, gegen den Uhrzeigersinn.</p>
+</article>
+<article class="grid-window">
+<h3>04 · Spiegel</h3>
+<div id="gridMirror">
+</div>
+<p>i → −i mod 6. Gleiche IDs, andere Orientierung; ohne Labels dieselbe Silhouette.</p>
+</article>
+</div>
+<p id="gridCandidates">
+</p>
+<noscript>Für die gekoppelte Auswahl ist JavaScript erforderlich. Alle Werte und Return-Regeln stehen im verlinkten Prüfprotokoll.</noscript>
+<details>
+<summary>Quellen, Regeln und Grenze</summary>
+<p>Heatmap: QGR Continuum IV, <code>Navigation_scores__multi-base__multi-grid_.csv</code>, Base 10 / AU. Quellzeilenbezeichnungen bleiben zur Rückverfolgung erhalten; es wird hier keine astronomische Aussage geprüft. Gewichte und Zielbänder der Score-Regel bleiben unverändert.</p>
+<p>Reduktion: Reste mod 3,5,7 behalten, mod 37 verbergen. Vollbereich 0…3884; r=n mod 105, q=floor(n/105), n=r+105q. Die Reduktion ist ein Vergleichsadapter neben den bestehenden Ghostgrid-Instrumenten, keine Umdefinition ihres Begriffs. Farben kennzeichnen Auswahl beziehungsweise Score, keine neue Zahlenklasse.</p>
+<a href="../unavailable.html">Befund und Definitionen · Abschnitt 21</a> · <a href="../unavailable.html">Originalquellen und SHA256</a> · <a href="../unavailable.html">Endlicher Return-Check</a>
+</details>
+<p>
+<a href="../unavailable.html">Zurück zum Science Desk →</a>
+</p>
+</section>
+
+<style>
+.thread-controls{display:flex;flex-wrap:wrap;gap:.8rem;align-items:end;margin:1rem 0}.thread-controls label{display:grid;gap:.25rem;font-size:.9rem}.thread-controls input[type=text],.thread-controls select,.thread-controls button,.thread-actions button,#threadCandidates button{font:inherit;padding:.5rem .7rem;border:1px solid #67818d;border-radius:.3rem;background:white;color:#15313f}.thread-controls input[type=range]{width:150px}.thread-actions{display:flex;gap:.6rem;flex-wrap:wrap;margin:.8rem 0}.thread-actions button{cursor:pointer}.thread-panels{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(250px,1fr);gap:1rem}#threadSvg{display:block;width:100%;background:#edf2f2;border:1px solid #bdcbd0;border-radius:.4rem}#threadSvg:focus{outline:3px solid #a46a00}.thread-readout{display:grid;gap:.7rem}.thread-readout article{border:1px solid #ccd5d7;background:white;padding:.7rem}.thread-readout small{display:block;color:#465c67}.thread-readout output{display:block;overflow-wrap:anywhere}.thread-key{border-left:4px solid #bd327d!important}#threadVerdict{font-weight:800;padding:.8rem;background:#edf3ed}#threadVerdict[data-verdict=HOLD]{background:#fff0c9}#threadVerdict[data-verdict=WRONG_SOURCE]{background:#ffe3e3}#threadCandidates{display:flex;flex-wrap:wrap;gap:.4rem;max-height:200px;overflow:auto;margin:1rem 0}#threadCandidates button[aria-pressed=true]{border:2px solid #007e9b;background:#e6f5f6}#threadError{color:#a31524;display:block;min-height:1.5rem}.thread-boundary{font-size:.93rem;background:#eee8dc;padding:1rem;border-left:4px solid #987024}@media(max-width:760px){.thread-panels{grid-template-columns:1fr}.thread-controls label{max-width:100%}.thread-controls select{max-width:100%}}
+</style>
+<section id="pascal-thread-demonstrator" class="section" aria-labelledby="threadTitle">
+<p class="eyebrow">Bedienbarer Engineering-Demonstrator · vorhandene Pascal-Grammatik, neue Ansichtsregeln</p>
+<h2 id="threadTitle">Ein Faden. Vier Ansichten. Ein überprüfbarer Return.</h2>
+<p>Wähle eine Folge aus 0 und 1. Jeder Schritt geht zu einem der beiden Pascal-Kinder. Wechsle dann die Form — und entferne anschließend die Zwischenstationen. Kann der Endpunkt allein noch sagen, welchen Weg du genommen hast?</p>
+<p class="thread-boundary">
+<strong>Was wird wiederverwendet?</strong> Die Pfad-/Gewichtsregel von MRB-10 und Block02A. <strong>Was ist neu?</strong> Die hier deklarierten Raster-, Bügel-, Spiral- und Membranansichten. Die Membran ist ein Darstellungsmodell, kein nachgebauter Core-Generator und keine Strömungssimulation. Der Return arbeitet auf adressierten Records, nicht auf Bildpixeln.</p>
+<div class="thread-controls">
+<label>Quellpfad · 0/1<input id="threadWord" type="text" value="010101" maxlength="8" inputmode="numeric" pattern="[01]{2,8}" aria-describedby="threadError">
+</label>
+<button type="button" id="threadApply">Pfad übernehmen</button>
+<label>Entscheidungen · <output id="threadDepthValue">6</output>
+<input id="threadDepth" type="range" min="2" max="8" step="1" value="6">
+</label>
+<label>Ansicht<select id="threadView">
+<option value="grid">Pascal-Raster</option>
+<option value="bracket">Bügel · gekrümmte Kette</option>
+<option value="spiral">Spiralansicht</option>
+<option value="membrane">Membran · deklarierte Sattelfläche</option>
+</select>
+</label>
+<label>Blickwinkel · <output id="threadAngleValue">0°</output>
+<input id="threadAngle" type="range" min="-90" max="90" step="5" value="0">
+</label>
+<label>
+<span>
+<input id="threadMirror" type="checkbox"> Bild spiegeln</span>
+</label>
+</div>
+<output id="threadError" role="alert">
+</output>
+<div class="thread-controls">
+<label>
+<span>
+<input id="threadEndpointOnly" type="checkbox"> Nur Endpunkt behalten · Baugeschichte ausblenden</span>
+</label>
+<label>Pinker Schlüssel · lokale Witness-Rolle<select id="threadKey" disabled>
+<option value="none">Kein Schlüssel</option>
+<option value="correct">Passender Faserordinal</option>
+<option value="wrong">Vertauschter Faserordinal</option>
+</select>
+</label>
+</div>
+<div class="thread-actions" aria-label="Geführte Schritte">
+<button id="threadLoss" type="button">1 · Verlust zeigen</button>
+<button id="threadReturn" type="button">2 · Mit Schlüssel zurück</button>
+<button id="threadWrong" type="button">3 · Falschen Schlüssel testen</button>
+<button id="threadReset" type="button">Reset</button>
+</div>
+<div class="thread-panels">
+<div>
+<svg id="threadSvg" viewBox="0 0 720 360" role="img" aria-label="Pascal-Pfad mit gewählter Einbettung">
+</svg>
+<p>
+<strong>Cyan:</strong> sichtbarer Quellpfad / Endpunkt. <strong>Gold gestrichelt:</strong> rekonstruierter Pfad. <strong>Rot gestrichelt:</strong> anderes Ergebnis beim falschen Schlüssel.</p>
+<p id="threadControl">
+</p>
+</div>
+<div class="thread-readout">
+<article>
+<small>Quelle · Vergleichs-Witness, nicht automatisch Teil des Rückgaberecords</small>
+<output id="threadSource">
+</output>
+</article>
+<article>
+<small>Tatsächlich an den Decoder übergebener Record</small>
+<output id="threadRecord">
+</output>
+</article>
+<article>
+<small>Was ist noch unterscheidbar?</small>
+<output id="threadFiber">
+</output>
+</article>
+<article class="thread-key">
+<small>Zusatzinformation / Residuum</small>
+<output id="threadWitness">
+</output>
+</article>
+<article>
+<small>Rekonstruktion</small>
+<output id="threadReturned">
+</output>
+</article>
+<output id="threadVerdict" role="status" aria-live="polite">
+</output>
+</div>
+</div>
+<p id="threadCost">
+</p>
+<details>
+<summary>Kompatible Pfade öffnen — einen anderen auswählen</summary>
+<p>Bei gleichem Endpunkt können mehrere Binärwörter passen. Die Buttons ändern die Quelle; der Decoder bekommt weiterhin nur den angezeigten Record und den gewählten Schlüssel.</p>
+<div id="threadCandidates">
+</div>
+</details>
+<details>
+<summary>Die neuen Ansichtsregeln und ihre Grenzen</summary>
+<p>Ein Pascal-Knoten hat Adresse (r,k). Im Raster: x=(2k−r)/n, y=r/n. Bügel: θ=−π/2+πr/n, R=1+0.06(2k−r). Spirale: θ=2πr/n, R=1+0.18r+0.04k. Membran: z=0.45(x²−y²). Die Kamera projiziert diese Punkte auf die Anzeige; Adressen bleiben eigenständige Daten.</p>
+<p>Spiegelung ist hier ein Anzeigewechsel, keine Bitkomplementierung oder behauptete Druckfeld-Gegendrehung. Bei einem ungünstigen Blickwinkel können Punkte überlappen; das ändert nicht die adressierten Records. Fehlende Baugeschichte wird nicht aus der Geometrie erraten. Der passende Schlüssel wird aus der bekannten Quelle gebildet und ausdrücklich als zusätzliche Information übergeben.</p>
+</details>
+<details id="core-membrane-source">
+<summary>Core-Bilder: Bügel gefunden, exakter Membran-Generator offen</summary>
+<p>Das zweite User-Foto entspricht dem gefundenen Core-Bild „Best Frame (Angle=0.02)“. Dessen Dateiname lautet best_frame_angle_0.2.png; Dateiname und eingeblendeter Winkel stimmen also nicht überein. Es wird keine Optimierung oder bestimmter Winkel daraus übernommen.</p>
+<p>Im Core-Archiv liegen außerdem „Navigation on Membrane“, „Reconstructed Membrane“ und eine Galerie. Das erste User-Foto „NEXAH Membrane Navigation Demo“ ist damit noch nicht exakt zugeordnet. Der OVAL_MEMBRANE_FIELD-Record bezeichnet sich selbst als konzeptionell und noch nicht mathematisch formalisiert.</p>
+<div class="links">
+<a href="../core/EXPERIMENTAL/BUILDER_LAB/ARCHIVE_ENGINE/docs/visuals/best_frame_angle_0.2.png">Bügel · Core-Original</a>
+<a href="../unavailable.html">Core · Visual Discovery Gallery</a>
+<a href="../unavailable.html">Core · Oval Membrane Proto-Modell</a>
+<a href="../unavailable.html">Pascal-/Return-Quelle</a>
+<a href="assets/a0-pascal-thread-views-v1.json">Ansichtsvertrag und Quell-Hashes</a>
+</div>
+</details>
+<noscript>
+<p>Der interaktive Pfadvergleich benötigt JavaScript. Die Quellen und Ansichtsregeln bleiben lesbar; <a href="../unavailable.html">Originalresultat öffnen</a>.</p>
+</noscript>
+<p class="status">Lokaler Engineering-Prototyp, kein neuer Lab-Run, kein F-A0-Finding, keine Recovery des EXP-48-/Core-Membrangenerators, kein Economy- oder Physikclaim. Keine automatische Animation.</p>
+</section>
+<details id="research-apparatus" class="research-apparatus">
+<summary>Quellen, Kartenarten und offene Fragen<small>Originalrecords, EXP-Vergleich, Herkunft, Evidenzstatus und technische Grenzen</small>
+</summary>
+<p class="status">Dokumentarischer Forschungsstrang: neue Experimente sind nicht aktiviert; keine neue Study. Vorhandene Ergebnisse behalten ihren eigenen Status.</p>
+<section id="karten" class="section">
+<p class="eyebrow">Kartenarten · überlappende Lesegliederung, keine neue Family-Taxonomie</p>
+<h2>Was möchtest du untersuchen?</h2>
+<p>Öffne einen Bereich. Du siehst zuerst seine Frage und dann den vorhandenen Einstieg. Kein Instrument lädt ungefragt.</p>
+<div class="cards">
+<details id="grid-square">
+<summary>Quadrat & Adresse<small>Wo liegt eine Zahl?</small>
+</summary>
+<p>7×7 und 8×8 können Carrier oder nur Ausschnitte sein. 11×11=121 und 111×111=12321 sind exakte Zellzahlen; ein Lift braucht eine zusätzliche Regel.</p>
+<a class="open" href="../unavailable.html">Vorhandene Ansicht öffnen →</a>
+</details>
+<details id="grid-root">
+<summary>Root & Algebra<small>Wie werden Werte zu Koordinaten?</small>
+</summary>
+<p>√n-Linien, rechtwinklige Dreiecke und Root-Room-Fixtures: Zahlwert, Achsenwahl und Bildposition bleiben unterscheidbar.</p>
+<a class="open" href="../unavailable.html">Vorhandene Ansicht öffnen →</a>
+</details>
+<details id="grid-polar">
+<summary>Polar & Spirale<small>Wie orientieren Winkel und Umlauf?</small>
+</summary>
+<p>Radius, Winkel, Reihenfolge und Phase sind verschiedene Angaben. Ein anderes Kartenbild ist nicht automatisch eine feinere Auflösung.</p>
+<a class="open" href="../unavailable.html">Vorhandene Ansicht öffnen →</a>
+</details>
+<details id="grid-pascal">
+<summary>Pascal & Randketten<small>Wie wächst und verbindet sich eine Struktur?</small>
+</summary>
+<p>Rekursion erzeugt Koeffizienten; erklärte Nähte verbinden Flächen. Einsen am Rand, Grenzidentifikation und Wachstum sind getrennt zu prüfen.</p>
+<a class="open" href="../unavailable.html">Vorhandene Ansicht öffnen →</a>
+</details>
+<details id="grid-ghost">
+<summary>Ghost, Pink & Spiegel<small>Was macht eine Ansicht sichtbar — oder unsichtbar?</small>
+</summary>
+<p>Lokale Farbcodierung, Apertur, Überlagerung und Seiteninformation. Die rote 1, pinke 2 und vier Nullrollen bleiben ausdrücklich kontextgebunden.</p>
+<a class="open" href="../unavailable.html">Vorhandene Ansicht öffnen →</a>
+</details>
+</div>
+</section>
+<section id="quellen" class="section">
+<p class="eyebrow">Fundstellen statt zweiter Katalog</p>
+<h2>Wo liegt das bereits?</h2>
+<p>Eine begrenzte, geprüfte Quellenübersicht über die hier zusammengetragenen Grid-Bezüge — keine vollständige Inventur sämtlicher NEXAH-Dateien. Originalrecords und technische Ledger bleiben maßgeblich.</p>
+<label class="filter" for="sourceSearch">Quelle oder Thema finden<input id="sourceSearch" type="search" placeholder="Zum Beispiel: Pascal, Root, ORION, Return" autocomplete="off">
+</label>
+<output id="sourceCount" aria-live="polite">15 Quellen</output>
+<div class="table-wrap">
+<table id="sourceTable">
+<thead>
+<tr>
+<th scope="col">Thema / Ort</th>
+<th scope="col">Rolle und Grenze</th>
+<th scope="col">Original</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Bedienbare Grid-Sammlung</td>
+<td>Adressraster, CRT16, Ghost Tiles, Root-Fixtures und TESA-Polar-/Zeitansicht. 7×7/8×8 sind dort auch Viewports, nicht automatisch eigenständige Carrier.</td>
+<td>
+<a href="../unavailable.html">Öffnen →</a>
+</td>
+</tr>
+<tr>
+<td>Bestehende Grid-Relationen</td>
+<td>2/3/5/7/8/9/11/111-Raster, Pascal und Polar bereits zusammen erfasst; bestehendes MULTI_GRID_RELATION_LEDGER.json bleibt der technische Record.</td>
+<td>
+<a href="../unavailable.html">Öffnen →</a>
+</td>
+</tr>
+<tr>
+<td>Übergreifender Forschungsbereich</td>
+<td>Stage 0 ohne Aktivierung; Numbermagick, CRT, Geometria Nova, Visual Equation Atlas, CIKADA und Shadow bereits verknüpft.</td>
+<td>
+<a href="../unavailable.html">Öffnen →</a>
+</td>
+</tr>
+<tr>
+<td>Quellen-/Modulzuordnung dieses Bereichs</td>
+<td>Bestehende FGN-Zuordnungen und Originalablagen weiterverwenden, keine zweite Modul-Liste als Autorität.</td>
+<td>
+<a href="../unavailable.html">Öffnen →</a>
+</td>
+</tr>
+<tr>
+<td>Primindex / Basis / Modulus / Ansicht</td>
+<td>Vorhandene Navigator-Linse trennt Zahlrollen; ihre alten Count-Angaben nicht als aktuellen Gesamtgraph lesen.</td>
+<td>
+<a href="../unavailable.html">Öffnen →</a>
+</td>
+</tr>
+<tr>
+<td>Pascal / Pentagon / Rand und Verklebung</td>
+<td>Bestehender PENT-/Pascal-Einstieg; 1er-Randketten und konkrete Identifikationen getrennt von einer universellen Eins-Farbgrammatik.</td>
+<td>
+<a href="../unavailable.html">Öffnen →</a>
+</td>
+</tr>
+<tr>
+<td>Zahlen-/QRT-/CRT-Return</td>
+<td>Bestehender ausführbarer Joint, kein nachgebauter neuer Zahlen-Decoder.</td>
+<td>
+<a href="../unavailable.html">Öffnen →</a>
+</td>
+</tr>
+<tr>
+<td>Neuere geschlossene Pascal-Ergebnisse</td>
+<td>BL-020: begrenzte zyklische Formeln; Originalreport und Lab Register kontrollieren den Status.</td>
+<td>
+<a href="../unavailable.html">Öffnen →</a>
+</td>
+</tr>
+<tr>
+<td>Relationen über Generationen</td>
+<td>Bestehender Generation-/Return-Record; kein neu zugelassener allgemeiner Wachstumsgenerator.</td>
+<td>
+<a href="../unavailable.html">Öffnen →</a>
+</td>
+</tr>
+<tr>
+<td>ORION Multi-Grid-Entwurf</td>
+<td>Design + Formalisierung + Review, keine wissenschaftliche Ausführung.</td>
+<td>
+<a href="../unavailable.html">Öffnen →</a>
+</td>
+</tr>
+<tr>
+<td>Bewegliches 2/3-Faltraster</td>
+<td>Vorhandener Designzweig: Reblocking, verlustbehaftete Observablen und optionale Projektion getrennt.</td>
+<td>
+<a href="../unavailable.html">Öffnen →</a>
+</td>
+</tr>
+<tr>
+<td>Ghostgrid / dyadischer Lift</td>
+<td>Bereits gebundener lokaler Zahlen-/Return-Anschluss.</td>
+<td>
+<a href="../unavailable.html">Öffnen →</a>
+</td>
+</tr>
+<tr>
+<td>Graph-to-Grid / neue Gegenkontrolle</td>
+<td>BL-054 geschlossen, mixed-negative; kein allgemeiner Beleg für bevorzugte Grid-Geometrie.</td>
+<td>
+<a href="../unavailable.html">Öffnen →</a>
+</td>
+</tr>
+<tr>
+<td>Open Fracture / Five-Zone / Hidden Binder</td>
+<td>Vorhandener Intake samt Bild-Hashes und Grenzen wird verlinkt, nicht als neue Study dupliziert.</td>
+<td>
+<a href="../unavailable.html">Öffnen →</a>
+</td>
+</tr>
+<tr>
+<td>Return-Prüfschablone</td>
+<td>BL-055 bleibt abgeschlossen; neue Grid-Hypothesen nicht als dessen Resultat ausgeben.</td>
+<td>
+<a href="../unavailable.html">Öffnen →</a>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="links">
+<a href="../unavailable.html">Navigator · Zahlrollen</a>
+<a href="../unavailable.html">Navigator · Lineage</a>
+<a href="../unavailable.html">Navigator · A0-Quellen</a>
+<a href="../unavailable.html">Lab Register · Study-Status</a>
+<a href="../unavailable.html">Mission Control · operative Übersicht</a>
+</div>
+<p class="status">Zuständigkeit: Originalquelle / Lab = Definition und Evidenz; Science Navigator = Source-/Relation-Graph; Mission Control = Currentness, Priorität und Freigaben. Diese Leseseite ersetzt keine dieser Stellen.</p>
+</section>
+<section id="fragen" class="section">
+<p class="eyebrow">Offene Fragen · nicht als Ergebnisse ausgegeben</p>
+<h2>Was hält den Strang zusammen?</h2>
+<div class="questions">
+<article class="question">
+<b>Vier Einsen, vier Nullrollen und die pinke 2</b>
+<p>Welche Rolle besitzt jeder Marker? Welche Achsen sind unabhängig? Was genau ist der Spalt? Die Owner-Lesart bleibt erhalten; ein vollständiger Koordinatenvertrag ist noch offen.</p>
+</article>
+<article class="question">
+<b>Randketten und Wachstum</b>
+<p>Binomiale Pascal-Ränder bestehen aus Einsen. Für Pyramiden unterscheiden wir Ecken, Kanten und Flächen. Welche Nähte dürfen zusammenfallen, und was bleibt für den Return erhalten?</p>
+</article>
+<article class="question">
+<b>Gleiches Ergebnis, andere Baugeschichte</b>
+<p>
+<code>14=7+7=2·7</code>. Die 14 allein verrät den Rechenweg nicht. Ein Ausdrucksbaum oder Witness kann ihn bewahren. Primindex und Primwert bleiben getrennt: <code>p₁·p₄=14</code>, aber <code>p₁·(p₂)²=18</code>.</p>
+</article>
+<article class="question">
+<b>Ein Punkt in mehreren Karten</b>
+<p>Die Restbeziehung <code>537≡19 (mod37)</code> ist exakt. Radius, Winkel, Spiegelung und Farbe brauchen jeweils einen eigenen Decoder. Kartenwechsel ist nicht automatisch Auflösungsgewinn.</p>
+</article>
+</div>
+<p class="note">
+<strong>BL-055 als Referenz:</strong> Drei Carrier liefern exakten Return, nur der Typed Seam zeigt dort Economy. Neue Grid-Hypothesen sind nicht Teil dieses abgeschlossenen Resultats. Ein möglicher Folgetest würde Ansicht, Zusatzinformation und Informationskosten getrennt prüfen — er wird hier nicht gestartet.</p>
+</section>
+<section id="visuals" class="section">
+<p class="eyebrow">Mission-Control-/Science-Intakes · Herkunft erhalten</p>
+<h2>Die Bilder bleiben Teil der Forschungsgeschichte.</h2>
+<p>Die neu gelieferten Tafeln werden nicht pauschal als alter Numbermagick-Bestand datiert. Bildinhalt, Owner-Lesart, einzelne Intake-Zuordnung und Generatornachweis sind getrennte Angaben. Root-/Polar-/Pink-Diamond-Tafeln, Red Rod und Open Fracture bleiben miteinander auffindbar.</p>
+<div class="links">
+<a href="../unavailable.html">13 Polar-/Ghostgrid-Visuals</a>
+<a href="../unavailable.html">Grid-Sammlung · Herkunft und Empfangsbelege</a>
+<a href="../unavailable.html">Vorhandener Open-Fracture-Intake</a>
+</div>
+<p>Die Red Rod ist laut Owner die rote 1; ihre Übersetzung zum roten Schatten <code>1/64</code> ist offen. Light, Shadow, Echo und Residual erinnern an die HTML-Instrumente — eine gemeinsame Kanalregel muss jedoch am jeweiligen Quellrecord geprüft werden.</p>
+<p class="status">JPEG-Pfade und SHA-256 stehen in Numbermagick. Die Originale wurden nicht kopiert; lokale Photos-Pfade sind kein portables Archiv. Externe Vorlagen und ungeklärte Bildrechte werden nicht durch diese Seite publiziert.</p>
+</section>
+<section id="aperture-source-map" class="section" aria-labelledby="apertureSourceTitle">
+<p class="eyebrow">Quellenfall · Aperture Navigation Map → A0 · Paper E §8.7</p>
+<h2 id="apertureSourceTitle">Was von der Tafel ist schon gebaut?</h2>
+<p>Die Originaltafel, Whiteboards A–E und sechs EXP-PNGs liegen zusammen in „HOW ONE BECOMES FROM EVERYTHING“. Die neue Marker-Serie führt also zu einer gemeinsamen Ablage. Dort sind 27 PNGs, aber keine Runner oder Rohdaten gefunden. Der genaue Übergang vom Bild zum Modell bleibt einzeln zu prüfen.</p>
+<div class="links">
+<a href="../media/7580232e3f7e4a774e50.png">Originaltafel öffnen →</a>
+<a href="../unavailable.html">Paper E · Einordnung</a>
+<a href="../unavailable.html">Quellenrecord · Datei-Hashes</a>
+</div>
+<div class="flow" aria-label="Quelle, Mathematik und offene Übersetzung">
+<article>
+<strong>Quellbild erhalten</strong>
+<p>EXP-Namen und Local/Global/Universal-Layer sind dokumentierte Marker. Ein Bildtitel ist noch kein ausführbarer Vertrag.</p>
+</article>
+<article>
+<strong>Teilanschlüsse geprüft</strong>
+<p>Pascal-Pfadvielfachheiten, Faser-Return und dihedrale Richtungsumkehr haben vorhandene Ergebnisquellen.</p>
+</article>
+<article>
+<strong>Gesamtgenerator offen</strong>
+<p>Druckfeld, sieben stabile Schalen, Materialresonanzen und Spiral-Einbettung sind damit nicht gemeinsam validiert.</p>
+</article>
+</div>
+<h3>Experiment-Marker aufklappen</h3>
+<div class="cards">
+<details id="aperture-exp-0">
+<summary>EXP-05A · Drift, Partikel, Ringe<small>Bilder gefunden · Generator offen</small>
+</summary>
+<p>Drei erhaltene PNGs zeigen Driftfeld, Partikelbahnen und ein radiales Dichtebild. Der dominante Peak liegt ungefähr bei r=1.24. Parameter, Rohdaten, Integrator und Randbedingungen fehlen in der gefundenen Ablage. Sieben Ringmarker sind noch kein Nachweis sieben stabiler Viskositätsschalen.</p>
+<a class="open" href="../media/75f4b6cc3f7c2f4acbad.png">Dichte-PNG öffnen →</a>
+</details>
+<details id="aperture-exp-1">
+<summary>EXP-45B · Operator Network & Spine<small>Bereits geprüft · Transkription vorläufig</small>
+</summary>
+<p>Die Originaltafel und die bestehende Graph-Transkription sind wiederverwendet. Das Panel-4-Modell besitzt zehn Knoten und zwanzig Kanten. Weder der ursprüngliche Generator noch die Zentralitäts-/Spine-Reihenfolge sind dadurch verifiziert.</p>
+<a class="open" href="../unavailable.html">Vorhandene Quellprüfung →</a>
+</details>
+<details id="aperture-exp-2">
+<summary>EXP-47 · Aperture as Layer Coupler<small>Bild gefunden · Kopplungsgesetz offen</small>
+</summary>
+<p>Die Tafel zeigt drei phasenversetzte Kurven und eine markierte Phase. Ein Kurvenbild allein definiert noch keine wechselseitige Dynamik zwischen den Local-/Global-/Universal-Layern.</p>
+<a class="open" href="../media/138913dc166f8c51991b.png">EXP-47-PNG öffnen →</a>
+</details>
+<details id="aperture-exp-3">
+<summary>EXP-48 · Pascal Layer Coupling<small>Bild gefunden · gewichteter Generator offen</small>
+</summary>
+<p>Die Tafel verbindet Local-/Global-/Universal-Knoten über diagonale Relationen. MRB-10 und Block02A sind präzise Anschlüsse für gezählte Pascal-Wege, aber nicht automatisch der wiedergefundene EXP-48-Generator.</p>
+<a class="open" href="../media/8821c0d9c5c7d748b083.png">EXP-48-PNG öffnen →</a>
+</details>
+<details id="aperture-exp-4">
+<summary>EXP-49 / EXP-50+ / EXP-05B–E<small>Plan-/Agenda-Marker · Ausführung nicht gefunden</small>
+</summary>
+<p>Whiteboard A nennt EXP-49 ausdrücklich geplant. Die weiteren Ring-, Wirbel-, Viskositäts-, Druck- und Mirror-Namen sind Forschungsmarker; in den durchsuchten Ablagen wurde kein zugehöriges ausführbares Paket gefunden.</p>
+<a class="open" href="../media/0a2d2963f5260faf6b2a.png">Whiteboard A öffnen →</a>
+</details>
+</div>
+<h3>Pascal-Fäden: vorhandene Instrumente statt Doppelbau</h3>
+<p>MRB-10 ist als Quellpaket wiedergefunden. Block02A ist eine separat geprüfte Rekonstruktion: Pfadzahlen ergeben <code>C(n,k)</code>, jede Zeilensumme ist <code>2ⁿ</code>. Die Gewichtsansicht verliert einzelne Adressen; <strong>Gewicht plus Ordinal in der Faser</strong> ermöglicht den exakten Return. Die Spiralform dieser Wege benötigt eine zusätzliche Einbettung.</p>
+<div class="links">
+<a href="../unavailable.html">MRB-10 · Quellinstrument</a>
+<a href="../unavailable.html">Block02A · Pascal-Faden-Lab</a>
+<a href="../unavailable.html">Geprüfte Aussage lesen</a>
+<a href="../unavailable.html">Generationen · A0-Anschluss</a>
+</div>
+<details class="question">
+<summary>Spiegel und Gegendrehung: was genau stimmt überein?</summary>
+<p>Im Blue-Body-Innenregister drehen Außenlayer mit +Phase, die mittlere Lage mit −Phase. Die Pentagon-Szene deklariert <code>A=3φ, B=36°−2φ</code>. Der vorhandene dihedrale Test bestätigt <code>J Tₖ J=T₋ₖ</code>. Das sind konkrete mathematische und implementierte Teilanschlüsse — kein wiedergefundener RA/TH-Druckfeldgenerator.</p>
+<div class="links">
+<a href="../unavailable.html">Innenregister öffnen</a>
+<a href="assets/a0-layered-pentagon-scene-v1.json">Deklarierte Pentagon-Regel</a>
+<a href="../unavailable.html">Gegendrehungs-Resultat</a>
+</div>
+</details>
+<details class="question">
+<summary>Auch ein Bügel kann ein adressierter Träger sein.</summary>
+<p>Eine gekrümmte Kette braucht kein Rechteck: Parameter, Abtastpunkte und Nachbarschaft können ein diskretes Modell definieren. Erst diese Regeln — und nicht die Formähnlichkeit — erklären, wie aus der Ansicht zurückgerechnet werden kann.</p>
+<p>
+<code>Quelle → Adresse/Parameter → Nachbarschaft → Ansicht → Faser/Residual → Return</code>
+</p>
+</details>
+<p class="note">
+<strong>Gewöhnliche Mathematik und eigene Modellierung:</strong> Pascal, Rotation, Spiegelung und Gradienten gehören zum klassischen Werkzeug. Die lokale Zusammensetzung ist ein Modellierungsbeitrag, kein dadurch neuer Satz. 137/Ag, 537/Rotgold und 737/Au sind erhaltene Zuordnungen, keine nachgewiesenen Materialresonanzen. <code>φ(n)</code> (Euler-Totient), <code>Φ</code> (goldener Quotient) und Drehphase sind verschiedene Größen.</p>
+<p class="status">Neue Quellen-/Methodenergänzung, kein neuer F-A0-Eintrag, kein Run, keine Publikationsfreigabe. Lokale PNGs/JPEGs bleiben in ihren Quellablagen; Titelzuordnung ist keine Bytegleichheit oder rekonstruierte Exportkette.</p>
+</section>
+</details>
+<section id="weiter" class="section">
+<h2>Der nächste Arbeitsschritt</h2>
+<p>Für einen vorhandenen Grid-Wechsel zuerst Quelle und Decoder verbinden: <strong>Ausgangsrecord → Koordinatenregel → Rand/Farbrolle → erhalten oder verloren → Return-Witness.</strong> Neue Hinweise in der bestehenden Numbermagick-Quellenkarte ergänzen, nicht erneut eine Registry anlegen.</p>
+<div class="links">
+<a href="../unavailable.html">Zur fortschreibbaren Quellenkarte →</a>
+<a href="../unavailable.html">Zurück zum Science Desk →</a>
+</div>
+</section>
+</main>
+<footer>Bestehende A0-/Number-View-Identitäten · redaktionelle Leseseite, kein neuer kanonischer Graph-Knoten · keine neue Study, kein Run, keine Publikationsfreigabe.</footer>
+<script>
+(() => {const input=document.getElementById('sourceSearch'),rows=[...document.querySelectorAll('#sourceTable tbody tr')],out=document.getElementById('sourceCount');input.addEventListener('input',()=>{const q=input.value.trim().toLocaleLowerCase('de');let n=0;for(const row of rows){row.hidden=!row.textContent.toLocaleLowerCase('de').includes(q);if(!row.hidden)n++}out.textContent=n+' von '+rows.length+' Quellen';});})();
+</script>
+<script>
+(function(){function reveal(){const id=decodeURIComponent(location.hash.slice(1));const target=document.getElementById(id);if(!target)return;let parent=target.parentElement;while(parent){if(parent.tagName==="DETAILS")parent.open=true;parent=parent.parentElement;}}window.addEventListener("hashchange",reveal);reveal();})();
+</script>
+<script src="a0-pascal-thread-views.js">
+</script>
+<script src="a0-six-marker-grid-views.js">
+</script>
+<script src="a0-family-spatial-navigation.js">
+</script>
+<script src="a0-numbermagick-number-lens.js">
+</script>
+<script src="a0-gh-hinge.js">
+</script>
+<script src="a0-context-navigation.js?rev=reader-lanes-20261015">
+</script>
+</body>
+</html>
+

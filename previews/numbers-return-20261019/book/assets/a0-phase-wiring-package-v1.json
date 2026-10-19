@@ -1,0 +1,221 @@
+{
+  "schema": "nexah.a0.phase-wiring-package/1",
+  "asOf": "2026-10-17",
+  "title": "A0 Integrationspaket · Konzepte, bestehende Anschlüsse und ein gemeinsamer Phasenpfad",
+  "entry": "A0_ORIENTATION_CONTROLLER_BENCH.html#phaseWiring",
+  "packageEntry": "A0_ORIENTATION_CONTROLLER_BENCH.html#wiringPackage",
+  "status": "BOUNDED_PHASE_PATH_IMPLEMENTED_ENGINEERING_PASS_BROWSER_ACCEPTANCE_OPEN_OTHER_CONNECTIONS_OPEN",
+  "authority": {
+    "newCanonicalIdentity": false,
+    "newCanonicalRelation": false,
+    "newFamily": false,
+    "researchExecution": false,
+    "claimPromotion": false,
+    "publication": false
+  },
+  "implementationFiles": [
+    {
+      "path": "a0-phase-wiring.js",
+      "sha256": "b434eb843f6e8e0299e5539551e9d75f1027807f98996e854475c39192fa6c1c"
+    },
+    {
+      "path": "a0-phase-wiring.css",
+      "sha256": "bfcd58060073ff279ee1f583b440fc03973491a9a779dfce8bca9d3f3873e70b"
+    },
+    {
+      "path": "a0-phase-wiring-tests.cjs",
+      "sha256": "2e5fb7f2e0e31cdf08583ab26daf7f3799df9e843af55835532c6fed824ddbd4"
+    },
+    {
+      "path": "a0-layered-pentagon-scene.js",
+      "sha256": "319c8d35e19d2eebe65b526bab23ca212d7caf7465bca3bbda966423af99082d"
+    },
+    {
+      "path": "A0_ORIENTATION_CONTROLLER_BENCH.html",
+      "sha256": "d111d3474ef663847b52392b798e7a56fcdf5d5cc44cc11500c77165f4e6edd5"
+    },
+    {
+      "path": "a0-phase-wiring-run-verify.cjs",
+      "sha256": "76005a62ba9ec2e502f597ff808fcfbcf0d15f34e547879ab6568e48fccf64c8"
+    }
+  ],
+  "originalSources": [
+    {
+      "path": "[local provenance withheld from public preview]",
+      "sha256": "3a1b24f6a93285e07b9d852b92d99be0bfea4621d3c6bcaa5756777bb0679ea2"
+    },
+    {
+      "path": "[local provenance withheld from public preview]",
+      "sha256": "986820e39526d574c6dd4942bf829ea95bc9f557c895cc0fabb58976bbdb54e0"
+    }
+  ],
+  "visuals": [
+    {
+      "path": "assets/wiring-concepts/01-layers.jpeg",
+      "sha256": "507d402fb387520d9d45dc2eb91cc9872ca7c85a0ded2ddd0bb3e6d0726b37dd",
+      "originalPath": "[local provenance withheld from public preview]",
+      "purpose": "Owner concept plate and contact-strip reference only; no scientific or runtime identity",
+      "copyOnlyOriginalUnchanged": true
+    },
+    {
+      "path": "assets/wiring-concepts/02-two-cuts.jpeg",
+      "sha256": "3c435c692cab1a0ce8fc38077a7209edd7941c85e0e918cbe7a49c6bc46eafa9",
+      "originalPath": "[local provenance withheld from public preview]",
+      "purpose": "Owner concept plate and contact-strip reference only; no scientific or runtime identity",
+      "copyOnlyOriginalUnchanged": true
+    },
+    {
+      "path": "assets/wiring-concepts/03-split-rest.jpeg",
+      "sha256": "dcebd9c99219463b394ce0613ff095858a884466ec360da07b5473619b12adce",
+      "originalPath": "[local provenance withheld from public preview]",
+      "purpose": "Owner concept plate and contact-strip reference only; no scientific or runtime identity",
+      "copyOnlyOriginalUnchanged": true
+    },
+    {
+      "path": "assets/wiring-concepts/04-room.jpeg",
+      "sha256": "9a5214d01d69dd054cb722684428762117d4f2a1ffd16b700e27015f46d67b45",
+      "originalPath": "[local provenance withheld from public preview]",
+      "purpose": "Owner concept plate and contact-strip reference only; no scientific or runtime identity",
+      "copyOnlyOriginalUnchanged": true
+    },
+    {
+      "path": "assets/wiring-concepts/05-tube.jpeg",
+      "sha256": "0cb1db4266236b8c09927ad4e6a8a4faa393073fce9e2fb3f88ca2cf2caac63e",
+      "originalPath": "[local provenance withheld from public preview]",
+      "purpose": "Owner concept plate and contact-strip reference only; no scientific or runtime identity",
+      "copyOnlyOriginalUnchanged": true
+    },
+    {
+      "path": "assets/wiring-concepts/06-qrt.jpeg",
+      "sha256": "7b9fe66325204c4f6cffe9c9350acda1deab68c6d69c211d536c53d44c371ca0",
+      "originalPath": "[local provenance withheld from public preview]",
+      "purpose": "Owner concept plate and contact-strip reference only; no scientific or runtime identity",
+      "copyOnlyOriginalUnchanged": true
+    }
+  ],
+  "clock": {
+    "owner": "existing A0LayeredSceneView",
+    "stepDegrees": 2,
+    "periodMs": 40,
+    "extraTimers": 0,
+    "autoplay": false,
+    "hiddenTab": "pause existing source",
+    "beforePlay": "existing Bench pause/interlock hook",
+    "repeat": "existing explicit checkbox only"
+  },
+  "mapping": {
+    "phase": "source.pose.phase in degrees",
+    "sourceAngle": "phase*pi/180 substituted for original t / angleOffset",
+    "rate": "declared resampling, not original frame-rate equivalence",
+    "resonator": "5 fixed source pentagons, original radii and Euler node formulas",
+    "euler": "original q(n), n=0..40, n=40 remains gold composite 1681",
+    "goldCursor": "additional view marker on pulsating ring; not a mathematical orbit or prime selector",
+    "colour": "display blue-to-green then arithmetic mean grey shift; no physics effect",
+    "pentagon": "actual source pose subscription and actual original overlay accept callback retained"
+  },
+  "protocol": {
+    "kind": "local synchronous source-owned pose API, not asynchronous cross-window ACK",
+    "commands": [
+      "read",
+      "capture",
+      "step",
+      "phase",
+      "play",
+      "pause",
+      "return"
+    ],
+    "sourceApi": [
+      "subscribe",
+      "setPhase",
+      "restorePose",
+      "exportState",
+      "pause"
+    ],
+    "confirmation": "source export and observed phase must match; invalid command/readback -> HOLD, pause, explicit read recovery",
+    "returnScope": [
+      "layer phase and motion",
+      "nested zoom and offset",
+      "repeat and all layer checkboxes",
+      "local resonance options",
+      "own latest-64 marker trail and drop count"
+    ],
+    "excludedReturn": [
+      "global overlay histories",
+      "PENT and LIFE03 states",
+      "original standalone HTML runtimes",
+      "native 60-face source",
+      "whole-machine state"
+    ],
+    "auditLimit": 128,
+    "trailLimit": 64,
+    "endpoint": "360 stops unless existing repeat enabled; endpoint is not automatic source Return"
+  },
+  "connections": [
+    {
+      "path": "Bench → phase → derived Resonator/Euler + existing Pentagon",
+      "status": "ENGINEERING_PASS_BROWSER_OPEN"
+    },
+    {
+      "path": "Master ↔ PENT",
+      "status": "EXISTING_SCOPED_BROWSER_PASS_NOT_REPLAYED"
+    },
+    {
+      "path": "Master ↔ LIFE03",
+      "status": "EXISTING_ENGINEERING_ADAPTER_BROWSER_OPEN"
+    },
+    {
+      "path": "Native Blue/Pink selected face",
+      "status": "OPEN_OPERATOR_AND_SOURCE_ADAPTER"
+    },
+    {
+      "path": "Format/CRT/Grid shared record",
+      "status": "OPEN_TYPED_ADAPTER"
+    },
+    {
+      "path": "537 GG → 1000x1000",
+      "status": "HOLD_ADDRESS_MAP_UNDEFINED"
+    },
+    {
+      "path": "Ihara graph",
+      "status": "OPEN_GRAPH_MAPPING_NO_OPERATOR_IN_RADIUS_PULSE"
+    },
+    {
+      "path": "11-Space second collision marker",
+      "status": "OPEN_SOURCE_VIEW_CHANGE_SEPARATE"
+    },
+    {
+      "path": "Geometrisches Skelett",
+      "status": "OPEN_ORIGINAL_HTML_NOT_LOCATED"
+    },
+    {
+      "path": "Whole-machine Return",
+      "status": "OPEN_NOT_CLAIMED"
+    }
+  ],
+  "verification": {
+    "phaseTests": 2290,
+    "rendererQA": "source-derived SVG frames at 126 degrees rasterized and visually inspected, not full host browser acceptance",
+    "browserAcceptance": false,
+    "canonicalSourceGraph": "PASS 19 components /5 governance",
+    "sourceOriginalHashesUnchanged": true,
+    "exportVerifier": "node a0-phase-wiring-run-verify.cjs /path/to/a0-phase-wiring-run.json · checks record consistency, not browser authority",
+    "regressions": {
+      "pent": 717,
+      "life03": 137,
+      "root7": 11234,
+      "foldLag": 27902,
+      "layered": 32829,
+      "overlay": 5013,
+      "seam": 667,
+      "orientationMap": 677,
+      "roleMap": 73,
+      "navigatorApp": 246
+    }
+  },
+  "currentness": {
+    "missionControlBaseline": "INVALID seven pre-existing source hash mismatches; not rewritten as part of this local engineering change",
+    "canonicalPins": "preserved",
+    "mutableLocalImplementationPins": "updated only for changed implementation bytes"
+  },
+  "boundary": "Package consolidates concept-to-instrument navigation and implements one bounded local phase path. Open native, semantic, graph, grid and browser work is not marked complete."
+}
