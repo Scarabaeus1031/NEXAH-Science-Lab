@@ -1,0 +1,66 @@
+{
+  "schema": "nexah.a0.pentagon-body-player",
+  "version": "1.4.0",
+  "date": "2026-10-17",
+  "identity_effect": "REUSES_MOD_TESSAREC_AND_EXISTING_BLUE_BODY_VIEW_NO_NEW_IDENTITY_NO_NEW_RELATION",
+  "surface": "../A0_TESSAREC_BLUE_BODY_LAB.html#pentagon-body-player",
+  "source_carrier": "MOD:TESSAREC:Q4xP3",
+  "source_adapter": "A0:BLUE_BODY:INTERIOR:CRT16:ORDINAL_GRAY_RING:V1",
+  "source_transfer": "A0:BLUE_BODY:LIFE:8x6:FINITE_DEAD:V1",
+  "source_cycle_instrument": "../A0_IHARA_HASHIMOTO_CYCLE_BRIDGE.html",
+  "source_fibonacci_schedule": "a0-fibonacci-ring-operator-comparator-r1.js",
+  "source_owner_number_visual": {
+    "title": "Fibonacci F50 Factor Exponents",
+    "role": "OWNER_SUPPLIED_NUMBER_VIEW_CONTEXT_ONLY",
+    "exact_factorization": "F50=12586269025=5^2*11*101*151*3001",
+    "excluded_from_switch_derivation": true
+  },
+  "source_owner_visual": {
+    "title": "Rosenbrücke – Venuszyklus & 2041 (13 x 157)",
+    "role": "OWNER_SUPPLIED_VISUAL_PROVENANCE_ONLY",
+    "adopted_operator": "+2 mod 5 on each declared C5 address ring",
+    "excluded_from_operator": [13, 157, 2041, "Venus cycle", "25=5^2"]
+  },
+  "source_house_ledger": "../A0_BOUNDARY_GRAPH_DEMONSTRATOR.html",
+  "source_house_complement_audit": "../A0_Q4_MAGIC_SQUARE_JOINT_AUDIT.html",
+  "historical_one_pillar_sources": [
+    "fields-and-joints/Q_DEGREE_RELATIONAL_JOYSTICK_PLAYER.html",
+    "fields-and-joints/Q_DEGREE_SHADOW_SWITCHYARD_PLAYER.html",
+    "fields-and-joints/MATHEMATICAL_BACKBONE_PLAYER_NONCANONICAL.html"
+  ],
+  "body": {
+    "addresses": 48,
+    "layers": 3,
+    "channels_per_layer": 16,
+    "layer_geometry": "three nested pentagons plus one aperture node",
+    "views": ["rotatable-3d", "triple-pentagon", "life-8x6", "typed-return-trace", "blue-pink-shell", "house-q4-distribution", "house-q4-relations"]
+  },
+  "modes": {
+    "sequence_console": "one exact source address follows one of eleven complete 48-address permutations; no dynamics applied",
+    "sequences": ["layer1617", "gray", "d5", "ihara5", "fibonacci", "fibonacciEuler7", "rose5", "euler7", "prime17", "janus", "ordinal"],
+    "ihara5": "typed relay of three oriented primitive C5 blocks plus one aperture seam per layer; no identity with the 60 directed-edge states of the source dodecahedron graph",
+    "fibonacci": "existing A0 u_k=frac(k/phi) schedule rank-quantized to a complete 48-address permutation; no natural Fibonacci law or physical resonance claimed",
+    "fibonacci_euler7": {
+      "operator": "k -> frac(k/phi) -> exp(2*pi*i*u_k) -> rank_48 -> 7*rank mod 48",
+      "phase_role": "Euler complex exponential parametrizes the unit-circle phase",
+      "finite_switch_role": "multiplication by 7 modulo 48 relabels every rank address exactly once",
+      "permutation_witness": "gcd(7,48)=1",
+      "boundary": "construction-bound regularity only; no deeper Fibonacci-Euler generator, identity, resonance law or scientific result"
+    },
+    "rose5": "exact +2 mod 5 pentagram orbit on each five-address ring plus aperture seam; owner-visual labels 13, 157, 2041 and Venus are provenance only",
+    "house_q4": "One House, two ledger views: 4x4 actual Q4-bit matrix aggregated across three layers, and the existing 48-state/128-edge Q4xP3 carrier. Bitwise complement q XOR 15; ordinal channel is not Q4 integer. Matrix/relation click selects the same source key throughout the local player.",
+    "house_projection": "AM=XY, VM=YZ, PM=ZX of existing body display coordinates; no source, layer, sequence, receipt or Day/Night change. Not the continuous Root Room carrier and not a canonical AM/VM/PM operator.",
+    "janus": "Unchanged ordinal-channel mirror c<->15-c, explicitly distinct from bitwise Q4 complement",
+    "kite": "A2 -> 3-fold triangle display with cutEdge=phi*t*s at t=0.5; HYPOTHESIS_ONLY and not an additional carrier edge",
+    "day_night_view_mirror": "display-only Blue/Pink shell views; the historical Q-degree sources motivate a relational view axis but do not define a canonical VM operator",
+    "three_layer_pulse": "seven-cell period-2 fixture under unchanged finite-dead B3/S23; every phase touches P0 P1 and P2"
+  },
+  "period_2_fixture": {
+    "generation_0": [[6,0],[5,1],[7,1],[6,2],[1,4],[2,4],[3,4]],
+    "generation_1": [[6,0],[5,1],[7,1],[6,2],[2,3],[2,4],[2,5]],
+    "period": 2,
+    "rule": "B3/S23",
+    "boundary": "finite-dead"
+  },
+  "claim_boundary": "SOURCE_BOUND_3D_RECORD_VIEW_TYPED_IHARA_C5_ADAPTER_FIBONACCI_PHI_RANK_EULER_PHASE_TIMES7_COMPOSITION_AND_C5_STEP2_SWITCHES_Q4_HOUSE_DISTRIBUTION_Q_DEGREE_VIEW_AXIS_AND_UNCHANGED_B3S23_PERIOD2_FIXTURE_ONLY_NO_DEEP_FIBONACCI_EULER_GENERATOR_NO_NATURAL_FIBONACCI_OR_VENUS_LAW_NO_INTRINSIC_3D_LIFE_RULE_NO_DODECAHEDRON_OR_Q_DEGREE_CARRIER_IDENTITY_NO_CANONICAL_VM_OPERATOR_NO_PHYSICAL_BODY_NO_STUDY_OR_PUBLICATION"
+}

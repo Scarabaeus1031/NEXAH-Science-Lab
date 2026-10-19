@@ -1,267 +1,63 @@
 <!doctype html>
 <html lang="de">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="description" content="A1 Human Album: neun Apertures als Rundgang durch bestehende NEXAH Module — von Frage, Licht und Relation bis Körper, LIFE und Return.">
-  <title>NEXAH · The Aperture Journey</title>
-  <link rel="stylesheet" href="a0-nexah-aperture-journey.css?rev=20261014-world-album">
-  <link rel="stylesheet" href="a0-context-navigation.css?rev=minimal-entry-20261014">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Fünf interaktive Kapitel: Körper drehen, Perspektiven vergleichen, Faltungen verändern, Fraktale erkunden und eine Welt spielen. NEXAH Human Book.">
+<title>NEXAH Human Book · Dreh es um</title>
+<link rel="stylesheet" href="a0-human-flagship-journey.css">
+<link rel="stylesheet" href="a0-human-builder-gate.css">
+<style>.station-rail{grid-template-columns:repeat(5,1fr)}@media(max-width:720px){.station-rail{grid-template-columns:repeat(2,1fr)}}</style>
+<script defer src="a0-human-crosswalk.js?rev=1"></script>
+<script defer src="a0-human-flagship-journey.js"></script>
+  <link rel="stylesheet" href="a0-explanation-reading-path.css">
 </head>
 <body>
-  <header class="top">
-    <a class="brand" href="#human-view">NEXAH <span>· LIFE &amp; COSMOS</span></a>
-    <nav><a href="#human-view">Human View</a><a href="#invitation">Rainbow</a><a href="#instrument">Album · 09</a><a href="#return">Return</a><a href="#fields">Method</a><a href="#world-map">World Map</a></nav>
-  </header>
-
-  <main>
-    <section class="human-view is-awaiting-start" id="human-view" aria-labelledby="humanTitle">
-      <canvas id="humanCanvas" aria-hidden="true"></canvas>
-      <div class="human-intro">
-        <div class="eyebrow">HUMAN VIEW · BEFORE THE INSTRUMENT</div>
-        <h1 id="humanTitle">The questions<br>we live inside.</h1>
-        <p class="human-thesis"><span>There is more information</span><span>than any life can hold.</span><strong>The problem is not knowledge.<br>The problem is orientation.</strong></p>
-      </div>
-
-      <div class="human-launch" id="humanLaunch">
-        <small>00 / 07 · HUMAN APERTURES</small>
-        <p>Seven questions.<br>One moving aperture.</p>
-        <button id="startQuestions" type="button">PLAY THE QUESTIONS <b>▶</b></button>
-        <span>The orbit becomes your navigation.</span>
-      </div>
-
-      <div class="human-aperture" tabindex="-1" aria-live="polite">
-        <div class="human-index"><span id="humanQuestionNumber">01</span><small>OF 07 · HUMAN APERTURES</small></div>
-        <p class="human-question" id="humanQuestion">What is real?</p>
-        <p class="human-bridge" id="humanBridge">Before an answer, there is a world — and a position from which we meet it.</p>
-        <div class="human-card-nav" role="group" aria-label="Human questions browse controls">
-          <button id="previousHumanQuestion" type="button" aria-label="Previous human question">←</button>
-          <button class="human-loop-toggle" id="toggleHumanQuestions" type="button" aria-pressed="true">QUESTION LOOP · AUTO</button>
-          <button id="nextHumanQuestion" type="button" aria-label="Next human question">→</button>
-        </div>
-        <div class="human-actions">
-          <button id="enterQuestion" type="button">ENTER THROUGH THIS QUESTION <span>↘</span></button>
-          <a href="#invitation">FIND THE RAINBOW ↓</a>
-          <button class="human-reveal" id="revealQuestions" type="button" hidden>WHAT'S BEHIND THESE QUESTIONS? <span>✦</span></button>
-        </div>
-      </div>
-
-      <div class="human-question-rail" id="humanQuestionRail" role="group" aria-label="Seven human questions"></div>
-      <p class="human-formula"><span>HUMAN VIEW</span><i>→</i><span>CLEAR MIND</span><i>→</i><span>ORIENTATION</span><i>→</i><span>APERTURE</span><i>→</i><span>RETURN</span></p>
-      <div class="human-behind" id="humanBehind" aria-hidden="true">
-        <small>07 / 07 · BEHIND THE QUESTIONS</small>
-        <p>Not an answer.<br>A moving field.</p>
-        <span>POSITION · BOUNDARY · RELATION · RETURN</span>
-        <div>
-          <button id="returnQuestions" type="button">RETURN TO QUESTION 07 ↙</button>
-          <a href="#invitation">FOLLOW THE APERTURE ↓</a>
-        </div>
-      </div>
-      <a class="human-descent" href="#invitation" aria-label="Continue to the rainbow"><span>BEGIN WITH ONE QUESTION</span><b>↓</b></a>
-    </section>
-
-    <section class="hero" id="invitation">
-      <canvas id="heroCanvas" aria-label="Animierte Apertur zwischen Regenbogen, Körperzelle und kosmischem Feld"></canvas>
-      <div class="hero-copy">
-        <div class="eyebrow">FROM NOISE TO SPECTRUM · ONE QUIET APERTURE</div>
-        <h1>What is<br>a rainbow?</h1>
-        <p class="hero-question">Where does it begin?</p>
-        <p class="lead">Im Licht? An der Grenze? Im Auge? In einer Relation? Vielleicht beginnt es dort, wo eine Welt durch eine gewählte Öffnung sichtbar wird.</p>
-        <div class="hero-actions"><button id="beginJourney" type="button">ENTER THE WORLD · PLAY THE ALBUM <span>↘</span></button></div>
-      </div>
-      <blockquote><span>Meaning is an aperture</span><strong>you choose.</strong></blockquote>
-      <div class="hero-counter"><small>THE FIRST VISIBLE JOINT</small><b id="heroStep">00 / 80</b></div>
-    </section>
-
-    <section class="instrument is-awaiting-play" id="instrument" aria-labelledby="instrumentTitle">
-      <header class="instrument-head">
-        <div><div class="eyebrow">THE ALBUM · NINE MODULES · ONE ROUND TRIP</div><h2 id="instrumentTitle">Nine apertures.<br>One living world.</h2></div>
-        <div class="instrument-intro">
-          <p>Dies ist der Rundgang durch die gebaute Welt. Neun Apertures führen durch bestehende Module — von der menschlichen Frage über Licht, Relation und Körper bis in The Living Interior und wieder zurück.</p>
-          <button class="instrument-play" id="playJourney" type="button">PLAY THE ALBUM <span>▶</span></button>
-          <small>09 APERTURES · 09 MODULE WINDOWS · ONE ROUND TRIP</small>
-        </div>
-      </header>
-
-      <div class="aperture-stage">
-        <canvas id="apertureCanvas" aria-label="Interaktive Übergangskarte mit neun Stationen zwischen Mensch, Licht, Relation, Erscheinung, Körper, LIFE und COSMOS"></canvas>
-        <div class="stage-copy" aria-live="polite">
-          <span id="stageNumber">00 / 80</span>
-          <small id="stageKind">INVITATION</small>
-          <h3 id="stageTitle">A HUMAN QUESTION</h3>
-          <p id="stageQuestion">What do you see before you know what it is?</p>
-          <div class="stage-equation" id="stageEquation">QUESTION → APERTURE → FIRST DISTINCTION</div>
-          <div class="stage-actions"><button type="button" id="previousStage" aria-label="Vorherige Station">←</button><button type="button" id="toggleJourney" aria-pressed="false">RESUME LOOP</button><button type="button" id="nextStage" aria-label="Nächste Station">→</button></div>
-        </div>
-      </div>
-
-      <div class="album-index-label"><span>THE ALBUM</span><strong>09 APERTURES · CHOOSE A TRACK OR LET THE LOOP PLAY</strong></div>
-      <div class="stage-rail" id="stageRail" role="group" aria-label="Neun Apertures des NEXAH Albums"></div>
-    </section>
-
-    <section class="live-window" id="window" aria-labelledby="windowTitle">
-      <header>
-        <div><div class="eyebrow">THE ALBUM WINDOW · 09 APERTURES</div><h2 id="windowTitle">Enter the world.</h2></div>
-        <p id="windowCopy">Dieses Fenster gehört zum Rundgang oben. Previous und Next blättern durch alle neun Apertures; Show Live Window öffnet das gewählte Modul, ohne dass du den Album-Loop verlässt.</p>
-      </header>
-      <div class="window-shell">
-        <div class="window-bar">
-          <span class="window-identity"><small id="windowPosition">APERTURE 01 / 09 · ENTRY WINDOW</small><span><i id="windowDot"></i><b id="windowName">INVITATION</b></span></span>
-          <div class="window-controls"><button type="button" id="previousWindow" class="window-previous" aria-label="Vorherige Aperture">← PREVIOUS APERTURE</button><button type="button" id="loadWindow">LOAD LIVE WINDOW</button><a id="openWindow" href="A0_RAINBOW_PURPLE_RAIN.html">OPEN MODULE ↗</a><button type="button" id="nextWindow" class="window-next" aria-label="Nächste Aperture">NEXT APERTURE →</button></div>
-        </div>
-        <div class="window-poster" id="windowPoster"><canvas id="posterCanvas" aria-hidden="true"></canvas><div><small>LIVE SOURCE REMAINS CLOSED UNTIL INVITED</small><strong id="posterTitle">THE RAINBOW IS THE FIRST VISIBLE JOINT.</strong></div></div>
-        <iframe id="moduleFrame" title="Ausgewähltes NEXAH-Quellmodul" loading="lazy" sandbox="allow-scripts allow-same-origin" hidden></iframe>
-      </div>
-    </section>
-
-    <section class="journey-bridge" aria-label="Around the world in eighty steps">
-      <small>AROUND THE WORLD IN 80 STEPS</small>
-      <p><strong>Not eighty answers.</strong><span>Eighty changes of position.</span></p>
-      <em>Eine Reiseuhr, keine wissenschaftliche Metrik.</em>
-    </section>
-
-    <section class="return" id="return" aria-labelledby="returnTitle">
-      <canvas id="returnCanvas" aria-hidden="true"></canvas>
-      <div>
-        <div class="eyebrow">LIFE &amp; COSMOS · THE RETURN</div>
-        <h2 id="returnTitle">The world did not change.<br>Your aperture did.</h2>
-        <p>Ein Regenbogen beginnt nicht an einem einzigen Ort. In dieser Reise beginnt er immer dort, wo Quelle, Grenze, Relation und Beobachter gemeinsam eine Erscheinung tragen.</p>
-        <div class="return-equation"><span>OUTSIDE ≠ INSIDE</span><span>OBJECT ≠ IMAGE</span><span>RELATION ≠ IDENTITY</span><span>LIFE ≠ COSMOS</span><strong>AND YET: A PASSAGE.</strong></div>
-        <div class="return-links"><a href="A0_RAINBOW_PURPLE_RAIN.html">BEGIN WITH RAINBOW →</a><a href="A0_THE_LIVING_INTERIOR.html">ENTER LIFE →</a><a href="A0_BLACK_SUN_BIG_MOON.html">LOOK BACK TO COSMOS →</a></div>
-      </div>
-    </section>
-
-    <section class="fields-bridge" id="fields" aria-labelledby="fieldsTitle">
-      <header class="fields-head">
-        <div>
-          <div class="eyebrow">AFTER THE JOURNEY · THE METHOD IN VIEW</div>
-          <h2 id="fieldsTitle">We separated the world<br>to understand it.</h2>
-        </div>
-        <div class="fields-intro">
-          <p>Erst nach der Reise wird die Karte lesbar: Naturfelder, menschliche Deutungsfelder und gebaute Praxis bewahren unterschiedliche Gegenstände, Einheiten und Evidenzformen. Orientierung verschmilzt sie nicht. Sie macht ihre Fugen sichtbar.</p>
-          <strong>Now we can learn to connect it again.</strong>
-        </div>
-      </header>
-
-      <div class="responsibility-band" aria-label="Three responsibilities of the NEXAH method">
-        <article><small>HUMAN</small><b>Meaning</b><span>Frage · Zweck · Urteil · Verantwortung</span></article>
-        <i>→</i>
-        <article><small>SCIENCE</small><b>Description</b><span>Gegenstand · Methode · Evidenz · Grenze</span></article>
-        <i>→</i>
-        <article><small>BUILDER</small><b>Realisation</b><span>Engineering · Handwerk · Instrument · Anwendung</span></article>
-        <i class="return-arrow">↺</i>
-      </div>
-
-      <div class="fields-disclosure">
-        <p>Die Methode ist hier zunächst nur als Verbindung sichtbar. Die vollständige Konstellation öffnet sich erst, wenn du sie lesen möchtest.</p>
-        <button id="toggleFields" type="button" aria-expanded="false" aria-controls="fieldsDetail">OPEN THE FIELD CONSTELLATION <span>＋</span></button>
-      </div>
-
-      <div class="fields-detail" id="fieldsDetail" hidden>
-      <div class="field-map">
-        <svg class="field-lines" viewBox="0 0 1000 620" preserveAspectRatio="none" aria-hidden="true">
-          <path d="M180 42 C330 130 355 230 500 310"/><path d="M820 42 C670 130 645 230 500 310"/>
-          <path d="M180 140 C330 180 355 250 500 310"/><path d="M820 140 C670 180 645 250 500 310"/>
-          <path d="M180 240 C330 250 355 280 500 310"/><path d="M820 240 C670 250 645 280 500 310"/>
-          <path d="M180 380 C330 370 355 340 500 310"/><path d="M820 380 C670 370 645 340 500 310"/>
-          <path d="M180 480 C330 440 355 370 500 310"/><path d="M820 480 C670 440 645 370 500 310"/>
-          <path d="M180 578 C330 490 355 390 500 310"/><path d="M820 578 C670 490 645 390 500 310"/>
-          <path class="return-path" d="M180 120 C500 10 820 120 820 500 C500 610 180 500 180 120"/>
-        </svg>
-
-        <button class="domain-node physics active" type="button" data-domain="physics" style="--domain-color:#38daf3"><small>01 · FIELD</small><b>PHYSICS</b><span>dynamics · measurement</span></button>
-        <button class="domain-node biology" type="button" data-domain="biology" style="--domain-color:#65e5a4"><small>02 · FIELD</small><b>BIOLOGY</b><span>boundary · persistence</span></button>
-        <button class="domain-node psychology" type="button" data-domain="psychology" style="--domain-color:#ff66b7"><small>04 · HUMAN FIELD</small><b>PSYCHOLOGY</b><span>experience · behaviour</span></button>
-        <button class="domain-node culture" type="button" data-domain="culture" style="--domain-color:#e28cff"><small>05 · HUMAN FIELD</small><b>CULTURE</b><span>symbol · memory · practice</span></button>
-        <button class="domain-node philosophy" type="button" data-domain="philosophy" style="--domain-color:#ffc94d"><small>06 · ORIENTATION FIELD</small><b>PHILOSOPHY</b><span>meaning · judgment · limit</span></button>
-        <button class="domain-node engineering" type="button" data-domain="engineering" style="--domain-color:#48d6c5"><small>07 · BUILDER FIELD</small><b>ENGINEERING</b><span>design · test · realisation</span></button>
-        <button class="domain-node chemistry" type="button" data-domain="chemistry" style="--domain-color:#ff8a46"><small>03 · FIELD</small><b>CHEMISTRY</b><span>bond · reaction · exchange</span></button>
-        <button class="domain-node mathematics" type="button" data-domain="mathematics" style="--domain-color:#7d9cff"><small>08 · FORMAL FIELD</small><b>MATHEMATICS</b><span>structure · proof · relation</span></button>
-        <button class="domain-node music" type="button" data-domain="music" style="--domain-color:#f06fd2"><small>09 · CULTURAL FIELD</small><b>MUSIC</b><span>rhythm · interval · resonance</span></button>
-        <button class="domain-node systems" type="button" data-domain="systems" style="--domain-color:#56e0b2"><small>10 · SYSTEM FIELD</small><b>COMPLEX SYSTEMS</b><span>dynamics · emergence · scale</span></button>
-        <button class="domain-node history" type="button" data-domain="history" style="--domain-color:#d6a864"><small>11 · TIME FIELD</small><b>HISTORY</b><span>trace · context · provenance</span></button>
-        <button class="domain-node formal" type="button" data-domain="formal" style="--domain-color:#9b66ff"><small>+1 · CONTROL</small><b>FORMAL</b><span>carrier · map · invariant</span></button>
-
-        <div class="method-membrane" aria-label="Schematic orientation membrane between source and return">
-          <div class="pole anode"><small>QUESTION / SOURCE</small><button id="previousDomain" type="button" data-domain-step="-1" aria-label="Previous field">−</button><span>ANODE · PREVIOUS</span></div>
-          <div class="membrane-core"><span class="membrane-ring"></span><small>THE LIVING JOINT</small><strong>ORIENTATION</strong><b>MEMBRANE</b><em>cut · compare · relate · return</em></div>
-          <div class="pole cathode"><small>FORM / ACTION</small><button id="nextDomain" type="button" data-domain-step="1" aria-label="Next field">+</button><span>CATHODE · NEXT</span></div>
-        </div>
-
-        <aside class="field-readout" aria-live="polite">
-          <small id="fieldKind">FIELD 01 · DISTINCT DOMAIN</small>
-          <h3 id="fieldName">Physics</h3>
-          <p id="fieldDescription">Models, dynamics and measurement describe a bounded physical object. The joint asks where the model holds, what it renders and what remains residual.</p>
-          <div><span id="fieldQuestion">What is measured — and under which boundary conditions?</span><b id="fieldBoundary">SHARED GEOMETRY ≠ SHARED PHYSICS</b></div>
-          <button class="field-loop-toggle" id="toggleFieldLoop" type="button" aria-pressed="true">FIELD LOOP · AUTO</button>
-        </aside>
-      </div>
-
-      <div class="method-return">
-        <p><strong>Domains remain distinct.</strong> Families describe the relational work between them. The membrane is where selection, translation and Return become explicit.</p>
-        <div><a href="A0_FIELDS_AND_JOINTS_ATLAS.html#map">OPEN THE DOMAIN MAP ↗</a><a href="A0_FAMILY_CONNECTION_ATLAS.html#layers">OPEN F1–F7 FAMILIES ↗</a><a class="primary" href="#invitation">RETURN TO THE RAINBOW ↑</a></div>
-      </div>
-      <p class="method-boundary">SAMPLED CONSTELLATION, NOT A TOTAL CLASSIFICATION · +1 FORMAL IS A COMPARATIVE CONTROL APERTURE, NOT ANOTHER EMPIRICAL FIELD · ANODE / MEMBRANE / CATHODE IS A SCHEMATIC READING POSITION AND READING CONTROL, NOT A CROSS-DOMAIN PHYSICAL MECHANISM.</p>
-      </div>
-    </section>
-
-    <section class="world-loop" id="world-map" aria-labelledby="worldMapTitle">
-      <header class="world-loop-head">
-        <div>
-          <div class="eyebrow">THE WORLD WE BUILT · ONE PLAYABLE LOOP</div>
-          <h2 id="worldMapTitle">Not a menu.<br>A world in relation.</h2>
-        </div>
-        <p>Hier wird die Reise wieder zur Karte. Zehn bestehende Räume bleiben unterscheidbar und bilden trotzdem einen begehbaren Loop. Wähle einen Knoten, halte die Bewegung an — und öffne erst dann die Welt dahinter.</p>
-      </header>
-
-      <div class="world-loop-shell">
-        <div class="world-orbit" id="worldOrbit" aria-label="Spielbare Orientierungskarte der NEXAH Erlebnisräume">
-          <span class="world-ring world-ring--outer" aria-hidden="true"></span>
-          <span class="world-ring world-ring--inner" aria-hidden="true"></span>
-          <span class="world-return-path" aria-hidden="true"></span>
-          <div class="world-core" aria-hidden="true"><small>YOU ARE<br>HERE</small><strong>HUMAN</strong><span>choose · observe · return</span></div>
-          <div class="world-nodes" id="worldNodes"></div>
-        </div>
-
-        <aside class="world-readout" aria-live="polite">
-          <div class="world-readout-index"><span id="worldNumber">01 / 10</span><small id="worldKind">POSITION</small></div>
-          <h3 id="worldTitle">THE QUESTIONS</h3>
-          <p id="worldQuestion">Where do you stand before the world becomes an answer?</p>
-          <div class="world-function"><small>ROLE IN THE LOOP</small><strong id="worldFunction">The human chooses an aperture.</strong></div>
-          <div class="world-controls">
-            <button id="previousWorld" type="button" aria-label="Previous world">−</button>
-            <button id="toggleWorldLoop" type="button" aria-pressed="true">PAUSE LOOP</button>
-            <button id="nextWorld" type="button" aria-label="Next world">+</button>
-          </div>
-          <a class="world-open" id="openWorld" href="#human-view">OPEN THIS WORLD <span>↗</span></a>
-          <small class="world-return-note">EVERY ROOM KEEPS A WAY BACK TO THE MAP</small>
-        </aside>
-      </div>
-    </section>
-
-    <aside class="claim"><strong>Claim boundary:</strong> Diese Seite ist eine poetische, interaktive Übergangskarte bestehender source-bound A0-Ansichten. Human / Science / Builder, die Domain-Karte, der World Loop und Anode / Membran / Kathode sind Orientierungsbilder vorhandener Methodenrecords; sie behaupten weder Feldidentität noch einen gemeinsamen physikalischen Mechanismus. „Meaning is an aperture you choose“ und „80 steps“ sind narrative Orientierungssätze. Es werden keine neue Theorie, Graph-Relation, Study-Aktivierung oder Publikationsbehauptung eingeführt.</aside>
-
-    <section class="grey-lens" id="doors" aria-labelledby="doorsTitle">
-      <div class="grey-lens-orbit" aria-hidden="true">
-        <i></i><i></i><i></i><span>NEW<br>APERTURE</span><b></b>
-      </div>
-      <header>
-        <div class="eyebrow">AFTER THE BOUNDARY · THE GREY LENS</div>
-        <h2 id="doorsTitle">The boundary<br>is not the exit.</h2>
-        <p><strong>Die Behauptung endet hier. Die Orientierung nicht.</strong><br>Eine Grenze schließt die Reise nicht — sie macht die nächste Öffnung wählbar.</p>
-      </header>
-      <a class="doors-return" href="#human-view">↺ ASK ANOTHER HUMAN QUESTION</a>
-      <div class="door-field is-three" aria-label="Choose the next NEXAH entrance">
-        <a class="grey-door science-door" href="A0_SCIENCE.html"><small>02 · A0 SCIENCE</small><strong>LOOK CLOSER</strong><span>Enter the instruments</span><b>→</b></a>
-        <a class="grey-door builder-door" href="A0_BUILDER_TOY_STORE.html"><small>03 · B1 BUILDER</small><strong>MAKE IT REAL</strong><span>Open the Toy Store</span><b>→</b></a>
-        <a class="grey-door connect-door" href="NEXAH_C_CONNECT.html"><small>04 · C CONNECT</small><strong>FOLLOW THE SOURCES</strong><span>Enter the ecosystem</span><b>↗</b></a>
-      </div>
-      <p class="door-invitation">CHOOSE A DOOR · EACH WINDOW PRESERVES THE RETURN</p>
-    </section>
-  </main>
-
-  <footer><span><strong>A0-VIEW-NEXAH-APERTURE-JOURNEY</strong><br>One carrier · many windows · declared return</span><span>INTERNAL · SOURCE-BOUND EXPERIENCE · NOT PUBLIC</span></footer>
-  <script src="a0-context-navigation.js?rev=album-return-20261014"></script>
-  <script src="assets/a0-nexah-aperture-journey-v1.js?rev=20261014-world-album"></script>
+<a class="skip" href="#instrument">Zum Demonstrator</a>
+<header class="top"><a href="#human-view" class="brand">NEXAH <span>HUMAN BOOK</span></a><nav aria-label="Hauptwege"><a href="#human-view" aria-current="page">Human Book</a><a href="../previews/numbers-return-20261019/book/A0_GAME_OF_WORLDS_PLAY.html?world=life#life">Arkade</a><a href="index.html">A0 Einstieg</a></nav></header>
+<main id="human-view">
+<nav class="a0-explanation-path" aria-label="Erklärweg durch vier vorhandene Seiten"><p><strong>Erklärweg · 1 von 4</strong> · Du kannst Stationen überspringen. Vertiefungen sind freiwillig.</p><ol><li><a href="A0_NEXAH_APERTURE_JOURNEY.html#human-view" aria-current="step">01 · Ausprobieren</a></li><li><a href="A0_THEORY_STORYBOARD.html#overview">02 · Zusammenhänge verstehen</a></li><li><a href="A0_LIVING_BLUEPRINT.html#a0-map-home">03 · Gesamtkarte lesen</a></li><li><a href="A0_SCIENTIFIC_POSITION_REPORT.html#currentness-20261019">04 · Ergebnisse & Grenzen</a></li></ol></nav>
+<section class="intro" aria-labelledby="humanTitle">
+<p class="eyebrow">FÜNF SPIELBARE KAPITEL · DEIN BLICK MACHT DEN UNTERSCHIED</p>
+<h1 id="humanTitle">Dreh es um.<br><em>Schau noch einmal.</em></h1>
+<p>Ein Körper. Mehrere Ansichten. Eine Welt, die auf deine Berührung reagiert. Dieses Buch wird nicht nur gelesen: Fünf kleine Kapitel laden dich zum Drehen, Sehen und Spielen ein — ohne Vorwissen.</p>
+<div class="journey-gates"><a class="start" href="#instrument">Das Buch betreten <span>↓</span></a><a class="builder-gate" href="../previews/numbers-return-20261019/book/A0_GAME_OF_WORLDS_PLAY.html?world=life#life"><span>PLAY NOW</span>Direkt zur NEXAH ARKADE →</a></div>
+<p class="quiet">In deinem Tempo. Du kannst jede Station überspringen oder zurückgehen.</p>
+</section>
+<section id="instrument" aria-labelledby="stationTitle" class="experience">
+<span id="invitation" class="anchor-alias"></span><span id="cube-view" class="anchor-alias"></span><span id="window" class="anchor-alias"></span>
+<nav class="station-rail" aria-label="Stationen der Reise">
+<a href="#station-1" data-station="0" aria-current="step"><span>01</span> Körper drehen</a>
+<a href="#station-2" data-station="1"><span>02</span> Anders sehen</a>
+<a href="#station-3" data-station="2"><span>03</span> Eine Lücke finden</a>
+<a href="#station-4" data-station="3"><span>04</span> Eine Welt verändern</a>
+<a href="#station-5" data-station="4"><span>05</span> Spielen &amp; zurückkehren</a>
+</nav>
+<div class="station-copy" tabindex="-1" id="stationCopy">
+<div><p class="eyebrow" id="stationNumber">01 / 05 · KÖRPER</p><h2 id="stationTitle">Was versteckt sich auf der Rückseite?</h2><p id="stationStory">Von vorn sieht ein Körper anders aus als von hinten. Dreh ihn — und entdecke, wie seine Flächen zusammenhängen.</p></div>
+<div class="mission"><span>PROBIER ES AUS</span><p id="stationAction">Ziehe am Körper oder benutze Links / Rechts. Halte die Drehung an und wechsle zur Draufsicht.</p><p id="stationNotice">Achte darauf: In der flachen Ansicht können Stellen zusammenrücken, die räumlich getrennt sind.</p></div>
+</div>
+<div class="window-bar"><span id="sourceName">Tessarec · Blue Body</span><button id="loadInstrument" type="button">Körper ausprobieren →</button></div>
+<div class="instrument-shell" id="instrumentShell">
+<div class="poster" id="poster">
+<svg viewBox="0 0 640 330" role="img" aria-labelledby="posterLabel"><title id="posterLabel">Schematisches Drahtmodell als Einladung — noch kein laufendes Instrument</title><g fill="none" stroke="#70c6d9" stroke-width="2"><path d="M320 35 455 110 455 240 320 300 185 240 185 110Z"/><path d="M320 35V165L455 240M320 165 185 240M185 110 320 165 455 110M250 72 390 72 455 175 390 270 250 270 185 175Z"/><path d="M250 72 250 205 390 270M390 72 390 205 250 270" opacity=".35"/></g><circle cx="320" cy="165" r="7" fill="#efc76d"/></svg>
+<p>Ein Klick öffnet das echte Instrument hier im Fenster.</p><small>Die Zeichnung oben ist eine schematische Vorschau.</small>
+</div>
+</div>
+<p id="loadStatus" class="quiet" role="status">Noch nicht gestartet. Es läuft immer nur ein Instrumentfenster.</p>
+<div class="journey-controls"><button id="previousStation" type="button" disabled>← Zurück</button><button id="stopInstrument" type="button" disabled>Instrument schließen</button><button id="nextStation" type="button" class="primary">Weiter: Anders sehen →</button></div>
+<details class="source-note"><summary>Was sehe ich hier eigentlich?</summary><p id="stationBoundary">Ein konstruiertes geometrisches Modell. Die Hülle und das mathematische Zustandsnetz sind nicht identisch.</p><p>Dies ist eine kuratierte Reise durch unterschiedliche Instrumente, keine gemeinsame Simulation. Beim Wechsel wird das vorherige Fenster geschlossen; sein Zustand wird nicht automatisch weitergegeben.</p><a id="sourceLink" href="A0_TESSAREC_BLUE_BODY_LAB.html#lab">Originalinstrument mit allen Funktionen öffnen →</a><p id="humanCrosswalkCopy" hidden></p><p><a id="humanCrosswalkBack" href="A0_THEORY_STORYBOARD.html#overview">Zum erklärenden Modell →</a></p></details>
+<noscript><p>Das Human Book braucht JavaScript. Du kannst die Instrumente direkt öffnen:</p><ul><li><a href="A0_TESSAREC_BLUE_BODY_LAB.html#lab">Körper drehen</a></li><li><a href="A0_TESSAREC_BLUE_BODY_LAB.html#blue-body-interior-crt16">Vier Perspektiven vergleichen</a></li><li><a href="A0_TESSAREC_BLUE_BODY_LAB.html#fold-contact">Faltung ausprobieren</a></li><li><a href="A0_BLUE_PINK_DODECA_CELL_RETURN.html#formation">Mandelbrot und Julia erkunden</a></li><li><a href="../previews/numbers-return-20261019/book/A0_GAME_OF_WORLDS_PLAY.html?world=life#life">Eine Welt spielen</a></li></ul></noscript>
+</section>
+<section id="return" class="outro" tabindex="-1" aria-labelledby="returnTitle">
+<span id="fields" class="anchor-alias"></span><span id="world-map" class="anchor-alias"></span>
+<p class="eyebrow">WAS NIMMST DU MIT?</p><h2 id="returnTitle">Ein Bild ist ein Blick.<br>Nicht das ganze Objekt.</h2>
+<p>Du hast einen Körper gedreht, Ansichten verglichen, eine Lücke gesucht, einen Fraktalparameter verändert und eine Welt in Bewegung gesetzt. Nicht alles folgt derselben Regel. Aber jedes Kapitel lässt dich prüfen: Was ändere ich — und was sehe ich deshalb anders?</p>
+<div class="exit-links"><a href="A0_THEORY_STORYBOARD.html#overview">Weiter: Zusammenhänge verstehen →</a><a href="#station-1">Noch einmal entdecken ↺</a><a href="A0_BUILDER_TOY_STORE.html">Mehr ausprobieren →</a></div>
+<details><summary>Hinter die Kulissen schauen</summary><p><a href="A0_BUILDER_TOY_STORE.html">Builder · Werkzeuge und Aufbau</a></p><p><a href="A0_RESEARCH_DESK.html#human-journey-return">Science · Methode, Belege und Grenzen</a></p><p><a href="A0_THEORY_STORYBOARD.html#overview">Die Idee hinter den Ansichten</a></p></details>
+</section>
+<section class="a0-explanation-next" aria-label="Nächster Schritt im Erklärweg"><h2>Wie geht es weiter?</h2><p>Du hast Ansichten selbst verändert. Im nächsten Schritt geht es darum, wie Beziehung, Grenze und Blick zusammenhängen.</p><a href="A0_THEORY_STORYBOARD.html#overview">Weiter: Zusammenhänge verstehen →</a><p><small>Leseführung, keine Übertragung laufender Instrumentzustände. Bestehende szenengebundene Hin-/Rückwege bleiben separat erhalten.</small></p></section>
+</main>
+<footer>NEXAH · HUMAN BOOK <span>Eine spielbare Lesereise durch bestehende Instrumente. Keine neue wissenschaftliche Behauptung.</span></footer>
 </body>
 </html>
