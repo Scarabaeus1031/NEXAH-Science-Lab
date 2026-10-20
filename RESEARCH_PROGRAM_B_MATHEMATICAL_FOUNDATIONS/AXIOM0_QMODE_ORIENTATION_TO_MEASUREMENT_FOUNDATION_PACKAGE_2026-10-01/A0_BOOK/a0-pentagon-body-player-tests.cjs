@@ -78,15 +78,23 @@ for (const id of ["guided-test", "expert-index", "expertModeToggle", "expert-mod
 equal((html.match(/class="section expert-section"/g) || []).length, 5, "five specialist comparisons must be disclosed as expert sections");
 ok(html.includes('href="A0_RESEARCH_DESK.html#tests"'), "guided instrument must return to the Science Desk");
 ok(html.includes("16/17-Schichttreppe"), "guided copy must name one fixed first walkthrough");
-ok(html.indexOf('<script src="assets/a0-blue-body-life-transfer-v1.js">') < html.indexOf('<script src="assets/a0-pentagon-body-player-v1.js">'), "LIFE transfer dependency must load before body player");
+ok(html.indexOf('<script src="assets/a0-blue-body-life-transfer-v1.js') < html.indexOf('<script src="assets/a0-pentagon-body-player-v1.js'), "LIFE transfer dependency must load before body player");
 ok(html.includes("assets/a0-pentagon-body-player-v1.json"), "HTML must link the machine record");
 ok(html.includes("104_A0_PENTAGON_BODY_PLAYER"), "HTML must link Check 104");
+
+for(let layer=0;layer<3;layer++)for(let channel=0;channel<16;channel++){
+  const source=blue.bind(layer,channel),cells=[transfer.sourceToCell(source.sourceKey)];
+  for(const focus of ["AM","VM","PM"]){const ledger=api.houseLedger(cells,focus);equal(ledger.nodes.length,48,"one House retains 48 source states");equal(ledger.edges.length,128,"House relations reuse actual 128-edge carrier, not 122-edge view scaffold");equal(ledger.sourceKeys[0],source.sourceKey,"focus preserves exact source key");equal(ledger.pairs[0].complementKey, `P${layer}:${(source.q4^15).toString(2).padStart(4,"0")}`,"complement is bitwise Q4, not channel mirror");ok(ledger.nodes.every(n=>n.point.every(Number.isFinite)),"finite projected coordinates");equal(ledger.nodes.filter(n=>n.active).length,1,"source selection preserved");}
+}
+assert.throws(()=>api.houseLedger([],"NIGHT"));
+equal(blue.bind(0,15).sourceKey,"P0:1100","ordinal channel 15 is not Q4 bits 1111");
+equal(api.houseLedger([transfer.sourceToCell("P0:1100")]).pairs[0].complementKey,"P0:0011","nonidentity Gray-ring complement regression");
 
 console.log(JSON.stringify({
   status: "PASS",
   assertions,
   body: "48 source-bound 3D nodes / 3 x (15+1)",
-  views: ["rotatable-3d", "triple-pentagon", "life-8x6", "typed-return-trace", "blue-pink-shell", "house-q4-distribution"],
+  views: ["rotatable-3d", "triple-pentagon", "life-8x6", "typed-return-trace", "blue-pink-shell", "house-q4-distribution", "house-q4-relations"],
   sequences: api.SEQUENCE_IDS,
   pulse: "7-cell period-2 finite-dead B3/S23 fixture touching P0 P1 P2 in both phases",
   boundary: api.CLAIM_BOUNDARY

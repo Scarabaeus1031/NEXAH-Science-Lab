@@ -2,6 +2,9 @@
 
 Date: `2026-10-11`
 
+Documentary currentness: `2026-10-17` — explanatory assembly and Human
+Crosswalk added as engineering observations, not new formal findings.
+
 Status: `DOCUMENTARY_PAPER_WORKSPACE / PREPARATION_ONLY / NOT_ACTIVE / NOT_SUBMITTED`
 
 Owning identity: `NEXAH_AX0_QMODE_FOUNDATION_PACKAGE`
@@ -13,7 +16,7 @@ Reused evidence identities:
 
 Related backlog records: `A0-BL-014`, `A0-BL-015`, `A0-BL-021`,
 `A0-BL-023`, `A0-BL-025`, `A0-BL-035`, `A0-BL-036`, `A0-BL-037`,
-`A0-BL-038`, `A0-BL-045`, `A0-BL-048`, `A0-BL-050`, `A0-BL-051`,
+`A0-BL-038`, `A0-BL-045`, `A0-BL-046`, `A0-BL-047`, `A0-BL-048`, `A0-BL-050`, `A0-BL-051`,
 `A0-BL-052`, `A0-BL-053`
 
 ## Purpose
@@ -49,6 +52,95 @@ the canonical A0 backlog, the Science Lab Register and Mission Control.
 | `F-A0-14` — the TripleSix carrier is exactly the six `S3` permutation states addressed by three reversal-axis labels and one parity bit; for the declared coordinatewise `64 -> 63` fold this is sufficient for one selected-axis crossing, while simultaneous two- and three-axis pivots retain fibres of sizes `4` and `8` and therefore require additional side coordinates | `FORMAL_DESIGN_VALIDATION / NOT_ADMITTED` | Paper C methods extension on fibre coordinates and Return; Paper B cross-reference for the Janus/action-convention boundary | TripleSix `58/58` audit through the existing NN MRB/ACR/NCS-Q106 Return Crosswalk |
 | `F-A0-15` — for the declared coordinatewise `2m -> 2m-1` fold, a target with `k` central coordinates has fibre size `2^k`, and exactly `C(d,k)(2m-2)^(d-k)` targets have that size; exact Return needs and suffices with `k` conditional bits, while a uniform fixed-width address needs `d` bits | `FORMAL_DESIGN_VALIDATION / NOT_ADMITTED` | Paper C methods extension as the controlling general fold/Return proposition; the wider channel specification remains open | General coordinate-fold `101/101` audit through the existing NN MRB/ACR/NCS-Q106 Return Crosswalk |
 | `F-A0-16` — two labelled folded carriers may be assembled only at declared interface anchors; if `k` fold coordinates are central and `g=1` at the glued interface, the assembled fibre has size `2^(k+g)` and exact Return needs and suffices with the corresponding `k+g` fold-and-branch bits | `FORMAL_DESIGN_VALIDATION / NOT_ADMITTED` | Paper C methods extension; completes the `A0-BL-025` formal-design checklist, but requires a separate Owner admission and independent review gate | Grid–Fold–Channel interface/assembly/update/Return `55/55` audit through the existing NN crosswalk |
+| `F-A0-17` — one frozen typed record preserves 135 Pascal additions, three independent generation coordinates, 140 source addresses and 210 relation edges across two views; it distinguishes exact-state, same-carrier-position, relation-isomorphism and invariant-only Return while rejecting five untyped identity matches | `CLOSED / OWNER_ACCEPTED / PASS_BOUNDED / R2_LOCAL_REPLAY` | Paper B companion methods/result boundary; validates the finite audit method but does not prove the still-open Pascal intertwiner | `A0-BL-023/051` canonical Labreport, byte-identical Primary/Replay and verifier PASS `6/6` |
+| `F-A0-18` — every tested Q106→O16 projection is many-to-one; P1 and P2 each have 90 collisions and return 106/106 only with a conditional residual, while a matched shuffle has P1's information cost with 100 changed assignments and `gcd(4,5)=1` rules out a nontrivial C4/C5 rotation intertwiner | `RESULT_READY / INFORMATION_LOST_RESIDUAL_SUFFICIENT_AND_NO_CANONICAL_MAP / R2_LOCAL_REPLAY / AWAITING_OWNER_DISPOSITION` | Paper B information-boundary addendum after Owner acceptance; retain the noncanonical-map and non-identity result | `A0-BL-024` result assessment, byte-identical Primary/Replay and verifier PASS `18/18` |
+| `F-A0-19` — the declared static cyclic Pascal quotient has exact counts `N=1+m*d(d+1)/2`, `E=m*d^2`, compatible Pascal weights and preserved `D_m` action; the open chain is larger by exactly `d` nodes and edges | `OWNER_ACCEPTED / CLOSED / R2_LOCAL_REPLAY` | Paper B combinatorial proposition candidate; retain the static/dynamic and cyclic/open boundaries | `A0-BL-020` canonical Labreport; 120 frozen instances; byte-identical Primary/Replay; verifier PASS `16/16` twice |
+| `F-A0-20` — the declared C5/C6/C30 pulse channel has carrier Return 30 and full memory-state Return 60; one-sided kicks remain remembered and matched port shuffles preserve period while moving the event | `OWNER_ACCEPTED / CLOSED / R2_LOCAL_REPLAY` | Dynamics-method note; retain finite-automaton, no-recovery and noncanonical-port boundaries | `A0-BL-022` canonical Labreport; byte-identical Primary/Replay; verifier PASS `11/11` twice |
+| `F-A0-21` — frozen Root-Room plate `ATT-008` preserves exact arithmetic but does not determine a number-only spatial grammar: duplicate `57` occurrences are 519.008670 px apart, none of four declared embeddings is shuffle-selective, and nearby fields fit equally or better | `OWNER_ACCEPTED / CLOSED / UNDERDETERMINED / R2_LOCAL_REPLAY` | Paper D negative reconstruction boundary; any role-augmented model requires an independently sourced selector and separate admission | `A0-BL-046` canonical Labreport; exact image/source lock `10/10`; 2,520 shuffles; byte-identical Primary/Replay; verifier `14/14` twice |
+| `F-A0-22` — a labelled four-zone-plus-seam C5 admits ten typed one-edge subdivisions into C6, each with exact contraction Return; two distinct branches form a coherent family but do not select one cross-correspondence without an oriented edge residual | `OWNER_ACCEPTED / CLOSED / PASS_TYPED_EXTENSION_FAMILY_WITH_NONCANONICAL_PAIRING / R2_LOCAL_REPLAY` | Paper C finite extension/Return proposition; retain typed branch/edge residual and noncanonical-pairing boundary | `A0-BL-047` canonical Labreport; lock `10/10`; twenty pair ledgers; byte-identical Primary/Replay; verifier `15/15` twice |
+| `F-A0-23` — the frozen prime-index nesting score for `717717/4774/1771` is reached or exceeded by `228/540` complete digit-multiset controls, while the three-palindrome fixed-point baseline occurs in `12/540` tuples | `OWNER_ACCEPTED / CLOSED / FAIL_PRIME_INDEX_SELECTIVITY_PALINDROME_BASELINE_DOMINATES / R2_LOCAL_REPLAY` | Number View negative selectivity boundary; the palindrome tail is selection-conditioned and not an independent discovery p-value | `A0-BL-048` canonical Labreport; lock `10/10`; byte-identical Primary/Replay; verifier `15/15` twice |
+| `F-A0-24` — the two decimal maps `abcd→bcd` and `abcd→acd` are individually lossy uniform projections with fibres `9` and `10`, but their ordered pair is injective and returns all `9000/9000` four-digit sources; existing Iota is a directed classifier and THOOTH is not an executable operator | `CLOSED / OWNER_ACCEPTED / PASS_TYPED_LOSSY_PROJECTIONS_WITH_JOINT_EXACT_RETURN / R2_LOCAL_REPLAY` | Candidate Paper C representation/Return example; preserve the nonoperator and no-glyph-algebra boundaries; publication still requires a separate gate | `A0-BL-049` canonical Labreport; lock `10/10`; byte-identical Primary/Replay; verifier `17/17` twice |
+| `F-A0-25` — exact view/residual-or-joint-view Return transfers across Q106/O16, Typed Seam and Decimal D4, but positive fixed-width economy is carrier-specific: `1/3` passes, not the preregistered `2/3` | `CLOSED / OWNER_ACCEPTED / MIXED_RETURN_GRAMMAR_PASS_ECONOMY_GENERALIZATION_FAIL / R2_LOCAL_REPLAY` | Paper B/C method boundary: exact Return and representation economy are separate claims; publication remains separately gated | `A0-BL-055` canonical Labreport; lock `11/11`; byte-identical Primary/Replay; verifier `20/20` twice |
+
+## Documentary paper-support update — 2026-10-18
+
+The [Science Desk support map](A0_BOOK/A0_RESEARCH_DESK.html#paper-support-20261018)
+now links formal results, method evidence, negative controls and engineering
+to their existing paper lanes and original records. It is an editorial source
+map, not a new findings ledger. The sixteen formal rows above are unchanged.
+SCC-003 remains a narrow novelty candidate pending qualified external review;
+neither worldwide novelty nor independent Human Utility is established.
+
+The [Numbermagick current-relevance notes](../../NUMBER_OPERATOR_ARCHITECTURE_CONCORDANCE_AUDIT/09_CURRENT_RELEVANCE_TO_A0_TESSAREC_IHARA_2026-10-13.md#13-fortschreibbare-motivnotizen--2026-10-18)
+preserve the Theory draft and the Owner's 1111/1000, 40/400, color and “1,3”
+coordinate cues as provenance and exploration. Known arithmetic, display
+conventions and unresolved hypotheses are individually labelled. These may
+document the origin of a question, but are not evidence for its answer.
+Historical sources and frozen extraction artifacts retain their original
+authority. No research activation, claim promotion or Bench-build resumption.
+
+### Number–operator instrument field — paper integration, 2026-10-18
+
+Paper E now also [organizes the Theory into four layers](A0_BOOK/A0_NEXAH_FAMILY_METHOD_WHITE_PAPER.html#theory-to-method):
+theoretical proposition, specified method, executable cases and open research.
+The original Theory v0.38 remains the source, not a newly admitted finding.
+Manuscript §2.1 develops relations-as-sources across generations; §14.6 records
+the first-seven-primes 4+3 grouping and the unresolved 4:3:1:1 rhythm proposal.
+No prime-to-Family bijection or timing rule is asserted. This is a revision
+of existing Paper E, not another paper lane.
+
+The existing [Paper E manuscript, §8.6](35_NEXAH_ORIENTATION_METHOD_POSITION_PAPER_DRAFT_2026-10-12.md#number-operator-instruments)
+and [HTML reading version](A0_BOOK/A0_NEXAH_FAMILY_METHOD_WHITE_PAPER.html#number-operator-instruments)
+now describe the HTML number/operator/view field as an instrument for
+experimental mathematics, not merely as decorative Builder output. This is
+a methods synthesis of existing source-bound work, not a new F-A0 result.
+
+| Paper lane | Retained role | No automatic promotion |
+|---|---|---|
+| C | exact reconstruction, side information, loss and typed Return | existing formal results retain their own status; ordinary mean/difference algebra is not claimed as novel |
+| D | prime-index versus value, digit permutations, sequence/carry and selection questions | number recurrence or motif does not establish a privileged mechanism; existing controls and disposition gates remain |
+| E | source-bound exploration through executable views, comparison and explicit unresolved joints | no established external utility or general mathematical theory |
+| F | fold/shadow/projection accounting and graph-native spectral controls | local pose Return is not source-state Return; Euler-negative and other controls remain |
+
+The [Numbermagick instrument crosswalk](../../NUMBER_OPERATOR_ARCHITECTURE_CONCORDANCE_AUDIT/09_CURRENT_RELEVANCE_TO_A0_TESSAREC_IHARA_2026-10-13.md#number-operator-field-20261018)
+is the growing discovery surface for these examples; original reports remain
+the evidence sources. Paper A/B are not broadened by numerical/visual analogy.
+No direct new C/D/F theorem text, admission, novelty or publication decision
+is implied by this routing update. Bench construction remains parked.
+
+## Engineering observations — 2026-10-17
+
+These are source-bound implementation observations, not additions to the
+sixteen `F-A0-01..16` records above. They support descriptions of the
+instrument layer; none supplies a new theorem, admitted Study, physical
+mechanism, scholarly novelty or comparative Human Utility.
+
+| Observation | Evidence / present result | Limit and disposition |
+|---|---|---|
+| A question-to-model navigation loop is executable | Six of seven Storyboard scenes have editorial Human bindings. In a simulated DOM the actual Journey controller selects Human 03 from scene 5 / 77, pauses local loops, and returns to a newly mounted scene 5 / 77; a repeated loop retains 23. | Navigation context, not reconstruction of a physical state or a human answer. Real browser Back/BFCache, mobile/focus and meaning acceptance remain open. Reader/method illustration only. |
+| A small typed context is sufficient for this declared route | Fixed local targets; version, source role, scene, integer moment, optional known layer and matching question are validated. Duplicate, out-of-range or wrong-role fields reject; an arbitrary return URL is never adopted. | Sufficiency for this implementation only, not an information-theoretic minimum or a universal channel contract. |
+| The 3+1 reading can coexist with seven scenes without an identity collapse | Structure, coupling/motion and visibility are editorial groups; Ledger/Return crosses all three. Scene membership may overlap. Six Human bindings and one open emergence disposition are explicit. | Not the formal Lissajous seam criterion from Check 105, not seven physical shells, not seven canonical Families. |
+| Two House views preserve source-address distinction | Q4 matrix and 48-node / 128-edge relation ledger share selection. Channel ordinal, true Q4 complement, ordinal Janus braid and the 122-edge display scaffold are distinguished. | Tested bounded ledger implementation, not a new topology theorem. The source carrier remains Q4×P3. |
+| A visually stronger pattern need not require new dynamics | CRT contrast emphasizes current edges. The Storyboard emergence scene keeps its nodes/edges and changes rendering weights; O/O′/O″ are declared projections. | A constructive illustration of an interpretation hazard, not empirical evidence against or for physical emergence. Temporal echo memory and Ghostgon generation laws remain open. |
+| H7/O8 accounting is not the missing demonstrator bridge | The connected source ledger has 12 H7 / 4 O8; the separated baseline has 0 H7 / 4 O8. Slots and the existing Lab switch remain identifiable. | Slot selection is not reconstructed 3D seam geometry. Ledger → demonstrator reaction → typed Return remains incomplete. No new F-A0 or paper claim. |
+
+The new explanatory level is a **bounded assembly of narrative, local
+calculation, navigation and provenance**. It does not establish an integrated
+scientific machine. Existing formal/negative findings retain their original
+authority; the ordinary mean/difference inverse in the Storyboard is an
+example, not newly discovered mathematics.
+
+Engineering evidence: [machine-readable return](A0_BOOK/assets/a0-storyboard-human-crosswalk-engineering-return-v1.json),
+[Builder implementation log](A0_BOOK/A0_BUILDER_LOG.html#human-crosswalk-implementation),
+[Storyboard](A0_BOOK/A0_THEORY_STORYBOARD.html) and the four named local suites.
+The source-hash record binds implementation inputs, not this prose's truth.
+The four suites total 1159 checks (624 + 242 + 126 + 167); that total is not a
+single end-to-end scientific test and is not an external validation score.
+
+Paper disposition: keep in Reader / methods explanation and engineering
+appendices. A future usefulness claim requires independent readers, a strong
+matched baseline, declared task and preregistered measures. No such study was
+executed here.
 
 ## Collected paper corpus — current internal inventory
 
@@ -99,6 +191,15 @@ Decision: keep it narrow. D30, Rosetta, E8, Generation Corner, Splinter and the
 double-pentagon Return do not enter its theorem or abstract. Permitted changes
 are editorial clarification, corrections, independent mathematical review and
 bounded literature review.
+
+Separate continuation note:
+[Seam, Zipper, Channel and Usefulness](89_A0_SCC_003_SEAM_ZIPPER_CHANNEL_USEFULNESS_ADDENDUM_2026-10-15.md).
+It records the Owner-selected usefulness question under the existing
+`SCC-003 / A0-BL-025` identities. It treats the historical `Critical Line /
+backflow channel` language as provenance, defines only a candidate local
+operational boundary, and requires matched controls before any benefit claim.
+It is preparation for possible Admission, not part of Paper A's theorem and
+not an active Study.
 
 Next gate: `A0-BL-015`, independent review. No contact is authorized here.
 
@@ -287,6 +388,84 @@ The Dürer/Khajuraho window result and the `34..40`/QRT number corridor remain
 backlog-only. They should not be used to broaden Paper A, and they do not yet
 justify a new Paper G or another Navigator identity.
 
+### Synthesis checkpoint — 2026-10-15
+
+The [Grid–Operator–Application Synthesis](101_A0_GRID_OPERATOR_APPLICATION_SYNTHESIS_2026-10-15.md)
+collects the recent CRT16, Pentagon, Ghostgrid, Blue Body and GAME 4 LIFE +1
+work into one demonstrator grammar:
+
+```text
+source -> address -> operator -> synchronized projections
+       -> comparator -> typed Return -> application adapter
+```
+
+Five bounded synthesis statements are retained as `SYN-A0-01..05`. They are
+implemented design facts or method decisions, **not** new `F-A0` findings:
+
+- controls for carrier, address field, viewport, aperture, phase and
+  projection are separately typed;
+- one CRT16 selection can be shown in front, top, side and isometric views;
+- the Ghostgrid separates field scale, viewport and `-1/12` display phase;
+- Blue Body and GAME 4 LIFE +1 may share a record grammar but not a carrier or
+  update law;
+- a demonstrator ends in a typed Return receipt or explicit `HOLD`, not merely
+  in a visual.
+
+Paper disposition: Paper C controls the Return grammar; Paper E may use the
+crosswalk as a method illustration; Paper F receives the bounded
+instrument-architecture hypothesis `H-SYN-01`. No new paper lane, Study,
+Navigator identity, graph relation or publication state is created.
+
+### Blue Body interior implementation return — 2026-10-15
+
+The first `H-SYN-01` instance is now implemented in the existing Blue Body
+identity. An ordinal Gray-ring adapter maps `I16 x P3` bijectively to the
+existing `Q4 x P3` addresses; prime moduli remain channel labels. The four
+projections share one source key, display aperture/phase leave it unchanged,
+and missing Return evidence produces `HOLD_MISSING_WITNESS`. The dedicated
+validator passes 237 assertions.
+
+Disposition: implemented engineering witness for the instrument hypothesis;
+not a new `F-A0` finding, topology theorem, physical interior, Study,
+Navigator relation or publication object. The independent transfer control is
+recorded separately below. Controlling record:
+`102_A0_BLUE_BODY_CRT16_INTERIOR_ADAPTER_ENGINEERING_RESULT_2026-10-15.md`.
+
+### Blue Body → GAME 4 LIFE +1 transfer-control return — 2026-10-15
+
+The second `H-SYN-01` instance maps the 48 Blue Body addresses bijectively to
+a finite-dead `8x6` one-hot LIFE display. The coordinate inverse is exact
+before dynamics. After one native `B3/S23` step, every singleton becomes the
+same empty display, so dynamics alone leave 48 source candidates. A retained
+Source Key returns exactly; its ablation yields the typed
+`HOLD_DYNAMICS_ONLY_AMBIGUOUS` receipt. The validator passes 295 assertions.
+
+Disposition: implemented engineering transfer control and valid negative
+result; not a carrier identity, new LIFE rule, usefulness result, `F-A0`
+finding, Study, Navigator relation or publication object. Controlling record:
+`103_A0_BLUE_BODY_GAME4LIFE_TRANSFER_CONTROL_ENGINEERING_RESULT_2026-10-15.md`.
+
+### Three Lissajous 3+1 seam-mode Science Desk return — 2026-10-15
+
+The shared overlay of `AM=(s1,s2)`, `VM=(s2,s3)`, and `PM=(s3,s1)` now has an
+exact internal seam criterion:
+
+```text
+D=(s1-s2)^2+(s2-s3)^2+(s3-s1)^2=4|A|,
+D=0 iff s1=s2=s3.
+```
+
+This types `3+1` as three cyclic projections plus one shared coincidence or
+binding event. The event is not a fourth body, and Return requires an ordered
+record of re-separation. The default `3:2 / pi/2` diagnostic is
+`NEAR_SEAM_NOT_EXACT`, not an exact-seam theorem.
+
+Disposition: documentary formal-design return only. It adds no `F-A0`
+finding or paper claim and establishes neither a Newtonian three-body solution
+nor external novelty. The controlling record is
+`105_A0_THREE_LISSAJOUS_3_PLUS_1_SEAM_MODE_SCIENCE_DESK_RETURN_2026-10-15.md`;
+any exact-solution or prior-art successor remains separately gated.
+
 ## Parking map for open work
 
 | Open work | Parked in | What would move it |
@@ -294,11 +473,11 @@ justify a new Paper G or another Navigator identity.
 | independent proof and literature review of SCC-003 | `A0-BL-015` / Paper A | separate reviewer authorization |
 | general `m`-face or depth-`d` Pascal family | `A0-BL-020` | accepted intake and bounded proof plan |
 | coupled `C5/C6`, O-C-O or `MONAD(t)` dynamics | `A0-BL-022` | typed carriers, ports, update and failure conditions |
-| Pascal intertwiner, D30 adapter and Q106 interface search | `A0-BL-023` / Paper B | explicit adjacency-preserving `X20 -> Q106` map or impossibility proof, then Owner admission or decline |
-| `4 x 2 x 2` orientation product versus 106-node carrier | `A0-BL-024` | explicit map and collision ledger |
+| Pascal intertwiner, D30 adapter and Q106 interface search | `A0-BL-023` / Paper B | five-gate fixture audit is accepted and closed; the actual adjacency-preserving `X20 -> Q106` map or impossibility proof remains open |
+| `4 x 2 x 2` orientation product versus 106-node carrier | `A0-BL-024` | finite information-loss/noncanonical-map result awaits Owner disposition; no identity or successor implied |
 | Grid–Fold–Channel generalization | `A0-BL-025` | complete typed-chain formal design validated on two non-identical controls (`55/55`); separate Owner admission and independent review are still required before any Study or physical interpretation |
 | Pascal/Fibonacci/Möbius extension | `A0-BL-037` / Paper D | typed transfer map plus topology controls |
-| Generation Return test | `A0-BL-051` / Paper B | select one Janus law, freeze the intertwiner fixture, then Admission and Run Contract |
+| Generation Return test | `A0-BL-051` / Paper B | frozen five-gate audit is accepted and closed with byte-identical replay; no automatic intertwiner or publication claim |
 | Pascal–Quaternion four-channel Return | `A0-BL-052` / Paper C | Owner disposition complete; independent mathematical review remains the next separate gate before any paper use |
 | Pascal–Quaternion all-N proof qualifier | `A0-BL-053` / Paper C | internally accepted and closed; genuinely external review before publication-facing use |
 | General coordinate-fold theorem and interface assembly | `A0-BL-025` / Paper C methods extension | fold theorem complete (`101/101`) and full typed-chain design complete (`55/55`); next gate is independent review plus a separate Owner admission decision; the package remains unadmitted |
@@ -306,6 +485,8 @@ justify a new Paper G or another Navigator identity.
 | Observer angle × projection × record-surface accounting | Paper E instrument design | freeze one carrier, angle set, projection rule, formats, loss ledger and matched controls before any utility claim |
 | Time/Schlieren transition reading | Paper E adversarial method test | retain the existing negative specificity boundary; require frozen time carrier, null model and preregistered markers for any successor |
 | Tessarec frame sequence → intrinsic/observed envelope | Paper F / `H-FE-01` | freeze frame map, aggregation operator, window, metric, projection family and falsifiers before admission |
+| Shared source record → four synchronized projections → typed Return | Paper F / `H-SYN-01` | Blue Body and GAME 4 LIFE +1 controls implemented; freeze a comparative-usefulness protocol before any reader or performance claim |
+| IEEE-300 Critical-Orbit Shadow → Ghostgrid stress | `A0-BL-054` / existing `MOD:IEEE300_GRAPH_GRID` | Owner-selected priority preparation; freeze a non-leaky state-to-`c` adapter, mask `z1=c`, register orbit/quantization and matched controls, then obtain separate Admission and Run Contract before execution |
 | Fibonacci sampling and Q-line contact | Paper F / `H-FE-02` | matched uniform/random controls plus frozen intersection tolerance; visual similarity is insufficient |
 | Cassini parity selector and Fibonacci non-privilege controls | Paper D / `A0-BL-037` | Owner disposition, source review and an explicit bounded question separating recurrence from parity and sampling schedule |
 | Dürer/Khajuraho moving-window sums | `A0-BL-036` | comparison-class enumeration, proof or counterexample for the toroidal `3x3` phenomenon, and operator-invariance controls |

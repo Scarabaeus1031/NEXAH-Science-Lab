@@ -1,0 +1,164 @@
+{
+  "schema": "a0.bench-finite-package/1",
+  "kind": "antipode",
+  "contract": {
+    "kind": "antipode",
+    "localContract": "OCB-C8-VERTEX-ANTIPODE-V1",
+    "source": "A0_ORIENTATION_CONTROLLER_BENCH.html",
+    "order": 8,
+    "polygon": "regular unit polygon v_j=(cos(2πj/n), sin(2πj/n),0)",
+    "phase": "θ=2πp/n; STEP p→p+1 mod n; selected vertex retained",
+    "sourceIdentity": "existing OCB finite cycle 8",
+    "boundary": "finite engineering display contract; no canonical identity, common ghostgon carrier, physical claim or E8 specificity"
+  },
+  "state": {
+    "kind": "antipode",
+    "n": 8,
+    "vertex": 1,
+    "phase": 0,
+    "view": "xy",
+    "sheet": 1,
+    "operator": "antipode"
+  },
+  "anchor": {
+    "state": {
+      "kind": "antipode",
+      "n": 8,
+      "vertex": 1,
+      "phase": 0,
+      "view": "xy",
+      "sheet": 1,
+      "operator": "antipode"
+    },
+    "eventIndex": 1,
+    "fingerprint": "fnv1a32:fb0b6977"
+  },
+  "events": [
+    {
+      "command": "CAPTURE",
+      "payload": {}
+    },
+    {
+      "command": "STEP",
+      "payload": {}
+    },
+    {
+      "command": "RETURN",
+      "payload": {}
+    }
+  ],
+  "reading": {
+    "status": "READY",
+    "contract": {
+      "kind": "antipode",
+      "localContract": "OCB-C8-VERTEX-ANTIPODE-V1",
+      "source": "A0_ORIENTATION_CONTROLLER_BENCH.html",
+      "order": 8,
+      "polygon": "regular unit polygon v_j=(cos(2πj/n), sin(2πj/n),0)",
+      "phase": "θ=2πp/n; STEP p→p+1 mod n; selected vertex retained",
+      "sourceIdentity": "existing OCB finite cycle 8",
+      "boundary": "finite engineering display contract; no canonical identity, common ghostgon carrier, physical claim or E8 specificity"
+    },
+    "trace": {
+      "SOURCE": {
+        "address": "C8:v1:p0",
+        "sheet": 1
+      },
+      "OPERATOR": {
+        "name": "antipode",
+        "targetVertex": 5,
+        "changesSourceVertex": true,
+        "distinction": "antipode: j+n/2; reflection: −j; counterview: view side only; rotation: display phase only"
+      },
+      "VIEW": {
+        "name": "xy",
+        "phase": 0,
+        "projection": [
+          -0.7071067811865477,
+          -0.7071067811865475
+        ]
+      },
+      "RESIDUAL": {
+        "vertex": 1,
+        "phase": 0,
+        "sheet": 1,
+        "omittedAxes": [
+          2
+        ],
+        "fullAddressRetained": true
+      },
+      "RETURN": {
+        "status": "AVAILABLE_WITH_FULL_RECORD",
+        "inverse": "same declared A applied twice; other operators not accepted as A"
+      }
+    },
+    "point": [
+      -0.7071067811865477,
+      -0.7071067811865475,
+      0
+    ],
+    "sourcePoint": [
+      0.7071067811865476,
+      0.7071067811865475,
+      0
+    ],
+    "projection": [
+      -0.7071067811865477,
+      -0.7071067811865475
+    ],
+    "antipode": {
+      "sides": 8,
+      "parity": "EVEN",
+      "sourceIndex": 1,
+      "antipodeType": "UNIQUE_VERTEX",
+      "candidates": [
+        5
+      ],
+      "selected": 5,
+      "requiresOrientationHandle": false,
+      "orientationBitsRequired": 0,
+      "boundary": "This is a regular-polygon display contract. It does not identify polygon adjacency with a carrier graph."
+    },
+    "boundaryBand": {
+      "embedding": "((1+u/4 cos(t/2))cos t, (1+u/4 cos(t/2))sin t, u/4 sin(t/2))",
+      "definition": "M = ([0,2π] × [-1,1]) / ((0,u) ~ (2π,−u))",
+      "doubleCover": "(t,u), 0≤t<4π; quotient (t+2π,u) ~ (t,−u)",
+      "boundary": "u=±1 gives one boundary component, traversed in 4π; not two disconnected boundary loops",
+      "sixReadings": [
+        {
+          "sheet": -1,
+          "view": "xy"
+        },
+        {
+          "sheet": -1,
+          "view": "yz"
+        },
+        {
+          "sheet": -1,
+          "view": "zx"
+        },
+        {
+          "sheet": 1,
+          "view": "xy"
+        },
+        {
+          "sheet": 1,
+          "view": "yz"
+        },
+        {
+          "sheet": 1,
+          "view": "zx"
+        }
+      ],
+      "meaning": "2 cover sheets × 3 coordinate projections = six readings of one declared band; not six Möbius bands and not an identification with the Cn carrier",
+      "selected": {
+        "sheet": 1,
+        "view": "xy"
+      },
+      "antipodeRelation": "Cn antipode and band seam identification are separate contracts"
+    }
+  },
+  "claim": "LOCAL_ENGINEERING_ONLY",
+  "checksumBoundary": "FNV is an accidental-change checksum, not cryptographic authentication; replay also recomputes every declared command",
+  "fingerprint": "fnv1a32:0845c41a"
+}

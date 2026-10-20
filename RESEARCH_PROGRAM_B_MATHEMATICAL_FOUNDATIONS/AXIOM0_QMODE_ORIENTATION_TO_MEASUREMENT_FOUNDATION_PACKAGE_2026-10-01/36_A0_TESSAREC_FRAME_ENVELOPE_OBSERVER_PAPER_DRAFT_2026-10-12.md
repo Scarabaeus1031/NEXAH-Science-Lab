@@ -660,7 +660,67 @@ The package is documented in
 `54_A0_JOINT_APPLICATION_RETURN_PROTOCOL_SUITE_2026-10-13.md`, with the
 interactive runner at `A0_BOOK/A0_JOINT_APPLICATION_DEMONSTRATOR.html#protocol`.
 
-## 16. Existing source returns
+## 16. Integrated instrument architecture
+
+The recent A0 Grid Atlas work suggests a narrower and more testable successor
+to the broad visual question. One frozen source record is carried through a
+typed address, one declared operator and four synchronized projections before
+a comparator and Return receipt are evaluated:
+
+```text
+D = (C, A, O, P, K, W)
+P = (P_front, P_top, P_side, P_isometric).
+```
+
+Here `C` is the carrier, `A` the typed address, `O` the operator or view
+control, `K` the comparator and `W` the residual witness. This yields bounded
+hypothesis `H-SYN-01`:
+
+> A common typed record can coordinate several observed envelopes while
+> retaining the distinction between a source-state change and a view change;
+> missing reconstruction information must terminate in an explicit `HOLD`.
+
+The Blue Body interior is the primary design story. Its `Q4 x P3` host retains
+48 addresses; the CRT16/Pentagon tile supplies a local `15+1` inspection
+scaffold with front, top, side and isometric projections. The engineering
+adapter is now declared as
+`B(c,l)=(P_l,(c&8)|gray3(c&7))` for `c in I16`, `l in P3`. It maps channel
+ordinals—not their prime labels—to the existing two-half Gray-ring order.
+The 2026-10-15 validator passes 237 assertions covering all 48 round trips,
+four-view source-key agreement, view/aperture invariance and fail-closed
+Return. This is an address-level instrument result, not a topology-preserving
+CRT-to-Q4 theorem or an intrinsic-body claim.
+
+GAME 4 LIFE +1 is the transfer control. It consumes the same record grammar
+through a bijective `Q4 x P3 -> 8 x 6` one-hot view while the LIFE carrier and
+native `B3/S23` update remain distinct. The pre-dynamics coordinate Return is
+exact. After one unchanged update, all 48 singletons reach the same empty
+state: the typed path returns through the retained Source Key, while the
+dynamics-only path terminates in `HOLD_DYNAMICS_ONLY_AMBIGUOUS` with 48
+candidates.
+
+The minimum gate battery is:
+
+1. address encode/decode round trip;
+2. twelve-tick display-phase periodicity and reverse tick;
+3. one source key across all four projections;
+4. source invariance under viewport and aperture changes;
+5. carrier/update separation between Blue Body and GAME 4 LIFE +1;
+6. fail-closed Return on a withheld residual.
+
+Both the Blue Body instance and the independent GAME 4 LIFE +1 transfer
+control pass this battery. `H-SYN-01` therefore has two implemented engineering
+witnesses; comparative usefulness remains open. The controlling implementation
+records are
+`102_A0_BLUE_BODY_CRT16_INTERIOR_ADAPTER_ENGINEERING_RESULT_2026-10-15.md` and
+`103_A0_BLUE_BODY_GAME4LIFE_TRANSFER_CONTROL_ENGINEERING_RESULT_2026-10-15.md`.
+
+This section records an instrument-architecture hypothesis, not a new
+scientific finding. The controlling crosswalk and full claim boundary are in
+`101_A0_GRID_OPERATOR_APPLICATION_SYNTHESIS_2026-10-15.md`; the interactive
+view is `A0_BOOK/A0_LIVING_BLUEPRINT.html#integration-crosswalk`.
+
+## 17. Existing source returns
 
 - `A0_BOOK/A0_FAMILY_CONNECTION_ATLAS.html`
 - `SCIENCE_LAB/CASE_STUDIES/NEXAH_PRIMEGRID_BLOCK01_STATE_LIFT_2026-10-06/01_RESULT_ASSESSMENT.md`
@@ -679,8 +739,13 @@ interactive runner at `A0_BOOK/A0_JOINT_APPLICATION_DEMONSTRATOR.html#protocol`.
 - `54_A0_JOINT_APPLICATION_RETURN_PROTOCOL_SUITE_2026-10-13.md`
 - `A0_BOOK/assets/a0-joint-application-return-protocol-v1.json`
 - `A0_BOOK/assets/tessarec-envelope-validation-r0.json`
+- `101_A0_GRID_OPERATOR_APPLICATION_SYNTHESIS_2026-10-15.md`
+- `A0_BOOK/A0_LIVING_BLUEPRINT.html#integration-crosswalk`
+- `102_A0_BLUE_BODY_CRT16_INTERIOR_ADAPTER_ENGINEERING_RESULT_2026-10-15.md`
+- `103_A0_BLUE_BODY_GAME4LIFE_TRANSFER_CONTROL_ENGINEERING_RESULT_2026-10-15.md`
+- `A0_BOOK/A0_TESSAREC_BLUE_BODY_LAB.html#blue-body-interior-crt16`
 
-## 17. Disposition
+## 18. Disposition
 
 ```text
 PAPER_OBJECT = EXISTING_A0_PACKAGE_DRAFT
@@ -688,6 +753,7 @@ NEW_NAVIGATOR_IDENTITY = ONE INTERNAL SOURCE-BOUND EVIDENCE LENS
 NEW_STUDY = NO
 NEW_FINDING = NO
 THEORY_STATUS = CONCEPTUAL_HYPOTHESIS
+INSTRUMENT_ARCHITECTURE_HYPOTHESIS = H-SYN-01 / DOCUMENTED_NOT_ADMITTED
 G8_WORKED_RETURN_FIXTURE = SPECIFIED / NOT A CARRIER-LEVEL PASS
 NEXT_PERMITTED_ACTION = STATIC G8 ADAPTER DESIGN AND G5-G7 PREREGISTRATION ONLY
 PUBLICATION_AUTHORIZED = NO

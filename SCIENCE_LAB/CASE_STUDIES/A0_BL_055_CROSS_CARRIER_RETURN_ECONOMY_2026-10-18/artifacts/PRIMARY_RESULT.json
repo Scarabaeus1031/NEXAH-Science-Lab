@@ -1,0 +1,94 @@
+{
+  "all_audit_gates_pass": true,
+  "carriers": {
+    "DECIMAL_D4": {
+      "advantage": false,
+      "exact_return": 9000,
+      "raw_fixed_bits": 14,
+      "saving_bits_mean": 0,
+      "selected_record_bits_mean": 14,
+      "single_first_bits": 14,
+      "single_second_bits": 14,
+      "source_count": 9000,
+      "swap_bijective": true
+    },
+    "Q106_O16": {
+      "advantage": false,
+      "exact_return": 106,
+      "matched_control_assignment_difference": 100,
+      "matched_control_bits_mean": 7.0,
+      "raw_fixed_bits": 7,
+      "saving_bits_mean": 0.0,
+      "selected_record_bits_mean": 7.0,
+      "source_count": 106
+    },
+    "TYPED_SEAM": {
+      "advantage": true,
+      "exact_return": 140,
+      "invalid_glue_mixed_levels": 30,
+      "invalid_glue_return": 106,
+      "raw_fixed_bits": 8,
+      "saving_bits_mean": 0.464285714286,
+      "selected_record_bits_mean": 7.535714285714,
+      "source_count": 140
+    }
+  },
+  "claim_boundary": [
+    "NO_CARRIER_IDENTITY",
+    "NO_UNIVERSAL_COMPRESSION",
+    "NO_CANONICAL_MAP",
+    "NO_PHYSICAL_INFORMATION_CLAIM",
+    "NO_HUMAN_UTILITY_CLAIM",
+    "NO_HISTORICAL_INTENT",
+    "NO_PUBLICATION_AUTHORITY"
+  ],
+  "classification": "MIXED_RETURN_GRAMMAR_PASS_ECONOMY_GENERALIZATION_FAIL",
+  "contract": {
+    "economy_threshold_carriers": 2,
+    "raw_bits": "ceil(log2(source_count))",
+    "record_bits": "fixed view/address bits + declared mean conditional residual bits"
+  },
+  "cross_carrier": {
+    "advantage_carriers": [
+      "TYPED_SEAM"
+    ],
+    "economy_advantage_carriers": 1,
+    "economy_required_carriers": 2,
+    "exact_return_carriers": 3
+  },
+  "gates": {
+    "G1_SOURCE_HASHES": true,
+    "G2_THREE_CARRIERS": true,
+    "G3_EXACT_RETURN_ALL": true,
+    "G4_EQUAL_INFORMATION_ARITHMETIC": true,
+    "G5_MATCHED_CONTROLS": true,
+    "G6_FROZEN_CLASSIFICATION": true,
+    "G7_ECONOMY_COUNT_EXACT": true,
+    "G8_CLAIM_BOUNDARY": true
+  },
+  "hypotheses": {
+    "H_ECONOMY_GENERALIZES": false,
+    "H_RETURN_GRAMMAR": true,
+    "H_SPECIFICITY": true
+  },
+  "protocol_sha256": "1935176812485e8704fcc091ecbadcd2ae0bf62ba19274f0592b14d339b59193",
+  "schema": "nexah.a0.cross_carrier_return_economy.result.v1",
+  "source_integrity": {
+    "BL024": {
+      "actual_sha256": "7d6683d989d2abab76c9864698a21af2a2b84ca8bd3cf993700d53cf4f431014",
+      "expected_sha256": "7d6683d989d2abab76c9864698a21af2a2b84ca8bd3cf993700d53cf4f431014",
+      "pass": true
+    },
+    "BL025": {
+      "actual_sha256": "b455bee94c32d41c0c61dd10a5df7cfc64739839becc3708ec5578cf62398fb1",
+      "expected_sha256": "b455bee94c32d41c0c61dd10a5df7cfc64739839becc3708ec5578cf62398fb1",
+      "pass": true
+    },
+    "BL049": {
+      "actual_sha256": "1f52cb0aee0a7417b862c39467ea2187b6e18194ef8d7c91d7e7f6efcac7aef5",
+      "expected_sha256": "1f52cb0aee0a7417b862c39467ea2187b6e18194ef8d7c91d7e7f6efcac7aef5",
+      "pass": true
+    }
+  },
+  "study_id": "A0_BL_055_CROSS_CARRIER_RETURN_ECONOMY_2026_10_18"
+}

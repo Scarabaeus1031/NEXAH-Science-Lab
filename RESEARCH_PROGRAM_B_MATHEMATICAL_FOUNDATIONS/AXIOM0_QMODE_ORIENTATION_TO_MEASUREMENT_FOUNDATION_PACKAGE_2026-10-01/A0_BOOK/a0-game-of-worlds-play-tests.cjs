@@ -1,0 +1,70 @@
+const fs=require('node:fs'),path=require('node:path'),vm=require('node:vm'),assert=require('node:assert/strict'),crypto=require('node:crypto');
+const book=__dirname,copy=path.join(book,'assets/game-of-worlds-play'),root=path.resolve(book,'../../../../..'),manifest=JSON.parse(fs.readFileSync(path.join(copy,'source-copy-manifest.json'))),source=path.join(root,manifest.source_root);
+let checks=0;const ok=(x,m)=>{assert.ok(x,m);checks++},sha=f=>crypto.createHash('sha256').update(fs.readFileSync(f)).digest('hex');
+for(const f of manifest.source_files){ok(sha(path.join(source,f.source))===f.sha256,'native original unchanged: '+f.source);if(!f.adapted)ok(sha(path.join(book,f.copy))===f.sha256,'exact frontend copy: '+f.source);}
+for(const file of ['A0_GAME_OF_WORLDS_PLAY.html','assets/game-of-worlds-play/index.html','assets/game-of-worlds-play/three-domain-transition-test/index.html']){
+ const html=fs.readFileSync(path.join(book,file),'utf8');for(const match of html.matchAll(/(?:src|href)="([^"#]+)"/g)){if(/^[a-z]+:/i.test(match[1]))continue;const local=decodeURIComponent(match[1].split('#')[0].split('?')[0]);ok(fs.existsSync(path.resolve(book,path.dirname(file),local)),'local link exists '+file+' '+local);}
+}
+// Run the existing Game4Life UI checks against the actual copied app and HTML.
+const sourceRequire=require('node:module').createRequire(path.join(source,'ui-smoke.cjs'));
+const readFs={...fs,readFileSync(file,...args){return fs.readFileSync(['app.js','index.html'].includes(file)?path.join(copy,file):file,...args)}};
+vm.runInNewContext(fs.readFileSync(path.join(source,'ui-smoke.cjs'),'utf8'),{require:n=>n==='node:fs'?readFs:n.startsWith('./')&&!n.startsWith('./results/')?require(path.join(copy,n)):sourceRequire(n),console:{log(){}}},{filename:'copied-life-ui-smoke.cjs'});checks+=18;
+function harness(kind){
+ const listeners={},nodes={},timers=new Map(),sent=[];let timerId=0;const isLife=kind==='life',dir=isLife?copy:path.join(copy,'three-domain-transition-test');
+ function el(id){return nodes[id]??=( {id,value:'',textContent:'',innerHTML:'',style:{},checked:false,attrs:{},options:[],width:760,height:620,add(o){this.options.push(o)},click(){this.onclick?.();},setAttribute(k,v){this.attrs[k]=v},getAttribute(k){return this.attrs[k]??null},addEventListener(type,fn){(this.events??={})[type]=fn},dispatchEvent(e){this['on'+e.type]?.(e);this.events?.[e.type]?.(e)},getContext(){return new Proxy({canvas:this},{get:(o,k)=>k in o?o[k]:()=>{}})}});}
+ const html=fs.readFileSync(path.join(dir,'index.html'),'utf8');for(const m of html.matchAll(/id="([^"]+)"/g))el(m[1]);
+ const defaults=isLife?{fixture:'BEEHIVE-BLOOM',boundary:'cylinder-x',channel:'all',generation:'0',projectionMode:'four-plus-one',speed:'420',runLength:'520',crystalHistory:'60'}:{boundary:'cylinder-x',threshold:'.22',speed:'360'};
+ for(const [k,v]of Object.entries(defaults))el(k).value=v;
+ el(isLife?'loopPlayback':'loop').checked=true;el('componentOutlines').checked=true;
+ const radios=[{value:'view',checked:true},{value:'dynamics',checked:false}],parent={postMessage(msg){sent.push(msg)}};
+ const doc={hidden:false,body:{dataset:{worldsKind:kind,stage:isLife?'rooms':'domains',look:'wonder'}},getElementById:id=>nodes[id]||null,querySelector:()=>radios.find(r=>r.checked),querySelectorAll:()=>radios,addEventListener:(t,f)=>listeners['doc:'+t]=f};
+ const box={document:doc,parent,console,Option:function(text,value){return{text,value}},Event:function(type){this.type=type},CustomEvent:function(type,init){this.type=type;this.detail=init.detail},MutationObserver:class{observe(){}},addEventListener:(t,f)=>listeners[t]=f,dispatchEvent(){},scrollTo(){},setInterval(fn){const id=++timerId;timers.set(id,fn);return id},clearInterval:id=>timers.delete(id)};
+ box.window=box;box.LifeCylinder=require(path.join(copy,'cylinder-engine.js'));box.LifeCrystalProjection=require(path.join(copy,'crystal-projection.js'));box.LIFE08_RESULT=sourceRequire('./results/PRIMARY_RESULT.json');box.ThreeDomainEngine=require(path.join(copy,'three-domain-transition-test/domain-engine.js'));
+ vm.runInNewContext(fs.readFileSync(path.join(dir,'app.js'),'utf8'),box);
+ vm.runInNewContext(fs.readFileSync(path.join(book,'a0-game-of-worlds-play-stage.js'),'utf8'),box);
+ function command(action,value,from=parent){listeners.message({source:from,data:{type:'worlds-play-command',action,value}})}
+ return{nodes,box,doc,timers,sent,command,tick(){[...timers.values()].forEach(fn=>fn())},generation(){return isLife?Number(nodes.generation.value):Number(nodes.runStatus.textContent.match(/generation (\d+)/)[1])},listeners};
+}
+const L=harness('life');ok(L.generation()===24&&L.timers.size===0,'copied LIFE opens Acorn at visible retained frame without autoplay');
+L.command('play');L.tick();ok(L.generation()===25&&L.timers.size===1,'native game plays beyond short demonstrator goals');
+for(const view of ['field','register','phase','rosette','rooms','boundary','cathedral']){const g=L.generation();L.command('view',view);ok(L.generation()===g&&L.timers.size===1&&L.doc.body.dataset.stage===view,'view switch retains playing clock: '+view);}
+ok(L.nodes.boundaryReading.value==='temporal-z','existing Temporal Z view selected');
+L.command('hood',true);ok(L.doc.body.dataset.look==='engine'&&L.timers.size===1,'hood reveals original controls without reset');
+L.command('hood',false);L.command('pause');ok(L.timers.size===0&&L.generation()===25,'world exit pauses and retains generation');
+L.nodes.generation.value=L.nodes.generation.max;L.command('play');L.tick();ok(L.generation()===0&&L.timers.size===1,'native bounded LIFE loop continues at start');
+L.command('pause');L.command('loop',false);L.nodes.generation.value=L.nodes.generation.max;L.command('play');L.tick();ok(L.timers.size===0,'LIFE loop off stops at horizon');
+L.command('seed','GLIDER-C');ok(L.generation()===0&&L.nodes.fixture.value==='GLIDER-C','explicit seed selection restarts only this game');
+L.command('seed','__proto__');ok(L.nodes.fixture.value==='GLIDER-C','unknown seed rejected');
+L.command('play',null,{});ok(L.timers.size===0,'only parent commands accepted');
+L.command('play');L.doc.hidden=true;L.listeners['doc:visibilitychange']();ok(L.timers.size===0,'hidden document pauses');
+const beforeInvalidView=L.doc.body.dataset.stage;L.command('view','not-a-view');ok(L.doc.body.dataset.stage===beforeInvalidView,'unknown view rejected');
+const D=harness('domains');ok(D.generation()===0&&D.timers.size===0,'three-domain copy starts paused');
+D.command('play');D.tick();const g=D.generation();for(const view of ['domains','montage','euler']){D.command('view',view);ok(D.generation()===g&&D.timers.size===1,'Three-Domain retains generation: '+view);}
+for(let i=0;i<240;i++)D.tick();ok(D.generation()===0&&D.timers.size===1,'native Three-Domain bounded loop');
+D.command('pause');ok(D.timers.size===0,'Three-Domain pauses on exit');D.command('step');ok(D.generation()===1&&D.timers.size===0,'paused single-step');
+// Parent switchboard: stable frame instances, source-checked messages and no cross-world auto-resume.
+const shellHtml=fs.readFileSync(path.join(book,'A0_GAME_OF_WORLDS_PLAY.html'),'utf8'),sn={},sl={},posts={life:[],domains:[],numbers:[]};
+
+const lifeOrder=[...shellHtml.match(/<div id="lifeLenses">([\s\S]*?)<\/div>/)[1].matchAll(/data-view="([^"]+)"/g)].map(m=>m[1]);ok(lifeOrder.join(',')==='rooms,boundary,field,register,phase,rosette,cathedral','LIFE retains distinct rooms-first entrance');
+const numberOrder=[...shellHtml.match(/<div id="numberLenses" hidden>([\s\S]*?)<\/div>/)[1].matchAll(/data-view="([^"]+)"/g)].map(m=>m[1]);ok(numberOrder.slice(0,6).join(',')==='cathedral,parallel,rings,spiral,grid,tower','Numbers has direct Cathedral/Parallel and folded basic views');
+ok(fs.readFileSync(path.join(book,'a0-game-of-worlds-play.js'),'utf8').includes("views={life:'rooms',domains:'domains',numbers:'cathedral'}"),'distinct defaults: LIFE rooms, Numbers Cathedral');
+function shellNode(id){return sn[id]??={hidden:false,disabled:false,value:'normal',textContent:'',checked:true,attrs:{},setAttribute(k,v){this.attrs[k]=v},getAttribute(k){return this.attrs[k]??null},addEventListener(t,fn){this[t]=fn}}}
+for(const m of shellHtml.matchAll(/id="([^"]+)"/g))shellNode(m[1]);
+const frameIds={life:'lifeFrame',domains:'domainFrame',numbers:'numberFrame'};
+for(const k of Object.keys(frameIds))sn[frameIds[k]].contentWindow={postMessage:m=>posts[k].push(m)};
+const buttons=[...shellHtml.matchAll(/data-view="([^"]+)"/g)].map(m=>({...shellNode('view:'+m[1]),dataset:{view:m[1]},textContent:m[1]}));
+const document={hidden:false,getElementById:shellNode,querySelector:()=>null,querySelectorAll:q=>q==='[data-view]'?buttons:buttons.filter(b=>q.includes('lifeLenses')?['rooms','boundary','field','register','phase','rosette'].includes(b.dataset.view):['domains','montage','euler'].includes(b.dataset.view)),addEventListener:(t,f)=>sl[t]=f};
+vm.runInNewContext(fs.readFileSync(path.join(book,'a0-game-of-worlds-play.js'),'utf8'),{document,URLSearchParams,window:{location:{hash:'',search:'?world=domains'},localStorage:{setItem(k,v){this[k]=v},getItem(k){return this[k]||null}},addEventListener:(t,f)=>sl[t]=f}});
+function message(k,data){sl.message({source:sn[frameIds[k]].contentWindow,data:{type:'worlds-play-state',...data}})}
+ok(!sn.domainFrame.hidden&&sn.domainFrame.src.includes('three-domain'),'Arkade query opens the requested world without autoplay');sn.pickLife.onclick();ok(sn.play.disabled,'shell awaits child handshake');message('life',{ready:true,status:'g24',running:false,loop:true});ok(!sn.play.disabled&&sn.position.textContent==='g24','ready child enables controls');
+sn.pickDomains.onclick();ok(posts.life.some(m=>m.action==='pause')&&sn.lifeFrame.hidden&&!sn.domainFrame.hidden&&sn.domainFrame.src.includes('three-domain'),'switch pauses LIFE and lazy-loads separate copy');
+message('domains',{ready:true,status:'g0',running:false,loop:true});sn.pickLife.onclick();ok(posts.domains.some(m=>m.action==='pause')&&!posts.life.some(m=>m.action==='play'),'return does not auto-resume either world');
+sl.message({source:{},data:{type:'worlds-play-state',status:'spoof',running:true}});ok(sn.position.textContent!=='spoof','unknown frame message rejected');
+sn.pickNumbers.onclick();ok(sn.numberFrame.src.includes('/numbers/')&&!sn.numberFrame.hidden,'number world lazy loads in retained third frame');
+message('numbers',{ready:true,status:'euler n0',running:false,loop:true,rule:'euler',orbit:false});sn.numberRule.value='fibonacci';sn.numberRule.onchange();ok(posts.numbers.at(-1).action==='rule'&&posts.numbers.at(-1).value==='fibonacci','rule selection is sent only to number adapter');
+sn.pickLife.onclick();ok(posts.numbers.at(-1).action==='pause','leaving number world pauses its own clock');
+document.hidden=true;sl.visibilitychange();ok(Object.values(posts).every(list=>list.at(-1).action==='pause'),'hide pauses all initialized worlds');
+sn.pickNumbers.onclick();const jointButton=buttons.find(b=>b.dataset.view==='joint');jointButton.closest=()=>true;const beforeJoint=posts.numbers.length;jointButton.onclick();const jointPosts=posts.numbers.slice(beforeJoint);ok(jointPosts[0].action==='rule'&&jointPosts[0].value==='sumlift'&&jointPosts[1].action==='view'&&jointPosts[1].value==='joint','Joint shortcut explicitly activates saved lift before choosing its view');ok(sn.numberRule.value==='sumlift'&&!jointPosts.some(p=>p.action==='play'),'Joint shortcut synchronizes selector without autoplay');
+const elevatorButton=buttons.find(b=>b.dataset.view==='elevator');elevatorButton.closest=()=>true;const beforeElevator=posts.numbers.length;elevatorButton.onclick();const elevatorPosts=posts.numbers.slice(beforeElevator);ok(elevatorPosts[0].action==='rule'&&elevatorPosts[0].value==='elevator'&&elevatorPosts[1].action==='view'&&elevatorPosts[1].value==='elevator','Elevator shortcut activates its +20 rule before choosing its view');ok(sn.numberRule.value==='elevator'&&!elevatorPosts.some(p=>p.action==='play'),'Elevator shortcut synchronizes selector while PLAY remains explicit');
+const pinkButton=buttons.find(b=>b.dataset.view==='rails');pinkButton.closest=()=>true;const beforePink=posts.numbers.length;pinkButton.onclick();const pinkPosts=posts.numbers.slice(beforePink);ok(pinkPosts[0].action==='rule'&&pinkPosts[0].value==='dyadic'&&pinkPosts[1].action==='view'&&pinkPosts[1].value==='rails','Pink shortcut activates dyadic paired rails before choosing its view');ok(sn.numberRule.value==='dyadic'&&!pinkPosts.some(p=>p.action==='play'),'Pink shortcut synchronizes selector while PLAY remains explicit');
+console.log(JSON.stringify({status:'PASS',checks,scope:'frontend source identity, local dependency closure, copied native LIFE UI smoke, actual copied LIFE and Three-Domain controller + presentation bridge + shell in simulated DOM; browser WebGL/pixel/Human acceptance NOT PERFORMED'},null,2));

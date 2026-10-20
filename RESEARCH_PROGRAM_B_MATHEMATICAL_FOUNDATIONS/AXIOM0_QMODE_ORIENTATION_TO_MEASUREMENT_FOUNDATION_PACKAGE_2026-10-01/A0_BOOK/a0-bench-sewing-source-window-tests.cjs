@@ -1,0 +1,27 @@
+'use strict';
+const assert=require('node:assert/strict');
+const {mount}=require('./a0-bench-sewing-source-window.js');
+let checks=0;
+const check=f=>{f();checks++};
+function element(){return {disabled:false,textContent:'',children:[],events:{},setAttribute(k,v){this[k]=v},addEventListener(k,v){this.events[k]=v},appendChild(x){this.children.push(x);x.remove=()=>{this.children=this.children.filter(y=>y!==x)}}};}
+const ids=Object.fromEntries(['sewingSourceOpen','sewingSourceClose','sewingSourceFrameHost','sewingSourceStatus'].map(x=>[x,element()]));
+const doc={getElementById:id=>ids[id],createElement:()=>element()};
+const controller=mount(doc),host=ids.sewingSourceFrameHost;
+check(()=>assert.equal(host.children.length,0));
+ids.sewingSourceOpen.events.click();
+check(()=>assert.equal(host.children.length,1));
+check(()=>assert.equal(host.children[0].src,'A0_AXIS08_FOLD_RETURN_SEQUENCER.html#pentagonSewing'));
+check(()=>assert.equal(ids.sewingSourceOpen.disabled,true));
+check(()=>assert.equal(ids.sewingSourceClose.disabled,false));
+controller.load();
+check(()=>assert.equal(host.children.length,1));
+ids.sewingSourceClose.events.click();
+check(()=>assert.equal(host.children.length,0));
+check(()=>assert.equal(ids.sewingSourceOpen.disabled,false));
+check(()=>assert.equal(ids.sewingSourceClose.disabled,true));
+controller.unload();
+check(()=>assert.equal(host.children.length,0));
+controller.load();
+check(()=>assert.equal(host.children.length,1));
+check(()=>assert.equal(mount({getElementById:()=>null}),null));
+console.log(JSON.stringify({status:'PASS',checks,browser_acceptance:'OPEN'}));

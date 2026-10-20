@@ -28,7 +28,7 @@
     rose5: "Rose / C5 step-2 star",
     euler7: "Euler +7 arc",
     prime17: "Prime +17 orbit",
-    janus: "Janus / House Q4 braid",
+    janus: "Janus / ordinal channel braid",
     ordinal: "Ordinal control"
   });
   const SEQUENCE_NOTES = Object.freeze({
@@ -41,7 +41,7 @@
     rose5: "Exact +2 mod 5 pentagram orbit on each five-address ring; 13, 157, 2041 and Venus remain source-image labels only.",
     euler7: "Exact +7 mod 48 permutation.",
     prime17: "Exact +17 mod 48 permutation.",
-    janus: "Exact complement braid over the House Q4 ledger.",
+    janus: "Exact ordinal-channel mirror c↔15−c; distinct from bitwise Q4 complement q↔q XOR 15.",
     ordinal: "Sequential control 0…47."
   });
 
@@ -167,6 +167,13 @@
     return Object.freeze(cells.map((cell) => transfer.cellToSource(cell)).filter(Boolean));
   }
 
+  function houseLedger(cells,focus="AM") {
+    const pairs={AM:[0,1],VM:[1,2],PM:[2,0]};if(!pairs[focus])throw new RangeError("House focus AM/VM/PM");
+    const sources=activeSources(cells),active=new Set(sources.map(s=>s.sourceKey)),pairsForSources=sources.map(s=>({sourceKey:s.sourceKey,complementKey:`P${s.layer}:${(s.q4^15).toString(2).padStart(4,"0")}`})),carrier=blueBody.buildCarrier();
+    const nodes=buildBody().nodes.map(n=>{const p=[n.x,n.y,n.z],pair=pairs[focus];return{...n,point:[p[pair[0]],p[pair[1]]],active:active.has(n.sourceKey)};});
+    return{kind:"ONE_HOUSE_TWO_LEDGER_VIEWS",focus,coordinatePair:pairs[focus].slice(),nodes,edges:carrier.edges.map(e=>({...e})),sourceKeys:sources.map(s=>s.sourceKey),pairs:pairsForSources,counts:{q4:16,layers:3,states:48,carrierEdges:128},rule:"Same Q4xP3 source record. AM=XY, VM=YZ, PM=ZX of existing display coordinates; not P0/P1/P2, not Day/Night, not the continuous Lissajous carrier. Projection overlaps are not new source nodes. Matrix shows Q4 bits; ordinal channel remains separate."};
+  }
+
   function layerCounts(cells) {
     const counts = [0, 0, 0];
     for (const source of activeSources(cells)) counts[source.layer] += 1;
@@ -223,6 +230,9 @@
     const ctx = canvas && canvas.getContext ? canvas.getContext("2d") : null;
     const layerView = rootElement.querySelector("#bodyLayerView");
     const houseView = rootElement.querySelector("#bodyHouseView");
+    const houseRelations = rootElement.querySelector("#bodyHouseRelations");
+    const houseFocusButtons = Array.from(rootElement.querySelectorAll("[data-house-focus]"));
+    const houseFocusLabel = rootElement.querySelector("#bodyHouseFocusLabel");
     const lifeView = rootElement.querySelector("#bodyLifeGrid");
     const trace = rootElement.querySelector("#bodyTrace");
     const receiptView = rootElement.querySelector("#bodyPlayerReceipt");
@@ -248,6 +258,7 @@
     let sequence = buildSequence(sequenceId);
     let sequenceCursor = 0;
     let viewMode = "day";
+    let houseFocus = "AM";
     let generation = 0;
     let cells = [transfer.sourceToCell(blue.bind(0, 0).sourceKey)];
     let timer = 0;
@@ -420,38 +431,54 @@
       const x0 = 76, y0 = 54, size = 82;
       const current = activeSources(cells);
       const distribution = layerCounts(cells);
-      const complements = new Set(current.map((source) => 15 - source.channel));
-      const cellsMarkup = Array.from({ length: 16 }, (_, channel) => {
-        const row = Math.floor(channel / 4), column = channel % 4, x = x0 + column * size, y = y0 + row * size;
-        const layerHits = [0, 1, 2].filter((layer) => active.has(blue.bind(layer, channel).sourceKey));
-        const classes = ["body-house-cell", layerHits.length ? "active" : "", complements.has(channel) ? "pair" : ""].filter(Boolean).join(" ");
-        const dots = layerHits.map((layer, index) => `<circle cx="${x + 18 + index * 18}" cy="${y + 54}" r="6" fill="${LAYER_COLORS[layer]}" stroke="#fff" stroke-width="1"><title>P${layer}:${channel.toString(2).padStart(4, "0")}</title></circle>`).join("");
-        return `<g><rect class="${classes}" x="${x}" y="${y}" width="${size}" height="${size}"/><text class="body-house-index" x="${x + 10}" y="${y + 19}">${channel.toString(2).padStart(4, "0")}</text><text class="body-house-number" x="${x + size - 10}" y="${y + 20}" text-anchor="end">${channel}</text>${dots}</g>`;
+      const complements = new Set(current.map((source) => source.q4 ^ 15));
+      const cellsMarkup = Array.from({ length: 16 }, (_, q4) => {
+        const row = Math.floor(q4 / 4), column = q4 % 4, x = x0 + column * size, y = y0 + row * size,bits=q4.toString(2).padStart(4,"0");
+        const layerHits = [0, 1, 2].filter((layer) => active.has(`P${layer}:${bits}`));
+        const classes = ["body-house-cell", layerHits.length ? "active" : "", complements.has(q4) ? "pair" : ""].filter(Boolean).join(" ");
+        const dots = layerHits.map((layer, index) => `<circle data-house-key="P${layer}:${bits}" cx="${x + 18 + index * 18}" cy="${y + 54}" r="6" fill="${LAYER_COLORS[layer]}" stroke="#fff" stroke-width="1"><title>P${layer}:${bits}</title></circle>`).join("");
+        const key=`P${current[0]?.layer??0}:${bits}`;
+        return `<g data-house-key="${key}"><rect class="${classes}" x="${x}" y="${y}" width="${size}" height="${size}"/><text class="body-house-index" x="${x + 10}" y="${y + 19}">${bits}</text><text class="body-house-number" x="${x + size - 10}" y="${y + 20}" text-anchor="end">q${q4}</text>${dots}</g>`;
       }).join("");
-      const selectedText = current.map((source) => `${source.sourceKey}↔P${source.layer}:${(15 - source.channel).toString(2).padStart(4, "0")}`).join(" · ") || "EMPTY";
+      const selectedText = current.map((source) => `${source.sourceKey}↔P${source.layer}:${(source.q4^15).toString(2).padStart(4, "0")}`).join(" · ") || "EMPTY";
       houseView.innerHTML = `<title>House bookkeeping over the Q4 address frame</title>${cellsMarkup}<line class="body-house-pillar" x1="${x0 + 2 * size - 5}" y1="${y0}" x2="${x0 + 2 * size - 5}" y2="${y0 + 4 * size}"/><line class="body-house-pillar" x1="${x0 + 2 * size + 5}" y1="${y0}" x2="${x0 + 2 * size + 5}" y2="${y0 + 4 * size}"/><line class="body-house-seam" x1="${x0}" y1="${y0 + 2 * size}" x2="${x0 + 4 * size}" y2="${y0 + 2 * size}"/><circle class="body-house-hinge" cx="${x0 + 2 * size}" cy="${y0 + 2 * size}" r="8"/><text class="body-house-caption" x="${x0 + 4 * size + 20}" y="${y0 + 24}">HOUSE · LEDGER</text><text class="body-house-caption muted" x="${x0 + 4 * size + 20}" y="${y0 + 47}">pillar = vertex</text><text class="body-house-caption muted" x="${x0 + 4 * size + 20}" y="${y0 + 68}">channel = edge</text><text class="body-house-caption muted" x="${x0 + 4 * size + 20}" y="${y0 + 89}">hinge = incidence</text><polygon class="body-kite" points="425,174 548,218 425,262"/><line class="body-kite-cut" x1="425" y1="174" x2="425" y2="262"/><text class="body-house-caption" x="486" y="286" text-anchor="middle">KITE · A2 → 3-FOLD</text><text class="body-house-caption muted" x="486" y="307" text-anchor="middle">cutEdge = φ·t·s · t=.5</text><text class="body-house-caption muted" x="486" y="328" text-anchor="middle">HYPOTHESIS ONLY</text><text class="body-house-caption" x="425" y="${y0 + 4 * size - 12}">P0:${distribution[0]} · P1:${distribution[1]} · P2:${distribution[2]}</text><text class="body-house-caption" x="${x0}" y="${y0 + 4 * size + 32}">${selectedText}</text>`;
+    }
+
+    function houseRelationsMarkup(ledger) {
+      if(!houseRelations)return;
+      const byKey=new Map(ledger.nodes.map(n=>[n.sourceKey,n])),at=n=>[285+n.point[0]*112,220-n.point[1]*112];
+      const path=(a,b)=>`M${at(a).join(',')} L${at(b).join(',')}`;
+      const edges=ledger.edges.map(e=>{const a=byKey.get(e.left),b=byKey.get(e.right),hot=a.active||b.active;return`<path data-house-edge="${e.left}|${e.right}" d="${path(a,b)}" fill="none" stroke="${hot?'#e5b340':e.kind==='P'?'#ee6ca5':'#477184'}" opacity="${hot?.7:.2}" stroke-width="${hot?1.7:.8}"/>`;}).join('');
+      const links=ledger.pairs.map(p=>`<path data-house-complement="${p.sourceKey}" d="${path(byKey.get(p.sourceKey),byKey.get(p.complementKey))}" fill="none" stroke="#ee6ca5" stroke-width="2" stroke-dasharray="4 4"/>`).join('');
+      const nodes=[...ledger.nodes].sort((a,b)=>Number(a.active)-Number(b.active)).map(n=>{const p=at(n);return`<g data-house-key="${n.sourceKey}"><title>${n.sourceKey} · ordinal ${n.channel+1}/16</title><circle cx="${p[0]}" cy="${p[1]}" r="${n.active?6:3}" fill="${LAYER_COLORS[n.layer]}" opacity="${n.active?1:.45}" stroke="${n.active?'#fff':'none'}"/>${n.active?`<text x="${p[0]+9}" y="${p[1]-9}" fill="#fff" font-size="10">${n.sourceKey}</text>`:''}</g>`;}).join('');
+      houseRelations.innerHTML=`<title>Second view of the same House ledger, not another House</title><text x="20" y="28" fill="#dcecf2" font-size="14">HOUSE · RELATIONS · ${houseFocus}</text><text x="20" y="49" fill="#91aab5" font-size="10">48 source keys · 128 carrier edges · dashed: bitwise complement</text>${edges}${links}${nodes}<text x="20" y="402" fill="#91aab5" font-size="10">P0 cyan · P1 pink · P2 gold · same frame / no new clock</text>`;
     }
 
     function render() {
       const active = selectedKeys();
       const receipt = patternReceipt(cells, generation, witness.checked);
       drawBody(active); drawBlueBody(active); layerMarkup(active); houseMarkup(active); lifeMarkup();
+      const house=houseLedger(cells,houseFocus);houseRelationsMarkup(house);
+      houseFocusButtons.forEach(button=>{const on=button.dataset.houseFocus===houseFocus;button.setAttribute('aria-pressed',String(on));button.classList.toggle('active',on);});
+      if(houseFocusLabel)houseFocusLabel.textContent=`${houseFocus} · ${['X','Y','Z'][house.coordinatePair[0]]}${['X','Y','Z'][house.coordinatePair[1]]} · Projektion derselben Buchhaltung, nicht Day/Night`;
       const sources = activeSources(cells);
       const layerText = receipt.layerCounts.map((count, layer) => `P${layer}:${count}`).join(" · ");
       addressValue.textContent = mode === "address" ? `${sequenceCursor + 1}/48 · ${sources[0]?.sourceKey || "—"}` : `${cells.length} active · g${generation}`;
       speedValue.textContent = `${Number(speed.value)} ms`;
-      trace.innerHTML = `<div><small>Mode</small><strong>${mode === "address" ? "Exact sequence console" : "Three-layer B3/S23 pulse"}</strong></div><div><small>Sequence</small><strong>${mode === "address" ? SEQUENCE_LABELS[sequenceId] : "native finite-dead B3/S23"}</strong></div><div><small>Sequence contract</small><strong>${mode === "address" ? SEQUENCE_NOTES[sequenceId] : "Unchanged finite-dead B3/S23 fixture."}</strong></div><div><small>Day / Night / View–Mirror</small><strong>${viewMode.toUpperCase()}</strong></div><div><small>House / Q4 complement</small><strong>${sources.map((source) => `${source.sourceKey} ↔ P${source.layer}:${(15 - source.channel).toString(2).padStart(4, "0")}`).join(" · ") || "EMPTY"}</strong></div><div><small>Layer load</small><strong>${layerText}</strong></div><div><small>Current frame</small><strong>${sources.map((source) => source.sourceKey).join(" · ") || "EMPTY"}</strong></div><div><small>History</small><strong>${receipt.historyReturn}</strong></div>`;
+      trace.innerHTML = `<div><small>Mode</small><strong>${mode === "address" ? "Exact sequence console" : "Three-layer B3/S23 pulse"}</strong></div><div><small>Sequence</small><strong>${mode === "address" ? SEQUENCE_LABELS[sequenceId] : "native finite-dead B3/S23"}</strong></div><div><small>Sequence contract</small><strong>${mode === "address" ? SEQUENCE_NOTES[sequenceId] : "Unchanged finite-dead B3/S23 fixture."}</strong></div><div><small>Day / Night / View–Mirror</small><strong>${viewMode.toUpperCase()}</strong></div><div><small>House / Q4 complement</small><strong>${sources.map((source) => `${source.sourceKey} ↔ P${source.layer}:${(source.q4^15).toString(2).padStart(4, "0")}`).join(" · ") || "EMPTY"}</strong></div><div><small>House projection</small><strong>${houseFocus} · coordinate pair ${house.coordinatePair.join(',')} · not a layer switch</strong></div><div><small>Layer load</small><strong>${layerText}</strong></div><div><small>Current frame</small><strong>${sources.map((source) => source.sourceKey).join(" · ") || "EMPTY"}</strong></div><div><small>History</small><strong>${receipt.historyReturn}</strong></div>`;
       receiptView.className = `body-player-receipt ${receipt.status.startsWith("PASS") ? "pass" : "hold"}`;
       receiptView.innerHTML = `<small>typed return receipt</small><b>${receipt.status}</b><span>current-frame residual ${receipt.residual} · ${mode === "coupled" ? "native finite-dead B3/S23" : `${SEQUENCE_LABELS[sequenceId]} · permutation only`}</span>`;
       modeButtons.forEach((button) => { const current = button.dataset.bodyMode === mode; button.classList.toggle("active", current); button.setAttribute("aria-selected", String(current)); });
       viewButtons.forEach((button) => { const current = button.dataset.bodyView === viewMode; button.classList.toggle("active", current); button.setAttribute("aria-pressed", String(current)); });
-      globalThis.A0PentagonBodyPlayerView = { mode, sequenceId, sequenceCursor, viewMode, generation, cells: cells.map((cell) => ({ ...cell })), receipt };
+      globalThis.A0PentagonBodyPlayerView = { mode, sequenceId, sequenceCursor, viewMode, generation, cells: cells.map((cell) => ({ ...cell })), house, receipt };
     }
 
     modeButtons.forEach((button) => button.addEventListener("click", () => { stop(); mode = button.dataset.bodyMode; resetMode(); render(); }));
     address.addEventListener("input", () => { stop(); mode = "address"; setAddress(Number(address.value)); render(); });
     sequenceSelect.addEventListener("change", () => { stop(); mode = "address"; sequenceId = sequenceSelect.value; sequence = buildSequence(sequenceId); resetMode(); render(); });
     viewButtons.forEach((button) => button.addEventListener("click", () => { viewMode = button.dataset.bodyView; render(); }));
+    houseFocusButtons.forEach(button=>button.addEventListener('click',()=>{houseFocus=button.dataset.houseFocus;render();}));
+    for(const svg of [houseView,houseRelations])svg?.addEventListener('click',event=>{const key=event.target.closest?.('[data-house-key]')?.dataset.houseKey,index=sourceIndex(key);if(index>=0){stop();mode='address';setAddress(index);render();}});
     speed.addEventListener("input", () => { speedValue.textContent = `${Number(speed.value)} ms`; if (timer) start(); });
     witness.addEventListener("input", render);
     play.addEventListener("click", () => timer ? stop() : start());
@@ -502,8 +529,23 @@
     function animate(now) { const elapsed = Math.min(50, now - lastAnimation); lastAnimation = now; if (!blueDrag && !globalThis.matchMedia?.("(prefers-reduced-motion: reduce)").matches) { blueYaw += elapsed * (viewMode === "night" ? -.00008 : .00008); drawBlueBody(selectedKeys()); } animationFrame = globalThis.requestAnimationFrame(animate); }
     resetMode(); render();
     if (typeof globalThis.requestAnimationFrame === "function") animationFrame = globalThis.requestAnimationFrame(animate);
-    return Object.freeze({ render, step, stop, setSequence: (id) => { if (!SEQUENCE_IDS.includes(id)) return false; stop(); mode = "address"; sequenceId = id; sequenceSelect.value = id; sequence = buildSequence(id); resetMode(); render(); return true; }, setView: (id) => { if (!["day", "night", "mirror"].includes(id)) return false; viewMode = id; render(); return true; }, reset: () => { resetMode(); render(); }, destroy: () => { stop(); if (animationFrame && globalThis.cancelAnimationFrame) globalThis.cancelAnimationFrame(animationFrame); } });
+    return Object.freeze({
+      render,
+      step,
+      stop,
+      nudgeBodies:(dx=0,dy=0)=>{
+        const x=Number(dx)||0,y=Number(dy)||0;
+        yaw+=x*.008;pitch=Math.max(-1.25,Math.min(1.25,pitch+y*.008));
+        blueYaw-=x*.006;bluePitch=Math.max(-1.25,Math.min(1.25,bluePitch+y*.006));
+        render();return true;
+      },
+      setHouseFocus:(id)=>{if(!['AM','VM','PM'].includes(id))return false;houseFocus=id;render();return true;},
+      setSequence: (id) => { if (!SEQUENCE_IDS.includes(id)) return false; stop(); mode = "address"; sequenceId = id; sequenceSelect.value = id; sequence = buildSequence(id); resetMode(); render(); return true; },
+      setView: (id) => { if (!["day", "night", "mirror"].includes(id)) return false; viewMode = id; render(); return true; },
+      reset: () => { resetMode(); render(); },
+      destroy: () => { stop(); if (animationFrame && globalThis.cancelAnimationFrame) globalThis.cancelAnimationFrame(animationFrame); }
+    });
   }
 
-  return Object.freeze({ CLAIM_BOUNDARY, LAYER_COLORS, PULSE_SEED, SEQUENCE_IDS, SEQUENCE_LABELS, SEQUENCE_NOTES, fibonacciRankSequence, fibonacciEulerCoupling, buildSequence, validateSequences, buildBody, activeSources, layerCounts, patternReceipt, pulseFrame, validatePlayer, mount });
+  return Object.freeze({ CLAIM_BOUNDARY, LAYER_COLORS, PULSE_SEED, SEQUENCE_IDS, SEQUENCE_LABELS, SEQUENCE_NOTES, fibonacciRankSequence, fibonacciEulerCoupling, buildSequence, validateSequences, buildBody, activeSources, houseLedger, layerCounts, patternReceipt, pulseFrame, validatePlayer, mount });
 }));

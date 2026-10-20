@@ -1,0 +1,93 @@
+{
+  "schema": "a0.timegear-x20.owner-visual-extract.v1",
+  "date": "2026-10-15",
+  "status": "OWNER_DECLARED_A0_ENGINEERING_INPUT_NOT_EVIDENCE",
+  "identity": {
+    "reuses": [
+      "A0-BL-023",
+      "SCC-003",
+      "A0OE:PASCAL_PENTAGON_D5_TEST"
+    ],
+    "creates": [],
+    "canonical_x20_changed": false,
+    "navigator_relation_created": false
+  },
+  "sources": [
+    {
+      "attachment_name": "Photo 1.jpg",
+      "sha256": "5d9830cd63eaf740e6e8fcc4376b951b320f36fadff7f76815d15d1e050e40ff",
+      "title": "Zeta Timegear 400 · 420 · 600",
+      "role": "owner-supplied recent phase/address design visual"
+    },
+    {
+      "attachment_name": "Photo 2.jpg",
+      "sha256": "8126e0e35eedd7dad23aa063d5466e9da462f231498a83b58cc7c151c6775537",
+      "title": "Scale Seams · 7 Steps · Drift · .83 Band",
+      "role": "owner-supplied 3+1 and seam-stitch design visual"
+    },
+    {
+      "repository_path": "A0_BOOK/assets/pascal-pentagon-joints/scale_seams_seven_steps_drift_83_band_owner_visual.jpeg",
+      "sha256": "ea1d9040e30dcbde3c3a085753320918b2f2c90846fbe0f6ff17b22f2db39823",
+      "title": "Archived scale-seam owner visual",
+      "role": "existing documentary predecessor; visual hypothesis only"
+    },
+    {
+      "attachment_name": "Photo 4.jpg",
+      "sha256": "6edc1d59cbcac881d190709bc1fe3cc3bc3b324288d02d09fe7c4efa4f939b49",
+      "title": "Root-Zeta · Time-Tracks Master Overlay",
+      "role": "owner-supplied simplified display of the timegear coordinates"
+    },
+    {
+      "attachment_name": "Photo 7.jpg",
+      "sha256": "28f39d160f83c0b21b4596755257b57d72e68fb0743ceda256e3e870f9d3d47a",
+      "title": "Asymmetric Golden–sqrt(2) Sheet",
+      "role": "geometric comparison control; not an X20 edge source"
+    }
+  ],
+  "declared_exact_inputs": {
+    "cycle_lengths": [400, 420, 600],
+    "gate_count": 20,
+    "gate_angle_degrees": 18,
+    "ticks_per_gate": [20, 21, 30],
+    "tick_differences_per_gate": [1, 9, 10],
+    "global_lcm": 8400,
+    "global_revolutions": [21, 20, 14],
+    "marked_origin_gate": 0,
+    "marked_antipode_gate": 10,
+    "factorization_label": "20=5*4"
+  },
+  "candidate_coordinate_contracts": [
+    {
+      "id": "CONTIGUOUS_5_BY_4",
+      "decode": "i=floor(g/4), j=g mod 4",
+      "encode": "g=4i+j",
+      "typing": "i in C5; j in P4 as an ordered four-role index"
+    },
+    {
+      "id": "CRT_C5_BY_C4",
+      "decode": "i=g mod 5, j=g mod 4",
+      "encode": "unique g mod 20 satisfying both residues",
+      "typing": "i in C5; j in C4; cyclic C4 is additional structure and is not silently identified with P4"
+    }
+  ],
+  "predeclared_graph_grammars": [
+    "C20_RING",
+    "FOUR_DISJOINT_C5",
+    "C5_CARTESIAN_P4",
+    "C5_ROOT_WITH_LENGTH3_TAIL",
+    "C10_SEAM_STITCH_WITH_LENGTH2_TAIL"
+  ],
+  "open_hypotheses": {
+    "iota_drift_degrees": 0.464,
+    "euler_mascheroni_link": null,
+    "point_83_stability_band": null,
+    "physical_clock_or_resonance_interpretation": null,
+    "historical_x20_adjacency_recovered": false
+  },
+  "known_correction": {
+    "visual": "Photo 7.jpg",
+    "statement": "For an isosceles triangle with equal sides L and apex angle 36 degrees, the base is 2*L*sin(18 degrees), not 2*L*sin(36 degrees).",
+    "effect_on_x20_test": "NONE"
+  },
+  "claim_boundary": "The visuals supply owner-declared coordinates and candidate grammars. They do not independently validate drift, gamma, .83, physical resonance, historical X20 adjacency, a Q106 intertwiner or novelty."
+}

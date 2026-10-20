@@ -2,7 +2,8 @@
 
 Date: 2026-10-02
 Reviewed commit: `264200ef332700dd1d5c9faf9eb23d1dc04e81c7`
-Status: `FIRST_REVIEW_FAIL / REPAIR_1_IMPLEMENTED / INDEPENDENT_RE-REVIEW_REQUIRED`
+Repair 1 commit: `ef35ccf7d2dbf3b3a7a52a1117998387189e29b0`
+Status: `FIRST_REVIEW_FAIL / REPAIR_1_REVIEW_FAIL / REPAIR_2_IMPLEMENTED / INDEPENDENT_RE-REVIEW_REQUIRED`
 
 ## Review result
 
@@ -50,8 +51,29 @@ consistency. The bound wrapper also verifies an empty custody root and refuses
 the canonical collection command before constructing a network opener or
 writing custody data while the owner record remains `NOT_GRANTED`.
 
+## Repair 1 re-review and Repair 2
+
+The independent Repair 1 re-review retained `FAIL` for three material reasons:
+
+1. untracked or ignored additions inside the package were not visible to the
+   tracked/staged diff checks;
+2. a symlink in an ancestor component of the requested custody or anchor path
+   could redirect writes outside the lexical tree;
+3. anchor verification did not bind `schema_version`, `experiment_id`,
+   `created_utc`, the exact key set or canonical filename and bytes.
+
+Repair 2 requires an exact top-level package inventory, an exact manifest
+member set and an exact Git-tracked member set. Every output directory is now
+traversed or created component by component with directory file descriptors
+and no-follow semantics; each newly created name is synced through its parent.
+Anchors are verified against the full schema, exact ledger semantics, filename
+and canonical serialized bytes. Raw, receipt and anchor destinations are
+preflighted under the ledger lock, and those three durable artifacts are
+written before the ledger entry is committed. The same nine-test suite now
+contains adversarial assertions for the second-review findings.
+
 ## Decision boundary
 
-This report does not accept its own repair. Independent re-review is required.
+This report does not accept its own Repair 2. Independent re-review is required.
 It grants neither collection nor execution authority. No C04 or EAM source was
 retrieved or opened, no model was run and no Research Result was created.

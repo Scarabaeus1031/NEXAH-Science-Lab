@@ -5,6 +5,7 @@ const html = fs.readFileSync(`${__dirname}/A0_ORIENTATION_CONTROLLER_BENCH.html`
 const code = html.slice(html.indexOf('  function interruptMasterAutoTour()'), html.indexOf("  qsa('#carrier"));
 const calls = [];
 const context = {
+  window: {},
   masterAutoTour: false,
   masterDemoState: {running: true, phaseIndex: 3, history: [{from: 'EDGE'}]},
   rootEngineState: {running: true}, pascalLensTimer: 1,

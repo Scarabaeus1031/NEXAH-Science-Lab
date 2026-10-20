@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="description" content="NEXAH Family Connection Atlas: ein bewegter Einstieg über Tessarec State Field und fünf unterscheidbare Leselinsen.">
   <title>NEXAH · Family Connection Atlas</title>
+  <link rel="stylesheet" href="a0-family-spatial-navigation.css">
   <link rel="stylesheet" href="a0-context-navigation.css?rev=connect-entry-20261014">
   <style>
     :root{--bg:#06121b;--panel:#0a1d2a;--panel2:#102a3a;--line:#29495b;--text:#e9f2f5;--muted:#96acb7;--cyan:#54d7ef;--gold:#efbd55;--pink:#ef6d9c;--mint:#69d39a;--violet:#b78aef;--red:#ed7777;--paper:#f4f0e7;--ink:#132630;--mono:ui-monospace,SFMono-Regular,Menlo,monospace}
@@ -47,10 +48,15 @@
     @media(max-width:1050px){.atlas-hero{grid-template-columns:1fr;min-height:auto}.atlas-portal{width:min(720px,100%);margin:auto}.atlas-hero-copy h1{font-size:clamp(4rem,12vw,7rem)}}
     @media(max-width:620px){.atlas-hero{padding:48px 16px}.atlas-hero-copy h1{font-size:3.8rem}.atlas-hero-ledger,.atlas-mode-rail{grid-template-columns:1fr}.atlas-field-core{width:80px;height:80px}.atlas-field-readout{align-items:flex-start;flex-direction:column}.atlas-transition{gap:8px;margin:14px 2px 22px;font-size:.49rem;letter-spacing:.06em}}
     @media(prefers-reduced-motion:reduce){.atlas-field:before,.atlas-field:after{animation:none}}
+    /* The complete map and its route selections are one control group. */
+    .route-group[data-route-group=map]{grid-column:1/-1;grid-template-columns:145px minmax(0,1fr);padding-bottom:9px;border-bottom:1px solid var(--line)}
+    .route-group[data-route-group=map] .route-buttons{align-items:center;gap:8px}
+    .route-group[data-route-group=map] button[data-route=all]{margin-right:6px;border-color:var(--gold)}
+    @media(max-width:780px){.route-group[data-route-group=map]{grid-template-columns:1fr}.route-group[data-route-group=map] .route-buttons{gap:7px}}
   </style>
 </head>
 <body>
-  <header class="top"><a class="brand" href="A0_RESEARCH_DESK.html">NEXAH <span>· A0 Science</span></a><nav><a href="A0_NEXAH_RESEARCH_METHOD.html">Research Method</a><a href="#start" id="openAtlasStart">Atlas Start</a><a href="#layers">F / T</a><a href="#sourceDeepDive">Source Field</a><a href="A0_TESSAREC_BLUE_BODY_LAB.html#coupled-views">Blue Body</a></nav></header>
+  <header class="top"><a class="brand" href="A0_RESEARCH_DESK.html">NEXAH <span>· A0 Science</span></a><nav><a href="A0_NEXAH_RESEARCH_METHOD.html">Research Method</a><a href="#start" id="openAtlasStart">Atlas Start</a><a href="#layers">F / T</a><a href="#spatial-navigation">Raumkarte · 3D</a><a href="A0_NUMBERMAGICK_GRID_RESEARCH.html#number-shell-lens">Magic Numbers</a><a href="A0_GAME_OF_WORLDS.html">Game of Worlds</a><a href="#sourceDeepDive">Source Field</a><a href="A0_TESSAREC_BLUE_BODY_LAB.html#coupled-views">Blue Body</a></nav></header>
   <main>
     <header class="atlas-hero" id="start">
       <div class="atlas-hero-copy">
@@ -230,6 +236,16 @@
     <div class="source-note"><strong>Source boundary:</strong> Die Seite verwendet die bestehende, archivierte <code>NEXAH_HTML_ORIENTATION_DEMONSTRATOR_SERIES</code>. Neun Kernpositionen und drei Erweiterungen sind als HTML-Autoritäten live. Vier weitere, im Bericht dokumentierte Kernpositionen besitzen keine erhaltene HTML-Quelle und bleiben als Source Gaps sichtbar. Der A0 Boundary Graph ist ein separat autorisierter, bestehender Companion und wird nicht in die Serie umgedeutet. Schnellansichten und Suchmarker sind nicht Teil dieser Record-Map. Es wurde nichts rekonstruiert.</div>
       </div>
     </details>
+    </section>
+    <section id="spatial-navigation" class="spatial-reader panel" aria-labelledby="spatial-title">
+      <div class="kicker">FAMILY · SPATIAL READER · LOCAL PROTOTYPE</div>
+      <h2 id="spatial-title">Wo bin ich – und wohin führt die nächste Fuge?</h2>
+      <p>Dieselbe Family-Auswahl, räumlich lesbar. Drehen verändert den Blick; ein Knoten wählt Family und Leseposition im bestehenden Atlas.</p>
+      <div id="familySpatialMount"><p>Raumansicht lädt. Die <a href="#map">bestehende Karte</a> bleibt nutzbar.</p></div>
+      <p><a href="A0_NUMBERMAGICK_GRID_RESEARCH.html#number-shell-lens">Game of Magic Numbers · dieselbe Zahl durch Mengen, Grid und komplexe Ebene lesen →</a></p>
+      <p><strong>Relations · Zauberflöte:</strong> Family wählen, dann eine weiße Verbindung oder einen ζ/θ/β-Stop. Dieselbe Family fährt durch ihre Lesepositionen; farbige Pfeile verbinden dagegen unterschiedliche Family-Rollen. Der Übergangs-Return prüft den Rückweg zum erfassten Ausgang. Noch keine Generationsachse oder neue wissenschaftliche Relation.</p>
+      <p>Neu: <strong>Blue Body</strong> und <strong>Dodeca Rot/Grün</strong> als Quellkörper-Landmarken. Die Family-Marker behalten ihre Adresse auf separaten Leser-Ringen. <a href="A0_BLUE_BODY_DODECA_COUNTERSHOT.html">Geometriequelle / Countershot →</a> · <a href="A0_TESSAREC_BLUE_BODY_LAB.html">Blue Body Lab →</a></p>
+      <p class="spatial-boundary">Drei vorhandene Lesepositionen: ζ Source · θ View · β Boundary. Platte, Polarringe und Zylinder sind deklarierte Navigationslayouts, keine abgeleitete Cathedral-Geometrie. Lesespur ≠ LIFE-Generation. Farben markieren Auswahl und Blickseite, keine neue Zahlenzuordnung.</p>
     </section>
   </main>
   <script src="assets/a0-tessarec-big-blue-envelope-comparator-r1.js"></script>
@@ -412,7 +428,7 @@
       function frame(now){if(!running)return;if(!last)last=now;carry+=now-last;last=now;if(carry>=480){const steps=Math.floor(carry/480);carry%=480;slider.value=String((Number(slider.value)+steps)%48);update()}requestAnimationFrame(frame)}
       const pause=()=>{running=false;last=0;carry=0;play.textContent='SYNC START'};slider.addEventListener('input',update);play.addEventListener('click',()=>{running=!running;play.textContent=running?'SYNC PAUSE':'SYNC START';last=0;carry=0;if(running)requestAnimationFrame(frame)});document.querySelectorAll('[data-sync-open]').forEach(button=>button.addEventListener('click',()=>{const mode=button.dataset.syncOpen;if(mode==='family'){selectFamily(currentFamily);history.replaceState(null,'',location.pathname+location.search+'#map');return}if(mode==='sequence'){selectStage(currentStage);history.replaceState(null,'',location.pathname+location.search+'#map');return}openOverview(mode)}));window.A0Sync={update,pause,setState(index){slider.value=String(Math.max(0,Math.min(47,index)));update()}};update();if(!reduced){running=true;play.textContent='SYNC PAUSE';requestAnimationFrame(frame)}
     }
-    function renderRoute(id){selectedRoute=id;selectedFamily=null;selectedStage=null;const route=routes[id],items=routeInstruments(route),mode=id==='all'?'family':id==='joints'||id==='ghost'?'joint':'sequence';setOverviewMode(mode,false);document.querySelectorAll('#routeRail button').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.route===id)));document.querySelectorAll('.family-card').forEach(b=>b.setAttribute('aria-pressed','false'));document.querySelectorAll('#stageRail button,#timelineRail button').forEach(b=>b.setAttribute('aria-pressed',String(Boolean(route.stages&&route.stages.includes(b.dataset.stage)))));detail(route,`${route.kind==='focus'?'FORSCHUNGSFOKUS':route.kind==='instrument'?'INSTRUMENT':'ROUTE'} · ${route.label}`);draw();if(route.stages){$('layers').open=true;showLayer('sequence')}renderInstrumentCards($('allInstruments'),items,`${route.kind==='focus'?'Fokus':'Route'} · ${route.label}`,route.chain);setComparisonFrom(items)}
+    function renderRoute(id){selectedRoute=id;selectedFamily=null;selectedStage=null;const route=routes[id],items=routeInstruments(route),mode=(id==='all'||route.kind==='route')?'family':id==='joints'||id==='ghost'?'joint':'sequence';setOverviewMode(mode,false);document.querySelectorAll('#routeRail button').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.route===id)));document.querySelectorAll('.family-card').forEach(b=>b.setAttribute('aria-pressed','false'));document.querySelectorAll('#stageRail button,#timelineRail button').forEach(b=>b.setAttribute('aria-pressed',String(Boolean(route.stages&&route.stages.includes(b.dataset.stage)))));detail(route,`${route.kind==='focus'?'FORSCHUNGSFOKUS':route.kind==='instrument'?'INSTRUMENT':'ROUTE'} · ${route.label}`);draw();if(route.stages){$('layers').open=true;showLayer('sequence')}renderInstrumentCards($('allInstruments'),items,`${route.kind==='focus'?'Fokus':'Route'} · ${route.label}`,route.chain);setComparisonFrom(items)}
     function selectFamily(id){setOverviewMode('family',false);selectedFamily=id;selectedStage=null;const f=families[id],items=instruments.filter(x=>isLive(x)&&x.families.includes(id)),steps=[['APERTURE TYPE',f.aperture],['SELECTS',f.selects],['WHERE','Position · Frame · Blickrichtung'],['WHEN','Zeitpunkt · Phase · Dauer'],['CONDITIONS','Medium · Skala · Kanal/Sensor · Schwelle · Kopplung'],['LEDGER','R/L/I/U + Residuum hält Auswahl und Verlust fest'],['HTML',`${items.length} vorhandene Instrumente verwenden diese Apertur`]];detail({title:`${id} · ${f.name}`,summary:f.question,chain:f.short,steps,boundary:'Diese Family ist eine funktionale Apertur. Sie öffnet eine bestimmte Lesart des Trägers und hält andere Eigenschaften zurück; sie ist weder der vollständige Gegenstand noch mit den anderen Aperturen identisch.'},'FAMILY APERTURE');document.querySelectorAll('.family-card').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.family===id)));document.querySelectorAll('#stageRail button,#timelineRail button').forEach(b=>b.setAttribute('aria-pressed','false'));draw();showLayer('families');renderInstrumentCards($('allInstruments'),items,`${id} · ${f.aperture}`,f.question);setComparisonFrom(items)}
     function selectEdge(id){const e=edges[id];selectedFamily=null;selectedStage=null;const items=instruments.filter(x=>isLive(x)&&x.families.includes(e.a)&&x.families.includes(e.b));detail({title:e.label,summary:`Deklarierte Verbindung ${e.a} → ${e.b}.`,chain:`${e.a} → ${e.b} · ${e.status.toUpperCase()}`,steps:[['SOURCE',families[e.a].name],['TARGET',families[e.b].name],['RELATIONSSTATUS',e.status],['HTML',`${items.length} verifizierte gemeinsame Zuordnungen`]],boundary:e.status==='open'?'Diese Brücke ist eine offene Forschungsfrage und kein positives Resultat.':'Der Status gilt nur innerhalb der gebundenen Quellen und Träger.'},'RELATION LAYER');draw();showLayer('families');renderInstrumentCards($('allInstruments'),items,`${e.a} → ${e.b} · ${e.label}`,`Relationsstatus ${e.status} · nur Records mit beiden Family-Zuordnungen`);setComparisonFrom(items)}
     function showLayer(id){document.querySelectorAll('.layer-view').forEach(v=>v.hidden=v.id!==`${id}Layer`);document.querySelectorAll('#layerRail button').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.layer===id)))}
@@ -424,8 +440,8 @@
     function loadInstrument(item,slot='A'){if(!isLive(item))return;selectedInstruments[slot]=item;const url=instrumentUrl(item),key=instrumentKey(item);$(`instrumentFrame${slot}`).src=url;$(`instrumentFrame${slot}`).title=`${item.title} HTML Instrument · Fenster ${slot}`;$(`viewerTitle${slot}`).textContent=item.title;$(`viewerSummary${slot}`).textContent=item.summary;$(`viewerOpen${slot}`).href=url;const meta=$(`viewerMeta${slot}`);meta.replaceChildren();[...item.stages,...item.families].forEach(x=>{const s=document.createElement('span');s.textContent=x;meta.append(s)});$(`select${slot}`).value=key;document.querySelectorAll('.instrument-card').forEach(c=>{const selected=c.dataset.file===instrumentKey(selectedInstruments.A)||c.dataset.file===instrumentKey(selectedInstruments.B);c.setAttribute('aria-pressed',String(selected))});if($('sourceDeepDive').open)$(`viewer${slot}`).open=true}
     function setComparisonFrom(items){const live=items.filter(isLive);if(!live.length)return;loadInstrument(live[0],'A');loadInstrument(live[1]||live[0],'B')}
     function populateComparisonMenus(){const live=instruments.filter(isLive);['A','B'].forEach(slot=>{const select=$(`select${slot}`);live.forEach(item=>{const option=document.createElement('option');option.value=instrumentKey(item);option.textContent=`${item.a0?'A0':item.ext?'Extension':String(item.pos).padStart(2,'0')} · ${item.title}`;select.append(option)});select.onchange=()=>loadInstrument(live.find(item=>instrumentKey(item)===select.value),slot)})}
-    const routeGroups=[['overview','Übersicht'],['route','Methodenrouten'],['focus','Forschungsfokus'],['instrument','Instrument']];
-    routeGroups.forEach(([kind,label])=>{const group=document.createElement('div');group.className='route-group';const heading=document.createElement('span');heading.textContent=label;const buttons=document.createElement('div');buttons.className='route-buttons';buttons.setAttribute('role','group');buttons.setAttribute('aria-label',label);Object.entries(routes).filter(([,route])=>route.kind===kind).forEach(([id,route])=>{const button=document.createElement('button');button.type='button';button.dataset.route=id;button.setAttribute('aria-pressed','false');button.textContent=route.label;button.onclick=()=>renderRoute(id);buttons.append(button)});group.append(heading,buttons);$('routeRail').append(group)});
+    const routeGroups=[['map','Gesamtkarte & Gruppierungen'],['focus','Forschungsfokus'],['instrument','Instrument']];
+    routeGroups.forEach(([kind,label])=>{const group=document.createElement('div');group.className='route-group';group.dataset.routeGroup=kind;const heading=document.createElement('span');heading.textContent=label;const buttons=document.createElement('div');buttons.className='route-buttons';buttons.setAttribute('role','group');buttons.setAttribute('aria-label',label);Object.entries(routes).filter(([,route])=>kind==='map'?['overview','route'].includes(route.kind):route.kind===kind).forEach(([id,route])=>{const button=document.createElement('button');button.type='button';button.dataset.route=id;button.setAttribute('aria-pressed','false');button.textContent=route.label;button.onclick=()=>renderRoute(id);buttons.append(button)});group.append(heading,buttons);$('routeRail').append(group)});
     Object.entries(families).forEach(([id,f])=>{const b=document.createElement('button');b.type='button';b.className='family-card';b.dataset.family=id;b.setAttribute('aria-pressed','false');b.innerHTML=`<b>${id}</b><strong>${f.aperture}</strong><span>${f.name} · ${f.question}</span>`;b.onclick=()=>selectFamily(id);$('familyGrid').append(b);const e=document.createElement('button');e.type='button';e.dataset.family=id;e.setAttribute('aria-pressed',String(id===elevatorFamily));e.textContent=id;e.title=f.aperture;e.onclick=()=>{elevatorFamily=id;renderElevator()};$('elevatorFamilyRail').append(e)});
     stages.forEach(s=>{const b=document.createElement('button');b.type='button';b.dataset.stage=s.id;b.setAttribute('aria-pressed','false');b.innerHTML=`<b>${s.id}</b><span>${s.title}</span><small>${s.symbol}</small>`;b.onclick=()=>selectStage(s.id);$('stageRail').append(b);const t=b.cloneNode(true);t.className='timeline-step';t.onclick=()=>selectStage(s.id);$('timelineRail').append(t)});updateTemporalReadout();
     const openOverview=mode=>{setOverviewMode(mode);const hash=mode==='tessarec'?'#tessarec':mode==='sync'?'#start':'#map';history.replaceState(null,'',location.pathname+location.search+hash)};
@@ -440,10 +456,31 @@
     $('tessarecFieldMount').append(document.querySelector('.elevator-witness'));
     $('openTessarecField').onclick=()=>openOverview('tessarec');
     $('backToElevator').onclick=()=>openOverview('elevator');
+    const requestedSpatial=location.hash==='#spatial-navigation';
+    const notifySpatial=()=>queueMicrotask(()=>document.dispatchEvent(new CustomEvent('a0:family-atlas-selection',{detail:window.A0FamilyAtlasBridge.snapshot()})));
+    window.A0FamilyAtlasBridge={
+      snapshot:()=>JSON.parse(JSON.stringify({families,edges,stops:elevatorStops,routes:Object.fromEntries(Object.entries(routes).map(([id,r])=>[id,{label:r.label,nodes:r.nodes,edges:r.edges}])),family:selectedFamily,route:selectedRoute,stage:selectedStage,mode:overviewMode,elevatorFamily,stop:elevatorStop})),
+      apply(state){
+        if(families[state.elevatorFamily])elevatorFamily=state.elevatorFamily;
+        if(state.family&&families[state.family]){if(selectedFamily!==state.family)selectFamily(state.family);elevatorFamily=state.family}
+        else if(state.stage&&stages.some(s=>s.id===state.stage))selectStage(state.stage);
+        else if(routes[state.route])renderRoute(state.route);
+        if(elevatorStops[state.stop])elevatorStop=state.stop;
+        if(['sync','family','sequence','joint','elevator','tessarec'].includes(state.mode))setOverviewMode(state.mode,false);
+        if(state.mode==='elevator')renderElevator();notifySpatial();
+      },
+      selectEdge(id){if(edges[id]){selectEdge(id);notifySpatial()}}
+    };
+    document.addEventListener('click',event=>{if(event.target.closest?.('#familyMap,#familyGrid,#axisSwitch,#routeRail,#stageRail,#timelineRail,#elevatorFamilyRail,#elevatorShaft,#tessarecWitnessRoute,[data-sync-open]'))notifySpatial()});
+    document.addEventListener('keydown',event=>{if(['Enter',' '].includes(event.key)&&event.target.closest?.('#familyMap'))notifySpatial()});
     const requestedTessarec=location.hash==='#tessarec';
-    initAtlasIntro();initTessarecWitness();initBigBlueComparator();initSyncDesk();populateComparisonMenus();renderInstrumentCards($('allInstruments'),instruments);renderRoute('all');setOverviewMode(requestedTessarec?'tessarec':'sync');history.replaceState(null,'',location.pathname+location.search+(requestedTessarec?'#tessarec':'#start'));
+    initAtlasIntro();initTessarecWitness();initBigBlueComparator();initSyncDesk();populateComparisonMenus();renderInstrumentCards($('allInstruments'),instruments);renderRoute('all');setOverviewMode(requestedTessarec?'tessarec':'sync');history.replaceState(null,'',location.pathname+location.search+(requestedSpatial?'#spatial-navigation':requestedTessarec?'#tessarec':'#start'));
   })();
   </script>
+  <script src="assets/a0-tessarec-blue-body-v1.js"></script>
+  <script src="assets/a0-blue-body-dodeca-countershot-v1.js"></script>
+  <script src="a0-family-spatial-bodies.js"></script>
+  <script src="a0-family-spatial-navigation.js"></script>
   <script src="a0-context-navigation.js?rev=human-home-20261014"></script>
 </body>
 </html>

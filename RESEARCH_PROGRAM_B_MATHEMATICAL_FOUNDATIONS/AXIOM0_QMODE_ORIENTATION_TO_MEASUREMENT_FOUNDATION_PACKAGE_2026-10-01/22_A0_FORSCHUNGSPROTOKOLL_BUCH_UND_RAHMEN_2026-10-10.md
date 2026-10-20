@@ -2,6 +2,10 @@
 
 Datum der Anlage: `2026-10-10`
 
+Letzte dokumentarische Fortschreibung: `2026-10-20` · scoped Faden-Closeout.
+Neuer Einstieg: [Bench, Tube, NumberMagick und offene Aufgaben](#documentation-closeout-20261020).
+Historische Abschnitte und ihre damaligen Zustände bleiben erhalten.
+
 Status:
 
 ```text
@@ -15,6 +19,156 @@ OPERATIONAL_EFFECT_NONE
 ```
 
 Bestehende Identität: `NEXAH_AX0_QMODE_FOUNDATION_PACKAGE`
+
+<a id="documentation-closeout-20261020"></a>
+
+## 2026-10-20 — Bench, Tube und NumberMagick dokumentarisch zusammengeführt
+
+Der sichtbare Gesprächsfaden wird als Dokumentationsschnitt abgeschlossen,
+nicht als abgeschlossene Forschung oder abgenommene Gesamtmaschine. Der
+Owner beauftragt die Pflege von Protokoll, Builder Log, Handbuch,
+Werkzeugübersicht, Mission-Control-Rücklauf und offenen Aufgaben. Vorhandene
+Records bleiben maßgeblich; historische Belegstände werden nicht überschrieben.
+
+### Was implementiert und was nur gelesen wurde
+
+| Bereich | Erreichter Stand | Begrenzung |
+|---|---|---|
+| Blue/Pink → Bench-Maske | Native Blue/Pink-Uhr führt den geometrischen Maskentick; Connect, ACK/Readback, Step, Pause, Disconnect und Fehler-HOLD sind implementiert | Kein gemeinsamer wissenschaftlicher Träger, keine Gesamt-Return-Garantie; Browserabnahme offen |
+| Bench-Tour | Sechs bestätigte Kopplungsschritte in der vorhandenen Tour, insgesamt 56 Stationen und neun Kapitel | Tourkapitel sind weder neun Themen noch sieben Functional Families; kein fertiges Cockpit |
+| Shared View / TESA | Drei Signalprojektionen aus derselben Signalzeit, feste TESA-Referenzadressen und deklarierte Observer-Projektion | Gewichte UNBOUND; Deckkraft ist kein Kantengewicht; kein 28→32-Adressdecoder |
+| Teller und Zylinder | Sechs MUINDI-Teller, zwei Gruppen von drei, starre Rotation mit periodischer Naht und fester Materialhöhe | Nicht gleich 6|1|6; Siebener-Stapel und erinnerte verdrehte Fläche noch nicht lokalisiert |
+| Tube-Herkunft | Historischer Feld-Kohärenzgenerator, vorhandener endlicher C10-/Gate-Return und Zylinderansicht nebeneinander gesichert | Keine Operatoridentität; exakte ORION-era Implementierung und gemeinsamer Verteilervertrag offen |
+| NumberMagick | Verdichtete Leselinie: Quelle → typisierte Adresse → Gruppe/Rolle → Ansicht → Zusatzinformation → Return | Redaktionelle Synthese, kein neuer Satz oder globaler Farbdecoder; Papers unverändert |
+| Ideenparkplatz | Neun kontextgebundene Gedanken in bestehenden Feldnotizen gesichert | Keine automatische Aufgabe, Study oder Forschungsaktivierung |
+
+Die exakten Beispiele bleiben bescheiden: 204/1000=2040/10000 erhält eine
+normierte Position; 11537=20·576+17 beschreibt eine QRT20-Adresse;
+14357=20·717+17 macht 717 zum Quotienten. Das Bildwort 616, der CON–DAO-
+Träger 6|1|6 und geometrische Tellerzahlen sind verschiedene Aussagen.
+Owner-Farbrollen, ị/}{, „gelber Chor“, Matroschka-Ebenen und lokale Trinities
+bleiben mit ihrem Kontext erhalten, nicht als neue normative Farblehre.
+
+### Prüfstand und Verantwortung
+
+Die [21 vorhandenen Engineering-Returns und zwölf ausgewählten Visuals](A0_BOOK/results/a0-thread-science-nsn-return-2026-10-20.json)
+bilden einen thematischen Quellnachweis, kein vollständiges Chat-/Bildarchiv.
+Die dortigen Tests sind datierte Softwareprüfungen; sie werden durch diesen
+Text nicht nachträglich zu Browser-, Human-Utility- oder wissenschaftlichen
+Ergebnissen. Ein neuer [Closeout-Nachweis](A0_BOOK/results/a0-documentation-closeout-2026-10-20.json)
+bindet den jetzigen Dokumentationsstand und die tatsächlich erneut ausgeführten
+Prüfungen. Bereits vor diesem Closeout bestanden Source Graph und A0-Binder;
+Mission Control hatte 18 Quell-/Manifest-Abweichungen. Der Nachweis trennt
+Ausgangsstand, gezielte Pflege und verbleibende Konflikte.
+
+NSN erschließt Quellen und Beziehungen; Originalrecords tragen die Belege.
+A0 Science Desk integriert Stand und Grenzen. Der Lab Register behält
+Study-Identität und Lifecycle, Mission Control Priorität, Aktivierung und
+Freigabe. M-PUB01 bleibt die eine operative Priorität; keine neue Forschung,
+kein neuer Carrier, keine Family, keine Publikation und kein Push folgen.
+
+### Offene Arbeit und Wiedereinstieg
+
+Die [lokalen DOC-01 bis DOC-12 im bestehenden Backlog](24_A0_RESEARCH_BACKLOG_AND_OPEN_JOINTS_2026-10-10.md#documentation-followups-20261020)
+trennen Abnahme, Integrität, Quellenrückgewinnung, Vertragsdesign und
+bewusstes Parken. Sie sind keine neuen A0-BL-Study-IDs und keine aktive Queue.
+Neue Einfälle zuerst in den [Ideenparkplatz](A0_BOOK/FIELD_NOTES_A0.md) ablegen;
+erst nach ausdrücklicher Auswahl in bestehende Arbeit überführen.
+
+Einstiege: [Science Desk](A0_BOOK/A0_RESEARCH_DESK.html#numbermagick-thread-return-20261020)
+· [Builder Log](A0_BOOK/A0_BUILDER_LOG.html#documentation-closeout-20261020)
+· [NumberMagick](A0_BOOK/A0_NUMBERMAGICK_GRID_RESEARCH.html#address-context-return)
+· [NSN](../../SCIENCE_LAB/NAVIGATION/APP/index.html#a0-orientation-evidence).
+
+<a id="documentary-return-20261018"></a>
+
+## 2026-10-18 — Theory, Numbermagick, Paper E und gemeinsamer Verlauf
+
+**Selbstbeschreibung / Außenwirkung:** Die Owner-bestätigte Ergänzung im [Science Desk](A0_BOOK/A0_RESEARCH_DESK.html#nexah-a0-context) hält drei Ebenen zusammen: NEXAH als Kuratieren, Gestalten und Untersuchen; A0 als mathematisch-methodischer Teilrahmen; konkrete Instrumentangebote und präzise Fragen nach Erhaltung, Mehrdeutigkeit und nötiger Rekonstruktionsinformation. Mission-Control-Selbstbeschreibung und Außenwirkungsdokument sind Quellen, keine neu erfundenen Identitäten. Die [Domainoptionen](A0_BOOK/A0_RESEARCH_DESK.html#a0-publication-options) sind nur eine Empfehlung zur Auswahlpublikation, nicht angenommenes Hosting oder Release: nexah.de erklärt und erschließt A0, nexahedron.com könnte ausgewählte Interaktionen tragen, scarabaeus1033.net bleibt vorerst ohne zugewiesene Rolle. Keine Website geändert, keine Vollveröffentlichung, kein neuer Finding-Record.
+
+**Human-View-Nachtrag:** Auf ausdrücklichen Owner-Auftrag wird die bestehende Aperture Journey zu vier deutschsprachigen, interaktiven Stationen umgebaut. Echte Blue-Body-/Blue-Pink-Instrumente werden einzeln und auf Klick in vereinfachter Darstellung gezeigt; keine Modellkopie und keine gemeinsame Zustandsmaschine. Alter Fragen-/Album-Loop bleibt nur als historischer Assetbestand erhalten. 80 aktuelle HTML-/Controller-/DOM-Mockchecks und 225 Crosswalk-/Storyboardchecks bestanden; Browser-, Mobile- und Nutzenabnahme offen. [Science-Desk-Return](A0_BOOK/A0_RESEARCH_DESK.html#human-journey-return). Die Orientierungsmap-Umgestaltung bleibt geparkt. Keine Forschungsaktivierung, keine neue Identität oder Evidenzaufwertung.
+
+Der Owner bittet, die im laufenden Gespräch über mehrere Tage entwickelten
+Zusammenhänge nicht erneut zwischen Instrumenten und Einzelnotizen zu
+verlieren. Dieser Eintrag verdichtet den sichtbaren Gesprächskontext und die
+vorhandenen Quellen; er ist kein vollständiger Chat-Export und behauptet keine
+nachträglich ausgeführten Experimente.
+
+| Zeitraum / Quellenstand | Erhaltener Zusammenhang | Maßgeblicher Einstieg |
+|---|---|---|
+| 13.–16.10. | Return-/Projektionsarbeit, vorhandene Kontrollen, Grid- und Instrumentenintegration; wissenschaftliche und technische Aussagen getrennt | [Paper-Workspace](32_A0_FINDINGS_AND_PAPER_WORKSPACE_2026-10-11.md), vorhandene Reports und deren datierte Grenzen |
+| 17.10. | Storyboard, Human-Crosswalk, Bench-Instrumente, Faltungs-/Schattenansichten, Lesepfad und große Map; nächstes Quellfugen-Paket geparkt | [Builder Log, Einträge 01–27](A0_BOOK/A0_BUILDER_LOG.html), insbesondere Eintrag 26; Prüfzahlen bleiben bei ihren ursprünglichen Belegen |
+| 18.10. | Visual-Intakes und Quellenabgleich; Zahl–Operator–Darstellungsfeld; Theory-to-method-Synthese im bestehenden Paper E | [Paper E](A0_BOOK/A0_NEXAH_FAMILY_METHOD_WHITE_PAPER.html#theory-to-method), [Numbermagick](../../NUMBER_OPERATOR_ARCHITECTURE_CONCORDANCE_AUDIT/09_CURRENT_RELEVANCE_TO_A0_TESSAREC_IHARA_2026-10-13.md#number-operator-field-20261018) |
+
+**Inhaltliche Verdichtung:** Orientierung ist das übergreifende Anliegen;
+Numbermagick untersucht sie im Zahlenraum. Integer, Ziffernwort, Primindex,
+Faktor-/Exponentenadresse, Restklasse, Ansicht und Return sind verschiedene
+Zugänge. Farben, Nullen, Einsen, Pink-Q, Ghostlines, Puls, Schlieren und
+Schatten bleiben mit ihren lokalen Legenden und den offenen Owner-Lesarten
+auffindbar. Wiederkehrende Farbe oder Zahl stellt keine globale Identität her.
+
+Paper E unterscheidet jetzt Theorieidee, spezifizierte Methode, ausführbare
+Fallbeispiele und offene Forschung. Relationen als Quellen weiterer
+Relationen über Generationen sind als Modell erläutert. Die ersten sieben
+Primes `2,3,5,7 | 11,13,17` liefern die gewählte 4+3-Gruppierung; der
+Vorschlag `4:3:1:1` besitzt noch keine bestimmten zusätzlichen „1“-Rollen
+oder Zeitregel. Die originalen Theory- und Intakequellen bleiben erhalten.
+
+**Zuständigkeiten:** Research Log hält die Entwicklung fest; Builder Log den
+Bau- und Prüfstand; der kanonische Backlog die offenen Forschungsaufgaben und
+Gates; Numbermagick den fortschreibbaren Zahlenstrang; Papers die verdichteten
+Aussagen. Der Science Navigator erhält eine dokumentarische Projektion dieser
+bestehenden Quellen, keine neue Study oder zweite Ergebnisliste.
+
+Die bestehende Blue-Body-Seitentour zeigt nun zuerst die räumliche Drehung
+und spielt den vorhandenen 48er-Sequencer ab. Sichtbare Kamera-Regler erlauben
+Anhalten, manuelles Drehen/Kippen und Startansicht, ohne die Quelladresse zu
+ändern. Der [Science-Desk-Return](A0_BOOK/A0_RESEARCH_DESK.html#blue-body-feature-demo-return)
+nennt die Kamera-/Mock- und Fake-Clock-Prüfgrenzen.
+
+Die Map-Führung wurde nach dem Owner-Screenshot überarbeitet:
+Kacheln öffnen Detailfenster mit gezieltem Original-Link; visueller Leseschlüssel,
+Linien-/Standortlegende, mobile Kartenliste und kompakterer Einstieg sind ergänzt.
+[Science-Desk-Return](A0_BOOK/A0_RESEARCH_DESK.html#map-readability-return)
+trennt die DOM-/Mock-Prüfung von der weiter offenen visuellen Browserabnahme.
+Die lokale file://-Seite war für die Browsersteuerung gesperrt; kein Workaround.
+
+Der Sammelpunkt enthält außerdem einen
+[Rückwärts-Lesepfad mit sechs Entwicklungsstationen](A0_BOOK/A0_LIVING_BLUEPRINT.html#tessarec-development)
+und [Bildspuren mit Quellenstatus](A0_BOOK/A0_LIVING_BLUEPRINT.html#tessarec-visual-provenance).
+Die vorhandene Korrektur „drei Aufnahmen, ein Check-63-Artefakt“ bleibt erhalten.
+Neun lokale Referenzen aus den angrenzenden Flügel-/Pentagon-Strängen sind
+erreichbar und hash-identisch; ihre Identität mit dem Tessarec-Carrier wird
+nicht daraus abgeleitet. Übrige Chatbilder sind noch nicht lückenlos zugeordnet.
+
+Der bestehende [Crosswalk enthält nun den Tessarec-Sammelpunkt](A0_BOOK/A0_LIVING_BLUEPRINT.html#tessarec-module):
+Überblick / registrierter Master, Paper F / Erklärfigur, vorhandene Instrumente
+und Prüfbelege / Science-Desk-Return. MOD:TESSAREC und der registrierte Master
+Q Iota Pearl bleiben unverändert. Fünf zugehörige Seiten zeigen den Modulkontext;
+keine neue Modulidentität, keine neue Engine und keine Evidenzübertragung.
+
+Die HTML-Führung ist nun redaktionell in vier Hauptzugänge gegliedert:
+A0 Buch / Lesen, Crosswalk / Verstehen, Werkstätten / Nutzen und Science Desk /
+Einordnen. Der gemeinsame Wegweiser ordnet 53 eigenständige HTMLs eindeutig
+einem primären Navigationsbereich zu, ohne Dateien oder Identitäten zu ändern.
+F1–F7 bleiben übergreifende funktionale Rollen. Details und Prüfgrenze stehen im
+[Science-Desk-Return](A0_BOOK/A0_RESEARCH_DESK.html#navigation-hierarchy-return).
+
+Der [Crosswalk / Living Blueprint](A0_BOOK/A0_LIVING_BLUEPRINT.html#a0-map-home)
+ist als erklärender Instrumentenzusammenhang oben im Desk verlinkt.
+[Kerndokumente & Policies](A0_BOOK/A0_RESEARCH_DESK.html#core-documents)
+ordnet die vorhandenen Grundlagen. Bewertungen lesen zunächst das Anliegen
+und den Crosswalk, prüfen anschließend Methode, Umsetzung und passende
+Originalbelege; die erklärende Karte ist kein Ersatz für Evidenz.
+
+Der zentrale wissenschaftliche Rücklauf ist der A0 Science Desk: Er bündelt
+Ergebnisstatus, Achievements, Grenzen und nächste Gates. Originalbelege
+behalten ihre Autorität; Logs und Navigator sind keine konkurrierenden Desks.
+
+Die 16 F-A0-Records bleiben unverändert. Keine neue wissenschaftliche
+Ausführung, Aktivierung, Neuheitsadoption oder Publikationsfreigabe. Die
+Bench-Baupause bleibt bestehen. Historische Reader-/Binder-Hashes werden
+nicht pauschal auf den jetzigen Arbeitsstand umgeschrieben.
 
 ## Wozu dieses Blatt da ist
 
@@ -1737,4 +1891,100 @@ Rückbindungen auf dieselben A0-Quellen.
 
 Status:
 `NAVIGATION_CONSOLIDATION / NO_IDENTITY_MERGE / NO_NEW_RELATION / NO_CLAIM_CHANGE`.
+
+<a id="engineering-return-20261017"></a>
+
+### 2026-10-17 — Gesamtkarte, Erklärmaschine und Human-Crosswalk
+
+Der Owner beauftragt nach dem Instrumentbau zunächst eine gesicherte Baupause
+mit Builder-Log, danach ausdrücklich die HTML-Fassung der Gesamtkarte,
+ihre 3+1-Rückseite und das vollständige Human-Crosswalk-Arbeitspaket.
+Der vorliegende Schritt gleicht Desk, Beschreibungen, Theorie-Arbeitsfassung,
+Protokoll und Findings-Workspace mit diesem tatsächlichen Stand ab. Es ist
+ein dokumentarischer Engineering-Return, kein neuer wissenschaftlicher Run.
+
+Die Gesamtkarte wird nicht auf Quelle → Return verkürzt. Ihre sieben
+bedienbaren Szenen verbinden Relation; Innen/Außen mit Boundary und Plugs;
+Matroschka mit Hüllen/Lippen; Phase/Breathing und historische π-Ringe;
+Apertur/Projektion/Schatten; die Emergenzfrage; schließlich Ledger/Return.
+Die Frage ist, welche Beziehungen beim Rahmen-, Skalen- oder Ansichtswechsel
+erhalten, verändert oder unsichtbar werden. π-Umlauf und topologische
+Verklebung sind nicht automatisch dieselbe Regel. Matroschka bezeichnet keine
+nachgewiesene Identität physikalischer Maßstäbe; Schattenkonturen sind keine
+zusätzlichen Quellkörper.
+
+Die Rückseite ordnet Struktur, Kopplung/Bewegung und Sichtbarkeit als drei
+editoriale Lesebereiche, begleitet von Ledger/Return als Querbeziehung.
+Diese 3+1-Gruppierung ist weder ein neuer Körper noch der mathematische
+Koinzidenz-/Seam-Begriff des Lissajous-Returns aus Check 105. Die sieben
+Szenen, sieben Human-Fragen und funktionalen Families bleiben verschieden.
+
+#### Was jetzt tatsächlich funktioniert
+
+Sechs Szenen führen über einen festen, versionierten Linkvertrag in
+bestehende Human-Fragen und Blueprint-Abschnitte. Die Emergenz-Zuordnung
+bleibt sichtbar offen. Die Journey wählt die jeweilige Frage über ihren
+eigenen Controller aus, pausiert automatische Schleifen und lädt kein
+Live-iframe ungefragt. Blueprint-Links öffnen deklarierte Abschnitte,
+keine nur behauptete dynamische Stationsauswahl.
+
+Ein- und Rückweg tragen Szene 1–7, lokalen Reglerwert 0–100 und optional
+einen der vier bekannten 3+1-Bezüge. Zielrolle und Human-Frageschlüssel
+werden getrennt validiert. Es gibt keine frei übernommene Rückadresse,
+keinen gemeinsamen Controller-Bus und keine Übertragung menschlicher
+Antworten in das Modell. Der aktuelle Abreisekontext wird für Browser-Zurück
+in der Storyboard-URL festgehalten, ohne Shared Storage.
+
+Im simulierten DOM besteht der vertikale Schnitt Szene 5 / 77 →
+Human 03 „What am I not seeing?“ → neu montierte Szene 5 / 77.
+Eine Wiederholung mit Wert 23 und Dokumentneuladen über die Abreise-URL
+besteht ebenfalls. Das prüft die tatsächlichen Controller-/Parserpfade,
+nicht reales Browser-Back/BFCache oder menschlichen Erkenntnisgewinn.
+
+Daneben bleiben die vorausgehenden Instrumentresultate unterscheidbar:
+ein Haus mit zwei Ledgeransichten desselben 48er Bestands; 128 Carrierkanten
+gegenüber 122 Darstellungskanten; echtes Bitkomplement gegenüber ordinaler
+Janus-Folge; die 60-Schritt-Partitur gegenüber dem 48er CRT-Adressraum;
+räumlicher Schlierenkontrast gegenüber noch nicht gebautem zeitlichem Echo.
+
+#### Erkenntnisgewinn und Grenze
+
+Der neue Stand ist eine ausführbare **Erklär- und Rückbindungsarchitektur**:
+Bildidee, lokale Berechnung, Quellinstrument und noch fehlende Verschaltung
+werden nicht nur genannt, sondern in der Oberfläche getrennt. Insbesondere
+kann der Mensch zwischen einer Frage und einem Modell wechseln, ohne
+Fragenummer, Zelladresse oder Bedeutung gleichzusetzen.
+
+Das sind belastbare Aussagen über die deklarierte Implementierung.
+Sie erhöhen weder die Zahl der 16 F-A0-Findings noch deren Evidenzklasse.
+Die Mitte/Unterschied-Rechnung zeigt bekannte inverse Algebra.
+Ein stärker sichtbares Muster bei unverändertem Kantenbestand ist hier
+ein Darstellungseffekt, kein Nachweis eines emergenten Mechanismus.
+Human Utility, externe Neuheit und eine universelle Feldtheorie sind nicht
+etabliert.
+
+#### Prüfstand und offene Übergänge
+
+Die vier lokalen Storyboard-/Crosswalk-/Journey-/Blueprint-Suiten bestehen
+mit 624 + 242 + 126 + 167 = 1159 Checks. Das ist ein Bündel von
+Engineering-Prüfungen, kein gemeinsamer naturwissenschaftlicher Run.
+Der [maschinenlesbare Engineering-Return](A0_BOOK/assets/a0-storyboard-human-crosswalk-engineering-return-v1.json)
+benennt Suite, Scope und Quellhashes; der
+[Builder-Log](A0_BOOK/A0_BUILDER_LOG.html#human-crosswalk-implementation)
+bewahrt das Arbeitspaket und die einzelnen Bauphasen.
+
+Offen bleiben reale Browser-/Mobil-/Fokus-/Reduced-Motion-Abnahme,
+Owner-Bedeutungsabnahme, eine spezifische Human-Emergenz-Bindung,
+Ledger → 7/8-Demonstrator → typisierter Return, instrumentübergreifendes
+Day/Night, zeitliche Echos und abgeleitete Ghostgon-/Antipodenregeln.
+Die Dateiautomation war gesperrt; dies wurde nicht umgangen.
+
+Zusätzlich erfasst der Dokumentationsabgleich die bereits vorher vorhandenen
+sechs globalen Currentness- und acht Binder-Hash-Abweichungen. Neu angefasste,
+vorher gültige Quellen dürfen scoped nachgeführt werden; alte Diskrepanzen
+werden weder gelöscht noch durch einen allgemeinen PASS verdeckt.
+
+Status:
+`ENGINEERING_RETURN / EDITORIAL_CROSSWALK / VISUAL_ACCEPTANCE_OPEN /
+NO_NEW_F_A0 / NO_STUDY / NO_PUBLICATION / NO_MECHANISM_CLAIM`.
 

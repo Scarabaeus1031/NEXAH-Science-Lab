@@ -4,11 +4,11 @@
 
 **Version:** `1.1`
 
-**Maintained through:** `2026-10-14`
+**Maintained through:** `2026-10-20` · scoped A0 documentation addendum
 
 **Status:** `INTERNAL SYNTHESIS / NAVIGATOR V2.1 CURRENT COMPANION / V1 FREEZE RETAINED / NO CLAIM PROMOTION`
 
-**Current through:** `2026-10-14`
+**Current through:** `2026-10-14` baseline; A0 thread addendum `2026-10-20` below. Older inventory counts are not a new whole-ecosystem census.
 
 **Authority:** Human Owner. Source records retain scientific and operational
 authority.
@@ -376,8 +376,8 @@ controlling workspace is the
 
 ### 7.4 A0 module and surface coverage
 
-The governed A0 coverage record currently binds **50 registered surfaces in
-eleven work groups**. All 50 are bound through the existing
+The governed A0 coverage record currently binds **57 registered surfaces in
+eleven work groups**. All 57 are bound through the existing
 `NEXAH:A0_ORIENTATION_EVIDENCE_LINEAGE:V1` lens and its already governed A0,
 Number View, Orientation, Return, LIFE and Tessarec identities. The exact
 mapping is machine-readable in the
@@ -431,8 +431,35 @@ authorities. Blue / Pink Cell Return may be read as a Human scene while its
 full Blue Body source and focused operators remain Builder/Science surfaces.
 That is a typed view relation, not an identity merge.
 
-No registered HTML was deleted. The existing 50/50 binding and all stable deep
+No registered HTML was deleted. The existing 57/57 binding and all stable deep
 links remain intact; only navigation rank and reader language changed.
+
+### 7.7 A0 Bench, Tube and NumberMagick documentation cut
+
+The 20 October cut adds no capability, Study or universal operator. It makes
+the latest A0 work inspectable through one
+[Science Desk return](../RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/A0_RESEARCH_DESK.html#numbermagick-thread-return-20261020)
+and the existing NSN evidence lens.
+
+| Existing tool or record | What it currently supports | What remains separate |
+|---|---|---|
+| Blue/Pink clock → Bench mask | native source time, confirmed commands/readback and geometric phase following | whole-machine state, scientific carrier identity and browser acceptance |
+| Shared View / TESA / Observer | same-time signal projections, fixed reference addresses, declared screen projection | weights are UNBOUND; opacity is not weight; no 28-to-32 decoder |
+| Plate/cylinder view | six fixed plates, two groups of three, rigid rotation and periodic seam | material height remains fixed; no inferred seven-plate stack |
+| NumberMagick | source → typed address → group/role → view → auxiliary information → Return | local color roles and different n+1 partitions do not define a global decoder |
+| Tube lineage | historical coherence extraction, finite C10 double cover and cylinder view compared | no shared routing engine or recovered original ORION implementation |
+
+The [research protocol](../RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/22_A0_FORSCHUNGSPROTOKOLL_BUCH_UND_RAHMEN_2026-10-10.md#documentation-closeout-20261020)
+records the thread; the
+[Builder Log](../RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/A0_BUILDER_LOG.html#documentation-closeout-20261020)
+records the bounded implementation. Selected follow-ups belong to the
+[existing A0 backlog](../RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/24_A0_RESEARCH_BACKLOG_AND_OPEN_JOINTS_2026-10-10.md#documentation-followups-20261020);
+unselected ideas go to the
+[existing field notes](../RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/FIELD_NOTES_A0.md).
+Neither destination activates work. Frozen Pattern Toolbox v0.1 signatures
+remain unchanged; these are local applications and documentary comparisons,
+not a fourth signature. Hash/currentness conflicts and browser acceptance
+remain explicit in the dated closeout receipt.
 
 ## 8. Connection Families
 

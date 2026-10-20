@@ -1,0 +1,68 @@
+{
+  "asOf": "2026-10-18",
+  "status": "ENGINEERING_PASS_BROWSER_ACCEPTANCE_BLOCKED_OPEN",
+  "scope": "Bounded source-owned Box / Laschen controls plus Joint integer/totient address readout in the existing A0 Orientation Controller Bench; not a whole-machine or scientific acceptance.",
+  "package": "assets/a0-source-seam-joint-box-package-v1.json",
+  "entry": "A0_ORIENTATION_CONTROLLER_BENCH.html#nativeSourceBank",
+  "source": "A0_TESSAREC_BLUE_BODY_LAB.html#fold-contact",
+  "tests": {
+    "directBenchChecks": 299,
+    "directSuites": [
+      {"file": "a0-source-seam-package-tests.cjs", "checks": 22},
+      {"file": "a0-source-seam-guided-test-tests.cjs", "checks": 24},
+      {"file": "a0-native-source-bank-tests.cjs", "checks": 118},
+      {"file": "a0-native-instrument-tests.cjs", "checks": 33},
+      {"file": "a0-native-source-connection-tests.cjs", "checks": 27},
+      {"file": "a0-native-message-tests.cjs", "checks": 10},
+      {"file": "a0-orientation-controller-bench-tests.cjs", "checks": 65}
+    ],
+    "regressions": {
+      "phaseWiring": 2293,
+      "foldContact": 28,
+      "life03": 137,
+      "root7WingSequence": 11234,
+      "foldLagLens": 27902,
+      "projectionOverlay": 5013,
+      "layeredPentagonScene": 32829,
+      "tessarecBlueBody": "PASS",
+      "orientationMap": "PASS"
+    },
+    "method": "Actual source modules and inline Janus / Two-Cut scripts with simulated DOM and message delivery; no browser pixels."
+  },
+  "implemented": [
+    "Source-owned READ, CAPTURE, atomic SET, STEP and exact scoped RETURN for t, extension, foldDeg, mode, baseOn and number profile.",
+    "Active fold/contact cycle and CON-DAO playback are paused before mutation.",
+    "Integer, prime factors, Euler totient and gap are emitted into the existing typed Bench journal.",
+    "CON-DAO owns its 14-tick next cursor, displayed tick and timer flag; native CAPTURE stops the timer and exact RETURN restores the paused cursor/display checkpoint.",
+    "A permanently open Toy-Store-style hero demo runs a ten-stage tour across Carrier, CRT16 interior, 48-state Player, Double Body / H7, 1111 / Gauss, Spectrum / E8, Fibonacci / Euler, Fold / CON-DAO, exact Contact / Capture and Return. It reveals the existing expert sections while running, reuses their controls, keeps progress and Stop in a floating dock, stops showroom motion before the source-owned exact checkpoint sequence, and yields immediately to trusted manual input.",
+    "For 1111, Q4 address 1111 and explicit P0/F10, P1/F26 or P2/F42 layer witnesses are source-selectable and part of Return; other number profiles remain null/HOLD.",
+    "Existing A0 package identity and existing Bench entry are reused."
+  ],
+  "open": [
+    "Visible browser acceptance: blocked by the current browser security policy for local file URLs; no bypass attempted.",
+    "Declared Q4 and layer address maps for number profiles other than 1111.",
+    "Whole-machine Return and multi-instrument simultaneous state."
+  ],
+  "authority": {
+    "identity": "NEXAH_AX0_QMODE_FOUNDATION_PACKAGE",
+    "newCanonicalIdentities": 0,
+    "newCanonicalRelations": 0,
+    "newFamilies": 0,
+    "newStudies": 0,
+    "researchRuns": 0,
+    "scientificClaimPromotion": false,
+    "publication": false
+  },
+  "browserAcceptance": {
+    "passed": false,
+    "blocked": true,
+    "reason": "The available browser surface rejects file:// navigation and permits only http/https; policy forbids working around that restriction.",
+    "requiredWhenAvailable": [
+      "Load the Bench and Box / Laschen source.",
+      "Reload the Blue Body page and press Ganze Seite vorführen at the top; observe all ten highlighted stations and their visible control changes.",
+      "Exercise native SET and STEP while fold/contact and CON-DAO players are active.",
+      "CAPTURE the stopped CON-DAO cursor/display checkpoint, mutate, RETURN and verify exact source readback.",
+      "Reload and verify no undeclared persisted state."
+    ]
+  }
+}

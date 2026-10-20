@@ -1,0 +1,72 @@
+{
+  "schema": "a0.kuramoto-historical-times-ten-readout/1",
+  "date": "2026-10-20",
+  "status": "ENGINEERING_PASS_HISTORICAL_READOUT_BROWSER_OPEN",
+  "existing_identities": [
+    "NEXAH_A0_ORIENTATION_CONTROLLER_BENCH",
+    "MOD:NUMBER_VIEW_SUITE"
+  ],
+  "new_global_ids": [],
+  "relation_changes": [],
+  "canonical_count_effect": 0,
+  "authority": {
+    "research_execution": false,
+    "publication": false,
+    "claim_promotion": false
+  },
+  "source_files": [
+    {
+      "path": "A0_ORIENTATION_CONTROLLER_BENCH.html",
+      "sha256": "80ad355e613c894532596d171029f2c34e1bad2d59154f26cf817418ac5eafea"
+    },
+    {
+      "path": "a0-core-cycle-comparator.js",
+      "sha256": "85959fe995e98b1a6d1cc67aa91175f859d862ed8bcfce664e0dfdd03d3cdb55"
+    },
+    {
+      "path": "a0-core-cycle-comparator-tests.cjs",
+      "sha256": "56fd8aacafd0e1eb0f79990b3dd73060aeddd8ab43bafb4cb76d4e7bfa2e34d5"
+    },
+    {
+      "path": "../../../../../10 NEXAH CORE/NEXAH/RESEARCH/VALIDATION/systems/kuramoto/kuramoto_v8/final_1777944907/regime_points.json",
+      "sha256": "1a5492b4981b87b9a2cc581f8de6ed555b3e94414f62ac4c93371574f57aaf6b"
+    },
+    {
+      "path": "../../../../../10 NEXAH CORE/NEXAH/RESEARCH/VALIDATION/systems/kuramoto/scripts/kuramoto_phase_boundary_v8.py",
+      "sha256": "43e5ce10e17694f097d5ce61fa8917dec9b04a18b1018e20ac5eb411e0a05f52"
+    },
+    {
+      "path": "../../../../../10 NEXAH CORE/NEXAH/RESEARCH/VALIDATION/systems/kuramoto/scripts/kuramoto_master_v6.py",
+      "sha256": "a0a056effe8a8a862f0a44df76e7ca4e37ca55562aaf42a59091ad7c1b140aed"
+    },
+    {
+      "path": "../../../../../10 NEXAH CORE/NEXAH/RESEARCH/VALIDATION/systems/kuramoto/kuramoto_v6/master_runs/run_1777943097/runs/K_2_545/summary.json",
+      "sha256": "465cf33a723ef7bda6a801ae8d61706d1b99b72d5a10384a48832c233694a9a2"
+    }
+  ],
+  "entry": "A0_ORIENTATION_CONTROLLER_BENCH.html#coreCycleComparator",
+  "scope": [
+    "Historical source K=2.3181818181818183,2.5454545454545454,2.7727272727272725; no recomputation of trajectories or scientific metrics",
+    "Declared x10 display; floor(10K)=[23,25,27]; owner expressions 23,5^2,3^3; residuals retained; nearest rounding=[23,25,28]",
+    "Historical readout included separately in draft JSON, new-run results remain null",
+    "PCA-angle and peak-per-sample definitions; spline data-envelope and near-degenerate PCA warning; conceptual Standard Model graphics not adopted"
+  ],
+  "verification": {
+    "comparison_checks": 600,
+    "pascal_aperture_checks": 8552,
+    "source_bank_checks": 118,
+    "polish_checks": 909,
+    "showcase_checks": 243,
+    "atlas_fold_checks": 1867,
+    "inline_scripts_parsed": 28,
+    "source_record_sha_verified": true,
+    "browser_acceptance": false
+  },
+  "nonclaims": [
+    "No equality of Kx10 with integer anchors",
+    "No critical universal constants, physical instability proof, dimensional scale or fold relation",
+    "No transfer from historical N128 sweep to N50 four-K or 18-node graph",
+    "No research activation, canonical family admission or publication"
+  ],
+  "known_integrity": "Eight pre-existing binder conflicts and Mission Control CURRENT mismatches retained; no authority manifest repin"
+}

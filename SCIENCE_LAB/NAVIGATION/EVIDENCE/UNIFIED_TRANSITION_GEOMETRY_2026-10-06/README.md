@@ -83,6 +83,13 @@ The existing Prime · Bridge binder remains the authority for its verified and
 census-only GLB records. UTG links to that binder; it does not duplicate or
 promote those assets.
 
+The existing [A0 Living Blueprint](../../../RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/A0_LIVING_BLUEPRINT.html#utg-map)
+is now the bounded A0 orientation map for this roof. It types the reading order
+as UTG framework → A0 map → Mathematical Joints workbench → Pascal–Pentagon
+case dossier → SCC-003 result paper, while keeping instruments, atlases and
+status authorities distinct. This is a navigation binding, not a merged source,
+new graph relation or claim promotion.
+
 ## Mission Control return
 
 [`MISSION_CONTROL_RETURN.md`](MISSION_CONTROL_RETURN.md) is a prepared internal

@@ -1,0 +1,45 @@
+{
+  "schema": "nexah.a0.orientation-controller-bench-freeze/1",
+  "date": "2026-10-18",
+  "identity": "NEXAH_A0_ORIENTATION_CONTROLLER_BENCH",
+  "version": "0.14.0",
+  "status": "FROZEN_ENGINEERING_BASELINE_ADAPTER_PACK_AB_MANUAL_BROWSER_ACCEPTANCE_OPEN",
+  "previousFreeze": "assets/a0-orientation-controller-bench-freeze-v0.13.0.json",
+  "legacySpecificationPath": {
+    "path": "assets/a0-orientation-controller-bench-v0.5.json",
+    "decision": "RETAIN_STABLE_HISTORICAL_FILENAME",
+    "declaredVersion": "0.14.0",
+    "rename": false,
+    "reason": "Stable compatibility path; internal version and freeze receipt govern currentness."
+  },
+  "files": [
+    {"path":"A0_ORIENTATION_CONTROLLER_BENCH.html","sha256":"4fe4e7bf9f33ab0faefaff9c022c62d27f9bcf7eb571e908ea9b83a762651ac4"},
+    {"path":"a0-orientation-controller-bench.js","sha256":"4f744030ca049459d1b125e59b9dc3ba7184b6e92f330fdd5bda168bd522aae6"},
+    {"path":"assets/a0-orientation-controller-bench-v0.5.json","sha256":"25fe74509ce2d32fe290b2815a52cab786224efc5140d58a8f13ad1052ae4bd6"},
+    {"path":"a0-external-adapter-pack.js","sha256":"10debebc24dfb7379b5bfc5574787bbc3055fcf0d31afad14a33702d11ee03d4"},
+    {"path":"a0-external-adapter-pack.css","sha256":"7289234318f6a7431d30340ccb6f18fd21ac00783d617383b9e29ce6bf056bf4"},
+    {"path":"a0-external-adapter-pack-tests.cjs","sha256":"32a504d0444c03c7273863bda3ff7d341265063f331e12ab5d370ca0ccdcc5d3"},
+    {"path":"assets/a0-ocb-external-adapter-pack-v1.json","sha256":"5d05f10f12ad8a2ebfa97f817db95dec86ed216819fc9f3c5e5eac09ece6e9c4"},
+    {"path":"assets/a0-bench-showcase-tour-package-v1.json","sha256":"29fa788f8fcdb7dd496c2d05628b671d28a457769e551966c2e08d0380479c02"},
+    {"path":"a0-bench-showcase-tour.js","sha256":"8a14b19a28b6150fed99939f55d3011d5428cecee8ef6332322a84353242f09c"},
+    {"path":"a0-bench-showcase-tour-tests.cjs","sha256":"90b803d1ddee92b43e0e00a72ec4d478e86b355ff89f2dc949bd99acc4682630"}
+  ],
+  "sourceBindings": [
+    {"id":"jarp","sha256":"faa920d76df33b5e1d497f4d15ee0be3a6d2ca7cb47d183ad73f683026168640"},
+    {"id":"axial","sha256":"ea16170658da72773392b5eef614e33b14e844d4fd0bbd8942567687e94b2606"},
+    {"id":"axis08","sha256":"0bacf7464d857220897fd9fc52e4d4af4b8bc5cb901eca2fe784d6ba464c4874"},
+    {"id":"boundary","sha256":"9ef7be7e62d034966db1506708378673d705089c16b67448533610b9d9ecf883"}
+  ],
+  "acceptance": {
+    "engineeringChecks": 174,
+    "freezePins": 10,
+    "externalAdapterPack": "PASS_46_OF_46",
+    "showcaseTour": "PASS_39_OF_39_16_STATIONS",
+    "systemBinder": "PASS_51_OF_51",
+    "recordReplay": "PASS_17_OF_17",
+    "baseRegression": "PASS_65_CHECK_GROUPS",
+    "manualTabletPhoneHighZoomAndLiveAdapters": "OPEN_HUMAN_OWNER_REVIEW_REQUIRED"
+  },
+  "authority": {"newCanonicalIdentity":false,"newCanonicalRelation":false,"newFamily":false,"researchExecution":false,"claimPromotion":false,"publication":false},
+  "manifestSelfHash": "EXCLUDED"
+}

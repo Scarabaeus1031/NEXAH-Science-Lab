@@ -1,0 +1,60 @@
+{
+  "asOf": "2026-10-17",
+  "status": "ENGINEERING_PASS_BROWSER_ACCEPTANCE_OPEN",
+  "scope": "Extension of existing Root7 dual-pentagon book view, no new main HTML or research object",
+  "implemented": [
+    "Four rigid material facets across two existing sheets",
+    "Signed opening branch across closure, front/reverse normal markers",
+    "Separate spine/transverse crease use, switch at flat registration",
+    "Whole-motif screen-CCW 90-degree rotation with fixed reference cross",
+    "Sixteen existing-Q4-clock stations and automatic pause at tick 15",
+    "Camera inspection tilt",
+    "Three exact observation-plane intersections with tangency/coplanar handling",
+    "Typed replay under bookView.wingSequence; unchanged legacy construction-map fields"
+  ],
+  "tests": {
+    "wingGeometrySequenceAndUI": 11227,
+    "legacyOpenBook": 11158,
+    "legacySectionMirror": 5885,
+    "root7Q4": 354,
+    "life03": 137,
+    "pentagon": 717,
+    "savedOwnerPentagonExport": 25,
+    "integrationCrosswalk": 181,
+    "orientationRoleMap": 73,
+    "navigatorApp": 246,
+    "reachableMainA0Html": 53,
+    "sourceGraphComponents": 19
+  },
+  "svgRasterQA": {
+    "renderer": "rsvg-convert",
+    "inspected": true,
+    "poses": [
+      "front flat, owner palette",
+      "rear flat with +90 CCW",
+      "transverse fold 70 degrees, +90 CCW, inspection tilt 24 degrees",
+      "three actual plane cuts through the latter pose"
+    ],
+    "finding": "Labels and geometry legible and unclipped in rasterized SVG montage; not live-browser layout acceptance."
+  },
+  "sourceAuthority": {
+    "originalControllerUnchanged": true,
+    "closedLabResultsUnchanged": true,
+    "newCanonicalIdentities": 0,
+    "newGraphRelations": 0,
+    "researchRuns": 0,
+    "publication": false
+  },
+  "bindingReconciliation": "Only the modified Root7 implementation pins and changed LIFE03 host-HTML pin reconciled locally; previous/observed hashes retained in wing binding. No canonical currentness or evidence-baseline replacement.",
+  "knownOpen": {
+    "a0Binder": "Same eight hash mismatch IDs",
+    "missionControlCurrentness": "Same six hash mismatch IDs; status remains INVALID",
+    "browserAcceptance": false,
+    "historicalStageAngleIdentification": false,
+    "historicalVideoReconstruction": false,
+    "sourceCarrierReturn": false,
+    "simultaneousTwoCreaseOrigamiModel": false
+  },
+  "ownerCheck": "Reload OCB, open Das offene Buch, press Sequenz ab Anfang spielen. It uses Q4, stops at station 15 and shows an exact pose return, not Q4 source return. Inspect +90 CCW, opposite faces, local transverse fold and the three section lines.",
+  "binding": "assets/a0-root7-wing-sequence-v1.json"
+}

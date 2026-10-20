@@ -1,0 +1,38 @@
+{
+  "schema": "nexah.a0-bl-024.o16-q106-state-relation/1.0.0",
+  "date": "2026-10-18",
+  "status": "FROZEN_NOT_EXECUTED",
+  "o16": {
+    "directions": ["N", "E", "S", "W"],
+    "spins": ["spin+", "spin-"],
+    "elevator_levels": ["up", "down"],
+    "cardinality": 16
+  },
+  "q106": {
+    "expected_nodes": 106,
+    "expected_rotation_order": 5
+  },
+  "maps": {
+    "P1_BALANCED_INDEX": "q_index mod 16",
+    "P2_TYPED_ATTRIBUTE": "level_n mod 4 + 4*(kind is interior) + 8*parity(face else seam else 0)"
+  },
+  "shuffle_seed": 240106,
+  "required_gates": [
+    "source_integrity",
+    "cardinality_obstruction",
+    "collision_accounting",
+    "conditional_residual_exact_return",
+    "representative_lift_not_surjective",
+    "matched_shuffle_nonselection",
+    "c4_c5_nontrivial_rotation_intertwiner_impossible"
+  ],
+  "allowed_results": [
+    "INFORMATION_LOST_RESIDUAL_SUFFICIENT_AND_NO_CANONICAL_MAP",
+    "INFORMATION_LOST_RESIDUAL_SUFFICIENT",
+    "NON_IDENTIFIABLE_NO_CANONICAL_MAP",
+    "PARTIAL",
+    "INVALID_DESIGN",
+    "UNINFORMATIVE"
+  ],
+  "claim_ceiling": "Finite internal relation and information accounting only; no canonical O16/Q106 identity, physical orientation mechanism, utility, novelty or publication claim."
+}

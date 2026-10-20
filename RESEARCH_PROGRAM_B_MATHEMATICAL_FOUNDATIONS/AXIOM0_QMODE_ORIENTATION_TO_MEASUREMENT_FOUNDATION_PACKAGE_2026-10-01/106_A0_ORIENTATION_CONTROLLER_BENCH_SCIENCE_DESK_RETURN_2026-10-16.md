@@ -213,3 +213,17 @@ node A0_BOOK/a0-ocb-freeze-tests.cjs
 
 Return disposition:
 `BOUND_TO_SCIENCE_DESK / NAVIGATOR_READ_ONLY / MISSION_CONTROL_CURRENTNESS_ONLY`.
+
+## Dokumentationsnachtrag vom 20. Oktober 2026
+
+Der Bench-/Tube-/NumberMagick-Faden ist im
+[Forschungsprotokoll](22_A0_FORSCHUNGSPROTOKOLL_BUCH_UND_RAHMEN_2026-10-10.md#documentation-closeout-20261020),
+[Builder Log](A0_BOOK/A0_BUILDER_LOG.html#documentation-closeout-20261020),
+Handbuch und Werkzeugübersicht nachgeführt. Der
+[Closeout-Nachweis](A0_BOOK/results/a0-documentation-closeout-2026-10-20.json)
+trennt Softwareprüfung, Herkunft, Vorschlag und offene Abnahme.
+[DOC-01–12](24_A0_RESEARCH_BACKLOG_AND_OPEN_JOINTS_2026-10-10.md#documentation-followups-20261020)
+sind lokale Folgeaufgaben, keine neuen Study-IDs. Die älteren Versions- und
+Prüfblöcke dieses Returns bleiben historische Schnitte, nicht die Behauptung
+einer heute einheitlich abgenommenen Bench. Kein Forschungsrun, kein
+Gesamt-Return und keine Veröffentlichung folgen.

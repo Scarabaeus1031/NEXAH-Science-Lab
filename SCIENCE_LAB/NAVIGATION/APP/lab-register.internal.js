@@ -1,12 +1,166 @@
 window.NEXAH_LAB_REGISTER = {
   "schema": "nexah.science-lab.lab-register-lens/1.0.0",
   "status": "INTERNAL_READ_ONLY_SOURCE_BOUND_LENS",
-  "generated": "2026-10-13T20:16:18.911Z",
+  "generated": "2026-10-18T15:40:55.201Z",
   "source": "SCIENCE_LAB/LAB_REGISTER.md",
-  "source_sha256": "fb3ab2408ceeeef2f70c779c167f18f8e653190fd12698ab0fba049234159061",
+  "source_sha256": "5bf2e38f2d4e05b4c8625897ea37af6a811179ffe1ed2c9cc737be9639d170fb",
   "authority": "LAB_REGISTER retains identity, lifecycle and disposition authority; this lens is read-only.",
-  "study_count": 48,
+  "study_count": 59,
   "studies": [
+    {
+      "study_id": "A0_BL_055_CROSS_CARRIER_RETURN_ECONOMY_2026_10_18",
+      "question": "Does one equal-information comparison show a Return-economy advantage on at least two of the three frozen Q106/O16, typed-seam and decimal carriers?",
+      "owner": "Human Owner",
+      "native_state": "MIXED_RETURN_GRAMMAR_PASS_ECONOMY_GENERALIZATION_FAIL; exact Return 3/3, economy advantage 1/3 (Typed Seam only)",
+      "common_status": "CLOSED / OWNER_ACCEPTED_RETURN_GRAMMAR_PASS_ECONOMY_GENERALIZATION_FAIL_2026-10-18",
+      "evidence_summary": "R2_LOCAL_REPLAY; lock 11/11; Primary/Replay byte-identical at a858f934…; verifier 20/20 twice",
+      "primary_record": {
+        "label": "Canonical Labreport",
+        "path": "LABREPORTS/MATHEMATICS/LABREPORT_A0_BL_055_CROSS_CARRIER_RETURN_ECONOMY_001.md"
+      },
+      "primary_records_text": "Canonical Labreport · Owner closure",
+      "next_action": "NONE; new carriers, demonstrator implementation or successor requires separate decision"
+    },
+    {
+      "study_id": "A0_BL_049_IOTA_THOOTH_OPERATOR_TYPING_2026_10_18",
+      "question": "What types are supported for existing IOTA/THOOTH records, and what do 1737→137/737 lose individually and preserve jointly?",
+      "owner": "Human Owner",
+      "native_state": "PASS_TYPED_LOSSY_PROJECTIONS_WITH_JOINT_EXACT_RETURN; individual fibres 9/10, joint Return 9000/9000; Iota classifier reused, THOOTH nonoperator retained",
+      "common_status": "CLOSED / OWNER_ACCEPTED_TYPED_LOSSY_PROJECTIONS_WITH_JOINT_EXACT_RETURN_2026-10-18",
+      "evidence_summary": "R2_LOCAL_REPLAY; lock 10/10; Primary/Replay byte-identical at 1f52cb0a…; verifier 17/17 twice",
+      "primary_record": {
+        "label": "Canonical Labreport",
+        "path": "LABREPORTS/MATHEMATICS/LABREPORT_A0_BL_049_IOTA_THOOTH_OPERATOR_TYPING_001.md"
+      },
+      "primary_records_text": "Canonical Labreport · Owner closure",
+      "next_action": "NONE; historical/semantic operator or successor requires separate admission"
+    },
+    {
+      "study_id": "A0_BL_048_PRIME_INDEX_NESTING_CONTROLS_2026_10_18",
+      "question": "Do 717717, 4774 and 1771 show prime-index nesting selective against complete digit-multiset controls and stronger than reversal/palindrome baselines?",
+      "owner": "Human Owner",
+      "native_state": "FAIL_PRIME_INDEX_SELECTIVITY_PALINDROME_BASELINE_DOMINATES; prime tail 228/540, selection-conditioned three-palindrome tail 12/540",
+      "common_status": "CLOSED / OWNER_ACCEPTED_PRIME_INDEX_SELECTIVITY_FAIL_2026-10-18",
+      "evidence_summary": "R2_LOCAL_REPLAY; lock 10/10; Primary/Replay byte-identical at a14ad110…; verifier 15/15 twice",
+      "primary_record": {
+        "label": "Canonical Labreport",
+        "path": "LABREPORTS/MATHEMATICS/LABREPORT_A0_BL_048_PRIME_INDEX_NESTING_CONTROLS_001.md"
+      },
+      "primary_records_text": "Canonical Labreport · Owner closure",
+      "next_action": "NONE; different rule or held-out target requires separate admission"
+    },
+    {
+      "study_id": "A0_BL_047_DOUBLE_PENTAGON_SPLIT_2026_10_18",
+      "question": "Can 4+1 -> two 5+1 be formalized as two typed C6 extensions with exact Return to one shared C5, and does the outline select one cross-map?",
+      "owner": "Human Owner",
+      "native_state": "PASS_TYPED_EXTENSION_FAMILY_WITH_NONCANONICAL_PAIRING; all ten extensions and twenty distinct pairs pass; correspondence remains twofold until oriented",
+      "common_status": "CLOSED / OWNER_ACCEPTED_TYPED_EXTENSION_FAMILY_WITH_NONCANONICAL_PAIRING_2026-10-18",
+      "evidence_summary": "R2_LOCAL_REPLAY; lock 10/10; Primary/Replay byte-identical at d7090fec…; verifier 15/15 twice",
+      "primary_record": {
+        "label": "Canonical Labreport",
+        "path": "LABREPORTS/MATHEMATICS/LABREPORT_A0_BL_047_DOUBLE_PENTAGON_SPLIT_001.md"
+      },
+      "primary_records_text": "Canonical Labreport · Owner closure",
+      "next_action": "NONE; historical selector, geometry or successor requires separate admission"
+    },
+    {
+      "study_id": "A0_BL_046_ROOT_ROOM_537_RECONSTRUCTION_2026_10_18",
+      "question": "Does frozen Root-Room plate ATT-008 determine a reproducible number-to-position grammar that beats shuffled label assignments and nearby-integer controls?",
+      "owner": "Human Owner",
+      "native_state": "UNDERDETERMINED_MULTIPLE_PLACEMENTS_FOR_SAME_VALUE; arithmetic passes, duplicate 57 anchors are 519.008670 px apart, no model reaches 0.95 shuffle selectivity",
+      "common_status": "CLOSED / OWNER_ACCEPTED_UNDERDETERMINED_RECONSTRUCTION_2026-10-18",
+      "evidence_summary": "R2_LOCAL_REPLAY plus R1 source verification; lock 10/10; Primary/Replay byte-identical at af186271…; verifier 14/14 twice",
+      "primary_record": {
+        "label": "Canonical Labreport",
+        "path": "LABREPORTS/MATHEMATICS/LABREPORT_A0_BL_046_ROOT_ROOM_537_RECONSTRUCTION_001.md"
+      },
+      "primary_records_text": "Canonical Labreport · Owner closure",
+      "next_action": "NONE; any role-augmented model requires separate admission"
+    },
+    {
+      "study_id": "A0_BL_023_051_PASCAL_GENERATION_RETURN_2026_10_18",
+      "question": "Can the frozen five-phase record preserve relation genealogy, separate g_R/g_P/g_M, account for view changes, classify the strongest supported Return and reject untyped identity matches?",
+      "owner": "Human Owner",
+      "native_state": "PASS_BOUNDED; all five gates pass; 135 typed additions, 140 addresses, 210 relation edges, four Return strengths and five non-identity controls verified",
+      "common_status": "CLOSED / OWNER_ACCEPTED_BOUNDED_POSITIVE_INTERNAL_RESULT_2026-10-18",
+      "evidence_summary": "R2_LOCAL_REPLAY; exact source lock PASS; Primary/Replay byte-identical at artifact hash 7c249f56…; verifier PASS 6/6",
+      "primary_record": {
+        "label": "Canonical Labreport",
+        "path": "LABREPORTS/MATHEMATICS/LABREPORT_A0_BL_023_051_PASCAL_GENERATION_RETURN_001.md"
+      },
+      "primary_records_text": "Canonical Labreport · Result assessment · Owner closure",
+      "next_action": "NONE; successors require separate admission and activation; no Pascal-intertwiner, PENT-08, new carrier, mechanism, utility or publication claim"
+    },
+    {
+      "study_id": "A0_BL_022_COUPLED_CHANNEL_DYNAMICS_2026_10_18",
+      "question": "Does an explicitly typed C5/C6/C30 pulse channel have a full Return distinct from carrier Return, and does a one-sided phase kick recover or remain remembered?",
+      "owner": "Human Owner",
+      "native_state": "EXACT_PERIODIC_CHANNEL_WITH_PERTURBATION_MEMORY_AND_NONCANONICAL_PORTS; all 60 coupled states period 60, uncoupled period 30, kick recovery 0/60",
+      "common_status": "CLOSED / OWNER_ACCEPTED_EXACT_PERIODIC_CHANNEL_WITH_PERTURBATION_MEMORY_2026-10-18",
+      "evidence_summary": "R2_LOCAL_REPLAY; pre-run lock 8/8; Primary/Replay byte-identical at 9bad5f06…; verifier 11/11 twice",
+      "primary_record": {
+        "label": "Canonical Labreport",
+        "path": "LABREPORTS/MATHEMATICS/LABREPORT_A0_BL_022_COUPLED_CHANNEL_DYNAMICS_001.md"
+      },
+      "primary_records_text": "Canonical Labreport · Owner closure",
+      "next_action": "NONE; successors require separate admission and activation"
+    },
+    {
+      "study_id": "A0_BL_020_GENERAL_PASCAL_QUOTIENTS_2026_10_18",
+      "question": "Does the declared cyclic m-face, depth-d Pascal quotient have exact node/edge formulas, compatible weights and a D_m action while remaining distinct from the open chain and dynamic attachment?",
+      "owner": "Human Owner",
+      "native_state": "PASS_GENERAL_CYCLIC_FORMULAS_BOUNDED; all seven gates pass on 120 frozen instances; cyclic depth-six nodes are 106/127/148/169, open controls 112/133/154/175",
+      "common_status": "CLOSED / OWNER_ACCEPTED_GENERAL_CYCLIC_FORMULAS_BOUNDED_2026-10-18",
+      "evidence_summary": "R2_LOCAL_REPLAY; lock 8/8; Primary/Replay byte-identical at fa736cff…; verifier 16/16 twice",
+      "primary_record": {
+        "label": "Canonical Labreport",
+        "path": "LABREPORTS/MATHEMATICS/LABREPORT_A0_BL_020_GENERAL_PASCAL_QUOTIENTS_001.md"
+      },
+      "primary_records_text": "Canonical Labreport · Owner closure",
+      "next_action": "NONE; successors require separate admission and activation"
+    },
+    {
+      "study_id": "A0_BL_024_O16_Q106_STATE_RELATION_2026_10_18",
+      "question": "What information is lost by two preregistered maps from Q106 into O16, what residual is required for exact Return, and can the C4 direction cycle intertwine the Q106 C5 rotation nontrivially?",
+      "owner": "Human Owner",
+      "native_state": "INFORMATION_LOST_RESIDUAL_SUFFICIENT_AND_NO_CANONICAL_MAP; both projections collide 90 times and need residuals for 106/106 Return; matched shuffle prevents canonical selection; nontrivial C4/C5 intertwiner impossible",
+      "common_status": "CLOSED / OWNER_ACCEPTED_INFORMATION_LOSS_NONCANONICAL_MAP_INTERNAL_RESULT_2026-10-18",
+      "evidence_summary": "R2_LOCAL_REPLAY; exact source lock PASS; Primary/Replay byte-identical at artifact hash 7d6683d9…; verifier PASS 18/18",
+      "primary_record": {
+        "label": "Canonical Labreport",
+        "path": "LABREPORTS/MATHEMATICS/LABREPORT_A0_BL_024_O16_Q106_STATE_RELATION_001.md"
+      },
+      "primary_records_text": "Canonical Labreport · Result assessment · Owner closure",
+      "next_action": "NONE; successors require separate admission and activation; no canonical O16/Q106 identity, mechanism, utility or publication authority"
+    },
+    {
+      "study_id": "A0_BL_054_IEEE300_CRITICAL_ORBIT_GHOSTGRID_2026_10_18",
+      "question": "Can one frozen non-leaky finite orbit signature preserve IEEE-300 state-distance ordering across declared Ghostgrid views while remaining bus-label invariant and sensitive to load, topology and synthetic-ablation controls?",
+      "owner": "Human Owner",
+      "native_state": "MIXED_NEGATIVE; all non-view controls pass; 60/81 view stresses pass and 21 coarse 8-bin stresses fail; minimum rho 0.731126 below 0.80",
+      "common_status": "CLOSED / OWNER_ACCEPTED_MIXED_NEGATIVE_INTERNAL_RESULT_2026-10-18",
+      "evidence_summary": "R2_LOCAL_REPLAY; lock PASS; Primary/Replay byte-identical at result hash 796afaab…; independent verifier PASS",
+      "primary_record": {
+        "label": "Canonical Labreport",
+        "path": "LABREPORTS/MATHEMATICS/LABREPORT_A0_BL_054_IEEE300_CRITICAL_ORBIT_GHOSTGRID_001.md"
+      },
+      "primary_records_text": "Canonical Labreport · Result assessment · Owner closure",
+      "next_action": "NONE; successors require separate admission and activation; no repair, early-warning, prediction, physical-orbit, preferred-geometry, utility or publication claim"
+    },
+    {
+      "study_id": "A0_BL_025_TYPED_SEAM_CHANNEL_UTILITY_2026_10_18",
+      "question": "Does the typed SCC-003 seam reduce fixed raw-address cost while preserving exact source-incidence Return, level consistency, D5 action and an invertible local transition against four finite controls?",
+      "owner": "Human Owner",
+      "native_state": "PASS_BOUNDED_TYPED_SEAM_ADVANTAGE; C4 reconstructs 140/140 through 106 addresses at 7.535714 mean bits versus raw 8; C2 returns 106/140; C3 mixes 30 levels",
+      "common_status": "CLOSED / OWNER_ACCEPTED_BOUNDED_POSITIVE_INTERNAL_RESULT_2026-10-18",
+      "evidence_summary": "R2_LOCAL_REPLAY; lock PASS; Primary/Replay byte-identical at 156392b5…; verifier 20/20 PASS",
+      "primary_record": {
+        "label": "Canonical Labreport",
+        "path": "LABREPORTS/MATHEMATICS/LABREPORT_A0_BL_025_TYPED_SEAM_CHANNEL_UTILITY_001.md"
+      },
+      "primary_records_text": "Canonical Labreport · Result assessment · Owner closure",
+      "next_action": "NONE; successors require separate admission and activation; no physical-channel, Riemann, Human-usability, universal-architecture or publication claim"
+    },
     {
       "study_id": "A0_EULER_TESSAREC_RESIDUAL_FOLD_AUDIT_2026_10_13",
       "question": "Where does the registered Euler shape fail across the eight held-out rank slices, and do extremes, multiplicities or the trivial eigenvalue explain the residual pattern?",

@@ -6,6 +6,29 @@
   const clock = document.getElementById("masterTick");
   if (!button || !bus || !clock) return;
 
+  const moduleTargets = {
+    carrier: { target: "lab", moduleId: "carrier", bindingType: "source-view" },
+    shell: { target: "double", moduleId: "shell-seam", bindingType: "typed-view" },
+    fiber: { target: "fiber-geometry", moduleId: "fiber-cut", bindingType: "typed-view" },
+    fold: { target: "fold-contact", moduleId: "fold-breath", bindingType: "typed-view" },
+    spectrum: { target: "spectral-audit", moduleId: "spectrum-return", bindingType: "typed-view" },
+    rings: { target: "fibonacci-ring-operator", moduleId: "ring-comparator", bindingType: "typed-view" }
+  };
+
+  bus.querySelectorAll("span[data-master-node]").forEach((chip) => {
+    const binding = moduleTargets[chip.dataset.masterNode];
+    if (!binding) return;
+    const link = document.createElement("a");
+    link.href = `#${binding.target}`;
+    link.textContent = chip.textContent;
+    link.dataset.masterNode = chip.dataset.masterNode;
+    link.dataset.moduleId = binding.moduleId;
+    link.dataset.focusTarget = binding.target;
+    link.dataset.bindingType = binding.bindingType;
+    link.setAttribute("aria-label", `${chip.textContent} direkt öffnen`);
+    chip.replaceWith(link);
+  });
+
   const nodes = [...bus.querySelectorAll("[data-master-node]")];
   const scheduleOrder = ["UNIFORM", "FIBONACCI", "SEEDED_RANDOM"];
   const seamOrder = ["disjoint", "connected", "octagons"];

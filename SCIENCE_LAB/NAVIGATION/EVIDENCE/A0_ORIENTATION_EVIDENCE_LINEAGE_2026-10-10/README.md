@@ -20,8 +20,9 @@ experiments or evidence.
 
 ## Reader-role crosswalk return · 2026-10-16
 
-The existing 50-of-50 surface binding is unchanged. A later editorial pass
-clarifies navigation rank without creating or merging any graph identity:
+The 2026-10-20 reconciliation extends the existing coverage from 50 to 57
+registered surfaces without creating or merging any graph identity. The
+editorial pass clarifies navigation rank:
 
 - `A0_NEXAH_APERTURE_JOURNEY.html` and `A0_LIVING_BLUEPRINT.html` are the two
   primary Human entrances;
@@ -325,3 +326,34 @@ creating a new entity, relation, Family or Study.
 
 Mission Control may consume the generated currentness projection only. It may
 not amend the OCB evidence state, backlog or claim ceiling.
+
+## 2026-10-18 — Theory, Numbermagick and multi-day documentary Return
+
+The existing A0 lens now exposes a separate `documentary_update_20261018`
+section with nine current source receipts. It links Builder Log entry 28,
+Research Log, the master protocol, canonical backlog, paper workspace, Paper E
+manuscript/reader, Numbermagick and the original Theory. This consolidates the
+visible conversational context and source-backed work of the last days; it
+is not a complete chat export or retrospective evidence of execution.
+
+Reused identities: `ART:A0:MATHEMATICAL_JOINTS`,
+`MOD:NUMBER_VIEW_SUITE` and `MOD:ORIENTATION_DEMONSTRATORS`.
+Mission Control discovery already contains `SF-NUMBERMAGICK-2025-AUDIT`.
+No new entity, graph relation, Family, Study, activation or publication.
+The central scientific return is the existing A0 Science Desk: results,
+achievements, claim boundaries and next gates are integrated there. Navigator
+is a source-bound projection; Builder Log records implementation and tests.
+Numbermagick remains a growing orientation-in-number-space strand, not a
+second findings ledger. Bench construction remains parked.
+
+The default historical binder validation already reports ten source-hash
+mismatches. Their pins are preserved, not silently repaired. The documentary
+receipts have an independent scope check:
+
+```sh
+node validate_a0_orientation_evidence_binder.mjs --documentary-only
+```
+
+A PASS for that switch does not mean the historical binder passes. The old
+paper-lane projection and Backlog HTML retain editorial gaps; current
+workspace and canonical backlog sources are linked explicitly.

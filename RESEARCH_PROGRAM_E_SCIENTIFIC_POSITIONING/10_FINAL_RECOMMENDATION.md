@@ -82,3 +82,15 @@ RECOMMENDED_COLLABORATION_FIELDS: Inverse problems; state estimation; network sc
 NEXT_PERMITTED_ACTION: Owner review of Program E
 OPERATIONAL_EFFECT: NONE
 ```
+
+## Additive closure — 2026-10-08
+
+Program E's count of `0` unique research directions is now reinforced by the
+targeted SCC-002 audit. The original BDL-01 is `NO-GO` as a novelty or
+machine-utility test, and SCC-002 is closed as
+`CONTRIBUTION_NOT_SUPPORTED` for its registered broad proposition.
+
+The Lab 0.4 recommendation remains a valid bounded established-field route,
+not a NEXAH novelty route. Any future contribution candidate must be new,
+narrow, comparator-bound and located explicitly in one of the established
+scientific neighborhoods recorded in deliverable 11.

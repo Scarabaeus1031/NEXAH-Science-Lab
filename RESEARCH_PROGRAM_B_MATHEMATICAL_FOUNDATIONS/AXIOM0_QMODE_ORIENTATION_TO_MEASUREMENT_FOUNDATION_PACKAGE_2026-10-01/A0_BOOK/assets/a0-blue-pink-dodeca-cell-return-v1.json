@@ -2,7 +2,7 @@
   "schema": "nexah.a0.blue-pink-dodeca-cell-return/1.0.0",
   "view_id": "A0-VIEW-BLUE-PINK-DODECA-CELL-RETURN",
   "title": "Blue / Pink Dodeca Cell Return",
-  "date": "2026-10-14",
+  "date": "2026-10-15",
   "status": "INTERNAL_SOURCE_BOUND_CELL_LEDGER_VIEW_NOT_PUBLIC",
   "extends_view": "A0-VIEW-BLUE-BODY-DODECA-COUNTERSHOT",
   "identity_reuse": [
@@ -26,6 +26,131 @@
     "central_return_faces": 12,
     "total_display_cells": 60,
     "equation": "4 × 12 + 12 = 60"
+  },
+  "activation_sequence": {
+    "status": "DECLARED_VIEW_SEQUENCE_NOT_PHYSICAL_ACTIVATION",
+    "ordered_steps": [
+      {"index": 0, "id": "INPUT_PENTAGON", "role": "selected white pentagonal face enters as the addressed aperture", "evidence": "DECLARED_VIEW_ROLE", "intake": {"grammar": "O-C-O", "center": "C", "ports": ["O", "O"], "aperture_polygon": "PENTAGON", "surrounding_hypothesis": {"polygon": "HEPTAGON", "count": 7, "status": "OPEN_INTAKE_HYPOTHESIS"}}},
+      {"index": 1, "id": "THREE_PLUS_ONE_STAGE", "role": "three transformation registers plus one retained input reference", "evidence": "CONSTRUCTED_SEQUENCE_ROLE"},
+      {"index": 2, "id": "FOUR_PLUS_ONE_VIEW", "role": "four satellite views plus one central return pivot", "evidence": "EXACT_DECLARED_BODY_COUNT"},
+      {"index": 3, "id": "FOUR_SHADOW_PROJECTION", "role": "one view residual per satellite body", "evidence": "CONSTRUCTED_PROJECTION_LAYER"},
+      {"index": 4, "id": "FOUR_APERTURE_GRID", "role": "four projected wall slots form the terminal view grid", "evidence": "REUSED_CHECK_85_86_PROJECTION_ONLY"},
+      {"index": 5, "id": "RETURN_RECORD", "role": "central pivot and display fin close the view", "evidence": "DECLARED_VIEW_ROLE"}
+    ],
+    "closure_edge": {"from": "RETURN_RECORD", "to": "INPUT_PENTAGON", "status": "DECLARED_DISPLAY_CYCLE"},
+    "reuses_marker": {
+      "id": "A0-BL-034",
+      "label": "Coupled Unit -> MONAD(t) -> Dodecahedron",
+      "manifest": "pascal-pentagon-joints/MANIFEST.json",
+      "boundary": "O-C-O, MONAD(t), port assembly and seven-heptagon intake remain visual hypotheses; no new identity or proved assembly is created."
+    },
+    "covariant_view_rule": "Blue/Pink and A/B retain one addressed carrier while changing the displayed view.",
+    "glyph_boundary": "Djet, infinity, I(J), and L remain open historical glyph readings; this sequence does not install them as operators.",
+    "claim_boundary": "Activation names an ordered display transition only, not an energetic or physical process."
+  },
+  "lookback_breathing_view": {
+    "status": "REUSED_COVARIANT_VISIBILITY_LENS_NOT_NEW_IDENTITY",
+    "carrier": "SHARED_VISIBILITY_FIELD",
+    "covariant_views": [
+      {"id": "BLACK_SUN", "role": "underlying partly occluded field side"},
+      {"id": "BIG_MOON", "role": "returning visible record side"}
+    ],
+    "connector": {
+      "root_address": [1, 1],
+      "operators": {"I": "IDENTITY", "J": "MIRROR", "law": "J^2=I"},
+      "seam": "I/J",
+      "typing": "GRID_ADDRESS_NOT_DECIMAL_1.1"
+    },
+    "terminal_grid": {
+      "id": "FOUR_APERTURE_GRID",
+      "aperture_count": 4,
+      "adapter": "4xO8_OVERLAP_TO_FOUR_WALL_SLOTS",
+      "status": "PROJECTION_ONLY",
+      "source_checks": [85, 86]
+    },
+    "motion": {"rotation": "WHOLE_DISPLAY_SPACE_ROTATION", "interaction": "DRAG_ROTATES_GRID_OVAL_APERTURES_AND_CELL_FORMATION_TOGETHER", "auto_rotation": true, "breathing": "COMPARISON_ENVELOPE", "intrinsic_mechanism_claim": false},
+    "mnemonic": {"label": "THE_ROOM_LOOKS_BACK", "status": "FRAME_AND_BOUNDARY_CONDITIONED_OBSERVATION_RETURN_ONLY"},
+    "source_bindings": [
+      "../../85_A0_TESSAREC_BIG_BLUE_ENVELOPE_COMPARATOR_PROTOCOL_2026-10-14.md",
+      "../../86_A0_TESSAREC_BIG_BLUE_ENVELOPE_COMPARATOR_RESULT_2026-10-14.md",
+      "../../87_A0_FIBONACCI_RING_OPERATOR_COMPARATOR_PROTOCOL_2026-10-14.md",
+      "../A0_BLACK_SUN_BIG_MOON.html"
+    ],
+    "claim_boundary": "One field and two records; no agency, consciousness, astronomy or physical breathing mechanism is asserted."
+  },
+  "mirror_anatomy_reading": {
+    "status": "LOCAL_VIEW_GRAMMAR_NOT_GEOMETRY_OR_MECHANISM",
+    "visible_tips": {"count": 3, "role": "VISIBLE_PROJECTION_SAMPLE", "status": "NOT_A_POLYHEDRON_VERTEX_COUNT"},
+    "aperture": {"id": "LIVING_FLAME", "role": "opening where light-shadow difference is read"},
+    "growth_analogy": {"label": "LEAF_GROWTH", "status": "METAPHOR_ONLY"},
+    "local_channels": {
+      "AM": {"semantic_role": "ACTIVE_MEANING", "regime_role": "OPEN_EXPAND_OUTWARD_FLOW_DAY"},
+      "VM": {"semantic_role": "VISIONARY_EMERGENCE", "regime_role": "VIRTUAL_MIXED_TRANSITION_BLEND_PHASE_SHIFT_INTERFERENCE", "position": "MIDDLE_SEAM"},
+      "PM": {"semantic_role": "PRAGMATIC_MANIFESTATION", "regime_role": "CLOSE_CONTRACT_INWARD_FLOW_NIGHT"}
+    },
+    "transition_geometry": {
+      "golden_seam": {"role": "ZIPPER_SEAM_APERTURE_SPINE", "action": "OPENS_AND_CLOSES_THE_VIEW"},
+      "violet_band": {"role": "PREFERRED_OBSERVATION_CORRIDOR", "projection": "TWO_DIMENSIONAL_SLICE_OF_THE_VIEW"},
+      "relation": "SEAM_CROSSES_BAND_AT_THE_APERTURE"
+    },
+    "layers": ["POLAR_GRID_BACKGROUND", "VIOLET_VIEW_BAND", "GOLDEN_SEAM", "FOLD", "OVAL_VISIBILITY_APERTURE"],
+    "mnemonic": {"label": "MAKEUP_MIRROR", "role": "two sides and a returning view"},
+    "source_bindings": ["../03_THREE_POSITIONS_SEAM_RETURN.html", "../A0_MATHEMATICAL_JOINTS.html", "USER_SUPPLIED_JANUS_CONCEPT_2_0_VISUAL", "USER_SUPPLIED_NEXAH_SERIES_XIV_VISUAL"],
+    "claim_boundary": "Pole semantics and regime labels are distinct source vocabularies. The view does not add vertices, assert a physical light mechanism, or identify the violet 2D band with a proved literal Möbius surface."
+  },
+  "root_room_lens": {
+    "status": "INTERACTIVE_VIEW_GATE_REUSING_EXISTING_MANDELBROT_JULIA_OPERATOR",
+    "route": ["MANDELBROT_PARAMETER_SPACE", "ROOT_ROOM_ORIENTATION_GATE", "JULIA_DYNAMICAL_FIBER"],
+    "shared_parameter": "c",
+    "operators": [
+      {"id": "PHI", "value": 1.618033988749895, "role": "EXPANSION_VIEW"},
+      {"id": "PI", "value": 3.141592653589793, "role": "ROTATION_VIEW"},
+      {"id": "ROOT_2", "value": 1.4142135623730951, "role": "PROJECTION_VIEW"}
+    ],
+    "root_node": {"label": "L50", "status": "OWNER_VISUAL_MARKER_NOT_COMPUTED_SELECTOR"},
+    "aperture_gate": {"role": "SELECTIVE_VIEW_CUT", "output": "SHADOW_CHAMBER"},
+    "phase_cycle": ["AM_INJECTION", "VM_ABSORPTION", "PM_TRANSITION_EMISSION", "RETURN"],
+    "executed_operator": "z_(n+1)=z_n^2+c",
+    "source_bindings": ["../A0_PINK_DIAMOND_GRID_ATLAS.html", "USER_SUPPLIED_ROOT_ROOM_SHADOW_CHAMBER_VISUAL", "USER_SUPPLIED_3_PLUS_1_FLAME_VISUALS"],
+    "claim_boundary": "Phi, pi, root 2, L50, horseshoe and flame names remain separate view markers. Only the standard quadratic iteration is executed."
+  },
+  "three_lissajous_planes": {
+    "status": "LIVE_THREE_PLANE_PROJECTION_OF_ONE_DECLARED_SIGNAL_CARRIER",
+    "carrier": {
+      "id": "THREE_SIGNAL_CARRIER",
+      "signals": ["sin(a*t)", "sin(b*t+delta)", "sin(t+delta/2)"],
+      "default_frequencies": [3, 2, 1],
+      "shared_time": true
+    },
+    "default_ratio": "3:2",
+    "default_phase": "pi/2",
+    "planes": [
+      {"id": "AM_PLANE", "projection": [0, 1], "semantic_role": "ACTIVE_MEANING", "regime_role": "OPEN_EXPAND_OUTWARD_FLOW_DAY"},
+      {"id": "VM_PLANE", "projection": [1, 2], "semantic_role": "VISIONARY_EMERGENCE", "regime_role": "VIRTUAL_MIXED_TRANSITION_BLEND_PHASE_SHIFT_INTERFERENCE"},
+      {"id": "PM_PLANE", "projection": [2, 0], "semantic_role": "PRAGMATIC_MANIFESTATION", "regime_role": "CLOSE_CONTRACT_INWARD_FLOW_NIGHT"}
+    ],
+    "orientation_record": "THE_SHARED_MOVING_TIME_MARKER_RETAINS_TRACE_DIRECTION",
+    "overlay_role": "SIMULTANEOUS_COMPARISON_OF_THREE_COORDINATE_PROJECTIONS",
+    "seam_mode": {
+      "points": ["P_AM=(s1,s2)", "P_VM=(s2,s3)", "P_PM=(s3,s1)"],
+      "centroid": "G=((s1+s2+s3)/3,(s1+s2+s3)/3)",
+      "dispersion": "D=(s1-s2)^2+(s2-s3)^2+(s3-s1)^2",
+      "signed_triangle_area": "A_signed=-D/4",
+      "exact_condition": "D=0 iff s1=s2=s3",
+      "typing": "THREE_PROJECTIONS_PLUS_ONE_SHARED_COINCIDENCE_EVENT_NOT_FOUR_BODIES",
+      "return_requirement": "RE_SEPARATION_REQUIRES_AN_ORDERED_TIME_OR_DERIVATIVE_RECORD"
+    },
+    "default_diagnostic": {
+      "ratio": "3:2",
+      "phase": "pi/2",
+      "classification": "NEAR_SEAM_NOT_EXACT",
+      "minimum_time_approx": 0.3122526798108317,
+      "minimum_dispersion_approx": 0.013394457185717435,
+      "method": "DENSE_NUMERICAL_SCAN_AND_LOCAL_REFINEMENT_NOT_FORMAL_PROOF"
+    },
+    "source_bindings": ["SRC:A0OE:PASCAL_LISSAJOUS_MOBIUS_RETURN", "SRC:NN:LISSAJOUS_MOBIUS_RETURN", "USER_SUPPLIED_THREE_LISSAJOUS_PLANE_VISUALS"],
+    "identity_effect": "REUSES_A0_VIEW_AND_EXISTING_LISSAJOUS_SOURCE_BINDINGS_NO_NEW_NAVIGATOR_IDENTITY_OR_RELATION",
+    "claim_boundary": "The curves are three declared 2D projections of one synthetic signal carrier. They are a live view instrument, not evidence of a tri-solar, lunar, energetic or physical mechanism."
   },
   "shadow_crystal_layer": {
     "status": "CONSTRUCTED_VIEW_RESIDUAL_LAYER",
@@ -71,7 +196,7 @@
       "../../../../../10 NEXAH CORE/NEXAH/RESEARCH/APPLIED_CASES/FRACTAL_SYSTEMS/scripts/dual_mandelbrot_julia.py"
     ]
   },
-  "vocabulary_boundary": "BLUE VIEW and PINK VIEW are local labels. PM and VM remain unassigned because VM is unresolved in the inherited corpus. DISPLAY FIN does not assert identity with THE FIN.",
+  "vocabulary_boundary": "BLUE VIEW and PINK VIEW are local labels. AM, VM and PM reuse the supplied Janus pole/regime vocabulary; semantic pole names and transition-regime names remain distinct fields. DISPLAY FIN does not assert identity with THE FIN.",
   "relation_policy": "EXTENSION_VIEW_ONLY_NO_GRAPH_RELATION_ADDED",
   "claim_boundary": "The exact equation counts declared pentagonal face slots. The Mandelbrot panel implements only the standard quadratic critical-orbit view with explicit c and finite iteration budget. It does not identify a cell address with c, add a 61st cell, prove volumetric filling, establish a physical return mechanism, or transfer prime, Cicada, flame, Blue/Pink or body identity into Mandelbrot dynamics."
 }

@@ -17,6 +17,36 @@ const failures = [];
 const expect = (condition, message) => { if (!condition) failures.push(message); };
 const hash = (file) => crypto.createHash("sha256").update(fs.readFileSync(file)).digest("hex");
 
+// Scope check for current documentary receipts; default historical validation
+// remains unchanged and continues to report its pre-existing hash drift.
+if (process.argv.includes("--documentary-only")) {
+  const update = binder.documentary_update_20261018;
+  expect(update?.status === "DOCUMENTARY_CURRENT_SOURCE_RETURN_NO_EVIDENCE_PROMOTION", "documentary status");
+  expect(update?.sources?.length === 9, "nine current documentary sources");
+  expect(update?.canonical_count_effect === "NONE" && update?.activation_effect === "NONE" && update?.publication_authorized === false, "documentary authority boundary");
+  expect(update?.bench_build === "PARKED_NO_AUTOMATIC_RESUMPTION", "Bench pause retained");
+  expect(update?.scientific_return === "A0_SCIENCE_DESK", "Science Desk is central return");
+  expect(update?.historical_integrity?.mismatched_source_ids?.length === 10, "historical hash drift disclosed");
+  const appDir = path.resolve(here, "../../APP");
+  for (const source of update?.sources || []) {
+    const target = path.resolve(ecosystemRoot, source.ecosystem_path);
+    expect(target.startsWith(ecosystemRoot + path.sep), "documentary source within ecosystem");
+    expect(fs.existsSync(target), "documentary source exists: " + source.title);
+    if (!fs.existsSync(target)) continue;
+    expect(hash(target) === source.sha256, "documentary source hash: " + source.title);
+    const [href, anchor] = source.href.split("#");
+    expect(path.resolve(appDir, decodeURIComponent(href)) === target, "documentary href matches source: " + source.title);
+    if (anchor) expect(fs.readFileSync(target, "utf8").includes('id="' + anchor + '"'), "documentary anchor: " + source.title);
+  }
+  const desk = update?.sources?.find(source => source.title.startsWith("Science Desk"));
+  if (desk) {
+    const html = fs.readFileSync(path.resolve(ecosystemRoot, desk.ecosystem_path), "utf8");
+    expect(html.includes('id="documentary-return-20261018"'), "Desk chronology updated");
+  }
+  console.log(JSON.stringify({status:failures.length ? "FAIL" : "PASS", scope:"nine current documentary receipts only; not historical binder integrity", failures}, null, 2));
+  process.exit(failures.length ? 1 : 0);
+}
+
 expect(binder.schema === "nexah.navigator.a0-orientation-evidence-lineage-binder/1.0.0", "schema");
 expect(binder.status === "INTERNAL_READ_ONLY_SOURCE_BOUND_LENS", "status");
 expect(binder.route === "#a0-orientation-evidence", "route");
@@ -33,25 +63,36 @@ expect(binder.reader_architecture?.current_research_entry?.status === "READ_ONLY
 expect(binder.reader_architecture?.current_research_entry?.entries?.map((item) => item.label).join("→") === "Living Protocol→Backlog→Findings & Papers→SCC-003 Review Packet→Scientific Assessment→Paper C · Return→Evidence Lineage", "A0 current research entry order");
 expect(/non-executable/.test(binder.reader_architecture?.current_research_entry?.closeout || ""), "A0-BL-051 remains non-executable");
 expect(/not additional A0 works/.test(binder.reader_architecture?.instrument_boundary || ""), "embedded instrument boundary");
-expect(binder.sources?.length === 100, "one hundred controlling sources");
+expect(binder.sources?.length === 109, "one hundred nine controlling sources");
 expect(binder.sources?.some((item) => item.source_id === "SRC:A0OE:A0_EXPERIENCE_NAVIGATION_FREEZE_RETURN" && /zero canonical-count/.test(item.authority_role)), "A0 experience freeze return retained with no-count boundary");
 expect(binder.sources?.some((item) => item.source_id === "SRC:A0OE:A0_EXPERIENCE_NAVIGATION_FREEZE_MC_RETURN" && /reciprocal Mission Control/.test(item.authority_role)), "reciprocal Mission Control experience-freeze return retained");
-expect(binder.a0_surface_coverage?.coverage_id === coverage.coverage_id && binder.a0_surface_coverage?.bound_surfaces === 46 && binder.a0_surface_coverage?.work_groups === 11, "A0 46-of-46 surface coverage binding");
+expect(binder.a0_surface_coverage?.coverage_id === coverage.coverage_id && binder.a0_surface_coverage?.bound_surfaces === 57 && binder.a0_surface_coverage?.work_groups === 11, "A0 57-of-57 surface coverage binding");
 expect(coverage.status === "INTERNAL_SOURCE_BOUND_COVERAGE_NO_NEW_IDENTITY", "A0 surface coverage status");
-expect(coverage.expected_surface_count === 46 && coverage.bound_surface_count === 46 && coverage.unbound_surfaces?.length === 0, "A0 surface coverage counts");
+expect(coverage.expected_surface_count === 57 && coverage.bound_surface_count === 57 && coverage.unbound_surfaces?.length === 0, "A0 surface coverage counts");
 expect(coverage.policy_effect?.changes_canonical_counts === false && coverage.policy_effect?.creates_module_identity === false && coverage.policy_effect?.activates_study === false && coverage.policy_effect?.promotes_evidence === false && coverage.policy_effect?.authorizes_publication === false, "A0 surface coverage policy boundary");
 const coveredSurfaces = coverage.work_bindings.flatMap((item) => item.surfaces).sort();
 const manifestSurfaces = manifest.surface_registry.map((item) => item.surface).sort();
-expect(new Set(coveredSurfaces).size === 46 && JSON.stringify(coveredSurfaces) === JSON.stringify(manifestSurfaces), "A0 surface coverage exactly matches manifest registry");
+expect(new Set(coveredSurfaces).size === 57 && JSON.stringify(coveredSurfaces) === JSON.stringify(manifestSurfaces), "A0 surface coverage exactly matches manifest registry");
 expect(binder.sources?.some((item) => item.source_id === "SRC:A0OE:A0_MODULE_SURFACE_COVERAGE" && item.sha256 === hash(coveragePath)), "A0 coverage sidecar source and hash");
+expect(["SRC:A0OE:PINK_DIAMOND_GRID_ATLAS", "SRC:A0OE:VISUAL_FIELD_LIBRARY", "SRC:A0OE:VISUAL_FIELD_LIBRARY_REGISTRY", "SRC:A0OE:DEMONSTRATOR_CONSOLIDATION_101_106"].every((id) => binder.sources.some((item) => item.source_id === id)), "A0 grid atlas, visual library, registry and consolidation source-bound");
+expect(binder.demonstrator_source_registry?.owner === "NEXAH Science Lab" && binder.demonstrator_source_registry?.records?.length === 3 && binder.demonstrator_source_registry?.new_demonstrator_template?.required_fields?.includes("return_path"), "Science Lab-owned demonstrator source registry and reusable template");
 expect(["SRC:A0OE:A0_CHECK58_CLOSEOUT", "SRC:A0OE:A0_AXIAL_CARRIER_SUITE", "SRC:A0OE:A0_AXIAL_CARRIER_MACHINE_RECORD", "SRC:A0OE:A0_COVERAGE_LINK_AUDIT", "SRC:A0OE:A0_BOOK_MANIFEST_CHECK58", "SRC:A0OE:A0_ORIENTATION_MACHINE", "SRC:A0OE:A0_RESEARCH_DESK_CHECK58", "SRC:A0OE:A0_CHECK58_FREEZE_RECORD", "SRC:A0OE:A0_CHECK58_FREEZE_MANIFEST", "SRC:A0OE:A0_CHECK58_MISSION_CONTROL_RETURN"].every((id) => binder.sources.some((item) => item.source_id === id)), "Check 58 integration freeze and Mission Control return sources bound");
 expect(["SRC:A0OE:FINDINGS_PAPER_WORKSPACE", "SRC:A0OE:PASCAL_ROSETTA_D30_PAPER_DRAFT", "SRC:A0OE:RETURN_WITHOUT_IDENTITY_PAPER_DRAFT"].every((id) => binder.sources.some((item) => item.source_id === id)), "A0 findings workspace, D30 companion and Return-without-identity paper source-bound");
 expect(["SRC:A0OE:SCIENTIFIC_POSITION_ASSESSMENT", "SRC:A0OE:SCIENTIFIC_POSITION_REPORT_HTML", "SRC:A0OE:SCIENTIFIC_POSITION_MISSION_CONTROL_RETURN"].every((id) => binder.sources.some((item) => item.source_id === id)), "A0 scientific assessment, reader report and Mission Control return source-bound");
 expect(["SRC:A0OE:SCC003_EXTERNAL_REVIEW_PACKET_MANIFEST", "SRC:A0OE:SCC003_EXTERNAL_REVIEW_OWNER_DECISION"].every((id) => binder.sources.some((item) => item.source_id === id)), "SCC-003 external review packet and Owner decision source-bound");
 expect(["SRC:A0OE:A0_CONTEXT_NAVIGATION_CSS", "SRC:A0OE:A0_CONTEXT_NAVIGATION_JS"].every((id) => binder.sources.some((item) => item.source_id === id)), "A0 context navigation assets source-bound");
-expect(binder.nodes?.length === 27, "twenty-seven lens nodes");
-expect(binder.relations?.length === 39, "thirty-nine typed relations");
-expect(binder.aliases?.length === 21, "twenty-one alias groups");
+expect(binder.nodes?.length === 28, "twenty-eight lens nodes");
+expect(binder.relations?.length === 41, "forty-one typed relations");
+expect(binder.aliases?.length === 22, "twenty-two alias groups");
+expect(binder.human_view?.view_id === "A0OE:ONE_LOOP_HUMAN_VIEW" && binder.human_view?.status === "HISTORICAL_SOURCE_BOUND_NON_EVIDENTIARY", "ONE LOOP Human View status and identity");
+expect(binder.human_view?.source_ids?.length === 5 && binder.human_view?.a0_theme_bindings?.length === 5, "ONE LOOP Human View source and A0 theme bindings");
+expect(binder.human_view?.mathematical_check?.status === "EXACT_ELEMENTARY_HYPERCUBE_COMBINATORICS" && binder.human_view?.mathematical_check?.general_rule?.vertices === "V(Q_n)=2^n" && binder.human_view?.mathematical_check?.general_rule?.edges === "E(Q_n)=n*2^(n-1)", "Human View exact hypercube counting rule");
+expect(binder.human_view?.mathematical_check?.q3?.vertices === 8 && binder.human_view?.mathematical_check?.q3?.edges === 12 && binder.human_view?.mathematical_check?.q4?.vertices === 16 && binder.human_view?.mathematical_check?.q4?.edges === 32, "Q3 and Q4 exact vertex and edge counts");
+expect(binder.human_view?.mathematical_check?.q4?.layer_counts?.vertices === "8+8=16" && binder.human_view?.mathematical_check?.q4?.layer_counts?.edges === "12+12+8=32" && /P1 and P2 remain source or projection labels/.test(binder.human_view?.mathematical_check?.label_boundary || "") && /no Numbermagick or NEXAH Codex/.test(binder.human_view?.mathematical_check?.claim_boundary || ""), "Q4 two-layer decomposition and label/claim boundaries");
+expect(["SRC:A0OE:ONE_LOOP_README", "SRC:A0OE:ONE_LOOP_PRIME_PETALS", "SRC:A0OE:ONE_LOOP_PETALS", "SRC:A0OE:ONE_LOOP_SPIRAL_PULSE", "SRC:A0OE:ONE_LOOP_JANUS_NEON"].every((id) => binder.sources.some((item) => item.source_id === id)), "ONE LOOP Human View sources hash-bound");
+expect(binder.nodes.some((item) => item.node_id === "A0OE:ONE_LOOP_HUMAN_VIEW" && item.kind === "historical-human-view" && item.source_ids?.length === 5), "ONE LOOP Human View lens-local node");
+expect(binder.relations.some((item) => item.relation_id === "A0OE:REL:ONE_LOOP_A0" && item.type === "historical-predecessor" && /does not recover/.test(item.claim_boundary || "")), "ONE LOOP to A0 historical visual lineage boundary");
+expect(binder.relations.some((item) => item.relation_id === "A0OE:REL:ONE_LOOP_ORIENTATION_DEMONSTRATORS" && item.type === "illustrative-crosswalk" && /do not establish version succession/.test(item.claim_boundary || "")), "ONE LOOP Orientation Demonstrator crosswalk boundary");
 expect(binder.sources.some((item) => item.source_id === "SRC:A0OE:A0_BOUNDARY_GRAPH_DEMONSTRATOR" && /no new Study/.test(item.authority_role || "")), "A0 Boundary Graph view and no-new-study boundary");
 expect(binder.nodes.some((item) => item.node_id === "ART:A0:MATHEMATICAL_JOINTS" && item.source_ids.includes("SRC:A0OE:A0_BOUNDARY_GRAPH_DEMONSTRATOR")), "A0 Boundary Graph reuses Mathematical Joints identity");
 expect(binder.nodes.some((item) => item.node_id === "ART:A0:MATHEMATICAL_JOINTS" && ["SRC:A0OE:A0_AXIAL_CARRIER_SUITE", "SRC:A0OE:A0_CHECK58_FREEZE_MANIFEST"].every((id) => item.source_ids.includes(id))), "Check 58 reuses Mathematical Joints identity");

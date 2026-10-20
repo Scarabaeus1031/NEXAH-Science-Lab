@@ -2,7 +2,7 @@
 
 Status: `V2.1 CURRENT CONSOLIDATION / INTERNAL ONLY / NO PUBLICATION / NO OLS EXTENSION`
 
-Maintained: `2026-10-14`
+Maintained: `2026-10-20` · scoped A0 addendum; baseline inventory below retains its dated scope.
 
 ## Purpose and conclusion
 
@@ -45,7 +45,7 @@ it appears in a visual or in the Navigator.
 | Family Connection Map | implemented | relation view; not mechanism identity |
 | Connection Atlas | implemented | inventory view; not a family claim |
 | Module, surface and evidence detail | implemented | source records remain controlling |
-| A0 work/module surface coverage and Reader roles | implemented, 50/50 source-bound | reuses existing A0, Number View, Orientation, Return, LIFE and Tessarec identities; two primary Human entries, subordinate scenes, Science Desk authority, full Builder instruments and locator-only indices change navigation rank without creating a module, node, relation or authority |
+| A0 work/module surface coverage and Reader roles | implemented, 57/57 source-bound | reuses existing A0, Number View, Orientation, Return, LIFE and Tessarec identities; two primary Human entries, subordinate scenes, Science Desk authority, full Builder instruments and locator-only indices change navigation rank without creating a module, node, relation or authority |
 | Instrument-first launch | implemented | launch is not approval or publication |
 | Typed relations and negative boundaries | implemented | every edge requires evidence and a claim ceiling |
 | Sequence, Lineage and comparative carrier lenses | implemented | bounded readings; open edges stay open |
@@ -155,6 +155,30 @@ and dominant Mod-7 × Mod-11 charge separation remain explicitly unsupported.
 These remain research or reconciliation candidates until they have stable
 identity, provenance, a declared mapping type, nonclaims, evidence status and
 Human Owner review.
+
+## A0 tool and connector addendum of 20 October 2026
+
+No module, Family, Study, OLS operator or canonical graph relation is added.
+The existing Number View / Orientation Demonstrator identities carry these
+local functions:
+
+- **Blue/Pink → Bench mask:** native source clock, confirmed messages and
+  geometric tick following. It is the first bounded clock link, not a shared
+  scientific carrier or whole-machine Return.
+- **Shared View / TESA:** same-time signal projections and fixed address
+  readout; declared Observer projection is not native mask readback. Weights
+  remain UNBOUND and opacity remains a display property.
+- **Plate/cylinder:** six fixed plates in two groups of three; rotation and
+  a periodic seam, without axial material transport or an inferred seventh plate.
+- **NumberMagick / Tube:** typed number addresses and residual-dependent
+  Return, with historical coherence, finite C10 and cylinder contracts kept
+  separate. No implemented common distributor follows from similar imagery.
+
+Routes and proof boundary: [Science Desk](../../RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/A0_RESEARCH_DESK.html#numbermagick-thread-return-20261020)
+· [documentation receipt](../../RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/results/a0-documentation-closeout-2026-10-20.json)
+· [canonical A0 backlog follow-ups](../../RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/24_A0_RESEARCH_BACKLOG_AND_OPEN_JOINTS_2026-10-10.md#documentation-followups-20261020).
+Engineering checks, proposed mappings and manual acceptance remain different
+states. This addendum does not revise the older inventory counts as a census.
 
 ## Admission rule for anything new
 

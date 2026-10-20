@@ -74,6 +74,16 @@ for (const id of Object.keys(nodes)) ok(html.includes(`id="${id}"`), `HTML conta
 ok(html.indexOf('<script src="assets/a0-blue-body-interior-crt16-v1.js">') < html.indexOf('<script src="assets/a0-blue-body-life-transfer-v1.js">'), "dependency loads before transfer module");
 ok(html.includes("A0_LIVING_BLUEPRINT.html#integration-crosswalk"), "transfer returns to A0 Crosswalk");
 ok(html.includes("103_A0_BLUE_BODY_GAME4LIFE_TRANSFER_CONTROL"), "transfer links Check 103");
+ok(html.includes('id="lifeTransitionObservatory"'), "source workbench iframe has a stable bridge target");
+ok(html.includes('data-public-src="../previews/numbers-return-20261019/book/assets/game-of-worlds-play/index.html'), "public source bridge targets the deployed source-owned projection");
+ok(html.includes("location.hostname.endsWith('github.io')"), "public bridge activates only on GitHub Pages");
+ok(html.includes('id="lifeTransitionFull"'), "full-instrument link shares the public bridge");
+ok(html.includes('id="lifeZAdapterRecord"'), "Z adapter record has a stable public bridge target");
+ok(html.includes('data-public-href="../previews/numbers-return-20261019/core/APPLICATIONS/game4life_plus1/05_TEMPORAL_Z_VIEW_ADAPTER_2026-10-13.html"'), "Z adapter record points to the browser-readable public source projection");
+ok(html.includes('id="lifeThreeDomainMontage"'), "three-domain montage has a stable public bridge target");
+ok(html.includes('three-domain-transition-test/index.html?rev=life-public-return-20261019'), "montage points to the deployed source-owned projection");
+ok(html.includes('id="lifeReplicationMatrix"'), "replication matrix has a stable public bridge target");
+ok(html.includes('replication-matrix/index.html?rev=life-public-return-20261019'), "replication matrix points to the deployed source-owned projection");
 
 controller.stop();
 delete global.document;

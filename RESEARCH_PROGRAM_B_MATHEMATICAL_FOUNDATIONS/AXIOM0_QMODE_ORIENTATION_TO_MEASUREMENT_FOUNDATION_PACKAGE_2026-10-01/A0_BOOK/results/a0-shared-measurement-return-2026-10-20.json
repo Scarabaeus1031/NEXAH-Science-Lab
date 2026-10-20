@@ -1,0 +1,158 @@
+{
+  "schema": "a0.shared-measurement-engineering-return/1",
+  "date": "2026-10-20",
+  "status": "ENGINEERING_PASS_BROWSER_ACCEPTANCE_OPEN_EXISTING_INTEGRITY_FAILURES",
+  "existing_identities": [
+    "NEXAH_A0_ORIENTATION_CONTROLLER_BENCH",
+    "MOD:NUMBER_VIEW_SUITE"
+  ],
+  "new_global_ids": [],
+  "relation_changes": [],
+  "canonical_count_effect": 0,
+  "publication_authorized": false,
+  "scope": "Read-only native Blue/Pink Shared View: three same-snapshot signal pairs, fixed TESA addresses, existing chamber admission and explicitly declared observer/screen projection. Bench opens this in the existing native source frame; no cross-window data access or second clock.",
+  "implementation": {
+    "source": "A0_BLUE_PINK_DODECA_CELL_RETURN.html#sharedMeasurement",
+    "bench": "A0_ORIENTATION_CONTROLLER_BENCH.html#sourceSections",
+    "sampling": "Read-only sample(time) exposes the existing values(time) function for curve display. No source state setters.",
+    "observer": "Declared O=(0,-3.5), screen y=-2.3, hit=O+lambda*(q-O). This is not the independent Bench mask-observer or CARO Grey Space.",
+    "aperture": "Existing A0ShadowChamberModel.observe/contains on q; screen-hit is not a second aperture gate.",
+    "tesa": "Existing A0OneFlowModel.mapping; fixed 4x7, external29 remains external. Moving register offsets and opacity are context only, never weights.",
+    "records": "Local frozen readout and JSON export only. No source pause/Capture/Return, chronology or physical inverse.",
+    "weights": "UNBOUND/null",
+    "unconnected": [
+      "independent Bench mask-observer",
+      "CARO Grey Space",
+      "LOKI Q4",
+      "stellar catalog"
+    ]
+  },
+  "verification": {
+    "newSuite": {
+      "checks": 80400,
+      "frames": 2172,
+      "inlineScriptsParsed": 3,
+      "status": "PASS"
+    },
+    "sourceSections": {
+      "checks": 140,
+      "sections": 9,
+      "status": "PASS"
+    },
+    "regressions": [
+      {
+        "suite": "register-overlay",
+        "status": "PASS"
+      },
+      {
+        "suite": "one-flow",
+        "status": "PASS"
+      },
+      {
+        "suite": "shadow-chamber",
+        "status": "PASS"
+      },
+      {
+        "suite": "coordinate-state-view",
+        "status": "PASS"
+      },
+      {
+        "suite": "mask-observer",
+        "status": "PASS"
+      },
+      {
+        "suite": "core-cycle-comparator",
+        "status": "PASS"
+      },
+      {
+        "suite": "native-source-bank",
+        "status": "PASS"
+      },
+      {
+        "suite": "layered-pentagon-scene",
+        "status": "PASS"
+      },
+      {
+        "suite": "bench-showcase-tour-live",
+        "status": "PASS"
+      },
+      {
+        "suite": "bench-polish",
+        "status": "PASS"
+      }
+    ],
+    "staticSvgReviewed": true,
+    "browserAcceptance": false
+  },
+  "currentPinReconciliation": {
+    "benchBefore": "a9e21d472e234a2d0a1f6a72963f2e8d34839cc1a6b4ea3fdb3b60851463a55a",
+    "bluePinkBefore": "fcb7653ba9ad8ef3352c611b0bf57b6e60c79415dd96ac3551303c4997524ade",
+    "scope": "Six current local manifests reconciled for the two changed HTML hosts only. Historical receipts and Mission Control CURRENT authority pins are not rewritten."
+  },
+  "sourcePins": [
+    {
+      "path": "A0_ORIENTATION_CONTROLLER_BENCH.html",
+      "sha256": "e7f6b3b1214f0d081ca41c090fc94e2cd91adced3b0389d6c63f1111ead8f628"
+    },
+    {
+      "path": "A0_BLUE_PINK_DODECA_CELL_RETURN.html",
+      "sha256": "b1adcbc5f388d3c539fefda6279f45c491c83195d46d091bfcefb9e9fdc3572b"
+    },
+    {
+      "path": "a0-shared-measurement.js",
+      "sha256": "94fd7db99edd45fa83c35eea4fbaaba4cc750adf6d52f5e4af218ccb666ddf80"
+    },
+    {
+      "path": "a0-shared-measurement-tests.cjs",
+      "sha256": "341364a0ac318a88b6a066a6104d42cb69a6b4c8f41287729c9c0d443f125293"
+    },
+    {
+      "path": "a0-bench-source-sections.js",
+      "sha256": "a6d484a6d5c9149e0098cb1ead671c8d6bc5e963318d6efc80f8e1f865a2db33"
+    },
+    {
+      "path": "a0-bench-source-sections-tests.cjs",
+      "sha256": "4cfd990f320bda68af45bd331102b670b9ce153998e690056bf92509c5495c2a"
+    },
+    {
+      "path": "a0-one-flow.js",
+      "sha256": "820ff178a3770da743067bcb2abd5fce2e6f22102d1facc96c8796e31319564c"
+    },
+    {
+      "path": "a0-shadow-chamber.js",
+      "sha256": "3c03b9340dd418b97ed68cba98f5dce237d48cb033cd32088880b00bf03ae698"
+    },
+    {
+      "path": "a0-register-overlay.js",
+      "sha256": "8d04db08ae46d7103596f6ff025e7407a02a8c7c20c2e6a7a35b33068ec09853"
+    },
+    {
+      "path": "assets/a0-bench-source-sections-v1.json",
+      "sha256": "979f417cc0c3bf17bf42700c2fb727c492600bf1dc924acc1ab63e06fe4b6f05"
+    },
+    {
+      "path": "assets/a0-native-source-bank-v1.json",
+      "sha256": "96776872ca55394409cee3d197159cf775b434ad94d5afdcc3b54e554343b350"
+    },
+    {
+      "path": "assets/a0-fold-lag-lens-v1.json",
+      "sha256": "8fbe69f374bd3d25705d3dac9c636230af62e5dcaba3813b27d666414b729fde"
+    },
+    {
+      "path": "assets/a0-bench-showcase-tour-package-v1.json",
+      "sha256": "50f2fb4189661c0be9ed66428ac152f3979e11a4b029cba7de6ef7eb160e454c"
+    },
+    {
+      "path": "assets/a0-aperture-measurement-package-v1.json",
+      "sha256": "b6a5f50d09769eb18ae4a8aaa78c3048b69d1fb0dec87cd8f3556bcf5e6215c9"
+    },
+    {
+      "path": "assets/a0-layered-pentagon-scene-v1.json",
+      "sha256": "d4ff2c28fb731796deab78f2165b46259c1e3b800e1e01a0b742e88ebaeaeda6"
+    }
+  ],
+  "openIntegrity": {
+    "binder": "Same eight preexisting source conflicts retained; no new binder conflict introduced.",
+    "missionControl": "INVALID: ten controlling-source mismatches and two CURRENT manifest mismatches remain; no authority repinning."
+  }
+}

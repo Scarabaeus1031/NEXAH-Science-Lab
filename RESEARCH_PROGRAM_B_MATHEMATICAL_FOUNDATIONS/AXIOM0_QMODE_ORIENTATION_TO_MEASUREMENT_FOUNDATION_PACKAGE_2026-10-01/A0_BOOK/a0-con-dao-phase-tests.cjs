@@ -1,0 +1,12 @@
+'use strict';
+const fs=require('node:fs'),vm=require('node:vm'),assert=require('node:assert/strict'),phase=require('./a0-con-dao-phase.js');
+const box={window:{}};vm.runInNewContext(fs.readFileSync('../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_CON_DAO_JANUS_BREATH_SEQUENCER_2026-10-06/breath-model.js','utf8'),box);const model=box.window.NEXAH_BREATH_MODEL;let checks=0;
+for(let k=0;k<84;k++){const r=phase.reading(model,k);assert.equal(r.tickCount,14);assert.equal(r.stateId,['CON-6','CON-5','CON-4','CON-3','CON-2','CON-1','STILL','STILL','DAO-1','DAO-2','DAO-3','DAO-4','DAO-5','DAO-6'][k%14]);assert(r.phase>=0&&r.phase<=1);for(const t of [0,.25,.5,.75,1]){const q=phase.reading(model,k,t);assert(q.displayPhase>=0&&q.displayPhase<=1);assert.equal(q.stateId,r.stateId);checks+=2}checks+=3}
+for(const v of [-1,1.5,NaN]){assert.throws(()=>phase.reading(model,v));checks++}
+assert.throws(()=>phase.reading({},0));checks++;
+// Execute the actual source-owned controller, not a reimplementation of seek.
+const nodes={};function el(){return {style:{},dataset:{},children:[{},{}],textContent:'',classList:{add(){},remove(){},contains(){return false}},setAttribute(){},append(){},after(){},insertBefore(){},addEventListener(){},dispatchEvent(){},click(){}}}for(const id of ['fold-contact','foldPlay','foldT','foldExtension','foldAngle','foldState','foldSvg','conDaoState','conDaoCopy'])nodes[id]=el();nodes['fold-contact'].querySelector=()=>el();let timers=0;
+const html=fs.readFileSync('A0_TESSAREC_BLUE_BODY_LAB.html','utf8'),start=html.indexOf('  (()=>{\n    const model=window.NEXAH_BREATH_MODEL;'),end=html.indexOf('  })();',start)+8;
+const sourceBox={Event:class{constructor(type){this.type=type}},window:{NEXAH_BREATH_MODEL:model},matchMedia:()=>({matches:false}),document:{getElementById:id=>nodes[id],createElement:el,createElementNS:el},setInterval(){timers++;return 1},clearInterval(){timers--}};vm.runInNewContext(html.slice(start,end),sourceBox);const api=sourceBox.window.A0FoldConDaoController;
+for(let k=0;k<14;k++){const r=api.seek(k);assert.equal(r.displayCursor,k);assert.equal(r.cursor,(k+1)%14);assert.equal(r.stateId,phase.reading(model,k).stateId);assert.equal(Number(nodes.foldAngle.value),Math.round(180*phase.reading(model,k).phase));assert.equal(timers,0);checks+=5}assert.throws(()=>api.seek(14));checks++;
+console.log(JSON.stringify({status:'PASS',checks,scope:'source CON-DAO order/dwell, smooth display bounds and actual native seek; no browser pixels'}));

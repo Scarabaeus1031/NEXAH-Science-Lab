@@ -1,0 +1,202 @@
+{
+  "schema": "nexah.a0.storyboard-human-crosswalk.engineering-return/1.0.0",
+  "date": "2026-10-17",
+  "status": "LOCAL_ENGINEERING_RETURN_VISUAL_ACCEPTANCE_OPEN",
+  "owning_identity": "NEXAH_AX0_QMODE_FOUNDATION_PACKAGE",
+  "identity_effect": "REUSES_EXISTING_A0_TESSAREC_AND_HUMAN_VIEWS_NO_NEW_CANONICAL_ID",
+  "scope": "Storyboard 0.3 and fixed local Human navigation, not a common scientific runtime",
+  "sources": [
+    {
+      "path": "a0-human-crosswalk.js",
+      "sha256": "2a0cd014794311b9939aad5dedbf1468907cd21dda70f8db8c00e2681319f010"
+    },
+    {
+      "path": "a0-theory-storyboard.js",
+      "sha256": "a5cb0cd9d6fc0c90600d3bb725ff1551c66153b850351a82691974964449d7f2"
+    },
+    {
+      "path": "assets/a0-nexah-aperture-journey-v1.js",
+      "sha256": "e8fedfd39255ef680e5127a48529b6f42533d7069366987d6d1b9fc6bfd4c237"
+    },
+    {
+      "path": "a0-human-crosswalk.css",
+      "sha256": "1e8b7a2817b6c050c4f6290c10618724f9c2ae9341be2fa3a752fce0e105501a"
+    },
+    {
+      "path": "a0-theory-storyboard.css",
+      "sha256": "23870f14c99827eed9696ec2d747fe0c9379c303840997b766ff3dc6c7430667"
+    },
+    {
+      "path": "A0_THEORY_STORYBOARD.html",
+      "sha256": "3d879d5758e92e20cb4b795dec61144d46bfb66ad077d2ffe6c93e46ecef8762"
+    },
+    {
+      "path": "A0_NEXAH_APERTURE_JOURNEY.html",
+      "sha256": "88fe7c7cbb2dd27db668cc4e99ec2a733f19f970b16f325ba558f3aabc9bac16"
+    },
+    {
+      "path": "A0_LIVING_BLUEPRINT.html",
+      "sha256": "8e7b36bf1ceafe458a5fb4be1e95ad99ff52e9a14697dfd7e087a37d883688d1"
+    },
+    {
+      "path": "a0-human-crosswalk-tests.cjs",
+      "sha256": "4ed60b38d2b2aca87aad8f4c5361c6c1a251bda56646b796d88cd255247bcda1"
+    },
+    {
+      "path": "a0-theory-storyboard-tests.cjs",
+      "sha256": "25a1e04f85b27fb10653f916728e7b4eefae8fbc9a86f771b0402d9186471052"
+    },
+    {
+      "path": "a0-nexah-aperture-journey-tests.cjs",
+      "sha256": "5940fd531995965e82b0bdf7b54b0143a274c408e5507fe06cf588a5d7066954"
+    },
+    {
+      "path": "a0-living-blueprint-tests.cjs",
+      "sha256": "00941948bc87a88f70f18e9f9281d0b2074cb899a4d86d97393c1c1613482562"
+    }
+  ],
+  "primary_suites": [
+    {
+      "command": "node a0-theory-storyboard-tests.cjs",
+      "checks": 625,
+      "result": "PASS",
+      "scope": "seven scenes, editorial 3+1 map, local Return register, simulated controls and links"
+    },
+    {
+      "command": "node a0-human-crosswalk-tests.cjs",
+      "checks": 242,
+      "result": "PASS",
+      "scope": "contract validation, actual Journey controller in simulated DOM, six bindings, navigation Return"
+    },
+    {
+      "command": "node a0-nexah-aperture-journey-tests.cjs",
+      "checks": 126,
+      "result": "PASS",
+      "scope": "existing Journey regression"
+    },
+    {
+      "command": "node a0-living-blueprint-tests.cjs",
+      "checks": 167,
+      "result": "PASS",
+      "scope": "existing Blueprint regression"
+    }
+  ],
+  "primary_total": 1160,
+  "navigation_addendum_20261017": {
+    "scope": "A0 Tours linked from Desk and shared Reader; retained Storyboard tour return",
+    "previous_primary_total": 1159,
+    "tour_navigation_checks": 138,
+    "local_a0_html_reachable": 53,
+    "retained_historical_html_links": 13,
+    "new_canonical_entities": 0,
+    "runtime_integration": false,
+    "live_browser_acceptance": false
+  },
+  "primary_total_boundary": "sum of separate local suites, not independent evidence, a novelty score, human utility or one scientific end-to-end test",
+  "supporting_checks": [
+    {
+      "command": "node a0-pentagon-body-player-tests.cjs",
+      "checks": 1356,
+      "result": "PASS",
+      "scope": "separate House and Body Player source-model regression"
+    },
+    {
+      "command": "node a0-pentagon-body-player-ui-smoke-tests.cjs",
+      "checks": 48,
+      "result": "PASS",
+      "scope": "separate simulated Body Player UI"
+    },
+    {
+      "command": "node a0-cell-return-performance-tests.cjs",
+      "result": "PASS",
+      "scope": "36 complete 60-step schedules, original CRT and H7/O8 ledger co-reading, typed holds"
+    }
+  ],
+  "observations": [
+    {
+      "key": "navigation-context-return",
+      "result": "Scene 5 / 77 selects actual Human03 paused and remounts scene 5 / 77; repeated 23 and departure-URL reload tested",
+      "ceiling": "navigation only; real browser Back/BFCache unverified"
+    },
+    {
+      "key": "nonidentical-reading-roles",
+      "result": "7 scenes, 3+1 editorial groups, 6 bound Human entries, 1 open emergence disposition",
+      "ceiling": "no new topology or canonical Family mapping"
+    },
+    {
+      "key": "typed-accounting",
+      "result": "House Q4 addresses, channel ordinals, logical/display edges and separate 48/60 co-readings remain distinguished",
+      "ceiling": "not a unified carrier or 3D seam reconstruction"
+    },
+    {
+      "key": "pattern-versus-mechanism",
+      "result": "render weights can reveal patterns without changing the illustrated nodes or edges",
+      "ceiling": "not empirical emergence evidence"
+    }
+  ],
+  "formal_findings": {
+    "count": 16,
+    "rows_sha256": "a3395b3ee426bc1d03dc9bca9141e7cbef8e2a149163347af6e217edc499b8a2",
+    "effect": "F-A0-01..16 unchanged; no new formal finding or admission"
+  },
+  "open": [
+    "Real-browser, responsive 320/736/desktop, focus and reduced-motion acceptance",
+    "Owner semantic acceptance and external comparative Human Utility",
+    "Specific Human emergence binding",
+    "H7/O8 ledger to demonstrator reaction to typed Return",
+    "Temporal echo memory and snapshots",
+    "Cross-instrument Day/Night, derived Ghostgon, antipode and pi-ring/topology rules"
+  ],
+  "preflight": {
+    "desk_test": "FAIL before documentation edit: existing five current-work cards, obsolete expected count four",
+    "global_currentness_hash_mismatches": 6,
+    "global_currentness_sources": [
+      "NEXAH_A0_BOOK_INDEX",
+      "SCIENCE_LAB_NAVIGATOR_WP3_STYLES",
+      "SCIENCE_LAB_NAVIGATOR_WP3_APP",
+      "NEXAH_A0_RESEARCH_DESK",
+      "NEXAH_A0_AXIAL_CARRIER_SUITE",
+      "NEXAH_A0_ORIENTATION_CONTROLLER_BENCH"
+    ],
+    "orientation_binder_hash_mismatches": 8,
+    "orientation_binder_sources": [
+      "SRC:A0OE:A0_BOOK",
+      "SRC:A0OE:A0_CONTEXT_NAVIGATION_CSS",
+      "SRC:A0OE:A0_CONTEXT_NAVIGATION_JS",
+      "SRC:A0OE:SCIENTIFIC_POSITION_REPORT_HTML",
+      "SRC:A0OE:A0_COVERAGE_LINK_AUDIT",
+      "SRC:A0OE:A0_BOOK_MANIFEST_CHECK58",
+      "SRC:A0OE:A0_RESEARCH_DESK_CHECK58",
+      "SRC:A0OE:PINK_DIAMOND_GRID_ATLAS"
+    ],
+    "refresh_rule": "Only previously valid bindings for sources changed by this documentation pass are refreshed; pre-existing discrepancies are retained"
+  },
+  "documentation_return": {
+    "date": "2026-10-17",
+    "status": "SCOPED_DOCUMENTATION_SYNC_WITH_PREEXISTING_HASH_DISCREPANCIES_RETAINED",
+    "verifier": "node a0-research-desk-tests.cjs",
+    "documentation_assertions": 94,
+    "local_links_checked": 330,
+    "declared_dynamic_routes_in_link_check": 21,
+    "formal_ledger_effect": "16 mixed-evidence F-A0 rows preserved byte-for-byte",
+    "source_graph_index": "PASS: 19 components; 266/29 base, 269/32 composed",
+    "navigator_app": "PASS: 246 checks",
+    "orientation_binder": "FAIL: same eight pre-existing source-hash mismatches, no new mismatch",
+    "global_currentness": "INVALID: same six pre-existing source-hash mismatches, no new mismatch",
+    "scoped_refreshes": [
+      "Findings workspace source hash in existing orientation binder",
+      "Orientation binder component hash and generated lens",
+      "Protocol, foundational description 1.5, Science View and Achievements source hashes",
+      "Source Graph index, binder and generated Mission Control projection source hashes",
+      "Affected CURRENT manifest entries"
+    ],
+    "boundaries": "No new canonical identities or relations; no old mismatch normalized; no Study or publication"
+  },
+  "authority": {
+    "new_study": false,
+    "new_canonical_relation": false,
+    "claim_promotion": false,
+    "publication_authorized": false,
+    "live_browser_pass": false
+  }
+}

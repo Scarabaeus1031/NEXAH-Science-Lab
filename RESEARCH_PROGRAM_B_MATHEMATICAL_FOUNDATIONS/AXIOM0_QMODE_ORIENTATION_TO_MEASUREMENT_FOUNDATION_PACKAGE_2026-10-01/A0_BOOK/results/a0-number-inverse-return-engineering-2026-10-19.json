@@ -1,0 +1,141 @@
+{
+  "schema": "a0.number-inverse-return-engineering/1",
+  "date": "2026-10-19",
+  "status": "LOCAL_ENGINEERING_TESTS_PASS_BROWSER_ACCEPTANCE_OPEN_CURRENTNESS_PENDING",
+  "existing_identity": "MOD:NUMBER_VIEW_SUITE",
+  "new_canonical_ids": 0,
+  "new_canonical_relations": 0,
+  "new_local_rule": "sevenword; declared finite game rule, not recovered historical law",
+  "sevenword": {
+    "seed": "978",
+    "forward": "10N−2",
+    "inverse": "(N+2)/10",
+    "language": "9 followed by one or more 7 digits followed by 8",
+    "bounded_steps": 16,
+    "seed_inverse": "HOLD; no predecessor inside declared sequence",
+    "precision": "BigInt; full words retained; floating point only in display embedding"
+  },
+  "joint_profiles": {
+    "co": {
+      "forward": [
+        "+11",
+        "+11"
+      ],
+      "inverse": [
+        "−11",
+        "−11"
+      ]
+    },
+    "counter": {
+      "forward": [
+        "+11",
+        "−11"
+      ],
+      "inverse": [
+        "−11",
+        "+11"
+      ]
+    },
+    "boundary": "counter operation is not co inverse"
+  },
+  "source_return": {
+    "supported": [
+      "sevenword",
+      "sumlift/co",
+      "sumlift/counter"
+    ],
+    "validation": "source frame replay, valid backward scope, actual inverse calculation, full state equality, config/profile, identity and target fingerprint",
+    "native_controls": [
+      "capture source anchor per profile",
+      "verified inverse single step",
+      "verified return to captured anchor"
+    ],
+    "history": "retained; M.at used only after inverse witness computed",
+    "replay": "native Numbers /2 inspection.returnWitness regenerated from recorded outbound cursor; manual seek clears witness",
+    "unsupported": "HOLD; no universal inverse inferred"
+  },
+  "parallel": {
+    "schema": "a0.number-parallel/2",
+    "native_rules": 13,
+    "comparison_lanes": 14,
+    "extra_lane": "separate sumliftCounter native profile",
+    "detail": "native co/counter sessions restored separately; comparison copies do not overwrite native sessions",
+    "inverse_badges": "computed seed Return per supported comparison lane; unrelated rules HOLD",
+    "legacy": "schema /1 with original twelve lanes still verifies without adding missing new lanes"
+  },
+  "historical_boundary": "E–D–C / Eris–Ceris remains unresolved provenance; no operative identification",
+  "verification": {
+    "inverse_model": 1946,
+    "native_numbers_controller": 23073,
+    "parallel_model_and_view": 5093,
+    "play": 170,
+    "trinity": 1360,
+    "cathedral_projection": 1005,
+    "finite_bench": 267,
+    "reader": "50/50 shared,56 reachable",
+    "public_navigation": 16,
+    "browser_pixels_and_physical_phone": "NOT_PERFORMED; prior file:// security denial respected"
+  },
+  "authority": {
+    "new_study": false,
+    "research_run": false,
+    "physical_claim": false,
+    "claim_promotion": false,
+    "publication": false,
+    "currentness_adoption": false
+  },
+  "sources": [
+    {
+      "ecosystem_path": "30 SCIENCE LAB/NEXAH-Science-Lab/RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/a0-game-of-numbers-model.js",
+      "sha256": "b0b8bfe703acff814247d22dd41f61e05e9e157fe59daf15af02eaced7e684e6"
+    },
+    {
+      "ecosystem_path": "30 SCIENCE LAB/NEXAH-Science-Lab/RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/a0-game-of-numbers.js",
+      "sha256": "cae14b3c0e6256b060692ffb2fff2b4ea530d5a4d3198c1734e4477ccb2a3e8e"
+    },
+    {
+      "ecosystem_path": "30 SCIENCE LAB/NEXAH-Science-Lab/RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/a0-game-of-numbers.css",
+      "sha256": "505596525695d8a300266a9a7c4bbb011560fb67b37c3a9230339c483a5bf294"
+    },
+    {
+      "ecosystem_path": "30 SCIENCE LAB/NEXAH-Science-Lab/RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/a0-game-of-numbers-tests.cjs",
+      "sha256": "320686217717d866c4c4ccf6b80f6b0dfa50586b7d2b6a12b839567fa3a7b2f6"
+    },
+    {
+      "ecosystem_path": "30 SCIENCE LAB/NEXAH-Science-Lab/RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/a0-number-inverse-return-tests.cjs",
+      "sha256": "453a058c0778cbef19be537860b0bd5e5061d795da8280ebf86e33c21c235c7e"
+    },
+    {
+      "ecosystem_path": "30 SCIENCE LAB/NEXAH-Science-Lab/RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/a0-number-parallel-model.js",
+      "sha256": "76502ff755d3f6f1b860485d75eaffd785dbb4ef4eb17e45c18181f25627c0f2"
+    },
+    {
+      "ecosystem_path": "30 SCIENCE LAB/NEXAH-Science-Lab/RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/a0-number-parallel-view.js",
+      "sha256": "2c871362d5c5a680412e689e26d3957923ad3fbc041bab9f9b8722630544fd8f"
+    },
+    {
+      "ecosystem_path": "30 SCIENCE LAB/NEXAH-Science-Lab/RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/a0-number-parallel.css",
+      "sha256": "ae5fbff3fd3936296abf1796360d52eb477ab2cbd6910498b404e92a6d1c0df1"
+    },
+    {
+      "ecosystem_path": "30 SCIENCE LAB/NEXAH-Science-Lab/RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/a0-number-parallel-tests.cjs",
+      "sha256": "9bc1df264ffbeda7f026c0b9303495b26d2296432b25cf2d13042657a45dada9"
+    },
+    {
+      "ecosystem_path": "30 SCIENCE LAB/NEXAH-Science-Lab/RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/a0-game-of-worlds-play.js",
+      "sha256": "ee5bc908cfe58e65fac1aad92e9a6f878496c99163b40e24ba6ad3b67ade4361"
+    },
+    {
+      "ecosystem_path": "30 SCIENCE LAB/NEXAH-Science-Lab/RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/A0_GAME_OF_WORLDS_PLAY.html",
+      "sha256": "bc5660e38e46d345750125392bccc080d2497a96a3b02e91341bd4a59df66f57"
+    },
+    {
+      "ecosystem_path": "30 SCIENCE LAB/NEXAH-Science-Lab/RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/assets/game-of-worlds-play/numbers/index.html",
+      "sha256": "e52c23667e19a4e70215b197b4b9566236ae80f1f5ac1df330ef4ac235de7d8d"
+    },
+    {
+      "ecosystem_path": "30 SCIENCE LAB/NEXAH-Science-Lab/RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/A0_BUILDER_LOG.html",
+      "sha256": "2dc157a2f47d7dad589a3b424eee578f0723c14cf63a2f62870450312ea9391a"
+    }
+  ]
+}

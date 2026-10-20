@@ -1,0 +1,152 @@
+{
+  "schema": "a0.pascal-aperture-bridge-engineering-return/1",
+  "date": "2026-10-20",
+  "status": "ENGINEERING_PASS_EXISTING_INTEGRITY_FAILURES_BROWSER_OPEN",
+  "entry": "A0_ORIENTATION_CONTROLLER_BENCH.html#pascalApertureBridge",
+  "existing_identities": [
+    "NEXAH_A0_ORIENTATION_CONTROLLER_BENCH",
+    "MOD:NUMBER_VIEW_SUITE"
+  ],
+  "new_global_ids": [],
+  "relation_changes": [],
+  "canonical_count_effect": 0,
+  "authority": {
+    "research_execution": false,
+    "claim_promotion": false,
+    "publication": false
+  },
+  "source_files": [
+    {
+      "path": "A0_ORIENTATION_CONTROLLER_BENCH.html",
+      "sha256": "b5c5640e9dceb557c8fee3b23701f2cc85012ee3fe3b860a7a3c6ca7b4d21e41"
+    },
+    {
+      "path": "a0-pascal-aperture-bridge.js",
+      "sha256": "76352d1e25055740584750fd13dff0301da1389daa722bbbbb977593243e462a"
+    },
+    {
+      "path": "a0-pascal-aperture-bridge-tests.cjs",
+      "sha256": "6fe32b1505d91e309e472924c66a4480898218cc0c58a77081c423fda0054639"
+    },
+    {
+      "path": "a0-plate-mirror.css",
+      "sha256": "3a61a51bf179a39f34e1c2920aa58e71d8e1d5c0d66a6f289d8bd94a85f02ebf"
+    },
+    {
+      "path": "a0-orientation-controller-bench.js",
+      "sha256": "26216e1b2276bd2859b3c751de5e81b6440b6bcf33583c51302ba7a6fe913757"
+    },
+    {
+      "path": "a0-mask-observer.js",
+      "sha256": "fbf1bb0f438051b7a9f65ff2ee5e32d51928e164bb8f07f2c760ff6ffbab991e"
+    },
+    {
+      "path": "a0-layered-pentagon-scene.js",
+      "sha256": "319c8d35e19d2eebe65b526bab23ca212d7caf7465bca3bbda966423af99082d"
+    },
+    {
+      "path": "assets/a0-native-source-bank-v1.json",
+      "sha256": "b3a472e8cd54fa7967356cb5dc439a16bcf9fa7e9598eda52e9768282383bad3"
+    },
+    {
+      "path": "assets/a0-fold-lag-lens-v1.json",
+      "sha256": "47ff2e7337913d34013e2b2f81cc25aafb400aa23da9f913263059716cac7d0e"
+    },
+    {
+      "path": "assets/a0-bench-showcase-tour-package-v1.json",
+      "sha256": "1ed41c6dc61f1ebb88376592bf2c7243aa26a13c16f9f3566af9c35b50dda456"
+    },
+    {
+      "path": "assets/a0-aperture-measurement-package-v1.json",
+      "sha256": "7e9f1b9b474d33d7e845ea1bcbd8efad613fb1534b953e796b19612ea2805c34"
+    }
+  ],
+  "implementation": [
+    "Read-only native Pascal packet: depth, selected macrostate, frame sides, lens/exterior and actual renderer coordinates",
+    "Two oriented sheets over the same trinomial layer; 1+1 view grammar, not independent physical carriers",
+    "Existing Pascal antipode A(i,j,k;sigma)=(k,j,i;-sigma), explicitly distinct from J and from spatial origami",
+    "Triangle contour reused from actual Pascal renderer; square A polygon reused from native Mask model, uniformly mapped to screen coordinates",
+    "Declared local aperture scale, visible/hidden oriented macro-record partition",
+    "Explicit hidden-record complement reassembly; HOLD when required complement missing; rejects unsigned/duplicate records",
+    "Unchanged native full-layer sector polygons remain before the aperture, not silently gate-filtered",
+    "Source-owned read/capture/restore wrapper; existing Pascal lens player stops on capture/restore; no extra timer",
+    "Checkpoint restores Pascal selection, frame/lens/exterior and local aperture options; explicit JSON export"
+  ],
+  "nonclaims": [
+    "No trinomial path microhistory reconstruction from macrostate",
+    "No recovered connected fold or pyramid packing",
+    "No physical optics, new scientific result, source-clock identity or whole-machine Return",
+    "No 60/72/132-degree identity with Pascal; this remains a separate comparison",
+    "No identification of owner 1+1 across all historical uses",
+    "No LIFE04B specificity promotion; FAIL0/4 unchanged"
+  ],
+  "verification": {
+    "new_suite": {
+      "file": "a0-pascal-aperture-bridge-tests.cjs",
+      "status": "PASS",
+      "checks": 8552,
+      "cases": 720,
+      "missing_residual_cases": 550
+    },
+    "actual_adapter": "Tests extract original Pascal point function and new source wrapper from live Bench HTML; real wrapper capture/restore plus mounted view handlers verified with DOM doubles",
+    "regressions": [
+      {
+        "file": "a0-orientation-controller-bench-tests.cjs",
+        "status": "PASS"
+      },
+      {
+        "file": "a0-mask-observer-tests.cjs",
+        "checks": 3407,
+        "status": "PASS"
+      },
+      {
+        "file": "a0-plate-mirror-tests.cjs",
+        "checks": 4600,
+        "status": "PASS"
+      },
+      {
+        "file": "a0-bench-polish-tests.cjs",
+        "checks": 909,
+        "status": "PASS"
+      },
+      {
+        "file": "a0-bench-showcase-tour-live-tests.cjs",
+        "checks": 243,
+        "status": "PASS"
+      },
+      {
+        "file": "a0-native-source-bank-tests.cjs",
+        "checks": 118,
+        "status": "PASS"
+      },
+      {
+        "file": "a0-bench-atlas-fold-guide-tests.cjs",
+        "checks": 1867,
+        "status": "PASS"
+      },
+      {
+        "file": "a0-rotating-cylinder-tests.cjs",
+        "checks": 535634,
+        "status": "PASS"
+      },
+      {
+        "file": "a0-mask-assembly-tests.cjs",
+        "checks": 1753,
+        "status": "PASS"
+      }
+    ],
+    "inline_scripts_parsed": 104,
+    "static_review": "Triangle and square SVGs rasterized with bundled sharp and visually inspected; source-renderer coordinates tested at depths0..11. Square uses equal axis scales.",
+    "browser_acceptance": false
+  },
+  "manifest_change": {
+    "before": "c56dd10b6a381b19155efb982a7b48a597cd1d00865a288782deea38b7fd441b",
+    "after": "b5c5640e9dceb557c8fee3b23701f2cc85012ee3fe3b860a7a3c6ca7b4d21e41",
+    "scope": "Current Bench HTML pins only in native-source-bank, fold-lag-lens, showcase-tour and aperture-measurement packages. Historical results not repinned."
+  },
+  "existing_failures": {
+    "orientation_binder": "8 pre-existing source hash conflicts retained",
+    "measurement_package": "Gap Register and Builder Log source hashes remain mismatched, no unrelated repin",
+    "mission_control_currentness": "INVALID before return; no CURRENT manifest or controlling-source authority repin"
+  }
+}

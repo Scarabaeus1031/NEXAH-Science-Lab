@@ -1,0 +1,176 @@
+{
+  "schema": "a0.blue-pink-mask-clock-engineering-return/1",
+  "date": "2026-10-20",
+  "status": "ENGINEERING_PASS_BROWSER_ACCEPTANCE_OPEN_EXISTING_INTEGRITY_FAILURES",
+  "existing_identities": [
+    "NEXAH_A0_ORIENTATION_CONTROLLER_BENCH",
+    "MOD:NUMBER_VIEW_SUITE"
+  ],
+  "new_global_ids": [],
+  "relation_changes": [],
+  "canonical_count_effect": 0,
+  "publication_authorized": false,
+  "scope": "User-authorized first clock coupling only: native Blue/Pink leads the Bench mask-observer geometric tick; functional focus hides unrelated workbench sections without removing modules. No cockpit redesign or subsequent module coupling.",
+  "clockContract": {
+    "leader": "A0ThreeLissajousPlanesView existing RAF/distance meter",
+    "follower": "A0MaskObserverController; native 80ms interval stopped and local mutations locked while bound",
+    "mapping": "floor((source.clock mod 2pi)*120/(2pi)), ticks0..119; quantization error <1/120 cycle. Source frequency ratio and delta are metadata, not changes to the LRRL/RLLR word.",
+    "commands": [
+      "HELLO pauses source",
+      "PLAY",
+      "PAUSE",
+      "STEP advances native distance meter by2pi/120 and pauses",
+      "DISCONNECT pauses source and unlocks stationary mask"
+    ],
+    "readback": "ACK/FRAME with session nonce, expected iframe WindowProxy, sequence and request checks; target tick compared with actual mask state and localTimerRunning=false",
+    "failure": "HOLD after2s missing ACK or running frame, invalid phase, iframe load or readback mismatch. Attempt source PAUSE, stop/unbind stationary follower; never fabricate source confirmation.",
+    "transport": "Bounded postMessage protocol, expected source window / direct parent identity and fresh session; wildcard target origin permits opaque local-file origins. Only phase/ratio/delta/control metadata, no filesystem or cross-origin DOM access.",
+    "return": "No common anchor or whole-machine Return. Export is a confirmed source-phase/mask-state readback only."
+  },
+  "cleanup": {
+    "default": "Functional focus on link panel, mask observer and existing source iframe; full workbench toggle; unrelated deep links retain full view.",
+    "localViews": "Assembly and compass in collapsed labeled details: fixed3:2/90 degrees, not Blue/Pink signal followers.",
+    "unchanged": "Existing modules and their own controllers retained; no automatic coupling or claim that hidden modules stop."
+  },
+  "verification": {
+    "newSuite": {
+      "status": "PASS",
+      "checks": 12437,
+      "browserAcceptance": false,
+      "scope": "12000 phase samples; actual native step with original distance meter; paired source/bench relays; real mounted mask controller; no follower timer; correct ratio metadata; sender guard, timeout, reload, disconnect, focus and detail structure."
+    },
+    "regressions": [
+      {
+        "suite": "mask-observer",
+        "status": "PASS"
+      },
+      {
+        "suite": "shared-measurement",
+        "status": "PASS"
+      },
+      {
+        "suite": "mask-elastic-links",
+        "status": "PASS"
+      },
+      {
+        "suite": "bench-source-sections",
+        "status": "PASS"
+      },
+      {
+        "suite": "native-source-bank",
+        "status": "PASS"
+      },
+      {
+        "suite": "layered-pentagon-scene",
+        "status": "PASS"
+      },
+      {
+        "suite": "bench-showcase-tour-live",
+        "status": "PASS"
+      },
+      {
+        "suite": "bench-polish",
+        "status": "PASS"
+      },
+      {
+        "suite": "coordinate-state-view",
+        "status": "PASS"
+      },
+      {
+        "suite": "mask-assembly",
+        "status": "PASS"
+      },
+      {
+        "suite": "compass-assembly",
+        "status": "PASS"
+      },
+      {
+        "suite": "one-flow",
+        "status": "PASS"
+      },
+      {
+        "suite": "register-overlay",
+        "status": "PASS"
+      },
+      {
+        "suite": "lissajous-distance",
+        "status": "PASS"
+      }
+    ],
+    "browserAcceptance": false,
+    "pixelAcceptance": false
+  },
+  "sourcePins": [
+    {
+      "path": "A0_ORIENTATION_CONTROLLER_BENCH.html",
+      "sha256": "24a74bd569b166e839d5d9aaea9c11777b4103108f0bcd49ab1c10fa7650e535"
+    },
+    {
+      "path": "A0_BLUE_PINK_DODECA_CELL_RETURN.html",
+      "sha256": "11dfa578cb0e7257b855c9a5c4489b93fe051a20440d8536dbffaafa199c22d9"
+    },
+    {
+      "path": "a0-blue-pink-mask-clock.js",
+      "sha256": "f5f10d11e9beb391337ecc2db3812e69ccd219718b7468df7a6b004f20a86f01"
+    },
+    {
+      "path": "a0-mask-clock-bench.js",
+      "sha256": "f1cae91dbdcacb0f0ef8fd512b28c5ebc4e343657953a785db5ff2244e08b278"
+    },
+    {
+      "path": "a0-mask-clock-focus.css",
+      "sha256": "3383c6fb2cf361bbf1cfa32034468e56b0c30d01179bafe9968d0fb55bc6e54a"
+    },
+    {
+      "path": "a0-mask-clock-tests.cjs",
+      "sha256": "b0098267112d84f1a99cbb17dfa1f1d123bb255f233b44e42087c5b2bfe9e879"
+    },
+    {
+      "path": "a0-mask-observer-view.js",
+      "sha256": "f737b0024af0082a4a85c28065986b4f4ab3069a3a9022b134cd04f4c10d6c88"
+    },
+    {
+      "path": "a0-mask-observer-tests.cjs",
+      "sha256": "ae5141d93e42a3035b3aaf581a988cd2e6ff5b6b4b6ab0daf751da913d382a05"
+    },
+    {
+      "path": "a0-mask-observer.js",
+      "sha256": "fbf1bb0f438051b7a9f65ff2ee5e32d51928e164bb8f07f2c760ff6ffbab991e"
+    },
+    {
+      "path": "assets/a0-lissajous-distance.js",
+      "sha256": "3b37721df8fca0a7a2779f6e64b823bc02295ee471c74d97f58d21f336f05805"
+    },
+    {
+      "path": "assets/a0-native-source-bank-v1.json",
+      "sha256": "a0a770a079943fc18cc4c7c3699fd634daebd127f255ef4c758e4da490d4799b"
+    },
+    {
+      "path": "assets/a0-fold-lag-lens-v1.json",
+      "sha256": "ef0d02095128d5ccb906062256dc3b04bb4c243d36f817a5e52ccea03b537127"
+    },
+    {
+      "path": "assets/a0-bench-showcase-tour-package-v1.json",
+      "sha256": "8bff36288e7dd4cb3522b15fa5d12cd431482d96ce49bc7fa39c663d2703fc3d"
+    },
+    {
+      "path": "assets/a0-aperture-measurement-package-v1.json",
+      "sha256": "77272385f574ced63e54cbaebc55828d3e01d8e68e4b5ae2f208c6f3582fd213"
+    },
+    {
+      "path": "assets/a0-layered-pentagon-scene-v1.json",
+      "sha256": "7d4c3e03f1f36aca95d845076e030816e7885fee727592ed2c79b7f5b5917e5c"
+    },
+    {
+      "path": "assets/a0-bench-source-sections-v1.json",
+      "sha256": "bff37738c3b5529d12ef4e4aac6309c14af27e08b852171d8390138daa46933a"
+    }
+  ],
+  "boundaries": [
+    "Source phase coupling is not carrier/signal identity or optical calibration.",
+    "Mask assembly/compass remain fixed local3:2/90 interpretations.",
+    "No additional rasterfields, weights, LOKI/stellar/CARO coupling, publication or research activation.",
+    "Historical receipts unchanged. Six current local manifest host pins reconciled only.",
+    "Eight existing binder conflicts and Mission Control CURRENT mismatches remain."
+  ]
+}

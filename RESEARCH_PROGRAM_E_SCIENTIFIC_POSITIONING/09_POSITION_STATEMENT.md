@@ -67,3 +67,16 @@ This cluster combines E-Q01, E-Q03, E-Q05, E-Q06, and E-Q07. It has:
 - falsifiable bounded questions;
 - clear reviewer communities;
 - no need for new operators or frameworks.
+
+## Current disposition — 2026-10-08
+
+The later SCC-002 prior-art and adversarial benchmark audit did not identify a
+new general multi-model architecture, provenance mechanism or error-localizing
+capability. The broad scientific-novelty lane is therefore closed.
+
+NEXAH's current position is an internal observer-aware representation,
+provenance and audit architecture situated across established neighborhoods.
+Its I-L-A-U, path/cycle-residual and claim-ceiling combination may remain a
+characteristic interface profile, but no scientific contribution is presently
+established. The controlling update is
+[Current Scientific Neighborhoods and Novelty Disposition](11_CURRENT_NEIGHBORHOODS_AND_NOVELTY_DISPOSITION_2026-10-08.md).

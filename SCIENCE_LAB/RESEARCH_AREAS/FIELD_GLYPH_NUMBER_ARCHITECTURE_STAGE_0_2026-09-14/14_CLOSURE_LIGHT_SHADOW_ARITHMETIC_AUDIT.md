@@ -220,7 +220,9 @@ The supplied prose mixes exact facts with two incorrect claims:
 73*119 = 8687, not 8701.
 ```
 
-Thus `1087 -> 8701` is decimal digit reversal but not an emirp pair. Separately:
+Thus the correct decimal reversal is `1087 -> 7801`, with
+`7801=29*269`; it is not an emirp pair. `8701` is a different composite
+owner-reported value and not the reversal of `1087`. Separately:
 
 ```text
 31 = P11

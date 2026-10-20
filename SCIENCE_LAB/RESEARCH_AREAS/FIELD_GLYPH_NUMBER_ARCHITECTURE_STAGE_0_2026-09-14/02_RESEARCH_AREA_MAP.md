@@ -60,6 +60,21 @@ while no single historical source formally defines the whole composite map.
 
 The lanes may be connected by a provenance record; they may not silently inherit one another's authority.
 
+## Canonical Two-Cut method route
+
+The Transversum, antipodal dual view, persistent address and QRT return are
+registered as one longitudinal FGN-25 route:
+
+```text
+common carrier -> directed cut R1 -> directed cut R2
+               -> declared binder/transport -> common comparison frame
+               -> return residual -> I-L-A-U -> replayable record
+```
+
+The route joins the Observer/Relation and Frame/Cut branches. It does not add a
+new eighth branch. Geographic, finite-clock and complex antipodes remain typed
+instances rather than one universal operator.
+
 ## Stage 0 work only
 
 - retain and index source modules;

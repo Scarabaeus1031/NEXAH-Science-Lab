@@ -1,7 +1,7 @@
 {
   "schema": "nexah.a0.orientation-controller-bench",
-  "version": "0.20.0",
-  "date": "2026-10-18",
+  "version": "0.21.0",
+  "date": "2026-10-19",
   "status": "LOCAL_SOURCE_BOUND_ENGINEERING_LENS_NOT_CANONICAL",
   "identity_action": "EXTENDS_EXISTING_LENSES_WITHOUT_NEW_CANONICAL_IDENTITY_OR_RELATION",
   "state_contract": {
@@ -48,6 +48,18 @@
     "simultaneous_windows": 3,
     "controller_count": 1,
     "boundary": "The 3+1 composition is a synchronized display grammar. It does not merge carriers, identify TESA with the 60-cell body ledger, or claim recovery of a historical generator."
+  },
+  "bench_map_projection": {
+    "status": "LOCAL_SOURCE_BOUND_OPERATIONAL_PROJECTION",
+    "record": "assets/a0-bench-map-projection-v1.json",
+    "identity": "NEXAH_A0_ORIENTATION_CONTROLLER_BENCH",
+    "groups": ["SOURCE", "STATE", "OPERATE", "VIEW", "RETURN", "VERIFY"],
+    "module_count": 22,
+    "edge_count": 19,
+    "binding_types": ["STATE_OWNER", "LIVE_COUPLED", "TYPED_HANDOFF", "VIEW_PROJECTION", "RETURN_WITNESS", "RESULT_LENS", "LAUNCHER", "OPEN_UNBOUND"],
+    "events": ["a0:bench-selection", "a0:bench-focus", "a0:bench-playback"],
+    "excluded_sources": ["A0_FAMILY_CONNECTION_ATLAS.html", "a0-family-spatial-bodies.js", "a0-family-spatial-navigation.js"],
+    "boundary": "The operational map observes selection, focus and playback. Bench state and clocks remain owned by the Bench; no Family identity or relation is created."
   },
   "attract_tour": {
     "status": "AUTO_START_INTERRUPTIBLE_VIEW_ORCHESTRATION",

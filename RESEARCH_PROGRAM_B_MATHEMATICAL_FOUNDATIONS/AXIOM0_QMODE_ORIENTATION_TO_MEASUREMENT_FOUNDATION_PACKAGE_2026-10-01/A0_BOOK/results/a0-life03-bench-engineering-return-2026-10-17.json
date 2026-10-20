@@ -1,0 +1,70 @@
+{
+  "asOf": "2026-10-17",
+  "status": "ENGINEERING_PASS_BROWSER_ACCEPTANCE_OPEN",
+  "scope": "Bounded LIFE03 source-state adapter on existing Scale engine; not scientific or whole-machine acceptance",
+  "tests": {
+    "life03": {
+      "checks": 137,
+      "command": "node a0-life03-bench-tests.cjs",
+      "method": "Actual source-derived LIFE03 app and canvas renderer, actual existing OCB Master clock and phase executor, simulated DOM and message delivery.",
+      "passed": [
+        "source-set byte pins and reproducible derivative",
+        "source-local timer disabled and native controls frozen",
+        "dual and eight-microstep observer semantics",
+        "rendered control readback",
+        "full state Return including progressed history anchor",
+        "fresh ten-cue trace and independent export verifier",
+        "forged window/session/seq/hash/revision/timer/readback rejection",
+        "pending blocks next Master tick",
+        "Pause invalidates acceptance; late ACK cannot certify paused run",
+        "timeout HOLD and explicit READ recovery",
+        "32 generation ceiling",
+        "source links and existing anchors"
+      ]
+    },
+    "regressions": {
+      "pentagonEngineering": 717,
+      "orientationCore": 65,
+      "roleMap": 73,
+      "savedOwnerPentagonExport": 25,
+      "integrationCrosswalk": 181,
+      "reachableMainA0Html": 53,
+      "sourceGraphComponents": 19,
+      "navigatorApp": 246
+    }
+  },
+  "sourceAuthority": {
+    "originalFilesUnchanged": 5,
+    "existingLife03Artifact": "ART:HTML:EBD57F76EA4F",
+    "existingScaleArtifact": "ART:HTML:2972691C8297",
+    "newCanonicalIdentities": 0,
+    "newGraphRelations": 0,
+    "researchRuns": 0,
+    "publication": false
+  },
+  "catalog": {
+    "items": 1275,
+    "html": 719,
+    "readerItems": 46,
+    "note": "One new sandbox runtime asset discovered, not a new main HTML or canonical Navigator admission."
+  },
+  "knownOpen": {
+    "a0Binder": "Same eight existing hash-mismatch IDs; no automatic baseline replacement.",
+    "missionControlCurrentness": "Same six existing hash-mismatch IDs, including newly changed OCB bytes; INVALID remains visible. Active rows zero.",
+    "olderDeskReceipt": "Prior storyboard engineering receipt has stale A0_LIVING_BLUEPRINT.html hash; file not changed in this build.",
+    "browserAcceptance": false,
+    "pixelLayoutCompatibility": false,
+    "separateScaleWindowStateTransfer": false,
+    "generalPatternOrCarrierControls": false
+  },
+  "ownerAcceptance": {
+    "steps": [
+      "Reload the OCB page.",
+      "Use LIFE03 verbinden & Master-Demo starten in the LIFE03 panel.",
+      "Wait without parent input/scroll for 10/10 and DECLARED_SOURCE_STATE_RETURN_EXACT.",
+      "Export a0-life03-joint-run.json and supply screenshot/export for bounded acceptance."
+    ],
+    "verifier": "node a0-life03-browser-run-verify.cjs /absolute/path/a0-life03-joint-run.json"
+  },
+  "runtimeBinding": "assets/a0-life03-bench-binding-v1.json"
+}

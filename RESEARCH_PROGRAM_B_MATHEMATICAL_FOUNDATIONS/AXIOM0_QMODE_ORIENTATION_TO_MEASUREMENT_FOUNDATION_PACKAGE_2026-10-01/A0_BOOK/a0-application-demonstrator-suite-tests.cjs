@@ -1,0 +1,44 @@
+#!/usr/bin/env node
+const assert=require('node:assert/strict');
+const fs=require('node:fs');
+const path=require('node:path');
+const root=__dirname;
+const html=fs.readFileSync(path.join(root,'A0_BUILDER_TOY_STORE.html'),'utf8');
+const css=fs.readFileSync(path.join(root,'a0-application-demonstrator-suite.css'),'utf8');
+const js=fs.readFileSync(path.join(root,'a0-application-demonstrator-suite.js'),'utf8');
+const record=JSON.parse(fs.readFileSync(path.join(root,'assets/a0-application-demonstrator-suite-v1.json'),'utf8'));
+const suite=require('./a0-application-demonstrator-suite.js');
+let checks=0;
+const ok=(value,message)=>{assert.ok(value,message);checks+=1};
+ok(/id="applications"/.test(html),'application suite host anchor');
+ok(/Application Demonstrator Suite/i.test(html),'suite heading');
+ok(/a0-application-demonstrator-suite\.css/.test(html),'suite css bound');
+ok(/a0-application-demonstrator-suite\.js/.test(html),'suite js bound');
+ok(/href="#applications"/.test(html),'application navigation route');
+ok(/OCB v0\.14\.0/.test(html),'current OCB version shown');
+ok(/01 \/ 12/.test(html),'flagship shelf static count current');
+ok(suite.missions.length===3,'three application missions');
+ok(record.missions.length===3,'three recorded missions');
+ok(record.identity_effect.includes('NO_NEW_IDENTITY'),'identity reuse declared');
+ok(record.authority_effect.new_study===false,'no new study');
+ok(record.authority_effect.new_relation===false,'no new relation');
+ok(record.authority_effect.evidence_promotion===false,'no evidence promotion');
+ok(record.authority_effect.publication_authorized===false,'no publication');
+const ids=new Set();
+for(const mission of suite.missions){
+  ok(suite.validateSequence(mission),`${mission.id} valid sequence`);
+  ok(!ids.has(mission.id),`${mission.id} unique`);ids.add(mission.id);
+  ok(mission.stages.length===7,`${mission.id} seven stages`);
+  ok(mission.stages[mission.stages.length-1].key==='return',`${mission.id} ends in return`);
+  ok(mission.carrier.length>20,`${mission.id} carrier boundary`);
+  ok(mission.question.endsWith('?'),`${mission.id} question driven`);
+  ok(html.includes(`data-mission="${mission.id}"`),`${mission.id} mounted in host`);
+  ok(html.includes(mission.title.replace('&','&amp;'))||html.includes(mission.title),`${mission.id} title visible`);
+}
+['apertureMeasurement','apertureStackCalibration','A0_IHARA_HASHIMOTO_CYCLE_BRIDGE.html','A0_AXIS08_FOLD_RETURN_SEQUENCER.html','A0_BOUNDARY_GRAPH_DEMONSTRATOR.html','root7Coupling','ailApertureControl','systemBinder'].forEach(route=>ok(html.includes(route),`${route} source route`));
+['prefers-reduced-motion','@media(max-width:760px)','mission-grid','coverage-grid'].forEach(token=>ok(css.includes(token),`${token} css contract`));
+['SOURCE RETURN PASS','ROUTE RETURN PASS','SOURCE RECOVERED','HOLD','carriers remain separate'].forEach(token=>ok(js.includes(token),`${token} runtime boundary`));
+ok(!/fetch\s*\(/.test(js),'file protocol has no fetch dependency');
+ok(/Export receipt/.test(html),'receipts exportable');
+ok(/source-bound Anwendungs- und Erklärlinse/.test(html),'visible authority boundary');
+console.log(`Application Demonstrator Suite: ${checks}/${checks} checks PASS`);

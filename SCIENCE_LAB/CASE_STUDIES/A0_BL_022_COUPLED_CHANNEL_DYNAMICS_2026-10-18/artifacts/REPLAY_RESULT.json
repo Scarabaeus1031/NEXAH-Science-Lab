@@ -1,0 +1,49 @@
+{
+  "boundaries": [
+    "C5_NOT_C6",
+    "PORT_PERIOD_NOT_CANONICAL_PORT_SELECTION",
+    "FINITE_AUTOMATON_NOT_PHYSICAL_FLOW",
+    "NO_MONAD_OR_OCO_MECHANISM"
+  ],
+  "coupled_period_histogram": {
+    "60": 60
+  },
+  "decision": "EXACT_PERIODIC_CHANNEL_WITH_PERTURBATION_MEMORY_AND_NONCANONICAL_PORTS",
+  "equivariant_direct_maps": 0,
+  "events_per_60_histogram": {
+    "2": 60
+  },
+  "gates": {
+    "G1_TYPED_PORT_INTEGRITY": true,
+    "G2_DIRECT_MAP_OBSTRUCTION": true,
+    "G3_COUPLED_RETURN_60": true,
+    "G4_UNCOUPLED_RETURN_30": true,
+    "G5_EVENT_ACCOUNTING": true,
+    "G6_PHASE_KICK_MEMORY": true,
+    "G7_SHUFFLED_PORT_NONSELECTION": true
+  },
+  "kick_summary": {
+    "cases": 60,
+    "detected": 60,
+    "period60": 60,
+    "recovered": 0
+  },
+  "natural_event_states": [
+    [
+      4,
+      5
+    ]
+  ],
+  "registered_result_sha256": "9e359dd76abf1e253724a481f4593b5b5b523193cef88543095b83ab36c50cba",
+  "shuffled_event_states": [
+    [
+      4,
+      1
+    ]
+  ],
+  "state_count": 60,
+  "study_id": "A0_BL_022_COUPLED_CHANNEL_DYNAMICS_2026_10_18",
+  "uncoupled_period_histogram": {
+    "30": 60
+  }
+}

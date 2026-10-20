@@ -1,0 +1,59 @@
+{
+  "schema": "a0.zero-one-zero-start-reading/1",
+  "date": "2026-10-20",
+  "status": "ENGINEERING_PASS_SYMBOLIC_OWNER_PLACEMENT_BROWSER_OPEN",
+  "entry": "A0_ORIENTATION_CONTROLLER_BENCH.html#mirrorPinRest",
+  "existing_identities": [
+    "NEXAH_A0_ORIENTATION_CONTROLLER_BENCH",
+    "MOD:NUMBER_VIEW_SUITE"
+  ],
+  "new_global_ids": [],
+  "relation_changes": [],
+  "canonical_count_effect": 0,
+  "authority": {
+    "research_execution": false,
+    "publication": false,
+    "claim_promotion": false
+  },
+  "source_files": [
+    {
+      "path": "A0_ORIENTATION_CONTROLLER_BENCH.html",
+      "sha256": "b9d8717a1ef068d945d32edb93f3aa26a4d2d0bfccc928d69fd50e484f3bb208"
+    },
+    {
+      "path": "a0-mirror-pin-rest.js",
+      "sha256": "421b9bc5b643305f8d38cf96d3e41d9da8056224a609842061e317cfac7a734a"
+    },
+    {
+      "path": "a0-mirror-pin-rest-tests.cjs",
+      "sha256": "8c18e90f2c5d1cffd74bafc98c4855e0390e06de0ffdf77bf68ed609489fd73f"
+    }
+  ],
+  "scope": [
+    "Outer pin labels changed from111 to0, fixed center1 retained",
+    "Explicit circle radius0.7 in local display coordinates;2,3,5 inside,7 outside; both opposite unit-radius pins outside",
+    "0 and1 not prime; first six primes2,3,5,7,11,13; p5=11,p6=13",
+    "111x111=12321 remains separate arithmetic, unchanged split-rest example",
+    "Snapshot and checkpoint schema bumped to2; legacy schema1 not silently migrated"
+  ],
+  "verification": {
+    "checks": 11586,
+    "phases": 361,
+    "regressions": {
+      "core_cycle": 600,
+      "pascal_aperture": 8552,
+      "polish": 909,
+      "showcase": 243,
+      "source_bank": 118,
+      "atlas_fold": 1867
+    },
+    "browser_acceptance": false,
+    "static_review": "SVG inspected atphase90, final5 label moved away from central line"
+  },
+  "nonclaims": [
+    "Chosen placement not a prime law, state-space derivation or physical orbit",
+    "No new independent state from center or repeated0labels",
+    "No research activation, graph count or Family change"
+  ],
+  "known_integrity": "Eight pre-existing binder hash conflicts and MC CURRENT mismatches remain; authority manifests not repinned"
+}

@@ -1,0 +1,37 @@
+{
+  "schema": "a0.compass-assembly-source-contract/1",
+  "date": "2026-10-19",
+  "existing_identity": "MOD:NUMBER_VIEW_SUITE",
+  "canonical_count_effect": 0,
+  "publication_authorized": false,
+  "entry": "A0_ORIENTATION_CONTROLLER_BENCH.html#maskCompassTitle",
+  "sources": [
+    {
+      "path": "a0-mask-assembly.js",
+      "sha256": "807668123127b023ca543430e8372355c263f706666773a3ad899e533b915e2c"
+    },
+    {
+      "path": "a0-fold-lag-lens.js",
+      "sha256": "091c8fb0ee0a5b136dd43efad6dea62e3b6814ec30c90fbdaae2e57e74ac0f42"
+    },
+    {
+      "path": "a0-root7-wing-sequence.js",
+      "sha256": "ba2b92721ba8cc138fca056edd98007f76567de9ccd600173dfb6ac47dfa49c7"
+    }
+  ],
+  "rules": [
+    "Needle = origin to selected existing AM/VM/PM signal pair. Direction undefined for norm < 1e-9; HOLD, no invented north.",
+    "Temporal crosses at local tick offsets 0,-3,-6,-9; recomputed same-plane references, not independent axes or claims of visited history.",
+    "Retained trace uses stored visited ticks reprojected through current selected pair; previous pair selections were not logged by the original trace.",
+    "29 gold marks select local tick = round(Z*120/28); Z display = round(tick*28/120).",
+    "5B snapshot/drawing reused without editing: target angles, lag=3, mirror=none. Original source player is not controlled. Endpoint remains 7 degrees, no geometric return.",
+    "No added clock or mutable compass parameters. Existing mask/assembly Capture/Return restores all inputs to this deterministic reading.",
+    "Versioned compass export wraps exact existing assembly record; legacy assembly/1 and mask/1 validate read-only."
+  ],
+  "boundaries": [
+    "No magnetic compass or physical direction claim",
+    "No Fibonacci/Euler/Ramanujan selector inferred from image similarity",
+    "No unique axis inferred from four independent 5B wings",
+    "Browser acceptance remains open"
+  ]
+}

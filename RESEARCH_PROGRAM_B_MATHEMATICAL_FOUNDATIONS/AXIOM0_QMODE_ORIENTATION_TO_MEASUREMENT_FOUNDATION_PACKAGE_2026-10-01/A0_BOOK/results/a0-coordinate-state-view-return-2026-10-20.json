@@ -1,0 +1,114 @@
+{
+  "schema": "a0.coordinate-state-view-engineering-return/1",
+  "date": "2026-10-20",
+  "status": "ENGINEERING_PASS_BROWSER_ACCEPTANCE_OPEN_EXISTING_INTEGRITY_FAILURES",
+  "entry": "A0_ORIENTATION_CONTROLLER_BENCH.html#coordinateStateView",
+  "existing_identities": [
+    "NEXAH_A0_ORIENTATION_CONTROLLER_BENCH",
+    "MOD:NUMBER_VIEW_SUITE",
+    "MOD:TESSAREC"
+  ],
+  "new_global_ids": [],
+  "relation_changes": [],
+  "canonical_count_effect": 0,
+  "authority": {
+    "research_execution": false,
+    "publication": false,
+    "claim_promotion": false,
+    "original_player_control": false
+  },
+  "source_files": [
+    {
+      "path": "A0_ORIENTATION_CONTROLLER_BENCH.html",
+      "sha256": "a9e21d472e234a2d0a1f6a72963f2e8d34839cc1a6b4ea3fdb3b60851463a55a"
+    },
+    {
+      "path": "a0-coordinate-state-view.js",
+      "sha256": "6fdbfcc3825fda877a6e53db3d14e693565a97a43fb6d988ca3c980f7253f28b"
+    },
+    {
+      "path": "a0-coordinate-state-view-tests.cjs",
+      "sha256": "8c146eaa1b398bdb9a9ddf5907ae34d01273cf4012f7146aa6fb40eb0a3a335c"
+    },
+    {
+      "path": "a0-orientation-controller-bench.js",
+      "sha256": "26216e1b2276bd2859b3c751de5e81b6440b6bcf33583c51302ba7a6fe913757"
+    },
+    {
+      "path": "../../../SCIENCE_LAB/CASE_STUDIES/E8_DEMOS_INTERACTIVE_ORIENTATION_2026-09-21/COXETER_ORBIT_TOPOLOGY_LAB_2026-10-05/NEXAH_FAMILY_SYNTHESIS_DEMONSTRATOR.html",
+      "sha256": "cd39bbcee08e63638de5f12e97991a5c2ee7e707adc956483dfe375da7002824"
+    },
+    {
+      "path": "assets/a0-native-source-bank-v1.json",
+      "sha256": "ad884f36dcbfa014ea954028f6f33d8f0529d037425cffa0d59a592a0e54cd1d"
+    },
+    {
+      "path": "assets/a0-fold-lag-lens-v1.json",
+      "sha256": "af21a8186b094efdf8d766c722fa53df687dcffa4dfd2f83b537f6762935c334"
+    },
+    {
+      "path": "assets/a0-bench-showcase-tour-package-v1.json",
+      "sha256": "f676395dab4e161569e43f5428de02c0062046a5c9954f89530cde45de9796fb"
+    },
+    {
+      "path": "assets/a0-aperture-measurement-package-v1.json",
+      "sha256": "0056a70d099a9bb0264f2282b73f6847639d4a36a4cb374b3d9a15e079068468"
+    },
+    {
+      "path": "assets/a0-layered-pentagon-scene-v1.json",
+      "sha256": "866a4bed78af4fe2b0b08fda06e826996cf278eba9d120d5fd7f973d051ae3a1"
+    }
+  ],
+  "implementation": [
+    "Local25x25 cell selection and four base5 digits; explicit local serialization25*y+x, not global1000x1000 source address",
+    "Reuses nativeBench C.hypercubeGraph(4):16vertices32edges8bridges; transitions follow graph edges with chosenaxis, matching originalLOKI bit-flip rule",
+    "Manual angle rotates only declared2D drawing of same Q4 graph; fixed and rotated panels show same vertex",
+    "Strictly separated CELL,FLIP,VIEW commands; independent controls and clickable grid; no new timer or trajectory generator",
+    "Capture/Return stores localx,y,vertex,angle only;0/360 retained as distinct slider values despite visually equalpose",
+    "Snapshot JSON export verified with strict derived data and anchor checks; not a replayed execution-history proof",
+    "Existing original-source routes retained; originalLOKI/SharedOverlay/Tessarec controllers not read or written",
+    "Image arithmetic corrections retained separately;131/313 followup remains deferred"
+  ],
+  "verification": {
+    "new_suite": {
+      "status": "PASS",
+      "checks": 15259,
+      "addresses": 625,
+      "q4_states": 16,
+      "angles_per_state": 361,
+      "scope": "involution/commutation, independent controls, invalid-command nonmutation, snapshot restore, recordtampering and mountedDOM events"
+    },
+    "regressions": {
+      "orientation_controller_bench": "PASS",
+      "core_cycle_comparator": 600,
+      "grid_fold_return": 2755,
+      "mirror_pin_rest": 11586,
+      "native_source_bank": 118,
+      "layered_pentagon_scene": 32829,
+      "mask_elastic_links": 16985,
+      "bench_polish": 909,
+      "showcase_tour_live": 243,
+      "atlas_fold_guide": 1867,
+      "pascal_aperture_bridge": 8552
+    },
+    "inline_scripts_parsed": 28,
+    "static_svg": "Rendered localcell(4,20),vertex11,view37degrees withsharp and visually inspected; labels and both graphviews visible.",
+    "browser_acceptance": false
+  },
+  "nonclaims": [
+    "No automatic map from four5-valued cellcoordinates to fourbinary Q4coordinates",
+    "No original source readback/ACK/sharedclock, external-player Return or native animation connection",
+    "No equality of16states with16Jointpaths, physical4Dmotion, new prime mechanism or arithmetic-derived forces",
+    "No new study, globalidentity, canonicalfamily or publication"
+  ],
+  "pin_reconciliation": {
+    "scope": "Current Bench hash only in five current package manifests; historical receipts and canonicalCURRENT authority baselines not repinned",
+    "before": "0b86fb415911e697c44c2e7005531e81289a758f86394ab2b5e59bfb1c5e7ba6",
+    "after": "a9e21d472e234a2d0a1f6a72963f2e8d34839cc1a6b4ea3fdb3b60851463a55a"
+  },
+  "known_integrity": {
+    "orientation_binder": "8 pre-existing sourcehashconflicts remain",
+    "mission_control_currentness": "INVALID beforereturn; no authority repair or publication",
+    "measurement_package": "Existing GapRegister/BuilderLog conflicts not repinned"
+  }
+}

@@ -1,0 +1,33 @@
+const assert=require('node:assert/strict'),fs=require('node:fs'),vm=require('node:vm');
+const {integrate,createMeter}=require('./assets/a0-lissajous-distance.js');
+const near=(actual,expected,tol=1e-5)=>assert.ok(Math.abs(actual-expected)<tol,`${actual} vs ${expected}`);
+near(integrate(1,1,Math.PI/2,0,2*Math.PI)[0],2*Math.PI); // AM unit circle.
+const diagonal=integrate(1,1,0,0,2*Math.PI);diagonal.forEach(value=>near(value,4*Math.sqrt(2)));
+assert.deepEqual(integrate(3,2,Math.PI/2,0,0),[0,0,0]);
+assert.throws(()=>integrate(0,1,0,0,1));assert.throws(()=>integrate(1,1,0,1,0));
+const meter=createMeter(3,2,Math.PI/2);for(let i=0;i<130;i++)meter.advance(.1);
+const held=meter.snapshot,whole=integrate(3,2,Math.PI/2,0,13);
+['AM','VM','PM'].forEach((key,index)=>near(held[key],whole[index]));
+near(held.sum,held.AM+held.VM+held.PM);assert.ok(held.turns>2,'Distance survives multiple 2π wraps');
+meter.advance(0);assert.deepEqual(meter.snapshot,held,'Paused time adds no distance');
+assert.equal(meter.configure(3,2,Math.PI/2),false);assert.deepEqual(meter.snapshot,held,'Same pair and phase do not reset');
+meter.reset(.5);assert.equal(meter.snapshot.sum,0);assert.equal(meter.time,.5);
+meter.advance(.2);assert.ok(meter.snapshot.sum>0);assert.equal(meter.configure(2,3,Math.PI/2,.7),true);assert.equal(meter.snapshot.sum,0);
+assert.equal(meter.configure(2,3,0,.7),true);assert.equal(meter.snapshot.elapsed,0);
+const independent=meter.snapshot;independent.parameters.a=99;assert.equal(meter.snapshot.parameters.a,2);
+const {makeReturn}=require('./a0-root-room-bridge.js');
+const record=makeReturn({c:[0,0],iterations:120,observerSeed:'cell'},{ratio:'2:3',phaseDegrees:0},{clock:.7,signals:[1,2,3],distance:meter.snapshot});
+assert.equal(record.lissajous.distance.sum,0);
+for(const filename of ['a0-lissajous-meter-ui.js','assets/a0-lissajous-distance.js'])new vm.Script(fs.readFileSync(filename,'utf8'));
+const html=fs.readFileSync('A0_BLUE_PINK_DODECA_CELL_RETURN.html','utf8');for(const match of html.matchAll(/<script>\s*([\s\S]*?)<\/script>/g))new vm.Script(match[1]);
+assert.match(html,/clock=distanceMeter\.time%/);assert.match(html,/resetDistance:/);
+assert.match(html,/a0-lissajous-meter-ui\.js/);
+class El{constructor(){this.children=[];this.events={};this.attrs={};this.dataset={};this.style={};}append(...items){this.children.push(...items);}after(item){this.afterItem=item;}setAttribute(k,v){this.attrs[k]=v;}addEventListener(k,v){this.events[k]=v;}querySelector(){return this.controls||(this.controls=new El());}}
+const planes=new El(),select=Object.assign(new El(),{value:'3:2',options:['3:2','2:3','1:1','5:6'].map(value=>({value,textContent:value}))}),events={};let chosen=null,resets=0;
+vm.runInNewContext(fs.readFileSync('a0-lissajous-meter-ui.js','utf8'),{document:{getElementById:id=>id==='lissajousRatio'?select:planes,createElement:()=>new El()},window:{A0ThreeLissajousPlanesView:{setRatio:value=>{chosen=value;},resetDistance:()=>resets++,snapshot:{distance:held}},addEventListener:(key,fn)=>{events[key]=fn;}}});
+const panel=planes.controls.afterItem,grid=panel.children[2],nav=panel.children[6];
+assert.equal(grid.children.length,4);assert.equal(nav.children.length,4);nav.children[3].events.click();assert.equal(chosen,'5:6');
+panel.children[4].events.click();assert.equal(resets,1);
+events['a0-lissajous-frame']({detail:{distance:held}});assert.equal(grid.children[3].children[1].textContent,held.sum.toFixed(3));
+assert.equal(nav.children[0].attrs['aria-pressed'],'true');
+console.log('PASS: analytic circle and diagonal lengths, frame partition, loop continuity, pause/reset, parameter resets and Return distances');

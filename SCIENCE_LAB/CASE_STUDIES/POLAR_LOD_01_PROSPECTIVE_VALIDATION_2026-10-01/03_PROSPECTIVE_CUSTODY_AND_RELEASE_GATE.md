@@ -1,7 +1,7 @@
 # POLAR-LOD-01 — prospective custody and release gate
 
 Date: 2026-10-02
-Status: `REPAIR_IMPLEMENTED / INDEPENDENT_RE-REVIEW_REQUIRED / COLLECTION_RELEASE_NOT_GRANTED / NO OUTCOME ACCESS`
+Status: `REPAIR_2_IMPLEMENTED / INDEPENDENT_RE-REVIEW_REQUIRED / COLLECTION_RELEASE_NOT_GRANTED / NO OUTCOME ACCESS`
 
 ## Purpose
 
@@ -77,8 +77,9 @@ request is made by the tests.
 ## Current decision
 
 The first independent review returned `FAIL`; the four findings and their
-bounded repairs are recorded in `04_CUSTODY_GATE_REPAIR_REPORT.md`. Repair 1
-is implemented and awaits an independent re-review. Collection has not
+bounded repairs and the second-review findings are recorded in
+`04_CUSTODY_GATE_REPAIR_REPORT.md`. Repair 2 is implemented and awaits an
+independent re-review. Collection has not
 started because Human Owner authority is absent. R2 chronology and R3
 minimum-window accumulation therefore remain open. No prospective values were
 accessed and no Research Result was created.

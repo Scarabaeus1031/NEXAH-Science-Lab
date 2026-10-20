@@ -1,0 +1,814 @@
+{
+  "adapter_records": [
+    {
+      "direct_signature": [
+        0.09192221850325051,
+        0.1317211530691783
+      ],
+      "imag": 0.11688192285936994,
+      "real": -0.7887464457088947
+    },
+    {
+      "direct_signature": [
+        0.09324734840472541,
+        0.1327762028011436
+      ],
+      "imag": 0.11717733678432021,
+      "real": -0.7882959015423933
+    },
+    {
+      "direct_signature": [
+        0.09509321801260001,
+        0.13430502701744854
+      ],
+      "imag": 0.1176054075648856,
+      "real": -0.7876683058757159
+    },
+    {
+      "direct_signature": [
+        0.09756959468951162,
+        0.1365276520898532
+      ],
+      "imag": 0.1182277425851589,
+      "real": -0.786826337805566
+    },
+    {
+      "direct_signature": [
+        0.10100809389633007,
+        0.13985436998066222
+      ],
+      "imag": 0.11915922359458543,
+      "real": -0.7856572480752477
+    },
+    {
+      "direct_signature": [
+        0.10593537387887526,
+        0.1451718352037495
+      ],
+      "imag": 0.12064811385704986,
+      "real": -0.7839819728811823
+    },
+    {
+      "direct_signature": [
+        0.11418150840853258,
+        0.15534357957251962
+      ],
+      "imag": 0.1234962022803055,
+      "real": -0.7811782871410988
+    },
+    {
+      "direct_signature": [
+        0.1172821282717133,
+        0.1586551186093498
+      ],
+      "imag": 0.12442343321061795,
+      "real": -0.7801240763876174
+    },
+    {
+      "direct_signature": [
+        0.11418150840853258,
+        0.15534357957251962
+      ],
+      "imag": 0.1234962022803055,
+      "real": -0.7811782871410988
+    },
+    {
+      "direct_signature": [
+        0.018174866703643076,
+        0.04721538583551502
+      ],
+      "imag": 0.09322030803394421,
+      "real": -0.8138205453207613
+    }
+  ],
+  "claim_ceiling": "Finite internal IEEE-300 representation-stress result only; no early-warning, prediction, mechanism, physical-orbit, preferred-geometry or utility claim.",
+  "collision_accounting": {
+    "load_signature_count": 7,
+    "load_state_count": 7,
+    "load_unique": true,
+    "relabel_equals_stress": true
+  },
+  "decision": "MIXED_NEGATIVE",
+  "gates": {
+    "ALL_VIEW_STRESS": false,
+    "BUS_RELABEL_INVARIANCE": true,
+    "COLLISION_ACCOUNTING": true,
+    "LOAD_SENSITIVITY": true,
+    "NO_ESCAPE": true,
+    "ORDER_CONTROL": true,
+    "SYNTHETIC_ABLATION": true,
+    "TOPOLOGY_SENSITIVITY": true
+  },
+  "information_boundary": {
+    "emitted_quantized_values_per_state": 84,
+    "first_emitted_iterate": 5,
+    "input_relation_values_per_state": 1800,
+    "raw_complex_iterates_emitted": false
+  },
+  "metrics": {
+    "load_endpoint_l1": 0.6428571428571428,
+    "load_order_spearman": 0.9910312089651149,
+    "order_control_l1": 1.2857142857142856,
+    "primary_distance_order_spearman": 0.9585463586932779,
+    "random_projection_rho_q95": 1.0,
+    "random_projection_rhos": [
+      1.0,
+      1.0,
+      0.9935064935064933,
+      1.0,
+      1.0,
+      1.0,
+      0.9974025974025975,
+      0.9974025974025975,
+      0.9974025974025975,
+      1.0,
+      1.0,
+      0.9974025974025975,
+      0.9974025974025975,
+      1.0,
+      1.0,
+      0.9402597402597404,
+      1.0,
+      0.9857142857142858,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      0.9922077922077923,
+      0.9974025974025975,
+      1.0,
+      1.0,
+      1.0,
+      0.9935064935064933,
+      0.9922077922077923,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "relabel_max_abs": 0.0,
+    "synthetic_l1": 1.0714285714285712,
+    "topology_l1": 0.14285714285714285
+  },
+  "protocol_sha256": "4a91d8b2f4b485d756aeb572552ab6cab217165c4d0163210e0cc63b4d8ef798",
+  "result_sha256": "796afaabe7c0c2168b959120ae53c5520c18141a61130a3f5909425076a798ac",
+  "schema": "nexah.a0-bl-054.critical-orbit-ghostgrid-result/1.0.0",
+  "source_hashes": {
+    "PREREGISTRATION_R2.md": "8a54f7d6ad26a08348bf027b7011e6efbeec8b95c83fbdc4798ddff6c2c1d824",
+    "artifacts_r2/GRAPH_GRID_RESULT_R2.json": "c4e36047129ca54faaf13189a50b7f94b13b57fa1ef3aa21ee0ef5491f1ca514",
+    "morphology_01/PREREGISTRATION.md": "c416e80e1c0bea315f8bd4ff2299090acce898615b189fe55a3e8e42014b8b8b",
+    "morphology_01/artifacts/GRAPH_GRID_MORPHOLOGY_01.json": "c4d1f6d9f01d9b092554c326edb36b2788242d3e916780eae83b989d1fb79e77",
+    "src/continuation.py": "8bfe842c8f08542c6781b31e171fddbc92aa45a23269bb8d2bbd69d5ceb72c6e",
+    "src/graph_grid.py": "5b3332d5a8005d89e9ff048e478c3fed67fbc785f7e66c64017fcd2fd5e39f9a"
+  },
+  "study_id": "A0_BL_054_IEEE300_CRITICAL_ORBIT_GHOSTGRID_2026_10_18",
+  "view_stress": [
+    {
+      "bins": 8,
+      "distance_order_spearman": 0.7311261550139309,
+      "name": "ordered_time_radius",
+      "pass": false,
+      "phase_offset": 0.0,
+      "radial_scale": 0.75
+    },
+    {
+      "bins": 8,
+      "distance_order_spearman": 0.7311261550139309,
+      "name": "ordered_time_radius",
+      "pass": false,
+      "phase_offset": 0.0,
+      "radial_scale": 1.0
+    },
+    {
+      "bins": 8,
+      "distance_order_spearman": 0.7480910771692574,
+      "name": "ordered_time_radius",
+      "pass": false,
+      "phase_offset": 0.0,
+      "radial_scale": 1.25
+    },
+    {
+      "bins": 8,
+      "distance_order_spearman": 0.7311261550139309,
+      "name": "ordered_time_radius",
+      "pass": false,
+      "phase_offset": 0.39269908169872414,
+      "radial_scale": 0.75
+    },
+    {
+      "bins": 8,
+      "distance_order_spearman": 0.7311261550139309,
+      "name": "ordered_time_radius",
+      "pass": false,
+      "phase_offset": 0.39269908169872414,
+      "radial_scale": 1.0
+    },
+    {
+      "bins": 8,
+      "distance_order_spearman": 0.7480910771692574,
+      "name": "ordered_time_radius",
+      "pass": false,
+      "phase_offset": 0.39269908169872414,
+      "radial_scale": 1.25
+    },
+    {
+      "bins": 8,
+      "distance_order_spearman": 0.7311261550139309,
+      "name": "ordered_time_radius",
+      "pass": false,
+      "phase_offset": 0.7853981633974483,
+      "radial_scale": 0.75
+    },
+    {
+      "bins": 8,
+      "distance_order_spearman": 0.7311261550139309,
+      "name": "ordered_time_radius",
+      "pass": false,
+      "phase_offset": 0.7853981633974483,
+      "radial_scale": 1.0
+    },
+    {
+      "bins": 8,
+      "distance_order_spearman": 0.7480910771692574,
+      "name": "ordered_time_radius",
+      "pass": false,
+      "phase_offset": 0.7853981633974483,
+      "radial_scale": 1.25
+    },
+    {
+      "bins": 16,
+      "distance_order_spearman": 0.8219394233058879,
+      "name": "ordered_time_radius",
+      "pass": true,
+      "phase_offset": 0.0,
+      "radial_scale": 0.75
+    },
+    {
+      "bins": 16,
+      "distance_order_spearman": 0.9585463586932779,
+      "name": "ordered_time_radius",
+      "pass": true,
+      "phase_offset": 0.0,
+      "radial_scale": 1.0
+    },
+    {
+      "bins": 16,
+      "distance_order_spearman": 0.848033439992002,
+      "name": "ordered_time_radius",
+      "pass": true,
+      "phase_offset": 0.0,
+      "radial_scale": 1.25
+    },
+    {
+      "bins": 16,
+      "distance_order_spearman": 0.8219394233058879,
+      "name": "ordered_time_radius",
+      "pass": true,
+      "phase_offset": 0.39269908169872414,
+      "radial_scale": 0.75
+    },
+    {
+      "bins": 16,
+      "distance_order_spearman": 0.9585463586932779,
+      "name": "ordered_time_radius",
+      "pass": true,
+      "phase_offset": 0.39269908169872414,
+      "radial_scale": 1.0
+    },
+    {
+      "bins": 16,
+      "distance_order_spearman": 0.848033439992002,
+      "name": "ordered_time_radius",
+      "pass": true,
+      "phase_offset": 0.39269908169872414,
+      "radial_scale": 1.25
+    },
+    {
+      "bins": 16,
+      "distance_order_spearman": 0.8219394233058879,
+      "name": "ordered_time_radius",
+      "pass": true,
+      "phase_offset": 0.7853981633974483,
+      "radial_scale": 0.75
+    },
+    {
+      "bins": 16,
+      "distance_order_spearman": 0.9585463586932779,
+      "name": "ordered_time_radius",
+      "pass": true,
+      "phase_offset": 0.7853981633974483,
+      "radial_scale": 1.0
+    },
+    {
+      "bins": 16,
+      "distance_order_spearman": 0.848033439992002,
+      "name": "ordered_time_radius",
+      "pass": true,
+      "phase_offset": 0.7853981633974483,
+      "radial_scale": 1.25
+    },
+    {
+      "bins": 32,
+      "distance_order_spearman": 0.8871276550946197,
+      "name": "ordered_time_radius",
+      "pass": true,
+      "phase_offset": 0.0,
+      "radial_scale": 0.75
+    },
+    {
+      "bins": 32,
+      "distance_order_spearman": 0.9644487438967416,
+      "name": "ordered_time_radius",
+      "pass": true,
+      "phase_offset": 0.0,
+      "radial_scale": 1.0
+    },
+    {
+      "bins": 32,
+      "distance_order_spearman": 0.9768469347858066,
+      "name": "ordered_time_radius",
+      "pass": true,
+      "phase_offset": 0.0,
+      "radial_scale": 1.25
+    },
+    {
+      "bins": 32,
+      "distance_order_spearman": 0.8871276550946197,
+      "name": "ordered_time_radius",
+      "pass": true,
+      "phase_offset": 0.39269908169872414,
+      "radial_scale": 0.75
+    },
+    {
+      "bins": 32,
+      "distance_order_spearman": 0.9644487438967416,
+      "name": "ordered_time_radius",
+      "pass": true,
+      "phase_offset": 0.39269908169872414,
+      "radial_scale": 1.0
+    },
+    {
+      "bins": 32,
+      "distance_order_spearman": 0.9768469347858066,
+      "name": "ordered_time_radius",
+      "pass": true,
+      "phase_offset": 0.39269908169872414,
+      "radial_scale": 1.25
+    },
+    {
+      "bins": 32,
+      "distance_order_spearman": 0.8871276550946197,
+      "name": "ordered_time_radius",
+      "pass": true,
+      "phase_offset": 0.7853981633974483,
+      "radial_scale": 0.75
+    },
+    {
+      "bins": 32,
+      "distance_order_spearman": 0.9644487438967416,
+      "name": "ordered_time_radius",
+      "pass": true,
+      "phase_offset": 0.7853981633974483,
+      "radial_scale": 1.0
+    },
+    {
+      "bins": 32,
+      "distance_order_spearman": 0.9768469347858066,
+      "name": "ordered_time_radius",
+      "pass": true,
+      "phase_offset": 0.7853981633974483,
+      "radial_scale": 1.25
+    },
+    {
+      "bins": 8,
+      "distance_order_spearman": 0.7311261550139309,
+      "name": "phase_radius",
+      "pass": false,
+      "phase_offset": 0.0,
+      "radial_scale": 0.75
+    },
+    {
+      "bins": 8,
+      "distance_order_spearman": 0.7311261550139309,
+      "name": "phase_radius",
+      "pass": false,
+      "phase_offset": 0.0,
+      "radial_scale": 1.0
+    },
+    {
+      "bins": 8,
+      "distance_order_spearman": 0.8990699172027856,
+      "name": "phase_radius",
+      "pass": true,
+      "phase_offset": 0.0,
+      "radial_scale": 1.25
+    },
+    {
+      "bins": 8,
+      "distance_order_spearman": 0.7906378596476551,
+      "name": "phase_radius",
+      "pass": false,
+      "phase_offset": 0.39269908169872414,
+      "radial_scale": 0.75
+    },
+    {
+      "bins": 8,
+      "distance_order_spearman": 0.7906378596476551,
+      "name": "phase_radius",
+      "pass": false,
+      "phase_offset": 0.39269908169872414,
+      "radial_scale": 1.0
+    },
+    {
+      "bins": 8,
+      "distance_order_spearman": 0.9131165896460313,
+      "name": "phase_radius",
+      "pass": true,
+      "phase_offset": 0.39269908169872414,
+      "radial_scale": 1.25
+    },
+    {
+      "bins": 8,
+      "distance_order_spearman": 0.7311261550139309,
+      "name": "phase_radius",
+      "pass": false,
+      "phase_offset": 0.7853981633974483,
+      "radial_scale": 0.75
+    },
+    {
+      "bins": 8,
+      "distance_order_spearman": 0.7311261550139309,
+      "name": "phase_radius",
+      "pass": false,
+      "phase_offset": 0.7853981633974483,
+      "radial_scale": 1.0
+    },
+    {
+      "bins": 8,
+      "distance_order_spearman": 0.8990699172027856,
+      "name": "phase_radius",
+      "pass": true,
+      "phase_offset": 0.7853981633974483,
+      "radial_scale": 1.25
+    },
+    {
+      "bins": 16,
+      "distance_order_spearman": 0.9098806314539333,
+      "name": "phase_radius",
+      "pass": true,
+      "phase_offset": 0.0,
+      "radial_scale": 0.75
+    },
+    {
+      "bins": 16,
+      "distance_order_spearman": 0.9035878555223523,
+      "name": "phase_radius",
+      "pass": true,
+      "phase_offset": 0.0,
+      "radial_scale": 1.0
+    },
+    {
+      "bins": 16,
+      "distance_order_spearman": 0.9254212087089986,
+      "name": "phase_radius",
+      "pass": true,
+      "phase_offset": 0.0,
+      "radial_scale": 1.25
+    },
+    {
+      "bins": 16,
+      "distance_order_spearman": 0.9098806314539333,
+      "name": "phase_radius",
+      "pass": true,
+      "phase_offset": 0.39269908169872414,
+      "radial_scale": 0.75
+    },
+    {
+      "bins": 16,
+      "distance_order_spearman": 0.9035878555223523,
+      "name": "phase_radius",
+      "pass": true,
+      "phase_offset": 0.39269908169872414,
+      "radial_scale": 1.0
+    },
+    {
+      "bins": 16,
+      "distance_order_spearman": 0.9252965621417995,
+      "name": "phase_radius",
+      "pass": true,
+      "phase_offset": 0.39269908169872414,
+      "radial_scale": 1.25
+    },
+    {
+      "bins": 16,
+      "distance_order_spearman": 0.9098806314539333,
+      "name": "phase_radius",
+      "pass": true,
+      "phase_offset": 0.7853981633974483,
+      "radial_scale": 0.75
+    },
+    {
+      "bins": 16,
+      "distance_order_spearman": 0.9035878555223523,
+      "name": "phase_radius",
+      "pass": true,
+      "phase_offset": 0.7853981633974483,
+      "radial_scale": 1.0
+    },
+    {
+      "bins": 16,
+      "distance_order_spearman": 0.9252965621417995,
+      "name": "phase_radius",
+      "pass": true,
+      "phase_offset": 0.7853981633974483,
+      "radial_scale": 1.25
+    },
+    {
+      "bins": 32,
+      "distance_order_spearman": 0.9397890525024556,
+      "name": "phase_radius",
+      "pass": true,
+      "phase_offset": 0.0,
+      "radial_scale": 0.75
+    },
+    {
+      "bins": 32,
+      "distance_order_spearman": 0.9768469347858066,
+      "name": "phase_radius",
+      "pass": true,
+      "phase_offset": 0.0,
+      "radial_scale": 1.0
+    },
+    {
+      "bins": 32,
+      "distance_order_spearman": 0.9791361046154455,
+      "name": "phase_radius",
+      "pass": true,
+      "phase_offset": 0.0,
+      "radial_scale": 1.25
+    },
+    {
+      "bins": 32,
+      "distance_order_spearman": 0.9397890525024556,
+      "name": "phase_radius",
+      "pass": true,
+      "phase_offset": 0.39269908169872414,
+      "radial_scale": 0.75
+    },
+    {
+      "bins": 32,
+      "distance_order_spearman": 0.9781520075109713,
+      "name": "phase_radius",
+      "pass": true,
+      "phase_offset": 0.39269908169872414,
+      "radial_scale": 1.0
+    },
+    {
+      "bins": 32,
+      "distance_order_spearman": 0.9712773962853454,
+      "name": "phase_radius",
+      "pass": true,
+      "phase_offset": 0.39269908169872414,
+      "radial_scale": 1.25
+    },
+    {
+      "bins": 32,
+      "distance_order_spearman": 0.9397890525024556,
+      "name": "phase_radius",
+      "pass": true,
+      "phase_offset": 0.7853981633974483,
+      "radial_scale": 0.75
+    },
+    {
+      "bins": 32,
+      "distance_order_spearman": 0.977820120483288,
+      "name": "phase_radius",
+      "pass": true,
+      "phase_offset": 0.7853981633974483,
+      "radial_scale": 1.0
+    },
+    {
+      "bins": 32,
+      "distance_order_spearman": 0.9734953043987883,
+      "name": "phase_radius",
+      "pass": true,
+      "phase_offset": 0.7853981633974483,
+      "radial_scale": 1.25
+    },
+    {
+      "bins": 8,
+      "distance_order_spearman": 0.7311261550139309,
+      "name": "delta_phase",
+      "pass": false,
+      "phase_offset": 0.0,
+      "radial_scale": 0.75
+    },
+    {
+      "bins": 8,
+      "distance_order_spearman": 0.7311261550139309,
+      "name": "delta_phase",
+      "pass": false,
+      "phase_offset": 0.0,
+      "radial_scale": 1.0
+    },
+    {
+      "bins": 8,
+      "distance_order_spearman": 0.7311261550139309,
+      "name": "delta_phase",
+      "pass": false,
+      "phase_offset": 0.0,
+      "radial_scale": 1.25
+    },
+    {
+      "bins": 8,
+      "distance_order_spearman": 0.8075696541391294,
+      "name": "delta_phase",
+      "pass": true,
+      "phase_offset": 0.39269908169872414,
+      "radial_scale": 0.75
+    },
+    {
+      "bins": 8,
+      "distance_order_spearman": 0.8075696541391294,
+      "name": "delta_phase",
+      "pass": true,
+      "phase_offset": 0.39269908169872414,
+      "radial_scale": 1.0
+    },
+    {
+      "bins": 8,
+      "distance_order_spearman": 0.8075696541391294,
+      "name": "delta_phase",
+      "pass": true,
+      "phase_offset": 0.39269908169872414,
+      "radial_scale": 1.25
+    },
+    {
+      "bins": 8,
+      "distance_order_spearman": 0.7311261550139309,
+      "name": "delta_phase",
+      "pass": false,
+      "phase_offset": 0.7853981633974483,
+      "radial_scale": 0.75
+    },
+    {
+      "bins": 8,
+      "distance_order_spearman": 0.7311261550139309,
+      "name": "delta_phase",
+      "pass": false,
+      "phase_offset": 0.7853981633974483,
+      "radial_scale": 1.0
+    },
+    {
+      "bins": 8,
+      "distance_order_spearman": 0.7311261550139309,
+      "name": "delta_phase",
+      "pass": false,
+      "phase_offset": 0.7853981633974483,
+      "radial_scale": 1.25
+    },
+    {
+      "bins": 16,
+      "distance_order_spearman": 0.86844607685545,
+      "name": "delta_phase",
+      "pass": true,
+      "phase_offset": 0.0,
+      "radial_scale": 0.75
+    },
+    {
+      "bins": 16,
+      "distance_order_spearman": 0.86844607685545,
+      "name": "delta_phase",
+      "pass": true,
+      "phase_offset": 0.0,
+      "radial_scale": 1.0
+    },
+    {
+      "bins": 16,
+      "distance_order_spearman": 0.86844607685545,
+      "name": "delta_phase",
+      "pass": true,
+      "phase_offset": 0.0,
+      "radial_scale": 1.25
+    },
+    {
+      "bins": 16,
+      "distance_order_spearman": 0.8792438430520758,
+      "name": "delta_phase",
+      "pass": true,
+      "phase_offset": 0.39269908169872414,
+      "radial_scale": 0.75
+    },
+    {
+      "bins": 16,
+      "distance_order_spearman": 0.8792438430520758,
+      "name": "delta_phase",
+      "pass": true,
+      "phase_offset": 0.39269908169872414,
+      "radial_scale": 1.0
+    },
+    {
+      "bins": 16,
+      "distance_order_spearman": 0.8792438430520758,
+      "name": "delta_phase",
+      "pass": true,
+      "phase_offset": 0.39269908169872414,
+      "radial_scale": 1.25
+    },
+    {
+      "bins": 16,
+      "distance_order_spearman": 0.86844607685545,
+      "name": "delta_phase",
+      "pass": true,
+      "phase_offset": 0.7853981633974483,
+      "radial_scale": 0.75
+    },
+    {
+      "bins": 16,
+      "distance_order_spearman": 0.86844607685545,
+      "name": "delta_phase",
+      "pass": true,
+      "phase_offset": 0.7853981633974483,
+      "radial_scale": 1.0
+    },
+    {
+      "bins": 16,
+      "distance_order_spearman": 0.86844607685545,
+      "name": "delta_phase",
+      "pass": true,
+      "phase_offset": 0.7853981633974483,
+      "radial_scale": 1.25
+    },
+    {
+      "bins": 32,
+      "distance_order_spearman": 0.9560714684176906,
+      "name": "delta_phase",
+      "pass": true,
+      "phase_offset": 0.0,
+      "radial_scale": 0.75
+    },
+    {
+      "bins": 32,
+      "distance_order_spearman": 0.9560714684176906,
+      "name": "delta_phase",
+      "pass": true,
+      "phase_offset": 0.0,
+      "radial_scale": 1.0
+    },
+    {
+      "bins": 32,
+      "distance_order_spearman": 0.9560714684176906,
+      "name": "delta_phase",
+      "pass": true,
+      "phase_offset": 0.0,
+      "radial_scale": 1.25
+    },
+    {
+      "bins": 32,
+      "distance_order_spearman": 0.9560714684176906,
+      "name": "delta_phase",
+      "pass": true,
+      "phase_offset": 0.39269908169872414,
+      "radial_scale": 0.75
+    },
+    {
+      "bins": 32,
+      "distance_order_spearman": 0.9560714684176906,
+      "name": "delta_phase",
+      "pass": true,
+      "phase_offset": 0.39269908169872414,
+      "radial_scale": 1.0
+    },
+    {
+      "bins": 32,
+      "distance_order_spearman": 0.9560714684176906,
+      "name": "delta_phase",
+      "pass": true,
+      "phase_offset": 0.39269908169872414,
+      "radial_scale": 1.25
+    },
+    {
+      "bins": 32,
+      "distance_order_spearman": 0.9560714684176906,
+      "name": "delta_phase",
+      "pass": true,
+      "phase_offset": 0.7853981633974483,
+      "radial_scale": 0.75
+    },
+    {
+      "bins": 32,
+      "distance_order_spearman": 0.9560714684176906,
+      "name": "delta_phase",
+      "pass": true,
+      "phase_offset": 0.7853981633974483,
+      "radial_scale": 1.0
+    },
+    {
+      "bins": 32,
+      "distance_order_spearman": 0.9560714684176906,
+      "name": "delta_phase",
+      "pass": true,
+      "phase_offset": 0.7853981633974483,
+      "radial_scale": 1.25
+    }
+  ]
+}

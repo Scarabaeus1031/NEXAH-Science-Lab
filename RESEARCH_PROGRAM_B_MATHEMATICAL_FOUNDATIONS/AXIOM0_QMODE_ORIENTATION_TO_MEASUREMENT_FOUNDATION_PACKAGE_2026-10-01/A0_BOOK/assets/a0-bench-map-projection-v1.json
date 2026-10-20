@@ -1,0 +1,29 @@
+{
+  "schema": "nexah.a0.ocb-bench-map-projection/1",
+  "version": "1.0.0",
+  "date": "2026-10-19",
+  "status": "LOCAL_SOURCE_BOUND_OPERATIONAL_PROJECTION",
+  "identity": "NEXAH_A0_ORIENTATION_CONTROLLER_BENCH",
+  "entry": "A0_ORIENTATION_CONTROLLER_BENCH.html#benchMap",
+  "projection_role": "OPERATIVE_BENCH_MAP",
+  "source_authority": "NEXAH_A0_ORIENTATION_CONTROLLER_BENCH",
+  "owns_bench_state": false,
+  "owns_playback": false,
+  "creates_family_identity": false,
+  "creates_family_relation": false,
+  "groups": ["SOURCE", "STATE", "OPERATE", "VIEW", "RETURN", "VERIFY"],
+  "binding_types": ["STATE_OWNER", "LIVE_COUPLED", "TYPED_HANDOFF", "VIEW_PROJECTION", "RETURN_WITNESS", "RESULT_LENS", "LAUNCHER", "OPEN_UNBOUND"],
+  "public_contract": {
+    "module_registry": "window.A0BenchMapController.MODULES",
+    "focus_targets": "module.focusTarget",
+    "binding_types": "window.A0BenchMapController.BINDING_TYPES",
+    "selection_event": "a0:bench-selection",
+    "focus_event": "a0:bench-focus",
+    "playback_event": "a0:bench-playback",
+    "snapshot": "window.A0BenchMapController.snapshot"
+  },
+  "implementation": ["a0-bench-map.js", "a0-bench-map.css", "a0-bench-map-tests.cjs", "A0_ORIENTATION_CONTROLLER_BENCH.html", "a0-bench-showcase-tour.js"],
+  "excluded_sources": ["A0_FAMILY_CONNECTION_ATLAS.html", "a0-family-spatial-bodies.js", "a0-family-spatial-navigation.js"],
+  "authority": {"newCanonicalIdentity": false, "newCanonicalRelation": false, "researchExecution": false, "claimPromotion": false, "publication": false},
+  "boundary": "A Bench-owned operational projection over existing modules. It exposes selection, focus and playback observations without owning or mutating Bench state, clocks, carriers, Family vocabulary or the general Family Atlas."
+}

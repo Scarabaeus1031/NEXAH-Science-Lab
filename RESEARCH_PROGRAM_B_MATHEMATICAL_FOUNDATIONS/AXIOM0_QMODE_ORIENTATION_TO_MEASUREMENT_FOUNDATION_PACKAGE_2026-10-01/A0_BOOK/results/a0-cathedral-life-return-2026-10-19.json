@@ -1,0 +1,94 @@
+{
+  "schema": "a0.cathedral-life-return/1",
+  "date": "2026-10-19",
+  "status": "LOCAL_ENGINEERING_TESTS_PASS_VISUAL_ACCEPTANCE_OPEN",
+  "identity_reuse": "existing A0 Research Desk Cathedral viewer; existing RC08 GLB; byte-identical Game4Life Core engine",
+  "new_ids": 0,
+  "new_relations": 0,
+  "source_glb_sha256": "ddff799102ac7a40f98ee125c6d4a76f17a869786d182da0e9859023b6584443",
+  "rule": "B3/S23",
+  "carrier": {
+    "width": 16,
+    "height": 16,
+    "boundary": "finite-dead",
+    "steps": 32,
+    "frames_including_seed": 33,
+    "patterns": [
+      "glider",
+      "blinker",
+      "rPentomino"
+    ]
+  },
+  "mapping": {
+    "x": "(cellX-7.5)*0.55",
+    "z": "-10+(cellY-7.5)*0.55",
+    "y": "0.3+generation*(exploded?0.78:0.38)",
+    "semantics": "explicit display mapping; temporal layers are not spatial neighbours"
+  },
+  "views": [
+    "body: ghosted complete source architecture",
+    "scaffold: ghosted Nave only",
+    "exploded: architecture separated, temporal layers spread"
+  ],
+  "controls": [
+    "start/pause",
+    "single step",
+    "reset generation 0",
+    "pattern and view selectors",
+    "GLB export with full states in extras",
+    "original-source return"
+  ],
+  "boundaries": [
+    "original GLBs unchanged",
+    "no Cathedral-node neighbourhood dynamics",
+    "no biological or physical interpretation",
+    "no Numbers state coupling",
+    "no new research study or activation",
+    "generation height is not population growth",
+    "derived snapshots omit source animations; no retargeting"
+  ],
+  "verification": {
+    "life_and_GLb": 2677,
+    "controller_simulated_dom": 51,
+    "parts": 1042,
+    "format_source_return": 212,
+    "desk": 136,
+    "reader": "50/50 shared;56 reachable",
+    "existing_worlds": 2795,
+    "existing_play": 161,
+    "existing_numbers": 20723,
+    "browser_webgl_and_iphone": "NOT_PERFORMED"
+  },
+  "publication": "LOCAL_ONLY_NO_PUSH",
+  "next_action": "visual acceptance of body/scaffold/exploded with play/pause/reset in existing Desk",
+  "sources": [
+    {
+      "ecosystem_path": "30 SCIENCE LAB/NEXAH-Science-Lab/RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/A0_RESEARCH_DESK.html",
+      "sha256": "94b2ad29346c950bdc82e332d5b9c0715a90eda5c67e0a3f8bed2f617cfb0f77"
+    },
+    {
+      "ecosystem_path": "30 SCIENCE LAB/NEXAH-Science-Lab/RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/a0-cathedral-parts.js",
+      "sha256": "35f948d9c4460a3c73dfc280c9c18915015a159034c1d61cd6efff1966f33e6f"
+    },
+    {
+      "ecosystem_path": "30 SCIENCE LAB/NEXAH-Science-Lab/RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/a0-cathedral-life.js",
+      "sha256": "429be16af3743fa93b7f70968e64441db9674255520231de9f351816a11844b7"
+    },
+    {
+      "ecosystem_path": "30 SCIENCE LAB/NEXAH-Science-Lab/RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/a0-cathedral-life-tests.cjs",
+      "sha256": "dd1d970c49ff5120735d3336acacb14785c56a09976d56cdac758afd1ba4309a"
+    },
+    {
+      "ecosystem_path": "30 SCIENCE LAB/NEXAH-Science-Lab/RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/a0-cathedral-glb-viewer.js",
+      "sha256": "183e60bcf4db351cd7b799a0c15a376ee4753f9ac2922b03a3619bb63a4aae1f"
+    },
+    {
+      "ecosystem_path": "30 SCIENCE LAB/NEXAH-Science-Lab/RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/a0-cathedral-glb-viewer-tests.cjs",
+      "sha256": "d577725d97220380e3ddf3755d8a734a39edd7af888a31d8296a9ff1c73c8b73"
+    },
+    {
+      "ecosystem_path": "30 SCIENCE LAB/NEXAH-Science-Lab/RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/assets/game-of-worlds-play/cylinder-engine.js",
+      "sha256": "43ff8a5b4b72fba88c90821dba713d5cc4748845a90357f615e8646205ffcb08"
+    }
+  ]
+}

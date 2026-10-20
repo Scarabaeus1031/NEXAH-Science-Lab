@@ -1,0 +1,754 @@
+{
+  "recordType": "A0_PENTAGON_DOUBLE_COVER_TUBE_GATE_ENGINEERING_RESULT",
+  "version": "1.0.0",
+  "date": "2026-10-15",
+  "identityReuse": [
+    "A0",
+    "SCC-003",
+    "PENT-01..07",
+    "C5",
+    "D5",
+    "C30_PHASE_VIEW"
+  ],
+  "status": "ENGINEERING_CHECK_PASS_WITH_OPEN_SELECTION_BOUNDARIES",
+  "scientificStatus": "NOT_A_LAB_STUDY_NOT_ADMITTED_NOT_ACTIVATED",
+  "model": {
+    "base": "C5",
+    "connectedDoubleCover": "C10 with one odd voltage class",
+    "deckInvolution": "tau=t^5",
+    "fullReturn": "t^10=e",
+    "liftedReflection": "mu t mu=t^-1",
+    "phase": "independent C30 unless delta is declared",
+    "pairedRegisterView": "D1..D5 and E1..E5 are sheet aliases; tau swaps Di<->Ei",
+    "twoGateEdges": [
+      "0-9",
+      "4-5"
+    ],
+    "pascalTwentyOrbit": "five anchors (face,6,3) with C(6,3)=20",
+    "umbrellaCandidates": [
+      "shared hub + C10 rim = 11 vertices / 10 spokes",
+      "two hubs + C10 rim = 12 vertices / 10 spokes"
+    ],
+    "crossCarrier24": "two dodecahedral 12-face shells give 24 faces; Blue Body has 48 vertices=2*24 but O2-P16-H8 faces"
+  },
+  "checks": [
+    {
+      "id": "G-01",
+      "title": "C5 rotation has order five",
+      "status": "PASS",
+      "detail": "r^5=e and r^j!=e for 1<=j<5"
+    },
+    {
+      "id": "G-02",
+      "title": "D5 reflection relations hold",
+      "status": "PASS",
+      "detail": "m^2=e and mrm=r^-1"
+    },
+    {
+      "id": "G-03",
+      "title": "Lifted step has side switch at five and return at ten",
+      "status": "PASS",
+      "detail": "t^5=tau, tau^2=e, t^10=e"
+    },
+    {
+      "id": "G-04",
+      "title": "Projection intertwines lifted and base rotation",
+      "status": "PASS",
+      "detail": "pi∘t=r∘pi on all 10 states"
+    },
+    {
+      "id": "G-05",
+      "title": "Lifted mirror generates the dihedral action on ten positions",
+      "status": "PASS",
+      "detail": "mu^2=e, mu t mu=t^-1; 20 distinct actions"
+    },
+    {
+      "id": "R-01",
+      "title": "One side bit is necessary and sufficient for exact Return",
+      "status": "PASS",
+      "detail": "all projection fibres have size 2; one residual bit reconstructs the source"
+    },
+    {
+      "id": "S-01",
+      "title": "The sheet bit yields paired D and E register banks",
+      "status": "PASS",
+      "detail": {
+        "labels": [
+          "D1",
+          "D2",
+          "D3",
+          "D4",
+          "D5",
+          "E1",
+          "E2",
+          "E3",
+          "E4",
+          "E5"
+        ],
+        "deckSwitch": "tau: Di <-> Ei"
+      }
+    },
+    {
+      "id": "S-02",
+      "title": "The connected ten-step route has exactly two D/E gates",
+      "status": "PASS",
+      "detail": {
+        "route": [
+          "D1",
+          "D2",
+          "D3",
+          "D4",
+          "D5",
+          "E1",
+          "E2",
+          "E3",
+          "E4",
+          "E5"
+        ],
+        "crossBank": [
+          "D5->E1",
+          "E5->D1"
+        ]
+      }
+    },
+    {
+      "id": "A-01",
+      "title": "Connected cover has exactly two lifted gate edges",
+      "status": "PASS",
+      "detail": {
+        "gates": [
+          "0-9",
+          "4-5"
+        ],
+        "connected": true
+      }
+    },
+    {
+      "id": "A-02",
+      "title": "Removing both gates separates two five-vertex paths",
+      "status": "PASS",
+      "detail": {
+        "componentSizes": [
+          5,
+          5
+        ]
+      }
+    },
+    {
+      "id": "A-03",
+      "title": "Disconnected two-sheet control retains two C5 components",
+      "status": "PASS",
+      "detail": "C5 disjoint union C5"
+    },
+    {
+      "id": "A-04",
+      "title": "Connectedness is controlled by seam-voltage parity, not gate position",
+      "status": "PASS",
+      "detail": "16 connected odd-parity covers; 16 disconnected even-parity covers"
+    },
+    {
+      "id": "U-01",
+      "title": "Five Pascal middle coefficients form one C5 orbit",
+      "status": "PASS",
+      "detail": "five anchors (face,6,3), each carrying C(6,3)=20"
+    },
+    {
+      "id": "U-02",
+      "title": "The five 20-anchors form a regular midpoint pentagon",
+      "status": "PASS",
+      "detail": {
+        "radius": 0.8090169943749476,
+        "expectedScale": "cos(pi/5)=phi/2",
+        "side": 0.9510565162951535
+      }
+    },
+    {
+      "id": "U-03",
+      "title": "Two sheets lift five 20-anchors to ten addressed rim positions",
+      "status": "PASS",
+      "detail": "5 anchors x 2 sheets = 10 rim addresses and 10 candidate spokes"
+    },
+    {
+      "id": "U-04",
+      "title": "Shared-hub umbrella has one hub and ten spokes",
+      "status": "PASS",
+      "detail": {
+        "vertices": 11,
+        "rimEdges": 10,
+        "spokes": 10,
+        "hubDegree": 10,
+        "type": "branched at shared hub"
+      }
+    },
+    {
+      "id": "U-05",
+      "title": "Doubled-hub control is the genuine two-fold wheel cover",
+      "status": "PASS",
+      "detail": {
+        "vertices": 12,
+        "rimEdges": 10,
+        "spokes": 10,
+        "hubDegrees": [
+          5,
+          5
+        ],
+        "type": "unbranched two-fold graph cover"
+      }
+    },
+    {
+      "id": "U-06",
+      "title": "One hub versus two hubs remain mathematically distinguishable",
+      "status": "PASS",
+      "detail": {
+        "sharedHubTrace1To12": [
+          0,
+          0,
+          60,
+          80,
+          100,
+          1140,
+          2380,
+          4080,
+          23460,
+          66520,
+          139260,
+          561740
+        ],
+        "doubledHubTrace1To12": [
+          0,
+          0,
+          48,
+          48,
+          40,
+          300,
+          448,
+          784,
+          2784,
+          6560,
+          12936,
+          35580
+        ]
+      }
+    },
+    {
+      "id": "C-01",
+      "title": "Two dodecahedral face shells carry twelve plus twelve pentagons",
+      "status": "PASS",
+      "detail": {
+        "oneShell": 12,
+        "twoShells": 24,
+        "reading": "12+12=24 pentagonal faces"
+      }
+    },
+    {
+      "id": "C-02",
+      "title": "Blue Body source counts are kept exact",
+      "status": "PASS",
+      "detail": {
+        "label": "O2-P16-H8",
+        "vertices": 48,
+        "edges": 72,
+        "faces": 26,
+        "faceVector": {
+          "octagons": 2,
+          "pentagons": 16,
+          "hexagons": 8
+        },
+        "carrierPartition": [
+          3,
+          16
+        ],
+        "shellPartition": [
+          6,
+          8
+        ]
+      }
+    },
+    {
+      "id": "C-03",
+      "title": "Blue Body admits exact 48-state partitions with a 24 half-count",
+      "status": "PASS",
+      "detail": "48=3*16=6*8=2*24"
+    },
+    {
+      "id": "C-04",
+      "title": "The 24-count match does not identify the two carriers",
+      "status": "PASS",
+      "detail": {
+        "doubledDodecahedron": {
+          "vertices": 40,
+          "edges": 60,
+          "faces": 24,
+          "pentagons": 24
+        },
+        "blueBody": {
+          "vertices": 48,
+          "edges": 72,
+          "faces": 26
+        }
+      }
+    },
+    {
+      "id": "N-01",
+      "title": "The existing 12-to-24 operator-ladder step is exact",
+      "status": "PASS",
+      "detail": "12=2^2*3; 24=2^3*3; 12/13 -> 24/25 is one doubling step"
+    },
+    {
+      "id": "N-02",
+      "title": "The 23-24-25 window has three distinct arithmetic types",
+      "status": "PASS",
+      "detail": {
+        "23": "prime",
+        "24": "2^3*3=2*12",
+        "25": "5^2"
+      }
+    },
+    {
+      "id": "I-01",
+      "title": "Hashimoto dimensions match directed edge counts",
+      "status": "PASS",
+      "detail": "B(C5) is 10x10; B(connected cover) is 20x20"
+    },
+    {
+      "id": "I-02",
+      "title": "Primitive five-cycle lifts to a ten-cycle in the connected cover",
+      "status": "PASS",
+      "detail": {
+        "traceB5Base": 10,
+        "traceB5Cover": 0,
+        "traceB10Cover": 20
+      }
+    },
+    {
+      "id": "I-03",
+      "title": "Disconnected control preserves five-cycles",
+      "status": "PASS",
+      "detail": {
+        "traceB5": 20,
+        "traceB10": 20
+      }
+    },
+    {
+      "id": "E-01",
+      "title": "Graph Euler characteristic is preserved at zero",
+      "status": "PASS",
+      "detail": "chi(C5)=0 and chi(C10)=0"
+    },
+    {
+      "id": "M-01",
+      "title": "Regular-pentagon diagonal ratio equals phi",
+      "status": "PASS",
+      "detail": {
+        "phi": 1.618033988749895,
+        "twoCosPiOver5": 1.618033988749895,
+        "absoluteError": 0
+      }
+    },
+    {
+      "id": "M-02",
+      "title": "Fibonacci ratios remain an approximation schedule, not phi identity",
+      "status": "PASS",
+      "detail": [
+        {
+          "n": 2,
+          "ratio": 1,
+          "error": 0.6180339887498949
+        },
+        {
+          "n": 3,
+          "ratio": 2,
+          "error": 0.3819660112501051
+        },
+        {
+          "n": 4,
+          "ratio": 1.5,
+          "error": 0.1180339887498949
+        },
+        {
+          "n": 5,
+          "ratio": 1.6666666666666667,
+          "error": 0.04863267791677184
+        },
+        {
+          "n": 6,
+          "ratio": 1.6,
+          "error": 0.018033988749894814
+        },
+        {
+          "n": 7,
+          "ratio": 1.625,
+          "error": 0.0069660112501050975
+        },
+        {
+          "n": 8,
+          "ratio": 1.6153846153846154,
+          "error": 0.0026493733652794837
+        },
+        {
+          "n": 9,
+          "ratio": 1.619047619047619,
+          "error": 0.0010136302977241662
+        },
+        {
+          "n": 10,
+          "ratio": 1.6176470588235294,
+          "error": 0.00038692992636546464
+        },
+        {
+          "n": 11,
+          "ratio": 1.6181818181818182,
+          "error": 0.00014782943192326314
+        },
+        {
+          "n": 12,
+          "ratio": 1.6179775280898876,
+          "error": 0.000056460660007306984
+        }
+      ]
+    },
+    {
+      "id": "P-01",
+      "title": "D30 phase is independent unless a coupling increment is declared",
+      "status": "PASS",
+      "detail": {
+        "delta1": {
+          "delta": 1,
+          "phaseOrder": 30,
+          "jointReturn": 30,
+          "closesAtTen": false
+        },
+        "delta3": {
+          "delta": 3,
+          "phaseOrder": 10,
+          "jointReturn": 10,
+          "closesAtTen": true
+        }
+      }
+    },
+    {
+      "id": "P-02",
+      "title": "Ten-step closure does not uniquely select one D30 increment",
+      "status": "PASS",
+      "detail": {
+        "closingDeltas": [
+          0,
+          3,
+          6,
+          9,
+          12,
+          15,
+          18,
+          21,
+          24,
+          27
+        ],
+        "minimalPositiveCandidate": 3
+      }
+    },
+    {
+      "id": "P-03",
+      "title": "Existing L/R unit phase requires its own return word",
+      "status": "PASS",
+      "detail": "spatial t^10 return does not close ten unit R phase steps"
+    },
+    {
+      "id": "P-04",
+      "title": "Frozen Pascal D30 phase obeys the signed branch schedule",
+      "status": "PASS",
+      "detail": "p=2k-n mod30; L decrements and R increments phase by one"
+    },
+    {
+      "id": "P-05",
+      "title": "Adding the D/E sheet doubles the register-phase display without selecting a coupling law",
+      "status": "PASS",
+      "detail": {
+        "existing": "C5_D x C30_P = 150",
+        "proposedView": "C5_register x C2_DE x C30_phase = 300"
+      }
+    }
+  ],
+  "populations": {
+    "voltageAssignments": 32,
+    "connectedOddParity": 16,
+    "disconnectedEvenParity": 16,
+    "phaseIncrements": [
+      {
+        "delta": 0,
+        "phaseOrder": 1,
+        "jointReturn": 10,
+        "closesAtTen": true
+      },
+      {
+        "delta": 1,
+        "phaseOrder": 30,
+        "jointReturn": 30,
+        "closesAtTen": false
+      },
+      {
+        "delta": 2,
+        "phaseOrder": 15,
+        "jointReturn": 30,
+        "closesAtTen": false
+      },
+      {
+        "delta": 3,
+        "phaseOrder": 10,
+        "jointReturn": 10,
+        "closesAtTen": true
+      },
+      {
+        "delta": 4,
+        "phaseOrder": 15,
+        "jointReturn": 30,
+        "closesAtTen": false
+      },
+      {
+        "delta": 5,
+        "phaseOrder": 6,
+        "jointReturn": 30,
+        "closesAtTen": false
+      },
+      {
+        "delta": 6,
+        "phaseOrder": 5,
+        "jointReturn": 10,
+        "closesAtTen": true
+      },
+      {
+        "delta": 7,
+        "phaseOrder": 30,
+        "jointReturn": 30,
+        "closesAtTen": false
+      },
+      {
+        "delta": 8,
+        "phaseOrder": 15,
+        "jointReturn": 30,
+        "closesAtTen": false
+      },
+      {
+        "delta": 9,
+        "phaseOrder": 10,
+        "jointReturn": 10,
+        "closesAtTen": true
+      },
+      {
+        "delta": 10,
+        "phaseOrder": 3,
+        "jointReturn": 30,
+        "closesAtTen": false
+      },
+      {
+        "delta": 11,
+        "phaseOrder": 30,
+        "jointReturn": 30,
+        "closesAtTen": false
+      },
+      {
+        "delta": 12,
+        "phaseOrder": 5,
+        "jointReturn": 10,
+        "closesAtTen": true
+      },
+      {
+        "delta": 13,
+        "phaseOrder": 30,
+        "jointReturn": 30,
+        "closesAtTen": false
+      },
+      {
+        "delta": 14,
+        "phaseOrder": 15,
+        "jointReturn": 30,
+        "closesAtTen": false
+      },
+      {
+        "delta": 15,
+        "phaseOrder": 2,
+        "jointReturn": 10,
+        "closesAtTen": true
+      },
+      {
+        "delta": 16,
+        "phaseOrder": 15,
+        "jointReturn": 30,
+        "closesAtTen": false
+      },
+      {
+        "delta": 17,
+        "phaseOrder": 30,
+        "jointReturn": 30,
+        "closesAtTen": false
+      },
+      {
+        "delta": 18,
+        "phaseOrder": 5,
+        "jointReturn": 10,
+        "closesAtTen": true
+      },
+      {
+        "delta": 19,
+        "phaseOrder": 30,
+        "jointReturn": 30,
+        "closesAtTen": false
+      },
+      {
+        "delta": 20,
+        "phaseOrder": 3,
+        "jointReturn": 30,
+        "closesAtTen": false
+      },
+      {
+        "delta": 21,
+        "phaseOrder": 10,
+        "jointReturn": 10,
+        "closesAtTen": true
+      },
+      {
+        "delta": 22,
+        "phaseOrder": 15,
+        "jointReturn": 30,
+        "closesAtTen": false
+      },
+      {
+        "delta": 23,
+        "phaseOrder": 30,
+        "jointReturn": 30,
+        "closesAtTen": false
+      },
+      {
+        "delta": 24,
+        "phaseOrder": 5,
+        "jointReturn": 10,
+        "closesAtTen": true
+      },
+      {
+        "delta": 25,
+        "phaseOrder": 6,
+        "jointReturn": 30,
+        "closesAtTen": false
+      },
+      {
+        "delta": 26,
+        "phaseOrder": 15,
+        "jointReturn": 30,
+        "closesAtTen": false
+      },
+      {
+        "delta": 27,
+        "phaseOrder": 10,
+        "jointReturn": 10,
+        "closesAtTen": true
+      },
+      {
+        "delta": 28,
+        "phaseOrder": 15,
+        "jointReturn": 30,
+        "closesAtTen": false
+      },
+      {
+        "delta": 29,
+        "phaseOrder": 30,
+        "jointReturn": 30,
+        "closesAtTen": false
+      }
+    ]
+  },
+  "iharaHashimotoFingerprint": {
+    "baseTracePowers1To20": [
+      0,
+      0,
+      0,
+      0,
+      10,
+      0,
+      0,
+      0,
+      0,
+      10,
+      0,
+      0,
+      0,
+      0,
+      10,
+      0,
+      0,
+      0,
+      0,
+      10
+    ],
+    "connectedCoverTracePowers1To20": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      20,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      20
+    ],
+    "disconnectedControlTracePowers1To20": [
+      0,
+      0,
+      0,
+      0,
+      20,
+      0,
+      0,
+      0,
+      0,
+      20,
+      0,
+      0,
+      0,
+      0,
+      20,
+      0,
+      0,
+      0,
+      0,
+      20
+    ]
+  },
+  "findings": [
+    "The Owner side-change idea is realized exactly by a connected two-sheet C5 cover with t^5=tau and t^10=e.",
+    "The D5 symbol m remains reflection; it is not the full Return.",
+    "One residual sheet bit is necessary and sufficient after projection to C5.",
+    "The sheet bit admits the explicit paired-register view D1..D5 / E1..E5 with gates D5-E1 and E5-D1.",
+    "The connected cover moves the primitive non-backtracking cycle signature from length 5 to length 10.",
+    "The five C(6,3)=20 nodes are one C5 orbit and form a regular midpoint pentagon.",
+    "Their two-sheet lift supplies ten addressed rim positions and therefore ten candidate spokes.",
+    "A single visible hub is a branched umbrella, while duplicated hubs give the genuine unbranched two-fold wheel cover.",
+    "Two exact dodecahedral face shells supply 12+12=24 pentagonal faces.",
+    "The Blue Body supplies 48=3*16=6*8=2*24 vertices, but its exact face vector is O2-P16-H8, not three octagons.",
+    "The existing A0 operator ladder contains the exact step 12/13 -> 24/25; 23, 24 and 25 remain prime, composite and square types respectively.",
+    "Graph structure alone does not select a unique physical gate position: all 16 odd voltage assignments are connected covers.",
+    "A D30 phase increment must be declared independently; ten-step closure admits ten increments and does not select delta=3 uniquely.",
+    "The source D30 law remains p=2k-n mod30 with L/R phase steps -1/+1; adjoining D/E creates 300 display addresses but supplies no coupling law.",
+    "Phi is exact pentagon metric; Fibonacci ratios are approximants and do not define the cover."
+  ],
+  "openBoundaries": [
+    "No geometric tile embedding, non-overlap proof or 16/17 classical pentagon-tiling claim is supplied.",
+    "No historical source selects a gate edge, sheet label, D30 increment or Fibonacci weighting.",
+    "E1..E5 is a test/view alias for the second sheet, not a recovered canonical register bank.",
+    "The present source does not yet select shared-hub versus doubled-hub umbrella topology.",
+    "Equal cardinality 24 does not supply a face, edge, vertex or operator bijection between doubled dodecahedral shells and the Blue Body.",
+    "No Blue Body, Tessarec, physical tube, energy, flow or stability identity follows.",
+    "Ihara/Hashimoto is evaluated only on the declared finite cycle graphs.",
+    "Usefulness outside exact address/Return bookkeeping remains untested."
+  ],
+  "claimBoundary": "Deterministic finite engineering verification only. No Lab admission, Study activation, experiment, novelty determination, physical mechanism or publication authority."
+}

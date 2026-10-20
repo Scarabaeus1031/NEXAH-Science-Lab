@@ -339,3 +339,58 @@ NO SCIENTIFIC PROMOTION
 NO NEW PROJECT ACTIVATION
 ONE RECONSTRUCTIBLE PHI-CONTRACTION OPERATOR RETAINED FOR DESIGN REVIEW
 ```
+
+## Addendum: F50, Scarab and Ghostgrid continuation
+
+```yaml
+addendum_id: SCC-002-VISUAL-PREDECESSOR-002
+date: 2026-09-30
+record_count: 12
+source_class: HISTORICAL_GENERATED_VISUAL_SERIES
+custody_action: NONE_READ_ONLY
+scientific_result: NO
+operator_reconstruction: NOT_PERFORMED
+```
+
+The twelve subsequently supplied images extend the visual lineage from the
+Fibonacci/F50 factor record into Scarab, Ethergon, Ghostgrid and number-stack
+views. They are registered as source records, not as evidence that one
+mathematical generator joins all displayed numbers.
+
+| # | Short identification | Pixels | SHA-256 |
+|---:|---|---:|---|
+| 1 | `F_50` factor exponents: `5^2, 11, 101, 151, 3001` | 1400x800 | `4a515309bb3f1e702c47d8505ac033b840c32e64abece6426af0dcafda5edf78` |
+| 2 | descending-digit primality display | 1254x627 | `7bfb64a4eaa6de3788c68cf37e399c3dd7fb07e411597b4fe8d76e9556cc649e` |
+| 3 | year-end, binary threshold and near-unity ratio panel | 2074x1516 | `8f279dcdd34b4c97dc41b44cff40a4f639800a566f2933fff530f12ba2e65922` |
+| 4 | Scarabgon and Ethergon paired hexagonal views | 1258x625 | `477027d80c0d190bf10d0fe9556524945357fef2700d093a2515723ea539fbd5` |
+| 5 | Scarabgon orbit with `17399=127*137` center | 886x886 | `2b6c94108dab87ce850fbafe60d1fb021226ee6b134f7190c09a60f9767be197` |
+| 6 | vertical number-stack draft | 969x1476 | `98eaddfc96b4f20bf0ef97537d149f66f429c92ee78af0071a53a4091165f3c6` |
+| 7 | `10532` / `6867` two-endpoint view | 814x1322 | `f43078c0a0fc2f2216f923d2dab152220773471525bbde866d242be7780432fe` |
+| 8 | Scarabgon with Ghostgrid axis and ghost nodes | 1280x1322 | `fc8cbc25713938c0baef85838b2a1a1fceec7eb44dc0fc88e364d51a7106809f` |
+| 9 | Ghostgrid staircase axis from `6867` to `10532` | 1124x1780 | `2987b5c51350311fa4e237c9184c03d5aada2a758ac158f48dcef677546c5b03` |
+| 10 | Scarab gate / Ghostgrid connector draft | 978x1828 | `80badbc20e56c66f0f34647102e3998ee060aae85b2f25c0b7e59969014a7196` |
+| 11 | Scarab axis `1031 -> 1050 -> 1060` draft | 660x1190 | `887aa00f6015ec5cc12283cdeab0d9fb8e5361882b7e4ade72a662775f428dd9` |
+| 12 | compact Scarab-axis / gate / Ghostgrid composition | 1280x1322 | `0dfe9146060b4a17575149e0577a22023e5d4b60cea87dc9c40190138ab9a549` |
+
+### Typed relation to the 101 question
+
+```text
+three frozen selector routes -> 101
+F_50 factor field            -> contains 101 and 151 as rank-50 peers
+100/2                        -> explains the index 50 only
+50/50 bubble boundary        -> represents neutral versus oriented state
+Scarab/Ghostgrid images      -> historical relation hypotheses
+```
+
+The images therefore help by preserving the route from a selected numeral to
+later relation diagrams. They do not remove the missing cross-map. In
+particular, no present record proves that `101` generates `1031/1032/1033`,
+`17399`, `6867`, `10532` or `108603`, or that the Ghostgrid axis is a unique
+number-theoretic construction.
+
+The visible identities may be audited separately where formulas are explicit.
+For this intake their role is narrower: they show repeated attempts to retain
+side, center, axis, gate, continuation and unresolved connector positions.
+That makes them relevant predecessor material for the n+1 relational stack
+and OLS orientation work, while their mathematical interpretation remains
+open.

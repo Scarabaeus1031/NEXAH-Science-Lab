@@ -1,0 +1,589 @@
+{
+  "base": {
+    "edges": [
+      [
+        "s",
+        "z0"
+      ],
+      [
+        "s",
+        "z3"
+      ],
+      [
+        "z0",
+        "z1"
+      ],
+      [
+        "z1",
+        "z2"
+      ],
+      [
+        "z2",
+        "z3"
+      ]
+    ],
+    "roles": {
+      "seam_binder": "s",
+      "zones": [
+        "z0",
+        "z1",
+        "z2",
+        "z3"
+      ]
+    },
+    "vertices": [
+      "s",
+      "z0",
+      "z1",
+      "z2",
+      "z3"
+    ]
+  },
+  "claim_boundary": [
+    "The result is a finite labelled graph-extension family, not a recovered historical geometry.",
+    "Two abstract C6 graphs are isomorphic but not identical as typed extensions of the shared carrier.",
+    "No Pascal intertwiner, resonance, physical pyramid, universal N+1 law, novelty or utility is established."
+  ],
+  "controls": {
+    "isolated_append": {
+      "connected": false,
+      "degree_sequence": [
+        0,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "edges": 5,
+      "is_C6": false,
+      "vertices": 6
+    },
+    "leaf_append": {
+      "connected": true,
+      "degree_sequence": [
+        1,
+        2,
+        2,
+        2,
+        2,
+        3
+      ],
+      "edges": 6,
+      "is_C6": false,
+      "vertices": 6
+    },
+    "triangle_chord_append": {
+      "connected": true,
+      "degree_sequence": [
+        2,
+        2,
+        2,
+        2,
+        3,
+        3
+      ],
+      "edges": 7,
+      "is_C6": false,
+      "vertices": 6
+    }
+  },
+  "decision": "PASS_TYPED_EXTENSION_FAMILY_WITH_NONCANONICAL_PAIRING",
+  "gates": {
+    "G1_SOURCE": true,
+    "G2_BASE_C5_4_PLUS_1_TYPED": true,
+    "G3_ALL_TEN_EXTENSIONS_ARE_C6": true,
+    "G4_ALL_CONTRACTIONS_RETURN_EXACT_BASE": true,
+    "G5_ALL_TWENTY_PAIR_LEDGERS_PASS": true,
+    "G6_PAIRING_REMAINS_NONCANONICAL_UNTIL_ORIENTED": true,
+    "G7_NAIVE_APPEND_CONTROLS_FAIL_C6": true,
+    "G8_TYPED_RESIDUAL_REQUIRED": true
+  },
+  "information_ledger": {
+    "branch_only_fibre_size": 5,
+    "extensions_over_same_contracted_base": 10,
+    "residual": [
+      "branch",
+      "selected_edge_index"
+    ],
+    "selector_only_fibre_size": 2,
+    "uniform_fixed_width_bits": 4,
+    "without_residual_exact_return": false
+  },
+  "mode_independent": true,
+  "pair_records": [
+    {
+      "A_edge": 0,
+      "B_edge": 1,
+      "D5_oriented_edge_correspondences": 1,
+      "D5_undirected_edge_correspondences": 2,
+      "abstract_C6_isomorphisms": 12,
+      "identity_on_base_is_isomorphism": false,
+      "shared_edges": 3,
+      "shared_vertices": 5,
+      "union_connected": true,
+      "union_edges": 9,
+      "union_vertices": 7
+    },
+    {
+      "A_edge": 0,
+      "B_edge": 2,
+      "D5_oriented_edge_correspondences": 1,
+      "D5_undirected_edge_correspondences": 2,
+      "abstract_C6_isomorphisms": 12,
+      "identity_on_base_is_isomorphism": false,
+      "shared_edges": 3,
+      "shared_vertices": 5,
+      "union_connected": true,
+      "union_edges": 9,
+      "union_vertices": 7
+    },
+    {
+      "A_edge": 0,
+      "B_edge": 3,
+      "D5_oriented_edge_correspondences": 1,
+      "D5_undirected_edge_correspondences": 2,
+      "abstract_C6_isomorphisms": 12,
+      "identity_on_base_is_isomorphism": false,
+      "shared_edges": 3,
+      "shared_vertices": 5,
+      "union_connected": true,
+      "union_edges": 9,
+      "union_vertices": 7
+    },
+    {
+      "A_edge": 0,
+      "B_edge": 4,
+      "D5_oriented_edge_correspondences": 1,
+      "D5_undirected_edge_correspondences": 2,
+      "abstract_C6_isomorphisms": 12,
+      "identity_on_base_is_isomorphism": false,
+      "shared_edges": 3,
+      "shared_vertices": 5,
+      "union_connected": true,
+      "union_edges": 9,
+      "union_vertices": 7
+    },
+    {
+      "A_edge": 1,
+      "B_edge": 0,
+      "D5_oriented_edge_correspondences": 1,
+      "D5_undirected_edge_correspondences": 2,
+      "abstract_C6_isomorphisms": 12,
+      "identity_on_base_is_isomorphism": false,
+      "shared_edges": 3,
+      "shared_vertices": 5,
+      "union_connected": true,
+      "union_edges": 9,
+      "union_vertices": 7
+    },
+    {
+      "A_edge": 1,
+      "B_edge": 2,
+      "D5_oriented_edge_correspondences": 1,
+      "D5_undirected_edge_correspondences": 2,
+      "abstract_C6_isomorphisms": 12,
+      "identity_on_base_is_isomorphism": false,
+      "shared_edges": 3,
+      "shared_vertices": 5,
+      "union_connected": true,
+      "union_edges": 9,
+      "union_vertices": 7
+    },
+    {
+      "A_edge": 1,
+      "B_edge": 3,
+      "D5_oriented_edge_correspondences": 1,
+      "D5_undirected_edge_correspondences": 2,
+      "abstract_C6_isomorphisms": 12,
+      "identity_on_base_is_isomorphism": false,
+      "shared_edges": 3,
+      "shared_vertices": 5,
+      "union_connected": true,
+      "union_edges": 9,
+      "union_vertices": 7
+    },
+    {
+      "A_edge": 1,
+      "B_edge": 4,
+      "D5_oriented_edge_correspondences": 1,
+      "D5_undirected_edge_correspondences": 2,
+      "abstract_C6_isomorphisms": 12,
+      "identity_on_base_is_isomorphism": false,
+      "shared_edges": 3,
+      "shared_vertices": 5,
+      "union_connected": true,
+      "union_edges": 9,
+      "union_vertices": 7
+    },
+    {
+      "A_edge": 2,
+      "B_edge": 0,
+      "D5_oriented_edge_correspondences": 1,
+      "D5_undirected_edge_correspondences": 2,
+      "abstract_C6_isomorphisms": 12,
+      "identity_on_base_is_isomorphism": false,
+      "shared_edges": 3,
+      "shared_vertices": 5,
+      "union_connected": true,
+      "union_edges": 9,
+      "union_vertices": 7
+    },
+    {
+      "A_edge": 2,
+      "B_edge": 1,
+      "D5_oriented_edge_correspondences": 1,
+      "D5_undirected_edge_correspondences": 2,
+      "abstract_C6_isomorphisms": 12,
+      "identity_on_base_is_isomorphism": false,
+      "shared_edges": 3,
+      "shared_vertices": 5,
+      "union_connected": true,
+      "union_edges": 9,
+      "union_vertices": 7
+    },
+    {
+      "A_edge": 2,
+      "B_edge": 3,
+      "D5_oriented_edge_correspondences": 1,
+      "D5_undirected_edge_correspondences": 2,
+      "abstract_C6_isomorphisms": 12,
+      "identity_on_base_is_isomorphism": false,
+      "shared_edges": 3,
+      "shared_vertices": 5,
+      "union_connected": true,
+      "union_edges": 9,
+      "union_vertices": 7
+    },
+    {
+      "A_edge": 2,
+      "B_edge": 4,
+      "D5_oriented_edge_correspondences": 1,
+      "D5_undirected_edge_correspondences": 2,
+      "abstract_C6_isomorphisms": 12,
+      "identity_on_base_is_isomorphism": false,
+      "shared_edges": 3,
+      "shared_vertices": 5,
+      "union_connected": true,
+      "union_edges": 9,
+      "union_vertices": 7
+    },
+    {
+      "A_edge": 3,
+      "B_edge": 0,
+      "D5_oriented_edge_correspondences": 1,
+      "D5_undirected_edge_correspondences": 2,
+      "abstract_C6_isomorphisms": 12,
+      "identity_on_base_is_isomorphism": false,
+      "shared_edges": 3,
+      "shared_vertices": 5,
+      "union_connected": true,
+      "union_edges": 9,
+      "union_vertices": 7
+    },
+    {
+      "A_edge": 3,
+      "B_edge": 1,
+      "D5_oriented_edge_correspondences": 1,
+      "D5_undirected_edge_correspondences": 2,
+      "abstract_C6_isomorphisms": 12,
+      "identity_on_base_is_isomorphism": false,
+      "shared_edges": 3,
+      "shared_vertices": 5,
+      "union_connected": true,
+      "union_edges": 9,
+      "union_vertices": 7
+    },
+    {
+      "A_edge": 3,
+      "B_edge": 2,
+      "D5_oriented_edge_correspondences": 1,
+      "D5_undirected_edge_correspondences": 2,
+      "abstract_C6_isomorphisms": 12,
+      "identity_on_base_is_isomorphism": false,
+      "shared_edges": 3,
+      "shared_vertices": 5,
+      "union_connected": true,
+      "union_edges": 9,
+      "union_vertices": 7
+    },
+    {
+      "A_edge": 3,
+      "B_edge": 4,
+      "D5_oriented_edge_correspondences": 1,
+      "D5_undirected_edge_correspondences": 2,
+      "abstract_C6_isomorphisms": 12,
+      "identity_on_base_is_isomorphism": false,
+      "shared_edges": 3,
+      "shared_vertices": 5,
+      "union_connected": true,
+      "union_edges": 9,
+      "union_vertices": 7
+    },
+    {
+      "A_edge": 4,
+      "B_edge": 0,
+      "D5_oriented_edge_correspondences": 1,
+      "D5_undirected_edge_correspondences": 2,
+      "abstract_C6_isomorphisms": 12,
+      "identity_on_base_is_isomorphism": false,
+      "shared_edges": 3,
+      "shared_vertices": 5,
+      "union_connected": true,
+      "union_edges": 9,
+      "union_vertices": 7
+    },
+    {
+      "A_edge": 4,
+      "B_edge": 1,
+      "D5_oriented_edge_correspondences": 1,
+      "D5_undirected_edge_correspondences": 2,
+      "abstract_C6_isomorphisms": 12,
+      "identity_on_base_is_isomorphism": false,
+      "shared_edges": 3,
+      "shared_vertices": 5,
+      "union_connected": true,
+      "union_edges": 9,
+      "union_vertices": 7
+    },
+    {
+      "A_edge": 4,
+      "B_edge": 2,
+      "D5_oriented_edge_correspondences": 1,
+      "D5_undirected_edge_correspondences": 2,
+      "abstract_C6_isomorphisms": 12,
+      "identity_on_base_is_isomorphism": false,
+      "shared_edges": 3,
+      "shared_vertices": 5,
+      "union_connected": true,
+      "union_edges": 9,
+      "union_vertices": 7
+    },
+    {
+      "A_edge": 4,
+      "B_edge": 3,
+      "D5_oriented_edge_correspondences": 1,
+      "D5_undirected_edge_correspondences": 2,
+      "abstract_C6_isomorphisms": 12,
+      "identity_on_base_is_isomorphism": false,
+      "shared_edges": 3,
+      "shared_vertices": 5,
+      "union_connected": true,
+      "union_edges": 9,
+      "union_vertices": 7
+    }
+  ],
+  "study_id": "A0_BL_047_DOUBLE_PENTAGON_SPLIT_2026_10_18",
+  "variants": [
+    {
+      "branch": "A",
+      "degree_sequence": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "edges": 6,
+      "exact_contraction_return": true,
+      "id": "A:e0",
+      "is_C6": true,
+      "selected_edge": [
+        "z0",
+        "z1"
+      ],
+      "selected_edge_index": 0,
+      "vertices": 6
+    },
+    {
+      "branch": "A",
+      "degree_sequence": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "edges": 6,
+      "exact_contraction_return": true,
+      "id": "A:e1",
+      "is_C6": true,
+      "selected_edge": [
+        "z1",
+        "z2"
+      ],
+      "selected_edge_index": 1,
+      "vertices": 6
+    },
+    {
+      "branch": "A",
+      "degree_sequence": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "edges": 6,
+      "exact_contraction_return": true,
+      "id": "A:e2",
+      "is_C6": true,
+      "selected_edge": [
+        "z2",
+        "z3"
+      ],
+      "selected_edge_index": 2,
+      "vertices": 6
+    },
+    {
+      "branch": "A",
+      "degree_sequence": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "edges": 6,
+      "exact_contraction_return": true,
+      "id": "A:e3",
+      "is_C6": true,
+      "selected_edge": [
+        "s",
+        "z3"
+      ],
+      "selected_edge_index": 3,
+      "vertices": 6
+    },
+    {
+      "branch": "A",
+      "degree_sequence": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "edges": 6,
+      "exact_contraction_return": true,
+      "id": "A:e4",
+      "is_C6": true,
+      "selected_edge": [
+        "s",
+        "z0"
+      ],
+      "selected_edge_index": 4,
+      "vertices": 6
+    },
+    {
+      "branch": "B",
+      "degree_sequence": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "edges": 6,
+      "exact_contraction_return": true,
+      "id": "B:e0",
+      "is_C6": true,
+      "selected_edge": [
+        "z0",
+        "z1"
+      ],
+      "selected_edge_index": 0,
+      "vertices": 6
+    },
+    {
+      "branch": "B",
+      "degree_sequence": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "edges": 6,
+      "exact_contraction_return": true,
+      "id": "B:e1",
+      "is_C6": true,
+      "selected_edge": [
+        "z1",
+        "z2"
+      ],
+      "selected_edge_index": 1,
+      "vertices": 6
+    },
+    {
+      "branch": "B",
+      "degree_sequence": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "edges": 6,
+      "exact_contraction_return": true,
+      "id": "B:e2",
+      "is_C6": true,
+      "selected_edge": [
+        "z2",
+        "z3"
+      ],
+      "selected_edge_index": 2,
+      "vertices": 6
+    },
+    {
+      "branch": "B",
+      "degree_sequence": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "edges": 6,
+      "exact_contraction_return": true,
+      "id": "B:e3",
+      "is_C6": true,
+      "selected_edge": [
+        "s",
+        "z3"
+      ],
+      "selected_edge_index": 3,
+      "vertices": 6
+    },
+    {
+      "branch": "B",
+      "degree_sequence": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "edges": 6,
+      "exact_contraction_return": true,
+      "id": "B:e4",
+      "is_C6": true,
+      "selected_edge": [
+        "s",
+        "z0"
+      ],
+      "selected_edge_index": 4,
+      "vertices": 6
+    }
+  ]
+}

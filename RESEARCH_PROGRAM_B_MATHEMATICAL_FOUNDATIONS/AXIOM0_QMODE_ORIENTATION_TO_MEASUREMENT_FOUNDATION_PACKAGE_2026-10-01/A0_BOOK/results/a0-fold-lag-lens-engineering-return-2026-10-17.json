@@ -1,0 +1,64 @@
+{
+  "schema": "nexah.a0.fold-lag-lens.engineering-return/1",
+  "asOf": "2026-10-17",
+  "status": "ENGINEERING_PASS_BROWSER_ACCEPTANCE_OPEN",
+  "entry": "A0_ORIENTATION_CONTROLLER_BENCH.html#foldLagLens",
+  "changes": [
+    "a0-fold-lag-lens.js",
+    "a0-fold-lag-lens-tests.cjs",
+    "A0_ORIENTATION_CONTROLLER_BENCH.html",
+    "assets/a0-fold-lag-lens-v1.json",
+    "A0_BUILDER_LOG.html"
+  ],
+  "localPinUpdates": [
+    "assets/a0-life03-bench-binding-v1.json host implementation pin only",
+    "assets/a0-root7-wing-sequence-v1.json host implementation pin only"
+  ],
+  "verification": {
+    "foldLagChecks": 27877,
+    "wingSequenceChecks": 11227,
+    "bookChecks": 11158,
+    "q4CouplingChecks": 354,
+    "life03Checks": 137,
+    "pentChecks": 717,
+    "integrationChecks": 181,
+    "inlineScriptsCompiled": 5,
+    "sourceGraph": "PASS: 19 components, 5 governance records, 266/29 base, 269/32 composed",
+    "navigatorApp": "PASS 246/246",
+    "svgRaster": {
+      "status": "VISUALLY_INSPECTED_READABLE_UNCLIPPED",
+      "parameters": {
+        "slice": 14,
+        "lag": 5,
+        "mode": "increment",
+        "mirror": "none"
+      },
+      "tool": "rsvg-convert",
+      "size": "1020×600",
+      "scope": "Rendered SVG only; not host browser layout"
+    },
+    "browser": "NOT_RUN: prior file-browser automation denial respected; actual DOM handlers tested in mock DOM.",
+    "catalog": "Rebuilt: 1275 items, 719 HTML, 46 reader items. No new main HTML."
+  },
+  "knownFailures": {
+    "a0Binder": "Same 8 existing hash mismatches retained; no blanket canonical pin repair.",
+    "ids": [
+      "A0_BOOK",
+      "A0_CONTEXT_NAVIGATION_CSS",
+      "A0_CONTEXT_NAVIGATION_JS",
+      "SCIENTIFIC_POSITION_REPORT_HTML",
+      "A0_COVERAGE_LINK_AUDIT",
+      "A0_BOOK_MANIFEST_CHECK58",
+      "A0_RESEARCH_DESK_CHECK58",
+      "PINK_DIAMOND_GRID_ATLAS"
+    ]
+  },
+  "boundaries": [
+    "Independent hinge demonstration, not connected origami",
+    "29 synthetic poses, not source generations or physical time",
+    "Target and cumulative angle interpretations both explicit",
+    "No numeric Family adoption, no H50/F50 equivalence, no 77 law",
+    "No research runs, commits, push, deployment or publication"
+  ],
+  "ownerNext": "Reload existing Bench, use section 5B; scrub Z, compare angle modes and lag; optional follow uses existing Q4 Play/Pause."
+}

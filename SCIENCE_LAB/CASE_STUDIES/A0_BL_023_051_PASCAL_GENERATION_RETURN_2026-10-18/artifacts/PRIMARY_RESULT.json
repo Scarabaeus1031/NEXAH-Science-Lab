@@ -1,0 +1,103 @@
+{
+  "claim_ceiling": "Finite internal formal-fixture audit only; no new quotient, carrier identity, PENT-08, physical mechanism, utility, novelty or publication claim.",
+  "content_sha256_without_hash_field": "efcdeb62784f5b4152fe04f2a3d5e056e981ba186572fe2b03fd3bd07f5ae973",
+  "gates": {
+    "coordinate_separability": {
+      "collapsed_generation_values": [
+        6,
+        6,
+        6
+      ],
+      "one_field_checks": [
+        {
+          "detected": [
+            "g_R"
+          ],
+          "expected": "g_R"
+        },
+        {
+          "detected": [
+            "g_P"
+          ],
+          "expected": "g_P"
+        },
+        {
+          "detected": [
+            "g_M"
+          ],
+          "expected": "g_M"
+        }
+      ],
+      "pass": true
+    },
+    "non_identity_stress": {
+      "controls": [
+        {
+          "carrier_map": null,
+          "decision": "NO_IDENTITY_INFERRED",
+          "intertwiner": null,
+          "left": "720/1440 historical cycle",
+          "right": "540/1080 A0 side-state"
+        },
+        {
+          "carrier_map": null,
+          "decision": "NO_IDENTITY_INFERRED",
+          "intertwiner": null,
+          "left": "Game Over ledger 55",
+          "right": "Z_3885/T^2 return classes 55"
+        },
+        {
+          "carrier_map": null,
+          "decision": "NO_IDENTITY_INFERRED",
+          "intertwiner": null,
+          "left": "card rank 13",
+          "right": "CON-DAO carrier size 13"
+        },
+        {
+          "carrier_map": null,
+          "decision": "NO_IDENTITY_INFERRED",
+          "intertwiner": null,
+          "left": "nine Return views",
+          "right": "nine operator iterations"
+        },
+        {
+          "carrier_map": null,
+          "decision": "NO_IDENTITY_INFERRED",
+          "intertwiner": null,
+          "left": "historical channel 110",
+          "right": "historical channel 112"
+        }
+      ],
+      "pass": true
+    },
+    "relation_reconstruction": {
+      "duplicate_value_classes": 9,
+      "pass": true,
+      "typed_records": 135
+    },
+    "representation_accounting": {
+      "pass": true,
+      "raw_addresses": 140,
+      "relation_edges": 210,
+      "views": [
+        "triangle",
+        "register_phase"
+      ]
+    },
+    "return_level_classifier": {
+      "algebraic_return": true,
+      "classifications": [
+        "EXACT_STATE",
+        "SAME_CARRIER_CHANGED_POSITION",
+        "ISOMORPHIC_RELATION_ONLY",
+        "INVARIANT_ONLY"
+      ],
+      "euclidean_isometry": false,
+      "pass": true
+    }
+  },
+  "protocol_status": "FROZEN_NOT_EXECUTED",
+  "result_class": "PASS_BOUNDED",
+  "schema": "nexah.a0-bl-023-051.pascal-generation-return/1.0.0",
+  "study": "A0-BL-023/A0-BL-051"
+}

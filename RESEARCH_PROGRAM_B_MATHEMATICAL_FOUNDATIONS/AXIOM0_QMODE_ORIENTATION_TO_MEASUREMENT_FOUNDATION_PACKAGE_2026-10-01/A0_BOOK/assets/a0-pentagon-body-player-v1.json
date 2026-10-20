@@ -1,7 +1,7 @@
 {
   "schema": "nexah.a0.pentagon-body-player",
-  "version": "1.3.0",
-  "date": "2026-10-15",
+  "version": "1.4.0",
+  "date": "2026-10-17",
   "identity_effect": "REUSES_MOD_TESSAREC_AND_EXISTING_BLUE_BODY_VIEW_NO_NEW_IDENTITY_NO_NEW_RELATION",
   "surface": "../A0_TESSAREC_BLUE_BODY_LAB.html#pentagon-body-player",
   "source_carrier": "MOD:TESSAREC:Q4xP3",
@@ -33,7 +33,7 @@
     "layers": 3,
     "channels_per_layer": 16,
     "layer_geometry": "three nested pentagons plus one aperture node",
-    "views": ["rotatable-3d", "triple-pentagon", "life-8x6", "typed-return-trace", "blue-pink-shell", "house-q4-distribution"]
+    "views": ["rotatable-3d", "triple-pentagon", "life-8x6", "typed-return-trace", "blue-pink-shell", "house-q4-distribution", "house-q4-relations"]
   },
   "modes": {
     "sequence_console": "one exact source address follows one of eleven complete 48-address permutations; no dynamics applied",
@@ -48,7 +48,9 @@
       "boundary": "construction-bound regularity only; no deeper Fibonacci-Euler generator, identity, resonance law or scientific result"
     },
     "rose5": "exact +2 mod 5 pentagram orbit on each five-address ring plus aperture seam; owner-visual labels 13, 157, 2041 and Venus are provenance only",
-    "house_q4": "4x4 bookkeeping lens repeated across P0 P1 P2; Q4 complement v<->15-v; pillar=vertex, channel=edge, hinge=incidence record",
+    "house_q4": "One House, two ledger views: 4x4 actual Q4-bit matrix aggregated across three layers, and the existing 48-state/128-edge Q4xP3 carrier. Bitwise complement q XOR 15; ordinal channel is not Q4 integer. Matrix/relation click selects the same source key throughout the local player.",
+    "house_projection": "AM=XY, VM=YZ, PM=ZX of existing body display coordinates; no source, layer, sequence, receipt or Day/Night change. Not the continuous Root Room carrier and not a canonical AM/VM/PM operator.",
+    "janus": "Unchanged ordinal-channel mirror c<->15-c, explicitly distinct from bitwise Q4 complement",
     "kite": "A2 -> 3-fold triangle display with cutEdge=phi*t*s at t=0.5; HYPOTHESIS_ONLY and not an additional carrier edge",
     "day_night_view_mirror": "display-only Blue/Pink shell views; the historical Q-degree sources motivate a relational view axis but do not define a canonical VM operator",
     "three_layer_pulse": "seven-cell period-2 fixture under unchanged finite-dead B3/S23; every phase touches P0 P1 and P2"

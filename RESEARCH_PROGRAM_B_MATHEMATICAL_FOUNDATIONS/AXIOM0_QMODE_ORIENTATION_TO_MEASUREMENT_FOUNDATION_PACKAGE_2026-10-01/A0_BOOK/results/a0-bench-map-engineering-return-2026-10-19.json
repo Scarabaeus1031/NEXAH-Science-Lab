@@ -1,0 +1,58 @@
+{
+  "schema": "nexah.a0.ocb-bench-map-engineering-return/1",
+  "date": "2026-10-19",
+  "status": "ENGINEERING_PASS_LOCAL_BROWSER_ACCEPTED",
+  "identity": "NEXAH_A0_ORIENTATION_CONTROLLER_BENCH",
+  "version": "0.21.0",
+  "projection": {
+    "kind": "OPERATIVE_BENCH_PROJECTION",
+    "moduleCount": 22,
+    "edgeCount": 19,
+    "groups": ["SOURCE", "STATE", "OPERATE", "VIEW", "RETURN", "VERIFY"],
+    "ownsBenchState": false,
+    "ownsPlayback": false,
+    "embedsFamilyAtlas": false
+  },
+  "publicContract": {
+    "registry": "window.A0BenchMap.registry",
+    "controller": "window.A0BenchMapController",
+    "moduleFields": ["id", "focusTarget", "bindingType", "scenario"],
+    "events": ["a0:bench-selection", "a0:bench-focus", "a0:bench-playback"]
+  },
+  "verification": {
+    "benchMapChecks": "160/160 PASS",
+    "focusTargets": "22/22 PRESENT",
+    "showcaseTour": "52/52 PASS",
+    "coupledWindow": "332/332 PASS",
+    "sessionLedger": "18/18 PASS",
+    "ocbBase": "PASS",
+    "desktopLocalHttp": "PASS",
+    "phone390x844": "PASS_VERTICAL_SEQUENCE",
+    "filterSelection": "PASS",
+    "windowOpenExactReturn": "PASS",
+    "playbackFollow": "PASS"
+  },
+  "excludedSources": [
+    "A0_FAMILY_CONNECTION_ATLAS.html",
+    "a0-family-spatial-bodies.js",
+    "a0-family-spatial-navigation.js"
+  ],
+  "remainingManualGate": ["TABLET", "HIGH_ZOOM", "NO_COLOUR_FULL_BENCH"],
+  "implementationHashes": {
+    "A0_ORIENTATION_CONTROLLER_BENCH.html": "34c345e568a482196e614a895af342b68f84b518eaf7e345f2681a356b1adf75",
+    "a0-bench-map.js": "bc8fdd38a976d74bfca4a30bc2e5c202b2e698a1dfff0707110dd6406916b786",
+    "a0-bench-map.css": "b9f82f5a400a9274f4762400f0e7253e63c0432dc05226d98cfd06d15e0f403e",
+    "a0-bench-showcase-tour.js": "abf13ff727c5f6b90d75c131c67927fddb1a1c72e1deba536c27d2bae69eb337",
+    "a0-orientation-controller-bench.js": "74566f546a0c754d6a46080ea517fb5b7421943ec86f3dd8ff7d18f032277cb8",
+    "assets/a0-bench-map-projection-v1.json": "efddcff596705089ddb039f073e407e5dd3b40485b17c27d40d275266c5f3f99",
+    "assets/a0-orientation-controller-bench-v0.5.json": "84ab959c4df5e3694020aaf14f8e006738d8998284e4104d270dc542fae186c6"
+  },
+  "authority": {
+    "newCanonicalIdentity": false,
+    "newCanonicalRelation": false,
+    "newFamily": false,
+    "researchExecution": false,
+    "scientificClaimPromotion": false,
+    "publication": false
+  }
+}

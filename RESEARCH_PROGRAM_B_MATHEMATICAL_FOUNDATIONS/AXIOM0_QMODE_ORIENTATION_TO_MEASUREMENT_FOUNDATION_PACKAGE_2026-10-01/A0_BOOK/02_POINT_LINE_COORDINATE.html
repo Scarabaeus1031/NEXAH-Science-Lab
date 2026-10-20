@@ -41,6 +41,7 @@
     @media(max-width:900px){.hero,.dual,.plate,.instrument,.return-grid{grid-template-columns:1fr}.rules{grid-template-columns:1fr 1fr}.record-shelf{grid-template-columns:1fr}.root-strip{grid-template-columns:1fr 1fr}.seed-ladder{grid-template-columns:repeat(4,1fr)}.source-html iframe{height:600px}.top nav{display:none}}
     @media(max-width:580px){.spread{padding:52px 5vw}.section-head{grid-template-columns:1fr}.bits,.rules,.power-product,.repunit-strip,.root-strip,.root7-distinction{grid-template-columns:1fr}.root7-distinction>div{transform:rotate(90deg)}.seed-ladder{grid-template-columns:repeat(2,1fr)}.states{grid-template-columns:repeat(2,1fr)}.source-html iframe{height:500px}.hero h1{font-size:4rem}}
   </style>
+  <link rel="stylesheet" href="a0-context-navigation.css?rev=reader-lanes-20261019-lane-entry">
 </head>
 <body>
   <header class="top">
@@ -224,5 +225,6 @@
       buttons.forEach(button=>button.addEventListener('click',()=>{value^=1<<Number(button.dataset.bit);render()}));target.addEventListener('input',render);render();
     })();
   </script>
+  <script src="a0-context-navigation.js?rev=reader-lanes-20261019-lane-entry"></script>
 </body>
 </html>

@@ -1,0 +1,55 @@
+{
+  "schema": "nexah.a0.projection-overlay.engineering-return/1",
+  "asOf": "2026-10-17",
+  "status": "ENGINEERING_PASS_BROWSER_ACCEPTANCE_OPEN",
+  "entry": "A0_ORIENTATION_CONTROLLER_BENCH.html#root7ProjectionOverlay",
+  "implemented": [
+    "Passive source-bound overlay for existing book wingSequence and 5B poses, separate histories",
+    "Toggle current pose, projected shadow, recorded echo and actual book plane cuts",
+    "Red/blue or seven-colour display palette with arithmetic greyshift; geometry invariant",
+    "Latest 64 visited frames per source, explicit dropped count, record pause, local clear, JSON export",
+    "No overlay clock; Root7 actual render and 5B optional cloned onRender observer feed updates"
+  ],
+  "verification": {
+    "overlayChecks": 5013,
+    "foldLagChecks": 27901,
+    "wingSequenceChecks": 11231,
+    "bookChecks": 11158,
+    "q4CouplingChecks": 354,
+    "life03Checks": 137,
+    "pentChecks": 717,
+    "integrationChecks": 181,
+    "inlineScriptSyntax": 7,
+    "sourceGraph": "PASS 19 components / 5 governance; base 266/29, composed 269/32",
+    "navigatorApp": "PASS 246/246",
+    "svgRasterQa": {
+      "status": "VISUALLY_INSPECTED_READABLE_UNCLIPPED",
+      "scope": "SVG only; actual host browser layout not verified",
+      "states": "12 actual book sequence snapshots, spectrum amount1 and red/blue grey amount0",
+      "size": "984×1104"
+    },
+    "browserAcceptance": false,
+    "researchRuns": 0
+  },
+  "unchangedKnownFailures": {
+    "a0EvidenceBinder": "FAIL: same eight pre-existing hash mismatches",
+    "ids": [
+      "A0_BOOK",
+      "A0_CONTEXT_NAVIGATION_CSS",
+      "A0_CONTEXT_NAVIGATION_JS",
+      "SCIENTIFIC_POSITION_REPORT_HTML",
+      "A0_COVERAGE_LINK_AUDIT",
+      "A0_BOOK_MANIFEST_CHECK58",
+      "A0_RESEARCH_DESK_CHECK58",
+      "PINK_DIAMOND_GRID_ATLAS"
+    ]
+  },
+  "sourceBoundary": "Only visited book and 5B projections since reload, not all past work. No Blue/Pink 60-face runtime binding, symbolic formula adoption, wavelength/illumination model, or grey-equality inference.",
+  "authority": {
+    "newCanonicalIdentities": 0,
+    "newCanonicalRelations": 0,
+    "scientificClaimPromotion": false,
+    "publication": false
+  },
+  "ownerNext": "Reload Bench, open the book section, find Gemeinsamer Overlay. Choose source Buch or 5B; use that source’s existing sequence controls, then toggle layers/colour/greyshift. Export before closing to retain local history."
+}

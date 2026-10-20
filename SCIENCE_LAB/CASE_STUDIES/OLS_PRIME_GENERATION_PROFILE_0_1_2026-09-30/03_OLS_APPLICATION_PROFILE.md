@@ -58,6 +58,13 @@ local documentary closure, not reset, global identity or end of history.
 No row licenses semantic transfer to another row merely because the numeral is
 the same.
 
+For the current project, the three declared routes to 101 belong to the
+separate `64/37 Nexus Selector 01`. Factor membership in `F_50`, the identity
+`100/2=50`, and a `50/50` bubble boundary may be shown as neighbouring typed
+records, but they are not counted as additional routes. The unrecovered label
+`L 90/50` must be rendered as unresolved provenance rather than interpreted by
+the profile.
+
 ## Serialization boundary
 
 OLS specifies semantics, not one mandatory file format. A later Builder

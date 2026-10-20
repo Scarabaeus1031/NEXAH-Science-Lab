@@ -1,0 +1,16 @@
+{
+  "schema": "nexah.a0.fold-lag-player.engineering-return/1",
+  "asOf": "2026-10-17",
+  "status": "ENGINEERING_PASS_BROWSER_ACCEPTANCE_OPEN",
+  "entry": "A0_ORIENTATION_CONTROLLER_BENCH.html#foldLagLens",
+  "version": "1.1.0",
+  "playback": "First start at 0; 400ms synthetic slice steps; pause/resume; automatic stop at 28; replay from 0 after completion.",
+  "pauseConditions": ["manual input", "next", "reset", "Q4 follow", "document hidden", "Q4 source play"],
+  "interlock": "Host pauses Q4 when view playback starts; Q4 play pauses view playback. View timer never advances source state.",
+  "checks": {"foldLag": 27901, "root7": 11227, "life03": 137, "inlineScriptSyntax": "PASS"},
+  "browserAcceptance": false,
+  "canonicalChanges": false,
+  "scientificClaimPromotion": false,
+  "publication": false,
+  "knownLimit": "Existing canonical binder/currentness mismatches are not repaired by local implementation pin updates."
+}

@@ -2,6 +2,7 @@
   "use strict";
 
   const api = window.A0FibonacciRingOperatorComparator;
+  const bodyApi = window.A0PentagonBodyPlayer;
   const svg = document.getElementById("fibRingSvg");
   if (!api || !svg) return;
 
@@ -29,7 +30,9 @@
   const note = make("text", { x: 30, y: 59, class: "fib-svg-label" }, "N=48 · exact frozen view");
   root.append(label, note);
   const dots = make("g");
-  root.append(dots);
+  const eulerPhaseGuide = make("line", { x1: 380, y1: 286, x2: 380, y2: 106, stroke: "#63d9aa", "stroke-width": 2, opacity: .18 });
+  const eulerPhaseCursor = make("circle", { cx: 380, cy: 106, r: 8, fill: "#63d9aa", stroke: "#ffffff", "stroke-width": 2, opacity: .18 });
+  root.append(dots, eulerPhaseGuide, eulerPhaseCursor);
   svg.append(root);
 
   const controls = [...document.querySelectorAll("[data-fib-schedule]")];
@@ -42,10 +45,35 @@
   const rank = document.getElementById("fibRank");
   const evidence = document.getElementById("fibState");
   const verdict = document.getElementById("fibVerdict");
+  const eulerCouple = document.getElementById("fibEulerCouple");
+  const eulerStep = document.getElementById("fibEulerStep");
+  const eulerComplex = document.getElementById("fibEulerComplex");
+  const eulerAddress = document.getElementById("fibEulerAddress");
   const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const coupling = { step: 0, playing: false, timer: null };
 
   function formatMetric(value) {
     return value < 1e-10 ? "0" : value.toFixed(6);
+  }
+
+  function couplingRecord() {
+    return bodyApi && bodyApi.fibonacciEulerCoupling ? bodyApi.fibonacciEulerCoupling(coupling.step) : null;
+  }
+
+  function drawCoupling() {
+    const record = couplingRecord();
+    if (!record) return;
+    const displayAngle = record.angleRadians - Math.PI / 2;
+    const x = 380 + 180 * Math.cos(displayAngle), y = 286 + 180 * Math.sin(displayAngle);
+    eulerPhaseGuide.setAttribute("x2", x.toFixed(2)); eulerPhaseGuide.setAttribute("y2", y.toFixed(2));
+    eulerPhaseCursor.setAttribute("cx", x.toFixed(2)); eulerPhaseCursor.setAttribute("cy", y.toFixed(2));
+    eulerPhaseGuide.setAttribute("opacity", coupling.playing ? ".88" : ".42"); eulerPhaseCursor.setAttribute("opacity", coupling.playing ? "1" : ".58");
+    eulerStep.textContent = `k=${record.step} · u=${record.fraction.toFixed(6)} · ${record.angleDegrees.toFixed(2)}°`;
+    eulerComplex.textContent = `${record.phaseReal.toFixed(4)} ${record.phaseImaginary < 0 ? "−" : "+"} ${Math.abs(record.phaseImaginary).toFixed(4)}i`;
+    eulerAddress.textContent = `${record.rankAddress} → ${record.eulerAddress}`;
+    eulerCouple.classList.toggle("active", coupling.playing);
+    eulerCouple.setAttribute("aria-pressed", String(coupling.playing));
+    eulerCouple.textContent = coupling.playing ? "Pause φ → Euler phase → +7" : "Couple φ schedule → Euler phase → +7";
   }
 
   function draw() {
@@ -78,7 +106,8 @@
     verdict.textContent = isFrozen
       ? "PASS · Controls distinguished; Fibonacci is not privileged on the frozen synthetic fixture. G6 remains open."
       : "EXPLORATORY VIEW · N changed. This live projection is not the frozen Check-88 result and creates no new evidence.";
-    window.A0FibonacciRingOperatorView = { state: { ...state, timer: undefined }, result, current };
+    drawCoupling();
+    window.A0FibonacciRingOperatorView = { state: { ...state, timer: undefined }, coupling: { ...coupling, timer: undefined, record: couplingRecord() }, result, current };
   }
 
   function choose(schedule) {
@@ -104,6 +133,14 @@
   }
 
   play.addEventListener("click", togglePlay);
+  eulerCouple?.addEventListener("click", () => {
+    state.schedule = "FIBONACCI";
+    if (reducedMotion) { coupling.step = (coupling.step + 1) % 48; draw(); return; }
+    coupling.playing = !coupling.playing;
+    if (coupling.timer) window.clearInterval(coupling.timer);
+    coupling.timer = coupling.playing ? window.setInterval(() => { coupling.step = (coupling.step + 1) % 48; draw(); }, 420) : null;
+    draw();
+  });
 
   syncPlayControls();
   draw();

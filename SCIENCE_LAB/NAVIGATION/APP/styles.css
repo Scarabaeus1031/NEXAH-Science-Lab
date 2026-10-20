@@ -23,6 +23,50 @@
   --context: 294px;
 }
 
+.a0-human-view {
+  margin-block: clamp(2.5rem, 6vw, 5rem);
+  padding: clamp(1rem, 3vw, 2rem);
+  border: 1px solid color-mix(in srgb, var(--cyan) 32%, transparent);
+  background:
+    radial-gradient(circle at 16% 12%, color-mix(in srgb, var(--magenta) 14%, transparent), transparent 34%),
+    radial-gradient(circle at 84% 8%, color-mix(in srgb, var(--cyan) 12%, transparent), transparent 32%),
+    color-mix(in srgb, var(--panel) 92%, black);
+}
+
+.a0-human-view-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr));
+  gap: 1rem;
+  margin-block: 1.5rem 3rem;
+}
+
+.a0-human-view-visual {
+  margin: 0;
+  overflow: hidden;
+  border: 1px solid color-mix(in srgb, var(--gold) 28%, transparent);
+  background: #02050b;
+}
+
+.a0-human-view-visual img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: contain;
+  background: #000;
+}
+
+.a0-human-view-visual figcaption {
+  display: grid;
+  gap: 0.45rem;
+  padding: 0.9rem;
+}
+
+.a0-human-view-visual figcaption span {
+  color: var(--muted);
+  font-size: 0.8rem;
+  line-height: 1.45;
+}
+
 * { box-sizing: border-box; }
 html { background: var(--bg); scroll-behavior: smooth; }
 body {

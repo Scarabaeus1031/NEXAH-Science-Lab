@@ -16,12 +16,14 @@ This ledger separates exact arithmetic from position in a sheet, family membersh
 | 1033 | prime | right member of the exact sandwich; author/project identity history | `EXACT_VALUE_PLUS_AUTHORED_ASSOCIATION` |
 | 1087 | prime | appears as right-only prime in the `1085,1086,1087` six-k center classification | `CORRECTED_PRIME_NOT_COMPOSITE` |
 | 3301 | prime | twin-prime relation to 3299; CIKADA marker and corpus label | `EXACT_ARITHMETIC_PLUS_AUTHORED_MARKER_NO_CICADA_SOLUTION` |
+| 7801 | `29 * 269` | decimal reversal partner of `1087`; existing reverse-complement control, one of 40 non-fixed orbits | `EXACT_COMPOSITE_REVERSAL_CONTROL_NOT_UNIQUE` |
 | 8701 | `7 * 11 * 113` | appears in owner-reported network and as composite in six-k classification | `EXACT_COMPOSITE_OWNER_REPORTED_NETWORK_ROLE_UNBOUND` |
 | 11357 | `41 * 277` | CRT/NTO source anchor; grid/address and historical graph roles | `EXACT_COMPOSITE_MULTIPLE_REPRESENTATION_ROLES` |
 
 ## Corrections and nonclaims
 
 - `1087` is prime. Any note calling it non-prime must be corrected at the truth-list layer while the historical wording remains preserved in source.
+- The decimal reversal of `1087` is `7801`, not `8701`; `7801=29*269` is composite.
 - `8701` is composite, not prime.
 - `1031` and `1033` being prime around composite `1032` is exact. The name `TITAN` is an annotation, not an arithmetic property.
 - `3299` and `3301` are twin primes. This does not solve Cicada 3301 or define a universal transition.

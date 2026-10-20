@@ -14,6 +14,8 @@
 <a class="brand" href="A0_PASCAL_PENTAGON_OPERATOR_JOINTS.html">NEXAH <span>· A0 GRID ATLAS</span>
 </a>
 <nav class="nav">
+<a href="A0_NUMBERMAGICK_GRID_RESEARCH.html#grid-collection">Alle Grids · gemeinsamer Einstieg</a>
+<a href="A0_NUMBERMAGICK_GRID_RESEARCH.html#six-marker-comparison">Sechs Marker vergleichen</a>
 <a href="#crt">CRT-Takt</a>
 <a href="#grids">Grid Ladder</a>
 <a href="#address-spine">Address Spine</a>
@@ -608,11 +610,12 @@
 <div class="big mono" id="mirrorOut">97 ↔ 79</div>
 </div>
 <div class="card wide">
-<span class="tag open">typed colour fixture</span>
+<span class="tag open" id="ghost-tiles">typed colour fixture</span>
+<p><a href="A0_AXIS08_FOLD_RETURN_SEQUENCER.html#orientationReading" target="_top">Gemeinsamer Orientierungsraum · Sewing / Pascal–Antipode / Return ↗</a></p>
 <h3>Ghost Tiles · Root Room / π–τ–Trinity</h3>
 <p>Ein adressierbarer Ghost-Carrier kann jetzt deterministisch eingefärbt, durch Aperturen gelesen und an die diskrete Pentagonphase gekoppelt werden. Das Arbeitsfeld beginnt bei <code>100×100</code>; <code>1000×1000</code> bleibt als Vergleich verfügbar. <code>NP;RR</code> bezeichnet die getrennten Koordinaten: NP links, Root Room rechts; <code>n=S·NP+RR</code> ist für Seitenlänge <code>S</code> nur die verlustfreie flache Serialisierung. Die Root-Matrizen und System-X-Lagen sind Transkriptionen der Owner-Visuals 10/11 — Test-Fixtures, keine abgeleitete Rootspace-Theorie.</p>
 <div class="ghost-controls">
-<label><span>Fixture</span><select id="ghostPreset"><option value="procedural">Ghost address field</option><option value="root5">Visual 10 · Root 5×5</option><option value="root7">Visual 10 · Root 7×6</option><option value="systemx">Visual 11 · System X</option><option value="dyadic">Ghostgrid · dyadic M-lift</option></select></label>
+<label><span>Fixture</span><select id="ghostPreset"><option value="procedural">Ghost address field</option><option value="root5">Visual 10 · Root 5×5</option><option value="root7">Visual 10 · Root 7×6</option><option value="systemx">Visual 11 · System X</option><option value="dyadic">Ghostgrid · dyadic M-lift</option><option value="tesa28">TESA · 4×7 + externe 29 · Kandidat</option></select></label>
 <label><span>Adressfeld</span><select id="ghostFieldSize"><option value="100">100×100 · work</option><option value="1000">1000×1000 · comparison</option></select></label>
 <label><span>Viewport</span><select id="ghostViewport"><option value="6">6×6</option><option value="7" selected>7×7</option><option value="8">8×8</option><option value="25">25×25</option></select></label>
 <label><span>Farboperator</span><select id="ghostColor"><option value="minus-1-12">−1/12 phase grid</option><option value="pi-tau-3">π / τ / Trinity</option><option value="trinity">Trinity χ₃</option><option value="tau">τ Vollzyklus</option><option value="pi">π Spiegelparität</option><option value="lrrl">LRRL Return trace</option><option value="source">Quell-/Fixturefarbe</option></select></label>
@@ -627,6 +630,17 @@
 <div class="ghost-legend" id="ghostLegend"><span><i class="swatch s0"></i>c₁₂=0</span><span><i class="swatch s1"></i>c₁₂=1…11</span><span><i class="swatch aperture"></i>Aperture</span></div>
 <p class="mono" id="ghostOut">NP 00; RR 00 · flat 0 · viewport cell (0,0)</p>
 <p class="mono ghost-meta" id="ghostMeta">NP;RR ↔ S·NP+RR · c₁₂(n,t)=(n−t) mod 12 · χ₃(RR,NP,t)=(RR+2NP+t) mod 3 · Anzeigeoperator</p>
+<p><button type="button" id="tesaEnter">TESA-Kandidat öffnen · Adresse 17</button> <span class="tag open">28 innere Adressen + <b>29</b> separat · keine neue kanonische Grid-Identität</span></p>
+<section id="tesaCandidate" hidden style="display:none;border:1px solid #385a6a;padding:16px;margin-top:16px">
+<h4>TESA · dokumentierte Vorlage und begrenzter Übersetzungstest</h4>
+<p>Die Owner-Bilder vom 17. Oktober 2026 zeigen 1…28 als 4×7-Register und 29 separat. Im dünn besetzten Vergleich passen die Positionen von 17 und 27 zu einer vertikalen Spiegelung. Die Sammlung übernimmt diese Adressen als Kandidaten-Fixture, nicht den historischen Generator. „0/29 · Wobble Zone“ bleibt eine offene Rollenbezeichnung.</p>
+<div class="ghost-controls"><label class="ghost-check"><input type="checkbox" id="tesaMirror"><span>Vertikal spiegeln</span></label><label><span>Horizontale Streckung</span><select id="tesaStretch"><option value="0.5">×0,5</option><option value="1" selected>×1</option><option value="1.75">×1,75</option><option value="2">×2</option></select></label><label><span>Echo-Verzögerung in Sekunden</span><input id="tesaEcho" type="number" min="0" max="7" step="0.25" value="0.5"></label><label><span>Referenz-Abtastung FPS</span><input id="tesaFps" type="number" min="1" max="120" step="1" value="30"></label><button type="button" id="tesaSelect17">Adresse 17</button><button type="button" id="tesaSelect27">Adresse 27</button></div>
+<p class="mono" id="tesaStatus" aria-live="polite"></p>
+<div style="overflow-x:auto;background:#06111b"><svg id="tesaCompare" viewBox="0 0 850 285" style="display:block;width:100%;min-width:650px;font-family:monospace" role="img" aria-label="Dieselbe ausgewählte TESA-Adresse in Polaransicht und Zeitansicht, samt verzögertem Echo"></svg></div>
+<pre class="mono" id="tesaTiming" style="white-space:pre-wrap;overflow-wrap:anywhere"></pre>
+<p><b>Deklarierte Testregel:</b> Ereigniszeit t=(Adresse−1)/4 Sekunden; Polarperiode sieben Sekunden, 0° oben, im Uhrzeigersinn. Das Echo behält die Quelladresse, wird aber erst nach der eingestellten Verzögerung eingetragen. Der Referenzframe ist der erste konstante FPS-Abtastpunkt ab der Ereigniszeit, gezählt ab Frame 0. Diese Testzeiten sind keine Rekonstruktion aus GIF oder MP4. Die unabhängige Ghost-Farbuhr erzeugt diese Ereignisse nicht. TESA-Labels 1…28 bleiben von der Ghost-Serialisierung S·NP+RR getrennt.</p>
+<details><summary>TESA-Quellenbezug und Test-Receipt</summary><pre id="tesaReceipt" style="white-space:pre-wrap;max-height:360px;overflow:auto"></pre></details>
+</section>
 <div class="ghost-source-links"><a href="../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_ROOT7_EULER_MIRROR_CONCORDANCE_INTAKE_2026-09-28/14_GHOSTGRID_DYADIC_M_LIFT_ADDENDUM.md">Ghostgrid M-lift</a><a href="../92_A0_TWIN_PRIME_TUBE_PHASE_X20_ENGINEERING_RESULT_2026-10-15.md">LRRL control</a><a href="../../../NEXAH_SEALED_COMPARISON_METHOD_0_1_2026-09-17/ROOT_ROOM_VIEW_RETURN_AUDIT.md">Root-Room audit</a></div>
 <script type="application/json" id="ghostTileFixtures">{"status":"DOCUMENTARY_TRANSCRIPTION_NOT_FORMULA","root5":{"label":"Visual 10 · Root matrix 5×5","cols":5,"rows":5,"values":[1,2,3,4,5,6,7,6,7,8,9,9,11,15,15,16,14,16,17,20,21,22,23,24,25]},"root7":{"label":"Visual 10 · Root matrix 7×6","cols":7,"rows":6,"values":[1,2,3,4,5,6,7,8,9,10,11,15,13,14,15,16,17,18,19,20,21,23,23,24,29,26,27,28,29,40,31,32,33,34,35,36,37,38,38,40,42,43]},"systemx":{"label":"Visual 11 · System X layers","cols":5,"rows":3,"values":[null,7,8,9,null,5,null,4,null,3,1,2,3,4,5],"lanes":["7·8·9","5·4·3","1·2·3·4·5"]}}</script>
 </div>
@@ -661,9 +675,12 @@
 <span>NEXAH · A0 GRID ATLAS · 2026-10-15</span>
 <a href="A0_VISUAL_FIELD_LIBRARY.html">Weiter zur Visual Field Library →</a>
 </footer>
-<script src="a0-grid-atlas.js?rev=ghost-tiles-r7-grid-switch-3d-20261015">
+<script src="assets/a0-tesa-grid-candidate.js"></script>
+<script src="a0-grid-atlas.js?rev=tesa-candidate-20261017">
 </script>
+<script src="a0-tesa-grid-candidate.js"></script>
 <script src="a0-context-navigation.js?rev=human-home-20261014">
 </script>
+<script src="a0-orientation-source-bridge.js"></script>
 </body>
 </html>

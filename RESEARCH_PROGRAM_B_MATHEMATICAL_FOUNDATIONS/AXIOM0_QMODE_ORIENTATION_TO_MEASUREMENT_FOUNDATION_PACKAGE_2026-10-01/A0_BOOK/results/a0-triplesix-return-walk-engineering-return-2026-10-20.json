@@ -1,0 +1,129 @@
+{
+  "schema": "a0.triplesix-return-walk-engineering-return/1",
+  "date": "2026-10-20",
+  "status": "ENGINEERING_PASS_BROWSER_ACCEPTANCE_OPEN",
+  "existing_identities": [
+    "MOD:NUMBER_VIEW_SUITE",
+    "NEXAH_A0_ORIENTATION_CONTROLLER_BENCH"
+  ],
+  "new_global_ids": [],
+  "relation_changes": [],
+  "canonical_count_effect": 0,
+  "publication_authorized": false,
+  "entry": "A0_ORIENTATION_CONTROLLER_BENCH.html#tripleSixReturnWalk",
+  "sources": [
+    {
+      "path": "A0_ORIENTATION_CONTROLLER_BENCH.html",
+      "sha256": "78e89a8378b76f04b6115939e5d8176110d9187ec793a4bfb770bfc63e230e59"
+    },
+    {
+      "path": "a0-triplesix-return-walk.js",
+      "sha256": "59f713fcacc27efd3912754728f0234162f5706817e7ca6bf576edb31ea7337e"
+    },
+    {
+      "path": "a0-triplesix-return-walk-tests.cjs",
+      "sha256": "ab8f7a550d325e10cf6d5776bcd9d4f4a9c9ecf956c93b28c6ad38dcd892b286"
+    },
+    {
+      "path": "a0-orientation-controller-bench.js",
+      "sha256": "26216e1b2276bd2859b3c751de5e81b6440b6bcf33583c51302ba7a6fe913757"
+    },
+    {
+      "path": "assets/a0-native-source-bank-v1.json",
+      "sha256": "4447a89dfaf376a58e43a2b6c5d253b0884182780483d605abff246ae7307920"
+    },
+    {
+      "path": "assets/a0-fold-lag-lens-v1.json",
+      "sha256": "a8310900e155291cfb691bcf76b247ab137dad8c55d3c08db68b8c3dbb3be115"
+    },
+    {
+      "path": "assets/a0-bench-showcase-tour-package-v1.json",
+      "sha256": "83c8987b67dedddf50ac16ba01695fd5be52b0bc961c1aab8e4c984f2251b8f4"
+    }
+  ],
+  "sourceBinding": {
+    "existingRegister": "A0OrientationController.s3PermutationRegister()",
+    "sourceAuditId": "SRC:A0OE:TRIPLESIX_S3_CUBE_GRID_FOLD_AUDIT",
+    "sourceCodeUnchanged": true,
+    "sharedStateWrite": false,
+    "selectionInput": "one-way adoption of existing data-s3-word clicks, plus independent local selector",
+    "states": 6,
+    "reversalAxes": 3,
+    "sideValues": [
+      -1,
+      1
+    ],
+    "groupIdentityClaim": false
+  },
+  "model": {
+    "pipeline": [
+      "source",
+      "position action",
+      "axis quotient / side loss",
+      "inverse candidate reconstruction",
+      "typed local return checks"
+    ],
+    "operators": {
+      "cycle": "abc -> bca",
+      "reverse": "abc -> cba",
+      "composition": "execution order as listed, inverse order reversed"
+    },
+    "cut": "forget parity, retain reversal-axis label",
+    "fibreSize": 2,
+    "residualBits": 1,
+    "decoderInputs": [
+      "S3 carrier tag",
+      "observed axis",
+      "operator",
+      "optional supplied side"
+    ],
+    "decoderReceivesSourceWord": false,
+    "sourceWordRetainedAsAuditOracle": true,
+    "controls": {
+      "keep": "EXACT_PASS",
+      "drop": "HOLD_AMBIGUOUS_TWO_CANDIDATES",
+      "wrong": "UNIQUE_WRONG_CANDIDATE_EXACT_FAIL"
+    },
+    "returnCriteria": {
+      "exact": "unique reconstructed word equals selected source word",
+      "carrier": "retained S3 source tag and declared register",
+      "structural": "every candidate retains source reversal-axis label",
+      "invariant": "multiset of symbols {1,2,3} retained"
+    },
+    "returnCriteriaNotPrimeGate11": true
+  },
+  "implementation": {
+    "newClock": false,
+    "automaticDownloads": false,
+    "manualFiveStageWalk": true,
+    "explicitFinalRecordExport": true,
+    "readOnlyImport": true,
+    "importLimitBytes": 1048576,
+    "recordRecomputed": true,
+    "recordAuthentication": false,
+    "sourceCoreAndExistingGate11Unchanged": true
+  },
+  "verification": {
+    "newIndependentAndMountedSuite": 3029,
+    "finiteCases": 90,
+    "polish": 909,
+    "tourMounted": 243,
+    "tourStructure": 79,
+    "map": 184,
+    "atlasFoldGuide": 1867,
+    "foldCycle": 6225,
+    "originalFold": 27902,
+    "nativeSourceBank": 118,
+    "glbLinks": 149,
+    "browserAcceptance": "OPEN",
+    "a0BinderUnrelatedConflicts": 8
+  },
+  "boundaries": [
+    "Newly declared finite presentation over existing S3 register, not scientific admission, research activation or replay of the historical cube-fold audit.",
+    "This cut is a typed axis quotient, not a rendered glyph crop, OCR test or optical projection experiment.",
+    "No reconstruction of simultaneous multi-axis cube pivot fibres, no Janus/action-convention adoption, 74/222/294 binding, calendar or physical law.",
+    "Same final word is exact within declared word state; original provenance is carried as metadata, not recovered from appearance.",
+    "Records may consistently demonstrate HOLD or FAIL; verification PASS attests consistency rather than exact return or authenticity.",
+    "Known binder and Mission Control currentness conflicts retained. No publication, canonical count or controlling-currentness adoption."
+  ]
+}

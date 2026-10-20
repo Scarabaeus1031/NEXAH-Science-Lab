@@ -1,0 +1,77 @@
+{
+  "schema": "a0.joint-mod36-return/1",
+  "date": "2026-10-19",
+  "status": "LOCAL_ENGINEERING_TESTS_PASS_VISUAL_ACCEPTANCE_OPEN",
+  "existing_identity": "MOD:NUMBER_VIEW_SUITE",
+  "new_ids": 0,
+  "new_relations": 0,
+  "seed": {
+    "integers": [
+      1836,
+      1729,
+      3565
+    ],
+    "modulus": 36,
+    "residues": [
+      0,
+      1,
+      1
+    ],
+    "relative_offset": "B−A ≡ +1 at seed; not a temporal +1 operator"
+  },
+  "steps": {
+    "co": [
+      11,
+      11,
+      22
+    ],
+    "counter": [
+      11,
+      -11,
+      0
+    ]
+  },
+  "residue_periods": {
+    "co": [
+      36,
+      36,
+      18
+    ],
+    "counter": [
+      36,
+      36,
+      1
+    ]
+  },
+  "source_horizon": 16,
+  "boundary": "Residue period is theoretical, beyond unchanged native 16-step horizon; residue return is not full-integer return. No new scientific rule or claim.",
+  "verification": {
+    "number_tests": 21299,
+    "play_tests": 170,
+    "parallel_tests": 4726,
+    "browser_pixels": "NOT_PERFORMED"
+  },
+  "publication": "LOCAL_ONLY; no push or deployment",
+  "sources": [
+    {
+      "ecosystem_path": "30 SCIENCE LAB/NEXAH-Science-Lab/RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/a0-game-of-numbers-model.js",
+      "sha256": "e99c604cef0dd955e8504d9acfdf1c0d2766e235fc6a9b3a016531fb810f707a"
+    },
+    {
+      "ecosystem_path": "30 SCIENCE LAB/NEXAH-Science-Lab/RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/a0-game-of-numbers.js",
+      "sha256": "00b141d00c557c70a48b50977925a77a47e2ea5fc30586945c62fd1cb37b94f8"
+    },
+    {
+      "ecosystem_path": "30 SCIENCE LAB/NEXAH-Science-Lab/RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/a0-game-of-numbers-tests.cjs",
+      "sha256": "5f3c383cb8503666edc1afe161898837ff848c0b48c90451a86ffab367b17628"
+    },
+    {
+      "ecosystem_path": "30 SCIENCE LAB/NEXAH-Science-Lab/RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/A0_GAME_OF_WORLDS_PLAY.html",
+      "sha256": "260021fbcce1f653f4313f78c6419a322542a04fcedac8fa8a34614e076f63e3"
+    },
+    {
+      "ecosystem_path": "30 SCIENCE LAB/NEXAH-Science-Lab/RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/assets/game-of-worlds-play/numbers/index.html",
+      "sha256": "5c86a745b26a974f3cb2e101d1c296afbb00e89ededbe80ce31c3a1837b6ead4"
+    }
+  ]
+}

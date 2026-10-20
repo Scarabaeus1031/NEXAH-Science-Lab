@@ -1,0 +1,55 @@
+{
+  "schema": "a0.distinct-world-entrances-return/1",
+  "date": "2026-10-19",
+  "status": "LOCAL_ENGINEERING_TESTS_PASS",
+  "new_ids": 0,
+  "new_relations": 0,
+  "user_correction": "LIFE should not look identical to Numbers on entry",
+  "defaults": {
+    "life": "rooms",
+    "domains": "domains",
+    "numbers": "cathedral"
+  },
+  "orders": {
+    "life": [
+      "rooms",
+      "boundary",
+      "field",
+      "register",
+      "phase",
+      "rosette",
+      "cathedral"
+    ],
+    "numbers_basic": [
+      "cathedral",
+      "rings",
+      "spiral",
+      "grid",
+      "tower"
+    ]
+  },
+  "boundary": "navigation/presentation only; native rules and state clocks unchanged",
+  "verification": {
+    "play_controller": 170,
+    "browser_visual_acceptance": "NOT_PERFORMED"
+  },
+  "publication": "LOCAL_ONLY_NO_PUSH",
+  "sources": [
+    {
+      "ecosystem_path": "30 SCIENCE LAB/NEXAH-Science-Lab/RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/A0_GAME_OF_WORLDS_PLAY.html",
+      "sha256": "57fb46e12184565d40d7b4548be08b6a2e5e27a9983d9be3c67ac98af5537056"
+    },
+    {
+      "ecosystem_path": "30 SCIENCE LAB/NEXAH-Science-Lab/RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/a0-game-of-worlds-play.js",
+      "sha256": "0d9a26a79ecb51ecb1bad5e6e14581744659527625889b385d92631aca2df965"
+    },
+    {
+      "ecosystem_path": "30 SCIENCE LAB/NEXAH-Science-Lab/RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/a0-game-of-worlds-play-stage.js",
+      "sha256": "986a78ad095f07e3b7f679a88abe49c817fc7d03ee466df92dd3168593ae43b3"
+    },
+    {
+      "ecosystem_path": "30 SCIENCE LAB/NEXAH-Science-Lab/RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/a0-game-of-worlds-play-tests.cjs",
+      "sha256": "f5d14f984508e34d37223d5073f02224073a3f397ca9c3df75e2f95190472ea4"
+    }
+  ]
+}

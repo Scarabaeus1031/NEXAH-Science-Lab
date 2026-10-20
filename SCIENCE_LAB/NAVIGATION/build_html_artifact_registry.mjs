@@ -131,17 +131,34 @@ function documentedDecision(path) {
     content_role: 'functional_instrument',
     centrality_score: 3,
     lifecycle: 'current_bounded',
-    evidence_status: 'CHECKS_59_TO_66_AND_87_TO_88_BOUND_ENGINEERING_NOT_SCIENCE_RUN',
+    evidence_status: 'CHECKS_59_TO_66_87_TO_88_AND_102_BOUND_ENGINEERING_NOT_SCIENCE_RUN',
     record: 'RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/67_A0_TESSAREC_CHECKS_59_66_SCIENCE_DESK_NAVIGATOR_RETURN_2026-10-13.md',
     decision_sources: [
       'RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/A0_BOOK_MANIFEST.json',
       'RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/59_A0_TESSAREC_BLUE_BODY_HOST_EMBEDDING_PROTOTYPE_2026-10-13.md',
       'RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/66_A0_TESSAREC_ANTIPODE_RETURN_BRIDGE_2026-10-13.md',
       'RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/87_A0_FIBONACCI_RING_OPERATOR_COMPARATOR_PROTOCOL_2026-10-14.md',
-      'RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/88_A0_FIBONACCI_RING_OPERATOR_COMPARATOR_RESULT_2026-10-14.md'
+      'RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/88_A0_FIBONACCI_RING_OPERATOR_COMPARATOR_RESULT_2026-10-14.md',
+      'RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/102_A0_BLUE_BODY_CRT16_INTERIOR_ADAPTER_ENGINEERING_RESULT_2026-10-15.md'
     ],
-    claim_ceiling: 'Source-bound Checks 59–66 and 87–88 with exact finite representation returns and a deterministic synthetic sampling comparator only. G5–G8 remain open; no natural Fibonacci law, privileged constant, E8 specificity, new identity, science run, physical mechanism, novelty certificate or publication.',
-    note: 'Existing A0-VIEW-TESSAREC-BLUE-BODY under MOD:TESSAREC; E8, Number View and CON–DAO are typed reused lenses, not merged identities.'
+    claim_ceiling: 'Source-bound Checks 59–66, 87–88 and 102 with exact finite representation returns, an ordinal I16 x P3 interior address adapter and a deterministic synthetic sampling comparator only. CRT prime labels define no Q4 topology or intrinsic interior. G5–G8 remain open; no natural Fibonacci law, privileged constant, E8 specificity, new identity, science run, physical mechanism, novelty certificate or publication.',
+    note: 'Existing A0-VIEW-TESSAREC-BLUE-BODY under MOD:TESSAREC; the interior adapter, E8, Number View and CON–DAO are typed reused lenses, not merged identities.'
+  };
+
+  if (path === 'RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/A0_GAME_4_LIFE_PLUS_1.html') return {
+    representation_role: 'source-bound-workbench',
+    content_role: 'functional_instrument',
+    centrality_score: 3,
+    lifecycle: 'current_bounded',
+    evidence_status: 'POST_CLOSE_LIFE08_VIEW_PLUS_CHECK103_ENGINEERING_CONTROL_NOT_SCIENCE_RUN',
+    record: 'RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/103_A0_BLUE_BODY_GAME4LIFE_TRANSFER_CONTROL_ENGINEERING_RESULT_2026-10-15.md',
+    decision_sources: [
+      'RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/A0_BOOK_MANIFEST.json',
+      'RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/102_A0_BLUE_BODY_CRT16_INTERIOR_ADAPTER_ENGINEERING_RESULT_2026-10-15.md',
+      'RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/103_A0_BLUE_BODY_GAME4LIFE_TRANSFER_CONTROL_ENGINEERING_RESULT_2026-10-15.md'
+    ],
+    claim_ceiling: 'Exact 48-address to finite-dead 8x6 one-hot transport before dynamics; unchanged B3/S23 collapses every singleton to the empty state and dynamics-only Return holds with 48 candidates. No carrier identity, LIFE08 reopen, new rule, Study, physical mechanism, usefulness result or publication.',
+    note: 'Existing GAME 4 LIFE +1 surface and existing identities; Check 103 is a bounded transfer-control lens, not a new Navigator entity.'
   };
 
   if (path.startsWith(orientationBase)) {

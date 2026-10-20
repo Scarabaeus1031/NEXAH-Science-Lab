@@ -2,7 +2,151 @@
 
 Date: `2026-10-08`
 
-Updated: `2026-10-15`
+Updated: `2026-10-20` · Ideenparkplatz ergänzt; ältere Einträge behalten ihren eigenen Stand.
+
+## Ideenparkplatz
+
+Hier sammeln wir Beobachtungen, Bilder, Begriffe und mögliche Verbindungen,
+ohne dem nächsten Gedanken sofort zu folgen. Der aktuelle Arbeitsfaden bleibt
+stehen, während neue Ideen einen wiederauffindbaren Ort bekommen.
+
+**Arbeitsstand:** Der Dokumentationsschnitt vom 20.10.2026 ist im
+[Forschungsprotokoll](../22_A0_FORSCHUNGSPROTOKOLL_BUCH_UND_RAHMEN_2026-10-10.md#documentation-closeout-20261020)
+und [Backlog DOC-01–12](../24_A0_RESEARCH_BACKLOG_AND_OPEN_JOINTS_2026-10-10.md#documentation-followups-20261020)
+nachgeführt; offene Abnahme und Integritätsfragen bleiben dort sichtbar.
+Die folgenden Ideen sind geparkt, nicht als Forschung,
+Implementierung oder neue Begriffsdefinition aktiviert.
+
+### Einen Gedanken ablegen
+
+Für einen neuen Eintrag reichen zunächst Datum, Gedanke und Kontext oder
+Quellverweis. Die offene Frage und ein möglicher Wiederaufnahme-Anlass können
+später ergänzt werden. Fehlende Angaben bleiben offen; sie werden nicht durch
+eine plausible Geschichte ersetzt.
+
+```text
+Datum und kurzer Titel:
+Gedanke oder Beobachtung:
+Kontext und Quelle oder Bild:
+Offene Frage:
+Wieder aufnehmen, wenn:
+Stand: geparkt / zur Sichtung / in bestehende Arbeit überführt / verworfen
+Bei Überführung: Ziel und Datum:
+```
+
+Das ist eine Notizform, keine zusätzliche Registry. Neue Begriffe bleiben
+Arbeitswörter, bis sie an einer konkreten Quelle oder Aufgabe präzisiert sind.
+Erst eine ausdrückliche Auswahl führt einen Gedanken in ein bestehendes
+Instrument, den Forschungsbacklog oder eine gesondert zugelassene Frage über.
+Erledigte oder verworfene Gedanken behalten ihren Verweis und ihre Disposition.
+
+### Gesammelte Gedanken vom 20. Oktober 2026
+
+Die folgenden Einträge verdichten Owner-Hinweise aus dem sichtbaren Faden.
+Sie sind keine wortgetreue Gesprächsmitschrift und keine neuen Ergebnisse.
+
+#### Eine verdrehte Fläche mit großer und kleiner Schlaufe
+
+**Gedanke:** Das gesuchte Visual zeigt möglicherweise nicht zwei unabhängige
+Grids, sondern eine Fläche, die sich verdreht und zwei verschieden große
+Schlaufen bildet. Die Erinnerung bleibt als Suchhinweis erhalten.
+
+**Offen:** Welches Originalbild, welche Randverklebung und welche tatsächliche
+Nachbarschaft sind gemeint? Möbius-, Torus- und bloße Projektionsbilder nicht
+vorab gleichsetzen. Wieder aufnehmen, wenn das konkrete Visual gefunden ist.
+
+#### Sechs Teller und eine gemeinsame Mitte
+
+**Gedanke:** Die Owner-Lesart verbindet 6+1 und 6|1|6 mit einer gelben/goldenen
+Mitte, im Gespräch auch „gelber Chor“ genannt. Vorhanden sind sechs MUINDI-
+Teller und separat der CON–DAO-Träger mit sechs Adressen je Seite und einem
+goldenen Stillpoint.
+
+**Offen:** Ist die Mitte ein weiterer Teller, eine Referenz, eine Kopplungsrolle
+oder etwas anderes? Ein Siebener-Tellerstapel ist damit noch nicht identifiziert.
+Quelle: [CON–DAO-Modell](../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_CON_DAO_JANUS_BREATH_SEQUENCER_2026-10-06/README.md).
+
+#### Die Farben der Einsen und der Kontext der Dreiergruppen
+
+**Gedanke:** Gleichwertige „1er“ können je nach Dreiergruppe, Rolle und
+Matroschka-Ebene cyan, gold oder anders erscheinen. Beim Rückführen soll
+ihre Herkunft erkennbar bleiben, auch wenn sie in der Ansicht verdeckt wird.
+
+**Offen:** Die konkrete Farb-/Gruppenzuordnung wiederfinden; keine globale
+Farbtabelle aus lokalen Paletten ableiten. Grün als Kopplung, Gelb als
+Fusion/Return sowie die Zeichen ị und }{ bleiben kontextgebundene Owner-
+Lesarten. Auch P=A+B verlangt zuerst einen deklarierten additiven Raum.
+
+#### Die Tube als Verteiler und Rückführung
+
+**Gedanke:** Zahlencontainer, Adressen und lokale Rollen werden durch einen
+Übergang verteilt und wieder zusammengeführt.
+
+**Offen:** Eingangsrecord, Routingregel, Ausgangsadresse und Rückschlüssel
+für genau einen Fall bestimmen. Historischer Kohärenzgenerator, endlicher
+C10-Tube-Operator und Zylinderansicht sind noch kein gemeinsamer Verteiler.
+Quelle: [gesicherte Tube-Herkunft](results/a0-tube-operator-lineage-return-2026-10-20.json).
+
+#### Zahlen als Adressen und gemeinsamer Skalenlift
+
+**Gedanke:** Adresse und Bezugsraum ändern sich gemeinsam; eine normierte
+Position kann dabei erhalten bleiben. Beispiel: 204/1000=2040/10000.
+CRT, QRT20 und 11-Space liefern verschiedene Adresstypen.
+
+**Offen:** Welcher Typ gehört zu welchem Übergang? Komma als Dezimalzeichen,
+Tausendertrennung und Tupeltrennung nicht vermischen. 717 ist im Elevator-
+Beispiel der Quotient von 14357, nicht bereits ein 7|1|7-Modell.
+Quelle: [NumberMagick-Kurzfassung](A0_NUMBERMAGICK_GRID_RESEARCH.html#address-context-return).
+
+#### Gruppierungen und ein mögliches gemeinsames Verfahren
+
+**Gedanke:** 3+1, 4+1, 5+1, 6+1 sowie duale und dreifache Gruppen könnten
+Teile einer zusammenhängenden Arbeitsweise sein.
+
+**Offen:** Erst die jeweiligen Objekte und die Funktion des +1 nebeneinander
+legen. Neun Themen, sieben Functional Families, Tourkapitel und vier
+Siebenergruppen bleiben unterschiedliche Einteilungen. 5+6=11 allein
+definiert noch keine Übersetzungsregel.
+
+#### Vorhandene Module statt erneuter Gesamtneubau
+
+**Gedanke:** Telleransichten, Shared View, TESA, LOKI, Observer und native
+Quellen sollen langfristig in einem verständlichen Arbeitsraum zugänglich sein.
+
+**Offen:** Erst die bestehende Blue/Pink→Bench-Mask-Kopplung abnehmen; weitere
+Module einzeln anbinden. Cockpit-Design danach. Deckkraft nicht als Gewicht,
+gleiche Zeit nicht als identischen Träger und gespeichertes Lesebild nicht
+als vollständigen System-Return behandeln.
+
+#### ORION und frühere NEXAH-Arbeiten als Vorgeschichte
+
+**Gedanke:** Der Owner erkennt denselben Entwurfsfaden in NEXAH-CODEX,
+NEXAH, ORION und A0 wieder. Quellenarbeit soll Wiederanfänge vermeiden.
+
+**Offen:** Die genaue ORION-era Tube-Datei oder den damaligen Autorenrecord
+finden. Kreative Herkunft, heutiger Repository-Inhalt und zertifizierter
+Funktionsumfang getrennt halten.
+
+#### 131 und 313
+
+**Stand:** Bewusst zurückgestellt. Erst nach dem Dokumentations-Closeout und
+einer erneuten ausdrücklichen Auswahl aufnehmen.
+
+### Wiederfinden und weiterführen
+
+- [Science Desk Rücklauf](A0_RESEARCH_DESK.html#numbermagick-thread-return-20261020)
+- [NSN Quellen und Beziehungen](../../../SCIENCE_LAB/NAVIGATION/APP/index.html#a0-orientation-evidence)
+- [Themen- und Quellnachweis dieses Fadens](results/a0-thread-science-nsn-return-2026-10-20.json)
+
+**Pflegeregel:** Einen neuen Gedanken zunächst hier ablegen und dann zum
+aktuellen Arbeitsschritt zurückkehren. Vor einer Wiederaufnahme nachsehen,
+ob der Gedanke bereits in bestehende Arbeit überführt wurde. Ein Link hierher
+bedeutet nicht, dass Handbuch, Protokoll und Mission Control bereits
+vollständig abgeglichen sind.
+
+## Frühere Feldnotizen
+
+Die nachfolgenden Einträge bleiben in ihrer bisherigen Reihenfolge erhalten.
 
 ## Check 60 addendum — doubled shell and heptagon seam
 

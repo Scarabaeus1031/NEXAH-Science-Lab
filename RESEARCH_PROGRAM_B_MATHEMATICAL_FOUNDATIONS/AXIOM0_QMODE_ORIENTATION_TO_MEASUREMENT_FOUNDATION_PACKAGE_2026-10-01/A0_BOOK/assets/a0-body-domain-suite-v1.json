@@ -1,0 +1,22 @@
+{
+  "schema": "nexah.a0.body-domain-demonstrator-suite/1.0.0",
+  "record_id": "A0:VIEW:BODY_DOMAIN_SUITE:V1",
+  "date": "2026-10-19",
+  "status": "INTERNAL_SOURCE_BOUND_ENGINEERING_VIEW_NOT_SCIENCE_RUN",
+  "identity_action": "REUSE_EXTEND_RELATE",
+  "identity_reuse": ["MOD:TESSAREC", "A0:TESSAREC:BLUE_BODY:V1", "A0-VIEW-BLUE-PINK-DODECA-CELL-RETURN", "A0-VIEW-BLUE-BODY-DODECA-COUNTERSHOT"],
+  "body_roles": [
+    {"id":"CARRIER-48","role":"SOURCE_CARRIER","object":"Q4xP3","addresses":48},
+    {"id":"HOST-BLUE","role":"HOST_BODY_VIEW","object":"O2-P16-H8","vertices":48,"edges":72,"faces":26},
+    {"id":"BLUE-01","role":"SATELLITE_BODY","view":"minus_theta","face_slots":12},
+    {"id":"BLUE-02","role":"SATELLITE_BODY","view":"minus_theta","face_slots":12},
+    {"id":"PINK-01","role":"SATELLITE_BODY","view":"plus_theta","face_slots":12},
+    {"id":"PINK-02","role":"SATELLITE_BODY","view":"plus_theta","face_slots":12},
+    {"id":"RETURN-00","role":"RETURN_BODY","view":"central_pivot","face_slots":12}
+  ],
+  "domain_projections": ["Orientation", "Framework", "Families", "Language", "Atlas", "Evidence"],
+  "surfaces": ["A0_TESSAREC_BLUE_BODY_LAB.html", "A0_BLUE_PINK_DODECA_CELL_RETURN.html", "A0_BLUE_BODY_DODECA_COUNTERSHOT.html"],
+  "events": ["a0:bench-selection", "a0:bench-focus", "a0:bench-playback"],
+  "counts": {"source_carriers":1,"host_views":1,"satellite_bodies":4,"return_bodies":1,"satellite_face_slots":48,"return_face_slots":12,"display_face_slots":60},
+  "claim_boundary": "NO_NEW_CARRIER_NO_NEW_FAMILY_NO_BODY_IDENTITY_MERGE_NO_TOPOLOGY_EQUIVALENCE_NO_PHYSICAL_MECHANISM_NO_STUDY_ACTIVATION_NO_PUBLICATION"
+}

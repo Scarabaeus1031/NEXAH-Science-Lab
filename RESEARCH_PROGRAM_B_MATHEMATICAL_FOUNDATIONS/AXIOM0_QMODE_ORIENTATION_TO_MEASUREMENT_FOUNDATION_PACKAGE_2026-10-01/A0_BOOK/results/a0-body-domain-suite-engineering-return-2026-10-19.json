@@ -1,0 +1,55 @@
+{
+  "schema": "nexah.a0.engineering-return/1.0.0",
+  "record_id": "A0:RETURN:BODY_DOMAIN_SUITE:2026-10-19",
+  "date": "2026-10-19",
+  "status": "ENGINEERING_PASS",
+  "identity_action": "REUSE_EXTEND_RELATE",
+  "reused_ids": ["MOD:TESSAREC", "A0:TESSAREC:BLUE_BODY:V1", "A0-VIEW-BLUE-PINK-DODECA-CELL-RETURN", "A0-VIEW-BLUE-BODY-DODECA-COUNTERSHOT"],
+  "view_record": "A0:VIEW:BODY_DOMAIN_SUITE:V1",
+  "roles": ["CARRIER-48", "HOST-BLUE", "BLUE-01", "BLUE-02", "PINK-01", "PINK-02", "RETURN-00"],
+  "domain_projections": ["ORIENTATION", "FRAMEWORK", "FAMILIES", "LANGUAGE", "ATLAS", "EVIDENCE"],
+  "surfaces": [
+    "A0_BOOK/A0_TESSAREC_BLUE_BODY_LAB.html#bodyDomainSuite",
+    "A0_BOOK/A0_BLUE_PINK_DODECA_CELL_RETURN.html#bodyDomainSuite",
+    "A0_BOOK/A0_BLUE_BODY_DODECA_COUNTERSHOT.html#bodyDomainSuite"
+  ],
+  "counts": {"source_carriers": 1, "host_views": 1, "satellite_bodies": 4, "return_bodies": 1, "display_slots": 60},
+  "verification": {
+    "body_domain_suite_checks": 35,
+    "guided_tour_checks": 32,
+    "guided_tour_stations": 26,
+    "guided_tour_full_browser_result": "PASS_RETURN_EXACT",
+    "human_interaction_stops_tour": false,
+    "explicit_stop_stops_tour": true,
+    "blue_pink_dodeca_assertions": 99,
+    "crt16_assertions": 241,
+    "pentagon_body_player_assertions": 1356,
+    "registered_readers": 50,
+    "shared_navigation_surfaces": 49,
+    "reachable_local_html": 55,
+    "fresh_browser_console_errors": 0,
+    "responsive_phone_overflow": false,
+    "viewer_scroll_restore": "EXACT",
+    "viewer_frame_unload_on_close": true
+  },
+  "runtime_repairs": [
+    "CRT16 optional phase readout is null-safe",
+    "Lissajous animation delta is finite and non-negative after visibility changes",
+    "guided tour resolves the dynamically created CON-DAO control at use time",
+    "ordinary pointer and input events no longer stop guided playback",
+    "carrier and both synchronized player bodies expose guided camera tilts without changing source identity",
+    "all transition and ring deck lenses are visited as separate visible stations",
+    "six Master Bus chips expose direct module anchors plus module-id, focus-target and binding-type metadata"
+  ],
+  "authority_effects": {
+    "new_navigator_identity": false,
+    "new_canonical_relation": false,
+    "new_family": false,
+    "new_carrier": false,
+    "study_activation": false,
+    "research_run": false,
+    "finding_promotion": false,
+    "publication_authorization": false
+  },
+  "claim_boundary": "The suite is a source-bound engineering and navigation projection. Body colors, shells, domain tabs and viewer routes do not establish carrier identity, topology identity, a physical mechanism, a scientific result or a new authority relation."
+}

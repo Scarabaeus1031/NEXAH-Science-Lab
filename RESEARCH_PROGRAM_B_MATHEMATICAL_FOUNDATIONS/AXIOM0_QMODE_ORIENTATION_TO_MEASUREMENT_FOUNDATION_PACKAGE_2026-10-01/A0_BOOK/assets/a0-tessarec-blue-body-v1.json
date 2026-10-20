@@ -45,6 +45,19 @@
       "layer_addresses_retained": 14
     }
   },
+  "interior_adapter_extension": {
+    "record": "a0-blue-body-interior-crt16-v1.json",
+    "surface": "../A0_TESSAREC_BLUE_BODY_LAB.html#blue-body-interior-crt16",
+    "domain": "I16 x P3",
+    "codomain": "Q4 x P3",
+    "mapping": "ordinal two-half Gray ring",
+    "addresses": 48,
+    "views": ["front", "top", "side", "isometric"],
+    "validation_assertions": 237,
+    "prime_moduli_role": "LABELS_ONLY",
+    "return": "PASS_EXACT_ADDRESS_RETURN_OR_TYPED_HOLD",
+    "new_identity": false
+  },
   "bounded_result": "The natural 3x16 to 6x8 Gray-ring adapter ties the recorded unconstrained candidate on wirelength, dilation and congestion while retaining all 48 layer addresses. This is a deterministic candidate comparison, not an optimality proof.",
   "claim_boundary": "NO_NEW_POLYHEDRON_NO_TESSERACT_IDENTITY_NO_OPTIMALITY_PROOF_NO_SCIENCE_RUN_NO_PHYSICAL_MECHANISM_NO_NOVELTY_CERTIFICATE_NO_PUBLICATION"
 }

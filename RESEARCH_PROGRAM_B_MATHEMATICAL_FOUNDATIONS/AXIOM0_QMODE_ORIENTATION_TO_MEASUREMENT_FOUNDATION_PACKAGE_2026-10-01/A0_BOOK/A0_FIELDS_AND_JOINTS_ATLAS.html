@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>NEXAH A0 — Fields &amp; Joints Atlas</title>
+  <title>NEXAH A0 — Fugen · gemeinsamer Arbeitsraum</title>
   <meta name="description" content="Interaktive Field-Note-Karte der von A0 berührten Forschungsfelder, Perspektiven, Fugen und Statusgrenzen.">
   <style>
     :root{
@@ -63,12 +63,13 @@
     @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.live-declaration strong.live-change,.map-lines path,.map-lines circle,.field-node[aria-pressed="true"],.inspector.live-change,.tile-detail.live-change,.joint-output.live-change,.joint-row,.return blockquote{animation:none}.grammar article,.source-card,.policy article,.tile{transition:none}}
   </style>
   <link rel="stylesheet" href="a0-context-navigation.css?rev=connect-entry-20261014">
+  <link rel="stylesheet" href="a0-joint-workspace.css">
 </head>
 <body>
   <header class="top">
     <a class="brand" href="index.html">NEXAH <span>· A0 FIELD NOTES</span></a>
     <nav aria-label="Atlas navigation">
-      <a href="#map">Feldkarte</a><a href="#perspectives">Perspektiven</a><a href="#builder">Fuge bauen</a><a href="#ledger">Ledger</a><a href="#sources">Quellen</a><a href="index.html">A0 Book</a>
+      <a href="#joint-workspace">Gemeinsamer Arbeitsraum</a><a href="#map">Feldkarte</a><a href="#perspectives">Perspektiven</a><a href="#builder">Fuge bauen</a><a href="#ledger">Ledger</a><a href="#sources">Quellen</a><a href="index.html">A0 Book</a>
     </nav>
   </header>
 
@@ -81,6 +82,21 @@
       <div class="live-declaration"><small>ATLAS IN MOTION</small><strong id="liveDeclaration">Fields are not silos.</strong><span id="liveDeclarationCount">01 / 05</span></div>
     </section>
 
+    <section class="spread joint-workspace" id="joint-workspace" aria-labelledby="jointWorkspaceTitle">
+      <div class="label">Ein Arbeitsraum · vier Ansichten · bestehende Quellen</div>
+      <h2 id="jointWorkspaceTitle">Felder und Fugen zusammen lesen.</h2>
+      <p class="sub">Hier bleibt der Zusammenhang stehen: von den Wissensfeldern über die mathematische Werkstatt zum konkreten Operator und seinem Return. Die Ansichten öffnen im selben Raum; ihre Quellen und Werkzeuge bleiben erhalten.</p>
+      <nav class="joint-workspace-tabs" aria-label="Ansichten des Fugen-Arbeitsraums">
+        <a id="workspace-overview" href="#map" data-joint-view="overview">1 · Gesamtkarte<small>Welche Felder stehen in Beziehung?</small></a>
+        <a id="workspace-mathfield" href="A0_MATHEMATICAL_JOINTS.html" data-joint-view="mathfield">2 · Mathfield<small>Wie beschreiben wir die Verbindung?</small></a>
+        <a id="workspace-pascal" href="A0_PASCAL_PENTAGON_OPERATOR_JOINTS.html" data-joint-view="pascal">3 · Pascal / Pentagon<small>Ein konkreter Operator-Faden</small></a>
+        <a id="workspace-applications" href="A0_JOINT_APPLICATION_DEMONSTRATOR.html" data-joint-view="applications">4 · Anwendungen / Return<small>Was bleibt nach dem Übergang?</small></a>
+      </nav>
+      <p id="jointWorkspaceDescription" class="sub" aria-live="polite">Gesamtkarte: Felder, Perspektiven, Fugen-Builder und Ledger.</p>
+      <div id="jointWorkspacePanels"></div>
+    </section>
+
+    <div id="jointAtlasContent">
     <section class="black" id="map"><div class="spread">
       <header class="section-head"><div class="no">01</div><div><div class="label">One field · many local descriptions</div><h2>Die Karte der berührten Felder.</h2><p class="sub">Wähle ein Feld. Rechts erscheint nicht seine Totaldefinition, sondern seine gegenwärtige A0-Fuge: Rolle, typische Übergänge und harte Nicht-Identität.</p></div></header>
       <div class="map-shell">
@@ -155,6 +171,7 @@
     </section>
 
     <section class="return"><div class="spread return-grid"><blockquote>Eine gute Fuge beweist nicht, dass zwei Felder dasselbe sind. Sie macht prüfbar, was zwischen ihnen übersetzt werden darf.</blockquote><div><div class="label">Human Return</div><ol><li>Beginne mit zwei klar benannten Gegenständen.</li><li>Typisiere Träger, Einheiten und Vergleichsregel.</li><li>Notiere Erhalt, Verlust, Zusatz und Residual.</li><li>Ordne der Relation einen ehrlichen Status zu.</li><li>Stoppe, bevor Analogie zur Identität wird.</li></ol><div class="btns"><a class="btn gold" href="#builder">Neue Fuge prüfen</a><a class="btn" href="index.html">Return to A0 Book</a></div></div></div></section>
+    </div>
   </main>
 
   <footer><div><span><strong>NEXAH · A0 FIELDS &amp; JOINTS</strong><br>Internal post-milestone companion · documentary Field Note</span><span class="label">Existing identity · no Navigator admission</span></div></footer>
@@ -230,6 +247,7 @@
     function loop(now){if(!reduced&&!document.hidden){if(liveSections.hero&&now-clocks.hero>3600){headlineIndex=(headlineIndex+1)%liveHeadlines.length;$('liveDeclaration').textContent=liveHeadlines[headlineIndex];$('liveDeclarationCount').textContent=`0${headlineIndex+1} / 05`;pulse($('liveDeclaration'));clocks.hero=now}if(liveSections.map&&now-clocks.map>4200){selectField(fieldKeys[(fieldIndex+1)%fieldKeys.length]);clocks.map=now}if(liveSections.grammar&&now-clocks.grammar>3300){grammarIndex=(grammarIndex+1)%grammarCards.length;markOne(grammarCards,grammarIndex);clocks.grammar=now}if(liveSections.perspectives&&now-clocks.perspectives>3900){selectPerspective(perspectiveIndex+1);clocks.perspectives=now}if(liveSections.builder&&now-clocks.builder>5600){builderIndex++;$('leftField').value=builderFields[builderIndex%builderFields.length];$('rightField').value=builderFields[(builderIndex+3)%builderFields.length];$('jointType').value=builderTypes[builderIndex%builderTypes.length];renderJoint();clocks.builder=now}if(liveSections.ledger&&now-clocks.ledger>5200){selectLedger(ledgerIndex+1);clocks.ledger=now}if(liveSections.sources&&now-clocks.sources>3700){sourceIndex=(sourceIndex+1)%sourceCards.length;markOne(sourceCards,sourceIndex);clocks.sources=now}if(liveSections.governance&&now-clocks.governance>4400){policyIndex=(policyIndex+1)%policyCards.length;markOne(policyCards,policyIndex);clocks.governance=now}}requestAnimationFrame(loop)}
     markOne(grammarCards,0);markOne(sourceCards,0);markOne(policyCards,0);requestAnimationFrame(loop);
   </script>
-  <script src="a0-context-navigation.js?rev=human-home-20261014"></script>
+  <script src="a0-joint-workspace.js"></script>
+  <script src="a0-context-navigation.js?rev=fugen-workspace-20261016"></script>
 </body>
 </html>

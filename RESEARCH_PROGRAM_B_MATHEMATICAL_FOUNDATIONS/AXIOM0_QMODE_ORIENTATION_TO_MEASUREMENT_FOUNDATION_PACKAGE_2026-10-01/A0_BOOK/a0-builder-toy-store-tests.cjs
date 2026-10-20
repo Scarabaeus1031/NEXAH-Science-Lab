@@ -1,10 +1,12 @@
 const fs = require("node:fs");
+const assert = require("node:assert/strict");
 const path = require("node:path");
 
 const root = __dirname;
 const html = fs.readFileSync(path.join(root, "A0_BUILDER_TOY_STORE.html"), "utf8");
 const css = fs.readFileSync(path.join(root, "a0-builder-toy-store.css"), "utf8");
 const js = fs.readFileSync(path.join(root, "a0-builder-toy-store.js"), "utf8");
+const arkadeCss = fs.readFileSync(path.join(root, "a0-arkade.css"), "utf8");
 
 function requireText(source, pattern, message) {
   if (!pattern.test(source)) throw new Error(message);
@@ -26,5 +28,13 @@ requireText(html, /Structure Transfer &amp; Recovery/, "structure application mu
 requireText(css, /\.bench-card/, "OCB bench must have an explicit layout");
 requireText(js, /title:"Orientation Controller Bench"/, "OCB must be available on the flagship shelf");
 requireText(js, /kind:"Engineering bench"/, "OCB must remain typed as an engineering bench");
+requireText(html, /id="arkade"/, "Toy Store must expose the NEXAH Arkade as its first game shelf");
+requireText(html, /id="story-bridge"[\s\S]*?id="arkade"/, "A0 story bridge must sit between Toy Store hero and Arkade");
+requireText(html, /href="index\.html#arkade-tool"/, "Builder story bridge must return to the A0 story");
+requireText(fs.readFileSync(path.join(root, "a0-builder-story-bridge.css"), "utf8"), /\.builder-story-bridge/, "Builder story bridge must keep its dedicated visual layer");
+for (const world of ["life", "domains", "numbers"]) requireText(html, new RegExp(`data-world="${world}"[\\s\\S]*?world=${world}`), `Arkade must link directly to ${world}`);
+requireText(arkadeCss, /@media\(max-width:520px\)/, "Arkade must keep a dedicated phone layout");
 
+assert.doesNotMatch(html, /data-world="mobile"|OPEN SLOT|Coming after playtest/, 'no reserved mobile-game placeholder');
+assert.equal((html.match(/class="arkade-cabinet" data-world=/g)||[]).length,3,'three playable cabinets only');
 console.log("PASS a0-builder-toy-store-tests");

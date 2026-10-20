@@ -1,0 +1,49 @@
+{
+  "schema": "nexah.a0.cross_carrier_return_economy.protocol.v1",
+  "study_id": "A0_BL_055_CROSS_CARRIER_RETURN_ECONOMY_2026_10_18",
+  "date": "2026-10-18",
+  "economy_threshold_carriers": 2,
+  "advantage_epsilon": 1e-12,
+  "sources": [
+    {
+      "id": "BL024",
+      "path": "../A0_BL_024_O16_Q106_STATE_RELATION_2026-10-18/artifacts/PRIMARY_RESULT.json",
+      "sha256": "7d6683d989d2abab76c9864698a21af2a2b84ca8bd3cf993700d53cf4f431014"
+    },
+    {
+      "id": "BL025",
+      "path": "../A0_BL_025_TYPED_SEAM_CHANNEL_UTILITY_2026-10-18/artifacts/PRIMARY_RESULT.json",
+      "sha256": "b455bee94c32d41c0c61dd10a5df7cfc64739839becc3708ec5578cf62398fb1"
+    },
+    {
+      "id": "BL049",
+      "path": "../A0_BL_049_IOTA_THOOTH_OPERATOR_TYPING_2026-10-18/artifacts/PRIMARY_RESULT.json",
+      "sha256": "1f52cb0aee0a7417b862c39467ea2187b6e18194ef8d7c91d7e7f6efcac7aef5"
+    }
+  ],
+  "carrier_contracts": {
+    "Q106_O16": {
+      "source_count": 106,
+      "selection": "P1_BALANCED_INDEX",
+      "control": "C1_FIXED_SHUFFLED_INDEX"
+    },
+    "TYPED_SEAM": {
+      "source_count": 140,
+      "selection": "C4",
+      "raw_baseline": "C0",
+      "control": "C3"
+    },
+    "DECIMAL_D4": {
+      "source_count": 9000,
+      "selection": "joint",
+      "controls": ["delta_first", "delta_second", "swap_middle_control"]
+    }
+  },
+  "result_vocabulary": [
+    "PASS_CROSS_CARRIER_RETURN_ECONOMY",
+    "MIXED_RETURN_GRAMMAR_PASS_ECONOMY_GENERALIZATION_FAIL",
+    "FAIL_SHARED_RETURN_GRAMMAR",
+    "INVALID_SOURCE_OR_CONTRACT"
+  ]
+}
+

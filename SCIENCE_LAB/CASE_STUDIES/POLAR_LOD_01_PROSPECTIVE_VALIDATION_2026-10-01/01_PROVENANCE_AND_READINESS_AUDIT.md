@@ -1,7 +1,7 @@
 # POLAR-LOD-01 provenance and readiness audit
 
 Date: 2026-10-01
-Disposition: `CUSTODY_REPAIR_IMPLEMENTED_PENDING_REVIEW / COLLECTION_NOT_AUTHORIZED / NOT_READY_FOR_CONFIRMATORY_EXECUTION`
+Disposition: `CUSTODY_REPAIR_2_IMPLEMENTED_PENDING_REVIEW / COLLECTION_NOT_AUTHORIZED / NOT_READY_FOR_CONFIRMATORY_EXECUTION`
 
 ## Historical claim reconstructed
 
@@ -92,7 +92,7 @@ a new NEXAH contribution.
 
 | Gate | Requirement | State |
 |---|---|---|
-| R1 custody | source, code, environment and preregistration hash-bound before outcomes | `REPAIR IMPLEMENTED / INDEPENDENT RE-REVIEW PENDING / NO RECEIPTS`; exact canonical URLs, compiled release identity, clean pushed-commit admission, locked prefix anchors and no-follow custody writes added after first-review `FAIL` |
+| R1 custody | source, code, environment and preregistration hash-bound before outcomes | `REPAIR 2 IMPLEMENTED / INDEPENDENT RE-REVIEW PENDING / NO RECEIPTS`; exact package/Git inventory, canonical URLs, compiled release identity, clean pushed-commit admission, component-safe custody paths and exact locked prefix anchors follow two independent `FAIL` reviews |
 | R2 chronology | evaluation rows must postdate the new freeze | `NOT STARTED`; collection release is not granted |
 | R3 minimum window | at least 180 newly admitted daily rows and at least six complete synodic cycles | `NOT STARTED`; no post-release receipt population exists |
 | R4 strong baseline | validated established tidal/geophysical comparator plus strong statistical baseline | `PASS / BASELINE_READY`; see `POLAR-LOD-BL-01` |
@@ -109,7 +109,7 @@ non-operational.
 `NOT_READY_FOR_CONFIRMATORY_EXECUTION`. The historical 10.969% figure remains
 a screened reproduction candidate, not a confirmed application result.
 `POLAR-LOD-BL-01` closes R4 and the independently accepted EAM repair closes
-the historical B3 method gate. The 2026-10-02 custody package and Repair 1
+the historical B3 method gate. The 2026-10-02 custody package and Repair 2
 make R1/R2 mechanically executable, subject to independent repair acceptance,
 but deliberately refuse collection under the unchanged `NOT_GRANTED` owner
 record. Custody receipts, prospective chronology,

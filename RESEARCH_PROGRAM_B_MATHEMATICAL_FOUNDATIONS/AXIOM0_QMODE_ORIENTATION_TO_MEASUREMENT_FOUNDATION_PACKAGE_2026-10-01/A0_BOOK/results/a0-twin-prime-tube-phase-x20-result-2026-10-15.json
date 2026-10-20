@@ -1,0 +1,643 @@
+{
+  "schema": "a0.twin-prime-tube-phase-x20.engineering-result.v1",
+  "executionDate": "2026-10-15",
+  "authority": {
+    "kind": "OWNER_AUTHORIZED_A0_ENGINEERING_DERIVATION",
+    "labRun": false,
+    "studyActivated": false,
+    "navigatorIdentityCreated": false,
+    "publicationAuthorized": false
+  },
+  "status": "PASS_BOUNDED_FORMAL_WITH_NEGATIVE_CONTROLS_AND_OPEN_GATES",
+  "summary": {
+    "pass": 31,
+    "fail": 0,
+    "hold": 5,
+    "totalRecords": 36
+  },
+  "checks": [
+    {
+      "id": "Z-01",
+      "title": "Affine zither operator reproduces the extended four-row sequence",
+      "status": "PASS",
+      "detail": [
+        {
+          "n": 4,
+          "x": 11.5,
+          "b": 4.5,
+          "value": 16,
+          "scaled": 160,
+          "integerChannel": 16
+        },
+        {
+          "n": 5,
+          "x": 12.6,
+          "b": 5.5,
+          "value": 18.1,
+          "scaled": 181,
+          "integerChannel": 18
+        },
+        {
+          "n": 6,
+          "x": 13.7,
+          "b": 6.5,
+          "value": 20.2,
+          "scaled": 202,
+          "integerChannel": 20
+        },
+        {
+          "n": 7,
+          "x": 14.8,
+          "b": 7.5,
+          "value": 22.3,
+          "scaled": 223,
+          "integerChannel": 22
+        }
+      ]
+    },
+    {
+      "id": "Z-02",
+      "title": "Declared integer-channel projection yields the even boundary skeleton",
+      "status": "PASS",
+      "detail": {
+        "operator": "I(x)=floor(x)",
+        "skeleton": [
+          16,
+          18,
+          20,
+          22
+        ],
+        "lostTenths": [
+          0,
+          0.1,
+          0.2,
+          0.3
+        ]
+      }
+    },
+    {
+      "id": "Z-03",
+      "title": "Successive boundary midpoints expose twin-prime and composite controls",
+      "status": "PASS",
+      "detail": {
+        "centers": [
+          17,
+          19,
+          21
+        ],
+        "primeMask": [
+          true,
+          true,
+          false
+        ],
+        "twinPair": [
+          17,
+          19
+        ],
+        "negativeControl": 21
+      }
+    },
+    {
+      "id": "Z-04",
+      "title": "The two prime tubes share exactly one seam",
+      "status": "PASS",
+      "detail": {
+        "T17": [
+          16,
+          17,
+          18
+        ],
+        "T19": [
+          18,
+          19,
+          20
+        ],
+        "seam": [
+          18
+        ],
+        "hull": [
+          16,
+          17,
+          18,
+          19,
+          20
+        ]
+      }
+    },
+    {
+      "id": "Z-05",
+      "title": "Equal-width tube geometry does not imply a prime centre",
+      "status": "PASS",
+      "detail": {
+        "boundary": [
+          20,
+          22
+        ],
+        "centre": 21,
+        "width": 2
+      }
+    },
+    {
+      "id": "L-01",
+      "title": "LRRL is a balanced C30 phase word with exact return",
+      "status": "PASS",
+      "detail": {
+        "word": "LRRL",
+        "phases": [
+          0,
+          29,
+          0,
+          1,
+          0
+        ],
+        "signedPhases": [
+          0,
+          -1,
+          0,
+          1,
+          0
+        ]
+      }
+    },
+    {
+      "id": "L-02",
+      "title": "LRRL consists of two opposite closed two-step excursions",
+      "status": "PASS",
+      "detail": {
+        "decomposition": [
+          "LR",
+          "RL"
+        ],
+        "net": [
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "id": "L-03",
+      "title": "Return alone does not uniquely select LRRL",
+      "status": "PASS",
+      "detail": {
+        "balancedLengthFourWords": [
+          "RRLL",
+          "RLRL",
+          "LRRL",
+          "RLLR",
+          "LRLR",
+          "LLRR"
+        ],
+        "selection": "LRRL requires a source rule beyond return"
+      }
+    },
+    {
+      "id": "Q-01",
+      "title": "Four independent D/E identifications reduce 24 addresses to 20",
+      "status": "PASS",
+      "detail": {
+        "prequotient": 24,
+        "identifications": 4,
+        "quotient": 20
+      }
+    },
+    {
+      "id": "Q-02",
+      "title": "Three and five independent identifications are exact cardinality controls",
+      "status": "PASS",
+      "detail": {
+        "threeSeams": 21,
+        "fourSeams": 20,
+        "fiveSeams": 19
+      }
+    },
+    {
+      "id": "Q-03",
+      "title": "Choosing one open point among five produces five equally sized candidates",
+      "status": "PASS",
+      "detail": {
+        "candidates": [
+          {
+            "open": 0,
+            "quotient": 20
+          },
+          {
+            "open": 1,
+            "quotient": 20
+          },
+          {
+            "open": 2,
+            "quotient": 20
+          },
+          {
+            "open": 3,
+            "quotient": 20
+          },
+          {
+            "open": 4,
+            "quotient": 20
+          }
+        ],
+        "selection": "cardinality does not select the static gate"
+      }
+    },
+    {
+      "id": "Q-04",
+      "title": "One open anchor breaks C5 rotation symmetry to a two-element stabilizer",
+      "status": "PASS",
+      "detail": {
+        "openAnchor": 0,
+        "stabilizer": [
+          "r0",
+          "m-r0"
+        ],
+        "conclusion": "marked gate is not C5-invariant"
+      }
+    },
+    {
+      "id": "Q-05",
+      "title": "A literal 12-cycle has no order-five graph automorphism",
+      "status": "PASS",
+      "detail": {
+        "automorphismGroup": "D12",
+        "orders": [
+          1,
+          2,
+          3,
+          4,
+          6,
+          12
+        ],
+        "boundary": "D12/E12 labels cannot be treated as two literal C12 rings if C5 symmetry is required"
+      }
+    },
+    {
+      "id": "S-01",
+      "title": "The 4:3:2:1 schedule partitions both C30 and C60 exactly",
+      "status": "PASS",
+      "detail": {
+        "ratio": [
+          4,
+          3,
+          2,
+          1
+        ],
+        "C30": [
+          12,
+          9,
+          6,
+          3
+        ],
+        "C60": [
+          24,
+          18,
+          12,
+          6
+        ]
+      }
+    },
+    {
+      "id": "S-02",
+      "title": "Normalized phase angles agree across the C30/C60 schedule",
+      "status": "PASS",
+      "detail": {
+        "degrees": [
+          144,
+          108,
+          72,
+          36
+        ]
+      }
+    },
+    {
+      "id": "S-03",
+      "title": "17/13 and 29/31 are additive inverse pairs on their declared carriers",
+      "status": "PASS",
+      "detail": {
+        "C30": [
+          17,
+          13
+        ],
+        "C60": [
+          29,
+          31
+        ]
+      }
+    },
+    {
+      "id": "S-04",
+      "title": "The canonical doubling lift does not produce the selected C60 pair",
+      "status": "PASS",
+      "detail": {
+        "lift": "x -> 2x mod 60",
+        "image": [
+          34,
+          26
+        ],
+        "selected": [
+          29,
+          31
+        ],
+        "result": "REJECT_SIMPLE_DOUBLING"
+      }
+    },
+    {
+      "id": "S-05",
+      "title": "No affine map mod 60 sends ordered 17/13 to ordered 29/31",
+      "status": "PASS",
+      "detail": {
+        "candidateAffineMaps": 3600,
+        "solutions": [],
+        "result": "REJECT_AFFINE_LIFT"
+      }
+    },
+    {
+      "id": "S-06",
+      "title": "The ordered pair increments select 12 and 18 but not the full schedule",
+      "status": "PASS",
+      "detail": {
+        "increments": [
+          12,
+          18
+        ],
+        "fullSchedule": [
+          24,
+          18,
+          12,
+          6
+        ],
+        "unaccountedSegments": [
+          24,
+          6
+        ]
+      }
+    },
+    {
+      "id": "C-01",
+      "title": "Prime indices and boundary relations are exact",
+      "status": "PASS",
+      "detail": {
+        "p8": 19,
+        "p10": 29,
+        "p11": 31,
+        "p13": 41,
+        "p18": 61,
+        "p20": 71
+      }
+    },
+    {
+      "id": "C-02",
+      "title": "The existing 2501 CRT carrier has an exact width-20 channel",
+      "status": "PASS",
+      "detail": {
+        "factorization": "2501=41*61",
+        "channel": [
+          41,
+          61
+        ],
+        "gap": 20
+      }
+    },
+    {
+      "id": "C-03",
+      "title": "Prime gap 20 is not unique",
+      "status": "PASS",
+      "detail": {
+        "range": [
+          2,
+          1000
+        ],
+        "pairCount": 48,
+        "firstPairs": [
+          [
+            3,
+            23
+          ],
+          [
+            11,
+            31
+          ],
+          [
+            17,
+            37
+          ],
+          [
+            23,
+            43
+          ],
+          [
+            41,
+            61
+          ],
+          [
+            47,
+            67
+          ],
+          [
+            53,
+            73
+          ],
+          [
+            59,
+            79
+          ],
+          [
+            83,
+            103
+          ],
+          [
+            89,
+            109
+          ],
+          [
+            107,
+            127
+          ],
+          [
+            131,
+            151
+          ]
+        ]
+      }
+    },
+    {
+      "id": "C-04",
+      "title": "The 6+1 readout is decimal and not base invariant",
+      "status": "PASS",
+      "detail": {
+        "decimal": "61 -> 6+1=7",
+        "reverse": "16 -> 1+6=7",
+        "binary": "61=111101 -> digit sum 5",
+        "sameDigitSumPrimes": [
+          7,
+          43,
+          61,
+          151
+        ]
+      }
+    },
+    {
+      "id": "C-05",
+      "title": "The typed boundary chain preserves distinct roles",
+      "status": "PASS",
+      "detail": [
+        {
+          "value": 29,
+          "role": "C30 left representative / p10"
+        },
+        {
+          "value": 30,
+          "role": "C30 modulus / seam"
+        },
+        {
+          "value": 31,
+          "role": "C30 right representative / p11"
+        },
+        {
+          "value": 60,
+          "role": "C60 modulus / T60 return"
+        },
+        {
+          "value": 61,
+          "role": "C60 +1 representative / p18 / CRT factor"
+        }
+      ]
+    },
+    {
+      "id": "G-01",
+      "title": "Six outside plus one centre has three non-identical graph realizations",
+      "status": "PASS",
+      "detail": {
+        "disconnectedEdges": 6,
+        "starEdges": 6,
+        "wheelEdges": 12,
+        "selection": "6+1 count alone does not select a graph"
+      }
+    },
+    {
+      "id": "G-02",
+      "title": "Additive 2+3 and nested C2xC3 have different cardinalities",
+      "status": "PASS",
+      "detail": {
+        "visibleRoles": 5,
+        "nestedProductStates": 6,
+        "CRT": "C2 x C3 ~= C6"
+      }
+    },
+    {
+      "id": "G-03",
+      "title": "The 1+1 phase channel is one binary residual coordinate",
+      "status": "PASS",
+      "detail": {
+        "signedLabels": [
+          -1,
+          1
+        ],
+        "carrierSize": 2,
+        "boundary": "the sign/orientation label must be retained explicitly"
+      }
+    },
+    {
+      "id": "D-01",
+      "title": "Independent, gate-only and every-step sheet laws are trajectory-distinguishable",
+      "status": "PASS",
+      "detail": {
+        "independent": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "gateOnly": [
+          0,
+          1,
+          1,
+          1,
+          0
+        ],
+        "everyStep": [
+          0,
+          1,
+          0,
+          1,
+          0
+        ],
+        "conclusion": "endpoint return does not select the coupling law"
+      }
+    },
+    {
+      "id": "D-02",
+      "title": "Independent D/E x C30 display extension has the expected size",
+      "status": "PASS",
+      "detail": {
+        "existingRegisterSheetPhase": 300,
+        "proposedX20PhaseProduct": 600,
+        "boundary": "product size is bookkeeping, not an admitted coupling"
+      }
+    },
+    {
+      "id": "X-01",
+      "title": "Existing Navigator binder preserves the missing X20 source contract",
+      "status": "PASS",
+      "detail": {
+        "binder": "SCIENCE_LAB/NAVIGATION/EVIDENCE/MRB_ACR_NCS_Q106_RETURN_CROSSWALK_2026-10-11/MRB_ACR_NCS_Q106_RETURN_CROSSWALK_BINDER_V1_2026-10-11.json",
+        "x20EdgeSet": null,
+        "typedIntertwiner": null
+      }
+    },
+    {
+      "id": "X-02",
+      "title": "Existing Q106 target interface retains twenty internal edges",
+      "status": "PASS",
+      "detail": {
+        "targetNodes": 20,
+        "undirectedInternalEdges": 20,
+        "sourceAdjacencyAvailable": false
+      }
+    }
+  ],
+  "openGates": [
+    {
+      "id": "D-03",
+      "title": "Select a D/E-to-phase coupling law",
+      "status": "HOLD",
+      "reason": "All three declared laws return but have distinct intermediate traces.",
+      "requiredInput": "Independent source semantics or a preregistered selection rule."
+    },
+    {
+      "id": "X-03",
+      "title": "Execute the X20-to-Q106 adjacency-preserving intertwiner test",
+      "status": "HOLD",
+      "reason": "The source X20 edge set and edge types remain null in the canonical binder.",
+      "requiredInput": "An independently declared X20 adjacency and typed edge semantics."
+    },
+    {
+      "id": "R-01",
+      "title": "Geometric realization of D12/E12, dodecahedral plates and Blue Body",
+      "status": "HOLD",
+      "reason": "Shared cardinalities do not supply an incidence-preserving map.",
+      "requiredInput": "Explicit face/address bijection, incidence table and orientation rule."
+    },
+    {
+      "id": "U-01",
+      "title": "External usefulness comparison",
+      "status": "HOLD",
+      "reason": "No frozen task, comparator, metric or user workload has been supplied.",
+      "requiredInput": "Preregistered baseline, task set, collision/return/time metrics and STOP threshold."
+    },
+    {
+      "id": "N-01",
+      "title": "Select 61 or the 41/61 gap-20 channel as a privileged seam address",
+      "status": "HOLD",
+      "reason": "Prime index, decimal readout and gap arithmetic are exact but non-unique.",
+      "requiredInput": "Selection rule that beats prime-gap and digit-sum comparison classes."
+    }
+  ],
+  "claimBoundary": [
+    "The twin-prime tube is a declared finite interval construction, not a theorem about all twin primes.",
+    "The 24-to-20 result is cardinality accounting until adjacency and incidence are independently declared.",
+    "Decimal digit readings are representation-dependent.",
+    "Equal values or gaps do not identify carriers.",
+    "No physical tube, resonance, Riemann, Ihara, E8, geometric realization, novelty or usefulness claim is established."
+  ]
+}

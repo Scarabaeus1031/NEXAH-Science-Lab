@@ -1,0 +1,121 @@
+{
+  "boundaries": [
+    "HISTORICAL_ZIPPER_SOURCE_UNRECOVERED",
+    "RIEMANN_MAPPING_UNDEFINED",
+    "HUMAN_USEFULNESS_NOT_TESTED",
+    "NO_PHYSICAL_FLOW_OR_STABILITY_CLAIM"
+  ],
+  "conditions": {
+    "C0": {
+      "addresses": 140,
+      "class_size_histogram": {
+        "1": 140
+      },
+      "conditional_residual_bits_mean_over_sources": 0.0,
+      "conditional_residual_bits_total_over_sources": 0,
+      "mean_total_address_bits": 8.0,
+      "mixed_level_classes": 0,
+      "mode": "DISJOINT",
+      "quotient_address_bits": 8,
+      "reconstruction_accuracy": 1.0,
+      "reconstruction_correct": 140,
+      "reconstruction_total": 140
+    },
+    "C1": {
+      "addresses": 136,
+      "class_size_histogram": {
+        "1": 135,
+        "5": 1
+      },
+      "conditional_residual_bits_mean_over_sources": 0.107142857143,
+      "conditional_residual_bits_total_over_sources": 15,
+      "mean_total_address_bits": 8.107142857143,
+      "mixed_level_classes": 0,
+      "mode": "APEX_ONLY",
+      "quotient_address_bits": 8,
+      "reconstruction_accuracy": 1.0,
+      "reconstruction_correct": 140,
+      "reconstruction_total": 140
+    },
+    "C2": {
+      "addresses": 106,
+      "class_size_histogram": {
+        "1": 75,
+        "2": 30,
+        "5": 1
+      },
+      "conditional_residual_bits_mean_over_sources": 0,
+      "conditional_residual_bits_total_over_sources": 0,
+      "mean_total_address_bits": 7,
+      "mixed_level_classes": 0,
+      "mode": "CANONICAL_SEAM_NO_RESIDUAL",
+      "quotient_address_bits": 7,
+      "reconstruction_accuracy": 0.757142857143,
+      "reconstruction_correct": 106,
+      "reconstruction_total": 140
+    },
+    "C3": {
+      "addresses": 106,
+      "class_size_histogram": {
+        "1": 75,
+        "2": 30,
+        "5": 1
+      },
+      "conditional_residual_bits_mean_over_sources": 0,
+      "conditional_residual_bits_total_over_sources": 0,
+      "mean_total_address_bits": 7,
+      "mixed_level_classes": 30,
+      "mode": "REVERSED_LEVEL_ARBITRARY_GLUE",
+      "quotient_address_bits": 7,
+      "reconstruction_accuracy": 0.757142857143,
+      "reconstruction_correct": 106,
+      "reconstruction_total": 140
+    },
+    "C4": {
+      "addresses": 106,
+      "class_size_histogram": {
+        "1": 75,
+        "2": 30,
+        "5": 1
+      },
+      "conditional_residual_bits_mean_over_sources": 0.535714285714,
+      "conditional_residual_bits_total_over_sources": 75,
+      "mean_total_address_bits": 7.535714285714,
+      "mixed_level_classes": 0,
+      "mode": "CANONICAL_SEAM_TYPED_RESIDUAL",
+      "quotient_address_bits": 7,
+      "reconstruction_accuracy": 1.0,
+      "reconstruction_correct": 140,
+      "reconstruction_total": 140
+    }
+  },
+  "controls": {
+    "C0_RAW_COUNT": true,
+    "C1_APEX_ONLY_COUNT": true,
+    "C2_LOSS_IS_VISIBLE": true,
+    "C3_BREAKS_LEVEL_CONSISTENCY": true,
+    "C3_MATCHED_COUNT": true,
+    "C4_D5_PRESERVED": true,
+    "C4_EXPECTED_COUNT": true
+  },
+  "d5": {
+    "reflection_preserves_equivalence": true,
+    "rotation_preserves_equivalence": true
+  },
+  "decision": "PASS_BOUNDED_TYPED_SEAM_ADVANTAGE",
+  "gates": {
+    "H_U1_COMPATIBLE_BOUNDARY_ADVANTAGE": true,
+    "H_U2_TYPED_RETURN_ADVANTAGE": true,
+    "H_U3_ZIPPER_TRANSITION_ADVANTAGE": true,
+    "H_U4_MULTI_LEDGER_ADVANTAGE": true
+  },
+  "protocol_sha256": "fcfb6e8f6916d2001caf89a12f8cfb604394d446d2f3b379b217c3c5bdb51e29",
+  "raw_incidences": 140,
+  "result_sha256": "156392b5710c7f5a323b58ffa402fd0f2da6135f5a612ccd0ee9ac8e2e9043fc",
+  "schema": "nexah.a0-bl-025.typed-seam-utility-result/1.0.0",
+  "study_id": "A0_BL_025_TYPED_SEAM_CHANNEL_UTILITY_2026_10_18",
+  "zipper": {
+    "directed_transitions": 60,
+    "inverse_exact": true
+  }
+}

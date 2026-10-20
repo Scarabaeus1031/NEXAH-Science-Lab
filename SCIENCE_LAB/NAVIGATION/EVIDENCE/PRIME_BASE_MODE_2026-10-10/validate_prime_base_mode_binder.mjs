@@ -21,9 +21,9 @@ expect(binder.publication_authorized === false, "publication must remain unautho
 expect(binder.changes_canonical_registry_counts === false, "binder must not change canonical registry counts");
 expect(binder.changes_canonical_family_count === false, "binder must not change canonical family count");
 expect(binder.type_boundaries?.length === 8, "expected eight type boundaries");
-expect(binder.sources?.length === 9, "expected nine bound sources");
+expect(binder.sources?.length === 11, "expected eleven bound sources");
 expect(binder.nodes?.length === 14, "expected fourteen archaeology nodes");
-expect(binder.relations?.length === 16, "expected sixteen bounded relations");
+expect(binder.relations?.length === 17, "expected seventeen bounded relations");
 
 const unique = (items) => new Set(items).size === items.length;
 const sourceIds = binder.sources.map((item) => item.source_id);

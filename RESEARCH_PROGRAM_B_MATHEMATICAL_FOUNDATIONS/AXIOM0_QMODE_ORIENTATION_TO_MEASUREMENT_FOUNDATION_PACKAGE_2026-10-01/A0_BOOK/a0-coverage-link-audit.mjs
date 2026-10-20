@@ -14,6 +14,10 @@ const missing = htmlSurfaces.filter((name) => !registered.includes(name));
 const stale = registered.filter((name) => !htmlSurfaces.includes(name));
 const incomplete = registry.filter((row) => required.some((key) => typeof row[key] !== "string" || !row[key].trim()));
 const missingSources = registry.filter((row) => !existsSync(resolve(bookDir, row.source))).map((row) => ({ surface: row.surface, source: row.source }));
+const linkExceptions = manifest.surface_audit_contract?.declared_link_exceptions ?? [];
+const exceptionMatches = (surface, reference, exception) =>
+  exception.surface === surface &&
+  (exception.reference === reference || (typeof exception.reference_prefix === "string" && reference.startsWith(exception.reference_prefix)));
 
 const ignored = /^(?:https?:|mailto:|tel:|data:|javascript:|blob:|#)/i;
 const deadLinks = [];
@@ -28,13 +32,21 @@ for (const surface of htmlSurfaces) {
     if (!local) continue;
     try { local = decodeURIComponent(local); } catch { /* preserve literal path */ }
     const target = resolve(bookDir, local);
-    if (!existsSync(target)) deadLinks.push({ surface, reference });
+    if (!existsSync(target) && !linkExceptions.some((exception) => exceptionMatches(surface, reference, exception))) deadLinks.push({ surface, reference });
   }
 }
 
+const staleLinkExceptions = linkExceptions.filter((exception) => {
+  const htmlPath = resolve(bookDir, exception.surface);
+  if (!existsSync(htmlPath)) return true;
+  const html = readFileSync(htmlPath, "utf8");
+  const references = [...html.matchAll(/\b(?:href|src)\s*=\s*["']([^"']+)["']/gi)].map((match) => match[1]);
+  return !references.some((reference) => exceptionMatches(exception.surface, reference, exception));
+});
+
 const expected = manifest.surface_audit_contract?.expected_html_surfaces;
 const countPass = htmlSurfaces.length === expected && registry.length === expected;
-const pass = countPass && missing.length === 0 && stale.length === 0 && incomplete.length === 0 && missingSources.length === 0 && deadLinks.length === 0;
+const pass = countPass && missing.length === 0 && stale.length === 0 && incomplete.length === 0 && missingSources.length === 0 && deadLinks.length === 0 && staleLinkExceptions.length === 0;
 const report = {
   check: 58,
   pass,
@@ -44,6 +56,8 @@ const report = {
   stale,
   incomplete: incomplete.map((row) => row.surface),
   missing_sources: missingSources,
+  declared_nonportable_or_package_root_links: linkExceptions,
+  stale_link_exceptions: staleLinkExceptions,
   dead_local_links: deadLinks
 };
 console.log(JSON.stringify(report, null, 2));

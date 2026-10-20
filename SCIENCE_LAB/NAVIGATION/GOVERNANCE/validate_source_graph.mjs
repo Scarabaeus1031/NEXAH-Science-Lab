@@ -3,6 +3,7 @@
 import crypto from "node:crypto";
 import fs from "node:fs";
 import path from "node:path";
+import { spawnSync } from "node:child_process";
 import { fileURLToPath } from "node:url";
 
 const here = path.dirname(fileURLToPath(import.meta.url));
@@ -33,6 +34,24 @@ for (const component of index.components) {
   if (fs.existsSync(file)) check(hash(file) === component.sha256, `${component.component_id}: hash mismatch`);
 }
 
+const validatedComponents = [];
+for (const component of index.components.filter((item) => item.validator_path)) {
+  const validator = path.resolve(ecosystemRoot, component.validator_path);
+  check(validator.startsWith(ecosystemRoot + path.sep), `${component.component_id}: validator path escapes ecosystem root`);
+  check(fs.existsSync(validator), `${component.component_id}: validator missing`);
+  if (!validator.startsWith(ecosystemRoot + path.sep) || !fs.existsSync(validator)) continue;
+  const result = spawnSync(process.execPath, [validator], {
+    cwd: path.dirname(validator),
+    encoding: "utf8",
+    stdio: ["ignore", "pipe", "pipe"]
+  });
+  validatedComponents.push(component.component_id);
+  if (result.status !== 0) {
+    const detail = (result.stdout || result.stderr || "validator returned no diagnostic").trim().replace(/\s+/g, " ").slice(0, 500);
+    failures.push(`${component.component_id}: declared component validator failed: ${detail}`);
+  }
+}
+
 for (const record of index.required_governance_records || []) {
   const file = path.resolve(ecosystemRoot, record);
   check(file.startsWith(ecosystemRoot + path.sep) && fs.existsSync(file), `governance record missing: ${record}`);
@@ -60,6 +79,7 @@ const result = {
   status: failures.length ? "FAIL" : "PASS",
   checks: {
     components: index.components.length,
+    component_validators: validatedComponents.length,
     governance_records: index.required_governance_records.length,
     base: `${index.canonical_counts.base_entities}/${index.canonical_counts.base_relations}`,
     composed: `${index.canonical_counts.composed_entities}/${index.canonical_counts.composed_relations}`

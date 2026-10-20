@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import importlib.util
 import json
+import shutil
 import tempfile
 import threading
 import unittest
@@ -32,6 +33,19 @@ class CustodyTests(unittest.TestCase):
         with mock.patch.object(MODULE, "EXPECTED_RELEASE_SHA256", "0" * 64):
             with self.assertRaisesRegex(RuntimeError, "release SHA-256 mismatch"):
                 MODULE.load_collection_release()
+        with tempfile.TemporaryDirectory() as directory:
+            package = Path(directory).resolve() / "package"
+            package.mkdir()
+            for name in MODULE.PACKAGE_INVENTORY:
+                shutil.copy2(MODULE.PACKAGE / name, package / name)
+            with (
+                mock.patch.object(MODULE, "PACKAGE", package),
+                mock.patch.object(MODULE, "MANIFEST_PATH", package / "SHA256_MANIFEST.txt"),
+            ):
+                MODULE.verify_package_manifest()
+                (package / "UNTRACKED_ATTACK.py").write_text("raise SystemExit\n")
+                with self.assertRaisesRegex(RuntimeError, "inventory mismatch"):
+                    MODULE.verify_package_manifest()
 
     def test_wrong_interpreter_is_rejected(self) -> None:
         contract = MODULE.load_contract()
@@ -61,7 +75,7 @@ class CustodyTests(unittest.TestCase):
 
     def test_append_only_chain_and_tamper_detection(self) -> None:
         with tempfile.TemporaryDirectory() as directory:
-            root = Path(directory)
+            root = Path(directory).resolve()
             anchors = root / "anchors"
             first = MODULE.append_capture(
                 root,
@@ -99,6 +113,12 @@ class CustodyTests(unittest.TestCase):
             self.assertEqual(latest_anchor["ledger_head_sha256"], second["entry_sha256"])
             self.assertEqual(latest_anchor["ledger_entry_count"], 2)
             self.assertTrue(latest_anchor["remote_git_commit_required_for_admission"])
+            anchor_bytes = anchor_files[-1].read_bytes()
+            latest_anchor["experiment_id"] = "TAMPERED"
+            anchor_files[-1].write_text(json.dumps(latest_anchor, indent=2, sort_keys=True) + "\n")
+            with self.assertRaisesRegex(RuntimeError, "semantic mismatch"):
+                MODULE.verify_custody_root(root, anchors)
+            anchor_files[-1].write_bytes(anchor_bytes)
             raw_path = root / second["raw_relative_path"]
             raw_path.write_bytes(b"tampered")
             with self.assertRaisesRegex(RuntimeError, "Raw byte count mismatch"):
@@ -115,13 +135,13 @@ class CustodyTests(unittest.TestCase):
 
     def test_raw_symlink_escape_is_rejected_before_write(self) -> None:
         with tempfile.TemporaryDirectory() as directory:
-            base = Path(directory)
+            base = Path(directory).resolve()
             root = base / "custody"
             outside = base / "outside"
             (root / "raw").mkdir(parents=True)
             outside.mkdir()
             (root / "raw" / "c04").symlink_to(outside, target_is_directory=True)
-            with self.assertRaisesRegex(RuntimeError, "symlink directory"):
+            with self.assertRaisesRegex(RuntimeError, "symlink component"):
                 MODULE.append_capture(
                     root,
                     "c04",
@@ -161,7 +181,7 @@ class CustodyTests(unittest.TestCase):
             outside_anchors.mkdir()
             anchor_link = base / "anchor-link"
             anchor_link.symlink_to(outside_anchors, target_is_directory=True)
-            with self.assertRaisesRegex(RuntimeError, "symlink directory"):
+            with self.assertRaisesRegex(RuntimeError, "symlink component"):
                 MODULE.append_capture(
                     anchor_root,
                     "c04",
@@ -178,10 +198,31 @@ class CustodyTests(unittest.TestCase):
             self.assertFalse((anchor_root / "raw").exists())
             self.assertEqual(list(outside_anchors.iterdir()), [])
 
+            ancestry = base / "ancestry"
+            ancestry.mkdir()
+            outside_parent = base / "outside-parent"
+            outside_parent.mkdir()
+            (ancestry / "link").symlink_to(outside_parent, target_is_directory=True)
+            with self.assertRaisesRegex(RuntimeError, "symlink component"):
+                MODULE.append_capture(
+                    ancestry / "link" / "custody",
+                    "c04",
+                    "https://example.invalid/c04",
+                    "https://example.invalid/c04",
+                    datetime(2026, 10, 2, 8, 3, tzinfo=timezone.utc),
+                    datetime(2026, 10, 2, 8, 3, 1, tzinfo=timezone.utc),
+                    200,
+                    {},
+                    b"must-not-cross-parent-link",
+                    "release-hash",
+                )
+            self.assertEqual(list(outside_parent.iterdir()), [])
+
     def test_parallel_anchors_bind_consistent_ledger_prefixes(self) -> None:
         with tempfile.TemporaryDirectory() as directory:
-            root = Path(directory) / "custody"
-            anchors = Path(directory) / "anchors"
+            base = Path(directory).resolve()
+            root = base / "custody"
+            anchors = base / "anchors"
             barrier = threading.Barrier(2)
 
             def capture(index: int) -> dict:
@@ -215,7 +256,7 @@ class CustodyTests(unittest.TestCase):
     def test_late_eam_capture_is_marked_inadmissible(self) -> None:
         with tempfile.TemporaryDirectory() as directory:
             entry = MODULE.append_capture(
-                Path(directory),
+                Path(directory).resolve(),
                 "eam_vintage",
                 "https://example.invalid/eam",
                 "https://example.invalid/eam",
@@ -226,7 +267,7 @@ class CustodyTests(unittest.TestCase):
                 b"opaque",
                 "release-hash",
                 issue_date=date(2026, 10, 2),
-                anchor_export_dir=Path(directory) / "anchors",
+                anchor_export_dir=Path(directory).resolve() / "anchors",
             )
             self.assertFalse(entry["eam_cutoff_provisionally_admissible"])
 

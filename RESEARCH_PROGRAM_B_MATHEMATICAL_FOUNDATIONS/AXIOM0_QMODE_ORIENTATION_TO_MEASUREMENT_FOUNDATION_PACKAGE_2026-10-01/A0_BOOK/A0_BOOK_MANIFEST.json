@@ -6,14 +6,14 @@
   "status": "LOCAL_READER_PROOF_FROZEN_DOCUMENTATION_ONLY_NOT_PUBLIC",
   "operational_effect": "NONE",
   "navigator_admission": "NOT_ADMITTED_SEPARATE_SUCCESSOR_DECISION_REQUIRED",
-  "updated": "2026-10-16",
+  "updated": "2026-10-20",
   "entry_surface": "A0_RESEARCH_DESK.html",
   "book_entry_surface": "index.html",
   "workspace_index_surface": "A0_ASSET_INDEX.html",
   "current_surface_coverage": {
-    "date": "2026-10-15",
-    "registered": 50,
-    "bound": 50,
+    "date": "2026-10-20",
+    "registered": 57,
+    "bound": 57,
     "record": "../../../SCIENCE_LAB/NAVIGATION/EVIDENCE/A0_ORIENTATION_EVIDENCE_LINEAGE_2026-10-10/A0_MODULE_SURFACE_COVERAGE_V1_2026-10-14.json",
     "effect": "INTERNAL_WORKSPACE_NAVIGATION_ONLY_NO_NEW_IDENTITY_OR_PUBLICATION"
   },
@@ -633,14 +633,58 @@
   "surface_audit_contract": {
     "check": 58,
     "baseline": "31/31 before the new Axial Carrier Adapter Suite",
-    "expected_html_surfaces": 50,
+    "expected_html_surfaces": 57,
     "required_fields": [
       "work",
       "source",
       "status",
       "claim_boundary"
     ],
-    "audit_script": "a0-coverage-link-audit.mjs"
+    "audit_script": "a0-coverage-link-audit.mjs",
+    "declared_link_exceptions": [
+      {
+        "surface": "A0_GAME_4_LIFE_PLUS_1.html",
+        "reference": "../previews/numbers-return-20261019/book/assets/game-of-worlds-play/index.html?rev=life-source-bridge-20261019",
+        "classification": "EXTERNAL_DEPLOYMENT_RELATIVE_REFERENCE",
+        "boundary": "The path resolves in the separately deployed preview tree, not from the A0 Book source directory."
+      },
+      {
+        "surface": "A0_GAME_4_LIFE_PLUS_1.html",
+        "reference": "../previews/numbers-return-20261019/core/APPLICATIONS/game4life_plus1/05_TEMPORAL_Z_VIEW_ADAPTER_2026-10-13.html",
+        "classification": "EXTERNAL_DEPLOYMENT_RELATIVE_REFERENCE",
+        "boundary": "The path resolves in the separately deployed preview tree, not from the A0 Book source directory."
+      },
+      {
+        "surface": "A0_GAME_4_LIFE_PLUS_1.html",
+        "reference": "../previews/numbers-return-20261019/book/assets/game-of-worlds-play/three-domain-transition-test/index.html?rev=life-public-return-20261019",
+        "classification": "EXTERNAL_DEPLOYMENT_RELATIVE_REFERENCE",
+        "boundary": "The path resolves in the separately deployed preview tree, not from the A0 Book source directory."
+      },
+      {
+        "surface": "A0_GAME_4_LIFE_PLUS_1.html",
+        "reference": "../previews/numbers-return-20261019/book/assets/game-of-worlds-play/three-domain-transition-test/replication-matrix/index.html?rev=life-public-return-20261019",
+        "classification": "EXTERNAL_DEPLOYMENT_RELATIVE_REFERENCE",
+        "boundary": "The path resolves in the separately deployed preview tree, not from the A0 Book source directory."
+      },
+      {
+        "surface": "A0_ORIENTATION_CONTROLLER_BENCH.html",
+        "reference_prefix": "../../../../../../../Desktop/Desktop TASKS/",
+        "classification": "LOCAL_ONLY_PROVENANCE_SOURCE",
+        "boundary": "Owner-local provenance path; portability is not claimed and absence on another checkout is expected."
+      },
+      {
+        "surface": "A0_RESEARCH_DESK.html",
+        "reference_prefix": "/Users/tho2020/Desktop/Desktop TASKS/",
+        "classification": "LOCAL_ONLY_PROVENANCE_SOURCE",
+        "boundary": "Owner-local provenance path; portability is not claimed and absence on another checkout is expected."
+      },
+      {
+        "surface": "a0-public-arkade-index.html",
+        "reference_prefix": "book/",
+        "classification": "PUBLIC_PACKAGE_ROOT_REFERENCE",
+        "boundary": "Build-root path for the separately deployed ARKADE package; it is not a source-directory-relative link."
+      }
+    ]
   },
   "surface_registry": [
     {
@@ -992,6 +1036,55 @@
       "source": "assets/a0-orientation-controller-bench-v0.5.json",
       "status": "LOCAL_SOURCE_BOUND_ENGINEERING_LENS_NOT_CANONICAL_NOT_PUBLIC",
       "claim_boundary": "J_RTHETA_ES_PLUS_FINITE_C5_IHARA_EDGE_TURN_AND_SOURCE_BOUND_TRINARY_PASCAL_GLOBAL_ANTIPODE_SHADOW_GON_POLAR_TO_SQUARE_VIEWS_WITH_RETAINED_LIFE04B_NEGATIVE_SPECIFICITY_CONTROL_ONLY_NO_FIBONACCI_GATE_IDENTITY_E8_IDENTITY_RIEMANN_IDENTITY_NEW_MODULE_FAMILY_STUDY_SCIENTIFIC_RUN_CLAIM_PROMOTION_OR_PUBLICATION"
+    },
+    {
+      "surface": "A0_BUILDER_LOG.html",
+      "work": "B1 Builder",
+      "source": "results/a0-navigation-showcase-return-2026-10-19.json",
+      "status": "INTERNAL_ENGINEERING_CHRONICLE_SOURCE_BOUND_NOT_PUBLIC",
+      "claim_boundary": "BUILD_AND_RETURN_CHRONICLE_OVER_EXISTING_A0_OCB_AND_ORIENTATION_IDENTITIES_ONLY_NO_NEW_NAVIGATOR_IDENTITY_RELATION_STUDY_FINDING_CLAIM_PROMOTION_OR_PUBLICATION"
+    },
+    {
+      "surface": "A0_GAME_OF_WORLDS.html",
+      "work": "Game of Worlds",
+      "source": "assets/game-of-worlds-play/source-copy-manifest.json",
+      "status": "LOCAL_SOURCE_BOUND_GAME_VARIANT_NOT_A_SCIENTIFIC_RUN",
+      "claim_boundary": "LOCAL_COMPOSED_GAME_VIEW_OVER_SEPARATE_LIFE_EULER_FIBONACCI_AND_NUMBER_SOURCES_ONLY_NO_SHARED_CLOCK_CARRIER_PHYSICAL_OR_BIOLOGICAL_MECHANISM_NEW_STUDY_OR_SCIENTIFIC_PUBLICATION"
+    },
+    {
+      "surface": "A0_GAME_OF_WORLDS_PLAY.html",
+      "work": "Game of Worlds",
+      "source": "assets/game-of-worlds-play/source-copy-manifest.json",
+      "status": "OWNER_AUTHORIZED_PUBLIC_ENGINEERING_PREVIEW_SOURCE_BOUND",
+      "claim_boundary": "PLAY_PRESENTATION_AND_RETURN_NAVIGATION_OVER_PRESERVED_SOURCE_FRONTENDS_ONLY_NO_MODEL_IDENTITY_COLLAPSE_NEW_OPERATOR_SCIENTIFIC_RUN_EVIDENCE_PROMOTION_OR_GENERAL_PUBLICATION_AUTHORITY"
+    },
+    {
+      "surface": "A0_NUMBERMAGICK_GRID_RESEARCH.html",
+      "work": "Mathfield",
+      "source": "results/a0-thread-science-nsn-return-2026-10-20.json",
+      "status": "INTERNAL_SOURCE_BOUND_RESEARCH_READER_NOT_A_STUDY",
+      "claim_boundary": "EDITORIAL_AND_EXECUTABLE_READER_OVER_EXISTING_NUMBER_VIEW_GRID_RETURN_AND_PROVENANCE_SOURCES_ONLY_NO_NUMBER_MYSTICISM_NEW_CANONICAL_OPERATOR_STUDY_EVIDENCE_PROMOTION_OR_PUBLICATION"
+    },
+    {
+      "surface": "A0_THEORY_STORYBOARD.html",
+      "work": "A0 Book",
+      "source": "assets/a0-storyboard-human-crosswalk-engineering-return-v1.json",
+      "status": "LOCAL_EDITORIAL_SOURCE_BOUND_STORYBOARD_VISUAL_ACCEPTANCE_OPEN",
+      "claim_boundary": "HUMAN_CROSSWALK_AND_THEORY_ORIENTATION_VIEW_ONLY_NO_MODEL_PROOF_COMMON_MACHINE_NEW_GRAPH_RELATION_STUDY_CLAIM_PROMOTION_OR_PUBLICATION"
+    },
+    {
+      "surface": "A0_TOURS.html",
+      "work": "A0 Book",
+      "source": "results/a0-navigation-showcase-return-2026-10-19.json",
+      "status": "INTERNAL_EDITORIAL_NAVIGATION_SOURCE_BOUND_NOT_PUBLIC",
+      "claim_boundary": "CURATED_READING_PATHS_OVER_EXISTING_A0_CORE_ORION_AND_NAVIGATOR_SOURCES_ONLY_NO_AUTHORITY_TRANSFER_NEW_IDENTITY_RELATION_STUDY_EVIDENCE_PROMOTION_OR_PUBLICATION"
+    },
+    {
+      "surface": "a0-public-arkade-index.html",
+      "work": "Game of Worlds",
+      "source": "results/a0-cathedral-arkade-public-release-2026-10-19.json",
+      "status": "OWNER_AUTHORIZED_PUBLIC_ENGINEERING_PREVIEW_DEPLOYED",
+      "claim_boundary": "PUBLIC_ARKADE_PACKAGE_ENTRY_FOR_EXISTING_GAME_OF_WORLDS_AND_NUMBER_VIEW_INSTRUMENTS_ONLY_NO_SCIENTIFIC_PUBLICATION_NEW_IDENTITY_RELATION_STUDY_EVIDENCE_PROMOTION_OR_GENERAL_RELEASE_AUTHORITY"
     },
     {
       "surface": "index.html",

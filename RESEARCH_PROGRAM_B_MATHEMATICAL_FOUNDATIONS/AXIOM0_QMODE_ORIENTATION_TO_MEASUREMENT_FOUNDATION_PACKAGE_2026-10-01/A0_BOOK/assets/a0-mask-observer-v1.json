@@ -1,0 +1,50 @@
+{
+  "schema": "a0.mask-observer-source-contract/1",
+  "date": "2026-10-19",
+  "existing_identity": "MOD:NUMBER_VIEW_SUITE",
+  "canonical_count_effect": 0,
+  "publication_authorized": false,
+  "sources": [
+    {
+      "path": "a0-layered-pentagon-scene.js",
+      "sha256": "319c8d35e19d2eebe65b526bab23ca212d7caf7465bca3bbda966423af99082d"
+    },
+    {
+      "path": "a0-pentagon-contract.js",
+      "sha256": "0272ee2bb842fd29891c1251a71d1ef71bddac541dd9d78d77809242394a9d8a"
+    },
+    {
+      "path": "assets/a0-blue-body-dodeca-countershot-v1.js",
+      "sha256": "754d35adb0bfe30be44fe88db93bbc7e70e6e6b803c48b09873d143346318bc2"
+    }
+  ],
+  "implementation": "a0-mask-observer.js",
+  "entry": "A0_ORIENTATION_CONTROLLER_BENCH.html#maskObserverBench",
+  "reused": [
+    "Existing regular pentagon coordinates, clipping and partition functions",
+    "Existing loop formula x=1.12 sin(t), y=0.43 sin(2t)",
+    "Existing LRRL/RLLR endpoint phase contract"
+  ],
+  "declared_new_rules": [
+    "B translation = (dx + amplitude * piecewise_linear_word_excursion(tick), dy). 120 ticks, 30 per letter.",
+    "Square reference is [-0.8,0.8]^2, comparison rotated 45 degrees by default; 2D fixture, not a cube solid.",
+    "Mask windows split A intersection B at the midpoint x of the two body centres.",
+    "Their y=0 intervals and B boundary samples project centrally from Observer (0,-3.5) to screen y=-2.3.",
+    "Gold/white probe runs once around the B polygon over 120 ticks; display label is distinct from LRRL displacement.",
+    "Purple loop is translated by the mean body-centre displacement and drawn last. Top is display order specified by Owner, not recovered spatial height."
+  ],
+  "counting": [
+    "Pentagon default: 10 edge crossings plus centre = 11 distinct points.",
+    "Square default: 4 reference corners plus 8 edge crossings = 12 distinct points.",
+    "No forced 11/12 under translations; positive-length coincident edges cause HOLD."
+  ],
+  "boundaries": [
+    "No optical calibration or physical shadow claim",
+    "No spatial folding, surface gluing or GLB deformation",
+    "No automatic shared clock or address transfer to Blue/Pink, Root Room, Sewing or One Flow",
+    "Capture/Return restores only this complete local mask state and bounded trace",
+    "Record import validates internal consistency read-only; it does not authenticate an executed trajectory",
+    "Original phase can be imported once; old source remains unchanged"
+  ],
+  "browser_acceptance": "OPEN"
+}

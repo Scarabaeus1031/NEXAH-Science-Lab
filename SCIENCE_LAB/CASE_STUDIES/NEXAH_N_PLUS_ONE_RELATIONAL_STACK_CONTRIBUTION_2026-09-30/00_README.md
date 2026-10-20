@@ -7,8 +7,8 @@ human_owner: Thomas
 study_owner: Human Owner
 record_class: SCIENTIFIC_BUILDER_CONTRIBUTION_CANDIDATE
 method_class: TYPE_D_DESIGN_FEASIBILITY
-native_status: CANDIDATE_FILED_NOT_VALIDATED
-lab_status: FILED_NO_ACTIVATION
+native_status: CONTRIBUTION_NOT_SUPPORTED_CLOSED
+lab_status: CLOSED_NO_ACTIVATION
 reproducibility: R0_DOCUMENTED
 research_activation: NO
 scientific_result: NO
@@ -72,10 +72,45 @@ human-inspectable relation/return contract are deliberately separated.
 6. [Relational Coordinate and Return Systems synthesis](06_RELATIONAL_COORDINATE_RETURN_SYSTEMS_SYNTHESIS.md)
 7. [Fibonacci Spiral and Root-Shrinking visual intake](07_FIBONACCI_SPIRAL_AND_ROOT_SHRINKING_VISUAL_INTAKE.md)
 8. [Machine-readable candidate record](candidate_record.json)
+9. [Prior-art and novelty audit — 2026-10-08](08_PRIOR_ART_AND_NOVELTY_AUDIT_2026-10-08.md)
+
+## Novelty audit update — 2026-10-08
+
+The targeted primary-source audit finds strong prior-art overlap for every
+central operation: multiary model/correspondence structures, consistency
+restoration, information-loss-aware synchronization, direct/composed path and
+cycle checks, heterogeneous local-to-global consistency and provenance. The
+exact I-L-A-U plus claim-ceiling presentation may remain a distinctive internal
+reporting profile, but no new scientific operation or Binder-specific machine
+capability is identified.
+
+Audit recommendation subsequently accepted by the Human Owner:
+
+```text
+SCIENTIFIC_NOVELTY_NOT_ESTABLISHED
+NO_GO_FOR_ORIGINAL_MACHINE_UTILITY_BENCHMARK
+DOWNGRADE_ACCEPTED / CONTRIBUTION_NOT_SUPPORTED
+```
+
+## Human Owner disposition — 2026-10-08
+
+The Human Owner accepts the downgrade recommended by the novelty audit.
+
+```text
+SCC_002 = CONTRIBUTION_NOT_SUPPORTED
+ORIGINAL_BDL01 = NO_GO
+RETAINED_RESIDUAL = INTERNAL_AUDIT_INTERFACE_PROFILE
+SCIENTIFIC_NOVELTY_CLAIM = CLOSED
+```
+
+This closes the registered broad contribution proposition. A later narrow
+interoperability, Human-factors, task-algorithm or benchmark question requires
+a new candidate record and does not reopen SCC-002.
 
 ## Authorized follow-on project
 
 - [OLS Prime Generation Profile 0.1](../OLS_PRIME_GENERATION_PROFILE_0_1_2026-09-30/00_README.md) applies a bounded `3+1` grammar to the ordered prime sequence while keeping OLS unchanged and preserving phase, type and representation controls.
+- [Blind Defect Localization 01 preregistration](../NEXAH_N_PLUS_ONE_BLIND_DEFECT_LOCALIZATION_01_PREREGISTRATION_2026-09-30/00_README.md) freezes the first information-matched machine test of the contribution candidate. It is a design draft for owner and adversarial review; implementation and execution remain unauthorized.
 
 ## Current boundary
 
@@ -87,9 +122,9 @@ for the new candidate merely because it exists or executes.
 ## Next permitted action
 
 ```text
-OWNER-APPROVED DESIGN REVIEW ONLY
+NONE FOR SCC-002 / PRESERVE RECORD / ORIGINAL BDL-01 MUST NOT RUN PROMOTIONALLY
 ```
 
-A prototype, schema lock, benchmark, scientific execution, patent claim or
+A prototype, immutable schema lock, benchmark execution, patent claim or
 public novelty claim requires a separate Human Owner authorization after the
-minimum test contract is reviewed.
+preregistration and adversarial review are closed.

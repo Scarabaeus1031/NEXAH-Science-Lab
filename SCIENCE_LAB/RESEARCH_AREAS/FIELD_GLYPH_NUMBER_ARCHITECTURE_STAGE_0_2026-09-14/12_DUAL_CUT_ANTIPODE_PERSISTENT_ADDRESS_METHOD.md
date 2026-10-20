@@ -164,3 +164,12 @@ UNIVERSAL_ANTIPODAL_ONTOLOGY          = NOT_CLAIMED
 - `00_INCOMING/NEXAH_DUAL_VIEW_ROSETTA_INTAKE_2026-09-05/02_MODULE_II_G_RT_ROSETTA/NEXAH_TQR_QRT_HRT_GRID_TRANSIT_MAP.html`
 - `00_INCOMING/NEXAH_DUAL_VIEW_ROSETTA_INTAKE_2026-09-05/06_CROSS_MODULE_RELATION_MAP.md`
 
+## 2026-10-05 consolidation
+
+The owner-supplied Transversum, Two-Cut, Boundary, Rosetta Aperture,
+Object/Shadow/Sentence and Three Webfields plates are now preserved and joined
+in [`26_TRANSVERSUM_TWO_CUT_ANTIPODE_SYNTHESIS.md`](26_TRANSVERSUM_TWO_CUT_ANTIPODE_SYNTHESIS.md).
+Mission Control retains the whole chain under FGN-25 rather than opening a new
+family. The synthesis also registers the Euler prime-index `20`-clock
+application as an exact address-level attachment: `13 <-> 3 (mod 20)`. It does
+not promote a common cross-domain mechanism or activate an experiment.

@@ -324,3 +324,201 @@ RETURN_TO = 02 Mission Control Director
 RECOMMENDED_FACH_DESK = 05 Science Lab Research Director
 STOP = YES
 ```
+
+## 11. Owner visual re-intake — 2026-10-18
+
+Status: `DOCUMENTARY_REINTAKE / OWNER_COLOR_READING / NO_SCIENCE_RUN`.
+
+This dated addendum reuses the existing intake, not its historical portfolio
+priority as a current activation instruction. The Owner supplied nine Photos
+JPEG derivatives and explicitly classified all of them as intake. The files
+remain at their original local paths; no image was edited or copied. The
+hashes identify these received derivatives, not the PNGs in the August
+snapshot. Title matches establish documentary lineage candidates, not
+byte-equivalence or a recovered generation process.
+
+### Received derivatives
+
+| Received plate / original local path | SHA-256 |
+|---|---|
+| 1 · [NEXAH Lab Operator Plate · 525](</Users/tho2020/Pictures/Photos Library.photoslibrary/resources/derivatives/F/FFCE7434-6171-48DC-803F-26634E4AE530_1_105_c.jpeg>) | `69af75720b56eee9109bcea1f6747e93747744313e700e7c774152188a9e41c0` |
+| 2 · [The Five-Zone Seam Test](</Users/tho2020/Pictures/Photos Library.photoslibrary/resources/derivatives/B/B1D797AD-0E4B-4B97-8885-53016CD18F20_1_102_o.jpeg>) | `782ac182b446f4e0968b9a006a8833be6f00bec989407cbac356eaacbaaa7e41` |
+| 3 · [The Boundary Counted Twice](</Users/tho2020/Pictures/Photos Library.photoslibrary/resources/derivatives/1/16657B50-3E48-49E2-8025-39AE05B96DFF_1_105_c.jpeg>) | `0c89d04ad45372cd67cb1157c6d940f044ee2d4f6931561d50df647c2a07b857` |
+| 4 · [The Hidden Binder · 1:2:1](</Users/tho2020/Pictures/Photos Library.photoslibrary/resources/derivatives/1/1763C789-9E40-460E-9C58-0EE84444F979_1_105_c.jpeg>) | `a335afbb9f66008d26b533fe9acbfcaa48124e568a2331d6c13d3e6a93d2225b` |
+| 5 · [The Fracture Is the Research Space](</Users/tho2020/Pictures/Photos Library.photoslibrary/resources/derivatives/A/A353E47F-3DFA-451A-87B1-971D66D50F9D_1_105_c.jpeg>) | `fadd9e778810b498d762f4fb349daa41a2a47aac6e381702ec662658e5daea22` |
+| 6 · [The Quarter-Turn Counterpoint](</Users/tho2020/Pictures/Photos Library.photoslibrary/resources/derivatives/C/C699520E-48B9-4F3B-95B4-38EF0D4E1B3F_1_105_c.jpeg>) | `d7a0825ee9d874a185941e8759f54ade6cd70bfe07c93111e783739b7594710b` |
+| 7 · [IOTA · The Aperture of Orientation](</Users/tho2020/Pictures/Photos Library.photoslibrary/resources/derivatives/B/B037F30E-E24B-4E94-95D6-89995CFCA9F6_1_105_c.jpeg>) | `3d56a31bb91982e9b1c9e1a1d50bdab1586856fc1e25c3a9aa1323c0f5a07ae5` |
+| 8 · [One Trace — Four Representations](</Users/tho2020/Pictures/Photos Library.photoslibrary/resources/derivatives/4/47CB3FAC-B937-4D32-BDF1-5E2605CF172F_1_105_c.jpeg>) | `2164ebab62d8bae583c848796e57f7b6bd433681da63ef832d7d69286c891e0f` |
+| 9 · [The Invariant Coupling Key](</Users/tho2020/Pictures/Photos Library.photoslibrary/resources/derivatives/3/39EB8E9E-747E-4929-B4C2-B207E237B02F_1_105_c.jpeg>) | `95dbbf28c481dc501e280ccf55ed838cf4982c6182fdcea95d1a495bedde00fe` |
+
+### What is visible, what is the Owner's reading
+
+1. **Operator Plate:** printed `J(2,1,3)=(3,1,2)`,
+   `11³+12³+13³=5256`, `525×6=3150`; cyan axial channel,
+   violet binding and separate red/black lines. The two arithmetic equalities
+   hold; no decoder from 5256 to 525 or physical flow rule is supplied.
+2. **Five-Zone:** four ordered sign pairs sum to `−2,0,0,+2`, with
+   multiplicities `1:2:1`. Cyan, two magenta appearances and gold are
+   visible roles. Its loss/recovery panel requires retained origin information.
+   The diagram's `E(i)=11i` takes indices `0..10` to
+   `0,11,..,110`, including `5→55`: a declared sparse embedding,
+   not an onto reconstruction of the full 111-square or the missing canonical
+   Ghostgrid elevator. The H/He/Li and electrochemical pictures are analogies,
+   not evidence for a shared mechanism.
+3. **Boundary Counted Twice:** three different counting contracts are shown:
+   complement, two distinct edges, and one shared boundary corrected by
+   inclusion–exclusion. In the shared-boundary case the red `1/64` is an
+   appearance already accounted for by the overlap correction, not proof of
+   an additional independent fraction. The printed warning
+   `0.03125 ≠ 0.31` is retained.
+4. **Hidden Binder:** blue/yellow and black/red are explicitly labelled
+   inverse pairs; white/green is the interface bus. Echo memory and layer
+   dynamics are proposed model roles, not results established by this plate.
+5. **Fracture:** retained differences, failed translations and candidate
+   invariant paths illustrate a research workflow; drawn PASS marks do not
+   certify an executed study.
+6. **Quarter-Turn:** cyan cosine and gold sine show quadrature; the phase
+   chart distinguishes `1,i,−1,−i` (the plate also uses capital I).
+   `Q²=−I`, `Q⁴=I` concern the declared quarter-turn operator.
+   Spatial hanging-model inversion is explicitly a different analogy.
+7. **IOTA:** state space, transition, aperture and observable projection
+   remain separate; the printed `y=A(T(x_I))` is a local specification,
+   not a demonstrated general physics law.
+8. **One Trace:** unrolled, cylindrical, top and aperture views are candidate
+   representations of one ordered trajectory. Its invariant boxes say TEST;
+   they are not passed evidence.
+9. **Coupling Key:** the printed RMSEs `0.159 / 0.261 / 0.008 / 0.211`
+   remain unverified synthetic-illustration numbers, as already recorded in
+   sections 2 and 9. Re-intake supplies no generator, raw data or replay.
+
+Owner explanation on 2026-10-18: **red 1/64 = red shadow**;
+**violet/purple 1 = −1, described as the shadow of i**. The preceding
+conversation also names a cyan 1 tending toward a golden/yellow 1, gold 2,
+pink/light-blue/gold pentagon loading, doubling/halving, and
+`110–111–112`. These are preserved as Owner-authored visual roles,
+not silently substituted for each plate's printed legend. The exact
+cyan-1-to-gold-1 transition is not unambiguously identified by the nine
+plates. Nor is one common four-color/operator dictionary established.
+
+In ordinary complex arithmetic `i²=−1`; “shadow of i” remains a metaphor
+until an actual projection or operator is specified. It is not automatically
+`Re(i)`, which is zero. A repeated glyph 1, an identity operator I, the
+imaginary unit i, a sign, a prime index and a boundary weight retain different
+types.
+
+### Existing return pointers and limits
+
+- [Seam Origins implementation receipt](RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/assets/a0-seam-origins-return-v1.json):
+  already names the exact Five-Zone JPEG. Its local provenance lens is not
+  connected to an existing Ghost carrier; the GG address binding is HOLD.
+- [Grid/Elevator status](RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/96_A0_11X111_CROSS_REPOSITORY_STATUS_AND_OPEN_LIFT_2026-10-15.md):
+  exact CRT address bridge, canonical lift still open.
+- [Zither / gap and decimal carry](RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/79_A0_ZITHER_11_12_13_DECIMAL_CARRY_C64_RESULT_2026-10-13.md):
+  existing 12.6/13.7 rows and half-step interval, not newly inferred coordinates.
+- [Numbermagick current motif notes](NUMBER_OPERATOR_ARCHITECTURE_CONCORDANCE_AUDIT/09_CURRENT_RELEVANCE_TO_A0_TESSAREC_IHARA_2026-10-13.md#visual-reintake-20261018):
+  discovery pointer, not a second evidence authority.
+
+Disposition: received and source-addressed; original intake verdict retained.
+No new Study, result, Family, canonical relation, publication or Bench build.
+
+## 12. Further plates and Rogers–Ramanujan test request — 2026-10-18
+
+Status: `DOCUMENTARY_INTAKE / TEST_REQUEST_RECORDED / NOT_ADMITTED_NOT_RUN`.
+Reuse this intake and the existing MG-07 mathematical-attribution question;
+no new Study or Navigator identity. The prior STOP is not research activation.
+The seven supplied derivatives remain at their original paths. The first is
+byte-identical to section 11's Quarter-Turn JPEG and is not a new source.
+
+| Supplied plate | SHA-256 |
+|---|---|
+| [Quarter-Turn Counterpoint (repeat)](</Users/tho2020/Pictures/Photos Library.photoslibrary/resources/derivatives/C/C699520E-48B9-4F3B-95B4-38EF0D4E1B3F_1_105_c.jpeg>) | `d7a0825ee9d874a185941e8759f54ade6cd70bfe07c93111e783739b7594710b` |
+| [S, R and the Geometry of Observed Symmetry](</Users/tho2020/Pictures/Photos Library.photoslibrary/resources/derivatives/1/1BA4D460-7AA7-452B-A5C9-9A73F5FB2EDE_1_105_c.jpeg>) | `64eb2e45faeb270b9b973c1524e6c8176b98a489684c7cc1708ef4f760f9e8a1` |
+| [The S-Operator and the Two Cavities](</Users/tho2020/Pictures/Photos Library.photoslibrary/resources/derivatives/9/9FC886EB-CF99-445A-A56E-32BFD20F16F7_1_105_c.jpeg>) | `a754922e1c207018c2d1932e7f050cdfd13ba95d2575effc959288656222b811` |
+| [The Four Axioms of Translation](</Users/tho2020/Pictures/Photos Library.photoslibrary/resources/derivatives/4/4FE7DDA7-B7CF-42F9-A3E5-ED145C7678EE_1_105_c.jpeg>) | `477f29a371d9e26db83b7a0b1f357e55b406d0dbf5e5c878f9a12217124bec78` |
+| [Principles of Non-Identity](</Users/tho2020/Pictures/Photos Library.photoslibrary/resources/derivatives/E/E5A1B4DA-E568-4076-B3F9-9CF4ACE2BB12_1_105_c.jpeg>) | `29322225f0a19ca3bb55db5937f145651993be125286e4d6fe373e3ce295959c` |
+| [Janus Gate Partition Audit](</Users/tho2020/Pictures/Photos Library.photoslibrary/resources/derivatives/A/ACE79352-DC3C-402D-BDF4-F36A1A9C6BFF_1_105_c.jpeg>) | `a10bf9f9233c62e850c9531109d97653a9cdf1e5407de3be78e17c84a232832a` |
+| [Grand Rogers–Ramanujan Mod-37 Unification](</Users/tho2020/Pictures/Photos Library.photoslibrary/resources/derivatives/E/E1BE6296-0BC6-41E9-92C6-0193F6CB82F7_1_105_c.jpeg>) | `adf7376bd6ffcbf663136f81ab2f1ac4a8948fa2e849bd3b5c70f560420bde10` |
+
+The S/R, cavities, translation and non-identity plates are conceptual review
+aids. Their scores (10/10, 9/10, 5/10) are poster annotations, not independent
+validation results. The Janus Gate plate's percentages and lift estimates
+require a matching run/protocol before use as evidence; the exact reference
+`16/51+35/51=1` does not verify them.
+
+### Quarter-turn transcription
+
+The first plate reads
+
+```text
+x(t) = A cos(ωt), x_perp(t) = A sin(ωt)
+z(t) = x(t) + i x_perp(t) = A exp(i φ(t))
+φ(t) = atan2(x_perp(t), x(t))
+Q_(π/2)^4 = I, Q_(π/2)^2 = −I
+```
+
+Here I is the identity operator, not a new scalar glyph relation.
+Assume A>0 for phase recovery; at z=0 the phase is undefined, and atan2
+returns a principal phase modulo 2π, not an unwrapped history. The sinusoid
+pair supplies both coordinates; it is not a general rule that one observed
+coordinate uniquely recovers its missing quadrature. Spatial inversion J
+remains separate.
+
+### Last plate: exact arithmetic versus attribution
+
+Direct arithmetic inspection supports the printed equalities:
+
+```text
+174 = 4*37+26
+639 = 17*37+10
+26+10 = 36 ≡ −1 (mod 37)
+2*3*7 = 42 ≡ 5 (mod 37)
+777 = 3*7*37
+3885 = 5*777
+```
+
+These are exact arithmetic facts, not a new experimental result. The poster
+supplies no q-series, partition encoding, continued fraction, hyperbolic
+metric or map intertwining its Mod-37 wheel with its Mod-5 pentagram.
+A drawn seven-point figure alone does not specify a (2,3,7) hyperbolic grid.
+The frequency labels 174/639 Hz remain poster labels; the modular equalities
+establish neither a measured signal nor physical coupling.
+
+The existing [provenance review](RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/16_ALGO_ALGOL_AND_ALG_DEGREE_PROVENANCE_REVIEW_2026-10-03.md#ramanujan-escape-lineage)
+already separates the Ramanujan Escape visual lineage from an established
+Rogers–Ramanujan correspondence. Existing question
+[MG-07](RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/13_MATHEMATICAL_GLOSSARY_MAINTENANCE_REGISTER.md)
+requests that primary-source comparison. It is reused here.
+
+Primary mathematical reference consulted on 2026-10-18:
+[NIST DLMF §17.2(vi)](https://dlmf.nist.gov/17.2#vi) and
+[§26.10(iv)](https://dlmf.nist.gov/26.10#iv).
+The two Rogers–Ramanujan partition correspondences use parts congruent to
+±1 modulo 5 and ±2 modulo 5, respectively, paired with difference-at-least-two
+partition conditions (the second also excludes part 1). Those definitions,
+not merely fivefold drawing symmetry, are the relevant attribution baseline.
+
+### Smallest proposed test; definition gate first
+
+Question: does the poster's proposed Phi-Core encode an explicitly declared
+Rogers–Ramanujan object and a nontrivial, structure-preserving connection to
+the 37-wheel, or is it an arithmetic/visual juxtaposition?
+
+1. Recover the original generator, board XXII/XXIII definitions, exact
+   Phi-Core object, domains and map. Classify absent pieces as missing, not
+   as falsified mathematics.
+2. If a partition encoding is supplied, freeze which of the two identities
+   is claimed and a finite coefficient range before comparing independently
+   computed partition counts. An ordinary identity check is a baseline,
+   not evidence for the extra Mod-37 bridge.
+3. For that extra bridge, declare the preserved relation, return witness,
+   pass/fail criterion and matched alternative labels/maps before execution.
+   A post-hoc match of 42 mod 37 to fivefold geometry is insufficient.
+4. Return one of `SOURCE_MISSING`, `EXACT_BASELINE_ONLY`,
+   `BRIDGE_NOT_PRESERVED` or `BOUNDED_BRIDGE_SUPPORTED`; keep the
+   original visual regardless of the result. No universal or physical claim.
+
+No coefficients, simulations or new science benchmark were run. Next
+permitted action is source/definition review; execution requires the existing
+Owner admission/Run Contract gates. Bench construction remains parked.
+
+

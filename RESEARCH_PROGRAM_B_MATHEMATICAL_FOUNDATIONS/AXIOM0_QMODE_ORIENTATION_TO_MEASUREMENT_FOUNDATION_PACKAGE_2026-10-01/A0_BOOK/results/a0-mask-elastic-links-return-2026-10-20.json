@@ -1,0 +1,102 @@
+{
+  "schema": "a0.mask-elastic-display-links-return/1",
+  "date": "2026-10-20",
+  "status": "ENGINEERING_PASS_BROWSER_ACCEPTANCE_OPEN_EXISTING_INTEGRITY_FAILURES",
+  "entry": "A0_ORIENTATION_CONTROLLER_BENCH.html#maskObserverBench",
+  "existing_identities": [
+    "NEXAH_A0_ORIENTATION_CONTROLLER_BENCH",
+    "MOD:NUMBER_VIEW_SUITE"
+  ],
+  "new_global_ids": [],
+  "relation_changes": [],
+  "canonical_count_effect": 0,
+  "authority": {
+    "research_execution": false,
+    "physics_simulation": false,
+    "publication": false,
+    "claim_promotion": false
+  },
+  "source_files": [
+    {
+      "path": "A0_ORIENTATION_CONTROLLER_BENCH.html",
+      "sha256": "0b86fb415911e697c44c2e7005531e81289a758f86394ab2b5e59bfb1c5e7ba6"
+    },
+    {
+      "path": "a0-mask-elastic-links.js",
+      "sha256": "07c95d68802263d9372aaabcb18b27c5dbccf02659d1788e1ad26e5050976b65"
+    },
+    {
+      "path": "a0-mask-elastic-links-tests.cjs",
+      "sha256": "f9a2f81ca4bf5e50997a36cd4f1119a69bde13e463b605fafd403ff3da47b491"
+    },
+    {
+      "path": "a0-mask-observer-view.js",
+      "sha256": "89a3403d98c5eb325e21fab62fd1ac0a4953b89c66ac0d5ea660d4a59359cb93"
+    },
+    {
+      "path": "a0-mask-observer-tests.cjs",
+      "sha256": "a67a0d2c5d5878a687ad8e5bb9552d35fbfc67f9faf8139709458cbd45e2329d"
+    },
+    {
+      "path": "a0-mask-observer.js",
+      "sha256": "fbf1bb0f438051b7a9f65ff2ee5e32d51928e164bb8f07f2c760ff6ffbab991e"
+    },
+    {
+      "path": "assets/a0-native-source-bank-v1.json",
+      "sha256": "351d2156720d754d1c41c7cfac27aac0ed214c6b8bb132613d7da1d14fca5c26"
+    },
+    {
+      "path": "assets/a0-fold-lag-lens-v1.json",
+      "sha256": "cedc2568a6b79762a0e99cd12c33483fd7b1cf9fc6a3ee79f22fc914026b5a81"
+    },
+    {
+      "path": "assets/a0-bench-showcase-tour-package-v1.json",
+      "sha256": "b7f5aa5657a79ade10b550e0d73212b12539194c3422a89a2c7a8b300193e531"
+    },
+    {
+      "path": "assets/a0-aperture-measurement-package-v1.json",
+      "sha256": "ee0d5ebdd156cec7d3ad2630c468f4dfd1dbea4bed6e9555375c92c2b5c55cd0"
+    },
+    {
+      "path": "assets/a0-layered-pentagon-scene-v1.json",
+      "sha256": "87bb193439da17fddf0a68c14a5287df41258af1d7ec793cd51a294e710c2c67"
+    }
+  ],
+  "implementation": [
+    "Native Mask frame supplies fixed indexed A_i and B_i endpoints; five links forpentagons, four forsquares, no newnodes",
+    "Baseline length recomputed at tick0 of unchanged current config; color based on endpoint-distance delta, not force or curve arc length",
+    "Optional straight/quadratic display curves; chosen bendclamp(-0.6*delta,-0.35,0.35) along link normal; degenerate zero length handled without division",
+    "Existing view render and existing 80ms timer only; overlays drawn below markers and upper purplefold",
+    "Local visibility/curve controls do not change sourceconfig, tick, history, nativeRecord or Capture/Return; not serialized in sourceexport",
+    "Numbermagick arithmetic shown separately;21+5+21+5+21=73=p21; p2+p4=3+7=10; digits7+3=10"
+  ],
+  "verification": {
+    "new_checks": 16985,
+    "frames": 484,
+    "actual_existing_timer_callbacks": 30,
+    "regressions": {
+      "mask_observer": 3410,
+      "mask_assembly": 1753,
+      "showcase_tour_live": 243,
+      "layered_pentagon_scene": 32829,
+      "native_source_bank": 118,
+      "atlas_fold_guide": 1867,
+      "bench_polish": 909,
+      "rotating_cylinder": 535634
+    },
+    "static_svg": "Tick30 and90 rasters inspected; native scene plus links. Browser acceptance remains open.",
+    "browser_acceptance": false
+  },
+  "nonclaims": [
+    "No spring mass stiffness damping force or dynamical coupling",
+    "No change to intersections or nativeMask motions; no claim that displayed curves physically cause geometry",
+    "No assignment of21/5 to links, edgecrossing counts or lengths",
+    "No activation, new Family or crosscarrier identity"
+  ],
+  "pin_reconciliation": {
+    "before": "30add6675b4597e448d64ec9b0d709a3c489708e59b76b2e4fb7ca3cf0431563",
+    "after": "0b86fb415911e697c44c2e7005531e81289a758f86394ab2b5e59bfb1c5e7ba6",
+    "scope": "Current Bench pin only in five existing package manifests; sourceview script revision and matching cache-string test updated; native model and historical receipts unchanged"
+  },
+  "known_integrity": "Eight pre-existing binder conflicts and MissionControl CURRENT mismatches retained; no controlling authority manifest repin."
+}

@@ -1,0 +1,54 @@
+{
+  "recordType": "A0_PENTAGON_DOUBLE_COVER_TUBE_GATE_ENGINEERING_TEST_PACKAGE",
+  "version": "1.0.0",
+  "date": "2026-10-15",
+  "identityReuse": ["A0", "SCC-003", "PENT-01..07", "C5", "D5", "C30_PHASE_VIEW"],
+  "newNavigatorIdentity": false,
+  "newNavigatorRelation": false,
+  "status": "ENGINEERING_TEST_PACKAGE_NOT_LAB_STUDY",
+  "question": "Can the Owner's two-sided pentagon/tube intuition be represented as a connected double cover with two gate edges, one-bit exact Return, independently typed phase and an Ihara/Hashimoto cycle signature?",
+  "declaredObjects": {
+    "baseCarrier": "C5", "sheetCarrier": "C2", "connectedCover": "C10 -> C5",
+    "baseRotation": "r:k->k+1 mod 5", "baseReflection": "m:k->-k mod 5",
+    "liftedStep": "t:s->s+1 mod 10", "deckInvolution": "tau=t^5",
+    "liftedReflection": "mu:s->-s mod 10", "projection": "pi(s)=s mod 5",
+    "phaseCarrier": "C30",
+    "gateModel": "one odd Z2 voltage around C5 produces two lifted cross-sheet gate edges",
+    "pascalTwentyOrbit": "five (face,6,3) anchors carrying C(6,3)=20",
+    "umbrellaVariants": [
+      "shared hub plus C10 rim: 11 vertices, 10 spokes, branched at hub",
+      "two hubs plus C10 rim: 12 vertices, 10 spokes, unbranched two-fold wheel cover"
+    ]
+  },
+  "testFamilies": [
+    {"id":"G","name":"group and cover laws","checks":["G-01","G-02","G-03","G-04","G-05"]},
+    {"id":"R","name":"projection and minimal residual Return","checks":["R-01"]},
+    {"id":"S","name":"paired D/E sheet-register view","checks":["S-01","S-02"]},
+    {"id":"A","name":"aperture/gate topology and null population","checks":["A-01","A-02","A-03","A-04"]},
+    {"id":"U","name":"five-20 orbit and ten-spoke umbrella","checks":["U-01","U-02","U-03","U-04","U-05","U-06"]},
+    {"id":"C","name":"dodecahedral shells and Blue Body cardinality cross-control","checks":["C-01","C-02","C-03","C-04"]},
+    {"id":"N","name":"12/13 to 24/25 operator-ladder arithmetic","checks":["N-01","N-02"]},
+    {"id":"I","name":"Ihara/Hashimoto non-backtracking fingerprints","checks":["I-01","I-02","I-03"]},
+    {"id":"E","name":"Euler graph characteristic","checks":["E-01"]},
+    {"id":"M","name":"pentagon metric and Fibonacci comparator","checks":["M-01","M-02"]},
+    {"id":"P","name":"independent C30 phase and coupling ambiguity","checks":["P-01","P-02","P-03","P-04","P-05"]}
+  ],
+  "primaryNulls": [
+    "disconnected C5 disjoint union C5", "all 32 Z2 voltage assignments on the five base edges",
+    "all 30 constant D30 phase increments", "unit L/R phase update kept separate from spatial return"
+  ],
+  "expectedResultVocabulary": [
+    "ENGINEERING_CHECK_PASS_WITH_OPEN_SELECTION_BOUNDARIES", "ENGINEERING_CHECK_FAIL", "UNDEFINED_MAP",
+    "NON_UNIQUE_SELECTOR", "RETURN_REQUIRES_RESIDUAL", "NO_INTRINSIC_FIBONACCI_WEIGHTING"
+  ],
+  "stopConditions": [
+    "any group or projection identity fails", "a claimed exact Return drops the sheet residual",
+    "phase is inferred without a declared update", "Ihara/Riemann or Fibonacci/phi identities are asserted",
+    "a graph cover is promoted to a geometric or physical tube",
+    "a new Lab, Study, PENT-08 or Navigator identity is implied"
+  ],
+  "runner": "../a0-pentagon-double-cover-tube-gate-tests.cjs",
+  "result": "../results/a0-pentagon-double-cover-tube-gate-result-2026-10-15.json",
+  "claimBoundary": "Deterministic finite engineering checks under the existing A0 identity. No Lab admission, experiment, novelty claim, physical mechanism or publication authority."
+}
+

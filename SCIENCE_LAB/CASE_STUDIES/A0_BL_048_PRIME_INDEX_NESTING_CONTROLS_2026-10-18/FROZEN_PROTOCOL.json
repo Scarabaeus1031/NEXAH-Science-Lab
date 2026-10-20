@@ -1,0 +1,24 @@
+{
+  "schema": "nexah.a0.bl048.prime-index-nesting/1.0.0",
+  "study_id": "A0_BL_048_PRIME_INDEX_NESTING_CONTROLS_2026_10_18",
+  "targets": ["717717", "4774", "1771"],
+  "prime_indexing": "one_based",
+  "substring_rule": "contiguous_decimal_no_multidigit_leading_zero",
+  "primary_metric": "occurrences_of_prime_substrings_whose_one_based_index_string_occurs_in_full_string",
+  "null_model": "cartesian_product_of_all_unique_within_string_digit_multiset_permutations",
+  "expected_class_sizes": [15, 6, 6],
+  "expected_joint_size": 540,
+  "alpha": 0.05,
+  "decision_rule": {
+    "pass": "prime_tail <= alpha and prime_tail < palindrome_tail",
+    "negative": "palindrome_tail <= alpha and prime_tail > palindrome_tail",
+    "otherwise": "uninformative"
+  },
+  "controls": [
+    "decimal_reversal_membership",
+    "palindrome_fixed_point",
+    "4774_4114_exact_arithmetic_excluded_from_score"
+  ],
+  "claim_boundary": "finite representation selectivity only; no mechanism, prediction, natural privilege, novelty or publication"
+}
+

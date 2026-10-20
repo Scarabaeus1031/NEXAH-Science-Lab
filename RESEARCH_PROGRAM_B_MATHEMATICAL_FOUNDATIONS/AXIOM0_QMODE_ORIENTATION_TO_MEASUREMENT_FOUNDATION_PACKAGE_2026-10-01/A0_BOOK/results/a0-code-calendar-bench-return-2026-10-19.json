@@ -1,0 +1,87 @@
+{
+  "schema": "a0.code-calendar-bench-return/1",
+  "date": "2026-10-19",
+  "status": "LOCAL_COMPARATOR_PASS_BROWSER_ACCEPTANCE_OPEN",
+  "existing_identity": "MOD:NUMBER_VIEW_SUITE",
+  "new_global_ids": [],
+  "canonical_count_effect": 0,
+  "publication_authorized": false,
+  "entry": "A0_ORIENTATION_CONTROLLER_BENCH.html#codeCalendarLens",
+  "sources": [
+    {
+      "path": "A0_ORIENTATION_CONTROLLER_BENCH.html",
+      "sha256": "7b0e46dcdefecca46c9dfbd0d4d4aba171a95e859ba8655f2f54c0009a89bcdd"
+    },
+    {
+      "path": "a0-code-calendar-lens.js",
+      "sha256": "6b27425f26d35ef7e1653584c6564dfc528968deb84aa62cc7d6ae2cd30867ff"
+    },
+    {
+      "path": "a0-code-calendar-lens-tests.cjs",
+      "sha256": "46987d65e84a13d6f973d911ebdabf64cc341549880786c80f0cd1d73a5b29b4"
+    },
+    {
+      "path": "assets/a0-code-calendar-lens-v1.json",
+      "sha256": "a113b0c6ae2d44514f212ec36c15f9974615fcb55e64a68e76dfa26e25f5ba39"
+    },
+    {
+      "path": "assets/a0-native-source-bank-v1.json",
+      "sha256": "577c6ff1e6e30ef4c338f40df2dd3a0da56082475e138d98ce63bb29a16a860a"
+    },
+    {
+      "path": "assets/a0-bench-showcase-tour-package-v1.json",
+      "sha256": "d9ab11fd4694375d3f28ab7bd9e2e980305dcfe26c8f78e52f3f607d603cc325"
+    },
+    {
+      "path": "assets/a0-fold-lag-lens-v1.json",
+      "sha256": "8596a974b7fd0ecc318e78e9287a859ea41c74c4dbeaba03d51f4add50031488"
+    }
+  ],
+  "unchanged_sources": [
+    {
+      "path": "a0-gh-hinge.js",
+      "sha256": "ec4a483da788ae48e95005e4c1f85176727d3fea9b71c4992008eda2798340b6"
+    },
+    {
+      "path": "a0-orientation-controller-bench.js",
+      "sha256": "26216e1b2276bd2859b3c751de5e81b6440b6bcf33583c51302ba7a6fe913757"
+    }
+  ],
+  "implemented": [
+    "Original GH-Hinge 3+1 date witnesses displayed without rewriting the invalid 29.02.1974 source label.",
+    "Exact 3²=9, 2³=8, 2×5=10 readings.",
+    "Independent three word-reversal pair and three V-ratio selectors.",
+    "Owner-proposed 7↔9 and 8↔10 address comparator with two directions, not calendar conversion.",
+    "Local selection capture/restore, explicit snapshot, test button; no new timer.",
+    "Links from coupled-window hub and mask section, no added coupled-window identity or count."
+  ],
+  "verification": {
+    "new_tests": 96,
+    "embedded_matrix": 93,
+    "gh_hinge": 127,
+    "compass": 3018,
+    "mask": 3407,
+    "assembly": 1753,
+    "fold_5b": 27902,
+    "polish": 909,
+    "source_bank": 118,
+    "tour": 56,
+    "glb": 132
+  },
+  "open_bindings": {
+    "am_pm": null,
+    "ratio_to_axis": null,
+    "date_to_motion": null,
+    "pose29_turn": null,
+    "jj_to_v": null
+  },
+  "boundaries": [
+    "V is a declared width:height sketch, not a physical folding law.",
+    "Passing comparator tests does not validate geometric motion.",
+    "No whole-machine Return or new 29-pose reversal implemented.",
+    "Browser pixel acceptance remains OPEN.",
+    "Five existing binder hash conflicts remain unrepinned.",
+    "Existing canonical identity reused; no graph relation, research activation or publication changes.",
+    "Only live HTML implementation pins refreshed; historical receipts untouched."
+  ]
+}

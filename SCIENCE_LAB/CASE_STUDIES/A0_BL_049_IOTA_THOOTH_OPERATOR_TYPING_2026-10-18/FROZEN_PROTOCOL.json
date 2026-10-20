@@ -1,0 +1,26 @@
+{
+  "schema": "nexah.a0.bl049.iota-thooth-typing/1.0.0",
+  "study_id": "A0_BL_049_IOTA_THOOTH_OPERATOR_TYPING_2026_10_18",
+  "domain": "four_character_decimal_strings_1000_9999",
+  "domain_size": 9000,
+  "maps": {
+    "delta_first": "abcd_to_bcd",
+    "delta_second": "abcd_to_acd",
+    "joint": "abcd_to_ordered_pair_acd_bcd"
+  },
+  "expected": {
+    "delta_first_image": 1000,
+    "delta_first_uniform_fibre": 9,
+    "delta_second_image": 900,
+    "delta_second_uniform_fibre": 10,
+    "joint_image": 9000,
+    "joint_exact_return": 9000,
+    "single_map_residual_bits": 4
+  },
+  "source_types": {
+    "IOTA_EXISTING": "parameterized_directed_classifier_not_universal_operator",
+    "THOOTH_EXISTING": "provenance_label_manual_card_not_executable_operator"
+  },
+  "claim_boundary": "finite representation/operator typing only; no glyph algebra, historical identity, mechanism, prediction, novelty or publication"
+}
+

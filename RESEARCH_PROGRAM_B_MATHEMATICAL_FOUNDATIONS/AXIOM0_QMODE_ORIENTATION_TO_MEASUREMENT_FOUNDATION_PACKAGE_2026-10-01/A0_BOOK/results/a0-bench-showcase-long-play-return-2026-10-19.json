@@ -1,0 +1,109 @@
+{
+  "schema": "a0.bench-showcase-long-play-return/1",
+  "date": "2026-10-19",
+  "status": "ENGINEERING_PASS_BROWSER_ACCEPTANCE_OPEN",
+  "existing_identity": "MOD:NUMBER_VIEW_SUITE",
+  "bench_identity": "NEXAH_A0_ORIENTATION_CONTROLLER_BENCH",
+  "new_global_ids": [],
+  "relation_changes": [],
+  "canonical_count_effect": 0,
+  "publication_authorized": false,
+  "entry": "A0_ORIENTATION_CONTROLLER_BENCH.html#benchShowcase",
+  "sources": [
+    {
+      "path": "A0_ORIENTATION_CONTROLLER_BENCH.html",
+      "sha256": "049b7ba4196e653831446d2869017ff7239fe02a0acc34a37efbae71a874958d"
+    },
+    {
+      "path": "a0-bench-showcase-tour.js",
+      "sha256": "a7bada6a77b6162c326ebd07b1c6ec9fa319b3863b7a9cb10fb3ca8b00b23ebf"
+    },
+    {
+      "path": "a0-bench-showcase-tour.css",
+      "sha256": "eface23e6cf4c9497dc985006fb53d73d390ee038942d6ff6a36605d1aef0c74"
+    },
+    {
+      "path": "a0-bench-showcase-tour-tests.cjs",
+      "sha256": "2db7aef4a3acb62ad26722c9f7749c87881e1e049b3e30624a2ceca9ec695daf"
+    },
+    {
+      "path": "a0-bench-showcase-tour-live-tests.cjs",
+      "sha256": "7aa22d022926d7a5b8fc780f476d827dd9ba76d272c36805bad303f3492f8f38"
+    },
+    {
+      "path": "a0-coupled-window.js",
+      "sha256": "adceda3614c002d4b342efa126af33a2c790fa730bdaabd2191130ec17324b2b"
+    },
+    {
+      "path": "a0-coupled-window-tests.cjs",
+      "sha256": "33f9520ac573dc191d552fb2bcb5d3bec86c16ba326cf54bd1b44e260158fc94"
+    },
+    {
+      "path": "assets/a0-bench-showcase-tour-package-v1.json",
+      "sha256": "eb1e9c5831e31c5f270a8a30cdbce5c6a3a10943b83b124bc4b7edb6714e5384"
+    },
+    {
+      "path": "assets/a0-coupled-window-system-v1.json",
+      "sha256": "6b823200e373dc02a43655f849c9ce32721e7452d03203a94cd8f0ec194a65cb"
+    },
+    {
+      "path": "assets/a0-native-source-bank-v1.json",
+      "sha256": "e8352fdc7efcc9e180cebc925d2616ebd6cbd05149311ab7da7e337708f78e94"
+    },
+    {
+      "path": "assets/a0-fold-lag-lens-v1.json",
+      "sha256": "85dfd31bc68b728fab84130157f737ce9300a307671c249e60c0eb07b743511f"
+    }
+  ],
+  "tour": {
+    "version": "2.0.0",
+    "stations": 50,
+    "chapters": 8,
+    "defaultDwellMs": 18000,
+    "paceChoicesMs": [
+      10000,
+      18000,
+      30000,
+      0
+    ],
+    "defaultDuration": "about 15 minutes plus source waits",
+    "sourceWaitBoundMs": 12000,
+    "localCommands": true,
+    "manualNavigation": true,
+    "modalDockInTopLayer": true,
+    "sourceAutoActionsSuppressedDuringTour": true,
+    "localRegulatorsAndCaptureAnchorsMayChange": true,
+    "wholePreviousBenchStateRestored": false,
+    "automaticDownloads": false
+  },
+  "verification": {
+    "tour_structure": 79,
+    "mounted_tour_and_local_models": 243,
+    "mask": 3407,
+    "assembly": 1753,
+    "compass": 3018,
+    "code_calendar": 96,
+    "original_5b": 27902,
+    "caro": 524,
+    "body_route": 71,
+    "sewing_window": 12,
+    "division_return": 20137,
+    "bench_polish": 909,
+    "bench_map": 184,
+    "source_bank": 118,
+    "glb": 132,
+    "liveImplementationPins": "PASS",
+    "duplicateHtmlIds": 0,
+    "coupled_window": "FAIL_UNCHANGED_BOUND_BACKLOG_HASH_CONFLICT"
+  },
+  "boundaries": [
+    "Source-window requests and local APIs are invoked; status does not attest browser pixels or native renderer acceptance.",
+    "Pending source requests cannot be retracted; late replies do not advance the tour, but source engines retain their own state and clocks.",
+    "Sewing opens the original iframe for manual play; no unsupported cross-origin automation.",
+    "No 29-pose geometric turn rule, AM/PM-calendar mapping or shared carrier admitted.",
+    "Completion means visited, not whole-machine Return.",
+    "Original source geometry and numeric engines unchanged; coupled-window UI adds opt-out autoAction for tour requests only.",
+    "Known five A0 binder hash conflicts and independent backlog pin conflict retained.",
+    "No research activation, canonical count change, controlling currentness adoption or publication."
+  ]
+}

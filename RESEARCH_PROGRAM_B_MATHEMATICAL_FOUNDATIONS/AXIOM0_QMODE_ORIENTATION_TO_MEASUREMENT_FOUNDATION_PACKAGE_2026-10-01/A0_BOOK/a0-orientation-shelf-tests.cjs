@@ -8,6 +8,13 @@ assert.equal(model.rows.length,6);
 assert.deepEqual(model.rows.map(row=>row.title),record.orientation_shelf.rows);
 assert.equal(record.orientation_shelf.new_graph_relation,false);
 assert.equal(model.rows.flatMap(row=>row.tools).length,18);
+assert.equal(model.rows.flatMap(row=>row.snapshots).length,7);
+assert.deepEqual(new Set(model.rows.flatMap(row=>row.snapshots).map(snapshot=>snapshot.family)),new Set(['F1','F2','F3','F4','F5','F6','F7']));
+for(const snapshot of model.rows.flatMap(row=>row.snapshots)){
+  assert.ok(fs.existsSync(path.resolve(__dirname,decodeURIComponent(snapshot.src))),`Missing snapshot ${snapshot.src}`);
+  const [file]=snapshot.href.split('#');
+  assert.ok(fs.existsSync(path.resolve(__dirname,decodeURIComponent(file))),`Missing snapshot target ${snapshot.href}`);
+}
 for(const m of model.moduli)for(let n=0;n<60;n++)assert.equal(model.remainder(n,m),n%m);
 assert.equal(model.remainder(-1,5),4);
 const titles=new Set();

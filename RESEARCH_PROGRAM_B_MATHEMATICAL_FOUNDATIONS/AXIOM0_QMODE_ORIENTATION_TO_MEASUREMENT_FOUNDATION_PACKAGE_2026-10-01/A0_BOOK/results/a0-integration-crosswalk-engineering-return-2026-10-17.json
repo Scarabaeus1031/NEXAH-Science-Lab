@@ -1,0 +1,112 @@
+{
+  "asOf": "2026-10-17",
+  "scope": "LOCAL_DOCUMENTARY_INTEGRATION_CROSSWALK_NOT_RUNTIME_ACCEPTANCE",
+  "implementation": {
+    "entries": 26,
+    "sourceBindings": 65,
+    "unchangedRuntimeGuards": 7,
+    "newMainHtml": 0,
+    "newRuntimeAdapters": 0,
+    "newCanonicalIdentities": 0,
+    "newGraphRelations": 0,
+    "researchRuns": 0,
+    "publication": false
+  },
+  "passed": [
+    {
+      "command": "node a0-integration-crosswalk-tests.cjs",
+      "checks": 179,
+      "scope": "source hashes, reused registry IDs, links/routes, status separation, unchanged runtime guards, rejection tests"
+    },
+    {
+      "command": "node a0-pentagon-bench-tests.cjs",
+      "checks": 717,
+      "scope": "engineering mock DOM; existing authored PENT renderer and host control"
+    },
+    {
+      "command": "node a0-pentagon-browser-run-tests.cjs",
+      "checks": 25,
+      "scope": "saved owner browser export; not a new browser run"
+    },
+    {
+      "command": "node a0-orientation-role-map-tests.cjs",
+      "checks": 73
+    },
+    {
+      "command": "node a0-reader-navigation-tests.cjs",
+      "registeredReaders": 50,
+      "sharedNavigationSurfaces": 48,
+      "allLocalHtmlReachable": 53
+    },
+    {
+      "command": "node a0-orientation-controller-bench-tests.cjs",
+      "checks": 65,
+      "version": "0.11.0"
+    },
+    {
+      "command": "node SCIENCE_LAB/NAVIGATION/GOVERNANCE/validate_source_graph.mjs",
+      "components": 19,
+      "base": "266/29",
+      "composed": "269/32"
+    },
+    {
+      "command": "node SCIENCE_LAB/NAVIGATION/APP/audit_app.mjs",
+      "checks": 246
+    },
+    {
+      "command": "node SCIENCE_LAB/NAVIGATION/EVIDENCE/TRANSITION_IDENTIFIABILITY_OBSERVATORY_2026-10-07/validate_observatory_binding.mjs",
+      "checks": 13
+    },
+    {
+      "command": "node --check a0-context-navigation.js"
+    },
+    {
+      "command": "node --check a0-integration-crosswalk-tests.cjs"
+    }
+  ],
+  "catalogRefresh": {
+    "items": 1274,
+    "html": 718,
+    "readerItems": 46,
+    "authorityEffect": "generated discovery only"
+  },
+  "remainingFailures": [
+    {
+      "command": "node a0-research-desk-tests.cjs",
+      "issue": "Saved storyboard/human-crosswalk engineering receipt has stale hash for A0_LIVING_BLUEPRINT.html; sole mismatch among its 12 source records. File not edited in this change; expected hash not rewritten."
+    },
+    {
+      "command": "validate_a0_orientation_evidence_binder.mjs",
+      "status": "FAIL",
+      "unchangedFailureIds": [
+        "A0_BOOK",
+        "A0_CONTEXT_NAVIGATION_CSS",
+        "A0_CONTEXT_NAVIGATION_JS",
+        "SCIENTIFIC_POSITION_REPORT_HTML",
+        "A0_COVERAGE_LINK_AUDIT",
+        "A0_BOOK_MANIFEST_CHECK58",
+        "A0_RESEARCH_DESK_CHECK58",
+        "PINK_DIAMOND_GRID_ATLAS"
+      ],
+      "note": "Same eight pre-existing mismatch IDs; this change also changes shared navigation bytes. No automatic baseline acceptance."
+    },
+    {
+      "command": "python3 -B CURRENT/validate_currentness.py",
+      "status": "INVALID",
+      "unchangedFailureIds": [
+        "NEXAH_A0_BOOK_INDEX",
+        "SCIENCE_LAB_NAVIGATOR_WP3_STYLES",
+        "SCIENCE_LAB_NAVIGATOR_WP3_APP",
+        "NEXAH_A0_RESEARCH_DESK",
+        "NEXAH_A0_AXIAL_CARRIER_SUITE",
+        "NEXAH_A0_ORIENTATION_CONTROLLER_BENCH"
+      ],
+      "note": "Same six mismatch IDs; observed OCB hash changed in this build. Active rows remain zero. No automatic expected-hash replacement."
+    }
+  ],
+  "browserAcceptance": {
+    "newCrosswalk": false,
+    "note": "Static source/link/accessibility checks only. No browser automation or screenshot-derived layout claim."
+  },
+  "nextAction": "Specify and implement one narrow LIFE03 source-state / ACK / HOLD / return adapter on the existing Scale engine, without changing scientific results. Not implemented by this documentary crosswalk."
+}

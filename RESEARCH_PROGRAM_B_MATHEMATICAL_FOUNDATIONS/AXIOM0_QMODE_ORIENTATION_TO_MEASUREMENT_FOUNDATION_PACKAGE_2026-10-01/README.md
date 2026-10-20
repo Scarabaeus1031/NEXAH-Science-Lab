@@ -8,6 +8,21 @@ Authority: Human Owner adoption recorded on `2026-10-01`
 
 Operational effect: `NONE`
 
+## A0 — technical lineage and Owner-authorized reading
+
+On 2026-10-17, Human Owner Thomas Hofmann explicitly authorized
+**Alpha–Omega** as an additional human-facing reading of the existing **A0**:
+the path from origin/source through cut, view and test to Return. This records
+his decision in the voice conversation; it does not assert that this reading
+was already the historical expansion of the name.
+
+The technical/scientific lineage remains **Axiom-0 / Q-Mode**, with the existing
+source identity `NEXAH_AX0_QMODE_FOUNDATION_PACKAGE`. Alpha–Omega is an
+interpretive/display expansion, not a second identity or a replacement name.
+Paths, package and Study identifiers, canonical IDs, relations, counts,
+statuses and authority remain unchanged. No claim promotion, research
+activation or publication permission follows from this clarification.
+
 ## Purpose
 
 This package preserves and reconciles a historical body of NEXAH work on
@@ -175,6 +190,42 @@ their presence here, logical implications or established physical laws.
     — returns `UNIFORM < FIBONACCI < SEEDED_RANDOM` under the frozen harmonic
     coefficient RMSE; Fibonacci beats random but is not privileged over the
     uniform control, and scientific `G6_SAMPLING` remains open.
+50. [SCC-003 Seam / Zipper / Channel Usefulness Addendum](89_A0_SCC_003_SEAM_ZIPPER_CHANNEL_USEFULNESS_ADDENDUM_2026-10-15.md)
+    — records the Owner-selected continuation under the existing `SCC-003`
+    and `A0-BL-025` identities: matched controls and measures for testing
+    whether the Pascal seam provides a typed integration-and-Return advantage.
+51. [Pentagon Double-Cover / Tube-Gate Engineering Test Package](91_A0_PENTAGON_DOUBLE_COVER_TUBE_GATE_ENGINEERING_TEST_PACKAGE_2026-10-15.md)
+    — executes 35 deterministic finite checks under the existing A0 identity.
+    The connected `C10 -> C5` cover realizes `t^5=tau`, `t^10=e`, two lifted
+    gate edges, one-bit exact Return and a length-five to length-ten Hashimoto
+    cycle lift. The five `20=C(6,3)` anchors form a regular midpoint pentagon;
+    their two-sheet lift supplies ten umbrella spokes. Shared- and doubled-hub
+    controls remain distinct. Complete voltage and D30 controls leave gate
+    placement and phase selection open; this is not a Lab admission or
+    `PENT-08`. The paired `D1..D5 / E1..E5` sheet view, the `12+12=24`
+    dodecahedral-face control, the Blue Body `48=2x24` vertex comparison and
+    the existing `12/13 -> 24/25` number ladder are retained as typed
+    cross-carrier checks rather than identity claims.
+    Historical Critical-Line language is retained as provenance only; the
+    design is `ADMISSION_REQUIRED / NOT_ACTIVE` and does not enlarge Paper A.
+52. [Grid–Operator–Application Synthesis](101_A0_GRID_OPERATOR_APPLICATION_SYNTHESIS_2026-10-15.md)
+    — consolidates the CRT16/Pentagon tile, Ghostgrid, Blue Body and GAME 4
+    LIFE +1 into one source-bound demonstrator grammar. The interactive
+    [HTML crosswalk](A0_BOOK/A0_LIVING_BLUEPRINT.html#integration-crosswalk)
+    exposes two application stories, four synchronized views, six testable
+    stages and a fail-closed Return receipt without merging carriers, update
+    laws, evidence or physical interpretations.
+53. [Blue Body CRT16 Interior Adapter Engineering Result](102_A0_BLUE_BODY_CRT16_INTERIOR_ADAPTER_ENGINEERING_RESULT_2026-10-15.md)
+    — implements the ordinal `I16 × P3 → Q4 × P3` Gray-ring adapter inside the
+    existing Blue Body identity. The interactive lab renders 48 addresses in
+    front, top, side and isometric views, separates prime labels from carrier
+    topology, and verifies exact/fail-closed Return with 237 assertions.
+54. [Blue Body → GAME 4 LIFE +1 Transfer Control](103_A0_BLUE_BODY_GAME4LIFE_TRANSFER_CONTROL_ENGINEERING_RESULT_2026-10-15.md)
+    — transports the same 48 typed records bijectively into a finite-dead
+    `8×6` one-hot LIFE display. Coordinate Return is exact before dynamics;
+    after one unchanged `B3/S23` step all singletons collapse to the empty
+    state, so typed Return passes with the Source Key and dynamics-only Return
+    fails closed with 48 candidates. The validator passes 295 assertions.
 
 ## Binding boundary
 

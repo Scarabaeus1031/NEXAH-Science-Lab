@@ -1,0 +1,81 @@
+{
+  "schema": "a0.fold-cycle-coupling-engineering-return/1",
+  "date": "2026-10-20",
+  "status": "ENGINEERING_PASS_BROWSER_ACCEPTANCE_OPEN",
+  "existing_identity": "MOD:NUMBER_VIEW_SUITE",
+  "bench_identity": "NEXAH_A0_ORIENTATION_CONTROLLER_BENCH",
+  "entry": "A0_ORIENTATION_CONTROLLER_BENCH.html#foldCycle",
+  "sources": [
+    {
+      "path": "A0_ORIENTATION_CONTROLLER_BENCH.html",
+      "sha256": "1dd437041d0240839f1ad1f13c4fdeace01b2d2dc9eb298ca29a4f93aed3d4ff"
+    },
+    {
+      "path": "a0-fold-lag-lens.js",
+      "sha256": "091c8fb0ee0a5b136dd43efad6dea62e3b6814ec30c90fbdaae2e57e74ac0f42"
+    },
+    {
+      "path": "a0-fold-cycle-coupling.js",
+      "sha256": "485b11eb57b6f1f845e4126ce6b93e206083925d83366e81862365f640747e46"
+    },
+    {
+      "path": "a0-fold-cycle-coupling-tests.cjs",
+      "sha256": "7c7623dab91ea6465169a6827a64fa8c9a462e3698d5a858d70ab610bbffd274"
+    }
+  ],
+  "new_global_ids": [],
+  "relation_changes": [],
+  "canonical_count_effect": 0,
+  "publication_authorized": false,
+  "rules": {
+    "steps": 28,
+    "poses": 29,
+    "groups": 4,
+    "stepsPerGroup": 7,
+    "redStates": [
+      1,
+      -1,
+      1,
+      -1
+    ],
+    "redConvention": "right-continuous at 7,14,21; hold last red state at 28",
+    "terminalZ": 28,
+    "terminalPose": 29,
+    "terminalClosureMarker": 0,
+    "zeroIsAdditionalDwell": false,
+    "terminalFlip": "current projected facets and shadows y -> -y across screen horizontal; reference echoes and source stack retained",
+    "acrossRuns": "no memory; original restart at Z0",
+    "userProposal": "Fourth seven-step group completion adds a separate zero marker and display flip",
+    "calendarRule": false
+  },
+  "implementation": {
+    "originalFoldLagEngineUnchanged": true,
+    "oneExistingViewClock": true,
+    "prismCursorUsesSameZ": true,
+    "prismOriginalRestoredWhenDisabled": true,
+    "familyGammaAndF7Unchanged": true,
+    "rawFiveBExportUnchanged": true,
+    "separateExplicitDerivedJsonExport": true,
+    "initiallyEnabled": true
+  },
+  "verification": {
+    "newModelAndActualMountedPlayer": 6225,
+    "original5B": 27902,
+    "compassAssembly": 3018,
+    "projectionOverlay": 5013,
+    "prism": 14,
+    "tourMounted": 243,
+    "tourStructure": 79,
+    "polish": 909,
+    "nativeSourceBank": 118,
+    "glbLinks": 149,
+    "browserAcceptance": "OPEN",
+    "unrelatedA0BinderHashConflicts": 8
+  },
+  "boundaries": [
+    "Declared owner-proposed view coupling, not recovered historic flip geometry, calendar law or physical mechanism.",
+    "No blockwise accumulation, extra 29th transition, extra timer, automatic downloads or whole-machine Return.",
+    "No change to 4774 arithmetic, five typed prism stations, source signal engines, 14 coupled windows or 50 tour stations.",
+    "Known unrelated binder pin conflicts retained; no controlling-currentness adoption or publication."
+  ]
+}

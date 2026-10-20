@@ -1,0 +1,35 @@
+{
+  "schema": "a0.quantum-arch-source-fixture/1",
+  "date": "2026-10-20",
+  "status": "RECOVERED_PLOT_CODE_NOT_PHYSICAL_MODEL",
+  "existing_identity": "MOD:NUMBER_VIEW_SUITE",
+  "originalPlot": {
+    "path": "/Users/tho2020/Desktop/Desktop TASKS/DESKTOP_archy/THOOTH DASHBOARD/AAA NEXAH Modules todo/A - Nexa Knowledge NEXAH first modules ARCHIVE/LdV VoyMa TLC 3301/LDV VM Science/Rotated_Quantum_Arch_Visualization.png",
+    "sha256": "ca3eb8cd2fd78da77b41ce4171947cea0aacf165954d83b8c3c64f1e473dd8ba"
+  },
+  "userImage": {
+    "path": "/Users/tho2020/Pictures/Photos Library.photoslibrary/resources/derivatives/E/ED42EF2A-2196-4E3A-B700-78E87429952D_1_105_c.jpeg",
+    "sha256": "45cf3aa3ed3da130c805200ae8d11195085da2bae8bdd2a484728bd2d8ccf810",
+    "visualCorrespondence": "INSPECTED; not byte-identical to original PNG"
+  },
+  "recovered": {
+    "archive": "/Users/tho2020/Desktop/Desktop TASKS/DESKTOP_archy/zzz-Archiv/Download ChatGPT Threads 6.6.2025/chat.html",
+    "archiveSHA256": "8525f8407489075a4fe837653d66714c939723fb11f3ded9a08256383dd67856",
+    "rawCodeSHA256": "0f483fc0645e7bd7af3182b58b22dd92c08771e749b1fb0d5381c413dab83728",
+    "normalizedCodeSHA256": "c0a900bd371ad877f7ec3f80631ac59d1964b660353b738d87c501de69a5746c",
+    "code": "import numpy as np\nimport matplotlib.pyplot as plt\n\n# Create a new figure for the rotated Quantum Arch visualization\nplt.figure(figsize=(8, 6))\n\n# Define the Mobius loop and snakes with a 90° clockwise rotation\ntheta = np.linspace(0, 2 * np.pi, 100)\nx_circle = np.cos(theta)\ny_circle = np.sin(theta)\n\n# Rotated green snake (infinity symbol)\nt = np.linspace(0, 2 * np.pi, 200)\nx_snake1 = np.sin(t)\ny_snake1 = np.sin(2 * t) / 2\n\n# Rotated purple snake (arch shape)\nx_snake2 = np.cos(t) / 2\ny_snake2 = np.sin(t) / 2\n\n# Mobius loop (45° angle)\nx_mobius = np.linspace(-1, 1, 100)\ny_mobius = x_mobius * np.tan(np.deg2rad(45))\n\n# 33° Red Alert Line\nx_red_alert = np.linspace(0, 1, 100)\ny_red_alert = np.tan(np.deg2rad(33)) * x_red_alert\n\n# Draw the Quantum Arch (yellow circle)\nplt.plot(x_circle, y_circle, 'orange', linestyle='dashed', label='Quantum Arch (Rotated)')\n\n# Draw the green snake (infinity symbol)\nplt.plot(x_snake1, y_snake1, 'green', label='Green Snake (Infinity Symbol)')\n\n# Draw the purple snake (arch shape)\nplt.plot(x_snake2, y_snake2, 'purple', label='Purple Snake (Alpha Arch)')\n\n# Draw the Mobius loop\nplt.plot(x_mobius, y_mobius, 'blue', label='Mobius Loop (45°)')\n\n# Draw the Red Alert Line (33°)\nplt.plot(x_red_alert, y_red_alert, 'red', linestyle='dashed', label='Red Alert Line (33°)')\n\n# Add labels and grid\nplt.xlabel('Quantum X Axis (Rotated)')\nplt.ylabel('Quantum Y Axis (Rotated)')\nplt.title('Rotated Quantum Arch Visualization with Infinity Symbol and Alpha Arch')\nplt.axhline(0, color='black',linewidth=0.5)\nplt.axvline(0, color='black',linewidth=0.5)\nplt.grid(True)\nplt.legend()\n\n# Save the visualization to a file\noutput_path = '/mnt/data/Rotated_Quantum_Arch_Visualization.png'\nplt.savefig(output_path)\nplt.close()\n\noutput_path"
+  },
+  "formulas": {
+    "green": "(sin(t), sin(2t)/2), t in [0,2pi]",
+    "purple": "(cos(t)/2, sin(t)/2)",
+    "orange": "(cos(t), sin(t))",
+    "blue": "(x,x), x in [-1,1]",
+    "red": "(x,tan(33deg)*x), x in [0,1]"
+  },
+  "boundaries": [
+    "Source comments/legend call a straight line Mobius Loop. This plot contains no Mobius surface.",
+    "No explicit rotation matrix or equal-axis scaling in recovered code.",
+    "Recovering a plot generator does not adopt historical quantum, prime or physical claims.",
+    "No new identity or research activation."
+  ]
+}

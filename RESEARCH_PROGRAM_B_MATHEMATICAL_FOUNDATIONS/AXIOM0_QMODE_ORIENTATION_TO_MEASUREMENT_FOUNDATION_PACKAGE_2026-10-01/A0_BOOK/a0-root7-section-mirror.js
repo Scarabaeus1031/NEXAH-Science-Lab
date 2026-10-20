@@ -1,6 +1,6 @@
 (function(root,factory){const api=factory();if(typeof module==='object'&&module.exports)module.exports=api;root.A0Root7Sections=api})(typeof globalThis!=='undefined'?globalThis:this,function(){
 'use strict';
-const VERSION='1.0.0',EPS=1e-9;
+const VERSION='1.1.0',EPS=1e-9;
 const dot=(a,b)=>a.reduce((s,v,i)=>s+v*b[i],0);
 // Orthonormal basis in the actual 2×1×1 metric, normal proportional to (1/2,1,1).
 const e1=[0,1/Math.sqrt(2),-1/Math.sqrt(2)],e2=[-4/(3*Math.sqrt(2)),1/(3*Math.sqrt(2)),1/(3*Math.sqrt(2))];
@@ -24,10 +24,11 @@ function mirror(p,degrees){const a=degrees*Math.PI/180;return[Math.cos(2*a)*p[0]
 function snapshot(tick,layer,options={}){
   const {mode='manual',t=1.5,angle=45,order='AB'}=options;
   if(!Number.isInteger(tick)||tick<0||tick>15||![0,1].includes(layer))throw new TypeError('valid source tick and layer required');
-  if(!['manual','follow'].includes(mode)||!['AB','BA'].includes(order)||!Number.isFinite(angle)||angle<0||angle>90)throw new TypeError('invalid section/mirror options');
-  const section=cut(mode==='follow'?3*tick/15:t),firstAngle=order==='AB'?0:angle,secondAngle=order==='AB'?angle:0;
-  const first=section.plane.map(p=>mirror(p,firstAngle)),second=first.map(p=>mirror(p,secondAngle));
-  return{schema:'nexah.a0.root7-section-mirror-view/1',version:VERSION,sourceTick:tick,layer,options:{mode,t:section.t,angle,order},section,mirrors:{axesDegrees:{A:0,B:angle},order,first,second,rotationDegrees:(order==='AB'?2:-2)*angle,determinants:[1,-1,1],isometry:true},boundary:'Actual 3D section at fixed w, not a full 4D section. Mirrors act in an orthonormal section-plane chart about its centroid, not on Q4 bits. Follow mode maps read tick to t=3*tick/15; no physical motion or extra clock. No claimed rhombus tiling.'};
+  if(!['manual','follow'].includes(mode)||!['A','B','AB','BA'].includes(order)||!Number.isFinite(angle)||angle<0||angle>90)throw new TypeError('invalid section/mirror options');
+  const section=cut(mode==='follow'?3*tick/15:t),operations=order.split(''),views=[section.plane];
+  operations.forEach(operator=>views.push(views.at(-1).map(p=>mirror(p,operator==='A'?0:angle))));
+  const single=operations.length===1,rotationDegrees=single?null:(order==='AB'?2:-2)*angle;
+  return{schema:'nexah.a0.root7-section-mirror-view/1',version:VERSION,sourceTick:tick,layer,options:{mode,t:section.t,angle,order},section,mirrors:{axesDegrees:{A:0,B:angle},order,operations,views,first:views[1],second:views[2]??null,final:views.at(-1),finalType:single?'REFLECTION':'ROTATION',rotationDegrees,determinants:views.map((_,i)=>i%2===0?1:-1),isometry:true},boundary:'Actual 3D section at fixed w, not a full 4D section. A and B can be inspected separately; composed modes retain their declared order. Mirrors act in an orthonormal section-plane chart about its centroid, not on Q4 bits. Follow mode maps read tick to t=3*tick/15; no physical motion or extra clock. No claimed rhombus tiling.'};
 }
 function readOptions(doc){
   const value=(id,fallback)=>{const e=doc.getElementById(id);return e&&e.value!==undefined?e.value:fallback;};
@@ -45,23 +46,25 @@ function drawing(r){
   svg+='<polygon points="'+points(pp)+'" fill="#62dfa033" stroke="#62dfa0" stroke-width="2"/>';
   pp.forEach((p,i)=>{svg+='<circle cx="'+p[0]+'" cy="'+p[1]+'" r="3" fill="#62dfa0"/>'+text(p[0]+4,p[1]-5,String(i));});
   svg+=text(18,22,'2×1×1 · w='+r.layer,'#62dfa0')+text(18,235,'t='+fmt(r.section.t)+' · '+r.section.kind)+text(18,255,'Fläche = '+fmt(r.section.area));
-  const groups=[r.section.plane,r.mirrors.first,r.mirrors.second],centers=[385,555,725];
+  const groups=r.mirrors.views,centers=groups.length===2?[480,680]:[385,555,725];
   groups.forEach((polygon,i)=>{
     const cx=centers[i],cy=135,pr=p=>[cx+60*p[0],cy-60*p[1]];
-    svg+=text(cx-64,22,['0 · ORIGINAL','1 · '+r.mirrors.order[0],'2 · '+r.mirrors.order[1]+' ∘ '+r.mirrors.order[0]][i]);
+    const applied=r.mirrors.operations.slice(0,i),label=i===0?'0 · ORIGINAL':i+' · '+applied.slice().reverse().join(' ∘ ');
+    svg+=text(cx-64,22,i===0?'0 · WHITE BODY':label+(i===1?' · VIOLET SHADOW':' · EMERALD RETURN'));
     svg+=line([cx-75,cy],[cx+75,cy],'#223e4e')+line([cx,cy-80],[cx,cy+80],'#223e4e');
-    if(i>0){const deg=i===1?(r.mirrors.order[0]==='A'?0:r.options.angle):(r.mirrors.order[1]==='A'?0:r.options.angle),a=deg*Math.PI/180;svg+=line([cx-78*Math.cos(a),cy+78*Math.sin(a)],[cx+78*Math.cos(a),cy-78*Math.sin(a)],'#efbd59',1.5,'4 4');}
-    svg+='<polygon points="'+points(polygon.map(pr))+'" fill="'+['#4ed8f222','#a77dff22','#efbd5922'][i]+'" stroke="'+['#4ed8f2','#a77dff','#efbd59'][i]+'" stroke-width="2"/>';
+    if(i>0){const operator=r.mirrors.operations[i-1],deg=operator==='A'?0:r.options.angle,a=deg*Math.PI/180;svg+=line([cx-78*Math.cos(a),cy+78*Math.sin(a)],[cx+78*Math.cos(a),cy-78*Math.sin(a)],'#efbd59',1.5,'4 4');}
+    svg+='<polygon points="'+points(polygon.map(pr))+'" fill="'+['#f5fbff18','#a77dff24','#62dfa022'][i]+'" stroke="'+['#f5fbff','#a77dff','#62dfa0'][i]+'" stroke-width="2"/>';
     r.section.triangles.forEach(tri=>{svg+=line(pr(polygon[tri[0]]),pr(polygon[tri[2]]),'#648598',.7);});
     polygon.forEach((p,j)=>{const q=pr(p);svg+='<circle cx="'+q[0]+'" cy="'+q[1]+'" r="'+(j===0?4:2)+'" fill="'+(j===0?'#f1698c':'#b9cbd4')+'"/>'+text(q[0]+4,q[1]-4,String(j));});
     svg+=text(cx-64,235,'det = '+r.mirrors.determinants[i]);
   });
-  return svg+text(320,275,'Gleicher Maßstab rechts · Nummern verfolgen die Ecken')+text(18,302,'Links: Projektionsbild ≠ Messraster. Rechts: gespiegelt ist der Schnitt, nicht der feste Quader.');
+  return svg+text(320,275,'WHITE BODY · UV→WHITE · VIOLET SHADOW · EMERALD RETURN')+text(18,302,'Links: Projektionsbild ≠ Messraster. Rechts: gespiegelt ist der Schnitt, nicht der feste Quader.');
 }
 function render(doc,record){
   const svg=doc.getElementById('root7SectionSvg'),out=doc.getElementById('root7SectionLedger');if(!svg||!out)return;
   const r=record.sectionView;svg.innerHTML=drawing(r);
-  out.textContent=r.section.vertexCount+' Ecken · '+r.section.triangles.length+' Dreiecke · '+r.mirrors.order.split('').join(' → ')+' = Rotation '+r.mirrors.rotationDegrees+'° · det +1 · Längen/Fläche erhalten';
+  const operation=r.mirrors.operations.join(' → '),result=r.mirrors.finalType==='REFLECTION'?'Spiegelung '+operation+' · det −1 · Orientierung umgekehrt':'Rotation '+r.mirrors.rotationDegrees+'° · det +1 · Orientierung erhalten';
+  out.textContent=r.section.vertexCount+' Ecken · '+r.section.triangles.length+' Dreiecke · '+operation+' = '+result+' · Längen/Fläche erhalten';
   const slider=doc.getElementById('root7CutPosition');if(slider){slider.disabled=r.options.mode==='follow';if(slider.disabled)slider.value=r.section.t;}
 }
 return{VERSION,cut,mirror,snapshot,readOptions,drawing,render};

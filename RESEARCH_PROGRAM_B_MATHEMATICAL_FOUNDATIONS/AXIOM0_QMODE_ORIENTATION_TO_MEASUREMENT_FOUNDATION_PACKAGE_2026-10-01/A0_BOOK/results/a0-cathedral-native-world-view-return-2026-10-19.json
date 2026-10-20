@@ -1,0 +1,100 @@
+{
+  "schema": "a0.cathedral-native-world-view-return/1",
+  "date": "2026-10-19",
+  "status": "LOCAL_ENGINEERING_TESTS_PASS_VISUAL_ACCEPTANCE_OPEN",
+  "identity_reuse": [
+    "existing Game of Worlds LIFE source frontend",
+    "existing Game of Numbers sessions",
+    "existing RC08 source GLB"
+  ],
+  "new_ids": 0,
+  "new_relations": 0,
+  "user_scope_update": "Cathedral is an additional native view in LIFE and Numbers, not a separate Arcade game/session. Standalone draft removed before integration.",
+  "changes": [
+    "Cathedral button in LIFE and Numbers view groups",
+    "native LIFE snapshot event reused; live history reconstructed from births/survivals/deaths without advancing engine",
+    "Numbers publishes read-only session snapshot; view switch retains session and timer",
+    "common source-bound static GLB adapter with body/scaffold/exploded modes and GLB export",
+    "lazy model load and latest-snapshot coalescing; no independent simulation timer",
+    "book link removed from view buttons; folded readable background link"
+  ],
+  "contracts": {
+    "life": "native cell-address X/Z mapping; source sizes and dynamics boundaries preserved; Y is relative generation within visible window",
+    "numbers": "integer state channels recursively sorted; positive mod-97 residue angle and channel radius; Y relative iteration; exact states retained in GLB; not LIFE",
+    "window": "at most 33 source frames; drop oldest displayed frames beyond 6000 markers; complete current frame retained; native history unchanged",
+    "renderer": "source mesh binary chunks unchanged; original animations omitted in derived views; source files unchanged"
+  },
+  "verification": {
+    "native_world_projection": 1000,
+    "adapter_runtime_stub_renderer": 17,
+    "play_controller_and_native_source_copy": 167,
+    "number_controller_and_models": 20730,
+    "reader": "50/50;56 reachable",
+    "original_cathedral_controller": 51,
+    "format_source_return": 212,
+    "browser_webgl_iphone": "NOT_PERFORMED"
+  },
+  "parallel_work_preserved": [
+    "Living Blueprint and its Family Snapshot block not edited",
+    "shared governance binder/index updated only with a new documentary return; preserve other chat entries"
+  ],
+  "publication": "LOCAL_ONLY_NO_PUSH",
+  "sources": [
+    {
+      "ecosystem_path": "30 SCIENCE LAB/NEXAH-Science-Lab/RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/A0_GAME_OF_WORLDS_PLAY.html",
+      "sha256": "c59a784c1cc754e99eccd6a075bb780e01f6e33e0887b6fc335b29461363b9ae"
+    },
+    {
+      "ecosystem_path": "30 SCIENCE LAB/NEXAH-Science-Lab/RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/a0-game-of-worlds-play.js",
+      "sha256": "9b1481448cdac908b222ed0b279d39cd1a508e4dda70d781bc16a9f2b7eb7896"
+    },
+    {
+      "ecosystem_path": "30 SCIENCE LAB/NEXAH-Science-Lab/RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/a0-game-of-worlds-play.css",
+      "sha256": "48fc7e82efd07feed516ebf91936d1fd7fe499315d2711904720320557e47714"
+    },
+    {
+      "ecosystem_path": "30 SCIENCE LAB/NEXAH-Science-Lab/RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/a0-game-of-worlds-play-stage.js",
+      "sha256": "986a78ad095f07e3b7f679a88abe49c817fc7d03ee466df92dd3168593ae43b3"
+    },
+    {
+      "ecosystem_path": "30 SCIENCE LAB/NEXAH-Science-Lab/RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/assets/game-of-worlds-play/index.html",
+      "sha256": "4c161867a0eaa0f91d197c2c39b0c94bfa81740cd703df19edaf8839834f4567"
+    },
+    {
+      "ecosystem_path": "30 SCIENCE LAB/NEXAH-Science-Lab/RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/assets/game-of-worlds-play/numbers/index.html",
+      "sha256": "6ee4735bdd0331bc38e8faacef7b872fc6f1ae5b640e9aeb37fad17d6e8e2e05"
+    },
+    {
+      "ecosystem_path": "30 SCIENCE LAB/NEXAH-Science-Lab/RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/a0-game-of-numbers.js",
+      "sha256": "1ce080fdd131ead817b8e2189b2bb01e7c947c4b538b6bd7339f177ddfefe5c4"
+    },
+    {
+      "ecosystem_path": "30 SCIENCE LAB/NEXAH-Science-Lab/RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/a0-cathedral-world-projection.js",
+      "sha256": "287c118b18e09364706032f14d562fe7865d40d5e4dbfc4d82fed8ede3b95fca"
+    },
+    {
+      "ecosystem_path": "30 SCIENCE LAB/NEXAH-Science-Lab/RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/a0-cathedral-world-view.js",
+      "sha256": "5a6614b9773e97f1a9aac3cbf2ab92b3dd5964bf3b62c131e893e27c1c88d3ab"
+    },
+    {
+      "ecosystem_path": "30 SCIENCE LAB/NEXAH-Science-Lab/RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/a0-cathedral-world.css",
+      "sha256": "73a852b4976cea1e6983c607d818753a54db1b9beed7de3ba824345896d0df1c"
+    },
+    {
+      "ecosystem_path": "30 SCIENCE LAB/NEXAH-Science-Lab/RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/a0-cathedral-world-projection-tests.cjs",
+      "sha256": "5af1f640c197e6d5cfa18bb29fc43471921643da07f66b8f696dd5a5b5d22b81"
+    },
+    {
+      "ecosystem_path": "30 SCIENCE LAB/NEXAH-Science-Lab/RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/a0-cathedral-world-view-tests.cjs",
+      "sha256": "01b086abab2c7c672961c4bfe479da8bc429aeedefa97e283a13cb3baf23fcee"
+    },
+    {
+      "ecosystem_path": "30 SCIENCE LAB/NEXAH-Science-Lab/RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/a0-game-of-worlds-play-tests.cjs",
+      "sha256": "4b38e6ca50c6b860df88c46dcc25ea8136d2f8ddb65267aea4d5a6612979b36e"
+    },
+    {
+      "ecosystem_path": "30 SCIENCE LAB/NEXAH-Science-Lab/RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/a0-game-of-numbers-tests.cjs",
+      "sha256": "f68c31cbbf56400e2f3e02a1808c8056871cdc05b94ba20be665de31997b9aa2"
+    }
+  ]
+}

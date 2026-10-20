@@ -4,45 +4,58 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="referrer" content="no-referrer">
-  <title>NEXAH · Orientation Controller Bench v0.20.0</title>
-  <link rel="stylesheet" href="a0-orientation-controller-bench.css?rev=20261016-iris-octagon">
+  <title>NEXAH · A I|0 — Orientation Controller Bench v0.21.0</title>
+  <link rel="stylesheet" href="a0-orientation-controller-bench.css?rev=20261019-blind-adapter-r1">
+  <link rel="stylesheet" href="a0-mask-clock-focus.css?rev=20261020-r1">
   <link rel="stylesheet" href="a0-aperture-measurement.css?rev=20261018-m3-ilau">
   <link rel="stylesheet" href="a0-aperture-stack-calibration.css?rev=20261018-gap02-gap09">
-  <link rel="stylesheet" href="a0-bench-showcase-tour.css?rev=20261018-r1">
-  <link rel="stylesheet" href="a0-native-face-ninefold.css?rev=20261018-gap05-r1">
+  <link rel="stylesheet" href="a0-bench-showcase-tour.css?rev=20261019-longplay-r1">
+  <link rel="stylesheet" href="a0-native-face-ninefold.css?rev=20261019-reader-r1">
   <link rel="stylesheet" href="a0-ail-replay.css?rev=20261018-gap04-replay-r1">
   <link rel="stylesheet" href="a0-external-adapter-pack.css?rev=20261018-pack-ab-r1">
   <link rel="stylesheet" href="a0-return-economy.css?rev=20261018-bl055-r1">
   <link rel="stylesheet" href="a0-coupled-window.css?rev=20261018-reader-r1">
+  <link rel="stylesheet" href="a0-prism-relation-lens.css?rev=20261019-r3">
   <link rel="stylesheet" href="a0-bench-workspace.css?rev=20261018-workspace-r1">
   <link rel="stylesheet" href="a0-family-grid-coupler.css?rev=20261018-fgc-r3">
   <link rel="stylesheet" href="a0-visual1-grid-generator.css?rev=20261018-v1-grid-r1">
+  <link rel="stylesheet" href="a0-bench-map.css?rev=20261019-r1">
 <link rel="stylesheet" href="a0-root7-q4-coupling.css">
+  <link rel="stylesheet" href="a0-trinity-lens.css">
+  <link rel="stylesheet" href="a0-bench-polish.css?rev=20261019-r1">
+  <link rel="stylesheet" href="a0-division-return.css?rev=20261019-r1">
+  <link rel="stylesheet" href="a0-bench-source-trail.css?rev=20261019-r1">
+  <link rel="stylesheet" href="a0-bench-body-route.css?rev=20261019-r1">
+  <link rel="stylesheet" href="a0-mask-observer.css?rev=20261019-r1">
+  <link rel="stylesheet" href="a0-caro-bench.css?rev=20261019-r1">
+  <link rel="stylesheet" href="a0-bench-perspective-deck.css?rev=20261020-r1">
+  <link rel="stylesheet" href="a0-caro-orientation-modes.css?rev=20261020-r1">
+  <link rel="stylesheet" href="a0-plate-mirror.css?rev=20261020-r1">
 </head>
 <body>
-<nav aria-label="Zurück zu A0 und Builder" style="position:sticky;top:0;z-index:100;display:flex;flex-wrap:wrap;gap:12px;padding:12px 24px;background:#06131e;border-bottom:1px solid #315367;font:700 .8rem system-ui,sans-serif">
-  <a href="A0_RESEARCH_DESK.html">← A0 Science Desk</a>
-  <a href="../../../../../00%20EXECUTIVE/NEXAH-Mission-Control/00_OVERVIEW/BUILDER_STATUS_REPORT.html">← Builder Startseite</a>
-  <a href="A0_BUILDER_TOY_STORE.html#benches">Toy Store</a>
-  <a href="#orientationBench">Bench ↑</a>
-  <a href="#integrationCrosswalk">Bestand → A0</a>
-  <a href="#life03Workbench">LIFE03 ↔ Master</a>
-  <a href="#root7ProjectionOverlay">Schichtenanimation</a>
-  <a href="#wiringPackage">Integrationspaket</a>
-  <a href="#nativeSourceBank">Native Quellen</a>
-  <a href="#phaseWiring">Gemeinsame Phase</a>
-  <a href="#nativeFaceBridge">Native Face / 4×2+1</a>
-  <a href="#ailApertureControl">A·i·l / Replay</a>
-  <a href="#externalAdapterPack">Adapter A+B</a>
-  <a href="#coupledWindowHub">Bench Windows</a>
-  <a href="#returnEconomyDemonstrator">Return Economy</a>
-  <a href="#familyGridCoupler">Family / Life Coupler</a>
+<nav class="bench-nav" aria-label="Bench Navigation">
+  <a class="bench-brand" href="#orientationBench">NEXAH / BENCH</a>
+  <button type="button" id="benchTourTop" class="tour-top-button" data-tour-ui aria-pressed="false">▶ DEMO-TOUR STARTEN</button>
+  <a href="#coupledWindowHub">Arbeitsfenster</a><a href="#maskObserverBench">Maske / lila Faltung</a><a href="#bodyRouteBench">Körperweg 01b/01c</a><a href="#sewingSourceWindow">Schaukeln</a><a href="#nsnGlbSources">NSN · GLB</a><a href="#caroControlBench">CARO live</a><a href="#benchShowcase">Tour</a><a href="#benchMap">Schaltbild</a>
+  <details><summary>Quellen &amp; Technik</summary><div><a href="A0_RESEARCH_DESK.html">← Science Desk</a><a href="A0_GAME_OF_WORLDS_PLAY.html#numbers">Numbers</a><a href="#nativeSourceBank">Native Quellen</a><a href="#augustSourceTrail">August-Serie · acht HTMLs</a><a href="#integrationCrosswalk">Bestand → A0</a><a href="#wiringPackage">Integrationspaket</a><a href="#phaseWiring">Gemeinsame Phase</a><a href="#benchSetupDrawer">Technik &amp; Verträge</a><a href="A0_BUILDER_LOG.html">Builder Log</a></div></details>
 </nav>
 <main class="shell" id="orientationBench">
+  <section id="maskClockLink" aria-labelledby="maskClockTitle">
+    <h2 id="maskClockTitle">Arbeitsfokus · Blue/Pink → Mask-Observer</h2>
+    <button id="benchTourClockDemo" type="button" data-tour-ui>▶ Kopplung in 6 Tour-Schritten zeigen</button>
+    <p>Schritt 1: Nur dieser Mask-Observer folgt der vorhandenen Blue/Pink-Phase. Quelle und Maskenansicht stehen unten; alle anderen Module bleiben unabhängig. Kein Cockpit-Neudesign und kein Gesamt-Return.</p>
+    <button id="maskClockFocus" type="button" aria-pressed="false">Arbeitsfokus / vollständige Werkbank</button>
+    <a href="#nativeFaceBridge">Zur führenden Quelle ↓</a> · <a href="#maskObserverBench">Zur Maskenfolge ↓</a>
+    <p><button id="maskClockShowSource" type="button">Blue/Pink-Signalansicht öffnen</button> Vor dem Verbinden wählen. Fragmentnavigation kann die Quelle neu laden; eine bestehende Kopplung geht dann sicher auf HOLD.</p>
+    <div><button id="maskClockConnect" type="button">Verbinden · Quelle pausieren</button><button id="maskClockPlay" type="button">Gemeinsam starten</button><button id="maskClockPause" type="button">Gemeinsam pausieren</button><button id="maskClockStep" type="button">Step · 1/120 Signalzyklus</button><button id="maskClockDisconnect" type="button">Entkoppeln</button><button id="maskClockExport" type="button">Bestätigten Lesestand exportieren</button></div>
+    <output id="maskClockStatus" role="status">GETRENNT · bewusst verbinden; keine automatische Quellsteuerung.</output>
+    <p>Zuordnung: Mask-Tick = floor(120 × Quellphase / 2π), 0…119; Quantisierungsfehler &lt; ein Mask-Tick. Phase wird gekoppelt, nicht Carrier, Signale oder Gate-Geometrien. Die lokale 80-ms-Maskenuhr ist während der Kopplung gesperrt. Ohne ACK oder bei Quellverlust: HOLD. Frequenzpaar und δ werden angezeigt, aber verändern nicht das geometrische LRRL/RLLR-Wegwort. Teller-Montage und Kompass bleiben eigene lokale 3:2/90°-Lesarten.</p>
+  </section>
   <header class="topbar">
     <div>
-    <div class="kicker">A0 · source-bound engineering lens · v0.20.0</div>
-      <h1>Orientation Controller Bench</h1>
+    <div class="kicker">A0 · source-bound engineering lens · v0.21.0</div>
+      <h1>NEXAH · A I|0</h1>
+      <p class="bench-technical-name">A0 Orientation Controller Bench · Faltung · Kanal · Spiegel · Return</p>
       <p>Eine ruhige Steuerzentrale öffnet gekoppelte Arbeitsfenster über vorhandenen Modulen. State-Records, Operatoradapter und Return-Stufen bleiben getrennt typisiert; das Fenster verbindet ihre Bedienung, nicht ihre Carrier oder Uhren.</p>
     </div>
     <div class="status-strip" aria-label="Status">
@@ -52,29 +65,239 @@
 
   <div class="boundary"><b>BOUNDARY ·</b> Engineering dry run während STRUCTURE_FREEZE. J, Rθ und Eₛ sind deklarierte lokale Adapter. Fourier, JT, VIII und weitere Ketten bleiben bis zur eigenen Quellen- und Vertragsprüfung deaktiviert.</div>
 
-  <section class="bench-showcase" id="benchShowcase" aria-labelledby="benchShowcaseTitle">
+  <section class="body-route-bench" id="atlasTessarecBench" aria-labelledby="atlasTessarecBenchTitle">
+    <h2 id="atlasTessarecBenchTitle">Atlas-Tessarec · vollständiges Instrument</h2>
+    <p>Q4 / Q4 × P3 (16 / 48 Zustände), automatische Phasenübergänge, intrinsische und beobachtete Hülle H(t), Gegenblicke ±θ, Record-Formate und Big-Blue-Vergleich bleiben zusammen im Original bedienbar.</p>
+    <div class="body-route-actions"><button type="button" id="atlasTessarecOpen">Atlas-Tessarec hier groß öffnen</button><a href="A0_FAMILY_CONNECTION_ATLAS.html#tessarec" target="_blank" rel="noopener noreferrer">Atlas separat ↗</a><a href="#benchLensReturn">Numbers Mixer · Fold Guide ↓</a><a href="#foldCycle">5B · 4 × 7 / Pose 29 ↓</a></div>
+    <p id="atlasTessarecStatus" role="status">Noch nicht geladen · eigenes Originalfenster, eigene Atlas-Uhr. Schließen entlädt diese Sitzung; Records vorher im Original exportieren.</p>
+    <p><a href="#tripleSixReturnWalk">TripleSix · vollständigen Quelle–Schnitt–Return-Lesegang bedienen ↓</a></p>
+    <p><b>Drei verschiedene Folgen:</b> Atlas = eigene Q4-/48-State-Phasen. Mixer = lokale Linsenphase mit Fold Guide 0° → 78° → 33° → 7° → 0° und Crown 0–19. 5B = vier Siebenergruppen, 29 Posen und separater Abschlussmarker. Keine automatische Gleichsetzung oder gemeinsame Quelluhr.</p>
+  </section>
+  <section id="benchPerspectiveDeck" aria-labelledby="perspectiveDeckTitle">
+    <small>BESTEHENDE QUELLEN · NATIVE MODI · ZWEI GEGENFENSTER</small>
+    <h2 id="perspectiveDeckTitle">LOKI / MIWA · Flower · Box innen · Critical Orbit</h2>
+    <p>Originale hier bedienen und nebeneinander lesen: LOKI-Generatoren, H3/E8, MIWA-Perspektiven, Astrolabium/Roman Stack, Tessarec-Hülle, Boxöffnung, Pink-/Ghost-Grids, Pascal und Ihara. Kein neues Ersatzmodell. Quellen starten erst nach deiner Auswahl; sie behalten ihre eigenen Regler und Uhren.</p>
+    <div class="perspective-actions" aria-label="Quellpaare neu öffnen">
+      <button type="button" id="perspectivePairLoki">LOKI ↔ MIWA</button><button type="button" id="perspectivePairFlower">Flower ↔ Box innen</button><button type="button" id="perspectivePairOrbit">Critical Orbit ↔ Teller</button><button type="button" id="perspectivePairJoint">Pascal-Faden ↔ Joint</button>
+      <button type="button" id="perspectiveUnloadAll">Beide Quellen entladen</button><button type="button" id="perspectiveExport">Vergleichsrecord exportieren</button>
+    </div>
+    <p>Die vier Quellpaar-Tasten öffnen beide Fenster neu und verwerfen deren bisherige lokale Sitzungen. Wichtige Quellenrecords vorher im Original exportieren. Entladen beendet eingebettete Animationen; es ist kein Quellen-Return.</p>
+    <div class="perspective-panes"><article id="perspectivePaneA" aria-label="Quellfenster A"></article><article id="perspectivePaneB" aria-label="Quellfenster B"></article></div>
+    <div class="perspective-fold">
+      <h3>Daneben: unsere aktuelle Faltung / Spiegelansicht</h3>
+      <p id="perspectiveFoldReadout" role="status">Wartet auf die vorhandene 5B-Quelle.</p>
+      <svg id="perspectiveFoldSvg" viewBox="0 0 950 510" role="img" aria-label="Aktuelle bestehende 5B-Pose einschließlich ihres deklarierten Abschlussflips"></svg>
+      <p><a href="#foldCycle">5B-Player · Siebenergruppen / Treppe / Flip bedienen ↓</a> · <a href="#nativeSourceBank">Box · native Befehle / Readback / Checkpoint ↓</a> · <a href="#sourceSections">Apertur / Originalabschnitte ↓</a></p>
+    </div>
+    <details><summary>Critical Orbit · links / rechts / Bündelung — was ist verbunden?</summary>
+      <p>Im Original stehen links der Mandelbrot-Parameterraum und rechts die Julia-Ebene. Derselbe Parameter c verbindet sie; nur die kritische Bahn startet bei z₀=0 mit zₙ₊₁=zₙ²+c. Root Room, Four-Layer Flame und Teller/Fin lesen diesen Kontext unter ihren deklarierten Darstellungen. Achse, Kern, Rand und Envelope sind vier Ansichtsrollen, keine vier addierten Bahnen. Die Zelladresse ist nicht c.</p>
+      <p>Davon getrennt: <a href="../../../SCIENCE_LAB/LABREPORTS/MATHEMATICS/LABREPORT_A0_BL_054_IEEE300_CRITICAL_ORBIT_GHOSTGRID_001.md">IEEE300 Critical-Orbit / Ghostgrid · geschlossener MIXED_NEGATIVE-Befund</a>. 60/81 View-Konfigurationen bestanden, 21 grobe 8-Bin-Ansichten verfehlten die Stabilitätsschwelle. Kein neuer Run und kein stiller Repair.</p>
+    </details>
+    <p><b>Offene Übergänge:</b> Die Verbindung Pol 7↔8 braucht konkrete Quelladressen. Acht LOKI-Schichtbrücken sind nicht automatisch diese eine Kante. Box-Innenkreis und räumlicher Zylinder bleiben verschiedene Modelle; „Kristallspiegelung“ ist hier eine Owner-Lesart. Algo-Graph → Faltung und der historische Membran-Generator sind noch kein gemeinsamer Operatorvertrag. Der gelbe Auswahlrand wird nicht zum Algorithmus umgedeutet.</p>
+  </section>
+  <section class="bench-showcase" id="benchShowcase" aria-labelledby="benchShowcaseTitle" data-tour-ui>
     <span id="benchOvertureTitle" hidden>Showcase compatibility anchor</span><span id="watchBenchRun" hidden></span><span id="enterBench" hidden></span>
     <div class="showcase-copy">
-      <small>GUIDED SHOWROOM · ONE BENCH · TYPED HANDOFFS</small>
-      <h2 id="benchShowcaseTitle">Die ganze Bench in einer Tour.</h2>
-      <p>Die Tour öffnet die gekoppelten Bench Windows, startet die gebundenen Engines, wechselt M3 sowie Life Grid / Platte / Zylinder und führt durch Control, Native Return, Messung, Family/Pink Ghost, PENT/LIFE03, Adapter A+B, das Moving Aperture Window, Return Economy und Root/Projection.</p>
-      <div class="showcase-actions"><button class="showcase-start" id="benchTourStart" type="button" aria-pressed="false">▶ BENCH TOUR STARTEN</button></div>
+      <small>THE LONG PLAY · 9 KAPITEL · 56 STATIONEN · MIT BLUE/PINK → MASKE</small>
+      <h2 id="benchShowcaseTitle">Einmal durch.<br>Dann selbst ans Steuer.</h2>
+      <p>Körper öffnen. Masken verschieben. Die lila Folge abspielen. Teller, Kompass, Codes und CARO bedienen. Danach Native Face, Messung, Adapter und Return — im Zusammenhang statt nur als Linkliste.</p>
+      <div class="showcase-actions"><button class="showcase-start" id="benchTourStart" type="button" aria-pressed="false">▶ BENCH TOUR STARTEN</button><button id="benchTourClockDemoTop" type="button" data-tour-ui>▶ Nur Blue/Pink → Maske · 6 Schritte</button><span class="showcase-runtime">≈ 17 Minuten gesamt · ≈ 2 Minuten Kopplung<br>Pause jederzeit · keine Downloads</span></div>
+      <p class="showcase-note">Die Demo verändert lokale Regler und Capture-Anker. Sie stellt nicht den gesamten vorherigen Bench-Zustand wieder her. Eigene wichtige Records bitte vorher sichern.</p>
     </div>
     <div class="showcase-stage" aria-live="polite">
-      <small id="benchTourCounter">00 / 20 · READY</small>
-      <strong id="benchTourTitle">Alles vorbereitet. Ein Knopf startet den Rundgang.</strong>
-      <p id="benchTourCopy">Technische Hintergründe bleiben eingeklappt; jede Station öffnet nur das gekoppelte Fenster der gerade benötigten Module.</p>
+      <small id="benchTourCounter">BEREIT · 56 STATIONEN</small>
+      <strong id="benchTourTitle">Von der Quelle bis zum gespeicherten Zustand.</strong>
+      <p id="benchTourCopy">Die Tourleiste bleibt beim Modul sichtbar. Jede eigene Bedienung pausiert den automatischen Rundgang; Weiter und die Stationsliste funktionieren auch manuell. Separate Originalfenster behalten ihre eigene Uhr.</p>
+      <div class="showcase-chapters"><span>01 Körper</span><span>02 Blue/Pink → Maske</span><span>03 Maske / Teller</span><span>04 Faltung / Spiegel</span><span>05 Native Face</span><span>06 Messung</span><span>07 Adapter</span><span>08 Projektion</span><span>09 Return / Record</span></div>
       <div class="showcase-progress" id="benchTourProgress" aria-label="Tourfortschritt"></div>
     </div>
+  </section>
+  <ol class="bench-workflow" aria-label="Empfohlener Arbeitsweg">
+    <li><a href="#masterCockpit"><small>01 · START</small><b>Quelle &amp; Zustand</b></a></li>
+    <li><a href="#benchLensReturn"><small>02 · LESEN</small><b>Linse &amp; Überlagerung</b></a></li>
+    <li><a href="#operatorPanel"><small>03 · VERÄNDERN</small><b>Operator &amp; Vergleich</b></a></li>
+    <li><a href="#benchNumberReturn"><small>04 · ZURÜCK</small><b>Anker &amp; Inverse</b></a></li>
+    <li><a href="#ocbRecordReplay"><small>05 · PRÜFEN</small><b>Record &amp; Replay</b></a></li>
+  </ol>
+  <div class="bench-finish-status" aria-label="Abnahmestand"><span>Lokal implementiert · technische Prüfungen</span><span class="open">Visuelle Browserabnahme offen</span><span class="open">Historische / native Zuordnungen teils offen</span></div>
+  <section id="nsnGlbSources" class="august-source-trail" aria-labelledby="nsnGlbTitle">
+    <details open>
+      <summary id="nsnGlbTitle">NSN · GLB-Rückbindung · Kristall / 17 Floors / Räder / Morph</summary>
+      <p>Vorhandene Modelle aus der NSN-verknüpften 3D-Bestandsliste, mit geprüften aktuellen Fundorten und SHA-256. Keine Kopien, keine neue Modell-ID, keine neue kanonische Family. Die Census-Gruppen FAM-016 / FAM-002 sind historische Bestandsgruppen.</p>
+      <p class="august-source-links"><a href="../../../SCIENCE_LAB/NAVIGATION/APP/index.html#lineage" target="_blank" rel="noopener noreferrer">NSN · GLB-Liste / Lineage ↗</a><a href="../../../SCIENCE_LAB/REVIEWS/THREE_D_MODULE_ATLAS_2026-09-29/3D_ASSET_INVENTORY.csv" target="_blank" rel="noopener noreferrer">Historischer 3D-Census · 1850 Einträge ↗</a><a href="assets/a0-nsn-glb-source-return-v1.json" target="_blank" rel="noopener noreferrer">Fundorte / Hashes / Modellbefunde ↗</a><a href="#sewingSourceWindow">Schaukeln / Sewing · Original in der Bench öffnen ↓</a></p>
+      <div class="august-source-cards">
+        <article><h3>Enki_Matryoshka_Enlil_v2.glb</h3><p>17 benannte Floors, ENKI_shell, ENLIL_crystal, BluePearl_inner, Snake_Red / Snake_Cyan und Gates 234 / 312 / 432. Statische Körperquelle; die Atmung ist nicht als Animation gespeichert.</p><p>29 Nodes · 28 Meshes · 0 Animationsspuren · Census FAM-016, Zeile 1616.</p><a href="../../../../../../../Desktop/Desktop TASKS/DESKTOP_archy/THOOTH DASHBOARD/Nexahedron_Codex Staging Modules/🀆 BLACK Mirror_🌍BLUE Pearl_ATLAS III Time Bridge/Enki_Matryoshka_Enlil_v2.glb" target="_blank" rel="noopener noreferrer">Original-GLB öffnen / laden ↗</a></article>
+        <article><h3>Enki_Matryoshka_Enlil.glb</h3><p>Ältere Variante: ENKI_Ellipse, ENLIL_Crystal und vier Matryoshka-Level. Die Datei Enki_Matryoshka_Enlil2.glb ist bytegleich; kein zweiter unabhängiger Befund.</p><p>7 Nodes · 6 Meshes · 0 Animationsspuren · Census FAM-016, Zeile 1614.</p><a href="../../../../../../../Desktop/Desktop TASKS/DESKTOP_archy/THOOTH DASHBOARD/Nexahedron_Codex Staging Modules/🀆 BLACK Mirror_🌍BLUE Pearl_ATLAS III Time Bridge/Enki_Matryoshka_Enlil.glb" target="_blank" rel="noopener noreferrer">Original-GLB öffnen / laden ↗</a></article>
+        <article><h3>blue_pearl_solar_lunar_kite_12_37_39.glb</h3><p>Blue Pearl / ENLIL und benannte Solar- / Lunar-Halos. Anschluss an die Double-Crown-Bilder, keine daraus abgeleitete Bewegungsregel.</p><p>111 Nodes · 110 Meshes · 0 Animationsspuren · Census FAM-016, Zeile 1609.</p><a href="../../../../../../../Desktop/Desktop TASKS/DESKTOP_archy/THOOTH DASHBOARD/Nexahedron_Codex Staging Modules/🀆 BLACK Mirror_🌍BLUE Pearl_ATLAS III Time Bridge/blue_pearl_solar_lunar_kite_12_37_39.glb" target="_blank" rel="noopener noreferrer">Original-GLB öffnen / laden ↗</a></article>
+        <article><h3>blue_pearl_double_crown_rotating.glb</h3><p>Vorhandene Double-Crown-Variante. Trotz „rotating“ im Dateinamen keine gespeicherten Animationsspuren.</p><p>52 Nodes · 51 Meshes · 0 Animationsspuren · Census FAM-016, Zeile 1601.</p><a href="../../../../../../../Desktop/Desktop TASKS/DESKTOP_archy/THOOTH DASHBOARD/Nexahedron_Codex Staging Modules/🀆 BLACK Mirror_🌍BLUE Pearl_ATLAS III Time Bridge/blue_pearl_double_crown_rotating.glb" target="_blank" rel="noopener noreferrer">Original-GLB öffnen / laden ↗</a></article>
+        <article><h3>blue_pearl_with_chiron_singularity_cluster.glb</h3><p>BluePearl, Ecliptic, Sun, Moon, Pluto, Arrokoth und Chiron-Geometrien. Keine neue Identität mit dem Enki-Körper.</p><p>55 Nodes · 54 Meshes · 0 Animationsspuren · Census FAM-016, Zeile 1610.</p><a href="../../../../../../../Desktop/Desktop TASKS/DESKTOP_archy/THOOTH DASHBOARD/Nexahedron_Codex Staging Modules/🀆 BLACK Mirror_🌍BLUE Pearl_ATLAS III Time Bridge/blue_pearl_with_chiron_singularity_cluster.glb" target="_blank" rel="noopener noreferrer">Original-GLB öffnen / laden ↗</a></article>
+        <article><h3>chrono_conveyor_oblique.glb</h3><p>Chrono-Conveyor-Kandidat aus der Liste: nur ein generisch benanntes Mesh. Die vollständige Zwei-Räder-Partitur aus dem Bild ist damit noch nicht identifiziert.</p><p>2 Nodes · 1 Meshes · 0 Animationsspuren · Census FAM-002, Zeile 361.</p><a href="../../../../../../../Desktop/Desktop TASKS/DESKTOP_archy/x-1033_Release_some Symoblik stuff/🔥ARCHY -AFTER- ARCHY🔥SH_IV_A - TLAS🌍/🜂 ARCHY LOOP ⚡ THOOTH Orientation/THE PERCEPTION FIELD • COMPLETE MAP_xperiments_perception_tlayer/THE_PERCEPTION_MECHANISM_MEASUREMENT_ADDED MODULES _ Perception Research/MASTER_tessarec_tlayer_toe/TESSAREC_LOG V - FULL BODY/TESSAREC_LOG V_Chrono-Conveyor &amp; Splinter-Trinity-Clock/chrono_conveyor_oblique.glb" target="_blank" rel="noopener noreferrer">Original-GLB öffnen / laden ↗</a></article>
+        <article><h3>Resonance Cathedral · bestehende NSN-ID</h3><p>GLB:CATHEDRAL_V8_8_FUSION. Vorhandene Binärquelle gegen den NSN-Hash geprüft. Ähnliche Form ist kein Nachweis, dass der 17-Floors-Körper dasselbe Modell ist.</p><a href="../../../SCIENCE_LAB/NAVIGATION/APP/index.html#lineage" target="_blank" rel="noopener noreferrer">NSN · Cathedral-Eintrag ↗</a></article>
+        <article><h3>Nexahedron Morph · vorhandene Medien</h3><p>Aurora / Mentra / Mira als Quellenanschluss. Vorhandenes GIF und Video; kein wiedergefundener GLB-Morph-Generator.</p><a href="../../../../../../../Desktop/Desktop TASKS/DESKTOP_archy/THOOTH DASHBOARD/Nexahedron_Codex Staging Modules/NEXAHEDRON ANIMA MUNDI/nexahedron_morph.gif" target="_blank" rel="noopener noreferrer">nexahedron_morph.gif ↗</a> <a href="../../../../../../../Desktop/Desktop TASKS/DESKTOP_archy/THOOTH DASHBOARD/Nexahedron_Codex Staging Modules/NEXAHEDRON ANIMA MUNDI/nexahedron_morph.mp4" target="_blank" rel="noopener noreferrer">nexahedron_morph.mp4 ↗</a></article>
+      </div>
+      <p><b>Offen:</b> Ein gemeinsames Atemgesetz, ein berechneter Zikkurat-Schatten sowie das Abfahren der Linsen-/Sichelkonturen werden hier nicht behauptet. Die vorhandenen Sewing-Schaukeln bleiben eine eigene, ausführbare Quelle.</p>
+    </details>
+  </section>
+  <section id="sewingSourceWindow" class="august-source-trail" aria-labelledby="sewingSourceTitle">
+    <h2 id="sewingSourceTitle">Die Schaukeln · AM / VM / PM · Atem / Spur / Achsenschatten</h2>
+    <p>Der reduzierte AXIS08-Adapter unten enthält nicht diese vollständige Bewegung. Hier öffnest du das unveränderte Originalinstrument direkt in der Bench — mit Sewing 5+3 ↔ 4+4, Apertur, sieben Lesestufen und gekoppelter Partitur.</p>
+    <p class="august-source-links"><button type="button" id="sewingSourceOpen">Schaukeln hier öffnen</button><button type="button" id="sewingSourceClose" disabled>Fenster entladen</button><a href="A0_AXIS08_FOLD_RETURN_SEQUENCER.html#pentagonSewing" target="_blank" rel="noopener noreferrer">Sewing separat ↗</a><a href="A0_AXIS08_FOLD_RETURN_SEQUENCER.html#sewingScore" target="_blank" rel="noopener noreferrer">Atem-Partitur separat ↗</a></p>
+    <p id="sewingSourceStatus" role="status">Noch nicht geladen. Im Original „Partitur starten“ bzw. „Sewing starten“ wählen. Kein gemeinsamer Bench-/GLB-Takt.</p>
+    <div id="sewingSourceFrameHost"></div>
+    <p>Originalregeln: sᵢ = rᵢ sin(ωᵢt + δᵢ), wählbare Signalverhältnisse und orthogonaler Achsenschatten; kein optisches Schattenmodell. Das Fenster besitzt seine eigene Uhr. Entladen verwirft seinen lokalen Zustand; gehaltenen Return vorher im Original kopieren. Eine laufende Quelle bleibt bis Pause oder Entladen aktiv.</p>
+  </section>
+  <section class="body-route-bench" id="bodyRouteBench" aria-labelledby="bodyRouteTitle">
+    <h2 id="bodyRouteTitle">Körperweg · 01b → 01c → Dodeka → One Flow</h2>
+    <p><a href="#sourceSections">Vollständiges Original bedienen · neun Abschnitte ↓</a> · <a href="#recoveredSources">Doppelrad / BPS-MS-Originale ↓</a></p>
+    <p>Das vorhandene Innenleben bleibt dabei: 01b liest 16 Kanäle × 3 Lagen; 01c bespielt den 48-State-Record und den großen Blue-Body-Host. Die Dodeka-Ansicht führt vier Satelliten mit 48 Flächenslots plus zwölf Return-Flächen. One Flow hält Kontaktsonde, Schalen, Teller, Möbiusband und Grid als eigene Lesefolge.</p>
+    <nav class="body-route-actions" aria-label="Originalinstrumente im Körperweg">
+      <button type="button" id="bodyRoute_interior" aria-pressed="true">01b · Innenleben</button>
+      <button type="button" id="bodyRoute_player" aria-pressed="false">01c · Blue Body bespielen</button>
+      <button type="button" id="bodyRoute_dodeca" aria-pressed="false">Dodeka / Native Face ↓</button>
+      <button type="button" id="bodyRoute_flow" aria-pressed="false">One Flow / Band / Grid ↓</button>
+    </nav>
+    <p class="body-route-actions"><button type="button" id="bodyRouteCollect">Lesestände vergleichen / Record halten</button><button type="button" id="bodyRouteUnload" disabled>Body-Lab entladen</button><a id="bodyRouteOriginal" href="A0_TESSAREC_BLUE_BODY_LAB.html#blue-body-interior-crt16" target="_blank" rel="noopener noreferrer">Aktuelles Original separat ↗</a><a href="#sewingSourceWindow">Schaukeln / Partitur</a><a href="#nsnGlbSources">NSN / GLB-Körperquellen</a><a href="assets/a0-bench-body-route-v1.json">Quellvertrag / Hashes</a></p>
+    <p id="bodyRouteStatus" role="status">Bereit · 01b/01c erst auf Klick laden. Dodeka/One Flow verwenden das bereits vorhandene Native-Face-Quellfenster darunter.</p>
+    <div id="bodyRouteFrameHost"></div>
+    <p><b>Keine zweite Engine:</b> 01b und 01c teilen eine Body-Lab-Sitzung. Dodeka und One Flow verwenden dasselbe bestehende Quellfenster darunter. Wechsel fokussieren nur Abschnitte; sie schreiben keine Quellwerte. Verdeckte Quellen können weiterlaufen — Pause im jeweiligen Original bedienen. Entladen verwirft nur die Body-Lab-Sitzung.</p>
+    <details><summary>Gehaltener Vergleich · unabhängige Lesestände, kein Gesamt-Return</summary><pre id="bodyRouteRecord">Noch kein Vergleich gehalten.</pre></details>
+    <p><b>Grenze:</b> 48 Quelladressen, 60 Flächenslots und One-Flow-Koordinaten sind nicht dieselben Adressen. Kein automatischer Transfer, keine gemeinsame Uhr und kein neuer Inversenvertrag. Browser-Sperren oder fehlende Quellen erscheinen als HOLD / WAITING / UNLOADED. Bestehende Native-Face-Returns bleiben unverändert.</p>
+  </section>
+  <section id="maskObserverBench" class="mask-observer-bench" aria-labelledby="maskObserverTitle">
+    <h2 id="maskObserverTitle">Verschiebung → Schnitt → Maske → Beobachterspur</h2>
+    <p><a href="#maskCompassTitle">Direkt zum Tellerkompass / goldenen Auswahlring ↓</a> · <a href="#codeCalendarLens">3+1 · Codes / Kalender / V prüfen ↓</a></p>
+    <p>Eine bedienbare Kette, keine weitere eingebettete Seite. Die Pentagon-Aufsicht nutzt die vorhandene Geometrie; die Quadrat-/Cube-Aufsicht ist ein neuer deklarierter 2D-Vergleich nach der Bildvorlage, kein Würfelkörper. Die lila Doppelschlaufe liegt als Owner-Setzung auf der obersten Ansichtsebene.</p>
+    <div class="mask-controls"><button type="button" id="maskPentagon">Pentagone · 10 + Mittelpunkt</button><button type="button" id="maskSquare">Quadrat / Cube-Aufsicht · 4 + Schnitte</button><button type="button" id="maskTakePhase">Vorhandene Pentagonphase übernehmen</button><label><input id="maskFold" type="checkbox" checked> Lila Faltung oben</label></div>
+    <div class="mask-controls">
+      <label>B verschieben · x<input id="maskDx" type="range" min="-0.8" max="0.8" step="0.01" value="0"></label><label>B verschieben · y<input id="maskDy" type="range" min="-0.8" max="0.8" step="0.01" value="0"></label>
+      <label>B drehen · Grad<input id="maskAngle" type="range" min="0" max="360" step="1" value="36"></label><label>Ausflugweite<input id="maskAmplitude" type="range" min="0" max="0.6" step="0.01" value="0.45"></label>
+      <label>Wegwort<select id="maskWord"><option>LRRL</option><option>RLLR</option></select></label><label>Gemeinsamer lokaler Tick<input id="maskTick" type="range" min="0" max="120" step="1" value="0"></label>
+    </div>
+    <div class="mask-controls"><button type="button" id="maskPlay" aria-pressed="false">LRRL / RLLR abspielen</button><button type="button" id="maskStep">Step</button><button type="button" id="maskCapture">Capture</button><button type="button" id="maskReturn" disabled>Return</button><button type="button" id="maskReset">Reset</button><button type="button" id="maskExport">Record exportieren</button><label>Record prüfen<input type="file" id="maskImport" accept="application/json,.json"></label></div>
+    <output id="maskReadout"></output><output id="maskGateStatus"></output>
+    <details id="maskLocalAssemblyDetails"><summary>Weitere lokale Montage · fest 3:2 / 90° · keine Blue/Pink-Signalkopplung</summary>
+    <h3>Teller · Lissajous · lila Band · gelbe Detail-Linse — ein lokaler Takt</h3>
+    <div class="mask-controls"><label>Ansicht drehen<select id="maskAssemblyRotation"><option value="0">0°</option><option value="90">90°</option><option value="180">180°</option><option value="270">270°</option></select></label><label>Lesefokus<select id="maskAssemblyPlane"><option>AM</option><option>VM</option><option>PM</option></select></label><label>Gelbe Detail-Linse<select id="maskAssemblyLens"><option value="eight">Mittelpunkt auf sichtbarer Acht</option><option value="legacy">Bisherige kleinere Doppelschlaufe</option></select></label><label>Farblesart<select id="maskAssemblyPalette"><option value="source">Quellfarben</option><option value="bronze">Bronze / Blei / Patina · nur Farbe</option></select></label></div>
+    <svg id="maskAssemblySvg" class="mask-assembly-svg" viewBox="0 0 1000 720" role="img" aria-label="Gekoppelte Ansicht aus bestehender Teller- und Möbiusgeometrie, drei Lissajous-Paaren und gelber Detail-Linse auf der Acht"></svg>
+    <p>Alle Teile dieser Montage folgen demselben lokalen Tick: t = 2π · Tick/120; die Bandkoordinate läuft mit u = 2t bis 4π. Teller-/Möbius-Geometrie und Signalpaare stammen aus One Flow / Blue-Pink. Ihre Ansichtslagen oben und unten sind deklarierte Platzierungen, keine hergeleitete räumliche Verbindung. Die gelbe Linse zeigt denselben aktuellen Hintergrund mit 13/8-Vergrößerung. Die 90°-Drehung ändert nur die Ansicht.</p>
+    </details>
+    <div class="mask-controls"><label><input id="maskElasticVisible" type="checkbox" checked> Aᵢ↔Bᵢ-Verbindungen anzeigen</label><label><input id="maskElasticCurved" type="checkbox" checked> Elastische Kurvenlesart statt Geraden</label></div>
+    <div class="mask-observer-views"><svg id="maskTopSvg" viewBox="0 0 700 600" role="img" aria-label="Verschobene Körperaufsicht mit Schnittmarken, zwei abgeleiteten Maskenhälften und oberer lila Doppelschlaufe"></svg><svg id="maskObserverSvg" viewBox="0 0 700 600" role="img" aria-label="Beobachterprojektion mit zugelassener und verdeckter Spur durch die abgeleiteten Screen-Intervalle"></svg></div>
+    <div id="maskElasticLedger" style="overflow-x:auto"></div>
+    <p>Fünf Aᵢ↔Bᵢ-Verbindungen bei Pentagonen, vier bei Quadraten. Die Endpunkt-Indizes bleiben erhalten, auch wenn Kantenschnitte verschwinden. Cyan = länger als bei Tick 0 derselben Konfiguration, Pink = kürzer, Grau = Startlänge. Angezeigt wird der Endpunktabstand, nicht die Bogenlänge. Kurvenbiegung ist eine deklarierte Zeichenregel; keine Federkräfte, keine neue Uhr, keine Änderung der Maskenbewegung. Die lila Faltung bleibt oben. Ein-/Ausblenden und Kurvenwahl sind lokale Ansichtsoptionen, nicht Teil von Capture/Return oder Quellenexport.</p>
+    <p><strong>Numbermagick · getrennte Zahlenspur:</strong> 21+5+21+5+21 = 3·21+2·5 = 73. Mit p₁=2 ist p₂₁=73. Außerdem p₂+p₄=3+7=10 und die Ziffernsumme von 73 ist 7+3=10. Diese Rechnungen sind exakt; 21/5 sind hier noch keiner der fünf Verbindungen zugeordnet. Keine Ableitung von Längen, Kräften oder Schnittzahlen aus der Summe.</p>
+    <details id="maskLocalCompassDetails"><summary>Lokaler Tellerkompass · eigene 3:2 / 90°-Lesart</summary>
+    <h3 id="maskCompassTitle">Tellerkompass · eine Nadel / vier zeitliche Kreuze / goldener Auswahlring</h3>
+    <p>Der ausgewählte AM-/VM-/PM-Punkt bestimmt die gerichtete Nadel vom festen Mittelpunkt. Bis vier Positionskreuze lesen denselben Punkt jetzt sowie 3, 6 und 9 lokale Ticks zuvor — berechnete Referenzposen, keine vier unabhängigen Achsen. Die dünne Spur projiziert die tatsächlich gespeicherten Ticks in der aktuell gewählten Paaransicht neu. Am Nullpunkt wird keine Richtung erfunden: HOLD.</p>
+    <svg id="maskCompassSvg" class="mask-assembly-svg" viewBox="0 0 1360 650" role="img" aria-label="Tellerkompass mit gerichteter Nadel, goldener Schnittwahl, zeitlichen Positionskreuzen und getrennter 5B-Originalreferenz"></svg>
+    <p>Ringmarke anklicken oder per Tab und Enter/Leertaste wählen: Sie setzt den lokalen Tick auf den zugehörigen Schnitt. Rechts wird die vorhandene 5B-Geometrie direkt wiederverwendet: vier unabhängige Flügel, Zielwinkel und Nachlauf 3. <code>Z = round(Tick × 28/120)</code> ist eine neue deklarierte Anzeigekopplung, keine Gleichsetzung der Träger. Die 5B-Referenz endet bei 7°; ein geschlossener Lissajous-Zyklus behauptet keinen Falt-Return. Capture/Return stellt die lokale Auswahl und gespeicherte Spur wieder her. <a href="#foldLagLens">5B separat bedienen</a> · <a href="assets/a0-compass-assembly-v1.json">Kompassvertrag</a></p>
+    </details>
+    <details><summary>Bestandsabgleich der hier relevanten Demonstratoren · verbunden / separat / offen</summary>
+      <p>Teller, Lissajous-Paare, Acht, Detail-Linse und Kompass lesen denselben lokalen Tick. 5B ist als berechnete Originalreferenz eingebunden, nicht als fernbedienter Quellplayer. Native Dodeka-Flächen haben einen eigenen bestätigten Readback-/Return-Vertrag. Box/Laschen, Root Room, Sewing und GLB-Körper sind zugänglich, aber nicht vollständig von dieser Montage gesteuert. Insbesondere fehlen die Zuordnung konkreter Pentagon-Scharnierkanten, eine gemeinsame freigegebene Gesamtsequenz und die Browserabnahme. Black Knight / Tower bleibt ohne eindeutigen Quelltreffer offen.</p>
+      <p><a href="assets/a0-demonstrator-connection-audit-2026-10-19.json">Gezielter maschinenlesbarer Abgleich</a> · <a href="assets/a0-face-integration-package-v1.json">Vorhandenes Integrationspaket und offene Grenzen</a>. Dies ist kein vollständiger Census aller NEXAH-HTMLs und keine neue Gesamt-Return-Zusage.</p>
+    </details>
+    <p id="maskStatus" role="status">Bereit · pausiert. Erst verschieben oder einen vollständigen LRRL-/RLLR-Ausflug starten.</p>
+    <details><summary>Geprüfter Exportrecord</summary><pre id="maskRecord">Noch kein Record exportiert.</pre></details>
+    <p><b>Rechenregel:</b> Zwei Maskenhälften entstehen durch den senkrechten Schnitt der berechneten Überlappung A ∩ B am Mittelpunkt zwischen den Körperzentren. Ihre y=0-Intervalle und die Punkte von B werden mit derselben Zentralprojektion auf den Beobachterscreen abgebildet. Grün ist durchgelassen, Rot verdeckt. Dies ist eine deklarierte Projektions-/Gate-Regel, kein kalibriertes optisches Modell.</p>
+    <p><b>Zählung:</b> Kantenschnitte, Schnitte + Mittelpunkt und Referenzecken + Schnitte sind unterschiedliche Register. 11 bzw. 12 entstehen nur bei passender Geometrie; gemeinsame Kanten melden HOLD. Return stellt den erfassten lokalen Zustand samt Spur wieder her, nicht eine physikalische Vergangenheit.</p>
+    <p><a href="assets/a0-mask-assembly-v1.json">Montage / wiederverwendete Quellen / Grenzen</a> · <a href="assets/a0-mask-observer-v1.json">Maskenregel</a> · <a href="#bodyRouteBench">Blue Body / Dodeka / One Flow</a> · <a href="#sewingSourceWindow">Schaukeln</a> · <a href="#nsnGlbSources">GLB-Quellen</a>. Die separat geöffneten Originalseiten behalten ihre eigenen Uhren. „Nichts verloren“ gilt nur für den erfassten lokalen Zustand; die Spur ist auf 128 Punkte begrenzt und meldet verworfene Punkte. Black Knight / Asimov Tower: Quelle noch nicht eindeutig wiedergefunden, nicht als Engine angeschlossen. Materialnamen sind Bildwörter, keine Materialsimulation.</p>
+  </section>
+  <section id="recoveredSources" class="mask-observer-bench" aria-labelledby="recoveredSourcesTitle">
+    <h2 id="recoveredSourcesTitle">Wiedergefundene Originale · Doppelrad / BPS-MS</h2>
+    <p><a href="A0_GAME_OF_WORLDS_PLAY.html" target="_blank" rel="noopener noreferrer">Spiel öffnen · Zahlenwelt, dann „1836 / 1729 · XIX Wheels“ wählen ↗</a>. Dort sind beide Räder vorhanden, mit 3:2 / 2:3 und Gleich-/Gegenlauf. Dies ist ein Quellenzugang, noch kein ferngesteuerter Doppelrad-Player in dieser Bench.</p>
+    <details><summary>BPS-MS · zwölf Original-GIFs · Animationen separat öffnen</summary><p>Medienquellen mit geprüften Hashes, keine neue Sampling-, Neutrino- oder Energietheorie. Einige Original-GIFs enthalten keine explizite Frame-Dauer; das Browsertempo ist dann kein kalibrierter Messwert. Es wird nichts automatisch gestartet oder heruntergeladen.</p><div class="recovered-source-list">
+<a href="../../../../../../../Desktop/Desktop TASKS/DESKTOP_archy/x-1033_Release_some Symoblik stuff/Q_BOUNDARY_PHASE_SHIFT---nixda---nxineues---finallanif/VIisual_Gallery_PARTIII_Bps-ms — Part Iii_ Zustandsaxiome, Grenzübergänge &amp; Materielle Erscheinungsformen/BPS_MS_Plate_III_Animated.gif" target="_blank" rel="noopener noreferrer">BPS_MS_Plate_III_Animated.gif<small>20 Frames · Original-GIF separat öffnen</small></a>
+<a href="../../../../../../../Desktop/Desktop TASKS/DESKTOP_archy/x-1033_Release_some Symoblik stuff/Q_BOUNDARY_PHASE_SHIFT---nixda---nxineues---finallanif/VIisual_Gallery_PARTIII_Bps-ms — Part Iii_ Zustandsaxiome, Grenzübergänge &amp; Materielle Erscheinungsformen/BPS_MS_Plate_II_Animated.gif" target="_blank" rel="noopener noreferrer">BPS_MS_Plate_II_Animated.gif<small>20 Frames · Original-GIF separat öffnen</small></a>
+<a href="../../../../../../../Desktop/Desktop TASKS/DESKTOP_archy/x-1033_Release_some Symoblik stuff/Q_BOUNDARY_PHASE_SHIFT---nixda---nxineues---finallanif/VIisual_Gallery_PARTIII_Bps-ms — Part Iii_ Zustandsaxiome, Grenzübergänge &amp; Materielle Erscheinungsformen/BPS_MS_Plate_IV_Animated.gif" target="_blank" rel="noopener noreferrer">BPS_MS_Plate_IV_Animated.gif<small>18 Frames · Original-GIF separat öffnen</small></a>
+<a href="../../../../../../../Desktop/Desktop TASKS/DESKTOP_archy/x-1033_Release_some Symoblik stuff/Q_BOUNDARY_PHASE_SHIFT---nixda---nxineues---finallanif/VIisual_Gallery_PARTIII_Bps-ms — Part Iii_ Zustandsaxiome, Grenzübergänge &amp; Materielle Erscheinungsformen/BPS_MS_Plate_I_Zustandsraum_Animated.gif" target="_blank" rel="noopener noreferrer">BPS_MS_Plate_I_Zustandsraum_Animated.gif<small>24 Frames · Original-GIF separat öffnen</small></a>
+<a href="../../../../../../../Desktop/Desktop TASKS/DESKTOP_archy/x-1033_Release_some Symoblik stuff/Q_BOUNDARY_PHASE_SHIFT---nixda---nxineues---finallanif/Visual Gallery_PART_II__Boundary Phase &amp; Residue Atlas/BPS_MS_RGB_boundary_emergence.gif" target="_blank" rel="noopener noreferrer">BPS_MS_RGB_boundary_emergence.gif<small>18 Frames · Original-GIF separat öffnen</small></a>
+<a href="../../../../../../../Desktop/Desktop TASKS/DESKTOP_archy/x-1033_Release_some Symoblik stuff/Q_BOUNDARY_PHASE_SHIFT---nixda---nxineues---finallanif/Visual Gallery_PART_II__Boundary Phase &amp; Residue Atlas/BPS_MS_YGG_accumulation.gif" target="_blank" rel="noopener noreferrer">BPS_MS_YGG_accumulation.gif<small>4 Frames · Original-GIF separat öffnen</small></a>
+<a href="../../../../../../../Desktop/Desktop TASKS/DESKTOP_archy/x-1033_Release_some Symoblik stuff/Q_BOUNDARY_PHASE_SHIFT---nixda---nxineues---finallanif/Visual Gallery_PART_II__Boundary Phase &amp; Residue Atlas/BPS_MS_black_green_purple.gif" target="_blank" rel="noopener noreferrer">BPS_MS_black_green_purple.gif<small>16 Frames · Original-GIF separat öffnen</small></a>
+<a href="../../../../../../../Desktop/Desktop TASKS/DESKTOP_archy/x-1033_Release_some Symoblik stuff/Q_BOUNDARY_PHASE_SHIFT---nixda---nxineues---finallanif/Visual Gallery_PART_II__Boundary Phase &amp; Residue Atlas/BPS_MS_energy_rgb_combined.gif" target="_blank" rel="noopener noreferrer">BPS_MS_energy_rgb_combined.gif<small>18 Frames · Original-GIF separat öffnen</small></a>
+<a href="../../../../../../../Desktop/Desktop TASKS/DESKTOP_archy/x-1033_Release_some Symoblik stuff/Q_BOUNDARY_PHASE_SHIFT---nixda---nxineues---finallanif/Visual Gallery_PART_II__Boundary Phase &amp; Residue Atlas/BPS_MS_gamma_breathing.gif" target="_blank" rel="noopener noreferrer">BPS_MS_gamma_breathing.gif<small>18 Frames · Original-GIF separat öffnen</small></a>
+<a href="../../../../../../../Desktop/Desktop TASKS/DESKTOP_archy/x-1033_Release_some Symoblik stuff/Q_BOUNDARY_PHASE_SHIFT---nixda---nxineues---finallanif/Visual Gallery_PART_II__Boundary Phase &amp; Residue Atlas/BPS_MS_grey_boundary_residue.gif" target="_blank" rel="noopener noreferrer">BPS_MS_grey_boundary_residue.gif<small>16 Frames · Original-GIF separat öffnen</small></a>
+<a href="../../../../../../../Desktop/Desktop TASKS/DESKTOP_archy/x-1033_Release_some Symoblik stuff/Q_BOUNDARY_PHASE_SHIFT---nixda---nxineues---finallanif/Visual Gallery_PART_I__PBS_MS - Boundary-Phase-Shifted Multilyer Sampling/BPS_MS_field_energy_drift.gif" target="_blank" rel="noopener noreferrer">BPS_MS_field_energy_drift.gif<small>16 Frames · Original-GIF separat öffnen</small></a>
+<a href="../../../../../../../Desktop/Desktop TASKS/DESKTOP_archy/x-1033_Release_some Symoblik stuff/Q_BOUNDARY_PHASE_SHIFT---nixda---nxineues---finallanif/Visual Gallery_PART_I__PBS_MS - Boundary-Phase-Shifted Multilyer Sampling/BPS_MS_phase_drift.gif" target="_blank" rel="noopener noreferrer">BPS_MS_phase_drift.gif<small>12 Frames · Original-GIF separat öffnen</small></a>
+    </div></details>
+    <p><b>33°-Geometrie geprüft:</b> Die grüne Acht des wiedergefundenen Plots entspricht bei Standardparametern exakt <code>(VM.y, VM.x/2)</code>, mit passender Parameterphase. Das ist ein Achsentausch plus Skalierung, keine neue Bewegung. 33° hat dieselbe Schnittzahl wie Nachbarwinkel; bei 45° fallen die zusätzlichen Acht-Schnittpunkte im Ursprung zusammen. Original-Rot ist nur ein Strahl nach rechts, nicht automatisch eine Treppenregel. <a href="results/a0-quantum-arch-geometry-diagnostic-2026-10-20.json">4.492 technische Prüfungen / Geometriebefund</a> · <a href="assets/a0-bench-source-sections-v1.json">Quellenvertrag</a></p>
+  </section>
+  <section id="codeCalendarLens" class="mask-observer-bench" aria-labelledby="codeCalendarTitle">
+    <h2 id="codeCalendarTitle">3+1 · Codes / Kalender / V-Prüffenster</h2>
+    <p>Belegte Zahlen: <b>3² = 9 · 2³ = 8 · 2×5 = 10</b>. Drei Datumszeugen von 1974 plus einer von 1972 werden direkt aus dem vorhandenen GH-Hinge-Modell gelesen. Kalendergültigkeit und historische Quellbeschriftung bleiben getrennt.</p>
+    <pre id="codeCalendarDates">Datumszeugen werden geladen.</pre>
+    <div class="mask-controls">
+      <label>Spiegelpaar<select id="codeCalendarAxis"><option value="0">A · 123 ↔ 321</option><option value="1">B · 132 ↔ 231</option><option value="2">C · 213 ↔ 312</option></select></label>
+      <label>V-Skizze · Breite : Höhe<select id="codeCalendarRatio"><option value="0">3:4</option><option value="1">2:3</option><option value="2">1:2</option></select></label>
+      <button type="button" id="codeCalendarReverse">Richtung umschalten · 7↔9 / 8↔10</button>
+      <button type="button" id="codeCalendarCapture">Auswahl erfassen</button>
+      <button type="button" id="codeCalendarReturn" disabled>Auswahl zurückholen</button>
+      <button type="button" id="codeCalendarTest">Prüfmatrix testen</button>
+    </div>
+    <p id="codeCalendarReadout" role="status"></p>
+    <svg id="codeCalendarSvg" viewBox="0 0 480 290" width="480" style="max-width:100%;height:auto" role="img" aria-label="Deklarierte V-Prüfskizze, keine mechanische Faltung"></svg>
+    <p id="codeCalendarTests" role="status">Test prüft alle drei Paare × drei Verhältnisse × zwei Richtungen; keine Bewegungsregel.</p>
+    <p><b>Offene Zuordnung:</b> 7↔9 und 8↔10 sind eine vom Owner vorgeschlagene reversible Adresslesart, keine implementierte Kalenderumrechnung. AM/PM ist nicht belegt. Die drei Verhältnisse sind unabhängig wählbare Vergleichsskizzen und noch keinem Spiegelpaar oder Flügel zugeordnet. JJ / Juni–Juli bleibt ein Bildmotiv. Weder Datumswerte noch diese Skizze steuern die lila Faltung; an Pose 29 wird keine neue Wende behauptet. Capture/Return stellt nur diese Auswahl wieder her.</p>
+    <p><a href="#tripleS3Extension">Vorhandenes TripleSix-Register</a> · <a href="#maskCompassTitle">Teller und Original-5B-Referenz</a> · <a href="assets/a0-code-calendar-lens-v1.json">Quellen und Prüfvertrag</a></p>
+    <details><summary>Aktueller Vergleichsrecord · offene Bindungen ausdrücklich null</summary><pre id="codeCalendarRecord"></pre></details>
+  </section>
+  <section id="augustSourceTrail" class="august-source-trail" aria-labelledby="augustSourceTitle">
+    <details>
+      <summary id="augustSourceTitle">August-Serie · acht Original-HTMLs · Grey Space / CARO / Faltung öffnen</summary>
+      <p>Vorhandener Quellenbestand vom 24.08.2026, kein neuer HTML-Nachbau. Wähle ein Original; es öffnet separat und startet nicht automatisch in dieser Bench. Der neue Lesetitel <b>A I|0</b> verwendet die Ziffer 0; historisches I/O mit Buchstabe O bleibt unverändert.</p>
+      <div class="august-source-cards">
+        <article><h3>CARO · Green Mirror</h3><p>Kanal öffnen / schließen; Lotus und Return-Glyphe.</p><a data-august-source="nexah-caro-green-mirror-download.html" href="../../../SCIENCE_LAB/CASE_STUDIES/THREE_LIFE_SYSTEMS_PLUS_ONE_BINDER_VISUAL_SERIES_2026-08-24/SOURCE_ASSETS/NEXAH Anatomy_Dual_Tripple_Core_CA|CON-DAO|AU/nexah-caro-green-mirror-download.html" target="_blank" rel="noopener noreferrer">Original-HTML öffnen ↗</a></article>
+        <article><h3>Game Over · Faltung</h3><p>Kreuz / Würfelnetz und Wild Card; ein Zug endet, der Zustandsraum bleibt.</p><a data-august-source="nexah-game-over-cross-download.html" href="../../../SCIENCE_LAB/CASE_STUDIES/THREE_LIFE_SYSTEMS_PLUS_ONE_BINDER_VISUAL_SERIES_2026-08-24/SOURCE_ASSETS/NEXAH Anatomy_Dual_Tripple_Core_CA|CON-DAO|AU/nexah-game-over-cross-download.html" target="_blank" rel="noopener noreferrer">Original-HTML öffnen ↗</a></article>
+        <article><h3>Light Organ · Grey Space</h3><p>Fenster, Pipe und Kanalmaske als drei Ansichten.</p><a data-august-source="nexah-light-organ-elevator-download.html" href="../../../SCIENCE_LAB/CASE_STUDIES/THREE_LIFE_SYSTEMS_PLUS_ONE_BINDER_VISUAL_SERIES_2026-08-24/SOURCE_ASSETS/NEXAH Anatomy_Dual_Tripple_Core_CA|CON-DAO|AU/nexah-light-organ-elevator-download.html" target="_blank" rel="noopener noreferrer">Original-HTML öffnen ↗</a></article>
+        <article><h3>Lunar · Still Point</h3><p>Mond-/Sonnenmodus, Kanalmaske und Still Point als Quelllabels.</p><a data-august-source="nexah-lunar-still-point-download.html" href="../../../SCIENCE_LAB/CASE_STUDIES/THREE_LIFE_SYSTEMS_PLUS_ONE_BINDER_VISUAL_SERIES_2026-08-24/SOURCE_ASSETS/NEXAH Anatomy_Dual_Tripple_Core_CA|CON-DAO|AU/nexah-lunar-still-point-download.html" target="_blank" rel="noopener noreferrer">Original-HTML öffnen ↗</a></article>
+        <article><h3>Ninefold Return</h3><p>Quelle, Fenster, Maske, Spiegel und Rückweg im historischen Instrument.</p><a data-august-source="nexah-ninefold-return-download.html" href="../../../SCIENCE_LAB/CASE_STUDIES/THREE_LIFE_SYSTEMS_PLUS_ONE_BINDER_VISUAL_SERIES_2026-08-24/SOURCE_ASSETS/NEXAH Anatomy_Dual_Tripple_Core_CA|CON-DAO|AU/nexah-ninefold-return-download.html" target="_blank" rel="noopener noreferrer">Original-HTML öffnen ↗</a></article>
+        <article><h3>Dual-Core Transition</h3><p>Getrennte Kerne und Pink Strip als dargestellte Übergangsrelation.</p><a data-august-source="nexah-dual-core-transition-download.html" href="../../../SCIENCE_LAB/CASE_STUDIES/THREE_LIFE_SYSTEMS_PLUS_ONE_BINDER_VISUAL_SERIES_2026-08-24/SOURCE_ASSETS/NEXAH Anatomy_Dual_Tripple_Core_CA|CON-DAO|AU/nexah-dual-core-transition-download.html" target="_blank" rel="noopener noreferrer">Original-HTML öffnen ↗</a></article>
+        <article><h3>Anatomy · animiert</h3><p>Funktionale Organe und Governance-Handoffs als nichtnormative Orientierung.</p><a data-august-source="nexah-anatomy-blueprint-animated-download.html" href="../../../SCIENCE_LAB/CASE_STUDIES/THREE_LIFE_SYSTEMS_PLUS_ONE_BINDER_VISUAL_SERIES_2026-08-24/SOURCE_ASSETS/NEXAH Anatomy_Dual_Tripple_Core_CA|CON-DAO|AU/nexah-anatomy-blueprint-animated-download.html" target="_blank" rel="noopener noreferrer">Original-HTML öffnen ↗</a></article>
+        <article><h3>Anatomy · statisch</h3><p>Ruhige Übersicht derselben Rollen; keine aktuelle Autoritätskarte.</p><a data-august-source="nexah-anatomy-blueprint-download.html" href="../../../SCIENCE_LAB/CASE_STUDIES/THREE_LIFE_SYSTEMS_PLUS_ONE_BINDER_VISUAL_SERIES_2026-08-24/SOURCE_ASSETS/NEXAH Anatomy_Dual_Tripple_Core_CA|CON-DAO|AU/nexah-anatomy-blueprint-download.html" target="_blank" rel="noopener noreferrer">Original-HTML öffnen ↗</a></article>
+      </div>
+      <p><b>Quellenregel:</b> Acht HTML-Primärquellen bleiben unverändert. Sechs sekundäre Screenshots wurden laut bestehendem Custody-Record verändert; ihr historischer Originalzustand ist nicht wiederhergestellt. Die dokumentierte neue Baseline bleibt bestehen.</p>
+      <p><b>Keine Gleichsetzung:</b> CARO-Closing ist ein historischer Darstellungswechsel, kein Cn-Antipode. Grey Space ist ein deklariertes Interface, kein Nachweis von Leere. Anatomie- und Desk-Grafiken sind nichtnormative historische Orientierung, keine aktuelle Autoritätskarte. Originale enthalten teils externe UI-Bibliotheken; vollständige Offline-Funktion wird nicht behauptet.</p>
+      <p class="august-source-links"><a href="assets/a0-august-source-trail-v1.json">Quellpfade / acht SHA-256</a><a href="../../../SCIENCE_LAB/CASE_STUDIES/THREE_LIFE_SYSTEMS_PLUS_ONE_BINDER_VISUAL_SERIES_2026-08-24/00_AUTHORITY_AND_SOURCE_CONTRACT.md">Quellenvertrag / Custody</a><a href="../../../SCIENCE_LAB/CASE_STUDIES/THREE_LIFE_SYSTEMS_PLUS_ONE_BINDER_VISUAL_SERIES_2026-08-24/01_VISUAL_LANGUAGE_AND_LAYER_MAP.md">Vorhandene Rollenkarte</a><a href="../../../SCIENCE_LAB/CASE_STUDIES/THREE_LIFE_SYSTEMS_PLUS_ONE_BINDER_VISUAL_SERIES_2026-08-24/FINAL_VISUAL_SERIES_DECISION.md">Disposition</a><a href="A0_BLUE_PINK_DODECA_CELL_RETURN.html#oneFlow">Blue/Pink · bestehender Möbius 2×3</a><a href="#finite-antipode">Bench · Spiegel / Antipode / Three Track</a></p>
+      <p>Offen bleiben Plug/Cut-Grammatik, Würfelviertelung und eine gemeinsame historische Bewegungsregel. Sie werden durch diese Quellenverknüpfung nicht aktiviert.</p>
+    </details>
+  </section>
+
+  <section class="bench-map" id="benchMap" aria-labelledby="benchMapTitle">
+    <header>
+      <div><small>OPERATIVE BENCH PROJECTION · SIX STAGES · SOURCE-BOUND</small><h2 id="benchMapTitle">Die Bench als laufendes Schaltbild.</h2><p>Die Karte ordnet bestehende Module von Quelle bis Record, zeigt ihre Bindungsart und folgt der Tour. Sie besitzt weder Bench-State noch Playback und verändert keine Family-Relation.</p></div>
+      <div class="bench-map-boundary"><b>REUSES · NEXAH_A0_ORIENTATION_CONTROLLER_BENCH</b><br>Eigene operative Projektion. Kein eingebetteter Family Atlas, kein kopierter Carrier, keine zweite Clock.</div>
+    </header>
+    <div class="bench-map-toolbar" aria-label="Bench Map nach Bindungstyp filtern">
+      <button type="button" data-bench-map-filter="ALL" aria-pressed="true">ALLE</button>
+      <button type="button" data-bench-map-filter="STATE_OWNER" aria-pressed="false">STATE OWNER</button>
+      <button type="button" data-bench-map-filter="LIVE_COUPLED" aria-pressed="false">LIVE</button>
+      <button type="button" data-bench-map-filter="TYPED_HANDOFF" aria-pressed="false">HANDOFF</button>
+      <button type="button" data-bench-map-filter="VIEW_PROJECTION" aria-pressed="false">VIEW</button>
+      <button type="button" data-bench-map-filter="RETURN_WITNESS" aria-pressed="false">RETURN</button>
+      <button type="button" data-bench-map-filter="RESULT_LENS" aria-pressed="false">RESULT</button>
+    </div>
+    <div class="bench-map-stage">
+      <svg class="bench-map-edges" id="benchMapEdges" aria-hidden="true"></svg>
+      <div class="bench-map-groups" id="benchMapGroups" aria-label="Operative Benchmodule"></div>
+    </div>
+    <div class="bench-map-inspector">
+      <div><small>AKTIVE AUSWAHL · MAP SELECTION ONLY</small><h3 id="benchMapSelectionTitle">Prime address / state</h3><p id="benchMapSelectionCopy">Bench-owned carrier, address, position and role record.</p><div class="bench-map-selection-meta" id="benchMapSelectionMeta"></div></div>
+      <div class="bench-map-inspector-actions"><button id="benchMapFocus" type="button">ZUM MODUL ↓</button><button id="benchMapWindow" type="button" hidden>IM FENSTER ÖFFNEN</button><a href="#benchShowcase">ZUR TOUR ↑</a></div>
+    </div>
+    <div class="bench-map-foot"><output id="benchMapStatus" role="status" aria-live="polite">IDLE · MAP READY · BENCH OWNS PLAYBACK</output><span>SELECTION ≠ STATE MUTATION · VIEW ≠ IDENTITY · PLAYBACK EVENT ≠ SHARED CLOCK</span></div>
   </section>
 
   <section class="coupled-window-hub" id="coupledWindowHub" aria-labelledby="coupledWindowHubTitle">
     <header>
       <div><small>OCB COUPLED WINDOW SYSTEM · REUSABLE BENCH STAGE</small><h2 id="coupledWindowHubTitle">Ein Fenster öffnet die gekoppelte Bench.</h2><p>Wähle eine Anwendung. Das Fenster schiebt nur die benötigten Module zu einer lesbaren Arbeitsfläche zusammen, startet vorhandene Engines und hält Source, View, Residual und Return auseinander.</p></div>
-      <span class="coupled-window-hub-badge">10 WINDOWS · 0 NEW IDENTITIES</span>
+      <span class="coupled-window-hub-badge">14 FENSTER · BESTEHENDE BENCH</span>
     </header>
+    <p><a href="#codeCalendarLens">Zum 3+1-Prüffenster · Codes / Kalender / V ↗</a></p>
     <div class="coupled-window-launchers" aria-label="Coupled Bench Windows">
-      <button class="coupled-window-card" type="button" data-coupled-open="window"><small>A0-BL-036 · APPLICATION</small><b>Moving Aperture · Return Window</b><span>Dürer und Khajuraho · 2×2/3×3 · planar/torisch · Collision + Residual + Return</span><em>OPEN LIVE WINDOW ↗</em></button>
+      <button class="coupled-window-card" type="button" data-coupled-open="division-return"><small>RECONSTRUCTION / THREE CONTRACTS</small><b>Teilung · Übersetzung · Return</b><span>Split Rest +3 / −1 · Re/ST-Mittelpunkt 75 · CRT 29/31 mit Quotient</span><em>ÖFFNEN ↗</em></button>
+      <button class="coupled-window-card" type="button" data-coupled-open="lens-return"><small>VIEW + NATIVE RETURN</small><b>Prisma · Linsen · 978</b><span>AM / VM / PM · RGB / YMCK · Fold Guide · exakter Zahlenanker</span><em>ÖFFNEN ↗</em></button>
+      <button class="coupled-window-card" type="button" data-coupled-open="antipode"><small>FINITE OPERATOR</small><b>Antipode · Boundary-Band</b><span>C6 / C8 · Odd HOLD · 2×3 band readings · exact Return</span><em>OPEN ↗</em></button>
+<button class="coupled-window-card" type="button" data-coupled-open="ghostgons"><small>FINITE VIEW ORDERS</small><b>Ghostgons 17 / 19 / 23</b><span>Distinct polygon / phase contracts · Residual · Replay</span><em>OPEN ↗</em></button>
+<button class="coupled-window-card" type="button" data-coupled-open="window"><small>A0-BL-036 · APPLICATION</small><b>Moving Aperture · Return Window</b><span>Dürer und Khajuraho · 2×2/3×3 · planar/torisch · Collision + Residual + Return</span><em>OPEN LIVE WINDOW ↗</em></button>
       <button class="coupled-window-card" type="button" data-coupled-open="control"><small>CONTROL</small><b>Master + System Binder</b><span>Regie, gekoppelte Engines und versionierter Laufnachweis</span><em>OPEN ↗</em></button>
       <button class="coupled-window-card" type="button" data-coupled-open="native"><small>NATIVE RETURN</small><b>Face + A·i·l + Ninefold</b><span>Echte Quelle, lokaler Punkt, Scharnier, Orbit und Replay</span><em>OPEN ↗</em></button>
       <button class="coupled-window-card" type="button" data-coupled-open="measurement"><small>MEASUREMENT</small><b>M3 + Aperture Stack</b><span>Vier Ansichten eines Records plus Kalibrierung</span><em>OPEN ↗</em></button>
@@ -92,6 +315,59 @@
     <div class="coupled-window-body" id="coupledWindowStage"></div>
     <footer class="coupled-window-foot"><output id="coupledWindowStatus" role="status" aria-live="polite">READY</output><span>VIEW COUPLING ≠ CARRIER IDENTITY · RETURN ≠ HISTORY REVERSAL · NOT A SCIENCE RUN</span><button id="coupledWindowReturn" type="button">SCHLIESSEN · ZUR LESESTELLE</button></footer>
   </dialog>
+
+  <section id="caroOrientationModes" aria-labelledby="caroOrientationTitle">
+    <small>VORHANDENE MODI · OWNER-RICHTUNGSLESART · QUELLEN BLEIBEN GETRENNT</small>
+    <h2 id="caroOrientationTitle">C · Crossing / D · Day / A ↑ · V ↓</h2>
+    <p>C ist das vorhandene Crossing im CARO-Bild. D ist deine Day-Lesart und öffnet den bestehenden Körperplayer im Day-Modus. A/V bezeichnet hier hoch/runter, nicht Vorder-/Rückseite. AM/VM sind deine Richtungslabels; die bestehende Trinity-Rolle VM als Überlagerung und AM/PM als Tag-/Nachtlesart werden dadurch nicht umdefiniert.</p>
+    <div class="caro-mode-actions"><a href="#caroControlBench">C · Crossing / CARO ↓</a><button type="button" id="caroDirectionUp" aria-pressed="true">A ↑ · AM-Richtung</button><button type="button" id="caroDirectionDown" aria-pressed="false">V ↓ · VM-Richtung</button><label>Q° · fünf vorhandene Lesemarken <select id="caroQMarker"></select></label></div>
+    <p>DAY · DAWN · DEMIZEL · DUSK · NIGHT sind die fünf bereits vorhandenen manuellen Lesemarken. Q° bleibt ein historisches Beobachterlabel: keine gemessene Tageszeit und kein nachgewiesenes physikalisches Fünf-Zustands-Modell. Die Richtungsansicht spiegelt nur y um den gemeinsamen Pivot; Quellphase und Signalregel bleiben erhalten.</p>
+    <output id="caroModeObservation" role="status"></output><div id="caroDirectionSvg"></div>
+    <div class="caro-mode-actions"><button type="button" id="caroModeCapture">Ansichtsanker erfassen</button><button type="button" id="caroModeReturn" disabled>Richtung / Lesemarke zurück</button><button type="button" id="caroModeExport">Ansichtsrecord exportieren</button></div>
+    <p>Der Ansichtsanker umfasst nur Richtung und Lesemarke. CARO-Kanal, SVG-Zeit, Linsenphase und Körperzustand werden davon nicht zurückgesetzt; ihre eigenen Anker bleiben bestehen.</p>
+    <h3>Native Day/Night/Mirror- und Janus-Quellen öffnen</h3>
+    <p>Diese Tasten öffnen Quellfenster A neu und verwerfen dessen bisherige Sitzung. Die Körpersequenz startet im gewählten Modus pausiert; native Kamerabewegung bleibt quelleneigen. Das ist unabhängig von CARO-Hell/Dunkel; Records im Quellfenster vorher exportieren.</p>
+    <div class="caro-mode-actions"><button type="button" id="caroDayOpen">D · Day-Player öffnen</button><button type="button" id="caroNightOpen">Night-Player öffnen</button><button type="button" id="caroMirrorOpen">View-Mirror öffnen</button><button type="button" id="caroJanusOpen">Janus · Arithmetic Ladder</button><button type="button" id="caroConDaoOpen">Janus · CON–DAO</button></div>
+    <div class="caro-mode-actions"><button type="button" id="caroQJoystickOpen">Q° · Original-Joystick</button><button type="button" id="caroQShadowOpen">Q° · Shadow-Switchyard</button></div>
+    <p>Im Original-Joystick sind 1, i, j, k vier Quaternion-Basisblätter und Q° die zentrale Steuerrolle, keine fünfte Komponente. Die fünf manuellen Tages-Lesemarken oben werden nicht als identisch mit diesem Q°-Modell behauptet.</p>
+    <output id="caroModeStatus" role="status">Bereit · kein neuer Quellenlauf gestartet.</output>
+    <details><summary>ÀU-NÁ-HÊ-TI · Root-Grid, Saddle, Shadow und Gegenbilder</summary>
+      <p>Sieben unveränderte Owner-Tafeln als lokale Referenz. Die kleine Wurzeldreieck-Ansicht oben verwendet ausdrücklich (0,0), (√3,0), (0,±√7), also Hypotenuse √10. Die Tafeln darunter besitzen unterschiedliche Koordinaten- und Root-Label-Konventionen. Saddle, Lilith, Warp, Frequenzbeschriftungen und kosmische Namen bleiben Bildrollen, keine physikalische Bestätigung. Die 29-Zähne-Tafel ist nicht automatisch die 29-Posen-5B-Folge.</p>
+      <div id="aunaReferenceGallery"></div>
+      <p><a href="../../../NUMBER_OPERATOR_ARCHITECTURE_CONCORDANCE_AUDIT/AU_NA_HE_TI_DESKTOP_HTML_SOURCE_TRIAGE_2026-10-19.md">Historische HTMLs · bestehende Quellen-Triage</a> · keine großen Plotly-/CDN-Exporte in die Bench übernommen.</p>
+    </details>
+  </section>
+  <section id="caroControlBench" class="caro-bench" aria-label="CARO Green Mirror native source controller"><h2>CARO live · Green Mirror / Grey Space</h2><p>Lokaler Originalgeometrie-Adapter wird geladen. Falls er nicht startet: <a href="#augustSourceTrail">Original-HTML im Quellenbereich</a>.</p></section>
+  <section id="divisionReturnBench" class="panel" aria-label="Teilung Übersetzung Return"><h2>Teilung · Übersetzung · Return</h2></section>
+
+  <section id="benchLensReturn" class="panel" aria-label="Linsen Überlagerung und separater nativer Zahlenreturn"><h2 id="benchNumberReturn">Linsen / Zahlenreturn</h2></section>
+  <section id="plateMirrorBench" aria-labelledby="plateMirrorTitle">
+    <small>TELLER · FESTE 45°-REFERENZ · QUELLANIMATION WIEDERVERWENDEN</small>
+    <h2 id="plateMirrorTitle">Zwei Nodes · Spiegel · 90° und die L-Strebe</h2>
+    <p>Das feste Referenzpaar ist y=x / y=−x. Die Hilfsnodes N1=(1/√2,1/√2) und N2=(1/√2,−1/√2) liegen auf dem Einheitskreis und schließen am Mittelpunkt 90° ein. H(x,y)=(x,−y) spiegelt an der Horizontalen; die Spiegelung direkt an y=x wäre dagegen S45(x,y)=(y,x). Die beiden Operatoren bleiben getrennt.</p>
+    <div class="plate-mirror-controls">
+      <label>Phase aus <select id="plateMirrorSource"><option value="mixer">Mixer / Linsen · gleicher lokaler Schieber</option><option value="mask">Original-Maskenanimation · Tick 0–120</option></select></label>
+      <label><input type="checkbox" id="plateMirrorReference" checked> feste 45°-Referenz / zwei Nodes</label><label><input type="checkbox" id="plateMirrorEnabled" checked> Spiegelansicht</label>
+      <button type="button" id="plateMirrorPlay">Original-Maskenanimation · Start / Pause</button><button type="button" id="plateMirrorStep">Original · Step</button><button type="button" id="plateMirrorCapture">Original · Quellanker</button><button type="button" id="plateMirrorReturn">Original · Quellreturn</button>
+    </div>
+    <output id="plateMirrorStatus" role="status">Noch keine Quellphase gelesen.</output>
+    <div class="plate-mirror-views"><div id="plateMirrorFlat"></div><div id="plateMirrorSpatial"></div></div>
+    <p>Links bleibt das Referenzkreuz fest; ein Phasenzeiger und sein Spiegel bewegen sich darum. Rechts stammen die Tellerkurven und die beiden Phasenproben aus der vorhandenen One-Flow-Geometrie. Deren räumlicher Spiegel ist z↦−z; die perspektivische Ansicht ist kein Winkelmessbild. N1/N2 sind neue lokale Hilfsmarken, keine behauptete Wiedergewinnung historischer Node-Adressen. Die L-Diagonale ist eine Bildstrebe, kein geprüfter mechanischer Verstärker.</p>
+    <p>Die Animation verwendet ausschließlich den vorhandenen Maskenplayer: Tick k wird als Ansichtsphase 3k° gelesen. Mixer-Schieber und Maskenplayer sind wählbare, getrennte Phasenquellen; es wird keine neue Uhr und keine automatische Quellenkopplung eingeführt. Der Quellanker/Return bleibt beim originalen Maskencontroller. Die Faltfolge 0° → 78° → 33° → 7° → 0° sowie Crown 0–19 bleiben unverändert; 45° ist keine zusätzliche Faltstation.</p>
+    <div class="plate-mirror-controls"><button type="button" id="plateMirrorExport">Geometrie-/Quellenrecord exportieren</button><button type="button" id="plateMirrorOriginal">One Flow im Quellfenster A neu öffnen</button><a href="#maskCompassTitle">Vorhandener Tellerkompass ↑</a><a href="#caroOrientationModes">C / D · A / V ↑</a></div>
+    <p>„One Flow öffnen“ verwirft die Sitzung in Quellfenster A; dort im Original den Modus „Gegenüberliegende Teller“ wählen. Seine eigene Uhr bleibt unabhängig von dieser Vergleichsansicht.</p>
+    <section id="plateCylinderBench" aria-labelledby="plateCylinderTitle">
+      <h3 id="plateCylinderTitle">Banderole · Rotation, sechs feste Teller und eine sichtbare Naht</h3>
+      <p>Wie beim Friseur: Der Zylinder dreht sich um seine feste Achse. Die Materialhöhe bleibt gleich; nur die Bandkreuzung an einer festen Blicklinie scheint auf- oder abzusteigen. Links die räumliche Ansicht, rechts dasselbe Muster in der Abwicklung.</p>
+      <div class="plate-mirror-controls"><label>Drehrichtung <select id="plateCylinderDirection"><option value="forward">Vorwärts</option><option value="reverse">Gegenlauf</option></select></label><label><input id="plateCylinderCopies" type="checkbox" checked> zweite Abwicklung / Nahtkopie zeigen</label><button id="plateCylinderExport" type="button">Rotationsrecord exportieren</button></div>
+      <output id="plateCylinderStatus" role="status">Phase aus der Telleransicht oben.</output>
+      <div id="plateCylinderDrawing"></div>
+      <p>Steuerung über „Phase aus“, Original-Start/Pause, Step und Quellanker/Return oben; keine zusätzliche Uhr. Der Return betrifft die Quellphase, nicht die lokalen Richtungs-/Kopieoptionen. Zwei Dreiergruppen sind hier P1–P3 / P4–P6. Die sechs nominalen Winkel stammen unverändert aus dem Aperture Stack; sie sind keine Bandsteigung.</p>
+      <p><strong>Deklarierte Ansichtsgeometrie:</strong> Radius 0.32, Höhe −0.5 bis +0.5, eine Bandwindung pro Höheneinheit und gleichmäßige Tellerhöhen. Drei rot/weiß/blaue Bänder sind ein Anschauungsmuster, keine neue Signalzuordnung. Die Naht verbindet (0,z) mit (1,z), ohne Möbius-Verdrehung. Eine Kopie ist kein zusätzlicher Zustand. Gold markiert Materialprobe und Schnittkontakte, keinen neuen Operator.</p>
+      <details><summary>Owner-Lesarten und noch offene Bindungen</summary><p>Tag/INSIDE und Nacht/OUTSIDE; Janus-Paar 7/8 als gemeinsamer Abschluss mit Wiederholung; „2^3“ als Bezeichnung der oberen drei Teller: hier als Owner-Lesarten festgehalten, nicht als neue Kalender- oder Rechenregel ausgeführt. „9 Schalen / 11 Winds“, Lade/77, A–F/G/H und die vollständige Ösenfolge 7/33/45/78/90/87/45 benötigen weiter ihre konkrete Quellbelegung. Die Glyphenbelegungen œ/ō widersprechen sich zwischen Bench und Block 02B; kein stiller Rollentausch. J und E_s sowie der LIFE04B-FAIL 0/4 bleiben unverändert.</p></details>
+    </section>
+    <details><summary>Alpha / Wal · Maskenquelle aus dem Owner-Bild</summary><img src="assets/au-na-he-ti-reference/consciousness-window.png" alt="Historische Owner-Tafel Consciousness Window · Alpha = Wal, zentrale G-Öffnung und roter Pinocchio-Marker" loading="lazy"><p>Unveränderte Bildreferenz. Maskenform, G und roter Punkt werden nicht ohne ihren Generator mit der Trinity-Linse oder den beiden 45°-Hilfsnodes identifiziert. Der Bildtitel ist keine wissenschaftliche Bewusstseinsaussage.</p></details>
+  </section>
 
   <section class="return-economy" id="returnEconomyDemonstrator" aria-labelledby="returnEconomyTitle" data-phase="source" data-running="false">
     <header>
@@ -365,7 +641,10 @@
     </div>
   </details>
 
-  <details class="external-adapter-pack" id="externalAdapterPack">
+  <link rel="stylesheet" href="a0-bench-finite-packages.css">
+<section id="finite-antipode" class="finite-package" aria-label="Antipode Boundary Band source-owned module"></section>
+<section id="finite-ghostgons" class="finite-package" aria-label="Ghostgon 17 19 23 source-owned module"></section>
+<details class="external-adapter-pack" id="externalAdapterPack">
     <summary><span>EXTERNAL ADAPTERS · PACK A+B</span><b>Vier vorhandene HTML-Instrumente verbinden, bewegen und lokal zurückführen</b></summary>
     <div class="external-adapter-body">
       <div class="external-adapter-head">
@@ -436,6 +715,15 @@
 
   <section class="native-face-lab" id="nativeFaceBridge" aria-labelledby="nativeFaceTitle">
     <header><div><small>OCB FACE PACKAGE · SOURCE-OWNED RENDERER</small><h2 id="nativeFaceTitle">Native Face Bridge</h2><p>Eine echte adressierte Fläche wird im bestehenden Blue/Pink/Dodeca-Renderer gewählt, an ihrer expliziten Kante bewegt, aus der Quelle zurückgelesen und zum Ankerzustand zurückgeführt.</p></div><output id="nativeFaceStatus" role="status" aria-live="polite">WAITING · source frame</output></header>
+    <section id="sourceSections" class="source-sections" aria-labelledby="sourceSectionsTitle">
+      <h3 id="sourceSectionsTitle">Das vollständige Original · direkt bedienen</h3>
+      <p>Kein reduzierter Nachbau: Diese Auswahl fokussiert Abschnitte im bereits vorhandenen Blue/Pink-Quellfenster darunter. Eigene Quelluhr, keine neue Bench-Synchronisation. Vorher wichtige Returns im Original halten: Falls der Browser bei der Fragmentnavigation neu lädt, kann der Quellzustand verloren gehen.</p>
+      <p><button type="button" id="sourceSection_measurement" aria-pressed="false">Shared View · Adresse · Schnitt</button> <a href="A0_BLUE_PINK_DODECA_CELL_RETURN.html#sharedMeasurement" target="_blank" rel="noopener noreferrer">Messansicht separat öffnen ↗</a> · ein nativer Signalzeitpunkt, TESA-Referenzadresse, Durchlass und deklarierter Observer-Schnitt. Lesebild speicherbar; kein Quell-Return, keine neue Uhr, keine Gewichtsannahme.</p>
+      <nav class="body-route-actions" aria-label="Originalabschnitt wählen"><button type="button" id="sourceSection_tesa" aria-pressed="false">TESA · Raster verschieben</button><button type="button" id="sourceSection_lissajous" aria-pressed="false">AM / VM / PM + Overlay</button><button type="button" id="sourceSection_distance" aria-pressed="false">Strecken / Verhältnisse</button><button type="button" id="sourceSection_signals" aria-pressed="false">Signalschreiber</button><button type="button" id="sourceSection_grid" aria-pressed="false">1000×1000 · Ausschnitt</button><button type="button" id="sourceSection_formation" aria-pressed="false">Mandelbrot / Julia / Critical Orbit</button><button type="button" id="sourceSection_chamber" aria-pressed="false">Apertur → Teller</button><button type="button" id="sourceSection_flow" aria-pressed="false">Schalen / Teller / Möbius</button></nav>
+      <p id="sourceSectionsStatus" role="status">Bereit · Abschnitt wählen. Falls der Browser den Zugriff sperrt, bleibt der direkte Quellenlink verfügbar.</p>
+      <p class="body-route-actions"><button type="button" id="sourceSectionsSize" aria-pressed="false">Quellfenster breit / kompakt</button><a id="sourceSectionsOriginal" href="A0_BLUE_PINK_DODECA_CELL_RETURN.html?bridge=1#formation" target="_blank" rel="noopener noreferrer">Abschnitt separat öffnen ↗</a></p>
+    </section>
+    <nav class="native-face-openers" aria-label="Native Face Quelle ansehen"><span>QUELLE ANSEHEN · BRIDGE BLEIBT VERBUNDEN</span><a class="primary" href="A0_BLUE_PINK_DODECA_CELL_RETURN.html?bridge=1#cell-machine" data-reader-viewer data-module-id="A0-VIEW-BLUE-PINK-DODECA-CELL-RETURN" data-focus-target="cell-machine" data-binding-type="source-view">IM GROSSEN VIEWER ÖFFNEN ⛶</a><a href="A0_BLUE_PINK_DODECA_CELL_RETURN.html?bridge=1#cell-machine" target="_blank" rel="noopener">IN NEUEM TAB ÖFFNEN ↗</a></nav>
     <div class="native-face-grid"><iframe class="native-face-frame" id="nativeFaceSourceFrame" title="Native Blue Pink Dodeca source" src="A0_BLUE_PINK_DODECA_CELL_RETURN.html?bridge=1#cell-machine"></iframe><aside class="native-face-console"><div class="native-face-controls"><button id="nativeFaceConnect" type="button">CONNECT SOURCE</button><button id="nativeFaceCapture" type="button">CAPTURE ANCHOR</button></div><div class="native-face-controls"><label>Native face<select id="nativeFaceSelect"><option value="0">BLUE-01:F01</option><option value="12">BLUE-02:F01</option><option value="24">PINK-01:F01</option><option value="36">PINK-02:F01</option></select></label><label>Hinge <output id="nativeFaceHingeOut">28°</output><input id="nativeFaceHinge" type="range" min="-60" max="60" value="28" step="1"></label></div><div class="native-face-controls"><button class="primary" id="nativeFaceApply" type="button">APPLY + READ BACK</button><button id="nativeFaceReturn" type="button">RETURN TO SOURCE</button></div><pre id="nativeFaceReadback">WAITING</pre></aside></div>
   </section>
 
@@ -506,6 +794,67 @@
           <circle class="hub" cx="220" cy="194" r="8"/><text id="ringReadout" x="220" y="325" text-anchor="middle">0° · tick 0/365 · drift 0</text><text class="muted" x="220" y="344" text-anchor="middle">5 × 72° = 360° · 5 × 73 ticks = 365</text><text class="muted" x="220" y="359" text-anchor="middle">+1 tick / sector = 2 × 0.5 microsteps</text>
         </svg>
       </div>
+      <section id="prismRelationLens" class="prism-relation-lens" data-module-id="OCB:PRISM_RELATION_LENS" data-focus-target="statePanel" data-binding-type="SOURCE_BOUND_VIEW" aria-labelledby="prismRelationTitle">
+        <header>
+          <div><small>PRISM READER · ONE STATE / THREE PROJECTIONS</small><h3 id="prismRelationTitle">Zerlegung · Relation · Erscheinung</h3></div>
+          <output id="prismRelationStatus" role="status" aria-live="polite">NEWTON · 7 BANDS</output>
+        </header>
+        <div class="prism-mode-controls" role="group" aria-label="Prism reader modes">
+          <button class="primary" type="button" data-prism-mode="newton">1 · NEWTON</button>
+          <button type="button" data-prism-mode="leibniz">2 · LEIBNIZ</button>
+          <button type="button" data-prism-mode="goethe">3 · GOETHE</button>
+          <button type="button" data-prism-sequence>▶ ALLE 3 ALS SEQUENZ</button>
+        </div>
+        <div class="prism-mode-readout">
+          <b id="prismRelationReadout">Weiße Quelle → schematische Zerlegung in sieben geordnete Bänder.</b>
+          <span id="prismRelationBoundary">Ansicht / Demonstrator · keine kalibrierte Optik.</span>
+        </div>
+        <section id="prismReturnSpine" class="prism-return-spine" data-prism-return-stage="number" data-module-ref="OCB:PRISM_RELATION_LENS" data-binding-type="TYPED_VIEW_RETURN" aria-labelledby="prismReturnTitle">
+          <header>
+            <div><small>OPERATIVE PROJECTION · FIVE TYPED STATIONS / ONE RETURN</small><h4 id="prismReturnTitle">Number / State → Seam → Cut → Shadow / Echo → Record</h4></div>
+            <button type="button" data-prism-return-play>▶ RETURN-SEQUENZ</button>
+          </header>
+          <div class="prism-return-stages" role="tablist" aria-label="Five typed prism return stations">
+            <button class="is-active" type="button" role="tab" aria-selected="true" data-prism-stage="number"><b>01</b><span>NUMBER / STATE</span></button>
+            <button type="button" role="tab" aria-selected="false" data-prism-stage="seam"><b>02</b><span>TYPED SEAM</span></button>
+            <button type="button" role="tab" aria-selected="false" data-prism-stage="cut"><b>03</b><span>GEOMETRIC CUT</span></button>
+            <button type="button" role="tab" aria-selected="false" data-prism-stage="shadow"><b>04</b><span>SHADOW / ECHO</span></button>
+            <button type="button" role="tab" aria-selected="false" data-prism-stage="record"><b>05</b><span>RETURN RECORD</span></button>
+          </div>
+          <div class="prism-return-workspace">
+            <svg class="prism-return-figure" viewBox="0 0 760 300" role="img" aria-labelledby="prismReturnFigureTitle prismReturnFigureDesc">
+              <title id="prismReturnFigureTitle">Five-stage prism return projection</title>
+              <desc id="prismReturnFigureDesc">A bounded number state crosses a typed zipper seam, is shown through two triangular geometric cuts, separates into seven light bands with distinct echo and shadow channels, and ends in a return record.</desc>
+              <defs>
+                <filter id="prismReturnGlow"><feGaussianBlur stdDeviation="3" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+                <linearGradient id="prismReturnWhite" x1="0" x2="1"><stop offset="0" stop-color="#8e6df0"/><stop offset=".58" stop-color="#f5fbff"/><stop offset="1" stop-color="#f5fbff"/></linearGradient>
+              </defs>
+              <g class="return-number" data-return-node="number"><rect x="24" y="100" width="126" height="94" rx="10"/><text x="87" y="126">NUMBER / STATE</text><text class="big" x="87" y="158">4774</text><text x="87" y="180">+ 4114 = 8888</text><text class="micro" x="87" y="211">gcd = 22 · exact checkpoint</text></g>
+              <path class="return-white-beam" d="M150 147H238"/>
+              <g class="return-seam" data-return-node="seam"><path d="M244 58V238"/><path d="M268 58V238"/><path class="zip" d="M244 72L268 86L244 100L268 114L244 128L268 142L244 156L268 170L244 184L268 198L244 212L268 226"/><circle cx="256" cy="147" r="8"/><text x="256" y="260">TYPED SEAM</text><text class="micro" x="256" y="278">140 incidences → 106 addresses + residual</text></g>
+              <g class="return-cut" data-return-node="cut"><path class="cut-a" d="M314 65L394 147L314 229Z"/><path class="cut-b" d="M394 65L474 147L394 229Z"/><line x1="394" y1="65" x2="394" y2="229"/><text x="394" y="252">TWO CUT FACES</text><text class="micro" x="394" y="270">view geometry · no carrier identity</text></g>
+              <g class="return-spectrum" data-return-node="shadow"><path data-band="0" d="M472 147L590 66"/><path data-band="1" d="M472 147L604 91"/><path data-band="2" d="M472 147L614 119"/><path data-band="3" d="M472 147L618 147"/><path data-band="4" d="M472 147L614 175"/><path data-band="5" d="M472 147L604 203"/><path data-band="6" d="M472 147L590 228"/><path class="echo" d="M494 242Q552 278 618 238"/><path class="red-shadow" d="M506 45H542V79H578V45H614"/><text x="560" y="286">LIGHT ≠ ECHO ≠ RED SHADOW</text></g>
+              <g class="return-record" data-return-node="record"><rect x="632" y="82" width="104" height="132" rx="8"/><path d="M650 111H718M650 132H702M650 153H718M650 174H694"/><circle cx="684" cy="195" r="8"/><text x="684" y="64">RETURN</text><text x="684" y="235">RECORD</text></g>
+            </svg>
+            <div class="prism-return-console">
+              <div><small id="prismReturnKicker">01 · SOURCE CHECKPOINT</small><b id="prismReturnReadout">4774 + 4114 = 8888 · gcd(4774, 4114) = 22.</b><span id="prismReturnBoundary">Exakte Arithmetik; kein Prime-Selektivitätsbeweis und kein neuer Operator.</span></div>
+              <dl><div><dt>MODULE</dt><dd>OCB:PRISM_RELATION_LENS</dd></div><div><dt>BINDING</dt><dd id="prismReturnBinding">EXACT_SOURCE_CHECKPOINT</dd></div><div><dt>FOCUS</dt><dd id="prismReturnFocus">numbers</dd></div><div><dt>OPEN</dt><dd>Z / 77 · marker only</dd></div></dl>
+              <output id="prismReturnRecord" aria-live="polite">PRISM-R1 · number · newton · source retained</output>
+            </div>
+          </div>
+          <nav class="prism-source-links" aria-label="Bound prism return sources">
+            <a href="A0_GAME_OF_WORLDS_PLAY.html#numbers" data-reader-viewer data-reader-title="Game of Worlds · Numbers">Numbers im Viewer</a>
+            <a href="A0_GAME_OF_WORLDS_PLAY.html#numbers" target="_blank" rel="noopener">Numbers in neuem Fenster ↗</a>
+          </nav>
+          <p class="prism-return-boundary"><strong>RETURN RULE:</strong> Der Record bewahrt Quelle, Auswahl, Seam-Typ, View und Residuum. Gleicher Endzustand bedeutet nicht gleiche Geschichte. Die Dreiecke sind Schnittansichten; <strong>Z / 77</strong> bleibt ein offener Marker.</p>
+        </section>
+        <nav class="prism-source-links" aria-label="Bound prism sources">
+          <a href="A0_NEWTON_GOETHE_OBSERVER_LENS.html" data-reader-viewer data-reader-title="Newton / Leibniz / Goethe Observer Lens">Observer Lens im Viewer</a>
+          <a href="A0_RAINBOW_PURPLE_RAIN.html#prism" data-reader-viewer data-reader-title="Rainbow Prism">Rainbow Prism im Viewer</a>
+          <a href="A0_NEWTON_GOETHE_OBSERVER_LENS.html" target="_blank" rel="noopener">Neues Fenster ↗</a>
+        </nav>
+        <p class="prism-claim-boundary"><strong>BOUNDARY:</strong> Drei unterscheidbare Lesarten desselben Bench-Zustands. Die Sequenz ist Orchestrierung, kein viertes Modell; Lorenz bleibt ein separater dynamischer Kontrollträger.</p>
+      </section>
     </section>
 
     <section class="panel cockpit-console" id="operatorPanel">
@@ -581,8 +930,22 @@
           <div class="visual1-read-triad" aria-label="Three typed Visual 1 reads"><article><small>READ 1 · P</small><b data-v1-p>IRIS</b></article><article><small>READ 2 · A</small><b data-v1-a>C6 ⊃ C8</b></article><article><small>READ 3 · EDGE</small><b data-v1-e>IHARA</b></article></div>
           <section class="visual1-plus-one" aria-label="Plus one TESA controller"><h4>ORANGE BOX · TESA 4×7</h4><div class="visual1-tesa-grid" data-visual1-tesa-grid></div></section>
           <div class="visual1-residual-egg"><b>π / r · RETAINED</b></div>
+          <section class="visual1-prism-projection" data-prism-projection data-module-ref="OCB:PRISM_RELATION_LENS" aria-label="Live projection of the shared prism reader">
+            <header><div><small>SHARED PRISM · SAME VIEW CONTROLLER</small><h4>Weiß → Prisma → sieben Bänder</h4></div><output data-prism-projection-status>NEWTON · 7 BANDS</output></header>
+            <svg viewBox="60 92 340 205" role="img" aria-label="Weiße Quelle, Prisma und sieben gekoppelte Spektralbänder">
+              <g class="prism-overlay" aria-hidden="true" data-binding-type="VIEW_ONLY">
+                <path class="prism-source-ray" d="M82 194 L186 194"></path><path class="prism-body" d="M186 148 L246 194 L186 240 Z"></path>
+                <path class="prism-ray" data-band="0" d="M228 194 L355 122"></path><path class="prism-ray" data-band="1" d="M228 194 L365 145"></path><path class="prism-ray" data-band="2" d="M228 194 L372 170"></path><path class="prism-ray" data-band="3" d="M228 194 L376 194"></path><path class="prism-ray" data-band="4" d="M228 194 L372 218"></path><path class="prism-ray" data-band="5" d="M228 194 L365 243"></path><path class="prism-ray" data-band="6" d="M228 194 L355 266"></path>
+              </g>
+            </svg>
+            <div class="prism-material-legend" aria-label="Material and light palette"><span class="white">WHITE BODY</span><span class="uv">UV → WHITE</span><span class="shadow">VIOLET SHADOW</span><span class="emerald">EMERALD</span></div>
+            <div class="prism-mode-controls visual1-prism-controls" role="group" aria-label="Shared prism reader modes">
+              <button class="primary" type="button" data-prism-mode="newton">NEWTON</button><button type="button" data-prism-mode="leibniz">LEIBNIZ</button><button type="button" data-prism-mode="goethe">GOETHE</button><button type="button" data-prism-sequence>▶ ALLE 3</button>
+            </div>
+            <p data-prism-projection-readout>Weiße Quelle → schematische Zerlegung in sieben geordnete Bänder.</p>
+          </section>
           <output data-v1-status role="status">READY</output>
-          <p class="boundary"><b>BOUNDARY:</b> 3+1 ist eine gekoppelte Ansichtsgrammatik. TESA bleibt der dokumentierte 28er-Kandidat; C6, C8, Ihara und der violette Residualkörper werden weder zu einem Carrier noch zu einem rekonstruierten historischen Generator verschmolzen.</p>
+          <p class="boundary"><b>BOUNDARY:</b> 3+1 ist eine gekoppelte Ansichtsgrammatik. Die Prismendarstellung ist eine zweite Projektion des bestehenden Prism-Controllers, kein zweiter Zustand. TESA bleibt der dokumentierte 28er-Kandidat; C6, C8, Ihara und der violette Residualkörper werden weder zu einem Carrier noch zu einem rekonstruierten historischen Generator verschmolzen.</p>
         </aside>
         <div class="ihara-boundary"><b>BOUNDARY:</b> finite C5 instrument; primitive oriented cycle classes and <code>tr(B^k)</code> only. This is not a Riemann identity and not an equality between prime numbers and graph cycles.</div>
       </section>
@@ -696,6 +1059,77 @@
           <div class="fail-split"><div class="exact-side"><strong>PASS</strong><b>Exact antipodal return</b><small>pair + sign + residual reconstruct the input</small></div><div class="fail-side"><strong>FAIL 0/4</strong><b>Specificity gates</b><small>exact bookkeeping did not outperform matched controls</small></div></div>
           <div class="fail-metrics"><span>residual <b>0.8042</b></span><span>axes <b>4/120</b></span><span>max return error <b>4.72e−17</b></span><span>collisions <b>56</b></span><span>random p <b>0.375</b></span></div>
         </div>
+        <section id="pascalApertureBridge" class="pascal-aperture-bridge" aria-labelledby="pascalApertureBridgeTitle">
+          <h3 id="pascalApertureBridgeTitle">Pascal · 1+1 Schichten · Apertur · Antipoden-Faltung</h3>
+          <p>Live aus dem Pascal-Träger oben: zwei orientierte Schichten, Dreieckskontur oder vorhandene Quadratmaske, daneben das unveränderte native Shadow-Polygon. Gleiche Quelle bedeutet nicht gleiche Ansicht.</p>
+          <div class="plate-mirror-controls"><label>Apertur <select id="pabShape"><option value="triangle">Pascal-Dreieck</option><option value="square">Quadrat aus Maskenmodell</option></select></label><label>Ansichtsskalierung <input id="pabScale" type="range" min="25" max="100" step="5" value="60"><output id="pabScaleOut">60%</output></label><button id="pabFold" type="button">A anwenden / zurück</button><label><input id="pabResidual" type="checkbox" checked> verdeckte Einträge als Rest behalten</label><button id="pabCapture" type="button">Quellzustand + Ansicht erfassen</button><button id="pabReturn" type="button" disabled>Zum erfassten Zustand</button><button id="pabExport" type="button">Record exportieren</button></div>
+          <output id="pabStatus" role="status">Pascal-Quelle wird gelesen.</output>
+          <div id="pabDrawing"></div><p id="pabLedger"></p>
+          <p><strong>Grenze:</strong> „1+1“ bezeichnet hier zwei adressierte Orientierungen σ=±, nicht zwei unabhängige physische Träger. A(i,j,k;σ)=(k,j,i;−σ) ist der vorhandene Pascal-Antipode, nicht J und keine räumliche Origami-Faltung. Die Apertur filtert die vorhandenen Bildschirmkoordinaten; ihre Skalierung ist eine neue explizite Ansichtsoption. Grau = verdeckt, nicht gelöscht. Der Rest speichert verdeckte Makroeinträge; die 3ⁿ einzelnen Pfadgeschichten werden dadurch nicht rekonstruiert. Capture/Return stellt nur die erfasste Pascal-Auswahl und diese lokalen Ansichtsoptionen wieder her; keine Masken-, Teller- oder Gesamtmaschinen-Uhr.</p>
+          <p>Das Shadow-Polygon zeigt weiterhin die vollständige native Sektorsumme vor der Apertur. Ein reiner Polygonumriss ist kein inverser Schlüssel. 60°/72°/132° bleiben ein separater Vergleich; LIFE04B FAIL 0/4 bleibt bestehen.</p>
+        </section>
+        <section id="coreCycleComparator" class="pascal-aperture-bridge" aria-labelledby="coreCycleTitle">
+          <h3 id="coreCycleTitle">Core-Vergleich · C5 + C6 + C6 · vier K-Werte</h3>
+          <p>Quellgebundene Vergleichsebene neben Pascal/Apertur: 17 Außenknoten + Zentrum, 34 ungerichtete Kanten. C5/C6 bezeichnet Verbindungskreise, nicht regelmäßige Polygonflächen. Der Kreisabstand ist 360°/17 ≈ 21,176°; 60°/72° sind daraus nicht abgeleitet.</p>
+          <div class="plate-mirror-controls"><label>Verbindungen <select id="cccFocus"><option value="all">Alle drei Kreise</option><option value="0">C5 · s0–s4</option><option value="1">C6 A · s5–s10</option><option value="2">C6 B · s11–s16</option></select></label><label>K (Kopplungsstärke) <select id="cccK"><option>0.2</option><option>0.5</option><option>1</option><option>2</option></select></label><label>Kopplungskonvention <select id="cccSign"><option value="documented">Dokumentiert: sin(θj−θi)</option><option value="historical">Historischer Sweep: sin(θi−θj)</option></select></label><button id="cccCapture" type="button">Ansicht erfassen</button><button id="cccRestore" type="button" disabled>Ansicht zurück</button><button id="cccExport" type="button">Vergleichsentwurf exportieren</button></div>
+          <output id="cccStatus" role="status">ENTWURF · KEIN LAUF</output>
+          <div id="cccDrawing" style="max-width:460px;margin:12px auto"></div>
+          <h4>Historischer K-Sweep · 23 / 5² / 3³ als Zahlenspur</h4>
+          <div id="cccHistorical" style="overflow-x:auto"></div>
+          <p><strong>×10 ist eine deklarierte Leseskala:</strong> Die Ganzzahlanteile ⌊10K⌋ sind hier 23, 25=5² und 27=3³. Das ist Abschneiden, nicht Gleichheit und nicht gewöhnliches Runden: 27,727273 wird gerundet zu 28. Die positiven Reste bleiben in der Tabelle sichtbar. Die drei Zahlen sind eine Owner-Lesart, keine hergeleiteten kritischen Konstanten oder Faltwinkel. Die K-Markierungen stammen aus einem diskreten Sweep-Raster.</p>
+          <p><strong>Getrennte Quelle:</strong> Diese drei Markierungen gehören zum historischen V6/V8-Sweep mit 128 Oszillatoren und Seed 42, nicht zum N=50-Vier-K-Sweep oder zum 18-Knoten-Netzentwurf. Onset = größter diskreter Anstieg des Driftmaßes; Max Drift = Maximum von std(|Δθ|); Max Events = größte Zahl erkannter Peaks pro Sample (keine Rate pro Zeiteinheit). θ stammt aus atan2 der PCA-Koordinaten, nicht direkt aus einer Oszillatorphase. Die rote Linie im Quellbild ist eine geglättete Datenhülle, keine nachgewiesene Phasengrenze.</p>
+          <p><strong>Projektionswarnung:</strong> Beim historischen Driftmaximum K≈2,545 ist r_std≈3,93·10⁻¹¹ und die erste PCA-Komponente trägt ≈99,99994% der Varianz. Große Winkelsprünge in den verbleibenden, sehr kleinen Koordinaten können projektions-/numerikbedingt sein. Das ist kein Beleg physischer Instabilität; die vorhandene endliche Lyapunov-Schätzung ist dort negativ. Die Schaubilder zum Standardmodell bleiben konzeptionelle Illustrationen, keine physikalische Ableitung.</p>
+          <p>Historische Originale: <a href="../../../../../10 NEXAH CORE/NEXAH/RESEARCH/VALIDATION/systems/kuramoto/kuramoto_v8/final_1777944907/regime_points.json">K-Markierungen (JSON)</a> · <a href="../../../../../10 NEXAH CORE/NEXAH/RESEARCH/VALIDATION/systems/kuramoto/scripts/kuramoto_phase_boundary_v8.py">Auswahl und Datenhülle</a> · <a href="../../../../../10 NEXAH CORE/NEXAH/RESEARCH/VALIDATION/systems/kuramoto/scripts/kuramoto_master_v6.py">PCA / Peak-Definition</a> · <a href="../../../../../10 NEXAH CORE/NEXAH/RESEARCH/VALIDATION/systems/kuramoto/kuramoto_v6/master_runs/run_1777943097/runs/K_2_545/summary.json">Driftmaximum-Quellrecord</a></p>
+          <p><strong>Vier-K-Kontrolle — noch nicht ausgeführt:</strong> Für K=0,2 / 0,5 / 1 / 2 müssen dieselben θ₀-, ω- und Adjazenzdaten sowie dieselbe Normierung, Schrittweite, Dauer und Integrationsmethode verwendet werden. Diese Run-Contract-Felder sind noch unbesetzt. K ist kein Faltwinkel und keine Vier-Zustands-Adresse. Capture/Return betrifft ausschließlich die drei lokalen Auswahlfelder, keine Pascal- oder Maschinenzustände.</p>
+          <p><strong>Historische Grenze:</strong> Der Core-Sweep hat N=50, All-to-all-Kopplung mit 1/N, neue Zufallsdaten je K und das umgekehrte Sinusvorzeichen zur Modellbeschreibung. Seine roten Balken markieren das jeweils untere 20%-Quantil der Phasendrift, keine nachgewiesenen Falt-/Schaltereignisse. Der 18-Knoten-Graph ist daher ein neuer Vergleichsentwurf, kein Replay dieser Grafik. Der Basin-Graph zeigt Nachbarschaft von Segmenten, keine gemessenen Übergangsraten.</p>
+          <p><strong>STRUCTURE FREEZE:</strong> Keine Simulation, keine neuen Kurven oder Ergebniswerte. Ausführung benötigt eine separate Owner-Freigabe zur Wiederöffnung und einen vollständigen Run Contract. Keine Gleichsetzung mit Pascal, physischer Faltung oder LIFE04B-Spezifität.</p>
+          <p>Core-Originale: <a href="../../../../../10 NEXAH CORE/NEXAH/EXPERIMENTAL/BUILDER_LAB/ARCHIVE_ENGINE/archived/research/experiments/symmetry_graph_experiment/symmetry_graph_3cycle.py">5–6–6-Graph</a> · <a href="../../../../../10 NEXAH CORE/NEXAH/RESEARCH/FINDINGS/TRANSITION_PHASE_DYNAMICS/scripts/kuramoto_phase_sweep.py">Vier-K-Sweep</a> · <a href="../../../../../10 NEXAH CORE/NEXAH/RESEARCH/FINDINGS/TRANSITION_PHASE_DYNAMICS/kuramoto_phase_extension.md">Modellbeschreibung</a> · <a href="../../../../../10 NEXAH CORE/NEXAH/EXPERIMENTAL/BUILDER_LAB/ARCHIVE_ENGINE/archived/analysis/basin_transition_graph.py">Basin-Nachbarschaft</a></p>
+        </section>
+        <section id="mirrorPinRest" class="pascal-aperture-bridge" aria-labelledby="mirrorPinRestTitle">
+          <h3 id="mirrorPinRestTitle">Startlesart 0–1–0 · 2 / 3 / 5 innen · 7 außen</h3>
+          <p>Ausdrücklich konstruierte Owner-Ansicht: oben und unten je eine eigene Randmarkierung „0“, dazwischen genau ein gemeinsamer Bezugspunkt „1“. „Taumeln“ betrifft hier die Orientierung um die feste Mitte, nicht deren Position. Zwei Markierungen mit demselben Wert 0 sind zwei Positionen, nicht zwei neu erzeugte unabhängige Zustände.</p>
+          <p>Im gewählten Kreis stehen 2, 3 und 5; 7 steht außerhalb. Diese Innen-/Außenzuordnung ist eine deklarierte Platzierung, keine aus Primzahlen abgeleitete Grenze. 0 und 1 sind keine Primzahlen. Die Folge beginnt 2, 3, 5, 7, 11, 13: die 5. Primzahl ist 11, die 6. ist 13. Die geometrischen Positionen codieren weder Zahlenabstände noch Primzahlpositionen.</p>
+          <div class="plate-mirror-controls"><label>Lokale Ansichtsphase <input id="mprPhase" type="range" min="0" max="360" step="1" value="0"></label><button id="mprCapture" type="button">Ansicht erfassen</button><button id="mprRestore" type="button" disabled>Zur erfassten Ansicht</button><button id="mprExport" type="button">Ansichtsrecord exportieren</button></div>
+          <output id="mprStatus" role="status"></output><div id="mprDrawing" style="max-width:480px;margin:12px auto"></div>
+          <p><strong>Explizite Zeichenregel:</strong> Neigung = 12°·sin(φ), oberer Pin = (sin Neigung, cos Neigung), unterer Pin = sein Negativ. Die 12° sind eine gewählte Darstellungsamplitude, nicht aus Pentagon/Hexagon oder Kuramoto abgeleitet. Bedienung manuell, keine zusätzliche Uhr. Capture/Return speichert nur diese lokale Phase; kein Rückschluss auf einen eindeutigen Zustand allein aus gleichen Bildpunkten.</p>
+          <p><strong>Getrennte Lesarten:</strong> Die vorherigen Pin-Labels „111“ sind in dieser Startansicht durch „0“ ersetzt. Die Dezimalrechnung 111×111=12321 mit mittlerer Ziffer 3 bleibt separat erhalten. Aus 0–1–0 folgen weder 11³ unabhängige Zustände noch 12321+1. Eine Adresse (1,1,1) wäre ein eigens zu definierendes Tripel. Exportierte Ansichtsrecords verwenden Version 2; frühere Version-1-Records werden nicht stillschweigend umgedeutet.</p>
+          <p><strong>Split Rest — exakt:</strong> 8451 = 4·2112 + 3 = 4·2113 − 1. Dieselbe Position ist 8451/4 = 2112,75; Abstand von unten +3/4, signierter Rest relativ zur oberen Grenze −1/4 (Abstand 1/4). Die Quotientengrenzen 2112 und 2113 haben Abstand 1; die zugehörigen Ganzzahlgrenzen 8448 und 8452 Abstand 4. Die im Referenzbild als „4“ bezeichnete Intervallbreite darf nicht mit der Quotientenskala verwechselt werden.</p>
+          <p><strong>Grenze:</strong> Symbolische Orientierung nach den Owner-Bildreferenzen „Schweben im Beben“, „The Retained Rest“, „Gewissheit ≠ Gewissen“ und „The Split Rest“. Keine Simulation von Gravitation, Fall oder Präzession; kein physikalisches Stabilitätsmodell, keine neue K-Kopplung und keine Identität mit dem 5–6–6-Netz. Die poetische Lesart bleibt als solche erhalten.</p>
+        </section>
+        <section id="gridFoldReturn" class="pascal-aperture-bridge" aria-labelledby="gridFoldReturnTitle">
+          <h3 id="gridFoldReturnTitle">Quadrat → Karo → 1:2:1 → Return</h3>
+          <p>Ein deklariertes 2×2-Gitter: u=x+y ist die vorhandene Diagonallesart aus dem <a href="A0_PINK_DIAMOND_GRID_ATLAS.html">Grid-Atlas</a>. Die zweite Koordinate v=x−y hält die Richtung auseinander. Die Normierung (u,v)/√2 erhält Längen und rechte Winkel; die Basis hat eine gespiegelte Orientierung, nicht nur eine reine Drehung.</p>
+          <div class="plate-mirror-controls"><label>Quellpunkt <select id="gfrSelected"><option value="0">(0,0)</option><option value="1" selected>(1,0)</option><option value="2">(0,1)</option><option value="3">(1,1)</option></select></label><label><input id="gfrKeepV" type="checkbox" checked> v als Richtungsrecord behalten</label><button id="gfrExport" type="button">Vergleichsrecord exportieren</button></div>
+          <output id="gfrStatus" role="status"></output><div id="gfrDrawing" style="overflow-x:auto"></div>
+          <p><strong>Informationsgrenze:</strong> Nur u führt in der mittleren Faser zu HOLD: (1,0) und (0,1) sind ununterscheidbar. Mit v ist x=(u+v)/2, y=(u−v)/2 exakt. Ganzzahlige Gitteradressen verlangen gleiche Parität von u und v. Der Return erhält ausschließlich den Beobachtungsrecord, nicht heimlich den angezeigten Quellpunkt. Der Export enthält die Quelle ausdrücklich als Vergleichsreferenz und ist daher kein Beleg für Informationsgewinn. An den beiden Endfasern ist u bereits eindeutig.</p>
+          <p>1:2:1 sind Diagonal-Multiplizitäten des 2×2-Beispiels, keine Seitenlängen. Größere n×n-Gitter haben 1,2,…,n,…,2,1. ±v ist eine symbolische Richtungslesart, keine optische Polarisation. Gegenrotation bleibt die separate vorhandene Pentagon-Ansicht.</p>
+          <details><summary>Numbermagick · Owner-Visuals und Rechenchecks</summary>
+            <p>Die Bilder unterstützen Fragen zu Achsen, Spiegelung und Records. Keine ihrer Bezeichnungen „Resonanz“, „Frequenz“, „Chiron“ oder „Tesserakt“ wird allein durch die Darstellung bestätigt. <a href="A0_NUMBERMAGICK_GRID_RESEARCH.html">Zum vorhandenen Numbermagick-Arbeitsraum</a>.</p>
+            <p><strong>Bild 1:</strong> Für f(n)=n²+n+41 gilt f(17)=347. Das Label φ(17) ist damit nicht automatisch definiert. f(40)=1681=41² zeigt: Die Formel liefert nicht immer Primzahlen. Die Spiralparameter sind aus dem Bild allein nicht rekonstruiert.</p>
+            <p><strong>Weitere Rechenchecks:</strong> 33+8=41; 41+1/12=41,083333… und nicht 41,0677. 31+35=66; ihr Mittelwert ist 33, ihre Summe nicht. 30/78=5/13, nicht 33. Die Folge 13,26,39,52,65,78 sind Vielfache von 13. Diese exakten Rechnungen bestätigen keine astronomische Frequenz- oder Einheitenzuordnung.</p>
+            <div id="gfrVisualGallery" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px">
+              <figure style="margin:0"><a href="assets/numbermagick-owner-20261020/01-euler-spiral.jpeg"><img loading="lazy" src="assets/numbermagick-owner-20261020/01-euler-spiral.jpeg" alt="Owner-Referenz: Euler-Spirale und markierter Wert347; Parameter und Resonanzbehauptung ungeprüft" style="width:100%;height:auto"></a><figcaption>1 · Spirale / f(17)=347 · Referenz, kein Resonanznachweis</figcaption></figure>
+              <figure style="margin:0"><a href="assets/numbermagick-owner-20261020/02-mirror-137.jpeg"><img loading="lazy" src="assets/numbermagick-owner-20261020/02-mirror-137.jpeg" alt="Historische Spiegelachsen-Karte137" style="width:100%;height:auto"></a><figcaption>2 · Spiegelachsen / 137 · Zuordnung offen</figcaption></figure>
+              <figure style="margin:0"><a href="assets/numbermagick-owner-20261020/03-retrograde.jpeg"><img loading="lazy" src="assets/numbermagick-owner-20261020/03-retrograde.jpeg" alt="Historische retrograde Achsen-Karte" style="width:100%;height:auto"></a><figcaption>3 · Retrograde Achsen · Einheiten offen</figcaption></figure>
+              <figure style="margin:0"><a href="assets/numbermagick-owner-20261020/04-axis-map.jpeg"><img loading="lazy" src="assets/numbermagick-owner-20261020/04-axis-map.jpeg" alt="Historische Karte33 plus8 und weitere Marker" style="width:100%;height:auto"></a><figcaption>4 · 33+8=41 · weitere Relationen nicht übernommen</figcaption></figure>
+              <figure style="margin:0"><a href="assets/numbermagick-owner-20261020/05-alpha-beta.jpeg"><img loading="lazy" src="assets/numbermagick-owner-20261020/05-alpha-beta.jpeg" alt="Historische Alpha-Beta64-Karte mit abweichenden Dezimalwerten" style="width:100%;height:auto"></a><figcaption>5 · 41+1/12 ≠ 41,0677</figcaption></figure>
+              <figure style="margin:0"><a href="assets/numbermagick-owner-20261020/06-multiples-13.jpeg"><img loading="lazy" src="assets/numbermagick-owner-20261020/06-multiples-13.jpeg" alt="Historische Karte mit Vielfachen von13" style="width:100%;height:auto"></a><figcaption>6 · 13er-Schritte · keine Frequenzableitung</figcaption></figure>
+              <figure style="margin:0"><a href="assets/numbermagick-owner-20261020/07-center-33.jpeg"><img loading="lazy" src="assets/numbermagick-owner-20261020/07-center-33.jpeg" alt="Historische Karte mit FormelP=alpha+beta=R/T und abweichender Arithmetik" style="width:100%;height:auto"></a><figcaption>7 · Summe/Mittelwert/Quotient getrennt prüfen</figcaption></figure>
+              <figure style="margin:0"><a href="assets/numbermagick-owner-20261020/08-octagon-split.jpeg"><img loading="lazy" src="assets/numbermagick-owner-20261020/08-octagon-split.jpeg" alt="Historische Oktagon- und Split-Karte26/52/78" style="width:100%;height:auto"></a><figcaption>8 · Oktagon / Split · historische Anordnung</figcaption></figure>
+            </div>
+            <p>Unveränderte lokale Kopien der Owner-Anhänge; interne Referenzen, keine Freigabe zur Veröffentlichung. Die Originalbeschriftungen bleiben erhalten; Hinweise stehen daneben.</p>
+          </details>
+        </section>
+        <section id="coordinateStateView" class="pascal-aperture-bridge" aria-labelledby="coordinateStateViewTitle">
+          <h3 id="coordinateStateViewTitle">Adresse · LOKI/Q4-Zustand · Ansicht — getrennt bewegen, gemeinsam zurück</h3>
+          <p>Ein lokaler Vergleich unter vorhandenen Identitäten: Das 25×25-Fenster hat 625 auswählbare Zelladressen; der Q4-Graph kommt aus der bestehenden Bench-Funktion und hat 16 Zustände, 32 Kanten, acht Brückenkanten. Die Originalregel von LOKI ist ein einzelner Bit-Flip rᵢ. Die räumliche Anordnung unten ist eine deklarierte 2D-Ansicht, keine rekonstruierte historische Grafik.</p>
+          <div class="plate-mirror-controls"><label>Zelle x → <input id="asvX" type="number" min="0" max="24" step="1" value="12"></label><label>Zelle y ↓ <input id="asvY" type="number" min="0" max="24" step="1" value="12"></label><button id="asvFlip0" type="button">r₁ · Bit 0</button><button id="asvFlip1" type="button">r₂ · Bit 1</button><button id="asvFlip2" type="button">r₃ · Bit 2</button><button id="asvFlip3" type="button">r₄ · Bit 3 / Brücke</button><label>Nur Ansicht drehen <input id="asvAngle" type="range" min="0" max="360" step="1" value="0"></label><button id="asvCapture" type="button">Dreierpaket erfassen</button><button id="asvReturn" type="button" disabled>Zum lokalen Anker</button><button id="asvExport" type="button">Record exportieren</button></div>
+          <output id="asvReadout"></output><output id="asvStatus" role="status">Bereit · nur lokaler Vergleich</output><p id="asvDiff"></p><div id="asvDrawing" style="overflow-x:auto"></div>
+          <p><strong>Prüfbare Trennung:</strong> Zellwahl ändert nur x/y, rᵢ kippt genau Bit i (Bit 0 ist rechts im Bitwort), der Winkel verändert nur die rechte Projektion. Zweimal derselbe rᵢ ergibt den ursprünglichen Q4-Zustand. Die vier Basis-5-Ziffern der Zelladresse werden nicht auf die vier binären Q4-Koordinaten abgebildet. Zellraster: y nach unten; Graphdarstellung: geometrisches y nach oben. Kein physisches Wandern eines vierdimensionalen Körpers.</p>
+          <p><strong>Return-Vertrag:</strong> Capture speichert die lokalen Werte (x,y,Vertex,Winkel). Return stellt sie wieder her, ohne eine inverse Historie oder physikalischen Zeitrücklauf zu behaupten. Winkel 0° und 360° können gleich aussehen, bleiben unterschiedliche gespeicherte Reglerwerte. Andere Bench-Zustände und Originalplayer werden weder gelesen noch verändert. Es gibt keine neue Uhr und keine Kopplung zum Shared-Overlay-Quellclock.</p>
+          <p><strong>Originale / Rückwege:</strong> <a href="#sourceSections">Bench-Quellfenster</a> · <a href="A0_BLUE_PINK_DODECA_CELL_RETURN.html#threeLissajousPlanes">Shared Overlay im Original</a> · <a href="A0_PINK_DIAMOND_GRID_ATLAS.html">Grid-Atlas</a> · <a href="../../../SCIENCE_LAB/CASE_STUDIES/E8_DEMOS_INTERACTIVE_ORIENTATION_2026-09-21/COXETER_ORBIT_TOPOLOGY_LAB_2026-10-05/NEXAH_FAMILY_SYNTHESIS_DEMONSTRATOR.html?a0BenchPreset=synthesis-loki">LOKI im Original</a>. Hier keine Rückmeldung oder Fernsteuerung dieser Quellen; 16 Q4-Zustände sind nicht automatisch 16 Joint-Pfade.</p>
+          <p><strong>Getrennte Bildarithmetik:</strong> 23³+24³+25³=204²=41616; 204²+26⁴=498592; minus 500000 ergibt −1408. Danach gilt −1408+1/12=−1407,91666… (negativ). Diese Werte bestimmen weder Adresse, Bitzustand noch Ansichtswinkel. 131/313 bleibt für den ausdrücklich zurückgestellten Nachtrag reserviert.</p>
+        </section>
         <section class="handle-ablation" aria-labelledby="handleAblationTitle">
           <div class="section-head"><h3 id="handleAblationTitle">4A · White Cross / Handle Ablation</h3><small id="handleDecision">testing information boundary</small></div>
           <div class="white-cross-test">
@@ -745,6 +1179,29 @@
             <div class="candidate-sum"><span><b>H21</b><small>E / TA candidate</small></span><i>+</i><span><b>H50</b><small>complement candidate</small></span><i>=</i><span><b>71</b><small>exact sum · meaning OPEN</small></span></div>
             <div class="family-boundary"><b>BOUNDARY:</b> F1≈α and F7≈θ(t) are role analogies in this lens. 27, 13, 21, 50 and 71 are visible hypothesis markers; none currently binds, selects or renames a canonical Family relation.</div>
           </div>
+          <div class="family-shadow-card" aria-labelledby="familyShadowTitle">
+            <div class="family-shadow-head"><div><small>THREE CHANNEL VIEW · SHARED γ DISPLAY FRAME</small><h3 id="familyShadowTitle">F7 light · ε echo <b>≠</b> Red Shadow</h3></div><strong id="familyRedShadowState">RED SHADOW · FIELD +</strong></div>
+            <svg class="family-field-wave" viewBox="0 0 760 210" role="img" aria-label="Three distinct coupled channels: cyan F7 light wave, violet retained echo and red shadow field, synchronized by a yellow gamma display frame">
+              <defs><linearGradient id="shadowFieldFade" x1="0" x2="1"><stop stop-color="#ff4d62" stop-opacity=".04"/><stop offset=".5" stop-color="#ff4d62" stop-opacity=".18"/><stop offset="1" stop-color="#ff4d62" stop-opacity=".04"/></linearGradient></defs>
+              <rect x="48" y="22" width="664" height="150" rx="9" class="family-field-bg"/>
+              <path class="family-field-grid" d="M48 72H712M48 122H712M214 22V172M380 22V172M546 22V172"/>
+              <line x1="48" y1="97" x2="712" y2="97" class="family-gamma-axis"/>
+              <path class="family-light-wave" d="M48 97C103 30 158 30 214 97S325 164 380 97S491 30 546 97S657 164 712 97"/>
+              <path class="family-echo-wave" d="M48 105C103 43 158 43 214 105S325 157 380 105S491 43 546 105S657 157 712 105"/>
+              <path id="familyRedShadowWave" class="family-red-shadow-wave" d="M48 54H214V140H380V54H546V140H712"/>
+              <rect id="familyShadowField" x="48" y="22" width="166" height="150" rx="8" fill="url(#shadowFieldFade)"/>
+              <line id="familyGammaCursor" x1="214" y1="22" x2="214" y2="172" class="family-gamma-cursor"/>
+              <circle id="familyGammaMarker" cx="214" cy="97" r="7" class="family-gamma-marker"/>
+              <text x="62" y="44" class="family-wave-label light">F7 · LIGHT / ORIENTATION</text>
+              <text x="62" y="164" class="family-wave-label echo">ε · RETAINED TRACE</text>
+              <text x="555" y="44" class="family-wave-label shadow">RED SHADOW / FIELD</text>
+              <text id="familyGammaLabel" x="224" y="88" class="family-wave-label gamma">γ 90°</text>
+            </svg>
+            <div class="family-channel-triad" id="familyChannelLedger">
+              <span class="light"><b>1 · F7 LIGHT</b><small>moving orientation view</small></span><i>view</i><span class="echo"><b>2 · ε ECHO</b><small>retained history</small></span><i class="not-equal">≠</i><span class="shadow"><b>3 · RED SHADOW</b><small>separate field carrier</small></span>
+            </div>
+            <div class="family-shadow-boundary"><b>γ FRAME:</b> one display angle aligns the three reads. It does not identify F7, ε and Red Shadow, and it does not promote the shadow to a Family relation or physical field law.</div>
+          </div>
         </div>
       </section>
 
@@ -767,6 +1224,15 @@
           <a href="#rootEngineBar">Q4-Takt · Play / Pause ↗</a>
         </div>
         <p>Abspielen startet erstmals bei Z=0 und läuft einmal bis Z=28 (0,4 s pro Schritt). Pause setzt später an derselben Pose fort; nach dem Ende beginnt die nächste Wiedergabe wieder bei 0. Manuelle Änderungen und ein ausgeblendeter Tab pausieren. Die Ansichtswiedergabe pausiert den Q4-Takt und schaltet dessen Quellzustand nicht weiter.</p>
+        <section id="foldCycle" aria-labelledby="foldCycleTitle" style="border:1px solid #9973b8;padding:16px;margin:16px 0">
+          <h3 id="foldCycleTitle">4 × 7 → 29. Pose · Treppe / 0 / Flip</h3>
+          <label><input id="foldCycleEnabled" type="checkbox" checked> Abschlusskopplung anzeigen</label>
+          <button id="foldCycleExport" type="button">Kopplung JSON exportieren</button>
+          <p id="foldCycleReadout" role="status" aria-live="polite"></p>
+          <svg id="foldCycleDiagram" viewBox="0 0 680 290" style="display:block;width:100%;max-width:900px" role="img" aria-label="Cyan-Welle, rote Vier-Quadranten-Treppe und separater 0-Abschlussmarker"></svg>
+          <p>Vorhandenes Play und Z-Schnitt steuern alles hier: 28 Übergänge, 29 Posen. Vier Siebenergruppen ergeben Rot +1 / −1 / +1 / −1. Am Abschluss Z=28 kommt die <b>0 als separater Marker</b> dazu und die aktuelle lila Ansicht wird an der Bildschirm-Horizontalen gespiegelt (y → −y). Kein zusätzlicher Zeitschritt; kein Schaltjahrgesetz. Abschalten zeigt die Originalansicht. Jeder Neustart beginnt unverändert bei Z=0, ohne blockübergreifenden Flip-Speicher.</p>
+          <p>Neue, vom Owner vorgeschlagene Anzeigeregel: Schatten werden mitgespiegelt, frühere Posen und der Quellstapel bleiben Referenz. Die rote Treppe im Prisma erhält denselben Z-Cursor; F7 und dessen eigener Gamma-Kanal bleiben getrennt. <a href="#prismReturnSpine">Prisma / Treppe ↑</a></p>
+        </section>
         <p id="foldLagReadout" role="status" aria-live="polite"></p>
         <div style="overflow-x:auto"><svg id="foldLagSvg" viewBox="0 0 850 500" style="display:block;width:100%;min-width:620px;max-width:1100px;margin:auto" role="img" aria-label="Vier Flügel und 29 synthetische Sequenzebenen"></svg></div>
         <p>Helllila: aktuelle Pose · dunkellila Fläche: Parallelprojektion auf die lokale Ebene z=0 · gestrichelt: frühere Posen (−3/−6 Schritte). Schatten und Echo sind getrennte Daten. Der goldene Z-Schnitt wählt eine Pose aus 29; Z ist hier ein synthetischer Sequenzindex, keine Tiefe oder physikalische Zeit. Q4-Folgen tastet 16 Quellticks auf diesen 29er-Anzeigestapel ab; es erzeugt keine 29 neuen Quellzustände. Bei 7° beziehungsweise 175° endet die Drehfolge — kein behaupteter Return.</p>
@@ -863,6 +1329,26 @@
             </article>
           </div>
           <div class="s3-extension-boundary"><b>BOUNDARY:</b> the six states and three reversal pairs reuse the audited TripleSix <code>S₃ → {A,B,C}×C₂</code> state address. This is not a direct-product group identity. Repunit squaring and word-level mirror closure are distinct maps; their outputs coincide here exactly.</div>
+        </section>
+        <section class="body-route-bench" id="tripleSixReturnWalk" aria-labelledby="s3WalkTitle">
+          <h3 id="s3WalkTitle">TripleSix · Quelle → Schnitt → Return</h3>
+          <p>Ein vollständiger lokaler Lesegang auf dem vorhandenen S₃-Register. Ein Klick auf die sechs Registerzustände oben übernimmt das Quellwort hier. Ziffern sind Positionssymbole, keine Integerrechnung.</p>
+          <div class="family-controls" style="display:flex;flex-wrap:wrap;gap:12px">
+            <label>Quellzustand <select id="s3WalkWord" aria-label="TripleSix Quellzustand"></select></label>
+            <label>Operator <select id="s3WalkOperator"><option value="identity">Identität</option><option value="cycle">Positionen zyklisch verschieben</option><option value="reverse">Wortpositionen umkehren</option><option value="cycle-reverse" selected>Verschieben → Umkehren</option><option value="reverse-cycle">Umkehren → Verschieben</option></select></label>
+            <label>Restinformation <select id="s3WalkResidual"><option value="keep">Seitenbit behalten</option><option value="drop">Seitenbit entfernen</option><option value="wrong">Falsches Seitenbit · Kontrolle</option></select></label>
+          </div>
+          <p><b id="s3WalkStage">1 · Quelle</b></p>
+          <div style="overflow-x:auto"><svg id="s3WalkDiagram" viewBox="0 0 720 135" style="display:block;width:100%;min-width:580px" role="img" aria-label="TripleSix-Zustand, Transformation, Achsenschnitt und Rekonstruktionskandidaten"></svg></div>
+          <p id="s3WalkReadout" role="status" aria-live="polite"></p>
+          <div class="body-route-actions"><button id="s3WalkBack" type="button">← Zurück</button><button id="s3WalkNext" type="button">Nächster Schritt →</button><button id="s3WalkAll" type="button">Bis Return prüfen</button><button id="s3WalkReset" type="button">Lesegang zurücksetzen</button></div>
+          <pre id="s3WalkLevels" style="white-space:pre-wrap" hidden></pre>
+          <p><b>Operatoren:</b> Verschieben bedeutet <code>abc → bca</code>, Umkehren bedeutet <code>abc → cba</code>. Das sind Aktionen auf Wortpositionen; ihre Reihenfolge wird für den inversen Rückweg umgedreht.</p>
+          <p><b>Schnittregel:</b> Die Achsenprojektion behält A/B/C und verdeckt das Paritäts-Seitenbit. Ohne Bit bleiben zwei Quellkandidaten; mit richtigem Bit ist der Rückweg eindeutig. Ein falsches Bit kann denselben Träger und dieselbe Symbolmenge erhalten und trotzdem zum falschen Zustand führen.</p>
+          <p><b>Grenze:</b> Neu deklarierte Positionsoperatoren, keine historische Janus-Auswahl. Dies ist kein geometrischer Pixel-Crop, OCR-/Glyph-Test oder vollständiger Drei-Achsen-Würfelfold. Carrier-Provenienz wird als Quelltag mitgeführt, nicht aus dem Schnittbild gewonnen. Die vier Return-Kriterien hier sind S₃-spezifisch; der separate Gate-11-Prime-Record bleibt unverändert.</p>
+          <div class="body-route-actions"><button id="s3WalkTests" type="button">90 lokale Kontrollfälle prüfen</button><button id="s3WalkExport" type="button" disabled>Geprüften Record exportieren</button><label>Record prüfen · nur lesen <input id="s3WalkImport" type="file" accept="application/json,.json"></label></div>
+          <p id="s3WalkStatus" role="status">Bereit · keine automatische Wiedergabe oder Downloads.</p>
+          <details><summary>Quellrecord, Operator, Restinformation und Rückprüfung</summary><pre id="s3WalkRecord" style="white-space:pre-wrap;max-height:450px;overflow:auto"></pre></details>
         </section>
         <section class="defg-series-bridge" id="defgSeriesBridge" aria-labelledby="defgSeriesTitle">
           <header>
@@ -1047,11 +1533,11 @@
               <label>Schnittposition t <input id="root7CutPosition" type="range" min="0" max="3" step="0.01" value="1.5"></label>
               <button id="root7CutCenter" type="button">Hexagon · t = 1.5</button>
               <label>Winkel A → B <input id="root7MirrorAngle" type="range" min="0" max="90" step="1" value="45"></label>
-              <label>Reihenfolge <select id="root7MirrorOrder"><option value="AB">A → B</option><option value="BA">B → A</option></select></label>
+              <label>Spiegelmodus <select id="root7MirrorOrder"><option value="A">A · horizontal</option><option value="B">B · bei θ</option><option value="AB" selected>A → B</option><option value="BA">B → A</option></select></label>
             </div>
             <svg id="root7SectionSvg" viewBox="0 0 820 325" role="img" aria-label="Echter Quaderschnitt mit zwei Ebenenspiegelungen"></svg>
             <output id="root7SectionLedger" aria-live="polite">WAITING</output>
-            <p class="root7-boundary">A spiegelt an der horizontalen Achse der Schnittkarte; B an der um θ gedrehten Achse. A → B ergibt Rotation +2θ, B → A Rotation −2θ. Ein Spiegel kehrt Orientierung um, zwei erhalten sie. Längen und Fläche bleiben rechts erhalten; der pinke Eckmarker macht die Reihenfolge sichtbar. Das sind Schnittebenen-Spiegel, keine Q4-Bitwechsel und kein Q-Mirror z→1/z. Die vier Dreiecke sind eine gewählte Fächerzerlegung des Hexagons; eine Zwei-Rhomben-Zerlegung ist nicht identifiziert.</p>
+            <p class="root7-boundary">A spiegelt an der horizontalen Achse der Schnittkarte; B an der um θ gedrehten Achse. A und B sind einzeln prüfbar. A → B ergibt Rotation +2θ, B → A Rotation −2θ. Ein Spiegel kehrt Orientierung um, zwei erhalten sie. Längen und Fläche bleiben rechts erhalten; der pinke Eckmarker macht die Reihenfolge sichtbar. Das sind Schnittebenen-Spiegel, keine Q4-Bitwechsel und kein Q-Mirror z→1/z. Die vier Dreiecke sind eine gewählte Fächerzerlegung des Hexagons; eine Zwei-Rhomben-Zerlegung ist nicht identifiziert.</p>
             <p>„Tick mitlesen“ setzt t = 3·Tick/15: eine deklarierte Lesefahrt mit Rücksprung beim Umlauf, keine physikalische Bewegung. Es gibt keine zweite Uhr. Der Schnitt ist dreidimensional bei festem w, kein vollständiger 4D-Hyperschnitt. EXPORT REPLAY hält Schnittregel, Ecken und Spiegelreihenfolge zusammen mit der Root7-Adresse fest. Eingefrorene Quellen bleiben unverändert.</p>
           </section>
         </section>
@@ -1085,6 +1571,11 @@
       <section class="panel blind">
         <div class="section-head"><h2>9 · Blind operator test</h2><small>labels and colors withheld</small></div>
         <div class="blind-display"><div class="blind-state" id="blindBefore"></div><div class="blind-arrow">→</div><div class="blind-state" id="blindAfter"></div></div>
+        <div class="blind-adapter-coupler" id="blindAdapterCoupler" data-status="blind" aria-label="Three-way operator adapter">
+          <div class="blind-adapter-side source"><small>SOURCE SIDE</small><b id="blindAdapterSource">HIDDEN</b><span>rot erst nach Entscheidung</span></div>
+          <div class="blind-adapter-rail" aria-label="J R theta E s adapter connection"><i></i><strong id="blindAdapterOperator">?</strong><i></i><small>J · Rθ · Eₛ</small></div>
+          <div class="blind-adapter-side return"><small>RETURN SIDE</small><b id="blindAdapterReturn">HIDDEN</b><span>grün erst nach Entscheidung</span></div>
+        </div>
         <div class="blind-actions"><button data-answer="J">J</button><button data-answer="R">Rθ</button><button data-answer="E">Eₛ</button><button data-answer="HOLD">HOLD</button><button class="primary" id="newBlind">NEW CASE</button></div>
         <div class="blind-result" id="blindResult" aria-live="polite">Select the operator or HOLD.</div>
       </section>
@@ -1120,9 +1611,15 @@
     <div class="queue" aria-label="Deferred adapters"><span>RIEMANN / EULER VIEW</span><span>FOURIER</span><span>JT</span><span>VIII</span><span>TAN→TAO→DAO→IOTA</span><span>PASCAL Y/T</span></div>
   </details>
 
-  <footer class="footer"><span>One run · typed handoffs · separated carriers.</span><span>NO NEW MODULE · NO SCIENCE CLAIM · NO PUBLICATION AUTHORITY</span></footer>
+  <footer class="footer"><span>One run · typed handoffs · separated carriers.</span><span>NO NEW IDENTITY · NO SCIENCE CLAIM · NO PUBLICATION AUTHORITY</span></footer>
 </main>
+<aside id="benchTourDock" class="tour-dock" data-tour-ui aria-label="Demo-Tour steuern" hidden>
+  <div class="tour-dock-story"><small id="benchTourChapter"></small><strong id="benchTourDockTitle">Demo-Tour</strong><p id="benchTourDockCopy"></p><span id="benchTourActionStatus" role="status" aria-live="polite"></span></div>
+  <div class="tour-dock-controls"><small id="benchTourDockCounter"></small><div class="tour-dock-buttons"><button type="button" id="benchTourPrev" aria-label="Vorherige Tourstation">← Zurück</button><button type="button" id="benchTourDockPlay" aria-pressed="false">▶ Fortsetzen</button><button type="button" id="benchTourNext" aria-label="Nächste Tourstation">Weiter →</button><button type="button" id="benchTourClose" aria-label="Tour beenden">✕</button></div><div class="tour-dock-selects"><label>Station wählen<select id="benchTourStation"></select></label><label>Tempo<select id="benchTourPace"><option value="18000">Entspannt · 18 s</option><option value="30000">Vertiefen · 30 s</option><option value="10000">Überblick · 10 s</option><option value="0">Selbst bedienen · manuell</option></select></label></div></div>
+</aside>
   <script src="a0-orientation-controller-bench.js?rev=20261018-v018-r1"></script>
+<script src="a0-bench-finite-packages.js"></script>
+<script src="a0-bench-finite-packages-view.js"></script>
   <script src="a0-aperture-measurement.js?rev=20261018-m3-ilau-r3"></script>
   <script>
     try{window.A0ApertureMeasurementController=window.A0ApertureMeasurement.mount(document)}
@@ -1144,6 +1641,8 @@
   <script src="a0-fold-lag-lens.js"></script>
   <script>window.A0FoldLagView=window.A0FoldLagLens.mount(document);</script>
   <script>window.A0FoldLagView.onRender=record=>window.A0OverlayView.accept('5b',record);window.A0FoldLagView.render();</script>
+  <script src="a0-fold-cycle-coupling.js?rev=20261020-r1"></script>
+  <script>window.A0FoldCycleView=window.A0FoldCycleCoupling.mount(document,window.A0FoldLagView);</script>
   <script>window.A0LayeredSceneView=window.A0LayeredPentagonScene.mount(document,record=>window.A0OverlayView.accept('stack',record));</script>
   <script src="a0-family-grid-coupler.js?rev=20261018-fgc-r4"></script>
   <script>
@@ -1406,7 +1905,24 @@
     $('handleGates').innerHTML=Object.entries(ablation.gates).map(([key,pass])=>`<span class="${pass?'pass':'fail'}"><b>${pass?'PASS':'FAIL'}</b><small>${handleLabels[key]}</small></span>`).join('');
     const warning=$('channelWarning');warning.classList.toggle('separate',n!==shadowSides);warning.innerHTML=n===shadowSides?`<b>INDEPENDENT CHANNELS:</b> depth <code>n=${n}</code> and frame <code>m=${shadowSides}</code> coincide numerically here; neither selects the other.`:`<b>SEPARATE CHANNELS:</b> carrier depth <code>n=${n}</code> is projected into frame <code>m=${shadowSides}</code>; no equality or selector is implied.`;
     renderPascalElevator();
+    window.A0PascalApertureController?.sourceChanged(readPascalApertureSource());
   }
+
+  function readPascalApertureSource(){
+    const depth=Number($('pascalDepth').value);
+    return {depth,sides:shadowSides,selected:{i:pascalSelected.i,j:pascalSelected.j,k:pascalSelected.k,sigma:1},lens:pascalLensMode,exterior:pascalExteriorMode,
+      envelope:[[220,28],[35,315],[405,315]],
+      points:C.trinomialLayer(depth).map(item=>({...item,...pascalPoint(item,depth)}))};
+  }
+  window.A0PascalSource={
+    read:readPascalApertureSource,
+    capture(){stopPascalLensMotion();return readPascalApertureSource();},
+    restore(p){
+      window.A0PascalAperture.validateSource(p);
+      stopPascalLensMotion();$('pascalDepth').value=String(p.depth);shadowSides=p.sides;pascalSelected={...p.selected};pascalLensMode=p.lens;pascalExteriorMode=p.exterior;renderPascalShadow();
+      return readPascalApertureSource();
+    }
+  };
 
   function stopPascalLensMotion(){if(pascalLensTimer){clearInterval(pascalLensTimer);pascalLensTimer=null}document.querySelector('.pascal-shadow').classList.remove('lens-moving');$('pascalLensPlay').classList.remove('running');$('pascalLensPlay').textContent='PLAY 3 LENSES'}
   function setPascalLens(mode){
@@ -1490,6 +2006,15 @@
     [$('familyEcho1'),$('familyEcho2')].forEach((node,index)=>{const frame=snapshot.epsilonTrace[index],point=frame?familyStops[frame]:stop;node.setAttribute('cx',point.x);node.setAttribute('cy',point.y);node.style.opacity=frame?String(.55-index*.2):'0'});
     $('familyFrameReadout').textContent=`${snapshot.terminalFrame} · θ=${snapshot.theta}° · step ${snapshot.step}`;
     $('epsilonLedger').textContent=snapshot.epsilonTrace.length?`ε trail: ${snapshot.epsilonTrace.join(' ← ')} · retained, not reset`:`No echo yet · F7 at ${snapshot.terminalFrame}`;
+    const gammaX=48+(snapshot.gammaFrame/360)*664;
+    $('familyGammaCursor').setAttribute('x1',gammaX);$('familyGammaCursor').setAttribute('x2',gammaX);
+    $('familyGammaMarker').setAttribute('cx',gammaX);
+    $('familyGammaLabel').setAttribute('x',Math.min(gammaX+10,650));
+    $('familyGammaLabel').textContent=`γ ${snapshot.gammaFrame}° · ${snapshot.terminalFrame}`;
+    const positive=snapshot.redShadow.polarity>0;
+    $('familyShadowField').setAttribute('x',positive?'48':'214');
+    $('familyRedShadowState').textContent=`RED SHADOW · ${positive?'FIELD +':'FIELD −'} · F7 ≠ SHADOW`;
+    $('familyRedShadowState').classList.toggle('negative',!positive);
   }
 
   function cyclePoint(vertex,order,radius=125){const angle=-Math.PI/2+Number(vertex)*2*Math.PI/Number(order);return{x:220+radius*Math.cos(angle),y:175+radius*Math.sin(angle),angle}}
@@ -1611,7 +2136,16 @@
     $('history').innerHTML=state.history.length?state.history.map(h=>`<li><span>${h.index}</span><b>${h.operatorId}</b><span>${JSON.stringify(h.parameters)} · u ${h.after.position.toFixed(3)} · θ ${h.after.orientation.toFixed(0)}°</span></li>`).join(''):'<li><span>—</span><b>∅</b><span>No operator applied.</span></li>';
     window.A0FamilyGridCouplerController?.bindBenchState(state);
   }
-  function renderBlind(){ $('blindBefore').textContent=stateLine(challenge.before);$('blindAfter').textContent=stateLine(challenge.after);$('blindResult').textContent='Select the operator or HOLD.';$('blindResult').className='blind-result'; }
+  function renderBlind(){
+    $('blindBefore').textContent=stateLine(challenge.before);$('blindAfter').textContent=stateLine(challenge.after);$('blindResult').textContent='Select the operator or HOLD.';$('blindResult').className='blind-result';
+    $('blindAdapterCoupler').dataset.status='blind';$('blindAdapterSource').textContent='HIDDEN';$('blindAdapterReturn').textContent='HIDDEN';$('blindAdapterOperator').textContent='?';
+    qsa('[data-answer]').forEach(button=>{button.classList.remove('answer-selected','answer-expected','answer-failed');button.removeAttribute('aria-pressed')});
+  }
+  function renderBlindVerdict(result,answer){
+    const glyph={J:'J',R:'Rθ',E:'Eₛ'};
+    $('blindAdapterCoupler').dataset.status=result.status.toLowerCase();$('blindAdapterSource').textContent=challenge.before.side;$('blindAdapterReturn').textContent=challenge.after.side;$('blindAdapterOperator').textContent=glyph[result.expected]||result.expected;
+    qsa('[data-answer]').forEach(button=>{const selected=button.dataset.answer===answer,expected=button.dataset.answer===result.expected;button.classList.toggle('answer-selected',selected);button.classList.toggle('answer-expected',expected);button.classList.toggle('answer-failed',selected&&result.status==='FAIL');button.setAttribute('aria-pressed',String(selected))});
+  }
 
   function downloadJson(filename,payload){const blob=new Blob([JSON.stringify(payload,null,2)],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=filename;a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000)}
   function stopPxaJourney(){if(pxaJourneyTimer){clearInterval(pxaJourneyTimer);pxaJourneyTimer=null}}
@@ -1727,7 +2261,7 @@
   $('replay').addEventListener('click',()=>{state=C.replay(initial,state.history);render()});
   $('reset').addEventListener('click',()=>{state=C.createState(initial);state.history=[];render()});
   $('exportState').addEventListener('click',()=>{const payload={tool:'A0 Orientation Controller Bench',version:C.VERSION,mode:'ENGINEERING_DRY_RUN',initial:C.stateCore(initial),current:C.stateCore(state),history:state.history,return:C.assessReturn(initial,state)};const blob=new Blob([JSON.stringify(payload,null,2)],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='a0-orientation-controller-record.json';a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000)});
-  qsa('[data-answer]').forEach(button=>button.addEventListener('click',()=>{const result=C.verifyBlindAnswer(challenge,button.dataset.answer);$('blindResult').textContent=result.status==='HOLD'?`HOLD · expected ${result.expected} remains disclosed only after abstention.`:`${result.status} · expected ${result.expected}`;$('blindResult').className=`blind-result ${result.status.toLowerCase()}`}));
+  qsa('[data-answer]').forEach(button=>button.addEventListener('click',()=>{const result=C.verifyBlindAnswer(challenge,button.dataset.answer);$('blindResult').textContent=result.status==='HOLD'?`HOLD · expected ${result.expected} disclosed after abstention.`:`${result.status} · selected ${button.dataset.answer} · expected ${result.expected}`;$('blindResult').className=`blind-result ${result.status.toLowerCase()}`;renderBlindVerdict(result,button.dataset.answer)}));
   $('newBlind').addEventListener('click',()=>{challenge=C.createBlindChallenge(++blindSeed);renderBlind()});
   $('candidateLeft').addEventListener('click',()=>{edgeState=C.rotateEdgeCandidate(edgeState,-1);renderEdgeCore()});
   $('candidateRight').addEventListener('click',()=>{edgeState=C.rotateEdgeCandidate(edgeState,1);renderEdgeCore()});
@@ -1877,10 +2411,67 @@
   try{window.A0CoupledWindowController=window.A0CoupledWindow.mount(document,window)}
   catch(error){const status=document.getElementById('coupledWindowStatus');if(status)status.textContent=`COUPLED WINDOW HOLD · ${error&&error.message?error.message:String(error)}`;console.error(error)}
 </script>
-<script src="a0-bench-showcase-tour.js?rev=20261018-fgc-r1"></script>
+<script src="a0-prism-relation-lens.js?rev=20261019-r3"></script>
+<script src="a0-bench-atlas-window.js?rev=20261020-r1"></script>
+<script>
+  try{window.A0PrismRelationLensController=window.A0PrismRelationLens.mount(document,window)}
+  catch(error){const status=document.getElementById('prismRelationStatus');if(status)status.textContent=`PRISM LENS HOLD · ${error&&error.message?error.message:String(error)}`;console.error(error)}
+</script>
+<script src="a0-trinity-lens.js"></script>
+<script src="a0-game-of-worlds-model.js"></script>
+<script src="a0-game-of-numbers-model.js"></script>
+<script src="a0-plate-mirror-reference.js?rev=20261020-r1"></script>
+<script src="a0-bench-fold-guide.js"></script>
+<script src="a0-bench-lens-return.js"></script>
+<script>
+  try{window.A0BenchLensReturnController=window.A0BenchLensReturn.mount(document,window)}
+  catch(error){document.getElementById('benchLensReturn').textContent='LENS / RETURN HOLD · '+error.message}
+</script>
+<script src="../../../SCIENCE_LAB/RUNTIME/NEXAH_COMMON_RUNTIME_ADAPTER_V0_1/nexah-profiles.js"></script>
+<script src="a0-division-return.js?rev=20261019-r1"></script>
+<script src="assets/a0-caro-native-source-v1.js?rev=20261019-r1"></script>
+<script src="a0-caro-bench.js?rev=20261019-r1"></script>
+<script src="a0-caro-bench-view.js?rev=20261019-r1"></script>
+<script src="a0-division-return-view.js?rev=20261019-r1"></script>
+<script>
+  try{window.A0DivisionReturnController=window.A0DivisionReturnView.mount(document,window)}
+  catch(error){document.getElementById('divisionReturnBench').textContent='DIVISION / RETURN HOLD · '+error.message}
+</script>
+<script src="a0-bench-polish.js"></script>
+<script>window.A0BenchPolish.arrange(document,window);</script>
+<script src="a0-bench-map.js?rev=20261019-r1"></script>
+<script>
+  try{window.A0BenchMapController=window.A0BenchMap.mount(document,window)}
+  catch(error){const status=document.getElementById('benchMapStatus');if(status)status.textContent=`BENCH MAP HOLD · ${error&&error.message?error.message:String(error)}`;console.error(error)}
+</script>
+<script src="a0-bench-showcase-tour.js?rev=20261020-clock-r1"></script>
 <script>
   try{window.A0BenchShowcaseTourController=window.A0BenchShowcaseTour.mount(document,window)}
   catch(error){const title=document.getElementById('benchTourTitle');if(title)title.textContent=`TOUR HOLD · ${error&&error.message?error.message:String(error)}`;console.error(error)}
 </script>
+<script src="a0-bench-sewing-source-window.js?rev=20261019-r1"></script>
+<script src="a0-bench-body-route.js?rev=20261019-r1"></script>
+<script src="a0-bench-source-sections.js?rev=20261020-r2"></script>
+<script src="a0-gh-hinge.js?rev=20261019-calendar-readonly"></script>
+<script src="a0-code-calendar-lens.js?rev=20261019-r1"></script>
+<script src="a0-mask-observer.js?rev=20261019-r1"></script>
+<script src="assets/a0-blue-pink-dodeca-cell-return-v1.js"></script>
+<script src="a0-one-flow.js?rev=grid-selection-20261017"></script>
+<script src="a0-mask-assembly.js?rev=20261019-r1"></script>
+<script src="a0-compass-assembly.js?rev=20261019-r1"></script>
+<script src="a0-mask-elastic-links.js?rev=20261020-r1"></script>
+<script src="a0-mask-observer-view.js?rev=20261020-clock-r1"></script>
+<script src="a0-triplesix-return-walk.js?rev=20261020-r1"></script>
+<script src="a0-bench-perspective-deck.js?rev=20261020-r1"></script>
+<script src="a0-caro-orientation-modes.js?rev=20261020-r1"></script>
+<script src="a0-pascal-aperture-bridge.js?rev=20261020-r1"></script>
+<script src="a0-core-cycle-comparator.js?rev=20261020-r2"></script>
+<script src="a0-mirror-pin-rest.js?rev=20261020-r2"></script>
+<script src="a0-grid-fold-return.js?rev=20261020-r1"></script>
+<script src="a0-coordinate-state-view.js?rev=20261020-r1"></script>
+<script src="a0-blue-pink-mask-clock.js?rev=20261020-r1"></script>
+<script src="a0-mask-clock-bench.js?rev=20261020-tour-r2"></script>
+<script src="a0-rotating-cylinder.js?rev=20261020-r1"></script>
+<script src="a0-plate-mirror-view.js?rev=20261020-r2"></script>
 </body>
 </html>

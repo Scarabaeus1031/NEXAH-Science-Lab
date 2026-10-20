@@ -13,6 +13,7 @@ import hashlib
 import json
 import os
 import re
+import stat
 import subprocess
 import sys
 import urllib.request
@@ -29,6 +30,36 @@ EXPECTED_CONTRACT_SHA256 = "45f24faa9dc38f4db6b7ec16eb85ac238b2ad157602e47c3b6b8
 EXPECTED_RELEASE_SHA256 = "f5de21332551382cf1cf98f9218bc376361d9a761a72be8913579990250d4357"
 CAPTURED_HEADERS = ("content-type", "content-length", "etag", "last-modified")
 NOFOLLOW = getattr(os, "O_NOFOLLOW", 0)
+MANIFEST_MEMBERS = frozenset(
+    {
+        "00_README.md",
+        "01_PROVENANCE_AND_READINESS_AUDIT.md",
+        "02_STRONG_BASELINE_AND_PROSPECTIVE_PROTOCOL.md",
+        "03_PROSPECTIVE_CUSTODY_AND_RELEASE_GATE.md",
+        "04_CUSTODY_GATE_REPAIR_REPORT.md",
+        "CUSTODY_CONTRACT.json",
+        "HUMAN_OWNER_RELEASE.json",
+        "prospective_custody.py",
+        "run_prospective_custody.py",
+        "test_prospective_custody.py",
+    }
+)
+PACKAGE_INVENTORY = MANIFEST_MEMBERS | {"SHA256_MANIFEST.txt"}
+ANCHOR_KEYS = frozenset(
+    {
+        "schema_version",
+        "experiment_id",
+        "created_utc",
+        "contract_sha256",
+        "release_sha256",
+        "release_commit",
+        "ledger_entry_count",
+        "ledger_sha256",
+        "ledger_head_sha256",
+        "latest_raw_sha256",
+        "remote_git_commit_required_for_admission",
+    }
+)
 
 
 def canonical_json(value: object) -> bytes:
@@ -47,13 +78,44 @@ def sha256_path(path: Path) -> str:
     return digest.hexdigest()
 
 
+def real_directory(path: Path, create: bool) -> Path:
+    target = Path(os.path.abspath(os.fspath(path)))
+    if target == Path("/"):
+        raise RuntimeError("Custody path must not be the filesystem root")
+    flags = os.O_RDONLY | getattr(os, "O_DIRECTORY", 0) | NOFOLLOW
+    directory_fd = os.open("/", flags)
+    current = Path("/")
+    try:
+        for component in target.parts[1:]:
+            current = current / component
+            try:
+                metadata = os.stat(component, dir_fd=directory_fd, follow_symlinks=False)
+            except FileNotFoundError:
+                if not create:
+                    raise RuntimeError(f"Required custody directory is missing: {current}")
+                try:
+                    os.mkdir(component, 0o700, dir_fd=directory_fd)
+                    os.fsync(directory_fd)
+                except FileExistsError:
+                    pass
+                metadata = os.stat(component, dir_fd=directory_fd, follow_symlinks=False)
+            if not stat.S_ISDIR(metadata.st_mode):
+                raise RuntimeError(f"Refusing non-directory or symlink component: {current}")
+            next_fd = os.open(component, flags, dir_fd=directory_fd)
+            os.close(directory_fd)
+            directory_fd = next_fd
+        os.fsync(directory_fd)
+    finally:
+        os.close(directory_fd)
+    return target
+
+
 def ensure_real_directory(path: Path) -> Path:
-    if path.is_symlink():
-        raise RuntimeError(f"Refusing symlink directory: {path}")
-    path.mkdir(parents=False, exist_ok=True)
-    if path.is_symlink() or not path.is_dir():
-        raise RuntimeError(f"Custody path is not a real directory: {path}")
-    return path.resolve()
+    return real_directory(path, create=True)
+
+
+def require_real_directory(path: Path) -> Path:
+    return real_directory(path, create=False)
 
 
 def open_directory_fd(path: Path) -> int:
@@ -79,6 +141,18 @@ def exclusive_write(directory: Path, filename: str, data: bytes, mode: int) -> P
     finally:
         os.close(directory_fd)
     return directory / filename
+
+
+def require_absent(directory: Path, filename: str) -> None:
+    directory_fd = open_directory_fd(directory)
+    try:
+        try:
+            os.stat(filename, dir_fd=directory_fd, follow_symlinks=False)
+        except FileNotFoundError:
+            return
+        raise RuntimeError(f"Refusing pre-existing custody destination: {directory / filename}")
+    finally:
+        os.close(directory_fd)
 
 
 def open_or_create_lock(directory: Path, filename: str) -> int:
@@ -128,22 +202,25 @@ def verify_runtime(contract: dict) -> None:
 
 
 def verify_package_manifest() -> None:
-    required = {
-        "CUSTODY_CONTRACT.json",
-        "HUMAN_OWNER_RELEASE.json",
-        "prospective_custody.py",
-        "run_prospective_custody.py",
-        "test_prospective_custody.py",
-    }
-    seen = set()
+    actual_inventory = {path.name for path in PACKAGE.iterdir()}
+    if actual_inventory != PACKAGE_INVENTORY:
+        extra = sorted(actual_inventory - PACKAGE_INVENTORY)
+        missing = sorted(PACKAGE_INVENTORY - actual_inventory)
+        raise RuntimeError(f"Prospective package inventory mismatch: extra={extra}, missing={missing}")
+    seen: set[str] = set()
     for line in MANIFEST_PATH.read_text().splitlines():
-        expected, name = line.split("  ", 1)
+        try:
+            expected, name = line.split("  ", 1)
+        except ValueError as exc:
+            raise RuntimeError("Prospective package manifest line is malformed") from exc
+        if not re.fullmatch(r"[0-9a-f]{64}", expected) or name in seen:
+            raise RuntimeError("Prospective package manifest hash or membership is malformed")
         path = PACKAGE / name
-        if not path.is_file() or sha256_path(path) != expected:
+        if path.is_symlink() or not path.is_file() or sha256_path(path) != expected:
             raise RuntimeError(f"Prospective package manifest mismatch: {name}")
         seen.add(name)
-    if not required.issubset(seen):
-        raise RuntimeError("Prospective package manifest omits custody files")
+    if seen != MANIFEST_MEMBERS:
+        raise RuntimeError("Prospective package manifest is not the exact frozen member set")
 
 
 def git_output(*args: str) -> str:
@@ -163,6 +240,10 @@ def git_output(*args: str) -> str:
 def verify_remote_release_commit() -> str:
     repository = Path(git_output("rev-parse", "--show-toplevel")).resolve()
     package_relative = PACKAGE.relative_to(repository).as_posix()
+    tracked = set(git_output("ls-files", "--", package_relative).splitlines())
+    expected_tracked = {f"{package_relative}/{name}" for name in PACKAGE_INVENTORY}
+    if tracked != expected_tracked:
+        raise RuntimeError("Custody package tracked inventory is not exact")
     for args in (
         ("diff", "--quiet", "HEAD", "--", package_relative),
         ("diff", "--cached", "--quiet", "HEAD", "--", package_relative),
@@ -273,8 +354,7 @@ def verify_anchors(custody_root: Path, anchor_export_dir: Path) -> None:
     ledger_path = custody_root / "FIRST_SEEN_LEDGER.jsonl"
     if not ledger_path.exists():
         return
-    if anchor_export_dir.is_symlink() or not anchor_export_dir.is_dir():
-        raise RuntimeError("Anchor export directory is missing or is a symlink")
+    anchor_export_dir = require_real_directory(anchor_export_dir)
     ledger_lines = ledger_path.read_bytes().splitlines()
     entries = [json.loads(line) for line in ledger_lines]
     anchor_paths = sorted(anchor_export_dir.glob("*.json"))
@@ -284,6 +364,10 @@ def verify_anchors(custody_root: Path, anchor_export_dir: Path) -> None:
     if len(anchors) != len(entries):
         raise RuntimeError("Anchor count does not match ledger entry count")
     by_head = {anchor["ledger_head_sha256"]: anchor for anchor in anchors}
+    path_by_head = {
+        anchor["ledger_head_sha256"]: path
+        for path, anchor in zip(anchor_paths, anchors, strict=True)
+    }
     if len(by_head) != len(anchors):
         raise RuntimeError("Duplicate ledger-head anchor")
     for index, entry in enumerate(entries):
@@ -291,24 +375,37 @@ def verify_anchors(custody_root: Path, anchor_export_dir: Path) -> None:
         anchor = by_head.get(head)
         if anchor is None:
             raise RuntimeError(f"Missing anchor for ledger entry {index + 1}")
+        if set(anchor) != ANCHOR_KEYS:
+            raise RuntimeError(f"Anchor schema mismatch at ledger entry {index + 1}")
         prefix = b"\n".join(ledger_lines[: index + 1]) + b"\n"
         expected = {
+            "schema_version": 1,
+            "experiment_id": "POLAR-LOD-01",
+            "created_utc": entry["retrieval_finished_utc"],
             "contract_sha256": EXPECTED_CONTRACT_SHA256,
             "release_sha256": entry["release_sha256"],
             "release_commit": entry["release_commit"],
             "ledger_entry_count": index + 1,
             "ledger_sha256": sha256_bytes(prefix),
+            "ledger_head_sha256": head,
             "latest_raw_sha256": entry["sha256"],
             "remote_git_commit_required_for_admission": True,
         }
-        for key, value in expected.items():
-            if anchor.get(key) != value:
-                raise RuntimeError(f"Anchor mismatch for {key} at ledger entry {index + 1}")
+        if anchor != expected:
+            raise RuntimeError(f"Anchor semantic mismatch at ledger entry {index + 1}")
+        created = datetime.fromisoformat(entry["retrieval_finished_utc"].replace("Z", "+00:00"))
+        stamp = created.astimezone(timezone.utc).strftime("%Y%m%dT%H%M%S.%fZ")
+        expected_name = f"{stamp}_{head}.json"
+        anchor_path = path_by_head[head]
+        if anchor_path.name != expected_name:
+            raise RuntimeError(f"Anchor filename mismatch at ledger entry {index + 1}")
+        canonical_bytes = json.dumps(expected, indent=2, sort_keys=True).encode("utf-8") + b"\n"
+        if anchor_path.read_bytes() != canonical_bytes:
+            raise RuntimeError(f"Anchor byte encoding mismatch at ledger entry {index + 1}")
 
 
 def verify_custody_root(custody_root: Path, anchor_export_dir: Path | None = None) -> str | None:
-    if custody_root.is_symlink():
-        raise RuntimeError("Refusing symlink custody root")
+    custody_root = require_real_directory(custody_root)
     ledger_path = custody_root / "FIRST_SEEN_LEDGER.jsonl"
     head = verify_ledger(ledger_path)
     if not ledger_path.exists():
@@ -316,9 +413,13 @@ def verify_custody_root(custody_root: Path, anchor_export_dir: Path | None = Non
     with ledger_path.open(encoding="utf-8") as handle:
         for line_number, line in enumerate(handle, start=1):
             entry = json.loads(line)
-            raw_path = (custody_root / entry["raw_relative_path"]).resolve()
-            if not raw_path.is_relative_to(custody_root.resolve()):
+            raw_relative = Path(entry["raw_relative_path"])
+            if raw_relative.is_absolute() or any(part in ("", ".", "..") for part in raw_relative.parts):
                 raise RuntimeError(f"Raw path escapes custody root at ledger line {line_number}")
+            raw_path = custody_root / raw_relative
+            require_real_directory(raw_path.parent)
+            if raw_path.is_symlink():
+                raise RuntimeError(f"Raw path is a symlink at ledger line {line_number}")
             if not raw_path.is_file():
                 raise RuntimeError(f"Raw file missing at ledger line {line_number}")
             if raw_path.stat().st_size != entry["byte_count"]:
@@ -335,9 +436,10 @@ def write_anchor(
     anchor_export_dir: Path,
     entry: dict,
     created: datetime,
+    ledger_bytes: bytes | None = None,
 ) -> Path:
-    ledger_path = custody_root / "FIRST_SEEN_LEDGER.jsonl"
-    ledger_bytes = ledger_path.read_bytes()
+    if ledger_bytes is None:
+        ledger_bytes = (custody_root / "FIRST_SEEN_LEDGER.jsonl").read_bytes()
     anchor = {
         "schema_version": 1,
         "experiment_id": "POLAR-LOD-01",
@@ -374,9 +476,6 @@ def append_capture(
 ) -> dict:
     if source_id == "eam_vintage" and issue_date is None:
         raise ValueError("EAM vintage capture requires a derived Issue Date")
-    if custody_root.is_symlink():
-        raise RuntimeError("Refusing symlink custody root")
-    custody_root.mkdir(parents=True, exist_ok=True)
     custody_root = ensure_real_directory(custody_root)
     ledger_path = custody_root / "FIRST_SEEN_LEDGER.jsonl"
     if ledger_path.is_symlink():
@@ -392,7 +491,6 @@ def append_capture(
     digest = sha256_bytes(data)
     stamp = started.astimezone(timezone.utc).strftime("%Y%m%dT%H%M%S.%fZ")
     raw_relative = Path("raw") / source_id / f"{stamp}_{digest}.bin"
-    raw_path = exclusive_write(raw_dir, raw_relative.name, data, 0o600)
     entry = {
         "schema_version": 1,
         "source_id": source_id,
@@ -419,6 +517,27 @@ def append_capture(
         previous = verify_ledger(ledger_path)
         entry["previous_entry_sha256"] = previous
         entry["entry_sha256"] = entry_hash(entry)
+        ledger_line = canonical_json(entry) + b"\n"
+        existing_ledger_bytes = ledger_path.read_bytes() if ledger_path.exists() else b""
+        intended_ledger_bytes = existing_ledger_bytes + ledger_line
+        receipt_name = f"{stamp}_{entry['entry_sha256']}.json"
+        anchor_stamp = finished.astimezone(timezone.utc).strftime("%Y%m%dT%H%M%S.%fZ")
+        anchor_name = f"{anchor_stamp}_{entry['entry_sha256']}.json"
+        require_absent(raw_dir, raw_relative.name)
+        require_absent(receipts_dir, receipt_name)
+        if anchor_export_dir is not None:
+            require_absent(anchor_export_dir, anchor_name)
+        exclusive_write(raw_dir, raw_relative.name, data, 0o600)
+        receipt_data = json.dumps(entry, indent=2, sort_keys=True).encode("utf-8") + b"\n"
+        exclusive_write(receipts_dir, receipt_name, receipt_data, 0o600)
+        if anchor_export_dir is not None:
+            write_anchor(
+                custody_root,
+                anchor_export_dir,
+                entry,
+                finished,
+                intended_ledger_bytes,
+            )
         custody_fd = open_directory_fd(custody_root)
         try:
             ledger_descriptor = os.open(
@@ -429,15 +548,10 @@ def append_capture(
             )
         finally:
             os.close(custody_fd)
-        with os.fdopen(ledger_descriptor, "a", encoding="utf-8") as ledger:
-            ledger.write(canonical_json(entry).decode("ascii") + "\n")
+        with os.fdopen(ledger_descriptor, "ab") as ledger:
+            ledger.write(ledger_line)
             ledger.flush()
             os.fsync(ledger.fileno())
-        receipt_name = f"{stamp}_{entry['entry_sha256']}.json"
-        receipt_data = json.dumps(entry, indent=2, sort_keys=True).encode("utf-8") + b"\n"
-        exclusive_write(receipts_dir, receipt_name, receipt_data, 0o600)
-        if anchor_export_dir is not None:
-            write_anchor(custody_root, anchor_export_dir, entry, finished)
         custody_fd = open_directory_fd(custody_root)
         try:
             os.fsync(custody_fd)

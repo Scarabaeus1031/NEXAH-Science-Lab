@@ -2,7 +2,7 @@
 
 Date: `2026-10-10`
 
-Status: `DOCUMENTARY_SUBLEDGER / A0-BL-021, A0-BL-035, A0-BL-045, A0-BL-052 AND A0-BL-053 CLOSED / A0-BL-050 BOUND / A0-BL-054 OWNER-SELECTED PRIORITY PREPARATION / OCB GAP REGISTER ADDED`
+Status: `DOCUMENTARY_SUBLEDGER / A0-BL-021, 023, 025, 035, 045, 051, 052, 053 AND 054 CLOSED OR OWNER-DISPOSED / A0-BL-050 BOUND / A0-BL-024 INFORMATION_LOST RESULT READY / OCB GAP REGISTER ADDED`
 
 Owning identity: `NEXAH_AX0_QMODE_FOUNDATION_PACKAGE`
 
@@ -109,18 +109,19 @@ an active Science Lab cycle.
 
 | Local item | Status | Question | Minimum gate before work |
 |---|---|---|---|
-| `A0-BL-020` | `ADMISSION_REQUIRED` | general `m`-face, depth-`d` Pascal quotient family, including the candidate `m=6,7,8` continuation | bounded formula question, comparator, proof/test plan and STOP; do not import `133,154,175` into SCC-003 |
+| `A0-BL-020` | `CLOSED / OWNER_ACCEPTED 2026-10-18` | declared cyclic `m`-face, depth-`d` Pascal quotient with open-chain control | seven gates pass on 120 instances; cyclic and open formulas are exact and distinct; [canonical Labreport](../../SCIENCE_LAB/LABREPORTS/MATHEMATICS/LABREPORT_A0_BL_020_GENERAL_PASCAL_QUOTIENTS_001.md) |
 | `A0-BL-021` | `CLOSED` | dynamic-boundary order dependence and confluence, including `5+1`, `5+2`, `6+1`, open-edge carriers and Angle Nodes | accepted `VALIDATED_NEGATIVE_RESULT / PATH_DEPENDENT_WITH_WITNESS`: 9 six-face histories, 100 seven-face histories and 56 typed terminal classes; the exact 7×8 position-address grid is related but not canonically identical to the 56-class quotient; [canonical Labreport](../../SCIENCE_LAB/LABREPORTS/MATHEMATICS/LABREPORT_A0_BL_021_DYNAMIC_BOUNDARY_CONFLUENCE_001.md) · [result package](../../SCIENCE_LAB/CASE_STUDIES/A0_BL_021_DYNAMIC_BOUNDARY_CONFLUENCE_2026-10-10/README.md) |
-| `A0-BL-022` | `ADMISSION_REQUIRED` | coupled-channel dynamics for `C5` and `C6`, and the proposed local `O-C-O` / `MONAD(t)` composition | two carriers, typed ports, coupling and assembly maps, update rule, invariant/tolerance, perturbation and failure/return condition |
-| `A0-BL-023` | `ADMISSION_REQUIRED` | existence of a Pascal intertwiner between hub, phase-cover and quotient carriers | formal Core design supplies the C12 relation and the exact D30 lift `p=2k-n mod 30`; the nested audit passes 24/24 checks over all 127 depth-six branch words. Its five one-based registers `D1..D5` are exactly the existing `f in C5` face addresses, each with 28 raw incidences, 127 branch words and 13 observed phases: 65 of the `5 x 30 = 150` register-phase places are occupied. `D1..D5` are registers, not the dihedral group `D5` and not five new operators. None of 900 old-gear characters realizes the signed unit schedule; H3/E8 remain separate carriers. The existing Core Explorer now exposes this frozen adapter through a source-bound `D30 joint` view without adding PENT-08 or executing a run; [Core Explorer](<../../../../10 NEXAH CORE/NEXAH/RESEARCH/NOTES/PASCAL_PENTAGON_D5_TEST_2026-10-10/PASCAL_PENTAGON_EXPLORER.html>) · [design fixture](<../../../../10 NEXAH CORE/NEXAH/RESEARCH/NOTES/PASCAL_PENTAGON_D5_TEST_2026-10-10/PASCAL_ROSETTA_JOINT_DESIGN_2026-10-11/README.md>) · [D30 audit](<../../../../10 NEXAH CORE/NEXAH/RESEARCH/NOTES/PASCAL_PENTAGON_D5_TEST_2026-10-10/PASCAL_ROSETTA_JOINT_DESIGN_2026-10-11/D30_BRANCH_WORD_AUDIT_2026-10-11/README.md>) · [companion paper draft](33_A0_PASCAL_ROSETTA_D30_COMPANION_PAPER_DRAFT_2026-10-11.md) · remains non-active until Admission |
-| `A0-BL-024` | `ADMISSION_REQUIRED` | relation between the `4 x 2 x 2 = 16` orientation product and the 106-node carrier | explicit state map, information accounting and collision test |
-| `A0-BL-025` | `ADMISSION_REQUIRED / OWNER-SELECTED PREPARATION 2026-10-15` | general Grid–Fold–Channel and local-unit-to-surface specification; SCC-003 continuation asks whether a compatible Pascal seam becomes a useful typed zipper/channel | carrier, fold, embedding, envelope, interface, assembly, update and Return must be formalized on at least two non-identical controls; compare disjoint, apex-only, untyped quotient, arbitrary matched gluing and typed seam conditions; measure recurrence, provenance, Return metadata and ambiguity; [research addendum](89_A0_SCC_003_SEAM_ZIPPER_CHANNEL_USEFULNESS_ADDENDUM_2026-10-15.md) |
+| `A0-BL-022` | `CLOSED / OWNER_ACCEPTED 2026-10-18` | finite typed C5/C6/C30 pulse channel; O-C-O and MONAD excluded | all seven gates pass; coupled period 60, uncoupled 30, kick recovery 0/60, matched port shuffle preserves period but moves event; [canonical Labreport](../../SCIENCE_LAB/LABREPORTS/MATHEMATICS/LABREPORT_A0_BL_022_COUPLED_CHANNEL_DYNAMICS_001.md) |
+| `A0-BL-023` | `CLOSED / OWNER_ACCEPTED_BOUNDED_POSITIVE_INTERNAL_RESULT 2026-10-18` | existence of a Pascal intertwiner between hub, phase-cover and quotient carriers | the combined five-gate audit with A0-BL-051 is accepted and closed. It preserves 135 typed additions, 140 addresses and 210 relation edges, separates three generation coordinates, classifies four Return strengths and rejects five untyped identity matches. This validates the audit method, not the still-open intertwiner; [canonical Labreport](../../SCIENCE_LAB/LABREPORTS/MATHEMATICS/LABREPORT_A0_BL_023_051_PASCAL_GENERATION_RETURN_001.md) |
+| `A0-BL-024` | `RESULT_READY / INFORMATION_LOST_RESIDUAL_SUFFICIENT_AND_NO_CANONICAL_MAP / AWAITING OWNER DISPOSITION 2026-10-18` | relation between the `4 x 2 x 2 = 16` orientation product and the 106-node carrier | both noncanonical Q106→O16 maps reach 16 states, collide 90 times and return 106/106 only with conditional residuals. A matched shuffle keeps P1's fiber profile while changing 100 assignments; `gcd(4,5)=1` forbids a nontrivial C4/C5 rotation intertwiner. Primary/Replay byte-identical, verifier PASS `18/18`; [result assessment](../../SCIENCE_LAB/CASE_STUDIES/A0_BL_024_O16_Q106_STATE_RELATION_2026-10-18/02_RESULT_ASSESSMENT.md) |
+| `A0-BL-025` | `CLOSED / OWNER_ACCEPTED_BOUNDED_POSITIVE_INTERNAL_RESULT 2026-10-18` | general Grid–Fold–Channel and local-unit-to-surface specification; admitted SCC-003 continuation tested whether the compatible Pascal seam becomes a useful typed zipper/channel | locked C0–C4 cycle returns `PASS_BOUNDED_TYPED_SEAM_ADVANTAGE`: typed seam plus conditional residual reconstructs `140/140` source incidences through 106 addresses at `7.535714` mean bits versus raw fixed 8; quotient without residual returns `106/140`; arbitrary matched gluing mixes 30 levels; D5 and 60 inverse seam transitions pass. Primary/Replay byte-identical, verifier 20/20; Owner accepted the bounded internal result. Physical flow, historical offsets, Riemann mapping, Human utility, universal architecture and publication remain unestablished; [canonical Labreport](../../SCIENCE_LAB/LABREPORTS/MATHEMATICS/LABREPORT_A0_BL_025_TYPED_SEAM_CHANNEL_UTILITY_001.md) · [Owner closure](../../SCIENCE_LAB/CASE_STUDIES/A0_BL_025_TYPED_SEAM_CHANNEL_UTILITY_2026-10-18/06_OWNER_CLOSURE_RECORD.md) |
 | `A0-BL-045` | `CLOSED` | Pascal-to-Fibonacci transfer, double-pentagon `Q'`, cylinder/Möbius seam fork and Pascal-pyramid pillar distances | Owner-accepted bounded classification: the same `Q^5`, trace `11` and determinant `-1` occur on both strip quotients, so topology is underdetermined. `Q^10` and `Q^5 direct-sum Q^5` do not return; only the explicitly typed bridge satisfies `(Q'_epsilon)^2=epsilon I`. `J_z` preserves pillar distances, whereas `Q'_epsilon` is non-orthogonal (`||Q'e_1||^2=89`). The `+18%` marker remains undefined; [canonical Labreport](../../SCIENCE_LAB/LABREPORTS/MATHEMATICS/LABREPORT_A0_BL_045_PASCAL_Q5_RETURN_FORK_001.md) |
-| `A0-BL-046` | `ADMISSION_REQUIRED` | Root‑Room 537 coordinate reconstruction | one frozen plate, extracted coordinates, grid origin and units, explicit number-to-position map, shuffled-digit and nearby-integer controls, information-loss ledger and STOP if placement is underdetermined |
-| `A0-BL-047` | `ADMISSION_REQUIRED` | double Pascal pentagon/pyramid split: `4+1` to two candidate `5+1` hexagons | define the shared four-part carrier, the added node or face, both split maps, overlap and closure; distinguish two hexagonal views from two hexagon identities |
-| `A0-BL-048` | `ADMISSION_REQUIRED` | prime-index nesting around `7`, `17`, `4`, `7`, `717717`, `4774` and `1771` | freeze the selection rule before search, compare prime-index, decimal reversal and palindrome baselines, use matched null strings and report multiplicity rather than selecting resonant examples post hoc |
-| `A0-BL-049` | `ADMISSION_REQUIRED` | IOTA/THOTH and `1737 -> 137 / 737` operator typing | declare whether iota is index, injection, state or generator; type decimal deletion maps, record collisions and lost information, and keep glyph/title provenance separate from algebra |
-| `A0-BL-054` | `ADMISSION_REQUIRED / OWNER-SELECTED PRIORITY PREPARATION 2026-10-15` | IEEE-300 Critical-Orbit Shadow / Ghostgrid representation-stress test: can a non-leaky finite orbit signature remain stable under view changes while responding specifically to load and topology changes? | reuse `MOD:IEEE300_GRAPH_GRID`; freeze one source-state-to-`c` adapter, mask the trivial `z1=c` leak, fix orbit length, ordering, quantization and Ghostgrid views; compare direct-signature and matched random-projection baselines; require bus-relabel invariance, declared load/topology sensitivity, collision and reconstruction accounting, resolution/phase/viewport controls, negative outcome vocabulary and STOP; separate Owner admission and Run Contract before execution |
+| `A0-BL-046` | `CLOSED / OWNER_ACCEPTED_UNDERDETERMINED_RECONSTRUCTION 2026-10-18` | Root‑Room 537 coordinate reconstruction | frozen `ATT-008` arithmetic passes, but duplicate `57` anchors are 519.008670 px apart; no declared embedding is control-selective. [canonical Labreport](../../SCIENCE_LAB/LABREPORTS/MATHEMATICS/LABREPORT_A0_BL_046_ROOT_ROOM_537_RECONSTRUCTION_001.md) |
+| `A0-BL-047` | `CLOSED / OWNER_ACCEPTED_TYPED_EXTENSION_FAMILY_WITH_NONCANONICAL_PAIRING 2026-10-18` | double Pascal pentagon/pyramid split: `4+1` to two candidate `5+1` hexagons | all ten edge-subdivision extensions are C6 and contract exactly; all twenty distinct pairs pass; pairing remains twofold until oriented. [canonical Labreport](../../SCIENCE_LAB/LABREPORTS/MATHEMATICS/LABREPORT_A0_BL_047_DOUBLE_PENTAGON_SPLIT_001.md) |
+| `A0-BL-048` | `CLOSED / OWNER_ACCEPTED_PRIME_INDEX_SELECTIVITY_FAIL 2026-10-18` | prime-index nesting around `7`, `17`, `717717`, `4774` and `1771` | complete matched null: prime tail `228/540`; selection-conditioned three-palindrome baseline `12/540`. [canonical Labreport](../../SCIENCE_LAB/LABREPORTS/MATHEMATICS/LABREPORT_A0_BL_048_PRIME_INDEX_NESTING_CONTROLS_001.md) |
+| `A0-BL-049` | `CLOSED / OWNER_ACCEPTED_TYPED_LOSSY_PROJECTIONS_WITH_JOINT_EXACT_RETURN 2026-10-18` | IOTA/THOTH and `1737 -> 137 / 737` operator typing | 9,000-source enumeration: deletion fibres `9/10`, each single view returns with removed digit, ordered pair returns `9000/9000`; Iota classifier reused, THOOTH remains nonoperator. Primary/Replay byte-identical; verifier `17/17`; [canonical Labreport](../../SCIENCE_LAB/LABREPORTS/MATHEMATICS/LABREPORT_A0_BL_049_IOTA_THOOTH_OPERATOR_TYPING_001.md) |
+| `A0-BL-054` | `CLOSED / OWNER_ACCEPTED_MIXED_NEGATIVE_INTERNAL_RESULT 2026-10-18` | IEEE-300 Critical-Orbit Shadow / Ghostgrid representation-stress test: can a non-leaky finite orbit signature remain stable under view changes while responding specifically to load and topology changes? | Primary/Replay byte-identical and verifier PASS. Bus relabel, load, topology, ablation, collision, order and no-escape gates pass. The all-view gate fails: 60/81 configurations pass, 21/81 coarse 8-bin configurations fail, minimum rho `0.731126 < 0.80`. Random-projection q95 is `1.0`, so no diagnostic representation advantage is established. Owner accepted the bounded mixed-negative result; no repair or rerun; [canonical Labreport](../../SCIENCE_LAB/LABREPORTS/MATHEMATICS/LABREPORT_A0_BL_054_IEEE300_CRITICAL_ORBIT_GHOSTGRID_001.md) · [Owner closure](../../SCIENCE_LAB/CASE_STUDIES/A0_BL_054_IEEE300_CRITICAL_ORBIT_GHOSTGRID_2026-10-18/06_OWNER_CLOSURE_RECORD.md) |
+| `A0-BL-055` | `CLOSED / OWNER_ACCEPTED_RETURN_GRAMMAR_PASS_ECONOMY_GENERALIZATION_FAIL 2026-10-18` | does Return economy generalize under one equal-information contract across Q106/O16, typed seam and four-digit paired projections? | exact Return passes `3/3`, but economy passes `1/3`: Q106 `7→7`, Typed Seam `8→7.535714`, decimal `14→14`. Lock `11/11`, byte-identical Primary/Replay, verifier `20/20`; [canonical Labreport](../../SCIENCE_LAB/LABREPORTS/MATHEMATICS/LABREPORT_A0_BL_055_CROSS_CARRIER_RETURN_ECONOMY_001.md) |
 
 ### C.1 Owner-selected priority preparation — `A0-BL-054`
 
@@ -181,7 +182,7 @@ CREATE  no Study, Navigator node, relation or active cycle
 | `A0-BL-038` | `PREPARE` | Seven Bridges / seven Families / Base-20–Base-40 crosswalk | keep `20+20=40`, the `20x20` grid and F1–F7 as separate exact or governance layers; test any serial bridge assignment rather than assuming it |
 | `A0-BL-039` | `PREPARE` | Root‑Room 537 reconstruction contract | preserve `537 -> 5.37`, `537+57=594`, `537+37=574`, `73<->37`, `1728/1729/1737` and the visual custody record while keeping arithmetic, decimal representation, radix labels and geometry separate |
 | `A0-BL-050` | `BOUND` | Pascal / Generation Corner five-phase crosswalk | reuses `A0OE:PASCAL_PENTAGON_D5_TEST`, `MOD:ORIENTATION_DEMONSTRATORS` and `ART:HTML:888E61A125CA`; keeps `S(t,g_R,g_P,g_M)` and the four Return levels explicit; [documentary crosswalk](29_A0_PASCAL_GENERATION_CORNER_CROSSWALK_2026-10-10.md) · [reader instrument](A0_BOOK/A0_PASCAL_GENERATION_CORNER.html) |
-| `A0-BL-051` | `PREPARE` | Pascal / Generation Return five-gate test design | document relation-object reconstruction, coordinate separability, representation accounting, Return-level classification and non-identity stress controls; the [Pascal–Rosetta design return](<../../../../10 NEXAH CORE/NEXAH/RESEARCH/NOTES/PASCAL_PENTAGON_D5_TEST_2026-10-10/PASCAL_ROSETTA_JOINT_DESIGN_2026-10-11/A0_MISSION_CONTROL_RETURN.md>) and its [D30 branch-word audit](<../../../../10 NEXAH CORE/NEXAH/RESEARCH/NOTES/PASCAL_PENTAGON_D5_TEST_2026-10-10/PASCAL_ROSETTA_JOINT_DESIGN_2026-10-11/D30_BRANCH_WORD_AUDIT_2026-10-11/README.md>) supply the tested five-register Pascal-side adapter `D1..D5 x D30` plus an explicit 480-chart E8 non-uniqueness boundary without activating a run; the exact reconstruction key is `(Dj,n,p)`, while `(Dj,p)` remains lossy. The same adapter is now inspectable in the existing Core Explorer as a bounded view rather than a new test; [series archaeology](31_A0_CON_DAO_RETURN_SERIES_ARCHAEOLOGY_2026-10-11.md) complete with four matched non-identity controls; [non-executable test draft](30_A0_PASCAL_GENERATION_RETURN_TEST_DRAFT_2026-10-10.md); [Paper B companion draft](33_A0_PASCAL_ROSETTA_D30_COMPANION_PAPER_DRAFT_2026-10-11.md) documents the design without status promotion; frozen fixture, Admission and Run Contract required before execution |
+| `A0-BL-051` | `CLOSED / OWNER_ACCEPTED_BOUNDED_POSITIVE_INTERNAL_RESULT 2026-10-18` | Pascal / Generation Return five-gate test | the combined record with A0-BL-023 passed relation reconstruction, separate `g_R/g_P/g_M`, two-view accounting, four Return levels, signed reciprocal non-isometry and all five non-identity controls. The result is accepted under its bounded claim ceiling; [canonical Labreport](../../SCIENCE_LAB/LABREPORTS/MATHEMATICS/LABREPORT_A0_BL_023_051_PASCAL_GENERATION_RETURN_001.md) |
 | `A0-BL-052` | `CLOSED` | Pascal–Quaternion four-channel Return connector | Owner-accepted `EXACT_FOUR_CHANNEL_CONNECTOR_PASS`: T1–T10 pass on `P_0..P_11`; `Phi(a,b,c)=(a+b+c)1+ai+bj+ck` is injective and C3-equivariant with exact inverse Return; reflection, generic-view, `Q°`, scalar `Q_432`, `4²/5²` and prime-index boundaries remain typed separate; Primary/Replay are byte-identical and the repaired independent verifier passes; [canonical Labreport](../../SCIENCE_LAB/LABREPORTS/MATHEMATICS/LABREPORT_A0_BL_052_PASCAL_QUATERNION_FOUR_CHANNEL_RETURN_001.md) · [Study result](../../SCIENCE_LAB/CASE_STUDIES/A0_BL_052_PASCAL_QUATERNION_FOUR_CHANNEL_RETURN_2026-10-11/02_RESULT_ASSESSMENT.md) |
 | `A0-BL-053` | `CLOSED / OWNER_ACCEPTED_INTERNAL_RESULT` | Pascal–Quaternion symbolic proof and internal adversarial review | `VALIDATED_POSITIVE_RESULT / QUALIFIED_GENERALIZATION`: the connector theorem is proved for every `N>=0`; the faithful restricted carrier-action statement `A3=C3` requires `N>=1` because `P_0` is a singleton. A new exact JavaScript implementation passes 6/6 controls through `P_14`, Primary/Replay are byte-identical and a separate verifier passes. The result is legitimate internal Lab knowledge and may enter internal paper work; external academic use still requires independent qualified human review. It is not R4 or publication authorization; [Labreport](../../SCIENCE_LAB/LABREPORTS/MATHEMATICS/LABREPORT_A0_BL_053_PASCAL_QUATERNION_SYMBOLIC_PROOF_REVIEW_001.md) |
 
@@ -432,12 +433,13 @@ Backlog-Identitäten:
 | Bestehende Route | Status | Geparkter Rest |
 |---|---|---|
 | `A0-BL-022` | `ADMISSION_REQUIRED` | reale Gegenrotation `2:3` / `4:3:2`, `4:4:0`-Varianten, Kanalfluss und gekoppelter Update-Mechanismus |
-| `A0-BL-024`, `A0-BL-025` | `ADMISSION_REQUIRED` | vollständige Orchestrierung aller HTML-Instrumente sowie allgemeine Grid–Fold–Channel-Kopplung |
+| `A0-BL-024`, `A0-BL-025` | `ADMITTED OPEN / CLOSED` | `A0-BL-024` ist als zweites nichtaktives Paket eingefroren; `A0-BL-025` besitzt einen Owner-angenommenen begrenzten positiven SCC-003-Nutzenbefund. Beide bewahren die Nichtidentität der Träger und erzeugen keine allgemeine oder physische Grid–Fold–Channel-Kopplung |
 | `A0-BL-033` | `PARKED` | zusätzliche Fenster, Pins, lila Doppelschatten und weitere Perspektiv-/Ihara-Ansichten; nur mit Quellenpfad und Non-Claim-Caption |
 | `A0-BL-036` | `BOUND` | weitere M7-Rasterfamilien jenseits der vier implementierten Views; keine Bedeutungsübertragung aus dem Dürer-`Sigma34` |
 | `A0-BL-037`, `A0-BL-045` | `PREPARE / CLOSED` | Möbius Starwheel, `1.21`, Fibonacci-Ringe, Cylinder/Double-Body und Return als Relation; keine Identität der Träger |
-| `A0-BL-047` | `ADMISSION_REQUIRED` | Pentagon-Tiles `16/17`, Ebenenlift und Tessarec-Verbindung |
-| `A0-BL-048` | `ADMISSION_REQUIRED` | Muster um `7/17/34/40`, Prime-Adressen und `4774`; insbesondere bleibt `40/3` HOLD und kein diskreter Dreizykel |
+| `A0-BL-047` | `CLOSED / OWNER ACCEPTED` | Die Pentagon-Route ist als begrenzte C5→C6-Extension-Familie geschlossen; Cross-Zuordnung ohne orientierte Kante zweifach; weder PENT-08 noch Tessarec-Identität |
+| `A0-BL-048` | `CLOSED / OWNER ACCEPTED` | Prime-Nesting ist unter vollständigen Digit-Permutationen nicht selektiv (`228/540`); der Palindrom-Fixpunkt-Baseline ist stärker (`12/540`), aber auswahlbedingt. `40/3` bleibt HOLD und kein diskreter Dreizykel |
+| `A0-BL-049` | `CLOSED / OWNER ACCEPTED` | Die beiden Dezimallöschungen sind einzeln verlustbehaftet und gemeinsam exakt rückkehrfähig; Iota bleibt gerichteter Klassifikator, THOOTH ein nichtausführbares Provenienz-/Kartensystem |
 
 Wiederaufnahme nur durch ausdrückliche Owner-Priorisierung und den jeweils
 bereits notierten Admission-Gate. Bis dahin: Dokumentation und Erhaltung,
@@ -454,15 +456,15 @@ Grid Switch nun **Body L als Platte** und **Body R als Zylinder**. Das zentrale
 Die bereits getypten internen Werte modulieren lediglich vier Plattenspuren
 und vier Zylinderbänder als zwei Projektionen desselben Registers.
 
-Damit ist eine lokale Demonstrator-Ansicht `BUILT / BOUND`; die allgemeine
-Grid–Fold–Channel-Spezifikation unter `A0-BL-025` bleibt weiterhin
-`ADMISSION_REQUIRED`. Insbesondere werden weder Platte und Zylinder
-identifiziert noch eine geometrische, dynamische oder physikalische
-Äquivalenz behauptet. Weitere Entwicklung bleibt gestoppt.
+Damit ist eine lokale Demonstrator-Ansicht `BUILT / BOUND`. Der spätere,
+separat zugelassene `A0-BL-025`-Zyklus prüft ausschließlich den endlichen
+SCC-003-Seam und ändert diese Platte/Zylinder-Grenze nicht. Insbesondere werden
+weder Platte und Zylinder identifiziert noch eine geometrische, dynamische
+oder physikalische Äquivalenz behauptet. Allgemeine Kopplung bleibt offen.
 
 ### F.2 Backlog-Notiz zu `A0-BL-036`: wanderndes 2x2-Innenfenster
 
-`BACKLOG_ONLY / NO_BUILD`
+`BOUND DEMONSTRATOR BUILT / RESEARCH GENERALIZATION STILL BACKLOG_ONLY`
 
 Neben der im M7-View verwendeten Dürer-Platte fehlt dort noch die bereits im
 Q4 Magic-Square Joint Audit gebundene **Khajuraho-Platte**. Vor jedem UI-Ausbau
@@ -494,6 +496,18 @@ Typgrenze: Das 3x3-Fenster ist eine bewegliche Beobachtungsmaske auf dem
 16-Zellen-Register, nicht der `Blue Body`. Der Blue Body bleibt der getrennte
 48-State-/48-Vertex-Träger; eine Kopplung wäre erst ein späterer
 Projektionsadapter.
+
+Engineering-Return 18.10.2026: Die eng begrenzte Demonstrator-Schicht ist nun
+im bestehenden OCB `v0.16.0` als **Moving Aperture / Return Window** gebaut.
+Sie prüft alle `9 + 16` Positionen je Platte für `2x2` und alle `4 + 16`
+Positionen je Platte für `3x3`, zusammen `90` deklarierte Fensterrecords. Der
+sichtbare Record trennt Platzierungsoperator, Fensteradresse, Größe,
+Randbedingung, Messwert, Collision, Residual und exakten Return. Damit sind die
+oben notierten endlichen Sequenzen ausführbar und testbar; die Erklärung der
+torischen `3x3`-Permutation, Vergleichsklassen weiterer Platzierungen sowie
+die spätere `7x7`-/`phi`-Hypothese bleiben ausdrücklich Backlog. Der Build ist
+kein neuer Forschungsrun und erzeugt keine neue Identität oder
+Mechanismusbehauptung.
 
 Schicht-Hypothese für eine spätere gemeinsame Route `A0-BL-036` /
 `A0-BL-037`: wandernde `k x k`-Fenster als übereinanderliegende
@@ -681,6 +695,147 @@ Source Field führt die OCB-Datei derzeit noch als `v0.5.2 / unbound`, während
 die Live-Linse `v0.11.0` ist und bereits in der A0-Surface-Coverage erscheint.
 Diese Currentness-Lücke wird beim Abschluss über die bestehende A0 Orientation
 Evidence Lens korrigiert, nicht durch eine neue Identität.
+
+### F.6 Gebündelter Projektkandidat — A0 Translation & Return Inspector
+
+`BACKLOG_ONLY / PREPARATION_ALLOWED / NOT_ADMITTED / NO_BUILD_AUTHORIZATION / NO_NEW_IDENTITY`
+
+Arbeitsname: **A0 Translation & Return Inspector**. Der Name bezeichnet ein
+gebündeltes Projektvorhaben innerhalb der bestehenden Identität
+`NEXAH_AX0_QMODE_FOUNDATION_PACKAGE`; er ist keine neue Study-, Programme-,
+Navigator-, Product- oder Application-Identität.
+
+#### Zweck
+
+Ein bereits geschlossener A0-Fall soll erstmals als vollständiger vertikaler
+Pfad lesbar werden:
+
+```text
+Originalquelle
+  -> deklarierte Repräsentation / View
+  -> Vergleich und Information-Loss-Grenze
+  -> Residuum / Ambiguität / HOLD
+  -> Reconstruction oder Return
+  -> kanonischer Result-Hash und Receipt
+  -> Science Translation Tour
+  -> Human Review
+```
+
+Das Projekt soll nicht eine weitere allgemeine Architektur behaupten. Es soll
+zeigen, ob die bereits vorhandenen NEXAH-Bausteine zusammen einen konkreten,
+reproduzierbaren und für einen Leser verständlichen Nutzen erzeugen: Der Leser
+kann Quelle, Operation, Beobachtung, Übersetzung, Grenze und Return
+auseinanderhalten und zum Originalrecord zurückkehren.
+
+#### Bevorzugter erster Fall
+
+`A0-BL-024 / Q106 -> O16` ist der engste Pilotkandidat. Der geschlossene Befund
+enthält 90 Kollisionen, zwei nichtkanonische Maps, einen gematchten Shuffle,
+residual-sufficient Return `106/106` und die explizite Grenze
+`NO_CANONICAL_MAP`. Damit sind `INFORMATION_LOST`, `AMBIGUOUS`, `RETURN_EXACT`
+und `HOLD` ohne neuen wissenschaftlichen Run bereits belegt. `A0-BL-025` und
+`A0-BL-049` bleiben spätere Vergleichslanes; sie werden durch die Bündelung
+nicht wieder geöffnet.
+
+#### Wiederverwendete Architektur
+
+| Baustein | Rolle im Kandidaten | Harte Grenze |
+|---|---|---|
+| A0 / Science Desk | geschlossene Quelle, Instrument und wissenschaftliche Einordnung | UI-Platzierung ist keine Evidenz und kein neuer Befund |
+| NEXAH Kernel v0.7 | typisierte Adapter- und Orientation-Report-Schicht | keine kausale Wahrheit, Empfehlung oder Kontrollautorität |
+| THE EYE A2 Rust Comparator | Muster für kanonische Records, Alignment, I/L/A/U, Residuen, `PASS/FAIL/HOLD`, Hash und Receipt | bestehendes Profil bleibt synthetisch und eng; keine stille Umdeutung oder Scope-Erweiterung |
+| ORION V1 Certified Core | optionaler externer Struktur-/Provenienz-Handoff nach explizitem Vertrag | kein aktueller allgemeiner Runtime-, Gateway- oder Transformationsclaim |
+| Science Navigator | Source- und Relation-Rückweg | keine neue Identität, Relation oder wissenschaftliche Authority |
+| Science Translation Tour | menschliche Erklärung von Frage, Beobachtung, Quelle und Grenze | keine autoritative Deutung von AI-Ausgaben |
+| Mission Control | Priorität, Currentness, Aktivierung und Return | keine wissenschaftliche Ergebnisautorität |
+
+#### Vor jeder Implementierung erforderliche Gates
+
+1. Der Human Owner wählt genau einen geschlossenen Pilotfall.
+2. Source-, View-, Comparison-, Residual-, Return- und Receipt-Schema werden
+   versioniert und ihre Owner festgelegt.
+3. Es wird entschieden, ob der erste Slice ORION ausdrücklich ausschließt oder
+   nur einen bereits zertifizierten öffentlichen ORION-Vertrag verwendet.
+4. Der vorhandene A2-Comparator bleibt unverändert; ein A0-Profil oder eine
+   neue Rust-Crate benötigt separate Build-Autorisierung und Negativfixtures.
+5. Erwartete Ergebnisse umfassen mindestens `PASS`, `FAIL`, `HOLD`,
+   `INFORMATION_LOST`, `AMBIGUOUS`, `RETURN_EXACT` und `UNDEFINED_CONTRACT`.
+6. Der HTML-Reader konsumiert den kanonischen Maschinenrecord und berechnet
+   oder interpretiert ihn nicht neu.
+7. Ein kleiner Human-Utility-Test wird vor UI-Ausbau eingefroren.
+
+#### Messbarer Exit
+
+Der Kandidat ist nur dann mehr als Architekturarbeit, wenn ein Leser nach dem
+Durchlauf:
+
+- die untersuchte Frage korrekt benennen kann;
+- Beobachtung und Interpretation unterscheiden kann;
+- mindestens eine verlorene oder unentscheidbare Information erkennt;
+- Quelle und Receipt erreicht;
+- die Claim-Grenze in eigenen Worten korrekt wiedergibt; und
+- versteht, dass das Ergebnis keine automatische Empfehlung oder Wahrheit ist.
+
+Maschinenkriterien: byte-identischer Replay, Schema-Negativtests,
+Tamper-Erkennung, exakte Report-zu-Record-Treue und kein stilles Überschreiben
+eines bestehenden Resultats.
+
+#### STOP
+
+Kein allgemeiner ORION-Runtime, keine Portierung des gesamten Ökosystems nach
+Rust, keine automatische AI-Wahrheitsprüfung, keine neue Science-Lab-Study,
+kein Forschungsrun, keine Empfehlung, kein Deployment und keine Publikation.
+Der nächste erlaubte Schritt ist ausschließlich ein Owner-Review dieses
+gebündelten Backlog-Scope und gegebenenfalls eine getrennte Freigabe für
+Schema-/Interface-Design.
+
+Identity effect:
+
+```text
+REUSE  NEXAH_AX0_QMODE_FOUNDATION_PACKAGE
+REUSE  A0-BL-024; later comparison only A0-BL-025 and A0-BL-049
+REUSE  NEXAH Kernel v0.7; THE EYE A2; ORION V1; Science Navigator
+CREATE  no Study, Programme, Product, Navigator node or typed relation
+ACTIVE  0 research cycles
+```
+
+<a id="documentation-followups-20261020"></a>
+
+## Dokumentations-Closeout und offene Aufgaben vom 20. Oktober 2026
+
+Dieser lokale Aufgabenblock gehört zum vorhandenen A0-Backlog. DOC-01 bis
+DOC-12 sind Abschnittsmarken, keine neuen Study-/Navigator-Identitäten und
+keine Aktivierung. Der Dokumentationsschnitt kann abgeschlossen sein,
+während diese Aufgaben offen oder bewusst geparkt bleiben. Historische
+A0-BL-Dispositionen oben werden dadurch nicht verändert.
+
+| Lokal | Aufgabe | Status | Nächster begrenzter Schritt | Abschlusskriterium |
+|---|---|---|---|---|
+| DOC-01 | Browserabnahme der ersten Kopplung | MANUAL_ACCEPTANCE_OPEN | Blue/Pink→Maske und sechs Tour-Schritte vorführen; Pause, Step, Disconnect, Reset, Reload, Fehlantwort/Timeout, Reduced Motion und schmale Ansicht prüfen. | Reales Browser-/Fokus-/Mobile-Protokoll mit beobachteten Ergebnissen und Fehlerfällen; keine Umgehung gesperrter Dateiautomation. |
+| DOC-02 | Currentness und historische Receipt-Abweichungen | RECONCILIATION_OPEN | Verbleibende Currentness-Abweichungen, den dokumentarischen Findings-&-Paper-Workspace-Pin und die zwei vor Closeout fehlschlagenden historischen Prüfpfade einzeln disponieren. | Jede Abweichung hat Originalpin, Isthash, Ursache/Scope und Entscheidung: behalten, expliziter Nachfolger oder getrennte Reparatur. Kein pauschales Neupinnen. |
+| DOC-03 | ORION-Tube-Original wiederfinden | SOURCE_RECOVERY_OPEN | Genauen Autorenrecord, Script oder Notebook für die erinnerte Tube-/Flächenkonstruktion finden. | Pfad/Revision/Hash und tatsächliche Ein-/Ausgaben samt Formel; Owner-Herkunft bleibt von zertifiziertem Repository-Scope getrennt. |
+| DOC-04 | Tube als Verteiler präzisieren | DESIGN_ONLY_NOT_ACTIVE | Für genau einen vorhandenen Träger Eingangsrecord, Routingregel, Ausgangsadresse und Rückschlüssel beschreiben. | Expliziter Vertrag samt Kollision, Fehlerschlüssel und Verlustgrenze; keine neue Engine oder Versuchsausführung aus diesem To-do. |
+| DOC-05 | Farbrollen und Dreiergruppen | OWNER_CONTEXT_REVIEW_OPEN | Cyan/goldene 1, Grün als Kopplung, gelber Chor, ị/}{ und Matroschka-Ebene am jeweiligen Original zuordnen. | Quelle, Ebene, Rolle, Ansicht und Gegenbeispiel je Zuordnung; keine globale Farb-Zahl-Tabelle oder kanonische Umbenennung ohne Owner-Entscheidung. |
+| DOC-06 | Teller und zwei Schlaufen | SOURCE_RECOVERY_OPEN | Siebener-Tellerstapel und Visual einer Fläche mit großer/kleiner Schlaufe identifizieren. | Konkretes Bild/Modell mit Adressen, Nachbarschaft und gegebenenfalls Randverklebung; 6\|1\|6-Zustände bleiben von sechs geometrischen Tellern verschieden. |
+| DOC-07 | Skalenlift und Zahlencontainer | SOURCE_AND_CONTRACT_OPEN | Generator des 204→2040-Visuals lokalisieren und Adresstypen CRT/QRT/11-Space mitführen. | Bezugsraum, Einheit, Dezimal-/Tupelnotation, Decoder und Verlustgrenze explizit; bekannte Rechenbeispiele nicht als neuer Satz ausgeben. |
+| DOC-08 | Gruppierungen und Registerübergänge | DESIGN_ONLY_NOT_ACTIVE | 3+1/4+1/5+1/6+1, 28/32 und erinnerte Rhythmus-/r-Stufen anhand vorhandener Definitionen vergleichen. | Je Paar deklarierte Mengen und Abbildung oder dokumentierte Nicht-Identität; 717 als Quotient nicht automatisch 7\|1\|7. |
+| DOC-09 | Shared View, Gewichte und Observer | CONTRACT_OPEN | UNBOUND-Gewichte, TESA-Referenz und deklarierte Observer-Projektion von echtem Bench-Readback unterscheiden. | Definierte Ports/Einheiten/Leserichtung und Kontrolle; Deckkraft bleibt ohne Gewichtsgleichsetzung. Kein 28→32-Mapping aus Darstellung. |
+| DOC-10 | Weitere Module und Cockpit | PARKED_DEPENDS_ON_DOC01 | Nach Abnahme der ersten Kopplung genau ein weiteres Modul auswählen; Cockpit erst nach geprüften Einzelanschlüssen. | Owner wählt einen bounded Anschluss mit Quelle, ACK/Readback, Fehlerfall und Return-Grenze; kein automatischer Gesamtmaschinenbau. |
+| DOC-11 | Paper-Übernahme auswählen | EDITORIAL_REVIEW_OPEN | Nach Quellen-/Prüfklärung geeignete Teilbehauptungen für vorhandene Papers auswählen. | Science Desk trennt Beweis/Resultat, Engineering, Bildsprache und offene Hypothese; kein neuer Finding-Eintrag oder externer Claim aus dieser Auswahl. |
+| DOC-12 | 131 und 313 | DEFERRED_BY_OWNER | Bewusst zurückgestellt und in den Feldnotizen belassen. | Nur nach erneutem ausdrücklichem Owner-Auftrag aufnehmen. |
+
+**Priorisierung:** DOC-01 und DOC-02 sind Abnahme-/Pflegefragen, keine neuen
+Forschungszyklen. DOC-03 und DOC-06 dürfen als gezielte Quellenarbeit gelesen
+werden. Design, neue Implementierung oder Tests wissenschaftlicher Hypothesen
+benötigen jeweils ihre eigene ausdrückliche Auswahl und gegebenenfalls
+Zulassung. M-PUB01 bleibt die aktive Portfolio-Priorität.
+
+**Einfälle versus Aufgaben:** [Feldnotizen / Ideenparkplatz](A0_BOOK/FIELD_NOTES_A0.md)
+bewahren unfertige Gedanken. Erst ein ausgewählter, hier typisierter Schritt
+bekommt ein Abschlusskriterium. 131/313 bleiben ausdrücklich zurückgestellt.
+
+Rücklauf: [Forschungsprotokoll](22_A0_FORSCHUNGSPROTOKOLL_BUCH_UND_RAHMEN_2026-10-10.md#documentation-closeout-20261020)
+· [aktueller Closeout-Nachweis](A0_BOOK/results/a0-documentation-closeout-2026-10-20.json).
 
 ## Routing
 

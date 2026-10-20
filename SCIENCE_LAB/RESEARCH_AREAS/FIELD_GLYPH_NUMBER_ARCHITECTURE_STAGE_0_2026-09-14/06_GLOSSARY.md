@@ -19,6 +19,13 @@
 | Seam | boundary or correspondence where two local records are joined or compared | proof of global identity |
 | Residual | typed mismatch or unresolved remainder after a declared comparison or return | error, failure or substance by itself |
 | Return | mapping or reconstruction into a declared comparison frame | reset to an identical earlier world state |
+| Common carrier | one declared object, field or ordered record read through more than one cut or frame | several objects inferred from several views |
+| Directed cut | a typed reading `R_i(X)` with declared orientation, aperture and frame | destruction of `X` or an untyped picture |
+| Binder | calibrated correspondence or transport that makes two bounded readings comparable in one frame | a third wave, hidden substance or additional observation |
+| Two-Cut return | comparison of `R1(X)` with a declared transport of `R2(X)` followed by a typed residual and return record | automatic equality of the two views |
+| Antipode frame | view centred or addressed at a declared opposite under a typed involution; geographic and even-clock instances differ | any mirror, 90-degree turn or metaphorical opposite |
+| Persistent address | record identifier retained across declared projections or views; whether declared or derived must be stated | proof that visible coordinates or meanings are unchanged |
+| Return residual | typed vector `d(R1(X), T[R2(X)])` over declared quantities and tolerances | one universal scalar error or mystical remainder |
 | Emergence | availability of a relation or structure only after prerequisite operations have occurred | automatic physical or ontological emergence |
 | Prime family | set or sequence of primes selected by a stated mathematical or documentary rule | any visually associated prime labels |
 | Shadow geometry | geometry of projection, occlusion, hidden information and residual under a declared view | a separate physical realm |
@@ -58,6 +65,8 @@
 | I-L-A-U | transition ledger: retained/invariant, lost, added/introduced and unresolved | four substances or automatic causal explanation |
 | Orientation key | separately retained side/provenance information used to disambiguate a many-to-one projection under a declared decoder | recovery of information that was never recorded |
 | Thread intake | ordered record of an inquiry's stages, transitions, carriers, residuals, sources and changing claim status | a file inventory or one-time summary |
+| Envelope | declared boundary, modulation, containment or record layer around a carrier; qualify it as signal, geometric, dynamical, bound/residual, observer, record, layer, integration/return or stability envelope | one universal object, physical shell or new Functional Family |
+| Stability Envelope | formal candidate requiring a carrier, stability quantity, threshold `zeta`, construction `g`, time horizon, comparator and failure rule | stability inferred from `S=g(zeta)`, phi scales or a bounded visual alone |
 
 ## Writing rule
 

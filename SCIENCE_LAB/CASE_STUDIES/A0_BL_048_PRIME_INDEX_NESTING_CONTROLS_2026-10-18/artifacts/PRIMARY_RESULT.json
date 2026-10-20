@@ -1,0 +1,139 @@
+{
+  "all_gates_pass": true,
+  "classification": "FAIL_PRIME_INDEX_SELECTIVITY_PALINDROME_BASELINE_DOMINATES",
+  "gates": {
+    "class_sizes_15_6_6_and_joint_540": true,
+    "complete_histogram_accounting": true,
+    "palindrome_tail_reported_exactly": true,
+    "prime_index_anchors": true,
+    "prime_tail_reported_exactly": true,
+    "registered_decision_and_boundary": true,
+    "reversal_closure": true,
+    "source_arithmetic_control": true
+  },
+  "interpretation_boundary": "Finite matched-permutation selectivity only. Palindrome fixedness is selection-conditioned; no mechanism, prediction, natural privilege, novelty or publication.",
+  "joint_null": {
+    "palindrome_score_histogram": {
+      "0": 192,
+      "1": 240,
+      "2": 96,
+      "3": 12
+    },
+    "palindrome_tail": {
+      "decimal": 0.022222222222222223,
+      "denominator": 540,
+      "numerator": 12
+    },
+    "palindrome_target_score": 3,
+    "prime_score_histogram": {
+      "2": 6,
+      "3": 72,
+      "4": 234,
+      "5": 192,
+      "6": 36
+    },
+    "prime_tail": {
+      "decimal": 0.4222222222222222,
+      "denominator": 540,
+      "numerator": 228
+    },
+    "prime_target_score": 5,
+    "reversal_membership_failures": 0,
+    "size": 540
+  },
+  "schema": "nexah.a0.bl048.prime-index-nesting-result/1.0.0",
+  "source_control": {
+    "gcd_4774_4114": 22,
+    "included_in_primary_score": false,
+    "sum_4774_4114": 8888
+  },
+  "study_id": "A0_BL_048_PRIME_INDEX_NESTING_CONTROLS_2026_10_18",
+  "targets": [
+    {
+      "class_score_histogram": {
+        "0": 1,
+        "1": 8,
+        "2": 6
+      },
+      "class_size": 15,
+      "class_tail_count": 6,
+      "hits": [
+        {
+          "index_token": "7",
+          "one_based_prime_index": 7,
+          "prime_substring": "17",
+          "prime_value": 17,
+          "start": 1,
+          "stop": 3
+        },
+        {
+          "index_token": "7",
+          "one_based_prime_index": 7,
+          "prime_substring": "17",
+          "prime_value": 17,
+          "start": 4,
+          "stop": 6
+        }
+      ],
+      "palindrome": true,
+      "palindrome_class_count": 3,
+      "prime_nesting_score": 2,
+      "reversal_in_class": true,
+      "target": "717717"
+    },
+    {
+      "class_score_histogram": {
+        "2": 6
+      },
+      "class_size": 6,
+      "class_tail_count": 6,
+      "hits": [
+        {
+          "index_token": "4",
+          "one_based_prime_index": 4,
+          "prime_substring": "7",
+          "prime_value": 7,
+          "start": 1,
+          "stop": 2
+        },
+        {
+          "index_token": "4",
+          "one_based_prime_index": 4,
+          "prime_substring": "7",
+          "prime_value": 7,
+          "start": 2,
+          "stop": 3
+        }
+      ],
+      "palindrome": true,
+      "palindrome_class_count": 2,
+      "prime_nesting_score": 2,
+      "reversal_in_class": true,
+      "target": "4774"
+    },
+    {
+      "class_score_histogram": {
+        "0": 1,
+        "1": 4,
+        "2": 1
+      },
+      "class_size": 6,
+      "class_tail_count": 5,
+      "hits": [
+        {
+          "index_token": "7",
+          "one_based_prime_index": 7,
+          "prime_substring": "17",
+          "prime_value": 17,
+          "start": 0,
+          "stop": 2
+        }
+      ],
+      "palindrome": true,
+      "palindrome_class_count": 2,
+      "prime_nesting_score": 1,
+      "reversal_in_class": true,
+      "target": "1771"
+    }
+  ]
+}

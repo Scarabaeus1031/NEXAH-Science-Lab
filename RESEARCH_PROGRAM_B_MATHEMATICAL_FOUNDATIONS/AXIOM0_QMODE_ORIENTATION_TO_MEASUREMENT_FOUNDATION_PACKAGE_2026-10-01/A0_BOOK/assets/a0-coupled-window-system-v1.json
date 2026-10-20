@@ -20,12 +20,45 @@
     "return-economy",
     "root-projection",
     "aperture-invariance-observatory",
-    "coupled-session-ledger"
+    "coupled-session-ledger",
+    {
+      "id": "antipode",
+      "title": "Finite Antipode / Boundary Band",
+      "source": "A0_ORIENTATION_CONTROLLER_BENCH.html#finite-antipode",
+      "status": "LOCAL_ENGINEERING_IMPLEMENTED_BROWSER_OPEN"
+    },
+    {
+      "id": "ghostgons",
+      "title": "Ghostgons 17 / 19 / 23",
+      "source": "A0_ORIENTATION_CONTROLLER_BENCH.html#finite-ghostgons",
+      "status": "LOCAL_ENGINEERING_IMPLEMENTED_BROWSER_OPEN"
+    },
+    {
+      "id": "lens-return",
+      "title": "Prism / Lens / independent 978 Return",
+      "source": "A0_ORIENTATION_CONTROLLER_BENCH.html#benchLensReturn",
+      "status": "LOCAL_ENGINEERING_IMPLEMENTED_BROWSER_OPEN"
+    },
+    {
+      "id": "division-return",
+      "title": "Teilung / Übersetzung / Return",
+      "source": "A0_ORIENTATION_CONTROLLER_BENCH.html#divisionReturnBench",
+      "status": "LOCAL_ENGINEERING_IMPLEMENTED_BROWSER_OPEN"
+    }
   ],
   "movingAperture": {
-    "carriers": ["DÜRER_Q4_PLACEMENT", "KHAJURAHO_Q4_PLACEMENT"],
-    "windowSizes": [2, 3],
-    "boundaries": ["PLANAR", "TOROIDAL"],
+    "carriers": [
+      "DÜRER_Q4_PLACEMENT",
+      "KHAJURAHO_Q4_PLACEMENT"
+    ],
+    "windowSizes": [
+      2,
+      3
+    ],
+    "boundaries": [
+      "PLANAR",
+      "TOROIDAL"
+    ],
     "declaredRecords": 90,
     "exactStatements": [
       "Dürer planar 2x2 sums are 34,26,34 / 30,34,38 / 34,42,34",
@@ -35,14 +68,31 @@
     "returnContract": "The local sum is the view. Carrier, address, window size and boundary are a typed residual. View plus residual reconstructs the declared source window exactly; it does not reconstruct history."
   },
   "invarianceObservatory": {
-    "operators": ["identity", "otherCarrier", "rotate90", "rotate180", "reflectX", "translate22", "control"],
+    "operators": [
+      "identity",
+      "otherCarrier",
+      "rotate90",
+      "rotate180",
+      "reflectX",
+      "translate22",
+      "control"
+    ],
     "comparisonCases": 56,
-    "classifications": ["INVARIANT", "LOCATION_DEPENDENT", "PLACEMENT_DEPENDENT"],
+    "classifications": [
+      "INVARIANT",
+      "LOCATION_DEPENDENT",
+      "PLACEMENT_DEPENDENT"
+    ],
     "status": "FINITE_ENGINEERING_COMPARISON_NOT_RESEARCH_RUN"
   },
   "sessionLedger": {
     "schema": "nexah.a0.bench-session-ledger/1",
-    "operations": ["capture", "compare", "replay", "export"],
+    "operations": [
+      "capture",
+      "compare",
+      "replay",
+      "export"
+    ],
     "persistentLocalStorage": true,
     "sharedCarrier": false,
     "sharedClock": false,
@@ -50,15 +100,32 @@
   },
   "nativeSourceDeck": {
     "mode": "LIVE_DOM_REPARENTING_WITH_EXACT_RESTORE",
-    "layouts": ["FOCUS_PLUS_THREE", "FOUR_SOURCE_OVERVIEW"],
-    "sourceTargets": ["nativeFaceBridge", "ailApertureControl", "fourApertureNinefold", "ocbRecordReplay"],
+    "layouts": [
+      "FOCUS_PLUS_THREE",
+      "FOUR_SOURCE_OVERVIEW"
+    ],
+    "sourceTargets": [
+      "nativeFaceBridge",
+      "ailApertureControl",
+      "fourApertureNinefold",
+      "ocbRecordReplay"
+    ],
     "copiesSources": false,
     "mergesCarriers": false
   },
   "readingContinuity": {
     "mode": "MODAL_SOURCE_VIEWER_WITH_EXACT_SCROLL_RETURN",
-    "layouts": ["INSET", "MAXIMIZED", "PHONE_FULL_VIEWPORT"],
-    "actions": ["OPEN_DOCUMENT", "MAXIMIZE", "FIT", "CLOSE_AND_RETURN"],
+    "layouts": [
+      "INSET",
+      "MAXIMIZED",
+      "PHONE_FULL_VIEWPORT"
+    ],
+    "actions": [
+      "OPEN_DOCUMENT",
+      "MAXIMIZE",
+      "FIT",
+      "CLOSE_AND_RETURN"
+    ],
     "duplicatesSources": false,
     "changesNavigationIdentity": false
   },
@@ -75,14 +142,38 @@
     }
   ],
   "implementation": [
-    {"path": "a0-coupled-window.js", "sha256": "2c8ff7f407f078dbdbe34b310597d07035a53b2d4b169dfee01adf78e9a7778a"},
-    {"path": "a0-coupled-window.css", "sha256": "8abc604d1c4b41589ad2f14ac0d6ef233913e845d2ad3dbc951fc88a3381e1fc"},
-    {"path": "a0-coupled-window-tests.cjs", "sha256": "a6a98b373d905e712d83daac6c1a4acd6eff14a0fc7162dc21d0e908a2cdb432"},
-    {"path": "a0-aperture-invariance-observatory.js", "sha256": "a36ed5d47f4fd12acc047b1902ab5f7d2494d1e2c0a79bb3932487a69cc9ba67"},
-    {"path": "a0-aperture-invariance-observatory-tests.cjs", "sha256": "bd7dc17ced30dcb8e8bc809ec4d8b44d21cf393b5bb957cca8019b361edaa8c8"},
-    {"path": "a0-bench-session-ledger.js", "sha256": "4689ec272c6bc2613155245015084faa93fbfbcdfe443c2c838833c00e235650"},
-    {"path": "a0-bench-session-ledger-tests.cjs", "sha256": "1577ab02463828d98a6645e1901329ac849b17c9566e069c97a27be091924d5a"},
-    {"path": "a0-bench-workspace.css", "sha256": "e0c385a5ddbde3932beefff1c2475e7bdd9d6511365d625e65f9fcae494fba96"}
+    {
+      "path": "a0-coupled-window.js",
+      "sha256": "2de9591a4ff5236d4e06c3a7b6cf14790c4cc4108c4ddd2269ed3aa7582a3c98"
+    },
+    {
+      "path": "a0-coupled-window.css",
+      "sha256": "8abc604d1c4b41589ad2f14ac0d6ef233913e845d2ad3dbc951fc88a3381e1fc"
+    },
+    {
+      "path": "a0-coupled-window-tests.cjs",
+      "sha256": "33f9520ac573dc191d552fb2bcb5d3bec86c16ba326cf54bd1b44e260158fc94"
+    },
+    {
+      "path": "a0-aperture-invariance-observatory.js",
+      "sha256": "a36ed5d47f4fd12acc047b1902ab5f7d2494d1e2c0a79bb3932487a69cc9ba67"
+    },
+    {
+      "path": "a0-aperture-invariance-observatory-tests.cjs",
+      "sha256": "bd7dc17ced30dcb8e8bc809ec4d8b44d21cf393b5bb957cca8019b361edaa8c8"
+    },
+    {
+      "path": "a0-bench-session-ledger.js",
+      "sha256": "4689ec272c6bc2613155245015084faa93fbfbcdfe443c2c838833c00e235650"
+    },
+    {
+      "path": "a0-bench-session-ledger-tests.cjs",
+      "sha256": "1577ab02463828d98a6645e1901329ac849b17c9566e069c97a27be091924d5a"
+    },
+    {
+      "path": "a0-bench-workspace.css",
+      "sha256": "e0c385a5ddbde3932beefff1c2475e7bdd9d6511365d625e65f9fcae494fba96"
+    }
   ],
   "authority": {
     "newStudy": false,
@@ -94,5 +185,60 @@
     "claimPromotion": false,
     "publication": false
   },
-  "claimBoundary": "The window system is a reusable presentation and control shell over existing source-bound modules. Visual proximity, synchronized presentation and shared controls do not establish carrier identity, common mechanism, common clock, empirical calibration or publication authority."
+  "claimBoundary": "The window system is a reusable presentation and control shell over existing source-bound modules. Visual proximity, synchronized presentation and shared controls do not establish carrier identity, common mechanism, common clock, empirical calibration or publication authority.",
+  "engineering_delta_20261019": {
+    "scope": "CON-DAO native seek and two finite Bench packages; no controlling currentness adoption",
+    "browserAcceptance": false
+  },
+  "polish_20261019": {
+    "windowCount": 13,
+    "tourStations": 26,
+    "browserAcceptance": false,
+    "wholeMachineReturn": false,
+    "currentnessAdopted": false
+  },
+  "division_return_20261019": {
+    "windowCount": 14,
+    "tourStations": 27,
+    "sourceProfilesUnchanged": true,
+    "browserAcceptance": false,
+    "currentnessAdopted": false,
+    "changedSourcePins": [
+      {
+        "path": "a0-coupled-window.js",
+        "before": "8e27a20c0ea2226f58ea30fb7b3fa8b246e6ba0e9b5e8ba6c29c2eb186c7f610",
+        "after": "5788dccc0b366659b540f64d3eb0ab1d1bac7234056e6877f6a489d08441c24a"
+      },
+      {
+        "path": "a0-coupled-window-tests.cjs",
+        "before": "d479e1b8c6ab15ddf84d8c76c011e00846fe75270ab04a0b143cb6f986ab6d9a",
+        "after": "8c1473c7753713ec89f2acd8ecebee42d0d6b1c6eb6b1ac0022e00d86dbc179a"
+      }
+    ],
+    "implementation": [
+      {
+        "path": "a0-division-return.js",
+        "sha256": "0e8fa773e2b88c8151b1dd417146cd2ef72bdb56047b7f9f448ec5c897cf7445"
+      },
+      {
+        "path": "a0-division-return-view.js",
+        "sha256": "6a7d9bf150caedf35f7cd2bdb86c856d85cb933afc1b1254dbfeef20b09e78fa"
+      },
+      {
+        "path": "a0-division-return.css",
+        "sha256": "66d703d6ceab982c4ef0206d95005d5a69452e0055191fcf9a19ff80a62abdd1"
+      },
+      {
+        "path": "a0-division-return-tests.cjs",
+        "sha256": "2f8e6a24944ce5dcc650a86dab5ae6c325093d6f7ba0d4421b9849797205c78d"
+      }
+    ]
+  },
+  "long_play_20261019": {
+    "tourStations": 50,
+    "windowCount": 14,
+    "autoActionOption": "open(id,{autoAction:false}) renders only; the tour dispatches source operations once. Default launcher actions unchanged.",
+    "sourceHashesRetained": true,
+    "browserAcceptance": false
+  }
 }

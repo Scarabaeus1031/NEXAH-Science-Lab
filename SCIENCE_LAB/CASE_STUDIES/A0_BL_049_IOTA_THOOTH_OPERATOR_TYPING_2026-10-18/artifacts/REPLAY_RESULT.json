@@ -1,0 +1,104 @@
+{
+  "all_gates_pass": true,
+  "claim_boundary": "No glyph algebra, universal Iota/Thoth operator, historical decoder, physical mechanism, prediction, novelty or publication.",
+  "classification": "PASS_TYPED_LOSSY_PROJECTIONS_WITH_JOINT_EXACT_RETURN",
+  "domain_size": 9000,
+  "gates": {
+    "arithmetic_boundary": true,
+    "complete_domain_9000": true,
+    "deletions_not_generators_swap_control_bijective": true,
+    "delta_first_uniform_9": true,
+    "delta_second_uniform_10": true,
+    "joint_exact_return_9000": true,
+    "joint_injective_9000": true,
+    "registered_and_collision_witnesses": true,
+    "single_residual_returns_9000": true,
+    "source_types_separated": true
+  },
+  "maps": {
+    "delta_first": {
+      "collision_count": 8000,
+      "fibre_histogram": {
+        "9": 1000
+      },
+      "image_size": 1000,
+      "return_with_removed_digit": 9000,
+      "uniform_residual_bits": 4
+    },
+    "delta_second": {
+      "collision_count": 8100,
+      "fibre_histogram": {
+        "10": 900
+      },
+      "image_size": 900,
+      "return_with_removed_digit": 9000,
+      "uniform_residual_bits": 4
+    },
+    "joint": {
+      "image_size": 9000,
+      "residual_bits": 0,
+      "return_count": 9000
+    },
+    "swap_middle_control": {
+      "bijective": true,
+      "image_size": 9000
+    }
+  },
+  "schema": "nexah.a0.bl049.iota-thooth-typing-result/1.0.0",
+  "source_bound_types": {
+    "IOTA_EXISTING": {
+      "not_global_types": [
+        "INDEX",
+        "INJECTION",
+        "STATE",
+        "GENERATOR",
+        "RESIDUAL_IDENTITY"
+      ],
+      "signature": "C_alpha: sample -> {I,O,M}",
+      "type": "PARAMETERIZED_DIRECTED_CLASSIFIER"
+    },
+    "THOOTH_EXISTING": {
+      "executable_operator": false,
+      "missing": [
+        "schema",
+        "input_contract",
+        "map",
+        "scoring_rule",
+        "result_corpus"
+      ],
+      "type": "PROVENANCE_LABEL_AND_MANUAL_COMPARISON_CARD"
+    },
+    "delta_first": {
+      "endomorphism_D4": false,
+      "type": "LOSSY_SURJECTIVE_PROJECTION"
+    },
+    "delta_second": {
+      "endomorphism_D4": false,
+      "type": "LOSSY_SURJECTIVE_PROJECTION"
+    },
+    "joint": {
+      "type": "INJECTIVE_PAIRED_ENCODING_WITH_EXACT_RETURN"
+    },
+    "swap_middle_control": {
+      "type": "BIJECTIVE_D4_ENDOMORPHISM"
+    }
+  },
+  "study_id": "A0_BL_049_IOTA_THOOTH_OPERATOR_TYPING_2026_10_18",
+  "witnesses": {
+    "delta_first_collision": [
+      "1737",
+      "2737",
+      "737"
+    ],
+    "delta_second_collision": [
+      "1737",
+      "1837",
+      "137"
+    ],
+    "registered": {
+      "delta_first": "737",
+      "delta_second": "137",
+      "source": "1737"
+    }
+  }
+}

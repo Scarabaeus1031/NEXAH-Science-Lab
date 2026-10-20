@@ -269,6 +269,17 @@ review questions are:
 
 No reviewer has been selected or contacted.
 
+### Usefulness continuation outside the theorem
+
+The Human Owner has selected a separate continuation question: whether the
+declared seam becomes operationally useful as a typed zipper/channel that
+preserves recurrence, source incidence, orientation and Return. The
+[Seam, Zipper, Channel and Usefulness addendum](89_A0_SCC_003_SEAM_ZIPPER_CHANNEL_USEFULNESS_ADDENDUM_2026-10-15.md)
+records the research design, matched controls, utility measures and strict
+Riemann/non-Riemann boundary. It reuses `SCC-003` and `A0-BL-025`, remains
+`ADMISSION_REQUIRED / NOT_ACTIVE`, and does not enlarge the theorem or its
+candidate contribution statement.
+
 ### Companion-work boundary
 
 The later Pascal–Rosetta C12 relation, D30 phase lift, five-register view and

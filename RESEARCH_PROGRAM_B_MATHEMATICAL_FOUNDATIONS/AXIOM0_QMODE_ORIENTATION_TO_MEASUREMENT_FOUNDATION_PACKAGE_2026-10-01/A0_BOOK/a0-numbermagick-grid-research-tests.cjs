@@ -1,0 +1,80 @@
+const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),vm=require('node:vm');
+const base=__dirname,name='A0_NUMBERMAGICK_GRID_RESEARCH.html',html=fs.readFileSync(path.join(base,name),'utf8');
+const storyCss=fs.readFileSync(path.join(base,'a0-numbermagick-story.css'),'utf8');
+const checks=[];function ok(x,label){assert.ok(x,label);checks.push(label)}
+for(const id of ['address-context-return','addressContextReturnTitle','address-context-boundaries'])ok(html.includes('id="'+id+'"'),'thread condensation anchor '+id);
+for(const marker of ['204/1000 = 2040/10000 = 0,204','11537 = 20·576 + 17','14357 = 20·717 + 17','10 + 2 ≡ 1','6 | 1 | 6','keine drei globalen Farbdecoder','Die Papers bleiben unverändert.','kein neu eingeführter universeller Operator','Eingangsrecord, Routingregel, Ausgangsadresse und Rückschlüssel'])ok(html.includes(marker),'bounded condensation marker '+marker);
+ok(204*10000===2040*1000&&2040**2===100*204**2,'scale example cross-multiplied and area factor');
+ok(11537===20*576+17&&14357===20*717+17,'quotient/remainder examples');
+ok(1836+1729===3565&&1836%11===10&&1729%11===2&&3565%11===1,'typed mod11 operand/sum example');
+ok(html.includes('lang="de"'),'German reader');
+for(const id of ['main-content','reading-paths','instruments'])ok(html.includes('id="'+id+'"'),'reading architecture anchor '+id);
+ok(html.includes('class="skip-link"')&&html.includes('href="#main-content"'),'keyboard skip link');
+ok((html.match(/class="reading-paths"/g)||[]).length===1&&(html.match(/<li><a href="#(?:entwicklung|instruments|research-apparatus)"/g)||[]).length===3,'three explicit reading paths');
+ok(html.indexOf('id="reading-paths"')<html.indexOf('id="entwicklung"')&&html.indexOf('id="entwicklung"')<html.indexOf('id="instruments"')&&html.indexOf('id="instruments"')<html.indexOf('id="research-apparatus"'),'story, instrument, evidence reading order');
+ok(html.indexOf('<section id="pascal-thread-demonstrator"')>html.indexOf('id="six-marker-comparison"'),'Pascal demonstrator no longer wraps sibling instruments');
+ok((html.match(/<section\b/g)||[]).length===(html.match(/<\/section>/g)||[]).length,'balanced section landmarks');
+ok(storyCss.includes('.reading-paths')&&storyCss.includes('@media(max-width:900px)')&&storyCss.includes('.skip-link'),'reading architecture responsive styles');
+for(const marker of ['Producer → typisierte Grenze → Receiver','a0.return-gate.v1','EXACT','AMBIGUOUS','WRONG_KEY','Zahlen→Winkel-Abbildung'])ok(html.includes(marker),'typed Return handoff marker '+marker);
+ok(html.includes('A0_GAME_OF_WORLDS_PLAY.html#numbers')&&html.includes('href="#ghReturnGateTitle"'),'bidirectional producer and receiver route');
+ok(storyCss.includes('.handoff-bridge')&&storyCss.includes('.handoff-open'),'typed handoff responsive styles');
+for(const id of ['start','karten','quellen','fragen','visuals','weiter'])ok(html.includes('id="'+id+'"'),'section '+id);
+ok((html.match(/<details id="grid-/g)||[]).length===5,'five native expandable reading groups');
+ok(!html.includes('<iframe'),'no embedded auto-running instruments');
+const images=[...html.matchAll(/<img\b([^>]+)>/g)];
+ok(images.length===10,'seven existing source images plus three original Scarab/Eris intake images, no generated replacements');
+const intakeDir=path.resolve(base,'../../../NUMBER_OPERATOR_ARCHITECTURE_CONCORDANCE_AUDIT/visual_intake_2026-10-19');
+const intake=JSON.parse(fs.readFileSync(path.join(intakeDir,'visual-source-receipt.json'),'utf8'));
+ok(intake.status==='DOCUMENTARY_SOURCE_ONLY'&&intake.sources.length===3,'three documentary sources, no claim promotion');
+for(const source of intake.sources){const bytes=fs.readFileSync(path.join(intakeDir,source.file));ok(bytes.length===source.bytes&&require('node:crypto').createHash('sha256').update(bytes).digest('hex')===source.sha256,'intake asset hash '+source.file);ok(html.includes('/visual_intake_2026-10-19/'+source.file),'intake asset displayed '+source.file);}
+for(const [number,factors] of Object.entries(intake.arithmetic.composite_factors))ok(factors.reduce((a,b)=>a*b,1)===Number(number),'composite factorization '+number);
+ok(html.includes('1031 heißt hier „Scarab Prime“')&&html.includes('weiße Kontur')&&html.includes('keine hergeleitete Modellgrenze'),'role conflict and unresolved contour retained');
+for(const [,attrs] of images){ok(/alt="[^"]+"/.test(attrs),'source image alt text');ok(attrs.includes('loading="lazy"'),'lazy source image');ok(!attrs.includes('photoslibrary')&&!attrs.includes('/tmp/'),'no temporary or Photos derivative embeds');}
+for(const id of ['entwicklung','story-zahl','story-grid','story-faden','story-faltung','story-spiegel','story-return','research-apparatus'])ok(html.includes('id="'+id+'"'),'narrative anchor '+id);
+for(const id of ['field-geometry-book','fieldBookTitle'])ok(html.includes('id="'+id+'"'),'book bridge anchor '+id);
+for(const id of ['gh-hinge','ghSvg','ghCursor','ghReturn','ghRecord'])ok(html.includes('id="'+id+'"'),'GH Hinge anchor '+id);
+ok(html.includes('a0-gh-hinge.css')&&html.includes('a0-gh-hinge.js'),'GH Hinge assets linked');
+for(const marker of ['97 — 100 — 103','HE = 9 = 3×3','9 ↔ 11','RDMH','keine physikalische Transfergleichung'])ok(html.includes(marker),'GH bounded marker '+marker);
+for(const marker of ['24.7 / 23.7','24/7 / 23/7','A − B = 1','A/B = 247/237','Dezimalpunkt und Bruchstrich sind nicht austauschbar'])ok(html.includes(marker),'GH A/B marker '+marker);
+for(const marker of ['GREY STAR · SOURCE MOTIF','TESSARNA ↔ AMABEN','assignment open','Quellpole ohne festgelegte A/B-Zuordnung'])ok(html.includes(marker),'GH named-pole boundary '+marker);
+for(const marker of ['12.6 ↔ 13.7','12/6 ↔ 13/7','12,7 ↔ 13,6','12.03.1974','12.05.1974','29.02.1974','29.02.1972','kein Schalttag','ANGEL-KEY · PHANTOMZINKE','keinen neuen Operator'])ok(html.includes(marker),'GH transversal marker '+marker);
+ok(html.indexOf('id="entwicklung"')<html.indexOf('id="pascal-thread-demonstrator"')&&html.indexOf('id="pascal-thread-demonstrator"')<html.indexOf('id="research-apparatus"'),'story then hands-on then source apparatus');
+ok(html.includes('a0-numbermagick-story.css'),'editorial style linked');
+ok(html.includes('keine lückenlos rekonstruierte Entstehungsgeschichte')&&html.includes('Auf einem anderen Rechner können diese Bilder fehlen'),'narrative and local portability boundaries');
+const allIds=[...html.matchAll(/\bid="([^"]+)"/g)].map(m=>m[1]);ok(new Set(allIds).size===allIds.length,'unique HTML IDs');
+ok(html.includes('nicht aktiviert')&&html.includes('keine neue Study'),'explicit activation boundary');
+ok(html.includes('Mission-Control-/Science-Intakes'),'intake provenance not dated by style');
+ok(html.includes('p₁·p₄=14')&&html.includes('p₁·(p₂)²=18'),'prime value/index distinction');
+for(const match of html.matchAll(/(?:href|src)="([^"]+)"/g)){
+ const raw=match[1];if(/^(https?:|data:)/.test(raw))continue;
+ const [file,fragment]=decodeURIComponent(raw.replace(/\?[^#]*/, '')).split('#'),target=file?path.resolve(base,file):path.join(base,name);
+ ok(fs.existsSync(target),'local target '+raw);
+ if(fragment==='numbers'&&path.basename(target)==='A0_GAME_OF_WORLDS_PLAY.html'){const play=fs.readFileSync(path.join(base,'a0-game-of-worlds-play.js'),'utf8');ok(play.includes("new URLSearchParams(window.location.search||'').get('world')")&&play.includes("const hash=(window.location.hash||'').slice(1)")&&play.includes('Object.hasOwn(frames,hash)'),'declared dynamic Numbers query/hash route');continue;}
+ if(fragment&&target.endsWith('.html')&&!target.includes('/NAVIGATION/APP/'))ok(new RegExp('id=["\x27]'+fragment+'["\x27]').test(fs.readFileSync(target,'utf8')),'HTML anchor '+raw);
+}
+for(const [file,target] of [['A0_RESEARCH_DESK.html',name],['A0_PINK_DIAMOND_GRID_ATLAS.html',name],['a0-context-navigation.js',name]])ok(fs.readFileSync(path.join(base,file),'utf8').includes(target),'entry '+file);
+const script=html.match(/<script>\s*([\s\S]*?)<\/script>/)[1];
+let handler;const input={value:'',addEventListener:(type,fn)=>{assert.equal(type,'input');handler=fn}},out={textContent:''};
+const rows=[{textContent:'Pascal Originalquelle',hidden:false},{textContent:'Root Grid',hidden:false}];
+vm.runInNewContext(script,{document:{getElementById:id=>id==='sourceSearch'?input:out,querySelectorAll:()=>rows}});
+input.value=' PASCAL ';handler();ok(!rows[0].hidden&&rows[1].hidden&&out.textContent==='1 von 2 Quellen','case-insensitive filter');
+input.value='nichts';handler();ok(rows.every(r=>r.hidden)&&out.textContent==='0 von 2 Quellen','empty filter result');
+input.value='';handler();ok(rows.every(r=>!r.hidden),'clear restores all');
+ok(html.includes('@media(max-width:700px)')&&html.includes('prefers-reduced-motion'),'responsive and reduced motion rules');
+ok(html.includes('id="aperture-source-map"'),'Aperture source comparison');
+ok((html.match(/<details id="aperture-exp-/g)||[]).length===5,'five expandable EXP groups');
+for(const marker of ['EXP-05A','EXP-45B','EXP-47','EXP-48','EXP-49','MRB-10','Block02A','Ordinal in der Faser','kein neuer F-A0-Eintrag'])ok(html.includes(marker),'source-bound marker '+marker);
+const paper=fs.readFileSync(path.join(base,'A0_NEXAH_FAMILY_METHOD_WHITE_PAPER.html'),'utf8');
+const manuscript=fs.readFileSync(path.join(base,'../35_NEXAH_ORIENTATION_METHOD_POSITION_PAPER_DRAFT_2026-10-12.md'),'utf8');
+ok(paper.includes('id="aperture-pascal-source-method"')&&manuscript.includes('### 8.7 Aperture Navigation Map'),'paper and manuscript section');
+ok(paper.includes('A0_NUMBERMAGICK_GRID_RESEARCH.html#aperture-source-map'),'paper return link');
+const revealScript=[...html.matchAll(/<script>\s*([\s\S]*?)<\/script>/g)].map(m=>m[1]).find(s=>s.includes('function reveal()'));
+const fold={tagName:'DETAILS',open:false,parentElement:null},target={parentElement:fold};let onHash;
+const location={hash:'#quellen'};
+vm.runInNewContext(revealScript,{location,window:{addEventListener:(type,fn)=>{assert.equal(type,'hashchange');onHash=fn}},document:{getElementById:id=>id==='quellen'?target:null}});
+ok(fold.open,'initial deep link opens source apparatus');
+fold.open=false;location.hash='#does-not-exist';onHash();ok(!fold.open,'unknown fragment safely ignored');
+location.hash='#quellen';onHash();ok(fold.open,'hash navigation reopens apparatus');
+ok(fs.readFileSync(path.join(base,'A0_RESEARCH_DESK.html'),'utf8').includes('id="aperture-paper-return"'),'Science Desk return');
+console.log(JSON.stringify({status:'PASS',checks:checks.length,scope:'static links and actual search handler in simulated DOM; not browser visual acceptance'},null,2));
+

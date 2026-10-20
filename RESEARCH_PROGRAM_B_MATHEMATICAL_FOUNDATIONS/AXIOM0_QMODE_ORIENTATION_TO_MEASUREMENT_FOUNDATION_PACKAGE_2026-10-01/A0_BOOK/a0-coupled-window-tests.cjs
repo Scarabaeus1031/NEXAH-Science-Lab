@@ -10,8 +10,8 @@ function deep(actual,expected,message){checks++;assert.deepEqual(actual,expected
 function ok(value,message){checks++;assert.ok(value,message)}
 
 equal(C.VERSION,'1.3.0','component version');
-equal(Object.keys(C.SCENARIOS).length,10,'ten coupled windows');
-deep(Object.keys(C.SCENARIOS),['window','control','native','measurement','bridges','adapters','economy','observatory','ledger','root'],'scenario order');
+equal(Object.keys(C.SCENARIOS).length,14,'fourteen coupled windows');
+deep(Object.keys(C.SCENARIOS),['division-return','lens-return','antipode','ghostgons','window','control','native','measurement','bridges','adapters','economy','observatory','ledger','root'],'scenario order');
 equal(C.DÜRER[1][1],10,'Dürer inner upper left');
 equal(C.KHAJURAHO[1][1],13,'Khajuraho inner upper left');
 
@@ -42,16 +42,16 @@ const html=fs.readFileSync(path.join(__dirname,'A0_ORIENTATION_CONTROLLER_BENCH.
 const css=fs.readFileSync(path.join(__dirname,'a0-coupled-window.css'),'utf8');
 const tour=fs.readFileSync(path.join(__dirname,'a0-bench-showcase-tour.js'),'utf8');
 const packageRecord=JSON.parse(fs.readFileSync(path.join(__dirname,'assets/a0-coupled-window-system-v1.json'),'utf8'));
-equal((html.match(/data-coupled-open=/g)||[]).length,10,'ten launcher buttons');
+equal((html.match(/data-coupled-open=/g)||[]).length,14,'fourteen launcher buttons');
 ok(html.includes('id="coupledWindowHub"'),'hub anchor');
 ok(html.includes('id="coupledWindow"'),'dialog anchor');
 ok(html.includes('a0-coupled-window.css'),'component stylesheet');
 ok(html.includes('a0-coupled-window.js'),'component script');
 ok(html.indexOf('a0-coupled-window.js')<html.indexOf('a0-bench-showcase-tour.js'),'window mounts before tour');
-ok(html.includes('00 / 20 · READY'),'tour count');
+ok(html.includes('BEREIT · 50 STATIONEN'),'tour count');
 ok(tour.includes("id:'moving-window'"),'moving window tour station');
 ok(tour.includes("scenario:'measurement'"),'tour maps measurement window');
-ok(tour.includes('A0CoupledWindowController.open'),'tour opens coupled stage');
+ok(tour.includes("requireCall('A0CoupledWindowController','open'"),'tour opens coupled stage through checked API');
 ok(css.includes('@media(max-width:680px)'),'phone layout');
 ok(css.includes('@media(prefers-reduced-motion:reduce)'),'reduced motion layout');
 ok(css.includes('.coupled-window::backdrop'),'modal backdrop');
@@ -68,11 +68,11 @@ ok(fs.readFileSync(path.join(__dirname,'a0-coupled-window.js'),'utf8').includes(
 ok(fs.readFileSync(path.join(__dirname,'a0-coupled-window.js'),'utf8').includes('returnScroll'),'reader preserves exact scroll return');
 ok(fs.readFileSync(path.join(__dirname,'a0-coupled-window.js'),'utf8').includes('openDocument'),'reusable document viewer API');
 equal(packageRecord.benchVersion,'0.17.0','package bench version');
-equal(packageRecord.windows.length,10,'package window count');
+equal(packageRecord.windows.length,14,'package window count');
 equal(packageRecord.authority.newCanonicalIdentity,false,'no identity creation');
 for(const record of [...packageRecord.sources,...packageRecord.implementation]){
   const actual=crypto.createHash('sha256').update(fs.readFileSync(path.resolve(__dirname,record.path))).digest('hex');
   equal(actual,record.sha256,`bound hash: ${record.path}`);
 }
 
-console.log(JSON.stringify({status:'PASS',checks,windowRecords:90,scenarios:10,tourStations:20,scope:'source-bound engineering window system; no new Study, carrier identity or graph relation'}));
+console.log(JSON.stringify({status:'PASS',checks,windowRecords:90,scenarios:14,tourStations:50,scope:'source-bound engineering window system; no new Study, carrier identity or graph relation'}));

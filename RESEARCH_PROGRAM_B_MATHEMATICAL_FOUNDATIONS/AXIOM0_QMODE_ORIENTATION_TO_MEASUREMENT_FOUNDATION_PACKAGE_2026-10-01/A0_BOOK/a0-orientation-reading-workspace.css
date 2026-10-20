@@ -1,0 +1,8 @@
+.orientation-reading-panel[hidden]{display:none!important}
+.orientation-reading-panel{margin:18px 0;border:1px solid #315364;background:#020d15}
+.orientation-reading-panel iframe{display:block;width:100%;height:78vh;min-height:520px;border:0;background:#020d15}
+.orientation-reading-tabs{display:flex;flex-wrap:wrap;gap:10px;padding:16px 20px}
+.orientation-reading-tabs button[aria-pressed="true"]{border-color:#e5b340;color:#ffe397;background:#24301e}
+#orientationReadingRecord{white-space:pre-wrap;overflow-wrap:anywhere;max-height:420px;overflow:auto}
+#orientationReading,#pentagonSewing{scroll-margin-top:80px}
+@media(max-width:600px){.orientation-reading-panel iframe{min-height:440px;height:72vh}.orientation-reading-tabs{padding:12px}}

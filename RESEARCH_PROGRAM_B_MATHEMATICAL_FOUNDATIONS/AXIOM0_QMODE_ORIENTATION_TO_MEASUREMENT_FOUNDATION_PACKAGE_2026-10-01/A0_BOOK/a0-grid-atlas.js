@@ -710,6 +710,7 @@
   const ghostNp = $('ghostNp'), ghostRr = $('ghostRr');
   const ghostPlay = $('ghostPlay'), ghostFollowTile = $('ghostFollowTile'), ghostPhaseOutput = $('ghostPhase'), ghostLegend = $('ghostLegend');
   const ghostFixtures = JSON.parse($('ghostTileFixtures').textContent);
+  if(window.A0TesaGridCandidate)ghostFixtures.tesa28=window.A0TesaGridCandidate.fixture;
   const lrrlTrace = [0, -1, 0, 1, 0];
   let ghostPhase = 0, ghostTimer = 0, ghostSelection = { x: 0, y: 0 };
 
@@ -802,7 +803,10 @@
     ghostRr.max = String(side - 1);
     ghost.replaceChildren();
     ghost.style.gridTemplateColumns = `repeat(${preset.cols},1fr)`;
-    ghost.style.aspectRatio = `${preset.cols}/${preset.rows}`;
+    const isTesa=ghostPreset.value==='tesa28',tesaStretch=isTesa?Number($('tesaStretch').value):1,tesaMirror=isTesa?$('tesaMirror').checked:false;
+    ghost.style.aspectRatio = `${preset.cols*tesaStretch}/${preset.rows}`;
+    ghost.style.gridTemplateRows=isTesa?`repeat(${preset.rows},1fr)`:'';
+    ghost.style.minHeight=isTesa?'0':'';ghost.style.maxHeight=isTesa?'none':'';
     preset.values.forEach((value, index) => {
       const x = index % preset.cols, y = Math.floor(index / preset.cols);
       const el = document.createElement('button');
@@ -827,6 +831,7 @@
       el.style.setProperty('--pulse', String((.3 + .7 * (1 + Math.cos(record.theta)) / 2).toFixed(3)));
       el.style.setProperty('--phase12', String(record.phase12));
       el.dataset.value = String(value);
+      if(isTesa){const p=window.A0TesaGridCandidate.view(value,{mirror:tesaMirror,stretch:tesaStretch});el.style.gridRow=String(p.viewRow+1);el.style.gridColumn=String(p.col+1);el.dataset.tesaAddress=String(value);}
       el.textContent = total <= 49 ? String(value) : '';
       el.title = `${preset.label} · NP ${String(coordinate.np).padStart(digits, '0')}; RR ${String(coordinate.rr).padStart(digits, '0')} · flat ${flatAddress} · value ${value} · χ₃ ${mod(coordinate.rr + 2 * coordinate.np + ghostPhase, 3)} · c₁₂ ${record.phase12}`;
       el.addEventListener('click', () => {
@@ -849,6 +854,7 @@
     const phaseContract = ghostColor.value === 'minus-1-12' ? ' · c₁₂(n,t)=(n−t) mod 12 · one backward display tick = −1/12 turn' : '';
     const apertureContract = ghostAperture.value === 'golden' ? ' · φ aperture 51.827292° (display rotation)' : '';
     $('ghostMeta').textContent = `${preset.label} · ${boundary}${addressContract}${phaseContract}${apertureContract} · χ₃(RR,NP,t)=(RR+2NP+t) mod 3 · τ=2π${lrrl}`;
+    window.A0TesaGridLens?.update();
   }
   function stopGhostClock() {
     if (ghostTimer) window.clearInterval(ghostTimer);
@@ -869,6 +875,7 @@
     renderGhost();
   }
   [ghostPreset, ghostColor, ghostAperture, ghostViewport].forEach(control => control.addEventListener('change', () => { ghostSelection = { x: 0, y: 0 }; renderGhost(); }));
+  ghostPreset.addEventListener('change',()=>{if(ghostPreset.value==='tesa28'){stopGhostClock();ghostFollowTile.checked=false;ghostAperture.value='open';ghostColor.value='source';renderGhost();}});
   ghostFieldSize.addEventListener('change', () => {
     ghostNp.value = String(ghostCoordinate(ghostNp.value));
     ghostRr.value = String(ghostCoordinate(ghostRr.value));
@@ -884,5 +891,5 @@
   ghostPlay.addEventListener('click', () => { if (ghostTimer) stopGhostClock(); else startGhostClock(); });
   document.addEventListener('visibilitychange', () => { if (document.hidden) stopGhostClock(); });
   renderGhost();
-  window.A0GhostTiles = { fixtures: ghostFixtures, render: renderGhost, encodeAddress: encodeGhostAddress, decodeAddress: decodeGhostAddress, lrrlTrace: [...lrrlTrace], get side() { return ghostSide(); }, get phase() { return ghostPhase; } };
+  window.A0GhostTiles = { fixtures: ghostFixtures, render: renderGhost, encodeAddress: encodeGhostAddress, decodeAddress: decodeGhostAddress, lrrlTrace: [...lrrlTrace], selectValue(value){const preset=activeGhostFixture(),index=preset.values.indexOf(value);if(index<0)return false;ghostSelection={x:index%preset.cols,y:Math.floor(index/preset.cols)};renderGhost();return true;},get selection(){const preset=activeGhostFixture();return{...ghostSelection,value:preset.values[ghostSelection.y*preset.cols+ghostSelection.x]};},get side() { return ghostSide(); }, get phase() { return ghostPhase; } };
 })();

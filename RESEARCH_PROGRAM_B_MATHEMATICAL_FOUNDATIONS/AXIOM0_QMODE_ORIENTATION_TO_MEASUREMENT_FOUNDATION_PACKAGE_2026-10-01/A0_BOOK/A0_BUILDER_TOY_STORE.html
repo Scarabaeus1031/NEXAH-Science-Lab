@@ -6,13 +6,15 @@
   <meta name="description" content="NEXAH Builder Toy Store: eine spielbare Auslage der A0 Flagships, Demonstratoren und quellgebundenen Werkzeuge.">
   <title>NEXAH · B1 Builder Toy Store</title>
   <link rel="stylesheet" href="a0-builder-toy-store.css?rev=ocb-bench-20261016">
+  <link rel="stylesheet" href="a0-arkade.css?rev=arkade-20261019">
+  <link rel="stylesheet" href="a0-builder-story-bridge.css?rev=20261019-a0-story">
   <link rel="stylesheet" href="a0-application-demonstrator-suite.css?rev=20261018-app-suite-r1">
-  <link rel="stylesheet" href="a0-context-navigation.css?rev=reader-lanes-20261015">
+  <link rel="stylesheet" href="a0-context-navigation.css?rev=reader-lanes-20261019-lane-entry">
 </head>
 <body>
   <header class="top">
     <a class="brand" href="#top">NEXAH <span>· B1 Builder</span></a>
-    <nav><a href="#shelf">Flagships</a><a href="#benches">Benches</a><a href="#applications">Applications</a><a href="#tools">Tool Wall</a><a href="A0_RESEARCH_DESK.html">Science Desk</a><a href="A0_SCIENTIFIC_POSITION_REPORT.html">Scientific Position</a><a href="A0_NEXAH_APERTURE_JOURNEY.html#human-view">Human</a></nav>
+    <nav><a href="#story-bridge">A0 Story</a><a href="#arkade">Arkade</a><a href="#shelf">Flagships</a><a href="#benches">Benches</a><a href="#applications">Applications</a><a href="#tools">Tool Wall</a><a href="A0_RESEARCH_DESK.html">Science Desk</a><a href="A0_SCIENTIFIC_POSITION_REPORT.html">Scientific Position</a><a href="A0_NEXAH_APERTURE_JOURNEY.html#human-view">Human</a></nav>
   </header>
 
   <main id="top">
@@ -22,7 +24,7 @@
         <h1>Welcome to the<br><em>Toy Store.</em></h1>
         <p class="intro">Science describes. Human gives meaning. Builder makes the relation touchable.</p>
         <p class="hero-note">Eine lebendige Auslage der Flagships, Demonstratoren und Werkzeuge – aus dem vorhandenen A0-Bestand, mit sichtbarer Herkunft und ohne die Grenzen der Forschung zu verwischen.</p>
-        <div class="actions"><a class="button hot" href="#shelf">Pick a flagship</a><a class="button" href="#applications">Run an application</a><a class="button" href="#tools">Open every drawer</a><a class="button" href="../../../../../00%20EXECUTIVE/NEXAH-Mission-Control/00_OVERVIEW/BUILDER_STATUS_REPORT.html#toolbox">Bewertete Builder-Toolbox →</a></div>
+        <div class="actions"><a class="button hot" href="#arkade">Enter the Arkade</a><a class="button" href="#shelf">Pick a flagship</a><a class="button" href="A0_FAMILY_CONNECTION_ATLAS.html#spatial-navigation">Family Raumkarte · 3D →</a><a class="button" href="#applications">Run an application</a><a class="button" href="#tools">Open every drawer</a><a class="button" href="../../../../../00%20EXECUTIVE/NEXAH-Mission-Control/00_OVERVIEW/BUILDER_STATUS_REPORT.html#toolbox">Bewertete Builder-Toolbox →</a></div>
       </div>
       <div class="machine-console">
         <div class="machine" id="life-machine" aria-label="Spielbares Three-Domain-Transition-Feld">
@@ -51,6 +53,24 @@
     </section>
 
     <section class="ticker" aria-label="Builder Prinzipien"><div>TOUCH THE MODEL <i>◆</i> KEEP THE SEAM <i>◆</i> CHANGE THE VIEW <i>◆</i> TEST THE RETURN <i>◆</i> BUILD WHAT CAN BE INSPECTED <i>◆</i></div></section>
+
+    <section class="builder-story-bridge" id="story-bridge" aria-labelledby="builderStoryTitle">
+      <div><p class="arkade-kicker">A0 STORY · BUILDER MAKES IT TOUCHABLE</p><h2 id="builderStoryTitle">Dreh es um.<span>Schau noch einmal.</span></h2></div>
+      <div class="builder-story-copy"><p><strong>Ein Record ist nicht die ganze Welt.</strong> A0 erzählt, wie Ansichten entstehen, was sie bewahren und was sie weglassen.</p><p>Builder macht diese Frage berührbar. Die ARKADE darunter ist das spielbare Werkzeug: eingreifen, den Blick wechseln und den Return prüfen.</p><div class="builder-story-actions"><a class="primary" href="#arkade">Zur ARKADE ↓</a><a href="index.html#arkade-tool">Zur Geschichte in A0</a></div><p class="builder-story-boundary">A0 erzählt · Builder macht spielbar · das Instrument bleibt ein Instrument</p></div>
+    </section>
+
+    <section class="arkade-shell" id="arkade" aria-labelledby="arkadeTitle">
+      <div class="arkade-main">
+        <div class="arkade-hero"><div><p class="arkade-kicker">00 · GAME HALL · INSERT CURIOSITY</p><h2 class="arkade-title" id="arkadeTitle">NEXAH <span>ARKADE</span></h2></div><div><p class="arkade-intro"><strong>Drei Welten. Drei Arten zu sehen.</strong> Wähle ein Cabinet, bewege den Zustand und kehre mit sichtbarer Spur zurück.</p><div class="arkade-status"><span><i></i> 3 cabinets online</span><span>Return enabled</span></div></div></div>
+        <div class="arkade-cabinets">
+          <a class="arkade-cabinet" data-world="life" href="A0_GAME_OF_WORLDS_PLAY.html?world=life#life"><span class="arkade-no">01 · ORGANISM <b>READY</b></span><span class="arkade-screen"><span class="arkade-glyph life" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span></span><h2>LIFE</h2><p>Setze ein Muster, beobachte Nachbarschaften und sieh, wie eine Welt Schritt für Schritt entsteht.</p><span class="arkade-start">Start world <b>▶</b></span></a>
+          <a class="arkade-cabinet" data-world="domains" href="A0_GAME_OF_WORLDS_PLAY.html?world=domains#domains"><span class="arkade-no">02 · TRANSITION <b>READY</b></span><span class="arkade-screen"><span class="arkade-glyph domains" aria-hidden="true"></span></span><h2>THREE DOMAINS</h2><p>Wechsle die Perspektive auf einen Lauf und erkunde Felder, Channels und Übergänge.</p><span class="arkade-start">Enter domains <b>▶</b></span></a>
+          <a class="arkade-cabinet" data-world="numbers" href="A0_GAME_OF_WORLDS_PLAY.html?world=numbers#numbers"><span class="arkade-no">03 · RETURN <b>READY</b></span><span class="arkade-screen"><span class="arkade-glyph numbers" aria-hidden="true">20</span></span><h2>NUMBERS</h2><p>Fahre den Zahlenturm, wechsle die Linse und prüfe Bewegung, Rest und Return.</p><span class="arkade-start">Run numbers <b>▶</b></span></a>
+        </div>
+        <div class="arkade-return" aria-label="Arkade Rückweg"><b>Choose</b><i></i><b>Play</b><i></i><b>Return</b></div>
+        <div class="arkade-foot"><span>First visit? Beginne mit LIFE. Jede Welt behält ihren eigenen Zustand.</span><span>GAME OF WORLDS · bestehende Spielidentität</span></div>
+      </div>
+    </section>
 
     <section class="shelf section" id="shelf">
       <header class="section-head">
@@ -165,6 +185,6 @@
   <script src="assets/a0-asset-index-v1.js"></script>
   <script src="a0-builder-toy-store.js?rev=ocb-bench-20261016"></script>
   <script src="a0-application-demonstrator-suite.js?rev=20261018-app-suite-r1"></script>
-  <script src="a0-context-navigation.js?rev=reader-lanes-20261015"></script>
+  <script src="a0-context-navigation.js?rev=reader-lanes-20261019-lane-entry"></script>
 </body>
 </html>

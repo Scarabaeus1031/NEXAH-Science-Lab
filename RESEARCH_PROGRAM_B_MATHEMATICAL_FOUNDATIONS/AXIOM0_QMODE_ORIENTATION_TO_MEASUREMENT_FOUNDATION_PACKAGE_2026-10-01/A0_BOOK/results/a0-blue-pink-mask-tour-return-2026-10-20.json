@@ -1,0 +1,98 @@
+{
+  "schema": "a0.blue-pink-mask-tour-engineering-return/1",
+  "date": "2026-10-20",
+  "status": "ENGINEERING_PASS_BROWSER_ACCEPTANCE_OPEN_EXISTING_INTEGRITY_FAILURES",
+  "existing_identities": [
+    "NEXAH_A0_ORIENTATION_CONTROLLER_BENCH",
+    "MOD:NUMBER_VIEW_SUITE"
+  ],
+  "new_global_ids": [],
+  "relation_changes": [],
+  "canonical_count_effect": 0,
+  "publication_authorized": false,
+  "scope": "Six confirmed clock-coupling stages integrated into existing Bench tour. Existing50stations retained; total56stations/9chapters. Dedicated6stage start in workfocus and Tour hero ends after disconnect.",
+  "stages": [
+    "clock-source",
+    "clock-connect",
+    "clock-step",
+    "clock-play",
+    "clock-pause",
+    "clock-disconnect"
+  ],
+  "confirmation": "Clock controller confirmed(action) promise resolves only after actual native ACK and mask readback. Existing source deadline rejects on HOLD. Clock-stage errors stop autoplay, disconnect and leave manual Next available.",
+  "cancellation": "Tour pause, close, user input or leaving clock stages disconnects the follower. Late responses cannot advance tour. Resuming interrupted coupling restarts at CONNECT. No async chain sends later commands after cancellation.",
+  "reducedMotion": "PLAY stage instead requests confirmed PAUSE; no automatic source motion.",
+  "sourceNavigation": "Existing source-sections lissajous fragment route; may reload. First stage requests navigation; next stage requires live confirmation and may HOLD if source unavailable.",
+  "verification": {
+    "tourModel": 85,
+    "tourMounted": 296,
+    "clockProtocolAndMountedFollower": 12448,
+    "regressions": [
+      {
+        "suite": "native-source-bank",
+        "checks": 118
+      },
+      {
+        "suite": "bench-polish",
+        "checks": 909
+      },
+      {
+        "suite": "layered-pentagon-scene",
+        "checks": 32829
+      }
+    ],
+    "browserAcceptance": false,
+    "pixelAcceptance": false
+  },
+  "sourcePins": [
+    {
+      "path": "A0_ORIENTATION_CONTROLLER_BENCH.html",
+      "sha256": "98789064d935fd4aea91e6a19c560683a18976584fe859488531a72837bbe2d0"
+    },
+    {
+      "path": "a0-bench-showcase-tour.js",
+      "sha256": "14e5dfe9354ed2cbe471bb9b8e75beab1be20d72c0289ab8fee959f97506659c"
+    },
+    {
+      "path": "a0-bench-showcase-tour-tests.cjs",
+      "sha256": "b84eaf3bafa41bb828d295c4fe7b1ea8da1f6cedb8678c762867a033150bfc11"
+    },
+    {
+      "path": "a0-bench-showcase-tour-live-tests.cjs",
+      "sha256": "c540e302776bf6e10157394515e1281d7a926930d78c4b9a3730ac036ad1091b"
+    },
+    {
+      "path": "a0-mask-clock-bench.js",
+      "sha256": "49c29f1207f92b9886e7405b222637b74a893c8a11394a441de3b2da6ce15014"
+    },
+    {
+      "path": "a0-mask-clock-tests.cjs",
+      "sha256": "25fa7ef48383399a7337f4b424812b7da7e974363745b9ea4013db2d5553f930"
+    },
+    {
+      "path": "a0-blue-pink-mask-clock.js",
+      "sha256": "f5f10d11e9beb391337ecc2db3812e69ccd219718b7468df7a6b004f20a86f01"
+    },
+    {
+      "path": "assets/a0-bench-showcase-tour-package-v1.json",
+      "sha256": "d9bc464ae08e3e1c6b4c1ff35682cfce6da46769e5be205d2db8b1b5d638fe96"
+    },
+    {
+      "path": "assets/a0-native-source-bank-v1.json",
+      "sha256": "22e7b94a2b2faa00048d0bcae5cd4b204e69e5e5bbb79e94ad1ac253619c0e34"
+    },
+    {
+      "path": "assets/a0-fold-lag-lens-v1.json",
+      "sha256": "f7ebc24a7d89f82a90c0071a3153f8c8c742ee11114df45e768554d8728f0f8b"
+    },
+    {
+      "path": "assets/a0-aperture-measurement-package-v1.json",
+      "sha256": "77272385f574ced63e54cbaebc55828d3e01d8e68e4b5ae2f208c6f3582fd213"
+    },
+    {
+      "path": "assets/a0-layered-pentagon-scene-v1.json",
+      "sha256": "46afaddfc8ec4090241e9b646c7dbdedcc36a822b25d2c4a5805a62cc293c301"
+    }
+  ],
+  "boundary": "No new timer for signal dynamics, carrier identity, frequency-dependent mask geometry, shared overall Return, additional module coupling, scientific activation, cockpit redesign or publication. Existing integrity conflicts remain; historical receipts not repinned."
+}

@@ -1,0 +1,98 @@
+{
+  "schema": "a0.mirror-pin-rest-engineering-return/1",
+  "date": "2026-10-20",
+  "status": "ENGINEERING_PASS_SYMBOLIC_VIEW_BROWSER_OPEN",
+  "entry": "A0_ORIENTATION_CONTROLLER_BENCH.html#mirrorPinRest",
+  "existing_identities": [
+    "NEXAH_A0_ORIENTATION_CONTROLLER_BENCH",
+    "MOD:NUMBER_VIEW_SUITE"
+  ],
+  "new_global_ids": [],
+  "relation_changes": [],
+  "canonical_count_effect": 0,
+  "authority": {
+    "research_execution": false,
+    "publication": false,
+    "claim_promotion": false
+  },
+  "source_files": [
+    {
+      "path": "A0_ORIENTATION_CONTROLLER_BENCH.html",
+      "sha256": "d2f960e9124fb013d169d6830412e5b7f633483c8792818429ed6112a42226b1"
+    },
+    {
+      "path": "a0-mirror-pin-rest.js",
+      "sha256": "c857eba0bc5c28f67c633da5761a1d133fec066e5f37f443b70fa2f18ca9e4a4"
+    },
+    {
+      "path": "a0-mirror-pin-rest-tests.cjs",
+      "sha256": "cac880ea37b5fa3031312f61478f91218a64666c41f2e025f421687aa1c259c2"
+    }
+  ],
+  "references": {
+    "kind": "Owner-supplied symbolic cards, not scientific evidence or recovered geometry",
+    "titles": [
+      "Schweben im Beben",
+      "The Retained Rest",
+      "Gewissheit ≠ Gewissen",
+      "The Split Rest"
+    ],
+    "local_image_files": [
+      "E214B1F7-6D5C-4D7D-A21D-B3348107D98B_1_105_c.jpeg",
+      "D9E0AF40-8A3E-437A-A8C3-AC65CC283632_1_105_c.jpeg",
+      "6CF00774-1CA4-4034-AED3-D6E8064617D6_1_105_c.jpeg",
+      "78AB05B7-D131-4ADB-B287-04C11A0D020B_1_105_c.jpeg"
+    ],
+    "custody": "Images remain in owner's Photos library; not copied, modified or published; no exact generator/provenance claim"
+  },
+  "implementation": [
+    "New manual local phase control; no timer, source clock or dynamics integration",
+    "Fixed anchor 1 at (0,0), opposite unit pins under declared 12deg*sin(phase) display law; 12 degrees chosen, not inferred from 60/72 degrees",
+    "Labels 111 opposed; decimal 111^2=12321 separate from address tuple, 11^3 or adding a center state",
+    "Exact arithmetic 8451=4*2112+3=4*2113-1; quotient position2112.75; widths1 versus4 explicitly distinguished",
+    "Scoped local checkpoint verification and export; same picture does not uniquely recover phase"
+  ],
+  "verification": {
+    "new_checks": 7249,
+    "phases": 361,
+    "regressions": [
+      [
+        "core-cycle-comparator",
+        600
+      ],
+      [
+        "pascal-aperture-bridge",
+        8552
+      ],
+      [
+        "bench-polish",
+        909
+      ],
+      [
+        "showcase-tour-live",
+        243
+      ],
+      [
+        "native-source-bank",
+        118
+      ],
+      [
+        "atlas-fold-guide",
+        1867
+      ]
+    ],
+    "static_svg": "Rendered phase90 with sharp and visually inspected",
+    "browser_acceptance": false
+  },
+  "nonclaims": [
+    "No physical gravity, fall, wobble or precession simulation",
+    "No new independent carrier, dimensional identity or research activation",
+    "No change to Kuramoto, Pascal, native mirror laws or LIFE04B specificity"
+  ],
+  "manifest_change": {
+    "scope": "Only current Bench hash in four package manifests; historical receipts unchanged",
+    "before": "80ad355e613c894532596d171029f2c34e1bad2d59154f26cf817418ac5eafea",
+    "after": "d2f960e9124fb013d169d6830412e5b7f633483c8792818429ed6112a42226b1"
+  },
+  "known_integrity": "Eight pre-existing binder conflicts and CURRENT mismatches remain; no authority manifest repin"
+}

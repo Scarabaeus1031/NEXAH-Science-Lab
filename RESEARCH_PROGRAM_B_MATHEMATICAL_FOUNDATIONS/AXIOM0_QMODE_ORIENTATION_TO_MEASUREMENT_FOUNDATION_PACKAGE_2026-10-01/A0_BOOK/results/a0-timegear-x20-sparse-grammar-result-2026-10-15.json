@@ -1,0 +1,1454 @@
+{
+  "schema": "a0.timegear-x20-sparse-grammar.engineering-result.v1",
+  "executionDate": "2026-10-15",
+  "authority": {
+    "kind": "OWNER_AUTHORIZED_A0_ENGINEERING_DERIVATION",
+    "labRun": false,
+    "studyActivated": false,
+    "navigatorIdentityCreated": false,
+    "canonicalX20Changed": false,
+    "publicationAuthorized": false
+  },
+  "status": "PASS_EXACT_SOURCE_INSPIRED_GRAPH_MATCH_WITH_PROVENANCE_CAVEAT",
+  "summary": {
+    "pass": 12,
+    "fail": 0,
+    "graphGrammars": 5,
+    "invariantMatches": 1,
+    "exactGraphIsomorphisms": 1,
+    "promotedIntertwiners": 0,
+    "openHypotheses": 3
+  },
+  "sourceExtract": "A0_BOOK/assets/a0-timegear-x20-owner-visual-extract-v1.json",
+  "target": {
+    "path": "10 NEXAH CORE/NEXAH/RESEARCH/NOTES/PASCAL_PENTAGON_D5_TEST_2026-10-10/PASCAL_ROSETTA_JOINT_DESIGN_2026-10-11/NCS_292_Q106_INTERTWINER_RETURN_PACKAGE_2026-10-11/NCS_X20_Q106_ADJACENCY_INTERTWINER_AUDIT_2026-10-11/RESULT.json",
+    "identity": "existing frozen Q106 twenty-node interface"
+  },
+  "coordinates": {
+    "carrier": "C20 with marked g=0 and antipode g=10",
+    "primary": "g=4i+j with i in C5 and j in ordered P4",
+    "secondaryControl": "(i,j)=(g mod 5,g mod 4) with explicit C4 cyclicity",
+    "wheelReadout": "(20g mod 400,21g mod 420,30g mod 600)"
+  },
+  "graphRecords": {
+    "C20_RING": {
+      "signature": {
+        "vertices": 20,
+        "edges": 20,
+        "components": 1,
+        "degreeProfile": {
+          "2": 20
+        },
+        "girth": 20,
+        "cycleRank": 1
+      },
+      "edges": [
+        {
+          "nodes": [
+            "0:0",
+            "0:1"
+          ],
+          "types": [
+            "time_step"
+          ]
+        },
+        {
+          "nodes": [
+            "0:0",
+            "4:3"
+          ],
+          "types": [
+            "time_step"
+          ]
+        },
+        {
+          "nodes": [
+            "0:1",
+            "0:2"
+          ],
+          "types": [
+            "time_step"
+          ]
+        },
+        {
+          "nodes": [
+            "0:2",
+            "0:3"
+          ],
+          "types": [
+            "time_step"
+          ]
+        },
+        {
+          "nodes": [
+            "0:3",
+            "1:0"
+          ],
+          "types": [
+            "time_step"
+          ]
+        },
+        {
+          "nodes": [
+            "1:0",
+            "1:1"
+          ],
+          "types": [
+            "time_step"
+          ]
+        },
+        {
+          "nodes": [
+            "1:1",
+            "1:2"
+          ],
+          "types": [
+            "time_step"
+          ]
+        },
+        {
+          "nodes": [
+            "1:2",
+            "1:3"
+          ],
+          "types": [
+            "time_step"
+          ]
+        },
+        {
+          "nodes": [
+            "1:3",
+            "2:0"
+          ],
+          "types": [
+            "time_step"
+          ]
+        },
+        {
+          "nodes": [
+            "2:0",
+            "2:1"
+          ],
+          "types": [
+            "time_step"
+          ]
+        },
+        {
+          "nodes": [
+            "2:1",
+            "2:2"
+          ],
+          "types": [
+            "time_step"
+          ]
+        },
+        {
+          "nodes": [
+            "2:2",
+            "2:3"
+          ],
+          "types": [
+            "time_step"
+          ]
+        },
+        {
+          "nodes": [
+            "2:3",
+            "3:0"
+          ],
+          "types": [
+            "time_step"
+          ]
+        },
+        {
+          "nodes": [
+            "3:0",
+            "3:1"
+          ],
+          "types": [
+            "time_step"
+          ]
+        },
+        {
+          "nodes": [
+            "3:1",
+            "3:2"
+          ],
+          "types": [
+            "time_step"
+          ]
+        },
+        {
+          "nodes": [
+            "3:2",
+            "3:3"
+          ],
+          "types": [
+            "time_step"
+          ]
+        },
+        {
+          "nodes": [
+            "3:3",
+            "4:0"
+          ],
+          "types": [
+            "time_step"
+          ]
+        },
+        {
+          "nodes": [
+            "4:0",
+            "4:1"
+          ],
+          "types": [
+            "time_step"
+          ]
+        },
+        {
+          "nodes": [
+            "4:1",
+            "4:2"
+          ],
+          "types": [
+            "time_step"
+          ]
+        },
+        {
+          "nodes": [
+            "4:2",
+            "4:3"
+          ],
+          "types": [
+            "time_step"
+          ]
+        }
+      ]
+    },
+    "FOUR_DISJOINT_C5": {
+      "signature": {
+        "vertices": 20,
+        "edges": 20,
+        "components": 4,
+        "degreeProfile": {
+          "2": 20
+        },
+        "girth": 5,
+        "cycleRank": 4
+      },
+      "edges": [
+        {
+          "nodes": [
+            "0:0",
+            "1:0"
+          ],
+          "types": [
+            "phase_ring"
+          ]
+        },
+        {
+          "nodes": [
+            "0:0",
+            "4:0"
+          ],
+          "types": [
+            "phase_ring"
+          ]
+        },
+        {
+          "nodes": [
+            "0:1",
+            "1:1"
+          ],
+          "types": [
+            "phase_ring"
+          ]
+        },
+        {
+          "nodes": [
+            "0:1",
+            "4:1"
+          ],
+          "types": [
+            "phase_ring"
+          ]
+        },
+        {
+          "nodes": [
+            "0:2",
+            "1:2"
+          ],
+          "types": [
+            "phase_ring"
+          ]
+        },
+        {
+          "nodes": [
+            "0:2",
+            "4:2"
+          ],
+          "types": [
+            "phase_ring"
+          ]
+        },
+        {
+          "nodes": [
+            "0:3",
+            "1:3"
+          ],
+          "types": [
+            "phase_ring"
+          ]
+        },
+        {
+          "nodes": [
+            "0:3",
+            "4:3"
+          ],
+          "types": [
+            "phase_ring"
+          ]
+        },
+        {
+          "nodes": [
+            "1:0",
+            "2:0"
+          ],
+          "types": [
+            "phase_ring"
+          ]
+        },
+        {
+          "nodes": [
+            "1:1",
+            "2:1"
+          ],
+          "types": [
+            "phase_ring"
+          ]
+        },
+        {
+          "nodes": [
+            "1:2",
+            "2:2"
+          ],
+          "types": [
+            "phase_ring"
+          ]
+        },
+        {
+          "nodes": [
+            "1:3",
+            "2:3"
+          ],
+          "types": [
+            "phase_ring"
+          ]
+        },
+        {
+          "nodes": [
+            "2:0",
+            "3:0"
+          ],
+          "types": [
+            "phase_ring"
+          ]
+        },
+        {
+          "nodes": [
+            "2:1",
+            "3:1"
+          ],
+          "types": [
+            "phase_ring"
+          ]
+        },
+        {
+          "nodes": [
+            "2:2",
+            "3:2"
+          ],
+          "types": [
+            "phase_ring"
+          ]
+        },
+        {
+          "nodes": [
+            "2:3",
+            "3:3"
+          ],
+          "types": [
+            "phase_ring"
+          ]
+        },
+        {
+          "nodes": [
+            "3:0",
+            "4:0"
+          ],
+          "types": [
+            "phase_ring"
+          ]
+        },
+        {
+          "nodes": [
+            "3:1",
+            "4:1"
+          ],
+          "types": [
+            "phase_ring"
+          ]
+        },
+        {
+          "nodes": [
+            "3:2",
+            "4:2"
+          ],
+          "types": [
+            "phase_ring"
+          ]
+        },
+        {
+          "nodes": [
+            "3:3",
+            "4:3"
+          ],
+          "types": [
+            "phase_ring"
+          ]
+        }
+      ]
+    },
+    "C5_CARTESIAN_P4": {
+      "signature": {
+        "vertices": 20,
+        "edges": 35,
+        "components": 1,
+        "degreeProfile": {
+          "3": 10,
+          "4": 10
+        },
+        "girth": 4,
+        "cycleRank": 16
+      },
+      "edges": [
+        {
+          "nodes": [
+            "0:0",
+            "0:1"
+          ],
+          "types": [
+            "role_step"
+          ]
+        },
+        {
+          "nodes": [
+            "0:0",
+            "1:0"
+          ],
+          "types": [
+            "phase_ring"
+          ]
+        },
+        {
+          "nodes": [
+            "0:0",
+            "4:0"
+          ],
+          "types": [
+            "phase_ring"
+          ]
+        },
+        {
+          "nodes": [
+            "0:1",
+            "0:2"
+          ],
+          "types": [
+            "role_step"
+          ]
+        },
+        {
+          "nodes": [
+            "0:1",
+            "1:1"
+          ],
+          "types": [
+            "phase_ring"
+          ]
+        },
+        {
+          "nodes": [
+            "0:1",
+            "4:1"
+          ],
+          "types": [
+            "phase_ring"
+          ]
+        },
+        {
+          "nodes": [
+            "0:2",
+            "0:3"
+          ],
+          "types": [
+            "role_step"
+          ]
+        },
+        {
+          "nodes": [
+            "0:2",
+            "1:2"
+          ],
+          "types": [
+            "phase_ring"
+          ]
+        },
+        {
+          "nodes": [
+            "0:2",
+            "4:2"
+          ],
+          "types": [
+            "phase_ring"
+          ]
+        },
+        {
+          "nodes": [
+            "0:3",
+            "1:3"
+          ],
+          "types": [
+            "phase_ring"
+          ]
+        },
+        {
+          "nodes": [
+            "0:3",
+            "4:3"
+          ],
+          "types": [
+            "phase_ring"
+          ]
+        },
+        {
+          "nodes": [
+            "1:0",
+            "1:1"
+          ],
+          "types": [
+            "role_step"
+          ]
+        },
+        {
+          "nodes": [
+            "1:0",
+            "2:0"
+          ],
+          "types": [
+            "phase_ring"
+          ]
+        },
+        {
+          "nodes": [
+            "1:1",
+            "1:2"
+          ],
+          "types": [
+            "role_step"
+          ]
+        },
+        {
+          "nodes": [
+            "1:1",
+            "2:1"
+          ],
+          "types": [
+            "phase_ring"
+          ]
+        },
+        {
+          "nodes": [
+            "1:2",
+            "1:3"
+          ],
+          "types": [
+            "role_step"
+          ]
+        },
+        {
+          "nodes": [
+            "1:2",
+            "2:2"
+          ],
+          "types": [
+            "phase_ring"
+          ]
+        },
+        {
+          "nodes": [
+            "1:3",
+            "2:3"
+          ],
+          "types": [
+            "phase_ring"
+          ]
+        },
+        {
+          "nodes": [
+            "2:0",
+            "2:1"
+          ],
+          "types": [
+            "role_step"
+          ]
+        },
+        {
+          "nodes": [
+            "2:0",
+            "3:0"
+          ],
+          "types": [
+            "phase_ring"
+          ]
+        },
+        {
+          "nodes": [
+            "2:1",
+            "2:2"
+          ],
+          "types": [
+            "role_step"
+          ]
+        },
+        {
+          "nodes": [
+            "2:1",
+            "3:1"
+          ],
+          "types": [
+            "phase_ring"
+          ]
+        },
+        {
+          "nodes": [
+            "2:2",
+            "2:3"
+          ],
+          "types": [
+            "role_step"
+          ]
+        },
+        {
+          "nodes": [
+            "2:2",
+            "3:2"
+          ],
+          "types": [
+            "phase_ring"
+          ]
+        },
+        {
+          "nodes": [
+            "2:3",
+            "3:3"
+          ],
+          "types": [
+            "phase_ring"
+          ]
+        },
+        {
+          "nodes": [
+            "3:0",
+            "3:1"
+          ],
+          "types": [
+            "role_step"
+          ]
+        },
+        {
+          "nodes": [
+            "3:0",
+            "4:0"
+          ],
+          "types": [
+            "phase_ring"
+          ]
+        },
+        {
+          "nodes": [
+            "3:1",
+            "3:2"
+          ],
+          "types": [
+            "role_step"
+          ]
+        },
+        {
+          "nodes": [
+            "3:1",
+            "4:1"
+          ],
+          "types": [
+            "phase_ring"
+          ]
+        },
+        {
+          "nodes": [
+            "3:2",
+            "3:3"
+          ],
+          "types": [
+            "role_step"
+          ]
+        },
+        {
+          "nodes": [
+            "3:2",
+            "4:2"
+          ],
+          "types": [
+            "phase_ring"
+          ]
+        },
+        {
+          "nodes": [
+            "3:3",
+            "4:3"
+          ],
+          "types": [
+            "phase_ring"
+          ]
+        },
+        {
+          "nodes": [
+            "4:0",
+            "4:1"
+          ],
+          "types": [
+            "role_step"
+          ]
+        },
+        {
+          "nodes": [
+            "4:1",
+            "4:2"
+          ],
+          "types": [
+            "role_step"
+          ]
+        },
+        {
+          "nodes": [
+            "4:2",
+            "4:3"
+          ],
+          "types": [
+            "role_step"
+          ]
+        }
+      ]
+    },
+    "C5_ROOT_WITH_LENGTH3_TAIL": {
+      "signature": {
+        "vertices": 20,
+        "edges": 20,
+        "components": 1,
+        "degreeProfile": {
+          "1": 5,
+          "2": 10,
+          "3": 5
+        },
+        "girth": 5,
+        "cycleRank": 1
+      },
+      "edges": [
+        {
+          "nodes": [
+            "0:0",
+            "0:1"
+          ],
+          "types": [
+            "role_step"
+          ]
+        },
+        {
+          "nodes": [
+            "0:0",
+            "1:0"
+          ],
+          "types": [
+            "root_ring"
+          ]
+        },
+        {
+          "nodes": [
+            "0:0",
+            "4:0"
+          ],
+          "types": [
+            "root_ring"
+          ]
+        },
+        {
+          "nodes": [
+            "0:1",
+            "0:2"
+          ],
+          "types": [
+            "role_step"
+          ]
+        },
+        {
+          "nodes": [
+            "0:2",
+            "0:3"
+          ],
+          "types": [
+            "role_step"
+          ]
+        },
+        {
+          "nodes": [
+            "1:0",
+            "1:1"
+          ],
+          "types": [
+            "role_step"
+          ]
+        },
+        {
+          "nodes": [
+            "1:0",
+            "2:0"
+          ],
+          "types": [
+            "root_ring"
+          ]
+        },
+        {
+          "nodes": [
+            "1:1",
+            "1:2"
+          ],
+          "types": [
+            "role_step"
+          ]
+        },
+        {
+          "nodes": [
+            "1:2",
+            "1:3"
+          ],
+          "types": [
+            "role_step"
+          ]
+        },
+        {
+          "nodes": [
+            "2:0",
+            "2:1"
+          ],
+          "types": [
+            "role_step"
+          ]
+        },
+        {
+          "nodes": [
+            "2:0",
+            "3:0"
+          ],
+          "types": [
+            "root_ring"
+          ]
+        },
+        {
+          "nodes": [
+            "2:1",
+            "2:2"
+          ],
+          "types": [
+            "role_step"
+          ]
+        },
+        {
+          "nodes": [
+            "2:2",
+            "2:3"
+          ],
+          "types": [
+            "role_step"
+          ]
+        },
+        {
+          "nodes": [
+            "3:0",
+            "3:1"
+          ],
+          "types": [
+            "role_step"
+          ]
+        },
+        {
+          "nodes": [
+            "3:0",
+            "4:0"
+          ],
+          "types": [
+            "root_ring"
+          ]
+        },
+        {
+          "nodes": [
+            "3:1",
+            "3:2"
+          ],
+          "types": [
+            "role_step"
+          ]
+        },
+        {
+          "nodes": [
+            "3:2",
+            "3:3"
+          ],
+          "types": [
+            "role_step"
+          ]
+        },
+        {
+          "nodes": [
+            "4:0",
+            "4:1"
+          ],
+          "types": [
+            "role_step"
+          ]
+        },
+        {
+          "nodes": [
+            "4:1",
+            "4:2"
+          ],
+          "types": [
+            "role_step"
+          ]
+        },
+        {
+          "nodes": [
+            "4:2",
+            "4:3"
+          ],
+          "types": [
+            "role_step"
+          ]
+        }
+      ]
+    },
+    "C10_SEAM_STITCH_WITH_LENGTH2_TAIL": {
+      "signature": {
+        "vertices": 20,
+        "edges": 20,
+        "components": 1,
+        "degreeProfile": {
+          "1": 5,
+          "2": 10,
+          "3": 5
+        },
+        "girth": 10,
+        "cycleRank": 1
+      },
+      "edges": [
+        {
+          "nodes": [
+            "0:0",
+            "0:1"
+          ],
+          "types": [
+            "gate_left"
+          ]
+        },
+        {
+          "nodes": [
+            "0:0",
+            "4:1"
+          ],
+          "types": [
+            "gate_right"
+          ]
+        },
+        {
+          "nodes": [
+            "0:1",
+            "0:2"
+          ],
+          "types": [
+            "inner_step"
+          ]
+        },
+        {
+          "nodes": [
+            "0:1",
+            "1:0"
+          ],
+          "types": [
+            "gate_right"
+          ]
+        },
+        {
+          "nodes": [
+            "0:2",
+            "0:3"
+          ],
+          "types": [
+            "return_step"
+          ]
+        },
+        {
+          "nodes": [
+            "1:0",
+            "1:1"
+          ],
+          "types": [
+            "gate_left"
+          ]
+        },
+        {
+          "nodes": [
+            "1:1",
+            "1:2"
+          ],
+          "types": [
+            "inner_step"
+          ]
+        },
+        {
+          "nodes": [
+            "1:1",
+            "2:0"
+          ],
+          "types": [
+            "gate_right"
+          ]
+        },
+        {
+          "nodes": [
+            "1:2",
+            "1:3"
+          ],
+          "types": [
+            "return_step"
+          ]
+        },
+        {
+          "nodes": [
+            "2:0",
+            "2:1"
+          ],
+          "types": [
+            "gate_left"
+          ]
+        },
+        {
+          "nodes": [
+            "2:1",
+            "2:2"
+          ],
+          "types": [
+            "inner_step"
+          ]
+        },
+        {
+          "nodes": [
+            "2:1",
+            "3:0"
+          ],
+          "types": [
+            "gate_right"
+          ]
+        },
+        {
+          "nodes": [
+            "2:2",
+            "2:3"
+          ],
+          "types": [
+            "return_step"
+          ]
+        },
+        {
+          "nodes": [
+            "3:0",
+            "3:1"
+          ],
+          "types": [
+            "gate_left"
+          ]
+        },
+        {
+          "nodes": [
+            "3:1",
+            "3:2"
+          ],
+          "types": [
+            "inner_step"
+          ]
+        },
+        {
+          "nodes": [
+            "3:1",
+            "4:0"
+          ],
+          "types": [
+            "gate_right"
+          ]
+        },
+        {
+          "nodes": [
+            "3:2",
+            "3:3"
+          ],
+          "types": [
+            "return_step"
+          ]
+        },
+        {
+          "nodes": [
+            "4:0",
+            "4:1"
+          ],
+          "types": [
+            "gate_left"
+          ]
+        },
+        {
+          "nodes": [
+            "4:1",
+            "4:2"
+          ],
+          "types": [
+            "inner_step"
+          ]
+        },
+        {
+          "nodes": [
+            "4:2",
+            "4:3"
+          ],
+          "types": [
+            "return_step"
+          ]
+        }
+      ]
+    }
+  },
+  "explicitCandidateMap": {
+    "0:0": "I_00_02_01",
+    "0:1": "S_01_00",
+    "0:2": "S_02_00",
+    "0:3": "S_03_00",
+    "1:0": "I_01_02_01",
+    "1:1": "S_01_01",
+    "1:2": "S_02_01",
+    "1:3": "S_03_01",
+    "2:0": "I_02_02_01",
+    "2:1": "S_01_02",
+    "2:2": "S_02_02",
+    "2:3": "S_03_02",
+    "3:0": "I_03_02_01",
+    "3:1": "S_01_03",
+    "3:2": "S_02_03",
+    "3:3": "S_03_03",
+    "4:0": "I_04_02_01",
+    "4:1": "S_01_04",
+    "4:2": "S_02_04",
+    "4:3": "S_03_04"
+  },
+  "checks": [
+    {
+      "id": "T-01",
+      "title": "The 400/420/600 wheel arithmetic is exact",
+      "status": "PASS",
+      "detail": {
+        "gcd": 20,
+        "lcm": 8400,
+        "revolutions": [
+          21,
+          20,
+          14
+        ]
+      }
+    },
+    {
+      "id": "T-02",
+      "title": "Twenty common gates have exact integer tick coordinates",
+      "status": "PASS",
+      "detail": {
+        "gateCount": 20,
+        "stepDegrees": 18,
+        "perGateTickStep": [
+          20,
+          21,
+          30
+        ],
+        "return": {
+          "g": 20,
+          "angle": 360,
+          "ticks": [
+            400,
+            420,
+            600
+          ]
+        }
+      }
+    },
+    {
+      "id": "A-01",
+      "title": "The contiguous C5 by ordered-P4 address is a bijection",
+      "status": "PASS",
+      "detail": {
+        "formula": "g=4i+j",
+        "addressCount": 20,
+        "origin": {
+          "g": 0,
+          "i": 0,
+          "j": 0
+        },
+        "antipode": {
+          "g": 10,
+          "i": 2,
+          "j": 2
+        }
+      }
+    },
+    {
+      "id": "A-02",
+      "title": "The CRT C5 by C4 address is a distinct bijection",
+      "status": "PASS",
+      "detail": {
+        "formula": "(i,j)=(g mod 5,g mod 4)",
+        "boundary": "C4 cyclicity is additional structure; P4 remains only ordered in the primary contract"
+      }
+    },
+    {
+      "id": "A-03",
+      "title": "The marked zero gate selects one origin but not a historical D1/p0 identity",
+      "status": "PASS",
+      "detail": {
+        "selectedOrigin": "g=0 -> (i,j)=(0,0)",
+        "antipode": "g=10 -> (i,j)=(2,2)",
+        "D1_p0_map": null
+      }
+    },
+    {
+      "id": "G-01",
+      "title": "All five predeclared graph grammars are finite and typed",
+      "status": "PASS",
+      "detail": {
+        "C20_RING": {
+          "vertices": 20,
+          "edges": 20,
+          "components": 1,
+          "degreeProfile": {
+            "2": 20
+          },
+          "girth": 20,
+          "cycleRank": 1
+        },
+        "FOUR_DISJOINT_C5": {
+          "vertices": 20,
+          "edges": 20,
+          "components": 4,
+          "degreeProfile": {
+            "2": 20
+          },
+          "girth": 5,
+          "cycleRank": 4
+        },
+        "C5_CARTESIAN_P4": {
+          "vertices": 20,
+          "edges": 35,
+          "components": 1,
+          "degreeProfile": {
+            "3": 10,
+            "4": 10
+          },
+          "girth": 4,
+          "cycleRank": 16
+        },
+        "C5_ROOT_WITH_LENGTH3_TAIL": {
+          "vertices": 20,
+          "edges": 20,
+          "components": 1,
+          "degreeProfile": {
+            "1": 5,
+            "2": 10,
+            "3": 5
+          },
+          "girth": 5,
+          "cycleRank": 1
+        },
+        "C10_SEAM_STITCH_WITH_LENGTH2_TAIL": {
+          "vertices": 20,
+          "edges": 20,
+          "components": 1,
+          "degreeProfile": {
+            "1": 5,
+            "2": 10,
+            "3": 5
+          },
+          "girth": 10,
+          "cycleRank": 1
+        }
+      }
+    },
+    {
+      "id": "G-02",
+      "title": "Degree profile alone does not select the Q106-compatible grammar",
+      "status": "PASS",
+      "detail": {
+        "targetProfile": {
+          "1": 5,
+          "2": 10,
+          "3": 5
+        },
+        "matching": [
+          "C5_ROOT_WITH_LENGTH3_TAIL",
+          "C10_SEAM_STITCH_WITH_LENGTH2_TAIL"
+        ],
+        "discriminator": "girth: 5 versus 10"
+      }
+    },
+    {
+      "id": "G-03",
+      "title": "Only the seam-stitch grammar has the complete target invariant signature",
+      "status": "PASS",
+      "detail": {
+        "targetSignature": {
+          "vertices": 20,
+          "edges": 20,
+          "components": 1,
+          "degreeProfile": {
+            "1": 5,
+            "2": 10,
+            "3": 5
+          },
+          "girth": 10,
+          "cycleRank": 1
+        },
+        "matching": [
+          "C10_SEAM_STITCH_WITH_LENGTH2_TAIL"
+        ]
+      }
+    },
+    {
+      "id": "G-04",
+      "title": "The declared seam-stitch map is an exact graph isomorphism to the Q106 interface",
+      "status": "PASS",
+      "detail": {
+        "candidate": "C10_SEAM_STITCH_WITH_LENGTH2_TAIL",
+        "mappedNodes": 20,
+        "mappedEdges": 20,
+        "result": "EXACT_UNDIRECTED_GRAPH_ISOMORPHISM"
+      }
+    },
+    {
+      "id": "G-05",
+      "title": "The four controls are rejected by graph invariants",
+      "status": "PASS",
+      "detail": {
+        "C20_RING": {
+          "vertices": 20,
+          "edges": 20,
+          "components": 1,
+          "degreeProfile": {
+            "2": 20
+          },
+          "girth": 20,
+          "cycleRank": 1
+        },
+        "FOUR_DISJOINT_C5": {
+          "vertices": 20,
+          "edges": 20,
+          "components": 4,
+          "degreeProfile": {
+            "2": 20
+          },
+          "girth": 5,
+          "cycleRank": 4
+        },
+        "C5_CARTESIAN_P4": {
+          "vertices": 20,
+          "edges": 35,
+          "components": 1,
+          "degreeProfile": {
+            "3": 10,
+            "4": 10
+          },
+          "girth": 4,
+          "cycleRank": 16
+        },
+        "C5_ROOT_WITH_LENGTH3_TAIL": {
+          "vertices": 20,
+          "edges": 20,
+          "components": 1,
+          "degreeProfile": {
+            "1": 5,
+            "2": 10,
+            "3": 5
+          },
+          "girth": 5,
+          "cycleRank": 1
+        }
+      }
+    },
+    {
+      "id": "R-01",
+      "title": "The optional D/E display lift has forty states and one-bit fibres",
+      "status": "PASS",
+      "detail": {
+        "liftedStates": 40,
+        "quotientStates": 20,
+        "fibreSize": 2,
+        "boundary": "display lift only; not the dodeca D/E quotient and not a selected orientation law"
+      }
+    },
+    {
+      "id": "B-01",
+      "title": "Drift, gamma and point-83 remain outside the exact contract",
+      "status": "PASS",
+      "detail": {
+        "iotaDriftDegrees": 0.464,
+        "derivedFromWheelArithmetic": false,
+        "gammaMap": null,
+        "point83Criterion": null
+      }
+    }
+  ],
+  "openGates": [
+    {
+      "id": "P-01",
+      "status": "HOLD",
+      "question": "Is the seam-stitch grammar independently intended by the owner visual rather than selected with knowledge of Q106?",
+      "requiredInput": "Independent source statement or preregistered use task predating target comparison."
+    },
+    {
+      "id": "P-02",
+      "status": "HOLD",
+      "question": "Does g=0 identify D1/p0?",
+      "requiredInput": "Typed D/E-to-Timegear address map."
+    },
+    {
+      "id": "P-03",
+      "status": "HOLD",
+      "question": "What defines the 0.464 degree drift, gamma relation and .83 band?",
+      "requiredInput": "Equations, units, data and falsifiable thresholds."
+    }
+  ],
+  "interpretation": [
+    "The Timegear supplies an exact C20 phase/address carrier and marked origin.",
+    "The owner-inspired seam-stitch grammar is exactly isomorphic to the frozen Q106 interface as an undirected graph.",
+    "The match is an engineering bridge candidate, not independent evidence, because Q106 was already known during formalization.",
+    "No historical X20 adjacency, directed operator intertwiner, D/E phase law, physical mechanism, drift law or novelty claim is established."
+  ]
+}

@@ -88,6 +88,8 @@
     const projections = Object.fromEntries(VIEWS.map((view) => [view, points.map((entry) => ({
       sourceKey: entry.sourceKey,
       displayKey: entry.displayKey,
+      channel: entry.channel,
+      layer: entry.layer,
       selected: entry.selected,
       ...project(entry.point, view)
     }))]));
@@ -140,9 +142,13 @@
     const witness = rootElement.querySelector("#interiorWitness");
     const readout = rootElement.querySelector("#interiorReadout");
     const receiptBox = rootElement.querySelector("#interiorReceipt");
+    const fieldStrength = rootElement.querySelector("#interiorFieldStrength");
+    const fieldLabels = rootElement.querySelector("#interiorFieldLabels");
+    const fieldValue = rootElement.querySelector("#interiorFieldValue");
     const views = Object.fromEntries(VIEWS.map((view) => [view, rootElement.querySelector(`[data-interior-view="${view}"]`)]));
     let phase = 0;
     let timer = 0;
+    const fieldOptions = () => ({ strength: Math.max(0, Math.min(1, Number(fieldStrength?.value) || 0)), labels: fieldLabels?.checked ?? true });
 
     const pentagon = (cx, cy, radius) => Array.from({ length: 5 }, (_, index) => {
       const angle = -Math.PI / 2 + index * Math.PI * 2 / 5;
@@ -175,13 +181,23 @@
           }
         }
       }
+      const field = fieldOptions();
+      // Duplicate only the current, exact projected edges as a soft contrast pass.
+      // No previous frames, invented paths, density model, or source updates.
+      const softEdges = field.strength ? edges.join("").replace(/class="interior-(?:layer-)?edge"/g,
+        `style="fill:none;stroke:#79c9dc;stroke-width:${(2+field.strength*2).toFixed(2)};opacity:${(.035+field.strength*.10).toFixed(3)}"`) : "";
+      const coreEdges = field.strength ? edges.join("")
+        .replace(/class="interior-edge"/g, `class="interior-edge" style="stroke:#8dd7e7;stroke-width:${(.7+field.strength*.4).toFixed(2)};opacity:${(.14+field.strength*.30).toFixed(3)}"`)
+        .replace(/class="interior-layer-edge"/g, `class="interior-layer-edge" style="stroke:#ee8ab8;stroke-width:${(.9+field.strength*.3).toFixed(2)};opacity:${(.20+field.strength*.20).toFixed(3)}"`) : edges.join("");
       const tiles = entries.map((entry) => {
         const distance = selected ? Math.hypot(entry.x - selected.x, entry.y - selected.y) : 0;
         const visible = entry.selected ? 1 : Math.max(0.08, apertureValue * Math.exp(-distance * 0.42));
         const classes = ["interior-tile", entry.selected ? "selected" : "", entry.layer === Number(layer.value) ? "same-layer" : "ghost"].filter(Boolean).join(" ");
-        return `<g class="${classes}" opacity="${visible.toFixed(3)}" data-source-key="${entry.sourceKey}"><polygon points="${pentagon(sx(entry.x), sy(entry.y), entry.selected ? 11 : 7)}"/><text x="${sx(entry.x)}" y="${sy(entry.y) + 3}">${entry.channel + 1}</text></g>`;
+        const label = field.labels || entry.selected ? `<text x="${sx(entry.x)}" y="${sy(entry.y) + 3}">${entry.channel + 1}</text>` : "";
+        return `<g class="${classes}" opacity="${visible.toFixed(3)}" data-source-key="${entry.sourceKey}"><polygon points="${pentagon(sx(entry.x), sy(entry.y), entry.selected ? 11 : 7)}"/>${label}</g>`;
       }).join("");
-      svg.innerHTML = `<title>${view} projection of the same 48-address interior record</title><g class="interior-edges">${edges.join("")}</g><g>${tiles}</g>`;
+      const soft = field.strength ? `<defs><filter id="interior-soft-${view}" x="-30%" y="-30%" width="160%" height="160%" color-interpolation-filters="sRGB"><feGaussianBlur stdDeviation="${(.6+field.strength*.6).toFixed(2)}"/></filter></defs><g data-role="spatial-field-contrast" filter="url(#interior-soft-${view})" pointer-events="none">${softEdges}</g>` : "";
+      svg.innerHTML = `<title>${view} projection of the same 48-address interior record; spatial contrast only, no time echoes</title>${soft}<g class="interior-edges">${coreEdges}</g><g>${tiles}</g>`;
     }
 
     function render() {
@@ -193,16 +209,20 @@
       rootElement.querySelector("#interiorChannelValue").textContent = `${currentChannel + 1}/16 · m=${currentFrame.source.modulusLabel}`;
       rootElement.querySelector("#interiorLayerValue").textContent = `P${currentLayer}`;
       rootElement.querySelector("#interiorApertureValue").textContent = apertureValue.toFixed(2);
-      rootElement.querySelector("#interiorPhase").textContent = `${String(phase).padStart(2, "0")}/12`;
+      const phaseOutput = rootElement.querySelector("#interiorPhase");
+      if (phaseOutput) phaseOutput.textContent = `${String(phase).padStart(2, "0")}/12`;
+      if (fieldValue) fieldValue.textContent = `${Math.round(fieldOptions().strength*100)}%`;
       readout.innerHTML = `<strong>${currentFrame.source.sourceKey}</strong> · channel ${currentChannel + 1} · modulus label ${currentFrame.source.modulusLabel} · aperture ${apertureValue.toFixed(2)} · phase ${String(phase).padStart(2, "0")}/12 · four views / one source key`;
       const result = receipt({ sourceKey: currentFrame.source.sourceKey, viewKeys: VIEWS.map(() => currentFrame.source.sourceKey), witness: witness.checked });
       receiptBox.dataset.status = result.status.startsWith("PASS") ? "pass" : "hold";
       receiptBox.innerHTML = `<b>${result.status}</b><span>${result.status.startsWith("PASS") ? `return ${result.sourceKey} · residual ${result.residual} · prime ${result.modulusLabel} remains label-only` : "Return stopped: the selected address is visible, but its required witness was withheld."}</span>`;
-      globalThis.A0BlueBodyInteriorView = { frame: currentFrame, receipt: result };
+      globalThis.A0BlueBodyInteriorView = { frame: currentFrame, receipt: result, field: { ...fieldOptions(), kind: "SPATIAL_CONTRAST_ONLY", historySamples: 0 } };
     }
 
     function step(delta) { phase = (phase + delta + 12) % 12; render(); }
     [channel, layer, aperture, witness].forEach((control) => control.addEventListener("input", render));
+    fieldStrength?.addEventListener("input", render);
+    fieldLabels?.addEventListener("change", render);
     phaseBack.addEventListener("click", () => step(-1));
     phaseForward.addEventListener("click", () => step(1));
     play.addEventListener("click", () => {
@@ -217,7 +237,14 @@
       play.setAttribute("aria-pressed", "true");
     });
     render();
-    return { render, stop: () => { if (timer) clearInterval(timer); timer = 0; } };
+    const stop = () => { if (timer) clearInterval(timer); timer = 0; play.textContent = "Play 48-state cycle"; play.setAttribute("aria-pressed", "false"); };
+    const controller = { render, stop, configure(input={}) {
+      const nextLayer=input.layer??Number(layer.value),nextChannel=input.channel??Number(channel.value),nextPhase=input.phase??phase,nextAperture=input.aperture??Number(aperture.value);
+      frame(nextLayer,nextChannel,nextPhase,nextAperture); // validate atomically before touching controls
+      stop();layer.value=nextLayer;channel.value=nextChannel;phase=nextPhase;aperture.value=nextAperture;render();
+    }, get snapshot(){return JSON.parse(JSON.stringify(globalThis.A0BlueBodyInteriorView));} };
+    globalThis.A0BlueBodyInteriorController = controller;
+    return controller;
   }
 
   if (typeof document !== "undefined") {

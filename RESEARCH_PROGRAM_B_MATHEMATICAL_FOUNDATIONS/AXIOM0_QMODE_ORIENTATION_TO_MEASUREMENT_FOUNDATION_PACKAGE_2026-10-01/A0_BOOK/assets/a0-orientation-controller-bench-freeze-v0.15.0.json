@@ -1,0 +1,43 @@
+{
+  "schema": "nexah.a0.orientation-controller-bench-freeze/1",
+  "date": "2026-10-18",
+  "identity": "NEXAH_A0_ORIENTATION_CONTROLLER_BENCH",
+  "version": "0.15.0",
+  "status": "FROZEN_ENGINEERING_BASELINE_RETURN_ECONOMY_MANUAL_BROWSER_ACCEPTANCE_OPEN",
+  "previousFreeze": "assets/a0-orientation-controller-bench-freeze-v0.14.0.json",
+  "legacySpecificationPath": {
+    "path": "assets/a0-orientation-controller-bench-v0.5.json",
+    "decision": "RETAIN_STABLE_HISTORICAL_FILENAME",
+    "declaredVersion": "0.15.0",
+    "rename": false,
+    "reason": "Stable compatibility path; internal version and freeze receipt govern currentness."
+  },
+  "files": [
+    {"path":"A0_ORIENTATION_CONTROLLER_BENCH.html","sha256":"71ea4dc38d2d3f052b8c7a3468e37ddf3caa8a0276e58c2d4175071f506a0cc7"},
+    {"path":"a0-orientation-controller-bench.js","sha256":"50b8d021fbf9f799abc5489954977cc9aeace47ad30b8190e4a480d33eb13295"},
+    {"path":"assets/a0-orientation-controller-bench-v0.5.json","sha256":"1afaa490f03f5f29fc364f8d72fd54dad2108e371876757859ac8254f2de6beb"},
+    {"path":"a0-return-economy.js","sha256":"aa7e4651e70eb9ca9266ecaebff8723c96b178babe9188c39cd5c5172415f772"},
+    {"path":"a0-return-economy.css","sha256":"032de4a53b8ee0f0acd7ecf913a8caf5b3440dbf1824eea4ccf90119503de8fe"},
+    {"path":"a0-return-economy-tests.cjs","sha256":"fefb3c2fd78af3bfdea1abb9463c87831434d37570edcb09180de6baf599576a"},
+    {"path":"assets/a0-return-economy-demonstrator-v1.json","sha256":"7ed2d36c1ba353bc304536ce1ae7a303f0c591a7899cdb5f7061d122859510ab"},
+    {"path":"a0-bench-showcase-tour.js","sha256":"932b7f3e0af74e8b14fd20529344f4ab14a584a21fab99b3dd5204c134a1313c"},
+    {"path":"a0-bench-showcase-tour-tests.cjs","sha256":"f656820195c196b180493ae0a374344b5450f7df2f3af15f78ba9564c7a506f3"},
+    {"path":"A0_BUILDER_TOY_STORE.html","sha256":"12f86fab5ec5733ae44875370f5cfde3f7fbb54cc5179be1b78449c5b6a0f440"},
+    {"path":"a0-builder-toy-store-tests.cjs","sha256":"37f67428380eda2e91c7429407d99e0f262acf3c8c05944f4fd7b814cf85d9dd"}
+  ],
+  "sourceBindings": [
+    {"id":"BL024","sha256":"7d6683d989d2abab76c9864698a21af2a2b84ca8bd3cf993700d53cf4f431014"},
+    {"id":"BL025","sha256":"b455bee94c32d41c0c61dd10a5df7cfc64739839becc3708ec5578cf62398fb1"},
+    {"id":"BL049","sha256":"1f52cb0aee0a7417b862c39467ea2187b6e18194ef8d7c91d7e7f6efcac7aef5"},
+    {"id":"BL055","sha256":"a858f934b6ef18bfae116d20f36b98e34ccfedfb1d2692691df469cdecb9fa0f"}
+  ],
+  "acceptance": {
+    "returnEconomy": "PASS_9311_OF_9311_9246_EXHAUSTIVE_RETURNS",
+    "showcaseTour": "PASS_41_OF_41_17_STATIONS",
+    "toyStore": "PASS",
+    "baseRegression": "PASS_65_CHECK_GROUPS",
+    "manualTabletPhoneHighZoomAndLiveAdapters": "OPEN_HUMAN_OWNER_REVIEW_REQUIRED"
+  },
+  "authority": {"newCanonicalIdentity":false,"newCanonicalRelation":false,"newFamily":false,"newCarrier":false,"researchExecution":false,"claimPromotion":false,"publication":false},
+  "manifestSelfHash": "EXCLUDED"
+}

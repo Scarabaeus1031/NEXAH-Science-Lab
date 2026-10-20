@@ -14,6 +14,8 @@ Select reviewers by methods and benchmark expertise. Do not ask one reviewer to 
 | E-Q08/E-Q09 graphs | Network scientist or graph-algorithms researcher | [Network Science Society](https://www.netscisociety.net/about); spectral graph / sparse linear algebra communities | Must compare with standard invariants and reduction methods |
 | E-Q10 diagnostics | Nonlinear-dynamics researcher plus statistical signal-processing reviewer | SIAM dynamical systems; IEEE signal processing; fluid-transport/LCS community | Event labels and baselines frozen before review |
 | IEEE Geometry application | Power-systems researcher or research software engineer with numerical power-flow expertise | IEEE Power & Energy / power-systems research software | Preserve G3 result and G4 failure; no operational claim request |
+| Göbekli / Ancient Architecture correction dialogue | Göbekli/PPNA archaeologist or architectural historian, followed only if needed by a survey archaeologist/archaeoastronomer | Neolithic archaeology; building archaeology; spatial analysis | Exact plan/source ledger, chronology, axis uncertainty, horizon and alternatives supplied; request correction, not endorsement |
+| Roman Dodecahedron feasibility and historical-function question | Polyhedral geometer or optical metrologist for the ideal/performance model; Roman-instrument archaeologist or archaeometallurgist for the historical layer | Coxeter/polyhedral geometry; optical metrology; Roman archaeology and surveying history | Ideal geometry, measured artifact corpus, modern test and historical inference reviewed as separate layers |
 
 ## Review evidence required
 
@@ -48,4 +50,11 @@ The permitted output is a reviewer profile or community, not a named endorsement
 - geometric statistics and multisensor-fusion researchers;
 - network-science and graph-reduction researchers;
 - nonlinear-dynamics, coherent-structure, and change-point researchers;
-- power-systems reproducibility reviewers.
+- power-systems reproducibility reviewers;
+- Neolithic/Göbekli architectural archaeologists and measured
+  archaeoastronomy reviewers;
+- polyhedral geometers, optical metrologists and Roman-instrument or
+  archaeometallurgy reviewers.
+
+Named people and draft letters remain source or candidate records. They are
+not endorsements, reviewer appointments or contact authorization.

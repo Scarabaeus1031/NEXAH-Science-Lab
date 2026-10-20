@@ -53,6 +53,7 @@ Examples:
 8. [Collaboration Map](08_COLLABORATION_MAP.md)
 9. [Position Statement](09_POSITION_STATEMENT.md)
 10. [Final Recommendation](10_FINAL_RECOMMENDATION.md)
+11. [Current Neighborhoods and Novelty Disposition — 2026-10-08](11_CURRENT_NEIGHBORHOODS_AND_NOVELTY_DISPOSITION_2026-10-08.md)
 
 ## Final result
 
@@ -73,3 +74,11 @@ OPERATIONAL_EFFECT: NONE
 ```
 
 No experiment, external contact, publication, or source-repository change was performed.
+
+## Current update — 2026-10-08
+
+The targeted `n+1 Relational Stack` prior-art audit closes the remaining broad
+architecture-novelty route. NEXAH remains positioned inside established
+scientific neighborhoods and retains an internal audit/interface profile; no
+scientific novelty or external contribution is established. See deliverable
+11 for the current neighborhood map, chronology and operating consequence.

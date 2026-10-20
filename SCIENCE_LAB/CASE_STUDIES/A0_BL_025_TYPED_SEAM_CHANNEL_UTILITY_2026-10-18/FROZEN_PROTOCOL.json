@@ -1,0 +1,36 @@
+{
+  "schema": "nexah.a0-bl-025.typed-seam-utility/1.0.0",
+  "date": "2026-10-18",
+  "faces": 5,
+  "depth": 6,
+  "conditions": {
+    "C0": "DISJOINT",
+    "C1": "APEX_ONLY",
+    "C2": "CANONICAL_SEAM_NO_RESIDUAL",
+    "C3": "REVERSED_LEVEL_ARBITRARY_GLUE",
+    "C4": "CANONICAL_SEAM_TYPED_RESIDUAL"
+  },
+  "expected": {
+    "raw_incidences": 140,
+    "c0_addresses": 140,
+    "c1_addresses": 136,
+    "c2_addresses": 106,
+    "c3_addresses": 106,
+    "c4_addresses": 106,
+    "raw_fixed_bits": 8,
+    "canonical_apex_class_size": 5,
+    "canonical_seam_classes": 30,
+    "canonical_seam_class_size": 2,
+    "canonical_singletons": 75,
+    "zipper_directed_transitions": 60
+  },
+  "result_classes": [
+    "PASS_BOUNDED_TYPED_SEAM_ADVANTAGE",
+    "NO_ADVANTAGE_OVER_MATCHED_GLUE",
+    "RETURN_METADATA_EQUALS_OR_EXCEEDS_RAW_ADDRESS",
+    "CHANNEL_RULE_UNDERDETERMINED",
+    "RECURRENCE_OR_PROVENANCE_LOST_AT_INTERFACE",
+    "INVALID_EXPERIMENT"
+  ],
+  "claim_ceiling": "Finite SCC-003 information accounting and explicitly designed local seam Return only."
+}

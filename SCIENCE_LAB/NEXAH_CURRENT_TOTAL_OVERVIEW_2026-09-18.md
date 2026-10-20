@@ -1,32 +1,224 @@
 # NEXAH — aktuelle Gesamtübersicht
 
-**Rolle:** ausführlicher Gesamtreport und Quellendokument der Human View.
+**Rolle:** Science Overview mit kurzer Essenz, aktuellem Status, Lesewegen und
+anschließendem Begründungs- und Änderungsprotokoll.
 
-Der kurze Einstieg liegt in Mission Control unter
-`00_OVERVIEW/HUMAN_VIEW.md`. Dieser Report bewahrt die ausführliche
-Zusammenführung; er ist nicht der erste Leseschritt.
+**Stand:** `2026-10-08`
+
+**Authority:** Human Owner
+
+**Operational effect:** `NONE / NO AUTOMATIC ACTIVATION`
 
 > **NEXAH beginnt bei einem Menschen, der sich in einem Feld befindet, nicht
 > alles überblickt und trotzdem verantwortlich handeln muss.**
 
-Es hilft dabei, begrenzte Beobachtungen nebeneinanderzulegen, ihre Beziehungen
-zu prüfen und sichtbar zu halten, was erhalten bleibt, verloren geht, neu
-hinzukommt oder noch ungeklärt ist. Das Instrument unterstützt diese Arbeit.
-Die Bedeutung und die Entscheidung verbleiben beim Menschen.
+## Die Essenz
 
-Dieser Report folgt derselben Richtung: zuerst menschliche Orientierung, dann
-Methode und Sprache, danach Instrumente, Repositories, Evidenzstatus und
-Governance.
+NEXAH ist eine Praxis der Orientierung unter begrenzter Sicht. Ein Mensch
+befindet sich in einer Situation, wählt eine Frage und betrachtet die
+Situation durch einen bestimmten Schnitt, Rahmen oder Apparat. Daraus entsteht
+kein vollständiges Abbild der Welt, sondern ein begrenzter Record.
 
-**Aktueller Utility-Status (23. September 2026):** `UTILITY-01/01R` ist vor
-Evaluation terminal mit `D_INVALID_AFTER_SINGLE_REPAIR_ATTEMPT` geschlossen;
-`UTILITY_RESULT: NONE`. Der frühere Plan eines nächsten Utility-Tests weiter
-unten ist `HISTORICAL_PLAN_SUPERSEDED_BY_TERMINAL_D`, kein aktiver Auftrag.
-Maßgeblich ist Mission Control `CURRENT/UTILITY_01R_FINAL_STOP.md` mit der
-Science-Lab-Stop-Evidenz unter
-`SCIENCE_LAB/CASE_STUDIES/UTILITY01R_RFLC_REPAIR_R1_2026-09-23/`.
+Die wiederkehrende Arbeitsform ist:
 
-## Additive Konsolidierung vom 29. September 2026
+```text
+Situation
+  -> Frage und Schnitt
+  -> Rahmen / Apertur / Beobachtung
+  -> Darstellung oder Transformation
+  -> Vergleich
+  -> erhaltene, verlorene, eingeführte und ungeklärte Anteile
+  -> typisiertes Residuum
+  -> Rückkehr zum Menschen.
+```
+
+NEXAH hilft, mehrere solcher Records miteinander in Beziehung zu setzen,
+ohne sie vorschnell gleichzusetzen. Daher gilt durchgehend:
+
+> **Related does not mean identical. One pattern may appear through many
+> maps, while carriers, Einheiten, Operatoren und Mechanismen verschieden
+> bleiben.**
+
+Software, Diagramme, mathematische Modelle, Bücher und Instrumente dienen
+dabei als Orientierungshilfen. Sie übernehmen weder Bedeutung noch Urteil.
+Entscheidungs- und Deutungshoheit verbleiben beim Menschen.
+
+## Was wissenschaftlich trägt
+
+NEXAH besitzt inzwischen eine belastbare methodische Praxis:
+
+- Quellen, Träger, Transformationen und Beobachtungsregeln werden getrennt;
+- Invarianten und Residuen werden an konkrete Vergleiche gebunden;
+- exakte endliche Ergebnisse, Simulationen, empirische Befunde, Analogien und
+  visuelle Intuitionen erhalten unterschiedliche Evidenzklassen;
+- negative Resultate und STOP-Bedingungen bleiben Ergebnisse;
+- Beziehungen zwischen Darstellungen werden getestet, ohne daraus automatisch
+  Identität, Kausalität oder einen gemeinsamen physikalischen Mechanismus zu
+  machen.
+
+Es gibt zahlreiche exakte lokale Fixtures und begrenzte Studien. Sie belegen
+jedoch keine universelle NEXAH-Theorie, keine neue Physik und keine allgemeine
+Überlegenheit gegenüber etablierten Fachmethoden.
+
+## Aktueller Status in einer Tabelle
+
+| Ebene | Aktueller Stand |
+|---|---|
+| Orientierung | kohärente Human-zentrierte Praxis mit Quelle, Schnitt, Relation, Record, Residuum und Return |
+| Mathematik | mehrere exakte endliche Konstruktionen und Kontrollen; Bedeutung bleibt träger- und abbildungsgebunden |
+| Wissenschaft | bounded evidence, Replays, negative Resultate und Claim Ceilings; keine universelle Mechanismusbehauptung |
+| Technik | mehrere Instrumente und Verifier; kein validierter integrierter semantischer Auditor |
+| Utility | `UTILITY-01/01R` terminal vor Evaluation geschlossen; `UTILITY_RESULT: NONE` |
+| Portfolio | keine automatisch aktivierte Queue, Capability, Publikation oder Nachfolgestudie |
+| Navigator / Mission Control, 11. Oktober | aktueller Navigator-Basisbuild: 141 HTML-Artefakte, 45 registrierte Moduloberflächen, 16 konzeptuelle Module, 226 interne Entities und 29 typisierte Relationen; der separat komponierte LIFE-Overlay ergibt 229/32; 15 kontrollierte Komponenten; App-Audit `237/237 PASS`; Public Admission bleibt 0 |
+| IEEE-300 formaler Befund, 8. Oktober | IEEE-300 R2 bleibt ein begrenzter Graph-to-Grid-Pass; Morphology 01 reproduziert die gemeinsame Solvergrenze bis `1.032`, liefert aber ein gemischt-negatives Ergebnis: H3- und Circle-Spezifität negativ, Auflösungsstabilität fehlgeschlagen, Topologiereplikation unzureichend |
+| Carrier–View–Residual, 8. Oktober | CA-IDENT-09 und CA-IDENT-10 zeigen auf zwei verschiedenen Trägern: persistente Identität und Zielvariable können exakt erhalten bleiben, während ansichtsinduzierte Topologie und View-only-Entscheidungen stark wechseln; `5/5` und `6/6` Gates PASS, ohne Prime/LIFE-Mechanismusclaim |
+| Pascal–Pentagon Novelty Candidate, 11. Oktober | `SCC-003` bindet die reproduzierte fünfteilige Pascal-Verklebung als potenziell neue endliche kombinatorische Konstruktion: offene Folge `28,49,70,91,112`, sechs Seam-Identifikationen, geschlossener 106-Knoten-/180-Kanten-Quotient und exakte typisierte `D5`-Wirkung. Implementierungsunabhängige Spezifikation, kompakte Beweise, kanonischer Referenzexport und Union-Find-Verifikation (`177/177`) sind vollständig. Der begrenzte Prior-Art-Audit und stärkste Baseline-Vergleich sind dokumentiert; unabhängiger mathematischer Review bleibt das nächste Gate. Nicht aktiv, kein Publikations- oder Weltneuheitsclaim. |
+| Pascal–Rosetta D30 Companion, 11. Oktober | Die bestehende Pascal-Pentagon-Identität besitzt nun einen formal geprüften, aber nicht zugelassenen Fünf-Register-Lift: relationale `C12`-Adresse, `p=2k−n mod 30`, 127 Branch-Wörter pro Register, 65 von 150 beobachtete Register-Phasen-Plätze und ein negatives Ergebnis für alle 900 Charaktere des alten Gear-Trägers. `D1..D5` sind Register, nicht fünf Operatoren; 480 E8-Charts bleiben ohne Selektionsregel nicht kanonisch. Der Companion ist `R0_DOCUMENTED`, nicht aktiv und nicht eingereicht. |
+| A0 Findings/Paper Flow, 11. Oktober | Sieben source-bound Findings werden in vier getrennte Lanes geroutet: enges SCC-003-Paper, D30-Companion, geparkte Return-Synthese und dokumentarische Pascal/Fibonacci/Möbius-Archäologie. Diese Leserführung erzeugt keine neue Study, Family, Relation, Aktivierung oder Publikationsfreigabe. |
+
+## Was NEXAH ausdrücklich nicht behauptet
+
+NEXAH ist derzeit keine vereinheitlichte Naturtheorie, kein autonomes
+Entscheidungssystem, kein validiertes allgemeines Prognoseprodukt und kein
+Beweis dafür, dass ähnlich aussehende Strukturen in Mathematik, Physik,
+Biologie, Sprache, Musik und Kultur denselben Mechanismus besitzen.
+
+Die stärkste gegenwärtige Lesart ist eine **typisierte Praxis kontrollierter
+Perspektivwechsel**: Sie fragt, was eine Darstellung sichtbar macht, was sie
+verdeckt, wie sie mit einer anderen Darstellung verbunden werden kann und
+welches Residuum beim Übergang verbleibt.
+
+## Direkte Pointer
+
+- Grundposition und zusammenhängende Argumentation: *One Pattern, Many Maps —
+  Draft 0.10* bleibt ein Mission-Control-Record, ist in diesem lokalen
+  Science-Lab-Checkout jedoch nicht gespiegelt und wird daher nicht als
+  klickbarer lokaler Pointer ausgegeben.
+- Einstieg nach Fachgebiet:
+  [Science Lab Subject Overview](SUBJECT_OVERVIEW.md)
+- sichtbare und typisierte Verbindungen zwischen den sieben Familien:
+  [NEXAH Family Connection Map](NEXAH_FAMILY_CONNECTION_MAP_V2.html)
+- konkrete registrierte Module, Instrumente und Evidenzrouten je Familie:
+  [Science Navigator · Connection Atlas](NAVIGATION/APP/index.html#atlas)
+- aktuelle Mission-Control-Synchronisierung und Primegrid-Kreis:
+  [Primegrid / Navigator Consolidation Return](MISSION_CONTROL_RETURN_PRIMEGRID_NAVIGATOR_CONSOLIDATION_2026-10-07.md)
+  und [Representation Circle](NAVIGATION/APP/index.html#sequence)
+- aktueller Navigator-v1-Freeze und NEXAH-Bewertung:
+  [Navigator v1 Freeze and NEXAH Assessment](MISSION_CONTROL_RETURN_NAVIGATOR_V1_FREEZE_AND_NEXAH_ASSESSMENT_2026-10-07.md)
+- gemeinsame Framework-, Capability-, Evidenz- und Begriffserklärung:
+  [Science Lab & Navigator Handbook](NEXAH_SCIENCE_LAB_AND_NAVIGATOR_HANDBOOK_2026-10-07.md)
+- aktueller IEEE-300-, Morphology-, Antipoden- und Persistent-Address-Return:
+  [IEEE-300 Mission Control Return](MISSION_CONTROL_RETURN_IEEE300_GRAPH_GRID_VALIDATION_2026-10-08.md)
+- verdichteter Zwei-Träger-Befund zu persistenter Identität, Cut und Residuum:
+  [Carrier–View–Residual Finding](LABREPORTS/SYNTHESIS/NEXAH_CARRIER_VIEW_RESIDUAL_FINDING_2026-10-08.md)
+  und [konsolidierter Mission-Control-Return](MISSION_CONTROL_RETURN_CA_IDENT_09_10_CARRIER_VIEW_RESIDUAL_2026-10-08.md)
+- geprüfte Abgrenzung von Q-Mirror, HZ/FZ-Polaransicht und endlicher DFT:
+  [View-Operator Audit 01](CASE_STUDIES/NEXAH_VIEW_OPERATOR_AUDIT_01_RECIPROCAL_POLAR_DFT_2026-10-07/01_RESULT_ASSESSMENT.md)
+- Status jeder gepflegten Studie:
+  [Science Lab Register](LAB_REGISTER.md)
+- mathematische Begriffe, Träger und Claim-Grenzen:
+  [Mathematics Map](../RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/12_MATHEMATICS_MAP.md)
+- jüngster Hopf/C4-Interface-Test:
+  [Hopf/C4 Requantization Commutation Test](CASE_STUDIES/NEXAH_PCA_PHASE_SPACE_CORE_INTAKE_2026-10-03/09_HOPF_C4_REQUANTIZATION_COMMUTATION_TEST.md)
+
+## So ist der restliche Text zu lesen
+
+Die folgende Langfassung ist kein zweiter Einstieg. Sie ist das ausführliche
+Quellendokument: zuerst die jüngeren Konsolidierungen, dann die zusammenhängende
+Human-, Methoden-, Fach-, Instrument- und Governance-Erklärung und zuletzt das
+datierte Änderungsprotokoll. Wer nur Orientierung sucht, kann nach den obigen
+Pointern stoppen. Wer Entscheidungen oder Formulierungen nachvollziehen muss,
+liest den Dokumentkörper und die datierten Updates.
+
+---
+
+## Ausführlicher Dokumentkörper und Konsolidierungsprotokoll
+
+### IEEE-300-/Navigator-Synchronisierung vom 8. Oktober 2026
+
+Der neue IEEE-300-Träger erweitert den Navigator um ein sechzehntes Modul und
+zwei begrenzte Ergebnisflächen. R2 bestätigt ausschließlich den deklarierten
+Graph-to-Grid-Repräsentationsvertrag. Der präregistrierte Morphology-01-Test
+reproduziert die gemeinsame Fortsetzungs-/Neuinitialisierungsgrenze
+`1.032 -> 1.033`, unterstützt aber weder H3 noch den `12 x 7 x 144`-Circle als
+privilegierte Geometrie. Negative Spezifitätsresultate, fehlgeschlagene
+Auflösungsstabilität und unzureichende Topologiereplikation bleiben sichtbar.
+
+Die bestehende Zahlenbrücke wird typisiert zurückgeführt:
+`41–42–43 <-> 1031–1032–1033`, gemeinsame Reste `5–6–7 mod 9`, lokale
+Spiegelung `5 <-> 7` mit Zentrum `6`. Sie ist strukturell mit dem globalen
+PRIMEGRID-Antipoden verwandt, aber ohne Intertwiner nicht operator-identisch.
+Die bestehende Registerübersetzung `7² -> 8²`, `64=49+14+1`, bewahrt die
+Adresse `C2` über zwei Kartenansichten; sie macht den Rosetta-Record nicht zu
+einem IEEE-Träger. Damit steht der interne Basisbuild bei `173 / 29`, der
+komponierte LIFE-View bei `176 / 32`, der App-Audit bei `169/169 PASS` und die
+öffentliche Zulassung weiterhin bei null.
+
+### Carrier–View–Residual-Konsolidierung vom 8. Oktober 2026
+
+Die Breathing-/Prime-Crystal-Archaeologie wurde nicht als neue Zahlentheorie
+promoviert, sondern in einen kontrollierten Repräsentationstest übersetzt.
+CA-IDENT-09 hält den Integerträger `1..3000` fest und variiert nur die
+19/20/21-Spalten-Sicht. Alle 9.000 Rückwege sind exakt, während die sichtbaren
+Prime-Nachbarschaftskanten `1 / 108 / 2` ergeben. Der stabile Kanal ändert
+keine Entscheidung; der View-Kanal ändert `50,4% / 51,3%`.
+
+CA-IDENT-10 überträgt denselben Vertrag auf den unabhängig eingefrorenen
+LIFE05D-Run `RANDOM-17`. Alle 14.132 Zellereignis-IDs und die lag-2-Zielvariable
+bleiben über 31/32/33-Cuts erhalten; 42.396 Rückwege sind exakt. Die
+Event-Topologie fällt auf Jaccard `0,338 / 0,347`, und View-only-Entscheidungen
+ändern sich um `22,66% / 26,88%`, während der stabile Kanal unverändert bleibt.
+
+Der verdichtete Befund lautet: **Identität bewahren, Cut deklarieren,
+Relationen vergleichen, Residuum behalten.** Neu ist ein ausführbarer
+Repräsentations-Stresstest; nicht neu behauptet werden Prime/LIFE-Kausalität,
+ein universeller LIFE-Code oder ein physikalischer Kristall. Mission Control
+setzt deshalb `STOP_AND_CONSOLIDATE`: keine automatische CA-IDENT-11-Serie und
+keine neue Visualfamilie.
+
+Der große HTML-/3D-Bestand ist dabei nicht in den Navigator hineingewachsen,
+sondern neu verdichtet worden: 215 aktuelle HTML- und 53 aktuelle 3D-Records
+bilden 28 logische Familien; 16 davon stehen auf der Science/Builder-Shortlist
+und sind gegen die sieben Connection Families sowie die acht typisierten
+Observatory-Felder gekreuzt. Die beiden IEEE-Flächen bleiben eine bestehende
+Familie ohne neue Route. Keine der 16 Shortlist-Familien ist derzeit als
+`HELPS_DECIDE` belegt. Das ist nun die explizite Lücke: Der nächste Test beginnt
+mit einer konkreten menschlichen Entscheidung, nicht mit einer weiteren
+Verbindung.
+
+### Mission-Control-/Primegrid-Konsolidierung vom 7. Oktober 2026
+
+Die aktuelle Navigator- und Mission-Control-Sicht wurde gegen den vollständigen
+HTML-Katalog neu synchronisiert. Der eingefrorene Navigator-v1-Stand umfasst
+140 HTML-Artefakte, 42 registrierte Moduloberflächen in 15 konzeptuellen
+Modulen, 17 typisierte Modulrelationen, sechs Evidenzrelationen und 170 interne
+Entities. Alle 170
+bleiben im Public Export fail-closed abgewiesen; Ring 1 bleibt mit neun aktiven
+Modulen unverändert.
+
+Die fünf Primegrid-Flächen bilden nun einen expliziten Darstellungs-Kreis:
+binärer Zustandslift, endliche DFT-Verschiebung mit exaktem komplexem Return und
+Pascal-Thread-Quotient mit ordinal gebundenem Return, trinary/antipodale
+Darstellung und Prime-Address-Kontrolltest. Block 03 bestätigt einen
+reproduzierbaren Selektor, verwirft aber
+einen Prime-spezifischen Coding-Vorteil gegen passende Kontrollen. Dieser Kreis verbindet
+bereits vorhandene Tessarec-, Number/View- und Five-H-Repräsentationen. Er
+behauptet weder einen physikalischen Licht- oder Kappa-Mechanismus noch eine
+neue Familie. Die vollständige aktuelle Rückgabe steht im
+[Mission-Control Return vom 7. Oktober](MISSION_CONTROL_RETURN_PRIMEGRID_NAVIGATOR_CONSOLIDATION_2026-10-07.md).
+Der nachgelagerte
+[Navigator-v1-Freeze](MISSION_CONTROL_RETURN_NAVIGATOR_V1_FREEZE_AND_NEXAH_ASSESSMENT_2026-10-07.md)
+setzt den nächsten Schritt auf Bewertung statt weitere Expansion.
+
+Ein nachgelagerter, preregistrierter Operator-Audit trennt außerdem drei
+Darstellungen, die eine ähnliche View–Binder–Return-Grammatik besitzen, aber
+nicht denselben Operator: reziproker Q-Mirror, HZ/FZ-Kartesisch↔Polar und
+endliche DFT. 8/8 Tests und 9/9 Gates bestehen. Die historische Q-Zeit-
+Spulenfeld-Datei bleibt als fehlende, unvalidierte Quelle ausgewiesen und wurde
+nicht aus älteren Visuals rekonstruiert.
+
+### Additive Konsolidierung vom 29. September 2026
 
 Der owner-autorisierte Root7-/Euler-/Mirror-Follow-on ist inzwischen als ein
 geschlossenes Portfolioobjekt zusammengeführt. Die vielen Addenda, Tests und
@@ -58,6 +250,97 @@ Capability, Produkt-, Physik- oder Publikationsänderung.
 
 Controlling Science-Lab report:
 [`44_MISSION_CONTROL_MASTER_CONSOLIDATION_2026-09-29.md`](CASE_STUDIES/NEXAH_ROOT7_EULER_MIRROR_CONCORDANCE_INTAKE_2026-09-28/44_MISSION_CONTROL_MASTER_CONSOLIDATION_2026-09-29.md).
+
+### Additive Konsolidierung vom 30. September 2026
+
+Die anschliessende Review hat keine neue allgemeine Mathematik und keine neue
+Lab-Capability festgestellt. Sie hat jedoch drei zuvor verstreute Ebenen
+sauber getrennt und verbunden:
+
+1. Der `64/37 Nexus Selector 01` bleibt der einzige ausgeführte neue positive
+   Befund dieser Arbeitsrunde: drei endliche arithmetische Wege treffen bei
+   101 zusammen. Sie sind Cross-Checks, keine unabhängigen Stichproben.
+2. Der `n+1 Relational Stack` ist ein neuer, wissenschaftlich formulierter
+   Beitragkandidat für mehrere lokale Records plus einen nicht gleichrangigen
+   Relation Binder. Er ist `DESIGN_ONLY_RESULT`; Nutzen und Neuheit sind nicht
+   validiert.
+3. Das `OLS Prime Generation Profile 0.1` ist eine konkrete, aber noch nicht
+   preregistrierte Anwendung. Es trennt Primwert, Index, Zellrolle,
+   Faktorrolle, Auswahlweg und historische Bildsprache.
+
+Für 101 gilt deshalb eine klare Typgrenze: `F_50` enthält 101 exakt, enthält
+aber mit 151 einen gleichrangigen Faktor. `100/2=50` erklärt den Index `F_50`,
+nicht die Auswahl von 101. Die Blasenregel mit neutraler `50/50`-Boundary ist
+eine Darstellung von unentschiedenem Zustand und gerichtetem Residuum, kein
+weiterer Primzahlselektor. Der erinnerte Ausdruck `L 90/50` wurde nicht als
+definierter Operator wiedergefunden und bleibt offen.
+
+Zwölf zusätzliche historische F50-, Scarab-, Ethergon-, Number-Stack- und
+Ghostgrid-Bilder sind als unveränderte Quellrecords registriert. Sie machen
+die Entwicklung von Faktoransicht über Achse, Gate und Connector sichtbar,
+belegen aber noch keinen Generator zwischen 101 und den späteren Zahlen.
+
+Controlling review:
+[`LABREPORT_NEXAH_RELATIONAL_ORIENTATION_SYNTHESIS_REVIEW_001.md`](LABREPORTS/SYNTHESIS/LABREPORT_NEXAH_RELATIONAL_ORIENTATION_SYNTHESIS_REVIEW_001.md).
+
+Current project records:
+[n+1 Relational Stack](CASE_STUDIES/NEXAH_N_PLUS_ONE_RELATIONAL_STACK_CONTRIBUTION_2026-09-30/00_README.md) and
+[OLS Prime Generation Profile 0.1](CASE_STUDIES/OLS_PRIME_GENERATION_PROFILE_0_1_2026-09-30/00_README.md).
+
+### Familienkompression und Unified-Transition-Einordnung vom 30. September 2026
+
+Die anschließenden PMR-Piloten und die Überarbeitung des mathematischen
+Glossars zeigen, dass mehrere zuvor getrennt dargestellte Themen eine
+gemeinsame methodische Achse besitzen. Die kanonische
+[Family Connection Map](FAMILY_CONNECTION_MAP_2026-09-30.md) ordnet sie als
+sieben verbundene, aber nicht identische Familien:
+
+```text
+Observation / Representation
+  -> Finite Address / Arithmetic Boundary
+  -> Transition Operator / Current / Subspace
+  -> Phase / Drift / Flow
+  -> Connectivity / Topology
+  -> Synchronization / Control
+
+Validation / Replay / Claim Governance kontrolliert alle Übergänge.
+```
+
+Die eigentliche Kompression liegt in der wiederverwendbaren Prüfgrammatik:
+typisierte Quelle, deklarierte Abbildung, Invariante beziehungsweise Residual,
+starker Nullvergleich, Replay und begrenzter Claim. Sie ist kein Nachweis, dass
+Primrestfolgen, chaotische Attraktoren und gekoppelte Oszillatoren denselben
+Mechanismus besitzen.
+
+PMR01 hat kein stabiles hartes Sheet-Alphabet etabliert. PMR01A hat dagegen
+stabile globale Spektren und normalisierte Ströme gefunden, während ein
+panelweit stabiles threshold-basiertes Ereignisalphabet weiterhin fehlt.
+PMR01B hat anschließend die Brücke zu einer gauge-ausgerichteten spektralen
+Phase getestet: sechs von zehn Moduli bestanden die Phasenstabilität, vier die
+vollständigen Nullkontrollen und nur `17,41` beide Gatefamilien. Fünf waren
+verlangt. Die Brücke ist damit teilweise gestützt, aber panelweit fail-closed;
+Topologie, Synchronisation und Blindbereich bleiben gesperrt.
+
+PMR01C prüfte danach den inkrementellen Vorhersagenutzen. Unter der
+eingefrorenen Baseline verbesserten alle zehn Phasenkontext-Arme den
+Development-Log-Loss mit positiver 99%-Bootstrap-Untergrenze. Nur `13,17`
+bestanden jedoch den Phase-Label-Null; fünf waren erforderlich. Die
+Verbesserung ist damit nicht panelweit spezifisch für die gelernte spektrale
+Geometrie. Da alle Moduli zugleich den größten erlaubten Backoff-Parameter
+wählten, bleibt zusätzlich eine Baseline-Regularisierungsgrenze offen.
+
+Die parallel erkannte Prime-Index-Kette wurde separat als `PIR01` behandelt,
+nicht in PMR zurückgeschrieben. Im exakten endlichen Census der ersten eine
+Million Primindizes besitzt die eingefrorene post-hoc Konjunktion aus
+`P_n=2n+1`, Prime-Index-Re-entry sowie 41- und 61-Zweig genau den Treffer
+`n=6`. Die endliche Eindeutigkeit ist exakt; ihre statistische Überraschung ist
+wegen der nachträglichen Regelbildung unbestimmt. Sie begründet keinen
+Zusammenhang zu den PMR-Zulassungen von 13, 17 oder 41.
+
+Geschlossene Labreports bleiben im
+[Labreport Index](LABREPORTS/LABREPORT_INDEX.md) einzeln autoritativ. PMR01 bis
+PMR01C werden durch diese Synthese nicht rückwirkend zu geschlossenen
+Labreports oder confirmatorischen Resultaten.
 
 ## Orientation beginnt beim Menschen
 
@@ -855,6 +1138,16 @@ Visuals, Books, Library Objects und Field Art dürfen dabei Interesse und
 Orientierung erzeugen. Technische oder wissenschaftliche Behauptungen müssen
 immer auf die zuständige Quelle zurückführen.
 
+Neu steht dafür ein starkes internes Orientierungspaar bereit: Die
+[NEXAH Family Connection Map](NEXAH_FAMILY_CONNECTION_MAP_V2.html) zeigt als
+Relationsansicht Familien, typisierte Kanten, Beispielrouten und offene
+Grenzen; der [Connection Atlas](NAVIGATION/APP/index.html#atlas) zeigt als
+Inventaransicht die registrierten Module, Instrumente und Evidenzwege. Das
+Paar ist ein **Outreach Entry Object Candidate**, aber noch keine öffentliche
+Veröffentlichung, kein Human-Utility-Ergebnis und keine aktivierte Kampagne.
+Eine externe Nutzung erfordert weiterhin Public Admission, Rechte-/Privacy-
+Prüfung, ein bestimmtes Publikum und genau eine Reader-Frage.
+
 ## Was NEXAH nicht ist
 
 NEXAH ist gegenwärtig
@@ -978,6 +1271,9 @@ zusammen.
 | diese aktuelle Gesamtübersicht | lesbare Gesamtsynthese über das Ökosystem |
 | Research Atlas | Forschungsrichtungen, Resultate, Works, Outreach und Schulfächer |
 | Science Lab Subject Overview | Fachansicht der Forschung ohne Verschiebung von Evidenz |
+| NEXAH Family Connection Map | Relationsansicht der sieben Familien, Routen und offenen Grenzen |
+| Science Navigator / Connection Atlas | interne Inventar- und Evidenzansicht; Outreach-Kandidat, nicht Public Release |
+| Science Lab & Navigator Handbook | gemeinsame Erklärung von Framework, Fähigkeiten, Evidenzgrenzen, Beispielen und kontrollierter Sprache |
 | Lab Register | gepflegte Study- und Statuszeilen |
 | öffentlicher Gesamtreport vom 17. September | veröffentlichter wissenschaftlicher Snapshot |
 
@@ -1085,6 +1381,61 @@ Mission Control `CURRENT/UTILITY_01R_FINAL_STOP.md`.
   Human Authority und alle fachlichen Evidenzregeln bleiben unverändert.
 - Es wurde kein Forschungszyklus, Experiment, Runtime-Build oder
   Publikationsprozess aktiviert.
+
+### Aktualisierung vom 30. September — GEN01/GEN02 Relationsgeneration
+
+- `GEN01` belegte für eine eingefrorene sequentielle Familie die exakte
+  Erhaltung typisierter G0-, G1- und G2-Records durch `T5/T6/T7`.
+- `GEN02` übertrug denselben Feldvertrag ohne Schemaänderung auf gerichtete,
+  symmetrische, Inzidenz- und ternäre Relationsfamilien. Der ternäre Holdout,
+  alle zehn Gates, `12/12` Integritätstests und der Byte-Replay bestanden.
+- Endpoint-, Teilnehmermengen- und generische Provenienzprojektionen verloren
+  jeweils registrierte Typ-, Rollen-, Richtungs- oder Payloadinformation.
+- Der Befund ist ein begrenzter struktureller Transfer. Die Semantik bleibt
+  familiengebunden; weder `n+1` Binder noch universelle Ontologie, globale
+  G-Notation, Capability oder Produktionsvertrag sind damit validiert.
+
+### Aktualisierung vom 1. Oktober — Curve–Janus–ORION / CURVE01
+
+- `CURVE00` bestätigt weiterhin nur die exakte Kurvenkoordinate und ihre
+  numerische Rekonstruktion; der frühere prime-spezifische Bildbefund bleibt
+  demotiert.
+- Der ausdrücklich autorisierte, manifest-gebundene 200.000-Draw-Lauf ist
+  vollständig abgeschlossen. Replay, unabhängige Finalisierung,
+  Repräsentationschecks, Kontrollen und Artefaktvalidierung bestanden.
+- Das wissenschaftliche Ergebnis ist `VALID_NEGATIVE`: `delta_zero` beträgt
+  `+0,0014300840`, der rohe Permutationswert `p=0,6182869`, der adjustierte
+  Wert `p=1,0`; nur 6/10 Blöcke waren negativ und die Leave-one-out-Bedingung
+  wurde nicht erfüllt.
+- Damit wird die registrierte Prime-Phasen-Nähe im eingefrorenen
+  Mixed-Shell-Bereich nicht gestützt. Das ist ein valides negatives Resultat,
+  kein Implementierungsfehler; es begründet weder Prime-Gesetz, physische oder
+  kausale Aussage, Navigation noch Capability. `RR-052` wird geschlossen
+  registriert, ohne Aktivierung oder automatischen Nachfolger.
+
+### Aktualisierung vom 3. Oktober — Hopf/C4, OIL/RIS und Requantisierung
+
+- Die Root/sign–Quaternion–Hopf-Kette ist als konditionale endliche
+  Formalisierung explizit: `F40` bildet 16 Zustände auf vier Hopf-Basispunkte
+  mit je vier diskreten Faserphasen ab; Basis plus Phase rekonstruiert den
+  Zustand.
+- Die lokale Hopf-Zipper-Übergangsfunktion nimmt auf diesen vier Basispunkten
+  exakt die Werte `{1,i,-1,-i}=C4` an. Das ist Kartenkompatibilität, nicht
+  automatisch Pfadtransport.
+- Die Standard-Hopf-Verbindung auf der deklarierten F40-Breite liefert die
+  Holonomie `exp(-i*2pi/5)`, also keinen C4-Wert. Kontinuierlicher Transport
+  erhält den endlichen Träger daher nicht.
+- Der neue Kommutationstest verwirft für den deklarierten nearest-C4-Quantizer
+  und einen `+1 mod 4` RIS-Schritt die globale Gleichheit
+  `R o PT = T_RIS o R`. Schrittweise Requantisierung schließt den Viererzyklus
+  nur durch Verlust eines `-18-degree`-Residuums je Schritt.
+- Die Architektur trennt damit OIL als mögliche kontinuierliche Pfadschicht,
+  RIS als diskrete Operationsschicht, Zipper als Interface und Residuum als
+  Verlust-/Differenzregister. Diese Lesart ist ein neuer formaler Kandidat,
+  keine wiedergewonnene historische Definition und kein universeller oder
+  physikalischer Mechanismus.
+- Kontrollierender Befund:
+  [Hopf/C4 Requantization Commutation Test](CASE_STUDIES/NEXAH_PCA_PHASE_SPACE_CORE_INTAKE_2026-10-03/09_HOPF_C4_REQUANTIZATION_COMMUTATION_TEST.md).
 
 ## Quellenordnung
 

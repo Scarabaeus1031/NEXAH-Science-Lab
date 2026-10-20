@@ -1,0 +1,167 @@
+{
+  "schema": "a0.rotating-cylinder-engineering-return/1",
+  "date": "2026-10-20",
+  "status": "ENGINEERING_PASS_WITH_EXISTING_INTEGRITY_FAILURES_BROWSER_OPEN",
+  "entry": "A0_ORIENTATION_CONTROLLER_BENCH.html#plateCylinderBench",
+  "existing_identities": [
+    "NEXAH_A0_ORIENTATION_CONTROLLER_BENCH",
+    "MOD:NUMBER_VIEW_SUITE"
+  ],
+  "new_global_ids": [],
+  "relation_changes": [],
+  "canonical_count_effect": 0,
+  "authority": {
+    "research_execution": false,
+    "claim_promotion": false,
+    "publication": false
+  },
+  "implemented": [
+    "Pure rigid rotation about fixed axis; material height and plate heights invariant",
+    "Six retained Stack angle labels with declared display group P1-P3 / P4-P6",
+    "Three illustrative red/white/blue helices, normalized pitch=1 and radius=.32",
+    "Cylinder and unrolled representations, optional second seam copy (0,z)~(1,z), zero twist",
+    "Analytic fixed-sightline crossing vs material-point distinction; no axial material transport",
+    "Existing Mixer/Mask phase feeds and native Mask Play/Pause/Step/Capture/Return, no additional timer",
+    "Local direction/copy controls and explicit source-bound JSON export"
+  ],
+  "owner_bindings_not_executed": [
+    "Day/INSIDE, Night/OUTSIDE",
+    "Janus7/8 shared Sunday closure",
+    "2^3 as upper-three-plates notation, not arithmetic exponent",
+    "9 shells / 11 Winds / Lade77",
+    "A-F/G/H and full eyelet angle sequence",
+    "Conflicting oe/macron O glyph roles"
+  ],
+  "unchanged": [
+    "M3 trajectory and native Aperture Stack model/angles",
+    "Mask/Janus operators; J versus E_s blind test",
+    "Mixer 0/78/33/7/0 fold law",
+    "LIFE04B negative specificity 0/4",
+    "No physical calibration, insertion law, calendar identity or Mobius glue"
+  ],
+  "source_files": [
+    {
+      "path": "A0_ORIENTATION_CONTROLLER_BENCH.html",
+      "sha256": "c56dd10b6a381b19155efb982a7b48a597cd1d00865a288782deea38b7fd441b"
+    },
+    {
+      "path": "a0-rotating-cylinder.js",
+      "sha256": "02c312dddb90f6dd10f12c9fb3d65ce56fb6ebf829e8e0276c1cbc08489bad25"
+    },
+    {
+      "path": "a0-rotating-cylinder-tests.cjs",
+      "sha256": "af5a5df6c82e8ea972a0e8beab1f50c6f6bc4c01571d454414abd5aa8b3705db"
+    },
+    {
+      "path": "a0-plate-mirror-view.js",
+      "sha256": "7c2b31ab8790ee39022f2b01abc9c299a71b68867722de491d75acbf467835e5"
+    },
+    {
+      "path": "a0-plate-mirror.css",
+      "sha256": "7dce1d90f04e7bdaa905b53cd6b5499ad022d806ea6f78b5923320894a9656a5"
+    },
+    {
+      "path": "a0-aperture-measurement.js",
+      "sha256": "2dbbb1321aaa73d2f82f36541f71fdf8b8ce721f95c953047ce732e8cdc04c5d"
+    },
+    {
+      "path": "a0-aperture-stack-calibration.js",
+      "sha256": "5cc0b0c32dbb7c987846353dde9c077cddbca88789b024c5e8817a62d33630b6"
+    },
+    {
+      "path": "a0-mask-observer.js",
+      "sha256": "fbf1bb0f438051b7a9f65ff2ee5e32d51928e164bb8f07f2c760ff6ffbab991e"
+    },
+    {
+      "path": "a0-mask-observer-view.js",
+      "sha256": "ba444cadf02833bd80124111713e3b0fa612cd9b5a6301f386c23f8f5b752631"
+    },
+    {
+      "path": "a0-game-of-numbers-model.js",
+      "sha256": "b0b8bfe703acff814247d22dd41f61e05e9e157fe59daf15af02eaced7e684e6"
+    },
+    {
+      "path": "assets/a0-native-source-bank-v1.json",
+      "sha256": "d65c3f8252204c2e9cd53a3a3fa8e346ee522d36de4ed79810fbb8ba798c058d"
+    },
+    {
+      "path": "assets/a0-fold-lag-lens-v1.json",
+      "sha256": "f412b2cb8f1800fd40ae0c3b67439c5cab4a66f01eb6a17ba08ef5d3cf0df127"
+    },
+    {
+      "path": "assets/a0-bench-showcase-tour-package-v1.json",
+      "sha256": "27edc0ef6fab905128fa7690ba6ffb18c495aaf72da3c862f64428683fa1216f"
+    },
+    {
+      "path": "assets/a0-aperture-measurement-package-v1.json",
+      "sha256": "9911eaf27c93f71d164871e0231ccb39f7cabedb8fc31b617aab44348f9f9922"
+    }
+  ],
+  "manifest_updates": {
+    "bench_before": "ed141f18d0867dbb865c5f6ff0024c6089bbdb680c1bcb22a0cc926081511eb8",
+    "bench_after": "c56dd10b6a381b19155efb982a7b48a597cd1d00865a288782deea38b7fd441b",
+    "files": [
+      "assets/a0-native-source-bank-v1.json",
+      "assets/a0-fold-lag-lens-v1.json",
+      "assets/a0-bench-showcase-tour-package-v1.json",
+      "assets/a0-aperture-measurement-package-v1.json"
+    ],
+    "measurement_manifest_prior_bench_pin": "d111d3474ef663847b52392b798e7a56fcdf5d5cc44cc11500c77165f4e6edd5",
+    "boundary": "Only current Bench pin refreshed. Historical receipts and unrelated source pins not rewritten."
+  },
+  "verification": {
+    "new_tests": {
+      "file": "a0-rotating-cylinder-tests.cjs",
+      "checks": 535634,
+      "phases": 722,
+      "native_animation_steps": 120,
+      "status": "PASS"
+    },
+    "regressions": [
+      [
+        "a0-plate-mirror-tests.cjs",
+        4600
+      ],
+      [
+        "a0-bench-atlas-fold-guide-tests.cjs",
+        1867
+      ],
+      [
+        "a0-compass-assembly-tests.cjs",
+        3018
+      ],
+      [
+        "a0-aperture-stack-calibration-tests.cjs",
+        73
+      ],
+      [
+        "a0-native-source-bank-tests.cjs",
+        118
+      ],
+      [
+        "a0-bench-polish-tests.cjs",
+        909
+      ],
+      [
+        "a0-bench-showcase-tour-live-tests.cjs",
+        243
+      ],
+      [
+        "a0-mask-observer-tests.cjs",
+        3407
+      ],
+      [
+        "a0-mask-assembly-tests.cjs",
+        1753
+      ]
+    ],
+    "static_svg_review": "Native SVG rendered locally with bundled sharp; phase120 layout inspected. Not browser acceptance.",
+    "browser_acceptance": false
+  },
+  "existing_failures": {
+    "measurement_suite": "Fails pre-existing manifest pin ../100_A0_ORIENTATION_CONTROLLER_BENCH_GAP_REGISTER_2026-10-16.md; independent scan also finds A0_BUILDER_LOG.html pin mismatch; both untouched.",
+    "orientation_binder": "Eight pre-existing source-pin conflicts retained",
+    "mission_control_currentness": "INVALID before return: unrelated and current engineering hashes not reconciled in CURRENT manifest; no authority repin."
+  },
+  "return_scope": "Source checkpoint restores original source phase only; direction/copy options remain local; no whole-machine restore, physical transport or source-clock identity."
+}

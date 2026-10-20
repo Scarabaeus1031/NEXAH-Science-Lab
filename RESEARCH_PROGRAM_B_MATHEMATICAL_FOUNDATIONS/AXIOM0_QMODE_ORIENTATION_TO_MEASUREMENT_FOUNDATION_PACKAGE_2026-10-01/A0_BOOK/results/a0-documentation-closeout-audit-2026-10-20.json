@@ -1,0 +1,241 @@
+{
+  "schema": "a0.documentation-closeout-audit/1",
+  "date": "2026-10-20",
+  "scope": "Post-update validation of scoped documentation cut; not browser, Human utility or scientific acceptance.",
+  "results": {
+    "documentation": {
+      "exit_code": 0,
+      "result": {
+        "status": "PASS",
+        "checks": 221,
+        "sourcePins": 16,
+        "todos": 12,
+        "scope": "documentation pins, typed followups, reciprocal routes and unchanged authority; not browser acceptance"
+      }
+    },
+    "numbermagick_reader": {
+      "exit_code": 0,
+      "result": {
+        "status": "PASS",
+        "checks": 393,
+        "scope": "static links and actual search handler in simulated DOM; not browser visual acceptance"
+      }
+    },
+    "binder": {
+      "exit_code": 0,
+      "result": {
+        "status": "PASS",
+        "checks": {
+          "sources": 109,
+          "nodes": 28,
+          "relations": 41,
+          "aliases": 22
+        },
+        "failures": []
+      }
+    },
+    "documentary_sources": {
+      "exit_code": 1,
+      "result": {
+        "status": "FAIL",
+        "scope": "nine current documentary receipts only; not historical binder integrity",
+        "failures": [
+          "documentary source hash: Findings & Paper Workspace"
+        ]
+      }
+    },
+    "source_graph": {
+      "exit_code": 0,
+      "result": {
+        "status": "PASS",
+        "checks": {
+          "components": 19,
+          "component_validators": 1,
+          "governance_records": 5,
+          "base": "266/29",
+          "composed": "269/32"
+        },
+        "failures": []
+      }
+    },
+    "navigator_app": {
+      "exit_code": 0,
+      "result": {
+        "status": "PASS",
+        "checks": 246,
+        "passed": 246,
+        "failed": []
+      }
+    },
+    "mission_control": {
+      "exit_code": 0,
+      "result": {
+        "active_priority": "M-PUB01",
+        "active_rows": 1,
+        "as_of": "2026-10-20",
+        "capability_rows": 13,
+        "controlling_sources_verified": 460,
+        "engineering_rows": 19,
+        "errors": [],
+        "glossary_terms": 89,
+        "lineage_events": 14,
+        "machine_lineage_entries": 19,
+        "manifest_files": 54,
+        "outreach_routes": 11,
+        "owner_actions": 45,
+        "owner_actions_active": 1,
+        "repository_roles": 7,
+        "research_corpus_rows": 472,
+        "research_directions": 9,
+        "research_programs": 18,
+        "research_results": 64,
+        "root_baseline_rows": 4,
+        "status": "VALID",
+        "works": 82
+      }
+    }
+  },
+  "baseline": {
+    "mission_control": {
+      "active_priority": "M-PUB01",
+      "active_rows": 1,
+      "as_of": "2026-10-20",
+      "capability_rows": 13,
+      "controlling_sources_verified": 444,
+      "engineering_rows": 19,
+      "errors": [
+        "hash mismatch: NEXAHEDRON_FRONTDOOR expected 2bd94e469584e1acf0006e778ee5bd1960ea2c148b00d762d2bafffac026f6af observed 6f09638936d8001b6b5088c67af927073379f70ec530b5a8306a7a87676888f7",
+        "hash mismatch: NEXAH_A0_BOOK_INDEX expected a8a4d42107a838602f5ac234c9feeb466fbf1ea1db09e1fbd2cb1a2f39178203 observed 8b9920b676435f86bd9c1a86a0c217278258a8f4c1ff8dd040b5289ba06553b3",
+        "hash mismatch: NEXAH_A0_BOOK_MANIFEST expected 859570f7e749e6ec82bba76dce7b172ad3b5a6c98ea521bddbc6e3acc640de42 observed 48ad59e61d189cd38af8dbe244ed5fc9f250d0316f1271d8322201202713d4a5",
+        "hash mismatch: SCIENCE_LAB_NAVIGATOR_CAPABILITY_CONNECTOR_REGISTER expected dea6b6ad8f8fd84ace88d6efb3488f090b19dab4762be70939045680a21c14b0 observed 0deb10f2a674075f63f4f92facc52f278fbd5dbf49b5ad7018a99805231dcae5",
+        "hash mismatch: SCIENCE_LAB_NAVIGATOR_WP3_APP expected 96d81f02d768f93d1e9357c3acfc5b254de6b2168b1a8f2a02c7cb08cbf4f794 observed 06a1d080fc2585e978507041efe6c39e5701f07bb1286935fec30ad940d61243",
+        "hash mismatch: SCIENCE_LAB_NAVIGATOR_WP3_AUDIT expected c4f16d73d5615cf1448d737e6ed5da77c171b2e20a122ecfa9bf8912535850b0 observed a3e350ba26d1206c9d02817958f37ca7fc2e14743ff50e0395cf7daa8d7999b5",
+        "hash mismatch: SCIENCE_LAB_NAVIGATOR_HANDBOOK_V1 expected ac3565d531a86bb5e1a5c855e0cc035179422ca21b472eeaced5c814fb874ccd observed e1bc1fbe5cba083fdb75a77a1dcebeb7b20ad8ad24baba6e10db991d5bbe3b4c",
+        "hash mismatch: SCIENCE_LAB_NAVIGATOR_SOURCE_GRAPH_INDEX expected 7539057ec6f75da370942427a53879b23aded5bc0ef0fbb5f38cb93fb0d66caa observed f4c431349321cd20eb98c64c9f964025c2533d2885f70a85376ff3798a526387",
+        "hash mismatch: SCIENCE_LAB_A0_ORIENTATION_EVIDENCE_BINDER expected b7761324aaa5b49119ecf3ffa6db3498495c40d9d5f10bd46b7c0d7162c63165 observed dceeec15d0b18caf73be6335a631fa193ec45fa90660c3a2a04c905319c1eb8e",
+        "hash mismatch: MISSION_CONTROL_NAVIGATOR_SOURCE_GRAPH_CONTROL expected bf24d914e29199529ede464fcdcad0ce2b72b6ebb389ba2bed1c88500c065599 observed ad6ac97f55f9068bf69168c3b1b60462b17f4a84daa2e5c0b7d1f5fadc9ead72",
+        "hash mismatch: NEXAH_A0_GAME4LIFE_OUTLET expected 4e8fed0876cbdad44be394ffcdf321c2a3026b3e420f77b48a2a7fc3a24c4617 observed eed90b452418f4d93f5c5acff20d497950f3d0b1fd35af7c52b518e2212e4d37",
+        "hash mismatch: NEXAH_A0_RESEARCH_DESK expected 8f6e3f0d20bec997c5d1a46984c12736ff20911d4de62c9151cc2f36873ee1ac observed 38cb9f34902ea9a94362263322e311d2954a12d2f2ec56ac26efbb68114a1e50",
+        "hash mismatch: NEXAH_A0_AXIAL_CARRIER_SUITE expected f1636cd8f0ba867a0085821251dc72e8edb1c6b6743785d46a2656b652cb368d observed 89652c4db7e73b3cb14066a2713e2c1ff5347dc37f45e7ffee5825a37c36f397",
+        "hash mismatch: NEXAH_A0_NN_SURFACE_COVERAGE expected 514c0d0269281791c47d467d04590399568b76a33994dc1461f928f022e6e105 observed fcfe6a4690db0f137a18e1612a8c9aa148ac3220c05e5ff60bd10c3c48d8cb04",
+        "hash mismatch: NEXAH_A0_ORIENTATION_CONTROLLER_BENCH expected 20cbd614b9f18a9b6ab2be2439087bfb6c2c1dcd7cef9d287f2653afa6b1726c observed 98789064d935fd4aea91e6a19c560683a18976584fe859488531a72837bbe2d0",
+        "hash mismatch: NEXAH_A0_COUPLED_WINDOW_SYSTEM_PACKAGE expected c2673f44de62774ff18045b7c820dfcfad578da993bd9f4ecbf9fd1a50d5135a observed 5b05ca4f2cb80643bf9cc9931cfceb8adb32fd4b64bb36a9c3df9b520198c411",
+        "CURRENT manifest hash mismatch: NAVIGATOR_CONTROL.md",
+        "CURRENT manifest hash mismatch: NAVIGATOR_SOURCE_GRAPH_CONTROL.json"
+      ],
+      "glossary_terms": 89,
+      "lineage_events": 14,
+      "machine_lineage_entries": 19,
+      "manifest_files": 54,
+      "outreach_routes": 11,
+      "owner_actions": 45,
+      "owner_actions_active": 1,
+      "repository_roles": 7,
+      "research_corpus_rows": 472,
+      "research_directions": 9,
+      "research_programs": 18,
+      "research_results": 64,
+      "root_baseline_rows": 4,
+      "status": "INVALID",
+      "works": 82
+    },
+    "source_graph": {
+      "status": "PASS",
+      "checks": {
+        "components": 19,
+        "component_validators": 1,
+        "governance_records": 5,
+        "base": "266/29",
+        "composed": "269/32"
+      },
+      "failures": []
+    },
+    "binder": {
+      "status": "PASS",
+      "checks": {
+        "sources": 109,
+        "nodes": 28,
+        "relations": 41,
+        "aliases": 22
+      },
+      "failures": []
+    }
+  },
+  "explicit_source_pin_updates": [
+    {
+      "source_id": "SCIENCE_LAB_NAVIGATOR_SOURCE_GRAPH_INDEX",
+      "before": "af0481822876e55e286fc6fe4b3f296970681152d04a2e9bb1a09bac423b3f08",
+      "after": "dce4465e68b5f80236176e6676823a23c8a995b42a916e9d95d096f6d4c13c09"
+    },
+    {
+      "source_id": "SCIENCE_LAB_A0_ORIENTATION_EVIDENCE_BINDER",
+      "before": "2674160e3d04fe8765530be6e129a02ee4769c391769e2095446952bb19ba8c4",
+      "after": "7a951f9d26eebc56b8276b54fed5bb74cc0dc189e90c166141317af32a5e88b8"
+    },
+    {
+      "source_id": "MISSION_CONTROL_NAVIGATOR_SOURCE_GRAPH_CONTROL",
+      "before": "e61d76060cf9160741de5552aa4bdf1103ff257a27a5db152c5ee5a91840ad17",
+      "after": "93fc3c25e0616827f1a8741560054d66608ea2b4aa53d032ddbef151df96b759"
+    },
+    {
+      "source_id": "MISSION_CONTROL_BUILDER_ATLAS",
+      "before": "401197aedd730402e48f33e8766e17eee00cb9bd892bf4c65c631464b225bae4",
+      "after": "c5cb661d0b2bcb01ca04d4c57a6e87b8cc50ff936994d6c6aefa11d70321e1a7"
+    },
+    {
+      "source_id": "SCIENCE_LAB_NAVIGATOR_SOURCE_GRAPH_INDEX",
+      "before": "dce4465e68b5f80236176e6676823a23c8a995b42a916e9d95d096f6d4c13c09",
+      "after": "b66296ada03143034983b7b19861e271ab850c891c17c188df2cb523c73919ac"
+    },
+    {
+      "source_id": "SCIENCE_LAB_A0_ORIENTATION_EVIDENCE_BINDER",
+      "before": "7a951f9d26eebc56b8276b54fed5bb74cc0dc189e90c166141317af32a5e88b8",
+      "after": "38194faa35570a67f1a7b01a5a1590953b3f17d643aa1dc7da31113e9989264e"
+    },
+    {
+      "source_id": "MISSION_CONTROL_NAVIGATOR_SOURCE_GRAPH_CONTROL",
+      "before": "93fc3c25e0616827f1a8741560054d66608ea2b4aa53d032ddbef151df96b759",
+      "after": "f3d7e5aebcf10760595023d2532b6fe72c8f475c146de3d5f677a3eccc2fe22c"
+    },
+    {
+      "source_id": "SCIENCE_LAB_NAVIGATOR_SOURCE_GRAPH_INDEX",
+      "before": "b66296ada03143034983b7b19861e271ab850c891c17c188df2cb523c73919ac",
+      "after": "01fbbac87b5d423c9c3e4d2d8523f96ccc3fcdedf2c4e1e0ac48bd2f978fe870"
+    },
+    {
+      "source_id": "SCIENCE_LAB_A0_ORIENTATION_EVIDENCE_BINDER",
+      "before": "38194faa35570a67f1a7b01a5a1590953b3f17d643aa1dc7da31113e9989264e",
+      "after": "31e2ed1aa7df42b5c554e691d64041a348c0517608d29800aca474daa45c2793"
+    },
+    {
+      "source_id": "MISSION_CONTROL_NAVIGATOR_SOURCE_GRAPH_CONTROL",
+      "before": "f3d7e5aebcf10760595023d2532b6fe72c8f475c146de3d5f677a3eccc2fe22c",
+      "after": "e285992049824722652954e62a8212bc0ad444ad0eb0850a6217ef5b4e7e94f6"
+    },
+    {
+      "source_id": "NEXAH_A0_CANONICAL_BACKLOG",
+      "before": "3f002c4f370fab6a056cdcc29e75b621d2077368320bfe873d33402b556cd39c",
+      "after": "0a62d7c860e06cbd664968f82658e23fcbfad8f5ef68701d76284d083e4ea6db"
+    }
+  ],
+  "current_manifest_scoped_refresh": [
+    "BUILDER_ATLAS.md",
+    "CONTROLLING_SOURCES.csv",
+    "PORTFOLIO_TRUTH.json",
+    "NAVIGATOR_CONTROL.md",
+    "NAVIGATOR_SOURCE_GRAPH_CONTROL.json"
+  ],
+  "historical_receipts_rewritten": false,
+  "known_historical_test_failures": [
+    "a0-thread-science-nsn-tests.cjs: historical APP/app.js pin differed before task; current documentation source evolution remains in successor receipt",
+    "a0-research-desk-tests.cjs: historical storyboard/Journey receipt mismatch expectation differed before task"
+  ],
+  "browser_acceptance": false,
+  "new_research_cycles": 0,
+  "new_canonical_ids": 0,
+  "next_action": "Owner selects the next bounded backlog item; manual first-link acceptance and historical receipt reconciliation remain separate from valid current metadata.",
+  "remaining_documentary_conflicts": [
+    "Nine-current-documentary-source lens: Findings & Paper Workspace hash mismatch; explicitly assigned to DOC-02 and not repinned outside this task scope."
+  ],
+  "metadata_cut": "Mission Control validator result above is a hash/schema/currentness check, not acceptance of the whole Bench."
+}

@@ -5,7 +5,7 @@
 })(typeof globalThis !== 'undefined' ? globalThis : this, function () {
   'use strict';
 
-  const VERSION = '0.20.0';
+  const VERSION = '0.21.0';
   const EPSILON = 1e-9;
   const PRIMES = [2, 3, 5, 7, 11];
   const OPERATOR_IDS = ['J', 'R', 'E'];
@@ -27,6 +27,8 @@
     roles: Object.freeze({ F1: 'OBSERVATION_RECORD', F2: 'ADDRESS', F5: 'CONNECTIVITY', F6: 'SYNCHRONIZATION_CONTROL', F7: 'VALIDATION_GOVERNANCE' }),
     terminalFrames: Object.freeze(['TAO', 'DAO', 'IOTA']),
     terminalAngles: Object.freeze([90, 180, 270]),
+    redShadowPolarities: Object.freeze([1, -1, -1]),
+    fieldChannels: Object.freeze(['F7_LIGHT', 'EPSILON_ECHO', 'RED_SHADOW']),
     axes: Object.freeze([['F1', 'F2', 'F6'], ['F1', 'F5'], ['F1', 'F7'], ['F7', 'F6']]),
     candidateMarkers: Object.freeze({ F1_F7: 27, F7_F6: 13, E_TA: 21, complement: 50, sum: 71 }),
     boundary: 'Role correspondences and number labels are local hypotheses, not canonical Family relations or selector laws.'
@@ -741,9 +743,18 @@
       thetaRole: 'F7',
       terminalFrame: FAMILY_ORIENTATION_FIXTURE.terminalFrames[index],
       theta: FAMILY_ORIENTATION_FIXTURE.terminalAngles[index],
+      gammaFrame: FAMILY_ORIENTATION_FIXTURE.terminalAngles[index],
       epsilonTrace: trail,
       operatorE: 'E_s',
       traceSymbol: 'ε',
+      fieldChannels: [...FAMILY_ORIENTATION_FIXTURE.fieldChannels],
+      redShadow: {
+        carrier: 'RED_SHADOW',
+        polarity: FAMILY_ORIENTATION_FIXTURE.redShadowPolarities[index],
+        phase: FAMILY_ORIENTATION_FIXTURE.redShadowPolarities[index] > 0 ? 'FIELD_POSITIVE' : 'FIELD_NEGATIVE',
+        relationToF7: 'NOT_EQUAL',
+        bindingType: 'GAMMA_FRAME_VIEW_COUPLING'
+      },
       markers: { ...FAMILY_ORIENTATION_FIXTURE.candidateMarkers }
     };
   }

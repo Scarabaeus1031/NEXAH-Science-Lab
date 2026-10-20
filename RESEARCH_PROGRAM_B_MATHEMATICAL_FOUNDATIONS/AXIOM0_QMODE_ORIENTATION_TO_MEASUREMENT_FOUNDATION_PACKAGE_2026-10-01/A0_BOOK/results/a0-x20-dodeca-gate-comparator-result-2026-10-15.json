@@ -1,0 +1,4454 @@
+{
+  "schema": "a0.x20-dodeca-gate-comparator.engineering-result.v1",
+  "executionDate": "2026-10-15",
+  "authority": {
+    "kind": "OWNER_AUTHORIZED_A0_ENGINEERING_DERIVATION",
+    "labRun": false,
+    "studyActivated": false,
+    "navigatorIdentityCreated": false,
+    "canonicalX20Changed": false,
+    "publicationAuthorized": false
+  },
+  "status": "PASS_NEGATIVE_Q106_MATCH_ALL_GATES_TIED",
+  "summary": {
+    "pass": 11,
+    "fail": 0,
+    "gateCandidates": 5,
+    "q106MatchCount": 0
+  },
+  "construction": {
+    "source": "two independently typed dodecahedral face carriers represented by their icosahedral face-adjacency graphs",
+    "prequotientVertices": 24,
+    "prequotientEdges": 60,
+    "addressLegend": {
+      "D1": "DN",
+      "D2": "DU0",
+      "D3": "DU1",
+      "D4": "DU2",
+      "D5": "DU3",
+      "D6": "DU4",
+      "D7": "DL0",
+      "D8": "DL1",
+      "D9": "DL2",
+      "D10": "DL3",
+      "D11": "DL4",
+      "D12": "DS",
+      "E1": "EN",
+      "E2": "EU0",
+      "E3": "EU1",
+      "E4": "EU2",
+      "E5": "EU3",
+      "E6": "EU4",
+      "E7": "EL0",
+      "E8": "EL1",
+      "E9": "EL2",
+      "E10": "EL3",
+      "E11": "EL4",
+      "E12": "ES"
+    },
+    "candidateGates": [
+      {
+        "gate": 0,
+        "D": "DU0",
+        "E": "EU0",
+        "numberedPair": "D2/E2"
+      },
+      {
+        "gate": 1,
+        "D": "DU1",
+        "E": "EU1",
+        "numberedPair": "D3/E3"
+      },
+      {
+        "gate": 2,
+        "D": "DU2",
+        "E": "EU2",
+        "numberedPair": "D4/E4"
+      },
+      {
+        "gate": 3,
+        "D": "DU3",
+        "E": "EU3",
+        "numberedPair": "D5/E5"
+      },
+      {
+        "gate": 4,
+        "D": "DU4",
+        "E": "EU4",
+        "numberedPair": "D6/E6"
+      }
+    ],
+    "operation": "identify Di with Ei at four of five upper-ring positions; leave one pair open",
+    "boundary": "declared A0 comparator; not recovered historical X20=C5xP4 adjacency"
+  },
+  "target": {
+    "sourcePath": "10 NEXAH CORE/NEXAH/RESEARCH/NOTES/PASCAL_PENTAGON_D5_TEST_2026-10-10/PASCAL_ROSETTA_JOINT_DESIGN_2026-10-11/NCS_292_Q106_INTERTWINER_RETURN_PACKAGE_2026-10-11/NCS_X20_Q106_ADJACENCY_INTERTWINER_AUDIT_2026-10-11/RESULT.json",
+    "signature": {
+      "vertices": 20,
+      "edges": 20,
+      "degreeProfile": {
+        "1": 5,
+        "2": 10,
+        "3": 5
+      }
+    }
+  },
+  "candidates": [
+    {
+      "openGate": 0,
+      "openAddresses": {
+        "gate": 0,
+        "D": "DU0",
+        "E": "EU0",
+        "numberedPair": "D2/E2"
+      },
+      "gluedAddresses": [
+        {
+          "gate": 1,
+          "D": "DU1",
+          "E": "EU1",
+          "numberedPair": "D3/E3"
+        },
+        {
+          "gate": 2,
+          "D": "DU2",
+          "E": "EU2",
+          "numberedPair": "D4/E4"
+        },
+        {
+          "gate": 3,
+          "D": "DU3",
+          "E": "EU3",
+          "numberedPair": "D5/E5"
+        },
+        {
+          "gate": 4,
+          "D": "DU4",
+          "E": "EU4",
+          "numberedPair": "D6/E6"
+        }
+      ],
+      "signature": {
+        "vertices": 20,
+        "edges": 57,
+        "degreeProfile": {
+          "5": 16,
+          "8": 2,
+          "9": 2
+        },
+        "fibreProfile": {
+          "1": 16,
+          "2": 4
+        },
+        "duplicateMultiplicities": [
+          2,
+          2,
+          2
+        ]
+      },
+      "vertices": [
+        "DL0",
+        "DL1",
+        "DL2",
+        "DL3",
+        "DL4",
+        "DN",
+        "DS",
+        "DU0",
+        "DU1=EU1",
+        "DU2=EU2",
+        "DU3=EU3",
+        "DU4=EU4",
+        "EL0",
+        "EL1",
+        "EL2",
+        "EL3",
+        "EL4",
+        "EN",
+        "ES",
+        "EU0"
+      ],
+      "edges": [
+        {
+          "nodes": [
+            "DL0",
+            "DL1"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "D:lower_ring"
+          ],
+          "types": [
+            "lower_ring"
+          ]
+        },
+        {
+          "nodes": [
+            "DL0",
+            "DL4"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "D:lower_ring"
+          ],
+          "types": [
+            "lower_ring"
+          ]
+        },
+        {
+          "nodes": [
+            "DL0",
+            "DS"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "D:south_spoke"
+          ],
+          "types": [
+            "south_spoke"
+          ]
+        },
+        {
+          "nodes": [
+            "DL0",
+            "DU0"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "D:diagonal_a"
+          ],
+          "types": [
+            "diagonal_a"
+          ]
+        },
+        {
+          "nodes": [
+            "DL0",
+            "DU1=EU1"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "D:diagonal_b"
+          ],
+          "types": [
+            "diagonal_b"
+          ]
+        },
+        {
+          "nodes": [
+            "DL1",
+            "DL2"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "D:lower_ring"
+          ],
+          "types": [
+            "lower_ring"
+          ]
+        },
+        {
+          "nodes": [
+            "DL1",
+            "DS"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "D:south_spoke"
+          ],
+          "types": [
+            "south_spoke"
+          ]
+        },
+        {
+          "nodes": [
+            "DL1",
+            "DU1=EU1"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "D:diagonal_a"
+          ],
+          "types": [
+            "diagonal_a"
+          ]
+        },
+        {
+          "nodes": [
+            "DL1",
+            "DU2=EU2"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "D:diagonal_b"
+          ],
+          "types": [
+            "diagonal_b"
+          ]
+        },
+        {
+          "nodes": [
+            "DL2",
+            "DL3"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "D:lower_ring"
+          ],
+          "types": [
+            "lower_ring"
+          ]
+        },
+        {
+          "nodes": [
+            "DL2",
+            "DS"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "D:south_spoke"
+          ],
+          "types": [
+            "south_spoke"
+          ]
+        },
+        {
+          "nodes": [
+            "DL2",
+            "DU2=EU2"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "D:diagonal_a"
+          ],
+          "types": [
+            "diagonal_a"
+          ]
+        },
+        {
+          "nodes": [
+            "DL2",
+            "DU3=EU3"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "D:diagonal_b"
+          ],
+          "types": [
+            "diagonal_b"
+          ]
+        },
+        {
+          "nodes": [
+            "DL3",
+            "DL4"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "D:lower_ring"
+          ],
+          "types": [
+            "lower_ring"
+          ]
+        },
+        {
+          "nodes": [
+            "DL3",
+            "DS"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "D:south_spoke"
+          ],
+          "types": [
+            "south_spoke"
+          ]
+        },
+        {
+          "nodes": [
+            "DL3",
+            "DU3=EU3"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "D:diagonal_a"
+          ],
+          "types": [
+            "diagonal_a"
+          ]
+        },
+        {
+          "nodes": [
+            "DL3",
+            "DU4=EU4"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "D:diagonal_b"
+          ],
+          "types": [
+            "diagonal_b"
+          ]
+        },
+        {
+          "nodes": [
+            "DL4",
+            "DS"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "D:south_spoke"
+          ],
+          "types": [
+            "south_spoke"
+          ]
+        },
+        {
+          "nodes": [
+            "DL4",
+            "DU0"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "D:diagonal_b"
+          ],
+          "types": [
+            "diagonal_b"
+          ]
+        },
+        {
+          "nodes": [
+            "DL4",
+            "DU4=EU4"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "D:diagonal_a"
+          ],
+          "types": [
+            "diagonal_a"
+          ]
+        },
+        {
+          "nodes": [
+            "DN",
+            "DU0"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "D:north_spoke"
+          ],
+          "types": [
+            "north_spoke"
+          ]
+        },
+        {
+          "nodes": [
+            "DN",
+            "DU1=EU1"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "D:north_spoke"
+          ],
+          "types": [
+            "north_spoke"
+          ]
+        },
+        {
+          "nodes": [
+            "DN",
+            "DU2=EU2"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "D:north_spoke"
+          ],
+          "types": [
+            "north_spoke"
+          ]
+        },
+        {
+          "nodes": [
+            "DN",
+            "DU3=EU3"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "D:north_spoke"
+          ],
+          "types": [
+            "north_spoke"
+          ]
+        },
+        {
+          "nodes": [
+            "DN",
+            "DU4=EU4"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "D:north_spoke"
+          ],
+          "types": [
+            "north_spoke"
+          ]
+        },
+        {
+          "nodes": [
+            "DU0",
+            "DU1=EU1"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "D:upper_ring"
+          ],
+          "types": [
+            "upper_ring"
+          ]
+        },
+        {
+          "nodes": [
+            "DU0",
+            "DU4=EU4"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "D:upper_ring"
+          ],
+          "types": [
+            "upper_ring"
+          ]
+        },
+        {
+          "nodes": [
+            "DU1=EU1",
+            "DU2=EU2"
+          ],
+          "multiplicity": 2,
+          "sources": [
+            "D:upper_ring",
+            "E:upper_ring"
+          ],
+          "types": [
+            "upper_ring"
+          ]
+        },
+        {
+          "nodes": [
+            "DU1=EU1",
+            "EL0"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "E:diagonal_b"
+          ],
+          "types": [
+            "diagonal_b"
+          ]
+        },
+        {
+          "nodes": [
+            "DU1=EU1",
+            "EL1"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "E:diagonal_a"
+          ],
+          "types": [
+            "diagonal_a"
+          ]
+        },
+        {
+          "nodes": [
+            "DU1=EU1",
+            "EN"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "E:north_spoke"
+          ],
+          "types": [
+            "north_spoke"
+          ]
+        },
+        {
+          "nodes": [
+            "DU1=EU1",
+            "EU0"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "E:upper_ring"
+          ],
+          "types": [
+            "upper_ring"
+          ]
+        },
+        {
+          "nodes": [
+            "DU2=EU2",
+            "DU3=EU3"
+          ],
+          "multiplicity": 2,
+          "sources": [
+            "D:upper_ring",
+            "E:upper_ring"
+          ],
+          "types": [
+            "upper_ring"
+          ]
+        },
+        {
+          "nodes": [
+            "DU2=EU2",
+            "EL1"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "E:diagonal_b"
+          ],
+          "types": [
+            "diagonal_b"
+          ]
+        },
+        {
+          "nodes": [
+            "DU2=EU2",
+            "EL2"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "E:diagonal_a"
+          ],
+          "types": [
+            "diagonal_a"
+          ]
+        },
+        {
+          "nodes": [
+            "DU2=EU2",
+            "EN"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "E:north_spoke"
+          ],
+          "types": [
+            "north_spoke"
+          ]
+        },
+        {
+          "nodes": [
+            "DU3=EU3",
+            "DU4=EU4"
+          ],
+          "multiplicity": 2,
+          "sources": [
+            "D:upper_ring",
+            "E:upper_ring"
+          ],
+          "types": [
+            "upper_ring"
+          ]
+        },
+        {
+          "nodes": [
+            "DU3=EU3",
+            "EL2"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "E:diagonal_b"
+          ],
+          "types": [
+            "diagonal_b"
+          ]
+        },
+        {
+          "nodes": [
+            "DU3=EU3",
+            "EL3"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "E:diagonal_a"
+          ],
+          "types": [
+            "diagonal_a"
+          ]
+        },
+        {
+          "nodes": [
+            "DU3=EU3",
+            "EN"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "E:north_spoke"
+          ],
+          "types": [
+            "north_spoke"
+          ]
+        },
+        {
+          "nodes": [
+            "DU4=EU4",
+            "EL3"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "E:diagonal_b"
+          ],
+          "types": [
+            "diagonal_b"
+          ]
+        },
+        {
+          "nodes": [
+            "DU4=EU4",
+            "EL4"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "E:diagonal_a"
+          ],
+          "types": [
+            "diagonal_a"
+          ]
+        },
+        {
+          "nodes": [
+            "DU4=EU4",
+            "EN"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "E:north_spoke"
+          ],
+          "types": [
+            "north_spoke"
+          ]
+        },
+        {
+          "nodes": [
+            "DU4=EU4",
+            "EU0"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "E:upper_ring"
+          ],
+          "types": [
+            "upper_ring"
+          ]
+        },
+        {
+          "nodes": [
+            "EL0",
+            "EL1"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "E:lower_ring"
+          ],
+          "types": [
+            "lower_ring"
+          ]
+        },
+        {
+          "nodes": [
+            "EL0",
+            "EL4"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "E:lower_ring"
+          ],
+          "types": [
+            "lower_ring"
+          ]
+        },
+        {
+          "nodes": [
+            "EL0",
+            "ES"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "E:south_spoke"
+          ],
+          "types": [
+            "south_spoke"
+          ]
+        },
+        {
+          "nodes": [
+            "EL0",
+            "EU0"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "E:diagonal_a"
+          ],
+          "types": [
+            "diagonal_a"
+          ]
+        },
+        {
+          "nodes": [
+            "EL1",
+            "EL2"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "E:lower_ring"
+          ],
+          "types": [
+            "lower_ring"
+          ]
+        },
+        {
+          "nodes": [
+            "EL1",
+            "ES"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "E:south_spoke"
+          ],
+          "types": [
+            "south_spoke"
+          ]
+        },
+        {
+          "nodes": [
+            "EL2",
+            "EL3"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "E:lower_ring"
+          ],
+          "types": [
+            "lower_ring"
+          ]
+        },
+        {
+          "nodes": [
+            "EL2",
+            "ES"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "E:south_spoke"
+          ],
+          "types": [
+            "south_spoke"
+          ]
+        },
+        {
+          "nodes": [
+            "EL3",
+            "EL4"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "E:lower_ring"
+          ],
+          "types": [
+            "lower_ring"
+          ]
+        },
+        {
+          "nodes": [
+            "EL3",
+            "ES"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "E:south_spoke"
+          ],
+          "types": [
+            "south_spoke"
+          ]
+        },
+        {
+          "nodes": [
+            "EL4",
+            "ES"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "E:south_spoke"
+          ],
+          "types": [
+            "south_spoke"
+          ]
+        },
+        {
+          "nodes": [
+            "EL4",
+            "EU0"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "E:diagonal_b"
+          ],
+          "types": [
+            "diagonal_b"
+          ]
+        },
+        {
+          "nodes": [
+            "EN",
+            "EU0"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "E:north_spoke"
+          ],
+          "types": [
+            "north_spoke"
+          ]
+        }
+      ]
+    },
+    {
+      "openGate": 1,
+      "openAddresses": {
+        "gate": 1,
+        "D": "DU1",
+        "E": "EU1",
+        "numberedPair": "D3/E3"
+      },
+      "gluedAddresses": [
+        {
+          "gate": 0,
+          "D": "DU0",
+          "E": "EU0",
+          "numberedPair": "D2/E2"
+        },
+        {
+          "gate": 2,
+          "D": "DU2",
+          "E": "EU2",
+          "numberedPair": "D4/E4"
+        },
+        {
+          "gate": 3,
+          "D": "DU3",
+          "E": "EU3",
+          "numberedPair": "D5/E5"
+        },
+        {
+          "gate": 4,
+          "D": "DU4",
+          "E": "EU4",
+          "numberedPair": "D6/E6"
+        }
+      ],
+      "signature": {
+        "vertices": 20,
+        "edges": 57,
+        "degreeProfile": {
+          "5": 16,
+          "8": 2,
+          "9": 2
+        },
+        "fibreProfile": {
+          "1": 16,
+          "2": 4
+        },
+        "duplicateMultiplicities": [
+          2,
+          2,
+          2
+        ]
+      },
+      "vertices": [
+        "DL0",
+        "DL1",
+        "DL2",
+        "DL3",
+        "DL4",
+        "DN",
+        "DS",
+        "DU0=EU0",
+        "DU1",
+        "DU2=EU2",
+        "DU3=EU3",
+        "DU4=EU4",
+        "EL0",
+        "EL1",
+        "EL2",
+        "EL3",
+        "EL4",
+        "EN",
+        "ES",
+        "EU1"
+      ],
+      "edges": [
+        {
+          "nodes": [
+            "DL0",
+            "DL1"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "D:lower_ring"
+          ],
+          "types": [
+            "lower_ring"
+          ]
+        },
+        {
+          "nodes": [
+            "DL0",
+            "DL4"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "D:lower_ring"
+          ],
+          "types": [
+            "lower_ring"
+          ]
+        },
+        {
+          "nodes": [
+            "DL0",
+            "DS"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "D:south_spoke"
+          ],
+          "types": [
+            "south_spoke"
+          ]
+        },
+        {
+          "nodes": [
+            "DL0",
+            "DU0=EU0"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "D:diagonal_a"
+          ],
+          "types": [
+            "diagonal_a"
+          ]
+        },
+        {
+          "nodes": [
+            "DL0",
+            "DU1"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "D:diagonal_b"
+          ],
+          "types": [
+            "diagonal_b"
+          ]
+        },
+        {
+          "nodes": [
+            "DL1",
+            "DL2"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "D:lower_ring"
+          ],
+          "types": [
+            "lower_ring"
+          ]
+        },
+        {
+          "nodes": [
+            "DL1",
+            "DS"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "D:south_spoke"
+          ],
+          "types": [
+            "south_spoke"
+          ]
+        },
+        {
+          "nodes": [
+            "DL1",
+            "DU1"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "D:diagonal_a"
+          ],
+          "types": [
+            "diagonal_a"
+          ]
+        },
+        {
+          "nodes": [
+            "DL1",
+            "DU2=EU2"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "D:diagonal_b"
+          ],
+          "types": [
+            "diagonal_b"
+          ]
+        },
+        {
+          "nodes": [
+            "DL2",
+            "DL3"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "D:lower_ring"
+          ],
+          "types": [
+            "lower_ring"
+          ]
+        },
+        {
+          "nodes": [
+            "DL2",
+            "DS"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "D:south_spoke"
+          ],
+          "types": [
+            "south_spoke"
+          ]
+        },
+        {
+          "nodes": [
+            "DL2",
+            "DU2=EU2"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "D:diagonal_a"
+          ],
+          "types": [
+            "diagonal_a"
+          ]
+        },
+        {
+          "nodes": [
+            "DL2",
+            "DU3=EU3"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "D:diagonal_b"
+          ],
+          "types": [
+            "diagonal_b"
+          ]
+        },
+        {
+          "nodes": [
+            "DL3",
+            "DL4"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "D:lower_ring"
+          ],
+          "types": [
+            "lower_ring"
+          ]
+        },
+        {
+          "nodes": [
+            "DL3",
+            "DS"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "D:south_spoke"
+          ],
+          "types": [
+            "south_spoke"
+          ]
+        },
+        {
+          "nodes": [
+            "DL3",
+            "DU3=EU3"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "D:diagonal_a"
+          ],
+          "types": [
+            "diagonal_a"
+          ]
+        },
+        {
+          "nodes": [
+            "DL3",
+            "DU4=EU4"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "D:diagonal_b"
+          ],
+          "types": [
+            "diagonal_b"
+          ]
+        },
+        {
+          "nodes": [
+            "DL4",
+            "DS"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "D:south_spoke"
+          ],
+          "types": [
+            "south_spoke"
+          ]
+        },
+        {
+          "nodes": [
+            "DL4",
+            "DU0=EU0"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "D:diagonal_b"
+          ],
+          "types": [
+            "diagonal_b"
+          ]
+        },
+        {
+          "nodes": [
+            "DL4",
+            "DU4=EU4"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "D:diagonal_a"
+          ],
+          "types": [
+            "diagonal_a"
+          ]
+        },
+        {
+          "nodes": [
+            "DN",
+            "DU0=EU0"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "D:north_spoke"
+          ],
+          "types": [
+            "north_spoke"
+          ]
+        },
+        {
+          "nodes": [
+            "DN",
+            "DU1"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "D:north_spoke"
+          ],
+          "types": [
+            "north_spoke"
+          ]
+        },
+        {
+          "nodes": [
+            "DN",
+            "DU2=EU2"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "D:north_spoke"
+          ],
+          "types": [
+            "north_spoke"
+          ]
+        },
+        {
+          "nodes": [
+            "DN",
+            "DU3=EU3"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "D:north_spoke"
+          ],
+          "types": [
+            "north_spoke"
+          ]
+        },
+        {
+          "nodes": [
+            "DN",
+            "DU4=EU4"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "D:north_spoke"
+          ],
+          "types": [
+            "north_spoke"
+          ]
+        },
+        {
+          "nodes": [
+            "DU0=EU0",
+            "DU1"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "D:upper_ring"
+          ],
+          "types": [
+            "upper_ring"
+          ]
+        },
+        {
+          "nodes": [
+            "DU0=EU0",
+            "DU4=EU4"
+          ],
+          "multiplicity": 2,
+          "sources": [
+            "D:upper_ring",
+            "E:upper_ring"
+          ],
+          "types": [
+            "upper_ring"
+          ]
+        },
+        {
+          "nodes": [
+            "DU0=EU0",
+            "EL0"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "E:diagonal_a"
+          ],
+          "types": [
+            "diagonal_a"
+          ]
+        },
+        {
+          "nodes": [
+            "DU0=EU0",
+            "EL4"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "E:diagonal_b"
+          ],
+          "types": [
+            "diagonal_b"
+          ]
+        },
+        {
+          "nodes": [
+            "DU0=EU0",
+            "EN"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "E:north_spoke"
+          ],
+          "types": [
+            "north_spoke"
+          ]
+        },
+        {
+          "nodes": [
+            "DU0=EU0",
+            "EU1"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "E:upper_ring"
+          ],
+          "types": [
+            "upper_ring"
+          ]
+        },
+        {
+          "nodes": [
+            "DU1",
+            "DU2=EU2"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "D:upper_ring"
+          ],
+          "types": [
+            "upper_ring"
+          ]
+        },
+        {
+          "nodes": [
+            "DU2=EU2",
+            "DU3=EU3"
+          ],
+          "multiplicity": 2,
+          "sources": [
+            "D:upper_ring",
+            "E:upper_ring"
+          ],
+          "types": [
+            "upper_ring"
+          ]
+        },
+        {
+          "nodes": [
+            "DU2=EU2",
+            "EL1"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "E:diagonal_b"
+          ],
+          "types": [
+            "diagonal_b"
+          ]
+        },
+        {
+          "nodes": [
+            "DU2=EU2",
+            "EL2"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "E:diagonal_a"
+          ],
+          "types": [
+            "diagonal_a"
+          ]
+        },
+        {
+          "nodes": [
+            "DU2=EU2",
+            "EN"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "E:north_spoke"
+          ],
+          "types": [
+            "north_spoke"
+          ]
+        },
+        {
+          "nodes": [
+            "DU2=EU2",
+            "EU1"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "E:upper_ring"
+          ],
+          "types": [
+            "upper_ring"
+          ]
+        },
+        {
+          "nodes": [
+            "DU3=EU3",
+            "DU4=EU4"
+          ],
+          "multiplicity": 2,
+          "sources": [
+            "D:upper_ring",
+            "E:upper_ring"
+          ],
+          "types": [
+            "upper_ring"
+          ]
+        },
+        {
+          "nodes": [
+            "DU3=EU3",
+            "EL2"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "E:diagonal_b"
+          ],
+          "types": [
+            "diagonal_b"
+          ]
+        },
+        {
+          "nodes": [
+            "DU3=EU3",
+            "EL3"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "E:diagonal_a"
+          ],
+          "types": [
+            "diagonal_a"
+          ]
+        },
+        {
+          "nodes": [
+            "DU3=EU3",
+            "EN"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "E:north_spoke"
+          ],
+          "types": [
+            "north_spoke"
+          ]
+        },
+        {
+          "nodes": [
+            "DU4=EU4",
+            "EL3"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "E:diagonal_b"
+          ],
+          "types": [
+            "diagonal_b"
+          ]
+        },
+        {
+          "nodes": [
+            "DU4=EU4",
+            "EL4"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "E:diagonal_a"
+          ],
+          "types": [
+            "diagonal_a"
+          ]
+        },
+        {
+          "nodes": [
+            "DU4=EU4",
+            "EN"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "E:north_spoke"
+          ],
+          "types": [
+            "north_spoke"
+          ]
+        },
+        {
+          "nodes": [
+            "EL0",
+            "EL1"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "E:lower_ring"
+          ],
+          "types": [
+            "lower_ring"
+          ]
+        },
+        {
+          "nodes": [
+            "EL0",
+            "EL4"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "E:lower_ring"
+          ],
+          "types": [
+            "lower_ring"
+          ]
+        },
+        {
+          "nodes": [
+            "EL0",
+            "ES"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "E:south_spoke"
+          ],
+          "types": [
+            "south_spoke"
+          ]
+        },
+        {
+          "nodes": [
+            "EL0",
+            "EU1"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "E:diagonal_b"
+          ],
+          "types": [
+            "diagonal_b"
+          ]
+        },
+        {
+          "nodes": [
+            "EL1",
+            "EL2"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "E:lower_ring"
+          ],
+          "types": [
+            "lower_ring"
+          ]
+        },
+        {
+          "nodes": [
+            "EL1",
+            "ES"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "E:south_spoke"
+          ],
+          "types": [
+            "south_spoke"
+          ]
+        },
+        {
+          "nodes": [
+            "EL1",
+            "EU1"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "E:diagonal_a"
+          ],
+          "types": [
+            "diagonal_a"
+          ]
+        },
+        {
+          "nodes": [
+            "EL2",
+            "EL3"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "E:lower_ring"
+          ],
+          "types": [
+            "lower_ring"
+          ]
+        },
+        {
+          "nodes": [
+            "EL2",
+            "ES"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "E:south_spoke"
+          ],
+          "types": [
+            "south_spoke"
+          ]
+        },
+        {
+          "nodes": [
+            "EL3",
+            "EL4"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "E:lower_ring"
+          ],
+          "types": [
+            "lower_ring"
+          ]
+        },
+        {
+          "nodes": [
+            "EL3",
+            "ES"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "E:south_spoke"
+          ],
+          "types": [
+            "south_spoke"
+          ]
+        },
+        {
+          "nodes": [
+            "EL4",
+            "ES"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "E:south_spoke"
+          ],
+          "types": [
+            "south_spoke"
+          ]
+        },
+        {
+          "nodes": [
+            "EN",
+            "EU1"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "E:north_spoke"
+          ],
+          "types": [
+            "north_spoke"
+          ]
+        }
+      ]
+    },
+    {
+      "openGate": 2,
+      "openAddresses": {
+        "gate": 2,
+        "D": "DU2",
+        "E": "EU2",
+        "numberedPair": "D4/E4"
+      },
+      "gluedAddresses": [
+        {
+          "gate": 0,
+          "D": "DU0",
+          "E": "EU0",
+          "numberedPair": "D2/E2"
+        },
+        {
+          "gate": 1,
+          "D": "DU1",
+          "E": "EU1",
+          "numberedPair": "D3/E3"
+        },
+        {
+          "gate": 3,
+          "D": "DU3",
+          "E": "EU3",
+          "numberedPair": "D5/E5"
+        },
+        {
+          "gate": 4,
+          "D": "DU4",
+          "E": "EU4",
+          "numberedPair": "D6/E6"
+        }
+      ],
+      "signature": {
+        "vertices": 20,
+        "edges": 57,
+        "degreeProfile": {
+          "5": 16,
+          "8": 2,
+          "9": 2
+        },
+        "fibreProfile": {
+          "1": 16,
+          "2": 4
+        },
+        "duplicateMultiplicities": [
+          2,
+          2,
+          2
+        ]
+      },
+      "vertices": [
+        "DL0",
+        "DL1",
+        "DL2",
+        "DL3",
+        "DL4",
+        "DN",
+        "DS",
+        "DU0=EU0",
+        "DU1=EU1",
+        "DU2",
+        "DU3=EU3",
+        "DU4=EU4",
+        "EL0",
+        "EL1",
+        "EL2",
+        "EL3",
+        "EL4",
+        "EN",
+        "ES",
+        "EU2"
+      ],
+      "edges": [
+        {
+          "nodes": [
+            "DL0",
+            "DL1"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "D:lower_ring"
+          ],
+          "types": [
+            "lower_ring"
+          ]
+        },
+        {
+          "nodes": [
+            "DL0",
+            "DL4"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "D:lower_ring"
+          ],
+          "types": [
+            "lower_ring"
+          ]
+        },
+        {
+          "nodes": [
+            "DL0",
+            "DS"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "D:south_spoke"
+          ],
+          "types": [
+            "south_spoke"
+          ]
+        },
+        {
+          "nodes": [
+            "DL0",
+            "DU0=EU0"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "D:diagonal_a"
+          ],
+          "types": [
+            "diagonal_a"
+          ]
+        },
+        {
+          "nodes": [
+            "DL0",
+            "DU1=EU1"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "D:diagonal_b"
+          ],
+          "types": [
+            "diagonal_b"
+          ]
+        },
+        {
+          "nodes": [
+            "DL1",
+            "DL2"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "D:lower_ring"
+          ],
+          "types": [
+            "lower_ring"
+          ]
+        },
+        {
+          "nodes": [
+            "DL1",
+            "DS"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "D:south_spoke"
+          ],
+          "types": [
+            "south_spoke"
+          ]
+        },
+        {
+          "nodes": [
+            "DL1",
+            "DU1=EU1"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "D:diagonal_a"
+          ],
+          "types": [
+            "diagonal_a"
+          ]
+        },
+        {
+          "nodes": [
+            "DL1",
+            "DU2"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "D:diagonal_b"
+          ],
+          "types": [
+            "diagonal_b"
+          ]
+        },
+        {
+          "nodes": [
+            "DL2",
+            "DL3"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "D:lower_ring"
+          ],
+          "types": [
+            "lower_ring"
+          ]
+        },
+        {
+          "nodes": [
+            "DL2",
+            "DS"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "D:south_spoke"
+          ],
+          "types": [
+            "south_spoke"
+          ]
+        },
+        {
+          "nodes": [
+            "DL2",
+            "DU2"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "D:diagonal_a"
+          ],
+          "types": [
+            "diagonal_a"
+          ]
+        },
+        {
+          "nodes": [
+            "DL2",
+            "DU3=EU3"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "D:diagonal_b"
+          ],
+          "types": [
+            "diagonal_b"
+          ]
+        },
+        {
+          "nodes": [
+            "DL3",
+            "DL4"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "D:lower_ring"
+          ],
+          "types": [
+            "lower_ring"
+          ]
+        },
+        {
+          "nodes": [
+            "DL3",
+            "DS"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "D:south_spoke"
+          ],
+          "types": [
+            "south_spoke"
+          ]
+        },
+        {
+          "nodes": [
+            "DL3",
+            "DU3=EU3"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "D:diagonal_a"
+          ],
+          "types": [
+            "diagonal_a"
+          ]
+        },
+        {
+          "nodes": [
+            "DL3",
+            "DU4=EU4"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "D:diagonal_b"
+          ],
+          "types": [
+            "diagonal_b"
+          ]
+        },
+        {
+          "nodes": [
+            "DL4",
+            "DS"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "D:south_spoke"
+          ],
+          "types": [
+            "south_spoke"
+          ]
+        },
+        {
+          "nodes": [
+            "DL4",
+            "DU0=EU0"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "D:diagonal_b"
+          ],
+          "types": [
+            "diagonal_b"
+          ]
+        },
+        {
+          "nodes": [
+            "DL4",
+            "DU4=EU4"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "D:diagonal_a"
+          ],
+          "types": [
+            "diagonal_a"
+          ]
+        },
+        {
+          "nodes": [
+            "DN",
+            "DU0=EU0"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "D:north_spoke"
+          ],
+          "types": [
+            "north_spoke"
+          ]
+        },
+        {
+          "nodes": [
+            "DN",
+            "DU1=EU1"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "D:north_spoke"
+          ],
+          "types": [
+            "north_spoke"
+          ]
+        },
+        {
+          "nodes": [
+            "DN",
+            "DU2"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "D:north_spoke"
+          ],
+          "types": [
+            "north_spoke"
+          ]
+        },
+        {
+          "nodes": [
+            "DN",
+            "DU3=EU3"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "D:north_spoke"
+          ],
+          "types": [
+            "north_spoke"
+          ]
+        },
+        {
+          "nodes": [
+            "DN",
+            "DU4=EU4"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "D:north_spoke"
+          ],
+          "types": [
+            "north_spoke"
+          ]
+        },
+        {
+          "nodes": [
+            "DU0=EU0",
+            "DU1=EU1"
+          ],
+          "multiplicity": 2,
+          "sources": [
+            "D:upper_ring",
+            "E:upper_ring"
+          ],
+          "types": [
+            "upper_ring"
+          ]
+        },
+        {
+          "nodes": [
+            "DU0=EU0",
+            "DU4=EU4"
+          ],
+          "multiplicity": 2,
+          "sources": [
+            "D:upper_ring",
+            "E:upper_ring"
+          ],
+          "types": [
+            "upper_ring"
+          ]
+        },
+        {
+          "nodes": [
+            "DU0=EU0",
+            "EL0"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "E:diagonal_a"
+          ],
+          "types": [
+            "diagonal_a"
+          ]
+        },
+        {
+          "nodes": [
+            "DU0=EU0",
+            "EL4"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "E:diagonal_b"
+          ],
+          "types": [
+            "diagonal_b"
+          ]
+        },
+        {
+          "nodes": [
+            "DU0=EU0",
+            "EN"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "E:north_spoke"
+          ],
+          "types": [
+            "north_spoke"
+          ]
+        },
+        {
+          "nodes": [
+            "DU1=EU1",
+            "DU2"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "D:upper_ring"
+          ],
+          "types": [
+            "upper_ring"
+          ]
+        },
+        {
+          "nodes": [
+            "DU1=EU1",
+            "EL0"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "E:diagonal_b"
+          ],
+          "types": [
+            "diagonal_b"
+          ]
+        },
+        {
+          "nodes": [
+            "DU1=EU1",
+            "EL1"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "E:diagonal_a"
+          ],
+          "types": [
+            "diagonal_a"
+          ]
+        },
+        {
+          "nodes": [
+            "DU1=EU1",
+            "EN"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "E:north_spoke"
+          ],
+          "types": [
+            "north_spoke"
+          ]
+        },
+        {
+          "nodes": [
+            "DU1=EU1",
+            "EU2"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "E:upper_ring"
+          ],
+          "types": [
+            "upper_ring"
+          ]
+        },
+        {
+          "nodes": [
+            "DU2",
+            "DU3=EU3"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "D:upper_ring"
+          ],
+          "types": [
+            "upper_ring"
+          ]
+        },
+        {
+          "nodes": [
+            "DU3=EU3",
+            "DU4=EU4"
+          ],
+          "multiplicity": 2,
+          "sources": [
+            "D:upper_ring",
+            "E:upper_ring"
+          ],
+          "types": [
+            "upper_ring"
+          ]
+        },
+        {
+          "nodes": [
+            "DU3=EU3",
+            "EL2"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "E:diagonal_b"
+          ],
+          "types": [
+            "diagonal_b"
+          ]
+        },
+        {
+          "nodes": [
+            "DU3=EU3",
+            "EL3"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "E:diagonal_a"
+          ],
+          "types": [
+            "diagonal_a"
+          ]
+        },
+        {
+          "nodes": [
+            "DU3=EU3",
+            "EN"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "E:north_spoke"
+          ],
+          "types": [
+            "north_spoke"
+          ]
+        },
+        {
+          "nodes": [
+            "DU3=EU3",
+            "EU2"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "E:upper_ring"
+          ],
+          "types": [
+            "upper_ring"
+          ]
+        },
+        {
+          "nodes": [
+            "DU4=EU4",
+            "EL3"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "E:diagonal_b"
+          ],
+          "types": [
+            "diagonal_b"
+          ]
+        },
+        {
+          "nodes": [
+            "DU4=EU4",
+            "EL4"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "E:diagonal_a"
+          ],
+          "types": [
+            "diagonal_a"
+          ]
+        },
+        {
+          "nodes": [
+            "DU4=EU4",
+            "EN"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "E:north_spoke"
+          ],
+          "types": [
+            "north_spoke"
+          ]
+        },
+        {
+          "nodes": [
+            "EL0",
+            "EL1"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "E:lower_ring"
+          ],
+          "types": [
+            "lower_ring"
+          ]
+        },
+        {
+          "nodes": [
+            "EL0",
+            "EL4"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "E:lower_ring"
+          ],
+          "types": [
+            "lower_ring"
+          ]
+        },
+        {
+          "nodes": [
+            "EL0",
+            "ES"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "E:south_spoke"
+          ],
+          "types": [
+            "south_spoke"
+          ]
+        },
+        {
+          "nodes": [
+            "EL1",
+            "EL2"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "E:lower_ring"
+          ],
+          "types": [
+            "lower_ring"
+          ]
+        },
+        {
+          "nodes": [
+            "EL1",
+            "ES"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "E:south_spoke"
+          ],
+          "types": [
+            "south_spoke"
+          ]
+        },
+        {
+          "nodes": [
+            "EL1",
+            "EU2"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "E:diagonal_b"
+          ],
+          "types": [
+            "diagonal_b"
+          ]
+        },
+        {
+          "nodes": [
+            "EL2",
+            "EL3"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "E:lower_ring"
+          ],
+          "types": [
+            "lower_ring"
+          ]
+        },
+        {
+          "nodes": [
+            "EL2",
+            "ES"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "E:south_spoke"
+          ],
+          "types": [
+            "south_spoke"
+          ]
+        },
+        {
+          "nodes": [
+            "EL2",
+            "EU2"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "E:diagonal_a"
+          ],
+          "types": [
+            "diagonal_a"
+          ]
+        },
+        {
+          "nodes": [
+            "EL3",
+            "EL4"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "E:lower_ring"
+          ],
+          "types": [
+            "lower_ring"
+          ]
+        },
+        {
+          "nodes": [
+            "EL3",
+            "ES"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "E:south_spoke"
+          ],
+          "types": [
+            "south_spoke"
+          ]
+        },
+        {
+          "nodes": [
+            "EL4",
+            "ES"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "E:south_spoke"
+          ],
+          "types": [
+            "south_spoke"
+          ]
+        },
+        {
+          "nodes": [
+            "EN",
+            "EU2"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "E:north_spoke"
+          ],
+          "types": [
+            "north_spoke"
+          ]
+        }
+      ]
+    },
+    {
+      "openGate": 3,
+      "openAddresses": {
+        "gate": 3,
+        "D": "DU3",
+        "E": "EU3",
+        "numberedPair": "D5/E5"
+      },
+      "gluedAddresses": [
+        {
+          "gate": 0,
+          "D": "DU0",
+          "E": "EU0",
+          "numberedPair": "D2/E2"
+        },
+        {
+          "gate": 1,
+          "D": "DU1",
+          "E": "EU1",
+          "numberedPair": "D3/E3"
+        },
+        {
+          "gate": 2,
+          "D": "DU2",
+          "E": "EU2",
+          "numberedPair": "D4/E4"
+        },
+        {
+          "gate": 4,
+          "D": "DU4",
+          "E": "EU4",
+          "numberedPair": "D6/E6"
+        }
+      ],
+      "signature": {
+        "vertices": 20,
+        "edges": 57,
+        "degreeProfile": {
+          "5": 16,
+          "8": 2,
+          "9": 2
+        },
+        "fibreProfile": {
+          "1": 16,
+          "2": 4
+        },
+        "duplicateMultiplicities": [
+          2,
+          2,
+          2
+        ]
+      },
+      "vertices": [
+        "DL0",
+        "DL1",
+        "DL2",
+        "DL3",
+        "DL4",
+        "DN",
+        "DS",
+        "DU0=EU0",
+        "DU1=EU1",
+        "DU2=EU2",
+        "DU3",
+        "DU4=EU4",
+        "EL0",
+        "EL1",
+        "EL2",
+        "EL3",
+        "EL4",
+        "EN",
+        "ES",
+        "EU3"
+      ],
+      "edges": [
+        {
+          "nodes": [
+            "DL0",
+            "DL1"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "D:lower_ring"
+          ],
+          "types": [
+            "lower_ring"
+          ]
+        },
+        {
+          "nodes": [
+            "DL0",
+            "DL4"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "D:lower_ring"
+          ],
+          "types": [
+            "lower_ring"
+          ]
+        },
+        {
+          "nodes": [
+            "DL0",
+            "DS"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "D:south_spoke"
+          ],
+          "types": [
+            "south_spoke"
+          ]
+        },
+        {
+          "nodes": [
+            "DL0",
+            "DU0=EU0"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "D:diagonal_a"
+          ],
+          "types": [
+            "diagonal_a"
+          ]
+        },
+        {
+          "nodes": [
+            "DL0",
+            "DU1=EU1"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "D:diagonal_b"
+          ],
+          "types": [
+            "diagonal_b"
+          ]
+        },
+        {
+          "nodes": [
+            "DL1",
+            "DL2"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "D:lower_ring"
+          ],
+          "types": [
+            "lower_ring"
+          ]
+        },
+        {
+          "nodes": [
+            "DL1",
+            "DS"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "D:south_spoke"
+          ],
+          "types": [
+            "south_spoke"
+          ]
+        },
+        {
+          "nodes": [
+            "DL1",
+            "DU1=EU1"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "D:diagonal_a"
+          ],
+          "types": [
+            "diagonal_a"
+          ]
+        },
+        {
+          "nodes": [
+            "DL1",
+            "DU2=EU2"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "D:diagonal_b"
+          ],
+          "types": [
+            "diagonal_b"
+          ]
+        },
+        {
+          "nodes": [
+            "DL2",
+            "DL3"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "D:lower_ring"
+          ],
+          "types": [
+            "lower_ring"
+          ]
+        },
+        {
+          "nodes": [
+            "DL2",
+            "DS"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "D:south_spoke"
+          ],
+          "types": [
+            "south_spoke"
+          ]
+        },
+        {
+          "nodes": [
+            "DL2",
+            "DU2=EU2"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "D:diagonal_a"
+          ],
+          "types": [
+            "diagonal_a"
+          ]
+        },
+        {
+          "nodes": [
+            "DL2",
+            "DU3"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "D:diagonal_b"
+          ],
+          "types": [
+            "diagonal_b"
+          ]
+        },
+        {
+          "nodes": [
+            "DL3",
+            "DL4"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "D:lower_ring"
+          ],
+          "types": [
+            "lower_ring"
+          ]
+        },
+        {
+          "nodes": [
+            "DL3",
+            "DS"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "D:south_spoke"
+          ],
+          "types": [
+            "south_spoke"
+          ]
+        },
+        {
+          "nodes": [
+            "DL3",
+            "DU3"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "D:diagonal_a"
+          ],
+          "types": [
+            "diagonal_a"
+          ]
+        },
+        {
+          "nodes": [
+            "DL3",
+            "DU4=EU4"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "D:diagonal_b"
+          ],
+          "types": [
+            "diagonal_b"
+          ]
+        },
+        {
+          "nodes": [
+            "DL4",
+            "DS"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "D:south_spoke"
+          ],
+          "types": [
+            "south_spoke"
+          ]
+        },
+        {
+          "nodes": [
+            "DL4",
+            "DU0=EU0"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "D:diagonal_b"
+          ],
+          "types": [
+            "diagonal_b"
+          ]
+        },
+        {
+          "nodes": [
+            "DL4",
+            "DU4=EU4"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "D:diagonal_a"
+          ],
+          "types": [
+            "diagonal_a"
+          ]
+        },
+        {
+          "nodes": [
+            "DN",
+            "DU0=EU0"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "D:north_spoke"
+          ],
+          "types": [
+            "north_spoke"
+          ]
+        },
+        {
+          "nodes": [
+            "DN",
+            "DU1=EU1"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "D:north_spoke"
+          ],
+          "types": [
+            "north_spoke"
+          ]
+        },
+        {
+          "nodes": [
+            "DN",
+            "DU2=EU2"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "D:north_spoke"
+          ],
+          "types": [
+            "north_spoke"
+          ]
+        },
+        {
+          "nodes": [
+            "DN",
+            "DU3"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "D:north_spoke"
+          ],
+          "types": [
+            "north_spoke"
+          ]
+        },
+        {
+          "nodes": [
+            "DN",
+            "DU4=EU4"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "D:north_spoke"
+          ],
+          "types": [
+            "north_spoke"
+          ]
+        },
+        {
+          "nodes": [
+            "DU0=EU0",
+            "DU1=EU1"
+          ],
+          "multiplicity": 2,
+          "sources": [
+            "D:upper_ring",
+            "E:upper_ring"
+          ],
+          "types": [
+            "upper_ring"
+          ]
+        },
+        {
+          "nodes": [
+            "DU0=EU0",
+            "DU4=EU4"
+          ],
+          "multiplicity": 2,
+          "sources": [
+            "D:upper_ring",
+            "E:upper_ring"
+          ],
+          "types": [
+            "upper_ring"
+          ]
+        },
+        {
+          "nodes": [
+            "DU0=EU0",
+            "EL0"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "E:diagonal_a"
+          ],
+          "types": [
+            "diagonal_a"
+          ]
+        },
+        {
+          "nodes": [
+            "DU0=EU0",
+            "EL4"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "E:diagonal_b"
+          ],
+          "types": [
+            "diagonal_b"
+          ]
+        },
+        {
+          "nodes": [
+            "DU0=EU0",
+            "EN"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "E:north_spoke"
+          ],
+          "types": [
+            "north_spoke"
+          ]
+        },
+        {
+          "nodes": [
+            "DU1=EU1",
+            "DU2=EU2"
+          ],
+          "multiplicity": 2,
+          "sources": [
+            "D:upper_ring",
+            "E:upper_ring"
+          ],
+          "types": [
+            "upper_ring"
+          ]
+        },
+        {
+          "nodes": [
+            "DU1=EU1",
+            "EL0"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "E:diagonal_b"
+          ],
+          "types": [
+            "diagonal_b"
+          ]
+        },
+        {
+          "nodes": [
+            "DU1=EU1",
+            "EL1"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "E:diagonal_a"
+          ],
+          "types": [
+            "diagonal_a"
+          ]
+        },
+        {
+          "nodes": [
+            "DU1=EU1",
+            "EN"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "E:north_spoke"
+          ],
+          "types": [
+            "north_spoke"
+          ]
+        },
+        {
+          "nodes": [
+            "DU2=EU2",
+            "DU3"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "D:upper_ring"
+          ],
+          "types": [
+            "upper_ring"
+          ]
+        },
+        {
+          "nodes": [
+            "DU2=EU2",
+            "EL1"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "E:diagonal_b"
+          ],
+          "types": [
+            "diagonal_b"
+          ]
+        },
+        {
+          "nodes": [
+            "DU2=EU2",
+            "EL2"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "E:diagonal_a"
+          ],
+          "types": [
+            "diagonal_a"
+          ]
+        },
+        {
+          "nodes": [
+            "DU2=EU2",
+            "EN"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "E:north_spoke"
+          ],
+          "types": [
+            "north_spoke"
+          ]
+        },
+        {
+          "nodes": [
+            "DU2=EU2",
+            "EU3"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "E:upper_ring"
+          ],
+          "types": [
+            "upper_ring"
+          ]
+        },
+        {
+          "nodes": [
+            "DU3",
+            "DU4=EU4"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "D:upper_ring"
+          ],
+          "types": [
+            "upper_ring"
+          ]
+        },
+        {
+          "nodes": [
+            "DU4=EU4",
+            "EL3"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "E:diagonal_b"
+          ],
+          "types": [
+            "diagonal_b"
+          ]
+        },
+        {
+          "nodes": [
+            "DU4=EU4",
+            "EL4"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "E:diagonal_a"
+          ],
+          "types": [
+            "diagonal_a"
+          ]
+        },
+        {
+          "nodes": [
+            "DU4=EU4",
+            "EN"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "E:north_spoke"
+          ],
+          "types": [
+            "north_spoke"
+          ]
+        },
+        {
+          "nodes": [
+            "DU4=EU4",
+            "EU3"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "E:upper_ring"
+          ],
+          "types": [
+            "upper_ring"
+          ]
+        },
+        {
+          "nodes": [
+            "EL0",
+            "EL1"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "E:lower_ring"
+          ],
+          "types": [
+            "lower_ring"
+          ]
+        },
+        {
+          "nodes": [
+            "EL0",
+            "EL4"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "E:lower_ring"
+          ],
+          "types": [
+            "lower_ring"
+          ]
+        },
+        {
+          "nodes": [
+            "EL0",
+            "ES"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "E:south_spoke"
+          ],
+          "types": [
+            "south_spoke"
+          ]
+        },
+        {
+          "nodes": [
+            "EL1",
+            "EL2"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "E:lower_ring"
+          ],
+          "types": [
+            "lower_ring"
+          ]
+        },
+        {
+          "nodes": [
+            "EL1",
+            "ES"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "E:south_spoke"
+          ],
+          "types": [
+            "south_spoke"
+          ]
+        },
+        {
+          "nodes": [
+            "EL2",
+            "EL3"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "E:lower_ring"
+          ],
+          "types": [
+            "lower_ring"
+          ]
+        },
+        {
+          "nodes": [
+            "EL2",
+            "ES"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "E:south_spoke"
+          ],
+          "types": [
+            "south_spoke"
+          ]
+        },
+        {
+          "nodes": [
+            "EL2",
+            "EU3"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "E:diagonal_b"
+          ],
+          "types": [
+            "diagonal_b"
+          ]
+        },
+        {
+          "nodes": [
+            "EL3",
+            "EL4"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "E:lower_ring"
+          ],
+          "types": [
+            "lower_ring"
+          ]
+        },
+        {
+          "nodes": [
+            "EL3",
+            "ES"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "E:south_spoke"
+          ],
+          "types": [
+            "south_spoke"
+          ]
+        },
+        {
+          "nodes": [
+            "EL3",
+            "EU3"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "E:diagonal_a"
+          ],
+          "types": [
+            "diagonal_a"
+          ]
+        },
+        {
+          "nodes": [
+            "EL4",
+            "ES"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "E:south_spoke"
+          ],
+          "types": [
+            "south_spoke"
+          ]
+        },
+        {
+          "nodes": [
+            "EN",
+            "EU3"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "E:north_spoke"
+          ],
+          "types": [
+            "north_spoke"
+          ]
+        }
+      ]
+    },
+    {
+      "openGate": 4,
+      "openAddresses": {
+        "gate": 4,
+        "D": "DU4",
+        "E": "EU4",
+        "numberedPair": "D6/E6"
+      },
+      "gluedAddresses": [
+        {
+          "gate": 0,
+          "D": "DU0",
+          "E": "EU0",
+          "numberedPair": "D2/E2"
+        },
+        {
+          "gate": 1,
+          "D": "DU1",
+          "E": "EU1",
+          "numberedPair": "D3/E3"
+        },
+        {
+          "gate": 2,
+          "D": "DU2",
+          "E": "EU2",
+          "numberedPair": "D4/E4"
+        },
+        {
+          "gate": 3,
+          "D": "DU3",
+          "E": "EU3",
+          "numberedPair": "D5/E5"
+        }
+      ],
+      "signature": {
+        "vertices": 20,
+        "edges": 57,
+        "degreeProfile": {
+          "5": 16,
+          "8": 2,
+          "9": 2
+        },
+        "fibreProfile": {
+          "1": 16,
+          "2": 4
+        },
+        "duplicateMultiplicities": [
+          2,
+          2,
+          2
+        ]
+      },
+      "vertices": [
+        "DL0",
+        "DL1",
+        "DL2",
+        "DL3",
+        "DL4",
+        "DN",
+        "DS",
+        "DU0=EU0",
+        "DU1=EU1",
+        "DU2=EU2",
+        "DU3=EU3",
+        "DU4",
+        "EL0",
+        "EL1",
+        "EL2",
+        "EL3",
+        "EL4",
+        "EN",
+        "ES",
+        "EU4"
+      ],
+      "edges": [
+        {
+          "nodes": [
+            "DL0",
+            "DL1"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "D:lower_ring"
+          ],
+          "types": [
+            "lower_ring"
+          ]
+        },
+        {
+          "nodes": [
+            "DL0",
+            "DL4"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "D:lower_ring"
+          ],
+          "types": [
+            "lower_ring"
+          ]
+        },
+        {
+          "nodes": [
+            "DL0",
+            "DS"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "D:south_spoke"
+          ],
+          "types": [
+            "south_spoke"
+          ]
+        },
+        {
+          "nodes": [
+            "DL0",
+            "DU0=EU0"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "D:diagonal_a"
+          ],
+          "types": [
+            "diagonal_a"
+          ]
+        },
+        {
+          "nodes": [
+            "DL0",
+            "DU1=EU1"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "D:diagonal_b"
+          ],
+          "types": [
+            "diagonal_b"
+          ]
+        },
+        {
+          "nodes": [
+            "DL1",
+            "DL2"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "D:lower_ring"
+          ],
+          "types": [
+            "lower_ring"
+          ]
+        },
+        {
+          "nodes": [
+            "DL1",
+            "DS"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "D:south_spoke"
+          ],
+          "types": [
+            "south_spoke"
+          ]
+        },
+        {
+          "nodes": [
+            "DL1",
+            "DU1=EU1"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "D:diagonal_a"
+          ],
+          "types": [
+            "diagonal_a"
+          ]
+        },
+        {
+          "nodes": [
+            "DL1",
+            "DU2=EU2"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "D:diagonal_b"
+          ],
+          "types": [
+            "diagonal_b"
+          ]
+        },
+        {
+          "nodes": [
+            "DL2",
+            "DL3"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "D:lower_ring"
+          ],
+          "types": [
+            "lower_ring"
+          ]
+        },
+        {
+          "nodes": [
+            "DL2",
+            "DS"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "D:south_spoke"
+          ],
+          "types": [
+            "south_spoke"
+          ]
+        },
+        {
+          "nodes": [
+            "DL2",
+            "DU2=EU2"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "D:diagonal_a"
+          ],
+          "types": [
+            "diagonal_a"
+          ]
+        },
+        {
+          "nodes": [
+            "DL2",
+            "DU3=EU3"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "D:diagonal_b"
+          ],
+          "types": [
+            "diagonal_b"
+          ]
+        },
+        {
+          "nodes": [
+            "DL3",
+            "DL4"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "D:lower_ring"
+          ],
+          "types": [
+            "lower_ring"
+          ]
+        },
+        {
+          "nodes": [
+            "DL3",
+            "DS"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "D:south_spoke"
+          ],
+          "types": [
+            "south_spoke"
+          ]
+        },
+        {
+          "nodes": [
+            "DL3",
+            "DU3=EU3"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "D:diagonal_a"
+          ],
+          "types": [
+            "diagonal_a"
+          ]
+        },
+        {
+          "nodes": [
+            "DL3",
+            "DU4"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "D:diagonal_b"
+          ],
+          "types": [
+            "diagonal_b"
+          ]
+        },
+        {
+          "nodes": [
+            "DL4",
+            "DS"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "D:south_spoke"
+          ],
+          "types": [
+            "south_spoke"
+          ]
+        },
+        {
+          "nodes": [
+            "DL4",
+            "DU0=EU0"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "D:diagonal_b"
+          ],
+          "types": [
+            "diagonal_b"
+          ]
+        },
+        {
+          "nodes": [
+            "DL4",
+            "DU4"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "D:diagonal_a"
+          ],
+          "types": [
+            "diagonal_a"
+          ]
+        },
+        {
+          "nodes": [
+            "DN",
+            "DU0=EU0"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "D:north_spoke"
+          ],
+          "types": [
+            "north_spoke"
+          ]
+        },
+        {
+          "nodes": [
+            "DN",
+            "DU1=EU1"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "D:north_spoke"
+          ],
+          "types": [
+            "north_spoke"
+          ]
+        },
+        {
+          "nodes": [
+            "DN",
+            "DU2=EU2"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "D:north_spoke"
+          ],
+          "types": [
+            "north_spoke"
+          ]
+        },
+        {
+          "nodes": [
+            "DN",
+            "DU3=EU3"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "D:north_spoke"
+          ],
+          "types": [
+            "north_spoke"
+          ]
+        },
+        {
+          "nodes": [
+            "DN",
+            "DU4"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "D:north_spoke"
+          ],
+          "types": [
+            "north_spoke"
+          ]
+        },
+        {
+          "nodes": [
+            "DU0=EU0",
+            "DU1=EU1"
+          ],
+          "multiplicity": 2,
+          "sources": [
+            "D:upper_ring",
+            "E:upper_ring"
+          ],
+          "types": [
+            "upper_ring"
+          ]
+        },
+        {
+          "nodes": [
+            "DU0=EU0",
+            "DU4"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "D:upper_ring"
+          ],
+          "types": [
+            "upper_ring"
+          ]
+        },
+        {
+          "nodes": [
+            "DU0=EU0",
+            "EL0"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "E:diagonal_a"
+          ],
+          "types": [
+            "diagonal_a"
+          ]
+        },
+        {
+          "nodes": [
+            "DU0=EU0",
+            "EL4"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "E:diagonal_b"
+          ],
+          "types": [
+            "diagonal_b"
+          ]
+        },
+        {
+          "nodes": [
+            "DU0=EU0",
+            "EN"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "E:north_spoke"
+          ],
+          "types": [
+            "north_spoke"
+          ]
+        },
+        {
+          "nodes": [
+            "DU0=EU0",
+            "EU4"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "E:upper_ring"
+          ],
+          "types": [
+            "upper_ring"
+          ]
+        },
+        {
+          "nodes": [
+            "DU1=EU1",
+            "DU2=EU2"
+          ],
+          "multiplicity": 2,
+          "sources": [
+            "D:upper_ring",
+            "E:upper_ring"
+          ],
+          "types": [
+            "upper_ring"
+          ]
+        },
+        {
+          "nodes": [
+            "DU1=EU1",
+            "EL0"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "E:diagonal_b"
+          ],
+          "types": [
+            "diagonal_b"
+          ]
+        },
+        {
+          "nodes": [
+            "DU1=EU1",
+            "EL1"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "E:diagonal_a"
+          ],
+          "types": [
+            "diagonal_a"
+          ]
+        },
+        {
+          "nodes": [
+            "DU1=EU1",
+            "EN"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "E:north_spoke"
+          ],
+          "types": [
+            "north_spoke"
+          ]
+        },
+        {
+          "nodes": [
+            "DU2=EU2",
+            "DU3=EU3"
+          ],
+          "multiplicity": 2,
+          "sources": [
+            "D:upper_ring",
+            "E:upper_ring"
+          ],
+          "types": [
+            "upper_ring"
+          ]
+        },
+        {
+          "nodes": [
+            "DU2=EU2",
+            "EL1"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "E:diagonal_b"
+          ],
+          "types": [
+            "diagonal_b"
+          ]
+        },
+        {
+          "nodes": [
+            "DU2=EU2",
+            "EL2"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "E:diagonal_a"
+          ],
+          "types": [
+            "diagonal_a"
+          ]
+        },
+        {
+          "nodes": [
+            "DU2=EU2",
+            "EN"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "E:north_spoke"
+          ],
+          "types": [
+            "north_spoke"
+          ]
+        },
+        {
+          "nodes": [
+            "DU3=EU3",
+            "DU4"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "D:upper_ring"
+          ],
+          "types": [
+            "upper_ring"
+          ]
+        },
+        {
+          "nodes": [
+            "DU3=EU3",
+            "EL2"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "E:diagonal_b"
+          ],
+          "types": [
+            "diagonal_b"
+          ]
+        },
+        {
+          "nodes": [
+            "DU3=EU3",
+            "EL3"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "E:diagonal_a"
+          ],
+          "types": [
+            "diagonal_a"
+          ]
+        },
+        {
+          "nodes": [
+            "DU3=EU3",
+            "EN"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "E:north_spoke"
+          ],
+          "types": [
+            "north_spoke"
+          ]
+        },
+        {
+          "nodes": [
+            "DU3=EU3",
+            "EU4"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "E:upper_ring"
+          ],
+          "types": [
+            "upper_ring"
+          ]
+        },
+        {
+          "nodes": [
+            "EL0",
+            "EL1"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "E:lower_ring"
+          ],
+          "types": [
+            "lower_ring"
+          ]
+        },
+        {
+          "nodes": [
+            "EL0",
+            "EL4"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "E:lower_ring"
+          ],
+          "types": [
+            "lower_ring"
+          ]
+        },
+        {
+          "nodes": [
+            "EL0",
+            "ES"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "E:south_spoke"
+          ],
+          "types": [
+            "south_spoke"
+          ]
+        },
+        {
+          "nodes": [
+            "EL1",
+            "EL2"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "E:lower_ring"
+          ],
+          "types": [
+            "lower_ring"
+          ]
+        },
+        {
+          "nodes": [
+            "EL1",
+            "ES"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "E:south_spoke"
+          ],
+          "types": [
+            "south_spoke"
+          ]
+        },
+        {
+          "nodes": [
+            "EL2",
+            "EL3"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "E:lower_ring"
+          ],
+          "types": [
+            "lower_ring"
+          ]
+        },
+        {
+          "nodes": [
+            "EL2",
+            "ES"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "E:south_spoke"
+          ],
+          "types": [
+            "south_spoke"
+          ]
+        },
+        {
+          "nodes": [
+            "EL3",
+            "EL4"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "E:lower_ring"
+          ],
+          "types": [
+            "lower_ring"
+          ]
+        },
+        {
+          "nodes": [
+            "EL3",
+            "ES"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "E:south_spoke"
+          ],
+          "types": [
+            "south_spoke"
+          ]
+        },
+        {
+          "nodes": [
+            "EL3",
+            "EU4"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "E:diagonal_b"
+          ],
+          "types": [
+            "diagonal_b"
+          ]
+        },
+        {
+          "nodes": [
+            "EL4",
+            "ES"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "E:south_spoke"
+          ],
+          "types": [
+            "south_spoke"
+          ]
+        },
+        {
+          "nodes": [
+            "EL4",
+            "EU4"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "E:diagonal_a"
+          ],
+          "types": [
+            "diagonal_a"
+          ]
+        },
+        {
+          "nodes": [
+            "EN",
+            "EU4"
+          ],
+          "multiplicity": 1,
+          "sources": [
+            "E:north_spoke"
+          ],
+          "types": [
+            "north_spoke"
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "id": "P-01",
+      "title": "Each dodecahedral face carrier has the icosahedral 12/30/5 adjacency signature",
+      "status": "PASS",
+      "detail": "two independently typed icosahedral face-adjacency graphs"
+    },
+    {
+      "id": "Q-01",
+      "title": "Every four-seam quotient has exactly twenty vertices",
+      "status": "PASS",
+      "detail": [
+        {
+          "openGate": 0,
+          "fibreProfile": {
+            "1": 16,
+            "2": 4
+          }
+        },
+        {
+          "openGate": 1,
+          "fibreProfile": {
+            "1": 16,
+            "2": 4
+          }
+        },
+        {
+          "openGate": 2,
+          "fibreProfile": {
+            "1": 16,
+            "2": 4
+          }
+        },
+        {
+          "openGate": 3,
+          "fibreProfile": {
+            "1": 16,
+            "2": 4
+          }
+        },
+        {
+          "openGate": 4,
+          "fibreProfile": {
+            "1": 16,
+            "2": 4
+          }
+        }
+      ]
+    },
+    {
+      "id": "Q-02",
+      "title": "Every quotient preserves a typed simple edge set and three doubled seam edges",
+      "status": "PASS",
+      "detail": [
+        {
+          "openGate": 0,
+          "edges": 57,
+          "doubled": 3
+        },
+        {
+          "openGate": 1,
+          "edges": 57,
+          "doubled": 3
+        },
+        {
+          "openGate": 2,
+          "edges": 57,
+          "doubled": 3
+        },
+        {
+          "openGate": 3,
+          "edges": 57,
+          "doubled": 3
+        },
+        {
+          "openGate": 4,
+          "edges": 57,
+          "doubled": 3
+        }
+      ]
+    },
+    {
+      "id": "Q-03",
+      "title": "All five open-gate candidates have the same graph signature",
+      "status": "PASS",
+      "detail": {
+        "vertices": 20,
+        "edges": 57,
+        "degreeProfile": {
+          "5": 16,
+          "8": 2,
+          "9": 2
+        },
+        "fibreProfile": {
+          "1": 16,
+          "2": 4
+        },
+        "duplicateMultiplicities": [
+          2,
+          2,
+          2
+        ]
+      }
+    },
+    {
+      "id": "Q-04",
+      "title": "C5 rotation gives explicit isomorphisms among all five candidates",
+      "status": "PASS",
+      "detail": "gate g=0 maps to gate g=k by the declared C5 rotation"
+    },
+    {
+      "id": "Q-05",
+      "title": "A marked gate has the expected two-element D5 stabilizer",
+      "status": "PASS",
+      "detail": "identity plus one reflection; no marked candidate retains full C5 symmetry"
+    },
+    {
+      "id": "R-01",
+      "title": "Class plus one conditional sheet bit reconstructs every prequotient address",
+      "status": "PASS",
+      "detail": {
+        "singletonClasses": 16,
+        "twoAddressClasses": 4,
+        "residual": "one D/E bit only on glued fibres"
+      }
+    },
+    {
+      "id": "R-02",
+      "title": "LRRL returns at every open gate and therefore selects none",
+      "status": "PASS",
+      "detail": [
+        {
+          "gate": 0,
+          "values": [
+            0,
+            4,
+            0,
+            1,
+            0
+          ]
+        },
+        {
+          "gate": 1,
+          "values": [
+            1,
+            0,
+            1,
+            2,
+            1
+          ]
+        },
+        {
+          "gate": 2,
+          "values": [
+            2,
+            1,
+            2,
+            3,
+            2
+          ]
+        },
+        {
+          "gate": 3,
+          "values": [
+            3,
+            2,
+            3,
+            4,
+            3
+          ]
+        },
+        {
+          "gate": 4,
+          "values": [
+            4,
+            3,
+            4,
+            0,
+            4
+          ]
+        }
+      ]
+    },
+    {
+      "id": "T-01",
+      "title": "The geometric quotient cannot be isomorphic to the Q106 twenty-node interface",
+      "status": "PASS",
+      "detail": {
+        "candidate": {
+          "vertices": 20,
+          "edges": 57,
+          "degreeProfile": {
+            "5": 16,
+            "8": 2,
+            "9": 2
+          },
+          "fibreProfile": {
+            "1": 16,
+            "2": 4
+          },
+          "duplicateMultiplicities": [
+            2,
+            2,
+            2
+          ]
+        },
+        "q106": {
+          "vertices": 20,
+          "edges": 20,
+          "degreeProfile": {
+            "1": 5,
+            "2": 10,
+            "3": 5
+          }
+        },
+        "result": "REJECT_GRAPH_ISOMORPHISM_BY_EDGE_AND_DEGREE_INVARIANTS"
+      }
+    },
+    {
+      "id": "T-02",
+      "title": "The simple geometric quotient is necessarily non-planar",
+      "status": "PASS",
+      "detail": {
+        "vertices": 20,
+        "edges": 57,
+        "planarSimpleBound": 54,
+        "result": "NONPLANAR_BY_EULER_EDGE_BOUND"
+      }
+    },
+    {
+      "id": "B-01",
+      "title": "The candidate does not overwrite the historical null X20 contract",
+      "status": "PASS",
+      "detail": {
+        "historicalX20": "UNDEFINED",
+        "currentObject": "DECLARED_A0_DODECA_D_E_QUOTIENT_CANDIDATE",
+        "identityRelation": "NON_IDENTITY / COMPARATOR_ONLY"
+      }
+    }
+  ],
+  "interpretation": [
+    "The 24-to-20 quotient and conditional Return bit are exact.",
+    "All five open-gate choices are C5-isomorphic, so this construction cannot select a privileged gate.",
+    "The natural dodecahedral face-adjacency quotient is far denser than the Q106 interface and is rejected as its graph intertwiner.",
+    "The construction remains useful as a seam/Return comparator, not as the canonical or historical X20 source graph."
+  ],
+  "nextTests": [
+    "Declare a source-derived sparse edge-selection rule before any second Q106 comparison.",
+    "Require that the rule breaks the five-way tie without reading Q106 backward.",
+    "Retain the four conditional D/E residual bits as the exact Return payload."
+  ]
+}

@@ -7,7 +7,7 @@
   const cases='../../../SCIENCE_LAB/CASE_STUDIES/';
   const orbit=cases+'E8_DEMOS_INTERACTIVE_ORIENTATION_2026-09-21/COXETER_ORBIT_TOPOLOGY_LAB_2026-10-05/';
   const entries=[
-    {key:'box',title:'TESSAREC · Box / Laschen / CON–DAO',path:'A0_TESSAREC_BLUE_BODY_LAB.html#fold-contact',controls:'Schnitt t · Verlängerung e · Faltwinkel · Boden · Kontaktzyklus · CON–DAO',boundary:'Vier gekoppelt rotierende Klappen in einer Kontaktprojektion. Kein unabhängiger Zwei-Streifen-Transport und kein räumlicher Tunnel-Nachweis.'},
+    {key:'box',title:'TESSAREC · Box / Laschen / CON–DAO',path:'A0_TESSAREC_BLUE_BODY_LAB.html#fold-contact',controls:'Schnitt t · Verlängerung e · Faltwinkel · Boden · Kontaktzyklus · CON–DAO · conDaoTick KEEP / 0…13 (STILL 6 und 7)',boundary:'Vier gekoppelt rotierende Klappen in einer Kontaktprojektion. Kein unabhängiger Zwei-Streifen-Transport und kein räumlicher Tunnel-Nachweis.'},
     {key:'double',title:'TESSAREC · Doppelkörper / Naht / M7',path:'A0_TESSAREC_BLUE_BODY_LAB.html#double',controls:'Getrennt / verbunden / O8-Projektion · M7-Rasteransichten',boundary:'Kombinatorische Naht und optionale Projektionslinsen; nicht mit dem Laschenschluss identifizieren.'},
     {key:'janus',title:'Janus Arithmetic Ladder',path:cases+'NEXAH_ELEVEN_SPACE_JANUS_NUMBER_VIEW_2026-10-06/NEXAH_JANUS_ARITHMETIC_LADDER.html',controls:'Inner mirror · Nested shells · Seven-state ladder · k = −3…3',boundary:'Affine Spiegelungen mit deklarierten Mittelpunkten. Verschiedene Mittelpunkte bleiben verschiedene Relationen.'},
     {key:'two-cut',title:'Euler Ladder · Antipode · Two-Cut',path:'../../../SCIENCE_LAB/RESEARCH_AREAS/FIELD_GLYPH_NUMBER_ARCHITECTURE_STAGE_0_2026-09-14/NEXAH_EULER_ANTIPODE_TWO_CUT_INSTRUMENT.html',controls:'Trägerfamilie · Leiterstufe j · Euler-Stufe n · A20 · Return',boundary:'Wert- und Adressschnitt mit Binder. Nativer Return ist ein berechneter Rückkehrstatus, kein unabhängiger Bench-Checkpoint-/Readback-Nachweis.'},
@@ -62,7 +62,7 @@
     let endpoint=null,unsubscribe=null,checkpoint=null,checkpointState=null,dispatching=false,held=false,hostSeq=0,journal=[],records={},inputs={};
     const clone=x=>JSON.parse(JSON.stringify(x)),commands={};
     const profiles={
-      box:[['t',[.2,.85,.01]],['extension',[1,1.5,.001]],['foldDeg',[0,180,1]],['mode',['square','triangle']],['baseOn',['on','off']],['number',['1111','3333','4444','7777']],['layer',['HOLD','P0','P1','P2']]],
+      box:[['t',[.2,.85,.01]],['extension',[1,1.5,.001]],['foldDeg',[0,180,1]],['mode',['square','triangle']],['baseOn',['on','off']],['number',['1111','3333','4444','7777']],['layer',['HOLD','P0','P1','P2']],['conDaoTick',['KEEP',...Array.from({length:14},(_,i)=>String(i))]]],
       janus:[['view',['inner','outer','ladder']],['k',[-3,3]]],
       'two-cut':[['family',['exact','historical']],['j',[0,11]],['n',[0,40]]]
     };

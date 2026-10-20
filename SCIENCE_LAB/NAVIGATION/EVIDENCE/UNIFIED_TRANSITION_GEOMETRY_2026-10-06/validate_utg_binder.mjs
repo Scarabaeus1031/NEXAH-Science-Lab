@@ -62,6 +62,9 @@ if (!(envelope?.family_status || "").includes("not CF:F8")) errors.push("Envelop
 if (!(envelope?.subtypes || []).find((item) => item.type_id === "ENV-STAB")?.state.includes("FORMAL CANDIDATE")) errors.push("ENV-STAB must remain a formal candidate");
 const envelopeRecord = path.resolve(repoRoot, binder.controlling_records?.envelope_archaeology_and_typing || "");
 if (!envelopeRecord.startsWith(repoRoot + path.sep) || !fs.existsSync(envelopeRecord)) errors.push("missing Envelope archaeology controlling record");
+const a0OrientationRecord = String(binder.controlling_records?.a0_orientation_map || "").split("#")[0];
+const a0OrientationPath = path.resolve(repoRoot, a0OrientationRecord);
+if (!a0OrientationPath.startsWith(repoRoot + path.sep) || !fs.existsSync(a0OrientationPath)) errors.push("missing A0 orientation map");
 if (comparative?.systems?.length !== 4) errors.push("comparative dynamics must declare four carrier records");
 if (comparative?.next_test?.state !== "PLANNED / NOT PREREGISTERED / NOT EXECUTED") errors.push("UTG-FORMAL-02 must remain explicitly unexecuted");
 if (!comparative?.claim_boundary?.includes("do not establish")) errors.push("comparative dynamics must carry a non-equivalence boundary");

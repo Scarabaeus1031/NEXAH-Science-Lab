@@ -1,0 +1,281 @@
+{
+  "schema": "a0.11x111-grid-elevator.engineering-result.v1",
+  "executionDate": "2026-10-15",
+  "authority": {
+    "kind": "OWNER_AUTHORIZED_A0_ENGINEERING_TEST",
+    "labRun": false,
+    "studyActivated": false,
+    "navigatorIdentityCreated": false,
+    "canonicalRelationCreated": false,
+    "publicationAuthorized": false
+  },
+  "status": "PASS_EXACT_CRT_GRID_BRIDGE_WITH_TYPED_SEAM_AND_NONIDENTITY_CONTROLS",
+  "summary": {
+    "pass": 16,
+    "fail": 0,
+    "crtRectangleStates": 1221,
+    "squareElevatorStates": 12321,
+    "primeRadiusPairs": 5,
+    "twoSidedPrimePairs": 1
+  },
+  "interpretation": {
+    "supported": [
+      "11x111 is an exact CRT product carrier analogous to 7x11",
+      "the open 11x111 grid has a precise neighborhood graph and central Janus involution",
+      "111 samples support eleven coarse cells of ten intervals through a vertex-cell convention",
+      "the remaining +1 is an explicit seam or boundary sample"
+    ],
+    "rejected": [
+      "exact 111-cell to 11-cell nesting",
+      "an additive-group embedding Z11 into Z111",
+      "identity between the 11x111 rectangle and 111x111 square",
+      "identity between Janus coordinate 106 and Pascal Q106 cardinality",
+      "unique source recovery from the palindrome 1221 alone"
+    ]
+  },
+  "sourceContract": "assets/a0-11x111-grid-elevator-source-contract-v1.json",
+  "checks": [
+    {
+      "id": "A-01",
+      "title": "The 7x11 reference and 11x111 candidate are coprime products",
+      "status": "PASS",
+      "detail": {
+        "reference": "Z/77 ~= Z/7 x Z/11",
+        "candidate": "Z/1221 ~= Z/11 x Z/111",
+        "factorization1221": "3*11*37"
+      }
+    },
+    {
+      "id": "A-02",
+      "title": "The 7x11 CRT reference round-trips all 77 addresses",
+      "status": "PASS",
+      "detail": {
+        "idempotents": {
+          "mod7": 22,
+          "mod11": 56
+        },
+        "addresses": 77
+      }
+    },
+    {
+      "id": "A-03",
+      "title": "The 11x111 CRT candidate round-trips all 1221 addresses",
+      "status": "PASS",
+      "detail": {
+        "formula": "x = 111*a + 1111*b (mod 1221)",
+        "addresses": 1221
+      }
+    },
+    {
+      "id": "A-04",
+      "title": "The candidate CRT idempotents independently move the two axes",
+      "status": "PASS",
+      "detail": {
+        "e11": 111,
+        "e111": 1111,
+        "partitionOfUnity": "111+1111=1222=1 mod 1221"
+      }
+    },
+    {
+      "id": "S-01",
+      "title": "The 111 side has an exact ten-block plus one seam decomposition",
+      "status": "PASS",
+      "detail": {
+        "oneAxis": "111=10*11+1",
+        "rectangle": "11*111=10*(11*11)+11",
+        "square": "111^2=100*(11^2)+2*110+1"
+      }
+    },
+    {
+      "id": "S-02",
+      "title": "The existing 111-sample vertex model gives eleven coarse cells",
+      "status": "PASS",
+      "detail": {
+        "samplePoints": 111,
+        "fineIntervals": 110,
+        "coarseCells": 11,
+        "intervalsPerCell": 10,
+        "boundaries": [
+          0,
+          10,
+          20,
+          30,
+          40,
+          50,
+          60,
+          70,
+          80,
+          90,
+          100,
+          110
+        ]
+      }
+    },
+    {
+      "id": "S-03",
+      "title": "Cell-count nesting 111/11 is rejected while vertex-cell refinement survives",
+      "status": "PASS",
+      "detail": {
+        "cellCountNesting": "CONTRADICTED",
+        "vertexCellRefinement": "EXACT",
+        "residual": 1
+      }
+    },
+    {
+      "id": "G-01",
+      "title": "The open 11x111 rectangular neighborhood has exact graph counts",
+      "status": "PASS",
+      "detail": {
+        "graph": "P11 Cartesian P111",
+        "vertices": 1221,
+        "edges": 2320,
+        "boundaryVertices": 240,
+        "interiorVertices": 981
+      }
+    },
+    {
+      "id": "G-02",
+      "title": "The central Janus reflection is an involutive graph automorphism",
+      "status": "PASS",
+      "detail": {
+        "operation": "J(x,y)=(10-x,110-y)",
+        "fixed": [
+          [
+            5,
+            55
+          ]
+        ],
+        "twoCycles": 610
+      }
+    },
+    {
+      "id": "G-03",
+      "title": "The open rectangle, cylinder and torus remain distinct adjacency contracts",
+      "status": "PASS",
+      "detail": {
+        "openEdges": 2320,
+        "cylinderEdges": 2431,
+        "torusEdges": 2442,
+        "selectedPrimary": "open rectangle"
+      }
+    },
+    {
+      "id": "P-01",
+      "title": "The source-declared prime radii around c=111 are reproduced exactly",
+      "status": "PASS",
+      "detail": [
+        {
+          "r": 2,
+          "left": 109,
+          "center": 111,
+          "right": 113
+        },
+        {
+          "r": 3,
+          "left": 108,
+          "center": 111,
+          "right": 114
+        },
+        {
+          "r": 5,
+          "left": 106,
+          "center": 111,
+          "right": 116
+        },
+        {
+          "r": 7,
+          "left": 104,
+          "center": 111,
+          "right": 118
+        },
+        {
+          "r": 11,
+          "left": 100,
+          "center": 111,
+          "right": 122
+        }
+      ]
+    },
+    {
+      "id": "P-02",
+      "title": "Only radius two gives a two-sided prime pair in the declared table",
+      "status": "PASS",
+      "detail": {
+        "rows": [
+          {
+            "r": 2,
+            "bothPrime": true
+          },
+          {
+            "r": 3,
+            "bothPrime": false
+          },
+          {
+            "r": 5,
+            "bothPrime": false
+          },
+          {
+            "r": 7,
+            "bothPrime": false
+          },
+          {
+            "r": 11,
+            "bothPrime": false
+          }
+        ],
+        "coordinate106": "COMPOSITE_LEFT_NEIGHBOR_AT_r5"
+      }
+    },
+    {
+      "id": "N-01",
+      "title": "Coordinate 106 and Q106 cardinality are numerically equal but role-distinct",
+      "status": "PASS",
+      "detail": {
+        "integerEqual": true,
+        "roleIdentity": false,
+        "coordinate": {
+          "namespace": "JANUS_RADIUS_VALUE",
+          "value": 106,
+          "derivation": "111-5"
+        },
+        "carrier": {
+          "namespace": "PASCAL_Q106_CARDINALITY",
+          "value": 106,
+          "derivation": "112 open nodes minus 6 seam identifications"
+        }
+      }
+    },
+    {
+      "id": "N-02",
+      "title": "There is no additive-group embedding Z11 into Z111",
+      "status": "PASS",
+      "detail": {
+        "reason": "11 does not divide 111, so Z111 has no element of additive order 11",
+        "order11Elements": []
+      }
+    },
+    {
+      "id": "N-03",
+      "title": "The 11x111 rectangle and 111x111 square are not the same carrier",
+      "status": "PASS",
+      "detail": {
+        "rectangleStates": 1221,
+        "squareStates": 12321,
+        "ratio": 10.090909090909092,
+        "identity": false
+      }
+    },
+    {
+      "id": "N-04",
+      "title": "Palindrome closure at 1221 does not identify a unique source pair",
+      "status": "PASS",
+      "detail": {
+        "sum": 1221,
+        "palindrome": true,
+        "unordered_preimages": 32,
+        "ordered_preimages": 64,
+        "result": "HOLD_MISSING_WITNESS"
+      }
+    }
+  ]
+}

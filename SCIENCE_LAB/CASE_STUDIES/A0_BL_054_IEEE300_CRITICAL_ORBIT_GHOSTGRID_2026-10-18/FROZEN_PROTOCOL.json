@@ -1,0 +1,41 @@
+{
+  "schema": "nexah.a0-bl-054.critical-orbit-ghostgrid/1.0.0",
+  "date": "2026-10-18",
+  "status": "FROZEN_NOT_EXECUTED",
+  "load_scales": [1.0, 1.005, 1.01, 1.015, 1.02, 1.025, 1.03],
+  "topology_line_index": 228,
+  "relabel_seed": 20261008,
+  "random_projection_seed": 20261018,
+  "orbit": {"length": 32, "first_emitted_iterate": 5, "escape_radius": 2.0, "quantization_levels": 256},
+  "adapter": {
+    "column_scales": [1.0, 1.0, 0.35, 0.1, 30.0, 100.0],
+    "real_offset": -0.82,
+    "real_stress_scale": 0.34,
+    "imag_offset": 0.08,
+    "imag_heterogeneity_scale": 0.28
+  },
+  "views": {
+    "names": ["ordered_time_radius", "phase_radius", "delta_phase"],
+    "resolutions": [8, 16, 32],
+    "phase_offsets_radians": [0.0, 0.39269908169872414, 0.7853981633974483],
+    "viewport_radial_scales": [0.75, 1.0, 1.25]
+  },
+  "thresholds": {
+    "view_order_spearman_gte": 0.8,
+    "load_order_spearman_gte": 0.8,
+    "load_endpoint_l1_gt": 0.01,
+    "topology_l1_gt": 0.0001,
+    "synthetic_l1_gt": 0.1,
+    "relabel_max_abs_lte": 1e-12
+  },
+  "random_projection_count": 32,
+  "allowed_results": [
+    "PASS_BOUNDED_REPRESENTATION_STRESS",
+    "MIXED_NEGATIVE",
+    "INFORMATION_LOST",
+    "UNINFORMATIVE_NO_ADVANTAGE_OVER_DIRECT_SIGNATURE",
+    "INVALID_ADAPTER",
+    "INVALID_EXPERIMENT"
+  ],
+  "claim_ceiling": "Finite internal IEEE-300 representation-stress result only; no early-warning, prediction, mechanism, physical-orbit, preferred-geometry or utility claim."
+}

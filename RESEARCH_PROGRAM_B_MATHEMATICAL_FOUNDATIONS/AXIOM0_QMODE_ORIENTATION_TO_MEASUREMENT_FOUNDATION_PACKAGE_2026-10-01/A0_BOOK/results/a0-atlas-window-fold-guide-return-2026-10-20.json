@@ -1,0 +1,162 @@
+{
+  "schema": "a0.atlas-window-fold-guide-engineering-return/1",
+  "date": "2026-10-20",
+  "status": "ENGINEERING_PASS_BROWSER_ACCEPTANCE_OPEN",
+  "existing_identities": [
+    "MOD:TESSAREC",
+    "MOD:NUMBER_VIEW_SUITE",
+    "NEXAH_A0_ORIENTATION_CONTROLLER_BENCH"
+  ],
+  "new_global_ids": [],
+  "relation_changes": [],
+  "canonical_count_effect": 0,
+  "publication_authorized": false,
+  "sources": [
+    {
+      "path": "A0_ORIENTATION_CONTROLLER_BENCH.html",
+      "sha256": "da70876f81107f6ebdccee778c45b338caffe42495fce140d820f90d23267b29"
+    },
+    {
+      "path": "a0-bench-atlas-window.js",
+      "sha256": "9a7dba4f05c4a3ba5906a696a7646bd649d56ea34d5ef5b579f4028caf6a807b"
+    },
+    {
+      "path": "a0-bench-fold-guide.js",
+      "sha256": "080043f4d971479c73b4e0a5282904b364da4390c562a596bf60ed1f80e0f3f1"
+    },
+    {
+      "path": "a0-bench-lens-return.js",
+      "sha256": "f96387e436c3f6c4b5ba055429c456647c86353e40f7c82b06065c34d23b222c"
+    },
+    {
+      "path": "a0-coupled-window.js",
+      "sha256": "2de9591a4ff5236d4e06c3a7b6cf14790c4cc4108c4ddd2269ed3aa7582a3c98"
+    },
+    {
+      "path": "a0-bench-polish-tests.cjs",
+      "sha256": "56a7ccca54f4a29cc2bb886e4e111a8fe3ab004e02a2702923d07d74cb503c05"
+    },
+    {
+      "path": "a0-bench-atlas-fold-guide-tests.cjs",
+      "sha256": "83bb36122e169b4d56b965929daa6221766d3eb80cd456ac31d2d5015ed172f1"
+    },
+    {
+      "path": "A0_FAMILY_CONNECTION_ATLAS.html",
+      "sha256": "7b0980752dcd327cfc1f9687dbb36ce1faa56504b081c4fe09e8ce44a653ece8"
+    },
+    {
+      "path": "assets/a0-tessarec-big-blue-envelope-comparator-r1.js",
+      "sha256": "4f449c3b90c391f4c0576650373ad342d70afb4f6d1d899804d8a612d54f3ca1"
+    },
+    {
+      "path": "a0-game-of-numbers-model.js",
+      "sha256": "b0b8bfe703acff814247d22dd41f61e05e9e157fe59daf15af02eaced7e684e6"
+    },
+    {
+      "path": "a0-game-of-numbers.js",
+      "sha256": "cae14b3c0e6256b060692ffb2fff2b4ea530d5a4d3198c1734e4477ccb2a3e8e"
+    },
+    {
+      "path": "a0-layered-pentagon-scene.js",
+      "sha256": "319c8d35e19d2eebe65b526bab23ca212d7caf7465bca3bbda966423af99082d"
+    },
+    {
+      "path": "a0-trinity-lens.js",
+      "sha256": "79e2fb4c00669fb7bad2d2e39ca4a98b2f0521ce9dac8db9b4006790bd2b7869"
+    },
+    {
+      "path": "assets/a0-native-source-bank-v1.json",
+      "sha256": "d0f0a18e3b28455969aa41e97cb462560f4e27b098e6715339d2c6575df7f202"
+    },
+    {
+      "path": "assets/a0-fold-lag-lens-v1.json",
+      "sha256": "3333eee382661a5c969feafa71562a29fef0dec50b6e2390eeeb2346ece95dbf"
+    },
+    {
+      "path": "assets/a0-bench-showcase-tour-package-v1.json",
+      "sha256": "7d5be823cd0ed1a05773564fca56531249eb392c6bf7aae802e053b4431c0ca2"
+    },
+    {
+      "path": "assets/a0-coupled-window-system-v1.json",
+      "sha256": "5b05ca4f2cb80643bf9cc9931cfceb8adb32fd4b64bb36a9c3df9b520198c411"
+    }
+  ],
+  "atlas": {
+    "entry": "A0_ORIENTATION_CONTROLLER_BENCH.html#atlasTessarecBench",
+    "source": "A0_FAMILY_CONNECTION_ATLAS.html#tessarec",
+    "completeOriginalPage": true,
+    "sourceChanged": false,
+    "launch": "existing reader API; maximized on user click",
+    "loadedAutomatically": false,
+    "automaticValidationRun": false,
+    "unloadOnClose": true,
+    "closeDiscardsSourceSession": true,
+    "sourceValuesWritten": false,
+    "sharedBenchClock": false,
+    "features": [
+      "Q4 / Q4 x P3, 16 / 48 source states",
+      "automatic source phase joints",
+      "intrinsic envelope vs observed projection",
+      "paired observer angles",
+      "native record formats",
+      "Big Blue comparator and native manual checks/JSON"
+    ]
+  },
+  "foldGuide": {
+    "entry": "A0_ORIENTATION_CONTROLLER_BENCH.html#benchLensReturn",
+    "sourceFunction": "A0GameOfNumbers.mixerFold",
+    "phaseStations": [
+      0,
+      90,
+      180,
+      270,
+      360
+    ],
+    "foldAngles": [
+      0,
+      78,
+      33,
+      7,
+      0
+    ],
+    "phaseDegreesPerNativeMixerStep": 2,
+    "crownMarks": 20,
+    "crownIndices": [
+      0,
+      19
+    ],
+    "crownResetAtPhase": 360,
+    "newDrawing": "Bench SVG view reading original mixerFold; native Numbers renderer unchanged",
+    "newControls": "five manual phase presets plus existing phase slider",
+    "sharedLocalLensPhase": true,
+    "extraClock": false,
+    "integerGenerationIndependent": true,
+    "recordSchemaUnchanged": true,
+    "identityWith5B": false,
+    "identityWithAtlas": false
+  },
+  "verification": {
+    "atlasAndGuide": 1867,
+    "numbers": 23073,
+    "trinityLens": 1360,
+    "polish": 909,
+    "showcaseLive": 243,
+    "showcaseStructure": 79,
+    "benchMap": 184,
+    "foldCycle": 6225,
+    "original5B": 27902,
+    "sourceBank": 118,
+    "glbLinks": 149,
+    "browserAcceptance": "OPEN",
+    "coupledWindowFullTest": "FAIL_PREEXISTING_RESEARCH_BACKLOG_HASH_PIN",
+    "a0BinderHashConflicts": 8
+  },
+  "boundaries": [
+    "Native Atlas HTML, source model and Big Blue comparator unchanged. Atlas interactions retain their own scope and clock.",
+    "Same clock refers only to local Bench lens phase and mixerFold display, not Atlas, 5B, AM/VM measurement or integer return.",
+    "Mixer 360-degree endpoint is a declared view return, not the 5B terminal-zero proposal or a whole-machine Return.",
+    "Browser local-file access was denied earlier; no workaround attempted. Native renderer/pixel acceptance not performed.",
+    "Known unrelated binder/backlog conflicts not silently repinned; historical receipts remain unchanged.",
+    "Fourteen coupled scenarios, fifty tour stations, canonical counts, publication and research activation unchanged."
+  ]
+}

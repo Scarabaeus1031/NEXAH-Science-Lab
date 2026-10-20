@@ -1,0 +1,578 @@
+{
+  "anchors": [
+    {
+      "label": "73",
+      "occurrence_id": "73_TOP_LEFT",
+      "value": 73,
+      "x_px": 84,
+      "y_px": 410
+    },
+    {
+      "label": "XX",
+      "occurrence_id": "XX_TOP_CENTER",
+      "value": 20,
+      "x_px": 362,
+      "y_px": 410
+    },
+    {
+      "label": "57",
+      "occurrence_id": "57_TOP_RIGHT",
+      "value": 57,
+      "x_px": 639,
+      "y_px": 410
+    },
+    {
+      "label": "537",
+      "occurrence_id": "537_ROOT_ROOM",
+      "value": 537,
+      "x_px": 490,
+      "y_px": 571
+    },
+    {
+      "label": "594",
+      "occurrence_id": "594_RIGHT_LOWER",
+      "value": 594,
+      "x_px": 647,
+      "y_px": 656
+    },
+    {
+      "label": "57",
+      "occurrence_id": "57_BOTTOM_LEFT",
+      "value": 57,
+      "x_px": 330,
+      "y_px": 827
+    },
+    {
+      "label": "574",
+      "occurrence_id": "574_BOTTOM_RIGHT",
+      "value": 574,
+      "x_px": 400,
+      "y_px": 827
+    }
+  ],
+  "arithmetic": {
+    "537_plus_57_is_594": true,
+    "537_plus_reversed_73_is_574": true,
+    "XX_declared_as_20": true
+  },
+  "claim_boundary": [
+    "A label-centre coordinate is a declared measurement convention, not a recovered historical point map.",
+    "Arithmetic validity is separate from spatial selection.",
+    "No historical intent, pyramid geometry, Base-40 semantics, fractal, Pascal identity or physical mechanism is established."
+  ],
+  "coordinate_convention": {
+    "anchor_definition": "manually audited centre of printed label box",
+    "anchor_uncertainty_px": 4,
+    "origin": "upper_left_pixel",
+    "x_direction": "right",
+    "x_unit_px": 83,
+    "y_direction": "down",
+    "y_unit_px": 79
+  },
+  "decision": "UNDERDETERMINED_MULTIPLE_PLACEMENTS_FOR_SAME_VALUE",
+  "duplicate_conflicts": [
+    {
+      "a": "57_TOP_RIGHT",
+      "b": "57_BOTTOM_LEFT",
+      "distance_px": 519.00867,
+      "value": 57
+    }
+  ],
+  "gates": {
+    "G1_SOURCE": true,
+    "G2_EXTRACTION": true,
+    "G3_NUMBER_ONLY_FUNCTION": false,
+    "G4_ARITHMETIC": true,
+    "G5_EXACTLY_ONE_SHUFFLE_SELECTIVE_MODEL": false,
+    "G6_NEARBY_UNIQUE": false,
+    "G7_JITTER_STABLE": true
+  },
+  "jitter_trials": [
+    {
+      "duplicate_conflict": true,
+      "scores": {
+        "CRT_7_11": -0.069913140364,
+        "DECIMAL_CUT": -0.37080720425,
+        "DIGIT_TRIPLET": -0.323902867213,
+        "QRT20": -0.128780658048
+      },
+      "trial": 0
+    },
+    {
+      "duplicate_conflict": true,
+      "scores": {
+        "CRT_7_11": -0.120877859508,
+        "DECIMAL_CUT": -0.37732402682,
+        "DIGIT_TRIPLET": -0.323252459849,
+        "QRT20": -0.134634324323
+      },
+      "trial": 1
+    },
+    {
+      "duplicate_conflict": true,
+      "scores": {
+        "CRT_7_11": -0.05553847599,
+        "DECIMAL_CUT": -0.376020662306,
+        "DIGIT_TRIPLET": -0.314146756755,
+        "QRT20": -0.126829435957
+      },
+      "trial": 2
+    },
+    {
+      "duplicate_conflict": true,
+      "scores": {
+        "CRT_7_11": -0.120877859508,
+        "DECIMAL_CUT": -0.37732402682,
+        "DIGIT_TRIPLET": -0.323252459849,
+        "QRT20": -0.134634324323
+      },
+      "trial": 3
+    },
+    {
+      "duplicate_conflict": true,
+      "scores": {
+        "CRT_7_11": -0.075140291045,
+        "DECIMAL_CUT": -0.37732402682,
+        "DIGIT_TRIPLET": -0.325854089304,
+        "QRT20": -0.143740027418
+      },
+      "trial": 4
+    },
+    {
+      "duplicate_conflict": true,
+      "scores": {
+        "CRT_7_11": -0.111730345815,
+        "DECIMAL_CUT": -0.389054307447,
+        "DIGIT_TRIPLET": -0.299187387385,
+        "QRT20": -0.140487990598
+      },
+      "trial": 5
+    },
+    {
+      "duplicate_conflict": true,
+      "scores": {
+        "CRT_7_11": -0.085594592408,
+        "DECIMAL_CUT": -0.373413933278,
+        "DIGIT_TRIPLET": -0.325854089304,
+        "QRT20": -0.126829435957
+      },
+      "trial": 6
+    },
+    {
+      "duplicate_conflict": true,
+      "scores": {
+        "CRT_7_11": -0.081674229397,
+        "DECIMAL_CUT": -0.37732402682,
+        "DIGIT_TRIPLET": -0.312845942027,
+        "QRT20": -0.122926991774
+      },
+      "trial": 7
+    },
+    {
+      "duplicate_conflict": true,
+      "scores": {
+        "CRT_7_11": -0.075140291045,
+        "DECIMAL_CUT": -0.37732402682,
+        "DIGIT_TRIPLET": -0.325854089304,
+        "QRT20": -0.143740027418
+      },
+      "trial": 8
+    },
+    {
+      "duplicate_conflict": true,
+      "scores": {
+        "CRT_7_11": -0.090168349254,
+        "DECIMAL_CUT": -0.368852157479,
+        "DIGIT_TRIPLET": -0.320000423029,
+        "QRT20": -0.130081472776
+      },
+      "trial": 9
+    },
+    {
+      "duplicate_conflict": true,
+      "scores": {
+        "CRT_7_11": -0.075140291045,
+        "DECIMAL_CUT": -0.37732402682,
+        "DIGIT_TRIPLET": -0.325854089304,
+        "QRT20": -0.143740027418
+      },
+      "trial": 10
+    },
+    {
+      "duplicate_conflict": true,
+      "scores": {
+        "CRT_7_11": -0.077100472551,
+        "DECIMAL_CUT": -0.367548792965,
+        "DIGIT_TRIPLET": -0.313496349391,
+        "QRT20": -0.114471696043
+      },
+      "trial": 11
+    },
+    {
+      "duplicate_conflict": true,
+      "scores": {
+        "CRT_7_11": -0.106503195134,
+        "DECIMAL_CUT": -0.382537484876,
+        "DIGIT_TRIPLET": -0.329756533488,
+        "QRT20": -0.139837583234
+      },
+      "trial": 12
+    },
+    {
+      "duplicate_conflict": true,
+      "scores": {
+        "CRT_7_11": -0.111730345815,
+        "DECIMAL_CUT": -0.389054307447,
+        "DIGIT_TRIPLET": -0.331707755579,
+        "QRT20": -0.154796952604
+      },
+      "trial": 13
+    },
+    {
+      "duplicate_conflict": true,
+      "scores": {
+        "CRT_7_11": -0.075140291045,
+        "DECIMAL_CUT": -0.37732402682,
+        "DIGIT_TRIPLET": -0.325854089304,
+        "QRT20": -0.143740027418
+      },
+      "trial": 14
+    },
+    {
+      "duplicate_conflict": true,
+      "scores": {
+        "CRT_7_11": -0.071219928034,
+        "DECIMAL_CUT": -0.378627391334,
+        "DIGIT_TRIPLET": -0.299837794749,
+        "QRT20": -0.117723732862
+      },
+      "trial": 15
+    },
+    {
+      "duplicate_conflict": true,
+      "scores": {
+        "CRT_7_11": -0.09212853076,
+        "DECIMAL_CUT": -0.387750942933,
+        "DIGIT_TRIPLET": -0.320000423029,
+        "QRT20": -0.137886361143
+      },
+      "trial": 16
+    },
+    {
+      "duplicate_conflict": true,
+      "scores": {
+        "CRT_7_11": -0.081020835562,
+        "DECIMAL_CUT": -0.380582438105,
+        "DIGIT_TRIPLET": -0.312195534663,
+        "QRT20": -0.143089620054
+      },
+      "trial": 17
+    },
+    {
+      "duplicate_conflict": true,
+      "scores": {
+        "CRT_7_11": -0.073833503375,
+        "DECIMAL_CUT": -0.38384084939,
+        "DIGIT_TRIPLET": -0.306341868388,
+        "QRT20": -0.150244101057
+      },
+      "trial": 18
+    },
+    {
+      "duplicate_conflict": true,
+      "scores": {
+        "CRT_7_11": -0.088208167749,
+        "DECIMAL_CUT": -0.378627391334,
+        "DIGIT_TRIPLET": -0.332358162943,
+        "QRT20": -0.159349804151
+      },
+      "trial": 19
+    },
+    {
+      "duplicate_conflict": true,
+      "scores": {
+        "CRT_7_11": -0.062725808177,
+        "DECIMAL_CUT": -0.372762251021,
+        "DIGIT_TRIPLET": -0.303740238932,
+        "QRT20": -0.112520473951
+      },
+      "trial": 20
+    },
+    {
+      "duplicate_conflict": true,
+      "scores": {
+        "CRT_7_11": -0.126105010189,
+        "DECIMAL_CUT": -0.38384084939,
+        "DIGIT_TRIPLET": -0.325203681941,
+        "QRT20": -0.149593693693
+      },
+      "trial": 21
+    },
+    {
+      "duplicate_conflict": true,
+      "scores": {
+        "CRT_7_11": -0.110423558145,
+        "DECIMAL_CUT": -0.395571130017,
+        "DIGIT_TRIPLET": -0.32845571876,
+        "QRT20": -0.168455507245
+      },
+      "trial": 22
+    },
+    {
+      "duplicate_conflict": true,
+      "scores": {
+        "CRT_7_11": -0.128065191695,
+        "DECIMAL_CUT": -0.374065615535,
+        "DIGIT_TRIPLET": -0.312845942027,
+        "QRT20": -0.120325362318
+      },
+      "trial": 23
+    },
+    {
+      "duplicate_conflict": true,
+      "scores": {
+        "CRT_7_11": -0.09212853076,
+        "DECIMAL_CUT": -0.387750942933,
+        "DIGIT_TRIPLET": -0.303740238932,
+        "QRT20": -0.13073188014
+      },
+      "trial": 24
+    },
+    {
+      "duplicate_conflict": true,
+      "scores": {
+        "CRT_7_11": -0.101929438288,
+        "DECIMAL_CUT": -0.389705989704,
+        "DIGIT_TRIPLET": -0.299837794749,
+        "QRT20": -0.148943286329
+      },
+      "trial": 25
+    },
+    {
+      "duplicate_conflict": true,
+      "scores": {
+        "CRT_7_11": -0.060765626671,
+        "DECIMAL_CUT": -0.382537484876,
+        "DIGIT_TRIPLET": -0.316097978846,
+        "QRT20": -0.141788805326
+      },
+      "trial": 26
+    },
+    {
+      "duplicate_conflict": true,
+      "scores": {
+        "CRT_7_11": -0.096048893771,
+        "DECIMAL_CUT": -0.386447578419,
+        "DIGIT_TRIPLET": -0.329756533488,
+        "QRT20": -0.156748174695
+      },
+      "trial": 27
+    },
+    {
+      "duplicate_conflict": true,
+      "scores": {
+        "CRT_7_11": -0.09212853076,
+        "DECIMAL_CUT": -0.387750942933,
+        "DIGIT_TRIPLET": -0.320000423029,
+        "QRT20": -0.137886361143
+      },
+      "trial": 28
+    },
+    {
+      "duplicate_conflict": true,
+      "scores": {
+        "CRT_7_11": -0.081674229397,
+        "DECIMAL_CUT": -0.391661036475,
+        "DIGIT_TRIPLET": -0.320000423029,
+        "QRT20": -0.154796952604
+      },
+      "trial": 29
+    },
+    {
+      "duplicate_conflict": true,
+      "scores": {
+        "CRT_7_11": -0.10977016431,
+        "DECIMAL_CUT": -0.370155521993,
+        "DIGIT_TRIPLET": -0.315447571482,
+        "QRT20": -0.139837583234
+      },
+      "trial": 30
+    },
+    {
+      "duplicate_conflict": true,
+      "scores": {
+        "CRT_7_11": -0.109116770474,
+        "DECIMAL_CUT": -0.387750942933,
+        "DIGIT_TRIPLET": -0.336260607126,
+        "QRT20": -0.172357951428
+      },
+      "trial": 31
+    }
+  ],
+  "mode_independent": true,
+  "nearby_equal_or_better": {
+    "CRT_7_11": [
+      -5,
+      -4,
+      -3,
+      2,
+      3,
+      4,
+      5
+    ],
+    "DECIMAL_CUT": [
+      -5,
+      -4,
+      -3,
+      -2,
+      -1,
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "DIGIT_TRIPLET": [
+      -5,
+      -4,
+      -3,
+      -2,
+      -1,
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "QRT20": [
+      -5,
+      -4,
+      -3,
+      -2,
+      -1,
+      1,
+      2,
+      3,
+      4,
+      5
+    ]
+  },
+  "nearby_scores": {
+    "-1": {
+      "CRT_7_11": -0.189268542889,
+      "DECIMAL_CUT": -0.382537484876,
+      "DIGIT_TRIPLET": -0.271751501181,
+      "QRT20": -0.10101074984
+    },
+    "-2": {
+      "CRT_7_11": -0.117418053851,
+      "DECIMAL_CUT": -0.382537484876,
+      "DIGIT_TRIPLET": -0.271751501181,
+      "QRT20": -0.10101074984
+    },
+    "-3": {
+      "CRT_7_11": 0.37231211559,
+      "DECIMAL_CUT": -0.382537484876,
+      "DIGIT_TRIPLET": -0.271751501181,
+      "QRT20": -0.10101074984
+    },
+    "-4": {
+      "CRT_7_11": 0.444161822108,
+      "DECIMAL_CUT": -0.382537484876,
+      "DIGIT_TRIPLET": 0.205279910964,
+      "QRT20": -0.10101074984
+    },
+    "-5": {
+      "CRT_7_11": 0.444161822108,
+      "DECIMAL_CUT": -0.382537484876,
+      "DIGIT_TRIPLET": -0.232195428906,
+      "QRT20": -0.10101074984
+    },
+    "1": {
+      "CRT_7_11": -0.15575205943,
+      "DECIMAL_CUT": -0.382537484876,
+      "DIGIT_TRIPLET": -0.329756533488,
+      "QRT20": -0.139837583234
+    },
+    "2": {
+      "CRT_7_11": 0.362453880743,
+      "DECIMAL_CUT": -0.382537484876,
+      "DIGIT_TRIPLET": -0.329756533488,
+      "QRT20": -0.139837583234
+    },
+    "3": {
+      "CRT_7_11": 0.362453880743,
+      "DECIMAL_CUT": -0.382537484876,
+      "DIGIT_TRIPLET": -0.232195428906,
+      "QRT20": -0.090406623579
+    },
+    "4": {
+      "CRT_7_11": 0.37231211559,
+      "DECIMAL_CUT": -0.382537484876,
+      "DIGIT_TRIPLET": -0.232195428906,
+      "QRT20": -0.090406623579
+    },
+    "5": {
+      "CRT_7_11": 0.37231211559,
+      "DECIMAL_CUT": -0.382537484876,
+      "DIGIT_TRIPLET": -0.232195428906,
+      "QRT20": -0.090406623579
+    }
+  },
+  "observed_scores": {
+    "CRT_7_11": -0.106503195134,
+    "DECIMAL_CUT": -0.382537484876,
+    "DIGIT_TRIPLET": -0.329756533488,
+    "QRT20": -0.139837583234
+  },
+  "selective_models": [],
+  "shuffle_count": 2520,
+  "shuffle_summary": {
+    "CRT_7_11": {
+      "control_max": 0.709585705002,
+      "control_median": -0.011107695198,
+      "control_min": -0.552117790724,
+      "observed_rho": -0.106503195134,
+      "percentile": 0.34880952381,
+      "selective_at_0_95": false,
+      "upper_tail_fraction": 0.651984126984
+    },
+    "DECIMAL_CUT": {
+      "control_max": 0.810692727745,
+      "control_median": -0.021505514482,
+      "control_min": -0.561098423303,
+      "observed_rho": -0.382537484876,
+      "percentile": 0.044047619048,
+      "selective_at_0_95": false,
+      "upper_tail_fraction": 0.957142857143
+    },
+    "DIGIT_TRIPLET": {
+      "control_max": 0.822765315309,
+      "control_median": -0.020813035644,
+      "control_min": -0.679675695256,
+      "observed_rho": -0.329756533488,
+      "percentile": 0.083333333333,
+      "selective_at_0_95": false,
+      "upper_tail_fraction": 0.917857142857
+    },
+    "QRT20": {
+      "control_max": 0.688130990986,
+      "control_median": -0.024715479827,
+      "control_min": -0.53788688993,
+      "observed_rho": -0.139837583234,
+      "percentile": 0.284523809524,
+      "selective_at_0_95": false,
+      "upper_tail_fraction": 0.717857142857
+    }
+  },
+  "source_receipt": {
+    "declared_dimensions": [
+      724,
+      1086
+    ],
+    "exists": true,
+    "sha256": "242a2c47ac399438858f4eb66691d1aa139a8ea794bee0d8ff9147f0563e0b0a",
+    "sha256_pass": true
+  },
+  "study_id": "A0_BL_046_ROOT_ROOM_537_RECONSTRUCTION_2026_10_18"
+}

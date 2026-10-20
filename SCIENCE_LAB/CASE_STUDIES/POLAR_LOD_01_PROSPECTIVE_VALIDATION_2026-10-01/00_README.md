@@ -3,7 +3,7 @@
 Date: 2026-10-01
 Updated: 2026-10-02
 Owner: Human Owner
-Native status: `CUSTODY_REPAIR_IMPLEMENTED_PENDING_REVIEW / COLLECTION_RELEASE_NOT_GRANTED / NOT_READY_FOR_EXECUTION`
+Native status: `CUSTODY_REPAIR_2_IMPLEMENTED_PENDING_REVIEW / COLLECTION_RELEASE_NOT_GRANTED / NOT_READY_FOR_EXECUTION`
 Lab status: `FILED / NO_RESULT / NO_ACTIVATION`
 
 ## Question
@@ -83,6 +83,14 @@ raw-directory symlink escape. Custody Repair 1 closes those four paths and
 adds exact prefix-anchor verification. Nine local no-network tests pass. The
 repair still requires independent re-review before the collector may be
 called implementation-accepted.
+
+That re-review also returned `FAIL`: untracked or ignored package additions
+were not rejected, symlinks in ancestor path components could redirect output,
+and three anchor-semantic fields were not verified. Repair 2 adds exact package
+and Git inventory, component-by-component no-follow directory traversal and
+exact anchor schema, filename and byte verification. It also durably syncs
+new directory entries and writes raw, receipt and anchor artifacts before the
+ledger commit. Independent Repair 2 review remains pending.
 
 ## Package
 
