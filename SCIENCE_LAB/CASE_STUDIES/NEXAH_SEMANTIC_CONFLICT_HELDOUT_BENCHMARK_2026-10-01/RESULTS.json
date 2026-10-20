@@ -1,0 +1,278 @@
+{
+  "conditions": {
+    "condition_a": {
+      "abstention_consistency": 1.0,
+      "accuracy": 0.6736111111111112,
+      "critical_macro_f1": 0.6278766825879288,
+      "evidence_id_validity": 1.0,
+      "macro_f1": 0.6557593289482855,
+      "per_class": {
+        "Conflicting Evidence/Cherrypicking": {
+          "f1": 0.489795918367347,
+          "precision": 0.9230769230769231,
+          "recall": 0.3333333333333333,
+          "support": 36
+        },
+        "Not Enough Evidence": {
+          "f1": 0.7659574468085107,
+          "precision": 0.6206896551724138,
+          "recall": 1.0,
+          "support": 36
+        },
+        "Refuted": {
+          "f1": 0.6172839506172839,
+          "precision": 0.5555555555555556,
+          "recall": 0.6944444444444444,
+          "support": 36
+        },
+        "Supported": {
+          "f1": 0.75,
+          "precision": 0.8571428571428571,
+          "recall": 0.6666666666666666,
+          "support": 36
+        }
+      },
+      "replicates": [
+        {
+          "accuracy": 0.6666666666666666,
+          "critical_macro_f1": 0.6223908918406071,
+          "macro_f1": 0.6468597815846393,
+          "per_class": {
+            "Conflicting Evidence/Cherrypicking": {
+              "f1": 0.47058823529411764,
+              "precision": 0.8,
+              "recall": 0.3333333333333333,
+              "support": 12
+            },
+            "Not Enough Evidence": {
+              "f1": 0.7741935483870968,
+              "precision": 0.631578947368421,
+              "recall": 1.0,
+              "support": 12
+            },
+            "Refuted": {
+              "f1": 0.6153846153846153,
+              "precision": 0.5714285714285714,
+              "recall": 0.6666666666666666,
+              "support": 12
+            },
+            "Supported": {
+              "f1": 0.7272727272727272,
+              "precision": 0.8,
+              "recall": 0.6666666666666666,
+              "support": 12
+            }
+          }
+        },
+        {
+          "accuracy": 0.6458333333333334,
+          "critical_macro_f1": 0.575,
+          "macro_f1": 0.6208333333333333,
+          "per_class": {
+            "Conflicting Evidence/Cherrypicking": {
+              "f1": 0.4,
+              "precision": 1.0,
+              "recall": 0.25,
+              "support": 12
+            },
+            "Not Enough Evidence": {
+              "f1": 0.7499999999999999,
+              "precision": 0.6,
+              "recall": 1.0,
+              "support": 12
+            },
+            "Refuted": {
+              "f1": 0.5714285714285715,
+              "precision": 0.5,
+              "recall": 0.6666666666666666,
+              "support": 12
+            },
+            "Supported": {
+              "f1": 0.761904761904762,
+              "precision": 0.8888888888888888,
+              "recall": 0.6666666666666666,
+              "support": 12
+            }
+          }
+        },
+        {
+          "accuracy": 0.7083333333333334,
+          "critical_macro_f1": 0.6812144212523719,
+          "macro_f1": 0.697750067769043,
+          "per_class": {
+            "Conflicting Evidence/Cherrypicking": {
+              "f1": 0.5882352941176471,
+              "precision": 1.0,
+              "recall": 0.4166666666666667,
+              "support": 12
+            },
+            "Not Enough Evidence": {
+              "f1": 0.7741935483870968,
+              "precision": 0.631578947368421,
+              "recall": 1.0,
+              "support": 12
+            },
+            "Refuted": {
+              "f1": 0.6666666666666665,
+              "precision": 0.6,
+              "recall": 0.75,
+              "support": 12
+            },
+            "Supported": {
+              "f1": 0.761904761904762,
+              "precision": 0.8888888888888888,
+              "recall": 0.6666666666666666,
+              "support": 12
+            }
+          }
+        }
+      ],
+      "stability_rate": 0.875,
+      "stable_items": 42
+    },
+    "condition_b": {
+      "abstention_consistency": 1.0,
+      "accuracy": 0.5763888888888888,
+      "critical_macro_f1": 0.5199123127511874,
+      "evidence_id_validity": 1.0,
+      "macro_f1": 0.5623371087565462,
+      "per_class": {
+        "Conflicting Evidence/Cherrypicking": {
+          "f1": 0.4347826086956522,
+          "precision": 1.0,
+          "recall": 0.2777777777777778,
+          "support": 36
+        },
+        "Not Enough Evidence": {
+          "f1": 0.6050420168067226,
+          "precision": 0.43373493975903615,
+          "recall": 1.0,
+          "support": 36
+        },
+        "Refuted": {
+          "f1": 0.4761904761904762,
+          "precision": 0.5555555555555556,
+          "recall": 0.4166666666666667,
+          "support": 36
+        },
+        "Supported": {
+          "f1": 0.7333333333333334,
+          "precision": 0.9166666666666666,
+          "recall": 0.6111111111111112,
+          "support": 36
+        }
+      },
+      "replicates": [
+        {
+          "accuracy": 0.6041666666666666,
+          "critical_macro_f1": 0.5576923076923077,
+          "macro_f1": 0.5943223443223443,
+          "per_class": {
+            "Conflicting Evidence/Cherrypicking": {
+              "f1": 0.5,
+              "precision": 1.0,
+              "recall": 0.3333333333333333,
+              "support": 12
+            },
+            "Not Enough Evidence": {
+              "f1": 0.6153846153846153,
+              "precision": 0.4444444444444444,
+              "recall": 1.0,
+              "support": 12
+            },
+            "Refuted": {
+              "f1": 0.5,
+              "precision": 0.625,
+              "recall": 0.4166666666666667,
+              "support": 12
+            },
+            "Supported": {
+              "f1": 0.761904761904762,
+              "precision": 0.8888888888888888,
+              "recall": 0.6666666666666666,
+              "support": 12
+            }
+          }
+        },
+        {
+          "accuracy": 0.5625,
+          "critical_macro_f1": 0.4926829268292683,
+          "macro_f1": 0.5495996087780426,
+          "per_class": {
+            "Conflicting Evidence/Cherrypicking": {
+              "f1": 0.4,
+              "precision": 1.0,
+              "recall": 0.25,
+              "support": 12
+            },
+            "Not Enough Evidence": {
+              "f1": 0.5853658536585366,
+              "precision": 0.41379310344827586,
+              "recall": 1.0,
+              "support": 12
+            },
+            "Refuted": {
+              "f1": 0.4761904761904762,
+              "precision": 0.5555555555555556,
+              "recall": 0.4166666666666667,
+              "support": 12
+            },
+            "Supported": {
+              "f1": 0.7368421052631579,
+              "precision": 1.0,
+              "recall": 0.5833333333333334,
+              "support": 12
+            }
+          }
+        },
+        {
+          "accuracy": 0.5625,
+          "critical_macro_f1": 0.5076923076923077,
+          "macro_f1": 0.5424825174825174,
+          "per_class": {
+            "Conflicting Evidence/Cherrypicking": {
+              "f1": 0.4,
+              "precision": 1.0,
+              "recall": 0.25,
+              "support": 12
+            },
+            "Not Enough Evidence": {
+              "f1": 0.6153846153846153,
+              "precision": 0.4444444444444444,
+              "recall": 1.0,
+              "support": 12
+            },
+            "Refuted": {
+              "f1": 0.45454545454545453,
+              "precision": 0.5,
+              "recall": 0.4166666666666667,
+              "support": 12
+            },
+            "Supported": {
+              "f1": 0.7000000000000001,
+              "precision": 0.875,
+              "recall": 0.5833333333333334,
+              "support": 12
+            }
+          }
+        }
+      ],
+      "stability_rate": 0.9166666666666666,
+      "stable_items": 44
+    }
+  },
+  "decision": "SIGNAL_AGAINST_NEXAH",
+  "deltas_b_minus_a": {
+    "accuracy": -0.09722222222222232,
+    "critical_macro_f1": -0.1079643698367414,
+    "macro_f1": -0.09342222019173929
+  },
+  "evaluations_per_condition": 144,
+  "paired": {
+    "b_losses": 19,
+    "b_wins": 5,
+    "ties": 120
+  },
+  "sample_items": 48,
+  "schema": "nexah.semantic-conflict-heldout.results.1"
+}

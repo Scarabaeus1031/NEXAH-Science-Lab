@@ -1,0 +1,457 @@
+{
+  "experiment": "CA-IDENT-08",
+  "date": "2026-10-08",
+  "status": "EXECUTED_AGAINST_LOCK",
+  "preregistration_sha256": "e3ac8be441aa0822b3bb629695d22e7fa6557cd30f87f7cc3b0887e3612926a9",
+  "train_rows": 2500,
+  "train_distribution": {
+    "constant-count motion": 16,
+    "decay": 25,
+    "extinct": 1403,
+    "fixed": 261,
+    "growth": 538,
+    "period-2": 177,
+    "transient": 80
+  },
+  "collection": {
+    "first_seed": "R325",
+    "last_seed": "R504",
+    "seeds_used": 180,
+    "maximum_seed_count": 500,
+    "event_quota": 10,
+    "registered_event": "constant-count motion",
+    "registered_event_rows": 16,
+    "stop_reason": "EVENT_QUOTA_REACHED"
+  },
+  "evaluation_rows": 3600,
+  "evaluation_distribution": {
+    "constant-count motion": 16,
+    "decay": 42,
+    "extinct": 1988,
+    "fixed": 331,
+    "growth": 777,
+    "period-2": 286,
+    "transient": 160
+  },
+  "coverage_gate_pass": true,
+  "covered_classes": [
+    "constant-count motion",
+    "decay",
+    "extinct",
+    "fixed",
+    "growth",
+    "period-2",
+    "transient"
+  ],
+  "training_gate_selection": {
+    "tau": 0.8,
+    "lambda": 1,
+    "cv_macro_f1": 0.5257664603593714,
+    "cv_open_rate": 0.3036,
+    "candidate_count": 35
+  },
+  "results": {
+    "snapshot": {
+      "tau": -1,
+      "lambda": 0,
+      "opened": 0,
+      "open_rate": 0,
+      "correct": 2846,
+      "total": 3600,
+      "accuracy": 0.7905555555555556,
+      "macro_f1": 0.48912605693202604,
+      "classes": 7,
+      "per_class": {
+        "constant-count motion": {
+          "support": 16,
+          "predicted": 353,
+          "tp": 14,
+          "precision": 0.039660056657223795,
+          "recall": 0.875,
+          "f1": 0.07588075880758807
+        },
+        "decay": {
+          "support": 42,
+          "predicted": 229,
+          "tp": 9,
+          "precision": 0.039301310043668124,
+          "recall": 0.21428571428571427,
+          "f1": 0.06642066420664207
+        },
+        "extinct": {
+          "support": 1988,
+          "predicted": 1969,
+          "tp": 1969,
+          "precision": 1,
+          "recall": 0.9904426559356136,
+          "f1": 0.9951983826130907
+        },
+        "fixed": {
+          "support": 331,
+          "predicted": 158,
+          "tp": 156,
+          "precision": 0.9873417721518988,
+          "recall": 0.47129909365558914,
+          "f1": 0.6380368098159509
+        },
+        "growth": {
+          "support": 777,
+          "predicted": 506,
+          "tp": 506,
+          "precision": 1,
+          "recall": 0.6512226512226512,
+          "f1": 0.788776305533905
+        },
+        "period-2": {
+          "support": 286,
+          "predicted": 248,
+          "tp": 145,
+          "precision": 0.5846774193548387,
+          "recall": 0.506993006993007,
+          "f1": 0.5430711610486891
+        },
+        "transient": {
+          "support": 160,
+          "predicted": 137,
+          "tp": 47,
+          "precision": 0.34306569343065696,
+          "recall": 0.29375,
+          "f1": 0.3164983164983165
+        }
+      }
+    },
+    "always_open_history": {
+      "tau": 1,
+      "lambda": 1,
+      "opened": 3600,
+      "open_rate": 1,
+      "correct": 2975,
+      "total": 3600,
+      "accuracy": 0.8263888888888888,
+      "macro_f1": 0.5379037393760997,
+      "classes": 7,
+      "per_class": {
+        "constant-count motion": {
+          "support": 16,
+          "predicted": 234,
+          "tp": 14,
+          "precision": 0.05982905982905983,
+          "recall": 0.875,
+          "f1": 0.112
+        },
+        "decay": {
+          "support": 42,
+          "predicted": 227,
+          "tp": 11,
+          "precision": 0.048458149779735685,
+          "recall": 0.2619047619047619,
+          "f1": 0.08178438661710037
+        },
+        "extinct": {
+          "support": 1988,
+          "predicted": 1969,
+          "tp": 1969,
+          "precision": 1,
+          "recall": 0.9904426559356136,
+          "f1": 0.9951983826130907
+        },
+        "fixed": {
+          "support": 331,
+          "predicted": 279,
+          "tp": 278,
+          "precision": 0.996415770609319,
+          "recall": 0.8398791540785498,
+          "f1": 0.9114754098360656
+        },
+        "growth": {
+          "support": 777,
+          "predicted": 509,
+          "tp": 509,
+          "precision": 1,
+          "recall": 0.6550836550836551,
+          "f1": 0.791601866251944
+        },
+        "period-2": {
+          "support": 286,
+          "predicted": 247,
+          "tp": 146,
+          "precision": 0.5910931174089069,
+          "recall": 0.5104895104895105,
+          "f1": 0.5478424015009381
+        },
+        "transient": {
+          "support": 160,
+          "predicted": 135,
+          "tp": 48,
+          "precision": 0.35555555555555557,
+          "recall": 0.3,
+          "f1": 0.32542372881355935
+        }
+      }
+    },
+    "conditional_history": {
+      "tau": 0.8,
+      "lambda": 1,
+      "opened": 1162,
+      "open_rate": 0.3227777777777778,
+      "correct": 2975,
+      "total": 3600,
+      "accuracy": 0.8263888888888888,
+      "macro_f1": 0.5379037393760997,
+      "classes": 7,
+      "per_class": {
+        "constant-count motion": {
+          "support": 16,
+          "predicted": 234,
+          "tp": 14,
+          "precision": 0.05982905982905983,
+          "recall": 0.875,
+          "f1": 0.112
+        },
+        "decay": {
+          "support": 42,
+          "predicted": 227,
+          "tp": 11,
+          "precision": 0.048458149779735685,
+          "recall": 0.2619047619047619,
+          "f1": 0.08178438661710037
+        },
+        "extinct": {
+          "support": 1988,
+          "predicted": 1969,
+          "tp": 1969,
+          "precision": 1,
+          "recall": 0.9904426559356136,
+          "f1": 0.9951983826130907
+        },
+        "fixed": {
+          "support": 331,
+          "predicted": 279,
+          "tp": 278,
+          "precision": 0.996415770609319,
+          "recall": 0.8398791540785498,
+          "f1": 0.9114754098360656
+        },
+        "growth": {
+          "support": 777,
+          "predicted": 509,
+          "tp": 509,
+          "precision": 1,
+          "recall": 0.6550836550836551,
+          "f1": 0.791601866251944
+        },
+        "period-2": {
+          "support": 286,
+          "predicted": 247,
+          "tp": 146,
+          "precision": 0.5910931174089069,
+          "recall": 0.5104895104895105,
+          "f1": 0.5478424015009381
+        },
+        "transient": {
+          "support": 160,
+          "predicted": 135,
+          "tp": 48,
+          "precision": 0.35555555555555557,
+          "recall": 0.3,
+          "f1": 0.32542372881355935
+        }
+      }
+    }
+  },
+  "conditional_delta_vs_snapshot": 0.048777682444073656,
+  "conditional_delta_vs_always_open": 0,
+  "protected_recall_floor_pass": true,
+  "primary_gate_pass": true,
+  "specificity_gate_pass": false,
+  "observer_resolution": {
+    "M_contract": 7,
+    "labels": [
+      "constant-count motion",
+      "decay",
+      "extinct",
+      "fixed",
+      "growth",
+      "period-2",
+      "transient"
+    ],
+    "maximum_pairwise_distance": 2.476457076701871,
+    "sweep": [
+      {
+        "epsilon_ratio": 0,
+        "epsilon": 0,
+        "N_epsilon": 7,
+        "equal_prior_identification_ceiling_bits": 2.807354922057604,
+        "components": [
+          [
+            "constant-count motion"
+          ],
+          [
+            "decay"
+          ],
+          [
+            "extinct"
+          ],
+          [
+            "fixed"
+          ],
+          [
+            "growth"
+          ],
+          [
+            "period-2"
+          ],
+          [
+            "transient"
+          ]
+        ]
+      },
+      {
+        "epsilon_ratio": 0.05,
+        "epsilon": 0.12382285383509356,
+        "N_epsilon": 5,
+        "equal_prior_identification_ceiling_bits": 2.321928094887362,
+        "components": [
+          [
+            "constant-count motion",
+            "fixed",
+            "period-2"
+          ],
+          [
+            "decay"
+          ],
+          [
+            "extinct"
+          ],
+          [
+            "growth"
+          ],
+          [
+            "transient"
+          ]
+        ]
+      },
+      {
+        "epsilon_ratio": 0.1,
+        "epsilon": 0.24764570767018712,
+        "N_epsilon": 5,
+        "equal_prior_identification_ceiling_bits": 2.321928094887362,
+        "components": [
+          [
+            "constant-count motion",
+            "fixed",
+            "period-2"
+          ],
+          [
+            "decay"
+          ],
+          [
+            "extinct"
+          ],
+          [
+            "growth"
+          ],
+          [
+            "transient"
+          ]
+        ]
+      },
+      {
+        "epsilon_ratio": 0.2,
+        "epsilon": 0.49529141534037424,
+        "N_epsilon": 2,
+        "equal_prior_identification_ceiling_bits": 1,
+        "components": [
+          [
+            "constant-count motion",
+            "decay",
+            "extinct",
+            "fixed",
+            "period-2",
+            "transient"
+          ],
+          [
+            "growth"
+          ]
+        ]
+      },
+      {
+        "epsilon_ratio": 0.4,
+        "epsilon": 0.9905828306807485,
+        "N_epsilon": 2,
+        "equal_prior_identification_ceiling_bits": 1,
+        "components": [
+          [
+            "constant-count motion",
+            "decay",
+            "extinct",
+            "fixed",
+            "period-2",
+            "transient"
+          ],
+          [
+            "growth"
+          ]
+        ]
+      },
+      {
+        "epsilon_ratio": 0.6,
+        "epsilon": 1.4858742460211225,
+        "N_epsilon": 2,
+        "equal_prior_identification_ceiling_bits": 1,
+        "components": [
+          [
+            "constant-count motion",
+            "decay",
+            "extinct",
+            "fixed",
+            "period-2",
+            "transient"
+          ],
+          [
+            "growth"
+          ]
+        ]
+      },
+      {
+        "epsilon_ratio": 0.8,
+        "epsilon": 1.981165661361497,
+        "N_epsilon": 1,
+        "equal_prior_identification_ceiling_bits": 0,
+        "components": [
+          [
+            "constant-count motion",
+            "decay",
+            "extinct",
+            "fixed",
+            "growth",
+            "period-2",
+            "transient"
+          ]
+        ]
+      },
+      {
+        "epsilon_ratio": 1,
+        "epsilon": 2.476457076701871,
+        "N_epsilon": 1,
+        "equal_prior_identification_ceiling_bits": 0,
+        "components": [
+          [
+            "constant-count motion",
+            "decay",
+            "extinct",
+            "fixed",
+            "growth",
+            "period-2",
+            "transient"
+          ]
+        ]
+      }
+    ],
+    "audit_pass": true
+  },
+  "observer_resolution_audit_pass": true,
+  "verdict": "GAIN_WITHOUT_GATE_SPECIFICITY",
+  "interpretation": "The residual channel is admitted only by a training-selected low-confidence gate. Observer class count is separately computed from finite training-class prototypes and must not be confused with state count, sample support, predictions, or Shannon capacity.",
+  "claim_ceiling": "Internal deterministic fixture. No universal observer law, physical Kappa field, causal mechanism, biological law, resonance identity, unlimited recursive hierarchy, or external utility is established."
+}

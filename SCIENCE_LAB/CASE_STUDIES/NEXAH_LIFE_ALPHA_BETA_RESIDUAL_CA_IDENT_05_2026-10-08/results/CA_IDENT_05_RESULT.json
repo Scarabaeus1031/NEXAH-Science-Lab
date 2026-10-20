@@ -1,0 +1,26 @@
+{
+  "experiment": "CA-IDENT-05",
+  "date": "2026-10-08",
+  "status": "EXECUTED_AGAINST_LOCK",
+  "preregistration_sha256": "f7520b7bcfa18792cf73af61850ed38bf9a65069c834c5ea5bdf7ea2508d1ede",
+  "train_rows": 500,
+  "holdout_rows": 2000,
+  "train_distribution": {"decay": 3, "extinct": 272, "fixed": 63, "growth": 108, "period-2": 26, "transient": 28},
+  "holdout_distribution": {"constant-count motion": 19, "decay": 30, "extinct": 1128, "fixed": 193, "growth": 438, "period-2": 143, "transient": 49},
+  "coverage_minimum": 10,
+  "coverage_gate_pass": true,
+  "novel_holdout_classes": ["constant-count motion"],
+  "results": [
+    {"family": "fourier_A", "weights": {"A_fourier": 1, "B_memory": 0}, "accuracy": 0.8835, "macro_f1": 0.530735840871442, "per_class_recall": {"constant-count motion": 0, "decay": 0.03333333333333333, "extinct": 0.9902482269503546, "fixed": 0.7150259067357513, "growth": 0.8835616438356164, "period-2": 0.6923076923076923, "transient": 0.5102040816326531}},
+    {"family": "P_63_1", "weights": {"A_fourier": 0.984375, "B_memory": 0.015625}, "accuracy": 0.887, "macro_f1": 0.5276849760265598, "per_class_recall": {"constant-count motion": 0, "decay": 0, "extinct": 0.9902482269503546, "fixed": 0.7046632124352331, "growth": 0.8995433789954338, "period-2": 0.6923076923076923, "transient": 0.5714285714285714}},
+    {"family": "P_equal", "weights": {"A_fourier": 0.5, "B_memory": 0.5}, "accuracy": 0.927, "macro_f1": 0.5853203162272669, "per_class_recall": {"constant-count motion": 0, "decay": 0, "extinct": 0.9902482269503546, "fixed": 0.9015544041450777, "growth": 0.9178082191780822, "period-2": 0.958041958041958, "transient": 0.4897959183673469}},
+    {"family": "P_1_63_reverse_control", "weights": {"A_fourier": 0.015625, "B_memory": 0.984375}, "accuracy": 0.9325, "macro_f1": 0.6083678283665357, "per_class_recall": {"constant-count motion": 0, "decay": 0.1, "extinct": 0.9902482269503546, "fixed": 0.9844559585492227, "growth": 0.8949771689497716, "period-2": 0.986013986013986, "transient": 0.4489795918367347}}
+  ],
+  "p_63_1_delta_vs_fourier": -0.0030508648448821507,
+  "p_63_1_recall_noninferior": false,
+  "primary_gate_pass": false,
+  "specificity_gate_pass": false,
+  "verdict": "ALPHA_BETA_NO_GAIN",
+  "interpretation": "The 63/64 Fourier plus 1/64 Memory assignment is not supported. The reversed control is strongest, while a novel unseen behavior class exposes a training-coverage gap not covered by the preregistered minimum-support gate.",
+  "claim_ceiling": "Internal deterministic fixture. No physical resonance, radiance, biological mechanism, Life/E8 identity, quantum link, universal ratio law or external utility is established."
+}

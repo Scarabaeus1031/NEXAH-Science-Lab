@@ -1,0 +1,103 @@
+{
+  "active_gate": "P4_TYPED_E8_ADE_COMPARISON_ADAPTER",
+  "build_authority": "HUMAN_OWNER_2026-10-07",
+  "overall": "PASS",
+  "delivery": "DIRECT_FILE_HTML_PLUS_REPRODUCIBLE_GLB_PLUS_TYPED_COMPARISON",
+  "network_required": false,
+  "engine_contract": {
+    "rule": "B3/S23",
+    "update": "synchronous",
+    "boundary": "finite-dead",
+    "p1_parity_fixtures": [
+      "block",
+      "blinker",
+      "glider"
+    ],
+    "p1_parity_tests": 3
+  },
+  "views": [
+    "V1_FIELD",
+    "V2_SPACE_TIME_BODY",
+    "V3_SYNCHRONIZED_SLICE",
+    "V6_CAUSAL_INSPECTOR",
+    "RETURN_CLASS_DISPLAY",
+    "INTERACTIVE_WEBGL_SCENE",
+    "GLB_EXPORT",
+    "V5_TYPED_LIFE_E8_COMPARISON"
+  ],
+  "glb_contract": {
+    "deterministic_reference_assets": 3,
+    "metadata": [
+      "lattice_x",
+      "lattice_y",
+      "generation",
+      "source_state_hash"
+    ],
+    "renderer_exporter": "three@0.147.0",
+    "license": "MIT",
+    "authority": "projection_only_P1_run_remains_authoritative"
+  },
+  "comparison_contract": {
+    "adapter_schema": "nexah.life-e8.typed-comparison.v1",
+    "e8_fixture": "E8_WORD_ORBIT_CANONICAL_C",
+    "e8_fixture_sha256": "ad44b85fe113241239c37c03a3db80edaea20cde9eafb63d53bde4fe6c513cad",
+    "headings": 8,
+    "mechanism_identity": false,
+    "carrier_identity": false,
+    "operator_identity": false,
+    "physical_claim": false
+  },
+  "validation": {
+    "node_tests": {
+      "passed": 14,
+      "failed": 0
+    },
+    "static_audit": {
+      "passed": 30,
+      "failed": 0
+    },
+    "deterministic_glb_replays": {
+      "passed": 3,
+      "failed": 0
+    },
+    "headless_chrome_render": "PASS",
+    "syntax_checked": [
+      "app.js",
+      "life-browser.js",
+      "p3-scene.js",
+      "p4-adapter.js"
+    ]
+  },
+  "excluded": [
+    "Science Navigator integration",
+    "publication",
+    "deployment",
+    "claim promotion"
+  ],
+  "sha256": {
+    "README.md": "9dd771945a4920e2c79105a42021406a5b776e724495bacf4c58054d2b764a89",
+    "index.html": "057413de6b94b44274c5db040c4b146b5e26e0090470862755898f7f39db538c",
+    "styles.css": "ebb193704162869a742261d43efc6f5cb20fdd35443e09bcb499e0152538537c",
+    "life-browser.js": "bd82b110b33624a53e9c2dccf58333eab0bfec44bdca70d8fe78fdfaf8297f7e",
+    "app.js": "c9c3493d7ae58757e0a6441c33d9f5f59539f5713bedfe7542e98f4363741d9f",
+    "p3-scene.js": "3b51e684038ab5bc5257e5c667c74c20a49a9334fa9f69590e366ce98db86668",
+    "p4-adapter.js": "5c02b44b265ab0028f2a2125f8ef7834e0b2dadd66f728d4c9e0532126208129",
+    "audit-p3.cjs": "258140a8cc251f2be9f64690c6f1583603137460e50c10fece205ce2dc2bcf00",
+    "audit-p4.cjs": "fe2d819196540b97026afa2ac2f51413d52ebf7ff1a33f2bf5ee15248f70f68e",
+    "package.json": "fcb7b45a5ce8e0912272cfe6c1daf68adbfd2755a68b722660c9518e27ac51c0",
+    "tests/p2-parity.test.cjs": "acb8a705badf864d45adfbabb7f0320ef28a289679e740dc2861f3e633b29b9d",
+    "tests/p3-glb.test.cjs": "1d587fccd68efb798e599a33a31b1696b7a4538306377c5d8bec3dd4a2388f40",
+    "tests/p4-adapter.test.cjs": "c17451a20c6b39971907c0ed6681ea3d46595a214c73e856ca0fba2c041252fa",
+    "scripts/glb-core.cjs": "039291ca6d3ae9f0e49f3019440ce758e63ee48e3080eabc670235b66c3746cd",
+    "scripts/build-p3-assets.cjs": "8784a6e101ee247adb4d9bdc560516b213408b66819147a21fafe3131097caf2",
+    "scripts/build-receipts.cjs": "5168fd33817373ade78fe4b36ed3b079689ea043ed9730b5b41df532fb076f53",
+    "vendor/three-0.147.0/three.min.js": "f34446bf875b5fb0dcd93819ffe1d9e182d46634ee855f5d904c6c4ac7cdbc95",
+    "vendor/three-0.147.0/OrbitControls.js": "b4c6e53f98538535b11fd6655627d47fb5877b3ad972568bff0a7026c4b6d5c4",
+    "vendor/three-0.147.0/GLTFExporter.js": "7ba9cf5888ff8c11768ff805d50081c383a91ae4dbf487750065bbbeccd45077",
+    "vendor/three-0.147.0/LICENSE": "fbf3943930dacbf56aabb8dc5d816440bd16aa6f4cc78ddbdf12106ee1807832",
+    "assets/nexah-life-orbit-block-p1.glb": "4b716250400c2fb2bb3d856d6990898ee068628a5ecfb7ffa7e2d30e7f180698",
+    "assets/nexah-life-orbit-blinker-p1.glb": "8a274d47e9577b82e65be8ada9e7f18a8ea29cd87884d1c656ce0441bc067882",
+    "assets/nexah-life-orbit-glider-p1.glb": "af4b372c3ada883d3d23662f4a38ed00e6962be2c6e2a0c24965bd20153c8038",
+    "assets/P3_ASSET_MANIFEST.json": "07db5b833d16198639d7cf755840fac6adae3181aee03273a8a5399c304efc88"
+  }
+}

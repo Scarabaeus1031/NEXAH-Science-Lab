@@ -1,0 +1,86 @@
+{
+  "active_gate": "P1_DETERMINISTIC_LIFE_KERNEL",
+  "build_authority": "HUMAN_OWNER_2026-10-07",
+  "engine_version": "life01-p1-0.1.0",
+  "excluded": [
+    "UI",
+    "3D rendering",
+    "GLB export",
+    "E8 adapter",
+    "Navigator integration",
+    "publication"
+  ],
+  "fixture_count": 3,
+  "fixtures": [
+    {
+      "fixture": "block",
+      "output_hash": "5c925e43a4629b301564df761aedf17e04372dce73f9e57e983bf8357b7720de",
+      "replay_byte_identical": true,
+      "return_event": {
+        "base_generation": 0,
+        "detected_generation": 1,
+        "period": 1,
+        "translation": [
+          0,
+          0
+        ],
+        "type": "FIXED_POINT"
+      },
+      "state_hashes": [
+        "a6b576ef3feb0be6a448899989a2a9fd93366d3ed4c8156e48a207034c300b70",
+        "a6b576ef3feb0be6a448899989a2a9fd93366d3ed4c8156e48a207034c300b70"
+      ]
+    },
+    {
+      "fixture": "blinker",
+      "output_hash": "658b40cc3510c7cb3250bcbfe2e7556728d2aabb86e3ef6e4b1984bf3ac09f00",
+      "replay_byte_identical": true,
+      "return_event": {
+        "base_generation": 0,
+        "detected_generation": 2,
+        "period": 2,
+        "translation": [
+          0,
+          0
+        ],
+        "type": "EXACT_PERIODIC_RETURN"
+      },
+      "state_hashes": [
+        "c570305d98f42fa2989289dd0e29901080dcdcb8f83f7d08de3794da7eab5265",
+        "13bca8ae03a1cd119ba4734277989af78fcdce9dc944f8d32f72ace14ea38226",
+        "c570305d98f42fa2989289dd0e29901080dcdcb8f83f7d08de3794da7eab5265"
+      ]
+    },
+    {
+      "fixture": "glider",
+      "output_hash": "ed81fba010548399c031351fcfb58e2c42afb1510c1ae51fa75571e02c971882",
+      "replay_byte_identical": true,
+      "return_event": {
+        "base_generation": 0,
+        "detected_generation": 4,
+        "period": 4,
+        "translation": [
+          1,
+          1
+        ],
+        "type": "TRANSLATED_RETURN"
+      },
+      "state_hashes": [
+        "ca597935cd1e9d37382a35e35cdb04a0852101b18e69e7d778bbef424f207ed2",
+        "3372dd7c37e1171b02d75a33adb6b166556903a5ff46409aeaee590c45c0aa8d",
+        "7de91c94e34c643b51df81f2e366a3eda24daa377a62362c2db1a895c1d9d3e8",
+        "ce27fdb6ee7fe683bff208e960af720154ae16dcba6c675be62d1bb09bfd8b42",
+        "ff33a714e561b561504d59139800efbec0a28a236eaee0d9cddcdaaa8362abad"
+      ]
+    }
+  ],
+  "overall": "PASS",
+  "scope": [
+    "B3/S23",
+    "finite-dead boundary",
+    "synchronous update",
+    "canonical states and SHA-256",
+    "fixed, exact-periodic and translated return",
+    "byte-identical replay"
+  ]
+}

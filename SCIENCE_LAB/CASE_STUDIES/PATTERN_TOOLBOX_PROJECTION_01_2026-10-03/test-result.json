@@ -1,0 +1,163 @@
+{
+  "artifact_type": "PATTERN_TOOLBOX_PROJECTION_01_RESULT",
+  "date": "2026-10-03",
+  "status": "PASS_BOUNDED",
+  "source": {
+    "model_path": "NEXAH_TRANSLATION_AUDIT_REPORT_01/FROZEN_CHAIN/03_HTML_INSTRUMENT/ROEDELHEIM_OBSERVATORY_THREAD_LOOM_PROJECTION_MODEL_0_4.js",
+    "sha256": "f6f48b8a1d5c043ad4d59e4dc4c31937953f65d72cd139c3753ebf295462b56e",
+    "source_records": 964,
+    "displayed_records_per_view": 964
+  },
+  "test_summary": {
+    "passed": 19,
+    "failed": 0,
+    "total": 19,
+    "checks": [
+      {
+        "id": "P01",
+        "name": "frozen model hash",
+        "status": "PASS"
+      },
+      {
+        "id": "P02",
+        "name": "deterministic source generation",
+        "status": "PASS"
+      },
+      {
+        "id": "P03",
+        "name": "four stable source identities",
+        "status": "PASS"
+      },
+      {
+        "id": "P04",
+        "name": "241 ordered samples per identity",
+        "status": "PASS"
+      },
+      {
+        "id": "P05",
+        "name": "exactly four authorised fixed projections",
+        "status": "PASS"
+      },
+      {
+        "id": "P06",
+        "name": "identity and index preserved",
+        "status": "PASS"
+      },
+      {
+        "id": "P07",
+        "name": "declared projection equations exact within numeric tolerance",
+        "status": "PASS"
+      },
+      {
+        "id": "P08",
+        "name": "0 and 180 degree mirror relation",
+        "status": "PASS"
+      },
+      {
+        "id": "P09",
+        "name": "90 and 270 degree mirror relation",
+        "status": "PASS"
+      },
+      {
+        "id": "P10",
+        "name": "A and B collapse exactly at 90 degrees",
+        "status": "PASS"
+      },
+      {
+        "id": "P11",
+        "name": "A and B collapse exactly at 270 degrees",
+        "status": "PASS"
+      },
+      {
+        "id": "P12",
+        "name": "no collapse at 0 degrees",
+        "status": "PASS"
+      },
+      {
+        "id": "P13",
+        "name": "no collapse at 180 degrees",
+        "status": "PASS"
+      },
+      {
+        "id": "P14",
+        "name": "projected coincidence does not merge records",
+        "status": "PASS"
+      },
+      {
+        "id": "P15",
+        "name": "projection and masking do not mutate source",
+        "status": "PASS"
+      },
+      {
+        "id": "P16",
+        "name": "classification is complete and exclusive",
+        "status": "PASS"
+      },
+      {
+        "id": "P17",
+        "name": "full-trace gate changes recoverable to unknown only",
+        "status": "PASS"
+      },
+      {
+        "id": "P18",
+        "name": "unknown samples are non-renderable and complement is involutive",
+        "status": "PASS"
+      },
+      {
+        "id": "P19",
+        "name": "unsupported projections and invalid source resolution fail closed",
+        "status": "PASS"
+      }
+    ]
+  },
+  "views": [
+    {
+      "angle_degrees": 0,
+      "records": 964,
+      "projection_collisions": 0
+    },
+    {
+      "angle_degrees": 90,
+      "records": 964,
+      "projection_collisions": 241
+    },
+    {
+      "angle_degrees": 180,
+      "records": 964,
+      "projection_collisions": 0
+    },
+    {
+      "angle_degrees": 270,
+      "records": 964,
+      "projection_collisions": 241
+    }
+  ],
+  "canonical_90_degree_audit": {
+    "retained": [
+      "source_identity",
+      "sample_index",
+      "phase",
+      "y_as_v",
+      "z_as_u",
+      "source_provenance"
+    ],
+    "lost": [
+      "source_x_in_display_record",
+      "visible_A_B_separation"
+    ],
+    "introduced": [],
+    "unresolved": [],
+    "ab_visible_collisions": 241,
+    "projection_equation_residual_max": 0,
+    "mirror_relation_residual_max": 0,
+    "return_state": "PASS_BOUNDED_WITH_DECLARED_LOSS"
+  },
+  "controls": {
+    "source_identities_merged": false,
+    "source_mutated": false,
+    "projected_coincidence_implies_source_identity": false,
+    "blind_unknown_count": 219,
+    "hidden_geometry_invented": false
+  },
+  "claim_ceiling": "SYNTHETIC_ORTHOGRAPHIC_PROJECTION_AND_RECORD_DISCIPLINE_ONLY"
+}

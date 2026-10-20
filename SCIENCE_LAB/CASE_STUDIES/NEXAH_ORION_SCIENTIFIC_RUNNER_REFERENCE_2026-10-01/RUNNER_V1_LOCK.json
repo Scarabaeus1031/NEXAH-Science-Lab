@@ -1,0 +1,38 @@
+{
+  "freeze_date": "2026-10-01",
+  "release_id": "ORION_SCIENTIFIC_RUNNER_V1",
+  "status": "FROZEN_REFERENCE_RELEASE",
+  "components": {
+    "contract": {
+      "path": "02_RUNNER_CONTRACT.md",
+      "sha256": "080af76aa9512101920ca064fbaf20b55b171706f94d05a8b812eb61f2e484c5"
+    },
+    "primary_result": {
+      "path": "outputs/primary.json",
+      "sha256": "88544f82ca3f87bbf47a2cd8cd91f4c47a13cb87e31709fd018e8f25656e80c1"
+    },
+    "reference_protocol": {
+      "path": "config/orion_reference_v1.json",
+      "sha256": "78e72f62baf8ec92220697fd06650e18253f99643244d335eaa5658cad6efa2c"
+    },
+    "reference_result_report": {
+      "path": "03_REFERENCE_EXPERIMENT_RESULT.md",
+      "sha256": "d8b31095742a5f88bc4d65d7f9d7904177f54f7bb0a6237caaaae44a5162a332"
+    },
+    "replay_result": {
+      "path": "outputs/replay.json",
+      "sha256": "88544f82ca3f87bbf47a2cd8cd91f4c47a13cb87e31709fd018e8f25656e80c1"
+    },
+    "runner": {
+      "path": "scripts/orion_scientific_runner_v1.py",
+      "sha256": "3b7f3d788def35d62d9bb7aacf21d73b2bdec6a0742aca7f4e1912e2aec69928"
+    },
+    "test_suite": {
+      "path": "tests/test_orion_scientific_runner_v1.py",
+      "sha256": "2ce51748982de6885e689a305cc2762b2282a754458a2cff5a90e896f527bd71"
+    }
+  },
+  "mutation_rule": "ANY_BEHAVIORAL_CHANGE_REQUIRES_NEW_VERSION_AND_NEW_LOCK",
+  "replay_requirement": "PRIMARY_AND_REPLAY_MUST_BE_BYTE_IDENTICAL",
+  "activation": false
+}

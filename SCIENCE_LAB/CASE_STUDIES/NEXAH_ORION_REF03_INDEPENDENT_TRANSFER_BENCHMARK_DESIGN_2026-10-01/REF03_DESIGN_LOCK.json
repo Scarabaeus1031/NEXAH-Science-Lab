@@ -1,0 +1,37 @@
+{
+  "activation": false,
+  "benchmark_id": "ORION_REF03A_R1_SELF_PREREGISTERED_INTERNAL_VALIDATION",
+  "design_date": "2026-10-01",
+  "execution_authorized": true,
+  "execution_authorization_basis": "Human Owner accepted the REF03-A solo-research protocol in chat on 2026-10-01.",
+  "ground_truth_status": "REF03A_ANALYTIC_ORACLE_PREOUTPUT_LOCKED__REF03B_EXTERNAL_AUTHORITY_PENDING",
+  "preexecution_artifacts": {
+    "admission_status": "REF03A_SELF_PREREGISTERED__NOT_REF03B_ADMITTED",
+    "baseline_spec_sha256": "9d07e93d7e40e72ab2235d04d353bda5e9f272a6b65b20f7cf576b25988e15c0",
+    "baseline_runner_sha256": "ffc3379b731f1c527fc1c8a4dba874df5e643d09092f5dfbc177bdf95c25c410",
+    "baseline_tests_sha256": "daf400af3c33848c7b6a8a1a0a0437267700563d2fc10a4368a030ed6002624e",
+    "ground_truth_candidate_sha256": "6156dfd8954e535bafcc51a78366a509b03262c491e6f9147fc6d195b8aef2e1",
+    "oracle_runner_sha256": "e763c98efd5f5953eb56a6fc61bdc1973aaae703a528e9bf484d1104200c59a1",
+    "oracle_tests_sha256": "cb117fd8fdf58ad1826d0a3bee52ad6888cdf9fbc9587f9cd1e63f42577fa516",
+    "protocol_candidate_sha256": "3593f8dd287254027acd54c626b1f6a3d5f481b599479817e6083b8b961b872f",
+    "result_template_sha256": "d4b72395e576e54fbbd68445667bd8aef78eb1fdbd813092801b6f54f7544ff6",
+    "solo_protocol_sha256": "d7e64a19176582cb464da56266b58f9f99227e1017afb221cedffa84f446a885",
+    "states_candidate_sha256": "6085cf28e512a72c07b4c09375f70d3b7ca92bf9d5e067d57890210c16450feb"
+  },
+  "result_artifacts": {
+    "baseline_output_sha256": "e578cd8538aa320a2e6fa4caeb50976f22d8b40caec55c1701a6ef1ccec75fec",
+    "execution_lock_sha256": "8928bfd10dfd8bdad1c38da461ba81aec8da1a82857f7696cf43521bb753611d",
+    "oracle_output_sha256": "10c1d9db202ea77d02edab2545394e25019a282d864d0880e25d74b0c42e84c0",
+    "primary_output_sha256": "d6a8645830ee15f14c4b179ec033b9db488b7f079ea51ccace4eecba7e614e0f",
+    "replay_output_sha256": "d6a8645830ee15f14c4b179ec033b9db488b7f079ea51ccace4eecba7e614e0f"
+  },
+  "required_baselines": [
+    "B0_RAW_REPRESENTATION_EQUALITY",
+    "B1_SCALAR_TOLERANCE_PASS_FAIL"
+  ],
+  "runner_sha256": "3b7f3d788def35d62d9bb7aacf21d73b2bdec6a0742aca7f4e1912e2aec69928",
+  "runner_v1_lock_sha256": "1f3e9002a9b3683692587d604561c78b0057a30f6e3f7571acb6f14ccba97ead",
+  "status": "REF03A_R1_INTERNAL_VALIDATION_PASS__REF03B_PENDING",
+  "stop_on_out_of_registry_operation": true,
+  "target": "UNCHANGED_RUNNER_AGAINST_SEPARATE_ANALYTIC_ORACLE"
+}

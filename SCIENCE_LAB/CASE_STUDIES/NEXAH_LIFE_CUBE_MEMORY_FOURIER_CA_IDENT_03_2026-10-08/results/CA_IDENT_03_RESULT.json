@@ -1,0 +1,27 @@
+{
+  "experiment":"CA-IDENT-03",
+  "date":"2026-10-08",
+  "status":"EXECUTED_AGAINST_LOCK",
+  "preregistration_sha256":"969dd51f781f58083ba96bf9ad93dac779203323b9fcda5b84df65d904baa9bc",
+  "train_rows":300,
+  "holdout_rows":100,
+  "target":"12-generation behavior class on independent deterministic seed holdouts",
+  "results":[
+    {"family":"baseline","correct":93,"total":100,"accuracy":0.93,"macro_f1":0.5596506561280843,"classes":6},
+    {"family":"shadow_memory","correct":96,"total":100,"accuracy":0.96,"macro_f1":0.7891518019657808,"classes":5},
+    {"family":"fourier_radial","correct":95,"total":100,"accuracy":0.95,"macro_f1":0.8813676527084133,"classes":4},
+    {"family":"cube_faces","correct":91,"total":100,"accuracy":0.91,"macro_f1":0.4947000167588403,"classes":6},
+    {"family":"cube_magnitude","correct":91,"total":100,"accuracy":0.91,"macro_f1":0.6640321769733534,"classes":5},
+    {"family":"cube_complex","correct":89,"total":100,"accuracy":0.89,"macro_f1":0.6005920205920205,"classes":5},
+    {"family":"memory_fourier_cube","correct":92,"total":100,"accuracy":0.92,"macro_f1":0.6304889831507011,"classes":5}
+  ],
+  "best_single_macro_f1":0.8813676527084133,
+  "fusion_macro_f1":0.6304889831507011,
+  "fusion_delta_vs_best_single":-0.2508786695577122,
+  "fusion_delta_vs_baseline":0.07083832702261683,
+  "return_audit":{"max_inverse_error":1.2246467991473532e-16,"shift_magnitude_error":0,"carriers_differ":true,"pass":true},
+  "success_threshold_met":false,
+  "verdict":"FUSION_NO_GAIN",
+  "cathedral_role":"Cube transept connecting retained history and Fourier; no resonance mechanism claim.",
+  "claim_ceiling":"Internal deterministic fixture. No external utility, physical resonance, biological mechanism, Life/E8 identity or universal projection law is established."
+}

@@ -1,0 +1,25 @@
+{
+  "experiment": "CA-IDENT-02",
+  "date": "2026-10-08",
+  "status": "EXECUTED_AGAINST_LOCK",
+  "preregistration_sha256": "002bb87296df733d46825d20b106c5666b2e152f212aba9f85fd9a669dad9f34",
+  "train_rows": 250,
+  "holdout_rows": 750,
+  "primary_target": "rule_id::seed_id trajectory family",
+  "secondary_target": "12-generation behavior class",
+  "results": [
+    {"family":"baseline","primary":{"correct":264,"total":750,"accuracy":0.352,"macro_f1":0.2908779979763804,"classes":50},"secondary":{"correct":635,"total":750,"accuracy":0.8466666666666667,"macro_f1":0.7556943065179421,"classes":7}},
+    {"family":"centered_grid","primary":{"correct":261,"total":750,"accuracy":0.348,"macro_f1":0.275132265974462,"classes":50},"secondary":{"correct":650,"total":750,"accuracy":0.8666666666666667,"macro_f1":0.6936320205596584,"classes":7}},
+    {"family":"fourier_radial","primary":{"correct":359,"total":750,"accuracy":0.4786666666666667,"macro_f1":0.41735525611758345,"classes":50},"secondary":{"correct":712,"total":750,"accuracy":0.9493333333333334,"macro_f1":0.9010764358189762,"classes":7}},
+    {"family":"shadow_memory","primary":{"correct":374,"total":750,"accuracy":0.49866666666666665,"macro_f1":0.4433131132619713,"classes":50},"secondary":{"correct":712,"total":750,"accuracy":0.9493333333333334,"macro_f1":0.8977431442136443,"classes":7}},
+    {"family":"shadow_gons","primary":{"correct":240,"total":750,"accuracy":0.32,"macro_f1":0.2718480680580028,"classes":50},"secondary":{"correct":654,"total":750,"accuracy":0.872,"macro_f1":0.7646319473696905,"classes":7}},
+    {"family":"e8_negative","primary":{"correct":94,"total":750,"accuracy":0.12533333333333332,"macro_f1":0.09780968193800747,"classes":50},"secondary":{"correct":393,"total":750,"accuracy":0.524,"macro_f1":0.32994929114868926,"classes":7}},
+    {"family":"combined","primary":{"correct":278,"total":750,"accuracy":0.37066666666666664,"macro_f1":0.3294741560992995,"classes":50},"secondary":{"correct":658,"total":750,"accuracy":0.8773333333333333,"macro_f1":0.7581030290271376,"classes":7}}
+  ],
+  "primary_delta_macro_f1": 0.038596158122919055,
+  "secondary_delta_macro_f1": 0.002408722509195438,
+  "success_threshold_met": false,
+  "verdict": "PARTIAL_SIGNAL_GATE_FAIL",
+  "cathedral_role": "Layer registry and comparison route only; no resonance or mechanism claim.",
+  "claim_ceiling": "Internal deterministic fixture. No external utility, Life/E8 identity, physical resonance, biological mechanism or universal projection law is established."
+}

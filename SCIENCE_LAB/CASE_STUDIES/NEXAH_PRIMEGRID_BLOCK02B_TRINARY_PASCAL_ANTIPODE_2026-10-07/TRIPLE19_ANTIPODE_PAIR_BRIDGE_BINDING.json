@@ -1,0 +1,45 @@
+{
+  "schema": "nexah.primegrid.supporting-view-binding/1.0.0",
+  "date": "2026-10-11",
+  "status": "POST_RESULT_SUPPORTING_VIEW_NOT_A_NEW_RUN",
+  "extends_entity_id": "ART:NUMBER:PRIMEGRID_BLOCK02B_TRINARY_ANTIPODE",
+  "creates_new_identity": false,
+  "publication_authorized": false,
+  "relation": {
+    "type": "REPRESENTATION_BRIDGE",
+    "source_label": "TRIPLE_19_BRIDGE_CORE",
+    "target_entity_id": "ART:NUMBER:PRIMEGRID_BLOCK02B_TRINARY_ANTIPODE",
+    "operator": "A(r,c_r,sigma)=(6-r,c_r,-sigma)",
+    "pair": "P_c(r)<->P_d(6-r)",
+    "compatibility": "reversal-and-sign grammar only",
+    "intertwiner": null
+  },
+  "exact_relations": {
+    "base_row": [1, 2, 3, 4, 3, 2, 1],
+    "shift": 3,
+    "visible_core": [4, 5, 6, 7, 6, 5, 4],
+    "base_sum": 16,
+    "visible_sum": 37,
+    "shift_total": 21,
+    "phase_layer": 19,
+    "phase_count": 3,
+    "phase_envelope": 57,
+    "digit_index": 10,
+    "prime_at_digit_index": 29,
+    "bridge_offset": 60,
+    "prime_25": 97,
+    "prime_23": 83,
+    "return_total": 120
+  },
+  "claim_boundary": [
+    "57 equals 3 times 19, not 3 times 29",
+    "60 is a declared numeric bridge offset and is not identified with 60 degrees",
+    "the seven-site pair map is not asserted to be an intertwiner for the full trinomial Pascal carrier",
+    "no new Study, Family, canonical entity, physical mechanism, planetary resonance or publication state is created"
+  ],
+  "artifacts": [
+    "03_TRIPLE19_ANTIPODE_PAIR_BRIDGE_ADDENDUM.md",
+    "NEXAH_PRIMEGRID_BLOCK02B_TRIPLE19_ANTIPODE_PAIR_BRIDGE.html",
+    "validate_triple19_antipode_pair_bridge.mjs"
+  ]
+}

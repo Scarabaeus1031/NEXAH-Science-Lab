@@ -1,0 +1,77 @@
+{
+  "artifact_type": "D_GATE_10_2R4_1_EXECUTION_CLOSEOUT",
+  "date": "2026-09-06",
+  "decision": "A_FIRST_BLIND_EXTERNAL_APERTURE_CUT_EXECUTED_AND_VERIFIED",
+  "runner_sha256": "sha256:2fed64479dc8cc78deaba6dc5833c898a6b865666acc3978235555472a9ed0ac",
+  "allowance_id": "D_GATE_10_2R4_1_EXTERNAL_BLIND_EXECUTION_1P1R",
+  "primary": {
+    "status": "ACCEPTED",
+    "receipt_hash": "sha256:099d0b8f6adab63fa0b4360ca991634880bbb4e197e7487dbaec2a7c4b48eeec",
+    "started_at": "2026-09-06T15:16:30.802Z",
+    "completed_at": "2026-09-06T15:16:30.913Z"
+  },
+  "replay": {
+    "status": "ACCEPTED",
+    "receipt_hash": "sha256:8383265a7a1bf2bd50b48eadff475a1ec924b6a2f70a80c44e2312983fab7737",
+    "started_at": "2026-09-06T15:16:30.923Z",
+    "completed_at": "2026-09-06T15:16:31.010Z"
+  },
+  "deterministic_scientific_projection": true,
+  "output_hashes_equal": true,
+  "post_result_hash_equal": true,
+  "receipt_hashes_distinct": true,
+  "ILAU": {
+    "I": [
+      "STT",
+      "GREENWICH"
+    ],
+    "L": [],
+    "A": [],
+    "U": [
+      "GIZA"
+    ],
+    "aggregate_comparable_residual": 0,
+    "overall_status": "HOLD",
+    "return_test_status": "UNRESOLVED"
+  },
+  "giza": {
+    "identity": "GIZA",
+    "address": "A3",
+    "value": null,
+    "status": "UNRESOLVED",
+    "numeric_reconstruction": "FORBIDDEN_AND_NOT_PRESENT"
+  },
+  "allowance": {
+    "ACTIVATED": true,
+    "PRIMARY_CONSUMED": 1,
+    "REPLAY_CONSUMED": 1,
+    "PRIMARY_ACCEPTED": true,
+    "REPLAY_ACCEPTED": true,
+    "CLOSED": true,
+    "close_reason": "PRIMARY_AND_REPLAY_ACCEPTED"
+  },
+  "production_clock": {
+    "status": "PASS",
+    "contract_id": "D_GATE_10_2R4_1_PRODUCTION_CLOCK_0.1",
+    "contract_sha256": "sha256:5a61b7bed492ca52cdcd99cd0e686ebcda9a3d46ec486a6120adc9ab8ea71ecc",
+    "controller_started_at": "2026-09-06T15:16:30.794Z",
+    "controller_completed_at": "2026-09-06T15:16:31.019Z",
+    "primary": {
+      "started_at": "2026-09-06T15:16:30.802Z",
+      "completed_at": "2026-09-06T15:16:30.913Z"
+    },
+    "replay": {
+      "started_at": "2026-09-06T15:16:30.923Z",
+      "completed_at": "2026-09-06T15:16:31.010Z"
+    },
+    "timestamps_distinct": true
+  },
+  "dependencies_removed": true,
+  "runner_hash_post_closeout": "sha256:2fed64479dc8cc78deaba6dc5833c898a6b865666acc3978235555472a9ed0ac",
+  "live_api_called": false,
+  "new_external_bytes_acquired": false,
+  "repair_or_retry": false,
+  "new_physics_claim": false,
+  "new_ontology_claim": false,
+  "status": "PASS_CLOSED"
+}

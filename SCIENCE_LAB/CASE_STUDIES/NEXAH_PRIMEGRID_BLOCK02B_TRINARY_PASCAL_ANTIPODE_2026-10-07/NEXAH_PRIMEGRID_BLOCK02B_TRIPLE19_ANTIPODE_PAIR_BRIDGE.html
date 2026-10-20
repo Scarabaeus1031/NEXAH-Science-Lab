@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>NEXAH · Triple-19 Antipode Pair Bridge</title>
+<style>
+:root{--bg:#05090f;--panel:#0b121d;--panel2:#101b29;--line:#2c3a49;--text:#edf2f7;--muted:#91a0ae;--gold:#f2bd54;--cyan:#23badc;--pink:#d04bb9;--green:#41c789;--orange:#ef7f51}*{box-sizing:border-box}body{margin:0;min-height:100vh;background:radial-gradient(circle at 50% -15%,#172b42 0,var(--bg) 48%);color:var(--text);font:15px/1.45 ui-monospace,SFMono-Regular,Menlo,monospace}.shell{max-width:1320px;margin:auto;padding:24px}.hero{display:flex;justify-content:space-between;gap:24px;align-items:end;border-bottom:1px solid var(--line);padding-bottom:18px}.eyebrow{color:var(--gold);letter-spacing:.15em;text-transform:uppercase}.hero h1{font:600 clamp(28px,4vw,49px)/1.04 system-ui;margin:6px 0}.hero p{max-width:830px;margin:0;color:var(--muted)}.status{color:var(--green);white-space:nowrap}.grid{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(300px,.75fr);gap:15px;margin-top:18px}.panel{background:rgba(9,17,27,.94);border:1px solid var(--line);border-radius:14px;padding:16px;min-width:0}.panel h2{font:600 18px system-ui;margin:0 0 5px}.panel>p{color:var(--muted);margin:0 0 14px}.mode{display:flex;gap:8px;flex-wrap:wrap;margin:13px 0}.mode button{font:inherit;color:var(--text);background:var(--panel2);border:1px solid var(--line);border-radius:8px;padding:8px 12px;cursor:pointer}.mode button.active{background:var(--gold);border-color:var(--gold);color:#121820}.pair-field{display:grid;grid-template-columns:repeat(7,minmax(58px,1fr));gap:8px;align-items:center;padding:18px 0}.site{position:relative;display:grid;gap:8px;text-align:center}.site button{appearance:none;border:1px solid var(--line);border-radius:11px;padding:12px 3px;background:var(--panel2);color:var(--text);font:inherit;cursor:pointer;min-height:72px}.site button:hover,.site button:focus-visible{border-color:var(--gold);outline:none}.site .pc{border-top:3px solid var(--cyan)}.site .pd{border-bottom:3px solid var(--pink)}.site .value{display:block;font:700 27px system-ui}.site small{color:var(--muted)}.site.selected .pc,.site.paired .pd{box-shadow:0 0 0 2px var(--gold),0 0 25px rgba(242,189,84,.25)}.axis{height:1px;background:linear-gradient(90deg,var(--cyan),var(--gold),var(--pink));position:relative;margin:8px 4% 16px}.axis:after{content:"HORIZON / PHASE ZERO";position:absolute;left:50%;top:-10px;transform:translate(-50%,-50%);background:var(--panel);padding:0 8px;color:var(--muted);font-size:11px}.readout{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.card{background:var(--panel2);border:1px solid var(--line);border-radius:10px;padding:11px}.card small{display:block;color:var(--muted)}.card strong{display:block;margin-top:4px;color:var(--gold);font-size:17px}.math{display:grid;gap:9px}.eq{background:var(--panel2);border-left:3px solid var(--gold);border-radius:0 9px 9px 0;padding:10px}.eq strong{display:block;color:var(--gold)}.eq span{display:block;color:var(--muted);font-size:12px;margin-top:2px}.eq.cyan{border-color:var(--cyan)}.eq.pink{border-color:var(--pink)}.phases{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:13px 0}.phase{padding:13px 6px;text-align:center;border:1px solid var(--line);border-radius:50%;aspect-ratio:1;display:grid;place-content:center;background:radial-gradient(circle,var(--panel2),transparent 72%)}.phase b{font-size:22px;color:var(--gold)}.wide{grid-column:1/-1}.boundary{border-top:1px solid var(--line);margin-top:14px;padding-top:12px;color:var(--muted);font-size:12px}.legend{display:flex;gap:16px;flex-wrap:wrap;margin-top:13px;color:var(--muted);font-size:12px}.dot{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:5px}.footer{display:flex;gap:18px;flex-wrap:wrap;margin-top:18px;padding-top:16px;border-top:1px solid var(--line)}.footer a{color:var(--cyan)}[hidden]{display:none!important}@media(max-width:900px){.hero{align-items:start;flex-direction:column}.grid{grid-template-columns:1fr}.pair-field{grid-template-columns:repeat(7,minmax(44px,1fr));gap:4px}.site button{padding:8px 1px}.site .value{font-size:21px}.readout{grid-template-columns:1fr}}@media(max-width:560px){.shell{padding:13px}.pair-field{overflow:auto;grid-template-columns:repeat(7,62px)}.phases{grid-template-columns:repeat(3,75px)}}@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<main class="shell">
+  <header class="hero">
+    <div><div class="eyebrow">NEXAH · Triple-19 × Primegrid Block 2B</div><h1>Antipode Pair Bridge</h1><p>Ein symmetrischer Sieben-Knoten-Horizont erhält zwei unterscheidbare Orientierungen. Der Wert bleibt, Adresse und Vorzeichen kehren um.</p></div>
+    <div class="status">SUPPORTING VIEW · NO NEW ID</div>
+  </header>
+
+  <section class="grid">
+    <article class="panel">
+      <h2>37-node visible core</h2>
+      <p><b>1–2–3–4–3–2–1</b> wird an allen sieben Adressen um <b>+3</b> verschoben.</p>
+      <div class="mode" aria-label="Ansicht wählen"><button data-mode="pc">P<sub>c</sub></button><button class="active" data-mode="pair">Antipodenpaar</button><button data-mode="pd">P<sub>d</sub></button></div>
+      <div id="pairField" class="pair-field" aria-label="Sieben orientierte Paare"></div>
+      <div class="axis"></div>
+      <div class="readout">
+        <div class="card"><small>Gewählt</small><strong id="chosen">P_c(0)=(0,4,+)</strong></div>
+        <div class="card"><small>Antipode</small><strong id="paired">P_d(6)=(6,4,−)</strong></div>
+        <div class="card"><small>Rückkehr</small><strong>A² = id</strong></div>
+      </div>
+      <div class="legend"><span><i class="dot" style="background:var(--cyan)"></i>P<sub>c</sub> · positive view</span><span><i class="dot" style="background:var(--pink)"></i>P<sub>d</sub> · negative antipode</span><span><i class="dot" style="background:var(--gold)"></i>selected pair</span></div>
+    </article>
+
+    <aside class="panel">
+      <h2>Triple-19 phase envelope</h2>
+      <p>Drei getrennte Phasenlagen; eine gemeinsame Hülle.</p>
+      <div class="phases"><div class="phase"><b>19A</b></div><div class="phase"><b>19B</b></div><div class="phase"><b>19C</b></div></div>
+      <div class="math">
+        <div class="eq"><strong>19 + 19 + 19 = 57</strong><span>57 = 3·19. Nicht 3·29.</span></div>
+        <div class="eq cyan"><strong>Σ base = 16</strong><span>1+2+3+4+3+2+1</span></div>
+        <div class="eq pink"><strong>16 + 7·3 = 37</strong><span>gleichmäßiger +3-Shift über sieben Adressen</span></div>
+      </div>
+    </aside>
+
+    <article class="panel">
+      <h2>Prime and address handles</h2>
+      <div class="math">
+        <div class="eq cyan"><strong>3+7 = 10 → p₁₀ = 29</strong><span>Digit-/Indexgriff; getrennt von der 57er Phasenhülle.</span></div>
+        <div class="eq"><strong>37+60 = 97 = p₂₅</strong><span>60 ist hier ein deklarierter Bridge-Offset, nicht automatisch 60°.</span></div>
+        <div class="eq pink"><strong>p₂₃+37 = 83+37 = 120</strong><span>exakte Rückgabe; noch kein Operator oder Selektor.</span></div>
+      </div>
+    </article>
+
+    <article class="panel">
+      <h2>Hex / horizon grammar</h2>
+      <div class="readout">
+        <div class="card"><small>Hex core</small><strong>6 · 4 · 3</strong></div>
+        <div class="card"><small>Main row</small><strong>7 nodes</strong></div>
+        <div class="card"><small>Axes</small><strong>6 × 60°</strong></div>
+      </div>
+      <p class="boundary">Kompatibilität bedeutet hier nur dieselbe deklarierte Reversal-und-Sign-Grammatik wie <code>A(i,j,k;σ)=(k,j,i;−σ)</code>. Es wird kein vollständiger Intertwiner vom Sieben-Knoten-Horizont in die trinomiale Pascal-Pyramide behauptet.</p>
+    </article>
+  </section>
+
+  <footer class="footer"><a href="03_TRIPLE19_ANTIPODE_PAIR_BRIDGE_ADDENDUM.md">Addendum</a><a href="NEXAH_PRIMEGRID_BLOCK02B_TRINARY_PASCAL_ANTIPODE_LAB.html">Block 2B</a><a href="01_RESULT_ASSESSMENT.md">Locked result</a><a href="../../NAVIGATION/APP/index.html#sequence">Navigator</a></footer>
+</main>
+<script>
+(()=>{
+  const values=[4,5,6,7,6,5,4], field=document.getElementById('pairField');
+  let selected=0, mode='pair';
+  const fmt=(kind,r,v,s)=>`${kind}(${kind==='P_c'?r:6-r})=(${kind==='P_c'?r:6-r},${v},${s})`;
+  const render=()=>{
+    field.replaceChildren();
+    values.forEach((v,r)=>{
+      const site=document.createElement('div');site.className=`site ${r===selected?'selected':''} ${r===6-selected?'paired':''}`;
+      const pc=document.createElement('button');pc.className='pc';pc.hidden=mode==='pd';pc.innerHTML=`<small>P<sub>c</sub>(${r}) · +</small><span class="value">${v}</span>`;pc.addEventListener('click',()=>{selected=r;render()});
+      const pd=document.createElement('button');pd.className='pd';pd.hidden=mode==='pc';pd.innerHTML=`<span class="value">${v}</span><small>P<sub>d</sub>(${r}) · −</small>`;pd.addEventListener('click',()=>{selected=6-r;render()});
+      site.append(pc,pd);field.append(site);
+    });
+    const v=values[selected];document.getElementById('chosen').textContent=fmt('P_c',selected,v,'+');document.getElementById('paired').textContent=fmt('P_d',selected,v,'−');
+    document.querySelectorAll('[data-mode]').forEach(button=>button.classList.toggle('active',button.dataset.mode===mode));
+  };
+  document.querySelectorAll('[data-mode]').forEach(button=>button.addEventListener('click',()=>{mode=button.dataset.mode;render()}));
+  render();
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,88 @@
+{
+  "active_gate": "P3_GLB_PROJECTION",
+  "build_authority": "HUMAN_OWNER_2026-10-07",
+  "overall": "PASS",
+  "delivery": "DIRECT_FILE_HTML_PLUS_REPRODUCIBLE_GLB",
+  "network_required": false,
+  "engine_contract": {
+    "rule": "B3/S23",
+    "update": "synchronous",
+    "boundary": "finite-dead",
+    "p1_parity_fixtures": [
+      "block",
+      "blinker",
+      "glider"
+    ],
+    "p1_parity_tests": 3
+  },
+  "views": [
+    "V1_FIELD",
+    "V2_SPACE_TIME_BODY",
+    "V3_SYNCHRONIZED_SLICE",
+    "V6_CAUSAL_INSPECTOR",
+    "RETURN_CLASS_DISPLAY",
+    "INTERACTIVE_WEBGL_SCENE",
+    "GLB_EXPORT"
+  ],
+  "glb_contract": {
+    "deterministic_reference_assets": 3,
+    "metadata": [
+      "lattice_x",
+      "lattice_y",
+      "generation",
+      "source_state_hash"
+    ],
+    "renderer_exporter": "three@0.147.0",
+    "license": "MIT",
+    "authority": "projection_only_P1_run_remains_authoritative"
+  },
+  "validation": {
+    "node_tests": {
+      "passed": 9,
+      "failed": 0
+    },
+    "static_audit": {
+      "passed": 18,
+      "failed": 0
+    },
+    "deterministic_glb_replays": {
+      "passed": 3,
+      "failed": 0
+    },
+    "syntax_checked": [
+      "app.js",
+      "life-browser.js",
+      "p3-scene.js"
+    ]
+  },
+  "excluded": [
+    "E8/ADE adapter",
+    "Science Navigator integration",
+    "publication",
+    "deployment",
+    "claim promotion"
+  ],
+  "sha256": {
+    "README.md": "64a40155bf6f773bb5290d5c8b647e83cbac4d11c17c8866f8a7141b79664731",
+    "index.html": "b193fca54c6f4a728de9e146a6c284e0c421d4cca2e74dc5bfbc1014396cdbbb",
+    "styles.css": "a782aa9181073d8f600bb2815a272fe0bcf237546732e21c718d768926183bc3",
+    "life-browser.js": "bd82b110b33624a53e9c2dccf58333eab0bfec44bdca70d8fe78fdfaf8297f7e",
+    "app.js": "c9c3493d7ae58757e0a6441c33d9f5f59539f5713bedfe7542e98f4363741d9f",
+    "p3-scene.js": "3b51e684038ab5bc5257e5c667c74c20a49a9334fa9f69590e366ce98db86668",
+    "audit-p3.cjs": "dfa0c0e8aec9a9d1e130d312435ab304a0e83e375073cedd600fbde01ef1fc33",
+    "package.json": "874e2c6bb466b3d63f687d62db31aa8b26a7bbfc4033301968042236a48adde2",
+    "tests/p2-parity.test.cjs": "acb8a705badf864d45adfbabb7f0320ef28a289679e740dc2861f3e633b29b9d",
+    "tests/p3-glb.test.cjs": "1d587fccd68efb798e599a33a31b1696b7a4538306377c5d8bec3dd4a2388f40",
+    "scripts/glb-core.cjs": "039291ca6d3ae9f0e49f3019440ce758e63ee48e3080eabc670235b66c3746cd",
+    "scripts/build-p3-assets.cjs": "8784a6e101ee247adb4d9bdc560516b213408b66819147a21fafe3131097caf2",
+    "scripts/build-receipts.cjs": "9c83170c0383ab7b27f1e741329e7ab3278f65ac419c817bb963a336da11c357",
+    "vendor/three-0.147.0/three.min.js": "f34446bf875b5fb0dcd93819ffe1d9e182d46634ee855f5d904c6c4ac7cdbc95",
+    "vendor/three-0.147.0/OrbitControls.js": "b4c6e53f98538535b11fd6655627d47fb5877b3ad972568bff0a7026c4b6d5c4",
+    "vendor/three-0.147.0/GLTFExporter.js": "7ba9cf5888ff8c11768ff805d50081c383a91ae4dbf487750065bbbeccd45077",
+    "vendor/three-0.147.0/LICENSE": "fbf3943930dacbf56aabb8dc5d816440bd16aa6f4cc78ddbdf12106ee1807832",
+    "assets/nexah-life-orbit-block-p1.glb": "4b716250400c2fb2bb3d856d6990898ee068628a5ecfb7ffa7e2d30e7f180698",
+    "assets/nexah-life-orbit-blinker-p1.glb": "8a274d47e9577b82e65be8ada9e7f18a8ea29cd87884d1c656ce0441bc067882",
+    "assets/nexah-life-orbit-glider-p1.glb": "af4b372c3ada883d3d23662f4a38ed00e6962be2c6e2a0c24965bd20153c8038",
+    "assets/P3_ASSET_MANIFEST.json": "07db5b833d16198639d7cf755840fac6adae3181aee03273a8a5399c304efc88"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "benchmark_id": "ORION_REF03A_R1_SELF_PREREGISTERED_INTERNAL_VALIDATION",
+  "commands_from_case_directory": {
+    "baseline": "python3 scripts/ref03_baselines_v1.py --protocol candidate/protocol_candidate.json --output outputs/ref03a_r1_baselines.json",
+    "primary": "python3 ../NEXAH_ORION_SCIENTIFIC_RUNNER_REFERENCE_2026-10-01/scripts/orion_scientific_runner_v1.py --protocol candidate/protocol_candidate.json --output outputs/ref03a_r1_primary.json",
+    "replay": "python3 ../NEXAH_ORION_SCIENTIFIC_RUNNER_REFERENCE_2026-10-01/scripts/orion_scientific_runner_v1.py --protocol candidate/protocol_candidate.json --output outputs/ref03a_r1_replay.json"
+  },
+  "oracle_gate": {
+    "expected_label_agreement": true,
+    "oracle_output_sha256": "10c1d9db202ea77d02edab2545394e25019a282d864d0880e25d74b0c42e84c0"
+  },
+  "runner_resolution": {
+    "path_from_case_directory": "../NEXAH_ORION_SCIENTIFIC_RUNNER_REFERENCE_2026-10-01/scripts/orion_scientific_runner_v1.py",
+    "sha256": "3b7f3d788def35d62d9bb7aacf21d73b2bdec6a0742aca7f4e1912e2aec69928"
+  },
+  "status": "LOCKED_BEFORE_FIRST_ORION_OUTPUT"
+}

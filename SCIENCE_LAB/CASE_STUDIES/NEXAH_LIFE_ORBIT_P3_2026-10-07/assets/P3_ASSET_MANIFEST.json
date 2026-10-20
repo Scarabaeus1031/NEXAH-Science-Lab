@@ -1,0 +1,98 @@
+{
+  "schema_id": "nexah.life-orbit.p3-asset-manifest.v1",
+  "gate": "P3_GLB_PROJECTION",
+  "status": "PASS",
+  "generator": "NEXAH LIFE//ORBIT deterministic GLB writer 0.3.0",
+  "browser_renderer_exporter": "three@0.147.0 / MIT / locally vendored",
+  "projection_contract": {
+    "x": "lattice_x",
+    "z": "lattice_y",
+    "y": "generation * 1.2",
+    "evidence_boundary": "GLB is a regenerable projection; P1 run remains authoritative"
+  },
+  "assets": [
+    {
+      "seed": "block",
+      "filename": "nexah-life-orbit-block-p1.glb",
+      "source_run": "../NEXAH_LIFE_ORBIT_P1_2026-10-07/results/block.run.json",
+      "source_run_sha256": "5c925e43a4629b301564df761aedf17e04372dce73f9e57e983bf8357b7720de",
+      "source_run_id": "life01:block:ee0c286a2a9027d6",
+      "state_hashes": [
+        "a6b576ef3feb0be6a448899989a2a9fd93366d3ed4c8156e48a207034c300b70",
+        "a6b576ef3feb0be6a448899989a2a9fd93366d3ed4c8156e48a207034c300b70"
+      ],
+      "return_event": {
+        "base_generation": 0,
+        "detected_generation": 1,
+        "period": 1,
+        "translation": [
+          0,
+          0
+        ],
+        "type": "FIXED_POINT"
+      },
+      "node_count": 8,
+      "byte_length": 3788,
+      "glb_sha256": "4b716250400c2fb2bb3d856d6990898ee068628a5ecfb7ffa7e2d30e7f180698"
+    },
+    {
+      "seed": "blinker",
+      "filename": "nexah-life-orbit-blinker-p1.glb",
+      "source_run": "../NEXAH_LIFE_ORBIT_P1_2026-10-07/results/blinker.run.json",
+      "source_run_sha256": "658b40cc3510c7cb3250bcbfe2e7556728d2aabb86e3ef6e4b1984bf3ac09f00",
+      "source_run_id": "life01:blinker:c2189f10bd94cd1d",
+      "state_hashes": [
+        "c570305d98f42fa2989289dd0e29901080dcdcb8f83f7d08de3794da7eab5265",
+        "13bca8ae03a1cd119ba4734277989af78fcdce9dc944f8d32f72ace14ea38226",
+        "c570305d98f42fa2989289dd0e29901080dcdcb8f83f7d08de3794da7eab5265"
+      ],
+      "return_event": {
+        "base_generation": 0,
+        "detected_generation": 2,
+        "period": 2,
+        "translation": [
+          0,
+          0
+        ],
+        "type": "EXACT_PERIODIC_RETURN"
+      },
+      "node_count": 9,
+      "byte_length": 4132,
+      "glb_sha256": "8a274d47e9577b82e65be8ada9e7f18a8ea29cd87884d1c656ce0441bc067882"
+    },
+    {
+      "seed": "glider",
+      "filename": "nexah-life-orbit-glider-p1.glb",
+      "source_run": "../NEXAH_LIFE_ORBIT_P1_2026-10-07/results/glider.run.json",
+      "source_run_sha256": "ed81fba010548399c031351fcfb58e2c42afb1510c1ae51fa75571e02c971882",
+      "source_run_id": "life01:glider:11fbd052b277b2e3",
+      "state_hashes": [
+        "ca597935cd1e9d37382a35e35cdb04a0852101b18e69e7d778bbef424f207ed2",
+        "3372dd7c37e1171b02d75a33adb6b166556903a5ff46409aeaee590c45c0aa8d",
+        "7de91c94e34c643b51df81f2e366a3eda24daa377a62362c2db1a895c1d9d3e8",
+        "ce27fdb6ee7fe683bff208e960af720154ae16dcba6c675be62d1bb09bfd8b42",
+        "ff33a714e561b561504d59139800efbec0a28a236eaee0d9cddcdaaa8362abad"
+      ],
+      "return_event": {
+        "base_generation": 0,
+        "detected_generation": 4,
+        "period": 4,
+        "translation": [
+          1,
+          1
+        ],
+        "type": "TRANSLATED_RETURN"
+      },
+      "node_count": 25,
+      "byte_length": 8588,
+      "glb_sha256": "af4b372c3ada883d3d23662f4a38ed00e6962be2c6e2a0c24965bd20153c8038"
+    }
+  ],
+  "excluded": [
+    "E8/ADE adapter",
+    "Science Navigator integration",
+    "publication",
+    "deployment",
+    "claim promotion"
+  ]
+}
