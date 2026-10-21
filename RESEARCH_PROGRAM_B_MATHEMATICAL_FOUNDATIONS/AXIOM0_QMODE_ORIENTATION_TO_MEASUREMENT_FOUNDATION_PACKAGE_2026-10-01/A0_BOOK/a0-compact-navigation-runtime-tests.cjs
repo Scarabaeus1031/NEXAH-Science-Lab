@@ -26,23 +26,24 @@ for(const file of ['index.html','A0_LIVING_BLUEPRINT.html','A0_SCIENTIFIC_POSITI
  const m=mount(file),h=m.header;
  ok(h.children.length===4,'four compact header components '+file);
  ok(h.children[0].textContent==='NEXAH','brand');
- const lanes=h.children[1];ok(lanes.children.length===3,'three Reader roles');
- ok(lanes.children.every(n=>n.tagName==='DETAILS'&&!n.open),'Reader menus closed by default');
- for(const lane of lanes.children){
+ const lanes=h.children[1],roles=lanes.children.filter(n=>n.tagName==='DETAILS');ok(roles.length===3,'three Reader roles alongside the existing A0 entry');
+ ok(roles.every(n=>!n.open),'Reader menus closed by default');
+ for(const lane of roles){
   const layout=lane.children[1].children[0];
   ok(layout.className==='a0-reader-layout','layout inside existing panel');
   const [showcase,reading]=layout.children;
   ok(showcase.className==='a0-showcase'&&reading.className==='a0-reader-reading','features left / first, theory right / second');
   const science=lane.className.endsWith('--science');
-  ok(showcase.children.length===(science?2:4),'lane-specific curated cards');
+  ok(showcase.children.length===(science?5:lane.className.endsWith('--human')?4:6),'lane-specific curated cards');
   for(const card of showcase.children){
    const [page,anchor]=card.href.split('#');
    const target=fs.readFileSync(__dirname+'/'+page,'utf8');
    ok(!anchor||target.includes('id="'+anchor+'"'),'existing local target and anchor '+card.href);
   }
   if(science){
-   ok(showcase.children[0].href==='A0_SCIENTIFIC_POSITION_REPORT.html','Science foregrounds scientific position');
-   ok(showcase.children[1].href==='A0_SCIENCE.html#contributions','Science foregrounds concrete contributions');
+   ok(showcase.children[0].href==='A0_SCIENCE.html#understand','Science foregrounds explanation home');
+   ok(showcase.children.some(card=>card.href==='A0_SCIENTIFIC_POSITION_REPORT.html'),'Science retains scientific position');
+   ok(showcase.children.some(card=>card.href==='A0_SCIENCE.html#contributions'),'Science retains concrete contributions');
    ok(showcase.children.every(card=>!card.href.includes('TOY_STORE')),'no app showcase in Science');
   }else ok(showcase.children.some(card=>card.innerHTML.includes('ARKADE')),'ARKADE exposes existing three-world entry');
   if(lane.className.endsWith('--human')){ok(showcase.children[0].href==='A0_NEXAH_APERTURE_JOURNEY.html#human-view','Human Book is the Human portal');ok(showcase.children.every(card=>!card.href.includes('TOY_STORE')),'Toy Store stays out of Human Experience');}

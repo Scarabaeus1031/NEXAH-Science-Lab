@@ -1,0 +1,30 @@
+{
+  "schema": "a0.mathfield-navigation-return/1",
+  "date": "2026-10-20",
+  "status": "SCOPED_PASS_EXISTING_BROAD_TEST_FAILURES_BROWSER_ACCEPTANCE_OPEN",
+  "identity_reuse": [
+    "ART:A0:MATHEMATICAL_JOINTS"
+  ],
+  "new_global_ids": [],
+  "source_pins": [
+    {
+      "file": "a0-context-navigation.js",
+      "sha256": "88ebb89df62caca19cd35e58a2057efaace34730fd9ad9359addd8a962cec89f"
+    },
+    {
+      "file": "a0-mathfield-navigation-tests.cjs",
+      "sha256": "9952f27b1332cf5fdaefc2c4382f3a20c7000887d892fb73cfe0aa961c5ddf12"
+    }
+  ],
+  "implemented": [
+    "Direct Mathfield link in Science / Lesen & Methode",
+    "Mathfield source walk as third Science highlight"
+  ],
+  "naming": "Science retained; Forschung recommended in chat only, not applied",
+  "checks": 30,
+  "baseline_failures": [
+    "compact navigation: three Reader roles",
+    "reader navigation: a0-public-arkade-index.html missing"
+  ],
+  "boundary": "Both broad failures reproduced with only this change removed in memory. No new identity, study, public release or area renaming."
+}

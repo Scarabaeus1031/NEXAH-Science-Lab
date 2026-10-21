@@ -312,6 +312,27 @@ relation, proof identity or physical mechanism claim.
 - No evidence is imported from the visual instruments merely because their
   geometry resembles one of the formal objects.
 
+### 11.1 Documentary instrument example — Three-Domain Game Atlas
+
+The [Three-Domain Game Atlas](A0_BOOK/assets/game-of-worlds-play/three-domain-transition-test/index.html#atlas)
+adds a bounded executable example to the visual layer. Its nine panels share
+one generation clock but retain separate carriers and operators. Two panels
+are especially useful for the Return vocabulary:
+
+- `k·NEG / Q°` records the negative-event ledger together with an exact held
+  generation. It is a local state checkpoint, not a reconstruction of every
+  contributing mechanism.
+- Blue Body 48 carries the held generation to one declared `Q4×P3` address.
+  This is an address witness, not proof that the neighboring Euler, Fibonacci,
+  Ihara or cellular panels are the same carrier.
+
+Switching a lens while preserving the held generation illustrates view
+persistence; it does not promote endpoint or address agreement to history,
+operator or full-identity Return. The canonical documentary record is the
+[Science Desk return](A0_BOOK/A0_RESEARCH_DESK.html#three-domain-blue-body-return-20261021),
+with a [machine-readable receipt](A0_BOOK/results/a0-game-of-worlds-three-domain-atlas-return-2026-10-21.json).
+This example adds no formal case, proof, Study or evidence to Paper C.
+
 ## 12. External-review gate
 
 Before submission, publication, conference circulation or public academic

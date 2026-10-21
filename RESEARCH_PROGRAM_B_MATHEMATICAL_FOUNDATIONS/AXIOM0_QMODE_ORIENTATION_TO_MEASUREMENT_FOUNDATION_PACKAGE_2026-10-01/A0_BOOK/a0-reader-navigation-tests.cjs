@@ -33,7 +33,8 @@ const scienceEntry=fs.readFileSync(path.join(root,'A0_SCIENCE.html'),'utf8');
 assert.match(scienceEntry,/<a class="btn gold" href="A0_SCIENTIFIC_POSITION_REPORT.html">Scientific Position/);
 assert.match(fs.readFileSync(path.join(root,'A0_THEORY_STORYBOARD.html'),'utf8'),/<a href="A0_SCIENTIFIC_POSITION_REPORT.html">Science · Scientific Position<\/a>/);
 const manifest = JSON.parse(fs.readFileSync(path.join(root, 'A0_BOOK_MANIFEST.json'), 'utf8'));
-const registered = [...new Set(manifest.surface_registry.map((record) => record.surface.split('#')[0]).filter((surface) => surface.endsWith('.html')))];
+// The ARKADE build-root template is not a source-directory Reader page.
+const registered = [...new Set(manifest.surface_registry.map((record) => record.surface.split('#')[0]).filter((surface) => surface.endsWith('.html') && surface !== 'a0-public-arkade-index.html'))];
 
 for (const surface of registered) assert.ok(navigation.includes(surface), `${surface} must be reachable from the shared Reader navigation`);
 

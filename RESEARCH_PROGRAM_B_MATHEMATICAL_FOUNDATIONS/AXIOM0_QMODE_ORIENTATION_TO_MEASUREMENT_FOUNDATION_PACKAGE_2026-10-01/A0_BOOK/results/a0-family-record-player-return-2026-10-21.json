@@ -1,0 +1,48 @@
+{
+  "date": "2026-10-21",
+  "scope": "Presentation-only extension of the existing Family Connection Atlas top window",
+  "status": "ENGINEERING_PASS_BROWSER_VISUAL_QA_OPEN",
+  "reuses": [
+    "A0_FAMILY_CONNECTION_ATLAS.html#start",
+    "existing Q4 intro canvas",
+    "existing A0FamilyAtlasBridge",
+    "A0_BLACK_SUN_BIG_MOON.html",
+    "A0_NEWTON_GOETHE_OBSERVER_LENS.html#lens",
+    "A0_ORIENTATION_CONTROLLER_BENCH.html#caroOrientationModes"
+  ],
+  "changes": [
+    "Four manual source/model cards with separate reading selections",
+    "Tessarec local intro address 0..15; not source state or engine readback",
+    "Other cards are explicitly schematic source references, not live previews",
+    "Original portal moved, not cloned; source engines and lower Atlas retained",
+    "No automatic mode or address switching; existing intro geometry rotation retained",
+    "Explicit open-original action; no source autoplay",
+    "Record format idea retained verbatim; Z notation and control mapping remain OPEN"
+  ],
+  "tests": {
+    "record_player_runtime": 161,
+    "family_spatial_navigation": 691,
+    "science_builder_path": 80,
+    "reader_navigation": "PASS: 56 HTML surfaces reachable",
+    "compact_navigation_runtime": 180,
+    "bench_visual_shelves": 206,
+    "source_graph": "PASS: 20 components, base 266/29, composed 269/32 observed",
+    "navigator_app_audit": "PASS: 252 checks"
+  },
+  "authority_effects": {
+    "new_canonical_ids": 0,
+    "canonical_family_changes": 0,
+    "graph_relation_changes": 0,
+    "source_state_transfer": false,
+    "engine_clock_changes": false,
+    "research_activation": false,
+    "publication": false
+  },
+  "visual_acceptance": "OPEN: file browser inspection unavailable in this tool environment; simulated DOM tests are not browser pixel acceptance.",
+  "source_hashes": [
+    {"file":"A0_FAMILY_CONNECTION_ATLAS.html","sha256":"d85401850a4c602694e3fd1f269fe35ea9c24ea546872c19c14f315e34d16a4a"},
+    {"file":"a0-family-record-player.js","sha256":"e4d4cab0c27d8058fa1e282143ee902cf043973fa850d45d27091943f068b90a"},
+    {"file":"a0-family-record-player.css","sha256":"d1caabb5dc9e84f5d8d23edd725cd1e2c486ead4d9e44ac41f98e92be8181485"},
+    {"file":"a0-family-record-player-tests.cjs","sha256":"4af5ca177d10582b19897401cc22cc492e4f83356d1c57e23f29bb4da10f7bbf"}
+  ]
+}

@@ -1,0 +1,17 @@
+const assert=require('node:assert/strict'),path=require('node:path');
+const view=require(path.join(__dirname,'assets/game-of-worlds-play/three-domain-transition-test/fibonacci-view.js'));
+let checks=0;const ok=(value,message)=>{assert.ok(value,message);checks++};
+const snapshots={chemistry:{events:{all:Array(3)}},life:{events:{all:Array(5)}},physics:{events:{all:Array(7)}}};
+const p0=view.buildFibonacciView(snapshots,0),p7=view.buildFibonacciView(snapshots,7),p30=view.buildFibonacciView(snapshots,30),p31=view.buildFibonacciView(snapshots,31);
+ok(p0.pair.a==='0'&&p0.pair.b==='1'&&p0.ratio===null,'seed is the exact pair (0,1)');
+ok(p7.pair.a==='13'&&p7.pair.b==='21','shared generation reaches exact F7 pair');
+ok(p30.pair.a==='832040'&&p30.pair.b==='1346269','adapter retains exact model horizon');
+ok(p31.phase===0&&p31.pair.a==='0'&&p31.boundary.includes('NO_FIBONACCI_RETURN'),'mod-31 clock projection is explicitly not a Fibonacci return');
+ok(p7.cassini==='-1'&&p30.cassini==='1','Cassini parity is exact');
+ok(p7.eventTotal===15&&p7.domainEvents.chemistry===3&&p7.domainEvents.life===5&&p7.domainEvents.physics===7,'domain events remain separate contextual counts');
+ok(p7.recurrence==='(a,b) -> (b,a+b); seed (0,1)','declared recurrence matches the source model');
+ok(p7.viewGrammar.primary.length===3&&p7.viewGrammar.derived.includes('Cassini')&&p7.viewGrammar.fourthIsNewSequence===false,'3 + 1 grammar marks the fourth view as a derived control, not a new sequence');
+ok(view.SEQUENCE.length===31&&Object.isFrozen(view.SEQUENCE),'bounded source-derived sequence is frozen');
+assert.throws(()=>view.buildFibonacciView({},0));checks++;
+assert.throws(()=>view.buildFibonacciView(snapshots,-1));checks++;
+console.log(JSON.stringify({status:'PASS',checks,scope:'Three-Domain Fibonacci shared-clock adapter; exact source-model pair, Cassini invariant, contextual domain counts and non-return boundary'},null,2));

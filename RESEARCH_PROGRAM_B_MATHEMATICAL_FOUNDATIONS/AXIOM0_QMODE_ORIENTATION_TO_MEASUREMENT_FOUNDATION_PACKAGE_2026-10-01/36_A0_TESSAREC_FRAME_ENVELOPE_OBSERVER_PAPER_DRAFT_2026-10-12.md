@@ -720,6 +720,31 @@ scientific finding. The controlling crosswalk and full claim boundary are in
 `101_A0_GRID_OPERATOR_APPLICATION_SYNTHESIS_2026-10-15.md`; the interactive
 view is `A0_BOOK/A0_LIVING_BLUEPRINT.html#integration-crosswalk`.
 
+### 16.1 Three-Domain Atlas / Blue Body address projection
+
+The Game-of-Worlds 3×3 atlas supplies a documentary companion to this
+architecture. At one held generation `g`, the Blue Body panel evaluates the
+declared finite address chain
+
+```text
+g -> k mod 48 -> frac(k / phi) -> theta = 2*pi*u
+  -> exp(i*theta) -> rank48 -> 7*rank mod 48 -> Q4 x P3.
+```
+
+The result is one address presented in two ledgers: the local game/readout
+ledger and the Blue Body `Q4×P3` address ledger. The adjacent Euler,
+Fibonacci, Ihara and `k·NEG / Q°` panels remain separately typed views of the
+held clock state. No feedback from those views into the source carrier is
+declared.
+
+This is a documentary address projection, not a carrier equivalence. It does
+not close `G8_RETURN`, privilege Fibonacci sampling, identify phi, pi and
+Euler roles, or establish a physical or spectral mechanism. The executable
+view is the [Three-Domain Game Atlas](A0_BOOK/assets/game-of-worlds-play/three-domain-transition-test/index.html#atlas);
+its canonical bookkeeping returns to the
+[Science Desk](A0_BOOK/A0_RESEARCH_DESK.html#three-domain-blue-body-return-20261021)
+and the [machine-readable receipt](A0_BOOK/results/a0-game-of-worlds-three-domain-atlas-return-2026-10-21.json).
+
 ## 17. Existing source returns
 
 - `A0_BOOK/A0_FAMILY_CONNECTION_ATLAS.html`

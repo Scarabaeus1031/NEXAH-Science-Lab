@@ -1,0 +1,75 @@
+flowchart TD
+    A0{{"NEXAH · A0<br/>Gemeinsamer Einstieg"}}
+    H["HUMAN<br/>Erleben & Bedeutung"]
+    S{{"SCIENCE<br/>Verstehen & Einordnen"}}
+    B{{"BUILDER<br/>Ausprobieren & Arbeiten"}}
+    Geschichten("Geschichten & geführte Erfahrungen")
+    Verstehen("Verstehen & Zusammenhänge")
+    Ergebnisse("Beiträge · Papers · Evidenzgrenzen")
+    Methode("Research Method")
+    Atlas{{"FAMILY ATLAS · RAUMKARTE<br/>Visuelle Orientierung"}}
+    Felder("Mathfield · Felder & Fugen")
+    Ansichten("Dieselbe Auswahl anders lesen<br/>Platte · Ringe · Zylinder · Körper")
+    Toy["TOY STORE<br/>Spielbare Auslage"]
+    Bench{{"BENCH · FOYER<br/>Operative Werkzeugzentrale"}}
+    Arcade["ARKADE<br/>LIFE · Three Domains · Numbers"]
+    Demos["Bedienbare Demonstratoren"]
+    Gruppen["Neun Rubriken<br/>Bauteile finden"]
+    Liste["Bauteilliste<br/>Erklärung · Legende · Zugänge"]
+    Original["Originalinstrumente<br/>Körper · Observer · CARO · weitere"]
+    Schaltbild["Technisches Schaltbild<br/>Bindungstypen & offene Anschlüsse"]
+    Grids["Bench · Grids & Teller"]
+    Pink["Pink Diamond Grid"]
+    CRT["CRT16-Instrument"]
+    NSN[("SCIENCE NAVIGATOR<br/>Quellen · Identitäten · Beziehungen")]
+    CaroStory("CARO als Geschichte")
+
+    A0 --> H
+    A0 --> S
+    A0 --> B
+    H --> Geschichten
+    S --> Verstehen
+    S --> Ergebnisse
+    Verstehen --> Methode
+    Verstehen --> Atlas
+    Verstehen --> Felder
+    Atlas --> Ansichten
+    B --> Toy
+    B --> Bench
+    Toy --> Arcade
+    Toy --> Demos
+    Bench --> Gruppen
+    Gruppen --> Liste
+    Liste --> Original
+    Bench --> Schaltbild
+    Atlas -->|"Beispielpfad"| Grids
+    Grids --> Pink
+    Pink --> CRT
+    Pink -->|"Zusammenhang"| Atlas
+    CRT -->|"Gespeicherte Leseposition"| Atlas
+    Bench -->|"Zusammenhang verstehen"| Atlas
+    Verstehen --> NSN
+    NSN -.->|"Quellenbindung ≠ Live-Kopplung"| Original
+    Atlas -.->|"Geplanter Lesegang"| CaroStory
+
+    classDef portal fill:#102735,stroke:#f4f4eb,color:#ffffff,stroke-width:4px
+    classDef human fill:#422039,stroke:#f169a6,color:#fff0f7,stroke-width:2px
+    classDef scienceHub fill:#103d49,stroke:#54d7ef,color:#ecfcff,stroke-width:4px
+    classDef atlasHub fill:#34264d,stroke:#b798ff,color:#faf3ff,stroke-width:4px
+    classDef builderHub fill:#493817,stroke:#ffc84d,color:#fff9e5,stroke-width:4px
+    classDef explanation fill:#eae5dc,stroke:#827b72,color:#253441,stroke-width:1.5px
+    classDef instrument fill:#102d39,stroke:#68b9c8,color:#e4f5fa,stroke-width:1.5px
+    classDef playful fill:#392139,stroke:#ef71b7,color:#fff0fa,stroke-width:2px
+    classDef source fill:#193c32,stroke:#70d6a5,color:#eafff3,stroke-width:3px
+    classDef planned fill:#eeeeea,stroke:#96968d,color:#62645e,stroke-width:1.5px,stroke-dasharray:5 5
+
+    class A0 portal
+    class H,Geschichten human
+    class S scienceHub
+    class Atlas atlasHub
+    class B,Bench builderHub
+    class Verstehen,Methode,Felder,Ergebnisse,Ansichten explanation
+    class Gruppen,Liste,Original,Schaltbild,Grids,Pink,CRT,Demos instrument
+    class Toy,Arcade playful
+    class NSN source
+    class CaroStory planned

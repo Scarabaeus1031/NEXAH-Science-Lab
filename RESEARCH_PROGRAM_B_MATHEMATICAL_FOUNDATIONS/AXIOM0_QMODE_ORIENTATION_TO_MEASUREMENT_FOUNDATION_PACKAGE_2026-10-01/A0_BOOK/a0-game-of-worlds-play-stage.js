@@ -1,7 +1,8 @@
 (function(){
   'use strict';
   const $=id=>document.getElementById(id),kind=document.body.dataset.worldsKind,isLife=kind==='life',play=$(isLife?'playPause':'play'),loop=$(isLife?'loopPlayback':'loop'),status=$(isLife?'playbackStatus':'runStatus');
-  const allowed=isLife?['rooms','boundary','field','register','phase','rosette','cathedral']:['domains','montage','euler'];
+  const allowed=isLife?['rooms','boundary','field','register','phase','rosette','cathedral']:['atlas','domains','montage','euler','fibonacci','ihara','k-teller','blue-body'];
+  document.body.dataset.embedded=String(parent!==window);document.body.dataset.atlasDensity='compact';
   function running(){return play.textContent==='Pause'}
   function publish(ready=false){if(parent!==window)parent.postMessage({type:'worlds-play-state',ready,kind,running:running(),loop:loop.checked,status:status.textContent},'*')}
   function change(el,value){el.value=value;el.dispatchEvent(new Event('change',{bubbles:true}))}
@@ -9,6 +10,18 @@
   function view(name){if(!allowed.includes(name))return;document.body.dataset.stage=name;
     if(isLife){if(['register','phase','rosette'].includes(name))change($('projectionMode'),{register:'four-plus-one',phase:'phase-register',rosette:'transition-rosette'}[name]);if(name==='boundary')change($('boundaryReading'),'temporal-z');}
     window.dispatchEvent(new Event('resize'));window.scrollTo(0,0);
+  }
+  function installStandaloneLenses(){
+    if(parent!==window||isLife)return;
+    const labels={atlas:'Atlas · 3×3',domains:'Drei Welten · 3+1',montage:'Channels',euler:'Euler',fibonacci:'Fibonacci',ihara:'Ihara','k-teller':'k·NEG Teller','blue-body':'Blue Body · 48'},nav=document.createElement('nav');nav.className='worlds-local-lenses';nav.setAttribute('aria-label','Lokale Ansicht wählen');
+    const select=name=>{view(name);for(const button of nav.querySelectorAll('[data-view]'))button.setAttribute('aria-pressed',String(button.dataset.view===name));densityButton.hidden=name!=='atlas';if(window.location.hash!==`#${name}`)window.location.hash=name};
+    for(const name of allowed){const button=document.createElement('button');button.type='button';button.dataset.view=name;button.textContent=labels[name];button.setAttribute('aria-pressed','false');button.addEventListener('click',()=>select(name));nav.append(button)}
+    const densityButton=document.createElement('button'),syncDensity=()=>{const compact=document.body.dataset.atlasDensity==='compact';densityButton.textContent=compact?'Atlas · kompakt':'Atlas · groß';densityButton.setAttribute('aria-pressed',String(compact));};densityButton.type='button';densityButton.className='atlas-density';densityButton.setAttribute('aria-label','Größe der Atlas-Übersicht wechseln');densityButton.addEventListener('click',()=>{document.body.dataset.atlasDensity=document.body.dataset.atlasDensity==='compact'?'fit':'compact';syncDensity();window.dispatchEvent(new Event('resize'));});syncDensity();nav.append(densityButton);
+    document.body.prepend(nav);const requested=(window.location.hash||'').slice(1);select(allowed.includes(requested)?requested:'domains');
+  }
+  function installAtlasLinks(){
+    if(isLife)return;const targets={chemistry:'domains',life:'domains',physics:'domains',joint:'domains',euler:'euler',fibonacci:'fibonacci',ihara:'ihara','k-teller':'k-teller','blue-body':'blue-body'};
+    for(const card of document.querySelectorAll?.('.domain-grid article[data-domain]')||[]){const domain=card.dataset?.domain,target=targets[domain];if(!target)continue;const button=document.createElement('button');button.type='button';button.className='atlas-open';button.textContent='Detail öffnen';button.setAttribute('aria-label',`${card.querySelector?.('h2')?.textContent||domain} als Detailansicht öffnen`);button.addEventListener('click',event=>{event.stopPropagation?.();view(target);if(window.location&&window.location.hash!==`#${target}`)window.location.hash=target});card.append(button)}
   }
   function command(action,value){
     if(action==='hello'){publish(true);return}
@@ -20,6 +33,7 @@
     if(action==='speed'&&['slow','normal','fast'].includes(value))change($('speed'),isLife?{slow:'800',normal:'420',fast:'210'}[value]:{slow:'700',normal:'360',fast:'180'}[value]);
     if(action==='seed'&&isLife&&Array.from($('fixture').options).some(o=>o.value===value))change($('fixture'),value);
     if(action==='view')view(value);
+    if(action==='density'&&['compact','fit'].includes(value)){document.body.dataset.atlasDensity=value;window.dispatchEvent(new Event('resize'));}
     if(action==='hood'){document.body.dataset.look=value?'engine':'wonder';window.dispatchEvent(new Event('resize'));window.scrollTo(0,0);}
     if(action==='orbit'&&isLife){const el=$(document.body.dataset.stage==='boundary'?'boundaryRotate':'crystalRotate');if(el&&el.getAttribute('aria-pressed')!==String(Boolean(value)))el.click();}
     publish();
@@ -28,5 +42,5 @@
   document.addEventListener('visibilitychange',()=>{if(document.hidden)pause()});
   new MutationObserver(()=>publish()).observe(status,{childList:true,characterData:true,subtree:true});
   if(isLife){change($('fixture'),'ACORN');$('generation').value=24;$('generation').dispatchEvent(new Event('input',{bubbles:true}));}
-  view(isLife?'rooms':'domains');publish(true);
+  const requested=(window.location?.hash||'').slice(1);view(isLife?'rooms':allowed.includes(requested)?requested:'domains');installStandaloneLenses();installAtlasLinks();publish(true);
 })();

@@ -2,8 +2,9 @@
 
 Date: `2026-10-11`
 
-Documentary currentness: `2026-10-17` — explanatory assembly and Human
-Crosswalk added as engineering observations, not new formal findings.
+Documentary currentness: `2026-10-20` — scoped number/glyph/weight paper
+triage added; earlier findings and engineering observations retain their
+original evidence state. No new formal finding or manuscript claim.
 
 Status: `DOCUMENTARY_PAPER_WORKSPACE / PREPARATION_ONLY / NOT_ACTIVE / NOT_SUBMITTED`
 
@@ -31,6 +32,51 @@ research backlog. It prevents two opposite errors:
 This workspace is not a second backlog, Lab Register, Study, Run Contract,
 Navigator identity or publication pipeline. Lifecycle and permission remain in
 the canonical A0 backlog, the Science Lab Register and Mission Control.
+
+<a id="number-glyph-weight-triage-20261020"></a>
+
+## Number, glyph and weight — paper triage, 2026-10-20
+
+This addendum condenses the Owner's register/cut/lens/other-side/aperture-stack
+thread. It is an editorial support queue, not an extension of the F-A0 ledger.
+The geometry is shown in the existing
+[Mathfield source walk](A0_BOOK/A0_MATHEMATICAL_JOINTS.html#register-cut-aperture);
+the numerical distinctions are collected in
+[NumberMagick](A0_BOOK/A0_NUMBERMAGICK_GRID_RESEARCH.html#number-glyph-weight-return).
+Original records retain authority. Paper manuscripts and review states are
+unchanged by this triage; no question is admitted or activated.
+
+| Material | What the source supports | Paper disposition / gate |
+|---|---|---|
+| Joint scale lift: 204/1000 = 2040/10000 | Elementary normalized-position identity, with different absolute scales; area scales quadratically | Paper E explanatory-method example candidate only. Not a novel theorem. The supplied scale poster's original generator remains unresolved. |
+| Integer versus modular address | 11537 and 11735 share residue 9 modulo 11, but not modulo 20. Exact integer Return needs modulus and quotient or the full source record | Paper C representation/Return illustration candidate, not a new F-A0 finding or extension of its accepted connector theorem. Retain the existing typed carrier contracts. |
+| ACR‑42: ß / ẞ / ss | The recorded runtime's casefold collapses distinctions. Unicode normalization, case conversion and rendered contour are different maps | Paper C non-identity illustration / Paper E type-discipline example candidate. A glyph resemblance, mirror or quarter-turn is not a defined numerical operator; no linguistic genealogy claim. |
+| CA‑IDENT‑05: 63/64 and 1/64 | A declared normalized squared-distance mixture, not complex amplitudes, a physical constant or a spatial partition. The preferred Fourier-dominant assignment failed the registered gates | Paper E negative-control/method-boundary illustration candidate. The negative result must accompany the formula; do not turn Beta=1/64 into an established realm map. |
+| Lens, lunes and aperture stack | Existing Bench uses clipped polygon overlap; the supplied circle diagrams use full disks. The six-angle stack is a source-local engineering fixture | Reader/figure support only at present. No manuscript claim that the models share a generator, and no physical coil or seven-plate result. |
+| ßeta / Zeta / Beta, 3+1, 6+1 and 7→8 | Owner vocabulary and proposed cross-connections, not yet supplied with common domains, maps or inverse contracts | Keep in Field Notes / existing DOC backlog until explicitly selected. No automatic assignment to a paper lane or F-A0 record. |
+
+### Controlling sources and retained counterevidence
+
+- [ACR‑42 test report](../../SCIENCE_LAB/CASE_STUDIES/NEXAH_DESKTOP_GOLD_CUSTODY_AND_NAVIGATOR_INTAKE_2026-10-07/sources/acr/NEXAH_ACR42_TEST_REPORT.md):
+  representation-layer distinctions only; no new glyph semantics.
+- [CA‑IDENT‑05 result](../../SCIENCE_LAB/CASE_STUDIES/NEXAH_LIFE_ALPHA_BETA_RESIDUAL_CA_IDENT_05_2026-10-08/README.md):
+  Macro-F1 is 0.5307 for Fourier alone, 0.5277 for the historical 63/64:1/64
+  mixture, 0.5853 for equal weights and 0.6084 for the reversed control.
+  These are recorded results, not a new replay.
+- [CRT/QRT carrier binding](../../SCIENCE_LAB/NAVIGATION/EVIDENCE/CRT_QRT_37_CARRIER_LADDER_2026-10-11/README.md):
+  source integer, remainder column and quotient remain distinct.
+- [Existing DOC-01–12 backlog](24_A0_RESEARCH_BACKLOG_AND_OPEN_JOINTS_2026-10-10.md#documentation-followups-20261020):
+  source recovery, typed mappings, weights, visual acceptance and editorial
+  selection remain the maintained follow-up route, not a second backlog here.
+
+### Before any manuscript incorporation
+
+Select one example and its paper role; specify the carrier, operation,
+retained/lost information, source and counterexample. Keep source evidence
+state separate from the status of the surrounding paper. A figure can clarify
+a claim but does not establish it. No new mathematical novelty, universal
+ratio, historical operator recovery, empirical utility or publication
+permission follows from this addendum.
 
 ## Findings ledger
 
@@ -345,6 +391,34 @@ These are bounded formal and computational engineering checks. They do not
 establish a Tesla, physical-resonance or Mandelbrot mechanism; they do not
 activate a Study, change the Lab freeze, create a Navigator identity or grant
 publication authority.
+
+### Three-Domain Game Atlas — documentary paper routing, 2026-10-21
+
+Status: `DOCUMENTARY_ROUTING_ONLY / NO_NEW_FINDING / NO_PAPER_STATE_CHANGE`
+
+The Game of Worlds demonstrator now places nine heterogeneous readouts on one
+shared interaction clock: reaction–diffusion, Conway LIFE, spin field, common
+point, Euler, Fibonacci, Ihara, `k·NEG / Q°` and Blue Body 48. This is useful as
+an executable comparison surface because it keeps source state, operator,
+projection and Return receipt visible at the same time. Shared timing and
+visual adjacency do **not** identify the mechanisms.
+
+| Existing paper lane | Documentary use | Boundary retained |
+|---|---|---|
+| **Paper C — Return without identity** | `k·NEG / Q°` supplies a held-generation state checkpoint; Blue Body supplies an address-level witness. Together they illustrate that local state Return, address Return and full identity are different predicates. | Illustration only; no sixth formal case, theorem, evidence transfer or new Return result. |
+| **Paper D — Pascal, Fibonacci, Möbius and observer labels** | Euler uses `n=g mod 8`; Fibonacci uses the exact pair recurrence with `n=g mod 31`; Ihara uses a finite non-backtracking Hashimoto readout. The three panels document type separation and counter accidental identity. | Lane remains `OUTLINE_ONLY`. No Fibonacci privilege, Riemann identity, Möbius identity, spectral-physics claim or common generator. |
+| **Paper E — Orientation method** | Strongest route: one executable case study of `source/state → typed view → comparison → witness/Return`. The 3×3 atlas shows how T1–T8 can coordinate unlike records without erasing their differences. | Method illustration only; no external utility, novelty, completeness or effectiveness claim. |
+| **Paper F — Tessarec frame/envelope/observer** | Blue Body projects one held generation through `Q4×P3` while Euler, Fibonacci, Ihara and `k·NEG / Q°` remain adjacent but separately typed views. | No carrier identity, feedback mechanism, physical resonance, `G8_RETURN` pass or privileged sampling schedule. |
+
+Canonical documentary returns:
+
+- [Science Desk — Three-Domain / Blue-Body return](A0_BOOK/A0_RESEARCH_DESK.html#three-domain-blue-body-return-20261021)
+- [Machine-readable return receipt](A0_BOOK/results/a0-game-of-worlds-three-domain-atlas-return-2026-10-21.json)
+- [Interactive 3×3 atlas](A0_BOOK/assets/game-of-worlds-play/three-domain-transition-test/index.html#atlas)
+
+This routing adds no `F-A0` row. Papers C, E and F retain their existing
+states; Paper D remains an outline. Their conclusions and review gates are
+unchanged.
 
 ### Paper-routing checkpoint — 2026-10-14
 

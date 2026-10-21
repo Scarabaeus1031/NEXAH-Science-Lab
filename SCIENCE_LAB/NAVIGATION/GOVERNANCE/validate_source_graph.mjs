@@ -17,7 +17,7 @@ const hash = (file) => crypto.createHash("sha256").update(fs.readFileSync(file))
 check(index.schema === "nexah.science-lab.source-graph-index/1.0.0", "schema mismatch");
 check(index.status === "CURRENT_INTERNAL_GOVERNED_NOT_PUBLIC", "status mismatch");
 check(index.publication_authorized === false && index.public_entity_count === 0, "public gate must fail closed");
-check(index.components?.length === 19, "expected nineteen governed components");
+check(index.components?.length === 20, "expected twenty governed components");
 
 const ids = index.components.map((item) => item.component_id);
 const paths = index.components.map((item) => item.ecosystem_path);

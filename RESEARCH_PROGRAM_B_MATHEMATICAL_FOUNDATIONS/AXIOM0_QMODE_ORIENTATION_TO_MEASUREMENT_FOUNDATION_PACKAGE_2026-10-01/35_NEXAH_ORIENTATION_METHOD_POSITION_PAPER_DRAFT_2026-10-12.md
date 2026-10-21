@@ -512,6 +512,47 @@ Die bestehenden F-A0-Resultate, ihre Review-Gates und die geschlossenen
 EXP-/Lab-Records bleiben unverändert. Ein Folgetest muss getrennt zugelassen
 werden; diese redaktionelle Verbindung startet ihn nicht.
 
+<a id="three-domain-game-atlas-method"></a>
+
+### 8.8 Three-Domain Game Atlas: neun Readouts, ein Takt
+
+*Dokumentarische Methodenergänzung vom 21.10.2026; kein neues Finding, keine
+Study-Aktivierung und kein Wirksamkeitsnachweis.*
+
+Der 3×3-Atlas des Game-of-Worlds-Demonstrators führt neun ungleiche Readouts
+über einen gemeinsamen Interaktionstakt zusammen: Reaction–Diffusion, Conway
+LIFE, Spin Field, Common Point, Euler, Fibonacci, Ihara, `k·NEG / Q°` und Blue
+Body 48. Damit wird ein vollständiger Methodenrecord sichtbar, ohne die
+Mechanismen gleichzusetzen:
+
+| Methodenschritt | Atlas-Entsprechung |
+|---|---|
+| `T1 · Geschehen` | gehaltene Generation und ihr Quellzustand |
+| `T2 · Schnitt` | ausgewählte Linse, Raster und lokale Adresse |
+| `T3 · Darstellung` | neun deklarierte Readouts desselben Takts |
+| `T4 · Differenz` | sichtbare Änderungen und Invarianten zwischen den Panels |
+| `T5 · Relation` | explizite Bridge statt bloßer Bildähnlichkeit |
+| `T6 · Eingriff` | Play, Step, Reset, Linse und Parameter |
+| `T7 · Return` | Rückführung zur gehaltenen Generation beziehungsweise Blue-Body-Adresse |
+| `T8 · Ledger` | `k·NEG / Q°`, Witness und maschinenlesbarer Return-Receipt |
+
+Die belastbare Engineering-Beobachtung lautet nur: heterogene Readouts können
+unter einem gemeinsamen Takt koordiniert werden, während Quelle, Operator,
+Projektion und Return-Typ getrennt bleiben. Euler ist hier die endliche
+Taktprojektion `n=g mod 8`; Fibonacci die exakte Paarrekurrenz mit
+`n=g mod 31`; Ihara ein endlicher Hashimoto-/Non-backtracking-Readout. Diese
+Nachbarschaft beweist weder eine gemeinsame Theorie noch Riemann-Identität,
+Fibonacci-Privileg, Resonanzphysik oder externen Nutzen.
+
+Dokumentarische Quellen:
+
+- [Interaktiver 3×3-Atlas](A0_BOOK/assets/game-of-worlds-play/three-domain-transition-test/index.html#atlas)
+- [Science-Desk-Rückbindung](A0_BOOK/A0_RESEARCH_DESK.html#three-domain-blue-body-return-20261021)
+- [Maschinenlesbarer Return-Receipt](A0_BOOK/results/a0-game-of-worlds-three-domain-atlas-return-2026-10-21.json)
+
+Der Atlas ist damit ein ausführbares Fallbeispiel für die Methode, nicht deren
+Validierung. Die Paper- und Finding-States bleiben unverändert.
+
 
 ## 9. Euler / Navier–Stokes als adversarialer Beispiel-Record
 

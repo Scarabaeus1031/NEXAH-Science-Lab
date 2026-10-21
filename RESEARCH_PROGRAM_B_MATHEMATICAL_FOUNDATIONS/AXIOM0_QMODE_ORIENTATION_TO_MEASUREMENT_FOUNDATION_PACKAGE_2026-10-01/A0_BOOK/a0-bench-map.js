@@ -27,6 +27,17 @@
     Object.freeze({id:'VERIFY',index:'05',title:'Verify & Record',question:'Was bleibt belegt?'})
   ]);
   const rawModules=[
+    ['body-route','SOURCE','Body-Lab · 01b / 01c','bodyRouteBench','LAUNCHER',null,'One original Body-Lab session; 48 source keys, no automatic 60-face identity.'],
+    ['glb-archive','SOURCE','NSN · GLB originals','nsnGlbSources','RESULT_LENS',null,'Historical inventory and current hash-bound originals; no recovered universal motion law.'],
+    ['perspectives','SOURCE','LOKI / MIWA / original views','benchPerspectiveDeck','LAUNCHER',null,'Existing source-owned instruments, loaded only on request.'],
+    ['sewing','SOURCE','Sewing / Schaukeln','sewingSourceWindow','LAUNCHER',null,'Original sewing score with its own controls and clock.'],
+    ['game-atlas','SOURCE','Game Atlas · 3 × 3','benchAtlasEntry','LAUNCHER',null,'Nine existing cards in three rows. Not seven canonical families or a second game engine.'],
+    ['mask-clock','OPERATE','Blue/Pink → mask tick','maskClockLink','TYPED_HANDOFF',null,'Confirmed phase readback controls the mask tick only; missing acknowledgement holds.'],
+    ['mask-observer','VIEW','Mask / Observer screen','maskObserverBench','VIEW_PROJECTION',null,'Existing overlap windows and declared central projection; not calibrated optics.'],
+    ['orbit-grid','VIEW','Orbit / Grid / Teller','orbitGridJoints','VIEW_PROJECTION',null,'Local critical orbit versus polygon, and 24 valid TESA cell centers per plate.'],
+    ['integration','VIEW','48 keys → 28 display bins','benchIntegration','VIEW_PROJECTION',null,'Declared fixed-window projection, retained source witnesses, separate Pascal read and local-view return.'],
+    ['breath-grid','VIEW','Circle / Grid stretch','breathGridBench','VIEW_PROJECTION',null,'Read-only display phase changes radius and horizontal stretch, not source addresses.'],
+    ['pascal-aperture','RETURN','Pascal / aperture / residual','pascalApertureBridge','RETURN_WITNESS',null,'Two oriented macro layers, explicit hidden complement; no microhistory recovery.'],
     ['division-return','RETURN','Teilung / Übersetzung / Return','divisionReturnBench','RETURN_WITNESS','division-return','Three independent source-bound contracts; full integer CRT return retains quotient; Chemistry 6+1 fail closed.'],
     ['lens-return','VIEW','AM / VM / PM lenses','benchLensReturn','VIEW_PROJECTION','lens-return','Existing Pentagon lens geometry and Fold Guide share one local display phase; not native-face identity.'],
     ['number-return','RETURN','978 native inverse','benchNumberReturn','RETURN_WITNESS','lens-return','Independent full-integer sequence and captured anchor; not historical E–D–C.'],

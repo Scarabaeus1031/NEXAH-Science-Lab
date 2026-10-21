@@ -1,0 +1,85 @@
+{
+  "date": "2026-10-21",
+  "status": "ENGINEERING_PASS_BROWSER_VISUAL_ACCEPTANCE_OPEN",
+  "identity_reuse": [
+    "NEXAH_A0_ORIENTATION_CONTROLLER_BENCH",
+    "MISSION_CONTROL_BUILDER_VIEW"
+  ],
+  "new_global_ids": [],
+  "relation_changes": [],
+  "canonical_count_effect": 0,
+  "publication_authorized": false,
+  "scope": "Replaces nine photo-reference foyer tiles with one source-aware gallery. Nine editorial rubrics reuse the same cards with one short introduction. Reuses 39 existing Bench module records, six fixed Body/One Flow source views and three separate Arcade entry links. Existing local family roles require exact source-target match in Orientation Map; colours reused from Orientation Shelf. Five standalone instruments promote original drawing nodes directly after existing headings; no clone, new engine, source timer or clock.",
+  "sources": [
+    {
+      "ecosystem_path": "30 SCIENCE LAB/NEXAH-Science-Lab/RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/A0_ORIENTATION_CONTROLLER_BENCH.html",
+      "sha256": "f2b4e82021c2a7b9b1f66cbb0c2b2d42b387230daac94c9f1841db3b328e08b9"
+    },
+    {
+      "ecosystem_path": "30 SCIENCE LAB/NEXAH-Science-Lab/RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/a0-bench-visual-shelves.js",
+      "sha256": "1fd2ec1f2594a6fd68efaf93f55b507b806d0f1d9b5610d04a9d703fa7e70d33"
+    },
+    {
+      "ecosystem_path": "30 SCIENCE LAB/NEXAH-Science-Lab/RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/a0-bench-visual-shelves.css",
+      "sha256": "a8c38929b736143a8e9602949e74ddb328ed29fbdd79443385b730841f2f1a59"
+    },
+    {
+      "ecosystem_path": "30 SCIENCE LAB/NEXAH-Science-Lab/RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/a0-bench-visual-shelves-tests.cjs",
+      "sha256": "45f4b9975039094aa99934f2ae11a66dc47f97852559ddf57ca11a82473f0340"
+    },
+    {
+      "ecosystem_path": "30 SCIENCE LAB/NEXAH-Science-Lab/RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/a0-bench-walk.js",
+      "sha256": "259648ee5784edb915208a8cce7615bfef22bdfb2660a643825989aaf6500cba"
+    },
+    {
+      "ecosystem_path": "30 SCIENCE LAB/NEXAH-Science-Lab/RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/a0-bench-foyer-tests.cjs",
+      "sha256": "3432a3ac3866d4d254842e08044a59e419092f5bf256a3f2b59043d944ddc7a1"
+    },
+    {
+      "ecosystem_path": "00 EXECUTIVE/NEXAH-Mission-Control/00_OVERVIEW/BUILDER_STATUS_REPORT.html",
+      "sha256": "5ea20b118ab72120adc36041e1ae9912fc87e40f0ed2882838e7f7b32ae7a0de"
+    },
+    {
+      "ecosystem_path": "30 SCIENCE LAB/NEXAH-Science-Lab/RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/a0-bench-map.js",
+      "sha256": "02c4614b35aa53fd0427b6f4e7962a9bd74872c1d195242e27b63ec7fdf41a82"
+    },
+    {
+      "ecosystem_path": "30 SCIENCE LAB/NEXAH-Science-Lab/RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/a0-orientation-map.js",
+      "sha256": "a6d6c8b32d4b64456965388c9f062420ed1fe24d3954f32bc46eecda0d49c7eb"
+    },
+    {
+      "ecosystem_path": "30 SCIENCE LAB/NEXAH-Science-Lab/RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/a0-orientation-shelf.js",
+      "sha256": "206d8eccb6f688040486e9429a57c1b7e906ddf788f8c6a79b5c087e6525ef95"
+    },
+    {
+      "ecosystem_path": "30 SCIENCE LAB/NEXAH-Science-Lab/RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/a0-bench-body-gallery.js",
+      "sha256": "4b24940373758327011a83faa6f7dcc30f13686c413c58fcca4203f63fbac564"
+    },
+    {
+      "ecosystem_path": "30 SCIENCE LAB/NEXAH-Science-Lab/RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/a0-bench-tool-catalog.js",
+      "sha256": "34b9d949f67f75ec8728901a5f3b24062a556a20a4ae1a74f1cf74d7b1a1584a"
+    }
+  ],
+  "tests": {
+    "visual_shelves": 151,
+    "walk": 133,
+    "foyer": 59,
+    "body_gallery": 56,
+    "map": 294,
+    "catalog": 211,
+    "integration": 8109,
+    "mask_clock": 12448,
+    "builder": "PASS",
+    "coverage": "57/57; no dead local links"
+  },
+  "browser_acceptance": "OPEN; mounted DOM doubles and static file/geometry verification, not browser pixels or full viewport acceptance",
+  "boundaries": [
+    "48 display slots are 39 modules plus six source views and three Arcade links, not 48 new identities",
+    "Rubric membership and existing local Family reading lenses remain distinct from canonical Family admission",
+    "Only exact Orientation Map target roles shown; no inheritance from whole Bench or inference from colours",
+    "Unloaded/no-graphic sources have labelled unavailable previews, no generic replacement picture",
+    "Source snapshots do not autostart sources; explicit source opening may initialize existing original page",
+    "Historical receipts preserved; broader DOC-13 inventory reconciliation remains deferred",
+    "Primary source controls, STOP, source clocks, typed Return and claim ceilings unchanged"
+  ]
+}

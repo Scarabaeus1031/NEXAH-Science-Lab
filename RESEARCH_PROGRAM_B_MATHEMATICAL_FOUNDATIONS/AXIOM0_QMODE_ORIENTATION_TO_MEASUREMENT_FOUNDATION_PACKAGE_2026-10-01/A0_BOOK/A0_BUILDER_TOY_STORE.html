@@ -24,7 +24,7 @@
         <h1>Welcome to the<br><em>Toy Store.</em></h1>
         <p class="intro">Science describes. Human gives meaning. Builder makes the relation touchable.</p>
         <p class="hero-note">Eine lebendige Auslage der Flagships, Demonstratoren und Werkzeuge – aus dem vorhandenen A0-Bestand, mit sichtbarer Herkunft und ohne die Grenzen der Forschung zu verwischen.</p>
-        <div class="actions"><a class="button hot" href="#arkade">Enter the Arkade</a><a class="button" href="#shelf">Pick a flagship</a><a class="button" href="A0_FAMILY_CONNECTION_ATLAS.html#spatial-navigation">Family Raumkarte · 3D →</a><a class="button" href="#applications">Run an application</a><a class="button" href="#tools">Open every drawer</a><a class="button" href="../../../../../00%20EXECUTIVE/NEXAH-Mission-Control/00_OVERVIEW/BUILDER_STATUS_REPORT.html#toolbox">Bewertete Builder-Toolbox →</a></div>
+        <div class="actions"><a class="button hot" href="#arkade">Enter the Arkade</a><a class="button" href="#shelf">Pick a flagship</a><a class="button" href="A0_SCIENCE.html#understand">Hintergründe in Science →</a><a class="button" href="#applications">Run an application</a><a class="button" href="#tools">Open every drawer</a><a class="button" href="../../../../../00%20EXECUTIVE/NEXAH-Mission-Control/00_OVERVIEW/BUILDER_STATUS_REPORT.html#toolbox">Bewertete Builder-Toolbox →</a></div>
       </div>
       <div class="machine-console">
         <div class="machine" id="life-machine" aria-label="Spielbares Three-Domain-Transition-Feld">
@@ -80,7 +80,7 @@
       <div class="showcase">
         <article class="stage" id="flagship-stage" aria-live="polite">
           <div class="stage-visual" id="stage-visual"><span class="stage-number">01</span><div class="stage-glyph"></div><div class="stage-rings"></div></div>
-          <div class="stage-copy"><p class="tag" id="stage-tag">APPEARANCE · SPECTRUM</p><h3 id="stage-title">Rainbow / Purple Rain</h3><p id="stage-description">Sieben Fenster zeigen, wie ein Spektrum nicht nur zerlegt, sondern als Bedingung von Erscheinung gelesen werden kann.</p><div class="stage-meta"><span id="stage-kind">EXPERIENCE</span><span id="stage-index">01 / 12</span></div><a class="button hot" id="stage-link" href="A0_RAINBOW_PURPLE_RAIN.html">Enter the window →</a></div>
+          <div class="stage-copy"><p class="tag" id="stage-tag">APPEARANCE · SPECTRUM</p><h3 id="stage-title">Rainbow / Purple Rain</h3><p id="stage-description">Sieben Fenster zeigen, wie ein Spektrum nicht nur zerlegt, sondern als Bedingung von Erscheinung gelesen werden kann.</p><div class="stage-meta"><span id="stage-kind">EXPERIENCE</span><span id="stage-index">01 / 9</span></div><a class="button hot" id="stage-link" href="A0_RAINBOW_PURPLE_RAIN.html">Enter the window →</a></div>
         </article>
         <div class="selector" id="flagship-selector" aria-label="Flagship auswählen"></div>
         <div class="stage-controls"><button type="button" id="flagship-prev" aria-label="Vorheriges Flagship">←</button><button type="button" id="flagship-toggle" aria-pressed="false">Pause auto</button><button type="button" id="flagship-next" aria-label="Nächstes Flagship">→</button></div>
@@ -151,16 +151,16 @@
 
     <section class="tools section" id="tools">
       <header class="section-head inverse">
-        <div><p class="kicker">04 · THE COMPLETE CABINET</p><h2>Every instrument<br>gets a <em>door.</em></h2></div>
-        <p>Diese Wand liest den bestehenden A0 Asset Index. Suche nach Titel, Funktion oder Family; Filter ändern nur die Ansicht, nicht den Bestand.</p>
+        <div><p class="kicker">04 · AUSPROBIEREN UND ARBEITEN</p><h2>Every instrument<br>gets a <em>door.</em></h2></div>
+        <p>Diese Auslage wählt bedienbare Instrumente, Erlebnisse und Werkbänke aus dem bestehenden Asset Index. Erklärseiten liegen unter <a href="A0_SCIENCE.html#understand">Science · Verstehen &amp; Zusammenhänge</a>; den vollständigen Bestand zeigt der <a href="A0_ASSET_INDEX.html">Asset Index</a>. Die Auswahl ändert keine Quellrolle.</p>
       </header>
       <div class="tool-controls">
         <label class="search"><span>FIND A TOOL</span><input id="tool-search" type="search" placeholder="rainbow, Pascal, LIFE, field …" autocomplete="off"></label>
         <div class="filters" id="tool-filters" aria-label="Werkzeuge filtern">
-          <button class="active" type="button" data-filter="all">All HTML</button>
+          <button class="active" type="button" data-filter="all">Alle Werkzeuge</button>
           <button type="button" data-filter="instrument">Instruments</button>
           <button type="button" data-filter="experience">Experiences</button>
-          <button type="button" data-filter="reader">Readers</button>
+          <button type="button" data-filter="work">Werkbänke</button>
           <button type="button" data-filter="external">External</button>
         </div>
         <p class="result-count" id="result-count">Loading the cabinet …</p>
@@ -174,7 +174,7 @@
       <h2>Ask. Test. Make.<br><em>Then look again.</em></h2>
       <div class="exit-doors">
         <a href="A0_NEXAH_APERTURE_JOURNEY.html#human-view"><small>A1</small><strong>HUMAN</strong><span>What matters?</span></a>
-        <a href="A0_RESEARCH_DESK.html"><small>A0</small><strong>SCIENCE DESK</strong><span>What holds?</span></a>
+        <a href="A0_SCIENCE.html#understand"><small>A0</small><strong>SCIENCE</strong><span>Zusammenhänge verstehen</span></a>
         <a class="current" href="#top"><small>B1</small><strong>BUILDER</strong><span>What can we make?</span></a>
       </div>
       <p class="boundary"><strong>Boundary:</strong> This is an internal navigation and experience surface. It introduces no new research identity, relation, evidence state, Study activation or publication claim.</p>
@@ -183,6 +183,7 @@
 
   <footer><strong>NEXAH · BUILDER TOY STORE</strong><span>Tools are invitations. Sources remain attached.</span><a href="A0_ASSET_INDEX.html">Full Asset Index →</a></footer>
   <script src="assets/a0-asset-index-v1.js"></script>
+  <script src="a0-science-builder-path.js"></script>
   <script src="a0-builder-toy-store.js?rev=ocb-bench-20261016"></script>
   <script src="a0-application-demonstrator-suite.js?rev=20261018-app-suite-r1"></script>
   <script src="a0-context-navigation.js?rev=reader-lanes-20261019-lane-entry"></script>

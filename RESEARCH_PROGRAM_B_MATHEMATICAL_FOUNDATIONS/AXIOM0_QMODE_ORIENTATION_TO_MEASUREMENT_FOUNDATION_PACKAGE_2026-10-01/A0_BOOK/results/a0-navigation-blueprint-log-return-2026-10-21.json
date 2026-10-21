@@ -1,0 +1,53 @@
+{
+  "date": "2026-10-21",
+  "status": "DOCUMENTARY_ENGINEERING_PASS_STATIC_SVG_RENDER_BROWSER_ACCEPTANCE_OPEN",
+  "identity_reuse": [
+    "NEXAH_A0_ORIENTATION_CONTROLLER_BENCH"
+  ],
+  "new_global_ids": [],
+  "relation_changes": [],
+  "canonical_count_effect": 0,
+  "publication_authorized": false,
+  "scope": "Builder Log entry 61 retains the agreed coloured navigation blueprint, central hub shapes, roles legend, static offline SVG and its maintained Mermaid source. Graphviz builder renders the bounded Mermaid subset without a browser library. 24 existing/conceptual navigation nodes and 27 diagram links are not canonical graph counts. Existing navigation, source binding and planned CARO story remain distinct.",
+  "sources": [
+    {
+      "ecosystem_path": "30 SCIENCE LAB/NEXAH-Science-Lab/RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/A0_BUILDER_LOG.html",
+      "sha256": "dc73c08d5bd649d7e96be3cdcd6501166becc87e71fb3b1faab632efd4839eb2"
+    },
+    {
+      "ecosystem_path": "30 SCIENCE LAB/NEXAH-Science-Lab/RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/assets/a0-navigation-blueprint-20261021.mmd",
+      "sha256": "4d55c817ac0642b6b2906fe79a186caeb7042e5de731383f72e7095bf909b04d"
+    },
+    {
+      "ecosystem_path": "30 SCIENCE LAB/NEXAH-Science-Lab/RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/assets/a0-navigation-blueprint-20261021.svg",
+      "sha256": "456b1280586753cb82060eb20594160b1c77a9fdf7fbc4900bde020e1b1e058d"
+    },
+    {
+      "ecosystem_path": "30 SCIENCE LAB/NEXAH-Science-Lab/RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/build-a0-navigation-blueprint.cjs",
+      "sha256": "4e0acc67ae42d5770905ac7685c44d54a525617cce595408867f992b6d4082bd"
+    },
+    {
+      "ecosystem_path": "30 SCIENCE LAB/NEXAH-Science-Lab/RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/a0-navigation-blueprint-tests.cjs",
+      "sha256": "43bd32dd186b8a6690e6f706951738027c45a0e4513563ba273336f589561328"
+    }
+  ],
+  "tests": {
+    "blueprint": 113,
+    "science_builder_path": 80,
+    "reader_navigation": "PASS_56_SOURCE_HTML",
+    "diff_whitespace": "PASS"
+  },
+  "static_visual_qa": {
+    "renderer": "Graphviz dot to SVG; local rsvg-convert to PNG",
+    "inspected": "/private/tmp/a0-navigation-blueprint-20261021.png",
+    "scope": "Static image inspected for labels, role colours, hubs and planned/source dashed links; not browser acceptance"
+  },
+  "browser_acceptance": "OPEN",
+  "boundaries": [
+    "Documentary navigation plan, not a release or an integrated machine claim",
+    "No source engine, state, Family, identity or graph relation changed",
+    "Navigation colours are not canonical F1-F7 assignments",
+    "CARO story remains planned, not activated by documentation",
+    "Existing numbered log history and historical receipts retained"
+  ]
+}

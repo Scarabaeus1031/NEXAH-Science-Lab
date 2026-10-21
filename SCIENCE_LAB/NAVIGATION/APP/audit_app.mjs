@@ -28,6 +28,7 @@ const labRegisterData = read("lab-register.internal.js");
 const findingsFrontiersData = read("findings-frontiers.internal.js");
 const a0OrientationEvidenceData = read("a0-orientation-evidence.internal.js");
 const orionEvidenceData = read("orion.internal.js");
+const theEyeLineageData = read("the-eye-lineage.internal.js");
 const orientationCatalogData = read("orientation-catalog.internal.js");
 const lifeUsefulnessPath = path.resolve(here, "../../CASE_STUDIES/NEXAH_LIFE_MULTI_VIEW_IDENTIFIABILITY_CA_IDENT_01_2026-10-08/results/CA_IDENT_01_RESULT.json");
 const lifeUsefulness = JSON.parse(fs.readFileSync(lifeUsefulnessPath, "utf8"));
@@ -52,6 +53,7 @@ const primeBaseModeSource = fs.readFileSync(path.resolve(here, "../EVIDENCE/PRIM
 const findingsFrontiersSource = fs.readFileSync(path.resolve(here, "../EVIDENCE/FINDINGS_AND_FRONTIERS_2026-10-10/FINDINGS_AND_FRONTIERS_BINDER_V1_2026-10-10.json"), "utf8");
 const a0OrientationEvidenceSource = fs.readFileSync(path.resolve(here, "../EVIDENCE/A0_ORIENTATION_EVIDENCE_LINEAGE_2026-10-10/A0_ORIENTATION_EVIDENCE_LINEAGE_BINDER_V1_2026-10-10.json"), "utf8");
 const orionEvidenceSource = fs.readFileSync(path.resolve(here, "../EVIDENCE/ORION_CAPABILITY_EVIDENCE_2026-10-10/ORION_CAPABILITY_EVIDENCE_BINDER_V1_2026-10-10.json"), "utf8");
+const theEyeLineageSource = fs.readFileSync(path.resolve(here, "../EVIDENCE/THE_EYE_LINEAGE_2026-10-21/THE_EYE_LINEAGE_BINDER_V1_2026-10-21.json"), "utf8");
 const orientationCatalogSource = fs.readFileSync(path.resolve(here, "../EVIDENCE/ORIENTATION_CATALOG_2026-10-10/ORIENTATION_CATALOG_BINDER_V1_2026-10-10.json"), "utf8");
 const handbook = fs.readFileSync(path.resolve(here, "../../NEXAH_SCIENCE_LAB_AND_NAVIGATOR_HANDBOOK_2026-10-07.md"), "utf8");
 const familyMap = fs.readFileSync(path.resolve(here, "../../NEXAH_FAMILY_CONNECTION_MAP_V2.html"), "utf8");
@@ -71,6 +73,7 @@ vm.runInNewContext(labRegisterData, context);
 vm.runInNewContext(findingsFrontiersData, context);
 vm.runInNewContext(a0OrientationEvidenceData, context);
 vm.runInNewContext(orionEvidenceData, context);
+vm.runInNewContext(theEyeLineageData, context);
 vm.runInNewContext(orientationCatalogData, context);
 const manifest = context.window.NEXAH_NAVIGATOR_MANIFEST;
 const entry = context.window.NEXAH_NAVIGATOR_ENTRY;
@@ -88,6 +91,7 @@ const labRegister = context.window.NEXAH_LAB_REGISTER;
 const findingsFrontiers = context.window.NEXAH_FINDINGS_FRONTIERS;
 const a0OrientationEvidence = context.window.NEXAH_A0_ORIENTATION_EVIDENCE;
 const orionEvidence = context.window.NEXAH_ORION_CAPABILITY_EVIDENCE;
+const theEyeLineage = context.window.NEXAH_THE_EYE_LINEAGE;
 const orientationCatalog = context.window.NEXAH_ORIENTATION_CATALOG;
 const lifeOrbitJson = JSON.parse(lifeOrbitSource);
 const primeCrystalJson = JSON.parse(primeCrystalSource);
@@ -96,6 +100,7 @@ const primeBaseModeJson = JSON.parse(primeBaseModeSource);
 const findingsFrontiersJson = JSON.parse(findingsFrontiersSource);
 const a0OrientationEvidenceJson = JSON.parse(a0OrientationEvidenceSource);
 const orionEvidenceJson = JSON.parse(orionEvidenceSource);
+const theEyeLineageJson = JSON.parse(theEyeLineageSource);
 const orientationCatalogJson = JSON.parse(orientationCatalogSource);
 const a0RuntimeSourceCount = Number(
   js.match(/a0OrientationEvidence\?\.sources\?\.length !== (\d+)/)?.[1]
@@ -177,6 +182,12 @@ const checks = [
   ["ORION authority chain remains separated", JSON.stringify(orionEvidence?.authority_chain?.map((item) => item.layer)) === JSON.stringify(["OLS 1.0", "ORION Certified V1", "Science Lab", "Builder / Human Return"]) && /Science Lab evidence does not extend ORION product authority/.test(js)],
   ["ORION lens changes no canonical counts", orionEvidence?.changes_canonical_registry_counts === false && orionEvidence?.changes_canonical_family_count === false && orionEvidence?.publication_authorized === false],
   ["ORION open gates and non-identities visible", orionEvidence?.open_gates?.length === 5 && orionEvidence?.non_identities?.length === 6 && /What still has to be earned/.test(js) && /What must not collapse/.test(js)],
+  ["THE EYE source-bound lineage wired", /the-eye-lineage\.internal\.js/.test(html) && /data-route-link="the-eye-lineage"/.test(html) && /case "the-eye-lineage": renderTheEyeLineage/.test(js) && theEyeLineage?.status === "INTERNAL_READ_ONLY_SOURCE_BOUND_LENS"],
+  ["THE EYE binder matches generated payload", JSON.stringify(theEyeLineage) === JSON.stringify(theEyeLineageJson) && theEyeLineage?.stages?.length === 7 && theEyeLineage?.relations?.length === 7 && theEyeLineage?.sources?.length === 5],
+  ["THE EYE identities reused without canonical count change", theEyeLineage?.reused_identity_ids?.length === 6 && theEyeLineage?.changes_canonical_registry_counts === false && theEyeLineage?.changes_canonical_family_count === false],
+  ["THE EYE public gate remains fail closed", theEyeLineage?.publication_authorized === false && theEyeLineage?.public_allowlist_state === "EMPTY_FAIL_CLOSED" && /Preserved does not mean activated/.test(js)],
+  ["THE EYE public-safe sources contain no private paths", theEyeLineage?.sources?.every((source) => source.visibility === "public-source" && !source.path.startsWith("/") && !source.path.includes("00 EXECUTIVE")) && !JSON.stringify(theEyeLineage).includes("/Users/")],
+  ["THE EYE and ORION remain non-identical", theEyeLineage?.relations?.some((relation) => relation.status === "non-identity" && relation.to === "ORION V1 Gateway") && /SEPARATE GATEWAY · NON-IDENTITY/.test(js)],
   ["Orientation Catalog source-bound lens wired", /orientation-catalog\.internal\.js/.test(html) && /data-route-link="orientation-catalog"/.test(html) && /case "orientation-catalog": renderOrientationCatalog/.test(js) && orientationCatalog?.status === "INTERNAL_READ_ONLY_SOURCE_BOUND_LENS"],
   ["Orientation Catalog generated payload matches binder", JSON.stringify(orientationCatalog) === JSON.stringify(orientationCatalogJson)],
   ["Orientation Catalog inventory retained", orientationCatalog?.records?.length === 61 && orientationCatalog?.featured_keys?.length === 12 && orientationCatalog?.registered_works?.length === 10 && orientationCatalog?.concepts?.length === 17 && orientationCatalog?.navigator_pointers?.length === 11],

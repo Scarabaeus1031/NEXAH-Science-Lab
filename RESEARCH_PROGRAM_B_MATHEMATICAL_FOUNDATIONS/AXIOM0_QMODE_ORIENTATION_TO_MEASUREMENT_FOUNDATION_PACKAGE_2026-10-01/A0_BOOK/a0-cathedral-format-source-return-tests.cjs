@@ -8,8 +8,9 @@ ok(p.received.length===25,'25 received visuals');ok(p.source_gallery.length===36
 for(const x of [...p.received,...p.source_gallery]){ok(fs.existsSync(x.path),'source exists');ok(crypto.createHash('sha256').update(fs.readFileSync(x.path)).digest('hex')===x.sha256,'source hash');}
 const section=desk.slice(desk.indexOf('<section class="spread" id="cathedral-format-source-return-20261018"'),desk.indexOf('<section class="spread" id="engineering-20261017"'));
 ok(section.length>3000,'return exists before engineering');ok(nm.includes('A0_RESEARCH_DESK.html#cathedral-format-source-return-20261018'),'Numbermagick reciprocal return');
-ok((section.match(/<img /g)||[]).length===3,'three original source plates');
-for(const x of p.received)ok(section.includes(x.path),'received source linked');
+ok((section.match(/<img /g)||[]).length===0,'private source plates are not embedded in the Desk frontstage');
+ok((section.match(/Lokaler Quellenmarker/g)||[]).length===3,'three neutral source markers');
+for(const x of p.received)ok(!section.includes(x.path),'received source path is not exposed');
 for(const id of ['cathedral-format-source-return-20261018','format-architecture-visuals'])ok(desk.split('id="'+id+'"').length===2,'unique anchor '+id);
 for(const text of ['29/29','34/34','CameraProxy','7,5 s','±2 %','Noch kein Retargeting','36 PNG','25 empfangene','kein nachgewiesenes gemeinsames'])ok(section.includes(text),'boundary '+text);
 for(const match of section.matchAll(/(?:href|src)="([^"]+)"/g)){

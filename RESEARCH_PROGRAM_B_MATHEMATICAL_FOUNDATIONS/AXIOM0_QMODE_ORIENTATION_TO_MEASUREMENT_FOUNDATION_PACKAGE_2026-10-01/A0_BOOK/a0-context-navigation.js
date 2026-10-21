@@ -152,8 +152,23 @@
         ]
       },
       {
-        "label": "Lesen & Methode",
+        "label": "Verstehen & Zusammenhänge",
         "items": [
+          ["A0_SCIENCE.html#understand", "Science · Zusammenhänge verstehen", "Erklärseiten und ihre unterschiedlichen Aufgaben"],
+          ["A0_NEXAH_RESEARCH_METHOD.html", "Research Method", "Geführter Prüf- und Vergleichsweg"],
+          ["A0_FAMILY_CONNECTION_ATLAS.html#spatial-navigation", "Families & Fugen · Raumkarte", "Wo bin ich – und wohin führt die nächste Fuge?"],
+          ["A0_FIELDS_AND_JOINTS_ATLAS.html", "Felder & Fugen · Erklärung", "Fachliche Heimaten, Rollen und Grenzen"],
+          ["A0_METHOD.html", "About / Method", "Vertiefende Methodenkarte"]
+        ]
+      },
+      {
+        "label": "Lesepfade & Instrumentbezüge",
+        "items": [
+          [
+            "A0_MATHEMATICAL_JOINTS.html",
+            "Mathfield · mathematische Werkstatt",
+            "Geometrie, Operatoren, Schnitte und quellengebundene Vergleiche"
+          ],
           [
             "A0_TOURS.html",
             "A0 Touren · Welche Tour wählst du?",
@@ -223,16 +238,6 @@
             "A0_FIELDS_AND_JOINTS_ATLAS.html#joint-workspace",
             "Felder & Fugen · Arbeitsraum",
             "Gesamtkarte, Mathfield, Pascal und Anwendungen zusammen"
-          ],
-          [
-            "A0_NEXAH_RESEARCH_METHOD.html",
-            "Research Method",
-            "Geführter Prüf- und Vergleichsweg"
-          ],
-          [
-            "A0_METHOD.html",
-            "About / Method",
-            "Vertiefende Methodenkarte"
           ],
           [
             "LAB_ORIENTATION_MACHINE.html",
@@ -312,7 +317,7 @@
     "entry": "../../../../../00%20EXECUTIVE/NEXAH-Mission-Control/00_OVERVIEW/BUILDER_STATUS_REPORT.html",
     "sections": [
       {
-        "label": "Start & Atlanten",
+        "label": "Start & Werkstätten",
         "items": [
           [
             "A0_TOURS.html#historical-htmls",
@@ -340,9 +345,9 @@
             "Gesamtkarte mit eingebetteten Werkstätten"
           ],
           [
-            "A0_FAMILY_CONNECTION_ATLAS.html",
-            "Family Atlas",
-            "Synchrone Ansichten"
+            "A0_SCIENCE.html#understand",
+            "Hintergründe in Science",
+            "Methode, Family-Raumkarte und Zusammenhänge verstehen"
           ]
         ]
       },
@@ -661,14 +666,19 @@
     ["A0_BLUE_PINK_DODECA_CELL_RETURN.html#cells", "Blue / Pink", "Zellansichten, Projektion und Return erkunden", "cells", "Look · Feel · Wonder"]
   ];
   const builderShowcase = [
+    ["A0_ORIENTATION_CONTROLLER_BENCH.html#benchFoyer", "Bench · Foyer", "Körper, Grids und Werkzeuge visuell entdecken", "body", "Builder Flagship"],
     ["A0_BUILDER_TOY_STORE.html", "Toy Store", "Werkzeuge entdecken und direkt ausprobieren", "toys", "Werkzeug-Einstieg"],
     ["A0_BUILDER_TOY_STORE.html#arkade", "ARKADE", "Die drei Games als gebaute Instrumente", "arcade", "Game of Worlds"],
     ["A0_TESSAREC_BLUE_BODY_LAB.html#lab", "Blue Body Lab", "Tour, Kamera und gekoppelte Instrumente", "body", "Instrument-Workbench"],
-    ["A0_BLUE_PINK_DODECA_CELL_RETURN.html#formation", "Blue / Pink Lab", "Zellen, Projektionen und Return-Mechanik", "cells", "Builder Instrument"]
+    ["A0_BLUE_PINK_DODECA_CELL_RETURN.html#formation", "Blue / Pink Lab", "Zellen, Projektionen und Return-Mechanik", "cells", "Builder Instrument"],
+    ["A0_PINK_DIAMOND_GRID_ATLAS.html#ghost-tiles", "Pink Grid Atlas", "Grid-Träger, Ghost-Auswahl und CRT-Adressen", "cells", "Grid-Instrument & Atlas"]
   ];
   const scienceHighlights = [
+    ["A0_SCIENCE.html#understand", "Verstehen & Zusammenhänge", "Methode, Families und Fugen erklären — vor dem Werkzeug", "cells", "Science · Erklärpfade"],
+    ["A0_FAMILY_CONNECTION_ATLAS.html#spatial-navigation", "Family-Raumkarte", "Wo bin ich – und wohin führt die nächste Fuge?", "body", "Interaktive Erklärung"],
     ["A0_SCIENTIFIC_POSITION_REPORT.html", "Wo stehen wir?", "Was NEXAH konkret macht, was trägt und was offen bleibt", "body", "Scientific Position"],
-    ["A0_SCIENCE.html#contributions", "Konkrete Beiträge", "Formale Resultate, geprüfte Übergänge und ihre Grenzen", "toys", "Ergebnisse & Einordnung"]
+    ["A0_SCIENCE.html#contributions", "Konkrete Beiträge", "Formale Resultate, geprüfte Übergänge und ihre Grenzen", "toys", "Ergebnisse & Einordnung"],
+    ["A0_MATHEMATICAL_JOINTS.html#register-cut-aperture", "Mathfield", "Register, Linsen, andere Seiten und Aperturstapel vergleichen", "cells", "Mathematische Werkstatt"]
   ];
   const laneNav = document.createElement("nav");
   laneNav.className = "a0-reader-lanes";

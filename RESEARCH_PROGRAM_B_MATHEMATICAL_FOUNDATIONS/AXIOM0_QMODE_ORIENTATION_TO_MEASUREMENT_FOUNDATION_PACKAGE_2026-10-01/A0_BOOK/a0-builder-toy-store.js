@@ -168,11 +168,8 @@
     { title:"GAME 4 LIFE +1", tag:"STATE · TRANSFER · RETURN", description:"Der 48er Blue-Body-Record wird bijektiv in ein 8×6-LIFE-Feld gelegt. Der native B3/S23-Schritt macht danach den kontrollierten Verlust der Adresse sichtbar.", kind:"Instrument", href:"A0_GAME_4_LIFE_PLUS_1.html#blue-body-transfer", accent:"#ff8b58" },
     { title:"Orientation Controller Bench", tag:"MEASURE · CONNECT · RETURN", description:"Vier getrennte Systeme, vier zusätzliche Quellenadapter und eine sechzehnstufige Tour verbinden Messung, Kalibrierung, Native Face, Binder und Replay – ohne Carrier oder Uhren gleichzusetzen.", kind:"Engineering bench", href:"A0_ORIENTATION_CONTROLLER_BENCH.html", accent:"#38d5ee" },
     { title:"Pascal / Pentagon Joint", tag:"PHASE · QUOTIENT · JOINT", description:"Pascal-Träger, fünf Phasen und der Operator-Joint werden als prüfbares mathematisches Instrument zusammengesetzt.", kind:"Instrument", href:"A0_PASCAL_PENTAGON_OPERATOR_JOINTS.html", accent:"#ffc84d" },
-    { title:"Pink Diamond Grid Atlas", tag:"BASE · MOD · GRID · CRT", description:"Die steuerbare 16/17-Pentagonfliese vergleicht Zahlwort, Restklasse, Grid-Adresse und CRT-Tupel und öffnet die vollständigen D/E-Flächenträger.", kind:"Atlas", href:"A0_PINK_DIAMOND_GRID_ATLAS.html#crt16-tile", accent:"#f45ca9" },
-    { title:"Fields & Joints Atlas", tag:"DOMAIN · SEAM · RETURN", description:"Eine Karte berührter Felder zeigt Families, Rollen und Fugen – inklusive der Grenzen zwischen formaler und empirischer Gültigkeit.", kind:"Atlas", href:"A0_FIELDS_AND_JOINTS_ATLAS.html", accent:"#38d5ee" },
-    { title:"Family Connection Atlas", tag:"MANY VIEWS · ONE RECORD", description:"Synchrone Ansichten, Families und bestehende Instrumente werden als klickbare Schichten mit sichtbaren Übergängen lesbar.", kind:"Atlas", href:"A0_FAMILY_CONNECTION_ATLAS.html", accent:"#67e7b0" },
-    { title:"Tessarec / Blue Body Lab", tag:"FRAME · ENVELOPE · OBSERVER", description:"Ein dichtes Laborfenster für Träger, Hülle, Beobachter und die Grenzen des gegenwärtigen Tessarec-Entwurfs.", kind:"Lab", href:"A0_TESSAREC_BLUE_BODY_LAB.html", accent:"#708cff" },
-    { title:"NEXAH Aperture Journey", tag:"LIFE · COSMOS · ORIENTATION", description:"Die menschliche Reise durch Frage, Bedeutung, Methode, Instrument und Return verbindet die Module zu einer lesbaren Einladung.", kind:"Journey", href:"A0_NEXAH_APERTURE_JOURNEY.html", accent:"#f45ca9" }
+    { title:"Pink Grid · CRT16-Instrument", tag:"BASE · MOD · GRID · CRT", description:"Die steuerbare 16/17-Pentagonfliese vergleicht Zahlwort, Restklasse, Grid-Adresse und CRT-Tupel. Der Atlas und seine Einordnung bleiben beim Original.", kind:"Instrument", href:"A0_PINK_DIAMOND_GRID_ATLAS.html#crt16-tile", accent:"#f45ca9" },
+    { title:"Tessarec / Blue Body Lab", tag:"FRAME · ENVELOPE · OBSERVER", description:"Ein dichtes Laborfenster für Träger, Hülle, Beobachter und die Grenzen des gegenwärtigen Tessarec-Entwurfs.", kind:"Lab", href:"A0_TESSAREC_BLUE_BODY_LAB.html", accent:"#708cff" }
   ];
 
   const selector = document.querySelector("#flagship-selector");
@@ -225,13 +222,10 @@
   showFlagship(0);
 
   const index = window.A0_ASSET_INDEX || { files:[], external_instruments:[] };
-  const experiences = new Set([
-    "A0_RAINBOW_PURPLE_RAIN.html", "A0_BLACK_SUN_BIG_MOON.html", "A0_NEON_TRAP_DOOR.html",
-    "A0_NEWTON_GOETHE_OBSERVER_LENS.html", "A0_NEXAH_APERTURE_JOURNEY.html", "A0_THE_LIVING_INTERIOR.html"
-  ]);
+  const roles = window.A0ScienceBuilderPath;
   const excluded = new Set(["A0_BUILDER_TOY_STORE.html"]);
-  const localTools = (index.files || []).filter(item => item.extension === ".html" && !excluded.has(item.path)).map(item => ({
-    ...item, href:item.path, source:"A0 local", type:experiences.has(item.path) ? "experience" : item.role
+  const localTools = (index.files || []).filter(item => item.extension === ".html" && !excluded.has(item.path) && roles?.inToyStore(item)).map(item => ({
+    ...item, href:item.path, source:"A0 local", type:roles.purpose(item)
   }));
   const externalTools = (index.external_instruments || []).map(item => ({
     ...item, path:item.source_path, type:"external", source:"Source-bound"
@@ -248,11 +242,11 @@
   const render = () => {
     const query = search.value.trim().toLowerCase();
     const visible = allTools.filter(item => {
-      const matchesFilter = activeFilter === "all" || item.type === activeFilter || (activeFilter === "instrument" && item.role === "instrument");
+      const matchesFilter = activeFilter === "all" || item.type === activeFilter;
       const haystack = [item.title,item.headline,item.description,item.family,item.work,item.path,item.role,item.type].join(" ").toLowerCase();
       return matchesFilter && (!query || haystack.includes(query));
     });
-    count.textContent = `${visible.length} of ${allTools.length} HTML doors`;
+    count.textContent = `${visible.length} von ${allTools.length} Werkzeugzugängen · kein vollständiger HTML-Katalog`;
     grid.replaceChildren();
     if (!visible.length) {
       const empty = document.createElement("p"); empty.className = "empty"; empty.textContent = "No door matches this cut. Change the filter or the words."; grid.append(empty); return;

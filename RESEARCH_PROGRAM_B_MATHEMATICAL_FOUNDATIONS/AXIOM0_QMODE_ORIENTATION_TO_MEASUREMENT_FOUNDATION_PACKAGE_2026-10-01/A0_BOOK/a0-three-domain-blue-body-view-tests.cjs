@@ -1,0 +1,14 @@
+const assert=require('node:assert/strict'),path=require('node:path');
+const view=require(path.join(__dirname,'assets/game-of-worlds-play/three-domain-transition-test/blue-body-view.js'));
+let checks=0;const ok=(value,message)=>{assert.ok(value,message);checks++};
+const a=view.buildBlueBodyView(0),b=view.buildBlueBodyView(1,'VM'),wrap=view.buildBlueBodyView(48,'PM');
+ok(a.sourceKey==='P0:0000'&&a.coupling.eulerAddress===0,'generation zero selects the first typed Q4xP3 address');
+ok(b.sourceKey==='P1:0011'&&b.coupling.eulerAddress===18,'phi rank and times-seven permutation reuse the Blue Body source model');
+ok(b.focus==='VM'&&b.ledger.coordinatePair.join(',')==='1,2','focus changes only the declared relation projection');
+ok(b.ledger.counts.states===48&&b.ledger.counts.carrierEdges===128,'house relation ledger retains the 48-state 128-edge carrier');
+ok(b.receipt.status==='PASS_CURRENT_FRAME_ADDRESS_RETURN'&&b.receipt.residual===0,'singleton address round-trip returns exactly');
+ok(Math.abs(b.coupling.angleDegrees-222.49223594996215)<1e-9,'pi and Euler phase are retained numerically');
+ok(wrap.step===0&&wrap.sourceKey===a.sourceKey,'shared clock is an explicit mod-48 address projection');
+ok(a.boundary.includes('DISTINCT_THREE_DOMAIN_AND_Q4xP3_CARRIERS'),'non-identity boundary remains machine-visible');
+assert.throws(()=>view.buildBlueBodyView(-1));checks++;assert.throws(()=>view.buildBlueBodyView(0,'XY'));checks++;
+console.log(JSON.stringify({status:'PASS',checks,scope:'Three-Domain to Blue Body 48-address lens; phi-pi-Euler schedule, two-ledger view, exact address return and non-identity boundary'},null,2));

@@ -171,6 +171,9 @@
   document.addEventListener('a0:family-atlas-selection',receive);
   document.addEventListener('visibilitychange',()=>{if(document.hidden){cancelTravel();readout();draw()}});
   root.addEventListener('resize',resize);resize();readout();
-  root.A0FamilySpatialReader={snapshot:()=>capture(),trail,resize,travel,cancelTravel,journey:()=>transit?JSON.parse(JSON.stringify(transit)):null};
+  root.A0FamilySpatialReader={snapshot:()=>capture(),trail,resize,travel,cancelTravel,journey:()=>transit?JSON.parse(JSON.stringify(transit)):null,resume(state){
+    if(!root.A0ScienceBuilderPath?.validReader(state)||!source.routes[state.route]||state.family&&!source.families[state.family]||!source.families[state.elevatorFamily]||['bluebody','dodeca'].includes(state.layout)&&!bodies[state.layout])return false;
+    restore(JSON.parse(JSON.stringify(state)));record();return true;
+  }};
   if(root.location.hash==='#spatial-navigation'){root.A0Sync?.pause();requestAnimationFrame(()=>document.getElementById('spatial-navigation').scrollIntoView({block:'start'}))}
 })(typeof window!=='undefined'?window:globalThis);

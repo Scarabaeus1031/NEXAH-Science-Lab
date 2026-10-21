@@ -1,0 +1,59 @@
+{
+  "date": "2026-10-21",
+  "status": "ENGINEERING_PASS_BROWSER_VISUAL_ACCEPTANCE_OPEN",
+  "identity_reuse": [
+    "NEXAH_A0_ORIENTATION_CONTROLLER_BENCH"
+  ],
+  "new_global_ids": [],
+  "relation_changes": [],
+  "canonical_count_effect": 0,
+  "publication_authorized": false,
+  "scope": "Gallery-first Körper & Räume room: six fixed source-geometry previews, three Body projections from existing buildBody and three One Flow curves. Explicit Body card activation selects existing interior/player source route. Four allowlisted parameter panels wrapped in native details without cloning or resetting inputs.",
+  "sources": [
+    {
+      "ecosystem_path": "30 SCIENCE LAB/NEXAH-Science-Lab/RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/A0_ORIENTATION_CONTROLLER_BENCH.html",
+      "sha256": "dd671c27cda02f298e059684a8ca6e7fa559747f247873d589b4849f2613a7b2"
+    },
+    {
+      "ecosystem_path": "30 SCIENCE LAB/NEXAH-Science-Lab/RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/a0-bench-body-gallery.js",
+      "sha256": "4b24940373758327011a83faa6f7dcc30f13686c413c58fcca4203f63fbac564"
+    },
+    {
+      "ecosystem_path": "30 SCIENCE LAB/NEXAH-Science-Lab/RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/a0-bench-disclosures.js",
+      "sha256": "b2a10634dcfd04a841dbfa14a8547c75c56ac22b23b90a6bd87f6100e013df42"
+    },
+    {
+      "ecosystem_path": "30 SCIENCE LAB/NEXAH-Science-Lab/RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/a0-bench-body-gallery-tests.cjs",
+      "sha256": "b301abad10728655313a12442c6b3fd53c36e82b367b54ada6e940eb4b058ad6"
+    },
+    {
+      "ecosystem_path": "30 SCIENCE LAB/NEXAH-Science-Lab/RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/a0-bench-walk.js",
+      "sha256": "5873a0e8e53f1218f5c55caa31fe4d955b73f1bab07e3f9780ac3b3aaa864a10"
+    },
+    {
+      "ecosystem_path": "30 SCIENCE LAB/NEXAH-Science-Lab/RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/a0-bench-walk.css",
+      "sha256": "9067913d9e56935d7091d8818024994e3e9b1c999d531a6477886360adba52d8"
+    },
+    {
+      "ecosystem_path": "30 SCIENCE LAB/NEXAH-Science-Lab/RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/a0-bench-walk-tests.cjs",
+      "sha256": "944359b9f4b26d0e80f8f8c3a292d2c8f9be6ded2e6e5ad3664267fead2acfa9"
+    }
+  ],
+  "tests": {
+    "gallery_and_disclosures": 56,
+    "walk": 133,
+    "foyer": 58,
+    "map": 294,
+    "mask_clock": 12448,
+    "integration": 8109
+  },
+  "browser_acceptance": "OPEN; DOM doubles and source geometry checks are not browser pixels",
+  "boundaries": [
+    "Gallery Body projection is a fixed presentation transform, not CRT16 screenshot",
+    "Three views of one Body are not three independent carriers",
+    "Source loading occurs only on explicit card activation through existing controller",
+    "Closing drawers is display-only, not pause, reset or export",
+    "Only four selected parameter blocks folded; not every Bench form refactored",
+    "Dodeka and remaining models remain linked under further sources; six preview selection is not complete inventory"
+  ]
+}

@@ -60,7 +60,7 @@
         try{if(action==='CONNECT'){if(session)command('PAUSE');else connect();}else command(action);done();}catch(error){listeners.delete(done);reject(error);}
       });
     }
-    return{connect,command,confirmed,disconnect,focus,receive,get last(){return last?JSON.parse(JSON.stringify(last)):null;},get connected(){return session!==null;}};
+    return{connect,command,confirmed,disconnect,focus,receive,subscribe(listener){listeners.add(listener);return()=>listeners.delete(listener);},get ready(){return session!==null&&pending===null&&last!==null;},get last(){return last?JSON.parse(JSON.stringify(last)):null;},get connected(){return session!==null;}};
   }
   return{mount};
 });

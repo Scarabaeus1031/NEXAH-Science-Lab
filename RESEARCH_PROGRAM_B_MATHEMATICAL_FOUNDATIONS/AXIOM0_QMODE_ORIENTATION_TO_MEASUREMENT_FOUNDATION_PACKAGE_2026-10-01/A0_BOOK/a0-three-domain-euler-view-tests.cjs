@@ -1,0 +1,13 @@
+const assert=require('node:assert/strict'),path=require('node:path');
+const view=require(path.join(__dirname,'assets/game-of-worlds-play/three-domain-transition-test/euler-view.js'));
+let checks=0;const ok=(value,message)=>{assert.ok(value,message);checks++};
+const ledger={c00:2,c01:3,c10:1,c11:4,total:10};
+const snapshots={chemistry:{ledger,events:{all:Array(2)}},life:{ledger:{c00:1,c01:1,c10:3,c11:5,total:10},events:{all:Array(3)}},physics:{ledger:{c00:4,c01:2,c10:2,c11:2,total:10},events:{all:Array(4)}}};
+const p=view.buildEulerView(snapshots,6);
+ok(Object.keys(p.domains).join(',')==='chemistry,life,physics','three primary phasors retain their addressed domains');
+ok(p.viewGrammar.primary.length===3&&p.viewGrammar.derived.includes('centroid')&&p.viewGrammar.fourthIsNewOperator===false,'3 + 1 grammar marks the fourth view as a derived centroid, not a new operator');
+ok(Math.abs(p.aggregate.re-(p.domains.chemistry.re+p.domains.life.re+p.domains.physics.re)/3)<1e-12,'joint real coordinate is the arithmetic centroid');
+ok(Math.abs(p.aggregate.im-(p.domains.chemistry.im+p.domains.life.im+p.domains.physics.im)/3)<1e-12,'joint imaginary coordinate is the arithmetic centroid');
+ok(p.eventTotal===9&&p.boundary.includes('NO_SHARED_OPERATOR'),'event context and shared-operator boundary remain explicit');
+assert.throws(()=>view.buildEulerView({},0));checks++;
+console.log(JSON.stringify({status:'PASS',checks,scope:'Three-Domain Euler 3 + 1 view grammar; three addressed phasors and derived centroid boundary'},null,2));

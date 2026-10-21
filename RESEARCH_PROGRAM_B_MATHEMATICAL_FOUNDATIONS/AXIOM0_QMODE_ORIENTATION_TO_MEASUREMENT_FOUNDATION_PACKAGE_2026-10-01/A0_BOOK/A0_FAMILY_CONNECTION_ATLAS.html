@@ -6,6 +6,7 @@
   <meta name="description" content="NEXAH Family Connection Atlas: ein bewegter Einstieg über Tessarec State Field und fünf unterscheidbare Leselinsen.">
   <title>NEXAH · Family Connection Atlas</title>
   <link rel="stylesheet" href="a0-family-spatial-navigation.css">
+  <link rel="stylesheet" href="a0-science-builder-path.css">
   <link rel="stylesheet" href="a0-context-navigation.css?rev=connect-entry-20261014">
   <style>
     :root{--bg:#06121b;--panel:#0a1d2a;--panel2:#102a3a;--line:#29495b;--text:#e9f2f5;--muted:#96acb7;--cyan:#54d7ef;--gold:#efbd55;--pink:#ef6d9c;--mint:#69d39a;--violet:#b78aef;--red:#ed7777;--paper:#f4f0e7;--ink:#132630;--mono:ui-monospace,SFMono-Regular,Menlo,monospace}
@@ -54,20 +55,22 @@
     .route-group[data-route-group=map] button[data-route=all]{margin-right:6px;border-color:var(--gold)}
     @media(max-width:780px){.route-group[data-route-group=map]{grid-template-columns:1fr}.route-group[data-route-group=map] .route-buttons{gap:7px}}
   </style>
+  <link rel="stylesheet" href="a0-family-record-player.css">
 </head>
 <body>
   <header class="top"><a class="brand" href="A0_RESEARCH_DESK.html">NEXAH <span>· A0 Science</span></a><nav><a href="A0_NEXAH_RESEARCH_METHOD.html">Research Method</a><a href="#start" id="openAtlasStart">Atlas Start</a><a href="#layers">F / T</a><a href="#spatial-navigation">Raumkarte · 3D</a><a href="A0_NUMBERMAGICK_GRID_RESEARCH.html#number-shell-lens">Magic Numbers</a><a href="A0_GAME_OF_WORLDS.html">Game of Worlds</a><a href="#sourceDeepDive">Source Field</a><a href="A0_TESSAREC_BLUE_BODY_LAB.html#coupled-views">Blue Body</a></nav></header>
   <main>
     <header class="atlas-hero" id="start">
       <div class="atlas-hero-copy">
-        <div class="eyebrow">A0 SCIENCE · FAMILY CONNECTION ATLAS · EXISTING MOD:TESSAREC</div>
-        <h1>One state.<br><em>Five ways to read it.</em></h1>
-        <p class="atlas-hero-lead">Der Atlas beginnt nicht mit einer Liste. Er beginnt mit einem Zustand, der sich bewegt — und mit der Frage, was jede Linse davon sichtbar macht.</p>
-        <p class="atlas-hero-note">Tessarec öffnet das Feld. F liest die Apertur, T die Phase, J die Fuge, E die Leseposition und Q die adressierte Bewegung. Der Carrier bleibt gebunden; nur unsere Position verändert sich.</p>
+        <div class="eyebrow">A0 SCIENCE · FAMILY-PLATTENSPIELER</div>
+        <h1>Wähle die Platte.<br><em>Wechsle den Blick.</em></h1>
+        <p class="atlas-hero-lead">Erst die Quelle oder das Modell wählen. Dann die Lesart — und entdecken, was dieser Blick sichtbar macht.</p>
+        <p class="atlas-hero-note">Tessarec ist hier als Intro bedienbar. Die weiteren Platten zeigen Quellenkarten zu ihren Originalen, keine gemeinsame Maschine. Der Atlas darunter behält seine eigenen Arbeitsmodi.</p>
         <div class="atlas-hero-actions"><button type="button" id="introEnterField">Enter Tessarec State Field ↓</button><button type="button" id="introAtlas">Read the five lenses ↓</button></div>
         <div class="atlas-hero-ledger"><div><b>RETAINED</b><span>carrier · address · source</span></div><div><b>CHANGED</b><span>phase · view · aperture</span></div><div><b>RETURN</b><span>difference stays visible</span></div></div>
       </div>
-      <div class="atlas-portal" aria-label="Animierter Einstieg in das Tessarec State Field">
+      <div id="familyRecordPlayer"></div>
+      <div class="atlas-portal" aria-label="Q4-Intro, unabhängig vom Tessarec-Arbeitsfeld">
         <div class="atlas-field" id="atlasIntroField">
           <canvas id="atlasIntroCanvas" aria-hidden="true"></canvas>
           <div class="atlas-field-core"><div><b>MOD:TESSAREC</b><span id="atlasIntroCore">STATE S0</span></div></div>
@@ -241,6 +244,7 @@
       <div class="kicker">FAMILY · SPATIAL READER · LOCAL PROTOTYPE</div>
       <h2 id="spatial-title">Wo bin ich – und wohin führt die nächste Fuge?</h2>
       <p>Dieselbe Family-Auswahl, räumlich lesbar. Drehen verändert den Blick; ein Knoten wählt Family und Leseposition im bestehenden Atlas.</p>
+      <aside class="reading-path" data-reading-path="atlas"><h3>Vom Zusammenhang zum Bauteil</h3><p>Beispielpfad: Grids erkunden, Pink Grid auswählen, die CRT16-Fliese bedienen und zur eigenen Leseposition zurückkehren.</p><nav aria-label="Science–Builder-Lesepfad"><a data-reading-depart href="A0_ORIENTATION_CONTROLLER_BENCH.html#bench-area-1">1 · Grids in der Bench →</a><a data-reading-depart href="A0_PINK_DIAMOND_GRID_ATLAS.html#ghost-tiles">2 · Pink Grid ansehen →</a><a data-reading-depart href="A0_PINK_DIAMOND_GRID_ATLAS.html#crt16-tile">3 · CRT16-Instrument →</a><a href="A0_SCIENCE.html#understand">Science · Erklärpfade ↑</a></nav><button type="button" data-reading-resume hidden>Gespeicherte Leseposition wiederherstellen</button><output data-reading-status aria-live="polite"></output><small>Ein Navigationspfad, keine Datenkopplung. Pink Ghost und CRT16 besitzen unterschiedliche, bereits deklarierte Leselinsen; die neun Bench-Rubriken werden nicht auf sieben Families verteilt. Gespeichert wird nur der Leserzustand dieser Sitzung.</small></aside>
       <div id="familySpatialMount"><p>Raumansicht lädt. Die <a href="#map">bestehende Karte</a> bleibt nutzbar.</p></div>
       <p><a href="A0_NUMBERMAGICK_GRID_RESEARCH.html#number-shell-lens">Game of Magic Numbers · dieselbe Zahl durch Mengen, Grid und komplexe Ebene lesen →</a></p>
       <p><strong>Relations · Zauberflöte:</strong> Family wählen, dann eine weiße Verbindung oder einen ζ/θ/β-Stop. Dieselbe Family fährt durch ihre Lesepositionen; farbige Pfeile verbinden dagegen unterschiedliche Family-Rollen. Der Übergangs-Return prüft den Rückweg zum erfassten Ausgang. Noch keine Generationsachse oder neue wissenschaftliche Relation.</p>
@@ -261,13 +265,14 @@
       const context=canvas.getContext('2d'),reduced=matchMedia('(prefers-reduced-motion: reduce)').matches,vertices=Array.from({length:16},(_,index)=>[index&1?1:-1,index&2?1:-1,index&4?1:-1,index&8?1:-1]),edges=[];
       for(let index=0;index<16;index+=1)for(let bit=0;bit<4;bit+=1)if((index&(1<<bit))===0)edges.push([index,index|(1<<bit)]);
       const gray=Array.from({length:16},(_,step)=>step^(step>>1)),modes=['state','phase','observer'],palette={state:'#54d7ef',phase:'#b78aef',observer:'#ef6d9c'};
-      let mode='state',manualUntil=0,width=1,height=1,ratio=1;
-      const setMode=(next,manual=false)=>{mode=next;if(manual)manualUntil=performance.now()+9000;buttons.forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.introMode===mode)))};
+      let mode='state',selectedAddress=0,lastPoints=[],lensVisible=true,width=1,height=1,ratio=1;
+      const setMode=next=>{if(!modes.includes(next))return false;mode=next;buttons.forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.introMode===mode)));return true;};
       buttons.forEach(button=>button.onclick=()=>{setMode(button.dataset.introMode,true);if(reduced)requestAnimationFrame(draw)});
       const resize=()=>{const bounds=field.getBoundingClientRect();ratio=Math.min(devicePixelRatio||1,2);width=Math.max(1,bounds.width);height=Math.max(1,bounds.height);canvas.width=Math.round(width*ratio);canvas.height=Math.round(height*ratio);context.setTransform(ratio,0,0,ratio,0,0)};
       const project=(vertex,time)=>{let[x,y,z,w]=vertex;const a=time*.00023,b=time*.00017,c=time*.00011,ca=Math.cos(a),sa=Math.sin(a),cb=Math.cos(b),sb=Math.sin(b),cc=Math.cos(c),sc=Math.sin(c);[x,w]=[x*ca-w*sa,x*sa+w*ca];[y,z]=[y*cb-z*sb,y*sb+z*cb];[x,y]=[x*cc-y*sc,x*sc+y*cc];const four=1/(2.7-w*.34),three=1/(3.6-z*four*.42),scale=Math.min(width,height)*.62*four*three;return[width/2+x*scale,height/2+y*scale,z,w]};
-      const draw=(time=0)=>{if(!reduced&&performance.now()>manualUntil){const automatic=modes[Math.floor(time/4200)%modes.length];if(automatic!==mode)setMode(automatic)}const points=vertices.map(vertex=>project(vertex,reduced?2150:time)),active=gray[Math.floor(time/520)%gray.length],accent=palette[mode];context.clearRect(0,0,width,height);context.lineCap='round';edges.forEach(([a,b])=>{const p=points[a],q=points[b],isW=(a^b)===8;context.beginPath();context.moveTo(p[0],p[1]);context.lineTo(q[0],q[1]);context.strokeStyle=mode==='phase'&&isW?'rgba(239,189,85,.9)':mode==='observer'?(p[0]<width/2?'rgba(84,215,239,.42)':'rgba(239,109,156,.55)'):'rgba(84,215,239,.34)';context.lineWidth=isW&&mode==='phase'?2.4:1;context.stroke()});points.forEach((point,index)=>{const selected=index===active;context.beginPath();context.arc(point[0],point[1],selected?6.4:2.6,0,Math.PI*2);context.fillStyle=selected?'#efbd55':accent;context.globalAlpha=selected?1:.72;context.shadowColor=selected?'#efbd55':accent;context.shadowBlur=selected?18:5;context.fill()});context.globalAlpha=1;context.shadowBlur=0;if(mode==='observer'){context.beginPath();context.arc(width/2,height/2,Math.min(width,height)*.34,-.74,.74);context.strokeStyle='rgba(239,109,156,.78)';context.lineWidth=2;context.stroke();context.beginPath();context.arc(width/2,height/2,Math.min(width,height)*.34,Math.PI-.74,Math.PI+.74);context.strokeStyle='rgba(84,215,239,.72)';context.stroke()}core.textContent=mode==='state'?`STATE S${active}`:mode==='phase'?`Δφ · S${active}`:`±θ · S${active}`;readout.textContent=mode==='state'?`S${active} · Q4 carrier`:mode==='phase'?`S${active} → S${gray[(gray.indexOf(active)+1)%16]} · automatic joint`:`S${active} · paired visibility`;if(!reduced)requestAnimationFrame(draw)};
-      resize();addEventListener('resize',resize);setMode('state');requestAnimationFrame(draw);
+      const draw=(time=0)=>{const points=vertices.map(vertex=>project(vertex,reduced?2150:time)),active=selectedAddress,accent=palette[mode];lastPoints=points;context.clearRect(0,0,width,height);context.lineCap='round';edges.forEach(([a,b])=>{const p=points[a],q=points[b],isW=(a^b)===8;context.beginPath();context.moveTo(p[0],p[1]);context.lineTo(q[0],q[1]);context.strokeStyle=mode==='phase'&&isW?'rgba(239,189,85,.9)':mode==='observer'?(p[0]<width/2?'rgba(84,215,239,.42)':'rgba(239,109,156,.55)'):'rgba(84,215,239,.34)';context.lineWidth=isW&&mode==='phase'?2.4:1;context.stroke()});points.forEach((point,index)=>{const selected=index===active;context.beginPath();context.arc(point[0],point[1],selected?6.4:2.6,0,Math.PI*2);context.fillStyle=selected?'#efbd55':accent;context.globalAlpha=selected?1:.72;context.shadowColor=selected?'#efbd55':accent;context.shadowBlur=selected?18:5;context.fill()});context.globalAlpha=1;context.shadowBlur=0;if(lensVisible){const p=points[active];context.beginPath();context.arc(p[0],p[1],19,0,Math.PI*2);context.strokeStyle='#efbd55';context.lineWidth=2;context.stroke();context.fillStyle='#efbd55';context.font='bold 13px system-ui';context.fillText('Q°',p[0]+23,p[1]-12);}if(mode==='observer'){context.beginPath();context.arc(width/2,height/2,Math.min(width,height)*.34,-.74,.74);context.strokeStyle='rgba(239,109,156,.78)';context.lineWidth=2;context.stroke();context.beginPath();context.arc(width/2,height/2,Math.min(width,height)*.34,Math.PI-.74,Math.PI+.74);context.strokeStyle='rgba(84,215,239,.72)';context.stroke()}core.textContent=mode==='state'?`STATE S${active}`:mode==='phase'?`Δφ · S${active}`:`±θ · S${active}`;readout.textContent=mode==='state'?`S${active} · Q4 carrier`:mode==='phase'?`S${active} → S${gray[(gray.indexOf(active)+1)%16]} · Gray-Nachbar (Lesekarte)`:`S${active} · paired visibility`;if(!reduced)requestAnimationFrame(draw)};
+      window.A0AtlasIntroView={selectMode(next){const ok=setMode(next);if(ok&&reduced)requestAnimationFrame(draw);return ok;},selectAddress(next){if(!Number.isInteger(next)||next<0||next>15)return false;selectedAddress=next;if(reduced)requestAnimationFrame(draw);return true;},selectAt(x,y){if(!Number.isFinite(x)||!Number.isFinite(y)||!lastPoints.length)return null;let found=-1,distance=28;lastPoints.forEach((p,i)=>{const d=Math.hypot(x-p[0],y-p[1]);if(d<distance){distance=d;found=i;}});if(found<0)return null;this.selectAddress(found);return found;},setLens(visible){lensVisible=!!visible;if(reduced)requestAnimationFrame(draw);},snapshot(){return{mode,address:selectedAddress,scope:'INTRO_ONLY'};},refresh(){resize();if(reduced)requestAnimationFrame(draw);}};
+      resize();addEventListener('resize',()=>window.A0AtlasIntroView.refresh());setMode('state');requestAnimationFrame(draw);
     }
     const families={
       F1:{x:120,y:165,name:'Observation / Record',aperture:'Observation aperture',selects:'sichtbare oder lesbare Records, Außenformen und Signale',short:'Aperture · Signal · Record',question:'Was wird durch diese Apertur wann und unter welchen Bedingungen sichtbar oder lesbar?'},
@@ -481,6 +486,8 @@
   <script src="assets/a0-blue-body-dodeca-countershot-v1.js"></script>
   <script src="a0-family-spatial-bodies.js"></script>
   <script src="a0-family-spatial-navigation.js"></script>
+  <script src="a0-family-record-player.js"></script>
+  <script src="a0-science-builder-path.js"></script>
   <script src="a0-context-navigation.js?rev=human-home-20261014"></script>
 </body>
 </html>

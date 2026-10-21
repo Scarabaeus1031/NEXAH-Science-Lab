@@ -36,8 +36,10 @@ node APP/audit_app.mjs
 - canonical base: `266 entities / 29 relations`;
 - admitted LIFE overlay: `3 entities / 3 relations`;
 - composed internal view: `269 entities / 32 relations`;
-- nineteen governed component slices in the component index, including the
+- twenty governed component slices in the component index, including the
   read-only Lab Register lifecycle lens, the ORION capability/evidence lens and
+  the public-safe internal THE EYE software-lineage lens, with private review
+  receipts and Owner state retained in Mission Control, and
   the source-bound CRT/QRT 37 Carrier Ladder and MRB/ACR/NCS-Q106 Return
   Crosswalk lenses, plus the A0 Joint Application Return Protocol engineering
   lens and the Fold / Envelope / Frame / State comparison lens;

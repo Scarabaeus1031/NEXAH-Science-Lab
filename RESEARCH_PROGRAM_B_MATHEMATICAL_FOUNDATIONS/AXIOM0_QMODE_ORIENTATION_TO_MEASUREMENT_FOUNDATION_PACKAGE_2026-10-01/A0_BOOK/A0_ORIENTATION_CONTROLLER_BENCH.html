@@ -7,6 +7,15 @@
   <title>NEXAH · A I|0 — Orientation Controller Bench v0.21.0</title>
   <link rel="stylesheet" href="a0-orientation-controller-bench.css?rev=20261019-blind-adapter-r1">
   <link rel="stylesheet" href="a0-mask-clock-focus.css?rev=20261020-r1">
+  <link rel="stylesheet" href="a0-orbit-grid-joints.css">
+  <link rel="stylesheet" href="a0-bench-integration.css">
+  <link rel="stylesheet" href="a0-bench-tool-catalog.css">
+  <link rel="stylesheet" href="a0-bench-map-showcase.css">
+  <link rel="stylesheet" href="a0-bench-foyer.css">
+  <link rel="stylesheet" href="a0-bench-walk.css">
+  <link rel="stylesheet" href="a0-bench-visual-shelves.css">
+  <link rel="stylesheet" href="a0-science-builder-path.css">
+  <link rel="stylesheet" href="a0-bench-machine-picture.css">
   <link rel="stylesheet" href="a0-aperture-measurement.css?rev=20261018-m3-ilau">
   <link rel="stylesheet" href="a0-aperture-stack-calibration.css?rev=20261018-gap02-gap09">
   <link rel="stylesheet" href="a0-bench-showcase-tour.css?rev=20261019-longplay-r1">
@@ -31,15 +40,51 @@
   <link rel="stylesheet" href="a0-bench-perspective-deck.css?rev=20261020-r1">
   <link rel="stylesheet" href="a0-caro-orientation-modes.css?rev=20261020-r1">
   <link rel="stylesheet" href="a0-plate-mirror.css?rev=20261020-r1">
+  <link rel="stylesheet" href="a0-breath-grid-bench.css?rev=20261020-r1">
+  <link rel="stylesheet" href="a0-lens-region-reader.css?rev=20261020-r1">
 </head>
 <body>
 <nav class="bench-nav" aria-label="Bench Navigation">
-  <a class="bench-brand" href="#orientationBench">NEXAH / BENCH</a>
+  <a class="bench-brand" href="#benchFoyer">NEXAH / BENCH</a>
   <button type="button" id="benchTourTop" class="tour-top-button" data-tour-ui aria-pressed="false">▶ DEMO-TOUR STARTEN</button>
-  <a href="#coupledWindowHub">Arbeitsfenster</a><a href="#maskObserverBench">Maske / lila Faltung</a><a href="#bodyRouteBench">Körperweg 01b/01c</a><a href="#sewingSourceWindow">Schaukeln</a><a href="#nsnGlbSources">NSN · GLB</a><a href="#caroControlBench">CARO live</a><a href="#benchShowcase">Tour</a><a href="#benchMap">Schaltbild</a>
+  <a href="#benchFoyer">Foyer</a><a href="#foyerDoors">Bausteine / Suche</a><a href="#coupledWindowHub">Cockpit</a>
+  <a href="#benchMap">Schaltbild</a><details><summary>Direktzugänge</summary><div><a href="#breathGridBench">Kreis / Grid</a><a href="#maskObserverBench">Maske / lila Faltung</a><a href="#bodyRouteBench">Körperweg 01b/01c</a><a href="#sewingSourceWindow">Schaukeln</a><a href="#nsnGlbSources">NSN · GLB</a><a href="#caroControlBench">CARO live</a><a href="#benchShowcase">Tour</a></div></details>
   <details><summary>Quellen &amp; Technik</summary><div><a href="A0_RESEARCH_DESK.html">← Science Desk</a><a href="A0_GAME_OF_WORLDS_PLAY.html#numbers">Numbers</a><a href="#nativeSourceBank">Native Quellen</a><a href="#augustSourceTrail">August-Serie · acht HTMLs</a><a href="#integrationCrosswalk">Bestand → A0</a><a href="#wiringPackage">Integrationspaket</a><a href="#phaseWiring">Gemeinsame Phase</a><a href="#benchSetupDrawer">Technik &amp; Verträge</a><a href="A0_BUILDER_LOG.html">Builder Log</a></div></details>
 </nav>
 <main class="shell" id="orientationBench">
+<section id="benchFoyer" aria-labelledby="benchFoyerTitle">
+<div class="bf-hero">
+<div class="bf-intro"><small>NEXAH / BUILDER · DAS FOYER</small><h1 id="benchFoyerTitle">Eine Werkbank.<br><em>Viele Blicke.</em></h1><p>Körper erkunden. Ansichten wechseln. Verbindungen entdecken. Wähle eine Tür — die Instrumente warten dahinter.</p><div class="bf-actions"><a href="#foyerDoors">Werkzeuge entdecken ↓</a><a href="A0_FAMILY_CONNECTION_ATLAS.html#spatial-navigation">Zusammenhang verstehen ↗</a><a href="#benchMachinePicture">Gesamtbild ↗</a></div></div>
+<div class="bf-exhibit">
+<div class="bf-stage" data-bf-stage><figure class="bf-poster" data-bf-poster><img src="assets/images/crystal_view_poster.jpeg" alt="Historische räumliche Referenz mit verschachtelten Ringen und farbigen Achsen"><figcaption>Historische Bildreferenz · kein Vorschaurender des ausgewählten GLB-Modells</figcaption></figure></div>
+<div class="bf-controls" aria-label="Originalmodell auswählen"><button type="button" data-bf-model="0" aria-pressed="true">17 Floors</button><button type="button" data-bf-model="1" aria-pressed="false">Blue Pearl</button><button type="button" data-bf-model="2" aria-pressed="false">Resonance Cathedral</button></div>
+<div class="bf-controls"><button type="button" data-bf-load>3D öffnen ⛶</button><button type="button" data-bf-rotate aria-pressed="false" disabled>Ansichtsrotation</button><select data-bf-camera aria-label="Kameraansicht"><option value="35deg 65deg auto">Isometrisch</option><option value="0deg 90deg auto">Front</option><option value="0deg 0deg auto">Top</option><option value="90deg 90deg auto">Side</option></select><button type="button" data-bf-close hidden>3D schließen</button></div>
+<output data-bf-status role="status" aria-live="polite"></output>
+<details><summary>Quelle &amp; Details · <span data-bf-model-name></span></summary><a data-bf-original target="_blank" rel="noopener">Unverändertes Original öffnen ↗</a><code data-bf-hash></code><p>Lokale Archivquelle. Ansichtsrotation ist keine gespeicherte Modellanimation. Keine physikalische Simulation. Bei gesperrtem Dateizugriff bleibt die Bildreferenz verfügbar.</p></details>
+</div></div>
+<section id="benchMachinePicture" class="bench-machine-picture" aria-label="Begehbares Architektur- und Maschinenbild"><p>Architekturansicht wird geladen. <a href="#benchMap">Zum technischen Schaltbild</a></p></section>
+<header class="bf-gallery-head" id="foyerDoors"><div><small>NEUN GRUPPEN · VORHANDENE BAUSTEINE</small><h2>Bausteine entdecken.</h2></div><p>Erst eine Gruppe wählen. Darunter klappt ihre Werkzeugliste auf — mit kurzer Erklärung und Legenden, ohne wiederholte Bilder.</p></header>
+<div id="benchVisualShelves" aria-label="Gemeinsame visuelle Werkzeugregale"><p>Quellgalerie wird geladen. <a href="#benchOverview">Zum vorhandenen Werkzeugkatalog ↓</a></p></div>
+<p class="bf-note">Eine Bench, kein neuer Katalog. <a href="../../../../../00%20EXECUTIVE/NEXAH-Mission-Control/00_OVERVIEW/BUILDER_STATUS_REPORT.html#bench-entry-hall">Zur Builder-Eingangshalle ↗</a> · <a href="#benchOverview">Vollständiger Werkzeugkatalog</a> · <a href="#coupledWindowHub">Arbeitsfenster / Cockpit</a>. Quellen und Messzustände bleiben bei ihren Originalinstrumenten.</p>
+</section>
+  <section id="benchOverview" class="bench-overview" aria-labelledby="benchOverviewTitle">
+    <small>BESTANDSUPDATE · 21.10.2026 · EINE BENCH, SECHS ARBEITSBEREICHE</small>
+    <h2 id="benchOverviewTitle">Alle Werkzeuge im Blick.</h2>
+    <p>Die vorhandenen Originale, Adapter und Records bleiben an ihren bisherigen Stellen. Diese Arbeitsgliederung erweitert das bestehende <a href="#benchMap">Bench-Schaltbild</a>; sie ist keine neue Familienordnung und startet oder entlädt keine Quelle.</p>
+    <div id="benchToolCatalog" aria-label="Visueller durchsuchbarer Bench-Werkzeugkatalog"></div>
+    <details id="benchAreaNotes"><summary>Sechs Arbeitsbereiche · ausführlicher Bestandsstand</summary>
+    <div class="bench-overview-grid">
+      <article><small>00 · QUELLEN</small><h3>Körper &amp; Originale</h3><p>Blue/Pink, Body-Lab, Dodeka, One Flow, Schaukeln und archivierte GLBs. Quellen besitzen ihre eigenen Sitzungen und Uhren.</p><nav><a href="#bodyRouteBench">Körperweg 01b / 01c</a><a href="#nsnGlbSources">GLB-Bestand</a><a href="#benchPerspectiveDeck">Originalfenster</a><a href="#sewingSourceWindow">Schaukeln</a></nav></article>
+      <article><small>01 · ZUSTAND / ADRESSE</small><h3>Welcher Punkt ist gewählt?</h3><p>48 Schlüssel in Q4×P3, drei Layer und House-Ledger. Eine sichtbare Auswahl ist nicht automatisch ein neuer Körper oder eine rekonstruierte Historie.</p><nav><a href="#statePanel">Bench-State</a><a href="#atlasTessarecBench">Atlas-Tessarec</a><a href="#benchIntegration">Quelladresse lesen</a></nav></article>
+      <article><small>02 · OPERATOREN</small><h3>Was verändert sich?</h3><p>Bestehende Operatoren, LRRL/RLLR-Maskenbewegung und der bestätigte Blue/Pink-Phasenanschluss. Nur die ausdrücklich verbundenen Module folgen einander.</p><nav><a href="#maskClockLink">Blue/Pink → Maskentick</a><a href="#maskObserverBench">Maskensteuerung</a><a href="#operatorPanel">Operatoren / Ihara</a><a href="#caroControlBench">CARO</a></nav></article>
+      <article><small>03 · ANSICHTEN / GRIDS</small><h3>Was wird wie sichtbar?</h3><p>AM/VM/PM, Observer-Screen, TESA 4×7, Teller und Zylinder. Die neue 48→28-Maske zeigt Überlagerungen und behält die Quellschlüssel.</p><nav><a href="#benchIntegration">Body → TESA / Observer</a><a href="#orbitGridJoints">Orbit / Grid / Teller</a><a href="#breathGridBench">Kreis / Grid-Streckung</a><a href="#plateMirrorBench">Teller / Spiegel</a></nav></article>
+      <article><small>04 · RETURN</small><h3>Was muss erhalten bleiben?</h3><p>Quell-Witness, Pascal-Rest und gespeicherte lokale Ansichten. Ein Ansichts-Return stellt keine unabhängigen Quellfenster oder verlorene Dynamik wieder her.</p><nav><a href="#pascalApertureBridge">Pascal / Apertur / Rest</a><a href="#divisionReturnBench">Teilung / Übersetzung</a><a href="#ocbRecordReplay">Native Replay</a><a href="#returnEconomyDemonstrator">Return Economy</a></nav></article>
+      <article><small>05 · PRÜFUNG / RECORDS</small><h3>Was ist bereits geprüft?</h3><p>Technische Tests und Quellenhashes sind rückgebunden. Die bisher gezeigten Ansichten sind Owner-geprüft; die neue Integrationsansicht hat noch keine eigene visuelle Browserabnahme.</p><nav><a href="#benchIntegration">Record halten / exportieren</a><a href="#ocbBrowserQa">Viewport-QA</a><a href="A0_RESEARCH_DESK.html#bench-integration-20261021">Science Desk</a><a href="results/a0-bench-integration-return-2026-10-21.json">Integrations-Receipt</a></nav></article>
+    </div>
+    </details>
+    <details><summary>Atlas · neun Karten in drei Dreierpaketen</summary><table><caption>Aktuelle Anordnung im Game-Demonstrator; keine Ableitung von sieben Familien</caption><tbody><tr><th scope="row">Welten</th><td>Chemistry · Life · Physics</td></tr><tr><th scope="row">Gemeinsame Lesungen</th><td>Joint · Euler · Fibonacci</td></tr><tr><th scope="row">Weitere Anschlüsse</th><td>Ihara · k·NEG-Teller · Blue Body</td></tr></tbody></table><p><a id="benchAtlasEntry" href="assets/game-of-worlds-play/three-domain-transition-test/index.html#atlas">Den vorhandenen 3×3-Atlas öffnen ↗</a> · <a href="A0_MATHEMATICAL_JOINTS.html#executable-math">Mathfield</a>. Der Atlas zeigt einen gemeinsamen Spieltakt; die Bench vergleicht daneben Quellen mit unterschiedlichen Verträgen.</p></details>
+    <p class="bench-overview-open"><b>Zurückgestellt:</b> Black–White–Blue bleibt unzugeordnet. Ein gemeinsamer räumlicher Demonstrator aus Cyan-Body, Pink-Dodeka, gelben Strukturen, lila Möbius und pinkem Cage ist noch nicht vollständig zusammengeführt. Die Zuordnung der Dreierpakete zu den sieben Familien bleibt offen; Farben und ähnliche Formen legen sie nicht fest.</p>
+  </section>
   <section id="maskClockLink" aria-labelledby="maskClockTitle">
     <h2 id="maskClockTitle">Arbeitsfokus · Blue/Pink → Mask-Observer</h2>
     <button id="benchTourClockDemo" type="button" data-tour-ui>▶ Kopplung in 6 Tour-Schritten zeigen</button>
@@ -51,6 +96,7 @@
     <output id="maskClockStatus" role="status">GETRENNT · bewusst verbinden; keine automatische Quellsteuerung.</output>
     <p>Zuordnung: Mask-Tick = floor(120 × Quellphase / 2π), 0…119; Quantisierungsfehler &lt; ein Mask-Tick. Phase wird gekoppelt, nicht Carrier, Signale oder Gate-Geometrien. Die lokale 80-ms-Maskenuhr ist während der Kopplung gesperrt. Ohne ACK oder bei Quellverlust: HOLD. Frequenzpaar und δ werden angezeigt, aber verändern nicht das geometrische LRRL/RLLR-Wegwort. Teller-Montage und Kompass bleiben eigene lokale 3:2/90°-Lesarten.</p>
   </section>
+  <section id="breathGridBench" aria-label="Kreis und TESA — lesender Bewegungsvergleich"></section>
   <header class="topbar">
     <div>
     <div class="kicker">A0 · source-bound engineering lens · v0.21.0</div>
@@ -163,6 +209,8 @@
     <details><summary>Gehaltener Vergleich · unabhängige Lesestände, kein Gesamt-Return</summary><pre id="bodyRouteRecord">Noch kein Vergleich gehalten.</pre></details>
     <p><b>Grenze:</b> 48 Quelladressen, 60 Flächenslots und One-Flow-Koordinaten sind nicht dieselben Adressen. Kein automatischer Transfer, keine gemeinsame Uhr und kein neuer Inversenvertrag. Browser-Sperren oder fehlende Quellen erscheinen als HOLD / WAITING / UNLOADED. Bestehende Native-Face-Returns bleiben unverändert.</p>
   </section>
+  <section id="benchIntegration"><h2>GLB / Body / Observer / TESA · Integration</h2><p>Quellengebundener Vergleich wird geladen.</p></section>
+  <section id="orbitGridJoints"><h2>Orbit / Observer und TESA / Teller</h2><p>JavaScript lädt den quellengebundenen Vergleich. <a href="#maskObserverBench">Zur vorhandenen Maskensteuerung ↓</a></p></section>
   <section id="maskObserverBench" class="mask-observer-bench" aria-labelledby="maskObserverTitle">
     <h2 id="maskObserverTitle">Verschiebung → Schnitt → Maske → Beobachterspur</h2>
     <p><a href="#maskCompassTitle">Direkt zum Tellerkompass / goldenen Auswahlring ↓</a> · <a href="#codeCalendarLens">3+1 · Codes / Kalender / V prüfen ↓</a></p>
@@ -1002,6 +1050,23 @@
           <div class="aps-controls"><label>Stack<select id="apStackMode"><option value="source">Muindi source-local</option><option value="control">Irregular control</option></select></label><button type="button" class="primary" id="apStackPlay" aria-pressed="false">Play stack</button><button type="button" id="apStackStep">Step</button><button type="button" id="apStackReset">Reset</button><label>Clock<select id="apStackSpeed"><option value="1100">Calm</option><option value="700" selected>Normal</option><option value="360">Fast</option></select></label><label>Visibility window <input id="apStackWindow" type="range" min="12" max="120" step="2" value="52"><output id="apStackWindowOut">52°</output></label></div>
           <div class="aps-stage"><div><svg id="apStackSvg" viewBox="0 0 760 440" role="img" aria-label="Six ordered aperture plates and one shared M3 trace"></svg></div><aside class="aps-console"><div class="aps-readouts"><div><small>PLATE</small><b id="apStackPlate">—</b></div><div><small>NOMINAL θ</small><b id="apStackAngle">—</b></div><div><small>SIGNED Δθ</small><b id="apStackDelta">—</b></div><div><small>VISIBLE</small><b id="apStackVisible">—</b></div></div><output class="aps-metric" id="apStackMetric">—</output><button type="button" id="apStackExport">Export calibration + I/L/A/U</button></aside></div>
           <div class="aps-ledger" id="apStackLedger" aria-live="polite"></div>
+          <section id="apTowerLegend" aria-labelledby="apTowerLegendTitle" style="padding:18px;margin:18px 0;border:1px solid #355260">
+            <h4 id="apTowerLegendTitle">Tower-Legende · Farben, Plates und Glyph Trace</h4>
+            <p><strong>Owner-Gruppierung: „7er-Familie“.</strong> Eine Bildlegende zur Orientierung, keine neue kanonische Functional Family. Der vorhandene ausführbare Stack bleibt bei sechs definierten Winkelwerten.</p>
+            <dl>
+              <dt>Farbfolge · von oben nach unten gelesen</dt><dd>Blau → Cyan → Mint → Grün → Gelb → Amber → Orange. Ungefähre Bildfarbnamen, keine kalibrierten Spektralbänder oder globale Farbzuordnung.</dd>
+              <dt>Aperture Plates · linke Bildlegende</dt><dd>EP → SI → LP → SH → RT → RETURN. Sechs Einträge; Bedeutungen der Abkürzungen nicht festgelegt.</dd>
+              <dt>Glyph Trace · rechte Bildlegende</dt><dd>AS → ST → EI → NS → SS → KZ → 45°. Sieben Einträge; keine automatische zeilenweise Zuordnung zur linken Spalte oder zu sieben Platten.</dd>
+              <dt>Winkel · im Bild angegeben</dt><dd>51,63° · 51,73° · 51,83° · 51,93° · 52,03° · 52,13°. P3 / 51,83° ist die deklarierte Referenz des bestehenden Adapters. Sieben gezeichnete Ebenen und sechs angegebene Winkel bleiben eine offene Abweichung.</dd>
+              <dt>Schwarz / Gelb · Owner-Lesart</dt><dd>Dunkle Öffnung und goldgelber Rand als Orientierungshinweis. Keine vorhandene Schwarz/Gelb-Schaltregel und kein Beleg für einen CARO- oder Möbius-Pin-Anschluss.</dd>
+            </dl>
+            <p><strong>Geometrie-Vorschlag:</strong> sieben Dreiecke beziehungsweise Segmente um ein achteckiges Zentrum. Das ist noch keine vermessene Extraktion aus dem Bild. Sieben gleiche Zentralwinkel wären 360/7 ≈ 51,43°, acht gleiche Zentralwinkel 45°. Drei 60°-Innenwinkel beschreiben das gleichseitige Dreieck, nicht sieben lückenlose 60°-Sektoren um einen Punkt. Der Mittelpunktwinkel 360/7 ist auch nicht einer der gedruckten Stackwinkel.</p>
+            <p><strong>7/8 bleibt eine zu prüfende Zuordnung:</strong> Sieben äußere Teile und acht Seiten eines Zentrums bilden nicht automatisch die TESA-Umwandlung 28→32. Anschlusskanten, Abstände, Schlitzbreiten und Durchlassregel sind noch offen; keine Geometrie oder Uhr wurde hier geändert.</p>
+            <details><summary>Unveränderte Bildquelle und maschinenlesbare Legende</summary>
+              <figure><img src="assets/a0-muindi-tower-source-20261020.jpeg" alt="Owner-Bild THE MUINDI APERTURE TOWER mit farbigen Aperturebenen, linker Aperture-Plates-Legende und rechter Glyph-Trace-Legende" loading="lazy" style="display:block;width:auto;max-width:100%;max-height:760px;height:auto"><figcaption>Unveränderte Kopie des gelieferten Concept Visuals. Beschriftungen sind Bildquellen, keine übernommenen wissenschaftlichen Resultate.</figcaption></figure>
+              <p><a href="assets/a0-muindi-tower-legend-v1.json">Legendenrecord mit Bildhash →</a> · <a href="A0_MATHEMATICAL_JOINTS.html#register-cut-aperture">Mathfield · Quellenvergleich →</a></p>
+            </details>
+          </section>
           <div class="aps-boundary"><b>BOUNDARY:</b> Die Winkel sind eine source-lokale Fixture aus einer Owner-supplied Concept Visual; der ausführbare Originalgenerator wurde nicht wiedergefunden. Toleranz, Visibility Gate und Display-RMSE sind Engineering-Konventionen, keine empirische, optische, astronomische, primzahlbezogene oder kausale Kalibrierung.</div>
         </section>
         <section class="ocb-qa" id="ocbBrowserQa" aria-labelledby="ocbQaTitle">
@@ -2456,6 +2521,7 @@
 <script src="a0-code-calendar-lens.js?rev=20261019-r1"></script>
 <script src="a0-mask-observer.js?rev=20261019-r1"></script>
 <script src="assets/a0-blue-pink-dodeca-cell-return-v1.js"></script>
+<script src="assets/a0-tesa-grid-candidate.js"></script>
 <script src="a0-one-flow.js?rev=grid-selection-20261017"></script>
 <script src="a0-mask-assembly.js?rev=20261019-r1"></script>
 <script src="a0-compass-assembly.js?rev=20261019-r1"></script>
@@ -2473,5 +2539,27 @@
 <script src="a0-mask-clock-bench.js?rev=20261020-tour-r2"></script>
 <script src="a0-rotating-cylinder.js?rev=20261020-r1"></script>
 <script src="a0-plate-mirror-view.js?rev=20261020-r2"></script>
+<script src="../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_CON_DAO_JANUS_BREATH_SEQUENCER_2026-10-06/breath-model.js"></script>
+<script src="a0-con-dao-phase.js"></script>
+<script src="a0-breath-grid-bench.js?rev=20261020-r1"></script>
+<script src="a0-lens-region-reader.js?rev=20261020-r1"></script>
+<script src="assets/a0-flame-mandelbrot-formation-v1.js"></script>
+<script src="a0-orbit-grid-joints.js"></script>
+<script src="assets/a0-tessarec-blue-body-v1.js"></script>
+<script src="assets/a0-blue-body-interior-crt16-v1.js"></script>
+<script src="assets/a0-blue-body-life-transfer-v1.js"></script>
+<script src="assets/a0-pentagon-body-player-v1.js"></script>
+<script src="assets/a0-bench-fusion-glb-audit.js"></script>
+<script src="a0-bench-integration.js"></script>
+<script src="a0-bench-tool-catalog.js"></script>
+<script src="a0-bench-map-showcase.js"></script>
+<script src="a0-bench-foyer.js"></script>
+<script src="a0-bench-body-gallery.js"></script>
+<script src="a0-bench-walk.js"></script>
+<script src="a0-bench-disclosures.js"></script>
+<script src="a0-bench-structure-visuals.js"></script>
+<script src="a0-bench-visual-shelves.js"></script>
+<script src="a0-science-builder-path.js"></script>
+<script src="a0-bench-machine-picture.js"></script>
 </body>
 </html>

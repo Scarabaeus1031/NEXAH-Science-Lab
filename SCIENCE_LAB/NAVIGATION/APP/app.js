@@ -18,6 +18,7 @@
   const a0OrientationEvidence = window.NEXAH_A0_ORIENTATION_EVIDENCE;
   const orientationCatalog = window.NEXAH_ORIENTATION_CATALOG;
   const orionEvidence = window.NEXAH_ORION_CAPABILITY_EVIDENCE;
+  const theEyeLineage = window.NEXAH_THE_EYE_LINEAGE;
   const baseAdmission = window.NEXAH_NAVIGATOR_ADMISSION || { rejected: [], reason_summary: {} };
   const release = window.NEXAH_NAVIGATOR_RELEASE || { publication_authorized: false, public_entity_count: 0, release_state: "unknown" };
   const app = document.querySelector("#app");
@@ -73,7 +74,7 @@
     return text.length > max ? `${text.slice(0, max - 1).trim()}…` : text;
   };
 
-  if (!manifest || !Array.isArray(manifest.entities) || !Array.isArray(manifest.relations) || !entry || !Array.isArray(entry.domains) || !Array.isArray(entry.current_focus) || !Array.isArray(entry.terms) || lifeOrbit?.status !== "INTERNAL_ADMITTED" || !Array.isArray(lifeOrbit.entities) || !Array.isArray(lifeOrbit.relations) || lifeProgram?.status !== "INTERNAL_READ_ONLY_PROGRAM_LENS" || lifeProgram?.records?.length !== 21 || primeCrystal?.status !== "INTERNAL_READ_ONLY_CALIBRATION_FAMILY" || primeCrystal?.three_cut_control?.length !== 3 || observatoryBinding?.status !== "INTERNAL_READ_ONLY_LENS" || observatoryBinding?.typed_fields?.length !== 8 || observatoryBinding?.family_bindings?.length !== 7 || root7Look?.status !== "INTERNAL_READ_ONLY_ORIENTATION_LENS" || root7Look?.decisions?.length !== 3 || ilauOrientation?.status !== "INTERNAL_READ_ONLY_SOURCE_BOUND_LENS" || ilauOrientation?.instruments?.length !== 19 || primeBaseMode?.status !== "INTERNAL_READ_ONLY_SOURCE_BOUND_LENS" || primeBaseMode?.type_boundaries?.length !== 8 || primeBaseMode?.sources?.length !== 11 || primeBaseMode?.nodes?.length !== 14 || primeBaseMode?.relations?.length !== 17 || labRegister?.status !== "INTERNAL_READ_ONLY_SOURCE_BOUND_LENS" || !Array.isArray(labRegister.studies) || labRegister.studies.length !== labRegister.study_count || findingsFrontiers?.status !== "INTERNAL_READ_ONLY_SOURCE_BOUND_LEAD_LENS" || findingsFrontiers?.classes?.length !== 5 || findingsFrontiers?.sources?.length !== 11 || a0OrientationEvidence?.status !== "INTERNAL_READ_ONLY_SOURCE_BOUND_LENS" || a0OrientationEvidence?.sources?.length !== 109 || a0OrientationEvidence?.a0_surface_coverage?.bound_surfaces !== 57 || a0OrientationEvidence?.demonstrator_source_registry?.records?.length !== 3 || a0OrientationEvidence?.nodes?.length !== 28 || a0OrientationEvidence?.relations?.length !== 41 || a0OrientationEvidence?.human_view?.status !== "HISTORICAL_SOURCE_BOUND_NON_EVIDENTIARY" || a0OrientationEvidence?.pascal_pentagon_suite?.tests?.length !== 7 || a0OrientationEvidence?.orientation_operator_cycle?.stages?.length !== 4 || a0OrientationEvidence?.a0_entry_map?.numeric_anchors?.length !== 3 || a0OrientationEvidence?.grid_interaction_atlas?.layers?.length !== 4 || a0OrientationEvidence?.grid_interaction_atlas?.channel_contract?.length !== 6 || a0OrientationEvidence?.a0_core_statement?.typed_chain?.length !== 6 || orientationCatalog?.status !== "INTERNAL_READ_ONLY_SOURCE_BOUND_LENS" || orientationCatalog?.records?.length !== 61 || orientationCatalog?.registered_works?.length !== 10 || orientationCatalog?.concepts?.length !== 17 || orionEvidence?.status !== "INTERNAL_READ_ONLY_SOURCE_BOUND_LENS" || orionEvidence?.evidence_ladder?.length !== 5) {
+  if (!manifest || !Array.isArray(manifest.entities) || !Array.isArray(manifest.relations) || !entry || !Array.isArray(entry.domains) || !Array.isArray(entry.current_focus) || !Array.isArray(entry.terms) || lifeOrbit?.status !== "INTERNAL_ADMITTED" || !Array.isArray(lifeOrbit.entities) || !Array.isArray(lifeOrbit.relations) || lifeProgram?.status !== "INTERNAL_READ_ONLY_PROGRAM_LENS" || lifeProgram?.records?.length !== 21 || primeCrystal?.status !== "INTERNAL_READ_ONLY_CALIBRATION_FAMILY" || primeCrystal?.three_cut_control?.length !== 3 || observatoryBinding?.status !== "INTERNAL_READ_ONLY_LENS" || observatoryBinding?.typed_fields?.length !== 8 || observatoryBinding?.family_bindings?.length !== 7 || root7Look?.status !== "INTERNAL_READ_ONLY_ORIENTATION_LENS" || root7Look?.decisions?.length !== 3 || ilauOrientation?.status !== "INTERNAL_READ_ONLY_SOURCE_BOUND_LENS" || ilauOrientation?.instruments?.length !== 19 || primeBaseMode?.status !== "INTERNAL_READ_ONLY_SOURCE_BOUND_LENS" || primeBaseMode?.type_boundaries?.length !== 8 || primeBaseMode?.sources?.length !== 11 || primeBaseMode?.nodes?.length !== 14 || primeBaseMode?.relations?.length !== 17 || labRegister?.status !== "INTERNAL_READ_ONLY_SOURCE_BOUND_LENS" || !Array.isArray(labRegister.studies) || labRegister.studies.length !== labRegister.study_count || findingsFrontiers?.status !== "INTERNAL_READ_ONLY_SOURCE_BOUND_LEAD_LENS" || findingsFrontiers?.classes?.length !== 5 || findingsFrontiers?.sources?.length !== 11 || a0OrientationEvidence?.status !== "INTERNAL_READ_ONLY_SOURCE_BOUND_LENS" || a0OrientationEvidence?.sources?.length !== 109 || a0OrientationEvidence?.a0_surface_coverage?.bound_surfaces !== 57 || a0OrientationEvidence?.demonstrator_source_registry?.records?.length !== 3 || a0OrientationEvidence?.nodes?.length !== 28 || a0OrientationEvidence?.relations?.length !== 41 || a0OrientationEvidence?.human_view?.status !== "HISTORICAL_SOURCE_BOUND_NON_EVIDENTIARY" || a0OrientationEvidence?.pascal_pentagon_suite?.tests?.length !== 7 || a0OrientationEvidence?.orientation_operator_cycle?.stages?.length !== 4 || a0OrientationEvidence?.a0_entry_map?.numeric_anchors?.length !== 3 || a0OrientationEvidence?.grid_interaction_atlas?.layers?.length !== 4 || a0OrientationEvidence?.grid_interaction_atlas?.channel_contract?.length !== 6 || a0OrientationEvidence?.a0_core_statement?.typed_chain?.length !== 6 || orientationCatalog?.status !== "INTERNAL_READ_ONLY_SOURCE_BOUND_LENS" || orientationCatalog?.records?.length !== 61 || orientationCatalog?.registered_works?.length !== 10 || orientationCatalog?.concepts?.length !== 17 || orionEvidence?.status !== "INTERNAL_READ_ONLY_SOURCE_BOUND_LENS" || orionEvidence?.evidence_ladder?.length !== 5 || theEyeLineage?.status !== "INTERNAL_READ_ONLY_SOURCE_BOUND_LENS" || theEyeLineage?.stages?.length !== 7 || theEyeLineage?.relations?.length !== 7 || theEyeLineage?.sources?.length !== 5) {
     app.innerHTML = `<section class="empty-state error-state"><p class="eyebrow">Load error</p><h1>Navigator sources out of sync</h1><p>Rebuild the governed lenses, run <span class="mono">audit_app.mjs</span> and reload this page.</p></section>`;
     return;
   }
@@ -1782,6 +1783,38 @@
     setContext({ object: "Evidence · ORION lens", boundary: "A negative or null package result remains negative or null in its original scope. Science Lab evidence does not extend ORION product authority.", receipt: `${evidence.length} evidence nodes · ORION L0–L4 source-bound · canonical counts unchanged` });
   }
 
+  function renderTheEyeLineage() {
+    const sourceById = new Map(theEyeLineage.sources.map((source) => [source.source_id, source]));
+    const sourceLink = (sourceId, label = "Open public source") => {
+      const source = sourceById.get(sourceId);
+      const href = source ? safeLocalHref(source.path) : "";
+      return source && href ? `<a href="${href}">${esc(label)} ↗</a>` : `<span class="the-eye-private-source">Private provenance retained</span>`;
+    };
+    const stages = theEyeLineage.stages.map((stage, index) => `<article class="the-eye-stage ${index === 0 ? "is-human" : ""}">
+      <header><span>${esc(stage.stage)}</span><small>${esc(stage.state.replaceAll("_", " "))}</small></header>
+      <h2>${esc(stage.label)}</h2><strong>${esc(stage.role)}</strong><p>${esc(stage.boundary)}</p>
+      ${sourceLink(stage.source_id)}
+    </article>`).join("");
+    const relations = theEyeLineage.relations.map((relation) => `<article>
+      <div class="the-eye-relation-route"><strong>${esc(relation.from)}</strong><span>${esc(relation.type.replaceAll("-", " "))}</span><strong>${esc(relation.to)}</strong></div>
+      <div class="the-eye-relation-detail"><p><b>Preserves</b>${esc(relation.preserves.join(" · "))}</p><p><b>Does not imply</b>${esc(relation.does_not_imply.join(" · "))}</p></div>
+    </article>`).join("");
+    app.innerHTML = `${pageHeader("Source-bound software lineage", theEyeLineage.title, theEyeLineage.summary)}
+      <section class="the-eye-status-strip" aria-label="THE EYE current status">
+        <div><span>LINEAGE</span><strong>preserved</strong></div><div><span>PUBLIC ROUTE</span><strong>unlinked</strong></div><div><span>ALLOWLIST</span><strong>empty</strong></div><div><span>IDENTITIES</span><strong>reused</strong></div>
+      </section>
+      <section class="the-eye-stage-grid" aria-label="THE EYE lineage stages">${stages}</section>
+      <section class="the-eye-orion-boundary"><div><p class="eyebrow">SEPARATE GATEWAY · NON-IDENTITY</p><h2>${esc(theEyeLineage.orion_boundary.label)}</h2><p>${esc(theEyeLineage.orion_boundary.statement)}</p></div><nav>${sourceLink(theEyeLineage.orion_boundary.source_id, "Pinned ORION source")}${sourceLink(theEyeLineage.orion_boundary.implementation_source_id, "Gateway implementation")}</nav></section>
+      <header class="section-heading"><p class="eyebrow">TYPED LINEAGE · NO CANONICAL COUNT CHANGE</p><h2>What each passage preserves</h2><p>The route documents software custody without collapsing contracts, processor, fixtures, adapter, presentation or external gateway into one engine.</p></header>
+      <section class="the-eye-relations">${relations}</section>
+      <section class="the-eye-visibility-grid">
+        <article><p class="eyebrow">OPEN-SAFE CONTENT</p><h2>What this lens may show</h2><ul>${theEyeLineage.visibility.public_safe_projection_may_include.map((item) => `<li>${esc(item)}</li>`).join("")}</ul></article>
+        <article class="the-eye-private"><p class="eyebrow">PRIVATE OVERLAY</p><h2>What stays in Mission Control</h2><ul>${theEyeLineage.visibility.internal_overlay_may_include.map((item) => `<li>${esc(item)}</li>`).join("")}</ul></article>
+      </section>
+      <section class="panel boundary-panel"><p class="overline">Claim ceiling</p><h2>Preserved does not mean activated</h2><p>${esc(theEyeLineage.claim_ceiling)}</p><div class="hero-actions"><a class="secondary-action" href="#evidence">Open evidence inspector →</a><a class="secondary-action" href="#admission">Inspect public admission gate →</a></div></section>`;
+    setContext({ object: "THE EYE lineage", boundary: theEyeLineage.claim_ceiling, receipt: `${theEyeLineage.binder_id} · 7 stages · public-safe sources only · allowlist empty` });
+  }
+
   function renderOrionEvidenceLens() {
     const sourceLink = (source, label = "Source") => {
       const href = safeLocalHref(source);
@@ -2155,6 +2188,7 @@
       case "evidence": renderEvidence(); break;
       case "findings-frontiers": renderFindingsFrontiers(); break;
       case "a0-orientation-evidence": renderA0OrientationEvidence(); break;
+      case "the-eye-lineage": renderTheEyeLineage(); break;
       case "admission": renderAdmission(); break;
       case "entity": renderEntity(value); break;
       default: renderHomeV2(); break;

@@ -1,0 +1,14 @@
+const fs=require('node:fs'),path=require('node:path'),vm=require('node:vm'),assert=require('node:assert/strict');
+const nodes={play:{textContent:'Start',click(){}},loop:{checked:true,dispatchEvent(){}},runStatus:{textContent:'Paused · generation 0 / 240'},step:{click(){}},reset:{click(){}}};
+const makeElement=tag=>({tag,dataset:{},attrs:{},children:[],textContent:'',type:'',className:'',setAttribute(k,v){this.attrs[k]=v},addEventListener(t,f){this[t]=f},append(child){this.children.push(child)},querySelectorAll(q){return q==='button'?this.children:q==='[data-view]'?this.children.filter(child=>child.dataset.view):[]},click(){this.click?.()}});
+const body={dataset:{worldsKind:'domains',stage:'domains',look:'wonder'},prepend(node){this.localNav=node}};
+const cards=['chemistry','life','physics','joint','euler','fibonacci','ihara','k-teller','blue-body'].map(domain=>({dataset:{domain},children:[],querySelector:q=>q==='h2'?{textContent:domain}:null,append(child){this.children.push(child)}}));
+const document={body,hidden:false,getElementById:id=>nodes[id]||null,createElement:makeElement,querySelectorAll:q=>q==='.domain-grid article[data-domain]'?cards:[],addEventListener(){}};
+const box={document,console,location:{hash:'#fibonacci'},Event:function(type){this.type=type},MutationObserver:class{observe(){}},dispatchEvent(){},scrollTo(){},addEventListener(){}};box.window=box;box.parent=box;
+vm.runInNewContext(fs.readFileSync(path.join(__dirname,'a0-game-of-worlds-play-stage.js'),'utf8'),box);
+assert.equal(body.dataset.stage,'fibonacci');assert.equal(body.localNav.children.filter(b=>b.dataset.view).length,8);assert.equal(body.localNav.children.length,9);assert.equal(body.localNav.children.find(b=>b.dataset.view==='fibonacci').attrs['aria-pressed'],'true');
+const ihara=body.localNav.children.find(b=>b.dataset.view==='ihara');ihara.click();assert.equal(body.dataset.stage,'ihara');assert.equal(box.location.hash,'ihara');assert.equal(ihara.attrs['aria-pressed'],'true');
+const blue=body.localNav.children.find(b=>b.dataset.view==='blue-body');blue.click();assert.equal(body.dataset.stage,'blue-body');assert.equal(box.location.hash,'blue-body');
+const atlas=body.localNav.children.find(b=>b.dataset.view==='atlas');atlas.click();assert.equal(body.dataset.stage,'atlas');assert.equal(box.location.hash,'atlas');assert.equal(cards.length,9);assert.ok(cards.every(card=>card.children.some(child=>child.className==='atlas-open')));
+const density=body.localNav.children.find(b=>b.className==='atlas-density');assert.equal(body.dataset.atlasDensity,'compact');density.click();assert.equal(body.dataset.atlasDensity,'fit');
+console.log(JSON.stringify({status:'PASS',checks:16,scope:'standalone Three-Domain local lens switcher, resizable nine-card Atlas and hash-addressed detail stages'},null,2));

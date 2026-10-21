@@ -1,0 +1,16 @@
+const fs=require('node:fs'),path=require('node:path'),assert=require('node:assert/strict');
+const book=__dirname,dir=path.join(book,'assets/game-of-worlds-play/three-domain-transition-test');
+const html=fs.readFileSync(path.join(dir,'index.html'),'utf8'),stage=fs.readFileSync(path.join(book,'a0-game-of-worlds-play-stage.js'),'utf8'),css=fs.readFileSync(path.join(book,'a0-game-of-worlds-play-stage.css'),'utf8');
+let checks=0;const ok=(value,message)=>{assert.ok(value,message);checks++};
+const domains=[...html.matchAll(/<article data-domain="([^"]+)"/g)].map(match=>match[1]);
+ok(domains.join(',')==='chemistry,life,physics,joint,euler,fibonacci,ihara,k-teller,blue-body','Atlas source order is the declared 3x3 grammar');
+ok(new Set(domains).size===9,'Atlas has nine distinct cards');
+ok(stage.includes("['atlas','domains','montage','euler','fibonacci','ihara','k-teller','blue-body']"),'Atlas is a hash-addressable demonstrator stage');
+ok(stage.includes("atlas:'Atlas · 3×3'"),'local lens bar names the Atlas explicitly');
+ok(stage.includes("chemistry:'domains'")&&stage.includes("'blue-body':'blue-body'"),'card detail routing preserves existing views');
+ok(css.includes('[data-stage=atlas] .domain-grid')&&css.includes('grid-template-columns:repeat(3'),'desktop layout is a real three-column grid');
+ok(stage.includes("action==='density'")&&stage.includes("atlasDensity='compact'"),'Atlas exposes compact and full density without changing its stage');
+ok(css.includes('[data-atlas-density=compact]')&&css.includes('min-height:0!important'),'compact Atlas removes the forced viewport height');
+ok(css.includes('nth-child(-n+3)')&&css.includes('nth-child(n+4):nth-child(-n+6)')&&css.includes('nth-child(n+7)'),'three semantic rows remain visually distinguished');
+ok(css.includes('@media(max-width:1000px)')&&css.includes('@media(max-width:650px)'),'Atlas has tablet and mobile fallbacks');
+console.log(JSON.stringify({status:'PASS',checks,scope:'Three-Domain Atlas 3x3 ordering, routing, desktop grid and responsive fallbacks'},null,2));

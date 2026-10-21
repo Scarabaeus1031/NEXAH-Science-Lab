@@ -22,7 +22,7 @@ const intentSourceText = fs.readFileSync(path.resolve(__dirname, decodeURICompon
 assert.match(intentSourceText, /id="kuratieren-und-gestalten"/);
 assert.match(intentSourceText, /Leseanweisung für die weitere Arbeit/);
 
-assert.match(hero, /A0 Science Desk/);
+assert.match(hero, /A0<br><span>Science Desk<\/span>/);
 assert.match(hero, /A0 entscheidet hier/);
 assert.match(hero, /OCB öffnen/);
 assert.match(hero, /operative Science-Arbeitsfläche/);
@@ -31,7 +31,10 @@ assert.match(hero, /Mission Control hält den übergreifenden Auftrag/);
 assert.doesNotMatch(hero, /data-results-tour-open|Alle A0-Touren|Storyboard 0\.3/,'Reader tours belong to collapsed editorial reference, not the operational hero');
 assert.match(html, /Arbeitsreferenz · Reader-Quellen/);
 assert.match(html, /href="A0_SCIENCE.html#contributions"/);
-assert.match(hero, /Backlog prüfen/);
+assert.match(hero, /Meine Fächer öffnen/);
+assert.match(hero, /id="mission-control-return"/);
+assert.match(hero, /Owner Return · Auftrag &amp; Strategy/);
+assert.match(hero, /Protokoll · Engineering-Returns/);
 assert.doesNotMatch(hero, /Tessarec Validation/);
 assert.doesNotMatch(hero, /A0 Science Einstieg/);
 assert.doesNotMatch(hero, /Achievements ansehen/);
@@ -55,7 +58,7 @@ assert.match(html, /00_OVERVIEW\/ACHIEVEMENTS\.md/);
 assert.match(html, /Papers sagen, was behauptet wird/);
 assert.equal((html.match(/<details class="family-tools"/g) || []).length, 7);
 assert.match(html, /F1–F7 sind funktionale Lesefamilien, keine Naturklassen/);
-assert.match(html, /\["method", "lenses", "achievements", "flagships", "fields", "foundation", "protocols", "findings"\]/);
+assert.match(html, /\["method", "lenses", "achievements", "flagships", "fields", "foundation", "findings"\]/);
 assert.match(html, /backlogSection\.before\(workbench\)/);
 assert.match(html, /Active research cycles/);
 assert.match(html, /Structure freeze/);
@@ -111,7 +114,7 @@ assert.equal((position.match(/<div class="field-summary">[\s\S]*?<\/div><ul clas
 assert.doesNotThrow(() => new Function(inlineScript));
 
 const engineering = html.match(/<section class="spread" id="engineering-20261017"[\s\S]*?<\/section>/)?.[0] || '';
-assert.match(hero, /Neuer Engineering-Stand/);
+assert.match(engineering, /Prüfstand/);
 assert.match(engineering, /1160 lokale Checks/);
 assert.match(engineering, /sechs|Sechs/);
 assert.match(engineering, /Emergenz-Human-Bindung/);
@@ -132,6 +135,7 @@ const sourceCurrentness = record.sources.map(source => {
 });
 assert.deepEqual(sourceCurrentness.filter(source => !source.current).map(source => source.path), [
   'a0-theory-storyboard.js',
+  'assets/a0-nexah-aperture-journey-v1.js',
   'A0_THEORY_STORYBOARD.html',
   'A0_NEXAH_APERTURE_JOURNEY.html',
   'A0_LIVING_BLUEPRINT.html',
@@ -139,7 +143,7 @@ assert.deepEqual(sourceCurrentness.filter(source => !source.current).map(source 
   'a0-nexah-aperture-journey-tests.cjs',
   'a0-living-blueprint-tests.cjs'
 ], 'historical receipt remains immutable while later source evolution is explicit');
-assert.equal(sourceCurrentness.filter(source => source.current).length, 5, 'five historical inputs remain byte-current; later Blueprint navigation test contract is documented separately');
+assert.equal(sourceCurrentness.filter(source => source.current).length, 4, 'four historical inputs remain byte-current; later source evolution is documented separately');
 const readingReturn=JSON.parse(fs.readFileSync(path.join(__dirname,'results/a0-explanation-reading-path-2026-10-19.json'),'utf8'));
 const updatedStory=readingReturn.sources.find(s=>s.ecosystem_path.endsWith('/a0-theory-storyboard.js'));
 assert.equal(updatedStory.sha256,crypto.createHash('sha256').update(fs.readFileSync(path.join(__dirname,'a0-theory-storyboard.js'))).digest('hex'),'later narrative edit has its own source receipt, not a rewritten historical receipt');
@@ -163,6 +167,25 @@ assert.match(intentSourceText, /Version:\*\* `1.5`/);
 assert.match(intentSourceText, /Erklärpfad/);
 assert.equal(record.preflight.global_currentness_hash_mismatches, 6);
 assert.equal(record.preflight.orientation_binder_hash_mismatches, 8);
+
+const atlasReturn = html.match(/<section class="spread" id="three-domain-blue-body-return-20261021"[\s\S]*?<\/section>/)?.[0] || '';
+assert.match(topNav, /#three-domain-blue-body-return-20261021/);
+assert.match(atlasReturn, /neun gleichzeitige Ablesungen/);
+assert.equal((atlasReturn.match(/<tbody>[\s\S]*?<\/tbody>/)?.[0].match(/<tr>/g) || []).length, 9);
+for (const label of ['Reaction–Diffusion', 'Conway LIFE', 'Spin Field', 'Common Point', 'Euler', 'Fibonacci', 'Ihara', 'k·NEG / Q°', 'Blue Body · 48']) assert.match(atlasReturn, new RegExp(label.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')));
+assert.match(atlasReturn, /Koordination heterogener Readouts/);
+assert.match(atlasReturn, /Visuelle Browser-\/Mobile- und unabhängige Human-Utility-Abnahme bleiben offen/);
+assert.match(atlasReturn, /MOD:NUMBER_VIEW_SUITE/);
+assert.match(atlasReturn, /ART:A0:MATHEMATICAL_JOINTS/);
+assert.match(atlasReturn, /MOD:TESSAREC/);
+const atlasReceipt = JSON.parse(fs.readFileSync(path.join(__dirname, 'results/a0-game-of-worlds-three-domain-atlas-return-2026-10-21.json'), 'utf8'));
+assert.equal(atlasReceipt.connections.length, 9);
+assert.deepEqual(atlasReceipt.new_global_ids, []);
+assert.deepEqual(atlasReceipt.new_canonical_relations, []);
+assert.equal(atlasReceipt.authority.new_study, false);
+assert.equal(atlasReceipt.authority.finding_or_claim_promotion, false);
+assert.equal(atlasReceipt.authority.publication_authorized, false);
+for (const source of atlasReceipt.sources) assert.equal(crypto.createHash('sha256').update(fs.readFileSync(path.join(__dirname, source.path))).digest('hex'), source.sha256, 'current Atlas return source: ' + source.path);
 
 console.log(JSON.stringify({
   status: 'PASS',

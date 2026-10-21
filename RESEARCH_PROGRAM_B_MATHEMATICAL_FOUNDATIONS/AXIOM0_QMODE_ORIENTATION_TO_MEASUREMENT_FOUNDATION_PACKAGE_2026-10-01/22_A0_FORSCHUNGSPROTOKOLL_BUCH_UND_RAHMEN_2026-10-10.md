@@ -2,7 +2,7 @@
 
 Datum der Anlage: `2026-10-10`
 
-Letzte dokumentarische Fortschreibung: `2026-10-20` · scoped Faden-Closeout.
+Letzte dokumentarische Fortschreibung: `2026-10-21` · Orbit/Grid-Engineering-Return.
 Neuer Einstieg: [Bench, Tube, NumberMagick und offene Aufgaben](#documentation-closeout-20261020).
 Historische Abschnitte und ihre damaligen Zustände bleiben erhalten.
 
@@ -19,6 +19,198 @@ OPERATIONAL_EFFECT_NONE
 ```
 
 Bestehende Identität: `NEXAH_AX0_QMODE_FOUNDATION_PACKAGE`
+
+<a id="orbit-grid-joints-20261021"></a>
+
+## 2026-10-21 — Bestandsabgleich und zwei begrenzte Anzeigenanschlüsse
+
+Owner beauftragt die fünf Schritte am Stück: Bestand, Orbit/Observer,
+Grid/Teller, Bench und geeignete Game-Anschlüsse. Bestehende Identitäten
+werden wiederverwendet; keine neue Forschung, Family oder Studie angelegt.
+Die Navigator-Governance verlangt Quellen- und Statusgrenzen statt Duplikate.
+
+| Bestand / Quelle | Verwendung | Nicht übernommen / offen |
+|---|---|---|
+| `A0_BOOK/assets/a0-flame-mandelbrot-formation-v1.js` | vorhandene kritische Bahn, lokale deklarierte c-Presets | kein Live-c-Readback aus dem Blue/Pink-iframe, keine Critical-Line-Identität |
+| `A0_BOOK/a0-mask-observer.js` und Controller | vorhandene Schnittintervalle und Maskentick; ursprünglicher Polygon-Prüfpunkt bleibt Vergleich | kein neues Pendel-/Magnetmodell, keine optische Kalibrierung |
+| `A0_BOOK/a0-one-flow.js` und `assets/a0-tesa-grid-candidate.js` | vorhandene Tellerformel und 4×7-Adressen; neue explizite Zellmittelpunkt-Abtastung | vier Eckmittelpunkte außerhalb Kreis; Taille nicht verbunden |
+| Ghost Grid / Orientation Demonstrators | bestehende HTML-/Quellenfamilie, siehe Source Concordance Abschnitt 10 | keine erneute Anlage, keine Übernahme gezeichneter Schleifen als Mechanik |
+| AU–NA–HE–TI Desktop-Triage vom 19.10.2026 | historische Zeit-/Ring-/Observer-/Dual-View-Verträge als Quelle | kein Import des großen Plotly-Exports und kein erfundener 28-Zellen-Generator |
+| Game of Worlds / Numbergame / Three Domains | bestehende getrennte Spiele und Rechenregeln; neue Rückwege | keine neue Rasterdynamik oder gemeinsame Uhr |
+
+Die [Bench](A0_BOOK/A0_ORIENTATION_CONTROLLER_BENCH.html#orbitGridJoints)
+zeigt zwei getrennte Lesestände. Orbit-Schritt n entspricht Maskentick n;
+identische Koordinaten, keine Normalisierung, kein Wrap. Bahnende und
+ungültiger Strahl ergeben HOLD. Bei geführter Blue/Pink-Uhr muss die vorhandene
+Bestätigung vorliegen. Ein festgehaltener Vergleich ändert sich nicht mit
+der Live-Quelle; Rekonstruktion prüft Konsistenz, keine historische Ausführung.
+
+Auf den vorhandenen Kreisscheiben der Paraboloidteller sind 24 der 28
+Zellmittelpunkte je Seite zulässig. 1, 7, 22, 28 bleiben adressiert, aber ohne
+Tellerpunkt. Der Rückweg liest die Zelladresse; Quantisierung ist nicht
+invertierbar für beliebige ursprüngliche Koordinaten. Nachbarschaft bleibt
+im abstrakten TESA-Grid definiert, nicht als gleiche 3D-Streckenlänge.
+
+[Mathfield](A0_BOOK/A0_MATHEMATICAL_JOINTS.html#executable-math) erschließt
+Numbergame; PLAY verlinkt zurück zur Methode und Bench, ohne seine Regeln
+zu verändern. Eine weitergehende Game-Integration wird nicht aus bloßer
+Formverwandtschaft gebaut. DAY/DAWN/DEMIZEL/DUSK/NIGHT bleiben Lesemarken.
+Q°-Innenraum, Three-Domains→TESA, gemeinsame Taille und Ihara/Riemann-Zuordnung
+bleiben offene Design-/Quellenfragen.
+
+10.093 neue Engineeringprüfungen PASS, einschließlich montierter Handler in
+einer DOM-Simulation; vorhandene Regressionen bestehen.
+[Quellpins und Return](A0_BOOK/results/a0-orbit-grid-joints-return-2026-10-21.json).
+Browser-/Mobile-Abnahme bleibt DOC-01; keine Umgehung der gesperrten lokalen
+Browserautomation. DOC-06 und DOC-10 tragen die verbleibenden Quellen- und
+Kopplungsfragen; keine neue Backlog-Identität.
+
+<a id="muindi-tower-legend-20261020"></a>
+
+## 2026-10-20 — Tower-Legende als Orientierung erhalten
+
+Der Owner fordert die Aufnahme von Farbfolge, „Aperture Plates“ und
+„Glyph Trace“ des gelieferten MUINDI-Tower-Visuals. Die bestehende
+[Bench](A0_BOOK/A0_ORIENTATION_CONTROLLER_BENCH.html#apTowerLegend) erhält
+eine quellengebundene Legende mit unveränderter lokaler Bildkopie;
+[Mathfield](A0_BOOK/A0_MATHEMATICAL_JOINTS.html#register-cut-aperture)
+verlinkt sie. Bildhash, wörtliche Label-Transkription und Grenzen stehen im
+[Legendenrecord](A0_BOOK/assets/a0-muindi-tower-legend-v1.json).
+
+„7er-Familie“ ist eine Owner-Gruppierung, keine kanonische Family-Adoption.
+Sieben gezeichnete Platten, sechs gedruckte Winkel, sechs Labels links und
+sieben rechts werden nicht still gleichgesetzt. Schwarz/Gelb als
+Öffnung/Rand bleibt eine visuelle Lesart ohne Schaltgesetz. Sieben äußere
+Dreiecke/Segmente um ein Oktagon sind als offene Geometriefrage festgehalten,
+nicht extrahiert oder ausgeführt. Regelmäßige Zentralwinkel 360/7 und
+360/8 sind weder 60°-Innenwinkel noch die gedruckten Stackwinkel.
+Keine neue TESA-7/8-Umwandlung, Uhr, Pin-Verbindung oder Study.
+
+34 Legenden-, 41 Mathfield- und 73 Stackchecks PASS. Visuelle Abnahme
+offen; weitere Quellen-/Farb-/Zähl-/Adressfragen bleiben bei DOC-05/06/08,
+statt eine zweite Aufgabenliste zu eröffnen.
+[Builder Log](A0_BOOK/A0_BUILDER_LOG.html#muindi-tower-legend-20261020) ·
+[Return](A0_BOOK/results/a0-muindi-tower-legend-return-2026-10-20.json).
+
+<a id="fold-offset-comparison-20261020"></a>
+
+## 2026-10-20 — Faltfolge plus 7° und gleichseitige Referenz
+
+Der Owner beauftragt den Vergleich der vorhandenen Basisfolge
+0→78→33→7→0° mit der zusätzlichen +7°-Lesart 7→85→40→14→7°.
+Der bestehende Fold Guide verwendet dafür dieselbe Quellphase, dieselben
+Stationen und dieselbe Crown. Keine neue Uhr, Faltstation oder Änderung
+des ursprünglichen Mixer-Gesetzes. Der Versatz kehrt am Phasenende
+zu seiner Referenz 7° zurück.
+
+Ein unabhängiges goldfarbenes gleichseitiges Dreieck zeigt drei 60°-
+Innenwinkel und 120°-Zentralabstände, nicht das mathematische goldene
+36°–72°–72°-Dreieck. Die vorhandene 45°-/90°-Referenz bleibt erhalten.
+„15“ ohne angegebenen Bezugsraum und Theta/Alpha/Tao/Dao-Zuordnungen
+bleiben offen. Der Owner bestätigt 1729 als Numbergame-Gegenlaufkanal;
+dieser Bezug ist kein Beleg für eine Möbius-Pin-Verbindung.
+
+2.922 neue Softwarechecks, 1.867 Fold-Guide- und 6.163 Regionsleser-
+Regressionschecks PASS. Visuelle Abnahme bleibt DOC-01; kein Forschungsrun,
+Finding, Rollenvertrag oder Manuskripteingriff.
+[Builder Log](A0_BOOK/A0_BUILDER_LOG.html#fold-offset-comparison-20261020) ·
+[Return](A0_BOOK/results/a0-fold-offset-comparison-return-2026-10-20.json).
+
+<a id="lens-region-reader-20261020"></a>
+
+## 2026-10-20 — Linse und andere Seite in der Bench verbinden
+
+Der Owner fordert die Umsetzung nach der Quellenverdichtung. Der begrenzte
+nächste Anschluss liest im bestehenden
+[Bench-Linsenmodul](A0_BOOK/A0_ORIENTATION_CONTROLLER_BENCH.html#benchLensReturn)
+dieselbe Phase und A/B-Aktivierung: drei Bereiche zusammen, nur A∩B oder
+A∖B und B∖A. Referenzkonturen bleiben sichtbar; die Flächenbilanz wird
+quelllokal geprüft. Es sind die vorhandenen beschnittenen Polygone,
+nicht vollständige Kreisscheiben.
+
+Der Adapter schreibt weder Quelle noch Zahlenzustand, besitzt keine Uhr und
+reagiert auf das bestehende Modul-Readback. Halten/Export betrifft nur die
+Lesart; die Live-Quelle läuft beziehungsweise ändert sich unabhängig.
+Der neue Record ist aus Phase und Einstellungen neu berechenbar, keine
+authentifizierte Quellhistorie und kein Gesamt-Return. Ungültige Quelle → HOLD.
+6.163 neue Prüfungen und 1.360 Trinity-Regressionschecks PASS. Visuelle
+Abnahme bleibt DOC-01; Außenraum, Gewichte, vollständige Kreisscheiben,
+CARO und 7→8 bleiben offen. Kein neuer Forschungsrun, Finding oder
+Manuskripteingriff.
+[Builder Log](A0_BOOK/A0_BUILDER_LOG.html#lens-region-reader-20261020) ·
+[Return](A0_BOOK/results/a0-lens-region-reader-return-2026-10-20.json).
+
+<a id="number-glyph-paper-triage-20261020"></a>
+
+## 2026-10-20 — NumberMagick und Paper-Workspace nachführen
+
+Der Owner beauftragt die weitere Verdichtung nach der Mathfield-
+Gegenüberstellung. [NumberMagick](A0_BOOK/A0_NUMBERMAGICK_GRID_RESEARCH.html#number-glyph-weight-return)
+trennt normierte Position, modularen Adressraum, Zeichenoperation und
+Gewichtung. 11537 und 11735 teilen Rest 9 modulo 11, nicht modulo 20;
+Quotient und Modulus gehören zum Rückschlüssel. ACR‑42 bleibt eine
+Darstellungs-/Zeichenuntersuchung, keine räumliche Glyphenalgebra.
+Die exakte 63/64:1/64-Normierung bleibt neben CA‑IDENT‑05s dokumentiertem
+negativem Befund zur bevorzugten historischen Rollenverteilung sichtbar.
+
+Der [Paper-Workspace](32_A0_FINDINGS_AND_PAPER_WORKSPACE_2026-10-11.md#number-glyph-weight-triage-20261020)
+ordnet sechs Themen als mögliche Erläuterungen für C/E, Reader-Unterstützung
+oder offene Ideen. Keine neue F-A0-Nummer und keine direkte Manuskript-,
+Review-, Forschungs- oder Publikationsentscheidung. DOC-11 bleibt die
+redaktionelle Auswahlroute. ßeta/Zeta/Beta und ihre 1/64-Zuordnung sind offen.
+36 neue Inhalts-/Linkprüfungen und 402 Readerprüfungen PASS; visuelle
+Browserabnahme offen, kein Forschungs-Replay.
+[Builder Log](A0_BOOK/A0_BUILDER_LOG.html#number-glyph-paper-triage-20261020)
+und [Return](A0_BOOK/results/a0-number-glyph-paper-triage-return-2026-10-20.json).
+
+<a id="mathfield-source-walk-20261020"></a>
+
+## 2026-10-20 — Wiedergefundene Quellen im Mathfield vergleichen
+
+Der Owner beauftragt den Quellen-Lesegang Register → Schnitt/Linse → andere
+Seite → Aperturstapel im bestehenden
+[Mathfield](A0_BOOK/A0_MATHEMATICAL_JOINTS.html#register-cut-aperture).
+Vier redaktionelle Schemata binden vorhandene Quellen zurück: NSN-Bass–Beat /
+B–8–ß, Bench-Linsen und ihre Polygonüberlappung, die Linsen-/Lunen-Unterscheidung
+und den Sechs-Teller-Adapter. ACR‑42/45+, EMP‑03 und die vorhandene Gate-
+Archäologie bleiben nach ihren eigenen Evidenzgrenzen getrennt.
+
+NumberMagick erhält nur einen Rücklink; Papers werden nicht erweitert.
+Die Aufgabenunterscheidung ist redaktionell, keine neue Taxonomie.
+ßeta/Zeta/Beta, 1/64 als Realm-Zuordnung, ursprüngliche Zwei-Kreise-
+Generatoren, vollständige Lunen-Umschaltung und der siebte gezeichnete Tower-
+Teller bleiben offen. Keine neue Simulation, kein Lab-Run, keine Änderung
+an OLS, ORION oder Bench-Dynamik. Visuelle Browser-/Mobile-Abnahme offen.
+[Builder Log](A0_BOOK/A0_BUILDER_LOG.html#mathfield-source-walk-20261020) und
+[Engineering-Return](A0_BOOK/results/a0-mathfield-source-walk-return-2026-10-20.json)
+halten Quellen, Implementierung und Grenzen fest.
+
+<a id="breath-grid-20261020"></a>
+
+## 2026-10-20 — Kreis / TESA: begrenzter lesender Anschluss
+
+Der anschließende Owner-Auftrag baut den ersten Vergleich in die bestehende
+[Bench](A0_BOOK/A0_ORIENTATION_CONTROLLER_BENCH.html#breathGridBench):
+bestätigtes Blue/Pink-Readback oder getrennte, lokal gespeicherte
+Numbergame-Elevator-Vergleichskopie → CON–DAO-Anzeigephase → einzeln
+schaltbarer Kreisradius und horizontale TESA-Streckung. Keine weitere laufende
+Uhr, kein Schreibzugriff auf Blue/Pink, kein automatischer Anschluss des
+offenen Numbergame-Fensters. WAITING/Quellverlust/Disconnect ergeben HOLD.
+
+Die deklarierte Blue/Pink-Abbildung benutzt 14 Anzeigeticks je 2π einschließlich
+STILL ×2. Kreisradius 13…26 und Rasterstreckung 1…2 sind Ansichtsgrößen, keine
+Optik oder Atemphysiologie. Alle 28 TESA-Adressen, Nachbarschaften und inverse
+Adresslesung bleiben erhalten; 29 bleibt extern. Ein 7→8-Strukturwechsel,
+Apertur-Durchlass, Gewichte, CARO, AM/VM/PM und Inflow/Outflow sind nicht
+angeschlossen. Die bestehende Tour bleibt unverändert.
+
+Softwareprüfungen: neuer Vergleich 84.588, Mask-Clock 12.448, Numbergame
+23.073 und Tour 85 PASS. Browser-/Mobile-/Pixelabnahme bleibt offen und fällt
+unter DOC-01; der neue Abschnitt ist kein abgenommenes Cockpit.
+[Builder Log](A0_BOOK/A0_BUILDER_LOG.html#breath-grid-20261020) und
+[Engineering-Return](A0_BOOK/results/a0-breath-grid-return-2026-10-20.json)
+halten Implementierung und offene Verbindungen getrennt. Keine neue Study,
+Family, kanonische Relation, wissenschaftliche Adoption oder Publikation.
 
 <a id="documentation-closeout-20261020"></a>
 
@@ -68,6 +260,16 @@ Freigabe. M-PUB01 bleibt die eine operative Priorität; keine neue Forschung,
 kein neuer Carrier, keine Family, keine Publikation und kein Push folgen.
 
 ### Offene Arbeit und Wiedereinstieg
+
+**Field-Notes-Leseseite · Nachtrag 20.10.:** Der vorhandene
+[Ideenparkplatz als HTML](A0_BOOK/assets/a0-field-notes/index.html)
+ordnet fünf Themen, durchsucht neun geparkte Ideen und blendet ältere
+Quellnotizen nur auf Wunsch ein. Quelle bleibt FIELD_NOTES_A0.md; die HTML
+wird daraus deterministisch erzeugt. Science-Desk-Einstieg und Desktop-Link
+machen den Bestand wieder zugänglich, ohne einen zweiten Speicher oder neue
+Forschungsaufträge anzulegen. Der
+[Engineering-Nachweis](A0_BOOK/results/a0-field-notes-reader-return-2026-10-20.json)
+trennt lokale Funktionstests von noch offener visueller Browserabnahme.
 
 Die [lokalen DOC-01 bis DOC-12 im bestehenden Backlog](24_A0_RESEARCH_BACKLOG_AND_OPEN_JOINTS_2026-10-10.md#documentation-followups-20261020)
 trennen Abnahme, Integrität, Quellenrückgewinnung, Vertragsdesign und

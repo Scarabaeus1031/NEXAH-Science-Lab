@@ -10,6 +10,29 @@ Mission Control backlog: `RELATIONAL_IDENTIFIABILITY_UNDER_REPRESENTATION_CHANGE
 
 ## Purpose
 
+### Engineering-Return 2026-10-21 — DOC-01 / DOC-06 / DOC-10
+
+Owner beauftragt die begrenzten Bestands-/Bench-/Game-Schritte. Zwei lokale
+Lesestände sind [implementiert und softwaregeprüft](A0_BOOK/A0_ORIENTATION_CONTROLLER_BENCH.html#orbitGridJoints):
+Orbit gegen vorhandene Maske und 24 gültige TESA-Zellmittelpunkte je
+Paraboloidseite. Die vier Eckadressen 1, 7, 22, 28 bleiben HOLD.
+Mathfield und PLAY haben gegenseitige Rückwege; keine zusätzliche
+Game-Dynamik eingeführt.
+
+- DOC-01 bleibt offen: wirkliche Browser-, Mobile-, Fokus- und Bewegungsabnahme.
+- DOC-06 bleibt offen: ursprüngliche HTML der 2%-Spirale; vollständige
+  Quelle der symbolischen Taille; historische Bildfolge nicht mit Operatoren
+  gleichsetzen.
+- DOC-10 teilweise umgesetzt: ein Orbit- und ein Zellmittelpunkt-Leseadapter,
+  keine gemeinsame Maschine. Offen bleiben Live-c-Übergabe, eventuelle
+  Game-Einbettung, all-28-Kreisabbildung mit eigenem Vertrag,
+  Three-Domains→TESA und Taille. Keinen Radial-Clamp ergänzen.
+- Fünf D-Lesemarken und Q°-Innenraum bleiben Designhypothesen, nicht
+  automatisch Bogen-/Phasenklassen oder Bewusstseinsmechanismen.
+
+[Test-/Quellreceipt](A0_BOOK/results/a0-orbit-grid-joints-return-2026-10-21.json).
+Keine neue Study, Aktivierung, Ergebnisadoption oder Veröffentlichung.
+
 This is the single documentary subledger for unfinished A0 work. It prevents
 useful results, open joints and later questions from disappearing into notes
 or visuals. It is not a second Lab Register, active queue, Study identity,
@@ -836,6 +859,44 @@ bekommt ein Abschlusskriterium. 131/313 bleiben ausdrücklich zurückgestellt.
 
 Rücklauf: [Forschungsprotokoll](22_A0_FORSCHUNGSPROTOKOLL_BUCH_UND_RAHMEN_2026-10-10.md#documentation-closeout-20261020)
 · [aktueller Closeout-Nachweis](A0_BOOK/results/a0-documentation-closeout-2026-10-20.json).
+
+<a id="overview-ordering-20261021"></a>
+
+## DOC-13 · Übersichts-Ausgaben ordnen · 21. Oktober 2026
+
+Status: `BACKLOG / DEFERRED_MAINTENANCE / NOT_A_FOYER_BUILD_BLOCKER`
+
+Owner-Auftrag: Die vorhandenen Listen und Übersichtsausgaben konsolidieren,
+ohne eine weitere Bestandsdatenbank anzulegen. DOC-13 ist eine lokale
+Aufgabenmarke im bestehenden Backlog, keine neue Navigator-/Study-Identität.
+
+- **Bestand:** NSN Catalog, Connection Atlas und Evidence-/Lineage-Linsen;
+  Mission Control Source Field samt Binding-/Eligibility-Ausgaben; Builder
+  Tool Inventory; HTML Lab; A0 Asset Index, Visual Field Library, Living
+  Blueprint/Werkzeugregal, Fields & Joints, Family Connection Atlas, Grid
+  Atlas, Toy Store, Bench Map/Katalog sowie historischer und aktueller
+  3D-Bestand.
+- **Aufgabe:** Für jede Ausgabe gepflegte Quelle, Generator oder manuelle
+  Pflege, Geltungsbereich, Aktualisierungsdatum, NSN-Bindungsart und
+  gegenseitige Rückwege festhalten. Werkzeug, Modul, Ansicht, Datei und
+  historischer Fund bleiben verschiedene Zähleinheiten.
+- **Abschluss:** Ein Crosswalk im vorhandenen Dokumentationsbestand benennt
+  den führenden Bestand je Zweck, erklärt Überschneidungen und weist
+  veraltete Zählstände sowie fehlende Bindungen ausdrücklich aus.
+  Nach ausgewählter Korrektur sind Currentness-Pins, erzeugte Projektionen
+  und Prüfungen konsistent; historische Receipts bleiben unverändert.
+- **Anschluss:** Currentness-/Hash-Reconciliation gehört zu DOC-02;
+  echte Browserabnahme zu DOC-01. Keine automatische Einzelaufnahme aller
+  Source-Field-Funde und keine Änderung kanonischer Families oder Counts.
+
+**Foyer jetzt:** Der Owner möchte den visuellen Einstieg weiterbauen.
+Er darf als Navigations-/Präsentationsschicht vorhandene Quellen und
+Modulziele wiederverwenden, während DOC-13 geparkt bleibt. Voraussetzung
+vor Nutzung sind nur auflösbare ausgewählte Ziele, verfügbare
+GLB-Datei/Viewer-Abhängigkeiten oder ein sichtbarer Fallback sowie kein
+unbeabsichtigter Start der Quell-Engines. Neue Live-Kopplungen, ein
+universeller Gesamtvertrag, Veröffentlichung und wissenschaftliche
+Aktivierung sind damit nicht beauftragt.
 
 ## Routing
 

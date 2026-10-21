@@ -18,4 +18,13 @@ state=M.playbackState(state,{state:'PLAY',stationId:'native-face',target:'native
 assert.equal(M.moduleForTarget('systemBinder').id,'binder');checks++;
 const registry=M.registry();assert.equal(registry.modules.length,M.MODULES.length);checks++;assert.equal(registry.events.playback,'a0:bench-playback');checks++;
 assert.match(registry.boundary,/owns neither Bench state nor playback/);checks++;
-console.log(JSON.stringify({status:'PASS',checks,modules:M.MODULES.length,edges:M.EDGES.length,groups:M.GROUPS.length}));
+const fs=require('node:fs'),html=fs.readFileSync('A0_ORIENTATION_CONTROLLER_BENCH.html','utf8');
+for(const module of M.MODULES)check(html.includes('id="'+module.focusTarget+'"'),'existing target '+module.id);
+const overview=html.slice(html.indexOf('<section id="benchOverview"'),html.indexOf('<section id="maskClockLink"'));
+check((overview.match(/<article>/g)||[]).length===6,'six areas, no second family registry');
+check(overview.includes('index.html#atlas'),'existing atlas linked, not copied');
+check(overview.includes('Black–White–Blue bleibt unzugeordnet'),'parked ambiguity retained');
+check(overview.includes('Chemistry · Life · Physics')&&overview.includes('Joint · Euler · Fibonacci')&&overview.includes('Ihara · k·NEG-Teller · Blue Body'),'three documented rows');
+for(const match of overview.matchAll(/href="#([^"]+)"/g))check(html.includes('id="'+match[1]+'"'),'overview target '+match[1]);
+check(fs.readFileSync('a0-mask-clock-focus.css','utf8').includes(':not(#benchOverview)'),'overview available in focused mode');
+console.log(JSON.stringify({status:'PASS',checks,modules:M.MODULES.length,edges:M.EDGES.length,groups:M.GROUPS.length,scope:'Operational map, current 39 anchors, six overview areas, existing atlas route and explicit parked boundaries; no browser layout acceptance'}));

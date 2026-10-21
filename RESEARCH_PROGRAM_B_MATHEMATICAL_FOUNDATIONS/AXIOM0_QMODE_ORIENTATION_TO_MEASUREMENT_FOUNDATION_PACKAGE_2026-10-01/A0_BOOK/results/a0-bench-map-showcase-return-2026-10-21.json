@@ -1,0 +1,44 @@
+{
+  "date": "2026-10-21",
+  "status": "ENGINEERING_PASS_BROWSER_VISUAL_ACCEPTANCE_OPEN",
+  "identity_reuse": [
+    "NEXAH_A0_ORIENTATION_CONTROLLER_BENCH"
+  ],
+  "new_global_ids": [],
+  "relation_changes": [],
+  "canonical_count_effect": 0,
+  "publication_authorized": false,
+  "scope": "Visual enhancement of the existing 39-module operative Bench Map. Reuses existing catalogue snapshots; hover/focus/tap only change local preview. Explicit open uses existing catalogue navigation. No new source clock, iframe, engine start or scientific claim.",
+  "tests": {
+    "showcase": 136,
+    "map": 294,
+    "catalog": 211,
+    "integration": 8109,
+    "coverage": "57/57; zero dead local links"
+  },
+  "visual_browser_acceptance": "OPEN; DOM doubles are not browser pixel acceptance",
+  "fallback": "Unloaded or unreadable original graphics use labelled group sketches, not tool screenshots.",
+  "preexisting_governance_failures": [
+    "SRC:A0OE:FINDINGS_PAPER_WORKSPACE hash mismatch",
+    "SRC:A0OE:RETURN_WITHOUT_IDENTITY_PAPER_DRAFT hash mismatch",
+    "SRC:A0OE:RETURN_WITHOUT_IDENTITY_PAPER_HTML hash mismatch"
+  ],
+  "sources": [
+    {
+      "path": "A0_ORIENTATION_CONTROLLER_BENCH.html",
+      "sha256": "e7efb30bcba628caa50e4c0151556ef81e5bea3390b36761790a17ad2dedac6c"
+    },
+    {
+      "path": "a0-bench-map-showcase.js",
+      "sha256": "d66ab279ffa3ffc94cbc5fe7d502ddc3db4bebb85ccb81b481e3a2d6630a2d84"
+    },
+    {
+      "path": "a0-bench-map-showcase.css",
+      "sha256": "4dff30d34bf2e426ddeff46bb12bbd00382abaa7cd84e198b7de298f5650e5c6"
+    },
+    {
+      "path": "a0-bench-map-showcase-tests.cjs",
+      "sha256": "08d95be3257ba0c95917fb988407a1bbbb3ce3520b375bccd6f447da97a30757"
+    }
+  ]
+}

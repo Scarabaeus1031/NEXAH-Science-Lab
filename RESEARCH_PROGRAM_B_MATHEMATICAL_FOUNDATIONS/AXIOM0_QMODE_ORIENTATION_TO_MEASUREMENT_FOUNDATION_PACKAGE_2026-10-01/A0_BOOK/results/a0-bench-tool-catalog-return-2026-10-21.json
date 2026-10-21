@@ -1,0 +1,77 @@
+{
+  "schema": "a0.bench-tool-catalog-return/1",
+  "date": "2026-10-21",
+  "status": "ENGINEERING_PASS_NEW_VISUAL_ACCEPTANCE_OPEN",
+  "identityReuse": [
+    "NEXAH_A0_ORIENTATION_CONTROLLER_BENCH"
+  ],
+  "newGlobalIds": [],
+  "canonicalCountEffect": 0,
+  "entry": "A0_ORIENTATION_CONTROLLER_BENCH.html#benchOverview",
+  "modules": 39,
+  "groups": 6,
+  "implementation": [
+    "Catalog uses existing Bench Map modules, binding types and anchors; no duplicate registry.",
+    "Search/filter pattern reuses local Visual Field Library approach.",
+    "Context windows invoke existing A0OrientationMapView.openNode; exact Bench href match first, explicit source-context matches otherwise general bench context.",
+    "Existing rendered SVG/canvas is cloned/downsampled into frozen previews; no source engine advanced or loaded. Missing graphics show labelled group sketches.",
+    "Menu columns adapt by group and can be overridden to 2,3,4; narrow viewports use 2 then 1 column. This never changes mathematical source grids."
+  ],
+  "tests": {
+    "catalog": 211,
+    "map": 294,
+    "integration": 8109,
+    "maskClock": 12448
+  },
+  "sources": [
+    {
+      "path": "A0_ORIENTATION_CONTROLLER_BENCH.html",
+      "sha256": "9d61623d702ee90f6d50da49138f0a35ee59dff76973ef769e2cc33b75275135"
+    },
+    {
+      "path": "a0-bench-tool-catalog.js",
+      "sha256": "34b9d949f67f75ec8728901a5f3b24062a556a20a4ae1a74f1cf74d7b1a1584a"
+    },
+    {
+      "path": "a0-bench-tool-catalog.css",
+      "sha256": "f0ebc98c8057d03cfb986b476115f09ecade95214628d10b303e9fd398df6676"
+    },
+    {
+      "path": "a0-bench-tool-catalog-tests.cjs",
+      "sha256": "12b1d54737360c3e9a5b5831fe336b061f4c904784e9d09f63f8cc395b959c49"
+    },
+    {
+      "path": "a0-bench-map.js",
+      "sha256": "02c4614b35aa53fd0427b6f4e7962a9bd74872c1d195242e27b63ec7fdf41a82"
+    },
+    {
+      "path": "a0-orientation-map.js",
+      "sha256": "a6d6c8b32d4b64456965388c9f062420ed1fe24d3954f32bc46eecda0d49c7eb"
+    },
+    {
+      "path": "a0-visual-field-library.js",
+      "sha256": "d87fbe319a6c58d9187ce1d89a15fe0141c9d75c5a8d4c6d80aa0fa12e8af76c"
+    },
+    {
+      "path": "a0-orientation-shelf.js",
+      "sha256": "206d8eccb6f688040486e9429a57c1b7e906ddf788f8c6a79b5c087e6525ef95"
+    },
+    {
+      "path": "A0_RESEARCH_DESK.html",
+      "sha256": "92624ff0757e4b67da5456ef6d0a17a84e1426516fde5573f8375ae540f67684"
+    }
+  ],
+  "contextBoundaries": [
+    "Body route -> existing body context, native face -> existing blue context, Family-role -> existing families context are navigational context only, not new carrier identities.",
+    "All other unresolved individual matches show general Bench context; no fabricated fine-grained graph links.",
+    "Preview images are moments, not live telemetry. Generic group sketches are not source screenshots.",
+    "The new UI has no browser/WebGL acceptance in this turn. Earlier Owner reports apply to earlier views only."
+  ],
+  "authority": {
+    "scientificRun": false,
+    "publication": false,
+    "newFamily": false,
+    "sourceRuntimeChange": false
+  },
+  "priorReceipts": "Dated source hashes remain historical snapshots; this receipt describes the current catalog extension."
+}

@@ -25,6 +25,11 @@
       schema:"nexah.three-domain.euler-view.v1",
       generation,domains,
       aggregate:Object.freeze({re,im,magnitude:Math.hypot(re,im),angle:Math.atan2(im,re)}),
+      viewGrammar:Object.freeze({
+        primary:Object.freeze(["chemistry phasor","life phasor","spin phasor"]),
+        derived:"arithmetic centroid Z-bar = (Z-chemistry + Z-life + Z-spin) / 3",
+        fourthIsNewOperator:false
+      }),
       eventTotal:NAMES.reduce((sum,name)=>sum+snapshots[name].events.all.length,0),
       clock,gear,
       boundary:"COMMON_COMPLEX_READOUT_ONLY_NO_SHARED_OPERATOR"
@@ -38,18 +43,30 @@
   function drawArrow(ctx,cx,cy,r,phasor,color,width=3){
     const x=cx+r*phasor.re,y=cy-r*phasor.im;ctx.strokeStyle=color;ctx.fillStyle=color;ctx.lineWidth=width;ctx.beginPath();ctx.moveTo(cx,cy);ctx.lineTo(x,y);ctx.stroke();ctx.beginPath();ctx.arc(x,y,width+2,0,Math.PI*2);ctx.fill();return{x,y};
   }
+  function drawPanel(ctx,x,y,w,h,title,color){
+    ctx.fillStyle="rgba(16,36,48,.42)";ctx.strokeStyle=COLORS.grid;ctx.lineWidth=1;ctx.fillRect(x,y,w,h);ctx.strokeRect(x,y,w,h);label(ctx,title,x+12,y+21,color,10);
+  }
+  function drawPlane(ctx,cx,cy,r){
+    ctx.strokeStyle=COLORS.grid;ctx.lineWidth=1;ctx.beginPath();ctx.arc(cx,cy,r,0,Math.PI*2);ctx.moveTo(cx-r-7,cy);ctx.lineTo(cx+r+7,cy);ctx.moveTo(cx,cy-r-7);ctx.lineTo(cx,cy+r+7);ctx.stroke();
+    label(ctx,"HOLD",cx+r+9,cy+3,COLORS.muted,8);label(ctx,"POS",cx,cy-r-8,COLORS.muted,8,"center");label(ctx,"INACT",cx-r-9,cy+3,COLORS.muted,8,"right");label(ctx,"NEG",cx,cy+r+14,COLORS.muted,8,"center");
+  }
   function drawCanvas(canvas,projection){
-    const ctx=canvas.getContext("2d"),cx=260,cy=245,r=178;ctx.clearRect(0,0,canvas.width,canvas.height);ctx.fillStyle=COLORS.bg;ctx.fillRect(0,0,canvas.width,canvas.height);
-    label(ctx,`Euler readout · generation ${projection.generation}`,28,28,COLORS.muted,12);
-    ctx.strokeStyle=COLORS.grid;ctx.lineWidth=1;ctx.beginPath();ctx.arc(cx,cy,r,0,Math.PI*2);ctx.stroke();ctx.beginPath();ctx.moveTo(cx-r-18,cy);ctx.lineTo(cx+r+18,cy);ctx.moveTo(cx,cy-r-18);ctx.lineTo(cx,cy+r+18);ctx.stroke();
-    label(ctx,"1 · HOLD",cx+r+12,cy+4,COLORS.muted,10);label(ctx,"i · POS",cx,cy-r-10,COLORS.muted,10,"center");label(ctx,"−1 · INACTIVE",cx-r-12,cy+4,COLORS.muted,10,"right");label(ctx,"−i · NEG",cx,cy+r+18,COLORS.muted,10,"center");
-    for(const name of NAMES){const p=projection.domains[name],end=drawArrow(ctx,cx,cy,r,p,COLORS[name],3);label(ctx,name.toUpperCase(),end.x+(end.x>=cx?8:-8),end.y-8,COLORS[name],10,end.x>=cx?"left":"right")}
-    const aggregateEnd=drawArrow(ctx,cx,cy,r,projection.aggregate,COLORS.aggregate,5);ctx.strokeStyle=COLORS.aggregate;ctx.lineWidth=1.5;ctx.beginPath();ctx.arc(aggregateEnd.x,aggregateEnd.y,10,0,Math.PI*2);ctx.stroke();label(ctx,"Z̄",aggregateEnd.x+12,aggregateEnd.y+4,COLORS.aggregate,13);
-    label(ctx,`Z̄ = ${format(projection.aggregate.re)} ${projection.aggregate.im<0?"−":"+"} ${format(Math.abs(projection.aggregate.im))}i`,28,474,COLORS.text,16);
-    label(ctx,`|Z̄| ${format(projection.aggregate.magnitude)} · θ ${format(projection.aggregate.angle)} rad`,28,498,COLORS.muted,12);
+    const ctx=canvas.getContext("2d");ctx.clearRect(0,0,canvas.width,canvas.height);ctx.fillStyle=COLORS.bg;ctx.fillRect(0,0,canvas.width,canvas.height);
+    label(ctx,`Euler · 3 primary readouts + 1 derived joint · g${projection.generation}`,28,28,COLORS.muted,12);
+    const panels=[{x:24,y:48,name:"chemistry",title:"1 · CHEMISTRY"},{x:266,y:48,name:"life",title:"2 · LIFE"},{x:24,y:282,name:"physics",title:"3 · SPIN"},{x:266,y:282,name:"joint",title:"4 · DERIVED JOINT"}];
+    panels.forEach(panel=>{
+      const color=panel.name==="joint"?COLORS.aggregate:COLORS[panel.name];drawPanel(ctx,panel.x,panel.y,230,216,panel.title,color);const cx=panel.x+115,cy=panel.y+112,r=65;drawPlane(ctx,cx,cy,r);
+      if(panel.name!=="joint"){
+        const p=projection.domains[panel.name],end=drawArrow(ctx,cx,cy,r,p,color,4);label(ctx,`Z = ${format(p.re)} ${p.im<0?"−":"+"} ${format(Math.abs(p.im))}i`,panel.x+12,panel.y+198,color,9);ctx.strokeStyle=color;ctx.lineWidth=1;ctx.beginPath();ctx.arc(end.x,end.y,7,0,Math.PI*2);ctx.stroke();
+      }else{
+        NAMES.forEach(name=>{ctx.save();ctx.globalAlpha=.42;drawArrow(ctx,cx,cy,r,projection.domains[name],COLORS[name],2);ctx.restore()});const end=drawArrow(ctx,cx,cy,r,projection.aggregate,COLORS.aggregate,5);ctx.strokeStyle=COLORS.aggregate;ctx.lineWidth=1.5;ctx.beginPath();ctx.arc(end.x,end.y,9,0,Math.PI*2);ctx.stroke();label(ctx,"Z̄",end.x+9,end.y-6,COLORS.aggregate,11);label(ctx,"mean of 1 + 2 + 3",panel.x+12,panel.y+198,COLORS.aggregate,9);
+      }
+    });
+    label(ctx,`Z̄ = ${format(projection.aggregate.re)} ${projection.aggregate.im<0?"−":"+"} ${format(Math.abs(projection.aggregate.im))}i · |Z̄| ${format(projection.aggregate.magnitude)}`,28,524,COLORS.text,13);
     const cards=[[`g${projection.generation}`,"CLOCK"],[`n${projection.clock.phase}`,"MOD 8"],[`c${projection.clock.primeChannel.k}=${projection.clock.primeChannel.channelValue}`,"PRIME CHANNEL"],[projection.clock.axisMode==="hinge"?"XI · 99":"JANUS · 100","AXIS"]];
-    cards.forEach((item,index)=>{const x=28+index*121;ctx.fillStyle="rgba(16,36,48,.8)";ctx.strokeStyle=COLORS.grid;ctx.fillRect(x,535,108,78);ctx.strokeRect(x,535,108,78);label(ctx,item[1],x+10,557,COLORS.muted,9);label(ctx,item[0],x+10,586,index===3?COLORS.aggregate:COLORS.text,13)});
-    label(ctx,"e^{iθ} is the coordinate map · not a shared physical mechanism",28,653,COLORS.muted,10);
+    cards.forEach((item,index)=>{const x=28+index*121;ctx.fillStyle="rgba(16,36,48,.8)";ctx.strokeStyle=COLORS.grid;ctx.fillRect(x,548,108,66);ctx.strokeRect(x,548,108,66);label(ctx,item[1],x+10,569,COLORS.muted,9);label(ctx,item[0],x+10,596,index===3?COLORS.aggregate:COLORS.text,13)});
+    label(ctx,"4 is derived: arithmetic centroid · no fourth world or operator",28,646,COLORS.aggregate,10);
+    label(ctx,"e^{iθ} is a coordinate map · not a shared physical mechanism",28,667,COLORS.muted,10);
   }
 
   function init(doc=document){

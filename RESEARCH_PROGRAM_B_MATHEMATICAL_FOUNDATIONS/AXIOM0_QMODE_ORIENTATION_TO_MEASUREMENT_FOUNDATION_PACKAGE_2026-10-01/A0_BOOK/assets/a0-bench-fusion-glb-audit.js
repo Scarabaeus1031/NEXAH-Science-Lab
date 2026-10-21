@@ -1,0 +1,301 @@
+window.A0BenchFusionGLBAudit={
+  "schema": "a0.bench-fusion-glb-audit/1",
+  "scope": "ARCHIVE_BINARY_INSPECTION_NOT_SCIENTIFIC_RUN",
+  "models": [
+    {
+      "file": "/Users/tho2020/Desktop/Desktop TASKS/DESKTOP_archy/THOOTH DASHBOARD/Nexahedron_Codex Staging Modules/⚧ Fusion Resonance Codex — Meta Cathedral v3.4 · Atemzyklen 11 (AU–NA–HE–TI : CA–RO–THÉ–MA–NU : CON–DAO)/Fusion_Architecture_v3_3_full_HUD.glb",
+      "href": "../../../../../../../Desktop/Desktop TASKS/DESKTOP_archy/THOOTH DASHBOARD/Nexahedron_Codex Staging Modules/⚧ Fusion Resonance Codex — Meta Cathedral v3.4 · Atemzyklen 11 (AU–NA–HE–TI : CA–RO–THÉ–MA–NU : CON–DAO)/Fusion_Architecture_v3_3_full_HUD.glb",
+      "sha256": "79eab9f6625cc0161e4bdf9fc22d1bd1cdd44219e5ef6247909818ede47aac1e",
+      "bytes": 1991448,
+      "nodes": 537,
+      "meshes": 35,
+      "phiLayers": [
+        {
+          "name": "Phi_Layer_1.20",
+          "mesh": 26,
+          "vertices": 2353,
+          "localBounds": [
+            [
+              -1.2300000190734863,
+              1.2300000190734863
+            ],
+            [
+              -0.029999999329447746,
+              0.029999999329447746
+            ],
+            [
+              -1.2300000190734863,
+              1.2300000190734863
+            ]
+          ],
+          "translation": null,
+          "scale": null,
+          "matrix": null
+        },
+        {
+          "name": "Phi_Layer_1.95",
+          "mesh": 27,
+          "vertices": 2353,
+          "localBounds": [
+            [
+              -1.9800000190734863,
+              1.9800000190734863
+            ],
+            [
+              -0.029999999329447746,
+              0.029999999329447746
+            ],
+            [
+              -1.9800000190734863,
+              1.9800000190734863
+            ]
+          ],
+          "translation": null,
+          "scale": null,
+          "matrix": null
+        },
+        {
+          "name": "Phi_Layer_3.15",
+          "mesh": 28,
+          "vertices": 2353,
+          "localBounds": [
+            [
+              -3.180000066757202,
+              3.180000066757202
+            ],
+            [
+              -0.029999999329447746,
+              0.029999999329447746
+            ],
+            [
+              -3.180000066757202,
+              3.180000066757202
+            ]
+          ],
+          "translation": null,
+          "scale": null,
+          "matrix": null
+        },
+        {
+          "name": "Phi_Layer_5.10",
+          "mesh": 29,
+          "vertices": 2353,
+          "localBounds": [
+            [
+              -5.130000114440918,
+              5.130000114440918
+            ],
+            [
+              -0.029999999329447746,
+              0.029999999329447746
+            ],
+            [
+              -5.130000114440918,
+              5.130000114440918
+            ]
+          ],
+          "translation": null,
+          "scale": null,
+          "matrix": null
+        },
+        {
+          "name": "Phi_Layer_8.25",
+          "mesh": 30,
+          "vertices": 2353,
+          "localBounds": [
+            [
+              -8.279999732971191,
+              8.279999732971191
+            ],
+            [
+              -0.029999999329447746,
+              0.029999999329447746
+            ],
+            [
+              -8.279999732971191,
+              8.279999732971191
+            ]
+          ],
+          "translation": null,
+          "scale": null,
+          "matrix": null
+        }
+      ],
+      "animations": []
+    },
+    {
+      "file": "/Users/tho2020/Desktop/Desktop TASKS/DESKTOP_archy/THOOTH DASHBOARD/Nexahedron_Codex Staging Modules/⚧ Fusion Resonance Codex — Meta Cathedral v3.4 · Atemzyklen 11 (AU–NA–HE–TI : CA–RO–THÉ–MA–NU : CON–DAO)/Fusion_Architecture_v3_4_animated.glb",
+      "href": "../../../../../../../Desktop/Desktop TASKS/DESKTOP_archy/THOOTH DASHBOARD/Nexahedron_Codex Staging Modules/⚧ Fusion Resonance Codex — Meta Cathedral v3.4 · Atemzyklen 11 (AU–NA–HE–TI : CA–RO–THÉ–MA–NU : CON–DAO)/Fusion_Architecture_v3_4_animated.glb",
+      "sha256": "5b984ce35672c23ec7cda8553669aa6166052a94911d80ac61af9bf40e5829fa",
+      "bytes": 243828,
+      "nodes": 869,
+      "meshes": 10,
+      "phiLayers": [],
+      "animations": [
+        {
+          "name": "Helices_Rotate",
+          "channels": [
+            {
+              "target": "Helix_RA_Group",
+              "path": "rotation",
+              "interpolation": "LINEAR",
+              "times": [
+                0,
+                10
+              ],
+              "values": [
+                [
+                  0,
+                  0,
+                  0,
+                  1
+                ],
+                [
+                  0,
+                  1.2246468525851679e-16,
+                  0,
+                  -1
+                ]
+              ],
+              "equivalentRotationEndpoints": true
+            },
+            {
+              "target": "Helix_TH_Group",
+              "path": "rotation",
+              "interpolation": "LINEAR",
+              "times": [
+                0,
+                10
+              ],
+              "values": [
+                [
+                  0,
+                  0,
+                  0,
+                  1
+                ],
+                [
+                  0,
+                  -1.2246468525851679e-16,
+                  0,
+                  -1
+                ]
+              ],
+              "equivalentRotationEndpoints": true
+            }
+          ]
+        },
+        {
+          "name": "Phi_Pulse",
+          "channels": [
+            {
+              "target": "Phi_Group",
+              "path": "scale",
+              "interpolation": "LINEAR",
+              "times": [
+                0,
+                2.5,
+                5
+              ],
+              "values": [
+                [
+                  1,
+                  1,
+                  1
+                ],
+                [
+                  1.0299999713897705,
+                  1.0299999713897705,
+                  1.0299999713897705
+                ],
+                [
+                  1,
+                  1,
+                  1
+                ]
+              ],
+              "equivalentRotationEndpoints": false
+            }
+          ]
+        },
+        {
+          "name": "LOT_Breathe",
+          "channels": [
+            {
+              "target": "LOT_Group",
+              "path": "translation",
+              "interpolation": "LINEAR",
+              "times": [
+                0,
+                2,
+                4
+              ],
+              "values": [
+                [
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0.10000000149011612,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0
+                ]
+              ],
+              "equivalentRotationEndpoints": false
+            },
+            {
+              "target": "LOT_Group",
+              "path": "scale",
+              "interpolation": "LINEAR",
+              "times": [
+                0,
+                2,
+                4
+              ],
+              "values": [
+                [
+                  0.949999988079071,
+                  0.949999988079071,
+                  0.949999988079071
+                ],
+                [
+                  1.0499999523162842,
+                  1.0499999523162842,
+                  1.0499999523162842
+                ],
+                [
+                  0.949999988079071,
+                  0.949999988079071,
+                  0.949999988079071
+                ]
+              ],
+              "equivalentRotationEndpoints": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "file": "/Users/tho2020/Desktop/Desktop TASKS/DESKTOP_archy/THOOTH DASHBOARD/Nexahedron_Codex Staging Modules/⚧ Fusion Resonance Codex — Meta Cathedral v3.4 · Atemzyklen 11 (AU–NA–HE–TI : CA–RO–THÉ–MA–NU : CON–DAO)/Euler_Bridges_3D.glb",
+      "href": "../../../../../../../Desktop/Desktop TASKS/DESKTOP_archy/THOOTH DASHBOARD/Nexahedron_Codex Staging Modules/⚧ Fusion Resonance Codex — Meta Cathedral v3.4 · Atemzyklen 11 (AU–NA–HE–TI : CA–RO–THÉ–MA–NU : CON–DAO)/Euler_Bridges_3D.glb",
+      "sha256": "c2edb66747e43590bcbf53297957813af8844d22d758d8c5a9e35a678c119321",
+      "bytes": 121292,
+      "nodes": 21,
+      "meshes": 20,
+      "phiLayers": [],
+      "animations": []
+    }
+  ],
+  "boundaries": [
+    "Five named Phi layers are not five states of phi or a Q4/P3 mapping.",
+    "Quaternion q and -q describe the same orientation; a two-key shortest-path clip does not encode a full turn.",
+    "Phi_Pulse is a uniform 3% group scale pulse, not a five-stage sequence.",
+    "Euler_Bridges_3D and the historical Rath/Cathedral graph are not identified."
+  ]
+};
