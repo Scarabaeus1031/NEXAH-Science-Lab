@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>A0 Boundary Graph · Pascal Joint Demonstrator</title>
+  <meta name="description" content="Interaktive Übersetzung zwischen vier Rechteckflächen, typisierten Boundaries, Adjazenzgraph und einem deklarierten Pascal-Spiegeljoint.">
+  <style>
+    :root{color-scheme:dark;--bg:#050b12;--panel:#0a1723;--panel2:#0e2130;--line:#29485a;--text:#e9f2f5;--muted:#92a8b3;--cyan:#49c8e5;--gold:#e8b94f;--violet:#b785f4;--pink:#e668a4;--green:#70d79b;--red:#ef668a;--mono:"SFMono-Regular",Consolas,monospace;--sans:Inter,ui-sans-serif,system-ui,-apple-system,sans-serif;--serif:Georgia,"Times New Roman",serif}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(circle at 77% 7%,rgba(73,200,229,.1),transparent 24%),var(--bg);color:var(--text);font-family:var(--sans);line-height:1.5}button,input{font:inherit}button:focus-visible,input:focus-visible,a:focus-visible{outline:3px solid var(--cyan);outline-offset:3px}a{color:var(--cyan)}[hidden]{display:none!important}.top{position:sticky;top:0;z-index:5;display:flex;justify-content:space-between;gap:20px;align-items:center;padding:13px 4vw;background:rgba(5,11,18,.94);border-bottom:1px solid var(--line);backdrop-filter:blur(10px)}.brand{text-decoration:none;color:var(--text);font-weight:800;letter-spacing:.12em}.top nav{display:flex;gap:14px;flex-wrap:wrap}.top nav a{text-decoration:none;color:var(--muted);font:700 .65rem var(--mono);text-transform:uppercase}.wrap{max-width:1260px;margin:auto;padding:0 4vw}.hero{padding:7vh 0 34px}.eyebrow{color:var(--gold);font:700 .68rem var(--mono);letter-spacing:.14em;text-transform:uppercase}h1{font:700 clamp(3rem,7vw,6.7rem)/.88 var(--serif);letter-spacing:-.055em;margin:.22em 0}.lead{max-width:920px;color:#b7c8cf;font:400 clamp(1rem,2vw,1.28rem)/1.55 var(--serif)}.claim{border-left:4px solid var(--red);background:rgba(239,102,138,.08);padding:14px 17px;color:#c8d5da;font-size:.86rem;max-width:990px}.claim b{color:#ffabc1}.controls{display:grid;grid-template-columns:repeat(3,minmax(150px,1fr)) auto;gap:12px;align-items:end;margin:28px 0 16px}.control{border:1px solid var(--line);background:var(--panel);padding:12px}.control label{display:flex;justify-content:space-between;gap:10px;color:var(--muted);font:700 .64rem var(--mono);text-transform:uppercase}.control output{color:var(--gold);font-size:.9rem}.control input{width:100%;accent-color:var(--gold);margin-top:10px}.presets{display:flex;gap:7px;flex-wrap:wrap}.presets button,.tabs button,.channel-toggle{border:1px solid #3a5d70;background:#08131e;color:#bdd0d7;padding:9px 11px}.presets button[aria-pressed="true"],.tabs button[aria-pressed="true"],.channel-toggle[aria-pressed="true"]{border-color:var(--gold);background:var(--gold);color:#071019}.tabs{display:flex;gap:8px;flex-wrap:wrap;margin:15px 0}.workspace{display:grid;grid-template-columns:minmax(0,1.45fr) minmax(280px,.55fr);gap:16px;align-items:start}.stage{border:1px solid var(--line);background:linear-gradient(145deg,#07131d,#0c1e2c);padding:16px;min-height:630px}.stage-head{display:flex;justify-content:space-between;gap:16px;align-items:center;margin-bottom:10px}.stage-head h2{font:700 1.35rem var(--serif);margin:0}.stage-head p{color:var(--muted);font-size:.78rem;margin:3px 0 0}.stage svg{display:block;width:100%;height:auto;min-height:520px}.ledger{display:grid;gap:12px}.card{border:1px solid var(--line);background:var(--panel);padding:16px}.card h2,.card h3{font:700 1.15rem var(--serif);margin:0 0 10px}.card p{color:var(--muted);font-size:.78rem}.equation{font:700 clamp(1rem,2vw,1.25rem)/1.6 var(--mono);color:var(--gold);overflow-wrap:anywhere}.rows{display:grid;gap:7px}.row{display:grid;grid-template-columns:47px 1fr auto;gap:10px;align-items:center;border-top:1px solid #213c4b;padding-top:8px}.row:first-child{border-top:0}.swatch{width:13px;height:13px;border-radius:2px}.row b{font:700 .72rem var(--mono)}.row span{font-size:.78rem;color:var(--muted)}.row strong{font:700 .86rem var(--mono);color:var(--text)}.total{display:flex;justify-content:space-between;align-items:baseline;border-top:2px solid var(--gold);margin-top:10px;padding-top:10px}.total strong{font:700 1.45rem var(--serif);color:var(--gold)}.audit{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}.audit div{border-top:3px solid var(--green);background:var(--panel2);padding:11px}.audit div:nth-child(2){border-color:var(--red)}.audit div:nth-child(3){border-color:var(--gold)}.audit div:nth-child(4){border-color:var(--violet)}.audit b{display:block;font:700 .72rem var(--mono)}.audit span{display:block;color:var(--muted);font-size:.72rem;margin-top:4px}.route{margin:18px 0 54px;border:1px solid var(--line);background:var(--panel);padding:18px}.route h2{font:700 1.25rem var(--serif);margin:0 0 8px}.route p{color:var(--muted);font-size:.82rem}.route-links{display:flex;gap:9px;flex-wrap:wrap}.route-links a{border:1px solid currentColor;padding:8px 10px;text-decoration:none;font:700 .63rem var(--mono);text-transform:uppercase}.footer{border-top:1px solid var(--line);padding:28px 4vw;color:var(--muted);font-size:.75rem}.svg-label{font:700 14px var(--mono);fill:var(--text)}.svg-sub{font:500 12px var(--mono);fill:var(--muted)}.svg-value{font:700 16px var(--serif);fill:var(--text)}.edge{stroke:#78909b;stroke-width:2;fill:none}.seam{stroke:var(--gold);stroke-width:3}.pillar{stroke:var(--pink);stroke-width:4}.hinge{fill:var(--gold);stroke:#071019;stroke-width:3}.node{stroke:#94abb5;stroke-width:2}.node-title{font:700 15px var(--mono);fill:var(--text)}.node-value{font:500 12px var(--mono);fill:var(--muted)}
+    @media(max-width:900px){.controls,.workspace{grid-template-columns:1fr}.stage{min-height:0}.stage svg{min-height:430px}.presets{margin-top:2px}}@media(max-width:560px){.top nav{display:none}.controls{grid-template-columns:1fr}.audit{grid-template-columns:1fr}.stage{padding:8px}.stage-head{align-items:flex-start;flex-direction:column}h1{font-size:3.15rem}}
+  </style>
+  <link rel="stylesheet" href="a0-context-navigation.css?rev=connect-entry-20261014">
+</head>
+<body>
+  <header class="top"><a class="brand" href="A0_MATHEMATICAL_JOINTS.html">NEXAH · A0</a><nav aria-label="Navigation"><a href="A0_MATHEMATICAL_JOINTS.html">Mathfield</a><a href="https://nexah.de/">Backlog</a><a href="index.html">Overview</a></nav></header>
+  <main class="wrap">
+    <section class="hero"><div class="eyebrow">A0-BL-031 · reader-facing representation instrument</div><h1>Boundary Graph</h1><p class="lead">Vier Flächen, zwei gekreuzte Boundaries, ein Hinge und ein Pascal Joint. Dieselben Eingaben werden als Rechteck, typisierte Boundary-Struktur, Adjazenzgraph und deklarierter Spiegeljoint gelesen. So wird sichtbar, was jede Darstellung bewahrt – und was sie nicht miteinander identifiziert.</p><div class="claim"><b>Claim boundary:</b> Das Instrument zeigt eine exakte endliche Zerlegung sowie die exakte Pascal-Symmetrie nach der ausdrücklich gewählten Indexregel <code>n=a+b</code>. Der Joint verbindet diese Lesarten, macht Rechteckfläche und Pascal-Multiplizität aber nicht zur selben Struktur und beweist keine SNCE-, E8-, Flow-, Stabilitäts- oder physikalische Mechanik.</div></section>
+
+    <section aria-label="Parameter und Ansichten">
+      <div class="controls">
+        <div class="control"><label for="base">Basis B <output id="baseOut">100</output></label><input id="base" type="range" min="10" max="200" step="1" value="100"></div>
+        <div class="control"><label for="a">Überstand a <output id="aOut">5</output></label><input id="a" type="range" min="0" max="121" step="1" value="5"></div>
+        <div class="control"><label for="b">Überstand b <output id="bOut">6</output></label><input id="b" type="range" min="0" max="121" step="1" value="6"></div>
+        <div class="presets" aria-label="Beispiele"><button type="button" data-preset="105,106" aria-pressed="true">105 × 106</button><button type="button" data-preset="112,112" aria-pressed="false">112²</button><button type="button" data-preset="103,107" aria-pressed="false">103 × 107</button><button id="pascal-121" type="button" data-preset="147,174" aria-pressed="false">47 + 74 → 121</button></div>
+      </div>
+      <div class="tabs" role="group" aria-label="Darstellung"><button type="button" data-view="area" aria-pressed="true">1 · Fläche</button><button type="button" data-view="boundary" aria-pressed="false">2 · Boundary</button><button type="button" data-view="graph" aria-pressed="false">3 · Graph</button><button type="button" data-view="pascal" aria-pressed="false">4 · Pascal Joint</button></div>
+    </section>
+
+    <section class="workspace">
+      <div class="stage">
+        <div class="stage-head"><div><h2 id="viewTitle">Vier-Felder-Zerlegung</h2><p id="viewNote">Flächenwerte und geometrische Montage bleiben gleichzeitig sichtbar.</p></div><button class="channel-toggle" id="channelToggle" type="button" aria-pressed="true">Pillars + Kanal</button></div>
+        <svg id="viz" viewBox="0 0 760 540" role="img" aria-labelledby="vizTitle vizDesc"><title id="vizTitle">Interaktive Vier-Felder-Zerlegung mit Pascal Joint</title><desc id="vizDesc">Eine Fläche wird in vier Rechtecke zerlegt und alternativ als Boundary-Struktur, Adjazenzgraph oder deklarierter Pascal-Spiegeljoint gezeigt.</desc></svg>
+      </div>
+      <aside class="ledger">
+        <div class="card"><h2>Exaktes Ledger</h2><div class="equation" id="equation">(100+5)(100+6)</div><div class="rows">
+          <div class="row"><i class="swatch" style="background:var(--cyan)"></i><span>F₀₀ · B²</span><strong id="f00">10000</strong></div>
+          <div class="row"><i class="swatch" style="background:var(--gold)"></i><span>F₀₁ · B·b</span><strong id="f01">600</strong></div>
+          <div class="row"><i class="swatch" style="background:var(--pink)"></i><span>F₁₀ · a·B</span><strong id="f10">500</strong></div>
+          <div class="row"><i class="swatch" style="background:var(--violet)"></i><span>F₁₁ · a·b</span><strong id="f11">30</strong></div>
+        </div><div class="total"><span>Total</span><strong id="total">11130</strong></div></div>
+        <div class="card"><h3>Shortcut</h3><div class="equation" id="shortcut">100·111 + 30</div><p style="margin-bottom:0">Der vordere Block faltet drei Flächenwerte zusammen. Die Ecke bleibt als Restterm separat.</p></div>
+        <div class="card" id="pascalCard" hidden><h3>Pascal Joint</h3><div class="equation" id="pascalEquation">n=5+6=11</div><div class="equation" id="pascalMirror">C(11,5)=C(11,6)=462</div><p>OVS-Lesart: Der Joint verbindet die Residualindizes über eine deklarierte Regel und hält ihre Herkunft als Flächenparameter von ihrer Rolle als Pascal-Indizes getrennt.</p><p id="pascalTotal" style="margin-bottom:0">Zeilensumme: 2¹¹ = 2048 Historien.</p></div>
+        <div class="card"><h3>ILAU der Kompression</h3><div class="audit"><div><b>I · retained</b><span>Total, vier Summanden, exakte Arithmetik</span></div><div><b>L · lost</b><span>Seam-Inzidenz und Orientierung im Kurzreadout</span></div><div><b>A · added</b><span>Basiswahl und Dezimalblock-Lesart</span></div><div><b>U · unresolved</b><span>Kein physikalischer Kanal oder Generator folgt</span></div></div></div>
+      </aside>
+    </section>
+
+    <section class="route"><h2>Was aus den vorhandenen Modulen sinnvoll verbunden wird</h2><p>Der Demonstrator übernimmt nur belastbare Grammatik: typisierte Knoten und Kanten aus Graph-Instrumenten, OVS Joint/Fuge als dokumentarische Sprache für „verbinden und auseinanderhalten“, die geprüfte Hamming-Gewicht/Pascal-Symmetrie aus Block 2A und die explizite Selektorgrenze aus F₅₀→SNCE. Die Bildfamilien werden nicht zu einem gemeinsamen Mechanismus verschmolzen.</p><div class="route-links"><a href="A0_Q4_MAGIC_SQUARE_JOINT_AUDIT.html">Q4 Magic-Square Audit</a><a href="A0_MATHEMATICAL_JOINTS.html#boundary-graph-demo">Zur Mathfield-Einbettung</a><a href="https://nexah.de/">Block 2A · Pascal</a><a href="https://nexah.de/">A0-BL-031</a><a href="https://nexah.de/">Kanonischer Backlog</a></div></section>
+  </main>
+  <footer class="footer">Identity reuse: ART:A0:MATHEMATICAL_JOINTS · MOD:NUMBER_VIEW_SUITE · ART:NUMBER:PRIMEGRID_BLOCK02A_PASCAL · documentary view only · no new Study · no new Run</footer>
+  <script>
+    const svg=document.getElementById('viz');
+    const state={B:100,a:5,b:6,view:'area',channel:true};
+    const colors={cyan:'#49c8e5',gold:'#e8b94f',pink:'#e668a4',violet:'#b785f4',muted:'#92a8b3',panel:'#0a1723',line:'#29485a',text:'#e9f2f5'};
+    const fmt=n=>new Intl.NumberFormat('de-DE').format(n);
+    const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+    function values(){const {B,a,b}=state;return{w:B+b,h:B+a,f00:B*B,f01:B*b,f10:a*B,f11:a*b,total:(B+a)*(B+b)}}
+    function text(x,y,t,cls='svg-label',anchor='middle'){return `<text x="${x}" y="${y}" class="${cls}" text-anchor="${anchor}">${esc(t)}</text>`}
+    function areaView(boundary=false){
+      const {B,a,b}=state,{w,h,f00,f01,f10,f11}=values();const x=94,y=66,W=550,H=400;const xb=x+W*B/w,yb=y+H*B/h;
+      const opacity=boundary?.28:.72;let s=`<rect x="${x}" y="${y}" width="${W}" height="${H}" rx="4" fill="none" stroke="${colors.text}" stroke-width="2"/>`;
+      s+=`<rect x="${x}" y="${y}" width="${xb-x}" height="${yb-y}" fill="${colors.cyan}" opacity="${opacity}"/><rect x="${xb}" y="${y}" width="${x+W-xb}" height="${yb-y}" fill="${colors.gold}" opacity="${opacity}"/><rect x="${x}" y="${yb}" width="${xb-x}" height="${y+H-yb}" fill="${colors.pink}" opacity="${opacity}"/><rect x="${xb}" y="${yb}" width="${x+W-xb}" height="${y+H-yb}" fill="${colors.violet}" opacity="${opacity}"/>`;
+      const gap=state.channel?7:0;if(boundary&&state.channel){s+=`<rect x="${xb-gap}" y="${y}" width="${gap*2}" height="${H}" fill="${colors.pink}" opacity=".18"/><rect x="${x}" y="${yb-gap}" width="${W}" height="${gap*2}" fill="${colors.gold}" opacity=".14"/>`;}
+      s+=`<line x1="${xb-gap}" y1="${y}" x2="${xb-gap}" y2="${y+H}" class="${boundary?'pillar':'seam'}"/><line x1="${xb+gap}" y1="${y}" x2="${xb+gap}" y2="${y+H}" class="${boundary?'pillar':'seam'}"/><line x1="${x}" y1="${yb-gap}" x2="${x+W}" y2="${yb-gap}" class="${boundary?'pillar':'seam'}"/><line x1="${x}" y1="${yb+gap}" x2="${x+W}" y2="${yb+gap}" class="${boundary?'pillar':'seam'}"/><circle cx="${xb}" cy="${yb}" r="10" class="hinge"/>`;
+      s+=text((x+xb)/2,(y+yb)/2-6,'F₀₀','svg-label')+text((x+xb)/2,(y+yb)/2+18,fmt(f00),'svg-value');
+      if(b>0)s+=text((xb+x+W)/2,(y+yb)/2-6,'F₀₁','svg-label')+text((xb+x+W)/2,(y+yb)/2+18,fmt(f01),'svg-value');
+      if(a>0)s+=text((x+xb)/2,(yb+y+H)/2-6,'F₁₀','svg-label')+text((x+xb)/2,(yb+y+H)/2+18,fmt(f10),'svg-value');
+      if(a>0&&b>0)s+=text((xb+x+W)/2,(yb+y+H)/2-6,'F₁₁','svg-label')+text((xb+x+W)/2,(yb+y+H)/2+18,fmt(f11),'svg-value');
+      s+=text((x+xb)/2,y-18,String(B),'svg-sub')+text((xb+x+W)/2,y-18,String(b),'svg-sub')+text(x-18,(y+yb)/2,String(B),'svg-sub','end')+text(x-18,(yb+y+H)/2,String(a),'svg-sub','end');
+      if(boundary){s+=text(xb+18,y+26,'P⁻  Cε  P⁺','svg-label','start')+text(xb+18,yb-18,'Hinge h','svg-label','start')+text(x+W-4,yb+28,'typed boundary','svg-sub','end');}
+      return s;
+    }
+    function graphView(){const {f00,f01,f10,f11}=values();const n=[['F₀₀',f00,150,145,colors.cyan],['F₀₁',f01,610,145,colors.gold],['F₁₀',f10,150,405,colors.pink],['F₁₁',f11,610,405,colors.violet]];let s='';
+      const edges=[[150,145,610,145,'Sᵥ · upper'],[150,405,610,405,'Sᵥ · lower'],[150,145,150,405,'Sₕ · left'],[610,145,610,405,'Sₕ · right']];edges.forEach(([x1,y1,x2,y2,l],i)=>{s+=`<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" class="edge"/>`;s+=text((x1+x2)/2+(i>1?18:0),(y1+y2)/2+(i<2?-12:0),l,'svg-sub',i>1?'start':'middle')});
+      if(state.channel){s+=`<line x1="365" y1="75" x2="365" y2="465" class="pillar"/><line x1="395" y1="75" x2="395" y2="465" class="pillar"/><rect x="365" y="75" width="30" height="390" fill="${colors.pink}" opacity=".12"/>`;s+=text(380,58,'P⁻ · Cε · P⁺','svg-label');}
+      s+=`<circle cx="380" cy="275" r="14" class="hinge"/>`+text(380,310,'h · seam intersection','svg-sub');
+      n.forEach(([id,v,x,y,c])=>{s+=`<circle cx="${x}" cy="${y}" r="58" fill="${c}" opacity=".32" class="node"/><circle cx="${x}" cy="${y}" r="7" fill="${c}"/>`+text(x,y-8,id,'node-title')+text(x,y+18,fmt(v),'node-value')});
+      s+=text(380,505,'Knoten = Flächen · Kanten = getypte gemeinsame Boundaries · h = Kreuzungsrecord','svg-sub');return s;
+    }
+    function binom(n,k){if(k<0||k>n)return 0n;k=Math.min(k,n-k);let r=1n;for(let i=1;i<=k;i++)r=r*BigInt(n-k+i)/BigInt(i);return r}
+    function rowIndices(n,a,b){if(n<=16)return Array.from({length:n+1},(_,i)=>i);return [...new Set([0,1,a-1,a,a+1,b-1,b,b+1,n-1,n].filter(k=>k>=0&&k<=n))].sort((x,y)=>x-y)}
+    function pascalView(){const {a,b}=state,n=a+b,ca=binom(n,a),cb=binom(n,b),indices=rowIndices(n,a,b);let s='';
+      s+=text(36,42,'LAYER 1 · RESIDUALINDIZES AUS DEM RECHTECK','svg-sub','start');
+      const total=Math.max(1,n),leftW=420*a/total,rightW=420*b/total,x0=170;
+      s+=`<rect x="${x0}" y="66" width="${Math.max(2,leftW)}" height="70" fill="${colors.pink}" opacity=".34"/><rect x="${x0+leftW}" y="66" width="${Math.max(2,rightW)}" height="70" fill="${colors.gold}" opacity=".34"/>`;
+      s+=text(x0+leftW/2,98,`a = ${a}`,'svg-label')+text(x0+leftW+rightW/2,98,`b = ${b}`,'svg-label');
+      s+=text(380,127,'Flächenparameter · noch keine Pascal-Knoten','svg-sub');
+      s+=`<line x1="380" y1="143" x2="380" y2="194" class="edge"/><path d="M372 184 L380 194 L388 184" fill="none" class="edge"/>`;
+      s+=`<rect x="260" y="160" width="240" height="43" rx="21" fill="${colors.gold}" opacity=".18" stroke="${colors.gold}"/>`+text(380,187,`Joint-Regel JΣ · n = a+b = ${n}`,'svg-label');
+      s+=text(36,235,'LAYER 2 · PASCAL-ZEILE n','svg-sub','start');
+      s+=`<line x1="70" y1="292" x2="690" y2="292" class="edge"/>`;
+      const xpos=k=>n===0?380:70+620*k/n;
+      if(state.channel&&a!==b){const xa=xpos(Math.min(a,b)),xb=xpos(Math.max(a,b));s+=`<rect x="${xa}" y="250" width="${Math.max(2,xb-xa)}" height="105" fill="${colors.pink}" opacity=".09"/><line x1="${xa}" y1="244" x2="${xa}" y2="365" class="pillar"/><line x1="${xb}" y1="244" x2="${xb}" y2="365" class="pillar"/>`;}
+      indices.forEach((k,i)=>{const x=xpos(k),selected=k===a||k===b,fill=selected?colors.gold:colors.panel;const r=selected?22:14;s+=`<circle cx="${x}" cy="292" r="${r}" fill="${fill}" opacity="${selected?'.92':'1'}" class="node"/>`+text(x,297,String(k),selected?'node-title':'node-value');if(i<indices.length-1&&indices[i+1]-k>1)s+=text((x+xpos(indices[i+1]))/2,297,'…','svg-sub');});
+      const xa=xpos(a),xb=xpos(b);if(a===b)s+=`<circle cx="${xa}" cy="292" r="30" fill="none" stroke="${colors.pink}" stroke-width="4"/>`;
+      const labelY=382;s+=`<line x1="${xa}" y1="318" x2="${xa}" y2="352" class="edge"/><line x1="${xb}" y1="318" x2="${xb}" y2="352" class="edge"/>`;
+      s+=text(380,labelY,`C(${n},${a}) = C(${n},${b}) = ${fmt(ca)}`,'svg-value');
+      s+=text(380,414,a===b?'zentraler Fixpunkt · ein Knoten, zwei Rollen':'Spiegelpaar k ↔ n−k · gleiche Multiplizität, getrennte Knoten','svg-sub');
+      s+=`<line x1="130" y1="455" x2="630" y2="455" class="seam"/>`+text(380,446,'JOINT BOUNDARY','svg-sub');
+      s+=text(380,482,'verbunden: Indexregel + exakte Symmetrie','svg-label')+text(380,507,'getrennt: Rechteckfläche ≠ Pascal-Faser ≠ physikalischer Kanal','svg-sub');return s;
+    }
+    function render(){const v=values();document.getElementById('baseOut').value=state.B;document.getElementById('aOut').value=state.a;document.getElementById('bOut').value=state.b;document.getElementById('equation').textContent=`(${state.B}+${state.a})(${state.B}+${state.b})`;document.getElementById('f00').textContent=fmt(v.f00);document.getElementById('f01').textContent=fmt(v.f01);document.getElementById('f10').textContent=fmt(v.f10);document.getElementById('f11').textContent=fmt(v.f11);document.getElementById('total').textContent=fmt(v.total);document.getElementById('shortcut').textContent=`${state.B}·${state.B+state.a+state.b} + ${state.a*state.b} = ${fmt(v.total)}`;
+      const n=state.a+state.b,c=binom(n,state.a),pascal=state.view==='pascal';document.getElementById('pascalCard').hidden=!pascal;document.getElementById('pascalEquation').textContent=`n = ${state.a}+${state.b} = ${n}`;document.getElementById('pascalMirror').textContent=`C(${n},${state.a}) = C(${n},${state.b}) = ${fmt(c)}`;document.getElementById('pascalTotal').textContent=`Zeilensumme: 2^${n} = ${fmt(1n<<BigInt(n))} Historien.`;
+      const meta={area:['Vier-Felder-Zerlegung','Flächenwerte und geometrische Montage bleiben gleichzeitig sichtbar.'],boundary:['Boundary · Pillars · Hinge','Die ideale Naht wird als Paar von Stützen mit einem schmalen Zwischenkanal gelesen.'],graph:['Adjazenzgraph der Flächen','Knoten tragen Flächenwerte; Kanten tragen gemeinsame Boundary-Typen.'],pascal:['Pascal Joint · Spiegelpaar','JΣ setzt n=a+b; damit werden a und b zu komplementären Indizes derselben Pascal-Zeile.']};document.getElementById('viewTitle').textContent=meta[state.view][0];document.getElementById('viewNote').textContent=meta[state.view][1];svg.innerHTML=state.view==='graph'?graphView():state.view==='pascal'?pascalView():areaView(state.view==='boundary');
+    }
+    ['base','a','b'].forEach(id=>document.getElementById(id).addEventListener('input',e=>{state[id==='base'?'B':id]=Number(e.target.value);document.querySelectorAll('[data-preset]').forEach(b=>b.setAttribute('aria-pressed','false'));render()}));
+    document.querySelectorAll('[data-preset]').forEach(btn=>btn.addEventListener('click',()=>{const [x,y]=btn.dataset.preset.split(',').map(Number);state.B=100;state.a=x-100;state.b=y-100;document.getElementById('base').value=state.B;document.getElementById('a').value=state.a;document.getElementById('b').value=state.b;document.querySelectorAll('[data-preset]').forEach(b=>b.setAttribute('aria-pressed',String(b===btn)));render()}));
+    document.querySelectorAll('[data-view]').forEach(btn=>btn.addEventListener('click',()=>{state.view=btn.dataset.view;document.querySelectorAll('[data-view]').forEach(b=>b.setAttribute('aria-pressed',String(b===btn)));render()}));
+    document.getElementById('channelToggle').addEventListener('click',e=>{state.channel=!state.channel;e.currentTarget.setAttribute('aria-pressed',String(state.channel));render()});render();
+    if(location.hash==='#pascal-121'){document.getElementById('pascal-121').click();document.querySelector('[data-view="pascal"]').click()}
+  </script>
+  <script src="a0-context-navigation.js?rev=human-home-20261014"></script>
+</body>
+</html>

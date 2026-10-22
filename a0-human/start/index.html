@@ -1,0 +1,433 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>NEXAHEDRON — A0 Human View</title>
+  <meta name="description" content="A0: eine Human View auf Relation, Repräsentation, Readout und Return.">
+  <script type="module" src="assets/vendor/model-viewer.min.js"></script>
+  <style>
+    :root{
+      --paper:#f4f0e7;--white:#fffdf8;--ink:#111922;--muted:#5e6871;--line:#cec5b5;
+      --night:#07131e;--night2:#0b1c29;--nightline:#294252;
+      --gold:#e8b747;--cyan:#43cae7;--mint:#5ce0a6;--pink:#e548b5;
+      --serif:Georgia,"Times New Roman",serif;--sans:Inter,ui-sans-serif,system-ui,-apple-system,sans-serif;
+      --mono:"SFMono-Regular",Consolas,"Liberation Mono",monospace;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);line-height:1.58}
+    a{color:inherit}
+    .top{position:sticky;top:0;z-index:10;display:flex;align-items:center;justify-content:space-between;gap:20px;padding:14px 5vw;background:rgba(255,253,248,.94);border-bottom:1px solid var(--line);backdrop-filter:blur(12px)}
+    .brand{font-weight:850;letter-spacing:.15em;text-decoration:none}.brand span{font-weight:500;color:var(--muted);letter-spacing:.03em}
+    .top nav{display:flex;gap:18px;flex-wrap:wrap}.top nav a{text-decoration:none;font:650 .68rem var(--mono);letter-spacing:.09em;text-transform:uppercase}
+    .hero{display:block;padding:8vh 7vw 9vh;background:
+      radial-gradient(circle at 76% 18%,rgba(67,202,231,.13),transparent 26%),
+      linear-gradient(135deg,var(--white),#ece5d8)}
+    .hero>div{max-width:940px}
+    .eyebrow,.label{font:700 .69rem var(--mono);letter-spacing:.15em;text-transform:uppercase;color:#86630c}
+    h1{font:700 clamp(4rem,10vw,9rem)/.8 var(--serif);letter-spacing:-.065em;margin:.3em 0 .25em}
+    h1 span{display:block;font:650 clamp(1.55rem,3.7vw,3.5rem)/1.05 var(--sans);letter-spacing:-.04em;margin-top:.42em}
+    .lead{font:400 clamp(1.08rem,2vw,1.55rem)/1.48 var(--serif);max-width:760px}
+    .human-view{margin-top:22px;border:1px solid var(--line);background:rgba(255,253,248,.72)}
+    .human-view summary{cursor:pointer;list-style:none;padding:12px 15px;color:#785b13;font:750 .66rem var(--mono);letter-spacing:.09em;text-transform:uppercase}
+    .human-view summary::-webkit-details-marker{display:none}
+    .human-view summary:after{content:"+";float:right;color:#167f94;font-size:1rem;line-height:.7}
+    .human-view[open] summary{border-bottom:1px solid var(--line)}
+    .human-view[open] summary:after{content:"−"}
+    .human-view p{margin:0;padding:15px;color:#39454f;font:400 1rem/1.58 var(--serif)}
+    .entry-switch{background:#fffdf8;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+    .entry-switch-inner{max-width:1250px;margin:auto;padding:42px 6vw 46px}
+    .entry-switch-head{display:flex;justify-content:space-between;gap:28px;align-items:end;margin-bottom:18px}
+    .entry-switch h2{font-size:clamp(2rem,4vw,3.6rem)}
+    .entry-switch-intro{max-width:610px;margin:0;color:#53606a;font:400 1rem/1.55 var(--serif)}
+    .entry-switch-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+    .entry-route{display:block;min-height:220px;border:1px solid var(--line);padding:24px;text-decoration:none;background:#f7f2e8;transition:transform .16s ease,border-color .16s ease,background .16s ease}
+    .entry-route:hover{transform:translateY(-2px);border-color:#258da6;background:#f0fafb}
+    .entry-route.research{background:#0b1d2a;border-color:#315064;color:#fff}
+    .entry-route.research:hover{border-color:var(--cyan);background:#0d2231}
+    .entry-route-no{display:block;margin-bottom:18px;font:750 .65rem var(--mono);color:#8a6512;letter-spacing:.1em;text-transform:uppercase}
+    .entry-route.research .entry-route-no{color:var(--gold)}
+    .entry-route h3{font:700 1.65rem/1.08 var(--serif);margin:0 0 .65rem}
+    .entry-route p{margin:0;color:#58646d;font-size:.88rem;line-height:1.55}
+    .entry-route.research p{color:#a8bbc5}
+    .entry-route span:last-child{display:block;margin-top:18px;color:#13778d;font:750 .62rem var(--mono);letter-spacing:.07em;text-transform:uppercase}
+    .entry-route.research span:last-child{color:var(--cyan)}
+    .entry-route.play{background:#120918;border-color:#7e366d;color:#fff}
+    .entry-route.play:hover{border-color:var(--pink);background:#1b0b20}
+    .entry-route.play .entry-route-no{color:#ff7bd0}
+    .entry-route.play p{color:#cdb6c8}
+    .entry-route.play span:last-child{color:#ff7bd0}
+    .book-index .human-view{border-color:var(--nightline);background:rgba(255,255,255,.035)}
+    .book-index .human-view summary{color:var(--gold)}
+    .book-index .human-view[open] summary{border-color:var(--nightline)}
+    .book-index .human-view p{color:#b9c8d0}
+    .scope .human-view{border-color:#365467;background:#0b1c29}
+    .scope .human-view summary{color:var(--gold);background:#102633}
+    .scope .human-view summary:after{color:var(--cyan)}
+    .scope .human-view[open] summary{border-color:#365467}
+    .scope .human-view p{color:#e2edf2;background:#0b1c29}
+    .method .human-view{max-width:860px}
+    .a0-guide{background:#fffdf8;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+    .a0-guide-inner{max-width:1250px;margin:auto;padding:58px 6vw 64px}
+    .a0-guide-head{display:grid;grid-template-columns:minmax(0,.72fr) minmax(320px,1.28fr);gap:42px;align-items:end;margin-bottom:26px}
+    .a0-guide h2{font-size:clamp(2.2rem,4.6vw,4.4rem)}
+    .a0-guide-intro{margin:0;color:#48545e;font:400 1.1rem/1.6 var(--serif)}
+    .a0-guide-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(165px,1fr));gap:10px}
+    .a0-guide-card{position:relative;display:flex;min-height:220px;flex-direction:column;border:1px solid var(--line);background:#f7f2e8;padding:20px;text-decoration:none;transition:transform .16s ease,border-color .16s ease,background .16s ease}
+    .a0-guide-card:hover{transform:translateY(-3px);border-color:#258da6;background:#f0fafb}
+    .a0-guide-card[aria-current="page"]{border-top:5px solid var(--gold)}
+    .a0-guide-card .work-no{color:#8a6512;font:750 .62rem var(--mono);letter-spacing:.1em;text-transform:uppercase}
+    .a0-guide-card h3{font:700 1.34rem/1.08 var(--serif);margin:.75rem 0 .6rem}
+    .a0-guide-card p{margin:0;color:#5d6871;font-size:.82rem;line-height:1.5}
+    .a0-guide-card .work-action{margin-top:auto;padding-top:18px;color:#13778d;font:750 .6rem var(--mono);letter-spacing:.07em;text-transform:uppercase}
+    .a0-guide-card--group{cursor:default}
+    .a0-guide-card--group:hover{transform:none;background:#f7f2e8}
+    .a0-guide-card--group .work-links{display:grid;gap:7px;margin-top:auto;padding-top:18px}
+    .a0-guide-card--group .work-link{display:block;border:1px solid #70a9b6;padding:8px 10px;color:#13778d;text-decoration:none;font:750 .58rem var(--mono);letter-spacing:.05em;text-transform:uppercase}
+    .a0-guide-card--group .work-link:hover{border-color:#13778d;background:#e8f6f8}
+    .a0-guide-card--group .work-link--instrument{border-color:#c5962c;color:#8a6512;background:#fff9e8}
+    .a0-guide--collapsed{padding-top:0}
+    .a0-guide--collapsed .a0-guide-inner{padding-top:0}
+    .a0-guide-more{margin-top:14px;border:1px solid var(--line);background:#f7f2e8}
+    .a0-guide-more>summary{cursor:pointer;list-style:none;padding:15px 18px;color:#6f5314;font:750 .67rem var(--mono);letter-spacing:.08em;text-transform:uppercase}
+    .a0-guide-more>summary::-webkit-details-marker{display:none}.a0-guide-more>summary:after{content:"+";float:right;font-size:1rem}.a0-guide-more[open]>summary:after{content:"−"}
+    .a0-guide-more[open]>summary{border-bottom:1px solid var(--line)}
+    .a0-guide-more-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;padding:18px}
+    .a0-guide-more h3{margin:0 0 9px;color:#73570f;font:750 .66rem var(--mono);letter-spacing:.09em;text-transform:uppercase}
+    .a0-guide-more a{display:block;padding:7px 0;border-top:1px solid #ddd4c4;color:#263640;font-size:.82rem;text-decoration:none}.a0-guide-more a:hover{text-decoration:underline;text-underline-offset:3px}
+    .a0-guide-note{display:flex;justify-content:space-between;gap:28px;margin-top:16px;padding:14px 17px;border-left:4px solid var(--cyan);background:#edf7f8;color:#40515a;font-size:.82rem}
+    .a0-guide-note strong{color:#143f4b}
+    .research-now{background:#0a1823;color:#dce8ee;border-bottom:4px solid var(--gold)}
+    .research-now-inner{max-width:1320px;margin:auto;padding:34px 5vw 38px}
+    .research-now-head{display:grid;grid-template-columns:minmax(280px,.75fr) minmax(0,1.25fr);gap:24px;align-items:end;margin-bottom:18px}
+    .research-now h2{max-width:520px;color:#fff;font-size:clamp(2rem,3.1vw,3.15rem);line-height:.94}
+    .research-now .label{color:var(--gold)}
+    .research-now-status{display:flex;flex-wrap:wrap;gap:6px;justify-content:flex-end;align-content:flex-end}
+    .research-now-status span{border:1px solid #355466;background:#0d2231;padding:6px 8px;color:#b9ccd6;font:720 .56rem var(--mono);letter-spacing:.04em;text-transform:uppercase}
+    .research-now-status .closed{border-color:#367d61;color:#8ee0b7}.research-now-status .bound{border-color:#267f98;color:#82d9ee}.research-now-status .prepare{border-color:#9a6e21;color:#f0c96c}
+    .research-now-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+    .research-now-card{display:flex;min-height:168px;flex-direction:column;border:1px solid #315064;background:#0b1d2a;padding:16px 18px;text-decoration:none;transition:border-color .16s ease,transform .16s ease}
+    .research-now-card:hover{border-color:var(--cyan);transform:translateY(-2px)}
+    .research-now-card b{color:var(--gold);font:750 .62rem var(--mono);letter-spacing:.08em;text-transform:uppercase}
+    .research-now-card h3{color:#fff;font:700 1.22rem/1.08 var(--serif);margin:.48rem 0}
+    .research-now-card p{margin:0;color:#a8bbc5;font-size:.78rem;line-height:1.42}
+    .research-now-card .work-action{margin-top:auto;padding-top:12px;color:var(--cyan);font:750 .57rem var(--mono);letter-spacing:.07em;text-transform:uppercase}
+    .research-now-boundary{margin-top:10px;border-left:4px solid var(--gold);background:#102633;padding:10px 13px;color:#aebfc8;font-size:.76rem}
+    .research-now-boundary strong{color:#fff}
+    .culture-record{background:#0a1823;color:#dce8ee;border-top:1px solid #294252;border-bottom:4px solid var(--gold)}
+    .culture-grid{max-width:1250px;margin:auto;padding:78px 6vw;display:grid;grid-template-columns:minmax(320px,.82fr) minmax(0,1.18fr);gap:48px;align-items:center}
+    .culture-record h2{color:white}.culture-record .sub{color:#adc0ca}.culture-record .label{color:var(--gold)}
+    .record-journey{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:26px 0}
+    .record-journey span{border-top:2px solid var(--cyan);padding:12px 7px 0;color:#d9e6ec;font:700 .65rem/1.45 var(--mono);text-transform:uppercase;letter-spacing:.06em}
+    .record-journey small{display:block;color:#748d9b;font-size:.58rem;text-transform:none;letter-spacing:0;margin-top:4px}
+    .viewer-shell{border:1px solid #365365;background:#050d14;box-shadow:16px 16px 0 rgba(232,183,71,.13)}
+    model-viewer{display:block;width:100%;height:min(62vh,620px);min-height:420px;background:#050d14;--poster-color:#050d14;touch-action:none;cursor:grab}
+    model-viewer:active{cursor:grabbing}
+    .viewer-poster{width:100%;height:100%;border:0;cursor:pointer;background:center/cover no-repeat var(--poster);color:white;display:grid;place-items:end start;padding:22px;text-align:left}
+    .viewer-poster span{background:rgba(5,13,20,.88);border:1px solid #547080;padding:10px 13px;font:700 .66rem var(--mono);letter-spacing:.08em;text-transform:uppercase}
+    .viewer-meta{padding:18px 20px 20px;border-top:1px solid #294252;display:grid;grid-template-columns:1fr auto;gap:18px;align-items:start}
+    .viewer-meta p{margin:0;color:#93a8b3;font-size:.82rem}.viewer-meta strong{color:white}
+    .asset-actions{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}.asset-actions .btn{color:var(--cyan)}
+    .claim-line{margin-top:18px;border-left:4px solid var(--gold);padding:11px 14px;background:rgba(232,183,71,.07);color:#c9d7de;font:650 .68rem/1.55 var(--mono);text-transform:uppercase;letter-spacing:.04em}
+    .scope{background:var(--night);border-top:4px solid var(--gold);color:#dce8ee}
+    .scope-inner{max-width:1250px;margin:auto;padding:44px 6vw;display:grid;grid-template-columns:1fr 1fr;gap:45px}
+    .scope h2{font:700 clamp(2rem,4vw,3.5rem)/1 var(--serif);margin:.25em 0;color:white}
+    .scope p{color:#9db0bc}.scope code{color:var(--cyan)}
+    .route{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:24px}
+    .route span{border:1px solid var(--nightline);padding:7px 9px;font:650 .65rem var(--mono);text-transform:uppercase;color:#b3c3cc}
+    .route i{color:var(--gold);font-style:normal}
+    .generation-figure{display:grid;grid-template-columns:1fr auto 1.45fr;gap:14px;align-items:center;margin-top:24px;padding:16px;border:1px solid var(--nightline);background:rgba(255,255,255,.035)}
+    .generation-figure svg{display:block;width:100%;height:92px}
+    .generation-figure .becomes{color:var(--gold);font:700 1.35rem var(--serif)}
+    .generation-figure small{display:block;margin-top:7px;color:#829aa8;font:650 .6rem var(--mono);letter-spacing:.08em;text-align:center;text-transform:uppercase}
+    main section{scroll-margin-top:75px}
+    .spread{max-width:1250px;margin:auto;padding:78px 6vw}
+    .head{display:grid;grid-template-columns:110px 1fr;gap:24px;margin-bottom:38px}
+    .no{font:700 3.2rem/.8 var(--serif);color:#af8a32}
+    h2{font:700 clamp(2.5rem,5vw,4.8rem)/.95 var(--serif);letter-spacing:-.045em;margin:0}
+    .sub{max-width:800px;color:#4d5862;font:400 1.05rem/1.58 var(--serif);margin:17px 0 0}
+    .dual{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+    .card{position:relative;border:1px solid var(--line);background:var(--white);padding:28px}
+    .card:before{content:"";position:absolute;left:-1px;right:-1px;top:-1px;height:4px;background:var(--cyan)}
+    .card.human:before{background:var(--gold)}
+    .card h3{font:700 1.5rem/1.15 var(--serif);margin:.45rem 0 .8rem}
+    .card p:last-child{margin-bottom:0}
+    .method{background:#ece6da;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+    .sequence{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:32px}
+    .step{border:1px solid var(--line);background:var(--white);padding:20px;min-height:155px}
+    .step b{display:block;font:700 1.65rem var(--serif);color:#9a7114}.step h3{font-size:1rem;margin:.45rem 0}.step p{font-size:.84rem;color:#5d6872}
+    .delta{margin-top:25px;border:1px solid var(--ink);background:var(--white);display:grid;grid-template-columns:180px 1fr}
+    .delta-title{background:var(--night);color:var(--gold);padding:24px;font:700 .72rem/1.5 var(--mono);letter-spacing:.12em;text-transform:uppercase}
+    .delta-copy{padding:24px}.delta-copy strong{font-family:var(--serif);font-size:1.25rem}
+    .book-index{background:var(--night);color:#dbe7ed}
+    .book-index .spread{max-width:1350px}.book-index h2{color:white}.book-index .no{color:var(--cyan)}.book-index .sub{color:#96aab6}
+    .index-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+    .group-title{grid-column:1/-1;margin:18px 0 0;padding:9px 0;border-bottom:1px solid var(--nightline);font:700 .68rem var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--cyan)}
+    .entry{display:grid;grid-template-columns:42px 74px 1fr;gap:16px;align-items:start;padding:22px;border:1px solid var(--nightline);background:var(--night2);text-decoration:none;transition:border-color .18s ease,transform .18s ease,background .18s ease}
+    .entry:hover{border-color:var(--cyan);background:#0d2231;transform:translateY(-2px)}
+    .entry .id{font:700 1.05rem var(--mono);color:var(--gold)}
+    .chapter-mark{display:grid;place-items:center;width:74px;height:64px;border:1px solid #355467;background:#081722;color:var(--cyan)}
+    .chapter-mark svg{width:62px;height:50px;overflow:visible}
+    .entry:nth-of-type(even) .chapter-mark{color:var(--gold)}
+    .entry h3{font:700 1.3rem/1.15 var(--serif);color:white;margin:0 0 .5rem}
+    .entry p{margin:0;color:#92a7b3;font-size:.86rem}
+    .chapter-action{display:block;margin-top:13px;color:var(--mint);font:700 .62rem var(--mono);letter-spacing:.08em;text-transform:uppercase}
+    .reading{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px}
+    .reading article{padding:23px;border:1px solid var(--line);background:rgba(255,255,255,.55)}
+    .reading h3{font:700 1.18rem var(--serif);margin:.45rem 0}
+    .reading p{font-size:.86rem;color:#59646d}
+    .btns{display:flex;flex-wrap:wrap;gap:10px;margin-top:25px}
+    .btn{display:inline-block;text-decoration:none;border:1px solid currentColor;padding:10px 13px;font:700 .68rem var(--mono);text-transform:uppercase;letter-spacing:.05em;color:#146f84}
+    .btn.gold{color:#8c660d}
+    footer{background:#050d14;color:#8ea3af;padding:46px 6vw;border-top:4px solid var(--gold)}
+    footer div{max-width:1250px;margin:auto;display:flex;justify-content:space-between;gap:25px}footer strong{color:white;letter-spacing:.12em}
+    @media(max-width:1100px){.a0-guide-grid{grid-template-columns:repeat(3,1fr)}}
+    @media(max-width:900px){.scope-inner,.dual,.culture-grid,.a0-guide-head,.research-now-head,.entry-switch-grid{grid-template-columns:1fr}.entry-switch-head{display:block}.entry-switch-intro{margin-top:12px}.research-now-status{justify-content:flex-start}.research-now-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.sequence{grid-template-columns:1fr 1fr}.index-grid,.reading{grid-template-columns:1fr}.top nav{display:none}.viewer-meta{grid-template-columns:1fr}.asset-actions{justify-content:flex-start}}
+    @media(max-width:680px){.a0-guide-grid,.a0-guide-more-grid{grid-template-columns:1fr}.a0-guide-card{min-height:0}.a0-guide-note{flex-direction:column;gap:6px}}
+    @media(max-width:580px){.head{grid-template-columns:1fr}.no{font-size:2.3rem}.sequence,.research-now-grid{grid-template-columns:1fr}.delta{grid-template-columns:1fr}.record-journey{grid-template-columns:1fr 1fr}.entry-route{grid-template-columns:1fr;min-height:0}.entry{grid-template-columns:35px 62px 1fr;gap:11px;padding:17px}.chapter-mark{width:62px;height:58px}.chapter-mark svg{width:52px}.spread,.culture-grid,.a0-guide-inner,.entry-switch-inner{padding:55px 5vw}.research-now-inner{padding:32px 5vw 36px}model-viewer{min-height:330px}h1{font-size:4rem}}
+  </style>
+  <link rel="stylesheet" href="a0-context-navigation.css?rev=reader-lanes-20261015">
+</head>
+<body>
+  <header class="top">
+    <a class="brand" href="#top">NEXAHEDRON <span>· A0</span></a>
+    <nav>
+      <a href="/NEXAH-Science-Lab/a0-human/instruments/A0_NEXAH_APERTURE_JOURNEY.html#human-view">Human</a>
+      <a href="https://nexah.de/" target="_blank" rel="noreferrer">Science ↗</a>
+      <a href="https://scarabaeus1033.net/" target="_blank" rel="noreferrer">Builder ↗</a>
+      <a href="#wegweiser">Übersicht</a>
+      <a href="/about">About</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div>
+        <div class="eyebrow">Fundamentals of relation · representation · readout</div>
+        <h1>A0<span>Ein Bild zeigt etwas. Und lässt etwas weg.</span></h1>
+        <p class="lead">Ein Foto zeigt nicht den ganzen Raum. Eine Karte ist nicht die Landschaft. Eine Messkurve ist nicht das beobachtete System. Dieses Buch zeigt, wie solche Ansichten entstehen, was sie bewahren – und wann eine Schlussfolgerung zu weit geht.</p>
+        <div class="btns"><a class="btn gold" href="#choose-entry">Einstieg wählen</a><a class="btn" href="#record-player">Die Reise beginnen</a><a class="btn" href="#research-now">Zum Forschungsstand</a><a class="btn" href="LAB_ORIENTATION_MACHINE.html">Orientation Machine</a><a class="btn" href="A0_AXIAL_CARRIER_ADAPTER_SUITE.html">Axial Carrier Suite</a></div>
+      </div>
+    </section>
+
+    <section class="entry-switch" id="choose-entry" aria-labelledby="choose-entry-title">
+      <div class="entry-switch-inner">
+        <div class="entry-switch-head">
+          <div><div class="label">Drei Einstiege · ein A0</div><h2 id="choose-entry-title">Welche Reise brauchst du gerade?</h2></div>
+          <p class="entry-switch-intro">Lesen führt durch die Geschichte, Science zu Ergebnissen und Grenzen, Spielen in ein Werkzeug zum eigenen Ausprobieren. Alle drei Wege gehören zu demselben A0; keiner erzeugt eine zweite Identität.</p>
+        </div>
+        <div class="entry-switch-grid">
+          <a class="entry-route" href="#record-player"><span class="entry-route-no">01 · Zum ersten Mal</span><div><h3>Von einem Record zur verantwortbaren Aussage.</h3><p>Beginne bei Stimme, Cut und Replay. Folge anschließend den acht Kapiteln von Unterschied und Koordinate bis Evidence, Residual und Human Return.</p><span>Die A0-Reise beginnen →</span></div></a>
+          <a class="entry-route research" href="https://nexah.de/"><span class="entry-route-no">02 · Forschung vorfiltern</span><div><h3>Was trägt, was ist offen und was muss später validiert werden?</h3><p>Science, Methode und die Einordnung der Quellen gehören zur NEXAH-Seite.</p><span>Zu NEXAH Science ↗</span></div></a>
+          <a class="entry-route play" id="arkade-tool" href="/NEXAH-Science-Lab/a0-human/instruments/A0_GAME_OF_WORLDS_PLAY.html?world=life#life"><span class="entry-route-no">03 · Spielend prüfen</span><div><h3>Was verändert sich, wenn ich selbst eingreife?</h3><p>Die NEXAH ARKADE ist ein A0-Werkzeug: Drei spielbare Welten machen Unterschied, Übergang, Ansicht und Return berührbar. Das Spiel illustriert die Fragen; es ersetzt weder Beleg noch Erklärung.</p><span>Game of Worlds in der ARKADE öffnen →</span></div></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="entry-switch" id="scientific-position-entry" aria-labelledby="scientific-position-entry-title">
+      <div class="entry-switch-inner">
+        <div class="entry-switch-head">
+          <div><div class="label">Scientific Position · Quellenstand 19. Oktober 2026</div><h2 id="scientific-position-entry-title">Was macht NEXAH konkret?</h2></div>
+          <p class="entry-switch-intro">Quellen benennen, Transformationen und Ansichten bedienbar machen, erhaltene Eigenschaften prüfen und mögliche Rückwege dokumentieren. Der Positionsbericht erklärt die gemeinsame Frage hinter Buch, Bildern und Instrumenten — und unterscheidet erreichte Resultate, Engineering und offene Forschung.</p>
+        </div>
+        <p class="entry-switch-intro"><strong>Was trägt bereits? Was ist nur eine Darstellung? Was bleibt offen?</strong> Die Bewertung vom 13.10. bleibt erhalten; der Nachtrag vom 19.10. ordnet den angenommenen Pascal-Audit, neuere Instrumente und die separat freigegebene öffentliche Engineering-Testversion ein. Keine neue Physik oder extern bestätigte Neuheit behauptet.</p>
+        <div class="btns"><a class="btn gold" href="A0_SCIENTIFIC_POSITION_REPORT.html">Was NEXAH macht · Positionsbericht lesen →</a><a class="btn" href="A0_SCIENTIFIC_POSITION_REPORT.html#currentness-20261019">Aktuellen Stand und Grenzen ansehen →</a><a class="btn" href="A0_TOURS.html#explanation-path">Lieber Schritt für Schritt? Erklärweg ohne Vorwissen →</a></div>
+      </div>
+    </section>
+
+    <section class="a0-guide a0-guide--collapsed" id="wegweiser" aria-label="Weitere A0-Wege und Werkzeuge">
+      <div class="a0-guide-inner">
+        <details class="a0-guide-more">
+          <summary>A0 weiter erkunden · Wege und Werkzeuge</summary>
+          <div class="a0-guide-more-grid">
+            <section><h3>Entdecken</h3><a href="/NEXAH-Science-Lab/a0-human/instruments/A0_GAME_OF_WORLDS_PLAY.html?world=life#life">NEXAH Arkade</a><a href="/NEXAH-Science-Lab/a0-human/instruments/A0_TESSAREC_BLUE_BODY_LAB.html#pentagon-body-player">Blue Body · 3D</a><a href="/NEXAH-Science-Lab/a0-human/instruments/A0_BLUE_PINK_DODECA_CELL_RETURN.html#cells">Blue / Pink · Return</a></section>
+            <section><h3>Zusammenhänge</h3><a href="A0_LIVING_BLUEPRINT.html#utg-map">Living Blueprint · Gesamtkarte</a><a href="A0_MATHEMATICAL_JOINTS.html">Mathfield</a><a href="A0_PASCAL_PENTAGON_OPERATOR_JOINTS.html">Pascal Joint</a><a href="A0_GAME_4_LIFE_PLUS_1.html#blue-body-transfer">GAME 4 LIFE +1</a></section>
+            <section><h3>Ergebnisse & Methode</h3><a href="A0_SCC_003_PASCAL_PENTAGON_PAPER.html">SCC-003 Paper</a><a href="A0_RETURN_WITHOUT_IDENTITY_PAPER.html">Return without identity</a><a href="A0_NEXAH_FAMILY_METHOD_WHITE_PAPER.html">NEXAH Family Method</a><a href="https://scarabaeus1033.net/">Builder-Werkstatt bei Scarabæus ↗</a></section>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <section class="research-now" id="research-now" aria-labelledby="research-now-title">
+      <div class="research-now-inner">
+        <div class="research-now-head">
+          <div><div class="label">Forschungswege · historischer Status-Snapshot 12. Oktober 2026</div><h2 id="research-now-title">Den Stand sehen. Dann weiterlesen.</h2><p>Die Zahlenleiste dokumentiert den damaligen Stand. <a href="A0_SCIENTIFIC_POSITION_REPORT.html#currentness-20261019">Aktuelle Einordnung vom 19.10. im Positionsbericht →</a></p></div>
+          <div class="research-now-status" aria-label="Historischer A0 Status vom 12. Oktober 2026"><span class="closed">MC damals · 393 sources</span><span class="closed">Navigator damals · 259 / 32</span><span class="bound">LIFE08 damals · 44 / 44</span><span class="prepare">Active research damals · 0</span><span class="prepare">Publikationsstatus damals · intern</span></div>
+        </div>
+        <div class="research-now-grid">
+          <a class="research-now-card" href="https://nexah.de/"><b>A0 Science Mission Control</b><h3>Was trägt — und was vor dem Lab noch fehlt.</h3><p>Science, Builder und Human bilden die Leselogik; die Prüfkarte ergänzt Hypothese, Teststatus, offene Lücke, Kontrolle und nächstes Gate.</p><span class="work-action">Tests &amp; Lücken öffnen →</span></a>
+          <a class="research-now-card" href="https://nexah.de/"><b>Protocols & Log</b><h3>Welcher Vertrag gilt für welches Werk?</h3><p>Ein Master-Protokoll und Work-Protokolle ersetzen parallele globale Logs in einzelnen HTML-Instrumenten.</p><span class="work-action">Protokollbereich öffnen →</span></a>
+          <a class="research-now-card" href="https://nexah.de/"><b>Findings & Papers</b><h3>Welcher Befund gehört wohin?</h3><p>Das Workspace trennt das enge SCC-003-Paper, den D30-Companion, geparkte Synthesen und backlog-only Ideen.</p><span class="work-action">Paper Workspace öffnen →</span></a>
+          <a class="research-now-card" href="A0_RETURN_WITHOUT_IDENTITY_PAPER.html"><b>Paper C · Return</b><h3>Was kehrt zurück — und auf welcher Ebene?</h3><p>Fünf geschlossene Studien, zwei neue Strukturdiagramme und ein governed HTML-Quellenatlas.</p><span class="work-action">Return Paper öffnen →</span></a>
+          <a class="research-now-card" href="A0_NEXAH_FAMILY_METHOD_WHITE_PAPER.html"><b>Paper E · Method</b><h3>Was ist die gemeinsame Forschungsbewegung?</h3><p>Kurze Essence vorne, vollständiger Arbeitsentwurf einklappbar hinten.</p><span class="work-action">Method White Paper öffnen →</span></a>
+          <a class="research-now-card" href="https://nexah.de/"><b>Evidence Lineage</b><h3>Woher Resultate und Grenzen stammen.</h3><p>Der Science Navigator führt zu Quellen, Tests, negativen Befunden und typisierten Relationen zurück.</p><span class="work-action">Evidence Lens öffnen ↗</span></a>
+        </div>
+        <div class="research-now-boundary"><strong>Aktuelle Betriebsgrenze:</strong> Structure Freeze. Kein A0-Experiment ist aktiv. Science Mission Control ist eine read-only Vorfilter- und Forschungsorientierung; sie verändert weder Labstatus noch Admission, Evidenz, Review noch Publikationsfreigabe. Der vollständige Backlog bleibt als Ledger erhalten.</div>
+      </div>
+    </section>
+
+    <section class="culture-record" id="record-player">
+      <div class="culture-grid">
+        <div>
+          <div class="label">00 · one moment, one record, one return</div>
+          <h2>Eine Stimme wird zum Record.</h2>
+          <p class="sub">Wir leben nicht in Records. Aber wir orientieren und entscheiden uns mit ihnen. Jemand singt; ein Instrument wählt und speichert eine Spur; später wird daraus wieder Klang. Die Aufnahme bewahrt etwas vom Moment — sie ist nicht der Moment selbst.</p>
+          <div class="record-journey" aria-label="Weg von der Stimme zum menschlichen Return">
+            <span>Stimme<small>Situation</small></span><span>Cut<small>Mikrofon und Auswahl</small></span><span>Record<small>gespeicherte Spur</small></span><span>Replay<small>Return zum Menschen</small></span>
+          </div>
+          <p class="claim-line">Kulturelles Orientierungsinstrument · illustratives 3D-Modell · keine wissenschaftliche Evidenz</p>
+          <div class="btns"><a class="btn gold" href="#introduction">Was dieses Buch damit untersucht</a></div>
+        </div>
+        <div class="viewer-shell">
+          <model-viewer id="recordPlayer" src="assets/3d/nexah_roedelheim_record_play.glb" poster="assets/images/record_play_poster.jpeg" alt="Interaktives 3D-Modell des Rödelheim Record Play Instruments mit Graph-, Wave- und Fold-Spuren" camera-controls auto-rotate rotation-per-second="10deg" interaction-prompt="auto" touch-action="none" loading="lazy" reveal="manual" shadow-intensity="1" exposure="1.05">
+            <button class="viewer-poster" slot="poster" style="--poster:url('assets/images/record_play_poster.jpeg')" type="button" onclick="this.parentElement.dismissPoster()"><span>3D starten · ziehen zum Drehen · scrollen zum Zoomen</span></button>
+          </model-viewer>
+          <div class="viewer-meta">
+            <p><strong>Record / Play</strong><br>Ziehen = drehen · Scrollen/Pinch = zoomen · GLB · 1.0 MB</p>
+            <div class="asset-actions"><a class="btn" href="assets/3d/nexah_roedelheim_record_play.glb" download>GLB herunterladen</a><a class="btn" href="assets/3d/MANIFEST.json">Asset record</a></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="spread" id="introduction">
+      <header class="head">
+        <div class="no">00</div>
+        <div><div class="label">Introduction · what this book promises</div><h2>Nicht alles, was exakt berechnet ist, ist eindeutig erklärt.</h2>
+          <p class="sub">Dieses Buch verfolgt acht grundlegende Fragen: Wie wird ein Unterschied lesbar? Wann wird ein Punkt zur Koordinate? Was erzeugt einen Übergang? Welche Teile eines Gegenstands bleiben in einer Projektion erhalten? Und wann trägt ein Vergleich tatsächlich eine Entscheidung? Die Mathematik liefert dabei nicht nur Antworten. Sie macht sichtbar, welche Definitionen, Träger und Leseregeln diese Antworten erst ermöglichen.</p></div>
+      </header>
+      <div class="dual">
+        <article class="card">
+          <div class="label">Science View</div>
+          <h3>Die Methode an Mathematik zeigen.</h3>
+          <p>Begriffe, Träger, Operatoren, Gleichungen und Invarianten werden in der Sprache ihres jeweiligen Feldes rekonstruiert. Ein interaktiver oder berechneter Record zeigt die Aussage in kleinstmöglicher Form – ohne etablierte Mathematik als neue NEXAH-Entdeckung auszugeben.</p>
+        </article>
+        <article class="card human">
+          <div class="label">Human View</div>
+          <h3>Urteil beginnt dort, wo der Record endet.</h3>
+          <p>Sobald ein Bild, eine Messung, ein Score oder eine KI-Antwort eine Entscheidung beeinflusst, sollten wir wissen, wie dieses Ergebnis entstanden ist, was darin fehlt und welche Aussage es tatsächlich trägt.</p>
+        </article>
+      </div>
+      <div class="btns"><a class="btn gold" href="#index">Weiter zu den Kapiteln</a><a class="btn" href="https://nexah.de/">Quellenlandschaft öffnen</a></div>
+    </section>
+
+    <section class="book-index" id="index">
+      <div class="spread">
+        <header class="head">
+          <div class="no">I</div>
+          <div><div class="label">Kapitel 01–08 · der Weg durch das Buch</div><h2>Acht Kapitel verfolgen den Weg eines Ergebnisses.</h2>
+            <p class="sub">Vom ersten erkennbaren Unterschied über Träger, Übergang und Projektion bis zur entscheidenden Frage: Was können wir daraus verantwortbar schließen?</p></div>
+        </header>
+        <details class="human-view">
+          <summary>Human View · Warum sollte ich weiterlesen?</summary>
+          <p>Wir entscheiden täglich anhand von Bildern, Karten, Messwerten, Statistiken, Scores und KI-Antworten. Die acht Kapitel zeigen, wie solche Ergebnisse entstehen, was sie zuverlässig zeigen und welche Fragen offenbleiben müssen.</p>
+        </details>
+        <div class="index-grid">
+          <div class="group-title">A0 Book · Kapitel 01–08</div>
+          <a class="entry" href="01_FROM_LINE_TO_READOUT.html"><span class="id">01</span><span class="chapter-mark"><svg viewBox="0 0 64 50" aria-hidden="true"><path d="M5 38h54M12 43V8" fill="none" stroke="currentColor"/><path d="M13 34c9-1 11-20 20-20s11 19 25 8" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="33" cy="14" r="3" fill="currentColor"/></svg></span><span><h3>Wie wird ein Unterschied zu einem lesbaren Ergebnis?</h3><p>Orientierung · Linie · Lage · Phase · Readout</p><span class="chapter-action">Kapitel öffnen →</span></span></a>
+          <a class="entry" href="02_POINT_LINE_COORDINATE.html"><span class="id">02</span><span class="chapter-mark"><svg viewBox="0 0 64 50" aria-hidden="true"><path d="M7 25h50M32 5v40" fill="none" stroke="currentColor" opacity=".55"/><path d="M17 34L46 15" stroke="currentColor" stroke-width="2"/><circle cx="17" cy="34" r="4" fill="currentColor"/><circle cx="46" cy="15" r="4" fill="currentColor"/></svg></span><span><h3>Was ist ein Punkt – und was nur seine Adresse?</h3><p>Punkt · Linie · Koordinate · Träger · Leseregel</p><span class="chapter-action">Kapitel öffnen →</span></span></a>
+          <a class="entry" href="03_THREE_POSITIONS_SEAM_RETURN.html"><span class="id">03</span><span class="chapter-mark"><svg viewBox="0 0 64 50" aria-hidden="true"><path d="M8 25h48" stroke="currentColor"/><circle cx="13" cy="25" r="4" fill="currentColor"/><circle cx="32" cy="25" r="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="51" cy="25" r="4" fill="currentColor"/><path d="M32 8v34" stroke="currentColor" stroke-dasharray="3 3"/></svg></span><span><h3>Wie erkennen wir Seite, Mitte und Rückkehr?</h3><p>Drei Positionen · Naht · Passage · Return</p><span class="chapter-action">Kapitel öffnen →</span></span></a>
+          <a class="entry" href="04_DISCRETE_CARRIERS_NEIGHBORHOODS.html"><span class="id">04</span><span class="chapter-mark"><svg viewBox="0 0 64 50" aria-hidden="true"><g fill="none" stroke="currentColor"><path d="M11 5v40M25 5v40M39 5v40M53 5v40M4 12h56M4 25h56M4 38h56" opacity=".5"/><rect x="25" y="12" width="14" height="13" fill="currentColor" opacity=".35"/><circle cx="32" cy="31.5" r="4" fill="currentColor"/></g></svg></span><span><h3>Was macht einzelne Zellen zu einem System?</h3><p>Diskrete Träger · Rand · Nachbarschaft · lokale Regel</p><span class="chapter-action">Kapitel öffnen →</span></span></a>
+          <a class="entry" href="05_DYNAMICS_TRANSITION_STABILITY.html"><span class="id">05</span><span class="chapter-mark"><svg viewBox="0 0 64 50" aria-hidden="true"><path d="M8 34c8-25 25-27 37-14 9 10 2 23-9 20-9-2-8-13-1-16" fill="none" stroke="currentColor" stroke-width="2"/><path d="M31 20l7 3-5 5" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="8" cy="34" r="3" fill="currentColor"/></svg></span><span><h3>Wann bleibt ein Prozess stabil?</h3><p>Dynamik · Übergang · Bahn · Fixpunkt · Zyklus</p><span class="chapter-action">Kapitel öffnen →</span></span></a>
+          <a class="entry" href="06_PROJECTION_FOURIER_SHADOWS.html"><span class="id">06</span><span class="chapter-mark"><svg viewBox="0 0 64 50" aria-hidden="true"><path d="M4 27c6-20 11 20 17 0s11 20 17 0 11 20 20 0" fill="none" stroke="currentColor" stroke-width="2"/><path d="M10 44V36M20 44V31M30 44V39M40 44V24M50 44V34" stroke="currentColor" opacity=".7"/></svg></span><span><h3>Warum zeigen verschiedene Ansichten nicht dasselbe?</h3><p>Projektion · Fourier · Schatten · erhaltener Anteil</p><span class="chapter-action">Kapitel öffnen →</span></span></a>
+          <a class="entry" href="07_EVIDENCE_COMPARISON_DECISION.html"><span class="id">07</span><span class="chapter-mark"><svg viewBox="0 0 64 50" aria-hidden="true"><rect x="5" y="12" width="17" height="25" fill="none" stroke="currentColor"/><rect x="42" y="12" width="17" height="25" fill="none" stroke="currentColor"/><path d="M22 25h20" stroke="currentColor" stroke-dasharray="3 3"/><path d="M32 8v34" stroke="currentColor" opacity=".55"/><circle cx="32" cy="25" r="4" fill="currentColor"/></svg></span><span><h3>Wann trägt ein Vergleich eine Entscheidung?</h3><p>Evidence · Vergleichsregel · Gegenprobe · offener Ausgang</p><span class="chapter-action">Kapitel öffnen →</span></span></a>
+          <a class="entry" href="08_RETURN_ONE_CARRIER_SEVEN_QUESTIONS.html"><span class="id">08</span><span class="chapter-mark"><svg viewBox="0 0 64 50" aria-hidden="true"><path d="M50 29A19 19 0 1 1 44 12" fill="none" stroke="currentColor" stroke-width="2"/><path d="M39 7l8 4-6 6" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="31" cy="25" r="5" fill="none" stroke="currentColor"/><circle cx="52" cy="34" r="3" fill="currentColor"/></svg></span><span><h3>Was muss zum Ausgangspunkt zurückkehren?</h3><p>Carrier · sieben Fragen · ILAU · Residual · Human Return</p><span class="chapter-action">Kapitel öffnen →</span></span></a>
+          <div class="group-title">Weiterführende A0-Flächen · Dachkarte, Feld, Joint und Paper</div>
+          <a class="entry" href="A0_LIVING_BLUEPRINT.html#utg-map"><span class="id">UTG</span><span class="chapter-mark"><svg viewBox="0 0 64 50" aria-hidden="true"><path d="M6 39h52M13 31h38M20 23h24M27 15h10" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="32" cy="8" r="4" fill="currentColor"/></svg></span><span><h3>UTG / A0 Orientation Map</h3><p>Framework · Werkstatt · Joint · Fallakte · Paper · Instrument</p><span class="chapter-action">Hierarchie öffnen →</span></span></a>
+          <a class="entry" href="A0_MATHEMATICAL_JOINTS.html"><span class="id">MF</span><span class="chapter-mark"><svg viewBox="0 0 64 50" aria-hidden="true"><path d="M7 10h50M7 25h50M7 40h50M16 5v40M32 5v40M48 5v40" fill="none" stroke="currentColor" opacity=".62"/><circle cx="32" cy="25" r="6" fill="currentColor"/></svg></span><span><h3>A0 Mathfield</h3><p>Felder · Grids · Operatoren · Fugen · Forschungsprotokoll</p><span class="chapter-action">Mathfield öffnen →</span></span></a>
+          <a class="entry" href="A0_BOUNDARY_GRAPH_DEMONSTRATOR.html"><span class="id">BG</span><span class="chapter-mark"><svg viewBox="0 0 64 50" aria-hidden="true"><rect x="7" y="7" width="50" height="36" fill="none" stroke="currentColor" stroke-width="2"/><path d="M41 7v36M7 31h50" stroke="currentColor" stroke-width="2"/><circle cx="41" cy="31" r="4" fill="currentColor"/></svg></span><span><h3>Boundary Graph</h3><p>Vier Flächen · zwei Pillars · Hinge · Adjazenzgraph</p><span class="chapter-action">Demonstrator öffnen →</span></span></a>
+          <a class="entry" href="A0_PASCAL_PENTAGON_OPERATOR_JOINTS.html"><span class="id">PJ</span><span class="chapter-mark"><svg viewBox="0 0 64 50" aria-hidden="true"><path d="M12 8l17 5 1 18-17 7L4 23zM52 8l8 15-9 15-17-7 1-18z" fill="none" stroke="currentColor" stroke-width="2"/><path d="M26 16l12 18M38 16L26 34" stroke="currentColor"/></svg></span><span><h3>Pascal Joint</h3><p>Pascal-Träger · Pentagon-Quotient · Kopplung · Übersetzer</p><span class="chapter-action">Joint öffnen →</span></span></a>
+          <a class="entry" href="A0_PASCAL_GENERATION_CORNER.html"><span class="id">GC</span><span class="chapter-mark"><svg viewBox="0 0 64 50" aria-hidden="true"><path d="M10 25a16 16 0 1 1 7 13" fill="none" stroke="currentColor" stroke-width="2"/><path d="M13 42l3-8 7 5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="32" cy="25" r="5" fill="currentColor"/><path d="M32 6v38M13 25h38" stroke="currentColor" opacity=".45"/></svg></span><span><h3>Generation Corner</h3><p>Fünf Phasen · Relationsfamilien · Generation · typisierter Return</p><span class="chapter-action">Instrument im Pascal Joint öffnen →</span></span></a>
+          <a class="entry" href="A0_SCC_003_PASCAL_PENTAGON_PAPER.html"><span class="id">P</span><span class="chapter-mark"><svg viewBox="0 0 64 50" aria-hidden="true"><path d="M15 5h28l8 8v32H15z" fill="none" stroke="currentColor" stroke-width="2"/><path d="M43 5v10h8M22 22h22M22 29h22M22 36h15" stroke="currentColor"/></svg></span><span><h3>SCC-003 Paper</h3><p>A cyclic five-face quotient of depth-six Pascal carriers</p><span class="chapter-action">Paper lesen →</span></span></a>
+          <a class="entry" href="A0_NEXAH_FAMILY_METHOD_WHITE_PAPER.html"><span class="id">WE</span><span class="chapter-mark"><svg viewBox="0 0 64 50" aria-hidden="true"><path d="M15 5h28l8 8v32H15z" fill="none" stroke="currentColor" stroke-width="2"/><path d="M43 5v10h8M22 22h22M22 29h16M22 36h20" stroke="currentColor"/><circle cx="45" cy="34" r="4" fill="currentColor"/></svg></span><span><h3>Method White Paper</h3><p>Families · Records · Fugen · Grey Lens · Human Return</p><span class="chapter-action">Paper E lesen →</span></span></a>
+          <a class="entry" href="https://nexah.de/"><span class="id">FP</span><span class="chapter-mark"><svg viewBox="0 0 64 50" aria-hidden="true"><path d="M10 9h18v32H10zM36 9h18v32H36z" fill="none" stroke="currentColor" stroke-width="2"/><path d="M15 17h8M15 24h8M15 31h8M41 17h8M41 24h8M41 31h8M28 24h8" stroke="currentColor"/></svg></span><span><h3>Findings &amp; Papers</h3><p>SCC-003 · D30 Companion · geparkte Synthesen · Claim-Grenzen</p><span class="chapter-action">Workspace öffnen →</span></span></a>
+          <a class="entry" href="https://nexah.de/"><span class="id">MC</span><span class="chapter-mark"><svg viewBox="0 0 64 50" aria-hidden="true"><path d="M12 9h40v32H12z" fill="none" stroke="currentColor" stroke-width="2"/><path d="M20 18h5M30 18h15M20 25h5M30 25h15M20 32h5M30 32h15" stroke="currentColor" stroke-width="2"/></svg></span><span><h3>Science Mission Control</h3><p>3 Linsen · Tests · Hypothesen · Lücken · Validation Gates</p><span class="chapter-action">Prüfkarte öffnen →</span></span></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="scope">
+      <div class="scope-inner">
+        <div>
+          <div class="label">Book thesis</div>
+          <h2>Eine Form wird zur Frage, wenn ihre Erzeugung sichtbar wird.</h2>
+          <p>Eine fertige Form kann betrachtet werden. Wird ihr Entstehungsweg sichtbar, kann sie untersucht werden.</p>
+          <div class="generation-figure" aria-label="Eine fertige Form und ihr sichtbarer Erzeugungsweg">
+            <div><svg viewBox="0 0 120 92" aria-hidden="true"><circle cx="60" cy="46" r="28" fill="none" stroke="#43cae7" stroke-width="2"/><circle cx="60" cy="46" r="4" fill="#e8b747"/></svg><small>Form</small></div>
+            <span class="becomes">↔</span>
+            <div><svg viewBox="0 0 180 92" aria-hidden="true"><circle cx="16" cy="57" r="4" fill="#e8b747"/><path d="M16 57C40 13 82 8 110 29s25 48 54 28" fill="none" stroke="#43cae7" stroke-width="2"/><circle cx="164" cy="57" r="4" fill="#e8b747"/><path d="M55 25l7-1-2 7M112 31l7 2-5 5" fill="none" stroke="#e8b747" stroke-width="1.5"/></svg><small>sichtbarer Erzeugungsweg</small></div>
+          </div>
+        </div>
+        <div>
+          <div class="label">Orientation route</div>
+          <div class="route">
+            <span>Distinction</span><i>→</i><span>Point</span><i>→</i><span>Relation</span><i>→</i><span>Line</span><i>→</i><span>Coordinate</span><i>→</i><span>Plane</span><i>→</i><span>Operator</span><i>→</i><span>Dynamics</span><i>→</i><span>Projection</span><i>→</i><span>Readout</span><i>→</i><span>Return</span>
+          </div>
+          <p>Diese Folge ist die Untersuchungsroute des Buches. Die Pfeile markieren Arbeitsschritte und noch keine universellen Implikationen.</p>
+          <details class="human-view">
+            <summary>Human View · Kurz gesagt</summary>
+            <p>Wir sehen ein Ergebnis selten vollständig. Deshalb verfolgen wir seinen Weg zurück: Was war der Gegenstand? Welche Sicht wurde gewählt? Was blieb erhalten, und was ging unterwegs verloren?</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="method">
+      <div class="spread">
+        <header class="head">
+          <div class="no">M</div>
+          <div><div class="label">Repeatable chapter form</div><h2>Die Form jeder Untersuchung.</h2></div>
+        </header>
+        <details class="human-view">
+          <summary>Human View · Was passiert in jedem Kapitel?</summary>
+          <p>Jedes Kapitel stellt zuerst eine einfache Frage, erklärt das bekannte Wissen, zeigt ein möglichst kleines Beispiel und sagt am Ende klar: Das haben wir gelernt – und das noch nicht.</p>
+        </details>
+        <div class="sequence">
+          <article class="step"><b>01</b><h3>Untersuchungsfrage</h3><p>Welchen Gegenstand, Übergang oder Unterschied betrachten wir?</p></article>
+          <article class="step"><b>02</b><h3>Bekannte Aussage</h3><p>Welche mathematische oder physikalische Struktur ist etabliert?</p></article>
+          <article class="step"><b>03</b><h3>Minimaler Record</h3><p>Welche kleinste Rechnung, Figur oder Ausführung macht sie nachvollziehbar?</p></article>
+          <article class="step"><b>04</b><h3>NEXAH-Delta</h3><p>Wird übersetzt, gekoppelt, erweitert oder ein Ergebnis sichtbar anders eingeordnet?</p></article>
+          <article class="step"><b>05</b><h3>Evidence Record</h3><p>Welcher ausgeführte oder zitierte Record trägt den Befund?</p></article>
+          <article class="step"><b>06</b><h3>Fund</h3><p>Was wurde in dieser Untersuchung tatsächlich erkannt?</p></article>
+          <article class="step"><b>07</b><h3>Nächste Frage</h3><p>Welche präzisere oder neue Untersuchung folgt logisch daraus?</p></article>
+          <article class="step"><b>08</b><h3>Human Return</h3><p>Was sollte ein Mensch nach dem Kapitel klarer sehen können?</p></article>
+        </div>
+        <div class="delta">
+          <div class="delta-title">NEXAH Delta<br>only when present</div>
+          <div class="delta-copy"><strong>Translation · Coupling · Extension · Divergence</strong><p>Die Delta-Box erscheint nur, wenn NEXAH gegenüber der bekannten Aussage tatsächlich etwas anders darstellt, neu verbindet, methodisch ergänzt oder durch einen Record abweichend einordnet.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="spread">
+      <header class="head">
+        <div class="no">R</div>
+        <div><div class="label">Three reading depths</div><h2>Ein Buch, mehrere Einstiege.</h2></div>
+      </header>
+      <div class="reading">
+        <article><div class="label">Human route</div><h3>Frage und Rückgabe</h3><p>Untersuchungsfrage, Human View und Schluss reichen für den ersten verständlichen Durchgang.</p></article>
+        <article><div class="label">Science route</div><h3>Definition und Record</h3><p>Bekannte Aussage, minimaler Record, Quellen und Evidence Ledger bilden den fachlichen Pfad.</p></article>
+        <article><div class="label">Builder route</div><h3>Operator und Anschluss</h3><p>Carrier, Transformation, Datenstruktur und nächste prüfbare Aufgabe bilden den Umsetzungspfad.</p></article>
+      </div>
+      <div class="btns">
+        <a class="btn gold" href="01_FROM_LINE_TO_READOUT.html">Start Chapter 01</a>
+        <a class="btn gold" href="02_POINT_LINE_COORDINATE.html">Open Chapter 02</a>
+        <a class="btn gold" href="03_THREE_POSITIONS_SEAM_RETURN.html">Open Chapter 03</a>
+        <a class="btn gold" href="04_DISCRETE_CARRIERS_NEIGHBORHOODS.html">Open Chapter 04</a>
+        <a class="btn gold" href="05_DYNAMICS_TRANSITION_STABILITY.html">Open Chapter 05</a>
+        <a class="btn gold" href="06_PROJECTION_FOURIER_SHADOWS.html">Open Chapter 06</a>
+        <a class="btn gold" href="07_EVIDENCE_COMPARISON_DECISION.html">Open Chapter 07</a>
+        <a class="btn gold" href="08_RETURN_ONE_CARRIER_SEVEN_QUESTIONS.html">Open Chapter 08</a>
+        <a class="btn" href="https://nexah.de/">Open foundation record</a>
+        <a class="btn" href="https://nexah.de/">Open Science Navigator</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div><span><strong>NEXAH · A0 BOOK</strong><br>Internal guided-reading surface · documentation layer</span><span class="label">Introduction + Index · 2026-10-09</span></div>
+  </footer>
+  <script src="nexahedron-public-navigation.js?rev=public-20261019"></script>
+</body>
+</html>
