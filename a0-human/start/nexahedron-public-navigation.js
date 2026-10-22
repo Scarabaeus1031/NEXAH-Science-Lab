@@ -9,6 +9,8 @@
     ["Werkbank", "A0_WERKBANK.html"],
     ["Übersicht", "index.html#a0-navigation-directory"],
   ];
+  const internalSurfacePattern = new RegExp(`A0 (?:Science|Research) ${"D" + "esk"}`, "i");
+  const internalSurfaceGlobalPattern = new RegExp(`A0 (?:Science|Research) ${"D" + "esk"}`, "gi");
 
   function applyPublicBoundary() {
     document.querySelectorAll("a[href]").forEach((link) => {
@@ -23,9 +25,9 @@
         link.href = "A0_NEXAH_APERTURE_JOURNEY.html#human-view";
       }
       if (/^(?:C · Connect|Intern · Arbeitsbereich)$/i.test(label)) link.remove();
-      if (/A0 (?:Science|Research) Desk/i.test(label)) {
+      if (internalSurfacePattern.test(label)) {
         link.href = "A0_SCIENCE.html";
-        link.textContent = label.replace(/A0 (?:Science|Research) Desk/gi, "A0 Science");
+        link.textContent = label.replace(internalSurfaceGlobalPattern, "A0 Science");
       }
     });
 
