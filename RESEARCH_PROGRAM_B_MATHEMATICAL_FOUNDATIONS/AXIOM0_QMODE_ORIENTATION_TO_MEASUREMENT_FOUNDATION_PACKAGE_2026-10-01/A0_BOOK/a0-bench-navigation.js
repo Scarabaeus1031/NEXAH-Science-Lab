@@ -8,7 +8,7 @@
     pulseBenchMonitor:"Arbeiten · ONE PULSE", carrierReturnWorkbench:"Arbeiten · CRT / Ghost",
     nativeSourceBank:"Quellen & Prüfen · Originale", benchSetupDrawer:"Quellen & Prüfen · Verträge"
   };
-  const update = () => { label.textContent = names[location.hash.slice(1)] || "Instrumente"; };
+  const update = () => { label.textContent = names[location.hash.slice(1)] || "THE MΛCHINΛ"; label.setAttribute("aria-label", names[location.hash.slice(1)] || "THE MACHINA"); };
   window.addEventListener("hashchange", update);
   update();
 })();

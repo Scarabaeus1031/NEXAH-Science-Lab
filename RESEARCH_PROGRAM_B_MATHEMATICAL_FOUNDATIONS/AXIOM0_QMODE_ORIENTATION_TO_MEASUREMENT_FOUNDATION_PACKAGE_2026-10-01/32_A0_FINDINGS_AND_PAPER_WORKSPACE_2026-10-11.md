@@ -3,9 +3,9 @@
 Date: `2026-10-11`
 
 Documentary currentness: `2026-10-22` — Club / Numbers / Control Room /
-1,1 monitor engineering return added. Earlier number/glyph/weight triage and
-findings retain their original evidence state. No new formal finding or
-manuscript claim.
+1,1 monitor engineering return and Machina Prime-Return intake added. Earlier
+number/glyph/weight triage and findings retain their original evidence state.
+No new formal finding or manuscript claim.
 
 Status: `DOCUMENTARY_PAPER_WORKSPACE / PREPARATION_ONLY / NOT_ACTIVE / NOT_SUBMITTED`
 
@@ -99,6 +99,48 @@ retains all four parked themes with source links and restart conditions.
 is the routing surface. No manuscript, accepted finding, Study or
 scientific lifecycle status changes here. A later precise candidate must
 first be checked for coverage by existing papers and evidence.
+
+<a id="machina-prime-return-intake-20261022"></a>
+
+## Machina Prime Return — bounded formal intake, 2026-10-22
+
+This return reuses `NEXAH_A0_ORIENTATION_CONTROLLER_BENCH` and
+`MOD:NUMBER_VIEW_SUITE`. It records elementary identities and preserves
+ambiguous Owner notation; it does not create an F-A0 finding, a general
+prime-iteration conjecture or a manuscript claim.
+
+| Trace | Status | Boundary |
+|---|---|---|
+| `57/3=19` | exact arithmetic | division is the entry operation, not another `pi` iteration |
+| `19 ->pi 8=2^3 ->pi 4=2^2 ->pi 2=2^1 ->pi 1=2^0` | exact finite orbit; `pi^4(19)=1`, `d_pi(19)=4` | power-of-two descent is established only on this orbit |
+| `1|3^2=19`; `1|2^3=18` | exact under declared decimal concatenation `|` | concatenation is not multiplication, exponentiation or a prime operator |
+| `3,1*2^2` | `HOLD / AMBIGUOUS_SOURCE_STRING` | decimal parse gives `3.1*4=12.4`; concatenation parse gives `3|(1*4)=34` |
+| `84` | `84=2^2*3*7=4*21` | `22^2*2=968`; if the intended mark was `8 -> 4`, the matching reading is `2^3 -> 2^2` |
+
+Existing geometry is reused rather than promoted: Gate 11 carries the bounded
+circle-to-square projection; Pascal Aperture switches triangle/square masks on
+one source; Grid Fold Return carries square-to-diamond-to-return with
+`(u,v)=(x+y,x-y)`. In that 2x2 fixture, `1:2:1` is the diagonal multiplicity
+profile, not a length ratio. Stretch remains a separate view operation. `X` or
+`}{` is retained as the Owner's crossing/hinge reading, not admitted as a new
+operator.
+
+The adjacent plug reading is retained as notation, not promoted as an
+operator: `1 : pink-2 : 1` names two one-ports and one highlighted middle
+contact; `:` separates ports and does not divide. Separately,
+`2|7=27=3^3` is exact under declared digit concatenation. A rotated `7`, a
+question-mark silhouette and its detached dot are typographic Owner cues, not
+number transforms. The carrier/frame reference reuses `MOD:TESSAREC`; LOKI
+reuses the existing method relation `REL:MIWA_LOKI_TESSAREC` as a registered
+Green Bridge, with no master, carrier-identity or transport-rule promotion.
+
+The formal notation remains `P(n)=p_n` for prime lift and `pi(x)` for the
+prime-counting return. `kappa_P` is only an architecture alias. `1` with four
+prime marks is a visual destination label, not standard mathematics. The
+[Science Desk return](A0_BOOK/A0_RESEARCH_DESK.html#machina-prime-return-science-desk-20261022),
+[Bench architecture anchor](A0_BOOK/A0_ORIENTATION_CONTROLLER_BENCH.html#machinaPrimeReturn)
+and [machine-readable lock](A0_BOOK/results/a0-machina-prime-return-architecture-lock-2026-10-22.json)
+carry the current bounded record.
 
 <a id="club-control-return-20261022"></a>
 

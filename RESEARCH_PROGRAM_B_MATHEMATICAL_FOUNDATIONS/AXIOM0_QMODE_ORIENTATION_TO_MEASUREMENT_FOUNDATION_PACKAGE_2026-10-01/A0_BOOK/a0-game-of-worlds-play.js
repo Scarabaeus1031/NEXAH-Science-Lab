@@ -10,6 +10,7 @@
   function choose(kind){if(!Object.hasOwn(frames,kind))return;if(kind!==active){send(active,'pause');orbits[active]=false;active=kind;}setMarquee(kind);
     try{window.localStorage?.setItem('nexah.arkade.lastWorld',kind)}catch{}
     for(const k of Object.keys(frames)){frames[k].hidden=k!==kind;$(groups[k]).hidden=k!==kind;$(picks[k]).setAttribute('aria-pressed',String(k===kind));}
+    for(const button of document.querySelectorAll('#'+groups[kind]+' [data-view]'))button.setAttribute('aria-pressed',String(button.dataset.view===views[kind]));
     $('numberFlip').hidden=kind!=='numbers';$('numberTouch').hidden=kind!=='numbers';$('seedLabel').hidden=kind!=='life';$('numberRuleLabel').hidden=kind!=='numbers';
     if(urls[kind]&&!frames[kind].getAttribute('src'))frames[kind].src=urls[kind];
     send(kind,'view',views[kind]);send(kind,'hood',hood);send(kind,'speed',$('speed').value);density();title();controls();
@@ -31,6 +32,6 @@
   document.addEventListener('visibilitychange',()=>{if(document.hidden)for(const kind of Object.keys(frames)){send(kind,'pause');orbits[kind]=false;}});
   for(const kind of Object.keys(frames))frames[kind].addEventListener('load',()=>frames[kind].contentWindow.postMessage({type:'worlds-play-command',action:'hello'},'*'));
   frames.life.contentWindow.postMessage({type:'worlds-play-command',action:'hello'},'*');setMarquee(active);density();controls();
-  function route(){let requested='';try{requested=new URLSearchParams(window.location.search||'').get('world')||''}catch{}const hash=(window.location.hash||'').slice(1);if(Object.hasOwn(frames,hash))requested=hash;if(!requested)try{requested=window.localStorage?.getItem('nexah.arkade.lastWorld')||''}catch{}if(Object.hasOwn(frames,requested))choose(requested);}
+  function route(){let requested='',requestedView='';try{const query=new URLSearchParams(window.location.search||'');requested=query.get('world')||'';requestedView=query.get('view')||'';}catch{}const hash=(window.location.hash||'').slice(1);if(Object.hasOwn(frames,hash))requested=hash;if(!requested)try{requested=window.localStorage?.getItem('nexah.arkade.lastWorld')||''}catch{}if(Object.hasOwn(frames,requested)){if(requestedView&&document.querySelector('#'+groups[requested]+' [data-view="'+requestedView+'"]'))views[requested]=requestedView;choose(requested);}}
   window.addEventListener('hashchange',route);route();
 })();

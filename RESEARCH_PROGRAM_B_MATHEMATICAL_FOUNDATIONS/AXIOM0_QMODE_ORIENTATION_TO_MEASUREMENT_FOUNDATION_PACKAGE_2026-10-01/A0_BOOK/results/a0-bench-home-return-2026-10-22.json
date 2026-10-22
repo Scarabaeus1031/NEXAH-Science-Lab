@@ -1,0 +1,34 @@
+{
+  "record_type": "A0_BENCH_HOME_NAVIGATION_RETURN",
+  "record_version": "2.1.0",
+  "recorded_at": "2026-10-22",
+  "status": "PASS",
+  "change": "A quiet Werkbank start page precedes the running Orientation Controller Bench. The existing technical object now carries the public wordmark THE MΛCHINΛ, with THE MACHINA as its accessible text name; Entdecken, Arbeiten and Quellen & Prüfen remain parallel subordinate routes with a visible Start return.",
+  "routes": {
+    "home": "A0_WERKBANK.html",
+    "machine": "A0_ORIENTATION_CONTROLLER_BENCH.html#benchFoyer",
+    "public_name": "THE MACHINA",
+    "wordmark": "THE MΛCHINΛ",
+    "technical_name": "A0 Orientation Controller Bench",
+    "areas": [
+      "A0_BENCH_ENTDECKEN.html",
+      "A0_BENCH_ARBEITEN.html",
+      "A0_BENCH_QUELLEN.html"
+    ]
+  },
+  "checks": [
+    {"suite": "a0-bench-navigation-tests.cjs", "status": "PASS", "checks": 122},
+    {"suite": "a0-compact-navigation-runtime-tests.cjs", "status": "PASS", "checks": 410},
+    {"suite": "a0-reader-navigation-tests.cjs", "status": "PASS", "registeredReaders": 56},
+    {"suite": "a0-bench-overview-tests.cjs", "status": "PASS", "checks": 90},
+    {"kind": "browser", "status": "PASS", "path": "Werkbank start → Maschine / Entdecken / Arbeiten / Quellen & Prüfen", "desktop_layout": "machine flagship first, three areas below"},
+    {"kind": "browser", "status": "PASS", "path": "Pink Grid Atlas → Werkbank / Grid machine", "navigation": "shared A0 header plus source-owned Atlas navigation"}
+  ],
+  "authority": {
+    "navigation_only": true,
+    "new_canonical_identity": false,
+    "new_canonical_relation": false,
+    "scientific_claim_change": false,
+    "publication_or_deployment": false
+  }
+}

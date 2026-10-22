@@ -59,6 +59,11 @@
             "Sieben Fragen, neun Apertures und der Human Return"
           ],
           [
+            "A0_GAME_OF_WORLDS.html",
+            "Game of Worlds · Human Flagship",
+            "Originaler Einstieg vor ONE PULSE und den drei spielbaren Welten"
+          ],
+          [
             "A0_LIVING_BLUEPRINT.html#situated-orientation",
             "Living Blueprint · Gesamtkarte",
             "Leitgedanke, Werkzeugregal und Crosswalk"
@@ -319,6 +324,7 @@
       {
         "label": "Start & Werkstätten",
         "items": [
+          ["A0_WERKBANK.html", "Werkbank · Start", "Eingangshalle für Maschine und drei Arbeitsbereiche"],
           ["A0_BENCH_ENTDECKEN.html", "Bench · Entdecken", "Foyer, Rundgang und visuelle Flagships"],
           ["A0_BENCH_ARBEITEN.html", "Bench · Arbeiten", "Arbeitsplatz, Tower und Return"],
           ["A0_BENCH_QUELLEN.html", "Bench · Quellen & Prüfen", "Originale, Verträge und Records"],
@@ -571,6 +577,7 @@
       {
         "title": "Steuern und ausprobieren",
         "pages": [
+          "A0_WERKBANK.html",
           "A0_BENCH_ENTDECKEN.html",
           "A0_BENCH_ARBEITEN.html",
           "A0_BENCH_QUELLEN.html",
@@ -675,12 +682,12 @@
   // Each lane gets its own invitation. Human is experience-led; Builder keeps the workshop.
   const humanShowcase = [
     ["A0_NEXAH_APERTURE_JOURNEY.html#human-view", "Human View", "Fragen · Apertures · Weltkarte · Return", "book", "Dein geführter Einstieg"],
+    ["A0_GAME_OF_WORLDS.html", "Game of Worlds", "Originaler Einstieg · ONE PULSE · LIFE · THREE DOMAINS · NUMBERS", "arcade", "Human Flagship"],
     ["A0_TESSAREC_BLUE_BODY_LAB.html#guided-test", "Blue Body", "Den Körper drehen und seine Ansichten wechseln", "body", "Touch · Drag · Discover"],
-    ["A0_GAME_OF_WORLDS_PLAY.html#life", "ARKADE", "LIFE · THREE DOMAINS · NUMBERS", "arcade", "Drei spielbare Welten"],
     ["A0_BLUE_PINK_DODECA_CELL_RETURN.html#cells", "Blue / Pink", "Zellansichten, Projektion und Return erkunden", "cells", "Look · Feel · Wonder"]
   ];
   const builderShowcase = [
-    ["A0_BENCH_ENTDECKEN.html", "Bench · Flagships", "Entdecken, Arbeiten und Quellen & Prüfen", "body", "Builder Flagship"],
+    ["A0_WERKBANK.html", "Werkbank", "Maschine, Entdecken, Arbeiten und Quellen & Prüfen", "body", "Builder Flagship"],
     ["A0_BUILDER_TOY_STORE.html", "Toy Store", "Werkzeuge entdecken und direkt ausprobieren", "toys", "Werkzeug-Einstieg"],
     ["A0_BUILDER_TOY_STORE.html#arkade", "ARKADE", "Die drei Games als gebaute Instrumente", "arcade", "Game of Worlds"],
     ["A0_TESSAREC_BLUE_BODY_LAB.html#lab", "Blue Body Lab", "Tour, Kamera und gekoppelte Instrumente", "body", "Instrument-Workbench"],
@@ -696,13 +703,18 @@
   ];
   const laneNav = document.createElement("nav");
   laneNav.className = "a0-reader-lanes";
-  laneNav.setAttribute("aria-label", "Reader nach Perspektive · Bench Werkstatt");
+  laneNav.setAttribute("aria-label", "Reader nach Perspektive · Werkbank");
   brand.setAttribute("aria-label", "NEXAH · A0 Startseite");
   const benchMenu = {
-    key: "bench", code: "Werkstatt", label: "Bench",
-    entry: "A0_BENCH_ENTDECKEN.html",
-    description: "Entdecken · Arbeiten · Quellen & Prüfen",
+    key: "bench", code: "Werkstatt", label: "Werkbank",
+    entry: "A0_WERKBANK.html",
+    description: "Start · THE MACHINA · Entdecken · Arbeiten · Quellen & Prüfen",
     sections: [
+      { label: "00 · Start & THE MΛCHINΛ", items: [
+        ["A0_WERKBANK.html", "Werkbank · Start", "Orientieren und einen Arbeitsweg wählen"],
+        ["A0_ORIENTATION_CONTROLLER_BENCH.html#benchFoyer", "THE MΛCHINΛ öffnen", "Öffentlicher Maschineneingang; das technische Schaltbild bleibt ein eigener Direktzugang"],
+        ["A0_ORIENTATION_CONTROLLER_BENCH.html#foyerDoors", "Alle Werkzeuge / Suche", "Den passenden Zugang wählen"]
+      ]},
       { label: "01 · Entdecken", items: [
         ["A0_BENCH_ENTDECKEN.html", "Entdecken · Einstieg", "Rundgang und visuelle Instrumente"],
         ["A0_ORIENTATION_CONTROLLER_BENCH.html#benchFoyer", "Foyer & Rundgang", "Die Werkbank kennenlernen"],
@@ -723,7 +735,7 @@
     ]
   };
   const benchHighlights = [
-    ["A0_ORIENTATION_CONTROLLER_BENCH.html#benchFoyer", "Bench kennenlernen", "Acht Stationen · Rundgang ohne Quellenstart", "body", "Rundgang"],
+    ["A0_WERKBANK.html", "Werkbank · Start", "THE MACHINA und drei Arbeitsbereiche überblicken", "body", "Eingangshalle"],
     ["A0_BLUE_PINK_DODECA_CELL_RETURN.html#formation", "Blue / Pink Lab", "Körper, Zellansichten und Return am Original", "cells", "Körper"],
     ["A0_PINK_DIAMOND_GRID_ATLAS.html#ghost-tiles", "Pink Grid Atlas", "Pink-Grids, Ghost-Auswahl und Adressen", "cells", "Grids"]
   ];
@@ -732,10 +744,10 @@
     const isBench = lane.key === "bench";
     const group = document.createElement("details");
     group.className = `a0-reader-lane a0-reader-lane--${lane.key}`;
-    if (isBench ? file.startsWith("A0_BENCH_") || file === "A0_ORIENTATION_CONTROLLER_BENCH.html" : lane === currentLane) group.dataset.current = "true";
+    if (isBench ? file === "A0_WERKBANK.html" || file.startsWith("A0_BENCH_") || file === "A0_ORIENTATION_CONTROLLER_BENCH.html" : lane === currentLane) group.dataset.current = "true";
     const summary = document.createElement("summary");
     summary.innerHTML = `<strong>${lane.label}</strong><i aria-hidden="true"></i>`;
-    summary.setAttribute("aria-label", isBench ? "Bench · Werkstatt-Menü öffnen" : `${lane.label} Reader öffnen`);
+    summary.setAttribute("aria-label", isBench ? "Werkbank-Menü öffnen" : `${lane.label} Reader öffnen`);
     const panel = document.createElement("div");
     panel.className = "a0-reader-panel";
     panel.innerHTML = `<header><a class="a0-reader-home" href="${lane.entry}"><span>${isBench ? "A0 · Werkstatt" : lane.code + " · Reader"}</span><strong>${isBench ? "Zur Werkstatt →" : "Zum " + lane.label + " →"}</strong><small>${lane.description}</small></a></header>`;
@@ -761,7 +773,7 @@
       : isScience
       ? '<h3>Stand & Beiträge</h3><p>Was trägt — und wo die Grenzen liegen.</p>'
       : isHuman
-        ? '<span class="a0-human-signal">HUMAN VIEW · UX-PERIENCE</span><h3>Enter the living view.</h3><p>Nicht nur lesen: drehen, berühren, spielen und mit einem anderen Blick zurückkehren.</p>'
+        ? '<span class="a0-human-signal">HUMAN VIEW · FLAGSHIPS</span><h3>Enter the living view.</h3><p>Nicht nur lesen: drehen, berühren, spielen und mit einem anderen Blick zurückkehren.</p>'
         : '<h3>Werkzeugfenster</h3><p>Bauen, prüfen und Instrumente direkt öffnen.</p>';
     const highlights = isBench ? benchHighlights : isScience ? scienceHighlights : isHuman ? humanShowcase : builderShowcase;
     highlights.forEach(([href, label, description, accent, status]) => {

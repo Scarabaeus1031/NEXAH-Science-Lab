@@ -1,0 +1,80 @@
+{
+  "schema": "nexah.a0.machina-prime-return-architecture-lock/1.0.0",
+  "date": "2026-10-22",
+  "status": "DOCUMENTED_ARCHITECTURE_LOCK_NOT_SCIENCE_RUN",
+  "identity_reuse": [
+    "NEXAH_A0_ORIENTATION_CONTROLLER_BENCH",
+    "MOD:NUMBER_VIEW_SUITE"
+  ],
+  "new_canonical_ids": [],
+  "relation_changes": [],
+  "entry": "A0_ORIENTATION_CONTROLLER_BENCH.html#machinaPrimeReturn",
+  "visual": {
+    "path": "assets/images/the-machina-nautilus-architecture-v1.png",
+    "role": "ORIENTATION_ANCHOR_NOT_EVIDENCE",
+    "width": 1672,
+    "height": 941,
+    "sha256": "2da03bd1b4e3c7df4424733f2d47e7287f1c50ca3c1f79e36ab5e5ef2c85d4ff"
+  },
+  "notation": {
+    "prime_lift": "P(n)=p_n",
+    "prime_return": "pi(x)=number of primes p with p<=x",
+    "architecture_alias": "kappa_P=pi",
+    "return_depth": "d_pi(n)=min{k>=0 | pi^k(n)=1}",
+    "glyph_alias": "1 quadruple-prime means the visual destination after four prime-return steps; it is not exponentiation, differentiation or standard notation"
+  },
+  "exact_chain": {
+    "entry": "57/3=19",
+    "prime_position": "19=P(8)",
+    "power_reading": "8=2^3",
+    "steps": [19, 8, 4, 2, 1],
+    "iterations": 4,
+    "statement": "pi^4(19)=1",
+    "return_depth": 4
+  },
+  "power_staircase": {
+    "orbit": [8, 4, 2, 1],
+    "powers_of_two": ["2^3", "2^2", "2^1", "2^0"],
+    "statement": "19 ->pi 2^3 ->pi 2^2 ->pi 2^1 ->pi 2^0",
+    "scope": "EXACT_FOR_THIS_FINITE_ORBIT_NOT_A_GENERAL_PRIME_ITERATION_LAW"
+  },
+  "adjacent_owner_notation": {
+    "declared_decimal_concatenations": ["1|3^2=19", "1|2^3=18"],
+    "ambiguous_source_string": "3,1*2^2",
+    "decimal_parse": "3.1*2^2=12.4",
+    "concatenation_parse": "3|(1*2^2)=34",
+    "disposition": "HOLD_UNTIL_CARRIER_AND_SEPARATOR_ARE_DECLARED",
+    "number_84_check": "84=2^2*3*7=4*21; 22^2*2=968; if the intended trace is 8->4, read 2^3->2^2"
+  },
+  "number_157": {
+    "exact_prime_statement": "157=P(37)",
+    "digit_sum": 13,
+    "owner_segmentation": "1|57",
+    "segmentation_status": "DECLARED_READING_NOT_ARITHMETIC_IDENTITY",
+    "right_hand_entry": "57/3=19"
+  },
+  "existing_geometry_return": {
+    "circle_to_square": "Gate 11 projects one polar direction to a square boundary; circle and square remain distinct views",
+    "triangle_square_aperture": "Pascal Aperture applies triangle or square masks to the same declared Pascal source",
+    "square_diamond_return": "Grid Fold Return uses (u,v)=(x+y,x-y); retaining v permits exact reconstruction",
+    "one_two_one": "Diagonal multiplicities of the bounded 2x2 fixture, not side lengths",
+    "stretch": "Separate view operation, not inferred from the 1:2:1 multiplicities",
+    "hinge_glyph": "X / }{ retained as an Owner crossing-hinge reading; no new operator admitted"
+  },
+  "plug_pink2_tessarec_loki": {
+    "plug": "1 : pink-2 : 1",
+    "separator_semantics": "colon separates declared ports; it is not division",
+    "exact_power_marker": "2|7=27=3^3 under declared decimal concatenation",
+    "glyph_boundary": "rotated 7, question-mark silhouette and detached dot are font- and orientation-dependent Owner cues, not numeric transforms",
+    "carrier_reuse": "MOD:TESSAREC",
+    "bridge_reuse": "REL:MIWA_LOKI_TESSAREC",
+    "bridge_boundary": "LOKI / Green Bridge is a registered representation route into Tessarec, not an independent master, carrier identity or transport rule"
+  },
+  "operator_boundaries": [
+    "pi(P(n))=n for n>=1",
+    "P(pi(x)) is not an inverse on composite x; it returns the greatest prime <=x",
+    "phi is not reused because it conventionally denotes Euler's totient",
+    "P-prime notation is not used because it suggests differentiation"
+  ],
+  "authority_boundary": "Architecture and notation documentation only. No new experiment, empirical result, physical mechanism, shared carrier identity, clock, transport rule, canonical relation, lifecycle change or publication authorization."
+}

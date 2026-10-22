@@ -13,7 +13,7 @@ async function test(kind){
  observerCallback();await flush();ok(renders.length===1&&renders[0].generation===24,'opens current source generation without reset');
  events[event]({detail:frame(25)});events[event]({detail:frame(26)});await flush();ok(renders.length===1,'coalesces while GLB loads');nodes.cathedralWorldModel.events.load();await flush();ok(renders.length===2&&renders[1].generation===26,'latest source snapshot wins');
  nodes.cathedralWorldModel.events.load();await flush();events[event]({detail:frame(26)});await flush();ok(renders.length===2,'identical source does not reload');
- nodes.cathedralWorldMode.value='exploded';nodes.cathedralWorldMode.events.change();await flush();ok(renders.at(-1).generation===26&&renders.at(-1).mode==='exploded','body mode does not advance source');ok(nodes.cathedralWorldModel.cameraTarget==='0m 12m -10m','exploded camera fits history');
+nodes.cathedralWorldMode.value='exploded';nodes.cathedralWorldMode.events.change();await flush();ok(renders.at(-1).generation===26&&renders.at(-1).mode==='exploded','body mode does not advance source');ok(nodes.cathedralWorldModel.cameraTarget==='0m 12.8m -10m'&&nodes.cathedralWorldModel.cameraOrbit==='35deg 68deg 19m','exploded camera fits history');
  events.pagehide();ok(revoked.length>=2,'generated blobs cleaned up');
 }
 (async()=>{await test('life');await test('numbers');ok(!/setInterval|\.step\(/.test(script),'view owns no simulation timer or world step');console.log(JSON.stringify({status:'PASS',checks,scope:'actual view adapter in DOM double with renderer stub; source following, lazy load, coalescing, camera mode and blob cleanup; no browser pixels'},null,2));})().catch(e=>{console.error(e);process.exitCode=1;});

@@ -11,9 +11,9 @@
   function publish(ready=false){if(parent!==window)parent.postMessage({type:'worlds-play-state',ready,kind,running:running(),loop:loop.checked,status:status.textContent,generation:generationValue(),reading:reading()},'*')}
   function change(el,value){el.value=value;el.dispatchEvent(new Event('change',{bubbles:true}))}
   function pause(){if(running())play.click();for(const id of ['crystalRotate','boundaryRotate','boundaryFlow']){const el=$(id);if(el?.getAttribute('aria-pressed')==='true')el.click();}publish()}
-  function view(name){if(!allowed.includes(name))return;document.body.dataset.stage=name;
+  function view(name){if(!allowed.includes(name))return;const repeated=document.body.dataset.stage===name;document.body.dataset.stage=name;
     if(isLife){if(['register','phase','rosette'].includes(name))change($('projectionMode'),{register:'four-plus-one',phase:'phase-register',rosette:'transition-rosette'}[name]);if(name==='boundary')change($('boundaryReading'),'temporal-z');}
-    window.dispatchEvent(new Event('resize'));window.scrollTo(0,0);
+    const refit=()=>{window.dispatchEvent(new Event('resize'));if(isLife&&name==='rooms')$('crystalCamera')?.click();if(isLife&&name==='boundary')$('boundaryCamera')?.click();};refit();window.scrollTo(0,0);window.requestAnimationFrame?.(()=>window.requestAnimationFrame?.(()=>{refit();window.dispatchEvent(new CustomEvent('worlds:view-activate',{detail:{name,repeated}}));}));window.setTimeout?.(refit,80);window.setTimeout?.(refit,260);
   }
   function installStandaloneLenses(){
     if(parent!==window||isLife)return;

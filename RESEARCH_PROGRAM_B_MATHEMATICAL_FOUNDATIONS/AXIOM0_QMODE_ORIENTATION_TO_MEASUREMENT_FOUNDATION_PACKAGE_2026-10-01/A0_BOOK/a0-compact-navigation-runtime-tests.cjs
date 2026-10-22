@@ -22,20 +22,21 @@ function mount(file,hash='',search=''){
  vm.runInNewContext(source,{window:win,document:doc,location,URL,URLSearchParams});
  return{header,main,banner,nodes,location,events};
 }
-for(const file of ['index.html','A0_LIVING_BLUEPRINT.html','A0_SCIENTIFIC_POSITION_REPORT.html','A0_RESEARCH_DESK.html','A0_BENCH_ENTDECKEN.html','A0_ORIENTATION_CONTROLLER_BENCH.html']){
+for(const file of ['index.html','A0_LIVING_BLUEPRINT.html','A0_SCIENTIFIC_POSITION_REPORT.html','A0_RESEARCH_DESK.html','A0_WERKBANK.html','A0_BENCH_ENTDECKEN.html','A0_ORIENTATION_CONTROLLER_BENCH.html']){
  const m=mount(file),h=m.header;
  ok(h.children.length===4,'four compact header components '+file);
  ok(h.children[0].textContent==='NEXAH','brand');
  const lanes=h.children[1],menus=lanes.children.filter(n=>n.tagName==='DETAILS'),roles=menus.filter(n=>!n.className.endsWith('--bench'));
  ok(roles.length===3,'three Reader roles retained');
  ok(lanes.children.length===4,'only three perspectives and Bench; no duplicate Einstieg');
- const bench=menus.at(-1);ok(bench.className.endsWith('--bench'),'Bench after the three perspectives');
+ const bench=menus.at(-1);ok(bench.className.endsWith('--bench'),'Werkbank directly after the three perspectives');
  ok(!bench.open,'Bench closed initially');
  const benchLayout=bench.children[1].children[0];
  ok(benchLayout.className==='a0-reader-layout','Bench uses shared menu layout');
  ok(benchLayout.children[0].className==='a0-showcase','Bench flagships left');
  ok(benchLayout.children[0].children.length===3,'three Bench flagship cards');
- ok(benchLayout.children[1].children[0].children.length===3,'three grouped Bench areas on right');
+ ok(benchLayout.children[1].children[0].children.length===4,'Start and machine plus three grouped Bench areas on right');
+ ok(benchLayout.children[1].children[0].children[0].innerHTML.includes('00 · Start & THE MΛCHINΛ'),'Werkbank start and THE MACHINA stay first');
  ok(bench.children[1].innerHTML.includes('Zur Werkstatt →'),'explicit workshop home');
  for(const card of benchLayout.children[0].children){
    const [page,anchor]=card.href.split('#');const target=fs.readFileSync(__dirname+'/'+page,'utf8');
@@ -63,8 +64,8 @@ for(const file of ['index.html','A0_LIVING_BLUEPRINT.html','A0_SCIENTIFIC_POSITI
    ok(showcase.children.some(card=>card.href==='A0_SCIENTIFIC_POSITION_REPORT.html'),'Science retains scientific position');
    ok(showcase.children.some(card=>card.href==='A0_SCIENCE.html#contributions'),'Science retains concrete contributions');
    ok(showcase.children.every(card=>!card.href.includes('TOY_STORE')),'no app showcase in Science');
-  }else ok(showcase.children.some(card=>card.innerHTML.includes('ARKADE')),'ARKADE exposes existing three-world entry');
-  if(lane.className.endsWith('--human')){ok(showcase.children[0].href==='A0_NEXAH_APERTURE_JOURNEY.html#human-view','Human Book is the Human portal');ok(showcase.children.every(card=>!card.href.includes('TOY_STORE')),'Toy Store stays out of Human Experience');}
+  }else ok(showcase.children.some(card=>card.innerHTML.includes('Game of Worlds')),'Game of Worlds is named in the existing Human/Builder showcase');
+  if(lane.className.endsWith('--human')){ok(showcase.children[0].href==='A0_NEXAH_APERTURE_JOURNEY.html#human-view','Human Book is the Human portal');ok(showcase.children.some(card=>card.href==='A0_GAME_OF_WORLDS.html'&&card.innerHTML.includes('Human Flagship')),'Human Flagship opens the original Game of Worlds entry before PLAY');ok(showcase.children.every(card=>!card.href.includes('TOY_STORE')),'Toy Store stays out of Human Experience');}
   ok(reading.children[0].className==='a0-reader-sections','reading sections retained');
  }
  ok(h.children[2].children[0].textContent==='Übersicht','one overview menu');
