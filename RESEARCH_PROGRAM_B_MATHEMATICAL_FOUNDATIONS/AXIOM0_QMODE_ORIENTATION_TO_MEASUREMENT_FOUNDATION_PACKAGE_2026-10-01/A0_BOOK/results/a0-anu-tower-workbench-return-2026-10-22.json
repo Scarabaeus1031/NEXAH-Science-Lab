@@ -1,0 +1,30 @@
+{
+  "schema": "a0.local-engineering-return/1",
+  "date": "2026-10-22",
+  "status": "SOFTWARE_CHECKS_PASS_BROWSER_ACCEPTANCE_OPEN",
+  "identityReuse": ["NEXAH_A0_ORIENTATION_CONTROLLER_BENCH", "MOD:NUMBER_VIEW_SUITE"],
+  "newCanonicalEntities": 0,
+  "newCanonicalRelations": 0,
+  "entry": "A0_ORIENTATION_CONTROLLER_BENCH.html#anuTowerWorkbench / Tower-ANU navigation",
+  "scope": "Interactive display over existing M3 and six-plate calibration controllers; ANU is an Owner-proposed unassigned return shell",
+  "controls": "Explicit connect enables existing M3 follow; selection/step/play/pause reuse source-owned Stack methods. No new timer, source trace generator or autoplay.",
+  "sourceValidation": "M3 source fingerprint, ordered 48-sample record, exact six-plate fixture, active plate, source cursor, visibility counts and cursor visibility must agree; missing or mismatched data HOLD",
+  "ANU": {"status": "UNASSIGNED", "angleDeg": null, "incomingIndices": null, "collectedResidual": null, "transportRule": null, "role": "Owner proposal, not seventh calibrated plate"},
+  "missing": ["ANU angle and input/transport rule", "Plate/glyph row correspondence", "Root Room/Core URF to Tower operator", "ONE PULSE to M3/ANU mapping", "Browser and Human acceptance"],
+  "checks": [
+    {"command": "node a0-anu-tower-tests.cjs", "status": "PASS", "count": 27398, "coverage": "48 cursors × six selected plates × five visibility windows; actual M3/Stack/Tower controllers mounted with DOM doubles; loop, step, selection, stop, missing/tampered data and ANU-null boundaries"},
+    {"command": "node a0-one-one-bench-tests.cjs", "status": "PASS", "count": 67},
+    {"command": "node a0-aperture-stack-calibration-tests.cjs", "status": "PASS", "count": 73},
+    {"command": "node a0-binder-connections-tests.cjs", "status": "PASS", "count": 200},
+    {"command": "node a0-pulse-bench-tests.cjs", "status": "PASS", "count": 576},
+    {"command": "node a0-one-pulse-session-tests.cjs", "status": "PASS", "count": 511},
+    {"command": "node a0-bench-club-entry-tests.cjs", "status": "PASS", "count": 27},
+    {"command": "node a0-root-room-bridge-tests.cjs", "status": "PASS"},
+    {"command": "node a0-root-room-modes-tests.cjs", "status": "PASS"},
+    {"command": "node GOVERNANCE/validate_source_graph.mjs", "status": "PASS", "base": "266/29", "composed": "269/32"},
+    {"command": "node APP/audit_app.mjs", "status": "PASS", "count": 252}
+  ],
+  "pins": {"a0-anu-tower.js": "730b913d4bcf8f2e9dfe3af6961323ea327f352c9ebc0d89365e8f89b467d68c", "a0-anu-tower.css": "e628c7c6ac772451521ccb20dd932ac8adb705da2a889a1746e3f953c70cc035", "a0-anu-tower-tests.cjs": "f1351d81c945a1459ae6b0e9d4829f9cacde6a57ac137b147e39981d8a65f601"},
+  "limitations": ["DOM-double playback is not live-browser activation", "Original documentary Tower legend and historical pins left unchanged", "Hidden samples remain retained source data, not ANU deposits", "Local Stack exact-return residual 0 does not determine ANU residual", "No scientific run, lifecycle, canonical Family, publication or claim promotion"],
+  "manualAcceptance": ["Reload Bench at #anuTowerWorkbench", "Click Tower verbinden, then Plates abspielen", "Select P1..P6 and verify readout and source Stack agree", "Pause or hide page: existing plate timer stops", "ANU angle, incoming samples and residual remain unassigned"]
+}

@@ -1,0 +1,39 @@
+{
+  "date": "2026-10-22",
+  "scope": "Bounded local UI arithmetic and register comparison; not a scientific experiment",
+  "identityReuse": [
+    "NEXAH_A0_ORIENTATION_CONTROLLER_BENCH",
+    "MOD:NUMBER_VIEW_SUITE"
+  ],
+  "newCanonicalIdentities": [],
+  "canonicalRelationChanges": [],
+  "authorityEffects": "None; no lifecycle, research activation or publication change",
+  "entry": "A0_ORIENTATION_CONTROLLER_BENCH.html#registerJanusWorkbench",
+  "checks": {
+    "registerJanus": 1066,
+    "anuTowerRegression": 27398,
+    "clubNavigationRegression": 27,
+    "navigatorApp": 252,
+    "sourceGraph": "PASS; 20 components, base 266/29, composed 269/32"
+  },
+  "sourcePins": {
+    "a0-register-janus.js": "73624d606b587d51a25c49d79b10de36375fc7e12b9056c36d4c76216a2656c5",
+    "a0-register-janus.css": "69f75b42626439f7e2c75bb0caa592f3f5ab3c9e1879078daf4d4864126c2ff5",
+    "a0-register-janus-tests.cjs": "c40539918188c7a3d85335f564c6629e36f97c31ad361a4070bcf11b174f05f2"
+  },
+  "boundaries": {
+    "browserAcceptance": "OPEN; DOM doubles only",
+    "ownClock": false,
+    "coreTransport": false,
+    "anuAssignment": null,
+    "physicalA0Resolution": null,
+    "marillionValue": null
+  },
+  "commands": [
+    "node a0-register-janus-tests.cjs",
+    "node a0-anu-tower-tests.cjs",
+    "node a0-bench-club-entry-tests.cjs",
+    "node APP/audit_app.mjs (Navigator)",
+    "node GOVERNANCE/validate_source_graph.mjs (Navigator)"
+  ]
+}

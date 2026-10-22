@@ -2,9 +2,10 @@
 
 Date: `2026-10-11`
 
-Documentary currentness: `2026-10-20` — scoped number/glyph/weight paper
-triage added; earlier findings and engineering observations retain their
-original evidence state. No new formal finding or manuscript claim.
+Documentary currentness: `2026-10-22` — Club / Numbers / Control Room /
+1,1 monitor engineering return added. Earlier number/glyph/weight triage and
+findings retain their original evidence state. No new formal finding or
+manuscript claim.
 
 Status: `DOCUMENTARY_PAPER_WORKSPACE / PREPARATION_ONLY / NOT_ACTIVE / NOT_SUBMITTED`
 
@@ -77,6 +78,57 @@ state separate from the status of the surrounding paper. A figure can clarify
 a claim but does not establish it. No new mathematical novelty, universal
 ratio, historical operator recovery, empirical utility or publication
 permission follows from this addendum.
+
+<a id="finding-intake-20261022"></a>
+
+## Finding intake / parked material — 2026-10-22
+
+The Owner requested preservation before deciding whether any new finding
+exists. This is a dated triage note in the existing workspace, not a second
+intake registry or a change to the Findings ledger.
+
+| Material | Current disposition | Before further use |
+|---|---|---|
+| Club, Control Room, Numbers mixer and 1,1 monitor | Demonstrator / engineering witness; retain implementation receipts | Browser/human acceptance and exact scope before claiming instrument usefulness |
+| Geometry versus record return; unknown versus zero residue; documentary versus live binding | Candidate illustration of existing Paper C/E method statements, not a new theorem | Compare one exact existing paper passage and its controlling source; retain counterexamples and avoid duplicate contribution claims |
+| 1,1 cut; green coil/F′/generations; orange return tray; CON–DAO markers and 17er-Dodeka | Parked Owner hypotheses / visual vocabulary | Typed carrier, source address, operator, inverse/hold condition, and explicit selection |
+
+The [existing notes sheet](A0_BOOK/FIELD_NOTES_A0.md#gesammelte-gedanken-vom-22-oktober-2026)
+retains all four parked themes with source links and restart conditions.
+[Desk intake](A0_BOOK/A0_RESEARCH_DESK.html#finding-intake-20261022)
+is the routing surface. No manuscript, accepted finding, Study or
+scientific lifecycle status changes here. A later precise candidate must
+first be checked for coverage by existing papers and evidence.
+
+<a id="club-control-return-20261022"></a>
+
+## Club / Numbers / Control Room — engineering return, 2026-10-22
+
+Game of Numbers was already documented in Desk A0 and the Builder Log.
+Reuse `MOD:NUMBER_VIEW_SUITE`, `NEXAH_A0_ORIENTATION_CONTROLLER_BENCH` and
+`NN:CRT_QRT_37_CARRIER_LADDER`; no duplicate module or scientific promotion.
+
+- Control Room: nine existing Numbers seeds, `seed+20k`, `k=0..16`.
+  This is a declared game lift, not a recovered historical generator.
+- Carrier report: `11537 -> 11573 -> 11357` are distinct integer carriers;
+  grid residues `17 -> 13 -> 17`. Shared digits do not identify carriers.
+- 1,1 monitor: at phase 360 the mixer geometry can return while its full
+  record remains changed. Saved-cursor return is not a computed inverse.
+- Tower: unequal Plate/Glyph columns, null row correspondence and a separate
+  Owner proposal for an orange residue collector. Unknown is not zero.
+- Historical H/Q FIT result: eight gates across sixteen formats; its twelve
+  checks concern representation invariance, not the Numbers +20 recurrence.
+  Historical source evidence was read, not rerun as science.
+
+Engineering observations / documentary source boundaries only. Possible
+illustrations belong to existing Paper C (typed Return) and Paper E
+(instrument method), after separate editorial selection. No manuscript,
+theorem, Paper, Study or F-A0 row is created or changed by this update.
+
+[Builder Log and receipts](A0_BOOK/A0_BUILDER_LOG.html#club-control-return-20261022)
+and [Desk A0](A0_BOOK/A0_RESEARCH_DESK.html#club-control-return-20261022) retain
+the implementation scope. Browser/human acceptance, live Club/Player-to-Bench
+binding, shared inverse, row mapping and residue transport remain OPEN.
 
 ## Findings ledger
 

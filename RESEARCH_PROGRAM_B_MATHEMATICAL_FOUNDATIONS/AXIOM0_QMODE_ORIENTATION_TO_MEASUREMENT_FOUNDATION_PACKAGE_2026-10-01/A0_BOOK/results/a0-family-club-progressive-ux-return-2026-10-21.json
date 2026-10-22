@@ -1,0 +1,35 @@
+{
+  "date": "2026-10-21",
+  "scope": "Progressive-disclosure UX in standalone Club Machine / Family Jukebox draft only",
+  "changes": [
+    "Three primary native disclosure buttons: Raum, Blick, Licht & Bühne; one main detail group open at a time",
+    "Current room, camera side and lighting mode summarized on closed main controls",
+    "Club erleben default: large shared room viewport and compact selected Family/level context",
+    "Club Bench toggle reveals actual inspector and advanced controls in the same scene without changing selection, source state, layout or camera",
+    "Original Joint inspector moved into Bench sidebar; technical facts, Family picker, reading mode, status legend and edge list independently collapsible",
+    "New Joint selection opens the Bench; closing does not immediately reopen the same existing selection",
+    "Deep links reveal hidden Bench/lighting/GLB panels; Escape closes contextual controls and returns focus",
+    "GLB viewer is on-demand; closing pauses its animation",
+    "Compact header, folded club guide, session notes and source boundaries; redundant readouts hidden",
+    "Transition cancel/return controls shown only when available",
+    "DJ plate-deck slot explicitly disabled and marked upcoming; parallel dummy untouched"
+  ],
+  "validation": {
+    "club_ux": {"status": "PASS", "checks": 242},
+    "standalone_demo": {"status": "PASS", "checks": 559},
+    "stage": {"status": "PASS", "checks": 55},
+    "glb": {"status": "PASS", "checks": 69},
+    "original_spatial_reader": {"status": "PASS", "checks": 691},
+    "source_graph": "PASS:20 components,base266/29,composed269/32",
+    "browser_pixels_keyboard_and_mobile_acceptance": "OPEN"
+  },
+  "authority_effects": {
+    "new_canonical_ids": 0,
+    "canonical_relation_changes": 0,
+    "original_atlas_edited": false,
+    "parallel_plate_dummy_edited": false,
+    "carrier_state_mapping_added": false,
+    "engine_state_transfer": false,
+    "publication": false
+  }
+}

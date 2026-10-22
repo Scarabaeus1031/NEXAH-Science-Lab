@@ -1,0 +1,9 @@
+{
+  "date": "2026-10-22",
+  "scope": "Shared standalone Jukebox shell, not modification of original DJ source",
+  "routes": {"The Club Machine": "#spatial-navigation", "Let the relations play": "#club-deck-room"},
+  "changes": ["Move existing deck entry into persistent top-right two-view switch", "Shared header stays visible for reciprocal route from embedded deck", "Active view indicated through existing route controller", "Smooth scroll and brief CSS fade, disabled for reduced motion", "Pause local Family tour when leaving its view; preserve existing embedded deck pause/held-state behavior"],
+  "boundaries": "Original A0_CURSOR_HANDOFF_CLICKDUMMY.html unchanged. No cross-instrument state mapping, receipt, shared clock or auto-resume. File-origin access restrictions retain existing unload/restart fallback.",
+  "new_ids_or_relations": [],
+  "validation": {"ldv_and_routes": "113 PASS", "deck": "50 PASS; original source hash unchanged", "ux": "404 PASS", "tours": "101 PASS", "navigator": "869 PASS", "source_graph": "PASS", "app_audit": "252/252 PASS", "browser_pixels_and_smoothness": "OPEN"}
+}

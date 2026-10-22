@@ -1,0 +1,7 @@
+{
+  "date": "2026-10-22",
+  "scope": "Remove redundant primary navigation without deleting source-bound rooms",
+  "changes": ["Family room retains header two-view switch as primary route; old room/atmosphere/guide/LDV strip moved intact into closed Weitere Räume & Quellen disclosure inside technical details", "Remove duplicate Family-return and LDV actions above embedded deck", "Move original fullscreen link and reload control below deck inside closed Quelle & Deck-Werkzeuge disclosure"],
+  "boundaries": "LDV room and source routes retained, not deleted; original deck source unchanged; no new IDs or graph relations",
+  "validation": {"ux": "410 PASS", "deck": "50 PASS", "navigator": "875 PASS", "routes": "113 PASS", "source_graph": "PASS", "app_audit": "252/252 PASS", "browser_pixels": "OPEN"}
+}

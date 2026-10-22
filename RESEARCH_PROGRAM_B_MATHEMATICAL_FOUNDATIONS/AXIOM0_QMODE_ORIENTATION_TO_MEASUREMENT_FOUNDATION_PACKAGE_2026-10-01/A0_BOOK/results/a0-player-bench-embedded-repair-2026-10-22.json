@@ -1,0 +1,31 @@
+{
+  "date": "2026-10-22",
+  "revision": "embedded-r3",
+  "status": "SOFTWARE_TESTED_BROWSER_ACCEPTANCE_OPEN",
+  "negative_browser_evidence": [
+    "Owner screenshot 13:12: timeout, no fresh source answer, seq -1",
+    "Owner screenshot 13:16: source disconnected or invalid record; not a confirmed live connection"
+  ],
+  "diagnostic_boundary": "Screenshots do not establish the exact browser cause. They show transport/source failure, not a failed mathematical comparison.",
+  "repair": [
+    "Default to parent-bound embedded monitor, retaining the existing Bench controllers",
+    "Explicit monitor opening loads the existing lazy Club deck only if absent; never starts playback",
+    "Separate relay handshake from accepted fresh source receipt",
+    "Distinguish absent source from invalid connected receipt",
+    "Hide existing and later-inserted Bench navigation in embedded view",
+    "Preserve exact window, origin, token and monotonic sequence validation"
+  ],
+  "software_tests": {
+    "player_bench_link": 173,
+    "club_return_monitor": 246,
+    "one_one_bench": 67,
+    "club_simple_player": 113,
+    "family_ldv_room": 163,
+    "club_view_shell": 24
+  },
+  "browser_acceptance": "OPEN; no automated browser or pixel verification claimed",
+  "scientific_effect": "NONE",
+  "canonical_identity_changes": 0,
+  "canonical_relation_changes": 0,
+  "publication_authorized": false
+}

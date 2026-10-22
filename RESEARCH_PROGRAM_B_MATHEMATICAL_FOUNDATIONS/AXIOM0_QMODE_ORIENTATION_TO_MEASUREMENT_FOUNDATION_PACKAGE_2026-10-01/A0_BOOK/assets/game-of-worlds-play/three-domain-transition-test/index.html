@@ -12,10 +12,22 @@
   <link rel="stylesheet" href="ihara-view.css">
   <link rel="stylesheet" href="k-teller-view.css">
   <link rel="stylesheet" href="blue-body-view.css">
+  <link rel="stylesheet" href="atlas-contracts.css?v=20261022">
 <link rel="stylesheet" href="../../../a0-game-of-worlds-play-stage.css">
 </head>
 <body data-worlds-kind="domains" data-look="wonder" data-stage="domains">
 <main>
+  <details id="atlasContracts">
+    <summary>9 Ansichten · Quellen &amp; Contracts <span id="atlasContractsStatus">HOLD · noch kein Quellenrecord</span></summary>
+    <p>Ein gemeinsamer Generationstakt, drei unabhängige Modelloperatoren und sechs deklarierte Lesungen. FOLLOWING bestätigt den Tick-/Anzeigeanschluss, keine gemeinsame Dynamik. Manuelle Einzelregler dürfen LOCAL anzeigen.</p>
+    <button type="button" id="atlasContractsRead">Aktuellen Lesestand prüfen</button>
+    <button type="button" id="atlasContractsExport">Contract-Record exportieren</button>
+    <div class="atlas-contract-table"><table><thead><tr><th>Ansicht</th><th>Anschluss</th><th>Quelltick</th><th>Aktuelle Lesung</th><th>Vertrag / Grenze</th></tr></thead><tbody id="atlasContractsRows"></tbody></table></div>
+    <h3>Fehlende Verträge bleiben offen</h3>
+    <p>Atlas→Bench / Cross-Monitor: kein fensterübergreifender Live-Anschluss. Game-Ihara→Bench-Ihara: keine gemeinsame Kantenadresse oder Historie. Glyph-/Vendissimal-Decoder und Pentagon-/Coil-/Janus-Verklebung: keine aus Zahlen, Farben oder Formen abgeleitete Kopplung.</p>
+    <p><a href="../../../A0_ORIENTATION_CONTROLLER_BENCH.html#seedCrossMonitor" target="_blank" rel="noopener">Bench · Seed/Cross ↗</a> · <a href="../../../A0_ORIENTATION_CONTROLLER_BENCH.html#systemBinder" target="_blank" rel="noopener">Bench · bestehende Anschlüsse ↗</a> · <a href="atlas-contract-v1.json">Maschinenlesbarer Vertrag</a>. Navigation, keine Fernsteuerung. Dieser Monitor beobachtet ausschließlich diese Atlas-Instanz.</p>
+    <details><summary>Aktueller Contract-Record</summary><pre id="atlasContractsLedger"></pre></details>
+  </details>
   <header>
     <div>
       <p class="eyebrow">NEXAH SCIENCE LAB · WINDOW 03 · EXPLORATORY MODEL BENCHMARK</p>
@@ -270,6 +282,7 @@
 <script src="../../a0-blue-body-life-transfer-v1.js"></script>
 <script src="../../a0-pentagon-body-player-v1.js"></script>
 <script src="blue-body-view.js"></script>
+<script src="atlas-contracts.js?v=20261022"></script>
 <script src="app.js"></script>
 <script src="replication-inline.js"></script>
 <script src="../../../a0-game-of-worlds-play-stage.js"></script>

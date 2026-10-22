@@ -55,5 +55,10 @@
     window.addEventListener('resize',()=>{if(reduce){drawNeon(neon,band,0);drawMirrorLiving(mirror,0);drawCore(core,system,0)}});
     return()=>{cancelAnimationFrame(raf);if(visibilityObserver)visibilityObserver.disconnect()}
   }
-  return{STATES,SYSTEMS,EGG_STATES,BAND_SEQUENCE,clamp,classifyBand,operatorReadout,derivatives,trajectory,mount};
+  function renderPreview(canvas,view='operator',value=.52){
+    if(!canvas||typeof canvas.getContext!=='function'||!['operator','mirror'].includes(view))return false;
+    if(view==='mirror')drawMirrorLiving(canvas,0);else drawNeon(canvas,value,0);
+    return true;
+  }
+  return{STATES,SYSTEMS,EGG_STATES,BAND_SEQUENCE,clamp,classifyBand,operatorReadout,derivatives,trajectory,renderPreview,mount};
 });

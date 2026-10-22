@@ -1,0 +1,40 @@
+{
+  "date": "2026-10-22",
+  "status": "IMPLEMENTED_SOFTWARE_TESTED_BROWSER_ACCEPTANCE_OPEN",
+  "scope": "Bench plus mega-menu and deduplicated A0 return",
+  "changes": [
+    "NEXAH brand is the single A0-home action; duplicate Einstieg removed",
+    "Human, Science, Builder perspectives retained; Bench tool-area menu appended last and right-aligned on wide screens",
+    "Bench uses shared plus/minus details interaction and shared flagship-left/grouped-links-right layout",
+    "Three Bench flagship cards and Entdecken/Arbeiten/Quellen & Prüfen link groups",
+    "Existing native pages, source engines and transport rules unchanged"
+  ],
+  "identity_reuse": [
+    "NEXAH_A0_ORIENTATION_CONTROLLER_BENCH",
+    "SRC:A0OE:A0_CONTEXT_NAVIGATION_JS",
+    "SRC:A0OE:A0_CONTEXT_NAVIGATION_CSS"
+  ],
+  "new_canonical_ids": [],
+  "relation_changes": [],
+  "checks": {
+    "shared_navigation_runtime": 346,
+    "bench_navigation_routes": 79,
+    "overview": 90,
+    "club_entry": 27,
+    "walk": 133,
+    "foyer": 59,
+    "source_graph": "PASS: 20 components, base 266/29, composed 269/32",
+    "navigator_app": "PASS:252/252"
+  },
+  "known_separate_test_failure": {
+    "file": "a0-reader-navigation-tests.cjs",
+    "assertion": "quiet Human journey retains explicit exits",
+    "detail": "Current separately edited Human journey retains index.html brand exit but no longer has the Toy Store href required by the older assertion. That page and the assertion were not altered for this menu task."
+  },
+  "browser_pixels": "NOT_VERIFIED; reload current Bench tab for visual acceptance",
+  "source_pins": {
+    "js": "69127ac0c9f6d8a1f5bd97707c0f93631c98c43e33102ff2e061a663bb8d0aaa",
+    "css": "ebfe0806c906622e0e79fadb7b2d3379425087735ef2b7dd4195e2fa148ff292"
+  },
+  "governance": "Source pins, component index, generated lineage data and Mission Control governance projection refreshed; no activation, evidence promotion or publication"
+}

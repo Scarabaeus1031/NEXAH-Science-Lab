@@ -1,0 +1,42 @@
+{
+  "status": "PASS_ENGINEERING_BROWSER_PIXELS_OPEN",
+  "date": "2026-10-22",
+  "scope": "Control Room UI projection in the existing Family Navigator demo",
+  "route": "DRAFTS/A0_FAMILY_NAVIGATOR_DEMO.html#control-room",
+  "reused": ["a0-game-of-numbers-model.js", "a0-club-carrier-sequence.js", "a0-club-crt-link.js", "existing single lazy player iframe"],
+  "new": ["local control-room route", "read-only 20-column grid projection", "bounded previous-position trace", "seed selector forwarding to the existing sequence"],
+  "authority": {
+    "new_canonical_identity": false,
+    "graph_or_family_change": false,
+    "new_scientific_clock": false,
+    "research_activation": false,
+    "adoption_or_publication": false,
+    "interpretation": "n=20q+r grid coordinates and existing CRT arithmetic only; no equivalence with Family roles, Q4 topology, generator history or physics"
+  },
+  "behavior": {
+    "carrier_route": [11537,11573,11357],
+    "elevator": "nine existing seeds +20k, k=0..16",
+    "trace_reset": ["mode change", "seed change", "native reset", "loop cycle"],
+    "routing": "same source iframe retained; no new timer or playback session; family selection/camera retained",
+    "first_run": "open existing Player once, press START, return to Control Room"
+  },
+  "tests": {
+    "control_room": 659,
+    "room_routes": 150,
+    "carrier_sequence": 505,
+    "crt_link": 297,
+    "return_monitor": 246,
+    "simple_player": 109,
+    "view_shell": 24,
+    "club_ux": 501,
+    "club_deck": 51,
+    "family_follow": 48,
+    "family_navigator": 905,
+    "club_tours": 129,
+    "qrt_demo": 75,
+    "numbers_model": 23073,
+    "source_graph": "PASS, 20 components",
+    "app_audit": "252/252 PASS"
+  },
+  "verification_boundary": "Automated pure-model and simulated DOM tests passed. Actual browser rendering and human visual acceptance were not performed."
+}

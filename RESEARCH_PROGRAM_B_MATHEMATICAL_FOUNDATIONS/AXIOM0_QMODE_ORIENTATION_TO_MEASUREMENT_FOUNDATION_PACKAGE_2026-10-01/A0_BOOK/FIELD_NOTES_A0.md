@@ -2,7 +2,7 @@
 
 Date: `2026-10-08`
 
-Updated: `2026-10-20` · Ideenparkplatz ergänzt; ältere Einträge behalten ihren eigenen Stand.
+Updated: `2026-10-22` · Club/Numbers/1,1-Intake geparkt; ältere Einträge behalten ihren eigenen Stand.
 
 ## Ideenparkplatz
 
@@ -132,7 +132,71 @@ Funktionsumfang getrennt halten.
 **Stand:** Bewusst zurückgestellt. Erst nach dem Dokumentations-Closeout und
 einer erneuten ausdrücklichen Auswahl aufnehmen.
 
+### Gesammelte Gedanken vom 22. Oktober 2026
+
+Owner-Hinweise aus dem Club-/Numbers-/Tower-Faden, sinngemäß verdichtet.
+Demonstratoren und Papers bleiben an ihren bestehenden Orten; diese Notizen
+bewahren offene Anschlussideen, keine neuen Finding-Nummern.
+
+#### 1,1 als zwei Anschlüsse und deklarierter Schnitt
+
+**Gedanke:** Zwei lila Anschlüsse, Club oben und Relations Player unten,
+das Komma als Schnitt/Trennung. Verbinden könnte einen geschlossenen Lauf
+zeigen; das ist nicht die Fibonacci-Seedbehauptung und keine Dezimalzahl.
+
+**Quelle / Stand:** [1,1-Monitor](A0_ORIENTATION_CONTROLLER_BENCH.html#oneOneTest)
+zeigt bereits einen lokalen Numbers-Mischer und den getrennten Bench-Stack.
+**Offen:** tatsächlicher Livevertrag beider Räume, Anschlussadressen und
+gemeinsames Inverses. **Wieder aufnehmen, wenn:** genau ein Recordpaar,
+Verbindungsoperator und Rückvergleich festgelegt sind.
+**Stand:** geparkt; nur der lokale Demonstrator ist implementiert.
+
+#### Grüner Coil, F′-Schatten und Generationen
+
+**Gedanke:** Grün als Übergang zwischen CRT und QRT; F′ als Schatten;
+A/B/C und D/E/F mit G dazwischen, Euler/Fibonacci/Primes als mögliche
+Lesungen verschiedener Generationen. Die Zuordnungen sind Owner-Vokabular,
+noch keine allgemeine Algorithmus- oder Family-Definition.
+
+**Quelle:** [Numbers-Mischer](assets/game-of-worlds-play/numbers/index.html)
+und [Tower-Legende](assets/a0-muindi-tower-legend-v1.json).
+**Offen:** welcher konkrete Träger, Schattenoperator und Generationenindex
+gemeint ist. Grün bezeichnet je nach vorhandener Ansicht anderes;
+kein globales Residuum-Gesetz ableiten.
+**Wieder aufnehmen, wenn:** Quelle und Operator für einen einzelnen Fall
+feststehen. **Stand:** geparkt, keine neue kanonische Family.
+
+#### Orangefarbener RETURN-Teller und die beiden Bildspalten
+
+**Gedanke:** Die fünf Labels EP/SI/LP/SH/RT plus RETURN könnten eine Folge
+mit Auffangstelle für das Residuum bilden. Daneben steht in der Quelle
+AS/ST/EI/NS/SS/KZ/45°. Keine automatische zeilenweise Paarung.
+
+**Quelle / Stand:** [Tower im Monitor](A0_ORIENTATION_CONTROLLER_BENCH.html#oneOneTower).
+Sechs definierte Winkel und sieben gezeichnete Ebenen bleiben verschieden.
+**Offen:** Typ und Transportregel des Residuum-Records; sein unbekannter
+Wert ist nicht 0. **Wieder aufnehmen, wenn:** Ein-/Ausgangsadresse und
+eine nachvollziehbare Zuordnung zu einem vorhandenen Operator vorliegen.
+**Stand:** geparkt; Bildlegende dokumentiert, Auffangstellen-Hypothese offen.
+
+#### CON–DAO-Leiter, 12.6 / 13.7 und 17er-Dodeka
+
+**Gedanke:** Die genannte Leiter und die Marker 12.6 / 13.7 könnten die
+beiden Seiten verbinden; 11537 / „17er-Dodeka“ wurde als Club-Anschluss
+vorgeschlagen.
+
+**Quellen:** [Control Room mit Carrier-/Experimentquellen](DRAFTS/A0_FAMILY_NAVIGATOR_DEMO.html#controlRoomSources)
+und [bestehendes CON–DAO-Modell](../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_CON_DAO_JANUS_BREATH_SEQUENCER_2026-10-06/README.md).
+**Offen:** Zählkonvention der Leiter; Bedeutung/Einheiten von 12.6 und 13.7;
+explizite Abbildung von Zahlenträger zu Dodeka-Geometrie. Ziffernsumme oder
+Rest 17 liefert diese Abbildung nicht.
+**Wieder aufnehmen, wenn:** konkrete Quellstelle, Marker-Typ und Anschlussmap
+benannt sind. **Stand:** geparkt, keine neue Operatorbindung.
+
 ### Wiederfinden und weiterführen
+
+- [Intake-Sichtung im Science Desk](A0_RESEARCH_DESK.html#finding-intake-20261022)
+- [Paper-/Finding-Triage, ohne Manuskriptänderung](../32_A0_FINDINGS_AND_PAPER_WORKSPACE_2026-10-11.md#finding-intake-20261022)
 
 - [Science Desk Rücklauf](A0_RESEARCH_DESK.html#numbermagick-thread-return-20261020)
 - [NSN Quellen und Beziehungen](../../../SCIENCE_LAB/NAVIGATION/APP/index.html#a0-orientation-evidence)

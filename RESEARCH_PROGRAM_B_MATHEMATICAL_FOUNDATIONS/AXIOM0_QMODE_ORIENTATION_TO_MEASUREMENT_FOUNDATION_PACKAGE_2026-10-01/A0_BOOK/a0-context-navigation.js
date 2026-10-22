@@ -3,7 +3,7 @@
   const src = document.currentScript?.src;
   if (!src || window.self !== window.top) return;
   const map = document.createElement('script');
-  map.src = new URL('a0-orientation-map.js', src).href;
+  map.src = new URL('a0-orientation-map.js?v=20261022-current-ways', src).href;
   document.head.append(map);
 })();
 (() => {
@@ -319,6 +319,9 @@
       {
         "label": "Start & Werkstätten",
         "items": [
+          ["A0_BENCH_ENTDECKEN.html", "Bench · Entdecken", "Foyer, Rundgang und visuelle Flagships"],
+          ["A0_BENCH_ARBEITEN.html", "Bench · Arbeiten", "Arbeitsplatz, Tower und Return"],
+          ["A0_BENCH_QUELLEN.html", "Bench · Quellen & Prüfen", "Originale, Verträge und Records"],
           [
             "A0_TOURS.html#historical-htmls",
             "A0 Touren · HTML-Bestand",
@@ -568,9 +571,20 @@
       {
         "title": "Steuern und ausprobieren",
         "pages": [
+          "A0_BENCH_ENTDECKEN.html",
+          "A0_BENCH_ARBEITEN.html",
+          "A0_BENCH_QUELLEN.html",
           "A0_ORIENTATION_CONTROLLER_BENCH.html",
           "LAB_ORIENTATION_MACHINE.html",
           "A0_BUILDER_TOY_STORE.html"
+        ]
+      },
+      {
+        "title": "Eigenständige Einstiege · Bestand",
+        "pages": [
+          "A0_OPIUM.html",
+          "A0_ONE_PULSE_BENCH_MONITOR.html",
+          "A0_CURSOR_HANDOFF_CLICKDUMMY.html"
         ]
       }
     ]
@@ -666,7 +680,7 @@
     ["A0_BLUE_PINK_DODECA_CELL_RETURN.html#cells", "Blue / Pink", "Zellansichten, Projektion und Return erkunden", "cells", "Look · Feel · Wonder"]
   ];
   const builderShowcase = [
-    ["A0_ORIENTATION_CONTROLLER_BENCH.html#benchFoyer", "Bench · Foyer", "Körper, Grids und Werkzeuge visuell entdecken", "body", "Builder Flagship"],
+    ["A0_BENCH_ENTDECKEN.html", "Bench · Flagships", "Entdecken, Arbeiten und Quellen & Prüfen", "body", "Builder Flagship"],
     ["A0_BUILDER_TOY_STORE.html", "Toy Store", "Werkzeuge entdecken und direkt ausprobieren", "toys", "Werkzeug-Einstieg"],
     ["A0_BUILDER_TOY_STORE.html#arkade", "ARKADE", "Die drei Games als gebaute Instrumente", "arcade", "Game of Worlds"],
     ["A0_TESSAREC_BLUE_BODY_LAB.html#lab", "Blue Body Lab", "Tour, Kamera und gekoppelte Instrumente", "body", "Instrument-Workbench"],
@@ -682,24 +696,49 @@
   ];
   const laneNav = document.createElement("nav");
   laneNav.className = "a0-reader-lanes";
-  laneNav.setAttribute("aria-label", "Reader nach Perspektive");
-  const entryLink = document.createElement("a");
-  entryLink.className = "a0-reader-entry";
-  entryLink.href = "index.html";
-  entryLink.innerHTML = "<strong>Einstieg</strong><small>A0 Start</small>";
-  entryLink.setAttribute("aria-label", "Einstieg · A0 Startseite");
-  if (file === "index.html") entryLink.setAttribute("aria-current", "page");
-  if (!quietEntry) laneNav.append(entryLink);
-  readerLanes.forEach((lane) => {
+  laneNav.setAttribute("aria-label", "Reader nach Perspektive · Bench Werkstatt");
+  brand.setAttribute("aria-label", "NEXAH · A0 Startseite");
+  const benchMenu = {
+    key: "bench", code: "Werkstatt", label: "Bench",
+    entry: "A0_BENCH_ENTDECKEN.html",
+    description: "Entdecken · Arbeiten · Quellen & Prüfen",
+    sections: [
+      { label: "01 · Entdecken", items: [
+        ["A0_BENCH_ENTDECKEN.html", "Entdecken · Einstieg", "Rundgang und visuelle Instrumente"],
+        ["A0_ORIENTATION_CONTROLLER_BENCH.html#benchFoyer", "Foyer & Rundgang", "Die Werkbank kennenlernen"],
+        ["A0_ORIENTATION_CONTROLLER_BENCH.html#foyerDoors", "Alle Werkzeuge / Suche", "Den passenden Zugang wählen"]
+      ]},
+      { label: "02 · Arbeiten", items: [
+        ["A0_BENCH_ARBEITEN.html", "Arbeiten · Einstieg", "Instrumente und Anschlüsse"],
+        ["A0_ORIENTATION_CONTROLLER_BENCH.html#benchWorkDesk", "Arbeitsplatz / Binder", "Lokale Lesepfade einzeln prüfen"],
+        ["A0_ORIENTATION_CONTROLLER_BENCH.html#anuTowerWorkbench", "Tower / ANU", "Sichtbarkeit lesen · Transport offen"],
+        ["A0_ORIENTATION_CONTROLLER_BENCH.html#pulseBenchMonitor", "ONE PULSE", "Separater Anschluss · kein automatisches Play"],
+        ["A0_ORIENTATION_CONTROLLER_BENCH.html#carrierReturnWorkbench", "CRT / Return / Ghost", "Adressen und Rückwege vergleichen"]
+      ]},
+      { label: "03 · Quellen & Prüfen", items: [
+        ["A0_BENCH_QUELLEN.html", "Quellen & Prüfen · Einstieg", "Originale, Verträge und Records"],
+        ["A0_ORIENTATION_CONTROLLER_BENCH.html#nativeSourceBank", "Originalquellen", "Quelleneigene Sitzungen bleiben erhalten"],
+        ["A0_ORIENTATION_CONTROLLER_BENCH.html#benchSetupDrawer", "Technik & Verträge", "Offene Anschlüsse nachschlagen"]
+      ]}
+    ]
+  };
+  const benchHighlights = [
+    ["A0_ORIENTATION_CONTROLLER_BENCH.html#benchFoyer", "Bench kennenlernen", "Acht Stationen · Rundgang ohne Quellenstart", "body", "Rundgang"],
+    ["A0_BLUE_PINK_DODECA_CELL_RETURN.html#formation", "Blue / Pink Lab", "Körper, Zellansichten und Return am Original", "cells", "Körper"],
+    ["A0_PINK_DIAMOND_GRID_ATLAS.html#ghost-tiles", "Pink Grid Atlas", "Pink-Grids, Ghost-Auswahl und Adressen", "cells", "Grids"]
+  ];
+  // Bench is a tool area, not a fourth Reader perspective.
+  [...readerLanes, benchMenu].forEach((lane) => {
+    const isBench = lane.key === "bench";
     const group = document.createElement("details");
     group.className = `a0-reader-lane a0-reader-lane--${lane.key}`;
-    if (lane === currentLane) group.dataset.current = "true";
+    if (isBench ? file.startsWith("A0_BENCH_") || file === "A0_ORIENTATION_CONTROLLER_BENCH.html" : lane === currentLane) group.dataset.current = "true";
     const summary = document.createElement("summary");
     summary.innerHTML = `<strong>${lane.label}</strong><i aria-hidden="true"></i>`;
-    summary.setAttribute("aria-label", `${lane.label} Reader öffnen`);
+    summary.setAttribute("aria-label", isBench ? "Bench · Werkstatt-Menü öffnen" : `${lane.label} Reader öffnen`);
     const panel = document.createElement("div");
     panel.className = "a0-reader-panel";
-    panel.innerHTML = `<header><a class="a0-reader-home" href="${lane.entry}"><span>${lane.code} · Reader</span><strong>Zum ${lane.label} →</strong><small>${lane.description}</small></a></header>`;
+    panel.innerHTML = `<header><a class="a0-reader-home" href="${lane.entry}"><span>${isBench ? "A0 · Werkstatt" : lane.code + " · Reader"}</span><strong>${isBench ? "Zur Werkstatt →" : "Zum " + lane.label + " →"}</strong><small>${lane.description}</small></a></header>`;
     const sections = lane.sections || [{ label: "Reader", items: lane.items }];
     const grid = document.createElement("div");
     grid.className = "a0-reader-sections";
@@ -716,13 +755,15 @@
     const showcase = document.createElement("section");
     showcase.className = "a0-showcase";
     const isScience = lane.key === "science", isHuman = lane.key === "human";
-    showcase.setAttribute("aria-label", isScience ? "Science · Stand und Beiträge" : isHuman ? "Human Experience · direkt erleben" : "Builder · direkt ausprobieren");
-    showcase.innerHTML = isScience
+    showcase.setAttribute("aria-label", isBench ? "Bench · Flagships" : isScience ? "Science · Stand und Beiträge" : isHuman ? "Human Experience · direkt erleben" : "Builder · direkt ausprobieren");
+    showcase.innerHTML = isBench
+      ? '<h3>Flagships</h3><p>Drei direkte Zugänge in die Werkstatt.</p>'
+      : isScience
       ? '<h3>Stand & Beiträge</h3><p>Was trägt — und wo die Grenzen liegen.</p>'
       : isHuman
         ? '<span class="a0-human-signal">HUMAN VIEW · UX-PERIENCE</span><h3>Enter the living view.</h3><p>Nicht nur lesen: drehen, berühren, spielen und mit einem anderen Blick zurückkehren.</p>'
         : '<h3>Werkzeugfenster</h3><p>Bauen, prüfen und Instrumente direkt öffnen.</p>';
-    const highlights = isScience ? scienceHighlights : isHuman ? humanShowcase : builderShowcase;
+    const highlights = isBench ? benchHighlights : isScience ? scienceHighlights : isHuman ? humanShowcase : builderShowcase;
     highlights.forEach(([href, label, description, accent, status]) => {
       const card = document.createElement("a");
       card.className = `a0-showcase-card a0-showcase-card--${accent}`;
@@ -733,7 +774,7 @@
     });
     const reading = document.createElement("section");
     reading.className = "a0-reader-reading";
-    reading.innerHTML = '<h3>Verstehen & vertiefen</h3><p>Lesepfade, Theorie und Hintergründe</p>';
+    reading.innerHTML = isBench ? '<h3>Die Werkstatt</h3><p>Drei Bereiche · bestehende Instrumente und Quellen</p>' : '<h3>Verstehen & vertiefen</h3><p>Lesepfade, Theorie und Hintergründe</p>';
     reading.append(grid);
     layout.append(showcase, reading);
     panel.append(layout);
@@ -782,8 +823,8 @@
   const ownerDesk = document.createElement("a");
   ownerDesk.className = "a0-owner-desk";
   ownerDesk.href = "A0_RESEARCH_DESK.html";
-  ownerDesk.textContent = "Desk · intern";
-  ownerDesk.setAttribute("aria-label", "Science Desk · interne Arbeitsfläche");
+  ownerDesk.innerHTML = '<svg class="a0-owner-scarab" viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="4" r="2.2"/><path d="M16 7c-4.2 0-6.5 3.2-6.5 7.7V20c0 4.5 2.3 7 6.5 9 4.2-2 6.5-4.5 6.5-9v-5.3C22.5 10.2 20.2 7 16 7Z"/><path d="M10 11C5.8 8.7 2.7 11 3.5 15.2c.7 3.6 3.1 5.8 6 6.2M22 11c4.2-2.3 7.3 0 6.5 4.2-.7 3.6-3.1 5.8-6 6.2M10 15H5M22 15h5M10 20l-5 3M22 20l5 3M13 8 9 4M19 8l4-4M10 24l-3 4M22 24l3 4"/></svg>';
+  ownerDesk.setAttribute("aria-label", "A0 Science Desk · intern");
   ownerDesk.title = "Deine Science-Arbeitsfläche; kein Zugriffsschutz";
   if (file === "A0_RESEARCH_DESK.html") ownerDesk.setAttribute("aria-current", "page");
   header.replaceChildren(brand, laneNav, ...(quietEntry ? [draftLink] : []), overview, ownerDesk);

@@ -22,11 +22,29 @@ function mount(file,hash='',search=''){
  vm.runInNewContext(source,{window:win,document:doc,location,URL,URLSearchParams});
  return{header,main,banner,nodes,location,events};
 }
-for(const file of ['index.html','A0_LIVING_BLUEPRINT.html','A0_SCIENTIFIC_POSITION_REPORT.html','A0_RESEARCH_DESK.html']){
+for(const file of ['index.html','A0_LIVING_BLUEPRINT.html','A0_SCIENTIFIC_POSITION_REPORT.html','A0_RESEARCH_DESK.html','A0_BENCH_ENTDECKEN.html','A0_ORIENTATION_CONTROLLER_BENCH.html']){
  const m=mount(file),h=m.header;
  ok(h.children.length===4,'four compact header components '+file);
  ok(h.children[0].textContent==='NEXAH','brand');
- const lanes=h.children[1],roles=lanes.children.filter(n=>n.tagName==='DETAILS');ok(roles.length===3,'three Reader roles alongside the existing A0 entry');
+ const lanes=h.children[1],menus=lanes.children.filter(n=>n.tagName==='DETAILS'),roles=menus.filter(n=>!n.className.endsWith('--bench'));
+ ok(roles.length===3,'three Reader roles retained');
+ ok(lanes.children.length===4,'only three perspectives and Bench; no duplicate Einstieg');
+ const bench=menus.at(-1);ok(bench.className.endsWith('--bench'),'Bench after the three perspectives');
+ ok(!bench.open,'Bench closed initially');
+ const benchLayout=bench.children[1].children[0];
+ ok(benchLayout.className==='a0-reader-layout','Bench uses shared menu layout');
+ ok(benchLayout.children[0].className==='a0-showcase','Bench flagships left');
+ ok(benchLayout.children[0].children.length===3,'three Bench flagship cards');
+ ok(benchLayout.children[1].children[0].children.length===3,'three grouped Bench areas on right');
+ ok(bench.children[1].innerHTML.includes('Zur Werkstatt →'),'explicit workshop home');
+ for(const card of benchLayout.children[0].children){
+   const [page,anchor]=card.href.split('#');const target=fs.readFileSync(__dirname+'/'+page,'utf8');
+   ok(!anchor||target.includes('id="'+anchor+'"'),'Bench flagship target '+card.href);
+ }
+ bench.open=true;roles[0].open=true;bench.events.toggle[0]();
+ ok(!roles[0].open&&bench.open,'opening Bench closes other perspective');
+ roles[1].open=true;roles[1].events.toggle[0]();
+ ok(!bench.open&&roles[1].open,'opening a perspective closes Bench');roles[1].open=false;
  ok(roles.every(n=>!n.open),'Reader menus closed by default');
  for(const lane of roles){
   const layout=lane.children[1].children[0];

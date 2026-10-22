@@ -1,0 +1,14 @@
+{
+  "date": "2026-10-21",
+  "scope": "Standalone Club Machine: padded projection-bounds camera fit and screen centering",
+  "fit_includes": ["Three reading guides", "All 21 Family locations", "Tonearm pivot and elbow envelope", "Orientation scaffold", "Conservative decorative source-body envelope", "Annotation margins"],
+  "automatic": ["Initial scene", "Basic-form changes and transition", "Exhibit changes", "A/B views", "Free orbit while autoframe is active", "Viewport resize including Bench width changes"],
+  "manual": "Explicit zoom disables autoframe. Gesamt re-enables it. Family and reading-position selection no longer trigger cropped close-ups.",
+  "history": "Preserves automatic/manual framing flag and local screen offset. Draft resume validates wider fit zoom locally without changing shared semantic validator or source route packets.",
+  "test_matrix": {"frames": [[320,420],[600,420],[800,560],[1440,560]], "layouts": 3, "exhibits": 3, "yaw_samples": 4, "combinations": 144},
+  "tests": {"standalone": 836, "cockpit_ux": 361, "stage": 55, "glb": 69, "ldv": 102, "deck": 50, "source_graph": "PASS", "app_audit": 252},
+  "new_canonical_ids": [],
+  "new_navigator_relations": [],
+  "source_or_deck_engine_changes": false,
+  "browser_visual_acceptance": "OPEN"
+}

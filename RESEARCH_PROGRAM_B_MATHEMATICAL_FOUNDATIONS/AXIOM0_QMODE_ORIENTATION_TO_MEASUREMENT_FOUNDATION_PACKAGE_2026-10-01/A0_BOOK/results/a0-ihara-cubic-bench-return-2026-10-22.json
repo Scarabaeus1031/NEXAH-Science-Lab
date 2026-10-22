@@ -1,0 +1,49 @@
+{
+  "schema": "a0.ihara-cubic-bench-return/1",
+  "date": "2026-10-22",
+  "status": "IMPLEMENTED_SOFTWARE_TESTED_BROWSER_ACCEPTANCE_OPEN",
+  "entry": "A0_ORIENTATION_CONTROLLER_BENCH.html#visual1GridGenerator",
+  "reused_source": {
+    "path": "assets/a0-ihara-hashimoto-model.js",
+    "sha256": "f03c46589ce4957f0687cce5eca24bcfb0f152eec92eb76b843f65349c6ec11a",
+    "graph": "G(10,2)",
+    "vertices": 20,
+    "edges": 30,
+    "directed_states": 60,
+    "authority": "Existing finite graph model reused unchanged; local Bench session, not remote control of another instrument window"
+  },
+  "contract": {
+    "source_state": "Index in the existing directed(graph) order, initially edge 0→1",
+    "branch_rule": "At incoming (a,b), use existing transition(graph,index).allowed; order targets numerically. C selects the lower, D the higher allowed target.",
+    "commit": "Click accepts exactly one non-backtracking transition and records from/to indices, edges, branch and revision",
+    "reverse_control": "Proposes (b,a), records BLOCK without changing current edge or last committed projection witness",
+    "journal_limit": 128,
+    "full_journal": "HOLD_JOURNAL_FULL; explicit restart required",
+    "restart": "Explicit new local session at edge 0→1, not an inverse Return",
+    "read_channel": "Visual 1 READ 3 consumes selected typed C5 or G(10,2) witness. G(10,2) is selected by default; missing cubic source clears grids and produces HOLD without C5 fallback.",
+    "tesa": "Existing declared 28-cell display formula uses the latest committed cubic transition, or the initial ready pair. A rejected reverse does not advance this basis. This is a non-invertible display projection, not native graph topology.",
+    "separate_reads": "P/A and their existing C5-based display sectors stay unchanged when cubic edges move. Prime/state and native Blue/Dodeca body records are not overwritten.",
+    "timers_added": 0,
+    "remote_window_commands": false,
+    "prime_address_mapping": null,
+    "whole_machine_return": false
+  },
+  "tests": {
+    "command": "node a0-ihara-cubic-bench-tests.cjs",
+    "working_directory": "A0_BOOK",
+    "new_checks": 2383,
+    "source_states": 60,
+    "accepted_transitions_checked_against_existing_B": 120,
+    "reverse_controls": "All directed states; current edge and last committed witness preserved",
+    "integration": "Actual cubic and Visual1 controllers mounted in DOM doubles, source switching, numeric vertex IDs above 4 retained, missing-source HOLD, journal limit",
+    "regressions": {"family_grid_checks": 197, "visual1": "PASS", "m3_pascal_links_checks": 1471, "player_bench_checks": 261, "system_binder_checks": 51, "bench_map_checks": 294, "family_room_checks": 163, "navigation_blueprint_checks": 199},
+    "scope": "Bounded software engineering acceptance, not a scientific run, replay of Lab evidence or browser pixel QA"
+  },
+  "implementation_pins": [
+    {"path": "a0-ihara-cubic-bench.js", "sha256": "744ec627a903b3bcea083ff11de070e1b3f4678bd259a4305eb032a965fb217f"},
+    {"path": "a0-visual1-grid-generator.js", "sha256": "e154864cc5928f4ddb8f51aab75446692cbbc5577d8b2c1cbe9338c869fefb2e"},
+    {"path": "a0-family-grid-coupler.js", "sha256": "e723950f86baa94349409c92543152536a69a46b25ac83c68d2767ec39967272"},
+    {"path": "a0-ihara-cubic-bench-tests.cjs", "sha256": "7b735d96cfae7f50696f255a32b1369d1a2877aedf9e25a6d342affd2002338c"}
+  ],
+  "authority": {"new_canonical_identity": false, "new_canonical_relation": false, "research_execution": false, "claim_promotion": false, "publication_authorized": false}
+}

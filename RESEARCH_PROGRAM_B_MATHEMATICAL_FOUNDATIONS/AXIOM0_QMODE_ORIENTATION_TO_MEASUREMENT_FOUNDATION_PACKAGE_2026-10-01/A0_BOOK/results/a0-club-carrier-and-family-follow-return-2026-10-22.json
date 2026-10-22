@@ -1,0 +1,42 @@
+{
+  "date": "2026-10-22",
+  "status": "ENGINEERING_PASS_BROWSER_ACCEPTANCE_OPEN",
+  "implementation_order": ["Native number-carrier sequence with CRT recalculation", "Source-clock presentation of existing Family tour"],
+  "reused": ["a0-game-of-numbers-model.js carrier/elevator rail APIs", "a0-family-club-tours.js 21-stop roundtrip and show cues", "A0:BLUE_BODY:INTERIOR:CRT16:ORDINAL_GRAY_RING:V1"],
+  "number_sequence": {
+    "default": "carrier",
+    "carrier_route": [11537, 11573, 11357],
+    "elevator": "Existing model.elevatorFamily(frame), nine supplied seeds plus 20*k, k=0..16",
+    "clock": "One native step per observed Player address change while playing and following",
+    "horizon": "Hold at source horizon unless explicit Loop replay is enabled",
+    "manual": "Single step stops following; Reset returns source cursor to zero",
+    "selection": "Changing selected elevator seed preserves current lift",
+    "browser_dependencies": "Only self-contained rail start/step/at/codec/elevatorFamily APIs; verified without unrelated LIFE/Euler/Trinity globals",
+    "arithmetic": "CRT residues reconstructed on current full integer, q_M shell distinct from 20-grid q"
+  },
+  "family_follow": {
+    "default": true,
+    "kind": "PRESENTATION_ONLY_NOT_Q4_OR_NUMBER_TO_FAMILY_IDENTITY",
+    "route": "Existing 21-stop roundtrip, repeated on following source pulses",
+    "clock": "No new advancing timer; source address changes request next ready tour station",
+    "busy_policy": "Coalesce pending source pulses while camera or elevator is moving; pump on existing renderer refresh",
+    "show_cues": "Existing lighting, perspective, exhibits and Grid cues reused",
+    "manual_selection": "Disables follow without pausing the source player",
+    "safety": "Pause/disconnect/hidden document clears pending pulse; hidden Family view waits"
+  },
+  "source_engines_modified": false,
+  "new_canonical_identity": false,
+  "new_graph_relation": false,
+  "new_study_or_scientific_replay": false,
+  "checks": {
+    "carrier_sequence": 505,
+    "family_follow": 48,
+    "existing_tours": 129,
+    "crt_link": 297,
+    "monitor": 246,
+    "numbers_regression": 23073,
+    "source_graph": "PASS, base 266/29 composed 269/32",
+    "app": "PASS 252/252"
+  },
+  "browser_visual_acceptance": "OPEN"
+}

@@ -1,0 +1,15 @@
+{
+  "date": "2026-10-21",
+  "scope": "Standalone Club Machine: consolidate existing live controls and navigation into one compact cockpit below the scene",
+  "structure": ["Current local state and Bench access", "Family/reading-plate controls", "Basic form/exhibit/view/LJ controls", "Local history", "Existing Club/DJ/LDV/GLB routes"],
+  "removed_from_top": "Existing large Club cards moved into compact cockpit links; duplicate orientation strip hidden, not deleted",
+  "secondary_help": "Control explanations moved with original nodes into closed Bench disclosure",
+  "buttons": "Smaller desktop buttons; minimum 44px height on narrow screens",
+  "implementation": "Move original DOM nodes, preserving callbacks, hrefs, IDs, readers and source authority. No duplicate player or engine.",
+  "new_canonical_ids": [],
+  "new_navigator_relations": [],
+  "source_state_transfer": false,
+  "dj_source_modified": false,
+  "tests": {"cockpit_and_ux": 361, "standalone": 682, "stage": 55, "glb": 69, "ldv": 102, "deck": 50, "app_audit": 252, "source_graph": "PASS"},
+  "browser_visual_acceptance": "OPEN"
+}

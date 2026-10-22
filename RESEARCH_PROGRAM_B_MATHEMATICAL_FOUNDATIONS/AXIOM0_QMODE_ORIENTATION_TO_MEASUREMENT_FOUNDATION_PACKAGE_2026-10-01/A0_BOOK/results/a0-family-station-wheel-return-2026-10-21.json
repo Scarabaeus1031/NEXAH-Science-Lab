@@ -1,0 +1,53 @@
+{
+  "date": "2026-10-21",
+  "scope": "Upper Family record-player station wheel; extends existing intro, does not reconstruct a separately identified historical tube demo",
+  "reuses": [
+    "A0_FAMILY_CONNECTION_ATLAS.html#start",
+    "Q4 16-address Gray order",
+    "existing Q4 intro selection and Q° overlay"
+  ],
+  "implemented": [
+    "16 native station buttons in Gray cyclic order",
+    "Cursor and Q° marker share selected station",
+    "900ms presentation cadence; not a model time rule",
+    "Station, slider or body pick pauses; reading mode retained",
+    "Explicit play, pause and single step",
+    "Switching source or opening lower work field pauses",
+    "Hidden document pauses; reduced-motion starts held",
+    "No source loads or new engine bindings"
+  ],
+  "boundaries": [
+    "Lower shared GC unchanged and not coupled to this intro wheel",
+    "Parallel plate mappings remain deferred",
+    "No new canonical ID, Family or mathematical equivalence",
+    "No scientific activation or publication"
+  ],
+  "tests": {
+    "record_player": 223,
+    "spatial_navigation": 691,
+    "science_builder_path": 80,
+    "reader_navigation": "PASS: 56 reachable HTML surfaces",
+    "compact_navigation": 180,
+    "source_graph": "PASS:20 components,266/29 base,269/32 composed",
+    "navigator_app_audit": 252,
+    "browser_visual_acceptance": "OPEN; simulated DOM checks are not browser pixels"
+  },
+  "source_hashes": [
+    {
+      "file": "A0_FAMILY_CONNECTION_ATLAS.html",
+      "sha256": "6f4cfc58674f811034d62f5a4c1a753978893e765147446cad79ea5f22813a3c"
+    },
+    {
+      "file": "a0-family-record-player.js",
+      "sha256": "e80006d495e774f2d42373f2cebc47ebbcbfc6d5f21a24199f7ea5adcdff4c8e"
+    },
+    {
+      "file": "a0-family-record-player.css",
+      "sha256": "07e632add2c8ca7393d50a579aaf3d2905f9500e651de0282bb0c40c17deb1fa"
+    },
+    {
+      "file": "a0-family-record-player-tests.cjs",
+      "sha256": "e4aed70ad03e3f63b6494eba54fa26dbf2296318e80ea5b07aac1decd435edb6"
+    }
+  ]
+}

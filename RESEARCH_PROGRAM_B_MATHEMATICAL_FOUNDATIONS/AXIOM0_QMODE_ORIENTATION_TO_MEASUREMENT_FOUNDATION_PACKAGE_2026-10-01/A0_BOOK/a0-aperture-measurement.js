@@ -60,7 +60,8 @@
     const required={svg,play,step,reset,speed,cut,compareA,compareB,metric,readout,ledgerBox,exportButton};
     const missing=Object.entries(required).filter(([,node])=>!node).map(([name])=>name);
     if(missing.length)throw Error(`M3 mount missing: ${missing.join(', ')}`);
-    let view='unrolled',cursor=0,timer=0,viewCursor=0;
+    let view='unrolled',cursor=0,timer=0,viewCursor=0,currentTrace=null;const subscribers=new Set();
+    const notify=()=>{for(const fn of subscribers)try{fn();}catch(error){win.console?.error?.('M3 subscriber error',error);}};
     const opening=()=>Number(sourceAperture?.value||42)/100;
     const trace=()=>createTrace({count:48,opening:opening()});
     const svgEl=(name,attrs,text)=>{const node=doc.createElementNS('http://www.w3.org/2000/svg',name);Object.entries(attrs).forEach(([key,value])=>node.setAttribute(key,String(value)));if(text!==undefined)node.textContent=text;return node};
@@ -85,13 +86,16 @@
       metric.textContent=`Δ(${compareA.value}, ${compareB.value}) = ${cmp.rmse.toFixed(6)} RMSE · max ${cmp.max.toFixed(6)}`;
       readout.textContent=`same 48 ordered samples · ${VIEW_META[view].map} · source residual 0`;
       ledgerBox.innerHTML=`<span><b>R · RETAINED</b>${ilau.retained.join(' · ')}</span><span><b>L · LOST</b>${ilau.lost.length?ilau.lost.join(' · '):'none from record'}</span><span><b>A · ADDED</b>${ilau.introduced.join(' · ')}</span><span><b>U · UNRESOLVED</b>${ilau.unresolved.join(' · ')}</span><em>spatially hidden: ${ilau.spatiallyHidden.join(' · ')||'none'}</em>`;
+      currentTrace=Object.freeze(samples);
       win.A0ApertureMeasurementView={record:buildRecord({opening:opening(),view,compareA:compareA.value,compareB:compareB.value,cut:Number(cut.value)}),cursor};
+      notify();
       if(status){status.textContent='SOURCE · P×A BLUE IRIS · LIVE';status.dataset.state='live'}
       return true;
     }
     function render(){
       try{return renderFrame()}
       catch(error){
+        currentTrace=null;notify();
         const message=`M3 RENDER ERROR · ${error&&error.message?error.message:String(error)}`;
         metric.textContent=message;readout.textContent='Renderer stopped safely. Reload after repair.';
         if(status){status.textContent=message;status.dataset.state='error'}
@@ -101,11 +105,14 @@
     }
     function advance(){cursor=(cursor+1)%48;if(cursor%12===0){viewCursor=(viewCursor+1)%VIEW_IDS.length;view=VIEW_IDS[viewCursor]}if(!render())stop()}
     function setView(nextView){if(!VIEW_IDS.includes(nextView))throw Error('unknown view');view=nextView;viewCursor=VIEW_IDS.indexOf(view);render();return view}
-    function stop(){if(timer)win.clearInterval(timer);timer=0;play.classList.remove('active');play.textContent='Play M3 + views';play.setAttribute('aria-pressed','false')}
-    function start(){if(timer)return;play.classList.add('active');play.textContent='Pause M3 + views';play.setAttribute('aria-pressed','true');timer=win.setInterval(advance,Number(speed.value))}
+    function stop(){if(timer)win.clearInterval(timer);timer=0;play.classList.remove('active');play.textContent='Play M3 + views';play.setAttribute('aria-pressed','false');notify();}
+    function start(){if(timer)return;play.classList.add('active');play.textContent='Pause M3 + views';play.setAttribute('aria-pressed','true');timer=win.setInterval(advance,Number(speed.value));notify();}
     play.addEventListener('click',()=>timer?stop():start());step.addEventListener('click',()=>{stop();advance()});reset.addEventListener('click',()=>{stop();cursor=0;viewCursor=0;view='unrolled';render()});speed.addEventListener('change',()=>{if(timer){stop();start()}});cut.addEventListener('input',render);compareA.addEventListener('change',render);compareB.addEventListener('change',render);sourceAperture?.addEventListener('input',render);viewButtons.forEach(button=>button.addEventListener('click',()=>{view=button.dataset.m3View;viewCursor=VIEW_IDS.indexOf(view);render()}));
     exportButton.addEventListener('click',()=>{const blob=new Blob([JSON.stringify(win.A0ApertureMeasurementView.record,null,2)],{type:'application/json'}),url=URL.createObjectURL(blob),a=doc.createElement('a');a.href=url;a.download='a0-aperture-m3-ilau-record.json';a.click();URL.revokeObjectURL(url)});
-    render();return Object.freeze({start,stop,step:advance,render,setView,get view(){return view},get record(){return win.A0ApertureMeasurementView.record}});
+    render();return Object.freeze({start,stop,step:advance,render,setView,
+      readSource:()=>({trace:currentTrace,record:win.A0ApertureMeasurementView?.record,cursor,running:!!timer}),
+      subscribe(fn){subscribers.add(fn);return()=>subscribers.delete(fn)},
+      get view(){return view},get record(){return win.A0ApertureMeasurementView.record}});
   }
   return{TAU,VIEW_IDS,VIEW_META,createTrace,projectSample,projectTrace,traceFingerprint,compareViews,ledger,buildRecord,mount};
 });

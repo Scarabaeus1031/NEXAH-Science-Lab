@@ -1,0 +1,65 @@
+{
+  "date": "2026-10-21",
+  "working_title": "Family Jukebox",
+  "scope": "Isolated draft copy of existing Family spatial reader; not an all-NEXAH controller",
+  "source": "A0_FAMILY_CONNECTION_ATLAS.html",
+  "source_sha256": "9e420e12ff6187cbece3988b095040d7015c2ebb5d15e42a475b19b1746e2311",
+  "original_atlas_unchanged": true,
+  "original_spatial_renderer_unchanged": true,
+  "implementation": [
+    "Explicit generated snapshot of 7 existing Families, 15 existing relations and 3 reading positions",
+    "Copied spatial renderer extended only in draft",
+    "Canvas edge picking and keyboard-accessible joint directory",
+    "Joint inspector uses source labels/status; no newly claimed mechanism",
+    "Source/view/boundary symbol legend and separate reading-position elevators",
+    "F4-to-F5 open and F5-to-F4 negative records drawn in separate lanes",
+    "Independent local reader history and Return; no instrument engines",
+    "Prototype in DRAFTS, not added to canonical main-surface identities"
+  ],
+  "tests": {
+    "demo": 322,
+    "original_spatial_reader": 691,
+    "source_graph": "PASS:20 components,266/29 base,269/32 composed",
+    "navigator_app_audit": 252,
+    "global_reader_navigation": "External concurrent issue: A0_CURSOR_HANDOFF_CLICKDUMMY.html has no navigation home. Left untouched.",
+    "browser_pixel_acceptance": "OPEN"
+  },
+  "authority_effects": {
+    "new_canonical_ids": 0,
+    "canonical_relation_changes": 0,
+    "family_changes": 0,
+    "engine_state_transfer": false,
+    "publication": false,
+    "research_activation": false
+  },
+  "files": [
+    {
+      "file": "DRAFTS/A0_FAMILY_NAVIGATOR_DEMO.html",
+      "sha256": "882151de656ef67f0db05bcf74226e5d421a07990b704eac4c544079aee53474"
+    },
+    {
+      "file": "a0-family-navigator-demo.js",
+      "sha256": "04ad710c910bcd067c67d7699856af7b96b93c4b2a6a9236fbf0d930f17385eb"
+    },
+    {
+      "file": "a0-family-navigator-demo-spatial.js",
+      "sha256": "9b162a27a8f469bd884191af39d762a81f38424dfe796213aad62e1efb971b8e"
+    },
+    {
+      "file": "a0-family-navigator-demo-data.js",
+      "sha256": "90269842cd55a228965bf8501a830682bae5932fff3345d81eaa8004293681f8"
+    },
+    {
+      "file": "a0-family-navigator-demo.css",
+      "sha256": "362baeb99994b0c21dabfc667cc9626b594fb904f813065a26806cc0ff367896"
+    },
+    {
+      "file": "a0-family-navigator-demo-tests.cjs",
+      "sha256": "d711d9767e6a81188364e208cb450a4ecb6aa67e23892af68b60c9120ceaa69c"
+    },
+    {
+      "file": "build-a0-family-navigator-demo.cjs",
+      "sha256": "480613def353a32f824f8259938ad1ddb17652282032b6c095d23fac30d754ef"
+    }
+  ]
+}

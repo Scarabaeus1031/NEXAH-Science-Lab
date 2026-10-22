@@ -45,16 +45,19 @@ for(const reduced of [false,true]){
  if(!reduced)eq(h.queue.length,1);
 }
 // Small DOM double executes actual mount/events without loading any original.
-function domHarness(){
+function domHarness(options={}){
  const els={},records=api.RECORDS.map(r=>({dataset:{frpRecord:r.id},setAttribute(k,v){this[k]=v;}})),events={},calls=[];
- const element=()=>({hidden:false,textContent:'',value:'',innerHTML:'',addEventListener(k,fn){this[k]=fn;},append(n){this.child=n;},focus(){this.focused=true;}});
- const host={dataset:{},style:{setProperty(){}},innerHTML:'',querySelector(s){return els[s]||(els[s]=element());},querySelectorAll:()=>records,addEventListener(k,fn){events[k]=fn;}};
+ const element=()=>({hidden:false,textContent:'',value:'',innerHTML:'',style:{setProperty(){}},setAttribute(k,v){this[k]=v;},addEventListener(k,fn){this[k]=fn;},append(n){this.child=n;},focus(){this.focused=true;}});
+ const stations=[...api.GRAY,...api.GRAY].map(address=>({dataset:{frpStation:String(address)},setAttribute(k,v){this[k]=v;}}));
+ const layouts=['wheel','jukebox'].map(id=>({dataset:{frpLayout:id},setAttribute(k,v){this[k]=v;}}));
+ const host={dataset:{},style:{setProperty(){}},innerHTML:'',querySelector(s){return els[s]||(els[s]=element());},querySelectorAll:s=>s==='[data-frp-station]'?stations:s==='[data-frp-layout]'?layouts:records,addEventListener(k,fn){events[k]=fn;}};
  const native={},map={scrollIntoView:()=>calls.push('scroll')},start={classList:{add:()=>{}}};
  const canvas=element();canvas.getBoundingClientRect=()=>({left:10,top:20});
- const doc={getElementById:id=>({familyRecordPlayer:host,start,map,atlasIntroCanvas:canvas}[id]),querySelector:()=>native};
- const win={A0AtlasIntroView:{selectMode:v=>calls.push(['view',v]),selectAddress:v=>calls.push(['address',v]),refresh:()=>calls.push('refresh'),setLens:v=>calls.push(['lens',v]),selectAt:(x,y)=>{calls.push(['pick',x,y]);return 9;}},A0FamilyAtlasBridge:{apply:s=>calls.push(['bridge',s])}};
+ const doc={hidden:false,addEventListener(k,fn){this[k]=fn;},getElementById:id=>({familyRecordPlayer:host,start,map,atlasIntroCanvas:canvas}[id]),querySelector:()=>native};
+ const win={location:{href:options.url||'file:///book/A0_FAMILY_CONNECTION_ATLAS.html'},A0AtlasIntroView:{selectMode:v=>calls.push(['view',v]),selectAddress:v=>calls.push(['address',v]),refresh:()=>calls.push('refresh'),setLens:v=>calls.push(['lens',v]),selectAt:(x,y)=>{calls.push(['pick',x,y]);return 9;}},A0FamilyAtlasBridge:{apply:s=>calls.push(['bridge',s])}};
  const click=(kind,value)=>{const target={dataset:{[kind]:value},closest:s=>s==='[data-'+kind.replace(/[A-Z]/g,c=>'-'+c.toLowerCase())+']'?target:null};events.click({target});};
- return{host,doc,win,els,calls,click,native,canvas};
+ const queue=[];if(options.clock)win.requestAnimationFrame=fn=>queue.push(fn);win.matchMedia=()=>({matches:!!options.reduced});
+ return{host,doc,win,els,calls,click,native,canvas,queue,stations,layouts};
 }
 const d=domHarness(),controller=api.mount(d.doc,d.win);ok(controller);eq(d.els['[data-frp-native]'].child,d.native);eq(api.mount(d.doc,d.win),null);
 d.calls.length=0;d.click('frpRecord','eclipse');eq(d.calls,[]);eq(controller.snapshot().id,'eclipse');
@@ -71,4 +74,29 @@ d.click('frpView','observer');d.canvas.pointerdown({clientX:50,clientY:80,button
 eq(controller.snapshot(),{id:'tessarec',view:'observer',address:9});ok(d.calls.some(c=>Array.isArray(c)&&c[0]==='pick'&&c[1]===40&&c[2]===60));
 d.calls.length=0;d.canvas.pointerdown({clientX:50,clientY:80,button:2});eq(d.calls,[]);
 d.click('frpRecord','eclipse');ok(d.els['[data-frp-lens-panel]'].hidden);d.calls.length=0;d.canvas.pointerdown({clientX:50,clientY:80,button:0});eq(d.calls,[]);
-console.log(JSON.stringify({status:'PASS',checks,scope:'local model, source anchors, actual mount/events and intro controller in DOM double; browser pixels OPEN'}));
+eq(new Set(api.GRAY).size,16);eq(api.GRAY[0],0);
+for(const address of api.GRAY){const next=api.nextAddress(address),bit=address^next;ok(bit>0&&(bit&(bit-1))===0);}
+eq(api.nextAddress(api.GRAY[15]),0);eq((api.wheelMarkup().match(/data-frp-station=/g)||[]).length,16);
+const w=domHarness({clock:true}),wc=api.mount(w.doc,w.win);
+ok(wc.isRunning());eq(w.queue.length,1);w.queue.shift()(0);w.queue.shift()(900);eq(wc.snapshot().address,1);eq(w.queue.length,1);
+w.click('frpView','observer');ok(wc.isRunning());eq(wc.snapshot().address,1);
+w.click('frpStation','6');ok(!wc.isRunning());eq(wc.snapshot(),{id:'tessarec',view:'observer',address:6});
+w.queue.shift()(1800);eq(w.queue.length,0);eq(wc.snapshot().address,6);
+w.els['[data-frp-orbit-play]'].click();w.els['[data-frp-orbit-play]'].click();w.els['[data-frp-orbit-play]'].click();
+eq(w.queue.length,2);w.queue.shift()(2000);eq(w.queue.length,1);w.queue.shift()(2000);w.queue.shift()(2900);eq(wc.snapshot().address,api.nextAddress(6));eq(w.queue.length,1);
+w.els['[data-frp-orbit-step]'].click();ok(!wc.isRunning());eq(wc.snapshot().view,'observer');
+w.queue.shift()(4000);eq(w.queue.length,0);
+w.els['[data-frp-orbit-play]'].click();w.doc.hidden=true;w.doc.visibilitychange();ok(!wc.isRunning());w.queue.shift()(5000);eq(w.queue.length,0);
+w.doc.hidden=false;w.els['[data-frp-orbit-play]'].click();w.click('frpRecord','eclipse');ok(!wc.isRunning());ok(w.els['[data-frp-orbit-panel]'].hidden);w.queue.shift()(6000);eq(w.queue.length,0);
+w.calls.length=0;wc.play();eq(w.queue.length,0);eq(w.calls,[]);
+const reduced=domHarness({clock:true,reduced:true}),rc=api.mount(reduced.doc,reduced.win);ok(!rc.isRunning());eq(reduced.queue.length,0);rc.play();ok(rc.isRunning());rc.pause();
+const incoming=domHarness({clock:true,url:'file:///book/A0_FAMILY_CONNECTION_ATLAS.html?plate=eclipse'}),ic=api.mount(incoming.doc,incoming.win);eq(ic.snapshot().id,'eclipse');ok(!ic.isRunning());eq(incoming.queue.length,0);
+const notifications=[];const stop=ic.subscribe(s=>notifications.push(s.id));eq(notifications,['eclipse']);incoming.click('frpRecord','three-lenses');eq(notifications,['eclipse','three-lenses']);stop();incoming.click('frpRecord','caro');eq(notifications,['eclipse','three-lenses']);
+const invalid=domHarness({url:'file:///book/A0_FAMILY_CONNECTION_ATLAS.html?plate=evil'});eq(api.mount(invalid.doc,invalid.win).snapshot().id,'tessarec');
+const layoutHarness=domHarness({clock:true}),lc=api.mount(layoutHarness.doc,layoutHarness.win);const beforeLayout=lc.snapshot();layoutHarness.calls.length=0;
+ok(lc.setLayout('jukebox'));eq(lc.displayLayout(),'jukebox');eq(lc.snapshot(),beforeLayout);ok(lc.isRunning());eq(layoutHarness.queue.length,1);eq(layoutHarness.calls,[]);
+ok(layoutHarness.els['[data-frp-wheel-face]'].hidden);ok(!layoutHarness.els['[data-frp-jukebox-face]'].hidden);
+layoutHarness.click('frpStation','12');eq(lc.snapshot().address,12);ok(!lc.isRunning());eq(layoutHarness.stations.filter(s=>s['aria-pressed']==='true').length,2);
+layoutHarness.click('frpLayout','wheel');eq(lc.displayLayout(),'wheel');eq(lc.snapshot().address,12);ok(!lc.isRunning());ok(!lc.setLayout('unknown'));
+eq((api.jukeboxMarkup().match(/data-frp-station=/g)||[]).length,16);eq((api.orbitMarkup().match(/data-frp-orbit-play/g)||[]).length,1);
+console.log(JSON.stringify({status:'PASS',checks,scope:'model, anchors, mount/events, Gray station wheel, pause/resume/stale frames/hidden/reduced motion and intro controller in DOM double; browser pixels OPEN'}));

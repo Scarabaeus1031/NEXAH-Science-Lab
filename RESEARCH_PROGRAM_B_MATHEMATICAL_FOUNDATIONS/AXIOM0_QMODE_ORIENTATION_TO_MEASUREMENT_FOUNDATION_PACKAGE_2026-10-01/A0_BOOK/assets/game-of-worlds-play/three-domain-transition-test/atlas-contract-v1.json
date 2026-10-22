@@ -1,0 +1,21 @@
+{
+  "schema": "a0.three-domain-atlas-contract/1",
+  "date": "2026-10-22",
+  "source": "index.html; app.js; existing domain and view modules",
+  "status": "LOCAL_READ_ONLY_MONITOR_NOT_CROSS_WINDOW_BINDING",
+  "clock": {"owner": "app.js", "event": "threedomain:render", "generation": "0..240; existing loop resets source", "views": 9, "timers_added": 0},
+  "contracts": [
+    {"id": "chemistry", "input": "native chemistry pair", "output": "thresholded binary grid and C00/C01/C10/C11 ledger", "operator_identity_with_other_domains": false},
+    {"id": "life", "input": "native cellular pair", "output": "binary grid and four-way ledger", "operator_identity_with_other_domains": false},
+    {"id": "physics", "input": "native spin pair", "output": "thresholded spin grid and four-way ledger", "operator_identity_with_other_domains": false},
+    {"id": "joint", "input": "three native ledgers", "output": "arithmetic centroid of three complex readouts", "model_feedback": false},
+    {"id": "euler", "input": "three native ledgers plus generation", "output": "phasors; selected exponential-base display at generation mod 8", "is_coxeter_euler_polynomial": false},
+    {"id": "fibonacci", "input": "generation", "output": "exact source Fibonacci pair at generation mod 31; Cassini", "seed": [0, 1], "loop_is_numerical_return": false},
+    {"id": "ihara", "input": "generation or local address; selected graph", "output": "existing finite Hashimoto model inspection, allowed/blocked turns", "shares_bench_manual_cursor": false},
+    {"id": "k-teller", "input": "three source negative-event sets", "output": "domain-separated C10 counts", "return_scope": "source full checkpoint, not counts alone"},
+    {"id": "blue-body", "input": "generation mod 48", "output": "existing phi-pi-Euler schedule and typed house ledger", "is_native_body_runtime": false}
+  ],
+  "monitor": {"readback": "native event snapshot plus actual rendered fields and follow controls", "export": "JSON readout only, not full source state or inverse", "hidden_or_missing": "HOLD", "local_overrides": "LOCAL, not falsely synchronized", "transport": "same document only; no postMessage commands or model mutation"},
+  "open": ["Atlas to Bench source/session/freshness/coordinate contract", "Atlas to seed (1,1) Cross index convention and source witness", "Atlas Ihara to Bench Ihara directed-state/journal map", "historical glyph/Vendissimal decoder", "Pentagon/Coil/Janus boundary and operator map"],
+  "authority": {"new_canonical_identity": false, "new_canonical_relation": false, "research_activation": false, "claim_promotion": false, "publication": false, "whole_machine_return": false}
+}

@@ -1,0 +1,56 @@
+{
+  "date": "2026-10-22",
+  "scope": "Owner-requested A0 Bench editorial navigation and curated flagships",
+  "status": "IMPLEMENTED_SOFTWARE_TESTED_BROWSER_ACCEPTANCE_OPEN",
+  "identity_reuse": [
+    "NEXAH_A0_ORIENTATION_CONTROLLER_BENCH",
+    "SRC:A0OE:A0_CONTEXT_NAVIGATION_JS"
+  ],
+  "new_canonical_ids": [],
+  "relation_changes": [],
+  "editorial_routes": [
+    "A0_BENCH_ENTDECKEN.html",
+    "A0_BENCH_ARBEITEN.html",
+    "A0_BENCH_QUELLEN.html"
+  ],
+  "flagships_per_area": 3,
+  "changes": [
+    "Bench entry within shared A0 header; existing Human/Science/Builder roles retained",
+    "Three editorial area pages; source-owned flagship links, no frames or duplicated engines",
+    "Existing Bench runtime now uses shared A0 header and hash-only location label",
+    "Legacy direct controls retained in closed disclosure",
+    "Three existing standalone HTMLs assigned editorial inventory homes without altering their implementations"
+  ],
+  "checks": {
+    "new_navigation": 78,
+    "shared_header_runtime": 180,
+    "reader_inventory": "PASS: all 62 local HTMLs have one navigation home",
+    "overview": 90,
+    "legacy_tour": 85,
+    "legacy_tour_live": 296,
+    "club_entry": 27,
+    "foyer": 59,
+    "walk": 133,
+    "workdesk": 53,
+    "source_graph": "PASS: 20 components; base 266/29; composed 269/32",
+    "navigator_app": "PASS: 252/252"
+  },
+  "source_pin": {
+    "id": "SRC:A0OE:A0_CONTEXT_NAVIGATION_JS",
+    "previous": "c4b5f059167d62822dbf7073a6bf7234a52237fb4def3e0805e3a2db82dca7a3",
+    "current": "1c4e7687c75bd9a8761f6150e52b8e15d80521589ddd62d51a0ccbea25db9fcb"
+  },
+  "returns": [
+    "Existing lineage source pin and graph component hash refreshed with provenance note",
+    "Generated internal lineage payload and Mission Control governance projection refreshed"
+  ],
+  "boundaries": {
+    "browser_pixels": "OPEN: no rendered browser acceptance",
+    "source_engines": "UNCHANGED",
+    "anu_transport": "OPEN_UNCHANGED",
+    "one_pulse": "NO_AUTOMATIC_CONNECTION_OR_PLAY",
+    "scientific_activation": false,
+    "claim_promotion": false,
+    "publication": false
+  }
+}

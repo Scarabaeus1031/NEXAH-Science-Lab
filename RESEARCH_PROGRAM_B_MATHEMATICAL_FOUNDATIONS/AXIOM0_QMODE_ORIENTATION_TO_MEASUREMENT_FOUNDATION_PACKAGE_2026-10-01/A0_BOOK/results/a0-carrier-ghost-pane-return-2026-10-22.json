@@ -1,0 +1,36 @@
+{
+  "date": "2026-10-22",
+  "scope": "Explicit CRT panel button reuses existing Perspective Deck pane A; no new source engine",
+  "entry": "A0_ORIENTATION_CONTROLLER_BENCH.html#carrierReturnWorkbench",
+  "identityReuse": [
+    "NEXAH_A0_ORIENTATION_CONTROLLER_BENCH",
+    "MOD:NUMBER_VIEW_SUITE",
+    "SRC:A0OE:PINK_DIAMOND_GRID_ATLAS"
+  ],
+  "canonicalRelationChanges": [],
+  "behavior": {
+    "emptyPane": "select existing pink source and request open",
+    "samePinkPane": "reuse without reload",
+    "otherSource": "HOLD; never unload or overwrite automatically",
+    "carrierStateMutations": false,
+    "parameterTransfer": false,
+    "sourceReadback": false,
+    "ownClock": false,
+    "anuTransport": null
+  },
+  "checks": {
+    "carrierReturn": 124166,
+    "ghostActualSourceAddress": 124015,
+    "perspectiveDeck": 447,
+    "crt16Ghost": "PASS",
+    "graph": "PASS",
+    "app": 252,
+    "browserAcceptance": "OPEN"
+  },
+  "pins": {
+    "a0-carrier-return.js": "068fc8ae0ed617e2d5dc64f7305536c96e5b7b025d400d585541c2a6928d3ab6",
+    "a0-carrier-return-tests.cjs": "ca88a25af663e00ee019c56c89e3fd69d82238d207fcef08f60e233228c0106e",
+    "A0_PINK_DIAMOND_GRID_ATLAS.html": "2220f21ffa077a0848a6b084e6867cb50e4017f0874f3590f672ec2243350960"
+  },
+  "sourcePreserved": true
+}

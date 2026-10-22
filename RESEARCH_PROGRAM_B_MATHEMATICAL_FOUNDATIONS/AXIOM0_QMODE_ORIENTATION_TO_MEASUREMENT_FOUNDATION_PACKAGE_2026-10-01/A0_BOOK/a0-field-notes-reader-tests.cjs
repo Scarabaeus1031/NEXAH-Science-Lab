@@ -1,6 +1,7 @@
 const fs=require('node:fs'),assert=require('node:assert/strict'),crypto=require('node:crypto'),vm=require('node:vm'),M=require('./build-a0-field-notes.cjs');
 const md=fs.readFileSync(M.sourceFile,'utf8'),html=fs.readFileSync(M.outputFile,'utf8'),notes=M.parse(md);let checks=0;const ok=(v,label)=>{assert.ok(v,label);checks++;};
-ok(M.build(md)===html,'deterministic source projection');ok(notes.length===41&&notes.filter(n=>n.kind==='idea').length===9,'all current ideas and old H2 sections preserved');
+ok(M.build(md)===html,'deterministic source projection');ok(notes.length===45&&notes.filter(n=>n.kind==='idea').length===13,'all current ideas and old H2 sections preserved');
+ok(notes[8].title==='131 und 313'&&notes[9].title.startsWith('Check 60')&&notes[40].kind==='source'&&notes[41].title.startsWith('1,1'),'existing note-1..41 routes retained; new ideas appended');
 ok(html.includes(crypto.createHash('sha256').update(md).digest('hex')),'source hash visible');
 for(const theme of ['tube','number','context','bench','lineage'])ok(html.includes('data-theme-button="'+theme+'"'),'theme '+theme);
 ok(!html.includes('<iframe')&&!html.includes('localStorage')&&!html.includes('fetch('),'no auto-running sources or second storage');
@@ -10,15 +11,15 @@ const listeners={},el=(extra={})=>({value:'',checked:false,hidden:false,...extra
 const search=el(),archive=el(),out=el(),empty=el(),cards=notes.map(n=>el({dataset:{kind:n.kind,theme:n.theme},textContent:n.title+' '+n.body})),buttons=['all','tube','number','context','bench','lineage'].map(theme=>el({dataset:{themeButton:theme}}));
 const doc={getElementById:id=>({search,archive,count:out,empty}[id]),querySelectorAll:q=>q==='[data-note]'?cards:buttons};M.controls(doc);
 const shown=()=>cards.filter(c=>!c.hidden);
-ok(shown().length===9,'archive initially hidden');
+ok(shown().length===13,'archive initially hidden');
 search.value='ORION';search.handlers.input();ok(shown().length>0&&shown().every(c=>/orion/i.test(c.textContent)),'case-insensitive search');
 search.value='';search.handlers.input();buttons[1].handlers.click();ok(shown().every(c=>c.dataset.theme==='tube'),'theme filter');
 archive.checked=true;archive.handlers.change();ok(shown().every(c=>c.dataset.theme==='tube'),'archive respects theme');
-buttons[0].handlers.click();ok(shown().length===41,'all archive sections reachable');
+buttons[0].handlers.click();ok(shown().length===45,'all archive sections reachable');
 search.value='not-a-real-note-48271';search.handlers.input();ok(shown().length===0&&!empty.hidden,'empty state');
-archive.checked=false;search.value='';search.handlers.input();ok(shown().length===9&&empty.hidden,'reset restores ideas');
+archive.checked=false;search.value='';search.handlers.input();ok(shown().length===13&&empty.hidden,'reset restores ideas');
 const script=html.match(/<script>([\s\S]*?)<\/script>/)[1];new vm.Script(script);ok(true,'browser script syntax');
 const desk=fs.readFileSync(require('node:path').join(__dirname,'A0_RESEARCH_DESK.html'),'utf8');
 ok(desk.includes('id="field-notes-entry"')&&desk.indexOf('id="field-notes-entry"')<desk.indexOf('id="current-work"'),'Field Notes entry above current work');
 ok(desk.includes('href="assets/a0-field-notes/index.html"'),'existing desk opens derived HTML');
-console.log(JSON.stringify({status:'PASS',checks,notes:notes.length,ideas:9,scope:'generated reader, real filter handlers in DOM double, source escaping and routes; browser visual acceptance not performed'}));
+console.log(JSON.stringify({status:'PASS',checks,notes:notes.length,ideas:13,scope:'generated reader, real filter handlers in DOM double, source escaping and stable old routes; browser visual acceptance not performed'}));

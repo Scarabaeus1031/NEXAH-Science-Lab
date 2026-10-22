@@ -1,0 +1,24 @@
+{
+  "date": "2026-10-22",
+  "revision": "compact-r5",
+  "status": "SOFTWARE_TESTED_VISUAL_ACCEPTANCE_OPEN",
+  "changes": [
+    "Live reception and current player address first",
+    "Own player anchor and current coordinate in four-field table",
+    "Text and colour distinguish GLEICH, GEÄNDERT and OFFEN",
+    "Instructions, technical boundaries and JSON collapsed by default",
+    "Separate Bench comparison preserved"
+  ],
+  "tests": {
+    "player_bench": 189,
+    "one_one_bench": 67,
+    "family_ldv_room": 163,
+    "club_simple_player": 113
+  },
+  "boundary": "Existing transport, source validation and read-only command set unchanged. Open values never count as confirmed equality. Table compares player coordinates, not playback state. Owner screenshot evidence applies to the prior UI, not this layout.",
+  "documentation": ["A0_BUILDER_LOG.html#club-control-return-20261022", "A0_RESEARCH_DESK.html#club-control-return-20261022"],
+  "canonical_identity_changes": 0,
+  "canonical_relation_changes": 0,
+  "scientific_adoption": false,
+  "publication_authorized": false
+}

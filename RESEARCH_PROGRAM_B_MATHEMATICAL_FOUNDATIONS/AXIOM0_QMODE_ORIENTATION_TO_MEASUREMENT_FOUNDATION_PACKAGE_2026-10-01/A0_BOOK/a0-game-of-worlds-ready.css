@@ -1,0 +1,46 @@
+/* Game of Worlds ready rooms: one visual grammar, four distinct roles. */
+.play-head{position:relative;z-index:30;background:rgba(4,10,16,.9);backdrop-filter:blur(14px)}
+.play-nav-games,.play-nav-meta{display:flex;align-items:center;gap:6px}
+.play-nav-games{padding:5px;border:1px solid #294a5a;border-radius:12px;background:#071721}
+.play-nav-games button{min-height:38px;border-color:transparent;background:transparent;color:#91aab8;font:750 10px ui-monospace,monospace;letter-spacing:.045em}
+.play-nav-games button[aria-pressed=true]{border-color:#54d7ef;background:#113142;color:#dff8ff;box-shadow:inset 0 -2px 0 #54d7ef}
+.play-nav-games #pickPulse{border-color:transparent;background:transparent;color:#b8a56c}
+.play-nav-games #pickPulse[aria-pressed=true]{border-color:var(--gold);background:#3a3018;color:#fff1b8;box-shadow:inset 0 -2px 0 var(--gold)}
+.play-nav-meta{margin-left:12px;padding-left:16px;border-left:1px solid #315062}
+.play-nav-meta button,.play-nav-meta a{font:700 9px ui-monospace,monospace;letter-spacing:.08em}
+.play-intro{position:relative;display:grid;grid-template-columns:minmax(0,1.15fr) minmax(310px,.85fr);align-items:center;gap:clamp(28px,6vw,100px);min-height:330px;padding:clamp(34px,5vw,72px) 0;overflow:hidden;border-bottom:1px solid #244453}
+.play-intro:before{content:'';position:absolute;right:-8%;top:-58%;width:52%;aspect-ratio:1;border:1px solid #244958;border-radius:50%;box-shadow:0 0 0 70px rgba(36,73,88,.13),0 0 0 140px rgba(36,73,88,.07);pointer-events:none}
+.play-intro-copy{position:relative;z-index:2}
+.play-intro-copy>p:first-child{width:auto;margin:0 0 15px;color:var(--gold);font:750 10px ui-monospace,monospace;letter-spacing:.16em}
+.play-intro h1{display:grid;gap:3px;margin:0;font:760 clamp(46px,7vw,108px)/.84 ui-serif,Georgia,serif;letter-spacing:-.062em}
+.play-intro h1 span{color:#f1f8fb;font:inherit}
+.play-intro h1 em{font-size:.52em;font-weight:400;color:var(--cyan);letter-spacing:-.035em}
+.play-intro-copy>p:last-of-type{max-width:730px;margin:25px 0 0;color:#abc1cc;font-size:clamp(13px,1.25vw,17px)}
+.play-sequence{display:flex;gap:5px;margin:27px 0 0;padding:0;list-style:none}
+.play-sequence li{min-width:80px;padding:8px 10px;border-top:2px solid #294a5a;background:#071721;color:#6f8c9a;font:700 8px ui-monospace,monospace}
+.play-sequence b{display:block;margin-top:2px;color:#8fa8b5;font-size:9px}
+.play-sequence li.is-current{border-color:var(--cyan);background:#102b3a;color:var(--cyan)}
+.play-sequence li.is-current b{color:#e5f7fb}
+.play-intro[data-world=pulse] .play-sequence li.is-current{border-color:var(--gold);background:#332b18;color:var(--gold)}
+.play-intro-visual{position:relative;z-index:2;display:grid;place-items:center;min-height:260px}
+.play-sigil{position:relative;display:grid;grid-template-columns:repeat(3,52px);grid-template-rows:repeat(3,52px);gap:8px;padding:40px;border:1px solid #294c5c;border-radius:50%;background:radial-gradient(circle,#102b39 0 20%,#06121b 58%,transparent 59%);box-shadow:0 0 0 35px rgba(45,82,96,.12),0 0 0 70px rgba(45,82,96,.06);transform:rotate(-4deg)}
+.play-sigil i{display:block;border:1px solid #315464;background:#071722;transition:border-color .2s,background .2s,box-shadow .2s,transform .2s}
+.play-sigil b{position:absolute;left:50%;top:50%;display:grid;place-items:center;width:42px;height:42px;transform:translate(-50%,-50%) rotate(4deg);border:2px solid var(--gold);border-radius:50%;background:#4a3d1d;color:#fff2bd;font:800 18px ui-serif,Georgia,serif;box-shadow:0 0 24px rgba(255,202,85,.25)}
+.play-intro[data-world=life] .play-sigil i:nth-child(2),.play-intro[data-world=life] .play-sigil i:nth-child(4),.play-intro[data-world=life] .play-sigil i:nth-child(6),.play-intro[data-world=life] .play-sigil i:nth-child(8){border-color:#6ae6b2;background:#10372e;box-shadow:0 0 15px rgba(106,230,178,.22)}
+.play-intro[data-world=domains] .play-sigil i:nth-child(1),.play-intro[data-world=domains] .play-sigil i:nth-child(3),.play-intro[data-world=domains] .play-sigil i:nth-child(7){border-color:var(--cyan);background:#103545}
+.play-intro[data-world=domains] .play-sigil i:nth-child(5){border-color:var(--gold);background:#4a3d1d;transform:scale(1.12)}
+.play-intro[data-world=numbers] .play-sigil i{border-color:#9369ae;background:#21192b}
+.play-intro[data-world=numbers] .play-sigil i:nth-child(5){border-color:var(--gold);background:#4a3d1d;transform:scale(1.12);box-shadow:0 0 18px rgba(255,202,85,.35)}
+.play-intro[data-world=pulse] .play-sigil i:nth-child(2),.play-intro[data-world=pulse] .play-sigil i:nth-child(4),.play-intro[data-world=pulse] .play-sigil i:nth-child(5),.play-intro[data-world=pulse] .play-sigil i:nth-child(6),.play-intro[data-world=pulse] .play-sigil i:nth-child(8){border-color:var(--gold);background:linear-gradient(135deg,#123646,#473b1e);box-shadow:0 0 18px rgba(255,202,85,.22)}
+.play-intro[data-world=pulse] h1 em{color:var(--gold)}
+.play-intro-readout{position:absolute;right:0;bottom:0;display:grid;justify-items:end}
+.play-intro-readout small{color:#6f8c9a;font:700 8px ui-monospace,monospace;letter-spacing:.15em}
+.play-intro-readout span{margin-top:4px;color:#b9cdd6;font:700 10px ui-monospace,monospace}
+.play-dock{top:8px;margin-top:12px}
+.play-dock #play{min-width:105px;padding-inline:18px}
+.play-reading-after{margin-top:18px}
+.play-reading-after>div{display:flex;gap:22px;flex-wrap:wrap}
+.play-reading-after a{padding:8px 0}
+.play-reading-after p{margin:4px 0}
+@media(max-width:980px){.play-head{align-items:flex-start}.play-head nav{width:100%}.play-nav-games{width:100%;overflow-x:auto}.play-nav-games button{flex:0 0 auto}.play-nav-meta{margin-left:0}.play-intro{grid-template-columns:1fr;min-height:0}.play-intro-visual{min-height:230px}.play-sigil{grid-template-columns:repeat(3,42px);grid-template-rows:repeat(3,42px);padding:32px}.play-intro-readout{right:5%;bottom:0}}
+@media(max-width:620px){.play-nav-meta{width:100%;padding:10px 0 0;border-left:0;border-top:1px solid #294a5a}.play-intro{padding:34px 0}.play-intro h1{font-size:clamp(42px,15vw,72px)}.play-sequence{display:grid;grid-template-columns:repeat(4,1fr)}.play-sequence li{min-width:0}.play-intro-visual{min-height:210px}.play-sigil{grid-template-columns:repeat(3,36px);grid-template-rows:repeat(3,36px);gap:6px;padding:28px}.play-intro-readout{display:none}}

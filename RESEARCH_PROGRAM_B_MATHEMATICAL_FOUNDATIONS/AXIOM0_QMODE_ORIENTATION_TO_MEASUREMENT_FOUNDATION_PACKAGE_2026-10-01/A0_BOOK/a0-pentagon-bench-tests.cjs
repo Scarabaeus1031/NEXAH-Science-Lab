@@ -53,6 +53,7 @@ async function main(){
  const stubNames=['stopRootEngine','resetPxaJourney','render','renderEdgeCore','renderPascalShadow','renderFamilyOrientation','renderExperimentCorridor','renderGoReturnLab','renderRoot838','stopPascalLensMotion','setRootEngineRunning','holdPxaJourney'];
  vm.runInContext(`let masterDemoTimer=null,masterAutoTimer=null,masterAutoTour=false,pascalLensTimer=null,masterDemoState=C.createMasterDemonstratorState(),initial=C.createState(),state=C.createState(),edgeState=C.createEdgeState(),rootEngineState=C.createRootSpaceEngine(),familyThetaStep=0,goReturnPathIndex=0,defgSeriesStep=0,root838Mode='q4',stateRelationMode='state',shadowSides=0,pascalLensMode='';
  const $=id=>({value:id==='masterDemoSpeed'?'100':id==='goReturnSheet'?'retain':'7',scrollIntoView(){}});
+ ${extract('  const masterLoopEnabled =','\n')}
  ${stubNames.map(n=>'function '+n+'(){}').join('\n')}
  function renderMasterDemo(scroll=false,execute=false){if(execute)executeMasterPhase(masterDemoState.currentPhase);}
  ${extract('  function stopMasterDemo()','  function focusMasterPhase(')}

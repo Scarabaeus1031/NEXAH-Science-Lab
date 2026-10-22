@@ -1,0 +1,36 @@
+{
+  "date": "2026-10-22",
+  "scope": "Bounded local UI integration of existing DJ source and Family Club views",
+  "status": "ENGINEERING_CHECKS_PASS_BROWSER_ACCEPTANCE_OPEN",
+  "identity_effect": "Reuses existing original source and draft; no canonical identity, Family, relation, study or admission changes",
+  "source": "A0_CURSOR_HANDOFF_CLICKDUMMY.html",
+  "source_inline_engine_sha256": "e5802ca4795d6c5cb0d248708fba1a78d73072dc3e985366787a787d54f8bd72",
+  "source_engine_changed": false,
+  "implementation": [
+    "a0-club-return-monitor.js",
+    "a0-club-return-monitor.css",
+    "a0-club-deck-receipt.js"
+  ],
+  "receipt_fields": ["plate", "q4Address", "q4Bits", "layer", "deskIndex"],
+  "transport": "postMessage, exact iframe/parent source and same/null origin checks, bounded integer schema; standalone coordinate-only URL query",
+  "selection": "Pauses original source and dispatches the existing station/sector handler; no replacement arithmetic or playback engine",
+  "return": "Hold with source acknowledgment, select retained coordinate on return, compare three coordinate fields. Open layer or missing acknowledgment is HOLD.",
+  "projection": "Same source-local Gray forward/reverse/forward 16x3 layout, no 48-to-21 Family mapping",
+  "shared_scientific_clock": false,
+  "mixer_or_lens_state_transferred": false,
+  "qrt_crt_science_return_proven": false,
+  "browser_pixels_and_file_origin_acceptance": "OPEN; no rendered browser validation claimed",
+  "checks": {
+    "return_monitor": 146,
+    "family_navigator": 891,
+    "family_ux": 423,
+    "tours": 129,
+    "deck_lifecycle": 50,
+    "room_routes": 122,
+    "shared_shell": 24,
+    "spatial_preview": 90,
+    "source_graph": "PASS, 20 components, base 266/29, composed 269/32",
+    "app": "PASS 252/252"
+  },
+  "authority_effect": "No scientific replay, activation, claim promotion, adoption or publication"
+}

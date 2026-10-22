@@ -4,7 +4,7 @@
   else root.A0SystemBinder=api;
 })(typeof globalThis!=='undefined'?globalThis:this,function(){
   'use strict';
-  const VERSION='1.2.0';
+  const VERSION='1.3.0';
   const SCHEMA='nexah.a0.ocb-system-binder/1';
   const PHASES=Object.freeze(['SOURCE','OPERATOR','EDGE','SHADOW','FAMILY','GRID','RETURN','FOLD','ROOT','RECORD']);
   const SYSTEMS=Object.freeze([
@@ -86,6 +86,7 @@
     }
     function stopTimer(){if(timer){win.clearInterval(timer);timer=null}}
     function sync(){
+      const source=win.A0MasterDemoBridge?.snapshot?.();if(state.running&&source&&!source.running&&source.phaseIndex!==PHASES.length-1&&!win.A0MasterDemoBridge?.isPending?.()){pauseAll(true);return;}
       const master=win.A0MasterDemoBridge?.snapshot?.();if(master){state=setPhase(state,master.phaseIndex);if(state.running&&!master.running&&master.phaseIndex===PHASES.length-1&&!win.A0MasterDemoBridge?.isPending?.()){refreshSystems();state=finish(state,now());win.A0ApertureMeasurementController?.stop?.();win.A0ApertureStackController?.stop?.();stopTimer();}}
       refreshSystems();render();
     }
@@ -97,10 +98,12 @@
     function pauseAll(manual=false){stopTimer();win.A0MasterDemoBridge?.pause?.();win.A0ApertureMeasurementController?.stop?.();win.A0ApertureStackController?.stop?.();win.A0FourApertureNinefoldController?.stop?.();state=pause(state,manual);refreshSystems();render()}
     async function stepAll(){if(state.status==='IDLE')await connectAll();win.A0ApertureMeasurementController?.step?.();win.A0ApertureStackController?.step?.();win.A0MasterDemoBridge?.step?.();sync()}
     function resetAll(){stopTimer();win.A0MasterDemoBridge?.reset?.();win.A0ApertureMeasurementController?.stop?.();win.A0ApertureStackController?.reset?.();win.A0FourApertureNinefoldController?.reset?.();for(const c of [win.A0PentagonBench,win.A0Life03Bench]){try{c?.setFollow?.(false)}catch(_){}}state=createState();refreshSystems(true);render()}
-    function exportReceipt(){const payload=buildReceipt(state,Object.fromEntries(SYSTEMS.map(x=>[x.id,recordFor(x.id)]))),url=win.URL.createObjectURL(new win.Blob([JSON.stringify(payload,null,2)],{type:'application/json'})),a=doc.createElement('a');a.href=url;a.download='a0-ocb-system-binder-session.json';a.click();win.setTimeout(()=>win.URL.revokeObjectURL(url),1000);return payload}
+    function sessionReceipt(){return{...buildReceipt(state,Object.fromEntries(SYSTEMS.map(x=>[x.id,recordFor(x.id)]))),viewingLoop:win.A0MasterDemoBridge?.loopSnapshot?.()||null,observedConnections:win.A0BinderConnectionsView?.snapshot()||null};}
+    function exportReceipt(){const payload=sessionReceipt(),url=win.URL.createObjectURL(new win.Blob([JSON.stringify(payload,null,2)],{type:'application/json'})),a=doc.createElement('a');a.href=url;a.download='a0-ocb-system-binder-session.json';a.click();win.setTimeout(()=>win.URL.revokeObjectURL(url),1000);return payload}
     byId('systemBinderConnect').addEventListener('click',connectAll);byId('systemBinderStart').addEventListener('click',play);byId('systemBinderPause').addEventListener('click',()=>pauseAll(false));byId('systemBinderStep').addEventListener('click',stepAll);byId('systemBinderReset').addEventListener('click',resetAll);byId('systemBinderExport').addEventListener('click',exportReceipt);
+    byId('systemBinderLoop')?.addEventListener('change',()=>win.A0MasterDemoBridge?.setLoop?.(byId('systemBinderLoop').checked));
     doc.addEventListener('visibilitychange',()=>{if(doc.hidden&&state.running)pauseAll(true)});win.addEventListener?.('pagehide',()=>pauseAll(true));
-    refreshSystems();render();return Object.freeze({connectAll,play,pause:pauseAll,step:stepAll,reset:resetAll,exportReceipt,get state(){return copy(state)},get receipt(){return buildReceipt(state,Object.fromEntries(SYSTEMS.map(x=>[x.id,recordFor(x.id)])))}});
+    refreshSystems();render();return Object.freeze({connectAll,play,pause:pauseAll,step:stepAll,reset:resetAll,exportReceipt,get state(){return copy(state)},get receipt(){return sessionReceipt();}});
   }
   return{VERSION,SCHEMA,PHASES,SYSTEMS,createState,updateSystem,setPhase,start,pause,finish,orientationRecord,externalStatus,buildReceipt,buildSummary,mount};
 });

@@ -1,0 +1,40 @@
+{
+  "schema": "a0.binder-acceptance-check/1",
+  "date": "2026-10-22",
+  "implementation_revision": "binder-live-r9",
+  "implementation_return": "a0-binder-live-connections-return-2026-10-22.json",
+  "status": "SOFTWARE_ACCEPTANCE_PASS_BROWSER_ACCEPTANCE_OPEN",
+  "scope": "Bounded engineering verification of existing adapters, not a scientific run or whole-machine acceptance.",
+  "working_directory": "A0_BOOK",
+  "executed_tests": [
+    {"command": "node a0-binder-connections-tests.cjs", "status": "PASS", "checks": 200},
+    {"command": "node a0-bench-source-links-tests.cjs", "status": "PASS", "checks": 1471},
+    {"command": "node a0-ihara-cubic-bench-tests.cjs", "status": "PASS", "checks": 2383},
+    {"command": "node a0-player-bench-link-tests.cjs", "status": "PASS", "checks": 261},
+    {"command": "node a0-system-binder-tests.cjs", "status": "PASS", "checks": 51},
+    {"command": "node a0-one-one-bench-tests.cjs", "status": "PASS", "checks": 67}
+  ],
+  "total_assertions_in_executed_suites": 4433,
+  "assertions_are_not_independent_experiments": true,
+  "integrity": {"r9_implementation_pins": "10/10 MATCH", "git_diff_check": "PASS", "source_graph_validator": "PASS; 20 components; base 266/29; composed 269/32"},
+  "verified_in_dom_doubles": [
+    "M3 step updates the shared Stack source cursor and Binder sample; separate running flags remain explicit.",
+    "Live Pascal follows accepted receipts; explicit capture becomes HELD and does not move on later receipts; explicit follow resumes current input.",
+    "Missing live source clears current Pascal data to HOLD; rendering cannot resurrect stale live input.",
+    "Ihara accepted turn commits; immediate reverse is BLOCK and retains the current directed edge.",
+    "Binder mount/reconnect adds no timer, playback command or source step."
+  ],
+  "browser_acceptance": {
+    "status": "OPEN_NOT_EXECUTED",
+    "reason": "Local file browser access was previously policy-denied; no alternate transport or access workaround used.",
+    "entry": "A0_ORIENTATION_CONTROLLER_BENCH.html#systemBinder",
+    "manual_checks": [
+      "Reload Bench; use available-contract reconnect if needed. Step M3 once: Stack source index and Binder sample must agree.",
+      "In the bound Club monitor, observe live Pascal, capture input, then change Player input: held word must stay fixed. Re-enable follow: current word must return.",
+      "Commit Ihara C or D, note edge, then request reverse: BLOCK must appear without changing that edge."
+    ],
+    "new_owner_visual_evidence": null
+  },
+  "historical_boundary": "Known legacy M3 and Mathfield package-pin conflicts remain open. This is not an all-suite PASS and does not replace earlier partial owner screenshots.",
+  "authority": {"canonical_ids_changed": false, "canonical_relations_changed": false, "research_activated": false, "claim_promoted": false, "publication_authorized": false, "whole_machine_pass": false}
+}

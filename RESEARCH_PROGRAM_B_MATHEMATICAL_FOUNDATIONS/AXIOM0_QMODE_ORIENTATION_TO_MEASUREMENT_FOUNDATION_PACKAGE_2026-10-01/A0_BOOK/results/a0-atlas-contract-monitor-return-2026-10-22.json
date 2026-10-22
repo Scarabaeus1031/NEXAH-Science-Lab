@@ -1,0 +1,39 @@
+{
+  "schema": "a0.atlas-contract-monitor-return/1",
+  "date": "2026-10-22",
+  "status": "IMPLEMENTED_SOFTWARE_TESTED_BROWSER_ACCEPTANCE_OPEN",
+  "entry": "assets/game-of-worlds-play/three-domain-transition-test/index.html#atlas",
+  "reused_module": "MOD:NUMBER_VIEW_SUITE; existing Three-Domain Atlas, source models, lenses and routes",
+  "contract": "../assets/game-of-worlds-play/three-domain-transition-test/atlas-contract-v1.json",
+  "implemented": [
+    "Same-document read-only monitor, mounted before original app.js after existing lens event listeners; reads original threedomain:render and actual rendered fields/follow controls.",
+    "Nine named contracts; three native source generation/ledger checks and six typed view readbacks. FOLLOWING is readback alignment, not a whole-machine or scientific PASS.",
+    "LOCAL override, HOLD_SOURCE, HOLD_MISSING_VIEW, HOLD_STALE_VIEW, HOLD_PHASE and HOLD_HIDDEN remain explicit; source reload starts without an accepted event.",
+    "Readout JSON export; no simulation clock, postMessage command, model step, second iframe or replacement recurrence.",
+    "Existing Bench/Binder and Seed-Cross link to original Atlas source. Navigation is not a live bridge to an already-open Game tab."
+  ],
+  "not_implemented_and_not_inferred": [
+    "Cross-window Atlas to Bench session/freshness/coordinate bridge",
+    "Atlas to manual seed (1,1) Cross source/index/return map",
+    "Game Ihara to Bench Ihara directed-state or journal identity",
+    "Historical Glyph/Vendissimal decoder or 3|666|9 to geometry operator",
+    "Pentagon/Coil/Janus shared seam and operator identity"
+  ],
+  "verification": {
+    "new_test": "node a0-atlas-contracts-tests.cjs",
+    "new_checks": 755,
+    "scope": "241 generation/readback fixtures; original app.js and one native source step with original engine in DOM/canvas doubles; local/stale/missing/hidden checks, export and source detach; no browser pixels or scientific run",
+    "regressions": {"atlas": 10, "euler": 6, "fibonacci": 11, "ihara": 13, "k_teller": 5, "blue_body": 10, "standalone_lenses": 16, "seed_cross": 426, "binder_connections": 200},
+    "all_listed_tests": "PASS",
+    "git_diff_check": "PASS",
+    "browser": "OPEN; local file browser access was not bypassed",
+    "known_historical_pin_conflicts": "Coxeter/Pink, M3 and Mathfield remain version-specific and open; not repaired or represented as all-suite PASS"
+  },
+  "implementation_pins": [
+    {"path": "assets/game-of-worlds-play/three-domain-transition-test/atlas-contracts.js", "sha256": "2e0b836aa0aace0194b10eaf858f327d07e8f9e98ee7b61a1832caadce9f6dc4"},
+    {"path": "assets/game-of-worlds-play/three-domain-transition-test/atlas-contracts.css", "sha256": "780dbbc66538f053ed81ae5704fc8c28b23d028c477a7e690a5f161dcd41916f"},
+    {"path": "assets/game-of-worlds-play/three-domain-transition-test/atlas-contract-v1.json", "sha256": "411bbf9d809ef8ae8fee4f07ce208d588a7699ca852c6242557a0e6357107d44"},
+    {"path": "a0-atlas-contracts-tests.cjs", "sha256": "af15b066674ca972f26f0fab2e782cfe6b819fb9923242e2c6d1eedcd5759184"}
+  ],
+  "authority": {"new_canonical_identity": false, "new_canonical_relation": false, "research_activation": false, "claim_promotion": false, "publication_authorized": false, "whole_machine_return": false}
+}

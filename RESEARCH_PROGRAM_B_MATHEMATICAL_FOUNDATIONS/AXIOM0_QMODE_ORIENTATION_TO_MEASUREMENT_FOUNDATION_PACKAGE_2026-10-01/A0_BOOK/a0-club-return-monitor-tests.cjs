@@ -1,0 +1,102 @@
+const assert=require('node:assert/strict'),fs=require('node:fs'),vm=require('node:vm');
+const api=require('./a0-club-return-monitor.js');let checks=0;
+const eq=(a,b)=>{assert.deepEqual(a,b);checks++},ok=x=>{assert.ok(x);checks++};
+const state=(address=0,layer=0)=>({plate:'tessarec',q4Address:address,q4Bits:address.toString(2).padStart(4,'0'),layer,deskIndex:layer===null?null:layer*16+(layer===1?15-api.GRAY.indexOf(address):api.GRAY.indexOf(address))});
+for(let l=0;l<3;l++)for(let a=0;a<16;a++){const s=state(a,l);eq(api.receipt(s),s);eq(api.compare(s,s),{status:'MATCH',residual:0});}
+for(const patch of [{q4Address:16},{q4Address:-1},{q4Address:1.5},{layer:3},{layer:undefined},{q4Bits:'11111'},{deskIndex:99},{plate:'other'}])eq(api.receipt({...state(),...patch}),null);
+eq(api.compare(state(1,null),state(1,null)),{status:'HOLD',residual:null});
+eq(api.compare(state(0),state(1)),{status:'CHANGED',residual:2});
+function fixture(){
+ const listeners={},timers=new Map();let clock=0;
+ function el(){return{dataset:{},children:[],attrs:{},events:{},append(x){this.children.push(x)},getAttribute(k){return this.attrs[k]},setAttribute(k,v){this.attrs[k]=v},addEventListener(k,f){this.events[k]=f}}}
+ const nodes=Object.fromEntries(['clubReturnMonitor','clubReturnField','clubReturnPosition','clubReturnResult','clubReturnFamily','clubReturnCheck','clubReturnPlay'].map(id=>[id,el()]));
+ const doc={getElementById:id=>nodes[id],createElement:el,addEventListener(k,f){listeners['doc:'+k]=f}};
+ const win={location:{origin:'null',href:'file:///demo.html'},addEventListener(k,f){listeners[k]=f},setTimeout(f){timers.set(++clock,f);return clock},clearTimeout(id){timers.delete(id)},requestAnimationFrame:f=>f(),A0FamilySpatialReader:{snapshot:()=>({family:'F3',stop:'theta'})}};
+ const monitor=api.mount(doc,win),messages=[],source={postMessage:m=>messages.push(m)},frame={contentWindow:source,addEventListener(k,f){this[k]=f}};
+ monitor.watchFrame(frame);frame.load();
+ const emit=(s,id,from=source,origin='null',running=false)=>listeners.message({source:from,origin,data:{type:api.TYPE,source:api.SOURCE,receipt:s,id,running}});
+ return{nodes,win,doc,monitor,messages,frame,emit,timers,listeners,source};
+}
+const f=fixture();eq(f.nodes.clubReturnField.children.length,3);eq(f.nodes.clubReturnField.children.flatMap(r=>r.children.slice(1)).length,48);
+f.emit(state(3,1),undefined,{});eq(f.monitor.snapshot().current,null);
+f.emit(state(3,1),undefined,f.source,'https://untrusted.invalid');eq(f.monitor.snapshot().current,null);
+f.emit(state(3,1));eq(f.monitor.snapshot().current,state(3,1));ok(f.nodes.clubReturnFamily.textContent.includes('F3'));
+const before=f.messages.length;f.monitor.depart();eq(f.messages.length,before);f.monitor.returned();
+const command=f.messages.at(-1);eq(command.action,'read');eq(command.receipt,undefined);
+f.emit(state(3,1),command.id);ok(f.nodes.clubReturnResult.textContent.includes('MATCH'));eq(f.timers.size,0);
+f.emit(state(3,1));ok(f.nodes.clubReturnResult.textContent.includes('MATCH'));
+f.emit(state(4,1),undefined,f.source,'null',true);ok(f.nodes.clubReturnResult.textContent.includes('LIVE MATCH'));
+eq(f.monitor.snapshot().running,true);
+f.nodes.clubReturnPlay.events.click();eq(f.messages.at(-1).action,'play');eq(f.messages.at(-1).running,false);
+eq(f.monitor.auditProjection().status,'MATCH');
+f.nodes.clubReturnField.children[1].children.find(b=>b.dataset.address==='4').attrs['aria-pressed']='false';
+eq(f.monitor.auditProjection().status,'HOLD');
+const btn=f.nodes.clubReturnField.children[2].children[1];btn.events.click();
+const selected=f.messages.at(-1);eq(selected.receipt,state(0,2));f.emit(state(0,2),selected.id);
+eq(btn.attrs['aria-pressed'],'true');ok(f.nodes.clubReturnResult.textContent.includes('Δ = 0'));
+f.nodes.clubReturnCheck.events.click();for(const cb of f.timers.values())cb();ok(f.nodes.clubReturnResult.textContent.includes('HOLD'));
+f.monitor.detached();eq(f.monitor.snapshot().connected,false);eq(btn.disabled,true);
+const race=fixture();race.emit(state(2,0));race.monitor.depart();
+race.emit(state(3,0),undefined,race.source,'null',true);
+race.monitor.returned();eq(race.messages.at(-1).action,'read');
+race.emit(state(4,0),race.messages.at(-1).id,race.source,'null',true);
+eq(race.monitor.snapshot().current,state(4,0));ok(race.nodes.clubReturnResult.textContent.includes('LIVE MATCH'));
+const open=fixture();open.emit(state(2,null));open.nodes.clubReturnCheck.events.click();
+open.emit(state(2,null),open.messages.at(-1).id);ok(open.nodes.clubReturnResult.textContent.includes('3 mögliche Orte'));
+const slots=open.nodes.clubReturnField.children.flatMap(row=>row.children.slice(1));
+for(let address=0;address<16;address++){
+ open.emit(state(address,null),undefined,open.source,'null',true);
+ const candidates=slots.filter(b=>b.dataset.candidate==='true');
+ eq(candidates.length,3);ok(candidates.every(b=>b.dataset.address===String(address)));
+ eq(slots.filter(b=>b.attrs['aria-pressed']==='true').length,0);
+ ok(open.nodes.clubReturnResult.textContent.includes('LIVE'));
+ eq(open.monitor.auditProjection().status,'HOLD'); // No exact layer is fabricated.
+}
+const choice=slots.find(b=>b.dataset.address==='15'&&b.dataset.layer==='1');
+choice.events.click();open.emit(state(15,1),open.messages.at(-1).id);
+eq(choice.attrs['aria-pressed'],'true');eq(slots.filter(b=>b.dataset.candidate==='true').length,0);
+eq(open.monitor.auditProjection().status,'MATCH');
+const live=fixture(),qrt=require('./a0-club-qrt-demo.js').createSequence();
+live.win.A0ClubQRTDemo=qrt;
+const crtReceipts=[];live.win.A0ClubCRTLink={observe:s=>crtReceipts.push({...s})};
+live.emit(state(0,0),undefined,live.source,'null',true);
+for(let a=1;a<=5;a++)live.emit(state(a,0),undefined,live.source,'null',true);
+eq(qrt.snapshot().changes,5);eq(qrt.snapshot().step,0);
+eq(live.monitor.snapshot().current,state(5,0));ok(live.nodes.clubReturnResult.textContent.includes('LIVE MATCH'));
+eq(live.messages.filter(m=>m.action==='select').length,0);
+eq(crtReceipts.at(-1),state(5,0));
+ok(live.monitor.choose(7,1));eq(live.messages.at(-1).receipt,state(7,1));
+eq(live.monitor.choose(17,1),false);
+live.doc.hidden=true;live.listeners['doc:visibilitychange']();eq(live.messages.at(-1).action,'pause');
+// Execute the source adapter against the original API and existing UI handlers.
+const sourceJS=fs.readFileSync(__dirname+'/a0-club-deck-receipt.js','utf8');
+let s=state(2,1),paused=0,callback,published=[],observer;
+const parent={postMessage:m=>published.push(m)};
+const win={parent,A0CursorHandoffClickdummy:{snapshot:()=>s,pause:()=>paused++},addEventListener:(k,f)=>callback=f};
+const workspace={dataset:{transport:'playing'}},transport={click(){workspace.dataset.transport=workspace.dataset.transport==='playing'?'standby':'playing'}};
+const doc={getElementById:id=>id==='workspace'?workspace:transport,querySelector:selector=>({dispatchEvent(){const a=Number(selector.match(/address="(\d+)"/)[1]),l=selector.match(/layer="(\d+)"/);s=state(a,l?Number(l[1]):null)}})};
+vm.runInNewContext(sourceJS,{window:win,document:doc,location:{origin:'null'},MutationObserver:class{constructor(f){observer=f}observe(){}},MouseEvent:class{}});
+const request={type:api.TYPE,action:'select',id:42,receipt:state(9,2)};
+callback({source:{},origin:'null',data:request});eq(paused,0);
+callback({source:parent,origin:'null',data:request});eq(paused,0);eq(s,state(9,2));eq(published.at(-1).id,42);
+eq(published.at(-1).running,true);
+callback({source:parent,origin:'null',data:{type:api.TYPE,action:'play',running:false}});
+eq(workspace.dataset.transport,'standby');
+callback({source:parent,origin:'null',data:{type:api.TYPE,action:'play',running:false}});
+eq(workspace.dataset.transport,'standby');
+eq(JSON.parse(JSON.stringify(published.at(-1).receipt)),state(9,2));
+observer();eq(published.at(-1).id,undefined);
+const bad={...request,receipt:{...request.receipt,q4Address:'9'}};
+callback({source:parent,origin:'null',data:bad});eq(paused,0);
+// Standalone link transports a coordinate only, with playback paused.
+let click;const link={href:'file:///DRAFTS/demo.html#spatial-navigation',addEventListener:(k,f)=>click=f};
+const standalone={A0CursorHandoffClickdummy:win.A0CursorHandoffClickdummy,addEventListener(){}};
+standalone.parent=standalone;
+vm.runInNewContext(sourceJS,{window:standalone,document:{getElementById:()=>null,querySelectorAll:()=>[link]},location:{origin:'null',href:'file:///source.html'},URL,MouseEvent:class{}});
+click();eq(paused,1);const url=new URL(link.href);eq(url.hash,'#spatial-navigation');
+eq(JSON.parse(url.searchParams.get('clubReceipt')),state(9,2));
+const html=fs.readFileSync(__dirname+'/DRAFTS/A0_FAMILY_NAVIGATOR_DEMO.html','utf8');
+ok(html.includes('id="clubReturnMonitor"'));ok(html.indexOf('a0-club-return-monitor.js')<html.indexOf('a0-family-club-deck.js'));
+ok(!sourceJS.includes('setInterval'));ok(!sourceJS.includes('localStorage'));
+eq(f.monitor.snapshot().familyMapping,false);eq(f.monitor.snapshot().sharedClock,false);
+console.log(JSON.stringify({status:'PASS',checks,scope:'48 coordinates, invalid/open records, exact source-window/origin checks, selection/return acknowledgments, timeout HOLD, display continuity, original handler bridge; browser pixels OPEN'}));

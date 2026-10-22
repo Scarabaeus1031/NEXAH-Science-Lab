@@ -18,10 +18,11 @@ check(api.stations.length===5,"five curated Human Book chapters");
 check(!/heroCanvas|humanCanvas|ENTER THE RAIN|PLAY THE ALBUM|a0-context-navigation.js/.test(html),"no old competing starts or automatic navigation overlay");
 check((html.match(/<h1 /g)||[]).length===1,"one page title");
 check(/<noscript>/.test(html)&&/skip/.test(html),"no-JS and skip access");
-check(/href="https:\/\/scarabaeus1031\.github\.io\/NEXAH-Science-Lab\/book\/index\.html" class="brand"/.test(html),"NEXAH brand returns to the stable GitHub Pages A0 start");
-check(/NEXAH <span>ENTWURF<\/span>/.test(html),"draft is visibly labelled");
+check(/href="A0_NEXAH_APERTURE_JOURNEY\.html#human-view" class="brand"/.test(html),"NEXAH brand returns to the canonical Human View");
+check(/NEXAH <span>HUMAN DISCOVERY<\/span>/.test(html),"curated discovery role is visibly labelled");
 check(/href="A0_NEXAH_APERTURE_JOURNEY.html#human-view">Human View/.test(html),"draft returns to canonical Human View");
-check(/href="A0_GAME_OF_WORLDS_PLAY\.html\?world=life#life"/.test(html),"Human Book exposes direct Arkade gate");
+check(/href="A0_GAME_OF_WORLDS_PLAY\.html\?world=pulse&amp;humanPath=1#pulse"/.test(html),"Human Book hands off to ONE PULSE");
+check(/href="A0_GAME_OF_WORLDS_PLAY\.html\?world=life#life"/.test(html),"native LIFE source route remains available");
 for(const station of api.stations){
  const source=fs.readFileSync(path.join(__dirname,station.file),"utf8");
  if(station.focus!==false){check(source.includes('id="'+station.target+'"'),"existing source target "+station.target);check(source.includes('src="a0-human-instrument-focus.js"'),"source installs presentation only focus");check(focusApi.allowed[station.file].includes(station.target),"allowlisted focus "+station.target);check(api.sourceUrl(station).includes("?human-stage="+station.target+"#"+station.target),"source-only route")}else{check(source.includes('id="pickLife"')&&source.includes('id="pickNumbers"'),"Arkade reuses complete playable source");check(api.sourceUrl(station)==="A0_GAME_OF_WORLDS_PLAY.html?world=life#life","Arkade Human route")}

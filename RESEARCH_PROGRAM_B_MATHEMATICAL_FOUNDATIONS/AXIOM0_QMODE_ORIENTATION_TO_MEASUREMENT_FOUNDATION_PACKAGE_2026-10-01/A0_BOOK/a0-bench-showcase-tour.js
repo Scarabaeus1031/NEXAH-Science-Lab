@@ -243,7 +243,7 @@
     function pauseLocal(){optional('A0MaskObserverController','pause');optional('A0FoldLagView','pause');optional('A0CaroBenchController','pause');}
     function pausePlayers(preserveClock=false){if(!preserveClock&&win.A0MaskClockBench?.connected)optional('A0MaskClockBench','disconnect');pauseLocal();optional('A0SystemBinderController','pause',false);optional('A0ExternalAdapterPackController','pause');optional('A0ReturnEconomyController','pause');optional('A0FamilyGridCouplerController','pause');optional('A0CoupledWindowController','pause');optional('A0FourApertureNinefoldController','stop');const root=el('rootEnginePlay');if(root?.getAttribute?.('aria-pressed')==='true')root.click();}
     function render(){
-      const label=buttonLabel(state);for(const id of ['benchTourStart','benchTourTop','benchTourDockPlay'])if(el(id)){el(id).textContent=label;el(id).dataset.running=String(state.running);el(id).setAttribute('aria-pressed',String(state.running));}
+      const label=buttonLabel(state).replace('BENCH TOUR','VORFÜHRUNG').replace('TOUR','VORFÜHRUNG');for(const id of ['benchTourStart','benchTourTop','benchTourDockPlay'])if(el(id)){el(id).textContent=label;el(id).dataset.running=String(state.running);el(id).setAttribute('aria-pressed',String(state.running));}
       doc.body.classList.toggle('bench-tour-running',state.running);
       if(el('benchTourDock'))el('benchTourDock').hidden=state.index<0;
       [...progress.children].forEach((node,i)=>{node.classList.toggle('done',i<state.index||state.completed);node.classList.toggle('active',i===state.index&&!state.completed);});
@@ -332,5 +332,46 @@
     progress.innerHTML=STATIONS.map(()=>'<i></i>').join('');render();
     return Object.freeze({start:begin,pause,visit,startClockDemo,get state(){return{...state}},stations:STATIONS});
   }
-  return{VERSION,STATIONS,CHAPTERS,createState,nextState,buttonLabel,mount};
+  const OVERVIEW=Object.freeze([
+    {target:'bodyRouteBench',title:'1 · Die Körper',copy:'Hier liegen die Originalkörper. Du kannst ein Quellfenster öffnen; der Rundgang lädt und startet es nicht.'},
+    {target:'orbitGridJoints',title:'2 · Grids und Teller',copy:'Kreis, Raster und Teller zeigen unterschiedliche Ansichten. Schau zuerst auf die Geometrie, danach auf die Regler.'},
+    {target:'maskObserverBench',title:'3 · Der Blick durch die Maske',copy:'Die Maske entscheidet, welcher Ausschnitt sichtbar wird. Sichtbarkeit und vollständige Quelle bleiben getrennt.'},
+    {target:'apertureMeasurement',title:'4 · Ein Record, mehrere Ansichten',copy:'M3 zeigt denselben geordneten Sample-Record als Spur, Zylinder oder Draufsicht. Die Ansicht ist nicht die Messung.'},
+    {target:'anuTowerWorkbench',title:'5 · Der Tower',copy:'Sechs Plates lesen denselben Record. Sichtbare und verdeckte Samples bleiben erhalten; ANU ist die noch offene Return-Schale.'},
+    {target:'pulseBenchMonitor',title:'6 · Ein Puls aus dem Game',copy:'Dieser Monitor kann LIFE und Three Domains gemeinsam lesen. Verbinden und PLAY sind eigene, bewusste Schritte.'},
+    {target:'carrierReturnWorkbench',title:'7 · Schnitt und Rückweg',copy:'11537 und 11573: ganze Zahl, Restansichten und zwei getrennte Spiegelregeln. Hier kannst du einen exakten Rückweg selbst ausprobieren.'},
+    {target:'benchWorkDesk',title:'8 · Dein Arbeitsplatz',copy:'Erst hier kommt die Anschlussübersicht. Sie zeigt, welche Quelle schon antwortet und welcher nächste Schritt sinnvoll ist.'}
+  ].map(Object.freeze));
+  function mountOverview(doc,win){
+    if(!doc.getElementById('benchGuideTop')||doc.getElementById('benchGuideBar'))return null;
+    const bar=doc.createElement('aside');bar.id='benchGuideBar';bar.className='bench-guide-bar';bar.hidden=true;bar.setAttribute('aria-label','Geführter Bench-Rundgang');
+    bar.innerHTML='<div><small id="benchGuideCount"></small><h2 id="benchGuideTitle" tabindex="-1"></h2><p id="benchGuideCopy"></p></div><nav aria-label="Rundgang bedienen"><button type="button" id="benchGuidePrev">← Zurück</button><button type="button" id="benchGuideNext">Weiter →</button><button type="button" id="benchGuideClose">Hier bleiben ×</button><a id="benchGuideFoyer" href="#benchFoyer">Zum Foyer</a></nav>';
+    bar.setAttribute('data-tour-ui','');doc.body.append(bar);const el=id=>doc.getElementById(id);let index=-1,focus=null,active=false;
+    function close(){active=false;bar.hidden=true;focus?.classList.remove('bench-guide-focus');focus=null;}
+    function visit(i){
+      if(!Number.isInteger(i)||i<0||i>=OVERVIEW.length)throw Error('Unbekannte Rundgangstation');
+      const station=OVERVIEW[i],node=el(station.target);if(!node){el('benchGuideCopy').textContent='Dieser Bereich ist noch nicht verfügbar. Du kannst weitergehen oder im Foyer ein Instrument wählen.';return false;}
+      index=i;active=true;bar.hidden=false;focus?.classList.remove('bench-guide-focus');focus=node;
+      for(let p=node;p;p=p.parentElement)if(p.tagName==='DETAILS')p.open=true;
+      doc.body.classList.remove('bench-foyer-mode','bench-area-mode');node.classList.add('bench-guide-focus');
+      win.location.hash='#'+station.target;node.scrollIntoView({block:'start',behavior:'auto'});
+      el('benchGuideCount').textContent=(i+1)+' / '+OVERVIEW.length+' · NUR UMSCHAUEN · KEINE AUTOMATIK';
+      el('benchGuideTitle').textContent=station.title;el('benchGuideCopy').textContent=station.copy;
+      el('benchGuidePrev').disabled=i===0;el('benchGuideNext').textContent=i===OVERVIEW.length-1?'Rundgang abschließen':'Weiter →';
+      el('benchGuideTitle').focus?.({preventScroll:true});return true;
+    }
+    function start(){
+      if(win.A0BenchShowcaseTourController?.state?.running){if(el('benchGuideNotice'))el('benchGuideNotice').textContent='Die Engine-Vorführung läuft. Bitte dort zuerst pausieren, dann den Rundgang starten.';return false;}
+      if(el('benchGuideNotice'))el('benchGuideNotice').textContent='';return visit(0);
+    }
+    for(const id of ['benchGuideTop','benchGuideStart']){el(id)?.setAttribute('data-tour-ui','');el(id)?.addEventListener('click',start);}
+    el('benchGuidePrev').addEventListener('click',()=>visit(Math.max(0,index-1)));
+    el('benchGuideNext').addEventListener('click',()=>{if(index===OVERVIEW.length-1){close();win.location.hash='#benchFoyer';}else visit(index+1);});
+    el('benchGuideClose').addEventListener('click',close);el('benchGuideFoyer').addEventListener('click',close);
+    win.addEventListener?.('hashchange',()=>{if(active&&win.location.hash!=='#'+OVERVIEW[index].target)close();});
+    doc.addEventListener('keydown',event=>{if(event.key==='Escape'&&active)close();});
+    doc.addEventListener('click',event=>{if(active&&event.target.closest?.('#benchTourTop, #benchTourStart'))close();},true);
+    return{start,visit,close,get state(){return{active,index,sourceWrites:false,automaticAdvance:false};}};
+  }
+  return{VERSION,STATIONS,CHAPTERS,OVERVIEW,createState,nextState,buttonLabel,mount,mountOverview};
 });

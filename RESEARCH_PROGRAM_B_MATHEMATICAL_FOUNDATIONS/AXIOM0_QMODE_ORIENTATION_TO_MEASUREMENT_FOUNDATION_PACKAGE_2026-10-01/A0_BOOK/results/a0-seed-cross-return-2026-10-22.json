@@ -1,0 +1,45 @@
+{
+  "schema": "a0.seed-cross-return/1",
+  "date": "2026-10-22",
+  "status": "IMPLEMENTED_SOFTWARE_TESTED_BROWSER_OPEN",
+  "entry": "A0_ORIENTATION_CONTROLLER_BENCH.html#seedCrossMonitor",
+  "scope": "Existing Gate 11 view extended; local pair arithmetic and declared plane, with read-only existing PENT witness and documentary tile reference. No new canonical identity.",
+  "contract": {
+    "seed": ["1", "1"],
+    "transition": "(a,b) -> (b,a+b)",
+    "representation": "BigInt arithmetic serialized as decimal strings; pair separator retained; never parse concatenation as prime eleven",
+    "step_limit": 128,
+    "back": "Recompute previous sequence index; not a source or machine inverse",
+    "cross": "Declared I=(1,0), J=(0,1); show aI+bJ and aI-bJ with uniform display scaling",
+    "pink_two": "Local Owner reading of connected seed ones; seed sum 2; Euclidean seed diagonal length sqrt(2), not 2",
+    "prime_eleven": "Separate integer 11, unchanged prime exponent address",
+    "pentagon": "Existing PENT adapter subscribe/exportRecord only; validate current six-field rendered witness using existing contract; pending/missing/invalid witness -> HOLD; never send source commands",
+    "tile": "Existing 16/17 Pentagon tile: 16 CRT channels begin at modulus 17, declared 15+1 layout. Documentary link, no live external-window binding.",
+    "seed_to_tile_mapping": null,
+    "additional_clock": false,
+    "whole_machine_return": false
+  },
+  "sources": [
+    "../../../NUMBER_OPERATOR_ARCHITECTURE_CONCORDANCE_AUDIT/09_CURRENT_RELEVANCE_TO_A0_TESSAREC_IHARA_2026-10-13.md: Owner four ones / pink two reading",
+    "../../../NEXAH_SEALED_COMPARISON_METHOD_0_1_2026-09-17/PRIME_INDEX_ORIENTATION_AUDIT.md: conditional orthonormal I/J embedding",
+    "a0-pentagon-contract.js: existing six-field UI witness contract",
+    "a0-pentagon-bench-adapter.js: existing confirmed source subscription",
+    "A0_PINK_DIAMOND_GRID_ATLAS.html#crt16-tile: existing documentary display contract"
+  ],
+  "implementation_pins": [
+    {"path": "a0-seed-cross.js", "sha256": "d775ecc40b9e1da4ccc7415a4f1f3a21a2872cf4c9676be866df8e9b1a39703c"},
+    {"path": "a0-seed-cross-tests.cjs", "sha256": "3643003aa887656b78ffaf1a4fd642fdb1755915168dd0da1fc422f2bf4c6d1e"}
+  ],
+  "verification": {"command": "node a0-seed-cross-tests.cjs", "checks": 426, "status": "PASS", "scope": "128 exact transitions, witness validation and actual controller in DOM double; no clock/source-write commands", "browser": "OPEN"},
+  "followup_source_inspection": {
+    "owner_screenshots": "2026-10-22 14:50:00, 14:50:56, 14:51:16; visible game views, not acceptance of the new seed panel",
+    "three_domains": "chemistry, life, physics; each has its own exact four-way transition partition C00/C01/C10/C11. Three domains are not three transition classes.",
+    "domain_source": "assets/game-of-worlds-play/three-domain-transition-test/domain-engine.js: transitionLedger",
+    "wheels_source": "a0-game-of-numbers-model.js: wheelConfig/wheelState/contract; a0-game-of-numbers.js: drawWheels",
+    "wheels_contract": "1836/1729 labels; declared rate presets 3:2 or 2:3, counter/co direction; 17/29 tooth display, fixed XIX/19 axis and seven-part outer reference. Neither a third driven wheel nor a historical rate reconstruction.",
+    "game_fibonacci": "Existing game declares seed (0,1), then recurrence (a,b)->(b,a+b). New seed panel starts at (1,1), the following pair, but has no live game cursor binding.",
+    "new_game_binding": null,
+    "pentagon_joint_regression": "717 checks PASS after including the new loop-policy dependency in the extracted-host fixture. Explicit PENT/LIFE joint sessions remain single-pass; ordinary Master/Binder viewing loop stays separate."
+  },
+  "authority": {"canonical_ids_changed": false, "canonical_relations_changed": false, "research_execution": false, "claim_promotion": false, "publication_authorized": false}
+}

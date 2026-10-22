@@ -1,0 +1,23 @@
+#familySpatialMount{--lamp-one:#1f6976;--lamp-two:#343a6e}
+#familySpatialMount[data-room=polar]{--lamp-one:#59387b;--lamp-two:#274c67}
+#familySpatialMount[data-room=plate]{--lamp-one:#765032;--lamp-two:#4d384e}
+#familySpatialMount[data-room=bluebody]{--lamp-one:#116378;--lamp-two:#253e88}
+#familySpatialMount[data-room=dodeca]{--lamp-one:#763253;--lamp-two:#35634b}
+#familySpatialMount .demo-navigation{grid-template-columns:minmax(260px,1.3fr) minmax(200px,1fr) minmax(230px,1fr) auto}
+#familySpatialMount .jukebox-light-control button{font-size:.73rem}
+#familySpatialMount .jukebox-light-control button[aria-pressed=true]{background:#c9e3e8;color:#071722;box-shadow:none}
+#familySpatialMount[data-light] .spatial-viewport{isolation:isolate}
+#familySpatialMount[data-light=read] .spatial-viewport{background:radial-gradient(ellipse at center,#132935,#05141d 80%)}
+#familySpatialMount[data-light=room] .spatial-viewport,#familySpatialMount[data-light=dance] .spatial-viewport{background:radial-gradient(ellipse at 12% 18%,var(--lamp-one),transparent 55%),radial-gradient(ellipse at 88% 80%,var(--lamp-two),transparent 60%),linear-gradient(135deg,var(--side-wash),#05141d 85%)}
+#familySpatialMount .spatial-viewport canvas{position:relative;z-index:1}
+#familySpatialMount .spatial-overlay{z-index:3}
+.jukebox-light-arrows{display:none;position:absolute;inset:0;align-items:center;justify-content:space-between;padding:0 4%;pointer-events:none;color:#a8d2dc;font:200 clamp(90px,14vw,200px)/1 Georgia,serif;opacity:.13;z-index:0}
+#familySpatialMount[data-light=room] .jukebox-light-arrows,#familySpatialMount[data-light=dance] .jukebox-light-arrows{display:flex}
+#familySpatialMount[data-light=dance] .spatial-viewport::before{content:"";position:absolute;inset:-20%;z-index:0;pointer-events:none;background:radial-gradient(ellipse at 25% 40%,var(--lamp-two),transparent 45%),radial-gradient(ellipse at 75% 60%,var(--lamp-one),transparent 45%);opacity:.35;animation:jukebox-light-drift 18s ease-in-out infinite alternate}
+#familySpatialMount[data-light=dance] .jukebox-light-arrows span{animation:jukebox-bracket-breathe 12s ease-in-out infinite alternate}
+#familySpatialMount[data-light=dance] .jukebox-light-arrows span:last-child{animation-delay:-6s}
+@keyframes jukebox-light-drift{from{transform:translate(-4%,-3%) rotate(-8deg)}to{transform:translate(4%,3%) rotate(8deg)}}
+@keyframes jukebox-bracket-breathe{from{opacity:.6;transform:translateX(-4px)}to{opacity:1;transform:translateX(4px)}}
+@media(max-width:1200px){#familySpatialMount .demo-navigation{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){#familySpatialMount .demo-navigation{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){#familySpatialMount[data-light=dance] .spatial-viewport::before,#familySpatialMount[data-light=dance] .jukebox-light-arrows span{animation:none!important}}

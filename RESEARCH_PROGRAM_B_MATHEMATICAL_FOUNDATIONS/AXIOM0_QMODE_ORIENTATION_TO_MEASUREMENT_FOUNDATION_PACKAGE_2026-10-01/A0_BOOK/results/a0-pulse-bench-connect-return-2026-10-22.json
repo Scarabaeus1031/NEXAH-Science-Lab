@@ -1,0 +1,44 @@
+{
+  "schema": "a0.local-engineering-return/1",
+  "date": "2026-10-22",
+  "scope": "ONE PULSE button-bound read-only Bench monitor and declared Coil display",
+  "status": "SOFTWARE_CHECKS_PASS_BROWSER_ACCEPTANCE_OPEN",
+  "identityReuse": ["MOD:NUMBER_VIEW_SUITE", "NEXAH_A0_ORIENTATION_CONTROLLER_BENCH"],
+  "newCanonicalEntities": 0,
+  "newCanonicalRelations": 0,
+  "source": "A0_GAME_OF_WORLDS_PLAY.html / A0OnePulseController / ACK-confirmed LIFE and Three Domains",
+  "receiver": "A0_ONE_PULSE_BENCH_MONITOR.html (embedded, no game engines); same panel mounted after systemBinder in full Bench",
+  "entry": "Game header: Bench verbinden; activates ONE PULSE and connects source readings, opens/reuses one monitor iframe, never PLAY",
+  "contract": {
+    "protocol": "a0.one-pulse-bench/1",
+    "binding": "exact source window, origin, random 128-bit token, fresh receiver channel per reconnect, monotonic request and response IDs",
+    "commandsFromMonitor": ["read"],
+    "freshness": "1200ms health READ, 3500ms timeout; native source ACK read coalesces with pending steps",
+    "timeoutHiddenDetached": "HOLD, no retained live record; explicit reconnect required",
+    "missingOrLocalAtlasView": "HOLD, never substitute zero",
+    "display": "Coil marker is declared g mod 48 projection of confirmed generation only; no animation timer or second gameplay clock",
+    "wholeMachineReturn": false,
+    "physicalCoilClaim": false,
+    "M3PentagonIharaIdentity": false
+  },
+  "checks": [
+    {"command": "node a0-pulse-bench-tests.cjs", "status": "PASS", "count": 543, "method": "receiver plus actual source/receiver mount code in DOM/window doubles"},
+    {"command": "node a0-one-pulse-session-tests.cjs", "status": "PASS", "count": 511},
+    {"command": "node a0-one-pulse-tests.cjs", "status": "PASS", "count": 60},
+    {"command": "node a0-game-of-worlds-play-tests.cjs", "status": "PASS", "count": 203},
+    {"command": "node a0-atlas-contracts-tests.cjs", "status": "PASS", "count": 755},
+    {"command": "node a0-player-bench-link-tests.cjs", "status": "PASS", "count": 261},
+    {"command": "node a0-binder-connections-tests.cjs", "status": "PASS", "count": 200},
+    {"command": "node GOVERNANCE/validate_source_graph.mjs", "status": "PASS", "base": "266/29", "composed": "269/32"},
+    {"command": "node APP/audit_app.mjs", "status": "PASS", "count": 252}
+  ],
+  "implementationPins": {
+    "a0-pulse-bench.js": "85cd7e5377ab606153da761c351258d660065f3cad1786df861417ee8203334e",
+    "a0-pulse-bench.css": "fe946c91f646c1415f211b5cbd13e72c9a70376582e21816a5653d2cdf579cb5",
+    "a0-pulse-bench-tests.cjs": "78b2e9095594a5c6ef06ec74cdeb1da4596596388b554585fe6145495da6c436",
+    "A0_ONE_PULSE_BENCH_MONITOR.html": "a1bc1882c3aa4557d7cd5f9744e6d088d96c47d36e47dab55eeb57f04660bba0",
+    "a0-one-pulse-session.js": "ccfcb028838ed2dab480a3b38d1f7f48b9c5df3ef56819f2b1b1c8beda067cfa"
+  },
+  "limitations": ["No browser pixels or human acceptance performed", "Owner is editing Game views concurrently; shared HTML/controller not frozen", "Historical source hash mismatches are not repinned", "No scientific run, activation, finding, publication or claim promotion", "Existing OPIUM Player receipt remains separate; this bridge binds ONE PULSE only"],
+  "manualAcceptance": ["Reload Game, click Bench verbinden", "Wait for confirmed source generation and connected readout", "Press PLAY in Game and verify Coil marker follows accepted generations", "Pause: marker holds; disconnect: live data clears", "Click outer Bench button again: same iframe reconnects", "Hide page and return: reconnect explicitly"]
+}

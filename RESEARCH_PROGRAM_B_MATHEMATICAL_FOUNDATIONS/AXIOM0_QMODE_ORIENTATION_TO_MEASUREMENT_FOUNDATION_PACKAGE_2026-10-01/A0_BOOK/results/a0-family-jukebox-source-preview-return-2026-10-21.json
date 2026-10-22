@@ -1,0 +1,65 @@
+{
+  "date": "2026-10-21",
+  "scope": "Display-only Rad/Jukebox switch and source-rendered Black Sun preview",
+  "implemented": [
+    "Rad and Jukebox retain the same local 16-address selection, reading and playback state",
+    "Duplicate station controls update together; display switch changes no source or clock",
+    "Original NEON renderer invoked at t=0 for low/window/high side-by-side",
+    "Original living mirror renderer invoked at t=0 for mirror reading",
+    "Readout values taken from existing STATES/operatorReadout; no copied formulas",
+    "Original full feature declines mounting on Atlas because its required original canvases are absent"
+  ],
+  "boundaries": [
+    "No 16-to-48 mapping or GC coupling",
+    "No changes to book/Mathfield/routes in other thread",
+    "Jukebox is a local station arrangement, not a new relation model",
+    "No new Critical Line or geometric zone interpretation",
+    "Source engines unchanged except exposing a synchronous preview renderer"
+  ],
+  "tests": {
+    "record_player": 247,
+    "preview_rendering": 3334,
+    "source_black_sun": 48,
+    "workshop": 188,
+    "spatial_navigation": 691,
+    "science_builder_path": 80,
+    "compact_navigation": 180,
+    "reader_navigation": "PASS:56 reachable surfaces",
+    "source_graph": "PASS:20 components,266/29 base,269/32 composed",
+    "navigator_app_audit": 252
+  },
+  "browser_visual_acceptance": "OPEN; finite draw-command tests are not pixel acceptance",
+  "authority_effects": {
+    "new_canonical_ids": 0,
+    "canonical_relations": 0,
+    "new_families": 0,
+    "research_activation": false,
+    "publication": false
+  },
+  "source_hashes": [
+    {
+      "file": "A0_FAMILY_CONNECTION_ATLAS.html",
+      "sha256": "9e420e12ff6187cbece3988b095040d7015c2ebb5d15e42a475b19b1746e2311"
+    },
+    {
+      "file": "a0-family-record-player.js",
+      "sha256": "c3444cac96d4ab3917eb1e412117c927623f1d0cbc556f5887e6cfbc4bfb4bb8"
+    },
+    {
+      "file": "a0-family-record-player-tests.cjs",
+      "sha256": "811213ada17e0a1718621ef73072a86191de8497402b956512c4416096d608e5"
+    },
+    {
+      "file": "a0-family-display-views.css",
+      "sha256": "f715ab13185ef10367bc6eb5750fa00e47c149dae52576770915238c922de10f"
+    },
+    {
+      "file": "a0-family-display-views-tests.cjs",
+      "sha256": "079e36625491b110e7b4e41bd03e78d46f150b12002083ad7ef979358233d077"
+    },
+    {
+      "file": "assets/a0-black-sun-big-moon-v1.js",
+      "sha256": "2a5bbd3607a23d3f73f8ddb0c3bff269fc8d325461f06e010fff653ff96e423e"
+    }
+  ]
+}

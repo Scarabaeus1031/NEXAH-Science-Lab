@@ -1,0 +1,52 @@
+{
+  "schema": "a0.binder-live-connections-return/1",
+  "date": "2026-10-22",
+  "revision": "binder-live-r9",
+  "status": "IMPLEMENTED_SOFTWARE_TESTED_BROWSER_ACCEPTANCE_OPEN",
+  "entry": "A0_ORIENTATION_CONTROLLER_BENCH.html#systemBinder",
+  "scope": "Existing Binder extended with three observed typed connections; no new canonical system, Family, graph relation or research activation.",
+  "activation": {
+    "on_mount": ["Enable existing M3 shared-source follow", "Enable Player-to-Pascal receipt follow", "Select existing cubic Ihara source and Visual1 follow"],
+    "never": ["start an engine", "step a source", "connect unrelated external runtime", "send Player controls", "add a timer", "assert a whole-machine PASS"],
+    "user_override": "Source-owned follow controls remain available. Manual Player-bit capture stops Pascal follow. Explicit reconnect re-enables the three declared contracts.",
+    "missing_source": "HOLD, not a local synthetic fallback or a stale live record"
+  },
+  "observations": {
+    "m3_stack": "Validate shared M3 trace fingerprint, sample cursor, Stack readback and plate-local visibility. Show actual M3 and Stack timer flags separately.",
+    "player_pascal": "Accept only current validated Player receipts from this Bench instance. Live import retains receipt sequence and full coordinate witness; Pascal return scope is four bits only. Open layer may supply bits but remains explicitly open.",
+    "held_vs_live": "Held input is labelled HELD and does not follow later packets. Missing Player source clears the LIVE record. Last held data can be displayed only as held.",
+    "ihara": "Compare cubic source index/revision/channel to Visual1 readback. Show manual edge, commit/BLOCK and TESA view. C5 selection remains SEPARATE, not implicitly coerced.",
+    "export": "Existing four-system Binder export adds observedConnections without changing the four systems or their legacy session controls."
+  },
+  "update_policy": {
+    "mechanism": "Source-owned subscribe callbacks, plus the existing Player monitor render/read watchdog",
+    "new_polling_or_model_clock": false,
+    "embedded_monitor": "Moves the same overview element into the existing embedded monitor; no duplicate dashboard IDs or second model. A standalone unbound Bench does not read other Club windows.",
+    "simultaneous_snapshot": false
+  },
+  "verification": {
+    "command": "node a0-binder-connections-tests.cjs",
+    "working_directory": "A0_BOOK",
+    "new_checks": 200,
+    "integration": "Actual M3, Stack, token-bound receiver, Pascal bridge, cubic graph, Visual1 and System Binder controllers in simulated DOM; 64 Player coordinates including open layer; live/held/HOLD recovery, event updates, source switching and embedded relocation.",
+    "no_start_evidence": "Mount/reconnect does not add intervals or timeouts, send receiver requests or advance graph revision. Tests trap unrequested Master/PENT commands.",
+    "regression_checks": {"source_links": 1471, "ihara_cubic": 2383, "player_bench": 261, "system_binder": 51, "one_one_bench": 67, "family_grid": 197, "simple_player": 113, "navigation_blueprint": 199, "visual1": "PASS"},
+    "browser_pixels": "OPEN",
+    "scientific_run_or_replay": false
+  },
+  "implementation_pins": [
+    {"path": "a0-binder-connections.js", "sha256": "89f72edfe71c74a83c80454f904fe9ffd280f1d159d98f446b3effb0200fbbaf"},
+    {"path": "a0-binder-connections.css", "sha256": "c569ec6cc510dc109cfde84f522defad82c43e0fe4d25d3bb151042488c81b08"},
+    {"path": "a0-binder-connections-tests.cjs", "sha256": "93cd068917db89181a037c184bbc55cfd36a3bd106feaab9a687c64eb825403a"},
+    {"path": "a0-player-pascal-bridge.js", "sha256": "fac1a2619449c405bf2618c77ac3d29dfae7cfe950a86d77676fc5de5d40b19c"},
+    {"path": "a0-player-bench-link.js", "sha256": "156be0664897868ce703765cb0a2a1dc8e6eccb2454d11d126d90db3994e3dc2"},
+    {"path": "a0-aperture-measurement.js", "sha256": "167612149cd0b84ef53a2cafc9550e2a6af63efb62e775296c092c8afb16ba45"},
+    {"path": "a0-aperture-stack-calibration.js", "sha256": "a1e3a2219f5a3d1c1fecaa0f6277820d914e67a8ea6b9b777365a537e72c6cd1"},
+    {"path": "a0-ihara-cubic-bench.js", "sha256": "329d3d6e5ed1db9fbf7d810012ec53d8973e08c4e8c021bb0ae6a7b8ab703b2f"},
+    {"path": "a0-visual1-grid-generator.js", "sha256": "3f984723eae3d5c8cfeb08c12c03431680ac5e22ef302fca751b10870f77afc8"},
+    {"path": "a0-system-binder.js", "sha256": "30cbe4fb890119340154c5fde02024d0a3bd8409d673cf2c7a27f45b476ebc1c"}
+  ],
+  "historical_boundary": "Earlier r7/r8 returns and the old M3 package hashes remain version-specific records, not current implementation pins. The known legacy M3/Mathfield pin conflicts are not repaired by this return; no global historical-suite PASS is claimed.",
+  "authority": {"new_canonical_identity": false, "new_canonical_relation": false, "research_execution": false, "claim_promotion": false, "publication_authorized": false},
+  "whole_machine_return": false
+}

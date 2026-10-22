@@ -10,6 +10,69 @@ Mission Control backlog: `RELATIONAL_IDENTIFIABILITY_UNDER_REPRESENTATION_CHANGE
 
 ## Purpose
 
+<a id="opium-builder-backlog-20261022"></a>
+
+### Builder-To-do / Wiedereinstieg — OPIUM, Club und 1,1 · 22.10.2026
+
+Owner-Auftrag: den offenen Bauzettel sichern, damit der nächste Einstieg
+ohne Quellenverlust möglich ist. Dieser Block gehört zum bestehenden
+Backlog; keine zweite Aufgabenregistry, neue Study oder automatische
+Build-/Forschungsaktivierung. Die Zeilen unten sind lokale Checklisten,
+keine neuen A0-BL- oder Finding-Identitäten.
+
+**Schon gebaut, nicht neu anfangen:** [OPIUM-Startübersicht](A0_BOOK/A0_OPIUM.html),
+Club/Player/Control Room, deklarierter Numbers-Elevator, lokale 1,1-Bench,
+Tower-Legende, Desk-/Log-/Protokoll-/Findings-Rückbindung und Notizenparkplatz.
+Softwareprüfungen sind dokumentiert; Browser-/Human-Abnahme ist noch offen.
+Nachtrag: Der separate lesende Player-Monitor ist softwareseitig implementiert;
+der lokale 1,1-Mischer bleibt davon getrennt. Browserabnahme weiterhin offen.
+
+| To-do | Status / Abhängigkeit | Konkrete nächste Aktion | Fertig, wenn / Grenze |
+|---|---|---|---|
+| 1 · OPIUM visuell abnehmen | OPEN · DOC-01 | Startvisual, Pause/Fortsetzen, Reduced Motion, schmale Ansicht, Tastatur/Fokus und sechs Instrumentlinks prüfen. | Beobachtetes Browserprotokoll mit Problemen oder Owner-Abnahme; keine Screenshot-/Browserprüfung behaupten, die nicht durchgeführt wurde. |
+| 2 · Club-Lauf und Raumwechsel prüfen | OPEN · DOC-01 | Player einmal starten; Family → Deck → Control Room wechseln; Abfolge, Follow, Pause, Reset, Loop und Trägerwechsel prüfen. | Dieselbe Deckinstanz und Trägersequenz bleiben erhalten; keine doppelte Uhr, keine falsche Family-/Q4-/Zahlenidentität. |
+| 3 · Vorhandenen 1,1-Test abnehmen | OPEN · nach 1/2 | In der Bench Anker erfassen; Faltstationen 78→33→7→0; Records vergleichen; gespeicherten Cursor zurücksetzen; Bench-Stack zwischendurch ändern. | Geometrie-Return und Record-CHANGED unterscheidbar; Cursor ist kein Inverses; geänderter Stack bleibt CHANGED; fehlende Records bleiben HOLD. |
+| 4 · Genau einen Player→Bench-Liveanschluss spezifizieren | IMPLEMENTED_SOFTWARE_TESTED / BROWSER_ACCEPTANCE_OPEN · DOC-10 | Lesenden Monitor aus laufendem Club öffnen; Quelle/Fenster/Origin/Sitzung/Sequenz und Q4-Konsistenz sind geprüft. Jetzt echten Fensterlauf, Timeout, Verbergen, Schließen und offene Lage im Browser abnehmen. | Frische Receipts über die vorhandene Bridge, einseitige Read-Anfragen, getrennte eigene Anker, keine Steuerbefehle oder zweite Abspieluhr. Siehe [Return](A0_BOOK/results/a0-player-bench-readonly-return-2026-10-22.json). Keine allgemeine Abbildung zwischen Trägern. |
+| 5 · Einen Verbindungsfall implementieren und prüfen | TWO_BOUNDED_ADAPTERS_IMPLEMENTED / BROWSER_OPEN · 22.10 | M3→Stack: gemeinsamer Trace/Fingerprint/Lesepunkt bei separater Plattenuhr. Player→Pascal: explizite Einzelübernahme der vier Bits in den vorhandenen Grid-/Bügel-Pfad mit Endpunkt-Verlustprobe und Faserordinal-Return. [Vertrag und Tests](A0_BOOK/results/a0-bench-two-source-links-return-2026-10-22.json). Beide neuen Ansichten im Browser abnehmen. | Return gilt nur für den jeweiligen Quellenrecord bzw. die vier Bits. Player→Aperture-Stack-Operator bleibt laut [Quellenprüfung](A0_BOOK/results/a0-player-aperture-contract-audit-2026-10-22.json) offen. Keine Abbildung aus gleicher Anzahl, Farben oder Plattenindizes; kein ganzer Player-Return, keine gemeinsame Uhr. Historischer M3-Implementierungspin bleibt als Versionskonflikt dokumentiert. |
+| 6 · Historischen Mathfield-Hashkonflikt disponieren | OPEN · DOC-02 | Abweichung aus dem Dokumentations-Return separat mit Originalpin, Isthash und tatsächlichem Änderungsgrund vergleichen. | Explizite Entscheidung behalten/Nachfolger/Reparatur. Keine pauschale Neupinnung alter Evidenz und kein allgemeiner Desk-PASS trotz fehlschlagendem Alt-Test. |
+| 7 · Nächsten geprüften Umfang zurückgeben | NACH ABNAHME / DOC-11 | Desk A0, Builder Log, Forschungsprotokoll und bestehende NSN-Quellenbindung um den tatsächlich geprüften Anschluss ergänzen. | Quellenpins/Projektionen scoped aktuell; Grenzen erhalten; kein Duplikatknoten, kein Findings- oder Publikationssprung. Die aktuelle Rückbindung ist bereits erfolgt. |
+| 8 · Paper-Beispiel oder präzise Finding-Kandidatur sichten | PARKED / Quellenabgleich · DOC-11 | Genau eine Aussage gegen vorhandene Paper-Passage und deren Beleg prüfen; Demonstrator, bekanntes Resultat und mögliche neue Frage auseinanderhalten. | Vorhandene Abdeckung benannt oder präzise offene Frage mit eigenem Gate. Keine neuen F-A0-Zeilen oder Manuskriptänderungen allein aus Visuals. |
+
+**Binder-Liveübersicht zu Paketen 4/5:** Die drei vorhandenen Anschlüsse M3→Stack,
+Player→Pascal und Ihara→Visual 1 sind als getrennte Karten im bestehenden Binder
+zusammengeführt. Beim Laden werden Follow-Verträge aktiviert, keine Engines oder
+zusätzlichen Uhren gestartet. Player-Pascal hat abschaltbares Live-Follow und
+weiterhin gehaltene Einzelübernahme. Fehlende Receipts bleiben HOLD.
+[Vertrag / 200 Integrationchecks](A0_BOOK/results/a0-binder-live-connections-return-2026-10-22.json).
+Nächster Schritt: Browserabnahme von Live/Gehalten/HOLD, sichtbaren Spielzuständen
+und dem gleichen Übersichtselement im eingebetteten Club-Monitor; kein neuer
+Gesamtmaschinen- oder inverser Vertrag.
+
+**Ergänzung zu Paket 5 · Ihara Grad 3:** TURN C/D sind als lokaler G(10,2)-Graphlauf
+mit dem Visual-1-Edge-Read verbunden; C5 bleibt separat auswählbar. Alle 120
+erlaubten Fortsetzungen und die Rücksprung-Gegenproben wurden softwaregeprüft.
+[Vertrag und 2.383 Checks](A0_BOOK/results/a0-ihara-cubic-bench-return-2026-10-22.json).
+Nächster Schritt: Browserabnahme der C/D-Kante, BLOCK ohne Quellenbewegung,
+C5/G(10,2)-Umschaltung und HOLD bei fehlender Quelle. Keine Prime-/Körperadresse
+in Graphknoten umdeuten; keine neue Uhr oder Gesamtmaschinen-Schließung.
+
+**Geparkt, nicht vergessen:** 1,1 als Schnitt; grüner Coil/F′/Generationen;
+orangefarbener RETURN-Teller; EP/SI/LP/SH/RT/RETURN ↔ AS/ST/EI/NS/SS/KZ/45°;
+CON–DAO-Zählung und 12.6/13.7; 11537/17er-Dodeka. Kontexte, Quellen und
+Wiederaufnahme-Anlässe stehen im
+[Notizen-Sheet](A0_BOOK/FIELD_NOTES_A0.md#gesammelte-gedanken-vom-22-oktober-2026),
+nicht als zusätzlich priorisierte Bauaufträge. Der ursprüngliche
+[DOC-01–12-Block](#documentation-followups-20261020) bleibt unverändert gültig.
+
+**Wiedereinstiegssatz:** „OPIUM-Builder-Backlog vom 22.10. lesen. Zuerst
+OPIUM, Club-Lauf und vorhandenen 1,1-Test visuell abnehmen. Danach genau
+einen read-only Player→Bench-Vertrag auswählen; kein neuer Gesamtmaschinenbau.“
+
+Rückwege: [Builder Log / Bauplan](A0_BOOK/A0_BUILDER_LOG.html#navigation-blueprint-20261021) ·
+[Desk-Intake](A0_BOOK/A0_RESEARCH_DESK.html#finding-intake-20261022) ·
+[Dokumentations-Return einschließlich Alt-Test-Konflikt](A0_BOOK/results/a0-club-desk-documentation-return-2026-10-22.json) ·
+[1,1-Prüfumfang](A0_BOOK/results/a0-one-one-bench-return-2026-10-22.json).
+
 ### Engineering-Return 2026-10-21 — DOC-01 / DOC-06 / DOC-10
 
 Owner beauftragt die begrenzten Bestands-/Bench-/Game-Schritte. Zwei lokale

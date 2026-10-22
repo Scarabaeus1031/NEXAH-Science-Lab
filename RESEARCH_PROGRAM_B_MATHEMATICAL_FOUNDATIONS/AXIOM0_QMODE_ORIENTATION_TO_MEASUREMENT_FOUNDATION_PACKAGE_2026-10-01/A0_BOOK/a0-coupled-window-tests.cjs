@@ -48,7 +48,7 @@ ok(html.includes('id="coupledWindow"'),'dialog anchor');
 ok(html.includes('a0-coupled-window.css'),'component stylesheet');
 ok(html.includes('a0-coupled-window.js'),'component script');
 ok(html.indexOf('a0-coupled-window.js')<html.indexOf('a0-bench-showcase-tour.js'),'window mounts before tour');
-ok(html.includes('BEREIT · 50 STATIONEN'),'tour count');
+ok(html.includes('BEREIT · 56 STATIONEN'),'tour count');
 ok(tour.includes("id:'moving-window'"),'moving window tour station');
 ok(tour.includes("scenario:'measurement'"),'tour maps measurement window');
 ok(tour.includes("requireCall('A0CoupledWindowController','open'"),'tour opens coupled stage through checked API');
@@ -75,4 +75,4 @@ for(const record of [...packageRecord.sources,...packageRecord.implementation]){
   equal(actual,record.sha256,`bound hash: ${record.path}`);
 }
 
-console.log(JSON.stringify({status:'PASS',checks,windowRecords:90,scenarios:14,tourStations:50,scope:'source-bound engineering window system; no new Study, carrier identity or graph relation'}));
+console.log(JSON.stringify({status:'PASS',checks,windowRecords:90,scenarios:14,tourStations:56,scope:'source-bound engineering window system; no new Study, carrier identity or graph relation'}));

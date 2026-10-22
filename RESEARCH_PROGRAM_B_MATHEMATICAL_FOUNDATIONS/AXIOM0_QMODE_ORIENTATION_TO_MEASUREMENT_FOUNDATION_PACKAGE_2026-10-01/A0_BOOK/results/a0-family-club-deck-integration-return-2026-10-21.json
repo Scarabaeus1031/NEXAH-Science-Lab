@@ -1,0 +1,46 @@
+{
+  "date": "2026-10-21",
+  "scope": "Club draft UX and source-bound embedding of existing DJ deck; no replacement deck implementation",
+  "entry": "DRAFTS/A0_FAMILY_NAVIGATOR_DEMO.html#club-deck-room",
+  "embedded_source_href": "../A0_CURSOR_HANDOFF_CLICKDUMMY.html#performanceConsole",
+  "source_sha256_before_and_after": "afec84955aa0d551f16445ab577e3c134a8577c940d19085b51bf7f72e8060e7",
+  "changes": [
+    "One visible Club navigation: Dancefloor, DJ deck, LJ light, MC guide and LDV room",
+    "Redundant Dancefloor-enter CTA and disabled upcoming-deck slot removed",
+    "DJ deck is loaded lazily as one embedded original source instance per Jukebox tab",
+    "Existing Turntable/Grammophon/Digital, N-AM/L-VM/G-PM mixer and 16x3 readout remain owned by original source",
+    "Deck, Family and LDV routes share Club shell and explicit return paths",
+    "Family selection, layout, camera and local reading history held across route changes",
+    "Leaving embedded deck invokes only its existing UI pause API when accessible; retains frame-local controls and never auto-resumes",
+    "If file-origin access/API is unavailable, iframe is removed so no hidden timer remains; next load explicitly reports restart and discarded frame-local state",
+    "Reload button explicitly declares local deck-stand discard; original opens separately on demand"
+  ],
+  "not_implemented": [
+    "No shared source state or clock",
+    "No Q4-layer to zeta/theta/beta mapping",
+    "No N-AM/L-VM/G-PM mixture applied to Family geometry or LDV visual",
+    "No automatic navigation receipt or scientific Return",
+    "No control of independent source tabs, source games or external instruments"
+  ],
+  "validation": {
+    "deck_adapter": {"status": "PASS", "checks": 50},
+    "ldv_and_routes": {"status": "PASS", "checks": 102},
+    "standalone_demo": {"status": "PASS", "checks": 575},
+    "club_ux": {"status": "PASS", "checks": 317},
+    "stage": {"status": "PASS", "checks": 55},
+    "glb": {"status": "PASS", "checks": 69},
+    "original_spatial_reader": {"status": "PASS", "checks": 691},
+    "source_graph": "PASS:20 components; base266/29; composed269/32",
+    "navigator_app_audit": {"status": "PASS", "checks": 252},
+    "browser_file_origin_embedding_and_visual_acceptance": "OPEN"
+  },
+  "authority_effects": {
+    "dj_source_file_modified": false,
+    "new_canonical_ids": 0,
+    "new_navigator_relations": 0,
+    "source_binders_modified": false,
+    "new_scientific_engine": false,
+    "publication": false,
+    "research_activation": false
+  }
+}

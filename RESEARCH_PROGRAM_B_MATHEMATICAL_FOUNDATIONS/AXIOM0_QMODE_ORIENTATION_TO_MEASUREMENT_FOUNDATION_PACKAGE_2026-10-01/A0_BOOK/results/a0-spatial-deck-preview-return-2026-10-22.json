@@ -1,0 +1,12 @@
+{
+  "date": "2026-10-22",
+  "scope": "Separate CSS-3D design preview, not integrated into main Jukebox",
+  "preview": "DRAFTS/A0_SPATIAL_DECK_DEMO.html",
+  "source": "A0_CURSOR_HANDOFF_CLICKDUMMY.html",
+  "source_sha256": "662ee739a4592168629a9f0239693256970de04b4ab81096c77a02a1a2a4591e",
+  "inline_engine_sha256": "e5802ca4795d6c5cb0d248708fba1a78d73072dc3e985366787a787d54f8bd72",
+  "implementation": "Explicit local source snapshot with identical inline engine and rewritten relative asset paths. Draft-only adapter moves original 48 SVG sectors into three sibling SVG planes; original nodes, handlers, address/layer data and global rendering selectors retained. CSS tilts deck and separates planes only on explicit toggles. Original source deck unchanged.",
+  "controls": ["Flach", "Räumlich · 43°", "Schichten öffnen / schließen"],
+  "boundaries": "Reading layers shown spatially, not asserted as material layers. No second scientific identity, new graph relations, shared clock, source handoff, GLB export or main navigation activation. Reduced motion disables presentation transitions; flat view restores coincident planes.",
+  "validation": {"preview": "85 PASS", "shared_shell": "24 PASS", "deck_adapter": "50 PASS; original source hash unchanged", "source_graph": "PASS", "app_audit": "252/252 PASS", "browser_css_3d_and_pointer_picking": "OPEN"}
+}

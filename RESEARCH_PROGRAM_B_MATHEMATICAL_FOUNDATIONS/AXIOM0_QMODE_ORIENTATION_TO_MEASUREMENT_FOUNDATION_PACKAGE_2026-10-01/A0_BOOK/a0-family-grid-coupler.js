@@ -73,7 +73,8 @@
     function reset(){pause();state=createState({bench:state.bench,bound:state.bound,projection:state.projection});if(state.bound){const projected=projectBenchState(state.bench);state.bits=projected.bits;state.tick=projected.tick;state.projection=projected.projection}render()}
     function setView(view){if(VIEWS.some(item=>item.id===view)){state.view=view;state.glbChannel=glbChannelForView(view);render()}}
     function bindBenchState(input){const projected=projectBenchState(input),previous=state.tick;state.bench=projected.bench;state.bits=projected.bits;state.ghost=state.bound&&previous!==projected.tick?previous:state.ghost;state.tick=projected.tick;state.bound=true;state.projection=projected.projection;render();return projected}
-    const fork=doc.querySelector('[data-ihara-cubic-fork]');if(fork){fork.querySelectorAll('[data-ihara-branch]').forEach(button=>button.addEventListener('click',()=>{const result=cubicIharaFork(button.dataset.iharaBranch);fork.dataset.branch=result.chosen.slice(-1);fork.querySelector('output').textContent=`${result.incoming} · ${result.chosen} ALLOW · ${result.blocked} BLOCK`;fork.querySelectorAll('[data-ihara-branch]').forEach(x=>x.classList.toggle('primary',x===button))}))}
+    // The cubic fork has its own source-owned G(10,2) controller.
+    // Do not attach a second, illustrative handler to its TURN buttons.
     render();return Object.freeze({start,pause,reset,step:()=>{state=step(state);render()},setView,bindBenchState,get state(){return JSON.parse(JSON.stringify(state))}})
   }
   return{VERSION,SIZE,VIEWS,FLAVORS,HANDLES,GLB_CHANNELS,qAngle,decomposeEleven,glbChannelForView,cubicIharaFork,normalizeBenchState,projectBenchState,createState,step,mount};

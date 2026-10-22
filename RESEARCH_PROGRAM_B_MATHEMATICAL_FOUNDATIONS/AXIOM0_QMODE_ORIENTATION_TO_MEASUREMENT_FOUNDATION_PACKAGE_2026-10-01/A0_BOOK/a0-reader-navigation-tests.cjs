@@ -18,15 +18,15 @@ assert.doesNotMatch(navigation,/positionLink|a0-scientific-position-direct/,'no 
 assert.doesNotMatch(styles,/a0-scientific-position-direct/,'obsolete direct-button styles removed');
 assert.match(styles,/\.top\.a0-context-ready:not\(\.a0-context-quiet\)>\.a0-reader-lanes\{display:flex\}/,'Reader shortcuts survive page-local mobile nav hiding');
 assert.match(styles,/\.a0-reader-lanes\{flex-wrap:wrap;overflow-x:visible\}/,'direct entry wraps on mobile');
-assert.match(navigation,/entryLink\.href = "index\.html"/,'shared Reader navigation begins with the A0 entry');
-assert.match(navigation,/Einstieg<\/strong><small>A0 Start/,'entry is visibly named before the three Reader lanes');
-assert.match(navigation,/if \(!quietEntry\) laneNav\.append\(entryLink\)/,'Human View omits the duplicate A0 entry button');
+assert.doesNotMatch(navigation,/const entryLink|const benchEntry/,'no duplicate A0 entry or flat Bench shortcut');
+assert.match(navigation,/NEXAH · A0 Startseite/,'brand is the one A0 return');
+assert.match(navigation,/\.\.\.readerLanes, benchMenu/,'Bench menu follows the three perspectives');
 assert.match(navigation,/DRAFTS\/A0_HUMAN_BOOK_DRAFT\.html#human-view/,'Human View exposes the retained draft');
 assert.match(navigation,/Entwurf<\/strong><small>Human Book/,'retained draft is visibly named');
 assert.match(styles,/\.a0-reader-entry\{/,'entry has a shared navigation-button style');
 assert.match(styles,/\.a0-human-draft-entry\{/,'draft has a distinct shared-navigation style');
 assert.match(navigation,/class="a0-reader-home"/,'each Reader panel promotes its own entry as the first action');
-assert.match(navigation,/Zum \$\{lane\.label\} →/,'Reader panel action names Human, Science or Builder');
+assert.ok(navigation.includes('"Zum " + lane.label + " →"'),'Reader panel action names Human, Science or Builder');
 assert.doesNotMatch(navigation,/href="\$\{lane\.entry\}">Zum Einstieg →/,'Reader panels do not duplicate the global A0 entry');
 assert.match(styles,/\.a0-reader-home\{/,'Reader entry is styled as a button rather than a second headline');
 const scienceEntry=fs.readFileSync(path.join(root,'A0_SCIENCE.html'),'utf8');
@@ -58,7 +58,8 @@ assert.equal(scienceLane.sections[1].label,'Papers');
 const internalTargets=new Set(['A0_RESEARCH_DESK.html','A0_RESEARCH_BACKLOG.html','A0_BUILDER_LOG.html','A0_LABORATORY.html']);
 for(const lane of lanes)for(const section of lane.sections)for(const [href] of section.items)assert.ok(!internalTargets.has(href.split('#')[0]),'no internal workspace in Reader menus: '+href);
 assert.match(navigation,/header.replaceChildren\(brand, laneNav, \.\.\.\(quietEntry \? \[draftLink\] : \[\]\), overview, ownerDesk\)/,'one compact header with contextual draft and separate owner shortcut');
-assert.match(navigation,/ownerDesk\.textContent = "Desk · intern"/);
+assert.match(navigation,/class="a0-owner-scarab"/);
+assert.match(navigation,/ownerDesk\.setAttribute\("aria-label", "A0 Science Desk · intern"\)/);
 assert.doesNotMatch(navigation,/quickNav|pageTools|primaryNav|pageContext/,'duplicate global navigation layers removed');
 assert.match(navigation,/overviewSummary.textContent = "Übersicht"/);
 assert.match(navigation,/file === "index.html"\) \{/,'directory only on book home');
@@ -95,7 +96,7 @@ for (const action of ['Lesen','Zusammenhänge verstehen','Werkzeuge nutzen','Erg
 assert.doesNotMatch(navigation,/header.after\(primaryNav\)|header.after\(moduleNav\)/,'no additional top-level navigation strips');
 const shared = htmlFiles.filter((name) => fs.readFileSync(path.join(root, name), 'utf8').includes('a0-context-navigation.js'));
 // Newer standalone log/storyboard retain their own controls; explicit tour return is required.
-assert.deepEqual(htmlFiles.filter((name) => !shared.includes(name)).sort(), ['A0_ASSET_INDEX.html', 'A0_BUILDER_LOG.html', 'A0_ORIENTATION_CONTROLLER_BENCH.html', 'A0_THEORY_STORYBOARD.html', 'LAB_ORIENTATION_MACHINE.html']);
+assert.deepEqual(htmlFiles.filter((name) => !shared.includes(name)).sort(), ['A0_ASSET_INDEX.html', 'A0_BUILDER_LOG.html', 'A0_CURSOR_HANDOFF_CLICKDUMMY.html', 'A0_ONE_PULSE_BENCH_MONITOR.html', 'A0_OPIUM.html', 'A0_THEORY_STORYBOARD.html', 'LAB_ORIENTATION_MACHINE.html']);
 for (const surface of ['A0_BUILDER_LOG.html', 'A0_THEORY_STORYBOARD.html']) {
   assert.ok(fs.readFileSync(path.join(root, surface), 'utf8').includes('href="A0_TOURS.html"'), surface + ' retains an explicit tour return');
 }
@@ -108,5 +109,5 @@ assert.match(livingBlueprint, /a0-context-navigation\.css\?rev=reader-lanes-2026
 assert.match(livingBlueprint, /a0-context-navigation\.js\?rev=reader-lanes-20261019-lane-entry/);
 
 const human = fs.readFileSync(path.join(root, 'A0_NEXAH_APERTURE_JOURNEY.html'), 'utf8');
-assert.ok(human.includes('href="index.html"') && human.includes('href="A0_BUILDER_TOY_STORE.html"'), 'quiet Human journey retains explicit exits');
-console.log(JSON.stringify({ status: 'PASS', registeredReaders: registered.length, sharedNavigationSurfaces: shared.length, standaloneSurfaces: 5, allLocalHtmlReachable: htmlFiles.length }, null, 2));
+assert.ok(human.includes('href="index.html"') && human.includes('href="A0_GAME_OF_WORLDS_PLAY.html') && human.includes('href="A0_THE_LIVING_INTERIOR.html'), 'quiet Human journey retains explicit exits');
+console.log(JSON.stringify({ status: 'PASS', registeredReaders: registered.length, sharedNavigationSurfaces: shared.length, standaloneSurfaces: htmlFiles.length - shared.length, allLocalHtmlReachable: htmlFiles.length }, null, 2));

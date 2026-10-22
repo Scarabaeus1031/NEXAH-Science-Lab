@@ -16,8 +16,9 @@
   <link rel="stylesheet" href="a0-bench-visual-shelves.css">
   <link rel="stylesheet" href="a0-science-builder-path.css">
   <link rel="stylesheet" href="a0-bench-machine-picture.css">
+  <link rel="stylesheet" href="a0-one-one-bench.css?v=20261022-source-links-r7">
   <link rel="stylesheet" href="a0-aperture-measurement.css?rev=20261018-m3-ilau">
-  <link rel="stylesheet" href="a0-aperture-stack-calibration.css?rev=20261018-gap02-gap09">
+  <link rel="stylesheet" href="a0-aperture-stack-calibration.css?rev=20261022-source-link">
   <link rel="stylesheet" href="a0-bench-showcase-tour.css?rev=20261019-longplay-r1">
   <link rel="stylesheet" href="a0-native-face-ninefold.css?rev=20261019-reader-r1">
   <link rel="stylesheet" href="a0-ail-replay.css?rev=20261018-gap04-replay-r1">
@@ -31,7 +32,7 @@
   <link rel="stylesheet" href="a0-bench-map.css?rev=20261019-r1">
 <link rel="stylesheet" href="a0-root7-q4-coupling.css">
   <link rel="stylesheet" href="a0-trinity-lens.css">
-  <link rel="stylesheet" href="a0-bench-polish.css?rev=20261019-r1">
+  <link rel="stylesheet" href="a0-bench-polish.css?rev=20261022-mobile-r2">
   <link rel="stylesheet" href="a0-division-return.css?rev=20261019-r1">
   <link rel="stylesheet" href="a0-bench-source-trail.css?rev=20261019-r1">
   <link rel="stylesheet" href="a0-bench-body-route.css?rev=20261019-r1">
@@ -42,19 +43,34 @@
   <link rel="stylesheet" href="a0-plate-mirror.css?rev=20261020-r1">
   <link rel="stylesheet" href="a0-breath-grid-bench.css?rev=20261020-r1">
   <link rel="stylesheet" href="a0-lens-region-reader.css?rev=20261020-r1">
+  <link rel="stylesheet" href="a0-bench-club-entry.css?rev=20261022">
+  <link rel="stylesheet" href="a0-bench-entry.css?rev=20261022">
+  <link rel="stylesheet" href="a0-context-navigation.css">
+  <link rel="stylesheet" href="a0-bench-navigation.css">
 </head>
 <body>
+<header class="top"><a href="index.html">NEXAH · A0</a><nav aria-label="A0"><a href="A0_BENCH_ENTDECKEN.html">Bench</a></nav></header>
+<div class="bench-location"><a href="index.html">A0</a><span>→</span><a href="A0_BENCH_ENTDECKEN.html">Bench</a><span>→</span><strong id="benchLocationLabel">Instrumente</strong></div>
+<nav class="bench-sections" aria-label="Bench-Bereiche"><a href="A0_BENCH_ENTDECKEN.html">01 · Entdecken</a><a href="A0_BENCH_ARBEITEN.html">02 · Arbeiten</a><a href="A0_BENCH_QUELLEN.html">03 · Quellen &amp; Prüfen</a></nav>
+<details class="bench-local-tools"><summary>Werkbank · Tour &amp; Direktzugänge</summary>
 <nav class="bench-nav" aria-label="Bench Navigation">
   <a class="bench-brand" href="#benchFoyer">NEXAH / BENCH</a>
-  <button type="button" id="benchTourTop" class="tour-top-button" data-tour-ui aria-pressed="false">▶ DEMO-TOUR STARTEN</button>
-  <a href="#benchFoyer">Foyer</a><a href="#foyerDoors">Bausteine / Suche</a><a href="#coupledWindowHub">Cockpit</a>
-  <a href="#benchMap">Schaltbild</a><details><summary>Direktzugänge</summary><div><a href="#breathGridBench">Kreis / Grid</a><a href="#maskObserverBench">Maske / lila Faltung</a><a href="#bodyRouteBench">Körperweg 01b/01c</a><a href="#sewingSourceWindow">Schaukeln</a><a href="#nsnGlbSources">NSN · GLB</a><a href="#caroControlBench">CARO live</a><a href="#benchShowcase">Tour</a></div></details>
-  <details><summary>Quellen &amp; Technik</summary><div><a href="A0_RESEARCH_DESK.html">← Science Desk</a><a href="A0_GAME_OF_WORLDS_PLAY.html#numbers">Numbers</a><a href="#nativeSourceBank">Native Quellen</a><a href="#augustSourceTrail">August-Serie · acht HTMLs</a><a href="#integrationCrosswalk">Bestand → A0</a><a href="#wiringPackage">Integrationspaket</a><a href="#phaseWiring">Gemeinsame Phase</a><a href="#benchSetupDrawer">Technik &amp; Verträge</a><a href="A0_BUILDER_LOG.html">Builder Log</a></div></details>
+  <a href="#benchWorkDesk">Arbeitsplatz</a>
+  <a class="bench-club-entry" href="DRAFTS/A0_FAMILY_NAVIGATOR_DEMO.html#spatial-navigation">◉ Club öffnen ↗</a>
+  <button type="button" id="benchGuideTop" class="tour-top-button" data-tour-ui>Bench kennenlernen →</button>
+  <a href="#benchFoyer">Foyer</a><a href="#foyerDoors">Bausteine / Suche</a><a href="#coupledWindowHub">Cockpit</a><a href="#pulseBenchMonitor">ONE PULSE</a><a href="#anuTowerWorkbench">Tower / ANU</a>
+  <a href="#benchMap">Schaltbild</a><details><summary>Direktzugänge</summary><div><a href="DRAFTS/A0_FAMILY_NAVIGATOR_DEMO.html#spatial-navigation">Club · Raumkarte ↗</a><a href="DRAFTS/A0_FAMILY_NAVIGATOR_DEMO.html#club-deck-room">Club · DJ / Plattendeck ↗</a><a href="DRAFTS/A0_FAMILY_NAVIGATOR_DEMO.html#control-room">Club · Control Room ↗</a><a href="#breathGridBench">Kreis / Grid</a><a href="#maskObserverBench">Maske / lila Faltung</a><a href="#bodyRouteBench">Körperweg 01b/01c</a><a href="#sewingSourceWindow">Schaukeln</a><a href="#nsnGlbSources">NSN · GLB</a><a href="#caroControlBench">CARO live</a><a href="#benchShowcase">Tour</a></div></details>
+  <details><summary>Quellen &amp; Technik</summary><div>
+    <button id="benchTourTop" type="button" data-tour-ui aria-pressed="false">Vorführung mit aktiven Reglern starten</button>
+    <a href="#registerJanusWorkbench">Janus / Zahlen</a><a href="#carrierReturnWorkbench">CRT / Return / Ghost</a><a href="A0_RESEARCH_DESK.html">← Science Desk</a><a href="A0_GAME_OF_WORLDS_PLAY.html#numbers">Numbers</a><a href="#nativeSourceBank">Native Quellen</a><a href="#augustSourceTrail">August-Serie · acht HTMLs</a><a href="#integrationCrosswalk">Bestand → A0</a><a href="#wiringPackage">Integrationspaket</a><a href="#phaseWiring">Gemeinsame Phase</a><a href="#benchSetupDrawer">Technik &amp; Verträge</a><a href="A0_BUILDER_LOG.html">Builder Log</a></div></details>
 </nav>
+</details>
+<script src="a0-context-navigation.js"></script>
+<script src="a0-bench-navigation.js"></script>
 <main class="shell" id="orientationBench">
 <section id="benchFoyer" aria-labelledby="benchFoyerTitle">
 <div class="bf-hero">
-<div class="bf-intro"><small>NEXAH / BUILDER · DAS FOYER</small><h1 id="benchFoyerTitle">Eine Werkbank.<br><em>Viele Blicke.</em></h1><p>Körper erkunden. Ansichten wechseln. Verbindungen entdecken. Wähle eine Tür — die Instrumente warten dahinter.</p><div class="bf-actions"><a href="#foyerDoors">Werkzeuge entdecken ↓</a><a href="A0_FAMILY_CONNECTION_ATLAS.html#spatial-navigation">Zusammenhang verstehen ↗</a><a href="#benchMachinePicture">Gesamtbild ↗</a></div></div>
+<div class="bf-intro"><small>NEXAH / BENCH</small><h1 id="benchFoyerTitle">Eine Werkbank.<br><em>Viele Blicke.</em></h1><p>Schau dir zuerst an, was hier möglich ist. Ein kurzer Rundgang zeigt dir Körper, Grids, Masken und den Rückweg — danach wählst du selbst ein Instrument.</p><div class="bf-actions"><button id="benchGuideStart" type="button">Bench kennenlernen →</button><a href="#foyerDoors">Selbst entdecken ↓</a><a href="#benchWorkDesk">Direkt arbeiten ↓</a></div><p class="bench-entry-note">8 Stationen · in deinem Tempo · keine Engine wird durch den Rundgang gestartet</p><p id="benchGuideNotice" role="status"></p></div>
 <div class="bf-exhibit">
 <div class="bf-stage" data-bf-stage><figure class="bf-poster" data-bf-poster><img src="assets/images/crystal_view_poster.jpeg" alt="Historische räumliche Referenz mit verschachtelten Ringen und farbigen Achsen"><figcaption>Historische Bildreferenz · kein Vorschaurender des ausgewählten GLB-Modells</figcaption></figure></div>
 <div class="bf-controls" aria-label="Originalmodell auswählen"><button type="button" data-bf-model="0" aria-pressed="true">17 Floors</button><button type="button" data-bf-model="1" aria-pressed="false">Blue Pearl</button><button type="button" data-bf-model="2" aria-pressed="false">Resonance Cathedral</button></div>
@@ -63,6 +79,7 @@
 <details><summary>Quelle &amp; Details · <span data-bf-model-name></span></summary><a data-bf-original target="_blank" rel="noopener">Unverändertes Original öffnen ↗</a><code data-bf-hash></code><p>Lokale Archivquelle. Ansichtsrotation ist keine gespeicherte Modellanimation. Keine physikalische Simulation. Bei gesperrtem Dateizugriff bleibt die Bildreferenz verfügbar.</p></details>
 </div></div>
 <section id="benchMachinePicture" class="bench-machine-picture" aria-label="Begehbares Architektur- und Maschinenbild"><p>Architekturansicht wird geladen. <a href="#benchMap">Zum technischen Schaltbild</a></p></section>
+<section class="bench-club-door" aria-labelledby="benchClubDoorTitle"><div><small>OPIUM / CLUB · DIREKTER EINSTIEG</small><h2 id="benchClubDoorTitle">Zum Club.</h2><p>Raumkarte, Relations Player und Control Room gehören zum selben Club. Hier direkt einsteigen — die Bench bleibt die Instrument-Werkbank.</p></div><nav aria-label="Club-Bereiche von der Bench öffnen"><a href="DRAFTS/A0_FAMILY_NAVIGATOR_DEMO.html#spatial-navigation">01 · Club Machine / Raumkarte ↗</a><a href="DRAFTS/A0_FAMILY_NAVIGATOR_DEMO.html#club-deck-room">02 · DJ / Plattendeck ↗</a><a href="DRAFTS/A0_FAMILY_NAVIGATOR_DEMO.html#control-room">03 · Control Room ↗</a></nav></section>
 <header class="bf-gallery-head" id="foyerDoors"><div><small>NEUN GRUPPEN · VORHANDENE BAUSTEINE</small><h2>Bausteine entdecken.</h2></div><p>Erst eine Gruppe wählen. Darunter klappt ihre Werkzeugliste auf — mit kurzer Erklärung und Legenden, ohne wiederholte Bilder.</p></header>
 <div id="benchVisualShelves" aria-label="Gemeinsame visuelle Werkzeugregale"><p>Quellgalerie wird geladen. <a href="#benchOverview">Zum vorhandenen Werkzeugkatalog ↓</a></p></div>
 <p class="bf-note">Eine Bench, kein neuer Katalog. <a href="../../../../../00%20EXECUTIVE/NEXAH-Mission-Control/00_OVERVIEW/BUILDER_STATUS_REPORT.html#bench-entry-hall">Zur Builder-Eingangshalle ↗</a> · <a href="#benchOverview">Vollständiger Werkzeugkatalog</a> · <a href="#coupledWindowHub">Arbeitsfenster / Cockpit</a>. Quellen und Messzustände bleiben bei ihren Originalinstrumenten.</p>
@@ -145,9 +162,9 @@
     <span id="benchOvertureTitle" hidden>Showcase compatibility anchor</span><span id="watchBenchRun" hidden></span><span id="enterBench" hidden></span>
     <div class="showcase-copy">
       <small>THE LONG PLAY · 9 KAPITEL · 56 STATIONEN · MIT BLUE/PINK → MASKE</small>
-      <h2 id="benchShowcaseTitle">Einmal durch.<br>Dann selbst ans Steuer.</h2>
+      <h2 id="benchShowcaseTitle">Erweiterte Vorführung.<br>Mit aktiven Reglern.</h2>
       <p>Körper öffnen. Masken verschieben. Die lila Folge abspielen. Teller, Kompass, Codes und CARO bedienen. Danach Native Face, Messung, Adapter und Return — im Zusammenhang statt nur als Linkliste.</p>
-      <div class="showcase-actions"><button class="showcase-start" id="benchTourStart" type="button" aria-pressed="false">▶ BENCH TOUR STARTEN</button><button id="benchTourClockDemoTop" type="button" data-tour-ui>▶ Nur Blue/Pink → Maske · 6 Schritte</button><span class="showcase-runtime">≈ 17 Minuten gesamt · ≈ 2 Minuten Kopplung<br>Pause jederzeit · keine Downloads</span></div>
+      <div class="showcase-actions"><button class="showcase-start" id="benchTourStart" type="button" aria-pressed="false">▶ VORFÜHRUNG STARTEN</button><button id="benchTourClockDemoTop" type="button" data-tour-ui>▶ Nur Blue/Pink → Maske · 6 Schritte</button><span class="showcase-runtime">56 Stationen · verändert Regler und lokale Anker<br>Kann Quell-Engines starten · Pause jederzeit</span></div>
       <p class="showcase-note">Die Demo verändert lokale Regler und Capture-Anker. Sie stellt nicht den gesamten vorherigen Bench-Zustand wieder her. Eigene wichtige Records bitte vorher sichern.</p>
     </div>
     <div class="showcase-stage" aria-live="polite">
@@ -678,6 +695,7 @@
   </details>
   <link rel="stylesheet" href="a0-native-source-bank.css">
   <link rel="stylesheet" href="a0-system-binder.css?rev=20261018-gap06-r1">
+  <link rel="stylesheet" href="a0-binder-connections.css?v=20261022-live-links">
   <aside class="boundary" aria-label="Aktives Quellfugen-Paket"><strong>Aktives enges Package:</strong> Joint Applications + Box / Laschen. Die bestehende Blue-Body-Quelle liefert Faltparameter, Kontaktstatus, CON–DAO-Cursor/Display-Checkpoint und das getrennte Integer-/Totient-Profil an das typisierte Bench-Journal. Für 1111 sind P0/F10, P1/F26 und P2/F42 explizit wähl- und rückkehrbar; andere Q4-/Schichtkarten, sichtbare Browserabnahme und Gesamtmaschinen-Return bleiben offen. <a href="assets/a0-source-seam-joint-box-package-v1.json">Paketvertrag →</a></aside>
   <section id="nativeSourceBank" aria-label="Vorhandene HTML-Instrumente direkt bedienen"></section>
   <script src="a0-native-source-bank.js"></script>
@@ -734,6 +752,7 @@
       <div class="master-progress" id="masterDemoProgress" aria-label="Demonstration progress"></div>
       <div class="master-controls">
         <button id="masterDemoStep">STEP</button><button id="masterDemoReset">RESET</button>
+        <label><input type="checkbox" id="masterDemoLoop" checked> LOOP · frei umsehen</label>
         <label>SPEED<select id="masterDemoSpeed"><option value="3600">SLOW</option><option value="2400" selected>NORMAL</option><option value="1400">FAST</option></select></label>
         <button id="masterDemoExport">EXPORT RUN</button>
       </div>
@@ -746,11 +765,91 @@
     </div>
   </section>
 
+  <section id="oneOneTest" aria-labelledby="oneOneTitle" data-linked="false">
+    <header><small>1,1 · SCHNITT / RECORD-VERGLEICH · ENGINEERING</small><h2 id="oneOneTitle">Zwei Anschlüsse. Ein sichtbarer Schnitt.</h2><p>Vorhandener Numbers-Mischer oben, vorhandener Bench-Aperture-Stack unten. „1“ markiert je einen Anschluss; das Komma bezeichnet die deklarierte Trennung. Club und Relations Player sind die vorgeschlagenen Zielräume — ihre Live-Records sind hier noch nicht gekoppelt.</p></header>
+    <div class="one-one-controls"><button type="button" id="oneOneConnect">1 · Verbinden / Anker erfassen</button><button type="button" id="oneOneStep">Schritt +1</button><button type="button" id="oneOneCheck">Records vergleichen</button><button type="button" id="oneOneReturn" disabled>Zurück zum gespeicherten Anker</button><button type="button" id="oneOneReset">Lokalen Test zurücksetzen</button></div>
+    <nav class="one-one-stations" aria-label="Vorhandene Numbers-Faltstationen"><button type="button" data-one-one-station="0">0° · OPEN</button><button type="button" data-one-one-station="45">78° · Achse I</button><button type="button" data-one-one-station="90">33° · Hinge</button><button type="button" data-one-one-station="135">7° · Return Gap</button><button type="button" data-one-one-station="180">0° · VIEW CLOSED</button></nav>
+    <div class="one-one-visual">
+      <article class="one-one-source"><h3>Oben · Numbers-Mischer → Zielraum Club</h3><div id="oneOneMixer"></div><output id="oneOneUpperAddress"></output></article><div class="one-one-node" aria-label="Oberer Anschluss 1"><b>1</b></div>
+      <div class="one-one-cut"><span>Aperturen / deklarierter Schnitt</span><b>,</b><span>kein gemeinsamer Operator</span></div>
+      <article class="one-one-source"><h3>Unten · Bench-Stack → Zielraum Relations Player</h3><div id="oneOneStack"></div><output id="oneOneLowerAddress"></output></article><div class="one-one-node" aria-label="Unterer Anschluss 1"><b>1</b></div>
+    </div>
+    <section class="one-one-tower" id="oneOneTower" aria-labelledby="oneOneTowerTitle" data-legend-source="assets/a0-muindi-tower-legend-v1.json">
+      <header><small>QUELLENLEGENDE · BEIDE SEITEN / KEINE ZEILENKOPPLUNG</small><h3 id="oneOneTowerTitle">Aperture Plates ↔ Glyph Trace</h3><p>Im NSN-Lineage-Binder dokumentarisch erfasst. Die zwei Bildspalten sind erhalten; ihre Zuordnung zueinander ist weiterhin offen.</p></header>
+      <div class="one-one-legend-columns">
+        <div><h4>Links · 5 Plate-Labels + RETURN</h4><ol id="oneOnePlateLabels"><li>EP</li><li>SI</li><li>LP</li><li>SH</li><li>RT</li><li>RETURN</li></ol></div>
+        <figure><img src="assets/a0-muindi-tower-source-20261020.jpeg" alt="Unveränderte Tower-Bildquelle mit linker Plate- und rechter Glyph-Legende" loading="lazy"><figcaption>Sieben sichtbare Ebenen · sechs angegebene Winkel. Kein siebter ausführbarer Teller ergänzt.</figcaption></figure>
+        <div><h4>Rechts · 7 Glyph-Einträge</h4><ol id="oneOneGlyphLabels"><li>AS</li><li>ST</li><li>EI</li><li>NS</li><li>SS</li><li>KZ</li><li>45°</li></ol></div>
+      </div>
+      <div class="one-one-return-tray"><svg viewBox="0 0 520 90" role="img" aria-label="Orangefarbener RETURN-Teller als Owner-Vorschlag einer Auffangstelle"><path d="M45 26Q260 112 475 26L447 58Q260 118 73 58Z" fill="#8f421c" stroke="#ef9a45"/><ellipse cx="260" cy="26" rx="215" ry="21" fill="#472a1b" stroke="#ffae55"/><text x="260" y="32" text-anchor="middle" fill="#ffd1a0" font-size="17">RETURN · Auffangstelle?</text></svg><p>Deine Lesart: Der orangefarbene Return-Teller könnte das Residuum auffangen. Der Legendenrecord enthält dafür noch keine Zuordnung oder Transportregel. <strong>Residuum im Teller: nicht bestimmt — nicht 0.</strong></p></div>
+      <output id="oneOneTowerPosition">Ausführbarer Stack: wartet auf Record</output>
+      <output id="oneOneTowerResidual">Stack-Return und vermutete Auffangstelle bleiben getrennt.</output>
+      <p>n=0…5 bezeichnet hier nur die sechs vorhandenen Adapterpositionen P1…P6. Weder Plate-Labels noch Glyphen werden automatisch daran gebunden. Ein Ansichts-Flip liefert ebenfalls noch keine Spaltenzuordnung.</p>
+      <details><summary>Bestehende Bindung &amp; Test-Rückwege</summary><p><a href="assets/a0-muindi-tower-legend-v1.json">Unveränderter Legendenrecord</a> · <a href="results/a0-muindi-tower-legend-return-2026-10-20.json">Dokumentarischer Return</a> · <a href="../../../SCIENCE_LAB/NAVIGATION/EVIDENCE/A0_ORIENTATION_EVIDENCE_LINEAGE_2026-10-10/A0_ORIENTATION_EVIDENCE_LINEAGE_BINDER_V1_2026-10-10.json">NSN-Lineage-Binder</a> · <a href="A0_MATHEMATICAL_JOINTS.html#register-cut-aperture">Mathfield-Quellenvergleich</a>.</p><p><a href="../../../SCIENCE_LAB/CASE_STUDIES/Orion_POLAR:Pass Maastricht/test_07_janus_grid_fold_report.txt">Orion/POLAR · Janus Grid Fold Test 07</a> ist ein bestehender separater Test-Rückweg der Bench. Er wird hier nicht als Beleg für Tower-Spaltenmapping oder Residuum-Transport übernommen.</p><p>Bildhash: <code>f2daab64d60462d01bd8023d56562b4c8d3f4fa871c13ae5897d409fa4eed66b</code>. <code>row_correspondence = null</code> · <code>label_expansions = null</code>. Neue Auffangstellen-Lesart separat vom unveränderten Quellrecord.</p></details>
+    </section>
+    <section class="one-one-tower" id="oneOnePlayerMonitor" aria-labelledby="oneOnePlayerTitle">
+      <header><small>PLAYER → BENCH · NUR LESEN</small><h3 id="oneOnePlayerTitle">Live-Adresse &amp; eigener Anker</h3></header>
+      <div class="player-monitor-live">
+        <div><small>EMPFANG</small><output id="oneOnePlayerStatus" role="status">HOLD · Verbindung nicht hergestellt</output></div>
+        <div><small>AKTUELLER PLAYER</small><output id="oneOnePlayerCoordinate">Kein aktueller Player-Record</output></div>
+      </div>
+      <div class="player-monitor-table"><table aria-label="Player: gespeicherter Anker und aktuelle Koordinate"><thead><tr><th scope="col">Feld</th><th scope="col">Eigener Anker</th><th scope="col">Aktuell</th><th scope="col">Vergleich</th></tr></thead><tbody id="oneOnePlayerFields"></tbody></table></div>
+      <output id="oneOnePlayerComparison"></output>
+      <div class="one-one-controls"><button id="oneOnePlayerRead" type="button">Aktuell lesen / neu verbinden</button><button id="oneOnePlayerStop" type="button">Monitor trennen</button><button id="oneOnePlayerCapture" type="button" disabled>Getrennte Anker erfassen</button><button id="oneOnePlayerCompare" type="button">Mit eigenen Ankern vergleichen</button></div>
+      <p id="oneOnePlayerNext">Nächster Schritt: Verbindung herstellen.</p>
+      <section id="oneOnePlayerPascal" class="player-pascal-panel" aria-labelledby="playerPascalTitle">
+        <h4 id="playerPascalTitle">Q4 → Pascal · Grid / Bügel</h4>
+        <div class="one-one-controls"><button id="playerPascalRead" type="button" disabled>Aktuelle Q4-Bits übernehmen</button>
+          <label>Ansicht <select id="playerPascalView"><option value="grid">Grid</option><option value="bracket">Bügel</option></select></label>
+          <label>Record <select id="playerPascalProjection"><option value="path">Vollständiger Pfad</option><option value="endpoint">Nur Endpunkt · Verlustprobe</option></select></label>
+          <label>Faserordinal <select id="playerPascalKey"><option value="none">Ohne Schlüssel</option><option value="correct">Passend · aus Quelle erzeugt</option><option value="wrong">Falscher Schlüssel · Gegenprobe</option></select></label>
+        </div>
+        <output id="playerPascalResult">Noch kein Player-Receipt übernommen.</output><div id="playerPascalSvg"></div>
+        <label><input id="playerPascalFollow" type="checkbox"> Gültigen Player-Receipts live folgen · ohne neue Uhr</label>
+        <p>Explizite Engineering-Regel: die vier angezeigten Q4-Bits werden von links nach rechts als Pascal-Entscheidungen gelesen, einschließlich führender Nullen. Live-Follow liest nur neue bestätigte Receipts; „Übernehmen“ beendet Follow und hält eine Einzelaufnahme. Bei fehlender Quelle bleibt Live-Follow HOLD. Grid/Bügel verändern nur die Darstellung. Der Return prüft nur die vier Bits; Platte, Lage und Desk bleiben als Quellen-Witness separat, nicht aus dem Pfad rekonstruiert. Keine Player-Steuerung oder Aperture-Stack-Zuordnung.</p>
+        <details><summary>Übernommener Quellenrecord &amp; Pascal-Return</summary><pre id="playerPascalLedger"></pre></details>
+      </section>
+      <details><summary>Weiterhin offen · Player ↔ Aperture-Stack-Vertrag</summary>
+        <pre id="oneOnePlayerCase">HOLD · Anschlüsse werden gelesen</pre>
+        <p>Hier stehen die aktuellen Endpunkte nebeneinander, nicht eine bewiesene Zuordnung. Der Player hat 48 Q4/Lage-Adressen; der Bench-Stack liest 48 Samples einer M3-Kurve durch sechs Platten. Gleiche Anzahl begründet keinen gemeinsamen Träger oder Operator. Die vorhandene Tower-Legende definiert ebenfalls kein Zeilenmapping.</p>
+        <p><a href="results/a0-player-aperture-contract-audit-2026-10-22.json">Gelesene Quellen und Aussagegrenze</a>. Für eine prüfbare Verbindung fehlen noch ein source-owned Schnitt/Operator, ein erwartetes Ergebnis und eine Gegenprobe. Ein UI-Auswahlpaar oder gespeicherte eigene Anker ersetzen diesen Vertrag nicht.</p>
+      </details>
+      <details><summary>Kurztest direkt hier · Empfang → Anker → Änderung</summary>
+        <ol><li>Im Q4-Feld des Clubs eine Position in Q4−, Q4⁰ oder Q4+ wählen. Hier müssen eine Lage und ein Deskindex erscheinen.</li><li>Im Player pausieren. Hier „Getrennte Anker erfassen“ wählen: Player gegen eigenen Anker sollte MATCH zeigen.</li><li>Im Q4-Feld des Clubs eine andere Position wählen: Player sollte CHANGED zeigen. Die unveränderte Bench darf gleichzeitig MATCH zeigen.</li></ol>
+        <p>CONNECTED bestätigt den Empfang eines gültigen Records. HOLD_OPEN_LAYER bedeutet: Empfang vorhanden, Lage noch offen. CHANGED ist eine erkannte Abweichung, kein Transportfehler. Die Hinweise beschreiben den aktuellen Zustand; sie bescheinigen keinen vollständig durchlaufenen Test. Player-Bedienung bleibt im Club, dieser Monitor sendet keine Steuerbefehle.</p>
+      </details>
+      <details><summary>Verbindung, Quelle &amp; Aussagegrenzen</summary>
+      <p>Im laufenden <a href="DRAFTS/A0_FAMILY_NAVIGATOR_DEMO.html#spatial-navigation" target="_top">Club</a> „Bench-Monitor im Club öffnen“ wählen. Der eingebettete Monitor ist an genau diese Club-Instanz gebunden; ohne Verbindungsauftrag bleibt HOLD. Bei Bedarf wird das vorhandene Deck geladen, aber nicht abgespielt. Alte separate Bench-Tabs bei „keine Club-Verbindung“ schließen.</p>
+      <p>Übertragen werden nur Platte, Q4-Adresse, vier Bits, Lage, Deskindex und UI-Spielstatus. Quelle, konkretes Fenster, Sitzungskennung, Reihenfolge und Koordinatenkonsistenz werden geprüft. Offene Lage bleibt HOLD. Der Club fordert auf Leseanfrage einen frischen Receipt aus dem vorhandenen Player an. Die Tabelle vergleicht ausschließlich die Player-Koordinate, nicht den UI-Spielstatus. „— / OFFEN“ ist kein bestätigter Gleichstand.</p>
+      <p>Die wiederholte Leseprüfung ist ein Verbindungs-Watchdog, keine Abspieluhr: Sie verändert keine Adresse oder Modellgeneration. Bei Timeout, Trennung oder verborgenem Monitor HOLD; danach ausdrücklich neu lesen. Der Anschluss sendet niemals Play, Pause, Select oder Reset. Der bestehende Club kann beim Verbergen seines Dokuments weiterhin seine eigene Sicherheitspause auslösen.</p>
+      <p>Player und Bench sind verschiedene Träger. Jeder wird nur mit seinem eigenen gespeicherten Anker verglichen; die Erfassung ist kein simultaner gemeinsamer Zustand. Kein gemeinsames Residuum oder Inverses, keine Fernsteuerung und kein Gesamtmaschinen-PASS. Der lokale Mischer-Vergleich oben bleibt separat.</p>
+      </details>
+      <details><summary>Lesender Quellenrecord &amp; Vergleichsledger</summary><pre id="oneOnePlayerLedger"></pre></details>
+    </section>
+    <output id="oneOneStatus" role="status">HOLD · Abhängigkeiten werden geladen</output><output id="oneOneResult" aria-live="polite">Noch kein Return-Vergleich</output>
+    <details><summary>Quellen, Einheiten &amp; Prüfgrenze</summary><p><a href="assets/game-of-worlds-play/numbers/index.html">Original Game of Numbers</a> · <a href="#apertureStackCalibration">Bench-Aperture-Stack</a> · <a href="#apTowerLegend">Tower-Legende</a> · <a href="DRAFTS/A0_FAMILY_NAVIGATOR_DEMO.html#control-room">Control Room</a>. Dieser lokale Numbers-Lauf verwendet das unveränderte Modell und die vorhandene Mischer-Geometrie; er liest keine andere geöffnete Browser-Instanz und startet keine Uhr.</p><p><a href="../../../00_INCOMING/THE_PRIME_GENESIS_APERTURE_PIVOT_ANGLE_GATE_01_2026-09-08/data/preregistered_parameters.json">Angle-Gate: EP 7°, LP 33°, SI 45°</a> sind deklarierte Winkelparameter. Die sechs Tower-Winkel 51,63°…52,13° sind eine andere Fixture. Single 7″ / 45 im Player bedeutet Format / UI-Tempo. Diese Größen werden nicht ineinander umgerechnet; die zeilenweise Tower-Zuordnung bleibt offen.</p><p>Verbinden hält beide Records als getrennte Anker fest. Vergleich prüft ihre vollständigen gespeicherten Felder. Ändert sich der laufende Bench-Stack, bleibt CHANGED sichtbar. „Zurück“ setzt ausschließlich den lokalen gespeicherten Numbers-Cursor zurück: kein berechneter inverser Operator, keine Rückstellung der Bench. VIEW CLOSED prüft die Darstellungsgeometrie, nicht die Identität vollständiger Records. Ein fehlender Quellenvertrag bleibt HOLD, auch bei zwei lokalen MATCH-Werten. Keine neue Family, keine physikalische Kopplung, keine NSN-Adoption.</p><pre id="oneOneLedger" aria-label="Getrennte 1,1 Records"></pre></details>
+  </section>
   <section class="system-binder" id="systemBinder" aria-labelledby="systemBinderTitle" data-status="IDLE">
+    <p><a href="assets/game-of-worlds-play/three-domain-transition-test/index.html#atlas" target="_blank" rel="noopener">Game · vorhandener 3×3-Atlas mit Live-Contract-Monitor ↗</a> · Der Monitor liest seine eigene Game-Instanz; dieser Link verbindet keine Uhren oder Quellenfenster.</p>
+    <p><a href="#seedCrossMonitor">1 | 1 · I/J-Cross · pink 2 · PENT-Quellenbezug ↓</a></p>
     <header class="system-binder-head">
-      <div><small>OCB-GAP-06 + NATIVE FACE BRIDGE · FOUR SYSTEMS + ONE TYPED BINDER</small><h2 id="systemBinderTitle">One session. Four carriers. No silent merge.</h2><p>M3/Aperture Stack, PENT, LIFE03 und die native Blue/Pink/Dodeca-Quelle werden über source-owned Adapter koordiniert. Der Binder speichert Zustände, Hand-offs und Returns; er behauptet weder gemeinsamen Träger noch gemeinsame Uhr.</p></div>
+      <div><small>OCB-GAP-06 + NATIVE FACE BRIDGE · FOUR SYSTEMS + ONE TYPED BINDER</small><h2 id="systemBinderTitle">One session. Four carriers. No silent merge.</h2><p>M3/Aperture Stack, PENT, LIFE03 und die native Blue/Pink/Dodeca-Quelle werden über source-owned Adapter koordiniert. Der Binder speichert Zustände, Hand-offs und Returns; er behauptet weder gemeinsamen Träger noch gemeinsame Uhr. <a href="#oneOneTest">Zum 1,1-Test · Numbers-Mischer / Aperture-Stack ↑</a></p></div>
       <div class="binder-master-state"><small>SESSION / MASTER PHASE</small><output id="systemBinderStatus" role="status" aria-live="polite">IDLE</output><output id="systemBinderPhase">00 · SOURCE</output></div>
     </header>
+    <details id="binderConnections" class="binder-connections" open>
+      <summary>Binder · Was ist gekoppelt, was läuft?</summary>
+      <p>Vorhandene Verträge werden beim Laden aktiviert und folgen ihren Quellen über Änderungsmeldungen. Keine zusätzliche Abspieluhr und kein automatisches „Play all“. Einzelne Follow-Regler bleiben abschaltbar.</p>
+      <output id="binderConnectionsStatus" role="status">Quellen werden gelesen</output>
+      <div class="binder-connection-cards">
+        <article id="binderLink_m3" data-state="HOLD"><small>01 · GEMEINSAMER TRACE</small><h3>M3 → Stack</h3><output id="binderLinkStatus_m3">HOLD</output><p id="binderLinkDetail_m3"></p><a href="#apertureStackCalibration">Quelle und Plattenregler ↗</a></article>
+        <article id="binderLink_pascal" data-state="HOLD"><small>02 · VIER BITS ALS PFAD</small><h3>Player → Pascal</h3><output id="binderLinkStatus_pascal">HOLD</output><p id="binderLinkDetail_pascal"></p><a href="#oneOnePlayerMonitor">Receipt und Follow-Regler ↗</a></article>
+        <article id="binderLink_ihara" data-state="HOLD"><small>03 · GERICHTETE KANTE</small><h3>Ihara → Visual 1</h3><output id="binderLinkStatus_ihara">HOLD</output><p id="binderLinkDetail_ihara"></p><a href="#visual1GridGenerator">C/D und Edge-Quelle ↗</a></article>
+      </div>
+      <div class="binder-controls"><button id="binderConnectionsConnect" type="button">Verfügbare Verträge koppeln · ohne Play</button><button id="binderConnectionsRefresh" type="button">Status erneut lesen</button></div>
+      <output id="binderConnectionsActions"></output>
+      <p>Player-Receipts müssen an genau diese Bench-Instanz gebunden sein; ohne Club-Verbindung bleibt dieser Kanal HOLD. Die Übersicht erscheint auch im eingebetteten Club-Monitor. Gehaltene Aufnahmen sind nicht live; ein Bits-Return ist kein ganzer Player-Return. Die vier ursprünglichen Systeme und ihre bestehenden Session-Regler unten bleiben separat.</p>
+      <details><summary>Gelesene Anschlusszustände / Grenzen</summary><pre id="binderConnectionsLedger"></pre></details>
+    </details>
     <div class="binder-systems" aria-label="Gebundene Systeme">
       <article class="binder-system" data-binder-system="orientation" data-status="DISCONNECTED"><small>SYSTEM A</small><b>Orientation · M3 · Stack</b><code>P×A / 48 ordered samples</code><output data-binder-state>DISCONNECTED</output><p data-binder-detail>not connected</p></article>
       <article class="binder-system" data-binder-system="pentagon" data-status="DISCONNECTED"><small>SYSTEM B</small><b>PENT Source Adapter</b><code>six-field UI state / rendered readback</code><output data-binder-state>DISCONNECTED</output><p data-binder-detail>not connected</p></article>
@@ -758,6 +857,7 @@
       <article class="binder-system" data-binder-system="dodeca" data-status="DISCONNECTED"><small>SYSTEM D</small><b>Native Dodeca Face Bridge</b><code>4 addressed faces / hinge readback / return</code><output data-binder-state>DISCONNECTED</output><p data-binder-detail>not connected</p></article>
     </div>
     <div class="binder-controls" aria-label="System Binder controls"><button type="button" id="systemBinderConnect">CONNECT / VERIFY ALL</button><button type="button" class="primary" id="systemBinderStart">PLAY ALL ENGINES</button><button type="button" id="systemBinderPause">PAUSE SESSION</button><button type="button" id="systemBinderStep">STEP ALL</button><button type="button" id="systemBinderReset">RESET BINDER</button><button type="button" id="systemBinderExport">EXPORT SESSION</button></div>
+    <p><label><input type="checkbox" id="systemBinderLoop" checked> LOOP · frei umsehen</label> · Nach PLAY wiederholt sich der Master-Ablauf; M3 und Stack laufen mit ihren eigenen Takten weiter. Kein Auto-Scroll. Pause, Steuereingriffe und verborgener Tab unterbrechen weiterhin. Manuelle Ihara-Tests und native Einmal-Return-Programme werden nicht automatisch wiederholt.</p>
     <div class="binder-ledger"><div><small>BOUNDARY</small><h3>Typed handoffs, not carrier identity.</h3><p>Ein Adapter darf `READY`, `WAITING`, `RETURNED` oder `HOLD` melden. Ein einzelnes HOLD bleibt sichtbar und verhindert einen falschen Whole-machine-PASS. Der Session-Return ist ein Binder-Record, kein gemeinsamer physikalischer oder mathematischer Zustand.</p><p><a href="assets/a0-system-binder-package-v1.json">Paketvertrag</a> · <a href="a0-system-binder-tests.cjs">Engineering-Prüfung</a></p></div><pre id="systemBinderLedger" aria-label="System Binder session ledger">READY · no session</pre></div>
   </section>
 
@@ -970,11 +1070,15 @@
           <div><small>CUBIC SOURCE FORK · THE OTHER 3-BRANCH</small><h3>Ihara degree 3 · zwei Vorwärtswege, ein Rückweg gesperrt</h3></div>
           <div class="ihara-fork-diagram"><span><b>a → b</b><small> incoming</small></span><span><b>b → c / b → d</b><small> two allowed turns</small></span><span class="blocked"><b>b → a</b><small> immediate reverse</small></span></div>
           <button class="primary" data-ihara-branch="c">TURN C ↗</button><button data-ihara-branch="d">TURN D ↘</button>
-          <output>a→b · b→c ALLOW · b→a BLOCK</output>
-          <p><a href="A0_IHARA_HASHIMOTO_CYCLE_BRIDGE.html">Vollständige G(10,2)-Quelle öffnen ↗</a> · 20 Knoten · 30 Kanten · 60 gerichtete Kantenzustände. Dieses kleine Fork ist nur die lokale Abzweiglesart.</p>
+          <button id="cubicReverse" type="button">Rücksprung prüfen · muss BLOCK sein</button><button id="cubicReset" type="button">Graphlauf neu beginnen</button>
+          <output id="cubicReadout" style="display:block;white-space:pre-wrap">G(10,2) · Quelle wird geladen</output>
+          <div id="cubicSvg" style="max-width:480px"></div>
+          <p><a href="A0_IHARA_HASHIMOTO_CYCLE_BRIDGE.html">Vollständige G(10,2)-Quelle öffnen ↗</a> · 20 Knoten · 30 Kanten · 60 gerichtete Kantenzustände. Diese lokale Sitzung verwendet dasselbe Graphmodell, steuert aber kein anderes Quellenfenster. C wählt den kleineren, D den größeren erlaubten Zielindex — an jeder Kante neu bestimmt. Cyan: aktuelle Kante; Pink/Gold: nächste C-/D-Auswahl, kein Closure-Beweis. Keine Zuordnung zur Prime-Adresse.</p>
+          <details><summary>Bestätigte Graphkante &amp; begrenztes Journal</summary><pre id="cubicLedger" style="max-height:300px;overflow:auto"></pre></details>
         </div>
         <aside class="visual1-generator" id="visual1GridGenerator" aria-labelledby="visual1GridTitle">
           <header><div><small>HISTORICAL VISUAL 1 · SOURCE-BOUND 3 + 1</small><h3 id="visual1GridTitle">Visual 1 Grid Generator</h3><p>Drei getrennte Reads speisen einen gemeinsamen TESA-View-Controller.</p></div><div class="visual1-generator-controls"><button type="button" data-v1-follow>FOLLOW VISUAL 1</button><button type="button" data-v1-step>STEP GRID</button></div></header>
+          <label>READ 3 · Edge-Quelle <select data-v1-edge-source><option value="c5">C5 · bestehender Edge–Turn Core</option><option value="cubic" selected>G(10,2) · bestätigter C/D-Graphlauf</option></select></label>
           <div class="visual1-read-triad" aria-label="Three typed Visual 1 reads"><article><small>READ 1 · P</small><b data-v1-p>IRIS</b></article><article><small>READ 2 · A</small><b data-v1-a>C6 ⊃ C8</b></article><article><small>READ 3 · EDGE</small><b data-v1-e>IHARA</b></article></div>
           <section class="visual1-plus-one" aria-label="Plus one TESA controller"><h4>ORANGE BOX · TESA 4×7</h4><div class="visual1-tesa-grid" data-visual1-tesa-grid></div></section>
           <div class="visual1-residual-egg"><b>π / r · RETAINED</b></div>
@@ -1049,6 +1153,7 @@
           <header class="aps-head"><div><small>PRIORITY 1 · OCB-GAP-02</small><h3 id="apStackTitle">Aperture Stack · six plates, one retained trace.</h3><p>Die source-lokale Folge <code>51.63° … 52.13°</code> wird als deklarierte Engineering-Fixture gegen sechs unregelmäßige Kontrollplatten gelesen. Jede Platte sieht denselben 48-Sample-M3-Record; Δθ und Sichtbarkeit verändern nur die Darstellung.</p></div><span class="aps-status" id="apStackStatus" data-state="boot" aria-live="polite">STACK · BOOT</span></header>
           <div class="aps-controls"><label>Stack<select id="apStackMode"><option value="source">Muindi source-local</option><option value="control">Irregular control</option></select></label><button type="button" class="primary" id="apStackPlay" aria-pressed="false">Play stack</button><button type="button" id="apStackStep">Step</button><button type="button" id="apStackReset">Reset</button><label>Clock<select id="apStackSpeed"><option value="1100">Calm</option><option value="700" selected>Normal</option><option value="360">Fast</option></select></label><label>Visibility window <input id="apStackWindow" type="range" min="12" max="120" step="2" value="52"><output id="apStackWindowOut">52°</output></label></div>
           <div class="aps-stage"><div><svg id="apStackSvg" viewBox="0 0 760 440" role="img" aria-label="Six ordered aperture plates and one shared M3 trace"></svg></div><aside class="aps-console"><div class="aps-readouts"><div><small>PLATE</small><b id="apStackPlate">—</b></div><div><small>NOMINAL θ</small><b id="apStackAngle">—</b></div><div><small>SIGNED Δθ</small><b id="apStackDelta">—</b></div><div><small>VISIBLE</small><b id="apStackVisible">—</b></div></div><output class="aps-metric" id="apStackMetric">—</output><button type="button" id="apStackExport">Export calibration + I/L/A/U</button></aside></div>
+          <div class="aps-controls"><label><input id="apStackFollowM3" type="checkbox" checked> M3-Quellenrecord + Lesepunkt folgen</label><output id="apStackM3Status">M3-Verbindung wird geprüft</output></div>
           <div class="aps-ledger" id="apStackLedger" aria-live="polite"></div>
           <section id="apTowerLegend" aria-labelledby="apTowerLegendTitle" style="padding:18px;margin:18px 0;border:1px solid #355260">
             <h4 id="apTowerLegendTitle">Tower-Legende · Farben, Plates und Glyph Trace</h4>
@@ -1628,6 +1733,25 @@
           </svg>
           <div><b>1,1 seed pair</b><p>Fibonacci begins with a declared seed pair, but G11/POLAR is not thereby a Fibonacci carrier. The displayed map sends the current polar direction to the square boundary by max-norm normalization.</p><small>circle ≠ square · sequence ≠ coordinate view · representation link only</small></div>
         </div>
+        <section id="seedCrossMonitor" aria-labelledby="seedCrossTitle" style="border:1px solid #64446b;padding:14px;margin:14px 0;scroll-margin-top:110px">
+          <h3 id="seedCrossTitle">1 | 1 · I/J-Cross · „pink 2“</h3>
+          <p><a href="assets/game-of-worlds-play/three-domain-transition-test/index.html#fibonacci" target="_blank" rel="noopener">Vorhandenes Game-F/E/Ihara und seine Contracts ↗</a> · Game-Seed (0,1), hier (1,1); noch keine gemeinsame Cursorbindung.</p>
+          <p>Die beiden Einsen bleiben ein geordnetes Paar. Die lokale Owner-Lesart „pink 2“ bezeichnet ihre Verbindung; die Primzahl <code>11</code> bleibt ein anderer Wert.</p>
+          <svg viewBox="0 0 240 200" role="img" aria-label="Deklarierter I J Cross mit Summe und Differenz" style="width:100%;max-width:300px">
+            <path d="M24 100H216M120 12V188" stroke="#829ba8" fill="none"/>
+            <line id="seedCrossPlus" x1="120" y1="100" x2="184" y2="36" stroke="#ed63cb" stroke-width="3"/>
+            <line id="seedCrossMinus" x1="120" y1="100" x2="184" y2="164" stroke="#48d7f3" stroke-width="3"/>
+            <g fill="#dcedf3" font-size="12"><text x="202" y="94">I</text><text x="126" y="20">J</text><text x="126" y="94">Schnitt</text></g>
+          </svg>
+          <p><output id="seedCrossPair" aria-live="polite"></output><br><span id="seedCrossReading"></span></p>
+          <p id="seedCrossVectors"></p>
+          <button type="button" id="seedCrossBack">← Voriges Paar</button> <button type="button" id="seedCrossStep">Fibonacci-Schritt →</button> <button type="button" id="seedCrossReset">Seed (1,1)</button>
+          <p>Regel: <code>(a,b) → (b,a+b)</code>. Manuelle Lesung ohne zweite Uhr; Rückblättern berechnet das frühere Folgenpaar, keinen Maschinen-Return.</p>
+          <p><a href="#pentagonWorkbench">Bestehender Pentagon Joint</a> · <a href="A0_PINK_DIAMOND_GRID_ATLAS.html#crt16-tile">16/17-Pentagonfliese</a></p>
+          <p>Die Fliese zeigt 16 CRT-Kanäle ab Modulus 17 in einer deklarierten 15+1-Anordnung. Dies ist ein Quellenverweis, keine aus dem Seed abgeleitete Fliese und kein gemeinsamer Operator.</p>
+          <p id="seedCrossPentagon"></p><button type="button" id="seedCrossRead">PENT-Anschluss mitlesen</button>
+          <details><summary>Paar, Basis und Quellenstatus</summary><pre class="state-json" id="seedCrossLedger"></pre></details>
+        </section>
         <div class="return-grid" id="returnGrid"></div>
         <h3 style="margin-top:14px">Current state record</h3>
         <pre class="state-json" id="stateJson" aria-live="polite"></pre>
@@ -1685,12 +1809,12 @@
   <script src="a0-orientation-controller-bench.js?rev=20261018-v018-r1"></script>
 <script src="a0-bench-finite-packages.js"></script>
 <script src="a0-bench-finite-packages-view.js"></script>
-  <script src="a0-aperture-measurement.js?rev=20261018-m3-ilau-r3"></script>
+  <script src="a0-aperture-measurement.js?rev=20261022-binder-live"></script>
   <script>
     try{window.A0ApertureMeasurementController=window.A0ApertureMeasurement.mount(document)}
     catch(error){const status=document.getElementById('m3Status'),metric=document.getElementById('m3Metric');const message=`M3 MOUNT ERROR · ${error&&error.message?error.message:String(error)}`;if(status){status.textContent=message;status.dataset.state='error'}if(metric)metric.textContent=message;console.error(error)}
   </script>
-  <script src="a0-aperture-stack-calibration.js?rev=20261018-gap02-r1"></script>
+  <script src="a0-aperture-stack-calibration.js?rev=20261022-binder-live"></script>
   <script>
     try{window.A0ApertureStackController=window.A0ApertureStackCalibration.mount(document)}
     catch(error){const status=document.getElementById('apStackStatus'),metric=document.getElementById('apStackMetric');const message=`STACK MOUNT ERROR · ${error&&error.message?error.message:String(error)}`;if(status){status.textContent=message;status.dataset.state='error'}if(metric)metric.textContent=message;console.error(error)}
@@ -1709,12 +1833,14 @@
   <script src="a0-fold-cycle-coupling.js?rev=20261020-r1"></script>
   <script>window.A0FoldCycleView=window.A0FoldCycleCoupling.mount(document,window.A0FoldLagView);</script>
   <script>window.A0LayeredSceneView=window.A0LayeredPentagonScene.mount(document,record=>window.A0OverlayView.accept('stack',record));</script>
-  <script src="a0-family-grid-coupler.js?rev=20261018-fgc-r4"></script>
+  <script src="a0-family-grid-coupler.js?rev=20261022-cubic-source"></script>
   <script>
     try{window.A0FamilyGridCouplerController=window.A0FamilyGridCoupler.mount(document,window)}
     catch(error){const root=document.querySelector('[data-family-grid-coupler]');if(root)root.textContent=`FAMILY GRID COUPLER HOLD · ${error&&error.message?error.message:String(error)}`;console.error(error)}
   </script>
   <script src="a0-root7-open-book.js"></script>
+  <script src="assets/a0-ihara-hashimoto-model.js"></script>
+  <script src="a0-ihara-cubic-bench.js?v=20261022-binder-live"></script>
   <script src="a0-root7-q4-coupling.js"></script>
 <script>
 (function(){
@@ -1744,6 +1870,9 @@
   let rootEngineTimer = null;
   let masterDemoState = C.createMasterDemonstratorState();
   let masterDemoTimer = null;
+  let masterLoopCount = 0;
+  const masterLoopReturns = [];
+  const masterLoopEnabled = () => Boolean($('masterDemoLoop')?.checked)&&!window.A0PentagonJointDemo?.isActive()&&!window.A0Life03JointDemo?.isActive();
   let masterAutoTimer = null;
   let masterAutoTour = false;
   let pxaJourneyState = C.createPxaJourneyState({running:true});
@@ -2269,24 +2398,28 @@
   function renderMasterDemo(scroll=false,execute=false){
     const phase=masterDemoState.currentPhase,last=masterDemoState.history[masterDemoState.history.length-1];
     $('masterCockpit').dataset.running=String(masterDemoState.running);document.body.classList.toggle('demo-running',masterDemoState.running);
-    $('masterCockpit').dataset.autoTour=String(masterAutoTour);$('masterTourMode').textContent=masterDemoState.running?'DEMONSTRATION · LIVE':'PAUSIERT · DU STEUERST';
+    $('masterCockpit').dataset.autoTour=String(masterAutoTour);$('masterTourMode').textContent=masterDemoState.running?(masterLoopEnabled()?`LOOP · RUNDE ${masterLoopCount+1} · FREI UMSEHEN`:'DEMONSTRATION · LIVE'):'PAUSIERT · DU STEUERST';
     $('masterDemoCarrier').textContent=phase.carrier;$('masterDemoPhase').textContent=`${String(masterDemoState.phaseIndex).padStart(2,'0')} · ${phase.id}`;$('masterDemoTitle').textContent=phase.title;$('masterDemoCopy').textContent=phase.copy;$('masterDemoHandoff').textContent=phase.handoff;
     $('masterDemoStart').textContent=masterDemoState.running?'Ⅱ AUTO-DEMO PAUSIEREN':masterDemoState.phaseIndex===9?'↻ AUTO-DEMO NEU ABSPIELEN':masterDemoState.history.length?'▶ AUTO-DEMO WEITER ABSPIELEN':'▶ AUTO-DEMO ABSPIELEN';$('masterDemoStart').classList.toggle('running',masterDemoState.running);$('masterDemoStart').setAttribute('aria-pressed',String(masterDemoState.running));
     $('masterDemoRecord').textContent=last?`${last.from} → ${last.to}\n${last.carrierFrom} → ${last.carrierTo}\n${last.sameCarrier?'SAME CARRIER':'TYPED HANDOFF'} · ${last.handoff}`:'READY · no transition committed';
     $('masterDemoProgress').innerHTML=C.MASTER_DEMO_PHASES.map((item,index)=>`<button data-master-phase="${index}" class="${index===masterDemoState.phaseIndex?'active':''} ${index<masterDemoState.phaseIndex?'done':''}" title="${item.title}">${String(index).padStart(2,'0')}<br>${item.id}</button>`).join('');
     const act=masterDemoState.phaseIndex<2?0:masterDemoState.phaseIndex<6?2:masterDemoState.phaseIndex<9?6:9;qsa('[data-story-phase]').forEach(button=>button.classList.toggle('active',Number(button.dataset.storyPhase)===act));
     qsa('#masterDemoSignal i').forEach((node,index)=>node.classList.toggle('active',index===masterDemoState.phaseIndex));
-    focusMasterPhase(phase,scroll&&!window.A0PentagonJointDemo?.isActive()&&!window.A0Life03JointDemo?.isActive());if(execute)executeMasterPhase(phase);
+    focusMasterPhase(phase,scroll&&!masterLoopEnabled()&&!window.A0PentagonJointDemo?.isActive()&&!window.A0Life03JointDemo?.isActive());if(execute)executeMasterPhase(phase);
   }
   function scheduleMasterDemo(){
     stopMasterDemo();if(!masterDemoState.running)return;
     masterDemoTimer=setInterval(()=>{
       if(masterSourcePending())return;
+      if(masterDemoState.phaseIndex===C.MASTER_DEMO_PHASES.length-1&&masterLoopEnabled()){
+        masterLoopReturns.push(JSON.parse(JSON.stringify({cycle:++masterLoopCount,state:masterDemoState})));if(masterLoopReturns.length>16)masterLoopReturns.shift();
+        setMasterDemoRunning(true,false);return;
+      }
       masterDemoState=C.stepMasterDemonstrator(masterDemoState);
       const completes=masterDemoState.phaseIndex===C.MASTER_DEMO_PHASES.length-1;
-      if(completes){masterDemoState=C.createMasterDemonstratorState({...masterDemoState,running:false});stopMasterDemo()}
+      if(completes&&!masterLoopEnabled()){masterDemoState=C.createMasterDemonstratorState({...masterDemoState,running:false});stopMasterDemo()}
       renderMasterDemo(true,true);
-      if(completes&&!window.A0PentagonJointDemo?.isActive()&&!window.A0Life03JointDemo?.isActive())masterAutoTimer=setTimeout(()=>{$('masterCockpit').scrollIntoView({behavior:'smooth',block:'start'});masterAutoTour=false;renderMasterDemo(false,false)},1100);
+      if(completes&&!masterLoopEnabled()&&!window.A0PentagonJointDemo?.isActive()&&!window.A0Life03JointDemo?.isActive())masterAutoTimer=setTimeout(()=>{$('masterCockpit').scrollIntoView({behavior:'smooth',block:'start'});masterAutoTour=false;renderMasterDemo(false,false)},1100);
     },masterDemoState.speedMs);
   }
   function setMasterDemoRunning(running,auto=false){
@@ -2305,7 +2438,7 @@
   function pauseBenchAutomation(exceptControl=''){
     if(!['life03Start','life03Pause','masterDemoStart'].includes(exceptControl))window.A0Life03JointDemo?.interrupt('Manueller Eingriff / Scrollen');
     if(!['pentagonJointStart','pentagonJointPause','masterDemoStart'].includes(exceptControl))window.A0PentagonJointDemo?.interrupt('Manueller Eingriff / Scrollen');
-    if(exceptControl!=='masterDemoStart')interruptMasterAutoTour();
+    if(!['masterDemoStart','masterDemoLoop','systemBinderLoop'].includes(exceptControl))interruptMasterAutoTour();
     if(exceptControl!=='pxaJourneyPlay')holdPxaJourney();
     if(exceptControl!=='rootEnginePlay'&&rootEngineState.running)setRootEngineRunning(false);
     if(exceptControl!=='pascalLensPlay'&&pascalLensTimer)stopPascalLensMotion();
@@ -2314,6 +2447,7 @@
   function pauseForHumanInteraction(event){
     if(event.isTrusted===false)return;
     const control=event.target.closest?.('button,input,select,textarea,a');
+    if(masterLoopEnabled()&&(!control||control.tagName==='A'&&control.getAttribute('href')?.startsWith('#')))return;
     pauseBenchAutomation(control?.id||'');
   }
 
@@ -2381,6 +2515,7 @@
   $('masterDemoStep').addEventListener('click',stepMasterDemo);
   $('masterDemoReset').addEventListener('click',()=>{if(masterSourcePending())return;masterAutoTour=false;resetMasterInstruments();masterDemoState=C.createMasterDemonstratorState({speedMs:Number($('masterDemoSpeed').value)});renderMasterDemo(false,false)});
   $('masterDemoSpeed').addEventListener('change',()=>{masterDemoState=C.createMasterDemonstratorState({...masterDemoState,speedMs:Number($('masterDemoSpeed').value)});renderMasterDemo(false,false);scheduleMasterDemo()});
+  $('masterDemoLoop').addEventListener('change',()=>{if($('systemBinderLoop'))$('systemBinderLoop').checked=masterLoopEnabled();renderMasterDemo(false,false)});
   $('masterDemoProgress').addEventListener('click',event=>{if(masterSourcePending())return;const button=event.target.closest('[data-master-phase]');if(!button)return;masterAutoTour=false;stopMasterDemo();masterDemoState=C.createMasterDemonstratorState({...masterDemoState,phaseIndex:Number(button.dataset.masterPhase),running:false});renderMasterDemo(true,false)});
   $('storySpine').addEventListener('click',event=>{if(masterSourcePending())return;const button=event.target.closest('[data-story-phase]');if(!button)return;interruptMasterAutoTour();masterDemoState=C.createMasterDemonstratorState({...masterDemoState,phaseIndex:Number(button.dataset.storyPhase),running:false});renderMasterDemo(true,true)});
   function captureFaceIntegrationPackage(){
@@ -2389,8 +2524,8 @@
   $('masterDemoExport').addEventListener('click',()=>downloadJson('a0-orientation-cockpit-run.json',{tool:'A0 Orientation Controller Bench · Master Demonstrator',version:C.VERSION,mode:'TYPED_HANDOFF_ORCHESTRATOR',state:masterDemoState,phases:C.MASTER_DEMO_PHASES,records:{life03:window.A0Life03Bench?.exportRecord()??null,pentagon:window.A0PentagonBench?.exportRecord()??null,orientation:C.stateCore(state),edge:edgeState,rootSpace:rootEngineState,root7:window.A0Root7Coupling.snapshot(rootEngineState,C,root838Mode,window.A0Root7Sections.readOptions(document),window.A0Root7Book.readOptions(document))},integrationPackage:captureFaceIntegrationPackage(),boundary:'Typed handoffs coordinate distinct carriers; no carrier identity or physics claim.'}));
   ['pointerdown','input','change','click'].forEach(type=>document.addEventListener(type,pauseForHumanInteraction,{capture:true}));
   document.addEventListener('keydown',event=>{if(['Tab','Enter',' ','ArrowUp','ArrowDown','ArrowLeft','ArrowRight','PageUp','PageDown','Home','End'].includes(event.key))pauseForHumanInteraction(event)},{capture:true});
-  document.addEventListener('wheel',()=>pauseBenchAutomation(),{passive:true,capture:true});
-  document.addEventListener('touchmove',()=>pauseBenchAutomation(),{passive:true,capture:true});
+  document.addEventListener('wheel',()=>{if(!masterLoopEnabled())pauseBenchAutomation()},{passive:true,capture:true});
+  document.addEventListener('touchmove',()=>{if(!masterLoopEnabled())pauseBenchAutomation()},{passive:true,capture:true});
   document.addEventListener('visibilitychange',()=>{if(document.hidden)pauseBenchAutomation()});
   render();renderBlind();renderEdgeCore();renderEdgeBlind();renderPascalShadow();renderFamilyOrientation();renderExperimentCorridor();renderGoReturnLab();renderRoot838();renderMasterDemo(false,false);renderPxaJourney();
   window.A0PentagonPauseMaster=()=>{stopMasterDemo();masterAutoTour=false;masterDemoState=C.createMasterDemonstratorState({...masterDemoState,running:false});renderMasterDemo(false,false)};
@@ -2419,14 +2554,16 @@
     step:()=>stepMasterDemo(),
     reset:()=>{masterAutoTour=false;resetMasterInstruments();masterDemoState=C.createMasterDemonstratorState({speedMs:Number($('masterDemoSpeed').value)});renderMasterDemo(false,false)},
     snapshot:()=>JSON.parse(JSON.stringify(masterDemoState)),
-    isPending:()=>masterSourcePending()
+    isPending:()=>masterSourcePending(),
+    setLoop:value=>{$('masterDemoLoop').checked=Boolean(value);if($('systemBinderLoop'))$('systemBinderLoop').checked=masterLoopEnabled();renderMasterDemo(false,false)},
+    loopSnapshot:()=>({enabled:masterLoopEnabled(),completedCycles:masterLoopCount,retainedCycles:JSON.parse(JSON.stringify(masterLoopReturns)),retentionLimit:16,scope:'VIEWING_REPETITION_NOT_INVERSE_OR_SHARED_CLOCK'})
   };
   window.A0Visual1BenchState=()=>({edge:JSON.parse(JSON.stringify(edgeState)),journey:JSON.parse(JSON.stringify(pxaJourneyState)),aperture:Number($('pxaAperture').value)});
   // Automation starts only through an explicit play action.
 })();
 </script>
 <script src="assets/a0-tesa-grid-candidate.js?rev=20261018-v1-grid-r1"></script>
-<script src="a0-visual1-grid-generator.js?rev=20261018-v1-grid-r1"></script>
+<script src="a0-visual1-grid-generator.js?rev=20261022-binder-live"></script>
 <script>
   try{window.A0Visual1GridController=window.A0Visual1GridGenerator.mount(document,window)}
   catch(error){const status=document.querySelector('[data-v1-status]');if(status)status.textContent=`VISUAL 1 GRID HOLD · ${error&&error.message?error.message:String(error)}`;console.error(error)}
@@ -2451,7 +2588,7 @@
 <script src="a0-ocb-record-replay.js?rev=20261018-replay-r1"></script>
 <script src="a0-ocb-record-replay-ui.js?rev=20261018-replay-r1"></script>
 <script>window.A0OCBRecordReplayController=window.A0OCBRecordReplayUI.mount(document,window);</script>
-<script src="a0-system-binder.js?rev=20261018-gap06-r1"></script>
+<script src="a0-system-binder.js?rev=20261022-viewing-loop"></script>
 <script>
   try{window.A0SystemBinderController=window.A0SystemBinder.mount(document,window)}
   catch(error){const status=document.getElementById('systemBinderStatus'),ledger=document.getElementById('systemBinderLedger');const message=`SYSTEM BINDER MOUNT ERROR · ${error&&error.message?error.message:String(error)}`;if(status)status.textContent=message;if(ledger)ledger.textContent=message;console.error(error)}
@@ -2509,7 +2646,7 @@
   try{window.A0BenchMapController=window.A0BenchMap.mount(document,window)}
   catch(error){const status=document.getElementById('benchMapStatus');if(status)status.textContent=`BENCH MAP HOLD · ${error&&error.message?error.message:String(error)}`;console.error(error)}
 </script>
-<script src="a0-bench-showcase-tour.js?rev=20261020-clock-r1"></script>
+<script src="a0-bench-showcase-tour.js?rev=20261022-introduction"></script>
 <script>
   try{window.A0BenchShowcaseTourController=window.A0BenchShowcaseTour.mount(document,window)}
   catch(error){const title=document.getElementById('benchTourTitle');if(title)title.textContent=`TOUR HOLD · ${error&&error.message?error.message:String(error)}`;console.error(error)}
@@ -2561,5 +2698,19 @@
 <script src="a0-bench-visual-shelves.js"></script>
 <script src="a0-science-builder-path.js"></script>
 <script src="a0-bench-machine-picture.js"></script>
+<script src="a0-one-one-bench.js"></script>
+<script src="a0-player-bench-link.js?v=20261022-binder-live"></script>
+<script src="a0-pascal-thread-views.js"></script>
+<script src="a0-player-pascal-bridge.js?v=20261022-binder-live"></script>
+<script src="a0-binder-connections.js?v=20261022-workdesk"></script>
+<script src="a0-seed-cross.js?v=20261022-seed-cross"></script>
+<script src="a0-one-pulse-session.js?v=20261022-ack"></script>
+<script src="a0-pulse-bench.js?v=20261022-workdesk"></script>
+<script src="a0-anu-tower.js?v=20261022"></script>
+<script src="a0-register-janus.js?v=20261022"></script>
+<script src="a0-club-crt-link.js?v=20261022-carrier-return"></script>
+<script src="a0-carrier-return.js?v=20261022-pink-source"></script>
+<script src="a0-bench-workdesk.js?v=20261022-introduction"></script>
+<script>window.A0BenchOverviewController=window.A0BenchShowcaseTour.mountOverview(document,window);</script>
 </body>
 </html>

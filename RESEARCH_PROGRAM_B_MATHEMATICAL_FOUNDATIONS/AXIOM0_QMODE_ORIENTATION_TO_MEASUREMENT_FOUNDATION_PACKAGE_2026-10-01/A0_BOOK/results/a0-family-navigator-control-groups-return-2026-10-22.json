@@ -1,0 +1,23 @@
+{
+  "date": "2026-10-22",
+  "scope": "Standalone draft UI regrouping only",
+  "placement": {
+    "top": ["Abspielen", "Grundform", "Exponat (separated group)"],
+    "right": ["Perspektive", "Licht · LJ", "Elevator · Quelle / Ansicht / Grenze"],
+    "below": ["F1–F7", "current reading coordinate", "closed explanation drawer"]
+  },
+  "bindings": "Existing DOM buttons and callbacks reused; exhibit selection explicitly pauses playback before renderer cancellation. Elevator remains same-Family navigation across existing reading positions.",
+  "new_canonical_ids": [],
+  "new_navigator_relations": [],
+  "source_state_or_clock_transfer": false,
+  "dj_deck_modified": false,
+  "checks": {
+    "ux": "369 PASS",
+    "tours": "94 PASS",
+    "navigator": "857 PASS",
+    "stage": "55 PASS",
+    "source_graph": "PASS; 20 components; base 266/29; composed 269/32",
+    "app_audit": "252/252 PASS",
+    "browser_visual_acceptance": "OPEN; DOM/canvas doubles do not establish pixel acceptance"
+  }
+}

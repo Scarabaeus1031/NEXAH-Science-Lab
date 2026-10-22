@@ -1,0 +1,47 @@
+{
+  "date": "2026-10-22",
+  "entry": "A0_ORIENTATION_CONTROLLER_BENCH.html#carrierReturnWorkbench",
+  "scope": "Bounded software/interface arithmetic; no scientific replay",
+  "identityReuse": [
+    "NEXAH_A0_ORIENTATION_CONTROLLER_BENCH",
+    "MOD:NUMBER_VIEW_SUITE"
+  ],
+  "newCanonicalIdentities": [],
+  "canonicalRelationChanges": [],
+  "sourceMode": "LOCAL_SOURCE_FIXTURE",
+  "reusedImplementation": "a0-club-crt-link.js carrier()/reconstruct() with existing CRT16 moduli; browser additionally exposes pure API A0ClubCRTModel; existing Club mount behavior retained",
+  "sourceSeeds": [
+    11537,
+    11573
+  ],
+  "operators": {
+    "suffix2": "100*floor(n/100)+10*(n mod 10)+floor((n mod 100)/10)",
+    "shadow": "31000-n",
+    "domain": "integers 0..31000",
+    "return": "Apply recorded involutions in reverse order; compare both reconstructed carriers with source anchors"
+  },
+  "checks": {
+    "carrierReturn": 124153,
+    "clubCRT": 297,
+    "playerRelay": 261,
+    "registerJanus": 1066,
+    "anuTower": 27398,
+    "clubNavigation": 27,
+    "sourceGraph": "PASS; 20 components, base 266/29, composed 269/32",
+    "appAudit": "252/252 PASS"
+  },
+  "pins": {
+    "a0-carrier-return.js": "59ce84f4b8d678cf200bec53e5786391951923b35d28ef5d7849b34a09e6855b",
+    "a0-carrier-return-tests.cjs": "bd5324dd3de23ce3249833020bb3c7516413112a44bae1315df039f8d848d3a1",
+    "a0-club-crt-link.js": "881947132a8a9ec8c65c05ca3fe9b93b04db6cd9237c609d98c6349437bcd48c"
+  },
+  "boundaries": {
+    "liveClubCarrier": false,
+    "anuTransport": null,
+    "wholeMachineReturn": false,
+    "ownClock": false,
+    "view125and1000": "not coprime; not combined as independent CRT channels",
+    "browserAcceptance": "OPEN; DOM doubles only",
+    "authorityEffects": "No research activation, evidence promotion or publication"
+  }
+}

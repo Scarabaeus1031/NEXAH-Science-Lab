@@ -1,0 +1,49 @@
+{
+  "status": "IMPLEMENTED_SOFTWARE_TESTED_BROWSER_ACCEPTANCE_OPEN",
+  "entry": "DRAFTS/A0_FAMILY_NAVIGATOR_DEMO.html / clubOpenBenchMonitor",
+  "receiver": "A0_ORIENTATION_CONTROLLER_BENCH.html#oneOnePlayerMonitor",
+  "schema": "a0-player-bench-readonly-v1",
+  "source": "A0_CURSOR_HANDOFF_CLICKDUMMY.html",
+  "relay": "DRAFTS/A0_FAMILY_NAVIGATOR_DEMO.html",
+  "scope": "Bounded native Q4 receipt readback, not shared carrier or inverse",
+  "contract": {
+    "fields": ["plate","q4Address","q4Bits","layer","deskIndex","running"],
+    "start": "Explicit Club button opens/focuses one Bench window, no extra player",
+    "binding": "Exact window references, allowed origin, 128-bit random per-open token, monotonic safe-integer sequence",
+    "source_verification": "Existing monitor first verifies actual iframe window, origin, fixed source name and native receipt coordinates",
+    "freshness": "Each Bench read invokes original iframe read; acknowledgment waits for newly validated source receipt",
+    "health_request_delay_ms": 1200,
+    "response_timeout_ms": 3000,
+    "clock_boundary": "Timers only request/check connection health. They do not advance player, sequence, mixer or generation.",
+    "failure": "Missing/invalid/unloaded source, timeout, hidden monitor or closed peer => HOLD; explicit read required after hold",
+    "open_layer": "Coordinate displayed, layer comparison remains HOLD",
+    "commands_to_source": ["read"],
+    "controls_exposed": [],
+    "anchors": "Player and Bench each compared to own captured record; asynchronous capture, not simultaneous shared state",
+    "cross_carrier_comparison": "NOT_COMPARABLE",
+    "shared_inverse": false,
+    "shared_clock": false,
+    "whole_machine_return": false
+  },
+  "checks": {
+    "readonly_link":156,
+    "native_return_monitor":246,
+    "one_one":67,
+    "tower":55,
+    "family_follow":48,
+    "carrier_sequence":505,
+    "source_engine_shell_hash":24,
+    "simple_player":112,
+    "routes":163,
+    "blueprint":199
+  },
+  "browser_acceptance": "NOT_PERFORMED. file-window opener restrictions, popup blocking and source visibility pause must be tested in the user's browser; fail closed if unavailable.",
+  "authority": {
+    "existing_identities": ["NEXAH_A0_ORIENTATION_CONTROLLER_BENCH","MOD:NUMBER_VIEW_SUITE"],
+    "new_canonical_identity":false,
+    "new_canonical_relation":false,
+    "scientific_finding":false,
+    "research_execution":false,
+    "publication":false
+  }
+}

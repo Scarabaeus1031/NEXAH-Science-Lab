@@ -4,7 +4,11 @@
   const allowed=isLife?['rooms','boundary','field','register','phase','rosette','cathedral']:['atlas','domains','montage','euler','fibonacci','ihara','k-teller','blue-body'];
   document.body.dataset.embedded=String(parent!==window);document.body.dataset.atlasDensity='compact';
   function running(){return play.textContent==='Pause'}
-  function publish(ready=false){if(parent!==window)parent.postMessage({type:'worlds-play-state',ready,kind,running:running(),loop:loop.checked,status:status.textContent},'*')}
+  function numberText(id){const text=String($(id)?.textContent??''),match=text.match(/-?\d+(?:\.\d+)?/);return match?Number(match[0]):null}
+  function generationValue(){return isLife?Number($('generation')?.value):numberText('runStatus')}
+  function reading(){if(isLife)return{live:numberText('live'),events:numberText('eventCount'),residual:numberText('residual'),fixture:$('fixture')?.value||null};return{chemistryEvents:numberText('chemistryEvents'),chemistryResidual:numberText('chemistryResidual'),lifeEvents:numberText('lifeEvents'),lifeResidual:numberText('lifeResidual'),physicsEvents:numberText('physicsEvents'),physicsResidual:numberText('physicsResidual'),jointRe:$('jointRe')?.textContent||null,jointIm:$('jointIm')?.textContent||null,kTellerTotal:numberText('kTellerTotal'),iharaState:$('iharaState')?.textContent||null,blueBodyPhase:numberText('blueBodyStepValue')}}
+  function pulseReading(){const r=reading();if(!isLife)r.atlasContract=window.ThreeDomainAtlasContractMonitor?.snapshot()||null;return r;}
+  function publish(ready=false){if(parent!==window)parent.postMessage({type:'worlds-play-state',ready,kind,running:running(),loop:loop.checked,status:status.textContent,generation:generationValue(),reading:reading()},'*')}
   function change(el,value){el.value=value;el.dispatchEvent(new Event('change',{bubbles:true}))}
   function pause(){if(running())play.click();for(const id of ['crystalRotate','boundaryRotate','boundaryFlow']){const el=$(id);if(el?.getAttribute('aria-pressed')==='true')el.click();}publish()}
   function view(name){if(!allowed.includes(name))return;document.body.dataset.stage=name;
@@ -29,6 +33,7 @@
     if(action==='play')play.click();
     if(action==='step')$(isLife?'stepForward':'step').click();
     if(action==='reset')$('reset').click();
+    if(action==='seek'&&Number.isInteger(Number(value))){const target=Number(value);if(isLife&&target>=0&&target<=Number($('generation').max)){pause();$('generation').value=String(target);$('generation').dispatchEvent(new Event('input',{bubbles:true}));}if(!isLife&&target>=0&&target<=240){pause();$('reset').click();for(let i=0;i<target;i++)$('step').click();}}
     if(action==='loop'){loop.checked=Boolean(value);loop.dispatchEvent(new Event('change',{bubbles:true}));}
     if(action==='speed'&&['slow','normal','fast'].includes(value))change($('speed'),isLife?{slow:'800',normal:'420',fast:'210'}[value]:{slow:'700',normal:'360',fast:'180'}[value]);
     if(action==='seed'&&isLife&&Array.from($('fixture').options).some(o=>o.value===value))change($('fixture'),value);
@@ -39,6 +44,18 @@
     publish();
   }
   window.addEventListener('message',event=>{if(event.source!==parent||event.data?.type!=='worlds-play-command')return;command(event.data.action,event.data.value)});
+  // Separate ACK protocol for ONE PULSE; legacy single-world controls stay intact.
+  const pulseType='a0-one-pulse-source/1';let pulseSession=null,pulseId=0,pulseEpoch=null;
+  try{const bytes=new Uint8Array(16);window.crypto.getRandomValues(bytes);pulseEpoch=Array.from(bytes,x=>x.toString(16).padStart(2,'0')).join('');}catch{}
+  window.addEventListener('message',event=>{
+    const m=event.data;if(event.source!==parent||m?.type!==pulseType||!pulseEpoch||!['life','domains'].includes(kind)||typeof m.session!=='string'||!/^[a-f0-9]{32}$/.test(m.session)||!Number.isSafeInteger(m.id)||m.id<1)return;
+    if(m.action==='hello'){pulseSession=m.session;pulseId=0;}
+    if(m.session!==pulseSession||m.id<=pulseId||!['hello','read','step','seek'].includes(m.action))return;
+    pulseId=m.id;
+    try{if(m.action==='step')command('step');else if(m.action==='seek'){if(!Number.isInteger(m.value)||m.value<0||m.value>240)throw Error('INVALID_SEEK');command('seek',m.value);}
+      parent.postMessage({type:pulseType,session:pulseSession,id:m.id,epoch:pulseEpoch,kind,status:'ACK',frame:{generation:generationValue(),running:running(),reading:pulseReading()}},'*');
+    }catch(_){parent.postMessage({type:pulseType,session:pulseSession,id:m.id,epoch:pulseEpoch,kind,status:'HOLD'},'*');}
+  });
   document.addEventListener('visibilitychange',()=>{if(document.hidden)pause()});
   new MutationObserver(()=>publish()).observe(status,{childList:true,characterData:true,subtree:true});
   if(isLife){change($('fixture'),'ACORN');$('generation').value=24;$('generation').dispatchEvent(new Event('input',{bubbles:true}));}

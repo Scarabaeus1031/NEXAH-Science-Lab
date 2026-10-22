@@ -1,0 +1,32 @@
+{
+  "schema": "a0.local-engineering-return/1",
+  "date": "2026-10-22",
+  "status": "SOFTWARE_CHECKS_PASS_BROWSER_ACCEPTANCE_OPEN",
+  "scope": "Direct ONE PULSE workspace in full Bench; extends existing read-only bridge",
+  "identityReuse": ["MOD:NUMBER_VIEW_SUITE", "NEXAH_A0_ORIENTATION_CONTROLLER_BENCH"],
+  "newCanonicalEntities": 0,
+  "newCanonicalRelations": 0,
+  "entry": "Bench navigation ONE PULSE -> #pulseBenchMonitor -> ONE PULSE verbinden",
+  "sourceOwnership": "One Bench-owned visible Game iframe loaded only on click; repeated connect reuses the same iframe. A separately open Game tab is not bound or controlled.",
+  "binding": "Exact parent/child window, origin, token, fresh receiver channel, monotonic requests/responses; explicit embedded-source URL flag. Source accepts READ only from this peer.",
+  "playback": "No autoplay or Bench-issued play/step/reset. Game controls remain inside visible source. Disconnect clears observer state, not the source simulation.",
+  "lifecycle": "HOLD on timeout, disconnect or hidden document; late iframe load cannot rearm after disconnect/hidden. Reloaded source can restart transport serial with fresh receiver channel. Explicit reconnect after hidden.",
+  "preservedViews": ["Coil g mod 48 declared display", "Confirmed generation weave", "Score lens fifths[g mod 12]", "Owner ONE PULSE Game views"],
+  "checks": [
+    {"command": "node a0-pulse-bench-tests.cjs", "status": "PASS", "count": 576, "method": "actual bridge mount code in DOM/window doubles; receiver 0..240, both embedding directions, lazy source, reuse, reload, hidden and detach"},
+    {"command": "node a0-one-pulse-tests.cjs", "status": "PASS", "count": 71},
+    {"command": "node a0-one-pulse-session-tests.cjs", "status": "PASS", "count": 511},
+    {"command": "node a0-game-of-worlds-play-tests.cjs", "status": "PASS", "count": 203},
+    {"command": "node a0-binder-connections-tests.cjs", "status": "PASS", "count": 200},
+    {"command": "node a0-player-bench-link-tests.cjs", "status": "PASS", "count": 261},
+    {"command": "node GOVERNANCE/validate_source_graph.mjs", "status": "PASS", "base": "266/29", "composed": "269/32"},
+    {"command": "node APP/audit_app.mjs", "status": "PASS", "count": 252}
+  ],
+  "implementationPins": {
+    "a0-pulse-bench.js": "98e54d2f2be76bfb1272ced557a8c0d62c8d1547adb194036a0a97128216cd7f",
+    "a0-pulse-bench.css": "91370fe330200c01a313cace623702c50736220a235fbda3a47d7b6a93d1c0e9",
+    "a0-pulse-bench-tests.cjs": "4ad8286bf49f903badd928d0947b814e355532ca19c47f8ddb6ded87e5b37ee4"
+  },
+  "manualAcceptance": ["Open Bench #pulseBenchMonitor and click ONE PULSE verbinden", "In embedded Game wait for source connection, then press PLAY", "Verify Bench generation, Coil, weave and score follow confirmed source", "Disconnect and reconnect: same source iframe remains, no second monitor nested in Game", "Hide and return: explicit reconnect required"],
+  "boundaries": ["Browser pixels and human acceptance remain OPEN", "No scientific execution or claim promotion", "No shared M3/PENT/Ihara operator inferred", "No canonical graph, lifecycle or publication change", "Prior version receipts and historical source pins remain unchanged"]
+}

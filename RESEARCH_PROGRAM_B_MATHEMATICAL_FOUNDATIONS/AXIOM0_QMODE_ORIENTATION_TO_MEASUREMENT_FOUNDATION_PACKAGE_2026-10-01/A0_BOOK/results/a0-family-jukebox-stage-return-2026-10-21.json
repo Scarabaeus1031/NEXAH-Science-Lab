@@ -1,0 +1,33 @@
+{
+  "date": "2026-10-21",
+  "scope": "Standalone draft decorative presentation only; existing source identities reused",
+  "changes": [
+    "Three lighting controls: static reading light, room-specific color atmosphere, explicit opt-in stage",
+    "Distinct cylinder/polar/plate/Blue Body/Dodeca ambient palettes combined with existing A/B framing",
+    "Slow 18-second light drift and decorative angle brackets, no strobe or graph-color reassignment",
+    "Blue Body and Dodeca source copies rotate slowly with small bounded tilt and 2.5-percent scale breathing",
+    "Presentation-only clock; Family coordinates, source vertices, camera, bridge state and GLB source-geometry export remain unchanged",
+    "Stage stops on hidden/pagehide or reduced-motion preference and requires explicit restart"
+  ],
+  "validation": {
+    "standalone_demo": {"status": "PASS", "checks": 548},
+    "stage": {"status": "PASS", "checks": 55},
+    "glb": {"status": "PASS", "checks": 69},
+    "original_spatial_reader": {"status": "PASS", "checks": 691},
+    "source_graph": "PASS:20 components,266/29 base,269/32 composed",
+    "browser_pixels": "OPEN"
+  },
+  "future_ideas_not_bound": [
+    "Mandelbrot / Julia / Critical Orbit require identification of concrete source views and explicit Family role before integration",
+    "+4 remains an unassigned user concept; no inferred mapping"
+  ],
+  "authority_effects": {
+    "new_canonical_ids": 0,
+    "canonical_relations_changed": 0,
+    "original_atlas_edited": false,
+    "parallel_plate_dummy_edited": false,
+    "engine_state_transfer": false,
+    "publication": false,
+    "research_activation": false
+  }
+}

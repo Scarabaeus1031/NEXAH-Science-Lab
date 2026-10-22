@@ -23,6 +23,22 @@ flowchart TD
     CRT["CRT16-Instrument"]
     NSN[("SCIENCE NAVIGATOR<br/>Quellen · Identitäten · Beziehungen")]
     CaroStory("CARO als Geschichte")
+    Workshop["Atlas · passende Mechanismus-Werkstatt"]
+    BodyLab{{"BLUE BODY LAB<br/>Körper-Werkstatt · eigenes Instrument"}}
+    BodyPlayer["48er Body Player"]
+    BodyViews["7 Ansichten<br/>Körper · Layer · LIFE · Return · Hülle · Haus-Ledger"]
+    BodyMaster["Lokaler Vorführlauf"]
+    BodyModules["Carrier · Naht · Faser<br/>Fold · Spektrum · Ringe"]
+    BodySeam["Box / Laschen · Quellvertrag<br/>Fold · Kontakt · CON–DAO · Integer / Layer"]
+    FoldSource["AXIS08 · Sewing · Partitur · Generationen<br/>Getrennte Originalmechanismen"]
+    Club{{"CLUB MACHINE<br/>Family Navigator Demo"}}
+    Deck["RELATIONS PLAYER<br/>Vorhandene einzelne Deck-Instanz"]
+    Control{{"CONTROL ROOM<br/>20er-Elevator · Spur · CRT-Readout"}}
+    OneOne["BENCH · 1,1-MONITOR<br/>Lokaler Mischer / Stack · getrennte Records"]
+    Numbers["GAME OF NUMBERS<br/>Getrennte Regeln · Mischer · Return"]
+    Tower["TOWER-LEGENDE<br/>Plate / Glyph · Mapping offen"]
+    Desk{{"A0 SCIENCE DESK<br/>Ergebnisse · Grenzen · nächste Abnahme"}}
+    Log["BUILDER LOG<br/>Bauplan · Tests · Wiedereinstieg"]
 
     A0 --> H
     A0 --> S
@@ -51,6 +67,33 @@ flowchart TD
     Verstehen --> NSN
     NSN -.->|"Quellenbindung ≠ Live-Kopplung"| Original
     Atlas -.->|"Geplanter Lesegang"| CaroStory
+    Atlas -->|"Navigation"| Workshop
+    Workshop -->|"Körper · Mechanismus · Return"| BodyLab
+    Workshop -->|"Ein Originalfenster auf Wunsch"| FoldSource
+    Demos -->|"Navigation"| BodyLab
+    BodyLab -->|"Lokaler Einstieg"| BodyPlayer
+    BodyLab -->|"Explizit starten"| BodyMaster
+    BodyLab -->|"Enger Adapter"| BodySeam
+    BodyPlayer ==>|"Lokaler Player-Takt"| BodyViews
+    BodyMaster ==>|"Deklarierte Vorführsequenz"| BodyModules
+    BodySeam -.->|"Typisierter Datenaustausch · kein Gesamt-Return"| Bench
+    BodyLab -->|"Zur passenden Atlas-Werkstatt"| Workshop
+    Atlas -->|"Navigation zur Demo"| Club
+    Club -->|"Raumwechsel"| Deck
+    Club -->|"Raumwechsel"| Control
+    Arcade -->|"Original Numbers öffnen"| Numbers
+    Numbers -.->|"Wiederverwendetes Modell · deklarierter +20-Lift"| Control
+    Deck ==>|"Beobachtete Adresswechsel · bestehende Sequenz"| Control
+    Control -->|"Zur Bench · kein Zustandstransfer"| OneOne
+    Bench -->|"Lokaler Test"| OneOne
+    OneOne -.->|"Dokumentarische Legende · keine Zeilenkopplung"| Tower
+    OneOne -.->|"Lokaler Modelllauf · kein Zugriff auf laufendes Game"| Numbers
+    NSN -.->|"Bestehende Carrier-Quellen · kein Live-Vertrag"| Control
+    Control -->|"Dokumentationsreturn"| Desk
+    OneOne -->|"Engineering-Ergebnisse / offene Bindung"| Desk
+    Desk -->|"Baustand"| Log
+    Log -->|"Wiedereinstieg"| Club
+    Deck -.->|"Lesender Receipt via Club · Software geprüft / Browser offen"| OneOne
 
     classDef portal fill:#102735,stroke:#f4f4eb,color:#ffffff,stroke-width:4px
     classDef human fill:#422039,stroke:#f169a6,color:#fff0f7,stroke-width:2px
@@ -67,9 +110,11 @@ flowchart TD
     class H,Geschichten human
     class S scienceHub
     class Atlas atlasHub
-    class B,Bench builderHub
+    class B,Bench,BodyLab,Control,Desk builderHub
+    class Club atlasHub
     class Verstehen,Methode,Felder,Ergebnisse,Ansichten explanation
-    class Gruppen,Liste,Original,Schaltbild,Grids,Pink,CRT,Demos instrument
+    class Gruppen,Liste,Original,Schaltbild,Grids,Pink,CRT,Demos,Workshop,BodyPlayer,BodyViews,BodyMaster,BodyModules,BodySeam,FoldSource instrument
+    class Deck,OneOne,Numbers,Tower,Log instrument
     class Toy,Arcade playful
     class NSN source
     class CaroStory planned

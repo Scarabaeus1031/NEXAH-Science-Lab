@@ -161,6 +161,7 @@
   }
 
   const flagships = [
+    { title:"OPIUM · The Club Machine", tag:"FLAGSHIP ENTRY · RELATIONS IN PLAY", description:"Ein animierter Einstieg in Club, Relations Player, Control Room, Numbers und Bench. Vorhandene Verbindungen und offene Anschlüsse bleiben unterscheidbar.", kind:"Local demonstrator", href:"A0_OPIUM.html", accent:"#eca7c9" },
     { title:"Rainbow / Purple Rain", tag:"APPEARANCE · SPECTRUM", description:"Sieben Fenster zeigen, wie ein Spektrum nicht nur zerlegt, sondern als Bedingung von Erscheinung gelesen werden kann.", kind:"Experience", href:"A0_RAINBOW_PURPLE_RAIN.html", accent:"#f45ca9" },
     { title:"Black Sun / The Big Moon", tag:"FIELD · VISIBILITY", description:"Ein Feld, zwei beobachtbare Seiten und ein Sichtbarkeitsfenster zwischen Black Sun, Big Egg, NEON und Big Moon.", kind:"Experience", href:"A0_BLACK_SUN_BIG_MOON.html", accent:"#9c73ff" },
     { title:"Newton · Leibniz · Goethe", tag:"SOURCE · RELATION · APPEARANCE", description:"Drei Linsen halten Zerlegung, relationale Ordnung und Erscheinungsbedingung nebeneinander – ohne sie gleichzusetzen.", kind:"Observer lens", href:"A0_NEWTON_GOETHE_OBSERVER_LENS.html", accent:"#38d5ee" },

@@ -1,0 +1,46 @@
+{
+  "date": "2026-10-22",
+  "scope": "Pink/Ghost source-currentness and explicit one-way navigation, no live state transfer",
+  "identityReuse": [
+    "NEXAH_A0_ORIENTATION_CONTROLLER_BENCH",
+    "MOD:NUMBER_VIEW_SUITE",
+    "SRC:A0OE:PINK_DIAMOND_GRID_ATLAS"
+  ],
+  "canonicalRelationChanges": [],
+  "source": "A0_PINK_DIAMOND_GRID_ATLAS.html#ghost-tiles",
+  "sourcePreserved": true,
+  "sourceHash": "2220f21ffa077a0848a6b084e6867cb50e4017f0874f3590f672ec2243350960",
+  "gridImplementationHash": "261183d32508ad358ff977d92cd59ca55ccbbfde75128c8a31771a0f1fca1246",
+  "carrierViewHash": "ff78e3dd9f53ed9abf08df382b56be342fd7ea3a3ba8fb314a0dcfcce773fcb4",
+  "testHash": "d8609d328bd460901f3cb42fca49a3bafa0519792e7c658de7840a61582990de",
+  "addressRule": "side=1000; NP=floor(n/1000); RR=n mod 1000; n=1000*NP+RR",
+  "examples": [
+    {
+      "n": 11537,
+      "np": 11,
+      "rr": 537
+    },
+    {
+      "n": 11573,
+      "np": 11,
+      "rr": 573
+    }
+  ],
+  "checks": {
+    "actualSourceEncodeDecode": 124015,
+    "carrierReturn": 124153,
+    "existingCRT16Ghost": "PASS",
+    "tesa": 224,
+    "graph": "PASS; base 266/29, composed 269/32",
+    "app": 252
+  },
+  "boundaries": {
+    "sourceRuntimeModified": false,
+    "stateTransferred": false,
+    "sourceClockStarted": false,
+    "cellValueIdentity": false,
+    "anuTransport": null,
+    "browserAcceptance": "OPEN; no live-browser run"
+  },
+  "governanceNote": "Temporary reciprocal navigation addition triggered source hash mismatch; own added line removed. Original Pink HTML hash restored, validator PASS; no repinning or source authority changes."
+}

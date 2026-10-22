@@ -1,0 +1,17 @@
+.binder-connections{margin:18px 0;padding:18px;border:1px solid #527582;border-radius:12px;background:#071c27;color:#dcebf0}
+.binder-connections>summary{cursor:pointer;font-size:20px;font-weight:700;color:#9ce3db}
+.binder-connections>p{font-size:13px;line-height:1.6;color:#acc6d0;max-width:100ch}
+#binderConnectionsStatus{display:block;padding:12px 0;color:#d5e5ec;font:12px/1.6 ui-monospace,monospace}
+.binder-connection-cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.binder-connection-cards article{min-width:0;border:1px solid #516473;border-top:3px solid #d6b675;border-radius:9px;background:#0c2531;padding:15px}
+.binder-connection-cards article[data-state=FOLLOWING],.binder-connection-cards article[data-state=CONNECTED]{border-top-color:#64d4b1}
+.binder-connection-cards article[data-state=HELD]{border-top-color:#b6a0d4}
+.binder-connection-cards article[data-state=SEPARATE]{border-top-color:#8393a2}
+.binder-connection-cards small{font:10px/1.5 ui-monospace,monospace;color:#9ebbc6}
+.binder-connection-cards h3{margin:8px 0 12px!important;font-size:18px!important}
+.binder-connection-cards output{display:inline-block;padding:4px 8px;border:1px solid #5b7884;border-radius:5px;font:12px ui-monospace,monospace}
+.binder-connection-cards p{white-space:pre-wrap;font:12px/1.8 ui-monospace,monospace;overflow-wrap:anywhere;min-height:90px}
+.binder-connection-cards a{font-size:12px;color:#6fd5e4}
+#binderConnectionsActions{display:block;font:12px/1.7 ui-monospace,monospace;color:#becdd8}
+#binderConnectionsLedger{max-height:300px;overflow:auto;font:11px/1.6 ui-monospace,monospace}
+@media(max-width:900px){.binder-connection-cards{grid-template-columns:1fr}.binder-connection-cards p{min-height:0}}

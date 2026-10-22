@@ -1,0 +1,72 @@
+{
+  "record_type": "A0_BENCH_FINAL_ACCEPTANCE_RETURN",
+  "record_version": "1.0.0",
+  "recorded_at": "2026-10-22",
+  "scope": "A0 Orientation Controller Bench, Bench entry architecture, finite Return packages and responsive shared navigation",
+  "status": "SOFTWARE_AND_LOCAL_BROWSER_ACCEPTED",
+  "authority": {
+    "engineering_acceptance": true,
+    "scientific_claim_promotion": false,
+    "new_canonical_identity": false,
+    "new_canonical_relation": false,
+    "publication_or_deployment": false
+  },
+  "accepted": [
+    "Bench+ navigation and the three Bench entry areas retain one shared A0 header and existing instruments",
+    "The 56-station showcase, calm walk, foyer and direct Club routes remain reachable",
+    "C7 reflection has an exact finite Return while the odd C7 antipode remains HOLD",
+    "Ghostgon orders 17, 19 and 23 expose distinct finite contracts; the order-17 capture, step and Return restores its source fingerprint",
+    "The numeric 978 channel returns independently and does not claim a whole-machine inverse",
+    "Phone and tablet layouts keep controls, diagrams and the shared overview menu inside the usable viewport",
+    "Reduced-motion rules and textual state labels preserve meaning without depending on animation or colour alone"
+  ],
+  "browser_acceptance": {
+    "environment": "local HTTP browser session",
+    "desktop": "PASS",
+    "tablet_viewport": "PASS",
+    "phone_viewport": "PASS",
+    "high_zoom": "PASS",
+    "phone_overview_menu_within_viewport": true,
+    "horizontal_document_overflow": false,
+    "physical_iphone_or_ipad_hardware": "NOT_CLAIMED"
+  },
+  "software_checks": [
+    {"suite": "a0-bench-polish-tests.cjs", "status": "PASS", "checks": 913},
+    {"suite": "a0-coupled-window-tests.cjs", "status": "PASS", "checks": 332, "tourStations": 56},
+    {"suite": "a0-reader-navigation-tests.cjs", "status": "PASS", "registeredReaders": 56, "allLocalHtmlReachable": 62},
+    {"suite": "a0-compact-navigation-runtime-tests.cjs", "status": "PASS", "checks": 346},
+    {"suite": "a0-bench-finite-packages-tests.cjs", "status": "PASS", "checks": 267},
+    {"suite": "a0-bench-showcase-tour-tests.cjs", "status": "PASS", "checks": 85, "stations": 56},
+    {"suite": "a0-bench-navigation-tests.cjs", "status": "PASS", "checks": 79},
+    {"suite": "a0-bench-overview-tests.cjs", "status": "PASS", "checks": 90},
+    {"suite": "a0-bench-club-entry-tests.cjs", "status": "PASS", "checks": 27},
+    {"suite": "a0-bench-walk-tests.cjs", "status": "PASS", "checks": 133},
+    {"suite": "a0-bench-foyer-tests.cjs", "status": "PASS", "checks": 59},
+    {"suite": "a0-orientation-controller-bench-tests.cjs", "status": "PASS"}
+  ],
+  "changed_for_acceptance": [
+    "A0_ORIENTATION_CONTROLLER_BENCH.html",
+    "a0-bench-polish.css",
+    "a0-context-navigation.css",
+    "a0-coupled-window-tests.cjs",
+    "a0-bench-polish-tests.cjs",
+    "assets/a0-coupled-window-system-v1.json"
+  ],
+  "open_owner_gates": [
+    "Optional physical-device acceptance on the owner's actual iPhone and iPad",
+    "Explicit publication or deployment decision"
+  ],
+  "parked_not_promoted": [
+    "A full-machine inverse across independent clocks and carriers",
+    "A scientific AM/VM/PM to Day/Night/Pink/Beta identity",
+    "Further historical Ghostgon or antipode interpretation beyond the declared finite contracts"
+  ],
+  "governance_return": {
+    "identities_reused": [
+      "NEXAH_A0_ORIENTATION_CONTROLLER_BENCH"
+    ],
+    "new_identities": [],
+    "new_relations": [],
+    "publication_effect": "NONE"
+  }
+}

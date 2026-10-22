@@ -2,9 +2,39 @@
 
 Datum der Anlage: `2026-10-10`
 
-Letzte dokumentarische Fortschreibung: `2026-10-21` · Orbit/Grid-Engineering-Return.
+Letzte dokumentarische Fortschreibung: `2026-10-22` · Club/Numbers/Control-Room-Engineering-Return.
 Neuer Einstieg: [Bench, Tube, NumberMagick und offene Aufgaben](#documentation-closeout-20261020).
 Historische Abschnitte und ihre damaligen Zustände bleiben erhalten.
+
+<a id="club-control-return-20261022"></a>
+
+## 22.10.2026 — Club, Numbers, Control Room und 1,1-Monitor
+
+Dokumentarischer Return, keine Study-Aktivierung oder wissenschaftliche
+Neuausführung. Game of Numbers war bereits erfasst; bestehende Regeln,
+Mischer und inverse Integer-Rückwege werden nicht erneut als Entdeckung
+gezählt. Der Control Room zeigt dieselbe deklarierte neun-Träger-Sequenz
+wie der lokale Player-Adapter. Der 1,1-Monitor in der Bench verwendet dagegen
+einen lokalen Numbers-Mischer und liest den Bench-Stack separat.
+
+Erhaltene Unterscheidungen: Grid `n=20q+r` versus CRT; historische
+Carrier-/Format-Experimente versus deklarierter +20-Lift; Ansichts-Schließung
+versus vollständiger Record-Return; gespeicherter Cursor versus berechnetes
+Inverses; unbekanntes Teller-Residuum versus lokales Residuum 0.
+
+Die Tower-Legende ist dokumentarisch im NEXAH Science Navigator gebunden.
+Ihre sechs Plate-Labels und sieben Glyph-Einträge sind keine implementierte
+Zeilenabbildung. Orangefarbener Residuum-Teller bleibt eine Owner-Hypothese.
+Orion/POLAR-Testlinks werden nicht als Beleg für diese Kopplung verwendet.
+
+[Desk A0](A0_BOOK/A0_RESEARCH_DESK.html#club-control-return-20261022) ·
+[aktualisierter Bauplan](A0_BOOK/A0_BUILDER_LOG.html#navigation-blueprint-20261021) ·
+[Builder Log und Prüfbelege](A0_BOOK/A0_BUILDER_LOG.html#club-control-return-20261022) ·
+[Findings-/Paper-Abgrenzung](32_A0_FINDINGS_AND_PAPER_WORKSPACE_2026-10-11.md#club-control-return-20261022).
+
+Offen: Browser-/Human-Abnahme, tatsächlicher Club/Player→Bench-Livevertrag,
+gemeinsame inverse Rückführung, Plate-/Glyph-Mapping, Residuum-Transport
+und unabhängiger Nutzen. Kein neues F-A0-Finding, keine Publikationsfreigabe.
 
 Status:
 

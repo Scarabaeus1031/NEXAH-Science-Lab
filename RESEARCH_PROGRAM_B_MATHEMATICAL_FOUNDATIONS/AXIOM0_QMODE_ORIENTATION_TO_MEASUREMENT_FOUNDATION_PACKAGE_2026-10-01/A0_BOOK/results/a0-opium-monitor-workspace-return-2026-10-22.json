@@ -1,0 +1,41 @@
+{
+  "schema": "a0.opium-monitor-workspace-return/1",
+  "date": "2026-10-22",
+  "status": "IMPLEMENTED_SOFTWARE_TESTED_BROWSER_OPEN",
+  "priority": "Owner requested OPIUM monitor/Bench connection before Game bridge; owner's parallel Game left untouched",
+  "entry": "A0_OPIUM.html",
+  "workspace_route": "DRAFTS/A0_FAMILY_NAVIGATOR_DEMO.html#clubBenchMonitorHost",
+  "scope": "Navigation to existing source-bound embedded Player/Bench receiver; no new transport protocol or model",
+  "contract": {
+    "navigation": "Explicit workspace route clicks existing Club monitor button after all Club mounts; ordinary Club entry remains unchanged",
+    "source": "Existing one lazy A0_CURSOR_HANDOFF_CLICKDUMMY Player via A0ClubDeck",
+    "receiver": "Existing embedded A0_ORIENTATION_CONTROLLER_BENCH oneOnePlayerMonitor via A0PlayerBenchLink",
+    "identity": "Existing exact WindowProxy, random session token, source, origin and receipt sequence checks retained unchanged",
+    "freshness": "Existing fresh-source read/ACK and HOLD watchdog retained; opening is not itself a successful receipt",
+    "repeat": "Reuse source and embedded monitor; no second Player, iframe factory or transport in new navigation helper",
+    "missing_relay": "HOLD; no fallback simulation",
+    "automatic_play_or_step": false,
+    "new_clock": false,
+    "full_bench_shared_state": false,
+    "whole_machine_return": false
+  },
+  "verification": {
+    "new_command": "node a0-opium-workspace-tests.cjs",
+    "new_checks": 18,
+    "scope": "Actual existing sender plus new navigation helper in DOM doubles; explicit route, plain entry, missing relay, one source activation, one receiver, repeat-open reuse and no play/timer/popup",
+    "regressions": {"opium_entry": 59, "player_bench_link": 261, "family_ldv_room": 164, "club_view_shell": 24},
+    "status": "PASS",
+    "navigator_app": "252/252 PASS",
+    "source_graph": "PASS; 20 components; base 266/29; composed 269/32",
+    "git_diff_check": "PASS",
+    "browser": "OPEN; no local file access bypass or pixel acceptance claim"
+  },
+  "implementation_pins": [
+    {"path": "a0-opium-workspace.js", "sha256": "bec65bffd507f7d37b5ede94bea85ef9b0ef99c28ee63eadcef4fdc9ffcf5ccf"},
+    {"path": "a0-opium-workspace-tests.cjs", "sha256": "fd9d514eaeeba942523175dd74244e632be15aa8c4ae3b381824907c2b5a8ccf"},
+    {"path": "A0_OPIUM.html", "sha256": "5180a8ee4dbdc35d8a3d3bb2c5b85c61c27962f1d77ed02e9292248084d68300"},
+    {"path": "a0-opium-entry.css", "sha256": "56600a028e7022a79dc9900dcfd544ecc5aeb6257137ad5b95894b76f52dfa38"}
+  ],
+  "authority": {"new_canonical_identity": false, "new_canonical_relation": false, "research_activation": false, "claim_promotion": false, "publication_authorized": false},
+  "historical_boundary": "Earlier source/version pins remain historical. No all-suite PASS or implicit Atlas/Cross/PENT/Ihara carrier map."
+}

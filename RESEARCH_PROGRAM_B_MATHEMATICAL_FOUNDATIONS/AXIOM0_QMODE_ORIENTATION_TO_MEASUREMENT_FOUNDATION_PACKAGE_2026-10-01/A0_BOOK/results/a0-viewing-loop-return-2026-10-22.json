@@ -1,0 +1,36 @@
+{
+  "schema": "a0.viewing-loop-return/1",
+  "date": "2026-10-22",
+  "revision": "viewing-loop-r10",
+  "status": "IMPLEMENTED_SOFTWARE_TESTED_BROWSER_OPEN",
+  "entry": "A0_ORIENTATION_CONTROLLER_BENCH.html#systemBinder",
+  "scope": "Existing Master/Binder viewing playback only; no new source identity or graph relation.",
+  "behaviour": {
+    "default": "Loop enabled, playback idle until explicit PLAY.",
+    "wrap": "RECORD stays visible for one existing master tick; wait for pending source acknowledgements; use existing source-owned Master restart, not a mathematical inverse.",
+    "timers": "At most one existing Master interval; existing Binder, M3 and Stack clocks stay separate.",
+    "navigation": "Loop suppresses phase auto-scroll; ordinary scrolling, background clicks and internal anchor navigation do not pause Master playback.",
+    "interruption": "Actual controls and explicit pause still interrupt. Hidden-document pause retained. Binder detects a paused nonterminal Master and stops its local companions.",
+    "single_pass": "Unchecking Loop restores terminal stop.",
+    "excluded": ["manual Ihara C/D and reverse tests", "native one-shot aperture/return programs", "Player transport commands", "synthetic fallback sources"],
+    "retention": "Binder export includes completed master cycle count and last 16 Master phase-state snapshots; older cycles are not retained; not full source receipts or simultaneous snapshots."
+  },
+  "verification": {
+    "command": "node a0-viewing-loop-tests.cjs",
+    "checks": 718,
+    "status": "PASS",
+    "scope": "Actual inline scheduler with real phase model and DOM/timer/source-side-effect doubles; 20 cycles, pending guard, one interval, bounded history, single pass, navigation vs control intervention, real Binder pause/finish/export.",
+    "regressions": {"system_binder": 51, "binder_connections": 200, "source_links": 1471, "ihara_cubic": 2383, "navigation_blueprint": 199},
+    "inline_script_syntax": "28 scripts PASS",
+    "git_diff_check": "PASS",
+    "browser_visuals": "OPEN; local browser access not bypassed",
+    "scientific_run_or_replay": false
+  },
+  "implementation_pins": [
+    {"path": "a0-system-binder.js", "sha256": "56aa2c4a199a499275b568697189d9bdf30c27df845bdc38103cb1a65b55854b"},
+    {"path": "a0-viewing-loop-tests.cjs", "sha256": "3ccd376c065d216e90cc117fad497a697762125db2968f5eed1e4d413a560c00"},
+    {"path": "A0_ORIENTATION_CONTROLLER_BENCH.html", "sha256": "d8dabdf995bcddc022f86f6fd286270409a33db439986afd7290665034184824"}
+  ],
+  "historical_boundary": "r9 Binder pins and acceptance receipt remain historical for that revision. Known legacy M3/Mathfield pin conflicts are not repaired. No all-suite or whole-machine PASS.",
+  "authority": {"canonical_identity_changed": false, "canonical_relation_changed": false, "research_activated": false, "claim_promoted": false, "publication_authorized": false}
+}

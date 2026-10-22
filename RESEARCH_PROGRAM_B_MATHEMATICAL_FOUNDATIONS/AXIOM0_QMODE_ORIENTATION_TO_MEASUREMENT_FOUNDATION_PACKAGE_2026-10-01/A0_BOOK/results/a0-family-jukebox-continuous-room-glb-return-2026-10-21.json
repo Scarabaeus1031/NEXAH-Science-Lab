@@ -1,0 +1,48 @@
+{
+  "date": "2026-10-21",
+  "scope": "Standalone Family Jukebox draft; bounded UI and derived GLB view, not an engine controller",
+  "changes": [
+    "Camera focus and A/B flights, 750ms layout morphs with stable Family IDs and reduced-motion alternative",
+    "Global overview, three reading-level landmarks, current-view orientation and Family focus",
+    "Move reading mode into Family sidepanel; Joint mode exposes all active-level edges; Elevator mode emphasizes all seven same-Family reading paths",
+    "Local GLB viewer using existing bundled classic model-viewer, loaded only on request",
+    "Export current layout as GLB 2 with 21 Family-position markers, 45 typed level-local relation renderings, 14 same-Family paths and 3 guides; optional source-body wireframe",
+    "Export metadata retains seven Families, fifteen source records, source hash, open/negative statuses and direction; repeated drawings are not new canonical relations",
+    "Local file chooser, 32 MiB budget, embedded resources only; no upload, storage or engine handoff",
+    "Explicit animation start, file replacement and URL cleanup, stale request cancellation"
+  ],
+  "reuse": [
+    "Existing source snapshot: a0-family-navigator-demo-data.js",
+    "Existing bundled assets/vendor/a0-model-viewer-classic.js",
+    "Existing source-bound Blue Body / Dodeca landmark geometry"
+  ],
+  "tests": {
+    "standalone_demo": {"status": "PASS", "checks": 535},
+    "glb_export_and_import": {"status": "PASS", "checks": 69},
+    "original_spatial_reader": {"status": "PASS", "checks": 691},
+    "original_record_player": {"status": "PASS", "checks": 247},
+    "source_graph": "PASS:20 components,base266/29,composed269/32",
+    "navigator_app_audit": {"status": "PASS", "checks": 252},
+    "real_local_glb_preflight": {
+      "file": "SCIENCE_LAB/CASE_STUDIES/NEXAH_LIFE_EVENT_SPACETIME_GLB_LIFE05C_2026-10-07/assets/life05c-glider-events.glb",
+      "status": "PASS",
+      "bytes": 111944,
+      "nodes": 378,
+      "meshes": 5,
+      "render_acceptance": "OPEN"
+    },
+    "global_reader_navigation": "Known parallel-draft issue: A0_CURSOR_HANDOFF_CLICKDUMMY.html not registered in navigation home; left unchanged",
+    "browser_webgl_and_mobile_pixels": "OPEN"
+  },
+  "authority_effects": {
+    "new_canonical_ids": 0,
+    "canonical_relation_changes": 0,
+    "original_atlas_edited": false,
+    "original_spatial_renderer_edited": false,
+    "parallel_plate_dummy_edited": false,
+    "carrier_state_mapping_added": false,
+    "engine_state_transfer": false,
+    "publication": false,
+    "research_activation": false
+  }
+}

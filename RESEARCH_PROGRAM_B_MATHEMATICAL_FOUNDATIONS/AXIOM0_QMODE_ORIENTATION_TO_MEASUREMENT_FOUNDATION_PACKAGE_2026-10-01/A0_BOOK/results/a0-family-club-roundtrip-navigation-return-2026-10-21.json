@@ -1,0 +1,16 @@
+{
+  "date": "2026-10-21",
+  "scope": "Standalone Club Machine: roundtrip reading playback, gold navigation cues, relocated Grid and visual Now Playing status",
+  "roundtrip": "From the current Family/reading-position coordinate, visits all 21 unique coordinates and returns to that starting coordinate. Stops after return arrival. This checks reading coordinates only, not scientific state identity.",
+  "controls": ["Abspielen / Pause", "Schritt", "Eine Platte · 7", "Plattenwechsel · 3", "Roundtrip · 21", "Grid"],
+  "grid": "Original guide-hold button moved into player with callback intact. Grid-off now hides persistent scaffold immediately; transient preview on layout change retained. No new address mapping.",
+  "during_playback": "Basic form, A/B/overview and LJ controls do not pause the player. Display camera/layout flights preserve pending elevator travel. Direct coordinate selection or canvas interaction interrupts playback.",
+  "visual_feedback": "Gold identifies reading head, active coordinate and navigation controls; display selections use cyan and triangle emphasis uses violet. Existing typed relation colors unchanged. Local Now Playing overlay shows current coordinate, view and light mode.",
+  "new_canonical_ids": [],
+  "new_navigator_relations": [],
+  "dj_source_modified": false,
+  "shared_source_clock": false,
+  "q4_body_or_generation_mapping": false,
+  "tests": {"tour_controller_ui": 89, "standalone": 855, "ux": 379, "ldv": 103, "deck": 50, "stage": 55, "glb": 69, "source_graph": "PASS", "app_audit": 252},
+  "browser_visual_acceptance": "OPEN"
+}

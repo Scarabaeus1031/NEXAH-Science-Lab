@@ -1,0 +1,7 @@
+{
+  "date": "2026-10-22",
+  "scope": "Responsive standalone performance cockpit; original source graph and deck unchanged",
+  "changes": ["Move original live Family edge list and joint summary beside canvas, with callbacks preserved", "Compact Perspective / Family Elevator into paired sidebar groups", "Move existing source-bound room/deck routes above visual", "Viewport-relative desktop canvas and sidebar sizing; narrow layouts stack with touch-sized controls", "Explicit play click scrolls cockpit to start; no scrolling on automatic tour ticks", "Mark active live edge button with aria-pressed"],
+  "boundaries": "No new graph edges, identities or source clocks. Original technical explanation and complete joint directory remain below. Edge selection retains existing bridge semantics and pauses tour through existing manual interaction handler.",
+  "validation": {"ux": "394 PASS", "tours": "98 PASS", "navigator": "864 PASS", "deck": "50 PASS", "ldv": "103 PASS", "source_graph": "PASS", "app_audit": "252/252 PASS", "browser_pixels_and_single_screen_acceptance": "OPEN; DOM and canvas doubles only"}
+}

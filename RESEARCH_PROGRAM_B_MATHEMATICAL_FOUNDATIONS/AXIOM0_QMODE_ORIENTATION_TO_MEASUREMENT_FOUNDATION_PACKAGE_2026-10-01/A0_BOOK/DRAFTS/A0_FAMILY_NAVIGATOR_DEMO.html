@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>NEXAH · Family Navigator · Family Jukebox</title>
+<link rel="stylesheet" href="../a0-family-spatial-navigation.css">
+<link rel="stylesheet" href="../a0-family-navigator-demo.css">
+<link rel="stylesheet" href="../a0-family-jukebox-room.css">
+<link rel="stylesheet" href="../a0-family-jukebox-stage.css">
+<link rel="stylesheet" href="../a0-family-club-entry.css">
+<link rel="stylesheet" href="../a0-family-club-ux.css?v=20261022-control-lights">
+<link rel="stylesheet" href="../a0-family-ldv-room.css">
+<link rel="stylesheet" href="../a0-family-club-deck.css">
+<link rel="stylesheet" href="../a0-club-return-monitor.css?v=20261022-embedded-r3">
+<link rel="stylesheet" href="../a0-club-control-room.css">
+<link rel="stylesheet" href="../a0-club-view-shell.css?v=20261022-dynamic-hero">
+</head><body>
+<header class="demo-top club-shell-header"><a href="../A0_FAMILY_CONNECTION_ATLAS.html#spatial-navigation">← Family Atlas</a><a href="#start">NEXAH · Family Navigator</a><a href="../A0_ORIENTATION_CONTROLLER_BENCH.html#benchFoyer">Zur Instrument-Bench ↗</a><nav class="club-view-switch" aria-label="Club-Bereiche"><a href="#spatial-navigation" data-jukebox-room="family" aria-current="page">The Club Machine</a><a href="#club-deck-room" data-jukebox-room="deck"><small>02 · DJ / PLATTENDECK</small>Let the relations play</a><a href="#control-room" data-jukebox-room="control"><small>03 · GRIDS / ADRESSEN / RETURN</small>Control Room</a></nav></header>
+<main id="start">
+<p class="club-context"><button type="button" id="clubOpenBenchMonitor">Bench-Monitor im Club öffnen ↓ · nur lesen</button> <output id="clubBenchLinkStatus">Eingebetteter Monitor derselben Club-Instanz; kein zweiter Player und kein separater Tab nötig.</output></p>
+<div id="clubBenchMonitorHost" hidden></div>
+<p class="club-context"><a href="../A0_OPIUM.html">← OPIUM · Start &amp; Übersicht</a></p>
+<header class="club-entry">
+ <div class="club-mark" aria-label="OPIUM · neues Emblem, keine Rekonstruktion des historischen Logos">
+  <svg viewBox="0 0 240 240" role="img" aria-label="醉 · Rausch"><circle cx="120" cy="120" r="108" fill="none" stroke="currentColor" stroke-width="1.5"/><text x="120" y="150" text-anchor="middle" font-size="100">醉</text></svg>
+  <span class="club-wordmark">OPIUM</span>
+ </div>
+ <div class="club-welcome"><small>NEXAH · FAMILY NAVIGATOR / ROTATION ROOM</small><h1><span data-club-hero-title="family">The <em>Club</em><br>Machine</span><span data-club-hero-title="deck" hidden>Let the<br><em>relations</em> play</span><span data-club-hero-title="control" hidden>The <em>Control</em><br>Room</span><span data-club-hero-title="ldv" hidden>The Room<br><em>Looks Back</em></span></h1><p class="club-tagline">Eine Maschine. Viele Floors.</p></div>
+</header>
+<section id="spatial-navigation" class="spatial-reader" aria-label="Jukebox · Räume und Instrumente">
+<section id="clubReturnMonitor" class="club-return-monitor club-player-simple" aria-label="Club Player und verbundene Ansichten">
+ <header class="club-player-controls">
+  <strong>CLUB PLAYER</strong><button id="clubReturnPlay" type="button" disabled aria-pressed="false">▶ Abspielen</button>
+  <label>Abfolge <select id="clubCarrierRule"><option value="carrier">Carrier Route</option><option value="elevator">Elevator +20</option><option value="manual">Fester Träger</option></select></label>
+  <button id="clubCarrierLoop" type="button" aria-pressed="false">Loop</button><button id="clubCarrierReset" type="button">Reset ↺</button>
+  <button id="clubFamilyFollow" type="button" aria-pressed="true">● Club folgt Player</button>
+ </header>
+ <div class="club-player-live">
+  <div class="club-player-readouts"><output id="clubCarrierTrace" class="club-carrier-trace"></output><output id="clubFamilyFollowStatus">Club-Fokus · Player-geführter Lesepfad</output><output id="clubReturnPosition">Player noch nicht verbunden</output><output id="clubReturnResult" role="status">Zum Verbinden einmal das Plattendeck öffnen.</output></div>
+  <section id="clubQRTDemo" class="club-qrt-demo" aria-label="Live Cut Flip Return">
+   <strong class="club-player-qrt-label">SCHNITT · FLIP · RETURN</strong><div id="clubQRTField" class="club-qrt-field"></div><output id="clubQRTStatus">Input · sieben adressierte Positionen</output>
+  </section>
+ </div>
+ <details id="clubPlayerDetails" class="club-player-details">
+  <summary>Navigation &amp; Details <small>Q4 · Träger · CRT · QRT</small></summary>
+  <section class="club-player-detail-block"><h3>Q4 · Position wählen</h3><div id="clubReturnField" class="club-return-field" role="group" aria-label="Dieselben 48 Player-Positionen, keine Family-Zuordnung"></div><button id="clubReturnCheck" type="button">Quelle ↔ Anzeige prüfen</button><span id="clubReturnFamily" hidden>Family-Koordinate bleibt unabhängig</span></section>
+  <section id="clubCRTLink" class="club-crt-link" aria-label="Zahlenträger und CRT">
+   <header><strong>TRÄGER &amp; CRT</strong><label>Startträger <select id="clubCRTCarrier" aria-label="Bestehende CRT Trägerfamilie"></select></label><button id="clubCarrierFollow" type="button" aria-pressed="true">● Mit Platte</button><button id="clubCarrierStep" type="button">Einzelschritt →</button></header>
+   <div id="clubCarrierFamily" class="club-carrier-family" role="group" aria-label="Neun Elevator-Träger · n und (q,r) · Auswahl hält den aktuellen Lift" hidden></div>
+   <output id="clubCRTAddress">CRT16 wartet auf die Player-Adresse</output><div id="clubCRTChannels" class="club-crt-channels" role="group" aria-label="16 Kanäle · Modulus : Rest · Kanal wählen"></div><output id="clubCRTResult" role="status"></output>
+   <small>Ein nativer Numbers-Schritt je Player-Adresswechsel; kein Q4-Wert→n-Gesetz. Carrier Route und +20-Lift bleiben getrennt. Einzelschritt schaltet „Mit Platte“ aus; am Quellhorizont hält die Folge, Loop ist expliziter Replay. Alle 16 Reste bestimmen n modulo M. <a href="../A0_TESSAREC_BLUE_BODY_LAB.html#blue-body-interior-crt16" target="_blank" rel="noopener">CRT16-Adapter ↗</a> · <a href="../assets/game-of-worlds-play/numbers/index.html" target="_blank" rel="noopener">Number Game ↗</a> · <a href="../../../../00_INCOMING/THE_PRIME_GENESIS_CRT_ELEVATOR_QRT_FORMAT_LENS_GATE_01_2026-09-08/02_NUMBER_FAMILY_REGISTER.csv" target="_blank" rel="noopener">Trägerquelle ↗</a></small>
+  </section>
+  <section class="club-player-detail-block"><h3>QRT · Schritte von Hand</h3><div class="club-qrt-tools"><button id="clubQRTFollow" type="button" aria-pressed="true">● Mit Platte</button><button data-qrt-stage="0" type="button">Input</button><button data-qrt-stage="1" type="button">Q · Schnitt</button><button data-qrt-stage="2" type="button">T · Flip</button><button data-qrt-stage="3" type="button">R · Return</button><button data-qrt-stage="4" type="button">Δ</button></div><p>Demo-Schritte folgen Adresswechseln; keine Q4→QRT-Zuordnung. Frame-Flip ≠ Kameradrehung. F-Lesetour und Zahlenträger sind getrennte Abläufe im Player-Vorführtakt. <a href="../../../../00_INCOMING/NEXAH_DUAL_VIEW_ROSETTA_INTAKE_2026-09-05/02_MODULE_II_G_RT_ROSETTA/NEXAH_QRT_CODE_MECHANISM.html" target="_blank" rel="noopener">Vorhandene QRT-Fixture ↗</a></p></section>
+ </details>
+</section>
+<nav class="club-guide" aria-label="Dein Weg durch die Club Machine">
+ <a href="#spatial-navigation" data-jukebox-room="family" aria-current="page"><small>01 · DANCEFLOOR</small><strong>Raum &amp; Families</strong><span>Drehen, Ebenen wechseln, Verbindungen lesen.</span></a>
+ <a href="#clubLights"><small>LJ / LICHTPULT</small><strong>Die Atmosphäre</strong><span>Leselicht, Farbraum oder Bühne bewusst wählen.</span></a>
+ <a href="#jointWorkbench"><small>MC / GUIDE</small><strong>Was verbindet sich?</strong><span>Family-Rollen, Joints und Ebenenwege erklärt.</span></a>
+</nav>
+ <article id="club-deck-room" class="club-deck-room" hidden aria-labelledby="clubDeckTitle">
+  <h2 class="club-view-name" id="clubDeckTitle" tabindex="-1">Let the relations play</h2>
+  <div id="clubDeckHost" class="club-deck-host"></div>
+  <output id="clubDeckStatus" role="status">Das Originaldeck lädt erst beim Öffnen dieses Bereichs.</output>
+  <details class="club-deck-extras"><summary>Quelle &amp; Deck-Werkzeuge</summary><nav class="club-deck-actions" aria-label="Deck-Quelle und Wartung"><a href="../A0_CURSOR_HANDOFF_CLICKDUMMY.html#performanceConsole" target="_blank" rel="noopener">Original in Vollansicht ↗</a><button id="clubDeckReload" type="button" title="Verwirft den lokalen Stand dieses eingebetteten Deckfensters.">Deck neu laden · Stand verwerfen</button></nav></details>
+  <details class="club-deck-boundary"><summary>Verbindung &amp; gehaltene Zustände</summary><p>Diese Jukebox bettet die vorhandene Datei A0_CURSOR_HANDOFF_CLICKDUMMY.html ein. Sie kopiert weder Mixer noch Player-Logik. Der gemeinsame Return-Monitor liest einen begrenzten Quellenrecord: Platte, Q4-Adresse, vier Bits, Lage und Deskindex sowie den UI-Spielstatus. Keine Gleichsetzung mit ζ / θ / β oder F1–F7.</p><p>Der Family-Raum behält Auswahl, Kamera und Lesespur. Beim Ansichtswechsel läuft dieselbe gestartete Player-Instanz weiter; der Monitor vergleicht bei jeder Quellenänderung die angezeigte Q4-Koordinate mit der Quelle. Ein Klick im Q4-Feld bedient die vorhandenen Player-Schaltflächen ohne Pause. Der Rückweg liest den aktuellen Stand, statt eine alte Adresse zurückzusetzen. LIVE MATCH bedeutet nur Gleichheit dieser Koordinatenfelder, keinen wissenschaftlichen QRT-/CRT-Return.</p><p>Die vorhandene QRT-Fixture wird als separate Sieben-Positionen-Demo wiedergegeben: deklarierter D4-Schnitt, Spiegelung des rechten Teils, inverse Rückführung und Vergleich. Ihr Vorführschritt folgt jeweils einem Player-Adresswechsel, ohne neue Uhr und ohne mathematische Q4→QRT-Zuordnung. Manuelle QRT-Schritte schalten das Folgen aus; „Mit Platte“ schaltet es wieder ein. Family-Kamera und Gray-Mittelschicht sind nicht dieser Flip.</p><p>Pause bleibt manuell; beim Verbergen des gesamten Browserdokuments wird sicherheitshalber pausiert, ohne automatische Fortsetzung. Keine Mixerübertragung. Bei blockierter Verbindung: HOLD. Nach Entladen oder beim Wechsel aus der Original-Vollansicht kann nur die Q4-Koordinate wiedergewählt werden, nicht Mischung, Hardware-Ansicht oder Spielzeit. Das Original übergibt diese begrenzte Koordinate im Rücklink; kein Speicher oder Netzwerkdienst wird verwendet. LDV bleibt ohne Live-Zuordnung.</p></details>
+ </article>
+ <article id="control-room" class="club-control-room" hidden aria-labelledby="controlRoomTitle">
+  <header><small>CONTROL ROOM · GRIDS / ADRESSEN / RETURN</small><h2 id="controlRoomTitle" tabindex="-1">20er-Elevator</h2><p>Eine Abfolge, mehrere Ansichten. Der Control Room liest denselben Zahlenträger wie der Player oben — ohne eigene Uhr. Für den ersten Lauf: <a href="#club-deck-room" data-jukebox-room="deck">Player öffnen</a>, START drücken und hierher zurückkehren. Für die neun parallelen Bahnen oben „Elevator +20“ wählen.</p></header>
+  <output id="controlElevatorStatus" role="status" aria-live="off">Wartet auf den Trägerrecord.</output>
+  <div class="control-elevator-layout"><div><div id="controlElevatorGrid"></div><p>Horizontal: Rest r · Vertikal: Quotient q. Gold: aktueller Träger. Gestrichelter Ring: vorherige Position. Cyan: neun Träger der gewählten Liftstufe. Die Linie ist eine Schrittspur, keine physikalische Bewegung.</p></div><aside><h3>Neun Träger</h3><p>Im Elevator-Modus einen Träger wählen; die Liftstufe bleibt erhalten. In der Carrier Route sind dies Vergleichsträger.</p><div id="controlCarrierList" aria-label="Träger und exakte Grid-Koordinaten"></div></aside></div>
+  <details id="controlRoomSources"><summary>Quelle &amp; Aussagegrenze · Experimente / NEXAH Science Navigator</summary>
+   <p><strong>Aktuelle Implementierung:</strong> <a href="../assets/game-of-worlds-play/numbers/index.html">Game of Numbers</a> · <a href="../a0-game-of-numbers-model.js">Trägermodell</a> · <a href="../results/a0-club-control-room-return-2026-10-22.json">Control-Room-Prüfbeleg</a>. Carrier Route: 11537 → 11573 → 11357. Neun Seeds +20k, k=0…16 ist die deklarierte Spielregel, kein aus den historischen Experimenten abgeleiteter Generator. Reset, Moduswechsel, Seedwechsel und Loop beginnen eine neue Spur.</p>
+   <ul>
+    <li><a href="../../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_ROOT7_EULER_MIRROR_CONCORDANCE_INTAKE_2026-09-28/08_QRT_CARRIER_CONNECTION_ADDENDUM.md">Carrier-Verbindung / korrigierte Route · 28.09.</a>: verschiedene Integer mit demselben Ziffernmultiset; Restspalte 17→13→17, zwei unterschiedliche D3-Suffixaktionen. Historischer Report: 22/22 Checks, hier nicht erneut ausgeführt.</li>
+    <li><a href="../../../../00_INCOMING/THE_PRIME_GENESIS_CRT_ELEVATOR_QRT_FORMAT_LENS_GATE_01_2026-09-08/00_README.md">CRT Elevator × QRT Format Lens Gate 01</a>: neun festgelegte Träger, persistente Zahlenadressen, CRT-/Grid-/Formatansichten. <a href="../../../../00_INCOMING/THE_PRIME_GENESIS_CRT_ELEVATOR_QRT_FORMAT_LENS_GATE_01_2026-09-08/figures/01_CRT_ELEVATOR_FAMILY.svg">Originale neun-Träger-Gridtafel</a>. Keine freie Such- oder +20-Generationsregel im historischen Paket.</li>
+    <li><a href="../../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_ROOT7_EULER_MIRROR_CONCORDANCE_INTAKE_2026-09-28/33_H_Q_FORMAT_ELEVATOR_INVARIANCE_01_RESULT_REPORT.md">H/Q Format-Invarianz · Ergebnis 29.09.</a> · <a href="../../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_ROOT7_EULER_MIRROR_CONCORDANCE_INTAKE_2026-09-28/H_Q_FORMAT_ELEVATOR_INVARIANCE_01.html">Originaltest ansehen</a>: acht H-Gates in 16 FIT-Formaten; dokumentiert 12/12, persistente Geometrie, aber Pixel-Ziffernsplit 220 nicht invariant. Das ist kein Zahlen-Carrier-Lift und kein Transfer von CRT-Arithmetik auf H/Q-Koordinaten.</li>
+    <li><a href="../../../../SCIENCE_LAB/NAVIGATION/EVIDENCE/CRT_QRT_37_CARRIER_LADDER_2026-10-11/CRT_QRT_37_CARRIER_LADDER_BINDER_V1_2026-10-11.json">NSN · CRT/QRT 37 Carrier Ladder</a>: bestehender Knoten NN:CRT_QRT_37_CARRIER_LADDER; Modul MOD:NUMBER_VIEW_SUITE, Artefakte ART:NUMBER:ELEVEN_SPACE und ART:NUMBER:H_Q_FORMAT. <a href="../../../../SCIENCE_LAB/NAVIGATION/APP/index.html#home">NEXAH Science Navigator öffnen</a>. Dokumentarische Quellenbindung, keine neu erzeugte Live-Kopplung.</li>
+   </ul>
+   <p>n = 20q + r ist eine Grid-Zerlegung. Gleiche Restspalte beweist keine gemeinsame Faktorisierung oder Generatorgeschichte. CRT MATCH prüft die bestehende modulare Rückrechnung; keine Gleichsetzung von Zahlenträger, Q4-Adresse, F1–F7, 17er-Dodeka oder physikalischer Synchronisation.</p>
+   <p><a href="../A0_ORIENTATION_CONTROLLER_BENCH.html#oneOneTest">Zur Bench · 1,1-Monitor</a> · <a href="../A0_RESEARCH_DESK.html#club-control-return-20261022">Desk A0 · Ergebnis und nächste Abnahme</a> · <a href="../A0_BUILDER_LOG.html#navigation-blueprint-20261021">Aktualisierter Bauplan</a>. Diese Links übertragen keinen laufenden Playerzustand.</p>
+  </details>
+ </article>
+ <div id="familySpatialMount">Family-Raumkarte lädt. <a href="../A0_FAMILY_CONNECTION_ATLAS.html#spatial-navigation">Original verwenden</a>.</div>
+ <nav class="club-guide club-connections" aria-label="Weiterführende Räume und Instrumente">
+  <a href="#ldv-lookback-room" data-jukebox-room="ldv"><small>ROOM / LOOKBACK</small><strong>LDV · The Room Looks Back</strong><span>Zum Beobachtungs- und Return-Raum · Leonardo Translations.</span></a>
+ </nav>
+ <article id="ldv-lookback-room" class="ldv-lookback-room" hidden aria-labelledby="ldvRoomTitle" data-catalog-key="arena:5246418" data-visual-id="VIS:UNIVERSAL_OPERATOR_MAP">
+  <header class="ldv-room-head"><div><small>ROOM / LOOKBACK / OBSERVER / RETURN</small><h2 id="ldvRoomTitle" tabindex="-1">LDV · THE ROOM LOOKS BACK</h2><p>Leonardo Translations · Lookback / Observer / Return</p></div><a class="ldv-back" href="#spatial-navigation">← Zur Jukebox / Family-Raum</a></header>
+  <p class="ldv-reading-path"><span>N·AM + L·VM + G·PM</span><span aria-hidden="true">→</span><b>LDV · Beobachtung / Rahmen / Rückblick / Return</b></p>
+  <p>Im Club ist LDV das funktionale „+1“ nach den drei Lesekanälen: ein Raum zum Lesen von Beobachtung und Rückweg. Kein vierter Mixerkanal, keine zusätzliche Farblinse, kein Medium und keine neue Family. Die Pfeilfolge ist Leseführung, keine ausgeführte Zustandsabbildung.</p>
+  <figure class="ldv-visual"><a href="../../../../SCIENCE_LAB/NAVIGATION/EVIDENCE/PRIME_BRIDGE_LINEAGE_2026-10-06/visuals/2336E5B8-0E0D-4C08-A3BE-9FED93401E2B_1_105_c.jpeg" target="_blank" rel="noopener"><img src="../../../../SCIENCE_LAB/NAVIGATION/EVIDENCE/PRIME_BRIDGE_LINEAGE_2026-10-06/visuals/2336E5B8-0E0D-4C08-A3BE-9FED93401E2B_1_105_c.jpeg" width="1086" height="724" loading="lazy" alt="Vorhandene Universal Operator Map: zwei gerahmte Ansichten, ein Beobachter und historische Bridge-Rollen; keine wissenschaftliche Validierung."></a><figcaption>Vorhandenes Navigator-Visual · VIS:UNIVERSAL_OPERATOR_MAP · owner-supplied visual / hashed copy. Die dargestellten historischen Bridges sind source-lokale Rollen, keine Gleichsetzung mit F1–F7 und kein Theoremnachweis.</figcaption></figure>
+  <div class="ldv-room-explanation"><section><h3>Was hier „zurückblickt“</h3><p>Was beobachtbar wird, hängt vom gewählten Rahmen, von Apertur und Grenze sowie der Beobachter-System-Kopplung ab. Ein Rückweg kann ein Residual hinterlassen; Rekonstruktion muss nicht Identität ergeben.</p><code>P_BA ∘ P_AB ≠ id ist möglich</code><p>Das ist die kontrollierte Bedeutung des Merksatzes — keine bewusste oder handelnde Kammer und keine neue physikalische Behauptung.</p></section><section class="ldv-context"><h3>Dein Eintrittskontext</h3><output id="ldvLocalContext" aria-live="polite">Der Jukebox-Lesestand bleibt im Family-Raum erhalten.</output><p>Kein DJ-Receipt empfangen. Linse, Mischung, Q4-Adresse, Lage und Deskposition werden hier nicht ausgelesen oder übertragen. Das Visual ist eine Quellenreferenz, keine Live-Ausgabe des DJ-Decks.</p><p>Keine gemeinsame Uhr, keine Fernsteuerung des Ursprungsinstruments und kein automatischer wissenschaftlicher Return.</p></section></div>
+  <nav class="ldv-source-actions" aria-label="Vorhandene Lookback-Quellen"><a href="../A0_BLUE_PINK_DODECA_CELL_RETURN.html#lookbackBreathingView" target="_blank" rel="noopener">Vorhandene A0-Darstellung öffnen ↗<small>Blue / Pink · Lookback-Merkbild · eigener Instrumentkontext</small></a><a href="https://www.are.na/nexah-scarabaeus1031/leonardo-translations-the-room-that-looks-back" target="_blank" rel="noopener">Are.na · Leonardo Translations ↗<small>Externe Ursprungs- und Leseroute</small></a></nav>
+  <details id="ldvSources"><summary>Quellenbindung, Status &amp; Aussagegrenzen</summary>
+   <dl><dt>Orientation Catalog · arena:5246418</dt><dd>LEONARDO TRANSLATIONS — THE ROOM THAT LOOKS BACK. Katalogstand 10.10.2026: publication_status published; revision_state review; content_maturity developing; classification_state proposed. registered_work_id: null. Kein neuer Work- oder Family-Eintrag.</dd><dt>Navigator-Visual · VIS:UNIVERSAL_OPERATOR_MAP</dt><dd>Universal Operator Map — The Room Looks Back. SHA-256: <code>b47abdafcb51989b3b3c7f66d3383948ec3d57152b68d823f04ae2312bba04ce</code>. Architektur-/Quellenbild, keine wissenschaftliche Validierung.</dd><dt>Kontrollierte Bedeutung</dt><dd>Frame-, aperture- und boundary-conditioned observation / return; observer-system coupling; möglicher inverse-problem residual. Glossarstatus: VISUAL INTUITION. Keine Agency oder Bewusstheit des Raums.</dd><dt>Funktionales +1</dt><dd>Die Raumrolle dieses Club-Zugangs ist kein zusätzlicher Carrier-State und keine Identifikation mit anderen 3+1-/4+1- oder Seam-Registern vorhandener Instrumente.</dd></dl>
+   <ul><li><a href="../../15_BOUNDARY_ESCAPE_RELATION_SYNTHESIS_2026-10-03.md#the-room-looks-back" target="_blank" rel="noopener">A0-Begriffsquelle · „The room looks back“</a></li><li><a href="../../../11_MATHEMATICAL_FOUNDATIONS_GLOSSARY.md" target="_blank" rel="noopener">Mathematical Foundations Glossary · The Room Looks Back</a></li><li><a href="../../../../SCIENCE_LAB/NAVIGATION/EVIDENCE/ORIENTATION_CATALOG_2026-10-10/ORIENTATION_CATALOG_BINDER_V1_2026-10-10.json" target="_blank" rel="noopener">Bestehender Orientation-Catalog-Binder</a></li><li><a href="../../../../SCIENCE_LAB/NAVIGATION/EVIDENCE/PRIME_BRIDGE_LINEAGE_2026-10-06/PRIME_BRIDGE_LINEAGE_BINDER_V1_2026-10-06.json" target="_blank" rel="noopener">Bestehender Visual-Lineage-Binder</a></li></ul>
+   <p>Die Jukebox verknüpft diese Quellen als Leseroute. Sie behauptet keine neue kanonische Navigator-Relation zwischen Katalogwerk, Visual und Instrument. Originalquellen öffnen separat; dieser Jukebox-Tab behält den Rückweg.</p>
+  </details>
+  <a class="ldv-back ldv-back-bottom" href="#spatial-navigation">← Zur Jukebox — gehaltenen Family-Lesestand weiter erkunden</a>
+ </article>
+</section>
+<section id="jointWorkbench" class="demo-explainer" aria-label="Joint-Erklärung und Legende">
+ <article id="jointExplanation" aria-live="polite"><small>JOINT · AUSWAHL ERKLÄREN</small><h2 id="jointTitle">Eine Verbindung anklicken</h2><p id="jointMeaning">Farbige Kanten im Raum und die Liste daneben sind auswählbar. Die Erklärung stammt aus dem vorhandenen Atlas-Record.</p><dl id="jointFacts"></dl><a href="../A0_FAMILY_CONNECTION_ATLAS.html#map">Im ursprünglichen Atlas lesen ↗</a></article>
+ <aside><h2>Zeichen lesen</h2><div id="statusLegend"></div><p id="statusMeaning">Farbe und Linienart kennzeichnen den bestehenden Relationsstatus, nicht eine neue Messung.</p><dl class="symbol-key"><dt>ζ · Zeta</dt><dd>Quelle / Träger / Herkunft</dd><dt>θ · Theta</dt><dd>Ansicht / Orientierung / Schnitt</dd><dt>β · Beta</dt><dd>Grenze / Bindung / Return-Bedingung — nicht ß</dd><dt>→ · Pfeilspitze</dt><dd>Leserichtung von Family a nach b im Record; weder Flussgeschwindigkeit noch belegte Kausalität.</dd><dt>Weiße Doppellinie ↕</dt><dd>Elevator derselben Family zwischen ζ, θ und β. Keine zusätzliche Family-Relation.</dd><dt>Vorderseite / Rückseite</dt><dd>Kamerablick auf dieselbe Karte; keine automatisch zugeordneten CRT-/QRT-Seiten.</dd></dl></aside>
+</section>
+<section id="jukeboxGLB" class="jukebox-glb" aria-labelledby="jukeboxGLBTitle">
+ <header><small>3D · LOKALES SICHTFENSTER</small><h2 id="jukeboxGLBTitle">Die Maschine mitnehmen.<br>Oder deine eigene GLB anschauen.</h2><p>Die aktuelle Raumform wird als statische, abgeleitete Ansicht exportiert. Eigene Dateien bleiben lokal und werden nicht automatisch mit Families oder Platten verbunden.</p></header>
+ <div class="jukebox-glb-tools">
+  <button id="jukeboxGLBBuild" type="button">Aktuellen Raum als GLB zeigen</button>
+  <label class="jukebox-file">GLB von Festplatte wählen <input id="jukeboxGLBFile" type="file" accept=".glb,model/gltf-binary"></label>
+  <a id="jukeboxGLBDownload" hidden download>GLB herunterladen ↓</a>
+  <button id="jukeboxGLBReset" type="button">Gesamtansicht</button>
+  <button id="jukeboxGLBPlay" type="button" disabled>Animation starten</button>
+  <button id="jukeboxGLBClear" type="button">Fenster leeren</button>
+ </div>
+ <div id="jukeboxGLBStage" class="jukebox-glb-stage"><p>Dein 3D-Fenster · erst auf Klick laden.<br>Drehen, zoomen, erkunden.</p></div>
+ <output id="jukeboxGLBStatus" role="status">Noch kein Modell geladen.</output>
+ <p class="jukebox-boundary">Bis 32 MiB · GLB 2 mit eingebetteten Ressourcen · kein Upload, keine automatische Wiedergabe. Externe Ressourcen und komprimierte Decoderformate werden hier abgewiesen. Der GLB-Export bewahrt IDs und Relationsstatus als Metadaten, nicht die HTML-Bedienung oder einen Engine-State.</p>
+</section>
+<section class="demo-joints club-joint-patch" aria-labelledby="jointPatchTitle"><h2 id="jointPatchTitle">Joint-Patchfeld <small>15 vorhandene Records · Verbindung wählen</small></h2><div id="jointDirectory"></div></section>
+<details class="club-provenance club-ideas"><summary>Notes · Ideen für später</summary><p>22.10.2026 · Zurückgestellt, jetzt nicht umsetzen: geometrische Lesarten vorhandener Family-Verbindungen untersuchen, auch über Quelle / Ansicht / Grenze hinweg. Mögliche Motive: Dreiecke, Kite, euklidische Figuren und platonische Körper. Vor Darstellung jeweils vorhandene Kanten und Quellen prüfen; keine fehlenden Relationen ergänzen und F1–F7 nicht automatisch als Generationen deuten. Die F1–F3-Hervorhebung bleibt aus der Bedienung entfernt.</p></details>
+<details class="club-provenance"><summary>Quellen &amp; Grenzen</summary><footer><p id="demoProvenance"></p><p>Separater Demonstrator aus dem bestehenden Atlas. Kein Gesamtmaschinen-Controller, keine neue Family- oder Instrumentzuordnung.</p><p>Die 21 Marker sind sieben Families an drei Lesepositionen, nicht 21 Families. Die Karte deckt die vorhandenen Atlas-Relationsrecords ab — nicht alle NEXAH-Instrumente. Original, Stories, Engines und offene Anschlüsse bleiben in ihren Quellen.</p><a href="../A0_FAMILY_CONNECTION_ATLAS.html#start">Platten und Werkstätten im Family Atlas ↗</a></footer></details>
+</main>
+<script src="../a0-family-navigator-demo-data.js"></script>
+<script src="../a0-family-navigator-demo.js"></script>
+<script src="../assets/a0-tessarec-blue-body-v1.js"></script>
+<script src="../assets/a0-blue-body-dodeca-countershot-v1.js"></script>
+<script src="../a0-family-spatial-bodies.js"></script>
+<script src="../a0-family-navigator-demo-spatial.js"></script>
+<script src="../a0-family-jukebox-stage.js"></script>
+<script src="../a0-family-jukebox-glb.js"></script>
+<script src="../a0-science-builder-path.js"></script>
+<script src="../a0-family-club-ux.js?v=20261022-dynamic-hero"></script>
+<script src="../a0-family-club-tours.js?v=20261022-source-clock"></script>
+<script src="../a0-club-family-follow.js"></script>
+<script src="../a0-club-qrt-demo.js"></script>
+<script src="../assets/a0-blue-body-interior-crt16-v1.js"></script>
+<script src="../a0-game-of-numbers-model.js"></script>
+<script src="../a0-club-carrier-sequence.js"></script>
+<script src="../a0-club-crt-link.js"></script>
+<script src="../a0-club-control-room.js"></script>
+<script src="../a0-club-return-monitor.js?v=20261022-carrier-and-club"></script>
+<script src="../a0-player-bench-link.js?v=20261022-binder-live"></script>
+<script src="../a0-family-club-deck.js"></script>
+<script src="../a0-family-ldv-room.js?v=20261022-dynamic-hero"></script>
+<script src="../a0-opium-workspace.js?v=20261022-monitor-entry"></script>
+</body></html>

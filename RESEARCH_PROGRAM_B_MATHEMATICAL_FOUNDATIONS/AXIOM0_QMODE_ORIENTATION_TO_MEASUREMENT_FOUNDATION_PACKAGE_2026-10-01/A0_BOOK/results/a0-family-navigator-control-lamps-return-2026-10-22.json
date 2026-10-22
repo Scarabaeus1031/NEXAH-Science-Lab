@@ -1,0 +1,7 @@
+{
+  "date": "2026-10-22",
+  "scope": "Control feedback only, no source identity or relation changes",
+  "changes": ["Unselected display controls dim without disabling; selected controls glow in their cyan/pink/violet/neutral accent", "A/B lamp remains coupled to manual yaw hemisphere; raised overview pitch has exclusive Gesamt lamp and arrival feedback", "Overview readout/HUD no longer labels the raised perspective as A/front", "Grid active state reads actual held state, including demo-driven changes", "Playback button has separate paused and running lamp states"],
+  "boundaries": "Typed relation colors and scientific states unchanged; motion effects respect reduced-motion preference",
+  "validation": {"navigator": "889 PASS", "ux": "410 PASS", "tours": "129 PASS", "routes": "114 PASS", "source_graph": "PASS", "app_audit": "252/252 PASS", "browser_pixels": "OPEN"}
+}

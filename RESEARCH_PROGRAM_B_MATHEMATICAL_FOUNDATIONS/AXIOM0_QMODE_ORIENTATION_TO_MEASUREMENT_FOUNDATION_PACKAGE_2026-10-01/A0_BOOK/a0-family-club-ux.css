@@ -1,0 +1,430 @@
+/* Main buttons first. The same live scene is retained in experience and bench views. */
+.club-entry{grid-template-columns:110px minmax(0,1fr);gap:30px;padding:26px 32px}
+.club-mark{max-width:105px}
+.club-wordmark{margin-top:8px;font-size:.55rem}
+.club-entry .club-welcome h1{font-size:clamp(2.7rem,4.2vw,4rem);line-height:1;margin:10px 0}
+.club-entry .club-welcome h1 br{display:none}
+.club-entry .club-welcome h1 em::before{content:" "}
+.club-entry .club-tagline{font-size:1.1rem;margin:10px 0}
+.club-entry .club-welcome>p:not(.club-tagline){max-width:800px;font-size:.78rem;margin:8px 0}
+.club-entry .club-welcome>p.club-origin{margin:15px 0 0;font:400 .65rem/1.7 var(--mono);color:#a99aa8}
+.club-origin>span{color:#cbb7c5;letter-spacing:.06em}
+.club-origin>small{display:block;font-size:.57rem;letter-spacing:.1em;color:#938796;margin-top:3px}
+.club-enter{margin-top:6px;padding:10px 14px}
+.club-wayfinding{margin-top:14px;font-size:.73rem;color:#acc6d2}
+.club-wayfinding>summary,.club-context>summary{cursor:pointer}
+.club-context{padding-bottom:0}
+#familySpatialMount .demo-navigation{display:grid;grid-template-columns:1.2fr 1fr 1.2fr 1.1fr 1fr;gap:9px;align-items:start}
+#familySpatialMount .club-tool{min-width:0;border:1px solid #416172;border-radius:11px;background:#0a2330}
+#familySpatialMount .club-tool>summary{cursor:pointer;list-style:none;padding:14px 16px;display:flex;flex-direction:column;gap:5px;min-height:74px}
+#familySpatialMount .club-tool>summary::-webkit-details-marker{display:none}
+#familySpatialMount .club-tool>summary>span{font:750 .82rem system-ui,sans-serif;color:#e3edf2}
+#familySpatialMount .club-tool>summary>span::after{content:" +";color:#67d3dc}
+#familySpatialMount .club-tool[open]>summary>span::after{content:" −"}
+#familySpatialMount .club-tool>summary>small{font:600 .67rem var(--mono);color:#92c7d1}
+#familySpatialMount .club-tool[open]{border-color:#6ed8df}
+#familySpatialMount .demo-navigation .club-tool fieldset{border:0;padding:12px;margin:0;border-top:1px solid #365566;border-radius:0}
+#familySpatialMount .club-tool legend{position:absolute;clip-path:inset(50%);width:1px;height:1px;overflow:hidden}
+#familySpatialMount .club-tool .demo-control-row{flex-direction:column}
+#familySpatialMount .club-tool .demo-control-row button{width:100%;text-align:left}
+.club-zoom{padding:10px 12px;font-size:.7rem;border-top:1px solid #365566}
+.club-zoom>summary{cursor:pointer;margin-bottom:6px}
+#familySpatialMount .club-bench-button,#familySpatialMount .club-deck-coming{min-height:76px;width:100%;padding:14px 16px;text-align:left;font-weight:750;font-size:.8rem;line-height:1.4}
+#familySpatialMount .club-bench-button{border-color:#df90b6;background:#392438}
+#familySpatialMount .club-bench-button[aria-expanded=true]{background:#df90b6;color:#081722}
+#familySpatialMount .club-bench-button>small,#familySpatialMount .club-deck-coming>small{display:block;margin-top:5px;font-size:.65rem;font-weight:500}
+#familySpatialMount .club-deck-coming{border-style:dashed;opacity:.5;cursor:default}
+#familySpatialMount[data-club-view=experience] .spatial-body{grid-template-columns:minmax(0,1fr)}
+#familySpatialMount[data-club-view=bench] .spatial-body{grid-template-columns:minmax(0,1fr) 340px}
+.club-current{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:10px 2px}
+.club-current output{font:650 .7rem/1.6 var(--mono);color:#b9d5df}
+#familySpatialMount .jukebox-orientation>strong,#familySpatialMount .jukebox-orientation>[data-readout=orientation]{display:none}
+#familySpatialMount [data-club-transition-control]:disabled{display:none}
+.club-provenance{font-size:.72rem;color:#9db9c7;margin-top:18px}
+.club-provenance>summary{cursor:pointer}
+#familySpatialMount .club-current button{font-size:.72rem}
+#clubBenchPanel [data-readout=question],#clubBenchPanel [data-readout=joint],#clubBenchPanel a[href="#jointExplanation"]{display:none}
+#clubBenchPanel #jointExplanation>small{display:none}
+#clubBenchPanel #jointExplanation h2{font:650 1.2rem/1.3 Georgia,serif;margin:10px 0}
+#clubBenchPanel #jointExplanation p{font-size:.74rem;line-height:1.7}
+#clubBenchPanel #jointExplanation details{margin:12px 0}
+#clubBenchPanel #jointExplanation dt{font-size:.6rem}
+#clubBenchPanel #jointExplanation dd{font-size:.72rem}
+#clubBenchPanel .club-family-picker{border-top:1px solid #365566;padding-top:12px}
+#clubBenchPanel .jukebox-mode-panel{padding:12px 0 0}
+#clubBenchPanel .jukebox-mode-panel>summary{margin-bottom:12px}
+#clubBenchPanel #jointWorkbench{display:block;margin:0}
+#clubBenchPanel #jointWorkbench>aside{padding:0;border:0;background:transparent}
+#clubBenchPanel #jointWorkbench h2{display:none}
+#clubBenchPanel #jointWorkbench .symbol-key{display:block}
+#clubBenchPanel #statusLegend{gap:5px}
+#clubBenchPanel #statusLegend button{font-size:.65rem;padding:7px}
+#clubBenchPanel [data-club-legend]{border-top:1px solid #365566;margin-top:14px;padding-top:1px}
+.club-session-notes{font-size:.72rem;color:#9db9c7;margin-top:10px}
+.club-session-notes>summary{cursor:pointer}
+.club-glb-drawer{margin:22px 0;border:1px solid #3e6274;border-radius:12px;background:#0b222f}
+.club-glb-drawer>summary{padding:16px;cursor:pointer;color:#c7e8ed;font:700 .8rem system-ui,sans-serif}
+.club-glb-drawer .jukebox-glb{margin:0;border:0}
+@media(max-width:1100px){#familySpatialMount .demo-navigation{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:850px){#familySpatialMount[data-club-view=bench] .spatial-body{grid-template-columns:minmax(0,1fr)}}
+@media(max-width:600px){.club-entry{grid-template-columns:72px minmax(0,1fr);padding:20px 16px;gap:16px}.club-entry .club-welcome h1{font-size:2.4rem}.club-entry .club-welcome>small{font-size:.48rem}.club-mark{align-self:start;margin-top:10px}.club-wordmark{font-size:.45rem}.club-entry .club-tagline{font-size:.95rem}#familySpatialMount .demo-navigation{grid-template-columns:repeat(2,minmax(0,1fr))}#familySpatialMount .club-tool>summary{padding:12px;min-height:70px}.club-current{align-items:stretch;flex-direction:column}}
+/* Deck-inspired labels: room, exhibit and lens remain independent choices. */
+.club-guide:not(.club-connections){grid-template-columns:repeat(3,minmax(0,1fr))}
+.club-guide.club-connections{grid-template-columns:repeat(2,minmax(0,1fr));margin-top:24px;padding-top:18px;border-top:1px solid #365566}
+@media(max-width:600px){.club-guide:not(.club-connections),.club-guide.club-connections{grid-template-columns:1fr}}
+#familySpatialMount .demo-navigation .club-tool[open]{grid-column:1 / -1}
+.demo-room-buttons,.club-exhibit-buttons{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.demo-room-buttons button,.club-exhibit-buttons button{position:relative;min-height:132px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;background:linear-gradient(145deg,#102d3d,#06151e);border:1px solid #436579;border-radius:12px;color:#dceef3;font-weight:750;padding:14px;cursor:pointer}
+.demo-room-buttons button[hidden]{display:none}
+.demo-room-buttons button:before{content:'';display:block;width:68px;height:68px;border-radius:50%;border:1px solid #54d7ef;background:radial-gradient(circle,#efbd55 0 3px,#102a3a 4px 12px,#54d7ef 13px 14px,transparent 15px 22px,#436579 23px 24px,transparent 25px 31px,#436579 32px 33px,transparent 34px);box-shadow:0 0 24px #54d7ef16}
+.demo-room-buttons button[data-room="cylinder"]:before{transform:rotateX(35deg);box-shadow:0 8px #102a3a,0 9px #54d7ef,0 17px #102a3a,0 18px #436579}
+.demo-room-buttons button[data-room="plate"]:before{border-radius:10px;background:radial-gradient(circle,#efbd55 0 3px,transparent 4px),repeating-linear-gradient(0deg,transparent 0 15px,#436579 16px 17px),repeating-linear-gradient(90deg,#102a3a 0 15px,#436579 16px 17px)}
+.club-exhibit-buttons button:before{content:'○';display:block;font-size:48px;line-height:1;color:#96acb7}
+.club-exhibit-buttons button[data-exhibit="bluebody"]:before{content:'⬡';color:#54d7ef}
+.club-exhibit-buttons button[data-exhibit="dodeca"]:before{content:'⬠';color:#ef6d9c}
+.demo-room-buttons button[aria-pressed="true"],.club-exhibit-buttons button[aria-pressed="true"]{border-color:#efbd55;box-shadow:inset 0 0 0 1px #efbd55,0 0 22px #efbd5514}
+.demo-room-buttons button:focus-visible,.club-exhibit-buttons button:focus-visible{outline:3px solid #54d7ef;outline-offset:3px}
+.club-current{font-family:ui-monospace,monospace}
+@media(max-width:560px){.demo-room-buttons,.club-exhibit-buttons{grid-template-columns:1fr}.demo-room-buttons button,.club-exhibit-buttons button{min-height:90px;flex-direction:row}}
+/* Always-open console. Existing live button nodes are moved, never duplicated. */
+#familySpatialMount .demo-navigation.club-control-console{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin:12px 0 20px;padding:16px;border:1px solid #436579;border-radius:16px;background:linear-gradient(165deg,#102d3d,#06151e)}
+.club-control-group{min-width:0;border-right:1px solid #365566;padding-right:12px}
+.club-control-group:last-child{border-right:0;padding-right:0}
+.club-control-group h3{display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;font:750 .78rem system-ui,sans-serif;color:#e3edf2;margin:0 0 12px}
+.club-control-group h3 small{color:#92c7d1;font:600 .65rem var(--mono)}
+#familySpatialMount .club-control-console fieldset{border:0;padding:0;margin:0;min-width:0}
+#familySpatialMount .club-control-console legend{position:absolute;clip-path:inset(50%);width:1px;height:1px;overflow:hidden}
+#familySpatialMount .club-control-console .demo-room-buttons,#familySpatialMount .club-control-console .club-exhibit-buttons{display:flex;flex-direction:column;gap:7px}
+#familySpatialMount .club-control-console button{min-height:42px;padding:10px 12px;font-size:.73rem;border-radius:8px;white-space:normal}
+#familySpatialMount .club-control-console .demo-room-buttons button,#familySpatialMount .club-control-console .club-exhibit-buttons button{flex-direction:row;justify-content:flex-start;gap:10px}
+#familySpatialMount .club-control-console .demo-room-buttons button:before{width:26px;height:26px;flex-shrink:0;background:radial-gradient(circle,#efbd55 0 2px,#102a3a 3px 7px,#54d7ef 8px 9px,#102a3a 10px);transform:none;box-shadow:none}
+#familySpatialMount .club-control-console .club-exhibit-buttons button:before{font-size:26px;flex-shrink:0}
+#familySpatialMount .club-control-console .demo-control-row{display:flex;flex-direction:column;gap:7px}
+#familySpatialMount .club-control-console .demo-control-row button{text-align:left;width:100%}
+.club-control-group fieldset>small{display:block;color:#92aebc;font-size:.64rem;line-height:1.5;margin-top:10px}
+#familySpatialMount .club-current .club-bench-button{width:auto;min-height:38px;font-size:.72rem;padding:8px 12px}
+#familySpatialMount .club-current .club-bench-button small{display:none}
+@media(max-width:1000px){#familySpatialMount .demo-navigation.club-control-console{grid-template-columns:repeat(2,minmax(0,1fr))}.club-control-group:nth-child(2){border-right:0}}
+@media(max-width:520px){#familySpatialMount .demo-navigation.club-control-console{grid-template-columns:1fr}.club-control-group{border-right:0;border-bottom:1px solid #365566;padding:0 0 14px}.club-control-group:last-child{border-bottom:0}}
+.club-control-group [data-view-feedback]{display:block;font:500 .62rem/1.5 var(--mono);color:#92c7d1;margin-top:10px}
+#familySpatialMount .club-control-console button[aria-pressed="true"]{border-color:#efbd55;box-shadow:inset 3px 0 #efbd55}
+#familySpatialMount .club-control-console button[data-turn-to="left"]:after{content:' ←';float:right;color:#92c7d1}
+#familySpatialMount .club-control-console button[data-turn-to="right"]:after{content:' →';float:right;color:#92c7d1}
+#familySpatialMount[data-view-arrival="a"] [data-action="front"],#familySpatialMount[data-view-arrival="b"] [data-action="back"]{animation:club-view-arrival .95s ease-out 1}
+@keyframes club-view-arrival{0%{background:#54d7df;color:#06151e;box-shadow:0 0 22px #54d7df66}100%{box-shadow:inset 3px 0 #54d7df}}
+@media(prefers-reduced-motion:reduce){#familySpatialMount[data-view-arrival] [data-action]{animation:none}}
+.club-pickup-console{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:16px;margin-top:12px;border:1px solid #54727f;border-radius:14px;background:#0a202b}
+.club-pickup-console>strong{grid-column:1/-1;color:#efbd55;font:700 .7rem var(--mono);letter-spacing:.08em}
+.club-pickup-families,.club-pickup-plates{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.club-pickup-console button{min-height:42px;padding:8px 12px;border:1px solid #436579;border-radius:8px;background:#102d3d;color:#c5d8de;cursor:pointer;font:650 .72rem var(--mono)}
+.club-pickup-console button[aria-pressed=true]{color:#06151e;background:#efbd55;border-color:#efbd55}
+.club-pickup-console button[data-pickup-target=true]{border-color:#efbd55;color:#efbd55}
+.club-pickup-console button:disabled{cursor:default;opacity:.65}
+.club-pickup-console button:focus-visible{outline:3px solid #54d7ef;outline-offset:2px}
+.club-pickup-console>output{grid-column:1/-1;color:#efbd55;font:700 .72rem/1.6 var(--mono)}
+.club-pickup-console>small{grid-column:1/-1;color:#92aebc;font-size:.65rem;line-height:1.5}
+@media(max-width:700px){.club-pickup-console{grid-template-columns:1fr}}
+/* One compact cockpit below the stage, rather than a stack of independent panels. */
+#familySpatialMount .club-cockpit{margin:10px 0 18px;padding:12px 14px;border:1px solid #54727f;border-radius:14px;background:linear-gradient(155deg,#102a37,#071923);box-shadow:0 12px 32px #0002}
+.club-cockpit .club-current{padding:0 0 9px;margin:0;border-bottom:1px solid #365566;gap:8px;justify-content:flex-start}
+.club-cockpit .club-current output{flex:1;min-width:200px;font-size:.66rem}
+#familySpatialMount .club-cockpit .club-current button{min-height:32px;padding:6px 10px;font-size:.66rem}
+#familySpatialMount .club-cockpit .club-pickup-console{grid-template-columns:auto 1fr 1fr;gap:7px 14px;padding:10px 0;margin:0;border:0;border-bottom:1px solid #365566;border-radius:0;background:none;align-items:center}
+.club-cockpit .club-pickup-console>strong{grid-column:auto;font-size:.58rem;max-width:130px;line-height:1.6}
+.club-cockpit .club-pickup-console>output{grid-column:2/-1;font-size:.65rem;line-height:1.4}
+#familySpatialMount .club-cockpit .club-pickup-console button{min-height:32px;padding:6px 9px;font-size:.67rem}
+#familySpatialMount .club-cockpit .demo-navigation.club-control-console{padding:10px 0;margin:0;border:0;border-radius:0;background:none;gap:12px;box-shadow:none}
+.club-cockpit .club-control-group h3{font-size:.68rem;margin:0 0 7px}
+.club-cockpit .club-control-group h3 small{display:none}
+#familySpatialMount .club-cockpit .club-control-console .demo-room-buttons,#familySpatialMount .club-cockpit .club-control-console .club-exhibit-buttons,#familySpatialMount .club-cockpit .club-control-console .demo-control-row{display:flex;flex-direction:row;flex-wrap:wrap;gap:5px;align-items:center}
+#familySpatialMount .club-cockpit .club-control-console button{width:auto;min-height:32px;padding:6px 9px;font-size:.66rem;gap:5px}
+#familySpatialMount .club-cockpit .club-control-console .demo-room-buttons button:before{width:16px;height:16px;background:radial-gradient(circle,#efbd55 0 1px,#102a3a 2px 4px,#54d7ef 5px 6px,#102a3a 7px)}
+#familySpatialMount .club-cockpit .club-control-console .club-exhibit-buttons button:before{font-size:16px}
+.club-cockpit [data-view-feedback]{font-size:.56rem;margin-top:6px}
+#familySpatialMount .club-cockpit .spatial-return{padding:7px 0;margin:0;border-top:1px solid #365566;gap:6px;flex-wrap:wrap}
+#familySpatialMount .club-cockpit .spatial-return button{min-height:32px;padding:6px 9px;font-size:.66rem}
+.club-cockpit .spatial-return [data-readout="trail"]{font-size:.56rem}
+.club-cockpit-links{display:flex;align-items:center;flex-wrap:wrap;gap:6px;padding-top:8px;border-top:1px solid #365566}
+#familySpatialMount .club-cockpit-links .club-guide{display:contents}
+#familySpatialMount .club-cockpit-links a{display:inline-flex;align-items:center;min-height:32px;padding:6px 10px;border:1px solid #365566;border-radius:7px;background:#0b2330;color:#b9d5df;text-decoration:none;font:650 .66rem system-ui,sans-serif;box-shadow:none}
+.club-cockpit-links .club-guide a small,.club-cockpit-links .club-guide a span{display:none}
+#familySpatialMount .club-cockpit-links a[aria-current="page"]{border-color:#efbd55;color:#efbd55}
+#familySpatialMount .club-cockpit-links a:focus-visible{outline:3px solid #54d7ef;outline-offset:2px}
+#familySpatialMount .club-cockpit-links .club-guide a strong{font:inherit;margin:0}
+.club-cockpit-help{margin:12px 0;font-size:.7rem;color:#9db9c7}
+.club-cockpit-help summary{cursor:pointer}
+.club-cockpit-help small{display:block;font-size:.67rem;line-height:1.6;margin:10px 0}
+#familySpatialMount .jukebox-orientation[hidden]{display:none}
+@media(max-width:1000px){#familySpatialMount .club-cockpit .club-pickup-console{grid-template-columns:1fr 1fr}.club-cockpit .club-pickup-console>strong{grid-column:1/-1;max-width:none}.club-cockpit .club-pickup-console>output{grid-column:1/-1}}
+@media(max-width:600px){#familySpatialMount .club-cockpit{padding:10px}#familySpatialMount .club-cockpit button,#familySpatialMount .club-cockpit-links a{min-height:44px!important}#familySpatialMount .club-cockpit .club-pickup-console{grid-template-columns:1fr}.club-cockpit .club-current{flex-direction:row;align-items:center}.club-cockpit .club-current output{flex-basis:100%}}
+.club-tour-player{display:grid;grid-template-columns:auto 1fr;gap:7px 16px;align-items:center;padding:9px 0;border-bottom:1px solid #365566}
+.club-tour-choices,.club-tour-transport{display:flex;gap:5px;align-items:center;flex-wrap:wrap}
+.club-tour-transport{justify-content:flex-end}
+#familySpatialMount .club-tour-player button{min-height:32px;padding:6px 10px;border:1px solid #436579;border-radius:7px;background:#102d3d;color:#c5d8de;font:650 .67rem var(--mono)}
+#familySpatialMount .club-tour-player button[aria-pressed=true]{border-color:#efbd55;color:#06151e;background:#efbd55}
+.club-tour-player output,.club-tour-player small{grid-column:1/-1;font:550 .64rem/1.5 var(--mono);color:#b9d5df}
+.club-tour-player small{color:#92aebc}
+.club-cockpit .club-tour-player~.club-pickup-console>output{display:none}
+.club-cockpit .club-pickup-families button[aria-pressed=true],.club-cockpit .club-pickup-plates button[aria-pressed=true]{box-shadow:0 0 12px #efbd5522}
+@media(max-width:700px){.club-tour-player{grid-template-columns:1fr}.club-tour-transport{justify-content:flex-start}}
+#familySpatialMount[data-tour-running=true] .club-pickup-families button[aria-pressed=true],#familySpatialMount[data-tour-running=true] .club-pickup-plates button[aria-pressed=true]{animation:club-tour-arrival .7s ease-out 1}
+@keyframes club-tour-arrival{from{box-shadow:0 0 16px #efbd5577}to{box-shadow:0 0 4px #efbd5522}}
+@media(prefers-reduced-motion:reduce){#familySpatialMount[data-tour-running] .club-pickup-console button{animation:none}}
+/* Stage first: tours above, view controls right, 7 × 3 coordinates + exhibit below. */
+#familySpatialMount[data-club-layout=stage] .spatial-body{grid-template-columns:minmax(0,1fr) 240px;align-items:stretch}
+#familySpatialMount .club-stage-controls{padding:14px;border-left:1px solid #365566;background:#0a202b;min-width:0}
+#familySpatialMount .club-stage-controls .club-control-console{display:flex;flex-direction:column;gap:16px;padding:0;margin:0;border:0;border-radius:0;background:none}
+.club-stage-controls .club-control-group{padding:0 0 14px;border-right:0;border-bottom:1px solid #365566}
+.club-stage-controls .club-control-group:last-child{border-bottom:0;padding-bottom:0}
+.club-stage-controls .club-control-group h3{font:700 .75rem system-ui,sans-serif;margin:0 0 9px}
+.club-stage-controls .club-control-group h3 small{display:none}
+#familySpatialMount .club-stage-controls .demo-room-buttons,#familySpatialMount .club-stage-controls .demo-control-row{display:flex;flex-wrap:wrap;flex-direction:row;gap:6px}
+#familySpatialMount .club-stage-controls button{width:auto;min-height:36px;padding:7px 9px;font-size:.7rem}
+#familySpatialMount .club-stage-controls .demo-room-buttons button:before{width:18px;height:18px;box-shadow:none;background:radial-gradient(circle,#efbd55 0 2px,#102a3a 3px 5px,#54d7ef 6px 7px,#102a3a 8px)}
+.club-stage-controls [data-view-feedback]{font-size:.6rem;line-height:1.5}
+.club-experience-bar{padding:0 0 10px}
+.club-experience-bar .club-current{padding:0 0 8px;margin:0;min-height:0}
+.club-experience-bar .club-current button[hidden]{display:none}
+.club-experience-bar .club-current output{font-size:.64rem;color:#92aebc}
+.club-experience-bar .club-tour-player{grid-template-columns:1fr auto;padding:7px 0;border:0}
+.club-experience-bar .club-tour-choices{grid-column:2;grid-row:1}
+.club-experience-bar .club-tour-transport{grid-column:1;grid-row:1;justify-content:flex-start}
+#familySpatialMount .club-experience-bar .club-tour-transport button:first-child{background:#54d7df;color:#06151e;border-color:#54d7df;min-height:40px;padding:9px 18px;font-weight:800}
+.club-experience-bar .club-tour-player output{font-size:.62rem}
+.club-coordinate-row{display:grid;grid-template-columns:minmax(0,1fr) 260px;gap:18px;align-items:start}
+#familySpatialMount .club-coordinate-row .club-pickup-console{border:0;padding:0;margin:0;grid-template-columns:1fr 1fr;gap:7px 12px}
+.club-coordinate-row .club-pickup-console>strong{grid-column:1/-1;max-width:none;font-size:.6rem}
+.club-coordinate-row .club-pickup-console>output{grid-column:1/-1;display:block;font-size:.62rem}
+.club-coordinate-row .club-control-group{border:0;border-left:1px solid #365566;padding:0 0 0 16px;min-width:0}
+.club-coordinate-row .club-control-group h3{font-size:.7rem;margin-bottom:8px}
+.club-coordinate-row .club-control-group h3 small{display:none}
+.club-coordinate-row fieldset{border:0;padding:0;margin:0;min-width:0}
+.club-coordinate-row legend{position:absolute;clip-path:inset(50%);width:1px;height:1px;overflow:hidden}
+.club-coordinate-row .club-exhibit-buttons{display:flex;flex-direction:row;flex-wrap:wrap;gap:5px}
+#familySpatialMount .club-coordinate-row .club-exhibit-buttons button{min-height:34px;padding:6px 9px;flex-direction:row;gap:5px;font-size:.67rem}
+.club-coordinate-row .club-exhibit-buttons button:before{font-size:17px}
+.club-explanation-drawer{margin:12px 0;border-top:1px solid #365566;padding-top:10px}
+.club-explanation-drawer>summary{cursor:pointer;color:#b9d5df;font:650 .73rem system-ui,sans-serif}
+#familySpatialMount .club-explanation-drawer #clubBenchPanel{padding:14px 0 0;border:0;background:none}
+#familySpatialMount .club-explanation-drawer #clubBenchPanel[hidden]{display:none}
+#familySpatialMount .club-explanation-drawer .spatial-family-list{grid-template-columns:repeat(4,minmax(0,1fr))}
+@media(max-width:850px){#familySpatialMount[data-club-layout=stage] .spatial-body{grid-template-columns:1fr}#familySpatialMount .club-stage-controls{border-left:0;border-top:1px solid #365566}#familySpatialMount .club-stage-controls .club-control-console{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.club-coordinate-row{grid-template-columns:1fr}.club-coordinate-row .club-control-group{border-left:0;border-top:1px solid #365566;padding:10px 0 0}}
+@media(max-width:600px){#familySpatialMount .club-stage-controls .club-control-console{grid-template-columns:1fr}.club-experience-bar .club-tour-player{display:flex;flex-direction:column;align-items:stretch}.club-experience-bar .club-tour-transport{order:-1}.club-coordinate-row .club-pickup-families,.club-coordinate-row .club-pickup-plates{grid-column:1/-1}#familySpatialMount .club-stage-controls button{min-height:44px}}
+/* Gold navigation follows the existing reading head, not every selected display setting. */
+.club-experience-bar .club-tour-player{display:flex;flex-wrap:wrap;justify-content:flex-start;gap:7px;padding:10px 12px;border:1px solid #efbd5555;border-left:3px solid #efbd55;border-radius:10px;background:#efbd5507}
+.club-experience-bar .club-tour-transport{order:0;justify-content:flex-start}
+.club-experience-bar .club-tour-choices{order:1}
+.club-experience-bar .club-tour-player output{order:2;flex-basis:100%;color:#efbd55}
+.club-experience-bar .club-tour-player small{order:3;flex-basis:100%}
+#familySpatialMount .club-experience-bar .club-tour-transport button:first-child{background:#efbd55;color:#06151e;border-color:#efbd55}
+#familySpatialMount .club-tour-player .club-geometry-toggle[aria-pressed=true]{background:#b78aef;color:#10131f;border-color:#b78aef}
+.club-coordinate-row .club-yellow-navigation{border-left:3px solid #efbd55!important;padding-left:12px!important}
+.club-yellow-navigation>strong:before{content:''}
+#familySpatialMount .club-stage-controls button[aria-pressed=true],#familySpatialMount .club-coordinate-row .club-exhibit-buttons button[aria-pressed=true]{background:#153d4c;color:#b9eff3;border-color:#54d7df;box-shadow:inset 2px 0 #54d7df}
+#familySpatialMount .spatial-viewport .club-now-playing{position:absolute;top:14px;right:12px;display:grid;gap:8px;width:156px;box-sizing:border-box;padding:10px;border:1px solid #436579;border-radius:10px;background:#06151edb;color:#c5d8de;font:550 10px/1.5 var(--mono);pointer-events:none}
+.club-now-playing strong{color:#efbd55;font-weight:750}
+.club-now-playing span:nth-child(2){color:#54d7df}
+.club-now-playing span:nth-child(3){color:#b78aef}
+.club-now-playing[data-light=dance]{border-bottom-color:#b78aef}
+@media(max-width:600px){#familySpatialMount .spatial-viewport .club-now-playing{width:126px;top:8px;right:8px;padding:7px;font-size:9px}}
+/* Reduced entry: one playback path, three layout buttons, no geometry experiment. */
+.club-page-title{font:650 1.1rem/1.3 system-ui,sans-serif;letter-spacing:.02em;margin:16px 0 4px;color:#c5d8de}
+.club-experience-bar .club-current{display:none}
+.club-experience-bar .club-tour-player{border:0;border-radius:0;background:none;padding:8px 0;gap:8px 12px}
+#familySpatialMount .club-experience-bar .club-tour-transport button:first-child{min-height:36px;background:#54d7df;color:#06151e;border-color:#54d7df;padding:8px 16px}
+.club-experience-bar .club-tour-player output{color:#92aebc;font-size:.6rem}
+.club-primary-layouts,.club-primary-layouts .demo-room-buttons{display:flex;gap:6px;align-items:center;flex-wrap:wrap}
+.club-primary-layouts .club-control-group{padding:0;border:0}
+.club-primary-layouts h3,.club-primary-layouts legend{display:none}
+.club-primary-layouts fieldset{border:0;padding:0;margin:0;min-width:0}
+#familySpatialMount .club-primary-layouts button{min-height:36px;padding:7px 11px;font-size:.69rem;flex-direction:row;gap:6px}
+#familySpatialMount .club-primary-layouts button[aria-pressed=true]{background:#153d4c;border-color:#54d7df;color:#b9eff3;box-shadow:inset 2px 0 #54d7df}
+#familySpatialMount .club-primary-layouts button:before{width:17px;height:17px;background:radial-gradient(circle,#54d7df 0 2px,#102a3a 3px 5px,#54d7df 6px 7px,#102a3a 8px);box-shadow:none;transform:none}
+@media(max-width:850px){#familySpatialMount .club-stage-controls .club-control-console{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:600px){.club-experience-bar .club-tour-player{flex-direction:row;align-items:center}#familySpatialMount .club-primary-layouts button{min-height:44px}}
+.club-coordinate-row .club-yellow-navigation{border-left:0!important;padding-left:0!important}
+/* One compact entry row; independent source exhibits follow after a deliberate gap. */
+.club-primary-exhibits{display:flex;align-items:center;margin-left:20px;padding-left:20px;border-left:1px solid #365566}
+.club-primary-exhibits{gap:6px;flex-wrap:wrap}
+.club-primary-exhibits .club-control-group{display:flex;align-items:center;gap:9px;border:0;padding:0}
+.club-primary-exhibits h3{margin:0;font:650 .68rem system-ui,sans-serif;color:#92aebc}
+.club-primary-exhibits h3 small,.club-primary-exhibits legend{display:none}
+.club-primary-exhibits fieldset{padding:0;margin:0;border:0;min-width:0}
+.club-primary-exhibits .club-exhibit-buttons{display:flex;flex-wrap:wrap;gap:6px}
+#familySpatialMount .club-primary-exhibits button{min-height:36px;padding:7px 10px;font-size:.69rem;flex-direction:row;gap:5px}
+#familySpatialMount .club-primary-exhibits button[aria-pressed=true]{background:#153d4c;color:#b9eff3;border-color:#54d7df;box-shadow:inset 2px 0 #54d7df}
+.club-coordinate-row{grid-template-columns:minmax(0,1fr)}
+#familySpatialMount .club-coordinate-row .club-pickup-console{grid-template-columns:1fr}
+#familySpatialMount .club-stage-controls .club-pickup-plates{display:flex;flex-direction:column;align-items:stretch;gap:6px}
+#familySpatialMount .club-stage-controls .club-pickup-plates button{text-align:left}
+@media(max-width:850px){#familySpatialMount .club-stage-controls .club-control-console{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:600px){.club-primary-exhibits{margin-left:0;padding-left:0;border-left:0;flex-basis:100%;padding-top:8px}#familySpatialMount .club-primary-exhibits button{min-height:44px}#familySpatialMount .club-stage-controls .club-control-console{grid-template-columns:1fr}}
+/* Lighting is presentation, not an RGB mixer or an AM/VM/PM lens selector. */
+.club-primary-settings{display:flex;align-items:center;flex-wrap:wrap;gap:12px;margin-left:auto}
+.club-primary-settings .club-control-group{display:flex;align-items:center;gap:9px;border:0;padding:0}
+.club-primary-settings h3{margin:0;font:650 .68rem system-ui,sans-serif;color:#92aebc}
+.club-primary-settings h3 small,.club-primary-settings legend{display:none}
+.club-primary-settings fieldset{border:0;padding:0;margin:0;min-width:0}
+.club-primary-settings .demo-control-row{display:flex;flex-wrap:wrap;gap:6px}
+#familySpatialMount .club-primary-settings button{min-height:36px;padding:7px 10px;font-size:.69rem}
+#familySpatialMount .club-primary-settings button[aria-pressed=true]{background:#153d4c;color:#b9eff3;border-color:#54d7df;box-shadow:inset 2px 0 #54d7df}
+@media(min-width:601px) and (max-width:850px){#familySpatialMount .club-stage-controls .club-control-console{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:600px){.club-primary-settings{margin-left:0;flex-basis:100%;padding-top:8px}#familySpatialMount .club-primary-settings button{min-height:44px}}
+/* Perspective and Elevator form one evenly aligned sidebar, with the original legend below. */
+#familySpatialMount .club-stage-controls .demo-control-row,#familySpatialMount .club-stage-controls .club-pickup-plates{display:flex;flex-direction:column;align-items:stretch;gap:7px;width:100%}
+#familySpatialMount .club-stage-controls .demo-control-row button,#familySpatialMount .club-stage-controls .club-pickup-plates button{box-sizing:border-box;width:100%;min-height:40px;margin:0;padding:9px 11px;border-radius:8px;text-align:left;font:650 .7rem/1.4 system-ui,sans-serif}
+.club-stage-controls .club-control-group{padding-bottom:16px}
+.club-stage-legend{margin:0;padding:0;min-width:0;border:0}
+.club-stage-legend>summary{cursor:pointer;color:#b9d5df;font:650 .75rem/1.6 system-ui,sans-serif;padding:6px 0}
+.club-stage-legend>summary:focus-visible{outline:2px solid #54d7df;outline-offset:4px}
+.club-stage-legend .demo-explainer{display:block;margin:8px 0 0;padding:0;border:0;background:none}
+.club-stage-legend .demo-explainer h2{font-size:.8rem;margin-top:0}
+.club-stage-legend .symbol-key{display:block;font-size:.7rem;line-height:1.6}
+.club-stage-legend .symbol-key dt{margin-top:10px;font-weight:700}
+.club-stage-legend .symbol-key dd{margin:3px 0 0;overflow-wrap:anywhere}
+#familySpatialMount .club-stage-legend button{width:100%;box-sizing:border-box;text-align:left;white-space:normal}
+@media(max-width:850px){.club-stage-legend{grid-column:1/-1}}
+@media(max-width:600px){.club-stage-legend>summary{min-height:44px;display:flex;align-items:center}#familySpatialMount .club-stage-controls .demo-control-row button,#familySpatialMount .club-stage-controls .club-pickup-plates button{min-height:44px}}
+.club-navigation-position{display:flex;align-items:baseline;flex-wrap:wrap;gap:5px 12px;grid-column:1/-1}
+.club-navigation-position>strong{font:650 .68rem system-ui,sans-serif;color:#92aebc}
+.club-navigation-position>output{font:650 .72rem/1.5 var(--mono);color:#c5e1e8}
+#familySpatialMount .club-family-picker .spatial-stops{margin:10px 0 0}
+/* Performance cockpit: live connections stay beside the canvas, never below the technical drawer. */
+.club-experience-bar{display:flex;flex-direction:column;gap:5px;scroll-margin-top:10px}
+.club-experience-bar .club-tour-player{order:0;margin:0;padding:4px 0;scroll-margin-top:10px}
+.club-experience-bar .club-cockpit-links{order:1;display:flex;flex-wrap:wrap;gap:5px;margin:0;padding:0;border:0}
+.club-experience-bar .club-cockpit-links nav{display:contents}
+.club-experience-bar .club-cockpit-links a{display:inline-flex;align-items:center;min-height:30px;padding:4px 8px;border:1px solid #365566;border-radius:6px;background:#0b2330;color:#b9d5df;text-decoration:none;font:650 .64rem system-ui,sans-serif}
+#familySpatialMount[data-club-layout=stage] .spatial-body{grid-template-columns:minmax(0,1fr) 300px}
+#familySpatialMount .spatial-viewport canvas{height:clamp(320px,calc(100svh - 280px),620px)}
+#familySpatialMount .club-stage-controls{display:flex;flex-direction:column;gap:12px;max-height:clamp(320px,calc(100svh - 280px),620px);overflow:auto;padding:11px}
+#familySpatialMount .club-stage-controls .club-control-console{display:grid;grid-template-columns:1fr 1fr;gap:10px;order:1}
+#familySpatialMount .club-stage-controls .club-control-group{padding:0;border:0;min-width:0}
+#familySpatialMount .club-stage-controls .club-control-group h3{font-size:.69rem;margin-bottom:7px}
+#familySpatialMount .club-stage-controls .demo-control-row button,#familySpatialMount .club-stage-controls .club-pickup-plates button{min-height:32px;padding:6px 8px;font-size:.66rem}
+.club-stage-controls .club-stage-legend{grid-column:1/-1;border-top:1px solid #365566;padding-top:6px}
+.club-live-connections{order:0;min-width:0;border-bottom:1px solid #365566;padding-bottom:9px}
+.club-live-connections h3{font:700 .72rem system-ui,sans-serif;margin:0 0 7px;color:#c5e1e8}
+.club-live-connections .spatial-edges{max-height:190px;overflow:auto;gap:5px;padding:2px}
+#familySpatialMount .club-live-connections .spatial-edges button{width:100%;min-height:30px;padding:5px 7px;line-height:1.35;font-size:.65rem;border-left-width:3px;white-space:normal}
+.club-live-connections .demo-joint-mini{font-size:.64rem;line-height:1.45;margin:7px 0 0;color:#a9c3d0}
+#familySpatialMount .club-live-connections button[aria-pressed=true]{background:#203c48;color:#e9f2f5;box-shadow:inset 0 0 0 1px currentColor}
+.club-stage-controls [data-view-feedback]{display:none}
+#familySpatialMount .club-cockpit{margin-top:8px;padding:10px 12px}
+.club-coordinate-row{gap:5px}
+.club-navigation-position{gap:4px 9px}
+.club-explanation-drawer{margin:8px 0 0;padding-top:7px}
+@media(max-width:850px){#familySpatialMount[data-club-layout=stage] .spatial-body{grid-template-columns:1fr}#familySpatialMount .spatial-viewport canvas{height:clamp(280px,48svh,440px)}#familySpatialMount .club-stage-controls{max-height:none;display:grid;grid-template-columns:1fr 1fr;gap:12px;overflow:visible}.club-live-connections .spatial-edges{max-height:180px}}
+@media(max-width:600px){#familySpatialMount .club-stage-controls{grid-template-columns:1fr}#familySpatialMount .club-live-connections .spatial-edges button,#familySpatialMount .club-stage-controls .demo-control-row button,#familySpatialMount .club-stage-controls .club-pickup-plates button{min-height:44px}.club-experience-bar .club-cockpit-links a{min-height:44px}}
+/* All primary interaction lives inside the stage. Desktop height has a hard cap. */
+@media(min-width:851px){
+ #familySpatialMount[data-club-layout=stage] .spatial-body{height:clamp(320px,calc(100svh - 230px),480px);min-height:0}
+ #familySpatialMount .spatial-viewport{height:100%;min-height:0;overflow:hidden}
+ #familySpatialMount .spatial-viewport canvas{height:100%;min-height:0}
+ #familySpatialMount .club-stage-controls{height:100%;max-height:none;min-height:0;gap:9px;padding:10px;overflow:auto}
+}
+#familySpatialMount .club-stage-controls .club-pickup-console{order:-1;display:grid;grid-template-columns:1fr;gap:5px;margin:0;padding:0 0 8px;border:0;border-bottom:1px solid #365566;border-radius:0;background:none}
+.club-stage-controls .club-pickup-console>strong{font:700 .68rem/1.4 system-ui,sans-serif;color:#a9c3d0;letter-spacing:0}
+.club-stage-controls .club-pickup-families{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:4px}
+#familySpatialMount .club-stage-controls .club-pickup-families button{width:100%;min-height:30px;padding:5px 0;font-size:.66rem}
+#familySpatialMount .club-stage-controls .club-pickup-families button[aria-pressed=true]{background:#efbd55;border-color:#efbd55;color:#06151e;box-shadow:none}
+#familySpatialMount .club-stage-controls .club-pickup-console>output{margin:0;color:#efbd55;font:650 .64rem/1.4 var(--mono)}
+.club-live-connections .spatial-edges{max-height:168px;gap:4px}
+#familySpatialMount .club-live-connections .spatial-edges button{display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:center;gap:7px;min-height:29px;padding:5px 6px}
+.club-live-connections button>strong{font:700 .66rem/1.3 var(--mono);white-space:nowrap}
+.club-live-connections button>small{color:#9eb8c4;font:500 .59rem/1.3 system-ui,sans-serif;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.club-live-connections .club-edge-status{font:550 .55rem/1.3 var(--mono);color:#a9c3d0;white-space:nowrap}
+.club-live-connections .demo-joint-mini{display:none}
+#familySpatialMount .club-primary-exhibits button:before{font-size:22px;line-height:1}
+#familySpatialMount .club-cockpit{padding:6px 0;margin-top:5px;border:0;background:none}
+#familySpatialMount .club-cockpit .club-coordinate-row[hidden]{display:none}
+.club-explanation-drawer{margin:0;padding-top:6px}
+.club-cockpit .spatial-return{margin:0;padding:6px 0 0;border:0}
+.club-detail-position{font-size:.7rem;color:#92aebc}
+@media(max-width:850px){#familySpatialMount .club-stage-controls .club-pickup-console{grid-column:1/-1}.club-stage-controls .club-pickup-families{max-width:360px}}
+@media(max-width:600px){#familySpatialMount .club-stage-controls .club-pickup-families button{min-height:44px}#familySpatialMount .club-live-connections .spatial-edges button{min-height:44px}}
+/* Family patchboard: stable source relations, not a new wiring engine. */
+#familySpatialMount .club-primary-settings{display:grid;gap:5px;align-items:center;margin-left:auto}
+#familySpatialMount .club-primary-settings .club-control-group{display:grid;grid-template-columns:82px minmax(0,1fr);gap:7px;align-items:center;margin:0;padding:0;border:0}
+#familySpatialMount .club-primary-settings .demo-control-row,#familySpatialMount .club-primary-settings .club-pickup-plates{display:flex;flex-direction:row;flex-wrap:wrap;gap:5px;align-items:center}
+#familySpatialMount .club-primary-settings button{width:auto;min-height:30px;padding:5px 8px;font-size:.64rem}
+#familySpatialMount .club-primary-settings [data-view-feedback],#familySpatialMount .club-primary-settings h3 small{display:none}
+#familySpatialMount .club-stage-controls .club-pickup-console{display:grid;grid-template-columns:minmax(0,1fr);gap:7px;padding:0 0 8px;margin:0;border:0;border-bottom:1px solid #365566;border-radius:0;background:none}
+#familySpatialMount .club-stage-controls .club-pickup-console>strong{grid-column:1;order:0;color:#9eb8c4;font:700 .68rem/1.3 system-ui,sans-serif}
+#familySpatialMount .club-stage-controls .club-pickup-families{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:4px;width:100%;max-width:none;order:1}
+#familySpatialMount .club-stage-controls .club-pickup-families button{display:block;box-sizing:border-box;min-height:32px;width:100%;padding:5px 0;border-radius:50%;font:700 .65rem/1 var(--mono)}
+#familySpatialMount .club-stage-controls .club-pickup-families button[aria-pressed=true]{background:#efbd55;color:#06151e;border-color:#efbd55}
+#familySpatialMount .club-stage-controls .club-pickup-console>output{grid-column:1;order:3;margin:0;font-size:.65rem;line-height:1.4}
+.club-patch-cables{display:block;width:100%;height:116px;order:2;overflow:visible}
+.club-patch-cables path{cursor:pointer;pointer-events:stroke;filter:drop-shadow(0 0 3px currentColor);transition:stroke-width .15s}
+.club-patch-cables path:hover,.club-patch-cables path:focus-visible{stroke-width:6;outline:none}
+#familySpatialMount .club-stage-controls .club-control-console{display:block;order:2}
+#familySpatialMount .club-live-connections .spatial-edges button{display:grid!important;grid-template-columns:70px minmax(0,1fr) 44px;gap:7px;text-align:left;align-items:center}
+#familySpatialMount .club-live-connections .spatial-edges button>strong{font:700 .65rem var(--mono)}
+#familySpatialMount .club-live-connections .spatial-edges button>small{display:block;font-size:.59rem;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;color:#9eb8c4}
+#familySpatialMount .club-live-connections .spatial-edges button>.club-edge-status{display:block;font-size:.55rem;justify-self:end;color:#9eb8c4}
+@media(max-width:850px){#familySpatialMount .club-stage-controls .club-pickup-console{grid-column:1}#familySpatialMount .club-stage-controls .club-control-console{grid-column:1/-1}.club-patch-cables{height:100px}}
+@media(max-width:600px){#familySpatialMount .club-primary-settings{margin-left:0;width:100%}#familySpatialMount .club-primary-settings .club-control-group{grid-template-columns:72px minmax(0,1fr)}#familySpatialMount .club-primary-settings button,#familySpatialMount .club-stage-controls .club-pickup-families button{min-height:44px}}
+@media(prefers-reduced-motion:reduce){.club-patch-cables path{transition:none}}
+/* Display accents stay separate from typed cable/status colors. */
+#familySpatialMount .club-primary-settings [data-club-control="light"]{border:1px solid #b78aef88;padding:5px 7px;border-radius:8px}
+#familySpatialMount .club-primary-settings [data-club-control="view"]{border:1px solid #54d7df88;padding:5px 7px;border-radius:8px}
+#familySpatialMount .club-primary-settings [data-light="read"]{border-color:#c5e1e8}
+#familySpatialMount .club-primary-settings [data-light="room"]{border-color:#54d7df}
+#familySpatialMount .club-primary-settings [data-light="dance"]{border-color:#b78aef}
+#familySpatialMount .club-primary-settings [data-action="front"]{border-color:#54d7df}
+#familySpatialMount .club-primary-settings [data-action="back"]{border-color:#ef6d9c}
+#familySpatialMount .club-primary-settings button[data-action="back"][aria-pressed=true]{background:#402438;border-color:#ef6d9c;color:#ffd1e5;box-shadow:inset 2px 0 #ef6d9c}
+#familySpatialMount .club-primary-settings [data-club-control="view"] button:not([data-action]){border-color:#b78aef}
+#familySpatialMount .club-primary-exhibits [data-exhibit="bluebody"]{border-color:#54d7ef}
+#familySpatialMount .club-primary-exhibits [data-exhibit="dodeca"]{border-color:#ef6d9c}
+#familySpatialMount .club-primary-exhibits [data-exhibit="dodeca"][aria-pressed=true]{border-color:#ef6d9c;background:#402438;color:#ffd1e5;box-shadow:inset 2px 0 #ef6d9c}
+#familySpatialMount .club-primary-layouts button:before{background:radial-gradient(circle,#efbd55 0 2px,#102a3a 3px 5px,#54d7df 6px 7px,#102a3a 8px)}
+#familySpatialMount .club-stage-controls [data-club-control="elevator"]{padding:8px 0 0;border-top:1px solid #365566}
+#familySpatialMount .club-stage-controls .club-pickup-plates{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:5px}
+#familySpatialMount .club-stage-controls .club-pickup-plates button{padding:7px 4px;font-size:.64rem;text-align:center}
+/* Shared shell: two views, one reversible route, no source-state mapping. */
+.demo-top{position:sticky;top:0;z-index:50;padding:9px 3vw;gap:10px;background:#071c28f5;backdrop-filter:blur(10px)}
+.demo-top>a{font-size:.67rem}
+.club-view-switch{display:flex;gap:4px;margin-left:auto;padding:4px;border:1px solid #365566;border-radius:10px;background:#04141e}
+.demo-top .club-view-switch a{display:inline-flex;align-items:center;justify-content:center;min-height:36px;padding:7px 12px;border:1px solid transparent;border-radius:7px;color:#a9c3d0;font:700 .7rem/1.3 system-ui,sans-serif;text-decoration:none}
+.club-view-switch a small{display:none}
+.demo-top .club-view-switch a[aria-current=page]{background:#153d4c;color:#c8f8fa;border-color:#54d7df;box-shadow:inset 0 -2px #54d7df}
+.demo-top .club-view-switch a[data-jukebox-room=deck][aria-current=page]{background:#322640;border-color:#b78aef;color:#e2d2fb;box-shadow:inset 0 -2px #b78aef}
+.club-view-switch a:focus-visible{outline:2px solid #efbd55;outline-offset:3px}
+#spatial-navigation{scroll-margin-top:70px}
+.club-experience-bar .club-tour-player{scroll-margin-top:76px}
+@media(max-width:850px){.demo-top>a:nth-child(2),.demo-top>a:nth-child(3){display:none}.demo-top .club-view-switch a{min-height:44px;padding:7px 9px;font-size:.66rem}}
+@media(prefers-reduced-motion:no-preference){#familySpatialMount:not([hidden]),#club-deck-room:not([hidden]){animation:club-view-enter .16s ease-out}@keyframes club-view-enter{from{opacity:.65}to{opacity:1}}}
+/* Always-open, source-bound joint sockets immediately below the dancefloor. */
+#familySpatialMount>.club-joint-patch{margin:7px 0 0;padding:9px 10px;border:1px solid #365566;border-radius:10px;background:#071c27}
+.club-joint-patch h2{display:flex;align-items:baseline;flex-wrap:wrap;gap:5px 12px;margin:0 0 8px!important;font:700 .74rem/1.4 system-ui,sans-serif!important}
+.club-joint-patch h2 small{font:500 .61rem/1.4 system-ui,sans-serif;color:#92aebc;letter-spacing:0}
+#familySpatialMount .club-joint-patch #jointDirectory{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:5px}
+#familySpatialMount .club-joint-patch #jointDirectory button{position:relative;display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:center;gap:6px;min-height:34px;padding:6px 7px 6px 19px;border:1px solid var(--status);border-radius:6px;background:#0a2431;line-height:1.3}
+.club-joint-patch #jointDirectory button:before{content:'';position:absolute;left:6px;top:50%;transform:translateY(-50%);width:6px;height:6px;border-radius:50%;border:1px solid var(--status);background:#04141e}
+.club-joint-patch #jointDirectory button strong{white-space:nowrap;font:700 .63rem/1.3 var(--mono)}
+.club-joint-patch #jointDirectory button small{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:#a9c3d0;font:.57rem/1.3 system-ui,sans-serif}
+.club-joint-patch #jointDirectory button span{font:.54rem/1.3 var(--mono);color:var(--status)}
+#familySpatialMount .club-joint-patch #jointDirectory button[data-related=false]{opacity:.55}
+#familySpatialMount .club-joint-patch #jointDirectory button:hover,#familySpatialMount .club-joint-patch #jointDirectory button:focus-visible{opacity:1}
+#familySpatialMount .club-joint-patch #jointDirectory button[aria-pressed=true]{opacity:1;background:#203c48;box-shadow:inset 0 0 0 1px var(--status)}
+.club-joint-patch #jointDirectory button[aria-pressed=true]:before{background:var(--status);box-shadow:0 0 7px var(--status)}
+@media(max-width:1100px){#familySpatialMount .club-joint-patch #jointDirectory{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:600px){#familySpatialMount .club-joint-patch #jointDirectory{grid-template-columns:repeat(2,minmax(0,1fr))}#familySpatialMount .club-joint-patch #jointDirectory button{min-height:44px}.club-joint-patch #jointDirectory button small{display:none}}
+.club-secondary-routes,.club-deck-extras{margin:12px 0 0;padding-top:8px;border-top:1px solid #365566;font-size:.72rem;color:#92aebc}
+.club-secondary-routes>summary,.club-deck-extras>summary{cursor:pointer;font-weight:650;color:#a9c3d0}
+.club-secondary-routes .club-cockpit-links{border:0;margin:8px 0 0;padding:0}
+/* Quiet unselected controls; the active choice carries its own colored lamp. */
+#familySpatialMount .club-primary-layouts button,#familySpatialMount .club-primary-exhibits button,#familySpatialMount .club-primary-settings button,#familySpatialMount [data-club-control="elevator"] button{--control-accent:#54d7df;transition:background .18s,border-color .18s,box-shadow .18s,color .18s}
+#familySpatialMount button[data-exhibit="dodeca"],#familySpatialMount button[data-action="back"]{--control-accent:#ef6d9c}
+#familySpatialMount button[data-exhibit="none"],#familySpatialMount button[data-light="read"]{--control-accent:#c5e1e8}
+#familySpatialMount button[data-light="dance"],#familySpatialMount button[data-club-overview]{--control-accent:#b78aef}
+#familySpatialMount :is(.club-primary-layouts,.club-primary-exhibits,.club-primary-settings,.club-stage-controls [data-club-control="elevator"]) button[aria-pressed=false]{background:#081b25;color:#93adb9;border-color:color-mix(in srgb,var(--control-accent) 35%,#294656);box-shadow:none}
+#familySpatialMount :is(.club-primary-layouts,.club-primary-exhibits,.club-primary-settings,.club-stage-controls [data-club-control="elevator"]) button[aria-pressed=true]{background:color-mix(in srgb,var(--control-accent) 18%,#081b25);color:#edf5f7;border-color:var(--control-accent);box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--control-accent) 45%,transparent),0 0 13px color-mix(in srgb,var(--control-accent) 28%,transparent)}
+#familySpatialMount :is(.club-primary-layouts,.club-primary-exhibits,.club-primary-settings) button:hover{color:#edf5f7;border-color:var(--control-accent)}
+#familySpatialMount[data-view-arrival=overview] [data-club-overview]{animation:club-control-arrival .8s ease-out 1}
+@keyframes club-control-arrival{from{box-shadow:0 0 22px var(--control-accent)}to{box-shadow:0 0 13px color-mix(in srgb,var(--control-accent) 28%,transparent)}}
+@media(prefers-reduced-motion:reduce){#familySpatialMount button{transition:none!important}#familySpatialMount[data-view-arrival=overview] [data-club-overview]{animation:none}}
+#familySpatialMount .club-experience-bar .club-tour-transport button[aria-pressed=false]{background:#0b2c39;color:#bde8ef;border-color:#4599a6;box-shadow:none}
+#familySpatialMount .club-experience-bar .club-tour-transport button[aria-pressed=true]{background:#54d7df;color:#06151e;border-color:#8eeef2;box-shadow:0 0 16px #54d7df55}

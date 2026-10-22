@@ -1,0 +1,50 @@
+{
+  "date": "2026-10-22",
+  "status": "ENGINEERING_CHECKS_PASS_BROWSER_ACCEPTANCE_OPEN",
+  "supersedes_behavior_of": "a0-club-return-monitor-return-2026-10-22.json",
+  "scope": "Continuous Q4 source-view comparison and source-bound QRT fixture presentation",
+  "identity_effect": "Reuses existing DJ source, Family draft and ART:ROSETTA:QRT_FIXTURE; no canonical identity, relation, admission or claim changes",
+  "source_inline_engine_sha256": "e5802ca4795d6c5cb0d248708fba1a78d73072dc3e985366787a787d54f8bd72",
+  "source_engine_changed": false,
+  "qrt_source": "00_INCOMING/NEXAH_DUAL_VIEW_ROSETTA_INTAKE_2026-09-05/02_MODULE_II_G_RT_ROSETTA/NEXAH_QRT_CODE_MECHANISM.html",
+  "qrt_source_sha256": "c508d8e7b268d1c40f9095cb639e979cdff2fe702ca5a0b452d8b4afbadcb6e2",
+  "continuous_behavior": [
+    "Same loaded player instance continues during in-document view switching",
+    "Source MutationObserver publishes coordinate and UI transport receipts; no second advancing timer",
+    "Monitor compares actual selected Q4 field against the validated source coordinate on each receipt",
+    "Returning reads the latest source coordinate; no stale-coordinate restore",
+    "Explicit Q4 clicks reuse existing source handlers without pausing",
+    "Monitor play/pause uses the original transport button idempotently",
+    "Whole-document visibility loss still pauses; no automatic resume"
+  ],
+  "qrt_behavior": {
+    "carrier": ["A", "B", "C", "D", "E", "F", "X"],
+    "hinge": "D4",
+    "transformed": ["A", "B", "C", "D", "X", "F", "E"],
+    "return": "Apply the same suffix involution and compare aligned records",
+    "cadence": "One demonstration stage per observed source-address change, five stages repeated; presentation coupling only",
+    "manual": "Manual stage selection stops following; Mit Platte re-enables",
+    "camera_identity": false,
+    "gray_middle_layer_identity": false,
+    "q4_to_qrt_mapping": false
+  },
+  "no_family_mapping": true,
+  "no_mixer_transfer": true,
+  "no_common_scientific_clock": true,
+  "no_new_scientific_replay": true,
+  "browser_rendering_and_file_origin_message_acceptance": "OPEN",
+  "checks": {
+    "return_monitor": 159,
+    "qrt_fixture_presentation": 75,
+    "deck_lifecycle": 51,
+    "family_navigator": 893,
+    "family_ux": 439,
+    "room_routes": 124,
+    "tours": 129,
+    "shared_shell": 24,
+    "spatial_preview": 90,
+    "source_graph": "PASS 20 components; base 266/29, composed 269/32",
+    "app": "PASS 252/252"
+  },
+  "publication_authorized": false
+}

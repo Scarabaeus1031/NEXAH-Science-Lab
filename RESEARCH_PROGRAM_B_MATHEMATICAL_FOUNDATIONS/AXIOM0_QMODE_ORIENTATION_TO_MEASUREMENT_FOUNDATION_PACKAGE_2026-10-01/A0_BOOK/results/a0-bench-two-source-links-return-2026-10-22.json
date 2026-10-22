@@ -1,0 +1,64 @@
+{
+  "schema": "a0.bench-two-source-links-return/1",
+  "date": "2026-10-22",
+  "revision": "source-links-r7",
+  "status": "IMPLEMENTED_SOFTWARE_TESTED_BROWSER_ACCEPTANCE_OPEN",
+  "identity_reuse": ["NEXAH_AX0_QMODE_FOUNDATION_PACKAGE", "MOD:NUMBER_VIEW_SUITE"],
+  "m3_stack": {
+    "rule": "SHARED_SOURCE_RECORD",
+    "entry": "A0_ORIENTATION_CONTROLLER_BENCH.html#apertureStackCalibration",
+    "source": "A0ApertureMeasurementController.readSource()",
+    "domain": "48 indexed M3 samples; existing source-local and control six-plate fixtures",
+    "record_policy": "The stack consumes the immutable trace array from the M3 controller, checks its fingerprint against the current M3 record and follows its cursor. Opening comes from that source record. Plate index and plate-local visibility window remain stack-owned.",
+    "update_policy": "Source subscription, not a new timer. Existing M3 sample clock and Stack plate clock stay separate.",
+    "failure_policy": "Unavailable or inconsistent shared source produces HOLD and clears the exported Stack view; no independent trace fallback while follow is enabled.",
+    "return_scope": "Retained source trace; display RMSE and visibility are separate from source identity.",
+    "whole_machine_return": false
+  },
+  "player_pascal": {
+    "rule": "PRINTED_Q4_BITS_AS_PASCAL_DECISIONS_V1",
+    "entry": "A0_ORIENTATION_CONTROLLER_BENCH.html#oneOnePlayerMonitor",
+    "source": "Explicit one-shot read of an accepted current Player receipt from the existing monitor",
+    "domain": "All 16 printed four-bit words, including leading zeroes; 3 known Player layers and open layer",
+    "input_rule": "Read the four displayed Q4 bits left-to-right as the existing Pascal model's decisions. This is a declared engineering input convention, not a recovered historical operator or Gray-order index.",
+    "held_policy": "Source receipt and sequence are captured explicitly and shown as held, not live. View/projection/key changes reuse that held word.",
+    "existing_model": "a0-pascal-thread-views.js; unchanged Grid/Bracket embeddings, full-path inverse and endpoint/fibre-ordinal inverse",
+    "witness": "Plate, layer and deskIndex remain in the original source receipt, separate from Pascal's four-bit payload.",
+    "controls": "Full path; endpoint without key; disclosed correct-key example; wrong valid key. Singleton fibres explicitly have no alternative key.",
+    "return_scope": "Four source bits only; no restoration of Player layer, desk, running state, history or source window.",
+    "source_writes": false,
+    "shared_clock": false
+  },
+  "still_open": ["Player coordinate to Aperture Stack plate mapping", "cross-carrier physical or scientific identity", "whole Player or machine inverse", "browser visual acceptance of both new controls"],
+  "tests": {
+    "new_integration_command": "node a0-bench-source-links-tests.cjs",
+    "working_directory": "A0_BOOK",
+    "new_integration_checks": 1471,
+    "native_player_bench_checks": 261,
+    "existing_pascal_checks": 8982,
+    "existing_one_one_checks": 67,
+    "system_binder_checks": 51,
+    "stack_calibration_checks": 73,
+    "family_room_checks": 163,
+    "simple_player_checks": 113,
+    "original_view_shell_checks": 24,
+    "scope": "Software engineering tests with actual models/controllers in simulated DOM; no scientific experiment, replay of Lab evidence, or browser pixel QA"
+  },
+  "implementation_pins": [
+    {"path": "a0-aperture-measurement.js", "sha256": "5e2fcd6facd019180d9a43ddce98a4039a67eb3b295f0d4bec5d6e65e9eb18b7"},
+    {"path": "a0-aperture-stack-calibration.js", "sha256": "ca6154f36dda0cb80b55811d86367041bee09c971e84806a57592bae1c6a051e"},
+    {"path": "a0-player-pascal-bridge.js", "sha256": "e90340c95232095dc353c3615983706eff544db471edf14bd0357d89749fbcfe"},
+    {"path": "a0-pascal-thread-views.js", "sha256": "bd47a37d0af8a6ebe9c46a5a0632b410d4680ebe47e3274f151c0b8e27a265ca"},
+    {"path": "a0-bench-source-links-tests.cjs", "sha256": "76e5f6b72997dcb929d4dce8b7a7af88798e9728414c38fdbc2a1d257be134e9"}
+  ],
+  "historical_test_conflict": {
+    "command": "node a0-aperture-measurement-tests.cjs",
+    "status": "FAIL_AT_HISTORICAL_IMPLEMENTATION_PIN",
+    "manifest": "assets/a0-aperture-measurement-package-v1.json",
+    "first_failed_path": "a0-aperture-measurement.js",
+    "expected_old_sha256": "2dbbb1321aaa73d2f82f36541f71fdf8b8ce721f95c953047ce732e8cdc04c5d",
+    "current_sha256": "5e2fcd6facd019180d9a43ddce98a4039a67eb3b295f0d4bec5d6e65e9eb18b7",
+    "disposition": "Old receipt and test retained unchanged. This current return pins the intentional extension separately. No overall historical M3 acceptance claimed; the new integration suite verifies current controllers."
+  },
+  "authority": {"new_canonical_identity": false, "new_canonical_relation": false, "research_execution": false, "scientific_adoption": false, "publication_authorized": false}
+}

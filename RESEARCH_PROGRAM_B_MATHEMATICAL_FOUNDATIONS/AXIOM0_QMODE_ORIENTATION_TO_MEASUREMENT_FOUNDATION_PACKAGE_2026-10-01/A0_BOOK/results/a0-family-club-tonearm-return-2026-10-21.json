@@ -1,0 +1,19 @@
+{
+  "date": "2026-10-21",
+  "scope": "Standalone Family Jukebox: visible mechanical reading-head overlay and open Family/reading-plate controls",
+  "reused": ["Existing F1–F7 IDs", "Existing zeta/theta/beta reading positions", "Existing elevator travel/cancel/return implementation", "Existing source-bound DJ route"],
+  "interaction": "Choose Family, choose reading plate, travel with retained Family, commit reading position on arrival. Changing Family during travel cancels the pending destination.",
+  "visual": "Neutral pivot/arm/stylus and gold read location. Overlay is not a typed relation, canvas hit target, source engine, or exported GLB geometry.",
+  "also_retained": ["Transient orientation scaffold with hold option", "Uniform source-body exhibition placement", "Camera-side and turn-direction feedback", "Reduced-motion support"],
+  "deck_connection": "Existing embedded deck route remains. Interaction grammar reused conceptually; no new API subscription, receipt, address mapping or shared clock.",
+  "dj_source_sha256": "afec84955aa0d551f16445ab577e3c134a8577c940d19085b51bf7f72e8060e7",
+  "dj_source_modified": false,
+  "q4_to_family_mapping": false,
+  "p0_p1_p2_to_reading_positions_mapping": false,
+  "body_face_to_family_mapping": false,
+  "new_canonical_ids": [],
+  "new_navigator_relations": [],
+  "tests": {"standalone": 682, "ux": 335, "stage": 55, "glb": 69, "ldv": 102, "deck": 50, "original_spatial": 691, "app_audit": 252, "source_graph": "PASS"},
+  "browser_visual_acceptance": "OPEN",
+  "authority_effect": "None. No scientific admission, activation or publication."
+}

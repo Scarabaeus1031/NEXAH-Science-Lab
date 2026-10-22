@@ -1,0 +1,68 @@
+{
+  "date": "2026-10-22",
+  "scope": "Calm entry and navigation-only overview; existing active demonstration retained",
+  "identityReuse": [
+    "NEXAH_A0_ORIENTATION_CONTROLLER_BENCH"
+  ],
+  "newCanonicalIdentities": [],
+  "canonicalRelationChanges": [],
+  "entry": "A0_ORIENTATION_CONTROLLER_BENCH.html#benchFoyer",
+  "overview": {
+    "implementation": "Existing A0BenchShowcaseTour module: mountOverview",
+    "manualStations": [
+      "bodyRouteBench",
+      "orbitGridJoints",
+      "maskObserverBench",
+      "apertureMeasurement",
+      "anuTowerWorkbench",
+      "pulseBenchMonitor",
+      "carrierReturnWorkbench",
+      "benchWorkDesk"
+    ],
+    "sourceWrites": false,
+    "autoAdvance": false,
+    "sourceLoad": false,
+    "ownClock": false,
+    "controls": [
+      "Next",
+      "Previous",
+      "Stay here",
+      "Foyer",
+      "Escape"
+    ],
+    "busyDemo": "Refuses to start overview while active demonstration is running"
+  },
+  "existingDemo": {
+    "stations": 56,
+    "preserved": true,
+    "newUILabelling": "Vorführung",
+    "warning": "Changes controls and local capture anchors; may start engines",
+    "defaultCollapsed": true
+  },
+  "workdesk": {
+    "placement": "Before existing systemBinder, not within foyer",
+    "diagnosticDefault": "collapsed",
+    "openQuestionsRetained": true
+  },
+  "tests": {
+    "overview": 90,
+    "existingDemoStructure": 85,
+    "existingDemoMounted": 296,
+    "workdesk": 53,
+    "clubNavigation": 27,
+    "foyer": 59,
+    "walk": 133,
+    "binder": 202,
+    "pulse": 579,
+    "sourceGraph": "PASS; 20 components, base 266/29, composed 269/32",
+    "app": 252
+  },
+  "pins": {
+    "a0-bench-showcase-tour.js": "3c1e115dd4fa89a1850437bd895bb93f245d96bffcefcb953a2489c9f9248519",
+    "a0-bench-entry.css": "d01b454361c450fbac31d46eaa9cd9bc28dba81df055a3734675201ae1ad44a4",
+    "a0-bench-overview-tests.cjs": "5cca428297b1dd520fc1782d4359cc1e89ce31ff8857b2bedff5521fcfcb0c2f",
+    "a0-bench-workdesk.js": "7d534b9517ae46697e7bb2a08bc5d2071ca90cdf85ac766827c19777b1a5d4a4"
+  },
+  "browserAcceptance": "OPEN; DOM-double verification, no pixel or live source acceptance",
+  "authorityEffects": "No source parameter, lifecycle, publication or scientific claim promotion"
+}
