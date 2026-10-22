@@ -1,0 +1,134 @@
+{
+  "schema": "nexah.a0.local-modular-crt-operator-registry",
+  "version": "0.1.0",
+  "date": "2026-10-13",
+  "status": "LOCAL_SOURCE_BOUND_ENGINEERING_REGISTRY_NOT_CANONICAL",
+  "typing_rule": "A modulus declares a carrier. An operator is a typed map with a domain, codomain, parameters and rule.",
+  "reused_source_types": ["OP_MODULO", "OP_CONGRUENCE"],
+  "classes": [
+    {
+      "class_id": "A0.MOD.REDUCE",
+      "signature": "Z -> Z_m",
+      "parameters": ["m"],
+      "rule": "x |-> x mod m",
+      "lossiness": "lossy unless the input is already restricted to a complete residue system"
+    },
+    {
+      "class_id": "A0.MOD.TRANSLATE",
+      "signature": "Z_m -> Z_m",
+      "parameters": ["b", "m"],
+      "rule": "x |-> x+b mod m",
+      "lossiness": "bijective"
+    },
+    {
+      "class_id": "A0.MOD.MULTIPLY",
+      "signature": "Z_m -> Z_m",
+      "parameters": ["a", "m"],
+      "rule": "x |-> a*x mod m",
+      "lossiness": "bijective iff gcd(a,m)=1; otherwise many-to-one"
+    },
+    {
+      "class_id": "A0.MOD.MIRROR",
+      "signature": "Z_m -> Z_m",
+      "parameters": ["m"],
+      "rule": "x |-> -x mod m",
+      "lossiness": "bijective involution"
+    },
+    {
+      "class_id": "A0.CRT.SPLIT",
+      "signature": "Z_pq -> Z_p x Z_q",
+      "parameters": ["p", "q"],
+      "rule": "x |-> (x mod p, x mod q)",
+      "lossiness": "bijective for the declared carrier when gcd(p,q)=1"
+    },
+    {
+      "class_id": "A0.CRT.BIND",
+      "signature": "Z_p x Z_q -> Z_pq",
+      "parameters": ["p", "q"],
+      "rule": "return the unique CRT class c",
+      "lossiness": "bijective when gcd(p,q)=1; fail closed otherwise"
+    },
+    {
+      "class_id": "A0.CRT.SHELL",
+      "signature": "(Z,Z_M) -> Z",
+      "parameters": ["M"],
+      "rule": "(n,c) |-> (n-c)/M when n=c mod M",
+      "lossiness": "exact only when the quotient is retained"
+    }
+  ],
+  "instances": [
+    {
+      "instance_id": "A0.CRT.CHANNEL/5x73",
+      "class_ids": ["A0.CRT.SPLIT", "A0.CRT.BIND"],
+      "carrier": "Z_365",
+      "parameters": {"p": 5, "q": 73},
+      "status": "VALIDATED_EXHAUSTIVE"
+    },
+    {
+      "instance_id": "A0.CRT.CHANNEL/41x61",
+      "class_ids": ["A0.CRT.SPLIT", "A0.CRT.BIND"],
+      "carrier": "Z_2501",
+      "parameters": {"p": 41, "q": 61},
+      "status": "VALIDATED_EXHAUSTIVE"
+    },
+    {
+      "instance_id": "A0.MOD.MULTIPLY/64@365",
+      "class_ids": ["A0.MOD.MULTIPLY"],
+      "carrier": "Z_365",
+      "parameters": {"a": 64, "m": 365},
+      "inverse": 154,
+      "order": 6,
+      "status": "VALIDATED_EXHAUSTIVE"
+    },
+    {
+      "instance_id": "A0.MOD.MULTIPLY/64@2501",
+      "class_ids": ["A0.MOD.MULTIPLY"],
+      "carrier": "Z_2501",
+      "parameters": {"a": 64, "m": 2501},
+      "inverse": 1993,
+      "order": 10,
+      "status": "VALIDATED_EXHAUSTIVE"
+    },
+    {
+      "instance_id": "A0.MOD.MULTIPLY/41@2501",
+      "class_ids": ["A0.MOD.MULTIPLY"],
+      "carrier": "Z_2501",
+      "parameters": {"a": 41, "m": 2501},
+      "kernel_size": 41,
+      "image_size": 61,
+      "status": "VALIDATED_EXHAUSTIVE_NONUNIT_CONTROL"
+    },
+    {
+      "instance_id": "A0.MOD.MULTIPLY/61@2501",
+      "class_ids": ["A0.MOD.MULTIPLY"],
+      "carrier": "Z_2501",
+      "parameters": {"a": 61, "m": 2501},
+      "kernel_size": 61,
+      "image_size": 41,
+      "status": "VALIDATED_EXHAUSTIVE_NONUNIT_CONTROL"
+    },
+    {
+      "instance_id": "A0.MOD.MIRROR/-1@2501",
+      "class_ids": ["A0.MOD.MIRROR"],
+      "carrier": "Z_2501",
+      "parameters": {"m": 2501},
+      "status": "VALIDATED_EXHAUSTIVE"
+    },
+    {
+      "instance_id": "A0.MOD.TRANSLATE/100@2501",
+      "class_ids": ["A0.MOD.TRANSLATE"],
+      "carrier": "Z_2501",
+      "parameters": {"b": 100, "m": 2501},
+      "status": "VALIDATED_EXHAUSTIVE"
+    }
+  ],
+  "governance": {
+    "numbermagick_source_mutated": false,
+    "orion_registry_mutated": false,
+    "navigator_identity_created": false,
+    "navigator_relation_created": false,
+    "claim_promotion_authorized": false,
+    "publication_authorized": false
+  }
+}
+

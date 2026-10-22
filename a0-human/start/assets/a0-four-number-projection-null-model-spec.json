@@ -1,0 +1,73 @@
+{
+  "schema": "nexah.a0.four-number-projection-null-model-spec",
+  "version": "1.0.0",
+  "record_id": "A0_FOUR_NUMBER_PROJECTION_NULL_MODEL_001_CANDIDATE",
+  "status": "PREREGISTERED_CANDIDATE_NOT_AUTHORIZED",
+  "frozen_date": "2026-10-13",
+  "target": [1087, 7801, 2929, 12321],
+  "representation_signature": {
+    "digit_lengths": [4, 4, 4, 5],
+    "decimal_orbits": "one nontrivial reversal pair plus one four-digit palindrome plus one five-digit palindrome",
+    "reversal_pair": [1087, 7801],
+    "reversal_pair_sum": 8888,
+    "digitwise_column_sums": [8, 8, 8, 8],
+    "palindromes": [2929, 12321]
+  },
+  "arithmetic_channels": {
+    "totient": "phi(n)/n",
+    "factor_profile": ["omega(n)", "Omega(n)"],
+    "crt_moduli": [7, 11, 13, 19],
+    "qrt_elevator": "n=20q+r with 0<=r<20"
+  },
+  "score": {
+    "name": "mean_pairwise_four_block_distance",
+    "direction": "lower_is_more_coherent",
+    "blocks": ["totient", "factor_profile", "crt", "qrt"],
+    "block_weighting": "equal",
+    "pair_weighting": "equal"
+  },
+  "visual_projection": {
+    "theta": "2*pi*(n mod 360)/360",
+    "radius": "phi(n)/n",
+    "z": "2*(n mod 20)/19-1",
+    "x": "radius*cos(theta)",
+    "y": "radius*sin(theta)",
+    "rgb": ["(n mod 7)/6", "(n mod 11)/10", "(n mod 13)/12"],
+    "outline": "(n mod 19)/18",
+    "status": "declared_view_only_not_test_statistic"
+  },
+  "null_models": {
+    "N1_REPRESENTATION_MATCHED": {
+      "domain": "odd positive integers",
+      "constraint": "one distinct four-digit reversal pair, one distinct odd four-digit palindrome and one distinct odd five-digit palindrome in [10000,19999]",
+      "purpose": "hold the visible decimal-orbit structure fixed while testing independent arithmetic coherence"
+    },
+    "N2_FACTOR_SCALE_MATCHED": {
+      "domain": "odd positive integers",
+      "constraint": "for each target slot: same decimal digit length, same omega, same Omega and value within plus-or-minus 20 percent; target values excluded",
+      "purpose": "hold scale and factor-count profile fixed without enforcing decimal reversal closure"
+    }
+  },
+  "sampling": {
+    "draws_per_null": 100000,
+    "prng": "xorshift32",
+    "seed_unsigned_32": 10547280,
+    "minimum_unique_quartets": 10000
+  },
+  "decision": {
+    "primary_alpha_each_null": 0.01,
+    "leave_one_block_out_alpha_each_null": 0.05,
+    "primary_pass": "lower-tail empirical p<=0.01 under both N1 and N2",
+    "robust_pass": "primary pass plus p<=0.05 under both nulls for every leave-one-block-out score",
+    "classes": [
+      "ROBUST_BOTH_NULLS_PASS",
+      "PRIMARY_BOTH_NULLS_PASS_NOT_ROBUST",
+      "REPRESENTATION_MATCHED_ONLY",
+      "FACTOR_SCALE_MATCHED_ONLY",
+      "NO_UNUSUAL_COHERENCE",
+      "UNINFORMATIVE_NULL_POOL",
+      "INVALID_IMPLEMENTATION"
+    ]
+  },
+  "claim_boundary": "Post-hoc calibration of one owner-selected quartet under two declared nulls. No natural geometry, NCS mechanism, universal CRT/QRT operator, physical resonance or discovery claim follows."
+}

@@ -1,0 +1,14 @@
+#nativeSourceBank{padding:24px;margin:22px 0;border:1px solid #315262;background:#071b27;color:#dcecf2;scroll-margin-top:100px}
+#nativeSourceBank h2{color:#fff}#nativeSourceBank p{max-width:105ch;line-height:1.6}
+#nativeSourceBank select{display:block;max-width:100%;width:620px;margin-top:8px;padding:10px;background:#0b2635;color:#fff;border:1px solid #4d7182}
+.native-bank-actions{display:flex;flex-wrap:wrap;align-items:center;gap:10px}
+.native-bank-actions button,.native-bank-actions a{padding:10px;border:1px solid #4d7182;background:#102e3d;color:#e1f3fa;font:inherit}
+.native-bank-actions button:disabled{opacity:.5}.native-bank-actions a{color:#5edcf2}
+#nativeSourceBank :focus-visible{outline:3px solid #e5b340;outline-offset:3px}
+.native-bank-slot iframe{display:block;width:100%;height:850px;border:1px solid #4d7182;background:#07121a;margin-top:18px}
+.native-bank-bridge{border-top:1px solid #315262;margin-top:18px;padding-top:12px}
+.native-bank-bridge label{display:inline-flex;align-items:center;gap:8px;margin:8px 16px 12px 0}
+#nativeSourceBank .native-bank-bridge select{display:inline;width:auto;margin:0}
+.native-bank-bridge input{width:85px;padding:8px;background:#0b2635;color:#fff;border:1px solid #4d7182}
+.native-bank-readout{white-space:pre-wrap;overflow-wrap:anywhere;max-height:400px;overflow:auto;background:#031019;padding:12px;font-size:12px}
+@media(max-width:650px){#nativeSourceBank{padding:14px}.native-bank-slot iframe{height:75vh;min-height:500px}}

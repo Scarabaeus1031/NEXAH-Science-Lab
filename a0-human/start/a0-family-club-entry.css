@@ -1,0 +1,27 @@
+/* Draft entrance skin only. The underlying Family Jukebox keeps its identity and semantics. */
+.club-entry{display:grid;grid-template-columns:minmax(180px,.65fr) minmax(0,1.55fr);align-items:center;gap:clamp(28px,6vw,100px);padding:clamp(30px,5vw,70px);border:1px solid #385360;border-radius:20px;background:radial-gradient(ellipse at 10% 25%,#36213a,transparent 55%),radial-gradient(ellipse at 95% 90%,#113d48,transparent 55%),#071923}
+.club-mark{display:flex;flex-direction:column;align-items:center;justify-content:center;color:#e9d7df;max-width:260px;width:100%;justify-self:center}
+.club-mark svg{width:100%;overflow:visible;filter:drop-shadow(0 0 18px #b5648a33)}
+.club-mark svg text{font-family:"Songti SC","Songti TC","Noto Serif CJK SC","PingFang SC",serif;font-weight:400}
+.club-wordmark{font:600 .7rem var(--mono);letter-spacing:.55em;text-indent:.55em;margin-top:20px;color:#e2d4da}
+.club-welcome>small{color:#b1cdd6;font:700 .64rem var(--mono);letter-spacing:.1em}
+.club-entry .club-welcome h1{font:650 clamp(3.5rem,7vw,7rem)/.94 Georgia,serif;letter-spacing:-.055em;margin:20px 0}
+.club-entry .club-welcome h1 em{color:#ed88b6;font-weight:500}
+.club-entry .club-tagline{font:500 clamp(1.05rem,2vw,1.5rem)/1.4 Georgia,serif;color:#e5eef1;margin:24px 0 10px}
+.club-entry .club-welcome>p:not(.club-tagline){font-size:.85rem;line-height:1.8;max-width:610px;color:#b0c7d1}
+.club-enter{display:inline-flex;align-items:center;gap:35px;background:#66d7dc;border:1px solid #66d7dc;border-radius:9px;padding:13px 18px;color:#061820;text-decoration:none;font:750 .77rem system-ui,sans-serif;margin-top:12px}
+.club-enter:hover{background:#9ce9e9}
+.club-guide{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin:20px 0}
+.club-guide>a,.club-guide>div{display:flex;flex-direction:column;gap:9px;min-width:0;border:1px solid #365569;border-radius:12px;background:#0a202b;padding:18px;text-decoration:none}
+.club-guide>a:hover{border-color:#80cfd4;background:#0d2b36}
+.club-guide small{font:700 .58rem/1.6 var(--mono);letter-spacing:.06em;color:#69d2d9}
+.club-guide strong{font:600 1.1rem/1.3 Georgia,serif;color:#e2edf1}
+.club-guide span{font-size:.72rem;line-height:1.65;color:#a4beca}
+.club-guide .club-coming{border-style:dashed;background:#0a1922}
+.club-guide .club-coming small{color:#b4a0b4}
+.club-context{font-size:.73rem;line-height:1.8;color:#9db8c5;padding:12px 0 20px}
+.club-context summary{cursor:pointer;color:#b7cdd6}
+.club-context p{max-width:950px}
+#clubLights,#jointWorkbench,#spatial-navigation,#start{scroll-margin-top:24px}
+@media(max-width:950px){.club-guide{grid-template-columns:repeat(2,minmax(0,1fr))}.club-entry{gap:30px;padding:30px}}
+@media(max-width:600px){.club-entry{grid-template-columns:1fr;padding:28px 20px}.club-mark{max-width:130px}.club-wordmark{margin-top:12px;font-size:.6rem}.club-entry .club-welcome h1{font-size:3.8rem}.club-guide{grid-template-columns:1fr}.club-guide>a,.club-guide>div{padding:15px}.club-entry .club-welcome>small{font-size:.56rem}}

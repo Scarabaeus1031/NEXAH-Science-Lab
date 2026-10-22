@@ -1,0 +1,24 @@
+{
+  "schema": "nexah.a0.ail-aperture-control-package/1",
+  "date": "2026-10-18",
+  "status": "ENGINEERING_PASS_RENDERED_BROWSER_ACCEPTANCE_OPEN",
+  "identity": "NEXAH_A0_ORIENTATION_CONTROLLER_BENCH",
+  "entry": "A0_ORIENTATION_CONTROLLER_BENCH.html#ailApertureControl",
+  "backlog": ["OCB-GAP-04"],
+  "sourceIdentity": "A0-VIEW-BLUE-PINK-DODECA-CELL-RETURN",
+  "operators": {
+    "A": {"domain":"global face address 0..47","codomain":"existing native face ID","changes":["selected face"],"preserves":["source identity","geometry ledger"]},
+    "i": {"domain":"local vertex slot 0..4","codomain":"existing vertex ID on selected face","changes":["local read pointer"],"preserves":["source pose","face address"]},
+    "l": {"domain":"hinge angle -60..60 degrees","codomain":"native hinge command/readback","changes":["selected face pose"],"preserves":["hinge edge","facet metric","source identity"]}
+  },
+  "implementationFiles": [
+    {"path":"a0-ail-aperture-control.js","sha256":"69f9ada9aa6f7652e14a6237288ab523ccea50170ab9d55b9df164acd3da13d3"},
+    {"path":"a0-ail-aperture-control-ui.js","sha256":"11b181d1c602a8292df552ac99ac65719e2a9d3638ad4ae3dcf869f809972d5d"},
+    {"path":"a0-ail-replay.css","sha256":"ae6a6f29102b419ab290b2ab206f8ba15df2f0771f077a288f8191e2e053856d"},
+    {"path":"a0-ail-aperture-control-tests.cjs","sha256":"3cfc5392a3af29e8d8adcd2ca8f30bb5214ef112755aedb716703e6a5aafa9a0"},
+    {"path":"A0_ORIENTATION_CONTROLLER_BENCH.html","sha256":"d111d3474ef663847b52392b798e7a56fcdf5d5cc44cc11500c77165f4e6edd5"}
+  ],
+  "verification": {"focusedChecks":29,"operatorDomainsExplicit":true,"nativeReadback":true,"exactSourceReturn":true,"liveBrowserPixels":false},
+  "authority": {"newCanonicalIdentity":false,"newCanonicalRelation":false,"newFamily":false,"researchExecution":false,"claimPromotion":false,"publication":false},
+  "boundary": "Typed visible-form engineering control over the existing native source. A·i·l is not a language, topology, mechanism or scientific identity claim."
+}

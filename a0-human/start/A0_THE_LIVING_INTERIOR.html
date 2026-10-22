@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="The Living Interior: eine immersive, source-bound Body-Passage zum bestehenden GAME 4 LIFE +1 Carrier.">
+  <title>The Living Interior · A0</title>
+  <link rel="stylesheet" href="a0-context-navigation.css?rev=connect-entry-20261014">
+  <link rel="stylesheet" href="a0-the-living-interior.css?rev=20261014-v1">
+</head>
+<body>
+  <header class="top">
+    <a class="brand" href="A0_SCIENCE.html">NEXAH · A0</a>
+    <nav><a href="#passage">Passage</a><a href="#life">Game 4 Life</a><a href="#memory">Memory</a><a href="#return">Return</a></nav>
+  </header>
+
+  <main>
+    <section class="portal" id="passage">
+      <canvas id="passageCanvas" aria-label="Animierte Passage vom äußeren Körper durch die Membran in ein zelluläres Innenfeld"></canvas>
+      <div class="portal-copy">
+        <p class="kicker">OUTSIDE → CONTACT → BODY → CELL → LIFE</p>
+        <h1>The Living<br><em>Interior.</em></h1>
+        <p class="lead">The body was visible. Now enter the field that keeps changing beneath its skin.</p>
+        <button id="enterPassage" type="button" aria-pressed="false">ENTER THE INNER PASSAGE <span>↘</span></button>
+      </div>
+      <div class="stage-rail" role="group" aria-label="Passage stages">
+        <button type="button" data-stage="outside" class="active"><b>01</b><span>OUTSIDE</span><small>visible shell</small></button>
+        <button type="button" data-stage="contact"><b>02</b><span>CONTACT</span><small>membrane gate</small></button>
+        <button type="button" data-stage="inside"><b>03</b><span>INSIDE</span><small>cellular field</small></button>
+        <button type="button" data-stage="life"><b>04</b><span>LIFE</span><small>local transition</small></button>
+        <button type="button" data-stage="memory"><b>05</b><span>MEMORY</span><small>retained trace</small></button>
+      </div>
+      <div class="stage-caption" aria-live="polite"><span id="stageIndex">01 / 05</span><strong id="stageTitle">THE BODY / OUTSIDE</strong><p id="stageCopy">A bounded form is visible. Its internal transition has not yet been read.</p></div>
+      <a class="scroll-cue" href="#life">ENTER THE CELLS ↓</a>
+    </section>
+
+    <section class="life-room" id="life" aria-labelledby="lifeTitle">
+      <div class="room-copy">
+        <p class="kicker">GAME 4 LIFE +1 · IMMERSIVE BODY VIEW</p>
+        <h2 id="lifeTitle">The shell opens.<br>The field begins to live.</h2>
+        <p>Ein deterministischer Conway-Lauf wird hier als Körperinneres gelesen. Die Zellen tragen weiterhin nur ihre nativen Zustände und Ereignistypen; der Körper ist die immersive Projektion.</p>
+      </div>
+
+      <div class="life-instrument">
+        <div class="instrument-bar">
+          <span><b>INNER PASSAGE</b> · LIFE08 SOURCE-BOUND VIEW</span>
+          <div><button id="lifePlay" type="button" aria-pressed="true">PAUSE LIFE</button><button id="lifeStep" type="button">STEP +1</button><button id="lifeReset" type="button">RESET BODY</button></div>
+        </div>
+        <div class="cell-stage">
+          <canvas id="lifeCanvas" aria-label="Animiertes Game-of-Life-Zellfeld innerhalb einer atmenden Körpermembran"></canvas>
+          <div class="body-axis" aria-hidden="true"><i></i><span>MEMBRANE</span><b>Q°</b><span>RETURN</span></div>
+          <div class="signal-legend" aria-hidden="true"><span class="birth">BIRTH</span><span class="survive">SURVIVE</span><span class="death">DEATH / TRACE</span></div>
+        </div>
+        <div class="life-readout" aria-live="polite">
+          <div><small>GENERATION</small><strong id="generationOut">0</strong></div>
+          <div><small>ALIVE</small><strong id="aliveOut">0</strong></div>
+          <div><small>BIRTHS</small><strong id="birthOut">0</strong></div>
+          <div><small>SURVIVALS</small><strong id="surviveOut">0</strong></div>
+          <div><small>DEATHS</small><strong id="deathOut">0</strong></div>
+          <div><small>MEMORY DEPTH</small><strong id="memoryOut">0</strong></div>
+        </div>
+      </div>
+
+      <div class="body-grammar">
+        <article><span>01</span><h3>Membrane</h3><p>Die Ellipse begrenzt die Projektion. Sie ändert nicht die Nachbarschaftsregel des zugrunde liegenden Carriers.</p></article>
+        <article><span>02</span><h3>Cell Event</h3><p>Birth, survival und death bleiben getrennte Lesarten desselben adressierten Übergangs.</p></article>
+        <article><span>03</span><h3>Memory Trace</h3><p>Vergangene Aktivität verblasst als View-Spur. Sie ist keine zusätzliche Zelle und kein biologisches Gedächtnismodell.</p></article>
+      </div>
+    </section>
+
+    <section class="memory-room" id="memory">
+      <div class="memory-orbit" aria-hidden="true"><i></i><i></i><i></i><i></i><b></b></div>
+      <div>
+        <p class="kicker">THE BODY REMEMBERS</p>
+        <h2>Not every vanished cell<br>leaves an empty record.</h2>
+        <p>Der Zustand stirbt. Die Adresse bleibt. Die Darstellung kann den Übergang noch eine Weile tragen — lang genug, um Struktur, Verlust und Return voneinander zu unterscheiden.</p>
+        <div class="memory-equation">CURRENT STATE + FADING EVENT TRACE ≠ NEW DYNAMICS</div>
+      </div>
+    </section>
+
+    <section class="return-room" id="return" aria-labelledby="returnTitle">
+      <p class="kicker">RETURN WITHOUT COLLAPSE</p>
+      <h2 id="returnTitle">Leave the body.<br>Keep the address.</h2>
+      <div class="return-grid">
+        <a href="A0_BLUE_PINK_DODECA_CELL_RETURN.html"><small>OUTSIDE BODY</small><strong>BLUE / PINK</strong><span>Return to the 60-cell body view →</span></a>
+        <a href="A0_GAME_4_LIFE_PLUS_1.html"><small>SOURCE INSTRUMENT</small><strong>GAME 4 LIFE +1</strong><span>Open the five synchronized records →</span></a>
+        <a href="A0_BLACK_SUN_BIG_MOON.html"><small>OUTER STORY</small><strong>BLACK SUN / BIG MOON</strong><span>Return to the visibility field →</span></a>
+      </div>
+      <p class="claim-boundary"><strong>Claim boundary:</strong> This is an immersive visualization of an existing deterministic cellular carrier. It introduces no new LIFE rule, biological mechanism, physical body model, evidence identity, Study activation, or publication claim.</p>
+    </section>
+  </main>
+
+  <footer><span>A0-VIEW-THE-LIVING-INTERIOR · INTERNAL SOURCE-BOUND EXPERIENCE</span><span>ONE CARRIER · MANY RECORDS · EXACT RETURN</span></footer>
+  <script src="a0-context-navigation.js?rev=album-return-20261014"></script>
+  <script src="assets/a0-the-living-interior-v1.js?rev=20261014-v1"></script>
+  <script src="nexahedron-public-navigation.js?rev=public-current-20261022"></script>
+</body>
+</html>

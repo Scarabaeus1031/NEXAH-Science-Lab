@@ -1,0 +1,328 @@
+<!doctype html><html lang="de"><head><meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>LIFE03 · Life × E8 Workbench</title><style>:root{color-scheme:dark;--bg:#050e17;--panel:#091927;--line:#244458;--text:#eff8ff;--muted:#91a9b9;--cyan:#5ce0f4;--pink:#f45ad6;--gold:#f5bf53;--green:#61dda3;--violet:#a07cff}*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 35% -10%,#123e57 0,transparent 40%),var(--bg);color:var(--text);font:14px/1.45 Inter,ui-sans-serif,system-ui,-apple-system,sans-serif}main{max-width:1620px;margin:auto;padding:22px}header{display:flex;justify-content:space-between;border-bottom:1px solid var(--line);padding:4px 4px 20px;gap:20px}.eyebrow,.panel-label{font-size:10px;letter-spacing:.16em;color:var(--gold);font-weight:800}h1{font-size:clamp(40px,5vw,70px);line-height:1;margin:3px 0;letter-spacing:-.055em}h1 span{color:var(--pink)}h1 b{font-weight:400;color:#b6cad7}.lede{color:#a9c0ce;font-size:17px;margin:12px 0 0}.badge{height:min-content;border:1px solid var(--green);border-radius:99px;color:var(--green);padding:9px 14px;font-size:11px}.badge i{display:inline-block;width:7px;height:7px;background:var(--green);border-radius:50%;margin-right:6px}.contract,.stats{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin:14px 0}.contract>div,.stats>div,.controls,.panel,footer{border:1px solid var(--line);border-radius:12px;background:rgba(8,24,37,.88)}.contract>div,.stats>div{padding:10px 13px}.contract small,.stats small,.clock small,.record small{display:block;color:var(--muted);font-size:9px;letter-spacing:.12em}.contract strong{font-size:12px}.stats strong{font-size:17px;color:var(--green)}.controls{display:flex;gap:9px;padding:10px 12px;align-items:end;flex-wrap:wrap}.controls label{display:grid;gap:4px;color:var(--muted);font-size:10px;letter-spacing:.08em}select,button,input{font:inherit}select,button{border:1px solid #31546b;background:#0d2334;color:var(--text);padding:8px 11px;border-radius:8px}button{cursor:pointer}button:hover,.mode.active,.primary{background:var(--cyan);color:#06131c;border-color:var(--cyan)}input{accent-color:var(--pink)}.modes{display:flex;gap:8px;margin:13px 0}.mode{text-transform:capitalize}.workspace{display:grid;grid-template-columns:260px minmax(540px,1fr) 270px;gap:13px}.side{padding:16px}.side h2{margin:3px 0 12px}.formula{white-space:pre-wrap;background:#071521;border-left:3px solid var(--pink);padding:11px;font:12px/1.5 ui-monospace,SFMono-Regular,Menlo,monospace;color:#dbcaff}.copy{color:#a6bdca}.clock{border-top:1px solid var(--line);margin-top:14px;padding-top:12px}.clock>strong{display:block;font-size:24px;color:var(--gold)}.word-clock{display:grid;grid-template-columns:repeat(8,1fr);gap:3px;margin-top:8px}.word-clock i{height:6px;border-radius:6px;background:#20394b}.word-clock i.done{background:var(--violet)}.word-clock i.current{background:var(--gold)}.boundary{border-left:3px solid var(--gold);background:#102535;padding:10px 11px;margin-top:15px}.boundary strong{color:var(--gold)}.boundary p{color:#aabeca;margin:4px 0 0}.warning{border-color:var(--pink)}.warning strong{color:var(--pink)}.stage{padding:11px}.stagehead{display:flex;justify-content:space-between;color:var(--muted);font-size:10px;letter-spacing:.12em;padding:2px 4px 8px}.stagehead span:last-child{color:var(--cyan)}canvas{display:block;width:100%;height:auto;aspect-ratio:1040/670;background:radial-gradient(circle,#0e2939,#07131e);border-radius:8px}#caption{text-align:center;color:#9fb5c3;min-height:20px}.trace{list-style:none;padding:0}.trace li{display:grid;grid-template-columns:32px 1fr;gap:0 8px;padding:9px 0;border-bottom:1px solid var(--line)}.trace b{grid-row:1/3;place-self:center;padding:6px;border-radius:50%;color:var(--cyan);background:#0b2738}.trace span{font-weight:700}.trace small{color:var(--muted)}.record{margin-top:13px;background:#0b2131;padding:10px}.record>div{display:flex;justify-content:space-between;border-top:1px solid #1d3a4e;padding:6px 0}.record span{color:var(--muted)}.record b{color:var(--cyan)}footer{margin-top:13px;padding:11px 15px;color:#9fb4c0}footer p{margin:4px 0}a{color:var(--cyan)}@media(max-width:1100px){.workspace{grid-template-columns:1fr}.stage{grid-row:1}.contract,.stats{grid-template-columns:1fr 1fr}}@media(max-width:650px){main{padding:10px}header{display:block}.badge{display:inline-block;margin-top:12px}.contract,.stats{grid-template-columns:1fr}.controls>*{width:100%}.modes{overflow:auto}}
+</style></head><body><p style="padding:12px;border:1px solid #416375">A0 source-derived LIFE03 · Blinker 64×64 · lokale Uhr gesperrt · nur bestätigte Parent-Befehle · höchstens 32 Generationen · keine wissenschaftliche Ausführung oder neue Ergebnisbewertung.</p><main>
+<header><div><p class="eyebrow">M-LIFE03 · TYPED CROSS-SYSTEM INSTRUMENT</p><h1>Life <span>×</span> E8 <b>Workbench</b></h1><p class="lede">Zwei Träger. Zwei Operatoren. Ein kontrollierter Takt — mit Return, Projektion und Residuum.</p></div><div class="badge"><i></i> INTERNAL · EXPERIMENTAL</div></header>
+
+<section class="contract"><div><small>LIFE CARRIER</small><strong id="lifeCarrier">64² binary cells</strong></div><div><small>LIFE OPERATOR</small><strong>B3/S23 · synchronous</strong></div><div><small>E8 CARRIER</small><strong>240 mutation states / 240 roots</strong></div><div><small>E8 OPERATOR</small><strong>C = μ₁…μ₈ · order 30</strong></div><div><small>RELATION</small><strong>PRODUCT / ADAPTER / PROJECTION</strong></div></section>
+
+<section class="controls"><label>Life pattern<select id="pattern"></select></label><label>Carrier<select id="size"><option>32</option><option selected>64</option><option>128</option></select></label><label>Speed<input id="speed" type="range" min="80" max="900" value="260"></label><button id="tick">One tick</button><button id="play" class="primary">▶ Play</button><button id="reset">Reset</button></section>
+<nav id="modes" class="modes"></nav>
+
+<section class="stats"><div><small>LIFE GENERATION</small><strong id="generation">0</strong></div><div><small>LIFE RETURN</small><strong id="lifeReturn">OPEN</strong></div><div><small>E8 CLOCK</small><strong id="e8Clock">orbit 1 · phase 0</strong></div><div><small>JOINT RETURN</small><strong id="jointReturn">OPEN</strong></div><div><small>ROOT ASSIGNMENT</small><strong id="rootAssignment">—</strong></div></section>
+
+<section class="workspace">
+  <aside class="panel side"><p class="panel-label">MODE CONTRACT</p><h2 id="modeTitle">Dual Clock</h2><div id="formula" class="formula"></div><p id="modeText" class="copy"></p><div class="clock"><small>NEXT E8 LETTER</small><strong id="nextLetter">μ₁</strong><div id="wordClock" class="word-clock"></div></div><div class="boundary"><strong id="relationType">EXACT PRODUCT</strong><p id="boundaryText"></p></div></aside>
+  <article class="panel stage"><div class="stagehead"><span id="viewTitle">LIFE × E8 PRODUCT CLOCK</span><span id="viewStatus">TWO AUTHORITIES</span></div><canvas id="canvas" width="1040" height="670"></canvas><p id="caption"></p></article>
+  <aside class="panel side"><p class="panel-label">TYPED RECORD</p><ol class="trace"><li><b>F1</b><span>Carriers</span><small>Life grid · E8 family</small></li><li><b>F3</b><span>Operators</span><small>B3/S23 · Coxeter word</small></li><li><b>F4</b><span>Trajectory</span><small id="traceTrajectory">0 / 0</small></li><li><b>F5</b><span>Projection</span><small id="traceProjection">not sampled</small></li><li><b>F7</b><span>Return / residual</span><small id="traceReturn">open</small></li></ol><div class="record"><small>PROJECTION FIBERS</small><div><span>unique roots</span><b id="uniqueRoots">0</b></div><div><span>collisions</span><b id="collisions">0</b></div><div><span>E8 edge hits</span><b id="edgeHits">0 / 0</b></div><div><span>E8 residual</span><b id="e8Residual">—</b></div><div><span>spherical null</span><b id="nullResidual">—</b></div></div><div class="boundary warning"><strong>Persistent nonidentity</strong><p>Life state, mutation coordinate and Euclidean root are separate typed records. Equal phase or nearest root is not mechanism identity.</p></div></aside>
+</section>
+<footer><p><strong>Claim ceiling:</strong> exact independent product and exact E8/Life controls; declared observer scheduling; experimental lossy root quantizer. No Life–E8 carrier, operator, clock, causal or physical identity.</p><p><span>Method & equations · siehe Quelllinks im A0-Parent</span> · <span>Mission Control · siehe Quelllinks im A0-Parent</span> · <span>LIFE02 Scale Lab · siehe Quelllinks im A0-Parent</span> · <span>E8 authority · siehe Quelllinks im A0-Parent</span></p></footer>
+<script>(function initScaleEngine(root, factory) {
+  const api = factory();
+  if (typeof module === "object" && module.exports) module.exports = api;
+  root.LifeOrbitScaleEngine = api;
+}(typeof globalThis !== "undefined" ? globalThis : this, function scaleFactory() {
+  "use strict";
+  const RULE = "B3/S23";
+  const BOUNDARY = "finite-dead";
+  const SCHEDULE = "synchronous";
+  const SIZES = Object.freeze([16, 32, 64, 128]);
+  const PATTERNS = Object.freeze({
+    block: "2o$2o!",
+    blinker: "3o!",
+    glider: "bob$2bo$3o!",
+    toad: "b3o$3ob!",
+    beacon: "2o2b$2o2b$2b2o$2b2o!",
+    r_pentomino: "b2o$2ob$bo!",
+    acorn: "bo5b$3bo3b$2o2b3o!",
+    gosper_gun: "24bo11b$22bobo11b$12b2o6b2o12b2o$11bo3bo4b2o12b2o$2o8bo5bo3b2o14b$2o8bo3bob2o4bobo11b$10bo5bo7bo11b$11bo3bo19b$12b2o!"
+  });
+
+  const key = (x, y) => `${x},${y}`;
+  function assert(ok, message) { if (!ok) throw new TypeError(message); }
+  function canonicalize(cells, width, height) {
+    assert(SIZES.includes(width) && SIZES.includes(height), "grid size must be an allowed square preset");
+    const set = new Set();
+    cells.forEach((cell, index) => {
+      assert(Array.isArray(cell) && cell.length === 2, `cell ${index} must be [x,y]`);
+      const [x, y] = cell;
+      assert(Number.isInteger(x) && Number.isInteger(y), `cell ${index} must contain integers`);
+      assert(x >= 0 && x < width && y >= 0 && y < height, `cell ${index} outside carrier`);
+      set.add(key(x, y));
+    });
+    return Array.from(set, (item) => item.split(",").map(Number)).sort((a, b) => a[1] - b[1] || a[0] - b[0]);
+  }
+  function makeState(width, height, cells) { return { width, height, live: canonicalize(cells, width, height), boundary: BOUNDARY }; }
+  function step(state) {
+    const live = new Set(state.live.map(([x, y]) => key(x, y)));
+    const counts = new Map();
+    state.live.forEach(([x, y]) => {
+      for (let dy = -1; dy <= 1; dy += 1) for (let dx = -1; dx <= 1; dx += 1) {
+        if (!dx && !dy) continue;
+        const nx = x + dx; const ny = y + dy;
+        if (nx < 0 || ny < 0 || nx >= state.width || ny >= state.height) continue;
+        const k = key(nx, ny); counts.set(k, (counts.get(k) || 0) + 1);
+      }
+    });
+    const next = [];
+    counts.forEach((count, k) => { if (count === 3 || (count === 2 && live.has(k))) next.push(k.split(",").map(Number)); });
+    return makeState(state.width, state.height, next);
+  }
+  function parseRLE(source) {
+    assert(typeof source === "string" && source.trim(), "RLE source is required");
+    const body = source.split(/\r?\n/).map((line) => line.trim()).filter((line) => line && !line.startsWith("#") && !/^x\s*=/.test(line)).join("");
+    const cells = []; let x = 0; let y = 0; let digits = ""; let ended = false;
+    for (const token of body) {
+      if (/\d/.test(token)) { digits += token; continue; }
+      const n = digits ? Number(digits) : 1; digits = "";
+      if (token === "o") { for (let i = 0; i < n; i += 1) cells.push([x + i, y]); x += n; }
+      else if (token === "b") x += n;
+      else if (token === "$") { y += n; x = 0; }
+      else if (token === "!") { ended = true; break; }
+      else if (!/\s|,/.test(token)) throw new TypeError(`unsupported RLE token ${token}`);
+    }
+    assert(ended, "RLE terminator ! is required");
+    const width = cells.length ? Math.max(...cells.map((c) => c[0])) + 1 : 0;
+    const height = cells.length ? Math.max(...cells.map((c) => c[1])) + 1 : 0;
+    return { cells, width, height };
+  }
+  function centerPattern(source, size) {
+    const parsed = parseRLE(source);
+    assert(parsed.width <= size && parsed.height <= size, `pattern ${parsed.width}x${parsed.height} exceeds ${size}x${size}`);
+    const ox = Math.floor((size - parsed.width) / 2); const oy = Math.floor((size - parsed.height) / 2);
+    return makeState(size, size, parsed.cells.map(([x, y]) => [x + ox, y + oy]));
+  }
+  function encodeRLE(state) {
+    if (!state.live.length) return `x = 0, y = 0, rule = ${RULE}\n!`;
+    const minX = Math.min(...state.live.map((c) => c[0])); const maxX = Math.max(...state.live.map((c) => c[0]));
+    const minY = Math.min(...state.live.map((c) => c[1])); const maxY = Math.max(...state.live.map((c) => c[1]));
+    const live = new Set(state.live.map(([x, y]) => key(x, y))); const rows = [];
+    for (let y = minY; y <= maxY; y += 1) {
+      let row = ""; let token = null; let count = 0;
+      for (let x = minX; x <= maxX; x += 1) {
+        const next = live.has(key(x, y)) ? "o" : "b";
+        if (next === token) count += 1; else { if (token) row += `${count > 1 ? count : ""}${token}`; token = next; count = 1; }
+      }
+      if (token) row += `${count > 1 ? count : ""}${token}`;
+      rows.push(row.replace(/\d*b$/, ""));
+    }
+    return `x = ${maxX - minX + 1}, y = ${maxY - minY + 1}, rule = ${RULE}\n${rows.join("$")}!`;
+  }
+  function exactKey(state) { return state.live.map(([x, y]) => key(x, y)).join(";"); }
+  function shapeRecord(state) {
+    if (!state.live.length) return { origin: [0, 0], key: "" };
+    const minX = Math.min(...state.live.map((c) => c[0])); const minY = Math.min(...state.live.map((c) => c[1]));
+    return { origin: [minX, minY], key: state.live.map(([x, y]) => key(x - minX, y - minY)).sort().join(";") };
+  }
+  function classify(history) {
+    const i = history.length - 1; const current = history[i];
+    if (i > 0 && !current.live.length) return { type: "EXTINCTION", base: 0, at: i, period: i, translation: [0, 0] };
+    const exact = exactKey(current);
+    for (let j = 0; j < i; j += 1) if (exactKey(history[j]) === exact) return { type: i - j === 1 ? "FIXED_POINT" : "EXACT_PERIODIC_RETURN", base: j, at: i, period: i - j, translation: [0, 0] };
+    const shape = shapeRecord(current);
+    for (let j = 0; j < i; j += 1) {
+      const prior = shapeRecord(history[j]);
+      if (prior.key !== shape.key) continue;
+      const translation = [shape.origin[0] - prior.origin[0], shape.origin[1] - prior.origin[1]];
+      if (translation[0] || translation[1]) return { type: "TRANSLATED_RETURN", base: j, at: i, period: i - j, translation };
+    }
+    return { type: "OPEN_TRANSIENT", base: 0, at: i, period: null, translation: null };
+  }
+  function createSession(size, pattern = "glider") {
+    assert(SIZES.includes(size), "unsupported grid size");
+    assert(PATTERNS[pattern], `unknown pattern ${pattern}`);
+    const initial = centerPattern(PATTERNS[pattern], size);
+    return { id: `LIFE02V2:${size}x${size}:${pattern}:B3S23:finite-dead:synchronous`, pattern, history: [initial], event: classify([initial]) };
+  }
+  function advance(session) { const next = step(session.history[session.history.length - 1]); session.history.push(next); session.event = classify(session.history); return next; }
+  function toggle(state, x, y) {
+    const target = key(x, y); const cells = state.live.filter(([cx, cy]) => key(cx, cy) !== target);
+    if (cells.length === state.live.length) cells.push([x, y]);
+    return makeState(state.width, state.height, cells);
+  }
+  function randomState(size, density, seed = 1) {
+    assert(density >= 0 && density <= 1, "density must be within [0,1]");
+    let s = seed >>> 0; const cells = [];
+    function rnd() { s = (1664525 * s + 1013904223) >>> 0; return s / 4294967296; }
+    for (let y = 0; y < size; y += 1) for (let x = 0; x < size; x += 1) if (rnd() < density) cells.push([x, y]);
+    return makeState(size, size, cells);
+  }
+  function projection(state) { const x = Array(state.width).fill(0); const y = Array(state.height).fill(0); state.live.forEach(([cx, cy]) => { x[cx] += 1; y[cy] += 1; }); return { x, y }; }
+  function entropy(state) { const p = state.live.length / (state.width * state.height); return !p || p === 1 ? 0 : -(p * Math.log2(p) + (1 - p) * Math.log2(1 - p)); }
+  function topology(state) {
+    const live = new Set(state.live.map(([x, y]) => key(x, y))); const seen = new Set(); let beta0 = 0;
+    live.forEach((start) => { if (seen.has(start)) return; beta0 += 1; const q = [start]; seen.add(start); while (q.length) { const [x, y] = q.pop().split(",").map(Number); for (let dy = -1; dy <= 1; dy += 1) for (let dx = -1; dx <= 1; dx += 1) { if (!dx && !dy) continue; const k = key(x + dx, y + dy); if (live.has(k) && !seen.has(k)) { seen.add(k); q.push(k); } } } });
+    return { beta0, convention: "8-neighbour live connectivity" };
+  }
+  function aggregate16(state) {
+    const bins = 16; const grid = Array.from({ length: bins }, () => Array(bins).fill(0));
+    state.live.forEach(([x, y]) => { const bx = Math.min(15, Math.floor(x * bins / state.width)); const by = Math.min(15, Math.floor(y * bins / state.height)); grid[by][bx] += 1; });
+    return grid;
+  }
+  function spectrum16(state) {
+    const input = aggregate16(state); const out = [];
+    for (let ky = 0; ky < 16; ky += 1) { const row = []; for (let kx = 0; kx < 16; kx += 1) { let re = 0; let im = 0; for (let y = 0; y < 16; y += 1) for (let x = 0; x < 16; x += 1) { const a = -2 * Math.PI * (kx * x + ky * y) / 16; re += input[y][x] * Math.cos(a); im += input[y][x] * Math.sin(a); } row.push(Math.hypot(re, im)); } out.push(row); }
+    return out;
+  }
+  return Object.freeze({ BOUNDARY, PATTERNS, RULE, SCHEDULE, SIZES, advance, aggregate16, canonicalize, centerPattern, classify, createSession, encodeRLE, entropy, exactKey, makeState, parseRLE, projection, randomState, shapeRecord, spectrum16, step, toggle, topology });
+}));
+</script>
+<script>(function initLifeE8(root, factory) {
+  const Life = typeof module === "object" && module.exports
+    ? require("../NEXAH_LIFE_ORBIT_SCALE_LAB_V2_2026-10-07/scale-engine.js")
+    : root.LifeOrbitScaleEngine;
+  const api = factory(Life);
+  if (typeof module === "object" && module.exports) module.exports = api;
+  root.LifeE8Engine = api;
+}(typeof globalThis !== "undefined" ? globalThis : this, function factory(Life) {
+  "use strict";
+  if (!Life) throw new Error("LIFE02 V2 engine is required");
+  const E8_EDGES = Object.freeze([[0,1],[1,2],[2,3],[3,4],[4,5],[5,6],[2,7]]);
+  const E8_NEIGHBOURS = Array.from({ length: 8 }, () => []);
+  E8_EDGES.forEach(([a,b]) => { E8_NEIGHBOURS[a].push(b); E8_NEIGHBOURS[b].push(a); });
+  const WORD = Object.freeze([0,1,2,3,4,5,6,7]);
+  const CHANNELS = Object.freeze(["carrier","projection-x","projection-y","space-time","spectrum","entropy","topology","return"]);
+  const vkey = (v) => v.join(",");
+  const dot = (a,b) => a.reduce((sum,x,i) => sum + x*b[i], 0);
+  const distance = (a,b) => Math.hypot(...a.map((x,i) => x-b[i]));
+  function mutate(v,i) { const next=v.slice(); next[i]=-v[i]+E8_NEIGHBOURS[i].reduce((s,j)=>s+v[j],0); return next; }
+  function mutationCarrier() { const states=[[1,0,0,0,0,0,0,0]]; const map=new Map([[vkey(states[0]),0]]); for(let q=0;q<states.length;q+=1) for(let i=0;i<8;i+=1) { const next=mutate(states[q],i); const k=vkey(next); if(!map.has(k)){map.set(k,states.length);states.push(next);} } return {states,map}; }
+  const MUTATION = mutationCarrier();
+  function applyGenerator(index,generator) { return MUTATION.map.get(vkey(mutate(MUTATION.states[index],generator))); }
+  function applyWord(index,word=WORD) { for(const letter of word) index=applyGenerator(index,letter); return index; }
+  function cycles() { const seen=new Set(); const out=[]; for(let i=0;i<MUTATION.states.length;i+=1){ if(seen.has(i))continue; const cycle=[]; let j=i; while(!seen.has(j)){seen.add(j);cycle.push(j);j=applyWord(j);} out.push(cycle); } return out.sort((a,b)=>a[0]-b[0]); }
+  const COXETER_CYCLES=Object.freeze(cycles().map((cycle)=>Object.freeze(cycle)));
+  function locateMutation(index) { for(let orbit=0;orbit<COXETER_CYCLES.length;orbit+=1){const phase=COXETER_CYCLES[orbit].indexOf(index);if(phase>=0)return{orbit,phase};} return {orbit:-1,phase:-1}; }
+  function standardRoots() {
+    const roots=[];
+    for(let i=0;i<8;i+=1) for(let j=i+1;j<8;j+=1) for(const a of [-1,1]) for(const b of [-1,1]) { const r=Array(8).fill(0);r[i]=a;r[j]=b;roots.push(r); }
+    for(let mask=0;mask<256;mask+=1){let minus=0;const r=[];for(let i=0;i<8;i+=1){const neg=(mask>>i)&1;minus+=neg;r.push(neg?-.5:.5);}if(minus%2===0)roots.push(r);}
+    return roots;
+  }
+  const ROOTS=Object.freeze(standardRoots().map((r)=>Object.freeze(r)));
+  function rootEdges(){const edges=[];for(let i=0;i<ROOTS.length;i+=1)for(let j=i+1;j<ROOTS.length;j+=1)if(Math.abs(dot(ROOTS[i],ROOTS[j])-1)<1e-9)edges.push([i,j]);return edges;}
+  const ROOT_EDGES=Object.freeze(rootEdges().map((e)=>Object.freeze(e)));
+  const ROOT_EDGE_SET=new Set(ROOT_EDGES.map(([a,b])=>`${a},${b}`));
+  function areAdjacent(a,b){return ROOT_EDGE_SET.has(a<b?`${a},${b}`:`${b},${a}`);}
+  function sphericalNull(count=240,seed=84731){let s=seed>>>0;const rnd=()=>{s=(1664525*s+1013904223)>>>0;return(s+.5)/4294967296;};const out=[];for(let n=0;n<count;n+=1){const v=[];while(v.length<8){const u1=Math.max(1e-12,rnd()),u2=rnd(),m=Math.sqrt(-2*Math.log(u1));v.push(m*Math.cos(2*Math.PI*u2));if(v.length<8)v.push(m*Math.sin(2*Math.PI*u2));}const norm=Math.hypot(...v);out.push(v.map(x=>Math.SQRT2*x/norm));}return out;}
+  const NULL_ROOTS=Object.freeze(sphericalNull().map((r)=>Object.freeze(r)));
+  function transitionCounts(previous,current){const a=new Set(previous.live.map(([x,y])=>`${x},${y}`));const b=new Set(current.live.map(([x,y])=>`${x},${y}`));let births=0,deaths=0;b.forEach(k=>{if(!a.has(k))births+=1;});a.forEach(k=>{if(!b.has(k))deaths+=1;});return{births,deaths};}
+  function spectralConcentration(state){const s=Life.spectrum16(state);let low=0,total=0;for(let y=0;y<16;y+=1)for(let x=0;x<16;x+=1){if(x===0&&y===0)continue;const power=s[y][x]*s[y][x];total+=power;const fx=Math.min(x,16-x),fy=Math.min(y,16-y);if(fx*fx+fy*fy<=4)low+=power;}return total?low/total:0;}
+  function featureRecord(previous,current){
+    const n=current.width*current.height,live=current.live.length,{births,deaths}=transitionCounts(previous,current),entropy=Life.entropy(current),components=Life.topology(current).beta0;
+    const cx=live?current.live.reduce((s,c)=>s+c[0],0)/live:(current.width-1)/2,cy=live?current.live.reduce((s,c)=>s+c[1],0)/live:(current.height-1)/2;
+    const change=births+deaths,growth=change?(births-deaths)/change:0,churn=Math.min(1,change/Math.max(1,previous.live.length+live)),componentRatio=components/Math.max(1,live),spectral=spectralConcentration(current);
+    const raw=[2*live/n-1,growth,2*churn-1,2*entropy-1,2*componentRatio-1,2*cx/(current.width-1)-1,2*cy/(current.height-1)-1,2*spectral-1];
+    const norm=Math.hypot(...raw)||1;const vector=raw.map(x=>Math.SQRT2*x/norm);
+    return{raw,vector,labels:["occupancy","growth","churn","entropy","component ratio","centroid x","centroid y","spectral concentration"],births,deaths,entropy,components,spectral};
+  }
+  function nearest(vector,points=ROOTS){let index=0,residual=Infinity;points.forEach((root,i)=>{const d=distance(vector,root);if(d<residual){residual=d;index=i;}});return{index,residual,root:points[index]};}
+  function projectionRecord(previous,current){const feature=featureRecord(previous,current);const e8=nearest(feature.vector,ROOTS),nullMatch=nearest(feature.vector,NULL_ROOTS);return{feature,e8,null:nullMatch};}
+  function diagnostic2D(root){const u=[.4904,.4157,.2778,.0975,-.0975,-.2778,-.4157,-.4904],v=[.0975,.2778,.4157,.4904,.4904,.4157,.2778,.0975];const un=Math.hypot(...u),vn=Math.hypot(...v);return[dot(root,u)/un,dot(root,v)/vn];}
+  function gcd(a,b){while(b)[a,b]=[b,a%b];return Math.abs(a);} const lcm=(a,b)=>a&&b?Math.abs(a*b)/gcd(a,b):0;
+  function create(pattern="blinker",size=64){const life=Life.createSession(size,pattern),e8State=COXETER_CYCLES[0][0];return{pattern,size,life,e8State,micro:0,macro:0,records:[],joint:null};}
+  function assessJoint(workbench){const initial=workbench.life.history[0],current=workbench.life.history.at(-1);if(workbench.macro%30!==0||workbench.macro===0)return null;if(Life.exactKey(initial)===Life.exactKey(current))return{type:"EXACT_JOINT_RETURN",at:workbench.macro,translation:[0,0]};const a=Life.shapeRecord(initial),b=Life.shapeRecord(current);if(a.key===b.key){const translation=[b.origin[0]-a.origin[0],b.origin[1]-a.origin[1]];return{type:"QUOTIENT_JOINT_RETURN",at:workbench.macro,translation};}return null;}
+  function retainProjection(workbench){const history=workbench.life.history,previous=history.length>1?history.at(-2):history[0],record=projectionRecord(previous,history.at(-1));const prior=workbench.records.at(-1);record.generation=history.length-1;record.edgeHit=prior?areAdjacent(prior.e8.index,record.e8.index):null;workbench.records.push(record);return record;}
+  function tickDual(workbench){Life.advance(workbench.life);workbench.e8State=applyWord(workbench.e8State);workbench.macro+=1;workbench.micro=0;retainProjection(workbench);workbench.joint=assessJoint(workbench);return workbench;}
+  function tickObserver(workbench){workbench.e8State=applyGenerator(workbench.e8State,workbench.micro);workbench.micro=(workbench.micro+1)%8;if(workbench.micro===0){Life.advance(workbench.life);workbench.macro+=1;retainProjection(workbench);workbench.joint=assessJoint(workbench);}return workbench;}
+  function fiberSummary(records){const counts=new Map();records.forEach(r=>counts.set(r.e8.index,(counts.get(r.e8.index)||0)+1));return{unique:counts.size,maxFiber:counts.size?Math.max(...counts.values()):0,collisions:Array.from(counts.values()).filter(n=>n>1).reduce((s,n)=>s+n-1,0),edgeHits:records.filter(r=>r.edgeHit===true).length,edgeTrials:records.filter(r=>r.edgeHit!==null).length};}
+  return Object.freeze({CHANNELS,COXETER_CYCLES,E8_EDGES,E8_NEIGHBOURS,Life,MUTATION,NULL_ROOTS,ROOTS,ROOT_EDGES,WORD,applyGenerator,applyWord,areAdjacent,assessJoint,create,diagnostic2D,distance,dot,featureRecord,fiberSummary,gcd,lcm,locateMutation,mutate,nearest,projectionRecord,sphericalNull,tickDual,tickObserver,transitionCounts});
+}));
+</script>
+<script>(function(root,factory){const api=factory();if(typeof module==='object'&&module.exports)module.exports=api;root.A0Life03Contract=api;})(typeof globalThis!=='undefined'?globalThis:this,function(){
+'use strict';
+const PROTOCOL='nexah.a0.life03-source/1',SOURCE_HASH='3faceb0876d3bb13339a146a48f4c6c9ba92a1bad457d36fd40d2d8cb8876e9f',MODES=['dual','observer','projection'];
+const CUES={SOURCE:['CAPTURE'],OPERATOR:['STEP'],EDGE:['STEP'],SHADOW:['VIEW','observer'],FAMILY:['STEP'],GRID:['VIEW','projection'],RETURN:['READ'],FOLD:['VIEW','dual'],ROOT:['STEP'],RECORD:['RETURN']};
+const copy=x=>JSON.parse(JSON.stringify(x)),equal=(a,b)=>JSON.stringify(a)===JSON.stringify(b);
+const integer=(v,min,max)=>Number.isSafeInteger(v)&&v>=min&&v<=max;
+function state(value){
+ if(!value||JSON.stringify(value).length>1000000)throw Error('state payload absent / too large');
+ const visit=(x,d=0)=>{if(d>20)throw Error('state depth');if(typeof x==='number'&&!Number.isFinite(x))throw Error('nonfinite record');if(x&&typeof x==='object'){for(const k of Object.keys(x)){if(['__proto__','prototype','constructor'].includes(k))throw Error('unsafe record key');visit(x[k],d+1);}}};visit(value);
+ const s=copy(value),w=s.work;if(!MODES.includes(s.mode)||s.speed!==260||!w||w.size!==64||w.pattern!=='blinker')throw Error('bounded source state required');
+ if(!integer(w.e8State,0,239)||!integer(w.micro,0,7)||!integer(w.macro,0,32)||!Array.isArray(w.records)||w.records.length!==w.macro)throw Error('invalid E8 / projection clock');
+ const life=w.life;if(!life||life.pattern!==w.pattern||life.id!=='LIFE02V2:64x64:blinker:B3S23:finite-dead:synchronous'||!Array.isArray(life.history)||life.history.length!==w.macro+1||!life.event)throw Error('invalid Life history');
+ for(const frame of life.history){if(frame.width!==64||frame.height!==64||frame.boundary!=='finite-dead'||!Array.isArray(frame.live)||frame.live.length>4096)throw Error('invalid frame');const seen=new Set();for(const cell of frame.live){if(!Array.isArray(cell)||cell.length!==2||!cell.every(x=>integer(x,0,63))||seen.has(cell.join(',')))throw Error('invalid cell address');seen.add(cell.join(','));}}
+ return s;
+}
+function witness(value){
+ if(!value||value.sourceHash!==SOURCE_HASH||!integer(value.revision,0,1000000)||value.timerRunning!==false)throw Error('source/version/revision/timer witness');
+ const w=copy(value);w.state=state(w.state);const r=w.rendered;
+ if(!r||r.mode!==w.state.mode||r.pattern!==w.state.work.pattern||r.size!==64||r.speed!==260||r.generation!==w.state.work.macro||!r.e8Clock||!r.rootAssignment||!r.trajectory)throw Error('rendered control readback mismatch');
+ return w;
+}
+return Object.freeze({PROTOCOL,SOURCE_HASH,MODES,CUES,copy,equal,state,witness});
+});
+</script>
+<script>/* Only installed in the source-derived sandbox, never in the original LIFE03. */
+(function(root,factory){const api=factory();if(typeof module==='object'&&module.exports)module.exports=api;root.A0Life03Child=api;})(typeof globalThis!=='undefined'?globalThis:this,function(){
+'use strict';
+function install(env,api,P){
+ let session=null,revision=0,lastSeq=0,anchor=null;
+ const witness=()=>P.witness({sourceHash:P.SOURCE_HASH,revision,state:api.snapshot(),rendered:api.readRendered(),timerRunning:api.timerRunning()});
+ const send=(type,seq,extra={})=>{if(session)env.parent.postMessage({protocol:P.PROTOCOL,session,type,seq,...extra},'*');};
+ api.stop();
+ env.addEventListener('message',event=>{
+  const m=event.data;if(event.source!==env.parent||!m||m.protocol!==P.PROTOCOL||typeof m.session!=='string'||!/^[a-f0-9]{32}$/.test(m.session)||!Number.isSafeInteger(m.seq)||m.seq<=0)return;
+  if(m.action==='HELLO'){
+   if(session&&session!==m.session)return;session=m.session;if(m.seq<=lastSeq)return;lastSeq=m.seq;
+   try{api.stop();send('READY',m.seq,{witness:witness()});}catch(e){send('ERROR',m.seq,{error:e.message});}return;
+  }
+  if(m.session!==session||m.seq<=lastSeq)return;lastSeq=m.seq;
+  try{
+   if(!['READ','STOP'].includes(m.action)&&m.baseRevision!==revision)throw Error('revision conflict');
+   api.stop();
+   if(!['READ','CAPTURE','STEP','VIEW','RETURN','STOP'].includes(m.action))throw Error('unsupported action');
+   if(m.action==='CAPTURE')anchor=P.state(api.snapshot());
+   if(m.action==='STEP'){if(api.snapshot().work.macro>=32)throw Error('32 generation engineering ceiling');api.step();revision++;}
+   if(m.action==='VIEW'){if(!P.MODES.includes(m.mode))throw Error('invalid view');api.view(m.mode);revision++;}
+   if(m.action==='RETURN'){if(!anchor||!P.equal(anchor,P.state(m.anchor)))throw Error('matching source-owned anchor required');api.restore(P.copy(anchor));revision++;}
+   const w=witness();if(m.action==='RETURN'&&!P.equal(w.state,anchor))throw Error('full source return mismatch');
+   send('ACK',m.seq,{operation:m.action,witness:w});
+  }catch(e){api.stop();send('ERROR',m.seq,{error:e.message});}
+ });
+ return {witness};
+}
+return {install};
+});
+</script>
+<script>(function(){
+"use strict";const E=window.LifeE8Engine,$=id=>document.getElementById(id),canvas=$("canvas"),ctx=canvas.getContext("2d");
+const NAMES={block:"Block",blinker:"Blinker",glider:"Glider",toad:"Toad",beacon:"Beacon",r_pentomino:"R-pentomino",acorn:"Acorn",gosper_gun:"Gosper glider gun"};
+const MODES={dual:{title:"Dual Clock",view:"LIFE × E8 PRODUCT CLOCK",status:"EXACT INDEPENDENT PRODUCT",formula:"T(X,α) = (F_Life(X), C_E8(α))\nC³⁰ = I\nP_joint = lcm(p_Life, 30)",text:"Jeder Tick ist eine vollständige Life-Generation und ein vollständiges E8-Coxeter-Wort. Beide Träger bleiben unabhängig.",relation:"EXACT PRODUCT",boundary:"Ein gemeinsamer Return ist eine Synchronisation zweier verschiedener Dynamiken, keine gemeinsame Ursache."},observer:{title:"Observer Word",view:"E8 WORD → EIGHT LIFE LENSES",status:"DECLARED OBSERVER ADAPTER",formula:"μᵢ ↦ Lᵢ(H_Life)\nμ₁…μ₈ = one observer cycle\nLife advances at word boundary",text:"Jeder E8-Mikroschritt wählt eine Life-Linse. Erst nach acht Buchstaben schreitet Life fort.",relation:"METHOD ADAPTER",boundary:"Das E8-Wort taktet die Beobachtung; es erzeugt oder verändert nicht die Life-Regel."},projection:{title:"Root Projection",view:"8D LIFE RECORD → 240 E8 ROOTS",status:"LOSSY EXPERIMENTAL QUANTIZER",formula:"π(z) = argmin ||ẑ − α||\nα ∈ Φ_E8,  ||ẑ||² = 2\nε = ||ẑ − π(z)||",text:"Acht festgelegte Life-Messwerte werden normiert, einer E8-Root zugeordnet und gegen eine sphärische Nullfamilie verglichen.",relation:"EXPERIMENTAL PROJECTION",boundary:"Nearest-root-Zuordnung, Pfad und Kollisionen sind Eigenschaften dieses Adapters, nicht Belege für E8-Dynamik in Life."}};
+let mode="dual",work=E.create("blinker",64),timer=null;
+Object.keys(E.Life.PATTERNS).forEach(name=>{const o=document.createElement("option");o.value=name;o.textContent=NAMES[name];$("pattern").append(o)});$("pattern").value="blinker";
+Object.keys(MODES).forEach(name=>{const b=document.createElement("button");b.className="mode";b.dataset.mode=name;b.textContent=MODES[name].title;b.onclick=()=>{mode=name;render()};$("modes").append(b)});
+function stop(){if(timer)clearTimeout(timer);timer=null;$("play").textContent="▶ Play"}
+function reset(){stop();let size=Number($("size").value),pattern=$("pattern").value,d=E.Life.parseRLE(E.Life.PATTERNS[pattern]);if(d.width>size||d.height>size){size=E.Life.SIZES.find(n=>n>=d.width&&n>=d.height);$("size").value=String(size)}work=E.create(pattern,size);render()}
+function tick(){if(mode==="observer")E.tickObserver(work);else E.tickDual(work);render();if(work.joint)stop()}
+function play(){if(timer)return stop();$("play").textContent="❚❚ Pause";const loop=()=>{tick();timer=setTimeout(loop,Number($("speed").value))};timer=setTimeout(loop,80)}
+$("pattern").onchange=reset;$("size").onchange=reset;$("reset").onclick=reset;$("tick").onclick=tick;$("play").onclick=play;
+function clear(){ctx.fillStyle="#07131e";ctx.fillRect(0,0,canvas.width,canvas.height)}function text(v,x,y,c="#91a9b9",align="left",font="13px Inter"){ctx.fillStyle=c;ctx.textAlign=align;ctx.font=font;ctx.fillText(v,x,y)}function line(a,b,c,w=1){ctx.strokeStyle=c;ctx.lineWidth=w;ctx.beginPath();ctx.moveTo(a[0],a[1]);ctx.lineTo(b[0],b[1]);ctx.stroke()}
+function drawLife(state,x,y,extent){const cell=extent/state.width;ctx.strokeStyle="#31556c";ctx.strokeRect(x,y,extent,extent);if(cell>=7){ctx.strokeStyle="rgba(50,87,110,.45)";for(let i=1;i<state.width;i++){line([x+i*cell,y],[x+i*cell,y+extent],ctx.strokeStyle);line([x,y+i*cell],[x+extent,y+i*cell],ctx.strokeStyle)}}state.live.forEach(([cx,cy])=>{ctx.fillStyle="#5ce0f4";ctx.fillRect(x+cx*cell+.5,y+cy*cell+.5,Math.max(1,cell-1),Math.max(1,cell-1))})}
+function drawE8Rings(cx,cy,maxR){const loc=E.locateMutation(work.e8State);E.COXETER_CYCLES.forEach((cycle,orbit)=>{const r=maxR*(.32+.68*orbit/7);ctx.strokeStyle=orbit===loc.orbit?"rgba(244,90,214,.65)":"rgba(50,82,105,.58)";ctx.beginPath();ctx.arc(cx,cy,r,0,Math.PI*2);ctx.stroke();cycle.forEach((state,phase)=>{const a=-Math.PI/2+phase*Math.PI*2/30;ctx.fillStyle=state===work.e8State?"#f5bf53":phase===0?"#f45ad6":"#5ce0f4";ctx.beginPath();ctx.arc(cx+Math.cos(a)*r,cy+Math.sin(a)*r,state===work.e8State?5:phase%5===0?2.4:1.5,0,Math.PI*2);ctx.fill()})});text(`orbit ${loc.orbit+1} · phase ${loc.phase}`,cx,cy+4,"#f5bf53","center","bold 14px Inter")}
+function drawDual(){const state=work.life.history.at(-1);text("LIFE CARRIER",245,64,"#5ce0f4","center","bold 12px Inter");drawLife(state,65,102,360);text("E8 COXETER PARTITION",785,64,"#f45ad6","center","bold 12px Inter");drawE8Rings(785,330,225);line([445,330],[535,330],"#f5bf53",2);text("independent product tick",490,316,"#f5bf53","center","11px Inter");text(`generation ${work.life.history.length-1}`,245,495,"#91a9b9","center");text(`C power ${work.macro}`,785,585,"#91a9b9","center")}
+function observerValue(channel,state){const prev=work.life.history.length>1?work.life.history.at(-2):state,rec=E.projectionRecord(prev,state);if(channel==="carrier")return `${state.live.length} live addressed cells`;if(channel==="projection-x")return `max X occupancy ${Math.max(...E.Life.projection(state).x)}`;if(channel==="projection-y")return `max Y occupancy ${Math.max(...E.Life.projection(state).y)}`;if(channel==="space-time")return `${work.life.history.length} retained generations`;if(channel==="spectrum")return `low-frequency share ${(rec.feature.spectral*100).toFixed(2)}%`;if(channel==="entropy")return `H₂ = ${rec.feature.entropy.toFixed(5)} bit`;if(channel==="topology")return `β₀(8) = ${rec.feature.components}`;return work.life.event.type.replaceAll("_"," ")}
+function drawObserver(){const cx=520,cy=305,r=230,state=work.life.history.at(-1),active=work.micro;for(let i=0;i<8;i++){const a=-Math.PI/2+i*Math.PI/4,p=[cx+Math.cos(a)*r,cy+Math.sin(a)*r];line([cx,cy],p,i===active?"#f5bf53":"#294a5f",i===active?3:1);ctx.fillStyle=i===active?"#f5bf53":"#0e2a3b";ctx.beginPath();ctx.arc(p[0],p[1],34,0,Math.PI*2);ctx.fill();ctx.strokeStyle=i===active?"#fff":"#5ce0f4";ctx.stroke();text(`μ${i+1}`,p[0],p[1]-4,i===active?"#06131c":"#5ce0f4","center","bold 13px Inter");text(E.CHANNELS[i].replace("projection-","P"),p[0],p[1]+13,i===active?"#06131c":"#c5d5df","center","9px Inter")}
+ctx.fillStyle="#0a1c2a";ctx.beginPath();ctx.arc(cx,cy,112,0,Math.PI*2);ctx.fill();ctx.strokeStyle="#f45ad6";ctx.stroke();text(E.CHANNELS[active].toUpperCase(),cx,cy-15,"#f45ad6","center","bold 15px Inter");text(observerValue(E.CHANNELS[active],state),cx,cy+15,"#edf8ff","center","13px Inter");text(`Life advances after μ8 · current generation ${work.life.history.length-1}`,cx,615,"#91a9b9","center")}
+function rootRecord(){const h=work.life.history,prev=h.length>1?h.at(-2):h[0];return E.projectionRecord(prev,h.at(-1))}
+function drawProjection(){const rec=rootRecord(),points=E.ROOTS.map(E.diagnostic2D),feature=E.diagnostic2D(rec.feature.vector),max=Math.max(...points.flatMap(p=>p.map(Math.abs)),Math.abs(feature[0]),Math.abs(feature[1]),1),cx=360,cy=325,scale=235/max;
+ctx.strokeStyle="#294a5f";ctx.beginPath();ctx.arc(cx,cy,240,0,Math.PI*2);ctx.stroke();line([cx-250,cy],[cx+250,cy],"#1d3a4c");line([cx,cy-250],[cx,cy+250],"#1d3a4c");points.forEach((p,i)=>{ctx.fillStyle=i===rec.e8.index?"#f5bf53":"rgba(92,224,244,.62)";ctx.beginPath();ctx.arc(cx+p[0]*scale,cy-p[1]*scale,i===rec.e8.index?7:2.3,0,Math.PI*2);ctx.fill()});ctx.fillStyle="#f45ad6";ctx.beginPath();ctx.arc(cx+feature[0]*scale,cy-feature[1]*scale,6,0,Math.PI*2);ctx.fill();line([cx+feature[0]*scale,cy-feature[1]*scale],[cx+points[rec.e8.index][0]*scale,cy-points[rec.e8.index][1]*scale],"#f5bf53",2);text("DECLARED DIAGNOSTIC 2D VIEW",cx,50,"#91a9b9","center","bold 11px Inter");text(`nearest E8 root #${rec.e8.index}`,cx,615,"#f5bf53","center");
+const bx=690,base=535,w=260;rec.feature.raw.forEach((v,i)=>{const y=105+i*57;text(rec.feature.labels[i],bx,y,"#91a9b9");line([bx,y+13],[bx+w,y+13],"#203d50",5);line([bx+w/2,y+13],[bx+w/2+v*w/2,y+13],v>=0?"#5ce0f4":"#f45ad6",7);text(v.toFixed(3),bx+w+8,y+17,"#dceaf2")})}
+function renderWordClock(){const box=$("wordClock");box.replaceChildren();for(let i=0;i<8;i++){const e=document.createElement("i");if(mode==="observer"){if(i<work.micro)e.className="done";if(i===work.micro)e.className="current"}else e.className="done";box.append(e)}}
+function render(){const info=MODES[mode],state=work.life.history.at(-1),loc=E.locateMutation(work.e8State),rec=rootRecord(),fibers=E.fiberSummary(work.records),lifeEvent=work.life.event;
+document.querySelectorAll(".mode").forEach(b=>b.classList.toggle("active",b.dataset.mode===mode));$("lifeCarrier").textContent=`${state.width}² binary cells`;$("generation").textContent=work.life.history.length-1;$("lifeReturn").textContent=lifeEvent.type.replaceAll("_"," ");$("e8Clock").textContent=`orbit ${loc.orbit+1} · phase ${loc.phase} · C^${work.macro}`;$("jointReturn").textContent=work.joint?work.joint.type.replaceAll("_"," "):"OPEN";$("rootAssignment").textContent=`#${rec.e8.index} · ε ${rec.e8.residual.toFixed(4)}`;$("modeTitle").textContent=info.title;$("formula").textContent=info.formula;$("modeText").textContent=info.text;$("relationType").textContent=info.relation;$("boundaryText").textContent=info.boundary;$("viewTitle").textContent=info.view;$("viewStatus").textContent=info.status;$("nextLetter").textContent=`μ${work.micro+1} → ${E.CHANNELS[work.micro]}`;$("traceTrajectory").textContent=`Life ${work.life.history.length-1} · C^${work.macro} · micro ${work.micro}/8`;$("traceProjection").textContent=`root #${rec.e8.index} · ε ${rec.e8.residual.toFixed(4)}`;$("traceReturn").textContent=work.joint?`${work.joint.type} @ ${work.joint.at}`:`Life ${lifeEvent.type}`;$("uniqueRoots").textContent=fibers.unique;$("collisions").textContent=fibers.collisions;$("edgeHits").textContent=`${fibers.edgeHits} / ${fibers.edgeTrials}`;$("e8Residual").textContent=rec.e8.residual.toFixed(5);$("nullResidual").textContent=rec.null.residual.toFixed(5);renderWordClock();clear();if(mode==="dual")drawDual();else if(mode==="observer")drawObserver();else drawProjection();$("caption").textContent=work.joint?`${work.joint.type.replaceAll("_"," ")} at ${work.joint.at}${work.joint.translation?` · residual Δ(${work.joint.translation.join(",")})`:""}`:`Life and E8 remain separately typed · generation ${work.life.history.length-1}`}
+
+stop();
+for(const id of ['pattern','size','speed','tick','play','reset']){$(id).disabled=true;$(id).onclick=null;$(id).onchange=null;}
+document.querySelectorAll('.mode').forEach(b=>{b.disabled=true;b.onclick=null;});
+globalThis.A0Life03Child.install(window,{
+ stop, timerRunning:()=>timer!==null,
+ snapshot:()=>({mode,speed:Number($('speed').value),work:JSON.parse(JSON.stringify(work))}),
+ restore:s=>{stop();mode=s.mode;work=JSON.parse(JSON.stringify(s.work));$('pattern').value=work.pattern;$('size').value=String(work.size);$('speed').value=String(s.speed);render();},
+ step:()=>{stop();tick();},
+ view:v=>{stop();mode=v;render();},
+ readRendered:()=>({mode:document.querySelector('.mode.active').dataset.mode,pattern:$('pattern').value,size:Number($('size').value),speed:Number($('speed').value),generation:Number($('generation').textContent),e8Clock:$('e8Clock').textContent,rootAssignment:$('rootAssignment').textContent,trajectory:$('traceTrajectory').textContent})
+},globalThis.A0Life03Contract);
+render();
+
+}());
+</script></main>  <script src="../nexahedron-public-navigation.js?rev=public-current-20261022"></script>
+</body></html>

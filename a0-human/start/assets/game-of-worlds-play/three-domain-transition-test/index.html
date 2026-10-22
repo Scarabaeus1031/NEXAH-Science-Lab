@@ -1,0 +1,291 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>WINDOW 03 · Three-Domain Transition Test</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="transition-montage.css">
+  <link rel="stylesheet" href="replication-inline.css">
+  <link rel="stylesheet" href="euler-view.css">
+  <link rel="stylesheet" href="fibonacci-view.css">
+  <link rel="stylesheet" href="ihara-view.css">
+  <link rel="stylesheet" href="k-teller-view.css">
+  <link rel="stylesheet" href="blue-body-view.css">
+  <link rel="stylesheet" href="atlas-contracts.css?v=20261022">
+<link rel="stylesheet" href="../../../a0-game-of-worlds-play-stage.css">
+</head>
+<body data-worlds-kind="domains" data-look="wonder" data-stage="domains">
+<main>
+  <details id="atlasContracts">
+    <summary>9 Ansichten · Quellen &amp; Contracts <span id="atlasContractsStatus">HOLD · noch kein Quellenrecord</span></summary>
+    <p>Ein gemeinsamer Generationstakt, drei unabhängige Modelloperatoren und sechs deklarierte Lesungen. FOLLOWING bestätigt den Tick-/Anzeigeanschluss, keine gemeinsame Dynamik. Manuelle Einzelregler dürfen LOCAL anzeigen.</p>
+    <button type="button" id="atlasContractsRead">Aktuellen Lesestand prüfen</button>
+    <button type="button" id="atlasContractsExport">Contract-Record exportieren</button>
+    <div class="atlas-contract-table"><table><thead><tr><th>Ansicht</th><th>Anschluss</th><th>Quelltick</th><th>Aktuelle Lesung</th><th>Vertrag / Grenze</th></tr></thead><tbody id="atlasContractsRows"></tbody></table></div>
+    <h3>Fehlende Verträge bleiben offen</h3>
+    <p>Atlas→Bench / Cross-Monitor: kein fensterübergreifender Live-Anschluss. Game-Ihara→Bench-Ihara: keine gemeinsame Kantenadresse oder Historie. Glyph-/Vendissimal-Decoder und Pentagon-/Coil-/Janus-Verklebung: keine aus Zahlen, Farben oder Formen abgeleitete Kopplung.</p>
+    <p><a href="../../../A0_ORIENTATION_CONTROLLER_BENCH.html#seedCrossMonitor" target="_blank" rel="noopener">Bench · Seed/Cross ↗</a> · <a href="../../../A0_ORIENTATION_CONTROLLER_BENCH.html#systemBinder" target="_blank" rel="noopener">Bench · bestehende Anschlüsse ↗</a> · <a href="atlas-contract-v1.json">Maschinenlesbarer Vertrag</a>. Navigation, keine Fernsteuerung. Dieser Monitor beobachtet ausschließlich diese Atlas-Instanz.</p>
+    <details><summary>Aktueller Contract-Record</summary><pre id="atlasContractsLedger"></pre></details>
+  </details>
+  <header>
+    <div>
+      <p class="eyebrow">NEXAH SCIENCE LAB · WINDOW 03 · EXPLORATORY MODEL BENCHMARK</p>
+      <h1>Three-Domain Transition Test</h1>
+      <p class="lede">Three independent operators. One declared 4+1 observation grammar. Comparable relations do not imply identical objects, causes or mechanisms.</p>
+    </div>
+    <div class="status"><span>AUTHORITY</span><b>UNADMITTED · MODEL-ONLY</b><small>LIFE08 reference lens</small></div>
+  </header>
+
+  <section class="controls" aria-label="Simulation controls">
+    <button id="play" class="primary" type="button">Start</button>
+    <button id="step" type="button">Step +1</button>
+    <button id="reset" type="button">Reset</button>
+    <label>Boundary
+      <select id="boundary"><option value="open">Native open edge</option><option value="cylinder-x" selected>Cylinder X</option></select>
+    </label>
+    <label>Chem threshold <b id="thresholdValue">0.22</b>
+      <input id="threshold" type="range" min="0.10" max="0.40" step="0.01" value="0.22">
+    </label>
+    <label>Speed
+      <select id="speed"><option value="700">0.5×</option><option value="360" selected>1×</option><option value="180">2×</option><option value="90">4×</option></select>
+    </label>
+    <label class="check"><input id="loop" type="checkbox" checked> Loop 240</label>
+    <span id="runStatus" aria-live="polite">Paused · generation 0 / 240</span>
+  </section>
+
+  <section class="domain-grid" aria-label="Independent model domains">
+    <article data-domain="chemistry">
+      <div class="domain-head"><div><p>LEFT · CHEMICAL MODEL</p><h2>Reaction–Diffusion</h2></div><span>Gray–Scott</span></div>
+      <p class="boundary-note">Continuous concentrations <i>u,v</i>; the 4+1 reader sees a declared thresholded field.</p>
+      <canvas id="chemistryCanvas" width="520" height="690" aria-label="Reaction diffusion field and four transition layers"></canvas>
+      <div class="metrics"><div><span>β₀ components</span><b id="chemistryB0">—</b></div><div><span>β₁ cycles</span><b id="chemistryB1">—</b></div><div><span>events</span><b id="chemistryEvents">—</b></div><div><span>boundary Δ</span><b id="chemistryResidual">—</b></div></div>
+    </article>
+    <article data-domain="life">
+      <div class="domain-head"><div><p>CENTER · ARTIFICIAL LIFE</p><h2>Conway B3/S23</h2></div><span>binary CA</span></div>
+      <p class="boundary-note">Exact binary cells; Birth, Survive and Death are native transition events.</p>
+      <canvas id="lifeCanvas" width="520" height="690" aria-label="Conway Life field and four transition layers"></canvas>
+      <div class="metrics"><div><span>β₀ components</span><b id="lifeB0">—</b></div><div><span>β₁ cycles</span><b id="lifeB1">—</b></div><div><span>events</span><b id="lifeEvents">—</b></div><div><span>boundary Δ</span><b id="lifeResidual">—</b></div></div>
+    </article>
+    <article data-domain="physics">
+      <div class="domain-head"><div><p>RIGHT · PHYSICAL MODEL</p><h2>Spin Field</h2></div><span>Glauber-like</span></div>
+      <p class="boundary-note">Deterministic-seed stochastic replay; positive and negative spin flips remain distinct.</p>
+      <canvas id="physicsCanvas" width="520" height="690" aria-label="Spin field and four transition layers"></canvas>
+      <div class="metrics"><div><span>β₀ components</span><b id="physicsB0">—</b></div><div><span>β₁ cycles</span><b id="physicsB1">—</b></div><div><span>events</span><b id="physicsEvents">—</b></div><div><span>boundary Δ</span><b id="physicsResidual">—</b></div></div>
+    </article>
+    <article data-domain="joint">
+      <div class="domain-head"><div><p>PLUS ONE · DERIVED INTERACTION</p><h2>Common Point</h2></div><span>readout only</span></div>
+      <p class="boundary-note">Three independent ledger phasors feed one arithmetic centroid. The point moves with PLAY but does not act back on any domain.</p>
+      <canvas id="jointCanvas" width="520" height="690" aria-label="Three domain phasors connected to one derived moving centroid"></canvas>
+      <div class="metrics"><div><span>Re Z̄</span><b id="jointRe">—</b></div><div><span>Im Z̄</span><b id="jointIm">—</b></div><div><span>|Z̄|</span><b id="jointMagnitude">—</b></div><div><span>Σ events</span><b id="jointEvents">—</b></div></div>
+    </article>
+    <article data-domain="euler">
+      <div class="domain-head"><div><p>FOURTH · SHARED MATHEMATICAL VIEW</p><h2>Euler View</h2></div><span>projection only</span></div>
+      <p class="boundary-note"><b>3 + 1:</b> Chemistry, Life and spin each keep their own phasor plane. The fourth panel is only their derived arithmetic centroid—not a fourth world or operator.</p>
+      <canvas id="eulerCanvas" width="520" height="690" aria-label="Three separate Euler phasor planes and one derived joint centroid"></canvas>
+      <div class="metrics"><div><span>|Z̄| coherence</span><b id="eulerCoherence">—</b></div><div><span>Σ events</span><b id="eulerEvents">—</b></div><div><span>zero gate</span><b id="eulerZero">—</b></div><div><span>prime axis</span><b id="eulerAxis">—</b></div></div>
+    </article>
+    <article data-domain="fibonacci">
+      <div class="domain-head"><div><p>FIFTH · SHARED CLOCK VIEW</p><h2>Fibonacci View</h2></div><span>projection only</span></div>
+      <p class="boundary-note"><b>3 + 1:</b> recurrence, ratio and spiral are three views of one exact pair. The fourth panel derives a matrix/Cassini control; it is not a fourth sequence.</p>
+      <canvas id="fibonacciCanvas" width="520" height="690" aria-label="Three Fibonacci views and one derived matrix Cassini control synchronized to the clock"></canvas>
+      <div class="metrics"><div><span>exact pair</span><b id="fibonacciPair">—</b></div><div><span>Fₙ₊₁ / Fₙ</span><b id="fibonacciRatio">—</b></div><div><span>Cassini</span><b id="fibonacciCassini">—</b></div><div><span>Σ events</span><b id="fibonacciEvents">—</b></div></div>
+    </article>
+    <article data-domain="ihara">
+      <div class="domain-head"><div><p>SIXTH · FINITE GRAPH VIEW</p><h2>Ihara View</h2></div><span>projection only</span></div>
+      <p class="boundary-note">The common generation addresses a directed edge. Hashimoto permits continuation but blocks immediate reversal.</p>
+      <canvas id="iharaCanvas" width="520" height="690" aria-label="Finite Ihara Hashimoto graph lens synchronized to the Three-Domain clock"></canvas>
+      <div class="metrics"><div><span>vertices</span><b id="iharaVertices">—</b></div><div><span>edges</span><b id="iharaEdges">—</b></div><div><span>directed states</span><b id="iharaDirected">—</b></div><div><span>det gap</span><b id="iharaGap">—</b></div></div>
+    </article>
+    <article data-domain="k-teller">
+      <div class="domain-head"><div><p>SEVENTH · TYPED NEGATIVE LEDGER</p><h2>k · NEG Teller</h2></div><span>projection + checkpoint</span></div>
+      <p class="boundary-note">The plate compares negative/death/down-flip counts. Q° retains the observation context; exact Return uses a separate full-state witness.</p>
+      <canvas id="kTellerCanvas" width="520" height="690" aria-label="k negative event plate for chemistry, Life and spin with central Q degree context"></canvas>
+      <div class="metrics"><div><span>chem k·NEG</span><b id="kTellerChemistry">—</b></div><div><span>Life k·NEG</span><b id="kTellerLife">—</b></div><div><span>spin k·NEG</span><b id="kTellerPhysics">—</b></div><div><span>Σ k·NEG</span><b id="kTellerTotal">—</b></div></div>
+    </article>
+    <article data-domain="blue-body">
+      <div class="domain-head"><div><p>EIGHTH · Q4×P3 ADDRESS VIEW</p><h2>Blue Body · 48</h2></div><span>source-bound projection</span></div>
+      <p class="boundary-note">The shared generation enters the existing φ–π–Euler schedule, selects one typed address and displays the same house in two ledgers.</p>
+      <canvas id="blueBodyCanvas" width="520" height="690" aria-label="Blue Body 48-address lens with Q4 house, relation ledger, Euler phase and exact return receipt"></canvas>
+      <div class="metrics"><div><span>source address</span><b id="blueBodyAddress">—</b></div><div><span>Euler phase</span><b id="blueBodyPhase">—</b></div><div><span>ledger focus</span><b id="blueBodyFocusMetric">—</b></div><div><span>return</span><b id="blueBodyReceipt">—</b></div></div>
+    </article>
+  </section>
+
+  <section class="euler-motor" id="eulerMotor" data-clock="three-domain" aria-labelledby="eulerMotorTitle">
+    <div class="euler-motor-head">
+      <div><p class="eyebrow">03·E · EULER VIEW · SHARED CLOCK ADAPTER</p><h2 id="eulerMotorTitle">Arithmetic step ⇄ exponential scale</h2><p>The common generation advances by <b>+1</b>; Euler's coordinate reads the same address as <b>eⁿ</b>. The view also drives the exact zero-insertion and prime-axis handles.</p></div>
+      <div class="euler-motor-status"><span>VIEW STATUS</span><b>3 DOMAINS → 1 EULER READOUT</b><small>no dynamics effect</small></div>
+    </div>
+    <div class="euler-motor-controls">
+      <div class="euler-base-buttons" aria-label="Select exponential base">
+        <button type="button" data-euler-base="euler" aria-pressed="true">e</button>
+        <button type="button" data-euler-base="two" aria-pressed="false">2</button>
+        <button type="button" data-euler-base="phi" aria-pressed="false">φ</button>
+        <button type="button" data-euler-base="root2" aria-pressed="false">√2</button>
+        <button type="button" data-euler-base="napier" aria-pressed="false">1−10⁻⁷</button>
+      </div>
+      <label>Phase n <input id="eulerPhase" type="range" min="0" max="7" value="0"><b id="eulerPhaseValue">0</b></label>
+      <button id="eulerStep" type="button">Step shared clock +1</button>
+      <label class="euler-follow"><input id="eulerFollow" type="checkbox" checked> Follow Three-Domain clock</label>
+    </div>
+    <div class="euler-live-path" id="eulerLivePath" data-mode="clock" aria-live="polite"><span>LIVE</span><b id="eulerGeneration">g0</b><i>→</i><b id="eulerN">n0</b><i>→</i><b id="eulerPower">e⁰ = 1</b><i>→</i><b id="eulerZeroValue">11</b><i>→</i><b id="eulerAxisValue">XI · 99</b></div>
+    <div class="euler-dual-readout">
+      <div><span>ARITHMETIC</span><b id="eulerArithmetic">0 → 1</b><code>n → n+1</code></div>
+      <div class="euler-keystone"><span>KEYSTONE</span><b>0 ⇄ 1</b><code id="eulerOperator">+1 ⇄ ×e</code></div>
+      <div><span>GEOMETRIC</span><b id="eulerGeometric">1 → 2.718282</b><code id="eulerFormula">Gₙ=eⁿ · ln(Gₙ)=n</code></div>
+    </div>
+    <div class="euler-rail" id="eulerRail" aria-label="Eight-step Euler address rail"></div>
+    <div class="euler-motor-grid">
+      <article><span>ZERO-INSERTION</span><h3 id="eulerZeroTitle">11</h3><div class="euler-zero-ladder" id="eulerZeroLadder"></div><code>aₙ=10ⁿ⁺¹+1 · aₙ₊₁=10aₙ−9</code></article>
+      <article><span>PRIME AXIS + CHANNEL</span><h3 id="eulerAxisTitle">XI hinge · 97—99—101</h3><div class="euler-axis-line"><b>97</b><i></i><b id="eulerAxisCenter">99</b><i></i><b id="eulerAxisRight">101</b></div><strong class="euler-channel" id="eulerPrimeChannel">k0 · P21=73 · c0=101</strong><code>axis = g mod 2 · channel k = g mod 6</code></article>
+      <article><span>BASE-50 RETURN</span><h3>53 ↔ 75 ↔ 97</h3><div class="euler-mirror"><b>53</b><i>J₅₀</i><b>75</b><i>J₅₀</i><b>97</b></div><code>J₅₀(x)=150−x · J₅₀(75)=75</code></article>
+    </div>
+    <p class="euler-boundary"><b>Boundary:</b> the Euler View is a reversible readout of each finite transition ledger plus a non-injective clock projection <code>n=g mod 8</code>. It neither identifies chemistry, Life and spin nor changes any of their update rules.</p>
+  </section>
+
+  <section class="fibonacci-motor" id="fibonacciMotor" data-clock="three-domain" aria-labelledby="fibonacciMotorTitle">
+    <div class="fibonacci-motor-head">
+      <div><p class="eyebrow">03·F · FIBONACCI VIEW · SHARED CLOCK ADAPTER</p><h2 id="fibonacciMotorTitle">Exact pair ⇄ growth and proportion</h2><p>The common generation selects <b>n=g mod 31</b>. The exact pair follows <b>(Fₙ,Fₙ₊₁)→(Fₙ₊₁,Fₙ+Fₙ₊₁)</b>; φ, Cassini and the spiral are readouts of that pair, not operators on chemistry, Life or spin.</p></div>
+      <div class="fibonacci-motor-status"><span>VIEW STATUS</span><b>1 CLOCK → 1 EXACT PAIR</b><small>domain operators unchanged</small></div>
+    </div>
+    <div class="fibonacci-motor-controls">
+      <label>Sequence address n <input id="fibonacciPhase" type="range" min="0" max="30" value="0"><b id="fibonacciPhaseValue">0</b></label>
+      <button id="fibonacciStep" type="button">Step shared clock +1</button>
+      <label class="fibonacci-follow"><input id="fibonacciFollow" type="checkbox" checked> Follow Three-Domain clock</label>
+    </div>
+    <div class="fibonacci-live-path" id="fibonacciLivePath" data-mode="clock" aria-live="polite"><span>LIVE</span><b id="fibonacciGeneration">g0</b><i>→</i><b id="fibonacciN">n0</b><i>→</i><b id="fibonacciPairValue">(0, 1)</b><i>→</i><b id="fibonacciRatioValue">ratio —</b></div>
+    <div class="fibonacci-dual-readout">
+      <div><span>EXACT RECURRENCE</span><b id="fibonacciCurrent">F₀ = 0</b><code>(a,b) → (b,a+b)</code></div>
+      <div class="fibonacci-keystone"><span>KEYSTONE</span><b id="fibonacciCassiniValue">Cassini +1</b><code>Fₙ₊₁Fₙ₋₁−Fₙ²=(−1)ⁿ</code></div>
+      <div><span>PROPORTION</span><b id="fibonacciPhiValue">Δφ —</b><code>Fₙ₊₁/Fₙ → φ</code></div>
+    </div>
+    <div class="fibonacci-rail" id="fibonacciRail" aria-label="Thirty-one-step exact Fibonacci rail"></div>
+    <div class="fibonacci-domain-context" aria-label="Domain event counts shown as context, not Fibonacci inputs"><article><span>CHEMISTRY EVENTS</span><b id="fibonacciChemistryEvents">—</b></article><article><span>LIFE EVENTS</span><b id="fibonacciLifeEvents">—</b></article><article><span>SPIN EVENTS</span><b id="fibonacciPhysicsEvents">—</b></article><article><span>MATRIX</span><b>[[0,1],[1,1]]</b></article></div>
+    <p class="fibonacci-boundary"><b>Boundary:</b> <code>n=g mod 31</code> is a non-injective clock projection and not a Fibonacci return. The golden-angle spiral is display geometry. Domain event counts are shown beside the sequence but never modify it.</p>
+  </section>
+
+  <section class="ihara-motor" id="iharaMotor" data-clock="three-domain" aria-labelledby="iharaMotorTitle">
+    <div class="ihara-motor-head">
+      <div><p class="eyebrow">03·I · IHARA VIEW · SHARED CLOCK ADAPTER</p><h2 id="iharaMotorTitle">Directed edge ⇄ non-backtracking continuation</h2><p>The shared generation selects one directed-edge state of a finite graph. The Hashimoto operator exposes the allowed next states and the forbidden immediate return; it never changes chemistry, Life or spin.</p></div>
+      <div class="ihara-status"><span>VIEW STATUS</span><b>FINITE GRAPH → HASHIMOTO READOUT</b><small>existing A0 Ihara boundary retained</small></div>
+    </div>
+    <figure class="ihara-lens-map" aria-labelledby="iharaLensMapTitle">
+      <figcaption id="iharaLensMapTitle">What the Ihara lens translates</figcaption>
+      <svg viewBox="0 0 1100 300" role="img" aria-labelledby="iharaLensSvgTitle iharaLensSvgDesc">
+        <title id="iharaLensSvgTitle">Ihara lens translation diagram</title>
+        <desc id="iharaLensSvgDesc">The shared generation selects a directed edge. The lens blocks its immediate reversal, permits non-backtracking continuations and returns path, trace and determinant readouts without changing the three domain models.</desc>
+        <defs><marker id="iharaLensArrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10Z"></path></marker></defs>
+        <g class="ihara-map-context"><text x="90" y="34">CONTEXT</text><rect x="22" y="52" width="136" height="36" rx="18"></rect><text x="90" y="75">chemistry</text><rect x="22" y="100" width="136" height="36" rx="18"></rect><text x="90" y="123">Life</text><rect x="22" y="148" width="136" height="36" rx="18"></rect><text x="90" y="171">spin</text><text x="90" y="216">not operator inputs</text></g>
+        <g class="ihara-map-clock"><rect x="190" y="103" width="130" height="70" rx="12"></rect><text x="255" y="129">SHARED CLOCK</text><text id="iharaDiagramGeneration" x="255" y="156">g0</text></g>
+        <path class="ihara-map-arrow" d="M320 138H406"></path>
+        <g class="ihara-map-lens"><ellipse cx="540" cy="138" rx="130" ry="112"></ellipse><text x="540" y="58">IHARA LENS</text><circle cx="540" cy="138" r="48"></circle><text id="iharaDiagramState" x="540" y="144">u0→u1</text><path class="ihara-map-allowed" d="M578 112C640 65 680 67 724 86"></path><path class="ihara-map-allowed" d="M584 154C644 190 680 192 724 178"></path><path class="ihara-map-blocked" d="M505 170C450 220 446 84 505 105"></path><text x="664" y="50">allowed c ≠ a</text><text id="iharaDiagramAllowedOne" x="730" y="91">u1→u2</text><text id="iharaDiagramAllowedTwo" x="730" y="183">u1→v1</text><text x="456" y="252">blocked b→a</text></g>
+        <path class="ihara-map-arrow" d="M802 138H858"></path>
+        <g class="ihara-map-output"><text x="972" y="34">READOUTS</text><rect x="865" y="52" width="214" height="48" rx="10"></rect><text x="972" y="73">NON-BACKTRACKING PATH</text><text x="972" y="90">8 directed steps</text><rect x="865" y="112" width="214" height="48" rx="10"></rect><text x="972" y="133">CLOSED WALKS</text><text id="iharaDiagramTrace" x="972" y="150">tr(B¹) = 0</text><rect x="865" y="172" width="214" height="62" rx="10"></rect><text x="972" y="194">DOUBLE ENTRY</text><text x="972" y="212">det(I−uB) ⇄ Ihara–Bass</text><text id="iharaDiagramU" x="972" y="228">u = 0.180</text></g>
+        <text class="ihara-map-boundary" x="550" y="286">generation selects an address · the lens observes · all three domain operators remain unchanged</text>
+      </svg>
+    </figure>
+    <div class="ihara-controls">
+      <label>Carrier <select id="iharaGraph"><option value="dodecahedron">G(10,2) · cubic</option><option value="pentagon">C5 · five-joint</option><option value="tree">Tree · negative control</option></select></label>
+      <label>Directed-edge address <input id="iharaPhase" type="range" min="0" max="59" value="0"><b id="iharaPhaseValue">0</b></label>
+      <label>Evaluation u <input id="iharaU" type="range" min="0.05" max="0.45" step="0.01" value="0.18"><b id="iharaUValue">0.180</b></label>
+      <button id="iharaStep" type="button">Step shared clock +1</button>
+      <label><input id="iharaFollow" type="checkbox" checked> Follow Three-Domain clock</label>
+    </div>
+    <div class="ihara-live" aria-live="polite"><span>LIVE</span><b id="iharaGeneration">g0</b><i>→</i><b id="iharaState">—</b><i>allows</i><b id="iharaAllowed">—</b><i>blocks</i><b id="iharaBlocked">—</b></div>
+    <div class="ihara-readout"><div><span>TRACE ADDRESS</span><b id="iharaTrace">—</b></div><div><span>DET(I−uB)</span><b id="iharaOperator">—</b></div><div><span>IHARA–BASS</span><b id="iharaBass">—</b></div><div><span>REGULAR RADIUS</span><b id="iharaRadius">—</b></div></div>
+    <div class="ihara-path"><span>DETERMINISTIC 8-STEP NON-BACKTRACKING WALK</span><code id="iharaPath">—</code></div>
+    <div class="ihara-traces"><div><span>CLOSED ROOTED WALKS</span><b>tr(Bᵏ), k=1…10</b></div><div class="ihara-trace-rail" id="iharaTraceRail" aria-label="Hashimoto trace histogram"></div></div>
+    <div class="ihara-counts"><div><span>VERTICES</span><b id="iharaVerticesDetail">—</b></div><div><span>EDGES</span><b id="iharaEdgesDetail">—</b></div><div><span>DIRECTED STATES</span><b id="iharaDirectedDetail">—</b></div><div><span>DOUBLE-ENTRY GAP</span><b id="iharaGapDetail">—</b></div></div>
+    <p class="ihara-boundary"><b>Boundary:</b> finite graphs, directed-edge states, Hashimoto transitions, traces and the Ihara–Bass determinant identity only. The circles and central joint are display geometry. No Riemann-zeta identity, physical resonance, particle path, privileged Fibonacci mechanism or cross-domain law is asserted.</p>
+  </section>
+
+  <section class="k-teller-motor" id="kTellerMotor" aria-labelledby="kTellerMotorTitle">
+    <div class="k-teller-head"><div><p class="eyebrow">03·K · k · NEG TELLER · Q° CHECKPOINT</p><h2 id="kTellerMotorTitle">Negative ledger ⇄ exact witnessed Return</h2><p>The plate reads the three existing <b>k · NEG</b> channels. Q° carries model, boundary, threshold and time. A full hidden checkpoint preserves the actual domain states required for exact Return.</p></div><div class="k-teller-return"><button id="kTellerCapture" type="button">CAPTURE Q°</button><button id="kTellerReturn" type="button" disabled>RETURN</button></div></div>
+    <div class="k-teller-grid"><div><span>CHEMISTRY · k NEG</span><b id="kTellerChemistryDetail">—</b></div><div><span>LIFE · k NEG</span><b id="kTellerLifeDetail">—</b></div><div><span>SPIN · k NEG</span><b id="kTellerPhysicsDetail">—</b></div><div><span>Σ NEGATIVE</span><b id="kTellerTotalDetail">—</b></div><div><span>Q°</span><b id="kTellerGeneration">t0</b></div></div>
+    <p><b>Q° context:</b> <span id="kTellerQ">—</span></p><output class="k-teller-status" id="kTellerReturnStatus" aria-live="polite">HOLD · capture required</output>
+    <p class="k-teller-boundary"><b>Boundary:</b> <code>k</code> here is the existing typed negative/death/down-flip ledger channel, not the exponent in <code>tr(Bᵏ)</code>. The Teller is a lossy display. Exact Return is claimed only when the complete captured pair states, histories, controller values and generation are restored and their witness matches.</p>
+  </section>
+
+  <section class="blue-body-motor" id="blueBodyMotor" aria-labelledby="blueBodyMotorTitle">
+    <div class="blue-body-head"><div><p class="eyebrow">03·B48 · BLUE BODY ADDRESS LENS · EXISTING SOURCE MODEL</p><h2 id="blueBodyMotorTitle">One address · two ledgers · witnessed Return</h2><p>The shared generation is projected into the existing 48-step Fibonacci–Euler construction. The left ledger shows the Q4 address; the right ledger shows the same <code>Q4×P3</code> source record through AM, VM or PM coordinates.</p></div><div class="blue-body-status"><span>SOURCE CARRIER</span><b>MOD:TESSAREC:Q4xP3</b><small id="blueBodyReturnReceipt">HOLD · awaiting render</small></div></div>
+    <div class="blue-body-controls">
+      <button type="button" data-blue-body-focus="AM" aria-pressed="true">AM · XY</button><button type="button" data-blue-body-focus="VM" aria-pressed="false">VM · YZ</button><button type="button" data-blue-body-focus="PM" aria-pressed="false">PM · ZX</button>
+      <label>Address step k <input id="blueBodyStep" type="range" min="0" max="47" value="0"><b id="blueBodyStepValue">0</b></label>
+      <button id="blueBodyClockStep" type="button">Step shared clock +1</button><label><input id="blueBodyFollow" type="checkbox" checked> Follow Three-Domain clock</label>
+      <button id="blueBodyCapture" type="button">Capture Q°</button><button id="blueBodyReturn" type="button" disabled>Return</button>
+    </div>
+    <div class="blue-body-flow" aria-label="Typed Blue Body address chain"><div><span>GENERATION</span><b id="blueBodyGeneration">g0</b></div><div><span>u = frac(k/φ)</span><b id="blueBodyU">—</b></div><div><span>θ = 2πu</span><b id="blueBodyTheta">—</b></div><div><span>z = eⁱᶿ</span><b id="blueBodyZ">—</b></div><div><span>rank₄₈</span><b id="blueBodyRank">—</b></div><div><span>×7 mod 48</span><b id="blueBodyEulerAddress">—</b></div><div><span>Q4×P3</span><b id="blueBodySourceKey">—</b></div></div>
+    <canvas class="blue-body-canvas" id="blueBodyDetailCanvas" width="1200" height="760" aria-label="Detailed Blue Body address lens showing House ledger and relation ledger"></canvas>
+    <div class="blue-body-return"><code id="blueBodyQ">Q° · awaiting render</code><output id="blueBodyCheckpointStatus" aria-live="polite">HOLD · capture required</output></div>
+    <div class="blue-body-links"><a href="../../../A0_TESSAREC_BLUE_BODY_LAB.html#lab">Blue Body · lab overview →</a><a href="../../../A0_TESSAREC_BLUE_BODY_LAB.html#pentagon-body-player">Full 48-state player →</a><a href="../../../A0_TESSAREC_BLUE_BODY_LAB.html#fibonacci-ring-operator">φ–π–Euler source comparison →</a></div>
+    <p class="blue-body-boundary"><b>Boundary:</b> this is a clock-to-address projection between distinct carriers. It does not identify Chemistry, Life or Spin with <code>Q4×P3</code>, does not feed back into their dynamics and does not claim a natural Fibonacci–Euler, physical-body or universal mechanism.</p>
+  </section>
+
+  <section class="transition-montage" aria-label="03 B Exact Transition Montage">
+    <div class="montage-head">
+      <div>
+        <p class="eyebrow">03·B · A0-BL-031 REPRESENTATION GRAMMAR REUSE</p>
+        <h2>Graph und Fläche sind zwei Ansichten derselben Montage.</h2>
+        <p>Jede Zelle eines Schritts wird exakt einmal gezählt. Links erscheint dieselbe 2×2-Transitionsrelation als Fläche, rechts als vier gewichtete Kanäle zwischen den Zustands-Pillars von <i>t</i> und <i>t+1</i>.</p>
+      </div>
+      <div class="montage-badge"><span>RELATION BINDING</span><b>ART:A0:MATHEMATICAL_JOINTS</b><small>reuse · no Pascal identity</small></div>
+    </div>
+    <div class="montage-equation" aria-label="Exact transition ledger equation">
+      <b>C₀₀ + C₀₁ + C₁₀ + C₁₁ = N</b>
+      <span>exact partition · source and target marginals preserved</span>
+    </div>
+    <div class="montage-grid">
+      <article data-montage="chemistry"><div><span>CHEMISTRY</span><b>Thresholded concentration</b></div><canvas id="montageChemistry" width="700" height="500" aria-label="Chemistry transition area and channel graph"></canvas><p id="montageChemistryEquation">awaiting state</p></article>
+      <article data-montage="life"><div><span>BIOLOGY LENS</span><b>Conway Life</b></div><canvas id="montageLife" width="700" height="500" aria-label="Life transition area and channel graph"></canvas><p id="montageLifeEquation">awaiting state</p></article>
+      <article data-montage="physics"><div><span>PHYSICS MODEL</span><b>Spin field</b></div><canvas id="montagePhysics" width="700" height="500" aria-label="Physics transition area and channel graph"></canvas><p id="montagePhysicsEquation">awaiting state</p></article>
+    </div>
+    <div class="montage-legend"><span class="c00"><b>C₀₀</b> 0→0 inactive</span><span class="c01"><b>C₀₁</b> 0→1 birth / positive</span><span class="c11"><b>C₁₁</b> 1→1 survive / retained</span><span class="c10"><b>C₁₀</b> 1→0 death / negative</span><span class="q"><b>Q°</b> model · boundary · threshold · time</span></div>
+    <p class="montage-boundary"><b>Claim boundary:</b> This is an exact finite transition ledger and a reversible change of representation. The common montage makes ratios comparable; it does not make chemistry, Life and spin dynamics the same object, mechanism or law.</p>
+  </section>
+
+  <section class="replication-inline" aria-label="Integrated replication matrix">
+    <div class="rep-head"><div><p class="eyebrow">INTEGRATED REPLICATION · SAME THREE VIEWS</p><h2>Boundary Sensitivity Atlas</h2><p>The live cards above show one synchronized moment. This layer repeats the same three operators across seed banks and records how much of each trajectory changes at the cylinder seam.</p></div><div class="rep-badge"><span>MODEL BENCHMARK</span><b id="repFingerprint">awaiting run</b></div></div>
+    <div class="rep-controls"><label>Seeds<select id="repSeedCount"><option value="6" selected>6 · quick</option><option value="12">12 · standard</option></select></label><label>Horizon<select id="repHorizon"><option value="40" selected>40</option><option value="60">60</option><option value="100">100</option></select></label><label>Base seed<input id="repBaseSeed" type="number" value="34017"></label><button id="repRun" type="button">Run / replay</button><button id="repNext" type="button">Next seed bank</button><span id="repStatus">Same setup returns the same curve.</span></div>
+    <div class="rep-summary"><article><span>CHEMISTRY</span><b id="repChem">—</b></article><article><span>LIFE</span><b id="repLife">—</b></article><article><span>SPIN</span><b id="repPhysics">—</b></article><article><span>RETURN ORDER</span><b id="repOrder">—</b></article></div>
+    <div class="rep-views"><div><h3>Response curves</h3><canvas id="repCurve" width="1000" height="380" aria-label="Integrated boundary response curves"></canvas></div><div><h3>Seed × reading</h3><div id="repMatrix" class="rep-matrix" role="table" aria-label="Integrated replication heatmap"></div></div></div>
+    <p id="repConclusion" class="rep-conclusion">The matrix remains a comparative lens: common measurement, distinct semantics and mechanisms.</p>
+  </section>
+
+  <section class="shared-test">
+    <div class="shared-head"><div><p class="eyebrow">COMMON MEASUREMENT · DISTINCT SEMANTICS</p><h2>Topology return</h2></div><div class="legend"><span class="chem">Chem model</span><span class="life">Artificial Life</span><span class="phys">Spin model</span></div></div>
+    <canvas id="historyCanvas" width="1600" height="330" aria-label="Component and cycle histories for all three models"></canvas>
+    <div class="grammar"><span><b>1</b> all active transitions</span><span><b>i</b> positive / birth / up-flip</span><span><b>j</b> retained / survive / positive hold</span><span><b>k</b> negative / death / down-flip</span><span><b>Q°</b> model · boundary · time</span></div>
+  </section>
+
+  <section class="audit">
+    <h2>ILAU translation audit</h2>
+    <div><b>I · retained</b><span>addressed state transition, time order, β₀/β₁ measurement and boundary comparator</span></div>
+    <div><b>L · lost</b><span>chemical amplitude is thresholded; microscopic chemistry and physical units are not represented</span></div>
+    <div><b>A · added</b><span>shared colors, 4+1 lane names and spatial separation are observation geometry</span></div>
+    <div><b>U · unresolved</b><span>no shared mechanism, causal identity, empirical biology or cross-domain law is established</span></div>
+  </section>
+
+  <footer><div><a href="../index.html">Return to GAME 4 LIFE +1</a> · <a href="../../../../../../../../10%20NEXAH%20CORE/NEXAH/APPLICATIONS/game4life_plus1/three-domain-transition-test/replication-matrix/index.html">Window 04 · Replication matrix →</a></div><span>EXPLORATORY LENS · NOT A LIFE08 RESULT · NO PUBLICATION STATUS</span></footer>
+</main>
+<script src="domain-engine.js"></script>
+<script src="replication-matrix/replication-engine.js"></script>
+<script src="transition-montage.js"></script>
+<script src="../logarithmic-gearbox.js"></script>
+<script src="euler-view.js"></script>
+<script src="../../../a0-game-of-worlds-model.js"></script>
+<script src="fibonacci-view.js"></script>
+<script src="../../a0-ihara-hashimoto-model.js"></script>
+<script src="ihara-view.js"></script>
+<script src="k-teller-view.js"></script>
+<script src="../../a0-tessarec-blue-body-v1.js"></script>
+<script src="../../a0-blue-body-interior-crt16-v1.js"></script>
+<script src="../../a0-blue-body-life-transfer-v1.js"></script>
+<script src="../../a0-pentagon-body-player-v1.js"></script>
+<script src="blue-body-view.js"></script>
+<script src="atlas-contracts.js?v=20261022"></script>
+<script src="app.js"></script>
+<script src="replication-inline.js"></script>
+<script src="../../../a0-game-of-worlds-play-stage.js"></script>
+  <script src="../../../nexahedron-public-navigation.js?rev=public-current-20261022"></script>
+</body>
+</html>

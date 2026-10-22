@@ -1,0 +1,163 @@
+{
+  "schema": "nexah.a0.root7-q4-coupling.build-record/1",
+  "date": "2026-10-17",
+  "status": "LOCAL_VIEW_ADAPTER_NOT_SCIENTIFIC_REOPEN",
+  "existingCarrier": "MOD:TESSAREC",
+  "existingArtifact": "ART:TESSAREC:ROOT_SPACE_8_16",
+  "sourceClock": "existing OCB rootSpaceEngine only",
+  "encoding": {
+    "printedBits": "b3 b2 b1 b0",
+    "leastSignificantBitFirstRootLabels": [
+      2,
+      3,
+      5,
+      7
+    ],
+    "signs": "2*b_i-1",
+    "metricCoordinates": "(2*b0,b1,b2,b3)",
+    "metricWeights": [
+      2,
+      1,
+      1,
+      1
+    ],
+    "referenceEndpoint": [
+      2,
+      1,
+      1,
+      1
+    ],
+    "referenceNormSquared": 7,
+    "matchingBridgeStep": 1
+  },
+  "claimBoundary": "Declared sign and metric view; no source-axis identification, field norm, physics, E8 identity or source LOOK modification.",
+  "sources": [
+    {
+      "role": "unchanged-source-controller",
+      "path": "a0-orientation-controller-bench.js",
+      "sha256": "26216e1b2276bd2859b3c751de5e81b6440b6bcf33583c51302ba7a6fe913757"
+    },
+    {
+      "role": "new-view-adapter",
+      "path": "a0-root7-q4-coupling.js",
+      "sha256": "5036d0f8d6521a40917e951bd600ac38e33d6260980d0b920b96f8cf19c924d4"
+    },
+    {
+      "role": "existing-root7-look-binding",
+      "path": "../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_ROOT7_LOOK_ORIENTATION_2026-10-08/SOURCE_BINDING.json",
+      "sha256": "16df6e60e578b50a0fec7d8edd02562b05bee08835c184fb300cbfb85147ba22"
+    },
+    {
+      "role": "exact-sign-state-fixture",
+      "path": "../../../SCIENCE_LAB/EXPORTS/NEXAH_TESSERACT_ROOT_SPACE_8_TO_16.html",
+      "sha256": "fcae2a8d1955be4102622747fb48d585c066352e784f0a749b424fa81fe25388"
+    },
+    {
+      "role": "historical-family-master",
+      "path": "../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_ROOT7_CUSTODY_2026-09-28/Nexah_Root7/NEXAH_Root7_Tesseract_Bridge copy 2.html",
+      "sha256": "bf1dbfdcf5f4ed06b22cd0d1c88b227e711415036ab790cc46d3c86a4231e670"
+    },
+    {
+      "role": "scientific-decision-authority",
+      "path": "https://nexah.de/",
+      "sha256": "05c44e39e62f71093d2056b8179800c88ccfb09b97b48422184f9bd735c99149"
+    },
+    {
+      "role": "custody-status-authority",
+      "path": "https://nexah.de/",
+      "sha256": "0298659e9e90900e7c2ca00b7b731c067f8e0ee4241a2c3c8e3ebf2eb7b3c852"
+    },
+    {
+      "role": "section-and-two-mirror-view-model",
+      "path": "a0-root7-section-mirror.js",
+      "sha256": "97d86514f259c42e001b8c97272fb58ad3aff7459bf7b88a6db5f17d991fccb3"
+    },
+    {
+      "role": "declared-open-book-view-model",
+      "path": "a0-root7-open-book.js",
+      "sha256": "e06d63fa65855fa6f620f7b84c40983dcea2d938fb61ea41312c3f923bd41709"
+    }
+  ],
+  "verification": {
+    "root7ModelHashAndSimulatedControllerChecks": 354,
+    "existingOcbControlGroups": 65,
+    "tourNavigationChecksAfterRoot7Links": 148,
+    "sourceHashes": "checked by a0-root7-q4-coupling-tests.cjs; not a browser-time hash assertion",
+    "liveBrowser": false,
+    "sourceGraph": "PASS; 19 components, canonical counts unchanged",
+    "navigatorApp": "246/246 PASS",
+    "unchangedRoot7LookAudit": "10/10 PASS",
+    "missionControlCatalog": "rebuilt; 1273 items, 717 HTML entries",
+    "missionControlCurrentness": "INVALID: same six pre-existing source IDs with hash mismatches; OCB observed hash changed by this authorized edit; no baseline hashes rewritten",
+    "sectionMirrorGeometryAndDomChecks": 5885,
+    "svgRenderer": "rsvg-convert; open-book 120° and flat 180° visually inspected; prior section preview retained. No live browser QA.",
+    "openBookGeometryAndDomChecks": 11158
+  },
+  "open": [
+    "Existing source reverse-step API reports an inconsistent history axis at 0000 to 1000; Root7 adapter rejects it. Forward UI unchanged; source not repaired here.",
+    "Source-exact rhombus/pentagon coordinates and relation to stretch-cuboid section remain unidentified. A separate declared book construction now exists.",
+    "Exact original HTML locators for supplied WNI-01 image 2 and TITAN-01 image 5 remain open after bounded Intake/Incoming/source search. Existing closed decisions are linked, not substituted as the originals."
+  ],
+  "authority": {
+    "newCanonicalIdentity": false,
+    "newGraphRelation": false,
+    "newStudy": false,
+    "publication": false,
+    "sourceClosedRecordsModified": false
+  },
+  "sectionMirror": {
+    "section": "2×1×1 cuboid; x/2+y+z=t; fixed w=source layer",
+    "manualDefaultT": 1.5,
+    "followRule": "t=3*tick/15; discontinuous reset at cycle return; display readout, not physics",
+    "basis": [
+      [
+        0,
+        0.7071067811865475,
+        -0.7071067811865475
+      ],
+      [
+        -0.9428090415820632,
+        0.2357022603955158,
+        0.2357022603955158
+      ]
+    ],
+    "mirrorAxes": "A=0°, B=theta in actual-metric orthonormal section-plane chart; origin=section centroid",
+    "composition": "A then B -> +2theta; B then A -> -2theta",
+    "triangulation": "hexagon fan from vertex 0 -> 4 triangles; no rhombus claim",
+    "export": "root7.sectionView includes source tick/layer, effective t, ordered exact intersection coordinates, area, mirror order and transformed plane vertices"
+  },
+  "openBook": {
+    "status": "DECLARED_CONSTRUCTION_NOT_SOURCE_RECONSTRUCTION",
+    "visualReference": {
+      "path": "[redacted-local-source]",
+      "sha256": "3c8df3d4f731c2a810c77d300eba477a1f083fa73964706455b040209ee8d0d3",
+      "title": "PRIME–Riemann Transport Dynamics / Dual Pentagon System",
+      "source": "user attachment visual 4 (also repeated as visual 5)",
+      "role": "visual correspondence only; image claims and equations not adopted; local-only attachment path"
+    },
+    "coordinates": "a=1/sqrt(3); rhombus (0,0),(a,1),(2a,0),(a,-1); add two hinge triangles -> non-regular pentagon (0,1),(a,1),(2a,0),(a,-1),(0,-1)",
+    "fold": "(+/-u*sin(alpha/2),v,u*cos(alpha/2)); alpha in [0,180] degrees",
+    "mirror": "(x,y,z)->(-x,y,z); fixes 1-O-4 hinge",
+    "addedVertices": [
+      "L*",
+      "R*"
+    ],
+    "sourceCorrespondence": [
+      "6<->2",
+      "5<->3"
+    ],
+    "followRule": "alpha=22.5*min(tick,16-tick); source clock only",
+    "flatDecomposition": "two rhombi plus four triangles; equals declared flat book hexagon, not identified with stretch-cuboid section",
+    "notImplemented": [
+      "source counter-rotation",
+      "source-exact pentagon geometry",
+      "prime/Riemann/transport mechanics"
+    ],
+    "exports": "root7.bookView includes source tick/layer, effective opening, focus, exact 3D page/rhombus/triangle coordinates, mirrored pairs and hinge"
+  },
+  "wingSequenceExtension": {
+    "path": "assets/a0-root7-wing-sequence-v1.json",
+    "asOf": "2026-10-17",
+    "scope": "read-only rigid wing pose, sequential crease use, camera-plane rotation and exact observation-plane intersections; no source result changed"
+  }
+}

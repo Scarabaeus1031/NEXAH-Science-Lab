@@ -1,0 +1,29 @@
+{
+  "schema": "nexah.a0.ocb-system-binder-package/1",
+  "date": "2026-10-18",
+  "status": "ENGINEERING_PASS_LIVE_ADAPTER_BROWSER_ACCEPTANCE_OPEN",
+  "identity": "NEXAH_AX0_QMODE_FOUNDATION_PACKAGE",
+  "instrument": "NEXAH_A0_ORIENTATION_CONTROLLER_BENCH",
+  "entry": "A0_ORIENTATION_CONTROLLER_BENCH.html#systemBinder",
+  "backlog": ["OCB-GAP-06", "OCB-GAP-07"],
+  "implementationFiles": [
+    {"path":"a0-system-binder.js","sha256":"ddf49d943edf7d7540274bdda7efa696d759489fc912f4be338344ddbf200745"},
+    {"path":"a0-system-binder.css","sha256":"6e1a97015d409db5e00c504ddabe463307964f1f0af1f7430c6acfefdff787fd"},
+    {"path":"a0-system-binder-tests.cjs","sha256":"14bd0b3eb61e20bef8cc9297031b4a2a35492e2500165189e1d85e86687f23a5"},
+    {"path":"A0_ORIENTATION_CONTROLLER_BENCH.html","sha256":"d111d3474ef663847b52392b798e7a56fcdf5d5cc44cc11500c77165f4e6edd5"},
+    {"path":"a0-orientation-controller-bench.js","sha256":"164dd5bc6bc5599dc570676d654110d4b80871adad3b2f11caacf381d6a02689"},
+    {"path":"a0-pentagon-contract.js","sha256":"0272ee2bb842fd29891c1251a71d1ef71bddac541dd9d78d77809242394a9d8a"},
+    {"path":"a0-pentagon-bench-adapter.js","sha256":"299d917cca9db59053189aefb9b31cf72e71505c4948c9096c732bfb45cea8df"},
+    {"path":"a0-life03-contract.js","sha256":"f806d7ef3384df6bf454de328f571794cae668a233bcf9ab356776bd06c615a7"},
+    {"path":"a0-life03-bench-adapter.js","sha256":"67944f89d77dfaa0a1476176c825a12f3c74f351c61b2cc4979b62d24038b7b8"},
+    {"path":"https://nexah.de/","sha256":"470573c324aee2cb0f184c8320fbda05f32f7720e8733ec337d98b5aa2b6e72d"},
+    {"path":"https://nexah.de/","sha256":"35bae59039ec9da60a2a13352aea85f39b47890990c265e99d999830a5ebb839"},
+    {"path":"A0_WERKBANK.html","sha256":"d335023fbaddf1d7efaa625f8daa71b2af46f3fe92810000681d128ce0217ed9"},
+    {"path":"A0_SCIENTIFIC_POSITION_REPORT.html","sha256":"c261686f91bd1a26f50e8f2e7d016cd49a220fbd1f7f3c7d28d9cb44ef7e8c2a"}
+  ],
+  "systems": ["orientation","pentagon","life03","dodeca"],
+  "verification": {"checks":51,"baseRegression":true,"inlineScriptSyntax":true,"liveAdapterBrowserRun":false,"manualMultiViewportPixels":false},
+  "contracts": {"sharedCarrier":false,"sharedClock":false,"simultaneousSnapshot":false,"typedHandoffs":true,"wholeMachineReturn":false},
+  "authority": {"newCanonicalIdentity":false,"newCanonicalRelation":false,"newFamily":false,"researchExecution":false,"scientificClaimPromotion":false,"publication":false},
+  "boundary": "Local engineering Binder over existing source-owned adapters. It coordinates session lifecycle and records, but does not merge carriers, clocks, mechanisms or scientific identities."
+}

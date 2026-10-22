@@ -1,0 +1,35 @@
+{
+  "recordType": "A0_TESSAREC_HEPTAGON_BRIDGE_ENGINEERING_RECORD",
+  "version": "1.2.0",
+  "date": "2026-10-14",
+  "identity": "MOD:TESSAREC",
+  "status": "CONSTRUCTIVE_COMBINATORIAL_CANDIDATE",
+  "singleShell": {"vertices":48,"edges":72,"faces":26,"faceVector":{"octagons":2,"pentagons":16,"hexagons":8},"wirelength":280},
+  "disjointDouble": {"vertices":96,"edges":144,"faces":52,"euler":4,"faceVector":{"octagons":4,"pentagons":32,"hexagons":16,"heptagons":0},"carrierStates":96,"carrierEdges":256,"wirelength":560},
+  "connectedTarget": {"vertices":96,"edges":144,"faces":50,"euler":2,"faceVector":{"octagons":4,"pentagons":32,"hexagons":2,"heptagons":12}},
+  "seamLedger": {"removedHexagons":14,"removedSides":84,"insertedHeptagons":12,"insertedSides":84,"identity":"14*6 = 12*7 = 84"},
+  "curvatureLedger": {"rule":"p5 - p7 - 2*p8 = 12 for a connected cubic spherical shell","disconnectedCharge":24,"connectedCharge":12},
+  "constructiveSearch": {"method":"deterministic edge-flip search on the 50-vertex triangulation dual","seed":7080,"iterations":600000,"accepted":216039,"score":0,"found":true,"dualTriangulation":{"vertices":50,"edges":144,"faces":96,"euler":2,"manifold":true,"distinctFaces":true,"degreeHistogram":{"5":32,"6":2,"7":12,"8":4}},"canonicalFaceHashSha256":"e6d22663803f5bffaefc4d8df0de2dcf6667766f64d2b176a596b65e77e9c31a"},
+  "carrierNamespace": {"disjoint2xQ4xP3":{"states":96,"edges":256,"wirelength":560},"Q4xP6":{"states":96,"edges":272},"Q4xC6":{"states":96,"edges":288}},
+  "wordRotationComparator": {
+    "status": "BOUNDED_TYPED_COMPARATOR",
+    "typedWord": {"tokens":[4,7,7,4],"label":"4|7|7|4","decimalConcatenation":4774,"palindrome":true,"digitSum":22,"factorization":[2,7,11,31],"interpretation":"TOKEN_WORD_NOT_PRODUCT"},
+    "primeAddress": {"4":"2^2","7":"p4","17":"p7","34":"p1*p7"},
+    "sigma34": {"modulus":34,"divisor":2,"step":17,"additiveOrder":2,"plusEqualsMinus":true,"verdict":"PASS_EXACT_HALF_TURN"},
+    "sigma40": {"modulus":40,"divisor":3,"quotient":"40/3","quotientIsInteger":false,"gcdDivisorModulus":1,"nonzeroOrderThreeExists":false,"verdict":"HOLD_SCALAR_ONLY_NOT_DISCRETE_THIRDS"},
+    "root40": {"coordinates":[2,2,4,4],"squares":[4,4,16,16],"normSquared":40,"imaginarySquares":[4,16,16],"imaginaryTotal":36,"imaginaryMean":12,"imaginaryEqual":false},
+    "claimBoundary": "4|7|7|4 is a typed palindrome, not a multiplication instruction. 34/2 closes as an order-2 translation in Z34. 40/3 remains a scalar quotient and does not define equal discrete thirds or a nonzero order-3 translation in Z40."
+  },
+  "m7GridSwitch": {
+    "status": "BOUNDED_INTERFACE_VIEW",
+    "order": ["duerer34", "seam4774", "ratio432", "return440"],
+    "views": {
+      "duerer34": {"label":"Dürer Σ34","status":"EXACT_GRID","values":[16,2,3,13,5,11,10,8,9,7,6,12,4,14,15,1],"readout":"1..16; every row, column and main diagonal sums to 34"},
+      "seam4774": {"label":"Seam 4|7|7|4","status":"TYPED_VIEW","values":[4,7,7,4,7,4,4,7,7,4,4,7,4,7,7,4],"readout":"mirrored typed seam word; not a magic-square claim"},
+      "ratio432": {"label":"Ratio 4:3:2","status":"SCHEMATIC_VIEW","values":[4,3,2,4,3,2,4,3,2,4,3,2,4,3,2,4],"readout":"counter-rotation cadence view; no dynamics law"},
+      "return440": {"label":"Return 4:4:0","status":"SCHEMATIC_VIEW","values":[4,4,0,0,4,0,0,4,0,0,4,4,0,4,4,0],"readout":"return / hold routing mask; no conservation claim"}
+    },
+    "claimBoundary": "M7 names the interface operator only and is not H7. H7 remains the exact count of twelve heptagon seam faces. Only duerer34 is an exact magic-square grid; all other M7 views are typed or schematic."
+  },
+  "claimBoundary": "The result constructs a combinatorial cubic planar dual with the requested face vector. It does not yet supply a non-self-intersecting geometric realization, a connected-carrier embedding, an embedding optimum, physical meaning, or external novelty proof. The 560 wirelength belongs only to the disjoint doubled carrier/host baseline."
+}

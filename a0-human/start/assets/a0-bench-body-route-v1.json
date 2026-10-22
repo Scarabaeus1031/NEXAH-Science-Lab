@@ -1,0 +1,67 @@
+{
+  "schema": "a0.bench-body-route/1",
+  "date": "2026-10-19",
+  "existing_identity": "MOD:NUMBER_VIEW_SUITE",
+  "canonical_count_effect": 0,
+  "publication_authorized": false,
+  "sources": [
+    {
+      "path": "A0_TESSAREC_BLUE_BODY_LAB.html",
+      "sha256": "cb042c9f4e4af6209103793cf33b82d2e14563b45909d59d0485fc15f1cb5364"
+    },
+    {
+      "path": "A0_BLUE_PINK_DODECA_CELL_RETURN.html",
+      "sha256": "11dfa578cb0e7257b855c9a5c4489b93fe051a20440d8536dbffaafa199c22d9"
+    },
+    {
+      "path": "assets/a0-blue-body-interior-crt16-v1.js",
+      "sha256": "be2746d167ca691e416111a16b3aef2c169d0a80766471ce7d580abd5bb2d8e5"
+    },
+    {
+      "path": "assets/a0-pentagon-body-player-v1.js",
+      "sha256": "01e4224ee405bef4b240f66156ebdb49026b413e765e2d268bf8b90076bcf456"
+    },
+    {
+      "path": "a0-one-flow.js",
+      "sha256": "820ff178a3770da743067bcb2abd5fce2e6f22102d1facc96c8796e31319564c"
+    },
+    {
+      "path": "a0-dodeca-source-runtime.js",
+      "sha256": "b08e096aac63058a5b76b94bdf4c7b1846d025110a89348b718ebf1689decbea"
+    }
+  ],
+  "routes": [
+    {
+      "id": "interior",
+      "path": "A0_TESSAREC_BLUE_BODY_LAB.html#blue-body-interior-crt16",
+      "role": "I16 × P3 → Q4 × P3; 48 addresses",
+      "session": "shared Body Lab"
+    },
+    {
+      "id": "player",
+      "path": "A0_TESSAREC_BLUE_BODY_LAB.html#pentagon-body-player",
+      "role": "48-state record and Blue Body host",
+      "session": "shared Body Lab"
+    },
+    {
+      "id": "dodeca",
+      "path": "A0_BLUE_PINK_DODECA_CELL_RETURN.html#cells",
+      "role": "4 × 12 satellite slots + 12 return slots",
+      "session": "existing nativeFaceSourceFrame"
+    },
+    {
+      "id": "flow",
+      "path": "A0_BLUE_PINK_DODECA_CELL_RETURN.html#oneFlow",
+      "role": "One Flow example geometry / band / grid",
+      "session": "existing nativeFaceSourceFrame"
+    }
+  ],
+  "boundaries": [
+    "No original source edits or duplicated geometry engines.",
+    "Selecting routes scrolls existing documents; opaque file origins use ordinary fragment navigation retaining the exact source URL/query. No new source window or replacement page. Browser state continuity remains unaccepted.",
+    "Comparisons are independent read-only observations, not simultaneous, not shared-clock, not whole-machine return.",
+    "48 source addresses are not 60 face slots or One Flow coordinates.",
+    "Body Lab unload discards its live state; captured comparison is retained but not restorable.",
+    "Existing Native Face / Sewing / Source Lineage paths retained; no new canonical graph relation."
+  ]
+}

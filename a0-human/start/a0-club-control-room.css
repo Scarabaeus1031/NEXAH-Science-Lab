@@ -1,0 +1,16 @@
+.club-control-room{margin:1.2rem 0;padding:clamp(16px,3vw,32px);border:1px solid #45cee0;border-radius:20px;background:linear-gradient(135deg,#103640,#081923 65%);color:#dcecf2}
+.club-control-room[hidden]{display:none}
+.club-control-room header small{color:#f5c657;letter-spacing:.12em}
+.club-control-room h2{font-size:clamp(26px,4vw,48px);margin:.4rem 0}
+.club-control-room p{color:#9fb9c5;max-width:85ch}
+.control-elevator-layout{display:grid;grid-template-columns:minmax(0,3fr) minmax(220px,1fr);gap:24px;align-items:start}
+#controlElevatorGrid{border:1px solid #31505c;border-radius:14px;padding:12px;background:#061720}
+#controlElevatorGrid svg{display:block;width:100%;height:auto;font:11px ui-monospace,monospace}
+#controlElevatorStatus{display:block;padding:16px 0;color:#ffe3a1;font:13px/1.7 ui-monospace,monospace}
+#controlCarrierList{display:grid;gap:8px}
+#controlCarrierList button{padding:12px;text-align:left;border:1px solid #31505c;border-radius:8px;background:#0b202b;color:#9bbbc6;cursor:pointer}
+#controlCarrierList button[aria-pressed=true]{border-color:#f5c657;background:#463b20;color:#ffe3a1;box-shadow:0 0 15px #f5c65733}
+#controlCarrierList button:disabled{cursor:default;opacity:.65}
+.club-control-room a{color:#56deed}
+.club-view-switch{flex-wrap:wrap}
+@media(max-width:850px){.control-elevator-layout{grid-template-columns:1fr}#controlCarrierList{grid-template-columns:repeat(auto-fit,minmax(210px,1fr))}}

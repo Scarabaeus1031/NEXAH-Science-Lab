@@ -1,0 +1,149 @@
+{
+  "schema": "nexah.a0.ocb-showcase-tour-package/1",
+  "date": "2026-10-19",
+  "status": "ENGINEERING_PASS_LIVE_BROWSER_ACCEPTANCE_OPEN",
+  "identity": "NEXAH_A0_ORIENTATION_CONTROLLER_BENCH",
+  "entry": "A0_ORIENTATION_CONTROLLER_BENCH.html#benchShowcase",
+  "stationCount": 56,
+  "clockTour20261020": {"stations":6,"chapter":"Blue/Pink → Maske","directStart":"benchTourClockDemo","confirmation":"native ACK and mask readback; HOLD stops this segment","reducedMotion":"no automatic PLAY","wholeMachineReturn":false},
+  "m3Views": [
+    "unrolled",
+    "cylinder",
+    "top",
+    "slice"
+  ],
+  "engineScope": [
+    "M3",
+    "APERTURE_STACK",
+    "MASTER",
+    "PENT_SOURCE_ADAPTER",
+    "LIFE03_SOURCE_ADAPTER",
+    "NATIVE_DODECA_FACE",
+    "AIL_APERTURE_CONTROL",
+    "FOUR_APERTURE_NINEFOLD",
+    "OCB_RECORD_REPLAY",
+    "JARP_SOURCE_READER",
+    "AXIAL_SOURCE_READER",
+    "AXIS08_SOURCE_READER",
+    "BOUNDARY_SOURCE_READER"
+  ],
+  "implementationFiles": [
+    {
+      "path": "a0-bench-showcase-tour.js",
+      "sha256": "14e5dfe9354ed2cbe471bb9b8e75beab1be20d72c0289ab8fee959f97506659c"
+    },
+    {
+      "path": "a0-bench-showcase-tour.css",
+      "sha256": "eface23e6cf4c9497dc985006fb53d73d390ee038942d6ff6a36605d1aef0c74"
+    },
+    {
+      "path": "a0-bench-showcase-tour-tests.cjs",
+      "sha256": "b84eaf3bafa41bb828d295c4fe7b1ea8da1f6cedb8678c762867a033150bfc11"
+    },
+    {
+      "path": "A0_ORIENTATION_CONTROLLER_BENCH.html",
+      "sha256": "98789064d935fd4aea91e6a19c560683a18976584fe859488531a72837bbe2d0"
+    },
+    {
+      "path": "a0-bench-showcase-tour-live-tests.cjs",
+      "sha256": "c540e302776bf6e10157394515e1281d7a926930d78c4b9a3730ac036ad1091b"
+    },
+    {
+      "path": "a0-coupled-window.js",
+      "sha256": "2de9591a4ff5236d4e06c3a7b6cf14790c4cc4108c4ddd2269ed3aa7582a3c98"
+    }
+  ],
+  "acceptance": {
+    "singlePrimaryTourControl": false,
+    "setupCollapsedAtLoad": true,
+    "binderPlayInvoked": true,
+    "allM3ViewsVisited": true,
+    "sourceAdaptersRemainDistinct": true,
+    "pauseAndRestart": true,
+    "reducedMotionRespected": true,
+    "liveBrowserPixels": false,
+    "synchronizedStartControls": 3
+  },
+  "authority": {
+    "newCanonicalIdentity": false,
+    "newCanonicalRelation": false,
+    "newFamily": false,
+    "researchExecution": false,
+    "claimPromotion": false,
+    "publication": false
+  },
+  "boundary": "Presentation orchestration of existing source-bound controllers. The tour creates no shared carrier, shared clock, whole-machine return, scientific result or new research object.",
+  "engineering_delta_20261019": {
+    "scope": "CON-DAO native seek and two finite Bench packages; no controlling currentness adoption",
+    "browserAcceptance": false
+  },
+  "polish_20261019": {
+    "ordering": "source -> view -> operator -> return -> record",
+    "finalStation": "session-ledger",
+    "tourCompletion": "VISITED, not whole-machine Return"
+  },
+  "division_return_20261019": {
+    "windowCount": 14,
+    "tourStations": 27,
+    "sourceProfilesUnchanged": true,
+    "browserAcceptance": false,
+    "currentnessAdopted": false,
+    "changedSourcePins": [
+      {
+        "path": "a0-bench-showcase-tour.js",
+        "before": "06cda1f05aebab21ce2dfb6f7df9546e4c08e011984b20a4cb3f0656979c7062",
+        "after": "1ed69be0730bc293ae7d3e30e6cf5b7caefa4ae3ec01f6244428da244ab1f555"
+      },
+      {
+        "path": "a0-bench-showcase-tour-tests.cjs",
+        "before": "00b5289bddc24194f56667b66aeb60ded7f5425a966d122cbf5fdef469ccea68",
+        "after": "a438805583eab0374f664374ef9c9f2968e9e7ef45822d9b498bf6d3880abdf7"
+      },
+      {
+        "path": "A0_ORIENTATION_CONTROLLER_BENCH.html",
+        "before": "b9b62e4511fd3ee8e13c22cd78a6576e24b0286d455e09ee7d5920ad1e84d2ab",
+        "after": "f502374bf03e29b7f6b1468b6597c2fa02ebd8caf888686eea2f5fbf4559402a"
+      }
+    ],
+    "implementation": [
+      {
+        "path": "a0-division-return.js",
+        "sha256": "0e8fa773e2b88c8151b1dd417146cd2ef72bdb56047b7f9f448ec5c897cf7445"
+      },
+      {
+        "path": "a0-division-return-view.js",
+        "sha256": "6a7d9bf150caedf35f7cd2bdb86c856d85cb933afc1b1254dbfeef20b09e78fa"
+      },
+      {
+        "path": "a0-division-return.css",
+        "sha256": "66d703d6ceab982c4ef0206d95005d5a69452e0055191fcf9a19ff80a62abdd1"
+      },
+      {
+        "path": "a0-division-return-tests.cjs",
+        "sha256": "2f8e6a24944ce5dcc650a86dab5ae6c325093d6f7ba0d4421b9849797205c78d"
+      }
+    ]
+  },
+  "version": "2.0.0",
+  "long_play_20261019": {
+    "chapters": 8,
+    "stations": 50,
+    "defaultDwellMs": 18000,
+    "paceChoicesMs": [
+      10000,
+      18000,
+      30000,
+      0
+    ],
+    "estimatedDefaultMinutes": 15,
+    "sourceWaitBoundMs": 12000,
+    "manualPrevNextAndStationSelection": true,
+    "modalDockReparented": true,
+    "ownInputPauses": true,
+    "originalPlayersRemainSeparate": true,
+    "localAnchorsMayBeOverwritten": true,
+    "wholeMachineStateRestored": false,
+    "downloads": false,
+    "browserAcceptance": false
+  }
+}

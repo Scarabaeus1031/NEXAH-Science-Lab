@@ -1,0 +1,26 @@
+/* Shared navigation shell only; no deck or Family reader semantics. */
+.club-shell-header{position:sticky;top:0;z-index:50;display:flex;align-items:center;flex-wrap:wrap;gap:10px;padding:9px 3vw;background:#071c28f5;border-bottom:1px solid #294656;backdrop-filter:blur(10px)}
+.club-shell-header[hidden]{display:none!important}
+.club-shell-header>a{font-size:.67rem}
+.club-shell-header .club-view-switch{display:flex;gap:4px;margin-left:auto;padding:4px;border:1px solid #365566;border-radius:10px;background:#04141e}
+.club-shell-header .club-view-switch a{display:inline-flex;align-items:center;justify-content:center;min-height:36px;padding:7px 12px;border:1px solid transparent;border-radius:7px;color:#a9c3d0;font:700 .7rem/1.3 system-ui,sans-serif;text-decoration:none}
+.club-shell-header .club-view-switch a small{display:none}
+.club-shell-header .club-view-switch a[aria-current=page]{background:#153d4c;border-color:#54d7df;color:#c8f8fa;box-shadow:inset 0 -2px #54d7df}
+.club-shell-header .club-view-switch a[data-jukebox-room=deck][aria-current=page]{background:#322640;border-color:#b78aef;color:#e2d2fb;box-shadow:inset 0 -2px #b78aef}
+.club-shell-header .club-view-switch a:focus-visible{outline:2px solid #efbd55;outline-offset:3px}
+#performanceConsole{scroll-margin-top:76px}
+.performance-console .now-playing{grid-template-columns:auto auto minmax(0,1fr) auto;gap:12px}
+.performance-console .now-playing>#tempoPlay{grid-column:1;grid-row:1}
+@media(max-width:880px){.club-shell-header .club-view-switch a{min-height:44px;padding:7px 9px;font-size:.66rem}.performance-console .now-playing{grid-template-columns:auto minmax(0,1fr);gap:4px 12px}.performance-console .now-playing>#tempoPlay{grid-row:1/4}.performance-console .now-playing>small,.performance-console .now-playing>b,.performance-console .now-playing>span{grid-column:2;text-align:left}}
+.hero[hidden]{display:none!important}
+[data-club-embedded=true] main{max-width:none;padding:0;margin:0}
+[data-club-embedded=true] body{background:#061019}
+[data-club-embedded=true] .performance-console{margin-top:0;border-radius:12px}
+.club-performance-heading,.club-deck-head .club-performance-heading{font:650 1.2rem/1.3 system-ui,sans-serif!important;color:#dceef3;margin:0 0 8px!important;letter-spacing:.01em;max-width:none!important}
+.club-experience-bar>.club-performance-heading{order:-2}
+.club-deck-room{padding:0;border:0;background:none;border-radius:0}
+.club-deck-head{display:block;padding:0}
+.club-deck-host{border:0;border-radius:12px}
+#familySpatialMount,#club-deck-room{scroll-margin-top:76px}
+[data-club-hero-title][hidden]{display:none!important}
+.club-view-name{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px!important;overflow:hidden;clip-path:inset(50%);white-space:nowrap;border:0}

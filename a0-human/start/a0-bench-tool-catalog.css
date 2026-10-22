@@ -1,0 +1,37 @@
+#benchToolCatalog{margin:24px -4px;color:#e6f3f8}
+.btc-heading{display:flex;justify-content:space-between;align-items:center;gap:18px}
+.btc-heading h3{font:700 clamp(1.7rem,3vw,2.7rem)/1.05 Georgia,serif;margin:.4rem 0}
+.btc-heading small{font:700 .65rem ui-monospace,monospace;color:#59d4e9;letter-spacing:.1em}
+.btc-heading p,.btc-note{color:#9fb8c5;font-size:.85rem}
+.btc-filters,.btc-groups{display:flex;flex-wrap:wrap;align-items:center;gap:9px;margin:18px 0}
+.btc-filters label{display:flex;gap:8px;align-items:center}
+.btc-filters label:first-child{flex:1;min-width:230px}
+.btc-filters input{width:100%;min-height:44px;background:#04131d;color:#e6f3f8;border:1px solid #4c7181;border-radius:8px;padding:10px}
+.btc-groups button{border-radius:999px;padding:9px 13px}
+.btc-groups button[aria-pressed=true]{background:#35cde4;color:#03131c;border-color:#35cde4}
+#benchToolCatalog button:focus-visible,#benchToolCatalog a:focus-visible,#benchToolCatalog input:focus-visible,#benchToolCatalog select:focus-visible{outline:3px solid #e5b340;outline-offset:3px}
+.btc-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:14px}
+.btc-card{padding:0!important;border:1px solid #365667!important;border-radius:10px;overflow:hidden;background:#071822!important;min-width:0}
+.btc-card[hidden]{display:none!important}
+.btc-preview{display:block;position:relative;background:#04121c;aspect-ratio:12/7;overflow:hidden}
+.btc-preview img{display:block;width:100%;height:100%;object-fit:contain}
+.btc-preview>span{position:absolute;left:0;right:0;bottom:0;background:rgba(3,12,19,.9);padding:6px 9px;font:650 .59rem ui-monospace,monospace;color:#adc4d0}
+.btc-card[data-preview=svg] .btc-preview>span,.btc-card[data-preview=canvas] .btc-preview>span{color:#70e4b4}
+.btc-card-copy{padding:15px}
+.btc-card-copy>small{font:700 .57rem ui-monospace,monospace;color:#5ad5e9}
+.btc-card h4{font:700 1.15rem/1.2 Georgia,serif;margin:9px 0}
+.btc-card h4 a{text-decoration:none;color:#edf7fa}
+.btc-card p{font-size:.78rem;line-height:1.5;margin:8px 0 14px;color:#a9c0cb}
+.btc-open{display:inline-block;padding:7px 10px;border:1px solid #478397;border-radius:6px;color:#6fe0ef}
+.btc-context{display:inline-block;margin:8px 0 0 8px;padding:7px 10px;border:1px solid #78678c;border-radius:6px;color:#cfb6ea;background:#161b2b}
+#benchToolCatalog[data-catalog-columns="auto"][data-catalog-group="SOURCE"] .btc-grid,
+#benchToolCatalog[data-catalog-columns="auto"][data-catalog-group="RETURN"] .btc-grid,
+#benchToolCatalog[data-catalog-columns="auto"][data-catalog-group="VERIFY"] .btc-grid,
+#benchToolCatalog[data-catalog-columns="2"] .btc-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+#benchToolCatalog[data-catalog-columns="auto"][data-catalog-group="STATE"] .btc-grid,
+#benchToolCatalog[data-catalog-columns="4"] .btc-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+#benchToolCatalog[data-catalog-columns="3"] .btc-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.btc-card code{display:block;margin-top:12px;overflow-wrap:anywhere;font-size:.6rem;color:#7998a8}
+#benchToolCatalog>output{display:block;color:#b8d2dc;font:.72rem ui-monospace,monospace}
+@media(max-width:1000px){#benchToolCatalog .btc-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}}
+@media(max-width:650px){#benchToolCatalog .btc-grid{grid-template-columns:1fr!important}.btc-heading{align-items:stretch;flex-direction:column}.btc-filters{align-items:stretch;flex-direction:column}.btc-filters label{flex-direction:column;align-items:stretch}}

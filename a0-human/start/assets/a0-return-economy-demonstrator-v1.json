@@ -1,0 +1,66 @@
+{
+  "schema": "nexah.a0.return-economy-demonstrator/1",
+  "version": "1.0.0",
+  "date": "2026-10-18",
+  "status": "IMPLEMENTED_SOURCE_BOUND_ENGINEERING_DEMONSTRATOR",
+  "identity": {
+    "reuses": [
+      "NEXAH_A0_ORIENTATION_CONTROLLER_BENCH",
+      "A0_BL_024_O16_Q106_STATE_RELATION_2026_10_18",
+      "A0_BL_025_TYPED_SEAM_CHANNEL_UTILITY_2026_10_18",
+      "A0_BL_049_IOTA_THOOTH_OPERATOR_TYPING_2026_10_18",
+      "A0_BL_055_CROSS_CARRIER_RETURN_ECONOMY_2026_10_18"
+    ],
+    "new_navigator_identity": false,
+    "new_relation": false,
+    "new_family": false,
+    "new_carrier": false
+  },
+  "sources": [
+    {
+      "id": "BL024",
+      "path": "../../../../SCIENCE_LAB/CASE_STUDIES/A0_BL_024_O16_Q106_STATE_RELATION_2026-10-18/artifacts/PRIMARY_RESULT.json",
+      "sha256": "7d6683d989d2abab76c9864698a21af2a2b84ca8bd3cf993700d53cf4f431014"
+    },
+    {
+      "id": "BL025",
+      "path": "../../../../SCIENCE_LAB/CASE_STUDIES/A0_BL_025_TYPED_SEAM_CHANNEL_UTILITY_2026-10-18/artifacts/PRIMARY_RESULT.json",
+      "sha256": "b455bee94c32d41c0c61dd10a5df7cfc64739839becc3708ec5578cf62398fb1"
+    },
+    {
+      "id": "BL049",
+      "path": "../../../../SCIENCE_LAB/CASE_STUDIES/A0_BL_049_IOTA_THOOTH_OPERATOR_TYPING_2026-10-18/artifacts/PRIMARY_RESULT.json",
+      "sha256": "1f52cb0aee0a7417b862c39467ea2187b6e18194ef8d7c91d7e7f6efcac7aef5"
+    },
+    {
+      "id": "BL055",
+      "path": "../../../../SCIENCE_LAB/CASE_STUDIES/A0_BL_055_CROSS_CARRIER_RETURN_ECONOMY_2026-10-18/artifacts/PRIMARY_RESULT.json",
+      "sha256": "a858f934b6ef18bfae116d20f36b98e34ccfedfb1d2692691df469cdecb9fa0f"
+    }
+  ],
+  "lanes": {
+    "Q106_O16": {"source_count": 106, "exact_return": 106, "raw_bits": 7, "record_bits_mean": 7, "saving_bits_mean": 0, "advantage": false},
+    "TYPED_SEAM": {"source_count": 140, "exact_return": 140, "raw_bits": 8, "record_bits_mean": 7.535714, "saving_bits_mean": 0.464286, "advantage": true},
+    "DECIMAL_D4": {"source_count": 9000, "exact_return": 9000, "raw_bits": 14, "record_bits_mean": 14, "saving_bits_mean": 0, "advantage": false}
+  },
+  "tour": ["SOURCE", "VIEW", "RESIDUAL", "RETURN", "CONTROL", "COMPARE"],
+  "result": {
+    "exact_return_carriers": 3,
+    "economy_carriers": 1,
+    "economy_required_carriers": 2,
+    "classification": "MIXED_RETURN_GRAMMAR_PASS_ECONOMY_GENERALIZATION_FAIL"
+  },
+  "implementation": [
+    {"path": "../a0-return-economy.js", "sha256": "aa7e4651e70eb9ca9266ecaebff8723c96b178babe9188c39cd5c5172415f772"},
+    {"path": "../a0-return-economy.css", "sha256": "032de4a53b8ee0f0acd7ecf913a8caf5b3440dbf1824eea4ccf90119503de8fe"},
+    {"path": "../a0-return-economy-tests.cjs", "sha256": "fefb3c2fd78af3bfdea1abb9463c87831434d37570edcb09180de6baf599576a"}
+  ],
+  "claim_boundary": [
+    "ENGINEERING_DEMONSTRATOR_NOT_RESULT_EVIDENCE",
+    "NO_CARRIER_IDENTITY",
+    "NO_UNIVERSAL_COMPRESSION",
+    "NO_PHYSICAL_INFORMATION_CLAIM",
+    "NO_HUMAN_UTILITY_CLAIM",
+    "NO_PUBLICATION_AUTHORITY"
+  ]
+}

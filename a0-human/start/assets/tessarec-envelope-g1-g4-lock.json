@@ -1,0 +1,30 @@
+{
+  "schema": "nexah.a0.tessarec-envelope-g1-g4-lock.v0.1",
+  "date": "2026-10-12",
+  "status": "HASH_BOUND_RUN_CONTRACT_CANDIDATE_NOT_AUTHORIZED",
+  "source_revision": "bd3277e34c908edf96fe97f542103a2ddb2c9dc4",
+  "environment": {
+    "os": "Darwin",
+    "architecture": "arm64",
+    "node": "v24.19.0",
+    "network_required": false,
+    "third_party_dependencies": []
+  },
+  "files": [
+    {
+      "path": "A0_BOOK/assets/tessarec-envelope-g1-g4.mjs",
+      "bytes": 6545,
+      "sha256": "eb58612296d3f76d965e397f1076999ca68f9e86400925f779559e79a2c4b1b5"
+    },
+    {
+      "path": "A0_BOOK/assets/tessarec-envelope-validation-r0.json",
+      "bytes": 3691,
+      "sha256": "edbd2c607f1c14efbf4647d08076140944fbf8d9d5094e9a7d876b21dac82e68"
+    }
+  ],
+  "command": "node A0_BOOK/assets/tessarec-envelope-g1-g4.mjs --verify",
+  "expected_engineering_status": "PASS",
+  "expected_classification": "ENGINEERING_VERIFICATION_NOT_SCIENTIFIC_RESULT",
+  "authorized_science_run": false,
+  "results_locked": false
+}

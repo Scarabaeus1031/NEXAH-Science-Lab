@@ -1,0 +1,33 @@
+{
+  "schema": "nexah.a0.ocb-external-adapter-pack/1",
+  "version": "1.0.0",
+  "date": "2026-10-18",
+  "status": "INTERNAL_ENGINEERING_INTERFACE_NOT_SCIENCE_RUN",
+  "extends_identity": "NEXAH_A0_ORIENTATION_CONTROLLER_BENCH",
+  "packages": {
+    "A": ["jarp", "axial"],
+    "B": ["axis08", "boundary"]
+  },
+  "actions": ["CONNECT", "CAPTURE", "STEP", "PLAY", "RETURN", "EXPORT"],
+  "contracts": {
+    "shared_carrier": false,
+    "shared_clock": false,
+    "whole_machine_return": false,
+    "source_owned_identity": true,
+    "typed_adapter_records": true
+  },
+  "authority": {
+    "new_navigator_identity": false,
+    "new_graph_relation": false,
+    "research_execution": false,
+    "claim_promotion": false,
+    "publication": false
+  },
+  "sources": [
+    {"id":"jarp","path":"A0_JOINT_APPLICATION_DEMONSTRATOR.html","record":"assets/a0-joint-application-return-protocol-v1.json","sha256":"faa920d76df33b5e1d497f4d15ee0be3a6d2ca7cb47d183ad73f683026168640"},
+    {"id":"axial","path":"A0_AXIAL_CARRIER_ADAPTER_SUITE.html","record":"assets/a0-axial-carrier-adapter-v1.json","sha256":"ea16170658da72773392b5eef614e33b14e844d4fd0bbd8942567687e94b2606"},
+    {"id":"axis08","path":"A0_AXIS08_FOLD_RETURN_SEQUENCER.html","record":"assets/a0-axis08-fold-return-sequencer-v1.json","sha256":"0bacf7464d857220897fd9fc52e4d4af4b8bc5cb901eca2fe784d6ba464c4874"},
+    {"id":"boundary","path":"A0_BOUNDARY_GRAPH_DEMONSTRATOR.html","record":"A0_BOUNDARY_GRAPH_DEMONSTRATOR.html","sha256":"9ef7be7e62d034966db1506708378673d705089c16b67448533610b9d9ecf883"}
+  ],
+  "claim_boundary": "Four existing source identities are exposed through bounded local state readers. The pack does not copy full runtimes, synchronize clocks, identify carriers, execute a Science Lab run or establish a whole-machine return."
+}

@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>The Black Sun / The Big Moon · NEON Return · A0</title>
+  <link rel="stylesheet" href="a0-context-navigation.css?rev=connect-entry-20261014">
+  <link rel="stylesheet" href="a0-black-sun-big-moon.css?rev=20261014-v2">
+  <link rel="stylesheet" href="a0-atlas-source-focus.css">
+  <script src="a0-atlas-source-focus.js" defer></script>
+</head>
+<body>
+  <header class="top"><a class="brand" href="A0_SCIENCE.html">NEXAH · A0</a><nav><a href="#eclipse">Eclipse</a><a href="#operator">NEON</a><a href="#mirror">Mirror</a><a href="#core">Core</a><a href="#return">Return</a><a href="A0_RAINBOW_PURPLE_RAIN.html">Rainbow</a></nav></header>
+
+  <main>
+    <section class="hero" id="eclipse" data-scene="01 / ECLIPSE">
+      <div class="hero-copy">
+        <div class="eyebrow">A0 EXPERIENCE LENS · CARTOGRAPHY ≠ ONTOLOGY</div>
+        <p class="hero-index">BLACK SUN <i>→</i> BIG EGG <i>→</i> NEON <i>→</i> BIG MOON</p>
+        <h1><span>The Black Sun</span><br><em>/ The Big Moon</em></h1>
+        <p class="hero-dek">Nicht zwei Welten. Zwei beobachtbare Seiten eines Trägers — verbunden durch einen atmenden Body und ein Sichtbarkeitsfenster, das Struktur zeigen, verbergen oder selbst Artefakte erzeugen kann.</p>
+        <div class="hero-actions"><a href="#operator">Enter the NEON window ↓</a><a class="ghost" href="A0_RAINBOW_PURPLE_RAIN.html">Return to Rainbow ↗</a></div>
+        <div class="hero-ledger"><span>fixed field</span><span>changing visibility</span><span>bounded contrast</span></div>
+      </div>
+      <div class="eclipse-stage" id="eclipseStage">
+        <button class="sun-disc" id="eggTrigger" type="button" aria-expanded="false" aria-controls="eggStory" aria-label="Black Sun öffnen und Big Egg zeigen">
+          <span class="sun-spectrum" aria-hidden="true"></span><b class="sun-label">BLACK<br>SUN</b>
+          <div class="egg-interior" aria-hidden="true">
+            <small>THE BODY / CONTAINMENT</small>
+            <svg class="pascal-joint" viewBox="0 0 220 196" role="presentation"><polygon points="110,16 26,168 194,168"></polygon><line x1="110" y1="16" x2="110" y2="112"></line><line x1="26" y1="168" x2="110" y2="112"></line><line x1="194" y1="168" x2="110" y2="112"></line><circle cx="110" cy="16" r="8"></circle><circle cx="26" cy="168" r="8"></circle><circle cx="194" cy="168" r="8"></circle><circle class="joint-core" cx="110" cy="112" r="13"></circle></svg>
+            <div class="joint-words"><i>SOURCE</i><i>RELATION</i><i>APPEARANCE</i></div>
+            <strong>7.83</strong><em>VISUAL PULSE · NOT CALIBRATED</em>
+          </div>
+        </button>
+        <div class="egg-story" id="eggStory" aria-live="polite"><b>THE BIG EGG</b><span>Black Sun enters.</span><span>Big Egg breathes.</span><span>Big Moon remembers.</span><a class="egg-body-link" href="A0_BLUE_PINK_DODECA_CELL_RETURN.html">ENTER THE BODY ↗</a><small>Click the sphere to close the field.</small></div>
+        <div class="beam" aria-hidden="true"><i></i></div>
+        <a class="moon-disc" href="A0_RAINBOW_PURPLE_RAIN.html" aria-label="Big Moon: zurück zu Rainbow und Purple Rain"><span aria-hidden="true"></span><b>BIG<br>MOON</b><small>RETURN ↗</small></a>
+        <div class="neon-pulse" aria-hidden="true">N<sup>B</sup></div>
+      </div>
+      <div class="scroll-cue">ONE FIELD · TWO RECORDS · ONE DECLARED RETURN <b>↓</b></div>
+    </section>
+
+    <nav class="journey-nav" aria-label="Black Sun / Big Moon Kapitel">
+      <a href="#eclipse"><b>01</b> Eclipse</a><a href="#operator"><b>02</b> Operator</a><a href="#mirror"><b>03</b> Mirror</a><a href="#core"><b>04</b> Core</a><a href="#return"><b>05</b> Return</a>
+      <span class="journey-marker" id="journeyMarker">01 / ECLIPSE</span>
+    </nav>
+
+    <section class="scene operator-scene" id="operator" data-scene="02 / NEON OPERATOR">
+      <div class="scene-copy">
+        <span class="scene-number">02</span>
+        <div><span class="kicker">Visibility is an operation</span><h2 class="operator-title"><span class="neon-outline">NEON</span> <span class="grey-space-title">marks what the chosen window lets us see.</span></h2><p>Das Feld bleibt dasselbe. Der Parameter <b>B</b> verändert Kontrast, Schwelle und Sichtbarkeit. Zu wenig verbirgt Struktur; zu viel erzeugt falsche Gates. Dazwischen liegt ein begrenztes Arbeitsfenster.</p></div>
+      </div>
+      <div class="operator-layout">
+        <div class="state-switcher" role="group" aria-label="NEON Sichtbarkeitszustand">
+          <button type="button" data-band="low"><small>LOW B</small><strong>Hidden</strong><span>structure under-resolved</span></button>
+          <button type="button" data-band="window" class="active" aria-pressed="true"><small>B* WINDOW</small><strong>Retained</strong><span>invariant visible</span></button>
+          <button type="button" data-band="high"><small>HIGH B</small><strong>False gates</strong><span>artifacts introduced</span></button>
+        </div>
+        <div class="operator-instrument">
+          <div class="instrument-head"><span>y<sup>(B)</sup> = N<sub>B</sub>(R(T(x)))</span><small id="bandAutoStatus">AUTO BAND · ON</small><b id="bandLabel">B* WINDOW</b><button type="button" id="bandAutoToggle" aria-pressed="true">Pause auto</button></div>
+          <canvas id="neonCanvas" role="img" aria-label="Interaktive Darstellung eines festen Feldes unter drei Sichtbarkeitszuständen"></canvas>
+          <label class="band-control">VISIBILITY / CONTRAST B <input id="bandRange" type="range" min="0" max="100" value="52"><output id="bandValue">0.52</output></label>
+          <div class="operator-readout"><span><b id="retainedValue">84%</b> retained</span><span><b id="hiddenValue">10%</b> hidden</span><span><b id="falseValue">6%</b> false gates</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="scene mirror-scene" id="mirror" data-scene="03 / REAL MIRROR">
+      <div class="mirror-copy"><span class="kicker">The other observable side</span><h2>The Real Mirror.</h2><p>Links bleibt der graue Träger sichtbar. Rechts werden Unterschiede als farbige Kanäle aufgezeichnet. Keine Seite ist das ganze Objekt; die Achse in der Mitte hält ihre Beziehung und ihren Rest offen.</p></div>
+      <div class="mirror-stage">
+        <canvas id="mirrorCanvas" role="img" aria-label="Animierte komplementäre Grau- und Neonansicht mit Mond, Tropfen, Auge und Rückkehrlinie"></canvas>
+        <div class="mirror-live" aria-hidden="true">MIRROR MOTION · LIVE</div>
+        <div class="mirror-label left">GREY MATTER<small>carrier / mass context</small></div>
+        <div class="mirror-label right">NEON RETURN<small>visible channel record</small></div>
+        <div class="mirror-axis-label">UV / Hg bleibt hier visuelles Quellenmotiv — keine Laboranweisung.</div>
+      </div>
+    </section>
+
+    <section class="scene core-scene" id="core" data-scene="04 / CORE DEPTH">
+      <div class="scene-copy">
+        <span class="scene-number">04</span>
+        <div><span class="kicker">Experimental depth view</span><h2>One pipeline. Different carriers.</h2><p>Der Core‑Demonstrator führt Lorenz, Halvorsen und Rössler durch dieselbe visuelle Folge. Das ist eine vergleichbare Darstellungspipeline — keine gemeinsame Ontologie und kein validierter universeller Gate‑Mechanismus.</p></div>
+      </div>
+      <div class="core-controls" role="group" aria-label="Dynamisches System wählen">
+        <button type="button" data-system="lorenz" class="active" aria-pressed="true">Lorenz</button><button type="button" data-system="halvorsen">Halvorsen</button><button type="button" data-system="rossler">Rössler</button>
+        <span id="coreAutoStatus">AUTO CARRIER · ON</span><button type="button" id="coreAutoToggle" aria-pressed="true">Pause</button>
+      </div>
+      <div class="core-stage">
+        <div class="core-steps"><span>RAW</span><i>→</i><span>FIELD</span><i>→</i><span>BASINS / GATES</span><i>→</i><span>COHERENCE</span><i>→</i><b>NEON</b></div>
+        <canvas id="coreCanvas" role="img" aria-label="Animierte source-bound Vergleichsansicht dynamischer Systeme von Rohtrajektorie bis NEON-Kartografie"></canvas>
+      </div>
+      <div class="core-boundary"><b>CORE SOURCE</b><span>NEXAH v9 · Cross-System Structure Extraction</span><small>Computational prototype. The extraction and thresholds are designed visualization choices.</small></div>
+    </section>
+
+    <section class="scene return-scene" id="return" data-scene="05 / RETURN">
+      <div class="return-orbit" aria-hidden="true"><span class="return-sun"></span><i></i><span class="return-moon"></span><b>↺</b></div>
+      <div class="return-copy"><span class="kicker">Return without identity</span><h2>The Moon returns the light.<br>The record keeps the difference.</h2><p>Rainbow zeigt die Aufspaltung. Black Sun / Big Moon zeigt die Sichtbarkeitsoperation und den komplementären Rückweg. Danach kann die Reise zurück zur Quelle, in die Observer‑Linse oder in den govern­ten NEON‑Operator gehen.</p>
+        <div class="return-actions"><a href="A0_RAINBOW_PURPLE_RAIN.html">Rainbow / Purple Rain ↗</a><a href="A0_NEWTON_GOETHE_OBSERVER_LENS.html">Observer Lens ↗</a><a href="A0_NEON_TRAP_DOOR.html">The NEON Trap Door ↗</a></div>
+      </div>
+      <div class="claim-boundary"><b>CLAIM BOUNDARY</b><p>Source-bound, nicht kalibrierte Experience-Komposition. Black Sun, Big Egg, Pascal Joint und Big Moon sind visuelle Rollen; 7.83 ist hier eine visuelle Taktadresse und keine kalibrierte physikalische Frequenz. NEON wird als Darstellungs- und Sichtbarkeitsoperator verwendet, nicht als Stoff, Ontologie oder Beweis. Keine Laboranweisung, keine universelle Gate-Theorie, keine Gleichsetzung der dynamischen Systeme, keine Study-Aktivierung und keine Publikationsfreigabe.</p></div>
+    </section>
+  </main>
+
+  <footer><span>THE BLACK SUN / THE BIG MOON · NEON RETURN</span><span>Internal composed experience · not public</span></footer>
+  <script src="a0-context-navigation.js?rev=album-return-20261014"></script>
+  <script src="assets/a0-black-sun-big-moon-v1.js?rev=20261014-v2"></script>
+  <script src="nexahedron-public-navigation.js?rev=public-current-20261022"></script>
+</body>
+</html>

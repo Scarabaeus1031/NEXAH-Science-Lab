@@ -1,0 +1,8 @@
+#breathGridBench{margin:20px 0;padding:20px;border:1px solid #3e687a;background:#071f2c;color:#dff2f7}
+#breathGridBench .breath-grid-controls{display:flex;flex-wrap:wrap;gap:16px;align-items:center}
+#breathGridBench output{display:block;margin:16px 0}
+#breathGridBench .breath-grid-panels{display:grid;grid-template-columns:minmax(150px,1fr) minmax(280px,2fr);gap:16px;max-width:950px}
+#breathGridBench svg{width:100%;height:auto;font:12px system-ui,sans-serif}
+#breathGridBench [hidden]{display:none!important}
+#breathGridBench button{margin:4px}
+@media(max-width:650px){#breathGridBench .breath-grid-panels{grid-template-columns:minmax(0,1fr)}}

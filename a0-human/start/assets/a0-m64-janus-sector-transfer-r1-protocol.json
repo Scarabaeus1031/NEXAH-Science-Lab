@@ -1,0 +1,42 @@
+{
+  "schema": "nexah.a0.m64-janus-sector-transfer-protocol",
+  "version": "1.0.0",
+  "date": "2026-10-14",
+  "record_id": "A0_M64_JANUS_SECTOR_TRANSFER_RUN_001",
+  "status": "OWNER_AUTHORIZED_FROZEN_BEFORE_RUN",
+  "parent_record_id": "A0_MOD2501_CRT_TWO_CHANNEL_OPERATOR_RUN_001",
+  "operator": {
+    "multiplier": 64,
+    "comparison": "x |-> -x mod m",
+    "equalizer_rule": "(64+1)x = 0 mod m",
+    "predicted_size_rule": "gcd(65,m)"
+  },
+  "systems": [
+    {"modulus": 365, "factors": [5, 73]},
+    {"modulus": 2501, "factors": [41, 61]}
+  ],
+  "axes": "for m=p*q, test q*Z_p and p*Z_q",
+  "controls": [
+    "a=m-1 must agree with mirror on all m states",
+    "a=1 on odd m must agree with mirror only at zero"
+  ],
+  "acceptance_gates": [
+    "exhaustive equalizer equals kernel of multiplication by 65",
+    "equalizer cardinality equals gcd(65,m)",
+    "Z_365 equalizer is exactly [0,73,146,219,292]",
+    "Z_365 five-state factor axis carries induced multiplier -1 mod 5",
+    "Z_2501 equalizer is exactly [0]",
+    "neither Z_2501 factor axis carries induced multiplier -1",
+    "positive and negative controls pass"
+  ],
+  "claim_boundary": {
+    "physical_janus_mechanism": false,
+    "privileged_modulus": false,
+    "universal_meaning_of_64": false,
+    "navigator_identity_created": false,
+    "orion_registry_changed": false,
+    "claim_promotion_authorized": false,
+    "publication_authorized": false
+  }
+}
+

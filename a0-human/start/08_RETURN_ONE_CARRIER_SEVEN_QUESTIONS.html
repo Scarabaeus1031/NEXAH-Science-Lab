@@ -15,7 +15,7 @@
     .observatory{background:#050d14;color:#dce8ee;border-top:4px solid var(--gold);border-bottom:1px solid var(--nightline)}.observatory h2{color:white}.observatory .sub{color:#9eb2bd}.observatory .no{color:var(--cyan)}.observatory-figure{margin:0;border:1px solid var(--nightline);background:#07131e}.observatory-figure img{display:block;width:100%;height:auto}.observatory-figure figcaption{display:grid;grid-template-columns:1fr auto;gap:24px;align-items:center;padding:20px 22px;border-top:1px solid var(--nightline)}.observatory-figure p{margin:0;color:#9fb2bd;font-size:.84rem}.observatory-figure strong{color:white}.observatory .boundary{margin-top:20px;border-left:4px solid var(--gold);background:rgba(232,182,74,.07);padding:14px;color:#cedbe1;font:700 .67rem/1.55 var(--mono);text-transform:uppercase}
     @media(max-width:920px){.hero,.instrument,.return-grid{grid-template-columns:1fr}.chapters,.four{grid-template-columns:1fr 1fr}.chapter.final{grid-column:auto}.sources{grid-template-columns:1fr}.observatory-figure figcaption{grid-template-columns:1fr}.top nav{display:none}}@media(max-width:620px){.section-head{grid-template-columns:1fr}.no{font-size:2.2rem}.chapters,.four{grid-template-columns:1fr}.ilau{grid-template-columns:1fr}.spread{padding:52px 5vw}h1{font-size:4rem}.route-line i{transform:rotate(90deg)}}
   </style>
-  <link rel="stylesheet" href="a0-context-navigation.css?rev=reader-lanes-20261015">
+  <link rel="stylesheet" href="a0-context-navigation.css?rev=reader-lanes-20261019-lane-entry">
 </head>
 <body>
   <header class="top"><a class="brand" href="index.html">NEXAH <span>· A0 BOOK</span></a><nav><a href="07_EVIDENCE_COMPARISON_DECISION.html">Chapter 07</a><a href="#instrument">ILAU instrument</a><a href="LAB_ORIENTATION_MACHINE.html">Lab source</a><a href="https://nexah.de/">Navigator lens</a><a href="index.html#top">Book Index</a></nav></header>
@@ -62,6 +62,7 @@
     function render(){const d=data[view];bars($('sourceBars'),source);bars($('recordBars'),d.record());axis($('sourceAxis'));axis($('recordAxis'));$('mapLine').textContent=d.map;$('recordTitle').textContent=d.recordTitle;$('viewTitle').textContent=d.title;$('iText').textContent=d.i;$('lText').textContent=d.l;$('aText').textContent=d.a;$('uText').textContent=d.u;document.querySelectorAll('[data-view]').forEach(b=>b.classList.toggle('active',b.dataset.view===view))}
     document.querySelectorAll('[data-view]').forEach(b=>b.addEventListener('click',()=>{view=b.dataset.view;render()}));render();
   </script>
-  <script src="a0-context-navigation.js?rev=reader-lanes-20261015"></script>
+  <script src="a0-context-navigation.js?rev=reader-lanes-20261019-lane-entry"></script>
+  <script src="nexahedron-public-navigation.js?rev=public-current-20261022"></script>
 </body>
 </html>

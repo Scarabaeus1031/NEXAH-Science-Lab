@@ -1,0 +1,18 @@
+#plateMirrorBench{padding:24px;margin:24px 0;border:1px solid #557485;background:#09212e;scroll-margin-top:95px}
+#plateMirrorBench h2{color:#eaf7ff}#plateMirrorBench p{line-height:1.6;max-width:110ch}
+.plate-mirror-controls{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin:14px 0}
+.plate-mirror-controls button,.plate-mirror-controls select,.plate-mirror-controls a{font:inherit;padding:10px;background:#133748;color:#e6f3fa;border:1px solid #64899b}
+.plate-mirror-controls button:disabled{opacity:.5}
+.plate-mirror-views{display:grid;grid-template-columns:1.15fr 1fr;gap:16px;background:#05141e}
+#plateMirrorBench :focus-visible{outline:3px solid #efbd55;outline-offset:3px}
+#plateMirrorBench img{display:block;max-width:100%;max-height:500px;object-fit:contain;background:#fff}
+#plateCylinderBench{border-top:1px solid #557485;margin-top:24px;padding-top:16px}
+#plateCylinderDrawing{overflow-x:auto;margin-top:14px}
+#plateCylinderDrawing svg{display:block;width:100%;min-width:740px;height:auto}
+#plateCylinderStatus{display:block;color:#efbd55}
+.pascal-aperture-bridge{grid-column:1/-1;min-width:0;padding:18px;margin:18px 0;border:1px solid #64899b;border-radius:12px;background:#0b2330}
+.pascal-aperture-bridge p{line-height:1.6}
+#pabDrawing{overflow-x:auto;margin-top:14px}
+#pabDrawing svg{display:block;width:100%;min-width:1050px;height:auto}
+#pabStatus{display:block;color:#efbd55}
+@media(max-width:1000px){.plate-mirror-views{grid-template-columns:1fr}}

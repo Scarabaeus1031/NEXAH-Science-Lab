@@ -1,0 +1,10 @@
+/* Functional workbench focus, not the future cockpit design. No module removal. */
+.mask-clock-focus #orientationBench > :not(.topbar):not(.boundary):not(#benchOverview):not(#maskClockLink):not(#breathGridBench):not(#bodyRouteBench):not(#benchIntegration):not(#orbitGridJoints):not(#maskObserverBench):not(#nativeFaceBridge){display:none!important}
+.mask-clock-focus #nativeFaceBridge{margin-top:24px}
+.mask-clock-focus .native-face-grid{display:block}
+.mask-clock-focus .native-face-console,.mask-clock-focus .native-face-openers{display:none}
+.mask-clock-focus .native-face-frame{width:100%;height:800px}
+.mask-clock-focus #nativeFaceStatus{display:none}
+#maskClockLink{position:relative;margin:20px 0;padding:20px;border:1px solid #3e687a;background:#071f2c;color:#dff2f7}
+#maskClockLink button{margin:4px}
+#maskClockStatus{display:block;padding:12px;border:1px solid #3e687a;margin-top:10px}

@@ -1,0 +1,33 @@
+{
+  "schema": "nexah.a0.euler-spectrum-comparator-lock",
+  "version": "1.0.0",
+  "date": "2026-10-13",
+  "status": "HASH_BOUND_IMPLEMENTATION_CANDIDATE_NOT_AUTHORIZED",
+  "record_id": "A0_EULER_TESSAREC_SPECTRUM_COMPARATOR_RUN_001",
+  "execution_authorized": false,
+  "lab_state": "STRUCTURE_FREEZE",
+  "source_revision_base": "bd3277e34c908edf96fe97f542103a2ddb2c9dc4",
+  "runtime": {
+    "python": "3.12.14",
+    "numpy": "2.3.5",
+    "networkx": "NOT_REQUIRED",
+    "random_generator": "numpy.random.PCG64",
+    "eigensolver": "numpy.linalg.eigvalsh"
+  },
+  "sha256": {
+    "implementation": "352bb425f9e31e54b4bfc861b6beac142008afb6609d5da7a9a6b21c3907b44d",
+    "preregistration": "01bb9a7f0a6295b8bcaefa363910c4a978e16d181b8c6a3e636184e8cbc33b56",
+    "source_spectrum": "a2310b0846fab46733d44c4342f8b04da5ba77cd4ac3eaf56553c872b06ea77e"
+  },
+  "null_generation": {
+    "method": "configuration_model_stub_pairing_with_rejection",
+    "accepted_graphs": 10000,
+    "vertices": 48,
+    "degree": 3,
+    "reject": ["self_loop", "parallel_edge", "disconnected"],
+    "maximum_attempts": 1000000,
+    "seed": 20261013
+  },
+  "contract_validation_mode": "NO_MODEL_FIT_NO_NULL_SIMULATION",
+  "execution_gate": "A separate matching Human Owner authorization receipt with synchronized ACTIVE Lab state is required."
+}

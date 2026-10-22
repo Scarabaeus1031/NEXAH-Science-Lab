@@ -1,0 +1,439 @@
+{
+  "schema": "nexah.a0.orientation-controller-bench",
+  "version": "0.21.0",
+  "date": "2026-10-19",
+  "status": "LOCAL_SOURCE_BOUND_ENGINEERING_LENS_NOT_CANONICAL",
+  "identity_action": "EXTENDS_EXISTING_LENSES_WITHOUT_NEW_CANONICAL_IDENTITY_OR_RELATION",
+  "state_contract": {
+    "fields": ["carrierId", "address", "familyRole", "position", "orientation", "scale", "side", "iotaTick", "iotaDrift", "degreeSignature", "residual", "history"],
+    "prime_basis": [2, 3, 5, 7, 11],
+    "address_rule": "x = 2^a1 * 3^a2 * 5^a3 * 7^a4 * 11^a5",
+    "junction_signature": [1, 1, 2]
+  },
+  "state_relation_orienter": {
+    "status": "LOCAL_DISPLAY_LENS_OVER_ONE_UNCHANGED_STATE",
+    "reuses": "A0_FAMILY_CONNECTION_ATLAS.html",
+    "modes": ["state", "rhombus", "heart"],
+    "pair_axis": [
+      {"members":[5,2],"sum":7},
+      {"members":[4,3],"sum":7}
+    ],
+    "diagonals": [
+      {"members":[5,3],"sum":8},
+      {"members":[4,2],"sum":6}
+    ],
+    "vertical_axis": {"members":[7,1],"sum":8},
+    "open_branch": {"members":[3,2],"sum":5,"toward":"F6","closure":false,"boundary_marker":"1+i","display_zone":"GOLDILOCKS_GAP"},
+    "wave_binding": "The selected relation lens changes only the mirrored Wave / Orientation rendering.",
+    "boundary": "The rhombus, heart, arithmetic sums and open F6 branch are local view annotations. They do not add a canonical Family edge, establish a golden-ratio identity, or mutate the state record."
+  },
+  "family_grid_coupler": {
+    "status": "SOURCE_BOUND_PRIME_OPERATOR_VIEW_BINDER_NOT_A_RESEARCH_RUN",
+    "record": "assets/a0-family-grid-coupler-v1.json",
+    "source_views": ["life_grid", "finite_dead_plate", "cylinder_carrier"],
+    "glb_export_channels": ["LIFE_CRYSTAL_4_PLUS_1", "TEMPORAL_Z_CYLINDER"],
+    "typed_route": "Prime Address -> J/Rtheta/Es -> Life Grid/Plate/Cylinder -> +1 controller",
+    "simultaneous_windows": 3,
+    "local_717_reading": "F7 source/validation -> F1 +1 controller -> F7 return/check; not a canonical Family edge",
+    "q_angle": "theta = 2*pi*q/11",
+    "decompositions": ["5 + 2*3 = 11", "5 + 3*2 = 11"],
+    "boundary": "Display coupling and source roles do not create a canonical Family relation, shared carrier, or scientific result."
+  },
+  "visual1_grid_generator": {
+    "status": "SOURCE_BOUND_THREE_READS_PLUS_ONE_VIEW_CONTROLLER",
+    "reuses": ["HISTORICAL_VISUAL_1", "A0-IHARA-HASHIMOTO-CYCLE-BRIDGE", "TESA_4X7_CANDIDATE", "PASCAL_ANTIPODE_VIEW_JOURNEY"],
+    "reads": ["P_VIEW_CYAN_IRIS", "A_VIEW_C6_CONTAINING_C8", "IHARA_EDGE_TURN"],
+    "plus_one": "TESA_4X7_VIEW_CONTROLLER",
+    "residual": "PURPLE_RETAINED_BINDER_EGG",
+    "simultaneous_windows": 3,
+    "controller_count": 1,
+    "boundary": "The 3+1 composition is a synchronized display grammar. It does not merge carriers, identify TESA with the 60-cell body ledger, or claim recovery of a historical generator."
+  },
+  "bench_map_projection": {
+    "status": "LOCAL_SOURCE_BOUND_OPERATIONAL_PROJECTION",
+    "record": "assets/a0-bench-map-projection-v1.json",
+    "identity": "NEXAH_A0_ORIENTATION_CONTROLLER_BENCH",
+    "groups": ["SOURCE", "STATE", "OPERATE", "VIEW", "RETURN", "VERIFY"],
+    "module_count": 22,
+    "edge_count": 19,
+    "binding_types": ["STATE_OWNER", "LIVE_COUPLED", "TYPED_HANDOFF", "VIEW_PROJECTION", "RETURN_WITNESS", "RESULT_LENS", "LAUNCHER", "OPEN_UNBOUND"],
+    "events": ["a0:bench-selection", "a0:bench-focus", "a0:bench-playback"],
+    "excluded_sources": ["A0_FAMILY_CONNECTION_ATLAS.html", "a0-family-spatial-bodies.js", "a0-family-spatial-navigation.js"],
+    "boundary": "The operational map observes selection, focus and playback. Bench state and clocks remain owned by the Bench; no Family identity or relation is created."
+  },
+  "attract_tour": {
+    "status": "AUTO_START_INTERRUPTIBLE_VIEW_ORCHESTRATION",
+    "reuses": "master_cockpit_demonstrator",
+    "acts": [
+      {"id":"ORIENT","phases":["SOURCE","OPERATOR"]},
+      {"id":"TRANSLATE","phases":["EDGE","SHADOW","FAMILY","GRID"]},
+      {"id":"RETURN","phases":["RETURN","FOLD","ROOT"]},
+      {"id":"VERIFY_RECORD","phases":["RECORD"]}
+    ],
+    "start_delay_ms": 1100,
+    "interaction_rule": "Any pointer interaction outside the master cockpit immediately pauses the automatic tour and leaves the current state inspectable.",
+    "accessibility_rule": "Automatic motion is not started when prefers-reduced-motion is active or the document is hidden.",
+    "boundary": "The tour animates and orders existing typed views. It does not merge carriers, create evidence, execute a Lab run or change canonical identities."
+  },
+  "operators": [
+    {"adapter_id":"A0.LOCAL.JANUS.J","symbol":"J","rule":"u -> 1-u","status":"LOCAL_DECLARED_ADAPTER"},
+    {"adapter_id":"A0.LOCAL.IOTA.R72_73","symbol":"Rtheta","rule":"orientation -> orientation +/- 72 degrees; iotaTick -> iotaTick +/- 73 mod 365","status":"LOCAL_DECLARED_ADAPTER","reuses":"A0.CRT.CHANNEL/5x73"},
+    {"adapter_id":"A0.LOCAL.ELEVATOR.E","symbol":"Es","rule":"u -> 1/2+s(u-1/2)","status":"LOCAL_DECLARED_ADAPTER"}
+  ],
+  "family_orientation_hypothesis": {
+    "status": "OPEN_LOCAL_ROLE_ANALOGY",
+    "reuses": "A0_FAMILY_CONNECTION_ATLAS.html",
+    "roles": {"F1":"Observation / Record","F2":"Address","F5":"Connectivity","F6":"Synchronization / Control","F7":"Validation / Governance"},
+    "analogies": {"F1":"alpha / origin aperture","F7":"theta(t) / moving validation aperture"},
+    "terminal_frames": [{"name":"TAO","angle":90},{"name":"DAO","angle":180},{"name":"IOTA","angle":270}],
+    "epsilon_trace": "retained history of prior F7 terminal frames; not a Family and not the elevator operator Es",
+    "axes": [
+      {"path":["F1","F2","F6"],"reading":"observation -> address -> synchronization"},
+      {"path":["F1","F5"],"reading":"record <-> connectivity"},
+      {"path":["F1","F7"],"reading":"alpha-to-moving-validation analogy only"},
+      {"path":["F7","F6"],"reading":"validation-to-control analogy only"}
+    ],
+    "candidate_markers": [
+      {"value":27,"expression":"3^3","candidate":"F1-F7","semantic_status":"OPEN_UNBOUND"},
+      {"value":13,"candidate":"F7-F6","semantic_status":"OPEN_UNBOUND"},
+      {"value":21,"candidate":"E/TA","semantic_status":"OPEN_UNBOUND"},
+      {"value":50,"candidate":"complement","semantic_status":"OPEN_UNBOUND"},
+      {"value":71,"expression":"21+50","arithmetic_status":"EXACT","semantic_status":"OPEN_UNBOUND"}
+    ],
+    "boundary": "No analogy or number marker creates, renames or selects a canonical Family relation. Human Owner direction is required before canonical vocabulary or edge changes."
+  },
+  "ihara_edge_turn_core": {
+    "adapter_id": "A0.LOCAL.IHARA.C5_EDGE_TURN",
+    "reuses": "A0_IHARA_HASHIMOTO_CYCLE_BRIDGE.html",
+    "graph": "C5",
+    "directed_edge_state_count": 10,
+    "transition": "(a->b) maps to (b->c) only when c != a",
+    "immediate_backtrack": "BLOCK_WITH_STATE_PRESERVED",
+    "registers": ["R_in", "R_out", "R_layer"],
+    "primitive_equivalence": "cyclic rotation only; reverse orientation remains a distinct directed class",
+    "boundary": "Finite C5 instrument only; no Riemann identity and no equality between prime numbers and graph cycles."
+  },
+  "pascal_antipode_shadow_binder": {
+    "adapter_id": "A0.LOCAL.PASCAL_ANTIPODE_SHADOW_VIEW",
+    "reuses": ["ART:NUMBER:PRIMEGRID_BLOCK02B_TRINARY_ANTIPODE", "ART:HTML:D5EB37391C26", "ART:HTML:9C1F6CA02076"],
+    "default_depth": 7,
+    "depth_range": [0, 11],
+    "macro_node_rule": "C(n+2,2)",
+    "path_mass_rule": "3^n",
+    "global_antipode": "A(i,j,k,sigma)=(k,j,i,-sigma)",
+    "oriented_mass_rule": "2*3^n",
+    "excluded_rule": "6^n; this would add an independent direction choice at every path step",
+    "shadow_frames": [7, 8, 17, 19, 29],
+    "prime_shadow_frames": [7, 17, 19, 29],
+    "parity_control_frame": 8,
+    "projection": "trinomial macrostate multiplicity is accumulated by barycentric angle into a regular m-sector observation frame",
+    "independence_rule": "depth n and frame size m are separate registers; n=7 and m=7 is a numerical coincidence, not a selector",
+    "seed_markers": [{"expression":"2^2","value":4},{"expression":"3^3","value":27},{"expression":"5","value":5}]
+  },
+  "heptagon_octagon_parity_gate": {
+    "status": "EXECUTABLE_EXACT_FINITE_CONTROL",
+    "question": "Does a polygonal observation frame have a unique antipodal vertex, or an opposite edge gap with two neighboring candidates?",
+    "odd_frame": {"order":7,"result":"EDGE_GAP_TWO_NEIGHBOURS","candidate_count":2,"orientation_bit_required":true},
+    "even_frame": {"order":8,"result":"UNIQUE_VERTEX","candidate_count":1,"orientation_bit_required":false},
+    "control_rule": "For C_m, even m has the unique opposite vertex i+m/2; odd m has the neighboring pair i+(m-1)/2 and i+(m+1)/2.",
+    "octagon_carrier_reference": "ORION_OCTAGON_OPERATOR_GRID_STRUCTURE_HARVEST_PHASE_0",
+    "octagon_exact_carrier": "Q3 over F2^3 has 8 vertices, 12 edges and degree 3.",
+    "boundary": "The regular octagon is a display frame. Its boundary-neighbor order is not the Q3 carrier adjacency, and the parity comparison creates no physical, causal or E8 claim."
+  },
+  "c17_countershot_overlay": {
+    "status": "LOCAL_EXACT_COUNTED_DISPLAY_OVERLAY",
+    "frame_order": 17,
+    "outer_decomposition": {"left_wing":8,"pivot":1,"right_wing":8,"total":17,"expression":"2^3 + 1^2 + 2^3 = 17"},
+    "inner_core": {"frame":"C8","nodes":8,"expression":"8 = 2^3"},
+    "countershot": {"source_vertex":0,"opposite_edge_gap":[8,9],"orientation_handle_selects_candidate":true},
+    "display_cadence": {"groups":[3,1,3,1,3,1],"nodes":12,"expression":"3+1+3+1+3+1 = 12","carrier_status":"DISPLAY_ORBIT_NOT_POLYGON_ORDER"},
+    "tongue": {"extension_nodes":1,"counted_in_c17":false,"role":"DISPLAY_EXTENSION"},
+    "neon_editorial_lineage": {"format":"THREE_POLAROIDS","frames":[7,17,19],"active_frame":17,"status":"HISTORICAL_EDITORIAL_SEQUENCE_NOT_CARRIER_RELATION"},
+    "cube_square_33_bridge": {
+      "status": "HISTORICAL_OWNER_READING_WITH_OPEN_SOURCE_BINDING",
+      "registers": [{"value":8,"expression":"2^3","role":"INNER_C8_CORE"},{"value":9,"expression":"3^2","role":"OPPOSITE_EDGE_GAP_CANDIDATE"}],
+      "seam": {"display":"3|3","owner_label":"33 bridge","identity_claim":false},
+      "orientation_renderings": ["069","616"],
+      "glyph_trace": ["ö","ô","ò","ó","õ","œ","o"],
+      "nini_channels": ["ø","ō"],
+      "owner_state_wording": "6 + II states",
+      "source_html": "MISSING_UNRECOVERED",
+      "boundary": "8=2^3 and 9=3^2 are exact but separate arithmetic registers. 3|3, 069/616 and the glyph strings are retained as historical owner readings; no equality, state count, operator, channel identity or canonical relation is inferred without the earlier source HTML."
+    },
+    "reuses": ["A0.LOCAL.PASCAL_ANTIPODE_SHADOW_VIEW","ORION_OCTAGON_OPERATOR_GRID_STRUCTURE_HARVEST_PHASE_0","A0-VIEW-BLUE-BODY-DODECA-COUNTERSHOT"],
+    "identity_claim": false,
+    "boundary": "The inner C8, twelve-node cadence, C17 frame and tongue are separate display registers. The overlay does not infer a resonance sequence, polygon-carrier identity, physical aperture mechanism or eighteenth C17 vertex."
+  },
+  "qh_defg_series_bridge": {
+    "status": "OPEN_SOURCE_BOUND_CROSSWALK_NO_RECONSTRUCTION",
+    "source_series": "NEXAH_HTML_ORIENTATION_DEMONSTRATOR_SERIES",
+    "base_objects": ["A","B","C"],
+    "relation_register": {"D":"A intersection B","E":"B intersection C","F":"C intersection A","G":"A intersection B intersection C"},
+    "recursion": ["Q_n -> H_n","H_n -> Q_(n+1)"],
+    "two_splits": {"relation":["D","E"],"layer":["H+","H-"],"cells":["D+","E+","D-","E-"]},
+    "outside_cross": ["F","G"],
+    "candidate_addresses": ["9.DEFG?","10.F?"],
+    "series_positions": [
+      {"position":9,"name":"Recursive Source-Court Tree","evidence":"STATIC_DOCUMENTARY_ONLY","source_html":"MISSING_UNRECOVERED","reconstruction_authorized":false},
+      {"position":10,"name":"Closed Loop Moving World","evidence":"LIVE_EXECUTABLE_HTML","source_html":"closed-loop-moving-world-standalone.html","reconstruction_authorized":false}
+    ],
+    "identity_claim": false,
+    "boundary": "The address labels remain hypotheses. This bridge documents a relation-to-field reading without reconstructing the missing position-9 HTML, asserting that 9DE or 10F are canonical identities, or merging Q/H, DEFG and the octagon carrier."
+  },
+  "pascal_three_exteriors": {
+    "status": "LOCAL_TYPED_VIEW_CONTRACTS_OVER_EXISTING_CARRIERS",
+    "modes": [
+      {"id":"shadow","map":"P_m(x)","codomain":"S_m","retains":["sector mass"],"discards":["orientation sigma","carrier microstate"],"return_ready":false},
+      {"id":"signed","map":"(P_m(x),sigma)","codomain":"S_m x {+,-}","retains":["sector mass","declared orientation sigma"],"discards":["carrier microstate","residual"],"return_ready":false},
+      {"id":"body","map":"B(P_m(x),sigma,r)","codomain":"H_BLUE_BODY","retains":["sector mass","declared orientation sigma","declared residual r"],"return_ready":true,"return":"z=sigma*alpha+r"}
+    ],
+    "reuses": ["A0.LOCAL.PASCAL_ANTIPODE_SHADOW_VIEW", "MOD:TESSAREC/Q4-P3", "ART:HTML:9C1F6CA02076"],
+    "identity_rule": "Cyan and magenta are two oriented sheets of one carrier. The Blue Body is a host/readout surface, not a third carrier or proof of carrier identity.",
+    "boundary": "The three exteriors are local display and information contracts. They do not create a canonical graph relation, transfer E8 specificity, identify Pascal with Tessarec, or establish a physical exterior."
+  },
+  "pascal_visual_aperture_lens": {
+    "status": "HISTORICAL_HUMAN_VIEW_OVERLAY_ONLY",
+    "umbrella": "the historical visual series is presented as one editorial envelope with multiple explicit openings",
+    "umbrella_form": "a persistent nested cavity envelope surrounds the neutral grid in every display lens; the shells, canopy and flow lines are visual hierarchy only",
+    "active_opening": {"marker": 7, "color": "gold", "role": "selected Shadow-gon aperture when m=7"},
+    "dual_four_handles": [{"marker":"4+","color":"cyan"},{"marker":"4-","color":"magenta"}],
+    "bench_display_depth": 4,
+    "quartal_decomposition": {"macro_nodes":15,"corners":3,"edge_points_per_edge":3,"edge_points_total":9,"interior_points":3,"identity":"15 = 3 + 3*3 + 3"},
+    "view_lenses": [
+      {"id":"algo","role":"neutral triangular display grid with yellow-to-green, cyan and magenta traces; gray remains the unassigned intermediate field"},
+      {"id":"pentagon","role":"one-apex pentagon view with two triangles separated by a vertical display axis and one nested triangle"},
+      {"id":"caro","role":"diamond view split into two small pyramids around a gray intermediate field"}
+    ],
+    "motion": "user-controlled deterministic three-lens display cycle over one unchanged n=4 carrier; billiard balls are animated state markers on display traces, not additional carrier nodes",
+    "gradient_rule": "node color interpolates cyan-to-magenta by displayed barycentric position with a gold apex contribution; node opacity follows normalized square-root multiplicity",
+    "historical_label_test": {"labels":["OKO?","OLGO?"],"status":"OPEN_UNRESOLVED"},
+    "reuses": ["A0OE:ONE_LOOP_HUMAN_VIEW", "SRC:A0OE:ONE_LOOP_JANUS_NEON", "ART:NUMBER:PRIMEGRID_BLOCK02B_TRINARY_ANTIPODE"],
+    "boundary": "The overlay organizes visual lineage and apertures only. ALGO is used here only as a local display-grid label; the cavity shells, canopy, flow lines, pentagon, nested triangles, diamond, pyramids, color fields and moving billiard markers are view glyphs over the exact n=4 trinomial layer, not additional carrier edges or nodes. It does not identify ALGO, OKO or OLGO, infer a cavity topology, make the two four-handles new mathematical states, or turn color, newspaper layout, umbrella form, gradient or motion into a selector law, topology or physical mechanism."
+  },
+  "antipodal_handle_ablation": {
+    "status": "LOCAL_INFORMATION_BOUNDARY_TEST",
+    "question": "Does the symmetric full-layer Shadow-gon itself identify sigma, or is orientation recovered only because a signed handle retains sigma?",
+    "balanced_labels": ["sigma=+1", "sigma=-1"],
+    "shadow_only_orientation_information_bits": 0,
+    "shadow_only_accuracy_ceiling": 0.5,
+    "signed_handle_information_bits": 1,
+    "signed_handle_accuracy": 1.0,
+    "specificity_claim": false,
+    "white_cross_marker": {"depth":7,"source":"3^7=2187","oriented":"2*3^7=4374","decimal_seam":"43|74","inner_difference":4,"status":"DECIMAL_RENDERING_MARKER_ONLY"},
+    "decision": "The handle is an exact retained orientation witness. It does not create emergent antipodal specificity in a projection that maps both orientations to the same trace.",
+    "life04b_effect": "NONE; frozen 0/4 specificity result retained"
+  },
+  "pascal_specificity_calibrator": {
+    "status": "KNOWN_MATHEMATICS_LOCAL_CALIBRATION",
+    "reuses": "PRIMEGRID BLOCK-02A Pascal Thread Quotient",
+    "binomial_depth_range": [0, 11],
+    "diagonal_extractor": "sum_(k=0..floor(n/2)) C(n-k,k) = F_(n+1)",
+    "default_diagonal": "n=7 -> 1+6+10+4 = 21 = F_8",
+    "row_aggregator": "sum_(k=0..n) C(n,k) = 2^n",
+    "default_row": "n=7 -> 128 = 2^7",
+    "prime_specificity_gate": "m is prime iff C(m,k) mod m = 0 for every 0<k<m",
+    "modulus_candidates": [5, 6, 7, 8, 11],
+    "locked_composite_control": 6,
+    "separation_rule": "binomial 2^n channel, trinomial 3^n channel and Fibonacci diagonal extractor are distinct typed views",
+    "claim_boundary": "The calibrator demonstrates a genuinely specific modular property and validates gate behavior; it does not establish E8 specificity or a new NEXAH theorem."
+  },
+  "noise_to_grid_control_contract": {
+    "status": "CONTROL_CONTRACT_NOT_EXECUTED",
+    "reuses": "CAND:POLARPASS",
+    "registers": [
+      {"name":"CARRIER","expression":"111^2=12321","role":"odd-square Janus field"},
+      {"name":"CRT_ADDRESS","expression":"777=21*37","role":"coprime CRT product"},
+      {"name":"OPERATOR_ALPHABET","expression":"8 states","role":"declared renderer/readout"}
+    ],
+    "separation_rule": "The 12321 carrier, 777 CRT address and 8-state readout are three different registers; no equality or causal bridge is inferred.",
+    "required_controls": ["locked mapping", "permutation null", "phase-shift null", "out-of-sample replay"],
+    "current_decision": "GRID_NOT_YET_IDENTIFIED",
+    "boundary": "A rendered grid is not evidence of recovered structure until it beats the locked nulls and replays independently."
+  },
+  "experiment_corridor": {
+    "status": "SOURCE_BOUND_EVIDENCE_SEPARATION",
+    "janus_grid_fold": {"evidence":"EXECUTED_FINITE_TEST","counts":["121->66","12321->6216"],"exact_return":"side bit required"},
+    "polarpass_raster": {"evidence":"DECLARED_CARDINALITY","path":"144->144000->144000000"},
+    "memory_gate": {"evidence":"CONDITIONAL_ARCHIVE_NO_INDEPENDENT_REPLAY","radial_bands":["N0-in","N1-in","N2-in","N3-shell","N2-out","N1-out","N0-out"]},
+    "lorenz_core_controls": {"evidence":"UNSEEDED_DESCRIPTIVE_DEMOS","methods":["rank-based quantile colouring","bottom-five-percent local-minimum detector"],"bridge_to_12321":false}
+  },
+  "odd_antipode_go_return": {
+    "status": "EXECUTABLE_FINITE_CYCLE_CONTROL_BATTERY",
+    "identity_action": "EXTENDS_ORIENTATION_CONTROLLER_BENCH_WITHOUT_NEW_STUDY_OR_NAVIGATOR_IDENTITY",
+    "orders": [6, 7, 8],
+    "go_rule": "F_s(i)=i+s mod n",
+    "even_antipode": "J_n(i)=i+n/2 mod n",
+    "odd_antipode_with_handle": "J_n(i,sigma)=(i+(n+sigma)/2 mod n,-sigma), sigma in {-1,+1}",
+    "odd_projection_without_handle": "two candidates i+(n-1)/2 and i+(n+1)/2; HOLD rather than infer a branch",
+    "locked_gates": ["C6 and C8 unique without sheet", "C7 projection exposes ambiguity", "C7 signed handle restores determinism", "C7 signed handle closes J^2=I and exact go-return"],
+    "visual_result": "paired-sheet return rosette generated from the exhaustive census",
+    "triple_gate_roles": ["difference", "relation", "emergence"],
+    "architecture_signature": "4 channels : 3 gate roles : 1 seam : 1 bounded return; typed layers, not a product count",
+    "reuses": ["A0 Orientation Controller Bench", "CON-DAO Return Series Archaeology", "Ninefold Return visual grammar"],
+    "claim_boundary": "Finite cycle theorem and exhaustive local implementation only; no E8, physical, universal or causal antipodal specificity claim."
+  },
+  "triple_gate_s3_palindrome_extension": {
+    "status": "EXECUTABLE_EXACT_FINITE_ADDRESS_AND_DECIMAL_IDENTITY_LENS",
+    "identity_action": "REUSES_TRIPLESIX_S3_AUDIT_AND_12321_JANUS_AXIS_WITHOUT_NEW_IDENTITY_OR_RELATION",
+    "reuses": ["SRC:A0OE:TRIPLESIX_S3_CUBE_GRID_FOLD_AUDIT", "NEXAH:12321:JANUS-AXIS"],
+    "s3_states": ["123", "132", "213", "231", "312", "321"],
+    "reversal_axis_pairs": [["123","321"],["132","231"],["213","312"]],
+    "state_address": "S3 -> {A,B,C} x C2 is a bijection of state sets, not a direct-product group identity",
+    "complex_display_marker": {"notation":"2^1*i","magnitude":2,"basis":"i","square":-4,"status":"TYPED_MARKER_ONLY"},
+    "repunit_examples": [
+      {"root":"111","square":"12321","half_seed":"123","mirror_closure":"12321"},
+      {"root":"1111","square":"1234321","half_seed":"1234","mirror_closure":"1234321"}
+    ],
+    "repunit_rule": "For decimal repunit lengths 1 through 9, R_k^2 is the carry-free palindrome 123...k...321.",
+    "boundary": "The S3 register, complex display marker, numeric repunit square and word-level mirror closure remain typed separately. Equality of the two palindrome outputs does not identify their constructions, create a physical gate or promote historical interpretation."
+  },
+  "fold45_return_comparator": {
+    "status": "EXECUTABLE_TYPED_REPRESENTATION_COMPARATOR",
+    "source_pair": [4, 5],
+    "operator": "S45(x,y)=(y,x)",
+    "axis_degrees": 45,
+    "return_pair": [5, 4],
+    "decimal_renderings": [45, 54],
+    "involution": "S45^2=I",
+    "invariants": {"sum": 9, "product": 20},
+    "factor_marker": {"equation": "54=6*9", "status": "SEPARATE_ARITHMETIC_MARKER"},
+    "locked_control": {"source_pair": [2, 3], "renderings": [23, 32]},
+    "boundary": "45 degrees and decimal 45 are different typed objects; 54=6*9 is exact annotation, not a causal identity."
+  },
+  "record_mirror_code": {
+    "status": "TYPED_COVARIANT_VIEW_AND_OPERATOR_MARKER",
+    "provenance": {"id": "EXP-LAB-01", "date": "2025-05-24", "source_class": "USER_SUPPLIED_VISUAL"},
+    "format": {"value": 7, "unit": "inch", "role": "EP_FORMAT_DIAMETER"},
+    "playback_speeds_rpm": ["33⅓", 45, 78],
+    "covariant_views": {"carrier": "ONE_RECORD", "views": ["A", "B"], "relation": "SAME_CARRIER_DIFFERENT_FACE"},
+    "side_turn": {"decomposition_degrees": [90, 90], "total_degrees": 180, "status": "DECLARED_DISPLAY_DECOMPOSITION"},
+    "true_mirror": {"source": 41, "return": 37, "sum": 78, "difference": 4, "fixed_point": false},
+    "open_reading": "IOTA_PLUS_II",
+    "boundary": "7 inches is a format diameter; 33⅓, 45 and 78 are rpm. Covariant A/B views do not by themselves define the value-changing mirror operator."
+  },
+  "root_space_838_reading_mask": {
+    "status": "EXECUTABLE_EXACT_GRAPH_CENSUS_WITH_SEPARATE_DECIMAL_MNEMONIC",
+    "identity_action": "REUSES_EXISTING_TESSAREC_MODULE_AND_ROOT_SPACE_ARTIFACT_WITHOUT_NEW_IDENTITY_OR_RELATION",
+    "reuses": ["MOD:TESSAREC", "ART:TESSAREC:ROOT_SPACE_8_16"],
+    "q3": {"vertices":8,"degree":3,"edges":12,"handshake":"8*3/2=12"},
+    "q4_decomposition": {"layers":2,"vertices_per_layer":8,"internal_edges_per_layer":12,"matching_bridge_edges":8,"total_vertices":16,"total_edges":32,"equation":"2*12+8=32"},
+    "reading_mask": {"notation":"8|3|8","left":"eight states in Q3 layer A","middle":"three internal bit-flip transition types","right":"eight matching bridge edges into Q3 layer B"},
+    "decimal_check": {"p8":19,"double_p8":38,"reverse_38":83,"prime_index_of_83":23,"left_concatenation":"8|38","right_concatenation":"83|8","shared_rendering":838},
+    "locked_gates": ["Q3 handshake count is 12", "Q4 is two Q3 layers plus eight matching bridges", "8|3|8 registers stay typed", "838 is a decimal palindrome", "83 is the 23rd prime"],
+    "boundary": "8|3|8 is a declared graph-reading mask. The 19->38->83->838 chain is a separate decimal mnemonic, not an integer equation, graph derivation, identity proof or physics claim."
+  },
+  "root_space_transition_engine": {
+    "status": "DETERMINISTIC_EXECUTABLE_VIEW_ENGINE",
+    "reuses": ["MOD:TESSAREC", "ART:TESSAREC:ROOT_SPACE_8_16"],
+    "carrier": "Q4 represented as two Q3 layers with eight matching bridges",
+    "clock": "user-controlled finite display clock; pause, step, reset and speed selection",
+    "cycle_length": 16,
+    "state_order": "four-bit reflected Gray cycle",
+    "axis_schedule": [0,1,0,2,0,1,0,3,0,1,0,2,0,1,0,3],
+    "transition_rule": "one bit changes per tick; axes 0..2 are internal Q3 transitions and axis 3 is a matching layer bridge",
+    "return_rule": "after 16 forward ticks the engine returns exactly to address 0000",
+    "record": "every tick retains fromTick, toTick, axis, transitionType, q4Address and bit word; JSON export is available",
+    "visual_layer": "pulse, trail and glow expose the active finite transition but do not alter engine state",
+    "boundary": "The engine is a deterministic finite graph sequencer and replay surface. Its clock and pulse are interface devices, not a physical dynamics, frequency, causal mechanism or empirical claim."
+  },
+  "master_cockpit_demonstrator": {
+    "status": "DETERMINISTIC_TYPED_HANDOFF_ORCHESTRATOR",
+    "phase_order": ["SOURCE", "OPERATOR", "EDGE", "SHADOW", "FAMILY", "GRID", "RETURN", "FOLD", "ROOT", "RECORD"],
+    "controls": ["START_PAUSE", "STEP", "RESET", "SPEED", "EXPORT_RUN"],
+    "layout": "three-console cockpit above a twelve-column left/right laboratory field",
+    "record": "each transition stores from, to, carrierFrom, carrierTo, sameCarrier, handoff and boundary",
+    "carrier_rule": "carrier changes require explicit typed handoffs and never imply carrier identity",
+    "boundary": "The master demonstrator coordinates existing bounded instruments. It creates no new Navigator identity, relation, physical mechanism or science claim."
+  },
+  "pxa_movement_demonstrator": {
+    "status": "SOURCE_BOUND_LIVE_VIEW_JOURNEY",
+    "phase_order": ["CARRIER", "P_VIEW", "BINDER", "A_VIEW", "RESIDUAL", "RETURN"],
+    "controls": ["PLAY_PAUSE_GUIDE", "STEP", "RESET", "SPEED", "EXPORT_VIEW_RUN"],
+    "reuses": ["ART:NUMBER:PRIMEGRID_BLOCK02B_TRINARY_ANTIPODE", "ART:MIWA:MAIN", "ART:ERITH:DUAL_BELT"],
+    "projection_lens": {
+      "status": "LOCAL_TYPED_APERTURE_TO_TARGET_VIEW",
+      "adapter": "BLUE_IRIS_APERTURE",
+      "control_range_percent": [18, 72],
+      "default_opening_percent": 42,
+      "target_view": "C8_OCTAGON",
+      "source_grammar": ["ART:E8:FAMILY_SYNTHESIS", "ART:E8:TYPED_COUPLING"],
+      "carrier_identity_transferred": false,
+      "rule": "The blue circular iris selects the visible aperture and projects an octagonal target view; it neither changes nor identifies the source carrier."
+    },
+    "historical_visual_source": "../../../00_INCOMING/THe Prime Genesis/THE MACHINE BUILT/c3a12c0d-b463-43e3-89b1-a1634c93ce01.png",
+    "loki_role": "registered subview and bridge; not an independently governed master",
+    "ambient_motion": true,
+    "human_interaction": "stops the guided phase sequencer; ambient field motion remains active",
+    "carrier_rule": "P(x), A(x), the binder and residual are typed views and records of one declared carrier",
+    "boundary": "The movement stage reuses source visual and interaction grammar. It does not establish identity between Pascal, MIWA, ERITH, LOKI or any physical mechanism."
+  },
+  "gate11_polar_square_view": {
+    "seed_pair": [1, 1],
+    "fibonacci_role": "declared sequence seed / candidate lens only",
+    "gate11_role": "bounded return gate and polar coordinate view",
+    "map": "unit polar direction (x,y) -> square boundary (x,y)/max(|x|,|y|)",
+    "boundary": "G11/POLAR is not thereby a Fibonacci carrier; circle, square, sequence and coordinate view remain distinct."
+  },
+  "negative_control": {
+    "source": "ART:HTML:9C1F6CA02076",
+    "exact_antipodal_return": true,
+    "decision": "NO E8 ANTIPODAL SPECIFICITY",
+    "locked_gates": "0/4",
+    "mean_axial_residual": 0.8041667963674868,
+    "used_axes": "4/120",
+    "max_return_error": 4.718958039861916e-17,
+    "pair_collisions": 56,
+    "random_axis_p": 0.375
+  },
+  "coupled_window_system": {
+    "status": "SOURCE_BOUND_ENGINEERING_WINDOW_LAYER",
+    "version": "1.0.0",
+    "window_count": 10,
+    "tour_station_count": 20,
+    "windows": ["window", "control", "native", "measurement", "bridges", "adapters", "economy", "root", "observatory", "ledger"],
+    "application_window": {
+      "id": "window",
+      "backlog_binding": "A0-BL-036",
+      "carriers": ["DUERER", "KHAJURAHO"],
+      "sizes": [2, 3],
+      "boundaries": ["PLANAR", "TOROIDAL"],
+      "declared_window_records": 90,
+      "return_key": ["carrier", "address", "size", "boundary"]
+    },
+    "interaction_rule": "Opening a window groups existing modules on one stage; it does not merge their carriers. The guided tour changes windows and starts existing controllers. Human interaction pauses the guide and leaves the current state inspectable.",
+    "session_ledger": {"schema":"nexah.a0.bench-session-ledger/1","operations":["capture","compare","replay","export"],"shared_carrier":false,"shared_clock":false,"scientific_evidence":false},
+    "invariance_observatory": {"binding":"A0-BL-036","operators":["identity","otherCarrier","rotate90","rotate180","reflectX","translate22","control"],"classifications":["INVARIANT","LOCATION_DEPENDENT","PLACEMENT_DEPENDENT"],"research_run":false},
+    "boundary": "The windows are engineering projections over existing source-bound instruments. They create no new carrier, Study, canonical relation, scientific run or finding."
+  },
+  "deferred_adapters": ["RIEMANN_EULER_VIEW", "FOURIER", "JT", "VIII", "PASCAL_FIBONACCI_INTERTWINER"],
+  "source_bindings": [
+    {"id":"A0.CRT.CHANNEL/5x73","path":"operator-registry/modular-crt-operator-registry-v0.1.json"},
+    {"id":"A0-FAMILY-CONNECTION-ATLAS","path":"A0_FAMILY_CONNECTION_ATLAS.html"},
+    {"id":"ART:TESSAREC:ROOT_SPACE_8_16","path":"../../../SCIENCE_LAB/EXPORTS/NEXAH_TESSERACT_ROOT_SPACE_8_TO_16.html"},
+    {"id":"ART:MIWA:MAIN","path":"../../../SCIENCE_LAB/EXPORTS/MIWA_PINEAP_AN_DROMEDA.html"},
+    {"id":"ART:ERITH:DUAL_BELT","path":"../../../SCIENCE_LAB/EXPORTS/NEXAH_3_PLUS_1_DUAL_BELT.html"},
+    {"id":"ART:E8:FAMILY_SYNTHESIS","path":"../../../SCIENCE_LAB/CASE_STUDIES/E8_DEMOS_INTERACTIVE_ORIENTATION_2026-09-21/COXETER_ORBIT_TOPOLOGY_LAB_2026-10-05/NEXAH_FAMILY_SYNTHESIS_DEMONSTRATOR.html"},
+    {"id":"ART:E8:TYPED_COUPLING","path":"../../../SCIENCE_LAB/CASE_STUDIES/E8_DEMOS_INTERACTIVE_ORIENTATION_2026-09-21/COXETER_ORBIT_TOPOLOGY_LAB_2026-10-05/NEXAH_TYPED_COUPLING_WORKBENCH.html"},
+    {"id":"PRIMEGRID-BLOCK02A-PASCAL-THREAD","path":"../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_PRIMEGRID_BLOCK02A_PASCAL_THREAD_QUOTIENT_2026-10-07/NEXAH_PRIMEGRID_BLOCK02A_PASCAL_THREAD_LAB.html"},
+    {"id":"A0-IHARA-HASHIMOTO-CYCLE-BRIDGE","path":"A0_IHARA_HASHIMOTO_CYCLE_BRIDGE.html"},
+    {"id":"ART:NUMBER:PRIMEGRID_BLOCK02B_TRINARY_ANTIPODE","path":"../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_PRIMEGRID_BLOCK02B_TRINARY_PASCAL_ANTIPODE_2026-10-07/NEXAH_PRIMEGRID_BLOCK02B_TRINARY_PASCAL_ANTIPODE_LAB.html"},
+    {"id":"ART:HTML:D5EB37391C26","path":"../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_LIFE_MULTI_VIEW_IDENTIFIABILITY_CA_IDENT_01_2026-10-08/index.html"},
+    {"id":"ART:HTML:9C1F6CA02076","path":"../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_LIFE_E8_ANTIPODAL_RETURN_LIFE04B_2026-10-07/index.html"},
+    {"id":"CAND:POLARPASS","path":"https://nexah.de/"},
+    {"id":"NEXAH:12321:JANUS-AXIS","path":"https://nexah.de/"},
+    {"id":"SRC:A0OE:TRIPLESIX_S3_CUBE_GRID_FOLD_AUDIT","path":"../../../../../10 NEXAH CORE/NEXAH/RESEARCH/NOTES/PASCAL_PENTAGON_D5_TEST_2026-10-10/PASCAL_ROSETTA_JOINT_DESIGN_2026-10-11/NCS_292_Q106_INTERTWINER_RETURN_PACKAGE_2026-10-11/TRIPLE19_X40_C2_ORIENTATION_FACTOR_AUDIT_2026-10-11/TRIPLESIX_S3_CUBE_GRID_FOLD_BRIDGE_AUDIT_2026-10-12/RESULT.json"},
+    {"id":"NEXAH:A0:LIVING_BLUEPRINT","path":"A0_LIVING_BLUEPRINT.html"},
+    {"id":"A0-CON-DAO-RETURN-SERIES-ARCHAEOLOGY","path":"https://nexah.de/"},
+    {"id":"NINEFOLD-RETURN-HISTORICAL-VISUAL-SOURCE","path":"../../../SCIENCE_LAB/CASE_STUDIES/THREE_LIFE_SYSTEMS_PLUS_ONE_BINDER_VISUAL_SERIES_2026-08-24/SOURCE_ASSETS/NEXAH Anatomy_Dual_Tripple_Core_CA|CON-DAO|AU/nexah-ninefold-return-download.html"}
+  ],
+  "governance": {
+    "new_module_created": false,
+    "new_family_created": false,
+    "navigator_identity_created": false,
+    "navigator_relation_created": false,
+    "canonical_family_changed": false,
+    "research_activated": false,
+    "claim_promotion_authorized": false,
+    "publication_authorized": false
+  }
+}

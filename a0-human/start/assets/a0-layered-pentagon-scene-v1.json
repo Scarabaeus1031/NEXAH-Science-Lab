@@ -8,7 +8,7 @@
   "implementationFiles": [
     {
       "path": "A0_ORIENTATION_CONTROLLER_BENCH.html",
-      "sha256": "d111d3474ef663847b52392b798e7a56fcdf5d5cc44cc11500c77165f4e6edd5"
+      "sha256": "98789064d935fd4aea91e6a19c560683a18976584fe859488531a72837bbe2d0"
     },
     {
       "path": "a0-layered-pentagon-scene.js",
@@ -25,17 +25,17 @@
   ],
   "ownerVisuals": [
     {
-      "path": "LOCAL_OWNER_SOURCE_REDACTED",
+      "path": "[redacted-local-source]",
       "sha256": "9fbab0e85e9c893fbcc13b93f7c521b9062b8988abec3a0ed32517bc79cb9381",
       "role": "Three transparent pentagons; layout reference only."
     },
     {
-      "path": "LOCAL_OWNER_SOURCE_REDACTED",
+      "path": "[redacted-local-source]",
       "sha256": "49d03cd9a15f35d074e3d133bd3279f7b569fc17b7ebb5c043ae70858caa4c56",
       "role": "Red/green overlap with white edges; not a measured 3D reconstruction."
     },
     {
-      "path": "LOCAL_OWNER_SOURCE_REDACTED",
+      "path": "[redacted-local-source]",
       "sha256": "e6990b89aeb944990b35f5ea55e41fe71414286014f03541cdb5ac1e84045e63",
       "role": "Rings and magenta two-lobe curve; display reference only."
     }
@@ -67,8 +67,13 @@
   ],
   "localPinReconciliation": {
     "previousHost": "0a3b00b9e00ec164a5f2aef784735a7a0ed6aed84ef6f5d5f5b7abb25d92bb6d",
-    "currentHost": "d111d3474ef663847b52392b798e7a56fcdf5d5cc44cc11500c77165f4e6edd5",
+    "currentHost": "98789064d935fd4aea91e6a19c560683a18976584fe859488531a72837bbe2d0",
     "scope": "Only affected local host/overlay implementation pins, not canonical currentness baselines."
+  },
+  "hostPinReconciliation20261020": {
+    "previousHost": "d111d3474ef663847b52392b798e7a56fcdf5d5cc44cc11500c77165f4e6edd5",
+    "scope": "Current host pin only; all six other implementation/reference pins verified unchanged. Native geometry, rotation laws, owner originals and historical results not modified.",
+    "reason": "Approved square/diamond fold comparison integration; suite previously stopped on stale host hash."
   },
   "authority": {
     "newCanonicalIdentity": false,
@@ -101,7 +106,7 @@
     "primeRGB": "Owner arithmetic mapping 29+41+13=83; not a frequency or RGB transfer function",
     "fibonacciBridge": "41 → F → 13 is an unadopted hypothesis; 13 is Fibonacci, 41 is not",
     "elevenWinds": {
-      "source": "../../../SCIENCE_LAB/CASE_STUDIES/WFR01_WIND_FIELD_FLOW_RETYPING_AUDIT/10_PLUS11_WIND_RECOVERY.md",
+      "source": "https://nexah.de/",
       "semanticsRecovered": false,
       "implementedStates": false
     }

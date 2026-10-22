@@ -1,0 +1,17 @@
+{
+  "schema": "nexah.a0.axial-carrier-adapter.v1",
+  "status": "INTERNAL_VIEW_ADAPTER_SUITE_NON_EVIDENTIARY",
+  "projection_only": true,
+  "rule_unchanged": true,
+  "axis_kinds": ["time", "sequence", "layer", "pipeline"],
+  "contract": ["carrier_id", "sample_index", "axis_kind", "theta_address", "radial_lane", "z_value", "event_type", "residual", "witness", "source_pointer", "claim_boundary"],
+  "adapters": [
+    {"id":"A0-AXIAL-FOUNDATION","identity":"ART:A0:MATHEMATICAL_JOINTS","axis_kind":"sequence","z":"T1-T8 method step"},
+    {"id":"A0-AXIAL-NCS","identity":"NN:MRB_ACR_NCS_Q106_RETURN_CROSSWALK","axis_kind":"sequence","z":"readout step"},
+    {"id":"A0-AXIAL-LIFE08","identity":"NEXAH_LIFE_BOUNDARY_CYLINDER_LIFE08_2026_10_11","axis_kind":"time","z":"generation"},
+    {"id":"A0-AXIAL-THREE-DOMAIN","identity":"GAME_4_LIFE_PLUS_1_THREE_DOMAIN_VIEW","axis_kind":"time","z":"simulation step"},
+    {"id":"A0-AXIAL-IEEE300","identity":"MOD:IEEE300_GRAPH_GRID","axis_kind":"pipeline","z":"transform stage"},
+    {"id":"A0-AXIAL-TESSAREC","identity":"MOD:TESSAREC","axis_kind":"layer","z":"P3 layer"}
+  ],
+  "claim_boundary": "Shared renderer and coordinate contract only. Similar cylindrical views do not identify source carriers, operators, domains, mechanisms or evidence states."
+}

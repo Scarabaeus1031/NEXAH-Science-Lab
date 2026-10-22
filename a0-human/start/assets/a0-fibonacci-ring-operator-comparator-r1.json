@@ -1,0 +1,40 @@
+{
+  "schema": "nexah.a0.fibonacci-ring-operator-comparator/1.0.0",
+  "fixture_id": "A0_FIBONACCI_RING_OPERATOR_COMPARATOR_R1",
+  "date": "2026-10-14",
+  "status": "FROZEN_SYNTHETIC_ENGINEERING_FIXTURE",
+  "module_id": "MOD:TESSAREC",
+  "gate": "G6_SAMPLING_PREFLIGHT_ONLY",
+  "operator_chain": {
+    "address_origin": [0, 0],
+    "address_target": [1, 1],
+    "decimal_decoder": "D(i,j)=i+j/10",
+    "decoded_scalar": 1.1,
+    "square_operator": "S(x)=x^2",
+    "square_envelope": 1.21,
+    "phase_pair_degrees": [-1.84, 1.84],
+    "raw_phase_span_degrees": 3.68,
+    "effective_phase_operator": "B(x,a)=x*(a-(-a))",
+    "effective_phase_span_degrees": 4.048
+  },
+  "sampling": {
+    "sample_count": 48,
+    "seed": 110121,
+    "schedules": ["UNIFORM", "FIBONACCI", "SEEDED_RANDOM"],
+    "fibonacci_rule": "u_k=frac(k/phi)",
+    "matched_count_required": true,
+    "target_signal": "r(theta)=1+0.11*cos(theta)+0.21*cos(2theta)+0.184*sin(3theta)",
+    "metric": "RMSE of recovered Fourier coefficients [mean,c1,s1,c2,s2,c3,s3] plus maximum circular gap",
+    "decision_rule": "FIBONACCI_PRIVILEGED only if Fibonacci coefficient RMSE is strictly lower than both matched controls"
+  },
+  "expected_disposition": "FIBONACCI_NOT_PRIVILEGED_IF_UNIFORM_WINS",
+  "governance": {
+    "authorized_science_run": false,
+    "study_activated": false,
+    "closes_g6": false,
+    "new_navigator_identity": false,
+    "new_family": false,
+    "claim_promotion_authorized": false
+  },
+  "claim_boundary": "Synthetic deterministic engineering comparator only. It tests an explicitly declared address/scalar/operator chain and three matched sampling schedules; it does not establish a natural Fibonacci law, physical resonance, privileged 1.1/1.21 constants or a scientific G6 result."
+}

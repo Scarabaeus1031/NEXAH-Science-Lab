@@ -1,0 +1,123 @@
+{
+  "schema": "nexah.a0.joint-application-return-protocol/1.0.0",
+  "protocol_id": "A0:JARP:V1",
+  "date": "2026-10-13",
+  "status": "INTERNAL_ENGINEERING_FIXTURE_NOT_SCIENCE_RUN",
+  "publication_authorized": false,
+  "domain": {
+    "crt_moduli": [7, 11, 13, 19],
+    "crt_domain": [0, 19018],
+    "qrt_divisor": 20,
+    "palindrome_source": "P(a,b)=101a+10b; 1<=a<=9; 0<=b<=9",
+    "palindrome_source_count": 90,
+    "palindrome_unordered_pair_count": 4095
+  },
+  "result_vocabulary": [
+    "PASS_EXACT_RETURN",
+    "PASS_EXACT_PROFILE",
+    "PASS_NEGATIVE_CONTROL",
+    "HOLD_MISSING_WITNESS",
+    "REJECT_IDENTITY_COLLAPSE"
+  ],
+  "cases": [
+    {
+      "id": "APP-01",
+      "title": "Full CRT carrier return",
+      "class": "address-return",
+      "input": {"n": 11357, "moduli": [7, 11, 13, 19]},
+      "operator": "residue tuple and exhaustive return in 0<=x<19019",
+      "expected": {"residues": [3, 5, 8, 14], "candidate_count": 1, "candidates": [11357], "result": "PASS_EXACT_RETURN"},
+      "application": "lossless integer address router"
+    },
+    {
+      "id": "APP-02",
+      "title": "Withheld CRT coordinate",
+      "class": "address-return",
+      "input": {"n": 11357, "moduli": [7, 11, 19], "withheld": 13},
+      "operator": "partial residue tuple and exhaustive return in 0<=x<19019",
+      "expected": {"candidate_count": 13, "contains_source": true, "result": "HOLD_MISSING_WITNESS"},
+      "required_witness": ["residue mod 13"],
+      "application": "fail-closed serializer and incomplete-record test"
+    },
+    {
+      "id": "APP-03",
+      "title": "QRT column collision",
+      "class": "address-return",
+      "input": {"n": 11357, "moduli": [20]},
+      "operator": "n=20q+r; retain r only",
+      "expected": {"q": 567, "r": 17, "candidate_count": 951, "contains_source": true, "result": "HOLD_MISSING_WITNESS"},
+      "required_witness": ["q or full integer address"],
+      "application": "column-versus-carrier identity control"
+    },
+    {
+      "id": "APP-04",
+      "title": "1111 palindrome source collision",
+      "class": "pair-return",
+      "input": {"ordered_pair": [404, 707]},
+      "operator": "sum projection over all three-digit palindrome sources",
+      "expected": {"sum": 1111, "palindrome": true, "unordered_preimages": 4, "ordered_preimages": 8, "result": "HOLD_MISSING_WITNESS"},
+      "required_witness": ["ordered pair", "source roles"],
+      "application": "many-to-one event and provenance fixture"
+    },
+    {
+      "id": "APP-05",
+      "title": "1211 negative closure control",
+      "class": "closure-control",
+      "input": {"ordered_pair": [444, 767]},
+      "operator": "sum projection over all three-digit palindrome sources",
+      "expected": {"sum": 1211, "palindrome": false, "unordered_preimages": 36, "ordered_preimages": 72, "result": "PASS_NEGATIVE_CONTROL"},
+      "application": "guards against forced palindrome interpretation"
+    },
+    {
+      "id": "APP-06",
+      "title": "1221 positive neighbor with nonunique return",
+      "class": "closure-control",
+      "input": {"ordered_pair": [444, 777]},
+      "operator": "sum projection over all three-digit palindrome sources",
+      "expected": {"sum": 1221, "palindrome": true, "unordered_preimages": 32, "ordered_preimages": 64, "result": "HOLD_MISSING_WITNESS"},
+      "required_witness": ["ordered pair", "source roles"],
+      "application": "closure-does-not-imply-identity control"
+    },
+    {
+      "id": "APP-07",
+      "title": "8888 registered source collision",
+      "class": "pair-return",
+      "input": {"registered_pairs": [[1087, 7801], [4114, 4774]]},
+      "operator": "sum projection",
+      "expected": {"sum": 8888, "registered_preimages": 2, "totient": 4000, "result": "HOLD_MISSING_WITNESS"},
+      "required_witness": ["ordered pair", "source lineage"],
+      "application": "G8 provenance-return fixture"
+    },
+    {
+      "id": "APP-08",
+      "title": "Tessarec same-address fiber",
+      "class": "carrier-return",
+      "input": {"n": 1111, "states": [[10, "P0"], [26, "P1"], [42, "P2"]], "projection": "S_theta"},
+      "operator": "retain integer address while layer changes, then project",
+      "expected": {"same_address": true, "state_count": 3, "result": "HOLD_MISSING_WITNESS"},
+      "required_witness": ["layer", "frame", "theta"],
+      "application": "frame/layer/shadow return contract"
+    },
+    {
+      "id": "APP-09",
+      "title": "RATH 42 namespace non-identity",
+      "class": "namespace-control",
+      "input": {"shell": 49, "totient_output": 42, "frame": 42, "angle": 51},
+      "operator": "compare equal integer labels while retaining roles",
+      "expected": {"phi_49": 42, "integer_equal": true, "role_identity": false, "result": "REJECT_IDENTITY_COLLAPSE"},
+      "required_witness": ["namespace", "source role"],
+      "application": "prevents numeric equality from becoming causal identity"
+    },
+    {
+      "id": "APP-10",
+      "title": "Totient shadow ladder",
+      "class": "profile-audit",
+      "input": {"values": [11, 121, 1111]},
+      "operator": "factorization and Euler totient",
+      "expected": {"totients": [10, 110, 1000], "gaps": [1, 11, 111], "result": "PASS_EXACT_PROFILE"},
+      "application": "regression signature without resonance promotion"
+    }
+  ],
+  "identity_reuse": ["MOD:TESSAREC", "MOD:NUMBER_VIEW_SUITE", "NN:CRT_QRT_37_CARRIER_LADDER"],
+  "claim_ceiling": "Exact finite arithmetic and information-interface engineering only; no scientific activation, natural-number privilege, physical mechanism or publication authority."
+}

@@ -1,0 +1,28 @@
+/* Editorial Bench doors: shared A0 header, no instrument runtime. */
+.bench-hub{margin:0;background:#081923;color:#e8f3f7;font:16px/1.6 system-ui,sans-serif}
+.bench-location,.bench-sections{display:flex;align-items:center;flex-wrap:wrap;gap:12px;padding:12px clamp(18px,5vw,80px);font:600 13px/1.5 system-ui,sans-serif;background:#0b202c;color:#a9c4cf}
+.bench-location a{color:#9bdde5;text-decoration:none}.bench-location strong{color:#f2cd77}
+.bench-sections{gap:6px;border-bottom:1px solid #345160;padding-top:0}
+.bench-sections a,.bench-sections>span{padding:10px 16px;border:1px solid #345160;border-radius:8px;color:#cde3eb;text-decoration:none}
+.bench-sections [aria-current]{background:#163b49;color:#7de0da;border-color:#68bfbf}
+.bench-hub-main{max-width:1240px;margin:auto;padding:clamp(24px,5vw,76px) clamp(18px,4vw,50px)}
+.bench-hub-hero{max-width:850px;margin-bottom:54px}
+.bench-hub-hero small,.bench-flagship small{color:#74dfd8;letter-spacing:.13em;font-size:11px;font-weight:800}
+.bench-hub [aria-label="MACHINA"],.bench-hub [aria-label="THE MACHINA"]{letter-spacing:.075em}
+.bench-hub-hero h1{font:500 clamp(36px,5.5vw,68px)/1.08 Georgia,serif;letter-spacing:-.035em;margin:18px 0 22px}
+.bench-hub-hero p{color:#b7cdd6;max-width:720px;font-size:18px}
+.bench-flagship-heading{display:flex;align-items:baseline;justify-content:space-between;flex-wrap:wrap;gap:8px;margin-bottom:18px}
+.bench-flagship-heading h2{font:500 28px Georgia,serif;margin:0}.bench-flagship-heading>span{font-size:12px;color:#94acb8}
+.bench-flagships{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.bench-flagship{display:flex;flex-direction:column;border:1px solid #375567;border-radius:16px;overflow:hidden;color:#e8f3f7;text-decoration:none;background:#102734}
+.bench-flagship svg{width:100%;height:160px;color:#69d9df;background:#091f2b}
+.bench-flagship:nth-child(2) svg{color:#ee88bc}.bench-flagship:nth-child(3) svg{color:#e9c76d}
+.bench-flagship>div{padding:24px;display:flex;flex-direction:column;flex:1}.bench-flagship h3{font:500 25px/1.2 Georgia,serif;margin:10px 0}.bench-flagship h3 span{font-size:17px;color:#73dfda}
+.bench-flagship p{color:#b1c8d2;font-size:14px;margin:8px 0 24px}.bench-card-action{margin-top:auto;color:#7de0da;font-size:13px;font-weight:750}
+.bench-flagship:hover{border-color:#7de0da;background:#163543}.bench-hub a:focus-visible,.bench-sections a:focus-visible,.bench-local-tools summary:focus-visible{outline:3px solid #f4cf74;outline-offset:4px}
+.bench-home-grid .bench-flagship--machine{grid-column:1/-1;display:grid;grid-template-columns:minmax(260px,.8fr) minmax(0,1.2fr)}.bench-home-grid .bench-flagship--machine svg{height:100%;min-height:230px}.bench-home-grid .bench-flagship--machine>div{justify-content:center}.bench-home-grid .bench-flagship--machine h3{font-size:clamp(27px,3vw,40px)}
+.bench-hub-footer{margin-top:44px;padding-top:24px;border-top:1px solid #345160;display:flex;gap:24px;flex-wrap:wrap}.bench-hub-footer a{color:#85ddd9}.bench-hub-footer p{width:100%;color:#8da8b6;font-size:12px}
+.bench-local-tools{padding:10px clamp(18px,5vw,80px);background:#0b202c;border-bottom:1px solid #345160;color:#a9c4cf;font:600 13px/1.5 system-ui,sans-serif}
+.bench-local-tools>summary{cursor:pointer;padding:6px 0}.bench-local-tools .bench-nav{position:static;z-index:auto;padding:12px 0;background:transparent;flex-wrap:wrap}
+@media(max-width:760px){.bench-flagships{grid-template-columns:1fr}.bench-home-grid .bench-flagship--machine{grid-column:auto;display:flex}.bench-flagship svg,.bench-home-grid .bench-flagship--machine svg{height:130px;min-height:0}.bench-hub-hero{margin-bottom:32px}.bench-sections a,.bench-sections>span{flex:1 1 140px;padding:8px 10px}}
+

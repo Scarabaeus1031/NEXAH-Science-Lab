@@ -1,0 +1,39 @@
+{
+  "schema": "nexah.a0.aperture-measurement-package/1",
+  "date": "2026-10-18",
+  "status": "ENGINEERING_PASS_BROWSER_ACCEPTANCE_OPEN",
+  "identity": "NEXAH_AX0_QMODE_FOUNDATION_PACKAGE",
+  "entry": "A0_ORIENTATION_CONTROLLER_BENCH.html#apertureMeasurement",
+  "backlog": ["OCB-GAP-01", "OCB-GAP-03"],
+  "source": "PXA_BLUE_IRIS_APERTURE",
+  "measure": "M3(t)=(h,A,I)",
+  "sampleCount": 48,
+  "views": ["unrolled", "cylinder", "top", "slice"],
+  "implementationFiles": [
+    {"path":"a0-aperture-measurement.js","sha256":"2dbbb1321aaa73d2f82f36541f71fdf8b8ce721f95c953047ce732e8cdc04c5d"},
+    {"path":"a0-aperture-measurement.css","sha256":"814758569cc2125cdf410e85c51a14f18674acf7457e4298c801d90af966a5ea"},
+    {"path":"a0-aperture-measurement-tests.cjs","sha256":"4aed20da23ee2ce6872677ab4a7074c5e5e484627bb755c4534804283e271d9c"},
+    {"path":"A0_ORIENTATION_CONTROLLER_BENCH.html","sha256":"2f0510c7ea16641dc048f7498e2f87e5522ab13f584420c3b5088ac7497bd9f4"},
+    {"path":"https://nexah.de/","sha256":"949e4017a993dd628353f308a270b260faa58428f91a7dbc8b32e31f567a895a"},
+    {"path":"A0_WERKBANK.html","sha256":"dc73c08d5bd649d7e96be3cdcd6501166becc87e71fb3b1faab632efd4839eb2"}
+  ],
+  "acceptance": {
+    "sourceFingerprintInvariant": true,
+    "orderedSamplesInvariant": true,
+    "coordinateUnitsDeclared": true,
+    "viewMapsDeclared": true,
+    "displayMetricDeclared": true,
+    "ilauExported": true,
+    "exactSourceReturn": true,
+    "browserPixels": false
+  },
+  "authority": {
+    "newCanonicalIdentity": false,
+    "newCanonicalRelation": false,
+    "newFamily": false,
+    "researchExecution": false,
+    "scientificClaimPromotion": false,
+    "publication": false
+  },
+  "boundary": "Deterministic engineering trace and representation audit. Height and aperture are normalized, azimuth is radians. No empirical calibration, physical aperture law, carrier identity transfer or scientific run."
+}

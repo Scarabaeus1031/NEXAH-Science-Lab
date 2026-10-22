@@ -1,0 +1,93 @@
+{
+  "schema": "nexah.a0.orientation-controller-bench",
+  "version": "0.3.0",
+  "date": "2026-10-15",
+  "status": "LOCAL_SOURCE_BOUND_ENGINEERING_LENS_NOT_CANONICAL",
+  "identity_action": "EXTENDS_EXISTING_LENSES_WITHOUT_NEW_CANONICAL_IDENTITY_OR_RELATION",
+  "state_contract": {
+    "fields": ["carrierId", "address", "familyRole", "position", "orientation", "scale", "side", "iotaTick", "iotaDrift", "degreeSignature", "residual", "history"],
+    "prime_basis": [2, 3, 5, 7, 11],
+    "address_rule": "x = 2^a1 * 3^a2 * 5^a3 * 7^a4 * 11^a5",
+    "junction_signature": [1, 1, 2]
+  },
+  "operators": [
+    {"adapter_id":"A0.LOCAL.JANUS.J","symbol":"J","rule":"u -> 1-u","status":"LOCAL_DECLARED_ADAPTER"},
+    {"adapter_id":"A0.LOCAL.IOTA.R72_73","symbol":"Rtheta","rule":"orientation -> orientation +/- 72 degrees; iotaTick -> iotaTick +/- 73 mod 365","status":"LOCAL_DECLARED_ADAPTER","reuses":"A0.CRT.CHANNEL/5x73"},
+    {"adapter_id":"A0.LOCAL.ELEVATOR.E","symbol":"Es","rule":"u -> 1/2+s(u-1/2)","status":"LOCAL_DECLARED_ADAPTER"}
+  ],
+  "ihara_edge_turn_core": {
+    "adapter_id": "A0.LOCAL.IHARA.C5_EDGE_TURN",
+    "reuses": "A0_IHARA_HASHIMOTO_CYCLE_BRIDGE.html",
+    "graph": "C5",
+    "directed_edge_state_count": 10,
+    "transition": "(a->b) maps to (b->c) only when c != a",
+    "immediate_backtrack": "BLOCK_WITH_STATE_PRESERVED",
+    "registers": ["R_in", "R_out", "R_layer"],
+    "layer_identity": ["P0", "P1", "P2"],
+    "primitive_equivalence": "cyclic rotation only; reverse orientation remains a distinct directed class",
+    "trace_rule": "tr(B^k)=10 when 5 divides k, otherwise 0, for the directed C5 fixture",
+    "boundary": "Finite C5 instrument only; no Riemann identity and no equality between prime numbers and graph cycles."
+  },
+  "pascal_antipode_shadow_binder": {
+    "adapter_id": "A0.LOCAL.PASCAL_ANTIPODE_SHADOW_VIEW",
+    "reuses": [
+      "ART:NUMBER:PRIMEGRID_BLOCK02B_TRINARY_ANTIPODE",
+      "ART:HTML:D5EB37391C26",
+      "ART:HTML:9C1F6CA02076"
+    ],
+    "default_depth": 7,
+    "depth_range": [0, 11],
+    "macro_node_rule": "C(n+2,2)",
+    "path_mass_rule": "3^n",
+    "global_antipode": "A(i,j,k,sigma)=(k,j,i,-sigma)",
+    "oriented_mass_rule": "2*3^n",
+    "excluded_rule": "6^n; this would add an independent direction choice at every path step",
+    "shadow_frames": [7, 17, 19, 29],
+    "source_shadow_frames": [17, 19, 29],
+    "local_comparison_frame": 7,
+    "projection": "trinomial macrostate multiplicity is accumulated by barycentric angle into a regular m-sector observation frame",
+    "independence_rule": "depth n and frame size m are separate registers; n=7 and m=7 is a visible numerical coincidence, not a selector",
+    "seed_markers": [
+      {"expression":"2^2","value":4,"role":"power marker only"},
+      {"expression":"3^3","value":27,"role":"power marker only"},
+      {"expression":"5","value":5,"role":"next declared marker only"}
+    ]
+  },
+  "gate11_polar_square_view": {
+    "seed_pair": [1, 1],
+    "fibonacci_role": "declared sequence seed / candidate lens only",
+    "gate11_role": "bounded return gate and polar coordinate view",
+    "map": "unit polar direction (x,y) -> square boundary (x,y)/max(|x|,|y|)",
+    "boundary": "G11/POLAR is not thereby a Fibonacci carrier; circle, square, sequence and coordinate view remain distinct."
+  },
+  "negative_control": {
+    "source": "ART:HTML:9C1F6CA02076",
+    "panel": "stress",
+    "exact_antipodal_return": true,
+    "decision": "NO E8 ANTIPODAL SPECIFICITY",
+    "locked_gates": "0/4",
+    "mean_axial_residual": 0.8041667963674868,
+    "used_axes": "4/120",
+    "max_return_error": 4.718958039861916e-17,
+    "pair_collisions": 56,
+    "random_axis_p": 0.375
+  },
+  "deferred_adapters": ["RIEMANN_EULER_VIEW", "FOURIER", "JT", "VIII", "TAN_TAO_DAO_IOTA", "PASCAL_FIBONACCI_INTERTWINER"],
+  "source_bindings": [
+    {"id":"A0.CRT.CHANNEL/5x73","path":"operator-registry/modular-crt-operator-registry-v0.1.json","role":"validated local 365 carrier"},
+    {"id":"A0-IHARA-HASHIMOTO-CYCLE-BRIDGE","path":"A0_IHARA_HASHIMOTO_CYCLE_BRIDGE.html","role":"existing finite directed-edge source contract"},
+    {"id":"ART:NUMBER:PRIMEGRID_BLOCK02B_TRINARY_ANTIPODE","path":"../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_PRIMEGRID_BLOCK02B_TRINARY_PASCAL_ANTIPODE_2026-10-07/NEXAH_PRIMEGRID_BLOCK02B_TRINARY_PASCAL_ANTIPODE_LAB.html","role":"exact trinomial multiplicity and antipode source"},
+    {"id":"ART:HTML:D5EB37391C26","path":"../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_LIFE_MULTI_VIEW_IDENTIFIABILITY_CA_IDENT_01_2026-10-08/index.html","role":"shadow-gon projection grammar; no carrier transfer"},
+    {"id":"ART:HTML:9C1F6CA02076","path":"../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_LIFE_E8_ANTIPODAL_RETURN_LIFE04B_2026-10-07/index.html","role":"retained exact-return / negative-specificity control"},
+    {"id":"NEXAH:A0:LIVING_BLUEPRINT","path":"A0_LIVING_BLUEPRINT.html","role":"G11, POLAR and Fibonacci separation boundary"}
+  ],
+  "governance": {
+    "new_module_created": false,
+    "new_family_created": false,
+    "navigator_identity_created": false,
+    "navigator_relation_created": false,
+    "research_activated": false,
+    "claim_promotion_authorized": false,
+    "publication_authorized": false
+  }
+}

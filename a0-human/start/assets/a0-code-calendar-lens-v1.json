@@ -1,0 +1,81 @@
+{
+  "schema": "a0.code-calendar-lens/1",
+  "date": "2026-10-19",
+  "status": "LOCAL_COMPARATOR_IMPLEMENTED_BROWSER_ACCEPTANCE_OPEN",
+  "existing_identity": "MOD:NUMBER_VIEW_SUITE",
+  "new_global_ids": [],
+  "canonical_count_effect": 0,
+  "publication_authorized": false,
+  "sources": [
+    {
+      "path": "a0-gh-hinge.js",
+      "sha256": "ec4a483da788ae48e95005e4c1f85176727d3fea9b71c4992008eda2798340b6"
+    },
+    {
+      "path": "a0-orientation-controller-bench.js",
+      "sha256": "26216e1b2276bd2859b3c751de5e81b6440b6bcf33583c51302ba7a6fe913757"
+    }
+  ],
+  "entry": "A0_ORIENTATION_CONTROLLER_BENCH.html#codeCalendarLens",
+  "rules": {
+    "calendar": "Read original GH-Hinge calendarWitnesses(): 3x1974 + 1x1972; retain invalid 29.02.1974 label.",
+    "arithmetic": [
+      "3² = 9",
+      "2³ = 8",
+      "2×5 = 10"
+    ],
+    "word_pairs": [
+      [
+        "123",
+        "321"
+      ],
+      [
+        "132",
+        "231"
+      ],
+      [
+        "213",
+        "312"
+      ]
+    ],
+    "address_candidate": [
+      [
+        7,
+        9
+      ],
+      [
+        8,
+        10
+      ]
+    ],
+    "ratios": [
+      [
+        3,
+        4
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        1,
+        2
+      ]
+    ],
+    "drawing": "Declared V diagram width:height ratio, no rigid-panel geometry or physical fold.",
+    "interaction": "Independent pair and ratio selection, reverse labels/addresses, capture/restore local comparator selection. No new clock."
+  },
+  "open_bindings": {
+    "am_pm": null,
+    "calendar_conversion": null,
+    "ratio_to_axis": null,
+    "date_to_motion": null,
+    "turn_at_pose29": null,
+    "jj_to_v": null
+  },
+  "boundaries": [
+    "No source engines mutated.",
+    "No claim that passing arithmetic or comparator reversibility validates motion.",
+    "No new canonical identity, relation, research activation or publication."
+  ]
+}

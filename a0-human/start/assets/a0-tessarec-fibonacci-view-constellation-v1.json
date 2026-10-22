@@ -1,0 +1,73 @@
+{
+  "schema": "nexah.a0.tessarec-fibonacci-view-constellation/1.0.0",
+  "record_id": "A0_TESSAREC_FIBONACCI_VIEW_CONSTELLATION_V1",
+  "date": "2026-10-14",
+  "status": "INTERNAL_SOURCE_BOUND_NAVIGATION_RETURN",
+  "module_id": "MOD:TESSAREC",
+  "reused_artifact_id": "ART:HTML:3EF48700E12A",
+  "creates_navigator_identity": false,
+  "creates_navigator_relation": false,
+  "views": [
+    {"order": 1, "role": "control", "label": "Research Desk", "surface": "A0_SCIENCE.html#tests", "responsibility": "status, gaps, claim ceiling and next gate"},
+    {"order": 2, "role": "state_observer", "label": "Family Connection Atlas", "surface": "A0_FAMILY_CONNECTION_ATLAS.html#tessarec", "responsibility": "Q4xP3 state, phase, envelope, observer and record views"},
+    {"order": 3, "role": "formalize", "label": "Paper F", "surface": "A0_TESSAREC_FRAME_ENVELOPE_OBSERVER_PAPER.html#hypotheses", "responsibility": "formal objects, hypotheses, gates and claim ceiling"},
+    {"order": 4, "role": "number_operator_context", "label": "Mathematical Joints", "surface": "A0_MATHEMATICAL_JOINTS.html", "responsibility": "typed number addresses, operators and non-identity contexts"},
+    {"order": 5, "role": "operate", "label": "Blue Body Comparator", "surface": "A0_TESSAREC_BLUE_BODY_LAB.html#fibonacci-ring-operator", "responsibility": "interactive matched-schedule comparator"},
+    {"order": 6, "role": "freeze_verify", "label": "Frozen Result Figure", "surface": "results/a0-fibonacci-ring-operator-comparator-r1-figure-2026-10-14.svg", "machine_record": "A0_SCIENTIFIC_POSITION_REPORT.html", "responsibility": "frozen N=48 output and replay target"}
+  ],
+  "route": ["control", "state_observer", "formalize", "number_operator_context", "operate", "freeze_verify", "return"],
+  "runtime_orchestration": {
+    "controller": "assets/a0-tessarec-page-orchestrator-v1.js",
+    "perspective_controller": "assets/a0-tessarec-perspective-decks-v1.js",
+    "clock": {"ticks": 48, "period_ms": 620},
+    "live_surfaces": ["carrier", "shell_seam", "fiber_cut", "fold_breath", "spectrum_return", "ring_comparator"],
+    "external_view_policy": "linked source and record documents are navigation targets, not hidden runtime processes"
+  },
+  "section_01_mapping_views": {
+    "carrier_states": 48,
+    "host_shell_states": 48,
+    "edge_systems": ["shell", "carrier"],
+    "views": [
+      {"id": "natural", "role": "canonical_baseline", "construction": "gray_ring_3x16_to_6x8", "layer_retained": 48},
+      {"id": "layered", "role": "deterministic_candidate", "seed": 4802168, "iterations": 120000, "preserve_layers": true, "layer_retained": 48},
+      {"id": "free", "role": "deterministic_candidate", "seed": 7, "iterations": 120000, "preserve_layers": false, "layer_retained": 14}
+    ],
+    "interaction": {"idle_rotation": "gentle", "pointer_drag": "takes_control", "resume_delay_ms": 2200, "reduced_motion": "respected"}
+  },
+  "section_03_double_body_bridge_views": {
+    "disjoint": {
+      "ledger": {"vertices": 96, "edges": 144, "faces": 52, "euler": 4, "wirelength": 560},
+      "left_projection": "carrier_plane",
+      "right_projection": "shell_cylinder_section",
+      "binder": "48_to_48_view_binder",
+      "boundary": "asymmetric projections do not imply different body topology"
+    },
+    "connected": {
+      "ledger": {"vertices": 96, "edges": 144, "faces": 50, "euler": 2, "heptagons": 12},
+      "switch_view": {"grid": "4x4", "perimeter_ports": 12, "inner_return_slots": 4},
+      "boundary": "channel-switch view is schematic and not a crossing-free 3D realization"
+    }
+  },
+  "perspective_decks": [
+    {
+      "section": "04",
+      "deck_id": "transition",
+      "views": ["4_to_2_projection", "ihara_cycles", "in_out_tunnel", "path_ledger"],
+      "shared_state": ["carrier_state", "spectral_lane", "pair_start", "phase"],
+      "role": "four typed readings of one bound transition"
+    },
+    {
+      "section": "07",
+      "deck_id": "rings",
+      "views": ["ratio_rings", "unified_typed_lenses", "fibonacci_pascal", "sampling_control"],
+      "shared_state": ["carrier_state", "spectral_lane", "sampling_schedule", "sample_count", "phase"],
+      "role": "four typed ring and sampling readings of one bound display state"
+    }
+  ],
+  "boundaries": [
+    "Navigation coupling does not merge artifact identities.",
+    "Shared numbers and visuals do not establish carrier or operator identity.",
+    "The frozen synthetic result does not close G6 or establish Fibonacci privilege.",
+    "No Study activation, claim promotion or publication authority is created."
+  ]
+}
