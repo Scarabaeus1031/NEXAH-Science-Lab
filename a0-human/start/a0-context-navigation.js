@@ -529,7 +529,7 @@
         "pages": [
           "A0_VISUAL_FIELD_LIBRARY.html",
           "A0_WERKBANK.html",
-          "index.html"
+          "NEXAH_C_CONNECT.html"
         ]
       }
     ]
@@ -806,7 +806,7 @@
   const overviewBody = document.createElement("div");
   overviewBody.className = "a0-page-menu-body a0-overview-body";
   const actions = {book:"Lesen",map:"Zusammenhänge verstehen",workshops:"Werkzeuge nutzen",desk:"Ergebnisse einordnen"};
-  overviewBody.innerHTML = '<section><h3>Bereiche</h3>'+navigationGroups.map(group => '<a href="'+group.entry+'">'+actions[group.key]+'</a>').join('')+'</section><section><h3>Karten und Gesamtübersicht</h3><a href="A0_LIVING_BLUEPRINT.html#a0-map-home">Crosswalk · Gesamtkarte</a><a href="index.html#a0-navigation-directory">Alle A0-Seiten nach Themen</a><a href="A0_FAMILY_CONNECTION_ATLAS.html">F1–F7 · funktionale Families</a></section>';
+  overviewBody.innerHTML = '<section><h3>Bereiche</h3>'+navigationGroups.map(group => '<a href="'+group.entry+'">'+actions[group.key]+'</a>').join('')+'</section><section><h3>Karten und Gesamtübersicht</h3><a href="A0_LIVING_BLUEPRINT.html#a0-map-home">Crosswalk · Gesamtkarte</a><a href="index.html#a0-navigation-directory">Alle A0-Seiten nach Themen</a><a href="A0_FAMILY_CONNECTION_ATLAS.html">F1–F7 · funktionale Families</a><a href="NEXAH_C_CONNECT.html">C · Connect</a></section>';
   const addContext = (label, links) => {
     if (!links.length) return;
     const section = document.createElement("section");
