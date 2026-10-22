@@ -4,7 +4,7 @@
 })(typeof globalThis==='undefined'?this:globalThis,function(P){
   'use strict';
   const SCHEMA='a0.bench-division-return/1',ids=['split','rest','crt'],clone=x=>JSON.parse(JSON.stringify(x));
-  const SOURCE_PINS=[{"path":"assets/external/nexah-profiles.js","role":"Original Re/ST executable profile","sha256":"9e2a55497ae2c7fe5510398818e75658d6d27b83b6e7c89606465e26f85cd71d"},{"path":"../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_LIFE_CUBE_MEMORY_FOURIER_CA_IDENT_03_2026-10-08/A0_SCIENTIFIC_POSITION_REPORT.html","role":"Existing exact CRT annex record","sha256":"0c57ca230df24b9257e4dc5d5e939769445e705aabe4b3a5e70cf6fcf7ca1036"}];
+  const SOURCE_PINS=[{"path":"assets/external/nexah-profiles.js","role":"Original Re/ST executable profile","sha256":"9e2a55497ae2c7fe5510398818e75658d6d27b83b6e7c89606465e26f85cd71d"},{"path":"A0_SCIENTIFIC_POSITION_REPORT.html","role":"Existing exact CRT annex record","sha256":"0c57ca230df24b9257e4dc5d5e939769445e705aabe4b3a5e70cf6fcf7ca1036"}];
   const canonical=x=>JSON.stringify(x,(_,v)=>v&&typeof v==='object'&&!Array.isArray(v)?Object.fromEntries(Object.keys(v).sort().map(k=>[k,v[k]])):v);
   const equal=(a,b)=>canonical(a)===canonical(b);
   const native=()=>{const p=P?.executable?.find(p=>p.id==='rest-atomic');if(!p||p.status!=='EXECUTABLE'||p.version!=='0.1.0')throw Error('Re/ST source profile unavailable');return p};

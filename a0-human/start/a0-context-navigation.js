@@ -59,6 +59,11 @@
             "Sieben Fragen, neun Apertures und der Human Return"
           ],
           [
+            "A0_GAME_OF_WORLDS.html",
+            "Game of Worlds · Human Flagship",
+            "Originaler Einstieg vor ONE PULSE und den drei spielbaren Welten"
+          ],
+          [
             "A0_LIVING_BLUEPRINT.html#situated-orientation",
             "Living Blueprint · Gesamtkarte",
             "Leitgedanke, Werkzeugregal und Crosswalk"
@@ -220,7 +225,7 @@
             "Rhombenbasis, gemeinsamer Rücken und deklarierte Öffnung"
           ],
           [
-            "../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_ROOT7_LOOK_ORIENTATION_2026-10-08/index.html",
+            "A0_SCIENTIFIC_POSITION_REPORT.html",
             "Root7 LOOK · Primärquellen",
             "8→16-Fixture, historische Bridge und geschlossener Record"
           ],
@@ -314,7 +319,7 @@
     "code": "B",
     "label": "Builder",
     "description": "Tools, Neuerungen und Anwendungen",
-    "entry": "https://nexah.de/",
+    "entry": "A0_SCIENTIFIC_POSITION_REPORT.html",
     "sections": [
       {
         "label": "Start & Werkstätten",
@@ -334,7 +339,7 @@
             "Welches Werkzeug macht was?"
           ],
           [
-            "https://nexah.de/",
+            "A0_SCIENTIFIC_POSITION_REPORT.html",
             "Builder Startseite",
             "Was ist neu? Was kann ich nutzen? Wo ist es eingebaut?"
           ],
@@ -645,7 +650,7 @@
       directory.id = "a0-navigation-directory";
       directory.className = "a0-navigation-directory";
       directory.setAttribute("aria-labelledby", "a0DirectoryTitle");
-      directory.innerHTML = `<summary>Gesamtübersicht · alle A0-Seiten</summary><header><p>A0 · vier Hauptzugänge · gemeinsame Navigation</p><h2 id="a0DirectoryTitle">Hauptseite → Themenbereich → Werkzeug</h2><p>Wähle zuerst einen Zugang. Die aufklappbaren Bereiche zeigen seine Unterseiten. Human / Science / Builder sind Leseperspektiven; F1–F7 sind übergreifende Funktionen, keine sieben getrennten Website-Ordner.</p></header><div class="a0-directory-grid">${directoryCards}</div><p><a href="A0_LIVING_BLUEPRINT.html#tessarec-module">Tessarec · Modulüberblick →</a> · <a href="A0_FAMILY_CONNECTION_ATLAS.html">Nach F1–F7 erkunden →</a> · <a href="A0_SCIENCE.html#core-documents">Kerndokumente & Policies →</a></p>`;
+      directory.innerHTML = `<summary>Gesamtübersicht · alle A0-Seiten</summary><header><p>A0 · vier Hauptzugänge · gemeinsame Navigation</p><h2 id="a0DirectoryTitle">Hauptseite → Themenbereich → Werkzeug</h2><p>Wähle zuerst einen Zugang. Die aufklappbaren Bereiche zeigen seine Unterseiten. Human / Science / Builder sind Leseperspektiven; F1–F7 sind übergreifende Funktionen, keine sieben getrennten Website-Ordner.</p></header><div class="a0-directory-grid">${directoryCards}</div><p><a href="A0_LIVING_BLUEPRINT.html#tessarec-module">Tessarec · Modulüberblick →</a> · <a href="A0_FAMILY_CONNECTION_ATLAS.html">Nach F1–F7 erkunden →</a> · <a href="A0_SCIENCE.html">Kerndokumente & Policies →</a></p>`;
       main.append(directory);
       const revealDirectory = () => { if (location.hash === "#a0-navigation-directory") { directory.open = true; directory.scrollIntoView?.({block:"start"}); } };
       window.addEventListener("hashchange", revealDirectory);
@@ -677,8 +682,8 @@
   // Each lane gets its own invitation. Human is experience-led; Builder keeps the workshop.
   const humanShowcase = [
     ["A0_NEXAH_APERTURE_JOURNEY.html#human-view", "Human View", "Fragen · Apertures · Weltkarte · Return", "book", "Dein geführter Einstieg"],
+    ["A0_GAME_OF_WORLDS.html", "Game of Worlds", "Originaler Einstieg · ONE PULSE · LIFE · THREE DOMAINS · NUMBERS", "arcade", "Human Flagship"],
     ["A0_TESSAREC_BLUE_BODY_LAB.html#guided-test", "Blue Body", "Den Körper drehen und seine Ansichten wechseln", "body", "Touch · Drag · Discover"],
-    ["A0_GAME_OF_WORLDS_PLAY.html#life", "ARKADE", "LIFE · THREE DOMAINS · NUMBERS", "arcade", "Drei spielbare Welten"],
     ["A0_BLUE_PINK_DODECA_CELL_RETURN.html#cells", "Blue / Pink", "Zellansichten, Projektion und Return erkunden", "cells", "Look · Feel · Wonder"]
   ];
   const builderShowcase = [
@@ -768,7 +773,7 @@
       : isScience
       ? '<h3>Stand & Beiträge</h3><p>Was trägt — und wo die Grenzen liegen.</p>'
       : isHuman
-        ? '<span class="a0-human-signal">HUMAN VIEW · UX-PERIENCE</span><h3>Enter the living view.</h3><p>Nicht nur lesen: drehen, berühren, spielen und mit einem anderen Blick zurückkehren.</p>'
+        ? '<span class="a0-human-signal">HUMAN VIEW · FLAGSHIPS</span><h3>Enter the living view.</h3><p>Nicht nur lesen: drehen, berühren, spielen und mit einem anderen Blick zurückkehren.</p>'
         : '<h3>Werkzeugfenster</h3><p>Bauen, prüfen und Instrumente direkt öffnen.</p>';
     const highlights = isBench ? benchHighlights : isScience ? scienceHighlights : isHuman ? humanShowcase : builderShowcase;
     highlights.forEach(([href, label, description, accent, status]) => {
@@ -797,11 +802,11 @@
   overview.className = "a0-page-menu a0-overview-menu";
   const overviewSummary = document.createElement("summary");
   overviewSummary.textContent = "Übersicht";
-  overviewSummary.setAttribute("aria-label", "Übersicht · Bereiche, Seiteninhalt und interne Arbeitsseiten");
+  overviewSummary.setAttribute("aria-label", "Übersicht · Bereiche, Seiteninhalt und öffentliche Wege");
   const overviewBody = document.createElement("div");
   overviewBody.className = "a0-page-menu-body a0-overview-body";
   const actions = {book:"Lesen",map:"Zusammenhänge verstehen",workshops:"Werkzeuge nutzen",desk:"Ergebnisse einordnen"};
-  overviewBody.innerHTML = '<section><h3>Bereiche</h3>'+navigationGroups.map(group => '<a href="'+group.entry+'">'+actions[group.key]+'</a>').join('')+'</section><section><h3>Karten und Gesamtübersicht</h3><a href="A0_LIVING_BLUEPRINT.html#a0-map-home">Crosswalk · Gesamtkarte</a><a href="index.html#a0-navigation-directory">Alle A0-Seiten nach Themen</a><a href="A0_FAMILY_CONNECTION_ATLAS.html">F1–F7 · funktionale Families</a><a href="index.html">C · Connect</a></section>';
+  overviewBody.innerHTML = '<section><h3>Bereiche</h3>'+navigationGroups.map(group => '<a href="'+group.entry+'">'+actions[group.key]+'</a>').join('')+'</section><section><h3>Karten und Gesamtübersicht</h3><a href="A0_LIVING_BLUEPRINT.html#a0-map-home">Crosswalk · Gesamtkarte</a><a href="index.html#a0-navigation-directory">Alle A0-Seiten nach Themen</a><a href="A0_FAMILY_CONNECTION_ATLAS.html">F1–F7 · funktionale Families</a></section>';
   const addContext = (label, links) => {
     if (!links.length) return;
     const section = document.createElement("section");
@@ -815,10 +820,6 @@
     moduleContext.innerHTML = '<h3>MOD:TESSAREC · Modulkontext</h3><a href="A0_LIVING_BLUEPRINT.html#tessarec-module">Modulüberblick</a><a href="A0_TESSAREC_FRAME_ENVELOPE_OBSERVER_PAPER.html#figure">Paper F · Erklärfigur</a><a href="A0_TESSAREC_BLUE_BODY_LAB.html#guided-test">Blue Body · Instrument</a>';
     overviewBody.append(moduleContext);
   }
-  const internalMenu = document.createElement("details");
-  internalMenu.className = "a0-overview-internal";
-  internalMenu.innerHTML = '<summary>Intern · Arbeitsbereich</summary><p>Operative Arbeitsseiten, kein Zugriffsschutz.</p><div><a href="A0_SCIENTIFIC_POSITION_REPORT.html">Backlog · Aufgaben</a><a href="A0_WERKBANK.html">Builder-Log · Verlauf</a><a href="A0_SCIENCE.html">Laboratory · Admission und Runs</a></div>';
-  overviewBody.append(internalMenu);
   overview.append(overviewSummary, overviewBody);
   overview.addEventListener("toggle", () => {if(overview.open)laneNav.querySelectorAll(".a0-reader-lane[open]").forEach(group=>{group.open=false;});});
   laneNav.addEventListener("toggle", event => {if(event.target.matches?.(".a0-reader-lane[open]"))overview.open=false;},true);
@@ -831,7 +832,7 @@
   ownerDesk.className = "a0-owner-desk";
   ownerDesk.href = "A0_SCIENCE.html";
   ownerDesk.innerHTML = '<svg class="a0-owner-scarab" viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="4" r="2.2"/><path d="M16 7c-4.2 0-6.5 3.2-6.5 7.7V20c0 4.5 2.3 7 6.5 9 4.2-2 6.5-4.5 6.5-9v-5.3C22.5 10.2 20.2 7 16 7Z"/><path d="M10 11C5.8 8.7 2.7 11 3.5 15.2c.7 3.6 3.1 5.8 6 6.2M22 11c4.2-2.3 7.3 0 6.5 4.2-.7 3.6-3.1 5.8-6 6.2M10 15H5M22 15h5M10 20l-5 3M22 20l5 3M13 8 9 4M19 8l4-4M10 24l-3 4M22 24l3 4"/></svg>';
-  ownerDesk.setAttribute("aria-label", "A0 Science Desk · intern");
+  ownerDesk.setAttribute("aria-label", "A0 Science · intern");
   ownerDesk.title = "Deine Science-Arbeitsfläche; kein Zugriffsschutz";
   if (file === "A0_SCIENCE.html") ownerDesk.setAttribute("aria-current", "page");
   header.replaceChildren(brand, laneNav, ...(quietEntry ? [draftLink] : []), overview, ownerDesk);

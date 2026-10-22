@@ -37,7 +37,7 @@ flowchart TD
     OneOne["BENCH · 1,1-MONITOR<br/>Lokaler Mischer / Stack · getrennte Records"]
     Numbers["GAME OF NUMBERS<br/>Getrennte Regeln · Mischer · Return"]
     Tower["TOWER-LEGENDE<br/>Plate / Glyph · Mapping offen"]
-    Desk{{"A0 SCIENCE DESK<br/>Ergebnisse · Grenzen · nächste Abnahme"}}
+    Arbeitsfläche{{"A0 SCIENCE DESK<br/>Ergebnisse · Grenzen · nächste Abnahme"}}
     Log["BUILDER LOG<br/>Bauplan · Tests · Wiedereinstieg"]
 
     A0 --> H
@@ -89,9 +89,9 @@ flowchart TD
     OneOne -.->|"Dokumentarische Legende · keine Zeilenkopplung"| Tower
     OneOne -.->|"Lokaler Modelllauf · kein Zugriff auf laufendes Game"| Numbers
     Source Lineage -.->|"Bestehende Carrier-Quellen · kein Live-Vertrag"| Control
-    Control -->|"Dokumentationsreturn"| Desk
-    OneOne -->|"Engineering-Ergebnisse / offene Bindung"| Desk
-    Desk -->|"Baustand"| Log
+    Control -->|"Dokumentationsreturn"| Arbeitsfläche
+    OneOne -->|"Engineering-Ergebnisse / offene Bindung"| Arbeitsfläche
+    Arbeitsfläche -->|"Baustand"| Log
     Log -->|"Wiedereinstieg"| Club
     Deck -.->|"Lesender Receipt via Club · Software geprüft / Browser offen"| OneOne
 
@@ -110,7 +110,7 @@ flowchart TD
     class H,Geschichten human
     class S scienceHub
     class Atlas atlasHub
-    class B,Bench,BodyLab,Control,Desk builderHub
+    class B,Bench,BodyLab,Control,Arbeitsfläche builderHub
     class Club atlasHub
     class Verstehen,Methode,Felder,Ergebnisse,Ansichten explanation
     class Gruppen,Liste,Original,Schaltbild,Grids,Pink,CRT,Demos,Workshop,BodyPlayer,BodyViews,BodyMaster,BodyModules,BodySeam,FoldSource instrument

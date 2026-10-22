@@ -27,7 +27,7 @@
  }
  function nextStep(s){
   if(!s.current)return 'Nächster Schritt: „Aktuell lesen / neu verbinden“. Falls nötig das Deck im Club öffnen.';
-  if(s.current.receipt.layer===null)return 'Empfang steht. Im Q4-Feld des Clubs eine Position in Q4−, Q4⁰ oder Q4+ wählen; Lage und Desk sind noch offen.';
+  if(s.current.receipt.layer===null)return 'Empfang steht. Im Q4-Feld des Clubs eine Position in Q4−, Q4⁰ oder Q4+ wählen; Lage und Arbeitsfläche sind noch offen.';
   if(!s.anchor||s.anchor.layer===null)return 'Lage empfangen. Für einen stabilen Ausgangspunkt im Player pausieren, dann hier „Getrennte Anker erfassen“.';
   if(s.comparison.player==='CHANGED')return 'Änderung erkannt: Die Player-Koordinate weicht vom gespeicherten Anker ab. CHANGED ist hier kein Verbindungsfehler. Für einen neuen Ausgangspunkt erneut Anker erfassen.';
   return 'Player stimmt mit seinem Anker überein (MATCH). Nun im Q4-Feld des Clubs eine andere Position wählen: Erwartung CHANGED. Die Bench wird separat mit ihrem eigenen Anker verglichen.';
@@ -96,7 +96,7 @@
   const bench=()=>win.A0ApertureStackController?.record||null;
   function render(){
    const s=state.snapshot(bench());host.dataset.state=s.link;el('oneOnePlayerStatus').textContent=s.link+' · '+s.reason;
-   el('oneOnePlayerCoordinate').textContent=s.current?'Player · Q4 '+s.current.receipt.q4Bits+' · Lage '+(s.current.receipt.layer===null?'offen':s.current.receipt.layer)+' · Desk '+(s.current.receipt.deskIndex??'offen')+' · '+(s.current.running?'spielt':'pausiert'):'Kein aktueller Player-Record';
+   el('oneOnePlayerCoordinate').textContent=s.current?'Player · Q4 '+s.current.receipt.q4Bits+' · Lage '+(s.current.receipt.layer===null?'offen':s.current.receipt.layer)+' · Arbeitsfläche '+(s.current.receipt.deskIndex??'offen')+' · '+(s.current.running?'spielt':'pausiert'):'Kein aktueller Player-Record';
    el('oneOnePlayerComparison').textContent='Player ↔ eigener Anker: '+s.comparison.player+' · Bench ↔ eigener Anker: '+s.comparison.bench+' · Player ↔ Bench: verschiedene Träger / nicht vergleichbar';
    const fields=el('oneOnePlayerFields');
    if(fields){const rows=comparisonRows(s).map(r=>{
@@ -107,7 +107,7 @@
    });fields.replaceChildren(...rows);}
    const guide=el('oneOnePlayerNext');if(guide)guide.textContent=nextStep(s);
    const seam=el('oneOnePlayerCase');
-   if(seam){const c=connectionCase(s,bench());seam.textContent=c.status+'\nPlayer: '+(c.player?'Q4 '+c.player.q4Bits+' / Lage '+c.player.layer+' / Desk '+c.player.deskIndex:'kein vollständiger aktueller Anschluss')+'\nBench: '+(c.bench?c.bench.fixture+' / '+c.bench.plate+' / '+c.bench.angleDeg+'° / 48 Samples':'kein lesbarer Stack-Anschluss')+'\nSchnitt / Operator / Quellenbeleg / erwartetes Ergebnis / Gegenprobe / Rückweg: offen.\nResiduum: nicht definiert (nicht 0). Keine simultane Aufnahme und keine Quellensteuerung.';}
+   if(seam){const c=connectionCase(s,bench());seam.textContent=c.status+'\nPlayer: '+(c.player?'Q4 '+c.player.q4Bits+' / Lage '+c.player.layer+' / Arbeitsfläche '+c.player.deskIndex:'kein vollständiger aktueller Anschluss')+'\nBench: '+(c.bench?c.bench.fixture+' / '+c.bench.plate+' / '+c.bench.angleDeg+'° / 48 Samples':'kein lesbarer Stack-Anschluss')+'\nSchnitt / Operator / Quellenbeleg / erwartetes Ergebnis / Gegenprobe / Rückweg: offen.\nResiduum: nicht definiert (nicht 0). Keine simultane Aufnahme und keine Quellensteuerung.';}
    el('oneOnePlayerLedger').textContent=JSON.stringify({...s,connectionCase:connectionCase(s,bench()),transport:mode==='embedded'?'parent_iframe':'opener_window',relaySeen},null,2);el('oneOnePlayerCapture').disabled=!s.current;
    win.A0PlayerPascalBridgeView?.refreshAvailability();
    for(const fn of subscribers)try{fn();}catch(error){win.console?.error?.(error);}

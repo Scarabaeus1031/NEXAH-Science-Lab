@@ -13,6 +13,7 @@
   function applyPublicBoundary() {
     document.querySelectorAll("a[href]").forEach((link) => {
       const raw = link.getAttribute("href") || "";
+      const label = (link.textContent || "").trim();
       if (/SCIENCE_LAB\/(?:NAVIGATION|RUNTIME)|00%20EXECUTIVE/.test(raw)) {
         link.href = "https://nexah.de/";
         link.target = "_blank";
@@ -21,9 +22,14 @@
       if (/DRAFTS\/A0_HUMAN_BOOK_DRAFT/.test(raw)) {
         link.href = "A0_NEXAH_APERTURE_JOURNEY.html#human-view";
       }
+      if (/^(?:C · Connect|Intern · Arbeitsbereich)$/i.test(label)) link.remove();
+      if (/A0 (?:Science|Research) Desk/i.test(label)) {
+        link.href = "A0_SCIENCE.html";
+        link.textContent = label.replace(/A0 (?:Science|Research) Desk/gi, "A0 Science");
+      }
     });
 
-    document.querySelectorAll(".a0-private-menu,.a0-human-draft-link").forEach((node) => node.remove());
+    document.querySelectorAll(".a0-private-menu,.a0-human-draft-link,.a0-overview-internal").forEach((node) => node.remove());
 
     const scarab = document.querySelector(".a0-owner-" + "d" + "esk");
     if (scarab) {

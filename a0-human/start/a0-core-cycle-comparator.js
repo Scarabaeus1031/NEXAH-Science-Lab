@@ -12,7 +12,7 @@
    {role:'max_drift',label:'Maximum Driftmaß',K:2.5454545454545454,metric:0.4054911416475603,anchor:25,expression:'5² = 25'},
    {role:'max_events',label:'Maximum Event-Anteil',K:2.7727272727272725,metric:0.0116441856847625,anchor:27,expression:'3³ = 27'}
   ].map(p=>({...p,scaledK:10*p.K,integerPart:Math.floor(10*p.K),nearestInteger:Math.round(10*p.K),residual:10*p.K-p.anchor,exactMatch:10*p.K===p.anchor}));
-  return {status:'HISTORICAL_SOURCE_READOUT_NOT_NEW_RUN',source:'../../../../../10 NEXAH CORE/NEXAH/RESEARCH/VALIDATION/systems/kuramoto/kuramoto_v8/final_1777944907/regime_points.json',
+  return {status:'HISTORICAL_SOURCE_READOUT_NOT_NEW_RUN',source:'A0_SCIENTIFIC_POSITION_REPORT.html',
    sourceSha256:'1a5492b4981b87b9a2cc581f8de6ed555b3e94414f62ac4c93371574f57aaf6b',
    displayScale:10,integerRule:'floor(10*K), explicit truncation, not nearest rounding',
    anchorStatus:'OWNER_NUMBER_READING_NOT_CRITICAL_CONSTANTS',points,

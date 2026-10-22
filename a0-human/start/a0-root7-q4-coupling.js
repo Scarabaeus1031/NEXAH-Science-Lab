@@ -4,7 +4,7 @@ const VERSION='1.2.0',SCHEMA='nexah.a0.root7-q4-view/1';
 const sections=typeof module==='object'&&module.exports?require('./a0-root7-section-mirror.js'):globalThis.A0Root7Sections;
 const book=typeof module==='object'&&module.exports?require('./a0-root7-open-book.js'):globalThis.A0Root7Book;
 const roots=[2,3,5,7],weights=[2,1,1,1];
-const source='../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_ROOT7_LOOK_ORIENTATION_2026-10-08/index.html';
+const source='A0_SCIENTIFIC_POSITION_REPORT.html';
 function coordinates(address){return weights.map((weight,bit)=>weight*((address>>bit)&1));}
 function snapshot(state,core,mode='q4',viewOptions={},bookOptions={}){
   if(!core||typeof core.rootSpaceEngineFrame!=='function')throw new TypeError('source controller unavailable');

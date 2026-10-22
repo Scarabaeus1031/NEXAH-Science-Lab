@@ -27,7 +27,7 @@
   const play=doc.getElementById('clubReturnPlay');
   const buttons=[];
   function draw(){
-   position.textContent=current?'Q4 '+current.q4Bits+' · '+(current.layer===null?'Lage offen · 3 mögliche Positionen': ['−','⁰','+'][current.layer]+' · Desk '+current.deskIndex):'Player noch nicht verbunden';
+   position.textContent=current?'Q4 '+current.q4Bits+' · '+(current.layer===null?'Lage offen · 3 mögliche Positionen': ['−','⁰','+'][current.layer]+' · Arbeitsfläche '+current.deskIndex):'Player noch nicht verbunden';
    for(const b of buttons){const selected=!!current&&current.layer===Number(b.dataset.layer)&&current.q4Address===Number(b.dataset.address);
     const candidate=!!current&&current.layer===null&&current.q4Address===Number(b.dataset.address);
     b.dataset.candidate=String(candidate);
@@ -74,7 +74,7 @@
    const sequence=layer===1?[...GRAY].reverse():GRAY;
    for(const address of sequence){const b=doc.createElement('button');b.type='button';b.dataset.layer=String(layer);b.dataset.address=String(address);
     b.textContent=String(address);b.setAttribute('aria-label','Player wählen: Q4 '+address.toString(2).padStart(4,'0')+', Lage '+['innen −','mitte ⁰','außen +'][layer]);
-    b.title='Q4 '+address.toString(2).padStart(4,'0')+' · '+['Innen','Mitte','Außen'][layer]+' · Desk '+(layer*16+sequence.indexOf(address));
+    b.title='Q4 '+address.toString(2).padStart(4,'0')+' · '+['Innen','Mitte','Außen'][layer]+' · Arbeitsfläche '+(layer*16+sequence.indexOf(address));
     b.addEventListener('click',()=>{const target={plate:'tessarec',q4Address:address,q4Bits:address.toString(2).padStart(4,'0'),layer,deskIndex:layer*16+sequence.indexOf(address)};check(target);});row.append(b);buttons.push(b);}
    field.append(row);
   }

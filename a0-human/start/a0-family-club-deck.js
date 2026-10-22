@@ -4,7 +4,7 @@
  else{const deck=api.mount(document,root);if(deck)root.A0ClubDeck=deck;}
 })(typeof globalThis==='undefined'?this:globalThis,function(){
  'use strict';
- const SOURCE='../A0_WERKBANK.html#performanceConsole';
+ const SOURCE='../A0_WERKBANK.html';
  function mount(doc,win){
   const panel=doc.getElementById('club-deck-room'),host=doc.getElementById('clubDeckHost'),status=doc.getElementById('clubDeckStatus');
   if(!panel||!host||!status)return null;

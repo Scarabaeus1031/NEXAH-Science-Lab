@@ -1,5 +1,5 @@
 (function(root,factory){
-  const api=factory(typeof module==='object'?require('../../../../../10 NEXAH CORE/NEXAH/APPLICATIONS/game4life_plus1/cylinder-engine.js'):root.LifeCylinder,typeof module==='object'?require('./a0-numbermagick-number-lens.js'):root.A0NumbermagickNumberLensModel,typeof module==='object'?require('../../../../../10 NEXAH CORE/NEXAH/APPLICATIONS/game4life_plus1/three-domain-transition-test/domain-engine.js'):root.ThreeDomainEngine);
+  const api=factory(typeof module==='object'?require('A0_SCIENTIFIC_POSITION_REPORT.html'):root.LifeCylinder,typeof module==='object'?require('./a0-numbermagick-number-lens.js'):root.A0NumbermagickNumberLensModel,typeof module==='object'?require('A0_SCIENTIFIC_POSITION_REPORT.html'):root.ThreeDomainEngine);
   if(typeof module==='object'&&module.exports)module.exports=api;root.A0GameOfWorldsModel=api;
 })(typeof globalThis==='undefined'?this:globalThis,function(life,numbers,jointSource){
   'use strict';

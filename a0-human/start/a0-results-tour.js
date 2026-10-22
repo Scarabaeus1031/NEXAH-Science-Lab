@@ -47,7 +47,7 @@
       result: "Alle Nicht-View-Kontrollen bestanden, aber 21 von 81 groben 8-Bin-Ansichten verletzten die festgelegte Stabilitätsschwelle.",
       useful: "Der Fehler zeigt, wo eine Ansicht zu grob wird. Negative Resultate schützen uns davor, eine schöne Projektion mit einer verlässlichen Messung zu verwechseln.",
       boundary: "Der Befund widerlegt die getestete Stabilitätsannahme; er widerlegt nicht den Carrier oder alle feineren Ansichten.",
-      href: "https://nexah.de/",
+      href: "A0_SCIENTIFIC_POSITION_REPORT.html",
       linkLabel: "Learning Map mit allen 18 Records öffnen"
     }),
     Object.freeze({
