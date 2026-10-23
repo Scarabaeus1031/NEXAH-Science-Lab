@@ -1,0 +1,48 @@
+{
+  "schema": "nexah.a0.machina-viewer-navigation-return/1",
+  "date": "2026-10-23",
+  "status": "ENGINEERING_PASS_BROWSER_ACCEPTED",
+  "entry": "A0_MACHINA_COCKPIT.html#benchFoyer",
+  "scope": [
+    "THE MACHINA primary exhibition now opens in its existing standalone Cockpit document instead of the technical Bench.",
+    "The standalone surface reuses the audited three-GLB viewer controller; Pentagon Cockpit remains the second room on the same page.",
+    "Parts Shelf and Full Bench remain explicit technical destinations rather than being copied into the viewer.",
+    "Human View exposes one optional bounded entrance and one visible Return.",
+    "Bench catalog context tiles reuse the existing orientation dialog and restore the invoking control, page scroll, map scroll and map open state on close. Direct Zum Modul links retain their explicit jump behavior."
+  ],
+  "identity_reuse": [
+    "FAM-009",
+    "NEXAH_A0_ORIENTATION_CONTROLLER_BENCH",
+    "A0-VIEW-NEXAH-APERTURE-JOURNEY",
+    "NEXAH:A0_ORIENTATION_EVIDENCE_LINEAGE:V1"
+  ],
+  "new_global_ids": [],
+  "new_canonical_relations": [],
+  "source_runtime_changes": false,
+  "implementation_files": [
+    {"path":"A0_MACHINA_COCKPIT.html","sha256":"357aa52edb7347880c60e8ec64e7e63d77c5f175f1cf32be2e36c8b2c9506c68"},
+    {"path":"A0_ORIENTATION_CONTROLLER_BENCH.html","sha256":"8961d6509e474aebb73ca228dcb7a57e4a3810cbcba0e5222a20845fbcdac301"},
+    {"path":"a0-bench-foyer.css","sha256":"4ac5a9b50cf6e3b018a1c81241bb1d21f729930ca4c7a6f23ec51120bb05aa04"},
+    {"path":"a0-bench-foyer.js","sha256":"1349076f85cea45fa1f24cb6c61be6acdde78982b1be4b77a2071dfb0f312aa1"},
+    {"path":"A0_WERKBANK.html","sha256":"a034db9dffe927648290679ec058746824251c9a5636b4d83e57aa75ca249e49"},
+    {"path":"A0_BENCH_ENTDECKEN.html","sha256":"e3b67107d8cbcde354020fdc5f0cc50d3d2a71a98764d6b939596027f9d7ce21"},
+    {"path":"A0_NEXAH_APERTURE_JOURNEY.html","sha256":"d779e794e979da580cd8af2dbba85b419f10aec947e3fb4a53be66ba32f1413d"},
+    {"path":"a0-nexah-aperture-journey.css","sha256":"f57d6fb7287331625369a9abf769d8771221b3fc7c0f443ca808228361e46d7b"},
+    {"path":"a0-context-navigation.js","sha256":"a3d299c06d6e657f9b73604aad7b5102270bbc8590fc14b825e7d4b0cf977cfd"},
+    {"path":"a0-orientation-map.js","sha256":"f64193e4d12331296a0c5ce955138b0bfb0343897a9614ae344976d87c5243ba"},
+    {"path":"a0-bench-tool-catalog.js","sha256":"880860b0b2aa676eb028f83e5690d56769afd3cdd6bb7b353465a68e8b18f78a"}
+  ],
+  "test_files": [
+    {"path":"a0-machina-cockpit-tests.cjs","sha256":"b5364b8ee09dd2ab778f6a75ecaa7489c2e06775ba491a3b3e4b4f483f25e932","result":"PASS 49"},
+    {"path":"a0-bench-foyer-tests.cjs","result":"PASS 79"},
+    {"path":"a0-bench-tool-catalog-tests.cjs","sha256":"25d791fa57727dc4116bde804e21c262f2777c24331bb45f530d310c4ed0b0b9","result":"PASS 234"},
+    {"path":"a0-orientation-map-tests.cjs","sha256":"d12e98226a0b3fc1af969311a49dcc27f8025cb64b00659be6ca88dbbe9c292c","result":"PASS 1166 WITH RECEIPT PINS"},
+    {"path":"a0-reader-navigation-tests.cjs","result":"PASS 67 LOCAL HTML REACHABLE"}
+  ],
+  "browser_acceptance": [
+    "PASS: standalone Viewer renders in a normal desktop viewport; 17 Floors, Blue Pearl and Resonance Cathedral report 3D vorgeladen; Blue Pearl opens its rotating installation state.",
+    "PASS: Human View exposes the optional bounded THE MACHINA door and its explicit Return route.",
+    "PASS: Bench catalog context dialog closes to the invoking Zusammenhang button with window scroll unchanged at 1277.77783203125 px; dialog is open=false and display=none after close."
+  ],
+  "boundary": "Presentation and navigation only. Camera rotation is not stored model animation. The three GLBs keep separate source identities and hashes. Interface Return restores reader location, not an embedded source runtime or scientific state. No Study, evidence promotion, mechanism claim, publication or authority transfer."
+}

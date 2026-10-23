@@ -1,63 +1,183 @@
 <!doctype html>
 <html lang="de">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="Fünf interaktive Kapitel: Körper drehen, Perspektiven vergleichen, Faltungen verändern, Fraktale erkunden und eine Welt spielen. NEXAH Human Book.">
-<title>NEXAH Human Book · Dreh es um</title>
-<link rel="stylesheet" href="a0-human-flagship-journey.css">
-<link rel="stylesheet" href="a0-human-builder-gate.css">
-<style>.station-rail{grid-template-columns:repeat(5,1fr)}@media(max-width:720px){.station-rail{grid-template-columns:repeat(2,1fr)}}</style>
-<script defer src="a0-human-crosswalk.js?rev=1"></script>
-<script defer src="a0-human-flagship-journey.js"></script>
-  <link rel="stylesheet" href="a0-explanation-reading-path.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="A0 Human View: eine kuratierte Reise durch Sehen, Bewegung, Leben und Lesen — mit Rainbow Light als einem begrenzten Erlebnisraum und einem sichtbaren Human Return.">
+  <title>NEXAH · The Aperture Journey</title>
+  <link rel="stylesheet" href="a0-nexah-aperture-journey.css?rev=top-question-arrows-20261020">
+  <link rel="stylesheet" href="a0-human-curation.css?rev=hybrid-fog-20261022">
+  <link rel="stylesheet" href="a0-context-navigation.css?rev=scarab-desk-20261022">
 </head>
 <body>
-<a class="skip" href="#instrument">Zum Demonstrator</a>
-<header class="top"><a href="#human-view" class="brand">NEXAH <span>HUMAN BOOK</span></a><nav aria-label="Hauptwege"><a href="#human-view" aria-current="page">Human Book</a><a href="../previews/numbers-return-20261019/book/A0_GAME_OF_WORLDS_PLAY.html?world=life#life">Arkade</a><a href="index.html">A0 Einstieg</a></nav></header>
-<main id="human-view">
-<nav class="a0-explanation-path" aria-label="Erklärweg durch vier vorhandene Seiten"><p><strong>Erklärweg · 1 von 4</strong> · Du kannst Stationen überspringen. Vertiefungen sind freiwillig.</p><ol><li><a href="A0_NEXAH_APERTURE_JOURNEY.html#human-view" aria-current="step">01 · Ausprobieren</a></li><li><a href="A0_THEORY_STORYBOARD.html#overview">02 · Zusammenhänge verstehen</a></li><li><a href="A0_LIVING_BLUEPRINT.html#a0-map-home">03 · Gesamtkarte lesen</a></li><li><a href="A0_SCIENTIFIC_POSITION_REPORT.html#currentness-20261019">04 · Ergebnisse & Grenzen</a></li></ol></nav>
-<section class="intro" aria-labelledby="humanTitle">
-<p class="eyebrow">FÜNF SPIELBARE KAPITEL · DEIN BLICK MACHT DEN UNTERSCHIED</p>
-<h1 id="humanTitle">Dreh es um.<br><em>Schau noch einmal.</em></h1>
-<p>Ein Körper. Mehrere Ansichten. Eine Welt, die auf deine Berührung reagiert. Dieses Buch wird nicht nur gelesen: Fünf kleine Kapitel laden dich zum Drehen, Sehen und Spielen ein — ohne Vorwissen.</p>
-<div class="journey-gates"><a class="start" href="#instrument">Das Buch betreten <span>↓</span></a><a class="builder-gate" href="../previews/numbers-return-20261019/book/A0_GAME_OF_WORLDS_PLAY.html?world=life#life"><span>PLAY NOW</span>Direkt zur NEXAH ARKADE →</a></div>
-<p class="quiet">In deinem Tempo. Du kannst jede Station überspringen oder zurückgehen.</p>
-</section>
-<section id="instrument" aria-labelledby="stationTitle" class="experience">
-<span id="invitation" class="anchor-alias"></span><span id="cube-view" class="anchor-alias"></span><span id="window" class="anchor-alias"></span>
-<nav class="station-rail" aria-label="Stationen der Reise">
-<a href="#station-1" data-station="0" aria-current="step"><span>01</span> Körper drehen</a>
-<a href="#station-2" data-station="1"><span>02</span> Anders sehen</a>
-<a href="#station-3" data-station="2"><span>03</span> Eine Lücke finden</a>
-<a href="#station-4" data-station="3"><span>04</span> Eine Welt verändern</a>
-<a href="#station-5" data-station="4"><span>05</span> Spielen &amp; zurückkehren</a>
-</nav>
-<div class="station-copy" tabindex="-1" id="stationCopy">
-<div><p class="eyebrow" id="stationNumber">01 / 05 · KÖRPER</p><h2 id="stationTitle">Was versteckt sich auf der Rückseite?</h2><p id="stationStory">Von vorn sieht ein Körper anders aus als von hinten. Dreh ihn — und entdecke, wie seine Flächen zusammenhängen.</p></div>
-<div class="mission"><span>PROBIER ES AUS</span><p id="stationAction">Ziehe am Körper oder benutze Links / Rechts. Halte die Drehung an und wechsle zur Draufsicht.</p><p id="stationNotice">Achte darauf: In der flachen Ansicht können Stellen zusammenrücken, die räumlich getrennt sind.</p></div>
-</div>
-<div class="window-bar"><span id="sourceName">Tessarec · Blue Body</span><button id="loadInstrument" type="button">Körper ausprobieren →</button></div>
-<div class="instrument-shell" id="instrumentShell">
-<div class="poster" id="poster">
-<svg viewBox="0 0 640 330" role="img" aria-labelledby="posterLabel"><title id="posterLabel">Schematisches Drahtmodell als Einladung — noch kein laufendes Instrument</title><g fill="none" stroke="#70c6d9" stroke-width="2"><path d="M320 35 455 110 455 240 320 300 185 240 185 110Z"/><path d="M320 35V165L455 240M320 165 185 240M185 110 320 165 455 110M250 72 390 72 455 175 390 270 250 270 185 175Z"/><path d="M250 72 250 205 390 270M390 72 390 205 250 270" opacity=".35"/></g><circle cx="320" cy="165" r="7" fill="#efc76d"/></svg>
-<p>Ein Klick öffnet das echte Instrument hier im Fenster.</p><small>Die Zeichnung oben ist eine schematische Vorschau.</small>
-</div>
-</div>
-<p id="loadStatus" class="quiet" role="status">Noch nicht gestartet. Es läuft immer nur ein Instrumentfenster.</p>
-<div class="journey-controls"><button id="previousStation" type="button" disabled>← Zurück</button><button id="stopInstrument" type="button" disabled>Instrument schließen</button><button id="nextStation" type="button" class="primary">Weiter: Anders sehen →</button></div>
-<details class="source-note"><summary>Was sehe ich hier eigentlich?</summary><p id="stationBoundary">Ein konstruiertes geometrisches Modell. Die Hülle und das mathematische Zustandsnetz sind nicht identisch.</p><p>Dies ist eine kuratierte Reise durch unterschiedliche Instrumente, keine gemeinsame Simulation. Beim Wechsel wird das vorherige Fenster geschlossen; sein Zustand wird nicht automatisch weitergegeben.</p><a id="sourceLink" href="A0_TESSAREC_BLUE_BODY_LAB.html#lab">Originalinstrument mit allen Funktionen öffnen →</a><p id="humanCrosswalkCopy" hidden></p><p><a id="humanCrosswalkBack" href="A0_THEORY_STORYBOARD.html#overview">Zum erklärenden Modell →</a></p></details>
-<noscript><p>Das Human Book braucht JavaScript. Du kannst die Instrumente direkt öffnen:</p><ul><li><a href="A0_TESSAREC_BLUE_BODY_LAB.html#lab">Körper drehen</a></li><li><a href="A0_TESSAREC_BLUE_BODY_LAB.html#blue-body-interior-crt16">Vier Perspektiven vergleichen</a></li><li><a href="A0_TESSAREC_BLUE_BODY_LAB.html#fold-contact">Faltung ausprobieren</a></li><li><a href="A0_BLUE_PINK_DODECA_CELL_RETURN.html#formation">Mandelbrot und Julia erkunden</a></li><li><a href="../previews/numbers-return-20261019/book/A0_GAME_OF_WORLDS_PLAY.html?world=life#life">Eine Welt spielen</a></li></ul></noscript>
-</section>
-<section id="return" class="outro" tabindex="-1" aria-labelledby="returnTitle">
-<span id="fields" class="anchor-alias"></span><span id="world-map" class="anchor-alias"></span>
-<p class="eyebrow">WAS NIMMST DU MIT?</p><h2 id="returnTitle">Ein Bild ist ein Blick.<br>Nicht das ganze Objekt.</h2>
-<p>Du hast einen Körper gedreht, Ansichten verglichen, eine Lücke gesucht, einen Fraktalparameter verändert und eine Welt in Bewegung gesetzt. Nicht alles folgt derselben Regel. Aber jedes Kapitel lässt dich prüfen: Was ändere ich — und was sehe ich deshalb anders?</p>
-<div class="exit-links"><a href="A0_THEORY_STORYBOARD.html#overview">Weiter: Zusammenhänge verstehen →</a><a href="#station-1">Noch einmal entdecken ↺</a><a href="A0_BUILDER_TOY_STORE.html">Mehr ausprobieren →</a></div>
-<details><summary>Hinter die Kulissen schauen</summary><p><a href="A0_BUILDER_TOY_STORE.html">Builder · Werkzeuge und Aufbau</a></p><p><a href="A0_RESEARCH_DESK.html#human-journey-return">Science · Methode, Belege und Grenzen</a></p><p><a href="A0_THEORY_STORYBOARD.html#overview">Die Idee hinter den Ansichten</a></p></details>
-</section>
-<section class="a0-explanation-next" aria-label="Nächster Schritt im Erklärweg"><h2>Wie geht es weiter?</h2><p>Du hast Ansichten selbst verändert. Im nächsten Schritt geht es darum, wie Beziehung, Grenze und Blick zusammenhängen.</p><a href="A0_THEORY_STORYBOARD.html#overview">Weiter: Zusammenhänge verstehen →</a><p><small>Leseführung, keine Übertragung laufender Instrumentzustände. Bestehende szenengebundene Hin-/Rückwege bleiben separat erhalten.</small></p></section>
-</main>
-<footer>NEXAH · HUMAN BOOK <span>Eine spielbare Lesereise durch bestehende Instrumente. Keine neue wissenschaftliche Behauptung.</span></footer>
+  <header class="top">
+    <a class="brand" href="index.html">NEXAH <span>· HUMAN VIEW</span></a>
+    <nav><a href="#human-view">Start</a><a href="#human-route">Wege</a><a href="#look-again-room">Look Again</a><a href="#rainbow-light-tour">Rainbow Light</a><a href="a0-public-arkade-index.html#arkade">Arkade</a><a href="#return">Return</a></nav>
+  </header>
+
+  <main>
+    <section class="human-view is-awaiting-start" id="human-view" aria-labelledby="humanTitle">
+      <canvas id="humanCanvas" aria-hidden="true"></canvas>
+      <div class="human-intro">
+        <div class="eyebrow">A0 · HUMAN VIEW · BEFORE THE EXPLANATION</div>
+        <h1 id="humanTitle">Schau<br>noch einmal.</h1>
+        <p class="human-thesis"><span>Eine Welt kann gleich bleiben –</span><span>und doch völlig anders aussehen.</span><strong>Dreh einen Körper. Verändere den Blick.<br>Folge einem Puls durch mehrere Welten.</strong></p>
+      </div>
+
+      <div class="human-launch" id="humanLaunch">
+        <small>00 · BEGIN WITH ONE CHANGE</small>
+        <p>Was verändert sich,<br>wenn du anders hinschaust?</p>
+        <a class="human-first-discovery" href="a0-public-arkade-index.html#arkade">ARKADE STARTEN <b>→</b></a>
+        <button id="startQuestions" type="button">ODER: PLAY THE QUESTIONS <b>▶</b></button>
+        <span>Kein Vorwissen. Erst berühren, dann verstehen.</span>
+      </div>
+
+      <div class="human-aperture" tabindex="-1" aria-live="polite">
+        <div class="human-index">
+          <span id="humanQuestionNumber">01</span>
+          <div class="human-top-nav" role="group" aria-label="Human questions browse controls">
+            <button id="previousHumanQuestion" type="button" aria-label="Previous human question">←</button>
+            <button id="nextHumanQuestion" type="button" aria-label="Next human question">→</button>
+          </div>
+        </div>
+        <p class="human-question" id="humanQuestion">What is real?</p>
+        <p class="human-bridge" id="humanBridge">Before an answer, there is a world — and a position from which we meet it.</p>
+        <div class="human-actions" id="humanFinalAction" hidden>
+          <button class="human-reveal" id="revealQuestions" type="button">WHAT'S BEHIND THESE QUESTIONS? <span>✦</span></button>
+        </div>
+      </div>
+
+      <div class="human-question-rail" id="humanQuestionRail" role="group" aria-label="Seven human questions"></div>
+      <p class="human-formula"><span>HUMAN VIEW</span><i>→</i><span>CLEAR MIND</span><i>→</i><span>ORIENTATION</span><i>→</i><span>APERTURE</span><i>→</i><span>RETURN</span></p>
+      <div class="human-behind" id="humanBehind" aria-hidden="true">
+        <small>07 / 07 · BEHIND THE QUESTIONS</small>
+        <p>Not an answer.<br>A moving field.</p>
+        <span>POSITION · BOUNDARY · RELATION · RETURN</span>
+        <div>
+          <button id="returnQuestions" type="button">RETURN TO QUESTION 07 ↙</button>
+          <a href="#invitation">FOLLOW THE APERTURE ↓</a>
+        </div>
+      </div>
+      <a class="human-descent" href="#human-route" aria-label="Den kuratierten Human-Weg ansehen"><span>SEE THE HUMAN ROUTE</span><b>↓</b></a>
+    </section>
+
+    <section class="human-route" id="human-route" aria-labelledby="humanRouteTitle">
+      <header><div class="eyebrow">ONE HUMAN VIEW · FIVE WAYS TO ENTER</div><h2 id="humanRouteTitle">Nicht alles auf einmal.<br>Wähle, wie du beginnst.</h2><p>Sehen, Bewegen, Leben, Lesen und Noch-einmal-Hinschauen sind verschiedene Zugänge zur selben Orientierungsfrage. Jeder Weg behält seinen eigenen Gegenstand, seine Quelle und seine Grenze.</p></header>
+      <ol>
+        <li><a href="#rainbow-light-tour"><small>01 · SEE</small><b>RAINBOW LIGHT</b><span>Betritt einen dunklen Raum. Verändere das Licht. Beobachte, wie der Raum antwortet.</span><i>ENTER THE DARK ROOM ↓</i></a></li>
+        <li><a href="a0-public-arkade-index.html#arkade"><small>02 · MOVE</small><b>ONE PULSE</b><span>Ein Takt teilt sich in drei Welten und neun sichtbare Lesarten. Die ARKADE lässt dich den verbundenen Lauf oder eine einzelne Welt wählen.</span><i>ARKADE BETRETEN →</i></a></li>
+        <li><a href="A0_THE_LIVING_INTERIOR.html#life"><small>03 · LIVE</small><b>THE LIVING INTERIOR</b><span>Beobachte, wie Nachbarschaft, Generation und Veränderung ein lebendes Feld bilden.</span><i>INS LEBENDE FELD →</i></a></li>
+        <li><a href="https://nexah.de/library/wonder-operator/"><small>04 · READ</small><b>THE WONDER OPERATOR</b><span>Wechsle vom Instrument in eine menschliche Erzählung über Aufmerksamkeit, Spiel und Staunen.</span><i>IN DER LIBRARY LESEN ↗</i></a></li>
+        <li><a href="#look-again-room"><small>05 · LOOK</small><b>DIAMOND LENS</b><span>Halte den Carrier fest. Wechsle nur die sichtbare Relation — ohne Score und ohne Sehtest.</span><i>LOOK AGAIN ↓</i></a></li>
+      </ol>
+      <p class="human-route-note"><b>Fünf Anfänge, kein Pflichtprogramm.</b> Jeder Weg führt zu einem eigenen Return. Album, World Map und einzelne Module bleiben freiwillige Querwege – nicht weitere Voraussetzungen vor dem ersten Schritt. <a href="#return">Direkt zum Human Return ↓</a></p>
+    </section>
+
+    <aside class="human-machina-door" aria-labelledby="humanMachinaTitle">
+      <div><div class="eyebrow">OPTIONAL ROOM · THREE BODIES · ONE QUIET VIEWER</div><h2 id="humanMachinaTitle">Enter<br>THE MΛCHINΛ.</h2></div>
+      <p>Erst sehen, dann orientieren: drei vorhandene Maschinenkörper lassen sich im eigenen Viewer betreten und drehen. Sie bleiben drei getrennte Quellen; der Raum behauptet keine gemeinsame Physik.</p>
+      <a href="A0_MACHINA_COCKPIT.html?origin=human#benchFoyer"><span>OPEN THE HUMAN VIEWER</span><b>→</b></a>
+    </aside>
+
+    <section class="human-look-again" id="look-again-room" aria-labelledby="humanLookAgainTitle">
+      <div class="human-look-again__orbit" aria-hidden="true"><i></i><i></i><i></i><b></b></div>
+      <header><div><div class="eyebrow">ROOM 00 · LOOK AGAIN · SAME CARRIER, ANOTHER VIEW</div><h2 id="humanLookAgainTitle">What do you see<br>the second time?</h2></div><p>Die Diamond Lens hält den White-Dodeca-Carrier fest und wechselt nur die deklarierte Ansicht: Yellow, Emerald Shadow, Rainbow Spectrum, Root/Shell oder Evil Twin. Daneben macht LOOK AGAIN fünf einzelne Display-Änderungen vergleichbar. Beides ist Erfahrung — kein Score, keine Diagnose.</p></header>
+      <div class="human-look-again__choices">
+        <a href="A0_PINK_DIAMOND_GRID_ATLAS.html?origin=human&amp;play=1#diamond-lens"><small>01 · WATCH</small><strong>SEE THE DIAMOND LENS</strong><span>Fünf Ansichten laufen als kurze Tour. Erst sehen; Werkzeuge bleiben im Hintergrund.</span><b>WATCH THE LENS ↗</b></a>
+        <a href="A0_LOOK_AGAIN_PLAY.html"><small>02 · PLAY</small><strong>PLAY LOOK AGAIN</strong><span>Ein eigenes Spiel mit fünf kurzen Vorher-/Nachher-Runden.</span><b>START THE GAME ↗</b></a>
+      </div>
+      <p class="human-look-again__boundary"><strong>Human boundary:</strong> Unterschiedliche Menschen können unterschiedliche Figuren bemerken. Hier gibt es keine richtige Antwort, keine Norm und keine Aussage über Sehfähigkeit. Bei visueller Belastung: sofort stoppen.</p>
+    </section>
+
+    <section class="hero" id="invitation">
+      <canvas id="heroCanvas" aria-label="Animierte Apertur zwischen Regenbogen, Körperzelle und kosmischem Feld"></canvas>
+      <div class="hero-copy">
+        <div class="eyebrow">ROOM 01 · RAINBOW LIGHT · A HUMAN TOUR</div>
+        <h1>Enter a<br>dark room.</h1>
+        <p class="hero-question">What makes something visible?</p>
+        <p class="lead">Nicht alles, was vorhanden ist, ist für uns bereits sichtbar. Verändere die Lichtquelle, bewege deine Hand und beobachte, wie Material, Farbe und Schatten antworten.</p>
+        <div class="hero-actions"><button id="beginJourney" type="button">BEGIN IN THE DARK <span>↓</span></button></div>
+      </div>
+      <blockquote><span>Light enters.</span><strong>The room answers.</strong></blockquote>
+      <div class="hero-counter"><small>THE FIRST VISIBLE JOINT</small><b id="heroStep">00 / 80</b></div>
+    </section>
+
+    <section class="rainbow-light-tour" id="rainbow-light-tour" aria-labelledby="rainbowLightTitle">
+      <input class="light-stop-input" type="radio" name="rainbow-light-stop" id="light-stop-1" checked>
+      <input class="light-stop-input" type="radio" name="rainbow-light-stop" id="light-stop-2">
+      <input class="light-stop-input" type="radio" name="rainbow-light-stop" id="light-stop-3">
+      <input class="light-stop-input" type="radio" name="rainbow-light-stop" id="light-stop-4">
+      <input class="light-stop-input" type="radio" name="rainbow-light-stop" id="light-stop-5">
+      <input class="light-stop-input" type="radio" name="rainbow-light-stop" id="light-stop-6">
+
+      <header class="rainbow-light-head">
+        <div><div class="eyebrow">RAINBOW LIGHT · SIX HUMAN STATIONS</div><h2 id="rainbowLightTitle">The room<br>looks back.</h2></div>
+        <p>Keine Symbollehre und kein Test deines Wissens. Eine kleine Tour durch etwas Alltägliches: Sichtbarkeit entsteht nicht aus einem Ding allein. Quelle, Material, Weg und Blick wirken zusammen.</p>
+      </header>
+
+      <div class="light-tour-shell">
+        <div class="light-room" aria-hidden="true">
+          <span class="light-source"></span><span class="light-beam"></span><span class="light-object"></span><span class="light-hand"></span><span class="light-shadow"></span>
+          <span class="fluor fluor-a"></span><span class="fluor fluor-b"></span><span class="fluor fluor-c"></span>
+          <span class="mix mix-red"></span><span class="mix mix-green"></span><span class="mix mix-blue"></span>
+          <span class="prism"></span><span class="spectrum"></span><span class="return-ring"></span>
+          <small class="room-state room-state-1">NO SOURCE · NO VISIBLE RECORD</small>
+          <small class="room-state room-state-2">UV SOURCE · SELECTED MATERIAL RESPONDS</small>
+          <small class="room-state room-state-3">DIRECTIONAL LIGHT · YOUR SHADOW APPEARS</small>
+          <small class="room-state room-state-4">THREE LIGHTS · ONE MIXED FIELD</small>
+          <small class="room-state room-state-5">WHITE LIGHT · ORDERED COLOUR PATHS</small>
+          <small class="room-state room-state-6">SOURCE · MATERIAL · PATH · OBSERVER</small>
+        </div>
+
+        <div class="light-story" aria-live="polite">
+          <article class="light-copy light-copy-1"><small>01 · THE DARK ROOM</small><h3>Du siehst fast nichts.</h3><p>Der Raum ist nicht verschwunden. Aber ohne Licht, das von seinen Oberflächen zu dir gelangt, entsteht kein sichtbares Bild.</p><strong>NICHT SICHTBAR ≠ NICHT VORHANDEN</strong><label for="light-stop-2">BLACKLIGHT EINSCHALTEN →</label></article>
+          <article class="light-copy light-copy-2"><small>02 · BLACKLIGHT / UV</small><h3>Etwas antwortet.</h3><p>Ultraviolettes Licht liegt außerhalb des sichtbaren Bereichs. Bestimmte Materialien nehmen es auf und geben einen Teil als sichtbares Licht zurück: Fluoreszenz.</p><strong>QUELLE × MATERIAL → SICHTBARE ANTWORT</strong><label for="light-stop-3">DIE HAND INS LICHT HALTEN →</label></article>
+          <article class="light-copy light-copy-3"><small>03 · YOUR SHADOW</small><h3>Du gehörst jetzt zum Bild.</h3><p>Deine Hand unterbricht einen gerichteten Lichtweg. Der Schatten ist kein schwarzes Ding; er markiert einen Bereich, den weniger Licht erreicht.</p><strong>KÖRPER × RICHTUNG → AUSLASSUNG</strong><label for="light-stop-4">FARBLICHTER ÖFFNEN →</label></article>
+          <article class="light-copy light-copy-4"><small>04 · COLOUR MIXING</small><h3>Farben teilen einen Raum.</h3><p>Rotes, grünes und blaues Licht können sich addieren. Wo ihre Wege überlagern, entstehen neue sichtbare Mischungen. Pigmente würden sich anders verhalten.</p><strong>LICHTMISCHUNG ≠ PIGMENTMISCHUNG</strong><label for="light-stop-5">WEISSES LICHT AUFFÄCHERN →</label></article>
+          <article class="light-copy light-copy-5"><small>05 · THE RAINBOW</small><h3>Ein Licht. Viele Wege.</h3><p>Ein Prisma oder Regentropfen lenkt unterschiedliche Wellenlängen verschieden stark. Das Spektrum macht Unterschiede sichtbar, die im weißen Licht gemeinsam ankamen.</p><strong>EINE QUELLE → UNTERSCHEIDBARE FARBWEGE</strong><label for="light-stop-6">ZUM RAUM ZURÜCKKEHREN →</label></article>
+          <article class="light-copy light-copy-6"><small>+1 · HUMAN RETURN</small><h3>Du siehst jetzt Bedingungen.</h3><p>Der Raum war nie nur Kulisse. Was sichtbar wurde, hing von Lichtquelle, Material, Weg und deiner Position ab. Verändere eine Bedingung – und lies das Bild noch einmal.</p><strong>SEHEN IST EINE BEZIEHUNG</strong><a href="#instrument">ANDERS WEITERGEHEN ↓</a></article>
+        </div>
+      </div>
+
+      <nav class="light-stop-nav" aria-label="Stationen der Rainbow Light Tour">
+        <label for="light-stop-1"><b>01</b><span>Dark Room</span></label><label for="light-stop-2"><b>02</b><span>Blacklight</span></label><label for="light-stop-3"><b>03</b><span>Your Shadow</span></label><label for="light-stop-4"><b>04</b><span>Colour Mix</span></label><label for="light-stop-5"><b>05</b><span>Rainbow</span></label><label for="light-stop-6"><b>+1</b><span>Return</span></label>
+      </nav>
+      <p class="light-tour-boundary"><b>Human reading, bounded physics.</b> Die Visualisierung ist eine anschauliche Tour. UV, Fluoreszenz, Schatten, additive Farbmischung und Dispersion bleiben unterschiedliche Vorgänge; die Tour setzt sie nicht gleich.</p>
+    </section>
+
+    <section class="instrument is-awaiting-play" id="instrument" aria-labelledby="instrumentTitle">
+      <header class="instrument-head">
+        <div><div class="eyebrow">AFTER RAINBOW LIGHT · CHOOSE ANOTHER WAY</div><h2 id="instrumentTitle">Where do you<br>go next?</h2></div>
+        <div class="instrument-intro">
+          <p>Rainbow Light war ein Raum, nicht die ganze Welt. Du kannst jetzt Bewegung folgen, ein lebendes Feld betreten, eine menschliche Erzählung lesen oder eine Karte wählen. Jeder Weg beginnt mit einer anderen Frage.</p>
+          <small>05 HUMAN CONTINUATIONS · EACH KEEPS ITS OWN RETURN</small>
+        </div>
+      </header>
+
+      <div class="human-room-doors" aria-label="Fünf verschiedene Fortsetzungen">
+        <a href="a0-public-arkade-index.html#arkade" style="--door:#ffca55"><small>01 · MOVE</small><h3>Kann ein Puls mehrere Welten tragen?</h3><p>Ein gemeinsamer Takt, drei eigenständige Spiele und neun Lesarten.</p><em>ONE PULSE IN DER ARKADE →</em></a>
+        <a href="A0_THE_LIVING_INTERIOR.html#life" style="--door:#68e4a5"><small>02 · LIVE</small><h3>Was verändert sich innen?</h3><p>Vom gesehenen Raum in Nachbarschaft, Generation und lebende Veränderung wechseln.</p><em>THE LIVING INTERIOR →</em></a>
+        <a href="https://nexah.de/library/wonder-operator/" style="--door:#eb57ab"><small>03 · READ</small><h3>Was öffnet Staunen?</h3><p>Eine menschliche Erzählung über Aufmerksamkeit, Spiel, Erinnerung und Zugehörigkeit.</p><em>THE WONDER OPERATOR ↗</em></a>
+        <a href="https://nexah.de/library/language-book/" style="--door:#45dceb"><small>04 · LANGUAGE</small><h3>Wie lässt sich Veränderung lesen?</h3><p>Vom Alphabet über Operatoren und Kontext zu einer Sprache der Beziehungen.</p><em>THE NEXAH LANGUAGE BOOK ↗</em></a>
+        <a href="https://nexah.de/library/cartography-perspectives/" style="--door:#8979ff"><small>05 · MAP</small><h3>Welche Karte wählst du?</h3><p>Mehrere Perspektiven nebeneinander sehen, ohne eine davon zum ganzen Territorium zu erklären.</p><em>NEXAH ATLAS ↗</em></a>
+      </div>
+    </section>
+
+    <section class="return" id="return" aria-labelledby="returnTitle">
+      <canvas id="returnCanvas" aria-hidden="true"></canvas>
+      <div>
+        <div class="eyebrow">LIFE &amp; COSMOS · THE RETURN</div>
+        <h2 id="returnTitle">The world did not change.<br>Your aperture did.</h2>
+        <p>Was du gesehen hast, hing nicht von einem Ding allein ab. Lichtquelle, Takt, Nachbarschaft, Erzählung, Karte und Beobachtungsposition öffneten unterschiedliche Erfahrungen. Der Return trennt Welt, Ansicht und gewählten Weg wieder, damit du bewusst weitergehen kannst.</p>
+        <div class="return-equation"><span>OUTSIDE ≠ INSIDE</span><span>OBJECT ≠ IMAGE</span><span>RELATION ≠ IDENTITY</span><span>LIFE ≠ COSMOS</span><strong>AND YET: A PASSAGE.</strong></div>
+        <div class="return-links"><a href="#human-route">CHOOSE ANOTHER WAY ↺</a><a href="a0-public-arkade-index.html#arkade">ENTER THE ARKADE →</a><a href="https://nexah.de/library/wonder-operator/">READ THE WONDER OPERATOR ↗</a></div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer><span><strong>A0-VIEW-NEXAH-APERTURE-JOURNEY</strong><br>One carrier · many windows · declared return</span><span>INTERNAL · SOURCE-BOUND EXPERIENCE · NOT PUBLIC</span></footer>
+  <script src="a0-context-navigation.js?rev=scarab-desk-20261022"></script>
+  <script src="assets/a0-nexah-aperture-journey-v1.js?rev=curated-human-route-20261022"></script>
 </body>
 </html>
