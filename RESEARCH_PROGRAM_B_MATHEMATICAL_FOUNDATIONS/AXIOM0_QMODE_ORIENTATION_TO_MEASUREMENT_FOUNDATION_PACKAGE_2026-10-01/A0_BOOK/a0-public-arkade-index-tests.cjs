@@ -8,9 +8,14 @@ const html = fs.readFileSync(path.join(root, "a0-public-arkade-index.html"), "ut
 
 assert.match(html, /id="arkade"/);
 assert.doesNotMatch(html, /id="human"/);
-assert.match(html, /NEXAH-Science-Lab\/book\/index\.html#arkade-tool">NEXAH · A0/);
-assert.match(html, /BUILDER TOOL · ARKADE · 3 ONLINE/);
-assert.match(html, /Zurück zur A0-Geschichte/);
+assert.match(html, /class="arkade-close" data-a0-return href="A0_NEXAH_APERTURE_JOURNEY\.html#human-route"/);
+assert.match(html, /A0<\/a><i>\/<\/i><a href="A0_NEXAH_APERTURE_JOURNEY\.html#human-route">HUMAN VIEW<\/a><i>\/<\/i><strong>ARKADE/);
+assert.match(html, /new URL\(document\.referrer\)\.origin===location\.origin/);
+assert.match(html, /history\.back\(\)/);
+assert.match(html, /BUILDER TOOL · ARKADE · 3 WORLDS \+ 1 PULSE/);
+assert.match(html, /A0_NEXAH_APERTURE_JOURNEY\.html#human-route">Human View/);
+assert.match(html, /class="arkade-headliner" data-world="pulse"[\s\S]*?world=pulse#pulse/);
+assert.match(html, /3 worlds · 1 pulse/);
 for (const world of ["life", "domains", "numbers"]) {
   assert.match(html, new RegExp(`data-world="${world}"[\\s\\S]*?world=${world}`));
 }

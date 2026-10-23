@@ -33,6 +33,9 @@ requireText(html, /id="story-bridge"[\s\S]*?id="arkade"/, "A0 story bridge must 
 requireText(html, /href="index\.html#arkade-tool"/, "Builder story bridge must return to the A0 story");
 requireText(fs.readFileSync(path.join(root, "a0-builder-story-bridge.css"), "utf8"), /\.builder-story-bridge/, "Builder story bridge must keep its dedicated visual layer");
 for (const world of ["life", "domains", "numbers"]) requireText(html, new RegExp(`data-world="${world}"[\\s\\S]*?world=${world}`), `Arkade must link directly to ${world}`);
+requireText(html, /class="arkade-headliner" data-world="pulse"[\s\S]*?world=pulse#pulse/, "ONE PULSE must lead the three native cabinets");
+requireText(html, /3 worlds · 1 pulse/, "Arkade must state the 3+1 hierarchy");
+requireText(arkadeCss, /\.arkade-headliner/, "ONE PULSE must have a dedicated marquee treatment");
 requireText(arkadeCss, /@media\(max-width:520px\)/, "Arkade must keep a dedicated phone layout");
 
 assert.doesNotMatch(html, /data-world="mobile"|OPEN SLOT|Coming after playtest/, 'no reserved mobile-game placeholder');

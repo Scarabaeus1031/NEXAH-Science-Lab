@@ -109,5 +109,5 @@ assert.match(livingBlueprint, /a0-context-navigation\.css\?rev=reader-lanes-2026
 assert.match(livingBlueprint, /a0-context-navigation\.js\?rev=reader-lanes-20261019-lane-entry/);
 
 const human = fs.readFileSync(path.join(root, 'A0_NEXAH_APERTURE_JOURNEY.html'), 'utf8');
-assert.ok(human.includes('href="index.html"') && human.includes('href="A0_GAME_OF_WORLDS_PLAY.html') && human.includes('href="A0_THE_LIVING_INTERIOR.html'), 'quiet Human journey retains explicit exits');
+assert.ok(human.includes('href="index.html"') && human.includes('href="a0-public-arkade-index.html#arkade"') && human.includes('href="A0_THE_LIVING_INTERIOR.html'), 'quiet Human journey retains explicit exits through the Arkade foyer');
 console.log(JSON.stringify({ status: 'PASS', registeredReaders: registered.length, sharedNavigationSurfaces: shared.length, standaloneSurfaces: htmlFiles.length - shared.length, allLocalHtmlReachable: htmlFiles.length }, null, 2));
