@@ -55,9 +55,11 @@ assert.equal(scienceLane.sections[0].items[0][0],'A0_SCIENTIFIC_POSITION_REPORT.
 assert.equal(scienceLane.sections[1].label,'Papers');
 const internalTargets=new Set(['A0_RESEARCH_DESK.html','A0_RESEARCH_BACKLOG.html','A0_BUILDER_LOG.html','A0_LABORATORY.html']);
 for(const lane of lanes)for(const section of lane.sections)for(const [href] of section.items)assert.ok(!internalTargets.has(href.split('#')[0]),'no internal workspace in Reader menus: '+href);
-assert.match(navigation,/header.replaceChildren\(brand, laneNav, overview, ownerDesk\)/,'one compact header without archived draft and with separate owner shortcut');
+assert.match(navigation,/header.replaceChildren\(brand, laneNav, overview, scarabaeusLink\)/,'one compact header with the stable Scarabaeus website return');
 assert.match(navigation,/class="a0-owner-scarab"/);
-assert.match(navigation,/ownerDesk\.setAttribute\("aria-label", "A0 Science Desk · intern"\)/);
+assert.match(navigation,/scarabaeusLink\.href = "https:\/\/www\.scarabaeus1033\.net"/);
+assert.match(navigation,/scarabaeusLink\.setAttribute\("aria-label", "Scarabäus 1033 · Website öffnen"\)/);
+assert.doesNotMatch(navigation,/ownerDesk\.href = "A0_RESEARCH_DESK\.html"/,'Scarabäus mark must never route to an internal Desk');
 assert.doesNotMatch(navigation,/quickNav|pageTools|primaryNav|pageContext/,'duplicate global navigation layers removed');
 assert.match(navigation,/overviewSummary.textContent = "Übersicht"/);
 assert.match(navigation,/file === "index.html"\) \{/,'directory only on book home');

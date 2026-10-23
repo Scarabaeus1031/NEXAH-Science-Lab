@@ -74,7 +74,8 @@ for(const file of ['index.html','A0_LIVING_BLUEPRINT.html','A0_SCIENTIFIC_POSITI
  ok(h.children[2].children[1].children[0].className==='a0-overview-current','five-entry overview is foregrounded');
  ok(h.children[2].children[1].children[0].innerHTML.includes('Fünf Eingänge. Ein Werk.'),'overview contains the five-entry heading');
  for(const label of ['HUMAN','PLAY','MATHFIELD','BUILDER','SCIENCE'])ok(h.children[2].children[1].children[0].innerHTML.includes(label),'overview contains '+label);
- ok(h.children[3].href==='A0_RESEARCH_DESK.html','one separate owner shortcut');
+ ok(h.children[3].href==='https://www.scarabaeus1033.net','Scarabäus mark returns to the canonical website');
+ ok(h.children[3].target==='_blank'&&h.children[3].rel==='noopener noreferrer','external Scarabäus return is isolated');
  ok(!h.afterNodes?.length,'no appended primary or module strips');
  const directory=m.nodes.find(n=>n.id==='a0-navigation-directory');
  if(file==='index.html'){ok(directory?.tagName==='DETAILS'&&!directory.open,'folded index-only directory');ok(m.main.children.at(-1)===directory,'directory appended after content');m.location.hash='#a0-navigation-directory';m.events.hashchange();ok(directory.open&&directory.scrolled,'explicit anchor opens directory');}

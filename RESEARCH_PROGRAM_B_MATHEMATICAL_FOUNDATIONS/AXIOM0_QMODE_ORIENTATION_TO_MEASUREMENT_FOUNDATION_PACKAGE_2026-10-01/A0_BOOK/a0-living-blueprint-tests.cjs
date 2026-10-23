@@ -191,7 +191,7 @@ assert.match(html, /A0-BL-051 · Reconstruction \/ Return/);
 const readerLanes=JSON.parse(navigation.match(/const readerLanes = (\[[\s\S]*?\n  \]);/)[1]);
 assert.ok(readerLanes.flatMap(l=>l.sections.flatMap(s=>s.items)).some(([href,label])=>href==='A0_LIVING_BLUEPRINT.html#situated-orientation'&&label==='Living Blueprint · Gesamtkarte'));
 assert.deepEqual(readerLanes.map(l=>l.label),['Human','Science','Builder']);
-assert.match(navigation,/header.replaceChildren\(brand, laneNav, overview, ownerDesk\)/);
+assert.match(navigation,/header.replaceChildren\(brand, laneNav, overview, scarabaeusLink\)/);
 assert.ok(html.indexOf('class="hero blueprint-entry"')<html.indexOf('id="humanCrosswalkReturn"'),'title before optional context');
 assert.ok(html.indexOf('class="hero blueprint-entry"')<html.indexOf('class="a0-explanation-path"'),'reading path belongs below introduction');
 assert.match(html,/<details class="blueprint-depth" id="blueprint-depth">/,'technical notes folded');
