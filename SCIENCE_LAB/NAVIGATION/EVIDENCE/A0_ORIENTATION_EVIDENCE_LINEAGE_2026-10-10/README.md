@@ -18,6 +18,22 @@ The vocabulary route is deliberately split:
 The visual plates are navigation aids only. They are not counted as additional
 experiments or evidence.
 
+## ORION finite-structure return · 2026-10-22
+
+The existing `ART:A0:MATHEMATICAL_JOINTS` identity now carries a bounded
+cross-lens return to `NEXAH:ORION:CAPABILITY_EVIDENCE:V1`. An executable full
+enumeration confirms the declared orbit ledgers for `T64`, `T97` and `T524` on
+`Z777`, plus `T1301` on `Z3885`. The exact connection is the CRT factorization
+`Z3885 ~= Z777 x Z5`, under which `T1301` becomes `T524 x identity`; the 200
+`Z777` orbits therefore lift to 1000 orbits in five fixed fibres.
+
+The return creates no node, relation, Study, Finding or canonical-count change.
+LOOK/STRUCTURE, carrier/operator and representation/invariant remain separated.
+Janus imagery, GU-REX/GURT, THOTH / Thoth's Pen, visual resemblance and the
+displayed early-warning claim are not evidence and are not promoted. GURT and
+THOTH remain two distinct source axes; their shared Möbius/spiral/frequency
+language is a contextual provenance relation, not a direct extension identity.
+
 ## Reader-role crosswalk return · 2026-10-16
 
 The 2026-10-20 reconciliation extends the existing coverage from 50 to 57

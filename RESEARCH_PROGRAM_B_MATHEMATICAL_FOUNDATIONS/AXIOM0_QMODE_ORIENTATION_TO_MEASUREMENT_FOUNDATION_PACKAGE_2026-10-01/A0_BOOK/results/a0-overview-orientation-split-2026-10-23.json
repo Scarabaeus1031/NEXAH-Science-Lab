@@ -1,0 +1,36 @@
+{
+  "schema": "nexah.a0.navigation-return/1",
+  "date": "2026-10-23",
+  "status": "ENGINEERING_NAVIGATION_SPLIT_PASS_BROWSER_ACCEPTED",
+  "scope": "The shared A0 Overview menu owns the five reader entrances; the floating A0 Orientation Map owns the technical source-adapter-view-return topology.",
+  "surfaces": {
+    "overview": {
+      "label": "Übersicht",
+      "question": "Where should I enter?",
+      "entrances": ["HUMAN", "PLAY", "MATHFIELD", "BUILDER", "SCIENCE"]
+    },
+    "orientation": {
+      "label": "A0 Orientierungsmap",
+      "question": "How are the existing parts connected?",
+      "roles": ["SOURCE", "ADAPTER", "VIEW", "RECORD_OR_RETURN"]
+    }
+  },
+  "browser_acceptance": {
+    "url": "http://127.0.0.1:8780/A0_MATHEMATICAL_JOINTS.html?rev=overview-orientation-split-20261023",
+    "desktop_overview": "PASS",
+    "desktop_orientation": "PASS",
+    "active_entrance_marker": "PASS",
+    "duplicate_five_entrance_block_in_orientation": false
+  },
+  "implementation": [
+    {"path": "a0-context-navigation.js", "sha256": "59ed308ec6ff713b524f8968937c9e01c0ac648814b0d41ef8dd61fbc21f7ddd"},
+    {"path": "a0-context-navigation.css", "sha256": "39e91ef2ff26ac17068627e87e64548935d71508fff44e0658b48b455e7c80b7"},
+    {"path": "a0-orientation-map.js", "sha256": "4bebc1b8b2946bf3c52509b8a6b9f44cad3834af69ae2c522169a0bcbb123521"},
+    {"path": "a0-orientation-map.css", "sha256": "c0e0c340a2c998b0adc33049dcf61b6e6ef5ca25421db78b438aab1565b5540b"}
+  ],
+  "identity_reuse": ["NEXAH:A0_ORIENTATION_EVIDENCE_LINEAGE:V1", "ART:A0:MATHEMATICAL_JOINTS", "NEXAH_A0_ORIENTATION_CONTROLLER_BENCH"],
+  "new_canonical_ids": [],
+  "relation_changes": [],
+  "finding_or_manuscript_effect": "NONE",
+  "boundary": "Navigation and presentation ownership only. Existing pages, source records, graph relations, engines, carriers, clocks, evidence states and Return contracts are unchanged. No Study, finding, evidence promotion, publication or authority transfer is created."
+}

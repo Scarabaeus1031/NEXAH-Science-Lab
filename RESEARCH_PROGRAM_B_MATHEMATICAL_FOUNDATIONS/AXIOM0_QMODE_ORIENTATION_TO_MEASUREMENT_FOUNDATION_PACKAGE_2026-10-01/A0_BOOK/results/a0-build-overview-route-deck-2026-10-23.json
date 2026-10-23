@@ -1,0 +1,33 @@
+{
+  "schema": "nexah.a0.build-overview-route-deck-return/1",
+  "date": "2026-10-23",
+  "status": "PASS",
+  "classification": "ENGINEERING_NAVIGATION_AND_PRESENTATION",
+  "scope": "Three explicit depth routes per flagship card in the existing six-flagship Build overview.",
+  "route_order": ["ENTRY", "DEMO", "WORK"],
+  "flagships": [
+    {"name": "THE MACHINA", "entry": "A0_MACHINA_COCKPIT.html#machinaCockpitTitle", "demo": "A0_ORIENTATION_CONTROLLER_BENCH.html#iotaTowerReturnMatrix", "work": "A0_ORIENTATION_CONTROLLER_BENCH.html#vaAvOrientationProbe"},
+    {"name": "BLUE BODY", "entry": "A0_TESSAREC_BLUE_BODY_LAB.html#module-entry", "demo": "A0_TESSAREC_BLUE_BODY_LAB.html#guided-test", "work": "A0_TESSAREC_BLUE_BODY_LAB.html#lab"},
+    {"name": "PINK DIAMOND", "entry": "A0_PINK_DIAMOND_GRID_ATLAS.html#module-entry", "demo": "A0_PINK_DIAMOND_GRID_ATLAS.html#ghost-tiles", "work": "A0_PINK_DIAMOND_GRID_ATLAS.html#crt16-tile"},
+    {"name": "BLUE × PINK LAB", "entry": "A0_BLUE_PINK_DODECA_CELL_RETURN.html#module-entry", "demo": "A0_BLUE_PINK_DODECA_CELL_RETURN.html#bodyDomainSuite", "work": "A0_BLUE_PINK_DODECA_CELL_RETURN.html#cells"},
+    {"name": "TOWER", "entry": "A0_TOWER_RETURN_DEMONSTRATOR.html#module-entry", "demo": "A0_TOWER_RETURN_DEMONSTRATOR.html#towerShellReturn", "work": "A0_ORIENTATION_CONTROLLER_BENCH.html#towerShellReturn"},
+    {"name": "BRIDGE", "entry": "A0_IOTA_BRIDGE_DEMONSTRATOR.html#module-entry", "demo": "A0_IOTA_BRIDGE_DEMONSTRATOR.html#iota23Bridge", "work": "A0_ORIENTATION_CONTROLLER_BENCH.html#iota23Bridge"}
+  ],
+  "checks": [
+    {"command": "node a0-bench-navigation-tests.cjs", "status": "PASS", "count": 273},
+    {"command": "node a0-body-bench-integration-tests.cjs", "status": "PASS", "count": 54}
+  ],
+  "sources": [
+    {"path": "A0_BENCH_ENTDECKEN.html", "sha256": "0371e577b1943b74bdee16e69ed6376ab1f651302ec45f9ce825bd4b23535d7b"},
+    {"path": "a0-bench-navigation.css", "sha256": "2ad94247d924263bd6125ad4f472f22ac542403e6992c2c6872b635d1a92eaa3"}
+  ],
+  "authority": {
+    "identity_reuse": ["MOD:TESSAREC", "MOD:NUMBER_VIEW_SUITE", "NEXAH_A0_ORIENTATION_CONTROLLER_BENCH"],
+    "new_canonical_ids": [],
+    "new_canonical_relations": [],
+    "new_study": false,
+    "finding_or_claim_promotion": false,
+    "publication_authorized": false
+  },
+  "boundary": "Navigation-depth selection only. Existing demonstrations are linked, not duplicated; no engine, identity, relation, claim or authority change."
+}

@@ -1,0 +1,32 @@
+{
+  "receipt_id": "A0_PINK_DIAMOND_ROLE_CORRECTION_2026-10-23",
+  "status": "OWNER_NAMING_AND_VIEW_ROLE_CORRECTION_PASS",
+  "date": "2026-10-23",
+  "scope": "Correct the flagship name and separate entry, carrier and AM/PM view-color roles without changing canonical identities or relations.",
+  "contract": {
+    "flagship": "PINK_DIAMOND",
+    "entry": "ORANGE_FLOOR",
+    "carrier": "WHITE_DODECA",
+    "views": {
+      "AM": "YELLOW_DIAMOND",
+      "PM": "PINK_DIAMOND"
+    },
+    "internal_instrument": "GRID / GHOST / ADDRESS / CRT16"
+  },
+  "tests": {
+    "a0-body-bench-integration-tests.cjs": "54/54 PASS"
+  },
+  "source_hashes": {
+    "A0_PINK_DIAMOND_GRID_ATLAS.html": "d1c4148950d14bf88e822cfde7fa88647218b44dc895968b5b369cffec233336",
+    "A0_BLUE_PINK_DODECA_CELL_RETURN.html": "d5fd18cd6fe66ce06edeac8569638d3a07f64fe7dbcbab4f01d8e5d2a712c91c",
+    "assets/a0-blue-pink-dodeca-cell-return-v1.js": "85fe9997ec695614909738de87eee56130f287cc2ae29c0d25df9f107005d7e5"
+  },
+  "identity_reuse": [
+    "MOD:NUMBER_VIEW_SUITE",
+    "NEXAH_A0_ORIENTATION_CONTROLLER_BENCH"
+  ],
+  "new_canonical_ids": [],
+  "relation_changes": [],
+  "authority_effect": "NONE",
+  "boundary": "This is a source-bound naming and view-role correction. Body identity, carrier color and AM/PM view color remain distinct. No state transport, mechanism claim, Study, finding, evidence promotion, publication or authority transfer."
+}

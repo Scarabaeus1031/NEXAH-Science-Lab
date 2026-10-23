@@ -49,6 +49,16 @@ assert.match(topNav, /#log/);
 assert.doesNotMatch(topNav, /Laboratory/);
 assert.doesNotMatch(topNav, /#method/);
 assert.match(html, /id="workbench"/);
+assert.match(html, /id="coupled-channel-boundary-return-20261023"/);
+assert.match(html, /A0_MATHEMATICAL_JOINTS\.html#zipper-four-seam-application/);
+assert.match(html, /SOURCE → VIEW → CONTROL → APERTURE → RETURN/);
+assert.match(html, /PULSE edge → Touch Point → Shutter → Transfer → Return/);
+assert.match(html, /A0-SVR-01/);
+assert.match(html, /id="a0-svr-01-governance-return"/);
+assert.match(html, /SCIENCE DESK → SCIENCE NAVIGATOR → MISSION CONTROL/);
+assert.match(html, /CURRENT\/NAVIGATOR_CONTROL\.md/);
+assert.match(html, /kein Feedback, keine gemeinsame numerische Uhr/);
+assert.match(html, /keine Vertiefung von Mandelbrot\/Julia ohne separaten Owner-autorisierten Run Contract/);
 assert.match(html, /id="achievements-reader"/);
 assert.match(html, /id="scientific-position"/);
 assert.match(html, /Wo NEXAH wissenschaftlich steht/);
@@ -62,7 +72,7 @@ assert.match(html, /\["method", "lenses", "achievements", "flagships", "fields",
 assert.match(html, /backlogSection\.before\(workbench\)/);
 assert.match(html, /Active research cycles/);
 assert.match(html, /Structure freeze/);
-assert.match(html, /Not authorized/);
+assert.match(html, /not authorized/i);
 assert.match(currentWork, /Aktuell im Desk/);
 assert.equal((currentWork.match(/<article class="current-work-card/g) || []).length, 12);
 assert.match(currentWork, /Orientation Controller Bench/);
@@ -185,7 +195,28 @@ assert.deepEqual(atlasReceipt.new_canonical_relations, []);
 assert.equal(atlasReceipt.authority.new_study, false);
 assert.equal(atlasReceipt.authority.finding_or_claim_promotion, false);
 assert.equal(atlasReceipt.authority.publication_authorized, false);
-for (const source of atlasReceipt.sources) assert.equal(crypto.createHash('sha256').update(fs.readFileSync(path.join(__dirname, source.path))).digest('hex'), source.sha256, 'current Atlas return source: ' + source.path);
+assert.match(atlasReturn, /a0-game-of-worlds-three-domain-atlas-currentness-2026-10-23\.json/);
+assert.match(atlasReturn, /historischer Byte-Snapshot unverändert/);
+const atlasCurrentness = JSON.parse(fs.readFileSync(path.join(__dirname, 'results/a0-game-of-worlds-three-domain-atlas-currentness-2026-10-23.json'), 'utf8'));
+assert.equal(atlasCurrentness.status, 'PASS');
+assert.equal(atlasCurrentness.classification, 'ENGINEERING_CURRENTNESS_CHECK');
+assert.equal(atlasCurrentness.historical_receipt, 'results/a0-game-of-worlds-three-domain-atlas-return-2026-10-21.json');
+assert.equal(atlasCurrentness.historical_receipt_immutable, true);
+assert.deepEqual(atlasCurrentness.sources.map(source => source.path), atlasReceipt.sources.map(source => source.path), 'currentness receipt covers the exact historical source set');
+const atlasHistoricalDrift = [];
+for (const source of atlasCurrentness.sources) {
+  assert.match(source.sha256, /^[0-9a-f]{64}$/, 'current Atlas source hash: ' + source.path);
+  const actual = crypto.createHash('sha256').update(fs.readFileSync(path.join(__dirname, source.path))).digest('hex');
+  assert.equal(actual, source.sha256, 'byte-current Atlas source: ' + source.path);
+  const historical = atlasReceipt.sources.find(candidate => candidate.path === source.path);
+  if (historical.sha256 !== source.sha256) atlasHistoricalDrift.push(source.path);
+}
+assert.deepEqual(atlasHistoricalDrift, atlasReceipt.sources.map(source => source.path), 'all later source evolution is explicit while the historical receipt remains immutable');
+assert.deepEqual(atlasCurrentness.authority.new_global_ids, []);
+assert.deepEqual(atlasCurrentness.authority.new_canonical_relations, []);
+assert.equal(atlasCurrentness.authority.new_study, false);
+assert.equal(atlasCurrentness.authority.finding_or_claim_promotion, false);
+assert.equal(atlasCurrentness.authority.publication_authorized, false);
 
 console.log(JSON.stringify({
   status: 'PASS',

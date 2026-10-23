@@ -1,0 +1,26 @@
+'use strict';
+const assert=require('node:assert/strict');
+const fs=require('node:fs');
+const path=require('node:path');
+const api=require('./a0-double18-ratchet-bridge.js');
+let checks=0;const eq=(a,b,m)=>{assert.deepEqual(a,b,m);checks++};const ok=(v,m)=>{assert.ok(v,m);checks++};
+eq(api.IDENTITY,'NEXAH_A0_ORIENTATION_CONTROLLER_BENCH','existing identity reused');
+eq(api.CLASSIFICATION,'BOUNDED_DOCUMENTARY_ARITHMETIC_VIEW','bounded class');
+eq(api.PHASES,['FLOOR','LIFT','DOUBLE_18','RATCHET_LOCK','LIGHT_RETURN'],'five display phases');
+eq(api.PRIME_MARKERS,[3,7,11,17,19,29],'local prime markers');
+const a=api.arithmetic();
+eq(a.floor,{left:7,right:10,sum:17,gap:3},'orange floor');eq(a.lift,{left:8,right:11,sum:19,gap:3},'rainbow lift');
+eq(a.diagonals,{forward:18,reverse:18},'double diagonal 18');eq(a.factor18,{twoByThreeSquared:18,threeBySix:18},'18 factor reads');
+eq(a.total,{seventeenPlusNineteen:36,twoByEighteen:36},'closure 36');eq(a.localReads,{elevenSquared:121,elevenByThree:33,tenPlusNineteen:29},'separate local reads');
+ok(a.primeMarkers.every(item=>item.prime),'all declared pink markers prime');eq(api.verify().status,'PASS','verification passes');
+let state=api.createState();eq(api.inspect(state).phase,'FLOOR','starts at floor');for(let i=0;i<7;i++)state=api.step(state);eq(api.inspect(state).phase,'LIGHT_RETURN','step clamps at return');
+state=api.setMode(state,'light');eq(state.mode,'LIGHT','light mode');assert.throws(()=>api.setMode(state,'physics'),RangeError);checks++;
+ok(api.svgMarkup(state).includes('18 ╳ 18')&&api.svgMarkup(state).includes('P1′ — P2 — P1'),'svg includes double 18 and owner glyph');
+const record=api.buildRecord(state);eq(record.status,'PASS','record pass');eq(record.authority.physicalMechanism,false,'no physical mechanism');eq(record.authority.newRelation,false,'no new relation');ok(record.boundary.includes('121=11²'),'121 boundary explicit');
+function node(id){return{id,dataset:{},textContent:'',innerHTML:'',attrs:{},listeners:{},addEventListener(type,fn){this.listeners[type]=fn},setAttribute(name,value){this.attrs[name]=value},click(){if(this.listeners.click)this.listeners.click()}}}
+const ids=['double18RatchetBridge','double18RatchetSvg','double18RatchetStatus','double18RatchetPhase','double18RatchetCross','double18RatchetLock','double18RatchetStep','double18RatchetMode','double18RatchetReset','double18RatchetExport'];const nodes=Object.fromEntries(ids.map(id=>[id,node(id)]));
+const controller=api.mount({getElementById:id=>nodes[id]||null,createElement:()=>node('a')},{});ok(controller,'mounts');eq(nodes.double18RatchetStatus.textContent,'FLOOR · SHADOW','initial DOM status');nodes.double18RatchetStep.click();eq(nodes.double18RatchetStatus.textContent,'LIFT · SHADOW','step DOM');nodes.double18RatchetMode.click();eq(nodes.double18RatchetStatus.textContent,'LIFT · LIGHT','mode DOM');controller.reset();eq(nodes.double18RatchetPhase.textContent,'1/5 · FLOOR','reset DOM');
+const html=fs.readFileSync(path.join(__dirname,'A0_ORIENTATION_CONTROLLER_BENCH.html'),'utf8');const css=fs.readFileSync(path.join(__dirname,'a0-double18-ratchet-bridge.css'),'utf8');const desk=fs.readFileSync(path.join(__dirname,'A0_RESEARCH_DESK.html'),'utf8');const receipt=JSON.parse(fs.readFileSync(path.join(__dirname,'results/a0-double18-ratchet-bridge-2026-10-23.json'),'utf8'));
+for(const token of ['id="double18RatchetBridge"','a0-double18-ratchet-bridge.css','a0-double18-ratchet-bridge.js','18=2×3²','121=11²'])ok(html.includes(token),`HTML ${token}`);
+ok(css.includes('.d18-diagonal.active')&&css.includes('.d18-node.prime.active'),'cross and prime styles');ok(desk.includes('#double18RatchetBridge'),'Science Desk return');eq(receipt.status,'PASS','static receipt pass');eq(receipt.authority.newIdentity,false,'receipt no new identity');
+console.log(JSON.stringify({status:'PASS',checks,scope:'Double-18 Ratchet Bridge documentary arithmetic view; no mechanism, research run or claim promotion'}));

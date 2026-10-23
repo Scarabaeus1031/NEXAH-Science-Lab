@@ -1,0 +1,46 @@
+{
+  "schema": "nexah.a0.tower-shell-science-desk-return/1",
+  "date": "2026-10-23",
+  "status": "PASS",
+  "classification": "METHOD_RELEVANT_ENGINEERING_OBSERVATION",
+  "findingDisposition": "NO_NEW_FINDING",
+  "identity": "NEXAH_A0_ORIENTATION_CONTROLLER_BENCH",
+  "route": [
+    "MOUSE_Q_ADDRESS",
+    "TL_FINAL_PIN",
+    "DG_SHARED_APERTURE",
+    "DG_WITNESS",
+    "DG_RETURN",
+    "ROOT_ROOM_RETURN_GATE",
+    "SOURCE_ADDRESS_RECEIPT"
+  ],
+  "acceptance": {
+    "moduleChecks": 84,
+    "browser": "LOCAL_HTTP_LIVE_DOM_PASS",
+    "status": "CLOSED · q01 · RETURN",
+    "address": "q01 · PIN ACCEPTED",
+    "witness": "WITNESS_HELD · 10/18",
+    "rootGate": "CLOSED · q01 · RETURN HELD"
+  },
+  "closureContract": {
+    "pin": "PINNED_2_TO_1",
+    "scanner": "OCCUPIED",
+    "witnessStage": "WITNESS",
+    "returnStage": "RETURN",
+    "sameFields": ["qAddress", "dgSamples", "dgBands"],
+    "mismatchDisposition": "HOLD"
+  },
+  "negativeControls": [
+    "NO_RECOVERED_TOWER_OPERATOR",
+    "NO_Q17_TO_N18_MAPPING",
+    "NO_SHARED_CLOCK",
+    "NO_SHARED_CARRIER",
+    "NO_SOURCE_RECOVERY_PROOF",
+    "NO_WHOLE_MACHINE_RETURN",
+    "NO_NEW_STUDY_FAMILY_FINDING_IDENTITY_OR_GRAPH_RELATION"
+  ],
+  "rootRoomBridge": "CONDITIONAL_IF_PRESENT_IN_SAME_DOCUMENT",
+  "navigatorMutation": false,
+  "scienceRun": false,
+  "publicationRelease": false
+}

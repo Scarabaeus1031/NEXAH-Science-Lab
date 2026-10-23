@@ -1,0 +1,64 @@
+{
+  "schema": "a0.engineering-result.v1",
+  "id": "A0_ZIPPER_FRAME_HANDOFF_2026_10_23",
+  "date": "2026-10-23",
+  "status": "PASS",
+  "classification": "FINITE_VIEW_HANDOFF",
+  "owner_module": "MOD:TESSAREC",
+  "identity_decision": "REUSE_EXTEND_NO_NEW_CANONICAL_IDENTITY",
+  "surface": "A0_BOOK/A0_BLUE_PINK_DODECA_CELL_RETURN.html#zipper-frame-handoff",
+  "state_space": {
+    "orientations": 2,
+    "format_families": 3,
+    "iota_rays": 5,
+    "regulator_positions": 88,
+    "total": 2640
+  },
+  "sequence": [
+    "BLUE_FOLD_DOWN",
+    "PIVOT_SPARK",
+    "BLUE_FOLD_UP",
+    "PINK_STRIP_GATE",
+    "ZIPPER_CAPTURE",
+    "PINK_DIAMOND_LENS",
+    "ORANGE_HOLD",
+    "YELLOW_FRAME",
+    "ORANGE_RETURN"
+  ],
+  "addresses": {
+    "parent": "1.111.111.111",
+    "hinge": "PINK_K90_DIAMOND",
+    "local_return": "1:8878/A0"
+  },
+  "separate_guides": [
+    {
+      "id": "RED_SHADOW",
+      "angle_degrees": 45,
+      "counted_as_iota_ray": false
+    }
+  ],
+  "display_couplings": [
+    {
+      "from": "IOTA_RAY",
+      "to": "GREEN_WHEEL",
+      "contract": "DISPLAY_SLOT_LOCK",
+      "shared_positions": 88,
+      "transmission_ratio_claim": null
+    }
+  ],
+  "verification": {
+    "command": "node A0_BOOK/a0-zipper-frame-handoff-tests.cjs",
+    "checks": 18501,
+    "unique_states": 2640,
+    "browser_terminal_state": "LANDSCAPE / US_LETTER / IOTA_5 / POSITION_87",
+    "browser_receipt": "RETURN PASS · 2640/2640 states · 2640 unique · RED_SHADOW separate"
+  },
+  "boundaries": [
+    "No identity merge",
+    "No sixth Iota ray",
+    "No new color channel",
+    "No physical mechanism claim",
+    "No transmission ratio claim",
+    "No new canonical operator"
+  ]
+}

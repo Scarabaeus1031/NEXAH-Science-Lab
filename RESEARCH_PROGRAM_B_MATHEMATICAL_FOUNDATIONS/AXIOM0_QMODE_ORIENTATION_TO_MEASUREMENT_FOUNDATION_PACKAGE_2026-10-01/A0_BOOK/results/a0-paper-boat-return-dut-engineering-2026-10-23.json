@@ -1,0 +1,53 @@
+{
+  "schema": "nexah.a0.paper-boat-return-dut-engineering-result/1",
+  "date": "2026-10-23",
+  "status": "PASS",
+  "identity_reuse": [
+    "NEXAH_A0_ORIENTATION_CONTROLLER_BENCH",
+    "A0OE:PASCAL_PENTAGON_D5_TEST"
+  ],
+  "sequence": [
+    "CAPTURE_D5_AT_0",
+    "SELECT_TRANSVERSAL_PLATE",
+    "COUPLE_PSI_90",
+    "SAMPLE_OS11_TWO_TURNS",
+    "COMPARE_0_90_180_360_720",
+    "CLASSIFY_GEOMETRY_PROJECTION_TOPOLOGY"
+  ],
+  "baseline": {
+    "chord_widths_R": [1.158384, 1.701302, 1.28408],
+    "areas_R2": [0.828154, 0.958367],
+    "area_ratio_Q2_Q1": 1.157233,
+    "pentagon_coverage": 0.751384
+  },
+  "projection_contract": {
+    "model": "ORTHOGRAPHIC_X_SCALE_ABS_COS_THETA",
+    "checkpoints_deg": [0, 90, 180, 360, 720],
+    "screen_scales": [1, 0, 1, 1, 1],
+    "at_360": "PROJECTION_REPEAT_SHEET_B_NOT_FULL_RETURN",
+    "at_720": "EXACT_DECLARED_DOUBLE_COVER_RETURN_SHEET_A"
+  },
+  "classification": {
+    "object_space": "PASS_INVARIANT",
+    "screen_space": "CHANGES_AS_DECLARED",
+    "record": "ONE_SOURCE_RECORD",
+    "double_cover_return": "PASS_AT_720"
+  },
+  "verification": {
+    "paper_boat_return_dut_checks": 70,
+    "ae_zipper_checks": 143,
+    "dg_sampling_loop_checks": 39,
+    "yugo_iota_checks": 66,
+    "scarab_projection_checks": 234,
+    "orientation_controller_bench": "PASS",
+    "live_file_browser_acceptance": "OPEN_SECURITY_POLICY_BLOCK"
+  },
+  "authority": {
+    "research_run": false,
+    "scientific_evidence": false,
+    "new_canonical_identity": false,
+    "new_relation": false,
+    "publication_authorized": false
+  },
+  "boundary": "Deterministic interface and projection-contract verification during STRUCTURE_FREEZE. The 720-degree closure is a declared double-cover display rule and not empirical proof of physical topology. Candidate plate names are not promoted."
+}

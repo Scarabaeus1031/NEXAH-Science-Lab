@@ -1,0 +1,49 @@
+{
+  "schema": "nexah.a0.local-return-address/1",
+  "date": "2026-10-23",
+  "status": "ENGINEERING_LOCAL_ROUTE_ALIAS_PASS",
+  "request": "Provide the short local address http://127.0.0.1:8878/A0 as an A0 entry, retain the observed 8878 minus-one mnemonic, and expose the Owner hierarchy 1.111.111.111 -> first 3x3 -> flap -> local subaddress with explicit technical boundaries.",
+  "route": {
+    "short_address": "http://127.0.0.1:8878/A0",
+    "static_source": "A0/index.html",
+    "canonical_destination": "A0_BOOK/A0_BENCH_ENTDECKEN.html#body-exhibition",
+    "behavior": "The static server normalizes /A0 to /A0/. The entry preserves an explicit query and hash; when no hash is present it selects #body-exhibition and replaces browser history."
+  },
+  "reading": {
+    "technical": "127.0.0.1 is the IPv4 loopback address. 8878 is the selected local preview TCP port and carries no NEXAH or protocol semantics.",
+    "interface_mnemonic": "8·8·7·8 can be read visually as a single minus-one displacement, 8→7, moving inside a field of 8s. The visible Address Aperture reads // as the paired directed channel rails, ≠ as their transversal crossing, ↗ as the 01:00 / 77-LINE orientation, and IN as Einzug / Return.",
+    "claim_boundary": "The mnemonic is a display and navigation reading only. It is not a mathematical identity, network rule, empirical finding, physical mechanism or scientific evidence. 1.111.111.111 is retained as an Owner address label, not asserted as a literal registered IPv4 address."
+  },
+  "owner_hierarchy": {
+    "address_label": "1.111.111.111",
+    "carrier": "01 / first 3x3",
+    "carrier_target": "A0_BOOK/assets/game-of-worlds-play/three-domain-transition-test/index.html#atlasContracts",
+    "transition": "PINK_K90_DIAMOND / OPEN -> HOLD -> CLOSE_RETURN",
+    "transition_target": "A0_BOOK/assets/a0-def-g-relation-view-lab/index.html#glyph-double-cover",
+    "local_subaddress_label": "1:8878/A0",
+    "local_target": "A0/index.html",
+    "semantics": "The hierarchy is a navigational projection. The 3x3 carrier, shared flap hinge and local route remain distinct existing objects; no identity collapse or duplicate engine is introduced."
+  },
+  "identity": {
+    "reuse": [
+      "MOD:TESSAREC",
+      "MOD:NUMBER_VIEW_SUITE",
+      "NEXAH_A0_ORIENTATION_CONTROLLER_BENCH"
+    ],
+    "new_canonical_ids": [],
+    "relation_changes": [],
+    "duplicate_risk": "CLOSED_BY_ALIAS_BOUNDARY",
+    "authority_effect": "NONE"
+  },
+  "verification": {
+    "navigation_contract": "297/297 PASS",
+    "source_graph_preflight": "PASS",
+    "files": {
+      "A0/index.html": "887e1390d2dbfdf737a6decbf3a66c1553cd4214187574126b0169baed35b6d2",
+      "A0_BOOK/a0-bench-navigation-tests.cjs": "9c131753340e40191e11637ce22553ba9ca13831976c0474a84e30b07a099e53",
+      "A0_BOOK/A0_BENCH_ENTDECKEN.html": "9973140ff6acfa6ff74d5b34dddf0e9ceba22414ddec90e85d5f4aca52441ffa",
+      "A0_BOOK/a0-bench-navigation.css": "a746893830a6f945b46ddda4a1b05328175796b5fbed1e4887c4c42362ac4f48"
+    }
+  },
+  "open_boundary": "The short address works only while a local HTTP server serves the package root on port 8878. This change does not create, configure or publish an external deployment."
+}

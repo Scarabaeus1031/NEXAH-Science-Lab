@@ -35,7 +35,7 @@ for(const file of ['index.html','A0_LIVING_BLUEPRINT.html','A0_SCIENTIFIC_POSITI
  ok(benchLayout.className==='a0-reader-layout','Bench uses shared menu layout');
  ok(benchLayout.children[0].className==='a0-showcase','Bench flagships left');
  ok(benchLayout.children[0].children.length===3,'three Bench flagship cards');
- ok(benchLayout.children[1].children[0].children.length===4,'Start and machine plus three grouped Bench areas on right');
+ ok(benchLayout.children[1].children[0].children.length===5,'Start, rooms and three grouped Bench areas on right');
  ok(benchLayout.children[1].children[0].children[0].innerHTML.includes('00 · Start & THE MΛCHINΛ'),'Werkbank start and THE MACHINA stay first');
  ok(bench.children[1].innerHTML.includes('Zur Werkstatt →'),'explicit workshop home');
  for(const card of benchLayout.children[0].children){
@@ -53,7 +53,7 @@ for(const file of ['index.html','A0_LIVING_BLUEPRINT.html','A0_SCIENTIFIC_POSITI
   const [showcase,reading]=layout.children;
   ok(showcase.className==='a0-showcase'&&reading.className==='a0-reader-reading','features left / first, theory right / second');
   const science=lane.className.endsWith('--science');
-  ok(showcase.children.length===(science?5:lane.className.endsWith('--human')?4:6),'lane-specific curated cards');
+  ok(showcase.children.length===3,'three curated flagship cards per menu');
   for(const card of showcase.children){
    const [page,anchor]=card.href.split('#');
    const target=fs.readFileSync(__dirname+'/'+page,'utf8');
@@ -64,12 +64,16 @@ for(const file of ['index.html','A0_LIVING_BLUEPRINT.html','A0_SCIENTIFIC_POSITI
    ok(showcase.children.some(card=>card.href==='A0_SCIENTIFIC_POSITION_REPORT.html'),'Science retains scientific position');
    ok(showcase.children.some(card=>card.href==='A0_SCIENCE.html#contributions'),'Science retains concrete contributions');
    ok(showcase.children.every(card=>!card.href.includes('TOY_STORE')),'no app showcase in Science');
-  }else ok(showcase.children.some(card=>card.innerHTML.includes('Game of Worlds')),'Game of Worlds is named in the existing Human/Builder showcase');
-  if(lane.className.endsWith('--human')){ok(showcase.children[0].href==='A0_NEXAH_APERTURE_JOURNEY.html#human-view','Human Book is the Human portal');ok(showcase.children.some(card=>card.href==='A0_GAME_OF_WORLDS.html'&&card.innerHTML.includes('Human Flagship')),'Human Flagship opens the original Game of Worlds entry before PLAY');ok(showcase.children.every(card=>!card.href.includes('TOY_STORE')),'Toy Store stays out of Human Experience');}
+  }
+  if(lane.className.endsWith('--human')){ok(showcase.children[0].href==='a0-public-arkade-index.html#arkade','ARKADE is the first Human flagship');ok(showcase.children[1].href==='A0_OPIUM.html'&&showcase.children[1].innerHTML.includes('Human Flagship'),'OPIUM / Club is the second Human flagship');ok(showcase.children[2].href==='A0_LOOK_AGAIN_PLAY.html'&&showcase.children[2].innerHTML.includes('Perception'),'LOOK AGAIN is the third Human-facing experience');ok(showcase.children.every(card=>!card.href.includes('TOY_STORE')&&!card.href.includes('APERTURE_JOURNEY')),'Human showcase contains no Builder Toy Store or duplicate Human View');}
+  if(lane.className.endsWith('--builder')){ok(showcase.children.some(card=>card.href==='A0_WERKBANK.html'&&card.innerHTML.includes('Builder Flagship')),'Builder foregrounds Werkbank');ok(showcase.children.some(card=>card.href==='A0_ORIENTATION_CONTROLLER_BENCH.html#benchFoyer'&&card.innerHTML.includes('THE MACHINA')),'Builder foregrounds THE MACHINA');ok(showcase.children.some(card=>card.href==='A0_BUILDER_TOY_STORE.html'),'Builder retains Toy Store');ok(showcase.children.every(card=>!card.href.includes('A0_OPIUM')&&!card.href.includes('arkade')),'Human experiences stay out of Builder showcase');}
   ok(reading.children[0].className==='a0-reader-sections','reading sections retained');
  }
  ok(h.children[2].children[0].textContent==='Übersicht','one overview menu');
  ok(!h.children[2].open,'overview closed by default');
+ ok(h.children[2].children[1].children[0].className==='a0-overview-current','five-entry overview is foregrounded');
+ ok(h.children[2].children[1].children[0].innerHTML.includes('Fünf Eingänge. Ein Werk.'),'overview contains the five-entry heading');
+ for(const label of ['HUMAN','PLAY','MATHFIELD','BUILDER','SCIENCE'])ok(h.children[2].children[1].children[0].innerHTML.includes(label),'overview contains '+label);
  ok(h.children[3].href==='A0_RESEARCH_DESK.html','one separate owner shortcut');
  ok(!h.afterNodes?.length,'no appended primary or module strips');
  const directory=m.nodes.find(n=>n.id==='a0-navigation-directory');

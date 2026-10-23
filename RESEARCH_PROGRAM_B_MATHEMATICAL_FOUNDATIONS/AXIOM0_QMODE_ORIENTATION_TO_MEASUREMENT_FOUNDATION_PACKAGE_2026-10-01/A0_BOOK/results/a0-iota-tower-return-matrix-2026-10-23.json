@@ -1,0 +1,43 @@
+{
+  "schema": "nexah.a0.iota-tower-return-matrix-receipt/1",
+  "date": "2026-10-23",
+  "identity": "NEXAH_A0_ORIENTATION_CONTROLLER_BENCH",
+  "classification": "METHOD_RELEVANT_ENGINEERING_OBSERVATION",
+  "status": "PASS",
+  "matrix": {
+    "00": "HOLD",
+    "10": "HOLD",
+    "01": "HOLD",
+    "11": "COUPLED_VIEW_RETURN"
+  },
+  "isolation": {
+    "iota_reset_preserves_tower": true,
+    "tower_reset_preserves_iota": true,
+    "tower_run_preserves_iota": true,
+    "iota_replay_preserves_tower": true
+  },
+  "provenance": {
+    "bridge": "nexah.a0.iota-2-3-bridge-view/1 → nexah.a0.iota-2-3-return-receipt/1",
+    "tower": "nexah.a0.tower-shell-return-view/1 → nexah.a0.tower-shell-return-receipt/1",
+    "coupling": "POST_HOC_TYPED_HANDOFF"
+  },
+  "live_browser_witness": {
+    "bridge": "T24 · JOINT RETURN · BRIDGE",
+    "tower": "CLOSED · q01 · RETURN",
+    "pin": "q01 · PIN ACCEPTED",
+    "basis": "N 18 · 5 BANDS · HELD",
+    "witness": "WITNESS_HELD · 10/18",
+    "root_return": "CLOSED · q01 · RETURN HELD",
+    "console_warnings_or_errors": 0
+  },
+  "authority": {
+    "researchRun": false,
+    "scientificEvidence": false,
+    "newIdentity": false,
+    "newRelation": false,
+    "newCarrier": false,
+    "newOperator": false,
+    "claimPromotion": false
+  },
+  "boundary": "Engineering composition audit only. The two clocks, carriers and provenance chains remain independent; the result creates no scientific finding."
+}

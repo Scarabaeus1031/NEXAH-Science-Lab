@@ -1,0 +1,10 @@
+'use strict';
+const assert=require('assert'),fs=require('fs'),path=require('path');let checks=0;const check=fn=>{fn();checks+=1},read=file=>fs.readFileSync(path.join(__dirname,file),'utf8');
+const html=read('A0_BLUE_PINK_DODECA_CELL_RETURN.html'),js=read('a0-blue-pink-master-transport.js'),css=read('a0-blue-pink-master-transport.css');
+for(const id of ['bluePinkStartDeck','benchMasterStart','benchMasterPause','benchMasterRestart','benchMasterReturn','benchMasterStatus'])check(()=>assert.ok(html.includes(`id="${id}"`),id));
+check(()=>assert.ok(html.indexOf('id="bluePinkStartDeck"')<html.indexOf('id="bodyDomainSuite"')));
+check(()=>assert.ok(html.includes('href="#threeLissajousPlanes"')));check(()=>assert.ok(html.includes('href="#coupledChannelBoundaryLens"')));check(()=>assert.ok(html.includes('href="#cellReturnPerformance"')));
+check(()=>assert.ok(html.includes('a0-blue-pink-master-transport.js')));check(()=>assert.ok(html.includes('a0-blue-pink-master-transport.css')));
+for(const token of ['A0EnjoyLoop','A0BodyDomainSuiteController','A0CoupledChannelBoundaryView','A0ThreeLissajousPlanesView','A0CellReturnPerformance','a0-lissajous-frame'])check(()=>assert.ok(js.includes(token),token));
+check(()=>assert.ok(js.includes("newIdentity:false")));check(()=>assert.ok(js.includes("sourceMutation:false")));check(()=>assert.ok(css.includes('position:sticky')));check(()=>assert.ok(css.includes('@media(max-width:600px)')));check(()=>assert.ok(css.includes('@media print')));
+console.log(JSON.stringify({status:'PASS',checks,scope:'upper master transport over existing Blue/Pink bench modules; no new identity, clock or source mutation'}));

@@ -1,0 +1,21 @@
+{
+  "schema": "nexah.a0.body-bench-integration/1",
+  "date": "2026-10-23",
+  "status": "ENGINEERING_NAVIGATION_PASS",
+  "identity_reuse": ["MOD:TESSAREC", "MOD:NUMBER_VIEW_SUITE", "NEXAH_A0_ORIENTATION_CONTROLLER_BENCH"],
+  "full_benches": [
+    {"label": "BLUE BODY", "route": "A0_TESSAREC_BLUE_BODY_LAB.html#guided-test", "role": "SOURCE_BOUND_FULL_BODY_WORKBENCH"},
+    {"label": "PINK BODY", "route": "A0_PINK_DIAMOND_GRID_ATLAS.html#ghost-tiles", "role": "SOURCE_BOUND_FULL_GRID_WORKBENCH"}
+  ],
+  "exhibition_surface": {"route": "A0_BLUE_PINK_DODECA_CELL_RETURN.html#formation", "role": "COMPACT_COMBINED_DEMONSTRATOR", "not_identical_to_full_benches": true},
+  "navigation_contract": "Each full Body Bench links directly to the other full Body Bench, THE MACHINA cockpit and the separate exhibition layer.",
+  "tests": {"body_bench_integration": "30/30 PASS", "bench_navigation": "168/168 PASS"},
+  "sources": [
+    {"path": "A0_TESSAREC_BLUE_BODY_LAB.html", "sha256": "d52544d326cc81f4315c6f82d8f311d901b9430f4030a59ed32e627cc2bcff34"},
+    {"path": "A0_PINK_DIAMOND_GRID_ATLAS.html", "sha256": "82c6e0fe45e72d596cd06dfa9344933a0d92c916561241ade7465bca3289909e"},
+    {"path": "A0_BENCH_ENTDECKEN.html", "sha256": "b58828fcdf07a94efa836c28e53697a7c59e0e41e2207b03a8bd12245f9e01fb"},
+    {"path": "a0-bench-navigation.css", "sha256": "3aa77b886a84c382fa5b23488511256a99f6568c82aafad53296a948e230b3f8"}
+  ],
+  "authority": {"new_global_ids": [], "new_relations": [], "research_run": false, "scientific_evidence": false, "claim_promotion": false, "publication_authorized": false},
+  "boundary": "The switcher integrates navigation, not state transport. Blue Body, Pink Body and the compact exhibition demonstrator retain separate source, engine, clock and Return contracts."
+}

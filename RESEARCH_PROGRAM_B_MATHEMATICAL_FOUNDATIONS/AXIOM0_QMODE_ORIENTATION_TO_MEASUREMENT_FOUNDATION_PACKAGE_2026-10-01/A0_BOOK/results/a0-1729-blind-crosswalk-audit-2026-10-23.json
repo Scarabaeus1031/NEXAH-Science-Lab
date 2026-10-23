@@ -1,0 +1,312 @@
+{
+  "schema": "nexah.a0.1729-blind-crosswalk-audit/1",
+  "version": "1.1.0",
+  "date": "2026-10-23",
+  "identity": "NEXAH_A0_ORIENTATION_CONTROLLER_BENCH",
+  "classification": "BOUNDED_ENGINEERING_FALSIFICATION_AUDIT",
+  "status": "PASS",
+  "contract": {
+    "min": 1,
+    "max": 2500,
+    "selector": "POSITIVE_UNORDERED_CUBE_PAIR_COUNT_GTE_2",
+    "pairRule": "1 <= a <= b; a^3 + b^3 = n",
+    "excludedFromSelection": [
+      "17|29",
+      "5×17 @ v29",
+      "ROOT-5 / PENTAGON MASK"
+    ],
+    "targetLabel": 1729
+  },
+  "blindScan": {
+    "contract": {
+      "min": 1,
+      "max": 2500,
+      "selector": "POSITIVE_UNORDERED_CUBE_PAIR_COUNT_GTE_2",
+      "pairRule": "1 <= a <= b; a^3 + b^3 = n",
+      "excludedFromSelection": [
+        "17|29",
+        "5×17 @ v29",
+        "ROOT-5 / PENTAGON MASK"
+      ],
+      "targetLabel": 1729
+    },
+    "windowSize": 2500,
+    "representedCount": 79,
+    "candidates": [
+      {
+        "value": 1729,
+        "pairs": [
+          {
+            "a": 1,
+            "b": 12
+          },
+          {
+            "a": 9,
+            "b": 10
+          }
+        ]
+      }
+    ],
+    "pass": true,
+    "labelsUsed": false
+  },
+  "reveal": {
+    "candidate": 1729,
+    "pairs": [
+      {
+        "a": 1,
+        "b": 12
+      },
+      {
+        "a": 9,
+        "b": 10
+      }
+    ],
+    "address": "17|29",
+    "addressOperation": "DECIMAL_LABEL_SPLIT_NOT_FACTORIZATION",
+    "historicalTrigger": "5×17 @ v29",
+    "historicalTriggerDerivedFromCandidate": false,
+    "geometricMask": "ROOT-5 / PENTAGON MASK",
+    "geometricMaskUsedForSelection": false,
+    "fiveDividesCandidate": false,
+    "conclusion": "ARITHMETIC SURVIVES; CROSSWALK REMAINS DESCRIPTIVE"
+  },
+  "labelAssignmentControl": {
+    "model": "EXHAUSTIVE_CYCLIC_LABEL_ASSIGNMENT_NULL",
+    "assignments": 2500,
+    "hits": [
+      0
+    ],
+    "hitCount": 1,
+    "fraction": 0.0004,
+    "empiricalProbabilityClaim": false
+  },
+  "sensitivity": {
+    "belowTargetCandidateCount": 0,
+    "declaredCandidateCount": 1,
+    "neighborPairCounts": [
+      {
+        "value": 1728,
+        "pairCount": 0
+      },
+      {
+        "value": 1730,
+        "pairCount": 0
+      }
+    ],
+    "selectedCandidateDivisibleBy5": false,
+    "pass": true
+  },
+  "windowStability": {
+    "contract": {
+      "windows": [
+        1728,
+        2500,
+        5000,
+        50000
+      ],
+      "selector": "POSITIVE_UNORDERED_CUBE_PAIR_COUNT_GTE_2",
+      "controls": [
+        52,
+        493,
+        1730,
+        1836
+      ],
+      "labelsExcluded": true
+    },
+    "steps": [
+      {
+        "window": 1728,
+        "candidateCount": 0,
+        "candidateValues": []
+      },
+      {
+        "window": 2500,
+        "candidateCount": 1,
+        "candidateValues": [
+          1729
+        ]
+      },
+      {
+        "window": 5000,
+        "candidateCount": 2,
+        "candidateValues": [
+          1729,
+          4104
+        ]
+      },
+      {
+        "window": 50000,
+        "candidateCount": 8,
+        "candidateValues": [
+          1729,
+          4104,
+          13832,
+          20683,
+          32832,
+          39312,
+          40033,
+          46683
+        ]
+      }
+    ],
+    "candidates": [
+      {
+        "value": 1729,
+        "pairCount": 2,
+        "pairs": [
+          {
+            "a": 1,
+            "b": 12
+          },
+          {
+            "a": 9,
+            "b": 10
+          }
+        ]
+      },
+      {
+        "value": 4104,
+        "pairCount": 2,
+        "pairs": [
+          {
+            "a": 2,
+            "b": 16
+          },
+          {
+            "a": 9,
+            "b": 15
+          }
+        ]
+      },
+      {
+        "value": 13832,
+        "pairCount": 2,
+        "pairs": [
+          {
+            "a": 2,
+            "b": 24
+          },
+          {
+            "a": 18,
+            "b": 20
+          }
+        ]
+      },
+      {
+        "value": 20683,
+        "pairCount": 2,
+        "pairs": [
+          {
+            "a": 10,
+            "b": 27
+          },
+          {
+            "a": 19,
+            "b": 24
+          }
+        ]
+      },
+      {
+        "value": 32832,
+        "pairCount": 2,
+        "pairs": [
+          {
+            "a": 4,
+            "b": 32
+          },
+          {
+            "a": 18,
+            "b": 30
+          }
+        ]
+      },
+      {
+        "value": 39312,
+        "pairCount": 2,
+        "pairs": [
+          {
+            "a": 2,
+            "b": 34
+          },
+          {
+            "a": 15,
+            "b": 33
+          }
+        ]
+      },
+      {
+        "value": 40033,
+        "pairCount": 2,
+        "pairs": [
+          {
+            "a": 9,
+            "b": 34
+          },
+          {
+            "a": 16,
+            "b": 33
+          }
+        ]
+      },
+      {
+        "value": 46683,
+        "pairCount": 2,
+        "pairs": [
+          {
+            "a": 3,
+            "b": 36
+          },
+          {
+            "a": 27,
+            "b": 30
+          }
+        ]
+      }
+    ],
+    "firstCandidate": 1729,
+    "firstRemainsLowest": true,
+    "declaredWindowUnique": true,
+    "globallyUnique": false,
+    "labelsUsed": false,
+    "pass": true
+  },
+  "negativeControls": {
+    "selector": "POSITIVE_UNORDERED_CUBE_PAIR_COUNT_GTE_2",
+    "rows": [
+      {
+        "value": 52,
+        "pairCount": 0,
+        "selected": false
+      },
+      {
+        "value": 493,
+        "pairCount": 0,
+        "selected": false
+      },
+      {
+        "value": 1730,
+        "pairCount": 0,
+        "selected": false
+      },
+      {
+        "value": 1836,
+        "pairCount": 0,
+        "selected": false
+      }
+    ],
+    "pass": true,
+    "labelsUsed": false
+  },
+  "interpretation": "The arithmetic selector independently isolates 1729 in 1…2500. Across the frozen window ladder, 1729 remains the first threshold crossing but is not globally unique; later label coincidences remain descriptive post-selection crosswalks.",
+  "authority": {
+    "researchRun": false,
+    "scientificEvidence": false,
+    "pValue": false,
+    "newIdentity": false,
+    "newRelation": false,
+    "newOperator": false,
+    "claimPromotion": false
+  },
+  "boundary": "Finite deterministic engineering audit only. Window extension tests selector stability, not global uniqueness. The cyclic label control is a declared synthetic assignment model, not an empirical probability or evidence for a shared mechanism. Root-5 remains an excluded geometric display mask."
+}

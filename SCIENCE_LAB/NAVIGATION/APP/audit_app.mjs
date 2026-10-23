@@ -111,7 +111,7 @@ const a0RuntimeBoundSurfaceCount = Number(
 
 const checks = [
   ["internal profile", manifest?.profile === "internal"],
-  ["registry entities loaded", manifest?.entities?.length === 266],
+  ["registry entities loaded", manifest?.entities?.length === 283],
   ["29 typed relations", manifest?.relations?.length === 29],
   ["no public authorization", release?.publication_authorized === false && release?.public_entity_count === 0],
   ["entry content fail-closed", entry?.profile === "internal" && entry?.publication_authorized === false],

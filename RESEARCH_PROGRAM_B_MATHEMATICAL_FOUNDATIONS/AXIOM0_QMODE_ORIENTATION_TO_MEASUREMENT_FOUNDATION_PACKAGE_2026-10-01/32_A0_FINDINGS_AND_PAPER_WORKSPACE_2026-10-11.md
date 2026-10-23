@@ -514,6 +514,33 @@ This routing adds no `F-A0` row. Papers C, E and F retain their existing
 states; Paper D remains an outline. Their conclusions and review gates are
 unchanged.
 
+<a id="bench-workdesk-binder-return-20261023"></a>
+### Bench Workdesk / Binder audit — documentary routing, 2026-10-23
+
+Status: `ENGINEERING_RETURN / NO_NEW_FINDING / NO_PAPER_STATE_CHANGE`
+
+The existing Orientation Controller Bench now exposes three already defined
+read paths in one front workdesk. The reproducible integration fixture begins
+at `2/3`: M3→Stack is `FOLLOWING`, Ihara→Visual 1 is `CONNECTED`, and
+Player→Pascal remains `HOLD` while its source receipt is absent. A valid Player
+receipt changes that same bounded fixture to `3/3`. No source is started, no
+shared clock is introduced and no whole-machine pass follows from the count.
+
+| Existing paper lane | Documentary use | Boundary retained |
+|---|---|---|
+| **Paper C — Return without identity** | The `HOLD → receipt → connected` transition is a compact interface example of why source evidence, accepted readback and Return must remain separately typed. | Illustration only; no additional formal case, theorem or generalized Return result. |
+| **Paper E — Orientation method** | The workdesk demonstrates an operational sequence `source status → typed path → cause class → next action` while preserving the three local contracts. | Interface/method documentation only; no Human-utility, effectiveness, completeness or novelty claim. |
+
+Canonical documentary returns:
+
+- [Science Desk — Bench Workdesk / Binder return](A0_BOOK/A0_RESEARCH_DESK.html#bench-workdesk-binder-return-20261023)
+- [Builder Log — implementation and test scope](A0_BOOK/A0_BUILDER_LOG.html#club-control-return-20261022)
+- [Machine-readable audit](A0_BOOK/results/a0-bench-workdesk-audit-return-2026-10-22.json)
+
+This routing adds no `F-A0` row, changes no manuscript and leaves all paper
+states and review gates unchanged. Live browser connection and independent
+Human acceptance remain open.
+
 ### Paper-routing checkpoint — 2026-10-14
 
 Status: `EDITORIAL_BACKLOG_ONLY / NO_DRAFT_CHANGED / NO_NEW_PAPER`
@@ -684,3 +711,164 @@ RELATE  existing A0-BL records only
 CREATE  documentary paper workspace and one companion draft
 CREATE  no Study, Family, Navigator identity, graph relation or active cycle
 ```
+
+<a id="bench-joint-findings-return-20261023"></a>
+## Bench / Joint Doings-and-Findings return — 2026-10-23
+
+Disposition: **documented engineering findings; no new `F-A0` record and no
+paper-claim change**.
+
+Two completed implementation strands are routed here together:
+
+- the source-bound Three-Domain `3x4` channel record and Paper-Boat Return
+  D.U.T.;
+- the scanner-bound `2:1` Final Pin and its typed D°G shared-aperture receipt.
+
+### Retained implementation findings
+
+| Record | Positive bounded result | Required negative boundary |
+|---|---|---|
+| Three-Domain channel joint | one frozen record preserves per-domain partition, marginals, channel counts and complete `3x4` fingerprint across the declared view sequence | no common Chemistry/Life/Physics mechanism; no feedback into any source model |
+| Paper-Boat projection | screen/path geometry may rotate while object-space record values remain fixed and return-testable | `360°` view repetition is not full state/history Return; classification remains at the declared `720°` checkpoint |
+| Final Pin | `PINNED_2_TO_1 + OCCUPIED` yields a typed local receipt; `OPEN/GAP` yields `HOLD` | `2:1` is display weighting, not a physical mixture, the `1:2:1` fibre or formal Pascal `TL` |
+| D°G handoff | the existing aperture accepts `TOWER -> APERTURE -> SHELL` without changing its loop | q17 addresses are not OS-11 teeth; no `17 -> 18` basis translation, second clock or new carrier |
+| Numbermagick reading | `2/3+1/3=1`, `8^2=64` and `3^4=81` remain exact local arithmetic | `.83`, `G / gamma / y` and word/glyph associations remain untyped Owner markers, not equations |
+
+### Paper routing
+
+- **Paper C:** may cite the typed-receipt / Return separation as an
+  implementation illustration only; it receives no new mathematical claim.
+- **Paper E:** may cite the source/operator/view/Return separation as instrument
+  method infrastructure only; no Human-utility or mechanism claim follows.
+- **Paper D / Numbermagick:** no transfer. The exact local arithmetic and glyph
+  provenance remain on the documentary Numbermagick reading surface.
+
+The machine receipt is
+[`a0-bench-joint-doings-findings-return-2026-10-23.json`](A0_BOOK/results/a0-bench-joint-doings-findings-return-2026-10-23.json).
+The reader return is the
+[Science Desk Doings/Findings section](A0_BOOK/A0_RESEARCH_DESK.html#bench-joint-doings-findings-return-20261023).
+
+Authority effect:
+
+```text
+REUSE   ART:A0:MATHEMATICAL_JOINTS
+REUSE   NEXAH_A0_ORIENTATION_CONTROLLER_BENCH
+REUSE   MOD:NUMBER_VIEW_SUITE
+CREATE  no F-A0 finding, Study, Family, canonical relation or paper claim
+OPEN    independent Human/pixel acceptance and any future Root-Room operator contract
+```
+
+<a id="tower-shell-return-triage-20261023"></a>
+## Tower–Shell Closed Return triage — 2026-10-23
+
+Disposition: **method-relevant engineering observation; no new `F-A0` record
+and no paper-claim promotion**.
+
+The closed route preserves one scanner address across a typed sequence:
+`q address -> Final Pin -> D°G Witness -> D°G Return -> Root Room return gate ->
+same q receipt`. The accepted live case returned `q01`, held its Witness at
+`10/18`, and closed only after D°G reached its own Return stage.
+
+What this closes:
+
+- a missing Witness, changed q address, changed sample count or changed band
+  count fails closed;
+- the Tower/Schacht and Schale/Under-Tower roles are connected to a bounded
+  return receipt rather than ending as an isolated image;
+- the original scanner address is not silently translated into another basis.
+
+What remains open:
+
+- a source-owned Root Room/Tower operator contract;
+- any q17-to-N18 translation, shared clock, shared carrier or whole-machine
+  Return;
+- independent Human/pixel acceptance beyond the completed live DOM check.
+
+Paper routing:
+
+- **Paper C:** eligible only as a typed-Return/non-identity implementation
+  illustration.
+- **Paper E:** eligible only as method infrastructure for Witness, fail-closed
+  comparison and source-bound return.
+- **No transfer** to a mathematical, physical, astronomical or Human-utility
+  claim.
+
+Sources: [Science Desk](A0_BOOK/A0_RESEARCH_DESK.html#tower-shell-return-science-desk-20261023),
+[Bench](A0_BOOK/A0_ORIENTATION_CONTROLLER_BENCH.html#towerShellReturn), and
+[machine return](A0_BOOK/results/a0-tower-shell-closed-return-2026-10-23.json).
+
+<a id="look-again-perception-game-20261023"></a>
+## LOOK AGAIN · Moiré perception game triage — 2026-10-23
+
+Disposition: **method-relevant engineering experience; no new `F-A0`
+finding, no Study and no paper-claim promotion**.
+
+The existing FAM-009 ring aperture now supports five deterministic
+before/after comparisons. Exactly one declared display variable changes per
+round: relative phase, radial scale, display sampling, aperture or source-ring
+density. A participant may mark a perceived form and confidence, but the local
+record has no correct answer, score, norm or diagnostic interpretation.
+
+What is retained:
+
+- the source family, view operator and display delta remain explicit;
+- static default, no autoplay, no flashing and an immediate stop boundary;
+- answers remain in memory unless the user explicitly downloads a local JSON;
+- the result is suitable as a method/interaction illustration for source/view/
+  observer separation.
+
+What remains open:
+
+- any inter-observer threshold, repeatability or Human-utility claim;
+- calibrated display size, viewing distance, contrast and ambient-light
+  protocol;
+- ethics/safety review, recruitment and preregistration for a future study;
+- clinical or diagnostic use, which is not part of this instrument.
+
+Paper routing: Paper E may cite the instrument architecture only. Paper C and
+all mathematical/physical claims receive no transfer.
+
+Sources: [Science Desk](A0_BOOK/A0_RESEARCH_DESK.html#look-again-perception-game-return-20261023),
+[game](A0_BOOK/A0_ORIENTATION_CONTROLLER_BENCH.html#lookAgainGame),
+[Builder Log](A0_BOOK/A0_BUILDER_LOG.html#look-again-perception-game-20261023),
+and [machine return](A0_BOOK/results/a0-look-again-perception-game-return-2026-10-23.json).
+
+<a id="diamond-lens-view-stack-20261023"></a>
+## Diamond Lens view-stack triage — 2026-10-23
+
+Disposition: **method-relevant engineering view; no new `F-A0` finding, no
+Study and no paper-claim promotion**.
+
+The existing Pink Diamond route now keeps one White Dodeca carrier separate
+from five local views: AM Yellow, VM Emerald Shadow, PM Rainbow Spectrum,
+Root/Boundary Shell and Evil Twin C/Z Mirror. Interior, Boundary and Exterior
+are presentation filters. The black tine is a user-set aperture/cut marker.
+No view changes the source record or creates a second body.
+
+What is retained:
+
+- Q-Mirror is already bound by SHA-256; Root/Shell and Evil Twin remain owner
+  reference visuals rather than promoted source operators;
+- the yellow and pink roles are explicitly labelled views, not separate
+  diamond bodies;
+- static default, no clock, no autoplay and no hidden state transfer;
+- local reconstruction is suitable as a source/view/observer illustration.
+- the same existing instrument is now routed as Pink Diamond's official Demo
+  entry and as an optional `LOOK` doorway in the Human View; this placement is
+  navigation only and does not promote Human utility.
+
+What remains open:
+
+- any mathematical AM/VM/PM coupling law;
+- canonical semantics for the local L/S/D display presets;
+- a Root/Shell, Evil-Twin, X-Set, cloud or singularity mechanism;
+- scientific evidence, Human-utility claims and publication.
+
+Paper routing: Paper E may cite the interface method and boundary discipline
+only. No transfer to Papers A–D or to a mathematical/physical claim.
+
+Sources: [Science Desk](A0_BOOK/A0_RESEARCH_DESK.html#diamond-lens-view-stack-return-20261023),
+[instrument](A0_BOOK/A0_PINK_DIAMOND_GRID_ATLAS.html#diamond-lens),
+[Human View](A0_BOOK/A0_NEXAH_APERTURE_JOURNEY.html#look-again-room),
+[Builder Log](A0_BOOK/A0_BUILDER_LOG.html#diamond-lens-view-stack-20261023),
+and [machine return](A0_BOOK/results/a0-diamond-lens-view-stack-return-2026-10-23.json).

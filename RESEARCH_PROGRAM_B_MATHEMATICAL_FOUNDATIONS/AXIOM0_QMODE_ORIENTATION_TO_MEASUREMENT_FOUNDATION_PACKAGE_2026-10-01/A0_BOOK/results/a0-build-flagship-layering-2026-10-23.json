@@ -1,0 +1,57 @@
+{
+  "receipt_id": "A0_BUILD_FLAGSHIP_LAYERING_2026-10-23",
+  "status": "ENGINEERING_NAVIGATION_AND_LAYERING_PASS",
+  "date": "2026-10-23",
+  "scope": "Persistent six-flagship Build navigation with a separate three-level view contract across the A0 Werkbank.",
+  "flagships": [
+    "THE MACHINA",
+    "BLUE BODY",
+    "PINK DIAMOND",
+    "BLUE × PINK LAB",
+    "TOWER",
+    "BRIDGE"
+  ],
+  "view_layers": [
+    "AUSSTELLUNG",
+    "BENCH / INSTRUMENT",
+    "QUELLEN & PRÜFEN"
+  ],
+  "pink_diamond_role_contract": {
+    "entry": "ORANGE_FLOOR",
+    "carrier": "WHITE_DODECA",
+    "views": {
+      "AM": "YELLOW_DIAMOND",
+      "PM": "PINK_DIAMOND"
+    },
+    "boundary": "Pink Diamond is the flagship and view operator. Grid remains an internal measurement/address instrument; body identity, carrier color and view color are not equated."
+  },
+  "software_layer": {
+    "name": "Game of Worlds",
+    "role": "Software and world layer over the Build",
+    "boundary": "Not a seventh hardware room and not a replacement for any source-bound Bench."
+  },
+  "identity_reuse": [
+    "MOD:TESSAREC",
+    "MOD:NUMBER_VIEW_SUITE",
+    "NEXAH_A0_ORIENTATION_CONTROLLER_BENCH"
+  ],
+  "new_canonical_ids": [],
+  "relation_changes": [],
+  "tests": {
+    "a0-body-bench-integration-tests.cjs": "54/54 PASS",
+    "a0-bench-navigation-tests.cjs": "168/168 PASS",
+    "browser_visual": "PASS: exhibition foyer and Blue Body top entry retain the shared flagship and view navigation"
+  },
+  "source_hashes": {
+    "A0_TESSAREC_BLUE_BODY_LAB.html": "07653b108cd246eca681c7218ddae4a808d90dc758bbbec7eaea9bf19d0703a1",
+    "A0_PINK_DIAMOND_GRID_ATLAS.html": "d1c4148950d14bf88e822cfde7fa88647218b44dc895968b5b369cffec233336",
+    "A0_BLUE_PINK_DODECA_CELL_RETURN.html": "d5fd18cd6fe66ce06edeac8569638d3a07f64fe7dbcbab4f01d8e5d2a712c91c",
+    "A0_WERKBANK.html": "03f50d2d441960ce527bf90782c74038340ff1d91e467da1ed07a6009828d131",
+    "A0_BENCH_ENTDECKEN.html": "1da349c62c1dd081e666b92fffbe13d61d8439f568496fa0eb4e1a837d5f3716",
+    "A0_RESEARCH_DESK.html": "83641d2200d7314b5a9e19c55857d4117ce4571088f6c5b6bb22dccc9bb56a87",
+    "a0-bench-navigation.css": "a42c1d49bcba385f31c4a5ef02c3e99d166697df36ed208f7e7c74e93dca4208",
+    "assets/a0-blue-pink-dodeca-cell-return-v1.js": "85fe9997ec695614909738de87eee56130f287cc2ae29c0d25df9f107005d7e5"
+  },
+  "authority_effect": "NONE",
+  "boundary": "Navigation, naming and presentation layering only. Pink Diamond is the flagship; Grid is its internal measurement/address instrument. Orange Floor is entry, White Dodeca is carrier, and AM yellow / PM pink are view roles. The six flagships retain separate source, engine, clock and Return contracts. Exhibition is a curated view; Bench is the full source-bound instrument; Sources & Testing exposes contracts and records. No state transport, mechanism identity, Study, finding, evidence promotion, publication or authority transfer."
+}

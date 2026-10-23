@@ -1,0 +1,21 @@
+'use strict';
+const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),crypto=require('node:crypto');
+let checks=0;const ok=(value,message)=>{assert.ok(value,message);checks++},eq=(actual,expected,message)=>{assert.deepEqual(actual,expected,message);checks++};
+const html=fs.readFileSync(path.join(__dirname,'A0_RESEARCH_DESK.html'),'utf8'),bench=fs.readFileSync(path.join(__dirname,'A0_ORIENTATION_CONTROLLER_BENCH.html'),'utf8');
+const section=html.match(/<section class="spread" id="three-domain-channel-joint-return-20261023"[\s\S]*?<\/section>/)?.[0]||'';
+ok(html.includes('href="#three-domain-channel-joint-return-20261023">Channel Joint</a>'),'top navigation returns to Channel Joint');
+ok(html.includes('21.–23.10.2026 · 7 Einträge'),'engineering archive count updated');
+ok(section.includes('Drei getrennte Ports. Vier Kanäle je Port'),'return title present');
+eq((section.match(/<article>/g)||[]).length,6,'six-step chain returned');
+for(const marker of ['C₀₀/C₀₁/C₁₀/C₁₁','Grau ist beobachtetes','D5 ≠ D6 ≠ 11×11 ≠ 7×11','29/29 PASS','89/89 PASS','47/47 PASS','490/490 PASS','36/36 PASS','269/32 PASS','252/252 PASS'])ok(section.includes(marker),`desk marker ${marker}`);
+for(const href of ['A0_ORIENTATION_CONTROLLER_BENCH.html#aePaperBoatReturnDut','assets/game-of-worlds-play/three-domain-transition-test/index.html#atlas','A0_MATHEMATICAL_JOINTS.html#three-domain-blue-body-demonstrator','results/a0-three-domain-channel-joint-return-2026-10-23.json'])ok(section.includes(`href="${href}"`),`desk return link ${href}`);
+ok(section.includes('visuelle und unabhängige Human-Akzeptanz bleiben deshalb als Owner-Gate offen'),'open human gate retained');
+ok(bench.includes('A0_RESEARCH_DESK.html#three-domain-channel-joint-return-20261023'),'Bench has reverse Science Desk link');
+const receipt=JSON.parse(fs.readFileSync(path.join(__dirname,'results/a0-three-domain-channel-joint-return-2026-10-23.json'),'utf8'));
+eq(receipt.status,'ENGINEERING_INTEGRATION_AND_SCIENCE_DESK_RETURN_PASS_VISUAL_HUMAN_ACCEPTANCE_OPEN','return status');
+eq(receipt.science_desk_return.entry,'A0_RESEARCH_DESK.html#three-domain-channel-joint-return-20261023','receipt points to Desk');
+eq(receipt.science_desk_return.technical_return_complete,true,'technical return complete');
+eq(receipt.science_desk_return.visual_human_acceptance_open,true,'human gate remains open');
+eq(receipt.identity_effect.new_global_ids,[],'no global ids');eq(receipt.identity_effect.new_canonical_relations,[],'no canonical relations');eq(receipt.identity_effect.new_operator,false,'no new operator');eq(receipt.identity_effect.new_carrier,false,'no new carrier');eq(receipt.transition_contract.feedback,false,'no feedback');eq(receipt.authority.research_run,false,'no research run');eq(receipt.authority.scientific_evidence,false,'no evidence promotion');eq(receipt.authority.publication_authorized,false,'no publication authority');
+for(const source of receipt.files){const actual=crypto.createHash('sha256').update(fs.readFileSync(path.join(__dirname,source.path))).digest('hex');eq(actual,source.sha256,`current returned source ${source.path}`)}
+console.log(JSON.stringify({status:'PASS',checks,scope:'full source-bound Three-Domain Channel Joint return to existing A0 Science Desk; visual/human acceptance remains open'}));

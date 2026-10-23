@@ -1,0 +1,61 @@
+{
+  "schema": "nexah.a0.typed-170-source-audit/1",
+  "date": "2026-10-23",
+  "status": "PASS_TYPED_170_LOCATED_ROLE_AND_GENERATOR_MISMATCH",
+  "admission_contract": [
+    "exact value 170",
+    "explicit semantic type",
+    "source and generator binding",
+    "reproducible record",
+    "same role as 252 and 332",
+    "same generating contract as 252 and 332",
+    "compatible currentness"
+  ],
+  "located_records": [
+    {
+      "value": 170,
+      "type": "navigator_internal_entity_count",
+      "state": "FROZEN_HISTORICAL_BASELINE",
+      "compatible_with_census_sequence": false
+    },
+    {
+      "value": 170,
+      "type": "fail_closed_rejection_count",
+      "state": "DERIVED_FROM_SAME_FROZEN_POPULATION",
+      "independent_record": false,
+      "compatible_with_census_sequence": false
+    }
+  ],
+  "comparison": {
+    "170": "registry entities / derived public rejections",
+    "252": "Navigator app predicates and HTML artifact coverage",
+    "332": "Coupled Window test assertions",
+    "like_for_like": false
+  },
+  "currentness_observation": {
+    "frozen_v1_entities": 170,
+    "checked_in_registry_projection_entities": 266,
+    "fresh_adapter_verification_entities": 283,
+    "fresh_adapter_verification_relations": 29,
+    "delta_added": 17,
+    "delta_removed": 0,
+    "delta_type": "ALL_17_SUPPORTING_A0_HTML_SURFACES",
+    "action": "RECORDED_NOT_REPAIRED"
+  },
+  "decision": {
+    "classification": "CANDIDATE_PATTERN_TYPED_170_ROLE_MISMATCH",
+    "sequence_established": false,
+    "promotion_authorized": false,
+    "next_gate": "KEEP_AS_CROSS_LEDGER_RESONANCE_UNLESS_A_LIKE_FOR_LIKE_170_CHANNEL_RECORD_PREEXISTS"
+  },
+  "audit": "16/16 PASS",
+  "authority": {
+    "research_run": false,
+    "scientific_evidence": false,
+    "new_identity": false,
+    "new_relation": false,
+    "new_family": false,
+    "new_study": false,
+    "publication_authorized": false
+  }
+}

@@ -1,0 +1,150 @@
+{
+  "schema": "nexah.a0.three-domain-channel-joint-engineering-return/1",
+  "date": "2026-10-23",
+  "status": "ENGINEERING_INTEGRATION_AND_SCIENCE_DESK_RETURN_PASS_VISUAL_HUMAN_ACCEPTANCE_OPEN",
+  "scope": "Read-only Arcade Three-Domain transition ledgers bound into the existing Paper-Boat Return D.U.T. as a 3-port by 4-channel joint view and fully returned to the existing A0 Science Desk.",
+  "identity_effect": {
+    "reused": [
+      "ART:A0:MATHEMATICAL_JOINTS",
+      "NEXAH_A0_ORIENTATION_CONTROLLER_BENCH"
+    ],
+    "new_global_ids": [],
+    "new_canonical_relations": [],
+    "new_operator": false,
+    "new_carrier": false
+  },
+  "six_step_binding": [
+    "Arcade app.js publishes its existing threedomain:render detail through a read-only request/record session channel.",
+    "The shared adapter validates and normalizes Chemistry, Life and Physics ledgers without stepping or mutating a model.",
+    "The Paper-Boat D.U.T. renders three distinct source ports with C00, C01, C10 and C11 weighted fibres.",
+    "The same frozen 3x4 record rotates with the declared Paper-Boat projection while counts and marginals remain invariant.",
+    "Object-space ledger fields remain separate from screen-space path position and line projection.",
+    "At classification the 720-degree checkpoint compares the complete canonical 3x4 fingerprint to the stage-1 capture."
+  ],
+  "transition_contract": {
+    "C00": "0->0 inactive retention; grey; observed zero-state channel, not NULL",
+    "C01": "0->1 birth / positive; cyan",
+    "C10": "1->0 death / negative; pink",
+    "C11": "1->1 survive / retained; gold",
+    "partition": "C00+C01+C10+C11=N for each domain",
+    "marginals": "source and target zero/one counts are recomputed and checked",
+    "joint": "arithmetic centroid of the three existing ledger phasors",
+    "feedback": false
+  },
+  "carrier_mask_contract": {
+    "outer": "D5 pentagon / green",
+    "inner": "D6 hexagon / red",
+    "joint_marker": "violet-gold butterfly",
+    "counter_view": "white X / 45 degrees",
+    "typed_boundary": "D5 != D6 != 11x11 grid != 7x11 address carrier",
+    "exact_count_only": "5+6=11 is a shell count, not a coupling operator or 11x11 identity"
+  },
+  "transport": {
+    "channel": "nexah-a0-three-domain-joint-v1",
+    "messages": ["REQUEST", "RECORD"],
+    "policy": "source publishes, sink requests and freezes; no command or feedback message exists",
+    "failure": "HOLD_SOURCE remains visible when no live Arcade record is available"
+  },
+  "science_desk_return": {
+    "status": "COMPLETE_ENGINEERING_RETURN",
+    "entry": "A0_RESEARCH_DESK.html#three-domain-channel-joint-return-20261023",
+    "reverse_link": "A0_ORIENTATION_CONTROLLER_BENCH.html#aePaperBoatReturnDut",
+    "contents": [
+      "source authority and read-only transport",
+      "six-step adapter/capture/projection/return chain",
+      "D5, D6, 11x11 and 7x11 non-identity boundary",
+      "test totals and machine receipt",
+      "open visual and independent human acceptance gate",
+      "authority and publication boundary"
+    ],
+    "technical_return_complete": true,
+    "visual_human_acceptance_open": true
+  },
+  "governance_return": {
+    "status": "PASS",
+    "updated_source_id": "SRC:A0OE:A0_RESEARCH_DESK_CHECK58",
+    "reused_component_id": "SG:LENS:A0_ORIENTATION_EVIDENCE",
+    "component_count": 20,
+    "source_graph": "269/32 PASS",
+    "navigator_app": "252/252 PASS",
+    "new_global_ids": [],
+    "new_canonical_relations": [],
+    "mission_control_projection": [
+      "00 EXECUTIVE/NEXAH-Mission-Control/CURRENT/NAVIGATOR_SOURCE_GRAPH_CONTROL.json",
+      "00 EXECUTIVE/NEXAH-Mission-Control/CURRENT/NAVIGATOR_CONTROL.md"
+    ]
+  },
+  "tests": {
+    "three_domain_joint_adapter": "29/29 PASS",
+    "paper_boat_return_dut": "89/89 PASS",
+    "science_desk_channel_joint_return": "47/47 PASS",
+    "ae_zipper": "143/143 PASS",
+    "dg_sampling_loop": "47/47 PASS",
+    "yugo_iota": "66/66 PASS",
+    "scarab_projection": "234/234 PASS",
+    "three_domain_atlas": "10/10 PASS",
+    "three_domain_standalone_lenses": "16/16 PASS",
+    "three_domain_blue_body": "10/10 PASS",
+    "navigator_source_graph": "PASS 269/32",
+    "navigator_app": "252/252 PASS"
+  },
+  "known_preexisting_open": {
+    "general_science_desk_suite": "BLOCKED_PREEXISTING_ATLAS_RECEIPT_HASH_MISMATCH",
+    "receipt": "results/a0-game-of-worlds-three-domain-atlas-return-2026-10-21.json",
+    "source": "A0_GAME_OF_WORLDS_PLAY.html",
+    "expected_sha256": "ad64037f3379c2065ec468803cd9d86217f4dc91005898f07b65165e4d5a7611",
+    "actual_sha256": "d5de52e54a6effb8337d6f1cc5479c0325439555cedb5e4ae04b3e8445a54d90",
+    "effect": "The stale historical Atlas receipt blocks the older aggregate Desk test only; it does not invalidate the isolated 2026-10-23 Channel Joint return suite."
+  },
+  "live_anchor_sources": [
+    {
+      "path": "A0_ORIENTATION_CONTROLLER_BENCH.html",
+      "anchors": ["id=\"aePaperBoatReturnDut\"", "A0_RESEARCH_DESK.html#three-domain-channel-joint-return-20261023"],
+      "verification": "ANCHOR_PRESENCE_TESTED",
+      "reason": "Shared Bench carrier is under concurrent local construction; a whole-file hash would falsely freeze unrelated work."
+    },
+    {
+      "path": "A0_RESEARCH_DESK.html",
+      "anchors": ["id=\"three-domain-channel-joint-return-20261023\""],
+      "verification": "ANCHOR_PRESENCE_TESTED",
+      "reason": "Shared Science Desk is under continuing cross-thread documentary return; this receipt freezes only its scoped section anchor."
+    },
+    {
+      "path": "../../../SCIENCE_LAB/NAVIGATION/EVIDENCE/A0_ORIENTATION_EVIDENCE_LINEAGE_2026-10-10/A0_ORIENTATION_EVIDENCE_LINEAGE_BINDER_V1_2026-10-10.json",
+      "anchors": ["three_domain_channel_joint_return_20261023", "bench_joint_doings_findings_return_20261023"],
+      "verification": "ANCHOR_PRESENCE_TESTED",
+      "reason": "Shared Navigator binder is append-current and concurrently maintained; scoped currentness objects are verified without freezing unrelated returns."
+    },
+    {
+      "path": "../../../SCIENCE_LAB/NAVIGATION/GOVERNANCE/SOURCE_GRAPH_INDEX_V1_2026-10-10.json",
+      "anchors": ["SG:LENS:A0_ORIENTATION_EVIDENCE", "cross-thread Bench/Joint Doings-and-Findings documentary return"],
+      "verification": "ANCHOR_PRESENCE_TESTED",
+      "reason": "Shared Source Graph is validated independently and may receive concurrent governed returns."
+    },
+    {
+      "path": "../../../../../00 EXECUTIVE/NEXAH-Mission-Control/CURRENT/NAVIGATOR_SOURCE_GRAPH_CONTROL.json",
+      "anchors": ["SG:LENS:A0_ORIENTATION_EVIDENCE", "cross-thread Bench/Joint Doings-and-Findings documentary return"],
+      "verification": "ANCHOR_PRESENCE_TESTED",
+      "reason": "Mission Control is a generated shared projection and is verified by its scoped component and return wording."
+    }
+  ],
+  "files": [
+    {"path": "a0-three-domain-joint-adapter.js", "sha256": "5095a9d69db7bb5166d9969c8e52d36672d15263fa125fea00192f5f65cfbb00"},
+    {"path": "a0-three-domain-joint-adapter-tests.cjs", "sha256": "715be3bb7ca84f80b951dfcba29d507d0e9913e7105dc622f7bb279930e85ad1"},
+    {"path": "a0-paper-boat-return-dut.js", "sha256": "4fc8d7198821d118532b574f483f969a95cc54a727d5aee65a467c2f8e4aa349"},
+    {"path": "a0-paper-boat-return-dut.css", "sha256": "afaf8c4562927499745652dbcb56ca9696058eaef3d72f528658b98d6c59ea5b"},
+    {"path": "a0-paper-boat-return-dut-tests.cjs", "sha256": "4d447980c8772dd29a1cdd3379a240b511039c42b34c1083a08cdf5b88209863"},
+    {"path": "a0-research-desk-tests.cjs", "sha256": "41efa5b018019340a718112d8b00588843c1cdf1368979223b8c3aa3243c2f9d"},
+    {"path": "a0-three-domain-channel-joint-science-desk-return-tests.cjs", "sha256": "830a03058eee6604c6132a5f964e75ba75cd12709e60951cdfabff7dc9d24848"},
+    {"path": "assets/game-of-worlds-play/three-domain-transition-test/app.js", "sha256": "53fce9241f2829979cb8287f3c59f6feb2b72f5e895d0c0fc2038a38f15a40e9"},
+    {"path": "assets/game-of-worlds-play/three-domain-transition-test/index.html", "sha256": "2d66ff122f0f547d0b156da64c902683aadb17f8f169239073c77cb5eae4c155"}
+  ],
+  "authority": {
+    "research_run": false,
+    "scientific_evidence": false,
+    "claim_promotion": false,
+    "publication_authorized": false,
+    "visual_human_acceptance": false
+  },
+  "claim_boundary": "This is a deterministic source-bound interface and projection check. The session binding does not identify the three domain models, infer a common mechanism, establish a physical topology, equate D5 with D6 or convert shell counts into grid/carrier identity."
+}

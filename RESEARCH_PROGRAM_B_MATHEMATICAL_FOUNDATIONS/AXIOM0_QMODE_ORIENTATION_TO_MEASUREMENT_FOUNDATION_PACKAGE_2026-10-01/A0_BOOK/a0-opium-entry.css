@@ -6,3 +6,22 @@
 @media(max-width:950px){.opium-hero{grid-template-columns:1fr 1fr;padding-inline:4vw}h1{font-size:clamp(62px,9vw,100px)}.opium-room-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.opium-top nav{gap:14px}}
 @media(max-width:650px){.opium-top{align-items:start}.opium-top nav{max-width:230px;justify-content:end}.opium-hero{grid-template-columns:1fr;padding:35px 6vw}.opium-machine{margin:15px -15px 0}.opium-intro{z-index:1}h1{font-size:80px}.opium-room-grid,.opium-contracts{grid-template-columns:1fr}.opium-rooms,.opium-connections{padding:55px 6vw}.opium-room-grid p{min-height:0}footer{flex-direction:column;gap:15px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}}
+
+/* Entrance order: record first, room second. */
+.opium-hero{grid-template-columns:minmax(390px,.96fr) minmax(480px,1.18fr);padding:26px 5vw 44px;gap:30px}
+.opium-intro h1{margin:20px 0 16px;line-height:.84}
+.opium-lead{margin:0 0 20px}
+.opium-entry-pair{display:grid;grid-template-columns:1fr 1fr;gap:10px;max-width:720px}
+.opium-portal{position:relative;min-height:150px;padding:18px;display:flex;flex-direction:column;justify-content:space-between;border:1px solid #385b65;background:linear-gradient(145deg,#0a222b,#071820);text-decoration:none;overflow:hidden;transition:transform .22s ease,border-color .22s ease,background .22s ease}
+.opium-portal:before{content:"";position:absolute;inset:auto -35% -72% 18%;height:140px;border-radius:50%;background:radial-gradient(circle,#f7cc7a44 0,#f7cc7a00 68%);transition:transform .35s ease}
+.opium-portal small{position:relative;color:var(--cyan);font:700 9px ui-monospace,monospace;letter-spacing:.12em}
+.opium-portal strong{position:relative;font:500 clamp(20px,2vw,30px)/1.05 Georgia,serif;max-width:12ch}
+.opium-portal span{position:relative;color:var(--gold);font-size:11px}
+.opium-portal-club{border-color:#795d86;background:linear-gradient(145deg,#191829,#0a1923)}
+.opium-portal-club small{color:var(--pink)}
+.opium-portal:hover{transform:translateY(-5px);border-color:var(--gold);background:#102d36}
+.opium-portal:hover:before{transform:translateY(-18px) scale(1.2)}
+.opium-caption{margin-top:15px}
+@media(max-width:950px){.opium-hero{grid-template-columns:1fr 1fr;padding:28px 4vw 44px}.opium-entry-pair{grid-template-columns:1fr}.opium-portal{min-height:116px}}
+@media(max-width:650px){.opium-hero{grid-template-columns:1fr;padding:28px 6vw 38px}.opium-entry-pair{grid-template-columns:1fr 1fr}.opium-portal{min-height:132px;padding:14px}.opium-portal strong{font-size:20px}}
+@media(max-width:430px){.opium-entry-pair{grid-template-columns:1fr}.opium-portal{min-height:112px}}

@@ -17,6 +17,46 @@ const failures = [];
 const expect = (condition, message) => { if (!condition) failures.push(message); };
 const hash = (file) => crypto.createHash("sha256").update(fs.readFileSync(file)).digest("hex");
 
+if (process.argv.includes("--nsn-glb-artwork-only")) {
+  const update = binder.documentary_update_20261018.nsn_glb_artwork_cluster_return_20261023;
+  expect(update?.status === "SOURCE_BOUND_BUILD_PASS_BROWSER_ACCEPTANCE_OPEN", "A0 GLB artwork status");
+  expect(update?.existing_identity === "MOD:NUMBER_VIEW_SUITE" && update?.identity_action === "REUSE_EXISTING_IDENTITY", "existing module identity reused");
+  expect(update?.canonical_count_effect === 0 && update?.publication_authorized === false && update?.new_global_ids?.length === 0, "no identity, count or publication effect");
+  expect(update?.strongest_visual_match === "Phi_Nest_Quasicrystal.glb", "Phi Nest visual match recorded");
+  expect(update?.models?.join(",") === "Phi_Nest_Quasicrystal.glb,ether_eye_dual_show.glb,ethercodex_final_poster.glb,P9_crystal_tessarec.glb,breathing_crystal_v2_1.glb,Breathing_Crystal_nBands_Prime_Wiring_FULL.glb", "six-model artwork cluster");
+  expect(update?.tests?.source_integrity === 220 && update?.tests?.status === "PASS", "source integrity receipt");
+  for (const source of update?.sources || []) {
+    const target = path.resolve(ecosystemRoot, source.ecosystem_path);
+    expect(target.startsWith(ecosystemRoot + path.sep) && fs.existsSync(target), "artwork source exists");
+    if (fs.existsSync(target)) expect(hash(target) === source.sha256, "artwork source hash");
+  }
+  console.log(JSON.stringify({status:failures.length ? "FAIL" : "PASS", scope:"A0/NSN GLB artwork cluster currentness only", failures}, null, 2));
+  process.exit(failures.length ? 1 : 0);
+}
+
+if (process.argv.includes("--finite-structure-return-only")) {
+  const finiteReturn = binder.orion_finite_structure_return_20261022;
+  expect(finiteReturn?.status === "PASS_EXACT_FINITE_RECALCULATION_NO_EVIDENCE_PROMOTION", "finite structure return status");
+  expect(finiteReturn?.identity_reuse?.join(",") === "ART:A0:MATHEMATICAL_JOINTS,NEXAH:ORION:CAPABILITY_EVIDENCE:V1", "existing A0 and ORION identities reused");
+  expect(finiteReturn?.new_canonical_ids?.length === 0 && finiteReturn?.canonical_count_effect === "NONE" && finiteReturn?.activation_effect === "NONE", "no identity, count or activation effect");
+  expect(finiteReturn?.codex_provenance_axes?.map((item) => item.registry_record).join(",") === "NCX-0710,NCX-0334", "GURT and THOTH source axes retained separately");
+  expect(/no direct GURT-to-THOTH/.test(finiteReturn?.codex_axis_relation || ""), "no direct GURT to THOTH link claimed");
+  expect(finiteReturn?.publication_authorized === false, "publication remains unauthorized");
+  for (const key of ["report", "runner", "receipt"]) {
+    const target = path.resolve(ecosystemRoot, finiteReturn?.[key] || "");
+    expect(target.startsWith(ecosystemRoot + path.sep) && fs.existsSync(target), `finite structure ${key} exists`);
+  }
+  const receiptPath = path.resolve(ecosystemRoot, finiteReturn?.receipt || "");
+  if (fs.existsSync(receiptPath)) {
+    const receipt = JSON.parse(fs.readFileSync(receiptPath, "utf8"));
+    expect(receipt.status === "PASS_EXACT_FINITE_RECALCULATION", "receipt status");
+    expect(receipt.crt_lift?.five_fold_orbit_lift === true, "five-fold CRT orbit lift");
+    expect(receipt.audits?.map((item) => item.orbit_count).join(",") === "147,75,200,1000", "declared orbit totals");
+  }
+  console.log(JSON.stringify({status:failures.length ? "FAIL" : "PASS", scope:"A0 to ORION exact finite structure return only", failures}, null, 2));
+  process.exit(failures.length ? 1 : 0);
+}
+
 // Scope check for current documentary receipts; default historical validation
 // remains unchanged and continues to report its pre-existing hash drift.
 if (process.argv.includes("--documentary-only")) {

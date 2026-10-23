@@ -1,0 +1,58 @@
+{
+  "schema": "nexah.a0.engineering-return/1",
+  "date": "2026-10-23",
+  "title": "A0 Pulse Grammar Clock",
+  "identity": "NEXAH_A0_ORIENTATION_CONTROLLER_BENCH",
+  "classification": "SOURCE_BOUND_REPRESENTATION",
+  "status": "BROWSER_ACCEPTED",
+  "counts": {
+    "phraseSegmentation": [5, 2, 4],
+    "phraseSlots": 11,
+    "gateSegmentation": [6, 1, 6],
+    "uniqueGateStates": 13,
+    "compositeCircumference": 24,
+    "displayTicks": 14,
+    "stillDwell": 2
+  },
+  "countContract": "11 phrase slots + 13 unique gate states = 24. The 14th display tick repeats STILL and is not added to the circumference.",
+  "sourceReuse": [
+    "NEXAH:CON_DAO_BREATH:V1",
+    "ART:A0:MATHEMATICAL_JOINTS",
+    "NEXAH_A0_ORIENTATION_CONTROLLER_BENCH"
+  ],
+  "geometry": {
+    "horizontal": "ALGO_WORD_LINE",
+    "vertical": "PURPLE_PAIRED_RAIL_AND_COIL",
+    "relation": "ORTHOGONAL_DISPLAY_VIEW",
+    "transition": "PINK_DOT_STILL",
+    "outerTicks": 24
+  },
+  "threeDomainContract": {
+    "domains": ["chemistry", "life", "physics"],
+    "mode": "FROZEN_READ_ONLY_RECEIPT",
+    "missingSource": "HOLD_SOURCE",
+    "feedback": false
+  },
+  "verification": {
+    "newModuleChecks": 43,
+    "conDaoChecks": 1167,
+    "threeDomainAdapterChecks": 29,
+    "zipperChecks": 143,
+    "onePulseChecks": 115,
+    "onePulseSessionChecks": 511,
+    "benchIntegrationChecks": 8109,
+    "toolCatalogChecks": 211,
+    "browserQaChecks": 31,
+    "browserAcceptance": "P0007 · INNER · PINK DOT / STILL; TRANSITION_CAPTURED · P0007; 24 ticks; one active tick; no console error"
+  },
+  "authority": {
+    "researchRun": false,
+    "scientificEvidence": false,
+    "newIdentity": false,
+    "newRelation": false,
+    "newCarrier": false,
+    "newOperator": false,
+    "publication": false
+  },
+  "boundary": "Shared pulse grammar is not a shared numerical clock. Syllables are symbolic source segmentation, not a physiology claim. Display geometry is not astrophysics. The paired boundary is the zipper; the center seam alone is not."
+}

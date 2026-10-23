@@ -1,0 +1,134 @@
+{
+  "schema": "nexah.a0.bench-joint-doings-findings-return/1",
+  "date": "2026-10-23",
+  "status": "ENGINEERING_AND_DOCUMENTARY_RETURN_PASS_HUMAN_PIXEL_ACCEPTANCE_OPEN",
+  "scope": "Cross-thread documentary return of the source-bound Three-Domain/Paper-Boat channel joint and the scanner-bound Final-Pin-to-DG aperture handoff.",
+  "conversation_crosswalk": [
+    {
+      "thread_id": "01a14c54-fb8a-7273-9f80-80ad3de238af",
+      "role": "THREE_DOMAIN_CHANNEL_JOINT_AND_SCIENCE_DESK_RETURN",
+      "authority": "WORKING_CONTEXT_ONLY_NOT_EVIDENCE"
+    },
+    {
+      "thread_id": "01a15b70-111b-7b22-afe5-718fbd9f2f9f",
+      "role": "TL_FINAL_PIN_AND_DG_TYPED_APERTURE_HANDOFF",
+      "authority": "WORKING_CONTEXT_ONLY_NOT_EVIDENCE"
+    }
+  ],
+  "identity_effect": {
+    "reused": [
+      "ART:A0:MATHEMATICAL_JOINTS",
+      "NEXAH_A0_ORIENTATION_CONTROLLER_BENCH",
+      "MOD:NUMBER_VIEW_SUITE"
+    ],
+    "new_global_ids": [],
+    "new_canonical_relations": [],
+    "new_operator": false,
+    "new_carrier": false,
+    "new_study": false,
+    "new_f_a0_finding": false
+  },
+  "doings": [
+    "Read-only Three-Domain request/record transport with per-domain C00/C01/C10/C11 normalization.",
+    "Six-stage Paper-Boat frozen-record projection and complete 3x4 fingerprint return.",
+    "Scanner-bound owner-named TL Final Pin with declared 2:1 display weighting.",
+    "Typed local Final-Pin receipt consumed by the existing DG shared aperture without clock or basis mutation.",
+    "Science Desk, Numbermagick, research protocol, Findings/Paper and Navigator returns."
+  ],
+  "implementation_findings": [
+    "Object-space record values can remain invariant while the declared screen-space projection rotates.",
+    "A typed state receipt can connect two instruments without equating their carriers or address bases.",
+    "q17 and OS-11/N=18 remain explicitly non-identical; no 17-to-18 translation is established.",
+    "2:1 display weighting is not the 1:2:1 projection fibre and not the formal Pascal TL operator.",
+    "D5, D6, 11x11 and 7x11 remain distinct carrier/view/address contracts."
+  ],
+  "numbermagick_return": {
+    "status": "DOCUMENTARY_EXACT_LOCAL_ARITHMETIC_ONLY",
+    "exact": ["2:1", "2/3+1/3=1", "8^2=64", "3^4=81"],
+    "open_markers": [".83", "G / gamma / y", "GAY / GEIL / GAIA"],
+    "non_identity": ["2:1 != 1:2:1", "owner-named TL Final Pin != formal Pascal TL(a,b,d,q)", "q17 != OS-11/N=18"]
+  },
+  "tests": {
+    "three_domain_joint_adapter": "29/29 PASS",
+    "paper_boat_return_dut": "89/89 PASS",
+    "science_desk_channel_joint_return": "47/47 PASS",
+    "tl_final_pin": "52/52 PASS",
+    "dg_sampling_loop": "56/56 PASS",
+    "mouse_cut_scanner": "137/137 PASS",
+    "scarab_projection": "234/234 PASS",
+    "bench_integration": "8109/8109 PASS",
+    "bench_tool_catalog": "211/211 PASS",
+    "browser_contract": "31/31 PASS",
+    "combined_documentary_return": "86/86 PASS",
+    "navigator_source_graph": "269/32 PASS",
+    "navigator_app": "252/252 PASS"
+  },
+  "browser_acceptance": {
+    "live_dom": "ACCEPTED · q01 · TOWER -> APERTURE -> SHELL",
+    "long_page_screenshot": "UNUSABLE_BLACK_SURFACE",
+    "independent_human_pixel_acceptance": false
+  },
+  "live_anchor_sources": [
+    {
+      "path": "A0_ORIENTATION_CONTROLLER_BENCH.html",
+      "anchors": ["id=\"aePaperBoatReturnDut\"", "id=\"tlFinalPin\"", "id=\"aeDgSamplingLoop\"", "A0_RESEARCH_DESK.html#three-domain-channel-joint-return-20261023"],
+      "verification": "ANCHOR_PRESENCE_TESTED",
+      "reason": "Shared Bench carrier is under continuing local construction; unrelated edits must not be frozen by this return."
+    },
+    {
+      "path": "A0_BUILDER_LOG.html",
+      "anchors": ["id=\"tl-final-pin-20261023\"", "id=\"tl-final-pin-dg-handoff-20261023\""],
+      "verification": "ANCHOR_PRESENCE_TESTED",
+      "reason": "Shared chronological log is append-only and verified here by its scoped return anchors."
+    },
+    {
+      "path": "A0_RESEARCH_DESK.html",
+      "anchors": ["id=\"bench-joint-doings-findings-return-20261023\"", "id=\"three-domain-channel-joint-return-20261023\""],
+      "verification": "ANCHOR_PRESENCE_TESTED",
+      "reason": "Shared Science Desk is under continuing cross-thread documentary return; this receipt freezes only its scoped return anchors."
+    },
+    {
+      "path": "../../../SCIENCE_LAB/NAVIGATION/EVIDENCE/A0_ORIENTATION_EVIDENCE_LINEAGE_2026-10-10/A0_ORIENTATION_EVIDENCE_LINEAGE_BINDER_V1_2026-10-10.json",
+      "anchors": ["bench_joint_doings_findings_return_20261023", "three_domain_channel_joint_return_20261023"],
+      "verification": "ANCHOR_PRESENCE_TESTED",
+      "reason": "Shared Navigator binder is append-current and concurrently maintained; scoped currentness objects are verified without freezing unrelated returns."
+    },
+    {
+      "path": "../../../SCIENCE_LAB/NAVIGATION/GOVERNANCE/SOURCE_GRAPH_INDEX_V1_2026-10-10.json",
+      "anchors": ["SG:LENS:A0_ORIENTATION_EVIDENCE", "cross-thread Bench/Joint Doings-and-Findings documentary return"],
+      "verification": "ANCHOR_PRESENCE_TESTED",
+      "reason": "Shared Source Graph is validated independently and may receive concurrent governed returns."
+    },
+    {
+      "path": "../../../../../00 EXECUTIVE/NEXAH-Mission-Control/CURRENT/NAVIGATOR_SOURCE_GRAPH_CONTROL.json",
+      "anchors": ["SG:LENS:A0_ORIENTATION_EVIDENCE", "cross-thread Bench/Joint Doings-and-Findings documentary return"],
+      "verification": "ANCHOR_PRESENCE_TESTED",
+      "reason": "Mission Control is a generated shared projection and is verified by its scoped component and return wording."
+    }
+  ],
+  "files": [
+    {"path": "A0_NUMBERMAGICK_GRID_RESEARCH.html", "sha256": "933add5c43612c5b6c4176c2b5814125c0893ba7ca457cb8de08c1fef24a53d3"},
+    {"path": "a0-bench-joint-doings-findings-return-tests.cjs", "sha256": "678c305960f7f394caaf8b052f97db48e3437ed88ddc3860cf077266d25e4326"},
+    {"path": "a0-three-domain-channel-joint-science-desk-return-tests.cjs", "sha256": "830a03058eee6604c6132a5f964e75ba75cd12709e60951cdfabff7dc9d24848"},
+    {"path": "a0-numbermagick-grid-research-tests.cjs", "sha256": "0683bfe8a5cf83db4b6a528a67aa432f8732df10146f7baf8ddb85917a9e4602"},
+    {"path": "../22_A0_FORSCHUNGSPROTOKOLL_BUCH_UND_RAHMEN_2026-10-10.md", "sha256": "9c7b05c42ad8e7d8ab10f7c93c801d5d45ade8105a380a41327c9d7b8fa94b69"},
+    {"path": "../32_A0_FINDINGS_AND_PAPER_WORKSPACE_2026-10-11.md", "sha256": "b957acda14bb9470c490490e178de5a4fd5446fdad8fcdd388591f770d68b443"},
+    {"path": "a0-three-domain-joint-adapter.js", "sha256": "5095a9d69db7bb5166d9969c8e52d36672d15263fa125fea00192f5f65cfbb00"},
+    {"path": "a0-paper-boat-return-dut.js", "sha256": "4fc8d7198821d118532b574f483f969a95cc54a727d5aee65a467c2f8e4aa349"},
+    {"path": "a0-tl-final-pin.js", "sha256": "19006f966c96cbaeaa452575a6dbb524181900b87c90868d29771c700b7abb83"},
+    {"path": "a0-tl-final-pin-tests.cjs", "sha256": "4b8f3834105e2d1e59f8a3e0046b4c5eb37f3f0cd29ba4dbed012ef7834657d6"},
+    {"path": "a0-dg-sampling-loop.js", "sha256": "e35056744112ac6656f148a0d126e13101ca386f40f78d50d9b5f3d621183962"},
+    {"path": "a0-dg-sampling-loop-tests.cjs", "sha256": "b67e40e1adccaf61d7a9c8434bc26c2153801e31cd02a4a33b81a2bd26915765"},
+    {"path": "a0-mouse-cut-scanner.js", "sha256": "5ceca4fd12f1bd3ad7d93fc1f813aae52ca91cd6d4906e671f0362d2d2414e1d"},
+    {"path": "a0-mouse-cut-scanner-tests.cjs", "sha256": "28e1516d21bff1b96c2bffaface485a75ecffe5ce0973da7ac901ff1a1a4405e"},
+    {"path": "results/a0-three-domain-channel-joint-return-2026-10-23.json", "sha256": "9b5c730bb2e0d0df75476d2ffb15d5b44cecd7a3964996910afe8e9e1865cb4a"}
+  ],
+  "authority": {
+    "research_run": false,
+    "scientific_evidence_promotion": false,
+    "paper_claim_change": false,
+    "study_activation": false,
+    "publication_authorized": false
+  },
+  "claim_boundary": "The return establishes bounded software behavior, documentary routing and non-identity controls only. It does not establish a common cross-domain mechanism, a physical mixing law, a q17-to-18 transform, a Numbermagick operator, a new F-A0 finding or publication authority."
+}

@@ -1,0 +1,105 @@
+{
+  "schema": "nexah.a0.scarab-three-face-transit-engineering-return/3",
+  "date": "2026-10-23",
+  "status": "IMPLEMENTED_ENGINEERING_VIEW_AUTOMATED_QA_PASS_MANUAL_BROWSER_OPEN",
+  "identity": "NEXAH_A0_ORIENTATION_CONTROLLER_BENCH",
+  "scope": "One rigid composite display body with two outer pyramids and three connecting transit triangles, rendered through a continuous 0-180 degree rotation as side, top, transversal and orbit views.",
+  "geometry": {
+    "carrier_count": 1,
+    "outside_pyramids": 2,
+    "pyramid_faces": 6,
+    "connecting_triangles": 3,
+    "rotation_degrees": [0, 180],
+    "keyframes": {
+      "0": "TRIAD",
+      "45": "HOURGLASS",
+      "90": "OBELISK_HANDLE_PINK_DIAMOND",
+      "135": "MIRROR_HOURGLASS",
+      "180": "RETURN_TRIAD"
+    }
+  },
+  "sequence": [
+    "P_MINUS",
+    "TRIAD",
+    "PINK_STRIP_ENTRY",
+    "HANDLE_CROSSING",
+    "PINK_STRIP_EXIT",
+    "RETURN",
+    "P_PLUS"
+  ],
+  "handle": {
+    "role": "Oriented return path through the composite body",
+    "outbound": "1087_TO_7801",
+    "return": "7801_TO_1087_RETURN",
+    "direction_switch_degrees": 90
+  },
+  "pink_strip": {
+    "role": "Local transition slice, not the handle itself",
+    "crossing_degrees": 90,
+    "distance_measure": "abs(90-angle)"
+  },
+  "transversal_plane": {
+    "role": "Declared local cross-section normal to the Handle",
+    "projection_width": "abs(sin(angle))",
+    "edge_on_degrees": [0, 180],
+    "face_on_degrees": 90,
+    "face_on_shape": "PINK_DIAMOND",
+    "handle_relation": "CENTER_PUNCTURE",
+    "historical_candidate_axes": {
+      "vertical": "J_TO_JW_HALF_TURN_CANDIDATE",
+      "horizontal": "MW_TO_WM_PROJECTION_RETURN_CANDIDATE",
+      "status": "TRANSFORM_UNVERIFIED"
+    }
+  },
+  "exact_arithmetic": {
+    "reverse10_1087": 7801,
+    "reverse10_7801": 1087,
+    "sum": 8888,
+    "reverse10_1033": 3301,
+    "classification_1087": "prime",
+    "classification_7801": "29 * 269 / composite"
+  },
+  "gap_lens": {
+    "basis": "SCREEN_READ_CANDIDATE",
+    "quantizer": "q=round(1200*v)",
+    "occupied_ticks": [1, 2, 3, 6, 7, 8, 13, 14, 17],
+    "missing_ticks": [4, 5, 9, 10, 11, 12, 15, 16],
+    "source_record_available": false,
+    "status": "HOLD"
+  },
+  "implementation": [
+    {"path": "A0_ORIENTATION_CONTROLLER_BENCH.html", "sha256": "eae75990ddfec1863154723743e73b62fa85abc77a50721f280b293037a67d9b"},
+    {"path": "A0_BUILDER_LOG.html", "sha256": "c04e258d2dfc36d6d4247e3b936151f6ff2471b073c313ddd66be389dfeec767"},
+    {"path": "a0-scarab-pillar-projection.js", "sha256": "0650a5fa45ff4f9720b14221e6337a7610625400b9e0dfdb77adcb09071f6b7d"},
+    {"path": "a0-scarab-pillar-projection.css", "sha256": "d8fbacad96c9bbf7cf37cb00b72dcf883617213c5966874edb679f34ca5a83ea"},
+    {"path": "a0-scarab-pillar-projection-tests.cjs", "sha256": "01b1f4651c0d4e549520b861c8bc9cf553be5be8a029576319a30bdd0cb389e9"}
+  ],
+  "verification": [
+    {"command": "node a0-scarab-pillar-projection-tests.cjs", "status": "PASS", "checks": 222},
+    {"command": "node a0-deris-pink-strip-tests.cjs", "status": "PASS", "checks": 40},
+    {"command": "node a0-channel-census-tests.cjs", "status": "PASS", "checks": 51},
+    {"command": "node a0-bench-session-ledger-tests.cjs", "status": "PASS", "checks": 18},
+    {"command": "node a0-bench-showcase-tour-tests.cjs", "status": "PASS", "checks": 85},
+    {"command": "node a0-reader-navigation-tests.cjs", "status": "PASS", "registered_readers": 56, "shared_navigation_surfaces": 56, "all_local_html_reachable": 63},
+    {"command": "node a0-ocb-browser-qa-tests.cjs", "status": "PASS", "checks": 31},
+    {"command": "node GOVERNANCE/validate_source_graph.mjs", "status": "PASS", "components": 20, "base": "266/29", "composed": "269/32"},
+    {"command": "node APP/audit_app.mjs", "status": "PASS", "checks": 252}
+  ],
+  "open_acceptance": [
+    "Manual file-browser visual acceptance remains open because the browser security policy blocks agent access to file: URLs.",
+    "The documentary A0 binder reports five existing working-document hash mismatches; no desired hashes were automatically updated.",
+    "The gap lens remains HOLD until a machine-readable source record replaces the screen-read tick candidate."
+  ],
+  "authority": {
+    "new_study": false,
+    "new_canonical_identity": false,
+    "new_canonical_relation": false,
+    "new_family": false,
+    "new_carrier": false,
+    "caro_identity_transfer": false,
+    "research_run": false,
+    "scientific_evidence": false,
+    "publication": false
+  },
+  "claim_boundary": "The display demonstrates one declared composite geometry under rotation: two outer pyramids, three connecting triangles, a local Pink Strip transition slice, an oriented Handle return path and a transversal inspection plane that is face-on as a Pink Diamond at 90 degrees. J/Jw and MW/WM are displayed only as historical candidate axes with their transform unverified. The views do not establish a unique physical mechanism. Exact decimal reversals remain arithmetic facts."
+}

@@ -49,7 +49,7 @@ for(const match of html.matchAll(/(?:href|src)="([^"]+)"/g)){
  const raw=match[1];if(/^(https?:|data:)/.test(raw))continue;
  const [file,fragment]=decodeURIComponent(raw.replace(/\?[^#]*/, '')).split('#'),target=file?path.resolve(base,file):path.join(base,name);
  ok(fs.existsSync(target),'local target '+raw);
- if(fragment==='numbers'&&path.basename(target)==='A0_GAME_OF_WORLDS_PLAY.html'){const play=fs.readFileSync(path.join(base,'a0-game-of-worlds-play.js'),'utf8');ok(play.includes("new URLSearchParams(window.location.search||'').get('world')")&&play.includes("const hash=(window.location.hash||'').slice(1)")&&play.includes('Object.hasOwn(frames,hash)'),'declared dynamic Numbers query/hash route');continue;}
+ if(fragment==='numbers'&&path.basename(target)==='A0_GAME_OF_WORLDS_PLAY.html'){const play=fs.readFileSync(path.join(base,'a0-game-of-worlds-play.js'),'utf8'),queryRoute=play.includes("new URLSearchParams(window.location.search||'').get('world')")||(play.includes("const query=new URLSearchParams(window.location.search||'')")&&play.includes("requested=query.get('world')"));ok(queryRoute&&play.includes("const hash=(window.location.hash||'').slice(1)")&&play.includes('Object.hasOwn(frames,hash)'),'declared dynamic Numbers query/hash route');continue;}
  if(fragment&&target.endsWith('.html')&&!target.includes('/NAVIGATION/APP/'))ok(new RegExp('id=["\x27]'+fragment+'["\x27]').test(fs.readFileSync(target,'utf8')),'HTML anchor '+raw);
 }
 for(const [file,target] of [['A0_RESEARCH_DESK.html',name],['A0_PINK_DIAMOND_GRID_ATLAS.html',name],['a0-context-navigation.js',name]])ok(fs.readFileSync(path.join(base,file),'utf8').includes(target),'entry '+file);

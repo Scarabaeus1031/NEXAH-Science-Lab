@@ -1,0 +1,37 @@
+{
+  "record_id": "A0-UNIVERSAL-MACHINE-PARTS-SHELF-RETURN-2026-10-23",
+  "record_kind": "ENGINEERING_SOURCE_RETURN",
+  "status": "PASS",
+  "family_id": "FAM-009",
+  "family_status": "HISTORICAL_STAGING",
+  "selection": {
+    "selected_models": 9,
+    "unique_valid_payloads_in_collection": 45,
+    "selected_bytes": 13272980,
+    "load_policy": "ONE_MODEL_ON_DEMAND"
+  },
+  "verification": {
+    "copy_policy": "CHECKSUM_IDENTICAL_PRESENTATION_COPIES",
+    "sha256_pairs_checked": 9,
+    "byte_count_pairs_checked": 9,
+    "native_animation_claims": 0,
+    "source_graph_validation": "PASS",
+    "browser_acceptance": "PASS_CLOCKWORK_LOADED_ON_DEMAND_VIEW_ROTATION_OFF",
+    "static_test": "a0-universal-machine-parts-shelf-tests.cjs"
+  },
+  "identity_effect": "REUSE_FAM_009_NO_NEW_IDENTITY",
+  "graph_effect": "NO_NEW_CANONICAL_NODE_OR_RELATION",
+  "science_effect": "NO_STUDY_NO_FINDING_NO_ACTIVATION",
+  "publication_effect": "NONE",
+  "return_targets": [
+    "A0_ORIENTATION_CONTROLLER_BENCH.html#universalMachinePartsShelf",
+    "A0_RESEARCH_DESK.html#universal-machine-parts-return-20261023",
+    "SCIENCE_LAB/NAVIGATION/APP/index.html#a0-orientation-evidence"
+  ],
+  "open_seams": [
+    "two historical viewers reference absent GLBs",
+    "one nested viewer resolves to a 28-byte placeholder",
+    "museum assembly manifest references unresolved wall components"
+  ],
+  "boundary": "The shelf is a source-bound local engineering view. Byte identity does not establish scientific equivalence, shared carriers or shared mechanisms. Viewer rotation is not native model animation."
+}

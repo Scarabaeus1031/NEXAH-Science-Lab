@@ -1,0 +1,53 @@
+{
+  "schema": "a0.game-of-worlds-life-rooms-runtime-return/1",
+  "date": "2026-10-23",
+  "status": "ENGINEERING_RUNTIME_REPAIR_PASS_LOCAL_BROWSER_VISUAL_ACCEPTANCE",
+  "scope": "Restore the existing LIFE Rooms view in Game of Worlds when served from the A0 Book root, without changing the LIFE engine, simulation state, view identity or scientific claims.",
+  "identity_reuse": [
+    "A0_GAME_OF_WORLDS_PLAY",
+    "GAME_4_LIFE_PLUS_1",
+    "LIFE_CRYSTAL_OBSERVATORY"
+  ],
+  "new_global_ids": [],
+  "new_canonical_relations": [],
+  "failure": {
+    "observed": "The parent switchboard received running state and generation updates while the Rooms viewport remained black.",
+    "cause": "Three.js 0.147.0, OrbitControls and GLTFExporter were referenced outside the A0 Book server root and returned HTTP 404. The simulation and message bridge continued, but the WebGL Rooms renderer could not initialize.",
+    "boundary": "This was a dependency-resolution and presentation failure, not a LIFE dynamics failure."
+  },
+  "repair": {
+    "runtime": "Copy the already pinned Three.js 0.147.0 vendor files byte-identically into assets/game-of-worlds-play/vendor and resolve them locally.",
+    "cache": "Move the LIFE frame and renderer adapters to a 20261023 black-screen-recovery revision.",
+    "fallback": "If Three.js or WebGL is unavailable, show an explicit recoverable runtime message instead of an unexplained black viewport.",
+    "source_contract": "The source-copy manifest records the byte-identical vendor files and marks the locally adapted crystal renderer."
+  },
+  "verification": {
+    "browser": [
+      "Rooms renders the Source Field, 4+1 register, rosette/braid and boundary surfaces under the local Book server.",
+      "Rooms -> Field -> Rooms preserves the selected LIFE state.",
+      "PLAY advances from generation 24 to generation 27 after the repeated view activation."
+    ],
+    "tests": {
+      "a0-game-of-worlds-play-tests.cjs": "PASS 221/221",
+      "a0-game-of-worlds-tests.cjs": "PASS 2810/2810",
+      "javascript_syntax": "PASS",
+      "manifest_json": "PASS"
+    }
+  },
+  "sources": [
+    {"path": "A0_GAME_OF_WORLDS_PLAY.html", "sha256": "0c3ceb7d2640bb889297b515d3d7e0400f2ccbf2cd08ac8da9d3909bec45766b"},
+    {"path": "a0-game-of-worlds-play-stage.css", "sha256": "27bed15292cefe864116b335f762128318101d237fc1bc0b0887e4e0f89d0680"},
+    {"path": "a0-game-of-worlds-play-tests.cjs", "sha256": "5eefd8338206f4848ef6da5c8a79b4c72979bb45ccc788f6980637768bda534a"},
+    {"path": "assets/game-of-worlds-play/index.html", "sha256": "21a70d2098368a3b59a09061f8db3b828576f016c4106a47e3b15703b44160f4"},
+    {"path": "assets/game-of-worlds-play/crystal-scene.js", "sha256": "e40e21153658a22f5c8149d0d7cff56879aa0682828ae1688b996d09e65ccead"},
+    {"path": "assets/game-of-worlds-play/source-copy-manifest.json", "sha256": "174cafed88e178d65ca9fdc0f84fde98ec93e354c143a95ca81f16e11de40b92"}
+  ],
+  "authority": {
+    "evidence_class": "engineering runtime repair and local browser verification",
+    "new_study": false,
+    "research_activation": false,
+    "finding_or_claim_promotion": false,
+    "publication_authorized": false,
+    "independent_human_utility_acceptance": false
+  }
+}

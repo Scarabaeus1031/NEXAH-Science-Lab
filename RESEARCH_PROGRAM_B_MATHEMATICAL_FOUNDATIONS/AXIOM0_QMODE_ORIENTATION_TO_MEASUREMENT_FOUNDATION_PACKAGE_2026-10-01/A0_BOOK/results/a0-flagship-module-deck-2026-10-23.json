@@ -1,0 +1,44 @@
+{
+  "schema": "nexah.a0.flagship-module-deck-return/1",
+  "date": "2026-10-23",
+  "status": "PASS",
+  "classification": "ENGINEERING_NAVIGATION_AND_PRESENTATION",
+  "scope": "One stable four-step access deck across the six existing Build flagships: Entry, Demo, Work and Return.",
+  "access_contract": ["01 ENTRY", "02 DEMO", "03 WORK", "04 RETURN"],
+  "demonstrators": {
+    "integrated": [
+      {"flagship": "BLUE BODY", "route": "A0_TESSAREC_BLUE_BODY_LAB.html#guided-test", "surface": "26-stage guided run"},
+      {"flagship": "PINK DIAMOND", "route": "A0_PINK_DIAMOND_GRID_ATLAS.html#ghost-tiles", "surface": "Ghost Tiles viewport demonstrator"},
+      {"flagship": "BLUE × PINK LAB", "route": "A0_BLUE_PINK_DODECA_CELL_RETURN.html#bodyDomainSuite", "surface": "Body Domain Demonstrator Suite"}
+    ],
+    "dedicated": [
+      {"flagship": "TOWER", "route": "A0_TOWER_RETURN_DEMONSTRATOR.html#towerShellReturn", "surface": "Tower Return demonstrator"},
+      {"flagship": "BRIDGE", "route": "A0_IOTA_BRIDGE_DEMONSTRATOR.html#iota23Bridge", "surface": "IOTA 8/12-to-24 demonstrator"}
+    ],
+    "cockpit_to_bench": {"flagship": "THE MACHINA", "entry": "A0_MACHINA_COCKPIT.html#module-entry", "work": "A0_ORIENTATION_CONTROLLER_BENCH.html#vaAvOrientationProbe"}
+  },
+  "decision": "No new demonstrator engine or canonical file identity is required for this navigation pass. Existing integrated and dedicated surfaces are exposed consistently; native instrument styling remains intact below the shared deck.",
+  "checks": [
+    {"command": "node a0-bench-navigation-tests.cjs", "status": "PASS", "count": 223},
+    {"command": "node a0-body-bench-integration-tests.cjs", "status": "PASS", "count": 54},
+    {"kind": "browser", "status": "PASS", "surfaces": ["PINK DIAMOND", "BLUE BODY"], "acceptance": "Stable flagship rail, view layer and four-card quick-access deck visible; inter-page switch preserves the shared navigation hierarchy."}
+  ],
+  "sources": [
+    {"path": "A0_MACHINA_COCKPIT.html", "sha256": "295d5be53ee7821dfeb2c9504160c7ecf27432765575fb32869b1ab645688387"},
+    {"path": "A0_TESSAREC_BLUE_BODY_LAB.html", "sha256": "a2dbc8e3faae85e6f13f792a7cce0b0ecd9991e797757032588acf54fe216442"},
+    {"path": "A0_PINK_DIAMOND_GRID_ATLAS.html", "sha256": "af8e2f4cd912aae4faedac66985e5624276c6a2b3a6ccf75c7e5418a4956811c"},
+    {"path": "A0_BLUE_PINK_DODECA_CELL_RETURN.html", "sha256": "5fbed4ac3cce795620f0977f372091f260dd15034e179aad44a9cb838870e9c6"},
+    {"path": "A0_TOWER_RETURN_DEMONSTRATOR.html", "sha256": "56589c982bf1296fbd888b46900b603e609845505d57370ef6f206768830eac1"},
+    {"path": "A0_IOTA_BRIDGE_DEMONSTRATOR.html", "sha256": "4eb48e660547e87f6157d0b9822762808fac33d7a28c96bee1a9f6189032739e"},
+    {"path": "a0-bench-navigation.css", "sha256": "d02ca268a30254c8e42252ad14b5dde3a4cfb04dc519618cf59989c0d8724e49"}
+  ],
+  "authority": {
+    "identity_reuse": ["MOD:TESSAREC", "MOD:NUMBER_VIEW_SUITE", "NEXAH_A0_ORIENTATION_CONTROLLER_BENCH"],
+    "new_canonical_ids": [],
+    "new_canonical_relations": [],
+    "new_study": false,
+    "finding_or_claim_promotion": false,
+    "publication_authorized": false
+  },
+  "boundary": "Navigation and presentation only. No state transport, engine merge, shared clock, mechanism identity, scientific activation, evidence promotion or authority transfer."
+}

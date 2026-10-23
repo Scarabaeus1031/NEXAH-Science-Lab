@@ -27,4 +27,4 @@ check(overview.includes('Black–White–Blue bleibt unzugeordnet'),'parked ambi
 check(overview.includes('Chemistry · Life · Physics')&&overview.includes('Joint · Euler · Fibonacci')&&overview.includes('Ihara · k·NEG-Teller · Blue Body'),'three documented rows');
 for(const match of overview.matchAll(/href="#([^"]+)"/g))check(html.includes('id="'+match[1]+'"'),'overview target '+match[1]);
 check(fs.readFileSync('a0-mask-clock-focus.css','utf8').includes(':not(#benchOverview)'),'overview available in focused mode');
-console.log(JSON.stringify({status:'PASS',checks,modules:M.MODULES.length,edges:M.EDGES.length,groups:M.GROUPS.length,scope:'Operational map, current 39 anchors, six overview areas, existing atlas route and explicit parked boundaries; no browser layout acceptance'}));
+console.log(JSON.stringify({status:'PASS',checks,modules:M.MODULES.length,edges:M.EDGES.length,groups:M.GROUPS.length,scope:'Operational map, current anchors, six overview areas, existing atlas route and explicit parked boundaries; no browser layout acceptance'}));

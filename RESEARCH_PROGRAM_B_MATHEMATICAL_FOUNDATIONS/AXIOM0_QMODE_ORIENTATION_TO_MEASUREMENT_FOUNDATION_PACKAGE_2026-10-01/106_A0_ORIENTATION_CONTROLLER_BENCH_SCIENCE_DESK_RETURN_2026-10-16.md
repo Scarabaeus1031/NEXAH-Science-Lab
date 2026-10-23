@@ -227,3 +227,80 @@ sind lokale Folgeaufgaben, keine neuen Study-IDs. Die älteren Versions- und
 Prüfblöcke dieses Returns bleiben historische Schnitte, nicht die Behauptung
 einer heute einheitlich abgenommenen Bench. Kein Forschungsrun, kein
 Gesamt-Return und keine Veröffentlichung folgen.
+
+<a id="tower-shell-closed-return-20261023"></a>
+## Tower–Shell Closed Return — 2026-10-23
+
+Status: `METHOD_RELEVANT_ENGINEERING_OBSERVATION / NO NEW FINDING`
+
+The existing Bench identity now carries one closed, typed View-return route:
+
+```text
+MOUSE_Q_ADDRESS
+  -> TL_FINAL_PIN
+  -> DG_SHARED_APERTURE
+  -> DG_WITNESS
+  -> DG_RETURN
+  -> ROOT_ROOM_RETURN_GATE
+  -> SOURCE_ADDRESS_RECEIPT
+```
+
+The live local HTTP acceptance closed with:
+
+```text
+CLOSED · q01 · RETURN
+q01 · PIN ACCEPTED
+WITNESS_HELD · 10/18
+CLOSED · q01 · RETURN HELD
+```
+
+Closure requires `PINNED_2_TO_1`, scanner state `OCCUPIED`, Witness captured
+only at D°G `WITNESS`, Root return held only at D°G `RETURN`, and exact
+agreement of q address, D°G sample count and D°G band count. Missing or changed
+fields fail closed as `HOLD`.
+
+This is an inspectable engineering result: the same local address can be
+returned across typed View stages while scanner and D°G keep their own discrete
+bases. It does **not** recover a Tower operator, map q17 onto N18, establish a
+shared clock or carrier, prove Source recovery, or close a whole machine. The
+existing Root Room bridge is invoked only when actually present in the same
+document; the Core-URF source remains explicitly without a bound Tower operator.
+
+Evidence:
+
+- [interactive Bench module](A0_BOOK/A0_ORIENTATION_CONTROLLER_BENCH.html#towerShellReturn)
+- [machine return](A0_BOOK/results/a0-tower-shell-closed-return-2026-10-23.json)
+- [Builder Log](A0_BOOK/A0_BUILDER_LOG.html#tower-shell-closed-return-20261023)
+- [Findings/Paper triage](32_A0_FINDINGS_AND_PAPER_WORKSPACE_2026-10-11.md#tower-shell-return-triage-20261023)
+
+Authority effect:
+
+```text
+REUSE   NEXAH_A0_ORIENTATION_CONTROLLER_BENCH
+REUSE   existing Root Room RETURN bridge conditionally
+CREATE  no operator, carrier, Study, Family, Finding, identity or graph relation
+OPEN    Tower-operator source contract and independent Human/pixel acceptance
+```
+
+<a id="surface-navigation-closeout-20261023"></a>
+## Surface navigation closeout — 2026-10-23
+
+The three current A0 work strands are returned to one visible role split:
+
+- Human: `ARKADE`, `OPIUM / Club`, `LOOK AGAIN`.
+- Builder: `Werkbank`, `THE MACHINA`, `Toy Store`.
+- Science: Science Desk, evidence, sources, tests and Returns remain separate authority surfaces.
+
+The former `DRAFTS/A0_HUMAN_BOOK_DRAFT.html` surface remains preserved in the
+existing DRAFTS archive but has no current navigation entry. Nothing was
+deleted. Local reachability passes for all `67/67` HTML surfaces; the governed
+Reader set remains `57/57` covered.
+
+Disposition:
+
+```text
+REUSE   existing A0, MOD:TESSAREC, FAM-009 and Pink Diamond identities
+CHANGE  role-based navigation and local receipt hashes only
+CREATE  no identity, relation, Study, Finding, claim or publication state
+HOLD    commit, push, release and public-deployment changes for separate action
+```

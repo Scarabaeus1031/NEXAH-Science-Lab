@@ -1,0 +1,50 @@
+{
+  "schema": "nexah.a0.engineering-return/1",
+  "date": "2026-10-23",
+  "status": "ENGINEERING_LOCAL_MANUAL_VIEW_CLOCK_PASS_BROWSER_ACCEPTED",
+  "scope": "Blue Body HuA / Hué 4x3 local display pulse",
+  "identity": {
+    "reused": "MOD:TESSAREC",
+    "new_navigator_ids": 0,
+    "new_relations": 0,
+    "study_activation": false,
+    "evidence_promotion": false,
+    "publication_authorized": false
+  },
+  "contract": {
+    "schema": "nexah.a0.hua-hue-4x3-pulse-view/1",
+    "four_register": [
+      {"symbol": "B", "role": "BODY_BUDDHA_ORIGIN"},
+      {"symbol": "U", "role": "UPPER_OPENING"},
+      {"symbol": "D", "role": "DIRECTION_DISTINCTION"},
+      {"symbol": "U", "role": "LOWER_RETURN"}
+    ],
+    "three_register": ["STATE", "RHOMBUS", "HEART"],
+    "shared_period": 12,
+    "closure": "#",
+    "origin": "Z0 · zœro",
+    "pulse": "MANUAL_VIEW_STEP",
+    "hue": "PHASE_COLOUR_ONLY",
+    "power": "DISPLAY_INTENSITY_ONLY",
+    "autoplay": false
+  },
+  "boundaries": {
+    "budu_u_is_ilau_unresolved": false,
+    "source_mutation": false,
+    "carrier_mutation": false,
+    "evidence_promotion": false,
+    "relation_change": false,
+    "scientific_run": false
+  },
+  "verification": {
+    "command": "node a0-blue-body-spoon-lens-tests.cjs",
+    "checks": 367,
+    "result": "PASS",
+    "browser": {
+      "start": "n=0/12 · B / STATE",
+      "closure": "n=12/12 · # · Z0 · zœro · SEAM BOUND",
+      "power_control": "PASS",
+      "ilau_unchanged": true
+    }
+  }
+}

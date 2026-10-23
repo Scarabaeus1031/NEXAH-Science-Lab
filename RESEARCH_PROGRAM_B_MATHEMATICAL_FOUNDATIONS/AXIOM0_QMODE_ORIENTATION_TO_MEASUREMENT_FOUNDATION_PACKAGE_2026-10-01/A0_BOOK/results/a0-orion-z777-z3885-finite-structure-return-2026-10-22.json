@@ -1,0 +1,106 @@
+{
+  "schema": "nexah.a0.orion-finite-structure-return/1.0.0",
+  "generated": "2026-10-22",
+  "status": "PASS_EXACT_FINITE_RECALCULATION",
+  "scope": "Full deterministic orbit enumeration for four declared multiplication permutations; A0-to-ORION evidence crosswalk only.",
+  "identity_reuse": [
+    "ART:A0:MATHEMATICAL_JOINTS",
+    "NEXAH:ORION:CAPABILITY_EVIDENCE:V1"
+  ],
+  "new_canonical_ids": [],
+  "audits": [
+    {
+      "modulus": 777,
+      "multiplier": 64,
+      "gcd": 1,
+      "distribution": {
+        "1": 21,
+        "6": 126
+      },
+      "orbit_count": 147,
+      "state_count": 777
+    },
+    {
+      "modulus": 777,
+      "multiplier": 97,
+      "gcd": 1,
+      "distribution": {
+        "1": 3,
+        "2": 9,
+        "12": 63
+      },
+      "orbit_count": 75,
+      "state_count": 777
+    },
+    {
+      "modulus": 777,
+      "multiplier": 524,
+      "gcd": 1,
+      "distribution": {
+        "1": 1,
+        "2": 10,
+        "4": 189
+      },
+      "orbit_count": 200,
+      "state_count": 777
+    },
+    {
+      "modulus": 3885,
+      "multiplier": 1301,
+      "gcd": 1,
+      "distribution": {
+        "1": 5,
+        "2": 50,
+        "4": 945
+      },
+      "orbit_count": 1000,
+      "state_count": 3885
+    }
+  ],
+  "crt_lift": {
+    "carrier_factorization": "3885 = 777 * 5",
+    "coprime_factors": true,
+    "operator_reductions": {
+      "1301_mod_777": 524,
+      "1301_mod_5": 1
+    },
+    "typed_statement": "Under Z_3885 ~= Z_777 x Z_5, T_1301 acts as T_524 x identity.",
+    "five_fold_orbit_lift": true,
+    "state_count_check": "5*1 + 50*2 + 945*4 = 3885"
+  },
+  "negative_controls": [
+    {
+      "id": "NC1",
+      "pass": true,
+      "statement": "T_524 on Z_777 and T_1301 on Z_3885 are related by a CRT lift but are not the same carrier/operator object."
+    },
+    {
+      "id": "NC2",
+      "pass": true,
+      "statement": "Identity on the Z_5 factor does not imply global identity on Z_3885."
+    },
+    {
+      "id": "NC3",
+      "pass": true,
+      "statement": "Color, drawing density, spherical layout and visual similarity are not used by the enumeration."
+    }
+  ],
+  "codex_provenance_axes": {
+    "registry": "SCIENCE_LAB/REVIEWS/THREE_D_MODULE_ATLAS_2026-09-29/NEXAH_CODEX_LEGACY_SOURCE_REGISTER.csv",
+    "axes": [
+      {
+        "registry_record": "NCX-0710",
+        "label": "GURT / Möbius–spiral–frequency vocabulary",
+        "authority": "SOURCE_PRESENCE_ONLY_NOT_SCIENTIFIC_VALIDATION"
+      },
+      {
+        "registry_record": "NCX-0334",
+        "label": "THOTH / Thoth's Pen time-frequency spiral",
+        "authority": "SOURCE_PRESENCE_ONLY_NOT_SCIENTIFIC_VALIDATION"
+      }
+    ],
+    "relation": "CONTEXTUAL_SOURCE_LINEAGE_CANDIDATE_ONLY; no direct GURT-to-THOTH module reference or tested intertwiner was found."
+  },
+  "claim_boundary": "The result establishes only the declared finite orbit decompositions and CRT lift. It does not validate GU-REX/GURT/THOTH, cosmology, physical resonance, a 45-step early-warning advantage, navigation/control capability, novelty or publication.",
+  "publication_authorized": false
+}

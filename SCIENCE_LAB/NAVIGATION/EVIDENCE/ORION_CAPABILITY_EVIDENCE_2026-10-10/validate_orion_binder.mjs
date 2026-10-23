@@ -22,6 +22,12 @@ if ((binder.evidence_ladder || []).map((item) => item.level).join(",") !== "L0,L
 if ((binder.evidence_ladder || []).slice(0, 4).some((item) => item.status !== "IMPLEMENTED_AND_TESTED" || item.status_class !== "pass")) errors.push("L0-L3 status mismatch");
 const l4 = binder.evidence_ladder?.[4];
 if (l4?.status !== "INVALID_EXPERIMENT" || l4?.status_class !== "invalid") errors.push("L4 invalid result must remain explicit");
+const a0Return = binder.a0_exact_structure_return_20261022;
+if (a0Return?.status !== "PASS_EXACT_FINITE_RECALCULATION_BOUND_TO_EXISTING_IDENTITIES") errors.push("A0 exact structure return status mismatch");
+if (a0Return?.identity_reuse?.join(",") !== "NEXAH:ORION:CAPABILITY_EVIDENCE:V1,ART:A0:MATHEMATICAL_JOINTS") errors.push("A0 exact structure return must reuse both existing identities");
+if (a0Return?.exact_returns?.length !== 5 || a0Return?.provenance_only?.length !== 4 || a0Return?.not_promoted?.length !== 5) errors.push("A0 exact structure return cardinality mismatch");
+if (a0Return?.codex_provenance_axes?.map((item) => item.registry_record).join(",") !== "NCX-0710,NCX-0334" || !/no direct GURT-to-THOTH/.test(a0Return?.codex_axis_relation || "")) errors.push("GURT and THOTH provenance axes must remain separate and non-identical");
+if (a0Return?.changes_canonical_counts !== false || a0Return?.publication_authorized !== false) errors.push("A0 exact structure return authority boundary mismatch");
 
 for (const [index, item] of (binder.authority_chain || []).entries()) requireSource(item.source, `authority_chain[${index}]`);
 requireSource(binder.certified_core?.source, "certified_core");
@@ -31,6 +37,7 @@ for (const [index, item] of (binder.evidence_ladder || []).entries()) {
 }
 for (const [index, item] of (binder.interfaces || []).entries()) requireSource(item.source, `interfaces[${index}]`);
 for (const [index, source] of (binder.controlling_sources || []).entries()) requireSource(source, `controlling_sources[${index}]`);
+for (const [index, source] of (a0Return?.sources || []).entries()) requireSource(source, `a0_exact_structure_return_20261022.sources[${index}]`);
 if (!/does not extend ORION product authority/i.test(binder.claim_ceiling || "")) errors.push("Claim ceiling does not preserve ORION authority boundary");
 
 if (errors.length) {

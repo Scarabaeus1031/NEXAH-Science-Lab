@@ -1,0 +1,54 @@
+{
+  "record": "A0_LOOK_AGAIN_PERCEPTION_GAME_RETURN_2026_10_23",
+  "status": "PASS_BROWSER_ACCEPTED",
+  "classification": "SOURCE_BOUND_ENGINEERING_EXPERIENCE",
+  "date": "2026-10-23",
+  "identity": {
+    "reused": ["FAM-009", "NEXAH_A0_ORIENTATION_CONTROLLER_BENCH"],
+    "createdCanonicalIdentities": 0,
+    "createdRelations": 0
+  },
+  "implementation": {
+    "homeEntry": "A0_BOOK/index.html#look-again-entry",
+    "game": "A0_BOOK/A0_LOOK_AGAIN_PLAY.html",
+    "roundBinder": "A0_BOOK/assets/a0-look-again-perception-game-v1.json",
+    "roundCount": 5,
+    "declaredVariables": ["relative phase", "radial scale", "display sampling", "aperture", "source-ring density"],
+    "autoplay": false,
+    "score": false,
+    "dataTransmission": false,
+    "optionalLocalJson": true
+  },
+  "returns": {
+    "scienceDesk": "A0_BOOK/A0_RESEARCH_DESK.html#look-again-perception-game-return-20261023",
+    "builderLog": "A0_BOOK/A0_BUILDER_LOG.html#look-again-perception-game-20261023",
+    "findingsTriage": "32_A0_FINDINGS_AND_PAPER_WORKSPACE_2026-10-11.md#look-again-perception-game-20261023",
+    "masterProtocol": "22_A0_FORSCHUNGSPROTOKOLL_BUCH_UND_RAHMEN_2026-10-10.md#look-again-perception-game-20261023"
+  },
+  "verification": {
+    "gameUnitChecks": {"passed": 15, "total": 15},
+    "existingRingRegressionChecks": {"passed": 14, "total": 14},
+    "browserSequence": {"roundsCompleted": 5, "returnReached": true, "summaryRendered": true},
+    "homeEntryDesktop": "PASS"
+  },
+  "safety": {
+    "staticByDefault": true,
+    "flashing": false,
+    "fullscreenRequired": false,
+    "stopOnDiscomfortCopy": true
+  },
+  "authorityBoundary": {
+    "visionTest": false,
+    "diagnostic": false,
+    "norm": false,
+    "finding": false,
+    "study": false,
+    "paperClaimChange": false,
+    "publication": false
+  },
+  "open": [
+    "independent human repeatability",
+    "calibrated display and viewing-distance protocol",
+    "ethics and safety review before any recruited study"
+  ]
+}

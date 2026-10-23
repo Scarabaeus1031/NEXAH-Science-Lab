@@ -1,0 +1,105 @@
+{
+  "schema": "nexah.a0.iota-2-3-bridge-probe-return/1",
+  "date": "2026-10-23",
+  "identity": "NEXAH_A0_ORIENTATION_CONTROLLER_BENCH",
+  "classification": "BOUNDED_ENGINEERING_ARITHMETIC_PROBE",
+  "status": "PASS",
+  "checks": 85,
+  "result": {
+    "joint_returns": [0, 24],
+    "first_positive_joint_return": 24,
+    "period_8_cycles": 3,
+    "period_12_cycles": 2,
+    "gcd_8_12": 4,
+    "lcm_8_12": 24,
+    "gcd_sized_sectors": 6,
+    "exact_equalities": [
+      "3*8=24",
+      "2*12=24",
+      "11+13=24",
+      "2*8=16",
+      "2^4=16",
+      "2^(2^2)=16",
+      "2+4=6 as factorization signature only",
+      "3*6=18",
+      "18+1=19",
+      "16+17=33=3*11",
+      "1836=17*108",
+      "1729=19*91",
+      "108=6*18=3*36=9*12"
+    ]
+  },
+  "negative_controls": {
+    "tick_8": "period 8 returned; period 12 open",
+    "tick_12": "period 12 returned; period 8 open",
+    "premature_positive_joint_return": false,
+    "zero_parsed_as_letter_O": false,
+    "address_0_6_9_parsed_as_number_69": false,
+    "universal_069_law": false
+  },
+  "read_only_bindings": {
+    "pulse_grammar": "11+13=24 from the existing Pulse Grammar Clock",
+    "orientation": "16|19 and 6|9 remain owned by the separate VA/AV orientation probe"
+  },
+  "constructed_view": {
+    "am": "CLOCKWISE_PERIOD_8",
+    "pm": "COUNTERCLOCKWISE_PERIOD_12",
+    "still": "FIXED_COMMON_PIN",
+    "address": "0|6|9"
+  },
+  "files": [
+    {
+      "path": "a0-iota-2-3-bridge-probe.js",
+      "sha256": "aeb71c6817dfd39c6bc7671f935cbfb232b44c0ef674aa8032ef04290ca88ab3"
+    },
+    {
+      "path": "a0-iota-2-3-bridge-probe.css",
+      "sha256": "b440824f10177617371f6a3defee30b9030d28c8181eaa23f6d96b4bd976931e"
+    },
+    {
+      "path": "a0-iota-2-3-bridge-probe-tests.cjs",
+      "sha256": "c1bbade917997a72892d22755c98d93035df19467d8c160a7351b206b3f0a117"
+    },
+    {
+      "path": "a0-iota-2-3-bridge-science-desk-return-tests.cjs",
+      "sha256": "6e8ec3917af920e84bbaf246d13db5540915f39bd6903ffb5b1a30319e42b92f"
+    },
+    {
+      "path": "A0_ORIENTATION_CONTROLLER_BENCH.html",
+      "verification": "LIVE_ANCHOR_ONLY_SHARED_BENCH"
+    },
+    {
+      "path": "A0_RESEARCH_DESK.html",
+      "verification": "LIVE_ANCHOR_ONLY_SHARED_DESK"
+    }
+  ],
+  "integration": {
+    "bench_anchor": "#iota23Bridge",
+    "science_desk_anchor": "#iota-2-3-bridge-return-20261023",
+    "builder_log_anchor": "#iota-2-3-bridge-20261023",
+    "layers": ["BRIDGE", "FACTOR", "PULSE"],
+    "controls": ["STEP", "PLAY", "RESET", "EXPORT VIEW"],
+    "science_desk_return_checks": 20,
+    "orientation_binding": "READ_ONLY",
+    "new_canonical_object": false
+  },
+  "browser_acceptance": {
+    "status": "PASS",
+    "tick_8": "AM 0/8 ORIGIN; PM 4/12 OPEN",
+    "tick_12": "AM 4/8 OPEN; PM 0/12 ORIGIN",
+    "tick_24": "T24 JOINT RETURN",
+    "final_visible_layer": "FACTOR",
+    "console_errors_or_warnings": 0
+  },
+  "authority": {
+    "research_run": false,
+    "scientific_evidence": false,
+    "new_identity": false,
+    "new_relation": false,
+    "new_carrier": false,
+    "new_operator": false,
+    "claim_promotion": false,
+    "bench_integration": true
+  },
+  "boundary": "The arithmetic identities and modular return are exact. AM/PM directions, STILL-pin semantics and 0|6|9 roles are a local constructed display contract, not a physical spin law, universal number law or scientific finding."
+}

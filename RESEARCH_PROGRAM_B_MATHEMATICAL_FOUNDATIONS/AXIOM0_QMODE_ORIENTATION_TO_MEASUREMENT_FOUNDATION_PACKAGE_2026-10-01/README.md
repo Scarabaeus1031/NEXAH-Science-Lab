@@ -226,6 +226,12 @@ their presence here, logical implications or established physical laws.
     after one unchanged `B3/S23` step all singletons collapse to the empty
     state, so typed Return passes with the Source Key and dynamics-only Return
     fails closed with 48 candidates. The validator passes 295 assertions.
+55. [A0 ↔ ORION Z777 / Z3885 Finite Structure Return](111_A0_ORION_Z777_Z3885_FINITE_STRUCTURE_RETURN_2026-10-22.md)
+    — independently enumerates the `T64`, `T97`, `T524` and `T1301` orbit
+    ledgers and proves the exact five-fibre CRT lift from 200 to 1000 orbits.
+    It reuses the existing A0 and ORION lens identities. GURT and THOTH are
+    retained as two distinct Codex provenance axes; visual resemblance,
+    early-warning and physical claims remain outside the result.
 
 ## Binding boundary
 

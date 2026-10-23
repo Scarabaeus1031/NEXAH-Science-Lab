@@ -1,0 +1,22 @@
+'use strict';
+const assert=require('node:assert/strict'),fs=require('node:fs'),D=require('./a0-deris-pink-strip.js');
+let checks=0;const ok=(value,message)=>{assert.ok(value,message);checks++},eq=(a,b,message)=>{assert.deepEqual(a,b,message);checks++};
+eq(D.VERSION,'1.0.0','version');eq(D.PHASES,['HOLD','BEFORE','STRIP','AFTER','RECROSS','COMMITTED'],'phase vocabulary');
+eq(D.classify(.4,.5,.05).phase,'BEFORE','negative side');eq(D.classify(.45,.5,.05).phase,'STRIP','lower strip boundary included');eq(D.classify(.55,.5,.05).phase,'STRIP','upper strip boundary included');eq(D.classify(.56,.5,.05).phase,'AFTER','positive side');eq(D.classify(NaN,.5,.05).phase,'HOLD','undefined reading holds');
+assert.throws(()=>D.normalizeContract({epsilon:-.1,commitment:3}),/epsilon/);checks++;assert.throws(()=>D.normalizeContract({epsilon:.02,commitment:0}),/commitment/);checks++;
+const contract={epsilon:.05,commitment:3};let state=D.createTracker();
+for(const [index,value] of [[0,.3],[1,.5],[2,.7],[3,.71],[4,.72]])state=D.observe(state,{key:String(index),index,value,cut:.5,sourceKey:'TEST'},contract);
+eq(state.phase,'COMMITTED','three positive samples commit');eq(state.afterStreak,3,'commitment streak retained');eq(state.eventId,1,'one crossing event');
+const duplicate=D.observe(state,{key:'4',index:4,value:.72,cut:.5},contract);eq(duplicate,state,'duplicate source sample ignored');
+state=D.createTracker();for(const [index,value] of [[0,.3],[1,.5],[2,.7],[3,.5]])state=D.observe(state,{key:String(index),index,value,cut:.5},contract);eq(state.phase,'RECROSS','return to strip before k is recross');eq(state.committed,false,'recross is not committed');
+state=D.createTracker();for(const [index,value] of [[0,.7],[1,.71],[2,.72],[3,.73]])state=D.observe(state,{key:String(index),index,value,cut:.5},contract);eq(state.phase,'AFTER','starting on positive side does not invent a crossing');
+const receipt=D.buildReceipt({tracker:state,contract,sourceRecord:{sourceFingerprint:'abc'}});eq(receipt.schema,'nexah.a0.deris-pink-strip-record/1','receipt schema');eq(receipt.sourceFingerprint,'abc','source fingerprint retained');eq(receipt.authority,{researchRun:false,scientificEvidence:false,newCarrier:false,newOperatorIdentity:false},'authority boundary');
+const html=fs.readFileSync('./A0_ORIENTATION_CONTROLLER_BENCH.html','utf8'),css=fs.readFileSync('./a0-deris-pink-strip.css','utf8');
+for(const id of ['derisPinkStripBench','derisEpsilon','derisCommitment','derisPhase','derisG','derisSample','derisStreak','derisHistory','derisRail','derisReset','derisExport'])ok(html.includes(`id="${id}"`),`HTML ${id}`);
+ok(html.includes('a0-deris-pink-strip.css'),'stylesheet wired');ok(html.includes('a0-deris-pink-strip.js'),'script wired');ok(css.includes('--deris-strip-width'),'finite strip rendered');ok(css.includes('@media(max-width:520px)'),'phone layout');
+class Style{setProperty(key,value){this[key]=value}}class Node{constructor(id=''){this.id=id;this.value='';this.textContent='';this.innerHTML='';this.dataset={};this.style=new Style();this.listeners={}}addEventListener(name,fn){this.listeners[name]=fn}click(){this.listeners.click?.({})}}
+const ids=['derisPinkStripBench','derisEpsilon','derisEpsilonOut','derisCommitment','derisCommitmentOut','derisPhase','derisG','derisSample','derisStreak','derisHistory','derisRail','derisReset','derisExport','m3Cut'],nodes=Object.fromEntries(ids.map(id=>[id,new Node(id)]));nodes.derisEpsilon.value='.05';nodes.derisCommitment.value='2';nodes.m3Cut.value='.5';
+const trace=[{index:0,I:.3},{index:1,I:.5},{index:2,I:.7},{index:3,I:.72}];let cursor=0,subscriber=null;const source={readSource:()=>({trace,cursor,record:{sourceFingerprint:'m3-test'}}),subscribe:fn=>(subscriber=fn,()=>{subscriber=null})};
+const doc={defaultView:{},getElementById:id=>nodes[id],createElement:()=>new Node()},controller=D.mount(doc,doc.defaultView,{source});ok(controller&&nodes.derisPhase.textContent==='BEFORE','mounted against existing M3 source');
+cursor=1;subscriber();eq(nodes.derisPhase.textContent,'STRIP','live strip phase');cursor=2;subscriber();eq(nodes.derisPhase.textContent,'AFTER','first positive sample');cursor=3;subscriber();eq(nodes.derisPhase.textContent,'COMMITTED','k live samples commit');ok(controller.record.observations.length===4,'export record follows live samples');ok(nodes.derisRail.style['--deris-cut']==='50%','cut position rendered');
+console.log(JSON.stringify({status:'PASS',checks,scope:'bounded DERIS/Pink Strip engineering classifier over existing M3 source; no science run'}));

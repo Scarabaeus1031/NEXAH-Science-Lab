@@ -1,0 +1,10 @@
+const assert=require('assert');
+const game=require('./a0-look-again-game.js');
+assert.strictEqual(game.ROUNDS.length,5);
+assert.deepStrictEqual(game.ROUNDS.map(item=>item.id),['phase','scale','sampling','aperture','density']);
+game.ROUNDS.forEach(round=>{assert.ok(round.before);assert.ok(round.after);assert.notDeepStrictEqual(round.before,round.after);assert.ok(round.changed)});
+assert.deepStrictEqual(game.normalizeAnswer({round:'phase',shape:'Welle',confidence:9,noticed:1}),{round:'phase',shape:'Welle',confidence:5,noticed:true});
+assert.strictEqual(game.normalizeAnswer({shape:'unknown'}).shape,'Keine klare Figur');
+const summary=game.summarize([{round:'a',shape:'Welle',confidence:4,noticed:true},{round:'b',shape:'Keine klare Figur',confidence:2,noticed:false}]);
+assert.strictEqual(summary.rounds,2);assert.strictEqual(summary.noticed,1);assert.strictEqual(summary.meanConfidence,3);assert.strictEqual(summary.diagnostic,false);
+console.log('a0-look-again-game: 15/15 PASS');

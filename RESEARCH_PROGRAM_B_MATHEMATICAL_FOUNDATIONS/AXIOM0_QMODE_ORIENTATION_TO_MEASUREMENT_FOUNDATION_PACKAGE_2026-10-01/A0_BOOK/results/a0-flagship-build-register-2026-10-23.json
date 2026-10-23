@@ -1,0 +1,40 @@
+{
+  "schema": "nexah.a0.flagship-build-register/1.0.0",
+  "date": "2026-10-23",
+  "status": "CURRENT_INTERNAL_CURATION_SNAPSHOT",
+  "authority": "A0 Science Desk presentation and engineering currentness only",
+  "scientific_effect": "NONE",
+  "decision": "NO_SEVENTH_FLAGSHIP_REQUIRED_HARDEN_CURRENT_SIX",
+  "rating_boundary": "Five presentation criteria scored 0-2; totals are curation scores, not evidence scores.",
+  "flagships": [
+    {"chip":"F00","name":"THE MΛCHINΛ","score":9,"disposition":"SHOWCASE_READY_WITH_GUIDE","route":"A0_ORIENTATION_CONTROLLER_BENCH.html#benchFoyer"},
+    {"chip":"F01","name":"Blue Body","score":10,"disposition":"SHOWCASE_READY","route":"A0_TESSAREC_BLUE_BODY_LAB.html#blue-body-ilau-windows"},
+    {"chip":"F02","name":"Pink Diamond","score":9,"disposition":"SHOWCASE_READY","route":"A0_PINK_DIAMOND_GRID_ATLAS.html#diamond-lens"},
+    {"chip":"F03","name":"Blue × Pink Lab","score":9,"disposition":"SHOWCASE_READY_WITH_GUIDE","route":"A0_BLUE_PINK_DODECA_CELL_RETURN.html#bodyDomainSuite"},
+    {"chip":"F04","name":"Tower","score":9,"disposition":"SHOWCASE_READY","route":"A0_TOWER_RETURN_DEMONSTRATOR.html#towerShellReturn"},
+    {"chip":"F05","name":"Bridge","score":9,"disposition":"SHOWCASE_READY","route":"A0_IOTA_BRIDGE_DEMONSTRATOR.html#iota23Bridge"}
+  ],
+  "demonstrator_chips": [
+    {"chip":"D01","name":"LOOK AGAIN / Game of Worlds","score":9,"role":"HUMAN_ENTRY_NOT_FLAGSHIP","route":"A0_LOOK_AGAIN_PLAY.html#lookAgainGame"},
+    {"chip":"D02","name":"Orange Floor → Diamond Lens","score":8,"role":"PINK_ENTRY_VIEW_NOT_CARRIER","route":"A0_PINK_DIAMOND_GRID_ATLAS.html#diamond-lens"},
+    {"chip":"D03","name":"HuA/Hué · BUDU × State/Rhombus/Heart","score":9,"role":"BLUE_BODY_LOCAL_DISPLAY_CONTRACT","route":"A0_TESSAREC_BLUE_BODY_LAB.html#blue-body-ilau-windows"}
+  ],
+  "sampled_checks": [
+    {"suite":"a0-bench-showcase-tour-tests.cjs","status":"PASS","checks":85},
+    {"suite":"a0-human-flagship-journey-tests.cjs","status":"PASS","checks":121},
+    {"suite":"a0-blue-body-spoon-lens-tests.cjs","status":"PASS","checks":367},
+    {"suite":"a0-diamond-lens-tests.cjs","status":"PASS"},
+    {"suite":"a0-blue-pink-dodeca-cell-return-tests.cjs","status":"PASS"},
+    {"suite":"a0-look-again-game-tests.cjs","status":"PASS","checks":15},
+    {"suite":"a0-game-of-worlds-play-tests.cjs","status":"PASS","checks":221},
+    {"suite":"a0-bench-navigation-tests.cjs","status":"PASS","checks":330,"detail":"Pink Atlas exposes the source-bound gridFoldReturn route"},
+    {"suite":"a0-bridge-tower-demonstrators-tests.cjs","status":"PASS","checks":59,"detail":"Bridge and Tower rails use current PINK DIAMOND vocabulary and reject the retired label"}
+  ],
+  "governance": {
+    "reused_identity":"existing A0 and MOD:TESSAREC identities",
+    "new_navigator_identities":0,
+    "new_graph_relations":0,
+    "claim_or_publication_change":false,
+    "preexisting_validator_failure":null
+  }
+}

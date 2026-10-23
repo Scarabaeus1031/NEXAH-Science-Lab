@@ -3,7 +3,7 @@
   const src = document.currentScript?.src;
   if (!src || window.self !== window.top) return;
   const map = document.createElement('script');
-  map.src = new URL('a0-orientation-map.js?v=20261022-current-ways', src).href;
+  map.src = new URL('a0-orientation-map.js?v=20261023-overview-orientation-split', src).href;
   document.head.append(map);
 })();
 (() => {
@@ -35,6 +35,13 @@
   }
   const title = document.title.replace(/^NEXAH\s*[·—-]\s*/i, "").replace(/^A0\s*[·—-]\s*/i, "").trim();
   const quietEntry = file === "A0_NEXAH_APERTURE_JOURNEY.html";
+  const overviewWays = [
+    {code:"01 · HUMAN", title:"Schau noch einmal", copy:"Frage, Licht, Blick und Return.", href:"A0_NEXAH_APERTURE_JOURNEY.html#human-view", accent:"#f177b8"},
+    {code:"02 · PLAY", title:"Game of Worlds", copy:"LIFE, Domains und Numbers in ONE PULSE.", href:"A0_GAME_OF_WORLDS_PLAY.html?world=pulse#pulse", accent:"#d99d00"},
+    {code:"03 · MATHFIELD", title:"Mathematical Joints", copy:"Buchstellen, Träger, Linsen und Fugen.", href:"A0_MATHEMATICAL_JOINTS.html", accent:"#159bb4"},
+    {code:"04 · BUILDER", title:"Orientation Bench", copy:"Quellen, Adapter und Kopplungen prüfen.", href:"A0_ORIENTATION_CONTROLLER_BENCH.html#benchFoyer", accent:"#2ca57a"},
+    {code:"05 · SCIENCE", title:"A0 Science Desk", copy:"Ergebnisse, Grenzen und Return einordnen.", href:"A0_RESEARCH_DESK.html#desk-cabinet", accent:"#806bd6"}
+  ];
 
   /* One inventory, three reading intentions. Navigation does not change identity or evidence state. */
   const readerLanes = [
@@ -57,6 +64,11 @@
             "A0_NEXAH_APERTURE_JOURNEY.html",
             "Aperture Journey · Human View",
             "Sieben Fragen, neun Apertures und der Human Return"
+          ],
+          [
+            "A0_LOOK_AGAIN_PLAY.html",
+            "LOOK AGAIN · Human Game",
+            "Fünf kurze Wahrnehmungsvergleiche ohne Score oder Sehtest"
           ],
           [
             "A0_GAME_OF_WORLDS.html",
@@ -103,6 +115,11 @@
             "A0_BLUE_PINK_DODECA_CELL_RETURN.html",
             "Blue / Pink Cell Return",
             "Human View auf die Blue-Body-Familie"
+          ],
+          [
+            "A0_PINK_DIAMOND_GRID_ATLAS.html#diamond-lens",
+            "Diamond Lens · Look again",
+            "Ein Carrier, fünf sichtbare Relationen"
           ]
         ]
       }
@@ -324,7 +341,10 @@
       {
         "label": "Start & Werkstätten",
         "items": [
-          ["A0_WERKBANK.html", "Werkbank · Start", "Eingangshalle für Maschine und drei Arbeitsbereiche"],
+          ["A0_WERKBANK.html", "Werkbank · Start", "Sechs Flagships; THE MACHINA mit vier klar getrennten Innenräumen"],
+          ["A0_ORIENTATION_CONTROLLER_BENCH.html#benchFoyer", "THE MACHINA · Exhibition", "Maschinenkörper, GLBs und ihre source-bound Fenster"],
+          ["A0_MACHINA_COCKPIT.html", "THE MACHINA · Pentagon Cockpit", "Orientierungsstation für 16/17, STILL XX/20 und 18/19"],
+          ["A0_ORIENTATION_CONTROLLER_BENCH.html#universalMachinePartsShelf", "THE MACHINA · Parts Shelf", "Neun checksum-identische FAM-009 Modelle"],
           ["A0_BENCH_ENTDECKEN.html", "Bench · Entdecken", "Foyer, Rundgang und visuelle Flagships"],
           ["A0_BENCH_ARBEITEN.html", "Bench · Arbeiten", "Arbeitsplatz, Tower und Return"],
           ["A0_BENCH_QUELLEN.html", "Bench · Quellen & Prüfen", "Originale, Verträge und Records"],
@@ -499,6 +519,7 @@
         "pages": [
           "A0_TOURS.html",
           "A0_NEXAH_APERTURE_JOURNEY.html",
+          "A0_LOOK_AGAIN_PLAY.html",
           "A0_RAINBOW_PURPLE_RAIN.html",
           "A0_NEWTON_GOETHE_OBSERVER_LENS.html",
           "A0_THE_LIVING_INTERIOR.html",
@@ -578,6 +599,9 @@
         "title": "Steuern und ausprobieren",
         "pages": [
           "A0_WERKBANK.html",
+          "A0_MACHINA_COCKPIT.html",
+          "A0_TOWER_RETURN_DEMONSTRATOR.html",
+          "A0_IOTA_BRIDGE_DEMONSTRATOR.html",
           "A0_BENCH_ENTDECKEN.html",
           "A0_BENCH_ARBEITEN.html",
           "A0_BENCH_QUELLEN.html",
@@ -681,25 +705,19 @@
 
   // Each lane gets its own invitation. Human is experience-led; Builder keeps the workshop.
   const humanShowcase = [
-    ["A0_NEXAH_APERTURE_JOURNEY.html#human-view", "Human View", "Fragen · Apertures · Weltkarte · Return", "book", "Dein geführter Einstieg"],
-    ["A0_GAME_OF_WORLDS.html", "Game of Worlds", "Originaler Einstieg · ONE PULSE · LIFE · THREE DOMAINS · NUMBERS", "arcade", "Human Flagship"],
-    ["A0_TESSAREC_BLUE_BODY_LAB.html#guided-test", "Blue Body", "Den Körper drehen und seine Ansichten wechseln", "body", "Touch · Drag · Discover"],
-    ["A0_BLUE_PINK_DODECA_CELL_RETURN.html#cells", "Blue / Pink", "Zellansichten, Projektion und Return erkunden", "cells", "Look · Feel · Wonder"]
+    ["a0-public-arkade-index.html#arkade", "ARKADE", "ONE PULSE und drei spielbare Welten direkt erleben", "arcade", "Play · Consumer View"],
+    ["A0_OPIUM.html", "OPIUM / Club", "Club Machine, Relations Player und Control Room als ein bestehendes Erlebnis-Ensemble", "book", "Club · Human Flagship"],
+    ["A0_LOOK_AGAIN_PLAY.html", "LOOK AGAIN", "Fünf Wahrnehmungsvergleiche: gleiche Quelle, andere sichtbare Relation", "cells", "Perception · Human Game"]
   ];
   const builderShowcase = [
     ["A0_WERKBANK.html", "Werkbank", "Maschine, Entdecken, Arbeiten und Quellen & Prüfen", "body", "Builder Flagship"],
-    ["A0_BUILDER_TOY_STORE.html", "Toy Store", "Werkzeuge entdecken und direkt ausprobieren", "toys", "Werkzeug-Einstieg"],
-    ["A0_BUILDER_TOY_STORE.html#arkade", "ARKADE", "Die drei Games als gebaute Instrumente", "arcade", "Game of Worlds"],
-    ["A0_TESSAREC_BLUE_BODY_LAB.html#lab", "Blue Body Lab", "Tour, Kamera und gekoppelte Instrumente", "body", "Instrument-Workbench"],
-    ["A0_BLUE_PINK_DODECA_CELL_RETURN.html#formation", "Blue / Pink Lab", "Zellen, Projektionen und Return-Mechanik", "cells", "Builder Instrument"],
-    ["A0_PINK_DIAMOND_GRID_ATLAS.html#ghost-tiles", "Pink Grid Atlas", "Grid-Träger, Ghost-Auswahl und CRT-Adressen", "cells", "Grid-Instrument & Atlas"]
+    ["A0_ORIENTATION_CONTROLLER_BENCH.html#benchFoyer", "THE MACHINA", "Exhibition, Cockpit, Parts Shelf und Full Bench", "body", "Maschinenhaus"],
+    ["A0_BUILDER_TOY_STORE.html", "Toy Store", "Werkzeuge entdecken und direkt ausprobieren", "toys", "Werkzeug-Einstieg"]
   ];
   const scienceHighlights = [
     ["A0_SCIENCE.html#understand", "Verstehen & Zusammenhänge", "Methode, Families und Fugen erklären — vor dem Werkzeug", "cells", "Science · Erklärpfade"],
-    ["A0_FAMILY_CONNECTION_ATLAS.html#spatial-navigation", "Family-Raumkarte", "Wo bin ich – und wohin führt die nächste Fuge?", "body", "Interaktive Erklärung"],
     ["A0_SCIENTIFIC_POSITION_REPORT.html", "Wo stehen wir?", "Was NEXAH konkret macht, was trägt und was offen bleibt", "body", "Scientific Position"],
-    ["A0_SCIENCE.html#contributions", "Konkrete Beiträge", "Formale Resultate, geprüfte Übergänge und ihre Grenzen", "toys", "Ergebnisse & Einordnung"],
-    ["A0_MATHEMATICAL_JOINTS.html#register-cut-aperture", "Mathfield", "Register, Linsen, andere Seiten und Aperturstapel vergleichen", "cells", "Mathematische Werkstatt"]
+    ["A0_SCIENCE.html#contributions", "Konkrete Beiträge", "Formale Resultate, geprüfte Übergänge und ihre Grenzen", "toys", "Ergebnisse & Einordnung"]
   ];
   const laneNav = document.createElement("nav");
   laneNav.className = "a0-reader-lanes";
@@ -708,12 +726,20 @@
   const benchMenu = {
     key: "bench", code: "Werkstatt", label: "Werkbank",
     entry: "A0_WERKBANK.html",
-    description: "Start · THE MACHINA · Entdecken · Arbeiten · Quellen & Prüfen",
+    description: "Start · THE MACHINA · Blue Body · Pink Body · Tower · Bridge",
     sections: [
       { label: "00 · Start & THE MΛCHINΛ", items: [
         ["A0_WERKBANK.html", "Werkbank · Start", "Orientieren und einen Arbeitsweg wählen"],
-        ["A0_ORIENTATION_CONTROLLER_BENCH.html#benchFoyer", "THE MΛCHINΛ öffnen", "Öffentlicher Maschineneingang; das technische Schaltbild bleibt ein eigener Direktzugang"],
-        ["A0_ORIENTATION_CONTROLLER_BENCH.html#foyerDoors", "Alle Werkzeuge / Suche", "Den passenden Zugang wählen"]
+        ["A0_ORIENTATION_CONTROLLER_BENCH.html#benchFoyer", "THE MΛCHINΛ · Exhibition", "Maschinenkörper und GLBs als visueller Haupteinstieg"],
+        ["A0_MACHINA_COCKPIT.html", "THE MΛCHINΛ · Pentagon Cockpit", "Lokale Rollen um den deklarierten STILL-Pin XX/20"],
+        ["A0_ORIENTATION_CONTROLLER_BENCH.html#universalMachinePartsShelf", "THE MΛCHINΛ · Parts Shelf", "Neun FAM-009 Modelle einzeln prüfen"],
+        ["A0_ORIENTATION_CONTROLLER_BENCH.html#benchWorkDesk", "THE MΛCHINΛ · Full Bench", "Instrumente und Anschlüsse bedienen"]
+      ]},
+      { label: "Räume · Bodies & Returns", items: [
+        ["A0_TESSAREC_BLUE_BODY_LAB.html#guided-test", "BLUE BODY", "Carrier, Innenraum und Zustandsansichten"],
+        ["A0_PINK_DIAMOND_GRID_ATLAS.html#diamond-lens", "PINK DIAMOND", "Ein Carrier · fünf Views · Grid und CRT16 als Werkzeuge"],
+        ["A0_TOWER_RETURN_DEMONSTRATOR.html", "TOWER", "q-Adresse, D°G-Witness und Return"],
+        ["A0_IOTA_BRIDGE_DEMONSTRATOR.html", "BRIDGE", "8/12-Schedule und gemeinsamer Return bei 24"]
       ]},
       { label: "01 · Entdecken", items: [
         ["A0_BENCH_ENTDECKEN.html", "Entdecken · Einstieg", "Rundgang und visuelle Instrumente"],
@@ -735,16 +761,16 @@
     ]
   };
   const benchHighlights = [
-    ["A0_WERKBANK.html", "Werkbank · Start", "THE MACHINA und drei Arbeitsbereiche überblicken", "body", "Eingangshalle"],
-    ["A0_BLUE_PINK_DODECA_CELL_RETURN.html#formation", "Blue / Pink Lab", "Körper, Zellansichten und Return am Original", "cells", "Körper"],
-    ["A0_PINK_DIAMOND_GRID_ATLAS.html#ghost-tiles", "Pink Grid Atlas", "Pink-Grids, Ghost-Auswahl und Adressen", "cells", "Grids"]
+    ["A0_ORIENTATION_CONTROLLER_BENCH.html#benchFoyer", "THE MACHINA", "Exhibition · Maschinenkörper · GLBs · vier klare Räume", "body", "Exhibition"],
+    ["A0_TESSAREC_BLUE_BODY_LAB.html#guided-test", "Blue Body", "Carrier, Innenraum und Zustandsadressen", "body", "Body"],
+    ["A0_PINK_DIAMOND_GRID_ATLAS.html#diamond-lens", "Pink Diamond", "Yellow, Emerald Shadow, Rainbow, Root/Shell und Evil Twin", "cells", "Diamond Lens"]
   ];
   // Bench is a tool area, not a fourth Reader perspective.
   [...readerLanes, benchMenu].forEach((lane) => {
     const isBench = lane.key === "bench";
     const group = document.createElement("details");
     group.className = `a0-reader-lane a0-reader-lane--${lane.key}`;
-    if (isBench ? file === "A0_WERKBANK.html" || file.startsWith("A0_BENCH_") || file === "A0_ORIENTATION_CONTROLLER_BENCH.html" : lane === currentLane) group.dataset.current = "true";
+    if (isBench ? ["A0_WERKBANK.html","A0_MACHINA_COCKPIT.html","A0_IOTA_BRIDGE_DEMONSTRATOR.html","A0_TOWER_RETURN_DEMONSTRATOR.html","A0_ORIENTATION_CONTROLLER_BENCH.html"].includes(file) || file.startsWith("A0_BENCH_") : lane === currentLane) group.dataset.current = "true";
     const summary = document.createElement("summary");
     summary.innerHTML = `<strong>${lane.label}</strong><i aria-hidden="true"></i>`;
     summary.setAttribute("aria-label", isBench ? "Werkbank-Menü öffnen" : `${lane.label} Reader öffnen`);
@@ -806,18 +832,25 @@
   const overviewBody = document.createElement("div");
   overviewBody.className = "a0-page-menu-body a0-overview-body";
   const actions = {book:"Lesen",map:"Zusammenhänge verstehen",workshops:"Werkzeuge nutzen",desk:"Ergebnisse einordnen"};
-  overviewBody.innerHTML = '<section><h3>Bereiche</h3>'+navigationGroups.map(group => '<a href="'+group.entry+'">'+actions[group.key]+'</a>').join('')+'</section><section><h3>Karten und Gesamtübersicht</h3><a href="A0_LIVING_BLUEPRINT.html#a0-map-home">Crosswalk · Gesamtkarte</a><a href="index.html#a0-navigation-directory">Alle A0-Seiten nach Themen</a><a href="A0_FAMILY_CONNECTION_ATLAS.html">F1–F7 · funktionale Families</a><a href="NEXAH_C_CONNECT.html">C · Connect</a></section>';
-  const addContext = (label, links) => {
+  const currentWays = document.createElement("section");
+  currentWays.className = "a0-overview-current";
+  currentWays.innerHTML = '<header><div><small>ÜBERSICHT · FÜNF EINSTIEGE</small><h3>Fünf Eingänge. Ein Werk.</h3></div><p>Wähle den Blick, der zu deiner Frage passt. Die technische Orientierungsmap bleibt getrennt und zeigt Quellen, Anschlüsse, Ansichten und Return.</p></header><nav aria-label="Fünf A0-Einstiege">'+overviewWays.map(way => '<a href="'+way.href+'" style="--way-accent:'+way.accent+'"'+(targetFile(way.href)===file?' aria-current="page"':'')+'><small>'+way.code+'</small><strong>'+way.title+'</strong><span>'+way.copy+'</span><em>'+(targetFile(way.href)===file?'DU BIST HIER':'ÖFFNEN ↗')+'</em></a>').join('')+'</nav>';
+  overviewBody.innerHTML = '<section class="a0-overview-actions"><h3>Was möchtest du tun?</h3>'+navigationGroups.map(group => '<a href="'+group.entry+'"><strong>'+actions[group.key]+'</strong><span>'+group.title+'</span></a>').join('')+'</section><details class="a0-overview-cluster" open><summary><span>Orientieren &amp; vollständig suchen</span><small>Karten, Families und alle A0-Seiten</small></summary><div><a href="A0_LIVING_BLUEPRINT.html#a0-map-home">Technische Orientierungsmap</a><a href="index.html#a0-navigation-directory">Alle A0-Seiten nach Themen</a><a href="A0_FAMILY_CONNECTION_ATLAS.html">F1–F7 · funktionale Families</a><a href="NEXAH_C_CONNECT.html">C · Connect</a></div></details>';
+  overviewBody.prepend(currentWays);
+  const addContext = (label, links, expanded = false) => {
     if (!links.length) return;
-    const section = document.createElement("section");
-    const heading = document.createElement("h3");heading.textContent = label;section.append(heading);
-    links.forEach(link => section.append(link));overviewBody.append(section);
+    const section = document.createElement("details");
+    section.className = "a0-overview-cluster";
+    section.open = expanded;
+    const heading = document.createElement("summary");heading.innerHTML = `<span>${label}</span><small>${links.length} ${links.length === 1 ? "Ziel" : "Ziele"}</small>`;section.append(heading);
+    const targets = document.createElement("div");links.forEach(link => targets.append(link));section.append(targets);overviewBody.append(section);
   };
-  addContext("Auf dieser Seite", localLinks);
+  addContext("Auf dieser Seite", localLinks, true);
   addContext("Quellen und verwandte Wege", contextualLinks);
   if (tessarecPages.includes(file)) {
-    const moduleContext = document.createElement("section");
-    moduleContext.innerHTML = '<h3>MOD:TESSAREC · Modulkontext</h3><a href="A0_LIVING_BLUEPRINT.html#tessarec-module">Modulüberblick</a><a href="A0_TESSAREC_FRAME_ENVELOPE_OBSERVER_PAPER.html#figure">Paper F · Erklärfigur</a><a href="A0_TESSAREC_BLUE_BODY_LAB.html#guided-test">Blue Body · Instrument</a>';
+    const moduleContext = document.createElement("details");
+    moduleContext.className = "a0-overview-cluster";
+    moduleContext.innerHTML = '<summary><span>MOD:TESSAREC · Modulkontext</span><small>3 feste Rückwege</small></summary><div><a href="A0_LIVING_BLUEPRINT.html#tessarec-module">Modulüberblick</a><a href="A0_TESSAREC_FRAME_ENVELOPE_OBSERVER_PAPER.html#figure">Paper F · Erklärfigur</a><a href="A0_TESSAREC_BLUE_BODY_LAB.html#guided-test">Blue Body · Instrument</a></div>';
     overviewBody.append(moduleContext);
   }
   const internalMenu = document.createElement("details");
@@ -827,11 +860,6 @@
   overview.append(overviewSummary, overviewBody);
   overview.addEventListener("toggle", () => {if(overview.open)laneNav.querySelectorAll(".a0-reader-lane[open]").forEach(group=>{group.open=false;});});
   laneNav.addEventListener("toggle", event => {if(event.target.matches?.(".a0-reader-lane[open]"))overview.open=false;},true);
-  const draftLink = document.createElement("a");
-  draftLink.className = "a0-reader-entry a0-human-draft-entry";
-  draftLink.href = "DRAFTS/A0_HUMAN_BOOK_DRAFT.html#human-view";
-  draftLink.innerHTML = "<strong>Entwurf</strong><small>Human Book</small>";
-  draftLink.setAttribute("aria-label", "Entwurf · Human Book öffnen");
   const ownerDesk = document.createElement("a");
   ownerDesk.className = "a0-owner-desk";
   ownerDesk.href = "A0_RESEARCH_DESK.html";
@@ -839,7 +867,7 @@
   ownerDesk.setAttribute("aria-label", "A0 Science Desk · intern");
   ownerDesk.title = "Deine Science-Arbeitsfläche; kein Zugriffsschutz";
   if (file === "A0_RESEARCH_DESK.html") ownerDesk.setAttribute("aria-current", "page");
-  header.replaceChildren(brand, laneNav, ...(quietEntry ? [draftLink] : []), overview, ownerDesk);
+  header.replaceChildren(brand, laneNav, overview, ownerDesk);
   header.className = "top a0-context-ready a0-context-compact";
   header.dataset.a0Lane = currentLane.key;
   header.dataset.a0Context = "ready";

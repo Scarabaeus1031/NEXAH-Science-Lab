@@ -1,0 +1,46 @@
+{
+  "schema": "nexah.a0.va-av-69-96-orientation-probe-return/1",
+  "date": "2026-10-23",
+  "status": "BOUNDED_ORIENTATION_PROBE_PASS",
+  "identity_reuse": ["NEXAH_A0_ORIENTATION_CONTROLLER_BENCH"],
+  "declared_local_crosswalk": {"96": "VA", "69": "AV"},
+  "operators_under_test": {
+    "H": "order reversal",
+    "F": "token complement 9<->6 and V<->A",
+    "f": "frame-side flip preserving token sequence"
+  },
+  "results": {
+    "H": ["96->69", "VA->AV"],
+    "F": ["96->69", "VA->AV"],
+    "F_after_H": ["96->96", "VA->VA", "two involutions cancel"],
+    "f_after_H": ["96->69 with BACK frame", "VA->AV with BACK frame"],
+    "literal_f_after_F_after_H": ["96->96 with BACK frame", "VA->VA with BACK frame", "F and H cancel before f changes the frame"]
+  },
+  "prefixed_axis": {"down": "16", "up": "19", "fixed_stem": "1", "suffix_axis": "6|9", "operation": "DIGIT_CONCATENATION_NOT_ADDITION"},
+  "exact_local_arithmetic": ["17-1=16", "17+1=18", "18=3*6", "18+1=19"],
+  "open": ["No source yet establishes f, F or H as canonical NEXAH operators.", "The 7-to-8 closure reading remains an untested Owner candidate.", "No physical, linguistic or universal glyph meaning is inferred."],
+  "integration": {
+    "bench_anchor": "#vaAvOrientationProbe",
+    "parent_context": "#pulseGrammarClock",
+    "controls": ["RESET", "H", "F", "F∘H", "f∘H", "f∘F∘H", "EXPORT VIEW"],
+    "live_anchor_verification": ["id=vaAvOrientationProbe", "a0-va-av-orientation-probe.css", "a0-va-av-orientation-probe.js"],
+    "new_canonical_object": false
+  },
+  "tests": {
+    "suite": "a0-va-av-orientation-probe-tests.cjs",
+    "checks": 70,
+    "status": "PASS",
+    "bench_integration": "PASS 8109",
+    "tool_catalog": "PASS 211",
+    "browser_contract": "PASS 31",
+    "source_graph": "PASS 269/32"
+  },
+  "files": [
+    {"path": "a0-va-av-orientation-probe.js", "sha256": "025dfe279e1f0476402adb8d25e20c2785a1499bffcddb9f9ad786121118283a"},
+    {"path": "a0-va-av-orientation-probe.css", "sha256": "09d8492280e5511fd89d2fcc50630b9a84faedbb782b6d31cefd92b5cd0cf061"},
+    {"path": "a0-va-av-orientation-probe-tests.cjs", "sha256": "604333dd8bd50c546f9de78e0671bc580ac74023be4fa75db1a78509f5fce07c"},
+    {"path": "A0_ORIENTATION_CONTROLLER_BENCH.html", "verification": "LIVE_ANCHOR_ONLY_SHARED_BENCH"}
+  ],
+  "authority": {"research_run": false, "scientific_evidence": false, "new_identity": false, "new_relation": false, "new_carrier": false, "new_operator": false, "finding_promotion": false, "publication_authorized": false},
+  "boundary": "96/VA and 69/AV are an Owner-declared local orientation crosswalk. The probe distinguishes order reversal, token complement and frame flip; it establishes no numerical equality, etymology, canonical operator or F-A0 finding."
+}

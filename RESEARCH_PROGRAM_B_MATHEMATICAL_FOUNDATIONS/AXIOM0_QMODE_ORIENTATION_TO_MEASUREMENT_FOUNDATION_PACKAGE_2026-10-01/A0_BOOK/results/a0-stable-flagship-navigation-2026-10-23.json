@@ -1,0 +1,31 @@
+{
+  "schema": "nexah.a0.engineering-return/1.0.0",
+  "date": "2026-10-23",
+  "status": "ENGINEERING_NAVIGATION_STABILITY_PASS",
+  "scope": "Stable six-flagship navigation and unambiguous THE MACHINA entry naming.",
+  "navigation_contract": {
+    "flagship_rail": "The first body element on every flagship page; one reserved-height row with horizontal overflow on narrow viewports.",
+    "machina_entry": "Cockpit / Instrument",
+    "shared_overview": "Build-Übersicht",
+    "tower_bridge_role": "Demonstrator",
+    "body_role": "Bench / Instrument"
+  },
+  "sources": [
+    {"path": "A0_MACHINA_COCKPIT.html", "sha256": "474cacb59ec3bfb4851e5f6fcbeb806c3365178c570173e15b3af17fbcbc722a"},
+    {"path": "A0_TESSAREC_BLUE_BODY_LAB.html", "sha256": "dc476673a035b34d23f5247de66ad91041642c89fec4b88c362081270b458b4f"},
+    {"path": "A0_PINK_DIAMOND_GRID_ATLAS.html", "sha256": "f6bf85708a079bdd05a05a22f1f95157349586af04fd51e023cb65f77a420831"},
+    {"path": "A0_BLUE_PINK_DODECA_CELL_RETURN.html", "sha256": "15a7a2a2e31da618efa09d952960d6745bfe295c55b842bcea5eed7751fa1785"},
+    {"path": "A0_TOWER_RETURN_DEMONSTRATOR.html", "sha256": "8104eef77b802a619a21778ddb061029a9011cdf81ba867f67c0f4ab24121498"},
+    {"path": "A0_IOTA_BRIDGE_DEMONSTRATOR.html", "sha256": "2a05deb4362222337123cfd3fc1c752f0e12136fbdc01248bd6a60dee29298a7"},
+    {"path": "a0-bench-navigation.css", "sha256": "524caa4f3685e5eb9bbee54099e2bd0287573f90695a2979b10499626e9dfb3c"}
+  ],
+  "tests": [
+    {"command": "node a0-bench-navigation-tests.cjs", "expected": "185/185 PASS"},
+    {"command": "node a0-body-bench-integration-tests.cjs", "expected": "54/54 PASS"}
+  ],
+  "identity_reuse": ["MOD:TESSAREC", "MOD:NUMBER_VIEW_SUITE", "NEXAH_A0_ORIENTATION_CONTROLLER_BENCH"],
+  "new_canonical_ids": [],
+  "relation_changes": [],
+  "finding_or_manuscript_effect": "NONE",
+  "boundary": "Navigation, naming and presentation only. No state transport, engine merge, shared clock, mechanism identity, Study, finding, evidence promotion, publication or authority transfer."
+}

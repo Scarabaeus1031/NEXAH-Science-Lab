@@ -21,7 +21,7 @@
       "source": "crystal-scene.js",
       "sha256": "9d7c4ff073292e0581a323ccfceac8414f4ae6fd9e66c3e1fcf453f9374c06f8",
       "copy": "assets/game-of-worlds-play/crystal-scene.js",
-      "adapted": false
+      "adapted": true
     },
     {
       "source": "cylinder-comparison.js",
@@ -102,6 +102,30 @@
       "adapted": false
     },
     {
+      "source": "vendor/three-0.147.0/three.min.js",
+      "sha256": "f34446bf875b5fb0dcd93819ffe1d9e182d46634ee855f5d904c6c4ac7cdbc95",
+      "copy": "assets/game-of-worlds-play/vendor/three-0.147.0/three.min.js",
+      "adapted": false
+    },
+    {
+      "source": "vendor/three-0.147.0/OrbitControls.js",
+      "sha256": "b4c6e53f98538535b11fd6655627d47fb5877b3ad972568bff0a7026c4b6d5c4",
+      "copy": "assets/game-of-worlds-play/vendor/three-0.147.0/OrbitControls.js",
+      "adapted": false
+    },
+    {
+      "source": "vendor/three-0.147.0/GLTFExporter.js",
+      "sha256": "7ba9cf5888ff8c11768ff805d50081c383a91ae4dbf487750065bbbeccd45077",
+      "copy": "assets/game-of-worlds-play/vendor/three-0.147.0/GLTFExporter.js",
+      "adapted": false
+    },
+    {
+      "source": "vendor/three-0.147.0/LICENSE",
+      "sha256": "fbf3943930dacbf56aabb8dc5d816440bd16aa6f4cc78ddbdf12106ee1807832",
+      "copy": "assets/game-of-worlds-play/vendor/three-0.147.0/LICENSE",
+      "adapted": false
+    },
+    {
       "source": "three-domain-transition-test/app.js",
       "sha256": "3053ebfa871e7f6193285fc8232ed4f9f206d39e3f7a0caa71634220a587dc39",
       "copy": "assets/game-of-worlds-play/three-domain-transition-test/app.js",
@@ -168,5 +192,5 @@
       "adapted": false
     }
   ],
-  "boundary": "Copied game frontends; independent clocks; no coupling of chemical, LIFE or spin operators. Original files unchanged. Vendor libraries and frozen result stay linked read-only."
+  "boundary": "Copied game frontends; independent clocks; no coupling of chemical, LIFE or spin operators. Original files unchanged. The pinned Three.js 0.147.0 runtime is copied byte-identically into the local presentation package so the Book server can resolve it; the frozen result remains linked read-only."
 }

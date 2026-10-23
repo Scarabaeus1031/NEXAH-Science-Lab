@@ -1,0 +1,48 @@
+{
+  "schema": "a0.glyph-double-cover.engineering-result/1",
+  "date": "2026-10-23",
+  "status": "PASS_GLYPH_DOUBLE_COVER_SEPARATED",
+  "authority": "FINITE_ORIENTATION_ENGINEERING_ONLY",
+  "scientific_admission": false,
+  "lab_cycle_active": false,
+  "geometry": {
+    "incoming_clock": "01:30",
+    "corner_degrees": 90,
+    "outgoing_clock": "04:30",
+    "outgoing_bearing_degrees_clockwise_from_12": 135
+  },
+  "operators": {
+    "planar_composition": "R180 * R90 = R270",
+    "transversal_flip": "Y-axis 180-degree involution",
+    "ordinary_state": "(cos(theta), sin(theta))",
+    "half_angle_state": "(cos(theta/2), sin(theta/2))"
+  },
+  "views": {
+    "front": "endpoints distinct",
+    "side": "endpoints collide"
+  },
+  "returns": {
+    "ordinary_360": "IDENTITY",
+    "half_angle_360": "ANTIPODAL",
+    "half_angle_720": "IDENTITY",
+    "half_angle_270": "NOT_RETURN"
+  },
+  "assertions": {"total": 24, "passed": 24, "failed": 0},
+  "boundary_ar": {
+    "operator": "B(a,r)",
+    "dimensions": [100, 100],
+    "phases": ["FOLD_OPEN", "RING_BOUND", "RGB_ROUTED", "RETURN"],
+    "assertions": {"total": 20, "passed": 20, "failed": 0},
+    "scale_ladder": {"DeC": [10, 10], "B_AR": [100, 100], "UHA": [1000, 1000]},
+    "field_seams": [{"fields": [10, 10], "seams_per_axis": 11}, {"fields": [12, 12], "seams_per_axis": 13}],
+    "cross_scale_identity": false
+  },
+  "source_sha256": {
+    "fixture": "ea30a2420d2aef77bb7ccbd36bcfc82440ad174dd65e0082c6e2a766a89dd6f8",
+    "tests": "75b49bd987651f6f13cf3351ee234633a4098734b6507a227dd01679e64fc696",
+    "html": "c4fefb2c751e60e1318cd1a8ec4136e960cb813b139a71313317e5d8853b8637"
+  },
+  "identity_reused": "ART:A0:MATHEMATICAL_JOINTS",
+  "navigator_graph_mutation": false,
+  "claim_boundary": "Half-angle double-cover demonstration only; no Dirac equation, particle, spin measurement, quantum mechanism or physical claim."
+}

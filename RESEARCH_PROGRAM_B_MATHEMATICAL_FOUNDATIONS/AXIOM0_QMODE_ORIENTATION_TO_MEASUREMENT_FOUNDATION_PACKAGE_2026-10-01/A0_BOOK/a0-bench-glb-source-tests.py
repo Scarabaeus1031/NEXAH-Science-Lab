@@ -35,7 +35,13 @@ for item in data['models']:
     check(len(doc.get('nodes', [])) == item['nodes'], 'nodes')
     check(len(doc.get('meshes', [])) == item['meshes'], 'meshes')
     check(len(doc.get('animations', [])) == item['animation_count'] == 0, 'no invented animation')
-    check([n.get('name') for n in doc['nodes']] == item['node_names'], 'all node names')
+    node_names = [n.get('name') for n in doc['nodes']]
+    if 'node_names' in item:
+        check(node_names == item['node_names'], 'all node names')
+    else:
+        packed_names = json.dumps(node_names, ensure_ascii=False, separators=(',', ':')).encode()
+        check(hashlib.sha256(packed_names).hexdigest() == item['node_name_sha256'], 'node-name digest')
+        check([name for name in node_names if name][:len(item['node_names_sample'])] == item['node_names_sample'], 'node-name sample')
 
 by_name = {x['file']: x for x in data['models']}
 enki = by_name['Enki_Matryoshka_Enlil_v2.glb']['node_names']

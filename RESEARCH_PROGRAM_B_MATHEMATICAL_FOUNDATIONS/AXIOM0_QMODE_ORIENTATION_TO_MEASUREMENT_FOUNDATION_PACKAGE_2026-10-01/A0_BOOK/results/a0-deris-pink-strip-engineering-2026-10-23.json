@@ -1,0 +1,54 @@
+{
+  "schema": "nexah.a0.deris-pink-strip-engineering-return/1",
+  "date": "2026-10-23",
+  "status": "IMPLEMENTED_ENGINEERING_LENS_AUTOMATED_QA_PASS_MANUAL_BROWSER_OPEN",
+  "identity": "NEXAH_A0_ORIENTATION_CONTROLLER_BENCH",
+  "navigator_lens": "SG:LENS:A0_ORIENTATION_EVIDENCE",
+  "scope": "Existing M3 source record classified by one declared event function, finite strip width and commitment length.",
+  "contract": {
+    "event_function": "g(sample)=I(sample)-observingCut",
+    "strip": "|g|<=epsilon",
+    "phases": ["HOLD", "BEFORE", "STRIP", "AFTER", "RECROSS", "COMMITTED"],
+    "epsilon_range": [0, 0.15],
+    "commitment_range_samples": [1, 12],
+    "duplicate_sample_policy": "Consecutive notifications with the same source fingerprint and cursor are ignored.",
+    "parameter_change_policy": "Changing observingCut, epsilon or commitment resets the event sequence."
+  },
+  "implementation": [
+    {"path": "a0-deris-pink-strip.js", "sha256": "eb67e07ed0fe4c42c80aa7a39a5dd3f071a94d8c200080d7f52717fddf52871b"},
+    {"path": "a0-deris-pink-strip.css", "sha256": "0511dc78cb1d10fef24c5cb720e64d847bf1af9cda6e23f3010e1734d9fd736d"},
+    {"path": "a0-deris-pink-strip-tests.cjs", "sha256": "bbc8ddc0452a23a167a5d97fd6d6f903516b8bceeab9f207fbdfe533b0dfcf73"},
+    {"path": "A0_ORIENTATION_CONTROLLER_BENCH.html", "sha256": "c41666f9d6d82e3d1e0dcc2b75a11a5b9fc2c6a17b4ff957a7c43c119a8ca75d"}
+  ],
+  "source": {
+    "path": "a0-aperture-measurement.js",
+    "sha256": "167612149cd0b84ef53a2cafc9550e2a6af63efb62e775296c092c8afb16ba45",
+    "mutated": false,
+    "owns_clock": true
+  },
+  "verification": [
+    {"command": "node a0-deris-pink-strip-tests.cjs", "status": "PASS", "checks": 40},
+    {"command": "node a0-coupled-window-tests.cjs", "status": "PASS", "checks": 332},
+    {"command": "node a0-ocb-browser-qa-tests.cjs", "status": "PASS", "checks": 31},
+    {"command": "node a0-bench-showcase-tour-tests.cjs", "status": "PASS", "checks": 85},
+    {"command": "node a0-bench-session-ledger-tests.cjs", "status": "PASS", "checks": 18},
+    {"command": "node APP/audit_app.mjs", "status": "PASS", "checks": 252},
+    {"command": "node GOVERNANCE/validate_source_graph.mjs", "status": "PASS", "components": 20, "base": "266/29", "composed": "269/32"}
+  ],
+  "open_acceptance": [
+    "Manual file-browser visual acceptance is open because the governed browser surface blocks file URLs.",
+    "The historical OCB freeze suite retains its older HTML hash and therefore correctly reports the authorized working-tree delta.",
+    "The pre-existing M3 package pin mismatch remains visible and was not silently repinned."
+  ],
+  "authority": {
+    "new_study": false,
+    "new_canonical_identity": false,
+    "new_canonical_relation": false,
+    "new_family": false,
+    "new_carrier": false,
+    "research_run": false,
+    "scientific_evidence": false,
+    "publication": false
+  },
+  "claim_boundary": "DERIS is used as a documentary and object-specific diagnostic label. The implementation does not establish a universal operator, physical transition law, shared carrier, shared clock or recovered hidden dynamics."
+}

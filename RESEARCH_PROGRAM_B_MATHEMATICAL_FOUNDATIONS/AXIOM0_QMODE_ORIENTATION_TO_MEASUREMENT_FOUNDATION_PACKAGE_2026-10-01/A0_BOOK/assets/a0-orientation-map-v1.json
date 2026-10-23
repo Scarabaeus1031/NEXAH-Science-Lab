@@ -1,29 +1,33 @@
 {
   "schema": "nexah.a0.orientation-map.local/1",
-  "date": "2026-10-18",
+  "date": "2026-10-23",
   "status": "ENGINEERING_PASS_READING_THREAD_VIEWER_BROWSER_ACCEPTANCE_OPEN",
   "entry": "A0_LIVING_BLUEPRINT.html#a0-map-home",
   "viewReuse": "A0-VIEW-LIVING-BLUEPRINT and existing A0/E8 surfaces; no new canonical identity",
   "implementationFiles": [
     {
       "path": "a0-orientation-map.js",
-      "sha256": "da94784306d9fc4c48cb76550d957af82451ebd6f74ffb0ea36487295a66e524"
+      "sha256": "dac1abf12ab1745ef96222da3885e8a17bbb1caeb59ed3c12d9d6fee7fe271aa"
     },
     {
       "path": "a0-orientation-map.css",
-      "sha256": "638e361b8e1b46c1ee363780fab57fc639554fa99d374c51be7c0b742790cf71"
+      "sha256": "c0e0c340a2c998b0adc33049dcf61b6e6ef5ca25421db78b438aab1565b5540b"
     },
     {
       "path": "a0-context-navigation.js",
-      "sha256": "586e51ae4b94df8c95d83cb08af2b8c2a9080ca5337d2788f66f0cb23346555e"
+      "sha256": "84919e39ed0a38667f5537cb00f0097e9cdb4af5830b02ffcfb9b1c73683af9c"
+    },
+    {
+      "path": "a0-context-navigation.css",
+      "sha256": "a2259576db223d5086fbe271a0ef8baa35e7d3c8bb3437d73c85aca89be32a87"
     },
     {
       "path": "A0_LIVING_BLUEPRINT.html",
-      "sha256": "ecb7c2156b25a342ca73dacb26e9dfed054960b4425862420c34f1eb882d6ec6"
+      "sha256": "3672b4403577861cedf0dfff4a1fef5c79ebd5abfa0aeb3ef9fc659da3bd7f04"
     },
     {
       "path": "A0_BUILDER_LOG.html",
-      "sha256": "f6cd6f69fefac3b56cef65c032427fd958cfb0a747fb9f717025033bc074c9ea"
+      "sha256": "05584a27e1691d01ba6521ad3bbe9c4493916af5befbdf61335b4d94a5af566e"
     },
     {
       "path": "A0_ASSET_INDEX.html",
@@ -31,11 +35,11 @@
     },
     {
       "path": "A0_ORIENTATION_CONTROLLER_BENCH.html",
-      "sha256": "918f73b54ab11f29801817334888df02bad8aa0dd1feed4e01c6a0c38e5939df"
+      "sha256": "3bb66d5addc585fb045cf34a49262d51b7f306dec1492d3a96c9e9159a92701e"
     },
     {
       "path": "A0_THEORY_STORYBOARD.html",
-      "sha256": "140408f4e1b1be1e1408579e24a468b7d8fd62be39ff2c145fa343a999d1e724"
+      "sha256": "400b70050ece032d05abf85948da2142f63f4debd4979335f2717dc28b14e867"
     },
     {
       "path": "LAB_ORIENTATION_MACHINE.html",
@@ -51,11 +55,11 @@
     },
     {
       "path": "A0_TOURS.html",
-      "sha256": "509f3df0f5125d2b14007a77f6d4e30663ee0bfb49e99b80ac0fab9501db9c03"
+      "sha256": "728f577b254c7fd33eecde94ba9033ef49d18cdf7e618e652af4ab0a09f7ea7d"
     },
     {
       "path": "a0-orientation-map-tests.cjs",
-      "sha256": "7d3dcf6b02f14c7710bf4ced04d8604ba3b0714733f8d908d7b24ac3d981a9c1"
+      "sha256": "97e0d06fb13e58b8861df640348e38576682ed686ba964215664d4a85e48e72b"
     },
     {
       "path": "a0-current-reading-tests.cjs",
@@ -67,9 +71,9 @@
     }
   ],
   "coverage": {
-    "bookPages": 64,
-    "sharedNavigationPages": 56,
-    "standalonePages": 7,
+    "bookPages": 67,
+    "sharedNavigationPages": 57,
+    "standalonePages": 9,
     "externalE8Pages": 2,
     "selectedNodes": 26,
     "documentedEdges": 30,
@@ -351,7 +355,7 @@
       "status": "link",
       "scope": "Lokale Ansichtssteuerung im selben Host",
       "proof": "assets/a0-layered-pentagon-scene-v1.json",
-      "sha256": "be31e782394e80320d9f04be24a1479976ba7ee25bc6cf7931b16769b8eb1cd1"
+      "sha256": "46afaddfc8ec4090241e9b646c7dbdedcc36a822b25d2c4a5805a62cc293c301"
     },
     {
       "from": "bench",
@@ -367,7 +371,7 @@
       "status": "link",
       "scope": "Andere Linse desselben Atlas",
       "proof": "A0_PINK_DIAMOND_GRID_ATLAS.html",
-      "sha256": "53fe4e816468ec4c7c70c31f2b557edcaff7831d59578f7e691949871fc5573c"
+      "sha256": "9b4bcbb9118ea0377e29e383d4f436685219dbc88dff7481aba8c3e16d6ed63d"
     },
     {
       "from": "crt",
@@ -383,7 +387,7 @@
       "status": "link",
       "scope": "Innenregister und Player im selben Instrument",
       "proof": "A0_TESSAREC_BLUE_BODY_LAB.html",
-      "sha256": "0813b67551f282a8ba2d3abfca8e0e22db137c6ccdfbafc51b4c7be1e8c799bc"
+      "sha256": "63e35d0bac00536958f6765d0bf8ebe1c94bd04adaa70c79243b6faf7a8068b6"
     },
     {
       "from": "body",
@@ -415,7 +419,7 @@
       "status": "link",
       "scope": "Bauabschnitt / Quellen / offene Abnahme",
       "proof": "A0_BUILDER_LOG.html#nested-lens",
-      "sha256": "f6cd6f69fefac3b56cef65c032427fd958cfb0a747fb9f717025033bc074c9ea"
+      "sha256": "05584a27e1691d01ba6521ad3bbe9c4493916af5befbdf61335b4d94a5af566e"
     },
     {
       "from": "blue",
@@ -423,7 +427,7 @@
       "status": "link",
       "scope": "Ergebnisse und offene Adapter",
       "proof": "A0_RESEARCH_DESK.html",
-      "sha256": "eddc5b175bcbb5db0658a97de227c6bb08a3bc3f10fa15af4d64ca53db3f65eb"
+      "sha256": "361f4b6a2d07382a9720a878ad0fa20444929bbae429f46e18e6f2fb6de33c07"
     },
     {
       "from": "fields",
@@ -431,7 +435,7 @@
       "status": "link",
       "scope": "Family-Lesepfad",
       "proof": "A0_FAMILY_CONNECTION_ATLAS.html#map",
-      "sha256": "b9b02a77b10c5d074f6a41185a9fd204a0139e37313a262bf5d5b06a267148da"
+      "sha256": "9e420e12ff6187cbece3988b095040d7015c2ebb5d15e42a475b19b1746e2311"
     },
     {
       "from": "story",
@@ -439,7 +443,7 @@
       "status": "link",
       "scope": "Human-/Modell-Rückbindung",
       "proof": "A0_LIVING_BLUEPRINT.html",
-      "sha256": "ecb7c2156b25a342ca73dacb26e9dfed054960b4425862420c34f1eb882d6ec6"
+      "sha256": "3672b4403577861cedf0dfff4a1fef5c79ebd5abfa0aeb3ef9fc659da3bd7f04"
     },
     {
       "from": "log",
@@ -447,7 +451,7 @@
       "status": "link",
       "scope": "Zur Gesamtkarte",
       "proof": "A0_LIVING_BLUEPRINT.html#a0-map-home",
-      "sha256": "ecb7c2156b25a342ca73dacb26e9dfed054960b4425862420c34f1eb882d6ec6"
+      "sha256": "3672b4403577861cedf0dfff4a1fef5c79ebd5abfa0aeb3ef9fc659da3bd7f04"
     },
     {
       "from": "janus",
@@ -455,7 +459,7 @@
       "status": "control",
       "scope": "Quellen-SET / STEP / MIRROR und Readback",
       "proof": "assets/a0-native-source-bank-v1.json",
-      "sha256": "85b02c9f145691206eb608dc336fbde449c7ea2e78255cd917728541b8924497"
+      "sha256": "22e7b94a2b2faa00048d0bcae5cd4b204e69e5e5bbb79e94ad1ac253619c0e34"
     },
     {
       "from": "native",
@@ -463,7 +467,7 @@
       "status": "return",
       "scope": "Checkpoint: Ansicht und Leiterindex; kein Gesamt-Return",
       "proof": "assets/a0-native-source-bank-v1.json",
-      "sha256": "85b02c9f145691206eb608dc336fbde449c7ea2e78255cd917728541b8924497"
+      "sha256": "22e7b94a2b2faa00048d0bcae5cd4b204e69e5e5bbb79e94ad1ac253619c0e34"
     },
     {
       "from": "two-cut",
@@ -471,7 +475,7 @@
       "status": "control",
       "scope": "Quellen-SET / STEP und Readback",
       "proof": "assets/a0-native-source-bank-v1.json",
-      "sha256": "85b02c9f145691206eb608dc336fbde449c7ea2e78255cd917728541b8924497"
+      "sha256": "22e7b94a2b2faa00048d0bcae5cd4b204e69e5e5bbb79e94ad1ac253619c0e34"
     },
     {
       "from": "native",
@@ -479,7 +483,7 @@
       "status": "return",
       "scope": "Checkpoint: Familie, j, n, Phase und Spur",
       "proof": "assets/a0-native-source-bank-v1.json",
-      "sha256": "85b02c9f145691206eb608dc336fbde449c7ea2e78255cd917728541b8924497"
+      "sha256": "22e7b94a2b2faa00048d0bcae5cd4b204e69e5e5bbb79e94ad1ac253619c0e34"
     },
     {
       "from": "native",
@@ -487,7 +491,7 @@
       "status": "read",
       "scope": "Typisiertes Journal, letzte Rückmeldungen; nicht simultan",
       "proof": "assets/a0-native-source-bank-v1.json",
-      "sha256": "85b02c9f145691206eb608dc336fbde449c7ea2e78255cd917728541b8924497"
+      "sha256": "22e7b94a2b2faa00048d0bcae5cd4b204e69e5e5bbb79e94ad1ac253619c0e34"
     },
     {
       "from": "layers",
@@ -503,7 +507,7 @@
       "status": "link",
       "scope": "Phasenbestand und offene Abnahme dokumentiert",
       "proof": "A0_BUILDER_LOG.html#bench-quellfuge-parked",
-      "sha256": "f6cd6f69fefac3b56cef65c032427fd958cfb0a747fb9f717025033bc074c9ea"
+      "sha256": "05584a27e1691d01ba6521ad3bbe9c4493916af5befbdf61335b4d94a5af566e"
     },
     {
       "from": "joint",
@@ -511,7 +515,7 @@
       "status": "read",
       "scope": "Integer / Primexponenten / Totient / Gap; für 1111 explizit Q4=1111 und P0/F10, P1/F26 oder P2/F42; andere Schichtkarten bleiben HOLD",
       "proof": "A0_BUILDER_LOG.html#source-seam-1111-layer-witness",
-      "sha256": "f6cd6f69fefac3b56cef65c032427fd958cfb0a747fb9f717025033bc074c9ea"
+      "sha256": "05584a27e1691d01ba6521ad3bbe9c4493916af5befbdf61335b4d94a5af566e"
     },
     {
       "from": "fold",
@@ -519,7 +523,7 @@
       "status": "control",
       "scope": "Quellen-SET / STEP / CAPTURE / RETURN einschließlich pausiertem CON–DAO-Cursor",
       "proof": "A0_BUILDER_LOG.html#source-seam-con-dao-return",
-      "sha256": "f6cd6f69fefac3b56cef65c032427fd958cfb0a747fb9f717025033bc074c9ea"
+      "sha256": "05584a27e1691d01ba6521ad3bbe9c4493916af5befbdf61335b4d94a5af566e"
     },
     {
       "from": "native",
@@ -527,7 +531,7 @@
       "status": "link",
       "scope": "Engineering-PASS, Grenzen und offene Browserabnahme",
       "proof": "A0_BUILDER_LOG.html#source-seam-con-dao-return",
-      "sha256": "f6cd6f69fefac3b56cef65c032427fd958cfb0a747fb9f717025033bc074c9ea"
+      "sha256": "05584a27e1691d01ba6521ad3bbe9c4493916af5befbdf61335b4d94a5af566e"
     },
     {
       "from": "joint",
@@ -535,7 +539,7 @@
       "status": "link",
       "scope": "Gemeinsame Lesefolge, keine ausgeführte Zustandsübergabe",
       "proof": "A0_JOINT_APPLICATION_DEMONSTRATOR.html#mechanism",
-      "sha256": "bcf361b30e9fe300b8cd50d5737c073f495521bcd00b06b11f4aa6ce82d49fb3"
+      "sha256": "4088d95201bc250ab910a491e42bc76df26c123969beac332a1ff1a1a34b610d"
     }
   ],
   "ownerReference": {
@@ -543,13 +547,13 @@
     "sha256": "181d92f0807ffb3aa7de3babdf6bd00dec1fca9ee32459da7eb28e703e4a09db",
     "role": "Conceptual reference; not an executable wiring specification, no original altered"
   },
-  "knownGovernanceBoundary": "Canonical baseline pins are not rewritten. A0 evidence binder currently reports nine hash mismatches: eight pre-existing targets plus A0_ORIENTATION_MACHINE after the explicitly requested standalone map loader was added. Only affected local implementation hashes are reconciled; canonical currentness acceptance remains open.",
+  "knownGovernanceBoundary": "Local orientation-map source pins are reconciled to the reviewed 2026-10-23 A0 working tree. This receipt remains an engineering projection: it creates no canonical identity or relation, activates no research cycle, promotes no scientific claim, and authorizes no publication.",
   "evidenceBinder": {
-    "status": "FAIL",
-    "hashMismatchCount": 9,
+    "status": "PASS",
+    "hashMismatchCount": 0,
     "newTarget": "SRC:A0OE:A0_ORIENTATION_MACHINE",
-    "reason": "Standalone orientation-machine HTML now loads the shared map; its canonical baseline was deliberately not overwritten",
-    "otherEightTargetsPreExisting": true
+    "reason": "The existing evidence target and all local source pins were reconciled after the three A0 work strands were consolidated.",
+    "otherEightTargetsPreExisting": false
   },
   "authority": {
     "newCanonicalIdentity": false,

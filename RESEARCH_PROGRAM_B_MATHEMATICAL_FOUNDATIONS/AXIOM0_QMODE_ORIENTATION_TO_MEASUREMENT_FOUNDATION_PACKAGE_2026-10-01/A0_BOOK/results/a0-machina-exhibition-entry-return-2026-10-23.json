@@ -1,0 +1,76 @@
+{
+  "schema": "nexah.a0.engineering-return/1.0.0",
+  "date": "2026-10-23",
+  "status": "ENGINEERING_NAVIGATION_ROLE_CLARITY_PASS_BROWSER_ACCEPTED",
+  "title": "THE MACHINA Exhibition Entry and Pentagon Role Map",
+  "identity_decision": {
+    "reuse": [
+      "NEXAH_A0_ORIENTATION_CONTROLLER_BENCH",
+      "FAM-009",
+      "NEXAH:A0_ORIENTATION_EVIDENCE_LINEAGE:V1"
+    ],
+    "new_canonical_ids": [],
+    "relation_changes": []
+  },
+  "routes": {
+    "default_entry": "A0_ORIENTATION_CONTROLLER_BENCH.html#benchFoyer",
+    "exhibition": "A0_ORIENTATION_CONTROLLER_BENCH.html#benchFoyer",
+    "orientation": "A0_MACHINA_COCKPIT.html#machinaCockpitTitle",
+    "models": "A0_ORIENTATION_CONTROLLER_BENCH.html#universalMachinePartsShelf",
+    "work": "A0_ORIENTATION_CONTROLLER_BENCH.html#benchWorkDesk"
+  },
+  "changes": [
+    "Werkbank THE MACHINA rail, flagship card, shared Overview and menu now lead to Exhibition by default.",
+    "Werkbank and Build Overview expose Exhibition, Cockpit, Parts and Work as distinct doors.",
+    "Pentagon Cockpit explicitly states that it is the orientation station rather than the whole Exhibition.",
+    "Pentagon Cockpit adds a four-room map, three direct machine CTAs and a five-position local role strip for 16, 17, STILL 20, 18 and 19.",
+    "Full Bench exposes Exhibition, Pentagon Cockpit, Parts Shelf and Full Bench in one persistent room rail."
+  ],
+  "verification": {
+    "static_navigation": {
+      "command": "node a0-bench-navigation-tests.cjs",
+      "status": "PASS",
+      "checks": 327
+    },
+    "bench_map": {
+      "command": "node a0-bench-map-tests.cjs",
+      "status": "PASS",
+      "checks": 310
+    },
+    "glb_source_integrity": {
+      "command": "python3 a0-bench-glb-source-tests.py",
+      "status": "PASS",
+      "checks": 220
+    },
+    "universal_machine_parts_shelf": {
+      "command": "node a0-universal-machine-parts-shelf-tests.cjs",
+      "status": "PASS",
+      "checks": 72
+    },
+    "browser_acceptance": {
+      "status": "PASS",
+      "entry_url": "http://127.0.0.1:8774/A0_WERKBANK.html?rev=machina-exhibition-entry-20261023",
+      "observed_target": "http://127.0.0.1:8774/A0_ORIENTATION_CONTROLLER_BENCH.html#benchFoyer",
+      "cockpit_url": "http://127.0.0.1:8774/A0_MACHINA_COCKPIT.html?rev=exhibition-role-map-20261023",
+      "observed": [
+        "Werkbank exposes four distinct THE MACHINA doors.",
+        "EXHIBITION opens the existing Bench foyer with three loaded source windows.",
+        "Cockpit exposes Exhibition, Orientation, Models and Work in its quick access.",
+        "Cockpit room map and five local role labels are present in accessibility output."
+      ]
+    },
+    "known_concurrent_currentness": [
+      "a0-research-desk-tests.cjs currently stops on a pre-existing concurrent A0_MATHEMATICAL_JOINTS.html hash mismatch outside this navigation change.",
+      "a0-orientation-map-tests.cjs initially detected the expected a0-context-navigation.js hash update; its local receipt pin was reconciled in this return."
+    ]
+  },
+  "file_hashes": {
+    "A0_WERKBANK.html": "d7e7f127731edc671c88df710d886213926224110ec06cde9b4700e72cae7451",
+    "A0_BENCH_ENTDECKEN.html": "fe8f9b9ba8f9b48fcc4dd5331e7a53616e23f556ea94506806ca2b122fc50a0a",
+    "A0_MACHINA_COCKPIT.html": "e1dac43df2091757bc3ad826d898b67e181f1a63352232d7c4e29bc7fd7781f6",
+    "A0_ORIENTATION_CONTROLLER_BENCH.html": "f54bdd8665bbcee96ce43a495600d55ba816fc00d06be69133330c2961466299",
+    "a0-context-navigation.js": "c7d40831b57565665c1003b3868a3b2adb29bc7660f1cff23056decc942fbdd8",
+    "a0-bench-navigation.css": "ae9769a3d63916e1a8788319315a914fff222852f4f50ec648c28d9f719dbcbd"
+  },
+  "boundary": "Engineering navigation and presentation only. No new identity, relation, evidence state, experiment, source model or mechanism claim."
+}

@@ -1,0 +1,73 @@
+{
+  "receipt_id": "A0_BLUE_BODY_TL_LASSO_TRANSVERSAL_2026_10_23",
+  "date": "2026-10-23",
+  "status": "PASS",
+  "classification": "METHOD_RELEVANT_ENGINEERING_OBSERVATION",
+  "identity": {
+    "reuse": "MOD:TESSAREC",
+    "new_navigator_identity": false,
+    "new_graph_relation": false,
+    "science_run": false,
+    "finding_promotion": false
+  },
+  "idealized_body_route": {
+    "angles_degrees": [60, 90, 90],
+    "tl_axis": 1,
+    "tl_role": "TOPOLOGICAL_LASSO",
+    "distribution_role": "TUB_OPERATOR_DISTRIBUTION",
+    "axis_count": 3,
+    "topology_claim": false,
+    "operator_claim": false
+  },
+  "mnemonic": {
+    "display": "T · EF · LO_in",
+    "expansion": "TORUS · ENVELOPE_FOLD · LOCAL_ORIENTATION_INWARD",
+    "canonical_operator": false
+  },
+  "transversal_pair": {
+    "planes": ["CONCAVE", "CONVEX"],
+    "pressure_relation": "VIEW_CONTACT_NORMAL",
+    "force_claim": false,
+    "calibration": null
+  },
+  "phase_v_mix": {
+    "phase_ordinal": 5,
+    "cut": "PINK_STRIP_GATE",
+    "deposit_units": [100, 200, 1000],
+    "rebate_percent": [10, 20, 30],
+    "credit_units": [2500, 5000, 25000],
+    "mix_ratio": [1, 2, 10],
+    "mix_total": 13,
+    "classification": "OWNER_ANALOG_VIEW",
+    "commerce_claim": false
+  },
+  "four_seam_frame": {
+    "id": "FST_PHASE_V_PURPLE_FRAME",
+    "primary": {"id":"FST","axis":1,"angle_degrees":60,"phase":"PINK_STRIP_GATE","role":"PRIMARY_FINITE_CUT"},
+    "complements": [
+      {"id":"F1","role":"ALGO_PURPLE_CO_SEAM"},
+      {"id":"F2","role":"ALGO_PURPLE_CO_SEAM"},
+      {"id":"F3","role":"ALGO_PURPLE_CO_SEAM"}
+    ],
+    "equation": "1 PRIMARY CUT + 3 PURPLE CO-SEAMS = 4-SEAM FRAME",
+    "mix_ratio": [1, 2, 10],
+    "return_role": "CO_SEAM_RETURN",
+    "classification": "FINITE_VIEW_CONTRACT",
+    "infinitesimal_claim": false,
+    "operator_claim": false
+  },
+  "address_contract": {
+    "parent": "1.111.111.111",
+    "hinge": "PINK_K90_DIAMOND",
+    "local_return": "1:8878/A0",
+    "invariant": true
+  },
+  "verification": {
+    "body_domain_suite": "53/53 PASS",
+    "spoon_lens_tl_contract": "97/97 PASS",
+    "browser_transversal_phase": "04/08 TRANSVERSAL_PAIR",
+    "browser_phase_v": "05/08 PINK_STRIP_GATE · TL 60/90/90 · TUB 3 AXES · FST + F1/F2/F3",
+    "browser_return": "08/08 RETURN · FST + 3 CO-SEAMS · RETURN PASS",
+    "browser_accepted": true
+  }
+}

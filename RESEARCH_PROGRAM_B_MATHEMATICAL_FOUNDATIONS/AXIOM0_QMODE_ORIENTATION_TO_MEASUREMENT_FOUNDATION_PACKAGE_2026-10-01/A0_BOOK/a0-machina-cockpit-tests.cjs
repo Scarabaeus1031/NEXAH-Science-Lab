@@ -1,0 +1,8 @@
+'use strict';
+const assert=require('node:assert/strict');const fs=require('node:fs');const path=require('node:path');let checks=0;
+const ok=(value,message)=>{assert.ok(value,message);checks+=1};const html=fs.readFileSync(path.join(__dirname,'A0_MACHINA_COCKPIT.html'),'utf8');const css=fs.readFileSync(path.join(__dirname,'a0-bench-navigation.css'),'utf8');
+for(const token of ['THE MΛCHINΛ','BLUE BODY','PINK BODY','TOWER','BRIDGE','CON — STILL · XX/20 — DAO','XIX = 19 · XX = 20','STILL','XX · 20','16=2⁴','18=2×3²','NEXAH_A0_ORIENTATION_CONTROLLER_BENCH'])ok(html.includes(token),`cockpit token ${token}`);
+for(const href of ['A0_WERKBANK.html','A0_TESSAREC_BLUE_BODY_LAB.html#guided-test','A0_PINK_DIAMOND_GRID_ATLAS.html#ghost-tiles','A0_TOWER_RETURN_DEMONSTRATOR.html','A0_IOTA_BRIDGE_DEMONSTRATOR.html','A0_ORIENTATION_CONTROLLER_BENCH.html#vaAvOrientationProbe','A0_ORIENTATION_CONTROLLER_BENCH.html#iota23Bridge','A0_ORIENTATION_CONTROLLER_BENCH.html#towerShellReturn','A0_ORIENTATION_CONTROLLER_BENCH.html#iotaTowerReturnMatrix']){ok(html.includes(`href="${href}"`),`route ${href}`);ok(fs.existsSync(path.join(__dirname,href.split(/[?#]/)[0])),`target exists ${href}`)}
+for(const token of ['.bench-modes','.bench-domain-grid','.machina-cockpit','.cockpit-stage','.domain-blue','.domain-pink','.domain-tower','.domain-bridge','@media(max-width:760px)'])ok(css.includes(token),`shared CSS ${token}`);
+ok(!/scientificEvidence\s*:\s*true|newIdentity\s*:\s*true|newRelation\s*:\s*true/.test(html),'no authority promotion');
+console.log(JSON.stringify({status:'PASS',checks,scope:'five source-bound Werkbank rooms and static Pentagon cockpit; no new identity, relation or scientific run'}));

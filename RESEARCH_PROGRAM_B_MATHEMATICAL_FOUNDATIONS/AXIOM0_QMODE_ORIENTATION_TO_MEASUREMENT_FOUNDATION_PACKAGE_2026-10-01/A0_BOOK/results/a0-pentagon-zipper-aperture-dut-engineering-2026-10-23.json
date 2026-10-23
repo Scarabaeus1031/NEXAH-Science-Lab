@@ -1,0 +1,54 @@
+{
+  "recordType": "A0_PENTAGON_ZIPPER_APERTURE_DUT_ENGINEERING_RETURN",
+  "recordVersion": "1.0.0",
+  "date": "2026-10-23",
+  "status": "IMPLEMENTED_SOURCE_BOUND_VIEW_PIPELINE",
+  "identity": "NEXAH_A0_ORIENTATION_CONTROLLER_BENCH",
+  "upstreamView": {
+    "id": "A0OE:PASCAL_PENTAGON_D5_TEST",
+    "role": "UPSTREAM_VIEW_PRECUT",
+    "sides": 5,
+    "rotationStepDeg": 72,
+    "status": "EXISTING_SOURCE_BOUND_VIEW",
+    "createsCarrier": false
+  },
+  "orderedPipeline": [
+    "PENTAGON_D5_PRECUT",
+    "AE_ZIPPER_LONGITUDINAL",
+    "TRANSVERSAL_PLATE",
+    "PSI_90",
+    "SCARAB_TRANSVERSE"
+  ],
+  "behavior": {
+    "manualPrecutControl": "aePentagonPrecut",
+    "coupleAutoArmsPrecut": true,
+    "coupleClosesZipper": true,
+    "coupleSelectsScarabView": "transverse",
+    "coupleSetsScarabAngleDeg": 90,
+    "resetClearsPrecut": true
+  },
+  "authority": {
+    "researchRun": false,
+    "scientificEvidence": false,
+    "newCanonicalIdentity": false,
+    "newCarrier": false,
+    "newRelation": false,
+    "newFamily": false,
+    "newStudy": false,
+    "pent08Created": false
+  },
+  "tests": [
+    {"command": "node a0-ae-zipper-boundary-tests.cjs", "status": "PASS", "checks": 85},
+    {"command": "node a0-scarab-pillar-projection-tests.cjs", "status": "PASS", "checks": 222},
+    {"command": "node a0-orientation-controller-bench-tests.cjs", "status": "PASS"},
+    {"command": "node SCIENCE_LAB/NAVIGATION/GOVERNANCE/validate_source_graph.mjs", "status": "PASS", "components": 20, "base": "266/29", "composed": "269/32"}
+  ],
+  "artifacts": [
+    {"path": "A0_ORIENTATION_CONTROLLER_BENCH.html", "sha256": "b6ff90943aeb127784776fcb7185fb64c8762e35ba3b1d979f10795efd54e41a"},
+    {"path": "a0-ae-zipper-boundary.js", "sha256": "4bd0883fac760f822397becafcea5b6b07fa3de4fdd1968dd39a1051e257e1bd"},
+    {"path": "a0-ae-zipper-boundary.css", "sha256": "cd88008a583e8423a5642519481df7d7147ac19e1b58e5f112c0e926eec9f417"},
+    {"path": "a0-ae-zipper-boundary-tests.cjs", "sha256": "6113dfee508a451f46f9a68a7130a238a4130d1974f6dbb63b554e742a9bf179"},
+    {"path": "A0_BUILDER_LOG.html", "sha256": "d241005c2dff44464edad42347e4e547725267d2d8bf2d88fb06dfdafc9e3acd"}
+  ],
+  "boundary": "The Pentagon is an upstream D5 orientation pre-cut bound to an existing source/view identity. It does not generate the zipper, candidate plate, Scarab body, or a new carrier. PSI 90 denotes a coupled transverse view only."
+}

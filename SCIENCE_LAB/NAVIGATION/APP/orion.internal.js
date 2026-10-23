@@ -3,7 +3,7 @@ window.NEXAH_ORION_CAPABILITY_EVIDENCE = {
   "schema": "nexah.navigator.orion-capability-evidence-binder/1.0.0",
   "version": "1.0.0",
   "binder_id": "NEXAH:ORION:CAPABILITY_EVIDENCE:V1",
-  "maintained": "2026-10-10",
+  "maintained": "2026-10-22",
   "status": "INTERNAL_READ_ONLY_SOURCE_BOUND_LENS",
   "title": "ORION · Capability & Evidence",
   "summary": "A source-bound view separating the certified ORION V1 core, historical implementations, Science Lab validation evidence, external interfaces and open gates.",
@@ -12,6 +12,55 @@ window.NEXAH_ORION_CAPABILITY_EVIDENCE = {
   "changes_canonical_family_count": false,
   "publication_authorized": false,
   "claim_ceiling": "This lens does not extend ORION product authority, promote Science Lab results into ORION capabilities, validate navigation or control, merge OLS with an implementation, or authorize publication.",
+  "a0_exact_structure_return_20261022": {
+    "status": "PASS_EXACT_FINITE_RECALCULATION_BOUND_TO_EXISTING_IDENTITIES",
+    "identity_reuse": [
+      "NEXAH:ORION:CAPABILITY_EVIDENCE:V1",
+      "ART:A0:MATHEMATICAL_JOINTS"
+    ],
+    "sources": [
+      "30 SCIENCE LAB/NEXAH-Science-Lab/RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/111_A0_ORION_Z777_Z3885_FINITE_STRUCTURE_RETURN_2026-10-22.md",
+      "30 SCIENCE LAB/NEXAH-Science-Lab/RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/run_orion_z777_z3885_finite_structure_return.mjs",
+      "30 SCIENCE LAB/NEXAH-Science-Lab/RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/results/a0-orion-z777-z3885-finite-structure-return-2026-10-22.json",
+      "30 SCIENCE LAB/NEXAH-Science-Lab/SCIENCE_LAB/REVIEWS/THREE_D_MODULE_ATLAS_2026-09-29/NEXAH_CODEX_LEGACY_SOURCE_REGISTER.csv"
+    ],
+    "exact_returns": [
+      "T64 on Z777: 21 fixed points and 126 six-cycles; 147 orbits",
+      "T97 on Z777: 3 fixed points, 9 two-cycles and 63 twelve-cycles; 75 orbits",
+      "T524 on Z777: 1 fixed point, 10 two-cycles and 189 four-cycles; 200 orbits",
+      "T1301 on Z3885: 5 fixed points, 50 two-cycles and 945 four-cycles; 1000 orbits",
+      "CRT: T1301 on Z3885 is T524 x identity under Z3885 ~= Z777 x Z5, giving the exact five-fold orbit lift"
+    ],
+    "method_return": "LOOK != STRUCTURE: registered carrier, operator, relation and invariant are tested independently of the visual rendering. Rainbow/color is a representation channel, not an invariant.",
+    "provenance_only": [
+      "EXP-JANUS-18D imagery and aggregate board counts without reproducible raw rows",
+      "GU-REX and GURT source-presence in NEXAH-CODEX",
+      "THOTH / Thoth's Pen as a separate Möbius-Harmonic-Crown time-frequency source axis",
+      "visual resemblance among spherical orbit drawings"
+    ],
+    "codex_provenance_axes": [
+      {
+        "axis": "GURT / Möbius–spiral–frequency vocabulary",
+        "registry_record": "NCX-0710",
+        "authority": "SOURCE_PRESENCE_ONLY_NOT_SCIENTIFIC_VALIDATION"
+      },
+      {
+        "axis": "THOTH / Thoth's Pen time-frequency spiral",
+        "registry_record": "NCX-0334",
+        "authority": "SOURCE_PRESENCE_ONLY_NOT_SCIENTIFIC_VALIDATION"
+      }
+    ],
+    "codex_axis_relation": "CONTEXTUAL_SOURCE_LINEAGE_CANDIDATE_ONLY; shared Möbius, spiral and frequency language is present, but no direct GURT-to-THOTH module reference or tested intertwiner was found.",
+    "not_promoted": [
+      "45-step early-warning advantage",
+      "cosmological or physical resonance mechanism",
+      "GU-REX/GURT/THOTH validation or identity",
+      "ORION navigation, control or intervention capability",
+      "novelty, finding, Study activation or publication"
+    ],
+    "changes_canonical_counts": false,
+    "publication_authorized": false
+  },
   "authority_chain": [
     {
       "layer": "OLS 1.0",

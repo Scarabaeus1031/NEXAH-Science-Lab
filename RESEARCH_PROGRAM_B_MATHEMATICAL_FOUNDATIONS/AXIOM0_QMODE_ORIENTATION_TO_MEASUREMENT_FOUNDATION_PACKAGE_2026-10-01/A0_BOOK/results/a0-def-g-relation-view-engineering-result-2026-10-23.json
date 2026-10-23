@@ -1,0 +1,28 @@
+{
+  "schema": "a0.def-g.engineering-result/1",
+  "date": "2026-10-23",
+  "status": "PASS_RELATION_VIEW_SEPARATED",
+  "authority": "FINITE_ENGINEERING_FIXTURE_ONLY",
+  "scientific_admission": false,
+  "lab_cycle_active": false,
+  "carrier": "Q3 = {0,1}^3",
+  "operator": "DeltaDEF = pairwise XOR + parity + Hamming weight",
+  "views": ["exact", "permuted", "weight", "look"],
+  "assertions": {"total": 108, "passed": 108, "failed": 0},
+  "controls": {
+    "view_only": "PASS",
+    "relation_mutation": "PASS",
+    "single_input_ablation": "PASS_HOLD",
+    "lossy_collision": "PASS_IDENTITY_REJECTED",
+    "typed_return": "PASS",
+    "look_shuffle": "PASS",
+    "wrong_residual": "PASS_FAIL_CLOSED"
+  },
+  "source_sha256": {
+    "fixture": "c2cc94c18042da0cbdf5dfbcd7f17159e4304e74f0065bc2a4302f6c5b9a3365",
+    "tests": "4f961aef94a564e4ffec8e34c0aefff3a8e91fd27249a7b528e58f5c04168e45",
+    "html_at_def_g_result": "04dad2b2efc7402dd80ee0f20e5b969a7c7b56581b67f7117a743d3383f81dbb",
+    "current_html_after_glyph_extension": "c7d78a5e74a25a3a9b63b92f435d6f281c022845eca95365fb6f347937c55f3f"
+  },
+  "claim_boundary": "No universal algebra, physical mechanism, GURT/THOTH bridge, scientific activation or publication authority."
+}

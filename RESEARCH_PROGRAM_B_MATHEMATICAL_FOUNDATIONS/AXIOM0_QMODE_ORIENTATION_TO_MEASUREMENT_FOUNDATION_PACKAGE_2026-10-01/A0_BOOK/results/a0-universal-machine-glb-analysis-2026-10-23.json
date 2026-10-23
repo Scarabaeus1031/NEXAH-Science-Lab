@@ -1,0 +1,56 @@
+{
+  "record_id": "A0-UNIVERSAL-MACHINE-GLB-ANALYSIS-2026-10-23",
+  "record_kind": "READ_ONLY_SOURCE_CENSUS",
+  "identity_effect": "REUSE_FAM_009_NO_NEW_IDENTITY",
+  "family_id": "FAM-009",
+  "family_status": "HISTORICAL_STAGING",
+  "scientific_run": false,
+  "canonical_promotion": false,
+  "destructive_action": false,
+  "scope": {
+    "current_recursive_files": 224,
+    "historical_register_rows": 75,
+    "historical_glb_paths": 51,
+    "historical_stl_paths": 24,
+    "valid_top_level_glbs": 50,
+    "invalid_nested_glb_placeholders": 1,
+    "unique_valid_glb_payloads": 45,
+    "valid_glb_bytes": 42361700,
+    "nodes": 14152,
+    "meshes": 14102,
+    "primitives": 14102,
+    "native_animations": 0,
+    "native_cameras": 0,
+    "native_skins": 0,
+    "with_vertex_colors": 37,
+    "with_materials": 8,
+    "with_textures": 1,
+    "with_normals": 0
+  },
+  "working_series": {
+    "clockwork_orbit": 12,
+    "wheels_nested_matroschka": 9,
+    "flip_breath_wobble": 7,
+    "resonance_cross": 5,
+    "spiral": 4,
+    "portal_gate": 3,
+    "field_tessarec": 2,
+    "grid_panel": 2,
+    "other_museum": 6
+  },
+  "exact_duplicate_groups": [
+    ["universal_clockwork_codex_orbit_dual.glb", "universal_clockwork_codex_orbit_dual_Observers.glb"],
+    ["universal_clockwork_codex_orbit_dual_codex.glb", "universal_clockwork_codex_orbit_dual_codex2.glb"],
+    ["universal_clockwork_codex_orbit_dual_cosmic.glb", "universal_clockwork_codex_orbit_dual_cosmic_Observers 9X.glb"],
+    ["universal_clockwork_with_volume.glb", "universal_clockwork_with_volume2.glb"],
+    ["universal_spiral_field_art.glb", "universal_spiral_field_art copy.glb"]
+  ],
+  "viewer_findings": [
+    "sorting_wheel_animated_viewer.html supplies JavaScript motion to a static GLB",
+    "view_orbit.html references an absent Universal_FieldArt_Orbit.glb",
+    "view_tessarec_fold_v2.html references an absent Universal_FieldArt_TessarecFold_v2.glb",
+    "the nested sorting-wheel viewer resolves to a 28-byte placeholder while a valid payload exists one directory above",
+    "museum_navigation_manifest.json declares an assembly plan with unresolved wall components"
+  ],
+  "boundary": "Filename similarity, visual similarity and shared family placement do not establish identity, chronology, scientific equivalence or a safe deletion decision."
+}

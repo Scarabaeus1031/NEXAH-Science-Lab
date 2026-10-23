@@ -2220,3 +2220,142 @@ Status:
 `ENGINEERING_RETURN / EDITORIAL_CROSSWALK / VISUAL_ACCEPTANCE_OPEN /
 NO_NEW_F_A0 / NO_STUDY / NO_PUBLICATION / NO_MECHANISM_CLAIM`.
 
+<a id="bench-workdesk-binder-return-20261023"></a>
+### 2026-10-23 — Bench Workdesk / Binder-Audit zurückgebunden
+
+Der bestehende Orientation Controller Bench führt drei bereits definierte
+Lesepfade in einem vorderen Arbeitsplatz zusammen. Grundlage ist der reale
+Controller-Mount im bestehenden Binder-Integrationstest, nicht ein behaupteter
+Live-Browserzustand. Im reproduzierten Startfixture stehen M3→Stack auf
+`FOLLOWING`, Ihara→Visual 1 auf `CONNECTED` und Player→Pascal mangels
+Quellenreceipt auf `HOLD`: `2/3`. Nach einem gültigen Player-Receipt zeigt
+dasselbe Fixture `3/3`, ohne Quelle zu starten, PLAY auszulösen oder eine neue
+Uhr einzuführen.
+
+Der Audit belegt damit einen begrenzten Engineering-Sachverhalt: drei getrennte
+Verträge können in einer gemeinsamen Bedienoberfläche gelesen, nach Ursache
+klassifiziert und mit einem nächsten Schritt versehen werden. Er belegt keinen
+gemeinsamen Operator, keinen wissenschaftlichen Lauf und keinen
+Gesamtmaschinen-Return. ONE PULSE bleibt ein expliziter Verbindungsweg; es gibt
+kein Autoplay.
+
+Belege und Rückwege:
+
+- [Science Desk — sichtbarer Engineering-Return](A0_BOOK/A0_RESEARCH_DESK.html#bench-workdesk-binder-return-20261023)
+- [Builder Log — Bau- und Testumfang](A0_BOOK/A0_BUILDER_LOG.html#club-control-return-20261022)
+- [Maschinenlesbarer Audit](A0_BOOK/results/a0-bench-workdesk-audit-return-2026-10-22.json)
+- [Findings-/Paper-Workspace — dokumentarisches Routing](32_A0_FINDINGS_AND_PAPER_WORKSPACE_2026-10-11.md#bench-workdesk-binder-return-20261023)
+
+Die dokumentierten Prüfungen umfassen Workdesk `53`, Binder `202`,
+Pulse-Bridge `579`, Pulse-Session `511`, Pulse-Modell `109`, Tower `27 398`,
+Club-Navigation `27`, Foyer `59`, Walk `133`, Carrier-Return `124 166`,
+Ghost-Address `124 015`, Source Graph `PASS` mit 20 Komponenten und
+`266/29 → 269/32` sowie App-Audit `252`. Diese Zahlen sind Software- und
+Quellenprüfungen; tatsächliches ONE-PULSE-Verbinden im Browser und unabhängige
+Human-Abnahme bleiben offen. ANU-Eingang/-Transport, Plate-/Glyph-Mapping und
+Root-Room-Tower-Operator bleiben null/offen.
+
+Status:
+`ENGINEERING_RETURN / DOCUMENTARY_ONLY / BROWSER_ACCEPTANCE_OPEN /
+NO_NEW_F_A0 / NO_PAPER_CHANGE / NO_STUDY / NO_PUBLICATION`.
+
+<a id="bench-joint-doings-findings-return-20261023"></a>
+### 2026-10-23 — Zwei Fäden, ein typisierter Bench-/Joint-Return
+
+Zwei parallel geführte Engineering-Fäden sind gemeinsam an den bestehenden
+A0 Science Desk zurückgegeben, ohne ihre Quellen, Basen oder Operatoren zu
+vereinheitlichen.
+
+Der erste Faden bindet die vorhandenen Three-Domain-Arcade-Ledger lesend an
+den Paper-Boat Return D.U.T. Chemistry, Life und Physics bleiben getrennte
+Carrier; je Carrier werden `C00`, `C01`, `C10` und `C11`, Partition,
+Marginals und der vollständige `3x4`-Fingerprint bei Stage 1 eingefroren und
+bei `720°` erneut verglichen. Ansichtsrotation verändert keine Recordwerte.
+
+Der zweite Faden setzt hinter den Mouse/Cut Scanner einen Owner-benannten
+`TL Final Pin`. Ein belegtes Sample und der Zustand `PINNED_2_TO_1` erzeugen
+ein lokales Receipt. Die vorhandene D°G-/OS-11-Schleife liest daraufhin nur
+die Rollenfolge `TOWER / SHAFT -> SHARED APERTURE -> SHELL / UNDER-TOWER
+RETURN`. `OPEN` oder `GAP` bleiben `HOLD`. Der Handoff verändert weder
+D°G-Uhr noch Loopindex, Zahnzahl oder Samplingbasis.
+
+#### Doings
+
+- read-only Three-Domain-Request/Record-Transport und normalisierter `3x4`-
+  Adapter;
+- sechsphasiger Paper-Boat-Capture-/Projection-/Return-D.U.T.;
+- scannergebundener `2:1` Final Pin mit `2/3+1/3=1` als reiner
+  Ansichtsgewichtung;
+- typisierter Final-Pin-Handoff zur gemeinsamen D°G-Apertur;
+- Science-Desk-, Numbermagick-, Builder-Log-, Findings- und
+  Navigator-Rückwege;
+- maschinenlesbarer gemeinsamer Return mit Hash- und Anchor-Prüfung.
+
+#### Findings im zulässigen Engineering-Sinn
+
+1. Ein eingefrorener Record kann bei veränderter Projektion exakt
+   zurückgeprüft werden, wenn Object-/Recordwerte von Screen-/Pathwerten
+   getrennt bleiben.
+2. Ein typisiertes Zustandsreceipt kann zwei Instrumente koppeln, ohne ihre
+   Adressräume gleichzusetzen.
+3. `q17` bleibt verschieden von `OS-11 / N=18`; es gibt keine belegte
+   `17 -> 18`-Basistranslation.
+4. `2:1` als Ansichtsgewicht ist nicht die separate `1:2:1`-Projektionsfaser
+   und nicht der formale Pascal-Operator `TL(a,b,d,q)`.
+5. `D5 != D6 != 11x11 != 7x11`; exakte Shell-/Zellzahlen erzeugen keine
+   Carrier-Identität.
+
+Prüfstand: Adapter `29/29`, Paper-Boat `89/89`, isolierter Desk-Return
+`47/47`, Final Pin `52/52`, D°G `56/56`, Mouse/Cut `137/137`, Scarab
+`234/234`, Bench `8109/8109`, Tool Catalog `211/211`, Browservertrag
+`31/31`, Source Graph `269/32` und Navigator-App `252/252 PASS`. Die
+Live-DOM-Abnahme zeigte `ACCEPTED · q01 · TOWER -> APERTURE -> SHELL`.
+
+Rückwege:
+
+- [Science Desk — Doings / Findings](A0_BOOK/A0_RESEARCH_DESK.html#bench-joint-doings-findings-return-20261023)
+- [Numbermagick — begrenzte Zahlen-/Glyphenlesung](A0_BOOK/A0_NUMBERMAGICK_GRID_RESEARCH.html#tl-final-pin-numbermagick-return-20261023)
+- [Builder Log — typisierte Aperturübergabe](A0_BOOK/A0_BUILDER_LOG.html#tl-final-pin-dg-handoff-20261023)
+- [Findings/Paper — Disposition](32_A0_FINDINGS_AND_PAPER_WORKSPACE_2026-10-11.md#bench-joint-findings-return-20261023)
+- [Machine Return](A0_BOOK/results/a0-bench-joint-doings-findings-return-2026-10-23.json)
+
+Status:
+`ENGINEERING_RETURN / IMPLEMENTATION_FINDINGS_ONLY / NO_NEW_F_A0 /
+NO_PAPER_CLAIM_CHANGE / NO_STUDY / NO_PUBLICATION`. Die lange lokale Bench
+lieferte einen eindeutigen DOM-Status, aber keine brauchbare Screenshotfläche;
+unabhängige Human-/Pixel-Abnahme bleibt offen.
+
+<a id="look-again-perception-game-20261023"></a>
+### 2026-10-23 — LOOK AGAIN · kontrollierter View-Change vor jedem Human-Record
+
+Die bestehende Universal-Ring-Apertur der Orientation Controller Bench wurde
+als begrenztes Wahrnehmungsspiel rückgebunden. Identität und Quelle bleiben
+`FAM-009 / HISTORICAL_STAGING`; die ausführende Oberfläche bleibt
+`NEXAH_A0_ORIENTATION_CONTROLLER_BENCH`. Es entsteht weder eine neue Family
+noch ein neuer Navigator-Knoten oder eine kanonische Relation.
+
+Protokoll pro Runde:
+
+1. einen vorab fixierten, statischen Quell-/View-Zustand anzeigen;
+2. genau einen benannten Parameter verändern;
+3. die zweite statische Ansicht anzeigen;
+4. wahrgenommene Figur und Sicherheit lokal markieren;
+5. Delta und lokalen Record getrennt halten und zum nächsten Vergleich gehen.
+
+Die fünf Deltas sind Phase, radialer Maßstab, Display-Abtastung, Apertur und
+Ringdichte. Der Browser sendet keine Antworten und persistiert sie nicht. Ein
+Download wird nur durch ausdrückliche Nutzeraktion erzeugt. Es gibt keinen
+Score, keine Normgruppe und keine Diagnose.
+
+Sicherheitsgrenze: kein Autoplay, kein Blitzen, kein Vollbildzwang; die
+separate langsame Drift startet nur auf Wunsch. Bei Unwohlsein, Migränegefühl
+oder visueller Belastung ist die Betrachtung sofort zu beenden.
+
+Rückwege: [Science Desk](A0_BOOK/A0_RESEARCH_DESK.html#look-again-perception-game-return-20261023),
+[Builder Log](A0_BOOK/A0_BUILDER_LOG.html#look-again-perception-game-20261023),
+[Findings-Triage](32_A0_FINDINGS_AND_PAPER_WORKSPACE_2026-10-11.md#look-again-perception-game-20261023)
+und [Machine Return](A0_BOOK/results/a0-look-again-perception-game-return-2026-10-23.json).
+
+Status: `ENGINEERING_EXPERIENCE / SOURCE_BOUND / LOCAL_RECORD_ONLY /
+NO_NEW_F_A0 / NO_STUDY / NO_DIAGNOSIS / NO_PUBLICATION`.
+

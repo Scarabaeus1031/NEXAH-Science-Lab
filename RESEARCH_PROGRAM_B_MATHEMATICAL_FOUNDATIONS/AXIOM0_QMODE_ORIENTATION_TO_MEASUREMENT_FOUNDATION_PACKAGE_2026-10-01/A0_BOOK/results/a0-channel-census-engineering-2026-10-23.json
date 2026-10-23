@@ -1,0 +1,63 @@
+{
+  "schema": "nexah.a0.channel-census-engineering-return/1",
+  "date": "2026-10-23",
+  "identity": "NEXAH_A0_ORIENTATION_CONTROLLER_BENCH",
+  "status": "PASS_BOUNDED_ENGINEERING_CENSUS",
+  "model_checks": "51/51 PASS",
+  "generated_counters": {
+    "session_ledger": {
+      "value": 18,
+      "equation": "1+2+3+1+1+5+2+1+2=18"
+    },
+    "bench_tour": {
+      "value": 85,
+      "equation": "56 target bindings + 29 station/state/shell checks = 85"
+    },
+    "navigator_app_audit": {
+      "value": 252,
+      "equation": "252 explicit predicates"
+    },
+    "html_coverage": {
+      "value": 252,
+      "equation": "252 catalogued / 252 covered"
+    },
+    "coupled_window": {
+      "value": 332,
+      "equation": "13+(8+90*3)+3+28+10=332"
+    }
+  },
+  "cross_ledger_exact": [
+    "14*18=252",
+    "252=3*84",
+    "332=4*83",
+    "332-252=80"
+  ],
+  "candidate": {
+    "rule": "a(k)=k(87-k)",
+    "products_k_1_to_5": [86, 170, 252, 332, 410],
+    "first_differences": [84, 82, 80, 78],
+    "typed_170_record": true,
+    "typed_170_source": "Navigator Internal v1 frozen entity population",
+    "typed_170_compatible": false,
+    "classification": "CANDIDATE_PATTERN_TYPED_170_ROLE_MISMATCH",
+    "sequence_established": false
+  },
+  "source_scan_scope": [
+    "a0-bench-session-ledger-tests.cjs",
+    "a0-bench-showcase-tour-tests.cjs",
+    "a0-coupled-window-tests.cjs",
+    "SCIENCE_LAB/NAVIGATION/APP/audit_app.mjs",
+    "SCIENCE_LAB/NAVIGATION/HTML_CURATION_COVERAGE_2026-10-06.md"
+  ],
+  "typed_170_audit": "16/16 PASS · located frozen 170 entity/rejection records; role, generator and currentness mismatch",
+  "stop_rule": "Do not promote the 87 ladder: the located frozen 170 counts Navigator entities, while 252 and 332 count audit, coverage or test predicates under different generators.",
+  "authority": {
+    "research_run": false,
+    "scientific_evidence": false,
+    "new_identity": false,
+    "new_relation": false,
+    "new_family": false,
+    "new_study": false,
+    "publication_authorized": false
+  }
+}

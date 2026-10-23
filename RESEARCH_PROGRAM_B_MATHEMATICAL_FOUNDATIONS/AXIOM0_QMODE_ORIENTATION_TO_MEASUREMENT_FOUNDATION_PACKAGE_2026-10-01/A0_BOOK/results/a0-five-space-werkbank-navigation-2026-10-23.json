@@ -1,0 +1,30 @@
+{
+  "schema": "nexah.a0.five-space-werkbank-navigation/1",
+  "date": "2026-10-23",
+  "status": "ENGINEERING_NAVIGATION_PASS",
+  "identity_reuse": ["NEXAH_A0_ORIENTATION_CONTROLLER_BENCH", "MOD:TESSAREC"],
+  "spaces": [
+    {"label": "THE MACHINA", "route": "A0_MACHINA_COCKPIT.html", "role": "PENTAGON_COCKPIT"},
+    {"label": "BLUE BODY", "route": "A0_TESSAREC_BLUE_BODY_LAB.html#guided-test", "role": "EXISTING_BODY_AND_STATE_INSTRUMENT"},
+    {"label": "PINK BODY", "route": "A0_PINK_DIAMOND_GRID_ATLAS.html#ghost-tiles", "role": "EXISTING_GRID_AND_JOINT_INSTRUMENT"},
+    {"label": "TOWER", "route": "A0_TOWER_RETURN_DEMONSTRATOR.html", "role": "SOURCE_BOUND_RETURN_VIEW"},
+    {"label": "BRIDGE", "route": "A0_IOTA_BRIDGE_DEMONSTRATOR.html", "role": "SOURCE_BOUND_SCHEDULE_VIEW"}
+  ],
+  "cockpit_contract": {
+    "left": ["16_POWER_DOWN", "17_PRIME"],
+    "right": ["18_COMPOSITE", "19_PRIME_UP"],
+    "center": "STILL_XX_20",
+    "horizontal_reading": "CON_STILL_DAO",
+    "notation_boundary": "X is the declared cross-axis symbol; XIX is 19 and XX is 20 when read as Roman numerals."
+  },
+  "work_modes": ["DISCOVER", "WORK", "SOURCES_AND_CHECKS"],
+  "tests": {"cockpit": "40/40 PASS", "navigation": "167/167 PASS", "bridge_tower": "57/57 PASS"},
+  "sources": [
+    {"path": "A0_MACHINA_COCKPIT.html", "sha256": "dde31e4317c7aa9d7a2b89b2abae72656428a7758b98a0f2ad7cdae43af5872e"},
+    {"path": "A0_WERKBANK.html", "sha256": "05c365402fbb4cdee56ef265bb04a80f67237e4db3bb78cb35cceca7f581749d"},
+    {"path": "a0-bench-navigation.css", "sha256": "de4eb8b556713bc4441fee53087243c86f9613fa4d13d91ad84d71782fece7b8"},
+    {"path": "a0-context-navigation.js", "sha256": "54c598736672803c1b14c32a8856361d18068eacf6b9ccc86d396618906fac6b"}
+  ],
+  "authority": {"new_global_ids": [], "new_relations": [], "research_run": false, "scientific_evidence": false, "claim_promotion": false},
+  "boundary": "The five spaces are source-bound navigation roles over existing instruments. Adjacency, colour and cockpit placement do not assert a shared mechanism, carrier, clock, family or scientific identity."
+}

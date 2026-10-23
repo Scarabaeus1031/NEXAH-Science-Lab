@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>LOOK AGAIN · A0 Human Game</title>
+  <meta name="description" content="Fünf kurze Wahrnehmungsvergleiche mit derselben Ringquelle. Kein Score, kein Sehtest.">
+  <link rel="stylesheet" href="a0-look-again-game.css?rev=20261023-r2">
+  <link rel="stylesheet" href="a0-look-again-play.css?rev=20261023-r3">
+</head>
+<body>
+  <a class="play-close" href="A0_NEXAH_APERTURE_JOURNEY.html#look-again-room" aria-label="LOOK AGAIN schließen und zur Human View zurückkehren">×</a>
+
+  <main>
+    <header class="play-intro">
+      <div><small>ROOM 00 · A HUMAN GAME</small><h1>LOOK<br>AGAIN.</h1></div>
+      <p>Eine Quelle. Eine sichtbare Änderung. Fünf kurze Runden. Schau zuerst — und dann noch einmal.</p>
+      <span>NO SCORE · NO TEST</span>
+    </header>
+
+    <section id="universalRingAperture" class="look-visual" data-source-family="FAM-009" data-source-status="HISTORICAL_STAGING" aria-label="Look Again Ringbild">
+      <div class="look-visual__stage"><canvas role="img" aria-label="Zwei feine Ringfelder bilden ein sichtbares Großmuster"></canvas><span class="look-visual__focus" aria-hidden="true"></span><b>LOOK</b></div>
+      <div class="look-engine" hidden aria-hidden="true">
+        <input id="uraRings" type="range" min="48" max="520" value="220"><output id="uraRingsOut">220</output>
+        <input id="uraPhase" type="range" min="-3" max="3" value="0.34" step="0.01"><output id="uraPhaseOut">0.34°</output>
+        <input id="uraScale" type="range" min="0.985" max="1.015" value="1.004" step="0.0001"><output id="uraScaleOut">1.0040</output>
+        <input id="uraAperture" type="range" min="0.35" max="1" value="0.86" step="0.01"><output id="uraApertureOut">86%</output>
+        <input id="uraSample" type="range" min="0.5" max="2" value="1" step="0.25"><output id="uraSampleOut">1.00×</output>
+        <button type="button" data-ura-palette="orange" aria-pressed="true">Orange</button><button type="button" data-ura-palette="purple" aria-pressed="false">Lila</button><button type="button" data-ura-palette="cyan" aria-pressed="false">Cyan</button>
+        <button id="uraPlay" type="button" aria-pressed="false">Play</button><button id="uraReset" type="button">Reset</button>
+        <output id="uraBeatOut"></output><output id="uraSamplesOut"></output>
+      </div>
+      <output id="uraStatus" class="look-visual__status" role="status" aria-live="polite">PAUSED · ORANGE · SOURCE LINES 220 · DISPLAY SAMPLES 220</output>
+    </section>
+
+    <section id="lookAgainGame" class="look-again" data-phase="ready" aria-labelledby="lookAgainTitle">
+      <div class="look-again-head"><div><small class="ura-label">FIVE DECLARED CHANGES · YOUR VIEW</small><h2 id="lookAgainTitle">Was siehst du?</h2><p>Erst schauen. Dann genau eine Änderung zeigen. Danach hältst du nur deinen Eindruck fest.</p></div><span class="look-again-stage" data-look-stage>READY</span></div>
+      <div class="look-again-body">
+        <div class="look-again-prompt"><div class="look-again-round" data-look-round>5 RUNDEN · STATISCH</div><p class="look-again-question" data-look-question>Fünf kurze Vergleiche. Es gibt keine richtige Figur.</p><output class="look-again-status" data-look-status role="status" aria-live="polite">Bereit. Nichts startet ohne dich.</output><div class="look-again-actions"><button id="lookStart" type="button">LOOK · Spiel starten</button><button id="lookReveal" type="button" disabled>LOOK AGAIN · Änderung zeigen</button><button id="lookRecord" type="button" disabled>MARK · Eindruck halten</button><button id="lookRestart" type="button" hidden>Noch einmal</button><button id="lookExport" type="button" hidden>Meinen lokalen Record laden</button></div></div>
+        <div class="look-again-record"><div class="look-again-shapes" aria-label="Welche sichtbare Figur bemerkst du?"><button type="button" data-look-shape="Ringe" disabled>Ringe</button><button type="button" data-look-shape="Welle" disabled>Welle</button><button type="button" data-look-shape="Stern / Blüte" disabled>Stern / Blüte</button><button type="button" data-look-shape="Tiefe / Trichter" disabled>Tiefe / Trichter</button><button type="button" data-look-shape="Drift / Bewegung" disabled>Drift / Bewegung</button><button type="button" data-look-shape="Keine klare Figur" disabled>Keine klare Figur</button></div><label class="look-again-confidence">Wie sicher bist du? · <output id="lookConfidenceOut">3</output>/5<input id="lookConfidence" type="range" min="1" max="5" step="1" value="3"></label><div class="look-again-summary" data-look-summary></div></div>
+      </div>
+      <p class="look-again-boundary"><b>Pause, wenn es unangenehm wird.</b> LOOK AGAIN ist ein Wahrnehmungsspiel — kein Sehtest, keine Norm und keine Diagnose.</p>
+    </section>
+
+    <nav class="play-return" aria-label="Nach Look Again"><a href="A0_NEXAH_APERTURE_JOURNEY.html#look-again-room">Human View</a><span>·</span><a href="A0_PINK_DIAMOND_GRID_ATLAS.html?origin=human&amp;play=1#diamond-lens">Diamond Lens</a></nav>
+  </main>
+
+  <script src="a0-universal-ring-aperture.js?rev=20261023-r2"></script>
+  <script src="a0-look-again-game.js?rev=20261023-r2"></script>
+  <script>
+    window.A0LookAgainAperture=window.A0UniversalRingAperture.mount(document);
+    window.A0LookAgainGameController=window.A0LookAgainGame.mount(document,window.A0LookAgainAperture);
+  </script>
+</body>
+</html>

@@ -1,0 +1,68 @@
+{
+  "schema": "nexah.a0.1729-root5-crosswalk-receipt/1",
+  "version": "1.0.0",
+  "date": "2026-10-23",
+  "identity": "NEXAH_A0_ORIENTATION_CONTROLLER_BENCH",
+  "classification": "METHOD_RELEVANT_ENGINEERING_OBSERVATION",
+  "status": "PASS",
+  "layers": {
+    "arithmetic": {
+      "value": 1729,
+      "primeFactors": [7, 13, 19],
+      "product": 1729,
+      "taxicab": ["1^3 + 12^3 = 1729", "9^3 + 10^3 = 1729"]
+    },
+    "address": {
+      "display": "17|29",
+      "operation": "DIGIT_ADDRESS_SPLIT",
+      "factorization": false
+    },
+    "historicalTrigger": {
+      "controller": "v29_root_cube_navigation_controller.py",
+      "declaredTitle": "NEXAH v29 – 5×17 Prime Trigger + Full Möbius Rotation",
+      "triggerLiteral": 0.0085,
+      "derivationFrom1729": false,
+      "closureVisual": "ramanujan_final_closure_v4.9.py",
+      "closureCenterLabel": "17-29-5 / 1729 HIDY"
+    },
+    "geometricMask": {
+      "fixtureStatus": "DOCUMENTARY_TRANSCRIPTION_NOT_FORMULA",
+      "root5": {"shape": "5×5", "17": [{"row": 4, "col": 4}], "29": []},
+      "root7": {"shape": "7×6", "17": [{"row": 3, "col": 3}], "29": [{"row": 4, "col": 4}, {"row": 5, "col": 1}]},
+      "closureMask": {"pentagonalHarmonic": 5, "heptagonalFrame": 7, "radialBelts": 12},
+      "interpretation": "GEOMETRIC_MASK_NOT_ROOT_EXTRACTION"
+    }
+  },
+  "audit": {
+    "arithmeticPass": true,
+    "maskPass": true,
+    "controlsPass": true,
+    "neighborPass": true,
+    "neighbors": {
+      "cases": [
+        {"value": 1728, "factors": [2, 2, 2, 2, 2, 2, 3, 3, 3], "address": "17|28", "positiveCubePairs": [], "hasTwoPositiveCubePairs": false, "divisibleBy5": false, "historicalCenterLabelMatch": false},
+        {"value": 1729, "factors": [7, 13, 19], "address": "17|29", "positiveCubePairs": [{"a": 1, "b": 12}, {"a": 9, "b": 10}], "hasTwoPositiveCubePairs": true, "divisibleBy5": false, "historicalCenterLabelMatch": true},
+        {"value": 1730, "factors": [2, 5, 173], "address": "17|30", "positiveCubePairs": [], "hasTwoPositiveCubePairs": false, "divisibleBy5": true, "historicalCenterLabelMatch": false}
+      ],
+      "pass": true,
+      "conclusion": "1729 is isolated by the declared positive-cube-pair and historical-label tests; address splitting and geometric masking remain available display operations for all three values and are not promoted by the arithmetic result."
+    },
+    "negativeControls": {
+      "fiveIsNotFactor": true,
+      "fifthRootIsNotInteger": true,
+      "addressIsNotFactorization": true,
+      "triggerIsNotDerivedFrom1729": true,
+      "maskIsNotMechanism": true
+    }
+  },
+  "authority": {
+    "researchRun": false,
+    "scientificEvidence": false,
+    "newIdentity": false,
+    "newRelation": false,
+    "newCarrier": false,
+    "newOperator": false,
+    "claimPromotion": false
+  },
+  "boundary": "Typed crosswalk only. Exact arithmetic, digit address, historical engineering parameter and geometric mask retain separate provenance; proximity does not establish derivation, identity, mechanism or physical law."
+}

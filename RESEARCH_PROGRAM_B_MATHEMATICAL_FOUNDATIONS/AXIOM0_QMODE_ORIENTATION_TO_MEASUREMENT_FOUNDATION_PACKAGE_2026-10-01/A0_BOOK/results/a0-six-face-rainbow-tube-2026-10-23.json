@@ -1,0 +1,67 @@
+{
+  "schema": "nexah.a0.six-face-rainbow-tube.static-receipt/1",
+  "date": "2026-10-23",
+  "status": "PASS",
+  "identity": "NEXAH_A0_ORIENTATION_CONTROLLER_BENCH",
+  "classification": "BOUNDED_FINITE_CUBE_PERMUTATION_VIEW",
+  "carrier": {"axis_pairs": 3, "faces": 6, "facelets_per_face": 9, "facelets": 54, "centers": 6, "edge_stickers": 24, "corner_stickers": 24},
+  "operator": {
+    "word": ["R", "U", "R'", "U'"],
+    "role": "finite commutator / pretzel transition",
+    "trapdoor": "LOCAL_FACELET_2",
+    "requires_bijection": true,
+    "requires_inverse_return": true,
+    "requires_color_counts": {"U": 9, "D": 9, "L": 9, "R": 9, "F": 9, "B": 9},
+    "gold_diagonal": {
+      "word": ["R", "F", "L", "U'"],
+      "inverse": ["U", "L'", "F'", "R'"],
+      "quarter_turn_length": 4,
+      "shortest_word_bfs": true,
+      "address_cycle": ["D2", "B2", "R2", "D2"],
+      "marker_closure_after_applications": 3,
+      "whole_cube_closed_after_three": false,
+      "whole_cube_order": 168,
+      "inverse_return": true,
+      "classification": "EXACT_PROJECTED_MARKER_CYCLE_WITH_VISIBLE_WHOLE_CUBE_RESIDUAL"
+    },
+    "two_to_one": {
+      "contract": "2_TO_1_TO_2",
+      "pink_address": "R2",
+      "gold": {"word": ["R", "F", "L", "U'"], "applications": 3, "quarter_turns": 12, "marker_returned": true, "carrier_returned_at_join": false, "inverse_returned": true},
+      "algo": {"word": ["R", "U", "R'", "U'"], "applications": 6, "quarter_turns": 24, "marker_returned": true, "carrier_returned_at_join": true, "inverse_returned": true},
+      "join": {"same_pink_address": true, "address_gate": "MATCH", "carrier_gate": "HOLD"},
+      "split": {"gold_receipt": true, "algo_receipt": true, "independent_receipts": true},
+      "classification": "EXACT_SHARED_ADDRESS_MATCH_WITH_SEPARATE_CARRIER_RETURNS"
+    },
+    "split_reading": {
+      "source": "2-3-1",
+      "cuts": [
+        {"expression": "(23)-1", "result": 22},
+        {"expression": "2-(31)", "result": -29}
+      ],
+      "prime_index_projection": {
+        "values": [23, 31],
+        "indices": [9, 11],
+        "address": "9|11",
+        "power_read": "3^2|11",
+        "owner_label": "T9|11",
+        "compact_owner_label": "T911",
+        "multiplication_value": 99
+      },
+      "boundary": "T9|11 and T911 are address labels. 3^2|11 retains its separator; only an explicitly declared multiplication reads 3^2*11=99."
+    }
+  },
+  "view_crosswalk": [
+    {"order": 1, "anchor": "sixFaceRainbowTube", "role": "TUBE"},
+    {"order": 2, "anchor": "double18RatchetBridge", "role": "ORANGE_FLOOR"},
+    {"order": 3, "anchor": "benchPerspectiveDeck", "role": "INTERIOR_RIGHT_COUNTERVIEW"},
+    {"order": 4, "anchor": "caroOrientationModes", "role": "ORIENTATION"},
+    {"order": "CUT", "anchor": "statePanel", "role": "ARITHMETIC_CUT_23_MINUS_1_OR_2_MINUS_31_WITH_SEPARATE_RHOMBUS_HEART_LINK"}
+  ],
+  "bindings": ["NEXAH_A0_ORIENTATION_CONTROLLER_BENCH", "SG:LENS:ILAU_ORIENTATION", "ART:TESSAREC:BLOCK01_CUBE_LAB"],
+  "new_canonical_ids": [],
+  "relation_changes": [],
+  "view_roles": {"L": "PUSHED", "R": "COILED"},
+  "authority": {"research_run": false, "scientific_evidence": false, "new_identity": false, "new_relation": false, "canonical_rubik_model": false, "physical_tube": false, "physical_torus": false, "physical_push_or_coil": false, "ieee_architecture_claim": false},
+  "boundary": "Local facelet 2 is the declared Pink Diamond trapdoor. The 2-to-1-to-2 witness means two independent operator paths, one matching Pink address and two separately closed Return receipts. Address equality is not carrier identity: Gold retains a whole-cube residual at the R2 join while ALGO is closed. The crosswalk navigates existing Bench instruments. The source 2-3-1 is explicitly parsed as (23)-1=22 or 2-(31)=-29; 23=p9 and 31=p11 yield the separate prime-index address 9|11=3^2|11. T9|11/T911 are labels, not multiplication; 3^2*11=99 only when multiplication is explicitly declared. Rhombus and Heart remain separate relation views, not generators of these results. L=PUSHED and R=COILED are directed display roles. The finite cube permutation does not establish a physical push, coil, torus, field, attractor, IEEE architecture, universal mechanism or canonical Rubik model."
+}

@@ -1,0 +1,51 @@
+{
+  "schema": "nexah.a0.bridge-tower-split-demonstrators/1",
+  "date": "2026-10-23",
+  "status": "ENGINEERING_PASS",
+  "identity": "NEXAH_A0_ORIENTATION_CONTROLLER_BENCH",
+  "classification": "SOURCE_BOUND_ENGINEERING_DEMONSTRATOR_SPLIT",
+  "surfaces": {
+    "bridge": "A0_IOTA_BRIDGE_DEMONSTRATOR.html",
+    "tower": "A0_TOWER_RETURN_DEMONSTRATOR.html",
+    "composition_audit": "A0_ORIENTATION_CONTROLLER_BENCH.html#iotaTowerReturnMatrix"
+  },
+  "contracts": {
+    "bridge": {
+      "owns": ["IOTA_TICK", "AM_PERIOD_8", "PM_PERIOD_12", "STILL_PIN", "BRIDGE_RETURN_RECEIPT"],
+      "does_not_read": ["TOWER_STATE", "Q_ADDRESS", "DG_SAMPLE", "DG_BASIS"]
+    },
+    "tower": {
+      "owns": ["Q_ADDRESS_FIXTURE", "FINAL_PIN", "DG_WITNESS", "DG_RETURN", "TOWER_RETURN_RECEIPT"],
+      "does_not_read": ["IOTA_TICK", "AM_PERIOD", "PM_PERIOD", "BRIDGE_RETURN_RECEIPT"]
+    },
+    "matrix": {
+      "owns": ["FOUR_STATE_COMPOSITION_AUDIT", "RESET_ISOLATION_AUDIT"],
+      "does_not_create": ["SHARED_CLOCK", "SHARED_CARRIER", "CAUSAL_RELATION", "CANONICAL_RELATION"]
+    }
+  },
+  "tests": {
+    "split_surfaces": "57/57 PASS",
+    "bridge": "85/85 PASS",
+    "tower": "84/84 PASS",
+    "matrix": "56/56 PASS"
+  },
+  "sources": [
+    {"path": "A0_IOTA_BRIDGE_DEMONSTRATOR.html", "sha256": "fbc72463cc5a2c3087ab642f19a0b54e6e7a290a00da77b38a046e7e6645a88f"},
+    {"path": "A0_TOWER_RETURN_DEMONSTRATOR.html", "sha256": "a5dd6f4273141b7166875db84b200761153a44e9d8024812e782632ca585c3b6"},
+    {"path": "a0-tower-return-demonstrator.js", "sha256": "b9c82874005d75e35f626201ae265657d8a2509e9dc416d8094ae37064573239"},
+    {"path": "a0-bridge-tower-demonstrators.css", "sha256": "45ccff44017ae964b333e1f9eeae81e18cd0e39b0391444b06d32da01c3b1139"},
+    {"path": "a0-iota-2-3-bridge-probe.js", "sha256": "aeb71c6817dfd39c6bc7671f935cbfb232b44c0ef674aa8032ef04290ca88ab3"},
+    {"path": "a0-tower-shell-return.js", "sha256": "09a92600266d3ac5e81f5b7512483d715aaf4a883cd0db3201218ae34f11adc0"},
+    {"path": "a0-iota-tower-return-matrix.js", "sha256": "d7879e816806cb237f04390e0b26d1f2241f3183020a7633f740d1693456052e"}
+  ],
+  "authority": {
+    "new_global_ids": [],
+    "new_canonical_relations": [],
+    "research_run": false,
+    "scientific_evidence": false,
+    "study_activation": false,
+    "claim_promotion": false,
+    "publication_authorized": false
+  },
+  "boundary": "The two surfaces separate interaction and receipt ownership while reusing existing engines. Their navigation adjacency and the four-state matrix do not create a common clock, carrier, operator, mechanism or scientific finding."
+}

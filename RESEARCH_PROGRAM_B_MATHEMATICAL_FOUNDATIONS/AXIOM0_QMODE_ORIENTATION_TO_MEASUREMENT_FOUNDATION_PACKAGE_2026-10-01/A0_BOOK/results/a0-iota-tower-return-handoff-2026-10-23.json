@@ -1,0 +1,82 @@
+{
+  "schema": "nexah.a0.iota-tower-return-handoff/1",
+  "date": "2026-10-23",
+  "identity": "NEXAH_A0_ORIENTATION_CONTROLLER_BENCH",
+  "classification": "METHOD_RELEVANT_ENGINEERING_OBSERVATION",
+  "findingDisposition": "NO_NEW_FINDING",
+  "status": "PASS",
+  "checks": 51,
+  "route": [
+    "IOTA_2_3_BRIDGE",
+    "TICK_24_RETURN_RECEIPT",
+    "POST_HOC_TYPED_HANDOFF",
+    "TOWER_SHELL_CLOSED_RETURN",
+    "COUPLED_VIEW_RETURN"
+  ],
+  "hourSeam": {
+    "sourceLabels": [13, 14],
+    "modulo12Labels": [1, 2],
+    "localViewNames": ["GOLDEN_HOUR_VIEW", "NIGHT_VIEW"],
+    "addsTick": false,
+    "scientificAstronomy": false
+  },
+  "acceptance": {
+    "tick8": "HOLD · STEP IOTA TO 24",
+    "tick12": "HOLD · STEP IOTA TO 24",
+    "tick24": "BRIDGE_RETURN_READY",
+    "towerOpen": "HOLD_TOWER_RETURN",
+    "combinedOnlyAfterIndependentTowerClosure": true,
+    "browser": "LOCAL_HTTP_LIVE_DOM_PASS"
+  },
+  "contract": {
+    "couplingType": "POST_HOC_TYPED_HANDOFF",
+    "sharedClock": false,
+    "changesDgClock": false,
+    "mapsQToN": false,
+    "bridgeSchema": "nexah.a0.iota-2-3-bridge-view/1",
+    "requiredTick": 24,
+    "requiredPeriods": [8, 12],
+    "requiredPin": "STILL"
+  },
+  "negativeControls": [
+    "NO_HANDOFF_AT_TICK_8",
+    "NO_HANDOFF_AT_TICK_12",
+    "NO_SHARED_CLOCK",
+    "NO_Q_TO_N_MAPPING",
+    "NO_ASTROPHYSICS_OR_ASTRONOMY_CLAIM",
+    "NO_NEW_CANONICAL_IDENTITY_RELATION_OPERATOR_OR_CARRIER",
+    "NO_SCIENCE_RUN"
+  ],
+  "files": [
+    {
+      "path": "a0-iota-tower-return-handoff.js",
+      "sha256": "6b7097bb59b2cbaf551e51e27e36bedafc1e426f993ef9b497341e0a6a518ad7"
+    },
+    {
+      "path": "a0-iota-tower-return-handoff.css",
+      "sha256": "699223b96294ce6bf63cea392b80989c8ee25e84b4c64873344a1db15df756ff"
+    },
+    {
+      "path": "a0-iota-tower-return-handoff-tests.cjs",
+      "sha256": "700dd1793be0ec9c9275dd7d139d8cecd11c247d8708ab87cb998c16dc1c00c6"
+    },
+    {
+      "path": "A0_ORIENTATION_CONTROLLER_BENCH.html",
+      "verification": "LIVE_ANCHOR_ONLY_SHARED_BENCH"
+    },
+    {
+      "path": "A0_RESEARCH_DESK.html",
+      "verification": "LIVE_ANCHOR_ONLY_SHARED_DESK"
+    }
+  ],
+  "integration": {
+    "benchAnchor": "#iotaTowerHandoff",
+    "scienceDeskAnchor": "#iota-2-3-bridge-return-20261023",
+    "reusedIdentity": true,
+    "newCanonicalObject": false,
+    "navigatorMutation": false,
+    "scienceRun": false,
+    "publicationRelease": false
+  },
+  "boundary": "This receipt records a bounded post-hoc view handoff. The exact IOTA tick-24 return and the independently closed Tower-Shell return remain separate clocks and separate contracts; 13→14 ≡ I→II (mod 12) is a local dial label only."
+}
