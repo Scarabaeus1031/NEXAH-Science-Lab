@@ -164,7 +164,7 @@
    const context=event.target.closest?.('[data-btc-context]');
    if(context){
     const key=contextKey(context.dataset.btcContext,win.A0OrientationMap);
-    if(key&&win.A0OrientationMapView?.openNode){event.preventDefault();win.A0OrientationMapView.openNode(key);return;}
+    if(key&&win.A0OrientationMapView?.openNode){event.preventDefault();win.A0OrientationMapView.openNode(key,context);return;}
     if(context.tagName==='BUTTON')el('count').textContent='Orientierungsfenster noch nicht bereit · Große Orientierungsmap über den Link öffnen';
     return;
    }

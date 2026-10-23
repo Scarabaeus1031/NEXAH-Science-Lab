@@ -342,7 +342,7 @@
         "label": "Start & Werkstätten",
         "items": [
           ["A0_WERKBANK.html", "Werkbank · Start", "Sechs Flagships; THE MACHINA mit vier klar getrennten Innenräumen"],
-          ["A0_ORIENTATION_CONTROLLER_BENCH.html#benchFoyer", "THE MACHINA · Exhibition", "Maschinenkörper, GLBs und ihre source-bound Fenster"],
+          ["A0_MACHINA_COCKPIT.html#benchFoyer", "THE MACHINA · Viewer", "Maschinenkörper, GLBs und ihre source-bound Fenster"],
           ["A0_MACHINA_COCKPIT.html", "THE MACHINA · Pentagon Cockpit", "Orientierungsstation für 16/17, STILL XX/20 und 18/19"],
           ["A0_ORIENTATION_CONTROLLER_BENCH.html#universalMachinePartsShelf", "THE MACHINA · Parts Shelf", "Neun checksum-identische FAM-009 Modelle"],
           ["A0_BENCH_ENTDECKEN.html", "Bench · Entdecken", "Foyer, Rundgang und visuelle Flagships"],
@@ -711,7 +711,7 @@
   ];
   const builderShowcase = [
     ["A0_WERKBANK.html", "Werkbank", "Maschine, Entdecken, Arbeiten und Quellen & Prüfen", "body", "Builder Flagship"],
-    ["A0_ORIENTATION_CONTROLLER_BENCH.html#benchFoyer", "THE MACHINA", "Exhibition, Cockpit, Parts Shelf und Full Bench", "body", "Maschinenhaus"],
+    ["A0_MACHINA_COCKPIT.html#benchFoyer", "THE MACHINA", "Eigener Viewer, Cockpit, Parts Shelf und Full Bench", "body", "Maschinenhaus"],
     ["A0_BUILDER_TOY_STORE.html", "Toy Store", "Werkzeuge entdecken und direkt ausprobieren", "toys", "Werkzeug-Einstieg"]
   ];
   const scienceHighlights = [
@@ -730,7 +730,7 @@
     sections: [
       { label: "00 · Start & THE MΛCHINΛ", items: [
         ["A0_WERKBANK.html", "Werkbank · Start", "Orientieren und einen Arbeitsweg wählen"],
-        ["A0_ORIENTATION_CONTROLLER_BENCH.html#benchFoyer", "THE MΛCHINΛ · Exhibition", "Maschinenkörper und GLBs als visueller Haupteinstieg"],
+        ["A0_MACHINA_COCKPIT.html#benchFoyer", "THE MΛCHINΛ · Viewer", "Maschinenkörper und GLBs als visueller Haupteinstieg"],
         ["A0_MACHINA_COCKPIT.html", "THE MΛCHINΛ · Pentagon Cockpit", "Lokale Rollen um den deklarierten STILL-Pin XX/20"],
         ["A0_ORIENTATION_CONTROLLER_BENCH.html#universalMachinePartsShelf", "THE MΛCHINΛ · Parts Shelf", "Neun FAM-009 Modelle einzeln prüfen"],
         ["A0_ORIENTATION_CONTROLLER_BENCH.html#benchWorkDesk", "THE MΛCHINΛ · Full Bench", "Instrumente und Anschlüsse bedienen"]
@@ -743,7 +743,7 @@
       ]},
       { label: "01 · Entdecken", items: [
         ["A0_BENCH_ENTDECKEN.html", "Entdecken · Einstieg", "Rundgang und visuelle Instrumente"],
-        ["A0_ORIENTATION_CONTROLLER_BENCH.html#benchFoyer", "Foyer & Rundgang", "Die Werkbank kennenlernen"],
+        ["A0_MACHINA_COCKPIT.html#benchFoyer", "THE MACHINA Viewer", "Die Maschinenansichten kennenlernen"],
         ["A0_ORIENTATION_CONTROLLER_BENCH.html#foyerDoors", "Alle Werkzeuge / Suche", "Den passenden Zugang wählen"]
       ]},
       { label: "02 · Arbeiten", items: [
@@ -761,7 +761,7 @@
     ]
   };
   const benchHighlights = [
-    ["A0_ORIENTATION_CONTROLLER_BENCH.html#benchFoyer", "THE MACHINA", "Exhibition · Maschinenkörper · GLBs · vier klare Räume", "body", "Exhibition"],
+    ["A0_MACHINA_COCKPIT.html#benchFoyer", "THE MACHINA", "Viewer · Maschinenkörper · GLBs · vier klare Räume", "body", "Viewer"],
     ["A0_TESSAREC_BLUE_BODY_LAB.html#guided-test", "Blue Body", "Carrier, Innenraum und Zustandsadressen", "body", "Body"],
     ["A0_PINK_DIAMOND_GRID_ATLAS.html#diamond-lens", "Pink Diamond", "Yellow, Emerald Shadow, Rainbow, Root/Shell und Evil Twin", "cells", "Diamond Lens"]
   ];
