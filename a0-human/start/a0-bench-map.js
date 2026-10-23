@@ -65,6 +65,8 @@
     ['binder','VERIFY','System Binder','systemBinder','TYPED_HANDOFF','control','Session coordination over four distinct carriers.'],
     ['replay','VERIFY','Native Replay','ocbRecordReplay','RETURN_WITNESS','native','Versioned envelope, validation and exact native return.'],
     ['history','VERIFY','History','historyPanel','RESULT_LENS',null,'Retained local trace and residual reading.'],
+    ['root5-crosswalk','VERIFY','1729 / Root-5 Crosswalk','root5Crosswalk','RESULT_LENS',null,'Four typed readings plus a 1728/1729/1730 null window; labels remain separate from arithmetic and mechanism.'],
+    ['root5-blind-audit','VERIFY','1729 Blind Crosswalk Audit','root5BlindAudit','RESULT_LENS',null,'Finite blind arithmetic selector plus a frozen 1728→50000 window ladder; 1729 stays first but is not globally unique.'],
     ['record','VERIFY','Record / Export','recordPanel','RETURN_WITNESS',null,'Current state, checks and bounded export record.']
   ];
   const MODULES=Object.freeze(rawModules.map(row=>Object.freeze({id:row[0],group:row[1],label:row[2],focusTarget:row[3],bindingType:row[4],scenario:row[5],description:row[6]})));
@@ -73,7 +75,7 @@
     ['state','operators','LIVE_COUPLED'],['state','measurement','LIVE_COUPLED'],['family-role','family-grid','VIEW_PROJECTION'],
     ['operators','ihara','LIVE_COUPLED'],['ail','ninefold','TYPED_HANDOFF'],['ihara','visual1','VIEW_PROJECTION'],
     ['measurement','aperture-stack','LIVE_COUPLED'],['visual1','family-grid','VIEW_PROJECTION'],['family-grid','root7','VIEW_PROJECTION'],['fold-lag','root7','VIEW_PROJECTION'],
-    ['ninefold','replay','RETURN_WITNESS'],['go-return','record','RETURN_WITNESS'],['root7','record','RETURN_WITNESS'],['economy','history','RESULT_LENS'],['binder','record','TYPED_HANDOFF']
+    ['ninefold','replay','RETURN_WITNESS'],['go-return','record','RETURN_WITNESS'],['root7','record','RETURN_WITNESS'],['economy','history','RESULT_LENS'],['root5-blind-audit','root5-crosswalk','RESULT_LENS'],['root5-crosswalk','record','RESULT_LENS'],['binder','record','TYPED_HANDOFF']
   ];
   const EDGES=Object.freeze(rawEdges.map((row,index)=>Object.freeze({id:`edge-${String(index+1).padStart(2,'0')}`,from:row[0],to:row[1],bindingType:row[2]})));
   const copy=value=>JSON.parse(JSON.stringify(value));

@@ -6,6 +6,7 @@
   const RETURN_CELL_COUNT=FACES_PER_DODECA;
   const TOTAL_CELL_COUNT=BODY_CELL_COUNT+RETURN_CELL_COUNT;
   const SHADOW_COUNT=SATELLITE_COUNT;
+  const PINK_DIAMOND_ROLE_CONTRACT=Object.freeze({entry:'ORANGE_FLOOR',carrier:'WHITE_DODECA',views:Object.freeze({AM:'YELLOW_DIAMOND',PM:'PINK_DIAMOND'}),boundary:'BODY_IS_NOT_VIEW_COLOR_AND_GRID_IS_THE_ADDRESS_INSTRUMENT_NOT_THE_FLAGSHIP_NAME'});
   const BODY_DEFS=[
     {id:'BLUE-01',side:'BLUE',observer:-1,role:'DAY_VIEW',offset:[-.72,-.28]},
     {id:'BLUE-02',side:'BLUE',observer:-1,role:'DAY_VIEW',offset:[-.46,.42]},
@@ -99,6 +100,7 @@
     defaultDiagnostic:{ratio:'3:2',phase:'pi/2',classification:'NEAR_SEAM_NOT_EXACT',minimumTimeApprox:0.3122526798108317,minimumDispersionApprox:0.013394457185717435,method:'DENSE_NUMERICAL_SCAN_AND_LOCAL_REFINEMENT_NOT_FORMAL_PROOF'},
     boundary:'The curves are three declared 2D projections of one synthetic signal carrier. They are a live view instrument, not evidence of a tri-solar, lunar, energetic or physical mechanism.'
   };}
+  function buildPinkDiamondRoleContract(){return {entry:PINK_DIAMOND_ROLE_CONTRACT.entry,carrier:PINK_DIAMOND_ROLE_CONTRACT.carrier,views:{...PINK_DIAMOND_ROLE_CONTRACT.views},boundary:PINK_DIAMOND_ROLE_CONTRACT.boundary};}
   function validate(){const ledger=buildLedger(),bodyCells=ledger.bodies.flatMap(body=>body.faces),sequence=buildActivationSequence();return {
     satelliteDodecahedra:ledger.bodies.length,
     facesPerDodecahedron:FACES_PER_DODECA,
@@ -117,5 +119,5 @@
     orderedReturn:sequence.map(step=>step.id).join('>')==='INPUT_PENTAGON>THREE_PLUS_ONE_STAGE>FOUR_PLUS_ONE_VIEW>FOUR_SHADOW_PROJECTION>FOUR_APERTURE_GRID>RETURN_RECORD',
     cycleClosed:sequence[0].id==='INPUT_PENTAGON'&&sequence.at(-1).id==='RETURN_RECORD'
   };}
-  return {SATELLITE_COUNT,FACES_PER_DODECA,BODY_CELL_COUNT,RETURN_CELL_COUNT,TOTAL_CELL_COUNT,SHADOW_COUNT,BODY_DEFS,buildLedger,buildShadowLayer,buildActivationSequence,buildLookbackModel,buildMirrorAnatomy,buildRootRoomLens,buildThreeLissajousPlanes,cellAt,validate};
+  return {SATELLITE_COUNT,FACES_PER_DODECA,BODY_CELL_COUNT,RETURN_CELL_COUNT,TOTAL_CELL_COUNT,SHADOW_COUNT,BODY_DEFS,PINK_DIAMOND_ROLE_CONTRACT,buildLedger,buildShadowLayer,buildActivationSequence,buildLookbackModel,buildMirrorAnatomy,buildRootRoomLens,buildThreeLissajousPlanes,buildPinkDiamondRoleContract,cellAt,validate};
 });

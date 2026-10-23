@@ -1,0 +1,28 @@
+.spoon-fold-notation {
+  display: grid;
+  grid-template-columns: minmax(210px, .34fr) 1fr;
+  gap: 22px;
+  align-items: center;
+  margin: -12px 0 46px;
+  padding: 20px 24px;
+  border: 1px solid #65437d;
+  border-top: 0;
+  background: linear-gradient(100deg, #171127, #071c29);
+  color: #b8ccd5;
+}
+.spoon-fold-notation > strong {
+  color: #f5efff;
+  font: 800 clamp(2rem, 6vw, 4.8rem)/1 var(--serif);
+  letter-spacing: .08em;
+  text-align: center;
+}
+.spoon-fold-notation > strong span { color: #ee6ca5; font-size: .55em; }
+.spoon-fold-notation > span { font: .7rem/1.7 var(--mono); }
+.spoon-fold-notation b:first-child { color: #b8effc; }
+.spoon-fold-notation b:nth-of-type(2) { color: #ffd36a; }
+.spoon-fold-notation b:nth-of-type(3) { color: #fff1b1; }
+.spoon-fold-notation .fold-pink { color: #ff83bc; }
+@media (max-width: 850px) {
+  .spoon-fold-notation { grid-template-columns: 1fr; }
+  .spoon-fold-notation > strong { text-align: left; }
+}

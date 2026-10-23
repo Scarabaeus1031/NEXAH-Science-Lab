@@ -6,14 +6,32 @@
   const status = byId("crystalStatus"), layoutInput = byId("crystalLayout"), spacingInput = byId("crystalSpacing");
   const focusInput = byId("crystalFocus"), cameraButton = byId("crystalCamera"), rotateButton = byId("crystalRotate"), exportButton = byId("crystalExport");
   const selection = byId("crystalSelection"), proof = byId("crystalProof"), nodes = byId("crystalNodes"), interval = byId("crystalInterval"), residual = byId("crystalResidual"), hash = byId("crystalHash");
+  function showRuntimeFallback(detail) {
+    const fallback = document.createElement("div");
+    fallback.className = "worlds-render-fallback";
+    fallback.setAttribute("role", "status");
+    fallback.innerHTML = "<b>3D-Ansicht konnte nicht starten.</b><span>Die Simulation läuft weiter. Wähle oben „Das Feld“ oder lade diese Ansicht neu.</span>";
+    fallback.title = detail || "3D runtime unavailable";
+    canvas.hidden = true;
+    canvas.parentElement.append(fallback);
+  }
   if (!window.THREE || !THREE.OrbitControls || !THREE.GLTFExporter) {
     status.textContent = "3D RUNTIME UNAVAILABLE";
     exportButton.disabled = true;
+    showRuntimeFallback("Three.js, OrbitControls oder GLTFExporter fehlt.");
     return;
   }
 
   const COLORS = { events: 0xeef7fb, births: 0x22d3ee, survivals: 0xf5bf42, deaths: 0xfb7185, controller: 0xa78bfa, residual: 0x4ade80 };
-  const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: false, preserveDrawingBuffer: true });
+  let renderer;
+  try {
+    renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: false, preserveDrawingBuffer: true });
+  } catch (error) {
+    status.textContent = "WEBGL RUNTIME UNAVAILABLE";
+    exportButton.disabled = true;
+    showRuntimeFallback(error && error.message ? error.message : "WebGL context unavailable");
+    return;
+  }
   renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
   renderer.setClearColor(0x040a10, 1);
   renderer.outputEncoding = THREE.sRGBEncoding;

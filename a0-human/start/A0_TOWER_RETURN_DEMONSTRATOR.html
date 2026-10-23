@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>NEXAH · Tower Return Demonstrator</title>
+  <link rel="stylesheet" href="a0-bench-navigation.css?rev=module-deck-20261023-r1">
+  <link rel="stylesheet" href="a0-bridge-tower-demonstrators.css?rev=20261023-r1">
+  <link rel="stylesheet" href="a0-tower-shell-return.css?rev=20261023-r1">
+</head>
+<body>
+<nav class="bench-sections" aria-label="Build und Flagships"><a href="A0_WERKBANK.html">Start</a><a href="A0_MACHINA_COCKPIT.html" aria-label="THE MACHINA">THE MΛCHINΛ</a><a class="domain-blue" href="A0_TESSAREC_BLUE_BODY_LAB.html">BLUE BODY</a><a class="domain-pink" href="A0_PINK_DIAMOND_GRID_ATLAS.html">PINK DIAMOND</a><a class="domain-joint" href="A0_BLUE_PINK_DODECA_CELL_RETURN.html">BLUE × PINK LAB</a><span class="domain-tower" aria-current="page">TOWER</span><a class="domain-bridge" href="A0_IOTA_BRIDGE_DEMONSTRATOR.html">BRIDGE</a></nav>
+<nav class="bench-modes" aria-label="Ansichtsebenen"><a href="A0_BENCH_ENTDECKEN.html">Build-Übersicht</a><span aria-current="page">Demonstrator</span><a href="A0_BENCH_QUELLEN.html">Quellen &amp; Prüfen</a></nav>
+<nav class="bench-quick-access" aria-label="Tower Schnellzugriff"><a href="#module-entry"><small>01</small><b>Tower</b><span>Einstieg und Fixture</span><em>ENTRY</em></a><a class="is-demo" href="#towerShellReturn"><small>02</small><b>Return Demo</b><span>Eigenständige Oberfläche</span><em>DEDICATED</em></a><a class="is-work" href="A0_ORIENTATION_CONTROLLER_BENCH.html#towerShellReturn"><small>03</small><b>Tower in Bench</b><span>Volle Einordnung</span><em>WORK</em></a><a class="is-return" href="A0_SCIENCE.html"><small>04</small><b>A0 Science</b><span>Receipt und Grenze</span><em>RETURN</em></a></nav>
+<main class="demo-shell">
+  <nav class="demo-nav" aria-label="Bridge und Tower Demonstratoren"><a href="A0_IOTA_BRIDGE_DEMONSTRATOR.html">01 · Bridge</a><a aria-current="page" href="A0_TOWER_RETURN_DEMONSTRATOR.html">02 · Tower</a><a href="A0_ORIENTATION_CONTROLLER_BENCH.html#iotaTowerReturnMatrix">03 · Return Matrix</a><a href="A0_SCIENCE.html">A0 Science</a></nav>
+  <header class="demo-intro" id="module-entry"><small>DEMONSTRATOR 02 · INDEPENDENT TOWER RETURN</small><h1>Tower · Witness → Return</h1><p>Eine explizite q-Fixture speist Final Pin und die unveränderte Tower-Return-Engine. D°G hält seine eigene 18-Sample-/5-Band-Basis. Die Bridge und ihr Tick werden auf dieser Seite nicht geladen.</p></header>
+  <div class="demo-source" aria-label="Tower source fixture"><button class="primary" type="button" id="towerDemoLoad">LOAD q01 · OCCUPIED</button><button type="button" id="towerDemoGap">LOAD q02 · GAP</button><button type="button" id="towerDemoClear">CLEAR SOURCE</button><output id="towerDemoSource" aria-live="polite">NO SOURCE FIXTURE · HOLD</output></div>
+  <section class="tower-shell-return" id="towerShellReturn" data-status="hold-pin" aria-labelledby="towerShellReturnTitle">
+    <header><div><small>TOWER DEMONSTRATOR · FINAL PIN → D°G → ROOT RETURN GATE</small><h2 id="towerShellReturnTitle">Witness halten, dieselbe q-Adresse zurückgeben.</h2><p>LOAD setzt nur die deklarierte Fixture. STEP durchläuft D°G; CAPTURE ist ausschließlich bei WITNESS möglich. Der automatische Lauf verwendet dieselbe Engine wie die Bench.</p></div><output id="towerShellReturnStatus" aria-live="polite">HOLD_PIN · q— · WAITING</output></header>
+    <div class="tsr-controls"><button type="button" id="towerShellReturnStep">STEP D°G</button><button type="button" id="towerShellReturnCapture" disabled>CAPTURE WITNESS</button><button type="button" id="towerShellReturnClose" disabled>HOLD ROOT RETURN</button><button type="button" class="primary" id="towerShellReturnRun">RUN CLOSED RETURN</button><button type="button" id="towerShellReturnReset">RESET RECEIPT</button><button type="button" id="towerShellReturnExport">EXPORT RECEIPT</button></div>
+    <div class="tsr-stage"><svg id="towerShellReturnSvg" viewBox="0 0 660 350" role="img" aria-label="Independent Tower return route from q source through Final Pin and D degree G Witness to the return receipt"></svg><aside><div><small>SOURCE ADDRESS</small><b id="towerShellReturnAddress">q— · PIN HOLD</b></div><div><small>D°G BASIS</small><b id="towerShellReturnBasis">WAITING FOR D°G</b></div><div><small>WITNESS</small><b id="towerShellReturnWitness">OPEN</b></div><div><small>ROOT / TOWER RETURN</small><b id="towerShellReturnRoot">HOLD · TOWER OPERATOR OPEN</b></div></aside></div>
+  </section>
+  <p class="demo-boundary"><b>BOUNDARY:</b> Die Fixture ist eine lokale Bedienquelle, kein rekonstruierter Tower-Operator. q-Adresse, D°G-Sample und Basis werden erhalten; es gibt kein q→N-Mapping, keine Bridge-Uhr und keinen wissenschaftlichen Run.</p>
+</main>
+<script src="a0-tower-shell-return.js?rev=20261023-r1"></script>
+<script src="a0-tower-return-demonstrator.js?rev=20261023-r1"></script>
+<script>window.A0TowerReturnDemonstratorController=window.A0TowerReturnDemonstrator.mount(document,window);window.A0TowerShellReturnController=window.A0TowerReturnDemonstratorController;</script>
+  <script src="nexahedron-public-navigation.js?rev=public-current-20261022"></script>
+</body>
+</html>
