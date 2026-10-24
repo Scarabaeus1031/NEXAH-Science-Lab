@@ -30,7 +30,7 @@ vm.runInNewContext(fs.readFileSync(__dirname+'/assets/a0-asset-index-v1.js','utf
 const toyDoc={querySelector:s=>s==='#builder-life-field'?null:get(s),querySelectorAll:()=>[],createElement:()=>new E()};
 const toyWin={A0ScienceBuilderPath:A,A0_ASSET_INDEX:asset.A0_ASSET_INDEX,matchMedia:()=>({matches:true})};
 vm.runInNewContext(fs.readFileSync(__dirname+'/a0-builder-toy-store.js','utf8'),{document:toyDoc,window:toyWin,Uint8Array,setInterval(){throw Error('unexpected timer');},clearInterval(){}});
-ok(get('#flagship-selector').children.length===9,'nine hands-on flagships');
+ok(get('#flagship-selector').children.length===10,'ten hands-on flagships');
 const tools=get('#tool-grid').children;
 ok(tools.length>0);ok(tools.every(e=>!String(e.href).includes('A0_FAMILY_CONNECTION_ATLAS.html')&&!String(e.href).includes('A0_FIELDS_AND_JOINTS_ATLAS.html')),'no explanatory atlas in dynamic wall');
 ok(tools.some(e=>e.href==='A0_ORIENTATION_CONTROLLER_BENCH.html'),'Bench retained');ok(tools.some(e=>e.href==='A0_PINK_DIAMOND_GRID_ATLAS.html'),'Pink instrument retained');

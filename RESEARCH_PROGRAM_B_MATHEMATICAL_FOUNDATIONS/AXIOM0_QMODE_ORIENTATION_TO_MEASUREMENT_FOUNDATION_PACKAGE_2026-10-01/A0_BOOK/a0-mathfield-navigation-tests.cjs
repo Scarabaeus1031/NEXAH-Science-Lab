@@ -8,8 +8,10 @@ for(const file of ['index.html','A0_SCIENCE.html','A0_MATHEMATICAL_JOINTS.html',
  check(Boolean(science),'existing Science lane');
  const cards=result.nodes.filter(n=>n.className?.startsWith('a0-showcase-card '));
  check(result.nodes.some(n=>n.tagName==='A'&&n.href==='A0_MATHEMATICAL_JOINTS.html'&&n.innerHTML.includes('Mathfield · mathematische Werkstatt')),'actual mounted reading entry');
- check(cards.some(n=>n.href==='A0_SCIENTIFIC_POSITION_REPORT.html'),'position retained');
- check(cards.some(n=>n.href==='A0_SCIENCE.html#contributions'),'contributions retained');
+ check(cards.some(n=>n.href==='NEXAH_SCIENCE.html#overview'),'NEXAH Science flagship retained');
+ check(cards.some(n=>n.href==='A0_MATHEMATICAL_JOINTS.html'),'Mathfield flagship retained');
+ check(result.nodes.some(n=>n.tagName==='A'&&n.href==='A0_SCIENTIFIC_POSITION_REPORT.html'),'position retained in Science reader');
+ check(result.nodes.some(n=>n.tagName==='A'&&n.href==='A0_SCIENCE.html#contributions'),'contributions retained in Science reader');
 }
 const mathfield=fs.readFileSync(path.join(__dirname,'A0_MATHEMATICAL_JOINTS.html'),'utf8');
 check(mathfield.includes('id="register-cut-aperture"'),'highlight anchor exists');

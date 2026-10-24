@@ -61,7 +61,8 @@ for(const file of ['index.html','A0_LIVING_BLUEPRINT.html','A0_SCIENTIFIC_POSITI
   }
   if(science){
    ok(showcase.children[0].href==='NEXAH_SCIENCE.html#overview','Science foregrounds the broad NEXAH research index');
-   ok(showcase.children[1].href==='A0_SCIENCE.html#top','Science preserves the A0-specific reader beside it');
+   ok(showcase.children[0].className.includes('a0-showcase-card--nexah'),'NEXAH Science uses its editorial nexah.de flagship treatment');
+   ok(showcase.children[1].href==='A0_MATHEMATICAL_JOINTS.html','Science keeps Mathfield beside the NEXAH flagship');
    ok(showcase.children.every(card=>!card.href.includes('TOY_STORE')),'no app showcase in Science');
   }
   if(lane.className.endsWith('--human')){ok(showcase.children[0].href==='a0-public-arkade-index.html#arkade','ARKADE is the first Human flagship');ok(showcase.children[1].href==='A0_OPIUM.html'&&showcase.children[1].innerHTML.includes('Human Flagship'),'OPIUM / Club is the second Human flagship');ok(showcase.children[2].href==='A0_LOOK_AGAIN_PLAY.html'&&showcase.children[2].innerHTML.includes('Perception'),'LOOK AGAIN is the third Human-facing experience');ok(showcase.children.every(card=>!card.href.includes('TOY_STORE')&&!card.href.includes('APERTURE_JOURNEY')),'Human showcase contains no Builder Toy Store or duplicate Human View');}
@@ -74,8 +75,8 @@ for(const file of ['index.html','A0_LIVING_BLUEPRINT.html','A0_SCIENTIFIC_POSITI
  ok(h.children[3].children[1].children[0].innerHTML.includes('Fünf Eingänge. Ein Werk.'),'overview contains the five-entry heading');
  for(const label of ['HUMAN','PLAY','MATHFIELD','BUILDER','SCIENCE'])ok(h.children[3].children[1].children[0].innerHTML.includes(label),'overview contains '+label);
  ok(h.children[2].href==='NEXAH_C_CONNECT.html'&&h.children[2].textContent==='C','small pink C-ball stays visible before Overview');
- ok(h.children[4].href==='https://www.scarabaeus1033.net','Scarabäus mark always returns to the canonical website');
- ok(h.children[4].target==='_blank'&&h.children[4].rel==='noopener noreferrer','external Scarabäus return is isolated');
+ ok(h.children[4].href==='https://www.scarabaeus1033.net','unspecified/public host keeps the canonical Scarabaeus website');
+ ok(h.children[4].target==='_blank'&&h.children[4].rel==='noopener noreferrer','external Scarabaeus return is isolated');
  const overviewBody=h.children[3].children[1],internalMenu=m.nodes.find(n=>n.className==='a0-overview-internal');
  ok(overviewBody.children.includes(internalMenu)===['A0_RESEARCH_DESK.html'].includes(file),'internal work menu is mounted only on internal pages');
  ok(!h.afterNodes?.length,'no appended primary or module strips');
@@ -86,6 +87,8 @@ for(const file of ['index.html','A0_LIVING_BLUEPRINT.html','A0_SCIENTIFIC_POSITI
 }
 const incoming=mount('A0_LIVING_BLUEPRINT.html','','?hc_v=1&hc_scene=5');ok(!incoming.banner.hidden,'provided crosswalk context remains visible for protocol validation');
 const localOwner=mount('index.html','','',{protocol:'file:',hostname:''});
-ok(localOwner.header.children[4].href==='https://www.scarabaeus1033.net','local file Scarab also returns to the canonical website');
-ok(localOwner.header.children[4].target==='_blank'&&localOwner.header.children[4].rel==='noopener noreferrer','local Scarab uses the same isolated external return');
+ok(localOwner.header.children[4].href==='A0_RESEARCH_DESK.html','local file Scarab returns to the A0 Science Desk');
+ok(!localOwner.header.children[4].target&&!localOwner.header.children[4].rel,'local Desk return stays in the current tab');
+const localServer=mount('A0_SCIENCE.html','','',{protocol:'http:',hostname:'127.0.0.1'});
+ok(localServer.header.children[4].href==='A0_RESEARCH_DESK.html','localhost Scarab returns to the A0 Science Desk');
 console.log(JSON.stringify({status:'PASS',checks,scope:'actual shared navigation script in DOM double; menu structure, index-only folding and contextual banner; not browser pixels'},null,2));

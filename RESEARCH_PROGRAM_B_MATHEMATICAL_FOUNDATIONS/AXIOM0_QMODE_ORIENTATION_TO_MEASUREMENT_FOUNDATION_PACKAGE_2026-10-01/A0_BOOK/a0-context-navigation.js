@@ -40,7 +40,7 @@
     {code:"02 · PLAY", title:"Game of Worlds", copy:"LIFE, Domains und Numbers in ONE PULSE.", href:"A0_GAME_OF_WORLDS_PLAY.html?world=pulse#pulse", accent:"#d99d00"},
     {code:"03 · MATHFIELD", title:"Mathematical Joints", copy:"Buchstellen, Träger, Linsen und Fugen.", href:"A0_MATHEMATICAL_JOINTS.html", accent:"#159bb4"},
     {code:"04 · BUILDER", title:"Orientation Bench", copy:"Quellen, Adapter und Kopplungen prüfen.", href:"A0_ORIENTATION_CONTROLLER_BENCH.html#benchFoyer", accent:"#2ca57a"},
-    {code:"05 · SCIENCE", title:"NEXAH Science", copy:"Forschungsfelder, Library, Ergebnisse und Grenzen lesen.", href:"NEXAH_SCIENCE.html#overview", accent:"#806bd6"}
+    {code:"05 · SCIENCE", title:"A0 Science", copy:"Methode, Families, Ergebnisse und Grenzen des A0-Programms.", href:"A0_SCIENCE.html#top", accent:"#806bd6"}
   ];
 
   /* One inventory, three reading intentions. Navigation does not change identity or evidence state. */
@@ -130,7 +130,7 @@
     "code": "S",
     "label": "Science",
     "description": "Begriffe, Methode und Evidenz",
-    "entry": "NEXAH_SCIENCE.html",
+    "entry": "A0_SCIENCE.html#top",
     "sections": [
       {
         "label": "Wo wir stehen · Ergebnisse & Einordnung",
@@ -716,8 +716,8 @@
     ["A0_BUILDER_TOY_STORE.html", "Toy Store", "Werkzeuge entdecken und direkt ausprobieren", "toys", "Werkzeug-Einstieg"]
   ];
   const scienceHighlights = [
-    ["NEXAH_SCIENCE.html#overview", "NEXAH Science", "Forschungsfelder, Library, Programme, Ergebnisse und Quellen im Gesamtüberblick", "body", "Science · Gesamtforschung"],
-    ["A0_SCIENCE.html#top", "A0 Science", "Methode, Families, Fugen und wissenschaftliche Grenzen des A0-Programms", "cells", "Science · A0 Programme"]
+    ["NEXAH_SCIENCE.html#overview", "NEXAH Science", "Forschungsfelder, Library, Programme, Ergebnisse und Quellen im Gesamtüberblick", "nexah", "Flagship · Gesamtforschung"],
+    ["A0_MATHEMATICAL_JOINTS.html", "Mathfield", "Mathematische Werkstatt für Buchstellen, Träger, Linsen, Fugen und ihre prüfbaren Returns", "cells", "Flagship · Mathematical Joints"]
   ];
   const laneNav = document.createElement("nav");
   laneNav.className = "a0-reader-lanes";
@@ -869,12 +869,15 @@
   if (file === "NEXAH_C_CONNECT.html") connectLink.setAttribute("aria-current", "page");
   const scarabaeusLink = document.createElement("a");
   scarabaeusLink.className = "a0-scarabaeus-link";
-  scarabaeusLink.href = "https://www.scarabaeus1033.net";
-  scarabaeusLink.target = "_blank";
-  scarabaeusLink.rel = "noopener noreferrer";
+  const localOwnerContext = location.protocol === "file:" || ["127.0.0.1", "localhost"].includes(location.hostname);
+  scarabaeusLink.href = localOwnerContext ? "A0_RESEARCH_DESK.html" : "https://www.scarabaeus1033.net";
+  if (!localOwnerContext) {
+    scarabaeusLink.target = "_blank";
+    scarabaeusLink.rel = "noopener noreferrer";
+  }
   scarabaeusLink.innerHTML = '<svg class="a0-owner-scarab" viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="4" r="2.2"/><path d="M16 7c-4.2 0-6.5 3.2-6.5 7.7V20c0 4.5 2.3 7 6.5 9 4.2-2 6.5-4.5 6.5-9v-5.3C22.5 10.2 20.2 7 16 7Z"/><path d="M10 11C5.8 8.7 2.7 11 3.5 15.2c.7 3.6 3.1 5.8 6 6.2M22 11c4.2-2.3 7.3 0 6.5 4.2-.7 3.6-3.1 5.8-6 6.2M10 15H5M22 15h5M10 20l-5 3M22 20l5 3M13 8 9 4M19 8l4-4M10 24l-3 4M22 24l3 4"/></svg>';
-  scarabaeusLink.setAttribute("aria-label", "Scarabäus 1033 · Website öffnen");
-  scarabaeusLink.title = "Scarabäus 1033 · www.scarabaeus1033.net";
+  scarabaeusLink.setAttribute("aria-label", localOwnerContext ? "Owner · A0 Science Desk öffnen" : "Scarabäus 1033 · Website öffnen");
+  scarabaeusLink.title = localOwnerContext ? "Owner · A0 Science Desk" : "Scarabäus 1033 · www.scarabaeus1033.net";
   header.replaceChildren(brand, laneNav, connectLink, overview, scarabaeusLink);
   header.className = "top a0-context-ready a0-context-compact";
   header.dataset.a0Lane = currentLane.key;
