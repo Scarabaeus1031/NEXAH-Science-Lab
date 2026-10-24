@@ -15,5 +15,5 @@ for(const pattern of model.PATTERNS){
 }
 let blinker=model.start('blinker');blinker=model.step(model.step(blinker));ok(engine.equal(blinker.frames[0],blinker.frames[2]),'blinker return after two generations');ok(blinker.frames.every(f=>f.live.length===3),'tower height is not population size');
 ok(model.position(0,0,1,'body')[1]>model.position(0,0,0,'body')[1],'generation grows along Y');ok(hash(input)===sourceHash,'source GLB immutable');
-const html=fs.readFileSync(__dirname+'/A0_RESEARCH_DESK.html','utf8');ok(html.includes('Keine Numbers-Kopplung')||html.includes('keine Numbers-Kopplung'),'Numbers not implicitly linked');ok(html.includes('endlicher, toter Rand'),'boundary visible');
+const html=fs.readFileSync(__dirname+'/A0_RESEARCH_DESK.html','utf8');ok(!html.includes('id="cathedralLifeControls"'),'redundant Desk LIFE controls removed');ok(html.includes('A0_GAME_OF_WORLDS_PLAY.html?world=numbers&amp;view=cathedral'),'Desk routes Cathedral interaction to the game');
 console.log(JSON.stringify({status:'PASS',checks,scope:'native engine equivalence through 32 generations for three patterns; all three GLB views; immutable history and source; no browser/WebGL acceptance'},null,2));

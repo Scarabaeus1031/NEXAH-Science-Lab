@@ -106,13 +106,13 @@ expect(/not additional A0 works/.test(binder.reader_architecture?.instrument_bou
 expect(binder.sources?.length === 109, "one hundred nine controlling sources");
 expect(binder.sources?.some((item) => item.source_id === "SRC:A0OE:A0_EXPERIENCE_NAVIGATION_FREEZE_RETURN" && /zero canonical-count/.test(item.authority_role)), "A0 experience freeze return retained with no-count boundary");
 expect(binder.sources?.some((item) => item.source_id === "SRC:A0OE:A0_EXPERIENCE_NAVIGATION_FREEZE_MC_RETURN" && /reciprocal Mission Control/.test(item.authority_role)), "reciprocal Mission Control experience-freeze return retained");
-expect(binder.a0_surface_coverage?.coverage_id === coverage.coverage_id && binder.a0_surface_coverage?.bound_surfaces === 57 && binder.a0_surface_coverage?.work_groups === 11, "A0 57-of-57 surface coverage binding");
+expect(binder.a0_surface_coverage?.coverage_id === coverage.coverage_id && binder.a0_surface_coverage?.bound_surfaces === 58 && binder.a0_surface_coverage?.work_groups === 11, "A0 58-of-58 surface coverage binding");
 expect(coverage.status === "INTERNAL_SOURCE_BOUND_COVERAGE_NO_NEW_IDENTITY", "A0 surface coverage status");
-expect(coverage.expected_surface_count === 57 && coverage.bound_surface_count === 57 && coverage.unbound_surfaces?.length === 0, "A0 surface coverage counts");
+expect(coverage.expected_surface_count === 58 && coverage.bound_surface_count === 58 && coverage.unbound_surfaces?.length === 0, "A0 surface coverage counts");
 expect(coverage.policy_effect?.changes_canonical_counts === false && coverage.policy_effect?.creates_module_identity === false && coverage.policy_effect?.activates_study === false && coverage.policy_effect?.promotes_evidence === false && coverage.policy_effect?.authorizes_publication === false, "A0 surface coverage policy boundary");
 const coveredSurfaces = coverage.work_bindings.flatMap((item) => item.surfaces).sort();
 const manifestSurfaces = manifest.surface_registry.map((item) => item.surface).sort();
-expect(new Set(coveredSurfaces).size === 57 && JSON.stringify(coveredSurfaces) === JSON.stringify(manifestSurfaces), "A0 surface coverage exactly matches manifest registry");
+expect(new Set(coveredSurfaces).size === 58 && JSON.stringify(coveredSurfaces) === JSON.stringify(manifestSurfaces), "A0 surface coverage exactly matches manifest registry");
 expect(binder.sources?.some((item) => item.source_id === "SRC:A0OE:A0_MODULE_SURFACE_COVERAGE" && item.sha256 === hash(coveragePath)), "A0 coverage sidecar source and hash");
 expect(["SRC:A0OE:PINK_DIAMOND_GRID_ATLAS", "SRC:A0OE:VISUAL_FIELD_LIBRARY", "SRC:A0OE:VISUAL_FIELD_LIBRARY_REGISTRY", "SRC:A0OE:DEMONSTRATOR_CONSOLIDATION_101_106"].every((id) => binder.sources.some((item) => item.source_id === id)), "A0 grid atlas, visual library, registry and consolidation source-bound");
 expect(binder.demonstrator_source_registry?.owner === "NEXAH Science Lab" && binder.demonstrator_source_registry?.records?.length === 3 && binder.demonstrator_source_registry?.new_demonstrator_template?.required_fields?.includes("return_path"), "Science Lab-owned demonstrator source registry and reusable template");

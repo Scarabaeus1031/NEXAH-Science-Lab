@@ -376,8 +376,8 @@ controlling workspace is the
 
 ### 7.4 A0 module and surface coverage
 
-The governed A0 coverage record currently binds **57 registered surfaces in
-eleven work groups**. All 57 are bound through the existing
+The governed A0 coverage record currently binds **58 registered surfaces in
+eleven work groups**. All 58 are bound through the existing
 `NEXAH:A0_ORIENTATION_EVIDENCE_LINEAGE:V1` lens and its already governed A0,
 Number View, Orientation, Return, LIFE and Tessarec identities. The exact
 mapping is machine-readable in the
@@ -431,7 +431,7 @@ authorities. Blue / Pink Cell Return may be read as a Human scene while its
 full Blue Body source and focused operators remain Builder/Science surfaces.
 That is a typed view relation, not an identity merge.
 
-No registered HTML was deleted. The existing 57/57 binding and all stable deep
+No registered HTML was deleted. The existing 58/58 binding and all stable deep
 links remain intact; only navigation rank and reader language changed.
 
 ### 7.7 A0 Bench, Tube and NumberMagick documentation cut

@@ -2,10 +2,11 @@
 
 Date: `2026-10-11`
 
-Documentary currentness: `2026-10-22` — Club / Numbers / Control Room /
-1,1 monitor engineering return and Machina Prime-Return intake added. Earlier
-number/glyph/weight triage and findings retain their original evidence state.
-No new formal finding or manuscript claim.
+Documentary currentness: `2026-10-24` — the canonical ledger contains
+`F-A0-01` through `F-A0-25`; the 23 October Bench/Joint, Tower–Shell,
+LOOK AGAIN and Diamond Lens returns are synchronized below as engineering
+triage. Earlier findings retain their original evidence state. No new formal
+finding or manuscript claim follows from the synchronization.
 
 Status: `DOCUMENTARY_PAPER_WORKSPACE / PREPARATION_ONLY / NOT_ACTIVE / NOT_SUBMITTED`
 
@@ -18,8 +19,8 @@ Reused evidence identities:
 
 Related backlog records: `A0-BL-014`, `A0-BL-015`, `A0-BL-021`,
 `A0-BL-023`, `A0-BL-025`, `A0-BL-035`, `A0-BL-036`, `A0-BL-037`,
-`A0-BL-038`, `A0-BL-045`, `A0-BL-046`, `A0-BL-047`, `A0-BL-048`, `A0-BL-050`, `A0-BL-051`,
-`A0-BL-052`, `A0-BL-053`
+`A0-BL-038`, `A0-BL-045`, `A0-BL-046`, `A0-BL-047`, `A0-BL-048`, `A0-BL-049`,
+`A0-BL-050`, `A0-BL-051`, `A0-BL-052`, `A0-BL-053`, `A0-BL-054`, `A0-BL-055`
 
 ## Purpose
 

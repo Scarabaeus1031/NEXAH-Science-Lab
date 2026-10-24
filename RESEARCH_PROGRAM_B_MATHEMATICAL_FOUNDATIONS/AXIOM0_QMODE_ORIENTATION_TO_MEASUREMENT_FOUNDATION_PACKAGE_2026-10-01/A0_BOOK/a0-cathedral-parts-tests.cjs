@@ -23,5 +23,5 @@ ok(previous===491,'full reveal restores all attached source components');
 for(const options of [{part:'unknown'},{height:NaN},{height:101},{explode:-1}]){assert.throws(()=>api.derive(input,options));checks++;}
 ok(hash(input)===before,'source bytes immutable');
 ok(before==='ddff799102ac7a40f98ee125c6d4a76f17a869786d182da0e9859023b6584443','original source hash retained');
-const desk=fs.readFileSync(__dirname+'/A0_RESEARCH_DESK.html','utf8');ok(desk.includes('kein Populationswachstum'),'no simulation claim');ok(desk.indexOf('src="a0-cathedral-parts.js"')<desk.indexOf('src="a0-cathedral-glb-viewer.js"'),'module loaded before controller');
+const desk=fs.readFileSync(__dirname+'/A0_RESEARCH_DESK.html','utf8');ok(!desk.includes('id="cathedral-glb-stage"'),'redundant Desk GLB stage removed');ok(!desk.includes('src="a0-cathedral-parts.js"'),'parts module no longer loaded by the Desk');
 console.log(JSON.stringify({status:'PASS',checks,report,scope:'actual source GLB partition and binary-preserving derived views; not browser/WebGL acceptance'},null,2));

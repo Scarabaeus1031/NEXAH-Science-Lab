@@ -15,7 +15,7 @@ for(const id of ['cathedral-format-source-return-20261018','format-architecture-
 for(const text of ['29/29','34/34','CameraProxy','7,5 s','±2 %','Noch kein Retargeting','36 PNG','25 empfangene','kein nachgewiesenes gemeinsames'])ok(section.includes(text),'boundary '+text);
 for(const match of section.matchAll(/(?:href|src)="([^"]+)"/g)){
  const raw=match[1].replaceAll('&amp;','&');if(raw.startsWith('#')||/^https?:/.test(raw))continue;
- const file=decodeURIComponent(raw.split('#')[0]);const target=path.resolve(__dirname,file);
+ const file=decodeURIComponent(raw.split('#')[0].split('?')[0]);const target=path.resolve(__dirname,file);
  ok(fs.existsSync(target),'local link '+file);
  const frag=raw.split('#')[1];if(frag&&target.endsWith('.html'))ok(fs.readFileSync(target,'utf8').includes('id="'+frag+'"'),'anchor '+frag);
 }

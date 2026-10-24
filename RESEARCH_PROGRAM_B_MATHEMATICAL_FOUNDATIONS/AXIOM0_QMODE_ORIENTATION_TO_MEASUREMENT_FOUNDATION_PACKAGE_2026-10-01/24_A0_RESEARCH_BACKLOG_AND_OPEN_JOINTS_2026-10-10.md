@@ -10,6 +10,37 @@ Mission Control backlog: `RELATIONAL_IDENTIFIABILITY_UNDER_REPRESENTATION_CHANGE
 
 ## Purpose
 
+<a id="science-math-review-todo-20261024"></a>
+
+### Science-To-do / Mathematik — SCC-003 Review-Lane · 24.10.2026
+
+Status: `A0-BL-015 · OWNER_AUTHORIZED / AWAITING_NAMED_REVIEWER / NO ACTIVE STUDY`
+
+Dies ist das konkrete Mathematik-To-do auf dem internen Science Desk. Es
+verwendet die bestehende Backlog-Identität `A0-BL-015`; es eröffnet keine neue
+Study, kein zweites Review-Objekt und keine neue Finding-Zeile.
+
+**Frage:** Hält das eingefrorene SCC-003-Paket einer qualifizierten unabhängigen
+Beweis- und Prior-Art-Prüfung stand?
+
+| Schritt | Zustand | Nächste zulässige Aktion | Fertig, wenn / Grenze |
+|---|---|---|---|
+| 1 · Reviewer bestimmen | OPEN · Owner | Einen fachlich qualifizierten Reviewer namentlich auswählen. | Qualifikation, Rolle, Interessenkonflikte und begrenzter Prüfauftrag sind dokumentiert. Diese Dokumentation kontaktiert niemanden. |
+| 2 · Paket übergeben | READY / NOT SENT | Das eingefrorene selbständige Paket mit Hashes, Scope und Nicht-Behauptungen übergeben. | Exakt dieselben gepinnten Dateien erreichen den benannten Reviewer; keine stillen Nachträge. |
+| 3 · Proof-Attack | AWAITING REVIEW | Definitionen, Propositionen, Beweise, Randfälle und mögliche Gegenbeispiele unabhängig prüfen. | Schriftlicher Return trennt bestätigt, reparierbar, widerlegt und ungeklärt. |
+| 4 · Prior Art | AWAITING REVIEW | Literatur- und Prior-Art-Suche unabhängig vom Beweisreview durchführen. | Suchraum, Treffer, Nähe, Abgrenzung und Restunsicherheit sind nachvollziehbar protokolliert. |
+| 5 · Desk-Return | BLOCKED BY 1–4 | Beide Returns im Desk klassifizieren; Owner entscheidet über nächsten Status und öffentliche Projektion. | Keine weltweite Neuheit, Claim-Promotion oder Publikation wird allein aus interner Plausibilität abgeleitet. |
+
+**Grenze:** Mathematik benötigt kein physisches Labor, aber weiterhin einen
+deklarierten Gegenstand, reproduzierbare formale Ableitung, Gegenprobe und
+unabhängigen Review. Bis dahin bleibt SCC-003 `R2–R3 internal`; das To-do ist
+keine Aktivierung und keine Publikationsfreigabe.
+
+[SCC-003 Reference Package](<../../../../10 NEXAH CORE/NEXAH/RESEARCH/NOTES/PASCAL_PENTAGON_D5_TEST_2026-10-10/SCC_003_REFERENCE/README.md>) ·
+[bestehende B-First-Lane](#b-first-preparation-lane--secure-scc-003) ·
+[Scientific Position](A0_BOOK/A0_SCIENTIFIC_POSITION_REPORT.html#currentness-20261024) ·
+[Science Desk](A0_BOOK/A0_RESEARCH_DESK.html#science-portfolio-control)
+
 <a id="opium-builder-backlog-20261022"></a>
 
 ### Builder-To-do / Wiedereinstieg — OPIUM, Club und 1,1 · 22.10.2026
@@ -37,6 +68,7 @@ der lokale 1,1-Mischer bleibt davon getrennt. Browserabnahme weiterhin offen.
 | 6 · Historischen Mathfield-Hashkonflikt disponieren | OPEN · DOC-02 | Abweichung aus dem Dokumentations-Return separat mit Originalpin, Isthash und tatsächlichem Änderungsgrund vergleichen. | Explizite Entscheidung behalten/Nachfolger/Reparatur. Keine pauschale Neupinnung alter Evidenz und kein allgemeiner Desk-PASS trotz fehlschlagendem Alt-Test. |
 | 7 · Nächsten geprüften Umfang zurückgeben | NACH ABNAHME / DOC-11 | Desk A0, Builder Log, Forschungsprotokoll und bestehende NSN-Quellenbindung um den tatsächlich geprüften Anschluss ergänzen. | Quellenpins/Projektionen scoped aktuell; Grenzen erhalten; kein Duplikatknoten, kein Findings- oder Publikationssprung. Die aktuelle Rückbindung ist bereits erfolgt. |
 | 8 · Paper-Beispiel oder präzise Finding-Kandidatur sichten | PARKED / Quellenabgleich · DOC-11 | Genau eine Aussage gegen vorhandene Paper-Passage und deren Beleg prüfen; Demonstrator, bekanntes Resultat und mögliche neue Frage auseinanderhalten. | Vorhandene Abdeckung benannt oder präzise offene Frage mit eigenem Gate. Keine neuen F-A0-Zeilen oder Manuskriptänderungen allein aus Visuals. |
+| 9 · Club-Erlebnis und Control-Room-Bench entflechten | PARKED_OWNER_FEEDBACK / NO_BUILD · 24.10. | Vor einem Bau den Human-Handoff `Experience → compact control → Bench → Return` spezifizieren: Club als großes Effekt-/Fahrtfenster, derselbe Player als kleiner Bedienpunkt, Control Room als technische Bench. 20er-Elevator, Carrier Route, CRT16, QRT, Numbers und weitere Lift-/View-Regeln nur als getrennte Türen einer möglichen Elevator-Bank inventarisieren. | Raummaß, Effektintensität, Reduced Motion, Fokus, Browserhistorie, Rückkehranker und Quellenbesitz sind beschlossen; genau eine Player-Instanz und Uhr; keine universelle Elevator-Sequenz, kein siebtes Flagship und kein Bau ohne neuen Owner-Auftrag. [Science-Desk-Feedback](A0_BOOK/A0_RESEARCH_DESK.html#opium-club-experience-feedback-20261024) · [Builder-Notiz](A0_BOOK/A0_BUILDER_LOG.html#opium-club-experience-feedback-20261024). |
 
 **Binder-Liveübersicht zu Paketen 4/5:** Die drei vorhandenen Anschlüsse M3→Stack,
 Player→Pascal und Ihara→Visual 1 sind als getrennte Karten im bestehenden Binder
@@ -64,9 +96,11 @@ Wiederaufnahme-Anlässe stehen im
 nicht als zusätzlich priorisierte Bauaufträge. Der ursprüngliche
 [DOC-01–12-Block](#documentation-followups-20261020) bleibt unverändert gültig.
 
-**Wiedereinstiegssatz:** „OPIUM-Builder-Backlog vom 22.10. lesen. Zuerst
-OPIUM, Club-Lauf und vorhandenen 1,1-Test visuell abnehmen. Danach genau
-einen read-only Player→Bench-Vertrag auswählen; kein neuer Gesamtmaschinenbau.“
+**Wiedereinstiegssatz:** „OPIUM-Builder-Backlog lesen. Zuerst entscheiden,
+ob der nächste Auftrag Abnahme oder die geparkte Club-/Control-Room-Entflechtung
+ist. Bei Entflechtung zuerst den Human-Handoff und die Elevator-Bank spezifizieren;
+danach höchstens einen begrenzten Demonstrator bauen. Kein neuer
+Gesamtmaschinenbau.“
 
 Rückwege: [Builder Log / Bauplan](A0_BOOK/A0_BUILDER_LOG.html#navigation-blueprint-20261021) ·
 [Desk-Intake](A0_BOOK/A0_RESEARCH_DESK.html#finding-intake-20261022) ·

@@ -8,10 +8,10 @@ assert.equal((bookHome.match(/id="scientific-position-entry"/g)||[]).length,1,'o
 assert.ok(bookHome.indexOf('id="scientific-position-entry"')<bookHome.indexOf('id="wegweiser"'),'position report before instrument directory');
 assert.ok(bookHome.includes('Was macht NEXAH konkret?'));
 assert.ok(bookHome.includes('href="A0_SCIENTIFIC_POSITION_REPORT.html"'));
-assert.ok(bookHome.includes('href="A0_SCIENTIFIC_POSITION_REPORT.html#currentness-20261019"'));
-assert.ok(bookHome.includes('historischer Status-Snapshot 12. Oktober 2026'));
+assert.ok(bookHome.includes('href="A0_SCIENTIFIC_POSITION_REPORT.html#currentness-20261024"'));
+assert.ok(bookHome.includes('Historischer A0 Status vom 12. Oktober 2026'));
 assert.ok(!bookHome.includes('Mission Control valid · 393 sources'),'historical count is not a live validity badge');
-assert.ok(fs.readFileSync(path.join(root,'A0_SCIENTIFIC_POSITION_REPORT.html'),'utf8').includes('id="currentness-20261019"'),'currentness target exists');
+assert.ok(fs.readFileSync(path.join(root,'A0_SCIENTIFIC_POSITION_REPORT.html'),'utf8').includes('id="currentness-20261024"'),'currentness target exists');
 const navigation = fs.readFileSync(path.join(root, 'a0-context-navigation.js'), 'utf8');
 const styles = fs.readFileSync(path.join(root, 'a0-context-navigation.css'), 'utf8');
 assert.doesNotMatch(navigation,/positionLink|a0-scientific-position-direct/,'no duplicate top-level position button');
@@ -27,8 +27,15 @@ assert.match(navigation,/class="a0-reader-home"/,'each Reader panel promotes its
 assert.ok(navigation.includes('"Zum " + lane.label + " →"'),'Reader panel action names Human, Science or Builder');
 assert.doesNotMatch(navigation,/href="\$\{lane\.entry\}">Zum Einstieg →/,'Reader panels do not duplicate the global A0 entry');
 assert.match(styles,/\.a0-reader-home\{/,'Reader entry is styled as a button rather than a second headline');
-const scienceEntry=fs.readFileSync(path.join(root,'A0_SCIENCE.html'),'utf8');
-assert.match(scienceEntry,/<a class="btn gold" href="A0_SCIENTIFIC_POSITION_REPORT.html">Scientific Position/);
+const scienceEntry=fs.readFileSync(path.join(root,'NEXAH_SCIENCE.html'),'utf8');
+const a0ScienceEntry=fs.readFileSync(path.join(root,'A0_SCIENCE.html'),'utf8');
+assert.match(a0ScienceEntry,/<a class="btn gold" href="A0_SCIENTIFIC_POSITION_REPORT.html">Scientific Position/);
+assert.ok(scienceEntry.includes('id="who-we-are"') && scienceEntry.includes('https://nexah.de/about/'),'public Science identifies NEXAH and links its canonical About page');
+assert.ok(scienceEntry.includes('https://github.com/Scarabaeus1031/NEXAH') && scienceEntry.includes('https://github.com/Scarabaeus1031/NEXAH-Science-Lab'),'public Science exposes Core and Laboratory repositories');
+for (const [name, source] of [['index.html',bookHome],['NEXAH_SCIENCE.html',scienceEntry],['A0_SCIENTIFIC_POSITION_REPORT.html',fs.readFileSync(path.join(root,'A0_SCIENTIFIC_POSITION_REPORT.html'),'utf8')]]) {
+  for (const internal of ['A0_RESEARCH_DESK.html','A0_RESEARCH_BACKLOG.html','A0_BUILDER_LOG.html','A0_LABORATORY.html']) assert.ok(!source.includes(`href="${internal}`),`${name} has no public route into ${internal}`);
+  assert.ok(!source.includes('SCIENCE_LAB/NAVIGATION/APP/'),`${name} does not route to the internal Navigator app`);
+}
 assert.match(fs.readFileSync(path.join(root,'A0_THEORY_STORYBOARD.html'),'utf8'),/<a href="A0_SCIENTIFIC_POSITION_REPORT.html">Science · Scientific Position<\/a>/);
 const manifest = JSON.parse(fs.readFileSync(path.join(root, 'A0_BOOK_MANIFEST.json'), 'utf8'));
 // The ARKADE build-root template is not a source-directory Reader page.
@@ -39,7 +46,7 @@ for (const surface of registered) assert.ok(navigation.includes(surface), `${sur
 for (const token of [
   'Reader nach Perspektive',
   'Auf dieser Seite',
-  'Science Desk',
+  'A0 Science',
   'Intern · Arbeitsbereich',
   'Szenen · Deep Links',
   'Wo wir stehen',
@@ -49,25 +56,30 @@ for (const token of [
 const lanes=JSON.parse(navigation.match(/const readerLanes = (\[[\s\S]*?\n  \]);/)[1]);
 assert.deepEqual(lanes.map(l=>[l.key,l.code,l.label]),[['human','H','Human'],['science','S','Science'],['builder','B','Builder']]);
 const scienceLane=lanes.find(l=>l.key==='science');
-assert.equal(scienceLane.entry,'A0_SCIENCE.html');
+assert.equal(scienceLane.entry,'NEXAH_SCIENCE.html');
 assert.ok(scienceLane.sections[0].label.startsWith('Wo wir stehen'));
 assert.equal(scienceLane.sections[0].items[0][0],'A0_SCIENTIFIC_POSITION_REPORT.html');
 assert.equal(scienceLane.sections[1].label,'Papers');
 const internalTargets=new Set(['A0_RESEARCH_DESK.html','A0_RESEARCH_BACKLOG.html','A0_BUILDER_LOG.html','A0_LABORATORY.html']);
 for(const lane of lanes)for(const section of lane.sections)for(const [href] of section.items)assert.ok(!internalTargets.has(href.split('#')[0]),'no internal workspace in Reader menus: '+href);
-assert.match(navigation,/header.replaceChildren\(brand, laneNav, overview, scarabaeusLink\)/,'one compact header with the stable Scarabaeus website return');
+assert.match(navigation,/header.replaceChildren\(brand, laneNav, connectLink, overview, scarabaeusLink\)/,'public header keeps the quiet pink C-ball before Overview and the external Scarabaeus return');
+assert.match(navigation,/connectLink\.className = "a0-connect-link"/);
+assert.match(navigation,/connectLink\.href = "NEXAH_C_CONNECT\.html"/);
+assert.match(navigation,/connectLink\.textContent = "C"/);
+assert.match(styles,/\.a0-context-compact>\.a0-connect-link\{position:relative;isolation:isolate;width:32px;min-width:32px;height:32px;min-height:32px/,'Connect keeps a usable transparent target');
+assert.match(styles,/\.a0-context-compact>\.a0-connect-link::before\{content:"";position:absolute;z-index:-1;inset:8px;/,'Connect renders only a 16px pink C-ball');
 assert.match(navigation,/class="a0-owner-scarab"/);
-assert.match(navigation,/scarabaeusLink\.href = "https:\/\/www\.scarabaeus1033\.net"/);
-assert.match(navigation,/scarabaeusLink\.setAttribute\("aria-label", "Scarabäus 1033 · Website öffnen"\)/);
-assert.doesNotMatch(navigation,/ownerDesk\.href = "A0_RESEARCH_DESK\.html"/,'Scarabäus mark must never route to an internal Desk');
+assert.match(navigation,/scarabaeusLink\.href = "https:\/\/www\.scarabaeus1033\.net"/,'Scarab always returns to the canonical website');
 assert.doesNotMatch(navigation,/quickNav|pageTools|primaryNav|pageContext/,'duplicate global navigation layers removed');
 assert.match(navigation,/overviewSummary.textContent = "Übersicht"/);
+assert.match(navigation,/if \(internalPages\.has\(file\)\) overviewBody\.append\(internalMenu\)/,'internal menu only mounts on internal work pages');
 assert.match(navigation,/file === "index.html"\) \{/,'directory only on book home');
 assert.match(navigation,/main.append\(directory\)/,'directory no longer precedes page content');
 assert.match(navigation,/const directory = document.createElement\("details"\)/,'directory folded by default');
 assert.match(navigation,/group.sections.filter\(section => !section.internal\)/,'internal inventory not shown as Reader directory');
 assert.match(navigation, /A0_SCIENTIFIC_POSITION_REPORT\.html/);
 assert.ok(scienceEntry.includes('id="contributions"'),'reader contributions have a Science home');
+assert.ok(a0ScienceEntry.includes('id="understand"'),'the preserved A0-specific Science reader remains available');
 
 for (const selector of ['.a0-reader-lanes', '.a0-reader-panel', '.a0-context-compact', '.a0-page-menu-body']) {
   assert.ok(styles.includes(selector), `shared style missing: ${selector}`);
