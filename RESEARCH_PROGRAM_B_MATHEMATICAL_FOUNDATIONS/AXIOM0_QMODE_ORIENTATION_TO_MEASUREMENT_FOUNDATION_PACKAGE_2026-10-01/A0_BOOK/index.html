@@ -39,6 +39,34 @@
     .world-plate .eyebrow{color:#ff72ca}.world-plate h2{max-width:700px;color:#fff;font-size:clamp(3rem,6vw,6.2rem)}
     .world-plate-intro{margin:0;color:#b5c7d0;font:400 clamp(1rem,1.55vw,1.28rem)/1.58 var(--serif)}
     .world-plate-intro strong{color:#fff}
+    .world-trailer{position:relative;margin:0 0 22px;overflow:hidden;border:1px solid #35586b;background:#02090f;box-shadow:18px 18px 0 rgba(67,202,231,.06);isolation:isolate}
+    .world-trailer:before{content:"";position:absolute;z-index:3;inset:0;pointer-events:none;background:linear-gradient(90deg,rgba(4,13,20,.7),transparent 20%,transparent 80%,rgba(4,13,20,.72)),linear-gradient(transparent 50%,rgba(0,0,0,.13) 50%);background-size:auto,100% 4px;mix-blend-mode:multiply}
+    .world-trailer:after{content:"";position:absolute;z-index:4;inset:-60% -15%;pointer-events:none;background:linear-gradient(105deg,transparent 42%,rgba(255,255,255,.12) 49%,rgba(117,231,255,.08) 51%,transparent 58%);animation:trailer-sweep 9s ease-in-out infinite}
+    .world-trailer-bar{position:absolute;z-index:6;top:0;left:0;right:0;display:flex;align-items:center;justify-content:space-between;gap:18px;padding:12px 15px;color:#9ab2bd;background:linear-gradient(#071621e8,transparent);font:700 .57rem var(--mono);letter-spacing:.12em;text-transform:uppercase}
+    .world-trailer-live{display:flex;align-items:center;gap:8px;color:#73f3b6}.world-trailer-live:before{content:"";width:7px;height:7px;border-radius:50%;background:#73f3b6;box-shadow:0 0 16px #73f3b6;animation:trailer-blink 1.8s ease-in-out infinite}
+    .world-trailer-toggle{border:1px solid #486776;background:#071621;color:#c5d6dd;padding:6px 9px;cursor:pointer;font:700 .55rem var(--mono);letter-spacing:.08em;text-transform:uppercase}.world-trailer-toggle:hover{border-color:#ff72ca;color:#ff91d9}
+    .world-trailer svg{display:block;width:100%;height:auto;min-height:360px;max-height:540px}
+    .trailer-grid{animation:trailer-grid 12s linear infinite}.trailer-stars circle{animation:trailer-twinkle 4s ease-in-out infinite}.trailer-stars circle:nth-child(2n){animation-delay:-1.6s}.trailer-stars circle:nth-child(3n){animation-delay:-2.7s}
+    .trailer-orbit-a{transform-origin:600px 266px;animation:trailer-spin 22s linear infinite}.trailer-orbit-b{transform-origin:600px 266px;animation:trailer-spin-reverse 15s linear infinite}.trailer-aperture{transform-origin:600px 266px;animation:trailer-breathe 6s ease-in-out infinite}.trailer-core{transform-origin:600px 266px;animation:trailer-core 3s ease-in-out infinite}
+    .trailer-cube{transform-origin:600px 266px;animation:trailer-float 7s ease-in-out infinite}.trailer-body-left{animation:trailer-enter-left 12s ease-in-out infinite}.trailer-body-right{animation:trailer-enter-right 12s ease-in-out infinite}
+    .trailer-path{stroke-dasharray:8 16;animation:trailer-dash 3s linear infinite}.trailer-pulse-a{transform-origin:600px 266px;animation:trailer-pulse-a 8s ease-in-out infinite}.trailer-pulse-b{transform-origin:600px 266px;animation:trailer-pulse-b 8s ease-in-out -4s infinite}
+    .trailer-word{opacity:0;animation:trailer-word 16s ease-in-out infinite}.trailer-word:nth-child(2){animation-delay:4s}.trailer-word:nth-child(3){animation-delay:8s}.trailer-word:nth-child(4){animation-delay:12s}
+    .world-trailer-copy{position:absolute;z-index:5;left:clamp(16px,3vw,42px);bottom:clamp(18px,3vw,38px);max-width:520px}.world-trailer-copy small{display:block;color:#ff72ca;font:750 .57rem var(--mono);letter-spacing:.14em;text-transform:uppercase}.world-trailer-copy strong{display:block;margin-top:6px;color:#fff;font:700 clamp(1.45rem,3vw,3rem)/.96 var(--serif);letter-spacing:-.035em;text-shadow:0 3px 30px #02090f}.world-trailer-copy p{max-width:430px;margin:.55rem 0 0;color:#b5c8d1;font-size:.76rem;line-height:1.5}
+    .world-trailer-acts{position:absolute;z-index:5;right:clamp(14px,2vw,28px);bottom:clamp(16px,2vw,26px);display:flex;gap:5px}.world-trailer-acts span{width:34px;height:3px;background:#365261;animation:trailer-act 16s ease-in-out infinite}.world-trailer-acts span:nth-child(2){animation-delay:4s}.world-trailer-acts span:nth-child(3){animation-delay:8s}.world-trailer-acts span:nth-child(4){animation-delay:12s}
+    .world-trailer[data-paused="true"] *{animation-play-state:paused!important}.world-trailer[data-paused="true"] .world-trailer-live:before{background:#ff72ca;box-shadow:0 0 14px #ff72ca}
+    @keyframes trailer-sweep{0%,25%{transform:translateX(-45%)}70%,100%{transform:translateX(45%)}}
+    @keyframes trailer-blink{50%{opacity:.3;transform:scale(.7)}}
+    @keyframes trailer-grid{to{transform:translateY(24px)}}
+    @keyframes trailer-twinkle{50%{opacity:.18}}
+    @keyframes trailer-spin{to{transform:rotate(360deg)}}@keyframes trailer-spin-reverse{to{transform:rotate(-360deg)}}
+    @keyframes trailer-breathe{0%,100%{transform:rotate(0) scale(.82)}50%{transform:rotate(45deg) scale(1.08)}}
+    @keyframes trailer-core{50%{transform:scale(1.22);filter:drop-shadow(0 0 18px #e8b747)}}
+    @keyframes trailer-float{0%,100%{transform:translateY(-10px) rotate(-2deg)}50%{transform:translateY(12px) rotate(3deg)}}
+    @keyframes trailer-enter-left{0%,100%{transform:translateX(-34px);opacity:.2}35%,72%{transform:translateX(0);opacity:1}}@keyframes trailer-enter-right{0%,100%{transform:translateX(34px);opacity:.2}35%,72%{transform:translateX(0);opacity:1}}
+    @keyframes trailer-dash{to{stroke-dashoffset:-48}}
+    @keyframes trailer-pulse-a{0%,100%{transform:rotate(0deg)}50%{transform:rotate(180deg)}}@keyframes trailer-pulse-b{0%,100%{transform:rotate(45deg)}50%{transform:rotate(225deg)}}
+    @keyframes trailer-word{0%,4%,24%,100%{opacity:0;transform:translateY(12px)}7%,21%{opacity:1;transform:translateY(0)}}
+    @keyframes trailer-act{0%,4%,24%,100%{background:#365261;box-shadow:none}7%,21%{background:#ff72ca;box-shadow:0 0 12px #ff72ca}}
     .world-map{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:10px;padding:10px;border:1px solid #304d5e;background:rgba(4,13,20,.62);box-shadow:18px 18px 0 rgba(232,183,71,.08)}
     .world-room{position:relative;display:flex;min-height:184px;flex-direction:column;border:1px solid #315064;background:rgba(10,29,42,.9);padding:20px;text-decoration:none;transition:transform .16s ease,border-color .16s ease,background .16s ease}
     a.world-room:hover{z-index:2;transform:translateY(-3px);border-color:var(--cyan);background:#0e2736}
@@ -216,7 +244,8 @@
     @media(max-width:1100px){.world-room--human,.world-room--play,.world-room--books,.world-room--tools,.world-room--science,.world-room--builder,.world-room--connect,.world-room--overview{grid-column:span 4}}
     @media(max-width:900px){.scope-inner,.dual,.culture-grid,.a0-guide-head,.research-now-head,.entry-switch-grid,.world-plate-head{grid-template-columns:1fr}.entry-switch-head{display:block}.entry-switch-intro{margin-top:12px}.research-now-status{justify-content:flex-start}.research-now-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.sequence{grid-template-columns:1fr 1fr}.index-grid,.reading{grid-template-columns:1fr}.top nav{display:none}.viewer-meta{grid-template-columns:1fr}.asset-actions{justify-content:flex-start}.world-room--human,.world-room--play,.world-room--books,.world-room--tools,.world-room--science,.world-room--builder,.world-room--connect,.world-room--overview{grid-column:span 6}.world-plate-return{align-items:flex-start;flex-direction:column}.world-plate-return .btns{margin-top:4px}}
     @media(max-width:680px){.a0-guide-grid{grid-template-columns:1fr}.a0-guide-card{min-height:0}.a0-guide-note{flex-direction:column;gap:6px}}
-    @media(max-width:580px){.head{grid-template-columns:1fr}.no{font-size:2.3rem}.sequence,.research-now-grid{grid-template-columns:1fr}.delta{grid-template-columns:1fr}.record-journey{grid-template-columns:1fr 1fr}.entry-route{grid-template-columns:1fr;min-height:0}.entry{grid-template-columns:35px 62px 1fr;gap:11px;padding:17px}.chapter-mark{width:62px;height:58px}.chapter-mark svg{width:52px}.spread,.culture-grid,.a0-guide-inner,.entry-switch-inner,.world-plate-inner{padding:55px 5vw}.research-now-inner{padding:32px 5vw 36px}model-viewer{min-height:330px}h1{font-size:4rem}.world-room--human,.world-room--play,.world-room--books,.world-room--tools,.world-room--science,.world-room--builder,.world-room--connect,.world-room--overview{grid-column:span 12;min-height:0}.world-room--backstage{grid-template-columns:1fr}.world-room--backstage b{white-space:normal}}
+    @media(max-width:580px){.head{grid-template-columns:1fr}.no{font-size:2.3rem}.sequence,.research-now-grid{grid-template-columns:1fr}.delta{grid-template-columns:1fr}.record-journey{grid-template-columns:1fr 1fr}.entry-route{grid-template-columns:1fr;min-height:0}.entry{grid-template-columns:35px 62px 1fr;gap:11px;padding:17px}.chapter-mark{width:62px;height:58px}.chapter-mark svg{width:52px}.spread,.culture-grid,.a0-guide-inner,.entry-switch-inner,.world-plate-inner{padding:55px 5vw}.research-now-inner{padding:32px 5vw 36px}model-viewer{min-height:330px}h1{font-size:4rem}.world-room--human,.world-room--play,.world-room--books,.world-room--tools,.world-room--science,.world-room--builder,.world-room--connect,.world-room--overview{grid-column:span 12;min-height:0}.world-room--backstage{grid-template-columns:1fr}.world-room--backstage b{white-space:normal}.world-trailer svg{min-height:430px;width:auto;max-width:none;transform:translateX(-29%)}.world-trailer-copy{right:16px}.world-trailer-copy p{max-width:290px}.world-trailer-acts{display:none}}
+    @media(prefers-reduced-motion:reduce){.world-trailer *{animation:none!important}.world-trailer:after{display:none}.world-trailer-toggle{display:none}}
   </style>
   <link rel="stylesheet" href="a0-context-navigation.css?rev=reader-lanes-20261019-lane-entry">
 </head>
@@ -252,6 +281,52 @@
           <div><div class="eyebrow">NEXAH · ORIENTATION PORTAL</div><h2 id="built-world-title">A Built World.</h2></div>
           <p class="world-plate-intro"><strong>NEXAH ist eine offene, menschenzentrierte Orientierungspraxis: science-led, human-centered, instrument-enabled.</strong> A0 ist ihr gemeinsames methodisches Referenzobjekt. Hinter diesen Türen liegen Bücher, Bilder, Spiele, Instrumente, Forschung und Software — verbunden, aber nicht gleichgesetzt.</p>
         </header>
+
+        <figure class="world-trailer" id="world-trailer" aria-labelledby="world-trailer-title">
+          <div class="world-trailer-bar"><span class="world-trailer-live">World signal · running</span><span>One source · many views · explicit return</span><button class="world-trailer-toggle" type="button" aria-pressed="false">Pause</button></div>
+          <svg viewBox="0 0 1200 520" role="img" aria-labelledby="world-trailer-svg-title world-trailer-svg-desc">
+            <title id="world-trailer-svg-title">Bewegter Trailer durch die NEXAH-A0-Welt</title>
+            <desc id="world-trailer-svg-desc">Eine abstrakte Sequenz aus Gittern, Apertur, gekoppelten Körpern, Umlaufbahnen und einem sichtbaren Return.</desc>
+            <defs>
+              <radialGradient id="trailer-space" cx="50%" cy="48%" r="65%"><stop offset="0" stop-color="#15394a"/><stop offset=".42" stop-color="#071923"/><stop offset="1" stop-color="#02080e"/></radialGradient>
+              <radialGradient id="trailer-core-light"><stop offset="0" stop-color="#fff7c7"/><stop offset=".22" stop-color="#e8b747"/><stop offset=".55" stop-color="#e548b5" stop-opacity=".55"/><stop offset="1" stop-color="#e548b5" stop-opacity="0"/></radialGradient>
+              <linearGradient id="trailer-spectrum"><stop stop-color="#e8b747"/><stop offset=".33" stop-color="#43cae7"/><stop offset=".67" stop-color="#72f3b5"/><stop offset="1" stop-color="#e548b5"/></linearGradient>
+              <pattern id="trailer-grid" width="48" height="48" patternUnits="userSpaceOnUse"><path d="M48 0H0V48" fill="none" stroke="#31576a" stroke-width="1" opacity=".38"/></pattern>
+              <filter id="trailer-glow"><feGaussianBlur stdDeviation="6" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+            </defs>
+            <rect width="1200" height="520" fill="url(#trailer-space)"/>
+            <g class="trailer-stars" fill="#bdefff"><circle cx="96" cy="96" r="1.7"/><circle cx="244" cy="74" r="1.1"/><circle cx="1040" cy="120" r="1.5"/><circle cx="1120" cy="228" r="1"/><circle cx="925" cy="76" r="1"/><circle cx="356" cy="128" r="1.3"/><circle cx="187" cy="302" r="1"/><circle cx="1005" cy="366" r="1.4"/><circle cx="405" cy="426" r="1.2"/><circle cx="792" cy="89" r="1.2"/></g>
+            <g class="trailer-grid" opacity=".62"><path d="M0 394H1200V520H0Z" fill="url(#trailer-grid)" transform="skewX(-16)"/><path d="M0 402C230 342 970 342 1200 402" fill="none" stroke="#3b7c93" opacity=".4"/><path d="M0 450C280 380 920 380 1200 450" fill="none" stroke="#3b7c93" opacity=".28"/></g>
+            <g fill="none" stroke-linecap="round">
+              <path class="trailer-path" d="M70 267C220 90 400 435 566 275" stroke="#e8b747" stroke-width="2" opacity=".72"/>
+              <path class="trailer-path" d="M1130 267C980 440 800 92 634 275" stroke="#e548b5" stroke-width="2" opacity=".72"/>
+              <path class="trailer-path" d="M90 340C320 500 416 56 585 243" stroke="#43cae7" stroke-width="1.5" opacity=".52"/>
+              <path class="trailer-path" d="M1110 340C880 500 784 56 615 243" stroke="#72f3b5" stroke-width="1.5" opacity=".52"/>
+            </g>
+            <g class="trailer-body-left" transform="translate(230 250)" fill="none" stroke="#43cae7"><path d="M-90 42L-55-62 40-88 96-8 58 81-42 91Z" stroke-width="2"/><path d="M-55-62L4 5 40-88M4 5L96-8M4 5L58 81M4 5L-42 91M-90 42L4 5" opacity=".55"/><circle cx="4" cy="5" r="7" fill="#43cae7" filter="url(#trailer-glow)"/></g>
+            <g class="trailer-body-right" transform="translate(970 250)" fill="none" stroke="#e548b5"><path d="M-86-48L0-94 86-48 86 50 0 94-86 50Z" stroke-width="2"/><path d="M0-94V94M-86-48L86 50M86-48L-86 50" opacity=".55"/><circle r="7" fill="#e548b5" filter="url(#trailer-glow)"/></g>
+            <g fill="none" transform="translate(0 0)">
+              <ellipse class="trailer-orbit-a" cx="600" cy="266" rx="280" ry="112" stroke="url(#trailer-spectrum)" stroke-width="1.5" stroke-dasharray="3 11" opacity=".7"/>
+              <ellipse class="trailer-orbit-b" cx="600" cy="266" rx="214" ry="178" stroke="#7cdff2" stroke-width="1" stroke-dasharray="2 9" opacity=".48"/>
+              <g class="trailer-pulse-a"><circle cx="880" cy="266" r="6" fill="#e8b747" stroke="none" filter="url(#trailer-glow)"/></g>
+              <g class="trailer-pulse-b"><circle cx="600" cy="88" r="5" fill="#e548b5" stroke="none" filter="url(#trailer-glow)"/></g>
+            </g>
+            <g class="trailer-aperture" fill="#07121b" stroke="url(#trailer-spectrum)" stroke-width="2">
+              <path d="M600 130L655 222 600 257 545 222Z"/><path d="M736 266L644 321 609 266 644 211Z"/><path d="M600 402L545 310 600 275 655 310Z"/><path d="M464 266L556 211 591 266 556 321Z"/>
+            </g>
+            <g class="trailer-cube" fill="none" stroke="#dff8ff" stroke-width="1.4" opacity=".88"><path d="M542 212L615 190 672 236 657 318 584 340 527 294Z"/><path d="M575 239L628 223 655 251 644 301 592 316 554 286Z"/><path d="M542 212L575 239M615 190L628 223M672 236L655 251M657 318L644 301M584 340L592 316M527 294L554 286"/></g>
+            <circle class="trailer-core" cx="600" cy="266" r="56" fill="url(#trailer-core-light)" opacity=".86"/>
+            <circle cx="600" cy="266" r="6" fill="#fff8d6" filter="url(#trailer-glow)"/>
+            <g font-family="ui-monospace,monospace" font-size="15" font-weight="700" letter-spacing="4" text-anchor="middle">
+              <text class="trailer-word" x="600" y="82" fill="#e8b747">HUMAN · ENTER</text>
+              <text class="trailer-word" x="600" y="82" fill="#72f3b5">SCIENCE · TEST</text>
+              <text class="trailer-word" x="600" y="82" fill="#43cae7">BUILDER · MAKE</text>
+              <text class="trailer-word" x="600" y="82" fill="#ff72ca">RETURN · LOOK AGAIN</text>
+            </g>
+          </svg>
+          <figcaption class="world-trailer-copy"><small>00 · World trailer</small><strong id="world-trailer-title">The world is not one view.</strong><p>Ein Gegenstand. Mehrere Schnitte. Sichtbare Übergänge. Und immer ein Weg zurück.</p></figcaption>
+          <div class="world-trailer-acts" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+        </figure>
 
         <nav class="world-map" aria-label="Türen in die gebaute NEXAH-A0-Welt">
           <a class="world-room world-room--human" href="A0_NEXAH_APERTURE_JOURNEY.html#human-view"><small>Human</small><h3>Erleben &amp; urteilen.</h3><p>Human Journey, ARKADE, Club und spielbare Welten öffnen den menschlichen Zugang.</p><b>Human View öffnen →</b></a>
@@ -507,6 +582,21 @@
   <footer>
     <div><span><strong>NEXAH · A0 BOOK</strong><br>Internal guided-reading surface · documentation layer</span><span class="label">Introduction + Index · 2026-10-09</span></div>
   </footer>
+  <script>
+    (() => {
+      const trailer = document.querySelector("#world-trailer");
+      const toggle = trailer?.querySelector(".world-trailer-toggle");
+      const signal = trailer?.querySelector(".world-trailer-live");
+      if (!trailer || !toggle || !signal) return;
+      toggle.addEventListener("click", () => {
+        const paused = trailer.dataset.paused !== "true";
+        trailer.dataset.paused = String(paused);
+        toggle.textContent = paused ? "Play" : "Pause";
+        toggle.setAttribute("aria-pressed", String(paused));
+        signal.textContent = paused ? "World signal · paused" : "World signal · running";
+      });
+    })();
+  </script>
   <script src="a0-context-navigation.js?rev=public-science-frontstage-20261024"></script>
 </body>
 </html>

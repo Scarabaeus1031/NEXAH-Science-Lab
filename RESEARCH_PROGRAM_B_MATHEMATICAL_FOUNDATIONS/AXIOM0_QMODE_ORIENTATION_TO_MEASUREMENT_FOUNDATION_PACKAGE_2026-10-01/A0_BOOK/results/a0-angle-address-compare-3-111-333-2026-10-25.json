@@ -1,0 +1,51 @@
+{
+  "schema": "nexah.a0.angle-address-compare/1.0.0",
+  "status": "PASS_EXACT_FINITE_ADDRESS_COMPARISON",
+  "scope": "A and B are the fixed two-sequence comparison; C is a separate 333-degree negative control",
+  "radius": 1,
+  "startDeg": 0,
+  "steps": 120,
+  "relations": {
+    "factorization111": "111=3*37",
+    "gcd37_120": 1,
+    "inverse37Mod120": 13,
+    "forwardMap": "j=37k mod 120",
+    "inverseMap": "k=13j mod 120"
+  },
+  "A": {
+    "stepDeg": 3,
+    "uniqueDirections": 120,
+    "closureAddress": 0,
+    "path": "regular polygon {120/1}"
+  },
+  "B": {
+    "stepDeg": 111,
+    "uniqueDirections": 120,
+    "closureAddress": 0,
+    "path": "regular star polygon {120/37}"
+  },
+  "comparison": {
+    "samePointSet": true,
+    "eachDirectionOnceA": true,
+    "eachDirectionOnceB": true,
+    "closedAfter120A": true,
+    "closedAfter120B": true
+  },
+  "control333": {
+    "stepDeg": 333,
+    "factorization": "333=3*111",
+    "gcd111_120": 3,
+    "uniqueDirections": 40,
+    "firstReturnStep": 40,
+    "closureAddressAfter120": 0,
+    "visitsPerDirection": 3,
+    "path": "three repeats of {40/37}, equivalently reverse {40/3}"
+  },
+  "ownerNotes": [
+    "111",
+    "|11",
+    "1–2–3"
+  ],
+  "ownerNoteBoundary": "retained notations only; no additional operator meaning",
+  "claimBoundary": "Exact finite modular geometry and display comparison only. No radius growth, prime filter, golden spiral, physical mechanism, Study, Finding or publication claim."
+}

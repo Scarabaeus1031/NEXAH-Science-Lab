@@ -52,6 +52,10 @@ The D1/D2 coordinates and requested path are received values. Every other dimens
 
 Intended contacts are: shaft↔moving sleeve, shaft inside the D1/D2 bores, pedestals/rail↔fixed lower panel, and moving↔fixed panels inside the declared hinge strip. All contact outside those sets is treated as an unwanted collision.
 
+### Visual reading note: the folded-in “tooth”
+
+The short downward web drawn below each C-housing is the **fixed mounting neck / pedestal** that connects the bearing housing to the transverse rail. It is not contact `1`, not the numeral `1`, not a moving tine and not a latch. In a later fabrication candidate this neck still needs an explicit screw, bond or integral-joint specification; this bounded model only declares it as rigidly fixed to the rail.
+
 ## Method and result
 
 `d1_d2_clamp_test.mjs` reads the received `models.json` and `native_contact_results.json`. It uses segment–triangle, triangle–triangle and capsule-envelope distances, subtracts finite half-thicknesses from mid-surface distances and checks the C-opening analytically by angular envelope.

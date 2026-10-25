@@ -7,13 +7,31 @@
   "title": "A0 Orientation Evidence Lineage",
   "summary": "A searchable source-and-relation lens connecting the existing A0 Mathematical Joints surface to the experiment series, operator audits, vocabulary reconciliation, OLS authority and historical FP/RR/OE handoff that already exist in NEXAH repositories.",
   "purpose": "Make the experimental genealogy discoverable without importing presentation visuals as evidence, duplicating A0, changing OLS or reopening any closed series.",
+  "angle_address_3_111_333_return_20261025": {
+    "status": "PASS_EXACT_FINITE_ADDRESS_COMPARISON_NO_SCIENCE_RUN",
+    "scope": "At radius 1 and common start 0 degrees, the 3-degree and 111-degree sequences visit the same 120 directions exactly once and close after 120 steps while connecting them as {120/1} and {120/37}. A separate 333-degree negative control visits only 40 directions and repeats them three times.",
+    "identity_reuse": ["NEXAH:A0_ORIENTATION_EVIDENCE_LINEAGE:V1", "NEXAH_A0_ORIENTATION_CONTROLLER_BENCH"],
+    "sources": [
+      {"ecosystem_path": "30 SCIENCE LAB/NEXAH-Science-Lab/RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/results/a0-angle-address-compare-3-111-333-2026-10-25.json", "sha256": "98804a1df7b3e369f807d258a2df695318de1968db2cc57489387cbcba3d1fd0"},
+      {"ecosystem_path": "30 SCIENCE LAB/NEXAH-Science-Lab/RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/results/a0-angle-address-compare-3-111-333-2026-10-25.svg", "sha256": "1117169ad4dde18421007b8b7837edd94be32ae802e338fa7d7e13a77624648e"},
+      {"ecosystem_path": "30 SCIENCE LAB/NEXAH-Science-Lab/RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/A0_ORIENTATION_CONTROLLER_BENCH.html", "sha256": "3c6b06de5d27e80a86f2932f2e8ee2bc8a2d9cd1bbe6d55740e0013f9ba16179"},
+      {"ecosystem_path": "30 SCIENCE LAB/NEXAH-Science-Lab/SCIENCE_LAB/MISSION_CONTROL_RETURN_A0_ANGLE_ADDRESS_3_111_333_2026-10-25.md", "sha256": "4e5c9a9fdddb34fd37bfd200993cd2938d9a20526771296898577f3a529e54e2"}
+    ],
+    "verification": {"status": "PASS_38", "same_point_set_3_111": true, "unique_before_return_3_111": 120, "closure_step_3_111": 120, "path_a": "{120/1}", "path_b": "{120/37}", "control_333_unique_directions": 40, "control_333_first_return": 40},
+    "return_path": "A0_BOOK/A0_RESEARCH_DESK.html#angle-address-3-111-return-20261025",
+    "builder_path": "A0_BOOK/A0_BUILDER_LOG.html#angle-address-3-111-return-20261025",
+    "new_canonical_ids": [],
+    "relation_changes": [],
+    "finding_or_manuscript_effect": "NONE",
+    "boundary": "Exact finite address and path comparison only. Owner notes 111, |11 and 1-2-3 receive no operator semantics. No radius growth, prime filter, golden spiral, physical mechanism, Study, Finding, evidence promotion, research activation, publication or authority transfer."
+  },
   "d1_d2_clamp_engineering_return_20261025": {
     "status": "PASS_BOUNDED_GEOMETRIC_CLEARANCE_NO_SCIENCE_RUN",
     "scope": "The received D1-D2 axis is attached to the fixed lower frame by two chosen C-open bearing candidates and a fixed rail. Finite moving and fixed panel thicknesses are checked over the complete -34 to +34 degree path while crown and lid remain fixed and no additional movement axis is introduced.",
     "identity_reuse": ["NEXAH:A0_ORIENTATION_EVIDENCE_LINEAGE:V1", "MOD:TESSAREC", "NEXAH_A0_ORIENTATION_CONTROLLER_BENCH"],
     "updated_source_ids": ["SRC:A0OE:A0_RESEARCH_DESK_CHECK58", "SRC:A0OE:FINDINGS_PAPER_WORKSPACE"],
     "sources": [
-      {"ecosystem_path": "30 SCIENCE LAB/NEXAH-Science-Lab/RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/downloads/A0_THE_ONE_D1_D2_YUGO_INTAKE_2026-10-25/engineering/d1-d2-clamp-v1/D1_D2_CLAMP_ENGINEERING_RETURN_2026-10-25.md", "sha256": "b5d610e592715d6f75338e6026a1ebf711f6d49df01143bbfd8dfe1a4b0bcc78"},
+      {"ecosystem_path": "30 SCIENCE LAB/NEXAH-Science-Lab/RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/downloads/A0_THE_ONE_D1_D2_YUGO_INTAKE_2026-10-25/engineering/d1-d2-clamp-v1/D1_D2_CLAMP_ENGINEERING_RETURN_2026-10-25.md", "sha256": "c2b531ecd38aeb3fc584314b4fc284ae519dd6cf3e647a2582cb4aba7c0c4079"},
       {"ecosystem_path": "30 SCIENCE LAB/NEXAH-Science-Lab/RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/downloads/A0_THE_ONE_D1_D2_YUGO_INTAKE_2026-10-25/engineering/d1-d2-clamp-v1/D1_D2_CLAMP_TEST_RESULTS.json", "sha256": "2e136c05ddcb67eb84c3f7dc149106901e0cf32be6e022673796774d7d63db49"},
       {"ecosystem_path": "30 SCIENCE LAB/NEXAH-Science-Lab/RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/downloads/A0_THE_ONE_D1_D2_YUGO_INTAKE_2026-10-25/engineering/d1-d2-clamp-v1/NEXAH_D1_D2_CLAMP_CANDIDATE_2026-10-25.glb", "sha256": "9845f96f6e94680006844537c54ccbe9690a6849eedf17e59bc56f5ceda46b3f"},
       {"ecosystem_path": "30 SCIENCE LAB/NEXAH-Science-Lab/SCIENCE_LAB/MISSION_CONTROL_RETURN_A0_D1_D2_CLAMP_ENGINEERING_TEST_2026-10-25.md", "sha256": "20d41b14af4c43d8146fb11e7525bc92fbc3838b66157b7245ec2f104c7cd3dd"}
@@ -73,7 +91,7 @@
     "sources": [
       {"ecosystem_path": "30 SCIENCE LAB/NEXAH-Science-Lab/RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/NEXAH_SCIENCE.html", "sha256": "792c325e0a030f1c3314e405522e153c5108a5b4988bfe8d367d535edb82d5c8"},
       {"ecosystem_path": "30 SCIENCE LAB/NEXAH-Science-Lab/RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/A0_SCIENTIFIC_POSITION_REPORT.html", "sha256": "45f5f2b6f2ede3f43c4e873c436c33cf4d03cbd0d7faab4a467ea6d0517d368c"},
-      {"ecosystem_path": "30 SCIENCE LAB/NEXAH-Science-Lab/RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/index.html", "sha256": "46a725a43522aeca2b922b1c9446cf601589c80dbce51d243a2869e7c5a347d9"},
+      {"ecosystem_path": "30 SCIENCE LAB/NEXAH-Science-Lab/RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/index.html", "sha256": "e614ee07f3789710c269f60843514ac612e0aa26b117a4940f8af0511f20742c"},
       {"ecosystem_path": "30 SCIENCE LAB/NEXAH-Science-Lab/RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/a0-context-navigation.js", "sha256": "3ab2d7e2c3b462b3e677106704def9908d1b12dc8d2cae8b8617ae667b49588c"},
       {"ecosystem_path": "30 SCIENCE LAB/NEXAH-Science-Lab/RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/a0-context-navigation.css", "sha256": "5026bffc17d898c7fc48842b60e16d6dd42c403529c18ab18d0e80a8dcfca416"},
       {"ecosystem_path": "30 SCIENCE LAB/NEXAH-Science-Lab/RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/a0-reader-navigation-tests.cjs", "sha256": "ae09a60e84fb47496c449b1eb6844dbfd00ff2a851015e51def47d025a68ec96"},
@@ -5746,7 +5764,7 @@
       "repository": "NEXAH Science Lab",
       "ecosystem_path": "30 SCIENCE LAB/NEXAH-Science-Lab/RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/A0_RESEARCH_DESK.html",
       "href": "../../../../RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/A0_RESEARCH_DESK.html",
-      "sha256": "518f9294175fee754018bfb0de3f0856a5f9371a7948971f389c9ed047c2ad38",
+      "sha256": "5f3482838c7d07ea5bee66fe8bb358740140f7beb43f17f32da3bd920476ea8c",
       "authority_role": "scientifically authoritative internal A0 Science Desk with distinct portfolio controls for Owner todos, research directions, source/NSN coordination and public projection gates, now partitioned into overview, research, returns, library and archive navigation views without changing source identities or deep-link anchors; A0-BL-015 remains an awaiting-review todo, not an active Study, contact instruction or publication; its records are documentary navigation and triage only unless separately admitted, and these interfaces create no score, norm, diagnostic result, Study, finding, canonical relation, paper claim, publication or authority transfer"
     },
     {
