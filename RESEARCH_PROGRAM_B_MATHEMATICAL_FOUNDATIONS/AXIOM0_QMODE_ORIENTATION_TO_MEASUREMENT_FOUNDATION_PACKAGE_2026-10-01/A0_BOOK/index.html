@@ -29,6 +29,41 @@
     h1{font:700 clamp(4rem,10vw,9rem)/.8 var(--serif);letter-spacing:-.065em;margin:.3em 0 .25em}
     h1 span{display:block;font:650 clamp(1.55rem,3.7vw,3.5rem)/1.05 var(--sans);letter-spacing:-.04em;margin-top:.42em}
     .lead{font:400 clamp(1.08rem,2vw,1.55rem)/1.48 var(--serif);max-width:760px}
+    .world-plate{position:relative;display:grid;min-height:calc(100svh - 58px);overflow:hidden;align-items:center;background:
+      radial-gradient(circle at 50% 45%,rgba(67,202,231,.14),transparent 26%),
+      radial-gradient(circle at 88% 14%,rgba(229,72,181,.10),transparent 23%),
+      linear-gradient(145deg,#06111a,#0b1d2a 58%,#121325);color:#dce8ee;border-top:1px solid #213b4b;border-bottom:4px solid var(--gold)}
+    .world-plate:before{content:"";position:absolute;inset:0;pointer-events:none;opacity:.18;background-image:linear-gradient(rgba(91,139,159,.35) 1px,transparent 1px),linear-gradient(90deg,rgba(91,139,159,.35) 1px,transparent 1px);background-size:58px 58px}
+    .world-plate-inner{position:relative;max-width:1320px;margin:auto;padding:64px 6vw 68px}
+    .world-plate-head{display:grid;grid-template-columns:minmax(0,.9fr) minmax(330px,1.1fr);gap:50px;align-items:end;margin-bottom:28px}
+    .world-plate .eyebrow{color:#ff72ca}.world-plate h2{max-width:700px;color:#fff;font-size:clamp(3rem,6vw,6.2rem)}
+    .world-plate-intro{margin:0;color:#b5c7d0;font:400 clamp(1rem,1.55vw,1.28rem)/1.58 var(--serif)}
+    .world-plate-intro strong{color:#fff}
+    .world-map{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:10px;padding:10px;border:1px solid #304d5e;background:rgba(4,13,20,.62);box-shadow:18px 18px 0 rgba(232,183,71,.08)}
+    .world-room{position:relative;display:flex;min-height:184px;flex-direction:column;border:1px solid #315064;background:rgba(10,29,42,.9);padding:20px;text-decoration:none;transition:transform .16s ease,border-color .16s ease,background .16s ease}
+    a.world-room:hover{z-index:2;transform:translateY(-3px);border-color:var(--cyan);background:#0e2736}
+    .world-room small{color:#7fdcf0;font:750 .58rem var(--mono);letter-spacing:.1em;text-transform:uppercase}
+    .world-room h3{margin:.65rem 0 .55rem;color:#fff;font:700 1.45rem/1.03 var(--serif)}
+    .world-room p{margin:0;color:#9eb2bc;font-size:.79rem;line-height:1.48}
+    .world-room b{margin-top:auto;padding-top:15px;color:var(--cyan);font:750 .58rem var(--mono);letter-spacing:.07em;text-transform:uppercase}
+    .world-room--human{grid-column:span 2;border-top:4px solid var(--gold)}.world-room--human small,.world-room--human b{color:var(--gold)}
+    .world-room--play{grid-column:span 2;border-top:4px solid var(--pink)}.world-room--play small,.world-room--play b{color:#ff79ce}
+    .world-room--books{grid-column:span 2;border-top:4px solid #b38bff}.world-room--books small,.world-room--books b{color:#cbb3ff}
+    .world-room--tools{grid-column:span 2;border-top:4px solid var(--cyan)}
+    .world-room--science{grid-column:span 2;border-top:4px solid var(--mint)}.world-room--science small,.world-room--science b{color:var(--mint)}
+    .world-room--core{grid-column:span 6;min-height:220px;justify-content:center;text-align:center;border:1px solid #b98c2e;background:radial-gradient(circle at 50% 44%,rgba(232,183,71,.17),transparent 48%),#0a1b27}
+    .world-room--core:before,.world-room--core:after{content:"";position:absolute;left:50%;top:50%;border:1px solid rgba(232,183,71,.35);border-radius:50%;transform:translate(-50%,-50%);pointer-events:none}.world-room--core:before{width:138px;height:138px}.world-room--core:after{width:92px;height:92px;border-color:rgba(67,202,231,.32)}
+    .world-room--core>*{position:relative;z-index:1}.world-room--core small,.world-room--core b{color:var(--gold)}.world-room--core h3{font-size:2.3rem}.world-room--core p{max-width:520px;margin:0 auto;color:#c5d2d8}
+    .world-room--builder{grid-column:span 2;border-top:4px solid #63a8ff}.world-room--builder small,.world-room--builder b{color:#8dc1ff}
+    .world-room--connect{grid-column:span 2;border-top:4px solid var(--pink)}.world-room--connect small,.world-room--connect b{color:#ff79ce}
+    .world-room--overview{grid-column:span 2;border-top:4px solid #b38bff}.world-room--overview small,.world-room--overview b{color:#cbb3ff}
+    .world-room--backstage{grid-column:span 12;min-height:0;display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:18px;align-items:center;border-style:dashed;background:#081722;padding:15px 18px}
+    .world-room--backstage h3{margin:0;font-size:1.05rem}.world-room--backstage p{font-size:.76rem}.world-room--backstage b{margin:0;padding:0;color:#8199a5;white-space:nowrap}
+    .world-plate-return{display:flex;justify-content:space-between;gap:26px;align-items:center;margin-top:18px;padding-left:16px;border-left:4px solid var(--pink)}
+    .world-plate-return p{max-width:780px;margin:0;color:#aabec8;font-size:.82rem}.world-plate-return strong{color:#fff}
+    .world-plate-return .btns{margin:0;flex:0 0 auto}.world-plate-return .btn{color:#ff79ce}
+    .world-plate-return .world-curtain{border-color:var(--gold);background:var(--gold);color:#08131d;padding:14px 18px;box-shadow:7px 7px 0 rgba(229,72,181,.22)}
+    .world-plate-return .world-curtain:hover{background:#ffd365}
     .human-view{margin-top:22px;border:1px solid var(--line);background:rgba(255,253,248,.72)}
     .human-view summary{cursor:pointer;list-style:none;padding:12px 15px;color:#785b13;font:750 .66rem var(--mono);letter-spacing:.09em;text-transform:uppercase}
     .human-view summary::-webkit-details-marker{display:none}
@@ -178,9 +213,10 @@
     footer{background:#050d14;color:#8ea3af;padding:46px 6vw;border-top:4px solid var(--gold)}
     footer div{max-width:1250px;margin:auto;display:flex;justify-content:space-between;gap:25px}footer strong{color:white;letter-spacing:.12em}
     @media(max-width:1100px){.a0-guide-grid{grid-template-columns:repeat(3,1fr)}}
-    @media(max-width:900px){.scope-inner,.dual,.culture-grid,.a0-guide-head,.research-now-head,.entry-switch-grid{grid-template-columns:1fr}.entry-switch-head{display:block}.entry-switch-intro{margin-top:12px}.research-now-status{justify-content:flex-start}.research-now-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.sequence{grid-template-columns:1fr 1fr}.index-grid,.reading{grid-template-columns:1fr}.top nav{display:none}.viewer-meta{grid-template-columns:1fr}.asset-actions{justify-content:flex-start}}
+    @media(max-width:1100px){.world-room--human,.world-room--play,.world-room--books,.world-room--tools,.world-room--science,.world-room--builder,.world-room--connect,.world-room--overview{grid-column:span 4}}
+    @media(max-width:900px){.scope-inner,.dual,.culture-grid,.a0-guide-head,.research-now-head,.entry-switch-grid,.world-plate-head{grid-template-columns:1fr}.entry-switch-head{display:block}.entry-switch-intro{margin-top:12px}.research-now-status{justify-content:flex-start}.research-now-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.sequence{grid-template-columns:1fr 1fr}.index-grid,.reading{grid-template-columns:1fr}.top nav{display:none}.viewer-meta{grid-template-columns:1fr}.asset-actions{justify-content:flex-start}.world-room--human,.world-room--play,.world-room--books,.world-room--tools,.world-room--science,.world-room--builder,.world-room--connect,.world-room--overview{grid-column:span 6}.world-plate-return{align-items:flex-start;flex-direction:column}.world-plate-return .btns{margin-top:4px}}
     @media(max-width:680px){.a0-guide-grid{grid-template-columns:1fr}.a0-guide-card{min-height:0}.a0-guide-note{flex-direction:column;gap:6px}}
-    @media(max-width:580px){.head{grid-template-columns:1fr}.no{font-size:2.3rem}.sequence,.research-now-grid{grid-template-columns:1fr}.delta{grid-template-columns:1fr}.record-journey{grid-template-columns:1fr 1fr}.entry-route{grid-template-columns:1fr;min-height:0}.entry{grid-template-columns:35px 62px 1fr;gap:11px;padding:17px}.chapter-mark{width:62px;height:58px}.chapter-mark svg{width:52px}.spread,.culture-grid,.a0-guide-inner,.entry-switch-inner{padding:55px 5vw}.research-now-inner{padding:32px 5vw 36px}model-viewer{min-height:330px}h1{font-size:4rem}}
+    @media(max-width:580px){.head{grid-template-columns:1fr}.no{font-size:2.3rem}.sequence,.research-now-grid{grid-template-columns:1fr}.delta{grid-template-columns:1fr}.record-journey{grid-template-columns:1fr 1fr}.entry-route{grid-template-columns:1fr;min-height:0}.entry{grid-template-columns:35px 62px 1fr;gap:11px;padding:17px}.chapter-mark{width:62px;height:58px}.chapter-mark svg{width:52px}.spread,.culture-grid,.a0-guide-inner,.entry-switch-inner,.world-plate-inner{padding:55px 5vw}.research-now-inner{padding:32px 5vw 36px}model-viewer{min-height:330px}h1{font-size:4rem}.world-room--human,.world-room--play,.world-room--books,.world-room--tools,.world-room--science,.world-room--builder,.world-room--connect,.world-room--overview{grid-column:span 12;min-height:0}.world-room--backstage{grid-template-columns:1fr}.world-room--backstage b{white-space:normal}}
   </style>
   <link rel="stylesheet" href="a0-context-navigation.css?rev=reader-lanes-20261019-lane-entry">
 </head>
@@ -189,6 +225,7 @@
     <a class="brand" href="#top">NEXAH <span>· A0 BOOK</span></a>
     <nav>
       <a href="#wegweiser">Wegweiser</a>
+      <a href="#built-world">Built World</a>
       <a href="A0_LIVING_BLUEPRINT.html#utg-map">UTG / A0 Karte</a>
       <a href="#research-now">Forschung aktuell</a>
       <a href="#record-player">Record / Play</a>
@@ -209,7 +246,28 @@
   </header>
 
   <main id="top">
-    <section class="hero">
+    <section class="world-plate" id="built-world" aria-labelledby="built-world-title">
+      <div class="world-plate-inner">
+        <header class="world-plate-head">
+          <div><div class="eyebrow">NEXAH · ORIENTATION PORTAL</div><h2 id="built-world-title">A Built World.</h2></div>
+          <p class="world-plate-intro"><strong>NEXAH ist eine offene, menschenzentrierte Orientierungspraxis: science-led, human-centered, instrument-enabled.</strong> A0 ist ihr gemeinsames methodisches Referenzobjekt. Hinter diesen Türen liegen Bücher, Bilder, Spiele, Instrumente, Forschung und Software — verbunden, aber nicht gleichgesetzt.</p>
+        </header>
+
+        <nav class="world-map" aria-label="Türen in die gebaute NEXAH-A0-Welt">
+          <a class="world-room world-room--human" href="A0_NEXAH_APERTURE_JOURNEY.html#human-view"><small>Human</small><h3>Erleben &amp; urteilen.</h3><p>Human Journey, ARKADE, Club und spielbare Welten öffnen den menschlichen Zugang.</p><b>Human View öffnen →</b></a>
+          <a class="world-room world-room--science" href="A0_SCIENCE.html#status"><small>Science</small><h3>Prüfen &amp; begrenzen.</h3><p>Resultate, Evidenz, negative Befunde, offene Fragen und Claim-Grenzen.</p><b>A0 Science öffnen →</b></a>
+          <a class="world-room world-room--builder" href="A0_BUILDER_TOY_STORE.html#instrument-atlas"><small>Builder</small><h3>Bauen &amp; anwenden.</h3><p>Toy Store, Build Atlas und die öffentliche Builder-Sicht führen vom Bestand zur Anwendung.</p><b>Builder öffnen →</b></a>
+          <a class="world-room world-room--tools" href="A0_WERKBANK.html"><small>Werkbank</small><h3>Instrumente bedienen.</h3><p>Machines, Viewer, Bodies, gekoppelte Fenster und technische Arbeitsflächen.</p><b>Werkbank öffnen →</b></a>
+          <a class="world-room world-room--connect" href="NEXAH_C_CONNECT.html"><small>C · Connect</small><h3>Eine Fuge wählen.</h3><p>Review, Gespräch oder Zusammenarbeit beginnen an einem begrenzten Gegenstand.</p><b>Connect öffnen →</b></a>
+          <a class="world-room world-room--overview" href="A0_TOURS.html#explanation-path"><small>Übersicht</small><h3>Die Welt lesen.</h3><p>Buch, Karten, Touren und vorhandene Räume als geführten Zusammenhang öffnen.</p><b>Übersicht öffnen →</b></a>
+          <article class="world-room world-room--backstage"><div><small>Backstage · local only</small><h3>Mission Control hält den Gesamtstand.</h3></div><p>Prioritäten, Currentness, Rückbindungen und Owner-Entscheidungen bleiben in der lokalen Steuerfläche — sichtbar im System, aber nicht Teil der öffentlichen Tour.</p><b>Nicht öffentlich verlinkt</b></article>
+        </nav>
+
+        <div class="world-plate-return"><p><strong>Der Navigator ist der Vorraum.</strong> Die bestehende A0-Seite liegt direkt dahinter: ein Referenzobjekt, mehrere Ansichten und ein expliziter Return. Die Türen ordnen den Bestand; sie erzeugen keine zweite Identität.</p><div class="btns"><a class="btn world-curtain" href="#a0-home">Vorhang auf · NEXAH A0 ↓</a></div></div>
+      </div>
+    </section>
+
+    <section class="hero" id="a0-home">
       <div>
         <div class="eyebrow">Fundamentals of relation · representation · readout</div>
         <h1>A0<span>Ein Bild zeigt etwas. Und lässt etwas weg.</span></h1>

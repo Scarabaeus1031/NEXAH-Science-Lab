@@ -1,0 +1,1 @@
+Neuer Abschnitt ab D1 D2 Faltversuch. Zuerst Forschungsnotiz lesen. Python 3 mit numpy scipy matplotlib; test_one_hinge.py ausführen. Die PNG und GLB Dateien zeigen denselben lokal geprüften Kandidaten. Alle Einschränkungen in Notiz und JSON beachten.

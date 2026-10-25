@@ -1,0 +1,218 @@
+{
+  "sourceModule": "A0:TESSAREC:FOLD_CONTACT:V1",
+  "sourceSHA256": "276bc0b81785ac4a88bb383d0ebb078adb89581755f9c7dbab87b25229727395",
+  "checks": 96,
+  "maxContactError": 3.3306690738754696e-16,
+  "nativeCases": [
+    {
+      "n": 3,
+      "t": 0.5,
+      "extension": 1.25,
+      "cutEdge": 0.8090169943749475,
+      "leg": 0.625,
+      "flapAltitude": 0.47644294065830334,
+      "baseApothem": 0.233543089740679,
+      "minimumExtension": 0.9341723589627158,
+      "canReachCenter": true,
+      "contactFoldDegrees": 119.35245302364855,
+      "apexHeightAtContact": 0.4152776191146216
+    },
+    {
+      "n": 4,
+      "t": 0.5,
+      "extension": 1.25,
+      "cutEdge": 0.8090169943749475,
+      "leg": 0.625,
+      "flapAltitude": 0.47644294065830334,
+      "baseApothem": 0.4045084971874738,
+      "minimumExtension": 1.1441228056353687,
+      "canReachCenter": true,
+      "contactFoldDegrees": 148.10499094102872,
+      "apexHeightAtContact": 0.2517354790375466
+    }
+  ],
+  "pentagonExtension": {
+    "n": 5,
+    "t": 0.6180339887498948,
+    "extension": 1.5,
+    "cutEdge": 0.9999999999999999,
+    "leg": 0.9270509831248421,
+    "flapAltitude": 0.7806558302560331,
+    "baseApothem": 0.6881909602355868,
+    "minimumExtension": 1.3763819204711736,
+    "canReachCenter": true,
+    "contactFoldDegrees": 151.83050078622392,
+    "apexHeightAtContact": 0.36853321093594466,
+    "status": "NEW_N5_GENERALIZATION_OF_SOURCE_GEOMETRY_NOT_NATIVE_RENDERER_MODE",
+    "new3DLift": "Regular coplanar base hinges, equal rigid isosceles flaps, equal fold angle. At projected central touch, all lifted apices coincide in 3D.",
+    "maxFreeFlapApexHeight": 0.7806558302560331,
+    "foldFaces": "five distinct flaps before contact; only identify free apices and adjacent flap edges at contact",
+    "closedCounts": {
+      "V": 6,
+      "E": 10,
+      "F": 6
+    },
+    "openNetCounts": {
+      "V": 10,
+      "E": 15,
+      "F": 6
+    }
+  },
+  "addressAdapters": {
+    "A2": {
+      "panels": 3,
+      "mode": "triangle",
+      "label": "A2 -> 3-fold",
+      "status": "HYPOTHESIS_ONLY"
+    },
+    "A7": {
+      "panels": 8,
+      "mode": "octagon",
+      "label": "A7 -> 8-fold",
+      "status": "HYPOTHESIS_ONLY"
+    }
+  },
+  "controllerExchangeTest": {
+    "operator": "mirror z -> h-z; theta -> -theta; A/B role exchange",
+    "maxCoordinateError": 0,
+    "pinFixed": true,
+    "invariant": "edge lengths and pin-relative distances under the specified isometry",
+    "notInvariant": "controller-side labels and nonsymmetric absolute-height readouts"
+  },
+  "breathModel": {
+    "schema": "nexah.janus-breath-sequence",
+    "version": "1.0.0",
+    "model_id": "NEXAH:CON_DAO_BREATH:V1",
+    "maintained": "2026-10-06",
+    "status": "BOUNDED_EXECUTABLE_REPRESENTATION",
+    "states": [
+      {
+        "id": "CON-6",
+        "side": "CON",
+        "depth": 6
+      },
+      {
+        "id": "CON-5",
+        "side": "CON",
+        "depth": 5
+      },
+      {
+        "id": "CON-4",
+        "side": "CON",
+        "depth": 4
+      },
+      {
+        "id": "CON-3",
+        "side": "CON",
+        "depth": 3
+      },
+      {
+        "id": "CON-2",
+        "side": "CON",
+        "depth": 2
+      },
+      {
+        "id": "CON-1",
+        "side": "CON",
+        "depth": 1
+      },
+      {
+        "id": "STILL",
+        "side": "STILLPOINT",
+        "depth": 0,
+        "source_label": 0,
+        "operational_label": "1 / UNITY",
+        "dwell": 2
+      },
+      {
+        "id": "DAO-1",
+        "side": "DAO",
+        "depth": 1
+      },
+      {
+        "id": "DAO-2",
+        "side": "DAO",
+        "depth": 2
+      },
+      {
+        "id": "DAO-3",
+        "side": "DAO",
+        "depth": 3
+      },
+      {
+        "id": "DAO-4",
+        "side": "DAO",
+        "depth": 4
+      },
+      {
+        "id": "DAO-5",
+        "side": "DAO",
+        "depth": 5
+      },
+      {
+        "id": "DAO-6",
+        "side": "DAO",
+        "depth": 6
+      }
+    ],
+    "partitions": {
+      "6|1|6": {
+        "label": "Janus Breath",
+        "outer_groups": [
+          6,
+          6
+        ],
+        "center": 1
+      },
+      "7+5": {
+        "label": "Relations + Pentagon Envelope",
+        "outer_groups": [
+          7,
+          5
+        ],
+        "center": 1
+      },
+      "8+4": {
+        "label": "Octave + Four Axes",
+        "outer_groups": [
+          8,
+          4
+        ],
+        "center": 1
+      }
+    },
+    "historical_trace": [
+      5,
+      4,
+      4,
+      3,
+      3,
+      3,
+      2,
+      1,
+      0,
+      0,
+      9,
+      8,
+      8,
+      7,
+      7,
+      6,
+      5,
+      5,
+      4,
+      4,
+      3
+    ],
+    "historical_trace_status": "OWNER_SUPPLIED_VISUAL_PROVENANCE_ONLY",
+    "source_provenance": "SCIENCE_LAB/CASE_STUDIES/THREE_LIFE_SYSTEMS_PLUS_ONE_BINDER_VISUAL_SERIES_2026-08-24/FINAL_VISUAL_SERIES_DECISION.md",
+    "claim_boundary": "The executable 13-state carrier is a new bounded representation. The 21-entry Root Breath trace is retained as historical provenance and is not asserted to be identical to the 13-state carrier or to describe a physical mechanism."
+  },
+  "visualEquations": {
+    "midAngle70": 70,
+    "halfDifference20": 20,
+    "return6and7": 42,
+    "return13and17": 221
+  },
+  "scope": "Native 2D contact function reproduced. 3D lift and n=5 extension are new declared models; common physical roof, wall geometry and controller-exchange invariant require explicit assumptions."
+}

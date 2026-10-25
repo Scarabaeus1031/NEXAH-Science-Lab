@@ -6,8 +6,10 @@ Status: `RECEIVED_SOURCE_INTAKE / UNADMITTED / NO SCIENCE RUN`
 
 ## Received sources
 
-- `NEXAH_The_One_D1_D2_Forschungsnotiz_01-2.txt` — owner-supplied research note covering the D1–D2 fold candidate, received numerical results and the YUGO One Loop addendum.
+- `NEXAH_The_One_D1_D2_Forschungsnotiz_01.txt` and `NEXAH_The_One_D1_D2_Forschungsnotiz_01-2.txt` — original and updated owner-supplied notes covering the D1–D2 fold candidate, received numerical results and the YUGO One Loop addendum.
 - `NEXAH_Yugo_One_Loop_Offline.html` — self-contained offline game demonstrator derived from the described roles.
+- `sources/packages/NEXAH_The_One_D1_D2_Paket_01.zip` plus its extracted `sources/the-one-d1-d2-package-v1/` tree — received source package with model data, source test and generated deliverables.
+- `deliverables/received/` — the received Test GLB, Gegenrichtung GLB and reference PNG.
 
 The repository copies preserve the received source bytes. Their hashes are recorded in `CHECKSUMS.sha256`.
 
@@ -15,7 +17,13 @@ The repository copies preserve the received source bytes. Their hashes are recor
 
 This intake **relates to** the existing A0 Shadow Triangle / 3+2 intake and **reuses the reading context** of the existing A0 Orientation Controller Bench. It does not create a new Navigator identity or relation.
 
-The note's D1–D2 geometry, clearance values, moment calculation and reported tests are received source statements. They were not rerun as a Science Lab execution in this intake.
+The note's D1–D2 geometry, clearance values, moment calculation and reported tests are received source statements. They were not promoted to a Science Lab execution in this intake.
+
+## Bounded engineering extension
+
+`engineering/d1-d2-clamp-v1/` adds the smallest missing mechanical geometry requested for review: two fixed C-open bearing candidates, a common shaft and moving sleeve, finite moving/fixed panel thicknesses, a fixed rail and a complete `−34° … +34°` collision path. A closed-ring baseline is preserved as a collision; opening the housing toward `+y` is the smallest tested repair.
+
+The extension is `PASS_BOUNDED_GEOMETRIC_CLEARANCE` under explicitly chosen dimensions. It is not a fabrication release, physical validation, Science Run or Finding. See `D1_D2_CLAMP_ENGINEERING_RETURN_2026-10-25.md` in that directory.
 
 The HTML is a playable builder demonstrator. Its fixed reference point and rotatable direction are a new adapter of the existing A0 IOTA/YUGO roles; the ball is not IOTA, no Zipper is implemented, and the game does not extend the 3D body test.
 
@@ -30,4 +38,4 @@ The HTML is a playable builder demonstrator. Its fixed reference point and rotat
 
 ## Next permitted action
 
-Read the note and play the offline demonstrator. If the candidate is selected for formal review, first declare the D1/D2 mounting and actuation model, finite thickness and collision bodies, then prepare a separate owner-authorized Run Contract.
+Read the note and play the offline demonstrator. The geometric mounting candidate is now declared and bounded; the next permitted work is retention/fastener and tolerance design, structural/friction/load analysis and a physical prototype. A formal Science review would still require separate owner admission and a Run Contract.

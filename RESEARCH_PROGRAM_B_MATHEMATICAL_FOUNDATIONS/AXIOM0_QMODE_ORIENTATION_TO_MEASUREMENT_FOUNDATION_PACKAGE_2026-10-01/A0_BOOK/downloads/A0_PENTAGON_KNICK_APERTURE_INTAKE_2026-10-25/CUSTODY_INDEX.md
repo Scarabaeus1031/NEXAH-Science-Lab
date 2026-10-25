@@ -40,6 +40,7 @@ for the intake's reviewed entry HTML.
 | `NEXAH_Pentagon_Gelenklaterne_Abschlussbericht_2026-10-25.docx` | `9390e5f5bfb0aba64df35b2b9ee9728f5e800fbed5d87a34323e07355b77d218` | `reports/NEXAH_PENTAGON_GELENKLATERNE_ABSCHLUSSBERICHT_2026-10-25.docx` |
 | `NEXAH_ Tested geometry, open mechanism.png` | `0142f7cb850883b9ed962c289e73ccc9c057251215af73b8a9990d84bd1343fd` | `visuals/candidates/NEXAH_PENTAGON_GELENKLATERNE_TESTED_GEOMETRY_OPEN_MECHANISM_2026-10-25.png` |
 | `NEXAH_Koerper_Due_Diligence_2026-10-25.txt` | `238b7c24b51d216f36ecc3fb2473e89d4703e40cb6d4bcd2fd9781da31cd8581` | `reports/body-due-diligence/NEXAH_Koerper_Due_Diligence_2026-10-25.txt` |
+| `NEXAH_Koerper_Due_Diligence_2026-10-25.txt` · exact received bytes | `568f327cbae980e26ff64a100bbfb439fd07a9f2a8552c74cfbadc08f6fb513e` | `reports/body-due-diligence/received/NEXAH_Koerper_Due_Diligence_2026-10-25.txt` |
 | `NEXAH_Koerper_Due_Diligence_2026-10-25.docx` | `efae0af74c9536cfb75074fabf60488051c9931180d6f13af3dc4c111a1db702` | `reports/body-due-diligence/NEXAH_Koerper_Due_Diligence_2026-10-25.docx` |
 | `NEXAH_Fuenflaschenkrone_Quellen_2026-10-25.zip` | `6c339198dae455e34b39761aee1ac4475dd95e5135bb40210c13686dd6c9034b` | `sources/packages/NEXAH_Fuenflaschenkrone_Quellen_2026-10-25.zip` and extracted `sources/five-flap-crown/` |
 | `NEXAH_Fuenflaschenkrone_Animiert_2026-10-25.glb` (Desktop, restored from Trash) | `24a33c38eb6e95b110e851ed5fe321f19120bf580248fa09b3a4e5c07b33f754` | `deliverables/glb/NEXAH_Fuenflaschenkrone_Animiert_2026-10-25.glb` |

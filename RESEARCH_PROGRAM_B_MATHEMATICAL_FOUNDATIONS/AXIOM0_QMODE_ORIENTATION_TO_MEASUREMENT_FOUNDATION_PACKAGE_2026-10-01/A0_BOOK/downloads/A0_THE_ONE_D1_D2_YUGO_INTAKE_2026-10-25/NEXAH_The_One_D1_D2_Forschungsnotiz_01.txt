@@ -1,0 +1,78 @@
+THE ONE — D1–D2 Faltversuch 01
+Neues Forschungsdokument · 25. Oktober 2026
+
+SCHNITT UND STARTPUNKT
+Der gesamte vorherige Faden gilt nach Angabe des Autors als an Codex übergeben. Dieses Dokument beginnt mit der zusätzlichen D1–D2 Faltung. Es ersetzt keinen vorherigen Bericht und behauptet keine erneute Prüfung des Codex Stands.
+
+FRAGE
+Kann das vorgeschlagene Shadow Triangle durch eine zusätzliche Achse eine lokale Faltöffnung erhalten?
+
+KANDIDAT
+Ein gleichseitiges Dreieck mit Umkreisradius 0,65 u liegt in z=0,19 u. Die Linie y=0 teilt es in ein oberes Dreieck und ein festes unteres Trapez. Zwei ideale Lagerstellen D1=(−0,16;0;0,19) und D2=(0,16;0;0,19) liegen auf derselben Achse. Der obere Teil wird um diese x-parallele Achse gedreht. Der Bezug zur Pascal-Joint-Idee ist eine neue Interpretation, keine Identitätsfeststellung mit einem nativen A0 Mechanismus.
+
+GEOMETRIE
+Volle Scharnierlänge: 0.750555350 u.
+Lagerabstand D1–D2: 0,32 u.
+Höhe des beweglichen Dreiecks über seiner Basis: 0,65 u.
+Fläche des beweglichen Dreiecks: 0.243930489 u².
+Bewegung eines Punktes (x,y,z0): (x, y cos α, z0+y sin α).
+Zwei Lager auf einer Geraden realisieren hier eine Achse und einen relativen Freiheitsgrad. Die Achse wird extern festgehalten; ihre Befestigung am Laternenrahmen ist noch nicht entworfen.
+
+ERGEBNIS DES ERSTEN TESTS
+Der gewählte lokale Weg von 0 bis 45 Grad erhält alle Dreieckskanten und die Achsenpunkte. Unter den unten genannten Modellannahmen bleibt ein positiver Abstand zu Pin, Rahmen und festgehaltener Krone.
+Kleinster Probenabstand für 0 bis 45 Grad: 0.097054310 u.
+Bewegungsabschlag zwischen Proben: 0.002836158 u.
+Untere Abstandsgrenze über den ganzen Weg: 0.094218151 u.
+Fester unterer Teil, kleinster geprüfter Abstand: 0.153824064 u.
+Der erste nicht positive Probenabstand im erweiterten 0 bis 90 Grad Test liegt bei 78.5 Grad. Die analytische Berührung des Kugelpins tritt bei 78.090131205 Grad auf. 90 Grad durchdringt den Pinbereich. Der 45 Grad Weg ist eine vorsichtige Wahl, kein optimierter Maximalwinkel.
+
+WAS HIER EINE APERTUR BEDEUTET
+Bei Aufsicht entlang der ursprünglichen Flächennormalen wird ein Teil der Ausgangsfläche nicht mehr vom hochgeklappten Dreieck verdeckt. Die projizierte freie Fläche ist A_oben(1−cos α), bei 45 Grad 0.071445586 u². Das ist keine Messung eines Durchflusses oder einer optischen Transmission für beliebige Blickrichtungen.
+
+WICHTIGE ÄNDERUNG DER 3 PLUS 2 DRÜCKE
+Wenn U1 mit dem oberen Dreieck mitwandert, U2 und U3 auf dem festen Teil bleiben und die Eingangsrichtungen weiterhin vertikal sind, bleibt bei der zuvor gewählten Skalierung 3×1−2×1,5 die resultierende Kraft null. Das Moment um die D1–D2 Achse ist nach dem Klappen jedoch nicht mehr null:
+M_x = 0,3575(cos α−1) in relativen Krafteinheiten mal u.
+Bei 45 Grad: -0.104709326.
+Die beiden abwärts gerichteten Eingänge liegen auf der Achse und erzeugen dort kein Moment. Damit lässt sich die frühere Gleichgewichtsaussage nicht unverändert auf die gefaltete Stellung übertragen. Schwerkraft, Lagerreaktionen, Reibung und Antriebsmodell fehlen weiterhin.
+
+PRÜFMETHODE UND GRENZEN
+181 Proben von 0 bis 90 Grad in 0,5 Grad Schritten. Abstand von Segmenten zu Dreiecken unter Einbezug von Durchstoß und Randfällen. Pin als konservative Kugel mit Radius 0,04 u, alle 25 Rahmenstäbe als Mittellinienkapseln mit Radius 0,014 u. Die fünf Kronenlaschen werden bei halbem Kontaktwinkel festgehalten. Der untere Teil wird als zwei feste Dreiecke geprüft. Bewegungsabschlag 2×0,65×sin(0,125 Grad), zusätzlich 10⁻⁹ u numerischer Puffer. Gleitkommarechnung mit analytischer Bewegungsgrenze, keine formale Intervallzertifizierung.
+Die bewegliche Fläche hat Dicke null. Neue Lager und Achsengehäuse sind nicht als Kollisionskörper in den Test aufgenommen; beabsichtigter Achsenkontakt ist ausgenommen. Keine konstruierten Halter zum Rahmen. Keine vollständige Baugruppenprüfung und kein physikalischer Prototyp. Die GLB Bewegung wurde rechnerisch mit denselben Koordinaten verglichen, jedoch nicht in einem unabhängigen Viewer abgenommen.
+
+BEWERTUNG
+Ein geometrisch bestimmter lokaler Faltkandidat mit einem begrenzten freien Bewegungsweg wurde gefunden. „The One“ bleibt ein Arbeitsname. Weder Einzigartigkeit noch wissenschaftliche Neuheit oder eine fertige Gesamtmechanik sind damit nachgewiesen.
+
+NÄCHSTER ENTSCHEIDENDER SCHRITT
+Zwei reale Halter für D1 und D2 mit dem festen Teil verbinden und die 3 plus 2 Eingänge entweder als Kraftkontakte oder als vorgegebene Hubantriebe definieren. Danach Dicken und Lagerkörper ergänzen und denselben 0 bis 45 Grad Weg erneut prüfen. Die Krone erst anschließend gekoppelt bewegen.
+
+ERGÄNZUNG 02 — GEGENRICHTUNG
+25. Oktober 2026
+
+Fortsetzung desselben neuen Dokuments. Plus und minus bezeichnen eine Drehung um dieselbe x-parallele D1–D2 Achse. Plus hebt das obere Dreieck, minus klappt es abwärts. D1 und D2 sind zwei Lagerstellen und keine unabhängigen Regler.
+Notation zur Idee R°D: R_D(α) bezeichnet hier die Rotation um die D1–D2 Achse. Mit Beobachtung C kann C(R_D(α)X) den betrachteten Zustand beschreiben. D°C und C°D bleiben vorerst Bildnotationen ohne definierte Operatorwirkung. Die Reihenfolge verschiedener definierter Operatoren müsste eigens geprüft werden.
+
+Geprüfte Vergleichsstellungen: ±7, ±8, ±17, ±31, ±32, ±33 und ±34 Grad. Dazu +78 Grad als eigener Grenzversuch. Eine feste Zuordnung der Werte zu bestimmten paarweisen Gegenkräften wurde nicht vorgegeben.
+
+Winkel | Pinabstand u | Rahmenabstand u | projizierte Öffnung u²
+-7° | 0.153824064 | 0.119567454 | 0.001818221
++7° | 0.152379329 | 0.265363062 | 0.001818221
+-8° | 0.153824064 | 0.111246989 | 0.002373915
++8° | 0.151937782 | 0.276582725 | 0.002373915
+-17° | 0.153824064 | 0.083016054 | 0.010658602
++17° | 0.145354874 | 0.285901792 | 0.010658602
+-31° | 0.153824064 | 0.200520615 | 0.034841250
++31° | 0.126139650 | 0.275908339 | 0.034841250
+-32° | 0.153824064 | 0.211233195 | 0.037065702
++32° | 0.124372129 | 0.271058727 | 0.037065702
+-33° | 0.153824064 | 0.222032480 | 0.039353167
++33° | 0.122554538 | 0.266752379 | 0.039353167
+-34° | 0.153824064 | 0.232902841 | 0.041702948
++34° | 0.120687432 | 0.263014920 | 0.041702948
++78° | 0.000298289 | 0.352080215 | 0.193214488
+
+Der gesamte lokale Weg −34 bis +34 Grad besitzt unter denselben Annahmen wie Test 01 die positive Abstandsuntergrenze 0.076797637 u. Grundlage: 0,5 Grad Proben und Bewegungsabschlag 0.002836158 u sowie 10⁻⁹ u numerischer Puffer.
+Für 0 bis +78 Grad liefert die Pin-Ebenen-Geometrie die untere Schranke d cos(78°)−r_pin = 0.000298288 u einschließlich numerischen Puffers. Der separat begrenzte Abstand zu den übrigen Hindernissen bleibt größer. Bei 78 Grad sind nur 0.029829 mm Pinabstand im gewählten Maßstab vorhanden. Diese geringe Reserve ist keine Material- oder Fertigungsfreigabe.
+Die abwärts gerichtete Fläche kann unter die Ebene z=0 des unteren Rahmens reichen. Das Modell hat dort einen offenen Rahmen. Ein Boden oder eine geschlossene Grundplatte ist nicht enthalten und könnte die Gegenrichtung blockieren.
+Bei ±α ist die projizierte freie Fläche A_oben(1−cos α) gleich. Die räumlichen Positionen unterscheiden sich. Unter den unverändert vertikalen Eingangsrichtungen hat auch das in Test 01 beschriebene Moment denselben Wert bei ±α. Diese Symmetrie ist eine Folge der gewählten Geometrie, keine neu nachgewiesene universelle Zahlregel.
+GLB mit zwei getrennten Clips: 01 führt durch die positiven und negativen Vergleichsstellungen und zurück. 02 zeigt den positiven Grenzversuch bis 78 Grad. Clips einzeln abspielen. Die Krone bleibt fest, nur das innere Dreieck bewegt sich. Exakte Kanten, Lagerpunkte und Quaternionpositionen wurden rechnerisch geprüft; kein unabhängiger visueller GLB Viewer.
+Nächster Schritt bleibt die Konstruktion der Lagerbefestigung und die Entscheidung über Kraftkontakt oder Hubantrieb. Es werden durch neue Winkelwerte keine weiteren Gelenke eingeführt.

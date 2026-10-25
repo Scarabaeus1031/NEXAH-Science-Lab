@@ -970,3 +970,16 @@ Its primary gate is `PARTIAL`: the source contact and chosen balanced resultant
 are reproducible, while finite clearance, first collision, source-to-GLB vertex
 residual and mechanical support remain open. See the [machine contract](A0_BOOK/assets/a0-crown-shadow-contact-bench-v1.json)
 and [engineering return](A0_BOOK/results/a0-crown-shadow-contact-bench-return-2026-10-25.json).
+### D1–D2 clamp engineering return — 2026-10-25
+
+<a id="d1-d2-clamp-engineering-return-20261025"></a>
+
+**Classification:** `BOUNDED_SOURCE_BOUND_ENGINEERING_TEST / NO SCIENCE RUN / NO FINDING PROMOTION`
+
+The local source package, both received D1–D2 GLBs, reference PNG, original and updated notes and the `°_⁄` YUGO game are now in checksum-bound custody. The remaining mechanical gap was narrowed to a nominal fixed-frame clamp. A closed bearing ring is retained as a negative result because it intersects the finite moving leaf at all 1,361 sampled angles. The smallest repair opens both fixed bearing housings toward `+y`; the received axis and D1/D2 centres remain unchanged.
+
+The C-open candidate passes the complete `−34° … +34°` path at `0.05°` sampling with a conservative between-sample point-motion deduction. This is a geometric clearance result only. It does not establish retention under load, material strength, friction, fatigue, actuation, stability or prototype performance. The received `3×1−2×1.5=0` force sum does not remove the calculated hinge moment after folding. `+78°` remains outside scope.
+
+Evidence: [engineering return](A0_BOOK/downloads/A0_THE_ONE_D1_D2_YUGO_INTAKE_2026-10-25/engineering/d1-d2-clamp-v1/D1_D2_CLAMP_ENGINEERING_RETURN_2026-10-25.md), [machine result](A0_BOOK/downloads/A0_THE_ONE_D1_D2_YUGO_INTAKE_2026-10-25/engineering/d1-d2-clamp-v1/D1_D2_CLAMP_TEST_RESULTS.json), [visual](A0_BOOK/downloads/A0_THE_ONE_D1_D2_YUGO_INTAKE_2026-10-25/engineering/d1-d2-clamp-v1/D1_D2_CLAMP_VISUAL.png), [Science Desk](A0_BOOK/A0_RESEARCH_DESK.html#d1-d2-clamp-engineering-return-20261025), [Builder Log](A0_BOOK/A0_BUILDER_LOG.html#d1-d2-clamp-engineering-return-20261025).
+
+No new F-A0 number, Study, relation, canonical identity, claim promotion or publication authorization is created.
