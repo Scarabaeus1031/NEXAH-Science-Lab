@@ -8,6 +8,11 @@ const html = fs.readFileSync(path.join(root, "a0-public-arkade-index.html"), "ut
 
 assert.match(html, /id="arkade"/);
 assert.doesNotMatch(html, /id="human"/);
+assert.match(html, /href="a0-arkade\.css\?rev=/, 'local Arkade resolves its stylesheet beside the HTML source');
+assert.doesNotMatch(html, /\{\{LIFE_CELLS\}\}/, 'local Arkade contains no unresolved build placeholder');
+const lifeGlyph = html.match(/class="arkade-glyph life"[^>]*>(.*?)<\/span>/)?.[1] || '';
+assert.equal((lifeGlyph.match(/<i><\/i>/g)||[]).length,25,'LIFE cabinet renders its 5 × 5 cell field locally');
+assert.doesNotMatch(html, /href="book\/(?:A0_|a0-arkade)/, 'local Arkade does not use public-export path prefixes');
 assert.match(html, /class="arkade-close" data-a0-return href="A0_NEXAH_APERTURE_JOURNEY\.html#human-route"/);
 assert.match(html, /A0<\/a><i>\/<\/i><a href="A0_NEXAH_APERTURE_JOURNEY\.html#human-route">HUMAN VIEW<\/a><i>\/<\/i><strong>ARKADE/);
 assert.match(html, /new URL\(document\.referrer\)\.origin===location\.origin/);

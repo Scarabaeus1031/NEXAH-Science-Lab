@@ -1,0 +1,122 @@
+NEXAH Teilerkoordinaten und rekonstruierbare Ziffernstreifen
+Stand 25. Oktober 2026 · Erweiterungsprüfung Sechserstreifen und A9
+
+Stand 25. Oktober 2026 · Ergebnisnotiz
+
+**Kernbefund:** Der vorhandene A0-Träger mit drei Decks lässt sich vollständig durch Primfaktorexponenten beschriften. Daneben lassen sich geordnete Ziffernfolgen als modulare Übergänge darstellen und exakt rekonstruieren. Die verwendeten mathematischen Bausteine sind bekannt; das projektspezifische Ergebnis ist ihre konkrete, getestete Verbindung mit den A0-Adressen und dem eigenständigen Vergleichsmodell.
+
+# Primfaktoren als Koordinaten
+
+Für 42=2·3·7 erhält jeder Teiler die Adresse (a,b,c)∈{0,1}³. Eine Kante ergänzt oder entfernt genau einen Primfaktor. Die acht Teiler bilden dadurch den Würfelgraphen Q3.
+
+```math
+d(a,b,c)=2^a3^b7^c,\qquad a,b,c\in\{0,1\}.
+```
+
+Der Weg 42→21→7→1 entspricht (1,1,1)→(0,1,1)→(0,0,1)→(0,0,0). Die sechs möglichen Faktorordnungen ergeben sechs vollständige Abbauwege. Bei 12=2²·3 stehen dagegen sechs Teiler in einem 3×2-Feld; dort gibt es drei vollständige Abbauwege. Der Endpunkt 1 ist die multiplikative Einheit.
+
+Für die vier binären Richtungen und die drei Decks des nativen Trägers wurde folgende zusätzliche Beschriftung gewählt:
+
+```math
+D(\mathbf b,\ell)=2^{b_0}3^{b_1}7^{b_2}11^{b_3}5^\ell,
+\qquad \mathbf b\in\{0,1\}^4,\quad \ell\in\{0,1,2\}.
+```
+
+Die Werte sind genau die 48 Teiler von N=11550=2·3·7·11·5². Eindeutige Primfaktorzerlegung macht die Beschriftung umkehrbar. Genau eine Exponentenänderung um eins entspricht einer nativen Kante. Damit entsteht ein Graphisomorphismus zum vorhandenen Q4×P3-Träger.
+
+```math
+G\cong Q_4\square P_3,\qquad |V|=16\cdot3=48,
+\qquad |E|=32\cdot3+16\cdot2=128.
+```
+
+Die Primzahlen 2,3,7,11 für die vier Bits und 5 für die Deckstufen sind eine deklarierte Wahl. Die bisherigen CRT-Primzahllabels bleiben eigene Felder. Eine arithmetische Adresse ist keine Aussage über räumliche Längen oder Winkel.
+
+# Rückwege und Gegenpunkte
+
+Der inverse Weg macht die einzelnen Divisionen in umgekehrter Reihenfolge durch Multiplikationen rückgängig: 42→21→7→1 wird zu 1→7→21→42. Davon zu unterscheiden ist das Teilerkomplement: Es ordnet jedem Knoten einen Gegenpunkt zu, ohne eine bestimmte Bewegungsgeschichte vorauszusetzen.
+
+```math
+R_N(d)=\frac{N}{d},\qquad R_N^2=\mathrm{id}.
+```
+
+Für N=11550 entspricht das Komplement der Koordinatenabbildung (b₀,b₁,b₂,b₃,ℓ)→(1−b₀,1−b₁,1−b₂,1−b₃,2−ℓ). Sie kehrt die Teilbarkeitsordnung um und erhält die ungerichtete Nachbarschaft. Das ist noch keine nachgewiesene räumliche Spiegelung.
+
+Im ausgewählten RGB-Anschluss werden Aᵢ→Mᵢ→Bᵢ zu zwei Multiplikationen mit 5; der Ast Mᵢ→Cᵢ ergänzt den Faktor 11. Diese neue Fünferlesart ist von der bislang nicht quellenbestätigten 0–28-Coil-Regel zu unterscheiden.
+
+# Ziffernstreifen und ihre Rekonstruktion
+
+Eine zweistellige Adresse ab wird als geordnetes Ziffernpaar erhalten. Ihr Rest modulo 11 ist die Zifferndifferenz; Spiegelung ab↔ba negiert diesen Rest. Die elf Klassen gliedern sich in eine Nullklasse und fünf Gegenpaare ±1,…,±5. Schnapszahlen 00,11,…,99 gehören zur Nullklasse.
+
+```math
+10a+b\equiv b-a\pmod{11}.
+```
+
+Für einen geordneten Streifen mit Ziffern d₁,…,dₘ werden die überlappenden Paare als Übergänge gelesen:
+
+```math
+r_n=(d_{n+1}-d_n)\bmod11,
+\qquad d_{n+1}=(d_n+r_n)\bmod11.
+```
+
+Mit Startziffer und Reihenfolge wird der Streifen exakt zurückgewonnen. Diese Umkehrbarkeit gehört zur Kette, nicht zum einzelnen Rest: Ein Rest allein bestimmt ein zweistelliges Paar nicht eindeutig. Ohne Reihenfolge sind mehrere Verklebungen möglich; aus den Paaren 14,41,15,51 entstehen beispielsweise sowohl 14151 als auch 15141.
+
+Fibonacci wurde mit F₀=0, F₁=1 gelesen, Euler als E(n)=n²+n+41 ab n=0. Die Dezimalterme wurden bis zur 97. Ziffer aneinandergereiht. Jede Ziffer behält ihren Termindex. So bleibt sichtbar, ob ein Paar innerhalb eines Terms oder über einer Naht entsteht: In 41 | 43 liegt 41 im ersten Term, während 14 erst beim Zusammenfügen entsteht. Die Restfolge allein speichert diese Termgrenzen nicht.
+
+Die Zuordnung ±k zur Gelenkrolle M(k−1) ist eine zusätzliche Codierung. Positiv wählt A→M→B, negativ den umgekehrten Weg. Der Nullkanal setzt einen Referenzmarker am Pin ohne Graphschritt. Die elf Restklassen und die elf Außenecken einer bestimmten Projektion sind verschiedene Mengen.
+
+# Geprüfte Ergebnisse
+
+| Prüfung | Ergebnis | Geltungsbereich |
+|---|---|---|
+| Native Teileradressierung | 48 eindeutige Adressen; alle 1.128 Knotenpaare geprüft; genau 128 übereinstimmende Kanten | Vollständiger Q4×P3-Nachbarschaftsgraph |
+| Teilerkomplement | 48 Knotenabbildungen; Involution und Kantenerhaltung bestätigt | Arithmetische Koordinaten |
+| Streifenrekonstruktion | Alle zwölf Streifen mit je 97 Ziffern exakt zurückgewonnen | Bekannte Reihenfolge und Startziffer |
+| Bedienung der Streifen | 1.152 Paarfälle bestanden; Nahtmetadaten und Nullkanäle geprüft | Simulierte DOM-Elemente; Browserabnahme offen |
+| Herkunft der F/E-Paare | Fibonacci: 29 Nahtpaare; Euler: 33 Nahtpaare | Je 96 Paare; unterschiedliche Termbereiche |
+| Explorative Zufallskontrolle | Kein auffälliger Befund nach Holm-Korrektur über 21 Vergleiche | Die sieben zuerst geprüften irrationalen Folgen; keine Erweiterung auf F/E und a,b |
+
+Die zwölf Streifen umfassen π, φ, √2, √7, √11, √19, √29, die rationale Kontrolle √4=2, Fibonacci, Euler sowie die Geometriezahlen a und b. Im jeweiligen 97-Ziffernfenster der elf nichtkonstanten Streifen blieb auch ohne Startziffer nur eine zulässige Dezimalrekonstruktion übrig. Die Nullfolge der Kontrolle ließ dagegen zehn Startziffern zu. Das ist ein endlicher Rekonstruktionsbefund und kein Irrationalitätstest.
+
+# Geometrische Anschlüsse und Grenzen
+
+Die erneut geprüften Geometriezahlen lauten a=√((5+√5)/2)≈1,902113032590307… und b=√((11−√5)/2)≈2,093314599206269…. Sie erfüllen a²+b²=8 exakt. Ebenso bildet √7 mit 2 und √11 ein rechtwinkliges Referenzdreieck. Im Tubus entsteht ein dazu ähnliches Dreieck P–Mᵢ–T durch die gezielte Einstellung δ=2ρ/√7. Es ist eine konstruierte Referenz; die radiale Messlinie ist kein zusätzlicher materieller Stab.
+
+Die elf Außenecken wurden für θ=−65,8° und Ansicht 10° reproduziert. Beim Abtasten von 360 Ansichten desselben Körpers wechselte die konvexe Hülle zwischen zehn und elf Ecken. Eine feste Elfersymmetrie folgt daraus nicht.
+
+Der Pentagon-Vergleichsgraph bleibt vom vollständigen nativen Graphen verschieden: Seine drei Fünferringe benötigen im bipartiten Quellgraphen je eine zusätzliche Zwischenadresse. Die ausgewählten Wege besitzen 23 Knoten und 33 Kanten; der vollständige native Teilgraph derselben Adressen enthält acht weitere Kanten. Die Ihara-Wegdynamik ist deshalb nicht identisch.
+
+# Erweiterungsprüfung der Sechserstreifen und von A9
+
+Die Wörter 111213 und 123111 besitzen denselben Ziffernbestand. Ihre festen Zweierblöcke 11|12|13 und 12|31|11 ergeben jedoch die Kanäle (0,+1,+2) beziehungsweise (+1,−2,0). Die überlappenden Ketten lauten (0,0,+1,−1,+2) und (+1,+1,−2,0,0). Ohne Startziffer sind für diese kurzen Ketten jeweils acht Dezimalrekonstruktionen möglich. Bei nur drei getrennten Blockresten und bekannter erster Ziffer bleiben sogar 81 beziehungsweise 90 Kandidaten.
+
+**Schnittprüfung:** Alle 30 verschiedenen Umordnungen des Ziffernbestands wurden mit allen 32 möglichen Schnittmustern geprüft: 960 Fälle. Schnittmarkierungen verändern die vollständige Ziffern- und Übergangskette nicht. Erst das Weglassen der Nahtpaare entfernt Übergangsinformation. Die getrennten Segmente ließen sich mit ihrer jeweiligen Startziffer in allen 3.360 geprüften Segmentfällen rekonstruieren.
+
+**Neue Koordinatenwahl:** S(s) liest sechs Dezimalziffern als drei zweistellige Zahlen. Damit ist S(111213)=(11,12,13) und S(123111)=(12,31,11). Beide Einzelziffernvektoren haben Quadratlänge 17; die Paarvektoren haben Quadratlängen 434 und 1226. Die konkrete Operatorfolge 111213→121311→123111 besteht aus Blockrotation und Spiegelung des mittleren Ziffernpaars. Die erste Operation erhält die Paarvektorlänge, die zweite verändert sie hier um 792. Die Koordinatenskalierung durch 1/√7 ist umkehrbar; sie wird als reelle Ansicht getrennt von den ganzzahligen Quelladressen geführt.
+
+```math
+11(11^2+12^2+13^2)=11\cdot434=4774,
+\qquad \left\|\frac{(11,12,13)}{\sqrt7}\right\|^2=62.
+```
+
+Diese exakten Beziehungen gelten unter der gewählten Paarcodierung; sie sind kein Nachweis physikalischer Kopplung oder statistischer Besonderheit.
+
+**Abgleich mit dem vorhandenen Mathfield:** Die Repunit-Spiegelregel bestand in den neun zulässigen Längen des nativen Controllers. Alle 100 Paarspiegelungen stimmen mit dessen S45-Operator überein. Das vorhandene S₃-Register liefert sechs umkehrbare Anordnungen der drei Blöcke; 123111 erfordert zusätzlich die Paarspiegelung 13↔31. Die dokumentierte 111×111-Adress- und Returnregel wurde für alle 12.321 Adressen reproduziert. Der neue Anschluss (x,y,z)→(n=x+111y, Residual z) bestand für alle 30 Sechserwörter. Für 111213 ergibt sich n=1343 und z=13; für 123111 n=3453 und z=11. Die ursprünglichen sechsstelligen Integer sind keine gültigen flachen Adressen des 111×111-Feldes. Die DEFG-Quelllesart ist vorhanden, identifiziert aber nicht automatisch die Bezeichnungen G6, DE7, E8 und F9.
+
+**A9 als Geometriekandidat:** Die elf Hüllenecken der Referenzprojektion werden als neue ebene Basis verwendet. Eine Spitze liefert zwölf Eckpunkte; zwei Spitzen liefern dreizehn. Die Doppelpyramide besitzt 13 Ecken, 33 Kanten und 22 Dreiecksflächen; jede Kante gehört zu zwei Flächen und V−E+F=2. Die Spitzenhöhen ±0,65 sind gewählt. Dieser Kandidat nutzt die neue 11-Winds-Basis und rekonstruiert noch keinen historischen Scherzo-/A3-Quellmesh.
+
+Die erweiterte Ergebnisansicht bietet Blockrotation, Paarspiegelung, deren Rückwege, die getrennte √7-Skalierung und den Mathfield-Return. Rechen- und simulierte Bedientests bestanden; die Browserabnahme bleibt offen.
+
+# Einordnung und nächste Forschungsfrage
+
+Das Ergebnis ist eine ausführbare Verbindung zwischen arithmetischen Koordinaten, Graphadressen, geordneten Ziffernübergängen und geometrischen Ansichten. Die Prüfungen stützen diese konkreten Abbildungen. Sie begründen weder eine neue Primzahlformel noch einen physikalischen Mechanismus oder eine nachgewiesene Neuheit der verwendeten Mathematik.
+
+Die nächste belastbare Frage lautet: Welche Informationen bleiben beim Wechsel zwischen diesen Darstellungen erhalten, welche müssen als Herkunft mitgeführt werden, und welche gehen verloren? Die genaue historische Coil-/α-Bindung bleibt offen. Thomas bezeichnet A9 inzwischen als Scherzo-Doppelpyramide auf den 11 Winds; die konkrete historische A9-/A3-Geometrie und der vollständige Operatorsatz G6, DE7, E8, F9 sind noch nicht quellengebunden.
+
+# Quellen und ausführbarer Stand
+
+[Detailliertes Testprotokoll](https://chatgpt.com/space/page_d0fd1b46658481918a8e8011c06ac9fd) · [Eigenständiges Vergleichsmodell](https://chatgpt.com/library?file_id=libfile_eb6956d3ed648191ad658654f2231461&account_id=f2569140-2908-4933-a5ef-39275eb891c2) · [Testpaket mit Quellschnappschüssen, Daten und Skripten](https://chatgpt.com/library?file_id=libfile_a08182256a1881919b3926c94e1f3bfb&account_id=f2569140-2908-4933-a5ef-39275eb891c2).
+
+[Teiler und Streifen Desk mit Sechserkoordinaten](https://chatgpt.com/library?file_id=libfile_1b8445d9709081919d089769865e14a6&account_id=f2569140-2908-4933-a5ef-39275eb891c2) · [A0 Mathfield und 111×111-Regeln](https://scarabaeus1031.github.io/NEXAH-Science-Lab/book/A0_MATHEMATICAL_JOINTS.html#grid) · [TripleSix und Repunit-Gate im vorhandenen Bench](https://scarabaeus1031.github.io/NEXAH-Science-Lab/book/A0_ORIENTATION_CONTROLLER_BENCH.html#tripleS3Extension).
+
+Öffentliche Referenz: [A0 Blue Pink Dodeca Cell Return](https://scarabaeus1031.github.io/NEXAH-Science-Lab/book/A0_BLUE_PINK_DODECA_CELL_RETURN.html?rev=20261023-build-flagships-r3). Die geprüften CRT16- und One-Flow-Skripte wurden unverändert übernommen; der öffentliche A0-Code wurde nicht bearbeitet.
+

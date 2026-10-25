@@ -57,7 +57,7 @@ for(const card of overviewCards){
  ok((card.match(/<nav class="bench-card-links(?: |")/g)||[]).length===1,'Build overview card has one path deck');
  const isMachina=card.includes('aria-label="THE MACHINA Wege"');
  ok((card.match(/<a href=/g)||[]).length===(isMachina?4:3),'Build overview card has its declared route links');
- ok(isMachina?/>EXHIBITION<\/b>[\s\S]*?>COCKPIT<\/b>[\s\S]*?>PARTS<\/b>[\s\S]*?>WORK<\/b>/.test(card):/>ENTRY<\/b>[\s\S]*?>DEMO<\/b>[\s\S]*?>WORK<\/b>/.test(card),'Build overview card keeps its role order');
+ ok(isMachina?/>VIEWER<\/b>[\s\S]*?>COCKPIT<\/b>[\s\S]*?>PARTS<\/b>[\s\S]*?>WORK<\/b>/.test(card):/>ENTRY<\/b>[\s\S]*?>DEMO<\/b>[\s\S]*?>WORK<\/b>/.test(card),'Build overview card keeps its role order');
 }
 const nav=fs.readFileSync(path.join(__dirname,'a0-context-navigation.js'),'utf8');
 ok(nav.includes('key: "bench", code: "Werkstatt", label: "Werkbank"'),'shared Werkbank menu uses the public German name');
@@ -110,7 +110,7 @@ for(const file of flagshipPages){
  for(const label of (isMachina?['EXHIBITION','ORIENTATION','MODELS','WORK']:['ENTRY','WORK','RETURN']))ok(quick.includes('>'+label+'</em>'),file+' labels quick-access role '+label);
 }
 const machinaCockpit=fs.readFileSync(path.join(__dirname,'A0_MACHINA_COCKPIT.html'),'utf8');
-ok(machinaCockpit.includes('<span aria-current="page">Pentagon Cockpit</span>'),'THE MACHINA names the Pentagon as its active orientation room');
+ok(machinaCockpit.includes('<a href="#machinaCockpitTitle">Pentagon Cockpit</a>'),'THE MACHINA exposes the Pentagon as its orientation room without hiding the shared Viewer page');
 for(const route of ['#benchFoyer','#universalMachinePartsShelf','#benchWorkDesk'])ok(machinaCockpit.includes(route),'THE MACHINA cockpit exposes adjacent room '+route);
 for(const role of ['EXHIBITION','COCKPIT','PARTS SHELF','FULL BENCH'])ok(machinaCockpit.includes(role),'THE MACHINA room map names '+role);
 ok(machinaCockpit.includes('Das Cockpit ist nicht die ganze Exhibition.'),'THE MACHINA distinguishes orientation from exhibition');

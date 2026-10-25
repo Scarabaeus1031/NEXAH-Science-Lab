@@ -35,6 +35,63 @@ This workspace is not a second backlog, Lab Register, Study, Run Contract,
 Navigator identity or publication pipeline. Lifecycle and permission remain in
 the canonical A0 backlog, the Science Lab Register and Mission Control.
 
+<a id="pentagon-lantern-finding-candidate-20261025"></a>
+
+## Pentagon Gelenklaterne source bound finding candidate 2026 10 25
+
+The received Model 11 instrument and Abschlussbericht support one bounded
+engineering distinction. A separate five-plane sliding iris closes the
+projected pentagonal opening at `u=20/21` in the declared model; the received
+JavaScript and Python area evaluations agree across 101 states to
+`1.4×10^-16`, and 362 sampled curtain positions retain positive clearance from
+the reference pin sphere. In contrast, the fully glued length-preserving
+triangular skin has Jacobian rank 30 for 30 free coordinates under the stated
+frame constraints, so local common motion is not confirmed.
+
+Disposition: retain as a source-bound engineering finding candidate and a
+possible Paper C/E method example about separating an aperture mechanism from
+its surrounding carrier. Do not assign a new `F-A0` number yet. A manuscript
+gate requires independent replay of the supplied tests, complete browser
+acceptance, continuous collision analysis and an explicit material/seam model.
+The result does not recover a historical A0 mechanism, certify a housing,
+drive or seal, or establish a globally impossible moving skin.
+
+Sources: [interactive Gelenklaterne](A0_BOOK/downloads/A0_PENTAGON_KNICK_APERTURE_INTAKE_2026-10-25/sources/lantern/NEXAH_PENTAGON_GELENKLATERNE_LAB.html),
+[rendered reviewed report](A0_BOOK/downloads/A0_PENTAGON_KNICK_APERTURE_INTAKE_2026-10-25/reports/NEXAH_PENTAGON_GELENKLATERNE_ABSCHLUSSBERICHT_2026-10-25.docx),
+[custody and boundaries](A0_BOOK/downloads/A0_PENTAGON_KNICK_APERTURE_INTAKE_2026-10-25/README.md).
+
+### Body due diligence and five flap Crown module intake
+
+The eleven-page body review adds a useful mechanism split and a more complete
+paper-support route. It distinguishes the irregular projected 11 Winds plate,
+known pyramid/bipyramid body classes, the rigid glued lantern skin, the
+five-plane sliding iris and a new five-open-flap Crown candidate. The Crown
+extends the source-bound three/four-flap contact grammar to five equal flaps;
+its declared central contact is `151.830500786°` with apex height
+`0.368533211 u` above the rim. This is a parametric construction candidate,
+not yet a novelty claim or integrated mechanism.
+
+Potential paper use is therefore split:
+
+- **Paper C / E method example:** contact is not gluing; visual closure is not
+  a moving carrier; observer invariance must name state, exchange and readout.
+- **Companion engineering note:** plate sensitivity, body counts, rank tests,
+  iris closure, Crown contact and the open integration gates can be presented
+  together with their distinct denominators and mechanisms.
+- **Not yet manuscript evidence:** the Crown GLB was not present at intake;
+  its source package omits the wider audit/STL materials named in the report,
+  and the local rebuild is waiting on the declared Python environment.
+
+Before manuscript incorporation, reproduce the Crown build, validate the GLB
+independently, test the entire finite-thickness path against pin, lid and
+housing, and perform the stated literature/novelty review. The related
+`ART:E8:TYPED_COUPLING` player is a documentary cross-link only; none of its
+Pink Strip, Green Star, E8 or sequence views supply Crown mechanics.
+
+Review sources: [body report PDF](A0_BOOK/downloads/A0_PENTAGON_KNICK_APERTURE_INTAKE_2026-10-25/reports/body-due-diligence/NEXAH_Koerper_Due_Diligence_2026-10-25.pdf),
+[module review and integration plan](A0_BOOK/downloads/A0_PENTAGON_KNICK_APERTURE_INTAKE_2026-10-25/MODULE_REVIEW_AND_INTEGRATION_PLAN.md),
+[machine-readable review receipt](A0_BOOK/downloads/A0_PENTAGON_KNICK_APERTURE_INTAKE_2026-10-25/BODY_CROWN_REVIEW_RECEIPT_2026-10-25.json).
+
 <a id="number-glyph-weight-triage-20261020"></a>
 
 ## Number, glyph and weight — paper triage, 2026-10-20
@@ -873,3 +930,43 @@ Sources: [Science Desk](A0_BOOK/A0_RESEARCH_DESK.html#diamond-lens-view-stack-re
 [Human View](A0_BOOK/A0_NEXAH_APERTURE_JOURNEY.html#look-again-room),
 [Builder Log](A0_BOOK/A0_BUILDER_LOG.html#diamond-lens-view-stack-20261023),
 and [machine return](A0_BOOK/results/a0-diamond-lens-view-stack-return-2026-10-23.json).
+
+<a id="shadow-triangle-3plus2-review-20261025"></a>
+## Shadow Triangle 3+2 and typed equation-track triage — 2026-10-25
+
+Disposition: **source-bound constructive candidate; no new `F-A0` finding,
+Study or paper-claim promotion**.
+
+The new package preserves a fixed triangular contact plane, five interior
+contacts, a central White Pearl and an animated front/back view. The declared
+equal-strength sum is `+1`; the declared zero is obtained only after choosing
+weight `1.5` for each of the two downward inputs. A near-zero moment in that
+model is not a stability, stiffness, friction, bearing or transmission result.
+The recovered GLB is structurally readable, but independent glTF validation,
+source-build reproduction, collision tests and a physical support model remain
+open.
+
+Paper routing:
+
+- **Paper C/E method support only:** separation of carrier, contact plane,
+  observer view, chosen weights and return boundary;
+- **Paper D/E address note:** `pi`, `Phi`, `sqrt(2)`, Fibonacci/Euler and prime
+  labels remain typed axes or source vocabularies until an explicit operator
+  contract and reproducible test bind them;
+- **no mathematical promotion:** no common Fibonacci/Euler generator, prime
+  metric, π/Φ/√2 identity or universal equation is claimed;
+- **engineering companion:** front/back mapping, White Pearl, `1+3`, small
+  pyramids and the two exterior pillars/tabs form a concrete viewer and contact
+  test inventory.
+
+Sources: [Science Desk](A0_BOOK/A0_RESEARCH_DESK.html#shadow-triangle-3plus2-intake-20261025),
+[Builder Log](A0_BOOK/A0_BUILDER_LOG.html#shadow-triangle-3plus2-intake-20261025),
+[review matrix](A0_BOOK/downloads/A0_PENTAGON_KNICK_APERTURE_INTAKE_2026-10-25/MODULE_REVIEW_AND_INTEGRATION_PLAN.md),
+and [machine-readable receipt](A0_BOOK/downloads/A0_PENTAGON_KNICK_APERTURE_INTAKE_2026-10-25/SHADOW_TRIANGLE_3PLUS2_REVIEW_RECEIPT_2026-10-25.json).
+
+Engineering companion implemented: the [Crown → Shadow Contact Bench](A0_BOOK/A0_CROWN_SHADOW_CONTACT_BENCH.html)
+keeps state, view, contact address, load case and measurement return separate.
+Its primary gate is `PARTIAL`: the source contact and chosen balanced resultant
+are reproducible, while finite clearance, first collision, source-to-GLB vertex
+residual and mechanical support remain open. See the [machine contract](A0_BOOK/assets/a0-crown-shadow-contact-bench-v1.json)
+and [engineering return](A0_BOOK/results/a0-crown-shadow-contact-bench-return-2026-10-25.json).

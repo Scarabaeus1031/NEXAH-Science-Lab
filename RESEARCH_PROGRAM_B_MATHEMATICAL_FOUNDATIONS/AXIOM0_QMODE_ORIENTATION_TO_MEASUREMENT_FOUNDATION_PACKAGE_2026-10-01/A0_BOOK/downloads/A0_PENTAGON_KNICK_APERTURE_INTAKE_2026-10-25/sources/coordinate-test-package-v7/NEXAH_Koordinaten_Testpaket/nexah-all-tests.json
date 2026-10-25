@@ -1,0 +1,371 @@
+{
+  "scope": "Declared comparison adapters; no changes to public A0 code.",
+  "graph": {
+    "originalNodes": 20,
+    "originalEdges": 30,
+    "subdivisionNodes": 23,
+    "subdivisionEdges": 33,
+    "extraNativeEdges": [
+      [
+        "P0:0000",
+        "P0:0010"
+      ],
+      [
+        "P2:0000",
+        "P2:0010"
+      ],
+      [
+        "P1:1000",
+        "P1:1010"
+      ],
+      [
+        "P1:0000",
+        "P1:0001"
+      ],
+      [
+        "P1:0000",
+        "P1:0010"
+      ],
+      [
+        "P1:0001",
+        "P1:0011"
+      ],
+      [
+        "P1:0011",
+        "P1:0010"
+      ],
+      [
+        "P1:0010",
+        "P1:0110"
+      ]
+    ],
+    "paths": [
+      {
+        "from": "A0",
+        "to": "A1",
+        "path": [
+          "P0:0000",
+          "P0:0001"
+        ]
+      },
+      {
+        "from": "B0",
+        "to": "B1",
+        "path": [
+          "P2:0000",
+          "P2:0001"
+        ]
+      },
+      {
+        "from": "C0",
+        "to": "C1",
+        "path": [
+          "P1:1000",
+          "P1:1001"
+        ]
+      },
+      {
+        "from": "A0",
+        "to": "M0",
+        "path": [
+          "P0:0000",
+          "P1:0000"
+        ]
+      },
+      {
+        "from": "B0",
+        "to": "M0",
+        "path": [
+          "P2:0000",
+          "P1:0000"
+        ]
+      },
+      {
+        "from": "C0",
+        "to": "M0",
+        "path": [
+          "P1:1000",
+          "P1:0000"
+        ]
+      },
+      {
+        "from": "A1",
+        "to": "A2",
+        "path": [
+          "P0:0001",
+          "P0:0011"
+        ]
+      },
+      {
+        "from": "B1",
+        "to": "B2",
+        "path": [
+          "P2:0001",
+          "P2:0011"
+        ]
+      },
+      {
+        "from": "C1",
+        "to": "C2",
+        "path": [
+          "P1:1001",
+          "P1:1011"
+        ]
+      },
+      {
+        "from": "A1",
+        "to": "M1",
+        "path": [
+          "P0:0001",
+          "P1:0001"
+        ]
+      },
+      {
+        "from": "B1",
+        "to": "M1",
+        "path": [
+          "P2:0001",
+          "P1:0001"
+        ]
+      },
+      {
+        "from": "C1",
+        "to": "M1",
+        "path": [
+          "P1:1001",
+          "P1:0001"
+        ]
+      },
+      {
+        "from": "A2",
+        "to": "A3",
+        "path": [
+          "P0:0011",
+          "P0:0010"
+        ]
+      },
+      {
+        "from": "B2",
+        "to": "B3",
+        "path": [
+          "P2:0011",
+          "P2:0010"
+        ]
+      },
+      {
+        "from": "C2",
+        "to": "C3",
+        "path": [
+          "P1:1011",
+          "P1:1010"
+        ]
+      },
+      {
+        "from": "A2",
+        "to": "M2",
+        "path": [
+          "P0:0011",
+          "P1:0011"
+        ]
+      },
+      {
+        "from": "B2",
+        "to": "M2",
+        "path": [
+          "P2:0011",
+          "P1:0011"
+        ]
+      },
+      {
+        "from": "C2",
+        "to": "M2",
+        "path": [
+          "P1:1011",
+          "P1:0011"
+        ]
+      },
+      {
+        "from": "A3",
+        "to": "A4",
+        "path": [
+          "P0:0010",
+          "P0:0110"
+        ]
+      },
+      {
+        "from": "B3",
+        "to": "B4",
+        "path": [
+          "P2:0010",
+          "P2:0110"
+        ]
+      },
+      {
+        "from": "C3",
+        "to": "C4",
+        "path": [
+          "P1:1010",
+          "P1:1110"
+        ]
+      },
+      {
+        "from": "A3",
+        "to": "M3",
+        "path": [
+          "P0:0010",
+          "P1:0010"
+        ]
+      },
+      {
+        "from": "B3",
+        "to": "M3",
+        "path": [
+          "P2:0010",
+          "P1:0010"
+        ]
+      },
+      {
+        "from": "C3",
+        "to": "M3",
+        "path": [
+          "P1:1010",
+          "P1:0010"
+        ]
+      },
+      {
+        "from": "A4",
+        "to": "A0",
+        "path": [
+          "P0:0110",
+          "P0:0100",
+          "P0:0000"
+        ]
+      },
+      {
+        "from": "B4",
+        "to": "B0",
+        "path": [
+          "P2:0110",
+          "P2:0100",
+          "P2:0000"
+        ]
+      },
+      {
+        "from": "C4",
+        "to": "C0",
+        "path": [
+          "P1:1110",
+          "P1:1100",
+          "P1:1000"
+        ]
+      },
+      {
+        "from": "A4",
+        "to": "M4",
+        "path": [
+          "P0:0110",
+          "P1:0110"
+        ]
+      },
+      {
+        "from": "B4",
+        "to": "M4",
+        "path": [
+          "P2:0110",
+          "P1:0110"
+        ]
+      },
+      {
+        "from": "C4",
+        "to": "M4",
+        "path": [
+          "P1:1110",
+          "P1:0110"
+        ]
+      }
+    ],
+    "singleStepTipCandidates": [],
+    "sourceLabelMap": {
+      "A0": "P0:0000",
+      "M0": "P1:0000",
+      "B0": "P2:0000",
+      "C0": "P1:1000",
+      "A1": "P0:0001",
+      "M1": "P1:0001",
+      "B1": "P2:0001",
+      "C1": "P1:1001",
+      "A2": "P0:0011",
+      "M2": "P1:0011",
+      "B2": "P2:0011",
+      "C2": "P1:1011",
+      "A3": "P0:0010",
+      "M3": "P1:0010",
+      "B3": "P2:0010",
+      "C3": "P1:1010",
+      "A4": "P0:0110",
+      "M4": "P1:0110",
+      "B4": "P2:0110",
+      "C4": "P1:1110"
+    },
+    "nonbacktracking_selected": {
+      "directedEdges": 66,
+      "traces": {
+        "4": 0,
+        "5": 0,
+        "6": 180
+      }
+    },
+    "nonbacktracking_native_induced": {
+      "directedEdges": 82,
+      "traces": {
+        "4": 176,
+        "5": 0,
+        "6": 972
+      }
+    }
+  },
+  "phase": {
+    "phaseCases": 180,
+    "maxSourceInverse": 2.237726045655905e-16,
+    "maxRodError": 3.3306690738754696e-16,
+    "maxReturn": 1.8888242266968722e-16,
+    "rule": "theta=65.8*sin(2pi*p/12). Per-deck rotation correction 180+targetAngle-sign(layer)*30p; radial rescaling and z=layer*h/2. New constructed view adapter, not native dynamics."
+  },
+  "triangles": {
+    "tunedCases": 10,
+    "maxTriangleError": 4.440892098500626e-16,
+    "referenceStates": [
+      {
+        "theta": 36,
+        "rho": 0.9922676077370961,
+        "oldDelta": 0.75,
+        "requiredDelta": 0.7500838068849562,
+        "adjustment": 8.3806884956239e-05,
+        "tunedTriangleScale": 0.3750419034424781,
+        "existingPointSetSize": 22,
+        "existingPointTripleChecks": 4620,
+        "existingExactRatioMatches": 0,
+        "bestDimensionlessResidual": 0.0005688218591260917
+      },
+      {
+        "theta": -65.8,
+        "rho": 0.8974739298367775,
+        "oldDelta": 0.75,
+        "requiredDelta": 0.6784265218605555,
+        "adjustment": -0.07157347813944448,
+        "tunedTriangleScale": 0.33921326093027776,
+        "existingPointSetSize": 22,
+        "existingPointTripleChecks": 4620,
+        "existingExactRatioMatches": 0,
+        "bestDimensionlessResidual": 0.03075046763554404
+      }
+    ],
+    "tipRule": "delta=2*rho/sqrt7; P-M_i-T is similar to sqrt7,2,sqrt11. Virtual radial measurement P-M_i crosses the ring; not a new physical strut."
+  },
+  "sequence": {
+    "entries": 768,
+    "nonzeroRoutes": 616,
+    "zeroNoHopMarkers": 152,
+    "rule": "positive: A_i -> M_i -> B_i; negative exact reverse; zero: reference P with no graph hop; retain original source pair and position."
+  }
+}

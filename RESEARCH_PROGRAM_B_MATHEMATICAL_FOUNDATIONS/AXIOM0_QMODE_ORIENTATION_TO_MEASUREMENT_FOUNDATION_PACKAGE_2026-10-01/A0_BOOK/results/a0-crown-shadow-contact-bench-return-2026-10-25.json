@@ -1,0 +1,46 @@
+{
+  "schema": "nexah.a0.engineering-return",
+  "version": "1.0.0",
+  "maintained": "2026-10-25",
+  "instrument": "A0_CROWN_SHADOW_CONTACT_BENCH.html",
+  "contract": "assets/a0-crown-shadow-contact-bench-v1.json",
+  "classification": "SOURCE_BOUND_ENGINEERING_ADAPTER",
+  "primary_gate": "PARTIAL",
+  "engineering_tests": {"passed": 88, "failed": 0, "status": "PASS"},
+  "implemented_axes": [
+    "OPEN_CONTACT_RETURN",
+    "FRONT_BACK_SECTION",
+    "U1_U2_U3_D1_D2_WHITE_PEARL",
+    "EQUAL_BALANCED",
+    "TRANSFORM_DISTANCE_COLLISION_MOMENT",
+    "SOURCE_VS_GLB_RESIDUAL_AND_RETURN"
+  ],
+  "positive": [
+    "Integrated source GLB and Crown source GLB are selectable without merging their identities.",
+    "The received 8 second animation is addressable at OPEN=0, CONTACT=4 and RETURN=8 seconds.",
+    "Five contact positions and both load cases reproduce the received contact_model.json.",
+    "The source-to-glTF axis and unit transform is explicit.",
+    "Local structural GLB, hash, source, UI-token and link tests pass.",
+    "Local real-browser acceptance passes OPEN, CONTACT, RETURN, SECTION, BALANCED and both GLB source switches."
+  ],
+  "open": [
+    "independent glTF validator",
+    "source-to-GLB vertex reconstruction residual",
+    "finite thickness and Pearl clearance",
+    "continuous first-collision time",
+    "bearing, transmission, friction, stiffness and stability",
+    "physical prototype",
+    "independent browser audit and mobile acceptance"
+  ],
+  "authority": {
+    "identity": "NEXAH:A0_ORIENTATION_EVIDENCE_LINEAGE:V1",
+    "new_canonical_identity": false,
+    "new_relation": false,
+    "science_run": false,
+    "publication_release": false
+  },
+  "equation_register": {
+    "role": "TYPED_ADDRESS_REGISTER",
+    "sharedGenerator": false
+  }
+}

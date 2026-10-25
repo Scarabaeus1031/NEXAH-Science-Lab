@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>NEXAH Pentagon Knick Lab</title>
+<style>
+:root{color-scheme:dark;--bg:#111c2c;--fg:#eef3f8;--muted:#b2c1d1;--line:#3e5066;--cyan:#45d9e1;--gold:#ffd177;--pink:#ff69c2}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.5 system-ui,sans-serif}main{max-width:1120px;margin:auto;padding:24px}h1{font-size:clamp(26px,5vw,42px);margin:8px 0}h2{font-size:20px}.eyebrow{color:var(--cyan);letter-spacing:.12em;font-size:12px}p{max-width:85ch}small,.muted{color:var(--muted)}.controls{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin:24px 0}.control{display:flex;flex-direction:column;gap:7px}input,select,button{font:inherit;color:var(--fg);background:#1a2a3f;border:1px solid var(--line);border-radius:6px;padding:9px;max-width:100%}input[type=range]{width:100%;accent-color:var(--pink);padding:4px 0}input:focus-visible,button:focus-visible,select:focus-visible{outline:3px solid var(--gold);outline-offset:3px}button{cursor:pointer;min-height:44px}.presets{display:flex;gap:8px;flex-wrap:wrap}.readouts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:20px}.readouts p{margin:0}.readouts strong{display:block;font-size:25px;font-variant-numeric:tabular-nums}.readouts span{color:var(--muted)}#scene{width:100%;height:auto;display:block;max-height:610px}#scene text{fill:var(--fg);font:15px system-ui,sans-serif}#status{min-height:48px;margin:12px 0;color:var(--gold)}.legend{display:flex;gap:20px;flex-wrap:wrap;font-size:14px}.legend i{display:inline-block;width:18px;height:3px;vertical-align:middle;margin-right:5px}.formula{font-family:ui-monospace,monospace;overflow-wrap:anywhere;padding:14px 0;border-top:1px solid var(--line)}summary{cursor:pointer;padding:15px 0}table{width:100%;border-collapse:collapse;font-size:14px;font-variant-numeric:tabular-nums}td,th{text-align:right;padding:6px;border-bottom:1px solid var(--line)}td:first-child,th:first-child{text-align:left}.tablewrap{overflow:auto}.constant{display:flex;flex-wrap:wrap;gap:10px 22px;font-variant-numeric:tabular-nums}.constant b{font-weight:500;color:var(--gold)}footer{border-top:1px solid var(--line);margin-top:30px;padding-top:12px;color:var(--muted);font-size:13px}@media(max-width:680px){#scene text{display:none}main{padding:16px}.controls{grid-template-columns:1fr 1fr}.readouts{grid-template-columns:1fr}.readouts strong{display:inline;font-size:21px}.readouts span{margin-right:10px}}@media(max-width:390px){.controls{grid-template-columns:1fr}}
+</style></head><body><main>
+<div class="eyebrow">NEXAH · GEOMETRISCHES REFERENZMODELL · 25.10.2026</div><h1>Pentagon · Drehung · Knick · Spitze</h1>
+<p>Zwei parallele Pentagon-Rahmen, fünf gelenkige Verbindungen. Ein optionales Mittelgelenk macht aus jeder Verbindung zwei gleich lange Stäbe. Die parallele, koaxiale Führung ist eine Modellvorgabe.</p>
+<div class="presets"><button id="straight" type="button">Ohne Knick</button><button id="p137" type="button">137° Innenwinkel</button><button id="p126" type="button">126° Innenwinkel</button><button id="p783" type="button">7,83° Abknickung</button></div>
+<div class="controls">
+<label class="control" for="theta">Relative Drehung θ: <output id="thetaLabel"></output><input id="theta" type="range" min="-85" max="85" value="36" step="0.1"></label>
+<label class="control" for="mode">Verbindung<select id="mode"><option value="straight">Gerader Stab</option><option value="kink" selected>Zwei Halbstäbe mit Mittelgelenk</option></select></label>
+<label class="control" for="meaning">Winkeldefinition<select id="meaning"><option value="interior">Innenwinkel γ (gerade = 180°)</option><option value="bend">Abknickung β (gerade = 0°)</option></select></label>
+<label class="control" for="angle">Gelenkwinkel in Grad<input id="angle" type="number" min="0" max="180" value="137" step="0.01"></label>
+<label class="control" for="side">Pentagonseite s<input id="side" type="number" min="0.1" max="10" value="1" step="0.1"></label>
+<label class="control" for="length">Gesamte Stablänge L je Verbindung<input id="length" type="number" min="0.1" max="10" value="1" step="0.1"></label>
+<label class="control" for="representation">Pentagon-Anordnung in der Ansicht<select id="representation"><option value="original">Original</option><option value="mirror">Oben / unten spiegeln</option><option value="overlay">Rahmen auf Mittelebene überlagern</option></select></label><label class="control" for="yaw">Ansicht drehen<input id="yaw" type="range" min="0" max="360" value="10" step="1"></label>
+</div>
+<div class="readouts" aria-live="polite"><p><span>Elevator · geometrische Höhe h</span><strong id="height"></strong></p><p><span>Wirksame Spannweite c</span><strong id="chord"></strong></p><p><span>Maximaler Betrag von θ</span><strong id="limit"></strong></p></div>
+<div class="controls"><label class="control"><span><input id="central" type="checkbox" checked> Zentraler Ring und Querstreben</span></label><label class="control"><span><input id="windows" type="checkbox" checked> Fünf äußere Messfenster</span></label><label class="control" for="ringRadius">Ringradius r / s<input id="ringRadius" type="range" min="0.05" max="0.55" step="0.01" value="0.2"></label></div>
+<div class="controls"><label class="control"><span><input id="tipVisible" type="checkbox"> Spitze T und fünf Hilfsverbindungen</span></label><label class="control" for="tipOffset">T über / unter der Mittelebene · δ / s<input id="tipOffset" type="range" min="-1.5" max="1.5" step="0.01" value="0.75"></label></div><div class="presets"><button id="tipAbove" type="button">T oben</button><button id="tipMiddle" type="button">T in Mittelebene</button><button id="tipBelow" type="button">T unten</button></div><h2>Zehn Teilfelder und RGB-Weg</h2><div class="controls"><label class="control"><span><input id="patches" type="checkbox" checked> Zehn räumliche Teilfelder zeigen</span></label><label class="control" for="junction">Mittelgelenk<select id="junction"><option value="0">M0</option><option value="1">M1</option><option value="2">M2</option><option value="3">M3</option><option value="4">M4</option></select></label><label class="control" for="rgbWord">Kanalwechsel<select id="rgbWord"><option value="RG">Rot → Grün · B → M → A</option><option value="RB">Rot → Blau · B → M → C</option><option value="GR">Grün → Rot · A → M → B</option><option value="GB">Grün → Blau · A → M → C</option><option value="BR">Blau → Rot · C → M → B</option><option value="BG">Blau → Grün · C → M → A</option></select></label></div><div class="presets"><button id="rgbBack" type="button">Schritt zurück</button><button id="rgbNext" type="button">Schritt weiter</button><button id="rgbReset" type="button">Weg zum Start</button></div><p id="rgbStatus" role="status"></p><p class="muted">RGB bezeichnet hier die drei Wege am Gelenk: Rot = oberer Ast B–M, Grün = unterer Ast A–M, Blau = Ringast C–M. Die Punktgruppe B und der blaue Kanal sind verschiedene Bezeichnungen. Die Teilfelder U0…U4 und L0…L4 sind Ansichtsflächen, keine starren Platten; ihre gestrichelte Mittelteilung fügt dem Ihara-Graphen keine Kanten hinzu.</p><p id="tipStatus" role="status"></p><p id="status" role="status"></p>
+<svg id="scene" viewBox="0 0 960 560" role="img" aria-label="Räumliches Schrägbild der beiden Pentagon-Rahmen mit fünf Verbindungen, Mittelgelenken und Höhenachse"><text x="40" y="80">Pentagon-Rahmen und Verbindungen werden berechnet …</text></svg>
+<div class="readouts" aria-live="polite"><p><span>Zentrale Öffnung · Radius r</span><strong id="aperture"></strong></p><p><span>Querstrebe · nötige Länge q</span><strong id="spokeLength"></strong></p><p><span>Äußerer Abstand Mᵢ–Mᵢ₊₁</span><strong id="windowWidth"></strong></p></div>
+<h2>Querschnitt auf halber Höhe</h2><svg id="section" viewBox="0 0 600 420" role="img" aria-label="Zentrale Öffnung und fünf äußere Messfenster im Querschnitt" style="width:100%;max-height:420px"></svg><p id="openingStatus" role="status"></p>
+<p class="muted">Die orangefarbenen Querstreben sind teleskopisch gezeichnet: Ihre benötigte Länge ändert sich mit der Bewegung. Der Ring folgt z = h/2. Die gestrichelte Mittelachse ist eine Referenzlinie, kein durchgehender Stab. Grüne Felder sind Messfenster zwischen den Verbindungen; sie sind keine materiellen Seitenflächen.</p>
+<div class="legend"><span><i style="background:var(--cyan)"></i>Unterer Rahmen A</span><span><i style="background:var(--gold)"></i>Oberer Rahmen B</span><span><i style="background:var(--pink)"></i>Mittelgelenke M</span></div>
+<p class="muted">Ansichtsspiegelung: z → h−z, alle Punkte gemeinsam. Überlagerung: alle Anzeigehöhen z → h/2; die Quellkoordinaten bleiben erhalten. Der weiße Pin P ist ein Marker bei (0,0,h/2), kein schwebender physischer Körper.</p><p class="muted">κ-Kanal: UNGEBUNDEN — keine Zustandsregel übernommen. Elevator bezeichnet hier ausschließlich die geometrische Höhe h. θ ist der relative Rahmenwinkel; diese Anzeigen sind keine Live-Kopplung an A0.</p>
+<details><summary>Koordinaten des aktuellen Zustands</summary><p>Untere Ebene z = 0, obere Ebene z = h. Unterer und oberer Rahmen drehen um −θ/2 beziehungsweise +θ/2. Die Mittelgelenke zeigen radial nach außen; das ist eine zusätzliche Konstruktionswahl. Einheiten sind normiert.</p><button id="download" type="button">Koordinaten als JSON exportieren</button><div class="tablewrap"><table><thead><tr><th>Punkt</th><th>x</th><th>y</th><th>z</th></tr></thead><tbody id="coords"></tbody></table></div></details>
+<details><summary>Formeln und Grenzen</summary><div class="formula">R = s / (2 sin 36°)<br>β = 180° − γ<br>c = L cos(β/2)<br>h² = c² − 4R² sin²(θ/2)<br>Mᵢ = (Aᵢ+Bᵢ)/2 + (L/2)sin(β/2) · eᵣ,ᵢ</div><p>Der Ringradius r ist eine zusätzliche Vorgabe. Bei Mittelgelenk-Radius ρ gilt für die horizontalen Querstreben q = ρ − r. Die zentrale Ringöffnung πr² bleibt bei festem r konstant. Die fünf äußeren Querschnittsfenster teilen die Fläche (5/2)ρ²sin72° − πr² gleichmäßig; ihre äußere Polygonbegrenzung ist eine virtuelle Messgrenze.</p><p>Jeder Halbstab hat Länge L/2. Für negative h² existiert die gewählte Stellung nicht. Bei h = 0 fallen die Rahmenebenen zusammen. Die Winkelvorgaben erzeugen eine mögliche geometrische Stellung, keine automatisch geführte oder stabile Mechanik. Stäbe sind ideal dünn; Kontakt, Kräfte und Materialverformung sind nicht simuliert.</p><p>Ein Knick verkürzt bei fester Gesamtlänge die Spannweite. Er erweitert hier nicht den maximalen Drehwinkel. Eine Knicklinie in einer Fläche ist eine andere Konstruktion und wird nicht durch dieses Stabmodell ersetzt.</p></details>
+<details><summary>Zusätzliche Spitze T</summary><p>T = (0,0,h/2+δ) ist unabhängig auf der Achse verschiebbar. Die fünf Hilfsverbindungen T–Mᵢ haben Länge √(ρ²+δ²). Sie sind keine starren Stäbe und gehören nicht zum bisher geprüften Ihara-Graphen.</p><p>Mit dem virtuellen M-Pentagon als Rand ergeben sich fünf Dreieckssektoren. Eine geschlossene Pentagonpyramide hätte fünf Dreiecksflächen plus eine Pentagonbasis, also sechs Flächen insgesamt. Bei δ = 0 fällt die Konstruktion in die Mittelebene: Jede Hilfsverbindung schneidet dann den Ring. Bei δ ≠ 0 schneiden die ideal dünnen Linien den Ring selbst nicht; ein freier axialer Durchgang ist dadurch nicht nachgewiesen.</p><p>Die Flächen und das Hilfsvolumen beziehen sich auf eine zusätzlich gedachte geschlossene Pyramide, nicht auf Material oder ein eingeschlossenes Fluid. Eine einzelne Spitze erzeugt keine räumliche Sanduhr mit zwei Spitzen.</p></details><details><summary>Zwei Hops und Ihara-Vergleich</summary><p>Vergleichsgraph: drei echte Randschleifen A, B und C mit je fünf Knoten; dazu fünf Mittelgelenke M. Verbindungen Aᵢ–Mᵢ, Bᵢ–Mᵢ und Cᵢ–Mᵢ ergeben insgesamt 20 Knoten und 30 Kanten. Das virtuelle M-Pentagon ist keine zusätzliche Kantenfamilie.</p><p>Auf den 60 gerichteten Kanten ist A₀ → M₀ → B₀ ein erlaubter Weg ohne sofortige Umkehr. A₀ → M₀ → A₀ wird ausgeschlossen. Jede gerichtete Kante hat zwei mögliche Fortsetzungen. Der Vergleichsgraph besitzt drei einfache Fünferzyklen und 15 einfache Sechserzyklen. Er ist nicht planar und daher kein Dodekaedergraph. Diese Definition ist eine zusätzliche Graphlesart, keine Kopplung an den vorhandenen A0-Ihara-Code.</p></details><details><summary>Konstanten als Referenzen</summary><div class="constant"><span><b>π</b> 3,141592654</span><span><b>φ</b> 1,618033989</span><span><b>√2</b> 1,414213562</span><span><b>√7</b> 2,645751311</span><span><b>√8</b> 2,828427125</span></div><p>Diese Werte sind Vergleichsreferenzen. Es besteht keine zusätzliche Zuordnung zu Koordinaten, Frequenzen oder κ. 137° ist nicht identisch mit dem goldenen Winkel 137,507764…°. 137°, 126° und 7,83° sind hier explorative Eingaben.</p></details>
+<footer>Eigenständige Modellstudie. Keine Änderung am A0-Code. Keine Identifikation mit dessen nichtregelmäßigem Pentagon-Buchscharnier. Alle Berechnungen laufen lokal ohne externe Abhängigkeiten.</footer>
+<script>
+'use strict';
+const $=id=>document.getElementById(id),rad=d=>d*Math.PI/180;
+function calc(p){
+ if(![p.theta,p.angle,p.s,p.L].every(Number.isFinite)||p.s<=0||p.L<=0||p.angle<0||p.angle>180)return{valid:false,reason:'Eingaben prüfen: positive Längen und Gelenkwinkel zwischen 0° und 180°.'};
+ const beta=p.mode==='straight'?0:p.meaning==='interior'?180-p.angle:p.angle;
+ const R=p.s/(2*Math.sin(rad(36))),c=p.L*Math.cos(rad(beta)/2),h2=c*c-4*R*R*Math.sin(rad(p.theta)/2)**2,limit=2*Math.asin(Math.min(1,c/(2*R)))*180/Math.PI;
+ if(h2< -1e-10)return{valid:false,beta,R,c,h2,limit,reason:'HOLD · Die geforderte Verdrehung überschreitet die verfügbare Spannweite.'};
+ const h=Math.sqrt(Math.max(0,h2)),offset=p.L/2*Math.sin(rad(beta)/2);
+ const A=[],B=[],M=[];
+ for(let i=0;i<5;i++){
+  const t=2*Math.PI*i/5+Math.PI/2,lo=t-rad(p.theta)/2,hi=t+rad(p.theta)/2;
+  const a=[R*Math.cos(lo),R*Math.sin(lo),0],b=[R*Math.cos(hi),R*Math.sin(hi),h];
+  A.push(a);B.push(b);M.push(a.map((v,k)=>(v+b[k])/2+offset*(k===0?Math.cos(t):k===1?Math.sin(t):0)));
+ }
+ return{valid:true,beta,R,c,h2,h,limit,offset,A,B,M};
+}
+function getParams(){return{theta:Number($('theta').value),mode:$('mode').value,meaning:$('meaning').value,angle:Number($('angle').value),s:Number($('side').value),L:Number($('length').value)}}
+const fmt=x=>Number.isFinite(x)?x.toFixed(6).replace('.',','):'—';
+function openings(p,r,ratio){
+ if(!r.valid)return{valid:false};
+ const radius=ratio*p.s,rho=Math.hypot(r.M[0][0],r.M[0][1]),apothem=rho*Math.cos(rad(36));
+ if(!(radius>0&&radius<apothem))return{valid:false,radius,rho,reason:'Ring passt nicht in die gewählte Querschnittsgrenze.'};
+ const C=Array.from({length:5},(_,i)=>{const t=2*Math.PI*i/5+Math.PI/2;return[radius*Math.cos(t),radius*Math.sin(t),r.h/2]});
+ return{valid:true,radius,rho,C,spokeLength:rho-radius,apertureArea:Math.PI*radius*radius,windowWidth:2*rho*Math.sin(rad(36)),windowArea:(2.5*rho*rho*Math.sin(rad(72))-Math.PI*radius*radius)/5,ringHeight:r.h/2};
+}
+function tipGeometry(p,r,o,ratio){
+ if(!r.valid||!o.valid||!Number.isFinite(ratio))return{valid:false};
+ const delta=ratio*p.s,T=[0,0,r.h/2+delta],edge=2*o.rho*Math.sin(rad(36)),baseArea=2.5*o.rho*o.rho*Math.sin(rad(72));
+ return{valid:true,coordinate:T,delta,length:Math.hypot(o.rho,delta),sectors:5,lateralArea:2.5*edge*Math.hypot(o.rho*Math.cos(rad(36)),delta),baseArea,auxiliaryClosedVolume:baseArea*Math.abs(delta)/3,ringIntersections:Math.abs(delta)<1e-10?5:0,physicalBars:false,includedInIharaGraph:false};
+}
+function rgbRoute(index,word){
+ if(!Number.isInteger(index)||index<0||index>4||!['RG','RB','GR','GB','BR','BG'].includes(word))throw new RangeError('Gelenk 0…4 und zwei verschiedene RGB-Kanäle erforderlich.');
+ const group={R:'B',G:'A',B:'C'};
+ return{junction:index,word,nodes:[group[word[0]]+index,'M'+index,group[word[1]]+index],segments:[word[0],word[1]],immediateReversal:false};
+}
+function splitPatches(r){return Array.from({length:5},(_,i)=>{const j=(i+1)%5;return[{id:'U'+i,points:[r.M[i],r.M[j],r.B[j],r.B[i]],addresses:['M'+i,'M'+j,'B'+j,'B'+i]},{id:'L'+i,points:[r.A[i],r.A[j],r.M[j],r.M[i]],addresses:['A'+i,'A'+j,'M'+j,'M'+i]}]}).flat()}
+let rgbStep=0;
+let current=null;
+function draw(){
+ const p=getParams(),r=calc(p),o=openings(p,r,Number($('ringRadius').value)),tip=tipGeometry(p,r,o,Number($('tipOffset').value));const route=rgbRoute(Number($('junction').value),$('rgbWord').value);current={rgb:{...route,step:rgbStep,currentNode:route.nodes[rgbStep]},parameters:p,geometry:r,tip:{...tip,visible:$('tipVisible').checked},openings:{...o,centralVisible:$('central').checked,windowsVisible:$('windows').checked,spokes:'TELESCOPIC_REQUIRED',outerBoundary:'VIRTUAL_MEASUREMENT_POLYGON'},channel:{kappa:'UNBOUND',elevator:'GEOMETRIC_HEIGHT_ONLY'},model:'pentagon-five-split-rods-with-openings/5',notes:['parallel coaxial guidance imposed','radially outward middle joints','zero thickness; no dynamics','not an A0 source-state export']};
+ $('rgbStatus').textContent='Schritt '+rgbStep+'/2 · '+route.nodes.join(' → ')+' · aktuell: '+route.nodes[rgbStep];$('rgbBack').disabled=rgbStep===0;$('rgbNext').disabled=rgbStep===2;
+ $('tipStatus').textContent=tip.valid?'T: δ = '+fmt(tip.delta)+' · Hilfslänge T–M = '+fmt(tip.length)+' · '+(tip.ringIntersections?'5 Ringschnitte in der Mittelebene':'kein Schnitt der idealen Hilfslinien mit dem Ring'):'T wartet auf gültige Grundgeometrie.';
+ $('thetaLabel').textContent=p.theta.toFixed(1).replace('.',',')+'°';$('height').textContent=fmt(r.h);$('chord').textContent=fmt(r.c);$('limit').textContent=Number.isFinite(r.limit)?r.limit.toFixed(2).replace('.',',')+'°':'—';
+ $('aperture').textContent=o.valid?fmt(o.radius):'—';$('spokeLength').textContent=o.valid?fmt(o.spokeLength):'—';$('windowWidth').textContent=o.valid?fmt(o.windowWidth):'—';$('openingStatus').textContent=o.valid?'Ringhöhe = '+fmt(o.ringHeight)+' · Fläche je Messfenster = '+fmt(o.windowArea):'HOLD · '+(o.reason||'Keine gültige Grundgeometrie.');
+ $('angle').disabled=p.mode==='straight';$('meaning').disabled=p.mode==='straight';$('download').disabled=!r.valid;
+ if(!r.valid){$('status').textContent=r.reason;$('scene').innerHTML='<text x="45" y="130">Keine zulässige Stellung.</text><text x="45" y="165">Drehwinkel verkleinern oder Verbindung verlängern.</text>';$('coords').innerHTML='';$('section').innerHTML='';return;}
+ $('status').textContent=r.h<1e-7?'GRENZSTELLUNG · Rahmenebenen fallen zusammen.':`Zulässige Idealgeometrie · β = ${r.beta.toFixed(2).replace('.',',')}° · keine Aussage über Stabilität.`;
+ const representation=$('representation').value,viewPoint=v=>[v[0],v[1],representation==='mirror'?r.h-v[2]:representation==='overlay'?r.h/2:v[2]];current.view={mode:representation,sourceCoordinatesUnchanged:true,pin:[0,0,r.h/2]};
+ const yaw=rad(Number($('yaw').value));
+ const xy=input=>{const v=viewPoint(input),x=v[0]*Math.cos(yaw)-v[1]*Math.sin(yaw),y=v[0]*Math.sin(yaw)+v[1]*Math.cos(yaw);return[x+.42*y,.32*y-v[2]]};
+ const points=[...r.A,...r.B,...r.M,...(tip.valid&&$('tipVisible').checked?[tip.coordinate]:[])],ps=points.map(xy),xs=ps.map(v=>v[0]),ys=ps.map(v=>v[1]);
+ const loX=Math.min(...xs),hiX=Math.max(...xs),loY=Math.min(...ys),hiY=Math.max(...ys),scale=Math.min(640/Math.max(.3,hiX-loX),410/Math.max(.3,hiY-loY));
+ const project=v=>{const q=xy(v);return[470+(q[0]-(loX+hiX)/2)*scale,280+(q[1]-(loY+hiY)/2)*scale]};
+ const line=(a,b,c,w=2,dash='')=>{const u=project(a),v=project(b);return`<line x1="${u[0]}" y1="${u[1]}" x2="${v[0]}" y2="${v[1]}" stroke="${c}" stroke-width="${w}" ${dash?'stroke-dasharray="5 5"':''}/>`};
+ const label=(v,t,c)=>{const q=project(v);return`<circle cx="${q[0]}" cy="${q[1]}" r="4" fill="${c}"/><text x="${q[0]+8}" y="${q[1]-8}">${t}</text>`};
+ let svg='<title>Pentagon-Knickmodell mit RGB-Weg</title><desc>Zehn räumliche Teilfelder und ein schrittweise verfolgter Weg durch ein Mittelgelenk.</desc>';
+ if($('patches').checked){for(const patch of splitPatches(r)){const pts=patch.points.map(project),center=pts.reduce((c,v)=>[c[0]+v[0]/4,c[1]+v[1]/4],[0,0]);svg+=`<polygon points="${pts.map(v=>v.join(',')).join(' ')}" fill="${patch.id[0]==='U'?'#ff6868':'#70d79b'}" opacity="0.07"/><text x="${center[0]}" y="${center[1]}" text-anchor="middle">${patch.id}</text>`;}for(let i=0;i<5;i++)svg+=line(r.M[i],r.M[(i+1)%5],'#b2c1d1',1,'dash');}
+ current.splitFields={count:10,rendering:'PROJECTED_NONPLANAR_QUADS',additionalGraphEdges:false,addresses:splitPatches(r).map(x=>({id:x.id,points:x.addresses}))};
+ svg+=line([0,0,0],[0,0,r.h],'#b2c1d1',1,true);
+ for(let i=0;i<5;i++){const j=(i+1)%5;svg+=line(r.A[i],r.A[j],'#45d9e1',2.5)+line(r.B[i],r.B[j],'#ffd177',2.5);svg+=line(r.A[i],r.M[i],'#ff69c2',2)+line(r.M[i],r.B[i],'#ff69c2',2);}
+ for(let i=0;i<5;i++)svg+=label(r.A[i],'A'+i,'#45d9e1')+label(r.B[i],'B'+i,'#ffd177')+(p.mode==='kink'?label(r.M[i],'M'+i,'#ff69c2'):'');
+ if(o.valid){
+  if($('windows').checked){const q=[r.A[0],r.M[0],r.B[0],r.B[1],r.M[1],r.A[1]].map(project);svg+=`<polygon points="${q.map(v=>v.join(',')).join(' ')}" fill="#70d79b" opacity="0.12"/>`;}
+  if($('central').checked){
+   for(let i=0;i<5;i++)svg+=line(o.C[i],r.M[i],'#ff974f',2,'dash');
+   const pts=Array.from({length:97},(_,j)=>{const t=j*Math.PI/48;return project([o.radius*Math.cos(t),o.radius*Math.sin(t),r.h/2])});
+   svg+=`<polyline points="${pts.map(v=>v.join(',')).join(' ')}" fill="none" stroke="#ff974f" stroke-width="3"/>`;
+  }
+ }
+ if(tip.valid&&$('tipVisible').checked){for(let i=0;i<5;i++)svg+=line(tip.coordinate,r.M[i],'#b783ff',1.5,'dash');if(representation!=='overlay')svg+=label(tip.coordinate,'T','#b783ff');}
+ svg+=label([0,0,r.h/2],representation==='overlay'&&$('tipVisible').checked?'P / T (Projektion)':'P · Mitte','#eef3f8');
+ const x=865,y0=470,y1=470-r.h*scale;svg+=`<line x1="${x}" y1="${y0}" x2="${x}" y2="${y1}" stroke="#b2c1d1"/><text x="${x-16}" y="${y0+28}" text-anchor="end">h = ${fmt(r.h)}</text>`;
+ if(o.valid){const byID=id=>{const i=Number(id.slice(1));return id[0]==='C'?o.C[i]:r[id[0]][i]},colors={R:'#ff6868',G:'#70d79b',B:'#63a8ff'};for(let j=0;j<2;j++)svg+=line(byID(route.nodes[j]),byID(route.nodes[j+1]),colors[route.segments[j]],j<rgbStep?6:2,j>=rgbStep?'dash':'');const active=byID(route.nodes[rgbStep]),v=project(active);svg+=`<circle cx="${v[0]}" cy="${v[1]}" r="10" fill="#eef3f8" stroke="#111c2c" stroke-width="2"/>`;}
+ $('scene').innerHTML=svg;
+ $('coords').innerHTML=['A','M','B',...(o.valid?['C']:[])].flatMap(k=>(k==='C'?o.C:r[k]).map((v,i)=>`<tr><td>${k}${i}</td>${v.map(x=>'<td>'+fmt(x)+'</td>').join('')}</tr>`)).join('');
+ if(tip.valid)$('coords').innerHTML+='<tr><td>T</td>'+tip.coordinate.map(x=>'<td>'+fmt(x)+'</td>').join('')+'</tr>';
+ drawSection(r,o);
+}
+function drawSection(r,o){
+ if(!o.valid){$('section').innerHTML='';return;}
+ const sc=160/Math.max(o.rho,.001),pr=v=>[300+sc*v[0],205-sc*v[1]],path=pts=>pts.map(pr).map(v=>v.join(',')).join(' ');let svg='<title>Querschnitt: Ring und äußere Zwischenräume</title>';
+ for(let i=0;i<5;i++){const j=(i+1)%5,t0=Math.PI/2+2*Math.PI*i/5,t1=t0+2*Math.PI/5;
+  if($('windows').checked){const arc=Array.from({length:21},(_,k)=>{const t=t1+(t0-t1)*k/20;return[o.radius*Math.cos(t),o.radius*Math.sin(t)]});svg+=`<polygon points="${path([o.C[i],r.M[i],r.M[j],...arc])}" fill="#70d79b" opacity="${i%2?.13:.23}"/>`;}
+  const a=pr(r.M[i]),b=pr(r.M[j]),c=pr(o.C[i]);svg+=`<line x1="${a[0]}" y1="${a[1]}" x2="${b[0]}" y2="${b[1]}" stroke="#b2c1d1" stroke-dasharray="5 5"/>`;
+  if($('central').checked)svg+=`<line x1="${c[0]}" y1="${c[1]}" x2="${a[0]}" y2="${a[1]}" stroke="#ff974f" stroke-width="2" stroke-dasharray="4 3"/>`;
+  svg+=`<circle cx="${a[0]}" cy="${a[1]}" r="4" fill="#ff69c2"/>`;
+ }
+ if($('central').checked)svg+=`<circle cx="300" cy="205" r="${sc*o.radius}" stroke="#ff974f" stroke-width="3" fill="none"/>`;
+ $('section').innerHTML=svg;
+}
+for(const id of ['theta','mode','meaning','angle','side','length','yaw','central','windows','ringRadius','representation','tipVisible','tipOffset','patches','junction','rgbWord'])$(id).addEventListener('input',draw);
+function preset(mode,meaning,angle){$('mode').value=mode;$('meaning').value=meaning;$('angle').value=String(angle);draw()}
+$('rgbBack').addEventListener('click',()=>{rgbStep=Math.max(0,rgbStep-1);draw()});$('rgbNext').addEventListener('click',()=>{rgbStep=Math.min(2,rgbStep+1);draw()});$('rgbReset').addEventListener('click',()=>{rgbStep=0;draw()});for(const id of ['junction','rgbWord'])$(id).addEventListener('change',()=>{rgbStep=0;draw()});
+for(const [id,v]of [['tipAbove',.75],['tipMiddle',0],['tipBelow',-.75]])$(id).addEventListener('click',()=>{$('tipOffset').value=String(v);$('tipVisible').checked=true;draw()});
+$('straight').addEventListener('click',()=>preset('straight','interior',180));$('p137').addEventListener('click',()=>preset('kink','interior',137));$('p126').addEventListener('click',()=>preset('kink','interior',126));$('p783').addEventListener('click',()=>preset('kink','bend',7.83));
+$('download').addEventListener('click',()=>{if(!current.geometry.valid)return;const blob=new Blob([JSON.stringify(current,null,2)],{type:'application/json'}),a=document.createElement('a'),u=URL.createObjectURL(blob);a.href=u;a.download='NEXAH_Pentagon_Koordinaten.json';a.click();setTimeout(()=>URL.revokeObjectURL(u),1000)});
+globalThis.PentagonLab={calc,draw,getParams,openings,tipGeometry,rgbRoute,splitPatches};draw();
+</script></main></body></html>

@@ -1,0 +1,81 @@
+{
+  "schema": "nexah.a0.shadow-triangle-review-receipt/1.0.0",
+  "date": "2026-10-25",
+  "status": "PARKED_SOURCE_BOUND_GEOMETRY_AND_INTERFACE_CANDIDATE",
+  "extends_package": "A0_PENTAGON_KNICK_APERTURE_INTAKE_2026-10-25",
+  "received": [
+    {
+      "path": "sources/packages/NEXAH_Shadow_Triangle_3plus2_Quellen_2026-10-25.zip",
+      "sha256": "02406ec841115c2fbbebbfbab2e055874a942f7d0515a17c852e29eb7516bde5"
+    },
+    {
+      "path": "visuals/candidates/NEXAH_Shadow_Triangle_3plus2_2026-10-25.png",
+      "sha256": "00f97bec3993b83f627981cb25193ee5996508704a834e317c941c5921da3365"
+    },
+    {
+      "path": "deliverables/glb/NEXAH_Shadow_Triangle_3plus2_Animiert_2026-10-25.glb",
+      "sha256": "e0c85ad8b7a63c60baaeb984a17865ec574569de2ecebbabe577d4d0ed152455"
+    }
+  ],
+  "zip_review": {
+    "safe_relative_paths": true,
+    "entries": 7,
+    "extracted_source_path": "sources/shadow-triangle-3plus2/",
+    "contains_glb": false,
+    "contains_source_builder": true,
+    "contains_contact_model": true
+  },
+  "glb_review": {
+    "format": "glTF 2.0 binary",
+    "bytes": 37984,
+    "nodes": 37,
+    "meshes": 7,
+    "materials": 7,
+    "accessors": 27,
+    "buffer_views": 27,
+    "animation": "Open to contact and return",
+    "animation_channels": 5,
+    "structural_review": "PASS",
+    "independent_gltf_validator": "OPEN",
+    "browser_acceptance": "OPEN"
+  },
+  "declared_model": {
+    "interface": "fixed triangular contact plane",
+    "inputs_up": 3,
+    "inputs_down": 2,
+    "equal_case_resultant": [0, 0, 1],
+    "balanced_case": "3 x 1 - 2 x 1.5 = 0",
+    "moment_about_centroid": "numerically zero within floating-point tolerance",
+    "unit_scale_metres": 0.1
+  },
+  "claim_boundary": [
+    "new proposed geometry, not recovered native A0 geometry",
+    "zero resultant does not establish stability",
+    "no force transmission from crown is claimed",
+    "no support, stiffness, friction, material or actuator model",
+    "no complete collision certification"
+  ],
+  "equation_address_track": {
+    "status": "EXISTING_TYPED_DOCUMENTARY_TRACK_ONLY",
+    "tokens": ["pi", "phi/Phi", "sqrt(2)", "Euler totient", "Fibonacci", "prime index", "Euclid"],
+    "shared_generator_claimed": false,
+    "mechanical_identity_claimed": false
+  },
+  "identity": {
+    "reuse": [
+      "NEXAH:A0_ORIENTATION_EVIDENCE_LINEAGE:V1",
+      "ART:A0:MATHEMATICAL_JOINTS",
+      "MOD:TESSAREC"
+    ],
+    "related_not_merged": ["ART:E8:TYPED_COUPLING"],
+    "new_canonical_ids": [],
+    "new_relations": []
+  },
+  "authority": {
+    "study_activated": false,
+    "finding_promoted": false,
+    "publication_authorized": false,
+    "independent_science_replay_claimed": false
+  },
+  "next_permitted_action": "reproducible source build, independent glTF validation, browser acceptance, then support and transmission model"
+}

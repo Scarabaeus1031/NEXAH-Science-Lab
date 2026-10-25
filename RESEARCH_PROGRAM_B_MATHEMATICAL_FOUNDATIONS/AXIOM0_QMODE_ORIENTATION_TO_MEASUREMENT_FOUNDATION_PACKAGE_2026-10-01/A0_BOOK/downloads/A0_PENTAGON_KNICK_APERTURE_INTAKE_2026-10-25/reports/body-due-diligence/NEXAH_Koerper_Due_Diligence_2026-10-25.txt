@@ -1,0 +1,226 @@
+	NEXAH Körper und Gelenkmechanismen
+Technische Prüfung · 25.10.2026
+
+Für Thomas Hofmann und die weitere Umsetzung in Codex · 25. Oktober 2026
+
+
+Ergebnis und Entscheidung
+
+Die Arbeit liefert eine messbare Familie aus Projektionsplatte, Pyramiden, Pentagonrahmen und getrennten Schließmechanismen. Der stärkste nächste Versuch ist eine fünfteilige Laschenkrone nach dem vorhandenen A0 Kontaktmodell. Ihre zentrale Spitzenberührung ist geometrisch berechenbar. Die Integration mit der Laterne, dem Pin und dem Schieberdeckel ist noch zu lösen.
+
+Die vollständig triangulierte und verklebte Laternenhaut besitzt in den geprüften Konfigurationen keine innere infinitesimale Beweglichkeit. Das betrifft diese konkrete Verbindung der Flächen. Die offenen Laschen des Tessarec Modells haben andere Kontaktbedingungen und werden dadurch nicht widerlegt.
+
+Teil | Befund | Stand
+11 Winds Platte | 11 Ecken in einer bestimmten Projektion; unregelmäßig | Reproduziert
+Pyramide und Doppelpyramide | Bekannte Körperklassen mit konkreter neuer Grundkontur | Vermessen
+Laternenhaut | Starre vollständige Dreiecksverbindung im Rangtest | Keine Faltfreigabe
+Schieberdeckel | Fünf getrennte Ebenen; rechnerischer Verschluss | Großer Platzbedarf
+Drei und vier Laschen | Originales A0 Kontaktmodul gefunden und nachgerechnet | Quellgebunden
+Fünf Laschen | Kontakt bei 151,830501 Grad im neuen Modell | Kandidat
+Controllerwechsel | Bestimmte Abstände unter definiertem Spiegeltausch invariant | Begrenzter Test
+
+Wissenschaftliche Neuheit ist derzeit nicht belegt. Die belastbare Leistung liegt in der expliziten Geometrie, der Trennung der Mechanismen und den überprüfbaren Anschlussbedingungen. Ein materieller Prototyp, Antriebsauslegung und eine vollständige Browserabnahme fehlen.
+
+
+Modelle und Messkonventionen
+
+Ausgewertet wurden die vorhandenen lokalen Demonstratoren NEXAH_Pentagon_Knick_Lab.html Modell 11 und NEXAH_Teiler_Streifen_Desk.html Modell V3 sowie die öffentlich zugänglichen A0 Quellen. Die HTML Originale bleiben unverändert. Alle Maße gelten zunächst in dimensionslosen Quelleneinheiten u. Als Fertigungsbeispiel wird 1 u = 100 mm verwendet; dies ist eine gewählte Skalierung.
+
+Referenz der Laterne: regelmäßige Pentagonkante s = 1, gesamte gebrochene Stablänge L = 1, Verdrehung θ = 36 Grad und angezeigter Innenknick γ = 137 Grad. Der zugehörige Ablenkwinkel beträgt β = 180 Grad − γ = 43 Grad. Projektionsplatte und Laschenkrone besitzen jeweils eigene, ausdrücklich angegebene Parameter.
+
+Bezeichnung | Definition
+A und B | Untere und obere fünfteilige Rahmen im Laternenmodell
+M | Fünf mittlere Knickpunkte der Stabpfade
+P | Vorgegebener mittiger Pin; keine dynamische Schwebe
+C als Ring | Geometrische Referenz im vorhandenen Modell
+C als Observe | Beobachtungsabbildung im neuen Identitätstest
+Apertur | Je nach Modell Kreis, Pentagonöffnung oder Referenzquerschnitt
+F | Laschenwinkel des Kontaktmodells, 0 bis 180 Grad
+
+Die beiden Bedeutungen von C sind zu unterscheiden. Ebenso sind 8 Aperturen, 8 E8 Orbitgruppen und ein achteckiger Rand verschiedene Strukturen. Eine gemeinsame Zahl stellt keine geometrische Identität her.
+
+
+Prüftiefe
+
+Koordinaten, Kanten, Winkel, Flächen und Volumina wurden numerisch ausgewertet. Volumina wurden mit Konvexhüllen und geschlossenen Formeln gegengeprüft. Hinzu kommen Rangtests, lokale Kollisionsprüfungen und ein analytischer Bewegungsabschlag zwischen Winkelproben. Die Rechnungen verwenden Gleitkommazahlen; sie sind keine formale Intervallzertifizierung. Material, Reibung, Lagerluft, Kräfte, Belastbarkeit und Energiebedarf sind nicht bestimmt.
+
+Das Paket enthält die vollständigen Koordinaten, Seitenwinkel und Flächendaten in audit_results.json, die Kontaktfälle in native_contact_results.json und die Skripte zur Wiederholung. Die drei STL Dateien sind geometrische Kandidaten im Maßstab 100 mm pro u, keine geprüften Fertigungszeichnungen.
+
+
+Die 11 Winds Platte
+
+Die Kontur entsteht aus der konvexen Hülle einer schiefen Projektion der Laterne bei θ = −65,8 Grad und β = 43 Grad. Nach einer Drehung um 10 Grad gilt x′ = x_rot + 0,42 y_rot und y′ = −0,32 y_rot + z. Das anschließende Abflachen definiert eine neue ebene Platte. Es erhält die ursprünglichen räumlichen Längen nicht.
+
+Ecke | Kante zur nächsten in u | Innenwinkel in Grad
+A1 | 0.132073 | 135.661357
+M1 | 0.561160 | 152.837011
+A0 | 0.533512 | 160.783575
+M0 | 0.510591 | 177.873672
+A4 | 0.289800 | 146.143648
+M4 | 0.261220 | 87.152026
+B4 | 0.450167 | 141.423780
+M3 | 0.552059 | 176.782297
+B3 | 0.580269 | 161.429745
+M2 | 0.191515 | 166.707142
+B2 | 0.134512 | 113.205748
+
+Fläche 0,820832 u²; Umfang 4,196878 u; Begrenzungsrechteck 1,891387 × 0,611182 u. Die Winkelsumme beträgt 1620 Grad. Der Mittelwert 147,272727 Grad ist deshalb unvermeidlich und kein Beleg für ein regelmäßiges Elfeck. Elfzählige Rotationssymmetrie liegt nicht vor.
+
+Die Projektion ist empfindlich: Bei 360 untersuchten Blickrichtungen hat die Hülle zehn oder elf Ecken. Die Ausgangshöhe beträgt nur 0,108210 u und liegt 0,507244 Grad vor der kinematischen Grenzverdrehung. Dort ist |dh/dθ| etwa 0,106454 u pro Grad. Eine Winkelabweichung von 0,1 Grad entspricht lokal rund 1,06 mm Höhenänderung im gewählten Maßstab.
+
+
+Pyramiden und Gegenplatte
+
+Die Platte kann als Grundfläche mit einer oder zwei Spitzen versehen werden. Bei H = 0,65 u ist H der Abstand jeder Spitze von der Grundebene. Für die Doppelpyramide ist die Gesamthöhe deshalb 1,30 u. Diese Konstruktionen gehören zu bekannten Polyederklassen [1].
+
+Körper | V / E / F | Volumen u³ | Oberfläche u²
+Pyramide | 12 / 22 / 12 | 0,177847 | 2,437604
+Doppelpyramide | 13 / 33 / 22 | 0,355694 | 3,233544
+Neuer Gegenplattenprisma Kandidat | 22 / 33 / 13 | 1,067082 | 7,097605
+
+Für Grundfläche A gelten V_Pyramide = AH/3 und V_Doppelpyramide = 2AH/3. Der neue Gegenplattenkandidat verbindet zwei kongruente Platten in z = ±H durch elf Seitenrechtecke. Sein Volumen beträgt 2AH, also das Dreifache der Doppelpyramide. Eine gegenüberliegende Platte ist somit geometrisch möglich; sie ist hier eine neue Ergänzung.
+
+Bei 1 u = 100 mm misst die Doppelpyramide 189,139 × 61,118 × 130 mm; ihr geometrisches Volumen beträgt 0,355694 Liter. Die Dreieckswinkel reichen von 5,873998 bis 126,721627 Grad. Die inneren Diederwinkel betragen 70,250894 bis 177,943897 Grad, bei der einzelnen Pyramide 35,125447 bis 177,943897 Grad. Sehr schmale Dreiecke erschweren reale Lager und Wandstärken.
+
+Der Höhenregler verändert Kantenlängen und erzeugt daher keine Faltung starrer Flächen. Für ideal gleichmäßig massive Körper ergibt eine Schwerpunktprojektion vier mögliche stabile Auflageflächen der Pyramide und sechs der Doppelpyramide. Das gilt nicht automatisch für ein hohles, ungleich schweres Gelenkmodell.
+
+
+Pentagonrahmen und Laternenbewegung
+
+Ein regelmäßiges Pentagon hat 72 Grad Zentriwinkel und 108 Grad Innenwinkel. Bei Kante 1 beträgt der Umkreisradius 0,850650808 u und die Diagonale φ = 1,618033989 u. Der goldene Winkel 137,507764 Grad ist eine andere Größe als der gewählte Innenknick 137 Grad. Ihre Nähe legt keinen Zwang des Gelenks fest.
+
+Mit c = L cos(β/2), R = s/(2 sin 36 Grad) und θ als Rahmenverdrehung folgt h² = c² − 4R² sin²(θ/2). Die Gleichung begrenzt die zulässigen Parameter durch h² ≥ 0. Der Mittelpunktknick wird zusätzlich nach außen versetzt; die beiden Teilstäbe haben jeweils Länge L/2.
+
+Referenzgröße | Wert
+Rahmenabstand h | 0,767648128 u
+Gerader Abstand der Endpunkte c | 0,930417568 u
+Mittlerer Radius ρ | 0,992267608 u
+Mittlere Pentagonkante | 1,166480532 u
+Querstrebe q bei r = 0,2 | 0,792267608 u
+Gewählte Kreisöffnung πr² | 0,125663706 u²
+Messfläche pro Fenster | 0,443070007 u²
+Grenze |θ| bei β = 43 Grad | 66,307243811 Grad
+
+Die häufig besprochenen 33, 7 und 78 Grad können als Steuerwerte untersucht werden. Ihre Zulässigkeit hängt davon ab, welchen Winkel sie bezeichnen. Als reine Verdrehung ist 78 Grad im Referenzfall unzulässig. Ein angezeigter Winkel ist daher immer mit seiner Achse und Konvention zu speichern.
+
+Die vollständige triangulierte Haut hat bei festem unteren und starrem oberen Rahmen in 26 geprüften Konfigurationen Rang 30 bei 30 freien Koordinaten. Es bleibt kein infinitesimaler innerer Freiheitsgrad. Am Referenzpunkt erzeugt das Weglassen der Feld­diagonalen acht, des mittleren Rings drei und beider zusammen dreizehn rechnerische Freiheitsgrade. Dies sind Diagnosen gelockerter Stabbedingungen, noch keine realisierten Faltmechanismen.
+
+
+Spalt Pin und Schieberdeckel
+
+Die ursprünglichen vierseitigen Hautfelder sind räumlich verwunden. Die Aufteilung in Dreiecke ist deshalb wesentlich: Am Referenzpunkt beträgt der Winkel zwischen den beiden Dreiecksebenen bei Diagonale 02 etwa 56,156664 Grad. Die UI Stellung mit zusätzlichem Faltwinkel null ist keine ebene Ausgangsplatte.
+
+Für die unabhängige lokale Dreiecksfaltung wurden je Diagonalwahl 361 Winkel von −180 bis 180 Grad geprüft. Vom kleinsten gemessenen Pinabstand wurde die maximal mögliche Bewegung bis zur nächsten Probe abgezogen: 2 R_orbit sin(0,25 Grad), zusätzlich 10⁻⁹ u numerischer Abschlag. Die resultierenden unteren Abstandsgrenzen betragen 0,331464 u und 0,486085 u. Sie gelten nur für diesen lokalen Test, nicht für eine durchgehend gekoppelte Haut.
+
+Ein begrenzter Schnittscreen fand keine Kreuzung nicht benachbarter, nicht koplanarer Testdreiecke. Gemeinsame Knoten und koplanare Kontakte wurden ausgeschlossen. Daraus folgt keine vollständige Selbstkollisionsfreiheit.
+
+Fünf Schieber | Wert
+Rechteck je Schieber | 1,984535 × 1,092268 u
+Hub | 0,21 u
+Dicke / Ebenenabstand / freier Spalt | 0,010 / 0,025 / 0,015 u
+Gesamte Stapelhöhe | 0,11 u
+Vollständige XY Hülle | 3,124674 × 2,971742 u
+Unterseite / Oberseite | z = 0,980948 / 1,090948 u
+
+Der vollständige Deckel braucht bei 100 mm pro u ungefähr 312 × 297 mm Platz. Die Darstellung beschneidet die Rechtecke am Ghostpentagon; das tatsächliche Gehäuse müsste die überstehenden Teile aufnehmen. Die anfängliche Pentagonöffnung hat Fläche 0,145309 u² und ist nicht identisch mit der Kreisfläche 0,125664 u².
+
+Mit Schließwert u_c gilt der Öffnungsinradius a = max(0; 0,2(1−u_c)−0,01u_c), und die Fläche beträgt 5a² tan 36 Grad. Die positive Fläche verschwindet bei u_c = 20/21. Das ist ein projektiver Verschluss; Lichtdichtheit für schräge Strahlen, Abdichtung und Reibung sind damit nicht bewiesen.
+
+
+Öse Schalen und acht mal fünf Pfade
+
+Ein oberes Pentagon kann als Rahmen oder materielle Öse ausgeführt werden. Für eine gewählte Wandbreite 0,08 u normal zur Kante und Dicke 0,05 u ergibt sich bei äußerer Kante 1 eine innere Kante von 0,883753 u und ein Materialvolumen von 0,018838 u³. Diese konkrete Materialvariante ist neu definiert; Tragfähigkeit und Befestigung bleiben offen.
+
+Ein Pentagon gleicher Größe passt nicht in die flach projizierte 11 Winds Platte. Der beste untersuchte zentrierte regelmäßige Fünfeckrahmen hat bei einer Winkelsuche in 0,1 Grad Schritten Kante 0,349624 u und Orientierung 8,3 Grad. Eine freie Verschiebung des Rahmens wurde nicht optimiert. Ein Anschluss benötigt folglich Skalierung, Abstandsebenen oder eine andere Kontur.
+
+Die Bezeichnungen 12 und 13 zählen bei Pyramide und Doppelpyramide die Eckpunkte nach dem Hinzufügen von Spitzen. Sie definieren noch kein mechanisches Gelenk zwischen zwei Baugruppen.
+
+Acht seriell gekoppelte Laternenzellen | Anzahl
+Gemeinsame Pentagonrahmen | 9
+Rahmenknoten / mittlere Gelenke | 45 / 40
+Eindeutige Knoten | 85
+Rahmenbalken / halbe Pfadstäbe | 45 / 80
+Physische Stäbe insgesamt | 125
+Elevatorpfade | 40
+Höhe bei gleicher Referenz pro Zelle | 6,141185 u
+Gesamtverdrehung | 288 Grad
+
+Diese Zählung setzt gemeinsame Zwischenrahmen voraus. Acht getrennte Zellen hätten 120 Knoten und 160 Stäbe. Ein zweigliedriges Spitzengestänge ergänzt sechs Knoten und zehn Stäbe; eine starre gemeinsame Spitze nur einen Knoten und fünf Stäbe.
+
+Die acht Aperturen sind hier acht Referenzquerschnitte, keine acht integrierten Ventile. Mit starren Zwischenrahmen und vollständig triangulierten Häuten erreicht der Stapel Rang 240 bei 240 freien Koordinaten. Er gewinnt durch Wiederholung keine Faltbeweglichkeit. Goldene und Mondknoten können Rollen und Orientierung markieren; ihre Farbe bestimmt keine mechanische Eigenschaft.
+
+
+Faltspitze und das originale Kontaktmodell
+
+Zwei unterschiedliche Ansätze wurden getrennt getestet. Erstens: Fünf starre Stäbe von einem festen Pentagon zu einer gemeinsamen Spitze erlauben nur die beiden Höhen ±0,525731 u bei Stablänge 1. Für einen kontinuierlichen Flip wurden deshalb fünf zusätzliche Mittelgelenke und zehn Halbstäbe definiert. Die Stablängen bleiben in 501 geprüften Stellungen konstant. Dieser neue Flip durchquert jedoch den Pinbereich und kollidiert mit dem vorhandenen Deckel.
+
+Der Segmenttest gegen die endlichen Schieberkästen findet bei der normalen Öffnung in 293 von 501 Stellungen Kontakt. Auch ein vergrößerter Öffnungsparameter 0,6 lässt 86 Kontakte übrig. Damit ist dieser konkrete Zweistabansatz nicht als Gesamtsystem freigegeben.
+
+Zweitens: Die drei pinken Knoten und die vierteilige Box aus den Screenshots gehören zum A0 Tessarec Blue Body Lab [6]. Das Modul a0-tessarec-fold-contact-v1.js berechnet offene einzelne Laschen. Diese sind vor dem Schließen nicht entlang ihrer freien Kanten verklebt. Das ist eine andere Topologie als die starre Laternenhaut.
+
+Kontaktmodell | Drei Laschen | Vier Laschen | Neue fünf Laschen
+t | 0,5 | 0,5 | 1/φ
+Erweiterung e | 1,25 | 1,25 | 1,5
+Grundkante in u | 0,809017 | 0,809017 | 1,000000
+Mindestwert e | 0,934172 | 1,144123 | 1,376382
+Kontaktwinkel F in Grad | 119,352453 | 148,104991 | 151,830501
+Spitzenhöhe über Rand in u | 0,415278 | 0,251735 | 0,368533
+
+Für n Laschen, Randkante b = φt, Laschenschenkel ℓ = et, Laschenhöhe f = √(ℓ²−b²/4) und Grundapothem a_n = b/(2 tan(π/n)) gilt: Kontakt ist möglich, wenn e ≥ φ/(2 sin(π/n)). Der Kontaktwinkel ist arccos(−a_n/f). Im ausdrücklich neuen räumlichen Modell liegt die Höhe bei Kontakt bei √(f²−a_n²). Alle Spitzen treffen dann denselben Punkt.
+
+Das native Modul stellt drei und vier Seiten dar; fünf Seiten sind die hier abgeleitete Erweiterung. 96 Prüfungen liefen mit maximalem Kontaktfehler 3,33 × 10⁻¹⁶ u. Vor Kontakt hat das fünfteilige Netz V10 E15 F6, geschlossen nach Identifikation der passenden Kanten V6 E10 F6. Die maximale freie Spitzenhöhe ist 0,780656 u über dem Rand und überschreitet die Kontaktendhöhe deutlich. Für die Integration muss der gesamte Weg geprüft werden, nicht nur die schöne Endstellung.
+
+
+Controllerwechsel und erhaltene Identität
+
+Der Satz „Identity is held through controlled exchange“ erhält einen prüfbaren mathematischen Inhalt, sobald Zustand, Wechsel und Beobachtung benannt sind. Sei x der vollständige Modellzustand und T der definierte Tausch. Dann bedeutet beobachtbare Identität: O(Tx) = O(x). Die Schreibweise C = Observe(A↔B) beschreibt dafür zunächst eine Beobachtungsaufgabe; sie allein legt O noch nicht fest.
+
+Getestet wurde an der Referenzlaterne der Wechsel θ → −θ mit Spiegelung z → h−z und Rollentausch A↔B. Alle fünfzehn Knoten stimmen nach Zuordnung exakt innerhalb der numerischen Prüfung überein; der mittige Pin bleibt fest. Kantenlängen und Pinabstände sind invariant. Absolute Höhe eines benannten A Knotens und Controllerseitenbezeichnungen sind es nicht.
+
+Ein Wechsel von drei zu vier Laschen ändert dagegen bereits die Anzahl der Knoten und Flächen. Er erhält deshalb nicht den vollständigen Körpergraphen. Erhalten bleiben können eine gemeinsame Kontaktregel, ein Zustandsschema oder eine vereinbarte Kennung. Diese Ebene muss beim Umschalten ausdrücklich angezeigt werden.
+
+Begriff aus dem Visual | Prüfbare Festlegung
+Connection | Welche Knoten und Kanten sind tatsächlich verbunden?
+Coupling | Welche Bewegungsgrößen sind durch Gleichungen gekoppelt?
+Cascadence | Welche Zustandswechsel folgen in welcher Reihenfolge?
+Beobachter C | Welche Messwerte werden vor und nach dem Wechsel verglichen?
+Der Zwischenraum | Abstand, Öffnungsfläche, Kontaktspalt oder Kontaktzustand?
+
+Der Bügel aus dem Splinter Mirrors Visual kann als Lagerachse oder Verbindung zwischen Rahmen interpretiert werden. Ohne zugeordnete Endpunkte, Achse und Länge ist er noch keine berechenbare Gelenkbedingung. Die vorgeschlagene nächste Umsetzung versieht ihn daher mit einer eindeutigen Gelenkkennung und koppelt ihn an genau eine festgelegte Bewegung.
+
+Weitere Bilder bleiben getrennte Evidenz: Der 6/7 Rückkehrkreis hat Periode 42, der 13/17 Takt Periode 221. Die Winkel 50 und 90 sind um 70 symmetrisch mit Halbabstand 20 Grad. Der Breath Sequencer führt 13 benannte Zustände; die historische 21 Einträge lange Spur ist ausdrücklich eine andere Darstellung. Keine dieser Gleichheiten beweist von sich aus eine neue Körperdynamik, Hopffaserung oder biologische Identität.
+
+
+Wissenschaftlicher Vergleich und Übergabe
+
+Pyramiden, Doppelpyramiden, Prismen und regelmäßige Flächen sind bekannte mathematische Werkzeuge [1]. Drehung und Höhenänderung polygonaler Faltzylinder werden etwa bei Kresling verwandten Strukturen untersucht. Die Literatur unterscheidet deutlich zwischen geometrischer Darstellung, starrer Faltbarkeit und Bewegung mit elastischer Deformation [2–5]. Eine Identifikation unserer Laterne mit einem bestimmten Kresling Muster ist bisher nicht nachgewiesen.
+
+Eigenständig auszuarbeiten ist der dokumentierte Adapter zwischen A0 Kontaktmodell, fünfteiliger Laschenkrone und Laternenrahmen sowie die Beobachtungsinvariante beim Controllerwechsel. Ob dies gegenüber bestehender Forschung neu ist, erfordert eine gezielte Literaturrecherche mit dem vollständigen Graphen und den Zwangsbedingungen. Eine Patentneuheitsprüfung wurde nicht durchgeführt.
+
+
+Nächste vier Abnahmeschritte
+
+1. Fünf offene Laschen als eigenes Modul implementieren. Randkante 1, t = 1/φ, e = 1,5 und berechneten Kontaktwinkel exportieren. Dreier und Vierer Modi zum Quellvergleich erhalten. Kontakt und Verklebung nicht als denselben Zustand behandeln.
+
+2. Bügel, Lagerachsen, gegenüberliegende Platte und Antrieb festlegen. Zunächst genau einen Bewegungsparameter verwenden. Einen numerischen Zwangsbedingungslöser gegen direkte Koordinatenanimation vergleichen und Restfehler anzeigen.
+
+3. Den gesamten Weg mit endlichen Dicken prüfen. Pin, Laschen, Deckel, Zwischenrahmen und Gehäuse gemeinsam testen. Der jetzige Deckel ist für die neue Krone nicht freigegeben. Das erfolgreiche lokale Pinexperiment reicht dafür nicht aus.
+
+4. Browser und Prototyp abnehmen. Slider, Kopplung, Kamera, Export, mobile Ansicht und Rückkehr zur Referenz im echten Browser prüfen. Anschließend einen einfachen maßstäblichen Karton oder Lagerprototyp messen. Erst danach Aussagen über Kraft, Takt, Verschleiß oder optische Funktion ableiten.
+
+
+Quellen
+
+[1] polymake Polytope Dokumentation, bipyramid und prism. https://polymake.org/doku.php/documentation/polytope
+
+[2] Cai et al. (2017), Nonrigidly Foldability Analysis of Kresling Cylindrical Origami. DOI 10.1115/1.4036738. Abstract geprüft.
+
+[3] Reid et al. (2017), Geometry and design of origami bellows with tunable response. Physical Review E 95, 013002. DOI 10.1103/PhysRevE.95.013002. Abstract geprüft.
+
+[4] Zang et al. (2024), Kresling origami mechanics explained Experiments and theory. JMPS 188, 105630. DOI 10.1016/j.jmps.2024.105630. Abstract geprüft.
+
+[5] Liu et al. (2024), Rigid foldable cylindrical origami with tunable mechanical behaviors. Scientific Reports 14, 145. DOI 10.1038/s41598-023-50353-4. Abstract geprüft.
+
+[6] A0 Tessarec Blue Body Lab und assets/a0-tessarec-fold-contact-v1.js. https://scarabaeus1031.github.io/NEXAH-Science-Lab/book/A0_TESSAREC_BLUE_BODY_LAB.html ; Quellstand abgerufen 25.10.2026. SHA256 des Kontaktmoduls: 276bc0b81785ac4a88bb383d0ebb078adb89581755f9c7dbab87b25229727395
+
+[7] Benchmark des Projekts. https://scarabaeus1031.github.io/NEXAH-Science-Lab/book/A0_ORIENTATION_CONTROLLER_BENCH.html ; Quellstand abgerufen 25.10.2026.

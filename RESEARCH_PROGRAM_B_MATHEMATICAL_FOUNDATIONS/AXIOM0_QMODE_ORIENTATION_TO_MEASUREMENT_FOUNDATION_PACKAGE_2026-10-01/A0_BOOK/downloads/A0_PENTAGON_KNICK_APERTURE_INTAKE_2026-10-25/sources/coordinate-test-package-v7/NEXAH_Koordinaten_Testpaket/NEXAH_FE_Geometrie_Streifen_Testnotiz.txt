@@ -1,0 +1,31 @@
+NEXAH Fibonacci Euler und Geometrie-Streifen
+Stand 25. Oktober 2026
+
+Fibonacci F₀,F₁,…
+term-concatenation
+0112358132134558914423337761098715972584418167651094617711286574636875025121393196418317811514229
+{"pairs": 96, "seam_pairs": 29, "repeat_within": 8, "repeat_at_seam": 3}
+Erste 8 Paare: 01 [NAHT], 11 [NAHT], 12 [NAHT], 23 [NAHT], 35 [NAHT], 58 [NAHT], 81 [NAHT], 13
+
+Euler E(n)=n²+n+41
+term-concatenation
+4143475361718397113131151173197223251281313347383421461503547593641691743797853911971103310971163
+{"pairs": 96, "seam_pairs": 33, "repeat_within": 5, "repeat_at_seam": 4}
+Erste 8 Paare: 41, 14 [NAHT], 43, 34 [NAHT], 47, 75 [NAHT], 53, 36 [NAHT]
+
+a = 1,902113…
+fractional-decimal
+9021130325903071442328786667587642868113972682515004448946112888603063401703870034375856219416227
+{"pairs": 96, "seam_pairs": 0, "repeat_within": 13, "repeat_at_seam": 0}
+Erste 8 Paare: 90, 02, 21, 11, 13, 30, 03, 32
+
+b = 2,093314…
+fractional-decimal
+0933145992062696049522143555516328076990298675313092946810810094245013801659013982779217993726091
+{"pairs": 96, "seam_pairs": 0, "repeat_within": 10, "repeat_at_seam": 0}
+Erste 8 Paare: 09, 93, 33, 31, 14, 45, 59, 99
+
+Rückgewinnung: Alle zwölf Streifen mit Startziffer exakt rekonstruiert. Ohne Startziffer bleibt im jeweiligen 97-Ziffernfenster außer der Kontrolle sqrt4 genau eine zulässige Startziffer; bei sqrt4 sind es zehn.
+Allgemeiner bekannter Grund: Modulare Differenzen lassen sich bei bekannter Reihenfolge integrieren. Diese Rekonstruktion folgt aus der Codierung, nicht aus einer besonderen Eigenschaft irrationaler Zahlen.
+Die Termgrenzen von F/E werden durch die Restfolge nicht gespeichert und müssen zusätzlich erhalten bleiben.
+Die geometrischen Vergleichszahlen erfüllen a²+b²=8 exakt. Lokale Dezimalmuster sind davon getrennt.

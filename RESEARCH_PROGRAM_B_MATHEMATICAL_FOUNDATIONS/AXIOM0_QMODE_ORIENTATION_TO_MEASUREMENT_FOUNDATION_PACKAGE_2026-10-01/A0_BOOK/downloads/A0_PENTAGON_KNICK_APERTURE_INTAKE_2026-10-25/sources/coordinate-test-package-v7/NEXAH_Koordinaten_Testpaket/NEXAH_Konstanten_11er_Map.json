@@ -1,0 +1,7854 @@
+{
+  "rule": "97 fractional decimal digits, 96 overlapping ordered pairs, position n uses digits n and n+1 (1-based). r=(b-a) mod11. signed residue r if r<=5 else r-11. zero has no joint; nonzero joint M(abs(signed)-1). This joint assignment is a new declared encoding, not an existing A0 coupling.",
+  "precision_check": "160 and 220 decimal digits produce identical 97-digit prefixes",
+  "constants": {
+    "pi": {
+      "integer": 3,
+      "digits97": "1415926535897932384626433832795028841971693993751058209749445923078164062862089986280348253421170",
+      "label": "π",
+      "rows": [
+        {
+          "position": 1,
+          "pair": "14",
+          "a": 1,
+          "b": 4,
+          "residue": 3,
+          "signed": 3,
+          "joint": "M2",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 2,
+          "pair": "41",
+          "a": 4,
+          "b": 1,
+          "residue": 8,
+          "signed": -3,
+          "joint": "M2",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 3,
+          "pair": "15",
+          "a": 1,
+          "b": 5,
+          "residue": 4,
+          "signed": 4,
+          "joint": "M3",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 4,
+          "pair": "59",
+          "a": 5,
+          "b": 9,
+          "residue": 4,
+          "signed": 4,
+          "joint": "M3",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 5,
+          "pair": "92",
+          "a": 9,
+          "b": 2,
+          "residue": 4,
+          "signed": 4,
+          "joint": "M3",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 6,
+          "pair": "26",
+          "a": 2,
+          "b": 6,
+          "residue": 4,
+          "signed": 4,
+          "joint": "M3",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 7,
+          "pair": "65",
+          "a": 6,
+          "b": 5,
+          "residue": 10,
+          "signed": -1,
+          "joint": "M0",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 8,
+          "pair": "53",
+          "a": 5,
+          "b": 3,
+          "residue": 9,
+          "signed": -2,
+          "joint": "M1",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 9,
+          "pair": "35",
+          "a": 3,
+          "b": 5,
+          "residue": 2,
+          "signed": 2,
+          "joint": "M1",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 10,
+          "pair": "58",
+          "a": 5,
+          "b": 8,
+          "residue": 3,
+          "signed": 3,
+          "joint": "M2",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 11,
+          "pair": "89",
+          "a": 8,
+          "b": 9,
+          "residue": 1,
+          "signed": 1,
+          "joint": "M0",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 12,
+          "pair": "97",
+          "a": 9,
+          "b": 7,
+          "residue": 9,
+          "signed": -2,
+          "joint": "M1",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 13,
+          "pair": "79",
+          "a": 7,
+          "b": 9,
+          "residue": 2,
+          "signed": 2,
+          "joint": "M1",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 14,
+          "pair": "93",
+          "a": 9,
+          "b": 3,
+          "residue": 5,
+          "signed": 5,
+          "joint": "M4",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 15,
+          "pair": "32",
+          "a": 3,
+          "b": 2,
+          "residue": 10,
+          "signed": -1,
+          "joint": "M0",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 16,
+          "pair": "23",
+          "a": 2,
+          "b": 3,
+          "residue": 1,
+          "signed": 1,
+          "joint": "M0",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 17,
+          "pair": "38",
+          "a": 3,
+          "b": 8,
+          "residue": 5,
+          "signed": 5,
+          "joint": "M4",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 18,
+          "pair": "84",
+          "a": 8,
+          "b": 4,
+          "residue": 7,
+          "signed": -4,
+          "joint": "M3",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 19,
+          "pair": "46",
+          "a": 4,
+          "b": 6,
+          "residue": 2,
+          "signed": 2,
+          "joint": "M1",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 20,
+          "pair": "62",
+          "a": 6,
+          "b": 2,
+          "residue": 7,
+          "signed": -4,
+          "joint": "M3",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 21,
+          "pair": "26",
+          "a": 2,
+          "b": 6,
+          "residue": 4,
+          "signed": 4,
+          "joint": "M3",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 22,
+          "pair": "64",
+          "a": 6,
+          "b": 4,
+          "residue": 9,
+          "signed": -2,
+          "joint": "M1",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 23,
+          "pair": "43",
+          "a": 4,
+          "b": 3,
+          "residue": 10,
+          "signed": -1,
+          "joint": "M0",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 24,
+          "pair": "33",
+          "a": 3,
+          "b": 3,
+          "residue": 0,
+          "signed": 0,
+          "joint": null,
+          "fixed_by_reversal": true
+        },
+        {
+          "position": 25,
+          "pair": "38",
+          "a": 3,
+          "b": 8,
+          "residue": 5,
+          "signed": 5,
+          "joint": "M4",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 26,
+          "pair": "83",
+          "a": 8,
+          "b": 3,
+          "residue": 6,
+          "signed": -5,
+          "joint": "M4",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 27,
+          "pair": "32",
+          "a": 3,
+          "b": 2,
+          "residue": 10,
+          "signed": -1,
+          "joint": "M0",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 28,
+          "pair": "27",
+          "a": 2,
+          "b": 7,
+          "residue": 5,
+          "signed": 5,
+          "joint": "M4",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 29,
+          "pair": "79",
+          "a": 7,
+          "b": 9,
+          "residue": 2,
+          "signed": 2,
+          "joint": "M1",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 30,
+          "pair": "95",
+          "a": 9,
+          "b": 5,
+          "residue": 7,
+          "signed": -4,
+          "joint": "M3",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 31,
+          "pair": "50",
+          "a": 5,
+          "b": 0,
+          "residue": 6,
+          "signed": -5,
+          "joint": "M4",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 32,
+          "pair": "02",
+          "a": 0,
+          "b": 2,
+          "residue": 2,
+          "signed": 2,
+          "joint": "M1",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 33,
+          "pair": "28",
+          "a": 2,
+          "b": 8,
+          "residue": 6,
+          "signed": -5,
+          "joint": "M4",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 34,
+          "pair": "88",
+          "a": 8,
+          "b": 8,
+          "residue": 0,
+          "signed": 0,
+          "joint": null,
+          "fixed_by_reversal": true
+        },
+        {
+          "position": 35,
+          "pair": "84",
+          "a": 8,
+          "b": 4,
+          "residue": 7,
+          "signed": -4,
+          "joint": "M3",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 36,
+          "pair": "41",
+          "a": 4,
+          "b": 1,
+          "residue": 8,
+          "signed": -3,
+          "joint": "M2",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 37,
+          "pair": "19",
+          "a": 1,
+          "b": 9,
+          "residue": 8,
+          "signed": -3,
+          "joint": "M2",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 38,
+          "pair": "97",
+          "a": 9,
+          "b": 7,
+          "residue": 9,
+          "signed": -2,
+          "joint": "M1",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 39,
+          "pair": "71",
+          "a": 7,
+          "b": 1,
+          "residue": 5,
+          "signed": 5,
+          "joint": "M4",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 40,
+          "pair": "16",
+          "a": 1,
+          "b": 6,
+          "residue": 5,
+          "signed": 5,
+          "joint": "M4",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 41,
+          "pair": "69",
+          "a": 6,
+          "b": 9,
+          "residue": 3,
+          "signed": 3,
+          "joint": "M2",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 42,
+          "pair": "93",
+          "a": 9,
+          "b": 3,
+          "residue": 5,
+          "signed": 5,
+          "joint": "M4",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 43,
+          "pair": "39",
+          "a": 3,
+          "b": 9,
+          "residue": 6,
+          "signed": -5,
+          "joint": "M4",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 44,
+          "pair": "99",
+          "a": 9,
+          "b": 9,
+          "residue": 0,
+          "signed": 0,
+          "joint": null,
+          "fixed_by_reversal": true
+        },
+        {
+          "position": 45,
+          "pair": "93",
+          "a": 9,
+          "b": 3,
+          "residue": 5,
+          "signed": 5,
+          "joint": "M4",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 46,
+          "pair": "37",
+          "a": 3,
+          "b": 7,
+          "residue": 4,
+          "signed": 4,
+          "joint": "M3",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 47,
+          "pair": "75",
+          "a": 7,
+          "b": 5,
+          "residue": 9,
+          "signed": -2,
+          "joint": "M1",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 48,
+          "pair": "51",
+          "a": 5,
+          "b": 1,
+          "residue": 7,
+          "signed": -4,
+          "joint": "M3",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 49,
+          "pair": "10",
+          "a": 1,
+          "b": 0,
+          "residue": 10,
+          "signed": -1,
+          "joint": "M0",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 50,
+          "pair": "05",
+          "a": 0,
+          "b": 5,
+          "residue": 5,
+          "signed": 5,
+          "joint": "M4",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 51,
+          "pair": "58",
+          "a": 5,
+          "b": 8,
+          "residue": 3,
+          "signed": 3,
+          "joint": "M2",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 52,
+          "pair": "82",
+          "a": 8,
+          "b": 2,
+          "residue": 5,
+          "signed": 5,
+          "joint": "M4",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 53,
+          "pair": "20",
+          "a": 2,
+          "b": 0,
+          "residue": 9,
+          "signed": -2,
+          "joint": "M1",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 54,
+          "pair": "09",
+          "a": 0,
+          "b": 9,
+          "residue": 9,
+          "signed": -2,
+          "joint": "M1",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 55,
+          "pair": "97",
+          "a": 9,
+          "b": 7,
+          "residue": 9,
+          "signed": -2,
+          "joint": "M1",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 56,
+          "pair": "74",
+          "a": 7,
+          "b": 4,
+          "residue": 8,
+          "signed": -3,
+          "joint": "M2",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 57,
+          "pair": "49",
+          "a": 4,
+          "b": 9,
+          "residue": 5,
+          "signed": 5,
+          "joint": "M4",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 58,
+          "pair": "94",
+          "a": 9,
+          "b": 4,
+          "residue": 6,
+          "signed": -5,
+          "joint": "M4",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 59,
+          "pair": "44",
+          "a": 4,
+          "b": 4,
+          "residue": 0,
+          "signed": 0,
+          "joint": null,
+          "fixed_by_reversal": true
+        },
+        {
+          "position": 60,
+          "pair": "45",
+          "a": 4,
+          "b": 5,
+          "residue": 1,
+          "signed": 1,
+          "joint": "M0",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 61,
+          "pair": "59",
+          "a": 5,
+          "b": 9,
+          "residue": 4,
+          "signed": 4,
+          "joint": "M3",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 62,
+          "pair": "92",
+          "a": 9,
+          "b": 2,
+          "residue": 4,
+          "signed": 4,
+          "joint": "M3",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 63,
+          "pair": "23",
+          "a": 2,
+          "b": 3,
+          "residue": 1,
+          "signed": 1,
+          "joint": "M0",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 64,
+          "pair": "30",
+          "a": 3,
+          "b": 0,
+          "residue": 8,
+          "signed": -3,
+          "joint": "M2",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 65,
+          "pair": "07",
+          "a": 0,
+          "b": 7,
+          "residue": 7,
+          "signed": -4,
+          "joint": "M3",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 66,
+          "pair": "78",
+          "a": 7,
+          "b": 8,
+          "residue": 1,
+          "signed": 1,
+          "joint": "M0",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 67,
+          "pair": "81",
+          "a": 8,
+          "b": 1,
+          "residue": 4,
+          "signed": 4,
+          "joint": "M3",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 68,
+          "pair": "16",
+          "a": 1,
+          "b": 6,
+          "residue": 5,
+          "signed": 5,
+          "joint": "M4",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 69,
+          "pair": "64",
+          "a": 6,
+          "b": 4,
+          "residue": 9,
+          "signed": -2,
+          "joint": "M1",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 70,
+          "pair": "40",
+          "a": 4,
+          "b": 0,
+          "residue": 7,
+          "signed": -4,
+          "joint": "M3",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 71,
+          "pair": "06",
+          "a": 0,
+          "b": 6,
+          "residue": 6,
+          "signed": -5,
+          "joint": "M4",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 72,
+          "pair": "62",
+          "a": 6,
+          "b": 2,
+          "residue": 7,
+          "signed": -4,
+          "joint": "M3",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 73,
+          "pair": "28",
+          "a": 2,
+          "b": 8,
+          "residue": 6,
+          "signed": -5,
+          "joint": "M4",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 74,
+          "pair": "86",
+          "a": 8,
+          "b": 6,
+          "residue": 9,
+          "signed": -2,
+          "joint": "M1",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 75,
+          "pair": "62",
+          "a": 6,
+          "b": 2,
+          "residue": 7,
+          "signed": -4,
+          "joint": "M3",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 76,
+          "pair": "20",
+          "a": 2,
+          "b": 0,
+          "residue": 9,
+          "signed": -2,
+          "joint": "M1",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 77,
+          "pair": "08",
+          "a": 0,
+          "b": 8,
+          "residue": 8,
+          "signed": -3,
+          "joint": "M2",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 78,
+          "pair": "89",
+          "a": 8,
+          "b": 9,
+          "residue": 1,
+          "signed": 1,
+          "joint": "M0",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 79,
+          "pair": "99",
+          "a": 9,
+          "b": 9,
+          "residue": 0,
+          "signed": 0,
+          "joint": null,
+          "fixed_by_reversal": true
+        },
+        {
+          "position": 80,
+          "pair": "98",
+          "a": 9,
+          "b": 8,
+          "residue": 10,
+          "signed": -1,
+          "joint": "M0",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 81,
+          "pair": "86",
+          "a": 8,
+          "b": 6,
+          "residue": 9,
+          "signed": -2,
+          "joint": "M1",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 82,
+          "pair": "62",
+          "a": 6,
+          "b": 2,
+          "residue": 7,
+          "signed": -4,
+          "joint": "M3",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 83,
+          "pair": "28",
+          "a": 2,
+          "b": 8,
+          "residue": 6,
+          "signed": -5,
+          "joint": "M4",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 84,
+          "pair": "80",
+          "a": 8,
+          "b": 0,
+          "residue": 3,
+          "signed": 3,
+          "joint": "M2",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 85,
+          "pair": "03",
+          "a": 0,
+          "b": 3,
+          "residue": 3,
+          "signed": 3,
+          "joint": "M2",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 86,
+          "pair": "34",
+          "a": 3,
+          "b": 4,
+          "residue": 1,
+          "signed": 1,
+          "joint": "M0",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 87,
+          "pair": "48",
+          "a": 4,
+          "b": 8,
+          "residue": 4,
+          "signed": 4,
+          "joint": "M3",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 88,
+          "pair": "82",
+          "a": 8,
+          "b": 2,
+          "residue": 5,
+          "signed": 5,
+          "joint": "M4",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 89,
+          "pair": "25",
+          "a": 2,
+          "b": 5,
+          "residue": 3,
+          "signed": 3,
+          "joint": "M2",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 90,
+          "pair": "53",
+          "a": 5,
+          "b": 3,
+          "residue": 9,
+          "signed": -2,
+          "joint": "M1",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 91,
+          "pair": "34",
+          "a": 3,
+          "b": 4,
+          "residue": 1,
+          "signed": 1,
+          "joint": "M0",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 92,
+          "pair": "42",
+          "a": 4,
+          "b": 2,
+          "residue": 9,
+          "signed": -2,
+          "joint": "M1",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 93,
+          "pair": "21",
+          "a": 2,
+          "b": 1,
+          "residue": 10,
+          "signed": -1,
+          "joint": "M0",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 94,
+          "pair": "11",
+          "a": 1,
+          "b": 1,
+          "residue": 0,
+          "signed": 0,
+          "joint": null,
+          "fixed_by_reversal": true
+        },
+        {
+          "position": 95,
+          "pair": "17",
+          "a": 1,
+          "b": 7,
+          "residue": 6,
+          "signed": -5,
+          "joint": "M4",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 96,
+          "pair": "70",
+          "a": 7,
+          "b": 0,
+          "residue": 4,
+          "signed": 4,
+          "joint": "M3",
+          "fixed_by_reversal": false
+        }
+      ],
+      "counts": {
+        "-5": 9,
+        "-4": 10,
+        "-3": 6,
+        "-2": 14,
+        "-1": 7,
+        "0": 6,
+        "1": 8,
+        "2": 5,
+        "3": 7,
+        "4": 11,
+        "5": 13
+      },
+      "repeat_digit_pairs": 6
+    },
+    "phi": {
+      "integer": 1,
+      "digits97": "6180339887498948482045868343656381177203091798057628621354486227052604628189024497072072041893911",
+      "label": "φ",
+      "rows": [
+        {
+          "position": 1,
+          "pair": "61",
+          "a": 6,
+          "b": 1,
+          "residue": 6,
+          "signed": -5,
+          "joint": "M4",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 2,
+          "pair": "18",
+          "a": 1,
+          "b": 8,
+          "residue": 7,
+          "signed": -4,
+          "joint": "M3",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 3,
+          "pair": "80",
+          "a": 8,
+          "b": 0,
+          "residue": 3,
+          "signed": 3,
+          "joint": "M2",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 4,
+          "pair": "03",
+          "a": 0,
+          "b": 3,
+          "residue": 3,
+          "signed": 3,
+          "joint": "M2",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 5,
+          "pair": "33",
+          "a": 3,
+          "b": 3,
+          "residue": 0,
+          "signed": 0,
+          "joint": null,
+          "fixed_by_reversal": true
+        },
+        {
+          "position": 6,
+          "pair": "39",
+          "a": 3,
+          "b": 9,
+          "residue": 6,
+          "signed": -5,
+          "joint": "M4",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 7,
+          "pair": "98",
+          "a": 9,
+          "b": 8,
+          "residue": 10,
+          "signed": -1,
+          "joint": "M0",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 8,
+          "pair": "88",
+          "a": 8,
+          "b": 8,
+          "residue": 0,
+          "signed": 0,
+          "joint": null,
+          "fixed_by_reversal": true
+        },
+        {
+          "position": 9,
+          "pair": "87",
+          "a": 8,
+          "b": 7,
+          "residue": 10,
+          "signed": -1,
+          "joint": "M0",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 10,
+          "pair": "74",
+          "a": 7,
+          "b": 4,
+          "residue": 8,
+          "signed": -3,
+          "joint": "M2",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 11,
+          "pair": "49",
+          "a": 4,
+          "b": 9,
+          "residue": 5,
+          "signed": 5,
+          "joint": "M4",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 12,
+          "pair": "98",
+          "a": 9,
+          "b": 8,
+          "residue": 10,
+          "signed": -1,
+          "joint": "M0",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 13,
+          "pair": "89",
+          "a": 8,
+          "b": 9,
+          "residue": 1,
+          "signed": 1,
+          "joint": "M0",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 14,
+          "pair": "94",
+          "a": 9,
+          "b": 4,
+          "residue": 6,
+          "signed": -5,
+          "joint": "M4",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 15,
+          "pair": "48",
+          "a": 4,
+          "b": 8,
+          "residue": 4,
+          "signed": 4,
+          "joint": "M3",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 16,
+          "pair": "84",
+          "a": 8,
+          "b": 4,
+          "residue": 7,
+          "signed": -4,
+          "joint": "M3",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 17,
+          "pair": "48",
+          "a": 4,
+          "b": 8,
+          "residue": 4,
+          "signed": 4,
+          "joint": "M3",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 18,
+          "pair": "82",
+          "a": 8,
+          "b": 2,
+          "residue": 5,
+          "signed": 5,
+          "joint": "M4",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 19,
+          "pair": "20",
+          "a": 2,
+          "b": 0,
+          "residue": 9,
+          "signed": -2,
+          "joint": "M1",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 20,
+          "pair": "04",
+          "a": 0,
+          "b": 4,
+          "residue": 4,
+          "signed": 4,
+          "joint": "M3",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 21,
+          "pair": "45",
+          "a": 4,
+          "b": 5,
+          "residue": 1,
+          "signed": 1,
+          "joint": "M0",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 22,
+          "pair": "58",
+          "a": 5,
+          "b": 8,
+          "residue": 3,
+          "signed": 3,
+          "joint": "M2",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 23,
+          "pair": "86",
+          "a": 8,
+          "b": 6,
+          "residue": 9,
+          "signed": -2,
+          "joint": "M1",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 24,
+          "pair": "68",
+          "a": 6,
+          "b": 8,
+          "residue": 2,
+          "signed": 2,
+          "joint": "M1",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 25,
+          "pair": "83",
+          "a": 8,
+          "b": 3,
+          "residue": 6,
+          "signed": -5,
+          "joint": "M4",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 26,
+          "pair": "34",
+          "a": 3,
+          "b": 4,
+          "residue": 1,
+          "signed": 1,
+          "joint": "M0",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 27,
+          "pair": "43",
+          "a": 4,
+          "b": 3,
+          "residue": 10,
+          "signed": -1,
+          "joint": "M0",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 28,
+          "pair": "36",
+          "a": 3,
+          "b": 6,
+          "residue": 3,
+          "signed": 3,
+          "joint": "M2",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 29,
+          "pair": "65",
+          "a": 6,
+          "b": 5,
+          "residue": 10,
+          "signed": -1,
+          "joint": "M0",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 30,
+          "pair": "56",
+          "a": 5,
+          "b": 6,
+          "residue": 1,
+          "signed": 1,
+          "joint": "M0",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 31,
+          "pair": "63",
+          "a": 6,
+          "b": 3,
+          "residue": 8,
+          "signed": -3,
+          "joint": "M2",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 32,
+          "pair": "38",
+          "a": 3,
+          "b": 8,
+          "residue": 5,
+          "signed": 5,
+          "joint": "M4",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 33,
+          "pair": "81",
+          "a": 8,
+          "b": 1,
+          "residue": 4,
+          "signed": 4,
+          "joint": "M3",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 34,
+          "pair": "11",
+          "a": 1,
+          "b": 1,
+          "residue": 0,
+          "signed": 0,
+          "joint": null,
+          "fixed_by_reversal": true
+        },
+        {
+          "position": 35,
+          "pair": "17",
+          "a": 1,
+          "b": 7,
+          "residue": 6,
+          "signed": -5,
+          "joint": "M4",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 36,
+          "pair": "77",
+          "a": 7,
+          "b": 7,
+          "residue": 0,
+          "signed": 0,
+          "joint": null,
+          "fixed_by_reversal": true
+        },
+        {
+          "position": 37,
+          "pair": "72",
+          "a": 7,
+          "b": 2,
+          "residue": 6,
+          "signed": -5,
+          "joint": "M4",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 38,
+          "pair": "20",
+          "a": 2,
+          "b": 0,
+          "residue": 9,
+          "signed": -2,
+          "joint": "M1",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 39,
+          "pair": "03",
+          "a": 0,
+          "b": 3,
+          "residue": 3,
+          "signed": 3,
+          "joint": "M2",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 40,
+          "pair": "30",
+          "a": 3,
+          "b": 0,
+          "residue": 8,
+          "signed": -3,
+          "joint": "M2",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 41,
+          "pair": "09",
+          "a": 0,
+          "b": 9,
+          "residue": 9,
+          "signed": -2,
+          "joint": "M1",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 42,
+          "pair": "91",
+          "a": 9,
+          "b": 1,
+          "residue": 3,
+          "signed": 3,
+          "joint": "M2",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 43,
+          "pair": "17",
+          "a": 1,
+          "b": 7,
+          "residue": 6,
+          "signed": -5,
+          "joint": "M4",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 44,
+          "pair": "79",
+          "a": 7,
+          "b": 9,
+          "residue": 2,
+          "signed": 2,
+          "joint": "M1",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 45,
+          "pair": "98",
+          "a": 9,
+          "b": 8,
+          "residue": 10,
+          "signed": -1,
+          "joint": "M0",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 46,
+          "pair": "80",
+          "a": 8,
+          "b": 0,
+          "residue": 3,
+          "signed": 3,
+          "joint": "M2",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 47,
+          "pair": "05",
+          "a": 0,
+          "b": 5,
+          "residue": 5,
+          "signed": 5,
+          "joint": "M4",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 48,
+          "pair": "57",
+          "a": 5,
+          "b": 7,
+          "residue": 2,
+          "signed": 2,
+          "joint": "M1",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 49,
+          "pair": "76",
+          "a": 7,
+          "b": 6,
+          "residue": 10,
+          "signed": -1,
+          "joint": "M0",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 50,
+          "pair": "62",
+          "a": 6,
+          "b": 2,
+          "residue": 7,
+          "signed": -4,
+          "joint": "M3",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 51,
+          "pair": "28",
+          "a": 2,
+          "b": 8,
+          "residue": 6,
+          "signed": -5,
+          "joint": "M4",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 52,
+          "pair": "86",
+          "a": 8,
+          "b": 6,
+          "residue": 9,
+          "signed": -2,
+          "joint": "M1",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 53,
+          "pair": "62",
+          "a": 6,
+          "b": 2,
+          "residue": 7,
+          "signed": -4,
+          "joint": "M3",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 54,
+          "pair": "21",
+          "a": 2,
+          "b": 1,
+          "residue": 10,
+          "signed": -1,
+          "joint": "M0",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 55,
+          "pair": "13",
+          "a": 1,
+          "b": 3,
+          "residue": 2,
+          "signed": 2,
+          "joint": "M1",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 56,
+          "pair": "35",
+          "a": 3,
+          "b": 5,
+          "residue": 2,
+          "signed": 2,
+          "joint": "M1",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 57,
+          "pair": "54",
+          "a": 5,
+          "b": 4,
+          "residue": 10,
+          "signed": -1,
+          "joint": "M0",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 58,
+          "pair": "44",
+          "a": 4,
+          "b": 4,
+          "residue": 0,
+          "signed": 0,
+          "joint": null,
+          "fixed_by_reversal": true
+        },
+        {
+          "position": 59,
+          "pair": "48",
+          "a": 4,
+          "b": 8,
+          "residue": 4,
+          "signed": 4,
+          "joint": "M3",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 60,
+          "pair": "86",
+          "a": 8,
+          "b": 6,
+          "residue": 9,
+          "signed": -2,
+          "joint": "M1",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 61,
+          "pair": "62",
+          "a": 6,
+          "b": 2,
+          "residue": 7,
+          "signed": -4,
+          "joint": "M3",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 62,
+          "pair": "22",
+          "a": 2,
+          "b": 2,
+          "residue": 0,
+          "signed": 0,
+          "joint": null,
+          "fixed_by_reversal": true
+        },
+        {
+          "position": 63,
+          "pair": "27",
+          "a": 2,
+          "b": 7,
+          "residue": 5,
+          "signed": 5,
+          "joint": "M4",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 64,
+          "pair": "70",
+          "a": 7,
+          "b": 0,
+          "residue": 4,
+          "signed": 4,
+          "joint": "M3",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 65,
+          "pair": "05",
+          "a": 0,
+          "b": 5,
+          "residue": 5,
+          "signed": 5,
+          "joint": "M4",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 66,
+          "pair": "52",
+          "a": 5,
+          "b": 2,
+          "residue": 8,
+          "signed": -3,
+          "joint": "M2",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 67,
+          "pair": "26",
+          "a": 2,
+          "b": 6,
+          "residue": 4,
+          "signed": 4,
+          "joint": "M3",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 68,
+          "pair": "60",
+          "a": 6,
+          "b": 0,
+          "residue": 5,
+          "signed": 5,
+          "joint": "M4",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 69,
+          "pair": "04",
+          "a": 0,
+          "b": 4,
+          "residue": 4,
+          "signed": 4,
+          "joint": "M3",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 70,
+          "pair": "46",
+          "a": 4,
+          "b": 6,
+          "residue": 2,
+          "signed": 2,
+          "joint": "M1",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 71,
+          "pair": "62",
+          "a": 6,
+          "b": 2,
+          "residue": 7,
+          "signed": -4,
+          "joint": "M3",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 72,
+          "pair": "28",
+          "a": 2,
+          "b": 8,
+          "residue": 6,
+          "signed": -5,
+          "joint": "M4",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 73,
+          "pair": "81",
+          "a": 8,
+          "b": 1,
+          "residue": 4,
+          "signed": 4,
+          "joint": "M3",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 74,
+          "pair": "18",
+          "a": 1,
+          "b": 8,
+          "residue": 7,
+          "signed": -4,
+          "joint": "M3",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 75,
+          "pair": "89",
+          "a": 8,
+          "b": 9,
+          "residue": 1,
+          "signed": 1,
+          "joint": "M0",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 76,
+          "pair": "90",
+          "a": 9,
+          "b": 0,
+          "residue": 2,
+          "signed": 2,
+          "joint": "M1",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 77,
+          "pair": "02",
+          "a": 0,
+          "b": 2,
+          "residue": 2,
+          "signed": 2,
+          "joint": "M1",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 78,
+          "pair": "24",
+          "a": 2,
+          "b": 4,
+          "residue": 2,
+          "signed": 2,
+          "joint": "M1",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 79,
+          "pair": "44",
+          "a": 4,
+          "b": 4,
+          "residue": 0,
+          "signed": 0,
+          "joint": null,
+          "fixed_by_reversal": true
+        },
+        {
+          "position": 80,
+          "pair": "49",
+          "a": 4,
+          "b": 9,
+          "residue": 5,
+          "signed": 5,
+          "joint": "M4",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 81,
+          "pair": "97",
+          "a": 9,
+          "b": 7,
+          "residue": 9,
+          "signed": -2,
+          "joint": "M1",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 82,
+          "pair": "70",
+          "a": 7,
+          "b": 0,
+          "residue": 4,
+          "signed": 4,
+          "joint": "M3",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 83,
+          "pair": "07",
+          "a": 0,
+          "b": 7,
+          "residue": 7,
+          "signed": -4,
+          "joint": "M3",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 84,
+          "pair": "72",
+          "a": 7,
+          "b": 2,
+          "residue": 6,
+          "signed": -5,
+          "joint": "M4",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 85,
+          "pair": "20",
+          "a": 2,
+          "b": 0,
+          "residue": 9,
+          "signed": -2,
+          "joint": "M1",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 86,
+          "pair": "07",
+          "a": 0,
+          "b": 7,
+          "residue": 7,
+          "signed": -4,
+          "joint": "M3",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 87,
+          "pair": "72",
+          "a": 7,
+          "b": 2,
+          "residue": 6,
+          "signed": -5,
+          "joint": "M4",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 88,
+          "pair": "20",
+          "a": 2,
+          "b": 0,
+          "residue": 9,
+          "signed": -2,
+          "joint": "M1",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 89,
+          "pair": "04",
+          "a": 0,
+          "b": 4,
+          "residue": 4,
+          "signed": 4,
+          "joint": "M3",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 90,
+          "pair": "41",
+          "a": 4,
+          "b": 1,
+          "residue": 8,
+          "signed": -3,
+          "joint": "M2",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 91,
+          "pair": "18",
+          "a": 1,
+          "b": 8,
+          "residue": 7,
+          "signed": -4,
+          "joint": "M3",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 92,
+          "pair": "89",
+          "a": 8,
+          "b": 9,
+          "residue": 1,
+          "signed": 1,
+          "joint": "M0",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 93,
+          "pair": "93",
+          "a": 9,
+          "b": 3,
+          "residue": 5,
+          "signed": 5,
+          "joint": "M4",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 94,
+          "pair": "39",
+          "a": 3,
+          "b": 9,
+          "residue": 6,
+          "signed": -5,
+          "joint": "M4",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 95,
+          "pair": "91",
+          "a": 9,
+          "b": 1,
+          "residue": 3,
+          "signed": 3,
+          "joint": "M2",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 96,
+          "pair": "11",
+          "a": 1,
+          "b": 1,
+          "residue": 0,
+          "signed": 0,
+          "joint": null,
+          "fixed_by_reversal": true
+        }
+      ],
+      "counts": {
+        "-5": 12,
+        "-4": 10,
+        "-3": 5,
+        "-2": 9,
+        "-1": 9,
+        "0": 8,
+        "1": 6,
+        "2": 9,
+        "3": 8,
+        "4": 11,
+        "5": 9
+      },
+      "repeat_digit_pairs": 8
+    },
+    "sqrt2": {
+      "integer": 1,
+      "digits97": "4142135623730950488016887242096980785696718753769480731766797379907324784621070388503875343276415",
+      "label": "√2",
+      "rows": [
+        {
+          "position": 1,
+          "pair": "41",
+          "a": 4,
+          "b": 1,
+          "residue": 8,
+          "signed": -3,
+          "joint": "M2",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 2,
+          "pair": "14",
+          "a": 1,
+          "b": 4,
+          "residue": 3,
+          "signed": 3,
+          "joint": "M2",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 3,
+          "pair": "42",
+          "a": 4,
+          "b": 2,
+          "residue": 9,
+          "signed": -2,
+          "joint": "M1",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 4,
+          "pair": "21",
+          "a": 2,
+          "b": 1,
+          "residue": 10,
+          "signed": -1,
+          "joint": "M0",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 5,
+          "pair": "13",
+          "a": 1,
+          "b": 3,
+          "residue": 2,
+          "signed": 2,
+          "joint": "M1",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 6,
+          "pair": "35",
+          "a": 3,
+          "b": 5,
+          "residue": 2,
+          "signed": 2,
+          "joint": "M1",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 7,
+          "pair": "56",
+          "a": 5,
+          "b": 6,
+          "residue": 1,
+          "signed": 1,
+          "joint": "M0",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 8,
+          "pair": "62",
+          "a": 6,
+          "b": 2,
+          "residue": 7,
+          "signed": -4,
+          "joint": "M3",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 9,
+          "pair": "23",
+          "a": 2,
+          "b": 3,
+          "residue": 1,
+          "signed": 1,
+          "joint": "M0",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 10,
+          "pair": "37",
+          "a": 3,
+          "b": 7,
+          "residue": 4,
+          "signed": 4,
+          "joint": "M3",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 11,
+          "pair": "73",
+          "a": 7,
+          "b": 3,
+          "residue": 7,
+          "signed": -4,
+          "joint": "M3",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 12,
+          "pair": "30",
+          "a": 3,
+          "b": 0,
+          "residue": 8,
+          "signed": -3,
+          "joint": "M2",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 13,
+          "pair": "09",
+          "a": 0,
+          "b": 9,
+          "residue": 9,
+          "signed": -2,
+          "joint": "M1",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 14,
+          "pair": "95",
+          "a": 9,
+          "b": 5,
+          "residue": 7,
+          "signed": -4,
+          "joint": "M3",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 15,
+          "pair": "50",
+          "a": 5,
+          "b": 0,
+          "residue": 6,
+          "signed": -5,
+          "joint": "M4",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 16,
+          "pair": "04",
+          "a": 0,
+          "b": 4,
+          "residue": 4,
+          "signed": 4,
+          "joint": "M3",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 17,
+          "pair": "48",
+          "a": 4,
+          "b": 8,
+          "residue": 4,
+          "signed": 4,
+          "joint": "M3",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 18,
+          "pair": "88",
+          "a": 8,
+          "b": 8,
+          "residue": 0,
+          "signed": 0,
+          "joint": null,
+          "fixed_by_reversal": true
+        },
+        {
+          "position": 19,
+          "pair": "80",
+          "a": 8,
+          "b": 0,
+          "residue": 3,
+          "signed": 3,
+          "joint": "M2",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 20,
+          "pair": "01",
+          "a": 0,
+          "b": 1,
+          "residue": 1,
+          "signed": 1,
+          "joint": "M0",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 21,
+          "pair": "16",
+          "a": 1,
+          "b": 6,
+          "residue": 5,
+          "signed": 5,
+          "joint": "M4",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 22,
+          "pair": "68",
+          "a": 6,
+          "b": 8,
+          "residue": 2,
+          "signed": 2,
+          "joint": "M1",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 23,
+          "pair": "88",
+          "a": 8,
+          "b": 8,
+          "residue": 0,
+          "signed": 0,
+          "joint": null,
+          "fixed_by_reversal": true
+        },
+        {
+          "position": 24,
+          "pair": "87",
+          "a": 8,
+          "b": 7,
+          "residue": 10,
+          "signed": -1,
+          "joint": "M0",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 25,
+          "pair": "72",
+          "a": 7,
+          "b": 2,
+          "residue": 6,
+          "signed": -5,
+          "joint": "M4",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 26,
+          "pair": "24",
+          "a": 2,
+          "b": 4,
+          "residue": 2,
+          "signed": 2,
+          "joint": "M1",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 27,
+          "pair": "42",
+          "a": 4,
+          "b": 2,
+          "residue": 9,
+          "signed": -2,
+          "joint": "M1",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 28,
+          "pair": "20",
+          "a": 2,
+          "b": 0,
+          "residue": 9,
+          "signed": -2,
+          "joint": "M1",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 29,
+          "pair": "09",
+          "a": 0,
+          "b": 9,
+          "residue": 9,
+          "signed": -2,
+          "joint": "M1",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 30,
+          "pair": "96",
+          "a": 9,
+          "b": 6,
+          "residue": 8,
+          "signed": -3,
+          "joint": "M2",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 31,
+          "pair": "69",
+          "a": 6,
+          "b": 9,
+          "residue": 3,
+          "signed": 3,
+          "joint": "M2",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 32,
+          "pair": "98",
+          "a": 9,
+          "b": 8,
+          "residue": 10,
+          "signed": -1,
+          "joint": "M0",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 33,
+          "pair": "80",
+          "a": 8,
+          "b": 0,
+          "residue": 3,
+          "signed": 3,
+          "joint": "M2",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 34,
+          "pair": "07",
+          "a": 0,
+          "b": 7,
+          "residue": 7,
+          "signed": -4,
+          "joint": "M3",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 35,
+          "pair": "78",
+          "a": 7,
+          "b": 8,
+          "residue": 1,
+          "signed": 1,
+          "joint": "M0",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 36,
+          "pair": "85",
+          "a": 8,
+          "b": 5,
+          "residue": 8,
+          "signed": -3,
+          "joint": "M2",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 37,
+          "pair": "56",
+          "a": 5,
+          "b": 6,
+          "residue": 1,
+          "signed": 1,
+          "joint": "M0",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 38,
+          "pair": "69",
+          "a": 6,
+          "b": 9,
+          "residue": 3,
+          "signed": 3,
+          "joint": "M2",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 39,
+          "pair": "96",
+          "a": 9,
+          "b": 6,
+          "residue": 8,
+          "signed": -3,
+          "joint": "M2",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 40,
+          "pair": "67",
+          "a": 6,
+          "b": 7,
+          "residue": 1,
+          "signed": 1,
+          "joint": "M0",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 41,
+          "pair": "71",
+          "a": 7,
+          "b": 1,
+          "residue": 5,
+          "signed": 5,
+          "joint": "M4",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 42,
+          "pair": "18",
+          "a": 1,
+          "b": 8,
+          "residue": 7,
+          "signed": -4,
+          "joint": "M3",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 43,
+          "pair": "87",
+          "a": 8,
+          "b": 7,
+          "residue": 10,
+          "signed": -1,
+          "joint": "M0",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 44,
+          "pair": "75",
+          "a": 7,
+          "b": 5,
+          "residue": 9,
+          "signed": -2,
+          "joint": "M1",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 45,
+          "pair": "53",
+          "a": 5,
+          "b": 3,
+          "residue": 9,
+          "signed": -2,
+          "joint": "M1",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 46,
+          "pair": "37",
+          "a": 3,
+          "b": 7,
+          "residue": 4,
+          "signed": 4,
+          "joint": "M3",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 47,
+          "pair": "76",
+          "a": 7,
+          "b": 6,
+          "residue": 10,
+          "signed": -1,
+          "joint": "M0",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 48,
+          "pair": "69",
+          "a": 6,
+          "b": 9,
+          "residue": 3,
+          "signed": 3,
+          "joint": "M2",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 49,
+          "pair": "94",
+          "a": 9,
+          "b": 4,
+          "residue": 6,
+          "signed": -5,
+          "joint": "M4",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 50,
+          "pair": "48",
+          "a": 4,
+          "b": 8,
+          "residue": 4,
+          "signed": 4,
+          "joint": "M3",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 51,
+          "pair": "80",
+          "a": 8,
+          "b": 0,
+          "residue": 3,
+          "signed": 3,
+          "joint": "M2",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 52,
+          "pair": "07",
+          "a": 0,
+          "b": 7,
+          "residue": 7,
+          "signed": -4,
+          "joint": "M3",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 53,
+          "pair": "73",
+          "a": 7,
+          "b": 3,
+          "residue": 7,
+          "signed": -4,
+          "joint": "M3",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 54,
+          "pair": "31",
+          "a": 3,
+          "b": 1,
+          "residue": 9,
+          "signed": -2,
+          "joint": "M1",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 55,
+          "pair": "17",
+          "a": 1,
+          "b": 7,
+          "residue": 6,
+          "signed": -5,
+          "joint": "M4",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 56,
+          "pair": "76",
+          "a": 7,
+          "b": 6,
+          "residue": 10,
+          "signed": -1,
+          "joint": "M0",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 57,
+          "pair": "66",
+          "a": 6,
+          "b": 6,
+          "residue": 0,
+          "signed": 0,
+          "joint": null,
+          "fixed_by_reversal": true
+        },
+        {
+          "position": 58,
+          "pair": "67",
+          "a": 6,
+          "b": 7,
+          "residue": 1,
+          "signed": 1,
+          "joint": "M0",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 59,
+          "pair": "79",
+          "a": 7,
+          "b": 9,
+          "residue": 2,
+          "signed": 2,
+          "joint": "M1",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 60,
+          "pair": "97",
+          "a": 9,
+          "b": 7,
+          "residue": 9,
+          "signed": -2,
+          "joint": "M1",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 61,
+          "pair": "73",
+          "a": 7,
+          "b": 3,
+          "residue": 7,
+          "signed": -4,
+          "joint": "M3",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 62,
+          "pair": "37",
+          "a": 3,
+          "b": 7,
+          "residue": 4,
+          "signed": 4,
+          "joint": "M3",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 63,
+          "pair": "79",
+          "a": 7,
+          "b": 9,
+          "residue": 2,
+          "signed": 2,
+          "joint": "M1",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 64,
+          "pair": "99",
+          "a": 9,
+          "b": 9,
+          "residue": 0,
+          "signed": 0,
+          "joint": null,
+          "fixed_by_reversal": true
+        },
+        {
+          "position": 65,
+          "pair": "90",
+          "a": 9,
+          "b": 0,
+          "residue": 2,
+          "signed": 2,
+          "joint": "M1",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 66,
+          "pair": "07",
+          "a": 0,
+          "b": 7,
+          "residue": 7,
+          "signed": -4,
+          "joint": "M3",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 67,
+          "pair": "73",
+          "a": 7,
+          "b": 3,
+          "residue": 7,
+          "signed": -4,
+          "joint": "M3",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 68,
+          "pair": "32",
+          "a": 3,
+          "b": 2,
+          "residue": 10,
+          "signed": -1,
+          "joint": "M0",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 69,
+          "pair": "24",
+          "a": 2,
+          "b": 4,
+          "residue": 2,
+          "signed": 2,
+          "joint": "M1",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 70,
+          "pair": "47",
+          "a": 4,
+          "b": 7,
+          "residue": 3,
+          "signed": 3,
+          "joint": "M2",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 71,
+          "pair": "78",
+          "a": 7,
+          "b": 8,
+          "residue": 1,
+          "signed": 1,
+          "joint": "M0",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 72,
+          "pair": "84",
+          "a": 8,
+          "b": 4,
+          "residue": 7,
+          "signed": -4,
+          "joint": "M3",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 73,
+          "pair": "46",
+          "a": 4,
+          "b": 6,
+          "residue": 2,
+          "signed": 2,
+          "joint": "M1",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 74,
+          "pair": "62",
+          "a": 6,
+          "b": 2,
+          "residue": 7,
+          "signed": -4,
+          "joint": "M3",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 75,
+          "pair": "21",
+          "a": 2,
+          "b": 1,
+          "residue": 10,
+          "signed": -1,
+          "joint": "M0",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 76,
+          "pair": "10",
+          "a": 1,
+          "b": 0,
+          "residue": 10,
+          "signed": -1,
+          "joint": "M0",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 77,
+          "pair": "07",
+          "a": 0,
+          "b": 7,
+          "residue": 7,
+          "signed": -4,
+          "joint": "M3",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 78,
+          "pair": "70",
+          "a": 7,
+          "b": 0,
+          "residue": 4,
+          "signed": 4,
+          "joint": "M3",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 79,
+          "pair": "03",
+          "a": 0,
+          "b": 3,
+          "residue": 3,
+          "signed": 3,
+          "joint": "M2",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 80,
+          "pair": "38",
+          "a": 3,
+          "b": 8,
+          "residue": 5,
+          "signed": 5,
+          "joint": "M4",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 81,
+          "pair": "88",
+          "a": 8,
+          "b": 8,
+          "residue": 0,
+          "signed": 0,
+          "joint": null,
+          "fixed_by_reversal": true
+        },
+        {
+          "position": 82,
+          "pair": "85",
+          "a": 8,
+          "b": 5,
+          "residue": 8,
+          "signed": -3,
+          "joint": "M2",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 83,
+          "pair": "50",
+          "a": 5,
+          "b": 0,
+          "residue": 6,
+          "signed": -5,
+          "joint": "M4",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 84,
+          "pair": "03",
+          "a": 0,
+          "b": 3,
+          "residue": 3,
+          "signed": 3,
+          "joint": "M2",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 85,
+          "pair": "38",
+          "a": 3,
+          "b": 8,
+          "residue": 5,
+          "signed": 5,
+          "joint": "M4",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 86,
+          "pair": "87",
+          "a": 8,
+          "b": 7,
+          "residue": 10,
+          "signed": -1,
+          "joint": "M0",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 87,
+          "pair": "75",
+          "a": 7,
+          "b": 5,
+          "residue": 9,
+          "signed": -2,
+          "joint": "M1",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 88,
+          "pair": "53",
+          "a": 5,
+          "b": 3,
+          "residue": 9,
+          "signed": -2,
+          "joint": "M1",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 89,
+          "pair": "34",
+          "a": 3,
+          "b": 4,
+          "residue": 1,
+          "signed": 1,
+          "joint": "M0",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 90,
+          "pair": "43",
+          "a": 4,
+          "b": 3,
+          "residue": 10,
+          "signed": -1,
+          "joint": "M0",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 91,
+          "pair": "32",
+          "a": 3,
+          "b": 2,
+          "residue": 10,
+          "signed": -1,
+          "joint": "M0",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 92,
+          "pair": "27",
+          "a": 2,
+          "b": 7,
+          "residue": 5,
+          "signed": 5,
+          "joint": "M4",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 93,
+          "pair": "76",
+          "a": 7,
+          "b": 6,
+          "residue": 10,
+          "signed": -1,
+          "joint": "M0",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 94,
+          "pair": "64",
+          "a": 6,
+          "b": 4,
+          "residue": 9,
+          "signed": -2,
+          "joint": "M1",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 95,
+          "pair": "41",
+          "a": 4,
+          "b": 1,
+          "residue": 8,
+          "signed": -3,
+          "joint": "M2",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 96,
+          "pair": "15",
+          "a": 1,
+          "b": 5,
+          "residue": 4,
+          "signed": 4,
+          "joint": "M3",
+          "fixed_by_reversal": false
+        }
+      ],
+      "counts": {
+        "-5": 5,
+        "-4": 13,
+        "-3": 7,
+        "-2": 12,
+        "-1": 13,
+        "0": 5,
+        "1": 9,
+        "2": 9,
+        "3": 10,
+        "4": 8,
+        "5": 5
+      },
+      "repeat_digit_pairs": 5
+    },
+    "sqrt7": {
+      "integer": 2,
+      "digits97": "6457513110645905905016157536392604257102591830824501803683344592010688232302836277603928864745436",
+      "label": "√7",
+      "rows": [
+        {
+          "position": 1,
+          "pair": "64",
+          "a": 6,
+          "b": 4,
+          "residue": 9,
+          "signed": -2,
+          "joint": "M1",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 2,
+          "pair": "45",
+          "a": 4,
+          "b": 5,
+          "residue": 1,
+          "signed": 1,
+          "joint": "M0",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 3,
+          "pair": "57",
+          "a": 5,
+          "b": 7,
+          "residue": 2,
+          "signed": 2,
+          "joint": "M1",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 4,
+          "pair": "75",
+          "a": 7,
+          "b": 5,
+          "residue": 9,
+          "signed": -2,
+          "joint": "M1",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 5,
+          "pair": "51",
+          "a": 5,
+          "b": 1,
+          "residue": 7,
+          "signed": -4,
+          "joint": "M3",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 6,
+          "pair": "13",
+          "a": 1,
+          "b": 3,
+          "residue": 2,
+          "signed": 2,
+          "joint": "M1",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 7,
+          "pair": "31",
+          "a": 3,
+          "b": 1,
+          "residue": 9,
+          "signed": -2,
+          "joint": "M1",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 8,
+          "pair": "11",
+          "a": 1,
+          "b": 1,
+          "residue": 0,
+          "signed": 0,
+          "joint": null,
+          "fixed_by_reversal": true
+        },
+        {
+          "position": 9,
+          "pair": "10",
+          "a": 1,
+          "b": 0,
+          "residue": 10,
+          "signed": -1,
+          "joint": "M0",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 10,
+          "pair": "06",
+          "a": 0,
+          "b": 6,
+          "residue": 6,
+          "signed": -5,
+          "joint": "M4",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 11,
+          "pair": "64",
+          "a": 6,
+          "b": 4,
+          "residue": 9,
+          "signed": -2,
+          "joint": "M1",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 12,
+          "pair": "45",
+          "a": 4,
+          "b": 5,
+          "residue": 1,
+          "signed": 1,
+          "joint": "M0",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 13,
+          "pair": "59",
+          "a": 5,
+          "b": 9,
+          "residue": 4,
+          "signed": 4,
+          "joint": "M3",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 14,
+          "pair": "90",
+          "a": 9,
+          "b": 0,
+          "residue": 2,
+          "signed": 2,
+          "joint": "M1",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 15,
+          "pair": "05",
+          "a": 0,
+          "b": 5,
+          "residue": 5,
+          "signed": 5,
+          "joint": "M4",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 16,
+          "pair": "59",
+          "a": 5,
+          "b": 9,
+          "residue": 4,
+          "signed": 4,
+          "joint": "M3",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 17,
+          "pair": "90",
+          "a": 9,
+          "b": 0,
+          "residue": 2,
+          "signed": 2,
+          "joint": "M1",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 18,
+          "pair": "05",
+          "a": 0,
+          "b": 5,
+          "residue": 5,
+          "signed": 5,
+          "joint": "M4",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 19,
+          "pair": "50",
+          "a": 5,
+          "b": 0,
+          "residue": 6,
+          "signed": -5,
+          "joint": "M4",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 20,
+          "pair": "01",
+          "a": 0,
+          "b": 1,
+          "residue": 1,
+          "signed": 1,
+          "joint": "M0",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 21,
+          "pair": "16",
+          "a": 1,
+          "b": 6,
+          "residue": 5,
+          "signed": 5,
+          "joint": "M4",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 22,
+          "pair": "61",
+          "a": 6,
+          "b": 1,
+          "residue": 6,
+          "signed": -5,
+          "joint": "M4",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 23,
+          "pair": "15",
+          "a": 1,
+          "b": 5,
+          "residue": 4,
+          "signed": 4,
+          "joint": "M3",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 24,
+          "pair": "57",
+          "a": 5,
+          "b": 7,
+          "residue": 2,
+          "signed": 2,
+          "joint": "M1",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 25,
+          "pair": "75",
+          "a": 7,
+          "b": 5,
+          "residue": 9,
+          "signed": -2,
+          "joint": "M1",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 26,
+          "pair": "53",
+          "a": 5,
+          "b": 3,
+          "residue": 9,
+          "signed": -2,
+          "joint": "M1",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 27,
+          "pair": "36",
+          "a": 3,
+          "b": 6,
+          "residue": 3,
+          "signed": 3,
+          "joint": "M2",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 28,
+          "pair": "63",
+          "a": 6,
+          "b": 3,
+          "residue": 8,
+          "signed": -3,
+          "joint": "M2",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 29,
+          "pair": "39",
+          "a": 3,
+          "b": 9,
+          "residue": 6,
+          "signed": -5,
+          "joint": "M4",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 30,
+          "pair": "92",
+          "a": 9,
+          "b": 2,
+          "residue": 4,
+          "signed": 4,
+          "joint": "M3",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 31,
+          "pair": "26",
+          "a": 2,
+          "b": 6,
+          "residue": 4,
+          "signed": 4,
+          "joint": "M3",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 32,
+          "pair": "60",
+          "a": 6,
+          "b": 0,
+          "residue": 5,
+          "signed": 5,
+          "joint": "M4",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 33,
+          "pair": "04",
+          "a": 0,
+          "b": 4,
+          "residue": 4,
+          "signed": 4,
+          "joint": "M3",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 34,
+          "pair": "42",
+          "a": 4,
+          "b": 2,
+          "residue": 9,
+          "signed": -2,
+          "joint": "M1",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 35,
+          "pair": "25",
+          "a": 2,
+          "b": 5,
+          "residue": 3,
+          "signed": 3,
+          "joint": "M2",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 36,
+          "pair": "57",
+          "a": 5,
+          "b": 7,
+          "residue": 2,
+          "signed": 2,
+          "joint": "M1",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 37,
+          "pair": "71",
+          "a": 7,
+          "b": 1,
+          "residue": 5,
+          "signed": 5,
+          "joint": "M4",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 38,
+          "pair": "10",
+          "a": 1,
+          "b": 0,
+          "residue": 10,
+          "signed": -1,
+          "joint": "M0",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 39,
+          "pair": "02",
+          "a": 0,
+          "b": 2,
+          "residue": 2,
+          "signed": 2,
+          "joint": "M1",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 40,
+          "pair": "25",
+          "a": 2,
+          "b": 5,
+          "residue": 3,
+          "signed": 3,
+          "joint": "M2",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 41,
+          "pair": "59",
+          "a": 5,
+          "b": 9,
+          "residue": 4,
+          "signed": 4,
+          "joint": "M3",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 42,
+          "pair": "91",
+          "a": 9,
+          "b": 1,
+          "residue": 3,
+          "signed": 3,
+          "joint": "M2",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 43,
+          "pair": "18",
+          "a": 1,
+          "b": 8,
+          "residue": 7,
+          "signed": -4,
+          "joint": "M3",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 44,
+          "pair": "83",
+          "a": 8,
+          "b": 3,
+          "residue": 6,
+          "signed": -5,
+          "joint": "M4",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 45,
+          "pair": "30",
+          "a": 3,
+          "b": 0,
+          "residue": 8,
+          "signed": -3,
+          "joint": "M2",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 46,
+          "pair": "08",
+          "a": 0,
+          "b": 8,
+          "residue": 8,
+          "signed": -3,
+          "joint": "M2",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 47,
+          "pair": "82",
+          "a": 8,
+          "b": 2,
+          "residue": 5,
+          "signed": 5,
+          "joint": "M4",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 48,
+          "pair": "24",
+          "a": 2,
+          "b": 4,
+          "residue": 2,
+          "signed": 2,
+          "joint": "M1",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 49,
+          "pair": "45",
+          "a": 4,
+          "b": 5,
+          "residue": 1,
+          "signed": 1,
+          "joint": "M0",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 50,
+          "pair": "50",
+          "a": 5,
+          "b": 0,
+          "residue": 6,
+          "signed": -5,
+          "joint": "M4",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 51,
+          "pair": "01",
+          "a": 0,
+          "b": 1,
+          "residue": 1,
+          "signed": 1,
+          "joint": "M0",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 52,
+          "pair": "18",
+          "a": 1,
+          "b": 8,
+          "residue": 7,
+          "signed": -4,
+          "joint": "M3",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 53,
+          "pair": "80",
+          "a": 8,
+          "b": 0,
+          "residue": 3,
+          "signed": 3,
+          "joint": "M2",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 54,
+          "pair": "03",
+          "a": 0,
+          "b": 3,
+          "residue": 3,
+          "signed": 3,
+          "joint": "M2",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 55,
+          "pair": "36",
+          "a": 3,
+          "b": 6,
+          "residue": 3,
+          "signed": 3,
+          "joint": "M2",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 56,
+          "pair": "68",
+          "a": 6,
+          "b": 8,
+          "residue": 2,
+          "signed": 2,
+          "joint": "M1",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 57,
+          "pair": "83",
+          "a": 8,
+          "b": 3,
+          "residue": 6,
+          "signed": -5,
+          "joint": "M4",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 58,
+          "pair": "33",
+          "a": 3,
+          "b": 3,
+          "residue": 0,
+          "signed": 0,
+          "joint": null,
+          "fixed_by_reversal": true
+        },
+        {
+          "position": 59,
+          "pair": "34",
+          "a": 3,
+          "b": 4,
+          "residue": 1,
+          "signed": 1,
+          "joint": "M0",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 60,
+          "pair": "44",
+          "a": 4,
+          "b": 4,
+          "residue": 0,
+          "signed": 0,
+          "joint": null,
+          "fixed_by_reversal": true
+        },
+        {
+          "position": 61,
+          "pair": "45",
+          "a": 4,
+          "b": 5,
+          "residue": 1,
+          "signed": 1,
+          "joint": "M0",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 62,
+          "pair": "59",
+          "a": 5,
+          "b": 9,
+          "residue": 4,
+          "signed": 4,
+          "joint": "M3",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 63,
+          "pair": "92",
+          "a": 9,
+          "b": 2,
+          "residue": 4,
+          "signed": 4,
+          "joint": "M3",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 64,
+          "pair": "20",
+          "a": 2,
+          "b": 0,
+          "residue": 9,
+          "signed": -2,
+          "joint": "M1",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 65,
+          "pair": "01",
+          "a": 0,
+          "b": 1,
+          "residue": 1,
+          "signed": 1,
+          "joint": "M0",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 66,
+          "pair": "10",
+          "a": 1,
+          "b": 0,
+          "residue": 10,
+          "signed": -1,
+          "joint": "M0",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 67,
+          "pair": "06",
+          "a": 0,
+          "b": 6,
+          "residue": 6,
+          "signed": -5,
+          "joint": "M4",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 68,
+          "pair": "68",
+          "a": 6,
+          "b": 8,
+          "residue": 2,
+          "signed": 2,
+          "joint": "M1",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 69,
+          "pair": "88",
+          "a": 8,
+          "b": 8,
+          "residue": 0,
+          "signed": 0,
+          "joint": null,
+          "fixed_by_reversal": true
+        },
+        {
+          "position": 70,
+          "pair": "82",
+          "a": 8,
+          "b": 2,
+          "residue": 5,
+          "signed": 5,
+          "joint": "M4",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 71,
+          "pair": "23",
+          "a": 2,
+          "b": 3,
+          "residue": 1,
+          "signed": 1,
+          "joint": "M0",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 72,
+          "pair": "32",
+          "a": 3,
+          "b": 2,
+          "residue": 10,
+          "signed": -1,
+          "joint": "M0",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 73,
+          "pair": "23",
+          "a": 2,
+          "b": 3,
+          "residue": 1,
+          "signed": 1,
+          "joint": "M0",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 74,
+          "pair": "30",
+          "a": 3,
+          "b": 0,
+          "residue": 8,
+          "signed": -3,
+          "joint": "M2",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 75,
+          "pair": "02",
+          "a": 0,
+          "b": 2,
+          "residue": 2,
+          "signed": 2,
+          "joint": "M1",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 76,
+          "pair": "28",
+          "a": 2,
+          "b": 8,
+          "residue": 6,
+          "signed": -5,
+          "joint": "M4",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 77,
+          "pair": "83",
+          "a": 8,
+          "b": 3,
+          "residue": 6,
+          "signed": -5,
+          "joint": "M4",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 78,
+          "pair": "36",
+          "a": 3,
+          "b": 6,
+          "residue": 3,
+          "signed": 3,
+          "joint": "M2",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 79,
+          "pair": "62",
+          "a": 6,
+          "b": 2,
+          "residue": 7,
+          "signed": -4,
+          "joint": "M3",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 80,
+          "pair": "27",
+          "a": 2,
+          "b": 7,
+          "residue": 5,
+          "signed": 5,
+          "joint": "M4",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 81,
+          "pair": "77",
+          "a": 7,
+          "b": 7,
+          "residue": 0,
+          "signed": 0,
+          "joint": null,
+          "fixed_by_reversal": true
+        },
+        {
+          "position": 82,
+          "pair": "76",
+          "a": 7,
+          "b": 6,
+          "residue": 10,
+          "signed": -1,
+          "joint": "M0",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 83,
+          "pair": "60",
+          "a": 6,
+          "b": 0,
+          "residue": 5,
+          "signed": 5,
+          "joint": "M4",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 84,
+          "pair": "03",
+          "a": 0,
+          "b": 3,
+          "residue": 3,
+          "signed": 3,
+          "joint": "M2",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 85,
+          "pair": "39",
+          "a": 3,
+          "b": 9,
+          "residue": 6,
+          "signed": -5,
+          "joint": "M4",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 86,
+          "pair": "92",
+          "a": 9,
+          "b": 2,
+          "residue": 4,
+          "signed": 4,
+          "joint": "M3",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 87,
+          "pair": "28",
+          "a": 2,
+          "b": 8,
+          "residue": 6,
+          "signed": -5,
+          "joint": "M4",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 88,
+          "pair": "88",
+          "a": 8,
+          "b": 8,
+          "residue": 0,
+          "signed": 0,
+          "joint": null,
+          "fixed_by_reversal": true
+        },
+        {
+          "position": 89,
+          "pair": "86",
+          "a": 8,
+          "b": 6,
+          "residue": 9,
+          "signed": -2,
+          "joint": "M1",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 90,
+          "pair": "64",
+          "a": 6,
+          "b": 4,
+          "residue": 9,
+          "signed": -2,
+          "joint": "M1",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 91,
+          "pair": "47",
+          "a": 4,
+          "b": 7,
+          "residue": 3,
+          "signed": 3,
+          "joint": "M2",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 92,
+          "pair": "74",
+          "a": 7,
+          "b": 4,
+          "residue": 8,
+          "signed": -3,
+          "joint": "M2",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 93,
+          "pair": "45",
+          "a": 4,
+          "b": 5,
+          "residue": 1,
+          "signed": 1,
+          "joint": "M0",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 94,
+          "pair": "54",
+          "a": 5,
+          "b": 4,
+          "residue": 10,
+          "signed": -1,
+          "joint": "M0",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 95,
+          "pair": "43",
+          "a": 4,
+          "b": 3,
+          "residue": 10,
+          "signed": -1,
+          "joint": "M0",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 96,
+          "pair": "36",
+          "a": 3,
+          "b": 6,
+          "residue": 3,
+          "signed": 3,
+          "joint": "M2",
+          "fixed_by_reversal": false
+        }
+      ],
+      "counts": {
+        "-5": 12,
+        "-4": 4,
+        "-3": 5,
+        "-2": 10,
+        "-1": 7,
+        "0": 6,
+        "1": 11,
+        "2": 11,
+        "3": 11,
+        "4": 10,
+        "5": 9
+      },
+      "repeat_digit_pairs": 6
+    },
+    "sqrt11": {
+      "integer": 3,
+      "digits97": "3166247903553998491149327366706866839270885455893535970586821461164846426090438467088433991282906",
+      "label": "√11",
+      "rows": [
+        {
+          "position": 1,
+          "pair": "31",
+          "a": 3,
+          "b": 1,
+          "residue": 9,
+          "signed": -2,
+          "joint": "M1",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 2,
+          "pair": "16",
+          "a": 1,
+          "b": 6,
+          "residue": 5,
+          "signed": 5,
+          "joint": "M4",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 3,
+          "pair": "66",
+          "a": 6,
+          "b": 6,
+          "residue": 0,
+          "signed": 0,
+          "joint": null,
+          "fixed_by_reversal": true
+        },
+        {
+          "position": 4,
+          "pair": "62",
+          "a": 6,
+          "b": 2,
+          "residue": 7,
+          "signed": -4,
+          "joint": "M3",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 5,
+          "pair": "24",
+          "a": 2,
+          "b": 4,
+          "residue": 2,
+          "signed": 2,
+          "joint": "M1",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 6,
+          "pair": "47",
+          "a": 4,
+          "b": 7,
+          "residue": 3,
+          "signed": 3,
+          "joint": "M2",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 7,
+          "pair": "79",
+          "a": 7,
+          "b": 9,
+          "residue": 2,
+          "signed": 2,
+          "joint": "M1",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 8,
+          "pair": "90",
+          "a": 9,
+          "b": 0,
+          "residue": 2,
+          "signed": 2,
+          "joint": "M1",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 9,
+          "pair": "03",
+          "a": 0,
+          "b": 3,
+          "residue": 3,
+          "signed": 3,
+          "joint": "M2",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 10,
+          "pair": "35",
+          "a": 3,
+          "b": 5,
+          "residue": 2,
+          "signed": 2,
+          "joint": "M1",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 11,
+          "pair": "55",
+          "a": 5,
+          "b": 5,
+          "residue": 0,
+          "signed": 0,
+          "joint": null,
+          "fixed_by_reversal": true
+        },
+        {
+          "position": 12,
+          "pair": "53",
+          "a": 5,
+          "b": 3,
+          "residue": 9,
+          "signed": -2,
+          "joint": "M1",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 13,
+          "pair": "39",
+          "a": 3,
+          "b": 9,
+          "residue": 6,
+          "signed": -5,
+          "joint": "M4",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 14,
+          "pair": "99",
+          "a": 9,
+          "b": 9,
+          "residue": 0,
+          "signed": 0,
+          "joint": null,
+          "fixed_by_reversal": true
+        },
+        {
+          "position": 15,
+          "pair": "98",
+          "a": 9,
+          "b": 8,
+          "residue": 10,
+          "signed": -1,
+          "joint": "M0",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 16,
+          "pair": "84",
+          "a": 8,
+          "b": 4,
+          "residue": 7,
+          "signed": -4,
+          "joint": "M3",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 17,
+          "pair": "49",
+          "a": 4,
+          "b": 9,
+          "residue": 5,
+          "signed": 5,
+          "joint": "M4",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 18,
+          "pair": "91",
+          "a": 9,
+          "b": 1,
+          "residue": 3,
+          "signed": 3,
+          "joint": "M2",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 19,
+          "pair": "11",
+          "a": 1,
+          "b": 1,
+          "residue": 0,
+          "signed": 0,
+          "joint": null,
+          "fixed_by_reversal": true
+        },
+        {
+          "position": 20,
+          "pair": "14",
+          "a": 1,
+          "b": 4,
+          "residue": 3,
+          "signed": 3,
+          "joint": "M2",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 21,
+          "pair": "49",
+          "a": 4,
+          "b": 9,
+          "residue": 5,
+          "signed": 5,
+          "joint": "M4",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 22,
+          "pair": "93",
+          "a": 9,
+          "b": 3,
+          "residue": 5,
+          "signed": 5,
+          "joint": "M4",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 23,
+          "pair": "32",
+          "a": 3,
+          "b": 2,
+          "residue": 10,
+          "signed": -1,
+          "joint": "M0",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 24,
+          "pair": "27",
+          "a": 2,
+          "b": 7,
+          "residue": 5,
+          "signed": 5,
+          "joint": "M4",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 25,
+          "pair": "73",
+          "a": 7,
+          "b": 3,
+          "residue": 7,
+          "signed": -4,
+          "joint": "M3",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 26,
+          "pair": "36",
+          "a": 3,
+          "b": 6,
+          "residue": 3,
+          "signed": 3,
+          "joint": "M2",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 27,
+          "pair": "66",
+          "a": 6,
+          "b": 6,
+          "residue": 0,
+          "signed": 0,
+          "joint": null,
+          "fixed_by_reversal": true
+        },
+        {
+          "position": 28,
+          "pair": "67",
+          "a": 6,
+          "b": 7,
+          "residue": 1,
+          "signed": 1,
+          "joint": "M0",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 29,
+          "pair": "70",
+          "a": 7,
+          "b": 0,
+          "residue": 4,
+          "signed": 4,
+          "joint": "M3",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 30,
+          "pair": "06",
+          "a": 0,
+          "b": 6,
+          "residue": 6,
+          "signed": -5,
+          "joint": "M4",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 31,
+          "pair": "68",
+          "a": 6,
+          "b": 8,
+          "residue": 2,
+          "signed": 2,
+          "joint": "M1",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 32,
+          "pair": "86",
+          "a": 8,
+          "b": 6,
+          "residue": 9,
+          "signed": -2,
+          "joint": "M1",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 33,
+          "pair": "66",
+          "a": 6,
+          "b": 6,
+          "residue": 0,
+          "signed": 0,
+          "joint": null,
+          "fixed_by_reversal": true
+        },
+        {
+          "position": 34,
+          "pair": "68",
+          "a": 6,
+          "b": 8,
+          "residue": 2,
+          "signed": 2,
+          "joint": "M1",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 35,
+          "pair": "83",
+          "a": 8,
+          "b": 3,
+          "residue": 6,
+          "signed": -5,
+          "joint": "M4",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 36,
+          "pair": "39",
+          "a": 3,
+          "b": 9,
+          "residue": 6,
+          "signed": -5,
+          "joint": "M4",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 37,
+          "pair": "92",
+          "a": 9,
+          "b": 2,
+          "residue": 4,
+          "signed": 4,
+          "joint": "M3",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 38,
+          "pair": "27",
+          "a": 2,
+          "b": 7,
+          "residue": 5,
+          "signed": 5,
+          "joint": "M4",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 39,
+          "pair": "70",
+          "a": 7,
+          "b": 0,
+          "residue": 4,
+          "signed": 4,
+          "joint": "M3",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 40,
+          "pair": "08",
+          "a": 0,
+          "b": 8,
+          "residue": 8,
+          "signed": -3,
+          "joint": "M2",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 41,
+          "pair": "88",
+          "a": 8,
+          "b": 8,
+          "residue": 0,
+          "signed": 0,
+          "joint": null,
+          "fixed_by_reversal": true
+        },
+        {
+          "position": 42,
+          "pair": "85",
+          "a": 8,
+          "b": 5,
+          "residue": 8,
+          "signed": -3,
+          "joint": "M2",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 43,
+          "pair": "54",
+          "a": 5,
+          "b": 4,
+          "residue": 10,
+          "signed": -1,
+          "joint": "M0",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 44,
+          "pair": "45",
+          "a": 4,
+          "b": 5,
+          "residue": 1,
+          "signed": 1,
+          "joint": "M0",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 45,
+          "pair": "55",
+          "a": 5,
+          "b": 5,
+          "residue": 0,
+          "signed": 0,
+          "joint": null,
+          "fixed_by_reversal": true
+        },
+        {
+          "position": 46,
+          "pair": "58",
+          "a": 5,
+          "b": 8,
+          "residue": 3,
+          "signed": 3,
+          "joint": "M2",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 47,
+          "pair": "89",
+          "a": 8,
+          "b": 9,
+          "residue": 1,
+          "signed": 1,
+          "joint": "M0",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 48,
+          "pair": "93",
+          "a": 9,
+          "b": 3,
+          "residue": 5,
+          "signed": 5,
+          "joint": "M4",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 49,
+          "pair": "35",
+          "a": 3,
+          "b": 5,
+          "residue": 2,
+          "signed": 2,
+          "joint": "M1",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 50,
+          "pair": "53",
+          "a": 5,
+          "b": 3,
+          "residue": 9,
+          "signed": -2,
+          "joint": "M1",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 51,
+          "pair": "35",
+          "a": 3,
+          "b": 5,
+          "residue": 2,
+          "signed": 2,
+          "joint": "M1",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 52,
+          "pair": "59",
+          "a": 5,
+          "b": 9,
+          "residue": 4,
+          "signed": 4,
+          "joint": "M3",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 53,
+          "pair": "97",
+          "a": 9,
+          "b": 7,
+          "residue": 9,
+          "signed": -2,
+          "joint": "M1",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 54,
+          "pair": "70",
+          "a": 7,
+          "b": 0,
+          "residue": 4,
+          "signed": 4,
+          "joint": "M3",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 55,
+          "pair": "05",
+          "a": 0,
+          "b": 5,
+          "residue": 5,
+          "signed": 5,
+          "joint": "M4",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 56,
+          "pair": "58",
+          "a": 5,
+          "b": 8,
+          "residue": 3,
+          "signed": 3,
+          "joint": "M2",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 57,
+          "pair": "86",
+          "a": 8,
+          "b": 6,
+          "residue": 9,
+          "signed": -2,
+          "joint": "M1",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 58,
+          "pair": "68",
+          "a": 6,
+          "b": 8,
+          "residue": 2,
+          "signed": 2,
+          "joint": "M1",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 59,
+          "pair": "82",
+          "a": 8,
+          "b": 2,
+          "residue": 5,
+          "signed": 5,
+          "joint": "M4",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 60,
+          "pair": "21",
+          "a": 2,
+          "b": 1,
+          "residue": 10,
+          "signed": -1,
+          "joint": "M0",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 61,
+          "pair": "14",
+          "a": 1,
+          "b": 4,
+          "residue": 3,
+          "signed": 3,
+          "joint": "M2",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 62,
+          "pair": "46",
+          "a": 4,
+          "b": 6,
+          "residue": 2,
+          "signed": 2,
+          "joint": "M1",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 63,
+          "pair": "61",
+          "a": 6,
+          "b": 1,
+          "residue": 6,
+          "signed": -5,
+          "joint": "M4",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 64,
+          "pair": "11",
+          "a": 1,
+          "b": 1,
+          "residue": 0,
+          "signed": 0,
+          "joint": null,
+          "fixed_by_reversal": true
+        },
+        {
+          "position": 65,
+          "pair": "16",
+          "a": 1,
+          "b": 6,
+          "residue": 5,
+          "signed": 5,
+          "joint": "M4",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 66,
+          "pair": "64",
+          "a": 6,
+          "b": 4,
+          "residue": 9,
+          "signed": -2,
+          "joint": "M1",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 67,
+          "pair": "48",
+          "a": 4,
+          "b": 8,
+          "residue": 4,
+          "signed": 4,
+          "joint": "M3",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 68,
+          "pair": "84",
+          "a": 8,
+          "b": 4,
+          "residue": 7,
+          "signed": -4,
+          "joint": "M3",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 69,
+          "pair": "46",
+          "a": 4,
+          "b": 6,
+          "residue": 2,
+          "signed": 2,
+          "joint": "M1",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 70,
+          "pair": "64",
+          "a": 6,
+          "b": 4,
+          "residue": 9,
+          "signed": -2,
+          "joint": "M1",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 71,
+          "pair": "42",
+          "a": 4,
+          "b": 2,
+          "residue": 9,
+          "signed": -2,
+          "joint": "M1",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 72,
+          "pair": "26",
+          "a": 2,
+          "b": 6,
+          "residue": 4,
+          "signed": 4,
+          "joint": "M3",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 73,
+          "pair": "60",
+          "a": 6,
+          "b": 0,
+          "residue": 5,
+          "signed": 5,
+          "joint": "M4",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 74,
+          "pair": "09",
+          "a": 0,
+          "b": 9,
+          "residue": 9,
+          "signed": -2,
+          "joint": "M1",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 75,
+          "pair": "90",
+          "a": 9,
+          "b": 0,
+          "residue": 2,
+          "signed": 2,
+          "joint": "M1",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 76,
+          "pair": "04",
+          "a": 0,
+          "b": 4,
+          "residue": 4,
+          "signed": 4,
+          "joint": "M3",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 77,
+          "pair": "43",
+          "a": 4,
+          "b": 3,
+          "residue": 10,
+          "signed": -1,
+          "joint": "M0",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 78,
+          "pair": "38",
+          "a": 3,
+          "b": 8,
+          "residue": 5,
+          "signed": 5,
+          "joint": "M4",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 79,
+          "pair": "84",
+          "a": 8,
+          "b": 4,
+          "residue": 7,
+          "signed": -4,
+          "joint": "M3",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 80,
+          "pair": "46",
+          "a": 4,
+          "b": 6,
+          "residue": 2,
+          "signed": 2,
+          "joint": "M1",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 81,
+          "pair": "67",
+          "a": 6,
+          "b": 7,
+          "residue": 1,
+          "signed": 1,
+          "joint": "M0",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 82,
+          "pair": "70",
+          "a": 7,
+          "b": 0,
+          "residue": 4,
+          "signed": 4,
+          "joint": "M3",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 83,
+          "pair": "08",
+          "a": 0,
+          "b": 8,
+          "residue": 8,
+          "signed": -3,
+          "joint": "M2",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 84,
+          "pair": "88",
+          "a": 8,
+          "b": 8,
+          "residue": 0,
+          "signed": 0,
+          "joint": null,
+          "fixed_by_reversal": true
+        },
+        {
+          "position": 85,
+          "pair": "84",
+          "a": 8,
+          "b": 4,
+          "residue": 7,
+          "signed": -4,
+          "joint": "M3",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 86,
+          "pair": "43",
+          "a": 4,
+          "b": 3,
+          "residue": 10,
+          "signed": -1,
+          "joint": "M0",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 87,
+          "pair": "33",
+          "a": 3,
+          "b": 3,
+          "residue": 0,
+          "signed": 0,
+          "joint": null,
+          "fixed_by_reversal": true
+        },
+        {
+          "position": 88,
+          "pair": "39",
+          "a": 3,
+          "b": 9,
+          "residue": 6,
+          "signed": -5,
+          "joint": "M4",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 89,
+          "pair": "99",
+          "a": 9,
+          "b": 9,
+          "residue": 0,
+          "signed": 0,
+          "joint": null,
+          "fixed_by_reversal": true
+        },
+        {
+          "position": 90,
+          "pair": "91",
+          "a": 9,
+          "b": 1,
+          "residue": 3,
+          "signed": 3,
+          "joint": "M2",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 91,
+          "pair": "12",
+          "a": 1,
+          "b": 2,
+          "residue": 1,
+          "signed": 1,
+          "joint": "M0",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 92,
+          "pair": "28",
+          "a": 2,
+          "b": 8,
+          "residue": 6,
+          "signed": -5,
+          "joint": "M4",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 93,
+          "pair": "82",
+          "a": 8,
+          "b": 2,
+          "residue": 5,
+          "signed": 5,
+          "joint": "M4",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 94,
+          "pair": "29",
+          "a": 2,
+          "b": 9,
+          "residue": 7,
+          "signed": -4,
+          "joint": "M3",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 95,
+          "pair": "90",
+          "a": 9,
+          "b": 0,
+          "residue": 2,
+          "signed": 2,
+          "joint": "M1",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 96,
+          "pair": "06",
+          "a": 0,
+          "b": 6,
+          "residue": 6,
+          "signed": -5,
+          "joint": "M4",
+          "fixed_by_reversal": false
+        }
+      ],
+      "counts": {
+        "-5": 8,
+        "-4": 7,
+        "-3": 3,
+        "-2": 10,
+        "-1": 6,
+        "0": 12,
+        "1": 5,
+        "2": 14,
+        "3": 9,
+        "4": 9,
+        "5": 13
+      },
+      "repeat_digit_pairs": 12
+    },
+    "sqrt4": {
+      "integer": 2,
+      "digits97": "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "label": "√4 = 2",
+      "rows": [
+        {
+          "position": 1,
+          "pair": "00",
+          "a": 0,
+          "b": 0,
+          "residue": 0,
+          "signed": 0,
+          "joint": null,
+          "fixed_by_reversal": true
+        },
+        {
+          "position": 2,
+          "pair": "00",
+          "a": 0,
+          "b": 0,
+          "residue": 0,
+          "signed": 0,
+          "joint": null,
+          "fixed_by_reversal": true
+        },
+        {
+          "position": 3,
+          "pair": "00",
+          "a": 0,
+          "b": 0,
+          "residue": 0,
+          "signed": 0,
+          "joint": null,
+          "fixed_by_reversal": true
+        },
+        {
+          "position": 4,
+          "pair": "00",
+          "a": 0,
+          "b": 0,
+          "residue": 0,
+          "signed": 0,
+          "joint": null,
+          "fixed_by_reversal": true
+        },
+        {
+          "position": 5,
+          "pair": "00",
+          "a": 0,
+          "b": 0,
+          "residue": 0,
+          "signed": 0,
+          "joint": null,
+          "fixed_by_reversal": true
+        },
+        {
+          "position": 6,
+          "pair": "00",
+          "a": 0,
+          "b": 0,
+          "residue": 0,
+          "signed": 0,
+          "joint": null,
+          "fixed_by_reversal": true
+        },
+        {
+          "position": 7,
+          "pair": "00",
+          "a": 0,
+          "b": 0,
+          "residue": 0,
+          "signed": 0,
+          "joint": null,
+          "fixed_by_reversal": true
+        },
+        {
+          "position": 8,
+          "pair": "00",
+          "a": 0,
+          "b": 0,
+          "residue": 0,
+          "signed": 0,
+          "joint": null,
+          "fixed_by_reversal": true
+        },
+        {
+          "position": 9,
+          "pair": "00",
+          "a": 0,
+          "b": 0,
+          "residue": 0,
+          "signed": 0,
+          "joint": null,
+          "fixed_by_reversal": true
+        },
+        {
+          "position": 10,
+          "pair": "00",
+          "a": 0,
+          "b": 0,
+          "residue": 0,
+          "signed": 0,
+          "joint": null,
+          "fixed_by_reversal": true
+        },
+        {
+          "position": 11,
+          "pair": "00",
+          "a": 0,
+          "b": 0,
+          "residue": 0,
+          "signed": 0,
+          "joint": null,
+          "fixed_by_reversal": true
+        },
+        {
+          "position": 12,
+          "pair": "00",
+          "a": 0,
+          "b": 0,
+          "residue": 0,
+          "signed": 0,
+          "joint": null,
+          "fixed_by_reversal": true
+        },
+        {
+          "position": 13,
+          "pair": "00",
+          "a": 0,
+          "b": 0,
+          "residue": 0,
+          "signed": 0,
+          "joint": null,
+          "fixed_by_reversal": true
+        },
+        {
+          "position": 14,
+          "pair": "00",
+          "a": 0,
+          "b": 0,
+          "residue": 0,
+          "signed": 0,
+          "joint": null,
+          "fixed_by_reversal": true
+        },
+        {
+          "position": 15,
+          "pair": "00",
+          "a": 0,
+          "b": 0,
+          "residue": 0,
+          "signed": 0,
+          "joint": null,
+          "fixed_by_reversal": true
+        },
+        {
+          "position": 16,
+          "pair": "00",
+          "a": 0,
+          "b": 0,
+          "residue": 0,
+          "signed": 0,
+          "joint": null,
+          "fixed_by_reversal": true
+        },
+        {
+          "position": 17,
+          "pair": "00",
+          "a": 0,
+          "b": 0,
+          "residue": 0,
+          "signed": 0,
+          "joint": null,
+          "fixed_by_reversal": true
+        },
+        {
+          "position": 18,
+          "pair": "00",
+          "a": 0,
+          "b": 0,
+          "residue": 0,
+          "signed": 0,
+          "joint": null,
+          "fixed_by_reversal": true
+        },
+        {
+          "position": 19,
+          "pair": "00",
+          "a": 0,
+          "b": 0,
+          "residue": 0,
+          "signed": 0,
+          "joint": null,
+          "fixed_by_reversal": true
+        },
+        {
+          "position": 20,
+          "pair": "00",
+          "a": 0,
+          "b": 0,
+          "residue": 0,
+          "signed": 0,
+          "joint": null,
+          "fixed_by_reversal": true
+        },
+        {
+          "position": 21,
+          "pair": "00",
+          "a": 0,
+          "b": 0,
+          "residue": 0,
+          "signed": 0,
+          "joint": null,
+          "fixed_by_reversal": true
+        },
+        {
+          "position": 22,
+          "pair": "00",
+          "a": 0,
+          "b": 0,
+          "residue": 0,
+          "signed": 0,
+          "joint": null,
+          "fixed_by_reversal": true
+        },
+        {
+          "position": 23,
+          "pair": "00",
+          "a": 0,
+          "b": 0,
+          "residue": 0,
+          "signed": 0,
+          "joint": null,
+          "fixed_by_reversal": true
+        },
+        {
+          "position": 24,
+          "pair": "00",
+          "a": 0,
+          "b": 0,
+          "residue": 0,
+          "signed": 0,
+          "joint": null,
+          "fixed_by_reversal": true
+        },
+        {
+          "position": 25,
+          "pair": "00",
+          "a": 0,
+          "b": 0,
+          "residue": 0,
+          "signed": 0,
+          "joint": null,
+          "fixed_by_reversal": true
+        },
+        {
+          "position": 26,
+          "pair": "00",
+          "a": 0,
+          "b": 0,
+          "residue": 0,
+          "signed": 0,
+          "joint": null,
+          "fixed_by_reversal": true
+        },
+        {
+          "position": 27,
+          "pair": "00",
+          "a": 0,
+          "b": 0,
+          "residue": 0,
+          "signed": 0,
+          "joint": null,
+          "fixed_by_reversal": true
+        },
+        {
+          "position": 28,
+          "pair": "00",
+          "a": 0,
+          "b": 0,
+          "residue": 0,
+          "signed": 0,
+          "joint": null,
+          "fixed_by_reversal": true
+        },
+        {
+          "position": 29,
+          "pair": "00",
+          "a": 0,
+          "b": 0,
+          "residue": 0,
+          "signed": 0,
+          "joint": null,
+          "fixed_by_reversal": true
+        },
+        {
+          "position": 30,
+          "pair": "00",
+          "a": 0,
+          "b": 0,
+          "residue": 0,
+          "signed": 0,
+          "joint": null,
+          "fixed_by_reversal": true
+        },
+        {
+          "position": 31,
+          "pair": "00",
+          "a": 0,
+          "b": 0,
+          "residue": 0,
+          "signed": 0,
+          "joint": null,
+          "fixed_by_reversal": true
+        },
+        {
+          "position": 32,
+          "pair": "00",
+          "a": 0,
+          "b": 0,
+          "residue": 0,
+          "signed": 0,
+          "joint": null,
+          "fixed_by_reversal": true
+        },
+        {
+          "position": 33,
+          "pair": "00",
+          "a": 0,
+          "b": 0,
+          "residue": 0,
+          "signed": 0,
+          "joint": null,
+          "fixed_by_reversal": true
+        },
+        {
+          "position": 34,
+          "pair": "00",
+          "a": 0,
+          "b": 0,
+          "residue": 0,
+          "signed": 0,
+          "joint": null,
+          "fixed_by_reversal": true
+        },
+        {
+          "position": 35,
+          "pair": "00",
+          "a": 0,
+          "b": 0,
+          "residue": 0,
+          "signed": 0,
+          "joint": null,
+          "fixed_by_reversal": true
+        },
+        {
+          "position": 36,
+          "pair": "00",
+          "a": 0,
+          "b": 0,
+          "residue": 0,
+          "signed": 0,
+          "joint": null,
+          "fixed_by_reversal": true
+        },
+        {
+          "position": 37,
+          "pair": "00",
+          "a": 0,
+          "b": 0,
+          "residue": 0,
+          "signed": 0,
+          "joint": null,
+          "fixed_by_reversal": true
+        },
+        {
+          "position": 38,
+          "pair": "00",
+          "a": 0,
+          "b": 0,
+          "residue": 0,
+          "signed": 0,
+          "joint": null,
+          "fixed_by_reversal": true
+        },
+        {
+          "position": 39,
+          "pair": "00",
+          "a": 0,
+          "b": 0,
+          "residue": 0,
+          "signed": 0,
+          "joint": null,
+          "fixed_by_reversal": true
+        },
+        {
+          "position": 40,
+          "pair": "00",
+          "a": 0,
+          "b": 0,
+          "residue": 0,
+          "signed": 0,
+          "joint": null,
+          "fixed_by_reversal": true
+        },
+        {
+          "position": 41,
+          "pair": "00",
+          "a": 0,
+          "b": 0,
+          "residue": 0,
+          "signed": 0,
+          "joint": null,
+          "fixed_by_reversal": true
+        },
+        {
+          "position": 42,
+          "pair": "00",
+          "a": 0,
+          "b": 0,
+          "residue": 0,
+          "signed": 0,
+          "joint": null,
+          "fixed_by_reversal": true
+        },
+        {
+          "position": 43,
+          "pair": "00",
+          "a": 0,
+          "b": 0,
+          "residue": 0,
+          "signed": 0,
+          "joint": null,
+          "fixed_by_reversal": true
+        },
+        {
+          "position": 44,
+          "pair": "00",
+          "a": 0,
+          "b": 0,
+          "residue": 0,
+          "signed": 0,
+          "joint": null,
+          "fixed_by_reversal": true
+        },
+        {
+          "position": 45,
+          "pair": "00",
+          "a": 0,
+          "b": 0,
+          "residue": 0,
+          "signed": 0,
+          "joint": null,
+          "fixed_by_reversal": true
+        },
+        {
+          "position": 46,
+          "pair": "00",
+          "a": 0,
+          "b": 0,
+          "residue": 0,
+          "signed": 0,
+          "joint": null,
+          "fixed_by_reversal": true
+        },
+        {
+          "position": 47,
+          "pair": "00",
+          "a": 0,
+          "b": 0,
+          "residue": 0,
+          "signed": 0,
+          "joint": null,
+          "fixed_by_reversal": true
+        },
+        {
+          "position": 48,
+          "pair": "00",
+          "a": 0,
+          "b": 0,
+          "residue": 0,
+          "signed": 0,
+          "joint": null,
+          "fixed_by_reversal": true
+        },
+        {
+          "position": 49,
+          "pair": "00",
+          "a": 0,
+          "b": 0,
+          "residue": 0,
+          "signed": 0,
+          "joint": null,
+          "fixed_by_reversal": true
+        },
+        {
+          "position": 50,
+          "pair": "00",
+          "a": 0,
+          "b": 0,
+          "residue": 0,
+          "signed": 0,
+          "joint": null,
+          "fixed_by_reversal": true
+        },
+        {
+          "position": 51,
+          "pair": "00",
+          "a": 0,
+          "b": 0,
+          "residue": 0,
+          "signed": 0,
+          "joint": null,
+          "fixed_by_reversal": true
+        },
+        {
+          "position": 52,
+          "pair": "00",
+          "a": 0,
+          "b": 0,
+          "residue": 0,
+          "signed": 0,
+          "joint": null,
+          "fixed_by_reversal": true
+        },
+        {
+          "position": 53,
+          "pair": "00",
+          "a": 0,
+          "b": 0,
+          "residue": 0,
+          "signed": 0,
+          "joint": null,
+          "fixed_by_reversal": true
+        },
+        {
+          "position": 54,
+          "pair": "00",
+          "a": 0,
+          "b": 0,
+          "residue": 0,
+          "signed": 0,
+          "joint": null,
+          "fixed_by_reversal": true
+        },
+        {
+          "position": 55,
+          "pair": "00",
+          "a": 0,
+          "b": 0,
+          "residue": 0,
+          "signed": 0,
+          "joint": null,
+          "fixed_by_reversal": true
+        },
+        {
+          "position": 56,
+          "pair": "00",
+          "a": 0,
+          "b": 0,
+          "residue": 0,
+          "signed": 0,
+          "joint": null,
+          "fixed_by_reversal": true
+        },
+        {
+          "position": 57,
+          "pair": "00",
+          "a": 0,
+          "b": 0,
+          "residue": 0,
+          "signed": 0,
+          "joint": null,
+          "fixed_by_reversal": true
+        },
+        {
+          "position": 58,
+          "pair": "00",
+          "a": 0,
+          "b": 0,
+          "residue": 0,
+          "signed": 0,
+          "joint": null,
+          "fixed_by_reversal": true
+        },
+        {
+          "position": 59,
+          "pair": "00",
+          "a": 0,
+          "b": 0,
+          "residue": 0,
+          "signed": 0,
+          "joint": null,
+          "fixed_by_reversal": true
+        },
+        {
+          "position": 60,
+          "pair": "00",
+          "a": 0,
+          "b": 0,
+          "residue": 0,
+          "signed": 0,
+          "joint": null,
+          "fixed_by_reversal": true
+        },
+        {
+          "position": 61,
+          "pair": "00",
+          "a": 0,
+          "b": 0,
+          "residue": 0,
+          "signed": 0,
+          "joint": null,
+          "fixed_by_reversal": true
+        },
+        {
+          "position": 62,
+          "pair": "00",
+          "a": 0,
+          "b": 0,
+          "residue": 0,
+          "signed": 0,
+          "joint": null,
+          "fixed_by_reversal": true
+        },
+        {
+          "position": 63,
+          "pair": "00",
+          "a": 0,
+          "b": 0,
+          "residue": 0,
+          "signed": 0,
+          "joint": null,
+          "fixed_by_reversal": true
+        },
+        {
+          "position": 64,
+          "pair": "00",
+          "a": 0,
+          "b": 0,
+          "residue": 0,
+          "signed": 0,
+          "joint": null,
+          "fixed_by_reversal": true
+        },
+        {
+          "position": 65,
+          "pair": "00",
+          "a": 0,
+          "b": 0,
+          "residue": 0,
+          "signed": 0,
+          "joint": null,
+          "fixed_by_reversal": true
+        },
+        {
+          "position": 66,
+          "pair": "00",
+          "a": 0,
+          "b": 0,
+          "residue": 0,
+          "signed": 0,
+          "joint": null,
+          "fixed_by_reversal": true
+        },
+        {
+          "position": 67,
+          "pair": "00",
+          "a": 0,
+          "b": 0,
+          "residue": 0,
+          "signed": 0,
+          "joint": null,
+          "fixed_by_reversal": true
+        },
+        {
+          "position": 68,
+          "pair": "00",
+          "a": 0,
+          "b": 0,
+          "residue": 0,
+          "signed": 0,
+          "joint": null,
+          "fixed_by_reversal": true
+        },
+        {
+          "position": 69,
+          "pair": "00",
+          "a": 0,
+          "b": 0,
+          "residue": 0,
+          "signed": 0,
+          "joint": null,
+          "fixed_by_reversal": true
+        },
+        {
+          "position": 70,
+          "pair": "00",
+          "a": 0,
+          "b": 0,
+          "residue": 0,
+          "signed": 0,
+          "joint": null,
+          "fixed_by_reversal": true
+        },
+        {
+          "position": 71,
+          "pair": "00",
+          "a": 0,
+          "b": 0,
+          "residue": 0,
+          "signed": 0,
+          "joint": null,
+          "fixed_by_reversal": true
+        },
+        {
+          "position": 72,
+          "pair": "00",
+          "a": 0,
+          "b": 0,
+          "residue": 0,
+          "signed": 0,
+          "joint": null,
+          "fixed_by_reversal": true
+        },
+        {
+          "position": 73,
+          "pair": "00",
+          "a": 0,
+          "b": 0,
+          "residue": 0,
+          "signed": 0,
+          "joint": null,
+          "fixed_by_reversal": true
+        },
+        {
+          "position": 74,
+          "pair": "00",
+          "a": 0,
+          "b": 0,
+          "residue": 0,
+          "signed": 0,
+          "joint": null,
+          "fixed_by_reversal": true
+        },
+        {
+          "position": 75,
+          "pair": "00",
+          "a": 0,
+          "b": 0,
+          "residue": 0,
+          "signed": 0,
+          "joint": null,
+          "fixed_by_reversal": true
+        },
+        {
+          "position": 76,
+          "pair": "00",
+          "a": 0,
+          "b": 0,
+          "residue": 0,
+          "signed": 0,
+          "joint": null,
+          "fixed_by_reversal": true
+        },
+        {
+          "position": 77,
+          "pair": "00",
+          "a": 0,
+          "b": 0,
+          "residue": 0,
+          "signed": 0,
+          "joint": null,
+          "fixed_by_reversal": true
+        },
+        {
+          "position": 78,
+          "pair": "00",
+          "a": 0,
+          "b": 0,
+          "residue": 0,
+          "signed": 0,
+          "joint": null,
+          "fixed_by_reversal": true
+        },
+        {
+          "position": 79,
+          "pair": "00",
+          "a": 0,
+          "b": 0,
+          "residue": 0,
+          "signed": 0,
+          "joint": null,
+          "fixed_by_reversal": true
+        },
+        {
+          "position": 80,
+          "pair": "00",
+          "a": 0,
+          "b": 0,
+          "residue": 0,
+          "signed": 0,
+          "joint": null,
+          "fixed_by_reversal": true
+        },
+        {
+          "position": 81,
+          "pair": "00",
+          "a": 0,
+          "b": 0,
+          "residue": 0,
+          "signed": 0,
+          "joint": null,
+          "fixed_by_reversal": true
+        },
+        {
+          "position": 82,
+          "pair": "00",
+          "a": 0,
+          "b": 0,
+          "residue": 0,
+          "signed": 0,
+          "joint": null,
+          "fixed_by_reversal": true
+        },
+        {
+          "position": 83,
+          "pair": "00",
+          "a": 0,
+          "b": 0,
+          "residue": 0,
+          "signed": 0,
+          "joint": null,
+          "fixed_by_reversal": true
+        },
+        {
+          "position": 84,
+          "pair": "00",
+          "a": 0,
+          "b": 0,
+          "residue": 0,
+          "signed": 0,
+          "joint": null,
+          "fixed_by_reversal": true
+        },
+        {
+          "position": 85,
+          "pair": "00",
+          "a": 0,
+          "b": 0,
+          "residue": 0,
+          "signed": 0,
+          "joint": null,
+          "fixed_by_reversal": true
+        },
+        {
+          "position": 86,
+          "pair": "00",
+          "a": 0,
+          "b": 0,
+          "residue": 0,
+          "signed": 0,
+          "joint": null,
+          "fixed_by_reversal": true
+        },
+        {
+          "position": 87,
+          "pair": "00",
+          "a": 0,
+          "b": 0,
+          "residue": 0,
+          "signed": 0,
+          "joint": null,
+          "fixed_by_reversal": true
+        },
+        {
+          "position": 88,
+          "pair": "00",
+          "a": 0,
+          "b": 0,
+          "residue": 0,
+          "signed": 0,
+          "joint": null,
+          "fixed_by_reversal": true
+        },
+        {
+          "position": 89,
+          "pair": "00",
+          "a": 0,
+          "b": 0,
+          "residue": 0,
+          "signed": 0,
+          "joint": null,
+          "fixed_by_reversal": true
+        },
+        {
+          "position": 90,
+          "pair": "00",
+          "a": 0,
+          "b": 0,
+          "residue": 0,
+          "signed": 0,
+          "joint": null,
+          "fixed_by_reversal": true
+        },
+        {
+          "position": 91,
+          "pair": "00",
+          "a": 0,
+          "b": 0,
+          "residue": 0,
+          "signed": 0,
+          "joint": null,
+          "fixed_by_reversal": true
+        },
+        {
+          "position": 92,
+          "pair": "00",
+          "a": 0,
+          "b": 0,
+          "residue": 0,
+          "signed": 0,
+          "joint": null,
+          "fixed_by_reversal": true
+        },
+        {
+          "position": 93,
+          "pair": "00",
+          "a": 0,
+          "b": 0,
+          "residue": 0,
+          "signed": 0,
+          "joint": null,
+          "fixed_by_reversal": true
+        },
+        {
+          "position": 94,
+          "pair": "00",
+          "a": 0,
+          "b": 0,
+          "residue": 0,
+          "signed": 0,
+          "joint": null,
+          "fixed_by_reversal": true
+        },
+        {
+          "position": 95,
+          "pair": "00",
+          "a": 0,
+          "b": 0,
+          "residue": 0,
+          "signed": 0,
+          "joint": null,
+          "fixed_by_reversal": true
+        },
+        {
+          "position": 96,
+          "pair": "00",
+          "a": 0,
+          "b": 0,
+          "residue": 0,
+          "signed": 0,
+          "joint": null,
+          "fixed_by_reversal": true
+        }
+      ],
+      "counts": {
+        "-5": 0,
+        "-4": 0,
+        "-3": 0,
+        "-2": 0,
+        "-1": 0,
+        "0": 96,
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0
+      },
+      "repeat_digit_pairs": 96
+    },
+    "sqrt19": {
+      "integer": 4,
+      "digits97": "3588989435406735522369819838596156591370039252324449368903441381595573282031580856561591558519445",
+      "label": "√19",
+      "rows": [
+        {
+          "position": 1,
+          "pair": "35",
+          "a": 3,
+          "b": 5,
+          "residue": 2,
+          "signed": 2,
+          "joint": "M1",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 2,
+          "pair": "58",
+          "a": 5,
+          "b": 8,
+          "residue": 3,
+          "signed": 3,
+          "joint": "M2",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 3,
+          "pair": "88",
+          "a": 8,
+          "b": 8,
+          "residue": 0,
+          "signed": 0,
+          "joint": null,
+          "fixed_by_reversal": true
+        },
+        {
+          "position": 4,
+          "pair": "89",
+          "a": 8,
+          "b": 9,
+          "residue": 1,
+          "signed": 1,
+          "joint": "M0",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 5,
+          "pair": "98",
+          "a": 9,
+          "b": 8,
+          "residue": 10,
+          "signed": -1,
+          "joint": "M0",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 6,
+          "pair": "89",
+          "a": 8,
+          "b": 9,
+          "residue": 1,
+          "signed": 1,
+          "joint": "M0",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 7,
+          "pair": "94",
+          "a": 9,
+          "b": 4,
+          "residue": 6,
+          "signed": -5,
+          "joint": "M4",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 8,
+          "pair": "43",
+          "a": 4,
+          "b": 3,
+          "residue": 10,
+          "signed": -1,
+          "joint": "M0",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 9,
+          "pair": "35",
+          "a": 3,
+          "b": 5,
+          "residue": 2,
+          "signed": 2,
+          "joint": "M1",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 10,
+          "pair": "54",
+          "a": 5,
+          "b": 4,
+          "residue": 10,
+          "signed": -1,
+          "joint": "M0",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 11,
+          "pair": "40",
+          "a": 4,
+          "b": 0,
+          "residue": 7,
+          "signed": -4,
+          "joint": "M3",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 12,
+          "pair": "06",
+          "a": 0,
+          "b": 6,
+          "residue": 6,
+          "signed": -5,
+          "joint": "M4",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 13,
+          "pair": "67",
+          "a": 6,
+          "b": 7,
+          "residue": 1,
+          "signed": 1,
+          "joint": "M0",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 14,
+          "pair": "73",
+          "a": 7,
+          "b": 3,
+          "residue": 7,
+          "signed": -4,
+          "joint": "M3",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 15,
+          "pair": "35",
+          "a": 3,
+          "b": 5,
+          "residue": 2,
+          "signed": 2,
+          "joint": "M1",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 16,
+          "pair": "55",
+          "a": 5,
+          "b": 5,
+          "residue": 0,
+          "signed": 0,
+          "joint": null,
+          "fixed_by_reversal": true
+        },
+        {
+          "position": 17,
+          "pair": "52",
+          "a": 5,
+          "b": 2,
+          "residue": 8,
+          "signed": -3,
+          "joint": "M2",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 18,
+          "pair": "22",
+          "a": 2,
+          "b": 2,
+          "residue": 0,
+          "signed": 0,
+          "joint": null,
+          "fixed_by_reversal": true
+        },
+        {
+          "position": 19,
+          "pair": "23",
+          "a": 2,
+          "b": 3,
+          "residue": 1,
+          "signed": 1,
+          "joint": "M0",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 20,
+          "pair": "36",
+          "a": 3,
+          "b": 6,
+          "residue": 3,
+          "signed": 3,
+          "joint": "M2",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 21,
+          "pair": "69",
+          "a": 6,
+          "b": 9,
+          "residue": 3,
+          "signed": 3,
+          "joint": "M2",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 22,
+          "pair": "98",
+          "a": 9,
+          "b": 8,
+          "residue": 10,
+          "signed": -1,
+          "joint": "M0",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 23,
+          "pair": "81",
+          "a": 8,
+          "b": 1,
+          "residue": 4,
+          "signed": 4,
+          "joint": "M3",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 24,
+          "pair": "19",
+          "a": 1,
+          "b": 9,
+          "residue": 8,
+          "signed": -3,
+          "joint": "M2",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 25,
+          "pair": "98",
+          "a": 9,
+          "b": 8,
+          "residue": 10,
+          "signed": -1,
+          "joint": "M0",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 26,
+          "pair": "83",
+          "a": 8,
+          "b": 3,
+          "residue": 6,
+          "signed": -5,
+          "joint": "M4",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 27,
+          "pair": "38",
+          "a": 3,
+          "b": 8,
+          "residue": 5,
+          "signed": 5,
+          "joint": "M4",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 28,
+          "pair": "85",
+          "a": 8,
+          "b": 5,
+          "residue": 8,
+          "signed": -3,
+          "joint": "M2",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 29,
+          "pair": "59",
+          "a": 5,
+          "b": 9,
+          "residue": 4,
+          "signed": 4,
+          "joint": "M3",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 30,
+          "pair": "96",
+          "a": 9,
+          "b": 6,
+          "residue": 8,
+          "signed": -3,
+          "joint": "M2",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 31,
+          "pair": "61",
+          "a": 6,
+          "b": 1,
+          "residue": 6,
+          "signed": -5,
+          "joint": "M4",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 32,
+          "pair": "15",
+          "a": 1,
+          "b": 5,
+          "residue": 4,
+          "signed": 4,
+          "joint": "M3",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 33,
+          "pair": "56",
+          "a": 5,
+          "b": 6,
+          "residue": 1,
+          "signed": 1,
+          "joint": "M0",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 34,
+          "pair": "65",
+          "a": 6,
+          "b": 5,
+          "residue": 10,
+          "signed": -1,
+          "joint": "M0",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 35,
+          "pair": "59",
+          "a": 5,
+          "b": 9,
+          "residue": 4,
+          "signed": 4,
+          "joint": "M3",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 36,
+          "pair": "91",
+          "a": 9,
+          "b": 1,
+          "residue": 3,
+          "signed": 3,
+          "joint": "M2",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 37,
+          "pair": "13",
+          "a": 1,
+          "b": 3,
+          "residue": 2,
+          "signed": 2,
+          "joint": "M1",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 38,
+          "pair": "37",
+          "a": 3,
+          "b": 7,
+          "residue": 4,
+          "signed": 4,
+          "joint": "M3",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 39,
+          "pair": "70",
+          "a": 7,
+          "b": 0,
+          "residue": 4,
+          "signed": 4,
+          "joint": "M3",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 40,
+          "pair": "00",
+          "a": 0,
+          "b": 0,
+          "residue": 0,
+          "signed": 0,
+          "joint": null,
+          "fixed_by_reversal": true
+        },
+        {
+          "position": 41,
+          "pair": "03",
+          "a": 0,
+          "b": 3,
+          "residue": 3,
+          "signed": 3,
+          "joint": "M2",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 42,
+          "pair": "39",
+          "a": 3,
+          "b": 9,
+          "residue": 6,
+          "signed": -5,
+          "joint": "M4",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 43,
+          "pair": "92",
+          "a": 9,
+          "b": 2,
+          "residue": 4,
+          "signed": 4,
+          "joint": "M3",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 44,
+          "pair": "25",
+          "a": 2,
+          "b": 5,
+          "residue": 3,
+          "signed": 3,
+          "joint": "M2",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 45,
+          "pair": "52",
+          "a": 5,
+          "b": 2,
+          "residue": 8,
+          "signed": -3,
+          "joint": "M2",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 46,
+          "pair": "23",
+          "a": 2,
+          "b": 3,
+          "residue": 1,
+          "signed": 1,
+          "joint": "M0",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 47,
+          "pair": "32",
+          "a": 3,
+          "b": 2,
+          "residue": 10,
+          "signed": -1,
+          "joint": "M0",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 48,
+          "pair": "24",
+          "a": 2,
+          "b": 4,
+          "residue": 2,
+          "signed": 2,
+          "joint": "M1",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 49,
+          "pair": "44",
+          "a": 4,
+          "b": 4,
+          "residue": 0,
+          "signed": 0,
+          "joint": null,
+          "fixed_by_reversal": true
+        },
+        {
+          "position": 50,
+          "pair": "44",
+          "a": 4,
+          "b": 4,
+          "residue": 0,
+          "signed": 0,
+          "joint": null,
+          "fixed_by_reversal": true
+        },
+        {
+          "position": 51,
+          "pair": "49",
+          "a": 4,
+          "b": 9,
+          "residue": 5,
+          "signed": 5,
+          "joint": "M4",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 52,
+          "pair": "93",
+          "a": 9,
+          "b": 3,
+          "residue": 5,
+          "signed": 5,
+          "joint": "M4",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 53,
+          "pair": "36",
+          "a": 3,
+          "b": 6,
+          "residue": 3,
+          "signed": 3,
+          "joint": "M2",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 54,
+          "pair": "68",
+          "a": 6,
+          "b": 8,
+          "residue": 2,
+          "signed": 2,
+          "joint": "M1",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 55,
+          "pair": "89",
+          "a": 8,
+          "b": 9,
+          "residue": 1,
+          "signed": 1,
+          "joint": "M0",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 56,
+          "pair": "90",
+          "a": 9,
+          "b": 0,
+          "residue": 2,
+          "signed": 2,
+          "joint": "M1",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 57,
+          "pair": "03",
+          "a": 0,
+          "b": 3,
+          "residue": 3,
+          "signed": 3,
+          "joint": "M2",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 58,
+          "pair": "34",
+          "a": 3,
+          "b": 4,
+          "residue": 1,
+          "signed": 1,
+          "joint": "M0",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 59,
+          "pair": "44",
+          "a": 4,
+          "b": 4,
+          "residue": 0,
+          "signed": 0,
+          "joint": null,
+          "fixed_by_reversal": true
+        },
+        {
+          "position": 60,
+          "pair": "41",
+          "a": 4,
+          "b": 1,
+          "residue": 8,
+          "signed": -3,
+          "joint": "M2",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 61,
+          "pair": "13",
+          "a": 1,
+          "b": 3,
+          "residue": 2,
+          "signed": 2,
+          "joint": "M1",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 62,
+          "pair": "38",
+          "a": 3,
+          "b": 8,
+          "residue": 5,
+          "signed": 5,
+          "joint": "M4",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 63,
+          "pair": "81",
+          "a": 8,
+          "b": 1,
+          "residue": 4,
+          "signed": 4,
+          "joint": "M3",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 64,
+          "pair": "15",
+          "a": 1,
+          "b": 5,
+          "residue": 4,
+          "signed": 4,
+          "joint": "M3",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 65,
+          "pair": "59",
+          "a": 5,
+          "b": 9,
+          "residue": 4,
+          "signed": 4,
+          "joint": "M3",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 66,
+          "pair": "95",
+          "a": 9,
+          "b": 5,
+          "residue": 7,
+          "signed": -4,
+          "joint": "M3",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 67,
+          "pair": "55",
+          "a": 5,
+          "b": 5,
+          "residue": 0,
+          "signed": 0,
+          "joint": null,
+          "fixed_by_reversal": true
+        },
+        {
+          "position": 68,
+          "pair": "57",
+          "a": 5,
+          "b": 7,
+          "residue": 2,
+          "signed": 2,
+          "joint": "M1",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 69,
+          "pair": "73",
+          "a": 7,
+          "b": 3,
+          "residue": 7,
+          "signed": -4,
+          "joint": "M3",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 70,
+          "pair": "32",
+          "a": 3,
+          "b": 2,
+          "residue": 10,
+          "signed": -1,
+          "joint": "M0",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 71,
+          "pair": "28",
+          "a": 2,
+          "b": 8,
+          "residue": 6,
+          "signed": -5,
+          "joint": "M4",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 72,
+          "pair": "82",
+          "a": 8,
+          "b": 2,
+          "residue": 5,
+          "signed": 5,
+          "joint": "M4",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 73,
+          "pair": "20",
+          "a": 2,
+          "b": 0,
+          "residue": 9,
+          "signed": -2,
+          "joint": "M1",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 74,
+          "pair": "03",
+          "a": 0,
+          "b": 3,
+          "residue": 3,
+          "signed": 3,
+          "joint": "M2",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 75,
+          "pair": "31",
+          "a": 3,
+          "b": 1,
+          "residue": 9,
+          "signed": -2,
+          "joint": "M1",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 76,
+          "pair": "15",
+          "a": 1,
+          "b": 5,
+          "residue": 4,
+          "signed": 4,
+          "joint": "M3",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 77,
+          "pair": "58",
+          "a": 5,
+          "b": 8,
+          "residue": 3,
+          "signed": 3,
+          "joint": "M2",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 78,
+          "pair": "80",
+          "a": 8,
+          "b": 0,
+          "residue": 3,
+          "signed": 3,
+          "joint": "M2",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 79,
+          "pair": "08",
+          "a": 0,
+          "b": 8,
+          "residue": 8,
+          "signed": -3,
+          "joint": "M2",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 80,
+          "pair": "85",
+          "a": 8,
+          "b": 5,
+          "residue": 8,
+          "signed": -3,
+          "joint": "M2",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 81,
+          "pair": "56",
+          "a": 5,
+          "b": 6,
+          "residue": 1,
+          "signed": 1,
+          "joint": "M0",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 82,
+          "pair": "65",
+          "a": 6,
+          "b": 5,
+          "residue": 10,
+          "signed": -1,
+          "joint": "M0",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 83,
+          "pair": "56",
+          "a": 5,
+          "b": 6,
+          "residue": 1,
+          "signed": 1,
+          "joint": "M0",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 84,
+          "pair": "61",
+          "a": 6,
+          "b": 1,
+          "residue": 6,
+          "signed": -5,
+          "joint": "M4",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 85,
+          "pair": "15",
+          "a": 1,
+          "b": 5,
+          "residue": 4,
+          "signed": 4,
+          "joint": "M3",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 86,
+          "pair": "59",
+          "a": 5,
+          "b": 9,
+          "residue": 4,
+          "signed": 4,
+          "joint": "M3",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 87,
+          "pair": "91",
+          "a": 9,
+          "b": 1,
+          "residue": 3,
+          "signed": 3,
+          "joint": "M2",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 88,
+          "pair": "15",
+          "a": 1,
+          "b": 5,
+          "residue": 4,
+          "signed": 4,
+          "joint": "M3",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 89,
+          "pair": "55",
+          "a": 5,
+          "b": 5,
+          "residue": 0,
+          "signed": 0,
+          "joint": null,
+          "fixed_by_reversal": true
+        },
+        {
+          "position": 90,
+          "pair": "58",
+          "a": 5,
+          "b": 8,
+          "residue": 3,
+          "signed": 3,
+          "joint": "M2",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 91,
+          "pair": "85",
+          "a": 8,
+          "b": 5,
+          "residue": 8,
+          "signed": -3,
+          "joint": "M2",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 92,
+          "pair": "51",
+          "a": 5,
+          "b": 1,
+          "residue": 7,
+          "signed": -4,
+          "joint": "M3",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 93,
+          "pair": "19",
+          "a": 1,
+          "b": 9,
+          "residue": 8,
+          "signed": -3,
+          "joint": "M2",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 94,
+          "pair": "94",
+          "a": 9,
+          "b": 4,
+          "residue": 6,
+          "signed": -5,
+          "joint": "M4",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 95,
+          "pair": "44",
+          "a": 4,
+          "b": 4,
+          "residue": 0,
+          "signed": 0,
+          "joint": null,
+          "fixed_by_reversal": true
+        },
+        {
+          "position": 96,
+          "pair": "45",
+          "a": 4,
+          "b": 5,
+          "residue": 1,
+          "signed": 1,
+          "joint": "M0",
+          "fixed_by_reversal": false
+        }
+      ],
+      "counts": {
+        "-5": 8,
+        "-4": 5,
+        "-3": 10,
+        "-2": 2,
+        "-1": 9,
+        "0": 10,
+        "1": 11,
+        "2": 9,
+        "3": 13,
+        "4": 14,
+        "5": 5
+      },
+      "repeat_digit_pairs": 10
+    },
+    "sqrt29": {
+      "integer": 5,
+      "digits97": "3851648071345040312507104915403295562951201616447888376803886700166459628276586928766337816798354",
+      "label": "√29",
+      "rows": [
+        {
+          "position": 1,
+          "pair": "38",
+          "a": 3,
+          "b": 8,
+          "residue": 5,
+          "signed": 5,
+          "joint": "M4",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 2,
+          "pair": "85",
+          "a": 8,
+          "b": 5,
+          "residue": 8,
+          "signed": -3,
+          "joint": "M2",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 3,
+          "pair": "51",
+          "a": 5,
+          "b": 1,
+          "residue": 7,
+          "signed": -4,
+          "joint": "M3",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 4,
+          "pair": "16",
+          "a": 1,
+          "b": 6,
+          "residue": 5,
+          "signed": 5,
+          "joint": "M4",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 5,
+          "pair": "64",
+          "a": 6,
+          "b": 4,
+          "residue": 9,
+          "signed": -2,
+          "joint": "M1",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 6,
+          "pair": "48",
+          "a": 4,
+          "b": 8,
+          "residue": 4,
+          "signed": 4,
+          "joint": "M3",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 7,
+          "pair": "80",
+          "a": 8,
+          "b": 0,
+          "residue": 3,
+          "signed": 3,
+          "joint": "M2",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 8,
+          "pair": "07",
+          "a": 0,
+          "b": 7,
+          "residue": 7,
+          "signed": -4,
+          "joint": "M3",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 9,
+          "pair": "71",
+          "a": 7,
+          "b": 1,
+          "residue": 5,
+          "signed": 5,
+          "joint": "M4",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 10,
+          "pair": "13",
+          "a": 1,
+          "b": 3,
+          "residue": 2,
+          "signed": 2,
+          "joint": "M1",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 11,
+          "pair": "34",
+          "a": 3,
+          "b": 4,
+          "residue": 1,
+          "signed": 1,
+          "joint": "M0",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 12,
+          "pair": "45",
+          "a": 4,
+          "b": 5,
+          "residue": 1,
+          "signed": 1,
+          "joint": "M0",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 13,
+          "pair": "50",
+          "a": 5,
+          "b": 0,
+          "residue": 6,
+          "signed": -5,
+          "joint": "M4",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 14,
+          "pair": "04",
+          "a": 0,
+          "b": 4,
+          "residue": 4,
+          "signed": 4,
+          "joint": "M3",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 15,
+          "pair": "40",
+          "a": 4,
+          "b": 0,
+          "residue": 7,
+          "signed": -4,
+          "joint": "M3",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 16,
+          "pair": "03",
+          "a": 0,
+          "b": 3,
+          "residue": 3,
+          "signed": 3,
+          "joint": "M2",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 17,
+          "pair": "31",
+          "a": 3,
+          "b": 1,
+          "residue": 9,
+          "signed": -2,
+          "joint": "M1",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 18,
+          "pair": "12",
+          "a": 1,
+          "b": 2,
+          "residue": 1,
+          "signed": 1,
+          "joint": "M0",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 19,
+          "pair": "25",
+          "a": 2,
+          "b": 5,
+          "residue": 3,
+          "signed": 3,
+          "joint": "M2",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 20,
+          "pair": "50",
+          "a": 5,
+          "b": 0,
+          "residue": 6,
+          "signed": -5,
+          "joint": "M4",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 21,
+          "pair": "07",
+          "a": 0,
+          "b": 7,
+          "residue": 7,
+          "signed": -4,
+          "joint": "M3",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 22,
+          "pair": "71",
+          "a": 7,
+          "b": 1,
+          "residue": 5,
+          "signed": 5,
+          "joint": "M4",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 23,
+          "pair": "10",
+          "a": 1,
+          "b": 0,
+          "residue": 10,
+          "signed": -1,
+          "joint": "M0",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 24,
+          "pair": "04",
+          "a": 0,
+          "b": 4,
+          "residue": 4,
+          "signed": 4,
+          "joint": "M3",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 25,
+          "pair": "49",
+          "a": 4,
+          "b": 9,
+          "residue": 5,
+          "signed": 5,
+          "joint": "M4",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 26,
+          "pair": "91",
+          "a": 9,
+          "b": 1,
+          "residue": 3,
+          "signed": 3,
+          "joint": "M2",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 27,
+          "pair": "15",
+          "a": 1,
+          "b": 5,
+          "residue": 4,
+          "signed": 4,
+          "joint": "M3",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 28,
+          "pair": "54",
+          "a": 5,
+          "b": 4,
+          "residue": 10,
+          "signed": -1,
+          "joint": "M0",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 29,
+          "pair": "40",
+          "a": 4,
+          "b": 0,
+          "residue": 7,
+          "signed": -4,
+          "joint": "M3",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 30,
+          "pair": "03",
+          "a": 0,
+          "b": 3,
+          "residue": 3,
+          "signed": 3,
+          "joint": "M2",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 31,
+          "pair": "32",
+          "a": 3,
+          "b": 2,
+          "residue": 10,
+          "signed": -1,
+          "joint": "M0",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 32,
+          "pair": "29",
+          "a": 2,
+          "b": 9,
+          "residue": 7,
+          "signed": -4,
+          "joint": "M3",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 33,
+          "pair": "95",
+          "a": 9,
+          "b": 5,
+          "residue": 7,
+          "signed": -4,
+          "joint": "M3",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 34,
+          "pair": "55",
+          "a": 5,
+          "b": 5,
+          "residue": 0,
+          "signed": 0,
+          "joint": null,
+          "fixed_by_reversal": true
+        },
+        {
+          "position": 35,
+          "pair": "56",
+          "a": 5,
+          "b": 6,
+          "residue": 1,
+          "signed": 1,
+          "joint": "M0",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 36,
+          "pair": "62",
+          "a": 6,
+          "b": 2,
+          "residue": 7,
+          "signed": -4,
+          "joint": "M3",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 37,
+          "pair": "29",
+          "a": 2,
+          "b": 9,
+          "residue": 7,
+          "signed": -4,
+          "joint": "M3",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 38,
+          "pair": "95",
+          "a": 9,
+          "b": 5,
+          "residue": 7,
+          "signed": -4,
+          "joint": "M3",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 39,
+          "pair": "51",
+          "a": 5,
+          "b": 1,
+          "residue": 7,
+          "signed": -4,
+          "joint": "M3",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 40,
+          "pair": "12",
+          "a": 1,
+          "b": 2,
+          "residue": 1,
+          "signed": 1,
+          "joint": "M0",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 41,
+          "pair": "20",
+          "a": 2,
+          "b": 0,
+          "residue": 9,
+          "signed": -2,
+          "joint": "M1",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 42,
+          "pair": "01",
+          "a": 0,
+          "b": 1,
+          "residue": 1,
+          "signed": 1,
+          "joint": "M0",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 43,
+          "pair": "16",
+          "a": 1,
+          "b": 6,
+          "residue": 5,
+          "signed": 5,
+          "joint": "M4",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 44,
+          "pair": "61",
+          "a": 6,
+          "b": 1,
+          "residue": 6,
+          "signed": -5,
+          "joint": "M4",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 45,
+          "pair": "16",
+          "a": 1,
+          "b": 6,
+          "residue": 5,
+          "signed": 5,
+          "joint": "M4",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 46,
+          "pair": "64",
+          "a": 6,
+          "b": 4,
+          "residue": 9,
+          "signed": -2,
+          "joint": "M1",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 47,
+          "pair": "44",
+          "a": 4,
+          "b": 4,
+          "residue": 0,
+          "signed": 0,
+          "joint": null,
+          "fixed_by_reversal": true
+        },
+        {
+          "position": 48,
+          "pair": "47",
+          "a": 4,
+          "b": 7,
+          "residue": 3,
+          "signed": 3,
+          "joint": "M2",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 49,
+          "pair": "78",
+          "a": 7,
+          "b": 8,
+          "residue": 1,
+          "signed": 1,
+          "joint": "M0",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 50,
+          "pair": "88",
+          "a": 8,
+          "b": 8,
+          "residue": 0,
+          "signed": 0,
+          "joint": null,
+          "fixed_by_reversal": true
+        },
+        {
+          "position": 51,
+          "pair": "88",
+          "a": 8,
+          "b": 8,
+          "residue": 0,
+          "signed": 0,
+          "joint": null,
+          "fixed_by_reversal": true
+        },
+        {
+          "position": 52,
+          "pair": "83",
+          "a": 8,
+          "b": 3,
+          "residue": 6,
+          "signed": -5,
+          "joint": "M4",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 53,
+          "pair": "37",
+          "a": 3,
+          "b": 7,
+          "residue": 4,
+          "signed": 4,
+          "joint": "M3",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 54,
+          "pair": "76",
+          "a": 7,
+          "b": 6,
+          "residue": 10,
+          "signed": -1,
+          "joint": "M0",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 55,
+          "pair": "68",
+          "a": 6,
+          "b": 8,
+          "residue": 2,
+          "signed": 2,
+          "joint": "M1",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 56,
+          "pair": "80",
+          "a": 8,
+          "b": 0,
+          "residue": 3,
+          "signed": 3,
+          "joint": "M2",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 57,
+          "pair": "03",
+          "a": 0,
+          "b": 3,
+          "residue": 3,
+          "signed": 3,
+          "joint": "M2",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 58,
+          "pair": "38",
+          "a": 3,
+          "b": 8,
+          "residue": 5,
+          "signed": 5,
+          "joint": "M4",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 59,
+          "pair": "88",
+          "a": 8,
+          "b": 8,
+          "residue": 0,
+          "signed": 0,
+          "joint": null,
+          "fixed_by_reversal": true
+        },
+        {
+          "position": 60,
+          "pair": "86",
+          "a": 8,
+          "b": 6,
+          "residue": 9,
+          "signed": -2,
+          "joint": "M1",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 61,
+          "pair": "67",
+          "a": 6,
+          "b": 7,
+          "residue": 1,
+          "signed": 1,
+          "joint": "M0",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 62,
+          "pair": "70",
+          "a": 7,
+          "b": 0,
+          "residue": 4,
+          "signed": 4,
+          "joint": "M3",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 63,
+          "pair": "00",
+          "a": 0,
+          "b": 0,
+          "residue": 0,
+          "signed": 0,
+          "joint": null,
+          "fixed_by_reversal": true
+        },
+        {
+          "position": 64,
+          "pair": "01",
+          "a": 0,
+          "b": 1,
+          "residue": 1,
+          "signed": 1,
+          "joint": "M0",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 65,
+          "pair": "16",
+          "a": 1,
+          "b": 6,
+          "residue": 5,
+          "signed": 5,
+          "joint": "M4",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 66,
+          "pair": "66",
+          "a": 6,
+          "b": 6,
+          "residue": 0,
+          "signed": 0,
+          "joint": null,
+          "fixed_by_reversal": true
+        },
+        {
+          "position": 67,
+          "pair": "64",
+          "a": 6,
+          "b": 4,
+          "residue": 9,
+          "signed": -2,
+          "joint": "M1",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 68,
+          "pair": "45",
+          "a": 4,
+          "b": 5,
+          "residue": 1,
+          "signed": 1,
+          "joint": "M0",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 69,
+          "pair": "59",
+          "a": 5,
+          "b": 9,
+          "residue": 4,
+          "signed": 4,
+          "joint": "M3",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 70,
+          "pair": "96",
+          "a": 9,
+          "b": 6,
+          "residue": 8,
+          "signed": -3,
+          "joint": "M2",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 71,
+          "pair": "62",
+          "a": 6,
+          "b": 2,
+          "residue": 7,
+          "signed": -4,
+          "joint": "M3",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 72,
+          "pair": "28",
+          "a": 2,
+          "b": 8,
+          "residue": 6,
+          "signed": -5,
+          "joint": "M4",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 73,
+          "pair": "82",
+          "a": 8,
+          "b": 2,
+          "residue": 5,
+          "signed": 5,
+          "joint": "M4",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 74,
+          "pair": "27",
+          "a": 2,
+          "b": 7,
+          "residue": 5,
+          "signed": 5,
+          "joint": "M4",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 75,
+          "pair": "76",
+          "a": 7,
+          "b": 6,
+          "residue": 10,
+          "signed": -1,
+          "joint": "M0",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 76,
+          "pair": "65",
+          "a": 6,
+          "b": 5,
+          "residue": 10,
+          "signed": -1,
+          "joint": "M0",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 77,
+          "pair": "58",
+          "a": 5,
+          "b": 8,
+          "residue": 3,
+          "signed": 3,
+          "joint": "M2",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 78,
+          "pair": "86",
+          "a": 8,
+          "b": 6,
+          "residue": 9,
+          "signed": -2,
+          "joint": "M1",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 79,
+          "pair": "69",
+          "a": 6,
+          "b": 9,
+          "residue": 3,
+          "signed": 3,
+          "joint": "M2",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 80,
+          "pair": "92",
+          "a": 9,
+          "b": 2,
+          "residue": 4,
+          "signed": 4,
+          "joint": "M3",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 81,
+          "pair": "28",
+          "a": 2,
+          "b": 8,
+          "residue": 6,
+          "signed": -5,
+          "joint": "M4",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 82,
+          "pair": "87",
+          "a": 8,
+          "b": 7,
+          "residue": 10,
+          "signed": -1,
+          "joint": "M0",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 83,
+          "pair": "76",
+          "a": 7,
+          "b": 6,
+          "residue": 10,
+          "signed": -1,
+          "joint": "M0",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 84,
+          "pair": "66",
+          "a": 6,
+          "b": 6,
+          "residue": 0,
+          "signed": 0,
+          "joint": null,
+          "fixed_by_reversal": true
+        },
+        {
+          "position": 85,
+          "pair": "63",
+          "a": 6,
+          "b": 3,
+          "residue": 8,
+          "signed": -3,
+          "joint": "M2",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 86,
+          "pair": "33",
+          "a": 3,
+          "b": 3,
+          "residue": 0,
+          "signed": 0,
+          "joint": null,
+          "fixed_by_reversal": true
+        },
+        {
+          "position": 87,
+          "pair": "37",
+          "a": 3,
+          "b": 7,
+          "residue": 4,
+          "signed": 4,
+          "joint": "M3",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 88,
+          "pair": "78",
+          "a": 7,
+          "b": 8,
+          "residue": 1,
+          "signed": 1,
+          "joint": "M0",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 89,
+          "pair": "81",
+          "a": 8,
+          "b": 1,
+          "residue": 4,
+          "signed": 4,
+          "joint": "M3",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 90,
+          "pair": "16",
+          "a": 1,
+          "b": 6,
+          "residue": 5,
+          "signed": 5,
+          "joint": "M4",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 91,
+          "pair": "67",
+          "a": 6,
+          "b": 7,
+          "residue": 1,
+          "signed": 1,
+          "joint": "M0",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 92,
+          "pair": "79",
+          "a": 7,
+          "b": 9,
+          "residue": 2,
+          "signed": 2,
+          "joint": "M1",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 93,
+          "pair": "98",
+          "a": 9,
+          "b": 8,
+          "residue": 10,
+          "signed": -1,
+          "joint": "M0",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 94,
+          "pair": "83",
+          "a": 8,
+          "b": 3,
+          "residue": 6,
+          "signed": -5,
+          "joint": "M4",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 95,
+          "pair": "35",
+          "a": 3,
+          "b": 5,
+          "residue": 2,
+          "signed": 2,
+          "joint": "M1",
+          "fixed_by_reversal": false
+        },
+        {
+          "position": 96,
+          "pair": "54",
+          "a": 5,
+          "b": 4,
+          "residue": 10,
+          "signed": -1,
+          "joint": "M0",
+          "fixed_by_reversal": false
+        }
+      ],
+      "counts": {
+        "-5": 7,
+        "-4": 12,
+        "-3": 3,
+        "-2": 7,
+        "-1": 10,
+        "0": 9,
+        "1": 12,
+        "2": 4,
+        "3": 10,
+        "4": 10,
+        "5": 12
+      },
+      "repeat_digit_pairs": 9
+    }
+  }
+}

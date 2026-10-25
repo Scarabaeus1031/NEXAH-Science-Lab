@@ -1,0 +1,35 @@
+NEXAH — CURTAIN: SCHARNIER- UND NAHTTEST
+25.10.2026 | Modell pentagon-coordinate-sequence-lab/9
+
+FRAGE
+Können die zehn Teilfelder als starre Dreiecke entlang ihrer Diagonalen falten und dabei eine zusammenhängende Haut bleiben?
+
+KONSTRUKTION
+Die Referenz besitzt s=L=1, Rahmenwinkel θ=36°, Innenwinkel γ=137° (Abknickung β=43°). Jedes der zehn Felder wird in zwei Dreiecke geteilt. Beide durchgehend einheitlichen Diagonalwahlen 0–2 und 1–3 werden geprüft. Die seitliche Haut hat 15 Eckadressen, 35 Kanten und 20 Dreiecke; ihre zwei offenen Fünfeckränder umfassen zehn Randkanten.
+
+BEWEGUNGSREGEL
+Je Feld bleibt ein Dreieck an der Referenzposition fest. Das andere dreht starr um die gemeinsame Diagonale. Alle zehn Scharniere erhalten denselben vorzeichenbehafteten Zusatzwinkel. Anschließend werden sämtliche Kopien derselben Eckadresse paarweise auf Übereinstimmung geprüft. Dies ist ein gewählter lokaler Klappversuch, kein globaler Faltungslöser.
+
+ERGEBNIS
+242 Winkel-/Diagonalzustände: −180° bis +180° in 3°-Schritten, für beide Diagonalwahlen. Die Dreiecke bewahren ihre Kantenlängen bis auf numerische Rundung. Bei allen getesteten Zusatzwinkeln außer 0° stimmen die gemeinsamen Eckadressen nicht mehr überein.
+Maximaler absoluter Dreieckskantenfehler: 7.771561172376096e-16
+Maximaler Rückkehrfehler nach Drehung und Gegendrehung: 8.741904837807691e-16
+
+BEISPIELE — DIAGONALE 0–2 | GRÖSSTE NAHTLÜCKE IN EINHEITEN s
+  0° : 0.000000000000
+ 15° : 0.109284271883
+ 45° : 0.320405273120
+ 90° : 0.592031747889
+180° : 0.837259327220
+
+ZWEITER TEST — RAHMENBEWEGUNG
+Bei θ=46° statt der eingefrorenen Referenz θ=36° und sonst gleichen Parametern ändert sich mindestens eine der 35 Dreieckskanten um 2.619131824 %. Diese Zielstellung lässt sich mit derselben starren Referenzhaut und diesen Punktzuordnungen nicht erreichen.
+
+BEDEUTUNG
+Die einzelnen Scharniere funktionieren geometrisch. Die geprüfte gemeinsame Bewegung schließt die Fugen nicht. Daraus folgt keine allgemeine Unmöglichkeit anderer, abgestimmter Faltwege. Ein Spitzenverschluss T ist nicht gelöst; Kollisionen, Materialdicke und Kräfte sind ungeprüft. Die orange Querschnittsöffnung ist eine separate Messgrenze und kein bereits eingebautes Loch in einer starren Membran.
+
+EINGEBAUT IM BESTEHENDEN HTML-LAB
+Referenz einfrieren; Diagonale wählen; Faltwinkel −180° bis +180°; 45°-Beispiel; endliche Start-/Pause-Animation bis 180°; einzelnes Teilfeld oder alle zehn; violette Scharniere und rote Nahtabweichungen; getrennte Anzeigen für Rahmen-Kantenänderung und lokale Nahtlücke; vollständiger JSON-Koordinatenexport einschließlich Referenz und Testzustand.
+
+PRÜFUMFANG
+Rechen- und Bedienprüfungen mit Node VM und simuliertem DOM. Bestehende Geometrieprüfung: 1.390 zulässige Stellungen, Längeninvarianten, Spiegelung/Überlagerung, Ring, Spitze, RGB-Schritte und Export bestanden. Endliche Curtain-Animation, manuelle Pause und Ablehnung unzulässiger Referenzen bestanden. SVG-Testansicht mit Inkscape gerendert und visuell kontrolliert. Keine vollständige Browserabnahme.

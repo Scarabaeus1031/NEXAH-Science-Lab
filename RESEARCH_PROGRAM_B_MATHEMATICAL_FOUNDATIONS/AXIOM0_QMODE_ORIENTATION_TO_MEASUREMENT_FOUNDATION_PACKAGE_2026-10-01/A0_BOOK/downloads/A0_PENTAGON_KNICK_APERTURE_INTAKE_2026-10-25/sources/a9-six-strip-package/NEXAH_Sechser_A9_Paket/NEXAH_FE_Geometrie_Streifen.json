@@ -1,0 +1,3840 @@
+{
+  "rules": {
+    "window": "97 characters, 96 overlapping pairs; leading zeros retained",
+    "Fibonacci": "F0=0, F1=1; full decimal terms concatenated in order; boundaries retained",
+    "Euler": "E(n)=n*n+n+41, starting n=0; full decimal terms concatenated in order; boundaries retained",
+    "geometry_a": "sqrt((5+sqrt5)/2)",
+    "geometry_b": "sqrt((11-sqrt5)/2)",
+    "encoding": "r=(b-a) mod11, signed representative -5..+5",
+    "recovery": "next_digit=(current_digit+r) mod11; reject digit10; ordered residues and first digit recover all digits; term boundaries require separate metadata"
+  },
+  "strips": {
+    "fibonacci": {
+      "label": "Fibonacci F₀,F₁,…",
+      "kind": "term-concatenation",
+      "digits97": "0112358132134558914423337761098715972584418167651094617711286574636875025121393196418317811514229",
+      "term_owner": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        7,
+        8,
+        8,
+        9,
+        9,
+        10,
+        10,
+        11,
+        11,
+        12,
+        12,
+        12,
+        13,
+        13,
+        13,
+        14,
+        14,
+        14,
+        15,
+        15,
+        15,
+        16,
+        16,
+        16,
+        17,
+        17,
+        17,
+        17,
+        18,
+        18,
+        18,
+        18,
+        19,
+        19,
+        19,
+        19,
+        20,
+        20,
+        20,
+        20,
+        21,
+        21,
+        21,
+        21,
+        21,
+        22,
+        22,
+        22,
+        22,
+        22,
+        23,
+        23,
+        23,
+        23,
+        23,
+        24,
+        24,
+        24,
+        24,
+        24,
+        25,
+        25,
+        25,
+        25,
+        25,
+        26,
+        26,
+        26,
+        26,
+        26,
+        26,
+        27,
+        27,
+        27,
+        27,
+        27,
+        27,
+        28,
+        28,
+        28,
+        28,
+        28,
+        28,
+        29,
+        29,
+        29,
+        29,
+        29,
+        29
+      ],
+      "terms": [
+        {
+          "n": 0,
+          "value": "0",
+          "start": 1,
+          "end": 1
+        },
+        {
+          "n": 1,
+          "value": "1",
+          "start": 2,
+          "end": 2
+        },
+        {
+          "n": 2,
+          "value": "1",
+          "start": 3,
+          "end": 3
+        },
+        {
+          "n": 3,
+          "value": "2",
+          "start": 4,
+          "end": 4
+        },
+        {
+          "n": 4,
+          "value": "3",
+          "start": 5,
+          "end": 5
+        },
+        {
+          "n": 5,
+          "value": "5",
+          "start": 6,
+          "end": 6
+        },
+        {
+          "n": 6,
+          "value": "8",
+          "start": 7,
+          "end": 7
+        },
+        {
+          "n": 7,
+          "value": "13",
+          "start": 8,
+          "end": 9
+        },
+        {
+          "n": 8,
+          "value": "21",
+          "start": 10,
+          "end": 11
+        },
+        {
+          "n": 9,
+          "value": "34",
+          "start": 12,
+          "end": 13
+        },
+        {
+          "n": 10,
+          "value": "55",
+          "start": 14,
+          "end": 15
+        },
+        {
+          "n": 11,
+          "value": "89",
+          "start": 16,
+          "end": 17
+        },
+        {
+          "n": 12,
+          "value": "144",
+          "start": 18,
+          "end": 20
+        },
+        {
+          "n": 13,
+          "value": "233",
+          "start": 21,
+          "end": 23
+        },
+        {
+          "n": 14,
+          "value": "377",
+          "start": 24,
+          "end": 26
+        },
+        {
+          "n": 15,
+          "value": "610",
+          "start": 27,
+          "end": 29
+        },
+        {
+          "n": 16,
+          "value": "987",
+          "start": 30,
+          "end": 32
+        },
+        {
+          "n": 17,
+          "value": "1597",
+          "start": 33,
+          "end": 36
+        },
+        {
+          "n": 18,
+          "value": "2584",
+          "start": 37,
+          "end": 40
+        },
+        {
+          "n": 19,
+          "value": "4181",
+          "start": 41,
+          "end": 44
+        },
+        {
+          "n": 20,
+          "value": "6765",
+          "start": 45,
+          "end": 48
+        },
+        {
+          "n": 21,
+          "value": "10946",
+          "start": 49,
+          "end": 53
+        },
+        {
+          "n": 22,
+          "value": "17711",
+          "start": 54,
+          "end": 58
+        },
+        {
+          "n": 23,
+          "value": "28657",
+          "start": 59,
+          "end": 63
+        },
+        {
+          "n": 24,
+          "value": "46368",
+          "start": 64,
+          "end": 68
+        },
+        {
+          "n": 25,
+          "value": "75025",
+          "start": 69,
+          "end": 73
+        },
+        {
+          "n": 26,
+          "value": "121393",
+          "start": 74,
+          "end": 79
+        },
+        {
+          "n": 27,
+          "value": "196418",
+          "start": 80,
+          "end": 85
+        },
+        {
+          "n": 28,
+          "value": "317811",
+          "start": 86,
+          "end": 91
+        },
+        {
+          "n": 29,
+          "value": "514229",
+          "start": 92,
+          "end": 97
+        }
+      ],
+      "last_term_truncated": false,
+      "first_term_index": 0,
+      "last_term_index": 29,
+      "rows": [
+        {
+          "position": 1,
+          "pair": "01",
+          "residue": 1,
+          "signed": 1,
+          "seam": true,
+          "left_term": 0,
+          "right_term": 1
+        },
+        {
+          "position": 2,
+          "pair": "11",
+          "residue": 0,
+          "signed": 0,
+          "seam": true,
+          "left_term": 1,
+          "right_term": 2
+        },
+        {
+          "position": 3,
+          "pair": "12",
+          "residue": 1,
+          "signed": 1,
+          "seam": true,
+          "left_term": 2,
+          "right_term": 3
+        },
+        {
+          "position": 4,
+          "pair": "23",
+          "residue": 1,
+          "signed": 1,
+          "seam": true,
+          "left_term": 3,
+          "right_term": 4
+        },
+        {
+          "position": 5,
+          "pair": "35",
+          "residue": 2,
+          "signed": 2,
+          "seam": true,
+          "left_term": 4,
+          "right_term": 5
+        },
+        {
+          "position": 6,
+          "pair": "58",
+          "residue": 3,
+          "signed": 3,
+          "seam": true,
+          "left_term": 5,
+          "right_term": 6
+        },
+        {
+          "position": 7,
+          "pair": "81",
+          "residue": 4,
+          "signed": 4,
+          "seam": true,
+          "left_term": 6,
+          "right_term": 7
+        },
+        {
+          "position": 8,
+          "pair": "13",
+          "residue": 2,
+          "signed": 2,
+          "seam": false,
+          "left_term": 7,
+          "right_term": 7
+        },
+        {
+          "position": 9,
+          "pair": "32",
+          "residue": 10,
+          "signed": -1,
+          "seam": true,
+          "left_term": 7,
+          "right_term": 8
+        },
+        {
+          "position": 10,
+          "pair": "21",
+          "residue": 10,
+          "signed": -1,
+          "seam": false,
+          "left_term": 8,
+          "right_term": 8
+        },
+        {
+          "position": 11,
+          "pair": "13",
+          "residue": 2,
+          "signed": 2,
+          "seam": true,
+          "left_term": 8,
+          "right_term": 9
+        },
+        {
+          "position": 12,
+          "pair": "34",
+          "residue": 1,
+          "signed": 1,
+          "seam": false,
+          "left_term": 9,
+          "right_term": 9
+        },
+        {
+          "position": 13,
+          "pair": "45",
+          "residue": 1,
+          "signed": 1,
+          "seam": true,
+          "left_term": 9,
+          "right_term": 10
+        },
+        {
+          "position": 14,
+          "pair": "55",
+          "residue": 0,
+          "signed": 0,
+          "seam": false,
+          "left_term": 10,
+          "right_term": 10
+        },
+        {
+          "position": 15,
+          "pair": "58",
+          "residue": 3,
+          "signed": 3,
+          "seam": true,
+          "left_term": 10,
+          "right_term": 11
+        },
+        {
+          "position": 16,
+          "pair": "89",
+          "residue": 1,
+          "signed": 1,
+          "seam": false,
+          "left_term": 11,
+          "right_term": 11
+        },
+        {
+          "position": 17,
+          "pair": "91",
+          "residue": 3,
+          "signed": 3,
+          "seam": true,
+          "left_term": 11,
+          "right_term": 12
+        },
+        {
+          "position": 18,
+          "pair": "14",
+          "residue": 3,
+          "signed": 3,
+          "seam": false,
+          "left_term": 12,
+          "right_term": 12
+        },
+        {
+          "position": 19,
+          "pair": "44",
+          "residue": 0,
+          "signed": 0,
+          "seam": false,
+          "left_term": 12,
+          "right_term": 12
+        },
+        {
+          "position": 20,
+          "pair": "42",
+          "residue": 9,
+          "signed": -2,
+          "seam": true,
+          "left_term": 12,
+          "right_term": 13
+        },
+        {
+          "position": 21,
+          "pair": "23",
+          "residue": 1,
+          "signed": 1,
+          "seam": false,
+          "left_term": 13,
+          "right_term": 13
+        },
+        {
+          "position": 22,
+          "pair": "33",
+          "residue": 0,
+          "signed": 0,
+          "seam": false,
+          "left_term": 13,
+          "right_term": 13
+        },
+        {
+          "position": 23,
+          "pair": "33",
+          "residue": 0,
+          "signed": 0,
+          "seam": true,
+          "left_term": 13,
+          "right_term": 14
+        },
+        {
+          "position": 24,
+          "pair": "37",
+          "residue": 4,
+          "signed": 4,
+          "seam": false,
+          "left_term": 14,
+          "right_term": 14
+        },
+        {
+          "position": 25,
+          "pair": "77",
+          "residue": 0,
+          "signed": 0,
+          "seam": false,
+          "left_term": 14,
+          "right_term": 14
+        },
+        {
+          "position": 26,
+          "pair": "76",
+          "residue": 10,
+          "signed": -1,
+          "seam": true,
+          "left_term": 14,
+          "right_term": 15
+        },
+        {
+          "position": 27,
+          "pair": "61",
+          "residue": 6,
+          "signed": -5,
+          "seam": false,
+          "left_term": 15,
+          "right_term": 15
+        },
+        {
+          "position": 28,
+          "pair": "10",
+          "residue": 10,
+          "signed": -1,
+          "seam": false,
+          "left_term": 15,
+          "right_term": 15
+        },
+        {
+          "position": 29,
+          "pair": "09",
+          "residue": 9,
+          "signed": -2,
+          "seam": true,
+          "left_term": 15,
+          "right_term": 16
+        },
+        {
+          "position": 30,
+          "pair": "98",
+          "residue": 10,
+          "signed": -1,
+          "seam": false,
+          "left_term": 16,
+          "right_term": 16
+        },
+        {
+          "position": 31,
+          "pair": "87",
+          "residue": 10,
+          "signed": -1,
+          "seam": false,
+          "left_term": 16,
+          "right_term": 16
+        },
+        {
+          "position": 32,
+          "pair": "71",
+          "residue": 5,
+          "signed": 5,
+          "seam": true,
+          "left_term": 16,
+          "right_term": 17
+        },
+        {
+          "position": 33,
+          "pair": "15",
+          "residue": 4,
+          "signed": 4,
+          "seam": false,
+          "left_term": 17,
+          "right_term": 17
+        },
+        {
+          "position": 34,
+          "pair": "59",
+          "residue": 4,
+          "signed": 4,
+          "seam": false,
+          "left_term": 17,
+          "right_term": 17
+        },
+        {
+          "position": 35,
+          "pair": "97",
+          "residue": 9,
+          "signed": -2,
+          "seam": false,
+          "left_term": 17,
+          "right_term": 17
+        },
+        {
+          "position": 36,
+          "pair": "72",
+          "residue": 6,
+          "signed": -5,
+          "seam": true,
+          "left_term": 17,
+          "right_term": 18
+        },
+        {
+          "position": 37,
+          "pair": "25",
+          "residue": 3,
+          "signed": 3,
+          "seam": false,
+          "left_term": 18,
+          "right_term": 18
+        },
+        {
+          "position": 38,
+          "pair": "58",
+          "residue": 3,
+          "signed": 3,
+          "seam": false,
+          "left_term": 18,
+          "right_term": 18
+        },
+        {
+          "position": 39,
+          "pair": "84",
+          "residue": 7,
+          "signed": -4,
+          "seam": false,
+          "left_term": 18,
+          "right_term": 18
+        },
+        {
+          "position": 40,
+          "pair": "44",
+          "residue": 0,
+          "signed": 0,
+          "seam": true,
+          "left_term": 18,
+          "right_term": 19
+        },
+        {
+          "position": 41,
+          "pair": "41",
+          "residue": 8,
+          "signed": -3,
+          "seam": false,
+          "left_term": 19,
+          "right_term": 19
+        },
+        {
+          "position": 42,
+          "pair": "18",
+          "residue": 7,
+          "signed": -4,
+          "seam": false,
+          "left_term": 19,
+          "right_term": 19
+        },
+        {
+          "position": 43,
+          "pair": "81",
+          "residue": 4,
+          "signed": 4,
+          "seam": false,
+          "left_term": 19,
+          "right_term": 19
+        },
+        {
+          "position": 44,
+          "pair": "16",
+          "residue": 5,
+          "signed": 5,
+          "seam": true,
+          "left_term": 19,
+          "right_term": 20
+        },
+        {
+          "position": 45,
+          "pair": "67",
+          "residue": 1,
+          "signed": 1,
+          "seam": false,
+          "left_term": 20,
+          "right_term": 20
+        },
+        {
+          "position": 46,
+          "pair": "76",
+          "residue": 10,
+          "signed": -1,
+          "seam": false,
+          "left_term": 20,
+          "right_term": 20
+        },
+        {
+          "position": 47,
+          "pair": "65",
+          "residue": 10,
+          "signed": -1,
+          "seam": false,
+          "left_term": 20,
+          "right_term": 20
+        },
+        {
+          "position": 48,
+          "pair": "51",
+          "residue": 7,
+          "signed": -4,
+          "seam": true,
+          "left_term": 20,
+          "right_term": 21
+        },
+        {
+          "position": 49,
+          "pair": "10",
+          "residue": 10,
+          "signed": -1,
+          "seam": false,
+          "left_term": 21,
+          "right_term": 21
+        },
+        {
+          "position": 50,
+          "pair": "09",
+          "residue": 9,
+          "signed": -2,
+          "seam": false,
+          "left_term": 21,
+          "right_term": 21
+        },
+        {
+          "position": 51,
+          "pair": "94",
+          "residue": 6,
+          "signed": -5,
+          "seam": false,
+          "left_term": 21,
+          "right_term": 21
+        },
+        {
+          "position": 52,
+          "pair": "46",
+          "residue": 2,
+          "signed": 2,
+          "seam": false,
+          "left_term": 21,
+          "right_term": 21
+        },
+        {
+          "position": 53,
+          "pair": "61",
+          "residue": 6,
+          "signed": -5,
+          "seam": true,
+          "left_term": 21,
+          "right_term": 22
+        },
+        {
+          "position": 54,
+          "pair": "17",
+          "residue": 6,
+          "signed": -5,
+          "seam": false,
+          "left_term": 22,
+          "right_term": 22
+        },
+        {
+          "position": 55,
+          "pair": "77",
+          "residue": 0,
+          "signed": 0,
+          "seam": false,
+          "left_term": 22,
+          "right_term": 22
+        },
+        {
+          "position": 56,
+          "pair": "71",
+          "residue": 5,
+          "signed": 5,
+          "seam": false,
+          "left_term": 22,
+          "right_term": 22
+        },
+        {
+          "position": 57,
+          "pair": "11",
+          "residue": 0,
+          "signed": 0,
+          "seam": false,
+          "left_term": 22,
+          "right_term": 22
+        },
+        {
+          "position": 58,
+          "pair": "12",
+          "residue": 1,
+          "signed": 1,
+          "seam": true,
+          "left_term": 22,
+          "right_term": 23
+        },
+        {
+          "position": 59,
+          "pair": "28",
+          "residue": 6,
+          "signed": -5,
+          "seam": false,
+          "left_term": 23,
+          "right_term": 23
+        },
+        {
+          "position": 60,
+          "pair": "86",
+          "residue": 9,
+          "signed": -2,
+          "seam": false,
+          "left_term": 23,
+          "right_term": 23
+        },
+        {
+          "position": 61,
+          "pair": "65",
+          "residue": 10,
+          "signed": -1,
+          "seam": false,
+          "left_term": 23,
+          "right_term": 23
+        },
+        {
+          "position": 62,
+          "pair": "57",
+          "residue": 2,
+          "signed": 2,
+          "seam": false,
+          "left_term": 23,
+          "right_term": 23
+        },
+        {
+          "position": 63,
+          "pair": "74",
+          "residue": 8,
+          "signed": -3,
+          "seam": true,
+          "left_term": 23,
+          "right_term": 24
+        },
+        {
+          "position": 64,
+          "pair": "46",
+          "residue": 2,
+          "signed": 2,
+          "seam": false,
+          "left_term": 24,
+          "right_term": 24
+        },
+        {
+          "position": 65,
+          "pair": "63",
+          "residue": 8,
+          "signed": -3,
+          "seam": false,
+          "left_term": 24,
+          "right_term": 24
+        },
+        {
+          "position": 66,
+          "pair": "36",
+          "residue": 3,
+          "signed": 3,
+          "seam": false,
+          "left_term": 24,
+          "right_term": 24
+        },
+        {
+          "position": 67,
+          "pair": "68",
+          "residue": 2,
+          "signed": 2,
+          "seam": false,
+          "left_term": 24,
+          "right_term": 24
+        },
+        {
+          "position": 68,
+          "pair": "87",
+          "residue": 10,
+          "signed": -1,
+          "seam": true,
+          "left_term": 24,
+          "right_term": 25
+        },
+        {
+          "position": 69,
+          "pair": "75",
+          "residue": 9,
+          "signed": -2,
+          "seam": false,
+          "left_term": 25,
+          "right_term": 25
+        },
+        {
+          "position": 70,
+          "pair": "50",
+          "residue": 6,
+          "signed": -5,
+          "seam": false,
+          "left_term": 25,
+          "right_term": 25
+        },
+        {
+          "position": 71,
+          "pair": "02",
+          "residue": 2,
+          "signed": 2,
+          "seam": false,
+          "left_term": 25,
+          "right_term": 25
+        },
+        {
+          "position": 72,
+          "pair": "25",
+          "residue": 3,
+          "signed": 3,
+          "seam": false,
+          "left_term": 25,
+          "right_term": 25
+        },
+        {
+          "position": 73,
+          "pair": "51",
+          "residue": 7,
+          "signed": -4,
+          "seam": true,
+          "left_term": 25,
+          "right_term": 26
+        },
+        {
+          "position": 74,
+          "pair": "12",
+          "residue": 1,
+          "signed": 1,
+          "seam": false,
+          "left_term": 26,
+          "right_term": 26
+        },
+        {
+          "position": 75,
+          "pair": "21",
+          "residue": 10,
+          "signed": -1,
+          "seam": false,
+          "left_term": 26,
+          "right_term": 26
+        },
+        {
+          "position": 76,
+          "pair": "13",
+          "residue": 2,
+          "signed": 2,
+          "seam": false,
+          "left_term": 26,
+          "right_term": 26
+        },
+        {
+          "position": 77,
+          "pair": "39",
+          "residue": 6,
+          "signed": -5,
+          "seam": false,
+          "left_term": 26,
+          "right_term": 26
+        },
+        {
+          "position": 78,
+          "pair": "93",
+          "residue": 5,
+          "signed": 5,
+          "seam": false,
+          "left_term": 26,
+          "right_term": 26
+        },
+        {
+          "position": 79,
+          "pair": "31",
+          "residue": 9,
+          "signed": -2,
+          "seam": true,
+          "left_term": 26,
+          "right_term": 27
+        },
+        {
+          "position": 80,
+          "pair": "19",
+          "residue": 8,
+          "signed": -3,
+          "seam": false,
+          "left_term": 27,
+          "right_term": 27
+        },
+        {
+          "position": 81,
+          "pair": "96",
+          "residue": 8,
+          "signed": -3,
+          "seam": false,
+          "left_term": 27,
+          "right_term": 27
+        },
+        {
+          "position": 82,
+          "pair": "64",
+          "residue": 9,
+          "signed": -2,
+          "seam": false,
+          "left_term": 27,
+          "right_term": 27
+        },
+        {
+          "position": 83,
+          "pair": "41",
+          "residue": 8,
+          "signed": -3,
+          "seam": false,
+          "left_term": 27,
+          "right_term": 27
+        },
+        {
+          "position": 84,
+          "pair": "18",
+          "residue": 7,
+          "signed": -4,
+          "seam": false,
+          "left_term": 27,
+          "right_term": 27
+        },
+        {
+          "position": 85,
+          "pair": "83",
+          "residue": 6,
+          "signed": -5,
+          "seam": true,
+          "left_term": 27,
+          "right_term": 28
+        },
+        {
+          "position": 86,
+          "pair": "31",
+          "residue": 9,
+          "signed": -2,
+          "seam": false,
+          "left_term": 28,
+          "right_term": 28
+        },
+        {
+          "position": 87,
+          "pair": "17",
+          "residue": 6,
+          "signed": -5,
+          "seam": false,
+          "left_term": 28,
+          "right_term": 28
+        },
+        {
+          "position": 88,
+          "pair": "78",
+          "residue": 1,
+          "signed": 1,
+          "seam": false,
+          "left_term": 28,
+          "right_term": 28
+        },
+        {
+          "position": 89,
+          "pair": "81",
+          "residue": 4,
+          "signed": 4,
+          "seam": false,
+          "left_term": 28,
+          "right_term": 28
+        },
+        {
+          "position": 90,
+          "pair": "11",
+          "residue": 0,
+          "signed": 0,
+          "seam": false,
+          "left_term": 28,
+          "right_term": 28
+        },
+        {
+          "position": 91,
+          "pair": "15",
+          "residue": 4,
+          "signed": 4,
+          "seam": true,
+          "left_term": 28,
+          "right_term": 29
+        },
+        {
+          "position": 92,
+          "pair": "51",
+          "residue": 7,
+          "signed": -4,
+          "seam": false,
+          "left_term": 29,
+          "right_term": 29
+        },
+        {
+          "position": 93,
+          "pair": "14",
+          "residue": 3,
+          "signed": 3,
+          "seam": false,
+          "left_term": 29,
+          "right_term": 29
+        },
+        {
+          "position": 94,
+          "pair": "42",
+          "residue": 9,
+          "signed": -2,
+          "seam": false,
+          "left_term": 29,
+          "right_term": 29
+        },
+        {
+          "position": 95,
+          "pair": "22",
+          "residue": 0,
+          "signed": 0,
+          "seam": false,
+          "left_term": 29,
+          "right_term": 29
+        },
+        {
+          "position": 96,
+          "pair": "29",
+          "residue": 7,
+          "signed": -4,
+          "seam": false,
+          "left_term": 29,
+          "right_term": 29
+        }
+      ],
+      "summary": {
+        "pairs": 96,
+        "seam_pairs": 29,
+        "repeat_within": 8,
+        "repeat_at_seam": 3
+      }
+    },
+    "euler_polynomial": {
+      "label": "Euler E(n)=n²+n+41",
+      "kind": "term-concatenation",
+      "digits97": "4143475361718397113131151173197223251281313347383421461503547593641691743797853911971103310971163",
+      "term_owner": [
+        0,
+        0,
+        1,
+        1,
+        2,
+        2,
+        3,
+        3,
+        4,
+        4,
+        5,
+        5,
+        6,
+        6,
+        7,
+        7,
+        8,
+        8,
+        8,
+        9,
+        9,
+        9,
+        10,
+        10,
+        10,
+        11,
+        11,
+        11,
+        12,
+        12,
+        12,
+        13,
+        13,
+        13,
+        14,
+        14,
+        14,
+        15,
+        15,
+        15,
+        16,
+        16,
+        16,
+        17,
+        17,
+        17,
+        18,
+        18,
+        18,
+        19,
+        19,
+        19,
+        20,
+        20,
+        20,
+        21,
+        21,
+        21,
+        22,
+        22,
+        22,
+        23,
+        23,
+        23,
+        24,
+        24,
+        24,
+        25,
+        25,
+        25,
+        26,
+        26,
+        26,
+        27,
+        27,
+        27,
+        28,
+        28,
+        28,
+        29,
+        29,
+        29,
+        30,
+        30,
+        30,
+        31,
+        31,
+        31,
+        31,
+        32,
+        32,
+        32,
+        32,
+        33,
+        33,
+        33,
+        33
+      ],
+      "terms": [
+        {
+          "n": 0,
+          "value": "41",
+          "start": 1,
+          "end": 2
+        },
+        {
+          "n": 1,
+          "value": "43",
+          "start": 3,
+          "end": 4
+        },
+        {
+          "n": 2,
+          "value": "47",
+          "start": 5,
+          "end": 6
+        },
+        {
+          "n": 3,
+          "value": "53",
+          "start": 7,
+          "end": 8
+        },
+        {
+          "n": 4,
+          "value": "61",
+          "start": 9,
+          "end": 10
+        },
+        {
+          "n": 5,
+          "value": "71",
+          "start": 11,
+          "end": 12
+        },
+        {
+          "n": 6,
+          "value": "83",
+          "start": 13,
+          "end": 14
+        },
+        {
+          "n": 7,
+          "value": "97",
+          "start": 15,
+          "end": 16
+        },
+        {
+          "n": 8,
+          "value": "113",
+          "start": 17,
+          "end": 19
+        },
+        {
+          "n": 9,
+          "value": "131",
+          "start": 20,
+          "end": 22
+        },
+        {
+          "n": 10,
+          "value": "151",
+          "start": 23,
+          "end": 25
+        },
+        {
+          "n": 11,
+          "value": "173",
+          "start": 26,
+          "end": 28
+        },
+        {
+          "n": 12,
+          "value": "197",
+          "start": 29,
+          "end": 31
+        },
+        {
+          "n": 13,
+          "value": "223",
+          "start": 32,
+          "end": 34
+        },
+        {
+          "n": 14,
+          "value": "251",
+          "start": 35,
+          "end": 37
+        },
+        {
+          "n": 15,
+          "value": "281",
+          "start": 38,
+          "end": 40
+        },
+        {
+          "n": 16,
+          "value": "313",
+          "start": 41,
+          "end": 43
+        },
+        {
+          "n": 17,
+          "value": "347",
+          "start": 44,
+          "end": 46
+        },
+        {
+          "n": 18,
+          "value": "383",
+          "start": 47,
+          "end": 49
+        },
+        {
+          "n": 19,
+          "value": "421",
+          "start": 50,
+          "end": 52
+        },
+        {
+          "n": 20,
+          "value": "461",
+          "start": 53,
+          "end": 55
+        },
+        {
+          "n": 21,
+          "value": "503",
+          "start": 56,
+          "end": 58
+        },
+        {
+          "n": 22,
+          "value": "547",
+          "start": 59,
+          "end": 61
+        },
+        {
+          "n": 23,
+          "value": "593",
+          "start": 62,
+          "end": 64
+        },
+        {
+          "n": 24,
+          "value": "641",
+          "start": 65,
+          "end": 67
+        },
+        {
+          "n": 25,
+          "value": "691",
+          "start": 68,
+          "end": 70
+        },
+        {
+          "n": 26,
+          "value": "743",
+          "start": 71,
+          "end": 73
+        },
+        {
+          "n": 27,
+          "value": "797",
+          "start": 74,
+          "end": 76
+        },
+        {
+          "n": 28,
+          "value": "853",
+          "start": 77,
+          "end": 79
+        },
+        {
+          "n": 29,
+          "value": "911",
+          "start": 80,
+          "end": 82
+        },
+        {
+          "n": 30,
+          "value": "971",
+          "start": 83,
+          "end": 85
+        },
+        {
+          "n": 31,
+          "value": "1033",
+          "start": 86,
+          "end": 89
+        },
+        {
+          "n": 32,
+          "value": "1097",
+          "start": 90,
+          "end": 93
+        },
+        {
+          "n": 33,
+          "value": "1163",
+          "start": 94,
+          "end": 97
+        }
+      ],
+      "last_term_truncated": false,
+      "first_term_index": 0,
+      "last_term_index": 33,
+      "rows": [
+        {
+          "position": 1,
+          "pair": "41",
+          "residue": 8,
+          "signed": -3,
+          "seam": false,
+          "left_term": 0,
+          "right_term": 0
+        },
+        {
+          "position": 2,
+          "pair": "14",
+          "residue": 3,
+          "signed": 3,
+          "seam": true,
+          "left_term": 0,
+          "right_term": 1
+        },
+        {
+          "position": 3,
+          "pair": "43",
+          "residue": 10,
+          "signed": -1,
+          "seam": false,
+          "left_term": 1,
+          "right_term": 1
+        },
+        {
+          "position": 4,
+          "pair": "34",
+          "residue": 1,
+          "signed": 1,
+          "seam": true,
+          "left_term": 1,
+          "right_term": 2
+        },
+        {
+          "position": 5,
+          "pair": "47",
+          "residue": 3,
+          "signed": 3,
+          "seam": false,
+          "left_term": 2,
+          "right_term": 2
+        },
+        {
+          "position": 6,
+          "pair": "75",
+          "residue": 9,
+          "signed": -2,
+          "seam": true,
+          "left_term": 2,
+          "right_term": 3
+        },
+        {
+          "position": 7,
+          "pair": "53",
+          "residue": 9,
+          "signed": -2,
+          "seam": false,
+          "left_term": 3,
+          "right_term": 3
+        },
+        {
+          "position": 8,
+          "pair": "36",
+          "residue": 3,
+          "signed": 3,
+          "seam": true,
+          "left_term": 3,
+          "right_term": 4
+        },
+        {
+          "position": 9,
+          "pair": "61",
+          "residue": 6,
+          "signed": -5,
+          "seam": false,
+          "left_term": 4,
+          "right_term": 4
+        },
+        {
+          "position": 10,
+          "pair": "17",
+          "residue": 6,
+          "signed": -5,
+          "seam": true,
+          "left_term": 4,
+          "right_term": 5
+        },
+        {
+          "position": 11,
+          "pair": "71",
+          "residue": 5,
+          "signed": 5,
+          "seam": false,
+          "left_term": 5,
+          "right_term": 5
+        },
+        {
+          "position": 12,
+          "pair": "18",
+          "residue": 7,
+          "signed": -4,
+          "seam": true,
+          "left_term": 5,
+          "right_term": 6
+        },
+        {
+          "position": 13,
+          "pair": "83",
+          "residue": 6,
+          "signed": -5,
+          "seam": false,
+          "left_term": 6,
+          "right_term": 6
+        },
+        {
+          "position": 14,
+          "pair": "39",
+          "residue": 6,
+          "signed": -5,
+          "seam": true,
+          "left_term": 6,
+          "right_term": 7
+        },
+        {
+          "position": 15,
+          "pair": "97",
+          "residue": 9,
+          "signed": -2,
+          "seam": false,
+          "left_term": 7,
+          "right_term": 7
+        },
+        {
+          "position": 16,
+          "pair": "71",
+          "residue": 5,
+          "signed": 5,
+          "seam": true,
+          "left_term": 7,
+          "right_term": 8
+        },
+        {
+          "position": 17,
+          "pair": "11",
+          "residue": 0,
+          "signed": 0,
+          "seam": false,
+          "left_term": 8,
+          "right_term": 8
+        },
+        {
+          "position": 18,
+          "pair": "13",
+          "residue": 2,
+          "signed": 2,
+          "seam": false,
+          "left_term": 8,
+          "right_term": 8
+        },
+        {
+          "position": 19,
+          "pair": "31",
+          "residue": 9,
+          "signed": -2,
+          "seam": true,
+          "left_term": 8,
+          "right_term": 9
+        },
+        {
+          "position": 20,
+          "pair": "13",
+          "residue": 2,
+          "signed": 2,
+          "seam": false,
+          "left_term": 9,
+          "right_term": 9
+        },
+        {
+          "position": 21,
+          "pair": "31",
+          "residue": 9,
+          "signed": -2,
+          "seam": false,
+          "left_term": 9,
+          "right_term": 9
+        },
+        {
+          "position": 22,
+          "pair": "11",
+          "residue": 0,
+          "signed": 0,
+          "seam": true,
+          "left_term": 9,
+          "right_term": 10
+        },
+        {
+          "position": 23,
+          "pair": "15",
+          "residue": 4,
+          "signed": 4,
+          "seam": false,
+          "left_term": 10,
+          "right_term": 10
+        },
+        {
+          "position": 24,
+          "pair": "51",
+          "residue": 7,
+          "signed": -4,
+          "seam": false,
+          "left_term": 10,
+          "right_term": 10
+        },
+        {
+          "position": 25,
+          "pair": "11",
+          "residue": 0,
+          "signed": 0,
+          "seam": true,
+          "left_term": 10,
+          "right_term": 11
+        },
+        {
+          "position": 26,
+          "pair": "17",
+          "residue": 6,
+          "signed": -5,
+          "seam": false,
+          "left_term": 11,
+          "right_term": 11
+        },
+        {
+          "position": 27,
+          "pair": "73",
+          "residue": 7,
+          "signed": -4,
+          "seam": false,
+          "left_term": 11,
+          "right_term": 11
+        },
+        {
+          "position": 28,
+          "pair": "31",
+          "residue": 9,
+          "signed": -2,
+          "seam": true,
+          "left_term": 11,
+          "right_term": 12
+        },
+        {
+          "position": 29,
+          "pair": "19",
+          "residue": 8,
+          "signed": -3,
+          "seam": false,
+          "left_term": 12,
+          "right_term": 12
+        },
+        {
+          "position": 30,
+          "pair": "97",
+          "residue": 9,
+          "signed": -2,
+          "seam": false,
+          "left_term": 12,
+          "right_term": 12
+        },
+        {
+          "position": 31,
+          "pair": "72",
+          "residue": 6,
+          "signed": -5,
+          "seam": true,
+          "left_term": 12,
+          "right_term": 13
+        },
+        {
+          "position": 32,
+          "pair": "22",
+          "residue": 0,
+          "signed": 0,
+          "seam": false,
+          "left_term": 13,
+          "right_term": 13
+        },
+        {
+          "position": 33,
+          "pair": "23",
+          "residue": 1,
+          "signed": 1,
+          "seam": false,
+          "left_term": 13,
+          "right_term": 13
+        },
+        {
+          "position": 34,
+          "pair": "32",
+          "residue": 10,
+          "signed": -1,
+          "seam": true,
+          "left_term": 13,
+          "right_term": 14
+        },
+        {
+          "position": 35,
+          "pair": "25",
+          "residue": 3,
+          "signed": 3,
+          "seam": false,
+          "left_term": 14,
+          "right_term": 14
+        },
+        {
+          "position": 36,
+          "pair": "51",
+          "residue": 7,
+          "signed": -4,
+          "seam": false,
+          "left_term": 14,
+          "right_term": 14
+        },
+        {
+          "position": 37,
+          "pair": "12",
+          "residue": 1,
+          "signed": 1,
+          "seam": true,
+          "left_term": 14,
+          "right_term": 15
+        },
+        {
+          "position": 38,
+          "pair": "28",
+          "residue": 6,
+          "signed": -5,
+          "seam": false,
+          "left_term": 15,
+          "right_term": 15
+        },
+        {
+          "position": 39,
+          "pair": "81",
+          "residue": 4,
+          "signed": 4,
+          "seam": false,
+          "left_term": 15,
+          "right_term": 15
+        },
+        {
+          "position": 40,
+          "pair": "13",
+          "residue": 2,
+          "signed": 2,
+          "seam": true,
+          "left_term": 15,
+          "right_term": 16
+        },
+        {
+          "position": 41,
+          "pair": "31",
+          "residue": 9,
+          "signed": -2,
+          "seam": false,
+          "left_term": 16,
+          "right_term": 16
+        },
+        {
+          "position": 42,
+          "pair": "13",
+          "residue": 2,
+          "signed": 2,
+          "seam": false,
+          "left_term": 16,
+          "right_term": 16
+        },
+        {
+          "position": 43,
+          "pair": "33",
+          "residue": 0,
+          "signed": 0,
+          "seam": true,
+          "left_term": 16,
+          "right_term": 17
+        },
+        {
+          "position": 44,
+          "pair": "34",
+          "residue": 1,
+          "signed": 1,
+          "seam": false,
+          "left_term": 17,
+          "right_term": 17
+        },
+        {
+          "position": 45,
+          "pair": "47",
+          "residue": 3,
+          "signed": 3,
+          "seam": false,
+          "left_term": 17,
+          "right_term": 17
+        },
+        {
+          "position": 46,
+          "pair": "73",
+          "residue": 7,
+          "signed": -4,
+          "seam": true,
+          "left_term": 17,
+          "right_term": 18
+        },
+        {
+          "position": 47,
+          "pair": "38",
+          "residue": 5,
+          "signed": 5,
+          "seam": false,
+          "left_term": 18,
+          "right_term": 18
+        },
+        {
+          "position": 48,
+          "pair": "83",
+          "residue": 6,
+          "signed": -5,
+          "seam": false,
+          "left_term": 18,
+          "right_term": 18
+        },
+        {
+          "position": 49,
+          "pair": "34",
+          "residue": 1,
+          "signed": 1,
+          "seam": true,
+          "left_term": 18,
+          "right_term": 19
+        },
+        {
+          "position": 50,
+          "pair": "42",
+          "residue": 9,
+          "signed": -2,
+          "seam": false,
+          "left_term": 19,
+          "right_term": 19
+        },
+        {
+          "position": 51,
+          "pair": "21",
+          "residue": 10,
+          "signed": -1,
+          "seam": false,
+          "left_term": 19,
+          "right_term": 19
+        },
+        {
+          "position": 52,
+          "pair": "14",
+          "residue": 3,
+          "signed": 3,
+          "seam": true,
+          "left_term": 19,
+          "right_term": 20
+        },
+        {
+          "position": 53,
+          "pair": "46",
+          "residue": 2,
+          "signed": 2,
+          "seam": false,
+          "left_term": 20,
+          "right_term": 20
+        },
+        {
+          "position": 54,
+          "pair": "61",
+          "residue": 6,
+          "signed": -5,
+          "seam": false,
+          "left_term": 20,
+          "right_term": 20
+        },
+        {
+          "position": 55,
+          "pair": "15",
+          "residue": 4,
+          "signed": 4,
+          "seam": true,
+          "left_term": 20,
+          "right_term": 21
+        },
+        {
+          "position": 56,
+          "pair": "50",
+          "residue": 6,
+          "signed": -5,
+          "seam": false,
+          "left_term": 21,
+          "right_term": 21
+        },
+        {
+          "position": 57,
+          "pair": "03",
+          "residue": 3,
+          "signed": 3,
+          "seam": false,
+          "left_term": 21,
+          "right_term": 21
+        },
+        {
+          "position": 58,
+          "pair": "35",
+          "residue": 2,
+          "signed": 2,
+          "seam": true,
+          "left_term": 21,
+          "right_term": 22
+        },
+        {
+          "position": 59,
+          "pair": "54",
+          "residue": 10,
+          "signed": -1,
+          "seam": false,
+          "left_term": 22,
+          "right_term": 22
+        },
+        {
+          "position": 60,
+          "pair": "47",
+          "residue": 3,
+          "signed": 3,
+          "seam": false,
+          "left_term": 22,
+          "right_term": 22
+        },
+        {
+          "position": 61,
+          "pair": "75",
+          "residue": 9,
+          "signed": -2,
+          "seam": true,
+          "left_term": 22,
+          "right_term": 23
+        },
+        {
+          "position": 62,
+          "pair": "59",
+          "residue": 4,
+          "signed": 4,
+          "seam": false,
+          "left_term": 23,
+          "right_term": 23
+        },
+        {
+          "position": 63,
+          "pair": "93",
+          "residue": 5,
+          "signed": 5,
+          "seam": false,
+          "left_term": 23,
+          "right_term": 23
+        },
+        {
+          "position": 64,
+          "pair": "36",
+          "residue": 3,
+          "signed": 3,
+          "seam": true,
+          "left_term": 23,
+          "right_term": 24
+        },
+        {
+          "position": 65,
+          "pair": "64",
+          "residue": 9,
+          "signed": -2,
+          "seam": false,
+          "left_term": 24,
+          "right_term": 24
+        },
+        {
+          "position": 66,
+          "pair": "41",
+          "residue": 8,
+          "signed": -3,
+          "seam": false,
+          "left_term": 24,
+          "right_term": 24
+        },
+        {
+          "position": 67,
+          "pair": "16",
+          "residue": 5,
+          "signed": 5,
+          "seam": true,
+          "left_term": 24,
+          "right_term": 25
+        },
+        {
+          "position": 68,
+          "pair": "69",
+          "residue": 3,
+          "signed": 3,
+          "seam": false,
+          "left_term": 25,
+          "right_term": 25
+        },
+        {
+          "position": 69,
+          "pair": "91",
+          "residue": 3,
+          "signed": 3,
+          "seam": false,
+          "left_term": 25,
+          "right_term": 25
+        },
+        {
+          "position": 70,
+          "pair": "17",
+          "residue": 6,
+          "signed": -5,
+          "seam": true,
+          "left_term": 25,
+          "right_term": 26
+        },
+        {
+          "position": 71,
+          "pair": "74",
+          "residue": 8,
+          "signed": -3,
+          "seam": false,
+          "left_term": 26,
+          "right_term": 26
+        },
+        {
+          "position": 72,
+          "pair": "43",
+          "residue": 10,
+          "signed": -1,
+          "seam": false,
+          "left_term": 26,
+          "right_term": 26
+        },
+        {
+          "position": 73,
+          "pair": "37",
+          "residue": 4,
+          "signed": 4,
+          "seam": true,
+          "left_term": 26,
+          "right_term": 27
+        },
+        {
+          "position": 74,
+          "pair": "79",
+          "residue": 2,
+          "signed": 2,
+          "seam": false,
+          "left_term": 27,
+          "right_term": 27
+        },
+        {
+          "position": 75,
+          "pair": "97",
+          "residue": 9,
+          "signed": -2,
+          "seam": false,
+          "left_term": 27,
+          "right_term": 27
+        },
+        {
+          "position": 76,
+          "pair": "78",
+          "residue": 1,
+          "signed": 1,
+          "seam": true,
+          "left_term": 27,
+          "right_term": 28
+        },
+        {
+          "position": 77,
+          "pair": "85",
+          "residue": 8,
+          "signed": -3,
+          "seam": false,
+          "left_term": 28,
+          "right_term": 28
+        },
+        {
+          "position": 78,
+          "pair": "53",
+          "residue": 9,
+          "signed": -2,
+          "seam": false,
+          "left_term": 28,
+          "right_term": 28
+        },
+        {
+          "position": 79,
+          "pair": "39",
+          "residue": 6,
+          "signed": -5,
+          "seam": true,
+          "left_term": 28,
+          "right_term": 29
+        },
+        {
+          "position": 80,
+          "pair": "91",
+          "residue": 3,
+          "signed": 3,
+          "seam": false,
+          "left_term": 29,
+          "right_term": 29
+        },
+        {
+          "position": 81,
+          "pair": "11",
+          "residue": 0,
+          "signed": 0,
+          "seam": false,
+          "left_term": 29,
+          "right_term": 29
+        },
+        {
+          "position": 82,
+          "pair": "19",
+          "residue": 8,
+          "signed": -3,
+          "seam": true,
+          "left_term": 29,
+          "right_term": 30
+        },
+        {
+          "position": 83,
+          "pair": "97",
+          "residue": 9,
+          "signed": -2,
+          "seam": false,
+          "left_term": 30,
+          "right_term": 30
+        },
+        {
+          "position": 84,
+          "pair": "71",
+          "residue": 5,
+          "signed": 5,
+          "seam": false,
+          "left_term": 30,
+          "right_term": 30
+        },
+        {
+          "position": 85,
+          "pair": "11",
+          "residue": 0,
+          "signed": 0,
+          "seam": true,
+          "left_term": 30,
+          "right_term": 31
+        },
+        {
+          "position": 86,
+          "pair": "10",
+          "residue": 10,
+          "signed": -1,
+          "seam": false,
+          "left_term": 31,
+          "right_term": 31
+        },
+        {
+          "position": 87,
+          "pair": "03",
+          "residue": 3,
+          "signed": 3,
+          "seam": false,
+          "left_term": 31,
+          "right_term": 31
+        },
+        {
+          "position": 88,
+          "pair": "33",
+          "residue": 0,
+          "signed": 0,
+          "seam": false,
+          "left_term": 31,
+          "right_term": 31
+        },
+        {
+          "position": 89,
+          "pair": "31",
+          "residue": 9,
+          "signed": -2,
+          "seam": true,
+          "left_term": 31,
+          "right_term": 32
+        },
+        {
+          "position": 90,
+          "pair": "10",
+          "residue": 10,
+          "signed": -1,
+          "seam": false,
+          "left_term": 32,
+          "right_term": 32
+        },
+        {
+          "position": 91,
+          "pair": "09",
+          "residue": 9,
+          "signed": -2,
+          "seam": false,
+          "left_term": 32,
+          "right_term": 32
+        },
+        {
+          "position": 92,
+          "pair": "97",
+          "residue": 9,
+          "signed": -2,
+          "seam": false,
+          "left_term": 32,
+          "right_term": 32
+        },
+        {
+          "position": 93,
+          "pair": "71",
+          "residue": 5,
+          "signed": 5,
+          "seam": true,
+          "left_term": 32,
+          "right_term": 33
+        },
+        {
+          "position": 94,
+          "pair": "11",
+          "residue": 0,
+          "signed": 0,
+          "seam": false,
+          "left_term": 33,
+          "right_term": 33
+        },
+        {
+          "position": 95,
+          "pair": "16",
+          "residue": 5,
+          "signed": 5,
+          "seam": false,
+          "left_term": 33,
+          "right_term": 33
+        },
+        {
+          "position": 96,
+          "pair": "63",
+          "residue": 8,
+          "signed": -3,
+          "seam": false,
+          "left_term": 33,
+          "right_term": 33
+        }
+      ],
+      "summary": {
+        "pairs": 96,
+        "seam_pairs": 33,
+        "repeat_within": 5,
+        "repeat_at_seam": 4
+      }
+    },
+    "pentagon_a": {
+      "integer": 1,
+      "digits97": "9021130325903071442328786667587642868113972682515004448946112888603063401703870034375856219416227",
+      "label": "a = 1,902113…",
+      "kind": "fractional-decimal",
+      "rows": [
+        {
+          "position": 1,
+          "pair": "90",
+          "residue": 2,
+          "signed": 2,
+          "seam": false
+        },
+        {
+          "position": 2,
+          "pair": "02",
+          "residue": 2,
+          "signed": 2,
+          "seam": false
+        },
+        {
+          "position": 3,
+          "pair": "21",
+          "residue": 10,
+          "signed": -1,
+          "seam": false
+        },
+        {
+          "position": 4,
+          "pair": "11",
+          "residue": 0,
+          "signed": 0,
+          "seam": false
+        },
+        {
+          "position": 5,
+          "pair": "13",
+          "residue": 2,
+          "signed": 2,
+          "seam": false
+        },
+        {
+          "position": 6,
+          "pair": "30",
+          "residue": 8,
+          "signed": -3,
+          "seam": false
+        },
+        {
+          "position": 7,
+          "pair": "03",
+          "residue": 3,
+          "signed": 3,
+          "seam": false
+        },
+        {
+          "position": 8,
+          "pair": "32",
+          "residue": 10,
+          "signed": -1,
+          "seam": false
+        },
+        {
+          "position": 9,
+          "pair": "25",
+          "residue": 3,
+          "signed": 3,
+          "seam": false
+        },
+        {
+          "position": 10,
+          "pair": "59",
+          "residue": 4,
+          "signed": 4,
+          "seam": false
+        },
+        {
+          "position": 11,
+          "pair": "90",
+          "residue": 2,
+          "signed": 2,
+          "seam": false
+        },
+        {
+          "position": 12,
+          "pair": "03",
+          "residue": 3,
+          "signed": 3,
+          "seam": false
+        },
+        {
+          "position": 13,
+          "pair": "30",
+          "residue": 8,
+          "signed": -3,
+          "seam": false
+        },
+        {
+          "position": 14,
+          "pair": "07",
+          "residue": 7,
+          "signed": -4,
+          "seam": false
+        },
+        {
+          "position": 15,
+          "pair": "71",
+          "residue": 5,
+          "signed": 5,
+          "seam": false
+        },
+        {
+          "position": 16,
+          "pair": "14",
+          "residue": 3,
+          "signed": 3,
+          "seam": false
+        },
+        {
+          "position": 17,
+          "pair": "44",
+          "residue": 0,
+          "signed": 0,
+          "seam": false
+        },
+        {
+          "position": 18,
+          "pair": "42",
+          "residue": 9,
+          "signed": -2,
+          "seam": false
+        },
+        {
+          "position": 19,
+          "pair": "23",
+          "residue": 1,
+          "signed": 1,
+          "seam": false
+        },
+        {
+          "position": 20,
+          "pair": "32",
+          "residue": 10,
+          "signed": -1,
+          "seam": false
+        },
+        {
+          "position": 21,
+          "pair": "28",
+          "residue": 6,
+          "signed": -5,
+          "seam": false
+        },
+        {
+          "position": 22,
+          "pair": "87",
+          "residue": 10,
+          "signed": -1,
+          "seam": false
+        },
+        {
+          "position": 23,
+          "pair": "78",
+          "residue": 1,
+          "signed": 1,
+          "seam": false
+        },
+        {
+          "position": 24,
+          "pair": "86",
+          "residue": 9,
+          "signed": -2,
+          "seam": false
+        },
+        {
+          "position": 25,
+          "pair": "66",
+          "residue": 0,
+          "signed": 0,
+          "seam": false
+        },
+        {
+          "position": 26,
+          "pair": "66",
+          "residue": 0,
+          "signed": 0,
+          "seam": false
+        },
+        {
+          "position": 27,
+          "pair": "67",
+          "residue": 1,
+          "signed": 1,
+          "seam": false
+        },
+        {
+          "position": 28,
+          "pair": "75",
+          "residue": 9,
+          "signed": -2,
+          "seam": false
+        },
+        {
+          "position": 29,
+          "pair": "58",
+          "residue": 3,
+          "signed": 3,
+          "seam": false
+        },
+        {
+          "position": 30,
+          "pair": "87",
+          "residue": 10,
+          "signed": -1,
+          "seam": false
+        },
+        {
+          "position": 31,
+          "pair": "76",
+          "residue": 10,
+          "signed": -1,
+          "seam": false
+        },
+        {
+          "position": 32,
+          "pair": "64",
+          "residue": 9,
+          "signed": -2,
+          "seam": false
+        },
+        {
+          "position": 33,
+          "pair": "42",
+          "residue": 9,
+          "signed": -2,
+          "seam": false
+        },
+        {
+          "position": 34,
+          "pair": "28",
+          "residue": 6,
+          "signed": -5,
+          "seam": false
+        },
+        {
+          "position": 35,
+          "pair": "86",
+          "residue": 9,
+          "signed": -2,
+          "seam": false
+        },
+        {
+          "position": 36,
+          "pair": "68",
+          "residue": 2,
+          "signed": 2,
+          "seam": false
+        },
+        {
+          "position": 37,
+          "pair": "81",
+          "residue": 4,
+          "signed": 4,
+          "seam": false
+        },
+        {
+          "position": 38,
+          "pair": "11",
+          "residue": 0,
+          "signed": 0,
+          "seam": false
+        },
+        {
+          "position": 39,
+          "pair": "13",
+          "residue": 2,
+          "signed": 2,
+          "seam": false
+        },
+        {
+          "position": 40,
+          "pair": "39",
+          "residue": 6,
+          "signed": -5,
+          "seam": false
+        },
+        {
+          "position": 41,
+          "pair": "97",
+          "residue": 9,
+          "signed": -2,
+          "seam": false
+        },
+        {
+          "position": 42,
+          "pair": "72",
+          "residue": 6,
+          "signed": -5,
+          "seam": false
+        },
+        {
+          "position": 43,
+          "pair": "26",
+          "residue": 4,
+          "signed": 4,
+          "seam": false
+        },
+        {
+          "position": 44,
+          "pair": "68",
+          "residue": 2,
+          "signed": 2,
+          "seam": false
+        },
+        {
+          "position": 45,
+          "pair": "82",
+          "residue": 5,
+          "signed": 5,
+          "seam": false
+        },
+        {
+          "position": 46,
+          "pair": "25",
+          "residue": 3,
+          "signed": 3,
+          "seam": false
+        },
+        {
+          "position": 47,
+          "pair": "51",
+          "residue": 7,
+          "signed": -4,
+          "seam": false
+        },
+        {
+          "position": 48,
+          "pair": "15",
+          "residue": 4,
+          "signed": 4,
+          "seam": false
+        },
+        {
+          "position": 49,
+          "pair": "50",
+          "residue": 6,
+          "signed": -5,
+          "seam": false
+        },
+        {
+          "position": 50,
+          "pair": "00",
+          "residue": 0,
+          "signed": 0,
+          "seam": false
+        },
+        {
+          "position": 51,
+          "pair": "04",
+          "residue": 4,
+          "signed": 4,
+          "seam": false
+        },
+        {
+          "position": 52,
+          "pair": "44",
+          "residue": 0,
+          "signed": 0,
+          "seam": false
+        },
+        {
+          "position": 53,
+          "pair": "44",
+          "residue": 0,
+          "signed": 0,
+          "seam": false
+        },
+        {
+          "position": 54,
+          "pair": "48",
+          "residue": 4,
+          "signed": 4,
+          "seam": false
+        },
+        {
+          "position": 55,
+          "pair": "89",
+          "residue": 1,
+          "signed": 1,
+          "seam": false
+        },
+        {
+          "position": 56,
+          "pair": "94",
+          "residue": 6,
+          "signed": -5,
+          "seam": false
+        },
+        {
+          "position": 57,
+          "pair": "46",
+          "residue": 2,
+          "signed": 2,
+          "seam": false
+        },
+        {
+          "position": 58,
+          "pair": "61",
+          "residue": 6,
+          "signed": -5,
+          "seam": false
+        },
+        {
+          "position": 59,
+          "pair": "11",
+          "residue": 0,
+          "signed": 0,
+          "seam": false
+        },
+        {
+          "position": 60,
+          "pair": "12",
+          "residue": 1,
+          "signed": 1,
+          "seam": false
+        },
+        {
+          "position": 61,
+          "pair": "28",
+          "residue": 6,
+          "signed": -5,
+          "seam": false
+        },
+        {
+          "position": 62,
+          "pair": "88",
+          "residue": 0,
+          "signed": 0,
+          "seam": false
+        },
+        {
+          "position": 63,
+          "pair": "88",
+          "residue": 0,
+          "signed": 0,
+          "seam": false
+        },
+        {
+          "position": 64,
+          "pair": "86",
+          "residue": 9,
+          "signed": -2,
+          "seam": false
+        },
+        {
+          "position": 65,
+          "pair": "60",
+          "residue": 5,
+          "signed": 5,
+          "seam": false
+        },
+        {
+          "position": 66,
+          "pair": "03",
+          "residue": 3,
+          "signed": 3,
+          "seam": false
+        },
+        {
+          "position": 67,
+          "pair": "30",
+          "residue": 8,
+          "signed": -3,
+          "seam": false
+        },
+        {
+          "position": 68,
+          "pair": "06",
+          "residue": 6,
+          "signed": -5,
+          "seam": false
+        },
+        {
+          "position": 69,
+          "pair": "63",
+          "residue": 8,
+          "signed": -3,
+          "seam": false
+        },
+        {
+          "position": 70,
+          "pair": "34",
+          "residue": 1,
+          "signed": 1,
+          "seam": false
+        },
+        {
+          "position": 71,
+          "pair": "40",
+          "residue": 7,
+          "signed": -4,
+          "seam": false
+        },
+        {
+          "position": 72,
+          "pair": "01",
+          "residue": 1,
+          "signed": 1,
+          "seam": false
+        },
+        {
+          "position": 73,
+          "pair": "17",
+          "residue": 6,
+          "signed": -5,
+          "seam": false
+        },
+        {
+          "position": 74,
+          "pair": "70",
+          "residue": 4,
+          "signed": 4,
+          "seam": false
+        },
+        {
+          "position": 75,
+          "pair": "03",
+          "residue": 3,
+          "signed": 3,
+          "seam": false
+        },
+        {
+          "position": 76,
+          "pair": "38",
+          "residue": 5,
+          "signed": 5,
+          "seam": false
+        },
+        {
+          "position": 77,
+          "pair": "87",
+          "residue": 10,
+          "signed": -1,
+          "seam": false
+        },
+        {
+          "position": 78,
+          "pair": "70",
+          "residue": 4,
+          "signed": 4,
+          "seam": false
+        },
+        {
+          "position": 79,
+          "pair": "00",
+          "residue": 0,
+          "signed": 0,
+          "seam": false
+        },
+        {
+          "position": 80,
+          "pair": "03",
+          "residue": 3,
+          "signed": 3,
+          "seam": false
+        },
+        {
+          "position": 81,
+          "pair": "34",
+          "residue": 1,
+          "signed": 1,
+          "seam": false
+        },
+        {
+          "position": 82,
+          "pair": "43",
+          "residue": 10,
+          "signed": -1,
+          "seam": false
+        },
+        {
+          "position": 83,
+          "pair": "37",
+          "residue": 4,
+          "signed": 4,
+          "seam": false
+        },
+        {
+          "position": 84,
+          "pair": "75",
+          "residue": 9,
+          "signed": -2,
+          "seam": false
+        },
+        {
+          "position": 85,
+          "pair": "58",
+          "residue": 3,
+          "signed": 3,
+          "seam": false
+        },
+        {
+          "position": 86,
+          "pair": "85",
+          "residue": 8,
+          "signed": -3,
+          "seam": false
+        },
+        {
+          "position": 87,
+          "pair": "56",
+          "residue": 1,
+          "signed": 1,
+          "seam": false
+        },
+        {
+          "position": 88,
+          "pair": "62",
+          "residue": 7,
+          "signed": -4,
+          "seam": false
+        },
+        {
+          "position": 89,
+          "pair": "21",
+          "residue": 10,
+          "signed": -1,
+          "seam": false
+        },
+        {
+          "position": 90,
+          "pair": "19",
+          "residue": 8,
+          "signed": -3,
+          "seam": false
+        },
+        {
+          "position": 91,
+          "pair": "94",
+          "residue": 6,
+          "signed": -5,
+          "seam": false
+        },
+        {
+          "position": 92,
+          "pair": "41",
+          "residue": 8,
+          "signed": -3,
+          "seam": false
+        },
+        {
+          "position": 93,
+          "pair": "16",
+          "residue": 5,
+          "signed": 5,
+          "seam": false
+        },
+        {
+          "position": 94,
+          "pair": "62",
+          "residue": 7,
+          "signed": -4,
+          "seam": false
+        },
+        {
+          "position": 95,
+          "pair": "22",
+          "residue": 0,
+          "signed": 0,
+          "seam": false
+        },
+        {
+          "position": 96,
+          "pair": "27",
+          "residue": 5,
+          "signed": 5,
+          "seam": false
+        }
+      ],
+      "summary": {
+        "pairs": 96,
+        "seam_pairs": 0,
+        "repeat_within": 13,
+        "repeat_at_seam": 0
+      }
+    },
+    "root7_height_b": {
+      "integer": 2,
+      "digits97": "0933145992062696049522143555516328076990298675313092946810810094245013801659013982779217993726091",
+      "label": "b = 2,093314…",
+      "kind": "fractional-decimal",
+      "rows": [
+        {
+          "position": 1,
+          "pair": "09",
+          "residue": 9,
+          "signed": -2,
+          "seam": false
+        },
+        {
+          "position": 2,
+          "pair": "93",
+          "residue": 5,
+          "signed": 5,
+          "seam": false
+        },
+        {
+          "position": 3,
+          "pair": "33",
+          "residue": 0,
+          "signed": 0,
+          "seam": false
+        },
+        {
+          "position": 4,
+          "pair": "31",
+          "residue": 9,
+          "signed": -2,
+          "seam": false
+        },
+        {
+          "position": 5,
+          "pair": "14",
+          "residue": 3,
+          "signed": 3,
+          "seam": false
+        },
+        {
+          "position": 6,
+          "pair": "45",
+          "residue": 1,
+          "signed": 1,
+          "seam": false
+        },
+        {
+          "position": 7,
+          "pair": "59",
+          "residue": 4,
+          "signed": 4,
+          "seam": false
+        },
+        {
+          "position": 8,
+          "pair": "99",
+          "residue": 0,
+          "signed": 0,
+          "seam": false
+        },
+        {
+          "position": 9,
+          "pair": "92",
+          "residue": 4,
+          "signed": 4,
+          "seam": false
+        },
+        {
+          "position": 10,
+          "pair": "20",
+          "residue": 9,
+          "signed": -2,
+          "seam": false
+        },
+        {
+          "position": 11,
+          "pair": "06",
+          "residue": 6,
+          "signed": -5,
+          "seam": false
+        },
+        {
+          "position": 12,
+          "pair": "62",
+          "residue": 7,
+          "signed": -4,
+          "seam": false
+        },
+        {
+          "position": 13,
+          "pair": "26",
+          "residue": 4,
+          "signed": 4,
+          "seam": false
+        },
+        {
+          "position": 14,
+          "pair": "69",
+          "residue": 3,
+          "signed": 3,
+          "seam": false
+        },
+        {
+          "position": 15,
+          "pair": "96",
+          "residue": 8,
+          "signed": -3,
+          "seam": false
+        },
+        {
+          "position": 16,
+          "pair": "60",
+          "residue": 5,
+          "signed": 5,
+          "seam": false
+        },
+        {
+          "position": 17,
+          "pair": "04",
+          "residue": 4,
+          "signed": 4,
+          "seam": false
+        },
+        {
+          "position": 18,
+          "pair": "49",
+          "residue": 5,
+          "signed": 5,
+          "seam": false
+        },
+        {
+          "position": 19,
+          "pair": "95",
+          "residue": 7,
+          "signed": -4,
+          "seam": false
+        },
+        {
+          "position": 20,
+          "pair": "52",
+          "residue": 8,
+          "signed": -3,
+          "seam": false
+        },
+        {
+          "position": 21,
+          "pair": "22",
+          "residue": 0,
+          "signed": 0,
+          "seam": false
+        },
+        {
+          "position": 22,
+          "pair": "21",
+          "residue": 10,
+          "signed": -1,
+          "seam": false
+        },
+        {
+          "position": 23,
+          "pair": "14",
+          "residue": 3,
+          "signed": 3,
+          "seam": false
+        },
+        {
+          "position": 24,
+          "pair": "43",
+          "residue": 10,
+          "signed": -1,
+          "seam": false
+        },
+        {
+          "position": 25,
+          "pair": "35",
+          "residue": 2,
+          "signed": 2,
+          "seam": false
+        },
+        {
+          "position": 26,
+          "pair": "55",
+          "residue": 0,
+          "signed": 0,
+          "seam": false
+        },
+        {
+          "position": 27,
+          "pair": "55",
+          "residue": 0,
+          "signed": 0,
+          "seam": false
+        },
+        {
+          "position": 28,
+          "pair": "55",
+          "residue": 0,
+          "signed": 0,
+          "seam": false
+        },
+        {
+          "position": 29,
+          "pair": "51",
+          "residue": 7,
+          "signed": -4,
+          "seam": false
+        },
+        {
+          "position": 30,
+          "pair": "16",
+          "residue": 5,
+          "signed": 5,
+          "seam": false
+        },
+        {
+          "position": 31,
+          "pair": "63",
+          "residue": 8,
+          "signed": -3,
+          "seam": false
+        },
+        {
+          "position": 32,
+          "pair": "32",
+          "residue": 10,
+          "signed": -1,
+          "seam": false
+        },
+        {
+          "position": 33,
+          "pair": "28",
+          "residue": 6,
+          "signed": -5,
+          "seam": false
+        },
+        {
+          "position": 34,
+          "pair": "80",
+          "residue": 3,
+          "signed": 3,
+          "seam": false
+        },
+        {
+          "position": 35,
+          "pair": "07",
+          "residue": 7,
+          "signed": -4,
+          "seam": false
+        },
+        {
+          "position": 36,
+          "pair": "76",
+          "residue": 10,
+          "signed": -1,
+          "seam": false
+        },
+        {
+          "position": 37,
+          "pair": "69",
+          "residue": 3,
+          "signed": 3,
+          "seam": false
+        },
+        {
+          "position": 38,
+          "pair": "99",
+          "residue": 0,
+          "signed": 0,
+          "seam": false
+        },
+        {
+          "position": 39,
+          "pair": "90",
+          "residue": 2,
+          "signed": 2,
+          "seam": false
+        },
+        {
+          "position": 40,
+          "pair": "02",
+          "residue": 2,
+          "signed": 2,
+          "seam": false
+        },
+        {
+          "position": 41,
+          "pair": "29",
+          "residue": 7,
+          "signed": -4,
+          "seam": false
+        },
+        {
+          "position": 42,
+          "pair": "98",
+          "residue": 10,
+          "signed": -1,
+          "seam": false
+        },
+        {
+          "position": 43,
+          "pair": "86",
+          "residue": 9,
+          "signed": -2,
+          "seam": false
+        },
+        {
+          "position": 44,
+          "pair": "67",
+          "residue": 1,
+          "signed": 1,
+          "seam": false
+        },
+        {
+          "position": 45,
+          "pair": "75",
+          "residue": 9,
+          "signed": -2,
+          "seam": false
+        },
+        {
+          "position": 46,
+          "pair": "53",
+          "residue": 9,
+          "signed": -2,
+          "seam": false
+        },
+        {
+          "position": 47,
+          "pair": "31",
+          "residue": 9,
+          "signed": -2,
+          "seam": false
+        },
+        {
+          "position": 48,
+          "pair": "13",
+          "residue": 2,
+          "signed": 2,
+          "seam": false
+        },
+        {
+          "position": 49,
+          "pair": "30",
+          "residue": 8,
+          "signed": -3,
+          "seam": false
+        },
+        {
+          "position": 50,
+          "pair": "09",
+          "residue": 9,
+          "signed": -2,
+          "seam": false
+        },
+        {
+          "position": 51,
+          "pair": "92",
+          "residue": 4,
+          "signed": 4,
+          "seam": false
+        },
+        {
+          "position": 52,
+          "pair": "29",
+          "residue": 7,
+          "signed": -4,
+          "seam": false
+        },
+        {
+          "position": 53,
+          "pair": "94",
+          "residue": 6,
+          "signed": -5,
+          "seam": false
+        },
+        {
+          "position": 54,
+          "pair": "46",
+          "residue": 2,
+          "signed": 2,
+          "seam": false
+        },
+        {
+          "position": 55,
+          "pair": "68",
+          "residue": 2,
+          "signed": 2,
+          "seam": false
+        },
+        {
+          "position": 56,
+          "pair": "81",
+          "residue": 4,
+          "signed": 4,
+          "seam": false
+        },
+        {
+          "position": 57,
+          "pair": "10",
+          "residue": 10,
+          "signed": -1,
+          "seam": false
+        },
+        {
+          "position": 58,
+          "pair": "08",
+          "residue": 8,
+          "signed": -3,
+          "seam": false
+        },
+        {
+          "position": 59,
+          "pair": "81",
+          "residue": 4,
+          "signed": 4,
+          "seam": false
+        },
+        {
+          "position": 60,
+          "pair": "10",
+          "residue": 10,
+          "signed": -1,
+          "seam": false
+        },
+        {
+          "position": 61,
+          "pair": "00",
+          "residue": 0,
+          "signed": 0,
+          "seam": false
+        },
+        {
+          "position": 62,
+          "pair": "09",
+          "residue": 9,
+          "signed": -2,
+          "seam": false
+        },
+        {
+          "position": 63,
+          "pair": "94",
+          "residue": 6,
+          "signed": -5,
+          "seam": false
+        },
+        {
+          "position": 64,
+          "pair": "42",
+          "residue": 9,
+          "signed": -2,
+          "seam": false
+        },
+        {
+          "position": 65,
+          "pair": "24",
+          "residue": 2,
+          "signed": 2,
+          "seam": false
+        },
+        {
+          "position": 66,
+          "pair": "45",
+          "residue": 1,
+          "signed": 1,
+          "seam": false
+        },
+        {
+          "position": 67,
+          "pair": "50",
+          "residue": 6,
+          "signed": -5,
+          "seam": false
+        },
+        {
+          "position": 68,
+          "pair": "01",
+          "residue": 1,
+          "signed": 1,
+          "seam": false
+        },
+        {
+          "position": 69,
+          "pair": "13",
+          "residue": 2,
+          "signed": 2,
+          "seam": false
+        },
+        {
+          "position": 70,
+          "pair": "38",
+          "residue": 5,
+          "signed": 5,
+          "seam": false
+        },
+        {
+          "position": 71,
+          "pair": "80",
+          "residue": 3,
+          "signed": 3,
+          "seam": false
+        },
+        {
+          "position": 72,
+          "pair": "01",
+          "residue": 1,
+          "signed": 1,
+          "seam": false
+        },
+        {
+          "position": 73,
+          "pair": "16",
+          "residue": 5,
+          "signed": 5,
+          "seam": false
+        },
+        {
+          "position": 74,
+          "pair": "65",
+          "residue": 10,
+          "signed": -1,
+          "seam": false
+        },
+        {
+          "position": 75,
+          "pair": "59",
+          "residue": 4,
+          "signed": 4,
+          "seam": false
+        },
+        {
+          "position": 76,
+          "pair": "90",
+          "residue": 2,
+          "signed": 2,
+          "seam": false
+        },
+        {
+          "position": 77,
+          "pair": "01",
+          "residue": 1,
+          "signed": 1,
+          "seam": false
+        },
+        {
+          "position": 78,
+          "pair": "13",
+          "residue": 2,
+          "signed": 2,
+          "seam": false
+        },
+        {
+          "position": 79,
+          "pair": "39",
+          "residue": 6,
+          "signed": -5,
+          "seam": false
+        },
+        {
+          "position": 80,
+          "pair": "98",
+          "residue": 10,
+          "signed": -1,
+          "seam": false
+        },
+        {
+          "position": 81,
+          "pair": "82",
+          "residue": 5,
+          "signed": 5,
+          "seam": false
+        },
+        {
+          "position": 82,
+          "pair": "27",
+          "residue": 5,
+          "signed": 5,
+          "seam": false
+        },
+        {
+          "position": 83,
+          "pair": "77",
+          "residue": 0,
+          "signed": 0,
+          "seam": false
+        },
+        {
+          "position": 84,
+          "pair": "79",
+          "residue": 2,
+          "signed": 2,
+          "seam": false
+        },
+        {
+          "position": 85,
+          "pair": "92",
+          "residue": 4,
+          "signed": 4,
+          "seam": false
+        },
+        {
+          "position": 86,
+          "pair": "21",
+          "residue": 10,
+          "signed": -1,
+          "seam": false
+        },
+        {
+          "position": 87,
+          "pair": "17",
+          "residue": 6,
+          "signed": -5,
+          "seam": false
+        },
+        {
+          "position": 88,
+          "pair": "79",
+          "residue": 2,
+          "signed": 2,
+          "seam": false
+        },
+        {
+          "position": 89,
+          "pair": "99",
+          "residue": 0,
+          "signed": 0,
+          "seam": false
+        },
+        {
+          "position": 90,
+          "pair": "93",
+          "residue": 5,
+          "signed": 5,
+          "seam": false
+        },
+        {
+          "position": 91,
+          "pair": "37",
+          "residue": 4,
+          "signed": 4,
+          "seam": false
+        },
+        {
+          "position": 92,
+          "pair": "72",
+          "residue": 6,
+          "signed": -5,
+          "seam": false
+        },
+        {
+          "position": 93,
+          "pair": "26",
+          "residue": 4,
+          "signed": 4,
+          "seam": false
+        },
+        {
+          "position": 94,
+          "pair": "60",
+          "residue": 5,
+          "signed": 5,
+          "seam": false
+        },
+        {
+          "position": 95,
+          "pair": "09",
+          "residue": 9,
+          "signed": -2,
+          "seam": false
+        },
+        {
+          "position": 96,
+          "pair": "91",
+          "residue": 3,
+          "signed": 3,
+          "seam": false
+        }
+      ],
+      "summary": {
+        "pairs": 96,
+        "seam_pairs": 0,
+        "repeat_within": 10,
+        "repeat_at_seam": 0
+      }
+    }
+  },
+  "recovery_all_12_strips": {
+    "pi": {
+      "with_first_digit": "PASS",
+      "valid_seed_count_without_first_digit": 1,
+      "valid_seeds": [
+        1
+      ],
+      "all_candidate_strings_constant": false
+    },
+    "phi": {
+      "with_first_digit": "PASS",
+      "valid_seed_count_without_first_digit": 1,
+      "valid_seeds": [
+        6
+      ],
+      "all_candidate_strings_constant": false
+    },
+    "sqrt2": {
+      "with_first_digit": "PASS",
+      "valid_seed_count_without_first_digit": 1,
+      "valid_seeds": [
+        4
+      ],
+      "all_candidate_strings_constant": false
+    },
+    "sqrt7": {
+      "with_first_digit": "PASS",
+      "valid_seed_count_without_first_digit": 1,
+      "valid_seeds": [
+        6
+      ],
+      "all_candidate_strings_constant": false
+    },
+    "sqrt11": {
+      "with_first_digit": "PASS",
+      "valid_seed_count_without_first_digit": 1,
+      "valid_seeds": [
+        3
+      ],
+      "all_candidate_strings_constant": false
+    },
+    "sqrt4": {
+      "with_first_digit": "PASS",
+      "valid_seed_count_without_first_digit": 10,
+      "valid_seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "all_candidate_strings_constant": true
+    },
+    "sqrt19": {
+      "with_first_digit": "PASS",
+      "valid_seed_count_without_first_digit": 1,
+      "valid_seeds": [
+        3
+      ],
+      "all_candidate_strings_constant": false
+    },
+    "sqrt29": {
+      "with_first_digit": "PASS",
+      "valid_seed_count_without_first_digit": 1,
+      "valid_seeds": [
+        3
+      ],
+      "all_candidate_strings_constant": false
+    },
+    "fibonacci": {
+      "with_first_digit": "PASS",
+      "valid_seed_count_without_first_digit": 1,
+      "valid_seeds": [
+        0
+      ],
+      "all_candidate_strings_constant": false
+    },
+    "euler_polynomial": {
+      "with_first_digit": "PASS",
+      "valid_seed_count_without_first_digit": 1,
+      "valid_seeds": [
+        4
+      ],
+      "all_candidate_strings_constant": false
+    },
+    "pentagon_a": {
+      "with_first_digit": "PASS",
+      "valid_seed_count_without_first_digit": 1,
+      "valid_seeds": [
+        9
+      ],
+      "all_candidate_strings_constant": false
+    },
+    "root7_height_b": {
+      "with_first_digit": "PASS",
+      "valid_seed_count_without_first_digit": 1,
+      "valid_seeds": [
+        0
+      ],
+      "all_candidate_strings_constant": false
+    }
+  },
+  "geometry_identity": "a²+b²=8; this exact identity is independent of decimal encoding",
+  "scope": "No significance test or new primality claim. Digit position does not imply equal term index across the two concatenated sequences."
+}

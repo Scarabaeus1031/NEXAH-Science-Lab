@@ -75,7 +75,7 @@ ok(html.indexOf('<script src="assets/a0-blue-body-interior-crt16-v1.js">') < htm
 ok(html.includes("A0_LIVING_BLUEPRINT.html#integration-crosswalk"), "transfer returns to A0 Crosswalk");
 ok(html.includes("103_A0_BLUE_BODY_GAME4LIFE_TRANSFER_CONTROL"), "transfer links Check 103");
 ok(html.includes('id="lifeTransitionObservatory"'), "source workbench iframe has a stable bridge target");
-ok(html.includes('data-public-src="../previews/numbers-return-20261019/book/assets/game-of-worlds-play/index.html'), "public source bridge targets the deployed source-owned projection");
+ok(html.includes('data-public-src="../previews/numbers-return-20261019/book/assets/game-of-worlds-play/index.html'), "source declares the public source-owned projection for the bundle builder");
 ok(html.includes("location.hostname.endsWith('github.io')"), "public bridge activates only on GitHub Pages");
 ok(html.includes('id="lifeTransitionFull"'), "full-instrument link shares the public bridge");
 ok(html.includes('id="lifeZAdapterRecord"'), "Z adapter record has a stable public bridge target");

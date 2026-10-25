@@ -4,12 +4,12 @@
   "scope": "Git-tracked and untracked HTML visible in the current NEXAH-Science-Lab working tree",
   "status": "AUTOMATED_PRELIMINARY_INVENTORY / NOT_MASTER_SELECTION / NO_CLAIM_PROMOTION",
   "summary": {
-    "total_html": 252,
+    "total_html": 298,
     "science_lab_html": 176,
     "ring1_html": 9,
     "by_preliminary_class": {
       "incoming_unadopted": 14,
-      "repository_supporting_surface": 59,
+      "repository_supporting_surface": 105,
       "custody_or_frozen": 26,
       "case_study_surface": 97,
       "preserved_source": 22,
@@ -18,15 +18,15 @@
       "research_area_surface": 1
     },
     "technology_counts": {
-      "canvas": 44,
-      "svg": 93,
-      "iframe": 57,
-      "webgl": 4,
-      "three_js": 7,
+      "canvas": 52,
+      "svg": 127,
+      "iframe": 60,
+      "webgl": 5,
+      "three_js": 9,
       "es_module": 5
     },
-    "exact_duplicate_groups": 9,
-    "files_in_exact_duplicate_groups": 19
+    "exact_duplicate_groups": 8,
+    "files_in_exact_duplicate_groups": 17
   },
   "exact_duplicate_groups": [
     {
@@ -35,13 +35,6 @@
         "NEXAH_TRANSLATION_AUDIT_REPORT_01/FROZEN_CHAIN/03_HTML_INSTRUMENT/ROEDELHEIM_OBSERVATORY_THREAD_LOOM_PROJECTION_LAB_0_4.html",
         "NEXAH_TRANSLATION_AUDIT_REPORT_01/REVIEWER_PACKET/PASS_A/ARTIFACTS/ROEDELHEIM_OBSERVATORY_THREAD_LOOM_PROJECTION_LAB_0_4.html",
         "NEXAH_TRANSLATION_AUDIT_REPORT_01/REVIEWER_PACKET/PASS_B/ARTIFACTS/ROEDELHEIM_OBSERVATORY_THREAD_LOOM_PROJECTION_LAB_0_4.html"
-      ]
-    },
-    {
-      "sha256": "e614584eaf30eedad583e2ff52bf1b9fe85d79acad1a4fd932405c2ff82be760",
-      "paths": [
-        "RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/LAB_ORIENTATION_MACHINE.html",
-        "SCIENCE_LAB/NAVIGATION/EVIDENCE/ILAU_ORIENTATION_INSTRUMENTS_2026-10-09/INSTRUMENTS/Orientation_Machine_Mastervisual.html"
       ]
     },
     {
@@ -599,10 +592,31 @@
       "script_src_count": 1
     },
     {
+      "path": "RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0/index.html",
+      "title": "A0 · Local Return",
+      "bytes": 1295,
+      "sha256": "887e1390d2dbfdf737a6decbf3a66c1553cd4214187574126b0169baed35b6d2",
+      "preliminary_class": "repository_supporting_surface",
+      "ring1_module": null,
+      "technology": {
+        "canvas": false,
+        "svg": false,
+        "iframe": false,
+        "webgl": false,
+        "three_js": false,
+        "es_module": false
+      },
+      "concepts": [
+        "orientation"
+      ],
+      "local_href_count": 1,
+      "script_src_count": 0
+    },
+    {
       "path": "RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/01_FROM_LINE_TO_READOUT.html",
       "title": "NEXAH A0 — From Line to Readout",
-      "bytes": 29059,
-      "sha256": "259f0c20dd85aa66b98f42db22b4f7d681dee7c9f20f7c435de6ad4359d57178",
+      "bytes": 29243,
+      "sha256": "1fd1afb11b128c4bb912bc107e37e8810be751c73e3c4d375fd9f084edfe680d",
       "preliminary_class": "repository_supporting_surface",
       "ring1_module": null,
       "technology": {
@@ -620,38 +634,39 @@
         "phase_time",
         "geodesic_geo"
       ],
-      "local_href_count": 10,
-      "script_src_count": 0
+      "local_href_count": 11,
+      "script_src_count": 1
     },
     {
       "path": "RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/02_POINT_LINE_COORDINATE.html",
       "title": "NEXAH A0 — Punkt, Linie und Koordinate",
-      "bytes": 36035,
-      "sha256": "2e3f082852323a524feff9940eb44c86d31626f164b48565ce01800e5791477e",
+      "bytes": 53527,
+      "sha256": "2bc3a532fdcc5a681ba273345a1ac70a387f0bb62b411908b88d23ba5fe1e0d9",
       "preliminary_class": "repository_supporting_surface",
       "ring1_module": null,
       "technology": {
         "canvas": false,
-        "svg": false,
+        "svg": true,
         "iframe": true,
         "webgl": false,
         "three_js": false,
         "es_module": false
       },
       "concepts": [
+        "tessarec",
         "e8_coxeter",
         "orientation",
         "operator_runtime",
         "phase_time"
       ],
-      "local_href_count": 16,
-      "script_src_count": 0
+      "local_href_count": 23,
+      "script_src_count": 1
     },
     {
       "path": "RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/03_THREE_POSITIONS_SEAM_RETURN.html",
       "title": "NEXAH A0 — Drei Positionen, Naht und Return",
-      "bytes": 32952,
-      "sha256": "641ec5e690b0b9f14a0b94373c9f31466a6707e9a1ac1189f799fb7766008576",
+      "bytes": 33136,
+      "sha256": "e9e7063344ef4eeaee3d728e192b9dc6ea30cb732cd29992020e16f060d67b23",
       "preliminary_class": "repository_supporting_surface",
       "ring1_module": null,
       "technology": {
@@ -668,14 +683,14 @@
         "phase_time",
         "geodesic_geo"
       ],
-      "local_href_count": 14,
-      "script_src_count": 0
+      "local_href_count": 15,
+      "script_src_count": 1
     },
     {
       "path": "RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/04_DISCRETE_CARRIERS_NEIGHBORHOODS.html",
       "title": "NEXAH A0 · Chapter 04 — Diskrete Träger und Nachbarschaften",
-      "bytes": 24306,
-      "sha256": "212f1e08f3450522469b0ae3420533800660a37adf7b9e1417dfc33ac3eb4a51",
+      "bytes": 24490,
+      "sha256": "3b0ab99f98d75d54d31e738543f30dbe6b6f6decfad8216f51c40c73b6ed80e6",
       "preliminary_class": "repository_supporting_surface",
       "ring1_module": null,
       "technology": {
@@ -691,14 +706,14 @@
         "operator_runtime",
         "geodesic_geo"
       ],
-      "local_href_count": 15,
-      "script_src_count": 0
+      "local_href_count": 16,
+      "script_src_count": 1
     },
     {
       "path": "RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/05_DYNAMICS_TRANSITION_STABILITY.html",
       "title": "NEXAH A0 · Chapter 05 — Dynamik, Übergang und Stabilität",
-      "bytes": 25280,
-      "sha256": "af6d3015e52500581ca589fe9e420eb5d2419e5d7af6d1fe7c8819911a6acda7",
+      "bytes": 25464,
+      "sha256": "49d2f62ae820a90e0696625ad639db4f7a846cbaa7c93ccf033ca9502caaec3b",
       "preliminary_class": "repository_supporting_surface",
       "ring1_module": null,
       "technology": {
@@ -715,14 +730,14 @@
         "phase_time",
         "geodesic_geo"
       ],
-      "local_href_count": 12,
-      "script_src_count": 0
+      "local_href_count": 13,
+      "script_src_count": 1
     },
     {
       "path": "RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/06_PROJECTION_FOURIER_SHADOWS.html",
       "title": "NEXAH A0 · Chapter 06 — Projektion, Fourier und Schatten",
-      "bytes": 32333,
-      "sha256": "d8e86323621c13efb365f06b49be5813ade49c1f6436e6d1b49d3d436c05fb36",
+      "bytes": 32517,
+      "sha256": "20f27799e29f4d438846f7da905df39521f43cb2db06dbef7c8ce87657df008d",
       "preliminary_class": "repository_supporting_surface",
       "ring1_module": null,
       "technology": {
@@ -741,14 +756,14 @@
         "phase_time",
         "geodesic_geo"
       ],
-      "local_href_count": 15,
-      "script_src_count": 1
+      "local_href_count": 16,
+      "script_src_count": 2
     },
     {
       "path": "RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/07_EVIDENCE_COMPARISON_DECISION.html",
       "title": "NEXAH A0 · Chapter 07 — Evidence, Vergleich und Entscheidung",
-      "bytes": 21761,
-      "sha256": "1310ea7f21b590bd9240c5359097d16d4fda93d17c96dad257c43cfabc9b4bd0",
+      "bytes": 21945,
+      "sha256": "67cc4834fa8fffe76d2f7636de920307ba43c7fa1f968dbccee2d81129b112e6",
       "preliminary_class": "repository_supporting_surface",
       "ring1_module": null,
       "technology": {
@@ -762,14 +777,14 @@
       "concepts": [
         "orientation"
       ],
-      "local_href_count": 11,
-      "script_src_count": 0
+      "local_href_count": 12,
+      "script_src_count": 1
     },
     {
       "path": "RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/08_RETURN_ONE_CARRIER_SEVEN_QUESTIONS.html",
       "title": "NEXAH A0 · Chapter 08 — Return: Ein Carrier, sieben Fragen",
-      "bytes": 21955,
-      "sha256": "36c2c4aba3af3d54403a6fe5f91761b3e0997ac32cb76a4e352bf518a8ce92d1",
+      "bytes": 22139,
+      "sha256": "5e7a52e89f30a76ea8df57f8540e588bbd6fc2d7b2f4bd13c9f36cdf5e26da45",
       "preliminary_class": "repository_supporting_surface",
       "ring1_module": null,
       "technology": {
@@ -786,14 +801,38 @@
         "phase_time",
         "geodesic_geo"
       ],
-      "local_href_count": 22,
+      "local_href_count": 23,
+      "script_src_count": 1
+    },
+    {
+      "path": "RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/A0_7_11_TYPED_CROSSWALK.html",
+      "title": "NEXAH · 7 / 11 Typed Crosswalk",
+      "bytes": 5138,
+      "sha256": "5da5a510371b477973fead4095a04db5eb5f18cebfba0c9bb57714ba7b8c6e70",
+      "preliminary_class": "repository_supporting_surface",
+      "ring1_module": null,
+      "technology": {
+        "canvas": false,
+        "svg": false,
+        "iframe": false,
+        "webgl": false,
+        "three_js": false,
+        "es_module": false
+      },
+      "concepts": [
+        "e8_coxeter",
+        "orientation",
+        "operator_runtime",
+        "geodesic_geo"
+      ],
+      "local_href_count": 11,
       "script_src_count": 0
     },
     {
       "path": "RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/A0_ASSET_INDEX.html",
       "title": "A0 ASSET INDEX · Internal Workspace",
-      "bytes": 6771,
-      "sha256": "af5525255bc7d8f726a003b2da8a4b8c6a55b36837d8f76bcad06a2ad2921774",
+      "bytes": 6817,
+      "sha256": "683208fff85c4e3396fe38ea146176c07ab132337a53f0e743442db54533c53e",
       "preliminary_class": "repository_supporting_surface",
       "ring1_module": null,
       "technology": {
@@ -810,13 +849,13 @@
         "geodesic_geo"
       ],
       "local_href_count": 3,
-      "script_src_count": 2
+      "script_src_count": 3
     },
     {
       "path": "RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/A0_AXIAL_CARRIER_ADAPTER_SUITE.html",
       "title": "A0 Axial Carrier Adapter Suite",
-      "bytes": 5882,
-      "sha256": "bde6af3dc04dc8b34d379bb471935f988eaf99f23d72d5622dce6483ba83aaa8",
+      "bytes": 6066,
+      "sha256": "89652c4db7e73b3cb14066a2713e2c1ff5347dc37f45e7ffee5825a37c36f397",
       "preliminary_class": "repository_supporting_surface",
       "ring1_module": null,
       "technology": {
@@ -832,14 +871,14 @@
         "orientation",
         "phase_time"
       ],
-      "local_href_count": 9,
-      "script_src_count": 1
+      "local_href_count": 10,
+      "script_src_count": 2
     },
     {
       "path": "RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/A0_AXIS08_FOLD_RETURN_SEQUENCER.html",
       "title": "AXIS08 Fold / Return Sequencer · A0",
-      "bytes": 13239,
-      "sha256": "28cc8f28795c187e8b9655b79331a0923fe9114b71268d60bca8c90a121ad26b",
+      "bytes": 27752,
+      "sha256": "138e95aedea77ab6bcf5c8a65f0992dde1483e91fca15de7264d7420edb82b91",
       "preliminary_class": "repository_supporting_surface",
       "ring1_module": null,
       "technology": {
@@ -858,14 +897,80 @@
         "phase_time",
         "geodesic_geo"
       ],
-      "local_href_count": 11,
-      "script_src_count": 6
+      "local_href_count": 15,
+      "script_src_count": 14
+    },
+    {
+      "path": "RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/A0_BENCH_ARBEITEN.html",
+      "title": "Arbeiten · Werkbank · A0",
+      "bytes": 4159,
+      "sha256": "4c35cc1148bf56075707db1dc5c4f6408b47d624f8f1d47820fc1a1a1a1545cc",
+      "preliminary_class": "repository_supporting_surface",
+      "ring1_module": null,
+      "technology": {
+        "canvas": false,
+        "svg": true,
+        "iframe": false,
+        "webgl": false,
+        "three_js": false,
+        "es_module": false
+      },
+      "concepts": [
+        "tessarec",
+        "orientation"
+      ],
+      "local_href_count": 20,
+      "script_src_count": 1
+    },
+    {
+      "path": "RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/A0_BENCH_ENTDECKEN.html",
+      "title": "Entdecken · Werkbank · A0",
+      "bytes": 10793,
+      "sha256": "e3b67107d8cbcde354020fdc5f0cc50d3d2a71a98764d6b939596027f9d7ce21",
+      "preliminary_class": "repository_supporting_surface",
+      "ring1_module": null,
+      "technology": {
+        "canvas": false,
+        "svg": true,
+        "iframe": false,
+        "webgl": false,
+        "three_js": false,
+        "es_module": false
+      },
+      "concepts": [
+        "tessarec",
+        "orientation"
+      ],
+      "local_href_count": 45,
+      "script_src_count": 1
+    },
+    {
+      "path": "RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/A0_BENCH_QUELLEN.html",
+      "title": "Quellen & Prüfen · Werkbank · A0",
+      "bytes": 4147,
+      "sha256": "6ed61ce17ab3db0016e85df2bd9244b35efa3438ebcb8034d9a28926859a4034",
+      "preliminary_class": "repository_supporting_surface",
+      "ring1_module": null,
+      "technology": {
+        "canvas": false,
+        "svg": true,
+        "iframe": false,
+        "webgl": false,
+        "three_js": false,
+        "es_module": false
+      },
+      "concepts": [
+        "tessarec",
+        "orientation"
+      ],
+      "local_href_count": 20,
+      "script_src_count": 1
     },
     {
       "path": "RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/A0_BLACK_SUN_BIG_MOON.html",
       "title": "The Black Sun / The Big Moon · NEON Return · A0",
-      "bytes": 10170,
-      "sha256": "044f2c3475cdf0205f4e3aa4a9d8128718a3915cf19063a21ec33986e18e29f1",
+      "bytes": 10286,
+      "sha256": "31284b4a81af5b3982e232a9a756286fcf16b137b4c75bb00b9ea3d5034e6b5c",
       "preliminary_class": "repository_supporting_surface",
       "ring1_module": null,
       "technology": {
@@ -880,14 +985,14 @@
         "orientation",
         "operator_runtime"
       ],
-      "local_href_count": 10,
-      "script_src_count": 2
+      "local_href_count": 11,
+      "script_src_count": 3
     },
     {
       "path": "RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/A0_BLUE_BODY_DODECA_COUNTERSHOT.html",
       "title": "Blue Body / Dodeca Countershot · A0",
-      "bytes": 23103,
-      "sha256": "58e4b740d433c6d2f6483d6dee7f5972187a00e82273e9a57629776e38e01af3",
+      "bytes": 23456,
+      "sha256": "d6eb89ca906d405596f9373183ff7e55996f2076b61b509c5caaa8e06f9d4074",
       "preliminary_class": "repository_supporting_surface",
       "ring1_module": null,
       "technology": {
@@ -905,19 +1010,19 @@
         "operator_runtime",
         "geodesic_geo"
       ],
-      "local_href_count": 9,
-      "script_src_count": 3
+      "local_href_count": 11,
+      "script_src_count": 4
     },
     {
       "path": "RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/A0_BLUE_PINK_DODECA_CELL_RETURN.html",
       "title": "Blue / Pink Dodeca Cell Return · A0",
-      "bytes": 47415,
-      "sha256": "4cc619b73492a0c3d17a1f2312882b6061a93237721a3688bbf3aa8d3a115ff9",
+      "bytes": 137407,
+      "sha256": "2e1b6c37b843da925b4ac3918d9930544617512b93129fc423f5daccb4aa9328",
       "preliminary_class": "repository_supporting_surface",
       "ring1_module": null,
       "technology": {
         "canvas": true,
-        "svg": false,
+        "svg": true,
         "iframe": false,
         "webgl": false,
         "three_js": false,
@@ -925,13 +1030,15 @@
       },
       "concepts": [
         "tessarec",
+        "loki",
+        "three_d",
         "orientation",
         "operator_runtime",
         "phase_time",
         "geodesic_geo"
       ],
-      "local_href_count": 17,
-      "script_src_count": 4
+      "local_href_count": 57,
+      "script_src_count": 32
     },
     {
       "path": "RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/A0_BOUNDARY_GRAPH_DEMONSTRATOR.html",
@@ -957,10 +1064,40 @@
       "script_src_count": 1
     },
     {
+      "path": "RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/A0_BUILDER_LOG.html",
+      "title": "A0 · Builder-Log · Flow, Haus &amp; 7/8",
+      "bytes": 337817,
+      "sha256": "7ed5092bb4656c4fc813ddfb06d41f8c2ffb4d57b1113fae996a2e2a10161b02",
+      "preliminary_class": "repository_supporting_surface",
+      "ring1_module": null,
+      "technology": {
+        "canvas": false,
+        "svg": false,
+        "iframe": false,
+        "webgl": false,
+        "three_js": false,
+        "es_module": false
+      },
+      "concepts": [
+        "tessarec",
+        "loki",
+        "miwa_milky_way",
+        "three_d",
+        "e8_coxeter",
+        "rosetta",
+        "orientation",
+        "operator_runtime",
+        "phase_time",
+        "geodesic_geo"
+      ],
+      "local_href_count": 518,
+      "script_src_count": 1
+    },
+    {
       "path": "RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/A0_BUILDER_TOY_STORE.html",
       "title": "NEXAH · B1 Builder Toy Store",
-      "bytes": 8452,
-      "sha256": "d12a63e7f8a1680931c56665a7cd3cbf747d2a325ad18a97f6848e4ddf0d7401",
+      "bytes": 33208,
+      "sha256": "b485ada0f983f3c8839e3d1d19838eb7e000a547ab85fbe8ef66c1254d8a3e60",
       "preliminary_class": "repository_supporting_surface",
       "ring1_module": null,
       "technology": {
@@ -972,16 +1109,48 @@
         "es_module": false
       },
       "concepts": [
-        "orientation"
+        "tessarec",
+        "loki",
+        "miwa_milky_way",
+        "three_d",
+        "e8_coxeter",
+        "orientation",
+        "operator_runtime",
+        "phase_time",
+        "geodesic_geo"
       ],
-      "local_href_count": 10,
-      "script_src_count": 3
+      "local_href_count": 55,
+      "script_src_count": 5
+    },
+    {
+      "path": "RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/A0_CURSOR_HANDOFF_CLICKDUMMY.html",
+      "title": "A0 · 16 → 48 Cursor-Handoff · Clickdummy",
+      "bytes": 85390,
+      "sha256": "31a1cc1f3413f2cbd758fef679f10a7767ab716c589f47803f925a2146993864",
+      "preliminary_class": "repository_supporting_surface",
+      "ring1_module": null,
+      "technology": {
+        "canvas": false,
+        "svg": true,
+        "iframe": false,
+        "webgl": false,
+        "three_js": false,
+        "es_module": false
+      },
+      "concepts": [
+        "tessarec",
+        "orientation",
+        "operator_runtime",
+        "geodesic_geo"
+      ],
+      "local_href_count": 12,
+      "script_src_count": 2
     },
     {
       "path": "RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/A0_FAMILY_CONNECTION_ATLAS.html",
       "title": "NEXAH · Family Connection Atlas",
-      "bytes": 167397,
-      "sha256": "b9b02a77b10c5d074f6a41185a9fd204a0139e37313a262bf5d5b06a267148da",
+      "bytes": 174826,
+      "sha256": "9e420e12ff6187cbece3988b095040d7015c2ebb5d15e42a475b19b1746e2311",
       "preliminary_class": "repository_supporting_surface",
       "ring1_module": null,
       "technology": {
@@ -994,19 +1163,20 @@
       },
       "concepts": [
         "tessarec",
+        "three_d",
         "orientation",
         "operator_runtime",
         "phase_time",
         "geodesic_geo"
       ],
-      "local_href_count": 22,
-      "script_src_count": 2
+      "local_href_count": 37,
+      "script_src_count": 10
     },
     {
       "path": "RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/A0_FIELDS_AND_JOINTS_ATLAS.html",
-      "title": "NEXAH A0 — Fields &amp; Joints Atlas",
-      "bytes": 48063,
-      "sha256": "0d35edbe6831bc2d7d3b2fa92a17d664ef6bba2214c7d17842b0c38121a387ea",
+      "title": "NEXAH A0 — Fugen · gemeinsamer Arbeitsraum",
+      "bytes": 49759,
+      "sha256": "57d00831c9ba16dd616ac3a3fa4bef15ad090ed93d9d63bae4115d5bec74f327",
       "preliminary_class": "repository_supporting_surface",
       "ring1_module": null,
       "technology": {
@@ -1023,14 +1193,14 @@
         "phase_time",
         "geodesic_geo"
       ],
-      "local_href_count": 18,
-      "script_src_count": 1
+      "local_href_count": 22,
+      "script_src_count": 2
     },
     {
       "path": "RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/A0_GAME_4_LIFE_PLUS_1.html",
       "title": "NEXAH A0 · GAME 4 LIFE +1",
-      "bytes": 28858,
-      "sha256": "7b88003849c75ba9eca0caf6ebc4add3c7d206ee0de9826000f5157cbdb9536d",
+      "bytes": 30285,
+      "sha256": "eed90b452418f4d93f5c5acff20d497950f3d0b1fd35af7c52b518e2212e4d37",
       "preliminary_class": "repository_supporting_surface",
       "ring1_module": null,
       "technology": {
@@ -1050,14 +1220,63 @@
         "phase_time",
         "geodesic_geo"
       ],
-      "local_href_count": 25,
+      "local_href_count": 30,
       "script_src_count": 3
+    },
+    {
+      "path": "RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/A0_GAME_OF_WORLDS.html",
+      "title": "NEXAH · Game of Worlds",
+      "bytes": 13596,
+      "sha256": "24cc915fae3ca7e7b1f7f0eb324cf99b3d70449db05d779e2bf19e541da57442",
+      "preliminary_class": "repository_supporting_surface",
+      "ring1_module": null,
+      "technology": {
+        "canvas": true,
+        "svg": true,
+        "iframe": false,
+        "webgl": false,
+        "three_js": false,
+        "es_module": false
+      },
+      "concepts": [
+        "orientation",
+        "operator_runtime",
+        "geodesic_geo"
+      ],
+      "local_href_count": 20,
+      "script_src_count": 8
+    },
+    {
+      "path": "RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/A0_GAME_OF_WORLDS_PLAY.html",
+      "title": "Game of Worlds · PLAY",
+      "bytes": 28274,
+      "sha256": "5452b4e44a4b0b06cedb056663506d276e3495e68f0c5f97250f34a21434e324",
+      "preliminary_class": "repository_supporting_surface",
+      "ring1_module": null,
+      "technology": {
+        "canvas": false,
+        "svg": true,
+        "iframe": true,
+        "webgl": false,
+        "three_js": false,
+        "es_module": false
+      },
+      "concepts": [
+        "tessarec",
+        "three_d",
+        "orientation",
+        "operator_runtime",
+        "phase_time",
+        "geodesic_geo"
+      ],
+      "local_href_count": 14,
+      "script_src_count": 6
     },
     {
       "path": "RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/A0_IHARA_HASHIMOTO_CYCLE_BRIDGE.html",
       "title": "A0 · Ihara / Hashimoto Cycle Bridge",
-      "bytes": 6400,
-      "sha256": "b2981659f78fd40a8dd0b64de5467904accedab872ff8647c0296b1222c321ae",
+      "bytes": 6823,
+      "sha256": "bc89b752593b2ca384636468bf916fd40e4a1701d894c2e0bf31acce1f09cd05",
       "preliminary_class": "repository_supporting_surface",
       "ring1_module": null,
       "technology": {
@@ -1074,14 +1293,37 @@
         "orientation",
         "operator_runtime"
       ],
-      "local_href_count": 7,
+      "local_href_count": 10,
+      "script_src_count": 2
+    },
+    {
+      "path": "RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/A0_IOTA_BRIDGE_DEMONSTRATOR.html",
+      "title": "NEXAH · IOTA Bridge Demonstrator",
+      "bytes": 4631,
+      "sha256": "4eb48e660547e87f6157d0b9822762808fac33d7a28c96bee1a9f6189032739e",
+      "preliminary_class": "repository_supporting_surface",
+      "ring1_module": null,
+      "technology": {
+        "canvas": false,
+        "svg": true,
+        "iframe": false,
+        "webgl": false,
+        "three_js": false,
+        "es_module": false
+      },
+      "concepts": [
+        "tessarec",
+        "orientation",
+        "operator_runtime"
+      ],
+      "local_href_count": 17,
       "script_src_count": 1
     },
     {
       "path": "RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/A0_JARP_CROSS_LENS_EXTENSION.html",
       "title": "A0 JARP Cross-Lens Extension — Return, Residual &amp; Identifiability",
-      "bytes": 30063,
-      "sha256": "275a1dd56c3246e7856abcc4b1598f9e4e7016603c546ac6610f530cee671c77",
+      "bytes": 30247,
+      "sha256": "20219257ca331cbc0b5487fa4964923d627feb9b73c5708f68735f1545f6c002",
       "preliminary_class": "repository_supporting_surface",
       "ring1_module": null,
       "technology": {
@@ -1100,14 +1342,14 @@
         "operator_runtime",
         "geodesic_geo"
       ],
-      "local_href_count": 8,
-      "script_src_count": 0
+      "local_href_count": 9,
+      "script_src_count": 1
     },
     {
       "path": "RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/A0_JOINT_APPLICATION_DEMONSTRATOR.html",
       "title": "A0 Joint Application Demonstrator · Checks 37–54",
-      "bytes": 65270,
-      "sha256": "308a595e987616ecb573a847c836377e37507432a64914b93c9ac84216ed7746",
+      "bytes": 65454,
+      "sha256": "4088d95201bc250ab910a491e42bc76df26c123969beac332a1ff1a1a34b610d",
       "preliminary_class": "repository_supporting_surface",
       "ring1_module": null,
       "technology": {
@@ -1127,8 +1369,8 @@
         "phase_time",
         "geodesic_geo"
       ],
-      "local_href_count": 13,
-      "script_src_count": 0
+      "local_href_count": 14,
+      "script_src_count": 1
     },
     {
       "path": "RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/A0_LABORATORY.html",
@@ -1155,8 +1397,57 @@
     {
       "path": "RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/A0_LIVING_BLUEPRINT.html",
       "title": "A0 Living Blueprint · Mathematical Orientation Map",
-      "bytes": 98117,
-      "sha256": "af17caaec4d04a7397b4581a34be2cbb6c01248c1324a8c0e976e64aafd2342e",
+      "bytes": 126345,
+      "sha256": "3672b4403577861cedf0dfff4a1fef5c79ebd5abfa0aeb3ef9fc659da3bd7f04",
+      "preliminary_class": "repository_supporting_surface",
+      "ring1_module": null,
+      "technology": {
+        "canvas": true,
+        "svg": true,
+        "iframe": false,
+        "webgl": false,
+        "three_js": false,
+        "es_module": false
+      },
+      "concepts": [
+        "tessarec",
+        "three_d",
+        "e8_coxeter",
+        "orientation",
+        "operator_runtime",
+        "phase_time",
+        "geodesic_geo"
+      ],
+      "local_href_count": 111,
+      "script_src_count": 4
+    },
+    {
+      "path": "RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/A0_LOOK_AGAIN_PLAY.html",
+      "title": "LOOK AGAIN · A0 Human Game",
+      "bytes": 5522,
+      "sha256": "af181c1c89f4b9317ac8f3352385bdce4ebccbd2c03a888728a1769e3b8312ae",
+      "preliminary_class": "repository_supporting_surface",
+      "ring1_module": null,
+      "technology": {
+        "canvas": true,
+        "svg": false,
+        "iframe": false,
+        "webgl": false,
+        "three_js": false,
+        "es_module": false
+      },
+      "concepts": [
+        "orientation",
+        "phase_time"
+      ],
+      "local_href_count": 5,
+      "script_src_count": 2
+    },
+    {
+      "path": "RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/A0_MACHINA_COCKPIT.html",
+      "title": "THE MACHINA · Viewer &amp; Pentagon Cockpit · A0",
+      "bytes": 14115,
+      "sha256": "357aa52edb7347880c60e8ec64e7e63d77c5f175f1cf32be2e36c8b2c9506c68",
       "preliminary_class": "repository_supporting_surface",
       "ring1_module": null,
       "technology": {
@@ -1172,17 +1463,16 @@
         "three_d",
         "orientation",
         "operator_runtime",
-        "phase_time",
         "geodesic_geo"
       ],
-      "local_href_count": 46,
-      "script_src_count": 1
+      "local_href_count": 32,
+      "script_src_count": 2
     },
     {
       "path": "RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/A0_MATHEMATICAL_JOINTS.html",
       "title": "NEXAH A0 — Mathematical Joints",
-      "bytes": 112866,
-      "sha256": "b28bf6f23d2875921af0001d449fbb45dc320b5f9c87f40a83240e580f35aaed",
+      "bytes": 138856,
+      "sha256": "33db6f3cc681643c3a86299e8b74c7fe9cc6badbc18a56a851a2d5b776362dbd",
       "preliminary_class": "repository_supporting_surface",
       "ring1_module": null,
       "technology": {
@@ -1194,6 +1484,7 @@
         "es_module": false
       },
       "concepts": [
+        "tessarec",
         "three_d",
         "rosetta",
         "orientation",
@@ -1201,7 +1492,7 @@
         "phase_time",
         "geodesic_geo"
       ],
-      "local_href_count": 73,
+      "local_href_count": 120,
       "script_src_count": 1
     },
     {
@@ -1254,8 +1545,8 @@
     {
       "path": "RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/A0_NEWTON_GOETHE_OBSERVER_LENS.html",
       "title": "Newton / Leibniz / Goethe Observer Lens · A0",
-      "bytes": 14790,
-      "sha256": "b136ead7800e3b631ef724e465ab08e2fde4621838e944832ba42560bb55161d",
+      "bytes": 14906,
+      "sha256": "177bb8c9c35b6ff34c8ad844090c26098df2fa00c884949587c65bf4d4a5c093",
       "preliminary_class": "repository_supporting_surface",
       "ring1_module": null,
       "technology": {
@@ -1271,36 +1562,37 @@
         "orientation",
         "phase_time"
       ],
-      "local_href_count": 14,
-      "script_src_count": 2
+      "local_href_count": 15,
+      "script_src_count": 3
     },
     {
       "path": "RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/A0_NEXAH_APERTURE_JOURNEY.html",
       "title": "NEXAH · The Aperture Journey",
-      "bytes": 21252,
-      "sha256": "9c4d774f793dee3381ed59cd6bb35c39cfe1994c47dad93687f8a3c15acf8227",
+      "bytes": 17933,
+      "sha256": "d779e794e979da580cd8af2dbba85b419f10aec947e3fb4a53be66ba32f1413d",
       "preliminary_class": "repository_supporting_surface",
       "ring1_module": null,
       "technology": {
         "canvas": true,
-        "svg": true,
-        "iframe": true,
+        "svg": false,
+        "iframe": false,
         "webgl": false,
         "three_js": false,
         "es_module": false
       },
       "concepts": [
         "orientation",
+        "operator_runtime",
         "geodesic_geo"
       ],
-      "local_href_count": 11,
+      "local_href_count": 14,
       "script_src_count": 2
     },
     {
       "path": "RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/A0_NEXAH_FAMILY_METHOD_WHITE_PAPER.html",
       "title": "The NEXAH Family Method · Developing Orientation as a discipline.",
-      "bytes": 21820,
-      "sha256": "41db2a31f2e12b3bc55465e1465f7c460d3158029c62ace9c4c603f0f909930d",
+      "bytes": 31749,
+      "sha256": "edd6e6cdb6edcc1c7ab5861d25155bc217a79780b37e872097ed33134746f0d9",
       "preliminary_class": "repository_supporting_surface",
       "ring1_module": null,
       "technology": {
@@ -1312,12 +1604,14 @@
         "es_module": false
       },
       "concepts": [
+        "tessarec",
+        "rosetta",
         "orientation",
         "operator_runtime",
         "phase_time",
         "geodesic_geo"
       ],
-      "local_href_count": 18,
+      "local_href_count": 31,
       "script_src_count": 1
     },
     {
@@ -1343,6 +1637,108 @@
       ],
       "local_href_count": 12,
       "script_src_count": 1
+    },
+    {
+      "path": "RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/A0_NUMBERMAGICK_GRID_RESEARCH.html",
+      "title": "A0 · Numbermagick — Grids &amp; Orientierung",
+      "bytes": 99681,
+      "sha256": "933add5c43612c5b6c4176c2b5814125c0893ba7ca457cb8de08c1fef24a53d3",
+      "preliminary_class": "repository_supporting_surface",
+      "ring1_module": null,
+      "technology": {
+        "canvas": false,
+        "svg": true,
+        "iframe": false,
+        "webgl": false,
+        "three_js": false,
+        "es_module": false
+      },
+      "concepts": [
+        "tessarec",
+        "three_d",
+        "rosetta",
+        "orientation",
+        "operator_runtime",
+        "phase_time",
+        "geodesic_geo"
+      ],
+      "local_href_count": 136,
+      "script_src_count": 6
+    },
+    {
+      "path": "RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/A0_ONE_PULSE_BENCH_MONITOR.html",
+      "title": "ONE PULSE · Bench-Monitor",
+      "bytes": 339,
+      "sha256": "3794ba1fac8ff5a069f9d8f840137197f44a39cd4c022d1ada157aae675a7b2b",
+      "preliminary_class": "repository_supporting_surface",
+      "ring1_module": null,
+      "technology": {
+        "canvas": false,
+        "svg": false,
+        "iframe": false,
+        "webgl": false,
+        "three_js": false,
+        "es_module": false
+      },
+      "concepts": [
+        "orientation"
+      ],
+      "local_href_count": 0,
+      "script_src_count": 2
+    },
+    {
+      "path": "RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/A0_OPIUM.html",
+      "title": "OPIUM · Let the relations play",
+      "bytes": 18102,
+      "sha256": "a63f2f1fd19283d427e3425840ac4d911282159bed783476687426359bb69d0c",
+      "preliminary_class": "repository_supporting_surface",
+      "ring1_module": null,
+      "technology": {
+        "canvas": false,
+        "svg": true,
+        "iframe": false,
+        "webgl": false,
+        "three_js": false,
+        "es_module": false
+      },
+      "concepts": [
+        "loki",
+        "e8_coxeter",
+        "orientation",
+        "operator_runtime"
+      ],
+      "local_href_count": 24,
+      "script_src_count": 1
+    },
+    {
+      "path": "RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/A0_ORIENTATION_CONTROLLER_BENCH.html",
+      "title": "NEXAH · A I|0 — THE MACHINA · Orientation Controller Bench v0.21.0",
+      "bytes": 520809,
+      "sha256": "0e415fdf6fbf9fc4226c518518927533c6bdceb24f7ebb5e9995f17c6a469745",
+      "preliminary_class": "repository_supporting_surface",
+      "ring1_module": null,
+      "technology": {
+        "canvas": true,
+        "svg": true,
+        "iframe": true,
+        "webgl": false,
+        "three_js": false,
+        "es_module": false
+      },
+      "concepts": [
+        "tessarec",
+        "loki",
+        "miwa_milky_way",
+        "three_d",
+        "e8_coxeter",
+        "rosetta",
+        "orientation",
+        "operator_runtime",
+        "phase_time",
+        "geodesic_geo"
+      ],
+      "local_href_count": 416,
+      "script_src_count": 146
     },
     {
       "path": "RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/A0_PASCAL_GENERATION_CORNER.html",
@@ -1371,8 +1767,8 @@
     {
       "path": "RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/A0_PASCAL_PENTAGON_OPERATOR_JOINTS.html",
       "title": "NEXAH A0 — Pascal–Pentagon Operator Joints",
-      "bytes": 71873,
-      "sha256": "c6b5ba1af37f293e3e70a1a5c77f3acb79e41078bf3622da44b6d8b2cdca5966",
+      "bytes": 75809,
+      "sha256": "ac409e73aea19f771da77ef9a9ef2f27a9af8bf3f573e522da6f465a29a80a18",
       "preliminary_class": "repository_supporting_surface",
       "ring1_module": null,
       "technology": {
@@ -1391,14 +1787,14 @@
         "phase_time",
         "geodesic_geo"
       ],
-      "local_href_count": 39,
+      "local_href_count": 52,
       "script_src_count": 1
     },
     {
       "path": "RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/A0_PINK_DIAMOND_GRID_ATLAS.html",
       "title": "A0 · Pink Diamond Grid Atlas",
-      "bytes": 30576,
-      "sha256": "3d345da76e1b3507699d106d2e69260d39d593e02ed58dfe5d8b1c55bcd9c0f9",
+      "bytes": 37764,
+      "sha256": "9b4bcbb9118ea0377e29e383d4f436685219dbc88dff7481aba8c3e16d6ed63d",
       "preliminary_class": "repository_supporting_surface",
       "ring1_module": null,
       "technology": {
@@ -1418,8 +1814,8 @@
         "phase_time",
         "geodesic_geo"
       ],
-      "local_href_count": 20,
-      "script_src_count": 2
+      "local_href_count": 42,
+      "script_src_count": 7
     },
     {
       "path": "RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/A0_Q4_MAGIC_SQUARE_JOINT_AUDIT.html",
@@ -1447,8 +1843,8 @@
     {
       "path": "RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/A0_RAINBOW_PURPLE_RAIN.html",
       "title": "Rainbow / Purple Rain · A0",
-      "bytes": 12312,
-      "sha256": "6e80d207b7cecfb15f94da7404f879692e521d4ce303125fc2637459668ec3e6",
+      "bytes": 12495,
+      "sha256": "90da407e50c3982d5fb476e6093d414e09e3a56e6733bdd31b6d3e387bb0a351",
       "preliminary_class": "repository_supporting_surface",
       "ring1_module": null,
       "technology": {
@@ -1462,16 +1858,17 @@
       "concepts": [
         "e8_coxeter",
         "orientation",
-        "phase_time"
+        "phase_time",
+        "geodesic_geo"
       ],
-      "local_href_count": 11,
+      "local_href_count": 12,
       "script_src_count": 2
     },
     {
       "path": "RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/A0_RESEARCH_BACKLOG.html",
       "title": "A0 Backlog · Research and Open Joints",
-      "bytes": 38266,
-      "sha256": "f7ec885820dc5b6c9a461eded42ddaa90c66c8b213c9c97394483c1cb56579d6",
+      "bytes": 44036,
+      "sha256": "62a26ed988b3e98c798b18acf0ac26c09efac383ae9412da218a93fac52e4181",
       "preliminary_class": "repository_supporting_surface",
       "ring1_module": null,
       "technology": {
@@ -1490,26 +1887,28 @@
         "phase_time",
         "geodesic_geo"
       ],
-      "local_href_count": 36,
+      "local_href_count": 55,
       "script_src_count": 1
     },
     {
       "path": "RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/A0_RESEARCH_DESK.html",
-      "title": "NEXAH · A0 Science Mission Control",
-      "bytes": 96362,
-      "sha256": "66c6988b21770fd97791d3f8a9134bea65bd3a60da45f3f72f242be1f9e7f8f6",
+      "title": "NEXAH · A0 Science Desk",
+      "bytes": 351722,
+      "sha256": "6e8e88f80a354669ce286111c224c5952535b67432916f910f6fd1c35b20e2b7",
       "preliminary_class": "repository_supporting_surface",
       "ring1_module": null,
       "technology": {
         "canvas": false,
         "svg": true,
         "iframe": true,
-        "webgl": false,
+        "webgl": true,
         "three_js": false,
         "es_module": false
       },
       "concepts": [
         "tessarec",
+        "loki",
+        "miwa_milky_way",
         "three_d",
         "e8_coxeter",
         "rosetta",
@@ -1518,14 +1917,14 @@
         "phase_time",
         "geodesic_geo"
       ],
-      "local_href_count": 170,
-      "script_src_count": 1
+      "local_href_count": 604,
+      "script_src_count": 2
     },
     {
       "path": "RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/A0_RETURN_WITHOUT_IDENTITY_PAPER.html",
       "title": "A0 Paper C · Return without identity",
-      "bytes": 18668,
-      "sha256": "a6b6a1967b5a5ee93a911924738be36c83ebe876d0547fd2a572bceb8006b9b7",
+      "bytes": 20007,
+      "sha256": "3a84f90b128be1b3b43863501d8d36fb20dfd163fca91e2ea8b17ce308eedd68",
       "preliminary_class": "repository_supporting_surface",
       "ring1_module": null,
       "technology": {
@@ -1540,7 +1939,7 @@
         "orientation",
         "operator_runtime"
       ],
-      "local_href_count": 18,
+      "local_href_count": 21,
       "script_src_count": 1
     },
     {
@@ -1569,13 +1968,13 @@
     {
       "path": "RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/A0_SCIENCE.html",
       "title": "NEXAH · A0 Science",
-      "bytes": 18537,
-      "sha256": "603c3442c368bb6b5b2a3b2abbc73c325d349df169f6bd1efc0eee8214e53397",
+      "bytes": 19208,
+      "sha256": "bd3bef93773dca39ae5831da6b94f476cc3bc12f3700eec38229b9636e120358",
       "preliminary_class": "repository_supporting_surface",
       "ring1_module": null,
       "technology": {
         "canvas": false,
-        "svg": false,
+        "svg": true,
         "iframe": false,
         "webgl": false,
         "three_js": false,
@@ -1583,17 +1982,16 @@
       },
       "concepts": [
         "orientation",
-        "operator_runtime",
-        "geodesic_geo"
+        "operator_runtime"
       ],
-      "local_href_count": 24,
+      "local_href_count": 19,
       "script_src_count": 1
     },
     {
       "path": "RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/A0_SCIENTIFIC_POSITION_REPORT.html",
-      "title": "A0 Scientific Position Report · 13 October 2026",
-      "bytes": 17100,
-      "sha256": "c5f869166786093ee7b8ab19ff3b5608758ab5ba71266038f3079db87b34d4f2",
+      "title": "A0 Scientific Position Report · Stand 24 October 2026",
+      "bytes": 36662,
+      "sha256": "45f5f2b6f2ede3f43c4e873c436c33cf4d03cbd0d7faab4a467ea6d0517d368c",
       "preliminary_class": "repository_supporting_surface",
       "ring1_module": null,
       "technology": {
@@ -1606,18 +2004,22 @@
       },
       "concepts": [
         "tessarec",
+        "loki",
+        "miwa_milky_way",
+        "e8_coxeter",
         "orientation",
         "operator_runtime",
+        "phase_time",
         "geodesic_geo"
       ],
-      "local_href_count": 4,
-      "script_src_count": 0
+      "local_href_count": 34,
+      "script_src_count": 1
     },
     {
       "path": "RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/A0_TESSAREC_BLUE_BODY_LAB.html",
       "title": "Tessarec Blue Body Lab · A0",
-      "bytes": 145177,
-      "sha256": "a738e2b4393a2938d0651f21a0f604384948ecb9cb5b9c119d8753505e3ab09b",
+      "bytes": 188906,
+      "sha256": "63e35d0bac00536958f6765d0bf8ebe1c94bd04adaa70c79243b6faf7a8068b6",
       "preliminary_class": "repository_supporting_surface",
       "ring1_module": null,
       "technology": {
@@ -1637,14 +2039,14 @@
         "phase_time",
         "geodesic_geo"
       ],
-      "local_href_count": 42,
-      "script_src_count": 16
+      "local_href_count": 75,
+      "script_src_count": 25
     },
     {
       "path": "RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/A0_TESSAREC_FRAME_ENVELOPE_OBSERVER_PAPER.html",
       "title": "Tessarec: Frame, Hülle und Beobachter · Paper F",
-      "bytes": 56914,
-      "sha256": "98fcf083ceff6995c74b2dc5853946bf5941940f3957329eb789f08ddc65b3df",
+      "bytes": 58256,
+      "sha256": "2d493ee7196d8ab551cbd30bc4e96687e76cda7fddfc9390ea15ac6fbd2899a2",
       "preliminary_class": "repository_supporting_surface",
       "ring1_module": null,
       "technology": {
@@ -1665,8 +2067,33 @@
         "phase_time",
         "geodesic_geo"
       ],
-      "local_href_count": 26,
+      "local_href_count": 29,
       "script_src_count": 1
+    },
+    {
+      "path": "RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/A0_THEORY_STORYBOARD.html",
+      "title": "NEXAH · Die Zusammenhänge · Theorie-Storyboard",
+      "bytes": 12304,
+      "sha256": "400b70050ece032d05abf85948da2142f63f4debd4979335f2717dc28b14e867",
+      "preliminary_class": "repository_supporting_surface",
+      "ring1_module": null,
+      "technology": {
+        "canvas": false,
+        "svg": true,
+        "iframe": false,
+        "webgl": false,
+        "three_js": false,
+        "es_module": false
+      },
+      "concepts": [
+        "tessarec",
+        "orientation",
+        "operator_runtime",
+        "phase_time",
+        "geodesic_geo"
+      ],
+      "local_href_count": 24,
+      "script_src_count": 3
     },
     {
       "path": "RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/A0_THE_LIVING_INTERIOR.html",
@@ -1687,6 +2114,57 @@
         "orientation"
       ],
       "local_href_count": 6,
+      "script_src_count": 2
+    },
+    {
+      "path": "RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/A0_TOURS.html",
+      "title": "NEXAH · A0 Touren",
+      "bytes": 41077,
+      "sha256": "728f577b254c7fd33eecde94ba9033ef49d18cdf7e618e652af4ab0a09f7ea7d",
+      "preliminary_class": "repository_supporting_surface",
+      "ring1_module": null,
+      "technology": {
+        "canvas": false,
+        "svg": true,
+        "iframe": false,
+        "webgl": false,
+        "three_js": false,
+        "es_module": false
+      },
+      "concepts": [
+        "tessarec",
+        "e8_coxeter",
+        "rosetta",
+        "orientation",
+        "operator_runtime",
+        "phase_time",
+        "geodesic_geo"
+      ],
+      "local_href_count": 139,
+      "script_src_count": 2
+    },
+    {
+      "path": "RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/A0_TOWER_RETURN_DEMONSTRATOR.html",
+      "title": "NEXAH · Tower Return Demonstrator",
+      "bytes": 5326,
+      "sha256": "56589c982bf1296fbd888b46900b603e609845505d57370ef6f206768830eac1",
+      "preliminary_class": "repository_supporting_surface",
+      "ring1_module": null,
+      "technology": {
+        "canvas": false,
+        "svg": true,
+        "iframe": false,
+        "webgl": false,
+        "three_js": false,
+        "es_module": false
+      },
+      "concepts": [
+        "tessarec",
+        "orientation",
+        "operator_runtime",
+        "geodesic_geo"
+      ],
+      "local_href_count": 17,
       "script_src_count": 2
     },
     {
@@ -1716,10 +2194,106 @@
       "script_src_count": 2
     },
     {
+      "path": "RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/A0_WERKBANK.html",
+      "title": "Werkbank · A0",
+      "bytes": 8005,
+      "sha256": "25ec040d3f746b29c5072c53cc9d2e21e38583abf3bf2555843ea86a34c49a78",
+      "preliminary_class": "repository_supporting_surface",
+      "ring1_module": null,
+      "technology": {
+        "canvas": false,
+        "svg": true,
+        "iframe": false,
+        "webgl": false,
+        "three_js": false,
+        "es_module": false
+      },
+      "concepts": [
+        "tessarec",
+        "orientation"
+      ],
+      "local_href_count": 30,
+      "script_src_count": 1
+    },
+    {
+      "path": "RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/DRAFTS/A0_FAMILY_NAVIGATOR_DEMO.html",
+      "title": "NEXAH · Family Navigator · Family Jukebox",
+      "bytes": 26866,
+      "sha256": "24a1e951d31c87e8c104feb4619039cd681fdbfafd3776124a5f64ba3807c865",
+      "preliminary_class": "repository_supporting_surface",
+      "ring1_module": null,
+      "technology": {
+        "canvas": false,
+        "svg": true,
+        "iframe": false,
+        "webgl": false,
+        "three_js": false,
+        "es_module": false
+      },
+      "concepts": [
+        "tessarec",
+        "three_d",
+        "rosetta",
+        "orientation",
+        "operator_runtime",
+        "geodesic_geo"
+      ],
+      "local_href_count": 41,
+      "script_src_count": 23
+    },
+    {
+      "path": "RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/DRAFTS/A0_HUMAN_BOOK_DRAFT.html",
+      "title": "ENTWURF · NEXAH Human Book · Dreh es um",
+      "bytes": 14538,
+      "sha256": "20d4beae7c48770393d82f700c22c69b2419962d96cba9475db47d2f3cb765cc",
+      "preliminary_class": "repository_supporting_surface",
+      "ring1_module": null,
+      "technology": {
+        "canvas": false,
+        "svg": true,
+        "iframe": false,
+        "webgl": false,
+        "three_js": false,
+        "es_module": false
+      },
+      "concepts": [
+        "tessarec",
+        "orientation",
+        "geodesic_geo"
+      ],
+      "local_href_count": 54,
+      "script_src_count": 2
+    },
+    {
+      "path": "RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/DRAFTS/A0_SPATIAL_DECK_DEMO.html",
+      "title": "A0 · Spatial Deck · CSS-3D Entwurf",
+      "bytes": 86535,
+      "sha256": "5fb28c477870f48c07775b73147b29803ff72e3d898de1e7a396564cc9d57ac0",
+      "preliminary_class": "repository_supporting_surface",
+      "ring1_module": null,
+      "technology": {
+        "canvas": false,
+        "svg": true,
+        "iframe": false,
+        "webgl": false,
+        "three_js": false,
+        "es_module": false
+      },
+      "concepts": [
+        "tessarec",
+        "three_d",
+        "orientation",
+        "operator_runtime",
+        "geodesic_geo"
+      ],
+      "local_href_count": 15,
+      "script_src_count": 2
+    },
+    {
       "path": "RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/LAB_ORIENTATION_MACHINE.html",
       "title": "Orientation Machine",
-      "bytes": 50910,
-      "sha256": "e614584eaf30eedad583e2ff52bf1b9fe85d79acad1a4fd932405c2ff82be760",
+      "bytes": 50956,
+      "sha256": "3af070109c14f498aa35d3af6dcdddd4a9d3097b96e4ace7694dc5af368885b5",
       "preliminary_class": "repository_supporting_surface",
       "ring1_module": null,
       "technology": {
@@ -1736,13 +2310,13 @@
         "geodesic_geo"
       ],
       "local_href_count": 0,
-      "script_src_count": 0
+      "script_src_count": 1
     },
     {
       "path": "RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/NEXAH_C_CONNECT.html",
       "title": "NEXAH · C Connect",
-      "bytes": 13451,
-      "sha256": "084786573ec3c6a6b1d5f47c9e8cedf6b28d732b254ec7555938265780e303d5",
+      "bytes": 17260,
+      "sha256": "9a6a4e8b5ab0f3ff57b159a8a0c310231297086337b199ef7a4f97cedf4979de",
       "preliminary_class": "repository_supporting_surface",
       "ring1_module": null,
       "technology": {
@@ -1760,6 +2334,157 @@
       ],
       "local_href_count": 11,
       "script_src_count": 2
+    },
+    {
+      "path": "RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/NEXAH_SCIENCE.html",
+      "title": "NEXAH Science — Forschungsindex und Library",
+      "bytes": 40439,
+      "sha256": "792c325e0a030f1c3314e405522e153c5108a5b4988bfe8d367d535edb82d5c8",
+      "preliminary_class": "repository_supporting_surface",
+      "ring1_module": null,
+      "technology": {
+        "canvas": false,
+        "svg": false,
+        "iframe": false,
+        "webgl": false,
+        "three_js": false,
+        "es_module": false
+      },
+      "concepts": [
+        "orientation",
+        "operator_runtime",
+        "phase_time",
+        "geodesic_geo"
+      ],
+      "local_href_count": 22,
+      "script_src_count": 1
+    },
+    {
+      "path": "RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/a0-public-arkade-index.html",
+      "title": "NEXAH ARKADE · A0 Tool",
+      "bytes": 4844,
+      "sha256": "82da38445817fb4823ee95154a149c710a87f9753f9dd3ec788985d7d0b0afb1",
+      "preliminary_class": "repository_supporting_surface",
+      "ring1_module": null,
+      "technology": {
+        "canvas": false,
+        "svg": false,
+        "iframe": false,
+        "webgl": false,
+        "three_js": false,
+        "es_module": false
+      },
+      "concepts": [
+        "three_d",
+        "orientation",
+        "geodesic_geo"
+      ],
+      "local_href_count": 11,
+      "script_src_count": 0
+    },
+    {
+      "path": "RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/assets/a0-def-g-relation-view-lab/index.html",
+      "title": "A0 · DEF → G Relation / View Lab",
+      "bytes": 68375,
+      "sha256": "b74d20cd34c6702bae55f2db46998e062d3202235417ac6944abf12bf193630c",
+      "preliminary_class": "repository_supporting_surface",
+      "ring1_module": null,
+      "technology": {
+        "canvas": false,
+        "svg": true,
+        "iframe": false,
+        "webgl": false,
+        "three_js": false,
+        "es_module": false
+      },
+      "concepts": [
+        "three_d",
+        "orientation",
+        "operator_runtime",
+        "phase_time",
+        "geodesic_geo"
+      ],
+      "local_href_count": 3,
+      "script_src_count": 4
+    },
+    {
+      "path": "RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/assets/a0-field-notes/index.html",
+      "title": "A0 Field Notes · Ideen nach Themen",
+      "bytes": 121089,
+      "sha256": "d1fb6ec491ca9b255cbc191456770ff061ca4db7d53f026a720ca2b2a12e32e8",
+      "preliminary_class": "repository_supporting_surface",
+      "ring1_module": null,
+      "technology": {
+        "canvas": false,
+        "svg": false,
+        "iframe": false,
+        "webgl": false,
+        "three_js": true,
+        "es_module": false
+      },
+      "concepts": [
+        "tessarec",
+        "loki",
+        "three_d",
+        "e8_coxeter",
+        "rosetta",
+        "orientation",
+        "operator_runtime",
+        "phase_time",
+        "geodesic_geo"
+      ],
+      "local_href_count": 0,
+      "script_src_count": 0
+    },
+    {
+      "path": "RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/assets/a0-life03-runtime.html",
+      "title": "LIFE03 · Life × E8 Workbench",
+      "bytes": 43150,
+      "sha256": "1ca3639283a2c7aabfe96ceebc358307226eb37489ee919ac7de03f9f20a2655",
+      "preliminary_class": "repository_supporting_surface",
+      "ring1_module": null,
+      "technology": {
+        "canvas": true,
+        "svg": false,
+        "iframe": false,
+        "webgl": false,
+        "three_js": false,
+        "es_module": false
+      },
+      "concepts": [
+        "e8_coxeter",
+        "orientation",
+        "operator_runtime",
+        "phase_time",
+        "geodesic_geo"
+      ],
+      "local_href_count": 0,
+      "script_src_count": 0
+    },
+    {
+      "path": "RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/assets/a0-pentagon-runtime.html",
+      "title": "PENT runtime adapter · source-derived UI",
+      "bytes": 82523,
+      "sha256": "bf8547bc0592d5ec6dfd560121c7e7775295962684df6cab6f3273ac3840e5d2",
+      "preliminary_class": "repository_supporting_surface",
+      "ring1_module": null,
+      "technology": {
+        "canvas": false,
+        "svg": true,
+        "iframe": false,
+        "webgl": false,
+        "three_js": false,
+        "es_module": false
+      },
+      "concepts": [
+        "three_d",
+        "orientation",
+        "operator_runtime",
+        "phase_time",
+        "geodesic_geo"
+      ],
+      "local_href_count": 0,
+      "script_src_count": 0
     },
     {
       "path": "RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/assets/core-snapshots/PASCAL_PENTAGON_EXPLORER_2026-10-15.html",
@@ -1879,10 +2604,400 @@
       "script_src_count": 0
     },
     {
+      "path": "RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/assets/game-of-worlds-play/index.html",
+      "title": "GAME 4 LIFE +1 · Transition Observatory",
+      "bytes": 31509,
+      "sha256": "21a70d2098368a3b59a09061f8db3b828576f016c4106a47e3b15703b44160f4",
+      "preliminary_class": "repository_supporting_surface",
+      "ring1_module": null,
+      "technology": {
+        "canvas": true,
+        "svg": false,
+        "iframe": false,
+        "webgl": false,
+        "three_js": true,
+        "es_module": false
+      },
+      "concepts": [
+        "three_d",
+        "orientation",
+        "operator_runtime",
+        "phase_time"
+      ],
+      "local_href_count": 14,
+      "script_src_count": 17
+    },
+    {
+      "path": "RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/assets/game-of-worlds-play/numbers/index.html",
+      "title": "Game of Numbers",
+      "bytes": 14889,
+      "sha256": "e52c23667e19a4e70215b197b4b9566236ae80f1f5ac1df330ef4ac235de7d8d",
+      "preliminary_class": "repository_supporting_surface",
+      "ring1_module": null,
+      "technology": {
+        "canvas": true,
+        "svg": false,
+        "iframe": false,
+        "webgl": false,
+        "three_js": false,
+        "es_module": false
+      },
+      "concepts": [
+        "three_d",
+        "rosetta",
+        "orientation",
+        "operator_runtime",
+        "phase_time"
+      ],
+      "local_href_count": 13,
+      "script_src_count": 18
+    },
+    {
+      "path": "RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/assets/game-of-worlds-play/three-domain-transition-test/index.html",
+      "title": "WINDOW 03 · Three-Domain Transition Test",
+      "bytes": 34483,
+      "sha256": "2d66ff122f0f547d0b156da64c902683aadb17f8f169239073c77cb5eae4c155",
+      "preliminary_class": "repository_supporting_surface",
+      "ring1_module": null,
+      "technology": {
+        "canvas": true,
+        "svg": true,
+        "iframe": false,
+        "webgl": false,
+        "three_js": false,
+        "es_module": false
+      },
+      "concepts": [
+        "tessarec",
+        "orientation",
+        "operator_runtime",
+        "phase_time",
+        "geodesic_geo"
+      ],
+      "local_href_count": 18,
+      "script_src_count": 20
+    },
+    {
+      "path": "RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/downloads/A0_ARKADE_BOUNDARY_TRANSITION_INTAKE_2026-10-25/A0_ARKADE_BOUNDARY_TRANSITION_STORY.html",
+      "title": "A0 Arkade · Boundary / Transition Story",
+      "bytes": 8028,
+      "sha256": "8ba1e75a129800b14c428f7ee44c535471c2e01ef4d1b912e6a7a860e9c8b2a5",
+      "preliminary_class": "repository_supporting_surface",
+      "ring1_module": null,
+      "technology": {
+        "canvas": false,
+        "svg": false,
+        "iframe": false,
+        "webgl": false,
+        "three_js": false,
+        "es_module": false
+      },
+      "concepts": [
+        "orientation",
+        "operator_runtime",
+        "geodesic_geo"
+      ],
+      "local_href_count": 3,
+      "script_src_count": 0
+    },
+    {
+      "path": "RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/downloads/A0_PENTAGON_KNICK_APERTURE_INTAKE_2026-10-25/NEXAH_PENTAGON_KNICK_APERTURE_LAB.html",
+      "title": "NEXAH Pentagon Knick Lab",
+      "bytes": 25830,
+      "sha256": "180bdb4363a526822381ec6839bdb2d7150d8d2348a30f1e22d372943da8214d",
+      "preliminary_class": "repository_supporting_surface",
+      "ring1_module": null,
+      "technology": {
+        "canvas": false,
+        "svg": true,
+        "iframe": false,
+        "webgl": false,
+        "three_js": false,
+        "es_module": false
+      },
+      "concepts": [
+        "orientation",
+        "geodesic_geo"
+      ],
+      "local_href_count": 0,
+      "script_src_count": 0
+    },
+    {
+      "path": "RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/downloads/A0_PENTAGON_KNICK_APERTURE_INTAKE_2026-10-25/sources/a9-six-strip-package/NEXAH_Sechser_A9_Paket/NEXAH_Teiler_Streifen_Desk.html",
+      "title": "NEXAH · Teiler und Streifen",
+      "bytes": 32045,
+      "sha256": "c4236347f9968597927e8329643d8378837b5cc36ae81abfbb77e57b1d2c8ebd",
+      "preliminary_class": "repository_supporting_surface",
+      "ring1_module": null,
+      "technology": {
+        "canvas": false,
+        "svg": false,
+        "iframe": false,
+        "webgl": false,
+        "three_js": false,
+        "es_module": false
+      },
+      "concepts": [
+        "orientation",
+        "operator_runtime",
+        "geodesic_geo"
+      ],
+      "local_href_count": 0,
+      "script_src_count": 0
+    },
+    {
+      "path": "RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/downloads/A0_PENTAGON_KNICK_APERTURE_INTAKE_2026-10-25/sources/a9-six-strip-package/NEXAH_Sechser_A9_Paket/mathfield-current.html",
+      "title": "NEXAH A0 — Mathematical Joints",
+      "bytes": 112772,
+      "sha256": "ed93520c53c417b612c582d87abe37a1539291f1e4c93559e60bbeecf450c10f",
+      "preliminary_class": "repository_supporting_surface",
+      "ring1_module": null,
+      "technology": {
+        "canvas": false,
+        "svg": true,
+        "iframe": true,
+        "webgl": false,
+        "three_js": false,
+        "es_module": false
+      },
+      "concepts": [
+        "three_d",
+        "rosetta",
+        "orientation",
+        "operator_runtime",
+        "phase_time",
+        "geodesic_geo"
+      ],
+      "local_href_count": 72,
+      "script_src_count": 1
+    },
+    {
+      "path": "RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/downloads/A0_PENTAGON_KNICK_APERTURE_INTAKE_2026-10-25/sources/coordinate-test-package-v7/NEXAH_Koordinaten_Testpaket/NEXAH_Pentagon_Knick_Lab.html",
+      "title": "NEXAH Pentagon Knick Lab",
+      "bytes": 39862,
+      "sha256": "1d5fb70e07d7c98d51a2f257dc22c0f7ceef5104909085bbe08db70bd667a7c8",
+      "preliminary_class": "repository_supporting_surface",
+      "ring1_module": null,
+      "technology": {
+        "canvas": false,
+        "svg": true,
+        "iframe": false,
+        "webgl": false,
+        "three_js": false,
+        "es_module": false
+      },
+      "concepts": [
+        "orientation",
+        "geodesic_geo"
+      ],
+      "local_href_count": 0,
+      "script_src_count": 0
+    },
+    {
+      "path": "RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/downloads/A0_PENTAGON_KNICK_APERTURE_INTAKE_2026-10-25/sources/curtain/NEXAH_PENTAGON_KNICK_CURTAIN_LAB.html",
+      "title": "NEXAH Pentagon · Drehen · Knick · Curtain",
+      "bytes": 53621,
+      "sha256": "0eab522c7e8d954e36e34fa201eb0def5ce36f5ec3cb13f5384b4febadfc5cc8",
+      "preliminary_class": "repository_supporting_surface",
+      "ring1_module": null,
+      "technology": {
+        "canvas": false,
+        "svg": true,
+        "iframe": false,
+        "webgl": false,
+        "three_js": false,
+        "es_module": false
+      },
+      "concepts": [
+        "orientation",
+        "geodesic_geo"
+      ],
+      "local_href_count": 0,
+      "script_src_count": 0
+    },
+    {
+      "path": "RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/downloads/A0_PENTAGON_KNICK_APERTURE_INTAKE_2026-10-25/sources/html-history/01-base.html",
+      "title": "NEXAH Pentagon Knick Lab",
+      "bytes": 12616,
+      "sha256": "d7aaf34325677e55420b460f9d728c8b663686667fd74c2aea3481af0f7a60ca",
+      "preliminary_class": "repository_supporting_surface",
+      "ring1_module": null,
+      "technology": {
+        "canvas": false,
+        "svg": true,
+        "iframe": false,
+        "webgl": false,
+        "three_js": false,
+        "es_module": false
+      },
+      "concepts": [
+        "orientation",
+        "geodesic_geo"
+      ],
+      "local_href_count": 0,
+      "script_src_count": 0
+    },
+    {
+      "path": "RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/downloads/A0_PENTAGON_KNICK_APERTURE_INTAKE_2026-10-25/sources/html-history/02-ring.html",
+      "title": "NEXAH Pentagon Knick Lab",
+      "bytes": 17294,
+      "sha256": "0b890c46db0f8fc16bf997739072e71dedf9a465be3abd813efcf1641a874e24",
+      "preliminary_class": "repository_supporting_surface",
+      "ring1_module": null,
+      "technology": {
+        "canvas": false,
+        "svg": true,
+        "iframe": false,
+        "webgl": false,
+        "three_js": false,
+        "es_module": false
+      },
+      "concepts": [
+        "orientation",
+        "geodesic_geo"
+      ],
+      "local_href_count": 0,
+      "script_src_count": 0
+    },
+    {
+      "path": "RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/downloads/A0_PENTAGON_KNICK_APERTURE_INTAKE_2026-10-25/sources/html-history/03-graph.html",
+      "title": "NEXAH Pentagon Knick Lab",
+      "bytes": 18920,
+      "sha256": "cb282560fa5d1889567ab3e26a436fa0028f96113f6bca7f46a0934cdca4c9f2",
+      "preliminary_class": "repository_supporting_surface",
+      "ring1_module": null,
+      "technology": {
+        "canvas": false,
+        "svg": true,
+        "iframe": false,
+        "webgl": false,
+        "three_js": false,
+        "es_module": false
+      },
+      "concepts": [
+        "orientation",
+        "geodesic_geo"
+      ],
+      "local_href_count": 0,
+      "script_src_count": 0
+    },
+    {
+      "path": "RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/downloads/A0_PENTAGON_KNICK_APERTURE_INTAKE_2026-10-25/sources/html-history/04-tip-and-coordinate-controls.html",
+      "title": "NEXAH Pentagon Knick Lab",
+      "bytes": 21960,
+      "sha256": "0dcc3fc2987ef0dfde7072761e9c1277c18bbb7843a70c87df7980d21dd93a06",
+      "preliminary_class": "repository_supporting_surface",
+      "ring1_module": null,
+      "technology": {
+        "canvas": false,
+        "svg": true,
+        "iframe": false,
+        "webgl": false,
+        "three_js": false,
+        "es_module": false
+      },
+      "concepts": [
+        "orientation",
+        "geodesic_geo"
+      ],
+      "local_href_count": 0,
+      "script_src_count": 0
+    },
+    {
+      "path": "RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/downloads/A0_PENTAGON_KNICK_APERTURE_INTAKE_2026-10-25/sources/html-history/05-curtain-preflight.html",
+      "title": "NEXAH Pentagon Knick Lab",
+      "bytes": 41860,
+      "sha256": "22e690642690c046981b81ca1a7ee827e039fc6bc1e3c53d203ebba8927e4ef7",
+      "preliminary_class": "repository_supporting_surface",
+      "ring1_module": null,
+      "technology": {
+        "canvas": false,
+        "svg": true,
+        "iframe": false,
+        "webgl": false,
+        "three_js": false,
+        "es_module": false
+      },
+      "concepts": [
+        "orientation",
+        "geodesic_geo"
+      ],
+      "local_href_count": 0,
+      "script_src_count": 0
+    },
+    {
+      "path": "RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/downloads/A0_PENTAGON_KNICK_APERTURE_INTAKE_2026-10-25/sources/lantern/NEXAH_PENTAGON_GELENKLATERNE_LAB.html",
+      "title": "NEXAH Pentagon · Drehen · Knick · Curtain",
+      "bytes": 58216,
+      "sha256": "6e19322837bf952e1f3136f8af192e92b427f0554329df698e829d7587167718",
+      "preliminary_class": "repository_supporting_surface",
+      "ring1_module": null,
+      "technology": {
+        "canvas": false,
+        "svg": true,
+        "iframe": false,
+        "webgl": false,
+        "three_js": false,
+        "es_module": false
+      },
+      "concepts": [
+        "orientation",
+        "phase_time",
+        "geodesic_geo"
+      ],
+      "local_href_count": 0,
+      "script_src_count": 0
+    },
+    {
+      "path": "RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/downloads/A0_PENTAGON_KNICK_APERTURE_INTAKE_2026-10-25/sources/standalone/NEXAH_TEILER_STREIFEN_DESK.html",
+      "title": "NEXAH · Teiler und Streifen",
+      "bytes": 25837,
+      "sha256": "8774cbea011c78b061dd0d3455d99ba2d94b10c0a5882e40a70cd1466b58343e",
+      "preliminary_class": "repository_supporting_surface",
+      "ring1_module": null,
+      "technology": {
+        "canvas": false,
+        "svg": false,
+        "iframe": false,
+        "webgl": false,
+        "three_js": false,
+        "es_module": false
+      },
+      "concepts": [
+        "orientation",
+        "geodesic_geo"
+      ],
+      "local_href_count": 0,
+      "script_src_count": 0
+    },
+    {
+      "path": "RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/downloads/A0_PENTAGON_KNICK_APERTURE_INTAKE_2026-10-25/sources/standalone/NEXAH_TEILER_STREIFEN_DESK_V4.html",
+      "title": "NEXAH · Teiler und Streifen",
+      "bytes": 42492,
+      "sha256": "09740535d7242c01024621bb2ccc608648d453083c61827df3681b799d3fcf40",
+      "preliminary_class": "repository_supporting_surface",
+      "ring1_module": null,
+      "technology": {
+        "canvas": false,
+        "svg": true,
+        "iframe": false,
+        "webgl": false,
+        "three_js": false,
+        "es_module": false
+      },
+      "concepts": [
+        "orientation",
+        "operator_runtime",
+        "geodesic_geo"
+      ],
+      "local_href_count": 0,
+      "script_src_count": 0
+    },
+    {
       "path": "RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/index.html",
       "title": "NEXAH A0 — Fundamentals",
-      "bytes": 51528,
-      "sha256": "623f853401fe464f338bbfdf03cd4aa93627f6d1279430586ab85cdc345b935a",
+      "bytes": 55569,
+      "sha256": "cad07befb24e63d8411e28200c9892050a5e731ff1c7abacfde6e339a85f1a92",
       "preliminary_class": "repository_supporting_surface",
       "ring1_module": null,
       "technology": {
@@ -1901,7 +3016,7 @@
         "phase_time",
         "geodesic_geo"
       ],
-      "local_href_count": 62,
+      "local_href_count": 67,
       "script_src_count": 2
     },
     {
@@ -2152,8 +3267,8 @@
     {
       "path": "SCIENCE_LAB/CASE_STUDIES/E8_DEMOS_INTERACTIVE_ORIENTATION_2026-09-21/COXETER_ORBIT_TOPOLOGY_LAB_2026-10-05/NEXAH_FAMILY_SYNTHESIS_DEMONSTRATOR.html",
       "title": "NEXAH · Family Synthesis Demonstrator",
-      "bytes": 37003,
-      "sha256": "4c40f1c5dd0756feb9a30ba62a1dbad868c53cbc11f526cb8a12767e5b437fa2",
+      "bytes": 48025,
+      "sha256": "15f83d4e716fea66c9bb36571398e388f82e82057058ea7c5dbdef13f720b7e2",
       "preliminary_class": "case_study_surface",
       "ring1_module": "family-synthesis",
       "technology": {
@@ -2172,20 +3287,20 @@
         "operator_runtime",
         "geodesic_geo"
       ],
-      "local_href_count": 7,
-      "script_src_count": 2
+      "local_href_count": 12,
+      "script_src_count": 3
     },
     {
       "path": "SCIENCE_LAB/CASE_STUDIES/E8_DEMOS_INTERACTIVE_ORIENTATION_2026-09-21/COXETER_ORBIT_TOPOLOGY_LAB_2026-10-05/NEXAH_TYPED_COUPLING_WORKBENCH.html",
       "title": "NEXAH · Typed Coupling Workbench",
-      "bytes": 25958,
-      "sha256": "22058d74155d85b2c3ce1e3480c445d9492b072b295ab9d6d36923d3882213db",
+      "bytes": 38903,
+      "sha256": "eff60bc95d0d93e879244b547e60309d9bebbaac9a394fb21358810faebbfc15",
       "preliminary_class": "case_study_surface",
       "ring1_module": "typed-coupling",
       "technology": {
         "canvas": false,
         "svg": true,
-        "iframe": false,
+        "iframe": true,
         "webgl": false,
         "three_js": false,
         "es_module": false
@@ -2198,14 +3313,14 @@
         "phase_time",
         "geodesic_geo"
       ],
-      "local_href_count": 7,
-      "script_src_count": 2
+      "local_href_count": 9,
+      "script_src_count": 4
     },
     {
       "path": "SCIENCE_LAB/CASE_STUDIES/E8_DEMOS_INTERACTIVE_ORIENTATION_2026-09-21/COXETER_ORBIT_TOPOLOGY_LAB_2026-10-05/NEXAH_WORD_ORBIT_SEQUENCER.html",
       "title": "NEXAH · Word & Orbit Sequencer",
-      "bytes": 31423,
-      "sha256": "ad44b85fe113241239c37c03a3db80edaea20cde9eafb63d53bde4fe6c513cad",
+      "bytes": 32284,
+      "sha256": "e1369051a4736f871a3504ccfd7b4ce9d6ff9048f9475226f73e81f93bec134b",
       "preliminary_class": "case_study_surface",
       "ring1_module": "word-orbit",
       "technology": {
@@ -2224,13 +3339,13 @@
         "geodesic_geo"
       ],
       "local_href_count": 8,
-      "script_src_count": 2
+      "script_src_count": 4
     },
     {
       "path": "SCIENCE_LAB/CASE_STUDIES/E8_DEMOS_INTERACTIVE_ORIENTATION_2026-09-21/NEXAH_E8_MUTATION_FAMILY_GRAPH.html",
       "title": "NEXAH · Coxeter Orbit Lab",
-      "bytes": 32773,
-      "sha256": "50f35d95edf2635bd5cd8707e2d45d71b13c431a07e72d511ebd4afb39c361f1",
+      "bytes": 32807,
+      "sha256": "e86ea838808489f3a095712d8f80c924022aaf2c95a4f4d511cbb1a86d2b8688",
       "preliminary_class": "case_study_surface",
       "ring1_module": "e8-graph",
       "technology": {
@@ -2633,8 +3748,8 @@
     {
       "path": "SCIENCE_LAB/CASE_STUDIES/NEXAH_BLOCK01_CUBE_FACE_PROJECTION_RETURN_2026-10-06/NEXAH_BLOCK01_CUBE_LAB.html",
       "title": "BLOCK-01 · Cube Face / Projection / Return Lab",
-      "bytes": 20260,
-      "sha256": "1d097941eb9be4452b136934ce90c2b1f466fa1cc5a928330309f51de201988f",
+      "bytes": 20535,
+      "sha256": "96ecb197adcaaa14afd2804830d422c347f60f4e2cca258be05bf1ff302c3bf5",
       "preliminary_class": "case_study_surface",
       "ring1_module": null,
       "technology": {
@@ -3051,8 +4166,8 @@
     {
       "path": "SCIENCE_LAB/CASE_STUDIES/NEXAH_ELEVEN_SPACE_JANUS_NUMBER_VIEW_2026-10-06/NEXAH_JANUS_ARITHMETIC_LADDER.html",
       "title": "NEXAH · Janus Arithmetic Ladder",
-      "bytes": 12388,
-      "sha256": "9dc3f517f8c1c71f0f783d08465d5f400c7f73a5c5d667252c4877d8e40e5950",
+      "bytes": 14029,
+      "sha256": "1ef8f18ec3a70af62b89343c20ed2413c9f3efb1c54d72b0e5f7fec9abc8a0c5",
       "preliminary_class": "case_study_surface",
       "ring1_module": null,
       "technology": {
@@ -3064,11 +4179,12 @@
         "es_module": false
       },
       "concepts": [
+        "orientation",
         "operator_runtime",
         "geodesic_geo"
       ],
       "local_href_count": 2,
-      "script_src_count": 0
+      "script_src_count": 1
     },
     {
       "path": "SCIENCE_LAB/CASE_STUDIES/NEXAH_HTML_ORIENTATION_DEMONSTRATOR_SERIES/closed-loop-moving-world-standalone.html",
@@ -5028,8 +6144,8 @@
     {
       "path": "SCIENCE_LAB/EXPORTS/MIWA_PINEAP_AN_DROMEDA.html",
       "title": "Milky Way · Pineal Aperture · Andromeda",
-      "bytes": 69699,
-      "sha256": "4dc4612a851fbb0d58b8d4409bfc0543164206d98040034736e5ffe1bad6c892",
+      "bytes": 69878,
+      "sha256": "5ce440f6b0fb2ca1db6cb984a4e44bafd0ef3489a8161581ce4a0748e88b0ee7",
       "preliminary_class": "current_export_candidate",
       "ring1_module": null,
       "technology": {
@@ -5050,7 +6166,7 @@
         "geodesic_geo"
       ],
       "local_href_count": 2,
-      "script_src_count": 0
+      "script_src_count": 1
     },
     {
       "path": "SCIENCE_LAB/EXPORTS/MIWA_PINEAP_AN_DROMEDA_DOWNLOAD/MIWA_PINEAP_AN_DROMEDA.html",
@@ -5081,8 +6197,8 @@
     {
       "path": "SCIENCE_LAB/EXPORTS/NEXAH_3_PLUS_1_DUAL_BELT.html",
       "title": "NEXAH ⇄ ERITH · Source-Seed Field Instrument",
-      "bytes": 25950,
-      "sha256": "f67cb0bf7f5919d107c904d7a8dd06a509a750966193b5bd92e9616ec48ff0dc",
+      "bytes": 25984,
+      "sha256": "f73c8025f7c072c9f24dc3c109d5c8b1ab99abc69ed11667a01b5f97943e8310",
       "preliminary_class": "current_export_candidate",
       "ring1_module": "dual-belt",
       "technology": {
@@ -5151,8 +6267,8 @@
     {
       "path": "SCIENCE_LAB/EXPORTS/NEXAH_HZ_FZ_COMPASS_MISSION_CONTROL.html",
       "title": "NEXAH · HZ/FZ Compass Mission Control",
-      "bytes": 24852,
-      "sha256": "fe22e316b11e7987fd86c1e36dc80e1f70ce195ab37093210a7882b4b8f11556",
+      "bytes": 24886,
+      "sha256": "fadf3b771b1e10c32bdea7a9a2125b1e8306e56d890ddd87cde32d703d12a379",
       "preliminary_class": "current_export_candidate",
       "ring1_module": "mission-control",
       "technology": {
@@ -5175,8 +6291,8 @@
     {
       "path": "SCIENCE_LAB/EXPORTS/NEXAH_TESSAREC_Q_IOTA_PEARL.html",
       "title": "Tessarec Q Iota Pearl",
-      "bytes": 63682,
-      "sha256": "ef89abe4336324d131cc8db576680083c7eb2537e2e2947130b600222044ee86",
+      "bytes": 63716,
+      "sha256": "99405a24922eb945ead2b7abcab3bc87794b9886c1a51f7dbf5871a70d917e0e",
       "preliminary_class": "current_export_candidate",
       "ring1_module": "tessarec",
       "technology": {
@@ -5243,8 +6359,8 @@
     {
       "path": "SCIENCE_LAB/NAVIGATION/APP/index.html",
       "title": "NEXAH Science Lab Navigator · Internal",
-      "bytes": 7543,
-      "sha256": "c9a746309dd00e4dec8d9a13709006631fa1e5f15b0dd90ae382ad4f25a552f4",
+      "bytes": 7710,
+      "sha256": "1b577b416cba144ceb5c80ac5a8cbcaeb05949264a1786f1cfc5b1ebc35aef2c",
       "preliminary_class": "science_lab_root",
       "ring1_module": null,
       "technology": {
@@ -5261,7 +6377,7 @@
         "geodesic_geo"
       ],
       "local_href_count": 2,
-      "script_src_count": 18
+      "script_src_count": 19
     },
     {
       "path": "SCIENCE_LAB/NAVIGATION/CANDIDATES/LIFE_ORBIT_V2_2026-10-07/index.html",
@@ -5770,8 +6886,8 @@
     {
       "path": "SCIENCE_LAB/NEXAH_FAMILY_CONNECTION_MAP_V2.html",
       "title": "NEXAH · Family Connection Map",
-      "bytes": 67287,
-      "sha256": "c3b00d21b3da81d304c4c2676ff5ca009ed21eac559296573ce8f708b6b0d98d",
+      "bytes": 70755,
+      "sha256": "dd24051bb74a4331daa6704a5149662fc104628e9efbfd706157acd665f0f178",
       "preliminary_class": "science_lab_root",
       "ring1_module": "atlas",
       "technology": {
@@ -5790,14 +6906,14 @@
         "phase_time",
         "geodesic_geo"
       ],
-      "local_href_count": 14,
+      "local_href_count": 17,
       "script_src_count": 5
     },
     {
       "path": "SCIENCE_LAB/RESEARCH_AREAS/FIELD_GLYPH_NUMBER_ARCHITECTURE_STAGE_0_2026-09-14/NEXAH_EULER_ANTIPODE_TWO_CUT_INSTRUMENT.html",
       "title": "NEXAH · Euler Ladder · Antipode Frame · Two-Cut Return",
-      "bytes": 22326,
-      "sha256": "a661a65119cf3c8af901403fbad9d49d43b6c98fcb3145a8d10d4c6b37ec25da",
+      "bytes": 24112,
+      "sha256": "a538f735a5431d8716c430efe02ec565ec5c794d8557c18632128d6ba0643018",
       "preliminary_class": "research_area_surface",
       "ring1_module": "two-cut",
       "technology": {
@@ -5816,7 +6932,7 @@
         "geodesic_geo"
       ],
       "local_href_count": 7,
-      "script_src_count": 2
+      "script_src_count": 3
     }
   ]
 }

@@ -1,0 +1,49 @@
+NEXAH Konstanten im 11er Register
+Stand 25. Oktober 2026
+
+97 fractional decimal digits, 96 overlapping ordered pairs, position n uses digits n and n+1 (1-based). r=(b-a) mod11. signed residue r if r<=5 else r-11. zero has no joint; nonzero joint M(abs(signed)-1). This joint assignment is a new declared encoding, not an existing A0 coupling.
+
+160 and 220 decimal digits produce identical 97-digit prefixes
+
+π: 3.1415926535897932384626433832795028841971693993751058209749445923078164062862089986280348253421170
+Erste fünf Paare: 14 -> 3 / M2, 41 -> -3 / M2, 15 -> 4 / M3, 59 -> 4 / M3, 92 -> 4 / M3
+Schnapszahlen-Paare: 6 von 96
+Kanalhäufigkeiten -5..+5: [9, 10, 6, 14, 7, 6, 8, 5, 7, 11, 13]
+
+φ: 1.6180339887498948482045868343656381177203091798057628621354486227052604628189024497072072041893911
+Erste fünf Paare: 61 -> -5 / M4, 18 -> -4 / M3, 80 -> 3 / M2, 03 -> 3 / M2, 33 -> 0 / None
+Schnapszahlen-Paare: 8 von 96
+Kanalhäufigkeiten -5..+5: [12, 10, 5, 9, 9, 8, 6, 9, 8, 11, 9]
+
+√2: 1.4142135623730950488016887242096980785696718753769480731766797379907324784621070388503875343276415
+Erste fünf Paare: 41 -> -3 / M2, 14 -> 3 / M2, 42 -> -2 / M1, 21 -> -1 / M0, 13 -> 2 / M1
+Schnapszahlen-Paare: 5 von 96
+Kanalhäufigkeiten -5..+5: [5, 13, 7, 12, 13, 5, 9, 9, 10, 8, 5]
+
+√7: 2.6457513110645905905016157536392604257102591830824501803683344592010688232302836277603928864745436
+Erste fünf Paare: 64 -> -2 / M1, 45 -> 1 / M0, 57 -> 2 / M1, 75 -> -2 / M1, 51 -> -4 / M3
+Schnapszahlen-Paare: 6 von 96
+Kanalhäufigkeiten -5..+5: [12, 4, 5, 10, 7, 6, 11, 11, 11, 10, 9]
+
+√11: 3.3166247903553998491149327366706866839270885455893535970586821461164846426090438467088433991282906
+Erste fünf Paare: 31 -> -2 / M1, 16 -> 5 / M4, 66 -> 0 / None, 62 -> -4 / M3, 24 -> 2 / M1
+Schnapszahlen-Paare: 12 von 96
+Kanalhäufigkeiten -5..+5: [8, 7, 3, 10, 6, 12, 5, 14, 9, 9, 13]
+
+√4 = 2: 2.0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+Erste fünf Paare: 00 -> 0 / None, 00 -> 0 / None, 00 -> 0 / None, 00 -> 0 / None, 00 -> 0 / None
+Schnapszahlen-Paare: 96 von 96
+Kanalhäufigkeiten -5..+5: [0, 0, 0, 0, 0, 96, 0, 0, 0, 0, 0]
+
+√19: 4.3588989435406735522369819838596156591370039252324449368903441381595573282031580856561591558519445
+Erste fünf Paare: 35 -> 2 / M1, 58 -> 3 / M2, 88 -> 0 / None, 89 -> 1 / M0, 98 -> -1 / M0
+Schnapszahlen-Paare: 10 von 96
+Kanalhäufigkeiten -5..+5: [8, 5, 10, 2, 9, 10, 11, 9, 13, 14, 5]
+
+√29: 5.3851648071345040312507104915403295562951201616447888376803886700166459628276586928766337816798354
+Erste fünf Paare: 38 -> 5 / M4, 85 -> -3 / M2, 51 -> -4 / M3, 16 -> 5 / M4, 64 -> -2 / M1
+Schnapszahlen-Paare: 9 von 96
+Kanalhäufigkeiten -5..+5: [7, 12, 3, 7, 10, 9, 12, 4, 10, 10, 12]
+
+Auswertung: 768 Paaradressen verarbeitet, davon 96 für die rationale Kontrolle √4=2. Diese endlichen Dezimalfolgen erlauben einen reproduzierbaren Darstellungsvergleich. Häufigkeiten wurden nicht auf statistische Besonderheit geprüft; keine Neuheit oder strukturelle Gleichheit der Konstanten folgt daraus.
+Alle ursprünglichen Ziffernpaare und ihre Positionen bleiben im JSON erhalten. Die Restklasse allein ist nicht umkehrbar.

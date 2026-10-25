@@ -376,8 +376,8 @@ controlling workspace is the
 
 ### 7.4 A0 module and surface coverage
 
-The governed A0 coverage record currently binds **58 registered surfaces in
-eleven work groups**. All 58 are bound through the existing
+The governed A0 coverage record currently binds **71 registered surfaces in
+thirteen work groups**. All 71 are bound through the existing
 `NEXAH:A0_ORIENTATION_EVIDENCE_LINEAGE:V1` lens and its already governed A0,
 Number View, Orientation, Return, LIFE and Tessarec identities. The exact
 mapping is machine-readable in the

@@ -1,0 +1,272 @@
+{
+  "strings": {
+    "111213": {
+      "digit6NormSquared": 17,
+      "nativeGridBridge": {
+        "address": 1343,
+        "residual": 13,
+        "returnAddress": 10977,
+        "returnXY": [
+          99,
+          98
+        ]
+      },
+      "blocks": [
+        "11",
+        "12",
+        "13"
+      ],
+      "blockChannels": [
+        0,
+        1,
+        2
+      ],
+      "overlapChannels": [
+        0,
+        0,
+        1,
+        -1,
+        2
+      ],
+      "coords": [
+        11,
+        12,
+        13
+      ],
+      "normSquared": 434,
+      "scaledNormSquared": 62,
+      "withoutSeedCandidates": 8,
+      "nonoverlapBlockCandidatesGivenFirstDigit": 81,
+      "rawAsNative111GridAddress": false
+    },
+    "123111": {
+      "digit6NormSquared": 17,
+      "nativeGridBridge": {
+        "address": 3453,
+        "residual": 11,
+        "returnAddress": 8867,
+        "returnXY": [
+          98,
+          79
+        ]
+      },
+      "blocks": [
+        "12",
+        "31",
+        "11"
+      ],
+      "blockChannels": [
+        1,
+        -2,
+        0
+      ],
+      "overlapChannels": [
+        1,
+        1,
+        -2,
+        0,
+        0
+      ],
+      "coords": [
+        12,
+        31,
+        11
+      ],
+      "normSquared": 1226,
+      "scaledNormSquared": 175.14285714285714,
+      "withoutSeedCandidates": 8,
+      "nonoverlapBlockCandidatesGivenFirstDigit": 90,
+      "rawAsNative111GridAddress": false
+    }
+  },
+  "cutTests": {
+    "distinctPermutations": 30,
+    "cutMasksPerWord": 32,
+    "fullChainChecks": 960,
+    "segmentReturns": 3360,
+    "conclusion": "Cuts annotate an unchanged full chain. Omitting seam pairs changes the readout and loses the cross-seam transitions."
+  },
+  "positionOperators": {
+    "cycleThenMiddleDigitReverse": "111213 -> 121311 -> 123111",
+    "inverse": "apply middle digit reverse, then inverse cycle",
+    "normChange": 792,
+    "explanation": "Block cycle preserves Euclidean norm; digit reversal of 13 to 31 does not. Delta norm^2 = 99*(3^2-1^2)."
+  },
+  "digitReversalChecks": 100,
+  "scale": {
+    "factor": "1/sqrt7",
+    "checkedPoints": 30,
+    "maxInverseError": 3.552713678800501e-15,
+    "scope": "Declared real-coordinate scaling; not an integer-grid update."
+  },
+  "repunitNativeChecks": {
+    "1": {
+      "root": "1",
+      "square": "1",
+      "mirror": "1"
+    },
+    "2": {
+      "root": "11",
+      "square": "121",
+      "mirror": "121"
+    },
+    "3": {
+      "root": "111",
+      "square": "12321",
+      "mirror": "12321"
+    },
+    "4": {
+      "root": "1111",
+      "square": "1234321",
+      "mirror": "1234321"
+    },
+    "5": {
+      "root": "11111",
+      "square": "123454321",
+      "mirror": "123454321"
+    },
+    "6": {
+      "root": "111111",
+      "square": "12345654321",
+      "mirror": "12345654321"
+    },
+    "7": {
+      "root": "1111111",
+      "square": "1234567654321",
+      "mirror": "1234567654321"
+    },
+    "8": {
+      "root": "11111111",
+      "square": "123456787654321",
+      "mirror": "123456787654321"
+    },
+    "9": {
+      "root": "111111111",
+      "square": "12345678987654321",
+      "mirror": "12345678987654321"
+    }
+  },
+  "nativeS3Lifts": [
+    {
+      "nativeWord": "123",
+      "axis": "A",
+      "side": 1,
+      "lifted": "111213"
+    },
+    {
+      "nativeWord": "132",
+      "axis": "B",
+      "side": -1,
+      "lifted": "111312"
+    },
+    {
+      "nativeWord": "213",
+      "axis": "C",
+      "side": -1,
+      "lifted": "121113"
+    },
+    {
+      "nativeWord": "231",
+      "axis": "B",
+      "side": 1,
+      "lifted": "121311"
+    },
+    {
+      "nativeWord": "312",
+      "axis": "C",
+      "side": 1,
+      "lifted": "131112"
+    },
+    {
+      "nativeWord": "321",
+      "axis": "A",
+      "side": -1,
+      "lifted": "131211"
+    }
+  ],
+  "native111GridChecks": 12321,
+  "nativeProjectionWithResidualChecks": 30,
+  "nativePairMirrorChecks": 100,
+  "nativeDefgContract": {
+    "status": "OPEN_SOURCE_BOUND_CROSSWALK_NO_RECONSTRUCTION",
+    "baseObjects": [
+      "A",
+      "B",
+      "C"
+    ],
+    "relationObjects": {
+      "D": "A INTERSECT B",
+      "E": "B INTERSECT C",
+      "F": "C INTERSECT A",
+      "G": "A INTERSECT B INTERSECT C"
+    },
+    "roleRecursion": [
+      "Q_n -> H_n",
+      "H_n -> Q_(n+1)"
+    ],
+    "independentSplits": {
+      "relation": [
+        "D",
+        "E"
+      ],
+      "layer": [
+        "H+",
+        "H-"
+      ],
+      "cells": [
+        "D+",
+        "E+",
+        "D-",
+        "E-"
+      ]
+    },
+    "retainedOutsideCross": [
+      "F",
+      "G"
+    ],
+    "series": {
+      "position9": {
+        "title": "Recursive Source-Court Tree",
+        "source": "STATIC_DOCUMENTARY_ONLY",
+        "html": "MISSING_UNRECOVERED"
+      },
+      "position10": {
+        "title": "Closed Loop Moving World",
+        "source": "EXECUTABLE_HTML_PRESENT",
+        "html": "closed-loop-moving-world-standalone.html"
+      }
+    },
+    "candidateAddresses": [
+      "9.DEFG?",
+      "10.F?"
+    ],
+    "identityClaim": false,
+    "boundary": "The address labels are an open reading over existing historical sources. They do not reconstruct the missing position-9 HTML or establish Q/H, DEFG and polygon carriers as identical."
+  },
+  "models": {
+    "NATIVE_GRID111": {
+      "size": 111,
+      "validAddresses": [
+        0,
+        12320
+      ]
+    },
+    "NEW_PAIR_COORDINATES": {
+      "formula": "S(s)=(int(s[0:2]),int(s[2:4]),int(s[4:6]))",
+      "domain": "fixed-width 6 decimal digits",
+      "range": "{0,...,99}^3; valid subset of a newly declared 111^3 carrier, not the native 111^2 grid",
+      "inverse": "two-digit zero-padding and concatenation"
+    }
+  },
+  "exactConnection": {
+    "coordinates": [
+      11,
+      12,
+      13
+    ],
+    "sumOfSquares": 434,
+    "identity": "11*(11^2+12^2+13^2)=4774",
+    "scaledNormSquared": 62,
+    "scope": "Exact base-dependent arithmetic under the declared pair-coordinate map; not a claim of physical coupling or statistical significance."
+  }
+}

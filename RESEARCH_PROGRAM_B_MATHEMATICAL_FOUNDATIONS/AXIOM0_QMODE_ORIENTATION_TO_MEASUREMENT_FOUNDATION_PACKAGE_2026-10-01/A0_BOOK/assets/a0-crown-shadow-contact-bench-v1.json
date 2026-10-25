@@ -1,0 +1,80 @@
+{
+  "schema": "nexah.a0.crown-shadow-contact-bench",
+  "version": "1.0.0",
+  "maintained": "2026-10-25",
+  "authority": {
+    "identity": "NEXAH:A0_ORIENTATION_EVIDENCE_LINEAGE:V1",
+    "artifact": "ART:A0:MATHEMATICAL_JOINTS",
+    "module": "MOD:TESSAREC",
+    "related_not_merged": "ART:E8:TYPED_COUPLING",
+    "new_canonical_identity": false,
+    "science_run": false
+  },
+  "states": {
+    "OPEN": 0,
+    "CONTACT": 4,
+    "RETURN": 8
+  },
+  "views": {
+    "FRONT": "0deg 74deg 2.35m",
+    "BACK": "180deg 74deg 2.35m",
+    "SECTION": "90deg 82deg 2.05m"
+  },
+  "transform": {
+    "source_to_glb": "0.1 * (x, z, -y)",
+    "matrix": [[0.1, 0, 0], [0, 0, 0.1], [0, -0.1, 0]],
+    "source_unit_metres": 0.1,
+    "basis": "source z-up to glTF y-up"
+  },
+  "triangle": [[0, 0.65, 0.19], [-0.562916512459885, -0.325, 0.19], [0.562916512459885, -0.325, 0.19]],
+  "contacts": [
+    {"id": "U1", "role": "UP", "point": [0, 0.3575, 0.19], "direction": [0, 0, 1]},
+    {"id": "U2", "role": "UP", "point": [-0.3096040818529368, -0.17875, 0.19], "direction": [0, 0, 1]},
+    {"id": "U3", "role": "UP", "point": [0.30960408185293675, -0.17875, 0.19], "direction": [0, 0, 1]},
+    {"id": "D1", "role": "DOWN", "point": [-0.16, 0, 0.19], "direction": [0, 0, -1]},
+    {"id": "D2", "role": "DOWN", "point": [0.16, 0, 0.19], "direction": [0, 0, -1]}
+  ],
+  "white_pearl": {
+    "role": "FIXED_CENTRAL_PIN",
+    "source_axis_center_z": 0.3838240640448317,
+    "source_axis_half_length": 0.045,
+    "finite_radius_clearance": null,
+    "status": "OPEN_UNMEASURED"
+  },
+  "load_cases": {
+    "EQUAL": {
+      "up": 1,
+      "down": 1,
+      "force": [0, 0, 1],
+      "moment": [-2.7755575615628914e-17, 5.551115123125783e-17, 0]
+    },
+    "BALANCED": {
+      "up": 1,
+      "down": 1.5,
+      "force": [0, 0, 0],
+      "moment": [-2.7755575615628914e-17, 5.551115123125783e-17, 0]
+    }
+  },
+  "measurements": {
+    "source_contact_residual_u": 3.3306690738754696e-16,
+    "first_collision": null,
+    "source_vs_glb_vertex_residual": null,
+    "collision_certified": false,
+    "stability_certified": false
+  },
+  "models": {
+    "integrated": "downloads/A0_PENTAGON_KNICK_APERTURE_INTAKE_2026-10-25/deliverables/glb/NEXAH_Shadow_Triangle_3plus2_Animiert_2026-10-25.glb",
+    "crown_source": "downloads/A0_PENTAGON_KNICK_APERTURE_INTAKE_2026-10-25/deliverables/glb/NEXAH_Fuenflaschenkrone_Animiert_2026-10-25.glb"
+  },
+  "source_hashes": {
+    "integrated_glb_sha256": "e0c85ad8b7a63c60baaeb984a17865ec574569de2ecebbabe577d4d0ed152455",
+    "crown_glb_sha256": "24a33c38eb6e95b110e851ed5fe321f19120bf580248fa09b3a4e5c07b33f754"
+  },
+  "equation_register": {
+    "items": ["PI", "PHI", "ROOT2", "FIBONACCI", "EULER", "PRIMES"],
+    "role": "TYPED_ADDRESS_REGISTER",
+    "sharedGenerator": false
+  },
+  "result": "PARTIAL",
+  "result_reason": "Source contact and balanced resultant are declared; finite thickness, collision, support, transmission and source-to-GLB vertex residual remain open."
+}

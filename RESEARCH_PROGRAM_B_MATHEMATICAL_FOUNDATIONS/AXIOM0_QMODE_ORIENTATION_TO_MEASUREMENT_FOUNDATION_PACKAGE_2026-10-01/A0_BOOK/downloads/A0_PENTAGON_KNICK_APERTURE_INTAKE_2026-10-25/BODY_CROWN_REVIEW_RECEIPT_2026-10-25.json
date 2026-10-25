@@ -1,0 +1,91 @@
+{
+  "schema": "nexah.a0.module-review-receipt/1.0.0",
+  "date": "2026-10-25",
+  "status": "PARKED_SOURCE_BOUND_MODULE_INTAKE_REVIEW_REQUIRED",
+  "extends_package": "A0_PENTAGON_KNICK_APERTURE_INTAKE_2026-10-25",
+  "identity": {
+    "reuse": [
+      "NEXAH:A0_ORIENTATION_EVIDENCE_LINEAGE:V1",
+      "ART:A0:MATHEMATICAL_JOINTS",
+      "MOD:TESSAREC"
+    ],
+    "related_not_merged": [
+      "ART:E8:TYPED_COUPLING",
+      "MOD:E8_COXETER"
+    ],
+    "new_canonical_ids": [],
+    "new_relations": []
+  },
+  "received": [
+    {
+      "path": "reports/body-due-diligence/NEXAH_Koerper_Due_Diligence_2026-10-25.txt",
+      "sha256": "238b7c24b51d216f36ecc3fb2473e89d4703e40cb6d4bcd2fd9781da31cd8581"
+    },
+    {
+      "path": "reports/body-due-diligence/NEXAH_Koerper_Due_Diligence_2026-10-25.docx",
+      "sha256": "efae0af74c9536cfb75074fabf60488051c9931180d6f13af3dc4c111a1db702"
+    },
+    {
+      "path": "sources/packages/NEXAH_Fuenflaschenkrone_Quellen_2026-10-25.zip",
+      "sha256": "6c339198dae455e34b39761aee1ac4475dd95e5135bb40210c13686dd6c9034b"
+    },
+    {
+      "path": "deliverables/glb/NEXAH_Fuenflaschenkrone_Animiert_2026-10-25.glb",
+      "sha256": "24a33c38eb6e95b110e851ed5fe321f19120bf580248fa09b3a4e5c07b33f754"
+    }
+  ],
+  "derived_review_copy": {
+    "path": "reports/body-due-diligence/NEXAH_Koerper_Due_Diligence_2026-10-25.pdf",
+    "sha256": "027fa1985f62c8504c5d9173a7a0e691ac5b5b05468b9199e974b65b3bc5a42f",
+    "source": "unchanged received DOCX",
+    "pages": 11,
+    "visual_review": "PASS_NO_CLIPPING_OVERLAP_OR_BROKEN_TABLES"
+  },
+  "zip_review": {
+    "safe_relative_paths": true,
+    "entries": 5,
+    "extracted_source_path": "sources/five-flap-crown/",
+    "contains_glb": false,
+    "contains_png": false,
+    "contains_stl": false,
+    "contains_audit_results_json": false
+  },
+  "source_build": {
+    "attempted": true,
+    "completed": false,
+    "blocker": "declared scipy dependency unavailable in bundled review environment",
+    "scientific_result": "NO_INFERENCE"
+  },
+  "recovered_delivery": {
+    "declared_path": "/Users/tho2020/Downloads/NEXAH_Fuenflaschenkrone_Animiert_2026-10-25.glb",
+    "recovered_path": "/Users/tho2020/Desktop/NEXAH_Fuenflaschenkrone_Animiert_2026-10-25.glb",
+    "status": "RECOVERED_FROM_TRASH_TO_DESKTOP_AND_COPIED_TO_REPOSITORY_CUSTODY",
+    "structural_validation": {
+      "format": "glTF 2.0 binary",
+      "bytes": 30176,
+      "nodes": 31,
+      "meshes": 4,
+      "materials": 4,
+      "accessors": 18,
+      "buffer_views": 18,
+      "animation_channels": 5,
+      "result": "PASS",
+      "independent_gltf_validator": "OPEN",
+      "browser_acceptance": "OPEN"
+    }
+  },
+  "related_build": {
+    "identity": "ART:E8:TYPED_COUPLING",
+    "workbench_sha256": "03a831a9e574c8b6ada24c16c6a0def3fd27c2d2669b3a69467071915fda226b",
+    "engine_sha256": "cdbcfa403adb982353573fc4c91f14b90842c14f2325f9b1223787ea0bee447f",
+    "return_sha256": "873276b1f75d5cfc03c35749ee91bfea6e7306d6bf84e93b79ea042cc1fbf1c6",
+    "relation": "DOCUMENTARY_CROSS_LINK_ONLY"
+  },
+  "authority": {
+    "study_activated": false,
+    "finding_promoted": false,
+    "publication_authorized": false,
+    "independent_science_replay_claimed": false
+  },
+  "next_permitted_action": "reproduce GLB from source, compare hashes, validate independently, then perform browser and collision review"
+}

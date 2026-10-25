@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>NEXAH · Crown → Shadow Triangle Contact Bench</title>
+  <meta name="description" content="Source-bound A0 engineering bench for the five-flap crown and fixed Shadow Triangle 3+2 contact interface.">
+  <link rel="stylesheet" href="a0-crown-shadow-contact-bench.css?rev=20261025-r1">
+  <script defer src="assets/vendor/a0-model-viewer-classic.js"></script>
+  <script defer src="a0-crown-shadow-contact-bench.js?rev=20261025-r1"></script>
+</head>
+<body>
+<header class="top"><div class="brand"><b>NEXAH · A0</b> CONTACT BENCH</div><nav><a href="A0_RESEARCH_DESK.html#crown-shadow-contact-bench-20261025">Science Desk</a><a href="A0_BUILDER_LOG.html#crown-shadow-contact-bench-20261025">Builder Log</a><a href="downloads/A0_PENTAGON_KNICK_APERTURE_INTAKE_2026-10-25/README.md">Intake</a><a href="../../../SCIENCE_LAB/NAVIGATION/APP/index.html#a0-orientation-evidence">NSN</a></nav></header>
+<section class="hero"><div class="eyebrow">Source-bound engineering instrument · existing A0 / TESSAREC lens</div><h1>Crown → Shadow Triangle</h1><p class="lead">Ein Bench, sechs getrennte Prüfachsen: Zustandsfahrt, Ansicht, Kontaktadressen, Lastfall, Messvertrag und Return. Die integrierte GLB zeigt die empfangene Krone über der festen 3+2-Kontaktebene; sie beweist weder Kollisionfreiheit noch Lager, Antrieb oder Stabilität.</p><div class="statusbar"><span>SOURCE-BOUND</span><span>STRUCTURAL GLB PASS</span><span>NO SCIENCE RUN</span><span>INDEPENDENT VALIDATION OPEN</span><span class="partial">GATE · PARTIAL</span></div></section>
+<main>
+  <section class="console" aria-labelledby="benchTitle">
+    <div class="toolbar">
+      <div class="toolgroup"><small>1 · STATE / ANIMATION</small><div class="buttons"><button class="control active" data-state="OPEN">OPEN</button><button class="control gold" data-state="CONTACT">CONTACT</button><button class="control" data-state="RETURN">RETURN</button><button class="control" id="playToggle">▶ PLAY</button><button class="control" id="stepState">STEP →</button></div></div>
+      <div class="toolgroup"><small>2 · VIEW</small><div class="buttons"><button class="control active" data-view="FRONT">FRONT</button><button class="control" data-view="BACK">BACK</button><button class="control" data-view="SECTION">SECTION</button></div></div>
+      <div class="toolgroup"><small>3 · SOURCE DISPLAY</small><div class="buttons"><button class="control active" data-model="integrated">INTEGRATED 3+2</button><button class="control" data-model="crown">CROWN SOURCE</button></div></div>
+    </div>
+    <div class="stage">
+      <div class="viewer" id="viewerStage">
+        <div class="viewer-label"><b id="modelLabel">INTEGRATED 3+2</b><span id="viewLabel">FRONT · OPEN · t=0.00s</span></div>
+        <model-viewer id="contactModel" src="downloads/A0_PENTAGON_KNICK_APERTURE_INTAKE_2026-10-25/deliverables/glb/NEXAH_Shadow_Triangle_3plus2_Animiert_2026-10-25.glb" alt="Animated five-flap crown above a fixed dark triangle carrying three upward and two downward contact arrows" camera-controls interaction-prompt="none" loading="eager" reveal="auto" exposure="1.15" shadow-intensity="0" camera-orbit="0deg 74deg 2.35m"></model-viewer>
+        <div class="section-plane" aria-hidden="true"></div>
+        <div class="phase-rail"><output id="phaseState">OPEN · 0%</output><input id="phaseSlider" type="range" min="0" max="100" value="0" step="0.1" aria-label="Animation phase"><output id="timeState">t=0.00 s</output></div>
+      </div>
+      <aside class="side">
+        <section><div class="kicker">4 · CONTACT ADDRESS MAP</div><h2>U1–U3 · D1–D2 · White Pearl</h2>
+          <svg class="map" viewBox="0 0 360 300" role="img" aria-label="Fixed triangle with five typed contact points and central White Pearl">
+            <path class="shell" d="M180 25 32 275H328Z"/><circle class="contact u active" data-contact="U1" cx="180" cy="88" r="11"/><circle class="contact u" data-contact="U2" cx="105" cy="218" r="11"/><circle class="contact u" data-contact="U3" cx="255" cy="218" r="11"/><circle class="contact d" data-contact="D1" cx="142" cy="174" r="11"/><circle class="contact d" data-contact="D2" cx="218" cy="174" r="11"/><circle class="contact pearl" data-contact="WHITE PEARL" cx="180" cy="151" r="12"/>
+            <text x="164" y="72">U1 ↑</text><text x="74" y="244">U2 ↑</text><text x="250" y="244">U3 ↑</text><text x="111" y="162">D1 ↓</text><text x="221" y="162">D2 ↓</text><text x="194" y="145">WHITE PEARL</text>
+          </svg>
+          <div class="buttons" aria-label="Contact selector" style="margin-top:10px"><button class="control active" data-contact="U1">U1</button><button class="control" data-contact="U2">U2</button><button class="control" data-contact="U3">U3</button><button class="control" data-contact="D1">D1</button><button class="control" data-contact="D2">D2</button><button class="control" data-contact="WHITE PEARL">WHITE PEARL</button></div>
+        </section>
+        <section><div class="readout"><div><small>Selected</small><b id="contactId">U1 · UP</b></div><div><small>Source xyz · u</small><b id="contactSource">0 · 0.3575 · 0.19</b></div><div><small>GLB xyz · m</small><b id="contactGlb">0 · 0.019 · −0.03575</b></div><div><small>State</small><b class="stateword" id="contactState">OPEN / SEPARATED</b></div></div></section>
+        <section><div class="kicker">5 · LOAD CASE</div><h2>Equal ≠ Balanced</h2><div class="buttons"><button class="control active" data-load="EQUAL">EQUAL · 1:1</button><button class="control" data-load="BALANCED">BALANCED · 1:1.5</button></div><div class="readout" style="margin-top:12px"><div><small>ΣFz</small><b id="forceRead">+1</b></div><div><small>‖Moment‖</small><b id="momentRead">6.206×10⁻¹⁷</b></div><div style="grid-column:1/-1"><small>Interpretation</small><b id="loadRead">UNBALANCED RESULTANT · CONSTRUCTION CASE</b></div></div></section>
+      </aside>
+    </div>
+  </section>
+
+  <section class="grid" aria-label="Six measurement and integration outputs">
+    <article class="card"><small>6A · Coordinate transform</small><h3>Source z-up → GLB y-up</h3><strong>(x,y,z) ↦ .1(x,z,−y)</strong><p>Direkt aus dem empfangenen Builder. Eine Source-Einheit entspricht 0,1 m.</p></article>
+    <article class="card"><small>6B · Geometric contact</small><h3>Source residual</h3><strong>3.331×10⁻¹⁶ u</strong><p>Maximaler deklarierter Apex-Kontaktfehler der Source-Geometrie; kein GLB-Mesh-Abstand.</p></article>
+    <article class="card"><small>6C · White Pearl clearance</small><h3>Finite-radius gate</h3><strong class="open">OPEN / UNMEASURED</strong><p>Pin-Achse ist sichtbar. Radius-, Dicke- und Clearance-Modell sind nicht zertifiziert.</p></article>
+    <article class="card"><small>6D · First collision</small><h3>Continuous collision gate</h3><strong class="open">NOT CERTIFIED</strong><p>Der erste Kollisionszeitpunkt darf aus der Animation nicht abgelesen werden.</p></article>
+    <article class="card"><small>6E · Source ↔ GLB residual</small><h3>Vertex reconstruction</h3><strong class="open">OPEN</strong><p>Container, Buffer-Grenzen und fünf Kanäle bestehen; ein unabhängiger Vertexvergleich fehlt.</p></article>
+    <article class="card"><small>6F · Primary gate</small><h3>Contact without collision?</h3><strong class="open">PARTIAL</strong><p>Kontakt und Lastresultierende sind deklariert. Kollision, Lager, Übertragung, Dicke und Stabilität bleiben offen.</p></article>
+    <article class="card"><small>Model structure</small><h3>Integrated GLB</h3><strong>37 · 7 · 5</strong><p>Nodes · Meshes · Animationskanäle; feste Dreiecksebene, bewegte Kronenlaschen.</p></article>
+    <article class="card"><small>Boundary</small><h3>No identity merge</h3><strong>sharedGenerator=false</strong><p>Typed Coupling bleibt verwandte View-Linse. π/Φ/√2/Fibonacci/Euler/Primes sind getrennte Adressen.</p></article>
+  </section>
+
+  <section class="contract"><div class="kicker">RETURN CONTRACT</div><h2>Source → Transform → View → Contact → Load → Measurement → Return</h2><div class="flow"><span>SOURCE</span><i>→</i><span>AXIS MAP</span><i>→</i><span>FRONT/BACK/SECTION</span><i>→</i><span>U/D + PEARL</span><i>→</i><span>EQUAL/BALANCED</span><i>→</i><span>PASS/PARTIAL/FAIL</span></div><div class="boundary"><b>CLAIM BOUNDARY:</b> Das Instrument ist ein source-bound Engineering-Adapter innerhalb der bestehenden A0/TESSAREC-Lineage. Es erzeugt keine neue Geometrie, keine historische Identität, keinen physikalischen Kraftclaim und keinen Science Run. Ein Nullresultat im gewählten 3+2-Lastfall etabliert keine Stabilität.</div>
+    <div class="equations" aria-label="Separate typed equation register"><span>π · ADDRESS</span><span>Φ · ADDRESS</span><span>√2 · ADDRESS</span><span>FIB · ADDRESS</span><span>EULER · ADDRESS</span><span>PRIMES · ADDRESS</span></div>
+    <div class="links"><a href="assets/a0-crown-shadow-contact-bench-v1.json">Machine contract</a><a href="a0-crown-shadow-contact-bench-tests.cjs">Engineering tests</a><a href="downloads/A0_PENTAGON_KNICK_APERTURE_INTAKE_2026-10-25/sources/shadow-triangle-3plus2/contact_model.json">Contact source</a><a href="results/a0-crown-shadow-contact-bench-return-2026-10-25.json">Return receipt</a><a href="A0_RESEARCH_DESK.html#crown-shadow-contact-bench-20261025">Science Desk / paper routing</a></div>
+  </section>
+</main>
+</body>
+</html>

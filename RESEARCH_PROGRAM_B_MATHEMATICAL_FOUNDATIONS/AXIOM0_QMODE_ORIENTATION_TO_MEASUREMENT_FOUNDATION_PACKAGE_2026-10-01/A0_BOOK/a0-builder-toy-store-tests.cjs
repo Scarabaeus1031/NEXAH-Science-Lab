@@ -22,6 +22,18 @@ requireText(html, /56<\/b> finite comparisons/, "OCB Observatory comparison coun
 requireText(html, /A0_ORIENTATION_CONTROLLER_BENCH\.html/, "Toy Store must link to the OCB");
 requireText(html, /100_A0_ORIENTATION_CONTROLLER_BENCH_GAP_REGISTER_2026-10-16\.md/, "Toy Store must link to the OCB gap register");
 requireText(html, /id="applications"/, "Toy Store must expose the application suite");
+requireText(html, /id="instrument-atlas"/, "Toy Store must expose the source-bound build atlas");
+requireText(html, /Carrier → Adapter → View → Return/, "Atlas must expose the typed coupling grammar");
+requireText(html, /ART:E8:FAMILY_SYNTHESIS/, "Atlas must reuse the registered E8 synthesis identity");
+requireText(html, /ART:NUMBER:PRIMEGRID_BLOCK03_PRIME_CONTROL/, "Atlas must retain the PrimeGrid negative control");
+requireText(html, /Kein universeller 7\/11-Operator/, "Atlas must retain the 7/11 non-identity boundary");
+requireText(html, /A0_RESEARCH_DESK\.html#instrument-atlas-return-20261025/, "Atlas must return to the Science Desk");
+requireText(html, /NAVIGATION\/APP\/index\.html#a0-orientation-evidence/, "Atlas must return to the NSN evidence lens");
+assert.equal((html.match(/class="atlas-card /g)||[]).length,13,"thirteen bounded build doors");
+requireText(html, /typed-player-r4#live-coupling/, "Atlas must open the accepted second Pink lane player");
+requireText(html, /NEXAH_PENTAGON_GELENKLATERNE_LAB\.html/, "Atlas must link the preserved Gelenklaterne finding lab");
+requireText(html, /Engineering-Finding-Kandidat; noch kein F-A0/, "Atlas must retain the Gelenklaterne finding boundary");
+requireText(css, /\.instrument-atlas/, "Atlas must have an explicit visual layer");
 requireText(html, /Measurement &amp; Calibration/, "measurement application must be visible");
 requireText(html, /Route &amp; Return/, "route application must be visible");
 requireText(html, /Structure Transfer &amp; Recovery/, "structure application must be visible");

@@ -2479,3 +2479,92 @@ Controlling gap record:
 Authority boundary: A0 Science Desk owns the scientific record. Science
 Navigator and Mission Control may expose currentness and routes, but neither
 may promote the OCB to a Study, Family, physical model or public claim.
+
+## 25. Körper / Fünflaschenkrone: getrennte Mechanismen, gemeinsamer Review
+
+Date: `2026-10-25`
+
+The received body due-diligence package is useful because it does not merely
+add another geometry image. It names a stack of different objects that had
+been visually close but mechanically under-typed:
+
+```text
+projected 11 Winds plate
+!= pyramid / bipyramid body
+!= glued triangulated lantern skin
+!= five-plane sliding iris
+!= five-open-flap Crown
+!= later pin / bearing / cover / actuator assembly.
+```
+
+The strongest constructive candidate is the five-open-flap Crown. In the
+declared model five rigid isosceles flaps share the pentagon rim and reach one
+central point at `F=151.830500786°`. That end-state calculation does not clear
+the path, pin, cover or housing. It also does not contradict the negative rank
+result for the fully glued lantern skin, because the contact and topology are
+different.
+
+The report's observer statement has a reusable formal shape:
+
+```text
+identity under a declared exchange means O(Tx)=O(x),
+not that every label or coordinate remains unchanged.
+```
+
+This belongs in future Paper C/E method support and in an engineering companion
+note. It is not yet a new finding number or publication claim. The received
+Crown ZIP preserves the builder and model data. The separately restored Crown
+GLB is now also in custody and passes a local glTF-2.0 structural inspection;
+it does not yet have an independent validator pass or reproducible source-build
+hash match. Finite-thickness collision testing, browser acceptance and a simple
+physical prototype remain the clean next gates.
+
+The complete review matrix and hashes are in
+`downloads/A0_PENTAGON_KNICK_APERTURE_INTAKE_2026-10-25/`.
+
+## 26. Shadow Triangle 3+2: Kontaktbild, Lastwahl und Rückseite
+
+Date: `2026-10-25`
+
+The follow-up package adds a fixed dark triangle beneath the five-flap Crown,
+three upward inputs `U1..U3`, two downward inputs `D1..D2`, a central White
+Pearl and explicit front/back context views. Its value is the separation of
+contact geometry, chosen load weights and the later support/transmission
+problem.
+
+The received model distinguishes two statements:
+
+```text
+equal strengths:     3 x 1 - 2 x 1   = +1
+chosen compensation: 3 x 1 - 2 x 1.5 = 0
+```
+
+All five declared contact points lie inside the fixed triangle and the
+reported weighted moment is near zero. These are model results, not evidence
+for stability, stiffness, friction, a bearing, an actuator or force transfer
+from the Crown. The restored GLB passes local structural inspection (37 nodes,
+7 meshes, 5 animation channels); independent validation and source rebuild are
+still open.
+
+The associated visual vocabulary — White Pearl, black backside, `1+3`, small
+black pyramids, tabs/pillars and upper/lower faces — is preserved as a test
+inventory. It must not be compressed into a single mechanism before explicit
+face, contact and view mappings are supplied.
+
+## 27. Equation/address track: π, Φ, √2, Fibonacci/Euler and primes
+
+Date: `2026-10-25`
+
+This intake does not introduce a new equation. Existing Paper E already types
+`pi`, `Theta`, `Phi` and `sqrt(2)` as historical/address axes rather than
+automatic spatial axes, and distinguishes Euler's totient `phi(n)`, golden
+ratio `Phi` and phase `phi`. Check 88 records
+`FIBONACCI_NOT_PRIVILEGED`. The Typed Coupling instrument co-displays the
+Fibonacci and Euler views but explicitly supplies neither a common generator
+nor a prime-label metric.
+
+The correct Science Desk start is therefore a source inventory and typed
+equation register: symbol, domain, operator, input, output, unit, source and
+test. `Equations Part III` remains a referenced source candidate until the
+actual file, hash, license and claim binding are available. No π/Φ/√2 identity,
+prime mechanism or universal equation is inferred from visual alignment.

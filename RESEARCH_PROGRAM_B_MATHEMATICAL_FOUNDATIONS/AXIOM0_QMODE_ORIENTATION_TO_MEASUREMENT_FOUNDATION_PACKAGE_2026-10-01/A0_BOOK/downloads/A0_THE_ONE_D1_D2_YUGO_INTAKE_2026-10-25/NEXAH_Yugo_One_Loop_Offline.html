@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#101b29"><title>°_⁄ · Yugo One Loop</title><meta name="description" content="Ein Ball, eine kippbare Fläche und drei Ziele. Ein NEXAH Spielversuch.">
+<style>
+:root{color-scheme:dark;--bg:#101b29;--panel:#172536;--line:#314257;--ink:#eff4f6;--muted:#a9bacb;--pink:#f484b8;--cyan:#75d5dc;--gold:#eec575}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 system-ui,-apple-system,sans-serif}button,input{font:inherit}button{cursor:pointer}button:focus-visible,input:focus-visible,canvas:focus-visible{outline:3px solid var(--gold);outline-offset:4px}main{max-width:1120px;margin:auto;padding:28px 28px 34px}header{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-bottom:22px}.brand{display:flex;align-items:center;gap:14px}.mark{font-size:40px;line-height:1;color:var(--pink)}h1{font-size:21px;margin:0;font-weight:600;letter-spacing:.01em}.eyebrow{font-size:11px;letter-spacing:.17em;color:var(--muted);margin:0 0 3px}.tag{color:var(--muted);font-size:12px;border:1px solid var(--line);border-radius:20px;padding:5px 11px}.topline{display:flex;justify-content:space-between;gap:20px;align-items:center;margin-bottom:10px}.stats{display:flex;gap:25px;font-size:13px;color:var(--muted)}.stats strong{font-size:20px;color:var(--ink);font-variant-numeric:tabular-nums;margin-left:5px;font-weight:500}#status{font-size:13px;color:var(--cyan);text-align:right}#arena{position:relative;border:1px solid var(--line);border-radius:18px;overflow:hidden;background:radial-gradient(ellipse at 50% 15%,#21364b 0%,#132132 70%)}canvas{display:block;width:100%;height:auto;aspect-ratio:960/600;touch-action:none}.overlay{position:absolute;left:50%;top:46%;transform:translate(-50%,-50%);text-align:center;width:min(90%,400px);pointer-events:none}.overlay h2{font-size:27px;margin:0 0 8px;font-weight:500}.overlay p{color:var(--muted);margin:0;font-size:14px}.overlay button{pointer-events:auto;margin-top:19px}.btn{padding:10px 20px;border:1px solid var(--line);border-radius:10px;color:var(--ink);background:var(--panel)}.primary{background:var(--pink);color:#251727;border-color:transparent;font-weight:600}.below{display:grid;grid-template-columns:1fr auto;gap:24px;align-items:center;margin-top:20px}.angleline{display:flex;align-items:center;justify-content:space-between;gap:20px}label{font-size:14px}.value{color:var(--gold);font-size:20px;font-variant-numeric:tabular-nums}input[type=range]{width:100%;height:28px;accent-color:var(--pink);cursor:pointer;margin:8px 0}#presets{display:flex;gap:7px;flex-wrap:wrap}#presets button{font-size:12px;border:1px solid var(--line);border-radius:7px;padding:5px 10px;color:var(--muted);background:transparent;min-width:43px}#presets button.active{color:var(--gold);border-color:var(--gold)}.actions{display:flex;gap:8px;align-self:center}.help{display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap;font-size:12px;color:var(--muted);margin-top:22px;padding-top:18px;border-top:1px solid var(--line)}kbd{font:inherit;color:var(--ink)}details{font-size:12px;color:var(--muted);margin-top:14px}summary{cursor:pointer;width:fit-content}details p{max-width:850px}a{color:var(--cyan)}@media(max-width:650px){main{padding:18px 14px}.tag{display:none}.below{grid-template-columns:1fr;gap:15px}.actions{justify-content:space-between}.actions button{flex:1}.stats{gap:12px;font-size:11px}.stats strong{font-size:17px}.topline{align-items:flex-end;gap:8px}#status{font-size:11px;max-width:140px}.overlay h2{font-size:20px}.overlay p{font-size:12px}.overlay button{margin-top:12px;padding:8px 16px}header{margin-bottom:20px}.help{margin-top:18px}.mark{font-size:34px}h1{font-size:19px}}
+</style></head><body><main>
+<header><div class="brand"><span class="mark" aria-hidden="true">°_⁄</span><div><p class="eyebrow">NEXAH · THE ONE / 03</p><h1>Yugo · One Loop</h1></div></div><span class="tag">Ein Ball. Eine Achse. Drei Ziele.</span></header>
+<div class="topline"><div class="stats"><span>Punkte <strong id="score">0</strong></span><span>Ziele <strong id="targets">0 / 3</strong></span><span>Bälle <strong id="lives">5</strong></span></div><span id="status" role="status">Winkel wählen und Ball starten</span></div>
+<div id="arena"><canvas id="game" width="960" height="600" tabindex="0" aria-label="Yugo Spielfeld. Mit Links und Rechts die Fläche kippen, mit Leertaste den Ball starten."></canvas><div class="overlay" id="overlay"><h2 id="overlayTitle">Finde den Winkel.</h2><p id="overlayText">Kippe die Fläche. Triff die drei Ziele.<br>Bring den Ball wieder nach oben.</p><button id="launch" class="btn primary">Ball starten ↗</button></div></div>
+<div class="below"><div><div class="angleline"><label for="angle">D1–D2 · Kippwinkel</label><output id="angleValue" class="value" for="angle">0°</output></div><input id="angle" type="range" min="-34" max="34" value="0" step="1" aria-label="Kippwinkel von minus 34 bis plus 34 Grad"><div id="presets"><button data-angle="-34">−34°</button><button data-angle="-17">−17°</button><button data-angle="-8">−8°</button><button data-angle="0" class="active">0°</button><button data-angle="8">+8°</button><button data-angle="17">+17°</button><button data-angle="34">+34°</button></div></div><div class="actions"><button id="pause" class="btn" disabled>Pause</button><button id="reset" class="btn">Neue Runde</button></div></div>
+<div class="help"><span><kbd>← →</kbd> kippen · <kbd>Leertaste</kbd> starten / pausieren</span><span>Touch: im Feld links / rechts ziehen · 100 Punkte je Ziel</span></div>
+<details><summary>Zum Versuch und A0</summary><p>Ein spielerischer Seitenschnitt zur Idee <strong>°_⁄</strong>: Ball, Basis und kippbare Fläche. D1 und D2 stehen für eine gemeinsame Drehachse; das gedrehte ∫ / F ist das Formmotiv. Pink und Cyan markieren die Steuerrichtungen. Drei Ziele, fünf Bälle, zehn Punkte je Rückgabe.</p><p>Der <a href="https://scarabaeus1031.github.io/NEXAH-Science-Lab/book/A0_ORIENTATION_CONTROLLER_BENCH.html#aeYugoIotaPivotTest" target="_blank" rel="noopener">A0 YUGO/IOTA Abschnitt</a> hält IOTA als Ereignis-/Bezugspunkt fest und dreht die normierte lokale YUGO-Flussrichtung. Der Zipper bezeichnet dort zwei gepaarte Ränder. Dieses Spiel verwendet einen neuen Rollenadapter: fester Bezugspunkt und drehbare Flächennormale als Richtungspfeil. Es reproduziert keine Core-Daten und implementiert keinen Zipper. Das auf A0 verlinkte Pivot-JavaScript war beim Abgleich am 25.10.2026 nicht abrufbar.</p><p>Die Fläche bleibt zwischen −34° und +34°. Der Ball wird an der momentanen Fläche ideal gespiegelt. Sehr flache Rückgaben werden für die Spielbarkeit leicht aufwärts korrigiert. Dies ist ein zweidimensionales Spielmodell mit zentrierter Schlagfläche, keine maßgetreue Simulation der dreieckigen 3D-Baugruppe oder ihrer Kräfte.</p></details>
+</main><script>
+(function(root){
+'use strict';
+const W=960,H=600,R=9,P={x:480,y:490,half:164},SPEED=330;
+const clamp=(x,a,b)=>Math.max(a,Math.min(b,x));
+function segment(angle){const a=angle*Math.PI/180,t={x:Math.cos(a),y:-Math.sin(a)};return {a:{x:P.x-P.half*t.x,y:P.y-P.half*t.y},b:{x:P.x+P.half*t.x,y:P.y+P.half*t.y},t,n:{x:-Math.sin(a),y:-Math.cos(a)}};}
+function closest(p,a,b){const dx=b.x-a.x,dy=b.y-a.y,u=clamp(((p.x-a.x)*dx+(p.y-a.y)*dy)/(dx*dx+dy*dy),0,1);return{x:a.x+u*dx,y:a.y+u*dy};}
+function reflect(v,n){const d=v.x*n.x+v.y*n.y;return{x:v.x-2*d*n.x,y:v.y-2*d*n.y};}
+function targets(){return [.23,.5,.77].map((v,i)=>({id:i,x:W*v-66,y:68,w:132,h:38,hit:false}));}
+function create(){return {angle:0,desired:0,ball:{x:480,y:470,vx:0,vy:0},targets:targets(),phase:'ready',score:0,returns:0,lives:5,trail:[],time:0,event:0,last:'Winkel wählen und Ball starten',hits:[]};}
+function rest(s){const g=segment(s.angle);s.ball.x=P.x+g.n.x*(R+7);s.ball.y=P.y+g.n.y*(R+7);s.ball.vx=s.ball.vy=0;}
+function aim(s,a){s.desired=clamp(Number(a)||0,-34,34);if(s.phase==='ready'){s.angle=s.desired;rest(s);}}
+function launch(s){if(s.phase!=='ready')return;const n=segment(s.angle).n;s.ball.vx=n.x*SPEED;s.ball.vy=n.y*SPEED;s.phase='playing';s.last='Im Flug';s.trail=[];}
+function rectHit(b,t){const p={x:clamp(b.x,t.x,t.x+t.w),y:clamp(b.y,t.y,t.y+t.h)},dx=b.x-p.x,dy=b.y-p.y;return dx*dx+dy*dy<=R*R;}
+function step(s,dt){
+ if(s.phase!=='playing')return;
+ dt=clamp(dt,0,1/120);s.time+=dt;s.angle+=clamp(s.desired-s.angle,-120*dt,120*dt);
+ const b=s.ball;b.x+=b.vx*dt;b.y+=b.vy*dt;
+ if(b.x<R){b.x=R;b.vx=Math.abs(b.vx);}if(b.x>W-R){b.x=W-R;b.vx=-Math.abs(b.vx);}if(b.y<R){b.y=R;b.vy=Math.abs(b.vy);}
+ for(const t of s.targets){if(t.hit||!rectHit(b,t))continue;t.hit=true;s.score+=100;s.event++;s.last='Ziel '+(t.id+1)+' getroffen';s.hits.push({id:t.id,time:s.time,angle:s.angle});
+  const px=b.x-b.vx*dt,py=b.y-b.vy*dt;
+  if(py>=t.y+t.h||py<=t.y)b.vy=-b.vy;else b.vx=-b.vx;
+  b.x=px;b.y=py;
+  if(s.targets.every(t=>t.hit)){s.phase='won';s.last='Alle drei Ziele!';return;}break;
+ }
+ const g=segment(s.angle),c=closest(b,g.a,g.b),dx=b.x-c.x,dy=b.y-c.y,d=Math.hypot(dx,dy);
+ // Ideal reflection in the instantaneous paddle. No moving-wall energy injection.
+ const signed=(b.x-P.x)*g.n.x+(b.y-P.y)*g.n.y,approach=b.vx*g.n.x+b.vy*g.n.y;
+ if(d<=R+5&&signed>=-R&&approach<0){const v=reflect({x:b.vx,y:b.vy},g.n);b.vx=v.x;b.vy=v.y;
+  // Keep near-horizontal returns playable, with speed renormalized.
+  if(b.vy>-85){b.vy=-85;const h=Math.sqrt(SPEED*SPEED-85*85);b.vx=Math.sign(b.vx||1)*h;}
+  b.x=c.x+g.n.x*(R+6);b.y=c.y+g.n.y*(R+6);s.returns++;s.score+=10;s.event++;s.last='Rückgabe '+s.returns;
+ }
+ if(b.y>H+R){s.lives--;s.event++;s.phase=s.lives>0?'ready':'lost';s.last=s.lives>0?'Verpasst · neuer Ball bereit':'Runde beendet';s.trail=[];rest(s);}
+}
+const api={W,H,R,P,SPEED,create,aim,rest,launch,step,segment,closest,reflect,rectHit};root.YugoEngine=api;if(typeof module!=='undefined')module.exports=api;
+})(typeof globalThis!=='undefined'?globalThis:this);
+
+</script><script>
+(function(){'use strict';const E=YugoEngine,$=id=>document.getElementById(id),cv=$('game'),ctx=cv.getContext('2d');let s=E.create(),paused=false,last=0,acc=0,frame=0;const keys=new Set(),fx=[];
+function setAngle(v){E.aim(s,v);$('angle').value=s.desired;sync();}
+function start(){if(s.phase==='won'||s.phase==='lost'){s=E.create();paused=false;}$('game').focus({preventScroll:true});if(s.phase==='ready')E.launch(s);else paused=!paused;sync();}
+function reset(){s=E.create();paused=false;keys.clear();fx.length=0;$('angle').value=0;sync();}
+$('angle').addEventListener('input',e=>setAngle(e.target.value));$('presets').addEventListener('click',e=>{const b=e.target.closest('button');if(b)setAngle(b.dataset.angle);});$('launch').addEventListener('click',start);$('pause').addEventListener('click',()=>{if(s.phase==='playing'){paused=!paused;sync();}});$('reset').addEventListener('click',reset);
+window.addEventListener('keydown',e=>{if(e.target.tagName==='INPUT')return;if(['ArrowLeft','ArrowRight',' '].includes(e.key)){e.preventDefault();if(e.key===' '&&!e.repeat)start();else keys.add(e.key);}});window.addEventListener('keyup',e=>keys.delete(e.key));window.addEventListener('blur',()=>{keys.clear();if(s.phase==='playing'){paused=true;sync();}});
+let dragging=false;function pointer(e){const r=cv.getBoundingClientRect();setAngle(((e.clientX-r.left)/r.width-.5)*68);}
+cv.addEventListener('pointerdown',e=>{dragging=true;cv.setPointerCapture(e.pointerId);pointer(e);cv.focus({preventScroll:true});});cv.addEventListener('pointermove',e=>{if(dragging)pointer(e);});cv.addEventListener('pointerup',()=>dragging=false);cv.addEventListener('pointercancel',()=>dragging=false);
+function sync(){
+ $('score').textContent=s.score;$('targets').textContent=s.targets.filter(t=>t.hit).length+' / 3';$('lives').textContent=s.lives;$('status').textContent=paused?'Pausiert':s.last;$('angleValue').textContent=(s.desired>0?'+':'')+Math.round(s.desired)+'°';$('pause').textContent=paused?'Weiter':'Pause';$('pause').disabled=s.phase!=='playing';
+ for(const b of $('presets').children){const a=Number(b.dataset.angle);b.classList.toggle('active',a===s.desired);b.setAttribute('aria-pressed',String(a===s.desired));}
+ const show=s.phase!=='playing'||paused;$('overlay').style.display=show?'block':'none';
+ if(paused){$('overlayTitle').textContent='Ein Moment Ruhe.';$('overlayText').textContent='Dein nächster Winkel wartet.';$('launch').textContent='Weiterspielen';}
+ else if(s.phase==='won'){$('overlayTitle').textContent='Drei Treffer. Ein Loop.';$('overlayText').textContent=s.score+' Punkte · '+s.returns+' Rückgaben';$('launch').textContent='Noch eine Runde ↗';}
+ else if(s.phase==='lost'){$('overlayTitle').textContent='Neuer Winkel, neuer Versuch.';$('overlayText').textContent=s.score+' Punkte · '+s.targets.filter(t=>t.hit).length+' von 3 Zielen';$('launch').textContent='Neu starten ↗';}
+ else{$('overlayTitle').textContent=s.lives===5?'Finde den Winkel.':'Noch ein Ball.';$('overlayText').textContent='Kippe die Fläche. Triff die drei Ziele. Bring den Ball wieder nach oben.';$('launch').textContent='Ball starten ↗';}
+}
+function line(a,b,color,width=1){ctx.strokeStyle=color;ctx.lineWidth=width;ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(b.x,b.y);ctx.stroke();}
+function draw(){ctx.clearRect(0,0,E.W,E.H);ctx.fillStyle='rgba(180,210,233,.13)';for(let x=40;x<E.W;x+=40)for(let y=28;y<E.H-30;y+=40){ctx.beginPath();ctx.arc(x,y,.8,0,Math.PI*2);ctx.fill();}
+ for(const t of s.targets){ctx.fillStyle=t.hit?'rgba(117,213,220,.07)':'rgba(117,213,220,.14)';ctx.strokeStyle=t.hit?'rgba(117,213,220,.17)':'#75d5dc';ctx.lineWidth=1;ctx.beginPath();ctx.roundRect(t.x,t.y,t.w,t.h,9);ctx.fill();ctx.stroke();ctx.fillStyle=t.hit?'#738da0':'#c6f3f1';ctx.textAlign='center';ctx.font='15px system-ui';ctx.fillText(t.hit?'✓':String(t.id+1).padStart(2,'0'),t.x+t.w/2,t.y+25);}
+ // Reference bracket and active surface: the visual °_⁄ motif.
+ line({x:E.P.x-215,y:E.P.y+27},{x:E.P.x,y:E.P.y+27},'#425c73',5);line({x:E.P.x,y:E.P.y+27},{x:E.P.x,y:E.P.y+4},'#425c73',5);
+ line({x:E.P.x-183,y:E.P.y},{x:E.P.x+183,y:E.P.y},'rgba(238,197,117,.22)',1);
+ const g=E.segment(s.angle);ctx.lineCap='round';line(g.a,g.b,s.angle>=0?'#f484b8':'#75d5dc',8);ctx.lineCap='butt';ctx.fillStyle='#f28f94';ctx.beginPath();ctx.arc(E.P.x,E.P.y,7,0,Math.PI*2);ctx.fill();
+ const end={x:E.P.x+g.n.x*53,y:E.P.y+g.n.y*53};line({x:E.P.x+g.n.x*13,y:E.P.y+g.n.y*13},end,'rgba(117,213,220,.6)',1.5);line(end,{x:end.x-g.n.x*8+g.t.x*4,y:end.y-g.n.y*8+g.t.y*4},'#75d5dc',1.5);line(end,{x:end.x-g.n.x*8-g.t.x*4,y:end.y-g.n.y*8-g.t.y*4},'#75d5dc',1.5);
+ ctx.fillStyle='#a9bacb';ctx.textAlign='center';ctx.font='12px system-ui';ctx.fillText('D1 · D2 / IOTA*',E.P.x,E.P.y+53);ctx.textAlign='left';ctx.fillText('YUGO*',end.x+12,end.y);
+ if(s.phase==='ready'){E.rest(s);ctx.save();ctx.setLineDash([5,8]);line(s.ball,{x:s.ball.x+g.n.x*180,y:s.ball.y+g.n.y*180},'rgba(244,132,184,.4)',1.5);ctx.restore();}
+ if(frame%2===0&&s.phase==='playing'&&!paused){s.trail.push({x:s.ball.x,y:s.ball.y});if(s.trail.length>22)s.trail.shift();}
+ s.trail.forEach((p,i)=>{ctx.fillStyle='rgba(244,211,152,'+(i/s.trail.length*.28)+')';ctx.beginPath();ctx.arc(p.x,p.y,2+i/s.trail.length*3,0,Math.PI*2);ctx.fill();});ctx.shadowColor='#eec575';ctx.shadowBlur=15;ctx.fillStyle='#fff0cc';ctx.beginPath();ctx.arc(s.ball.x,s.ball.y,E.R,0,Math.PI*2);ctx.fill();ctx.shadowBlur=0;
+ ctx.fillStyle='rgba(169,186,203,.45)';ctx.font='11px system-ui';ctx.textAlign='left';ctx.fillText('−34°',30,E.H-24);ctx.textAlign='right';ctx.fillText('+34°',E.W-30,E.H-24);
+}
+function tick(t){const dt=Math.min((t-(last||t))/1000,.05);last=t;if(!paused){if(keys.has('ArrowLeft'))setAngle(s.desired-60*dt);if(keys.has('ArrowRight'))setAngle(s.desired+60*dt);acc+=dt;while(acc>=1/240){E.step(s,1/240);acc-=1/240;}}else acc=0;draw();if(frame++%4===0)sync();requestAnimationFrame(tick);}
+sync();draw();requestAnimationFrame(tick);window.Yugo={getState:()=>JSON.parse(JSON.stringify(s)),setAngle,start,reset};
+})();
+</script></body></html>
