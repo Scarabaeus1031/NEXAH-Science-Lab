@@ -21,7 +21,7 @@
     "triangleRadius": 0.65,
     "panelThickness": 0.008,
     "shaftRadius": 0.008,
-    "shaftEndOverhang": 0.015,
+    "shaftEndOverhang": 0.06,
     "boreRadius": 0.011,
     "housingOuterRadius": 0.024,
     "housingWidth": 0.05,
@@ -43,6 +43,21 @@
     "pedestalRadius": 0.012,
     "pedestalY0": -0.055,
     "pedestalY1": -0.024,
+    "linerBoreRadius": 0.0083,
+    "linerOuterRadius": 0.0108,
+    "linerOpeningHalfAngleDeg": 68,
+    "thrustWasherWidth": 0.013,
+    "thrustWasherOuterRadius": 0.014,
+    "collarCenterX": 0.414,
+    "collarWidth": 0.018,
+    "collarOuterRadius": 0.014,
+    "fastenerRadius": 0.004,
+    "fastenerXOffsets": [
+      -0.012,
+      0.012
+    ],
+    "fastenerZ0": 0.166,
+    "fastenerZ1": 0.196,
     "pinRadius": 0.04,
     "frameBarRadius": 0.014,
     "numericTolerance": 1e-9
@@ -113,12 +128,12 @@
     ],
     "shaft": [
       [
-        -0.39027767497325677,
+        -0.43527767497325676,
         0,
         0.19
       ],
       [
-        0.39027767497325677,
+        0.43527767497325676,
         0,
         0.19
       ]
@@ -141,8 +156,10 @@
   },
   "intendedContacts": [
     "shaft to moving sleeve pivot interface",
-    "shaft within D1/D2 bores with declared radial clearance",
-    "D1/D2 pedestals and rail bonded to fixed lower frame",
+    "shaft within replaceable D1/D2 POM-C liners with declared radial clearance",
+    "POM-C thrust washers to sleeve and bearing inner faces",
+    "split shaft collars to shaft beyond moving leaf edges",
+    "D1/D2 pedestals and rail fastened to fixed lower frame",
     "moving and fixed panels inside the declared 0.02 u hinge exclusion strip"
   ],
   "unwantedCollisionTargets": [
@@ -170,14 +187,17 @@
   },
   "candidate": {
     "type": "TWO_FIXED_C_OPEN_BEARINGS_PLUS_CROSS_RAIL",
-    "status": "PASS_BOUNDED_GEOMETRIC_CLEARANCE",
+    "status": "PASS_BOUNDED_CONSTRUCTIVE_CANDIDATE",
     "openingMargin": {
       "sampledDeg": 4.676313736502067,
       "angleDeg": 34,
       "analyticRequiredHalfAngleDeg": 55.32368626349793
     },
+    "linerOpeningMarginDeg": 5.188620290714745,
     "shaftBoreRadialClearance": 0.002999999999999999,
+    "linerShaftRadialClearance": 0.0002999999999999999,
     "bearingToMovingSleeveAxialGap": 0.015000000000000013,
+    "totalAxialFloat": 0.004000000000000028,
     "pathBounds": {
       "pin": {
         "sampled": 0.11668743155848019,
@@ -210,9 +230,9 @@
         "part": "shaft",
         "attachmentClass": "INTENDED_HINGE_MEMBER",
         "pinGap": 0.1458240640448317,
-        "frameGap": 0.33134448564509167,
+        "frameGap": 0.2943307286088165,
         "nearestFrameBar": "A1",
-        "crownGap": 0.6419459096119359,
+        "crownGap": 0.622589002241299,
         "minimumExternalGap": 0.1458240640448317
       },
       {
@@ -234,6 +254,42 @@
         "minimumExternalGap": 0.14948630106013935
       },
       {
+        "part": "POM-C thrust washer D1",
+        "attachmentClass": "INTENDED_AXIAL_SLEEVE_CONTACT",
+        "pinGap": 0.1739644002971846,
+        "frameGap": 0.5588023537165753,
+        "nearestFrameBar": "A1",
+        "crownGap": 0.8050018815457488,
+        "minimumExternalGap": 0.1739644002971846
+      },
+      {
+        "part": "POM-C thrust washer D2",
+        "attachmentClass": "INTENDED_AXIAL_SLEEVE_CONTACT",
+        "pinGap": 0.1739644002971846,
+        "frameGap": 0.5828901063939277,
+        "nearestFrameBar": "A4",
+        "crownGap": 0.7871955829963151,
+        "minimumExternalGap": 0.1739644002971846
+      },
+      {
+        "part": "shaft collar D1",
+        "attachmentClass": "SHAFT_AXIAL_RETENTION",
+        "pinGap": 0.39499083264901413,
+        "frameGap": 0.2982303563291935,
+        "nearestFrameBar": "A1",
+        "crownGap": 0.6593329684358393,
+        "minimumExternalGap": 0.2982303563291935
+      },
+      {
+        "part": "shaft collar D2",
+        "attachmentClass": "SHAFT_AXIAL_RETENTION",
+        "pinGap": 0.39499083264901413,
+        "frameGap": 0.366714994011029,
+        "nearestFrameBar": "A4",
+        "crownGap": 0.6216127793524646,
+        "minimumExternalGap": 0.366714994011029
+      },
+      {
         "part": "housing D1",
         "attachmentClass": "C_HOUSING_CONSERVATIVE_EXTERNAL_ENVELOPE",
         "pinGap": 0.17220492755837044,
@@ -252,6 +308,24 @@
         "minimumExternalGap": 0.200475281568028
       },
       {
+        "part": "M1.4 rail screw D1 A",
+        "attachmentClass": "RAIL_FASTENER",
+        "pinGap": 0.21655110637707345,
+        "frameGap": 0.524226066718428,
+        "nearestFrameBar": "A1",
+        "crownGap": 0.7665664906741864,
+        "minimumExternalGap": 0.21655110637707345
+      },
+      {
+        "part": "M1.4 rail screw D1 B",
+        "attachmentClass": "RAIL_FASTENER",
+        "pinGap": 0.20137090095265378,
+        "frameGap": 0.5471214679343241,
+        "nearestFrameBar": "A1",
+        "crownGap": 0.7797187565931417,
+        "minimumExternalGap": 0.20137090095265378
+      },
+      {
         "part": "housing D2",
         "attachmentClass": "C_HOUSING_CONSERVATIVE_EXTERNAL_ENVELOPE",
         "pinGap": 0.17220492755837044,
@@ -268,9 +342,156 @@
         "nearestFrameBar": "A3",
         "crownGap": 0.7707279542472489,
         "minimumExternalGap": 0.200475281568028
+      },
+      {
+        "part": "M1.4 rail screw D2 A",
+        "attachmentClass": "RAIL_FASTENER",
+        "pinGap": 0.20137090095265378,
+        "frameGap": 0.5432392601088095,
+        "nearestFrameBar": "A3",
+        "crownGap": 0.782503563799085,
+        "minimumExternalGap": 0.20137090095265378
+      },
+      {
+        "part": "M1.4 rail screw D2 B",
+        "attachmentClass": "RAIL_FASTENER",
+        "pinGap": 0.21655110637707345,
+        "frameGap": 0.5247219676791375,
+        "nearestFrameBar": "A3",
+        "crownGap": 0.7662173003622765,
+        "minimumExternalGap": 0.21655110637707345
+      }
+    ],
+    "retentionMotionChecks": [
+      {
+        "part": "shaft collar D1",
+        "sampledClearance": 0.011722325026743214,
+        "angleDeg": -34,
+        "continuousLowerBound": 0.01143870802554399
+      },
+      {
+        "part": "shaft collar D2",
+        "sampledClearance": 0.011722325026743214,
+        "angleDeg": -34,
+        "continuousLowerBound": 0.01143870802554399
+      },
+      {
+        "part": "M1.4 rail screw D1 A",
+        "sampledClearance": 0.047,
+        "angleDeg": -34,
+        "continuousLowerBound": 0.04671638299880078
+      },
+      {
+        "part": "M1.4 rail screw D1 B",
+        "sampledClearance": 0.047,
+        "angleDeg": -34,
+        "continuousLowerBound": 0.04671638299880078
+      },
+      {
+        "part": "M1.4 rail screw D2 A",
+        "sampledClearance": 0.047,
+        "angleDeg": -34,
+        "continuousLowerBound": 0.04671638299880078
+      },
+      {
+        "part": "M1.4 rail screw D2 B",
+        "sampledClearance": 0.047,
+        "angleDeg": -34,
+        "continuousLowerBound": 0.04671638299880078
       }
     ],
     "minimumHardwareExternalGap": 0.1398240640448317
+  },
+  "construction": {
+    "status": "ASSUMPTION_BOUND / NOT FABRICATION RELEASE",
+    "materials": {
+      "shaft": "hardened stainless steel; declared minimum yield only",
+      "housingAndRail": "6061-T6-like aluminium; declared minimum yield only",
+      "linersAndWashers": "POM-C; dry friction and allowable pressure are declared design assumptions",
+      "collarsAndFasteners": "stainless split collars and M1.4 A4-70-class screws; supplier data not yet bound"
+    },
+    "designLoads": {
+      "serviceRadialLoadN": 0.5,
+      "proofRadialLoadN": 1.5,
+      "serviceAxialLoadN": 0.1,
+      "proofAxialLoadN": 0.3,
+      "actuatorDesignTorqueNm": 0.001,
+      "shaftElasticModulusPa": 193000000000,
+      "shaftDeclaredMinimumYieldPa": 800000000,
+      "linerDeclaredAllowableBearingPressurePa": 8000000,
+      "linerDryFrictionCoefficient": 0.15,
+      "thrustDryFrictionCoefficient": 0.12,
+      "fastenerCount": 4,
+      "fastenerNominalDiameterMm": 1.4,
+      "fastenerAssumedPreloadN": 20,
+      "railInterfaceFrictionCoefficient": 0.2,
+      "housingAndRailDeclaredMinimumYieldPa": 240000000,
+      "coaxialityToleranceMm": 0.05,
+      "mountingFlatnessToleranceMm": 0.05,
+      "shaftDiameterToleranceMm": [
+        1.59,
+        1.61
+      ],
+      "linerDiameterToleranceMm": [
+        1.66,
+        1.68
+      ],
+      "sleeveLengthToleranceMm": [
+        23.95,
+        24.05
+      ],
+      "innerBearingFaceSpanToleranceMm": [
+        26.92,
+        27.08
+      ],
+      "washerWidthToleranceMm": [
+        1.27,
+        1.33
+      ]
+    },
+    "engineeringChecks": {
+      "shaftMaxBendingMomentNm": 0.012,
+      "shaftBendingStressPa": 29841551.82973037,
+      "shaftYieldFactor": 26.808257310632907,
+      "shaftMidspanDeflectionMetres": 0.00001649274021677672,
+      "minimumToleranceRadialClearanceMetres": 0.00002499999999999991,
+      "deflectionReserveMetres": 0.00000850725978322319,
+      "projectedBearingPressurePa": 93749.99999999999,
+      "bearingPressureFactor": 85.33333333333334,
+      "radialFrictionTorqueNm": 0.00017999999999999998,
+      "thrustFrictionTorqueNm": 0.0000396,
+      "totalFrictionTorqueNm": 0.00021959999999999997,
+      "actuatorTorqueFactor": 4.553734061930784,
+      "railFastenerSlipResistanceN": 16,
+      "railSlipFactor": 10.666666666666666,
+      "axialFloatToleranceMm": {
+        "minimum": 0.21000000000000085,
+        "maximum": 0.589999999999999
+      }
+    },
+    "fasteners": {
+      "rail": "4 × M1.4, two per pedestal; preload-controlled slip calculation",
+      "shaftCollars": "2 split collars, one per shaft end; one M1 set screw each; torque remains supplier-open"
+    },
+    "assemblySequence": [
+      "fasten cross rail and pedestals to the fixed lower frame",
+      "seat relieved POM-C liners in both C-housings and verify opening orientation",
+      "insert shaft through D1 liner",
+      "place D1 thrust washer, moving sleeve and D2 thrust washer",
+      "continue shaft through D2 liner",
+      "install split collars outside both moving-leaf edges and witness-mark set screws",
+      "verify axial float and free dry rotation",
+      "sweep unloaded from -34 to +34 degrees and back",
+      "apply service then proof loads and repeat full sweep"
+    ],
+    "openLimits": [
+      "no supplier certificates or measured material coupons",
+      "no screw tightening torque or thread-strip test",
+      "no wear, temperature, contamination or cycle-life test",
+      "no actuator or sensor selected",
+      "no prototype metrology or physical proof-load test",
+      "dimensionless source geometry converted with declared 0.1 m/u scale only"
+    ]
   },
   "forceBoundary": {
     "resultantVerticalForce": "0 under received 3x1 - 2x1.5 scaling",
@@ -15252,5 +15473,5 @@
       "minimumNonHousingClearance": 0.012
     }
   ],
-  "conclusion": "The D1-D2 axis is geometrically mounted to a fixed lower rail by two C-open bearing candidates and remains collision-free in the declared -34 to +34 degree model under the chosen dimensions. Physical retention strength, tolerances, fasteners, friction, actuator loads, material deformation and prototype verification remain open."
+  "conclusion": "The existing D1-D2 C-bearing candidate now includes radial POM-C liners, axial thrust washers and split collars, four rail fasteners, a tolerance stack, declared proof loads, friction torque and an assembly sequence. All newly modelled retention envelopes remain collision-free over -34 to +34 degrees, and the bounded calculations pass under the stated assumptions. Supplier data, tightening torque, fatigue/wear and physical prototype proof remain open; this is not a fabrication release."
 }

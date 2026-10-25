@@ -1,0 +1,37 @@
+{
+  "id": "A0_SNCE_101_12928_CONNECTOR_2026_10_25",
+  "status": "PASS_EXACT_RECONCILIATION_WITH_TYPED_SOURCE_BOUNDARIES",
+  "reusedIdentity": "MOD:NUMBER_VIEW_SUITE",
+  "additive_101n_n1_9": [101, 202, 303, 404, 505, 606, 707, 808, 909],
+  "dyadic_101_times_2k_k0_12": [101, 202, 404, 808, 1616, 3232, 6464, 12928, 25856, 51712, 103424, 206848, 413696],
+  "intersection": [101, 202, 404, 808],
+  "additive_non_hits": [303, 505, 606, 707, 909],
+  "cut_12928": {
+    "place_value": "1*10000+292*10+8",
+    "segmentation": ["1", "292", "8"],
+    "292": "4*73; decimal palindrome",
+    "12928_mod_292": 80,
+    "status": "DIGIT_SUBSTRING_ONLY"
+  },
+  "representation": {
+    "rule": "101q=100q+q",
+    "single_digit_zero_visible_through": 808,
+    "repeated_two_digit_blocks": [1616, 3232, 6464],
+    "first_shifted_place_overlap": { "k": 7, "factor": 128, "value": 12928, "carry": false },
+    "first_base10_carry_in_requested_window": { "k": 12, "factor": 4096, "value": 413696, "carry": true }
+  },
+  "snce": { "12928": { "k": 7, "u": 3, "epsilon": 1, "roundtrip": true } },
+  "ncs_292": { "authority": "SCC-003 / A0-BL-023", "same_as_12928_substring": false, "mechanism_imported": false },
+  "f50_to_101_to_snce": { "factor_membership_exact": true, "unique_selection": false, "required": "EXTERNAL_TYPED_SELECTION" },
+  "decimal_reversal_18_81": { "exact": true, "operator_route": false, "members_of_dyadic_k0_12": false },
+  "outer_digits": ["1+8=9=3^2", "9^2=81=3^4"],
+  "light_and_space": "Owner reading only; projection, shadow, UV/Hg and real mirror remain separate without an explicit adapter.",
+  "source_roles": {
+    "snce": "35_SNCE_101_PARITY_PROFILE_01_RESULT_REPORT.md",
+    "dyadic_binding": "51_A0_4774_4114_8888_SNCE_404_SOURCE_BINDING_2026-10-13.md",
+    "demonstrator_consolidation": "100_A0_101_TO_106_DEMONSTRATOR_CONSOLIDATION_2026-10-15.md",
+    "ncs": "NCS_292_Q106_INTERTWINER_RETURN_PACKAGE_2026-10-11",
+    "provenance": "A0-BL-037 remains documentary archaeology, not NCS/SNCE operator authority"
+  },
+  "claim_boundary": "No NCS equality, geometric aperture, light operator, physical resonance, new family, study or finding."
+}

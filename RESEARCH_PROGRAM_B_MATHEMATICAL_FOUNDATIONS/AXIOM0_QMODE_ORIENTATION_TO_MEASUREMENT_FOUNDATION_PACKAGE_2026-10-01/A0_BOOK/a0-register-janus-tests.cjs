@@ -15,6 +15,9 @@ for(let a=2;a<=10;a++)for(let b=1;b<=6;b++)for(let c=1;c<=3;c++){
 for(let n=1;n<=512;n++)eq(J.model('1','2','3','2',String(n)).field.places,String(n*n));
 eq(J.model().power.ratio,'8:1');eq(J.model().field.places,'41616');
 eq(J.model().imageCheck.first,'1000000000000');eq(J.model().imageCheck.second,'100000000');
+for(const value of ['1000000000000','1000000000001']){const record=J.integerRecord(value);eq(record.value,value);eq(record.views.groups3,value==='1000000000000'?'1│000│000│000│000':'1│000│000│000│001');eq(record.views.groups4,value==='1000000000000'?'1│0000│0000│0000':'1│0000│0000│0001');eq(record.returnChecks,{groups3:true,groups4:true});eq(record.languageNames,null);eq(record.channelMapping,null);}
+eq(J.integerRecord('0').views,{decimal:'0',groups3:'0',groups4:'0'});eq(J.parseGroup('0',3),0n);eq(J.parseGroup('0',4),0n);
+bad(()=>J.integerRecord(null));bad(()=>J.integerRecord(''));bad(()=>J.integerRecord(Number.MAX_SAFE_INTEGER+1));bad(()=>J.group('1',2));
 for(const ch of J.checks())ok(ch.pass);
 for(const args of [['2'],['0'],['1','1'],['1','11'],['1','2','7'],['1','2','3','4'],['1','2','3','2','513'],['1','2','3','2','0'],['1','2.5'],['1','2',''],['1','2','3','2','Infinity']])bad(()=>J.model(...args));
 for(const [s,k] of [['1│0000',3],['1│000',4],['01│0000',4],['<img>',4],['1│',4]])bad(()=>J.parseGroup(s,k));

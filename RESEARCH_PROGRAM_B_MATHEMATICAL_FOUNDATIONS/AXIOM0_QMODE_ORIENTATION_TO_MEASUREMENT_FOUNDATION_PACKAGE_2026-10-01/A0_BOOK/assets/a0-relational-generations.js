@@ -14,5 +14,40 @@
     for(let g=0;g<o.count;g++){const left=step(a,g,o),right=step(b,g,o);if(left.stopped||right.stopped){stop={generation:g+1,reason:left.reason||right.reason};break;}steps.push({main:left,comparison:right});a=left.output;b=right.output;comparisons.push({generation:g+1,difference:Math.max(...a.map((v,i)=>Math.abs(v-b[i])))});}
     return{schema:'RELATIONAL_GENERATIONS_DISPLAY_V1',options:o,seed:seed.slice(),comparisonSeed:seed.map((v,i)=>v+(i===0?o.epsilon:0)),steps,comparisons,stop,boundary:'Declared demonstration rule, no Alpha calibration, no chaos or E8 claim. Return is local inverse plus retained provenance.'};
   }
-  return{power,options,step,run,returnInput};
+  const RING_COORDINATES=[[1,0],[2,0],[2,1],[2,2],[1,2],[0,2],[0,1],[0,0]];
+  function exactArrayEqual(a,b){return a.length===b.length&&a.every((value,index)=>Object.is(value,b[index]));}
+  function rotateRing90(values,turns=1){
+    sewing.fold(values);
+    if(!Number.isInteger(turns))throw new RangeError('integer quarter turns required');
+    const normalized=((turns%4)+4)%4,output=Array(8);
+    values.forEach((value,index)=>{output[(index+2*normalized)%8]=value;});
+    return output;
+  }
+  function ringAdapter(values){
+    sewing.fold(values);
+    return{schema:'A0_RING8_TO_GRID3X3_ADAPTER_V1',frame:{width:3,height:3,center:[1,1],axis:'+z through [1,1]',orientation:'x right, y down; clockwise quarter-turn as viewed on screen'},cells:values.map((value,index)=>({index,coordinate:RING_COORDINATES[index].slice(),value})),center:{coordinate:[1,1],value:null,role:'unoccupied adapter center'}};
+  }
+  function compareRotationGeneration(seed,configuration={}){
+    sewing.fold(seed);
+    const tolerance=configuration.tolerance??1e-12;
+    if(!Number.isFinite(tolerance)||tolerance<0)throw new RangeError('finite nonnegative tolerance required');
+    const o=options({count:1,offset:configuration.offset??0,direction:configuration.direction??1,exponent:configuration.exponent??2,gain:configuration.gain??1,epsilon:0});
+    const rotatedInput=rotateRing90(seed,1),pathAStep=step(rotatedInput,0,o),pathBStep=step(seed,0,o);
+    if(pathAStep.stopped||pathBStep.stopped)throw new RangeError('comparison stopped by generation magnitude guard');
+    const pathA=pathAStep.output.slice(),pathB=rotateRing90(pathBStep.output,1),difference=pathA.map((value,index)=>value-pathB[index]),maxAbsDifference=Math.max(...difference.map(Math.abs));
+    const rotations=Array.from({length:5},(_,turns)=>rotateRing90(seed,turns)),identity=rotateRing90(seed,0),inverse=rotateRing90(rotatedInput,-1);
+    return{
+      schema:'A0_ROTATION_GENERATION_ORDER_COMPARISON_V1',
+      sourceState:{name:'AXIS08 laneMeans seed',values:seed.slice(),adapter:ringAdapter(seed)},
+      R:{kind:'exact 2D index permutation',angleDegrees:90,axis:'+z through grid center [1,1]',coordinateMap:'(x,y) -> (2-y,x)',valueMap:'destination[(i+2) mod 8] = source[i]',not:'not a 3D cube operator'},
+      T:{kind:'existing relational generation step',generation:0,offset:o.offset,direction:o.direction,exponent:o.exponent,gain:o.gain,formula:pathBStep.formula},
+      pathA:{expression:'T(R(G))',rotatedInput,step:pathAStep,state:pathA},
+      pathB:{expression:'R(T(G))',step:pathBStep,state:pathB},
+      comparison:{difference,maxAbsDifference,exactEqual:exactArrayEqual(pathA,pathB),tolerance,withinTolerance:maxAbsDifference<=tolerance},
+      controls:{identity:{state:identity,exact:exactArrayEqual(identity,seed)},fourQuarterTurns:{states:rotations,exact:exactArrayEqual(rotations[4],seed)},inverse:{state:inverse,exact:exactArrayEqual(inverse,seed)},numericPolicy:'R controls use exact copied values and Object.is. T path comparison uses IEEE-754 numbers and the declared absolute tolerance.'},
+      ownerReadings:{tokens:['∫\\~','F-Lenk','Ineinanderdrehen'],binding:'retained as owner readings only; no integral operator or F-operation is defined'},
+      boundary:'Bounded adapter comparison inside the existing generation view. No 3D rotation, new demonstrator, Study activation, Finding promotion or deployment.'
+    };
+  }
+  return{power,options,step,run,returnInput,RING_COORDINATES,rotateRing90,ringAdapter,compareRotationGeneration};
 });

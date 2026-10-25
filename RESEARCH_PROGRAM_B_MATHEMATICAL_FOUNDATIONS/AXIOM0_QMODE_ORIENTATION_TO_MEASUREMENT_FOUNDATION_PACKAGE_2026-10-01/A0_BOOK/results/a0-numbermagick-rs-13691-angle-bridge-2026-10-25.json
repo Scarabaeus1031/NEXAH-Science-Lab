@@ -1,0 +1,24 @@
+{
+  "schema": "nexah.a0.numbermagick-research-snapshot/1.0.0",
+  "status": "PASS_EXACT_FINITE_NUMBER_RELATIONS",
+  "scope": "Exact integer, prime-index, factor and finite angle-address relations only",
+  "identityReuse": ["MOD:NUMBER_VIEW_SUITE", "NEXAH_A0_ORIENTATION_CONTROLLER_BENCH"],
+  "core": {"n": 13691, "prime": true, "primeIndex": 1618, "primeAtIndex": 13691, "decimalFrame": "1|369|1"},
+  "exactRelations": {
+    "predecessor": "13691-1=13690=10*1369=10*37^2",
+    "center": "1369=37^2",
+    "framedMiddle": "369=9*41=3^2*41",
+    "angleCarrier": "111=3*37",
+    "angleControl": "333=9*37=3*111"
+  },
+  "outlets": [
+    {"offset": -1, "value": 13690, "prime": false, "factors": [2, 5, 37, 37]},
+    {"offset": 0, "value": 13691, "prime": true, "factors": [13691]},
+    {"offset": 1, "value": 13692, "prime": false, "factors": [2, 2, 3, 7, 163]}
+  ],
+  "angleAddress": {"modulus": 120, "gcd37": 1, "inverse37": 13, "gcd111": 3, "unique111": 120, "unique333": 40},
+  "ownerNotes": ["369-1", "0", "2-9", "-1 41", "outlets"],
+  "ownerNoteBoundary": "retained reading tokens only; source normalization and operator meaning remain open",
+  "provenanceBoundary": "The arithmetic is independently reproducible; the historical source for the 13691 notation remains open under A0-BL-037.",
+  "claimBoundary": "No number mysticism, universal code, physical mechanism, new canonical operator, Study, Finding or publication claim."
+}

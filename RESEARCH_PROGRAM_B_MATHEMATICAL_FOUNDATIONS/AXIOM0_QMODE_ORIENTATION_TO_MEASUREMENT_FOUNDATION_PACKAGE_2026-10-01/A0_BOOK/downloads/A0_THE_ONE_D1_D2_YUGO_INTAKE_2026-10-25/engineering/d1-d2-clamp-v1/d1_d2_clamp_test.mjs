@@ -18,7 +18,7 @@ const P = Object.freeze({
   triangleRadius: 0.65,
   panelThickness: 0.008,
   shaftRadius: 0.008,
-  shaftEndOverhang: 0.015,
+  shaftEndOverhang: 0.06,
   boreRadius: 0.011,
   housingOuterRadius: 0.024,
   housingWidth: 0.05,
@@ -31,6 +31,18 @@ const P = Object.freeze({
   pedestalRadius: 0.012,
   pedestalY0: -0.055,
   pedestalY1: -0.024,
+  linerBoreRadius: 0.0083,
+  linerOuterRadius: 0.0108,
+  linerOpeningHalfAngleDeg: 68,
+  thrustWasherWidth: 0.013,
+  thrustWasherOuterRadius: 0.014,
+  collarCenterX: 0.414,
+  collarWidth: 0.018,
+  collarOuterRadius: 0.014,
+  fastenerRadius: 0.004,
+  fastenerXOffsets: [-0.012, 0.012],
+  fastenerZ0: 0.166,
+  fastenerZ1: 0.196,
   pinRadius: 0.04,
   frameBarRadius: 0.014,
   numericTolerance: 1e-9,
@@ -157,9 +169,16 @@ const hardwareCapsules=[
   {name:"moving sleeve envelope",a:sleeve[0],b:sleeve[1],radius:P.movingSleeveOuterRadius,attachment:"INTENDED_MOVING_SHAFT_CONTACT"},
   {name:"fixed rail",a:[-P.fixedRail.xHalf,P.fixedRail.y,P.fixedRail.z],b:[P.fixedRail.xHalf,P.fixedRail.y,P.fixedRail.z],radius:Math.hypot(P.fixedRail.yHalf,P.fixedRail.zHalf),attachment:"INTENDED_FIXED_PANEL_ATTACHMENT"},
 ];
+const washerCenters=[-(P.movingSleeveHalfLength+P.thrustWasherWidth/2),P.movingSleeveHalfLength+P.thrustWasherWidth/2];
+for(const x of washerCenters) hardwareCapsules.push({name:`POM-C thrust washer ${x<0?"D1":"D2"}`,a:[x-P.thrustWasherWidth/2,0,P.z0],b:[x+P.thrustWasherWidth/2,0,P.z0],radius:P.thrustWasherOuterRadius,attachment:"INTENDED_AXIAL_SLEEVE_CONTACT"});
+for(const sign of [-1,1]){
+  const x=sign*P.collarCenterX;
+  hardwareCapsules.push({name:`shaft collar ${sign<0?"D1":"D2"}`,a:[x-P.collarWidth/2,0,P.z0],b:[x+P.collarWidth/2,0,P.z0],radius:P.collarOuterRadius,attachment:"SHAFT_AXIAL_RETENTION"});
+}
 for(const x of P.bearingX){
   hardwareCapsules.push({name:`housing ${x<0?"D1":"D2"}`,a:[x-P.housingWidth/2,0,P.z0],b:[x+P.housingWidth/2,0,P.z0],radius:P.housingOuterRadius,attachment:"C_HOUSING_CONSERVATIVE_EXTERNAL_ENVELOPE"});
   hardwareCapsules.push({name:`pedestal ${x<0?"D1":"D2"}`,a:[x,P.pedestalY0,P.z0],b:[x,P.pedestalY1,P.z0],radius:P.pedestalRadius,attachment:"INTENDED_FIXED_RAIL_ATTACHMENT"});
+  for(const dx of P.fastenerXOffsets) hardwareCapsules.push({name:`M1.4 rail screw ${x<0?"D1":"D2"} ${dx<0?"A":"B"}`,a:[x+dx,P.fixedRail.y,P.fastenerZ0],b:[x+dx,P.fixedRail.y,P.fastenerZ1],radius:P.fastenerRadius,attachment:"RAIL_FASTENER"});
 }
 
 const hardwareChecks=[];
@@ -173,6 +192,70 @@ for(const part of hardwareCapsules){
 
 const bearingAxialGap=Math.abs(P.bearingX[0])-P.housingWidth/2-P.movingSleeveHalfLength;
 const shaftBoreRadialClearance=P.boreRadius-P.shaftRadius;
+const linerShaftRadialClearance=P.linerBoreRadius-P.shaftRadius;
+const totalAxialFloat=2*bearingAxialGap-2*P.thrustWasherWidth;
+const linerOpeningMarginDeg=P.linerOpeningHalfAngleDeg-(P.angleMaxDeg+deg(Math.asin(panelHalf/P.linerBoreRadius)));
+const retentionParts=hardwareCapsules.filter(part=>part.attachment==="SHAFT_AXIAL_RETENTION"||part.attachment==="RAIL_FASTENER");
+const retentionMotionChecks=retentionParts.map(part=>{
+  const values=rows.map(row=>segmentTriangle(part.a,part.b,folded(row.angleDeg))-part.radius-panelHalf);
+  const sampled=Math.min(...values), index=values.indexOf(sampled);
+  return {part:part.name,sampledClearance:sampled,angleDeg:rows[index].angleDeg,continuousLowerBound:sampled-motionBound-P.numericTolerance};
+});
+
+const SI={unitMetres:.1,shaftDiameterMetres:2*P.shaftRadius*.1,bearingSpanMetres:(P.bearingX[1]-P.bearingX[0])*.1,bearingWidthMetres:P.housingWidth*.1};
+const design={
+  serviceRadialLoadN:.5,
+  proofRadialLoadN:1.5,
+  serviceAxialLoadN:.1,
+  proofAxialLoadN:.3,
+  actuatorDesignTorqueNm:.001,
+  shaftElasticModulusPa:193e9,
+  shaftDeclaredMinimumYieldPa:800e6,
+  linerDeclaredAllowableBearingPressurePa:8e6,
+  linerDryFrictionCoefficient:.15,
+  thrustDryFrictionCoefficient:.12,
+  fastenerCount:4,
+  fastenerNominalDiameterMm:1.4,
+  fastenerAssumedPreloadN:20,
+  railInterfaceFrictionCoefficient:.2,
+  housingAndRailDeclaredMinimumYieldPa:240e6,
+  coaxialityToleranceMm:.05,
+  mountingFlatnessToleranceMm:.05,
+  shaftDiameterToleranceMm:[1.59,1.61],
+  linerDiameterToleranceMm:[1.66,1.68],
+  sleeveLengthToleranceMm:[23.95,24.05],
+  innerBearingFaceSpanToleranceMm:[26.92,27.08],
+  washerWidthToleranceMm:[1.27,1.33],
+};
+const d=SI.shaftDiameterMetres,L=SI.bearingSpanMetres,F=design.proofRadialLoadN;
+const maxMoment=F*L/4;
+const shaftBendingStress=32*maxMoment/(Math.PI*d**3);
+const shaftSecondMoment=Math.PI*d**4/64;
+const shaftDeflection=F*L**3/(48*design.shaftElasticModulusPa*shaftSecondMoment);
+const bearingPressure=(F/2)/(SI.shaftDiameterMetres*SI.bearingWidthMetres);
+const radialFrictionTorque=design.linerDryFrictionCoefficient*F*(d/2);
+const thrustMeanRadiusMetres=((P.shaftRadius+P.thrustWasherOuterRadius)/2)*.1;
+const thrustFrictionTorque=design.thrustDryFrictionCoefficient*design.proofAxialLoadN*thrustMeanRadiusMetres;
+const totalFrictionTorque=radialFrictionTorque+thrustFrictionTorque;
+const fastenerSlipResistance=design.fastenerCount*design.fastenerAssumedPreloadN*design.railInterfaceFrictionCoefficient;
+const axialFloatToleranceMm={minimum:design.innerBearingFaceSpanToleranceMm[0]-design.sleeveLengthToleranceMm[1]-2*design.washerWidthToleranceMm[1],maximum:design.innerBearingFaceSpanToleranceMm[1]-design.sleeveLengthToleranceMm[0]-2*design.washerWidthToleranceMm[0]};
+const engineeringChecks={
+  shaftMaxBendingMomentNm:maxMoment,
+  shaftBendingStressPa:shaftBendingStress,
+  shaftYieldFactor:design.shaftDeclaredMinimumYieldPa/shaftBendingStress,
+  shaftMidspanDeflectionMetres:shaftDeflection,
+  minimumToleranceRadialClearanceMetres:(design.linerDiameterToleranceMm[0]-design.shaftDiameterToleranceMm[1])/2/1000,
+  deflectionReserveMetres:(design.linerDiameterToleranceMm[0]-design.shaftDiameterToleranceMm[1])/2/1000-shaftDeflection,
+  projectedBearingPressurePa:bearingPressure,
+  bearingPressureFactor:design.linerDeclaredAllowableBearingPressurePa/bearingPressure,
+  radialFrictionTorqueNm:radialFrictionTorque,
+  thrustFrictionTorqueNm:thrustFrictionTorque,
+  totalFrictionTorqueNm:totalFrictionTorque,
+  actuatorTorqueFactor:design.actuatorDesignTorqueNm/totalFrictionTorque,
+  railFastenerSlipResistanceN:fastenerSlipResistance,
+  railSlipFactor:fastenerSlipResistance/F,
+  axialFloatToleranceMm,
+};
 const fullRingBaseline={
   status:"COLLISION",
   reason:"A closed 360-degree housing occupies the annulus crossed by the unnotched finite-thickness moving leaf at both D1 and D2.",
@@ -190,19 +273,23 @@ const result={
   question:"Can the received D1-D2 axis be mounted to the fixed lower frame with finite-thickness panels and move continuously from -34 to +34 degrees while the crown and lid remain fixed?",
   parameters:P,
   geometry:{hingeEndpoints:[left,right],bearingLocations:P.bearingX.map(x=>[x,0,P.z0]),upperTriangle:upper,fixedLowerTrapezoid:lower,shaft,movingSleeve:sleeve,crownState:"FIXED_AT_HALF_CONTACT_FOLD",lidState:"FIXED / NO ADDED LID BODY",sourceUnitMetres:.1},
-  intendedContacts:["shaft to moving sleeve pivot interface","shaft within D1/D2 bores with declared radial clearance","D1/D2 pedestals and rail bonded to fixed lower frame","moving and fixed panels inside the declared 0.02 u hinge exclusion strip"],
+  intendedContacts:["shaft to moving sleeve pivot interface","shaft within replaceable D1/D2 POM-C liners with declared radial clearance","POM-C thrust washers to sleeve and bearing inner faces","split shaft collars to shaft beyond moving leaf edges","D1/D2 pedestals and rail fastened to fixed lower frame","moving and fixed panels inside the declared 0.02 u hinge exclusion strip"],
   unwantedCollisionTargets:["central pin","25 frame bars","fixed crown faces","fixed lower panel outside hinge strip","D1/D2 housing outside its +y opening","fixed rail and pedestals"],
   method:{sampleCount:rows.length,sampleStepDeg:P.sampleStepDeg,betweenSamplePointMotionBound:motionBound,numericTolerance:P.numericTolerance,distanceModel:"segment-triangle, triangle-triangle and capsule envelopes; finite panel thickness subtracted from mid-surface distances; housing opening also certified analytically by angular envelope",formalIntervalCertification:false},
   negativeBaseline:fullRingBaseline,
-  candidate:{type:"TWO_FIXED_C_OPEN_BEARINGS_PLUS_CROSS_RAIL",status:"PASS_BOUNDED_GEOMETRIC_CLEARANCE",openingMargin:{sampledDeg:openingMargin.housingOpeningAngularMarginDeg,angleDeg:openingMargin.angleDeg,analyticRequiredHalfAngleDeg:P.angleMaxDeg+deg(Math.asin(panelHalf/P.boreRadius))},shaftBoreRadialClearance,bearingToMovingSleeveAxialGap:bearingAxialGap,pathBounds,hardwareChecks,minimumHardwareExternalGap:Math.min(...hardwareChecks.map(x=>x.minimumExternalGap))},
+  candidate:{type:"TWO_FIXED_C_OPEN_BEARINGS_PLUS_CROSS_RAIL",status:"PASS_BOUNDED_CONSTRUCTIVE_CANDIDATE",openingMargin:{sampledDeg:openingMargin.housingOpeningAngularMarginDeg,angleDeg:openingMargin.angleDeg,analyticRequiredHalfAngleDeg:P.angleMaxDeg+deg(Math.asin(panelHalf/P.boreRadius))},linerOpeningMarginDeg,shaftBoreRadialClearance,linerShaftRadialClearance,bearingToMovingSleeveAxialGap:bearingAxialGap,totalAxialFloat,pathBounds,hardwareChecks,retentionMotionChecks,minimumHardwareExternalGap:Math.min(...hardwareChecks.map(x=>x.minimumExternalGap))},
+  construction:{status:"ASSUMPTION_BOUND / NOT FABRICATION RELEASE",materials:{shaft:"hardened stainless steel; declared minimum yield only",housingAndRail:"6061-T6-like aluminium; declared minimum yield only",linersAndWashers:"POM-C; dry friction and allowable pressure are declared design assumptions",collarsAndFasteners:"stainless split collars and M1.4 A4-70-class screws; supplier data not yet bound"},designLoads:design,engineeringChecks,fasteners:{rail:"4 × M1.4, two per pedestal; preload-controlled slip calculation",shaftCollars:"2 split collars, one per shaft end; one M1 set screw each; torque remains supplier-open"},assemblySequence:["fasten cross rail and pedestals to the fixed lower frame","seat relieved POM-C liners in both C-housings and verify opening orientation","insert shaft through D1 liner","place D1 thrust washer, moving sleeve and D2 thrust washer","continue shaft through D2 liner","install split collars outside both moving-leaf edges and witness-mark set screws","verify axial float and free dry rotation","sweep unloaded from -34 to +34 degrees and back","apply service then proof loads and repeat full sweep"],openLimits:["no supplier certificates or measured material coupons","no screw tightening torque or thread-strip test","no wear, temperature, contamination or cycle-life test","no actuator or sensor selected","no prototype metrology or physical proof-load test","dimensionless source geometry converted with declared 0.1 m/u scale only"]},
   forceBoundary:{resultantVerticalForce:"0 under received 3x1 - 2x1.5 scaling",hingeMomentAtMinus34:forceMomentAt(-34),hingeMomentAtZero:forceMomentAt(0),hingeMomentAtPlus34:forceMomentAt(34),interpretation:"Zero resultant force does not imply zero hinge moment after folding."},
   rows,
-  conclusion:"The D1-D2 axis is geometrically mounted to a fixed lower rail by two C-open bearing candidates and remains collision-free in the declared -34 to +34 degree model under the chosen dimensions. Physical retention strength, tolerances, fasteners, friction, actuator loads, material deformation and prototype verification remain open.",
+  conclusion:"The existing D1-D2 C-bearing candidate now includes radial POM-C liners, axial thrust washers and split collars, four rail fasteners, a tolerance stack, declared proof loads, friction torque and an assembly sequence. All newly modelled retention envelopes remain collision-free over -34 to +34 degrees, and the bounded calculations pass under the stated assumptions. Supplier data, tightening torque, fatigue/wear and physical prototype proof remain open; this is not a fabrication release.",
 };
 
 for(const [name,b] of Object.entries(pathBounds)) if(!(b.continuousLowerBound>0)) throw new Error(`continuous ${name} clearance failed`);
 if(!(openingMargin.housingOpeningAngularMarginDeg>0)) throw new Error("housing opening margin failed");
 if(!(shaftBoreRadialClearance>0&&bearingAxialGap>0)) throw new Error("bearing clearance failed");
+if(!(linerShaftRadialClearance>0&&totalAxialFloat>0&&linerOpeningMarginDeg>0)) throw new Error("liner or axial retention clearance failed");
+for(const item of retentionMotionChecks) if(!(item.continuousLowerBound>0)) throw new Error(`retention motion clearance failed: ${item.part}`);
+if(!(engineeringChecks.shaftYieldFactor>2&&engineeringChecks.deflectionReserveMetres>0&&engineeringChecks.bearingPressureFactor>2&&engineeringChecks.actuatorTorqueFactor>2&&engineeringChecks.railSlipFactor>2&&engineeringChecks.axialFloatToleranceMm.minimum>0)) throw new Error("engineering assumption check failed");
 if(!(result.candidate.minimumHardwareExternalGap>0)) throw new Error("hardware external collision");
 if(fullRingBaseline.status!=="COLLISION") throw new Error("negative baseline not preserved");
 
@@ -226,7 +313,7 @@ const svg=`<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" vi
 <text x="54" y="64" class="title">D1–D2 KLEMMTEST · ENDLICHE DICKE</text><text x="54" y="103" class="sub">Zwei feste C-Lager · eine Achse · −34° bis +34° · Krone fest</text>
 <g transform="translate(75 205)">
   <text x="0" y="-38" class="label">KANDIDAT · SEITENSCHNITT Y/Z</text>
-  <line x1="40" y1="330" x2="590" y2="330" stroke="#23384c" stroke-width="18"/><text x="40" y="365" class="small">feste untere Fläche · t=${mm(P.panelThickness)} mm</text>
+  <line x1="40" y1="330" x2="590" y2="330" stroke="#23384c" stroke-width="18"/><text x="40" y="300" class="small">feste untere Fläche · t=${mm(P.panelThickness)} mm</text>
   <rect x="195" y="350" width="240" height="18" fill="#31bcd2" opacity=".8"/><text x="195" y="400" class="small">Querrail am festen Rahmen</text>
   <line x1="315" y1="80" x2="315" y2="330" class="pink" stroke-width="12" transform="rotate(-34 315 330)"/><line x1="315" y1="80" x2="315" y2="330" class="pink" stroke-width="12" opacity=".28" transform="rotate(34 315 330)"/>
   <circle cx="315" cy="330" r="16" fill="#e9b541"/><path d="${openArc(315,330,44,24,60,300)}" fill="#173048"/>
@@ -242,8 +329,8 @@ ${[-34,-17,0,17,34].map(v=>`<line x1="${px(v)}" y1="${plot.y+plot.h}" x2="${px(v
 <path d="${line("pinClearance")}" fill="none" class="gold" stroke-width="4"/><path d="${line("frameClearance")}" fill="none" class="cyan" stroke-width="4"/><path d="${line("crownClearance")}" fill="none" class="pink" stroke-width="4"/>
 <text x="${plot.x}" y="${plot.y+plot.h+85}" class="small" fill="#e0aa32">— Pin</text><text x="${plot.x+150}" y="${plot.y+plot.h+85}" class="small">— Rahmen</text><text x="${plot.x+340}" y="${plot.y+plot.h+85}" class="small">— feste Krone</text>
 </g>
-<g transform="translate(770 720)"><text class="label">ERGEBNIS</text><text y="42" class="sub">PASS · begrenzte geometrische Beweglichkeit</text><text y="82" class="small">kleinste kontinuierliche Schranke: ${fmt(Math.min(...Object.values(pathBounds).map(x=>x.continuousLowerBound)),6)} u</text><text y="116" class="small">C-Lager Winkelreserve: ${fmt(openingMargin.housingOpeningAngularMarginDeg,3)}°</text><text y="150" class="small">offen: Festigkeit · Toleranzkette · Reibung · Antrieb · Prototyp</text></g>
-<text x="54" y="904" class="small">Gewählte Parameter sind Konstruktionsannahmen, keine empfangenen Messwerte. Beabsichtigte Lagerkontakte sind separat klassifiziert.</text></svg>`;
+<g transform="translate(770 720)"><text class="label">ERGEBNIS</text><text y="42" class="sub">PASS · konstruktiver Annahmen-Kandidat</text><text y="82" class="small">kleinste Wegschranke: ${fmt(Math.min(...Object.values(pathBounds).map(x=>x.continuousLowerBound)),6)} u · Retention: ${fmt(Math.min(...retentionMotionChecks.map(x=>x.continuousLowerBound)),6)} u</text><text y="116" class="small">Liner-Winkelreserve: ${fmt(linerOpeningMarginDeg,3)}° · Axialspiel nominal ${mm(totalAxialFloat)} mm</text><text y="150" class="small">Proof: ${fmt(design.proofRadialLoadN,1)} N · Reibmoment ${fmt(totalFrictionTorque*1000,3)} Nmm · kein Fabrication Release</text></g>
+<text x="54" y="904" class="small">Material-, Last- und Toleranzwerte sind deklarierte Konstruktionsannahmen; Lieferantendaten, Verschleiß und physischer Proof bleiben offen.</text></svg>`;
 fs.writeFileSync(path.join(here,"D1_D2_CLAMP_VISUAL.svg"),svg);
 
 // Minimal animated GLB. Geometry is generated from the same parameter object.
@@ -274,11 +361,15 @@ function prism(poly,t){const n=poly.length,v=poly.flatMap(p=>[[p[0],p[1],p[2]-t/
 function box(center,size){const [x,y,z]=center,[sx,sy,sz]=size.map(v=>v/2),v=[];for(const dx of [-sx,sx])for(const dy of [-sy,sy])for(const dz of [-sz,sz])v.push([x+dx,y+dy,z+dz]);const f=[[0,4,6],[0,6,2],[1,3,7],[1,7,5],[0,1,5],[0,5,4],[2,6,7],[2,7,3],[0,2,3],[0,3,1],[4,5,7],[4,7,6]];return {v,f};}
 function cylinderX(a,b,r,n=20){const v=[],f=[];for(const x of [a[0],b[0]])for(let i=0;i<n;i++){const th=2*Math.PI*i/n;v.push([x,a[1]+r*Math.cos(th),a[2]+r*Math.sin(th)]);}for(let i=0;i<n;i++){const j=(i+1)%n;f.push([i,j,n+j],[i,n+j,n+i]);}return {v,f};}
 function cRing(x,width,ri,ro,open,n=28){const angles=[];for(let i=0;i<=n;i++)angles.push(rad(open+(360-2*open)*i/n));const v=[];for(const xx of [x-width/2,x+width/2])for(const rr of [ri,ro])for(const th of angles)v.push([xx,rr*Math.cos(th),P.z0+rr*Math.sin(th)]);const m=angles.length,f=[];for(let side=0;side<2;side++){const base=side*2*m;for(let i=0;i<m-1;i++){f.push([base+i,base+i+1,base+m+i+1],[base+i,base+m+i+1,base+m+i]);}}for(let ring=0;ring<2;ring++){const a=ring*m,b=2*m+ring*m;for(let i=0;i<m-1;i++)f.push([a+i,b+i,b+i+1],[a+i,b+i+1,a+i+1]);}for(const i of [0,m-1])f.push([i,m+i,3*m+i],[i,3*m+i,2*m+i]);return {v,f};}
-const dark=material("fixed lower frame",[.08,.13,.2],.25,.5),pink=material("moving finite panel",[.82,.12,.43],.15,.35),gold=material("shaft and sleeve",[.88,.62,.18],.5,.3),cyan=material("C-open bearings",[.12,.64,.72],.35,.35),ghost=material("fixed crown reference",[.72,.25,.52],.1,.55);
+const dark=material("fixed lower frame",[.08,.13,.2],.25,.5),pink=material("moving finite panel",[.82,.12,.43],.15,.35),gold=material("shaft and sleeve",[.88,.62,.18],.5,.3),cyan=material("C-open bearings",[.12,.64,.72],.35,.35),pom=material("POM-C liners and washers",[.93,.93,.88],.02,.65),steel=material("retention steel",[.45,.5,.55],.75,.25),ghost=material("fixed crown reference",[.72,.25,.52],.1,.55);
 let g=prism(lower,P.panelThickness);addNode("fixed lower trapezoid",addMesh("fixed lower trapezoid",g.v,g.f,dark));
 const localUpper=upper.map(p=>sub(p,[0,0,P.z0]));g=prism(localUpper,P.panelThickness);const movingNode=addNode("D1-D2 moving finite panel",addMesh("moving panel",g.v,g.f,pink),Q([0,0,P.z0]),[Math.sin(rad(-34)/2),0,0,Math.cos(rad(-34)/2)],{intendedAxis:"D1-D2"});
 for(const [name,part] of [["shaft",cylinderX(shaft[0],shaft[1],P.shaftRadius)],["moving sleeve",cylinderX(sleeve[0],sleeve[1],P.movingSleeveOuterRadius)]])addNode(name,addMesh(name,part.v,part.f,gold));
 for(const x of P.bearingX){const ring=cRing(x,P.housingWidth,P.boreRadius,P.housingOuterRadius,P.housingOpeningHalfAngleDeg);addNode(x<0?"D1 C-open bearing":"D2 C-open bearing",addMesh("C-open bearing",ring.v,ring.f,cyan));const pedestal=box([x,(P.pedestalY0+P.pedestalY1)/2,P.z0],[P.housingWidth,P.pedestalY1-P.pedestalY0,P.pedestalRadius*2]);addNode(x<0?"D1 pedestal":"D2 pedestal",addMesh("pedestal",pedestal.v,pedestal.f,cyan));}
+for(const x of P.bearingX){const liner=cRing(x,P.housingWidth,P.linerBoreRadius,P.linerOuterRadius,P.linerOpeningHalfAngleDeg);addNode(x<0?"D1 relieved POM-C liner":"D2 relieved POM-C liner",addMesh("relieved POM-C liner",liner.v,liner.f,pom));}
+for(const x of washerCenters){const washer=cylinderX([x-P.thrustWasherWidth/2,0,P.z0],[x+P.thrustWasherWidth/2,0,P.z0],P.thrustWasherOuterRadius);addNode(x<0?"D1 thrust washer":"D2 thrust washer",addMesh("POM-C thrust washer",washer.v,washer.f,pom));}
+for(const sign of [-1,1]){const x=sign*P.collarCenterX,collar=cylinderX([x-P.collarWidth/2,0,P.z0],[x+P.collarWidth/2,0,P.z0],P.collarOuterRadius);addNode(sign<0?"D1 split shaft collar":"D2 split shaft collar",addMesh("split shaft collar",collar.v,collar.f,steel));}
+for(const x of P.bearingX) for(const dx of P.fastenerXOffsets){const screw=cylinderX([P.fastenerZ0,0,x+dx],[P.fastenerZ1,0,x+dx],P.fastenerRadius);const screwVertices=screw.v.map(v=>[v[2],P.fixedRail.y+(v[1]||0),v[0]]);addNode(`M1.4 rail screw ${x<0?"D1":"D2"} ${dx<0?"A":"B"}`,addMesh("M1.4 rail screw",screwVertices,screw.f,steel));}
 const rail=box([0,P.fixedRail.y,P.fixedRail.z],[2*P.fixedRail.xHalf,2*P.fixedRail.yHalf,2*P.fixedRail.zHalf]);addNode("fixed cross rail",addMesh("fixed rail",rail.v,rail.f,cyan));
 for(let i=0;i<crownFaces.length;i++)addNode(`fixed crown face ${i+1}`,addMesh("fixed crown face",crownFaces[i],[[0,1,2]],ghost));
 const times=[0,2,4,6,8],angles=[-34,0,34,0,-34].map(rad),quats=angles.flatMap(a=>[Math.sin(a/2),0,0,Math.cos(a/2)]);

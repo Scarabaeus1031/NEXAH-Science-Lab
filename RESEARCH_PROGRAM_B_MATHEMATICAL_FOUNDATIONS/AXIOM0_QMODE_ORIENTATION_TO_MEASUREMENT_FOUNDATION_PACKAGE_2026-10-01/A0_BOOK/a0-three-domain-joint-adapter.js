@@ -14,6 +14,7 @@
     Object.freeze({key:'c10',label:'C₁₀',transition:'1→0',role:'death / negative',color:'#f653ad'}),
     Object.freeze({key:'c11',label:'C₁₁',transition:'1→1',role:'survive / retained',color:'#f5bf42'})
   ]);
+  const CHANNEL_BASIS=Object.freeze({c00:Object.freeze({re:-1,im:0}),c01:Object.freeze({re:0,im:1}),c10:Object.freeze({re:0,im:-1}),c11:Object.freeze({re:1,im:0})});
   const MASK_CONTRACT=Object.freeze({outer:'D5_PENTAGON',inner:'D6_HEXAGON',crossDeg:45,shellCount:11,gridView:'11x11',addressReference:'7x11',identityRule:'D5 ≠ D6 ≠ 11x11 ≠ 7x11'});
   const copy=value=>JSON.parse(JSON.stringify(value));
   const round=value=>Number(Number(value).toFixed(9));
@@ -76,6 +77,15 @@
     return Object.freeze({schema:'nexah.a0.three-domain-channel-capture/1',capturedAt:new Date().toISOString(),fingerprint:record.fingerprint,record});
   }
 
+  function trace(record,domainId='chemistry',channelKey='c10'){
+    if(!record||record.schema!=='nexah.a0.three-domain-channel-joint/1')throw new TypeError('normalized channel-joint record required');
+    const domain=record.domains.find(item=>item.id===domainId),channel=CHANNELS.find(item=>item.key===channelKey),basis=CHANNEL_BASIS[channelKey];
+    if(!domain)throw new RangeError(`unknown domain: ${domainId}`);if(!channel||!basis)throw new RangeError(`unknown channel: ${channelKey}`);
+    const count=domain.ledger[channelKey],total=domain.ledger.total,denominator=Math.max(1,total),ratio=round(count/denominator);
+    const portContribution=Object.freeze({re:round(ratio*basis.re),im:round(ratio*basis.im)}),jointContribution=Object.freeze({re:round(portContribution.re/DOMAINS.length),im:round(portContribution.im/DOMAINS.length)});
+    return Object.freeze({schema:'nexah.a0.three-domain-joint-trace/1',source:Object.freeze({path:record.source.path,generation:record.generation,fingerprint:record.fingerprint}),selection:Object.freeze({domain:domain.id,channel:channel.key,label:channel.label,transition:channel.transition,count,total,missing:false,zero:count===0}),normalization:Object.freeze({rule:'count / max(1, ledger.total)',denominator,ratio,basis}),port:Object.freeze({rule:'z = ((C11 − C00) + i(C01 − C10)) / max(1,N)',ledger:domain.ledger,phasor:domain.phasor,selectedContribution:portContribution}),joint:Object.freeze({rule:'Zbar = (z_chemistry + z_life + z_physics) / 3',ports:Object.freeze(record.domains.map(item=>Object.freeze({id:item.id,phasor:item.phasor}))),selectedContribution:jointContribution,result:record.joint,feedback:false})});
+  }
+
   function compare(captured,current){
     if(!captured||!current)return Object.freeze({status:'HOLD_SOURCE',exact:false,reason:'CAPTURE_AND_CURRENT_REQUIRED'});
     const exact=captured.fingerprint===current.fingerprint;
@@ -89,7 +99,7 @@
       const y=ys[index],label=domain.id==='physics'?'PHYSICS / SPIN':domain.id.toUpperCase();
       const fibres=CHANNELS.map((channel,channelIndex)=>{
         const offset=(channelIndex-1.5)*8,weight=domain.normalized[channel.key],width=(1.25+18*weight).toFixed(2),bend=90+(index-1)*20+(channelIndex-1.5)*6;
-        return `<path class="pbr-channel-fibre" data-channel="${channel.key}" d="M104 ${y+offset} C250 ${y+offset}, 402 ${bend}, ${joint.x} ${joint.y+offset*.22}" style="stroke:${channel.color};stroke-width:${width}"/><title>${label} · ${channel.label} ${channel.transition} · ${domain.ledger[channel.key]}/${domain.ledger.total}</title>`;
+        return `<path class="pbr-channel-fibre" data-domain="${domain.id}" data-channel="${channel.key}" d="M104 ${y+offset} C250 ${y+offset}, 402 ${bend}, ${joint.x} ${joint.y+offset*.22}" style="stroke:${channel.color};stroke-width:${width}"/><title>${label} · ${channel.label} ${channel.transition} · ${domain.ledger[channel.key]}/${domain.ledger.total}</title>`;
       }).join('');
       return `<g class="pbr-channel-port"><circle cx="82" cy="${y}" r="25"/><text x="82" y="${y+4}" text-anchor="middle">${index+1}</text><text class="pbr-channel-domain" x="118" y="${y-24}">${label}</text>${fibres}</g>`;
     }).join('');
@@ -132,5 +142,5 @@
     });
   }
 
-  return{VERSION,CHANNEL_NAME,DOMAINS,CHANNELS,MASK_CONTRACT,validateLedger,phasor,normalize,capture,compare,svgMarkup,createTransport};
+  return{VERSION,CHANNEL_NAME,DOMAINS,CHANNELS,CHANNEL_BASIS,MASK_CONTRACT,validateLedger,phasor,normalize,trace,capture,compare,svgMarkup,createTransport};
 });

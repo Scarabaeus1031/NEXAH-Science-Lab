@@ -22,14 +22,28 @@ check(result.method.betweenSamplePointMotionBound > 0, 'between-sample bound dec
 equal(result.method.formalIntervalCertification, false, 'not represented as formal interval proof');
 equal(result.negativeBaseline.status, 'COLLISION', 'closed-ring negative retained');
 equal(result.negativeBaseline.affectedSamples, 1361, 'closed-ring collision spans whole sampled path');
-equal(result.candidate.status, 'PASS_BOUNDED_GEOMETRIC_CLEARANCE', 'C-open candidate status');
+equal(result.candidate.status, 'PASS_BOUNDED_CONSTRUCTIVE_CANDIDATE', 'C-open constructive candidate status');
 check(result.candidate.openingMargin.sampledDeg > 0, 'C-opening angular margin positive');
+check(result.candidate.linerOpeningMarginDeg > 0, 'relieved liner opening angular margin positive');
 check(result.candidate.shaftBoreRadialClearance > 0, 'shaft/bore clearance positive');
+check(result.candidate.linerShaftRadialClearance > 0, 'shaft/liner radial clearance positive');
 check(result.candidate.bearingToMovingSleeveAxialGap > 0, 'sleeve/bearing axial gap positive');
+check(result.candidate.totalAxialFloat > 0, 'nominal axial float positive');
 for (const [name, reading] of Object.entries(result.candidate.pathBounds)) {
   check(reading.continuousLowerBound > result.parameters.numericTolerance, `${name} continuous lower bound positive`);
 }
 check(result.candidate.minimumHardwareExternalGap > 0, 'hardware external clearance positive');
+equal(result.candidate.retentionMotionChecks.length, 6, 'two collars and four rail screws checked over motion');
+for (const item of result.candidate.retentionMotionChecks) check(item.continuousLowerBound > result.parameters.numericTolerance, `${item.part} continuous motion clearance positive`);
+equal(result.construction.status, 'ASSUMPTION_BOUND / NOT FABRICATION RELEASE', 'construction status bounded');
+equal(result.construction.designLoads.fastenerCount, 4, 'four rail fasteners');
+check(result.construction.engineeringChecks.shaftYieldFactor > 2, 'shaft proof-load yield factor above two');
+check(result.construction.engineeringChecks.deflectionReserveMetres > 0, 'proof-load deflection below minimum radial-clearance tolerance');
+check(result.construction.engineeringChecks.bearingPressureFactor > 2, 'liner bearing-pressure factor above two');
+check(result.construction.engineeringChecks.actuatorTorqueFactor > 2, 'declared actuator torque exceeds dry-friction estimate');
+check(result.construction.engineeringChecks.railSlipFactor > 2, 'rail fastener slip factor above two');
+check(result.construction.engineeringChecks.axialFloatToleranceMm.minimum > 0, 'minimum tolerance-stack axial float positive');
+equal(result.construction.assemblySequence.length, 9, 'assembly and proof sequence complete');
 equal(result.forceBoundary.resultantVerticalForce, '0 under received 3x1 - 2x1.5 scaling', 'received force balance retained');
 check(Math.abs(result.forceBoundary.hingeMomentAtMinus34) > 0, 'negative-angle hinge moment remains non-zero');
 check(Math.abs(result.forceBoundary.hingeMomentAtPlus34) > 0, 'positive-angle hinge moment remains non-zero');

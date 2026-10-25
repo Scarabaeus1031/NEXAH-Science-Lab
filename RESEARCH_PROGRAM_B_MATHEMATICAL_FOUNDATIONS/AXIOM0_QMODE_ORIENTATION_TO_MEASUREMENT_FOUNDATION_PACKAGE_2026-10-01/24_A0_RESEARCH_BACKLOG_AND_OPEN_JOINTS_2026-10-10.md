@@ -25,10 +25,10 @@ vorhandenen Backlog; sie sind weder Study- noch Finding-Identitäten.
 
 | ID | Zuständigkeit / Quelle | Aktueller Befund | Nächster Schritt | Abschluss / Abhängigkeit / Priorität |
 |---|---|---|---|---|
-| `ENG-D1D2-01` | Builder · D1–D2-Klemmenreturn und Owner-Visuals | nominaler C-Lagerweg `−34°…+34°` bestanden; geschlossener Ring negativ; Fertigungs-/Lastfragen offen | Retention, Axialsicherung, Befestiger, Toleranzkette, Montage, Reibung und Last spezifizieren und negativ testen | bemaßter CAD-Replay mit Toleranz-/Lastgrenze; abhängig von Material-/Fertigungswahl; `P1` |
+| `ENG-D1D2-01` | Builder · D1–D2-Klemmenreturn und Owner-Visuals | konstruktiver Annahmen-Kandidat über `−34°…+34°` bestanden: C-Lager, POM-C-Liner/Anlaufscheiben, Stellringe, vier Befestiger, Toleranz-, Last- und Reibungsrechnung; geschlossener Ring bleibt negativ | Lieferantendaten und Anzugsmoment binden; einen Prototyp messen und unbelastet, unter Betriebs- und Prüflast über den Vollweg testen | kein Fabrication Release; Verschleiß/Fatigue/Dichtheit und unabhängiger CAD-Replay offen; `P1` |
 | `ENG-CROWN-01` | Builder · Crown/Shadow Contact Bench | lokaler Vertrag/Test `PARTIAL`; GLBs und 3+2-Quellen vorhanden | Source↔GLB-Vertexvergleich, endliche Pearl-Clearance, kontinuierliche Kollision, Lager und Übertragung prüfen | nur einzeln bestandene Gates schließen; `P2` nach D1/D2 |
 | `ENG-LANTERN-01` | Builder · Gelenklaterne Modell 11 | getrennte Iris schließt projiziert; starre Haut bleibt negativer Faltbefund | Browser-Gesamtabnahme, kontinuierlichen Weg, Führung und Gehäusegrenze prüfen | reales Browser-/Kollisionsprotokoll; `P2`, keine Vermischung von Iris und Haut |
-| `A0-BL-037` | Science · Konstanten-/Prime-/Glyph-Archäologie | π/φ/Wurzeln/Fibonacci/Euler teils getestet, teils nur adressiert; eigenständige 13691-Quelle im aktuellen Delta nicht gefunden | `p_1618=13691`, `10·37²+1`, `1\|369\|1` und Glyph-Notizen quellengenau wiederfinden und typisieren; Ulam/Fermat/Goldspirale trennen | Pfad, Hash, Definition und Teststatus oder „nur Notiz“ je Element; `P2`, keine neue Ausführung |
+| `A0-BL-037` | Science · Konstanten-/Prime-/Glyph-Archäologie | partiell geschlossen: `p_1618=13691`, `13691−1=10·37²`, `369=3²·41`, drei Nachbar-Outlets und die 37-Winkelbrücke sind lokal exakt geprüft; eigenständige historische 13691-Quelle weiter nicht gefunden | historische Quelle für `1\|369\|1` und Owner-Token `369−1`, `0`, `2–9`, `−1 41`, „outlets“ wiederfinden und typisieren; Ulam/Fermat/Goldspirale getrennt halten | Rechenwitness: `A0_BOOK/results/a0-numbermagick-rs-13691-angle-bridge-2026-10-25.json`; Quellenabschluss weiter Pfad+Hash+Definition oder „nur Notiz“; `P2`, keine neue Ausführung |
 | `DOC-01` | Builder-Abnahme | neue lokale Viewer sind softwaregeprüft, echte Human-/Narrow-/Reduced-Motion-Abnahme bleibt offen | Crown/Shadow, D1/D2 und YUGO/IOTA in den bestehenden Browser-Ablauf aufnehmen | beobachtetes Positiv-/Negativprotokoll; `P2` |
 | `DOC-02` | Mission-Control-Currentness | lokale Quellen sind gebunden; öffentliche Projektion ist unvollständig | Source-/Bundle-/Release-Pins getrennt abgleichen | Originalpin, Isthash, Ursache und Disposition; abhängig von `M-PUB01-A0-01`; `P2` |
 | `DOC-05`, `DOC-06`, `DOC-11` | Science/Editorial | Pink Arch, DSC, `?D?C?`, `!!!`, Lesebrille, große/kleine Schleife beziehungsweise Löffel bleiben Owner-Kontext | Originale zuordnen und erst danach Paper-/Notizübernahme entscheiden | Quelle+Rolle oder dokumentierte Nicht-Zuordnung; `P3` |
@@ -1022,7 +1022,173 @@ unbeabsichtigter Start der Quell-Engines. Neue Live-Kopplungen, ein
 universeller Gesamtvertrag, Veröffentlichung und wissenschaftliche
 Aktivierung sind damit nicht beauftragt.
 
+<a id="doc-14-amaben-tessarna-generator-recovery"></a>
+
+## DOC-14 · AMABEN/TESSARNA-Generator wiederfinden · 25. Oktober 2026
+
+Status: `PARKED_SOURCE_RECOVERY / OUTPUT_ASSET_BOUND / GENERATOR_OPEN`
+
+Der historische Paarausgang `amaben_tessarna_breathing.gif` ist mit Hash,
+Bildmaß und Framefolge wiedergefunden. Damit ist die Suche nach dem bloßen
+M₂/N-Ausgabe-Asset geschlossen. Separat gebunden ist die Achsengrafik
+`Tessarna - Amaben Axis with Energy Flow.png`; sie ist kein Nachweis für die
+im GIF verwendete Abbildung.
+
+- **Parkierter Rest:** Generator oder Notebook, Gleichung, Eingabegitter,
+  σ-Folge, Fourier-Konvention, Normalisierung, Einheiten und Lizenz lokalisieren.
+- **Grenze:** Keine Kopplung an Three-Domain-Joint, `Z̄`, Number Game oder
+  physikalischen Energiefluss allein aus Namen und Bildähnlichkeit.
+- **Abschluss:** reproduzierbarer Lauf aus unverändertem Input mit dokumentiertem
+  vollständigem Zustand; andernfalls bleibt das GIF historischer Output.
+- **Priorität:** nach `ENG-D1D2-01`, `DOC-01` und der einzelnen
+  Currentness-Disposition aus `DOC-02`; kein neuer Demonstrator.
+
+<a id="doc-01-joint-inspector-browser-observation-20261025"></a>
+
+## DOC-01 · Joint-Inspector Browserbeobachtung · 25. Oktober 2026
+
+Status: `PARTIAL_PASS / NORMAL_WIDTH_OBSERVED / NARROW_AND_REDUCED_MOTION_OPEN`
+
+Beobachtet wurde die bestehende lokale HTTP-Vorschau im unterstützten
+In-App-Browser bei `1141×1236 px`; der eingebettete Three-Domain-Viewport war
+rund `1057 px` breit. Die Abnahme veränderte keine Quelldatei und endete wieder
+bei `g0`, Port `chemistry`, Kanal `C₁₀` und Integer `1000000000001`.
+
+| Fall | Browserbeobachtung | Status |
+|---|---|---|
+| Drei Quellen und großer Joint | Chemistry, LIFE und Physics/Spin, alle vier Kanäle, `Z̄`, Readout-Regel und Source-Pfad waren vorhanden. Joint-Überschrift `18 px`; die Quellenlabels im großen Diagramm nur `10 px`. Vollständigkeit bestanden, komfortable Quellenlesbarkeit nur teilweise. | `PARTIAL` |
+| Auswahl und Herkunft | `life / C₀₁` zeigte `229/1296`, Portbeitrag `+0.000000 +0.176698i`, Beitrag zu `Z̄` `+0.000000 +0.058899i`, Source `.../three-domain-transition-test/app.js`, `feedback=false`. Auswahl änderte `Z̄` nicht. | `PASS` |
+| Beobachtete Null | `chemistry / C₁₀` zeigte `count=0 · OBSERVED ZERO · missing=false`, Gewicht `0/1296` und Nullbeitrag. | `PASS` |
+| Leeres Ledger / fehlender Record | In der vorhandenen Bedienoberfläche wurde kein leerer beziehungsweise fehlender Fixture-Zustand angeboten. | `OPEN` |
+| Tastatur und Fokus | Pfeiltaste wechselte den fokussierten Kanal `C₁₀→C₀₁`; `:focus-visible=true`. Der fokussierte Port-Select zeigte einen goldenen, ca. `1.92 px` starken Outline. | `PASS` |
+| `+1` | `g0→g1`; Trace, Ledger, drei Port-Phasoren und `Z̄` aktualisierten sich. | `PASS` |
+| `PLAY / Pause / Reset` | PLAY zeigte `Running`, erreichte `g1`, Pause stellte den PLAY-Zustand wieder her; Reset kehrte nach der UI-Aktualisierung zu `g0` zurück. | `PASS` |
+| Janus-Gruppierung | Für `1000000000000`: `1│000│000│000│000` und `1│0000│0000│0000`, jeweils `RETURN PASS`; Trace und `Z̄` blieben bytegleich. | `PASS` |
+| Schmale Gesamtbreite | Das Werkzeug konnte das In-App-Fenster nicht umstellen; `window.resizeTo` ist nicht verfügbar und DOM-Manipulation wird nicht als Pixelabnahme gewertet. | `OPEN` |
+| Reduced Motion | Aktuelle Browserpräferenz war `false`; eine ausdrücklich reduzierte Sitzung konnte das Werkzeug nicht emulieren. | `OPEN` |
+
+**Disposition:** DOC-01 bleibt offen, aber sein normalbreiter Interaktionsanteil
+ist nicht mehr unbeobachtet. Ein vollständiger Abschluss benötigt nur noch eine
+echte schmale Gesamtansicht, eine Sitzung mit aktivem Reduced Motion sowie
+bedienbare Fixtures für leeres Ledger und fehlenden Record. Die `10 px` großen
+Quellenlabels sind zusätzlich als Lesbarkeitsbefund zu entscheiden; daraus
+folgt ohne Owner-Auswahl keine neue UI-Arbeit.
+
 ## Routing
+
+### Gesprächsanschlüsse · Bestandszuordnung · 25. Oktober 2026
+
+Status: `EXISTING_RECORDS_REFERENCED / MISSING_RECEIPTS_PARKED / NO NEW INTAKE`
+
+| Anschluss | Vorhandener Record | Disposition |
+|---|---|---|
+| `31–34–37`, vollständige Mittelpunkt-Enumeration | Im Repository wurde kein eigener Receipt zu den im Gespräch genannten `1.999` Mittelpunkten, `26` Treffern und `156` Spiegelkontrollen gefunden. | `CHAT_SUMMARY_ONLY / REPOSITORY_RECEIPT_OPEN`; nicht erneut ausgeführt und nicht mit Geometrie oder Glyphen gekoppelt. |
+| `4→7→17→59→277`, jeweils `n→p_n` | Der bestehende Prime-Index-Check `42_A0_TESSAREC_OPERATOR_LADDER_PRIME_INDEX_ENGINEERING_CHECK_2026-10-13.md` belegt separat `p_25=97`, nicht diese viergliedrige Kette. | Arithmetische Kette bleibt als getrennte Owner-Notiz geparkt, bis ein vorhandener Quellrecord gefunden oder ein ausdrücklich beauftragter Receipt erstellt wird. |
+| B3N-/Glyphenvergleich | `A0_BOOK/results/a0-number-glyph-paper-triage-return-2026-10-20.json` und `114_A0_G_GLYPH_TRANSVERSAL_DOUBLE_COVER_ENGINEERING_RESULT_2026-10-23.md` | Dokumentarischer Vergleich vorhanden; Browserakzeptanz/Owner-Auswahl offen. Keine neue ausführbare Glyphenbedeutung. |
+| DERIS und Durchgangsfälle | `A0_BOOK/results/a0-deris-pink-strip-engineering-2026-10-23.json` | Vertrag `g=I−cut`, `|g|≤ε`, HOLD/BEFORE/STRIP/AFTER/RECROSS/COMMITTED; `40` Kernchecks plus bestehende Regressionen bestanden. Historische Browser-/Pin-Grenzen bleiben erhalten; kein universeller Operator. |
+| LOOK-AGAIN-CUT | `A0_BOOK/results/a0-look-again-perception-game-return-2026-10-23.json` | Fünf Runden browserbeobachtet, Return und Summary erreicht; unabhängige Human-Reproduzierbarkeit, Displaykalibrierung und Ethik vor Study offen. Der Name erzeugt keinen neuen CUT-Operator. |
+| Fresnel-/Torus-/FE-Bilder und Generatoren | `21_TRUE_MIRROR_METALS_HZ_FZ_VISUAL_SERIES_REVIEW.md`, `A0_BOOK/results/a0-blue-body-spoon-lens-stack-2026-10-23.json`, `44_A0_MOD77_TORUS_LIFT_THREE_TURN_ENGINEERING_CHECK_2026-10-13.md`; AMABEN/TESSARNA unter `DOC-14` | Kulturell-symbolischer Atlas, finite Fresnel-View und deklarierter diskreter Torus bleiben getrennte Rollen. Die zuletzt gezeigten FE/Fresnel/Torus-Bilder besitzen hier keinen neu gebundenen Generator; keine physische Feld-, Optik- oder Joint-Kopplung. |
+
+Diese Tabelle ersetzt weder die Records noch erzeugt sie eine zweite
+Protokollstruktur. Neue Gesprächsideen werden erst nach ausdrücklicher Übergabe
+zu Umsetzungsaufträgen.
+
+## Arbeitsstand-Konsolidierung — 25.10.2026
+
+Status: `LOCAL_WORKTREE_CONSOLIDATED / BROWSER_ACCEPTANCE_OPEN / NO_DEPLOYMENT`
+
+Die seit Commit `d0752d8909ef365b9f901494cf370f53caadbc2d` vorliegenden
+Anschlüsse bleiben bestehende Aufgaben beziehungsweise source-bound Ansichten:
+
+- Joint-Inspector und Beitrags-Trace sowie die getrennte Janus-Registeransicht
+  sind im vorhandenen Game-of-Worlds-Präsentationsadapter implementiert und
+  softwaregeprüft. Drei Ports führen je vier Kanäle. Pink `C₁₀` ist genau der
+  Kanal `1→0` mit Basis `−i`; `Z̄` ist der gleichgewichtete Mittelwert der drei
+  normierten Port-Phasoren, ein Readout ohne Feedback und kein nachgewiesenes
+  mechanisches Gelenk. Beobachtete Null, leeres Ledger und fehlender Record
+  bleiben getrennte Zustände.
+- AXIS08-Reihenfolgevergleich, Pascal-Bügel-Kipp-/Projektionsanschluss,
+  13691-Snapshot und 101→12928-/SNCE-Abgleich sind in ihren bereits bestehenden
+  Views und Records implementiert und isoliert softwaregeprüft. Keiner eröffnet
+  eine neue Study, Relation, Zahlenfamilie oder einen neuen Demonstrator.
+- Die Janus-Gruppierung ist nur ein exakter Integervergleich. Dreier- und
+  Vierergruppen kehren zum selben Integer zurück; Sprachname und Joint bleiben
+  getrennte Ebenen. Vier Ziffern je Gruppe bedeuten nicht vier Kanäle.
+- Die geschützte Three-Domain-Quellkopie unter
+  `A0_BOOK/assets/game-of-worlds-play/three-domain-transition-test/` wurde nicht
+  verändert; der große Inspector liest ausschließlich ihren Präsentationsrecord.
+- Vessel/Keystone/Laternen-Notizen werden nur als Konzeptrollen geführt:
+  Hülle, Bügel, Connector, Öffnung, Achse und Return. Belastbar gebunden ist die
+  Laternenfamilie an `A0_PENTAGON_KNICK_APERTURE_INTAKE_2026-10-25`; „Vessel“
+  und „Keystone“ besitzen im aktuellen Quellenbestand keinen eindeutigen Pin.
+  Eine mechanische Keystone-Rolle bleibt ohne Last- und Verbindungsweg offen.
+
+Browserstatus: Die aktuelle Ansicht ist eine lokale `file://`-Ansicht, die das
+verfügbare Browserwerkzeug ausdrücklich nicht übernehmen darf. Deshalb sind
+Normal-/Schmalbreite, Fokus/Tastatur, Reduced Motion, `PLAY`, `+1`, Reset und
+die sichtbare Herkunftsauswahl **nicht browserbeobachtet**; Softwaretests sind
+kein Ersatz. `DOC-01` bleibt offen.
+
+Gitstatus: `HEAD`, der lokale Tracking-Pin und der am 25.10.2026 per
+schreibgeschütztem `git ls-remote` bestätigte Remote-Branch
+`origin/codex/grid-observatory-mission-control` stehen auf
+`d0752d8909ef365b9f901494cf370f53caadbc2d` (`0/0` für den bestätigten
+Basisstand). Die hier inventarisierten Änderungen liegen weiterhin im
+Arbeitsbaum, sind damit nicht gepusht und nicht öffentlich verfügbar. Historische
+Coxeter/Pink-, M3- und Mathfield-Pins bleiben versionsgebundene Altbefunde und
+werden nicht pauschal repinnt. Ebenso bleibt der bereits in `HEAD` vorhandene
+tote NumberMagick-Link `A0_RESEARCH_DESK.html#cathedral-glb-stage` ein älterer
+Aggregatfehler, nicht ein Fehler dieser sechs Anschlüsse.
+
+P13/Publicness: Das zugängliche Abschlussprotokoll hält als letzte Beobachtung
+fest, dass A0-Einstieg und Crown-/Shadow-Vertrag öffentlich `200`, beide dort
+adressierten Crown-/Shadow-GLBs jedoch `404` lieferten. Im Repository wurde
+dafür kein eigenständiger kanonischer P13-Receipt gefunden. Der Befund wird
+daher nicht als aktueller Live-Status hochgestuft und bleibt unter `DOC-02` zur
+URL-/Release-Pin-Disposition; für diesen Abgleich erfolgte kein erneuter
+öffentlicher Request und kein Deployment.
+
+GH-/5B-Disposition: Der vorhandene GH-Transversalvertrag definiert für
+`A=12,6` und `B=13,7` exakt `A−B=−1,1`; in umgekehrter Leserichtung gilt
+`B−A=+1,1`. Belegt sind außerdem Summe `26,3` und Mitte `13,15`. Der getrennte
+Legacy-Vertrag `12,7↔13,6` bleibt erhalten. Weder GH noch ORION noch der
+5B-Player binden diese `1,1` an `0,5` oder `−0,6`; der spiegelnde Tausch
+`F(x)=26,3−x` bleibt deshalb nur eine korrekte Testdefinition, kein vorhandener
+Operator. Im 5B-Bestand sind Modellspiegelung und Abschluss-Ansichtsflip bei
+`Z=28` getrennte Darstellungsebenen; gleicher Bildschirmzustand ist kein
+Whole-machine-Return. „Gold“ bezeichnet im Player sowohl den gewählten
+Z-Schnitt als auch Bahn/Markierung von Flügel 4 und belegt daher keinen
+eindeutigen „goldenen Faden“. Die bereits berichteten GH-Checks (`127`) und die
+Abschlusskopplung (`6225`) wurden für diese Konsolidierung nicht erneut
+ausgeführt. Der bekannte veraltete Host-HTML-Pin bleibt einzeln unter `DOC-02`
+zu disponieren; Browserpixel bleiben unter `DOC-01` offen. Quellenfrage damit
+erledigt, weitergehende Kopplung unbewiesen und geparkt; keine Player-Änderung.
+
+Führende Priorität bleibt `ENG-D1D2-01`. Nächster Gate ist ausschließlich die
+manuelle Browserabnahme des großen Joint-Inspectors auf einer ausdrücklich
+unterstützten Browseransicht; bis dahin keine weitere Featurearbeit.
+
+### ENG-D1D2-01 · konstruktive Fortsetzung · 25. Oktober 2026
+
+Status: `PASS_BOUNDED_CONSTRUCTIVE_CANDIDATE / PROTOTYPE_EVIDENCE_OPEN`
+
+Der bestehende C-Lager-Kandidat wurde ohne neue Identität oder Bewegungsachse
+um radiale POM-C-Liner, zwei axiale Anlaufscheiben, zwei äußere geteilte
+Stellringe und vier M1.4-Schienenbefestiger ergänzt. Alle sechs neuen
+Retentionsteile wurden in allen `1.361` Winkelstellungen geprüft; kleinste
+kontinuierliche Retentionsfreiheit `0,011438708 u`. Die deklarierte
+Toleranzkette lässt `0,21…0,59 mm` Axialspiel.
+
+Unter den ausdrücklich gewählten, nicht historisch empfangenen Annahmen
+(`1,5 N` radial / `0,3 N` axial Proof, Stahl-Welle `≥800 MPa`, POM-C
+`8 MPa`, trockene Reibwerte) ergeben sich `29,842 MPa` Biegespannung,
+`0,01649 mm` Durchbiegung, `0,2196 Nmm` Reibmoment und positive Faktoren für
+Welle, Lagerdruck, Antrieb und Schienenrutschen. Diese Rechnungen sind kein
+Werkstoffnachweis und keine Fertigungsfreigabe.
+
+**Nächster Gate:** konkrete Lieferantendaten und Schraubenmoment binden, dann
+einen vermessenen Prototyp durch unbelasteten, Betriebs- und Proof-Vollweg
+führen; Drehmoment, Axialspiel, Verschleiß und bleibende Setzung protokollieren.
 
 - Evidence and executable authority: NEXAH Core PENT-01–PENT-07 packages.
 - Candidate assessment: `SCIENCE_LAB/SCIENTIFIC_CONTRIBUTION_CANDIDATES/SCC_003_PASCAL_PENTAGON_106_NODE_QUOTIENT_2026-10-10.md`.

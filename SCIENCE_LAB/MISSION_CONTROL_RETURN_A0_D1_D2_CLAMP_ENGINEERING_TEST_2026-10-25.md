@@ -1,7 +1,7 @@
 # Mission Control Return — A0 D1–D2 Clamp Engineering Test
 
 Date: `2026-10-25`  
-Status: `PASS_BOUNDED_GEOMETRIC_CLEARANCE / INTERNAL / NO SCIENTIFIC PROMOTION`
+Status: `PASS_BOUNDED_CONSTRUCTIVE_CANDIDATE / INTERNAL / NO SCIENTIFIC PROMOTION / NOT FABRICATION RELEASE`
 
 ## Return
 
@@ -24,6 +24,13 @@ deduction. Crown and lid remain fixed; no additional motion axis is introduced.
 Pin, 25 frame bars, fixed crown, fixed lower panel outside the intentional
 hinge strip and all added holders retain positive lower-bound clearance.
 
+The same candidate has now been constructively extended without changing its
+axis or motion contract: relieved POM-C radial liners, two thrust washers, two
+external split collars and four M1.4 rail screws are represented in the result
+and generated GLB. A tolerance stack, declared proof loads, shaft deflection,
+liner pressure, dry-friction torque, fastener slip resistance and a nine-step
+assembly/proof sequence are recorded as assumptions, not recovered facts.
+
 ## Governance return
 
 - identity action: `REUSE + BOUNDED ENGINEERING EXTENSION`;
@@ -38,14 +45,19 @@ hinge strip and all added holders retain positive lower-bound clearance.
 
 ## Verification
 
-- generator: `PASS_BOUNDED_GEOMETRIC_CLEARANCE`;
-- independent receipt verifier: `33/33 PASS`;
+- generator: `PASS_BOUNDED_CONSTRUCTIVE_CANDIDATE`;
+- independent receipt verifier: `52/52 PASS`;
 - angle samples: `1,361`, both negative and positive endpoints included;
 - negative closed-ring baseline: `COLLISION`, `1,361/1,361` samples affected;
 - smallest continuous lower bound: `0.011716383 u`, fixed panel outside the
   declared hinge strip;
 - C-opening angular margin: `4.676314°`;
 - minimum new-hardware external gap to pin/frame/crown: `0.139824064 u`;
+- minimum collar/screw continuous clearance to the moving leaf: `0.011438708 u`;
+- relieved-liner angular margin: `5.188620°`;
+- axial float across the declared tolerance stack: `0.21 … 0.59 mm`;
+- proof-load shaft bending stress / deflection: `29.842 MPa / 0.01649 mm`;
+- estimated dry friction torque: `0.2196 N·mm`; declared actuator factor `4.55`;
 - force boundary retained: `3×1−2×1.5=0` resultant does not eliminate the
   folded hinge moment (`−0.061119068` at `±34°`).
 
@@ -54,8 +66,10 @@ Primary record:
 
 ## Concrete remaining gap
 
-The axis is geometrically attached and free in the bounded nominal model. It is
-not yet a physical bearing assembly: axial retention and fasteners, tolerance
-stack, material and strength, deformation, friction and wear, actuator loads,
-sealing, prototype manufacture and independent CAD/mesh replay remain open.
-`+78°` is outside this test and is not a fabrication release.
+The next physical gate is no longer an unspecified bearing concept. It is a
+prototype evidence package for this bounded arrangement: bind supplier
+properties and tightening torque, manufacture and measure one assembly, then
+repeat the complete `−34° … +34°` sweep unloaded, at service load and at proof
+load while recording torque, axial float, wear and permanent set. Fatigue,
+sealing and independent CAD/mesh replay remain open. `+78°` is outside this
+test and is not a fabrication release.

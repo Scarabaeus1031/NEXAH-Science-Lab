@@ -98,6 +98,43 @@ This crosswalk establishes none of the following:
 - the visual `+18%` marker = measured growth;
 - a new PENT test, mathematical Family, OLS term or public claim.
 
+## Kleiner Reihenfolgeanschluss — Rotation / Generation
+
+Date: `2026-10-25`
+Status: `BOUNDED_RESEARCH_CONNECTOR / SUBORDINATE_TO_ENG-D1D2-01 / NO_DEPLOYMENT`
+
+Die vorhandene AXIS08-Generationenansicht ergänzt einen begrenzten Vergleich
+`T(R(G))` gegen `R(T(G))`. Die Ghostgrid-Quelle und der
+Generationszustand besitzen nicht denselben Zustandsraum: Ghostgrid verwendet
+ein `1000×1000`-Binärraster, das ausführbare Generationsmodul einen geordneten
+Achtwerte-Zustand. Deshalb wird kein Ghostgrid-Array importiert und keine
+2D-Drehung als 3D-Würfeloperator ausgegeben.
+
+Der ausdrücklich deklarierte Adapter legt die acht vorhandenen Lane-Mittel in
+ihrer bereits gezeichneten Ringreihenfolge auf den Rand eines `3×3`-Gitters.
+`R` ist dort die exakte 90°-Indexpermutation
+`(x,y) -> (2-y,x)` um `[1,1]` auf der `+z`-Achse. `T` ist ein
+vorhandener Generationsschritt bei `g=0`, Offset `0`, direkter Orientierung,
+`r'=sign(r)|r|²` und Gain `1`.
+
+Für den vorhandenen Zustand
+`G=[0.415,0.238,0.213,0.075,-0.008,-0.252,-0.287,-0.394]` gilt:
+
+- Identität, `R⁴(G)=G` und `R⁻¹(R(G))=G` sind exakt;
+- `T(R(G))` und `R(T(G))` sind nicht exakt gleich;
+- `max|T(R(G))-R(T(G))| = 0.10717184459568377` in the declared Node replay; the browser view recomputes the same bounded result from its full runtime state;
+- auch bei absoluter Toleranz `10⁻¹²` kommutieren die Wege nicht.
+
+Der Unterschied entsteht an den positionsgebundenen Paaren des
+Generationsschritts; die 90°-Permutation verschiebt Werte relativ zur festen
+Offset-0-Klammerung. Vollständige Zustände, beide Schrittprovenienzen,
+Kontrollen und Adapter stehen im
+[Maschinenrecord](A0_BOOK/results/a0-rotation-generation-order-connector-2026-10-25.json)
+und in der
+[bestehenden Generationenansicht](A0_BOOK/A0_AXIS08_FOLD_RETURN_SEQUENCER.html#rotationGenerationOrder).
+`∫\~`, „F-Lenk“ und „Ineinanderdrehen“ bleiben Owner-Lesarten ohne
+Integraloperator oder neue F-Operation.
+
 ## Backlog disposition
 
 `A0-BL-050` is documentary `BOUND`. The existing Pascal lens and Generation

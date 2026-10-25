@@ -68,12 +68,26 @@ The poster's claimed `VISUAL_FIELD_LIBRARY/` tree does not exist in the inspecte
 | **L** · Phase map | Exact visual output located beside K as `alpha_gate_1087_429_phase_ring.png`. | `SOURCE-BOUND OUTPUT / NO LOCATED GENERATOR` |
 | **G** · Satellite state loop | Exact historical family located at `Documents/GitHub/NEXAH-CODEX/SYSTEM_Y_RESONANTIA-Join_Codex/SATELLITE_∞_NEXAH/visuals/satellite_state_loop.png`, with a Core archive mirror. | `HISTORICAL EXPLORATORY VISUAL / NOT AN EXPERIMENT` |
 | **M₁** · AT Propagation Thermal LOCI Loop | Exact historical family located in the same NEXAH-CODEX module as `visuals/thermal_loci_loop.gif`. Its own documentation describes conceptual simulations and future validation work. | `HISTORICAL EXPLORATORY VISUAL / NOT AN EXPERIMENT` |
-| **M₂** · Amaben Breathing `σ=1.00` | Candidate AMABEN material exists, but the poster's simple Gaussian surface was not matched to an exact source or generator. | `LABEL-LEVEL CANDIDATE / SOURCE OPEN` |
-| **N** · TESSARNA Harmonic Lens | TESSARNA family assets exist, but the displayed aperture surface was not matched to an exact source or generator. | `LABEL-LEVEL CANDIDATE / SOURCE OPEN` |
+| **M₂** · Amaben Breathing `σ=1.00` | Exact paired historical output recovered in the owner archive as `amaben_tessarna_breathing.gif` (SHA-256 `3f5c6a0ebb840e978b175b164231608220c729dfe842bd4e2492ba6766d98464`; 1200×500; 60 frames; 10 fps; 6 s). The left panel is labelled `Amaben Breathing` and varies σ. No generator, parameter record or normalization contract was located. | `SOURCE-BOUND HISTORICAL OUTPUT / GENERATOR OPEN` |
+| **N** · TESSARNA Harmonic Lens | The same recovered GIF contains the right panel labelled `TΞSSARNA Harmonic Lens`. A separate upstream image, `Tessarna - Amaben Axis with Energy Flow.png` (SHA-256 `55140d628a25a3614f2c5a7ab134991954cf2f8b820b25243db72fb16146899a`), was recovered in two byte-identical owner-archive locations. It documents a named axis image, not the GIF's executable transform. | `SOURCE-BOUND HISTORICAL OUTPUT / GENERATOR OPEN` |
 
 The poster assigns the letter **M twice** to different objects. This is not silently repaired: this audit uses `M₁` for the thermal loop and `M₂` for the aperture graphic until the owner assigns unique stable frame IDs.
 
 For K/L, the displayed `κ = φ³/π² = 0.429203421469682…` is exact dimensionless arithmetic. The current source record does not show that κ generated the images or that it represents a physical parameter. No such inference is made.
+
+<a id="amaben-tessarna-recovery-20261025"></a>
+
+### 4.1 M₂/N recovery addendum · 2026-10-25
+
+The recovered GIF is stored outside repository custody at:
+
+`/Users/tho2020/Desktop/Desktop TASKS/DESKTOP_archy/THOOTH DASHBOARD/AAA NEXAH Modules todo/A - Nexa Knowledge NEXAH first modules ARCHIVE/🧮🧮🧮🧮🧮📟📟Codex Resonantia Scroll/💠💠💠💠Vendissimal-DNA Spiral-Code Analyse (THREAD V)/amaben_tessarna_breathing.gif`
+
+The upstream axis image is stored at:
+
+`/Users/tho2020/Desktop/Desktop TASKS/DESKTOP_archy/THOOTH DASHBOARD/Nexahedron_Codex Staging Modules/📐 GEOMETRIA NOVA - Euklides_Pythagoras_RA:TH_ V-XX-V/📐 GEOMETRIA NOVA Roadmap · Part VII → XIII/NEXAH_Closure_Package_XIII_TESSARNA/Tessarna - Amaben Axis with Energy Flow.png`
+
+A byte-identical copy of the axis image is present in the Fusion Resonance Codex `Amaben_Visuals_Package`. The GIF and axis image are not byte- or role-identical. The labels make a Fourier-style pairing plausible, but without the generator the grid, input state, transform convention, normalization, units and feedback semantics remain unknown. No physical transfer, domain-joint or `Z̄` coupling is inferred.
 
 ## 5. What is closed, what is reusable, what remains open
 
@@ -89,13 +103,14 @@ For K/L, the displayed `κ = φ³/π² = 0.429203421469682…` is exact dimensio
 - FP → RR → OE as a non-canonical experimental handoff.
 - K/L as source-bound visual outputs with associated data.
 - G/M₁ as historical exploratory visual lineage.
+- M₂/N as a shared source-bound historical GIF output; the separate axis image is retained as comparison material only.
 
 ### Open source and research gaps
 
 1. Recover or recreate immutable source bindings for Frames A–D from an explicit array, equation set and generator.
 2. Assign distinct stable IDs to M₁ and M₂.
 3. Locate generators, parameter files and licenses for K/L; the outputs and CSVs alone do not establish replayability.
-4. Locate the exact M₂ and N assets or mark them permanently as poster-only concept thumbnails.
+4. Recover the M₂/N generator or notebook, equations, grid, parameters, transform convention, normalization and license. The paired output asset itself is located; replayability and an executable adapter remain open.
 5. If the Visual Field Library is to become real, build it as a provenance registry with source hash, generator, parameters, evidence class and claim ceiling for every frame—not by copying the poster's optimistic status dots.
 
 ## 6. A0 consequence

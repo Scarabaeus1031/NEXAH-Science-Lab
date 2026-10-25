@@ -9,7 +9,7 @@ New canonical IDs / relations / Studies / Findings: `0 / 0 / 0 / 0`
 
 Within the declared geometric model, **yes**: the received D1–D2 axis is now attached to the fixed lower frame by two finite C-open bearing candidates and remains movable through the complete tested path from `−34°` to `+34°`. The crown remains fixed at its half-contact state, the lid remains fixed and is not given a new body, and no second motion axis is introduced.
 
-This is a bounded clearance result, not a fabrication release. The next concrete gap is the physical bearing design: axial retention and fasteners, manufacturing tolerances, material strength and deformation, friction, actuator loads and a prototype test.
+This remains an assumption-bound engineering result, not a fabrication release. The same candidate now includes relieved POM-C radial liners, two POM-C thrust washers, two external split shaft collars, four M1.4 rail fasteners, a dimensional tolerance stack, declared service/proof loads, shaft deflection and bearing-pressure checks, dry-friction torque and an assembly/proof sequence. Supplier evidence, tightening torque, wear/fatigue and physical prototype proof remain open.
 
 ## Current inventory
 
@@ -19,7 +19,7 @@ This is a bounded clearance result, not a fabrication release. The next concrete
 | Fünflaschenkrone | present as source package and received GLB; source rebuild and physical housing remain partial | Crown ZIP/GLB in `A0_BOOK/downloads/A0_PENTAGON_KNICK_APERTURE_INTAKE_2026-10-25/`; `A0_BOOK/A0_CROWN_SHADOW_CONTACT_BENCH.html` | GLB structure check and Contact Bench contract/tests; independent glTF validator and physical prototype remain open |
 | Shadow Triangle 3+2 | present as PNG, source package, GLB and Contact Bench | `A0_BOOK/downloads/A0_PENTAGON_KNICK_APERTURE_INTAKE_2026-10-25/sources/shadow-triangle-3plus2/`, GLB and `A0_BOOK/A0_CROWN_SHADOW_CONTACT_BENCH.html` | five source coordinates and source→GLB transform reproduced; finite-thickness mechanics were partial until this local D1–D2 test |
 | “The One”, D1–D2 fold and opposite direction | present as received source package, two GLBs, notes and source test; formerly zero-thickness only | this intake's `sources/the-one-d1-d2-package-v1/` and `deliverables/received/` | received `test_one_hinge.py`; this return adds finite-thickness full-path sampling and a negative baseline |
-| Clamp, bearing attachment, axis and panel thickness | **added here as bounded candidate** | `d1_d2_clamp_test.mjs`, generated result/visual/GLB in this directory | 1,361 angle samples plus analytic between-sample motion bound; independent receipt verifier |
+| Clamp, bearing attachment, axis and panel thickness | **bounded constructive candidate** | `d1_d2_clamp_test.mjs`, generated result/visual/GLB in this directory | 1,361 angle samples plus analytic between-sample motion bound; liners, washers, collars and four rail screws; 52-check independent verifier |
 | YUGO/IOTA and `°_⁄` adapter | present, but deliberately separate from the 3D mechanism | received `NEXAH_Yugo_One_Loop_Offline.html`; A0 Bench `#aeYugoIotaPivotTest`, `a0-yugo-iota-pivot.js` | existing `a0-yugo-iota-pivot-tests.cjs`; the game remains a simplified 2D roles adapter, not a mechanical validation |
 
 An animation or mention was not counted as a verified mechanical coupling. Public book visibility and the internal Science Desk were also treated as different projections of the same local custody state.
@@ -47,7 +47,13 @@ The D1/D2 coordinates and requested path are received values. Every other dimens
 | Moving sleeve length / outside diameter | `0.24 u / 0.028 u` | `24.0 / 2.8 mm` |
 | Fixed rail length / width / thickness | `0.44 / 0.036 / 0.016 u` | `44.0 / 3.6 / 1.6 mm` |
 | Shaft-to-bore radial clearance | `0.003 u` | `0.3 mm` |
+| Shaft-to-POM-liner radial clearance | `0.0003 u` | `0.03 mm` nominal |
+| Relieved liner opening | `±68°` toward `+y` | `136°` total |
 | Sleeve-to-bearing axial gap per side | `0.015 u` | `1.5 mm` |
+| POM thrust washer width per side | `0.013 u` | `1.3 mm` |
+| Remaining nominal axial float | `0.004 u` | `0.4 mm` |
+| Split collar width / outside diameter | `0.018 / 0.028 u` | `1.8 / 2.8 mm` |
+| Rail fasteners | — | `4 × M1.4`, two per pedestal |
 | Intentional hinge contact/exclusion strip | `0.02 u` | `2.0 mm` |
 
 Intended contacts are: shaft↔moving sleeve, shaft inside the D1/D2 bores, pedestals/rail↔fixed lower panel, and moving↔fixed panels inside the declared hinge strip. All contact outside those sets is treated as an unwanted collision.
@@ -79,7 +85,24 @@ Continuous lower bounds after subtracting the between-sample motion bound:
 | holder base / rail | `0.021479611 u` | near `±34°` |
 | all added hardware vs pin/frame/crown | `0.139824064 u` | moving sleeve envelope |
 
-The C-opening retains `4.676314°` sampled angular margin at both path ends. The result is `PASS_BOUNDED_GEOMETRIC_CLEARANCE` for this model.
+The C-opening retains `4.676314°` sampled angular margin at both path ends. The relieved liner retains `5.188620°`. Both split collars and all four rail screws were additionally checked against the moving leaf at every one of the 1,361 positions; their smallest continuous lower bound is `0.011438708 u`. The combined result is `PASS_BOUNDED_CONSTRUCTIVE_CANDIDATE` for this assumption-bound model.
+
+## Retention, load, friction and tolerance assumptions
+
+These values are selected design assumptions that make the next engineering gate executable; they are not recovered source measurements or supplier-certified properties.
+
+| Check | Declared input | Calculated result |
+|---|---:|---:|
+| proof radial / axial load | `1.5 N / 0.3 N` | full motion rechecked with retention envelopes |
+| shaft bending, Ø1.6 mm, 32 mm bearing span | yield floor `800 MPa` | `29.842 MPa`, factor `26.81` |
+| shaft midspan deflection | `E = 193 GPa` | `0.01649 mm`; `0.00851 mm` reserve to minimum clearance |
+| POM-C projected bearing pressure | allowable assumption `8 MPa` | `0.09375 MPa`, factor `85.33` |
+| dry radial + thrust friction | `μ = 0.15 / 0.12` | `0.2196 N·mm` |
+| actuator design torque | `1.0 N·mm` | factor `4.55` over estimated dry friction |
+| four rail-fastener slip resistance | `20 N` assumed preload each, `μ = 0.20` | `16 N`, factor `10.67` against proof radial load |
+| axial tolerance stack | bearing span, sleeve and two washers | `0.21 … 0.59 mm` positive float |
+
+Assembly order is explicit in the generated result: rail/pedestals, relieved liners, shaft, D1 washer, moving sleeve, D2 washer, second bearing, external collars, axial/free-rotation verification, unloaded sweep, then service and proof-load sweeps. Set-screw torque, thread stripping, preload verification and witness-mark inspection criteria still require supplier data or prototype evidence.
 
 ## Preserved negative result and smallest repair
 
@@ -100,8 +123,8 @@ node d1_d2_clamp_test.mjs
 node d1_d2_clamp_verify.mjs
 ```
 
-The first command regenerates the JSON, SVG and GLB. The committed PNG is a raster rendering of the generated SVG. The second command verifies scope, identities, angle coverage, negative and positive results, all continuous lower bounds, the fixed crown/lid contract and the generated GLB container.
+The first command regenerates the JSON, SVG and GLB. The committed PNG is a raster rendering of the generated SVG. The second command verifies scope, identities, angle coverage, negative and positive results, all continuous lower bounds, six retention motion checks, tolerance/load/friction factors, the fixed crown/lid contract and the generated GLB container (`52/52`).
 
 ## Remaining uncertainty
 
-The geometry does not yet specify axial clips, screws or bonds; tolerances are nominal; the C-bearing's opening retention is not load-tested; no material, wear, friction, deflection, fatigue, actuator or sealing model exists; and no physical prototype or independent CAD/mesh collision replay has been performed. These are the next gates. `+78°` remains outside this test and is not a release condition.
+The candidate now specifies one bounded retention and fastening arrangement, but it has no supplier certificates, tightening-torque or thread-strip evidence, wear/temperature/contamination/cycle-life result, selected actuator or sensor, prototype metrology, physical proof-load test or independent CAD/mesh replay. The declared `0.1 m/u` scale remains an assumption. `+78°` remains outside this test and is not a release condition.

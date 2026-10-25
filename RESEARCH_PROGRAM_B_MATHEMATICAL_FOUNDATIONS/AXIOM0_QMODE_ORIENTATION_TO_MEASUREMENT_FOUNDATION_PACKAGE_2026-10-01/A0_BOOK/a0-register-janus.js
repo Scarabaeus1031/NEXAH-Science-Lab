@@ -9,17 +9,26 @@
   if(!/^\d+$/.test(String(value)))throw Error('Bitte eine ganze Zahl eingeben.');
   const n=Number(value);if(!Number.isSafeInteger(n)||n<min||n>max)throw Error('Erlaubter Bereich: '+min+' bis '+max+'.');return n;
  }
- function group(value,size){return BigInt(value).toString().replace(new RegExp('\\B(?=(\\d{'+size+'})+(?!\\d))','g'),'│');}
+ function exactInteger(value){
+  if(typeof value==='number'&&!Number.isSafeInteger(value))throw Error('Unsicherer Number-Wert; String oder BigInt verwenden.');
+  if(typeof value==='bigint')return value;
+  const text=String(value);if(!/^\d+$/.test(text))throw Error('Exakter nichtnegativer Integer erforderlich.');return BigInt(text);
+ }
+ function group(value,size){if(![3,4].includes(size))throw Error('Registerbreite muss 3 oder 4 sein.');return exactInteger(value).toString().replace(new RegExp('\\B(?=(\\d{'+size+'})+(?!\\d))','g'),'│');}
  function parseGroup(text,size){
   const parts=String(text).split('│');
-  if(!new RegExp('^[1-9]\\d{0,'+(size-1)+'}$').test(parts[0])||parts.slice(1).some(p=>!new RegExp('^\\d{'+size+'}$').test(p)))throw Error('Ungültige Gruppierung');
+  if(![3,4].includes(size)||!new RegExp('^(?:0|[1-9]\\d{0,'+(size-1)+'})$').test(parts[0])||parts.length>1&&parts[0]==='0'||parts.slice(1).some(p=>!new RegExp('^\\d{'+size+'}$').test(p)))throw Error('Ungültige Gruppierung');
   return BigInt(parts.join(''));
+ }
+ function integerRecord(value,languageNames=null){
+  const integer=exactInteger(value),decimal=integer.toString(),three=group(integer,3),four=group(integer,4);
+  return Object.freeze({schema:'nexah.a0.integer-register-record/1',value:decimal,views:Object.freeze({decimal,groups3:three,groups4:four}),languageNames:languageNames?Object.freeze({...languageNames}):null,returnChecks:Object.freeze({groups3:parseGroup(three,3)===integer,groups4:parseGroup(four,4)===integer}),channelMapping:null});
  }
  function model(multiplier='1',base='2',inner='3',outer='2',side='204'){
   const m=integer(multiplier,1,9);if(m!==1&&m!==9)throw Error('Nur die beiden Bildwerte 1 und 9.');
   const a=integer(base,2,10),b=integer(inner,1,6),c=integer(outer,1,3),n=integer(side,1,512);
-  const value=BigInt(m)*10n**12n,left=(BigInt(a)**BigInt(b))**BigInt(c),right=BigInt(a)**(BigInt(b)**BigInt(c));
-  const three=group(value,3),four=group(value,4);
+  const value=BigInt(m)*10n**12n,left=(BigInt(a)**BigInt(b))**BigInt(c),right=BigInt(a)**(BigInt(b)**BigInt(c)),integerView=integerRecord(value,{de:m+' '+(m===1?'Billion':'Billionen'),en:m+' trillion',zh:m===1?'一万亿':'九万亿'});
+  const three=integerView.views.groups3,four=integerView.views.groups4;
   return{schema:'nexah.a0.register-janus-ui/1',value:String(value),
    registers:[{label:'DE · lange Skala',name:m+' '+(m===1?'Billion':'Billionen'),digits:three},
     {label:'US · short scale',name:m+' trillion',digits:three},
@@ -84,5 +93,5 @@
   el('janusTest').addEventListener('click',test);render();test();
   return{render,snapshot:()=>current?JSON.parse(JSON.stringify(current)):null};
  }
- return{model,group,parseGroup,checks,mount};
+ return{model,integerRecord,group,parseGroup,checks,mount};
 });

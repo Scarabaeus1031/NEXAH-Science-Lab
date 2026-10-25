@@ -38,10 +38,71 @@ function embedding(n,r,k,view){
  return [x,y,.45*(x*x-y*y)];
 }
 function screen(point,angle,mirror){const a=angle*Math.PI/180,[x,y,z]=point,X=x*Math.cos(a)+z*Math.sin(a),Z=-x*Math.sin(a)+z*Math.cos(a);return [(mirror?-1:1)*(X+.25*y),-y+.35*Z];}
+function rotateAroundXAxis(point,connector,angleDeg){
+ if(!Array.isArray(point)||point.length!==3||!Array.isArray(connector)||connector.length!==3||![...point,...connector,angleDeg].every(Number.isFinite))throw Error('Invalid tilt geometry');
+ const a=angleDeg*Math.PI/180,[x,y,z]=point,[cx,cy,cz]=connector,dy=y-cy,dz=z-cz,c=Math.cos(a),s=Math.sin(a);
+ return [x,cy+dy*c-dz*s,cz+dy*s+dz*c];
+}
+function orthographicXY(point){if(!Array.isArray(point)||point.length!==3||!point.every(Number.isFinite))throw Error('Invalid projection point');return [point[0],point[1]];}
+function tiltProjection(value,angleDeg=0){
+ value=word(value);if(!Number.isFinite(angleDeg)||angleDeg<-90||angleDeg>90)throw Error('Tilt must be within -90..90 degrees');
+ const path=nodes(value),n=value.length,connector=embedding(n,0,0,'bracket');
+ const addressed=[];
+ for(let r=0;r<=n;r++)for(let k=0;k<=r;k++){
+  const body=embedding(n,r,k,'bracket'),world=rotateAroundXAxis(body,connector,angleDeg);
+  addressed.push({address:[r,k],body,world,projection:orthographicXY(world)});
+ }
+ const byAddress=new Map(addressed.map(p=>[p.address.join(':'),p]));
+ const contour=path.map(p=>byAddress.get(p.r+':'+p.k));
+ const witness=contour[contour.length-1];
+ return {source:value,angleDeg,connector:{address:[0,0],point:connector,fixed:true},axis:{direction:[1,0,0],line:{point:connector,direction:[1,0,0]}},
+  frame:{status:'FIXED_WORLD_FRAME'},body:{status:'RIGID_BODY_MOVES',coordinates:'declared bracket display-map coordinates'},
+  camera:{status:'FIXED',positionDirection:[0,0,1],projection:'ORTHOGRAPHIC_XY',plane:'z=0'},
+  addressed,contour,witness:{address:witness.address,world:witness.world,projection:witness.projection}};
+}
+function tiltAmbiguity(value,angleDeg=60,tolerance=1e-12){
+ if(!Number.isFinite(tolerance)||tolerance<0)throw Error('Invalid tolerance');
+ const magnitude=Math.abs(angleDeg),plus=tiltProjection(value,magnitude),minus=tiltProjection(value,-magnitude);
+ let maxProjectionDifference=0,maxWorldDifference=0;
+ for(let i=0;i<plus.addressed.length;i++){
+  for(let j=0;j<2;j++)maxProjectionDifference=Math.max(maxProjectionDifference,Math.abs(plus.addressed[i].projection[j]-minus.addressed[i].projection[j]));
+  for(let j=0;j<3;j++)maxWorldDifference=Math.max(maxWorldDifference,Math.abs(plus.addressed[i].world[j]-minus.addressed[i].world[j]));
+ }
+ return {plus,minus,tolerance,maxProjectionDifference,maxWorldDifference,sameImage:maxProjectionDifference<=tolerance,sameSpatialPose:maxWorldDifference<=tolerance,
+  lostInformation:['signed depth z','sign of tilt about the declared axis'],
+  sufficientReturnData:['source/address record','signed tilt angle or signed depth witness','connector and axis','fixed frame and projection definition','provenance']};
+}
 const initial=()=>({source:'010101',view:'grid',endpointOnly:false,key:'none',angle:0,mirror:false});
 function mount(doc){
  const host=doc&&doc.getElementById('pascal-thread-demonstrator');if(!host||host.dataset.threadReady)return null;host.dataset.threadReady='true';
  const $=id=>doc.getElementById(id);let state=initial();
+ function tiltCanvas(svgId,angle,compact=false){
+  const svg=$(svgId);if(!svg)return;
+  const q=tiltProjection(state.source,angle),q0=tiltProjection(state.source,0),scale=compact?72:130,cx=compact?100:360,cy=compact?74:170;
+  const at=p=>[cx+p[0]*scale,cy-p[1]*scale],point=p=>at(p).map(v=>v.toFixed(2)).join(','),lookup=new Map(q.addressed.map(p=>[p.address.join(':'),p]));
+  let out='<title>Bügelkörper bei '+angle+' Grad im festen Koordinatenrahmen</title><desc>Orthographische Projektion auf z gleich null. Der Connector am Pascal-Ursprung bleibt im Raum fest.</desc>';
+  if(!compact){
+   out+='<line x1="40" y1="'+at(q.connector.point)[1]+'" x2="680" y2="'+at(q.connector.point)[1]+'" stroke="#987024" stroke-dasharray="5 5"/><text x="48" y="'+(at(q.connector.point)[1]-8)+'" fill="#70551d" font-size="12">Drehachse +x</text>';
+   out+='<polyline points="'+q0.contour.map(p=>point(p.projection)).join(' ')+'" fill="none" stroke="#778b94" stroke-width="2" stroke-dasharray="5 5"/>';
+   const trace=[];for(let a=-90;a<=90;a+=5)trace.push(tiltProjection(state.source,a).witness.projection);
+   out+='<polyline points="'+trace.map(point).join(' ')+'" fill="none" stroke="#bd327d" stroke-width="3" stroke-opacity=".65"/>';
+  }
+  for(let r=0;r<q.source.length;r++)for(let k=0;k<=r;k++)for(const child of [k,k+1]){
+   const a=lookup.get(r+':'+k),b=lookup.get((r+1)+':'+child);out+='<line x1="'+at(a.projection)[0]+'" y1="'+at(a.projection)[1]+'" x2="'+at(b.projection)[0]+'" y2="'+at(b.projection)[1]+'" stroke="#a4b2b7" stroke-opacity=".45"/>';
+  }
+  out+='<polyline points="'+q.contour.map(p=>point(p.projection)).join(' ')+'" fill="none" stroke="#007e9b" stroke-width="'+(compact?3:5)+'"/>';
+  const c=at(q.connector.point),w=at(q.witness.projection);out+='<circle cx="'+c[0]+'" cy="'+c[1]+'" r="'+(compact?5:8)+'" fill="#d09a19"><title>Connector (0,0) · räumlich fest</title></circle><circle cx="'+w[0]+'" cy="'+w[1]+'" r="'+(compact?4:7)+'" fill="#bd327d"><title>Punktspur-Witness</title></circle>';
+  if(compact)out+='<text x="8" y="16" fill="#15313f" font-size="12" font-weight="700">'+angle+'°</text>';
+  svg.innerHTML=out;
+ }
+ function renderTilt(){
+  if(!$('threadTiltSvg'))return;
+  const angle=Number($('threadTiltAngle').value),q=tiltProjection(state.source,angle),amb=tiltAmbiguity(state.source,60);
+  $('threadTiltAngleValue').textContent=angle+'°';tiltCanvas('threadTiltSvg',angle);tiltCanvas('threadTiltMinus',-60,true);tiltCanvas('threadTiltZero',0,true);tiltCanvas('threadTiltPlus',60,true);
+  $('threadTiltConnector').textContent='Connector (0,0) = ['+q.connector.point.map(v=>v.toFixed(6)).join(', ')+'] · unverändert im Weltkoordinatenrahmen';
+  $('threadTiltWitness').textContent='Witness ('+q.witness.address.join(',')+') · Welt ['+q.witness.world.map(v=>v.toFixed(6)).join(', ')+'] · Projektion ['+q.witness.projection.map(v=>v.toFixed(6)).join(', ')+']';
+  $('threadTiltAmbiguity').textContent='−60° und +60°: max. Bilddifferenz '+amb.maxProjectionDifference+' · max. 3D-Pose-Differenz '+amb.maxWorldDifference.toFixed(12)+' · gleiches Bild: '+(amb.sameImage?'JA':'NEIN')+' · gleiche Pose: '+(amb.sameSpatialPose?'JA':'NEIN');
+ }
  function render(){
   const s=snapshot(state.source,state.endpointOnly,state.key),positions=new Map(),pts=[];
   for(let r=0;r<=s.n;r++)for(let k=0;k<=r;k++){const p=screen(embedding(s.n,r,k,state.view),state.angle,state.mirror);positions.set(r+':'+k,p);pts.push(p);}
@@ -72,6 +133,7 @@ function mount(doc){
   $('threadControl').textContent=s.keyControl==='NO_ALTERNATIVE_KEY'?'Randfall: Diese Faser enthält nur einen Pfad; es gibt keinen anderen gültigen Schlüssel.':'Spiegelung und Blickwinkel ändern nur die Anzeige, nicht das Binärwort. Gold gestrichelt = Return; Rot gestrichelt = falscher Return.';
   $('threadCandidates').innerHTML=(state.endpointOnly?s.candidates:[state.source]).map(w=>'<button type="button" data-thread-path="'+w+'" aria-pressed="'+(w===state.source)+'">'+w+'</button>').join(' ');
   $('threadError').textContent='';
+  renderTilt();
  }
  function update(patch){state={...state,...patch};render();}
  function submit(){try{update({source:word($('threadWord').value.trim())});}catch(e){$('threadError').textContent=e.message;}}
@@ -83,13 +145,17 @@ function mount(doc){
  $('threadKey').addEventListener('change',()=>update({key:$('threadKey').value}));
  $('threadMirror').addEventListener('change',()=>update({mirror:$('threadMirror').checked}));
  $('threadAngle').addEventListener('input',()=>update({angle:Number($('threadAngle').value)}));
+ if($('threadTiltAngle')){
+  $('threadTiltAngle').addEventListener('input',renderTilt);
+  for(const [id,angle] of [['threadTiltStart',0],['threadTiltMid',60],['threadTiltReturn',0]])$(''+id).addEventListener('click',()=>{$('threadTiltAngle').value=String(angle);renderTilt();});
+ }
  $('threadLoss').addEventListener('click',()=>update({endpointOnly:true,key:'none'}));
  $('threadReturn').addEventListener('click',()=>update({endpointOnly:true,key:'correct'}));
  $('threadWrong').addEventListener('click',()=>update({endpointOnly:true,key:'wrong'}));
  $('threadReset').addEventListener('click',()=>{state=initial();render();});
  $('threadCandidates').addEventListener('click',e=>{const el=e.target.closest('[data-thread-path]');if(el)update({source:el.dataset.threadPath});});
- render();return {update,get state(){return {...state}},snapshot:()=>snapshot(state.source,state.endpointOnly,state.key)};
+ render();return {update,get state(){return {...state}},snapshot:()=>snapshot(state.source,state.endpointOnly,state.key),tiltSnapshot:()=>tiltProjection(state.source,Number($('threadTiltAngle')?.value||0))};
 }
-return {VIEWS,word,nodes,fiber,project,inverse,snapshot,embedding,screen,mount};
+return {VIEWS,word,nodes,fiber,project,inverse,snapshot,embedding,screen,rotateAroundXAxis,orthographicXY,tiltProjection,tiltAmbiguity,mount};
 });
 

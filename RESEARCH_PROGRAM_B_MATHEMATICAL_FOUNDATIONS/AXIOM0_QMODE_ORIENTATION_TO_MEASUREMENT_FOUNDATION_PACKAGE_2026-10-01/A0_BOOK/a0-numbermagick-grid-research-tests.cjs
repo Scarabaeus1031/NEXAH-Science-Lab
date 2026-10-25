@@ -22,7 +22,7 @@ for(const id of ['start','karten','quellen','fragen','visuals','weiter'])ok(html
 ok((html.match(/<details id="grid-/g)||[]).length===5,'five native expandable reading groups');
 ok(!html.includes('<iframe'),'no embedded auto-running instruments');
 const images=[...html.matchAll(/<img\b([^>]+)>/g)];
-ok(images.length===10,'seven existing source images plus three original Scarab/Eris intake images, no generated replacements');
+ok(images.length===11,'ten existing source/intake images plus one code-native SNCE reconciliation visual');
 const intakeDir=path.resolve(base,'../../../NUMBER_OPERATOR_ARCHITECTURE_CONCORDANCE_AUDIT/visual_intake_2026-10-19');
 const intake=JSON.parse(fs.readFileSync(path.join(intakeDir,'visual-source-receipt.json'),'utf8'));
 ok(intake.status==='DOCUMENTARY_SOURCE_ONLY'&&intake.sources.length===3,'three documentary sources, no claim promotion');
