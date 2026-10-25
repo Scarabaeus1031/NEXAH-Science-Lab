@@ -70,6 +70,7 @@
   <link rel="stylesheet" href="a0-bench-navigation.css">
   <link rel="stylesheet" href="a0-application-return-polish.css?rev=20261023-r2">
   <link rel="stylesheet" href="a0-universal-ring-aperture.css?rev=20261023-r1">
+  <link rel="stylesheet" href="a0-angle-address-compare.css?rev=20261025-r1">
   <link rel="stylesheet" href="a0-look-again-game.css?rev=20261023-r1">
   <link rel="stylesheet" href="a0-universal-machine-parts-shelf.css?rev=20261023-r1">
   <script defer src="assets/vendor/a0-model-viewer-classic.js"></script>
@@ -173,6 +174,18 @@
     <div class="ura-source-route" aria-label="Quell- und Ansichtsroute"><article><small>01 · SOURCE FAMILY</small><b>Ratio Corridors · Wobble Wheel · GLB-Serie</b><small>Historische FAM-009-Assets; nicht neu kanonisiert.</small></article><i aria-hidden="true">→</i><article><small>02 · LOCAL VIEW OPERATOR</small><b>Doppelringe · Phase · Maßstab</b><small>Die beiden feinen Felder bleiben getrennt adressierbar.</small></article><i aria-hidden="true">→</i><article><small>03 · APERTURE / DISPLAY</small><b>Auflösung verändert das sichtbare Muster</b><small>Abtastung und Zoom ändern die Makrofigur, nicht die Quelldatei.</small></article></div>
     <section class="look-again look-again-launch" aria-labelledby="lookAgainLaunchTitle"><div class="look-again-head"><div><small class="ura-label">SEPARATE HUMAN GAME</small><h3 id="lookAgainLaunchTitle">LOOK AGAIN spielt nebenan.</h3><p>Die Bench erklärt und baut. Das eigenständige Spiel zeigt fünf kurze Veränderungen ohne Werkzeugkatalog und ohne Cockpit.</p></div><a href="A0_LOOK_AGAIN_PLAY.html">SPIEL ÖFFNEN →</a></div></section>
     <output id="uraStatus" class="ura-status" role="status" aria-live="polite">PAUSED · ORANGE · SOURCE LINES 220 · DISPLAY SAMPLES 220</output>
+  </section>
+  <section id="angleAddressCompare" class="angle-address-compare" aria-labelledby="aacTitle">
+    <header class="aac-head"><div><small>A0 NUMBERS / CIRCLE ADDRESS VIEW · EXACT FINITE COMPARISON</small><h2 id="aacTitle">3° und 111° — gleiche Richtungen, andere Verbindung.</h2><p>Die bestehende A0-Kreis-/Adressgrammatik wird mit konstantem Radius und gemeinsamem Start wiederverwendet. A und B besitzen je 120 verschiedene Punkte. 333° läuft getrennt als negativer Kontrollpfad mit nur 40 Richtungsadressen.</p></div><span class="aac-badge">NO NEW CLOCK · NO NEW IDENTITY</span></header>
+    <div class="aac-controls"><button type="button" data-aac-play aria-pressed="false">▶ Play</button><button type="button" data-aac-next>+1 Schritt</button><button type="button" data-aac-reset>Reset</button><label>Schritt <output data-aac-step-out>0</output>/120 <input data-aac-step type="range" min="0" max="120" step="1" value="0"></label><label><input data-aac-lines type="checkbox" checked> Verbindungslinien</label></div>
+    <div class="aac-grid">
+      <article class="aac-card"><small>FOLGE A · θₖ=3k mod 360°</small><h3>Regelmäßiges 120-Eck</h3><div class="aac-readout"><span>Adresse <b data-aac-address-a>0</b></span><span>Richtung <b data-aac-angle-a>0°</b></span></div><div class="aac-view" data-aac-view-a></div></article>
+      <article class="aac-card"><small>FOLGE B · θₖ=111k mod 360°</small><h3>Regelmäßiges Sternpolygon {120/37}</h3><div class="aac-readout"><span>Adresse <b data-aac-address-b>0</b></span><span>Richtung <b data-aac-angle-b>0°</b></span></div><div class="aac-view" data-aac-view-b></div></article>
+      <article class="aac-card control"><div><small>NEGATIVE KONTROLLE · θₖ=333k mod 360°</small><h3>Der „Fächer“ verliert Adressen.</h3><div class="aac-readout"><span>Adresse <b data-aac-address-c>0</b></span><span>Richtung <b data-aac-angle-c>0°</b></span></div><p><code>gcd(111,120)=3</code>: nur 40 Richtungen, jede dreimal besucht; erste Rückkehr schon nach 40 Schritten. Damit ist 333° keine bloße Umordnung derselben 120er-Punktmenge.</p></div><div class="aac-view" data-aac-view-c></div></article>
+    </div>
+    <div class="aac-result"><b>Exact return:</b> <code>111=3×37</code>, <code>gcd(37,120)=1</code>, <code>j=37k mod 120</code>, invers <code>k=13j mod 120</code>. Erhalten: Radius, Start, Orientierung und vollständige Punktmenge von A/B. Verändert: Besuchs- und Kantenreihenfolge. <span class="aac-owner">Owner-Notizen: „111“, „|11“, „1–2–3“ — ohne zusätzliche Operatorbedeutung.</span></div>
+    <p class="aac-links"><a href="results/a0-angle-address-compare-3-111-333-2026-10-25.svg">Kompaktes Visual ↗</a> · <a href="A0_SCIENTIFIC_POSITION_REPORT.html">Prüfrecord ↗</a> · <a href="A0_SCIENTIFIC_POSITION_REPORT.html">Reproduzierbare Tests ↗</a> · <a href="A0_SCIENCE.html">A0 Science Return ↗</a></p>
+    <p><b>BOUNDARY:</b> Endliche modulare Kreisgeometrie und Darstellungsvergleich. Keine Radiuszunahme, kein Primzahlfilter, keine goldene Spirale, kein physikalischer Mechanismus und keine neue Bedeutung der Bildnotationen.</p><output class="aac-status" data-aac-status role="status" aria-live="polite">PAUSE · Schritt 0/120 · A:0 · B:0 · C:0</output>
   </section>
   <section id="universalMachinePartsShelf" class="universal-machine-shelf" data-source-family="FAM-009" data-source-status="HISTORICAL_STAGING" aria-labelledby="umsTitle">
     <header class="ums-head">
@@ -3047,6 +3060,7 @@
   catch(error){const status=document.getElementById('root5BlindStatus');if(status)status.textContent=`BLIND CROSSWALK HOLD · ${error&&error.message?error.message:String(error)}`;console.error(error)}
 </script>
 <script src="a0-breath-grid-bench.js?rev=20261020-r1"></script>
+<script src="a0-angle-address-compare.js?rev=20261025-r1"></script>
 <script src="a0-lens-region-reader.js?rev=20261020-r1"></script>
 <script src="assets/a0-flame-mandelbrot-formation-v1.js"></script>
 <script src="a0-orbit-grid-joints.js"></script>
