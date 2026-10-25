@@ -40,7 +40,7 @@
     {code:"02 · PLAY", title:"Game of Worlds", copy:"LIFE, Domains und Numbers in ONE PULSE.", href:"A0_GAME_OF_WORLDS_PLAY.html?world=pulse#pulse", accent:"#d99d00"},
     {code:"03 · MATHFIELD", title:"Mathematical Joints", copy:"Buchstellen, Träger, Linsen und Fugen.", href:"A0_MATHEMATICAL_JOINTS.html", accent:"#159bb4"},
     {code:"04 · BUILDER", title:"Orientation Bench", copy:"Quellen, Adapter und Kopplungen prüfen.", href:"A0_ORIENTATION_CONTROLLER_BENCH.html#benchFoyer", accent:"#2ca57a"},
-    {code:"05 · SCIENCE", title:"A0 Science", copy:"Ergebnisse, Grenzen und Return einordnen.", href:"A0_SCIENCE.html", accent:"#806bd6"}
+    {code:"05 · SCIENCE", title:"A0 Science", copy:"Methode, Families, Ergebnisse und Grenzen des A0-Programms.", href:"A0_SCIENCE.html#top", accent:"#806bd6"}
   ];
 
   /* One inventory, three reading intentions. Navigation does not change identity or evidence state. */
@@ -130,7 +130,7 @@
     "code": "S",
     "label": "Science",
     "description": "Begriffe, Methode und Evidenz",
-    "entry": "A0_SCIENCE.html",
+    "entry": "A0_SCIENCE.html#top",
     "sections": [
       {
         "label": "Wo wir stehen · Ergebnisse & Einordnung",
@@ -342,7 +342,7 @@
         "label": "Start & Werkstätten",
         "items": [
           ["A0_WERKBANK.html", "Werkbank · Start", "Sechs Flagships; THE MACHINA mit vier klar getrennten Innenräumen"],
-          ["A0_ORIENTATION_CONTROLLER_BENCH.html#benchFoyer", "THE MACHINA · Exhibition", "Maschinenkörper, GLBs und ihre source-bound Fenster"],
+          ["A0_MACHINA_COCKPIT.html#benchFoyer", "THE MACHINA · Viewer", "Maschinenkörper, GLBs und ihre source-bound Fenster"],
           ["A0_MACHINA_COCKPIT.html", "THE MACHINA · Pentagon Cockpit", "Orientierungsstation für 16/17, STILL XX/20 und 18/19"],
           ["A0_ORIENTATION_CONTROLLER_BENCH.html#universalMachinePartsShelf", "THE MACHINA · Parts Shelf", "Neun checksum-identische FAM-009 Modelle"],
           ["A0_BENCH_ENTDECKEN.html", "Bench · Entdecken", "Foyer, Rundgang und visuelle Flagships"],
@@ -629,6 +629,7 @@
       {
         "title": "Wo wir stehen",
         "pages": [
+          "NEXAH_SCIENCE.html",
           "A0_SCIENTIFIC_POSITION_REPORT.html",
           "A0_SCIENCE.html"
         ]
@@ -674,7 +675,7 @@
       directory.id = "a0-navigation-directory";
       directory.className = "a0-navigation-directory";
       directory.setAttribute("aria-labelledby", "a0DirectoryTitle");
-      directory.innerHTML = `<summary>Gesamtübersicht · alle A0-Seiten</summary><header><p>A0 · vier Hauptzugänge · gemeinsame Navigation</p><h2 id="a0DirectoryTitle">Hauptseite → Themenbereich → Werkzeug</h2><p>Wähle zuerst einen Zugang. Die aufklappbaren Bereiche zeigen seine Unterseiten. Human / Science / Builder sind Leseperspektiven; F1–F7 sind übergreifende Funktionen, keine sieben getrennten Website-Ordner.</p></header><div class="a0-directory-grid">${directoryCards}</div><p><a href="A0_LIVING_BLUEPRINT.html#tessarec-module">Tessarec · Modulüberblick →</a> · <a href="A0_FAMILY_CONNECTION_ATLAS.html">Nach F1–F7 erkunden →</a> · <a href="A0_SCIENCE.html">Kerndokumente & Policies →</a></p>`;
+      directory.innerHTML = `<summary>Gesamtübersicht · alle A0-Seiten</summary><header><p>A0 · vier Hauptzugänge · gemeinsame Navigation</p><h2 id="a0DirectoryTitle">Hauptseite → Themenbereich → Werkzeug</h2><p>Wähle zuerst einen Zugang. Die aufklappbaren Bereiche zeigen seine Unterseiten. Human / Science / Builder sind Leseperspektiven; F1–F7 sind übergreifende Funktionen, keine sieben getrennten Website-Ordner.</p></header><div class="a0-directory-grid">${directoryCards}</div><p><a href="A0_LIVING_BLUEPRINT.html#tessarec-module">Tessarec · Modulüberblick →</a> · <a href="A0_FAMILY_CONNECTION_ATLAS.html">Nach F1–F7 erkunden →</a> · <a href="A0_SCIENCE.html#who-we-are">Wer wir sind →</a> · <a href="https://nexah.de/about/" target="_blank" rel="noopener noreferrer">About NEXAH ↗</a></p>`;
       main.append(directory);
       const revealDirectory = () => { if (location.hash === "#a0-navigation-directory") { directory.open = true; directory.scrollIntoView?.({block:"start"}); } };
       window.addEventListener("hashchange", revealDirectory);
@@ -711,13 +712,12 @@
   ];
   const builderShowcase = [
     ["A0_WERKBANK.html", "Werkbank", "Maschine, Entdecken, Arbeiten und Quellen & Prüfen", "body", "Builder Flagship"],
-    ["A0_ORIENTATION_CONTROLLER_BENCH.html#benchFoyer", "THE MACHINA", "Exhibition, Cockpit, Parts Shelf und Full Bench", "body", "Maschinenhaus"],
+    ["A0_MACHINA_COCKPIT.html#benchFoyer", "THE MACHINA", "Eigener Viewer, Cockpit, Parts Shelf und Full Bench", "body", "Maschinenhaus"],
     ["A0_BUILDER_TOY_STORE.html", "Toy Store", "Werkzeuge entdecken und direkt ausprobieren", "toys", "Werkzeug-Einstieg"]
   ];
   const scienceHighlights = [
-    ["A0_SCIENCE.html#understand", "Verstehen & Zusammenhänge", "Methode, Families und Fugen erklären — vor dem Werkzeug", "cells", "Science · Erklärpfade"],
-    ["A0_SCIENTIFIC_POSITION_REPORT.html", "Wo stehen wir?", "Was NEXAH konkret macht, was trägt und was offen bleibt", "body", "Scientific Position"],
-    ["A0_SCIENCE.html#contributions", "Konkrete Beiträge", "Formale Resultate, geprüfte Übergänge und ihre Grenzen", "toys", "Ergebnisse & Einordnung"]
+    ["NEXAH_SCIENCE.html#overview", "NEXAH Science", "Forschungsfelder, Library, Programme, Ergebnisse und Quellen im Gesamtüberblick", "nexah", "Flagship · Gesamtforschung"],
+    ["A0_MATHEMATICAL_JOINTS.html", "Mathfield", "Mathematische Werkstatt für Buchstellen, Träger, Linsen, Fugen und ihre prüfbaren Returns", "cells", "Flagship · Mathematical Joints"]
   ];
   const laneNav = document.createElement("nav");
   laneNav.className = "a0-reader-lanes";
@@ -730,7 +730,7 @@
     sections: [
       { label: "00 · Start & THE MΛCHINΛ", items: [
         ["A0_WERKBANK.html", "Werkbank · Start", "Orientieren und einen Arbeitsweg wählen"],
-        ["A0_ORIENTATION_CONTROLLER_BENCH.html#benchFoyer", "THE MΛCHINΛ · Exhibition", "Maschinenkörper und GLBs als visueller Haupteinstieg"],
+        ["A0_MACHINA_COCKPIT.html#benchFoyer", "THE MΛCHINΛ · Viewer", "Maschinenkörper und GLBs als visueller Haupteinstieg"],
         ["A0_MACHINA_COCKPIT.html", "THE MΛCHINΛ · Pentagon Cockpit", "Lokale Rollen um den deklarierten STILL-Pin XX/20"],
         ["A0_ORIENTATION_CONTROLLER_BENCH.html#universalMachinePartsShelf", "THE MΛCHINΛ · Parts Shelf", "Neun FAM-009 Modelle einzeln prüfen"],
         ["A0_ORIENTATION_CONTROLLER_BENCH.html#benchWorkDesk", "THE MΛCHINΛ · Full Bench", "Instrumente und Anschlüsse bedienen"]
@@ -743,7 +743,7 @@
       ]},
       { label: "01 · Entdecken", items: [
         ["A0_BENCH_ENTDECKEN.html", "Entdecken · Einstieg", "Rundgang und visuelle Instrumente"],
-        ["A0_ORIENTATION_CONTROLLER_BENCH.html#benchFoyer", "Foyer & Rundgang", "Die Werkbank kennenlernen"],
+        ["A0_MACHINA_COCKPIT.html#benchFoyer", "THE MACHINA Viewer", "Die Maschinenansichten kennenlernen"],
         ["A0_ORIENTATION_CONTROLLER_BENCH.html#foyerDoors", "Alle Werkzeuge / Suche", "Den passenden Zugang wählen"]
       ]},
       { label: "02 · Arbeiten", items: [
@@ -761,7 +761,7 @@
     ]
   };
   const benchHighlights = [
-    ["A0_ORIENTATION_CONTROLLER_BENCH.html#benchFoyer", "THE MACHINA", "Exhibition · Maschinenkörper · GLBs · vier klare Räume", "body", "Exhibition"],
+    ["A0_MACHINA_COCKPIT.html#benchFoyer", "THE MACHINA", "Viewer · Maschinenkörper · GLBs · vier klare Räume", "body", "Viewer"],
     ["A0_TESSAREC_BLUE_BODY_LAB.html#guided-test", "Blue Body", "Carrier, Innenraum und Zustandsadressen", "body", "Body"],
     ["A0_PINK_DIAMOND_GRID_ATLAS.html#diamond-lens", "Pink Diamond", "Yellow, Emerald Shadow, Rainbow, Root/Shell und Evil Twin", "cells", "Diamond Lens"]
   ];
@@ -828,7 +828,7 @@
   overview.className = "a0-page-menu a0-overview-menu";
   const overviewSummary = document.createElement("summary");
   overviewSummary.textContent = "Übersicht";
-  overviewSummary.setAttribute("aria-label", "Übersicht · Bereiche, Seiteninhalt und öffentliche Wege");
+  overviewSummary.setAttribute("aria-label", "Übersicht · Bereiche und Seiteninhalt");
   const overviewBody = document.createElement("div");
   overviewBody.className = "a0-page-menu-body a0-overview-body";
   const actions = {book:"Lesen",map:"Zusammenhänge verstehen",workshops:"Werkzeuge nutzen",desk:"Ergebnisse einordnen"};
@@ -856,15 +856,25 @@
   overview.append(overviewSummary, overviewBody);
   overview.addEventListener("toggle", () => {if(overview.open)laneNav.querySelectorAll(".a0-reader-lane[open]").forEach(group=>{group.open=false;});});
   laneNav.addEventListener("toggle", event => {if(event.target.matches?.(".a0-reader-lane[open]"))overview.open=false;},true);
+  const connectLink = document.createElement("a");
+  connectLink.className = "a0-connect-link";
+  connectLink.href = "NEXAH_C_CONNECT.html";
+  connectLink.textContent = "C";
+  connectLink.setAttribute("aria-label", "C · Connect öffnen");
+  connectLink.title = "C · Connect";
+  if (file === "NEXAH_C_CONNECT.html") connectLink.setAttribute("aria-current", "page");
   const scarabaeusLink = document.createElement("a");
   scarabaeusLink.className = "a0-scarabaeus-link";
-  scarabaeusLink.href = "https://www.scarabaeus1033.net";
-  scarabaeusLink.target = "_blank";
-  scarabaeusLink.rel = "noopener noreferrer";
+  const localOwnerContext = location.protocol === "file:" || ["127.0.0.1", "localhost"].includes(location.hostname);
+  scarabaeusLink.href = localOwnerContext ? "A0_SCIENCE.html" : "https://www.scarabaeus1033.net";
+  if (!localOwnerContext) {
+    scarabaeusLink.target = "_blank";
+    scarabaeusLink.rel = "noopener noreferrer";
+  }
   scarabaeusLink.innerHTML = '<svg class="a0-owner-scarab" viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="4" r="2.2"/><path d="M16 7c-4.2 0-6.5 3.2-6.5 7.7V20c0 4.5 2.3 7 6.5 9 4.2-2 6.5-4.5 6.5-9v-5.3C22.5 10.2 20.2 7 16 7Z"/><path d="M10 11C5.8 8.7 2.7 11 3.5 15.2c.7 3.6 3.1 5.8 6 6.2M22 11c4.2-2.3 7.3 0 6.5 4.2-.7 3.6-3.1 5.8-6 6.2M10 15H5M22 15h5M10 20l-5 3M22 20l5 3M13 8 9 4M19 8l4-4M10 24l-3 4M22 24l3 4"/></svg>';
-  scarabaeusLink.setAttribute("aria-label", "Scarabäus 1033 · Website öffnen");
-  scarabaeusLink.title = "Scarabäus 1033 · www.scarabaeus1033.net";
-  header.replaceChildren(brand, laneNav, overview, scarabaeusLink);
+  scarabaeusLink.setAttribute("aria-label", localOwnerContext ? "Owner · A0 Science öffnen" : "Scarabäus 1033 · Website öffnen");
+  scarabaeusLink.title = localOwnerContext ? "Owner · A0 Science" : "Scarabäus 1033 · www.scarabaeus1033.net";
+  header.replaceChildren(brand, laneNav, connectLink, overview, scarabaeusLink);
   header.className = "top a0-context-ready a0-context-compact";
   header.dataset.a0Lane = currentLane.key;
   header.dataset.a0Context = "ready";

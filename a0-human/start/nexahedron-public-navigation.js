@@ -55,7 +55,7 @@
 
     const scarab = document.querySelector(".a0-owner-" + "d" + "esk");
     if (scarab) {
-      scarab.href = "https://www.scarabaeus1033.net";
+      scarab.href = "https://www.scarabaeus1033.net/";
       scarab.target = "_blank";
       scarab.rel = "noreferrer";
       scarab.setAttribute("aria-label", "Scarabæus 1033 · Werkstatt öffnen");

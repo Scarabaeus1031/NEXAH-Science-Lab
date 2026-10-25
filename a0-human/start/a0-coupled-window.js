@@ -156,6 +156,10 @@
   function mount(doc,win=doc.defaultView||{}){
     const dialog=doc.getElementById('coupledWindow'),title=doc.getElementById('coupledWindowTitle'),eyebrow=doc.getElementById('coupledWindowEyebrow'),copy=doc.getElementById('coupledWindowCopy'),stage=doc.getElementById('coupledWindowStage'),close=doc.getElementById('coupledWindowClose'),returnButton=doc.getElementById('coupledWindowReturn'),sizeButton=doc.getElementById('coupledWindowSize'),status=doc.getElementById('coupledWindowStatus');
     if(!dialog||!title||!eyebrow||!copy||!stage||!close||!returnButton||!sizeButton||!status)throw Error('coupled window shell missing');
+    const head=dialog.querySelector?.('.coupled-window-head');
+    if(head&&!head.querySelector?.('.coupled-window-route')){const route=doc.createElement?.('p');if(route){route.className='coupled-window-route';route.setAttribute?.('role','note');route.textContent='LESEWEG · SOURCE ZEIGEN → ZUM MODUL · SCHLIESSEN → AN DIESER LESESTELLE WEITER';head.appendChild(route)}}
+    returnButton.textContent='FENSTER SCHLIESSEN · ZUR LESESTELLE';
+    returnButton.setAttribute?.('aria-label','Fenster schließen und zur vorherigen Lesestelle zurückkehren');
     let state=createState(),timer=0,lastFocus=null,customController=null,returnScroll=null,maximized=false;
     const reduced=()=>Boolean(win.matchMedia?.('(prefers-reduced-motion: reduce)').matches);
     function clear(){if(timer)win.clearInterval(timer);timer=0}
