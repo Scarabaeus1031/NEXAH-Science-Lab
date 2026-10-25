@@ -860,13 +860,19 @@
   overview.append(overviewSummary, overviewBody);
   overview.addEventListener("toggle", () => {if(overview.open)laneNav.querySelectorAll(".a0-reader-lane[open]").forEach(group=>{group.open=false;});});
   laneNav.addEventListener("toggle", event => {if(event.target.matches?.(".a0-reader-lane[open]"))overview.open=false;},true);
-  const connectLink = document.createElement("a");
-  connectLink.className = "a0-connect-link";
-  connectLink.href = "NEXAH_C_CONNECT.html";
-  connectLink.textContent = "C";
-  connectLink.setAttribute("aria-label", "C · Connect öffnen");
-  connectLink.title = "C · Connect";
-  if (file === "NEXAH_C_CONNECT.html") connectLink.setAttribute("aria-current", "page");
+  if (!document.getElementById("a0ConnectDotStyle")) {
+    const connectDotStyle = document.createElement("style");
+    connectDotStyle.id = "a0ConnectDotStyle";
+    connectDotStyle.textContent = '.a0-context-compact>.nexah-public-connect{align-items:center;border:0;border-radius:50%;display:inline-flex;height:34px;justify-content:center;padding:0;text-decoration:none;width:34px}.a0-context-compact>.nexah-public-connect>span[aria-hidden=true]{background:radial-gradient(circle at 34% 28%,#ffd2e8 0 9%,#f26bae 18%,#e14996 48%,#782551 100%);border:1px solid rgba(255,180,218,.75);border-radius:50%;box-shadow:0 2px 8px rgba(240,79,167,.2);display:block;height:18px;transition:transform .18s ease,box-shadow .18s ease;width:18px}.a0-context-compact>.nexah-public-connect:hover>span[aria-hidden=true],.a0-context-compact>.nexah-public-connect:focus-visible>span[aria-hidden=true],.a0-context-compact>.nexah-public-connect[aria-current=page]>span[aria-hidden=true]{box-shadow:0 0 0 4px rgba(240,79,167,.12),0 3px 10px rgba(240,79,167,.28);transform:scale(1.08)}.a0-context-compact>.nexah-public-connect:focus-visible{outline:1px solid #f04fa7;outline-offset:2px}.nexah-public-connect-label{height:1px;overflow:hidden;position:absolute;width:1px;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap}';
+    document.head.append(connectDotStyle);
+  }
+  const connectDot = document.createElement("a");
+  connectDot.className = "nexah-public-connect";
+  connectDot.href = "NEXAH_C_CONNECT.html";
+  connectDot.innerHTML = '<span aria-hidden="true"></span><span class="nexah-public-connect-label">C · Connect</span>';
+  connectDot.setAttribute("aria-label", "C Connect · Übergangskarte öffnen");
+  connectDot.title = "C Connect";
+  if (file === "NEXAH_C_CONNECT.html") connectDot.setAttribute("aria-current", "page");
   const scarabaeusLink = document.createElement("a");
   scarabaeusLink.className = "a0-scarabaeus-link";
   const localOwnerContext = location.protocol === "file:" || ["127.0.0.1", "localhost"].includes(location.hostname);
@@ -878,7 +884,7 @@
   scarabaeusLink.innerHTML = '<svg class="a0-owner-scarab" viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="4" r="2.2"/><path d="M16 7c-4.2 0-6.5 3.2-6.5 7.7V20c0 4.5 2.3 7 6.5 9 4.2-2 6.5-4.5 6.5-9v-5.3C22.5 10.2 20.2 7 16 7Z"/><path d="M10 11C5.8 8.7 2.7 11 3.5 15.2c.7 3.6 3.1 5.8 6 6.2M22 11c4.2-2.3 7.3 0 6.5 4.2-.7 3.6-3.1 5.8-6 6.2M10 15H5M22 15h5M10 20l-5 3M22 20l5 3M13 8 9 4M19 8l4-4M10 24l-3 4M22 24l3 4"/></svg>';
   scarabaeusLink.setAttribute("aria-label", localOwnerContext ? "Owner · A0 Science Desk öffnen" : "Scarabäus 1033 · Website öffnen");
   scarabaeusLink.title = localOwnerContext ? "Owner · A0 Science Desk" : "Scarabäus 1033 · www.scarabaeus1033.net";
-  header.replaceChildren(brand, laneNav, connectLink, overview, scarabaeusLink);
+  header.replaceChildren(brand, laneNav, connectDot, overview, scarabaeusLink);
   header.className = "top a0-context-ready a0-context-compact";
   header.dataset.a0Lane = currentLane.key;
   header.dataset.a0Context = "ready";

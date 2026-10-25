@@ -74,7 +74,8 @@ for(const file of ['index.html','A0_LIVING_BLUEPRINT.html','A0_SCIENTIFIC_POSITI
  ok(h.children[3].children[1].children[0].className==='a0-overview-current','five-entry overview is foregrounded');
  ok(h.children[3].children[1].children[0].innerHTML.includes('Fünf Eingänge. Ein Werk.'),'overview contains the five-entry heading');
  for(const label of ['HUMAN','PLAY','MATHFIELD','BUILDER','SCIENCE'])ok(h.children[3].children[1].children[0].innerHTML.includes(label),'overview contains '+label);
- ok(h.children[2].href==='NEXAH_C_CONNECT.html'&&h.children[2].textContent==='C','small pink C-ball stays visible before Overview');
+ ok(h.children[2].className==='nexah-public-connect'&&h.children[2].href==='NEXAH_C_CONNECT.html','single pink Connect dot stays before Overview');
+ ok(!h.children.some(node=>node.className==='a0-connect-link'),'redundant labelled C-ball is absent');
  ok(h.children[4].href==='https://www.scarabaeus1033.net','unspecified/public host keeps the canonical Scarabaeus website');
  ok(h.children[4].target==='_blank'&&h.children[4].rel==='noopener noreferrer','external Scarabaeus return is isolated');
  const overviewBody=h.children[3].children[1],internalMenu=m.nodes.find(n=>n.className==='a0-overview-internal');
