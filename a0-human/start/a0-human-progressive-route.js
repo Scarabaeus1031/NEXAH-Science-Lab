@@ -138,6 +138,16 @@
     ].filter(([node]) => node);
     const observer = new IntersectionObserver((entries) => {
       if (performance.now() < routeLockUntil) return;
+      let anchoredTarget = null;
+      try { anchoredTarget = location.hash ? document.querySelector(location.hash) : null; } catch (_) {}
+      if (anchoredTarget) {
+        const anchoredFold = foldForTarget(anchoredTarget);
+        const anchoredKey = anchoredFold ? anchoredFold.id.replace("human-stage-", "") : anchoredTarget === route ? "route" : anchoredTarget === finalReturn ? "return" : anchoredTarget.id === "human-view" ? "start" : null;
+        if (anchoredKey) {
+          setCurrentRoute(anchoredKey);
+          return;
+        }
+      }
       const visible = entries.filter((entry) => entry.isIntersecting).sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
       if (!visible) return;
       const key = watched.find(([node]) => node === visible.target)?.[1];
