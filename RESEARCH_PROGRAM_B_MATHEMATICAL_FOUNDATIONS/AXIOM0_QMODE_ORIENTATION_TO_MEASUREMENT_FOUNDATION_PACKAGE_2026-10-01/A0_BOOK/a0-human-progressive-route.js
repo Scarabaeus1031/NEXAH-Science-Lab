@@ -26,7 +26,7 @@
       number: "ROOM 01",
       title: "Rainbow Light",
       copy: "Sechs Stationen von Dark Room bis Return.",
-      nodes: [document.getElementById("invitation"), document.getElementById("rainbow-light-tour")],
+      nodes: [document.getElementById("rainbow-light-tour"), document.getElementById("invitation")],
     },
     {
       key: "next",
@@ -67,7 +67,18 @@
     const body = document.createElement("div");
     body.className = "human-stage-fold__body";
     first.before(fold);
-    stage.nodes.forEach((node) => body.append(node));
+    if (stage.key === "light") {
+      const [tour, invitation] = stage.nodes;
+      body.append(tour);
+      const prologue = document.createElement("details");
+      prologue.className = "human-light-prologue";
+      const prologueSummary = document.createElement("summary");
+      prologueSummary.innerHTML = "<span><small>OPTIONAL WINDOW</small><strong>Visual prologue</strong><em>Enter a dark room · the large animated opening.</em></span><i aria-hidden=\"true\"></i>";
+      prologue.append(prologueSummary, invitation);
+      body.append(prologue);
+    } else {
+      stage.nodes.forEach((node) => body.append(node));
+    }
     fold.append(summary, body);
     fold.addEventListener("toggle", () => {
       if (!fold.open) return;
@@ -89,6 +100,8 @@
     if (!target) return;
     const fold = foldForTarget(target);
     if (fold) fold.open = true;
+    const prologue = target.closest(".human-light-prologue");
+    if (prologue) prologue.open = true;
     const key = fold ? fold.id.replace("human-stage-", "") : target === route ? "route" : target === finalReturn ? "return" : "start";
     setCurrentRoute(key, scroll);
     if (scroll) {
@@ -106,6 +119,8 @@
     if (!fold) return;
     event.preventDefault();
     fold.open = true;
+    const prologue = target.closest(".human-light-prologue");
+    if (prologue) prologue.open = true;
     history.pushState(null, "", hash);
     setCurrentRoute(fold.id.replace("human-stage-", ""), true);
     requestAnimationFrame(() => requestAnimationFrame(() => target.scrollIntoView({ behavior: "smooth", block: "start" })));
