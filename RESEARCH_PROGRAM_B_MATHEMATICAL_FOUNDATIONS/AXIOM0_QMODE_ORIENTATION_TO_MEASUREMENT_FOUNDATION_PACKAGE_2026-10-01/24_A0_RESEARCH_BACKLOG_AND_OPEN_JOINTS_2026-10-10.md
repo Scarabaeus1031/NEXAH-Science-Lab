@@ -1095,7 +1095,7 @@ zu Umsetzungsaufträgen.
 
 ## Arbeitsstand-Konsolidierung — 25.10.2026
 
-Status: `LOCAL_WORKTREE_CONSOLIDATED / BROWSER_ACCEPTANCE_OPEN / NO_DEPLOYMENT`
+Status: `CONSOLIDATED_COMMITTED_PUSHED / DOC-01_PARTIAL / NO_DEPLOYMENT`
 
 Die seit Commit `d0752d8909ef365b9f901494cf370f53caadbc2d` vorliegenden
 Anschlüsse bleiben bestehende Aufgaben beziehungsweise source-bound Ansichten:
@@ -1123,18 +1123,20 @@ Anschlüsse bleiben bestehende Aufgaben beziehungsweise source-bound Ansichten:
   und „Keystone“ besitzen im aktuellen Quellenbestand keinen eindeutigen Pin.
   Eine mechanische Keystone-Rolle bleibt ohne Last- und Verbindungsweg offen.
 
-Browserstatus: Die aktuelle Ansicht ist eine lokale `file://`-Ansicht, die das
-verfügbare Browserwerkzeug ausdrücklich nicht übernehmen darf. Deshalb sind
-Normal-/Schmalbreite, Fokus/Tastatur, Reduced Motion, `PLAY`, `+1`, Reset und
-die sichtbare Herkunftsauswahl **nicht browserbeobachtet**; Softwaretests sind
-kein Ersatz. `DOC-01` bleibt offen.
+Browserstatus: Die unterstützte lokale HTTP-Ansicht wurde bei normaler Breite
+beobachtet. `PLAY`, Pause, `+1`, Reset, Tastaturauswahl, sichtbarer Fokus,
+Beitragshervorhebung, Herkunfts-Trace, beobachtete Null und die Invarianz des
+Joint-Zustands beim Janus-Registerwechsel sind bestanden. Eine echte Breite
+`≤900 px`, aktive Reduced-Motion-Präferenz sowie leeres Ledger und fehlender
+Record waren mit dem verfügbaren Werkzeug beziehungsweise der vorhandenen UI
+nicht herstellbar. `DOC-01` bleibt deshalb `PARTIAL`, nicht Gesamt-PASS.
 
-Gitstatus: `HEAD`, der lokale Tracking-Pin und der am 25.10.2026 per
-schreibgeschütztem `git ls-remote` bestätigte Remote-Branch
-`origin/codex/grid-observatory-mission-control` stehen auf
-`d0752d8909ef365b9f901494cf370f53caadbc2d` (`0/0` für den bestätigten
-Basisstand). Die hier inventarisierten Änderungen liegen weiterhin im
-Arbeitsbaum, sind damit nicht gepusht und nicht öffentlich verfügbar. Historische
+Gitstatus: Der konsolidierte Umfang ist als
+`91bf6684695eff946c9781fda44d075edbba0e3b` auf
+`codex/grid-observatory-mission-control` committed und nach
+`origin/codex/grid-observatory-mission-control` gepusht; lokaler und
+Remote-Tracking-Stand waren danach `0/0`. Das ist Repository-Sicherung, keine
+Deployment- oder Publikationsfreigabe. Historische
 Coxeter/Pink-, M3- und Mathfield-Pins bleiben versionsgebundene Altbefunde und
 werden nicht pauschal repinnt. Ebenso bleibt der bereits in `HEAD` vorhandene
 tote NumberMagick-Link `A0_RESEARCH_DESK.html#cathedral-glb-stage` ein älterer
@@ -1164,9 +1166,32 @@ ausgeführt. Der bekannte veraltete Host-HTML-Pin bleibt einzeln unter `DOC-02`
 zu disponieren; Browserpixel bleiben unter `DOC-01` offen. Quellenfrage damit
 erledigt, weitergehende Kopplung unbewiesen und geparkt; keine Player-Änderung.
 
-Führende Priorität bleibt `ENG-D1D2-01`. Nächster Gate ist ausschließlich die
-manuelle Browserabnahme des großen Joint-Inspectors auf einer ausdrücklich
-unterstützten Browseransicht; bis dahin keine weitere Featurearbeit.
+Führende technische Priorität bleibt `ENG-D1D2-01`; Portfolio-Priorität bleibt
+`M-PUB01`, ohne Publikationsfreigabe. Die offene `DOC-01`-Restabnahme blockiert
+ihren eigenen Abschluss, nicht die bereits autorisierte konstruktive
+D1–D2-Fortsetzung. Neue explorative Features bleiben bis zur Owner-Übergabe
+geparkt.
+
+### A0-Ausführungsplan · bestehende Aufgaben, keine neue Intake-Linie
+
+1. **ENG-D1D2-01 · jetzt bauen:** reale Lieferantenteile und Datenblätter für
+   Welle, POM-C-Liner/Anlaufscheiben, Stellringe und M1.4-Befestiger binden;
+   Istmaße, Passung, zulässiges Schraubmoment und Gewindetragfähigkeit in den
+   vorhandenen Parameterrecord übernehmen. Danach den Vollweg-Replay erneut
+   ausführen und erst dann den vermessenen Prototyp unbelastet, unter
+   Betriebslast und unter Prooflast prüfen.
+2. **DOC-01 · Abschlussabnahme:** `≤900 px`, Reduced Motion, leeres Ledger und
+   fehlender Record mit einer ausdrücklich unterstützten Ansicht oder einem
+   vorhandenen Fixture beobachten. Bis dahin `PARTIAL` erhalten.
+3. **DOC-02 · Currentness:** `#current-work`, `#cathedral-glb-stage`, den
+   veralteten 5B-Host-Pin und die bekannten öffentlichen GLB-404 einzeln
+   disponieren; keine pauschale Repin-Aktion und kein falscher Gesamt-PASS.
+4. **DOC-14 · Quellenarbeit:** nur den historischen AMABEN/TESSARNA-Generator,
+   Gleichung, Einheiten, Fourier-Konvention, Normalisierung und Lizenz suchen.
+   Keine automatische Kopplung an Joint, Number Game oder Energiefluss.
+5. **Geparkte Gesprächsanschlüsse:** 31–34–37-Zählreceipt/Indexkette,
+   B3N-/Glyphenlesarten und Fresnel-/Torus-/FE-Generatorfragen bleiben in ihren
+   bestehenden Backlogs, bis der Owner sie ausdrücklich als Auftrag übergibt.
 
 ### ENG-D1D2-01 · konstruktive Fortsetzung · 25. Oktober 2026
 
