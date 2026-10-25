@@ -10,6 +10,33 @@ Mission Control backlog: `RELATIONAL_IDENTIFIABILITY_UNDER_REPRESENTATION_CHANGE
 
 ## Purpose
 
+<a id="a0-final-delta-routing-20261025"></a>
+
+### Finaler Delta-Return · 25.10.2026
+
+Status: `CUSTODY_CLOSED / TASKS_ROUTED / NO ACTIVATION`
+
+Der abschließende Desktop-/Downloads-Abgleich hat vier neue Owner-Visuals in
+die bestehenden Pentagon- beziehungsweise D1–D2-Intakes übernommen und 19
+byte-identische Außenkopien nach Hashprüfung bereinigt. Der führende
+[Delta-Return](A0_BOOK/downloads/A0_THE_ONE_D1_D2_YUGO_INTAKE_2026-10-25/DELTA_CLOSURE_2026-10-25.md)
+enthält Quellen, Befunde und Grenzen. Die folgenden IDs liegen in diesem
+vorhandenen Backlog; sie sind weder Study- noch Finding-Identitäten.
+
+| ID | Zuständigkeit / Quelle | Aktueller Befund | Nächster Schritt | Abschluss / Abhängigkeit / Priorität |
+|---|---|---|---|---|
+| `ENG-D1D2-01` | Builder · D1–D2-Klemmenreturn und Owner-Visuals | nominaler C-Lagerweg `−34°…+34°` bestanden; geschlossener Ring negativ; Fertigungs-/Lastfragen offen | Retention, Axialsicherung, Befestiger, Toleranzkette, Montage, Reibung und Last spezifizieren und negativ testen | bemaßter CAD-Replay mit Toleranz-/Lastgrenze; abhängig von Material-/Fertigungswahl; `P1` |
+| `ENG-CROWN-01` | Builder · Crown/Shadow Contact Bench | lokaler Vertrag/Test `PARTIAL`; GLBs und 3+2-Quellen vorhanden | Source↔GLB-Vertexvergleich, endliche Pearl-Clearance, kontinuierliche Kollision, Lager und Übertragung prüfen | nur einzeln bestandene Gates schließen; `P2` nach D1/D2 |
+| `ENG-LANTERN-01` | Builder · Gelenklaterne Modell 11 | getrennte Iris schließt projiziert; starre Haut bleibt negativer Faltbefund | Browser-Gesamtabnahme, kontinuierlichen Weg, Führung und Gehäusegrenze prüfen | reales Browser-/Kollisionsprotokoll; `P2`, keine Vermischung von Iris und Haut |
+| `A0-BL-037` | Science · Konstanten-/Prime-/Glyph-Archäologie | π/φ/Wurzeln/Fibonacci/Euler teils getestet, teils nur adressiert; eigenständige 13691-Quelle im aktuellen Delta nicht gefunden | `p_1618=13691`, `10·37²+1`, `1\|369\|1` und Glyph-Notizen quellengenau wiederfinden und typisieren; Ulam/Fermat/Goldspirale trennen | Pfad, Hash, Definition und Teststatus oder „nur Notiz“ je Element; `P2`, keine neue Ausführung |
+| `DOC-01` | Builder-Abnahme | neue lokale Viewer sind softwaregeprüft, echte Human-/Narrow-/Reduced-Motion-Abnahme bleibt offen | Crown/Shadow, D1/D2 und YUGO/IOTA in den bestehenden Browser-Ablauf aufnehmen | beobachtetes Positiv-/Negativprotokoll; `P2` |
+| `DOC-02` | Mission-Control-Currentness | lokale Quellen sind gebunden; öffentliche Projektion ist unvollständig | Source-/Bundle-/Release-Pins getrennt abgleichen | Originalpin, Isthash, Ursache und Disposition; abhängig von `M-PUB01-A0-01`; `P2` |
+| `DOC-05`, `DOC-06`, `DOC-11` | Science/Editorial | Pink Arch, DSC, `?D?C?`, `!!!`, Lesebrille, große/kleine Schleife beziehungsweise Löffel bleiben Owner-Kontext | Originale zuordnen und erst danach Paper-/Notizübernahme entscheiden | Quelle+Rolle oder dokumentierte Nicht-Zuordnung; `P3` |
+
+Öffentliche Bundle-/Deployment-Arbeit führt ausschließlich
+`M-PUB01-A0-01` im bestehenden NEXAHEDRON-Backlog. Routing ist keine
+Releasefreigabe; `M-PUB01` bleibt die einzige aktive Portfolio-Priorität.
+
 <a id="science-math-review-todo-20261024"></a>
 
 ### Science-To-do / Mathematik — SCC-003 Review-Lane · 24.10.2026

@@ -10,8 +10,17 @@ Status: `RECEIVED_SOURCE_INTAKE / UNADMITTED / NO SCIENCE RUN`
 - `NEXAH_Yugo_One_Loop_Offline.html` — self-contained offline game demonstrator derived from the described roles.
 - `sources/packages/NEXAH_The_One_D1_D2_Paket_01.zip` plus its extracted `sources/the-one-d1-d2-package-v1/` tree — received source package with model data, source test and generated deliverables.
 - `deliverables/received/` — the received Test GLB, Gegenrichtung GLB and reference PNG.
+- `visuals/owner-notes/` — three late Desktop image notes: the bidirectional
+  angle overview and two distinct sign/hinge/exit variants. They are preserved
+  as owner notation and visual context; they are not additional mechanics,
+  contacts, operators or test evidence.
 
 The repository copies preserve the received source bytes. Their hashes are recorded in `CHECKSUMS.sha256`.
+
+The final Desktop/Downloads delta was closed hash-first on 2026-10-25. All
+other D1–D2/YUGO exterior copies were byte-identical to the records above and
+were removed only after the repository hashes matched. See
+`DELTA_CLOSURE_2026-10-25.md`.
 
 ## Binding
 

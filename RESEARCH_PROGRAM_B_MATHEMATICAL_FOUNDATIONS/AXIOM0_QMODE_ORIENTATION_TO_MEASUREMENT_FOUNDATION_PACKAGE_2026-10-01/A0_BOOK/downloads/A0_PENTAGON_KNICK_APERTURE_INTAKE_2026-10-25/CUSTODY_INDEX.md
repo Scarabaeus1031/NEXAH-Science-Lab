@@ -47,6 +47,7 @@ for the intake's reviewed entry HTML.
 | `NEXAH_Shadow_Triangle_3plus2_Quellen_2026-10-25.zip` | `02406ec841115c2fbbebbfbab2e055874a942f7d0515a17c852e29eb7516bde5` | `sources/packages/NEXAH_Shadow_Triangle_3plus2_Quellen_2026-10-25.zip` and extracted `sources/shadow-triangle-3plus2/` |
 | `NEXAH_Shadow_Triangle_3plus2_2026-10-25.png` | `00f97bec3993b83f627981cb25193ee5996508704a834e317c941c5921da3365` | `visuals/candidates/NEXAH_Shadow_Triangle_3plus2_2026-10-25.png` |
 | `NEXAH_Shadow_Triangle_3plus2_Animiert_2026-10-25.glb` (Desktop, restored from Trash) | `e0c85ad8b7a63c60baaeb984a17865ec574569de2ecebbabe577d4d0ed152455` | `deliverables/glb/NEXAH_Shadow_Triangle_3plus2_Animiert_2026-10-25.glb` |
+| `ChatGPT Image Oct 25, 2026 at 12_41_56 PM.png` | `84620196324e67cec6c973ed5793a8d83f1ab307b928a2f05981afd2604da908` | `visuals/context/NEXAH_THREE_TRACK_FOUR_OVALS_PINK_STRIP_OBSERVER_EYE_OWNER_NOTE_2026-10-25.png` |
 
 The loose Desktop v7 HTML, v7 text report and Root7 / Root4 / Root11 image are
 byte-identical to files inside the preserved v7 package and are therefore not
@@ -69,7 +70,10 @@ remain preserved.
 - `NEXAH_TEILER_STREIFEN_DESK.html` is a standalone candidate instrument. It is
   preserved but not promoted into the twelve-door Build Atlas before its
   browser acceptance and return boundary are reviewed.
-- No source file was removed from Downloads or Desktop in this custody pass.
+- The initial custody pass left exterior sources untouched. The final delta
+  closure on 2026-10-25 moved the one previously unbound context PNG into this
+  intake and removed only exterior copies whose repository SHA-256 values had
+  first been matched. No unique source was discarded.
 - The received DOCX was rendered to 11 page images for visual review; only the
   resulting PDF reading copy was retained in the intake. Temporary page images
   are not source records.
