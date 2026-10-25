@@ -16,7 +16,7 @@
     },
     {
       key: "look",
-      number: "ROOM 00",
+      number: "ROOM 02",
       title: "Look Again",
       copy: "Ein Carrier, eine andere sichtbare Relation.",
       nodes: [document.getElementById("look-again-room")],
@@ -26,13 +26,13 @@
       number: "ROOM 01",
       title: "Rainbow Light",
       copy: "Sechs Stationen von Dark Room bis Return.",
-      nodes: [document.getElementById("rainbow-light-tour"), document.getElementById("invitation")],
+      nodes: [document.getElementById("invitation"), document.getElementById("rainbow-light-tour")],
     },
     {
       key: "next",
-      number: "CONTINUE",
-      title: "Choose Another Way",
-      copy: "Fünf freiwillige Fortsetzungen.",
+      number: "AFTER THE PATH",
+      title: "Free Doors",
+      copy: "Fünf freiwillige Fortsetzungen nach der geführten Lesart.",
       nodes: [document.getElementById("instrument")],
     },
   ].filter((stage) => stage.nodes.every(Boolean));
@@ -43,10 +43,10 @@
   dock.innerHTML = `
     <span class="human-journey-dock__label">DEINE STRECKE</span>
     <a href="#human-view" data-route-key="start"><i>00</i><b>Start</b></a>
-    <a href="#human-route" data-route-key="route"><i>01</i><b>Wählen</b></a>
-    <a href="#human-stage-look" data-route-key="look"><i>02</i><b>Look</b></a>
-    <a href="#human-stage-light" data-route-key="light"><i>03</i><b>Light</b></a>
-    <a href="#human-stage-next" data-route-key="next"><i>04</i><b>Weiter</b></a>
+    <a href="#human-route" data-route-key="route"><i>01</i><b>Lesen</b></a>
+    <a href="#human-stage-light" data-route-key="light"><i>02</i><b>Light</b></a>
+    <a href="#human-stage-look" data-route-key="look"><i>03</i><b>Look</b></a>
+    <a href="#human-stage-next" data-route-key="next"><i>04</i><b>Türen</b></a>
     <a class="human-journey-dock__return" href="#return" data-route-key="return"><i>↺</i><b>Return</b></a>`;
   route.before(dock);
 
@@ -68,25 +68,30 @@
     body.className = "human-stage-fold__body";
     first.before(fold);
     if (stage.key === "light") {
-      const [tour, invitation] = stage.nodes;
-      body.append(tour);
-      const prologue = document.createElement("details");
-      prologue.className = "human-light-prologue";
-      const prologueSummary = document.createElement("summary");
-      prologueSummary.innerHTML = "<span><small>OPTIONAL WINDOW</small><strong>Visual prologue</strong><em>Enter a dark room · the large animated opening.</em></span><i aria-hidden=\"true\"></i>";
-      prologue.append(prologueSummary, invitation);
-      body.append(prologue);
+      body.classList.add("human-light-gate");
+      body.append(...stage.nodes);
     } else {
       stage.nodes.forEach((node) => body.append(node));
     }
     fold.append(summary, body);
     fold.addEventListener("toggle", () => {
-      if (!fold.open) return;
+      if (!fold.open) {
+        if (stage.key === "light") body.classList.remove("is-entered");
+        return;
+      }
       folds.forEach((other) => { if (other !== fold) other.open = false; });
       requestAnimationFrame(() => window.dispatchEvent(new Event("resize")));
     });
     folds.push(fold);
   }
+
+  let routeCursor = route;
+  ["light", "look", "machina", "next"].forEach((key) => {
+    const fold = folds.find((item) => item.id === `human-stage-${key}`);
+    if (!fold) return;
+    routeCursor.after(fold);
+    routeCursor = fold;
+  });
 
   function foldForTarget(target) {
     if (!(target instanceof Element)) return null;
@@ -100,8 +105,7 @@
     if (!target) return;
     const fold = foldForTarget(target);
     if (fold) fold.open = true;
-    const prologue = target.closest(".human-light-prologue");
-    if (prologue) prologue.open = true;
+    if (target.id === "rainbow-light-tour") target.closest(".human-light-gate")?.classList.add("is-entered");
     const key = fold ? fold.id.replace("human-stage-", "") : target === route ? "route" : target === finalReturn ? "return" : "start";
     setCurrentRoute(key, scroll);
     if (scroll) {
@@ -119,8 +123,7 @@
     if (!fold) return;
     event.preventDefault();
     fold.open = true;
-    const prologue = target.closest(".human-light-prologue");
-    if (prologue) prologue.open = true;
+    if (target.id === "rainbow-light-tour") target.closest(".human-light-gate")?.classList.add("is-entered");
     history.pushState(null, "", hash);
     setCurrentRoute(fold.id.replace("human-stage-", ""), true);
     requestAnimationFrame(() => requestAnimationFrame(() => target.scrollIntoView({ behavior: "smooth", block: "start" })));
@@ -128,6 +131,20 @@
 
   window.addEventListener("hashchange", () => revealHash(location.hash, true));
   revealHash(location.hash);
+
+  const beginJourney = document.getElementById("beginJourney");
+  beginJourney?.addEventListener("click", (event) => {
+    event.preventDefault();
+    event.stopImmediatePropagation();
+    const tour = document.getElementById("rainbow-light-tour");
+    const lightBody = tour?.closest(".human-light-gate");
+    if (!tour || !lightBody) return;
+    lightBody.classList.add("is-entered");
+    history.pushState(null, "", "#rainbow-light-tour");
+    setCurrentRoute("light", true);
+    window.dispatchEvent(new Event("resize"));
+    requestAnimationFrame(() => requestAnimationFrame(() => tour.scrollIntoView({ behavior: "smooth", block: "start" })));
+  }, true);
 
   if ("IntersectionObserver" in window) {
     const watched = [
