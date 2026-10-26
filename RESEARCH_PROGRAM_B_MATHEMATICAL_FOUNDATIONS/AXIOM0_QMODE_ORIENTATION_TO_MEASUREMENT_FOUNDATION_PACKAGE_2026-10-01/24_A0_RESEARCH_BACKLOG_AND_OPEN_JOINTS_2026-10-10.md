@@ -57,6 +57,44 @@ Status: `INTAKE_TRIAGE_ONLY / NOT_ADMITTED / NO_BUILD_AUTHORIZATION / NO NEW A0-
 Vollständige Triage: [Findings-/Paper-Workspace](32_A0_FINDINGS_AND_PAPER_WORKSPACE_2026-10-11.md#session-scientific-intake-20261026).
 Ohne Quelle, begrenzte Frage, Baseline und Claim Ceiling wird nicht weitergebaut.
 
+<a id="numberspace-orientation-intake-20261026"></a>
+
+#### Zahlenraum-, Farb- und Kanalgrammatik · Feierabend-Intake · 26.10.2026
+
+Status: `OWNER_OBSERVATION_CAPTURED / INTAKE_TRIAGE_ONLY / NOT_ADMITTED / NO_BUILD_AUTHORIZATION`
+
+Der neue Gesprächsfaden wird an die bestehende A0-Orientation-Evidence-Linie
+gebunden und nicht als neue Study, Zahlenfamilie, Physik oder Graphrelation
+angelegt. Die gezeigten Fremdvisuals sind Such- und Vergleichsmarker; Text und
+Superlative in den Bildern besitzen keine Evidenzautorität.
+
+| Beobachtung / Owner-Sprache | Arbeitsübersetzung | Vor einem Build oder Claim zu prüfen |
+|---|---|---|
+| Orange Floor, weißer Cut, schwarzer Raum | deklarierte Displayrollen für Orientierung/Boundary, sichtbare Messspur und unaufgelösten Hintergrund | Farbrollen gegen mindestens zwei Darstellungen tauschen; Resultat muss farbinvariant bleiben |
+| schwarze Integer-Slots, Werte dazwischen, „Kupferdrähte“ | Quelladressen, Zielwerte und explizite Zuordnungskanäle | Domäne, Kodomäne, Abbildung, Injektivität, Surjektivität, Residuum und Return einzeln definieren |
+| gerade/ungerade `+1`, Reverse in `]0,1[` | endliche Kalibrierung versus behauptete Aufzählung eines Kontinuums | endliche Fixtures zuerst; Cantors Diagonalargument als erwarteten Falsifier einer vollständigen `N→(0,1)`-Liste verwenden |
+| Zahlenraum-Zither | wiederverwendbare View-Grammatik: Saite=Kanal, Anschlag=Probe, Ton=Zieladresse, Stille=Lücke | zunächst `N`, `Z`, `Q`; algebraische, transzendente, reelle, komplexe oder p-adische Räume nur nach eigener Definition und Baseline |
+| Prime-Bridge | Primzahlen als Filter innerhalb von `N`, nicht als automatisch bewiesener eigener Mechanismus | endliche Referenzfolge, Negativkontrollen, Dichte-/Kardinalitätsaussagen trennen; vorhandene Prime-Base-Mode-Grenzen bewahren |
+| S-HELL, Fold, Strömungs-/Mandelbrotvergleich | Mnemonik für gehaltenen Zustand, Boundary und durch einen Schnitt sichtbar werdende Struktur | visuelle Ähnlichkeit weder als Topologie noch als Licht-, Ton-, Strahlungs- oder Flussgesetz lesen |
+| Grün/Rot-, B- oder HA/AR-Split; Ohren/Hörner | zwei getrennte Beobachter-/Aperturkanäle mit gemeinsamem Joint und möglichem Restkanal | Quelle, Operator, Nullmodell, Symmetriebruch, Rückweg und Fehlkriterium festlegen |
+| Aleph-, S/T-, `11/23`- und Glyphenlesarten | Owner-Mnemonik und Adresshypothese | keine Glyphenalgebra; `aleph_1`, Kontinuumshypothese, Instrumentadresse und visuelle Form strikt trennen |
+| Gemini-ORION-/45-Schritte-Grafik | externer Konzeptmarker mit nützlicher Grün/Orange/Rot-Triage | Provenienz, Daten, Definition von Kohärenz, Baseline und Falsifikation fehlen; keine IEEE-, Physik- oder Zeitfensterbehauptung übernehmen |
+
+**Nächste zulässige Reihenfolge:**
+
+1. Einen minimalen formalen Vertrag für `Quelle → Kanal → Ziel → Residuum → Return` schreiben.
+2. Mit endlichen `N`-/Gerade-Ungerade-Fixtures und absichtlich vertauschten Farben kalibrieren.
+3. `Z` und `Q` als getrennte, bekannte Kontrollräume ergänzen.
+4. Eine behauptete vollständige `N→(0,1)`-Kanalisierung durch einen expliziten Diagonal-Falsifier brechen.
+5. Erst danach entscheiden, ob eine begrenzte Mathfield-Derivation oder nur eine Science-Desk-Leselinse sinnvoll ist.
+
+**STOP:** Kein Universalmodell, keine Gleichsetzung von Zahlraum, Licht, Ton,
+Strahlung oder Strömung; keine physikalische Ableitung aus Farben; keine
+Identität aus ähnlicher Geometrie; keine neue Prime-Theorie; keine Annahme von
+`|P|=|N|` als Dichteaussage; keine Gleichsetzung von `aleph_1` und Kontinuum
+ohne zusätzliche Mengenlehre. Die ungebundene Phantom-Tine/YUGO-Lesart bleibt
+außerhalb dieses Intake-Vertrags.
+
 <a id="a0-final-delta-routing-20261025"></a>
 
 ### Finaler Delta-Return · 25.10.2026
