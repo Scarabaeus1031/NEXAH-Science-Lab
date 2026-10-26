@@ -78,6 +78,13 @@ Superlative in den Bildern besitzen keine Evidenzautorität.
 | S-HELL, Fold, Strömungs-/Mandelbrotvergleich | Mnemonik für gehaltenen Zustand, Boundary und durch einen Schnitt sichtbar werdende Struktur | visuelle Ähnlichkeit weder als Topologie noch als Licht-, Ton-, Strahlungs- oder Flussgesetz lesen |
 | Grün/Rot-, B- oder HA/AR-Split; Ohren/Hörner | zwei getrennte Beobachter-/Aperturkanäle mit gemeinsamem Joint und möglichem Restkanal | Quelle, Operator, Nullmodell, Symmetriebruch, Rückweg und Fehlkriterium festlegen |
 | Aleph-, S/T-, `11/23`- und Glyphenlesarten | Owner-Mnemonik und Adresshypothese | keine Glyphenalgebra; `aleph_1`, Kontinuumshypothese, Instrumentadresse und visuelle Form strikt trennen |
+| `×4`, `83`, `−13` und „orangene Karotte“ | exakte Adresszerlegung `20×4+3=83`, `83−13=70=10×7` und `20=13+7`; Orange bleibt sichtbarer Displaymarker, `7` der unter dieser Zerlegung zurückgewonnene normierte Rest | prüfen, ob `×4`, `+3`, `−13` vorab deklarierte Operatorrollen besitzen; andernfalls bleibt die Kette eine korrekte arithmetische Beobachtung ohne Mechanismusclaim |
+| blaue Kreisfläche „Fibo?“; White Top / Orange Floor | Kandidat für eine polare Apertur-/Flächenprojektion und einen Blickrichtungswechsel | Radien und Winkel aus dem Bild extrahieren; Fibonacci-/Goldspiralmodell gegen gleichmäßiges Polargrid und permutierte Kontrollen testen; Top/Floor- und Farbrollen tauschen, ohne das formale Ergebnis zu ändern |
+| Gelb „Euler“, Gelbgrün „FErr“ | Owner-Farblabel für zwei zu trennende Modell-/Fehlerkanäle; `FErr` bleibt bis zur Definition ein Token | Euler-Referenz, Fibonacci-/Fit-Fehler und bloße Farbklasse getrennt operationalisieren; Labels blind permutieren und Residuen vergleichen |
+| `16–17–18–19` unter der Bridge; „17–19 Fibo“ | exakte lokale Zerlegung: `17+19=36`, `(17+19)/2=18`, `36−20=16`; 17/19 sind Prim-Endpunkte, 18 ist `2·3²`, 16 ist `2⁴` | nicht als Fibonacci-Klassifikation führen: 17 und 19 sind keine Fibonacci-Zahlen; nur eine ausdrücklich definierte Rekurrenz gegen Fibonacci- und Nicht-Fibonacci-Kontrollen testen |
+| Spalt-/„Pac-Man“-Figur, `76001`, Gold/Bronze und „threeshot“ | Apertur-/Cut-Mnemonik mit getrennten Außen- und Innenlagen; exakt sind die Primzahlen `76001`, `13001` und ihr Residuum `76001−13001=63000=2³·3²·5³·7` | Spaltwinkel, Radiallagen und 3×3-Belegung messen; Gold/Bronze tauschen; Bildtoken `13%1` nicht als Modulo oder Gleichung übernehmen, bevor Quelle und Operator definiert sind |
+| `76001 → 239999 → 23999`, `577615:76001` und letzter Bridge-Tick | exakt: `10⁶−760001=239999` (prim), `10⁵−76001=23999=103·233`, `239999−76001=163998`, `23999·10=239990`; außerdem `760,01²=577615,2001`, also `577615=⌊(76001/100)²⌋` | `76009=29·2621` ist nicht prim und `76009+239999≠76001`; `577615:76001=7 Rest 45608` ist kein glattes Verhältnis. Möbius-/Logspiral-/Resonanznamen bleiben Comparator. Im sichtbaren Tick `14/24` stehen `6/8` und `10/12` beide auf `OPEN`; keinen Joint Return hineinlesen |
+| großer Core-Bügel `0.02`; Gruppen `99|78|52|43|0`, `52|43|23|3` und `76|001` | vorhandene BF01-Rückbindung: `0.04/2=0.02` ist exakt, aber nur Gate 1/5 bestand; Relation nicht identifiziert. Exakt sind ferner `99−78=21=3·7`, `78−52=26=2·13`, `52−43=9`, `43−0=43`; zwischen `78` und `43` gilt `7+4=8+3=11` und `78−43=35=5·7`; `5+2=4+3=7`; `76001` ist prim, mit Gruppierungswerten `7+6=13`, `7·6=42`, Suffix `001=1` und Ziffernsumme `14` | Core-Dateiname nennt `0.2`, Bildtitel `0.02`; Generator, Zielgröße und Suchgitter fehlen. Die 11er-/13-/42-/7-Muster sind Zifferngruppierungen, keine Teilbarkeit oder Koordinatenabbildung: `76001 mod 7=2`, `mod 13=3`, `mod 42=23`. `5243233=37·141709`, Ziffernsumme `22`; Parsing vor jeder weiteren Rechnung deklarieren. „Black Sun + Sichel“ nur als Apertur-/Negativraum-Comparator führen, nicht als Objekt-, Licht- oder Symbolidentität |
 | Gemini-ORION-/45-Schritte-Grafik | externer Konzeptmarker mit nützlicher Grün/Orange/Rot-Triage | Provenienz, Daten, Definition von Kohärenz, Baseline und Falsifikation fehlen; keine IEEE-, Physik- oder Zeitfensterbehauptung übernehmen |
 
 **Nächste zulässige Reihenfolge:**
@@ -87,6 +94,19 @@ Superlative in den Bildern besitzen keine Evidenzautorität.
 3. `Z` und `Q` als getrennte, bekannte Kontrollräume ergänzen.
 4. Eine behauptete vollständige `N→(0,1)`-Kanalisierung durch einen expliziten Diagonal-Falsifier brechen.
 5. Erst danach entscheiden, ob eine begrenzte Mathfield-Derivation oder nur eine Science-Desk-Leselinse sinnvoll ist.
+
+**Später Owner-Nachtrag · Orange-Carrot-/Axis-Return:** Die drei
+Owner-Visuals mit den Ringadressen `30/35/42`, den lokalen Kugel-/Aperturgruppen
+und dem zentralen Nexus werden als Projektionsvergleich geparkt. Zu testen sind
+normierte Radien, Winkelabstände, Mehrfachtreffer und die Rekonstruktion
+`lokale Unteransicht → gemeinsames Objekt`. `π`, `φ` und `√2` sind dabei
+konkurrierende Skalierungsmodelle, keine vorausgesetzte Identität. Das
+historische Stromschleifenbild liefert mit `μ = I·A·n` eine saubere Trennung
+zwischen verteilten lokalen Schleifen und axialem Resultat; es belegt weder die
+Adresszerlegung noch einen gemeinsamen physikalischen Mechanismus. Im
+Richardson-Bild ist die blaue Scheibe zunächst nur die Fläche
+`A = πr²·n`, die orange Achse ihre Normale und die weißen Pfeile Radius/Tangente;
+die sichtbare Polartextur allein etabliert keine Fibonacci-Struktur.
 
 **STOP:** Kein Universalmodell, keine Gleichsetzung von Zahlraum, Licht, Ton,
 Strahlung oder Strömung; keine physikalische Ableitung aus Farben; keine
