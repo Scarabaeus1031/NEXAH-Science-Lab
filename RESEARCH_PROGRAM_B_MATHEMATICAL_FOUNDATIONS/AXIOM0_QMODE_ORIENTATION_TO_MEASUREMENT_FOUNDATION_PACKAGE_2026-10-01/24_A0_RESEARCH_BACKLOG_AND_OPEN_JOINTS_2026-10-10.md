@@ -1345,6 +1345,29 @@ Werkstoffnachweis und keine Fertigungsfreigabe.
 einen vermessenen Prototyp durch unbelasteten, Betriebs- und Proof-Vollweg
 führen; Drehmoment, Axialspiel, Verschleiß und bleibende Setzung protokollieren.
 
+### Folded Axis / LRRL Window · bounded build return · 26. Oktober 2026
+
+Status: `PASS_BOUNDED_ENGINEERING_VIEW / REUSE_EXISTING_IDENTITY / NO NEW RELATION`
+
+Das ausdrücklich autorisierte Fenster ist unter der bestehenden
+`NEXAH_A0_ORIENTATION_CONTROLLER_BENCH`-Identität gebaut. Es hält vier
+umschaltbare, getrennte Ansichten: weiße Faltachse mit gekoppeltem Pol,
+`L–R–R–L` mit Orange außen und Lila/Pink innen, eine deterministisch erzeugte
+`9×11=99`-Gate-Zählkontrolle und die Prim-Pins `97`/`101` um den roten
+Komposit-Mittelpunkt `99`.
+
+Die exakten Rechnungen sind `97+101=198=2×99`,
+`97×101=9797=99²−4` und `99=9×11`. Die 99 Punkte stammen aus dem Instrument
+und ausdrücklich nicht aus einer Pixelzählung des Referenzbildes. `SP`, `UR`
+und `Ar²okoth` bleiben `UNBOUND_OWNER_TOKEN`; insbesondere entsteht keine
+stille Arrokoth-Aliasbildung. Das Fenster ist ein Engineering-/Display-Return,
+keine neue Study, kein Finding, kein Operator und keine wissenschaftliche
+Evidenzpromotion.
+
+- Instrument: `A0_BOOK/A0_IOTA_BRIDGE_DEMONSTRATOR.html#foldedAxisLrrlWindow`
+- Bench: `A0_BOOK/A0_ORIENTATION_CONTROLLER_BENCH.html#foldedAxisLrrlWindow`
+- Receipt: `A0_BOOK/results/a0-folded-axis-lrrl-window-return-2026-10-26.json`
+
 - Evidence and executable authority: NEXAH Core PENT-01–PENT-07 packages.
 - Candidate assessment: `SCIENCE_LAB/SCIENTIFIC_CONTRIBUTION_CANDIDATES/SCC_003_PASCAL_PENTAGON_106_NODE_QUOTIENT_2026-10-10.md`.
 - Living synthesis: `22_A0_FORSCHUNGSPROTOKOLL_BUCH_UND_RAHMEN_2026-10-10.md`.

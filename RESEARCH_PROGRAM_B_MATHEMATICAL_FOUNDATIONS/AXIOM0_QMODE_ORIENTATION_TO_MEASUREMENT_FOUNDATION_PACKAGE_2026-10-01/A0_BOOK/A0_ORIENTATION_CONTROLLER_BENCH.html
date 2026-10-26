@@ -25,6 +25,7 @@
   <link rel="stylesheet" href="a0-pulse-grammar-clock.css?rev=20261023-r1">
   <link rel="stylesheet" href="a0-va-av-orientation-probe.css?rev=20261023-r1">
   <link rel="stylesheet" href="a0-iota-2-3-bridge-probe.css?rev=20261026-seam-drift-r1">
+  <link rel="stylesheet" href="a0-folded-axis-lrrl-window.css?rev=20261026-r1">
   <link rel="stylesheet" href="a0-double18-ratchet-bridge.css?rev=20261023-r1">
   <link rel="stylesheet" href="a0-six-face-rainbow-tube.css?rev=20261023-r3">
   <link rel="stylesheet" href="a0-iota-tower-return-handoff.css?rev=20261023-r1">
@@ -1419,6 +1420,12 @@
               <div class="i23-stage"><svg id="iota23BridgeSvg" viewBox="0 0 600 560" role="img" aria-label="Counter-rotating period eight and period twelve schedule rings around one fixed STILL pin with a sixteen to nineteen arithmetic type rail"></svg><aside><div><small>AM · CLOCKWISE</small><b id="iota23Am">0/8 · ORIGIN</b></div><div><small>PM · COUNTERCLOCKWISE</small><b id="iota23Pm">0/12 · ORIGIN</b></div><div><small>JOINT RETURN</small><b id="iota23Return">ORIGIN</b></div><div><small>VISIBLE LAYER</small><b id="iota23Layer">BRIDGE</b></div><div><small>ADDRESS · READ ONLY</small><b>0 | 6 | 9</b></div></aside></div>
               <div class="i23-exact"><b>EXACT:</b> <code>16=2⁴=2^(2²)=2×8</code> · <code>17 prime</code> · <code>18=2×3²=3×6</code> · <code>19 prime</code> · <code>3×8=24=2×12=11+13</code> · <code>11×13=143=12²−1</code> · <code>n², n=0…5 → 0,1,4,9,16,25</code>. Tick 14 is the exact AM antipode with a <code>π/6</code> AM/PM seam; Joint Return remains OPEN.</div>
               <div class="i23-boundary"><b>BOUNDARY:</b> Exact arithmetic and modular return; constructed AM/PM directions and STILL display semantics. The <code>6|9</code> orientation remains owned by the separate VA/AV probe above. No physical spin law, universal number law, shared carrier, new operator, F-A0 finding or research activation. <a href="A0_RESEARCH_DESK.html#iota-2-3-bridge-return-20261023">Science Desk Return ↗</a></div>
+            </section>
+            <section class="folded-axis-lrrl" id="foldedAxisLrrlWindow" data-mode="FOLD" aria-labelledby="foldedAxisLrrlTitle">
+              <header><div><small>FOLDED AXIS · LRRL · BOUNDED ENGINEERING VIEW</small><h5 id="foldedAxisLrrlTitle">White fold, orange outside, purple/pink inside.</h5><p>Vier getrennte Ansichten prüfen die gefaltete Achse, die Owner-Farbfolge <code>L–R–R–L</code>, exakt 99 erzeugte Gates und die weißen Prim-Pins um den roten Mittelpunkt 99.</p></div><output data-falw-status aria-live="polite">FOLD</output></header>
+              <div class="falw-controls" role="group" aria-label="Folded Axis Ansichten"><button type="button" data-falw-mode="FOLD" aria-pressed="true">WHITE FOLD</button><button type="button" data-falw-mode="LRRL" aria-pressed="false">L–R–R–L</button><button type="button" data-falw-mode="GATES_99" aria-pressed="false">99 GATES</button><button type="button" data-falw-mode="PINS_97_99_101" aria-pressed="false">97 · 99 · 101</button><button type="button" data-falw-export>EXPORT RECEIPT</button></div>
+              <div class="falw-stage"><svg data-falw-svg viewBox="0 0 600 540" role="img" aria-label="Interactive folded axis, LRRL channel, 99 gate count and prime pin engineering views"></svg><aside class="falw-readout"><div><small>IDENTITY</small><b>NEXAH_A0_ORIENTATION_CONTROLLER_BENCH</b></div><div><small>LRRL</small><b>ORANGE L · PURPLE/PINK R</b></div><div><small>COUNT CONTROL</small><b>99 = 9 × 11 generated gates</b></div><div><small>OWNER TOKENS</small><b>SP · UR · Ar²okoth · UNBOUND</b></div></aside></div>
+              <div class="falw-boundary"><b>BOUNDARY:</b> Die 99 Punkte sind eine endliche, vom Instrument erzeugte Zählkontrolle — keine Pixelmessung des Quellenbilds. Farben bezeichnen Displayrollen. <code>SP</code>, <code>UR</code> und <code>Ar²okoth</code> bleiben ungebundene Owner-Tokens; keine stille Arrokoth-Aliasbildung, kein neuer Operator, keine neue Relation und kein Science-Claim. <a href="results/a0-folded-axis-lrrl-window-return-2026-10-26.json">Static Receipt ↗</a> · <a href="A0_RESEARCH_DESK.html#folded-axis-lrrl-window-return-20261026">Science Desk ↗</a></div>
             </section>
             <section class="double18-ratchet" id="double18RatchetBridge" data-phase="floor" data-mode="shadow" aria-labelledby="double18RatchetTitle">
               <header><div><small>DOUBLE‑18 RATCHET · ORANGE FLOOR → RAINBOW LIFT · DOCUMENTARY VIEW</small><h5 id="double18RatchetTitle">Tower Builders — zwei 18er‑Cuts stabilisieren die Anzeige‑Brücke.</h5><p>Unten liegt der Orange Floor <code>7|10</code>, darüber der Rainbow Lift <code>8|11</code>. Die zwei vertikalen Posts heben beide Enden um eins; die gekreuzten Wege lesen exakt <code>7+11=8+10=18</code>. Pink markiert lokale Primzahlen, nicht eine neue Prime‑Mechanik.</p></div><output id="double18RatchetStatus" aria-live="polite">FLOOR · SHADOW</output></header>
@@ -3095,6 +3102,11 @@
 <script>
   try{window.A0Iota23BridgeController=window.A0Iota23BridgeProbe.mount(document,window)}
   catch(error){const status=document.getElementById('iota23Status');if(status)status.textContent=`IOTA 2|3 HOLD · ${error&&error.message?error.message:String(error)}`;console.error(error)}
+</script>
+<script src="a0-folded-axis-lrrl-window.js?rev=20261026-r1"></script>
+<script>
+  try{window.A0FoldedAxisLrrlController=window.A0FoldedAxisLrrlWindow.mount(document,window)}
+  catch(error){const status=document.querySelector('[data-falw-status]');if(status)status.textContent=`FOLDED AXIS HOLD · ${error&&error.message?error.message:String(error)}`;console.error(error)}
 </script>
 <script src="a0-double18-ratchet-bridge.js?rev=20261023-r1"></script>
 <script>
