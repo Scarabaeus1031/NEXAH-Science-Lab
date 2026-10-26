@@ -8,6 +8,31 @@ Owning identity: `NEXAH_AX0_QMODE_FOUNDATION_PACKAGE`
 
 Mission Control backlog: `RELATIONAL_IDENTIFIABILITY_UNDER_REPRESENTATION_CHANGE`
 
+<a id="iota-seam-square-drift-intake-20261026"></a>
+
+## IOTA Seam + Square Drift · geprüfter Intake · 26.10.2026
+
+Status: `PASS_BOUNDED_ENGINEERING_FIXTURE / INTAKE_BOUND / NO NEW A0-BL`
+
+Die ausdrücklich beauftragte Minimalprobe ist in die bestehende IOTA-Bridge
+eingebaut und mit `124/124` Checks bestanden. Exakt gelten
+`11+13=24=2·12`, `11·13=143=12²−1`; die symmetrischen Nicht-Prime-Kontrollen
+`10·14=140` und `9·15=135` reproduzieren 143 nicht. Bei Tick 14 steht AM auf
+`6/8` exakt antipodal zur positiven STILL-Achse, PM auf `10/12`; ihr Winkelrest
+ist `π/6`, während der Joint Return korrekt `OPEN` bleibt. Die pinke Sichel ist
+damit eine endliche Displaygeometrie, kein Black-Sun-, Licht- oder Feldobjekt.
+
+Die Driftfixture hält `n=0…5` als `n²=[0,1,4,9,16,25]`, erste Differenzen
+`[1,3,5,7,9]` und konstante zweite Differenz `2`. Die Fünfjahres-Skala
+`[0,5,10,15,20,25]` ist separat; es wird weder ein Kalenderzyklus noch ein
+physikalisches Gesetz behauptet. `SC` und `NTCS` bleiben
+`UNBOUND_OWNER_TOKEN`; insbesondere entsteht keine stille NCS-Zuordnung.
+
+Receipt: [a0-iota-seam-square-drift-intake-return-2026-10-26.json](A0_BOOK/results/a0-iota-seam-square-drift-intake-return-2026-10-26.json).
+Reuse: `NEXAH_A0_ORIENTATION_CONTROLLER_BENCH` und
+`NEXAH:A0_ORIENTATION_EVIDENCE_LINEAGE:V1`; keine neue ID, Relation, Study,
+Finding oder Publikationsfreigabe.
+
 ## Purpose
 
 <a id="session-engineering-return-20261026"></a>

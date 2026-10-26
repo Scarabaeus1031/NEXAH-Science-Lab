@@ -24,7 +24,7 @@
   <link rel="stylesheet" href="a0-tower-shell-return.css?rev=20261023-r1">
   <link rel="stylesheet" href="a0-pulse-grammar-clock.css?rev=20261023-r1">
   <link rel="stylesheet" href="a0-va-av-orientation-probe.css?rev=20261023-r1">
-  <link rel="stylesheet" href="a0-iota-2-3-bridge-probe.css?rev=20261023-r1">
+  <link rel="stylesheet" href="a0-iota-2-3-bridge-probe.css?rev=20261026-seam-drift-r1">
   <link rel="stylesheet" href="a0-double18-ratchet-bridge.css?rev=20261023-r1">
   <link rel="stylesheet" href="a0-six-face-rainbow-tube.css?rev=20261023-r3">
   <link rel="stylesheet" href="a0-iota-tower-return-handoff.css?rev=20261023-r1">
@@ -1415,9 +1415,9 @@
             </section>
             <section class="iota23-bridge" id="iota23Bridge" data-tick="0" data-layer="bridge" aria-labelledby="iota23BridgeTitle">
               <header><div><small>2|3 IOTA BRIDGE · EXACT SCHEDULE / CONSTRUCTED VIEW</small><h5 id="iota23BridgeTitle">Zwei Läufe. Ein STILL-Pin. Erster gemeinsamer Return bei 24.</h5><p>Der violette AM-Lauf zählt drei 8er-Zyklen im Uhrzeigersinn; der orange PM-Lauf zwei 12er-Zyklen gegenläufig. Beide treffen erstmals nach dem Start bei <code>kgV(8,12)=24</code> wieder am festen STILL-Pin. Die Rail darunter typisiert <code>16–17–18–19</code>, ohne Scheduling und Orientierung gleichzusetzen.</p></div><output id="iota23Status" aria-live="polite">T00 · ORIGIN · BRIDGE</output></header>
-              <div class="i23-controls"><button type="button" class="primary" id="iota23Step">STEP</button><button type="button" id="iota23Play" aria-pressed="false">PLAY</button><button type="button" id="iota23Reset">RESET</button><button type="button" class="layer" data-i23-layer="BRIDGE">2|3 BRIDGE</button><button type="button" class="layer" data-i23-layer="FACTOR">PRIME / POWER</button><button type="button" class="layer" data-i23-layer="PULSE">11+13 PULSE</button><button type="button" id="iota23Export">EXPORT VIEW</button></div>
+              <div class="i23-controls"><button type="button" class="primary" id="iota23Step">STEP</button><button type="button" id="iota23Play" aria-pressed="false">PLAY</button><button type="button" id="iota23Reset">RESET</button><button type="button" class="layer" data-i23-layer="BRIDGE">2|3 BRIDGE</button><button type="button" class="layer" data-i23-layer="FACTOR">PRIME / POWER</button><button type="button" class="layer" data-i23-layer="PULSE">11+13 PULSE</button><button type="button" class="layer" data-i23-layer="SEAM">PINK SEAM / DRIFT</button><button type="button" id="iota23Export">EXPORT VIEW</button></div>
               <div class="i23-stage"><svg id="iota23BridgeSvg" viewBox="0 0 600 560" role="img" aria-label="Counter-rotating period eight and period twelve schedule rings around one fixed STILL pin with a sixteen to nineteen arithmetic type rail"></svg><aside><div><small>AM · CLOCKWISE</small><b id="iota23Am">0/8 · ORIGIN</b></div><div><small>PM · COUNTERCLOCKWISE</small><b id="iota23Pm">0/12 · ORIGIN</b></div><div><small>JOINT RETURN</small><b id="iota23Return">ORIGIN</b></div><div><small>VISIBLE LAYER</small><b id="iota23Layer">BRIDGE</b></div><div><small>ADDRESS · READ ONLY</small><b>0 | 6 | 9</b></div></aside></div>
-              <div class="i23-exact"><b>EXACT:</b> <code>16=2⁴=2^(2²)=2×8</code> · <code>17 prime</code> · <code>18=2×3²=3×6</code> · <code>19 prime</code> · <code>3×8=24=2×12=11+13</code>. <code>2+4=6</code> is a factorization signature only.</div>
+              <div class="i23-exact"><b>EXACT:</b> <code>16=2⁴=2^(2²)=2×8</code> · <code>17 prime</code> · <code>18=2×3²=3×6</code> · <code>19 prime</code> · <code>3×8=24=2×12=11+13</code> · <code>11×13=143=12²−1</code> · <code>n², n=0…5 → 0,1,4,9,16,25</code>. Tick 14 is the exact AM antipode with a <code>π/6</code> AM/PM seam; Joint Return remains OPEN.</div>
               <div class="i23-boundary"><b>BOUNDARY:</b> Exact arithmetic and modular return; constructed AM/PM directions and STILL display semantics. The <code>6|9</code> orientation remains owned by the separate VA/AV probe above. No physical spin law, universal number law, shared carrier, new operator, F-A0 finding or research activation. <a href="A0_RESEARCH_DESK.html#iota-2-3-bridge-return-20261023">Science Desk Return ↗</a></div>
             </section>
             <section class="double18-ratchet" id="double18RatchetBridge" data-phase="floor" data-mode="shadow" aria-labelledby="double18RatchetTitle">
@@ -3091,7 +3091,7 @@
   try{window.A0VaAvOrientationProbeController=window.A0VaAvOrientationProbe.mount(document,window)}
   catch(error){const status=document.getElementById('vaAvOrientationStatus');if(status)status.textContent=`VA/AV PROBE HOLD · ${error&&error.message?error.message:String(error)}`;console.error(error)}
 </script>
-<script src="a0-iota-2-3-bridge-probe.js?rev=20261023-r1"></script>
+<script src="a0-iota-2-3-bridge-probe.js?rev=20261026-seam-drift-r1"></script>
 <script>
   try{window.A0Iota23BridgeController=window.A0Iota23BridgeProbe.mount(document,window)}
   catch(error){const status=document.getElementById('iota23Status');if(status)status.textContent=`IOTA 2|3 HOLD · ${error&&error.message?error.message:String(error)}`;console.error(error)}

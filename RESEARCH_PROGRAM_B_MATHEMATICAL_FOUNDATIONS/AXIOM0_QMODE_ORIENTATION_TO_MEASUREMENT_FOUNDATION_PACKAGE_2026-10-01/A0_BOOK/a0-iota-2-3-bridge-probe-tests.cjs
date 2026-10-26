@@ -11,7 +11,7 @@ const eq=(actual,expected,message)=>{assert.deepEqual(actual,expected,message);c
 const ok=(value,message)=>{assert.ok(value,message);checks++};
 
 eq(api.IDENTITY,'NEXAH_A0_ORIENTATION_CONTROLLER_BENCH','existing Bench identity reused');
-eq(api.VERSION,'1.3.0','ring-frame view version');
+eq(api.VERSION,'1.4.0','seam and square-drift view version');
 eq(api.CLASSIFICATION,'BOUNDED_ENGINEERING_ARITHMETIC_PROBE','probe remains engineering-only');
 eq(api.STILL_MNEMONIC,{token:'STILL',ownerLabel:'S-HELL',role:'LOCAL_VIEW_MNEMONIC',canonicalIdentity:false,openShellBinding:null},'S-HELL is a non-canonical owner mnemonic for STILL');
 eq(api.gcd(8,12),4,'gcd 8 and 12');
@@ -27,6 +27,10 @@ eq(arithmetic.bridge.left.total,24,'three 8-period cycles total 24');
 eq(arithmetic.bridge.right.total,24,'two 12-period cycles total 24');
 eq(arithmetic.bridge.sixSectorCount,6,'24 contains six gcd-sized sectors');
 eq(arithmetic.pulse24,{threeByEight:24,twoByTwelve:24,phrasePlusGate:24},'all declared 24 decompositions agree');
+eq(arithmetic.midpointPrime.product,143,'11 times 13 is 143');
+eq(arithmetic.midpointPrime.midpointSquaredMinusOne,143,'12 squared minus one is 143');
+eq(arithmetic.midpointPrime.pass,true,'11 and 13 are symmetric prime endpoints around 12');
+eq(arithmetic.midpointPrime.negativeControls.map(item=>item.product),[140,135],'neighbour controls do not reproduce 143');
 eq(arithmetic.localWindow.sixteen,16,'16 is two times 8');
 eq(arithmetic.localWindow.sixteenPower,16,'16 is two to fourth power');
 eq(arithmetic.localWindow.sixteenTower,16,'16 is explicitly parenthesized two power two squared');
@@ -62,6 +66,25 @@ const proof=api.verify();
 eq(proof.status,'PASS','bounded proof passes');
 ok(Object.values(proof.assertions).every(Boolean),'all proof assertions pass');
 
+const drift=api.squareDriftFixture();
+eq(drift.squares,[0,1,4,9,16,25],'0 through 5 square drift');
+eq(drift.firstDifferences,[1,3,5,7,9],'square drift has odd first differences');
+eq(drift.secondDifferences,[2,2,2,2],'square drift has constant second difference two');
+eq(drift.cycles.map(item=>item.yearOffset),[0,5,10,15,20,25],'five-year offsets remain a separate scale');
+eq(drift.calendarMeaning,false,'no calendar meaning claimed');
+
+const seam=api.antipodeSeamFixture(14);
+eq(seam.amPhase,6,'tick 14 AM phase is 6 of 8');
+eq(seam.pmPhase,10,'tick 14 PM phase is 10 of 12');
+ok(Math.abs(seam.dot+1)<1e-12,'tick 14 AM marker is antipodal to positive axis');
+ok(Math.abs(seam.cross)<1e-12,'tick 14 AM marker lies on axis');
+ok(Math.abs(seam.separationRadians-Math.PI/6)<1e-12,'AM/PM seam gap is pi over six');
+eq(seam.jointReturn,false,'tick 14 remains open');
+eq(seam.pass,true,'bounded antipode seam fixture passes');
+eq(api.destinationFixture(),{tokens:['SC','NTCS'],status:'UNBOUND_OWNER_TOKEN',resolvedDestination:null,ncsAlias:false,operator:null,pass:true},'SC and NTCS remain unbound owner tokens');
+eq(api.combinedIntakeFixture().status,'PASS','combined intake fixture passes');
+eq(api.combinedIntakeFixture().authority.newFinding,false,'combined fixture creates no finding');
+
 eq(pulse.IDENTITY,api.IDENTITY,'Pulse Clock reuses same host identity');
 eq(pulse.OUTER.length,11,'Pulse Clock exposes 11 phrase slots');
 eq(orientation.IDENTITY,api.IDENTITY,'orientation probe reuses same host identity');
@@ -90,12 +113,15 @@ ok(api.svgMarkup(view).includes('class="i23-coupling"')&&api.svgMarkup(view).inc
 ok(api.svgMarkup(view).includes('S-HELL · OWNER MNEMONIC'),'SVG exposes bounded owner mnemonic');
 ok(api.svgMarkup(view).includes('M124 520H476'),'factor rail is below the numerals, not struck through');
 eq(api.viewRecord(view).classification,'BOUNDED_ENGINEERING_VIEW','view record bounded');
+view=api.setLayer(view,'SEAM');eq(view.layer,'SEAM','seam layer is available');
+ok(api.svgMarkup(view).includes('i23-crescent'),'SVG exposes bounded pink crescent geometry');
+ok(api.svgMarkup(view).includes('11·13=143=12²−1'),'SVG exposes midpoint product identity');
 assert.throws(()=>api.setLayer(view,'physics'),RangeError);checks++;
 
 function node(id){return{id,dataset:{},textContent:'',innerHTML:'',attrs:{},listeners:{},addEventListener(type,fn){this.listeners[type]=fn},setAttribute(name,value){this.attrs[name]=value},click(){if(this.listeners.click)this.listeners.click()}}}
 const ids=['iota23Bridge','iota23BridgeSvg','iota23Status','iota23Am','iota23Pm','iota23Return','iota23Layer','iota23Step','iota23Play','iota23Reset','iota23Export'];
 const nodes=Object.fromEntries(ids.map(id=>[id,node(id)]));
-const layers=['BRIDGE','FACTOR','PULSE'].map(layer=>{const n=node(layer);n.dataset.i23Layer=layer;return n});
+const layers=['BRIDGE','FACTOR','PULSE','SEAM'].map(layer=>{const n=node(layer);n.dataset.i23Layer=layer;return n});
 nodes.iota23Bridge.querySelectorAll=()=>layers;
 const fakeDoc={getElementById:id=>nodes[id]||null,createElement:()=>node('download')};
 const controller=api.mount(fakeDoc,{});ok(controller,'view mounts on DOM double');
@@ -106,9 +132,10 @@ controller.reset();for(let i=0;i<24;i++)controller.step();eq(nodes.iota23Return.
 
 const html=fs.readFileSync(path.join(__dirname,'A0_ORIENTATION_CONTROLLER_BENCH.html'),'utf8');
 const css=fs.readFileSync(path.join(__dirname,'a0-iota-2-3-bridge-probe.css'),'utf8');
-for(const token of ['id="iota23Bridge"','a0-iota-2-3-bridge-probe.css','a0-iota-2-3-bridge-probe.js','data-i23-layer="FACTOR"','16=2⁴=2^(2²)=2×8','iota-2-3-bridge-return-20261023'])ok(html.includes(token),`HTML integration ${token}`);
+for(const token of ['id="iota23Bridge"','a0-iota-2-3-bridge-probe.css','a0-iota-2-3-bridge-probe.js','data-i23-layer="FACTOR"','data-i23-layer="SEAM"','16=2⁴=2^(2²)=2×8','11×13=143=12²−1','iota-2-3-bridge-return-20261023'])ok(html.includes(token),`HTML integration ${token}`);
 ok(css.includes('.i23-number.prime-power')&&css.includes('.i23-still.return'),'prime-power and joint return styled');
 ok(css.includes('.i23-coupling')&&css.includes('.i23-mix-label'),'ring coupling styled');
+ok(css.includes('.i23-crescent')&&css.includes('.i23-antipode-axis'),'seam geometry styled');
 const standalone=fs.readFileSync(path.join(__dirname,'A0_IOTA_BRIDGE_DEMONSTRATOR.html'),'utf8');ok(standalone.includes('I/O SEAM ↗'),'standalone links to I/O Seam Bench');ok(standalone.includes('read-only Snapshot'),'snapshot boundary visible');ok(standalone.includes('S-HELL'),'standalone documents owner mnemonic');
 
 assert.throws(()=>api.gcd(0,12),TypeError);checks++;
@@ -116,5 +143,6 @@ assert.throws(()=>api.lcm(8,1.5),TypeError);checks++;
 assert.throws(()=>api.factorize(-1836),TypeError);checks++;
 assert.throws(()=>api.step(-1),TypeError);checks++;
 assert.throws(()=>api.trace(2.5),TypeError);checks++;
+assert.throws(()=>api.squareDriftFixture(-1),TypeError);checks++;
 
 console.log(JSON.stringify({status:'PASS',checks,scope:'2|3 IOTA bridge arithmetic, modular scheduling and bounded Bench view; no scientific run or claim promotion'}));

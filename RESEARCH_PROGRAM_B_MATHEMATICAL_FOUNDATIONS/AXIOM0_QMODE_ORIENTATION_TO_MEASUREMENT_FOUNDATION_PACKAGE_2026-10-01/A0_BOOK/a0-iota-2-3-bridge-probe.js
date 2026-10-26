@@ -5,7 +5,7 @@
 })(typeof globalThis!=='undefined'?globalThis:this,function(){
   'use strict';
 
-  const VERSION='1.3.0';
+  const VERSION='1.4.0';
   const IDENTITY='NEXAH_A0_ORIENTATION_CONTROLLER_BENCH';
   const CLASSIFICATION='BOUNDED_ENGINEERING_ARITHMETIC_PROBE';
   const PERIODS=Object.freeze({am:8,pm:12,composite:24});
@@ -67,6 +67,64 @@
     });
   }
 
+  function normalizeAngle(angle){
+    if(!Number.isFinite(angle))throw new TypeError('angle must be finite');
+    const turn=Math.PI*2;
+    return (angle%turn+turn)%turn;
+  }
+
+  function midpointPrimeFixture(left=11,right=13){
+    assertPositiveInteger(left,'left');assertPositiveInteger(right,'right');
+    const midpoint=(left+right)/2;
+    return Object.freeze({
+      left,right,midpoint,sum:left+right,product:left*right,
+      midpointSquaredMinusOne:midpoint**2-1,
+      symmetric:Number.isInteger(midpoint)&&midpoint-left===right-midpoint,
+      primeEndpoints:isPrime(left)&&isPrime(right),
+      pass:left+right===2*midpoint&&left*right===midpoint**2-1&&isPrime(left)&&isPrime(right),
+      negativeControls:Object.freeze([
+        Object.freeze({left:10,right:14,midpoint:12,product:140,expectedProduct:143,pass:false}),
+        Object.freeze({left:9,right:15,midpoint:12,product:135,expectedProduct:143,pass:false})
+      ])
+    });
+  }
+
+  function squareDriftFixture(max=5,yearStep=5){
+    if(!Number.isInteger(max)||max<0)throw new TypeError('max must be a non-negative integer');
+    assertPositiveInteger(yearStep,'yearStep');
+    const cycles=Array.from({length:max+1},(_,n)=>Object.freeze({cycle:n,driftSquare:n**2,yearOffset:n*yearStep,yearOffsetSquared:(n*yearStep)**2}));
+    const squares=cycles.map(item=>item.driftSquare);
+    const firstDifferences=squares.slice(1).map((value,index)=>value-squares[index]);
+    const secondDifferences=firstDifferences.slice(1).map((value,index)=>value-firstDifferences[index]);
+    return Object.freeze({cycles:Object.freeze(cycles),squares:Object.freeze(squares),firstDifferences:Object.freeze(firstDifferences),secondDifferences:Object.freeze(secondDifferences),yearStep,calendarMeaning:false,physicalMeaning:false,pass:secondDifferences.every(value=>value===2)});
+  }
+
+  function antipodeSeamFixture(tick=14){
+    const schedule=step(tick),offset=-Math.PI/2;
+    const amAngle=normalizeAngle(offset+schedule.am.phase*Math.PI*2/PERIODS.am);
+    const pmAngle=normalizeAngle(offset+schedule.pm.phase*Math.PI*2/PERIODS.pm);
+    const amVector=Object.freeze({x:Math.cos(amAngle),y:Math.sin(amAngle)});
+    const positiveAxis=Object.freeze({x:1,y:0});
+    const dot=amVector.x*positiveAxis.x+amVector.y*positiveAxis.y;
+    const cross=amVector.x*positiveAxis.y-amVector.y*positiveAxis.x;
+    const separation=Math.min(normalizeAngle(pmAngle-amAngle),normalizeAngle(amAngle-pmAngle));
+    return Object.freeze({
+      tick,amPhase:schedule.am.phase,pmPhase:schedule.pm.phase,amAngle,pmAngle,amVector,positiveAxis,dot,cross,
+      separationRadians:separation,separationDegrees:separation*180/Math.PI,jointReturn:schedule.jointReturn,
+      displayRole:'PINK_CRESCENT_ANTIPODE_SEAM',physicalMeaning:false,
+      pass:tick===14&&schedule.am.phase===6&&schedule.pm.phase===10&&Math.abs(dot+1)<1e-12&&Math.abs(cross)<1e-12&&Math.abs(separation-Math.PI/6)<1e-12&&!schedule.jointReturn
+    });
+  }
+
+  function destinationFixture(){
+    return Object.freeze({tokens:Object.freeze(['SC','NTCS']),status:'UNBOUND_OWNER_TOKEN',resolvedDestination:null,ncsAlias:false,operator:null,pass:true});
+  }
+
+  function combinedIntakeFixture(){
+    const midpoint=midpointPrimeFixture(),drift=squareDriftFixture(),seam=antipodeSeamFixture(),destination=destinationFixture();
+    return Object.freeze({schema:'nexah.a0.iota-seam-square-drift-intake/1',classification:'BOUNDED_ENGINEERING_FIXTURE',intakeOnly:true,status:[midpoint.pass,drift.pass,seam.pass,destination.pass].every(Boolean)?'PASS':'FAIL',midpoint,drift,seam,destination,authority:Object.freeze({researchRun:false,scientificEvidence:false,newIdentity:false,newRelation:false,newStudy:false,newFinding:false})});
+  }
+
   function trace(limit=PERIODS.composite){
     if(!Number.isInteger(limit)||limit<0)throw new TypeError('limit must be a non-negative integer');
     return Object.freeze(Array.from({length:limit+1},(_,tick)=>step(tick)));
@@ -82,6 +140,7 @@
     return Object.freeze({
       bridge,
       pulse24:Object.freeze({threeByEight:3*8,twoByTwelve:2*12,phrasePlusGate:11+13}),
+      midpointPrime:midpointPrimeFixture(),
       localWindow:Object.freeze({sixteen:2*8,sixteenPower:2**4,sixteenTower:2**(2**2),sixteenSignature:2+4,seventeen:17,eighteen:3*6,nineteen:18+1,sum16And17:16+17,threeByEleven:3*11}),
       largeValues:Object.freeze({
         factor1836:Object.freeze({factor:17,cofactor:1836/17,reconstructed:17*(1836/17),primeFactors:factorize(1836)}),
@@ -107,7 +166,7 @@
   }
 
   function verify(){
-    const arithmetic=exactArithmetic(),run=trace(),returns=run.filter(item=>item.jointReturn).map(item=>item.tick);
+    const arithmetic=exactArithmetic(),run=trace(),returns=run.filter(item=>item.jointReturn).map(item=>item.tick),combined=combinedIntakeFixture();
     const assertions=Object.freeze({
       commonReturnIs24:arithmetic.bridge.lcm===24,
       threeEightsEqualTwoTwelves:arithmetic.bridge.left.total===arithmetic.bridge.right.total,
@@ -120,8 +179,12 @@
       noPrematureJointReturn:returns.length===2&&returns[0]===0&&returns[1]===24,
       stillInvariant:run.every(item=>item.still==='FIXED'),
       shellMnemonicIsNonCanonical:STILL_MNEMONIC.ownerLabel==='S-HELL'&&!STILL_MNEMONIC.canonicalIdentity&&STILL_MNEMONIC.openShellBinding===null
+      ,midpointPrimeIdentity:combined.midpoint.pass
+      ,squareDriftSecondDifference:combined.drift.pass
+      ,tick14IsExactAntipodeSeam:combined.seam.pass
+      ,destinationTokensRemainUnbound:combined.destination.pass&&combined.destination.resolvedDestination===null
     });
-    return Object.freeze({status:Object.values(assertions).every(Boolean)?'PASS':'FAIL',assertions,returns:Object.freeze(returns),arithmetic,address:typedAddress()});
+    return Object.freeze({status:Object.values(assertions).every(Boolean)?'PASS':'FAIL',assertions,returns:Object.freeze(returns),arithmetic,address:typedAddress(),combined});
   }
 
   function buildRecord(){
@@ -148,7 +211,7 @@
 
   function setLayer(state=createViewState(),layer='BRIDGE'){
     const value=String(layer).toUpperCase();
-    if(!['BRIDGE','FACTOR','PULSE'].includes(value))throw new RangeError(`Unknown layer ${layer}`);
+    if(!['BRIDGE','FACTOR','PULSE','SEAM'].includes(value))throw new RangeError(`Unknown layer ${layer}`);
     return Object.freeze({...state,layer:value});
   }
 
@@ -158,7 +221,8 @@
       ...state,schedule,
       returnStatus:schedule.jointReturn?(state.tick===0?'ORIGIN':'JOINT RETURN'):'OPEN',
       factorRail:Object.freeze([16,17,18,19].map(arithmeticType)),
-      exact:Object.freeze({sixteen:'2⁴ = 2^(2²) = 2×8 = 16',signature:'2+4=6 · factorization signature only',bridge:'3×8 = 24 = 2×12 = 11+13'})
+      exact:Object.freeze({sixteen:'2⁴ = 2^(2²) = 2×8 = 16',signature:'2+4=6 · factorization signature only',bridge:'3×8 = 24 = 2×12 = 11+13',midpoint:'11×13 = 143 = 12²−1',drift:'n² for n=0…5 → 0,1,4,9,16,25'}),
+      intake:combinedIntakeFixture()
     });
   }
 
@@ -183,8 +247,10 @@
     const am=polar(cx,cy,126,view.schedule.am.phase,8),pm=polar(cx,cy,164,view.schedule.pm.phase,12, -Math.PI/2);
     const nodes=[16,17,18,19].map((value,i)=>{const kind=arithmeticType(value).type.toLowerCase().replace('_','-');return `<g class="i23-number ${kind}" transform="translate(${150+i*100} 480)"><circle r="26"/><text text-anchor="middle" y="6">${value}</text><text class="i23-kind" text-anchor="middle" y="48">${arithmeticType(value).type.replace('_',' ')}</text></g>`}).join('');
     const coupling=`M${am.x.toFixed(2)} ${am.y.toFixed(2)}Q${cx} ${cy} ${pm.x.toFixed(2)} ${pm.y.toFixed(2)}`;
+    const seam=antipodeSeamFixture(state.tick);
+    const crescent=`M${cx-126} ${cy}A126 126 0 0 1 ${pm.x.toFixed(2)} ${pm.y.toFixed(2)}Q${cx-38} ${cy-18} ${cx-126} ${cy}Z`;
     const railDrops=[150,250,350,450].map(x=>`M${x} 506V520`).join('');
-    return `<g class="i23-wheel layer-${state.layer.toLowerCase()}"><circle class="i23-ring master" cx="${cx}" cy="${cy}" r="198"/><circle class="i23-ring pm" cx="${cx}" cy="${cy}" r="164"/><circle class="i23-ring am" cx="${cx}" cy="${cy}" r="126"/>${ticks}<path class="i23-horizon" d="M78 ${cy}H522"/><path class="i23-coupling" d="${coupling}"/><text class="i23-mix-label" x="${cx}" y="${cy-12}" text-anchor="middle">± MIX</text><circle class="i23-marker am" cx="${am.x.toFixed(2)}" cy="${am.y.toFixed(2)}" r="10"/><circle class="i23-marker pm" cx="${pm.x.toFixed(2)}" cy="${pm.y.toFixed(2)}" r="10"/><circle class="i23-still${view.schedule.jointReturn?' return':''}" cx="${cx}" cy="${cy}" r="20"/><text class="i23-still-label" x="${cx}" y="${cy+2}" text-anchor="middle">STILL</text><text class="i23-kind" x="${cx}" y="${cy+36}" text-anchor="middle">S-HELL · OWNER MNEMONIC</text><text class="i23-label" x="${cx}" y="26" text-anchor="middle">2|3 IOTA BRIDGE · TICK ${state.tick}/24</text><text class="i23-label am" x="98" y="72">AM ⟳ · 3×8</text><text class="i23-label pm" x="430" y="72">PM ⟲ · 2×12</text><path class="i23-rail" d="M124 520H476 ${railDrops}"/>${nodes}</g>`;
+    return `<g class="i23-wheel layer-${state.layer.toLowerCase()}${seam.pass?' seam-pass':''}"><circle class="i23-ring master" cx="${cx}" cy="${cy}" r="198"/><circle class="i23-ring pm" cx="${cx}" cy="${cy}" r="164"/><circle class="i23-ring am" cx="${cx}" cy="${cy}" r="126"/>${ticks}<path class="i23-horizon" d="M78 ${cy}H522"/><path class="i23-antipode-axis" d="M${cx} ${cy}H${cx+198}"/><path class="i23-crescent" d="${crescent}"/><path class="i23-coupling" d="${coupling}"/><text class="i23-mix-label" x="${cx}" y="${cy-12}" text-anchor="middle">± MIX</text><circle class="i23-marker am" cx="${am.x.toFixed(2)}" cy="${am.y.toFixed(2)}" r="10"/><circle class="i23-marker pm" cx="${pm.x.toFixed(2)}" cy="${pm.y.toFixed(2)}" r="10"/><circle class="i23-still${view.schedule.jointReturn?' return':''}" cx="${cx}" cy="${cy}" r="20"/><text class="i23-still-label" x="${cx}" y="${cy+2}" text-anchor="middle">STILL</text><text class="i23-kind" x="${cx}" y="${cy+36}" text-anchor="middle">S-HELL · OWNER MNEMONIC</text><text class="i23-seam-label" x="92" y="${cy-18}">T14 · ANTIPODE π · GAP π/6</text><text class="i23-seam-label" x="92" y="${cy+22}">11·13=143=12²−1 · n² 0…5</text><text class="i23-label" x="${cx}" y="26" text-anchor="middle">2|3 IOTA BRIDGE · TICK ${state.tick}/24</text><text class="i23-label am" x="98" y="72">AM ⟳ · 3×8</text><text class="i23-label pm" x="430" y="72">PM ⟲ · 2×12</text><path class="i23-rail" d="M124 520H476 ${railDrops}"/>${nodes}</g>`;
   }
 
   function viewRecord(state=createViewState()){
@@ -209,5 +275,5 @@
     render();return Object.freeze({getState:()=>state,step(){stop();state=advance(state);return render()},reset(){stop();state=createViewState();return render()},setLayer(layer){state=setLayer(state,layer);return render()},record:()=>viewRecord(state)});
   }
 
-  return{VERSION,IDENTITY,CLASSIFICATION,PERIODS,STILL_MNEMONIC,gcd,lcm,factorize,isPrime,arithmeticType,step,trace,exactArithmetic,typedAddress,verify,buildRecord,createViewState,advance,setLayer,inspectView,ringFrame,svgMarkup,viewRecord,mount};
+  return{VERSION,IDENTITY,CLASSIFICATION,PERIODS,STILL_MNEMONIC,gcd,lcm,factorize,isPrime,arithmeticType,step,trace,normalizeAngle,midpointPrimeFixture,squareDriftFixture,antipodeSeamFixture,destinationFixture,combinedIntakeFixture,exactArithmetic,typedAddress,verify,buildRecord,createViewState,advance,setLayer,inspectView,ringFrame,svgMarkup,viewRecord,mount};
 });
