@@ -88,6 +88,28 @@
     ],
     orientationRecord:'THE_SHARED_MOVING_TIME_MARKER_RETAINS_TRACE_DIRECTION',
     overlayRole:'SIMULTANEOUS_COMPARISON_OF_THREE_COORDINATE_PROJECTIONS',
+    greenBallView:{
+      id:'WEIGHTED_GREEN_BALL_VIEW',
+      status:'BOUND_DISPLAY_WEIGHT_VIEW',
+      sourceCarrier:'THREE_SIGNAL_CARRIER',
+      defaultWeights:[1,1,1],
+      position:'g_i=(w_i/mean(w))*s_i',
+      vertical:'y_G=sum(normalize(w)_i*s_i)',
+      verticalGradient:'dy_G/dt=sum(normalize(w)_i*ds_i/dt)',
+      nonIdentity:'GREEN_BALL_IS_NOT_CARO_GREEN_MIRROR_BALL',
+      intrinsicPhysicsClaim:false
+    },
+    captureView:{
+      id:'THREE_NODE_CAPTURE_APERTURE',
+      sourceCarrier:'THREE_SIGNAL_CARRIER',
+      sourcePoints:['P_AM','P_VM','P_PM'],
+      envelope:'MINIMAL_CENTROID_CIRCLE_FOR_CURRENT_THREE_OVERLAY_POINTS',
+      defaultThreshold:.1,
+      countPolicy:'COUNT_OUTSIDE_TO_INSIDE_TRANSITIONS_ONLY',
+      loopMethod:'UNIFORM_PERIODIC_SAMPLING_8192',
+      typing:'MEASUREMENT_VIEW_OF_EXISTING_3_PLUS_1_SEAM_MODE_NOT_NEW_OBJECT',
+      intrinsicPhysicsClaim:false
+    },
     seamMode:{
       points:['P_AM=(s1,s2)','P_VM=(s2,s3)','P_PM=(s3,s1)'],
       centroid:'G=((s1+s2+s3)/3,(s1+s2+s3)/3)',

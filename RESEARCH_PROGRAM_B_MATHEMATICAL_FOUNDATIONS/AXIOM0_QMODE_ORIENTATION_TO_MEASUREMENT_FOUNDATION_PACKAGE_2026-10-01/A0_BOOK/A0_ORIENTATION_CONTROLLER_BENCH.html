@@ -57,6 +57,8 @@
   <link rel="stylesheet" href="a0-division-return.css?rev=20261019-r1">
   <link rel="stylesheet" href="a0-bench-source-trail.css?rev=20261019-r1">
   <link rel="stylesheet" href="a0-bench-body-route.css?rev=20261019-r1">
+  <link rel="stylesheet" href="a0-pentagon-body-exhibition-bench.css?rev=20261025-r1">
+  <link rel="stylesheet" href="a0-assembly-atlas-bench.css?rev=20261025-r1">
   <link rel="stylesheet" href="a0-mask-observer.css?rev=20261019-r1">
   <link rel="stylesheet" href="a0-caro-bench.css?rev=20261019-r1">
   <link rel="stylesheet" href="a0-bench-perspective-deck.css?rev=20261020-r1">
@@ -68,6 +70,7 @@
   <link rel="stylesheet" href="a0-bench-entry.css?rev=20261022">
   <link rel="stylesheet" href="a0-context-navigation.css">
   <link rel="stylesheet" href="a0-bench-navigation.css">
+  <link rel="stylesheet" href="a0-amt-deck.css?rev=20261025-r1">
   <link rel="stylesheet" href="a0-application-return-polish.css?rev=20261023-r2">
   <link rel="stylesheet" href="a0-universal-ring-aperture.css?rev=20261023-r1">
   <link rel="stylesheet" href="a0-angle-address-compare.css?rev=20261025-r1">
@@ -78,7 +81,23 @@
 <body>
 <header class="top"><a href="index.html">NEXAH · A0</a><nav aria-label="A0"><a href="A0_WERKBANK.html">Werkbank</a></nav></header>
 <div class="bench-location"><a href="index.html">A0</a><span>→</span><a href="A0_WERKBANK.html">Werkbank</a><span>→</span><strong id="benchLocationLabel" aria-label="THE MACHINA">THE MΛCHINΛ</strong></div>
-<nav class="bench-sections" aria-label="Build und Flagships"><a href="A0_WERKBANK.html">Start</a><span aria-current="page" aria-label="THE MACHINA">THE MΛCHINΛ</span><a class="domain-blue" href="A0_TESSAREC_BLUE_BODY_LAB.html">BLUE BODY</a><a class="domain-pink" href="A0_PINK_DIAMOND_GRID_ATLAS.html">PINK DIAMOND</a><a class="domain-joint" href="A0_BLUE_PINK_DODECA_CELL_RETURN.html">BLUE × PINK LAB</a><a class="domain-tower" href="A0_TOWER_RETURN_DEMONSTRATOR.html">TOWER</a><a class="domain-bridge" href="A0_IOTA_BRIDGE_DEMONSTRATOR.html">BRIDGE</a></nav>
+<nav class="bench-sections amt-deck-nav" aria-label="AMT Deck Game · bewegtes Band und fester Tower" data-amt-deck>
+  <button class="amt-deck-step" type="button" data-amt-step="-1" aria-label="Vorheriges Deck">‹</button>
+  <div class="amt-deck-window" data-amt-window tabindex="0" aria-label="Bewegliches Deckband; mit Pfeiltasten, Trackpad oder Touch verschieben">
+    <div class="amt-deck-band" data-amt-band>
+      <a href="A0_WERKBANK.html" data-amt-item>Start</a>
+      <span aria-current="page" aria-label="THE MACHINA" data-amt-item>THE MΛCHINΛ</span>
+      <a href="#assemblyAtlasBench" data-amt-item>ASSEMBLY MAP</a>
+      <a class="domain-blue" href="A0_TESSAREC_BLUE_BODY_LAB.html" data-amt-item>BLUE BODY</a>
+      <a class="domain-pink" href="A0_PINK_DIAMOND_GRID_ATLAS.html" data-amt-item>PINK DIAMOND</a>
+      <a class="domain-joint" href="A0_BLUE_PINK_DODECA_CELL_RETURN.html" data-amt-item>BLUE × PINK LAB</a>
+      <a class="domain-bridge" href="A0_IOTA_BRIDGE_DEMONSTRATOR.html" data-amt-item>BRIDGE</a>
+    </div>
+  </div>
+  <div class="amt-tower-lock" aria-label="Fester Tower-Bezug"><small>AMT · FIXPUNKT</small><a class="domain-tower" href="A0_TOWER_RETURN_DEMONSTRATOR.html">TOWER</a></div>
+  <button class="amt-deck-step" type="button" data-amt-step="1" aria-label="Nächstes Deck">›</button>
+  <output class="amt-deck-status" data-amt-status aria-live="polite">AMT · DECK GAME · Tower steht, Band wandert</output>
+</nav>
 <nav class="bench-modes" aria-label="THE MACHINA Räume"><a href="A0_BUILDER_TOY_STORE.html#instrument-atlas">Alle Builds</a><a href="A0_MACHINA_COCKPIT.html#benchFoyer">Viewer</a><a href="A0_MACHINA_COCKPIT.html#machinaCockpitTitle">Pentagon Cockpit</a><a href="#universalMachinePartsShelf">Parts Shelf</a><span aria-current="page">Full Bench</span><a href="A0_BENCH_QUELLEN.html">Quellen</a></nav>
 <details class="bench-local-tools"><summary>THE MΛCHINΛ · Tour &amp; Direktzugänge</summary>
 <nav class="bench-nav" aria-label="Bench Navigation">
@@ -87,7 +106,7 @@
   <a class="bench-club-entry" href="DRAFTS/A0_FAMILY_NAVIGATOR_DEMO.html#spatial-navigation">◉ Club öffnen ↗</a>
   <button type="button" id="benchGuideTop" class="tour-top-button" data-tour-ui>Bench kennenlernen →</button>
   <a href="#benchOverview">Bench-Übersicht</a><a href="#foyerDoors">Bausteine / Suche</a><a href="#coupledWindowHub">Coupled Windows</a><a href="#pulseBenchMonitor">ONE PULSE</a><a href="#anuTowerWorkbench">Tower / ANU</a>
-  <a href="#benchMap">Schaltbild</a><details><summary>Direktzugänge</summary><div><a href="DRAFTS/A0_FAMILY_NAVIGATOR_DEMO.html#spatial-navigation">Club · Raumkarte ↗</a><a href="DRAFTS/A0_FAMILY_NAVIGATOR_DEMO.html#club-deck-room">Club · DJ / Plattendeck ↗</a><a href="DRAFTS/A0_FAMILY_NAVIGATOR_DEMO.html#control-room">Club · Control Room ↗</a><a href="#breathGridBench">Kreis / Grid</a><a href="#lookAgainGame">LOOK AGAIN · Spiel</a><a href="#universalRingAperture">Universal Ring / Moiré</a><a href="#universalMachinePartsShelf">Universal Machine · Parts Shelf</a><a href="#maskObserverBench">Maske / lila Faltung</a><a href="#bodyRouteBench">Körperweg 01b/01c</a><a href="#sewingSourceWindow">Schaukeln</a><a href="#nsnGlbSources">NSN · GLB</a><a href="#caroControlBench">CARO live</a><a href="#benchShowcase">Tour</a></div></details>
+  <a href="#benchMap">Schaltbild</a><details><summary>Direktzugänge</summary><div><a href="#assemblyAtlasBench">Assembly Atlas · Bauplan ↓</a><a href="DRAFTS/A0_FAMILY_NAVIGATOR_DEMO.html#spatial-navigation">Club · Raumkarte ↗</a><a href="DRAFTS/A0_FAMILY_NAVIGATOR_DEMO.html#club-deck-room">Club · DJ / Plattendeck ↗</a><a href="DRAFTS/A0_FAMILY_NAVIGATOR_DEMO.html#control-room">Club · Control Room ↗</a><a href="#breathGridBench">Kreis / Grid</a><a href="#lookAgainGame">LOOK AGAIN · Spiel</a><a href="#universalRingAperture">Universal Ring / Moiré</a><a href="#universalMachinePartsShelf">Universal Machine · Parts Shelf</a><a href="#maskObserverBench">Maske / lila Faltung</a><a href="#bodyRouteBench">Körperweg 01b/01c</a><a href="#pentagonBodyExhibitionBench">Pentagon Body · Exhibition</a><a href="#sewingSourceWindow">Schaukeln</a><a href="#nsnGlbSources">NSN · GLB</a><a href="#caroControlBench">CARO live</a><a href="#benchShowcase">Tour</a></div></details>
   <details><summary>Quellen &amp; Technik</summary><div>
     <button id="benchTourTop" type="button" data-tour-ui aria-pressed="false">Vorführung mit aktiven Reglern starten</button>
     <a href="#registerJanusWorkbench">Janus / Zahlen</a><a href="#carrierReturnWorkbench">CRT / Return / Ghost</a><a href="#channelCensus">Channel Census</a><a href="A0_RESEARCH_DESK.html">← Science Desk</a><a href="A0_GAME_OF_WORLDS_PLAY.html#numbers">Numbers</a><a href="#nativeSourceBank">Native Quellen</a><a href="#augustSourceTrail">August-Serie · acht HTMLs</a><a href="#integrationCrosswalk">Bestand → A0</a><a href="#wiringPackage">Integrationspaket</a><a href="#phaseWiring">Gemeinsame Phase</a><a href="#benchSetupDrawer">Technik &amp; Verträge</a><a href="A0_BUILDER_LOG.html">Builder Log</a></div></details>
@@ -101,6 +120,28 @@
   <div class="arp-legend" aria-label="Rollenlegende"><span>Source owns model</span><span>View reads</span><span>Control clocks</span><span>Aperture hands off</span><span>Return records</span></div>
   <p class="arp-boundary"><b>BOUNDARY:</b> PULSE-Record und lokaler 20-Sekunden-Fallback bleiben getrennte Taktquellen; keine gemeinsame numerische Clock und kein Rückkanal.</p>
   <aside class="arp-governance-return" aria-label="Governance-Rückkanal"><strong>Governance return · außerhalb der fünf Fachrollen</strong><p><a href="results/a0-coupled-channel-boundary-lens-2026-10-23.json">Protocol</a> → <a href="../../../SCIENCE_LAB/NAVIGATION/APP/index.html#a0-orientation-evidence">Science Navigator</a> → <a href="../../../../../00%20EXECUTIVE/NEXAH-Mission-Control/INTERNAL_NAVIGATOR/index.html#a0-private-desk">Mission Control</a>. Die Bench bleibt Control-Owner; Currentness und Release bleiben Governance-Aufgaben.</p></aside>
+</section>
+<section class="assembly-atlas-bench" id="assemblyAtlasBench" aria-labelledby="assemblyAtlasBenchTitle">
+  <header class="aab-head">
+    <div><small>ASSEMBLY ATLAS · BENCH MAP</small><h2 id="assemblyAtlasBenchTitle">Der Bauplan gehört in die Bench.</h2><p>Die Tower Bench bleibt der ausführbare Einzelraum. Diese Karte liegt darüber: Sie zeigt Tower, Bridge, Root Room, Curtain, Shadow, <i>c</i>, Mandelbrot/Julia sowie Earth/ERITH, ohne ihre Verträge zu verschmelzen.</p></div>
+    <p class="aab-verdict"><span>Rolle</span><strong>Montage- und Anschlussansicht</strong><em>10 Nodes · 4 Kantentypen · 5 STOP-Grenzen</em></p>
+  </header>
+  <div class="aab-route" aria-label="Vier Atlas-Bereiche">
+    <article><small>01 · BUILD</small><b>Bridge ↔ Tower</b><span>ausführbarer Rückweg</span></article>
+    <article><small>02 · GATE</small><b>Root Room ↔ c</b><span>View, kein Gesamtoperator</span></article>
+    <article><small>03 · BODY</small><b>Curtain ↔ Shadow</b><span>Ausstellung und Kandidat</span></article>
+    <article><small>04 · FRAME</small><b>Earth ↔ ERITH</b><span>getrennt; Adapter HOLD</span></article>
+  </div>
+  <nav class="aab-actions" aria-label="Assembly Atlas in der Bench bedienen">
+    <button type="button" id="assemblyAtlasOpen">Atlas in der Bench öffnen</button>
+    <button type="button" id="assemblyAtlasClose" disabled>Atlas schließen</button>
+    <a href="A0_ASSEMBLY_ATLAS.html#map" target="_blank" rel="noopener noreferrer">Vollbild ↗</a>
+    <a href="assets/a0-assembly-atlas-v1.json" target="_blank" rel="noopener noreferrer">View-Vertrag ↗</a>
+    <a href="A0_RESEARCH_DESK.html#assembly-atlas-return-20261025">Science Return ↗</a>
+  </nav>
+  <p id="assemblyAtlasStatus" class="aab-status" role="status">Kompakt eingebunden · der vollständige interaktive Atlas wird erst auf Klick geladen.</p>
+  <div id="assemblyAtlasFrameHost" class="aab-frame-host"></div>
+  <p class="aab-boundary"><strong>Grenze:</strong> Die Karte navigiert vorhandene Quellen. Sie startet keine gemeinsame Uhr und erzeugt weder neue Relation noch Finding.</p>
 </section>
 <main class="shell" id="orientationBench">
 <section id="benchFoyer" aria-labelledby="benchFoyerTitle">
@@ -329,6 +370,32 @@
     <p><b>Keine zweite Engine:</b> 01b und 01c teilen eine Body-Lab-Sitzung. Dodeka und One Flow verwenden dasselbe bestehende Quellfenster darunter. Wechsel fokussieren nur Abschnitte; sie schreiben keine Quellwerte. Verdeckte Quellen können weiterlaufen — Pause im jeweiligen Original bedienen. Entladen verwirft nur die Body-Lab-Sitzung.</p>
     <details><summary>Gehaltener Vergleich · unabhängige Lesestände, kein Gesamt-Return</summary><pre id="bodyRouteRecord">Noch kein Vergleich gehalten.</pre></details>
     <p><b>Grenze:</b> 48 Quelladressen, 60 Flächenslots und One-Flow-Koordinaten sind nicht dieselben Adressen. Kein automatischer Transfer, keine gemeinsame Uhr und kein neuer Inversenvertrag. Browser-Sperren oder fehlende Quellen erscheinen als HOLD / WAITING / UNLOADED. Bestehende Native-Face-Returns bleiben unverändert.</p>
+  </section>
+  <section class="pentagon-exhibition-bench" id="pentagonBodyExhibitionBench" aria-labelledby="pentagonExhibitionBenchTitle">
+    <header class="peb-head">
+      <div>
+        <small>PENTAGON BODY · EXHIBITION / SCIENCE VIEW</small>
+        <h2 id="pentagonExhibitionBenchTitle">Körper, Iris und Curtain — als getrennte Prüfobjekte.</h2>
+        <p>Die Ausstellung verbindet die große Bildlesung, drei Science-Linsen und zwei animierte GLB-Kandidaten. Sie zeigt den aktuellen Return, ohne die Teilmodelle zu einer gemeinsamen Mechanik zu erklären.</p>
+      </div>
+      <p class="peb-verdict"><span>Aktuelle Einstufung</span><strong>Source-bound Engineering Finding Candidate</strong><em>anschlussfähig · noch nicht kanonisch</em></p>
+    </header>
+    <div class="peb-findings" aria-label="Aktueller Befund">
+      <article><small>POSITIVER BEFUND</small><h3>Die getrennte Iris schließt.</h3><p>Fünf Schieberebenen erreichen im geprüften Projektionsmodell den geschlossenen Zustand.</p></article>
+      <article><small>NEGATIVER BEFUND</small><h3>Die starre Haut faltet nicht mit.</h3><p>Unter den gesetzten Rahmen- und Längenbedingungen wurde keine lokale Beweglichkeit bestätigt.</p></article>
+      <article><small>OFFENES GATE</small><h3>Mechanik bleibt zu bauen.</h3><p>Unabhängiger Replay, kontinuierliche Kollision, Führung, Antrieb, Dichtheit und Gehäuse stehen aus.</p></article>
+    </div>
+    <nav class="peb-actions" aria-label="Pentagon Body Exhibition öffnen">
+      <button type="button" id="pentagonExhibitionOpen">Ausstellung in der Bench öffnen</button>
+      <button type="button" id="pentagonExhibitionClose" disabled>Fenster schließen</button>
+      <a href="A0_PENTAGON_BODY_EXHIBITION.html#science-deck" target="_blank" rel="noopener noreferrer">Ausstellung separat ↗</a>
+      <a href="#assemblyAtlasBench">Assembly Atlas in der Bench ↑</a>
+      <a href="A0_PENTAGON_BODY_RETURN_GUIDED.html" target="_blank" rel="noopener noreferrer">Guided Viewer ↗</a>
+      <a href="A0_RESEARCH_DESK.html#pentagon-lantern-finding-candidate-20261025">Science Return ↗</a>
+    </nav>
+    <p id="pentagonExhibitionStatus" class="peb-status" role="status">Noch nicht geladen · die Ausstellung besitzt ihre eigene lokale Ansicht. Öffnen und Schließen hält die Leseposition in der Bench.</p>
+    <div id="pentagonExhibitionFrameHost" class="peb-frame-host"></div>
+    <p class="peb-boundary"><strong>Grenze:</strong> Das Fenster ist eine lesende View, keine zweite Bench-Engine. Es übernimmt weder Bench-State noch Uhr und schreibt keine Relation, Study oder Finding-ID.</p>
   </section>
   <section id="benchIntegration"><h2>GLB / Body / Observer / TESA · Integration</h2><p>Quellengebundener Vergleich wird geladen.</p></section>
   <section id="orbitGridJoints"><h2>Orbit / Observer und TESA / Teller</h2><p>JavaScript lädt den quellengebundenen Vergleich. <a href="#maskObserverBench">Zur vorhandenen Maskensteuerung ↓</a></p></section>
@@ -3074,6 +3141,9 @@
 <script src="a0-bench-map-showcase.js"></script>
 <script src="a0-bench-foyer.js?rev=20261022-installation-r4"></script>
 <script src="a0-bench-body-gallery.js"></script>
+<script src="a0-pentagon-body-exhibition-bench.js?rev=20261025-r1"></script>
+<script src="a0-assembly-atlas-bench.js?rev=20261025-r1"></script>
+<script src="a0-amt-deck.js?rev=20261025-r1"></script>
 <script src="a0-bench-walk.js"></script>
 <script src="a0-bench-disclosures.js"></script>
 <script src="a0-bench-structure-visuals.js"></script>

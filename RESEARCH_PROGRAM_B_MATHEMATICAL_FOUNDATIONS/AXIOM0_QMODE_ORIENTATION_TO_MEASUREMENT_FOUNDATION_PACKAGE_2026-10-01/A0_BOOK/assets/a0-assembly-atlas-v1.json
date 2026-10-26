@@ -1,0 +1,145 @@
+{
+  "schema": "nexah.a0.source_bound_assembly_view",
+  "version": "1.3.0",
+  "date": "2026-10-25",
+  "title": "A0 Assembly Atlas · Tower / Bridge / Root / Shadow",
+  "authority": {
+    "reuses_identity": "NEXAH_A0_ORIENTATION_CONTROLLER_BENCH",
+    "identity_effect": "NONE",
+    "relation_effect": "NONE",
+    "study_effect": "NONE",
+    "finding_effect": "NONE",
+    "publication_effect": "NONE"
+  },
+  "edge_vocabulary": {
+    "VERIFIED": "Executable or receipt-backed relation within the cited source contract.",
+    "VIEW": "Source-bound comparison or shared display; no carrier or mechanism identity.",
+    "CANDIDATE": "Owner reading or proposed adapter requiring a separate contract and test.",
+    "HOLD": "Explicitly unestablished, rejected, contradictory or correction-required connection."
+  },
+  "nodes": [
+    {"id":"bridge","label":"Bridge","state":"VERIFIED","role":"24-tick joint-return receipt","source":"A0_ORIENTATION_CONTROLLER_BENCH.html#iota23Bridge"},
+    {"id":"tower","label":"Tower / Shell","state":"VERIFIED","role":"closed typed view-return","source":"A0_ORIENTATION_CONTROLLER_BENCH.html#towerShellReturn"},
+    {"id":"root","label":"Root Room","state":"VIEW","role":"orientation and return gate","source":"A0_BLUE_PINK_DODECA_CELL_RETURN.html#rootRoom"},
+    {"id":"c","label":"Parameter c","state":"VERIFIED","role":"shared complex parameter only","source":"A0_BLUE_PINK_DODECA_CELL_RETURN.html#coupledChannelBoundaryLens"},
+    {"id":"mandelbrot","label":"Mandelbrot","state":"VERIFIED","role":"parameter-plane membership view","source":"A0_BLUE_PINK_DODECA_CELL_RETURN.html#coupledChannelBoundaryLens"},
+    {"id":"julia","label":"Julia","state":"VERIFIED","role":"dynamical-plane orbit view","source":"A0_BLUE_PINK_DODECA_CELL_RETURN.html#coupledChannelBoundaryLens"},
+    {"id":"curtain","label":"Curtain","state":"VIEW","role":"exhibition and geometry lens","source":"A0_PENTAGON_BODY_EXHIBITION.html#science-deck"},
+    {"id":"shadow","label":"Black Shadow","state":"CANDIDATE","role":"display mask / potential role","source":"A0_PENTAGON_BODY_EXHIBITION.html#builder-material"},
+    {"id":"earth","label":"Earth","state":"VIEW","role":"astronomy-oriented frame","source":"../../../SCIENCE_LAB/NEXAH_FAMILY_CONNECTION_MAP_V2.html#miwa"},
+    {"id":"erith","label":"ERITH","state":"VERIFIED","role":"source-seed / 3+1 dual-belt line","source":"../../../SCIENCE_LAB/NEXAH_FAMILY_CONNECTION_MAP_V2.html#erith"}
+  ],
+  "edges": [
+    {"from":"bridge","to":"tower","type":"VERIFIED","label":"post-hoc typed handoff","boundary":"NO SHARED CLOCK"},
+    {"from":"tower","to":"root","type":"VIEW","label":"return-gate display","boundary":"no recovered operator"},
+    {"from":"c","to":"mandelbrot","type":"VERIFIED","label":"parameter-plane test","boundary":"ordinary complex dynamics"},
+    {"from":"c","to":"julia","type":"VERIFIED","label":"selected dynamical system","boundary":"ordinary complex dynamics"},
+    {"from":"root","to":"c","type":"VIEW","label":"co-recorded views","boundary":"no automatic map"},
+    {"from":"curtain","to":"shadow","type":"CANDIDATE","label":"exhibition reading","boundary":"no common mechanism"},
+    {"from":"earth","to":"erith","type":"HOLD","label":"name/visual proximity only","boundary":"no admitted adapter"},
+    {"from":"shadow","to":"mandelbrot","type":"HOLD","label":"black-region analogy","boundary":"not object identity"}
+  ],
+  "source_bound_concept_views": [
+    {
+      "id": "pink-green-phase-seam-owner-visual",
+      "state": "CANDIDATE",
+      "source": "assets/images/a0-pink-green-phase-seam-owner-visual.jpeg",
+      "sha256": "ba82603b1bd3207f7ebcd87b69d07a121e4433fdca687d4fdf766e1a7e7e8e80",
+      "owner_reading": [
+        "pink source loop",
+        "white beak or tine growing from pink",
+        "green cut or additional axis",
+        "137.5 degree transition marker",
+        "0> orientation marker",
+        "01 to io order/orientation switch",
+        "integral-like glyph read as phase change, not calculus"
+      ],
+      "boundary": "No geometric operator, mechanism, calculus identity or Navigator relation is asserted."
+    },
+    {
+      "id": "modular-shadow-wheel-split-reading",
+      "state": "HOLD",
+      "registered_carrier": "11357 = 41 × 277",
+      "incorrect_source_equality": "11357 = 3 × 5 × 757",
+      "arithmetic_correction": "3 × 5 × 757 = 11355",
+      "preserved_view": "The line, multiplication/cross glyph, split digit fields and composition remain source-bound concept material.",
+      "boundary": "The incorrect equality cannot enter the evidence path; preserved glyph form is not a universal decoder."
+    },
+    {
+      "id": "two-percent-spiral-return-source-gap",
+      "state": "HOLD",
+      "intended_source": "SCIENCE_LAB/CASE_STUDIES/NEXAH_HTML_ORIENTATION_DEMONSTRATOR_SERIES/two-percent-spiral-return.html",
+      "source_state": "MISSING_UNRECOVERED",
+      "surviving_preview": "SCIENCE_LAB/CASE_STUDIES/NEXAH_HTML_ORIENTATION_DEMONSTRATOR_SERIES/Screenshot 2026-08-25 at 3.57.22 PM.png",
+      "executable_neighbor": "SCIENCE_LAB/CASE_STUDIES/NEXAH_HTML_ORIENTATION_DEMONSTRATOR_SERIES/closed-loop-moving-world-standalone.html",
+      "preserved_reading": "Angular return and radial history are distinct; the green L-bend, orange/red cut and outward trace remain historical concept material.",
+      "boundary": "The preview is noncanonical and not executable. The neighboring HTML does not reconstruct or replace the missing source."
+    }
+  ],
+  "engineering_test_protocol": {
+    "status": "DRY_TEST_ONLY_STRUCTURE_FREEZE",
+    "tests": [
+      {"id":"T1","name":"anchor-invariance","pass":"Node A remains 205,405 and Node B remains 695,405 for every belt phase."},
+      {"id":"T2","name":"twin-carrier-separation","pass":"Pink and Green remain separately addressable rails with no identity merge."},
+      {"id":"T3","name":"w-plate-typing","pass":"Events, i·Birth, j·Survive and k·Death retain type, generation and return address."},
+      {"id":"T4","name":"temporal-joint","pass":"One input step records exactly one declared g→g+1 transition and no hidden second clock."},
+      {"id":"T5","name":"return-joint","pass":"Return preserves generation, rule, selected view and transition map; Death does not directly feed Birth."},
+      {"id":"T6","name":"owner-separation","pass":"The exact notation '1i / jk ≠ Q°' is preserved and Q° is neither computed nor aliased to 1, i, j or k. The Owner reading LL → T treats T as the distribution seam between two L carriers; TL and the Tic-Tac-Toe 3×3 distribution remain separate candidate views."},
+      {"id":"T7","name":"k-esszett-compound-integrity","pass":"kß remains one compound Owner glyph with two distinguishable visible motion channels. The beta-like source typography does not identify ß with beta or zeta and does not create multiplication or a square."},
+      {"id":"T8","name":"persistent-address-axis","pass":"The Visual 3 and Visual 5 projection/axis readings may change view while the declared register address and central axis remain persistent."},
+      {"id":"T9","name":"screen-reconstruction","pass":"Visual 4 is typed as a reconstruction screen/membrane view; reconstruction does not merge source records, carriers or identities."},
+      {"id":"T10","name":"fresnel-succession","pass":"Visuals 7 through 11 form an ordered Fresnel projection family and remain view roles without an optical, gravitational, resonance or physical mechanism claim."},
+      {"id":"T11","name":"boltzmann-pascal-dimensional-guard","pass":"The existing Game k·NEG lane, A0 B–8–ß/GF_BOW morphology and a candidate k_B pressure lens remain distinct. A Pascal-valued pressure requires p=(N/V)k_B T with declared N, V, T and units; the ß cross-line view alone supplies none of those inputs.","expected_status":"HOLD_UNTIL_TYPED_PHYSICAL_ADAPTER"}
+    ],
+    "claim_boundary": "Interface and representation checks only; no experiment, mechanism validation or scientific replay is authorized."
+  },
+  "owner_reconstruction_mapping": {
+    "state": "SOURCE_BOUND_OWNER_MAPPING_DRY_TEST_ONLY",
+    "ordered_chain": ["kß compound / 2-in-1", "persistent address and axis", "screen reconstruction", "Fresnel projection family"],
+    "compound_glyph": {"literal":"kß","source_rendering":"kβ-like","channels":2,"multiplication":false,"square":false,"visuals":[1,6]},
+    "esszett_roles": {
+      "multiplicity": "MULTIFUNCTIONAL_CONTEXT_REQUIRED",
+      "a0_mathfield": "B–8–ß form-comparison family: register, temporal sampling and common trace remain separated",
+      "glyph_ledger": "GF_BOW · visible forms B / ß / double bow · documentary mnemonic only",
+      "owner_variants": ["Bß8", "ss", "sz", "fine transverse-line / cross-mesh view"],
+      "existing_ilau_identity": "ILAU:INTERTWINED_CLEFS",
+      "beta_zeta_identity": "OPEN_NOT_ASSERTED"
+    },
+    "boltzmann_pascal_candidate": {
+      "state": "HOLD_UNTIL_TYPED_PHYSICAL_ADAPTER",
+      "game_k_role": "k·NEG typed negative/death/down-flip ledger",
+      "candidate_constant": "k_B = 1.380649e-23 J K^-1",
+      "required_equation": "p = (N/V) k_B T",
+      "required_inputs": ["N particle/event interpretation", "V joint volume in m^3", "T absolute temperature in K", "mapping from game events to physical population"],
+      "output_unit": "Pa = J m^-3",
+      "esszett_cross_mesh_role": "visual/morphological role only; not thermodynamic beta unless separately declared",
+      "ols_boundary": "OLS semantic conformance cannot establish domain physics; ORION execution cannot supply missing physical calibration."
+    },
+    "persistent_address_axis_visuals": [3,5],
+    "screen_visual": 4,
+    "fresnel_visuals": [7,8,9,10,11],
+    "support_visuals": [2],
+    "visual_sources": [
+      {"visual":1,"file":"F6E2597D-C9EF-4D76-9D2F-BF1387A59138_1_105_c.jpeg","sha256":"4d0477a9a59d6e6d5d50e9075082e58e8511197b3db70c3d8881550bf1cc503c"},
+      {"visual":2,"file":"28BBBAC9-D8D0-4756-ACE4-869CDC3ED35D_1_102_o.jpeg","sha256":"e595fd65fad2ff79ca9c8bfc7e64b05d8f425361213b25e5f393caa47d505fee"},
+      {"visual":3,"file":"C496219E-D6D4-4621-85F3-9C1FD99896CC_1_105_c.jpeg","sha256":"c51a6104f21fbdc484a51b75879c5963911b65ba50372a4bafc6d2b06c1b42f3"},
+      {"visual":4,"file":"35573A01-5AF1-4D86-A4CA-65B1EEEB6F4D_1_105_c.jpeg","sha256":"e14d7e86e25444ff5f5452e240c86b53b03551997e13b9333ab5aa395b471bcb"},
+      {"visual":5,"file":"9BACE48F-7190-4104-953F-0C450161965B_1_105_c.jpeg","sha256":"366aa8ec15b33836af4f889294df38791408d06ddff56aac59f3fdf366ef66b8"},
+      {"visual":6,"file":"E6990C06-9F04-48A9-AC7D-54F38F1558BD_1_102_o.jpeg","sha256":"ca5b344d8d3518499e01c556e43f42e9cfc3bf939e6b88331b9a81d72516611f"},
+      {"visual":7,"file":"D1F471F1-8685-4160-BD6E-8F2CC17C5242_1_102_o.jpeg","sha256":"ee042ce86cc2d1a98c3a8d142e485e87815ca721a47ebe3af56705d1109e7b42"},
+      {"visual":8,"file":"D29F6F91-DFC8-4E35-BE1C-7FB693ABF969_1_102_o.jpeg","sha256":"2ce0a67568e49283b94c4d41c7332a3fcc82476853c44b4b6e7a5ef70c5d66f4"},
+      {"visual":9,"file":"C17B4CD4-6669-41BA-957A-4A881F036E6F_1_102_o.jpeg","sha256":"d39c185c410b1913067ad4a2207845640d168226a41f724b2df107ea85925ea2"},
+      {"visual":10,"file":"4A630E6C-29B2-4E42-8A73-7B5E8EC80F03_1_105_c.jpeg","sha256":"92243a1c0f7878a59012ea1559b7d57c16a9d0f2161ccca8e662f220bc0bbc64"},
+      {"visual":11,"file":"CBC4E3CE-F58F-41E4-931E-8A4F2631AC60_1_102_o.jpeg","sha256":"2727eb9fa662031d380f73d5b0a3d2b2065fafa7b67d86e982c3a0b075b35e93"}
+    ],
+    "boundary": "Owner visual grammar only. No new S-glyph is inferred from the abbreviation 's.'. ß remains multifunctional and context-bound; it is not collapsed into beta, zeta, ss, sz or one operator. No identity merge, equation, operator, optical calibration, gravitational mechanism, resonance finding or scientific activation is created."
+  },
+  "stop_conditions": [
+    "No shared Tower/Bridge clock, carrier, cause or dynamics.",
+    "Black Shadow, Black Sphere, Mandelbrot interior and Pin are not one object without a typed adapter.",
+    "Earth and ERITH remain separate source lines until an admitted mapping exists.",
+    "Visual similarity, naming and common color do not create a Navigator relation or scientific finding.",
+    "The missing Two-Percent Spiral Return HTML may not be reconstructed or replaced from its preview without separate Owner authorization.",
+    "The Modular Shadow Wheel equality remains HOLD: 3 × 5 × 757 = 11355, while the registered carrier is 11357 = 41 × 277. Its glyph layout remains a source-bound view, not a universal decoder."
+  ]
+}

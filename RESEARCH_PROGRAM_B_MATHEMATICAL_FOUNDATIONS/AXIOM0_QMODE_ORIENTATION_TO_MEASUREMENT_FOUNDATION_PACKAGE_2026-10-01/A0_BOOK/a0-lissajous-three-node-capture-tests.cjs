@@ -1,0 +1,11 @@
+'use strict';
+const assert=require('node:assert/strict'),capture=require('./assets/a0-lissajous-three-node-capture.js');
+let checks=0;const equal=(a,b)=>{assert.equal(a,b);checks+=1;},close=(a,b,t=1e-10)=>{assert.ok(Math.abs(a-b)<=t,`${a} != ${b}`);checks+=1;};
+equal(capture.SCHEMA,'a0.lissajous-three-node-capture.v1');
+const exact=capture.geometry([.4,.4,.4],.1);equal(exact.inside,true);equal(exact.exactSeam,true);close(exact.radius,0);exact.centroid.forEach(value=>close(value,.4));
+const spread=capture.geometry([1,0,-1],.5);close(spread.radius,Math.sqrt(2));equal(spread.inside,false);close(spread.dispersion,6);
+const defaultScan=capture.scanLoop(3,2,Math.PI/2,.1,16384);assert.ok(defaultScan.capturesPerLoop>0);checks+=1;assert.ok(defaultScan.minimumRadius<.1);checks+=1;equal(defaultScan.continuousCapture,false);
+const identical=capture.scanLoop(1,1,0,.01,2048);equal(identical.capturesPerLoop,1);equal(identical.continuousCapture,true);close(identical.insideFraction,1);
+const detector=capture.createDetector(.1,1.15);equal(detector.update({radius:.2,time:0}).count,0);equal(detector.update({radius:.09,time:1}).count,1);equal(detector.update({radius:.08,time:2}).count,1);equal(detector.update({radius:.105,time:3}).inside,true);equal(detector.update({radius:.12,time:4}).inside,false);equal(detector.update({radius:.09,time:5}).count,2);detector.reset();equal(detector.snapshot.count,0);
+assert.throws(()=>capture.geometry([1,2],.1));checks+=1;assert.throws(()=>capture.scanLoop(3,2,0,0));checks+=1;assert.throws(()=>capture.scanLoop(3,2,0,.1,20));checks+=1;
+console.log(JSON.stringify({status:'PASS',checks,defaultPreset:{threshold:.1,capturesPerLoop:defaultScan.capturesPerLoop,insideFraction:defaultScan.insideFraction,minimumRadius:defaultScan.minimumRadius,minimumTime:defaultScan.minimumTime},policy:detector.snapshot.policy},null,2));

@@ -2,9 +2,69 @@
 
 Datum der Anlage: `2026-10-10`
 
-Letzte dokumentarische Fortschreibung: `2026-10-22` · Club/Numbers/Control-Room-Engineering-Return.
-Neuer Einstieg: [Bench, Tube, NumberMagick und offene Aufgaben](#documentation-closeout-20261020).
+Letzte dokumentarische Fortschreibung: `2026-10-26` · A0-Session-/Science-Log-/Backlog-Return.
+Neuer Einstieg: [A0-Session-Return vom 26.10.2026](#session-engineering-return-20261026).
 Historische Abschnitte und ihre damaligen Zustände bleiben erhalten.
+
+<a id="session-engineering-return-20261026"></a>
+
+## 26.10.2026 — Stackplayer, Lissajous, Club, IOTA, Tower, Bridge und Session-Closeout
+
+Dokumentarischer Engineering-Return unter der bestehenden Paketidentität
+`NEXAH_AX0_QMODE_FOUNDATION_PACKAGE` und der bestehenden Bench-Identität
+`NEXAH_A0_ORIENTATION_CONTROLLER_BENCH`. Die heutigen Einzelreturns sind als
+eine nachvollziehbare Kette zurückgebunden: QRT-/7″-Cut und RPM-Ansichten;
+gewichteter grüner Lissajous-Knoten und Drei-Node-Capture; Club Ring und
+Control-Room-Seam; IOTA 3×8/2×12→24; weißer CⅡ-Träger, View/Overlay/Club;
+sowie Tower/Bridge/Lantern mit Pearl, Emerald, Exit 74 und offener Phantom-Tine.
+Die neun Blue-Body-Schaukeln bleiben synchronisierte Ansichten mit getrennten
+Operatoren; das wiederverwendbare Close-Fenster hält Bench- und Seam-Aufrufe
+im Ausgangsdokument und stellt beim Schließen Scrollposition und Fokus wieder her.
+
+`STILL` bleibt der feste Zustands-Token der IOTA-Bridge. `S-HELL` ist das
+lokale Owner-Mnemonik für diesen gehaltenen Shell-/Still-Punkt. Es ist weder
+die bestehende kanonische `NEXAH_OPEN_SHELL_DOCUMENT_FAMILY` noch eine neue
+Identität, physische Schale oder wissenschaftliche Aussage.
+
+[Kanonischer Backlog-Return](24_A0_RESEARCH_BACKLOG_AND_OPEN_JOINTS_2026-10-10.md#session-engineering-return-20261026) ·
+[Science Desk](A0_BOOK/A0_RESEARCH_DESK.html#session-engineering-return-20261026) ·
+[Builder Log](A0_BOOK/A0_BUILDER_LOG.html#session-engineering-return-20261026) ·
+[wissenschaftlicher Intake](32_A0_FINDINGS_AND_PAPER_WORKSPACE_2026-10-11.md#session-scientific-intake-20261026) ·
+[NSN A0 Evidence Lens](../../SCIENCE_LAB/NAVIGATION/APP/index.html#a0-orientation-evidence) ·
+[konsolidierter Prüfbeleg](A0_BOOK/results/a0-session-science-log-backlog-return-2026-10-26.json).
+
+<a id="session-scientific-intake-20261026"></a>
+
+### Wissenschaftlicher Intake vor weiterer Bauarbeit
+
+Die Session wurde als `INTAKE_TRIAGE_ONLY / NOT_ADMITTED /
+NO_BUILD_AUTHORIZATION` geprüft. Interface-/Navigationsarbeit, synchronisierte
+Views und vorhandene endliche Readouts erzeugen keine neue wissenschaftliche
+Frage. Phantom-Tine/YUGO, die historische rot-grüne Two-Percent-Spirale und
+eine mögliche gemeinsame View-Synchronisation bleiben höchstens Kandidaten:
+zuerst müssen Originalquelle, typisierter Gegenstand, begrenzte Frage,
+Baseline, Messgröße und Falsifikationskriterium vorliegen. Bis dahin gilt STOP
+für weitere darauf gestützte Feature-Arbeit.
+
+Offen bleiben die echten Human-/Narrow-/Reduced-Motion-Abnahmen aus `DOC-01`,
+einzelne öffentliche Currentness-/Release-Pins aus `DOC-02`, die historische
+Suche nach der rot-grünen Two-Percent-Spiral-HTML, der namentliche unabhängige
+SCC-003-Reviewer und die als `YUGO? UNBOUND` markierte Phantom-Tine. Keine
+dieser Aufgaben wird durch die dokumentarische Rückbindung stillschweigend
+geschlossen.
+
+Status:
+
+```text
+DOCUMENTARY_ENGINEERING_RETURN
+SOURCE_AND_RECEIPT_CHAIN_BOUND
+NO_NEW_STUDY
+NO_NEW_FINDING
+NO_NEW_NAVIGATOR_ID_OR_RELATION
+SCIENTIFIC_INTAKE_NOT_ADMITTED
+NO_FURTHER_BUILD_FROM_VISUAL_ANALOGY
+LAB_REGISTER_UNCHANGED
+```
 
 <a id="club-control-return-20261022"></a>
 

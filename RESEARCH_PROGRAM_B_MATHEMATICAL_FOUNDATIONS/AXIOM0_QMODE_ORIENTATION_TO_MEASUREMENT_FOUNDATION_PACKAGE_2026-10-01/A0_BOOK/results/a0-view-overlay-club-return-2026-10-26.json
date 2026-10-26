@@ -1,0 +1,54 @@
+{
+  "schema": "nexah.a0.engineering-return/1",
+  "date": "2026-10-26",
+  "status": "ENGINEERING_AND_BROWSER_PASS",
+  "disposition": "NO_NEW_FINDING / ENGINEERING_OR_VIEW_RETURN",
+  "scope": "Implement the three requested presentation levels over the existing Coupled Channel mixing field: readable single View, selectable two-layer Overlay and a spatially separated Club UX surface.",
+  "identity": {
+    "reused_canonical_identity": "NEXAH_A0_ORIENTATION_CONTROLLER_BENCH",
+    "new_canonical_ids": 0,
+    "new_canonical_relations": 0,
+    "canonical_count_change": 0,
+    "publication": false
+  },
+  "display_contract": {
+    "VIEW": "One selected technical projection is rendered at full opacity. Selecting a technical view returns to VIEW mode.",
+    "OVERLAY": "Two independently selectable existing views are rendered over the common belt; layer B opacity is bounded from 0.10 to 0.90.",
+    "CLUB": "The existing Club Ring is rendered and its controls/readouts occupy a separate full-width UX deck below the technical view selector.",
+    "default_mode": "VIEW",
+    "default_overlay": ["AM_VM_PM", "CLUB_RING"],
+    "default_layer_b_opacity": 0.48,
+    "shared_source_state": true,
+    "source_mutation": false
+  },
+  "boundaries": [
+    "Overlay is a display comparison, not physical superposition or color mixing.",
+    "The Club deck is a separate UX surface, not a new identity, carrier, graph relation or science object.",
+    "The white CII carrier, AM-VM-PM topology and existing Club capture contract remain unchanged.",
+    "No research activation, finding promotion, paper-state change or publication."
+  ],
+  "browser_observation": {
+    "entry": "A0_BLUE_PINK_DODECA_CELL_RETURN.html?rev=20261026-view-overlay-club-r4#coupledChannelBoundaryLens",
+    "VIEW": "PASS: default selected and technical view buttons remain available",
+    "OVERLAY": "PASS: AM-VM-PM plus Club Ring selected, opacity control visible at 48 percent",
+    "CLUB": "PASS: Club selected, overlay controls hidden, separate Club UX deck exposed and active",
+    "accessibility_tree": "PASS"
+  },
+  "validation": {
+    "coupled_channel_boundary": "PASS:256/256",
+    "lissajous_three_node_capture": "PASS:25/25",
+    "blue_pink_dodeca_cell_return": "PASS:125/125",
+    "source_graph": "PASS:20 components,2 component validators,5 governance records,base329/29,composed332/32",
+    "navigator_app_audit": "PASS:253/253",
+    "json_parse": "PASS",
+    "diff_check": "PASS"
+  },
+  "source_pins": {
+    "A0_BLUE_PINK_DODECA_CELL_RETURN.html": "f8ca6a1c9ccd9297ee7927ead5218fff8b2ada2adcd6e3dd528a689f8c1dd2b4",
+    "a0-coupled-channel-boundary-view.js": "9e58ecfc7726488f2849bf3c2677f66c5499f8011a6ec2643740b2d2f403e0ce",
+    "a0-coupled-channel-boundary.css": "89451cd3826aae75969cddc4331674cb5749482fe7c41a1d8baa5b2a502b23c8",
+    "assets/a0-coupled-channel-boundary-v1.js": "2197fcf1cb94e790d3f6d58a7c199c733956a572cedc4a085b7a8db8df00d999",
+    "assets/a0-coupled-channel-boundary-v1.json": "8f47c54af26f362176f6e20ed7f63cebcc1b1b9c28b22e6cf42ec2a672876b5f",
+    "a0-coupled-channel-boundary-tests.cjs": "1701bcb51726f4c998581f8bd169d9ba228614a853bac48c76b032a201c6ee93"
+  }
+}

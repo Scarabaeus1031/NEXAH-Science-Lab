@@ -5,12 +5,13 @@
 })(typeof globalThis!=='undefined'?globalThis:this,function(){
   'use strict';
 
-  const VERSION='1.8.0';
+  const VERSION='1.12.0';
   const SCHEMA='nexah.a0.coupled-channel-boundary-lens/1';
   const IDENTITY='NEXAH_A0_ORIENTATION_CONTROLLER_BENCH';
   const PHASES=Object.freeze(['APPROACH','FIT','CONTACT','TRANSFER','RELEASE','RETURN']);
   const PAINTER_MODES=Object.freeze(['BOUNDARY_BAND','ESCAPE_TIME','SOURCE_ROLES','RESIDUAL']);
   const MIX_VIEWS=Object.freeze(['OVERLAP_3X3','CLUB_RING','SHIFT_NODES','AM_VM_PM']);
+  const DISPLAY_MODES=Object.freeze(['VIEW','OVERLAY','CLUB']);
   const OBSERVER_VIEWS=Object.freeze(['NEWTON','LEIBNIZ','GOETHE']);
   const DEFAULT_STATE=Object.freeze({
     phaseIndex:0,
@@ -26,6 +27,10 @@
     shutterAperture:.58,
     shutterAuto:true,
     mixView:'OVERLAP_3X3',
+    displayMode:'VIEW',
+    overlayPrimary:'AM_VM_PM',
+    overlaySecondary:'CLUB_RING',
+    overlayOpacity:.48,
     observerView:'NEWTON',
     ratio:'2:3'
   });
@@ -48,6 +53,9 @@
     if(!Number.isInteger(state.iterations)||state.iterations<20||state.iterations>1000)throw new RangeError('iterations outside finite observation budget');
     if(!PAINTER_MODES.includes(state.painterMode))throw new RangeError('unknown painterMode');
     if(!MIX_VIEWS.includes(state.mixView))throw new RangeError('unknown mixView');
+    if(!DISPLAY_MODES.includes(state.displayMode))throw new RangeError('unknown displayMode');
+    if(!MIX_VIEWS.includes(state.overlayPrimary)||!MIX_VIEWS.includes(state.overlaySecondary))throw new RangeError('unknown overlay view');
+    finite(state.overlayOpacity,'overlayOpacity');
     if(!OBSERVER_VIEWS.includes(state.observerView))throw new RangeError('unknown observerView');
     if(!['2:3','3:2'].includes(state.ratio))throw new RangeError('ratio must remain a declared display ratio');
     if(typeof state.latexOverlay!=='boolean')throw new TypeError('latexOverlay must be boolean');
@@ -59,6 +67,7 @@
       outerRotation:clamp(state.outerRotation,-45,45),
       speedScale:clamp(state.speedScale,.25,2),
       shutterAperture:clamp(state.shutterAperture,0,1)
+      ,overlayOpacity:clamp(state.overlayOpacity,.1,.9)
     });
   }
 
@@ -109,7 +118,8 @@
         ]),
         pentagonAnchors:Object.freeze({count:2,role:'LOCAL_ORDER_FRAMES',carrierIdentity:false}),
         aperture:Object.freeze({id:'PINK_STRIP_ZIPPER',transversalPlanes:2,role:'FINITE_MASK_AND_HANDOFF_VIEW',touchPoint:Object.freeze({id:'COIL_TOUCH_POINT',activationPhase:'CONTACT',transferPhase:'TRANSFER',addressMutation:false,physicalContactClaim:false})}),
-        motion:Object.freeze({ratio:state.ratio,phase:PHASES[state.phaseIndex],counterRotation:true,totalAngleDegrees:2040,durationSeconds:20,baseSpeedDegreesPerSecond:102,speedScale:state.speedScale,generationSamples:20,elevators:3,pivotGlyph:'°',sharedFrameBinding:Object.freeze({event:'a0-lissajous-frame',receiveOnly:true,sharedNumericalClock:true,signals:Object.freeze(['s1','s2','s3']),fallback:'LOCAL_20_SECOND_DISPLAY_CLOCK',sourceMutation:false,crossTab:false}),shutter:Object.freeze({blades:6,bladePairs:3,mode:state.shutterAuto?'INVERSE_CUCKOO_AUTO':'MANUAL',aperture:state.shutterAperture,physicalMechanism:false}),pulseBinding:Object.freeze({schema:'nexah.a0.pulse-grammar-clock-view/1',channel:'nexah-a0-pulse-grammar-clock-v1',transition:'STILL / PINK DOT',receiveOnly:true,sharedNumericalClock:false,fallback:'LOCAL_20_SECOND_DISPLAY_CLOCK'}),colourPulseDock:Object.freeze({grammar:'CMY_PLUS_K_VIEW_ONLY',carrier:'C_CYAN_BLUE_BODY',dancePartners:Object.freeze(['Y_YELLOW_SEAM','M_MAGENTA_ZIPPER']),key:'K_MASK_SHUTTER_NOT_FOURTH_STATE',wheels:Object.freeze(['Y','M','K']),chromaticStateCount:3,physicalColourModel:false,identicalToScienceLabCBPI:false}),mixingField:Object.freeze({layout:'THREE_BY_THREE_CIRCLE_OVERLAP_VIEW',activeView:state.mixView,views:MIX_VIEWS,perspectiveTriad:Object.freeze([{id:'AM',pair:'S1_S2',role:'ACTIVE_MEANING',colour:'GOLD'},{id:'VM',pair:'S2_S3',role:'VISIONARY_EMERGENCE',colour:'CYAN'},{id:'PM',pair:'S3_S1',role:'PRAGMATIC_MANIFESTATION',colour:'PINK'}]),perspectivesShareSourceTime:true,perspectiveIdentityMerge:false,circleCount:9,shiftStations:24,shiftOffsets:Object.freeze({C:0,Y:8,M:16}),outerBelt:'LOCAL_DISPLAY_SHIFT_RING',sharedShiftState:true,keyRole:'K_MODULATES_BELT_APERTURE_ONLY',intersectionStateCount:null,addressMutation:false,sourceStateMutation:false,flowerOfLifeOperator:false,physicalColourMixing:false}),observerTriad:Object.freeze({ownerViewId:'A0-VIEW-NEWTON-GOETHE-OBSERVER-LENS',ownerSurface:'A0_NEWTON_GOETHE_OBSERVER_LENS.html#lens',activeView:state.observerView,views:OBSERVER_VIEWS,modes:Object.freeze([{id:'NEWTON',role:'SPECTRAL_DECOMPOSITION',display:'WHITE_INPUT_TO_7_ORDERED_BANDS'},{id:'LEIBNIZ',role:'RELATIONAL_ORDER',display:'A_NOT_B_AND_I_NOT_O'},{id:'GOETHE',role:'BOUNDARY_APPEARANCE',display:'LIGHT_DARK_BOUNDARY_TO_APPEARANCE'}]),sharedObserverPivot:true,identicalToAmVmPm:false,remoteControlOwner:false,newGraphRelation:false,calibratedOptics:false,historicalEquivalence:false}),schlieren:'FINITE_DISPLAY_TRAIL',physicalMechanism:false})
+        motion:Object.freeze({ratio:state.ratio,phase:PHASES[state.phaseIndex],counterRotation:true,totalAngleDegrees:2040,durationSeconds:20,baseSpeedDegreesPerSecond:102,speedScale:state.speedScale,generationSamples:20,elevators:3,pivotGlyph:'°',sharedFrameBinding:Object.freeze({event:'a0-lissajous-frame',receiveOnly:true,sharedNumericalClock:true,signals:Object.freeze(['s1','s2','s3']),fallback:'LOCAL_20_SECOND_DISPLAY_CLOCK',sourceMutation:false,crossTab:false}),shutter:Object.freeze({blades:6,bladePairs:3,mode:state.shutterAuto?'INVERSE_CUCKOO_AUTO':'MANUAL',aperture:state.shutterAperture,physicalMechanism:false}),pulseBinding:Object.freeze({schema:'nexah.a0.pulse-grammar-clock-view/1',channel:'nexah-a0-pulse-grammar-clock-v1',transition:'STILL / PINK DOT',receiveOnly:true,sharedNumericalClock:false,fallback:'LOCAL_20_SECOND_DISPLAY_CLOCK'}),colourPulseDock:Object.freeze({grammar:'CMY_PLUS_K_VIEW_ONLY',carrier:'C_CYAN_BLUE_BODY',dancePartners:Object.freeze(['Y_YELLOW_SEAM','M_MAGENTA_ZIPPER']),key:'K_MASK_SHUTTER_NOT_FOURTH_STATE',wheels:Object.freeze(['Y','M','K']),chromaticStateCount:3,physicalColourModel:false,identicalToScienceLabCBPI:false}),mixingField:Object.freeze({layout:'THREE_BY_THREE_CIRCLE_OVERLAP_VIEW',activeView:state.mixView,views:MIX_VIEWS,displaySystem:Object.freeze({mode:state.displayMode,modes:DISPLAY_MODES,overlayPrimary:state.overlayPrimary,overlaySecondary:state.overlaySecondary,overlayOpacity:state.overlayOpacity,clubOwnUxSurface:true,sourceMutation:false,newIdentity:false}),perspectiveTriad:Object.freeze([{id:'AM',pair:'S1_S2',role:'ACTIVE_MEANING',colour:'GOLD'},{id:'VM',pair:'S2_S3',role:'VISIONARY_EMERGENCE',colour:'CYAN'},{id:'PM',pair:'S3_S1',role:'PRAGMATIC_MANIFESTATION',colour:'PINK'}]),perspectivesShareSourceTime:true,perspectiveIdentityMerge:false,intersectionTopology:Object.freeze({present:Object.freeze(['AM_VM','VM_PM']),absent:Object.freeze(['AM_PM']),typing:'DISPLAY_INTERSECTION_NOT_IDENTITY'}),whiteCarrier:Object.freeze({id:'CII_WHITE_DISPLAY_CARRIER',spots:2,rails:2,shape:'OVAL',identityMerge:false}),pillarThreads:Object.freeze({count:3,colour:'VIOLET',role:'DISPLAY_BELTS_NOT_FORCE_MEASUREMENT'}),yellowCycleMarker:Object.freeze({id:'Y',path:'CII_OVAL',role:'VIEW_CYCLE_MARKER'}),circleCount:9,shiftStations:24,shiftOffsets:Object.freeze({C:0,Y:8,M:16}),outerBelt:'LOCAL_DISPLAY_SHIFT_RING',sharedShiftState:true,keyRole:'K_MODULATES_BELT_APERTURE_ONLY',intersectionStateCount:2,addressMutation:false,sourceStateMutation:false,flowerOfLifeOperator:false,physicalColourMixing:false,clubControlRoom:Object.freeze({id:'CLUB_RING_HANDLE_CONTROL_ROOM',sourceView:'THREE_NODE_CAPTURE_APERTURE',sourceEvent:'a0-lissajous-frame',aperture:'SHARED_RHO_VIEW_THRESHOLD',handle:'ALPHA_ORIENTATION_VIEW',regimes:Object.freeze(['AM_DAY','VM_TWILIGHT','PM_NIGHT']),orangeRole:'FLOOR_SPARK_RETURN_ARC_NOT_FOURTH_NODE',countPolicy:'OUTSIDE_TO_INSIDE_ONLY',sourceMutation:false,newIdentity:false,newGraphRelation:false,physicalMechanism:false})}),observerTriad:Object.freeze({ownerViewId:'A0-VIEW-NEWTON-GOETHE-OBSERVER-LENS',ownerSurface:'A0_NEWTON_GOETHE_OBSERVER_LENS.html#lens',activeView:state.observerView,views:OBSERVER_VIEWS,modes:Object.freeze([{id:'NEWTON',role:'SPECTRAL_DECOMPOSITION',display:'PINK_WHITE_INPUT_TO_7_ORDERED_BANDS'},{id:'LEIBNIZ',role:'RELATIONAL_ORDER',display:'THREE_BELT_CUT_A_NOT_B_AND_I_NOT_O'},{id:'GOETHE',role:'BOUNDARY_APPEARANCE',display:'LIGHT_DARK_BOUNDARY_TO_APPEARANCE'}]),sharedObserverPivot:true,displayIntersection:Object.freeze({views:Object.freeze(['NEWTON','GOETHE']),role:'PINK_WHITE_SHARED_BOUNDARY_SAMPLE',identityMerge:false}),identicalToAmVmPm:false,remoteControlOwner:false,newGraphRelation:false,calibratedOptics:false,historicalEquivalence:false}),schlieren:'FINITE_DISPLAY_TRAIL',physicalMechanism:false})
+        ,ioSeamBench:Object.freeze({id:'IO_SEAM_BENCH_VIEW',clubStatus:'VISUAL_UX_ALIAS_ONLY',center:'C_SHARED_CARRIER_CENTER',inside:'I',outside:'O',zipperBand:'C_EPSILON',distance:'DELTA_EQUALS_RADIUS_MINUS_RHO',epsilon:'MAX_0_005_OR_15_PERCENT_RHO',idealWheelOffsets:Object.freeze([0,8,16]),ownerObservedViewMarkers:Object.freeze([7.83,12.6,13.7]),observedMarkersCanonical:false,iotaRingSnapshot:Object.freeze({schema:'nexah.a0.iota-2-3-ring-frame/1',channel:'nexah-a0-iota-2-3-ring-v1',periods:Object.freeze([8,12]),jointReturn:24,factorRail:Object.freeze([16,17,18,19]),receiveOnly:true,sharedMasterClock:false}),sourceMutation:false,newIdentity:false,newGraphRelation:false,physicalMechanism:false})
       }),
       addressLenses:Object.freeze({
         crt16:Object.freeze({channels:16,modulusStart:17,display:'15_PLUS_1',role:'ADDRESS_VIEW',identicalToOuter7Forms:false}),
@@ -141,5 +151,5 @@
     }catch(error){return Object.freeze({status:'FAIL',error:error.message,wholeMachineReturn:false})}
   }
 
-  return Object.freeze({VERSION,SCHEMA,IDENTITY,PHASES,PAINTER_MODES,MIX_VIEWS,OBSERVER_VIEWS,DEFAULT_STATE,validate,criticalOrbit,dynamicalBoundary,geometricSide,returnRole,snapshot,createState,update,step,reset,capture,restore,verifyReturn,clone});
+  return Object.freeze({VERSION,SCHEMA,IDENTITY,PHASES,PAINTER_MODES,MIX_VIEWS,DISPLAY_MODES,OBSERVER_VIEWS,DEFAULT_STATE,validate,criticalOrbit,dynamicalBoundary,geometricSide,returnRole,snapshot,createState,update,step,reset,capture,restore,verifyReturn,clone});
 });

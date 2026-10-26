@@ -93,6 +93,14 @@ const reduced=domHarness({clock:true,reduced:true}),rc=api.mount(reduced.doc,red
 const incoming=domHarness({clock:true,url:'file:///book/A0_FAMILY_CONNECTION_ATLAS.html?plate=eclipse'}),ic=api.mount(incoming.doc,incoming.win);eq(ic.snapshot().id,'eclipse');ok(!ic.isRunning());eq(incoming.queue.length,0);
 const notifications=[];const stop=ic.subscribe(s=>notifications.push(s.id));eq(notifications,['eclipse']);incoming.click('frpRecord','three-lenses');eq(notifications,['eclipse','three-lenses']);stop();incoming.click('frpRecord','caro');eq(notifications,['eclipse','three-lenses']);
 const invalid=domHarness({url:'file:///book/A0_FAMILY_CONNECTION_ATLAS.html?plate=evil'});eq(api.mount(invalid.doc,invalid.win).snapshot().id,'tessarec');
+const qrt=api.RECORDS.find(r=>r.id==='qrt-record');ok(qrt);eq(qrt.views.map(v=>v[0]),['ep','lp','shellac']);
+ok(qrt.views[0][1].includes('7″')&&qrt.views[0][1].includes('45 rpm'));
+ok(qrt.views[1][1].includes('12″')&&qrt.views[1][1].includes('33⅓ rpm'));
+ok(qrt.views[2][1].includes('10″')&&qrt.views[2][1].includes('78 rpm'));
+ok(api.sourceHref(qrt,'ep').includes('NEXAH_SOLAR_SYSTEM_CLOCKWORK_DOCUMENT_FAMILY_2026-09-14'));
+for(const view of qrt.views){const svg=api.artwork(qrt,view[0]);ok(svg.includes(view[1]));ok(svg.includes('#eea746'));ok(svg.includes('#b881ff'));}
+const qrtHarness=domHarness({clock:true,url:'file:///book/A0_FAMILY_CONNECTION_ATLAS.html?plate=qrt-record'}),qc=api.mount(qrtHarness.doc,qrtHarness.win);
+eq(qc.snapshot(),{id:'qrt-record',view:'ep',address:null});ok(!qc.isRunning());qrtHarness.click('frpView','shellac');eq(qc.snapshot().view,'shellac');ok(qrtHarness.els['[data-frp-reading]'].textContent.includes('78 rpm'));
 const layoutHarness=domHarness({clock:true}),lc=api.mount(layoutHarness.doc,layoutHarness.win);const beforeLayout=lc.snapshot();layoutHarness.calls.length=0;
 ok(lc.setLayout('jukebox'));eq(lc.displayLayout(),'jukebox');eq(lc.snapshot(),beforeLayout);ok(lc.isRunning());eq(layoutHarness.queue.length,1);eq(layoutHarness.calls,[]);
 ok(layoutHarness.els['[data-frp-wheel-face]'].hidden);ok(!layoutHarness.els['[data-frp-jukebox-face]'].hidden);

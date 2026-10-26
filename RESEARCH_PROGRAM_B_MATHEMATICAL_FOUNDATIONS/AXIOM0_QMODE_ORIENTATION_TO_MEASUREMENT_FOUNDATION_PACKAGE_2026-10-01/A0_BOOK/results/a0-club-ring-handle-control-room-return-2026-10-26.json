@@ -1,0 +1,89 @@
+{
+  "date": "2026-10-26",
+  "status": "ENGINEERING_AND_BROWSER_PASS",
+  "scope": "Connect the existing Club Ring / AM-VM-PM view to the existing three-node Lissajous capture aperture inside the A0 Blue/Pink coupled-channel control room",
+  "identity": {
+    "reused_canonical_identity": "NEXAH_A0_ORIENTATION_CONTROLLER_BENCH",
+    "reused_carrier": "THREE_SIGNAL_CARRIER",
+    "reused_source_view": "THREE_NODE_CAPTURE_APERTURE",
+    "view_extension": "CLUB_RING_HANDLE_CONTROL_ROOM",
+    "new_canonical_ids": 0,
+    "new_canonical_relations": 0,
+    "canonical_count_change": 0,
+    "publication": false
+  },
+  "control_contract": {
+    "aperture": "SHARED_RHO_VIEW_THRESHOLD",
+    "aperture_binding": "The Club rho control and the existing Lissajous capture threshold are bidirectionally synchronized.",
+    "handle": "ALPHA_ORIENTATION_VIEW",
+    "handle_binding": "Alpha is a view-only ring handle; it may follow the source clock or be moved manually without mutating the source record.",
+    "regimes": {
+      "AM_DAY_OPEN": "cos(alpha) > 0.2",
+      "VM_TWILIGHT_CROSS": "-0.2 <= cos(alpha) <= 0.2",
+      "PM_NIGHT_CLOSE": "cos(alpha) < -0.2"
+    },
+    "capture_policy": "Count outside-to-inside envelope entries of the shared three-node overlay during one 2pi scan.",
+    "orange_role": "FLOOR_SPARK_RETURN_ARC_NOT_FOURTH_NODE",
+    "boundaries": [
+      "No source mutation",
+      "No new observer or object identity",
+      "No new graph relation",
+      "No calibrated physical or optical claim"
+    ]
+  },
+  "browser_probes": [
+    {
+      "rho": 0.1,
+      "entries_per_2pi": 1,
+      "inside_fraction": "1.17%",
+      "result": "PASS"
+    },
+    {
+      "rho": 0.2,
+      "entries_per_2pi": 2,
+      "inside_fraction": "4.50%",
+      "threshold_sync": "PASS",
+      "result": "PASS"
+    },
+    {
+      "alpha_degrees": 180,
+      "follow_source": false,
+      "expected_regime": "PM_NIGHT_CLOSE",
+      "result": "PASS"
+    }
+  ],
+  "validation": {
+    "coupled_channel_boundary": {
+      "status": "PASS",
+      "checks": 180
+    },
+    "lissajous_three_node_capture": {
+      "status": "PASS",
+      "checks": 25
+    },
+    "blue_pink_dodeca_cell_return": {
+      "status": "PASS",
+      "checks": 125
+    },
+    "shared_measurement": {
+      "status": "PASS",
+      "checks": 80400,
+      "frames": 2172
+    },
+    "flow_grid": "PASS",
+    "root_room_bridge": "PASS",
+    "source_graph": "PASS:20 components,component validators 2,governance records 5,base329/29,composed332/32",
+    "navigator_app_audit": "PASS:253/253",
+    "browser_interaction": "PASS",
+    "diff_check": "PASS"
+  },
+  "source_pins": {
+    "A0_BLUE_PINK_DODECA_CELL_RETURN.html": "f0d1fdeb76b5981f444aa5e2bcbfb4e5e15be053ac07bc3938565a8425c57e63",
+    "a0-coupled-channel-boundary-view.js": "1c3546ab7bacaca990dfd3f1f2194a4ca4ff5658eb28f760b810e660e6d2b152",
+    "a0-coupled-channel-boundary.css": "e5c965a322d93110450f159bbca9f6c0cfac2a253ac6696441c4a832b0c75466",
+    "assets/a0-coupled-channel-boundary-v1.js": "acf28741a8de86921e9cdc3d7fa5c740c18f0f468bc54a0930be1783f363a831",
+    "assets/a0-coupled-channel-boundary-v1.json": "830b6ad42002286165d51904e0036da311000f08b05778834e819cb254e781e6",
+    "a0-coupled-channel-boundary-tests.cjs": "b635c2ebd525431d6a1d327ae91ca20956a6ae419bf2b835543bb910e8831462",
+    "assets/a0-lissajous-three-node-capture.js": "d76338d0fafdee8358a49c8b4a8870821cd2cb407e0701824186f050106eaef2"
+  }
+}

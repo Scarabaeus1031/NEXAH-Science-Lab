@@ -1,0 +1,89 @@
+{
+  "schema": "nexah.a0.assembly_atlas_dry_test_receipt",
+  "version": "1.2.0",
+  "date": "2026-10-25",
+  "status": "PASS_WITH_HOLD",
+  "authority": "ENGINEERING_DRY_TEST_ONLY_STRUCTURE_FREEZE",
+  "identity_effect": "NONE",
+  "counts": {"pass": 9, "hold": 2, "fail": 0},
+  "results": [
+    {
+      "id": "T1",
+      "status": "PASS",
+      "assertion": "Anchor coordinates remain invariant while belt phase changes.",
+      "evidence": {"anchorsDeclared": true, "anchorReadouts": true, "anchorWrites": false, "phaseHandler": true, "browserProbe": {"phase": 73, "nodeA": "205,405", "nodeB": "695,405"}},
+      "missing": []
+    },
+    {
+      "id": "T2",
+      "status": "PASS",
+      "assertion": "Pink and Green remain separately addressable carriers.",
+      "evidence": {"pinkCount": 1, "greenCount": 1, "separateTransforms": true},
+      "missing": []
+    },
+    {
+      "id": "T3",
+      "status": "PASS",
+      "assertion": "The W-plate event lanes form a typed B3/S23 Birth/Survive/Death partition with an exact four-channel ledger.",
+      "evidence": {"generation": 1, "births_i_positive": 2, "survives_j_hold": 1, "deaths_k_negative": 2, "events_all": 5, "ledger": {"c00": 20, "c01": 2, "c10": 2, "c11": 1, "total": 25, "exact": true, "previous": {"zero": 22, "one": 3}, "current": {"zero": 22, "one": 3}}},
+      "missing": []
+    },
+    {
+      "id": "T4",
+      "status": "PASS",
+      "assertion": "Each input step advances exactly one generation and the monitor declares one master timer.",
+      "evidence": {"generations": [0, 1, 2], "oneMasterTimer": true},
+      "missing": []
+    },
+    {
+      "id": "T5",
+      "status": "HOLD",
+      "assertion": "Return must preserve generation, source state, rule/view context and transition map; Death must not directly feed Birth.",
+      "evidence": {"checkpointFields": {"generation": true, "sourceState": true, "history": true, "jointHistory": true, "boundary": true, "threshold": true, "signature": true, "selectedView": false, "transitionMap": false}, "noEventFeedback": true, "exactSignatureComparison": true},
+      "missing": ["selectedView", "transitionMap"]
+    },
+    {
+      "id": "T6",
+      "status": "PASS",
+      "assertion": "Owner notation remains separated: 1i / jk ≠ Q°; T is preserved as the LL distribution seam and TL/Tic-Tac-Toe remain candidate views.",
+      "evidence": {"notationPresent": true, "glyphReadingPresent": true, "qAliasAssignment": false},
+      "missing": []
+    },
+    {
+      "id": "T7",
+      "status": "PASS",
+      "assertion": "kß remains one compound Owner glyph with two distinguishable channels while ß/beta/zeta identities remain separated.",
+      "evidence": {"compound": {"literal": "kß", "source_rendering": "kβ-like", "channels": 2, "multiplication": false, "square": false, "visuals": [1, 6]}, "compoundMarkup": true, "morphologySeparated": true},
+      "missing": []
+    },
+    {
+      "id": "T8",
+      "status": "PASS",
+      "assertion": "Visuals 3 and 5 retain the persistent-address/axis view role.",
+      "evidence": {"addressAxisVisuals": true, "addressAxisMarkup": true},
+      "missing": []
+    },
+    {
+      "id": "T9",
+      "status": "PASS",
+      "assertion": "Visual 4 remains a reconstruction screen view without identity merge.",
+      "evidence": {"screenMapping": true, "screenMarkup": true, "noMergeBoundary": true},
+      "missing": []
+    },
+    {
+      "id": "T10",
+      "status": "PASS",
+      "assertion": "Visuals 7–11 retain an ordered Fresnel projection-family role with no mechanism claim.",
+      "evidence": {"fresnelSequence": true, "fresnelMarkup": true, "noMechanismClaim": true},
+      "missing": []
+    },
+    {
+      "id": "T11",
+      "status": "HOLD",
+      "assertion": "Boltzmann/Pascal remains a dimensionally guarded candidate adapter: the current Game k·NEG and multifunctional A0 ß roles are preserved.",
+      "evidence": {"gameKIsNegative": true, "existingBowFamily": true, "dimensionGuard": true, "candidate_state": "HOLD_UNTIL_TYPED_PHYSICAL_ADAPTER", "required_equation": "p = (N/V) k_B T", "output_unit": "Pa = J m^-3"},
+      "missing": ["N particle/event interpretation", "V joint volume in m^3", "T absolute temperature in K", "mapping from game events to physical population"]
+    }
+  ],
+  "boundary": "No scientific replay, mechanism validation, study activation or claim promotion."
+}

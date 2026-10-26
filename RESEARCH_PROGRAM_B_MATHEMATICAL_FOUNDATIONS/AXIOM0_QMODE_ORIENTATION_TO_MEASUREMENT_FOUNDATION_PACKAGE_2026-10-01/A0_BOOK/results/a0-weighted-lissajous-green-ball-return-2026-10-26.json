@@ -1,0 +1,53 @@
+{
+  "schema": "a0.weighted-lissajous-green-ball-return/1",
+  "date": "2026-10-26",
+  "status": "ENGINEERING_PASS_BROWSER_PASS",
+  "existing_lineage": "NEXAH:A0_ORIENTATION_EVIDENCE_LINEAGE:V1",
+  "source_carrier": "THREE_SIGNAL_CARRIER",
+  "view_adapter": "WEIGHTED_GREEN_BALL_VIEW",
+  "new_global_ids": [],
+  "relation_changes": [],
+  "canonical_count_effect": 0,
+  "publication_authorized": false,
+  "scope": "A weighted Green Ball display adapter inside the existing three-plane Lissajous instrument, using the same signal clock and three existing coordinate projections.",
+  "contract": {
+    "default_weights": [1, 1, 1],
+    "normalized_weights": "w_hat_i = w_i / sum(w)",
+    "projected_position": "g_i = (w_i / mean(w)) * s_i",
+    "vertical_reading": "y_G = sum(w_hat_i * s_i)",
+    "vertical_gradient": "dy_G/dt = sum(w_hat_i * ds_i/dt)",
+    "zero_vector_policy": "0:0:0 falls back visibly to neutral 1:1:1",
+    "non_identity": "GREEN_BALL_IS_NOT_CARO_GREEN_MIRROR_BALL"
+  },
+  "boundaries": [
+    "Weights are declared display weights, not mass, probability, Pascal pressure or the Boltzmann constant.",
+    "The adapter does not create a new clock, carrier, graph identity or relation.",
+    "The visualization is not a physical dynamics, pressure, gravity or thermodynamic claim."
+  ],
+  "verification": {
+    "weighted_model": {"status": "PASS", "assertions": 31},
+    "blue_pink_integration": {"status": "PASS", "assertions": 113},
+    "lissajous_distance": {"status": "PASS"},
+    "root_room_bridge": {"status": "PASS"},
+    "breathing_fin": {"status": "PASS", "samples": 3000},
+    "flow_grid": {"status": "PASS", "mask_follow_cases": 3200},
+    "shared_measurement": {"status": "PASS", "checks": 80400, "frames": 2172},
+    "source_graph": {"status": "PASS", "components": 20, "component_validators": 2, "governance_records": 5, "base": "329/29", "composed": "332/32"},
+    "navigator_app_audit": {"status": "PASS", "checks": 253},
+    "browser": {
+      "status": "PASS",
+      "url_revision": "20261026-green-ball-r2",
+      "neutral_readout": "w_hat 0.33 / 0.33 / 0.33",
+      "weighted_probe": "2.5:1:1 -> w_hat 0.56 / 0.22 / 0.22",
+      "zero_weight_probe": "explicit neutral fallback",
+      "console_errors": 0
+    }
+  },
+  "source_pins": [
+    {"path": "A0_BLUE_PINK_DODECA_CELL_RETURN.html", "sha256": "7fe3f33441c9d7f67acd0d66133711283408d7856eb657864094260573b413f2"},
+    {"path": "assets/a0-blue-pink-dodeca-cell-return-v1.js", "sha256": "652d669192ffa3c108a20dc585e7de3aaa363264ce637a4589f18a1da6b84d59"},
+    {"path": "assets/a0-weighted-lissajous-green-ball.js", "sha256": "990c6d97624d1d75b041e1159bc80305a1fdf2c5508fa28aee5e244f285e5cce"},
+    {"path": "a0-blue-pink-dodeca-cell-return-tests.cjs", "sha256": "30443fd2af0cdc0f20cdb6a84a10ac781a27d346b5efa968cfd141b6e4959efe"},
+    {"path": "a0-weighted-lissajous-green-ball-tests.cjs", "sha256": "ff52c388b65f78a8f147aeba2dda7cb358564c77249ba947d8608a9395b65115"}
+  ]
+}

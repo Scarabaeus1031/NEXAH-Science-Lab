@@ -1,0 +1,68 @@
+{
+  "schema": "a0.lissajous-three-node-capture-return/1",
+  "date": "2026-10-26",
+  "status": "ENGINEERING_PASS_BROWSER_PASS",
+  "existing_lineage": "NEXAH:A0_ORIENTATION_EVIDENCE_LINEAGE:V1",
+  "package_identity": "NEXAH_AX0_QMODE_FOUNDATION_PACKAGE",
+  "source_identity": "SRC:A0OE:PASCAL_LISSAJOUS_MOBIUS_RETURN",
+  "navigator_identity": "SRC:NN:LISSAJOUS_MOBIUS_RETURN",
+  "source_carrier": "THREE_SIGNAL_CARRIER",
+  "view_adapter": "THREE_NODE_CAPTURE_APERTURE",
+  "new_global_ids": [],
+  "relation_changes": [],
+  "canonical_count_effect": 0,
+  "publication_authorized": false,
+  "scope": "A measurable capture aperture around the three existing points in the Shared Overlay of the three-plane Lissajous instrument.",
+  "contract": {
+    "points": [
+      "P_AM=(s1,s2)",
+      "P_VM=(s2,s3)",
+      "P_PM=(s3,s1)"
+    ],
+    "center": "G=((s1+s2+s3)/3,(s1+s2+s3)/3)",
+    "envelope": "smallest circle centered at G that contains P_AM, P_VM and P_PM",
+    "capture_condition": "max_i(distance(P_i,G)) <= rho",
+    "count_policy": "outside-to-inside transitions only",
+    "exit_policy": "outside only after radius > 1.15*rho",
+    "loop_measurement": "8192 uniform periodic samples over [0,2*pi)",
+    "default_threshold": 0.1,
+    "default_result": {
+      "ratio": "3:2",
+      "phase": "pi/2",
+      "captures_per_loop": 1,
+      "inside_fraction": 0.01171875,
+      "minimum_radius": 0.061152734051025934,
+      "minimum_time": 0.31408256631958503
+    }
+  },
+  "boundaries": [
+    "Capture is a numerical view measurement of the existing 3+1 seam mode, not a new object or graph relation.",
+    "The 8192-sample count is a declared measurement resolution, not an analytic proof of an exact seam.",
+    "The view makes no mechanical, pressure, thermodynamic, gravitational or other intrinsic physics claim."
+  ],
+  "verification": {
+    "capture_model": {"status": "PASS", "assertions": 25},
+    "blue_pink_integration": {"status": "PASS", "assertions": 125},
+    "lissajous_distance": {"status": "PASS"},
+    "root_room_bridge": {"status": "PASS"},
+    "breathing_fin": {"status": "PASS", "samples": 3000},
+    "flow_grid": {"status": "PASS", "mask_follow_cases": 3200},
+    "shared_measurement": {"status": "PASS", "checks": 80400, "frames": 2172},
+    "source_graph": {"status": "PASS", "components": 20, "component_validators": 2, "governance_records": 5, "base": "329/29", "composed": "332/32"},
+    "navigator_app_audit": {"status": "PASS", "checks": 253},
+    "browser": {
+      "status": "PASS",
+      "url_revision": "20261026-three-node-capture-r1",
+      "default_probe": "rho 0.100 -> 1 capture / 2pi; 1.17% inside",
+      "opened_probe": "rho 0.200 -> 2 captures / 2pi; 4.50% inside",
+      "reset_probe": "counter reset control operated and threshold restored to rho 0.100"
+    }
+  },
+  "source_pins": [
+    {"path": "A0_BLUE_PINK_DODECA_CELL_RETURN.html", "sha256": "bc3fbd01a7c4cfcb8d8ef8a05d7e68bcd0f99b0c4e080423b6441618021eafaf"},
+    {"path": "assets/a0-blue-pink-dodeca-cell-return-v1.js", "sha256": "5bee266d3ccff5c7c7a4a254efabf2876433149b1bc8e93019221558836556b7"},
+    {"path": "assets/a0-lissajous-three-node-capture.js", "sha256": "d76338d0fafdee8358a49c8b4a8870821cd2cb407e0701824186f050106eaef2"},
+    {"path": "a0-lissajous-three-node-capture-tests.cjs", "sha256": "a468332c2c9045b350812851ef9cda230c943a5d25d979b3db7edfe3d54af4ad"},
+    {"path": "a0-blue-pink-dodeca-cell-return-tests.cjs", "sha256": "d71a9352bd4150784cc36f1fda5d59ef801f831ade1c6d84aae3d3ac5a9bae99"}
+  ]
+}

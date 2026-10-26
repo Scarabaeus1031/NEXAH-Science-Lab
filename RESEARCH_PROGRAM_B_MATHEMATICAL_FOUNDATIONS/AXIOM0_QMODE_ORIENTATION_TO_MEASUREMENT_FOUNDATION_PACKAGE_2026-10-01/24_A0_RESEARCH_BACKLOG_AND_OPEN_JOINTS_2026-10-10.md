@@ -10,6 +10,53 @@ Mission Control backlog: `RELATIONAL_IDENTIFIABILITY_UNDER_REPRESENTATION_CHANGE
 
 ## Purpose
 
+<a id="session-engineering-return-20261026"></a>
+
+### A0-Session-Return · 26.10.2026
+
+Status: `DOCUMENTARY_ENGINEERING_RETURN / RECEIPTS_BOUND / OPEN_GATES_PRESERVED / NO NEW A0-BL`
+
+Die aktuelle Arbeitskette ist in den vorhandenen A0-Unterledger zurückgeführt.
+Sie erzeugt keine neue Backlog-ID, Study, Finding-Nummer oder Graphrelation.
+
+| Bereich | Gebundener Return | Zustand / Grenze |
+|---|---|---|
+| Stackplayer / Cuts | `a0-family-record-player-qrt-cut-return-2026-10-26.json` | begrenzter Quellen-Crosswalk für 7″ und RPM-/Cut-Ansichten; kein universeller Plattenvertrag |
+| Lissajous | `a0-weighted-lissajous-green-ball-return-2026-10-26.json`; `a0-lissajous-three-node-capture-return-2026-10-26.json` | grüner gewichteter Knoten und Capture-Zählung software-/browsergeprüft; View, keine neue Physik |
+| Club / IOTA / CⅡ | `a0-club-ring-handle-control-room-return-2026-10-26.json`; `a0-iota-ring-io-seam-return-2026-10-26.json`; `a0-white-carrier-chain-lightshow-return-2026-10-26.json`; `a0-view-overlay-club-return-2026-10-26.json` | gemeinsame Quelle, getrennte Präsentationsebenen, read-only Ring-Frame; keine zweite Uhr oder Source-Mutation |
+| Tower / Bridge / Lantern | `a0-tower-bridge-cleanup-return-2026-10-26.json`; `a0-lantern-phantom-tine-return-2026-10-26.json` | bestehende Handoff-Identität; Tesla-Coil/Epsilon/Sanduhr nur View-Mnemonik; Phantom-Tine bleibt ungebunden |
+| Blue Body / neun Schaukeln | `a0-blue-body-nine-view-swing-sync-return-2026-10-26.json` | gemeinsame Display-Phase, aber neun getrennte Operatorzustände; keine Operatorfusion oder wissenschaftliche Synchronisationsbehauptung |
+| Close-Fenster / Bench-Routen | `a0-module-window-return-2026-10-26.json` | wiederverwendbares Navigationsfenster mit sichtbarem Close und Fokus-/Scroll-Return; reine UX-Rückbindung, kein State-Transport |
+
+`STILL` ist der feste IOTA-Zustands-Token. `S-HELL` ist ausschließlich das
+lokale Owner-Mnemonik dafür; keine Bindung an die kanonische Open-Shell-Familie
+und keine neue Shell-Identität. Der konsolidierte maschinenlesbare Return liegt
+unter [A0_BOOK/results/a0-session-science-log-backlog-return-2026-10-26.json](A0_BOOK/results/a0-session-science-log-backlog-return-2026-10-26.json).
+
+**Weiter offen, nicht durch Rückbindung geschlossen:** `DOC-01` Human-/Narrow-/Reduced-Motion-Abnahme;
+`DOC-02` öffentliche Currentness-/Release-Pins und historischer Mathfield-Hash;
+rot-grüne Two-Percent-Spiral-HTML weiterhin nicht lokalisiert; SCC-003 wartet
+auf einen namentlich bestimmten unabhängigen Reviewer; `YUGO? UNBOUND` bleibt
+eine nicht behauptete Owner-Lesart.
+
+<a id="session-scientific-intake-20261026"></a>
+
+#### Wissenschaftlicher Intake · vor weiterer Bauarbeit
+
+Status: `INTAKE_TRIAGE_ONLY / NOT_ADMITTED / NO_BUILD_AUTHORIZATION / NO NEW A0-BL`
+
+| Klasse | Intake-Entscheidung | Nächste zulässige Aktion |
+|---|---|---|
+| View, Overlay, Club, neun Schaukeln, Close-Fenster | Engineering-/Präsentationsarbeit; keine neue wissenschaftliche Aussage | bestehende Receipts erhalten; keine Claim-Promotion |
+| QRT/Cuts, Lissajous/Capture, IOTA-Schedule | endliche lokale Readouts unter bereits bestehenden Verträgen | nur vorhandene Replays und Grenzen prüfen |
+| Phantom-Tine/YUGO, Laternen-/Tower-Mnemonik | visuelle Lesart ohne typisierte Quellbindung | Originalquelle und Gegenstand wiederfinden oder explizit ungebunden lassen |
+| rot-grüne Two-Percent-Spirale | Quellenlücke | historische HTML mit Pfad, Hash und Rolle lokalisieren |
+| gemeinsame View-Synchronisation | noch keine wissenschaftliche Frage | erst Nutzerfall, Baseline, Messgröße und Fehlkriterium formulieren |
+| SCC-003 | separater vorhandener Review-Gate | namentlichen unabhängigen Reviewer bestimmen |
+
+Vollständige Triage: [Findings-/Paper-Workspace](32_A0_FINDINGS_AND_PAPER_WORKSPACE_2026-10-11.md#session-scientific-intake-20261026).
+Ohne Quelle, begrenzte Frage, Baseline und Claim Ceiling wird nicht weitergebaut.
+
 <a id="a0-final-delta-routing-20261025"></a>
 
 ### Finaler Delta-Return · 25.10.2026

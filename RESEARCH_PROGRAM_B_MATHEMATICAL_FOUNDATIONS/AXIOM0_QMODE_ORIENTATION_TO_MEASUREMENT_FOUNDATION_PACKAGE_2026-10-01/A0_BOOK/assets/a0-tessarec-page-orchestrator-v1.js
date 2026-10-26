@@ -12,8 +12,32 @@
     fiber: { target: "fiber-geometry", moduleId: "fiber-cut", bindingType: "typed-view" },
     fold: { target: "fold-contact", moduleId: "fold-breath", bindingType: "typed-view" },
     spectrum: { target: "spectral-audit", moduleId: "spectrum-return", bindingType: "typed-view" },
-    rings: { target: "fibonacci-ring-operator", moduleId: "ring-comparator", bindingType: "typed-view" }
+    rings: { target: "fibonacci-ring-operator", moduleId: "ring-comparator", bindingType: "typed-view" },
+    interior: { target: "blue-body-interior-crt16", moduleId: "interior-swing", bindingType: "shared-view-phase" },
+    player: { target: "pentagon-body-player", moduleId: "body-player-swing", bindingType: "shared-view-phase" },
+    spoon: { target: "blue-body-spoon-lens-stack", moduleId: "spoon-lantern-swing", bindingType: "shared-view-phase" }
   };
+
+  const expert = button.closest("details");
+  if (expert) expert.open = true;
+  button.setAttribute("aria-controls", Object.values(moduleTargets).map(({ target }) => target).join(" "));
+  [
+    ["interior", "Interior swing"],
+    ["player", "48er body player"],
+    ["spoon", "Spoon / lantern"]
+  ].forEach(([id, label]) => {
+    if (bus.querySelector(`[data-master-node="${id}"]`)) return;
+    const chip = document.createElement("span");
+    chip.dataset.masterNode = id;
+    chip.textContent = label;
+    bus.append(chip);
+  });
+  if (!document.getElementById("masterSwingBoundary")) {
+    const boundary = document.createElement("small");
+    boundary.id = "masterSwingBoundary";
+    boundary.textContent = "9 Ansichten lesen denselben 48-Tick-Seitenbus. Phase wird geteilt; Adressen, Operatoren und Quellen bleiben getrennt.";
+    bus.after(boundary);
+  }
 
   bus.querySelectorAll("span[data-master-node]").forEach((chip) => {
     const binding = moduleTargets[chip.dataset.masterNode];
@@ -46,14 +70,17 @@
     if (fold && fold.textContent.startsWith("Pause")) fold.click();
     if (breath && breath.classList.contains("active")) breath.click();
     if (fibonacci && fibonacci.classList.contains("active")) fibonacci.click();
+    window.A0BlueBodyInteriorController?.stop?.();
+    window.A0PentagonBodyPlayerController?.stop?.();
+    window.A0BlueBodySpoonLensController?.stop?.();
   }
 
   function setButton() {
     button.classList.toggle("active", state.running);
     button.setAttribute("aria-pressed", String(state.running));
     button.innerHTML = state.running
-      ? '<span aria-hidden="true">Ⅱ</span>Pause all · coupled page'
-      : '<span aria-hidden="true">▶</span>Start all · coupled page';
+      ? '<span aria-hidden="true">Ⅱ</span>9 Ansichten pausieren'
+      : '<span aria-hidden="true">▶</span>9 Schaukeln / Ansichten synchronisieren';
     bus.classList.toggle("active", state.running);
     nodes.forEach((node) => node.classList.toggle("active", state.running));
   }
@@ -65,6 +92,24 @@
     const carrier = document.getElementById("stateRange");
     carrier.value = String(tick % 48);
     emitInput(carrier);
+
+    window.A0BlueBodyInteriorController?.configure?.({
+      layer: Math.floor((tick % 48) / 16),
+      channel: tick % 16,
+      phase: tick % 12
+    });
+    const bodyAddress = document.getElementById("bodyAddress");
+    if (bodyAddress) {
+      bodyAddress.value = String(tick % 48);
+      emitInput(bodyAddress);
+    }
+    const spoon = window.A0BlueBodySpoonLensController;
+    const spoonPhases = window.A0BlueBodySpoonLens?.PHASES;
+    const spoonPhase = Array.isArray(spoonPhases) ? spoonPhases[tick % spoonPhases.length] : null;
+    if (spoon && spoonPhase) {
+      spoon.stop();
+      spoon.select(spoonPhase);
+    }
 
     const seamMode = seamOrder[Math.floor(tick / 16) % seamOrder.length];
     const seam = document.querySelector(`[data-seam="${seamMode}"]`);
@@ -103,11 +148,15 @@
       tick,
       phase: wave,
       carrierState: tick % 48,
+      interiorPhase: tick % 12,
+      bodyAddress: tick % 48,
+      spoonPhase,
       seamMode,
       fiberAddress,
       spectralLane: tick % 8,
       pairStart: tick % 7,
-      schedule
+      schedule,
+      synchronization: "READ_ONLY_SHARED_VIEW_PHASE_NO_OPERATOR_MERGE"
     };
     window.dispatchEvent(new CustomEvent("a0:tessarec-tick", { detail: window.A0TessarecPageOrchestratorState }));
     state.tick = (tick + 1) % state.cycleLength;

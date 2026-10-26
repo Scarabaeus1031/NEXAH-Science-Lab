@@ -11,7 +11,9 @@ const eq=(actual,expected,message)=>{assert.deepEqual(actual,expected,message);c
 const ok=(value,message)=>{assert.ok(value,message);checks++};
 
 eq(api.IDENTITY,'NEXAH_A0_ORIENTATION_CONTROLLER_BENCH','existing Bench identity reused');
+eq(api.VERSION,'1.3.0','ring-frame view version');
 eq(api.CLASSIFICATION,'BOUNDED_ENGINEERING_ARITHMETIC_PROBE','probe remains engineering-only');
+eq(api.STILL_MNEMONIC,{token:'STILL',ownerLabel:'S-HELL',role:'LOCAL_VIEW_MNEMONIC',canonicalIdentity:false,openShellBinding:null},'S-HELL is a non-canonical owner mnemonic for STILL');
 eq(api.gcd(8,12),4,'gcd 8 and 12');
 eq(api.lcm(8,12),24,'lcm 8 and 12');
 eq(api.factorize(1836),[2,2,3,3,3,17],'1836 prime factorization');
@@ -74,14 +76,19 @@ eq(record.authority.scientificEvidence,false,'not scientific evidence');
 eq(record.authority.newIdentity,false,'no new identity');
 eq(record.authority.newOperator,false,'no new operator');
 ok(record.boundary.includes('not a physical spin law'),'physical-law boundary explicit');
+ok(record.boundary.includes('not the canonical NEXAH Open Shell'),'Open Shell identity collision is explicitly excluded');
 
 let view=api.createViewState();eq(view,{tick:0,layer:'BRIDGE',playing:false},'view starts at origin bridge layer');
 view=api.advance(view);eq(view.tick,1,'view advances one tick');
 view=api.advance(view,23);eq(view.tick,24,'view reaches joint return');
 eq(api.inspectView(view).returnStatus,'JOINT RETURN','tick 24 joint return readout');
 eq(api.inspectView(view).factorRail.map(item=>item.type),['PRIME_POWER','PRIME','MIXED_COMPOSITE','PRIME'],'factor rail types');
+const frame=api.ringFrame(view);eq(frame.schema,'nexah.a0.iota-2-3-ring-frame/1','typed ring frame');eq(frame.factorRail,[16,17,18,19],'factor rail remains discrete addresses');eq(frame.sharedMasterClock,false,'ring snapshot is not a shared master clock');
 view=api.setLayer(view,'factor');eq(view.layer,'FACTOR','factor layer selected');
 ok(api.svgMarkup(view).includes('2|3 IOTA BRIDGE')&&api.svgMarkup(view).includes('PRIME POWER'),'SVG includes bridge and typed rail');
+ok(api.svgMarkup(view).includes('class="i23-coupling"')&&api.svgMarkup(view).includes('± MIX'),'SVG connects violet and orange markers as a view');
+ok(api.svgMarkup(view).includes('S-HELL · OWNER MNEMONIC'),'SVG exposes bounded owner mnemonic');
+ok(api.svgMarkup(view).includes('M124 520H476'),'factor rail is below the numerals, not struck through');
 eq(api.viewRecord(view).classification,'BOUNDED_ENGINEERING_VIEW','view record bounded');
 assert.throws(()=>api.setLayer(view,'physics'),RangeError);checks++;
 
@@ -101,6 +108,8 @@ const html=fs.readFileSync(path.join(__dirname,'A0_ORIENTATION_CONTROLLER_BENCH.
 const css=fs.readFileSync(path.join(__dirname,'a0-iota-2-3-bridge-probe.css'),'utf8');
 for(const token of ['id="iota23Bridge"','a0-iota-2-3-bridge-probe.css','a0-iota-2-3-bridge-probe.js','data-i23-layer="FACTOR"','16=2⁴=2^(2²)=2×8','iota-2-3-bridge-return-20261023'])ok(html.includes(token),`HTML integration ${token}`);
 ok(css.includes('.i23-number.prime-power')&&css.includes('.i23-still.return'),'prime-power and joint return styled');
+ok(css.includes('.i23-coupling')&&css.includes('.i23-mix-label'),'ring coupling styled');
+const standalone=fs.readFileSync(path.join(__dirname,'A0_IOTA_BRIDGE_DEMONSTRATOR.html'),'utf8');ok(standalone.includes('I/O SEAM ↗'),'standalone links to I/O Seam Bench');ok(standalone.includes('read-only Snapshot'),'snapshot boundary visible');ok(standalone.includes('S-HELL'),'standalone documents owner mnemonic');
 
 assert.throws(()=>api.gcd(0,12),TypeError);checks++;
 assert.throws(()=>api.lcm(8,1.5),TypeError);checks++;

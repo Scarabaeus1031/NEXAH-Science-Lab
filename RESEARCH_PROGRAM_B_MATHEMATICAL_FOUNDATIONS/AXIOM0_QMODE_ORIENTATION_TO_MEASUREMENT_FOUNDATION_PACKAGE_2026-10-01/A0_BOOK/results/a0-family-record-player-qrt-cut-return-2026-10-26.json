@@ -1,0 +1,103 @@
+{
+  "schema": "nexah.a0.family_record_player_qrt_cut_return",
+  "version": "1.0.0",
+  "date": "2026-10-26",
+  "status": "PASS_BOUNDED_SOURCE_CROSSWALK",
+  "authority": "SOURCE_BOUND_NAVIGATION_AND_VIEW_ENGINEERING_ONLY",
+  "identity_effect": "REUSE_ONLY",
+  "identity_reuse": [
+    "ART:HTML:CAAEAD5F19ED",
+    "CAND:SOLAR_CLOCKWORK"
+  ],
+  "scope": "Connect the preserved Saturn-Titan QRT record to the existing A0 Family Record Player as three selectable, typed cut readings.",
+  "source": {
+    "path": "SCIENCE_LAB/CASE_STUDIES/NEXAH_SOLAR_SYSTEM_CLOCKWORK_DOCUMENT_FAMILY_2026-09-14/SOURCE_SNAPSHOT/saturn-titan-qrt-record.html",
+    "sha256": "d95993f32cd1e828fcecaa6596e9e99b1d738be0420f724759a2bcf11869c72d",
+    "custody": "PRESERVED_APPLICATION_DEMONSTRATOR"
+  },
+  "cuts": [
+    {
+      "id": "ep",
+      "format": "7 inch EP",
+      "declared_rpm": "45 rpm"
+    },
+    {
+      "id": "lp",
+      "format": "12 inch LP",
+      "declared_rpm": "33 1/3 rpm"
+    },
+    {
+      "id": "shellac",
+      "format": "10 inch shellac",
+      "declared_rpm": "78 rpm"
+    }
+  ],
+  "implementation": {
+    "entry": "A0_FAMILY_CONNECTION_ATLAS.html?plate=qrt-record#start",
+    "record_id": "qrt-record",
+    "source_open_action": "stable preserved QRT HTML",
+    "modified_files": [
+      {
+        "path": "A0_BOOK/a0-family-record-player.js",
+        "sha256": "22a65348d8c6ad332fde1a7da93e92be261949fb765559425cea0b996bbc6ae8"
+      },
+      {
+        "path": "A0_BOOK/a0-family-record-player-tests.cjs",
+        "sha256": "4c6dd89d02534b931d2f0f8b92bd974871ac66e73cb03e530188d0d55f87e68f"
+      },
+      {
+        "path": "A0_BOOK/A0_ASSEMBLY_ATLAS.html",
+        "sha256": "e5019fb6600d64447378202514af345f5da2320e4e8322d94153d1da2078efc7"
+      }
+    ]
+  },
+  "verification": {
+    "family_record_player": {
+      "status": "PASS",
+      "checks": 289
+    },
+    "player_bench_boundary": {
+      "status": "PASS",
+      "checks": 261
+    },
+    "assembly_atlas": {
+      "status": "PASS_WITH_HOLD",
+      "pass": 9,
+      "hold": 2,
+      "fail": 0,
+      "holds": [
+        "T5 selectedView and transitionMap are not yet checkpoint fields",
+        "T11 typed physical adapter inputs are not defined"
+      ]
+    },
+    "family_spatial_navigation_neighbor": {
+      "status": "PRE_EXISTING_UNRELATED_FAIL",
+      "failure": "Science entry link A0_SCIENCE.html",
+      "effect_on_qrt_cut_connection": "NONE"
+    },
+    "browser_pixels": {
+      "status": "PASS",
+      "entry_selection": "QRT record selected from query parameter",
+      "verified_switches": [
+        "7 inch / 45 rpm",
+        "12 inch / 33 1/3 rpm",
+        "10 inch / 78 rpm"
+      ],
+      "final_visible_view": "10 inch / 78 rpm",
+      "source_link_stable": true,
+      "atlas_below_remains_independent": true
+    }
+  },
+  "boundaries": [
+    "A cut selection is a typed source reading, not a remote playback command.",
+    "RPM does not replace or synchronize the Q4, Bench or source clock.",
+    "The three formats are not asserted to be identical carrier states.",
+    "The connection does not reconstruct the missing Two-Percent Spiral Return HTML.",
+    "No scientific replay, mechanism validation, study activation, Finding, publication approval or claim promotion occurred."
+  ],
+  "navigator": {
+    "new_canonical_ids": [],
+    "relation_changes": [],
+    "graph_projection_change": false
+  }
+}

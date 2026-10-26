@@ -7,13 +7,14 @@
   <link rel="stylesheet" href="a0-bench-navigation.css?rev=module-deck-20261023-r1">
   <link rel="stylesheet" href="a0-bridge-tower-demonstrators.css?rev=20261023-r1">
   <link rel="stylesheet" href="a0-tower-shell-return.css?rev=20261023-r1">
+  <link rel="stylesheet" href="a0-module-window.css?rev=20261026-r1">
 </head>
 <body>
 <nav class="bench-sections" aria-label="Build und Flagships"><a href="A0_WERKBANK.html">Start</a><a href="A0_MACHINA_COCKPIT.html" aria-label="THE MACHINA">THE MΛCHINΛ</a><a class="domain-blue" href="A0_TESSAREC_BLUE_BODY_LAB.html">BLUE BODY</a><a class="domain-pink" href="A0_PINK_DIAMOND_GRID_ATLAS.html">PINK DIAMOND</a><a class="domain-joint" href="A0_BLUE_PINK_DODECA_CELL_RETURN.html">BLUE × PINK LAB</a><span class="domain-tower" aria-current="page">TOWER</span><a class="domain-bridge" href="A0_IOTA_BRIDGE_DEMONSTRATOR.html">BRIDGE</a></nav>
 <nav class="bench-modes" aria-label="Ansichtsebenen"><a href="A0_BENCH_ENTDECKEN.html">Build-Übersicht</a><span aria-current="page">Demonstrator</span><a href="A0_BENCH_QUELLEN.html">Quellen &amp; Prüfen</a></nav>
-<nav class="bench-quick-access" aria-label="Tower Schnellzugriff"><a href="#module-entry"><small>01</small><b>Tower</b><span>Einstieg und Fixture</span><em>ENTRY</em></a><a class="is-demo" href="#towerShellReturn"><small>02</small><b>Return Demo</b><span>Eigenständige Oberfläche</span><em>DEDICATED</em></a><a class="is-work" href="A0_ORIENTATION_CONTROLLER_BENCH.html#towerShellReturn"><small>03</small><b>Tower in Bench</b><span>Volle Einordnung</span><em>WORK</em></a><a class="is-return" href="A0_RESEARCH_DESK.html#tower-shell-return-science-desk-20261023"><small>04</small><b>Science Desk</b><span>Receipt und Grenze</span><em>RETURN</em></a></nav>
+<nav class="bench-quick-access" aria-label="Tower Schnellzugriff"><a href="#module-entry"><small>01</small><b>Tower</b><span>Einstieg und Fixture</span><em>ENTRY</em></a><a class="is-demo" href="#towerShellReturn"><small>02</small><b>Return Demo</b><span>Eigenständige Oberfläche</span><em>DEDICATED</em></a><a class="is-work" data-a0-window data-a0-window-title="Tower in der Orientation Bench" href="A0_ORIENTATION_CONTROLLER_BENCH.html#towerShellReturn"><small>03</small><b>Tower in Bench</b><span>Volle Einordnung</span><em>WORK</em></a><a class="is-return" href="A0_RESEARCH_DESK.html#tower-shell-return-science-desk-20261023"><small>04</small><b>Science Desk</b><span>Receipt und Grenze</span><em>RETURN</em></a></nav>
 <main class="demo-shell">
-  <nav class="demo-nav" aria-label="Bridge und Tower Demonstratoren"><a href="A0_IOTA_BRIDGE_DEMONSTRATOR.html">01 · Bridge</a><a aria-current="page" href="A0_TOWER_RETURN_DEMONSTRATOR.html">02 · Tower</a><a href="A0_ORIENTATION_CONTROLLER_BENCH.html#iotaTowerReturnMatrix">03 · Return Matrix</a><a href="A0_RESEARCH_DESK.html#tower-shell-return-science-desk-20261023">Science Desk</a></nav>
+  <nav class="demo-nav" aria-label="Bridge und Tower Demonstratoren"><a href="A0_IOTA_BRIDGE_DEMONSTRATOR.html">01 · Bridge</a><a aria-current="page" href="A0_TOWER_RETURN_DEMONSTRATOR.html">02 · Tower</a><a data-a0-window data-a0-window-title="Bridge / Tower Return Matrix" href="A0_ORIENTATION_CONTROLLER_BENCH.html#iotaTowerReturnMatrix">03 · Return Matrix</a><a href="A0_RESEARCH_DESK.html#tower-shell-return-science-desk-20261023">Science Desk</a></nav>
   <header class="demo-intro" id="module-entry"><small>DEMONSTRATOR 02 · INDEPENDENT TOWER RETURN</small><h1>Tower · Witness → Return</h1><p>Eine explizite q-Fixture speist Final Pin und die unveränderte Tower-Return-Engine. D°G hält seine eigene 18-Sample-/5-Band-Basis. Die Bridge und ihr Tick werden auf dieser Seite nicht geladen.</p></header>
   <div class="demo-source" aria-label="Tower source fixture"><button class="primary" type="button" id="towerDemoLoad">LOAD q01 · OCCUPIED</button><button type="button" id="towerDemoGap">LOAD q02 · GAP</button><button type="button" id="towerDemoClear">CLEAR SOURCE</button><output id="towerDemoSource" aria-live="polite">NO SOURCE FIXTURE · HOLD</output></div>
   <section class="tower-shell-return" id="towerShellReturn" data-status="hold-pin" aria-labelledby="towerShellReturnTitle">
@@ -25,6 +26,7 @@
 </main>
 <script src="a0-tower-shell-return.js?rev=20261023-r1"></script>
 <script src="a0-tower-return-demonstrator.js?rev=20261023-r1"></script>
+<script src="a0-module-window.js?rev=20261026-r1"></script>
 <script>window.A0TowerReturnDemonstratorController=window.A0TowerReturnDemonstrator.mount(document,window);window.A0TowerShellReturnController=window.A0TowerReturnDemonstratorController;</script>
 </body>
 </html>

@@ -1,0 +1,80 @@
+{
+  "date": "2026-10-26",
+  "status": "ENGINEERING_AND_BROWSER_PASS",
+  "scope": "Connect the independent 3x8 / 2x12 IOTA ring schedule to the existing Blue/Pink I/O Seam Bench as a read-only snapshot and repair the 16-17-18-19 factor-rail display",
+  "identity": {
+    "reused_canonical_identity": "NEXAH_A0_ORIENTATION_CONTROLLER_BENCH",
+    "source_view": "IOTA_2_3_BRIDGE_STANDALONE",
+    "receiving_view": "COUPLED_CHANNEL_IO_SEAM_BENCH",
+    "new_canonical_ids": 0,
+    "new_canonical_relations": 0,
+    "canonical_count_change": 0,
+    "publication": false
+  },
+  "exact_contract": {
+    "arithmetic": "3x8=24=2x12",
+    "period": 24,
+    "am_marker": {
+      "color": "VIOLET",
+      "period": 8,
+      "direction": "CLOCKWISE"
+    },
+    "pm_marker": {
+      "color": "ORANGE",
+      "period": 12,
+      "direction": "COUNTERCLOCKWISE"
+    },
+    "joint_return": "tick 24",
+    "mix_view": "PLUS_MINUS_VIEW",
+    "factor_rail": [16, 17, 18, 19],
+    "factor_rail_typing": "DISCRETE_ADDRESSES_NOT_FORMULA",
+    "factor_rail_visual_repair": "The horizontal rail was moved below the numeral centers and connected with vertical drops; the former strike-through appearance was a display defect, not an operator.",
+    "snapshot_schema": "nexah.a0.iota-2-3-ring-frame/1",
+    "snapshot_channel": "nexah-a0-iota-2-3-ring-v1",
+    "snapshot_policy": "READ_ONLY"
+  },
+  "open_owner_mnemonics": {
+    "labels": ["TM", "LI", "Le"],
+    "status": "UNRESOLVED_OWNER_MNEMONICS",
+    "encoded_as_operators": false,
+    "reason": "The owner phrasing was exploratory and did not yet define stable typing or an executable law."
+  },
+  "boundaries": [
+    "No shared master clock",
+    "No source mutation",
+    "No Tower control",
+    "No new identity or graph relation",
+    "No physical spin, pressure, optical or scientific-run claim"
+  ],
+  "browser_probe": {
+    "source_tick": 6,
+    "source_am": "6/8",
+    "source_pm": "6/12",
+    "source_joint_return": "OPEN",
+    "receiver_readout": "T06/24 · VIOLET 6/8 · ORANGE 6/12 · ± MIX",
+    "result": "PASS"
+  },
+  "validation": {
+    "iota_bridge": {"status": "PASS", "checks": 94},
+    "coupled_channel_boundary": {"status": "PASS", "checks": 203},
+    "bridge_tower_demonstrators": {"status": "PASS", "checks": 59},
+    "iota_tower_return_handoff": {"status": "PASS", "checks": 51},
+    "lissajous_three_node_capture": {"status": "PASS", "checks": 25},
+    "blue_pink_dodeca_cell_return": {"status": "PASS", "checks": 125},
+    "source_graph": "PASS:20 components,component validators 2,governance records 5,base329/29,composed332/32",
+    "navigator_app_audit": "PASS:253/253",
+    "browser_interaction": "PASS"
+  },
+  "source_pins": {
+    "A0_BLUE_PINK_DODECA_CELL_RETURN.html": "3905d4cd781ac8450ef99e0aeefcfb2bea4813f5b3cc15aa762845556aa1e397",
+    "a0-coupled-channel-boundary-view.js": "691e7ae33480ed7fa06cc01553e9daff86fc55f0f163aadfcb68e74e4e8480b1",
+    "a0-coupled-channel-boundary.css": "b4750001e711ebeadae97bd0592c0d634f5aa94bfbb264d162315b4dc2bc6095",
+    "assets/a0-coupled-channel-boundary-v1.js": "2110acb60c5b3e6fae9b1dcb98c7afc71fb0235100c2478bbb8bb0f0bfd9c6c8",
+    "assets/a0-coupled-channel-boundary-v1.json": "d3c12180a4af0b734763cd71d46d4b2a0fcf084100e41f4728171371c6cd27e9",
+    "a0-coupled-channel-boundary-tests.cjs": "792f4fddaae481de1633cc8216de592ae17b0fc45c5a278581dfff37b5f13ea9",
+    "a0-iota-2-3-bridge-probe.js": "86fd36fb6d150ac0982c6fb98a1fa972d6e30f52a2fd13f080c7c6c24789cda7",
+    "a0-iota-2-3-bridge-probe.css": "9c9bdf83c5fe097733de104a1ec8d657eadcb7e3d554a13df0e14a829a07799a",
+    "A0_IOTA_BRIDGE_DEMONSTRATOR.html": "0c64177a640573fd96913800a3d7bc3d1e605706abb73c00cd019bf5bce1c13f",
+    "a0-iota-2-3-bridge-probe-tests.cjs": "341efd7f8075742220b9698dbe7c07930727cba8167f369a9fcb694529646584"
+  }
+}

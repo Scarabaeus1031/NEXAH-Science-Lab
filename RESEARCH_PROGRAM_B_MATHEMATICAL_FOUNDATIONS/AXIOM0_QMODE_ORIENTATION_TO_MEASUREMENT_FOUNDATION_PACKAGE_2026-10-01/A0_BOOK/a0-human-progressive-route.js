@@ -31,8 +31,8 @@
     {
       key: "next",
       number: "AFTER THE PATH",
-      title: "Free Doors",
-      copy: "Fünf freiwillige Fortsetzungen nach der geführten Lesart.",
+      title: "Go Deeper",
+      copy: "Drei kuratierte Fortsetzungen. Öffne nur eine.",
       nodes: [document.getElementById("instrument")],
     },
   ].filter((stage) => stage.nodes.every(Boolean));
@@ -105,7 +105,7 @@
     if (!target) return;
     const fold = foldForTarget(target);
     if (fold) fold.open = true;
-    if (target.id === "rainbow-light-tour") target.closest(".human-light-gate")?.classList.add("is-entered");
+    if (target.id === "rainbow-light-tour" || target.closest("#rainbow-light-tour")) target.closest(".human-light-gate")?.classList.add("is-entered");
     const key = fold ? fold.id.replace("human-stage-", "") : target === route ? "route" : target === finalReturn ? "return" : "start";
     setCurrentRoute(key, scroll);
     if (scroll) {
@@ -123,7 +123,7 @@
     if (!fold) return;
     event.preventDefault();
     fold.open = true;
-    if (target.id === "rainbow-light-tour") target.closest(".human-light-gate")?.classList.add("is-entered");
+    if (target.id === "rainbow-light-tour" || target.closest("#rainbow-light-tour")) target.closest(".human-light-gate")?.classList.add("is-entered");
     history.pushState(null, "", hash);
     setCurrentRoute(fold.id.replace("human-stage-", ""), true);
     requestAnimationFrame(() => requestAnimationFrame(() => target.scrollIntoView({ behavior: "smooth", block: "start" })));
@@ -145,6 +145,50 @@
     window.dispatchEvent(new Event("resize"));
     requestAnimationFrame(() => requestAnimationFrame(() => tour.scrollIntoView({ behavior: "smooth", block: "start" })));
   }, true);
+
+  const experienceWindow = document.getElementById("humanExperienceWindow");
+  const experienceFrame = experienceWindow?.querySelector("[data-experience-frame]");
+  const experienceTitle = document.getElementById("humanExperienceTitle");
+  const experienceClose = experienceWindow?.querySelector("[data-experience-close]");
+  let experienceReturn = null;
+  let experienceReturnY = 0;
+
+  function closeExperienceWindow() {
+    if (!experienceWindow || experienceWindow.hidden) return;
+    experienceWindow.hidden = true;
+    if (experienceFrame) experienceFrame.src = "about:blank";
+    window.scrollTo({ top: experienceReturnY, behavior: "auto" });
+    experienceReturn?.focus({ preventScroll: true });
+    experienceReturn = null;
+  }
+
+  document.addEventListener("click", (event) => {
+    const trigger = event.target.closest("a[data-experience-window]");
+    if (!trigger || !experienceWindow || !experienceFrame) return;
+    event.preventDefault();
+    experienceReturn = trigger;
+    experienceReturnY = window.scrollY;
+    const experienceHost = trigger.closest(".human-look-again, .rainbow-light-tour, .instrument") || trigger.parentElement;
+    experienceHost?.append(experienceWindow);
+    const title = trigger.dataset.experienceTitle || trigger.querySelector("strong, h3")?.textContent?.trim() || "Experience";
+    if (experienceTitle) experienceTitle.textContent = title;
+    experienceFrame.title = `${title} · NEXAHEDRON experience`;
+    experienceFrame.src = trigger.href;
+    experienceWindow.hidden = false;
+    experienceClose?.focus();
+    requestAnimationFrame(() => experienceWindow.scrollIntoView({ behavior: "auto", block: "start" }));
+  });
+
+  experienceClose?.addEventListener("click", closeExperienceWindow);
+  experienceWindow?.addEventListener("click", (event) => {
+    if (event.target === experienceWindow) closeExperienceWindow();
+  });
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && experienceWindow && !experienceWindow.hidden) {
+      event.preventDefault();
+      closeExperienceWindow();
+    }
+  });
 
   if ("IntersectionObserver" in window) {
     const watched = [

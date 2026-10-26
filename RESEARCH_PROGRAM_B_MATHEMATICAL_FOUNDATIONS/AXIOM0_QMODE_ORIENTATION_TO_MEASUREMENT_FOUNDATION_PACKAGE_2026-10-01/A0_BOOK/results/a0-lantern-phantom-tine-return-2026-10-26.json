@@ -1,0 +1,56 @@
+{
+  "schema": "a0.engineering-result.v1",
+  "id": "A0_LANTERN_PHANTOM_TINE_RETURN_2026_10_26",
+  "date": "2026-10-26",
+  "status": "PASS",
+  "classification": "VIEW_ONLY_LANTERN_OVERLAY_EXTENSION",
+  "owner_module": "MOD:TESSAREC",
+  "identity_decision": "REUSE_A0_ZIPPER_FRAME_HANDOFF_V1_NO_NEW_CANONICAL_IDENTITY",
+  "surface": "A0_BOOK/A0_BLUE_PINK_DODECA_CELL_RETURN.html#zipper-frame-handoff",
+  "display_overlay": {
+    "aperture_glyph": "EPSILON_LEAF",
+    "pearl_radial_supports": 8,
+    "green_emerald_supports": 4,
+    "hourglass_exit_marker": 74,
+    "phantom_tine": "VIOLET_DOWNWARD_GUIDE",
+    "tesla_coil_role": "VIEW_MNEMONIC_ONLY",
+    "yugo_binding": "UNBOUND_OWNER_MNEMONIC"
+  },
+  "state_boundary": {
+    "carrier_states": 2640,
+    "display_overlay_changes_carrier_state": false,
+    "address_mutation": false,
+    "d1_d2_yugo_identity_binding": false,
+    "physics_claim": false
+  },
+  "verification": {
+    "unit_command": "node A0_BOOK/a0-zipper-frame-handoff-tests.cjs",
+    "unit_result": "PASS · 18531 checks · 2640 unique Zipper–Frame states",
+    "browser_ax": [
+      "TESLA COIL · VIEW MNEMONIC ONLY",
+      "epsilon leaf · pearl · 8 radial supports",
+      "GREEN EMERALD · 4 CORNER SUPPORTS",
+      "EXIT 74 · PHANTOM TINE · YUGO? UNBOUND"
+    ],
+    "related_tests": [
+      "a0-lissajous-three-node-capture-tests.cjs · PASS 25/25",
+      "a0-blue-pink-dodeca-cell-return-tests.cjs · PASS 125/125"
+    ],
+    "source_graph": "PASS · 20 components · base 329/29 · composed 332/32",
+    "app_audit": "PASS · 253/253"
+  },
+  "hashes": {
+    "html": "1b1ca60c52fa19d4e4ce0a06ff715e791d16b095518e1dc3a61396bf42e09113",
+    "css": "fd770ea2793d4237b82a82c7450d2accc356998f3b5eb865173a01d4b2456be4",
+    "green_wheel_css": "f206a0f08d2b6f1506666bec049b1818c89aa2b1fc68a4fca0b842651644d206",
+    "model": "b3d915d9ebd820480ce5e0fd5f03f9540972d351b7d51ed54120045b17253f60",
+    "tests": "bfa91a17b41626c1dfe27fee8bbe5ded3d24d9810f5e60d055a3d3b93073e309"
+  },
+  "boundaries": [
+    "Tesla coil is a view mnemonic and not an electromagnetic mechanism claim",
+    "The epsilon leaf, pearl spokes, emerald supports, exit 74 and phantom tine are local display roles",
+    "Yugo? remains unbound owner mnemonic and is not the existing D1-D2 YUGO engineering identity",
+    "No gravity, tachyon, stability-map or physical hourglass claim is imported from the reference images",
+    "No new Navigator identity, relation, family, study or source-graph mutation"
+  ]
+}

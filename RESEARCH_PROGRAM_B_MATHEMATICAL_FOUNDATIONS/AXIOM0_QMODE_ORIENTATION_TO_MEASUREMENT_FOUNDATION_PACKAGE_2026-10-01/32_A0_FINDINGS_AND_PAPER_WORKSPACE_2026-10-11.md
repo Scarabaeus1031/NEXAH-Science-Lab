@@ -2,11 +2,12 @@
 
 Date: `2026-10-11`
 
-Documentary currentness: `2026-10-24` — the canonical ledger contains
+Documentary currentness: `2026-10-26` — the canonical ledger contains
 `F-A0-01` through `F-A0-25`; the 23 October Bench/Joint, Tower–Shell,
-LOOK AGAIN and Diamond Lens returns are synchronized below as engineering
-triage. Earlier findings retain their original evidence state. No new formal
-finding or manuscript claim follows from the synchronization.
+LOOK AGAIN and Diamond Lens returns remain synchronized as engineering triage,
+and the 26 October session is recorded below as a not-admitted scientific
+intake. Earlier findings retain their original evidence state. No new formal
+finding or manuscript claim follows from either synchronization.
 
 Status: `DOCUMENTARY_PAPER_WORKSPACE / PREPARATION_ONLY / NOT_ACTIVE / NOT_SUBMITTED`
 
@@ -34,6 +35,35 @@ research backlog. It prevents two opposite errors:
 This workspace is not a second backlog, Lab Register, Study, Run Contract,
 Navigator identity or publication pipeline. Lifecycle and permission remain in
 the canonical A0 backlog, the Science Lab Register and Mission Control.
+
+<a id="session-scientific-intake-20261026"></a>
+
+## Session scientific intake — 2026-10-26
+
+Classification: `INTAKE_TRIAGE_ONLY / NOT_ADMITTED / NO_NEW_FINDING /
+NO_PAPER_STATE_CHANGE / NO_BUILD_AUTHORIZATION`.
+
+The complete 26 October view and engineering receipt chain was screened before
+any further build. The screening reuses `NEXAH_AX0_QMODE_FOUNDATION_PACKAGE`,
+`NEXAH_A0_ORIENTATION_CONTROLLER_BENCH` and the existing A0 Orientation
+Evidence lens. It creates no Study, Finding, manuscript claim, Navigator node
+or relation.
+
+| Material class | Intake disposition | Reason |
+|---|---|---|
+| Module window, View/Overlay/Club and nine-swing display | `ENGINEERING_ONLY` | navigation, presentation and phase-display behavior; no scientific estimand |
+| QRT/cut, Lissajous/capture and IOTA schedule receipts | `EXISTING_LOCAL_CONTRACTS` | bounded software/readout checks already carry their own source and claim ceilings |
+| CⅡ lightshow, Tower/Lantern and Phantom-Tine/YUGO readings | `SOURCE_AND_TYPING_REQUIRED` | mnemonic or visual correspondences are not evidence of a common mechanism |
+| historical red-green Two-Percent-Spiral HTML | `SOURCE_GAP` | original path, hash, content and role remain unrecovered |
+| shared-view synchronization utility | `QUESTION_NOT_YET_FORMED` | a user task, comparator, measure and failure threshold must precede implementation |
+| SCC-003 | `SEPARATE_EXISTING_REVIEW_GATE` | independent proof and prior-art review remains governed by `A0-BL-015` |
+
+Admission would require an owner, one bounded object and question, method,
+baseline, expected outcomes, data/source custody, reproducibility route, run
+contract, canonical home, reviewer, next action and explicit STOP/claim ceiling.
+Those fields are intentionally incomplete here. The next permitted action is
+source audit and intake decision only. No `F-A0` number, paper claim or feature
+build may be derived from visual analogy alone.
 
 <a id="pentagon-lantern-finding-candidate-20261025"></a>
 
@@ -983,3 +1013,61 @@ The C-open candidate passes the complete `−34° … +34°` path at `0.05°` sa
 Evidence: [engineering return](A0_BOOK/downloads/A0_THE_ONE_D1_D2_YUGO_INTAKE_2026-10-25/engineering/d1-d2-clamp-v1/D1_D2_CLAMP_ENGINEERING_RETURN_2026-10-25.md), [machine result](A0_BOOK/downloads/A0_THE_ONE_D1_D2_YUGO_INTAKE_2026-10-25/engineering/d1-d2-clamp-v1/D1_D2_CLAMP_TEST_RESULTS.json), [visual](A0_BOOK/downloads/A0_THE_ONE_D1_D2_YUGO_INTAKE_2026-10-25/engineering/d1-d2-clamp-v1/D1_D2_CLAMP_VISUAL.png), [Science Desk](A0_BOOK/A0_RESEARCH_DESK.html#d1-d2-clamp-engineering-return-20261025), [Builder Log](A0_BOOK/A0_BUILDER_LOG.html#d1-d2-clamp-engineering-return-20261025).
 
 No new F-A0 number, Study, relation, canonical identity, claim promotion or publication authorization is created.
+
+<a id="white-carrier-chain-lightshow-return-20261026"></a>
+
+### CⅡ / AM–VM–PM white-carrier chain return — 2026-10-26
+
+**Classification:** `ENGINEERING_OR_VIEW_RETURN / NO_NEW_FINDING / NO_PAPER_STATE_CHANGE`
+
+The existing Blue/Pink coupled-channel view now shows the white oval CⅡ
+carrier, two spots/rails, three violet pillar/belt traces and a yellow Y-cycle
+marker. Its declared display rule makes `AM∩VM` and `VM∩PM` visible while
+retaining `AM∩PM=∅`. Newton and Goethe share a pink/white display sample;
+Leibniz retains the three-belt cutting view. These are typed presentation
+relations inside the existing `NEXAH_A0_ORIENTATION_CONTROLLER_BENCH`, not an
+identity merge, historical equivalence, physical mechanism or new graph
+relation.
+
+Verification: coupled-channel bench `226/226`, Lissajous capture `25/25`,
+Dodeca return `125/125`, Source Graph PASS and Navigator app `253/253`; the
+browser view was observed. `Wheel force`, `FZ`, `flavors` and `FFM` remain
+uncalibrated mnemonics. The result supplies no new formal object, operation,
+invariant or verifier for Mathfield and creates no paper claim.
+
+Sources: [Science Desk](A0_BOOK/A0_RESEARCH_DESK.html#white-carrier-chain-lightshow-return-20261026),
+[Builder Log](A0_BOOK/A0_BUILDER_LOG.html#white-carrier-chain-lightshow-return-20261026),
+and [machine return](A0_BOOK/results/a0-white-carrier-chain-lightshow-return-2026-10-26.json).
+
+No new `F-A0` number, Study, relation, canonical identity, claim promotion or
+publication authorization is created.
+
+<a id="view-overlay-club-return-20261026"></a>
+
+### VIEW / OVERLAY / CLUB presentation return — 2026-10-26
+
+**Classification:** `ENGINEERING_OR_VIEW_RETURN / NO_NEW_FINDING / NO_PAPER_STATE_CHANGE / NO_MATHFIELD_EFFECT`
+
+The existing Coupled Channel surface now separates three presentation roles.
+VIEW renders one selected technical projection at full opacity. OVERLAY compares
+two independently selected existing views, with layer B opacity bounded to
+`0.10…0.90`; its default is AM–VM–PM plus Club Ring at `48%`. CLUB renders the
+existing ring and places aperture, handle and capture controls in a separate
+full-width UX deck. All three read the same source state, and switching modes
+does not mutate that state.
+
+Browser observation passed for VIEW, OVERLAY, CLUB and the accessibility tree.
+Software checks passed at `256/256`, `25/25` and `125/125`; Source Graph and
+Navigator App validation also passed. Overlay remains a display comparison,
+not physical superposition, colour mixing or a new relation. The Club deck is
+not a new carrier or science object.
+
+The return adds no formal object, operation, invariant or verifier to Mathfield,
+and it does not change any paper claim or review state. It reuses
+`NEXAH_A0_ORIENTATION_CONTROLLER_BENCH` and creates no new `F-A0` number,
+Study, relation, canonical identity, claim promotion or publication authority.
+
+Sources: [Science Desk](A0_BOOK/A0_RESEARCH_DESK.html#view-overlay-club-return-20261026),
+[Builder Log](A0_BOOK/A0_BUILDER_LOG.html#view-overlay-club-return-20261026),
+[Control Room](A0_BOOK/A0_BLUE_PINK_DODECA_CELL_RETURN.html?rev=20261026-view-overlay-club-r4#coupledChannelBoundaryLens),
+and [machine return](A0_BOOK/results/a0-view-overlay-club-return-2026-10-26.json).

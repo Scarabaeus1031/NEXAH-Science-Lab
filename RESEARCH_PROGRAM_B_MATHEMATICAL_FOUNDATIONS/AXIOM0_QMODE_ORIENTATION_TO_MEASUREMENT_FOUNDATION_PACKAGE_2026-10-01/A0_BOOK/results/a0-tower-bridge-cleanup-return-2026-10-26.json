@@ -1,0 +1,58 @@
+{
+  "schema": "a0.engineering-result.v1",
+  "id": "A0_TOWER_BRIDGE_CLEANUP_RETURN_2026_10_26",
+  "date": "2026-10-26",
+  "status": "PASS",
+  "classification": "FINITE_VIEW_HANDOFF_DISPLAY_EXTENSION",
+  "owner_module": "MOD:TESSAREC",
+  "identity_decision": "REUSE_EXTEND_NO_NEW_CANONICAL_IDENTITY",
+  "surface": "A0_BOOK/A0_BLUE_PINK_DODECA_CELL_RETURN.html#zipper-frame-handoff",
+  "views": {
+    "TOGETHER": "tower and bridge visible in one handoff view",
+    "TOWER": "two pink rails, eleven display plates, crossed algorithm guides and elevator pivot",
+    "BRIDGE": "two emphasized chevron segments joining source fold, tower seam and Iota frame"
+  },
+  "assembly": {
+    "tower_rails": 2,
+    "tower_display_plates": 11,
+    "algorithm_guides": 2,
+    "bridge_segments": 2,
+    "iota_frame_corners": 4,
+    "green_wheel_role": "DISPLAY_SLOT_LOCK"
+  },
+  "state_boundary": {
+    "carrier_states": 2640,
+    "display_modes_change_carrier_state": false,
+    "address_mutation": false,
+    "shared_tower_bridge_clock": false
+  },
+  "verification": {
+    "unit_command": "node A0_BOOK/a0-zipper-frame-handoff-tests.cjs",
+    "unit_result": "PASS · 18517 checks · 2640 unique Zipper–Frame states",
+    "browser_ax": [
+      "TOGETHER selected by default",
+      "TOWER selected with readout TOWER · 2 RAILS · 11 PLATES",
+      "BRIDGE selected with readout BRIDGE · 2 SEGMENTS · ^"
+    ],
+    "related_tests": [
+      "a0-lissajous-three-node-capture-tests.cjs · PASS 25/25",
+      "a0-blue-pink-dodeca-cell-return-tests.cjs · PASS 125/125"
+    ],
+    "source_graph": "PASS · 20 components · base 329/29 · composed 332/32",
+    "app_audit": "PASS · 253/253"
+  },
+  "hashes": {
+    "html": "f7816547b3ef129abe49bd7132f26059a7134a853a8e18592a52e902066a8e50",
+    "css": "b0c9366bb94b86d89914a06da3c2c39197b86775182723a56c1f7ec7fb7519e8",
+    "green_wheel_css": "f206a0f08d2b6f1506666bec049b1818c89aa2b1fc68a4fca0b842651644d206",
+    "model": "8e201c2e5cd97c7886c6ef4fbfff461d7a081baf72dd3ba3258c3c80b0f39ef3",
+    "tests": "320cd7b7e23f158b6aa24215faf19d3b6216f30c4415b6358cca641beea5dd9b"
+  },
+  "boundaries": [
+    "Euler Steps is a display mnemonic, not a mathematical operator claim",
+    "Rails, plates, crossing lines, elevator and chevron are local view roles",
+    "No new Tower, Bridge, Family, Study, graph relation or canonical operator",
+    "No physical elevator, torque, transmission ratio or mechanism claim",
+    "No sixth Iota ray and no color-channel identity merge"
+  ]
+}

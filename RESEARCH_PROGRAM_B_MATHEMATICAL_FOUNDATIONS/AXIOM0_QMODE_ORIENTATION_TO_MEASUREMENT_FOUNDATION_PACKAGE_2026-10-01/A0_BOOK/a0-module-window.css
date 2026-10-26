@@ -1,0 +1,15 @@
+html.a0-module-window-open{overflow:hidden}
+.a0-module-window{box-sizing:border-box;color:#edf7fb;background:#061620;border:1px solid #5b8192;border-radius:18px;width:min(1500px,calc(100vw - 24px));height:min(940px,calc(100dvh - 24px));padding:0;overflow:hidden;box-shadow:0 30px 120px #000d}
+.a0-module-window[open]{position:fixed;inset:0;margin:auto;z-index:2400}
+.a0-module-window::backdrop{background:rgba(0,7,12,.88)}
+.a0-module-window__shell{height:100%;display:grid;grid-template-rows:auto minmax(0,1fr)}
+.a0-module-window__shell>header{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:14px 18px;border-bottom:1px solid #31576b;background:#0d2633}
+.a0-module-window__shell>header small{color:#65e4b2;font:800 9px ui-monospace,SFMono-Regular,monospace;letter-spacing:.12em}
+.a0-module-window__shell h2{margin:4px 0 2px;color:#f5fbfd;font:800 clamp(20px,3vw,30px)/1.08 system-ui,sans-serif}
+.a0-module-window__shell p{margin:0;color:#a7bfca;font-size:.75rem}
+.a0-module-window__shell nav{display:flex;align-items:center;justify-content:flex-end;gap:8px;flex-wrap:wrap}
+.a0-module-window__shell nav a,.a0-module-window__shell nav button{border:1px solid #52798b;border-radius:8px;background:#112f3e;color:#eaf6fa;padding:10px 13px;text-decoration:none;white-space:nowrap;font:800 10px ui-monospace,SFMono-Regular,monospace;cursor:pointer}
+.a0-module-window__shell nav button{border-color:#f2c454;background:#30250b;color:#ffe58f}
+.a0-module-window__shell iframe{display:block;width:100%;height:100%;border:0;background:#06111b}
+.a0-module-window :focus-visible{outline:3px solid #f2c454;outline-offset:3px}
+@media(max-width:800px){.a0-module-window{width:100vw;height:100dvh;max-width:none;max-height:none;border:0;border-radius:0}.a0-module-window__shell>header{align-items:flex-start;display:grid;padding:12px}.a0-module-window__shell nav{justify-content:flex-start}.a0-module-window__shell nav a,.a0-module-window__shell nav button{flex:1;text-align:center}.a0-module-window__shell p{display:none}}

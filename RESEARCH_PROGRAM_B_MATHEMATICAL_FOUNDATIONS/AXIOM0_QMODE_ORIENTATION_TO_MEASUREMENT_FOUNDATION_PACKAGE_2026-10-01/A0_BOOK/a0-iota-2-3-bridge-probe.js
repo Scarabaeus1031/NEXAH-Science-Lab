@@ -5,10 +5,14 @@
 })(typeof globalThis!=='undefined'?globalThis:this,function(){
   'use strict';
 
-  const VERSION='1.1.0';
+  const VERSION='1.3.0';
   const IDENTITY='NEXAH_A0_ORIENTATION_CONTROLLER_BENCH';
   const CLASSIFICATION='BOUNDED_ENGINEERING_ARITHMETIC_PROBE';
   const PERIODS=Object.freeze({am:8,pm:12,composite:24});
+  const STILL_MNEMONIC=Object.freeze({
+    token:'STILL',ownerLabel:'S-HELL',role:'LOCAL_VIEW_MNEMONIC',
+    canonicalIdentity:false,openShellBinding:null
+  });
 
   function assertPositiveInteger(value,label='value'){
     if(!Number.isInteger(value)||value<=0)throw new TypeError(`${label} must be a positive integer`);
@@ -114,7 +118,8 @@
       factor1729Exact:arithmetic.largeValues.factor1729.cofactor===91&&arithmetic.largeValues.factor1729.reconstructed===1729,
       cofactor108Agreement:new Set(Object.values(arithmetic.largeValues.cofactor108)).size===1,
       noPrematureJointReturn:returns.length===2&&returns[0]===0&&returns[1]===24,
-      stillInvariant:run.every(item=>item.still==='FIXED')
+      stillInvariant:run.every(item=>item.still==='FIXED'),
+      shellMnemonicIsNonCanonical:STILL_MNEMONIC.ownerLabel==='S-HELL'&&!STILL_MNEMONIC.canonicalIdentity&&STILL_MNEMONIC.openShellBinding===null
     });
     return Object.freeze({status:Object.values(assertions).every(Boolean)?'PASS':'FAIL',assertions,returns:Object.freeze(returns),arithmetic,address:typedAddress()});
   }
@@ -128,9 +133,9 @@
         pulseGrammar:'11+13=24 from the existing Pulse Grammar Clock',
         orientation:'16|19 and 6|9 remain owned by the separate VA/AV orientation probe'
       }),
-      constructedView:Object.freeze({am:'CLOCKWISE_PERIOD_8',pm:'COUNTERCLOCKWISE_PERIOD_12',still:'FIXED_COMMON_PIN'}),
+      constructedView:Object.freeze({am:'CLOCKWISE_PERIOD_8',pm:'COUNTERCLOCKWISE_PERIOD_12',still:'FIXED_COMMON_PIN',stillMnemonic:STILL_MNEMONIC}),
       authority:Object.freeze({researchRun:false,scientificEvidence:false,newIdentity:false,newRelation:false,newCarrier:false,newOperator:false,claimPromotion:false}),
-      boundary:'The arithmetic identities and modular return are exact. AM/PM directions, STILL-pin semantics and 0|6|9 roles are a local constructed display contract, not a physical spin law, universal number law or scientific finding.'
+      boundary:'The arithmetic identities and modular return are exact. AM/PM directions, STILL-pin semantics and 0|6|9 roles are a local constructed display contract. S-HELL is an owner mnemonic for that fixed display pin, not the canonical NEXAH Open Shell document family or a physical shell. It is not a physical spin law, a universal number law or a scientific finding.'
     });
   }
 
@@ -157,6 +162,19 @@
     });
   }
 
+  function ringFrame(state=createViewState()){
+    const view=inspectView(state);
+    return Object.freeze({
+      schema:'nexah.a0.iota-2-3-ring-frame/1',version:VERSION,identity:IDENTITY,
+      source:'IOTA_2_3_BRIDGE_VIEW',tick:state.tick,period:PERIODS.composite,
+      am:Object.freeze({phase:view.schedule.am.phase,period:PERIODS.am,direction:view.schedule.am.direction,colour:'VIOLET'}),
+      pm:Object.freeze({phase:view.schedule.pm.phase,period:PERIODS.pm,direction:view.schedule.pm.direction,colour:'ORANGE'}),
+      jointReturn:view.schedule.jointReturn,returnStatus:view.returnStatus,
+      factorRail:Object.freeze([16,17,18,19]),mixOrientation:'PLUS_MINUS_VIEW',
+      stillMnemonic:STILL_MNEMONIC,receiveOnly:true,sourceMutation:false,newIdentity:false,newRelation:false,sharedMasterClock:false
+    });
+  }
+
   function polar(cx,cy,r,index,total,offset=-Math.PI/2){const a=offset+index*Math.PI*2/total;return{x:cx+Math.cos(a)*r,y:cy+Math.sin(a)*r}}
 
   function svgMarkup(state=createViewState()){
@@ -164,7 +182,9 @@
     const ticks=Array.from({length:24},(_,i)=>{const a=polar(cx,cy,180,i,24),b=polar(cx,cy,i%4===0?198:191,i,24);return `<path class="i23-tick${i===state.tick%24?' active':''}" d="M${a.x.toFixed(2)} ${a.y.toFixed(2)}L${b.x.toFixed(2)} ${b.y.toFixed(2)}"/>`}).join('');
     const am=polar(cx,cy,126,view.schedule.am.phase,8),pm=polar(cx,cy,164,view.schedule.pm.phase,12, -Math.PI/2);
     const nodes=[16,17,18,19].map((value,i)=>{const kind=arithmeticType(value).type.toLowerCase().replace('_','-');return `<g class="i23-number ${kind}" transform="translate(${150+i*100} 480)"><circle r="26"/><text text-anchor="middle" y="6">${value}</text><text class="i23-kind" text-anchor="middle" y="48">${arithmeticType(value).type.replace('_',' ')}</text></g>`}).join('');
-    return `<g class="i23-wheel layer-${state.layer.toLowerCase()}"><circle class="i23-ring master" cx="${cx}" cy="${cy}" r="198"/><circle class="i23-ring pm" cx="${cx}" cy="${cy}" r="164"/><circle class="i23-ring am" cx="${cx}" cy="${cy}" r="126"/>${ticks}<path class="i23-horizon" d="M78 ${cy}H522"/><circle class="i23-marker am" cx="${am.x.toFixed(2)}" cy="${am.y.toFixed(2)}" r="10"/><circle class="i23-marker pm" cx="${pm.x.toFixed(2)}" cy="${pm.y.toFixed(2)}" r="10"/><circle class="i23-still${view.schedule.jointReturn?' return':''}" cx="${cx}" cy="${cy}" r="20"/><text class="i23-still-label" x="${cx}" y="${cy+5}" text-anchor="middle">STILL</text><text class="i23-label" x="${cx}" y="26" text-anchor="middle">2|3 IOTA BRIDGE · TICK ${state.tick}/24</text><text class="i23-label am" x="98" y="72">AM ⟳ · 3×8</text><text class="i23-label pm" x="430" y="72">PM ⟲ · 2×12</text><path class="i23-rail" d="M124 480H476"/>${nodes}</g>`;
+    const coupling=`M${am.x.toFixed(2)} ${am.y.toFixed(2)}Q${cx} ${cy} ${pm.x.toFixed(2)} ${pm.y.toFixed(2)}`;
+    const railDrops=[150,250,350,450].map(x=>`M${x} 506V520`).join('');
+    return `<g class="i23-wheel layer-${state.layer.toLowerCase()}"><circle class="i23-ring master" cx="${cx}" cy="${cy}" r="198"/><circle class="i23-ring pm" cx="${cx}" cy="${cy}" r="164"/><circle class="i23-ring am" cx="${cx}" cy="${cy}" r="126"/>${ticks}<path class="i23-horizon" d="M78 ${cy}H522"/><path class="i23-coupling" d="${coupling}"/><text class="i23-mix-label" x="${cx}" y="${cy-12}" text-anchor="middle">± MIX</text><circle class="i23-marker am" cx="${am.x.toFixed(2)}" cy="${am.y.toFixed(2)}" r="10"/><circle class="i23-marker pm" cx="${pm.x.toFixed(2)}" cy="${pm.y.toFixed(2)}" r="10"/><circle class="i23-still${view.schedule.jointReturn?' return':''}" cx="${cx}" cy="${cy}" r="20"/><text class="i23-still-label" x="${cx}" y="${cy+2}" text-anchor="middle">STILL</text><text class="i23-kind" x="${cx}" y="${cy+36}" text-anchor="middle">S-HELL · OWNER MNEMONIC</text><text class="i23-label" x="${cx}" y="26" text-anchor="middle">2|3 IOTA BRIDGE · TICK ${state.tick}/24</text><text class="i23-label am" x="98" y="72">AM ⟳ · 3×8</text><text class="i23-label pm" x="430" y="72">PM ⟲ · 2×12</text><path class="i23-rail" d="M124 520H476 ${railDrops}"/>${nodes}</g>`;
   }
 
   function viewRecord(state=createViewState()){
@@ -175,8 +195,9 @@
     if(!doc||typeof doc.getElementById!=='function')throw new TypeError('Document-like root required');
     const section=doc.getElementById('iota23Bridge');if(!section)return null;
     const svg=doc.getElementById('iota23BridgeSvg'),status=doc.getElementById('iota23Status'),amOut=doc.getElementById('iota23Am'),pmOut=doc.getElementById('iota23Pm'),returnOut=doc.getElementById('iota23Return'),layerOut=doc.getElementById('iota23Layer'),play=doc.getElementById('iota23Play');
-    let state=createViewState(),timer=null;
-    const render=()=>{const view=inspectView(state);section.dataset.tick=String(state.tick);section.dataset.layer=state.layer.toLowerCase();if(svg)svg.innerHTML=svgMarkup(state);if(status)status.textContent=`T${String(state.tick).padStart(2,'0')} · ${view.returnStatus} · ${state.layer}`;if(amOut)amOut.textContent=`${view.schedule.am.phase}/8 · ${view.schedule.am.atOrigin?'ORIGIN':'OPEN'}`;if(pmOut)pmOut.textContent=`${view.schedule.pm.phase}/12 · ${view.schedule.pm.atOrigin?'ORIGIN':'OPEN'}`;if(returnOut)returnOut.textContent=view.returnStatus;if(layerOut)layerOut.textContent=state.layer;if(play){play.textContent=timer?'PAUSE':'PLAY';play.setAttribute('aria-pressed',timer?'true':'false')}return state};
+    let state=createViewState(),timer=null,lastFrameSignature='',ringChannel=host&&typeof host.BroadcastChannel==='function'?new host.BroadcastChannel('nexah-a0-iota-2-3-ring-v1'):null;
+    const emitFrame=()=>{const frame=ringFrame(state),signature=JSON.stringify(frame);if(signature===lastFrameSignature)return;lastFrameSignature=signature;if(host&&typeof host.dispatchEvent==='function'&&typeof host.CustomEvent==='function')host.dispatchEvent(new host.CustomEvent('a0-iota-2-3-ring-frame',{detail:frame}));if(ringChannel)ringChannel.postMessage(frame)};
+    const render=()=>{const view=inspectView(state);section.dataset.tick=String(state.tick);section.dataset.layer=state.layer.toLowerCase();if(svg)svg.innerHTML=svgMarkup(state);if(status)status.textContent=`T${String(state.tick).padStart(2,'0')} · ${view.returnStatus} · ${state.layer}`;if(amOut)amOut.textContent=`${view.schedule.am.phase}/8 · ${view.schedule.am.atOrigin?'ORIGIN':'OPEN'}`;if(pmOut)pmOut.textContent=`${view.schedule.pm.phase}/12 · ${view.schedule.pm.atOrigin?'ORIGIN':'OPEN'}`;if(returnOut)returnOut.textContent=view.returnStatus;if(layerOut)layerOut.textContent=state.layer;if(play){play.textContent=timer?'PAUSE':'PLAY';play.setAttribute('aria-pressed',timer?'true':'false')}emitFrame();return state};
     const stop=()=>{if(timer&&host&&host.clearInterval)host.clearInterval(timer);timer=null;state=Object.freeze({...state,playing:false})};
     const run=()=>{if(timer){stop();render();return}if(!host||typeof host.setInterval!=='function')return;state=Object.freeze({...state,playing:true});timer=host.setInterval(()=>{state=advance(state);render();if(state.tick===24){stop();render()}},550);render()};
     const stepButton=doc.getElementById('iota23Step'),reset=doc.getElementById('iota23Reset'),exportButton=doc.getElementById('iota23Export');
@@ -188,5 +209,5 @@
     render();return Object.freeze({getState:()=>state,step(){stop();state=advance(state);return render()},reset(){stop();state=createViewState();return render()},setLayer(layer){state=setLayer(state,layer);return render()},record:()=>viewRecord(state)});
   }
 
-  return{VERSION,IDENTITY,CLASSIFICATION,PERIODS,gcd,lcm,factorize,isPrime,arithmeticType,step,trace,exactArithmetic,typedAddress,verify,buildRecord,createViewState,advance,setLayer,inspectView,svgMarkup,viewRecord,mount};
+  return{VERSION,IDENTITY,CLASSIFICATION,PERIODS,STILL_MNEMONIC,gcd,lcm,factorize,isPrime,arithmeticType,step,trace,exactArithmetic,typedAddress,verify,buildRecord,createViewState,advance,setLayer,inspectView,ringFrame,svgMarkup,viewRecord,mount};
 });

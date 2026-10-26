@@ -20,6 +20,22 @@
   ]);
   const POSITION_COUNT = 88;
   const STATE_COUNT = ORIENTATIONS.length * FORMATS.length * RAYS.length * POSITION_COUNT;
+  const VIEW_MODES = Object.freeze(['TOGETHER', 'TOWER', 'BRIDGE']);
+  const ASSEMBLY = Object.freeze({
+    tower: Object.freeze({ id: 'ZIPPER_ELEVATOR', rails: 2, plates: 11, role: 'VIEW_RAIL_AND_APERTURE_STACK' }),
+    bridge: Object.freeze({ id: 'VISIBLE_HANDOFF', segments: 2, shape: 'CHEVRON', role: 'ADDRESS_HANDOFF_ONLY' }),
+    algorithmLines: Object.freeze({ count: 2, crossing: true, role: 'DISPLAY_GUIDES' }),
+    iotaFrame: Object.freeze({ corners: 4, wheel: 'GREEN_WHEEL', role: 'DISPLAY_SLOT_LOCK' }),
+    lanternOverlay: Object.freeze({
+      apertureGlyph: 'EPSILON_LEAF',
+      pearlSpokes: 8,
+      emeraldSupports: 4,
+      exitMarker: 74,
+      phantomTine: 'VIOLET_DOWNWARD_GUIDE',
+      teslaCoilRole: 'VIEW_MNEMONIC_ONLY',
+      yugoBinding: 'UNBOUND_OWNER_MNEMONIC'
+    })
+  });
   const RED_SHADOW = Object.freeze({ id: 'RED_SHADOW', angle: 45, role: 'VIEW_GUIDE', countedRay: false });
   const PHASES = Object.freeze([
     'BLUE_FOLD_DOWN', 'PIVOT_SPARK', 'BLUE_FOLD_UP', 'PINK_STRIP_GATE',
@@ -58,6 +74,7 @@
   function snapshot(input) {
     const state = normalize(input);
     const index = indexOf(state);
+    const viewMode = assertChoice(input.viewMode || VIEW_MODES[0], VIEW_MODES, 'viewMode');
     return Object.freeze({
       id: ID,
       ...state,
@@ -67,12 +84,15 @@
       stateCount: STATE_COUNT,
       phases: PHASES,
       activePhase: assertChoice(input.activePhase || PHASES[0], PHASES, 'activePhase'),
+      viewMode,
+      assembly: ASSEMBLY,
       frameReturn: Object.freeze(['ORANGE_HOLD', 'YELLOW_FRAME', 'ORANGE_RETURN']),
       redShadow: RED_SHADOW,
       greenWheel: Object.freeze({ position: state.position, role: 'DISPLAY_SLOT_LOCK', ratioClaim: null }),
       addresses: Object.freeze({ parent: PARENT_ADDRESS, hinge: HINGE_ADDRESS, localReturn: LOCAL_RETURN }),
       classification: 'FINITE_VIEW_HANDOFF',
       identityMerge: false,
+      changesCarrierState: false,
       physicalMechanismClaim: false
     });
   }
@@ -85,6 +105,12 @@
     if (value.greenWheel.position !== value.position || value.greenWheel.role !== 'DISPLAY_SLOT_LOCK' || value.greenWheel.ratioClaim !== null) failures.push('GREEN_WHEEL_SLOT_LOCK');
     if (value.addresses.parent !== PARENT_ADDRESS || value.addresses.hinge !== HINGE_ADDRESS || value.addresses.localReturn !== LOCAL_RETURN) failures.push('ADDRESS_DRIFT');
     if (value.phases.join('>') !== PHASES.join('>')) failures.push('PHASE_ORDER');
+    if (value.assembly.tower.rails !== 2 || value.assembly.tower.plates !== 11) failures.push('TOWER_DISPLAY');
+    if (value.assembly.bridge.segments !== 2 || value.assembly.bridge.shape !== 'CHEVRON') failures.push('BRIDGE_DISPLAY');
+    if (value.assembly.iotaFrame.corners !== 4 || value.assembly.algorithmLines.count !== 2) failures.push('FRAME_DISPLAY');
+    if (value.assembly.lanternOverlay.pearlSpokes !== 8 || value.assembly.lanternOverlay.emeraldSupports !== 4 || value.assembly.lanternOverlay.exitMarker !== 74) failures.push('LANTERN_OVERLAY');
+    if (value.assembly.lanternOverlay.teslaCoilRole !== 'VIEW_MNEMONIC_ONLY' || value.assembly.lanternOverlay.yugoBinding !== 'UNBOUND_OWNER_MNEMONIC') failures.push('LANTERN_BOUNDARY');
+    if (value.changesCarrierState !== false) failures.push('VIEW_STATE_BOUNDARY');
     return Object.freeze({ pass: failures.length === 0, failures: Object.freeze(failures), snapshot: value });
   }
 
@@ -100,5 +126,5 @@
     return Object.freeze({ pass: failures.length === 0 && seen.size === STATE_COUNT, checked: STATE_COUNT, unique: seen.size, failures: Object.freeze(failures) });
   }
 
-  return Object.freeze({ ID, PARENT_ADDRESS, HINGE_ADDRESS, LOCAL_RETURN, ORIENTATIONS, FORMATS, RAYS, POSITION_COUNT, STATE_COUNT, RED_SHADOW, PHASES, normalize, indexOf, stateAt, snapshot, verify, auditAll });
+  return Object.freeze({ ID, PARENT_ADDRESS, HINGE_ADDRESS, LOCAL_RETURN, ORIENTATIONS, FORMATS, RAYS, POSITION_COUNT, STATE_COUNT, VIEW_MODES, ASSEMBLY, RED_SHADOW, PHASES, normalize, indexOf, stateAt, snapshot, verify, auditAll });
 });

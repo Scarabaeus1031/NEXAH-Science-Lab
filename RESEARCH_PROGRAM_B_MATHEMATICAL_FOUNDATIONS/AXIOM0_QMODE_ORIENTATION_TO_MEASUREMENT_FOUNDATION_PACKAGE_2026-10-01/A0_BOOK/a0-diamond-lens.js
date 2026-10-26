@@ -2,6 +2,17 @@
   'use strict';
   const root=document.getElementById('diamond-lens');
   if(!root)return;
+  const geometryContract=Object.freeze({
+    outerCarrier:Object.freeze([[450,117],[633,225],[603,437],[450,526],[297,437],[267,225]]),
+    innerDiamond:Object.freeze([[450,190],[566,320],[450,450],[334,320]]),
+    center:Object.freeze([450,320]),
+    shadowRole:'SEPARATE_AUXILIARY_DISPLAY_LAYER'
+  });
+  const closedPath=points=>`M${points.map(point=>point.join(' ')).join(' ')}Z`;
+  const spokePath=points=>points.map(point=>`M${geometryContract.center.join(' ')} ${point.join(' ')}`).join('');
+  const carrierPath=closedPath(geometryContract.outerCarrier);
+  const diamondPath=closedPath(geometryContract.innerDiamond);
+  const carrierSpokes=spokePath(geometryContract.outerCarrier);
   root.innerHTML=`
     <header class="diamond-lens__head">
       <div><span class="kicker">00 · live player · same carrier</span><h2 id="diamondLensTitle">Look again.</h2></div>
@@ -24,7 +35,7 @@
           <g class="dl-spectrum-rings" aria-hidden="true"><circle cx="450" cy="320" r="205"/><circle cx="450" cy="320" r="188"/><circle cx="450" cy="320" r="171"/><circle cx="450" cy="320" r="154"/><circle cx="450" cy="320" r="137"/></g>
           <g class="dl-cloud" id="diamondCloud" aria-hidden="true"></g>
           <path class="dl-shadow" d="M336 181 534 150 650 309 555 492 342 469 247 301Z"/>
-          <g class="dl-carrier" aria-hidden="true"><path class="dl-carrier-fill" d="M450 117 633 225 603 437 450 526 297 437 267 225Z"/><path class="dl-carrier-edge" d="M450 117 633 225 603 437 450 526 297 437 267 225ZM450 117 450 320 633 225M450 320 603 437M450 320 450 526M450 320 297 437M450 320 267 225Z"/><path class="dl-inner-diamond" d="M450 190 566 320 450 450 334 320Z"/></g>
+          <g class="dl-carrier" aria-hidden="true"><path class="dl-carrier-fill" d="${carrierPath}"/><path class="dl-carrier-edge" d="${carrierPath}${carrierSpokes}"/><path class="dl-inner-diamond" d="${diamondPath}"/></g>
           <g class="dl-root" aria-hidden="true"><path d="M450 320C389 269 349 251 312 247C353 296 367 338 359 407C403 365 430 350 450 320Z"/><path d="M450 320C511 269 551 251 588 247C547 296 533 338 541 407C497 365 470 350 450 320Z"/><path d="M450 320C419 382 421 425 450 478C479 425 481 382 450 320Z"/></g>
           <g class="dl-twin" aria-hidden="true"><path d="M110 320C205 222 282 212 388 320C282 428 205 418 110 320Z"/><path d="M790 320C695 222 618 212 512 320C618 428 695 418 790 320Z"/><path class="dl-twin-dayline" d="M86 320H814"/><text x="151" y="293">C-PLANE</text><text x="690" y="293">Z-PLANE</text></g>
           <g class="dl-tine" id="diamondTine" transform="rotate(0 450 320)" aria-hidden="true"><path d="M450 315 462 142 450 104 438 142Z"/><circle cx="450" cy="320" r="9"/></g>
@@ -40,6 +51,58 @@
           <button type="button" id="diamondNext" aria-label="Nächste Ansicht">→</button>
           <output id="diamondPlayerCount">02 / 05</output>
         </div>
+        <section class="dl-section-screen" id="diamondSectionScreen" data-open="false" data-dl-contract="6-4-1" aria-labelledby="diamondSectionTitle">
+          <header class="dl-section-screen__head">
+            <div><small>READ-ONLY AUXILIARY VIEW · SAME CARRIER</small><h3 id="diamondSectionTitle">SECTION / SCREEN</h3><p>Sechseckiger Carrier, innerer Diamond und gemeinsame Apertur werden als konstruierte Schnittansicht lesbar.</p></div>
+            <button type="button" id="diamondSectionOpen" aria-expanded="false" aria-controls="diamondSectionBody"><span>ANSICHT ÖFFNEN</span><b aria-hidden="true">＋</b></button>
+          </header>
+          <div class="dl-section-screen__body" id="diamondSectionBody" hidden>
+            <svg class="dl-section-canvas" viewBox="0 0 900 620" role="img" aria-labelledby="diamondSectionSvgTitle diamondSectionSvgDesc">
+              <title id="diamondSectionSvgTitle">Konstruierte Section- und Screen-Ansicht der bestehenden Diamond Lens</title>
+              <desc id="diamondSectionSvgDesc">Die Geometrieebene zeigt sechs deklarierte Carrier-Ecken, inneren Diamond und gemeinsames Zentrum. Die Licht-Schatten-Ebene zeigt nur eine Displayroute zu einem Schirm und ist kein optisches Strahlenmodell.</desc>
+              <g class="dl-section-geometry" aria-label="Geometry layer">
+                <path class="dl-section-carrier" d="${carrierPath}"/>
+                <path class="dl-section-spokes" d="${carrierSpokes}"/>
+                <path class="dl-section-diamond" d="${diamondPath}"/>
+                <circle class="dl-section-center" cx="${geometryContract.center[0]}" cy="${geometryContract.center[1]}" r="13"/>
+                <text x="450" y="92" text-anchor="middle">WHITE_DODECA · 6 DECLARED VERTICES</text>
+                <text x="450" y="474" text-anchor="middle">INNER DIAMOND · VIEW SHAPE</text>
+              </g>
+              <g class="dl-section-light" aria-label="Light and shadow layer">
+                <circle class="dl-section-source" cx="98" cy="320" r="25"/>
+                <path class="dl-section-rays" d="M128 286 438 309M128 354 438 331M462 309 788 226M462 331 788 414"/>
+                <path class="dl-section-shadow" d="M462 309 788 226 788 414 462 331Z"/>
+                <line class="dl-section-screen-line" x1="800" y1="176" x2="800" y2="464"/>
+                <text x="98" y="374" text-anchor="middle">LIGHT / SOURCE MARKER</text>
+                <text x="450" y="302" text-anchor="middle">APERTURE</text>
+                <text x="818" y="168" text-anchor="end">SCREEN / SHADOW VIEW</text>
+              </g>
+              <text class="dl-section-inside" x="358" y="360">INSIDE</text><text class="dl-section-outside" x="656" y="360">OUTSIDE</text>
+              <text class="dl-section-caption" x="450" y="583" text-anchor="middle">CONSTRUCTED DISPLAY VIEW · NOT A RECOVERED PHYSICAL MECHANISM</text>
+            </svg>
+            <aside class="dl-section-controls" aria-label="Section- und Screen-Layer">
+              <div class="dl-section-buttons">
+                <button type="button" data-dl-section-layer="geometry" aria-pressed="true"><b>GEOMETRY</b><span>Carrier · Diamond · Aperture</span></button>
+                <button type="button" data-dl-section-layer="light" aria-pressed="true"><b>LIGHT / SHADOW</b><span>Source marker · Display route · Screen</span></button>
+              </div>
+              <dl class="dl-geometry-contract" aria-label="6 4 1 geometry contract">
+                <div><dt>6 OUTER</dt><dd>declared carrier vertices</dd></div>
+                <div><dt>4 INNER</dt><dd>diamond view vertices</dd></div>
+                <div><dt>1 CENTER</dt><dd>shared aperture at 450 / 320</dd></div>
+                <div><dt>SHADOW</dt><dd>separate auxiliary display layer</dd></div>
+              </dl>
+              <output id="diamondSectionReadout" aria-live="polite">GEOMETRY + LIGHT / SHADOW · READ ONLY</output>
+              <p><b>VIEW CONTRACT:</b> Carrier ≠ Diamond ≠ Shadow. Diese Hilfsansicht besitzt kein Strahlenmodell, ändert keine Grid-Adresse und erzeugt keine sechste Player-Szene.</p>
+              <article class="dl-reference-check" aria-label="Bounded reference comparison">
+                <header><small>ONE REFERENCE CHECK</small><h4>FIELD SECTION VIEW</h4><b>DISPLAY CORRESPONDENCE ONLY</b></header>
+                <div><strong>SHARED READING</strong><span>source marker · central seam · inside/outside split · one-sided shadow</span></div>
+                <div><strong>DISTINCT</strong><span>reference section schema ≠ six-corner carrier ≠ four-corner diamond</span></div>
+                <footer>NO IDENTITY · NO OPTICAL RECOVERY · NO PHYSICAL EQUIVALENCE</footer>
+              </article>
+              <small>SECTION_VIEW_IS_READ_ONLY · SECTION_VIEW_DOES_NOT_CHANGE_PLAYER_STATE · PINK_GRID_IS_HISTORICAL_ALIAS_NOT_CURRENT_IDENTITY</small>
+            </aside>
+          </div>
+        </section>
       </div>
       <aside class="diamond-lens__controls" aria-label="Diamond Lens Steuerung">
         <fieldset><legend>Ansicht / Platte</legend><div class="dl-segmented" id="diamondViewControls">
@@ -72,11 +135,14 @@
   let sceneIndex=1,playing=!reduced,timer=0;
   const q=s=>root.querySelector(s),qa=s=>Array.from(root.querySelectorAll(s));
   const cloud=q('#diamondCloud'),cells=q('#diamondShellCells');
+  const sectionRoot=q('#diamondSectionScreen');
+  const sectionState={open:false,geometry:true,light:true};
   const makeSvg=(name,attrs)=>{const n=document.createElementNS('http://www.w3.org/2000/svg',name);Object.entries(attrs).forEach(([k,v])=>n.setAttribute(k,v));return n};
   for(let ring=0;ring<4;ring++)for(let i=0;i<28;i++){const a=i/28*Math.PI*2,r=205+ring*23,x=450+Math.cos(a)*r,y=320+Math.sin(a)*r*.7;const p=makeSvg('path',{d:`M${x.toFixed(1)} ${y.toFixed(1)}l${(Math.cos(a+.45)*12).toFixed(1)} ${(Math.sin(a+.45)*9).toFixed(1)}`});cells.appendChild(p)}
   function drawCloud(){cloud.replaceChildren();const count=state.cloud==='l'?18:state.cloud==='s'?36:62;for(let i=0;i<count;i++){const a=i/count*Math.PI*2+(state.cloud==='d'?i*.13:0),r=state.cloud==='l'?245:state.cloud==='s'?218+(i%3)*20:180+(i%7)*17;const x=450+Math.cos(a)*r,y=320+Math.sin(a)*r*.68,rad=state.cloud==='d'?2+(i%4):3+(i%3)*2;cloud.appendChild(makeSvg('circle',{cx:x.toFixed(1),cy:y.toFixed(1),r:rad}))}}
   function sync(){root.dataset.view=state.view;root.dataset.zone=state.zone;root.dataset.cloud=state.cloud;qa('[data-dl-view]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.dlView===state.view)));qa('[data-dl-zone]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.dlZone===state.zone)));qa('[data-dl-cloud]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.dlCloud===state.cloud)));qa('[data-dl-scene]').forEach(b=>b.setAttribute('aria-current',String(Number(b.dataset.dlScene)===sceneIndex)));q('#diamondViewLabel').textContent=labels[state.view];q('#diamondZoneLabel').textContent=zoneLabels[state.zone];q('#diamondTine').setAttribute('transform',`rotate(${state.angle} 450 320)`);q('#diamondTineAngleOut').textContent=`${state.angle}°`;q('#diamondTineAngle').value=state.angle;root.classList.toggle('no-shadow',!q('#diamondShadowToggle').checked);root.classList.toggle('no-spectrum',!q('#diamondSpectrumToggle').checked);root.classList.toggle('no-shell',!q('#diamondShellToggle').checked&&state.view!=='root');const layers=[q('#diamondShadowToggle').checked?'Shadow':'',q('#diamondSpectrumToggle').checked?'Spectrum':'',q('#diamondShellToggle').checked||state.view==='root'?'Shell':''].filter(Boolean).join(' + ')||'Carrier only';q('#diamondLensReadout').textContent=`${labels[state.view]} · ${state.zone.toUpperCase()} · CLOUD ${state.cloud.toUpperCase()} · ${layers}`;q('#diamondPlayerCount').textContent=`${String(sceneIndex+1).padStart(2,'0')} / 05`;drawCloud()}
   function applyScene(index){sceneIndex=(index+scenes.length)%scenes.length;const scene=scenes[sceneIndex];Object.assign(state,{view:scene.view,zone:scene.zone,cloud:scene.cloud,angle:scene.angle});q('#diamondShadowToggle').checked=scene.shadow;q('#diamondSpectrumToggle').checked=scene.spectrum;q('#diamondShellToggle').checked=scene.shell;root.classList.remove('scene-flash');void root.offsetWidth;root.classList.add('scene-flash');sync()}
+  function syncSection(){sectionRoot.dataset.open=String(sectionState.open);q('#diamondSectionOpen').setAttribute('aria-expanded',String(sectionState.open));q('#diamondSectionOpen span').textContent=sectionState.open?'ANSICHT SCHLIESSEN':'ANSICHT ÖFFNEN';q('#diamondSectionOpen b').textContent=sectionState.open?'−':'＋';q('#diamondSectionBody').hidden=!sectionState.open;qa('[data-dl-section-layer]').forEach(button=>button.setAttribute('aria-pressed',String(sectionState[button.dataset.dlSectionLayer])));sectionRoot.classList.toggle('section-no-geometry',!sectionState.geometry);sectionRoot.classList.toggle('section-no-light',!sectionState.light);const active=[sectionState.geometry?'GEOMETRY':'',sectionState.light?'LIGHT / SHADOW':''].filter(Boolean).join(' + ')||'NO AUXILIARY LAYER';q('#diamondSectionReadout').textContent=`${active} · READ ONLY`}
   function setPlaying(next){playing=next&&!reduced;clearInterval(timer);timer=0;q('#diamondPlay').setAttribute('aria-pressed',String(playing));q('#diamondPlay').innerHTML=playing?'<span aria-hidden="true">Ⅱ</span><b>PAUSE</b>':'<span aria-hidden="true">▶</span><b>PLAY</b>';q('#diamondLiveState').innerHTML=playing?'<i></i> LIVE TOUR':'<i></i> MANUAL';root.classList.toggle('is-playing',playing);if(playing)timer=window.setInterval(()=>applyScene(sceneIndex+1),2100)}
   q('#diamondViewControls').addEventListener('click',e=>{const b=e.target.closest('[data-dl-view]');if(!b)return;sceneIndex=Math.max(0,scenes.findIndex(scene=>scene.view===b.dataset.dlView));applyScene(sceneIndex)});
   q('#diamondZoneControls').addEventListener('click',e=>{const b=e.target.closest('[data-dl-zone]');if(!b)return;state.zone=b.dataset.dlZone;sync()});
@@ -87,6 +153,8 @@
   q('#diamondPrev').addEventListener('click',()=>applyScene(sceneIndex-1));
   q('#diamondNext').addEventListener('click',()=>applyScene(sceneIndex+1));
   q('#diamondTimeline').addEventListener('click',e=>{const b=e.target.closest('[data-dl-scene]');if(b)applyScene(Number(b.dataset.dlScene))});
+  q('#diamondSectionOpen').addEventListener('click',()=>{sectionState.open=!sectionState.open;syncSection()});
+  sectionRoot.addEventListener('click',e=>{const button=e.target.closest('[data-dl-section-layer]');if(!button)return;const layer=button.dataset.dlSectionLayer;sectionState[layer]=!sectionState[layer];syncSection()});
   document.addEventListener('visibilitychange',()=>{if(document.hidden){clearInterval(timer);timer=0}else if(playing)setPlaying(true)});
   if(humanMode){
     document.documentElement.classList.add('diamond-consumer');
@@ -101,5 +169,6 @@
     document.body.append(close);
   }
   applyScene(humanMode?0:1);
+  syncSection();
   setPlaying(params.get('play')!=='0');
 })();

@@ -1,0 +1,121 @@
+{
+  "schema": "nexah.a0.documentary-engineering-session-return/1",
+  "date": "2026-10-26",
+  "status": "PASS_DOCUMENTARY_ENGINEERING_RETURN",
+  "scope": "Science Log, canonical backlog, read-only backlog projection, Science Desk, Builder Log, scientific intake gate, NSN, Mission Control and bounded STILL/S-HELL mnemonic",
+  "identity_decision": {
+    "reused": [
+      "NEXAH_AX0_QMODE_FOUNDATION_PACKAGE",
+      "NEXAH_A0_ORIENTATION_CONTROLLER_BENCH",
+      "A0_ZIPPER_FRAME_HANDOFF_V1"
+    ],
+    "new_identity": false,
+    "new_relation": false,
+    "new_study": false,
+    "new_finding": false,
+    "lab_register_changed": false
+  },
+  "still_shell_boundary": {
+    "state_token": "STILL",
+    "owner_mnemonic": "S-HELL",
+    "role": "LOCAL_VIEW_MNEMONIC",
+    "canonical_open_shell_binding": null,
+    "physical_shell_claim": false
+  },
+  "receipts": [
+    "a0-family-record-player-qrt-cut-return-2026-10-26.json",
+    "a0-weighted-lissajous-green-ball-return-2026-10-26.json",
+    "a0-lissajous-three-node-capture-return-2026-10-26.json",
+    "a0-club-ring-handle-control-room-return-2026-10-26.json",
+    "a0-iota-ring-io-seam-return-2026-10-26.json",
+    "a0-white-carrier-chain-lightshow-return-2026-10-26.json",
+    "a0-view-overlay-club-return-2026-10-26.json",
+    "a0-tower-bridge-cleanup-return-2026-10-26.json",
+    "a0-lantern-phantom-tine-return-2026-10-26.json",
+    "a0-blue-body-nine-view-swing-sync-return-2026-10-26.json",
+    "a0-module-window-return-2026-10-26.json"
+  ],
+  "scientific_intake": {
+    "status": "INTAKE_TRIAGE_ONLY_NOT_ADMITTED",
+    "build_authorized": false,
+    "bounded_question": "Which, if any, of today's view and engineering returns states a falsifiable or formally decidable scientific question not already covered by an existing A0 contract?",
+    "owner": "Human Owner",
+    "object": "2026-10-26 A0 session receipt chain",
+    "method": "DOCUMENTARY_INTAKE_TRIAGE",
+    "baseline": "Existing source-bound A0 contracts and receipts",
+    "expected_outcomes": [
+      "DUPLICATE",
+      "ENGINEERING_ONLY",
+      "SOURCE_GAP",
+      "INTAKE_CANDIDATE",
+      "REJECT"
+    ],
+    "data_and_sources": "Local repository sources only; no external evidence admitted",
+    "reproducibility": "Replay existing receipts; no new scientific run",
+    "run_contract": null,
+    "canonical_home": "Existing A0 backlog and Findings/Paper Workspace",
+    "reviewer": "Desk 05 if a later candidate is admitted",
+    "next_action": "Source audit and intake decision only",
+    "stop_rule": "STOP when original source, typed object, bounded question, baseline, measure, failure criterion or claim ceiling is missing",
+    "dispositions": {
+      "interface_navigation_and_views": "ENGINEERING_ONLY",
+      "finite_local_readouts": "EXISTING_CONTRACTS_NO_NEW_CLAIM",
+      "phantom_tine_yugo": "SOURCE_AND_TYPED_DOMAIN_REQUIRED",
+      "red_green_two_percent_spiral": "SOURCE_GAP",
+      "shared_view_synchronization": "QUESTION_NOT_YET_FORMED",
+      "scc_003": "SEPARATE_EXISTING_REVIEW_GATE"
+    }
+  },
+  "binding_targets": [
+    "22_A0_FORSCHUNGSPROTOKOLL_BUCH_UND_RAHMEN_2026-10-10.md#session-engineering-return-20261026",
+    "24_A0_RESEARCH_BACKLOG_AND_OPEN_JOINTS_2026-10-10.md#session-engineering-return-20261026",
+    "A0_BOOK/A0_RESEARCH_BACKLOG.html#session-engineering-return-20261026",
+    "A0_BOOK/A0_RESEARCH_DESK.html#session-engineering-return-20261026",
+    "A0_BOOK/A0_BUILDER_LOG.html#session-engineering-return-20261026",
+    "A0_BOOK/A0_IOTA_BRIDGE_DEMONSTRATOR.html#iota23Bridge",
+    "32_A0_FINDINGS_AND_PAPER_WORKSPACE_2026-10-11.md#session-scientific-intake-20261026",
+    "SCIENCE_LAB/NAVIGATION/APP/index.html#a0-orientation-evidence",
+    "SCIENCE_LAB/MISSION_CONTROL_RETURN_A0_SESSION_CLOSEOUT_AND_SCIENTIFIC_INTAKE_2026-10-26.md"
+  ],
+  "verification": {
+    "session_binding_checks": "PASS_36",
+    "iota_still_shell_checks": "PASS_98",
+    "weighted_green_ball_checks": "PASS_31",
+    "three_node_capture_checks": "PASS_25",
+    "blue_pink_dodeca_checks": "PASS_125",
+    "bridge_demonstrator_checks": "PASS_59",
+    "iota_tower_handoff_checks": "PASS_51",
+    "tower_shell_checks": "PASS_84",
+    "source_graph": "PASS_332_COMPOSED_32_RELATIONS",
+    "navigator_app": "PASS_253_OF_253",
+    "closeout_intake_bindings": "PASS_28",
+    "mission_control_projection": "REFRESHED",
+    "mission_control_currentness": {
+      "status": "INVALID_6_PREEXISTING_MISMATCHES",
+      "session_touched_pins_reconciled": [
+        "NEXAH_A0_RESEARCH_PROTOCOL",
+        "NEXAH_A0_RESEARCH_DESK",
+        "NEXAH_A0_CANONICAL_BACKLOG",
+        "SCIENCE_LAB_A0_ORIENTATION_EVIDENCE_BINDER",
+        "SCIENCE_LAB_NAVIGATOR_SOURCE_GRAPH_INDEX",
+        "MISSION_CONTROL_NAVIGATOR_SOURCE_GRAPH_CONTROL"
+      ],
+      "preserved_unrelated_mismatches": [
+        "PUBLISHING_QUEUE",
+        "B0_BUILDER_PUBLIC_FIELD",
+        "MISSION_CONTROL_INTERNAL_NAVIGATOR",
+        "MISSION_CONTROL_INTERNAL_NAVIGATOR_INDEX",
+        "NEXAH_A0_ORIENTATION_CONTROLLER_BENCH",
+        "MISSION_CONTROL_PUBLIC_FIELD_MISSION"
+      ]
+    }
+  },
+  "preserved_open_gates": [
+    "DOC-01 human, narrow-width and reduced-motion acceptance",
+    "DOC-02 public currentness, release pins and historical Mathfield hash disposition",
+    "historical red-green Two-Percent Spiral HTML remains unrecovered",
+    "SCC-003 awaits a named independent reviewer",
+    "YUGO? UNBOUND phantom tine remains an unbound owner reading"
+  ],
+  "boundary": "This record reconciles existing documentary and engineering returns. It does not activate research, promote a claim, create a Navigator identity or relation, alter the Lab Register, bind S-HELL to the canonical Open Shell family, or close any listed open gate."
+}

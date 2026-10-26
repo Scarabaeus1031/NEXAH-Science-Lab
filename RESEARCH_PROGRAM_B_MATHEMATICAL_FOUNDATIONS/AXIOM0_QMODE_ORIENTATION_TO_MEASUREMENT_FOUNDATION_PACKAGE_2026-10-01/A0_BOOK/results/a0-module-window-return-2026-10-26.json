@@ -1,0 +1,59 @@
+{
+  "schema": "nexah.a0.engineering-return/1.0.0",
+  "return_id": "A0-MODULE-WINDOW-RETURN-2026-10-26",
+  "date": "2026-10-26",
+  "status": "PASS_BROWSER_ACCEPTED",
+  "scope": "Existing Bridge and Tower routes open their Bench, Return Matrix and I/O Seam targets inside one reusable closable module window while preserving the originating page, scroll position and keyboard focus.",
+  "identity_reuse": [
+    "NEXAH:A0_ORIENTATION_EVIDENCE_LINEAGE:V1",
+    "NEXAH_A0_ORIENTATION_CONTROLLER_BENCH"
+  ],
+  "files": [
+    {
+      "path": "A0_BOOK/A0_IOTA_BRIDGE_DEMONSTRATOR.html",
+      "sha256": "ffab2f78ab525539238e5239f67943d393b2961ff800c52d6323568c1275881d"
+    },
+    {
+      "path": "A0_BOOK/A0_TOWER_RETURN_DEMONSTRATOR.html",
+      "sha256": "7ffe652bb904a42d41d2ece491286c128a873cb63c60309034432fa428d643ed"
+    },
+    {
+      "path": "A0_BOOK/a0-module-window.css",
+      "sha256": "3e57439690406539a4d0810779f5fb127624d10db55a4a98090526d8933d2a40"
+    },
+    {
+      "path": "A0_BOOK/a0-module-window.js",
+      "sha256": "47308bbaf18cd3d8e2f93a7961bf75df146aeb2ba15a2d1c0806d26f908cd813"
+    },
+    {
+      "path": "A0_BOOK/a0-module-window-tests.cjs",
+      "sha256": "9ed859b1ee1a5cd65d8b6ee5e22466cf7ba9fa7e23929593ce33e32ff0b4b1d5"
+    }
+  ],
+  "verification": {
+    "static_contract": "PASS",
+    "existing_bridge_probe": "PASS_98",
+    "existing_tower_return": "PASS_84",
+    "demonstrator_separation": "PASS_59",
+    "typed_handoff": "PASS_51",
+    "return_matrix": "PASS_56",
+    "desktop_browser": "PASS",
+    "outer_url_preserved": true,
+    "close_visible": true,
+    "scroll_and_focus_restored": true
+  },
+  "windowed_routes": [
+    "Bridge in Bench",
+    "Tower in Bench",
+    "Return Matrix",
+    "I/O Seam"
+  ],
+  "ordinary_routes": [
+    "Science Desk",
+    "Sources & Testing"
+  ],
+  "new_canonical_ids": [],
+  "relation_changes": [],
+  "finding_or_manuscript_effect": "NONE",
+  "boundary": "Navigation and presentation only. The overlay reuses existing routes and sources, transports no scientific state, starts no source clock or run, changes no identity or graph relation and creates no Study, Finding, evidence promotion, publication or authority transfer."
+}
