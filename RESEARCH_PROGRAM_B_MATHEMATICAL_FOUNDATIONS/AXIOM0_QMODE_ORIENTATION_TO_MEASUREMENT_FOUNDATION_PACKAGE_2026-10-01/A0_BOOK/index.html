@@ -3,9 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>NEXAH A0 — Fundamentals</title>
-  <meta name="description" content="Einleitung und Index des NEXAH A0 Book: Fundamentals of relation, representation and readout.">
-  <script type="module" src="assets/vendor/model-viewer.min.js"></script>
+  <title>NEXAH A0 — A View into the NEXAH Cosmos</title>
+  <meta name="description" content="Die Human-facing A0-Schwelle des NEXAH Ecosystems mit klaren Eingängen zu Human View, Science, Builder, Werkbank und Quellen.">
   <style>
     :root{
       --paper:#f4f0e7;--white:#fffdf8;--ink:#111922;--muted:#5e6871;--line:#cec5b5;
@@ -135,6 +134,18 @@
     .scope .human-view[open] summary{border-color:#365467}
     .scope .human-view p{color:#e2edf2;background:#0b1c29}
     .method .human-view{max-width:860px}
+    .nexah-threshold{position:relative;overflow:hidden;background:linear-gradient(142deg,#fffdf8 0%,#f4f0e7 68%,#e8dfcf 100%);border-bottom:1px solid var(--line)}
+    .nexah-threshold:after{content:"";position:absolute;right:-8vw;bottom:-15vw;width:46vw;height:46vw;border:1px solid rgba(134,99,12,.2);border-radius:50%;box-shadow:0 0 0 7vw rgba(134,99,12,.04),0 0 0 14vw rgba(67,202,231,.035);pointer-events:none}
+    .nexah-threshold-inner{position:relative;z-index:1;width:min(1240px,88vw);margin:auto;padding:clamp(42px,7vw,96px) 0 clamp(58px,8vw,112px)}
+    .nexah-breadcrumb{display:flex;align-items:center;gap:10px;margin-bottom:clamp(42px,7vw,86px);font:750 .64rem/1.2 var(--mono);letter-spacing:.12em;text-transform:uppercase}.nexah-breadcrumb a{text-decoration:none}.nexah-breadcrumb a:hover,.nexah-breadcrumb a:focus-visible{color:#86630c}.nexah-breadcrumb span{color:#9a8f7d}.nexah-breadcrumb strong{color:#86630c}
+    .nexah-threshold-grid{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(250px,.65fr);gap:clamp(36px,7vw,100px);align-items:end}.nexah-threshold h1{max-width:900px;margin:.18em 0 .24em;font-size:clamp(4.8rem,11vw,10.5rem)}.nexah-threshold h1 span{max-width:700px}.nexah-threshold-copy{max-width:720px;margin:0;color:#49545d;font:400 clamp(1.05rem,1.7vw,1.35rem)/1.55 var(--serif)}
+    .nexah-threshold-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}.nexah-threshold-actions a{display:inline-flex;align-items:center;min-height:46px;padding:11px 15px;border:1px solid var(--ink);background:var(--ink);color:#fff;text-decoration:none;font:750 .62rem/1.2 var(--mono);letter-spacing:.08em;text-transform:uppercase}.nexah-threshold-actions a+ a{background:transparent;color:var(--ink)}.nexah-threshold-actions a:hover,.nexah-threshold-actions a:focus-visible{border-color:#86630c;color:var(--gold)}
+    .threshold-map{display:grid;gap:0;border:1px solid var(--line);background:rgba(255,253,248,.62)}.threshold-map div{display:grid;grid-template-columns:34px 1fr;gap:12px;padding:15px}.threshold-map div+div{border-top:1px solid var(--line)}.threshold-map b{color:#86630c;font:750 .65rem/1.4 var(--mono)}.threshold-map strong{display:block;font:700 1rem/1.2 var(--serif)}.threshold-map small{display:block;margin-top:4px;color:var(--muted);font-size:.72rem}.threshold-map div:last-child{background:var(--night);color:#fff}.threshold-map div:last-child small{color:#9db2bc}
+    .portal-home{display:grid;align-items:start;padding:clamp(36px,5vw,68px) 6vw clamp(48px,6vw,78px);background:radial-gradient(circle at 78% 18%,rgba(67,202,231,.15),transparent 28%),radial-gradient(circle at 18% 82%,rgba(229,72,181,.1),transparent 30%),#07131e;color:#e6f0f4;border-bottom:4px solid var(--gold)}
+    .portal-home-inner{width:min(1240px,100%);margin:auto}.portal-home h2{display:flex;align-items:baseline;gap:.2em;max-width:none;margin:.12em 0 .12em;color:#fff;font-size:clamp(3rem,5.4vw,5.7rem);white-space:nowrap}.portal-home h2 .portal-title-accent{color:var(--cyan);font:650 .48em/1.05 var(--sans);font-style:normal;letter-spacing:-.04em}.portal-home-intro{max-width:760px;margin:0;color:#aac0ca;font:400 clamp(1rem,1.5vw,1.2rem)/1.5 var(--serif)}
+    .portal-houses{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin-top:42px}.portal-house{overflow:hidden;border:1px solid #315064;border-top:4px solid var(--house);background:#0b1d2a;transition:transform .16s ease,border-color .16s ease}.portal-house:hover,.portal-house:focus-within{transform:translateY(-3px);border-color:var(--house)}.portal-house-window{position:relative;height:clamp(230px,24vw,330px);overflow:hidden;border-bottom:1px solid #315064;background:#050b11}.portal-house-window:before{content:"";position:absolute;z-index:2;inset:0 0 auto;height:24px;border-bottom:1px solid #315064;background:radial-gradient(circle at 13px 12px,var(--house) 0 3px,transparent 4px),radial-gradient(circle at 25px 12px,#8797a2 0 3px,transparent 4px),radial-gradient(circle at 37px 12px,#52636d 0 3px,transparent 4px),#0a121a}.portal-house-window iframe{width:200%;height:200%;border:0;pointer-events:none;transform:scale(.5);transform-origin:top left}.portal-house-entry{display:flex;min-height:170px;flex-direction:column;padding:21px;color:#e6f0f4;text-decoration:none}.portal-house-entry:focus-visible{outline:2px solid var(--house);outline-offset:-4px}.portal-house small{color:var(--house);font:800 .6rem/1.2 var(--mono);letter-spacing:.1em;text-transform:uppercase}.portal-house strong{margin:13px 0 8px;color:#fff;font:700 clamp(1.45rem,2.5vw,2rem)/1.05 var(--serif)}.portal-house p{margin:0;color:#9fb3bd;font-size:.86rem}.portal-house b{margin-top:auto;padding-top:18px;color:var(--house);font:800 .6rem/1.2 var(--mono);letter-spacing:.07em;text-transform:uppercase}.portal-house--human{--house:#f06db6}.portal-house--science{--house:#67dfad}.portal-house--builder{--house:#55d8ee}.portal-house--scarab{--house:#ffd06a}
+    .portal-hatch-heading{display:flex;justify-content:space-between;gap:28px;align-items:end;margin:48px 0 16px;padding-top:30px;border-top:1px solid #294252}.portal-hatch-heading h3{margin:0;color:#fff;font:700 clamp(1.8rem,3vw,2.8rem)/1 var(--serif)}.portal-hatch-heading p{max-width:560px;margin:0;color:#92a8b3;font-size:.8rem}.portal-hatches{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}.portal-hatch{display:flex;min-height:150px;flex-direction:column;padding:18px;border:1px solid #315064;background:rgba(10,29,42,.82);color:#e6f0f4;text-decoration:none;transition:transform .16s ease,border-color .16s ease}.portal-hatch:hover,.portal-hatch:focus-visible{transform:translateY(-2px);border-color:var(--gold)}.portal-hatch small{color:var(--gold);font:750 .57rem/1.2 var(--mono);letter-spacing:.1em;text-transform:uppercase}.portal-hatch strong{margin:12px 0 7px;color:#fff;font:700 1.25rem/1.05 var(--serif)}.portal-hatch span{color:#92a8b3;font-size:.75rem}.portal-hatch b{margin-top:auto;padding-top:14px;color:var(--cyan);font:750 .56rem/1.2 var(--mono);letter-spacing:.06em;text-transform:uppercase}.portal-boundary{margin:20px 0 0;padding-left:14px;border-left:3px solid var(--gold);color:#8fa4ae;font-size:.72rem}.portal-boundary strong{color:#fff}
+    .portal-depth{display:block;background:#07131e}.portal-depth>summary{position:sticky;top:64px;z-index:8;display:flex;justify-content:center;cursor:pointer;list-style:none;padding:14px 20px;border-bottom:1px solid #315064;background:#0b1d2a;color:#dce8ee;font:800 .66rem/1.2 var(--mono);letter-spacing:.1em;text-transform:uppercase}.portal-depth>summary::-webkit-details-marker{display:none}.portal-depth>summary:after{content:" +";color:var(--gold)}.portal-depth[open]>summary:after{content:" −"}
     .a0-guide{background:#fffdf8;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
     .a0-guide-inner{max-width:1250px;margin:auto;padding:58px 6vw 64px}
     .a0-guide-head{display:grid;grid-template-columns:minmax(0,.72fr) minmax(320px,1.28fr);gap:42px;align-items:end;margin-bottom:26px}
@@ -218,6 +229,8 @@
     .delta{margin-top:25px;border:1px solid var(--ink);background:var(--white);display:grid;grid-template-columns:180px 1fr}
     .delta-title{background:var(--night);color:var(--gold);padding:24px;font:700 .72rem/1.5 var(--mono);letter-spacing:.12em;text-transform:uppercase}
     .delta-copy{padding:24px}.delta-copy strong{font-family:var(--serif);font-size:1.25rem}
+    @media(max-width:900px){.nexah-threshold-grid{grid-template-columns:1fr}.threshold-map{grid-template-columns:repeat(3,1fr)}.threshold-map div+div{border-top:0;border-left:1px solid var(--line)}.portal-house-window{height:240px}.portal-hatches{grid-template-columns:repeat(2,minmax(0,1fr))}}
+    @media(max-width:650px){.nexah-threshold-inner{width:min(90vw,1240px)}.nexah-threshold h1{font-size:clamp(4rem,24vw,7rem)}.threshold-map{grid-template-columns:1fr}.threshold-map div+div{border-top:1px solid var(--line);border-left:0}.portal-houses,.portal-hatches{grid-template-columns:1fr}.portal-home{align-items:start}.portal-home h2{align-items:flex-start;flex-direction:column;gap:0;white-space:normal}.portal-house-window{height:230px}.portal-house-entry{min-height:155px}.portal-hatch-heading{display:block}.portal-hatch-heading p{margin-top:10px}.portal-depth>summary{top:112px}}
     .book-index{background:var(--night);color:#dbe7ed}
     .book-index .spread{max-width:1350px}.book-index h2{color:white}.book-index .no{color:var(--cyan)}.book-index .sub{color:#96aab6}
     .index-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
@@ -248,16 +261,30 @@
     @media(prefers-reduced-motion:reduce){.world-trailer *{animation:none!important}.world-trailer:after{display:none}.world-trailer-toggle{display:none}}
   </style>
   <link rel="stylesheet" href="a0-context-navigation.css?rev=reader-lanes-20261019-lane-entry">
+  <script>
+    (() => {
+      if (location.hash !== "#top") return;
+      if ("scrollRestoration" in history) history.scrollRestoration = "manual";
+      let ownerMoved = false;
+      ["wheel", "touchstart", "pointerdown", "keydown"].forEach((type) => addEventListener(type, () => { ownerMoved = true; }, { once: true, passive: true }));
+      const restoreHomeTop = () => { if (!ownerMoved) window.scrollTo(0, 0); };
+      addEventListener("DOMContentLoaded", () => {
+        document.querySelectorAll(".portal-house iframe, model-viewer").forEach((preview) => preview.addEventListener("load", () => requestAnimationFrame(restoreHomeTop), { once: true }));
+        requestAnimationFrame(restoreHomeTop);
+      }, { once: true });
+      addEventListener("load", () => requestAnimationFrame(() => requestAnimationFrame(restoreHomeTop)), { once: true });
+      addEventListener("pageshow", () => requestAnimationFrame(restoreHomeTop));
+      addEventListener("hashchange", () => { if (location.hash === "#top") requestAnimationFrame(restoreHomeTop); });
+    })();
+  </script>
 </head>
 <body>
   <header class="top">
     <a class="brand" href="#top">NEXAH <span>· A0 BOOK</span></a>
     <nav>
       <a href="#wegweiser">Wegweiser</a>
-      <a href="#built-world">Built World</a>
       <a href="A0_LIVING_BLUEPRINT.html#utg-map">UTG / A0 Karte</a>
       <a href="#research-now">Forschung aktuell</a>
-      <a href="#record-player">Record / Play</a>
       <a href="#arkade-tool">ARKADE</a>
       <a href="#introduction">Introduction</a>
       <a href="#index">Kapitel</a>
@@ -275,6 +302,48 @@
   </header>
 
   <main id="top">
+    <section class="nexah-threshold" aria-labelledby="threshold-title">
+      <div class="nexah-threshold-inner">
+        <nav class="nexah-breadcrumb" aria-label="Position im NEXAH Ecosystem"><a href="https://nexah.de/">NEXAH</a><span aria-hidden="true">/</span><a href="https://nexah.de/laboratory/">Laboratory</a><span aria-hidden="true">/</span><strong aria-current="page">A0</strong></nav>
+        <div class="nexah-threshold-grid">
+          <div>
+            <div class="eyebrow">Orientation at the threshold</div>
+            <h1 id="threshold-title">A0<span>A view into the NEXAH Cosmos.</span></h1>
+            <p class="nexah-threshold-copy">NEXAH macht Position, Perspektive, Relation und mögliche Wege sichtbar. A0 öffnet den experimentellen Innenraum: Bücher, Quellen, Spiele und Instrumente bleiben unterscheidbar und führen immer zu ihrem Kontext zurück.</p>
+            <div class="nexah-threshold-actions"><a href="#portal">A0 betreten ↓</a><a href="https://nexah.de/visitor-guide/#map-title">Öffentliche Ecosystem Map ↗</a></div>
+          </div>
+          <aside class="threshold-map" aria-label="Drei Ebenen der A0-Schwelle">
+            <div><b>01</b><span><strong>NEXAH</strong><small>Öffentliche Orientierung · Elfenbein</small></span></div>
+            <div><b>02</b><span><strong>A0 Threshold</strong><small>Kontext · Auswahl · bewusster Eintritt</small></span></div>
+            <div><b>03</b><span><strong>Cosmos View</strong><small>Instrumente · Quellen · Spiele · Return</small></span></div>
+          </aside>
+        </div>
+      </div>
+    </section>
+    <section class="portal-home" id="portal" aria-labelledby="portal-title">
+      <div class="portal-home-inner">
+        <div class="eyebrow">NEXAH COSMOS · A0 UX VIEW</div>
+        <h2 id="portal-title">Ein Werk. <em class="portal-title-accent">Klare Häuser.</em></h2>
+        <p class="portal-home-intro">A0 verbindet die Ansichten, ohne ihre Aufgaben zu vermischen. Wähle zuerst dein Haus. Buch, Forschung, Instrumente und Quellen bleiben darunter als eigenständige Wege erreichbar.</p>
+        <nav class="portal-houses" aria-label="NEXAH Häuser und Arbeitsräume">
+          <article class="portal-house portal-house--human"><div class="portal-house-window" aria-hidden="true"><iframe data-a0-nexahedron-preview title="Vorschau NEXAHEDRON Human View" src="https://nexahedron.com/" loading="lazy" tabindex="-1"></iframe></div><a class="portal-house-entry" data-a0-nexahedron href="https://nexahedron.com/"><small>01 · EXPERIENCE</small><strong>NEXAHEDRON · Human</strong><p>Aktueller Human-Stagingstand: erleben, drehen, spielen und mit einem anderen Blick zurückkehren.</p><b>Unter A0 öffnen →</b></a></article>
+          <article class="portal-house portal-house--science"><div class="portal-house-window" aria-hidden="true"><iframe title="Vorschau nexah.de · lokaler Prototyp" src="../../../../../50%20PUBLISHING/20%20WEBSITE%20STAGING/nexah/index.html" loading="lazy" tabindex="-1"></iframe></div><a class="portal-house-entry" href="../../../../../50%20PUBLISHING/20%20WEBSITE%20STAGING/nexah/index.html"><small>02 · UNDERSTAND · LOCAL PROTOTYPE</small><strong>NEXAH · Public Field</strong><p>Der neue nexah.de-Entwurf als lokale Owner-Vorschau. Die aktuelle Onlinefassung bleibt davon getrennt.</p><b>Prototyp unter A0 öffnen →</b></a></article>
+          <article class="portal-house portal-house--builder"><div class="portal-house-window" aria-hidden="true"><iframe title="Vorschau Builder Werkbank" src="A0_WERKBANK.html" loading="lazy" tabindex="-1"></iframe></div><a class="portal-house-entry" href="A0_WERKBANK.html"><small>03 · MAKE</small><strong>Builder + Werkbank</strong><p>Instrumente, Viewer und Anschlussstellen bedienen und weiterbauen.</p><b>Werkbank öffnen →</b></a></article>
+          <article class="portal-house portal-house--scarab"><div class="portal-house-window" aria-hidden="true"><iframe title="Vorschau Scarabæus 1033" src="../../../../../50%20PUBLISHING/20%20WEBSITE%20STAGING/scarabaeus1033/index.html" loading="lazy" tabindex="-1"></iframe></div><a class="portal-house-entry" data-a0-scarabaeus href="../../../../../50%20PUBLISHING/20%20WEBSITE%20STAGING/scarabaeus1033/index.html"><small>04 · OFFICE</small><strong>Scarabæus 1033</strong><p>Büro, künstlerische Werkstatt, Werke und öffentliche Kanäle.</p><b>Unter A0 öffnen →</b></a></article>
+        </nav>
+        <div class="portal-hatch-heading"><h3>Weitere Luken.</h3><p>Sechs kurze Wege in den vorhandenen Bestand. Sie ordnen bestehende Räume und Quellen; sie erzeugen keine neue Datenbank und keine zweite wissenschaftliche Autorität.</p></div>
+        <nav class="portal-hatches" aria-label="Weitere Wege durch das NEXAH Ecosystem">
+          <a class="portal-hatch" href="A0_TOURS.html#explanation-path"><small>01 · Orientieren</small><strong>Map &amp; Atlas</strong><span>Geführte Touren, Karten und der Zusammenhang der gebauten A0-Welt.</span><b>Karte öffnen →</b></a>
+          <a class="portal-hatch" href="#wegweiser"><small>02 · Lesen</small><strong>Library &amp; Papers</strong><span>Buch, Findings, Papers und ihre unterschiedlichen Claim-Grenzen.</span><b>Werke ansehen ↓</b></a>
+          <a class="portal-hatch" href="A0_BUILDER_TOY_STORE.html#instrument-atlas"><small>03 · Erproben</small><strong>Instruments &amp; Games</strong><span>Spielbare und technische Ansichten, ohne Darstellung mit Evidenz gleichzusetzen.</span><b>Instrumente öffnen →</b></a>
+          <a class="portal-hatch" href="https://github.com/Scarabaeus1031/NEXAH-Science-Lab" target="_blank" rel="noopener noreferrer"><small>04 · Nachweisen</small><strong>Repositories &amp; Sources</strong><span>Der öffentliche wissenschaftliche Record und die erhaltenen Quellenbindungen.</span><b>Science Lab öffnen ↗</b></a>
+          <a class="portal-hatch" href="A0_WERKBANK.html"><small>05 · Bauen</small><strong>Build &amp; Matter</strong><span>Werkbank, Viewer und veröffentlichbare Builder-Anschlüsse.</span><b>Werkbank öffnen →</b></a>
+          <a class="portal-hatch" href="NEXAH_C_CONNECT.html"><small>06 · Rückbinden</small><strong>Connect &amp; Return</strong><span>Herkunft sichtbar halten, eine begrenzte Fuge wählen und in den Kontext zurückkehren.</span><b>Connect öffnen →</b></a>
+        </nav>
+        <p class="portal-boundary"><strong>Rollenhinweis:</strong> „NEXAH Cosmos“ bezeichnet hier diese Human-facing UX-Ansicht. Source Graph, Lab Register, Evidenzstatus und Publikationsfreigaben bleiben in ihren bestehenden Autoritäten.</p>
+      </div>
+    </section>
+    <template id="a0-built-world-concept" data-disposition="nexahedron-human-view-candidate">
     <section class="world-plate" id="built-world" aria-labelledby="built-world-title">
       <div class="world-plate-inner">
         <header class="world-plate-head">
@@ -341,13 +410,14 @@
         <div class="world-plate-return"><p><strong>Der Navigator ist der Vorraum.</strong> Die bestehende A0-Seite liegt direkt dahinter: ein Referenzobjekt, mehrere Ansichten und ein expliziter Return. Die Türen ordnen den Bestand; sie erzeugen keine zweite Identität.</p><div class="btns"><a class="btn world-curtain" href="#a0-home">Vorhang auf · NEXAH A0 ↓</a></div></div>
       </div>
     </section>
+    </template>
 
     <section class="hero" id="a0-home">
       <div>
         <div class="eyebrow">Fundamentals of relation · representation · readout</div>
         <h1>A0<span>Ein Bild zeigt etwas. Und lässt etwas weg.</span></h1>
         <p class="lead">Ein Foto zeigt nicht den ganzen Raum. Eine Karte ist nicht die Landschaft. Eine Messkurve ist nicht das beobachtete System. Dieses Buch zeigt, wie solche Ansichten entstehen, was sie bewahren – und wann eine Schlussfolgerung zu weit geht.</p>
-        <div class="btns"><a class="btn gold" href="#choose-entry">Einstieg wählen</a><a class="btn" href="#record-player">Die Reise beginnen</a><a class="btn" href="#research-now">Zum Forschungsstand</a><a class="btn" href="LAB_ORIENTATION_MACHINE.html">Orientation Machine</a><a class="btn" href="A0_AXIAL_CARRIER_ADAPTER_SUITE.html">Axial Carrier Suite</a></div>
+        <div class="btns"><a class="btn gold" href="#choose-entry">Einstieg wählen</a><a class="btn" href="#introduction">Die Reise beginnen</a><a class="btn" href="#research-now">Zum Forschungsstand</a><a class="btn" href="LAB_ORIENTATION_MACHINE.html">Orientation Machine</a><a class="btn" href="A0_AXIAL_CARRIER_ADAPTER_SUITE.html">Axial Carrier Suite</a></div>
       </div>
     </section>
 
@@ -358,7 +428,7 @@
           <p class="entry-switch-intro">Lesen führt durch die Geschichte, Science zu Ergebnissen und Grenzen, Spielen in ein Werkzeug — und LOOK AGAIN in fünf kurze Wahrnehmungsvergleiche. Alle Wege gehören zu demselben A0; keiner erzeugt eine zweite Identität.</p>
         </div>
         <div class="entry-switch-grid">
-          <a class="entry-route" href="#record-player"><span class="entry-route-no">01 · Zum ersten Mal</span><div><h3>Von einem Record zur verantwortbaren Aussage.</h3><p>Beginne bei Stimme, Cut und Replay. Folge anschließend den acht Kapiteln von Unterschied und Koordinate bis Evidence, Residual und Human Return.</p><span>Die A0-Reise beginnen →</span></div></a>
+          <a class="entry-route" href="#introduction"><span class="entry-route-no">01 · Zum ersten Mal</span><div><h3>Von einem Record zur verantwortbaren Aussage.</h3><p>Beginne bei Stimme, Cut und Replay. Folge anschließend den acht Kapiteln von Unterschied und Koordinate bis Evidence, Residual und Human Return.</p><span>Die A0-Reise beginnen →</span></div></a>
           <a class="entry-route research" href="A0_SCIENCE.html#status"><span class="entry-route-no">02 · Forschungsstand lesen</span><div><h3>Was trägt, was ist offen und was muss später validiert werden?</h3><p>A0 Science zeigt Resultate, Evidenzreife, Grenzen und den nächsten wissenschaftlichen Schritt. Operative Aufgaben und Builder-Steuerung bleiben im internen Science Desk.</p><span>A0 Science öffnen →</span></div></a>
           <a class="entry-route play" id="arkade-tool" href="A0_BUILDER_TOY_STORE.html#story-bridge"><span class="entry-route-no">03 · Spielend prüfen</span><div><h3>Was verändert sich, wenn ich selbst eingreife?</h3><p>Die NEXAH ARKADE ist ein A0-Werkzeug: Drei spielbare Welten machen Unterschied, Übergang, Ansicht und Return berührbar. Das Spiel illustriert die Fragen; es ersetzt weder Beleg noch Erklärung.</p><span>Game of Worlds in der ARKADE öffnen →</span></div></a>
           <a class="entry-route look" id="look-again-entry" href="A0_LOOK_AGAIN_PLAY.html"><span class="entry-route-no">04 · Look again</span><div><h3>Same source. Another visible relation.</h3><p>Fünf statische Vorher-/Nachher-Runden machen Phase, Maßstab, Sampling, Apertur und Ringdichte sichtbar. Kein Score, keine Norm, kein Sehtest.</p><span>LOOK AGAIN spielen →</span></div></a>
@@ -418,30 +488,6 @@
           <a class="research-now-card" href="A0_SCIENCE.html#who-we-are"><b>NEXAH · Core · Lab · A0</b><h3>Wer sind wir — und welche Fläche trägt welche Rolle?</h3><p>Die öffentliche Science-Sicht trennt intellektuelles Zuhause, Framework-Quelle, wissenschaftlichen Record und das konkrete A0-Programm.</p><span class="work-action">Rollen und Quellenräume lesen →</span></a>
         </div>
         <div class="research-now-boundary"><strong>Aktuelle Betriebsgrenze:</strong> Structure Freeze. Kein A0-Experiment ist aktiv. A0 Science projiziert den freigegebenen Stand; der interne Science Desk steuert Aufgaben und Builder-Returns. Keine der Ansichten verändert Labstatus, Admission, Evidenz, Review oder Publikationsfreigabe.</div>
-      </div>
-    </section>
-
-    <section class="culture-record" id="record-player">
-      <div class="culture-grid">
-        <div>
-          <div class="label">00 · one moment, one record, one return</div>
-          <h2>Eine Stimme wird zum Record.</h2>
-          <p class="sub">Wir leben nicht in Records. Aber wir orientieren und entscheiden uns mit ihnen. Jemand singt; ein Instrument wählt und speichert eine Spur; später wird daraus wieder Klang. Die Aufnahme bewahrt etwas vom Moment — sie ist nicht der Moment selbst.</p>
-          <div class="record-journey" aria-label="Weg von der Stimme zum menschlichen Return">
-            <span>Stimme<small>Situation</small></span><span>Cut<small>Mikrofon und Auswahl</small></span><span>Record<small>gespeicherte Spur</small></span><span>Replay<small>Return zum Menschen</small></span>
-          </div>
-          <p class="claim-line">Kulturelles Orientierungsinstrument · illustratives 3D-Modell · keine wissenschaftliche Evidenz</p>
-          <div class="btns"><a class="btn gold" href="#introduction">Was dieses Buch damit untersucht</a></div>
-        </div>
-        <div class="viewer-shell">
-          <model-viewer id="recordPlayer" src="assets/3d/nexah_roedelheim_record_play.glb" poster="assets/images/record_play_poster.jpeg" alt="Interaktives 3D-Modell des Rödelheim Record Play Instruments mit Graph-, Wave- und Fold-Spuren" camera-controls auto-rotate rotation-per-second="10deg" interaction-prompt="auto" touch-action="none" loading="lazy" reveal="manual" shadow-intensity="1" exposure="1.05">
-            <button class="viewer-poster" slot="poster" style="--poster:url('assets/images/record_play_poster.jpeg')" type="button" onclick="this.parentElement.dismissPoster()"><span>3D starten · ziehen zum Drehen · scrollen zum Zoomen</span></button>
-          </model-viewer>
-          <div class="viewer-meta">
-            <p><strong>Record / Play</strong><br>Ziehen = drehen · Scrollen/Pinch = zoomen · GLB · 1.0 MB</p>
-            <div class="asset-actions"><a class="btn" href="assets/3d/nexah_roedelheim_record_play.glb" download>GLB herunterladen</a><a class="btn" href="assets/3d/MANIFEST.json">Asset record</a></div>
-          </div>
-        </div>
       </div>
     </section>
 
@@ -580,7 +626,7 @@
   </main>
 
   <footer>
-    <div><span><strong>NEXAH · A0 BOOK</strong><br>Internal guided-reading surface · documentation layer</span><span class="label">Introduction + Index · 2026-10-09</span></div>
+    <div><span><strong>NEXAH · LABORATORY · A0</strong><br>Human-facing orientation surface · documentation and instrument layer</span><span class="label"><a href="https://nexah.de/">Return to NEXAH ↗</a> · A0 remains source-bound</span></div>
   </footer>
   <script>
     (() => {

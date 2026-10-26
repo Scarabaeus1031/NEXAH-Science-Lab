@@ -26,6 +26,9 @@ check(firstReturn > archive, "engineering entries must live inside the archive")
 check(archiveEnd > firstReturn, "Engineering Returns archive does not close after its entries");
 check(resultsTour > archiveEnd, "normal Desk content must follow the closed Engineering Returns archive");
 check((html.match(/id="top"/g) || []).length === 1, "Science Desk must contain exactly one top anchor");
+check(!html.includes('body[data-desk-view]:not([data-desk-view="overview"]) .hero{display:none}'), "filtered Desk views must keep the visible top anchor and hero");
+check(html.includes('history.scrollRestoration = "manual"'), "the #top Desk entry must override browser scroll restoration");
+check(html.includes('addEventListener("pageshow", () => requestAnimationFrame(restoreDeskTop))'), "restored in-app browser pages must return to the declared #top anchor");
 check(!/<details class="engineering-return-archive"[^>]*\sopen(?:\s|=|>)/.test(html), "Engineering Returns must be collapsed by default");
 check(/<details class="engineering-return-archive"[^>]*\shidden(?:\s|=|>)/.test(html), "Engineering Returns must stay hidden until moved to Protocols");
 
