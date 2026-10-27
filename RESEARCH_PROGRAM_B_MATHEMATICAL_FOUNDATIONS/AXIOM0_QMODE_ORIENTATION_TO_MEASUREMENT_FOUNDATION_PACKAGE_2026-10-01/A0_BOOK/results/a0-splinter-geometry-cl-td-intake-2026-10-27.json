@@ -1,0 +1,146 @@
+{
+  "schema": "nexah.science_desk.splinter_geometry_cl_td_intake.v1",
+  "status": "PASS_BOUNDED_GEOMETRY_INSTRUMENT_CONDITIONAL_TD_NO_PHYSICAL_LINK",
+  "reviewed_at": "2026-10-27",
+  "desk_record": "I-46A",
+  "extends": [
+    "I-46",
+    "I-34"
+  ],
+  "source": {
+    "repository_path": "A0_BOOK/downloads/NEXAH_Splinter_Geometrie_Offline_2026-10-27.html",
+    "original_local_path": "/Users/tho2020/Downloads/NEXAH_Splinter_Geometrie_Offline.html",
+    "source_byte_size": 8950,
+    "source_sha256": "d23d5d1d3f5b2240bfb50624fc66b78de42c130d45297ac29747a9e94e71f32d",
+    "repository_byte_size": 11390,
+    "repository_sha256": "1dcebc03c2ecf6656ee8d82c924d8ac3df5d751476f5fcb0478905963d28794e",
+    "normalization": "DERIVED_SCIENCE_DESK_EXTENSION_FROM_SOURCE",
+    "derivation": [
+      "exact circular-segment area readout",
+      "Measure-T view",
+      "Lid/chord view",
+      "Fold/Pin hypothesis view",
+      "source-bound archaeology note"
+    ],
+    "mime_type": "text/html",
+    "standalone": true,
+    "external_dependencies": 0,
+    "network_required": false,
+    "conversation_share_url": "https://chatgpt.com/share/e/6ae12831-f83c-83eb-b973-b427f558100f",
+    "signed_raw_url_retained": false
+  },
+  "assessment": {
+    "geometry": {
+      "status": "PASS_EXACT_ELEMENTARY_GEOMETRY",
+      "equations": [
+        "beta=sqrt(1-q^2)",
+        "delta=1-beta=q^2/(1+beta)",
+        "delta=q^2/2+delta^2/2"
+      ],
+      "q_0_2": {
+        "beta": 0.9797958971132712,
+        "delta": 0.0202041028867288,
+        "quadratic_approximation": 0.02,
+        "chord": 0.4,
+        "segment_area": 0.005398741367676541,
+        "shape_factor_area_over_chord_times_delta": 0.6680253755813551
+      },
+      "area_equation": "A=asin(q)-q*sqrt(1-q^2)",
+      "small_q_area_approximation": "A~2*q^3/3",
+      "shape_factor_limit": "A/(2*q*delta)->2/3",
+      "rotation_boundary": "204 degrees changes orientation only."
+    },
+    "time_dilation": {
+      "status": "CORRECT_CONDITIONAL_DERIVATION_ESTABLISHED_PHYSICS",
+      "assumption": "q=Delta_tau/Delta_t=1/5",
+      "gamma": 5,
+      "beta_squared": 0.96,
+      "non_claim": "Blue:Orange is not established as a time measurement."
+    },
+    "critical_line": {
+      "status": "NON_IDENTITY",
+      "riemann_line": "Re(s)=1/2"
+    },
+    "axis08": {
+      "status": "REFERENCE_EXISTING_BOUNDED_RECORD_NO_REPLAY",
+      "record": "I-34",
+      "result": "max|T(R(G))-R(T(G))|=0.10717184459568377"
+    },
+    "t_lid_fold_pin_archaeology": {
+      "status": "SOURCE_MATCHES_BOUNDED_MECHANISM_OPEN",
+      "record": "I-46B",
+      "comparators": [
+        {
+          "source": "Pentagon Curtain preflight",
+          "match": "point T and white pin P",
+          "boundary": "P is explicitly a marker, not a floating physical body"
+        },
+        {
+          "source": "Crown/Shadow Contact Bench",
+          "match": "visible pin axis",
+          "boundary": "radius, thickness and clearance remain open"
+        },
+        {
+          "source": "D1-D2 clamp engineering return",
+          "match": "bounded pin and bearing clearance",
+          "boundary": "different carrier and geometry"
+        },
+        {
+          "source": "Boundary Graph",
+          "match": "hinge comparator",
+          "boundary": "abstract representation, not a physical fold mechanism"
+        }
+      ],
+      "mechanism_gate": [
+        "two declared surface states",
+        "hinge and contact definition",
+        "pin radius",
+        "finite thickness",
+        "degrees of freedom",
+        "collision rule"
+      ]
+    }
+  },
+  "terminology_boundary": {
+    "geometric_splinter": "source-local circular segment between chord and arc",
+    "not_identical_to": [
+      "A0-BL-035 SPL_LOCAL transition corridor",
+      "Pascal Splinter",
+      "mechanical seam",
+      "Riemann critical line",
+      "physical channel",
+      "autonomous operator"
+    ]
+  },
+  "identity_decision": {
+    "action": "REUSE_EXISTING_IDENTITIES",
+    "identities": [
+      "NEXAH_AX0_QMODE_FOUNDATION_PACKAGE",
+      "NEXAH_A0_ORIENTATION_CONTROLLER_BENCH",
+      "NEXAH:A0_ORIENTATION_EVIDENCE_LINEAGE:V1"
+    ],
+    "new_identity": false,
+    "new_relation": false,
+    "new_study": false,
+    "new_finding": false,
+    "lab_register_change": false,
+    "research_activation": false
+  },
+  "verification": {
+    "byte_identity": "SOURCE_HASH_PRESERVED_DERIVED_REPOSITORY_EXTENSION_HASHED",
+    "static_contract": "PASS_SELF_CONTAINED_NO_EXTERNAL_DEPENDENCIES",
+    "formula_check": "PASS",
+    "browser_acceptance": "PASS_36_COMBINATIONS_4_Q_STAGES_3_ORIENTATIONS_3_READING_MODES_LOCAL_IAB",
+    "browser_acceptance_notes": [
+      "Measure-T, Lid and Fold/Pin labels update without changing geometry or area.",
+      "All 36 combinations were exercised in the local in-app browser.",
+      "Fold/Pin remains visibly question-marked and is not presented as an established mechanism."
+    ],
+    "browser_values": {
+      "q_0_2_delta": "0.020204102886728760721086370117...",
+      "q_0_1_delta": "0.005012562893380045265520178998...",
+      "q_0_05_delta": "0.001250782228091054210980883597...",
+      "q_0_025_delta": "0.000312548843389752135903709436..."
+    }
+  }
+}

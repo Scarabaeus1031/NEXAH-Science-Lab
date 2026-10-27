@@ -1380,3 +1380,73 @@ Evidenzpromotion.
 - Lifecycle authority: `SCIENCE_LAB/LAB_REGISTER.md`.
 - Priority and activation authority: Mission Control / Human Owner.
 
+
+## Science-Desk-Intake — Darstellungen, Verständnis und Return — 27. Oktober 2026 {#representation-understanding-return-page-intake-20261027}
+
+Status: `PASS_DOCUMENTARY_INTAKE / MIXED_EVIDENCE / PREPARATION_ONLY / NO ACTIVATION`
+
+Die workspace-private Page `page_18e8144d87f48191811bf741aeee2107`
+und ihre 29 Anhänge (15 PNG, 9 HTML, 4 JSON, 1 Python) sind vollständig
+gesichtet und als gemischtes Forschungs- und Protokollmaterial bewertet.
+Stärkster Anschluss ist der Summe/Differenz-Return mit
+`1836+1729=3565` und `1836−1729=107`: Er wird nicht als neues Demo,
+sondern als Testmatrix an das bestehende Game of Numbers gebunden.
+
+Tier A umfasst den Witness-/HOLD-Test, Room→Board→Shadow sowie etablierte
+Kalibrierungen wie Möbius-Inversion, Q4/Ihara und reversible Zeta-Koordinaten.
+Tier B enthält reproduzierbare Referenz- und Engineering-Checks. Fehlende
+Generatoren und Operatoren bleiben Tier C; GEONANZ, Farb-/Physiklesarten,
+Quaternion Freeflow, Prime-Digit- und Timegear-Deutungen bleiben Tier D
+(Owner-Konzept/Provenienz, kein Claim).
+
+Kein neuer Navigator-Knoten, keine Relation, Study, Finding-Promotion,
+Lab-Register-Änderung oder Publikationsfreigabe. Ein echter
+Verständnisversuch erfordert vor Aktivierung Baseline, Vergleichsbedingung,
+Teilnehmer/Aufgabe, Fehler-/Zeit-/Transfermaße, Fehlerschwelle und Run Contract.
+
+- Intake und Bewertung:
+  `A0_REPRESENTATION_UNDERSTANDING_RETURN_PAGE_INTAKE_2026-10-27.md`
+- Hash-/Asset-Receipt:
+  `A0_BOOK/results/a0-representation-understanding-return-page-intake-2026-10-27.json`
+- Bestehendes Instrument:
+  `A0_BOOK/assets/game-of-worlds-play/numbers/index.html`
+
+### Erweiterung I‑46A — Splinter-Geometrie, Critical Line und TD
+
+Status: `PASS_BOUNDED_GEOMETRY_INSTRUMENT / CONDITIONAL_TD / NO_PHYSICAL_LINK / NO ACTIVATION`
+
+Die eigenständige Offline-HTML wurde als abgeleitete Science-Desk-Fassung in
+Repository-Custody genommen. Gegenüber der erhaltenen Quelle ergänzt sie die
+exakte Kreisabschnittsfläche sowie getrennte Mess-T-, Lid- und
+Fold/Pin-Ansichten; Quellen- und Repository-Fassung bleiben separat gehasht.
+Sie zeigt exakt `δ=1−sqrt(1−q²)=q²/(1+sqrt(1−q²))` und
+`δ=q²/2+δ²/2`. Für `q=1/5` sind `γ=5`, `β²=0,96` und
+`δ≈0,020204102887` korrekt, sofern `q` als `Δτ/Δt` gesetzt wird.
+Blau:Orange selbst ist kein Messnachweis.
+
+`CL` als NEXAH-Naht bleibt getrennt von `Re(s)=1/2`. Der geometrische
+Kreisabschnitt „Splinter“ bleibt getrennt von A0-BL-035/`SPL_LOCAL`.
+Der AXIS08-Wert `0,10717184459568377` wird aus I‑34 referenziert und
+nicht als neuer Versuch wiederholt.
+
+- Bewertung: `A0_SPLINTER_GEOMETRY_CRITICAL_LINE_TIME_DILATION_INTAKE_2026-10-27.md`
+- Offline-Instrument: `A0_BOOK/downloads/NEXAH_Splinter_Geometrie_Offline_2026-10-27.html`
+- Receipt: `A0_BOOK/results/a0-splinter-geometry-cl-td-intake-2026-10-27.json`
+
+### Erweiterung I‑46B — Mess-T, Lid, Segmentfläche und Fold/Pin-Archaeology
+
+Status: `PASS_EXACT_SEGMENT_AREA / SOURCE_MATCHES_BOUNDED / MECHANISM_OPEN / NO ACTIVATION`
+
+Das sichtbare große T wird als Messfigur typisiert: Querbalken
+`c=2q`, Steg `δ`. Die Kreisabschnittsfläche ist exakt
+`A=asin(q)−q·sqrt(1−q²)`; für `q=0,2` gilt
+`A≈0,00539874136768`. Das Offline-Instrument besitzt nun getrennte Ansichten
+für Mess-T, Lid/Sehne und Fold/Pin-Hypothese.
+
+Archaeology findet einen historischen Curtain-Punkt `T` und Pin `P`
+(dort ausdrücklich nur Marker), die offene Pin-Achse des Crown/Shadow Bench,
+die andere getestete D1/D2-Pin-Clearance und den abstrakten Boundary-Hinge.
+Diese Treffer sind Comparatoren. Eine Falte, die von einem Pin gehalten wird,
+ist ohne Flächenzustände, Kontakt-, Dicke-, Radius-, Freiheitsgrad- und
+Kollisionsvertrag nicht bestätigt.
+

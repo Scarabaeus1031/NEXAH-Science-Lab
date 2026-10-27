@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>NEXAH · Splinter Geometrie</title>
+<style>
+:root{color-scheme:dark;--background:#091622;--foreground:#edf4f9;--muted-foreground:#adbfce;--border:#294254;--viz-series-1:#f5c76c;--viz-series-2:#4ed6e8}
+*{box-sizing:border-box}body{margin:0;background:var(--background);color:var(--foreground);font:16px/1.6 system-ui,sans-serif}main{max-width:1000px;margin:auto;padding:28px 22px 36px}h1{font-size:clamp(24px,4vw,34px);font-weight:500;margin:0 0 10px}p{margin:8px 0 20px}.intro{color:var(--muted-foreground);max-width:70ch}.viz-controls{display:flex;flex-wrap:wrap;gap:18px;margin:24px 0}.form-label{display:grid;gap:6px;min-width:0;flex:1 1 230px}.form-select{font:inherit;width:100%;padding:10px 12px;background:#132737;color:var(--foreground);border:1px solid #466071;border-radius:6px}select:focus-visible,summary:focus-visible{outline:3px solid var(--viz-series-2);outline-offset:3px}.tabular-nums{font-variant-numeric:tabular-nums}.text-small{font-size:14px}details{margin-top:26px;padding-top:14px;border-top:1px solid var(--border)}summary{cursor:pointer}details p{max-width:75ch;margin-top:12px;color:var(--muted-foreground)}.sm-values{margin-top:14px}footer{max-width:1000px;margin:auto;padding:0 22px 30px;color:var(--muted-foreground);font-size:13px}@media(max-width:400px){main{padding:20px 14px}footer{padding:0 14px 24px}}
+</style></head><body><main><div id="splinter-map">
+  <h1>Splinter: Form und Orientierung</h1><p class="intro">Verkleinere den Kreisabschnitt und drehe seine Lage. Sehnenlänge und Splinterhöhe bleiben bei der Drehung gleich.</p>
+  <div class="viz-controls">
+    <label class="form-label">Verkleinerung k<select class="form-select" id="sm-k"><option value="0">0 · q = 0,2</option><option value="1">1 · q = 0,1</option><option value="2">2 · q = 0,05</option><option value="3">3 · q = 0,025</option></select></label>
+    <label class="form-label">Orientierung<select class="form-select" id="sm-angle"><option value="0">0°</option><option value="204">204° · gewählte Feldansicht</option><option value="137.50776405003785">137,507764° · goldener Winkel</option></select></label>
+    <label class="form-label">Science-Desk-Lesart<select class="form-select" id="sm-reading"><option value="measure">Mess-T · Sehne und Höhe</option><option value="lid">Lid · Sehne als Deckellinie</option><option value="fold-pin">Fold/Pin · Mechanikhypothese</option></select></label>
+  </div>
+  <div class="sm-grid"><div><svg id="sm-circle" role="img" aria-label="Einheitskreis mit gedrehtem Kreisabschnitt"></svg></div><div><svg id="sm-detail" role="img" aria-label="Mitgedrehter vergrößerter Kreisabschnitt bei gleichem horizontalem und vertikalem Maßstab"></svg></div></div>
+  <div class="sm-values tabular-nums" aria-live="polite" id="sm-values"></div>
+  <div class="text-small" id="sm-precision"></div><details><summary>Was wird hier gerechnet?</summary><p>Radius 1, halbe Sehnenlänge q. Die Höhe ist δ = 1 − √(1 − q²). Für die Rechnung wird die gleichwertige, numerisch stabile Form δ = q² / (1 + √(1 − q²)) verwendet.</p><p>Die Kreisabschnittsfläche ist exakt A = asin(q) − q√(1−q²). Für kleine q gilt A ≈ 2q³/3; zugleich nähert sich A/(2qδ) dem Formfaktor 2/3.</p><p>Die Höhenäherung ist q²/2. Ihr Rest beträgt exakt δ²/2. Die Winkelwahl dreht dieselbe Figur; 204° ist eine gewählte Orientierung, keine aus Dezimalziffern hergeleitete Feldgleichung.</p><p>Der rechte Ausschnitt dreht sich mit der Figur mit und verwendet horizontal wie vertikal denselben Maßstab. Kleine Abstände können deshalb kaum sichtbar werden; die Zahlenanzeige bleibt maßgeblich.</p><p>Referenzmodell aus dem NEXAH-Forschungsfaden. Keine Rekonstruktion des historischen A0-Bügelgenerators und kein Nachweis einer physikalischen Wirkung.</p></details><details><summary>Science-Desk-Archaeology · T, Lid, Fold und Pin</summary><p><strong>Mess-T:</strong> Sehne c=2q und Mittelsenkrechte δ bilden exakt das sichtbare T-Maß. <strong>Lid:</strong> Die Sehne kann als Deckellinie gelesen werden; die Segmentfläche ist dann der Raum zwischen Lid und Bogen. <strong>Fold/Pin:</strong> Apex, Mittelsenkrechte und Sehnenenden werden nur als Mechanikhypothese markiert.</p><p>Der historische Curtain-Preflight kennt bereits einen Punkt T und einen weißen Pin P, erklärt P aber ausdrücklich als Marker und nicht als schwebenden physischen Körper. Der Crown/Shadow Contact Bench zeigt eine Pin-Achse, hält Radius, Dicke und Clearance jedoch offen. D1/D2 besitzt eine getestete, aber andere Pin-/Lagergeometrie. Diese Quellen sind Comparatoren; sie belegen nicht, dass der Kreisabschnitt eine Falte ist oder von einem Pin gehalten wird.</p></details>
+</div>
+<style>
+#splinter-map .sm-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px}
+#splinter-map svg{display:block;width:100%;overflow:visible;color:var(--foreground)}
+#splinter-map svg text{fill:var(--foreground);font-size:12px}
+#splinter-map .sm-values{overflow-wrap:anywhere;display:grid;gap:4px}
+#splinter-map #sm-precision{margin-top:12px;overflow-wrap:anywhere;color:var(--muted-foreground)}
+@media(max-width:640px){#splinter-map .sm-grid{grid-template-columns:1fr}}
+</style>
+<script>
+function startSplinter(){
+const root=document.getElementById('splinter-map');
+if(!root || root.dataset.ready) return;
+root.dataset.ready='true';
+const kEl=root.querySelector('#sm-k'), aEl=root.querySelector('#sm-angle'), readingEl=root.querySelector('#sm-reading');
+const circle=root.querySelector('#sm-circle'),detail=root.querySelector('#sm-detail');
+const digits=['0,020204102886728760721086370117…','0,005012562893380045265520178998…','0,001250782228091054210980883597…','0,000312548843389752135903709436…'];
+const fmt=x=>x.toPrecision(12).replace('.',',');
+function plot(){
+ const k=Number(kEl.value),q=.2/2**k,b=Math.sqrt(1-q*q),d=q*q/(1+b),approx=q*q/2,area=Math.asin(q)-q*b,shape=area/(2*q*d),reading=readingEl.value;
+ const angle=Number(aEl.value)*Math.PI/180,ca=Math.cos(angle),sa=Math.sin(angle);
+ const rotate=(x,y)=>[ca*x-sa*y,sa*x+ca*y];
+ const w=Math.max(240,circle.parentElement.getBoundingClientRect().width),h=270,r=Math.min((w-64)/2,96),cx=w/2,cy=135;
+ circle.setAttribute('viewBox',`0 0 ${w} ${h}`);circle.setAttribute('height',h);
+ const pix=p=>[cx+r*p[0],cy-r*p[1]];
+ const pts=[];for(let j=0;j<=80;j++){const t=-Math.asin(q)+2*Math.asin(q)*j/80;pts.push(pix(rotate(Math.sin(t),Math.cos(t))));}
+ const A=pix(rotate(-q,b)),B=pix(rotate(q,b)),P=pix(rotate(0,1)),C=pix(rotate(0,b));
+ const path=pts.map((p,i)=>(i?'L':'M')+p.join(',')).join(' ')+' Z';
+ circle.innerHTML=`<title>Einheitskreis, Orientierung ${aEl.value} Grad</title><text x="16" y="18">Radius 1 · feste Achsen</text><line x1="${cx-r-10}" y1="${cy}" x2="${cx+r+10}" y2="${cy}" stroke="var(--border)"/><line x1="${cx}" y1="${cy-r-10}" x2="${cx}" y2="${cy+r+10}" stroke="var(--border)"/><circle cx="${cx}" cy="${cy}" r="${r}" stroke="var(--muted-foreground)" stroke-width="1" fill="none"/><path d="${path}" fill="var(--viz-series-1)" fill-opacity=".28"/><line x1="${A[0]}" y1="${A[1]}" x2="${B[0]}" y2="${B[1]}" stroke="var(--viz-series-1)" stroke-width="2"/><line x1="${cx}" y1="${cy}" x2="${P[0]}" y2="${P[1]}" stroke="var(--muted-foreground)" stroke-dasharray="4 4"/><circle cx="${P[0]}" cy="${P[1]}" r="3" fill="var(--viz-series-1)"/><text x="16" y="254">q = ${fmt(q)} · α = ${Number(aEl.value).toFixed(3).replace('.',',')}°</text>`;
+ const dw=Math.max(240,detail.parentElement.getBoundingClientRect().width),dh=270,sc=(dw-48)/(2.6*q),xx=x=>dw/2+x*sc,yy=y=>78+(1-y)*sc;
+ detail.setAttribute('viewBox',`0 0 ${dw} ${dh}`);detail.setAttribute('height',dh);
+ const arc=[],par=[];for(let j=0;j<=100;j++){let x=-1.2*q+2.4*q*j/100;arc.push([xx(x),yy(Math.sqrt(1-x*x))]);par.push([xx(x),yy(1-x*x/2)]);}
+ const line=points=>points.map((p,i)=>(i?'L':'M')+p.join(',')).join(' ');
+ const cap=[];for(let j=0;j<=80;j++){let x=-q+2*q*j/80;cap.push([xx(x),yy(Math.sqrt(1-x*x))]);}
+ const chordLabel=reading==='measure'?'Sehne / T-Querbalken':reading==='lid'?'Lid-Hypothese / Sehne':'Fold-Kante? / Sehne';
+ const stemLabel=reading==='measure'?'T-Steg δ':reading==='lid'?'Lid-Abstand δ':'Pin-/Stoppmaß? δ';
+ const marks=reading==='fold-pin'?`<circle cx="${xx(0)}" cy="${yy(1)}" r="5" fill="var(--viz-series-1)"/><circle cx="${xx(-q)}" cy="${yy(b)}" r="4" fill="var(--viz-series-2)"/><circle cx="${xx(q)}" cy="${yy(b)}" r="4" fill="var(--viz-series-2)"/><text x="${xx(0)+8}" y="${yy(1)-7}">PIN?</text>`:'';
+ detail.innerHTML=`<title>Mitgedrehter Ausschnitt, Kreisabschnitt und quadratische Näherung</title><text x="16" y="18">Ausschnitt · ${reading==='measure'?'Mess-T':reading==='lid'?'Lid-Lesart':'Fold/Pin-Hypothese'}</text><text x="16" y="40">x und y gleich skaliert · Zoom ×${(sc/r).toFixed(1)}</text><path d="${line(cap)} Z" fill="var(--viz-series-1)" fill-opacity="${reading==='lid'?'.30':'.18'}"/><path d="${line(arc)}" fill="none" stroke="var(--viz-series-1)" stroke-width="2"/><path d="${line(par)}" fill="none" stroke="var(--viz-series-2)" stroke-dasharray="4 4" stroke-width="1.5"/><line x1="${xx(-q)}" y1="${yy(b)}" x2="${xx(q)}" y2="${yy(b)}" stroke="${reading==='lid'?'var(--viz-series-2)':'var(--muted-foreground)'}" stroke-width="${reading==='lid'?3:1}"/><line x1="${xx(0)}" y1="${yy(1)}" x2="${xx(0)}" y2="${yy(b)}" stroke="var(--viz-series-1)" stroke-width="2"/>${marks}<text x="16" y="155">${chordLabel} = ${fmt(2*q)} · ${stemLabel} = ${fmt(d)}</text><line x1="16" y1="187" x2="40" y2="187" stroke="var(--viz-series-1)" stroke-width="2"/><text x="48" y="191">Kreisrand</text><line x1="16" y1="215" x2="40" y2="215" stroke="var(--viz-series-2)" stroke-width="1.5" stroke-dasharray="4 4"/><text x="48" y="219">Quadratische Näherung</text><text x="16" y="254">Lesart ändert Labels, nicht Geometrie oder Fläche.</text>`;
+ root.querySelector('#sm-values').innerHTML=`<span>Splinterhöhe δ = ${digits[k]}</span><span>Sehnenlänge c = 2q = ${fmt(2*q)}</span><span>Kreisabschnittsfläche A = asin(q) − q√(1−q²) = ${fmt(area)}</span><span>Formfaktor A/(cδ) = ${fmt(shape)} · Grenzwert 2/3</span><span>Näherung q²/2 = ${fmt(approx)}</span><span>Rest δ − q²/2 = δ²/2 = ${fmt(d*d/2)}</span>`;
+ root.querySelector('#sm-precision').textContent=k===1?'9 Nachkommastellen: 0,005012563 · die Endung 563 entsteht durch Rundung.':k===3?'9 Nachkommastellen: 0,000312549 · die Endung 549 entsteht durch Rundung.':'Dezimalstellen: 85-stellige Referenzrechnung · keine Primzahlselektion.';
+}
+kEl.addEventListener('change',plot);
+aEl.addEventListener('change',plot);
+readingEl.addEventListener('change',plot);
+let lastWidth=0;
+function resize(){
+ const width=root.getBoundingClientRect().width;
+ if(Math.abs(width-lastWidth)<1) return;
+ lastWidth=width;
+ plot();
+}
+window.addEventListener('resize',resize);
+if(typeof ResizeObserver!=='undefined'){
+ const observer=new ResizeObserver(resize);
+ observer.observe(root);
+}
+plot();
+}
+if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',startSplinter,{once:true});
+else startSplinter();
+</script>
+</main><footer>NEXAH · Referenzgeometrie · Stand 27. Oktober 2026 · funktioniert ohne externe Bibliotheken und ohne Netzwerkzugriff</footer></body></html>
