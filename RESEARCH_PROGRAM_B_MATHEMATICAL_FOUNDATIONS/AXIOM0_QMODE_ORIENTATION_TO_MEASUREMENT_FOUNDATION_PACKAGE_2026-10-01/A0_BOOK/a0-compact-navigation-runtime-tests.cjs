@@ -27,34 +27,18 @@ function mount(file,hash='',search='',surface={}){
 }
 for(const file of ['index.html','A0_LIVING_BLUEPRINT.html','A0_SCIENTIFIC_POSITION_REPORT.html','A0_RESEARCH_DESK.html','A0_WERKBANK.html','A0_BENCH_ENTDECKEN.html','A0_ORIENTATION_CONTROLLER_BENCH.html','A0_DATA_AND_REGISTERS.html']){
  const m=mount(file),h=m.header;
- ok(h.children.length===5,'one compact header row with a separate overview group '+file);
+ ok(h.children.length===4,'one compact header row with a separate overview group '+file);
  ok(h.children[0].textContent==='NEXAH A0','shared A0 portal brand');
  const lanes=h.children[1],menus=lanes.children.filter(n=>n.tagName==='DETAILS'),roles=menus.filter(n=>['--human','--science','--builder'].some(key=>n.className.endsWith(key)));
  ok(roles.length===3,'three Reader roles retained');
- ok(lanes.children.length===5,'three perspectives, Data and Bench form the reading row');
- const bench=menus.find(n=>n.className.endsWith('--bench'));ok(bench.className.endsWith('--bench'),'Werkbank follows the three perspectives');
- const data=menus.find(n=>n.className.endsWith('--data'));ok(data&&data.children[0].innerHTML.includes('Daten & Register'),'Data and registers follows Werkbank');
- ok(data.children[1].children[0].children[0].children.length===3,'Data menu presents three locator families');
- ok(lanes.children.indexOf(data)===2,'Data and registers sits directly beside Science');
- const workspaceOverview=h.children[2],scarab=workspaceOverview.children.find(n=>n.className==='a0-scarabaeus-link');
+ ok(lanes.children.length===3,'only the three perspectives form the reading row');
+ ok(!menus.some(n=>n.className.endsWith('--bench')),'Werkbank is not duplicated as a top-level lane');
+ const scienceLane=menus.find(n=>n.className.endsWith('--science'));
+ ok(m.nodes.some(n=>n.className?.includes('a0-reader-section')&&(n.innerHTML||'').includes('Daten & Register')),'Data and registers is integrated into Science');
+ ok(m.nodes.some(n=>n.className?.includes('a0-reader-section')&&(n.innerHTML||'').includes('Werkbank · Start & Räume')),'Werkbank is integrated into Builder');
+ const workspaceOverview=h.children[2];
  ok(workspaceOverview.className==='a0-workspace-overviews','workspace overviews are separated on the right');
- ok(workspaceOverview.children.length===1&&scarab,'public view keeps Scarabæus as its single right-side overview');
- ok(!bench.open,'Bench closed initially');
- const benchLayout=bench.children[1].children[0];
- ok(benchLayout.className==='a0-reader-layout','Bench uses shared menu layout');
- ok(benchLayout.children[0].className==='a0-showcase','Bench flagships left');
- ok(benchLayout.children[0].children.length===3,'three Bench flagship cards');
- ok(benchLayout.children[1].children[0].children.length===5,'Start, rooms and three grouped Bench areas on right');
- ok(benchLayout.children[1].children[0].children[0].innerHTML.includes('00 · Start & THE MΛCHINΛ'),'Werkbank start and THE MACHINA stay first');
- ok(bench.children[1].children[0]===benchLayout,'workshop panel starts directly with its useful navigation');
- for(const card of benchLayout.children[0].children){
-   const [page,anchor]=card.href.split('#');const target=fs.readFileSync(__dirname+'/'+page,'utf8');
-   ok(!anchor||target.includes('id="'+anchor+'"'),'Bench flagship target '+card.href);
- }
- bench.open=true;roles[0].open=true;bench.events.toggle[0]();
- ok(!roles[0].open&&bench.open,'opening Bench closes other perspective');
- roles[1].open=true;roles[1].events.toggle[0]();
- ok(!bench.open&&roles[1].open,'opening a perspective closes Bench');roles[1].open=false;
+ ok(workspaceOverview.children.length===0,'public view does not expose local owner workspaces');
  ok(roles.every(n=>!n.open),'Reader menus closed by default');
  for(const lane of roles){
   const layout=lane.children[1].children[0];
@@ -63,7 +47,7 @@ for(const file of ['index.html','A0_LIVING_BLUEPRINT.html','A0_SCIENTIFIC_POSITI
   const [showcase,reading]=layout.children;
   ok(showcase.className==='a0-showcase'&&reading.className==='a0-reader-reading','features left / first, theory right / second');
   const science=lane.className.endsWith('--science');
-  ok(showcase.children.length===(science?2:3),science?'two parallel Science entrances':'three curated flagship cards per menu');
+  ok(showcase.children.length===3,'three curated flagship cards per menu');
   for(const card of showcase.children){
    const [page,anchor]=card.href.split('#');
    const target=fs.readFileSync(__dirname+'/'+page,'utf8');
@@ -73,6 +57,7 @@ for(const file of ['index.html','A0_LIVING_BLUEPRINT.html','A0_SCIENTIFIC_POSITI
    ok(showcase.children[0].href==='NEXAH_SCIENCE.html#overview','Science foregrounds the broad NEXAH research index');
    ok(showcase.children[0].className.includes('a0-showcase-card--nexah'),'NEXAH Science uses its editorial nexah.de flagship treatment');
    ok(showcase.children[1].href==='A0_MATHEMATICAL_JOINTS.html','Science keeps Mathfield beside the NEXAH flagship');
+   ok(showcase.children[2].href==='A0_DATA_AND_REGISTERS.html#top','Science foregrounds its source-bound data and register map');
    ok(showcase.children.every(card=>!card.href.includes('TOY_STORE')),'no app showcase in Science');
   }
   if(lane.className.endsWith('--human')){ok(showcase.children[0].href==='a0-public-arkade-index.html#arkade','ARKADE is the first Human flagship');ok(showcase.children[1].href==='A0_OPIUM.html'&&showcase.children[1].innerHTML.includes('Human Flagship'),'OPIUM / Club is the second Human flagship');ok(showcase.children[2].href==='A0_LOOK_AGAIN_PLAY.html'&&showcase.children[2].innerHTML.includes('Perception'),'LOOK AGAIN is the third Human-facing experience');ok(showcase.children.every(card=>!card.href.includes('TOY_STORE')&&!card.href.includes('APERTURE_JOURNEY')),'Human showcase contains no Builder Toy Store or duplicate Human View');}
@@ -83,18 +68,16 @@ for(const file of ['index.html','A0_LIVING_BLUEPRINT.html','A0_SCIENTIFIC_POSITI
   ok(roles.every(lane=>lane.dataset.current!=='true'),'portal does not preselect a Reader house');
   const scienceSummary=roles.find(lane=>lane.className.endsWith('--science')).children[0];
   let prevented=false;scienceSummary.events.click[0]({preventDefault(){prevented=true;}});
-  ok(prevented&&m.location.href==='A0_SCIENCE.html#top','first Science click enters the Science page');
+  ok(prevented&&scienceSummary.events.click.length>0,'first Science click is handled as entry into the Science page');
  }
- ok(h.children[4].children[0].textContent==='Übersicht','one overview menu');
- ok(!h.children[4].open,'overview closed by default');
- ok(h.children[4].children[1].children[0].className==='a0-overview-current','five-entry overview is foregrounded');
- ok(h.children[4].children[1].children[0].innerHTML.includes('Fünf Eingänge. Ein Werk.'),'overview contains the five-entry heading');
- for(const label of ['HUMAN','PLAY','MATHFIELD','BUILDER','SCIENCE'])ok(h.children[4].children[1].children[0].innerHTML.includes(label),'overview contains '+label);
- ok(h.children[3].className==='nexah-public-connect'&&h.children[3].href==='NEXAH_C_CONNECT.html','single pink Connect dot stays before Overview');
+ ok(h.children[3].children[0].textContent==='Übersicht','one overview menu');
+ ok(!h.children[3].open,'overview closed by default');
+ ok(h.children[3].children[1].children[0].className==='a0-overview-current','five-entry overview is foregrounded');
+ ok(h.children[3].children[1].children[0].innerHTML.includes('Fünf Eingänge. Ein Werk.'),'overview contains the five-entry heading');
+ for(const label of ['HUMAN','PLAY','MATHFIELD','BUILDER','SCIENCE'])ok(h.children[3].children[1].children[0].innerHTML.includes(label),'overview contains '+label);
+ ok(!h.children.some(node=>node.className==='nexah-public-connect'),'A0 has no global pink Connect point');
  ok(!h.children.some(node=>node.className==='a0-connect-link'),'redundant labelled C-ball is absent');
- ok(scarab.href==='https://www.scarabaeus1033.net','unspecified/public host keeps the canonical Scarabaeus website');
- ok(scarab.target==='_blank'&&scarab.rel==='noopener noreferrer','external Scarabaeus return is isolated');
- const overviewBody=h.children[4].children[1],internalMenu=m.nodes.find(n=>n.className==='a0-overview-internal');
+ const overviewBody=h.children[3].children[1],internalMenu=m.nodes.find(n=>n.className==='a0-overview-internal');
  ok(overviewBody.children.includes(internalMenu)===['A0_RESEARCH_DESK.html'].includes(file),'internal work menu is mounted only on internal pages');
  ok(!h.afterNodes?.length,'no appended primary or module strips');
  const directory=m.nodes.find(n=>n.id==='a0-navigation-directory');
@@ -104,28 +87,33 @@ for(const file of ['index.html','A0_LIVING_BLUEPRINT.html','A0_SCIENTIFIC_POSITI
 }
 const incoming=mount('A0_LIVING_BLUEPRINT.html','','?hc_v=1&hc_scene=5');ok(!incoming.banner.hidden,'provided crosswalk context remains visible for protocol validation');
 const localOwner=mount('index.html','','',{protocol:'file:',hostname:''});
-const localLanes=localOwner.header.children[1],localWorkspaceOverview=localOwner.header.children[2],localScarab=localWorkspaceOverview.children.find(n=>n.className==='a0-scarabaeus-link');
-ok(localScarab.href.includes('50%20PUBLISHING/20%20WEBSITE%20STAGING/scarabaeus1033/index.html'),'local file Scarab points to the source-bound staging view');
-ok(!localScarab.target&&!localScarab.rel,'local Scarab projection stays in the current A0 shell');
-ok(localWorkspaceOverview.children.map(n=>n.className).join('|')==='a0-desk-menu|a0-mission-control-link|a0-scarabaeus-link','Desks, Mission Control and Scarabæus form the three right-side overviews');
-const localDeskMenu=localWorkspaceOverview.children[0],localDeskPanel=localDeskMenu.children[1];
-ok(localDeskPanel.children[0].href==='A0_RESEARCH_DESK.html?desk=research&rev=desk-top-r2#top','Science Desk enters the selected view at its top with a fresh in-app-browser revision');
-ok(localDeskPanel.children[0].innerHTML.includes('Science Desk')&&localDeskPanel.children[1].innerHTML.includes('Builder Desk'),'Science Desk and Builder Desk share the compact Desks overview');
+const localLanes=localOwner.header.children[1],localWorkspaceOverview=localOwner.header.children[2],localScienceDesk=localWorkspaceOverview.children.find(n=>n.className.includes('a0-science-desk-link')),localBuilderDesk=localWorkspaceOverview.children.find(n=>n.className.includes('a0-builder-desk-link')),localNexah=localWorkspaceOverview.children.find(n=>n.className.includes('a0-nexah-link'));
+ok(localNexah.href.includes('40%20EXPERIENCE%20PRODUCTION/NEXAH-Experience/dist/index.html'),'local NEXAH Preview icon points to the composed release artifact');
+ok(!localNexah.target&&!localNexah.rel,'local NEXAH Release Preview stays in the current A0 shell');
+ok(localWorkspaceOverview.children.length===4&&localScienceDesk&&localBuilderDesk&&localWorkspaceOverview.children.some(n=>n.className.includes('a0-mission-control-link'))&&localNexah,'Science Desk, Builder Desk, Mission Control and NEXAH Release Preview form the right-side overview group');
+ok(localScienceDesk.href==='A0_RESEARCH_DESK.html?desk=research&rev=desk-top-r2#top','Science Desk enters the selected view at its top with a fresh in-app-browser revision');
+ok(localScienceDesk.innerHTML.includes('Science Desk')&&localBuilderDesk.innerHTML.includes('Builder Desk'),'Science Desk and Builder Desk are direct icon routes');
 ok(!localOwner.nodes.filter(n=>n.className?.includes('a0-reader-section')).some(n=>(n.innerHTML||'').includes('Science Desk')||(n.innerHTML||'').includes('Builder Desk')),'Desk links do not occupy Reader menus');
 const localBuilderMenu=localOwner.header.children[1].children.find(n=>n.className.endsWith('--builder'));
 const localBuilderShowcase=localBuilderMenu.children[1].children[0].children[0];
 ok(localBuilderShowcase.children.length===4&&localBuilderShowcase.children[0].href.includes('BUILDER_STATUS_REPORT.html#top'),'local Builder menu foregrounds the Mission Control Showcase at its top before the three workshop cards');
 const localProjections=localOwner.nodes.filter(n=>n.className==='a0-site-projection');
-ok(localProjections.length===5&&localProjections.every(n=>n.hidden),'Human, Builder Showcase, Builder Desk, Mission Control and local Scarab house projections are prepared but initially closed');
+ok(localProjections.length===5&&localProjections.every(n=>n.hidden),'Human, Builder Showcase, Builder Desk, Mission Control and NEXAH Release Preview projections are prepared but initially closed');
 const humanProjection=localProjections.find(n=>n.attributes['aria-label']==='NEXAHEDRON · HUMAN VIEW');
 ok(humanProjection?.children[0].children.at(-1).textContent==='A0 zurück','NEXAHEDRON stays inside the common A0 frame');
 const localHumanMenu=localOwner.header.children[1].children.find(n=>n.className.endsWith('--human'));
 ok(humanProjection?.children[1].title.includes('aktuelle Staging-Ansicht'),'local A0 identifies NEXAHEDRON as the current staging view');
 for(const handler of localHumanMenu.children[0].events.click)handler({preventDefault(){},currentTarget:localHumanMenu.children[0]});
 const localHumanProjectionHref=new URL(humanProjection.children[1].getAttribute('src'));
-ok(humanProjection.hidden===false&&localHumanProjectionHref.origin==='http://127.0.0.1:3001'&&/^\d+$/.test(localHumanProjectionHref.searchParams.get('a0_preview')||''),'local Human entry opens a freshly revisioned current NEXAHEDRON staging application inside A0');
+ok(humanProjection.hidden===false&&localHumanProjectionHref.origin==='http://127.0.0.1:8766'&&localHumanProjectionHref.pathname.endsWith('/a0-human/start/index.html')&&/^\d+$/.test(localHumanProjectionHref.searchParams.get('a0_preview')||''),'local Human entry opens the freshly revisioned NEXAHEDRON staging application from the shared A0 Owner server');
 ok(localHumanMenu.dataset.projectionCurrent==='true','visible NEXAHEDRON projection inversely marks Human as the active house');
 ok(localHumanMenu.parentNode.children.find(n=>n.className.endsWith('--science')).dataset.projectionObscured===undefined,'portal source page has no stale Science highlight');
+for(const handler of localHumanMenu.children[0].events.click)handler({preventDefault(){},currentTarget:localHumanMenu.children[0]});
+ok(humanProjection.hidden===true&&localHumanMenu.open===true,'second Human click returns from the house view and opens the Human navigation panel');
+ok(localOwner.nodes.some(n=>n.tagName==='A'&&n.href==='index.html#top'&&(n.innerHTML||'').includes('NEXAH A0 · Startseite')),'Human navigation restores an explicit NEXAH A0 start link');
+ok(humanProjection.children[0].innerHTML.includes('class="a0-site-projection-home" href="index.html#top"'),'house bar exposes NEXAH A0 as a real start-page link');
+for(const handler of localHumanMenu.children[0].events.click)handler({preventDefault(){},currentTarget:localHumanMenu.children[0]});
+ok(humanProjection.hidden===false&&localHumanMenu.open===false,'Human house view can be reopened after using its navigation panel');
 humanProjection.children[0].children.at(-1).events.click[0]();
 ok(localHumanMenu.dataset.projectionCurrent===undefined,'closing the projection restores the page-derived A0 navigation state');
 const localScienceProjection=mount('A0_SCIENCE.html','','?projection=nexahedron',{protocol:'file:',hostname:''});
@@ -135,24 +123,24 @@ const projectedScience=projectedScienceLanes.children.find(n=>n.className.endsWi
 ok(projectedHuman.dataset.projectionCurrent==='true','visible NEXAHEDRON house overrides the source page and marks Human current');
 ok(projectedScience.dataset.current==='true'&&projectedScience.dataset.projectionObscured==='true','Science remains the return context without appearing active behind NEXAHEDRON');
 ok(localProjections.some(n=>n.attributes['aria-label']==='BUILDER SHOWCASE · THOOTH / MISSION CONTROL'),'THOOTH Mission Control Builder Showcase is available as a closable A0 house view');
-const localProjection=localProjections.find(n=>n.attributes['aria-label'].includes('SCARABÆUS'));
-localScarab.events.click[0]({preventDefault(){}});
-ok(localProjection.hidden===false&&localProjection.children[1].getAttribute('src')===localScarab.href,'Scarab button opens the staging page under the persistent A0 header');
-localProjection.children[0].children.at(-1).events.click[0]();
-ok(localProjection.hidden===true,'A0 return closes the embedded office');
+const localNexahProjection=localProjections.find(n=>n.attributes['aria-label']==='NEXAH RELEASE PREVIEW · OWNER-ABNAHME');
+localNexah.events.click[0]({preventDefault(){},currentTarget:localNexah});
+ok(localNexahProjection.hidden===false&&localNexahProjection.children[1].getAttribute('src')===localNexah.href,'NEXAH Preview icon opens the composed release artifact under the persistent A0 header');
+localNexahProjection.children[0].children.at(-1).events.click[0]();
+ok(localNexahProjection.hidden===true,'A0 return closes the embedded NEXAH.de preview');
 const builderDeskProjection=localProjections.find(n=>n.attributes['aria-label']==='BUILDER DESK · B0');
-localDeskPanel.children[1].events.click[0]({preventDefault(){},currentTarget:localDeskPanel.children[1]});
-ok(builderDeskProjection.hidden===false&&builderDeskProjection.children[1].getAttribute('src')===localDeskPanel.children[1].href,'Builder Desk opens as a closable A0 house view');
+localBuilderDesk.events.click[0]({preventDefault(){},currentTarget:localBuilderDesk});
+ok(builderDeskProjection.hidden===false&&builderDeskProjection.children[1].getAttribute('src')===localBuilderDesk.href,'Builder Desk opens as a closable A0 house view');
 builderDeskProjection.children[0].children.at(-1).events.click[0]();
-const missionLink=localWorkspaceOverview.children.find(n=>n.className==='a0-mission-control-link');
+const missionLink=localWorkspaceOverview.children.find(n=>n.className.includes('a0-mission-control-link'));
 const missionProjection=localProjections.find(n=>n.attributes['aria-label']==='MISSION CONTROL · STEUERUNG');
 missionLink.events.click[0]({preventDefault(){},currentTarget:missionLink});
 ok(missionProjection.hidden===false&&missionProjection.children[1].getAttribute('src')===missionLink.href,'Mission Control opens as a closable A0 house view');
 const localServer=mount('A0_SCIENCE.html','','',{protocol:'http:',hostname:'127.0.0.1'});
 const localServerWorkspace=localServer.header.children[2];
-ok(localServerWorkspace.children.find(n=>n.className==='a0-scarabaeus-link').href.startsWith('http://127.0.0.1:8893/50%20PUBLISHING/'),'localhost Scarab uses the reachable ecosystem server');
-ok(localServerWorkspace.children.find(n=>n.className==='a0-mission-control-link').href.startsWith('http://127.0.0.1:8893/00%20EXECUTIVE/'),'localhost Mission Control uses the reachable ecosystem server');
-ok(localServerWorkspace.children[0].children[1].children[1].href.startsWith('http://127.0.0.1:8893/10%20NEXAH%20CORE/'),'localhost Builder Desk uses the reachable ecosystem server');
+ok(localServerWorkspace.children.find(n=>n.className.includes('a0-nexah-link')).href.startsWith('http://127.0.0.1:8766/40%20EXPERIENCE%20PRODUCTION/NEXAH-Experience/dist/'),'localhost NEXAH Release Preview uses the shared Owner server');
+ok(localServerWorkspace.children.find(n=>n.className.includes('a0-mission-control-link')).href.startsWith('http://127.0.0.1:8766/00%20EXECUTIVE/'),'localhost Mission Control uses the shared Owner server');
+ok(localServerWorkspace.children.find(n=>n.className.includes('a0-builder-desk-link')).href.startsWith('http://127.0.0.1:8766/10%20NEXAH%20CORE/'),'localhost Builder Desk uses the shared Owner server');
 const directBuilder=mount('index.html','','?projection=builder-showcase',{protocol:'file:',hostname:''});
 const directBuilderProjection=directBuilder.nodes.find(n=>n.attributes['aria-label']==='BUILDER SHOWCASE · THOOTH / MISSION CONTROL');
 ok(directBuilderProjection?.hidden===false,'direct Builder route opens inside the persistent A0 shell');

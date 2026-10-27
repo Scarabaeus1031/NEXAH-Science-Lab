@@ -3,9 +3,11 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="description" content="NEXAH Builder Toy Store: eine spielbare Auslage der A0 Flagships, Demonstratoren und quellgebundenen Werkzeuge.">
+  <meta name="description" content="NEXAH Builder Toy Store: eine spielbare Auslage der A0 Flagships, Demonstratoren und quellgebundenen Werkzeuge. Scarabæus 1033 ist die öffentliche Builder-Projektion derselben Quelle.">
   <title>NEXAH · B1 Builder Toy Store</title>
+  <script>if(new URLSearchParams(location.search).get("edition")==="scarabaeus")document.documentElement.dataset.scarabaeusEdition="public";</script>
   <link rel="stylesheet" href="a0-builder-toy-store.css?rev=ocb-bench-20261016">
+  <link rel="stylesheet" href="a0-scarabaeus-projection.css?rev=20261027-a0-source-r2">
   <link rel="stylesheet" href="a0-arkade.css?rev=arkade-20261019">
   <link rel="stylesheet" href="a0-builder-story-bridge.css?rev=20261019-a0-story">
   <link rel="stylesheet" href="a0-application-demonstrator-suite.css?rev=20261018-app-suite-r1">
@@ -17,10 +19,18 @@
     <nav><a href="#story-bridge">A0 Story</a><a href="#arkade">Arkade</a><a href="#shelf">Flagships</a><a href="#instrument-atlas">Build Atlas</a><a href="#benches">Benches</a><a href="#applications">Applications</a><a href="#tools">Tool Wall</a><a href="A0_RESEARCH_DESK.html">Science Desk</a><a href="A0_SCIENTIFIC_POSITION_REPORT.html">Scientific Position</a><a href="A0_NEXAH_APERTURE_JOURNEY.html#human-view">Human</a></nav>
   </header>
 
+  <aside class="scarabaeus-edition-bar" aria-label="Scarabæus 1033 · öffentliche Builder-Navigation">
+    <a class="scarabaeus-edition-brand" href="#top">
+      <svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="4" r="2.2"/><path d="M16 7c-4.2 0-6.5 3.2-6.5 7.7V20c0 4.5 2.3 7 6.5 9 4.2-2 6.5-4.5 6.5-9v-5.3C22.5 10.2 20.2 7 16 7Z"/><path d="M10 11C5.8 8.7 2.7 11 3.5 15.2c.7 3.6 3.1 5.8 6 6.2M22 11c4.2-2.3 7.3 0 6.5 4.2-.7 3.6-3.1 5.8-6 6.2M10 15H5M22 15h5M10 20l-5 3M22 20l5 3M13 8 9 4M19 8l4-4M10 24l-3 4M22 24l3 4"/></svg>
+      <span><strong>SCARABÆUS 1033</strong><small>A0 BUILDER · SAME SOURCE</small></span>
+    </a>
+    <nav aria-label="Scarabæus Bereiche"><a href="#shelf">Works</a><a href="#arkade">Toy Store</a><a href="#benches">Workshop</a><a href="#instrument-atlas">Build Atlas</a><a href="#applications">Build with us</a><a class="scarabaeus-contact-dot" href="NEXAH_C_CONNECT.html#builders" aria-label="Scarabæus Builder Contact · Build with us" title="Builder Contact"><span aria-hidden="true"></span></a></nav>
+  </aside>
+
   <main id="top">
     <section class="hero">
       <div class="hero-copy">
-        <p class="kicker">B1 BUILDER · THE PLAYABLE LAYER</p>
+        <p class="kicker"><span class="builder-edition-default">B1 BUILDER · THE PLAYABLE LAYER</span><span class="builder-edition-scarabaeus">SCARABÆUS 1033 · PUBLIC A0 BUILDER PROJECTION</span></p>
         <h1>Welcome to the<br><em>Toy Store.</em></h1>
         <p class="intro">Science describes. Human gives meaning. Builder makes the relation touchable.</p>
         <p class="hero-note">Eine lebendige Auslage der Flagships, Demonstratoren und Werkzeuge – aus dem vorhandenen A0-Bestand, mit sichtbarer Herkunft und ohne die Grenzen der Forschung zu verwischen.</p>
@@ -206,15 +216,16 @@
         <a href="A0_SCIENCE.html#understand"><small>A0</small><strong>SCIENCE</strong><span>Zusammenhänge verstehen</span></a>
         <a class="current" href="#top"><small>B1</small><strong>BUILDER</strong><span>What can we make?</span></a>
       </div>
-      <p class="boundary"><strong>Boundary:</strong> This is an internal navigation and experience surface. It introduces no new research identity, relation, evidence state, Study activation or publication claim.</p>
+      <p class="boundary"><strong>Boundary:</strong> <span class="builder-edition-default">This is an internal navigation and experience surface.</span><span class="builder-edition-scarabaeus">Scarabæus is the public Builder view of this A0 source, not a second content master.</span> It introduces no new research identity, relation, evidence state, Study activation or publication claim.</p>
     </section>
   </main>
 
-  <footer><strong>NEXAH · BUILDER TOY STORE</strong><span>Tools are invitations. Sources remain attached.</span><a href="A0_ASSET_INDEX.html">Full Asset Index →</a></footer>
+  <footer><strong><span class="builder-edition-default">NEXAH · BUILDER TOY STORE</span><span class="builder-edition-scarabaeus">SCARABÆUS 1033 · A0 BUILDER</span></strong><span>Tools are invitations. Sources remain attached.</span><a href="A0_ASSET_INDEX.html">Full Asset Index →</a></footer>
   <script src="assets/a0-asset-index-v1.js"></script>
   <script src="a0-science-builder-path.js"></script>
   <script src="a0-builder-toy-store.js?rev=ocb-bench-20261016"></script>
   <script src="a0-application-demonstrator-suite.js?rev=20261018-app-suite-r1"></script>
-  <script src="a0-context-navigation.js?rev=reader-lanes-20261019-lane-entry"></script>
+  <script src="a0-context-navigation.js?rev=scarabaeus-a0-source-20261027-r1"></script>
+  <script src="a0-scarabaeus-projection.js?rev=20261027-a0-source-r1"></script>
 </body>
 </html>

@@ -18,7 +18,7 @@ relation, portfolio priority or publication state is created or changed.
 - Stackplayer/QRT and cut views;
 - weighted Lissajous and three-node capture;
 - Club/IOTA/CⅡ, view/overlay/club and ring-frame controls;
-- Tower/Bridge/Lantern and the unbound Phantom-Tine reading;
+- Tower/Bridge/Lantern and the later-separated Phantom-Tine/YUGO reading;
 - Blue Body nine-view phase synchronization;
 - reusable closable module window for Bench, Return Matrix and I/O Seam;
 - explicit `STILL` state token versus local `S-HELL` Owner mnemonic.
@@ -31,9 +31,12 @@ Canonical receipt:
 Disposition: `INTAKE_TRIAGE_ONLY / NOT_ADMITTED / NO_BUILD_AUTHORIZATION`.
 
 Interface/navigation changes and finite local readouts remain engineering
-returns under existing contracts. Phantom-Tine/YUGO and Tower/Lantern visual
-mnemonics require an original source and typed domain before any scientific
-question can be admitted. The historical red-green Two-Percent-Spiral HTML
+returns under existing contracts. On 27 October, YUGO was confirmed as the
+existing A0 role `ROTATABLE_NORMALIZED_LOCAL_FLOW_DIRECTION`; Phantom-Tine was
+typed as historical artwork vocabulary, while the proposed equality
+`Phantom-Tine = YUGO` was preserved as explicitly unbound. Tower/Lantern visual
+mnemonics still require a typed domain before any scientific question can be
+admitted. The historical red-green Two-Percent-Spiral HTML
 remains a source gap. A shared-view synchronization utility would first need a
 bounded user task, comparator, measure and failure threshold. SCC-003 remains
 the separate existing independent-review gate.
@@ -67,4 +70,4 @@ return.
 - `DOC-02`: public currentness/release pins and historical Mathfield hash;
 - historical red-green Two-Percent-Spiral HTML source recovery;
 - named independent SCC-003 reviewer;
-- `YUGO? UNBOUND` Phantom-Tine source and type.
+- Phantom-Tine/YUGO documentary triage: `CLOSED_2026-10-27`; no relation or claim created.

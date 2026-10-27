@@ -53,7 +53,10 @@ or relation.
 |---|---|---|
 | Module window, View/Overlay/Club and nine-swing display | `ENGINEERING_ONLY` | navigation, presentation and phase-display behavior; no scientific estimand |
 | QRT/cut, Lissajous/capture and IOTA schedule receipts | `EXISTING_LOCAL_CONTRACTS` | bounded software/readout checks already carry their own source and claim ceilings |
-| CⅡ lightshow, Tower/Lantern and Phantom-Tine/YUGO readings | `SOURCE_AND_TYPING_REQUIRED` | mnemonic or visual correspondences are not evidence of a common mechanism |
+| CⅡ lightshow and Tower/Lantern views | `ENGINEERING_OR_VIEW_ONLY` | mnemonic or visual correspondences are not evidence of a common mechanism |
+| A0 YUGO role | `TYPED_EXISTING_ROLE` | rotatable normalized local flow direction in the existing YUGO/IOTA pivot; no new identity |
+| historical Phantom-Tine artwork role | `HISTORICAL_ARTWORK_VOCABULARY` | exact source witness is recorded by filename and SHA-256; the visual tine is not a mechanism claim |
+| `Phantom-Tine = YUGO` | `EXPLICITLY_UNBOUND` | no source, typed operator or admitted evidence establishes this mapping; no graph relation created |
 | historical red-green Two-Percent-Spiral HTML | `SOURCE_GAP` | original path, hash, content and role remain unrecovered |
 | shared-view synchronization utility | `QUESTION_NOT_YET_FORMED` | a user task, comparator, measure and failure threshold must precede implementation |
 | SCC-003 | `SEPARATE_EXISTING_REVIEW_GATE` | independent proof and prior-art review remains governed by `A0-BL-015` |
@@ -64,6 +67,11 @@ contract, canonical home, reviewer, next action and explicit STOP/claim ceiling.
 Those fields are intentionally incomplete here. The next permitted action is
 source audit and intake decision only. No `F-A0` number, paper claim or feature
 build may be derived from visual analogy alone.
+
+The Phantom-Tine/YUGO source triage was closed on 27 October 2026 in
+`A0_BOOK/results/a0-phantom-tine-yugo-source-triage-2026-10-27.json`.
+It closes a documentary classification question only; it does not admit a
+scientific question or alter a Finding or Paper state.
 
 <a id="pentagon-lantern-finding-candidate-20261025"></a>
 

@@ -61,8 +61,10 @@ unter [A0_BOOK/results/a0-session-science-log-backlog-return-2026-10-26.json](A0
 **Weiter offen, nicht durch Rückbindung geschlossen:** `DOC-01` Human-/Narrow-/Reduced-Motion-Abnahme;
 `DOC-02` öffentliche Currentness-/Release-Pins und historischer Mathfield-Hash;
 rot-grüne Two-Percent-Spiral-HTML weiterhin nicht lokalisiert; SCC-003 wartet
-auf einen namentlich bestimmten unabhängigen Reviewer; `YUGO? UNBOUND` bleibt
-eine nicht behauptete Owner-Lesart.
+auf einen namentlich bestimmten unabhängigen Reviewer. Die frühere Sammelzeile
+`YUGO? UNBOUND` ist am 27.10.2026 getrennt worden: **YUGO selbst bleibt als
+vorhandene A0-Rolle typisiert**; nur die zusätzliche Zuordnung
+`Phantom-Tine = YUGO` bleibt ausdrücklich ungebunden.
 
 <a id="session-scientific-intake-20261026"></a>
 
@@ -74,12 +76,13 @@ Status: `INTAKE_TRIAGE_ONLY / NOT_ADMITTED / NO_BUILD_AUTHORIZATION / NO NEW A0-
 |---|---|---|
 | View, Overlay, Club, neun Schaukeln, Close-Fenster | Engineering-/Präsentationsarbeit; keine neue wissenschaftliche Aussage | bestehende Receipts erhalten; keine Claim-Promotion |
 | QRT/Cuts, Lissajous/Capture, IOTA-Schedule | endliche lokale Readouts unter bereits bestehenden Verträgen | nur vorhandene Replays und Grenzen prüfen |
-| Phantom-Tine/YUGO, Laternen-/Tower-Mnemonik | visuelle Lesart ohne typisierte Quellbindung | Originalquelle und Gegenstand wiederfinden oder explizit ungebunden lassen |
+| Phantom-Tine/YUGO, Laternen-/Tower-Mnemonik | `TRIAGE_CLOSED`: Phantom-Tine als historisches Artwork-Vokabular typisiert; bestehendes A0-YUGO bleibt rotierbare normierte lokale Flussrichtung; Gleichsetzung beider ausdrücklich `UNBOUND` | keine Aktion, solange keine neue Primärquelle oder typisierte Mapping-Evidenz erscheint |
 | rot-grüne Two-Percent-Spirale | Quellenlücke | historische HTML mit Pfad, Hash und Rolle lokalisieren |
 | gemeinsame View-Synchronisation | noch keine wissenschaftliche Frage | erst Nutzerfall, Baseline, Messgröße und Fehlkriterium formulieren |
 | SCC-003 | separater vorhandener Review-Gate | namentlichen unabhängigen Reviewer bestimmen |
 
 Vollständige Triage: [Findings-/Paper-Workspace](32_A0_FINDINGS_AND_PAPER_WORKSPACE_2026-10-11.md#session-scientific-intake-20261026).
+Maschinenlesbarer Abschluss: [Phantom-Tine/YUGO Source Triage](A0_BOOK/results/a0-phantom-tine-yugo-source-triage-2026-10-27.json).
 Ohne Quelle, begrenzte Frage, Baseline und Claim Ceiling wird nicht weitergebaut.
 
 <a id="numberspace-orientation-intake-20261026"></a>

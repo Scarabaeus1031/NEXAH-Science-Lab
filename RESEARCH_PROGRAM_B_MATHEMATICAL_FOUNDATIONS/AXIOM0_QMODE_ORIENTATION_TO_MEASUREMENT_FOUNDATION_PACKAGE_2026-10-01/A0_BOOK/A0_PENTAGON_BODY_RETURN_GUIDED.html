@@ -84,7 +84,10 @@
     $('sourceLab').addEventListener('load',()=>{const api=$('sourceLab').contentWindow.PentagonLab;if(!api?.startCurtain){sourceUnavailable();return}labReady=true;labUnavailable=false;$('sourceError').hidden=true;document.querySelectorAll('.step').forEach(button=>button.disabled=false);for(const id of ['playAction','stageReset','stageReturn'])$(id).disabled=false;render(active);requestAnimationFrame(()=>requestAnimationFrame(focusBody))});
     document.querySelectorAll('.step').forEach(button=>button.addEventListener('click',()=>render(button.dataset.step)));
     $('previous').addEventListener('click',()=>render(order[Math.max(0,order.indexOf(active)-1)]));$('next').addEventListener('click',()=>render(order[Math.min(order.length-1,order.indexOf(active)+1)]));$('reset').addEventListener('click',resetBody);$('returnAction').addEventListener('click',returnBody);$('playAction').addEventListener('click',playBody);$('stageReset').addEventListener('click',resetBody);$('stageReturn').addEventListener('click',returnBody);
-    if(new URLSearchParams(location.search).get('source')==='missing')$('sourceLab').src='downloads/A0_PENTAGON_KNICK_APERTURE_INTAKE_2026-10-25/SOURCE_INTENTIONALLY_MISSING_FOR_ACCEPTANCE.html';
+    if(new URLSearchParams(location.search).get('source')==='missing'){
+      const frame=$('sourceLab');frame.removeAttribute('src');
+      frame.srcdoc='<!doctype html><html lang="de"><meta charset="utf-8"><style>body{margin:0;background:#071722;color:#d9e7ed;font:16px/1.5 system-ui;display:grid;min-height:100vh;place-items:center}main{max-width:34rem;padding:2rem;border:1px solid #2b6170}strong{color:#f0b735}</style><main><strong>QUELLE FEHLT</strong><p>Für diese Abnahme wurde absichtlich kein Record geladen. Es wird kein Ersatzkörper erzeugt.</p></main></html>';
+    }
     render('source');
   </script>
 </body>
