@@ -2,6 +2,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import process from "node:process";
+import { execFileSync } from "node:child_process";
 import { fileURLToPath } from "node:url";
 
 const sourceRoot = path.dirname(fileURLToPath(import.meta.url));
@@ -12,6 +13,10 @@ const markerPath = path.join(outputRoot, ".a0-public-export.json");
 const pageSet = new Set(manifest.pages);
 const shellPageSet = new Set(manifest.shellPages || []);
 const copied = new Set();
+const sourceRevision = execFileSync("git", ["rev-parse", "HEAD"], {
+  cwd: sourceRoot,
+  encoding: "utf8"
+}).trim();
 
 function localTarget(raw, fromFile) {
   if (!raw || raw.startsWith("#") || raw.startsWith("data:") || raw.startsWith("mailto:") || raw.startsWith("tel:") || raw.startsWith("javascript:")) return null;
@@ -145,6 +150,7 @@ const receipt = {
   publicHouse: manifest.publicHouse,
   sourceAuthority: manifest.sourceAuthority,
   releaseAuthority: manifest.releaseAuthority,
+  sourceRevision,
   entry: manifest.entry,
   generatedAt: new Date().toISOString(),
   pages: manifest.pages,

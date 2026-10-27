@@ -5,9 +5,14 @@ const path = require("node:path");
 const { execFileSync } = require("node:child_process");
 
 const root = __dirname;
-const output = fs.mkdtempSync(path.join(os.tmpdir(), "a0-public-export-test-"));
-fs.writeFileSync(path.join(output, ".a0-public-export.json"), "{}\n");
-execFileSync(process.execPath, [path.join(root, "build-a0-public-export.mjs"), output], { stdio: "pipe" });
+const suppliedOutput = process.argv[2];
+const output = suppliedOutput
+  ? path.resolve(suppliedOutput)
+  : fs.mkdtempSync(path.join(os.tmpdir(), "a0-public-export-test-"));
+if (!suppliedOutput) {
+  fs.writeFileSync(path.join(output, ".a0-public-export.json"), "{}\n");
+  execFileSync(process.execPath, [path.join(root, "build-a0-public-export.mjs"), output], { stdio: "pipe" });
+}
 
 const receipt = JSON.parse(fs.readFileSync(path.join(output, ".a0-public-export.json"), "utf8"));
 const index = fs.readFileSync(path.join(output, "index.html"), "utf8");
@@ -16,6 +21,7 @@ let localReferences = 0;
 let anchorReferences = 0;
 assert.equal(receipt.publicHouse, "nexah.de");
 assert.equal(receipt.sourceAuthority, "NEXAH Science Desk / Science Lab");
+assert.match(receipt.sourceRevision, /^[0-9a-f]{40}$/);
 assert.match(index, /<title>NEXAH Science · Forschungsstand<\/title>/);
 assert.match(index, /NEXAH Science · aktueller Forschungsstand/);
 assert.doesNotMatch(index, /a0-context-navigation\.(?:css|js)/);
