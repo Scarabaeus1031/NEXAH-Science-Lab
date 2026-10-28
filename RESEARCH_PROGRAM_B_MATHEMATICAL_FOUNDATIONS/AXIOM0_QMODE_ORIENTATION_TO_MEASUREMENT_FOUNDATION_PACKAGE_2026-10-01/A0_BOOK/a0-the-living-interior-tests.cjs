@@ -4,6 +4,7 @@ const fs = require('node:fs');
 const core = require('./assets/a0-the-living-interior-v1.js');
 const record = require('./assets/a0-the-living-interior-v1.json');
 const html = fs.readFileSync('./A0_THE_LIVING_INTERIOR.html', 'utf8');
+const runtime = fs.readFileSync('./assets/a0-the-living-interior-v1.js', 'utf8');
 
 assert.deepEqual(core.STAGES, ['outside', 'contact', 'inside', 'life', 'memory']);
 assert.deepEqual(core.GRID, { cols: 38, rows: 24 });
@@ -28,4 +29,5 @@ assert.match(html, /THE BODY REMEMBERS/);
 assert.match(html, /A0_GAME_4_LIFE_PLUS_1\.html/);
 assert.match(html, /A0_BLUE_PINK_DODECA_CELL_RETURN\.html/);
 assert.equal((html.match(/data-stage=/g) || []).length, 5);
-console.log(JSON.stringify({ status: 'PASS', assertions: 20, viewId: record.view_id, boundary: 'immersive source-bound view; no new identity, LIFE rule, Study or publication' }, null, 2));
+assert.match(runtime, /function setStage[\s\S]*drawPassage\(performance\.now\(\)\);/);
+console.log(JSON.stringify({ status: 'PASS', assertions: 21, viewId: record.view_id, boundary: 'immersive source-bound view; no new identity, LIFE rule, Study or publication' }, null, 2));

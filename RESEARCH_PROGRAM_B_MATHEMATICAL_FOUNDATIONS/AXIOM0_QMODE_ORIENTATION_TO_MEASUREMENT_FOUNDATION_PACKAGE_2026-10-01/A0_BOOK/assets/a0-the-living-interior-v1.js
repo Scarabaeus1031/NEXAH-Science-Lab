@@ -124,6 +124,7 @@
       stageTitle.textContent = copy[1];
       stageCopy.textContent = copy[2];
       document.querySelectorAll('[data-stage]').forEach(button => button.classList.toggle('active', button.dataset.stage === stage));
+      drawPassage(performance.now());
     }
 
     function startPassage() {
