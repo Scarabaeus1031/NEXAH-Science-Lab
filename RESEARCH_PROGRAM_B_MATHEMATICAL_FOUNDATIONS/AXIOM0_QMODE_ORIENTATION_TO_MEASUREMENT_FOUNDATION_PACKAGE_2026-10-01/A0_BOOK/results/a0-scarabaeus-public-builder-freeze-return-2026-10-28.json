@@ -1,0 +1,69 @@
+{
+  "schema": "a0.scarabaeus-public-builder-freeze-return/1",
+  "date": "2026-10-28",
+  "status": "LIVE_VERIFIED_FROZEN_PUBLIC_CUT",
+  "human_owner_direction": "Treat the current site as sufficient for now: a showcase and an invitation for possible Builders; stop further design iteration.",
+  "identity": {
+    "public_channel": "SCARABAEUS_1033",
+    "url": "https://scarabaeus1033.net/",
+    "mission": "M-PUB01",
+    "reuse": [
+      "SCARABAEUS_1033_PUBLIC_CHANNEL",
+      "NEXAH_AX0_QMODE_FOUNDATION_PACKAGE",
+      "M-PUB01"
+    ],
+    "new_navigator_entities": 0,
+    "new_navigator_relations": 0,
+    "new_studies": 0
+  },
+  "builder_desk_return": {
+    "canonical_source": "70 SCARABAEUS1033 WORKBENCH/Scarabaeus-1033",
+    "deployed_source_commit": "b807c1c37a49050d75cad9874254b6d10557e0ad",
+    "release_receipt_commit": "576de72",
+    "implementation_status": "LIVE_VERIFIED",
+    "accepted_role": "CURATED_BUILD_SHOWCASE_AND_PERSONAL_BUILDER_INVITATION",
+    "verification": {
+      "lint": "PASS",
+      "rendered_tests": "PASS_5_OF_5",
+      "ovh_production_build": "PASS_20_STATIC_PAGES_184_FILES_7_8_MB",
+      "live_http": "PASS_HOME_BUILD_BUILDS_OPIUM_200",
+      "live_browser": "PASS_NAVIGATION_BUILDER_SIGNAL_INVITATION_AND_MAILTO"
+    },
+    "rollback": {
+      "remote": "www_previous",
+      "local_backup": "70 SCARABAEUS1033 WORKBENCH/SCARABAEUS deployment backups/2026-10-28_23-46-31"
+    },
+    "next_state": "FROZEN_STEWARDSHIP_ONLY"
+  },
+  "science_desk_return": {
+    "classification": "PUBLIC_PRESENTATION_AND_ENGINEERING_RETURN_ONLY",
+    "scientific_authority": "A0_SCIENCE_DESK_AND_SCIENCE_LAB_RETAINED",
+    "claim_ceiling": "The public site presents selected builds and source-bound demonstrators; presentation, interaction and internal software tests do not establish a scientific mechanism, external validity, product readiness or Human utility.",
+    "evidence_effect": "NONE",
+    "finding_effect": "NONE",
+    "paper_effect": "NONE",
+    "study_lifecycle_effect": "NONE",
+    "research_activation": false,
+    "publication_effect": "SCARABAEUS_PUBLIC_CHANNEL_ONLY_NO_SCIENTIFIC_PUBLICATION_PROMOTION"
+  },
+  "freeze": {
+    "scope": "CURRENT_SCARABAEUS_PUBLIC_WEBSITE_CUT",
+    "state": "FROZEN",
+    "allowed_maintenance": [
+      "broken_link_repair",
+      "security_or_hosting_repair",
+      "legal_privacy_correction",
+      "accessibility_defect_repair",
+      "exact_rollback"
+    ],
+    "requires_owner_reopen": [
+      "new_feature",
+      "new_campaign_or_outreach",
+      "new_public_inventory_class",
+      "information_architecture_redesign",
+      "scientific_claim_or_status_change"
+    ],
+    "visitor_boundary": "NO_VISITOR_DEMAND_OR_EXTERNAL_HUMAN_UTILITY_RESULT_CLAIMED"
+  }
+}
+
