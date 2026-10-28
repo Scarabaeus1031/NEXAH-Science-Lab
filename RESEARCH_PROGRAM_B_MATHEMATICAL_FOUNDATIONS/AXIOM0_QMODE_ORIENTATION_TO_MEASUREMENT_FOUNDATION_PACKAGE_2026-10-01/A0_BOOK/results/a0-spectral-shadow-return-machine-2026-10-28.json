@@ -1,0 +1,84 @@
+{
+  "schema": "nexah.a0.engineering-return/2",
+  "date": "2026-10-28",
+  "module_id": "OCB:SPECTRAL_SHADOW_RETURN_MACHINE",
+  "reused_identities": [
+    "TOP_BOUNDARY_01",
+    "NEXAH_A0_ORIENTATION_CONTROLLER_BENCH",
+    "NEXAH_AX0_QMODE_FOUNDATION_PACKAGE",
+    "NEXAH:A0_ORIENTATION_EVIDENCE_LINEAGE:V1",
+    "NEXAH:CON_DAO_BREATH:V1"
+  ],
+  "classification": "SOURCE_BOUND_SEQUENCE_ADAPTER_AND_EXACT_AFFINE_COORDINATE_VIEW",
+  "model": {
+    "route": "SOURCE -> BOUNDARY -> INNER -> DETECTOR -> RECORD; reversible display order",
+    "ring_law": "d(p)=12*(1-0.62*sin(pi*p)); d(0)=d(1)=12",
+    "axis_tilt_degrees": [-90, 90],
+    "counter_tilt_degrees": [-90, 90],
+    "con_dao_sequence": {
+      "source_model": "NEXAH:CON_DAO_BREATH:V1",
+      "unique_states": 13,
+      "display_ticks": 14,
+      "projection": "CON-6..CON-1 -> STILL(+1/blacklight display) -> DAO-1..DAO-6",
+      "authority": "read-only view adapter; Pulse Grammar Clock remains authoritative"
+    },
+    "display_overlays": {
+      "fan_triangle": "orientation view",
+      "vertical_white_scan": "display scan",
+      "veil": "Schlieren-style overlay; not calibrated spectrum",
+      "plus_one": "connector/exchange display at STILL; not a fourth life system"
+    },
+    "shadow_truth_table": {
+      "missing_R": "cyan",
+      "missing_G": "magenta",
+      "missing_B": "yellow",
+      "only_R": "red residual",
+      "missing_RGB": "dark"
+    },
+    "zeta_coordinate_lens": {
+      "input": "s=sigma+i*t",
+      "map": "w=i*(s-1/2)=-t+i*(sigma-1/2)",
+      "result": ["Re(w)=-t", "Im(w)=sigma-1/2", "sigma=1/2 iff Im(w)=0", "Re(i*s)=-t"],
+      "sample_markers": 12,
+      "sample_authority": "symbolic rendition of supplied plot markers; not recomputed zeros",
+      "unbound_notation": "Re(io)s"
+    },
+    "coarse_readout": "r_i=sum_{c in {R,G,B}} S_c*T_c*Q_ic"
+  },
+  "tests": {
+    "file": "a0-spectral-shadow-return-machine-tests.cjs",
+    "status": "24/24 PASS"
+  },
+  "browser_observation": {
+    "surface": "local HTTP preview in supported in-app browser",
+    "observed": [
+      "paired T and counter-tilt",
+      "CON-DAO source sequence binding",
+      "STILL +1 blacklight display",
+      "Schlieren/veil overlay",
+      "RGB return",
+      "12-marker centered 90-degree coordinate view"
+    ],
+    "status": "PASS_R2_VISIBLE_INTERACTION_AT_STILL_PLUS_ONE"
+  },
+  "source_references": {
+    "current_tool_screenshot_sha256": "3beb833e450e27bcc5e3935f22c721f026081f71a0cf504e973d481a9d300a30",
+    "top_lens_three_observer_image_sha256": "df1968bd9b02748d756584d8eddbccc126098c8e0a55dded26b18c11313cfdf7",
+    "riemann_explicit_formula_video_frame_sha256": "f154865d65dc2a657cadaa7ae48815fb32dba2c249899c88d1f9955229d8cbc8",
+    "zeta_centered_rotation_plot_sha256": "959b736ec604bb658778ae1b6a8c0fb080b682f3859b645eaaf23313fe192fea"
+  },
+  "boundaries": [
+    "three-channel display model, not calibrated spectral integration",
+    "SCHLIEREN COLOR != CALIBRATED SPECTRUM",
+    "CON-DAO drives only a declared display projection",
+    "+1 is a connector/exchange display and not a new system or mechanism",
+    "the zeta map is an exact affine coordinate change, not a Riemann-hypothesis or zero-free-region proof",
+    "no physical link between the NEXAH seam, CON-DAO and Riemann zeros is asserted",
+    "Re(io)s remains unbound owner notation",
+    "Nautilus is a morphology guide, not a recovered operator",
+    "RIS remains recovered vocabulary without a recovered composition law",
+    "no physical execution",
+    "no new Finding, Study, identity, relation or publication state"
+  ]
+}
+

@@ -15,18 +15,35 @@ if (!suppliedOutput) {
 }
 
 const receipt = JSON.parse(fs.readFileSync(path.join(output, ".a0-public-export.json"), "utf8"));
-const index = fs.readFileSync(path.join(output, "index.html"), "utf8");
+const composedEntry = path.join(output, "forschen", "index.html");
+const index = fs.readFileSync(fs.existsSync(composedEntry) ? composedEntry : path.join(output, "index.html"), "utf8");
 const externalLinks = new Set();
 let localReferences = 0;
 let anchorReferences = 0;
 assert.equal(receipt.publicHouse, "nexah.de");
 assert.equal(receipt.sourceAuthority, "NEXAH Science Desk / Science Lab");
+assert.ok(receipt.hostRoutes.includes("/about/"));
+assert.ok(receipt.hostRoutes.includes("/library/"));
+assert.ok(receipt.hostRoutes.includes("/contact/"));
+assert.ok(receipt.hostRoutes.includes("/forschen/"));
 assert.match(receipt.sourceRevision, /^[0-9a-f]{40}$/);
 assert.match(index, /<title>NEXAH Science · Forschungsstand<\/title>/);
 assert.match(index, /NEXAH Science · aktueller Forschungsstand/);
 assert.doesNotMatch(index, /a0-context-navigation\.(?:css|js)/);
-assert.match(index, /class="a0-public-nav"/);
+assert.match(index, /class="a0-public-primary"/);
+assert.match(index, /NEXAH <span>· Orientation<\/span>/);
+assert.match(index, /aria-label="NEXAH Hauptnavigation"/);
+assert.match(index, /href="\/forschen\/">Science<\/a>/);
+assert.match(index, /class="a0-public-directory"/);
+assert.match(index, /Navigation <span aria-hidden="true">\+<\/span>/);
+for (const title of ["Orientieren", "Forschen", "Lesen &amp; erkunden", "Anwenden &amp; erleben"]) assert.match(index, new RegExp(`<h3>${title}<\\/h3>`));
+assert.match(index, /Interne A0-, Desk- und Mission-Control-Bereiche bleiben getrennt/);
+assert.match(index, /href="https:\/\/nexahedron\.com"/);
+assert.match(index, /href="https:\/\/www\.scarabaeus1033\.net"/);
 assert.doesNotMatch(index, /github\.com\/Scarabaeus1031\/NEXAH-Science-Lab/);
+assert.match(index, /href="#object">Forschungsstand vertiefen ↓<\/a>/);
+assert.match(index, /data-public-href="\/library\/">Lesen &amp; Erkunden →<\/a>/);
+assert.match(index, /href="\/?A0_TOURS\.html#explanation-path">Anwenden &amp; Erleben →<\/a>/);
 
 for (const page of receipt.pages) {
   const html = fs.readFileSync(path.join(output, page), "utf8");
@@ -36,11 +53,20 @@ for (const page of receipt.pages) {
 
 const mathfield = fs.readFileSync(path.join(output, "A0_MATHEMATICAL_JOINTS.html"), "utf8");
 assert.match(mathfield, /class="a0-public-top"/);
-assert.match(mathfield, /class="a0-public-nav"/);
+assert.match(mathfield, /class="a0-public-primary"/);
 assert.doesNotMatch(mathfield, /<header\b[^>]*class="top"/);
 assert.doesNotMatch(mathfield, /href="[^"]*github\.com[^"]*"/);
 assert.match(mathfield, /aria-disabled="true" data-public-boundary="source-not-exported">Blue-Body-Anwendung öffnen/);
 assert.match(mathfield, /aria-disabled="true" data-public-boundary="source-not-exported">Coupled Channel · Boundary Lens öffnen/);
+
+const position = fs.readFileSync(path.join(output, "A0_SCIENTIFIC_POSITION_REPORT.html"), "utf8");
+assert.doesNotMatch(position, /Erklärweg · 4 von 4|Nächster Schritt im Erklärweg|Zur Wegübersicht/);
+assert.doesNotMatch(position, /Graph 286\/32 PASS/);
+assert.match(position, /Source Graph currentness check open/);
+
+const tours = fs.readFileSync(path.join(output, "A0_TOURS.html"), "utf8");
+assert.match(tours, /data-public-href="\/library\/">← Lesen &amp; Erkunden<\/a>/);
+assert.doesNotMatch(tours, /Zur Tour-Auswahl im Desk/);
 
 function escapeRegExp(value) {
   return value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
@@ -57,6 +83,8 @@ for (const page of ["index.html", ...receipt.pages]) {
       externalLinks.add(url.href);
       continue;
     }
+
+    if (receipt.hostRoutes.includes(url.pathname)) continue;
 
     let relative = decodeURIComponent(url.pathname.replace(/^\//, ""));
     if (!relative || relative.endsWith("/")) relative += "index.html";
