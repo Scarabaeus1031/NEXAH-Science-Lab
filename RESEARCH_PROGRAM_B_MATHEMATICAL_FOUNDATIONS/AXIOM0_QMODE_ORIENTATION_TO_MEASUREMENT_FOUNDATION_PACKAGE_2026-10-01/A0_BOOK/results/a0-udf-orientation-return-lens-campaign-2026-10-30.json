@@ -1,0 +1,392 @@
+{
+  "schema": "nexah.a0.udf-orientation-return-lens-campaign/1.0.0",
+  "date": "2026-10-30",
+  "status": "COMPLETE_6_ENGINEERING_TESTS_PLUS_1_HUMAN_PROTOCOL_READY_NOT_RUN",
+  "scope": "BOUNDED_REPRODUCIBILITY_AND_DESIGN_FEASIBILITY_NO_STUDY_ACTIVATION",
+  "identity_reuse": [
+    "NEXAH:INSTRUMENT:BREATHING_PRIME_CRYSTAL:V1",
+    "NEXAH_A0_ORIENTATION_CONTROLLER_BENCH",
+    "ART:A0:MATHEMATICAL_JOINTS",
+    "MOD:TESSAREC"
+  ],
+  "tests": {
+    "01_compression": {
+      "status": "PASS_MEASURED_NOT_INTERPRETED_AS_NOVELTY",
+      "semantic_queries": 9,
+      "udf": {
+        "raw": 2030,
+        "gzip": 992,
+        "brotli": 828
+      },
+      "prov_rocrate": {
+        "raw": 4485,
+        "gzip": 1399,
+        "brotli": 1195
+      },
+      "udf_percent_of_baseline": {
+        "raw": 45.26,
+        "gzip": 70.91,
+        "brotli": 69.29
+      },
+      "note": "Raw compactness is an engineering property. Gzip and Brotli reduce repeated JSON-LD vocabulary and are the fairer transport comparison."
+    },
+    "02_lens_ablation": {
+      "status": "PASS_7_OF_7_LENSES_ISOLATED",
+      "rows": [
+        {
+          "lens": "source",
+          "unavailable": [
+            "Q01_SOURCE_IDENTITY",
+            "Q02_SOURCE_HASH_AND_CONTRACT"
+          ],
+          "expected": [
+            "Q01_SOURCE_IDENTITY",
+            "Q02_SOURCE_HASH_AND_CONTRACT"
+          ],
+          "isolated": true
+        },
+        {
+          "lens": "carrier",
+          "unavailable": [
+            "Q03_CARRIER_AND_AXIS_NODES"
+          ],
+          "expected": [
+            "Q03_CARRIER_AND_AXIS_NODES"
+          ],
+          "isolated": true
+        },
+        {
+          "lens": "orientation",
+          "unavailable": [
+            "Q04_ORIENTATION_VECTOR",
+            "Q05_DIRECTION_AND_WINDING"
+          ],
+          "expected": [
+            "Q04_ORIENTATION_VECTOR",
+            "Q05_DIRECTION_AND_WINDING"
+          ],
+          "isolated": true
+        },
+        {
+          "lens": "comparator",
+          "unavailable": [
+            "Q06_COMPARATOR_NON_IDENTITY"
+          ],
+          "expected": [
+            "Q06_COMPARATOR_NON_IDENTITY"
+          ],
+          "isolated": true
+        },
+        {
+          "lens": "transformation",
+          "unavailable": [
+            "Q07_TRANSFORMATION_MUTATION_STATE"
+          ],
+          "expected": [
+            "Q07_TRANSFORMATION_MUTATION_STATE"
+          ],
+          "isolated": true
+        },
+        {
+          "lens": "return",
+          "unavailable": [
+            "Q08_EXACT_RETURN_ANCHOR"
+          ],
+          "expected": [
+            "Q08_EXACT_RETURN_ANCHOR"
+          ],
+          "isolated": true
+        },
+        {
+          "lens": "claim_boundary",
+          "unavailable": [
+            "Q09_CLAIM_CEILING"
+          ],
+          "expected": [
+            "Q09_CLAIM_CEILING"
+          ],
+          "isolated": true
+        }
+      ],
+      "loss_lens_state": "UNDECLARED_IN_PROFILE",
+      "finding": "The seven implemented lenses have isolated query consequences. Explicit retained/lost/added/unresolved semantics are not yet declared in the profile."
+    },
+    "03_error_battery": {
+      "status": "PASS_22_OF_22_MATCHED_REJECTIONS",
+      "rows": [
+        {
+          "id": "01_PROFILE_OR_SCHEMA",
+          "udf": "REJECT_PRECISE",
+          "prov_rocrate": "REJECT_PRECISE",
+          "result": "TIE"
+        },
+        {
+          "id": "02_PROFILE_STATE_OR_CONTEXT",
+          "udf": "REJECT_PRECISE",
+          "prov_rocrate": "REJECT_PRECISE",
+          "result": "TIE"
+        },
+        {
+          "id": "03_SOURCE_IDENTITY",
+          "udf": "REJECT_PRECISE",
+          "prov_rocrate": "REJECT_PRECISE",
+          "result": "TIE"
+        },
+        {
+          "id": "04_SOURCE_CONTRACT",
+          "udf": "REJECT_PRECISE",
+          "prov_rocrate": "REJECT_PRECISE",
+          "result": "TIE"
+        },
+        {
+          "id": "05_SOURCE_HASH",
+          "udf": "REJECT_PRECISE",
+          "prov_rocrate": "REJECT_PRECISE",
+          "result": "TIE"
+        },
+        {
+          "id": "06_TARGET_IDENTITY",
+          "udf": "REJECT_PRECISE",
+          "prov_rocrate": "REJECT_PRECISE",
+          "result": "TIE"
+        },
+        {
+          "id": "07_TARGET_CONTRACT",
+          "udf": "REJECT_PRECISE",
+          "prov_rocrate": "REJECT_PRECISE",
+          "result": "TIE"
+        },
+        {
+          "id": "08_PAIR",
+          "udf": "REJECT_PRECISE",
+          "prov_rocrate": "REJECT_PRECISE",
+          "result": "TIE"
+        },
+        {
+          "id": "09_PIN_ROLE",
+          "udf": "REJECT_PRECISE",
+          "prov_rocrate": "REJECT_PRECISE",
+          "result": "TIE"
+        },
+        {
+          "id": "10_HORIZONTAL_NODE",
+          "udf": "REJECT_PRECISE",
+          "prov_rocrate": "REJECT_PRECISE",
+          "result": "TIE"
+        },
+        {
+          "id": "11_VERTICAL_NODE",
+          "udf": "REJECT_PRECISE",
+          "prov_rocrate": "REJECT_PRECISE",
+          "result": "TIE"
+        },
+        {
+          "id": "12_THETA",
+          "udf": "REJECT_PRECISE",
+          "prov_rocrate": "REJECT_PRECISE",
+          "result": "TIE"
+        },
+        {
+          "id": "13_RADIUS",
+          "udf": "REJECT_PRECISE",
+          "prov_rocrate": "REJECT_PRECISE",
+          "result": "TIE"
+        },
+        {
+          "id": "14_WINDING",
+          "udf": "REJECT_PRECISE",
+          "prov_rocrate": "REJECT_PRECISE",
+          "result": "TIE"
+        },
+        {
+          "id": "15_DIRECTION",
+          "udf": "REJECT_PRECISE",
+          "prov_rocrate": "REJECT_PRECISE",
+          "result": "TIE"
+        },
+        {
+          "id": "16_EXIT_COMPARATOR",
+          "udf": "REJECT_PRECISE",
+          "prov_rocrate": "REJECT_PRECISE",
+          "result": "TIE"
+        },
+        {
+          "id": "17_RETURN_COMPARATOR",
+          "udf": "REJECT_PRECISE",
+          "prov_rocrate": "REJECT_PRECISE",
+          "result": "TIE"
+        },
+        {
+          "id": "18_RETURN_TARGET",
+          "udf": "REJECT_PRECISE",
+          "prov_rocrate": "REJECT_PRECISE",
+          "result": "TIE"
+        },
+        {
+          "id": "19_SOURCE_MUTATION",
+          "udf": "REJECT_PRECISE",
+          "prov_rocrate": "REJECT_PRECISE",
+          "result": "TIE"
+        },
+        {
+          "id": "20_NEW_CANONICAL_ID",
+          "udf": "REJECT_PRECISE",
+          "prov_rocrate": "REJECT_PRECISE",
+          "result": "TIE"
+        },
+        {
+          "id": "21_RELATION_CHANGE",
+          "udf": "REJECT_PRECISE",
+          "prov_rocrate": "REJECT_PRECISE",
+          "result": "TIE"
+        },
+        {
+          "id": "22_INVALID_JSON",
+          "udf": "REJECT_PRECISE",
+          "prov_rocrate": "REJECT_PRECISE",
+          "result": "TIE"
+        }
+      ],
+      "udf_wins": 0,
+      "baseline_wins": 0,
+      "ties": 22
+    },
+    "04_cross_lens_consistency": {
+      "status": "PASS_7_OF_7_CROSS_LENS_CONSISTENCY",
+      "udf": {
+        "status": "PASS_LENS_CONSISTENCY",
+        "checks": [
+          {
+            "id": "SOURCE_EQUALS_CARRIER_SOURCE",
+            "pass": true
+          },
+          {
+            "id": "CARRIER_EQUALS_TRANSFORMATION_TARGET",
+            "pass": true
+          },
+          {
+            "id": "PAIR_AXES_DISTINCT",
+            "pass": true
+          },
+          {
+            "id": "DIRECTION_MATCHES_WINDING",
+            "pass": true
+          },
+          {
+            "id": "COMPARATOR_ROLES_DISTINCT",
+            "pass": true
+          },
+          {
+            "id": "RETURN_AND_TRANSFORMATION_NON_MUTATING",
+            "pass": true
+          },
+          {
+            "id": "NO_IDENTITY_OR_RELATION_PROMOTION",
+            "pass": true
+          }
+        ]
+      },
+      "prov_rocrate": {
+        "status": "PASS_LENS_CONSISTENCY",
+        "checks": [
+          {
+            "id": "SOURCE_EQUALS_CARRIER_SOURCE",
+            "pass": true
+          },
+          {
+            "id": "CARRIER_EQUALS_TRANSFORMATION_TARGET",
+            "pass": true
+          },
+          {
+            "id": "PAIR_AXES_DISTINCT",
+            "pass": true
+          },
+          {
+            "id": "DIRECTION_MATCHES_WINDING",
+            "pass": true
+          },
+          {
+            "id": "COMPARATOR_ROLES_DISTINCT",
+            "pass": true
+          },
+          {
+            "id": "RETURN_AND_TRANSFORMATION_NON_MUTATING",
+            "pass": true
+          },
+          {
+            "id": "NO_IDENTITY_OR_RELATION_PROMOTION",
+            "pass": true
+          }
+        ]
+      }
+    },
+    "05_second_instrument": {
+      "status": "FAIL_CLOSED_CURRENT_PROFILE_NOT_PORTABLE",
+      "source": "A0_PANEL_V_CONTROL_LENS_RETURN_V1",
+      "source_shape": {
+        "channels": 5,
+        "events": 7,
+        "target_degrees": 147.5,
+        "exact_return": true
+      },
+      "rejection": "UDF_ORIENTATION_LEDGER_REQUIRED",
+      "interpretation": "Panel V is a genuinely different five-channel outbound/return event sequence. Reusing the Crystal-specific plane-orientation profile would require a semantic profile extension and is therefore correctly rejected.",
+      "new_profile_authorized": false
+    },
+    "06_incomplete_states": {
+      "status": "FAIL_CLOSED_5_OF_5_NULL_CASES_BUT_STATE_VOCABULARY_ABSENT",
+      "rows": [
+        {
+          "id": "UNKNOWN_VERTICAL_NODE",
+          "udf": "REJECT",
+          "prov_rocrate": "REJECT",
+          "explicit_state_preserved": false
+        },
+        {
+          "id": "UNOBSERVED_THETA",
+          "udf": "REJECT",
+          "prov_rocrate": "REJECT",
+          "explicit_state_preserved": false
+        },
+        {
+          "id": "UNRESOLVED_WINDING",
+          "udf": "REJECT",
+          "prov_rocrate": "REJECT",
+          "explicit_state_preserved": false
+        },
+        {
+          "id": "UNKNOWN_RETURN_TARGET",
+          "udf": "REJECT",
+          "prov_rocrate": "REJECT",
+          "explicit_state_preserved": false
+        },
+        {
+          "id": "UNOBSERVED_SOURCE_HASH",
+          "udf": "REJECT",
+          "prov_rocrate": "REJECT",
+          "explicit_state_preserved": false
+        }
+      ],
+      "finding": "Both validators fail closed, but neither current profile distinguishes UNKNOWN, UNOBSERVED, UNRESOLVED and NOT_APPLICABLE as first-class values."
+    },
+    "07_human_reconstruction": {
+      "state": "READY_NOT_RUN_NO_HUMAN_RESULT",
+      "protocol": "results/a0-udf-orientation-return-human-reconstruction-protocol-2026-10-30.json",
+      "result": null
+    }
+  },
+  "overall_findings": [
+    "UDF is materially smaller in raw form; transport compression narrows the advantage and must be reported separately.",
+    "Seven current lenses are query-separable and internally consistent for the Crystal case.",
+    "The strong baseline matches all 22 corruption rejections when given an equally explicit profile.",
+    "The current UDF profile is not portable to Panel V and correctly fails closed.",
+    "The current UDF profile lacks first-class UNKNOWN/UNOBSERVED/UNRESOLVED/NOT_APPLICABLE semantics.",
+    "No Human reconstruction result exists until the prepared protocol is independently run."
+  ],
+  "new_canonical_ids": [],
+  "relation_changes": [],
+  "capability_status": "NOT_ASSIGNED",
+  "science_disposition": "ENGINEERING_EVIDENCE_AND_GAP_LOCALIZATION_NOT_F_A0_FINDING",
+  "next_permitted_design_question": "Define, but do not yet freeze, a minimal profile-family core separating common source/return/claim lenses from instrument-specific orientation or event-sequence profiles.",
+  "claim_boundary": "This campaign tests one implemented profile and prepares one Human protocol. It establishes no novelty, superiority, general UDF format, cross-instrument portability, independent utility, Study result, product capability or publication state."
+}

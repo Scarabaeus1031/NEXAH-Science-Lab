@@ -180,6 +180,6 @@
     const transformButtons=[...document.querySelectorAll('[data-transform]')];
     transformButtons.forEach(button=>button.addEventListener('click',()=>{transformButtons.forEach(item=>item.setAttribute('aria-pressed','false'));button.setAttribute('aria-pressed','true');const item=transformMeanings[button.dataset.transform];document.getElementById('tStatus').textContent=item.status;document.getElementById('tTitle').textContent=item.title;document.getElementById('tText').textContent=item.text;document.getElementById('tTest').textContent=item.test;}));
   </script>
-  <script src="a0-context-navigation.js?rev=human-home-20261014"></script>
+  <script src="a0-context-navigation.js?rev=a0-navigator-r2-20261029"></script>
 </body>
 </html>

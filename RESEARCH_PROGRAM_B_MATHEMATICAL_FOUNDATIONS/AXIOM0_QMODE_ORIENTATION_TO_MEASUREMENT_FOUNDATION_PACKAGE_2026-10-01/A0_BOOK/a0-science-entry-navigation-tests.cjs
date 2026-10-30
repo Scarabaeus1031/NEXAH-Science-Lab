@@ -9,9 +9,9 @@ const connect = fs.readFileSync(path.join(root, "NEXAH_C_CONNECT.html"), "utf8")
 
 assert.match(navigation, /summary\.setAttribute\("aria-label", laneIsCurrent \? `\$\{lane\.label\} Navigation öffnen`/,
   "the current Science house opens its integrated navigation");
-assert.match(navigation, /if \(!laneIsCurrent\) \{[\s\S]*?window\.location\.href = lane\.entry;/,
-  "an inactive Science house first enters the declared Science start page");
-assert.match(navigation, /Daten & Register · finden und zuordnen/,
+assert.match(navigation, /if \(!laneIsCurrent && lane\.key !== "builder"\) \{[\s\S]*?if \(lane\.key !== "human"\) window\.location\.href = lane\.entry;/,
+  "an inactive Science house first enters the declared Science start page while Builder keeps its integrated menu");
+assert.match(navigation, /A0 NSNavigator · finden und zuordnen/,
   "Science navigation contains the source-bound data and register section");
 assert.match(navigation, /"entry": "A0_SCIENCE\.html"/,
   "the declared Science entry is the actual document start of A0_SCIENCE");
@@ -25,10 +25,10 @@ assert.match(navigation, /a0-workspace-monogram[^>]*>[\s\S]*?TH[\s\S]*?Mission C
   "Mission Control is represented by the compact TH owner signet");
 assert.match(science, /href="A0_SCIENCE\.html" aria-current="page"/,
   "the local Science start control also returns to the full document start");
-assert.match(science, /class="science-connect-dot"[^>]*href="NEXAH_C_CONNECT\.html#scientific-review"[^>]*aria-label="NEXAH Science Connect · Review oder Forschungsfrage"/,
-  "NEXAH Science owns a labelled pink Connect point for Review and questions");
-assert.match(science, /\.science-connect-dot:before\{[^}]*border-radius:50%[^}]*var\(--pink\)/,
-  "the Science-specific Connect point is rendered as a pink circle");
+assert.doesNotMatch(science, /science-connect-dot|NEXAH_C_CONNECT\.html#scientific-review/,
+  "the Science start page no longer duplicates the dedicated C Connect review route");
+assert.match(connect, /class="route route-review" href="#scientific-review"/,
+  "the dedicated C Connect surface retains the bounded scientific-review entrance");
 assert.match(connect, /id="scientific-review"/,
   "the Science Connect entry resolves to an existing bounded section");
 

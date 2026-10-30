@@ -8,6 +8,86 @@ Owning identity: `NEXAH_AX0_QMODE_FOUNDATION_PACKAGE`
 
 Mission Control backlog: `RELATIONAL_IDENTIFIABILITY_UNDER_REPRESENTATION_CHANGE`
 
+<a id="a0-bl-056-clp-multiview-return-20261028"></a>
+
+## A0-BL-056 — CLP Multi-View Return
+
+**Status:** `ADMITTED OPEN / INTERNAL PRE-REVIEW COMPLETE / NOT ACTIVE`
+
+**Begrenzte Forschungsfrage:** Reduziert eine vorab deklarierte, gekoppelte
+Mehransicht desselben festen endlichen C30-Quellzustands die
+Rekonstruktionsmehrdeutigkeit gegenüber einer einzelnen verlustbehafteten
+Ansicht, ohne zusätzliche View-Information als neuen Mechanismus auszugeben?
+
+**Warum dies wissenschaftlich trägt:** Projektion, Schnitt, Faltung und
+Rückweg werden als Identifizierbarkeitsproblem formuliert. Vergleichbar sind
+Fehler, Mehrdeutigkeit und erhaltene beziehungsweise verlorene Information;
+eine bloße Formähnlichkeit zwischen Zeta, Tesserakt, Ring, Farbe oder
+mechanischem Gelenk reicht ausdrücklich nicht.
+
+**Zweigleisiger Arbeitsvertrag:**
+
+1. `SCIENCE`: deterministischer synthetischer Vergleich mit derselben
+   eingefrorenen Quelle, Single-View-Baseline, Multi-View-Bedingung,
+   Negativkontrollen und vorab definiertem Ergebnisvokabular.
+2. `BUILDER / BENCH`: typisierter View–Return-Vertrag, deterministische
+   Receipts und Replay. Der Build ist Engineering-Nachweis, kein Finding;
+   sein Return wird am Science Desk klassifiziert.
+
+**Interner Abschluss:** Fixture, Comparator, Ergebnisvokabular,
+Receipt-Schema, Kandidaten-Hashes, deterministischer Runner und technischer
+Preflight sind dokumentiert. `16/16` Tests bestehen; Single View liefert
+`10 EXACT / 20 AMBIGUOUS`, CLP liefert `30 EXACT`, die fünf Kontrollen
+bestehen. Dies ist ein nicht-wissenschaftlicher Preflight; Primary und Replay
+bleiben gesperrt.
+
+**Offene Gates:** unabhängiger Reviewer, semantischer Receipt-Verifier,
+Review der deklarierten CRT-Claim-Ceiling sowie separater Owner-Freeze und
+Owner-Aktivierung. Daher gilt weiterhin `1 ADMITTED OPEN / 0 ACTIVE`.
+
+**Review-Raum:** unter derselben Identität als
+`REVIEW_PRIVATE / BACKLOG_ONLY / NOT BUILT / NOT PUBLIC` vorgemerkt. Er wird
+erst nach Owner-Entscheid als review-ready auf nexah.de vorbereitet und gibt
+seinen Review-Return zurück an den Science Desk; er ist keine automatische
+Science-Publikation.
+
+**Projektionsgrenze:** Die Intake-Galerie und historischen HTMLs bleiben
+vorerst unverändert. Erst ein reviewtes Ergebnis darf nach NEXAH Science
+projiziert werden. Bench-Receipts verbleiben in der Bench und werden an den
+Science Desk zurückgebunden.
+
+Canonical admission record:
+[00_ADMISSION_RECORD.md](../../SCIENCE_LAB/CASE_STUDIES/A0_BL_056_CLP_MULTIVIEW_RETURN_2026-10-28/00_ADMISSION_RECORD.md).
+Internal closeout:
+[INTERNAL_PRE_REVIEW_CLOSEOUT.md](../../SCIENCE_LAB/CASE_STUDIES/A0_BL_056_CLP_MULTIVIEW_RETURN_2026-10-28/INTERNAL_PRE_REVIEW_CLOSEOUT.md).
+Source-bound notes:
+[32_A0_FINDINGS_AND_PAPER_WORKSPACE_2026-10-11.md](32_A0_FINDINGS_AND_PAPER_WORKSPACE_2026-10-11.md#pulse-grammar-clp-shared-desk-return-20261028).
+
+<a id="fam002-model-companion-source-intake-20261028"></a>
+
+## FAM-002 Modelle + direkte Ordnerquellen · 28.10.2026
+
+Status: `PASS_SOURCE_CUSTODY / 12 MODELS + 20 COMPANION SOURCES + 2 GLTF BUFFERS / NO NEW A0-BL`
+
+Die historischen Ring-, Lens-, Grid-, Axis-, Cut- und Markerträger sind nun
+nicht nur nach Screenshot, sondern gegen die direkt daneben liegenden PDFs,
+READMEs, CSVs und JSONs gebunden. Der Atlas-Validator prüft Pfad, Größe und
+SHA-256 aller 34 Dateien. Die Quellen dokumentieren eine beabsichtigte
+CSV/JSON→3D→Projektions→README-Brücke und machen die Objekte als begrenzte
+Orientierungsfixtures nützlich. Sie enthalten zugleich die maßgebliche Grenze:
+keine Beweisführung, mehrere Draft-/Hotfixzustände und eine widersprüchliche
+DREEM-Akronymauflösung.
+
+Science-Desk-Intake:
+[A0_FAM002_MODEL_COMPANION_SOURCE_INTAKE_2026-10-28.md](A0_FAM002_MODEL_COMPANION_SOURCE_INTAKE_2026-10-28.md).
+Atlas-Manifest:
+[FAM_002_A0_SELECTED_ASSETS.json](../../SCIENCE_LAB/REVIEWS/THREE_D_MODULE_ATLAS_2026-09-29/FAM_002_A0_ORIENTATION_INTAKE_2026-10-28/FAM_002_A0_SELECTED_ASSETS.json).
+
+Claim ceiling: `SOURCE_BOUND_ORIENTATION_FIXTURE_ONLY`. Wiederverwendet werden
+`FAM-002`, `NEXAH_A0_ORIENTATION_CONTROLLER_BENCH` und
+`NEXAH:A0_ORIENTATION_EVIDENCE_LINEAGE:V1`; keine neue ID, Relation, Study,
+Finding oder Publikationsfreigabe.
+
 <a id="iota-seam-square-drift-intake-20261026"></a>
 
 ## IOTA Seam + Square Drift · geprüfter Intake · 26.10.2026
@@ -1449,4 +1529,168 @@ die andere getestete D1/D2-Pin-Clearance und den abstrakten Boundary-Hinge.
 Diese Treffer sind Comparatoren. Eine Falte, die von einem Pin gehalten wird,
 ist ohne Flächenzustände, Kontakt-, Dicke-, Radius-, Freiheitsgrad- und
 Kollisionsvertrag nicht bestätigt.
+
+### Erweiterung I‑46C — T/DD-Orientierungsträger und Innenkopplung
+
+Status: `PASS_ORIENTATION_SYNTHESIS / EXACT_TOPOLOGY_DISTINCTION / EGG_COMPARATOR_ONLY / MECHANISM OPEN / NO ACTIVATION`
+
+Die obere Pin-Node, die beiden Sehnenenden, der glatte Querbalken und der
+vertikale T-Steg werden als gemeinsame Orientierungsfigur gezeigt. Eine
+doppelte Boundary-Zone besitzt den freien Displayparameter `τ`; sie ist keine
+aus `q` oder `δ` abgeleitete Materialdicke. Die Formel `Ā∩B̄` bezeichnet den
+Außenraum von `A∪B`, nicht die gemeinsame Naht. Als explizite Modellwahl wird
+stattdessen `Γ=∂A∩∂B` und für eine dicke Zone `Zτ=Nτ(Γ)` geführt.
+
+Der 12/11-Hinweis wird topologisch getrennt: Eine offene Kette mit 12 Nodes
+hat 11 Lücken, ein geschlossener Ring 12. Der Achsenkipper I‑35 bleibt ein
+Bewegungs-Comparator. Das Ei ergänzt den Zustands-Comparator „gleiche Schale,
+andere Innenkopplung“: hart näherungsweise starr gekoppelt, weich/roh mit
+relativer Bewegung und Dissipation. Ohne Trägheits-, Viskositäts-, Drehmoment-
+und Zeitvertrag entsteht daraus kein Dynamikmodell und keine neue Study.
+
+### Erweiterung I‑46D — Spectral Shadow Return Machine
+
+Status: `IMPLEMENTED_AND_CHECKED / PREPARATION_ONLY / ACTIVE_STUDIES_0`
+
+Das source-bound Werkzeug ist in der bestehenden Orientation Controller Bench
+eingebaut und an Mathfield, Science Desk, Findings-Triage und Receipt
+rückgebunden. Es verwendet `TOP_BOUNDARY_01` und
+`NEXAH_A0_ORIENTATION_CONTROLLER_BENCH`; es erzeugt keine neue Identität oder
+Relation.
+
+Offen bleiben nur statusverändernde, separat zu autorisierende Wege:
+
+1. physisches `TOP_BOUNDARY_01`-Paket mit gebundener Quelle, Medium, Detektor,
+   Kalibrierung und Unsicherheit ausführen; oder
+2. Verständnisstudie mit Single-View-Baseline, Multi-View-Bedingung,
+   Fehler-/Zeit-/Transfermaßen und Preregistration zulassen.
+
+Nautilus-Operator, physische Kopfmechanik, vollständige Spektralintegration und
+ein gemeinsamer Mechanismus aus den Bildmotiven sind nicht im Backlog als
+implizite Annahmen enthalten. Ohne Owner-Gate entsteht daraus keine aktive
+Study.
+
+### Erweiterung I‑46E — CON–DAO-Sequenz und Zeta-Koordinatenlinse
+
+Status: `IMPLEMENTED_AND_CHECKED / NO SCIENCE ACTIVATION / ACTIVE_STUDIES_0`
+
+Das bestehende Werkzeug liest jetzt die bereits autoritative Folge
+`NEXAH:CON_DAO_BREATH:V1` über den vorhandenen Pulse Grammar Clock. Es
+erzeugt keine zweite Uhr. T/Gegenkipper, Fächer, Schleier, White-Scan und der
++1-Blacklight-Zustand sind deklarierte Display-Projektionen. Der Schlierenstil
+bleibt ausdrücklich unkalibriert; nach STILL kehrt die Ansicht zum gewählten
+RGB-Residual zurück.
+
+Die getrennte Critical-Line-Linse implementiert exakt
+`w=i(s−1/2)=−t+i(σ−1/2)`. Dadurch wird `Re(s)=1/2` horizontal als
+`Im(w)=0` dargestellt. Das ist ein Koordinatenwechsel und weder RH-Beweis
+noch Nullstellenfreiheitsbeweis. Die zwölf Marker werden nicht als
+`1/12 Nullstellen`, sondern als zwölf gelieferte symbolische Plotmarker
+geführt. `Re(io)s` bleibt offen, bis der Human Owner die Notation definiert.
+
+Kein impliziter Forschungsbacklog wird aus der Bildähnlichkeit erzeugt. Ein
+wissenschaftlicher Nachfolger müsste eine enge Hypothese, Quellwerte,
+Einheiten, Messregel, Nullkontrolle und Preregistration erhalten. Die
+vorhandenen Gates `ENG-D1D2-01`, `DOC-01`, `DOC-02`, `DOC-14` und
+`M-PUB01` behalten ihre Priorität; es entsteht keine neue Study, ID, Relation
+oder Finding-Kandidatur.
+
+### Erweiterung I‑46F — volle Orientierung über vier Grids
+
+Status: `IMPLEMENTED_AND_CHECKED / PREPARATION_ONLY / ACTIVE_STUDIES_0`
+
+Der neue lokale Vergleich führt 5B, TESA, Root7-Buch und Atlas-Tessarec über
+einen normalisierten Inspektionscursor zusammen. Er hält ihre Zählungen und
+Return-Klassen ausdrücklich getrennt. Damit ist die unmittelbare Engineering-
+Frage erledigt: Man kann dieselbe Bildschirmposition vergleichen, ohne 29
+Posen mit 28 Adressen oder einem 16/48-State-Carrier gleichzusetzen.
+
+Ein wissenschaftlicher Nachfolger ist nicht automatisch eröffnet. Falls aus
+der Ansicht eine Hypothese entstehen soll, braucht sie eine benannte
+trägerübergreifende Invariante, einen unabhängigen Vorhersagetest und eine
+Kontrolle gegen beliebige monotone Reparametrisierungen. Bis dahin bleiben
+Klappe, Naht, Raster und Tessarec typisierte Comparatoren; keine neue Study,
+ID, Relation oder Finding-Kandidatur.
+
+### Erweiterung I‑46G — Gap/Joint-Matrix für Display, Adresse, Quelle und Return
+
+Status: `CONSOLIDATED_FROM_FAM002_INTAKE / PREPARATION_ONLY / NO ACTIVATION`
+
+Die jüngsten Bench-Lesarten werden nicht als weitere lose Motive fortgeführt.
+Ihre kanonische Quellen- und Grenznotiz liegt im bestehenden
+`A0_FAM002_MODEL_COMPANION_SOURCE_INTAKE_2026-10-28.md`, Abschnitt
+„Three Tracks / Paired Plates / Joint / Gap“. Die Bench-Screenshots sind
+interne Ausgaben und keine unabhängige Evidenz.
+
+Offen bleibt genau ein begrenzter Vergleich. Für ein benanntes Punktepaar
+werden vier Wahrheitswerte getrennt protokolliert:
+
+- `D`: gleiche Displayposition;
+- `A`: gleiche deklarierte Adresse;
+- `S`: gleicher gebundener Quellpunkt/-zustand;
+- `R_W`: gleicher Return unter einem benannten Witness `W`.
+
+Der Test braucht mindestens eine Projektionskoinzidenz mit `D=true` und
+`S=false`, einen Adresskonflikt, einen nicht-injektiven View-Fall sowie einen
+positiven Return mit explizitem Witness. TESA/Ghostgrid, Pascal Joint,
+Lissajous-Spuren und Paired Plates dienen nur als vorhandene Comparatoren.
+Ohne gebundene Quelle, View-Operator, Adresse und Witness lautet das Ergebnis
+`HOLD`.
+
+Die exakten Identitäten der 204/206-Gap-Card bleiben Testmarker; „torsion
+bridge“, Versiegelung oder ein physischer Mechanismus sind nicht Teil des
+Tests. Kein neuer Run, keine Study, ID, Relation oder Finding-Kandidatur wird
+hiermit aktiviert.
+
+<a id="a0-e2e-audit-r1-closeout-20261029"></a>
+## DOC-15 · A0-E2E-AUDIT-R1 Verbindungs-Closeout · 29 October 2026
+
+Status: `DOCUMENTATION_AND_ROUTE_CLOSEOUT / ACTIVE_STUDIES_0 / NO NEW ID`
+
+Der Checkpoint `A0-E2E-AUDIT-R1` schließt ausschließlich Auffindbarkeit,
+Quellpointer und Return-Wege. Er friert nichts ein und ändert weder
+wissenschaftliche Autorität noch bestehende Instrumentidentitäten.
+
+| # | Rückbindung | Stand |
+|---|---|---|
+| 1 | Builder Tool → Capability | `44` Tools sind im Mission-Control-Crosswalk gegen die bestehenden `13` Capability-Komponenten geprüft. `BT-033` bis `BT-036` bleiben absichtlich `UNASSIGNED_MISSING_ASSEMBLY`; Kandidaten sind keine Zuordnung. |
+| 2 | Builder / Mission Control / NSNavigator | Lesbare Currentness-Projektionen verwenden die aktuellen A0-/Navigator-Zählungen; die erzeugten Projektionen und Source-Pins werden im Abschlusslauf neu geprüft. |
+| 3 | Demonstrator Registry | Breathing Crystal, Panel V, Pentagon Crown, ROOTROOM, Spin→Bloom und Cruiser/Spektrum nutzen die bestehende zentrale Demonstrator-Registry mit kanonischem Pfad, Hash, Claim Ceiling und Return. |
+| 4 | Breathing Crystal | Demonstrator, source-bound GLB-Bench, beide byte-identisch kopierten historischen GLBs, der deterministische CORE+BAND-Runtime-Build und das 3+1-Messdeck mit Capture/Compare/Exact Return, paarweisem 1:1-Phasenporträt und relationalem Orientation Ledger sind direkt verbunden. Der feste PIN, H/X und V/Y werden als Winkel, Radius, Sektor, Achsenschnitte und Winding gelesen; sie sind Referenzen, keine zusätzlichen Körper oder GLB-Nodes. Die rote Seam bleibt Display-Vergleichsvektor. GLB und Steuerdock teilen nun eine kompakte Arbeitshöhe, ohne den Vertrag zu verändern. Machine Return und Science-Desk-Return bleiben die Rückwege. Der frühere rohe GLB-Link außerhalb des lokalen Webroots ist entfernt. Reuse `NEXAH:INSTRUMENT:BREATHING_PRIME_CRYSTAL:V1`; kein Science Run. Der bestehende Evidence Binder hat im gemeinsamen Validator bereits vor diesem Slice einen Hash-Drift und wurde nicht verändert. |
+| 5 | Crystal → V12/X–Y Handoff | Das bestehende Orientation Ledger übergibt Paar, PIN, H/X, V/Y, Winkel, Radius, Seitenrelation und Winding an eine zusätzliche V12-Anzeigeschicht. Exakte View-Abbildung: `PIN → radial center`, `H/X → X`, `V/Y → Y`, aktueller Paarvektor → eigener Overlay. Die lila `DO′ RETURN 360°`- und rote `RE EXIT 45°`-Achse bleiben getrennte V12-Komparatoren. Reuse `NEXAH:INSTRUMENT:BREATHING_PRIME_CRYSTAL:V1`, `NEXAH_A0_ORIENTATION_CONTROLLER_BENCH`, `ART:A0:MATHEMATICAL_JOINTS` und `MOD:TESSAREC`; keine neue kanonische ID, keine Source-Graph-Relation, kein gemeinsamer Mechanismus und kein Science Run. |
+| 5 | Cruiser / Spectrum | Die vorhandene Blue×Pink-Assembly ist in der Flagship-Karte und im MACHINA-Schnellzugriff sichtbar. Kein fünftes System und kein Carrier-Merge. |
+| 6 | Builder Source Pointers | Alle `44` Tool-Einträge zeigen auf konkrete Dateien; Verzeichniszeiger wurden auf vorhandene Entry-/README-Dateien präzisiert. |
+| 7 | Validators | Currentness, Source Graph, Evidence Binder, A0-Link-/Bench-Navigation und App-Projektion werden nach dem Hash-/Manifest-Refresh erneut ausgeführt. |
+
+### Verbleibende TODOs
+
+- `BT-033` OLS record processor crosswalk, `BT-034` NSN Graph Studio,
+  `BT-035` M3 graph/grid viewer und `BT-036` local Observatory bleiben
+  echte `MISSING_ASSEMBLY`-Lücken. Erst ein eigener Owner-/Builder-Auftrag
+  darf daraus eine Zuordnung oder einen Build machen.
+- Jeder neue Demonstrator muss künftig vor Abschluss die Felder
+  `source_id`, `canonical_path`, `sha256`, `operation`, `claim_ceiling` und
+  `return_path` im bestehenden zentralen Register tragen.
+- Breathing Crystal ist als Display, source-bound GLB-Bench, begrenzter
+  CORE+BAND-Runtime-Slice und 3+1-Messdeck geschlossen: zwei unveränderte
+  Quellen, `2/2` Hashgleichheit, `148/148` Bench-Checks, `119/119`
+  adressierte Mesh-Nodes, ein reproduzierbarer Drei-Kanal-View-Clip,
+  Capture → Compare → exakter lokaler Frame-Return und drei geschlossene
+  1:1-Phasenbahnen mit 120° Versatz. Der Source-Return führt auf
+  `BANDED + CORE + ISO`. Dense-Segmentierung, Runtime-Freigabe der übrigen
+  Ports, native Source-Animation, Material, Last, Mechanismus,
+  Spektralmessung und Fertigung bleiben `HOLD`; View-Clip und
+  Ansichtsrotation sind keine physische Bewegung.
+- Cruiser/Spektrum bleibt eine gekoppelte View-Handoff-Assembly. Blue Body,
+  Pink Diamond und White Dodeca bleiben getrennte source-bound Views.
+- Externe Owner-/Publikations-Gates, insbesondere `M-PUB01`, werden durch
+  diesen Dokumentations-Closeout nicht verändert oder vorgezogen.
+
+Rückwege:
+`A0_BOOK/A0_BREATHING_CRYSTAL_APERTURE.html` +
+`A0_BOOK/A0_ORIENTATION_CONTROLLER_BENCH.html#breathingCrystalBench` →
+`A0_BOOK/results/a0-breathing-crystal-aperture-return-2026-10-29.json` +
+`A0_BOOK/results/a0-breathing-crystal-bench-return-2026-10-29.json` →
+`A0_BOOK/A0_RESEARCH_DESK.html#breathing-crystal-aperture-return-20261029` →
+`SCIENCE_LAB/NAVIGATION/EVIDENCE/A0_ORIENTATION_EVIDENCE_LINEAGE_2026-10-10/A0_ORIENTATION_EVIDENCE_LINEAGE_BINDER_V1_2026-10-10.json`.
 

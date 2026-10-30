@@ -96,6 +96,64 @@ expect(binder.changes_canonical_family_count === false, "family count boundary")
 expect(binder.identity_reuse?.a0_surface_entity_id === "ART:A0:MATHEMATICAL_JOINTS", "A0 identity reuse");
 expect(binder.identity_reuse?.a0_module_entity_id === "MOD:NUMBER_VIEW_SUITE", "module identity reuse");
 expect(binder.identity_reuse?.ols_release_id === "OLS-RELEASE-1.0.0", "OLS release identity");
+expect(binder.spin_to_bloom_measurement_return_20261029?.status === "SOURCE_BOUND_ENGINEERING_MEASUREMENT_NO_ADMISSION", "Spin to Bloom bounded measurement status");
+expect(binder.spin_to_bloom_measurement_return_20261029?.identity_reuse?.includes("ART:A0:MATHEMATICAL_JOINTS"), "Spin to Bloom reuses Mathematical Joints identity");
+expect(binder.spin_to_bloom_measurement_return_20261029?.measurement?.return_candidate?.tips === 11 && binder.spin_to_bloom_measurement_return_20261029?.measurement?.return_candidate?.yz_events === 11 && binder.spin_to_bloom_measurement_return_20261029?.measurement?.return_candidate?.address_slots === 121, "Spin to Bloom 5:6 finite measurement");
+expect(binder.spin_to_bloom_measurement_return_20261029?.measurement?.control_tip_counts?.join(",") === "10,10,11,12,13", "Spin to Bloom declared finite controls");
+expect(binder.spin_to_bloom_measurement_return_20261029?.identity_reuse?.includes("MOD:TESSAREC"), "Spin to Bloom reuses Tessarec identity for subordinate System D adapter");
+expect(binder.spin_to_bloom_measurement_return_20261029?.measurement?.software_checks === 306, "Spin to Bloom Root Field Edelweiss adapter, master transport, guided tour, membrane rig, wiggle diagnostic and Lamella Bridge software checks");
+expect(binder.spin_to_bloom_measurement_return_20261029?.measurement?.membrane_rig_demonstrator?.status === "PASS_BOUNDED_KINEMATIC_VIEW_MATERIAL_HOLD" && binder.spin_to_bloom_measurement_return_20261029?.measurement?.membrane_rig_demonstrator?.rod_count === 11 && binder.spin_to_bloom_measurement_return_20261029?.measurement?.membrane_rig_demonstrator?.panel_count === 11 && binder.spin_to_bloom_measurement_return_20261029?.measurement?.membrane_rig_demonstrator?.edge_cut_count === 11, "Spin to Bloom membrane rig bounded counts and material hold");
+expect(binder.spin_to_bloom_measurement_return_20261029?.measurement?.counterrotation_shadow_view?.status === "PASS_BACKWARD_HOLD_FORWARD_VIEW" && binder.spin_to_bloom_measurement_return_20261029?.measurement?.counterrotation_shadow_view?.apparent_direction_sequence?.slice(0, 3).join(",") === "BACKWARD,HOLD,FORWARD", "Spin to Bloom counterrotation apparent shadow reversal view");
+expect(binder.spin_to_bloom_measurement_return_20261029?.measurement?.wiggle_return_diagnostic?.status === "PASS_DECLARED_CAPTURE" && binder.spin_to_bloom_measurement_return_20261029?.measurement?.wiggle_return_diagnostic?.channels === 11, "Spin to Bloom declared wiggle capture diagnostic");
+expect(binder.spin_to_bloom_measurement_return_20261029?.measurement?.root_field_edelweiss_bench_adapter?.status === "PASS_SOURCE_OWNED_TYPED_ADAPTER" && binder.spin_to_bloom_measurement_return_20261029?.measurement?.root_field_edelweiss_bench_adapter?.runtime_global === "A0SpinToBloomBench", "Spin to Bloom source-owned Bench adapter");
+expect(binder.spin_to_bloom_measurement_return_20261029?.measurement?.root_field_edelweiss_bench_adapter?.attachment === "SYSTEM D · NATIVE DODECA / MOD:TESSAREC" && binder.spin_to_bloom_measurement_return_20261029?.measurement?.root_field_edelweiss_bench_adapter?.new_system === false, "Edelweiss remains subordinate to existing System D and Tessarec");
+expect(binder.spin_to_bloom_measurement_return_20261029?.measurement?.root_field_edelweiss_bench_adapter?.bloom_tips === 12 && binder.spin_to_bloom_measurement_return_20261029?.measurement?.root_field_edelweiss_bench_adapter?.white_dodeca_slots === 12 && binder.spin_to_bloom_measurement_return_20261029?.measurement?.root_field_edelweiss_bench_adapter?.exact_fit === true, "Edelweiss exact 12-tip to 12-slot display fit");
+expect(binder.spin_to_bloom_measurement_return_20261029?.measurement?.root_field_edelweiss_bench_adapter?.methods?.includes("startAll") && binder.spin_to_bloom_measurement_return_20261029?.measurement?.root_field_edelweiss_bench_adapter?.methods?.includes("pauseAll") && binder.spin_to_bloom_measurement_return_20261029?.measurement?.root_field_edelweiss_bench_adapter?.methods?.includes("holdReturn"), "Spin to Bloom master transport methods remain on source-owned Bench adapter");
+expect(binder.spin_to_bloom_measurement_return_20261029?.measurement?.guided_tour?.status === "PASS_CLICK_INITIATED_GUIDED_VIEW" && binder.spin_to_bloom_measurement_return_20261029?.measurement?.guided_tour?.runtime_global === "A0SpinToBloomTour" && binder.spin_to_bloom_measurement_return_20261029?.measurement?.guided_tour?.stations === 8 && binder.spin_to_bloom_measurement_return_20261029?.measurement?.guided_tour?.autostart === false, "Spin to Bloom guided tour is click-initiated and bounded");
+expect(binder.spin_to_bloom_measurement_return_20261029?.measurement?.klein_lamella_return_bridge?.lamella_ids === 11 && binder.spin_to_bloom_measurement_return_20261029?.measurement?.klein_lamella_return_bridge?.ring_planes === 11, "Klein Lamella 11-to-11 crosswalk");
+expect(binder.spin_to_bloom_measurement_return_20261029?.measurement?.klein_lamella_return_bridge?.return === "PASS_EXACT_DECLARED_SOURCE_STATE_RETURN", "Klein Lamella exact declared source-state return");
+expect(binder.spin_to_bloom_measurement_return_20261029?.new_canonical_ids?.length === 0 && binder.spin_to_bloom_measurement_return_20261029?.relation_changes?.length === 0 && binder.spin_to_bloom_measurement_return_20261029?.finding_or_manuscript_effect === "NONE", "Spin to Bloom no identity relation or manuscript effect");
+for (const relative of [binder.spin_to_bloom_measurement_return_20261029?.instrument, binder.spin_to_bloom_measurement_return_20261029?.machine_return]) expect(fs.existsSync(path.resolve(ecosystemRoot, "30 SCIENCE LAB/NEXAH-Science-Lab/RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01", relative || "")), "Spin to Bloom source exists: " + relative);
+const panelVReturn = binder.lantern_panel_v_control_lens_return_20261029;
+expect(panelVReturn?.status === "SOURCE_BOUND_ENGINEERING_VIEW_RETURN_NO_ADMISSION", "Panel V source-bound engineering return status");
+expect(panelVReturn?.identity_reuse?.join(",") === "ART:A0:MATHEMATICAL_JOINTS,NEXAH:A0_ORIENTATION_EVIDENCE_LINEAGE:V1", "Panel V reuses Mathematical Joints and A0 Evidence identities");
+expect(Object.keys(panelVReturn?.role_routes || {}).join(",") === "source_asset,module_tool,bench_configuration,demonstrator,toy_store_consumer_cut,record_return,glb_view,science_return,mathfield_return,paper_triage,a0_register_locator", "Panel V production roles remain explicit");
+expect(panelVReturn?.new_canonical_ids?.length === 0 && panelVReturn?.relation_changes?.length === 0 && panelVReturn?.finding_or_manuscript_effect === "NONE", "Panel V no identity relation or manuscript effect");
+expect(panelVReturn?.working_notation_hold?.length === 5 && /File proximity/.test(panelVReturn?.claim_boundary || ""), "Panel V Working Notation and file-proximity boundary");
+expect(panelVReturn?.fold_pocket_contract?.pairs === 5 && panelVReturn?.fold_pocket_contract?.view_sequence?.join("→") === "LEAF_CLOSED→SLIT_RELEASE→POCKET_OPEN→EXACT_RETURN", "Panel V five Fold Pockets and exact view return");
+expect(panelVReturn?.fold_pocket_contract?.tip_observation_register === 11 && panelVReturn?.fold_pocket_contract?.ordered_address_slots === 121 && panelVReturn?.fold_pocket_contract?.notation_status === "WORKING_NOTATION_HOLD", "Panel V 11-tip n-squared register and notation HOLD");
+for (const relative of [...Object.values(panelVReturn?.role_routes || {}).map((item) => String(item).split("#")[0]), ...Object.values(panelVReturn?.source_inventory || {})]) {
+  const target = path.resolve(ecosystemRoot, "30 SCIENCE LAB/NEXAH-Science-Lab/RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01", relative);
+  expect(target.startsWith(ecosystemRoot + path.sep) && fs.existsSync(target), "Panel V bound route exists: " + relative);
+}
+const benchReturnCrosswalk = binder.bench_science_return_crosswalk_20261029;
+expect(benchReturnCrosswalk?.status === "SOURCE_BOUND_ROUTE_CROSSWALK_NO_ADMISSION", "Bench to Science return crosswalk status");
+expect(benchReturnCrosswalk?.route_stages?.join("→") === "source→module→bench_configuration→demonstrator→receipt→science_desk→evidence_status", "Bench return seven-stage route");
+expect(benchReturnCrosswalk?.artifacts?.length === 6, "Bench return crosswalk binds six existing artifacts");
+expect(benchReturnCrosswalk?.artifacts?.some((item) => item.name === "Pentagon Crown demonstrator UI cut" && item.evidence_status === "PASS_WITH_MECHANISM_AND_CALIBRATION_HOLDS"), "Pentagon Crown receipt reaches existing Science Desk authority");
+expect(benchReturnCrosswalk?.artifacts?.some((item) => item.name === "Panel V Fold Pocket and Joint Microscope" && /N2_121_WORKING_NOTATION_HOLD/.test(item.evidence_status || "")), "Panel V Fold Pocket and Joint Microscope return bound");
+expect(benchReturnCrosswalk?.artifacts?.some((item) => /Root→Field→Edelweiss adapter/.test(item.name || "") && /EDELWEISS_12_SLOT_TYPED_ADAPTER/.test(item.evidence_status || "") && /#edelweissBridge$/.test(item.demonstrator || "")), "Root Field Edelweiss adapter reaches existing Science Desk route");
+expect(benchReturnCrosswalk?.new_canonical_ids?.length === 0 && benchReturnCrosswalk?.relation_changes?.length === 0 && benchReturnCrosswalk?.finding_or_manuscript_effect === "NONE", "Bench return crosswalk creates no identity relation or Finding");
+for (const artifact of benchReturnCrosswalk?.artifacts || []) {
+  for (const field of benchReturnCrosswalk.route_stages.slice(0, -1)) {
+    const relative = String(artifact[field] || "").split("#")[0];
+    const target = path.resolve(ecosystemRoot, "30 SCIENCE LAB/NEXAH-Science-Lab/RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01", relative);
+    expect(target.startsWith(ecosystemRoot + path.sep) && fs.existsSync(target), `Bench return ${artifact.name} ${field} exists: ${relative}`);
+  }
+}
+const canonicalFlagship = binder.canonical_flagship_reference_20261029;
+expect(canonicalFlagship?.status === "CURRENT_CANONICAL_SOURCE_BOUND_REFERENCE_FROZEN", "canonical Panel V Crown return reference frozen");
+expect(canonicalFlagship?.identity_reuse?.join(",") === "ART:A0:MATHEMATICAL_JOINTS,NEXAH:A0_ORIENTATION_EVIDENCE_LINEAGE:V1,NEXAH_A0_ORIENTATION_CONTROLLER_BENCH", "canonical flagship reuses existing identities");
+expect(Object.values(canonicalFlagship?.authority_bindings || {}).join(",") === "I-46Q,I-46R,I-46S,I-46S.2,I-46S.4", "I-46Q through I-46S.4 authority bindings retained");
+expect(canonicalFlagship?.chain?.map((item) => item.stage).join("→") === "Lantern / Panel V→Pentagon Crown→Exact Return→Science Desk Receipt", "canonical flagship four-stage route");
+expect(canonicalFlagship?.new_canonical_ids?.length === 0 && canonicalFlagship?.relation_changes?.length === 0 && canonicalFlagship?.finding_or_manuscript_effect === "NONE" && canonicalFlagship?.publication_authorized === false, "canonical flagship has no identity relation Finding or publication effect");
+for (const item of canonicalFlagship?.chain || []) {
+  for (const route of [item.href, item.receipt]) {
+    const relative = String(route || "").split("#")[0];
+    const target = path.resolve(ecosystemRoot, "30 SCIENCE LAB/NEXAH-Science-Lab/RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01", relative);
+    expect(target.startsWith(ecosystemRoot + path.sep) && fs.existsSync(target), `canonical flagship route exists: ${relative}`);
+  }
+}
 expect(binder.reader_architecture?.status === "EDITORIAL_NAVIGATION_FRAME_NO_NEW_IDENTITY", "A0 reader architecture status");
 expect(binder.reader_architecture?.works?.length === 6, "six A0 reader works");
 expect(binder.reader_architecture?.works?.map((item) => item.label).join("→") === "A0 Book→Mathfield→Pascal Joint→SCC-003 Paper→Return Paper→Backlog", "A0 reader work order");
@@ -109,16 +167,23 @@ expect(binder.pentagon_knick_aperture_intake_20261025?.status === "PARKED_SOURCE
 expect(binder.pentagon_knick_aperture_intake_20261025?.instrument_atlas?.status === "SOURCE_BOUND_NAVIGATION_LAYER_NO_NEW_IDENTITY" && binder.pentagon_knick_aperture_intake_20261025?.instrument_atlas?.door_count === 12 && binder.pentagon_knick_aperture_intake_20261025?.instrument_atlas?.contract_fields?.join("→") === "carrier→view→return→boundary" && /not the controlling Mission Control Builder Atlas/.test(binder.pentagon_knick_aperture_intake_20261025?.instrument_atlas?.boundary || ""), "Instrument Atlas return and non-authority boundary");
 expect(binder.sources?.some((item) => item.source_id === "SRC:A0OE:A0_EXPERIENCE_NAVIGATION_FREEZE_RETURN" && /zero canonical-count/.test(item.authority_role)), "A0 experience freeze return retained with no-count boundary");
 expect(binder.sources?.some((item) => item.source_id === "SRC:A0OE:A0_EXPERIENCE_NAVIGATION_FREEZE_MC_RETURN" && /reciprocal Mission Control/.test(item.authority_role)), "reciprocal Mission Control experience-freeze return retained");
-expect(binder.a0_surface_coverage?.coverage_id === coverage.coverage_id && binder.a0_surface_coverage?.bound_surfaces === 75 && binder.a0_surface_coverage?.work_groups === 13, "A0 75-of-75 surface coverage binding");
+expect(binder.a0_surface_coverage?.coverage_id === coverage.coverage_id && binder.a0_surface_coverage?.bound_surfaces === 81 && binder.a0_surface_coverage?.work_groups === 13, "A0 81-of-81 surface coverage binding");
 expect(coverage.status === "INTERNAL_SOURCE_BOUND_COVERAGE_NO_NEW_IDENTITY", "A0 surface coverage status");
-expect(coverage.expected_surface_count === 75 && coverage.bound_surface_count === 75 && coverage.unbound_surfaces?.length === 0, "A0 surface coverage counts");
+expect(coverage.expected_surface_count === 81 && coverage.bound_surface_count === 81 && coverage.unbound_surfaces?.length === 0, "A0 surface coverage counts");
 expect(coverage.policy_effect?.changes_canonical_counts === false && coverage.policy_effect?.creates_module_identity === false && coverage.policy_effect?.activates_study === false && coverage.policy_effect?.promotes_evidence === false && coverage.policy_effect?.authorizes_publication === false, "A0 surface coverage policy boundary");
 const coveredSurfaces = coverage.work_bindings.flatMap((item) => item.surfaces).sort();
 const manifestSurfaces = manifest.surface_registry.map((item) => item.surface).sort();
 expect(new Set(coveredSurfaces).size === coverage.expected_surface_count && JSON.stringify(coveredSurfaces) === JSON.stringify(manifestSurfaces), "A0 surface coverage exactly matches manifest registry");
 expect(binder.sources?.some((item) => item.source_id === "SRC:A0OE:A0_MODULE_SURFACE_COVERAGE" && item.sha256 === hash(coveragePath)), "A0 coverage sidecar source and hash");
 expect(["SRC:A0OE:PINK_DIAMOND_GRID_ATLAS", "SRC:A0OE:VISUAL_FIELD_LIBRARY", "SRC:A0OE:VISUAL_FIELD_LIBRARY_REGISTRY", "SRC:A0OE:DEMONSTRATOR_CONSOLIDATION_101_106"].every((id) => binder.sources.some((item) => item.source_id === id)), "A0 grid atlas, visual library, registry and consolidation source-bound");
-expect(binder.demonstrator_source_registry?.owner === "NEXAH Science Lab" && binder.demonstrator_source_registry?.records?.length === 3 && binder.demonstrator_source_registry?.new_demonstrator_template?.required_fields?.includes("return_path"), "Science Lab-owned demonstrator source registry and reusable template");
+expect(binder.demonstrator_source_registry?.owner === "NEXAH Science Lab" && binder.demonstrator_source_registry?.records?.length === 9 && binder.demonstrator_source_registry?.new_demonstrator_template?.required_fields?.includes("return_path"), "Science Lab-owned demonstrator source registry and reusable template");
+for (const record of binder.demonstrator_source_registry?.records?.slice(3) || []) {
+  for (const field of binder.demonstrator_source_registry.new_demonstrator_template.required_fields) expect(record[field] !== undefined, `registered current demonstrator carries ${field}: ${record.label}`);
+  const relativePath = String(record.canonical_path || "").split("#")[0];
+  const target = path.resolve(ecosystemRoot, "30 SCIENCE LAB/NEXAH-Science-Lab/RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01", relativePath);
+  expect(target.startsWith(ecosystemRoot + path.sep) && fs.existsSync(target), `registered current demonstrator source exists: ${record.label}`);
+  if (fs.existsSync(target)) expect(hash(target) === record.sha256, `registered current demonstrator hash matches: ${record.label}`);
+}
 expect(["SRC:A0OE:A0_CHECK58_CLOSEOUT", "SRC:A0OE:A0_AXIAL_CARRIER_SUITE", "SRC:A0OE:A0_AXIAL_CARRIER_MACHINE_RECORD", "SRC:A0OE:A0_COVERAGE_LINK_AUDIT", "SRC:A0OE:A0_BOOK_MANIFEST_CHECK58", "SRC:A0OE:A0_ORIENTATION_MACHINE", "SRC:A0OE:A0_RESEARCH_DESK_CHECK58", "SRC:A0OE:A0_CHECK58_FREEZE_RECORD", "SRC:A0OE:A0_CHECK58_FREEZE_MANIFEST", "SRC:A0OE:A0_CHECK58_MISSION_CONTROL_RETURN"].every((id) => binder.sources.some((item) => item.source_id === id)), "Check 58 integration freeze and Mission Control return sources bound");
 expect(["SRC:A0OE:FINDINGS_PAPER_WORKSPACE", "SRC:A0OE:PASCAL_ROSETTA_D30_PAPER_DRAFT", "SRC:A0OE:RETURN_WITHOUT_IDENTITY_PAPER_DRAFT"].every((id) => binder.sources.some((item) => item.source_id === id)), "A0 findings workspace, D30 companion and Return-without-identity paper source-bound");
 expect(["SRC:A0OE:SCIENTIFIC_POSITION_ASSESSMENT", "SRC:A0OE:SCIENTIFIC_POSITION_REPORT_HTML", "SRC:A0OE:SCIENTIFIC_POSITION_MISSION_CONTROL_RETURN"].every((id) => binder.sources.some((item) => item.source_id === id)), "A0 scientific assessment, reader report and Mission Control return source-bound");

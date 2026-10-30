@@ -52,6 +52,11 @@ check(html.includes('href="#engineering-returns-20261021"'), "hero must expose t
 const note = html.indexOf('class="field-notes-postit" id="field-notes-entry"');
 check(note > hero && note < snapshot, "Field Notes post-it must live in the Science Desk hero");
 check(html.includes('href="assets/a0-field-notes/index.html"'), "Field Notes post-it must open the note reader");
+check(html.includes('id="current-desk-raum"'), "Current FAM-002 Desk post-it must exist");
+check(html.includes('FAM_002_THREAD_RETURN_AND_BENCH_MAP_2026-10-28.html'), "Current FAM-002 Desk post-it must open the complete research room");
+check(html.includes('id="current-intake-gallery"'), "Current FAM-002 intake gallery post-it must exist");
+check(html.includes('FAM_002_A0_INTAKE_GALLERY_2026-10-28.html'), "Current FAM-002 intake gallery post-it must open the preserved gallery");
+check(!html.includes('link.href="http://127.0.0.1:8878/FAM_002_HTML_LATEST_INSTRUMENTS_2026-10-28.html"'), "Current Desk must not bypass the research room for a single instrument wall");
 
 const cabinet = html.indexOf('<details class="desk-cabinet" id="desk-cabinet">');
 check(cabinet > snapshot && cabinet < archive, "expandable Desk cabinet must follow the status snapshot");

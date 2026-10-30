@@ -1,0 +1,42 @@
+{
+  "schema": "nexah.a0.udf-orientation-return-proof/1.0.0",
+  "date": "2026-10-30",
+  "status": "PASS_5_OF_5_BOUNDED_UDF_ORIENTATION_RETURN_PROOFS",
+  "profile": "nexah.udf.orientation-return/0.1.0-experimental",
+  "profile_state": "EXPERIMENTAL_NOT_FROZEN",
+  "source_identity": "NEXAH:INSTRUMENT:BREATHING_PRIME_CRYSTAL:V1",
+  "target_identity": "MOD:TESSAREC",
+  "reference_digest": "3a0740ad02639ce50c26f80d6197416592c03c40f4e02e642a818a5437721ae8",
+  "proofs": [
+    {
+      "id": "01_DETERMINISTIC_SERIALIZATION_AND_HASH",
+      "status": "PASS"
+    },
+    {
+      "id": "02_LOSSLESS_CRYSTAL_UDF_V12_LEDGER_ROUNDTRIP",
+      "status": "PASS"
+    },
+    {
+      "id": "03_AB_BC_CA_PROFILE_INVARIANCE",
+      "status": "PASS"
+    },
+    {
+      "id": "04_NEGATIVE_AND_MALFORMED_INPUT_REJECTION",
+      "status": "PASS"
+    },
+    {
+      "id": "05_SEMANTIC_AXIS_AND_VECTOR_SEPARATION",
+      "status": "PASS"
+    }
+  ],
+  "tested_pairs": [
+    "ab",
+    "bc",
+    "ca"
+  ],
+  "new_canonical_ids": [],
+  "relation_changes": [],
+  "capability_status": "NOT_ASSIGNED",
+  "science_disposition": "IMPLEMENTATION_EVIDENCE_NOT_F_A0_FINDING",
+  "claim_boundary": "Experimental source-bound serialization profile for one typed orientation Return. It is not a universal UDF schema, product capability, shared mechanism, GLB mutation, Study, Finding promotion or publication."
+}

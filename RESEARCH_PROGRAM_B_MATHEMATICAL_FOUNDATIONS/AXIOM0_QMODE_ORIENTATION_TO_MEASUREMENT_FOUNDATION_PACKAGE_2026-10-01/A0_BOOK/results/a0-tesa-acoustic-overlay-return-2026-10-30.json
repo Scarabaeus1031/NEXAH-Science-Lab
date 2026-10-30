@@ -1,0 +1,67 @@
+{
+  "schema": "nexah.a0.instrument-return/1",
+  "date": "2026-10-30",
+  "instrument": "A0 TESA Acoustic Overlay",
+  "status": "PASS_BOUNDED_MODEL_TEST_MEASURED_INPUT_OPEN",
+  "route": "A0_WERKBANK.html#tesaZitherTranslator",
+  "identity": {
+    "action": "EXTEND_EXISTING_VIEW",
+    "owner": "NEXAH_AX0_QMODE_FOUNDATION_PACKAGE / A0_WERKBANK",
+    "source_identities_reused": [
+      "ART:A0:MATHEMATICAL_JOINTS",
+      "MOD:TESSAREC"
+    ],
+    "new_identity": false,
+    "new_family": false,
+    "new_relation": false,
+    "new_study": false,
+    "source_graph_changed": false
+  },
+  "source_bindings": [
+    {
+      "schema": "a0.stopinder-deflection-bridge/1.0.0",
+      "route": "A0_SPIN_TO_BLOOM_MEASUREMENT.html#stopinderDeflectionBridge"
+    },
+    {
+      "schema": "a0.octave-successor-fifths-bridge/1.0.0",
+      "route": "A0_SPIN_TO_BLOOM_MEASUREMENT.html#octaveSuccessorFifthsBridge"
+    }
+  ],
+  "exact_results": {
+    "frequency_rail": [24, 27, 30, 32, 36, 40, 45, 48],
+    "stopinders": [3, 3, 2, 4, 4, 5, 3],
+    "stopinder_sum": 24,
+    "ratio_product": 2,
+    "octave_ratio": 2,
+    "same_ratio_class": [
+      {"step": "MI→FA", "ratio": "16/15", "absolute_gap": 2},
+      {"step": "SI→DO′", "ratio": "16/15", "absolute_gap": 3}
+    ],
+    "diatonic_fifths_address_walk": ["DO", "SOL", "RE", "LA", "MI", "SI", "FA", "DO"],
+    "diatonic_operator": "+4 mod 7",
+    "full_twelve_fifths_return": {
+      "exact": false,
+      "residual": "531441/524288",
+      "name": "PYTHAGOREAN_COMMA"
+    }
+  },
+  "comparison": {
+    "model": "OWNER_REFERENCE_INTEGER_FREQUENCY_RAIL",
+    "comparator": "12_TET_MAJOR_SCALE_FROM_BASE_24",
+    "measured_input": "OPEN",
+    "finding": "MI→FA and SI→DO′ share ratio class 16/15 but not absolute difference; the observed gap match is ratio-typed, not absolute-gap identity."
+  },
+  "tesa_overlay": {
+    "grid": "4×7",
+    "columns": ["DO", "RE", "MI", "FA", "SOL", "LA", "SI"],
+    "rows": ["+1", "-1", "+2", "-2"],
+    "row_boundary": "Signed display lanes only; not asserted physical octaves.",
+    "octave_return": "SI→DO′ folds to the first column of the next display lane; final lane wraps for visualization only."
+  },
+  "verification": {
+    "translator_checks": 78,
+    "acoustic_checks": 39,
+    "status": "PASS"
+  },
+  "claim_boundary": "This is a source-bound comparison and address overlay. It does not establish a physical acoustic mechanism, measured resonance, equality of the 4×7 rows with octave registers, identity of the seven-column walk with the full twelve-tone fifths circle, or a new canonical relation."
+}

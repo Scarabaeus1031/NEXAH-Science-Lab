@@ -1,0 +1,86 @@
+{
+  "schema": "nexah.a0.breathing-crystal-bench-binding/1.4.0",
+  "date": "2026-10-30",
+  "status": "SOURCE_BOUND_GLB_NODE_PORT_CORE_BAND_RUNTIME_3PLUS1_MEASUREMENT_AND_ORIENTATION_LEDGER_NO_SCIENCE_RUN",
+  "identity_reuse": ["NEXAH:INSTRUMENT:BREATHING_PRIME_CRYSTAL:V1", "NEXAH_A0_ORIENTATION_CONTROLLER_BENCH"],
+  "bench_path": "A0_BOOK/A0_ORIENTATION_CONTROLLER_BENCH.html#breathingCrystalBench",
+  "models": [
+    {
+      "id": "banded",
+      "role": "BREATHING_CRYSTAL_BANDED_BODY",
+      "source_path": "SCIENCE_LAB/CASE_STUDIES/CIKADA_3301_LATER_MARKER_PROVENANCE_INTAKE/CIKADA 3301 LATER MARKER CORPUS/🧭🧭🧭GITHUB-TODO_UPLOAD NAVIGATION/🜂🜂🜂 ANKH 2040 — QED Summary Index/GLBs Breathing Chrystal./breathing_crystal_v2_1.glb",
+      "presentation_path": "A0_BOOK/assets/breathing-crystal/breathing_crystal_v2_1.glb",
+      "sha256": "6926857fdc9528467108edf185c4db29ee7d0a336ffd4cc62c74e3dbe2a44b50",
+      "bytes": 803252,
+      "nodes": 120,
+      "meshes": 119,
+      "animation_count": 0
+    },
+    {
+      "id": "dense",
+      "role": "BREATHING_CRYSTAL_DENSE_BODY",
+      "source_path": "SCIENCE_LAB/CASE_STUDIES/CIKADA_3301_LATER_MARKER_PROVENANCE_INTAKE/CIKADA 3301 LATER MARKER CORPUS/🧭🧭🧭GITHUB-TODO_UPLOAD NAVIGATION/🜂🜂🜂 ANKH 2040 — QED Summary Index/GLBs Breathing Chrystal./Breathing_Crystal_nBands_Prime_Wiring_FULL.glb",
+      "presentation_path": "A0_BOOK/assets/breathing-crystal/Breathing_Crystal_nBands_Prime_Wiring_FULL.glb",
+      "sha256": "bdc86517597875a6090ee5cc27d9f713ae577f8ecadc27cc3df74582c190d5d8",
+      "bytes": 4142920,
+      "nodes": 2,
+      "meshes": 1,
+      "animation_count": 0
+    },
+    {
+      "id": "runtime",
+      "role": "BREATHING_CRYSTAL_CORE_BAND_RUNTIME_VIEW",
+      "source_path": "A0_BOOK/assets/breathing-crystal/breathing_crystal_v2_1.glb",
+      "presentation_path": "A0_BOOK/assets/breathing-crystal/breathing_crystal_core_band_runtime_r1.glb",
+      "source_sha256": "6926857fdc9528467108edf185c4db29ee7d0a336ffd4cc62c74e3dbe2a44b50",
+      "sha256": "3262ada53e8517a5a89123fe2a10d5d878c6fc5f622c2b92737ec9d492446513",
+      "bytes": 804844,
+      "nodes": 120,
+      "meshes": 119,
+      "animation_count": 1,
+      "animation_clip": "BREATH_CORE_BAND_R1",
+      "derivative_not_source": true
+    }
+  ],
+  "node_port_contract": "A0_BOOK/assets/a0-breathing-crystal-node-port-contract-v1.json",
+  "node_port_bridge": {
+    "model": "banded",
+    "port_families": 10,
+    "addressed_mesh_nodes": 119,
+    "unmapped_mesh_nodes": 0,
+    "event": "a0:bench-port-state",
+    "bench_map_binding": "TYPED_HANDOFF",
+    "return_edge": "RETURN_WITNESS",
+    "dense_disposition": "UNSEGMENTED_HOLD",
+    "runtime_slice": {
+      "contract": "A0_BREATHING_CRYSTAL_SEGMENTATION_R1",
+      "driver": "breath.phase",
+      "driver_event": "a0:breathing-crystal-phase",
+      "fixed_node": "CORE",
+      "driven_nodes": ["BAND_0.429", "BAND_0.456", "BAND_0.487"],
+      "amplitude": 0.06,
+      "cycle_seconds": 4,
+      "source_mutation": false
+    },
+    "measurement_deck": {
+      "channels": 4,
+      "fixed_reference": "CORE",
+      "driven_channels": ["BAND_0.429", "BAND_0.456", "BAND_0.487"],
+      "clock": "breath.phase",
+      "event": "a0:breathing-crystal-measurement",
+      "modes": ["individual", "together", "counterphase"],
+      "phase_pairs": ["ab", "bc", "ca"],
+      "phase_portrait": {"frequency_ratio":"1:1","phase_lag_degrees":120,"shape":"ELLIPSE","metrics":["normalized_area","closure_error","direction","red_seam_delta"],"red_seam_role":"DISPLAY_COMPARATOR_NOT_SOURCE_NODE"},
+      "orientation_ledger": {"pin_role":"FIXED_RELATION_ORIGIN","axes":["PAIR_X","PAIR_Y"],"metrics":["theta_degrees","radius","quadrant","horizontal_relation","vertical_relation","horizontal_crossings","vertical_crossings","winding"],"expected_axis_crossings":[2,2]},
+      "workflow": ["capture", "compare", "exact local frame return"],
+      "source_mutation": false,
+      "second_clock": false
+    }
+  },
+  "tools": ["source/runtime/dense model selector", "breath.phase slider", "deterministic phase sweep", "CORE-fixed three-BAND runtime transform", "3+1 transform measurement deck", "individual/together/counterphase chart lens", "pairwise 1:1 phase portrait", "phase-lag/area/closure/direction measurement", "PIN/H/V orientation ledger", "theta/radius/quadrant/axis-crossing/winding measurement", "red seam display comparator", "compact GLB and control dock", "capture/compare/exact local frame return", "measurement receipt export", "node-port family selector", "exact node address stepping", "typed Bench event", "typed phase event", "typed measurement event", "camera orbit", "front view", "top view", "user-controlled view rotation", "exact source and CORE return", "local node-port receipt export"],
+  "demonstrator_return": "A0_BOOK/A0_BREATHING_CRYSTAL_APERTURE.html#bench-page-top",
+  "science_return": "A0_BOOK/A0_RESEARCH_DESK.html#breathing-crystal-aperture-return-20261029",
+  "new_canonical_ids": [],
+  "relation_changes": [],
+  "claim_boundary": "Checksum equality preserves both source GLBs. Node ports address source-authored names without mutating them. The generated runtime derivative adds an explicit transform clip to the three BAND nodes while CORE remains fixed; this is a view adapter, not native source animation. The 3+1 deck reads and compares that declared transform contract; its chart, pairwise 1:1 phase portrait and Orientation Ledger are display-only and add no clock. PIN is a fixed relation origin; H/X and V/Y are coordinate references for the selected pair, not additional bodies or GLB nodes. The red seam is a current difference vector and no source node or fourth band. Camera rotation is a view operation. The Bench establishes no causal operator, semantic truth, physical breathing mechanism, material behavior, measured spectrum, resonance, fabrication or physical crystal."
+}

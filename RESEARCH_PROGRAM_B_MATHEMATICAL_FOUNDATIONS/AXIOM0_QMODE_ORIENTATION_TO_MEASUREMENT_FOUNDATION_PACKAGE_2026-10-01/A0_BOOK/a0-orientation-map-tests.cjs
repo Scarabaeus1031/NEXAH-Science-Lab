@@ -5,11 +5,12 @@ const base=new URL('file://'+__dirname+'/').href,keys=new Set(M.nodes.map(n=>n.k
 const htmlPageCount=fs.readdirSync(__dirname).filter(f=>f.endsWith('.html')).length;eq(M.pages.length,htmlPageCount,'complete root HTML inventory');eq(M.currentWays.length,5,'five current A0 entrances');
 eq(M.currentWaysMarkup(href=>new URL(href,base).href,new URL('A0_THE_LIVING_INTERIOR.html',base).href),'','orientation map no longer renders the overview entrances');
 const navigationSource=fs.readFileSync(path.join(__dirname,'a0-context-navigation.js'),'utf8');ok(navigationSource.includes('Fünf Eingänge. Ein Werk.'));for(const label of ['HUMAN','PLAY','MATHFIELD','BUILDER','SCIENCE'])ok(navigationSource.includes(label),'overview way '+label);
+ok(navigationSource.includes('A0 Navigator')&&navigationSource.includes('Family Connection Map'),'shared navigation uses the agreed names');
 for(const n of M.nodes){ok(fs.existsSync(path.resolve(__dirname,n.href.split('#')[0])),n.href);ok(n.families.every(f=>/^F[1-7]$/.test(f)));}
 for(const e of M.edges){ok(keys.has(e.from)&&keys.has(e.to));ok(M.kinds[e.kind]);ok(fs.existsSync(path.resolve(__dirname,e.proof.split('#')[0])),e.proof);}
 for(const r of M.routes){eq(r.edges.length,r.nodes.length-1);for(let i=0;i<r.edges.length;i++){const e=M.edges[r.edges[i]];eq(e.from,r.nodes[i]);eq(e.to,r.nodes[i+1]);const step=M.advance(r,i);eq(step.blocked,e.kind==='open');eq(step.step,e.kind==='open'?i:i+1);}ok(M.advance(r,r.nodes.length-1).done);}
 assert.throws(()=>M.advance(M.routes[0],-1));checks++;
-const quietStandalone=new Set(['A0_CURSOR_HANDOFF_CLICKDUMMY.html','A0_IOTA_BRIDGE_DEMONSTRATOR.html','A0_LOOK_AGAIN_PLAY.html','A0_ONE_PULSE_BENCH_MONITOR.html','A0_OPIUM.html','A0_TOWER_RETURN_DEMONSTRATOR.html','a0-public-arkade-index.html']);
+const quietStandalone=new Set(['A0_7_11_TYPED_CROSSWALK.html','A0_CROWN_SHADOW_CONTACT_BENCH.html','A0_CURSOR_HANDOFF_CLICKDUMMY.html','A0_IOTA_BRIDGE_DEMONSTRATOR.html','A0_LOOK_AGAIN_PLAY.html','A0_ONE_PULSE_BENCH_MONITOR.html','A0_OPIUM.html','A0_PENTAGON_BODY_RETURN_GUIDED.html','A0_TOWER_RETURN_DEMONSTRATOR.html','NEXAH_SCIENCE.html','a0-public-arkade-index.html']);
 for(const file of fs.readdirSync(__dirname).filter(f=>f.endsWith('.html'))){ok(M.pages.some(p=>p.file===file),'inventory includes '+file);const h=fs.readFileSync(path.join(__dirname,file),'utf8');const quietHuman=file==='A0_NEXAH_APERTURE_JOURNEY.html'&&h.includes('a0-human-flagship-journey.js')&&h.includes('href="index.html"');ok(quietHuman||quietStandalone.has(file)||h.includes('a0-context-navigation.js')||h.includes('src="a0-orientation-map.js"'),'map loader or explicit quiet surface '+file);}
 for(const n of M.nodes){eq(M.locate(new URL(n.href,base).href,base),n.key,'exact deep-link location');for(const f of ['all','F1','F2','F3','F4','F5','F6','F7']){const svg=M.drawing(n.key,n.key,f);ok(!/NaN|undefined|Infinity/.test(svg));eq((svg.match(/data-a0-node=/g)||[]).length,M.nodes.length);}}
 eq(new Set(M.nodes.map(n=>n.col+':'+n.row)).size,M.nodes.length,'no overlapping node slots');
@@ -39,6 +40,8 @@ function find(root,id){for(const c of root.children){if(c.id===id||c.attrs.id===
 let restoredScroll=null;const winEvents={},win={location:{href:new URL('A0_LIVING_BLUEPRINT.html#a0-map-home',base).href},scrollX:17,scrollY:231,scrollTo(place){restoredScroll=place;},addEventListener(k,f){(winEvents[k]??=[]).push(f);},postMessage(){throw Error('map must not command sources');},setInterval(){throw Error('no automatic map clock');}};win.self=win;win.top=win;
 const api=M.mount(doc,win,base);ok(api);eq(api.snapshot().current,'home');ok(home.innerHTML.includes('Alle '+htmlPageCount+' A0-Seiten'));ok(!home.innerHTML.includes('Fünf Eingänge. Ein Werk.'));ok(head.children[0].href.includes('a0-orientation-map.css?v=20261023-overview-orientation-split'));eq(M.mount(doc,win,base),null,'no duplicate dock');
 const dock=doc.getElementById('a0-orientation-map');api.open();ok(dock.open);dock.querySelector('[data-map-close]').fire('click');ok(!dock.open);eq(active,dock.querySelector('summary'));
+ok(dock.innerHTML.includes('A0 Navigator')&&dock.innerHTML.includes('Wo finde ich was?'),'persistent shortcut is the A0 Navigator trigger');
+ok(dock.innerHTML.includes('Family Connection Map'),'technical panel retains its distinct map name');
 api.open();for(const f of docEvents.keydown)f({key:'Escape'});ok(!dock.open);
 home.querySelector('[data-a0-node="coupling"]').fire('keydown',{key:'Enter'});
 const nodeDialog=doc.getElementById('a0-node-dialog');

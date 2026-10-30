@@ -1,0 +1,31 @@
+{
+  "schema": "nexah.a0.loki-tessarec-pipe-return/1",
+  "date": "2026-10-30",
+  "channel": "A0_OWNER_CONTROL_PLANE_INTERNAL",
+  "carrier": "NEXAH_AX0_QMODE_FOUNDATION_PACKAGE / A0_WERKBANK",
+  "identityReuse": ["MOD:TESSAREC", "ART:A0:MATHEMATICAL_JOINTS"],
+  "newCanonicalIds": [],
+  "relationChanges": [],
+  "test": {
+    "stateSpace": "Z7 × Z8",
+    "operator": "T(s,o)=((s+1) mod 7,(o+1) mod 8)",
+    "orbitLength": 56,
+    "uniqueStates": 56,
+    "returnStep": 56,
+    "negativeControl": {"operator": "T0(s,o)=((s+1) mod 7,o)", "orbitLength": 7},
+    "hingeBand": "2×7×2=28",
+    "binaryLift": "28×2=56",
+    "status": "PASS"
+  },
+  "typedComparators": {
+    "stateCount": "56 = 7×8",
+    "ratioAddress": "5:6 with address sum 11",
+    "balancedScalarSplit": "5.5+5.5=11",
+    "decimal": "5.6",
+    "rule": "56, 5:6, 5.6, and 5.5+5.5 are distinct typed expressions"
+  },
+  "openMarkers": ["BL 4774 / 47|74", "IVO 233", "MARIA 313", "Sugar Stick", "LOKI local operator label"],
+  "attachedSourceSha256": "0250fae6ce612d2420ca14a2c5bd2ce8668f6b639837d7148dd5caffcadee32a",
+  "claimCeiling": "BOUNDED_DISPLAY_TEST",
+  "boundary": "The finite orbit and return are exact for the declared synthetic operator. No physical pipe, acoustic law, historical generator, number identity, new Study, new canonical identity, or Source Graph relation is asserted."
+}

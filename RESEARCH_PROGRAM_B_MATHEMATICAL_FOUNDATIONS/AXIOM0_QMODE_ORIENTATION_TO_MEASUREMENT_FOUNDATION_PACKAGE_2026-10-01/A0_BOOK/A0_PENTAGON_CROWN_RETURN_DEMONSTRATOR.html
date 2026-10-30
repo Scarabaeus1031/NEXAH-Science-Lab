@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Begrenzter A0-Demonstrator: Fünflaschenkrone, korrigierte 5-Punkte-Pascal-Linse, τ-Pulse des Digital Dodeca Heart und dokumentierter Return.">
+  <title>Pentagon Crown Return · Demonstrator · A0</title>
+  <link rel="stylesheet" href="a0-context-navigation.css?rev=flagship-constellation-r1-20261030">
+  <link rel="stylesheet" href="a0-bench-navigation.css?rev=tours-maps-r1-20261029">
+  <link rel="stylesheet" href="a0-pentagon-crown-return.css?rev=c-pin-mobile-r2-20261029">
+  <script type="module" src="assets/vendor/model-viewer.min.js"></script>
+</head>
+<body class="bench-hub crown-return-page">
+  <header class="top" id="bench-page-top"><a href="index.html">NEXAH · A0</a><nav aria-label="A0"><a href="A0_WERKBANK.html">THE MACHINA</a></nav></header>
+  <div class="bench-location"><a href="index.html">A0</a><span>→</span><a href="A0_WERKBANK.html">THE MACHINA</a><span>→</span><strong>Pentagon Crown Return</strong></div>
+  <nav class="bench-sections bench-category-tabs bench-production-nav" aria-label="Haus und Produktionskette">
+    <a class="bench-house-tab" href="A0_WERKBANK.html?view=machina#machinaHouseTitle"><small>HOUSE</small>THE MACHINA</a><span class="bench-nav-group">PRODUCTION</span>
+    <a href="A0_BENCH_QUELLEN.html"><small>01</small>SOURCE / ASSET</a><a href="A0_BENCH_MODULES.html"><small>02</small>MODULE / TOOL</a><a href="A0_BENCH_ARBEITEN.html"><small>03</small>BENCH CONFIG.</a><a aria-current="page" href="A0_WERKBANK.html?view=demonstrators#bench-page-top"><small>04</small>DEMONSTRATOR</a><a href="A0_BUILDER_TOY_STORE.html#arkade"><small>05</small>TOY STORE / CUTS</a>
+  </nav>
+
+  <main class="crown-return-main">
+    <header class="crown-return-hero">
+      <div><small>FLAGSHIP DEMONSTRATOR · SOURCE-BOUND ENGINEERING CUT</small><h1>Eine Krone.<br>Ein Heart-Pulse.<br><em>Ein Rückweg.</em></h1></div>
+      <div class="crown-return-question"><b>BEGRENZTE FRAGE</b><p>Kann dieselbe deklarierte Fünfergrenze von der projektiven Inzidenz über Crown-Ansicht und diskreten τ-Pulse bis zum Return verfolgt werden, ohne View, Körper, Steuerung und Identität zu verschmelzen?</p><span>Adapter ≠ Beweis · Pulse ≠ Resonanznachweis · Return ≠ Identität</span></div>
+    </header>
+
+    <nav class="crown-stage-nav" aria-label="Demonstrator-Schritte">
+      <button type="button" data-stage="0" aria-current="step"><small>01</small><b>Source</b><span>Crown GLB</span></button>
+      <button type="button" data-stage="1"><small>02</small><b>Joint</b><span>5-Punkte-Pascal</span></button>
+      <button type="button" data-stage="2"><small>03</small><b>Motion</b><span>Open → Contact</span></button>
+      <button type="button" data-stage="3"><small>04</small><b>C‑Pin</b><span>I–O–I · 101</span></button>
+      <button type="button" data-stage="4"><small>05</small><b>τ-Pulse</b><span>Dodeca Heart · 200</span></button>
+      <button type="button" data-stage="5"><small>06</small><b>Return</b><span>[1,1,1] + 0°</span></button>
+      <button type="button" data-stage="6"><small>07</small><b>Desk</b><span>Science Return</span></button>
+    </nav>
+
+    <section class="crown-runner" aria-labelledby="runnerTitle">
+      <header><div><small id="stageLabel">01 · SOURCE / ASSET</small><h2 id="runnerTitle">Fünfflaschenkrone · animiertes 3D-Objekt</h2></div><output id="runStatus">READY · SOURCE NOT CAPTURED</output></header>
+      <div class="crown-runner-grid">
+        <div class="crown-viewport">
+          <model-viewer id="crownModel" src="downloads/A0_PENTAGON_KNICK_APERTURE_INTAKE_2026-10-25/deliverables/glb/NEXAH_Fuenflaschenkrone_Animiert_2026-10-25.glb" alt="Animiertes 3D-Modell der Fünflaschenkrone" camera-controls shadow-intensity="1" exposure="1.05"></model-viewer>
+          <model-viewer id="heartModel" src="assets/3d/digital_dodeca_heart_tau200.glb" alt="Digital Dodeca Heart mit diskreter τ-Rail-Step-Pulse-Animation" animation-name="tau_200_step_pulse" camera-controls shadow-intensity="1" exposure="1.15" hidden></model-viewer>
+          <svg id="pascalDiagram" viewBox="0 0 900 650" role="img" aria-label="Korrigierte 5-Punkte-Pascal-Konstruktion auf einem Kreis" hidden></svg>
+          <svg id="pinDiagram" viewBox="0 0 900 650" role="img" aria-label="C-Pin bewegt sich in 101 Schritten relativ zu einem großen Grenzzylinder: inside, outside, inside" hidden>
+            <defs><linearGradient id="pinBody" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#153d4a"/><stop offset="1" stop-color="#07141c"/></linearGradient></defs>
+            <text x="48" y="58" class="pin-title">C‑PIN · I–O–I / 1–0–1</text>
+            <text x="48" y="87" class="pin-note">kleiner Pin · großer Grenzzylinder · 101 deklarierte Zustände</text>
+            <ellipse cx="450" cy="430" rx="190" ry="54" class="pin-cylinder-back"/>
+            <path d="M260 250 V430 C260 460 345 484 450 484 C555 484 640 460 640 430 V250" class="pin-cylinder-body"/>
+            <ellipse cx="450" cy="250" rx="190" ry="54" class="pin-boundary"/>
+            <line x1="220" y1="250" x2="680" y2="250" class="pin-equator"/>
+            <g id="pinMover"><rect x="425" y="205" width="50" height="120" rx="25" class="pin-small-body"/><ellipse cx="450" cy="205" rx="25" ry="10" class="pin-small-cap"/></g>
+            <g id="ghostCross" data-relation="GHOST" aria-label="White Ghost Cross: zwei getrennte Kanäle m und n treffen sich als perforierte Relationsprojektion bei X-Strich">
+              <circle cx="125" cy="250" r="25" class="ghost-port"/><text x="125" y="258" text-anchor="middle" class="ghost-port-label">m</text>
+              <circle cx="775" cy="250" r="25" class="ghost-port"/><text x="775" y="258" text-anchor="middle" class="ghost-port-label">n</text>
+              <path d="M150 250 H270 L450 160 L630 250 H750" class="ghost-line"/>
+              <path d="M150 250 H270 L450 340 L630 250 H750" class="ghost-line"/>
+              <path d="M450 115 V385" class="ghost-axis"/>
+              <path d="M270 250 h-18 v-18 M630 250 h18 v18" class="ghost-hook"/>
+              <rect x="420" y="228" width="60" height="44" rx="10" class="ghost-cross-mark"/><text x="450" y="258" text-anchor="middle" class="ghost-cross-label">X|</text>
+            </g>
+            <path d="M735 370 V130" class="pin-route"/><text x="755" y="145" class="pin-zone">OUTSIDE</text><text x="755" y="258" class="pin-zone">BOUNDARY</text><text x="755" y="375" class="pin-zone">INSIDE</text>
+            <text id="pinStateLabel" x="48" y="590" class="pin-readout">k=000 / 100 · INSIDE · c=+1.000</text>
+            <text id="ghostStateLabel" x="48" y="620" class="ghost-readout">m | n · GHOST RELATION · NO STATE TRANSFER</text>
+          </svg>
+          <div class="return-plane" id="returnPlane" hidden><div class="return-mark">1·1·1</div><div><b>DECLARED DUAL RETURN</b><span>Crown-Ansicht 0° · Heart-Skalierung [1,1,1] · Quellen unverändert</span></div></div>
+        </div>
+        <aside class="crown-ledger">
+          <div><small>OBJECT / RECORD</small><b>ART:A0:MATHEMATICAL_JOINTS</b><span>bestehende A0-Identität; keine neue Study</span></div>
+          <div><small>MODEL CANDIDATE</small><b>31 Nodes · 4 Meshes · 5 Kanäle</b><span>strukturell lesbar; Mechanik offen</span></div>
+          <div><small>PASCAL CONTRACT</small><b id="pascalReadout">X, Y, Z noch nicht berechnet</b><span>P₁P₂∩P₄P₅ · P₂P₃∩t₅ · P₃P₄∩P₅P₁</span></div>
+          <div><small>HEART / τ CONTRACT</small><b id="pulseReadout">200 STEPS · 10 PULSES · READY</b><span>STEP scale 1.15 ↔ 1.0; Winkelkalibrierung HOLD</span></div>
+          <div><small>C‑PIN / WHITE GHOST CROSS</small><b id="pinReadout">101 STATES · I–O–I · READY</b><span>m | n → X|; perforierte Relation, kein Zustandstransfer</span></div>
+          <div><small>RETURN CONTRACT</small><b id="returnReadout">OPEN</b><span>0° + [1,1,1]; lokaler View-/Scale-Return</span></div>
+        </aside>
+      </div>
+      <div class="crown-controls">
+        <button type="button" id="runAll">RUN 1→7</button><button type="button" id="stepRun">NEXT STAGE</button><button type="button" id="toggleMotion">PLAY MOTION</button><button type="button" id="togglePin">PLAY C‑PIN</button><button type="button" id="togglePulse">PLAY τ-PULSE</button><button type="button" id="resetRun">RESET</button><button type="button" id="exportReceipt">EXPORT RECEIPT</button>
+      </div>
+    </section>
+
+    <section class="crown-explanation" aria-labelledby="contractTitle">
+      <div><small>TWO SOURCE OBJECTS · FOUR TYPED READINGS</small><h2 id="contractTitle">Was hier verbunden wird — und was getrennt bleibt.</h2></div>
+      <div class="crown-contract-grid">
+        <article><b>01 · BODY</b><h3>Crown GLB</h3><p>Ein vorhandener räumlicher Modellkandidat mit fünf bewegten Kanälen und festem Zentralbezug.</p></article>
+        <article><b>02 · ADAPTER</b><h3>Pascal Joint</h3><p>Eine projektive Leselinse über fünf Randpunkten. Die korrigierte Degeneration nutzt am doppelten Punkt die Tangente.</p></article>
+        <article><b>03 · BOUNDARY CONTROL</b><h3>C‑Pin · I–O–I · X|</h3><p>Ein kleiner Anzeige-Pin durchläuft relativ zum großen Grenzzylinder 101 deterministische Zustände. Die perforierten weißen Linien zeigen <code>m | n</code> als Ghost Relation am gemeinsamen <code>X|</code> — ohne Zustandstransfer.</p></article>
+        <article><b>04 · CONTROL</b><h3>Digital Dodeca Heart</h3><p>Der historische HTML‑0217-Träger liefert zehn diskrete τ-Pulse in 200 Steps. Das ist ein separater Steuer-/View-Carrier, keine Verschmelzung mit der Crown.</p></article>
+        <article><b>05 · RETURN</b><h3>0° + [1,1,1] + I</h3><p>Beide Viewer und der Pin kehren lokal in ihre deklarierte Ausgangsform zurück. Die Zeichenlesung I / l / II bleibt eine Formassoziation, kein Messwert.</p></article>
+      </div>
+      <p class="crown-boundary"><strong>STOP / FAILURE RULE:</strong> Der Demonstrator scheitert als gemeinsame Aussage, sobald die Pascal-Kollinearität numerisch ausfällt, der C‑Pin nicht exakt <code>k=0 → 100</code> mit <code>I → O → I</code> und Return <code>c=1</code> durchläuft, <code>m</code> und <code>n</code> nicht getrennt rückführbar bleiben, eines der GLBs nicht lädt, die τ-Sequenz nicht 200 diskrete Steps / zehn Pulse enthält oder der lokale Return 0° beziehungsweise [1,1,1] nicht wiederherstellt. Das White Ghost Cross zeigt Relation, nicht Transfer. <code>7.1°</code> Trigger und <code>8–9°</code> Resonanz bleiben <strong>CALIBRATION HOLD</strong>. Eine bestandene UI-Sequenz ist weiterhin kein physischer Prototyp, keine Fertigungsfreigabe und kein Science Run.</p>
+    </section>
+
+    <section class="crown-return-links" aria-labelledby="returnTitle">
+      <div><small>RETURN / AUTHORITY</small><h2 id="returnTitle">Desk, Quellen und vertiefende Instrumente.</h2><p>Der Build bleibt an seine vorhandenen Records rückgebunden. Die kuratierte Demonstratorrolle erzeugt keine zweite Identität.</p></div>
+      <nav><a href="A0_LANTERN_PANEL_V_CONTROL_LENS.html#bench-page-top"><b>Panel V · I‑46S.2</b><span>Fünf Steuerkanäle und exakter View-Return →</span></a><a href="A0_WERKBANK.html#lanternPanelVCrownExactReturn"><b>Workbench · kanonische Kette</b><span>Panel V → Crown → Exact Return → Desk →</span></a><a href="A0_RESEARCH_DESK.html#lantern-panel-v-crown-exact-return-20261029"><b>End-to-End Receipt</b><span>Provenienz, Tests, Grenze und Rückweg →</span></a><a href="A0_RESEARCH_DESK.html#body-crown-module-intake-20261025"><b>I‑27 · Crown Intake</b><span>Körper, Laterne, Iris und Krone →</span></a><a href="A0_RESEARCH_DESK.html#fam002-a0-orientation-intake-handoff-20261028"><b>I‑46L · FAM‑002</b><span>HTML‑0217 und Intake-Wand →</span></a><a href="A0_RESEARCH_DESK.html#lantern-heart-color-bridge-return-20261029"><b>I‑46P · Heart / LY‑MPH</b><span>Connector-Paket und Grenzen →</span></a><a href="A0_RESEARCH_DESK.html#lantern-crown-source-replay-return-20261029"><b>I‑46Q · Crown Replay</b><span>Source-/GLB-Return →</span></a><a href="A0_RESEARCH_DESK.html#pulse-grammar-clp-shared-desk-return-20261028"><b>I‑46J · Pulse Grammar</b><span>Verwandtes Kontrollmuster →</span></a><a href="assets/a0-dodeka-joint-6i6-hypercube-reference-2026-10-29.json"><b>Dodeka Joint · 6‑I‑6</b><span>Hypercube-Projektion · externe Referenz →</span></a><a href="assets/a0-c-pin-ioi-harmonic-reference-2026-10-29.json"><b>C‑Pin · Harmonic Boundary</b><span>I–O–I-Test und ℓ=1, m=0 Referenz →</span></a><a href="results/a0-pentagon-crown-return-demonstrator-2026-10-29.json"><b>Test Receipt</b><span>Checks, Hashes und Holds →</span></a><a href="downloads/A0_PENTAGON_KNICK_APERTURE_INTAKE_2026-10-25/SOURCE_REGISTER.md"><b>Source Register</b><span>Crown-Custody und Originale →</span></a><a href="A0_PASCAL_PENTAGON_OPERATOR_JOINTS.html#carrier"><b>Pascal Joint</b><span>Operator und Carrier →</span></a><a href="../../../SCIENCE_LAB/NAVIGATION/APP/index.html#a0-orientation-evidence"><b>NSNavigator</b><span>Source-bound Crosswalk →</span></a></nav>
+    </section>
+  </main>
+  <script src="a0-context-navigation.js?rev=flagship-constellation-r1-20261030"></script>
+  <script src="a0-c-pin-ioi.js?rev=c-pin-ioi-r1-20261029"></script>
+  <script src="a0-pentagon-crown-return.js?rev=c-pin-ioi-r1-20261029"></script>
+</body>
+</html>

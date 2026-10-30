@@ -14,6 +14,7 @@ ok(/id="applications"/.test(html),'application suite host anchor');
 ok(/Application Demonstrator Suite/i.test(html),'suite heading');
 ok(/a0-application-demonstrator-suite\.css/.test(html),'suite css bound');
 ok(/a0-application-demonstrator-suite\.js/.test(html),'suite js bound');
+ok(/a0-application-demonstrator-suite\.js\?rev=20261029-app-suite-r2/.test(html),'fixed suite runtime revision bound');
 ok(/href="#applications"/.test(html),'application navigation route');
 ok(/OCB v0\.17\.0/.test(html),'current OCB version shown');
 ok(/01 \/ 9/.test(html),'flagship shelf static count current');
@@ -39,6 +40,9 @@ for(const mission of suite.missions){
 ['prefers-reduced-motion','@media(max-width:760px)','mission-grid','coverage-grid'].forEach(token=>ok(css.includes(token),`${token} css contract`));
 ['SOURCE RETURN PASS','ROUTE RETURN PASS','SOURCE RECOVERED','HOLD','carriers remain separate'].forEach(token=>ok(js.includes(token),`${token} runtime boundary`));
 ok(!/fetch\s*\(/.test(js),'file protocol has no fetch dependency');
+ok(/const api=factory\(root\)/.test(js),'browser root passed into runtime factory');
+ok(/function\(root\)/.test(js),'runtime factory receives browser root');
+ok(/document\.readyState===['"]loading['"]/.test(js),'late and normal script loading supported');
 ok(/Export receipt/.test(html),'receipts exportable');
 ok(/source-bound Anwendungs- und Erklärlinse/.test(html),'visible authority boundary');
 console.log(`Application Demonstrator Suite: ${checks}/${checks} checks PASS`);

@@ -129,6 +129,12 @@ Paper surfaces:
    should remain internal, be revised as a technical note or enter a separate
    submission/publication workflow.
 
+Current reviewer note (`2026-10-28`): no qualified independent reviewer is
+named. An internal Codex-assisted method pre-review elsewhere in the A0 Science
+Desk does not satisfy this gate because Codex participated in preparation.
+The separate `A0-BL-056` CLP multi-view benchmark shares the reviewer-governance
+gap but is not evidence for this SCC-003 contribution candidate.
+
 ## Stop and downgrade rule
 
 An equivalent published construction stops the novelty lane. The record may

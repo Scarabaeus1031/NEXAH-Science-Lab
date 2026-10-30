@@ -32,5 +32,22 @@
 @media(max-width:650px){.opium-hero{grid-template-columns:1fr;padding:28px 6vw 38px}.opium-entry-pair{grid-template-columns:1fr 1fr}.opium-portal{min-height:132px;padding:14px}.opium-portal strong{font-size:20px}}
 @media(max-width:430px){.opium-entry-pair{grid-template-columns:1fr}.opium-portal{min-height:112px}}
 
+/* Compact public experience rhythm. */
+.opium-top{min-height:58px;padding:11px 4vw}
+.opium-brand{font-size:22px}
+.opium-top .opium-exit{text-decoration:none}
+.opium-top .opium-a0-return,.opium-top .opium-bench-return,.opium-top .opium-builder-exit{font:700 10px/1 ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.06em;text-transform:uppercase}
+.opium-top .opium-a0-return{color:var(--pink)}
+.opium-top .opium-bench-return{color:var(--gold)}
+.opium-top .opium-builder-exit{color:var(--cyan)}
+.opium-hero{min-height:auto;grid-template-columns:minmax(350px,.9fr) minmax(460px,1.1fr);align-items:start;padding:28px 5vw 52px;gap:clamp(24px,4vw,64px)}
+.opium-intro{padding-top:clamp(14px,3vw,42px)}
+.opium-intro h1{margin:16px 0 14px;font-size:clamp(58px,6.4vw,104px);line-height:.86}
+.opium-machine svg{max-height:760px}
+.opium-rooms,.opium-connections{padding-block:clamp(54px,6vw,78px)}
+.opium-room-grid,.opium-contracts{margin-top:32px}
+@media(max-width:950px){.opium-hero{grid-template-columns:1fr 1fr;padding:24px 4vw 40px}.opium-intro{padding-top:10px}}
+@media(max-width:650px){.opium-top{align-items:center;padding-inline:5vw}.opium-top nav{max-width:none;gap:10px}.opium-exit b{display:none}.opium-hero{grid-template-columns:1fr;padding:22px 6vw 36px}.opium-intro{padding-top:0}}
+
 /* Typed 7/11 crosswalk. */
 .crosswalk-page{max-width:1400px;margin:auto;padding:62px 6vw 90px}.crosswalk-hero{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(300px,.85fr);gap:50px;align-items:end}.crosswalk-hero h1{font-size:clamp(58px,8vw,118px);margin:18px 0 25px}.crosswalk-hero aside{border-left:1px solid #385b65;padding-left:28px;color:var(--muted)}.crosswalk-hero aside strong{display:block;color:var(--gold);font:700 11px ui-monospace,monospace;letter-spacing:.1em}.crosswalk-strip{display:grid;grid-template-columns:repeat(4,1fr);margin:55px 0;background:#365560;border:1px solid #365560;gap:1px}.crosswalk-strip article{background:#0a202a;padding:24px}.crosswalk-strip b{display:block;color:var(--cyan);font:500 38px Georgia,serif}.crosswalk-strip span{color:var(--muted);font-size:12px}.crosswalk-table{width:100%;border-collapse:collapse;font-size:13px}.crosswalk-table th,.crosswalk-table td{padding:16px 14px;border:1px solid #365560;text-align:left;vertical-align:top}.crosswalk-table th{color:var(--gold);font:800 9px ui-monospace,monospace;text-transform:uppercase;letter-spacing:.08em}.crosswalk-table td:first-child{color:var(--cyan);font-weight:750}.crosswalk-boundaries{display:grid;grid-template-columns:1fr 1fr;gap:1px;margin-top:35px;background:#365560;border:1px solid #365560}.crosswalk-boundaries article{padding:26px;background:#0a202a}.crosswalk-boundaries h2{font-size:28px;margin:0 0 12px}.crosswalk-boundaries li{margin:8px 0;color:var(--muted)}.crosswalk-sources{margin-top:35px;display:flex;flex-wrap:wrap;gap:12px}.crosswalk-sources a{border:1px solid #365560;padding:11px 14px;text-decoration:none;font-size:11px}.crosswalk-sources a:hover{border-color:var(--gold);color:var(--gold)}@media(max-width:800px){.crosswalk-hero{grid-template-columns:1fr}.crosswalk-strip{grid-template-columns:1fr 1fr}.crosswalk-table{display:block;overflow-x:auto}.crosswalk-boundaries{grid-template-columns:1fr}}@media(max-width:480px){.crosswalk-strip{grid-template-columns:1fr}}

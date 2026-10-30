@@ -1,33 +1,50 @@
 {
   "schema": "nexah.science_desk.splinter_geometry_cl_td_intake.v1",
   "status": "PASS_BOUNDED_GEOMETRY_INSTRUMENT_CONDITIONAL_TD_NO_PHYSICAL_LINK",
-  "reviewed_at": "2026-10-27",
-  "desk_record": "I-46A",
+  "reviewed_at": "2026-10-28",
+  "desk_record": "I-46A-C",
   "extends": [
     "I-46",
-    "I-34"
+    "I-34",
+    "I-35"
   ],
   "source": {
     "repository_path": "A0_BOOK/downloads/NEXAH_Splinter_Geometrie_Offline_2026-10-27.html",
     "original_local_path": "/Users/tho2020/Downloads/NEXAH_Splinter_Geometrie_Offline.html",
     "source_byte_size": 8950,
     "source_sha256": "d23d5d1d3f5b2240bfb50624fc66b78de42c130d45297ac29747a9e94e71f32d",
-    "repository_byte_size": 11390,
-    "repository_sha256": "1dcebc03c2ecf6656ee8d82c924d8ac3df5d751476f5fcb0478905963d28794e",
+    "repository_byte_size": 15902,
+    "repository_sha256": "48f914da768b36e5245a3d967e8f6fb6286be69626118ea0fe0d8bbb1d807f95",
     "normalization": "DERIVED_SCIENCE_DESK_EXTENSION_FROM_SOURCE",
     "derivation": [
       "exact circular-segment area readout",
       "Measure-T view",
       "Lid/chord view",
       "Fold/Pin hypothesis view",
-      "source-bound archaeology note"
+      "source-bound archaeology note",
+      "T-DD orientation-carrier view",
+      "separate open-chain and closed-ring 12-node topology gate",
+      "display-only boundary thickness control",
+      "hard versus soft/raw egg coupling comparator"
     ],
     "mime_type": "text/html",
     "standalone": true,
     "external_dependencies": 0,
     "network_required": false,
     "conversation_share_url": "https://chatgpt.com/share/e/6ae12831-f83c-83eb-b973-b427f558100f",
-    "signed_raw_url_retained": false
+    "signed_raw_url_retained": false,
+    "user_image_inputs": [
+      {
+        "role": "bubble side-boundary-orientation comparator",
+        "sha256": "fdb1f3f85c0db5314e00af6031fa03e63b8d90577a3df7530df33f8f0a62e0e1",
+        "repository_copy": false
+      },
+      {
+        "role": "upper pin-node and vertical T-stem screenshot",
+        "sha256": "44f6b03c7414e5096c2f4baaaaf1259a2f5f16c6c78c97a803d108466628be93",
+        "repository_copy": false
+      }
+    ]
   },
   "assessment": {
     "geometry": {
@@ -99,6 +116,49 @@
         "degrees of freedom",
         "collision rule"
       ]
+    },
+    "orientation_carrier_synthesis": {
+      "status": "PASS_BOUNDED_SYNTHESIS_EXACT_TOPOLOGY_GATE_MECHANISM_OPEN",
+      "record": "I-46C",
+      "role_points": [
+        "upper pin node",
+        "left chord endpoint",
+        "right chord endpoint"
+      ],
+      "boundary_correction": {
+        "rejected_as_shared_boundary": "complement(A) intersection complement(B)",
+        "reason": "equals complement(A union B) by De Morgan and therefore describes common exterior",
+        "line_candidate": "Gamma=boundary(A) intersection boundary(B)",
+        "finite_zone_candidate": "Z_tau=N_tau(Gamma)",
+        "open_fields": [
+          "ambient space",
+          "metric",
+          "side convention",
+          "thickness unit"
+        ]
+      },
+      "topology_gate": {
+        "open_chain": "12 nodes imply 11 gaps",
+        "closed_ring": "12 nodes imply 12 gaps",
+        "pin_binding": "OPEN_NOT_ESTABLISHED"
+      },
+      "axis_tilt_comparator": {
+        "record": "I-35",
+        "reuse": "moving body with fixed frame, camera and projection",
+        "non_identity": "not established as the same body, axis or mechanism"
+      },
+      "egg_comparator": {
+        "hard": "approximately rigidly coupled shell and interior",
+        "soft_or_raw": "relative interior motion, lag and dissipation",
+        "free_zone": "air chamber or interior clearance is a geometric comparator only",
+        "not_simulated_without": [
+          "moments of inertia",
+          "viscosity",
+          "initial conditions",
+          "torque",
+          "time measurement"
+        ]
+      }
     }
   },
   "terminology_boundary": {
@@ -130,11 +190,13 @@
     "byte_identity": "SOURCE_HASH_PRESERVED_DERIVED_REPOSITORY_EXTENSION_HASHED",
     "static_contract": "PASS_SELF_CONTAINED_NO_EXTERNAL_DEPENDENCIES",
     "formula_check": "PASS",
-    "browser_acceptance": "PASS_36_COMBINATIONS_4_Q_STAGES_3_ORIENTATIONS_3_READING_MODES_LOCAL_IAB",
+    "browser_acceptance": "PASS_75_COMBINATIONS_48_CORE_GEOMETRY_AND_27_CARRIER_STATES_LOCAL_IAB",
     "browser_acceptance_notes": [
       "Measure-T, Lid and Fold/Pin labels update without changing geometry or area.",
-      "All 36 combinations were exercised in the local in-app browser.",
-      "Fold/Pin remains visibly question-marked and is not presented as an established mechanism."
+      "48 core combinations were exercised across four q stages, three orientations and four reading modes.",
+      "Fold/Pin remains visibly question-marked and is not presented as an established mechanism.",
+      "27 carrier states were exercised across three boundary thicknesses, three topology gates and three egg-coupling comparator modes.",
+      "Soft/raw mode visibly reports relative interior motion and dissipation while explicitly withholding a dynamics simulation."
     ],
     "browser_values": {
       "q_0_2_delta": "0.020204102886728760721086370117...",

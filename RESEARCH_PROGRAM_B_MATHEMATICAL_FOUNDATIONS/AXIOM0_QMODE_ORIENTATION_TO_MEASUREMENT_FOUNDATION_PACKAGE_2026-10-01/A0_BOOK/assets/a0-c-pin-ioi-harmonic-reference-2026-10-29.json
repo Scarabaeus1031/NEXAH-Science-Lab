@@ -1,0 +1,69 @@
+{
+  "schema": "NEXAH_A0_C_PIN_IOI_HARMONIC_REFERENCE_V1",
+  "date": "2026-10-29",
+  "status": "SOURCE_BOUND_EXTERNAL_REFERENCE_AND_LOCAL_GEOMETRIC_CONTROL_NOT_EVIDENCE",
+  "title": "C-Pin · I-O-I · harmonic boundary reference",
+  "purpose": "Add a bounded geometric pin controller to the existing Pentagon Crown Return demonstrator and preserve the external spherical-harmonics interface as a comparison source without identifying the mechanisms.",
+  "identity": {
+    "reused": ["ART:A0:MATHEMATICAL_JOINTS", "MOD:TESSAREC"],
+    "new_canonical_identity": false,
+    "new_study": false,
+    "new_finding": false,
+    "new_relation": false
+  },
+  "local_control": {
+    "working_label": "C-Pin · I-O-I / 1-0-1",
+    "implementation": "a0-c-pin-ioi.js",
+    "samples": 101,
+    "state_function": "c(k)=cos(2*pi*k/100), k=0..100",
+    "declared_route": ["INSIDE", "BOUNDARY", "OUTSIDE", "BOUNDARY", "INSIDE"],
+    "geometry": "one small display pin moves relative to one larger fixed display cylinder and its equatorial boundary",
+    "return": "k=100 restores c=1 and INSIDE",
+    "scope": "local deterministic view/control only; no mechanics, collision model, force, material or measured actuator"
+  },
+  "white_ghost_cross": {
+    "working_label": "White Ghost Cross · X|",
+    "channels": ["m", "n"],
+    "junction": "X|",
+    "visual_contract": "white perforated and hooked relation lines over the C-Pin boundary view",
+    "states": {
+      "GHOST": "projected relation while the pin is strictly inside or outside",
+      "COINCIDENCE": "highlighted relation only at the two declared boundary samples k=25 and k=75"
+    },
+    "state_transfer": false,
+    "identity_merge": false,
+    "return_requirement": "m and n remain separately addressable after the shared view",
+    "boundary": "The cross visualizes a possible or sampled relation. It is not a material joint, shared state, causal edge or admitted Source Graph relation."
+  },
+  "external_reference": {
+    "url": "https://themathematics.app/app/worlds/harmonic-modes-app?v=f41fc8f38ebd",
+    "publisher": "The Mathematics",
+    "observed_interface": [
+      "spherical harmonic controls labelled degree l and order m",
+      "Degree 1 / Order 0 view",
+      "single-mode and linear-combination modes",
+      "separate miniature latitude-factor graphs",
+      "rendered spherical surface"
+    ],
+    "capture": {
+      "path": "assets/references/themathematics-harmonic-modes-l1-m0-2026-10-29.png",
+      "sha256": "9eeae204445b52c94b8fb3060037a9724332898ad06d10efab9238ad25603e8b"
+    },
+    "precise_reading": "The l=1, m=0 spherical harmonic supplies an axial comparison with an equatorial nodal boundary. It is not evidence that the Crown, C-Pin or Dodeca Heart implements that harmonic mode."
+  },
+  "complex_extension_hold": {
+    "status": "OPEN_NOT_BUILT",
+    "required_state": ["complex amplitude z=r*exp(i*phi)", "explicit phase convention", "signed or complex surface encoding", "typed parameter-plane versus dynamical-plane contract"],
+    "existing_separate_views": ["Mandelbrot parameter plane", "Julia dynamical plane"],
+    "boundary": "Mandelbrot, Julia, spherical harmonics, Crown, C-Pin and Dodeca Heart remain distinct objects and views until a typed adapter is declared and tested."
+  },
+  "arithmetic_notes": {
+    "status": "OWNER_NOTES_NOT_OPERATOR_EVIDENCE",
+    "notes": ["101 is used here only as the exact discrete sample count and I-O-I display mnemonic.", "Prime and exponent associations remain annotations unless a tested mapping supplies inputs, operation and return."]
+  },
+  "authority": {
+    "science": "Science Desk retains classification and claim-ceiling authority.",
+    "source": "The external site retains authorship of its interface and visualizations.",
+    "publication": "NOT_AUTHORIZED"
+  }
+}

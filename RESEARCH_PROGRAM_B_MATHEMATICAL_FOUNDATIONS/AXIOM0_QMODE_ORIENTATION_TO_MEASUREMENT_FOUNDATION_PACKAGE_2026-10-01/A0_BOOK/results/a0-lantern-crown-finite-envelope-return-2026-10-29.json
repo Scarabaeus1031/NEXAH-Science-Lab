@@ -1,0 +1,66 @@
+{
+  "schema": "a0.engineering-result.v1",
+  "id": "A0_LANTERN_CROWN_FINITE_ENVELOPE_RETURN_2026_10_29",
+  "date": "2026-10-29",
+  "status": "PASS_WITH_EARLY_STOP_AND_CONTINUOUS_HOLD",
+  "classification": "FINITE_THICKNESS_SAMPLED_ADAPTER_ENVELOPE",
+  "identity_decision": "EXTEND_NEXAH_A0_ORIENTATION_CONTROLLER_BENCH_NO_NEW_IDENTITY",
+  "source_replay_receipt": "results/a0-lantern-crown-source-replay-return-2026-10-29.json",
+  "contract": {
+    "thickness_mm": 2,
+    "clearance_mm": 1,
+    "hinge_end_relief_mm": 6,
+    "sampled_stations": 761,
+    "flap_count": 5,
+    "fixed_reference": "A/M/B lantern struts + central pin + non-own crown hinges",
+    "own_hinge_contact": "DECLARED_ADAPTER_INTERFACE_EXCLUDED_FROM_CLEARANCE_TEST"
+  },
+  "result": {
+    "deterministic_checks": 102751,
+    "passed": 102751,
+    "nominal_zero_thickness_contact_deg": 151.83050078622392,
+    "finite_thickness_safe_stop_deg": 148.0884377191715,
+    "required_early_stop_deg": 3.7420630670524133,
+    "residual_aperture_diameter_mm": 5.103904850112266,
+    "minimum_flap_pair_clearance_mm": 1.0000000000000053,
+    "minimum_fixed_reference_clearance_mm": 3.599999999999987,
+    "nominal_contact_pair_gap_mm": -1.9999999999999991,
+    "nominal_contact_collision_detected": true,
+    "return_error_mm": 0
+  },
+  "pass": {
+    "finite_thickness_envelope": true,
+    "hinge_end_relief": true,
+    "sampled_pair_clearance": true,
+    "sampled_fixed_reference_clearance": true,
+    "early_stop": true,
+    "open_safe_open_return": true
+  },
+  "hold": {
+    "continuous_collision_certificate": true,
+    "exact_hinge_and_bearing_detail": true,
+    "actuator": true,
+    "housing": true,
+    "force": true,
+    "material": true,
+    "prototype": true
+  },
+  "sources": {
+    "models": "downloads/A0_PENTAGON_KNICK_APERTURE_INTAKE_2026-10-25/sources/five-flap-crown/analysis/koerper_due_diligence/models.json",
+    "native_contact": "downloads/A0_PENTAGON_KNICK_APERTURE_INTAKE_2026-10-25/sources/five-flap-crown/analysis/koerper_due_diligence/native_contact_results.json",
+    "replay_receipt_sha256": "5e1978e9180795c6218fb720df22b2d0b7c63b230feea4316a480a104408b7fe",
+    "models_sha256": "407a83afbcfa2c10705dbb95fef18e18d28493fef6e05724d6f3184f558a7584",
+    "native_contact_sha256": "75725451858694678a9fea3d5b7ce8f0a0f1a784506db7f0f17d24831f278c2f"
+  },
+  "authority": {
+    "new_study": false,
+    "new_f_a0_finding": false,
+    "publication": false,
+    "physical_mechanism_claim": false
+  },
+  "identity_effect": {
+    "new_global_ids": [],
+    "new_relations": [],
+    "carrier_merge": false
+  }
+}

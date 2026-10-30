@@ -33,9 +33,9 @@ node APP/audit_app.mjs
 
 ## Current composition
 
-- canonical base: `283 entities / 29 relations`;
+- canonical base: `329 entities / 29 relations`;
 - admitted LIFE overlay: `3 entities / 3 relations`;
-- composed internal view: `286 entities / 32 relations`;
+- composed internal view: `332 entities / 32 relations`;
 - twenty governed component slices in the component index, including the
   read-only Lab Register lifecycle lens, the ORION capability/evidence lens and
   the public-safe internal THE EYE software-lineage lens, with private review

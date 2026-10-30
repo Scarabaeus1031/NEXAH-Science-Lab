@@ -1,0 +1,51 @@
+{
+  "schema": "A0_BENCH_CONNECTOR_PACKAGE_V1",
+  "date": "2026-10-29",
+  "scope": "Bounded connector test package; existing carriers remain distinct.",
+  "reuse": [
+    "NEXAH_A0_ORIENTATION_CONTROLLER_BENCH",
+    "ART:A0:MATHEMATICAL_JOINTS",
+    "NEXAH:A0_ORIENTATION_EVIDENCE_LINEAGE:V1"
+  ],
+  "candidates": [
+    {"key":"lantern","source":"downloads/A0_PENTAGON_KNICK_APERTURE_INTAKE_2026-10-25/sources/five-flap-crown/analysis/koerper_due_diligence/models.json","related_source":"downloads/A0_PENTAGON_KNICK_APERTURE_INTAKE_2026-10-25/sources/lantern/NEXAH_PENTAGON_GELENKLATERNE_LAB.html","pass":"source/GLB replay, sampled finite envelope, hinge/bearing detail, external actuator route, continuous clearance certificate, open housing and kinematic prototype","hold":"load, fatigue, wear, thermal, torque, fastener and fabrication release"},
+    {"key":"heart","source":"A0_WERKBANK.html#machinaHouseTitle","pass":"declared J-LUV pivot role","hold":"physical drive"},
+    {"key":"lymph","source":"A0_WERKBANK.html#nmAxisSwitch","pass":"address and axis contract","hold":"physical or biological coupling"},
+    {"key":"color","source":"A0_ORIENTATION_CONTROLLER_BENCH.html#spectralShadowReturnMachine","pass":"discrete RGB to CMY complement","hold":"calibrated spectrum"},
+    {"key":"axis","source":"A0_WERKBANK.html#crownTumbleAxis","pass":"R90 fourth-power return","hold":"measured motion"}
+  ],
+  "color_bridge": {
+    "mapping": {"missing_R":"Cyan","missing_G":"Magenta","missing_B":"Yellow"},
+    "display_order": "YMCK",
+    "canonical_channel_set": "CMYK",
+    "K": "separate absorption/control channel; not a fourth state and not an RGB complement"
+  },
+  "source_replay": {
+    "receipt": "results/a0-lantern-crown-source-replay-return-2026-10-29.json",
+    "checks": 2835,
+    "status": "PASS_WITH_MECHANISM_HOLD",
+    "boundary": "Crown replay is not an integrated lantern mechanism."
+  },
+  "finite_envelope": {
+    "receipt": "results/a0-lantern-crown-finite-envelope-return-2026-10-29.json",
+    "checks": 102751,
+    "status": "PASS_WITH_EARLY_STOP_AND_CONTINUOUS_HOLD",
+    "contract": "2 mm flap thickness / 1 mm clearance / 6 mm hinge-end relief / 761 sampled stations",
+    "safe_stop_degrees": 148.0884377191715,
+    "nominal_contact_degrees": 151.83050078622392,
+    "residual_aperture_millimetres": 5.103904850112266,
+    "boundary": "Sampled collision envelope and early-stop candidate only; not a continuous certificate or finished mechanism."
+  },
+  "engineering_closure": {
+    "receipt": "results/a0-lantern-hinge-actuator-housing-return-2026-10-29.json",
+    "prototype_glb": "results/a0-lantern-hinge-actuator-housing-prototype-2026-10-29.glb",
+    "prototype_drawing": "results/a0-lantern-hinge-actuator-housing-prototype-2026-10-29.svg",
+    "checks": 10,
+    "status": "PASS_KINEMATIC_PROTOTYPE_WITH_LOAD_HOLD",
+    "contract": "5 hinges / 4 mm pins / 5 mm POM-C bores / 5 external coaxial routes / 4096 interval certificate / 147.5 degree stop / PETG guard",
+    "certified_pair_clearance_millimetres": 1.468754289,
+    "certified_fixed_clearance_millimetres": 3.575467656,
+    "boundary": "Kinematic prototype only; no load, fatigue, wear, thermal, torque, fastener or fabrication release."
+  },
+  "authority": "Implementation package only; Science Desk classifies return."
+}

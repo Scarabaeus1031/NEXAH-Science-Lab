@@ -1,0 +1,691 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Spin to Bloom Measurement · A0</title>
+<link rel="stylesheet" href="a0-context-navigation.css?rev=flagship-constellation-r1-20261030">
+<link rel="stylesheet" href="a0-bench-navigation.css?rev=tours-maps-r1-20261029">
+<link rel="stylesheet" href="a0-spin-to-bloom-measurement.css?rev=translator-orientation-receipt-r1-20261030">
+<style>.spin-bloom-page .bench-sections{top:0!important}</style>
+</head>
+<body class="spin-bloom-page">
+<header class="top" id="bench-page-top">
+<a href="index.html">NEXAH · A0</a>
+<nav>
+<a href="A0_WERKBANK.html">THE MACHINA</a>
+</nav>
+</header>
+<div class="bench-location">
+<a href="index.html">A0</a>
+<span>→</span>
+<a href="A0_WERKBANK.html">THE MACHINA</a>
+<span>→</span>
+<strong>Spin to Bloom Measurement</strong>
+</div>
+<nav class="bench-sections bench-category-tabs bench-production-nav" aria-label="Haus und Produktionskette">
+<a class="bench-house-tab" href="A0_WERKBANK.html?view=machina#machinaHouseTitle">
+<small>HOUSE</small>THE MACHINA</a>
+<span class="bench-nav-group">PRODUCTION</span>
+<a href="A0_BENCH_QUELLEN.html">
+<small>01</small>SOURCE / ASSET</a>
+<a href="A0_BENCH_MODULES.html">
+<small>02</small>MODULE / TOOL</a>
+<a href="A0_BENCH_ARBEITEN.html">
+<small>03</small>BENCH CONFIG.</a>
+<a aria-current="page" href="A0_WERKBANK.html?view=demonstrators#bench-page-top">
+<small>04</small>DEMONSTRATOR</a>
+<a href="A0_BUILDER_TOY_STORE.html#arkade">
+<small>05</small>TOY STORE / CUTS</a>
+</nav>
+<main>
+<header class="hero">
+<div>
+<small>EXISTING ID · DETERMINISTIC VIEW DERIVATIVE</small>
+<h1>From field<br>to orbit<br>
+<em>to Edelweiß.</em>
+</h1>
+</div>
+<aside>
+<b>SPIN / BLOOM TRANSFORM</b>
+<p>Die vorhandenen Lissajous-Signale werden nicht durch eine fertige Blume ersetzt. Ihr Produkt steuert den Radius; die Spitzenzahl wird anschließend numerisch gezählt.</p>
+</aside>
+</header>
+<section class="spin-master-transport" aria-label="Gesamtsteuerung Spin to Bloom">
+<div>
+<small>FLAGSHIP TRANSPORT · SOURCE → RETURN</small>
+<strong>Die ganze Bank als zusammenhängenden Lauf bedienen.</strong>
+</div>
+<nav aria-label="Tour und Gesamttransport">
+<button type="button" id="spinTourStart">◎ TOUR STARTEN</button>
+<button type="button" id="spinMasterStart">▶ ALLES STARTEN</button>
+<button type="button" id="spinMasterPause">Ⅱ ALLES PAUSIEREN</button>
+<button type="button" id="spinMasterReturn">↶ RETURN HALTEN</button>
+</nav>
+<output id="spinMasterStatus" aria-live="polite">READY · QUELLE GEHALTEN</output>
+</section>
+<section class="instrument" aria-labelledby="instrumentTitle">
+<header>
+<div>
+<small>PHASE SWEEP · MEASUREMENT LENS</small>
+<h2 id="instrumentTitle">Eine Bahn. Ein Pin. Ein Bloom.</h2>
+</div>
+<output id="bloomStatus" aria-live="polite">READY · 5:6 · MEASURING</output>
+</header>
+<div class="stage-bar" role="group" aria-label="Transformationsstufe">
+<button type="button" data-stage="FIELD">FIELD</button>
+<button type="button" data-stage="ORBIT">ORBIT</button>
+<button type="button" data-stage="WINDOW">WINDOW</button>
+<button type="button" data-stage="SPIN">SPIN</button>
+<button type="button" data-stage="BLOOM" aria-pressed="true">BLOOM</button>
+</div>
+<div class="control-bar">
+<label>RATIO a:b <select id="bloomRatio">
+<option value="3:2">3:2 · SOURCE DEFAULT</option>
+<option value="2:3">2:3 · DUAL</option>
+<option value="2:5">2:5 · ROOT CARRIER</option>
+<option value="2:7">2:7 · ROOT CARRIER</option>
+<option value="3:5">3:5 · ROOT CARRIER</option>
+<option value="3:7">3:7 · ROOT CARRIER</option>
+<option value="1:1">1:1 · CONTROL</option>
+<option value="5:5">5:5 · EQUAL CONTROL</option>
+<option value="4:6">4:6 · NON-COPRIME</option>
+<option value="5:6" selected>5:6 · RETURN CANDIDATE</option>
+<option value="5:7">5:7 · COMPARATOR</option>
+<option value="6:7">6:7 · NEIGHBOR</option>
+<option value="6:5">6:5 · REVERSE</option>
+<option value="11:10">11:10 · COMPARATOR</option>
+</select>
+</label>
+<label>PHASE δ <output id="bloomPhaseOut">90°</output>
+<input id="bloomPhase" type="range" min="0" max="360" step="1" value="90">
+</label>
+<label>STEP Δφ <output id="bloomStepOut">11°</output>
+<input id="bloomStep" type="range" min="0" max="45" step="1" value="11">
+</label>
+<label>LAYERS <output id="bloomLayersOut">11</output>
+<input id="bloomLayers" type="range" min="1" max="24" step="1" value="11">
+</label>
+<button type="button" id="bloomPlay">PLAY SWEEP</button>
+<button type="button" id="bloomExport">EXPORT RECEIPT</button>
+</div>
+<div class="work-grid">
+<figure>
+<figcaption>
+<small id="stageKicker">BLOOM · MEASURED RADIAL TRACE</small>
+<b id="stageTitle">Produktfrequenz wird zur Spitzenfolge</b>
+</figcaption>
+<canvas id="spinBloomCanvas" width="960" height="720" role="img" aria-label="Interaktive Transformation eines Lissajous-Signalpaars vom Interferenzfeld zum radialen Bloom mit innerer und äußerer Phase-Sweep-Hülle">
+</canvas>
+</figure>
+<aside class="ledger">
+<h3>Measurement Ledger</h3>
+<div class="metric">
+<span>OBSERVED TIPS</span>
+<b id="tipCount">—</b>
+</div>
+<div class="metric">
+<span>Y/Z EVENTS <code>:</code>
+</span>
+<b id="pairCount">—</b>
+</div>
+<div class="metric">
+<span>n² ADDRESS SLOTS</span>
+<b id="addressSlots">—</b>
+</div>
+<div class="metric">
+<span>SUM FREQUENCY a+b</span>
+<b id="sumFrequency">—</b>
+</div>
+<div class="metric">
+<span>CLOSURE ERROR</span>
+<b id="closureError">—</b>
+</div>
+<div class="metric">
+<span>PHASE SWEEP</span>
+<b id="sweepState">—</b>
+</div>
+<h4>Derived Envelope</h4>
+<div class="metric envelope">
+<span>BLACK SUN · INNER MEAN</span>
+<b id="innerRadius">—</b>
+</div>
+<div class="metric envelope">
+<span>EDGE · OUTER MEAN</span>
+<b id="outerRadius">—</b>
+</div>
+<div class="metric envelope">
+<span>1g NODE · MEAN r</span>
+<b id="meanNodeRadius">—</b>
+</div>
+<div class="metric envelope">
+<span>RG STRIP · RMS GAP</span>
+<b id="rgStripGap">—</b>
+</div>
+<div class="metric envelope">
+<span>GREY PIN · OFFSET</span>
+<b id="pinOffset">—</b>
+</div>
+<div class="formula">
+<code>u = sin(a·t)</code>
+<code>v = sin(b·t+δ)</code>
+<code>r = 1 + g·u·v</code>
+<code>x = r·cos(t), y = r·sin(t)</code>
+</div>
+<p class="pair-key">
+<span>Y · GRIP</span>
+<span>Z · DIVOT</span>
+<span>PIN · ORIGIN</span>
+</p>
+<p class="event-note">
+<code>Y:Z</code> = benachbarte lokale Flanken einer gemessenen Spitze. Black Sun, Edge, Grey Star und RG Strip sind Working Labels für innere/äußere Hülle, Mittellinie und den Abstand zweier benachbarter Phasebenen. <code>1g</code> bezeichnet hier nur den dimensionslosen Modellradius <code>r=1</code>.</p>
+</aside>
+</div>
+<section class="ring-planes" aria-labelledby="ringPlaneTitle">
+<header>
+<div>
+<small>PHASE LEVELS · RING PLANES</small>
+<h3 id="ringPlaneTitle">Elf Ebenen des Sweeps</h3>
+</div>
+<output id="ringPlaneStatus">MEASURING</output>
+</header>
+<div class="ring-plane-copy">
+<p>Jede Zeile ist eine vorhandene Phaseebene des gleichen 5:6‑Signals. Zusammen bilden sie das sichtbare Schottenrockmuster; sie sind keine elf neuen Objekte.</p>
+<p>
+<span>BLACK SUN</span> innere Minima · <span>GREY STAR</span> Envelope-Mittellinie · <span>EDGE</span> äußere Maxima · <span>RG STRIP</span> Abstand Ebene 1↔2</p>
+</div>
+<div class="matrix-scroll">
+<table>
+<thead>
+<tr>
+<th>PLANE</th>
+<th>PHASE</th>
+<th>INNER</th>
+<th>MEAN</th>
+<th>OUTER</th>
+</tr>
+</thead>
+<tbody id="ringPlaneBody">
+</tbody>
+</table>
+</div>
+</section>
+<section class="rig-demonstrator" id="membraneRigDemonstrator" aria-labelledby="rigTitle">
+<header>
+<div>
+<small>BENCH DEMONSTRATOR · RIG ↔ COUNTERROTATION ↔ SHADOW</small>
+<h3 id="rigTitle">Das Gestänge läuft vor. Der Schatten antwortet.</h3>
+</div>
+<output id="rigStatus" aria-live="polite">11 RODS · MATERIAL HOLD</output>
+</header>
+<p class="rig-lead">Das Gestänge trägt den Stoff. Der Grey Pin bleibt der Ursprung. Das Gestänge dreht vorwärts; ein eigener Schatten-Träger dreht dagegen. Ihre Projektion kann deshalb scheinbar erst rückwärts laufen, kurz halten und danach vorwärts weiterlaufen. „Fuchsfelgen-Effekt“ ist hier das Working Label für diese Ansicht – kein bereits validiertes physikalisches Gesetz.</p>
+<div class="rig-layer-buttons" role="group" aria-label="Sichtbare Demonstrator-Ebenen">
+<button type="button" data-rig-layer="RIG" aria-pressed="true">RIG</button>
+<button type="button" data-rig-layer="MEMBRANE" aria-pressed="true">MEMBRANE</button>
+<button type="button" data-rig-layer="CUTS" aria-pressed="true">CUTS</button>
+<button type="button" data-rig-layer="SHIMMER" aria-pressed="true">SHIMMER</button>
+<button type="button" data-rig-layer="SHADOW" aria-pressed="true">SHADOW</button>
+</div>
+<div class="rig-work">
+<figure>
+<figcaption><b>Spin→Bloom Material View</b><small>DECLARED KINEMATIC ADAPTER</small></figcaption>
+<canvas id="rigCanvas" width="1040" height="620" role="img" aria-label="Kinematische Demonstratoransicht mit einem grauen Pin, radialen Stäben, interpolierter Membran, elf Kanten-Cuts und optischem Schimmer"></canvas>
+</figure>
+<aside>
+<label>FOLD ANGLE <output id="rigFoldOut">28°</output><input id="rigFold" type="range" min="0" max="60" step="1" value="28"></label>
+<label>MEMBRANE TENSION <output id="rigTensionOut">0.68</output><input id="rigTension" type="range" min="0" max="1" step="0.01" value="0.68"></label>
+<label>EDGE CUT DEPTH <output id="rigCutOut">0.22</output><input id="rigCut" type="range" min="0" max="0.48" step="0.01" value="0.22"></label>
+<label>SHADOW PHASE <output id="rigLightOut">0°</output><input id="rigLight" type="range" min="0" max="359" step="1" value="0"></label>
+<label>COUNTER RATE <output id="rigCounterOut">0.65×</output><input id="rigCounter" type="range" min="0.10" max="1.50" step="0.01" value="0.65"></label>
+<label>ALIAS DEPTH <output id="rigAliasOut">0.72</output><input id="rigAlias" type="range" min="0" max="1.20" step="0.01" value="0.72"></label>
+<div class="rig-readout">
+<span>GREY PIN</span><b id="rigPinCount">1</b>
+<span>RODS / TIPS</span><b id="rigRodCount">11</b>
+<span>MEMBRANE PANELS</span><b id="rigPanelCount">11</b>
+<span>EDGE CUTS</span><b id="rigCutCount">11</b>
+<span>SHADOW RUN</span><b id="rigShadowDirection">BACKWARD</b>
+<span>COUNTER PHASE</span><b id="rigCounterPhase">0°</b>
+</div>
+</aside>
+</div>
+<ol class="rig-chain" aria-label="Demonstrator-Sequenz" data-source-chain="PIN → RODS → MEMBRANE → CUTS → SHIMMER">
+<li>1 · PIN</li><li>2 · RIG +</li><li>3 · COUNTER −</li><li>4 · SHADOW</li><li>5 · HOLD</li><li>6 · FORWARD</li>
+</ol>
+<p class="rig-boundary"><strong>ENGINEERING / OPTICS BOUNDARY:</strong> Der Demonstrator trennt Gestängephase, gegenläufige Schattenphase und scheinbaren Projektionslauf. „Rückwärts → Halt → vorwärts“ ist zunächst ein deklarierter Alias-/Projektionsvertrag, keine Messung realer Drehzahl, Beleuchtung oder Stoffmechanik. Der D1–D2-Faltversuch bleibt eine verwandte Engineering-Referenz, keine behauptete mechanische Identität.</p>
+</section>
+<section class="lamella-bridge" id="kleinLamellaReturnBridge" aria-labelledby="lamellaBridgeTitle">
+<header>
+<div>
+<small>KLEIN INTAKE · LAMELLA → PLANE → ANGLE → RETURN</small>
+<h3 id="lamellaBridgeTitle">Die Bank zur Bridge.</h3>
+</div>
+<output id="lamellaReturnStatus" aria-live="polite">SOURCE · READY</output>
+</header>
+<p class="lamella-lead">Drei checksum-gebundene historische GLBs bilden den Comparator. Die sichtbaren Lamellen sind eine deklarierte Diagnoseansicht: elf IDs werden indexerhaltend auf die elf bestehenden Ring-Planes gelegt. Das ist ein prüfbarer Adapter – keine nachträgliche Behauptung über die Topologie der Modelle.</p>
+<div class="lamella-variants" role="group" aria-label="Historische Klein-Quellen">
+<button type="button" data-lamella-variant="SMOOTH">
+<span>01 · SMOOTH</span>
+<b>continuous silhouette</b>
+<small>kleinbottle_smooth.glb</small>
+</button>
+<button type="button" data-lamella-variant="MIXED" aria-pressed="true">
+<span>02 · MIXED</span>
+<b>smooth ↔ faceted</b>
+<small>klein_mixed_faceted_smooth2.glb</small>
+</button>
+<button type="button" data-lamella-variant="FACETED">
+<span>03 · FACETED</span>
+<b>ticks / facets</b>
+<small>klein_faceted_ticks_numbered.glb</small>
+</button>
+</div>
+<div class="lamella-work">
+<figure>
+<figcaption>
+<b>Lamella Comparator</b>
+<small id="lamellaSourceLabel">MIXED · SOURCE BOUND</small>
+</figcaption>
+<canvas id="lamellaCanvas" width="1040" height="560" role="img" aria-label="Deklarierte Vergleichsansicht von elf Lamellen, Ring-Planes und VM-Winkelspiegelung">
+</canvas>
+</figure>
+<aside>
+<label>CUT ANGLE θ <output id="lamellaAngleOut">47.5°</output>
+<input id="lamellaAngle" type="range" min="0" max="179.5" value="47.5" step="0.5">
+</label>
+<div class="lamella-readout">
+<span>SELECTED</span>
+<b id="lamellaSelected">L06</b>
+<span>PLANE NORMAL</span>
+<b id="lamellaNormal">—</b>
+<span>VM RETURN</span>
+<b id="lamellaVm">132.5°</b>
+<span>NEAREST RETURN</span>
+<b id="lamellaNearest">—</b>
+<span>SOURCE HASH</span>
+<code id="lamellaHash">f3f646e789a3…</code>
+</div>
+<div class="lamella-actions">
+<button type="button" data-lamella-step="SELECT">1 · SELECT</button>
+<button type="button" data-lamella-step="CUT">2 · ANGLE CUT</button>
+<button type="button" data-lamella-step="COMPARE">3 · COMPARE</button>
+<button type="button" data-lamella-step="RECORD">4 · SAVE RECORD</button>
+<button type="button" data-lamella-step="RETURN">5 · FULL RETURN</button>
+</div>
+</aside>
+</div>
+<div class="lamella-strip" id="lamellaStrip" role="list" aria-label="Elf Lamellen">
+</div>
+<ol class="return-chain" aria-label="Full Return sequence">
+<li data-return-node="SOURCE">SOURCE GLB</li>
+<li data-return-node="SELECT">LAMELLA</li>
+<li data-return-node="CUT">ANGLE CUT</li>
+<li data-return-node="COMPARE">PLANE</li>
+<li data-return-node="RECORD">RECORD</li>
+<li data-return-node="RETURN">EXACT RETURN</li>
+</ol>
+<div class="lamella-contract">
+<p>
+<b>ANGLE-KEY</b> <code>VM(θ)=(180°−θ) mod 180°</code> · β 47.5° ↔ δ 132.5° · ι 50° ↔ Phantom 130° · α 90° bleibt fest.</p>
+<p>
+<b>FULL RETURN</b> setzt Variant, Lamelle, Cut und Prozessschritt exakt auf den deklarierten Source-State zurück. Der gespeicherte Record bleibt als Witness exportierbar; er rekonstruiert keine verlorene GLB-Geometrie oder Historie.</p>
+</div>
+</section>
+<section class="grey-regime" id="greyRotationRegimeAtlas" aria-labelledby="greyRegimeTitle">
+<header>
+<div>
+<small>VISUAL 2 · FIELD → ROTATING FRAME → DOMAIN × REGIME</small>
+<h3 id="greyRegimeTitle">Das Feld bleibt kohärent. Der Rahmen dreht.</h3>
+</div>
+<output id="greyRegimeStatus" aria-live="polite">FRAME 0° · 9 CELLS PASS</output>
+</header>
+<p class="grey-regime-lead">Links wird dasselbe deterministische Chevron-Feld einmal im ruhenden und einmal im gedrehten Beobachtungsrahmen gelesen. Rechts trennt das 3×3-Atlas die drei <b>Domains</b> (Frequenzverhältnisse) von den drei <b>Regimes</b> (Phasenlagen). Die Rotation verändert die Ansicht, nicht Tip Count oder Closure.</p>
+<div class="grey-regime-work">
+<article class="grey-rotation-panel">
+<header><b>Grey Rotation</b><small>ω = 0 NULL ↔ ω ≠ 0 FRAME</small></header>
+<canvas id="greyRotationCanvas" width="900" height="580" role="img" aria-label="Kohärentes Chevron-Feld mit ruhendem Nullrahmen und rotierendem Messrahmen"></canvas>
+<div class="grey-rotation-controls">
+<label>FRAME ANGLE <output id="greyAngleOut">0°</output><input id="greyAngle" type="range" min="0" max="359" step="1" value="0"></label>
+<label>ROTATION RATE <output id="greyRateOut">18°/s</output><input id="greyRate" type="range" min="-90" max="90" step="1" value="18"></label>
+<button type="button" id="greyPlay" aria-pressed="false">ROTATE FRAME</button>
+<button type="button" id="greyNull">ω = 0 · NULL</button>
+</div>
+<dl class="grey-readout">
+<div><dt>FRAME</dt><dd id="greyFrameValue">0°</dd></div>
+<div><dt>TIP INVARIANT</dt><dd id="greyTipInvariant">11 ↔ 11</dd></div>
+<div><dt>CLOSURE Δ</dt><dd id="greyClosureInvariant">0.00e+0</dd></div>
+</dl>
+</article>
+<article class="regime-atlas-panel">
+<header><b>Lissajous 3×3</b><small>ROWS = DOMAIN · COLUMNS = REGIME</small></header>
+<div class="regime-axis regime-columns" aria-hidden="true"><span></span><b>ALIGN · 0°</b><b>DRIFT · 45°</b><b>QUADRATURE · 90°</b></div>
+<div id="regimeAtlasGrid" class="regime-grid" role="group" aria-label="Neun Lissajous-Vergleiche nach Domain und Regime"></div>
+<output id="regimeSelection" class="regime-selection" aria-live="polite">RETURN 5:6 · QUADRATURE 90° · 11 TIPS · CLOSED</output>
+</article>
+</div>
+<ol class="grey-flow" aria-label="Messfolge">
+<li>FIELD</li><li>ROTATING FRAME</li><li>3×3 REGIME ATLAS</li><li>SELECTED ORBIT</li><li>BLOOM</li><li>RETURN</li>
+</ol>
+<p class="grey-regime-boundary"><strong>NULL / MEASUREMENT BOUNDARY:</strong> <code>ω=0</code> und <code>ω≠0</code> verwenden identische Trägerparameter. „Grey Rotation“ bezeichnet nur die Koordinatendrehung dieses kohärenten Display-Feldes – kein Zufallsrauschen und keine rekonstruierte Physik. Die neun Atlas-Zellen sind endliche deklarierte Comparatoren; sie schaffen weder neue Domains noch eine neue Navigator-Identität.</p>
+</section>
+<section class="root-mycelium" id="rootRatioMycelium" aria-labelledby="rootMyceliumTitle">
+<header>
+<div>
+<small>VISUAL 3 · SEVEN ROOT FAMILIES → TYPED RELATIONS → RETURN COMPARATOR</small>
+<h3 id="rootMyceliumTitle">Sieben Wurzeln. Ein Relationengeflecht.</h3>
+</div>
+<output id="rootMyceliumStatus" aria-live="polite">7 ROOTS · 21 EDGES · TYPED</output>
+</header>
+<p class="root-mycelium-lead">Vier positive Skalarwurzeln bilden den Makro-Ring; <b>√i, √j und √k</b> sind als deklarierte Hauptwurzeln der Quaternion-Achsen getrennt davon geführt. Jede weiße Faser ist eine berechnete Relation. Nur Makro↔Makro ist eine Skalar-Ratio; Mikro↔Mikro vergleicht Achsen, Cross-Domain vergleicht ausschließlich Normen.</p>
+<div class="root-mycelium-work">
+<figure>
+<figcaption><b>Root-Ratio Mycelium</b><small>4 MACRO · 3 MICRO · 21 FINITE LINKS</small></figcaption>
+<canvas id="rootMyceliumCanvas" width="1120" height="620" role="img" aria-label="Netz aus vier Skalarwurzel- und drei Quaternionwurzel-Familien mit hervorgehobener typisierter Relation und Rot-Grün-Bandantwort"></canvas>
+</figure>
+<aside>
+<div class="root-filter" role="group" aria-label="Relationsfamilie">
+<button type="button" data-root-filter="ALL" aria-pressed="true">ALL · 21</button>
+<button type="button" data-root-filter="MACRO" aria-pressed="false">MACRO · 6</button>
+<button type="button" data-root-filter="MICRO" aria-pressed="false">MICRO · 3</button>
+<button type="button" data-root-filter="CROSS" aria-pressed="false">CROSS · 12</button>
+</div>
+<label class="root-relation-label" for="rootRelationSelect">SELECT LINK</label>
+<select id="rootRelationSelect" aria-label="Wurzelrelation"></select>
+<div id="rootFamilyButtons" class="root-family-buttons" role="group" aria-label="Sieben Root-Familien"></div>
+<div class="root-connector">
+<button type="button" id="rootConnectField">CONNECT TO FIELD</button>
+<output id="rootConnectorStatus" aria-live="polite">READY · √5↔√7 → 5:7</output>
+</div>
+<dl class="root-readout">
+<div><dt>RELATION TYPE</dt><dd id="rootRelationType">—</dd></div>
+<div><dt>NORM RATIO</dt><dd id="rootNormRatio">—</dd></div>
+<div><dt>RATIONAL APPROX.</dt><dd id="rootRational">—</dd></div>
+<div><dt>|Δ NORM| / SUM</dt><dd id="rootDeltaSum">—</dd></div>
+<div><dt>THREAD PROXY</dt><dd id="rootThreadProxy">—</dd></div>
+<div><dt>RG BAND GAP</dt><dd id="rootBandProxy">—</dd></div>
+<div><dt>5:6 RESIDUAL</dt><dd id="rootReturnResidual">—</dd></div>
+</dl>
+</aside>
+</div>
+<ol class="root-flow" aria-label="Root-Relationsfolge"><li>ROOT FAMILY</li><li>TYPED LINK</li><li>RADICAND BUS</li><li>FIELD a:b</li><li>BLOOM</li><li>5:6 RETURN</li></ol>
+<p class="root-mycelium-boundary"><strong>RELATION / MEASUREMENT BOUNDARY:</strong> Für Makro-Kanten verbindet der deklarierte Bus <code>√a↔√b → Carrier a:b</code>; er setzt ausschließlich das bestehende Frequenzpaar. Phase <code>δ</code> und Grey-Frame <code>θ</code> bleiben unabhängig. Mikro- und Cross-Kanten halten ohne Skalar-Carrier. Die aktuelle Grey Rotation ist keine „√2-Rotation“. „Schlaff/straff“, weiße Fasern und Rot–Grün-Lücke sind Anzeige-Proxys – keine Zugkraft, Materialspannung, biologisches Myzel oder physische Kopplung.</p>
+</section>
+<section class="edelweiss-bridge" id="edelweissBridge" aria-labelledby="edelweissBridgeTitle">
+<header>
+<div>
+<small>VISUAL 4 · ROOT EDGE → FIELD → BLUE BODY / WHITE DODECA / PINK DIAMOND</small>
+<h3 id="edelweissBridgeTitle">Edelweiß. Die Kopplung wird sichtbar.</h3>
+</div>
+<output id="edelweissStatus" aria-live="polite">READY · ROOT→FIELD FIRST</output>
+</header>
+<p class="edelweiss-lead"><b>ED · EL · WEISS</b> ist hier der Merkschnitt durch drei bestehende Ansichten: die Root-<em>Edge</em> setzt den Carrier, das blaue Body-Feld hält die äußere Hülle, zwölf weiße Dodeca-Slots prüfen die gezählten Blütenblätter, und der pinke Diamond markiert die Return-Apertur. Für <b>√5↔√7 → 5:7</b> entstehen zwölf Tips — genau zwölf sichtbare Slots.</p>
+<div class="edelweiss-work">
+<figure>
+<figcaption><b>Edelweiss Bridge</b><small>BLUE BODY · 12 WHITE SLOTS · PINK RETURN DIAMOND</small></figcaption>
+<canvas id="edelweissCanvas" width="1120" height="620" role="img" aria-label="Gekoppelte Edelweiss-Ansicht aus blauem Außenkörper, weißem Dodeca-Drahtgerüst, radialen Blütenblättern und pinkem Return-Diamond"></canvas>
+</figure>
+<aside>
+<button type="button" id="edelweissCouple" disabled>COUPLE FIELD → EDELWEISS</button>
+<output id="edelweissCoupling" aria-live="polite">HOLD · CONNECT A MACRO ROOT EDGE</output>
+<dl class="edelweiss-readout">
+<div><dt>ROOT EDGE</dt><dd id="edelweissRootEdge">—</dd></div>
+<div><dt>FIELD CARRIER</dt><dd id="edelweissCarrier">—</dd></div>
+<div><dt>BLOOM PETALS</dt><dd id="edelweissPetals">—</dd></div>
+<div><dt>WHITE DODECA</dt><dd id="edelweissSlots">0 / 12</dd></div>
+<div><dt>BLUE BODY</dt><dd>48 ADDRESSES · VIEW</dd></div>
+<div><dt>PINK DIAMOND</dt><dd>RETURN APERTURE · VIEW</dd></div>
+</dl>
+<nav class="edelweiss-links" aria-label="Quellansichten der Edelweiss Bridge">
+<a href="A0_TESSAREC_BLUE_BODY_LAB.html">Blue Body ↗</a>
+<a href="A0_BLUE_PINK_DODECA_CELL_RETURN.html#cells">White Dodeca ↗</a>
+<a href="A0_PINK_DIAMOND_GRID_ATLAS.html#diamond-lens">Pink Diamond ↗</a>
+</nav>
+</aside>
+</div>
+<ol class="edelweiss-flow" aria-label="Edelweiss-Kopplungsfolge"><li>ROOT EDGE</li><li>FIELD a:b</li><li>BLUE BODY</li><li>12 WHITE SLOTS</li><li>PINK DIAMOND</li><li>BLOOM RETURN</li></ol>
+<section class="edelweiss-audit" id="edelweissIncidenceAudit" aria-labelledby="edelweissAuditTitle">
+<header><div><small>FINITE COUNTERTEST · TIP CYCLE → DODECA FACE GRAPH</small><h4 id="edelweissAuditTitle">Existenz ja. Ausgezeichnete Bijektion nein.</h4></div><output id="edelweissAuditStatus" aria-live="polite">AUDIT READY</output></header>
+<div class="edelweiss-audit-grid">
+<article><span>COUNT FIT</span><b>12 Tips ↔ 12 Slots</b><small>Tip- und Slot-Anzahl</small></article>
+<article><span>ZYKLISCHE EINBETTUNGEN</span><b id="edelweissAuditCycles">—</b><small>mit D‑01 als Anker, Richtung quotientiert</small></article>
+<article><span>BESCHRIFTETE ZUORDNUNGEN</span><b id="edelweissAuditAssignments">—</b><small>Tip-IDs → Face-IDs</small></article>
+<article><span>INZIDENZ</span><b id="edelweissAuditEdges">—</b><small>erhaltene / gesamte Slot-Kanten</small></article>
+<article><span>GRADVERGLEICH</span><b id="edelweissAuditDegree">—</b><small>Tip-Zyklus / Dodekaederflächen</small></article>
+<article><span>DISPOSITION</span><b>COUNT FIT ONLY</b><small>kein ausgezeichneter Intertwiner</small></article>
+</div>
+<div class="edelweiss-decomposition">
+<figure>
+<figcaption><b>2 + 3 = 5 · Slot-Graph-Zerlegung</b><small>WITNESS A · INVARIANT ÜBER 1.280 ZYKLEN</small></figcaption>
+<canvas id="edelweissDecompositionCanvas" width="1120" height="560" role="img" aria-label="Zwölf Dodeka-Slots als Ring. Zwei Return-Nachbarn pro Slot bilden den äußeren Zyklus; drei verbleibende Nachbarn bilden das innere Residual-Myzel; zusammen ergeben sie Grad fünf."></canvas>
+</figure>
+<aside>
+<div class="edelweiss-decomposition-modes" role="group" aria-label="Sichtbare Graphschicht">
+<button type="button" data-edelweiss-graph-mode="RETURN" aria-pressed="false">RETURN · 2</button>
+<button type="button" data-edelweiss-graph-mode="RESIDUAL" aria-pressed="false">MYZEL · 3</button>
+<button type="button" data-edelweiss-graph-mode="FULL" aria-pressed="true">GESAMT · 5</button>
+</div>
+<dl>
+<div><dt>RETURN-SPINE</dt><dd id="edelweissReturnDegree">2 · 12 KANTEN</dd></div>
+<div><dt>RESIDUAL-MYZEL</dt><dd id="edelweissResidualDegree">3 · 18 KANTEN</dd></div>
+<div><dt>VOLLGRAPH</dt><dd id="edelweissFullDegree">5 · 30 KANTEN</dd></div>
+<div><dt>ALLE KOMPLEMENTE</dt><dd id="edelweissResidualConnected">—</dd></div>
+<div><dt>RESIDUAL-VARIATION</dt><dd id="edelweissTriangleRange">—</dd></div>
+</dl>
+<p><b>ROOT-HYPOTHESE</b><code>(√2)² + (√3)² = (√5)²</code><span>exakte skalare Identität · keine Root→Graph-Kopplung bewiesen</span></p>
+</aside>
+</div>
+<section class="octave-successor-fifths" id="octaveSuccessorFifthsBridge" aria-labelledby="octaveSuccessorFifthsTitle">
+<header><div><small>THREE TYPED RAILS · EXACT ARITHMETIC · SHARED MECHANISM OPEN</small><h4 id="octaveSuccessorFifthsTitle">Octave · Successor · Fifths</h4></div><output id="octaveSuccessorFifthsStatus" aria-live="polite">BRIDGE READY</output></header>
+<div class="octave-successor-fifths-modes" role="group" aria-label="Hervorgehobene Rail">
+<button type="button" data-rail-focus="ALL" aria-pressed="true">ALLE 3</button>
+<button type="button" data-rail-focus="OCTAVE" aria-pressed="false">1 · OCTAVE</button>
+<button type="button" data-rail-focus="SUCCESSOR" aria-pressed="false">2 · SUCCESSOR</button>
+<button type="button" data-rail-focus="FIFTHS" aria-pressed="false">3 · FIFTHS</button>
+</div>
+<div class="octave-successor-fifths-views">
+<figure><figcaption><b>1 + 2 · Octave / Successor Rails</b><small>DO–RE–MI | FA–SOL–LA–SI | DO</small></figcaption><svg id="octaveSuccessorRailsSvg" viewBox="0 0 760 420" role="img" aria-label="The octave rail descends from 768 to 6 while the parallel successor rail descends from 769 to 7. The mi-fa and si-do gaps are marked; 25 equals five squared and prime index 25 returns 97."></svg></figure>
+<figure><figcaption><b>3 · Fifths Wheel</b><small>×3/2 · OCTAVE FOLD ×2 · RETURN RESIDUAL</small></figcaption><svg id="fifthsWheelSvg" viewBox="0 0 440 420" role="img" aria-label="Twelve perfect fifth steps fold into one octave and return to C with a nonzero Pythagorean comma residual."></svg></figure>
+</div>
+<dl class="octave-successor-fifths-readout">
+<div><dt>OCTAVE RAIL</dt><dd>768 → 384 → 192 → 96 → 48 → 24 → 12 → 6</dd></div>
+<div><dt>SUCCESSOR RAIL</dt><dd>769 → 385 → 193 → 97 → 49 → 25 → 13 → 7</dd></div>
+<div><dt>EXACT PINS</dt><dd>25 = 5² · p₂₅ = 97 = b₄</dd></div>
+<div><dt>INTERVALS</dt><dd>MI → FA · SI → DO</dd></div>
+<div><dt>FIFTHS RETURN</dt><dd id="fifthsReturnResidual">—</dd></div>
+</dl>
+<p class="octave-successor-fifths-boundary"><strong>TYPED BOUNDARY:</strong> Die Octave Rail nutzt <code>÷2</code>, die Successor Rail <code>+1</code>, das FIFTHS WHEEL <code>×3/2</code> mit Oktav-Fold. Die exakten Pins verbinden die Lesefläche; sie beweisen weder eine gemeinsame Gurdjieff-/Musik-Mechanik noch <code>q√5</code>, Root→Ton oder eine neue kanonische Relation.</p>
+<section class="stopinder-deflection" id="stopinderDeflectionBridge" aria-labelledby="stopinderDeflectionTitle">
+<header><div><small>NOTE → COLOR → FREQUENCY → Δ → RATIO → LINEAR BAND ANGLE</small><h5 id="stopinderDeflectionTitle">Stopinders · Deflections</h5></div><output id="stopinderDeflectionStatus" aria-live="polite">PASS · TYPED VIEW</output></header>
+<div class="stopinder-deflection-modes" role="group" aria-label="Stopinder- und Deflection-Ansicht">
+<button type="button" data-stopinder-view="ALL" aria-pressed="true">ALLE</button>
+<button type="button" data-stopinder-view="BLITZ" aria-pressed="false">BLITZ · COLOR / ANGLE</button>
+<button type="button" data-stopinder-view="DONNER" aria-pressed="false">DONNER · FREQUENCY / Δ</button>
+<button type="button" data-stopinder-view="PAIRS" aria-pressed="false">PAARE / RATIOS</button>
+</div>
+<figure><figcaption><b>Frequency rail + linear band projection</b><small>(f−24)/24 × 360° · NICHT LOG-PITCH</small></figcaption><svg id="stopinderDeflectionSvg" viewBox="0 0 1200 520" role="img" aria-label="Eight colored note stations from frequency 24 to 48. Seven Stopinder differences close the span 24; their rational ratios multiply to two. A separate circular view projects frequency offset linearly to angles from zero to 360 degrees."></svg></figure>
+<dl class="stopinder-deflection-readout">
+<div><dt>FREQUENCIES</dt><dd>24 · 27 · 30 · 32 · 36 · 40 · 45 · 48</dd></div>
+<div><dt>STOPINDERS Δ</dt><dd>3 · 3 · 2 · 4 · 4 · 5 · 3 = 24</dd></div>
+<div><dt>RATIO FAMILIES</dt><dd>(9/8)³ · (10/9)² · (16/15)² = 2</dd></div>
+<div><dt>SI ADDRESS</dt><dd>15/8 · 45 · 315°</dd></div>
+<div><dt>RETURN DEFLECTION</dt><dd>SI → DO · Δ3 · 45°</dd></div>
+</dl>
+<p class="stopinder-deflection-pairs"><b>PAIR COMPARATORS</b><span>SI/SOL = 5/4</span><span>LA/MI = 4/3</span><span>FA/DO = 4/3</span><span>DO′/FA = 3/2</span></p>
+<p class="stopinder-deflection-boundary"><strong>BLITZ / DONNER BOUNDARY:</strong> „Blitz“ zeigt Farbe und lineare Winkeladresse; „Donner“ zeigt Frequenz und absoluten Stopinder. Das sind getrennte Displaykanäle. Die 45° entstehen ausschließlich aus der deklarierten linearen Bandprojektion und sind weder Equal-Temperament-Winkel noch physische Faltung, Laufzeitmessung oder gemeinsame Gurdjieff-/Root-/Graph-Mechanik.</p>
+<section class="residue-lift-wheel" id="residueLiftWheelBridge" aria-labelledby="residueLiftWheelTitle">
+<header><div><small>1 · MOD 9 WHEEL · 2 · ±Q LIFTS · 3 · Σ15 · 4 · PRIME / NUMBER MAGIC</small><h5 id="residueLiftWheelTitle">3² Wheel · Lift · 15 · Number Magic</h5></div><output id="residueLiftWheelStatus" aria-live="polite">PASS · FOUR TYPED VIEWS</output></header>
+<div class="residue-lift-modes" role="group" aria-label="Residue- und Lift-Ansicht">
+<button type="button" data-residue-view="ALL" aria-pressed="true">ALLE 1–4</button>
+<button type="button" data-residue-view="WHEEL" aria-pressed="false">1 · 3² WHEEL</button>
+<button type="button" data-residue-view="LIFTS" aria-pressed="false">2 · ±Q / LIFT</button>
+<button type="button" data-residue-view="FIFTEEN" aria-pressed="false">3 · Σ15</button>
+<button type="button" data-residue-view="MAGIC" aria-pressed="false">4 · PRIME / MAGIC</button>
+</div>
+<figure><figcaption><b>Residue wheel + integer lifts + complement rails</b><small>EXACT ARITHMETIC · TONE MAP OPEN</small></figcaption><svg id="residueLiftWheelSvg" viewBox="0 0 1200 560" role="img" aria-label="A nine-position residue wheel separates the doubling cycle 1, 2, 4, 8, 7, 5 from the three-six-nine triad. A lift rail shows seven through eleven around the nine anchor; four pairs sum to fifteen. A factor lens checks 783 equals three cubed times twenty-nine and has digital root nine."></svg></figure>
+<dl class="residue-lift-readout">
+<div><dt>DOUBLING CYCLE</dt><dd>1 → 2 → 4 → 8 → 7 → 5 → 1</dd></div>
+<div><dt>3–6–9 TRIAD</dt><dd>3 → 6 → 9(≡0) → 3</dd></div>
+<div><dt>±Q LIFTS</dt><dd>7 · 8 | 9 | 10 · 11</dd></div>
+<div><dt>Σ15 PAIRS</dt><dd>4+11 · 5+10 · 6+9 · 7+8</dd></div>
+<div><dt>WORKING ADDRESSES</dt><dd>A1 · I9 · 0|15 · AA+ / 783</dd></div>
+</dl>
+<p class="residue-lift-pins"><b>EXACT PINS</b><span>8+1=9</span><span>6+1=7</span><span>9+6=15</span><span>8+7=15</span><span>783=3³×29</span><span>dr(783)=9</span><span>7 · 11 · 29 PRIME</span></p>
+<p class="residue-lift-boundary"><strong>NUMBER-MAGIC BOUNDARY:</strong> Das 3²-Rad, die Integer-Lifts, die 15-Komplemente und die Faktor-/Primtests sind getrennte exakte Rechenansichten. <code>A1</code>, <code>I9</code>, <code>0|15</code>, <code>AA+</code>, <code>783</code> und „Zwischentöne“ bleiben lokale Arbeitsadressen. Ohne explizite Residuum→Frequenz-Regel entsteht daraus weder eine Tonableitung noch eine Prime-Generation, ein physischer Beam oder eine kanonische Gurdjieff-/NEXAH-Mechanik.</p>
+<section class="v12-xy-translator" id="v12XyGraphTranslator" aria-labelledby="v12XyGraphTranslatorTitle">
+<header><div><small>RAIL → DUAL BANK → X/Y + M/W → THREE BRACES → EXIT / RETURN</small><h5 id="v12XyGraphTranslatorTitle">V12 / X–Y Graph Translator</h5></div><output id="v12XyGraphTranslatorStatus" aria-live="polite">PASS · FIVE VIEW PROJECTIONS</output></header>
+<div class="v12-xy-modes" role="group" aria-label="V12- und Graphübersetzung">
+<button type="button" data-v12-view="ALL" aria-pressed="true">ALLE 1–5</button>
+<button type="button" data-v12-view="RAIL" aria-pressed="false">1 · RAIL / BÖGEN</button>
+<button type="button" data-v12-view="V12" aria-pressed="false">2 · V12 DUAL BANK</button>
+<button type="button" data-v12-view="XY" aria-pressed="false">3 · X/Y + M/W</button>
+<button type="button" data-v12-view="BRACES" aria-pressed="false">4 · THREE BRACES</button>
+<button type="button" data-v12-view="EXIT" aria-pressed="false">5 · RE EXIT / DO RETURN</button>
+</div>
+<figure><figcaption><b>Linear rail → mirrored six-bank → radial chord graph</b><small>VIEW TRANSLATOR · NO ENGINE CLAIM</small></figcaption><svg id="v12XyGraphTranslatorSvg" viewBox="0 0 1200 600" role="img" aria-label="The eight-station frequency rail is translated into two mirrored banks of the six-residue doubling cycle, a radial X-Y and M-W chord view, three ratio-family braces, and working RE-exit and DO-return axes."></svg></figure>
+<dl class="v12-xy-readout">
+<div><dt>DUAL BANK</dt><dd>A · 1–2–4–8–7–5<br>B · 5–7–8–4–2–1</dd></div>
+<div><dt>VIEW SLOTS</dt><dd>6 + 6 = 12 · 6 UNIQUE RESIDUES</dd></div>
+<div><dt>X/Y · M/W</dt><dd>RAIL SPAN · RADIAL DIAMETER · FOUR CHORDS</dd></div>
+<div><dt>THREE BRACES</dt><dd>9/8 ×3 · 10/9 ×2 · 16/15 ×2</dd></div>
+<div><dt>EXIT / RETURN</dt><dd>RE · EXIT 45° · DO′ · RETURN 360°</dd></div>
+</dl>
+<aside class="v12-crystal-handoff" id="v12CrystalOrientationHandoff" data-state="OPEN">
+<div><small>BREATHING CRYSTAL → V12 · TYPED VIEW HANDOFF</small><strong>PIN · H/X · V/Y · CURRENT VECTOR</strong></div>
+<dl><div><dt>PAIR</dt><dd id="v12CrystalPair">—</dd></div><div><dt>θ / r</dt><dd id="v12CrystalVector">—</dd></div><div><dt>RELATION</dt><dd id="v12CrystalRelation">—</dd></div><div><dt>WINDING</dt><dd id="v12CrystalWinding">—</dd></div></dl>
+<nav><a href="A0_ORIENTATION_CONTROLLER_BENCH.html?rev=breathing-crystal-orientation-ledger-r1#breathingCrystalMeasurementDeck">← ORIENTATION LEDGER</a><span id="v12CrystalHandoffStatus">OPEN · NO CRYSTAL FRAME</span></nav>
+</aside>
+<section class="translator-orientation-receipt" id="translatorOrientationReceipt" aria-labelledby="translatorOrientationReceiptTitle">
+<header><div><small>STATUS RECEIPT · REFERENCE + FOUR FINITE COUNTERTESTS</small><h6 id="translatorOrientationReceiptTitle">Translator Orientation Receipt</h6></div><output id="translatorOrientationReceiptStatus" aria-live="polite">PASS · 7/7 INVARIANTS</output></header>
+<div class="translator-receipt-modes" role="group" aria-label="Translator-Receipt Referenz und Negativkontrollen">
+<button type="button" data-translator-receipt-mode="REFERENCE" aria-pressed="true">REFERENCE</button>
+<button type="button" data-translator-receipt-mode="BANK_SWAP" aria-pressed="false">BANK SWAP</button>
+<button type="button" data-translator-receipt-mode="MISSING_RESIDUE" aria-pressed="false">MISSING RESIDUE</button>
+<button type="button" data-translator-receipt-mode="BROKEN_BRACE" aria-pressed="false">BROKEN BRACE</button>
+<button type="button" data-translator-receipt-mode="RE_PLUS_1" aria-pressed="false">RE +1°</button>
+</div>
+<div class="translator-receipt-work"><figure><figcaption><b>PIN ledger · Rail → radial address preservation</b><small>θ = atan2(y,x) · UNIT VIEW RADIUS</small></figcaption><svg id="translatorOrientationReceiptSvg" viewBox="0 0 720 420" role="img" aria-label="Eight rail addresses projected around a fixed PIN origin with horizontal and vertical axes, quadrants, crossings and winding."></svg></figure><div><dl id="translatorOrientationInvariantList" class="translator-receipt-invariants"></dl><p class="translator-receipt-loss"><span>FIRST LOSS POINT</span><strong id="translatorOrientationLossPoint">NONE · REFERENCE HOLDS</strong></p></div></div>
+<p class="translator-receipt-boundary"><strong>RECEIPT BOUNDARY:</strong> Geprüft werden Adresserhalt, Bankspiegelung, sechs Residuen, drei Bügelfamilien, exakter RE-Exit/DO′-Return, Crystal-Achsenübergabe und PIN-Distanz. Die vier Negativkontrollen zeigen gezielt, wo Information zuerst verloren geht. Das ist ein endlicher Übersetzungs- und Fehlernachweis – kein Motor-, Musik-, Naturgesetz- oder gemeinsamer Mechanismusbeweis.</p>
+</section>
+<p class="v12-xy-pins"><b>WORKING VIEW ROLES</b><span>TWO BANKS · SIX RESIDUES · TWELVE VIEW SLOTS</span><span>8 ELEVATORS</span><span>Y DIAMETER</span><span>X / M–W CHORDS</span><span>3 RATIO BRACES</span><span>RE · EXIT 45°</span><span>DO′ · RETURN 360°</span></p>
+<p class="v12-xy-boundary"><strong>V12 / GRAPH BOUNDARY:</strong> Das V12 ist eine gespiegelte <code>6+6</code>-Displaybank desselben Sechserzyklus, kein Motor und keine Folge von zwölf unabhängigen Residuen. „Elevator“, X/Y, M/W, Bügel, Exit und Return bezeichnen lokale Projektionsrollen. Ein übergebenes Breathing-Crystal-Frame setzt lediglich PIN→Zentrum, H/X→X, V/Y→Y und zeichnet den aktuellen Paarvektor als eigene magenta/rote Hand-off-Lage. Sie ist weder mit der lila <code>DO′ · RETURN 360°</code>-Achse noch mit der roten <code>RE · EXIT 45°</code>-Achse identisch. Exakt erhalten bleiben Rail, Differenzen, Ratiofamilien und die linearen Winkeladressen; Kurbelwelle, Zündfolge, gemeinsame Mechanik und physische Kopplung bleiben unbehauptet.</p>
+</section>
+</section>
+</section>
+</section>
+<div class="edelweiss-audit-stability"><span>GREY FRAME <b id="edelweissAuditGrey">—</b></span><span>RETURN <b id="edelweissAuditReturn">—</b></span></div>
+<div class="edelweiss-audit-witness"><p><b>Witness A</b><code id="edelweissAuditWitness">—</code></p><p><b>Gegenprobe B</b><code id="edelweissAuditAlternative">—</code></p></div>
+</section>
+<p class="edelweiss-boundary"><strong>AUDIT RESULT:</strong> Eine Tip→Slot-Permutation <em>existiert</em>, aber die Quellen zeichnen keine einzelne aus. Für alle 1.280 getesteten Hamilton-Zyklen zerfällt der 5-reguläre Slot-Graph exakt in einen 2-regulären Return-Zyklus mit 12 Kanten und ein zusammenhängendes 3-reguläres Residualnetz mit 18 Kanten. Das beweist <code>2 + 3 = 5</code> als Graphzerlegung. Die formal passende Identität <code>(√2)² + (√3)² = (√5)²</code> beweist dagegen noch keine Root→Graph-Kopplung. Grey-Rotation und Return halten eine äquivariante Familie, nicht eine eindeutige physische oder topologische Bijektion. Blue Body, Dodeca und Pink Diamond behalten ihre bestehenden Quellen und Identitäten.</p>
+</section>
+<section class="wiggle-return" id="wiggleReturnDemonstrator" aria-labelledby="wiggleReturnTitle">
+<header>
+<div>
+<small>RETURN DIAGNOSTIC · BUNDLE → ENVELOPE → CAPTURE</small>
+<h3 id="wiggleReturnTitle">Die Wiggles fädeln gemeinsam ein.</h3>
+</div>
+<output id="wiggleReturnStatus" aria-live="polite">11 CHANNELS · CAPTURE DECLARED</output>
+</header>
+<p class="wiggle-lead">Die elf bestehenden Lamellen werden hier als gekoppelte Diagnosekurven entlang einer gemeinsamen Mittellinie gelesen. Die äußere Hüllkurve macht das Bündel sichtbar; der Einfädelpunkt ist der erste Ort, an dem die deklarierte Hüllenbreite unter den Capture‑Korridor fällt. Das ist eine synthetische Messansicht des vorhandenen Returns – keine aus den GLBs extrahierte Dynamik.</p>
+<div class="wiggle-work">
+<figure>
+<figcaption>
+<b>Wiggle / Return Corridor</b>
+<small>MITTELLINIE · BÜNDEL · HÜLLE · EINFÄDELPUNKT</small>
+</figcaption>
+<canvas id="wiggleReturnCanvas" width="1120" height="560" role="img" aria-label="Elf gebündelte Wiggle-Kurven um eine Mittellinie, mit abklingender Hüllkurve, Capture-Korridor und markiertem Einfädelpunkt"></canvas>
+</figure>
+<aside>
+<label>WIGGLE AMPLITUDE <output id="wiggleAmplitudeOut">0.48</output>
+<input id="wiggleAmplitude" type="range" min="0.12" max="0.72" step="0.01" value="0.48">
+</label>
+<label>RETURN DAMPING <output id="wiggleDampingOut">3.50</output>
+<input id="wiggleDamping" type="range" min="1.2" max="6" step="0.05" value="3.5">
+</label>
+<label>PHASE SPREAD <output id="wiggleSpreadOut">0.68 rad</output>
+<input id="wiggleSpread" type="range" min="0" max="1.4" step="0.02" value="0.68">
+</label>
+<label>CAPTURE CORRIDOR <output id="wiggleThresholdOut">±0.045</output>
+<input id="wiggleThreshold" type="range" min="0.015" max="0.12" step="0.005" value="0.045">
+</label>
+<div class="wiggle-readout">
+<span>EINFÄDELPUNKT</span><b id="wiggleCaptureAt">—</b>
+<span>BUNDLE WIDTH @ CAPTURE</span><b id="wiggleCaptureWidth">—</b>
+<span>RETURN RESIDUAL</span><b id="wiggleResidual">—</b>
+<span>CHANNELS</span><b id="wiggleChannels">11</b>
+</div>
+</aside>
+</div>
+<div class="wiggle-key" aria-label="Legende">
+<span data-key="center">MITTELLINIE</span>
+<span data-key="bundle">WIGGLE-BÜNDEL</span>
+<span data-key="envelope">HÜLLKURVE</span>
+<span data-key="corridor">CAPTURE-KORRIDOR</span>
+<span data-key="capture">EINFÄDELPUNKT</span>
+</div>
+<p class="wiggle-boundary"><strong>MEASUREMENT BOUNDARY:</strong> „Kopplung“, „Kohärenz“ und „Capture“ benennen ausschließlich die Konstruktion dieser deterministischen Diagnosekurven. Der View belegt weder natürliche Moden, Materialdämpfung, Energieübertragung noch einen physikalischen Lock‑in. Entscheidend ist die prüfbare Trennung: gemeinsame Mittellinie, beobachtbares Bündel, deklarierte Hüllenschwelle und daraus berechneter Einfädelpunkt.</p>
+</section>
+<section class="control-matrix" aria-labelledby="controlMatrixTitle">
+<header>
+<div>
+<small>FINITE DECLARED CONTROLS</small>
+<h3 id="controlMatrixTitle">Control Matrix</h3>
+</div>
+<output id="matrixStatus">MEASURING</output>
+</header>
+<div class="matrix-scroll">
+<table>
+<thead>
+<tr>
+<th>CASE</th>
+<th>a:b</th>
+<th>gcd</th>
+<th>a+b</th>
+<th>TIPS</th>
+<th>Y:Z</th>
+<th>n²</th>
+<th>SWEEP</th>
+<th>CLOSURE</th>
+</tr>
+</thead>
+<tbody id="controlMatrixBody">
+</tbody>
+</table>
+</div>
+<p>Die Matrix prüft Gleichheit, einen nicht teilerfremden Fall, den 5:6‑Return und zwei Nachbarn. Sie begrenzt die Aussage auf genau diese synthetischen Fälle.</p>
+</section>
+<p class="boundary-note">
+<strong>STOP / CLAIM BOUNDARY:</strong> Das FIELD ist eine deterministische Interferenzvorschau, kein stochastisches Rauschen. Die Lens zählt lokale radiale Maxima und leitet innere/äußere Sweep-Hülle, Mittellinie sowie den Abstand der ersten beiden Phaseebenen aus derselben deklarierten synthetischen Kurve ab. Die Y/Z‑Records beschreiben nur die benachbarten Flanken in dieser lokalen Bloom‑Ansicht. <em>Black Sun</em>, <em>Grey Star</em>, <em>Edge</em>, <em>RG Strip</em>, Ring und Schottenrock sind Working Labels der Darstellung; sie behaupten weder Möbius‑, Torus‑, Boundary‑ noch andere Topologie oder physikalische Objekte außerhalb des Views. Eine Übereinstimmung mit <code>a+b</code>, eine Zahl <code>11</code>, daraus gebildetes <code>n²</code> oder die fünf Kontrollfälle begründen weder physikalische Kopplung noch universelles Blumengesetz, neuen Operator, neue Studie oder Publikationsfreigabe. Die Bild-Intakes bleiben Anschauung und werden nicht automatisch Messdaten. Wiederverwendung: <code>ART:A0:MATHEMATICAL_JOINTS</code>; keine neue Relation.</p>
+</section>
+<section class="return-links">
+<h2>Rückbindung</h2>
+<nav>
+<a href="A0_BLUE_PINK_DODECA_CELL_RETURN.html#threeLissajousPlanes">Source · Three Lissajous Planes →</a>
+<a href="A0_IOTA_BRIDGE_DEMONSTRATOR.html">IOTA Bridge →</a>
+<a href="A0_ROOTROOM_CODON_ORIENTATION_RETURN.html">ROOTROOM / CODON Return →</a>
+<a href="A0_LANTERN_PANEL_V_CONTROL_LENS.html?rev=joint-microscope-r1">Joint Microscope →</a>
+<a href="results/a0-spin-to-bloom-measurement-return-2026-10-29.json">Machine + Lamella Return →</a>
+</nav>
+</section>
+<aside class="spin-tour-dock" id="spinTourDock" hidden aria-live="polite" aria-label="Geführte Spin-to-Bloom-Tour">
+<header>
+<small id="spinTourCounter">STATION 1 / 8</small>
+<button type="button" id="spinTourClose" aria-label="Tour schließen">×</button>
+</header>
+<h2 id="spinTourTitle">Eine Bahn. Ein Pin. Ein Bloom.</h2>
+<p id="spinTourBody">Die Tour verbindet die Demonstratoren zu einem lesbaren Return-Lauf.</p>
+<footer>
+<button type="button" id="spinTourPrevious">← ZURÜCK</button>
+<button type="button" id="spinTourPlay" aria-pressed="false">▶ AUTO</button>
+<button type="button" id="spinTourNext">WEITER →</button>
+</footer>
+</aside>
+</main>
+<script src="a0-context-navigation.js?rev=flagship-constellation-r1-20261030">
+</script>
+<script src="assets/a0-blue-body-dodeca-countershot-v1.js?rev=edelweiss-incidence-r1-20261029">
+</script>
+<script src="a0-spin-to-bloom-measurement.js?rev=translator-orientation-receipt-r1-20261030">
+</script>
+<script src="a0-spin-to-bloom-measurement-ui.js?rev=translator-orientation-receipt-r1-20261030">
+</script>
+</body>
+</html>

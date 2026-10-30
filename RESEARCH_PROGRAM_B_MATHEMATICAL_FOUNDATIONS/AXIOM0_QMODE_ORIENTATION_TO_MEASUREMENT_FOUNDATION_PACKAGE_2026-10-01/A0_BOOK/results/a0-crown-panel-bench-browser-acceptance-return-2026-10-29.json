@@ -1,0 +1,79 @@
+{
+  "schema": "nexah.a0.crown-panel-bench-browser-acceptance-return/1",
+  "date": "2026-10-29",
+  "status": "PASS_BOUNDED_BROWSER_ACCEPTANCE_WITH_REMAINING_GLOBAL_GAPS",
+  "identity_reuse": [
+    "NEXAH_A0_ORIENTATION_CONTROLLER_BENCH",
+    "ART:A0:MATHEMATICAL_JOINTS",
+    "NEXAH:A0_ORIENTATION_EVIDENCE_LINEAGE:V1"
+  ],
+  "scope": [
+    "A0_PENTAGON_CROWN_RETURN_DEMONSTRATOR.html",
+    "A0_LANTERN_PANEL_V_CONTROL_LENS.html",
+    "shared A0 Reader and Bench navigation"
+  ],
+  "browser_acceptance": {
+    "profiles": {
+      "desktop": {
+        "effective_css_viewport_width": 960,
+        "page_overflow": false
+      },
+      "tablet": {
+        "effective_css_viewport_width": 512,
+        "page_overflow": false
+      },
+      "phone_strict": {
+        "effective_css_viewport_width": 260,
+        "crown_document_scroll_width": 257,
+        "panel_v_document_scroll_width": 250,
+        "page_overflow": false
+      }
+    },
+    "crown_sequence": {
+      "action": "RUN 1_TO_7",
+      "result": "COMPLETE_RECEIPT_READY_CLAIMS_UNCHANGED",
+      "pascal": "PASS_RESIDUAL_2.564E-16",
+      "heart": "PASS_200_STEPS_10_PULSES_RETURN_1_1_1",
+      "c_pin": "PASS_K100_INSIDE_C1",
+      "return": "PASS_0_DEG_I_AND_1_1_1"
+    },
+    "panel_v_sequence": {
+      "action": "PLAY_OPEN_TO_RETURN",
+      "result": "CERTIFIED_0_DEG_EXACT_RETURN",
+      "channels": 5,
+      "final_channel_angles_degrees": [0, 0, 0, 0, 0]
+    }
+  },
+  "repairs": [
+    "Both existing demonstrators now have one primary navigation home and appear in the Builder demonstrator shelf.",
+    "The shared public-channel row wraps without forcing narrow-page overflow.",
+    "Crown and Panel V titles, controls and return links shrink or wrap inside narrow layouts.",
+    "The two demonstrator pages use revised stylesheet cache keys for the accepted mobile rules."
+  ],
+  "verification": {
+    "reader_navigation": "PASS_77_LOCAL_HTML_REACHABLE",
+    "bench_navigation": "PASS_626",
+    "crown_module": "PASS_35_OF_35",
+    "crown_replay": "PASS_13",
+    "crown_envelope": "PASS_16",
+    "panel_v": "PASS_43",
+    "orientation_controller_bench": "PASS_V0_21_0",
+    "a0_evidence_binder": "PASS_119_SOURCES_28_NODES_41_RELATIONS_22_ALIASES",
+    "source_graph": "PASS_20_COMPONENTS_BASE_329_29_COMPOSED_332_32",
+    "navigator_app": "PASS_253_OF_253",
+    "mission_control_currentness": "STOP_VERSION_AMBIGUOUS_MANIFEST_AND_CONTROLLING_SOURCE_HASH_DRIFT"
+  },
+  "release_state": "LOCAL_ENGINEERING_RETURN_ONLY_HUMAN_OWNER_ACCEPTANCE_COMMIT_PUSH_DEPLOYMENT_AND_PUBLICATION_NOT_AUTHORIZED",
+  "open": [
+    "Physical phone and tablet hardware acceptance is not claimed.",
+    "A separate 200 percent zoom pass and a no-colour or forced-colours pass remain open.",
+    "The broader A·l, Ninefold, Replay and live-adapter checklist outside Crown and Panel V remains open.",
+    "The Mandelbrot and Julia complexity adapter remains explicitly open and unbuilt.",
+    "Historical 7.1 degree and 8 to 9 degree labels remain unverified; mechanism and physics remain HOLD."
+  ],
+  "new_canonical_ids": [],
+  "relation_changes": [],
+  "finding_or_manuscript_effect": "NONE",
+  "publication_or_deployment": "NONE",
+  "boundary": "Bounded engineering and rendered-browser acceptance only. It does not establish a physical mechanism, resonance measurement, calibration, scientific finding, Study, publication approval, canonical identity or graph relation."
+}

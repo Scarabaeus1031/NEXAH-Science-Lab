@@ -1,0 +1,59 @@
+{
+  "schema": "A0_BLUE_PINK_DODECA_CRUISER_RETURN_V1",
+  "date": "2026-10-29",
+  "status": "PASS_EXACT_COUPLED_RETURN",
+  "working_label": "BLUE_PINK_DODECA_CRUISER",
+  "surface": "A0_BLUE_PINK_DODECA_CELL_RETURN.html#cruiser",
+  "assembly": {
+    "dodeka_hull": { "vertices": 20, "edges": 30, "faces": 12 },
+    "blue_body_interior": { "addresses": 48, "layers": 3, "channels": 16 },
+    "pink_diamond_aperture": { "rotation": "COUNTER_TO_HULL", "role": "ADDRESS_DEPENDENT_OPEN_HOLD_GATE" },
+    "cell_return": { "body_cells": 48, "return_cells": 12, "total_cells": 60 }
+  },
+  "display_synchronization": {
+    "clock": "SHARED_DISPLAY_CLOCK",
+    "hull_direction": 1,
+    "body_direction": 0.5,
+    "aperture_direction": -0.75
+  },
+  "functional_handoff": {
+    "path": "DODEKA_HULL_FACE_TO_BLUE_ADDRESS_TO_PINK_APERTURE_CUT_TO_SPECTRUM_TO_RETURN_CELL",
+    "hull_faces": 12,
+    "slots_per_face": 4,
+    "address_rule": "addressIndex = 4 * faceIndex + addressSlot",
+    "address_bijection": "12 * 4 = 48 UNIQUE BLUE ADDRESSES",
+    "blue_address_rule": "layer = floor(addressIndex / 16); channel = addressIndex mod 16",
+    "aperture_gate": "effective opening and gate signal produce OPEN or HOLD",
+    "spectrum_view": {
+      "bands": 7,
+      "selection_rule": "spectrumIndex = addressIndex mod 7",
+      "order": ["RED", "ORANGE", "YELLOW", "GREEN", "CYAN", "BLUE", "VIOLET"],
+      "lenses": ["NEWTON", "LEIBNIZ", "GOETHE"],
+      "source_views": ["A0-VIEW-NEWTON-GOETHE-OBSERVER-LENS", "A0-VIEW-RAINBOW-PURPLE-RAIN"],
+      "boundary": "SCHEMATIC_SEVEN_BAND_VIEW_NOT_CALIBRATED_OPTICS"
+    },
+    "return_rule": "return cell RETURN-00:F(faceIndex + 1) preserves the selected hull face",
+    "phases": ["HULL_LOCK", "ADDRESS_BIND", "APERTURE_ALIGN", "CUT_GATE", "SPECTRUM_SPLIT", "RETURN_COMMIT"]
+  },
+  "source_identities": [
+    "MOD:TESSAREC",
+    "A0-VIEW-BLUE-BODY-DODECA-COUNTERSHOT",
+    "A0-VIEW-BLUE-PINK-DODECA-CELL-RETURN",
+    "A0-VIEW-NEWTON-GOETHE-OBSERVER-LENS",
+    "A0-VIEW-RAINBOW-PURPLE-RAIN",
+    "NEXAH_A0_ORIENTATION_CONTROLLER_BENCH"
+  ],
+  "new_canonical_ids": [],
+  "relation_changes": [],
+  "tests": {
+    "cruiser_sequence": "PASS_EXACT_12_BY_4_BINDING",
+    "return_face_preservation": "PASS_48_OF_48",
+    "aperture_open_hold_gate": "PASS",
+    "seven_band_spectrum_binding": "PASS_48_OF_48_ADDRESS_MOD_7",
+    "existing_prism_and_rainbow_regressions": "PASS_14_PLUS_25_ASSERTIONS",
+    "existing_cell_return": "PASS_125_ASSERTIONS",
+    "browser_acceptance": "PASS_LOCAL_INTERACTIVE"
+  },
+  "publication_authorized": false,
+  "claim_boundary": "SOURCE_BOUND_DETERMINISTIC_VIEW_HANDOFF_HULL_FACE_TO_BLUE_ADDRESS_TO_PINK_APERTURE_CUT_TO_SEVEN_BAND_SPECTRUM_VIEW_TO_RETURN_CELL_NO_CALIBRATED_OPTICS_NO_NEW_BODY_IDENTITY_NO_SHARED_PHYSICAL_ENGINE_NO_NEW_GRAPH_RELATION"
+}

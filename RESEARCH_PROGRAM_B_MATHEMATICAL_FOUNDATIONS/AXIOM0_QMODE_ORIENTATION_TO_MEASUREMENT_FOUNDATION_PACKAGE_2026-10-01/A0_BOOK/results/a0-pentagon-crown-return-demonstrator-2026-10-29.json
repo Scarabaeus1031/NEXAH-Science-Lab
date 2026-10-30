@@ -1,0 +1,108 @@
+{
+  "schema": "NEXAH_A0_PENTAGON_CROWN_RETURN_DEMONSTRATOR_TEST_V3",
+  "date": "2026-10-29",
+  "status": "PASS_WITH_MECHANISM_AND_CALIBRATION_HOLDS",
+  "role": "FLAGSHIP_DEMONSTRATOR_UI_CUT",
+  "identity": {
+    "reused": "ART:A0:MATHEMATICAL_JOINTS",
+    "new_canonical_identity": false,
+    "new_study": false,
+    "new_finding": false,
+    "new_relation": false
+  },
+  "sources": {
+    "crown": {
+      "glb": "downloads/A0_PENTAGON_KNICK_APERTURE_INTAKE_2026-10-25/deliverables/glb/NEXAH_Fuenflaschenkrone_Animiert_2026-10-25.glb",
+      "sha256": "24a33c38eb6e95b110e851ed5fe321f19120bf580248fa09b3a4e5c07b33f754",
+      "declared_structure": "31 nodes / 4 meshes / 5 animation channels"
+    },
+    "heart": {
+      "historical_key": "HTML-0217",
+      "glb": "assets/3d/digital_dodeca_heart_tau200.glb",
+      "sha256": "c6a3406d7a054ec369cd7d462ab2b3704dee6c39181388c380f4a82937fd62fc",
+      "source_html_sha256": "830c4a67a46f787be7863510efd057b39915f6b4ea7eaa82b426a1d774b72e95",
+      "intake": "FAM_002_A0_ORIENTATION_INTAKE_2026-10-28",
+      "declared_structure": "8 nodes / 8 meshes / tau_200_step_pulse"
+    },
+    "hypercube_projection_reference": {
+      "record": "assets/a0-dodeka-joint-6i6-hypercube-reference-2026-10-29.json",
+      "external_url": "https://themathematics.app/app/worlds/hypercube-map-app?v=f41fc8f38ebd",
+      "role": "EXTERNAL_VISUAL_COMPARISON_NOT_EVIDENCE",
+      "historical_6i6_source_presence": ["NCX-0319", "NCX-0320"]
+    },
+    "harmonic_boundary_reference": {
+      "record": "assets/a0-c-pin-ioi-harmonic-reference-2026-10-29.json",
+      "external_url": "https://themathematics.app/app/worlds/harmonic-modes-app?v=f41fc8f38ebd",
+      "role": "EXTERNAL_VISUAL_COMPARISON_NOT_EVIDENCE",
+      "observed_mode": "degree l=1 / order m=0"
+    }
+  },
+  "checks": {
+    "pascal_pairing": [
+      "P1P2 intersect P4P5",
+      "P2P3 intersect tangent(P5)",
+      "P3P4 intersect P5P1"
+    ],
+    "pascal_normalized_collinearity_residual": 2.564e-16,
+    "pascal_collinearity": "PASS",
+    "crown_glb_browser_load": "PASS",
+    "heart_glb_structure": "PASS",
+    "heart_animation_name": "tau_200_step_pulse",
+    "heart_interpolation": "STEP",
+    "heart_step_count": 200,
+    "heart_pulse_count": 10,
+    "heart_high_scale": [1.15, 1.15, 1.15],
+    "heart_final_scale": [1, 1, 1],
+    "c_pin_samples": 101,
+    "c_pin_state_function": "cos(2*pi*k/100)",
+    "c_pin_route": ["INSIDE", "BOUNDARY", "OUTSIDE", "BOUNDARY", "INSIDE"],
+    "c_pin_return": "PASS · k=100 · c=1 · INSIDE",
+    "white_ghost_cross": "PASS · m and n remain separate · X| is relation-only · no state transfer",
+    "seven_stage_ui_sequence": "PASS",
+    "triple_local_return": "PASS",
+    "desk_bindings": ["I-27", "I-46L", "I-46P", "I-46Q", "I-46J"]
+  },
+  "holds": {
+    "trigger_7_1_degree": "UNVERIFIED_HISTORICAL_LABEL",
+    "resonance_8_9_degree": "UNVERIFIED_HISTORICAL_LABEL",
+    "mechanism": "HOLD",
+    "physics": "HOLD",
+    "complex_mandelbrot_julia_adapter": "OPEN_NOT_BUILT"
+  },
+  "verification": {
+    "module_test": "35/35 PASS",
+    "internal_links": "29/29 PASS",
+    "source_graph": "PASS · 332 entities / 32 relations",
+    "navigator_audit": "253/253 PASS"
+  },
+  "canonical_end_to_end_reference": {
+    "status": "CURRENT_CANONICAL_SOURCE_BOUND_REFERENCE_FROZEN",
+    "frozen_on": "2026-10-29",
+    "chain": [
+      "A0_LANTERN_PANEL_V_CONTROL_LENS.html#bench-page-top",
+      "A0_PENTAGON_CROWN_RETURN_DEMONSTRATOR.html#bench-page-top",
+      "A0_PENTAGON_CROWN_RETURN_DEMONSTRATOR.html#returnPlane",
+      "A0_RESEARCH_DESK.html#lantern-panel-v-crown-exact-return-20261029"
+    ],
+    "authority_bindings_retained": ["I-46Q", "I-46R", "I-46S", "I-46S.2", "I-46S.4"],
+    "panel_v_receipt": "a0-lantern-panel-v-control-lens-return-2026-10-29.json",
+    "workbench_return": "../A0_WERKBANK.html#lanternPanelVCrownExactReturn",
+    "nsnavigator_return": "SCIENCE_LAB/NAVIGATION/APP/index.html#a0-orientation-evidence",
+    "new_canonical_identity": false,
+    "new_relation": false,
+    "new_finding": false,
+    "publication_authorized": false
+  },
+  "boundaries": [
+    "The Pascal lens is an adapter, not object identity.",
+    "The Heart GLB is a separate control and view carrier, not identity with the Crown GLB.",
+    "The C-Pin is a deterministic geometric view/control, not a physical cylinder mechanism.",
+    "The White Ghost Cross X| is a perforated relation projection; m and n remain separate and no state is transferred.",
+    "The l=1, m=0 harmonic is an external axial-boundary comparison, not identity with the Crown or C-Pin.",
+    "Mandelbrot and Julia remain separate existing views; no complex adapter is implemented here.",
+    "Animation is not physical or mechanical validation.",
+    "Local UI return is not a state or mechanism proof.",
+    "I / l / II is a form association, not a measurement.",
+    "Science Desk retains classification authority."
+  ]
+}

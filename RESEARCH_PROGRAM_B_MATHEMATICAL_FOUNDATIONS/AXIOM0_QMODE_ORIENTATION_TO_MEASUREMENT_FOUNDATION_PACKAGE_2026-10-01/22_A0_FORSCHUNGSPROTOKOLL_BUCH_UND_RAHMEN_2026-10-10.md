@@ -2419,3 +2419,34 @@ und [Machine Return](A0_BOOK/results/a0-look-again-perception-game-return-2026-1
 Status: `ENGINEERING_EXPERIENCE / SOURCE_BOUND / LOCAL_RECORD_ONLY /
 NO_NEW_F_A0 / NO_STUDY / NO_DIAGNOSIS / NO_PUBLICATION`.
 
+## Spin to Bloom · bounded measurement return · 29 October 2026
+
+The Book and Mathfield reuse the existing `ART:A0:MATHEMATICAL_JOINTS`
+identity for one deterministic view transform:
+
+```text
+u(t)=sin(at)
+v(t)=sin(bt+δ)
+r(t)=1+g·u(t)·v(t)
+B(t)=(r(t)cos t,r(t)sin t)
+```
+
+The implementation counts periodic sampled radial maxima, binds the adjacent
+minima as local `Y:Z = GRIP:DIVOT` flank events and exports a complete receipt.
+For the declared `5:6` case the result is 11 tips, 11 events, 121 address slots
+and numerical closure below `10⁻¹²`. A finite five-row control matrix also
+passes. These are engineering measurements of the declared synthetic curve,
+not an admitted proof of a universal law.
+
+Return route:
+
+- instrument → `A0_BOOK/A0_SPIN_TO_BLOOM_MEASUREMENT.html`;
+- machine receipt → `A0_BOOK/results/a0-spin-to-bloom-measurement-return-2026-10-29.json`;
+- Mathfield → `A0_BOOK/A0_MATHEMATICAL_JOINTS.html#spin-to-bloom-measurement-return`;
+- Science Desk → `A0_BOOK/A0_RESEARCH_DESK.html#spin-to-bloom-measurement-return-20261029`;
+- Findings/Papers → `32_A0_FINDINGS_AND_PAPER_WORKSPACE_2026-10-11.md#spin-to-bloom-measurement-return-20261029`.
+
+Boundary: Rootroom/Codon, Torus, Möbius, biological and physical-resonance
+readings remain `CANDIDATE/HOLD`. No new identity, relation, Study, F‑A0
+Finding, paper state or publication authorization.
+

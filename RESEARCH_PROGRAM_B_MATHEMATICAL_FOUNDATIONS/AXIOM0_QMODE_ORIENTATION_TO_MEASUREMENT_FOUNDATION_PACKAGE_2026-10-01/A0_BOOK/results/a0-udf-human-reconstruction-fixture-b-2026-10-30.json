@@ -1,0 +1,67 @@
+{
+  "claim_boundary": "Experimental source-bound serialization profile for one typed orientation Return. It is not a universal UDF schema, product capability, shared mechanism, GLB mutation, Study, Finding promotion or publication.",
+  "comparators": {
+    "exit": {
+      "angle_degrees": 45,
+      "label": "RE · EXIT",
+      "role": "V12_FIXED_EXIT_COMPARATOR"
+    },
+    "return": {
+      "angle_degrees": 360,
+      "label": "DO′ · RETURN",
+      "role": "V12_FIXED_RETURN_COMPARATOR"
+    }
+  },
+  "frame": {
+    "clock": "breath.phase",
+    "direction": "CW",
+    "horizontal_axis": {
+      "node": "BAND_0.429",
+      "role": "PAIR_X"
+    },
+    "horizontal_crossings": 2,
+    "horizontal_relation": "BELOW_H",
+    "pair": "ab",
+    "pin": {
+      "role": "FIXED_RELATION_ORIGIN",
+      "x": 0,
+      "y": 0
+    },
+    "quadrant": "IV",
+    "radius": 1.118033988749895,
+    "theta_degrees": 333.4349488229221,
+    "vertical_axis": {
+      "node": "BAND_0.456",
+      "role": "PAIR_Y"
+    },
+    "vertical_crossings": 2,
+    "vertical_relation": "RIGHT_OF_V",
+    "winding": -1
+  },
+  "identity_reuse": [
+    "NEXAH:INSTRUMENT:BREATHING_PRIME_CRYSTAL:V1",
+    "NEXAH_A0_ORIENTATION_CONTROLLER_BENCH",
+    "ART:A0:MATHEMATICAL_JOINTS",
+    "MOD:TESSAREC"
+  ],
+  "new_canonical_ids": [],
+  "profile_state": "EXPERIMENTAL_NOT_FROZEN",
+  "relation_changes": [],
+  "return": {
+    "anchor": "A0_ORIENTATION_CONTROLLER_BENCH.html#breathingCrystalMeasurementDeck",
+    "source_mutation": false,
+    "target": "CRYSTAL_ORIENTATION_LEDGER"
+  },
+  "schema": "nexah.udf.orientation-return/0.1.0-experimental",
+  "source": {
+    "contract": "nexah.a0.breathing-crystal-orientation-ledger/1.0.0",
+    "identity": "NEXAH:INSTRUMENT:BREATHING_PRIME_CRYSTAL:V1",
+    "path": "a0-breathing-crystal-bench.js",
+    "sha256": "0117bba1c6857e2eea7dce0f90336988a85c78d02a946cc0371b926d5e9ed57e"
+  },
+  "target": {
+    "contract": "a0.v12-xy-graph-translator/1.0.0",
+    "identity": "MOD:TESSAREC",
+    "view": "V12_XY_GRAPH_TRANSLATOR"
+  }
+}

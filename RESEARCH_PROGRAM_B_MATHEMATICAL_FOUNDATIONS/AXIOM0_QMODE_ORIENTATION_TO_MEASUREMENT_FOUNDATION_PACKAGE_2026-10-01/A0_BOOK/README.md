@@ -8,7 +8,25 @@ Milestone: `A0_READER_PROOF_2026-10-09`
 
 Integration freeze: `A0_INTEGRATION_FREEZE_CHECK58_2026-10-13`
 
+Canonical site freeze: `A0_CANONICAL_SITE_FREEZE_2026-10-29`
+
 This directory contains a standalone guided-reading surface for the Axiom-0 / Q-Mode foundation package. It is deliberately separate from the frozen Science Navigator runtime.
+
+## Canonical A0 site · 29 October 2026
+
+`A0_BOOK/index.html` is the one canonical A0 site entry. The complete
+`A0_BOOK/` directory is its only source authority. Science, Builder, Workbench,
+books, instruments, registers and Desks are rooms inside this A0 site; they are
+not separate A0 editions.
+
+The short `../A0/` path is a redirect-only alias to `A0_BOOK/index.html#top`.
+Mission Control `OWNER_READ_PORTAL/{staging,release}` files are generated
+read-only projections without an A0 entry page. NEXAHEDRON, nexah.de and
+Scarabæus 1033 are public projections or websites, not alternate A0 sources.
+Historical deployment snapshots remain non-authoritative in their existing
+backup/archive locations. The classification and exact freeze boundary are
+recorded in [the canonical-site freeze](A0_CANONICAL_SITE_FREEZE_2026-10-29.md)
+and [archive index](ARCHIVE/README.md).
 
 The 9 October 2026 local reader proof is the first complete eight-chapter book
 cut. It combines established mathematics, bounded NEXAH records, Human View
@@ -19,7 +37,8 @@ remain separate Owner decisions.
 ## Entry
 
 - [A0 ASSET INDEX](A0_ASSET_INDEX.html) — searchable internal workspace inventory with visual HTML previews and direct routes to source assets
-- [A0 Science Desk](A0_RESEARCH_DESK.html) — primary A0 entry
+- [A0 Site](index.html#top) — one canonical A0 entry
+- [A0 Science Desk](A0_RESEARCH_DESK.html) — scientific status and coordination room inside A0
 - [A0 Scientific Position](A0_SCIENTIFIC_POSITION_REPORT.html) — Assessment vom 13. Oktober mit Currentness Addendum vom 16. Oktober
 - [Aperture Journey](A0_NEXAH_APERTURE_JOURNEY.html) — primärer geführter Human-Lesepfad
 - [Living Blueprint](A0_LIVING_BLUEPRINT.html) — ruhige Human-/Systemkarte

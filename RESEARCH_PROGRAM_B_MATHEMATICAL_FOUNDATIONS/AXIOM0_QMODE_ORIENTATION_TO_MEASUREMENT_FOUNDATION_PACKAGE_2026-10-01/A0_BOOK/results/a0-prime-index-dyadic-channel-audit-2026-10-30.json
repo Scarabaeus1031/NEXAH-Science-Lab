@@ -1,0 +1,49 @@
+{
+  "schema": "a0.prime-index-dyadic-channel-audit.v1",
+  "date": "2026-10-30",
+  "status": "PASS_BOUNDED_TYPED_ARITHMETIC_AUDIT_NO_GENERAL_LAW",
+  "range": {
+    "oneBasedPrimeIndices": [1, 2048],
+    "unorderedPairs": 2098176
+  },
+  "primary": {
+    "indices": [2, 3],
+    "indexEquation": "2+3=5",
+    "valueChannel": "p_2+p_3=3+5=8=2^3",
+    "indexCoil": "p_(2+3)=p_5=11",
+    "residualReturn": "11-8=3=p_2"
+  },
+  "controls": {
+    "dyadicHits": 386,
+    "dyadicHitsByExponent": {
+      "2": 1,
+      "3": 1,
+      "4": 2,
+      "5": 2,
+      "6": 5,
+      "7": 3,
+      "8": 8,
+      "9": 11,
+      "10": 22,
+      "11": 25,
+      "12": 53,
+      "13": 76,
+      "14": 151,
+      "15": 26
+    },
+    "sameLeftResidualHits": 2,
+    "sameRightResidualHits": 0,
+    "primeResidualHits": 91,
+    "nonUniqueWitness": "p_2+p_6=3+13=16=2^4; p_8=19; 19-16=3=p_2"
+  },
+  "archaeology": {
+    "mod6": "The existing 6k±1 record classifies prime-value occupancy above 3; it does not induce this index/value residual.",
+    "sixSevenLadder": "The existing s=6 affine doubling ladder produces 6,7,13,25,49,97 and is a separate operator family.",
+    "dyadic97_101": "The existing (97,101)×2^k lift is exact dyadic scaling, not prime-index addition.",
+    "mathfield": "Use a typed joint: index addition, prime lookup, value addition and residual return stay separate.",
+    "numbermagick": "Use as a comparator beside Pascal row sums 2^n; equal powers do not identify the generating operators.",
+    "papers": "Engineering observation only; no F-A0 finding or manuscript claim is promoted."
+  },
+  "application": "A teaching and audit lens for detecting namespace shifts among index, prime value, dyadic address and residual return; also a negative control against coincidence-driven identity claims.",
+  "claimCeiling": "No prime generator, recurrence, 6k law, musical law, physical channel, Study, Finding, new identity, relation or publication state."
+}

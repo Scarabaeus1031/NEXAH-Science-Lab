@@ -1079,3 +1079,638 @@ Sources: [Science Desk](A0_BOOK/A0_RESEARCH_DESK.html#view-overlay-club-return-2
 [Builder Log](A0_BOOK/A0_BUILDER_LOG.html#view-overlay-club-return-20261026),
 [Control Room](A0_BOOK/A0_BLUE_PINK_DODECA_CELL_RETURN.html?rev=20261026-view-overlay-club-r4#coupledChannelBoundaryLens),
 and [machine return](A0_BOOK/results/a0-view-overlay-club-return-2026-10-26.json).
+
+## Spectral Shadow Return Machine — 28. Oktober 2026
+<a id="spectral-shadow-return-machine-20261028"></a>
+
+Status: `DEMONSTRATOR / EXISTING TOP_BOUNDARY_01 RESULT PROJECTION / NOT A NEW F-A0 FINDING`
+
+Die Orientation Controller Bench führt jetzt Ringannäherung und Rückkehr,
+0…90°-Achsenkipper, ein diskretes RGB-Schattenmodell und umgekehrte
+Rechts-nach-links-Lesefolge gemeinsam aus. Das Modell bewahrt Quelle, Auswahl,
+Richtung und Return-Status. Seine Farbtabelle ist exakt im deklarierten
+Drei-Kanal-Rahmen: fehlendes R ergibt Cyan, fehlendes G Magenta, fehlendes B
+Gelb; nur offenes R ergibt das rote Residuum.
+
+Das ist ein nützliches ausführbares Beispiel für die vorhandene
+`State → Move → Cut → View → Return`-Grammatik und eine Projektion des bereits
+synthetisch validierten `TOP_BOUNDARY_01`-Kontexts. Es ist keine volle
+Spektralintegration, kein physischer Optiklauf und kein Mechanismusnachweis.
+Insbesondere bleibt Nautilus nach NLO‑01 historische visuelle Morphologie ohne
+formalen Operator. Die gepaarten Kopfmarker sind Detektoransichten, keine
+Kopfmechanik.
+
+- Bench: `A0_BOOK/A0_ORIENTATION_CONTROLLER_BENCH.html#spectralShadowReturnMachine`
+- Mathfield: `A0_BOOK/A0_MATHEMATICAL_JOINTS.html#spectral-shadow-return-crosswalk`
+- Science Desk: `A0_BOOK/A0_RESEARCH_DESK.html#spectral-shadow-return-machine-20261028`
+- Receipt: `A0_BOOK/results/a0-spectral-shadow-return-machine-2026-10-28.json`
+- Tests: `A0_BOOK/a0-spectral-shadow-return-machine-tests.cjs`
+
+Disposition: keine neue F-A0-Nummer, keine Study-Aktivierung, keine neue
+Navigator-ID oder Relation und keine Publikationsfreigabe. Ein späterer
+wissenschaftlicher Schritt müsste entweder das bestehende physische
+`TOP_BOUNDARY_01`-Gate ausführen oder einen separat zugelassenen
+Verständnisvergleich preregistrieren.
+
+## CON–DAO / T-Gegenkipper / Zeta-Koordinatenreturn — 28. Oktober 2026
+<a id="con-dao-zeta-coordinate-sequence-return-20261028"></a>
+
+Status: `ENGINEERING VIEW RETURN / EXACT COORDINATE LENS / NOT A NEW F-A0 FINDING`
+
+Die Spectral Shadow Return Machine verwendet nun den bestehenden
+`NEXAH:CON_DAO_BREATH:V1`-Träger read-only. Die Sequenz besitzt 13 eindeutige
+Zustände und 14 Anzeige-Ticks wegen des zweifachen STILL-Dwell. T und
+Gegenkipper, Fächer/Horizont, vertikaler White-Scan, Schleier und der
+Blacklight-Wechsel am +1-Knoten sind ausdrücklich deklarierte Projektionen.
+Sie ergänzen keine Quellphysik und keine zweite numerische Uhr. Nach STILL
+kehrt die Anzeige in die gewählte RGB-Residualansicht zurück.
+
+Die mathematische Seitenlinse ist dagegen exakt. Für `s=σ+it` und
+
+`w=i(s−1/2)=−t+i(σ−1/2)`
+
+gilt `Re(w)=−t` und `Im(w)=σ−1/2`. Damit wird die kritische Gerade
+`σ=1/2` zur horizontalen Achse `Im(w)=0`. Ebenfalls gilt
+`Re(is)=−t`. Die zwölf sichtbaren Punkte sind nur eine symbolische Wiedergabe
+der gelieferten Plotmarker, keine neue Nullstellenberechnung. `Re(io)s`
+bleibt ohne Owner-Definition ungebundene Notation.
+
+Diese Koordinatendrehung ist kein Beweis der Riemannschen Vermutung, kein
+Nullstellenfreiheitsbeweis und keine physische Verbindung zwischen Zeta,
+NEXAH-Naht, CON–DAO, Farbschatten oder Schlieren. RIS bleibt wiedergefundenes
+Vokabular ohne wiedergewonnene Funktions- oder Kompositionsordnung.
+
+- Bench: `A0_BOOK/A0_ORIENTATION_CONTROLLER_BENCH.html#spectralShadowReturnMachine`
+- Science Desk: `A0_BOOK/A0_RESEARCH_DESK.html#con-dao-zeta-coordinate-sequence-return-20261028`
+- Receipt: `A0_BOOK/results/a0-spectral-shadow-return-machine-2026-10-28.json`
+- Tests: `A0_BOOK/a0-spectral-shadow-return-machine-tests.cjs` — `24/24 PASS`
+
+Disposition: keine neue F-A0-Nummer, keine Study-Aktivierung, keine neue
+Navigator-ID oder Relation und keine Publikationsfreigabe.
+
+## VM-Winkelansicht — 28. Oktober 2026
+<a id="vm-angle-key-return-20261028"></a>
+
+Status: `ENGINEERING VIEW RETURN / SOURCE-BOUND ANGLES / NOT A NEW F-A0 FINDING`
+
+Die D°G-Ansicht besitzt jetzt einen expliziten vertikalen Spiegeloperator
+`VM(θ)=(180°−θ) mod 360°`. Er ist involutiv und liefert aus den gelieferten
+Winkellabels drei vollständig belegte Fälle: `β 47,5° ↔ δ 132,5°`,
+`ι 50° ↔ Phantom 130°` sowie den Fixpunkt `α 90°`. `γ 82° → 98°`,
+`φ 137,5° → 42,5°`, `1/α 137,036° → 42,964°` und `θ 45° → 135°`
+sind berechnete Gegenwinkel; ohne belegte Zielmarke werden sie nicht als neue
+Angel-Key-Beziehungen ausgegeben.
+
+Die Sehne zwischen Quellray und VM-Ray trägt 13 parametrisierte Knoten, vier
+markierte Piercings und den Center Pin `7/13`. Das visualisiert den bereits
+deklarierten View-Registerwert `13×4=52`; es rekonstruiert keinen historischen
+Zipper- oder Gamma-Prisma-Operator.
+
+Das Zahlenregister ist absichtlich typisiert:
+
+- `52=4·13` und `rev₁₀(52)=25` sind exakte lokale Arithmetik;
+- `2501=41·61` gehört zum bestehenden MOD2501-Resultat;
+- `252 · Gamma-Prisma` bleibt ein Visual-Label;
+- `25‑01‑52` bleibt eine Ziffern-/Adressfolge;
+- daher gilt ausdrücklich `252 ≠ 2501 ≠ 52`.
+
+- Bench: `A0_BOOK/A0_ORIENTATION_CONTROLLER_BENCH.html#aeDgAngleKey`
+- Science Desk: `A0_BOOK/A0_RESEARCH_DESK.html#vm-angle-key-return-20261028`
+- Tests: `A0_BOOK/a0-dg-sampling-loop-tests.cjs` — `100/100 PASS`
+- MOD2501: `A0_BOOK/82_A0_MOD2501_CRT_TWO_CHANNEL_OPERATOR_RESULT_2026-10-13.md`
+
+Disposition: keine neue F-A0-Nummer, keine Study-Aktivierung, keine neue
+Navigator-ID oder Relation und keine Publikationsfreigabe.
+
+## Vier-Grid-Orientierungsvergleich — 28. Oktober 2026
+<a id="four-grid-orientation-return-20261028"></a>
+
+Status: `ENGINEERING VIEW RETURN / TYPED CROSSWALK / NOT A NEW F-A0 FINDING`
+
+Die Orientation Controller Bench zeigt 5B-Klappe, TESA-4×7-Raster,
+Root7-Buch und Atlas-Tessarec unter einem gemeinsamen Cursor `u=Z/28`.
+Die entscheidende Aussage ist eine kontrollierte Nicht-Gleichheit: 5B besitzt
+29 Posen, TESA 28 Innenadressen, das Buch eine feste Naht und Tessarec 16/48
+Quellzustände. Z=0 macht die Differenz sichtbar; Z=28 zeigt vier verschieden
+typisierte Endzustände statt eines gemeinsamen Returns.
+
+Die Mappings `round(15u)`, `round(47u)` und `β=180u` sind deklarierte
+Bildschirmadapter. Sie ändern keine Quelle, Uhr, Adresse oder kanonische Zahl.
+Der Vergleich liefert daher kein neues formales Objekt und keinen Paper-Claim,
+aber einen brauchbaren Falsifikationsschutz gegen 28=29-, Adress=Pose- und
+flach=Return-Verwechslungen.
+
+- Bench: `A0_BOOK/A0_ORIENTATION_CONTROLLER_BENCH.html#fourGridOrientation`
+- Science Desk: `A0_BOOK/A0_RESEARCH_DESK.html#four-grid-orientation-return-20261028`
+- Receipt: `A0_BOOK/results/a0-four-grid-orientation-return-2026-10-28.json`
+- Rhythm-Layer: cyanfarbene Phase, rote Vierer-Treppe, Pin-Dot, komplexer
+  Halbkreis und weiße Elevator-Achse teilen nur den Displaycursor. Exakt gilt
+  `52=13·2²` und im bestehenden Four-Rung-Check `23+29=52`; die
+  90°/„52“-Lesart bleibt davon getrennte Glyphenmnemonik.
+- Tests: `A0_BOOK/a0-four-grid-orientation-tests.cjs` — `302/302 PASS`
+- D°G-Anschluss: `φ_PHASE=360·k/N` führt ausschließlich den Sampleorbit;
+  `γ_CUT=atan2(y_Y−O_y,x_Y−O_x)` führt ausschließlich den Darstellungswinkel
+  Zentrum→Gelb. Die Falllinie projiziert Gelb auf den grünen Cut-Punkt der
+  13-Knoten-Sehne; vier gewählte Piercings geben `13×4=52` Displayadressen,
+  während der Final Pin Knoten `7/13` bleibt. Das ist keine Identifikation mit
+  Goldener Zahl, Totient, Lorentzfaktor, Kraft oder Feld. D°G-Suite:
+  `A0_BOOK/a0-dg-sampling-loop-tests.cjs` — `81/81 PASS`.
+
+Disposition: keine neue F-A0-Nummer, keine Study-Aktivierung, keine neue
+Navigator-ID oder Relation und keine Publikationsfreigabe.
+<a id="arcade-tesa-strip-return-20261028"></a>
+
+## Arcade–TESA-Strip — 28. Oktober 2026
+
+**Status:** source-bound Engineering-Return; kein neues Finding.
+
+Die gelieferte CRT-Ansicht markiert exakt sieben Cyan-Stones in der Reihenfolge `31, 25, 13 | 23, 11, 5, 41`. Ihre Adressen `(n mod 6, n mod 7)` sind `(1,3), (1,4), (1,6) | (5,2), (5,4), (5,5), (5,6)`. Der zusätzlich blau markierte Wert `1` wird als separater Anker geführt, nicht als achter Stone.
+
+Die belastbare Verbindung zu `1033` und `3301` ist rein arithmetisch und vollständig prüfbar:
+
+- `rev₁₀(1033)=3301`; beide Zahlen sind prim.
+- `1033 mod 42 = 3301 mod 42 = 25`; deshalb ist Stone 25 ihr gemeinsamer 6×7-CRT-Rest.
+- `3301−1033=2268=54·42`.
+- `1033 mod 9 = 3301 mod 9 = 7`; zugleich ist die Ziffernsumme beider Zahlen 7.
+
+Damit lässt sich die sichtbare **7** als gemeinsames Rest-/Ziffernregister erklären. Das validiert nicht die provisorische EXP‑45B-Spine `1033↔3301→7→2401→1729`; für diese wurde weiterhin kein kanonischer Generator oder Übergangsoperator gefunden. Ebenso gilt als Parse-Grenze: `33+0i=33`, nicht `3301`; `100×100` bleibt eine Rasteransicht.
+
+Das Bench-Modul stellt die sieben Stones als read-only TESA-Strip dar. Stone 25 aktiviert eine lokale Display-Door. Die bestehende Pink-Facelet‑2-Trapdoor wird nur als getrenntes Crosswalk-Ziel verlinkt: keine Zustandsübertragung, keine gemeinsame Trapdoor-Identität, keine Arcade-Mutation.
+
+**Prüfung:** `22/22` Modulchecks PASS; Browseransicht PASS. Bestehende A0-Bench-Identität wiederverwendet; keine neue Relation, Study oder F‑A0-Nummer.
+<a id="inline-arcade-mouse-cut-return-20261028"></a>
+
+## Inline Arcade und Mouse/Cut-Scanner — 28. Oktober 2026
+
+**Status:** Usability- und Darstellungsreturn; kein neues Finding.
+
+Die Arcade-Quelle wird nicht mehr in einem separaten Fenster geöffnet. `ARCADE HIER EINBLENDEN` lädt die bestehende Three-Domains-Quelle innerhalb des Paper-Boat/Arcade-Moduls; `SCHLIESSEN` beziehungsweise `ARCADE AUSBLENDEN` hält den Leser im selben Bench-Kontext. Source-Transport und Capture-Regel bleiben unverändert read-only.
+
+Der vorhandene 17er-Mouse/Cut-Scanner besitzt jetzt eine explizite Leseschicht:
+
+- vier feste Pins `q03, q08, q14, q17` markieren die Enden der vier belegten Screen-Read-Läufe;
+- drei Sehnen `(3,8), (8,14), (14,17)` verbinden diese Pins in Rasterreihenfolge;
+- eine weiße Cut-Linie folgt dem beweglichen Lesepunkt und dem Modus `0° / 45° / 90° / TILTED`.
+
+Pins und Sehnen sind Displayadressen und Leselinien, keine Materialverbindungen. Die Mouse erzeugt keine Samples; der Cut verändert den Carrier nicht. Gaps bleiben `HOLD`.
+
+**Prüfung:** Paper-Boat/Inline-Arcade `97/97` PASS; Mouse/Cut `144/144` PASS; beide Browseransichten PASS. Bestehende Bench-Identität wiederverwendet; keine neue Relation, Study, Operator- oder F‑A0-Nummer.
+
+<a id="pulse-grammar-clp-shared-desk-return-20261028"></a>
+
+## Pulse Grammar / CLP — Shared-Bench Science Return — 28. Oktober 2026
+
+**Status:** `SCIENCE FINDING NOTES / ENGINEERING-VERIFIED / NOT A NEW F-A0 FINDING`
+
+Die Orientation Controller Bench ist eine gemeinsame Arbeitsfläche mit getrennten Zuständigkeiten. Builder implementiert, bedient und testet. Science Desk klassifiziert Evidenz, Findings, negative Befunde und Claim-Grenzen. Aus der technischen Bench entsteht keine automatische wissenschaftliche Autorität.
+
+### Begrenzte Findings
+
+1. **Read-only Aktivierung:** Ein gültiger eingefrorener Drei-Domain-Record kann den vollständigen lokalen `AU → NA → HE → TI`-Loop starten, ohne Chemistry, Life oder Physics umzubenennen oder ihre Quellrecords zu verändern.
+2. **Projektion ist nicht Zustand:** Die sichtbare `5:6 / C30`-Lissajous-Kurve ist verlustbehaftet; der exakte Phasenzustand benötigt die CRT-Signatur `(p mod 6, p mod 5)`.
+3. **Orientierter Return:** Für die deklarierte Drei-Spur-Ansicht gilt nach einem Umlauf `A↔B, M→M`; erst zwei Umläufe beziehungsweise `4π` schließen den orientierten Return.
+4. **Negativbefund:** Gemeinsamer Cursor, graue Pipes und synchrone Displayphasen belegen weder gemeinsame Domaindynamik noch biologische Atmung, intrinsische Pascal-Topologie, physikalische Kopplung oder einen neuen Generator.
+
+### Offene Science-Frage
+
+Verbessert die gekoppelte CLP-Mehransicht gegenüber einer Einzelansicht die Rekonstruktionsgenauigkeit, Bearbeitungszeit, Transferleistung oder sichere Trennung von Zustand und Darstellung? Vor einem Test braucht es Zulassung, Teilnehmende, Aufgabe, Baseline, Metriken, Fehlerkriterium und Präregistrationsvertrag.
+
+**Research-cycle return — 28. Oktober 2026:** Die Frage ist als `A0-BL-056` im Lab Register geführt. Der interne deterministische C30-Preflight ist abgeschlossen; der aktuelle Zustand lautet `INTERNAL_PRE_REVIEW_COMPLETE / NOT ACTIVE / NOT A SCIENCE RESULT`. Run Contract, Receipt-Schema, Kandidaten-Fingerprints, Claim Ceiling, STOP-Bedingungen und technischer Receipt liegen vor. Offen bleiben der unabhängige Review unter `SC-003 / SCC-003`, ein semantischer Receipt-Verifier, die Reviewer-Disposition zur CRT-Grenze sowie eine separate Human-Owner-Freeze- und Aktivierungsentscheidung.
+
+### Interner Pre-Review-Closeout
+
+- `16/16` deterministische Modultests bestanden;
+- `60` Bedingungsbeobachtungen vollständig bilanziert;
+- `SINGLE_VIEW`: `10 EXACT`, `20 AMBIGUOUS`, `0 WRONG`;
+- `CLP_MULTI_VIEW`: `30 EXACT`, `0 AMBIGUOUS`, `0 WRONG`;
+- Negativkontrollen: `5/5` bestanden;
+- `PRIMARY` und `REPLAY` bleiben technisch blockiert.
+
+**Interpretationsgrenze:** Der exakte CLP-Return folgt für das deklarierte endliche Objekt erwartbar aus der koprimen `5 × 6`-Adresskonstruktion. Der Preflight prüft Implementation, Informationstrennung und Return-Bilanzierung. Er entdeckt weder den Chinesischen Restsatz neu noch validiert er die CLP-/Pascal-Metapher, einen Nutzervorteil, eine physikalische Kopplung oder einen öffentlichen Science-Claim.
+
+**Reviewer-Raum:** `REVIEW_PRIVATE / BACKLOG_ONLY / NOT BUILT / NOT PUBLIC`. Er darf erst nach einer Owner-Markierung als review-ready vorbereitet werden und erzeugt keine automatische Science-Projektion.
+
+- Closeout: [`INTERNAL_PRE_REVIEW_CLOSEOUT.md`](../../SCIENCE_LAB/CASE_STUDIES/A0_BL_056_CLP_MULTIVIEW_RETURN_2026-10-28/INTERNAL_PRE_REVIEW_CLOSEOUT.md)
+- Technischer Receipt: [`TECHNICAL_TEST_RECEIPT.md`](../../SCIENCE_LAB/CASE_STUDIES/A0_BL_056_CLP_MULTIVIEW_RETURN_2026-10-28/TECHNICAL_TEST_RECEIPT.md)
+
+**Disposition:** `INTERNAL_PRE_REVIEW_COMPLETE / 0 ACTIVE / PROCEED TO INDEPENDENT REVIEW + SEMANTIC VERIFIER / NO NEW F-A0 / NO CLAIM PROMOTION / NO PUBLICATION`. Der Eintrag bewahrt klassifizierte Finding Notes, technische Evidenz und die begrenzte nächste Frage; er aktiviert weder einen Run noch eine neue Intake-Linie.
+
+<a id="clp-guided-return-test-design-20261028"></a>
+
+## CLP Guided Return — Protokollprobe — 28. Oktober 2026
+
+**Status:** `METHOD DESIGN / PROTOCOL REHEARSAL / NOT A SCIENCE RUN`
+
+Die offene Frage aus dem CLP-Return ist nun als kleinste bedienbare Vergleichsaufgabe formuliert: `SOURCE → CUT → VIEW → RETURN`. Die Single-View-Bedingung zeigt nur eine kollidierende `5:6 / C30`-Projektion; `AMBIGUOUS / VIEW_ONLY` ist dort eine korrekte epistemische Antwort. Die CLP-Bedingung ergänzt die CRT-Signatur `(p mod 6,p mod 5)` und macht damit genau eine C30-Phase rekonstruierbar.
+
+Die Probe führt Rekonstruktionskorrektheit, lokale Bearbeitungszeit, Zustands-/Ansichtsklassifikation und Konfidenz ausschließlich flüchtig. Sie speichert nichts und erhebt keine Teilnehmendendaten. Ein späterer Mehransichts-Claim wäre zu stoppen, wenn exakte Rekonstruktion nicht besser wird, die präregistrierte Zeitschwelle überschritten wird oder Zustands-/Ansichtsverwechslung zunimmt.
+
+Vor jeder Studie bleiben offen: Teilnehmendendefinition, Counterbalancing, Zeitschwelle, Stichprobe, Ausschlussregeln, Analyseplan, Ethik/Consent, Präregistrierung und Owner-Admission.
+
+**Disposition:** bestehende Bench-Identität und bestehende Source wiederverwendet; keine neue F‑A0-Nummer, Relation, Study-Aktivierung, Evidenzpromotion oder Publikationsfreigabe.
+
+- Bench: `A0_BOOK/A0_ORIENTATION_CONTROLLER_BENCH.html#clpGuidedReturnTest`
+- Design Receipt: `A0_BOOK/results/a0-clp-guided-return-test-design-2026-10-28.json`
+- Modulprüfung: `A0_BOOK/a0-clp-guided-return-test-tests.cjs` — `95/95 PASS`
+
+<a id="fam002-thread-reconciliation-return-20261028"></a>
+
+## FAM-002 Thread Reconciliation / Bench Return — 28. Oktober 2026
+
+**Status:** `DOCUMENTARY SCIENCE RETURN / HOLD / NOT A NEW F-A0 FINDING`
+
+Der Darstellungen-/Verständnis-/Return-Faden, die Protokoll-Page, RAUM, Zeta,
+Splinter, die kuratierten historischen HTML-Familien und die aktuelle A0 Bench
+sind als ein begehbarer, source-bound Arbeitszusammenhang rückgebunden. Der
+primäre Einstieg ist der `FAM_002_HTML_LATEST_INSTRUMENTS_2026-10-28.html`;
+der vollständige Bewertungsreturn liegt in
+`FAM_002_THREAD_RECONCILIATION_AND_BENCH_RETURN_2026-10-28.md`.
+
+Die derzeit belastbare Aussage ist methodisch: Darstellungen können Zustand
+verlieren; gleiche Displayposition ist weder gleiche Adresse noch gleiche
+Quelle; ein Return benötigt Quelle, View-Operator, Adresse und Witness.
+Aktuelle Bench-Module besitzen Engineering-Checks und negative Befunde. Die
+historischen HTMLs bleiben ausführbare Bauskizzen, und Form-, Farb- oder
+Zahlähnlichkeit belegt keinen gemeinsamen Mechanismus.
+
+**Bewertung:** hoher dokumentarischer und instrumenteller Wert, gute
+Engineering-Reife der aktuellen Bench-Module, aber noch keine ausreichende
+Evidenz für eine wissenschaftliche Claim-Promotion. Offen bleiben Page-Delta,
+Browser-/Asset-Abnahme, GLB-Generatorbindung, die D/A/S/R_W-Gap/Joint-Matrix
+und ein gegebenenfalls zugelassenes CLP-Vergleichsprotokoll.
+
+**Disposition:** `INTAKE SECURED / BENCH LINKED / FINDING NOTES PRESERVED /
+STRUCTURE FREEZE / NO NEW ID / NO NEW RELATION / NO STUDY / NO CLAIM PROMOTION
+/ NO PUBLICATION`.
+
+<a id="crown-tumble-axis-return-20261029"></a>
+
+## Rotated Hourglass / Crown–Tumble Axis — Findings-Triage — 29. Oktober 2026
+
+**Status:** `IMPLEMENTATION FINDINGS / BOUNDED GEOMETRY PROJECTION / NOT A NEW F-A0 FINDING`
+
+Die A0 Workbench trägt jetzt eine code-native Rekonstruktion der gedrehten
+Sanduhr und der fünfstrahligen Crown–Tumble-Achsenkarte. Die Rekonstruktion
+verwendet die bereits vorhandene A0-Orientation-Controller-Bench und
+Mathematical-Joints-Identität. Die im Arbeitsgespräch beigefügten Bilder sind
+visuelle Ausgangshinweise und Arbeitskontext, keine Messdaten oder autonome
+Evidenzquelle.
+
+### Implementation findings
+
+1. Eine starre Vierteldrehung `R₉₀(x,y)=(-y,x)` erhält Abstand und Pivot; vier
+   Vierteldrehungen ergeben exakt den Ausgangszustand.
+2. `PC=CR/TL` ist als dimensionsloser Darstellungskoeffizient implementiert.
+   Er unterscheidet tall, balanced und wide, bestimmt aber keine Bewegung und
+   keine Pivot-Koordinate.
+3. Die Achsenadressen `2, 7, 17, 19, 23` bleiben fünf deklarierte Labels. Die
+   Workbench erzeugt daraus keine Primzahl-, Resonanz- oder Physikrelation.
+4. `3²=9` und `2⁵=32` sind exakte arithmetische Kontrollen; sie binden weder
+   `Z9` noch `V[22]`, `22×22`, `√2×√3` oder einen Zellkörper automatisch an
+   diesen Demonstrator.
+5. Die statische Karte kann eine Fall-/Taumelfrage motivieren, belegt aber
+   keine zeitliche Bewegung. Das Ergebnis lautet deshalb `MOTION HOLD`.
+
+### Science boundary
+
+`THC` bleibt eine ungebundene Owner-Mnemonik. Eine wissenschaftliche
+Bewegungsfrage bräuchte mindestens Zeitvariable, Phasenfolge, Kamera- und
+Koordinatenvertrag, Messgröße, Baseline, Nullbewegungs-Kontrolle und
+Fehlkriterium. Diese Bedingungen sind nicht zugelassen und nicht ausgeführt.
+
+**No F-A0 finding:** Die bestandenen Checks sind Engineering- und
+Darstellungsbefunde. Es entstehen keine neue Finding-Nummer, Study, Family,
+Navigator-Identität, Graphrelation, Paper-Claim-Änderung oder
+Publikationsfreigabe.
+
+- Workbench: `A0_BOOK/A0_WERKBANK.html#crownTumbleAxis`
+- Science Desk: `A0_BOOK/A0_RESEARCH_DESK.html#crown-tumble-axis-return-20261029`
+- Machine Return: `A0_BOOK/results/a0-crown-tumble-axis-return-2026-10-29.json`
+
+<a id="lantern-heart-color-bridge-return-20261029"></a>
+
+## Lantern / Heart / LY–MPH / RGB–CMY Bridge — Findings-Triage — 29. Oktober 2026
+
+**Status:** `IMPLEMENTATION FINDINGS / BOUNDED CONNECTOR PACKAGE / NOT A NEW F-A0 FINDING`
+
+Die Workbench bindet fünf bereits vorhandene Kandidaten in eine gemeinsame
+Testmatrix: Pentagon-Gelenklaterne, J‑LUV/Herz, LY–MPH-Adresslesart, die
+diskrete RGB↔CMY-Restkanalbrücke und die Crown–Tumble-Achsenprobe. Die Bindung
+ist eine Bench Configuration. Sie verschmilzt weder Quellen noch Carrier,
+Identitäten oder wissenschaftliche Autorität.
+
+### Implementation findings
+
+1. Die Laterne besitzt einen belastbaren Teilbefund: Die getrennte Iris
+   schließt projiziert. Führung, Antrieb, Gehäuse und kontinuierliche
+   Kollisionsprüfung bleiben `MECHANISM HOLD`.
+2. J‑LUV/Herz ist als deklarierte Pivot- und Rollenlesart anschließbar. Das
+   Paket macht daraus keinen physischen Herz-Antrieb.
+3. LY–MPH ist als Adress-, Falt- und Achsenvertrag anschließbar. Das Paket
+   macht daraus weder ein physisches noch ein biologisches Lymphsystem.
+4. Die diskrete Kanalabbildung ist exakt: `−R→Cyan`, `−G→Magenta`,
+   `−B→Yellow`. `YMCK` bleibt eine Display-Reihenfolge; `CMYK` bleibt die
+   konventionelle Bezeichnung. K ist ein separater Kontroll-/Absorptionskanal.
+5. `R₉₀⁴` schließt den View-Return. Ein Bewegungs- oder Fallclaim bleibt
+   `MOTION HOLD`.
+
+### Test disposition
+
+Die `17/17` Paketchecks bestehen. Das Ergebnis lautet `PASS_WITH_HOLDS`, weil
+die sichtbaren STOP-Grenzen selbst Teil des Testvertrags sind. Eine entfernte
+Grenze würde das Paket ungültig machen.
+
+**No F-A0 finding:** Das Paket erzeugt keine neue Finding-Nummer, Study,
+Family, Navigator-Identität, Source-Graph-Relation, Paper-Claim-Änderung oder
+Publikationsfreigabe.
+
+- Workbench: `A0_BOOK/A0_WERKBANK.html#lanternHeartColorBridge`
+- Science Desk: `A0_BOOK/A0_RESEARCH_DESK.html#lantern-heart-color-bridge-return-20261029`
+- Manifest: `A0_BOOK/assets/a0-lantern-heart-color-bridge-package-v1.json`
+- Machine Return: `A0_BOOK/results/a0-lantern-heart-color-bridge-package-return-2026-10-29.json`
+
+<a id="lantern-crown-source-replay-return-20261029"></a>
+
+## Fünflaschenkrone · Source- und GLB-Replay — Findings-Triage — 29. Oktober 2026
+
+**Status:** `IMPLEMENTATION FINDINGS / SOURCE-BOUND ENGINEERING REPLAY / NOT A NEW F-A0 FINDING`
+
+Der bestehende Fünflaschenkrone-Kandidat wurde nicht als neue Mechanik
+umgedeutet. Stattdessen rekonstruiert ein dependency-free Node-Runner die
+gebundenen JSON-Quellen, prüft 121 geometrische Stellungen und liest den
+gesicherten GLB direkt zurück.
+
+### Implementation findings
+
+1. Über 121 Stellungen bleiben beide Schenkellängen aller fünf starren Laschen
+   innerhalb der deklarierten numerischen Toleranz konstant.
+2. Im Kontaktzustand treffen alle fünf freien Spitzen am gemeinsamen
+   Quellpunkt; Open → Contact → Open liefert exakten geometrischen Return.
+3. Der GLB besitzt fünf Animationskanäle mit je 161 Schlüsselbildern. Alle
+   Quaternionnormen, rekonstruierten Spitzenkoordinaten und Endreturns stimmen
+   mit der Quellgeometrie überein. Gesamtresultat: `2835/2835 PASS`.
+4. Das Ergebnis schließt die Reproduzierbarkeitslücke des idealisierten
+   Quellen-/Animationsmodells. Es schließt nicht die reale Mechanik.
+
+### Science boundary
+
+Die Flächen besitzen im Replay keine endliche Dicke. Führung, Lagerachsen,
+Spiel, Gehäuse, Antrieb, Kraft, Material und kontinuierliche Kollision gegen
+Pin, Deckel und Laternenhaut bleiben `MECHANISM HOLD`. J‑LUV/Herz und LY–MPH
+werden dadurch weder zu Antrieb noch zu physischer oder biologischer Kopplung.
+
+**No F-A0 finding:** Der positive Replay-Return ist ein Engineering-Befund. Er
+erzeugt keine Finding-Nummer, Study, Family, Navigator-Identität,
+Source-Graph-Relation, Claim-Promotion oder Publikationsfreigabe.
+
+- Workbench: `A0_BOOK/A0_WERKBANK.html#lanternHeartColorBridge`
+- Science Desk: `A0_BOOK/A0_RESEARCH_DESK.html#lantern-crown-source-replay-return-20261029`
+- Machine Return: `A0_BOOK/results/a0-lantern-crown-source-replay-return-2026-10-29.json`
+
+<a id="lantern-crown-finite-envelope-return-20261029"></a>
+
+## Fünflaschenkrone · Finite 2-mm-Hülle — Findings-Triage — 29. Oktober 2026
+
+**Status:** `IMPLEMENTATION FINDINGS / SAMPLED FINITE-ENVELOPE RETURN / NOT A NEW F-A0 FINDING`
+
+Der bestehende Fünflaschenkrone-Träger wurde um einen expliziten Adaptervertrag
+erweitert: `2 mm` Körperdicke, `1 mm` geforderte Freigängigkeit, `6 mm`
+Hinge-Endentlastung und `761` gesampelte Winkelstationen. Es entsteht keine
+zweite Modellidentität.
+
+### Implementation findings
+
+1. Der gesampelte Hüllentest schließt mit `102751/102751 PASS`.
+2. Endliche Dicke macht den idealen Quellkontakt bei `151,831°` unzulässig. Der
+   sichere Endanschlag liegt bei `148,088°`, also `3,742°` früher.
+3. Am sicheren Anschlag bleiben `5,104 mm` Apertur, `1,000 mm` minimaler
+   Laschenabstand und `3,600 mm` minimale Freigängigkeit zu festen geprüften
+   Referenzen.
+4. Der nominelle Null-Dicken-Kontakt erzeugt `−2,000 mm` Paarabstand und wird
+   deshalb korrekt als Kollision erkannt. Open → Stop → Open liefert exakten
+   Quellenreturn.
+
+### Science boundary
+
+Die 761 Stationen sind eine dichte diskrete Probe, aber kein kontinuierliches
+Kollisionszertifikat. Exaktes Lager-/Hinge-Profil, Aktuatorroute, Gehäuse,
+Kräfte, Material und Prototyp bleiben `HOLD`. J‑LUV/Herz und LY–MPH bleiben
+Connectorrollen; aus dem positiven Hüllentest folgt keine physische oder
+biologische Kopplung.
+
+**No F-A0 finding:** Der Return ist ein Engineering-Befund. Er erzeugt keine
+Finding-Nummer, Study, Family, Navigator-Identität, Source-Graph-Relation,
+Claim-Promotion oder Publikationsfreigabe.
+
+- Workbench: `A0_BOOK/A0_WERKBANK.html#lanternHeartColorBridge`
+- Science Desk: `A0_BOOK/A0_RESEARCH_DESK.html#lantern-crown-finite-envelope-return-20261029`
+- Machine Return: `A0_BOOK/results/a0-lantern-crown-finite-envelope-return-2026-10-29.json`
+
+<a id="lantern-hinge-actuator-housing-return-20261029"></a>
+
+## Gelenk / Aktuator / kontinuierliche Hülle / Gehäuse — Findings-Triage — 29. Oktober 2026
+
+**Status:** `IMPLEMENTATION FINDINGS / KINEMATIC PROTOTYPE / NOT A NEW F-A0 FINDING`
+
+Der bestehende source-bound Laternen-/Kronenträger wurde in derselben
+Orientation-Controller-Bench um vier konkrete Engineering-Schritte erweitert.
+Es entsteht weder eine zweite Modellidentität noch eine neue Family oder
+Source-Graph-Relation.
+
+### Implementation findings
+
+1. Fünf Gelenke besitzen jetzt ein explizites Prototypprofil: `4 mm`
+   AISI‑316-Pin, `5 mm` POM‑C-Bohrung, `8 mm` Außendurchmesser, `4 mm`
+   Lagerbreite und `0,5 mm` radiales Laufspiel.
+2. Fünf koaxiale Wellen führen zu externen Servo-Pods. Die Route kreuzt den
+   inneren Aperturraum nicht; Drehmoment und Synchronisationshardware bleiben
+   unbewertet.
+3. `4096` Intervalle mit globalen Lipschitz-Untergrenzen zertifizieren bis zum
+   `147,5°`-Stop mindestens `1,469 mm` Paarabstand und `3,575 mm` Abstand zu
+   festen Referenzen. Dies schließt die zuvor offene kontinuierliche
+   Geometrieprüfung.
+4. Ein offener PETG-Guard mit `153 mm` Innenradius und `4 mm` Wand besitzt am
+   Stop `5,115 mm` Radial- und `2,291 mm` Top-Marge. Die Restapertur beträgt
+   `5,959 mm`.
+5. GLB und SVG rekonstruieren Gehäuse, fünf 2‑mm-Laschen, fünf Pins und fünf
+   Pods als getrennte Prototypgruppen. Gesamtresultat: `10/10 PASS`.
+
+### Nächster sinnvoller Gate — Last / Drehmoment
+
+Der nächste Schritt ist kein weiterer Form- oder Symbol-Build, sondern ein
+begrenzter Last- und Antriebsvertrag. Vor jeder Fertigungsfreigabe müssen
+Laschenmasse oder Flächendichte, Schwerpunkt, Öffnungszeit,
+Beschleunigungsprofil, Gelenkreibung, Sicherheitsfaktor und Lastspiel als
+Eingaben deklariert werden. Erst dann dürfen folgende Ausgaben berechnet und
+getestet werden:
+
+1. Drehmomenthülle je Aktuator über den vollständigen Hub;
+2. Scherung und Biegung der Pins sowie Wellendurchbiegung;
+3. POM‑C-Flächenpressung und PV-Grenze;
+4. Stall-, Fehler- und fail-closed Return-Verhalten;
+5. Auswahl von Servo, Welle und Befestigern gegen den Sicherheitsfaktor.
+
+**Status:** `PROTOCOL CANDIDATE / NOT EXECUTED / FABRICATION RELEASE HOLD`.
+Fehlende Lastdaten werden nicht durch angenommene Werte ersetzt.
+
+### Science boundary
+
+Der positive Return ist ein **kinematischer** Prototyp. Er ist keine Last-,
+Ermüdungs-, Verschleiß-, Temperatur-, Drehmoment-, Befestigungs- oder
+Fertigungsfreigabe. J‑LUV/Herz, LY–MPH und RGB↔CMY erhalten dadurch keinen
+neuen physikalischen oder biologischen Claim.
+
+**No F-A0 finding:** Die bestandenen Prüfungen sind Engineering-Befunde. Es
+entstehen keine Finding-Nummer, Study, Family, Navigator-Identität,
+Graphrelation, Claim-Promotion oder Publikationsfreigabe.
+
+- Workbench: `A0_BOOK/A0_WERKBANK.html#lanternHingeActuatorEngineering`
+- Science Desk: `A0_BOOK/A0_RESEARCH_DESK.html#lantern-hinge-actuator-housing-return-20261029`
+- Machine Return: `A0_BOOK/results/a0-lantern-hinge-actuator-housing-return-2026-10-29.json`
+- GLB: `A0_BOOK/results/a0-lantern-hinge-actuator-housing-prototype-2026-10-29.glb`
+- Zeichnung: `A0_BOOK/results/a0-lantern-hinge-actuator-housing-prototype-2026-10-29.svg`
+
+### Panel V Control Lens · implementation return · 29 October 2026
+
+- Reuses `ART:A0:MATHEMATICAL_JOINTS`; no new ID, relation, study or F‑A0 finding.
+- Five flaps, five pins, five Gold Leaves and five Pink Gussets are individually addressable GLB nodes with `θ1…θ5` animation channels; Leaves and Gussets form five bounded Fold Pockets.
+- `147.5°` remains the only certified stop. `137.5°` and `147.5° ± 1/12°` are bounded controller/view comparisons, not physical calibration.
+- Body, shadow/cut projection and event ledger remain separate; the current local view sequence is `LEAF_CLOSED → SLIT_RELEASE → POCKET_OPEN → EXACT_RETURN`.
+- The Joint Microscope reads `:` as the local Y/Grip ↔ Z/Divot corner pair. Pin, axis and gap remain witnesses, not additional joints.
+- The bounded observation register contains 11 tips and therefore `n²=121` ordered address slots. `nn`, `m`, `nh` and `hno` remain Working Notation / HOLD and define no operator or coupling.
+- Control Lens: `A0_BOOK/A0_LANTERN_PANEL_V_CONTROL_LENS.html`
+- Derived GLB: `A0_BOOK/results/a0-lantern-panel-v-control-lens-2026-10-29.glb`
+- Machine Return: `A0_BOOK/results/a0-lantern-panel-v-control-lens-return-2026-10-29.json`
+- Science Desk: `A0_BOOK/A0_RESEARCH_DESK.html#panel-v-control-lens-return-20261029` (`I‑46S.2`)
+- Mathfield: `A0_BOOK/A0_MATHEMATICAL_JOINTS.html#panel-v-joint-microscope-return`
+- Authority remains the existing `I‑46S → I‑46S.2` chain; load, torque, fatigue, wear, thermal behavior, physical angular calibration and fabrication release remain HOLD.
+
+### Pentagon Crown demonstrator · bounded UI receipt · 29 October 2026
+
+The concrete Crown demonstrator receipt is now attached to the existing
+`I‑46P / I‑46Q` Science Desk chain as a **flagship demonstrator UI cut**. Its
+`35/35` checks pass, including the declared Pascal-line view, Crown GLB load,
+Heart STEP pulse, C-pin route, X| separation, seven-stage UI sequence and exact
+local returns.
+
+**Classification:** `FLAGSHIP_DEMONSTRATOR_UI_CUT /
+PASS_WITH_MECHANISM_AND_CALIBRATION_HOLDS / NO NEW F-A0 FINDING`.
+
+The receipt does not replace the source replay, finite-envelope certificate or
+hinge/actuator/housing returns. Historical `7.1° / 8–9°` readings, the complex
+adapter, physical calibration, forces, materials and fabrication remain open or
+HOLD.
+
+- Demonstrator: `A0_BOOK/A0_PENTAGON_CROWN_RETURN_DEMONSTRATOR.html`
+- Machine receipt: `A0_BOOK/results/a0-pentagon-crown-return-demonstrator-2026-10-29.json`
+- Science Desk: `A0_BOOK/A0_RESEARCH_DESK.html#lantern-crown-source-replay-return-20261029` (`I‑46Q`, with `I‑46P` connector context)
+- Identity reuse: `ART:A0:MATHEMATICAL_JOINTS`; no new identity, relation, Study, Finding or publication authority.
+
+### Spin to Bloom measurement return · 29 October 2026 {#spin-to-bloom-measurement-return-20261029}
+
+**Classification:** `SOURCE_BOUND_ENGINEERING_MEASUREMENT / CANDIDATE-HOLD /
+NO PAPER STATE CHANGE`.
+
+The existing Lissajous carrier is mapped into a radial view by
+`r(t)=1+g sin(at) sin(bt+δ)`. Periodic sampled local maxima become tips; the
+adjacent inter-tip minima become local Y/Grip and Z/Divot flank records. Each
+event retains phase, radius, prominence, angular gap and a discrete curvature
+indicator.
+
+The declared `5:6` return produces 11 tips, 11 Y/Z events, 121 ordered address
+slots and a bloom closure error of approximately `7.10×10⁻¹⁶`. Five finite
+controls (`5:5`, `4:6`, `5:6`, `5:7`, `6:7`) pass their declared phase sweeps
+with observed counts `10,10,11,12,13`.
+
+**Candidate/HOLD boundary:** This finite synthetic result does not promote
+`tips=a+b` to a universal theorem. The Bloom, Rootroom/Codon loop language,
+Möbius seams, Torus imagery, biological coding and physical resonance remain
+separate views or hypotheses unless admitted under their own typed contracts.
+No new F‑A0 finding, paper claim, Study, canonical identity, graph relation or
+publication authority is created.
+
+- Instrument: `A0_BOOK/A0_SPIN_TO_BLOOM_MEASUREMENT.html`
+- Machine return: `A0_BOOK/results/a0-spin-to-bloom-measurement-return-2026-10-29.json`
+- Mathfield note: `A0_BOOK/A0_MATHEMATICAL_JOINTS.html#spin-to-bloom-measurement-return`
+- Science Desk: `A0_BOOK/A0_RESEARCH_DESK.html#spin-to-bloom-measurement-return-20261029`
+
+<a id="breathing-crystal-v12-orientation-handoff-20261030"></a>
+
+## Breathing Crystal → V12 / X–Y Orientation Handoff — Findings-Triage — 30. Oktober 2026
+
+**Status:** `IMPLEMENTATION FINDINGS / TYPED VIEW HANDOFF / NOT A NEW F-A0 FINDING`
+
+Der bestehende Breathing-Crystal-Frame und der bestehende V12/X–Y-Translator
+sind jetzt über einen begrenzten Adapter verbunden. Wiederverwendet werden
+`NEXAH:INSTRUMENT:BREATHING_PRIME_CRYSTAL:V1`,
+`NEXAH_A0_ORIENTATION_CONTROLLER_BENCH`, `MOD:TESSAREC`,
+`MOD:NUMBER_VIEW_SUITE` und `ART:A0:MATHEMATICAL_JOINTS`. Es entstehen keine
+neue Navigator-Identität und keine neue Source-Graph-Relation.
+
+### Implementation findings
+
+1. **Ein lokaler Orientierungsframe ist vollständig transportierbar.** Das
+   Ledger übergibt Paar, Phase, Winkel, Radius, H/X- und V/Y-Bandknoten,
+   Seitenrelation, Richtung und Winding. Die Abbildung ist explizit:
+   `PIN → V12_RADIAL_CENTER`, `H/X → V12_X_AXIS`, `V/Y → V12_Y_AXIS`.
+2. **Gemeinsames Diagramm erzwingt keine Identität.** Der aktuelle
+   Crystal-Vektor liegt als eigene Overlay-Schicht über dem V12-Kreis. Die
+   violette `DO′ · RETURN 360°`- und rote `RE · EXIT 45°`-Achse bleiben feste,
+   getrennte Vergleichsrollen.
+3. **Der Vertrag gilt für alle drei Bandpaare.** `AB`, `BC` und `CA` verwenden
+   denselben Adapter. Ein Paar- oder Phasenwechsel aktualisiert Knoten, Winkel,
+   Radius, Seitenlage, Richtung und Winding gemeinsam; der Rückweg führt zum
+   unveränderten Ledger.
+4. **Die Quelle bleibt unverändert.** Der Handoff mutiert weder GLB-Nodes noch
+   Source-Bindings. Er erzeugt einen Frame für die Ansicht, keine weitere Uhr,
+   keinen nativen Modellkanal und keinen gemeinsamen Crystal/V12-Mechanismus.
+
+### Builder reading
+
+Das wiederverwendbare Muster lautet:
+
+```text
+SOURCE FRAME
+  → TYPED ORIENTATION ADAPTER
+  → COMPARATOR VIEW WITH PRESERVED AXES
+  → EXPLICIT RETURN
+```
+
+Es ist ein intern verifiziertes Visual-/Messinstrument, aber keine allgemeine
+Produkt-Capability. Ein generischer GLB-to-node Runtime-Vertrag, physische
+Kalibrierung, Material- oder Lastmessung, unabhängige Human-Utility-Prüfung und
+öffentliche Freigabe bleiben offen.
+
+### Evidence and claim boundary
+
+- UDF Orientation Return proofs: `5/5 PASS`;
+  - deterministic canonical serialization and SHA-256 digest;
+  - lossless Crystal → UDF → V12 → Ledger replay within `1e-12` numeric tolerance;
+  - one experimental profile across `AB`, `BC` and `CA`;
+  - explicit rejection of malformed hash, pair, node, winding, comparator and JSON input;
+  - semantic separation of Crystal vector, `RE · EXIT` and `DO′ · RETURN`;
+- Spin→Bloom instrument tests: `306 PASS`;
+- Breathing Crystal bench tests: `166 PASS`;
+- Bench navigation: `669 PASS`;
+- Reader navigation: `80/80` routes;
+- Source Graph and Navigator application: `PASS`.
+
+Diese Prüfungen tragen den Implementierungs- und Return-Vertrag. Sie sind kein
+wissenschaftlicher Run und begründen keine physische Kopplung, keine neue
+Topologie, keinen Mechanismus und keine externe Nützlichkeit.
+
+Das Profil `nexah.udf.orientation-return/0.1.0-experimental` ist damit als
+begrenzter Builder-Projekt-Use-Case ausreichend belegt. Es ist ausdrücklich
+nicht als universelles UDF-Schema eingefroren. Die Einordnung lautet
+`IMPLEMENTATION EVIDENCE / BUILDER BACKLOG CANDIDATE / CAPABILITY NOT ASSIGNED`.
+
+**No F-A0 finding:** Die vier Punkte bleiben Implementation Findings innerhalb
+des vorhandenen `I‑46S.4`-Returns. Keine Finding-Nummer, Study, Family,
+Graphrelation, Claim-Promotion oder Publikationsfreigabe.
+
+- Crystal Ledger: `A0_BOOK/A0_ORIENTATION_CONTROLLER_BENCH.html#breathingCrystalMeasurementDeck`
+- Bound V12 View: `A0_BOOK/A0_SPIN_TO_BLOOM_MEASUREMENT.html?source=breathing-crystal&pair=ab#v12XyGraphTranslator`
+- Science Desk: `A0_BOOK/A0_RESEARCH_DESK.html#spin-to-bloom-measurement-return-20261029`
+- Builder Return: `A0_BOOK/A0_BUILDER_LOG.html#breathing-crystal-v12-builder-return-20261030`
+- Machine Return: `A0_BOOK/results/a0-spin-to-bloom-measurement-return-2026-10-29.json`
+- UDF proof receipt: `A0_BOOK/results/a0-udf-orientation-return-proof-2026-10-30.json`

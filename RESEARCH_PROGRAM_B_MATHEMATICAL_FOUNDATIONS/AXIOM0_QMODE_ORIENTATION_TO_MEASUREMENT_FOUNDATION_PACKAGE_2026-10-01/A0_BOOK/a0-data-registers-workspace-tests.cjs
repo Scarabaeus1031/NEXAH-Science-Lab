@@ -7,7 +7,13 @@ const builderDesk = fs.readFileSync(path.resolve(__dirname, "../../../../../10 N
 
 assert.doesNotMatch(html, /<nav class="a0-desk-trinity/);
 assert.match(html, /a0-context-navigation\.js/);
-assert.match(html, /<title>NEXAH · A0 Daten &amp; Register<\/title>/);
+assert.match(html, /<title>NEXAH · A0 NSNavigator<\/title>/);
+assert.match(html, /id="nsnDoorTitle">NEXAH Science Navigator/);
+assert.match(html, /SCIENCE_LAB\/NAVIGATION\/APP\/index\.html#home/);
+assert.match(html, /SCIENCE_LAB\/NAVIGATION\/APP\/index\.html#a0-orientation-evidence/);
+assert.match(html, /id="bindings"/);
+for (const label of ["THE MACHINA", "Produktionskette", "Entdecken &amp; verbinden", "Bestand &amp; Cuts"]) assert.match(html, new RegExp(label));
+assert.match(html, /Navigation ist keine Admission, Aktivierung, wissenschaftliche Validierung oder Publikation/);
 assert.match(html, /<main id="top">/);
 assert.match(html, /history\.scrollRestoration="manual"/);
 assert.match(html, /\["wheel","touchstart","pointerdown","keydown"\]/);

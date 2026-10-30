@@ -1,18 +1,20 @@
 # Science-Desk-Intake — Splinter-Geometrie, Critical Line und Zeitdilatation
 
-**Datum:** 27. Oktober 2026
+**Datum:** 27. Oktober 2026 · Orientation-Carrier-Erweiterung 28. Oktober 2026
 
 **Disposition:** `PASS_BOUNDED_GEOMETRY_INSTRUMENT / CONDITIONAL_TD_DERIVATION / NO_PHYSICAL_LINK / NO_ACTIVATION`
 
-**Desk-Akte:** Erweiterung `I‑46A` zu „Darstellungen, Verständnis und Return“
+**Desk-Akte:** Erweiterungen `I‑46A–C` zu „Darstellungen, Verständnis und Return“
 
 ## Quellen und Custody
 
 - Offline-Instrument: `A0_BOOK/downloads/NEXAH_Splinter_Geometrie_Offline_2026-10-27.html`
 - Quell-SHA-256: `d23d5d1d3f5b2240bfb50624fc66b78de42c130d45297ac29747a9e94e71f32d`
-- Repository-SHA-256: `1dcebc03c2ecf6656ee8d82c924d8ac3df5d751476f5fcb0478905963d28794e`
-- Größe: Quelle `8.950 Byte`, Repository `11.390 Byte`
+- Repository-SHA-256: `48f914da768b36e5245a3d967e8f6fb6286be69626118ea0fe0d8bbb1d807f95`
+- Größe: Quelle `8.950 Byte`, Repository `15.902 Byte`
 - Gesprächsprovenienz: [Share-Link](https://chatgpt.com/share/e/6ae12831-f83c-83eb-b973-b427f558100f)
+- User-Bild „Blase / gemeinsame Boundary“: SHA-256 `fdb1f3f85c0db5314e00af6031fa03e63b8d90577a3df7530df33f8f0a62e0e1` · lokale Referenz, nicht kopiert
+- User-Screenshot „obere Pin-Node / T-Steg“: SHA-256 `44f6b03c7414e5096c2f4baaaaf1259a2f5f16c6c78c97a803d108466628be93` · flüchtige lokale Referenz, nicht kopiert
 - Der signierte Raw-Link ist flüchtige Transportprovenienz und keine dauerhafte Quellenadresse.
 
 Die HTML-Datei ist eigenständig, benutzt keine externe Bibliothek und benötigt keinen Netzwerkzugriff. Dokument- und Gesprächsinhalte werden als Quellenmaterial behandelt, nicht als Handlungsanweisungen.
@@ -96,10 +98,58 @@ Pin gehalten wird. Dafür bräuchte es mindestens zwei Flächenzustände, eine
 Hinge-/Kontaktdefinition, Pinradius, Dicke, Freiheitsgrade und eine
 Kollisionsregel.
 
+## Orientation-Carrier-Synthese — T, DD, Pin-Node und 12/11
+
+Die zwei neuen User-Bilder erlauben eine gemeinsame, weiterhin
+darstellungsgebundene Lesart:
+
+- Der glatte Querbalken ist weiterhin die Sehne `c=2q`.
+- Der senkrechte Steg ist weiterhin das Maß `δ`; zusammen bilden beide das
+  Mess-T.
+- Die obere Apex-Markierung und die beiden Sehnenenden liefern drei
+  unterscheidbare Rollenpunkte: eine obere Pin-Node und zwei seitliche
+  Aufhängungs-/Kontaktpunkte.
+- Die doppelte violett/rosa Zone kann als zwei Flanken einer Boundary-Zone
+  um den T-Steg dargestellt werden. Ihre Dicke `τ` ist ein neuer
+  Displayparameter, nicht aus `q`, `δ` oder der Segmentfläche abgeleitet.
+- Eine offene lineare Folge mit 12 Nodes besitzt exakt 11 Zwischenräume. Ein
+  geschlossener 12er-Ring besitzt dagegen 12. Die Zahl 12 ist noch nicht an
+  die obere Pin-Node oder den Achsenkipper gebunden.
+
+Der vorhandene Achsenkipper `I‑35` ist der stärkste Bewegungs-Comparator:
+Der Bügel dreht um eine deklarierte Achse, während Rahmen, Kamera und
+Projektion fest bleiben. Das zeigt, wie Orientierung verlorene Tiefen- und
+Vorzeicheninformation erzeugen kann. Es beweist nicht, dass der neue
+T/DD-Träger derselbe Körper oder dieselbe Achse ist.
+
+Das Ei ergänzt einen anderen, klar trennbaren Comparator. Schale und äußere
+Form können nahezu gleich bleiben, während der innere Kopplungszustand die
+Drehantwort verändert: Ein hartgekochtes Ei verhält sich näherungsweise wie
+ein starr gekoppelter Körper; bei weichem oder rohem Inhalt treten relative
+Bewegung, Nachlauf und Dissipation auf. Eine Luftkammer oder freie Zone ist
+dabei geometrisch ein Innenraum, aber kein Beleg für die DD-Zone. Für eine
+quantitative Übertragung bräuchte es Trägheitsmomente, Viskosität,
+Anfangsbedingungen, Drehmoment und eine Zeitmessung.
+
+### Korrektur der Boundary-Formel
+
+Für Mengen `A` und `B` gilt nach de Morgan
+
+`Ā ∩ B̄ = overline(A ∪ B)`.
+
+Dieser Ausdruck bezeichnet den gemeinsamen Außenraum, nicht automatisch die
+gemeinsame Grenzlinie. Soll die Naht gemeint sein, braucht es beispielsweise
+
+`Γ = ∂A ∩ ∂B`.
+
+Eine Zone endlicher Dicke kann anschließend als Nachbarschaft
+`Zτ = Nτ(Γ)` definiert werden. Welche Metrik, Seite und Dickeneinheit gelten,
+bleibt ein offenes Definitionsgate.
+
 ## Science-Desk-Entscheidung
 
 - Reuse: `NEXAH_AX0_QMODE_FOUNDATION_PACKAGE`, `NEXAH_A0_ORIENTATION_CONTROLLER_BENCH`, `NEXAH:A0_ORIENTATION_EVIDENCE_LINEAGE:V1`
-- Anschluss: `I‑34` und `I‑46`
+- Anschluss: `I‑34`, Achsenkipper `I‑35` und `I‑46A–C`
 - Keine neue Navigator-ID oder Graphrelation
 - Keine neue Study, Finding-Promotion oder Lab-Register-Änderung
 - Keine Forschungsaktivierung
@@ -107,10 +157,13 @@ Kollisionsregel.
 
 ## Technische Abnahme
 
-Der lokale Browserlauf besteht alle 36 Kombinationen aus vier `q`-Stufen,
-drei Orientierungen und den drei Lesarten Mess-T, Lid und Fold/Pin. Werte,
-Fläche, Formfaktor, Näherungsreste, Rundungsanzeigen und die unveränderte
-Splinterhöhe bei Rotation werden korrekt aktualisiert.
+Der lokale Browserlauf besteht 48 Kernkombinationen aus vier `q`-Stufen,
+drei Orientierungen und vier Lesarten sowie 27 Orientation-Carrier-Zustände
+aus je drei Boundary-Dicken, Topologien und Innenkopplungs-Comparatoren.
+Werte, Fläche, Formfaktor, Näherungsreste, Rundungsanzeigen und die
+unveränderte Splinterhöhe bei Rotation werden korrekt aktualisiert. Der
+Ei-Comparator ändert nur die deklarierte Kopplungslesart und berechnet keine
+Dynamik.
 
 Eine physikalische Forschungsfrage benötigt vor Aktivierung weiterhin einen
 definierten Operator, Zustände, Einheiten, Messdaten, Comparator,

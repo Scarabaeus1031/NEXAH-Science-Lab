@@ -1,0 +1,27 @@
+.quach-demo{margin-top:28px;border:1px solid #35586a;background:radial-gradient(circle at 78% 18%,rgba(183,131,255,.13),transparent 28%),#07131d;padding:clamp(18px,3vw,30px)}
+.quach-demo__top{display:flex;justify-content:space-between;gap:22px;align-items:end;flex-wrap:wrap}
+.quach-demo__top h3{color:#fff;font:700 clamp(1.6rem,3vw,2.5rem)/1.05 var(--serif);margin:.25rem 0}
+.quach-demo__top p{max-width:760px;color:#a7bbc5;font-size:.84rem;margin:0}
+.quach-demo__badge{border:1px solid var(--violet);color:#d9c3ff;padding:7px 10px;font:700 .58rem var(--mono);letter-spacing:.06em;text-transform:uppercase}
+.quach-demo__controls{display:grid;grid-template-columns:minmax(220px,1fr) auto;gap:18px;align-items:end;margin:24px 0}
+.quach-demo__controls label{color:#a7bdc7;font:700 .62rem var(--mono);text-transform:uppercase}
+.quach-demo__controls input{width:100%;accent-color:var(--gold);margin-top:10px}
+.quach-demo__buttons{display:flex;gap:7px;flex-wrap:wrap}
+.quach-demo__buttons button{border:1px solid #456575;background:#081722;color:var(--cyan);padding:8px 10px;cursor:pointer;font:700 .61rem var(--mono);text-transform:uppercase}
+.quach-demo__buttons button[aria-pressed=true]{border-color:var(--gold);color:var(--gold)}
+.quach-demo__rails{display:grid;grid-template-columns:1fr 1fr 1.2fr;gap:12px;align-items:stretch}
+.quach-rail{border:1px solid #294858;background:#081722;padding:16px;min-width:0}
+.quach-rail output{display:block;color:#fff;font:700 clamp(1.35rem,2.8vw,2.2rem) var(--serif);margin:4px 0 12px}
+.quach-rail small{display:block;color:#8fa8b5;font:700 .55rem var(--mono);text-transform:uppercase}
+.quach-poles{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:8px;color:#e5edf1;font:700 .86rem var(--mono)}
+.quach-poles i{display:block;height:4px;background:linear-gradient(90deg,var(--cyan),var(--violet));border-radius:2px}
+.quach-rail--sum{border-color:var(--gold)}
+.quach-rail--sum .quach-poles i{background:linear-gradient(90deg,var(--gold),var(--red))}
+.quach-demo__ledger{display:grid;grid-template-columns:repeat(4,1fr);gap:9px;margin-top:12px}
+.quach-demo__ledger article{border-top:3px solid var(--cyan);background:#0a1a27;padding:14px}
+.quach-demo__ledger article:last-child{border-color:var(--gold)}
+.quach-demo__ledger b{display:block;color:#fff;font:700 .92rem var(--serif)}
+.quach-demo__ledger code{display:block;color:#a9bec8;font:650 .68rem/1.5 var(--mono);margin-top:6px;overflow-wrap:anywhere}
+.quach-demo[data-twin=true] [data-qc-prime]{color:var(--green)}
+.quach-demo[data-twin=false] [data-qc-prime]{color:var(--orange)}
+@media(max-width:820px){.quach-demo__controls,.quach-demo__rails,.quach-demo__ledger{grid-template-columns:1fr}.quach-demo__buttons{justify-content:flex-start}}

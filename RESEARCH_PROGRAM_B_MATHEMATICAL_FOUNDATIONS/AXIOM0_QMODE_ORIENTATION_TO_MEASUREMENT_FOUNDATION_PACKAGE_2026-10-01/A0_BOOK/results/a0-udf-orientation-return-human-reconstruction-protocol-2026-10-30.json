@@ -1,0 +1,87 @@
+{
+  "schema": "nexah.a0.udf-orientation-return-human-reconstruction-protocol/1.0.0",
+  "date": "2026-10-30",
+  "state": "READY_NOT_RUN_NO_HUMAN_RESULT",
+  "design": "WITHIN_SUBJECT_COUNTERBALANCED_SINGLE_BLIND_TO_HYPOTHESIS",
+  "fixtures": [
+    "a0-udf-human-reconstruction-fixture-a-2026-10-30.json",
+    "a0-udf-human-reconstruction-fixture-b-2026-10-30.json"
+  ],
+  "custody_key_file": "a0-udf-human-reconstruction-custody-key-2026-10-30.json",
+  "measures": [
+    "exact_score_0_to_14",
+    "completion_seconds",
+    "false_identity_count",
+    "false_release_count",
+    "unnecessary_stop_count",
+    "confidence_1_to_5"
+  ],
+  "questionnaire": [
+    {
+      "id": "H01",
+      "prompt": "Name the source identity.",
+      "gold": "NEXAH:INSTRUMENT:BREATHING_PRIME_CRYSTAL:V1",
+      "points": 1
+    },
+    {
+      "id": "H02",
+      "prompt": "Name the source contract and SHA-256.",
+      "gold": {
+        "contract": "nexah.a0.breathing-crystal-orientation-ledger/1.0.0",
+        "sha256": "0117bba1c6857e2eea7dce0f90336988a85c78d02a946cc0371b926d5e9ed57e"
+      },
+      "points": 2
+    },
+    {
+      "id": "H03",
+      "prompt": "Name horizontal and vertical carrier nodes.",
+      "gold": {
+        "horizontal": "BAND_0.429",
+        "vertical": "BAND_0.456"
+      },
+      "points": 2
+    },
+    {
+      "id": "H04",
+      "prompt": "Report theta, radius, direction and winding.",
+      "gold": {
+        "theta_degrees": 333.4349488229221,
+        "radius": 1.118033988749895,
+        "direction": "CW",
+        "winding": -1
+      },
+      "tolerance": 1e-12,
+      "points": 4
+    },
+    {
+      "id": "H05",
+      "prompt": "Are the Crystal vector, RE Exit and DO-prime Return identical?",
+      "gold": false,
+      "points": 1
+    },
+    {
+      "id": "H06",
+      "prompt": "Name the exact Return target and anchor.",
+      "gold": {
+        "target": "CRYSTAL_ORIENTATION_LEDGER",
+        "anchor": "A0_ORIENTATION_CONTROLLER_BENCH.html#breathingCrystalMeasurementDeck"
+      },
+      "points": 2
+    },
+    {
+      "id": "H07",
+      "prompt": "Does the record mutate the source?",
+      "gold": false,
+      "points": 1
+    },
+    {
+      "id": "H08",
+      "prompt": "Name one prohibited inference from the claim boundary.",
+      "gold_rule": "Any one of universal schema, capability, shared mechanism, GLB mutation, Study, Finding or publication.",
+      "points": 1
+    }
+  ],
+  "counterbalance": "Odd participant IDs receive A then B; even participant IDs receive B then A.",
+  "stop_rule": "No claim from fewer than 8 completed participants; stop superiority language on tie, worse UDF result, unblinding, unequal instructions or missing timing.",
+  "claim_boundary": "Protocol preparation is not an independent Human test, utility result or scientific activation."
+}

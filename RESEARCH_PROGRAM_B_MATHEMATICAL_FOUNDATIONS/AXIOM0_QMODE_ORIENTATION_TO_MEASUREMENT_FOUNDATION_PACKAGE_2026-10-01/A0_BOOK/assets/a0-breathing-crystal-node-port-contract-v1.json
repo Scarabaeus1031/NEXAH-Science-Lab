@@ -1,0 +1,58 @@
+{
+  "schema": "nexah.a0.breathing-crystal-node-port-contract/1.4.0",
+  "date": "2026-10-30",
+  "status": "SOURCE_NODE_ADDRESS_BRIDGE_CORE_BAND_RUNTIME_3PLUS1_MEASUREMENT_PHASE_PORTRAIT_AND_ORIENTATION_LEDGER_PASS_NO_SCIENCE_RUN",
+  "identity_reuse": ["NEXAH:INSTRUMENT:BREATHING_PRIME_CRYSTAL:V1", "NEXAH_A0_ORIENTATION_CONTROLLER_BENCH"],
+  "source_model": {"path":"assets/breathing-crystal/breathing_crystal_v2_1.glb","sha256":"6926857fdc9528467108edf185c4db29ee7d0a336ffd4cc62c74e3dbe2a44b50","root_node":"world","nodes":120,"mesh_nodes":119,"animations":0},
+  "ports": [
+    {"id":"crystal.origin","role":"STATE_ORIGIN","match":{"exact":["CORE"]},"count":1},
+    {"id":"crystal.band","role":"RUNTIME_TRANSFORM_VIEW","match":{"exact":["BAND_0.429","BAND_0.456","BAND_0.487"]},"count":3},
+    {"id":"crystal.ring","role":"APERTURE_VIEW","match":{"exact":["DE_RING"]},"count":1},
+    {"id":"crystal.tick24","role":"ADDRESS_SLOTS","match":{"prefix":"TICK_24_","range":[0,23],"pad":2},"count":24},
+    {"id":"crystal.tick42","role":"ADDRESS_SLOTS","match":{"prefix":"TICK_42_","range":[0,41],"pad":2},"count":42},
+    {"id":"crystal.axis","role":"ORIENTATION_AXES","match":{"exact":["AXIS_X","AXIS_Y","AXIS_Z"]},"count":3},
+    {"id":"crystal.rail","role":"SOURCE_NAMED_RAILS","match":{"exact":["RAIL_SQRT2","RAIL_SQRT5","RAIL_SQRT17"]},"count":3},
+    {"id":"crystal.euler41","role":"SOURCE_NAMED_ADDRESS_FAMILY","match":{"prefix":"EULER41_","range":[0,39],"pad":2},"count":40},
+    {"id":"crystal.guide","role":"SOURCE_NAMED_GUIDE","match":{"exact":["GUIDE_390"]},"count":1},
+    {"id":"crystal.plate","role":"SOURCE_NAMED_PLATE","match":{"exact":["PLATE_ROOT432"]},"count":1}
+  ],
+  "runtime_derivative": {
+    "path": "assets/breathing-crystal/breathing_crystal_core_band_runtime_r1.glb",
+    "sha256": "3262ada53e8517a5a89123fe2a10d5d878c6fc5f622c2b92737ec9d492446513",
+    "bytes": 804844,
+    "build": "a0-breathing-crystal-runtime-build.cjs",
+    "source_sha256": "6926857fdc9528467108edf185c4db29ee7d0a336ffd4cc62c74e3dbe2a44b50",
+    "animation_clip": "BREATH_CORE_BAND_R1",
+    "driver": {"id":"breath.phase","range":[0,1],"duration_seconds":4,"amplitude":0.06},
+    "released_segments": [
+      {"node":"CORE","port":"crystal.origin","disposition":"FIXED_STATE_ORIGIN"},
+      {"nodes":["BAND_0.429","BAND_0.456","BAND_0.487"],"port":"crystal.band","disposition":"RUNTIME_TRANSFORM_READY","phase_offsets_degrees":[0,120,240]}
+    ],
+    "remaining_banded_ports": "NODE_ADDRESSABLE",
+    "mutates_source": false
+  },
+  "measurement_deck": {
+    "channels": [
+      {"node":"CORE","role":"FIXED_REFERENCE","scale":1},
+      {"node":"BAND_0.429","role":"DRIVEN_SCALE","phase_offset_degrees":0},
+      {"node":"BAND_0.456","role":"DRIVEN_SCALE","phase_offset_degrees":120},
+      {"node":"BAND_0.487","role":"DRIVEN_SCALE","phase_offset_degrees":240}
+    ],
+    "clock": "breath.phase",
+    "modes": ["individual", "together", "counterphase"],
+    "phase_pairs": ["ab", "bc", "ca"],
+    "phase_portrait": {"frequency_ratio":"1:1","phase_lag_degrees":120,"shape":"ELLIPSE","metrics":["normalized_area","closure_error","direction","red_seam_delta"],"red_seam_role":"DISPLAY_COMPARATOR_NOT_SOURCE_NODE"},
+    "orientation_ledger": {"pin_role":"FIXED_RELATION_ORIGIN","axes":{"horizontal":"PAIR_X","vertical":"PAIR_Y"},"metrics":["theta_degrees","radius","quadrant","horizontal_relation","vertical_relation","horizontal_crossings","vertical_crossings","winding"],"expected_axis_crossings":{"horizontal":2,"vertical":2},"clock":"breath.phase"},
+    "workflow": ["CAPTURE", "COMPARE", "EXACT_LOCAL_FRAME_RETURN"],
+    "measurement_class": "DECLARED_TRANSFORM_CONTRACT_READOUT",
+    "writes_glb": false,
+    "second_clock": false
+  },
+  "event_contract": {"name":"a0:bench-port-state","driver_event":"a0:breathing-crystal-phase","measurement_event":"a0:breathing-crystal-measurement","required_fields":["identity","benchIdentity","model","port","portRole","memberIndex","node","connected","addressability","phase","sha256","sourceSha256","mutatesSource"]},
+  "dense_model_disposition": "UNSEGMENTED_HOLD",
+  "addressable_mesh_nodes": 119,
+  "unmapped_mesh_nodes": 0,
+  "new_canonical_ids": [],
+  "relation_changes": [],
+  "claim_boundary": "Ports are typed addresses over source-authored GLB node names. The generated runtime derivative adds one deterministic view clip over the three named BAND nodes while CORE remains fixed. The 3+1 deck reads the declared transform contract analytically and compares local frames; its pairwise phase portrait is the 1:1 ellipse implied by the declared 120-degree offsets. The Orientation Ledger treats PIN as a fixed relation origin and H/X plus V/Y as pair-coordinate references; it measures angle, radius, sector, axis relations, crossings and winding without creating new GLB geometry. The red seam is a current display difference vector, not a fourth band, GLB node or algorithm binding. The deck is not a material measurement and does not add a clock. Neither layer modifies a source GLB or establishes a native breathing process, causal operator, semantic truth, material behavior or physical coupling. The dense model remains one unsegmented geometry mesh."
+}

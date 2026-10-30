@@ -1,0 +1,258 @@
+{
+  "schema": "a0.engineering-result.v1",
+  "id": "A0_LANTERN_HINGE_ACTUATOR_HOUSING_RETURN_2026_10_29",
+  "date": "2026-10-29",
+  "status": "PASS_KINEMATIC_PROTOTYPE_WITH_LOAD_HOLD",
+  "classification": "HINGE_BEARING_ACTUATOR_CONTINUOUS_CLEARANCE_HOUSING_MATERIAL_PROTOTYPE",
+  "identity_decision": "EXTEND_NEXAH_A0_ORIENTATION_CONTROLLER_BENCH_NO_NEW_IDENTITY",
+  "result": {
+    "pass": true,
+    "passed": 10,
+    "total": 10,
+    "options": {
+      "sourceUnitMillimetres": 100,
+      "operatingStopDegrees": 147.5,
+      "continuousIntervals": 4096,
+      "requiredClearanceMillimetres": 1,
+      "flapThicknessMillimetres": 2,
+      "hingeEndReliefMillimetres": 6,
+      "pinDiameterMillimetres": 4,
+      "bearingBoreDiameterMillimetres": 5,
+      "bearingOuterDiameterMillimetres": 8,
+      "bearingWidthMillimetres": 4,
+      "shaftOverhangMillimetres": 12,
+      "actuatorPodAxialGapMillimetres": 2,
+      "housingInnerRadiusMillimetres": 153,
+      "housingWallMillimetres": 4,
+      "housingBottomMillimetres": -8,
+      "housingTopMillimetres": 122
+    },
+    "certificate": {
+      "method": "LIPSCHITZ_INTERVAL_LOWER_BOUND",
+      "intervals": 4096,
+      "intervalWidthDegrees": 0.0360107421875,
+      "pairLipschitzMillimetresPerDegree": 2.7250029125715494,
+      "fixedLipschitzMillimetresPerDegree": 1.3625014562857747,
+      "certifiedPairClearanceMillimetres": 1.4687542891976646,
+      "certifiedFixedClearanceMillimetres": 3.575467655663787,
+      "requiredClearanceMillimetres": 1,
+      "pairWitness": {
+        "interval": 4095,
+        "midpointDegrees": 147.48199462890625,
+        "pair": [
+          3,
+          4
+        ]
+      },
+      "fixedWitness": {
+        "interval": 3048,
+        "midpointDegrees": 109.77874755859375,
+        "fixed": {
+          "flap": 4,
+          "segment": "B3"
+        }
+      },
+      "pass": true
+    },
+    "bearings": [
+      {
+        "id": "HINGE-1",
+        "axis": [
+          [
+            -0.5877852522924731,
+            -0.8090169943749473,
+            0
+          ],
+          [
+            -0.26286555605956674,
+            0.8090169943749475,
+            0.7676481280896634
+          ]
+        ],
+        "pinDiameterMillimetres": 4,
+        "boreDiameterMillimetres": 5,
+        "outerDiameterMillimetres": 8,
+        "widthMillimetres": 4,
+        "radialRunningClearanceMillimetres": 0.5,
+        "endReliefMillimetres": 6
+      },
+      {
+        "id": "HINGE-2",
+        "axis": [
+          [
+            0.5877852522924729,
+            -0.8090169943749475,
+            0
+          ],
+          [
+            -0.8506508083520399,
+            1.0417467896404342e-16,
+            0.7676481280896634
+          ]
+        ],
+        "pinDiameterMillimetres": 4,
+        "boreDiameterMillimetres": 5,
+        "outerDiameterMillimetres": 8,
+        "widthMillimetres": 4,
+        "radialRunningClearanceMillimetres": 0.5,
+        "endReliefMillimetres": 6
+      },
+      {
+        "id": "HINGE-3",
+        "axis": [
+          [
+            0.9510565162951536,
+            0.30901699437494723,
+            0
+          ],
+          [
+            -0.2628655560595669,
+            -0.8090169943749473,
+            0.7676481280896634
+          ]
+        ],
+        "pinDiameterMillimetres": 4,
+        "boreDiameterMillimetres": 5,
+        "outerDiameterMillimetres": 8,
+        "widthMillimetres": 4,
+        "radialRunningClearanceMillimetres": 0.5,
+        "endReliefMillimetres": 6
+      },
+      {
+        "id": "HINGE-4",
+        "axis": [
+          [
+            1.1102230246251565e-16,
+            0.9999999999999999,
+            0
+          ],
+          [
+            0.6881909602355867,
+            -0.5000000000000001,
+            0.7676481280896634
+          ]
+        ],
+        "pinDiameterMillimetres": 4,
+        "boreDiameterMillimetres": 5,
+        "outerDiameterMillimetres": 8,
+        "widthMillimetres": 4,
+        "radialRunningClearanceMillimetres": 0.5,
+        "endReliefMillimetres": 6
+      },
+      {
+        "id": "HINGE-5",
+        "axis": [
+          [
+            -0.9510565162951535,
+            0.3090169943749477,
+            0
+          ],
+          [
+            0.6881909602355868,
+            0.4999999999999998,
+            0.7676481280896634
+          ]
+        ],
+        "pinDiameterMillimetres": 4,
+        "boreDiameterMillimetres": 5,
+        "outerDiameterMillimetres": 8,
+        "widthMillimetres": 4,
+        "radialRunningClearanceMillimetres": 0.5,
+        "endReliefMillimetres": 6
+      }
+    ],
+    "actuators": [
+      {
+        "id": "ACT-1",
+        "route": "COAXIAL_HINGE_SHAFT_TO_EXTERNAL_SERVO_POD",
+        "hinge": "HINGE-1",
+        "shaftOverhangMillimetres": 12,
+        "podAxialGapMillimetres": 2,
+        "synchronization": "EXTERNAL_CONTROLLER / NO INTERNAL CROSSING LINK",
+        "torqueClaim": "NOT_RATED"
+      },
+      {
+        "id": "ACT-2",
+        "route": "COAXIAL_HINGE_SHAFT_TO_EXTERNAL_SERVO_POD",
+        "hinge": "HINGE-2",
+        "shaftOverhangMillimetres": 12,
+        "podAxialGapMillimetres": 2,
+        "synchronization": "EXTERNAL_CONTROLLER / NO INTERNAL CROSSING LINK",
+        "torqueClaim": "NOT_RATED"
+      },
+      {
+        "id": "ACT-3",
+        "route": "COAXIAL_HINGE_SHAFT_TO_EXTERNAL_SERVO_POD",
+        "hinge": "HINGE-3",
+        "shaftOverhangMillimetres": 12,
+        "podAxialGapMillimetres": 2,
+        "synchronization": "EXTERNAL_CONTROLLER / NO INTERNAL CROSSING LINK",
+        "torqueClaim": "NOT_RATED"
+      },
+      {
+        "id": "ACT-4",
+        "route": "COAXIAL_HINGE_SHAFT_TO_EXTERNAL_SERVO_POD",
+        "hinge": "HINGE-4",
+        "shaftOverhangMillimetres": 12,
+        "podAxialGapMillimetres": 2,
+        "synchronization": "EXTERNAL_CONTROLLER / NO INTERNAL CROSSING LINK",
+        "torqueClaim": "NOT_RATED"
+      },
+      {
+        "id": "ACT-5",
+        "route": "COAXIAL_HINGE_SHAFT_TO_EXTERNAL_SERVO_POD",
+        "hinge": "HINGE-5",
+        "shaftOverhangMillimetres": 12,
+        "podAxialGapMillimetres": 2,
+        "synchronization": "EXTERNAL_CONTROLLER / NO INTERNAL CROSSING LINK",
+        "torqueClaim": "NOT_RATED"
+      }
+    ],
+    "geometry": {
+      "edgeLengthMillimetres": {
+        "min": 99.99999999999999,
+        "max": 100
+      },
+      "radialRunningClearanceMillimetres": 0.5,
+      "openTipRadiusMillimetres": 146.88467904916197,
+      "operatingStopDegrees": 147.5,
+      "stopApertureDiameterMillimetres": 5.95850217473846,
+      "maximumStopZMillimetres": 118.70941999398946,
+      "housingRadialMarginMillimetres": 5.115320950838026,
+      "housingTopMarginMillimetres": 2.2905800060105435
+    },
+    "housing": {
+      "type": "OPEN_CYLINDRICAL_GUARD_WITH_SERVICE_CAP",
+      "innerRadiusMillimetres": 153,
+      "outerRadiusMillimetres": 157,
+      "bottomMillimetres": -8,
+      "topMillimetres": 122
+    },
+    "materials": {
+      "flapPrototype": "PETG / 2 mm / KINEMATIC PROTOTYPE ONLY",
+      "pin": "AISI 316 STAINLESS / 4 mm",
+      "bearing": "POM-C LINER / 5 mm BORE / 8 mm OD",
+      "housing": "PETG / 4 mm GUARD / NON-STRUCTURAL",
+      "actuator": "EXTERNAL MICRO-SERVO PLACEHOLDER / TORQUE UNRATED"
+    },
+    "claim": "KINEMATIC_HINGE_ACTUATOR_HOUSING_PROTOTYPE_WITH_CONTINUOUS_CLEARANCE_CERTIFICATE",
+    "hold": "LOAD / FATIGUE / WEAR / THERMAL / TORQUE / FASTENER / FABRICATION RELEASE"
+  },
+  "sources": {
+    "finite_envelope_receipt": "results/a0-lantern-crown-finite-envelope-return-2026-10-29.json",
+    "finite_envelope_sha256": "2b4c283372b9c08bc614cdc83336293d455958df21bc371231d51be19ecf82ed",
+    "model": "a0-lantern-hinge-actuator-engineering.js",
+    "model_sha256": "23684445a9c149559665784886f72b9c84d820300dfbce1a87345339c58429ee"
+  },
+  "authority": {
+    "new_study": false,
+    "new_f_a0_finding": false,
+    "publication": false,
+    "fabrication_release": false
+  },
+  "identity_effect": {
+    "new_global_ids": [],
+    "new_relations": [],
+    "carrier_merge": false
+  }
+}

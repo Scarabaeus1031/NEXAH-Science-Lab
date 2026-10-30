@@ -1,0 +1,31 @@
+{
+  "schema": "a0.prime-successor-dual-address-audit.v1",
+  "date": "2026-10-30",
+  "status": "PASS_BOUNDED_TWIN_SUCCESSOR_AND_DUAL_ADDRESS_AUDIT",
+  "range": {
+    "oneBasedPrimeIndices": [1, 2048],
+    "successorHits": 311
+  },
+  "successorIdentity": {
+    "statement": "p_1+p_n=p_(n+1) iff p_(n+1)-p_n=2",
+    "reason": "p_1=2; the equality is exactly the twin-prime successor condition",
+    "witness17_19": "p_1+p_7=2+17=19=p_8",
+    "witness29_31": "p_1+p_10=2+29=31=p_11"
+  },
+  "dualAddress": {
+    "primeValues": [17, 29],
+    "primeIndices": [7, 10],
+    "valueAddress": "17|29=1729",
+    "indexAddress": "7|10=710",
+    "valueFacts": [
+      "1729=1^3+12^3=9^3+10^3",
+      "1729=7*13*19"
+    ],
+    "indexAddressFacts": [
+      "710=2*5*71"
+    ]
+  },
+  "application": "Four-port Mathfield comparator: prime value, prime index, decimal concatenation, and successor/return condition.",
+  "nonIdentity": "710 and 1729 are linked by declared source indices; they are not equal and no lift, shared generator or physical channel is inferred.",
+  "claimCeiling": "No twin-prime theorem, generator, universal decimal law, Study, Finding, new identity, relation or publication state."
+}

@@ -1,0 +1,80 @@
+{
+  "schema": "nexah.a0.instrument-return/1",
+  "date": "2026-10-30",
+  "instrument": "A0 TESA Glyph Zither Translator",
+  "status": "PASS",
+  "route": "A0_WERKBANK.html#tesaZitherTranslator",
+  "identity": {
+    "action": "REUSE",
+    "owner": "NEXAH_AX0_QMODE_FOUNDATION_PACKAGE / A0_WERKBANK",
+    "new_identity": false,
+    "new_family": false,
+    "new_relation": false,
+    "new_study": false,
+    "source_graph_changed": false
+  },
+  "contract": {
+    "record_schema": "nexah.a0.tesa-glyph-zither-record/1",
+    "separated_types": [
+      "TESA address",
+      "A1Z26 value",
+      "prime-position flag",
+      "prime-index lift",
+      "signed display lane",
+      "Lissajous projection",
+      "audio-frequency comparator",
+      "GLB geometry"
+    ],
+    "local_mnemonics": {
+      "StaX": "held address",
+      "StiX": "moving thread / projected string"
+    },
+    "claim_boundary": "The translator is a bounded display and record instrument. It asserts no shared resonance equation, calibrated audio result, physical mechanism, or identity merge."
+  },
+  "source_comparators": {
+    "frames": [1031, 1033, 1035],
+    "zither": [137, 163],
+    "audio_hz": [424, 432, 440],
+    "rosetta": [97, 83, 756],
+    "lissajous": {"ratio": "5:6", "tips": 11},
+    "policy": "Comparator values only; no identity or physical-law promotion."
+  },
+  "verification": {
+    "checks": 78,
+    "checks_passed": 78,
+    "glyphs": ["G", "I", "J", "K", "U", "X", "D", "M", "V"],
+    "signed_lanes": ["+1", "-1", "+2", "-2"],
+    "mirror_states": 2,
+    "anchors": ["TESA R1C7", "G7 prime position", "p7=17", "5:6 closure", "StiX/StaX mode switch"]
+  },
+  "existing_glb_returns": [
+    "assets/universal-machine-fam009/numbermagic_panel_fieldart_pack.glb",
+    "assets/universal-machine-fam009/cosmic_resonance_cross_sorting_wheel.glb",
+    "assets/universal-machine-fam009/universal_spiral_field_art.glb",
+    "assets/3d/nexah_pq_conjugate_orbit_v7.glb"
+  ],
+  "source_image_sha256": {
+    "C313A6AA-763D-404B-A8E7-D7FC08208562.png": "0250fae6ce612d2420ca14a2c5bd2ce8668f6b639837d7148dd5caffcadee32a",
+    "9C8A63F4-9C10-4D34-9340-1FD9929E1108_1_105_c.jpeg": "9cf7cdb9bcc6173c4e930d162f3d24b505f75a446d539c556fd29a61e73de2dc",
+    "77DEF880-D925-4826-99A7-2945E1C6E254_1_105_c.jpeg": "879e6594c3621e1fc10fdaab905bc2427ae7f5d4ec7a0be368a0314071b96e16",
+    "33B6F9C4-CDAF-47FD-B4CA-FDB519C9CF53_1_105_c.jpeg": "e29127732e76cd450a8a92bfa2fbdd2051c40c75f4884140b49df00c525d8948",
+    "B9155810-51BD-42A2-A761-9530463EE69C_1_105_c.jpeg": "fce7abafa8cae3e225f5de23613a3e06ffa3fd60e4eee41768ba03fc3e7d8128",
+    "19D8FEA3-82DE-4281-A999-57E6F5132B6D_1_105_c.jpeg": "118bf94b58d9228db1f8d3cfeb818df24da8e89e95d04e8278f1c4fe9adf0967",
+    "7F06E27D-1809-4670-A4CB-F918D5A5CCFE_1_105_c.jpeg": "dd2722135de2edf46fb49ec27a8b8791973ddefc7e433b379f1495928226f482",
+    "B1EAA4CE-663E-4322-9400-BEEB882E429B_4_5005_c.jpeg": "81aa5c94d29244237e074075af32d9f606fb7edf3ac2b800bbbf5e8b345bd8de",
+    "23376362-8B50-47BA-86A9-C8FF868B54CF_4_5005_c.jpeg": "b111444c6298d2bfc4572bef0e5be06e5edc1a509e75c78b656163e14fce313c",
+    "D91A0E33-4681-4BF1-8C48-0D7CB71D57B9_4_5005_c.jpeg": "0d421c7e0a717f747ad52a3479c6b289c5eb4eb59d8481f8fe919bbd8b95b87a",
+    "2780817B-6655-4609-BAAB-EE5BABD13532_1_102_o.jpeg": "6573c94684302f21c62e7367a2bc6d73da3a34fcfd69a6f08c1c3f2c69ee5760",
+    "67DDAB02-21BE-4762-9AD0-9B1CF23D59DA_1_105_c.jpeg": "8642f9921441d71c0d271ecbad2a40ea8bca9c73dbfbbe3fe7f8890736950dbe",
+    "2FE79565-CD21-4E51-8108-D236373CD3E4_1_105_c.jpeg": "614e99cc5bd6c2ac539ffa35f8db2e058e8577dbb617089e8483e047c15d4cd3",
+    "A3C371A0-E385-4071-9C8F-433459BFCD15_1_105_c.jpeg": "483dc395716eee7f9fd556d4c80b99ec453f1ef7be03126d7b312e8487093c5e",
+    "28AD5F92-F4FF-48D5-8439-EC8B50C4A47E_1_105_c.jpeg": "faf8c85f491227a78b9881302d6a51f93de8e33ce2b818643ec7da9f4446f270",
+    "8DAB10EC-897F-404F-9D3B-213D2F17B4B3_1_102_o.jpeg": "0c8a4a555267416292ffafc9b9496526b5c7dacd0119e6912e4e1bdcc9709f3c"
+  },
+  "artifacts": [
+    "A0_WERKBANK.html",
+    "a0-bench-navigation.css",
+    "a0-tesa-zither-translator.js",
+    "a0-tesa-zither-translator-tests.cjs"
+  ]
+}

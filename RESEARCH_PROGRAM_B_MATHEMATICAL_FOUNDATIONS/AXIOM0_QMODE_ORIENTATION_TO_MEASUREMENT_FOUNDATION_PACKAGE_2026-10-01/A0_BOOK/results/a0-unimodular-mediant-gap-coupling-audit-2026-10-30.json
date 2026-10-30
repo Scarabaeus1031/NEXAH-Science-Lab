@@ -1,0 +1,55 @@
+{
+  "schema": "a0.unimodular-mediant-gap-coupling-audit.v1",
+  "date": "2026-10-30",
+  "status": "PASS_BOUNDED_UNIMODULAR_MEDIANT_GAP_COUPLING",
+  "authority": "existing ART:A0:MATHEMATICAL_JOINTS engineering verifier; no Study, Finding, identity, relation or vocabulary promotion",
+  "range": { "n": [1, 2048], "casesChecked": 2048 },
+  "definition": {
+    "inputA": "A_n=(n,n+1)",
+    "inputB": "B_n=(n+1,n+2)",
+    "coupledOutput": "C_n=A_n+B_n=(2n+1,2n+3)",
+    "gapOperator": "Delta(x,y)=y-x",
+    "gapCoupling": "Delta(C_n)=Delta(A_n)+Delta(B_n)=1+1=2",
+    "mediant": "n/(n+1) oplus (n+1)/(n+2) = (2n+1)/(2n+3)"
+  },
+  "universalChecks": {
+    "passed": 2048,
+    "failed": 0,
+    "determinants": ["det(A_n,B_n)=-1", "det(A_n,C_n)=-1", "det(B_n,C_n)=+1"],
+    "exactReturn": "C_n-B_n=A_n"
+  },
+  "requestedWitness": {
+    "n": 2,
+    "a": [2, 3],
+    "b": [3, 4],
+    "c": [5, 7],
+    "gaps": { "a": 1, "b": 1, "c": 2, "couplingRatio": "2:1" },
+    "determinants": { "ab": -1, "ac": -1, "bc": 1 },
+    "mediant": "2/3 ⊕ 3/4 = 5/7",
+    "exactReturn": [2, 3],
+    "outputTwinPrime": true
+  },
+  "primeFilter": {
+    "condition": "2n+1 and 2n+3 are both prime",
+    "twinHits": 107,
+    "firstTwentyN": [1, 2, 5, 8, 14, 20, 29, 35, 50, 53, 68, 74, 89, 95, 98, 113, 119, 134, 140, 155],
+    "lastHit": {
+      "n": 2045,
+      "a": [2045, 2046],
+      "b": [2046, 2047],
+      "c": [4091, 4093],
+      "gaps": { "a": 1, "b": 1, "c": 2, "couplingRatio": "2:1" },
+      "determinants": { "ab": -1, "ac": -1, "bc": 1 },
+      "mediant": "2045/2046 ⊕ 2046/2047 = 4091/4093",
+      "exactReturn": [2045, 2046],
+      "outputTwinPrime": true
+    },
+    "reading": "Gap 2 is universal in the declared family; twin-primality is a separate filter and is not universal."
+  },
+  "labels": {
+    "formal": "Unimodular Mediant Gap-Doubling Joint",
+    "working": "Quach Coupling · 2:1",
+    "vocabularyState": "WORKING_LABEL_ONLY_NOT_CANONICAL"
+  },
+  "claimCeiling": "Exact finite arithmetic family and bounded prime filter only; no twin-prime theorem, prime generator, RPM or physical coupling, canonical vocabulary, Study, Finding, new identity, graph relation or publication state"
+}

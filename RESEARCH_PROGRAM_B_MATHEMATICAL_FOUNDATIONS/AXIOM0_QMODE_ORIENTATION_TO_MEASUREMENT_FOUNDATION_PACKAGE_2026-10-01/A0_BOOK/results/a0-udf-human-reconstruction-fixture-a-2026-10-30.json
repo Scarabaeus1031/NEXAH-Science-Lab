@@ -1,0 +1,174 @@
+{
+  "@context": [
+    "https://w3id.org/ro/crate/1.2/context",
+    {
+      "a0": "https://nexah.example/ns/a0-orientation-return#",
+      "prov": "http://www.w3.org/ns/prov#",
+      "sha256": "https://schema.org/sha256",
+      "used": {
+        "@id": "http://www.w3.org/ns/prov#used",
+        "@type": "@id"
+      },
+      "wasDerivedFrom": {
+        "@id": "http://www.w3.org/ns/prov#wasDerivedFrom",
+        "@type": "@id"
+      },
+      "wasGeneratedBy": {
+        "@id": "http://www.w3.org/ns/prov#wasGeneratedBy",
+        "@type": "@id"
+      }
+    }
+  ],
+  "@graph": [
+    {
+      "@id": "ro-crate-metadata.json",
+      "@type": "CreativeWork",
+      "about": {
+        "@id": "./"
+      },
+      "conformsTo": {
+        "@id": "https://w3id.org/ro/crate/1.2/context"
+      }
+    },
+    {
+      "@id": "./",
+      "@type": "Dataset",
+      "conformsTo": {
+        "@id": "nexah.a0.prov-rocrate.orientation-return-baseline/0.1.0"
+      },
+      "hasPart": [
+        {
+          "@id": "#source"
+        },
+        {
+          "@id": "#frame"
+        },
+        {
+          "@id": "#handoff"
+        },
+        {
+          "@id": "#target"
+        },
+        {
+          "@id": "#exit"
+        },
+        {
+          "@id": "#return-axis"
+        },
+        {
+          "@id": "#return"
+        }
+      ],
+      "name": "Breathing Crystal to V12 orientation Return baseline crate"
+    },
+    {
+      "@id": "#source",
+      "@type": [
+        "CreativeWork",
+        "prov:Entity"
+      ],
+      "additionalType": "nexah.a0.breathing-crystal-orientation-ledger/1.0.0",
+      "contentUrl": "a0-breathing-crystal-bench.js",
+      "identifier": "NEXAH:INSTRUMENT:BREATHING_PRIME_CRYSTAL:V1",
+      "sha256": "0117bba1c6857e2eea7dce0f90336988a85c78d02a946cc0371b926d5e9ed57e"
+    },
+    {
+      "@id": "#frame",
+      "@type": [
+        "Dataset",
+        "prov:Entity"
+      ],
+      "a0:clock": "breath.phase",
+      "a0:direction": "CW",
+      "a0:horizontalAxisNode": "BAND_0.429",
+      "a0:horizontalAxisRole": "PAIR_X",
+      "a0:horizontalCrossings": 2,
+      "a0:horizontalRelation": "BELOW_H",
+      "a0:pair": "ab",
+      "a0:pinRole": "FIXED_RELATION_ORIGIN",
+      "a0:pinX": 0,
+      "a0:pinY": 0,
+      "a0:quadrant": "IV",
+      "a0:radius": 1.118033988749895,
+      "a0:thetaDegrees": 333.4349488229221,
+      "a0:verticalAxisNode": "BAND_0.456",
+      "a0:verticalAxisRole": "PAIR_Y",
+      "a0:verticalCrossings": 2,
+      "a0:verticalRelation": "RIGHT_OF_V",
+      "a0:winding": -1,
+      "additionalType": "nexah.a0.breathing-crystal-orientation-ledger/1.0.0",
+      "wasDerivedFrom": {
+        "@id": "#source"
+      }
+    },
+    {
+      "@id": "#handoff",
+      "@type": [
+        "CreateAction",
+        "prov:Activity"
+      ],
+      "a0:sourceMutation": false,
+      "name": "Crystal orientation frame to V12 typed view handoff",
+      "result": {
+        "@id": "#target"
+      },
+      "used": [
+        {
+          "@id": "#source"
+        },
+        {
+          "@id": "#frame"
+        }
+      ]
+    },
+    {
+      "@id": "#target",
+      "@type": [
+        "SoftwareApplication",
+        "prov:Entity"
+      ],
+      "additionalType": "a0.v12-xy-graph-translator/1.0.0",
+      "identifier": "MOD:TESSAREC",
+      "name": "V12_XY_GRAPH_TRANSLATOR",
+      "wasGeneratedBy": {
+        "@id": "#handoff"
+      }
+    },
+    {
+      "@id": "#exit",
+      "@type": "PropertyValue",
+      "name": "RE · EXIT",
+      "propertyID": "V12_FIXED_EXIT_COMPARATOR",
+      "unitText": "degree",
+      "value": 45
+    },
+    {
+      "@id": "#return-axis",
+      "@type": "PropertyValue",
+      "name": "DO′ · RETURN",
+      "propertyID": "V12_FIXED_RETURN_COMPARATOR",
+      "unitText": "degree",
+      "value": 360
+    },
+    {
+      "@id": "#return",
+      "@type": [
+        "Action",
+        "prov:Activity"
+      ],
+      "a0:claimBoundary": "Experimental source-bound serialization profile for one typed orientation Return. It is not a universal UDF schema, product capability, shared mechanism, GLB mutation, Study, Finding promotion or publication.",
+      "a0:newCanonicalIds": [],
+      "a0:relationChanges": [],
+      "a0:sourceMutation": false,
+      "name": "Return to unchanged Crystal Orientation Ledger",
+      "object": {
+        "@id": "#target"
+      },
+      "result": {
+        "@id": "#frame"
+      },
+      "target": "CRYSTAL_ORIENTATION_LEDGER",
+      "url": "A0_ORIENTATION_CONTROLLER_BENCH.html#breathingCrystalMeasurementDeck"
+    }
+  ]
+}

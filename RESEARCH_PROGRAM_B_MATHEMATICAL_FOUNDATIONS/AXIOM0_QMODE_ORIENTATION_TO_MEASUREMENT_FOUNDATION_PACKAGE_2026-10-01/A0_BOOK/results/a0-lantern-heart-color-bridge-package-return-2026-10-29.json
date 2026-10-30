@@ -1,0 +1,31 @@
+{
+  "schema": "A0_MACHINE_RETURN_V1",
+  "date": "2026-10-29",
+  "module": "Lantern / Heart / LY-MPH / RGB-CMY / Crown-Tumble connector package",
+  "test_result": {"status":"PASS_WITH_HOLDS","passed":17,"total":17},
+  "source_replay": {"status":"PASS_WITH_MECHANISM_HOLD","passed":2835,"total":2835,"receipt":"a0-lantern-crown-source-replay-return-2026-10-29.json"},
+  "finite_envelope": {"status":"PASS_WITH_EARLY_STOP_AND_CONTINUOUS_HOLD","passed":102751,"total":102751,"safe_stop_degrees":148.0884377191715,"residual_aperture_millimetres":5.103904850112266,"receipt":"a0-lantern-crown-finite-envelope-return-2026-10-29.json"},
+  "engineering_closure": {"status":"PASS_KINEMATIC_PROTOTYPE_WITH_LOAD_HOLD","passed":10,"total":10,"operating_stop_degrees":147.5,"certified_pair_clearance_millimetres":1.468754289,"certified_fixed_clearance_millimetres":3.575467656,"receipt":"a0-lantern-hinge-actuator-housing-return-2026-10-29.json","prototype_glb":"a0-lantern-hinge-actuator-housing-prototype-2026-10-29.glb"},
+  "passed_connections": [
+    "Five-flap crown source and GLB replay pass against the fixed lantern reference",
+    "Sampled 2 mm finite-thickness envelope passes with 1 mm clearance, 6 mm hinge-end relief and a 148.088 degree early stop",
+    "Five 4 mm hinge pins, five POM-C liners and five external coaxial actuator routes satisfy the kinematic interface contract",
+    "4096 bounded intervals certify continuous pair and fixed-reference clearance through the 147.5 degree operating stop",
+    "Open PETG guard and source-bound GLB prototype close housing fit while preserving load and fabrication holds",
+    "J-LUV heart retained as declared pivot role",
+    "LY-MPH retained as address and axis contract",
+    "missing R maps to Cyan; missing G to Magenta; missing B to Yellow",
+    "R90 fourth-power view return retained"
+  ],
+  "holds": [
+    "Load, fatigue, wear, thermal, torque, fastener and fabrication release",
+    "Heart as physical drive",
+    "LY-MPH as physical or biological coupling",
+    "calibrated spectral or colorimetric claim",
+    "falling, tumbling or measured motion"
+  ],
+  "notation": {"YMCK":"display ordering only","CMYK":"conventional channel-set label","K":"separate absorption/control channel"},
+  "identity_effect": {"new_global_ids":[],"new_relations":[]},
+  "authority": {"new_study":false,"new_f_a0_finding":false,"publication":false},
+  "classification": "IMPLEMENTATION_FINDINGS_ONLY / SOURCE_BOUND_BENCH_CONFIGURATION / NO CARRIER MERGE"
+}

@@ -1,0 +1,56 @@
+{
+  "schema": "nexah.a0.crown-tumble-axis-return/1",
+  "date": "2026-10-29",
+  "status": "PASS_BOUNDED_CODE_NATIVE_GEOMETRY_PROJECTION_MOTION_HOLD",
+  "scope": "Rotated-hourglass and five-ray Crown-Tumble view with deterministic rigid-transform, ratio and return checks.",
+  "identity_effect": {
+    "reused": [
+      "NEXAH_A0_ORIENTATION_CONTROLLER_BENCH",
+      "ART:A0:MATHEMATICAL_JOINTS",
+      "NEXAH:A0_ORIENTATION_EVIDENCE_LINEAGE:V1"
+    ],
+    "new_global_ids": [],
+    "new_relations": [],
+    "new_operator": false,
+    "new_carrier": false
+  },
+  "declared_view": {
+    "form": "R90(HOURGLASS)",
+    "axis_addresses": {
+      "ALPHA": 2,
+      "DELTA": 7,
+      "THETA": 17,
+      "ZETA": 19,
+      "IOTA": 23
+    },
+    "coefficient": "PC = CR / TL",
+    "coefficient_type": "DIMENSIONLESS_VIEW_CLASSIFIER",
+    "motion_state": "HOLD",
+    "thc_state": "UNBOUND_OWNER_MNEMONIC"
+  },
+  "deterministic_checks": {
+    "count": 12,
+    "status": "PASS",
+    "covers": [
+      "five exact display addresses",
+      "PC ratio and three view classes",
+      "R90 norm preservation",
+      "R90^4 exact return",
+      "3^2 = 9",
+      "2^5 = 32"
+    ]
+  },
+  "science_return": {
+    "desk_anchor": "A0_RESEARCH_DESK.html#crown-tumble-axis-return-20261029",
+    "findings_anchor": "../32_A0_FINDINGS_AND_PAPER_WORKSPACE_2026-10-11.md#crown-tumble-axis-return-20261029",
+    "classification": "IMPLEMENTATION_FINDINGS_ONLY_NOT_A_NEW_F_A0_FINDING"
+  },
+  "authority": {
+    "new_study": false,
+    "new_f_a0_finding": false,
+    "scientific_evidence_promotion": false,
+    "paper_claim_change": false,
+    "publication_authorized": false
+  },
+  "claim_boundary": "The return verifies only code-native rigid geometry, a declared dimensionless view ratio and an exact display return. It does not establish falling, tumbling, rotation in time, THC, resonance, a physical carrier, a Z9 binding, a 22x22 grid, a root-grid mechanism or a scientific finding."
+}

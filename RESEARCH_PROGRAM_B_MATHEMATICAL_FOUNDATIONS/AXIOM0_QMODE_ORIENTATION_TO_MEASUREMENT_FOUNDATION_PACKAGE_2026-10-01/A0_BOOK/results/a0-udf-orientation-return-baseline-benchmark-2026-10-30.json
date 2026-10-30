@@ -1,0 +1,80 @@
+{
+  "schema": "nexah.a0.udf-orientation-return-baseline-benchmark/1.0.0",
+  "date": "2026-10-30",
+  "status": "TIE_6_OF_6_NO_INCREMENTAL_INFORMATION_ADVANTAGE_ESTABLISHED",
+  "scope": "T6_PROVENANCE_INCREMENT_ENGINEERING_PREFLIGHT_NOT_ACTIVE_RESEARCH",
+  "candidate": {
+    "profile": "nexah.udf.orientation-return/0.1.0-experimental",
+    "bytes": 2030,
+    "digest": "3a0740ad02639ce50c26f80d6197416592c03c40f4e02e642a818a5437721ae8"
+  },
+  "baseline": {
+    "profile": "nexah.a0.prov-rocrate.orientation-return-baseline/0.1.0",
+    "standards": [
+      "RO-Crate 1.2 context",
+      "W3C PROV-O",
+      "Schema.org",
+      "A0 domain extension"
+    ],
+    "bytes": 4485,
+    "digest": "9014979674d71da8aba75144adc65434fc7ee2091f3454421bffcc4fcfe63d74",
+    "fairness": "EQUAL_INFORMATION_AND_EQUAL_DOMAIN_EXTENSION_PERMISSION"
+  },
+  "checks": [
+    {
+      "id": "01_EQUAL_INFORMATION_INPUT",
+      "udf": "PASS",
+      "prov_rocrate": "PASS",
+      "result": "TIE",
+      "detail": "Both records expose the same source, target, frame, comparator, Return and boundary information."
+    },
+    {
+      "id": "02_DETERMINISTIC_SERIALIZATION_AND_DIGEST",
+      "udf": "PASS",
+      "prov_rocrate": "PASS",
+      "result": "TIE",
+      "detail": "Both encodings serialize and hash deterministically."
+    },
+    {
+      "id": "03_SOURCE_TARGET_AND_PROVENANCE_RECOVERY",
+      "udf": "PASS",
+      "prov_rocrate": "PASS",
+      "result": "TIE",
+      "detail": "Both recover source identity, source contract, path, hash, target identity and target contract."
+    },
+    {
+      "id": "04_ORIENTATION_ROLES_AND_NUMERIC_ROUNDTRIP",
+      "udf": "PASS",
+      "prov_rocrate": "PASS",
+      "result": "TIE",
+      "detail": "Both preserve AB/BC/CA role assignments and 21 sampled frames within 1e-12."
+    },
+    {
+      "id": "05_COMPARATOR_RETURN_AND_NON_IDENTITY_RECOVERY",
+      "udf": "PASS",
+      "prov_rocrate": "PASS",
+      "result": "TIE",
+      "detail": "Both keep the Crystal vector, RE Exit, DO-prime Return, source mutation and identity boundaries separate."
+    },
+    {
+      "id": "06_MATCHED_LOSS_LOCALIZATION_AND_REJECTION",
+      "udf": "PASS",
+      "prov_rocrate": "PASS",
+      "result": "TIE",
+      "detail": "Both localize the matched missing vertical-axis node; neither gains by receiving more information."
+    }
+  ],
+  "summary": {
+    "udf_wins": 0,
+    "baseline_wins": 0,
+    "ties": 6,
+    "representation_result": "NO_INCREMENTAL_INFORMATION_ADVANTAGE_FOR_UDF_IN_THIS_SINGLE_PROFILE_CASE",
+    "engineering_result": "UDF_IS_MORE_COMPACT_AND_DOMAIN_DIRECT;_BASELINE_IS_STANDARD_PROVENANCE_CONTAINER_WITH_DOMAIN_EXTENSION",
+    "next_evidence_gate": "SECOND_GENUINELY_DIFFERENT_SOURCE_INSTRUMENT_OR_INDEPENDENT_HUMAN_RECONSTRUCTION_TEST"
+  },
+  "new_canonical_ids": [],
+  "relation_changes": [],
+  "capability_status": "NOT_ASSIGNED",
+  "science_disposition": "VALIDATED_NEGATIVE_OR_NULL_ENGINEERING_PREFLIGHT_NOT_F_A0_FINDING",
+  "claim_boundary": "This equal-information benchmark shows no informational or reconstruction advantage over a strong RO-Crate/W3C PROV-style baseline for one orientation profile. It does not establish novelty, inferiority, universal interchange, independent utility, a Study result, product capability or publication state."
+}

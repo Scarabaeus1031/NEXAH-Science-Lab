@@ -5,7 +5,7 @@
 })(typeof globalThis!=='undefined'?globalThis:this,function(){
   'use strict';
 
-  const VERSION='1.1.0';
+  const VERSION='1.2.0';
   const IDENTITY='NEXAH_A0_ORIENTATION_CONTROLLER_BENCH';
   const STAGES=Object.freeze(['READY','CAPTURE_0','SELECT_PLATE','PSI_90','SAMPLE_DOUBLE_COVER','COMPARE_CHECKPOINTS','CLASSIFY_RETURN']);
   const CHECKPOINTS=Object.freeze([0,90,180,360,720]);
@@ -116,7 +116,7 @@
 
   function mount(doc,win=doc.defaultView||{}){
     const host=doc.getElementById('aePaperBoatReturnDut');if(!host)return null;
-    const ids=['aePbrSvg','aePbrStatus','aePbrRun','aePbrNext','aePbrSample','aePbrReset','aePbrPlate','aePbrSamples','aePbrSamplesOut','aePbrStage','aePbrAngle','aePbrInvariant','aePbrProjection','aePbrTopology','aePbrTable','aePbrExport','aePbrChannelSvg','aePbrChannelStatus','aePbrChannelGeneration','aePbrChannelFingerprint','aePbrChannelReturn','aePbrChannelRefresh','aePbrChannelOpen'];
+    const ids=['aePbrSvg','aePbrStatus','aePbrRun','aePbrNext','aePbrSample','aePbrReset','aePbrPlate','aePbrSamples','aePbrSamplesOut','aePbrStage','aePbrAngle','aePbrInvariant','aePbrProjection','aePbrTopology','aePbrTable','aePbrExport','aePbrChannelSvg','aePbrChannelStatus','aePbrChannelGeneration','aePbrChannelFingerprint','aePbrChannelReturn','aePbrChannelRefresh','aePbrChannelOpen','aePbrArcadeInline','aePbrArcadeFrame','aePbrArcadeClose'];
     const nodes=Object.fromEntries(ids.map(id=>[id,doc.getElementById(id)])),missing=ids.filter(id=>!nodes[id]);if(missing.length)throw Error(`Paper-Boat Return DUT mount missing: ${missing.join(', ')}`);
     const channelApi=win.A0ThreeDomainJointAdapter||null;
     let state=createState(),timer=null,latestChannelRecord=null,channelCapture=null,frozenChannelRecord=null,channelTransport=null;
@@ -141,10 +141,19 @@
     }
     function tick(){const previous=state,next=advance(state);state=createState({...next,running:state.running});apply(state,previous);render();if(state.stage===6)stop(),render()}
     function start(){stop();state=createState({...state,running:true});timer=setInterval(tick,160)}
-    nodes.aePbrRun.addEventListener('click',()=>{state.running?stop():start();render()});nodes.aePbrNext.addEventListener('click',()=>{stop();tick()});nodes.aePbrSample.addEventListener('click',()=>{stop();if(state.stage<4){const previous=state;state=createState({...state,stage:4});apply(state,previous)}tick()});nodes.aePbrReset.addEventListener('click',()=>{stop();state=createState({plate:nodes.aePbrPlate.value,samplesPerTurn:nodes.aePbrSamples.value});channelCapture=null;frozenChannelRecord=null;win.A0AeZipperBoundaryController?.reset?.();channelTransport?.request?.();render()});nodes.aePbrPlate.addEventListener('change',()=>{state=selectPlate(state,nodes.aePbrPlate.value);if(state.stage>=2)win.A0AeZipperBoundaryController?.selectPlate?.(state.plate);render()});nodes.aePbrSamples.addEventListener('input',()=>{state=setSamples(state,nodes.aePbrSamples.value);win.A0DgSamplingLoopController?.setSamples?.(state.samplesPerTurn);render()});nodes.aePbrChannelRefresh.addEventListener('click',()=>channelTransport?.request?.());nodes.aePbrChannelOpen.addEventListener('click',()=>{const source=win.open?.('assets/game-of-worlds-play/three-domain-transition-test/index.html#atlas','a0ThreeDomainArcadeSource');if(source)channelTransport?.attachSource?.(source);});nodes.aePbrExport.addEventListener('click',()=>{const blob=new Blob([JSON.stringify(buildReceipt(state,BASELINE,channelReceipt()),null,2)],{type:'application/json'}),url=URL.createObjectURL(blob),anchor=doc.createElement('a');anchor.href=url;anchor.download='a0-paper-boat-return-dut-record.json';anchor.click();URL.revokeObjectURL(url)});
+    function setArcadeVisible(visible){
+      const open=Boolean(visible);
+      nodes.aePbrArcadeInline.hidden=!open;
+      nodes.aePbrChannelOpen.setAttribute('aria-expanded',String(open));
+      nodes.aePbrChannelOpen.textContent=open?'ARCADE AUSBLENDEN ↑':'ARCADE HIER EINBLENDEN ↓';
+      if(open&&!nodes.aePbrArcadeFrame.getAttribute?.('src'))nodes.aePbrArcadeFrame.setAttribute('src',nodes.aePbrArcadeFrame.dataset.src);
+      return open;
+    }
+    nodes.aePbrArcadeFrame.addEventListener('load',()=>{if(nodes.aePbrArcadeFrame.contentWindow)channelTransport?.attachSource?.(nodes.aePbrArcadeFrame.contentWindow);channelTransport?.request?.()});
+    nodes.aePbrRun.addEventListener('click',()=>{state.running?stop():start();render()});nodes.aePbrNext.addEventListener('click',()=>{stop();tick()});nodes.aePbrSample.addEventListener('click',()=>{stop();if(state.stage<4){const previous=state;state=createState({...state,stage:4});apply(state,previous)}tick()});nodes.aePbrReset.addEventListener('click',()=>{stop();state=createState({plate:nodes.aePbrPlate.value,samplesPerTurn:nodes.aePbrSamples.value});channelCapture=null;frozenChannelRecord=null;win.A0AeZipperBoundaryController?.reset?.();channelTransport?.request?.();render()});nodes.aePbrPlate.addEventListener('change',()=>{state=selectPlate(state,nodes.aePbrPlate.value);if(state.stage>=2)win.A0AeZipperBoundaryController?.selectPlate?.(state.plate);render()});nodes.aePbrSamples.addEventListener('input',()=>{state=setSamples(state,nodes.aePbrSamples.value);win.A0DgSamplingLoopController?.setSamples?.(state.samplesPerTurn);render()});nodes.aePbrChannelRefresh.addEventListener('click',()=>channelTransport?.request?.());nodes.aePbrChannelOpen.addEventListener('click',()=>setArcadeVisible(nodes.aePbrArcadeInline.hidden));nodes.aePbrArcadeClose.addEventListener('click',()=>setArcadeVisible(false));nodes.aePbrExport.addEventListener('click',()=>{const blob=new Blob([JSON.stringify(buildReceipt(state,BASELINE,channelReceipt()),null,2)],{type:'application/json'}),url=URL.createObjectURL(blob),anchor=doc.createElement('a');anchor.href=url;anchor.download='a0-paper-boat-return-dut-record.json';anchor.click();URL.revokeObjectURL(url)});
     if(channelApi?.createTransport)channelTransport=channelApi.createTransport(win,{role:'sink',onRecord(record){latestChannelRecord=record;if(state.stage===0&&!channelCapture)render();}});
     win.addEventListener?.('pagehide',()=>channelTransport?.close?.(),{once:true});
-    render();return Object.freeze({render,next(){stop();tick();return inspect(state)},run(){start();return inspect(state)},reset(){stop();state=createState();channelCapture=null;frozenChannelRecord=null;return render()},selectPlate(value){state=selectPlate(state,value);return render()},setSamples(value){state=setSamples(state,value);return render()},bindChannelRecord(record){latestChannelRecord=record;return render()},get state(){return state},get record(){return buildReceipt(state,BASELINE,channelReceipt())}});
+    render();return Object.freeze({render,next(){stop();tick();return inspect(state)},run(){start();return inspect(state)},reset(){stop();state=createState();channelCapture=null;frozenChannelRecord=null;return render()},selectPlate(value){state=selectPlate(state,value);return render()},setSamples(value){state=setSamples(state,value);return render()},showArcade(){return setArcadeVisible(true)},hideArcade(){return setArcadeVisible(false)},bindChannelRecord(record){latestChannelRecord=record;return render()},get state(){return state},get record(){return buildReceipt(state,BASELINE,channelReceipt())}});
   }
 
   return{VERSION,IDENTITY,STAGES,CHECKPOINTS,PLATES,BASELINE,createState,angleFor,project,inspect,advance,selectPlate,setSamples,classify,buildReceipt,svgMarkup,mount};

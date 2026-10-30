@@ -8,7 +8,7 @@ for(const file of ['index.html','A0_SCIENCE.html','A0_MATHEMATICAL_JOINTS.html',
  check(Boolean(science),'existing Science lane');
  const cards=result.nodes.filter(n=>n.className?.startsWith('a0-showcase-card '));
  check(result.nodes.some(n=>n.tagName==='A'&&n.href==='A0_MATHEMATICAL_JOINTS.html'&&n.innerHTML.includes('Mathfield · mathematische Werkstatt')),'actual mounted reading entry');
- check(cards.some(n=>n.href==='NEXAH_SCIENCE.html#overview'),'NEXAH Science flagship retained');
+ check(cards.some(n=>n.href==='A0_SCIENCE.html#top'),'bounded A0 Science reader retained without the retired standalone public index');
  check(cards.some(n=>n.href==='A0_MATHEMATICAL_JOINTS.html'),'Mathfield flagship retained');
  check(result.nodes.some(n=>n.tagName==='A'&&n.href==='A0_SCIENTIFIC_POSITION_REPORT.html'),'position retained in Science reader');
  check(result.nodes.some(n=>n.tagName==='A'&&n.href==='A0_SCIENCE.html#contributions'),'contributions retained in Science reader');
@@ -29,5 +29,5 @@ const fourSeam=JSON.parse(fs.readFileSync(path.join(__dirname,'results/a0-blue-b
 check(fourSeam.identity.reuse==='MOD:TESSAREC'&&fourSeam.identity.new_navigator_identity===false,'bridge reuses MOD:TESSAREC without a new identity');
 check(fourSeam.four_seam_frame.equation==='1 PRIMARY CUT + 3 PURPLE CO-SEAMS = 4-SEAM FRAME','bridge reads the declared four-seam contract');
 check(fourSeam.verification.browser_accepted===true,'bridge source has browser acceptance');
-check(script.includes('"key": "science"')&&script.includes('"label": "NEXAH · Science"'),'accepted NEXAH Science lane naming retained');
-console.log(JSON.stringify({status:'PASS',checks,scope:'Actual shared navigation mounted on four pages; direct entry, highlight, target, active state and retained Science naming. Browser visual acceptance OPEN.'},null,2));
+check(script.includes('"key": "science"')&&script.includes('"label": "A0 · Science"'),'accepted A0 Science lane naming retained');
+console.log(JSON.stringify({status:'PASS',checks,scope:'Actual shared navigation mounted on four pages; direct entry, highlight, target, active state and retained A0 Science naming. Browser visual acceptance OPEN.'},null,2));

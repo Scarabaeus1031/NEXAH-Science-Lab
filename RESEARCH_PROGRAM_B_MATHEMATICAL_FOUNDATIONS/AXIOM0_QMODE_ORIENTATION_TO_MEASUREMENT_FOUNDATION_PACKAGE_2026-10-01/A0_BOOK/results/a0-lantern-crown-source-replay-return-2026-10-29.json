@@ -1,0 +1,67 @@
+{
+  "schema": "a0.engineering-result.v1",
+  "id": "A0_LANTERN_CROWN_SOURCE_REPLAY_RETURN_2026_10_29",
+  "date": "2026-10-29",
+  "status": "PASS_WITH_MECHANISM_HOLD",
+  "classification": "DEPENDENCY_FREE_SOURCE_AND_GLB_REPLAY",
+  "identity_decision": "REUSE_NEXAH_A0_ORIENTATION_CONTROLLER_BENCH_NO_NEW_IDENTITY",
+  "sources": {
+    "models": "downloads/A0_PENTAGON_KNICK_APERTURE_INTAKE_2026-10-25/sources/five-flap-crown/analysis/koerper_due_diligence/models.json",
+    "native_contact": "downloads/A0_PENTAGON_KNICK_APERTURE_INTAKE_2026-10-25/sources/five-flap-crown/analysis/koerper_due_diligence/native_contact_results.json",
+    "glb": "downloads/A0_PENTAGON_KNICK_APERTURE_INTAKE_2026-10-25/deliverables/glb/NEXAH_Fuenflaschenkrone_Animiert_2026-10-25.glb"
+  },
+  "geometry": {
+    "pass": true,
+    "passed": 1220,
+    "total": 1220,
+    "frames": 121,
+    "flaps": 5,
+    "maxLegError": 4.440892098500626e-16,
+    "maxContactError": 2.3714374201337736e-16,
+    "maxReturnError": 0,
+    "contactFoldDegrees": 151.83050078622392,
+    "claim": "ZERO_THICKNESS_RIGID_FLAP_GEOMETRY_ONLY",
+    "hold": "FINITE_THICKNESS_COLLISION / GUIDES / ACTUATOR / HOUSING"
+  },
+  "glb_replay": {
+    "status": "PASS",
+    "animation_channels": 5,
+    "keyframes_per_channel": 161,
+    "deterministic_checks": 1615,
+    "max_quaternion_norm_error": 4.173851086974878e-8,
+    "max_animation_position_error": 1.7667203046758515e-8,
+    "max_animation_return_error": 0,
+    "byte_length": 30176
+  },
+  "total_deterministic_checks": 2835,
+  "hashes": {
+    "models": "407a83afbcfa2c10705dbb95fef18e18d28493fef6e05724d6f3184f558a7584",
+    "native_contact": "75725451858694678a9fea3d5b7ce8f0a0f1a784506db7f0f17d24831f278c2f",
+    "glb": "24a33c38eb6e95b110e851ed5fe321f19120bf580248fa09b3a4e5c07b33f754"
+  },
+  "pass": {
+    "rigid_flap_lengths": true,
+    "central_tip_contact": true,
+    "open_contact_open_return": true,
+    "glb_structure": true,
+    "five_channel_animation_replay": true
+  },
+  "hold": {
+    "finite_thickness_collision": true,
+    "guides": true,
+    "actuator": true,
+    "housing": true,
+    "force_and_material": true
+  },
+  "authority": {
+    "new_study": false,
+    "new_f_a0_finding": false,
+    "publication": false,
+    "physical_mechanism_claim": false
+  },
+  "identity_effect": {
+    "new_global_ids": [],
+    "new_relations": [],
+    "carrier_merge": false
+  }
+}

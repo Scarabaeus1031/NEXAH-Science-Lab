@@ -1,0 +1,45 @@
+{
+  "schema": "a0.product-power-prime-seam-audit.v1",
+  "date": "2026-10-30",
+  "status": "PASS_BOUNDED_UNIQUE_ORDERED_PRIME_SEAM",
+  "authority": "existing A0 Science Desk / Mathfield engineering audit; no Study, Finding, identity or relation",
+  "range": {
+    "oneBasedPrimeIndices": [1, 2048],
+    "orderedPairsChecked": 4194304,
+    "operatorOrder": "a*b compared with a^b; ordered because exponentiation is not commutative"
+  },
+  "definition": {
+    "multiplicationPort": "M(a,b)=a*b",
+    "exponentiationPort": "P(a,b)=a^b",
+    "unitSeamCondition": "P-M=2 and S=(M+P)/2=M+1=P-1 is prime",
+    "rootLift": "R=sqrt(S), kept as a derived value rather than an identity with S or the unit residual"
+  },
+  "witness": {
+    "orderedSeed": [2, 3],
+    "multiplicationPort": 6,
+    "exponentiationPort": 8,
+    "seam": 7,
+    "leftResidual": 1,
+    "rightResidual": 1,
+    "bracketWidth": 2,
+    "rootLift": 2.6457513110645907
+  },
+  "boundedResult": {
+    "hits": 1,
+    "seamHits": [
+      { "i": 1, "j": 2, "a": 2, "b": 3, "product": 6, "seam": 7, "power": 8, "seamIsPrime": true }
+    ],
+    "reading": "(a,b)=(2,3) is the only ordered prime pair through p_2048 satisfying a^b-ab=2"
+  },
+  "controls": {
+    "swapped": { "orderedSeed": [3, 2], "product": 6, "power": 9, "width": 3, "integerMidpoint": false },
+    "repeatedTwo": { "orderedSeed": [2, 2], "product": 4, "power": 4, "width": 0, "unitSeam": false },
+    "nextExponent": { "orderedSeed": [2, 5], "product": 10, "power": 32, "width": 22, "unitSeam": false }
+  },
+  "interpretation": {
+    "exact": "2*3=6, 7=(6+8)/2, 2^3=8, with residuals +1 and +1; bracket width 2=p_1",
+    "mnemonic": "the taumelnde 1 names the two unit residuals around 7",
+    "rootBoundary": "sqrt(7) is the declared root lift of the seam value 7; it is not 7, not 1, and not evidence of a physical rotation"
+  },
+  "claimCeiling": "Finite arithmetic uniqueness in the declared ordered prime window; no universal prime law, generator, root identity, rotation mechanism, physical channel, Study, Finding, new graph relation or publication state"
+}

@@ -1,12 +1,26 @@
 window.NEXAH_LAB_REGISTER = {
   "schema": "nexah.science-lab.lab-register-lens/1.0.0",
   "status": "INTERNAL_READ_ONLY_SOURCE_BOUND_LENS",
-  "generated": "2026-10-18T15:40:55.201Z",
+  "generated": "2026-10-29T18:57:46.980Z",
   "source": "SCIENCE_LAB/LAB_REGISTER.md",
-  "source_sha256": "5bf2e38f2d4e05b4c8625897ea37af6a811179ffe1ed2c9cc737be9639d170fb",
+  "source_sha256": "e6cca6aed53f95079c3af5b40e8bf2e1a5468799571d54ca0f0fa3ac166b6671",
   "authority": "LAB_REGISTER retains identity, lifecycle and disposition authority; this lens is read-only.",
-  "study_count": 59,
+  "study_count": 60,
   "studies": [
+    {
+      "study_id": "A0_BL_056_CLP_MULTIVIEW_RETURN_2026_10_28",
+      "question": "Does a declared coupled CLP multi-view of one fixed finite C30 source state reduce reconstruction ambiguity relative to a single lossy view without confusing added view information with a new mechanism?",
+      "owner": "Human Owner",
+      "native_state": "ADMITTED OPEN; internal pre-review complete; deterministic synthetic preflight only; no participant data and no scientific run",
+      "common_status": "OPEN / NOT ACTIVE / INTERNAL_PRE_REVIEW_COMPLETE_2026-10-28",
+      "evidence_summary": "R0_PRE_REVIEW_COMPLETE; candidate hashes, comparator, schema, runner and technical receipt recorded; 16/16 tests pass; Primary/Replay blocked; independent reviewer and semantic verifier remain open",
+      "primary_record": {
+        "label": "Admission record",
+        "path": "CASE_STUDIES/A0_BL_056_CLP_MULTIVIEW_RETURN_2026-10-28/00_ADMISSION_RECORD.md"
+      },
+      "primary_records_text": "Admission record · internal closeout · source-bound findings notes",
+      "next_action": "Name an independent reviewer, implement the semantic receipt verifier, review the CRT ceiling, then obtain separate Owner freeze/activation; private reviewer room remains BACKLOG_ONLY / NOT BUILT / NOT PUBLIC; no execution or NEXAH Science projection before then"
+    },
     {
       "study_id": "A0_BL_055_CROSS_CARRIER_RETURN_ECONOMY_2026_10_18",
       "question": "Does one equal-information comparison show a Return-economy advantage on at least two of the three frozen Q106/O16, typed-seam and decimal carriers?",

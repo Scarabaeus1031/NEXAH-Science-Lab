@@ -24,7 +24,7 @@
   <style>
     .protocol-shell{display:grid;grid-template-columns:.72fr 1.28fr;gap:14px}.protocol-menu,.protocol-output{border:1px solid var(--line);background:var(--panel);padding:20px}.protocol-buttons{display:grid;grid-template-columns:1fr 1fr;gap:7px}.protocol-buttons button{cursor:pointer;text-align:left;border:1px solid var(--line);border-radius:7px;background:#071722;color:var(--muted);padding:10px;font:750 .6rem var(--mono)}.protocol-buttons button[aria-pressed=true]{border-color:var(--cyan);color:var(--cyan);background:rgba(57,206,233,.08)}.protocol-result{display:inline-block;margin-bottom:13px;border:1px solid var(--gold);border-radius:999px;padding:6px 10px;color:var(--gold);font:800 .62rem var(--mono)}.protocol-result.pass{border-color:var(--mint);color:var(--mint)}.protocol-result.reject{border-color:var(--red);color:var(--red)}.protocol-ledger{display:grid;grid-template-columns:1fr 1fr;gap:8px}.protocol-ledger div{border:1px solid var(--line);padding:12px}.protocol-ledger b{display:block;color:var(--gold);font:750 .55rem var(--mono);text-transform:uppercase}.protocol-ledger span{display:block;margin-top:7px;color:#dbe7eb;font:.71rem/1.5 var(--mono)}@media(max-width:850px){.protocol-shell{grid-template-columns:1fr}}@media(max-width:560px){.protocol-buttons,.protocol-ledger{grid-template-columns:1fr}}
   </style>
-  <link rel="stylesheet" href="a0-context-navigation.css?rev=reader-lanes-20261019-lane-entry">
+  <link rel="stylesheet" href="a0-context-navigation.css?rev=flagship-constellation-r1-20261030">
 </head>
 <body>
   <header class="top"><a class="brand" href="#top">NEXAH · Joint Applications</a><nav><a href="#mechanism">Mechanism</a><a href="#totient">Totient</a><a href="#crt-qrt">CRT/QRT</a><a href="#palindrome">Palindrome</a><a href="#composer">Composer</a><a href="#protocol">Protocol</a><a href="A0_JARP_CROSS_LENS_EXTENSION.html">Cross-Lens X1</a><a href="#checks">Checks 37–57</a><a href="#rath-joint">RATH</a><a href="A0_TESSAREC_FRAME_ENVELOPE_OBSERVER_PAPER.html#shadow-fiber">Paper F</a><a href="A0_RESEARCH_DESK.html#tests">Desk</a></nav></header>
@@ -113,6 +113,6 @@
     function renderProtocol(selected){const box=$('protocolButtons');box.innerHTML='';protocolCases.forEach(item=>{const button=document.createElement('button');button.type='button';button.textContent=`${item.id} · ${item.title}`;button.setAttribute('aria-pressed',String(item===selected));button.addEventListener('click',()=>renderProtocol(item));box.append(button)});$('protocolResult').textContent=selected.result;$('protocolResult').className='protocol-result '+(selected.result.startsWith('PASS')?'pass':selected.result.startsWith('REJECT')?'reject':'');$('protocolTitle').textContent=`${selected.id} · ${selected.title}`;$('protocolInput').textContent=selected.input;$('protocolOperator').textContent=selected.operator;$('protocolExpected').textContent=selected.expected;$('protocolApplication').textContent=selected.application;$('protocolWitness').textContent=selected.witness}
     renderProtocol(protocolCases[0]);
   </script>
-  <script src="a0-context-navigation.js?rev=reader-lanes-20261019-lane-entry"></script>
+  <script src="a0-context-navigation.js?rev=flagship-constellation-r1-20261030"></script>
 </body>
 </html>

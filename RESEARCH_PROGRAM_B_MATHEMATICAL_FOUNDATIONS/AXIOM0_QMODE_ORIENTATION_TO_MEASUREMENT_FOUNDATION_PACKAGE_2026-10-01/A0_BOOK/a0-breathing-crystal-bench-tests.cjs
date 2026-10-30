@@ -1,0 +1,115 @@
+const assert=require('node:assert/strict');
+const crypto=require('node:crypto');
+const fs=require('node:fs');
+const path=require('node:path');
+const api=require('./a0-breathing-crystal-bench.js');
+const runtimeBuild=require('./a0-breathing-crystal-runtime-build.cjs');
+let checks=0;
+const ok=(value,message)=>{checks++;assert.ok(value,message)};
+const hash=file=>crypto.createHash('sha256').update(fs.readFileSync(file)).digest('hex');
+function glbJson(file){const bytes=fs.readFileSync(file);assert.equal(bytes.toString('utf8',0,4),'glTF');const length=bytes.readUInt32LE(12);return JSON.parse(bytes.subarray(20,20+length).toString('utf8').replace(/\0+$/,''))}
+function expand(match){if(match.exact)return match.exact;const [start,end]=match.range;return Array.from({length:end-start+1},(_,offset)=>`${match.prefix}${String(start+offset).padStart(match.pad,'0')}`)}
+
+ok(api.VERSION==='1.5.0','node-port runtime, measurement deck, phase portrait and orientation ledger version');
+ok(api.EVENT==='a0:bench-port-state','typed Bench event');
+ok(api.DRIVER_EVENT==='a0:breathing-crystal-phase','typed phase event');
+ok(api.MEASUREMENT_EVENT==='a0:breathing-crystal-measurement','typed measurement event');
+ok(Object.keys(api.MODELS).join(',')==='banded,runtime,dense','two sources plus one runtime derivative');
+ok(Object.keys(api.CAMERAS).join(',')==='iso,front,top','three camera tools');
+for(const [id,model] of Object.entries(api.MODELS)){const target=path.join(__dirname,model.src);ok(fs.existsSync(target),id+' presentation copy exists');ok(hash(target)===model.sha256,id+' presentation copy hash matches');ok(model.bytes===fs.statSync(target).size,id+' byte count matches');ok(model.nodes>0&&model.meshes>0,id+' structure declared');ok(model.role.startsWith('BREATHING_CRYSTAL_'),id+' role typed')}
+
+const contract=JSON.parse(fs.readFileSync(path.join(__dirname,'assets/a0-breathing-crystal-node-port-contract-v1.json'),'utf8'));
+ok(contract.schema==='nexah.a0.breathing-crystal-node-port-contract/1.4.0','contract schema');
+ok(contract.identity_reuse.includes('NEXAH:INSTRUMENT:BREATHING_PRIME_CRYSTAL:V1'),'existing instrument reused');
+ok(contract.identity_reuse.includes('NEXAH_A0_ORIENTATION_CONTROLLER_BENCH'),'existing Bench reused');
+ok(contract.new_canonical_ids.length===0&&contract.relation_changes.length===0,'no graph identity or relation change');
+const source=path.join(__dirname,contract.source_model.path),json=glbJson(source),nodeNames=(json.nodes||[]).map(node=>node.name),meshNodeNames=(json.nodes||[]).filter(node=>Number.isInteger(node.mesh)).map(node=>node.name);
+ok(nodeNames.length===120,'actual Banded GLB has 120 nodes');
+ok(meshNodeNames.length===119,'actual Banded GLB has 119 mesh nodes');
+ok((json.animations||[]).length===0,'actual Banded GLB has no animation');
+const declared=contract.ports.flatMap(port=>expand(port.match));
+ok(contract.ports.length===10&&api.PORT_IDS.length===10,'ten port families');
+ok(declared.length===119,'contract addresses 119 nodes');
+ok(new Set(declared).size===119,'contract addresses are unique');
+ok(meshNodeNames.every(name=>declared.includes(name)),'all actual mesh nodes mapped');
+ok(declared.every(name=>meshNodeNames.includes(name)),'all declared nodes exist as meshes');
+for(const port of contract.ports){const runtime=api.PORTS[port.id];ok(Boolean(runtime),port.id+' runtime port exists');ok(runtime.role===port.role,port.id+' role agrees');ok(runtime.nodes.join(',')===expand(port.match).join(','),port.id+' members agree')}
+ok(api.registry().addressable_mesh_nodes===119,'runtime registry count');
+ok(api.registry().releasedPorts.join(',')==='crystal.origin,crystal.band','only CORE and BAND ports released');
+ok(api.registry().measurementEvent===api.MEASUREMENT_EVENT,'measurement event registered');
+ok(api.registry().measurementDeck.channels===4&&api.registry().measurementDeck.coreInvariant===1,'3+1 measurement deck registered');
+ok(api.MEASUREMENT_MODES.join(',')==='individual,together,counterphase','three display-only comparison modes');
+ok(Object.keys(api.PHASE_PAIRS).join(',')==='ab,bc,ca','three ordered phase-portrait pairs');
+ok(api.registry().measurementDeck.phasePairs.join(',')==='ab,bc,ca','phase pairs registered');
+
+const m0=api.measurement(0),mQuarter=api.measurement(.25),mReturn=api.measurement(0);
+ok(m0.channel_count===4&&m0.clock==='breath.phase','measurement reads four channels from the shared clock');
+ok(m0.core.node==='CORE'&&m0.core.scale===1&&m0.core.fixed,'CORE is exact fixed reference');
+ok(m0.bands.map(band=>band.node).join(',')===api.DRIVER.bands.join(','),'measurement channels match driven BAND nodes');
+ok(Math.abs(m0.bands[0].scale-1)<1e-12,'band A begins at unit scale');
+ok(Math.abs(m0.bands[1].scale-(1+.06*Math.sin(2*Math.PI/3)))<1e-12,'band B uses 120 degree offset');
+ok(Math.abs(m0.bands[2].scale-(1+.06*Math.sin(4*Math.PI/3)))<1e-12,'band C uses 240 degree offset');
+ok(Math.abs(mQuarter.bands.reduce((sum,band)=>sum+band.scale,0)-3)<1e-12,'three-band scale sum remains three');
+ok(mQuarter.source_mutation===false,'measurement frame cannot mutate source');
+const changed=api.compareMeasurements(m0,mQuarter),exact=api.compareMeasurements(m0,mReturn);
+ok(changed.max_abs_delta>0&&!changed.exact,'changed phase produces visible comparison residual');
+ok(exact.exact&&exact.max_abs_delta===0&&exact.core_delta===0,'captured measurement returns exactly');
+assert.throws(()=>api.compareMeasurements(null,m0),/MISSING_MEASUREMENT_FRAME/);checks++;
+const orbitAB=api.phasePortrait(0,'ab'),orbitBC=api.phasePortrait(.25,'bc'),orbitCA=api.phasePortrait(.5,'ca');
+ok(orbitAB.frequency_ratio==='1:1'&&orbitAB.shape==='ELLIPSE','same-frequency pair yields ellipse');
+ok(Math.abs(orbitAB.phase_lag_degrees-120)<1e-12,'AB phase lag is 120 degrees');
+ok(Math.abs(orbitBC.phase_lag_degrees-120)<1e-12&&Math.abs(orbitCA.phase_lag_degrees-120)<1e-12,'all ordered pairs retain 120 degree lag');
+ok(orbitAB.points.length===241&&orbitAB.closure_error<1e-12,'phase orbit closes over one shared cycle');
+ok(Math.abs(orbitAB.area_abs-Math.PI*Math.sqrt(3)/2)<1e-3,'normalized ellipse area matches analytic value');
+ok(orbitAB.direction==='CW'&&orbitBC.direction==='CW'&&orbitCA.direction==='CW','pair orientation is stable');
+ok(Math.abs(orbitAB.red_seam_delta-Math.sqrt(3)/2)<1e-12,'red seam reads current pair difference');
+ok(orbitAB.red_seam_is_source_node===false&&!orbitAB.source_mutation,'red seam remains a non-mutating display comparator');
+assert.throws(()=>api.phasePortrait(0,'missing'),/UNKNOWN_PHASE_PAIR/);checks++;
+const orientAB=api.orientationLedger(0,'ab'),orientQuarter=api.orientationLedger(.25,'ab'),orientBC=api.orientationLedger(.25,'bc');
+ok(orientAB.schema==='nexah.a0.breathing-crystal-orientation-ledger/1.0.0','orientation ledger schema');
+ok(orientAB.pin.x===0&&orientAB.pin.y===0&&orientAB.pin.role==='FIXED_RELATION_ORIGIN','PIN is the fixed relation origin');
+ok(orientAB.horizontal_axis.node==='BAND_0.429'&&orientAB.vertical_axis.node==='BAND_0.456','AB pair owns H/X and V/Y axes');
+ok(Math.abs(orientAB.theta_degrees-90)<1e-9&&orientAB.quadrant==='V_AXIS','phase zero lies on positive vertical axis');
+ok(orientAB.horizontal_relation==='ABOVE_H'&&orientAB.vertical_relation==='ON_V','phase zero H/V relations are explicit');
+ok(orientQuarter.quadrant==='IV'&&orientQuarter.horizontal_relation==='BELOW_H'&&orientQuarter.vertical_relation==='RIGHT_OF_V','quarter phase resolves relation sector IV');
+ok(Math.abs(orientQuarter.radius-Math.sqrt(1.25))<1e-12,'PIN distance is exact pair-vector radius');
+ok(orientAB.horizontal_crossings===2&&orientAB.vertical_crossings===2,'closed ellipse crosses both reference axes twice');
+ok(orientAB.winding===-1&&orientAB.direction==='CW','clockwise orbit has winding minus one');
+ok(orientBC.horizontal_axis.node==='BAND_0.456'&&orientBC.vertical_axis.node==='BAND_0.487','pair switch rebinds relation axes without new identity');
+ok(orientAB.clock==='breath.phase'&&!orientAB.source_mutation,'orientation ledger shares the declared clock and does not mutate source');
+
+const runtimePath=path.join(__dirname,contract.runtime_derivative.path),runtimeBytes=fs.readFileSync(runtimePath),runtimeJson=glbJson(runtimePath);
+ok(runtimeBytes.equals(runtimeBuild.build(fs.readFileSync(source))),'runtime GLB is deterministic build product');
+ok(hash(runtimePath)===contract.runtime_derivative.sha256,'runtime GLB hash matches contract');
+ok(runtimeBytes.length===contract.runtime_derivative.bytes,'runtime GLB byte count matches contract');
+ok(runtimeJson.animations.length===1&&runtimeJson.animations[0].name===api.CLIP,'runtime GLB has the declared clip');
+ok(runtimeJson.animations[0].channels.length===3,'runtime clip drives exactly three channels');
+ok(runtimeJson.animations[0].channels.every(channel=>channel.target.path==='scale'),'runtime channels are scale transforms');
+ok(runtimeJson.animations[0].channels.map(channel=>runtimeJson.nodes[channel.target.node].name).join(',')===api.DRIVER.bands.join(','),'runtime channels target only declared BAND nodes');
+ok(runtimeJson.nodes[runtimeJson.extras.a0_runtime_derivative.core.node_index].name==='CORE','CORE remains declared fixed origin');
+
+const initial=api.returnState();
+ok(initial.identity==='NEXAH:INSTRUMENT:BREATHING_PRIME_CRYSTAL:V1','existing identity reused');
+ok(initial.model==='banded'&&initial.camera==='iso'&&initial.rotation===false,'view return exact');
+ok(initial.port==='crystal.origin'&&initial.node==='CORE'&&initial.connected,'port return exact');
+ok(initial.addressability==='NODE_ADDRESSABLE'&&!initial.mutatesSource,'address-only non-mutating state');
+const runtime=api.runtimeState();
+ok(runtime.model==='runtime'&&runtime.port==='crystal.band','runtime starts on BAND port');
+ok(runtime.addressability==='RUNTIME_TRANSFORM_READY'&&runtime.runtimeDerivative,'runtime slice ready');
+ok(runtime.phase===0&&runtime.playing===false,'runtime phase return exact');
+ok(api.state('runtime','iso',false,'crystal.origin',0,true,.25,true).addressability==='RUNTIME_TRANSFORM_READY','CORE runtime port released');
+ok(api.state('runtime','iso',false,'crystal.tick24',0,true,.25,true).addressability==='NODE_ADDRESSABLE','unreleased runtime ports stay address-only');
+ok(api.state('runtime','iso',false,'crystal.band',0,true,2,true).phase===1,'phase clamps high');
+ok(api.state('dense','front',true,'crystal.axis',2,true).addressability==='UNSEGMENTED_HOLD','dense model holds unsegmented');
+ok(api.state('dense','front',true,'crystal.axis',2,true).node===null,'dense model exposes no invented node');
+ok(api.state('dense','front',true,'crystal.axis',2,true).connected===false,'dense model cannot connect');
+ok(api.state('banded','top',false,'crystal.tick24',23,true).node==='TICK_24_23','exact tick address');
+ok(api.step(api.state('banded','iso',false,'crystal.axis',2,true),1).node==='AXIS_X','port stepping wraps');
+assert.throws(()=>api.state('missing','iso',false),/UNKNOWN_MODEL/);checks++;
+assert.throws(()=>api.state('banded','missing',false),/UNKNOWN_CAMERA/);checks++;
+assert.throws(()=>api.state('banded','iso',false,'missing'),/UNKNOWN_PORT/);checks++;
+
+const html=fs.readFileSync(path.join(__dirname,'A0_ORIENTATION_CONTROLLER_BENCH.html'),'utf8');
+for(const token of ['id="breathingCrystalBench"','id="breathingCrystalMeasurementDeck"','data-bcb-viewer','data-bcb-port','data-bcb-node','data-bcb-connect','data-bcb-phase','data-bcb-play','data-bcb-phase-reset','data-bcb-measure','data-bcb-measure-svg','data-bcb-measure-mode="individual"','data-bcb-measure-mode="together"','data-bcb-measure-mode="counterphase"','data-bcb-lissajous','data-bcb-lissajous-path','data-bcb-lissajous-seam','class="bcb-lissajous-pin"','class="bcb-orientation-ledger"','data-bcb-orientation-theta','data-bcb-orientation-radius','data-bcb-orientation-crossings','data-bcb-orientation-winding','data-bcb-pair="ab"','data-bcb-pair="bc"','data-bcb-pair="ca"','class="bcb-return-actions"','data-bcb-capture','data-bcb-compare','data-bcb-measure-return','data-bcb-measure-export','breathing_crystal_core_band_runtime_r1.glb','a0-breathing-crystal-bench.js','a0-breathing-crystal-bench.css','a0-breathing-crystal-node-port-contract-v1.json','A0_BREATHING_CRYSTAL_APERTURE.html#bench-page-top','a0-breathing-crystal-bench-v1.json','a0-breathing-crystal-bench-return-2026-10-29.json'])ok(html.includes(token),'HTML integration '+token);
+ok(!html.includes('GLBs Breathing Chrystal./breathing_crystal_v2_1.glb'),'broken raw Breathing GLB route removed');
+console.log(JSON.stringify({status:'PASS',checks,models:Object.keys(api.MODELS),ports:api.PORT_IDS.length,addressedNodes:declared.length,identity:initial.identity}));

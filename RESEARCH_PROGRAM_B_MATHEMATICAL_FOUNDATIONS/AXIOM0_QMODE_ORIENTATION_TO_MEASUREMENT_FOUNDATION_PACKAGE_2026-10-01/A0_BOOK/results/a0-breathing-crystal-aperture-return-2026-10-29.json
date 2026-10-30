@@ -1,0 +1,39 @@
+{
+  "schema": "nexah.a0.engineering-return/1.0.0",
+  "checkpoint": "A0-E2E-AUDIT-R1",
+  "date": "2026-10-29",
+  "status": "DISPLAY_DEMONSTRATOR_PASS_BROWSER_ACCEPTED_NO_SCIENCE_RUN",
+  "title": "Breathing Crystal Aperture · bounded display return",
+  "identity_reuse": [
+    "NEXAH:INSTRUMENT:BREATHING_PRIME_CRYSTAL:V1",
+    "NEXAH:A0_ORIENTATION_EVIDENCE_LINEAGE:V1",
+    "NEXAH_A0_ORIENTATION_CONTROLLER_BENCH"
+  ],
+  "paths": {
+    "demonstrator": "A0_BOOK/A0_BREATHING_CRYSTAL_APERTURE.html#bench-page-top",
+    "glb_bench": "A0_BOOK/A0_ORIENTATION_CONTROLLER_BENCH.html#breathingCrystalBench",
+    "glb_bench_return": "A0_BOOK/results/a0-breathing-crystal-bench-return-2026-10-29.json",
+    "science_return": "A0_BOOK/A0_RESEARCH_DESK.html#breathing-crystal-aperture-return-20261029",
+    "evidence_binder": "SCIENCE_LAB/NAVIGATION/EVIDENCE/A0_ORIENTATION_EVIDENCE_LINEAGE_2026-10-10/A0_ORIENTATION_EVIDENCE_LINEAGE_BINDER_V1_2026-10-10.json"
+  },
+  "verification": {
+    "model_tests": "PASS_20",
+    "reader_navigation": "PASS_75_REGISTERED_78_REACHABLE",
+    "bench_navigation": "PASS_629",
+    "normal_browser": "PASS",
+    "phone_250_css_px": "PASS_NO_HORIZONTAL_OVERFLOW",
+    "full_sequence": "PASS_RETURN_0_000",
+    "fourier_asset": "PASS_800X800_HASH_BOUND"
+  },
+  "return_contract": {
+    "aperture": 0,
+    "reveal": 0,
+    "scale": 0.78,
+    "max_numeric_error": 0
+  },
+  "new_canonical_ids": [],
+  "relation_changes": [],
+  "science_effect": "NONE",
+  "publication_or_deployment": "NONE",
+  "boundary": "Display and navigation only. No fabrication, physical clock, measured spectrum, material prescription, resonance evidence, scientific activation, claim promotion or publication is implied."
+}

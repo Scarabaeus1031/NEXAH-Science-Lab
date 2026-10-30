@@ -1,0 +1,105 @@
+{
+  "schema": "A0_PANEL_V_CONTROL_LENS_BUILD_RETURN_V1",
+  "generated": "2026-10-29",
+  "status": "PASS_CONTROL_LENS",
+  "identity": "ART:A0:MATHEMATICAL_JOINTS",
+  "sourcePrototype": {
+    "path": "results/a0-lantern-hinge-actuator-housing-prototype-2026-10-29.glb",
+    "sha256": "b1b214ba43776816ed42ebfbf66ba0e04e949bd9c4a479bd67124f963dd68df4",
+    "unchanged": true
+  },
+  "derivative": {
+    "path": "results/a0-lantern-panel-v-control-lens-2026-10-29.glb",
+    "sha256": "ce47817dc271aa924ad628571ed914752c30e7fd956d192bcf699a76223efaa6",
+    "bytes": 48028,
+    "nodes": 22,
+    "meshes": 21,
+    "animations": [
+      "CERTIFIED_147_5",
+      "COMPARE_137_5",
+      "DRIFT_MINUS_1_12",
+      "DRIFT_PLUS_1_12"
+    ],
+    "channelsPerAnimation": 15
+  },
+  "profiles": {
+    "CERTIFIED_147_5": {
+      "label": "147,5° · CERTIFIED STOP",
+      "degrees": 147.5,
+      "authority": "CERTIFIED"
+    },
+    "COMPARE_137_5": {
+      "label": "137,5° · −X COMPARISON",
+      "degrees": 137.5,
+      "authority": "COMPARISON"
+    },
+    "DRIFT_MINUS_1_12": {
+      "label": "147,5° − 1/12°",
+      "degrees": 147.41666666666666,
+      "authority": "COMPARISON"
+    },
+    "DRIFT_PLUS_1_12": {
+      "label": "147,5° + 1/12°",
+      "degrees": 147.58333333333334,
+      "authority": "COMPARISON"
+    }
+  },
+  "foldPocket": {
+    "count": 5,
+    "goldLeaves": 5,
+    "pinkGussets": 5,
+    "foldDegreesAtCertifiedStop": 52,
+    "states": [
+      "LEAF_CLOSED",
+      "SLIT_RELEASE",
+      "POCKET_OPEN",
+      "EXACT_RETURN"
+    ]
+  },
+  "jointMicroscope": {
+    "scopeModes": [
+      "ONE_JOINT",
+      "ALL_FIVE"
+    ],
+    "pair": {
+      "notation": ":",
+      "cornerTypes": [
+        "Y",
+        "Z"
+      ],
+      "workingRoles": {
+        "Y": "GRIP",
+        "Z": "DIVOT"
+      }
+    },
+    "localWitnesses": [
+      "PIN",
+      "AXIS",
+      "GAP"
+    ],
+    "observedTipRegister": {
+      "count": 11,
+      "addressNotation": "n²",
+      "addressSlots": 121
+    },
+    "workingBindingTokens": [
+      "nn",
+      "m",
+      "nh",
+      "hno"
+    ],
+    "evidenceState": "OBSERVATION_AND_WORKING_NOTATION_ONLY"
+  },
+  "checks": {
+    "separateFlaps": 5,
+    "separatePins": 5,
+    "foldPocketPairs": 5,
+    "goldLeaves": 5,
+    "pinkGussets": 5,
+    "exactReturn": true,
+    "certified147_5Preserved": true,
+    "comparison137_5IsNotCertification": true,
+    "driftPlusMinus1_12IsNotCalibration": true
+  },
+  "boundary": "KINEMATIC CONTROL LENS · FOLD POCKET IS GEOMETRIC VIEW, NOT LOAD-BEARING ACTUATOR · Y/Z, GRIP/DIVOT, 11 TIPS, n² AND nn/m/nh/hno ARE OBSERVATION / WORKING NOTATION ONLY · NO NEW OPERATOR · NO ELEVEN NEW JOINTS · NO PHYSICAL COUPLING · LOAD / TORQUE / FATIGUE / PHYSICAL CALIBRATION / FABRICATION HOLD · REUSE EXISTING ID · NO NEW RELATION · NO STUDY"
+}

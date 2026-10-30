@@ -1,8 +1,15 @@
 (function(root,factory){
-  const api=factory();
+  const api=factory(root);
   if(typeof module==='object'&&module.exports) module.exports=api;
-  if(root){root.A0ApplicationDemonstratorSuite=api;if(root.document) root.addEventListener('DOMContentLoaded',()=>api.mount(root.document));}
-})(typeof window!=='undefined'?window:globalThis,function(){
+  if(root){
+    root.A0ApplicationDemonstratorSuite=api;
+    if(root.document){
+      const start=()=>api.mount(root.document);
+      if(root.document.readyState==='loading') root.addEventListener('DOMContentLoaded',start,{once:true});
+      else start();
+    }
+  }
+})(typeof window!=='undefined'?window:globalThis,function(root){
   'use strict';
   const missions=[
     {id:'measurement',code:'APP-01',title:'Measurement & Calibration',accent:'#38d5ee',carrier:'P×A BLUE IRIS · ordered 48-sample M3 record',question:'Welche Ansicht bewahrt welche Information?',stages:[

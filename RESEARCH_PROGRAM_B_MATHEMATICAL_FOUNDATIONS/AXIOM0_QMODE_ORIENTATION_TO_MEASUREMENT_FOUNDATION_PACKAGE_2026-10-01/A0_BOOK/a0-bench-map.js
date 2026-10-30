@@ -29,6 +29,7 @@
   const rawModules=[
     ['body-route','SOURCE','Body-Lab · 01b / 01c','bodyRouteBench','LAUNCHER',null,'One original Body-Lab session; 48 source keys, no automatic 60-face identity.'],
     ['glb-archive','SOURCE','NSN · GLB originals','nsnGlbSources','RESULT_LENS',null,'Historical inventory and current hash-bound originals; no recovered universal motion law.'],
+    ['breathing-crystal','SOURCE','Breathing Crystal · Node Ports','breathingCrystalBench','TYPED_HANDOFF',null,'Ten typed port families address all 119 source-authored Banded mesh nodes; CORE is fixed, three BAND nodes share breath.phase, and the 3+1 deck adds Capture, Compare, exact local Frame Return and a pairwise 1:1 phase portrait. Dense remains unsegmented HOLD.'],
     ['perspectives','SOURCE','LOKI / MIWA / original views','benchPerspectiveDeck','LAUNCHER',null,'Existing source-owned instruments, loaded only on request.'],
     ['sewing','SOURCE','Sewing / Schaukeln','sewingSourceWindow','LAUNCHER',null,'Original sewing score with its own controls and clock.'],
     ['game-atlas','SOURCE','Game Atlas · 3 × 3','benchAtlasEntry','LAUNCHER',null,'Nine existing cards in three rows. Not seven canonical families or a second game engine.'],
@@ -71,7 +72,7 @@
   ];
   const MODULES=Object.freeze(rawModules.map(row=>Object.freeze({id:row[0],group:row[1],label:row[2],focusTarget:row[3],bindingType:row[4],scenario:row[5],description:row[6]})));
   const rawEdges=[
-    ['source-bank','state','LAUNCHER'],['native-face','ail','TYPED_HANDOFF'],['pent','binder','TYPED_HANDOFF'],['life03','binder','TYPED_HANDOFF'],
+    ['glb-archive','breathing-crystal','TYPED_HANDOFF'],['breathing-crystal','record','RETURN_WITNESS'],['source-bank','state','LAUNCHER'],['native-face','ail','TYPED_HANDOFF'],['pent','binder','TYPED_HANDOFF'],['life03','binder','TYPED_HANDOFF'],
     ['state','operators','LIVE_COUPLED'],['state','measurement','LIVE_COUPLED'],['family-role','family-grid','VIEW_PROJECTION'],
     ['operators','ihara','LIVE_COUPLED'],['ail','ninefold','TYPED_HANDOFF'],['ihara','visual1','VIEW_PROJECTION'],
     ['measurement','aperture-stack','LIVE_COUPLED'],['visual1','family-grid','VIEW_PROJECTION'],['family-grid','root7','VIEW_PROJECTION'],['fold-lag','root7','VIEW_PROJECTION'],
