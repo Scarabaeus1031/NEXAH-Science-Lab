@@ -1,0 +1,21 @@
+const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path');
+const api=require('./a0-pascal-joint-counterweight.js');
+const base=__dirname,checks=[];function ok(value,label){assert.ok(value,label);checks.push(label)}function eq(a,b,label){assert.deepEqual(a,b,label);checks.push(label)}
+eq(api.VERSION,'1.1.0','version');eq(api.IDENTITY,'ART:A0:MATHEMATICAL_JOINTS','existing identity');
+const model=api.model(),proof=api.verify(model);eq(proof.status,'PASS_BOUNDED_PASCAL_JOINT_COUNTERWEIGHT','proof status');eq(proof.checkCount,36,'proof check count');
+eq(model.g11.lanes,[1,2,3,4,5,6,7,8,9,10,11,10,9,8,7,6,5,4,3,2,1],'G11 lane counts');eq(model.g11.cells,121,'G11 cell count');eq(model.g11.center,11,'G11 center');
+eq(model.g111.laneCount,221,'G111 lane count');eq(model.g111.cells,12321,'G111 cell count');eq(model.g111.center,111,'G111 center');
+eq(api.repunit(3),111n,'R3');eq(api.repunit(3)**2n,12321n,'R3 square');eq(api.uniformConvolution(3),[1,2,3,2,1],'R3 convolution');
+eq(model.route.carrier.points,[{x:104,y:103},{x:29,y:104},{x:35,y:102}],'G111 route');eq(model.route.carrier.steps,[{dx:-75,dy:1},{dx:6,dy:-2}],'G111 steps');
+eq(model.route.residue.points,[{x:5,y:4},{x:7,y:5},{x:2,y:3}],'pi11 route');eq(model.route.residue.steps,[{dx:2,dy:1},{dx:-5,dy:-2}],'pi11 steps');
+eq(model.route.qrt.points,[{q:576,r:17},{q:578,r:13},{q:567,r:17}],'QRT20 route');eq(model.route.qrt.steps,[{dx:2,dy:-4},{dx:-11,dy:4}],'QRT20 steps');
+eq(model.hooks.G111.center,{x:56,y:103},'G111 three-hook center');eq(model.hooks.G111.area2,144,'G111 signed double area');eq(model.hooks.G111.pairDistance2,[5626,40,4762],'G111 pair metric');
+eq(model.hooks.PI11.area2,1,'pi11 signed double area');eq(model.hooks.PI11.returnState,'AMBIGUOUS_VIEW_ONLY','pi11 return guard');
+eq(model.hooks.QRT20.area2,-36,'QRT20 signed double area');eq(model.hooks.QRT20.pairDistance2,[20,137,81],'QRT20 pair metric');
+eq(api.mirrorHook(model.hooks.G111).area2,-144,'mirror flips orientation');eq(api.mirrorHook(model.hooks.G111).pairDistance2,[5626,40,4762],'mirror preserves metric');
+eq(model.route.digitSignatures,['11357','11357','11357'],'digit multiset held');ok(api.digitSignature(11574)!=='11357','wrong-key breaks digit multiset');
+const html=fs.readFileSync(path.join(base,'A0_WERKBANK.html'),'utf8'),css=fs.readFileSync(path.join(base,'a0-bench-navigation.css'),'utf8');
+for(const marker of ['id="pascalJointCounterweight"','data-pascal-joint-counterweight','data-pjc-view="JOINT"','data-pjc-view="KNICK"','data-pjc-view="HOOKS"','data-pjc-view="TYPES"','11537 → 11573 → 11357','a0-pascal-joint-counterweight.js?rev=pascal-counterweight-r1-20261030','a0-pascal-joint-counterweight-return-2026-10-30.json'])ok(html.includes(marker),'HTML '+marker);
+for(const marker of ['.pjc-comparator','.pjc-bar--center','.pjc-route--residue','.pjc-type-grid','.pjc-hook-shell','.pjc-hook-triangle'])ok(css.includes(marker),'CSS '+marker);
+for(const view of ['JOINT','KNICK','HOOKS','TYPES'])ok(api.viewMarkup(view,model).length>200,'view markup '+view);
+console.log(JSON.stringify({status:'PASS',checks:checks.length,proofChecks:proof.checkCount,scope:'G11/G111 counterweights, R3 convolution, 11537→11573→11357 G111/pi11/QRT20 kink and three-hook field signatures, mirror and return controls; no new identity or relation'}));

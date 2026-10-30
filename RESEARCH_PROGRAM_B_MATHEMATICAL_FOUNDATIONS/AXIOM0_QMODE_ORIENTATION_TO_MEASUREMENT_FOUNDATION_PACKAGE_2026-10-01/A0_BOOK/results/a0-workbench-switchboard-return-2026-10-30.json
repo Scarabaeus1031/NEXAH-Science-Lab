@@ -1,0 +1,49 @@
+{
+  "schema": "nexah.a0.machine-return/1",
+  "returnId": "a0-workbench-switchboard-return-2026-10-30",
+  "date": "2026-10-30",
+  "status": "PASS_SOURCE_BOUND_SWITCHBOARD",
+  "classification": "SOURCE_BOUND_WORKBENCH_ROUTE_LENS",
+  "scope": "A compact Workbench overview of Lantern / Panel V context, independent Tower and IOTA returns, their existing four-state interlock, and the bounded Science Desk return.",
+  "presentation": {
+    "version": "1.1.0",
+    "view": "COLOR_CODED_CABLE_PATCH",
+    "orientation": "LANTERN_CONTEXT_RAIL_OVER_PARALLEL_TOWER_IOTA_INPUTS_TO_INTERLOCK_AND_VERTICAL_RETURN",
+    "colorRoles": {"context": "gold", "towerWitness": "cyan", "iotaHandoff": "violet", "interlock": "pink", "validReturn": "green", "holdBoundary": "grey"},
+    "semanticEffect": "NONE"
+  },
+  "identityReuse": [
+    "NEXAH_A0_ORIENTATION_CONTROLLER_BENCH",
+    "ART:A0:MATHEMATICAL_JOINTS",
+    "NEXAH:A0_ORIENTATION_EVIDENCE_LINEAGE:V1",
+    "A0_LANTERN_PANEL_V_CONTROL_LENS",
+    "A0_IOTA_BRIDGE_DEMONSTRATOR"
+  ],
+  "typedRoutes": [
+    {"from": "LANTERN_PANEL_V", "to": "CLOCK_C5_COMPARATOR", "type": "VIEW_PROJECTION", "status": "BOUND", "causal": false},
+    {"from": "TOWER_RETURN", "to": "RETURN_INTERLOCK", "type": "RETURN_WITNESS", "status": "BOUND", "causal": false},
+    {"from": "IOTA_BRIDGE", "to": "RETURN_INTERLOCK", "type": "TYPED_HANDOFF", "status": "BOUND", "causal": false},
+    {"from": "RETURN_INTERLOCK", "to": "TYPED_VIEW_RETURN", "type": "POST_HOC_TYPED_HANDOFF", "status": "PASS", "causal": false},
+    {"from": "TYPED_VIEW_RETURN", "to": "SCIENCE_DESK", "type": "RETURN_RECEIPT", "status": "BOUND", "causal": false}
+  ],
+  "interlock": {
+    "matrix": {"00": "HOLD", "10": "HOLD", "01": "HOLD", "11": "COUPLED_VIEW_RETURN"},
+    "resetIsolation": "4/4 PASS",
+    "sharedClock": false,
+    "lanternFeedsInterlock": false
+  },
+  "holds": [
+    "shared clock",
+    "Lantern-to-interlock feed",
+    "carrier identity",
+    "causal mechanism",
+    "scientific finding",
+    "publication"
+  ],
+  "newCanonicalIds": [],
+  "relationChanges": [],
+  "sourceGraphMutation": false,
+  "studyActivation": false,
+  "publication": false,
+  "boundary": "Reading sequence is not a causal pipeline. Lantern remains an orientation context. IOTA tick, Tower D°G sample, q address and witness retain separate provenance. The existing interlock records one post-hoc typed view return only."
+}

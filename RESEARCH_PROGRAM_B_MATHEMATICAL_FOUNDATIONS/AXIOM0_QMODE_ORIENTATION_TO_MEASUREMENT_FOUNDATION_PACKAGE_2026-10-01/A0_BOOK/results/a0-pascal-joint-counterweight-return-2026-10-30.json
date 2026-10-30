@@ -1,0 +1,92 @@
+{
+  "schema": "nexah.a0.machine-return/1",
+  "returnId": "a0-pascal-joint-counterweight-return-2026-10-30",
+  "date": "2026-10-30",
+  "status": "PASS_BOUNDED_PASCAL_JOINT_COUNTERWEIGHT",
+  "classification": "SOURCE_BOUND_MATHEMATICAL_COMPARATOR",
+  "scope": "A bounded comparator between G11 counterweight lanes, the lifted G111 carrier, decimal repunit convolution and the existing 11537→11573→11357 carrier route.",
+  "identityReuse": [
+    "ART:A0:MATHEMATICAL_JOINTS",
+    "NEXAH_A0_ORIENTATION_CONTROLLER_BENCH"
+  ],
+  "sourceBindings": [
+    "21_A0_MATHEMATICAL_JOINTS_11_GRID_ORIENTATION_2026-10-10.md",
+    "A0_BOOK/A0_MATHEMATICAL_JOINTS.html#grid",
+    "A0_BOOK/a0-club-carrier-sequence.js",
+    "A0_BOOK/A0_NUMBERMAGICK_GRID_RESEARCH.html#bench-page-top",
+    "100_A0_101_TO_106_DEMONSTRATOR_CONSOLIDATION_2026-10-15.md#crt16--de-animation-and-aperture-return",
+    "86_A0_TESSAREC_BIG_BLUE_ENVELOPE_COMPARATOR_RESULT_2026-10-14.md#connector-disposition"
+  ],
+  "exact": {
+    "G11": {
+      "dimensions": "11×11",
+      "cells": 121,
+      "jointLanes": 21,
+      "multiplicities": [1,2,3,4,5,6,7,8,9,10,11,10,9,8,7,6,5,4,3,2,1],
+      "center": 11
+    },
+    "G111": {
+      "dimensions": "111×111",
+      "cells": 12321,
+      "jointLanes": 221,
+      "center": 111
+    },
+    "repunitConvolution": {
+      "R3": 111,
+      "square": 12321,
+      "coefficients": [1,2,3,2,1]
+    },
+    "carrierRoute": {
+      "values": [11537,11573,11357],
+      "digitMultiset": "11357",
+      "G111Addresses": [[104,103],[29,104],[35,102]],
+      "G111Steps": [[-75,1],[6,-2]],
+      "pi11Addresses": [[5,4],[7,5],[2,3]],
+      "pi11Steps": [[2,1],[-5,-2]],
+      "QRT20Addresses": [[576,17],[578,13],[567,17]],
+      "QRT20Steps": [[2,-4],[-11,4]]
+    },
+    "threeHookProbe": {
+      "carrierValues": [11537,11573,11357],
+      "G111": {"center": [56,103], "signedArea2": 144, "orientation": "CCW", "pairDistance2": [5626,40,4762], "return": "EXACT_RETURN"},
+      "pi11": {"center": [4.666666666666667,4], "signedArea2": 1, "orientation": "CCW", "pairDistance2": [5,29,10], "return": "AMBIGUOUS_VIEW_ONLY"},
+      "QRT20": {"center": [573.6666666666666,15.666666666666666], "signedArea2": -36, "orientation": "CW", "pairDistance2": [20,137,81], "return": "EXACT_RETURN"},
+      "mirrorControl": "signed orientation flips; all three pair distances are preserved"
+    }
+  },
+  "negativeControls": {
+    "gap": "101²=10201",
+    "weighted": "112²=12544",
+    "wrongKey": "11537→11574→11357 breaks digit multiset and r=17 return"
+  },
+  "finding": "The counterweight pattern is the anti-diagonal multiplicity profile of a finite square grid. The same three integers form different local field signatures under G111 row-major, pi11 residue and QRT20 coordinate views: orientation, pair metric and return state are view-dependent. Equal scalar 12321 does not identify grid area, decimal digit image and convolution construction.",
+  "archaeology": {
+    "stickScroll": "A source-bound strip may be wrapped or unrolled as a view transformation. Address, adjacency and return preservation remain separate tests.",
+    "crt16Pentagon": "The existing 16/17 tile is a 15+1 inspection display with start modulus 17. No pentagon-face 16/17 pair is registered as a plane connector.",
+    "sc003": "Canonical SCC-003 / A0OE:PASCAL_PENTAGON_D5_TEST is an existing Pascal-Pentagon evidence and paper lane. A separate CLP preflight record also uses SC-003/SCC-003 as a planned independent-review designation. The three-hook comparator neither extends the SCC-003 theorem nor changes either evidence state."
+  },
+  "verification": {
+    "moduleChecks": 49,
+    "proofChecks": 36,
+    "browserViews": ["JOINT", "KNICK", "3-HOOK", "TYPES"],
+    "browserStatus": "PASS"
+  },
+  "holds": [
+    "general Pascal identity across arbitrary grids",
+    "natural geometry of the carrier route",
+    "physical counterweight",
+    "causal mechanism",
+    "Stick / Scroll identity",
+    "CRT16 / Pentagon plane connector",
+    "SC-003 geometry identity",
+    "Stick / Scroll seam adapter",
+    "Pentagon typed three-hook adapter",
+    "new Study",
+    "publication"
+  ],
+  "newCanonicalIds": [],
+  "relationChanges": [],
+  "sourceGraphMutation": false,
+  "studyActivation": false,
+  "publication": false
+}

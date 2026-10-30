@@ -1,0 +1,55 @@
+const assert=require('node:assert/strict');
+const fs=require('node:fs');
+const path=require('node:path');
+const api=require('./a0-workbench-switchboard.js');
+
+let checks=0;
+const eq=(actual,expected,label)=>{assert.deepEqual(actual,expected,label);checks++};
+const ok=(value,label)=>{assert.ok(value,label);checks++};
+const m=api.model(),f=api.fixtures(),v=api.verify();
+
+eq(api.VERSION,'1.1.0','version');
+eq(api.IDENTITY,'NEXAH_A0_ORIENTATION_CONTROLLER_BENCH','identity reuse');
+eq(v.status,'PASS_SOURCE_BOUND_SWITCHBOARD','verification status');
+eq(v.checks,11,'internal checks');
+eq(m.classification,'SOURCE_BOUND_WORKBENCH_ROUTE_LENS','classification');
+eq(m.lantern.role,'VIEW_CONTEXT','Lantern typed as context');
+eq(m.lantern.channels,5,'five Lantern channels');
+eq(m.lantern.residualDegrees,6,'Clock/C5 residual');
+eq(m.lantern.feedsInterlock,false,'Lantern does not feed interlock');
+eq(m.tower.status,'CLOSED_TYPED_VIEW_RETURN','Tower return');
+eq(m.tower.address,'q01','Tower address');
+eq(m.tower.basis,{samples:18,bands:5},'Tower basis');
+eq(m.iota.status,'BRIDGE_RETURN_READY','IOTA return');
+eq(m.iota.tick,24,'IOTA tick');
+eq(m.iota.periods,{am:8,pm:12},'IOTA periods');
+eq(m.interlock.status,'PASS','interlock pass');
+eq(m.interlock.matrix.length,4,'four interlock rows');
+eq(m.interlock.matrix.map(row=>row.code),['00','10','01','11'],'matrix order');
+eq(m.interlock.matrix.map(row=>row.observed),['HOLD','HOLD','HOLD','COUPLED_VIEW_RETURN'],'only 11 closes');
+ok(Object.values(m.interlock.isolation).every(Boolean),'reset isolation');
+eq(f.ledger.coupled.coupling.sharedClock,false,'no shared clock');
+eq(f.ledger.coupled.coupling.changesDgClock,false,'no D°G clock change');
+eq(f.ledger.coupled.coupling.mapsQToN,false,'no q-to-N map');
+ok(m.routes.every(route=>route.causal===false),'all routes non-causal');
+eq(m.routes.length,5,'route count');
+ok(Object.values(m.authority).every(value=>value===false),'no authority promotion');
+eq(v.newCanonicalIds,[],'no new canonical IDs');
+eq(v.relationChanges,[],'no graph changes');
+ok(api.routeMarkup().includes('LANTERN / PANEL V'),'route markup');
+ok(api.routeMarkup().includes('CONTEXT RAIL · NO FEED'),'separate context rail');
+ok(api.routeMarkup().includes('wsb-cable--tower'),'Tower cable');
+ok(api.routeMarkup().includes('wsb-cable--iota'),'IOTA cable');
+ok(api.routeMarkup().includes('11 ONLY'),'single closing port label');
+ok(api.routeMarkup().includes('VALID RETURN'),'role color legend');
+ok(api.interlockMarkup().includes('COUPLED_VIEW_RETURN'),'interlock markup');
+
+const html=fs.readFileSync(path.join(__dirname,'A0_WERKBANK.html'),'utf8');
+eq(html.includes('id="workbenchSwitchboard"'),true,'Workbench mount');
+eq(html.includes('a0-workbench-switchboard.js?rev=switchboard-cable-r2-20261030'),true,'runtime linked');
+eq(html.includes('A0_TOWER_RETURN_DEMONSTRATOR.html#towerShellReturn'),true,'Tower linked');
+eq(html.includes('A0_IOTA_BRIDGE_DEMONSTRATOR.html#iota23Bridge'),true,'Bridge linked');
+eq(html.includes('A0_ORIENTATION_CONTROLLER_BENCH.html#iotaTowerReturnMatrix'),true,'Interlock linked');
+eq(html.includes('results/a0-workbench-switchboard-return-2026-10-30.json'),true,'receipt linked');
+
+console.log(`PASS · ${checks} Workbench Switchboard checks · NO SHARED CLOCK`);
