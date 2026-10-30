@@ -35,7 +35,7 @@ for(const view of viewButtons){view.events.click();for(const lens of lensButtons
 ok(ui.getState().view==='control');ok(ids.get('coreBookCode').hidden,'control points at frozen result, not simulation button');
 ids.get('coreBookNext').events.click();ok(ui.getState().view==='control','bounded end');ids.get('coreBookPrevious').events.click();ok(ui.getState().view==='timeline');
 viewButtons[0].events.click();ids.get('coreBookPrevious').events.click();ok(ui.getState().view==='landscape','bounded start');
-let figure=ids.get('coreBookMedia').children[0],img=figure.children[0].children[0];img.events.error();ok(img.hidden);ok(figure.children[1].textContent.includes('BILD NICHT LADBAR'));ok(figure.children[0].href.startsWith(B.CORE));
+let figure=ids.get('coreBookMedia').children[0],img=figure.children[0].children[0];img.events.error();ok(img.hidden);ok(figure.children[1].textContent.includes('Bildquelle derzeit nicht verfügbar'));ok(figure.children[0].href.startsWith(B.MEDIA));
 ok(JSON.stringify(B.entries)===before,'reading does not mutate source descriptors');ok(!/setInterval|setTimeout|requestAnimationFrame|fetch\(|postMessage|localStorage/.test(read('a0-core-research-book.js')),'no own runtime/clock/host mutations');
 ok(bench.includes('a0-pentagon-contract.js')&&bench.includes('sandbox="allow-scripts"'),'typed sandbox runtime; actual renderer tested separately');
 ok(manifest.authority.newGraphRelation===false&&manifest.authority.researchActivation===false&&manifest.authority.sourceResultsModified===false);

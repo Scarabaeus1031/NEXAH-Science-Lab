@@ -27,8 +27,8 @@ assert.ok(receipt.hostRoutes.includes("/library/"));
 assert.ok(receipt.hostRoutes.includes("/contact/"));
 assert.ok(receipt.hostRoutes.includes("/forschen/"));
 assert.match(receipt.sourceRevision, /^[0-9a-f]{40}$/);
-assert.match(index, /<title>NEXAH Science · Forschungsstand<\/title>/);
-assert.match(index, /NEXAH Science · aktueller Forschungsstand/);
+assert.match(index, /<title>A0 Science · Forschungsstand und Arbeitsraum<\/title>/);
+assert.match(index, /A0 Science · aktueller Forschungs- und Quellenraum/);
 assert.doesNotMatch(index, /a0-context-navigation\.(?:css|js)/);
 assert.match(index, /class="a0-public-primary"/);
 assert.match(index, /NEXAH <span>· Orientation<\/span>/);
@@ -36,19 +36,22 @@ assert.match(index, /aria-label="NEXAH Hauptnavigation"/);
 assert.match(index, /href="\/forschen\/">Science<\/a>/);
 assert.match(index, /class="a0-public-directory"/);
 assert.match(index, /Navigation <span aria-hidden="true">\+<\/span>/);
+assert.match(index, /class="a0-public-skip" href="#a0-public-content">Zum Inhalt<\/a>/);
+assert.match(index, /a0-public-shell-script/);
 for (const title of ["Orientieren", "Forschen", "Lesen &amp; erkunden", "Anwenden &amp; erleben"]) assert.match(index, new RegExp(`<h3>${title}<\\/h3>`));
 assert.match(index, /Interne A0-, Desk- und Mission-Control-Bereiche bleiben getrennt/);
 assert.match(index, /href="https:\/\/nexahedron\.com"/);
 assert.match(index, /href="https:\/\/www\.scarabaeus1033\.net"/);
 assert.doesNotMatch(index, /github\.com\/Scarabaeus1031\/NEXAH-Science-Lab/);
-assert.match(index, /href="#object">Forschungsstand vertiefen ↓<\/a>/);
-assert.match(index, /data-public-href="\/library\/">Lesen &amp; Erkunden →<\/a>/);
-assert.match(index, /href="\/?A0_TOURS\.html#explanation-path">Anwenden &amp; Erleben →<\/a>/);
+assert.match(index, /Der gebaute Forschungsgegenstand/);
+assert.match(index, /href="\/library\/">Library/);
+assert.match(index, /href="\/A0_TOURS\.html#explanation-path">Geführte Tour/);
 
 for (const page of receipt.pages) {
   const html = fs.readFileSync(path.join(output, page), "utf8");
   assert.doesNotMatch(html, /a0-context-navigation\.(?:css|js)/, `${page} leaks the private A0 shell`);
   assert.doesNotMatch(html, /A0_RESEARCH_DESK\.html|A0_BUILDER_DESK\.html|MISSION CONTROL/, `${page} leaks a private authority surface`);
+  assert.doesNotMatch(html, /Structure Freeze|0 active/, `${page} leaks an internal operating state`);
 }
 
 const mathfield = fs.readFileSync(path.join(output, "A0_MATHEMATICAL_JOINTS.html"), "utf8");
@@ -67,6 +70,19 @@ assert.match(position, /Source Graph currentness check open/);
 const tours = fs.readFileSync(path.join(output, "A0_TOURS.html"), "utf8");
 assert.match(tours, /data-public-href="\/library\/">← Lesen &amp; Erkunden<\/a>/);
 assert.doesNotMatch(tours, /Zur Tour-Auswahl im Desk/);
+assert.match(tours, /Wähle eine Erfahrung, nicht ein Verzeichnis/);
+assert.match(tours, /Complete Fieldbook Index/);
+assert.doesNotMatch(tours, /BILD NICHT LADBAR/);
+for (const asset of [
+  "lorenz-potential-map.png",
+  "lorenz-potential-surface.png",
+  "lorenz-trajectory-on-landscape.png",
+  "lorenz-switch-map.png",
+  "lorenz-navigation-3d.png",
+  "lorenz-lobe-timeline.png"
+]) {
+  assert.ok(fs.existsSync(path.join(output, "assets/core-research-book", asset)), `public export includes ${asset}`);
+}
 
 function escapeRegExp(value) {
   return value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");

@@ -113,7 +113,7 @@ assert.equal(scienceLane.sections[0].items[0][0],'A0_SCIENTIFIC_POSITION_REPORT.
 assert.equal(scienceLane.sections[1].label,'Papers');
 assert.ok(scienceLane.sections.some(section=>section.label.startsWith('A0 NSNavigator')),'Science owns the A0 NSNavigator register lens');
 assert.ok(scienceLane.sections.flatMap(section=>section.items).some(([href])=>href==='A0_DATA_AND_REGISTERS.html#top'),'Science exposes the existing data/register map');
-const internalTargets=new Set(['A0_RESEARCH_DESK.html','A0_RESEARCH_BACKLOG.html','A0_BUILDER_LOG.html','A0_LABORATORY.html']);
+const internalTargets=new Set(['A0_RESEARCH_DESK.html','A0_F_A0_26_REVIEW_PROBE.html','A0_RESEARCH_BACKLOG.html','A0_BUILDER_LOG.html','A0_LABORATORY.html']);
 for(const lane of lanes)for(const section of lane.sections)for(const [href] of section.items)assert.ok(!internalTargets.has(href.split('#')[0]),'no internal workspace in Reader menus: '+href);
 assert.match(navigation,/header.replaceChildren\(brand, laneNav, workspaceOverview, overview\)/,'header separates A0 lanes from right-side work overviews');
 assert.match(navigation,/workspaceOverview\.className = "a0-workspace-overviews"/,'right-side workspace overview group exists');

@@ -749,6 +749,7 @@
         "internal": true,
         "pages": [
           "A0_RESEARCH_DESK.html",
+          "A0_F_A0_26_REVIEW_PROBE.html",
           "A0_RESEARCH_BACKLOG.html",
           "A0_BUILDER_LOG.html",
           "A0_LABORATORY.html"
@@ -757,7 +758,7 @@
     ]
   }
 ];
-  const internalPages = new Set(["A0_RESEARCH_DESK.html","A0_RESEARCH_BACKLOG.html","A0_BUILDER_LOG.html","A0_LABORATORY.html"]);
+  const internalPages = new Set(["A0_RESEARCH_DESK.html","A0_F_A0_26_REVIEW_PROBE.html","A0_RESEARCH_BACKLOG.html","A0_BUILDER_LOG.html","A0_LABORATORY.html"]);
   const pageHome = navigationGroups.find(group => group.sections.some(section => section.pages.includes(file)));
   const tessarecPages = [
     "A0_TESSAREC_FRAME_ENVELOPE_OBSERVER_PAPER.html",
