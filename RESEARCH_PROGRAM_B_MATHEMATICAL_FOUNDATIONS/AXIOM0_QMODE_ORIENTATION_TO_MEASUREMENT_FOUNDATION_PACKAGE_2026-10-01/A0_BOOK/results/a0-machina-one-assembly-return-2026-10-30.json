@@ -1,0 +1,35 @@
+{
+  "schema": "nexah.a0.machina-one-assembly.return/1",
+  "date": "2026-10-30",
+  "status": "PASS_SOURCE_BOUND_INTERFACE_ASSEMBLY",
+  "scope": "NAVIGATION_AND_OPERABLE_STATE_ASSEMBLY",
+  "identityReuse": ["NEXAH_A0_ORIENTATION_CONTROLLER_BENCH", "A0_WORKBENCH", "MOD:TESSAREC", "MOD:NUMBER_VIEW_SUITE", "ART:A0:MATHEMATICAL_JOINTS"],
+  "assembly": {
+    "host": "THE_MACHINA",
+    "stations": ["SOURCE_VIEW", "ORIENTATION", "MODEL_SHELF", "OPERABLE_WORK", "TYPED_RECEIPT"],
+    "route": ["viewer", "cockpit", "parts", "bench", "return", "viewer"],
+    "exactReturn": true,
+    "sharedState": true,
+    "sourceIdentityMerge": false,
+    "sharedClock": false,
+    "sharedPhysicsClaim": false
+  },
+  "glbRuntime": {
+    "ports": 8,
+    "sourceWindows": 3,
+    "interactiveDeckPorts": 5,
+    "deckCircuitPorts": 5,
+    "cockpitHandoffs": 4,
+    "sharedViewer": true,
+    "sharedCamera": true,
+    "singleActiveState": true,
+    "exactPortReturn": true,
+    "sourceHashesPreserved": true,
+    "sourceIdentityMerge": false
+  },
+  "guidedTour": {"chapters": 13, "sourceWindows": 3, "interactiveDeckPorts": 5, "glbSources": 8, "cockpitHandoffs": 4, "returnToEntryPort": true, "pauseControl": true, "newIdentity": false},
+  "navigatorEffect": {"newCanonicalIds": 0, "relationChanges": 0, "aliasChanges": 0, "canonicalCountsChanged": false},
+  "scienceEffect": {"studyActivation": 0, "findingPromotion": 0, "claimPromotion": 0, "publication": false},
+  "authority": {"interface": "A0 Builder / Workbench", "evidence": "A0 Science Desk", "currentness": "Mission Control", "sourceGraph": "NSNavigator"},
+  "claimCeiling": "One source-bound interface assembly over typed existing rooms; not one merged carrier, source, model, clock, physical mechanism or scientific identity."
+}

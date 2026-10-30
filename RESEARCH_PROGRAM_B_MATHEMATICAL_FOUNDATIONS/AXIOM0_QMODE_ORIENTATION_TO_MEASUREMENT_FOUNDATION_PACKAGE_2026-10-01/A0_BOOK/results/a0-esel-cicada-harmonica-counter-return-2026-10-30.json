@@ -1,0 +1,28 @@
+{
+  "schema": "nexah.a0.esel-cicada-counter.return/1",
+  "date": "2026-10-30",
+  "status": "PASS_WITH_TYPE_HOLDS",
+  "identityReuse": ["A0_WORKBENCH", "MOD:NUMBER_VIEW_SUITE"],
+  "newCanonicalIds": [],
+  "relationChanges": [],
+  "exact": {
+    "hinge": {"E": 5, "S": 19, "L": 12, "ESDistance": 14, "ELDistance": 7, "ratio": "2:1", "pairSums": [24, 17], "pairGap": 7},
+    "mobius": {"mu11": -1, "mu121": 0, "mu331": -1, "mu3310": -1, "mu3301": -1},
+    "carriers": {"decimalAppend": "331 × 10 = 3310", "reversal": "rev10(1033) = 3301", "identity": false},
+    "tokens": [
+      {"ownerSplit": "CI|KA|DA", "a1z26SegmentSums": [12, 12, 5], "total": 29, "numericCarrierDerived": false},
+      {"ownerSplit": "HARM|O|NICA", "a1z26SegmentSums": [40, 15, 27], "total": 82, "numericCarrierDerived": false}
+    ]
+  },
+  "holds": {
+    "acousticOctave": "HOLD — 2:1 is displayed only as an exact address ratio.",
+    "cicadaBiology": "HOLD — no biological Cicada mechanism is asserted.",
+    "harmonicaAcoustics": "HOLD — no acoustic mechanism is asserted.",
+    "tokenMapping": "HOLD — owner token splits are not number derivations.",
+    "carrierIdentity": "REJECT — 3301 and 3310 are distinct integers from distinct operations."
+  },
+  "tests": {"moduleChecks": 15, "expectedPass": 15},
+  "publication": false,
+  "activation": false,
+  "claimCeiling": "Exact arithmetic and bounded source-bound display only."
+}

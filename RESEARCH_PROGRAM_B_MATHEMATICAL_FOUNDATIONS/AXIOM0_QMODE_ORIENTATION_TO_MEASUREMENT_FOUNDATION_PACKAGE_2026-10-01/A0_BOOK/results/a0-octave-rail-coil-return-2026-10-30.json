@@ -1,0 +1,28 @@
+{
+  "schema": "nexah.a0.octave-rail-coil-return.return/1",
+  "date": "2026-10-30",
+  "status": "PASS_WITH_NEGATIVE_CONTROL",
+  "identityReuse": ["A0_WORKBENCH", "TESA_DOCUMENTARY_GRID", "MOD:NUMBER_VIEW_SUITE"],
+  "newCanonicalIds": [],
+  "relationChanges": [],
+  "exact": {
+    "addressSpace": {"rows": 4, "columns": 7, "count": 28},
+    "bijection": "n ↔ (floor(n/7), n mod 7)",
+    "directions": ["+1", "-1", "+2", "-2"],
+    "return": "uncoil(coil(n,d)) = n for all n in [0,27] and all declared d",
+    "seamsZeroBased": [[6,7],[13,14],[20,21]],
+    "fifthsWalk": {"step": 4, "modulus": 7, "gcd": 1, "orbit": [0,4,1,5,2,6,3]},
+    "step2Control": {"step": 2, "modulus": 7, "gcd": 1, "orbitLength": 7},
+    "halfTwistControl": {"oneCircuitSide": -1, "twoCircuitSide": 1, "oneCircuitOrientedReturn": false}
+  },
+  "holds": {
+    "frequencyDoubling": "SEPARATE MODEL LANE — not used to establish the address return.",
+    "physicalString": "HOLD",
+    "calibratedSound": "HOLD",
+    "resonance": "HOLD",
+    "mobiusIdentity": "REJECT — half-twist is a negative control, not the ordinary coil."
+  },
+  "publication": false,
+  "activation": false,
+  "claimCeiling": "Address topology and deterministic display transform only."
+}

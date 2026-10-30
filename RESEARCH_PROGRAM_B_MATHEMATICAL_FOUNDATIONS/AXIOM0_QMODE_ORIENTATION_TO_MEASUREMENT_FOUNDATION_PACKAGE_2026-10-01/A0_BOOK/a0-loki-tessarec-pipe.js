@@ -35,6 +35,32 @@
     for(let i=0;i<text.length;i++){const pair=text.slice(i,i+2);if(subtractive[pair]){total+=subtractive[pair];i++;}else if(ROMAN_VALUES[text[i]])total+=ROMAN_VALUES[text[i]];else return NaN;}
     return total;
   }
+  function pBreathProbe(){
+    const signed=Object.freeze([6,1,0,-1,0,5]),shell=Object.freeze(signed.map(Math.abs));
+    const signedCore=signed.reduce((a,b)=>a+b,0),absoluteShell=shell.reduce((a,b)=>a+b,0),mirrorCarrier=Number(String(absoluteShell).split('').reverse().join(''));
+    const threadingMask=Object.freeze(signed.map(value=>value===0?0:1)),threadingWord=threadingMask.join('');
+    const holdPositions=Object.freeze(signed.flatMap((value,index)=>value===0?[index+1]:[])),counterRotationPositions=Object.freeze(signed.flatMap((value,index)=>value<0?[index+1]:[]));
+    return Object.freeze({
+      schema:'nexah.a0.p-breath-comparator/2',ownerCode:'CON DAO',signed,shell,signedCore,absoluteShell,mirrorCarrier,delta:absoluteShell-signedCore,midpoint:(signedCore+absoluteShell)/2,
+      threading:Object.freeze({mask:threadingMask,word:threadingWord,activeLanes:threadingMask.reduce((a,b)=>a+b,0),holdLanes:holdPositions.length,holdPositions,counterRotationPositions,binaryView:Number.parseInt(threadingWord,2),binaryViewType:'OPTIONAL_VIEW_NOT_IDENTITY'}),
+      primeLadder:Object.freeze({signedIndex:5,signedPrime:nthPrime(5),shellIndex:6,shellPrime:nthPrime(6),mirrorIndex:11,mirrorPrime:nthPrime(11)}),
+      typeControls:Object.freeze({letterP_A1Z26:16,CONDAO_A1Z26:52,P6:'UNDEFINED_UNLESS_TYPED_AS_PRIME_INDEX'}),
+      identityReuse:Object.freeze(['NEXAH_AX0_QMODE_FOUNDATION_PACKAGE / A0_WERKBANK','ART:A0:MATHEMATICAL_JOINTS']),newCanonicalIds:Object.freeze([]),relationChanges:Object.freeze([]),
+      boundary:'The declared owner code has signed sum 11, absolute shell 13, decimal digit reversal 31 and a typed activity mask 110101 with holds at lanes 3 and 5. The negative lane at position 4 is the sole display counter-rotation; converting -1 to +1 explains the shell lift by 2. HOLD is not temporal stutter without a declared clock. This is a finite arithmetic and display comparator, not a biological breath, anatomical pineal mechanism, A1Z26 decoding, physical field or canonical relation.'
+    });
+  }
+  function verifyPBreath(){const p=pBreathProbe();let checks=0;
+    if(p.signedCore!==11||p.absoluteShell!==13||p.delta!==2||p.midpoint!==12)throw new Error('signed core / absolute shell');checks++;
+    if(p.primeLadder.signedPrime!==11||p.primeLadder.shellPrime!==13||p.primeLadder.mirrorPrime!==31)throw new Error('prime ladder 5/6/11');checks++;
+    if(p.mirrorCarrier!==31||Number(String(p.mirrorCarrier).split('').reverse().join(''))!==13)throw new Error('13/31 digit return');checks++;
+    if(p.typeControls.letterP_A1Z26!==16||p.typeControls.CONDAO_A1Z26!==52)throw new Error('A1Z26 type controls');checks++;
+    if(p.midpoint===p.mirrorCarrier||p.typeControls.P6!=='UNDEFINED_UNLESS_TYPED_AS_PRIME_INDEX')throw new Error('center and P6 guards');checks++;
+    if(p.threading.word!=='110101'||p.threading.activeLanes!==4||p.threading.holdLanes!==2)throw new Error('threading mask');checks++;
+    if(p.threading.holdPositions.join(',')!=='3,5'||p.threading.counterRotationPositions.join(',')!=='4')throw new Error('hold / counter-rotation lanes');checks++;
+    if(p.threading.binaryView!==53||p.threading.binaryViewType!=='OPTIONAL_VIEW_NOT_IDENTITY')throw new Error('binary view guard');checks++;
+    if(p.newCanonicalIds.length||p.relationChanges.length)throw new Error('identity boundary');checks++;
+    return Object.freeze({status:'PASS_BOUNDED_P_BREATH_COMPARATOR',checks,exact:['signed sum=11=p5','absolute sum=13=p6','reverse(13)=31=p11','delta=2','midpoint(11,13)=12','thread mask=110101','holds at lanes 3 and 5','counter-rotation at lane 4'],holds:['temporal stutter without clock','biological breath','pineal mechanism','CON DAO A1Z26 identity','P6 untyped identity'],newCanonicalIds:[],relationChanges:[]});
+  }
   function m11PrimeFoldProbe(){
     const glyph=Object.freeze([[-1,-1],[-1,1],[0,-1],[1,1],[1,-1]].map(([x,y])=>Object.freeze({x,y})));
     return Object.freeze({
@@ -87,9 +113,17 @@
       const items=[['I',1],['V',5],['X',10],['L',50],['C',100],['D',500],['M',1000]],max=1000;
       items.forEach(([symbol,value],i)=>{const x=48+i*86,h=30+165*Math.log10(value+1)/Math.log10(max+1),y=235-h;stage.append(svg('rect',{x,y,width:55,height:h,rx:5,class:'m11-bar'}));label(x+27.5,y-9,symbol,'m11-symbol');label(x+27.5,257,String(value),'m11-value');});
       label(325,286,'×5, ×2, ×5, ×2, ×5, ×2','m11-proof');
-    }else{
+    }else if(mode==='ANGLE'){
       stage.append(svg('path',{d:'M145 70 L145 235 L310 235',class:'m11-l'}));stage.append(svg('path',{d:'M365 72 C500 72 500 235 365 235 Z',class:'m11-d'}));
       label(145,48,'L = 50');label(240,216,'90°','m11-value');label(430,48,'D = 500');label(325,286,'D = 10·L · M = 2·D = 20·L','m11-proof');
+    }else{
+      const p=pBreathProbe(),nodes=[['SIGNED CORE',p.signedCore,'p₅',130],['ABS SHELL',p.absoluteShell,'p₆',325],['MIRROR',p.mirrorCarrier,'p₁₁',520]];
+      stage.append(svg('path',{d:'M130 112 H325 M325 112 H520',class:'m11-breath-route'}));
+      nodes.forEach(([name,value,prime,x])=>{stage.append(svg('circle',{cx:x,cy:112,r:54,class:'m11-breath-node'}));label(x,92,name,'m11-breath-name');label(x,124,String(value),'m11-breath-value');label(x,148,prime,'m11-breath-prime');});
+      label(227,102,'COUNTER −1→+1 · Δ2');label(422,102,'DIGIT REVERSE');
+      p.signed.forEach((value,i)=>{const x=112+i*86,y=230,h=Math.abs(value)*8,klass=value<0?'m11-breath-bar negative':'m11-breath-bar';stage.append(svg('line',{x1:x,y1:y,x2:x,y2:y-(value<0?-h:h),class:klass}));label(x,263,value>0?`+${value}`:String(value),'m11-value');});
+      label(325,282,'THREAD 110101 · HOLD@3,5 · COUNTER@4','m11-proof');
+      label(325,302,'Σ signed = 11 · Σ |·| = 13 · reverse(13) = 31','m11-proof');
     }
   }
   function mount(scope=document){const root=scope.querySelector?.('#lokiTessarecPipeTest');if(!root)return null;const sheet=root.querySelector('[data-lp-sheet]'),band=root.querySelector('[data-lp-band]'),pipe=root.querySelector('[data-lp-pipe]'),out=root.querySelector('[data-lp-output]');let step=0,timer=null;
@@ -100,9 +134,9 @@
     root.querySelector('[data-lp-reset]').addEventListener('click',()=>{stop();step=0;paint();});
     root.querySelector('[data-lp-play]').addEventListener('click',e=>{if(timer){stop();return;}step=0;e.currentTarget.textContent='PAUSE';paint();timer=setInterval(()=>{step++;paint();if(step===56)stop();},90);});
     const m37=root.querySelector('[data-m37-grid]'),m37Out=root.querySelector('[data-m37-output]');if(m37){let rung=3;const paintM37=()=>{renderM37(m37,rung);const p=m37Probe(),r=p.rungs.find(x=>x.index===rung);m37Out.textContent=rung===2?'SOURCE PASS · P2=3 · 3×37=111 · 111²=12321':rung===3?'MIDDLE PASS · P3=5 · 5×37=185 · Δ74 / Δ74':`COMPARATOR PASS · P4=7 · 7×37=259 · GHOSTGRID SOURCE BINDING OPEN`;root.querySelectorAll('[data-m37-rung]').forEach(b=>b.setAttribute('aria-pressed',String(+b.dataset.m37Rung===rung)));};root.querySelectorAll('[data-m37-rung]').forEach(b=>b.addEventListener('click',()=>{rung=+b.dataset.m37Rung;paintM37();}));paintM37();}
-    const m11=root.querySelector('[data-m11-stage]'),m11Out=root.querySelector('[data-m11-output]');if(m11){let mode='GLYPH';const messages={GLYPH:'MIRROR PASS · TWO I-PILLARS · CENTER V-FOLD · AXIS x=0',PRIME:'PRIME PASS · V=5 · p₅=11 · XI=11',ROMAN:'ROMAN PASS · I V X L C D M · ALTERNATING ×5 / ×2',ANGLE:'TYPE PASS · L=50 · ∠L=90° · XC=90 · D=500'};const paintM11=()=>{renderM11(m11,mode);m11Out.textContent=messages[mode];root.querySelectorAll('[data-m11-view]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.m11View===mode)));};root.querySelectorAll('[data-m11-view]').forEach(b=>b.addEventListener('click',()=>{mode=b.dataset.m11View;paintM11();}));paintM11();}
+    const m11=root.querySelector('[data-m11-stage]'),m11Out=root.querySelector('[data-m11-output]');if(m11){let mode='GLYPH';const messages={GLYPH:'MIRROR PASS · TWO I-PILLARS · CENTER V-FOLD · AXIS x=0',PRIME:'PRIME PASS · V=5 · p₅=11 · XI=11',ROMAN:'ROMAN PASS · I V X L C D M · ALTERNATING ×5 / ×2',ANGLE:'TYPE PASS · L=50 · ∠L=90° · XC=90 · D=500',BREATH:'P-BREATH PASS · THREAD 110101 · HOLD@3,5 · COUNTER@4 · 11→13→31 · SEHNE/TAN HOLD'};const paintM11=()=>{renderM11(m11,mode);m11Out.textContent=messages[mode];root.querySelectorAll('[data-m11-view]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.m11View===mode)));};root.querySelectorAll('[data-m11-view]').forEach(b=>b.addEventListener('click',()=>{mode=b.dataset.m11View;paintM11();}));paintM11();}
     paint();return{paint,verify,verifyM37,verifyM11PrimeFold};
   }
   if(typeof document!=='undefined')document.addEventListener('DOMContentLoaded',()=>mount(document));
-  return Object.freeze({STATIONS,ORIENTATIONS,RETURN,state,orbit,band28,lift56,isPrime,nthPrime,romanDecode,m37Probe,verifyM37,m11PrimeFoldProbe,verifyM11PrimeFold,verify,mount});
+  return Object.freeze({STATIONS,ORIENTATIONS,RETURN,state,orbit,band28,lift56,isPrime,nthPrime,romanDecode,pBreathProbe,verifyPBreath,m37Probe,verifyM37,m11PrimeFoldProbe,verifyM11PrimeFold,verify,mount});
 });

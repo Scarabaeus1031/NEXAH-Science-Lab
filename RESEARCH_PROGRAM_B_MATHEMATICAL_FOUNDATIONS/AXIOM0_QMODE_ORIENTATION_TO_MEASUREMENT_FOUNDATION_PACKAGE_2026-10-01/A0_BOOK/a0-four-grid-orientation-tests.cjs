@@ -1,0 +1,8 @@
+'use strict';
+const assert=require('node:assert/strict'),M=require('./a0-four-grid-orientation.js');let checks=0;
+for(let z=0;z<=28;z++){const r=M.snapshot(z);assert.equal(r.cursor.pose,z+1);assert.equal(r.relation.sharedClock,false);assert.equal(r.relation.sharedCarrier,false);assert.equal(r.relation.sourceMutation,false);assert.equal(r.lanes.tesa.state.address,z===0?null:z);assert.ok(r.lanes.tessarec.state.q4Sample>=0&&r.lanes.tessarec.state.q4Sample<16);assert.ok(r.lanes.tessarec.state.q4p3Sample>=0&&r.lanes.tessarec.state.q4p3Sample<48);assert.ok(r.rhythm.elevatorPower>=0&&r.rhythm.elevatorPower<=1);assert.ok(Math.abs(r.rhythm.umbrella.x*r.rhythm.umbrella.x+r.rhythm.umbrella.y*r.rhythm.umbrella.y-1)<1e-12);assert.equal(r.rhythm.glyph52Rotation,90);checks+=10;}
+const a=M.snapshot(0),b=M.snapshot(28);assert.equal(a.lanes.fold5b.state.pose,1);assert.equal(a.lanes.tesa.state.externalReference,0);assert.equal(b.lanes.fold5b.closure,'DISPLAY_0_AND_Y_FLIP');assert.equal(b.lanes.tesa.closure,'ADDRESS_28_NOT_RETURN');assert.equal(b.lanes.book.closure,'FLAT_VIEW_NOT_SOURCE_RETURN');assert.equal(b.lanes.tessarec.closure,'LAST_SAMPLED_VIEW_NOT_CYCLE_RETURN');checks+=6;
+assert.throws(()=>M.snapshot(-1));assert.throws(()=>M.snapshot(29));checks+=2;
+assert.match(M.rhythmSvg(M.snapshot(14)),/RED SHADOW/);assert.match(M.rhythmSvg(M.snapshot(14)),/ELEVATOR POWER/);checks+=2;
+assert.equal(M.snapshot(14).rhythm.exact52.factorization,'52 = 13 × 2²');assert.equal(13*2**2,52);checks+=2;
+console.log(JSON.stringify({status:'PASS',checks,boundary:'Typed display crosswalk only; no shared carrier, clock, identity or scientific adoption.'}));

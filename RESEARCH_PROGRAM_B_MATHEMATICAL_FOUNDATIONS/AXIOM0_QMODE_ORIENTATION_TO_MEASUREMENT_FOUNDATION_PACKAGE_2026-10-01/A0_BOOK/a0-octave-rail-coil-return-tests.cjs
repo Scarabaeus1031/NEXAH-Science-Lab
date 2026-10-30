@@ -1,0 +1,42 @@
+"use strict";
+const assert = require("node:assert/strict");
+const fs = require("node:fs");
+const path = require("node:path");
+const api = require("./a0-octave-rail-coil-return.js");
+const base = __dirname;
+const html = fs.readFileSync(path.join(base, "A0_WERKBANK.html"), "utf8");
+const css = fs.readFileSync(path.join(base, "a0-bench-navigation.css"), "utf8");
+const receipt = JSON.parse(fs.readFileSync(path.join(base, "results/a0-octave-rail-coil-return-2026-10-30.json"), "utf8"));
+let checks = 0;
+const check = (value, message) => { assert.ok(value, message); checks += 1; };
+
+const v = api.verify();
+check(v.pass && v.passed === v.total && v.total >= 18, "module verification passes");
+check(api.DATA.addresses.length === 28, "4x7 address count");
+check(new Set(api.DATA.addresses.map(a => `${a.row}:${a.col}`)).size === 28, "all grid coordinates unique");
+for (const direction of Object.keys(api.DIRECTIONS)) {
+  check(api.DATA.addresses.every(a => api.uncoil(api.coil(a, direction)) === a.n), `${direction} returns all addresses`);
+}
+check(api.DATA.seams.length === 3, "three inter-layer seams");
+check(api.DATA.seams.every(([a,b]) => a + 1 === b), "seams join sequential records");
+check(api.walk(4, 0).join(",") === "0,4,1,5,2,6,3", "fifths address walk exact");
+check(api.walk(4, 0).length === 7 && api.gcd(4, 7) === 1, "fifths walk covers all seven columns");
+check(api.walk(2, 0).length === 7 && api.gcd(2, 7) === 1, "step-two control covers all columns");
+check(api.walk(7, 0).length === 1, "non-coprime step-seven negative control stalls");
+check(api.DATA.negativeControl.oneCircuitSide === -1, "half twist flips side after one circuit");
+check(api.DATA.negativeControl.twoCircuitSide === 1, "half twist restores side after two circuits");
+check(api.DATA.negativeControl.exactOneCircuitReturn === false, "half twist fails one-circuit oriented return");
+check(api.DATA.newCanonicalIds.length === 0 && api.DATA.relationChanges.length === 0, "no graph mutation");
+check(api.railSvg(0, "+1").includes("28 UNIQUE CELLS"), "rail renderer bounded");
+check(api.coilSvg(0, "−1").includes("ADDRESS METADATA RETAINED"), "counter-coil renderer bounded");
+check(api.seamSvg(6).includes("c6 → c0"), "seam renderer explicit");
+check(api.uncoilSvg(0, "+2").includes("28/28 EXACT RETURNS"), "uncoil renderer exposes exact return");
+check(api.twistSvg().includes("EXPECTED FAIL"), "half-twist renderer exposes negative result");
+check(html.includes('id="octaveRailCoilReturn"'), "workbench mount present");
+check(html.includes('data-ocr-view="twist"'), "negative-control view present");
+check(html.includes("a0-octave-rail-coil-return.js?rev=octave-coil-r1-20261030"), "versioned module loaded");
+check(css.includes(".ocr-return") && css.includes(".ocr-coil-path"), "coil styles present");
+check(receipt.status === "PASS_WITH_NEGATIVE_CONTROL", "receipt state bounded");
+check(receipt.newCanonicalIds.length === 0 && receipt.relationChanges.length === 0, "receipt records no graph effect");
+check(receipt.holds.mobiusIdentity.startsWith("REJECT"), "receipt rejects Möbius identity");
+console.log(`PASS a0-octave-rail-coil-return ${checks}/${checks} · module ${v.passed}/${v.total}`);

@@ -1,0 +1,38 @@
+{
+  "schema": "nexah.a0.pulse-grammar-clp-shared-desk-return/1",
+  "date": "2026-10-28",
+  "status": "ENGINEERING_VERIFIED_SCIENCE_FINDING_NOTES_NOT_NEW_F_A0",
+  "scope": "shared Orientation Controller Bench return to Builder and Science desks",
+  "identities_reused": ["NEXAH_A0_ORIENTATION_CONTROLLER_BENCH", "SRC:A0OE:PASCAL_LISSAJOUS_MOBIUS_RETURN"],
+  "authority_split": {
+    "builder": ["implementation", "interaction", "receipts", "regression tests"],
+    "science": ["evidence classification", "finding triage", "negative findings", "claim ceiling", "study admission"],
+    "bench_grants_scientific_authority": false
+  },
+  "bounded_findings": [
+    "A valid frozen three-domain record can start the local AU-NA-HE-TI loop without source mutation.",
+    "The 5:6 C30 Lissajous display is lossy; the exact phase state requires the CRT signature.",
+    "The declared A/M/B seam reverses A and B after one turn, holds M, and returns oriented state after two turns or 4pi.",
+    "A shared cursor and synchronous display do not establish shared domain dynamics, biological breathing, intrinsic Pascal topology, physical coupling, or a new generator."
+  ],
+  "science_candidate": {
+    "question": "Does a coupled CLP multi-view improve reconstruction accuracy, time, transfer, or state-versus-view discrimination compared with a single view?",
+    "requires": ["admission", "participants", "task", "baseline", "metrics", "failure criterion", "preregistration contract"],
+    "study_active": false
+  },
+  "verification": {
+    "pulse_grammar_module": "97/97 PASS",
+    "bench_suite": "PASS",
+    "browser_clp_loop": "PASS",
+    "navigator_app": "253/253 PASS",
+    "source_graph": "PASS"
+  },
+  "governance": {
+    "structure_freeze": true,
+    "new_f_a0": false,
+    "new_identity": false,
+    "new_relation": false,
+    "new_study": false,
+    "publication_authorized": false
+  }
+}

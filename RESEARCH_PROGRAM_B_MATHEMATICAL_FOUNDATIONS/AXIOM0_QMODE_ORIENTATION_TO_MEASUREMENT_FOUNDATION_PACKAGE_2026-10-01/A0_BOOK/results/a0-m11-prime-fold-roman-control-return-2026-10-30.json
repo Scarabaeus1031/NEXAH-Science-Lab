@@ -1,5 +1,5 @@
 {
-  "schema": "nexah.a0.m11-prime-fold-roman-control-return/1",
+  "schema": "nexah.a0.m11-prime-fold-roman-control-return/2",
   "date": "2026-10-30",
   "status": "PASS_WITH_TOPOLOGY_HOLD",
   "identityReuse": [
@@ -14,6 +14,26 @@
     "romanValues": ["I=1", "V=5", "X=10", "L=50", "C=100", "D=500", "M=1000", "XC=90"],
     "geometry": ["angle(L)=90 degrees"],
     "scale": ["D=10*L", "M=2*D", "M=20*L"]
+    ,
+    "pBreathComparator": {
+      "declaredOwnerCode": [6,1,0,-1,0,5],
+      "signedCore": "11 = p5",
+      "absoluteShell": "13 = p6",
+      "digitMirrorCarrier": "reverse(13) = 31 = p11",
+      "delta": 2,
+      "arithmeticMidpoint": 12,
+      "threading": {
+        "activityMask": [1, 1, 0, 1, 0, 1],
+        "word": "110101",
+        "activeLanes": 4,
+        "holdLanes": 2,
+        "holdPositions": [3, 5],
+        "counterRotationPositions": [4],
+        "shellLift": "-1 to +1 changes the total by 2",
+        "optionalBinaryView": "110101 base 2 = 53; view only, not identity"
+      },
+      "typeGuards": ["P in A1Z26 = 16", "CONDAO in A1Z26 = 52", "P6 is undefined unless typed as prime index p6"]
+    }
   },
   "typeControls": [
     "L=50 is a Roman value",
@@ -25,10 +45,13 @@
   ],
   "holds": {
     "moebius": "OPEN: the displayed M is an open polyline; no edge identification or half-twist is defined",
-    "lissajous": "OPEN: no parametric generator or fitted frequency ratio has been established"
+    "lissajous": "OPEN: no parametric generator or fitted frequency ratio has been established",
+    "chordTangent": "OPEN: 11↔13 is a connecting segment only; a mathematical chord requires a declared circle and tan(theta) requires a declared angle and tangent",
+    "breathAnatomy": "OPEN: the arithmetic display cycle is not a biological breath, pineal mechanism or anatomical tendon",
+    "stutterClock": "OPEN: zero lanes are positional HOLD markers; temporal stutter requires a declared clock"
   },
   "claimCeiling": "BOUNDED_DISPLAY_AND_ARITHMETIC_CONTROL",
   "publication": false,
   "activation": false,
-  "boundary": "The probe verifies a prime-index bridge, mirror-set geometry, Roman numeral values, a right angle and a scale relation. It does not establish a Moebius strip, Lissajous generator, physical mechanism, new Study, Navigator identity or graph relation."
+  "boundary": "The probe verifies a prime-index bridge, mirror-set geometry, Roman numeral values, a right angle, a scale relation and the bounded P-Breath arithmetic comparator 11=p5, 13=p6, reverse(13)=31=p11. Its ordered activity mask is 110101 with positional holds at lanes 3 and 5 and one display counter-rotation at lane 4; converting -1 to +1 explains the shell lift by 2. It does not identify the optional binary view 53 as the carrier, a HOLD as temporal stutter, 31 as the midpoint, CON DAO with A1Z26, a connecting segment with a circle chord or tangent, or the display cycle with biological breath, anatomical tendon, pineal mechanism, Moebius strip, Lissajous generator, physical mechanism, new Study, Navigator identity or graph relation."
 }

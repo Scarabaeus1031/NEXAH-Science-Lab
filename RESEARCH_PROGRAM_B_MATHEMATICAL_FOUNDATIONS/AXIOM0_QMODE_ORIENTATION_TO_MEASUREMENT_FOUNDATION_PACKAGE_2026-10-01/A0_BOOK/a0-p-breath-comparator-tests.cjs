@@ -1,0 +1,40 @@
+const assert=require('node:assert/strict');
+const fs=require('node:fs');
+const path=require('node:path');
+const api=require('./a0-loki-tessarec-pipe.js');
+const checks=[];
+const eq=(actual,expected,label)=>{assert.deepEqual(actual,expected,label);checks.push(label)};
+const ok=(value,label)=>{assert.ok(value,label);checks.push(label)};
+
+const probe=api.pBreathProbe(),proof=api.verifyPBreath();
+eq(proof.status,'PASS_BOUNDED_P_BREATH_COMPARATOR','proof status');
+eq(proof.checks,9,'proof check count');
+eq(probe.signed,[6,1,0,-1,0,5],'declared signed owner code');
+eq(probe.shell,[6,1,0,1,0,5],'absolute shell');
+eq(probe.signedCore,11,'signed core');
+eq(probe.absoluteShell,13,'absolute shell sum');
+eq(probe.delta,2,'breath delta');
+eq(probe.midpoint,12,'arithmetic midpoint guard');
+eq(probe.mirrorCarrier,31,'digit mirror carrier');
+eq(probe.threading.mask,[1,1,0,1,0,1],'threading activity mask');
+eq(probe.threading.word,'110101','threading word');
+eq(probe.threading.activeLanes,4,'four active lanes');
+eq(probe.threading.holdLanes,2,'two hold lanes');
+eq(probe.threading.holdPositions,[3,5],'holds preserve positions');
+eq(probe.threading.counterRotationPositions,[4],'single counter-rotation lane');
+eq(probe.threading.binaryView,53,'optional binary view');
+eq(probe.threading.binaryViewType,'OPTIONAL_VIEW_NOT_IDENTITY','binary view type guard');
+eq(probe.primeLadder,{signedIndex:5,signedPrime:11,shellIndex:6,shellPrime:13,mirrorIndex:11,mirrorPrime:31},'prime-index ladder');
+eq(probe.typeControls.letterP_A1Z26,16,'P letter address guard');
+eq(probe.typeControls.CONDAO_A1Z26,52,'CONDAO A1Z26 control');
+ok(probe.midpoint!==probe.mirrorCarrier,'31 is not the midpoint');
+eq(probe.newCanonicalIds,[],'no new canonical ids');
+eq(probe.relationChanges,[],'no relation changes');
+
+const html=fs.readFileSync(path.join(__dirname,'A0_WERKBANK.html'),'utf8');
+const css=fs.readFileSync(path.join(__dirname,'a0-bench-navigation.css'),'utf8');
+for(const marker of ['data-m11-view="BREATH"','P-BREATH','11=p₅ · 13=p₆ · 31=p₁₁','reverse(13)=31=p₁₁'])ok(html.includes(marker),'HTML '+marker);
+for(const marker of ['THREAD 110101','HOLD@3,5','COUNTER@4','SEHNE/TAN HOLD'])ok(fs.readFileSync(path.join(__dirname,'a0-loki-tessarec-pipe.js'),'utf8').includes(marker),'JS '+marker);
+for(const marker of ['.m11-breath-route','.m11-breath-node','.m11-breath-bar.negative'])ok(css.includes(marker),'CSS '+marker);
+
+console.log(JSON.stringify({status:'PASS',checks:checks.length,proofChecks:proof.checks,exact:'11=p5; 13=p6; reverse(13)=31=p11; thread=110101; hold@3,5; counter@4; midpoint=12',holds:['temporal stutter without clock','circle chord adapter','tangent angle','biological breath','anatomical tendon','new identity or relation']}));

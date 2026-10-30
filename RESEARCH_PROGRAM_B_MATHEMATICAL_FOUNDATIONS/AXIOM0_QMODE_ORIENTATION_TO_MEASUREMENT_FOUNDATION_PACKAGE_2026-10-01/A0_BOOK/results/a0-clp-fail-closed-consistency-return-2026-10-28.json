@@ -1,0 +1,37 @@
+{
+  "schema": "nexah.a0.clp-fail-closed-consistency-return/1",
+  "date": "2026-10-28",
+  "status": "ENGINEERING_GATE_IMPLEMENTED_NOT_RESEARCH_RUN",
+  "identity": "NEXAH_A0_ORIENTATION_CONTROLLER_BENCH",
+  "source": "SRC:A0OE:PASCAL_LISSAJOUS_MOBIUS_RETURN",
+  "scope": "Twenty existing C30 collision fixtures under four deterministic return-gate conditions.",
+  "conditions": {
+    "correct_crt": "EXACT_RETURN",
+    "tampered_crt": "HOLD_CONFLICTING_WITNESS",
+    "missing_crt": "HOLD_MISSING_WITNESS",
+    "single_view": "AMBIGUOUS"
+  },
+  "fixture_count": 20,
+  "assertion_matrix": "20 fixtures x 4 gate conditions",
+  "purpose": "Verify that the existing CLP return gate fails closed when witness information is conflicting, missing or intrinsically ambiguous.",
+  "boundary": "Deterministic engineering and failure-semantics check only. No participants, utility estimate, scientific run, new identity, relation, carrier, operator, Study, Finding or publication authority.",
+  "authority": {
+    "research_run": false,
+    "participant_data": false,
+    "scientific_evidence": false,
+    "new_identity": false,
+    "new_relation": false,
+    "claim_promotion": false
+  },
+  "governance": {
+    "structure_freeze": true,
+    "source_graph_hash_conflict_changed": false,
+    "source_graph_hash_conflict": "SG:LENS:A0_ORIENTATION_EVIDENCE / SRC:A0OE:A0_RESEARCH_DESK_CHECK58 remains OPEN"
+  },
+  "verification": {
+    "module_test": "a0-clp-guided-return-test-tests.cjs",
+    "bench_route": "A0_ORIENTATION_CONTROLLER_BENCH.html#clpGuidedReturnTest",
+    "science_return": "A0_RESEARCH_DESK.html#clp-fail-closed-consistency-return-20261028",
+    "builder_return": "A0_BUILDER_LOG.html#clp-fail-closed-consistency-return-20261028"
+  }
+}

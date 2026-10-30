@@ -2,8 +2,8 @@
 
 Date: `2026-10-11`
 
-Documentary currentness: `2026-10-26` — the canonical ledger contains
-`F-A0-01` through `F-A0-25`; the 23 October Bench/Joint, Tower–Shell,
+Documentary currentness: `2026-10-30` — the canonical ledger contains
+`F-A0-01` through `F-A0-26`; the 23 October Bench/Joint, Tower–Shell,
 LOOK AGAIN and Diamond Lens returns remain synchronized as engineering triage,
 and the 26 October session is recorded below as a not-admitted scientific
 intake. Earlier findings retain their original evidence state. No new formal
@@ -297,6 +297,54 @@ binding, shared inverse, row mapping and residue transport remain OPEN.
 | `F-A0-23` — the frozen prime-index nesting score for `717717/4774/1771` is reached or exceeded by `228/540` complete digit-multiset controls, while the three-palindrome fixed-point baseline occurs in `12/540` tuples | `OWNER_ACCEPTED / CLOSED / FAIL_PRIME_INDEX_SELECTIVITY_PALINDROME_BASELINE_DOMINATES / R2_LOCAL_REPLAY` | Number View negative selectivity boundary; the palindrome tail is selection-conditioned and not an independent discovery p-value | `A0-BL-048` canonical Labreport; lock `10/10`; byte-identical Primary/Replay; verifier `15/15` twice |
 | `F-A0-24` — the two decimal maps `abcd→bcd` and `abcd→acd` are individually lossy uniform projections with fibres `9` and `10`, but their ordered pair is injective and returns all `9000/9000` four-digit sources; existing Iota is a directed classifier and THOOTH is not an executable operator | `CLOSED / OWNER_ACCEPTED / PASS_TYPED_LOSSY_PROJECTIONS_WITH_JOINT_EXACT_RETURN / R2_LOCAL_REPLAY` | Candidate Paper C representation/Return example; preserve the nonoperator and no-glyph-algebra boundaries; publication still requires a separate gate | `A0-BL-049` canonical Labreport; lock `10/10`; byte-identical Primary/Replay; verifier `17/17` twice |
 | `F-A0-25` — exact view/residual-or-joint-view Return transfers across Q106/O16, Typed Seam and Decimal D4, but positive fixed-width economy is carrier-specific: `1/3` passes, not the preregistered `2/3` | `CLOSED / OWNER_ACCEPTED / MIXED_RETURN_GRAMMAR_PASS_ECONOMY_GENERALIZATION_FAIL / R2_LOCAL_REPLAY` | Paper B/C method boundary: exact Return and representation economy are separate claims; publication remains separately gated | `A0-BL-055` canonical Labreport; lock `11/11`; byte-identical Primary/Replay; verifier `20/20` twice |
+| `F-A0-26` — the ordered partition `2+3=5` recurs exactly in three typed views: the two black-key groups of one 12-semitone keyboard octave, the degree `2+3=5` decomposition of the bounded Edelweiss slot graph, and the declared three-up/two-down Shadow/Clamp load view; the carriers and operators remain non-identical | `OWNER_ACCEPTED / BOUNDED_CROSS_CARRIER_STRUCTURAL_OBSERVATION / INDEPENDENT_REVIEW_OPEN` | Paper E method/representation example; Paper C only after an explicit carrier-and-operator comparison. No shared mechanism, acoustic law or universality claim | Science Desk `F-A0-26` return, Mathfield note, existing Spin→Bloom and Shadow/D1–D2 source returns |
+
+<a id="f-a0-26-octave-2plus3-cross-carrier-20261030"></a>
+
+## F-A0-26 · Octave / 2+3 / clamp cross-carrier partition — 2026-10-30
+
+The Owner admits one bounded finding: the same ordered integer partition
+`2+3=5` is independently readable in three already declared views. On a
+standard keyboard octave, the five black keys form groups of two and three;
+the octave itself still contains twelve semitone steps (or thirteen key
+positions only when both boundary notes are counted). In the Edelweiss slot
+graph, the verified full degree five is decomposed into Return degree two and
+residual degree three. In the Shadow/D1–D2 material, three upward and two
+downward roles are an explicitly chosen load/view partition.
+
+The same thread contributes a second, distinct balance layer. Typed pairs and
+counterpairs carry orientation and Return only while their roles remain named;
+the Pascal comparator preserves `i+(29-i)=29` without transforming the TESA
+address. The proposed `3+1` band reading is recorded as a follow-up HOLD, not
+as part of the exact finding core: three band roles and one frame/carrier role
+still require a source-local contract, counterexample and Return.
+
+This finding is structural and typed, not causal. It does not identify keys,
+graph edges and clamps; it does not derive equal temperament, resonance,
+Fibonacci structure, a pentagonal mechanism or a universal `2+3` law. Its
+paper value is methodological: repeated counts become scientifically usable
+only when carrier, grouping rule, operator, retained information and failure
+condition remain visible.
+
+The word “fifth” is therefore handled carefully. It can name a five-position
+role carrier, but a perfect fifth spans seven semitone steps; the keyboard's
+`2+3` concerns the five black-key positions. Likewise, ten octaves do not
+generate twelve: twelve is the number of semitone steps per octave, while
+thirteen positions count both endpoints.
+
+**Next gate:** independent review must attempt counter-groupings, name the
+ordering convention, and test whether any proposed transport preserves more
+than the integer partition. Until then Paper E may use the comparison as a
+bounded representation example; Paper C may only cite the non-identity and
+typing discipline. No manuscript claim, Study activation, publication or
+Source-Graph relation follows automatically.
+
+Sources: [Science Desk](A0_BOOK/A0_RESEARCH_DESK.html#f-a0-26-octave-2plus3-cross-carrier-20261030),
+[Mathfield](A0_BOOK/A0_MATHEMATICAL_JOINTS.html#octave-2plus3-cross-carrier-finding),
+[typed balance matrix](A0_BOOK/A0_MATHEMATICAL_JOINTS.html#octave-balance-pair-band-extension),
+[Spin→Bloom](A0_BOOK/A0_SPIN_TO_BLOOM_MEASUREMENT.html#edelweissIncidenceAudit),
+[Shadow 3+2 triage](#shadow-triangle-3plus2-review-20261025), and
+[finding receipt](A0_BOOK/results/a0-octave-2plus3-cross-carrier-finding-return-2026-10-30.json).
 
 ## Documentary paper-support update — 2026-10-18
 

@@ -17,7 +17,11 @@ const generatedPaths = new Set([
   "assets/a0-asset-index-v1.json",
   "assets/a0-asset-index-v1.js"
 ]);
-const ignoredNames = new Set([".DS_Store"]);
+const ignoredNames = new Set([
+  ".DS_Store",
+  ".a0-public-export-preview",
+  "a0-human",
+]);
 
 const decodeEntities = (value = "") => value
   .replace(/&nbsp;/gi, " ")

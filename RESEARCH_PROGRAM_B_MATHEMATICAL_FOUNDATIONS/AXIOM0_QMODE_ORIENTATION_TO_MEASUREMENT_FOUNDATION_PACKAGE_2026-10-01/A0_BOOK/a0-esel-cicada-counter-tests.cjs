@@ -1,0 +1,36 @@
+"use strict";
+const assert = require("node:assert/strict");
+const fs = require("node:fs");
+const path = require("node:path");
+const api = require("./a0-esel-cicada-counter.js");
+const base = __dirname;
+const html = fs.readFileSync(path.join(base, "A0_WERKBANK.html"), "utf8");
+const css = fs.readFileSync(path.join(base, "a0-bench-navigation.css"), "utf8");
+const receipt = JSON.parse(fs.readFileSync(path.join(base, "results/a0-esel-cicada-harmonica-counter-return-2026-10-30.json"), "utf8"));
+
+let checks = 0;
+function check(value, message) { assert.ok(value, message); checks += 1; }
+const verification = api.verify();
+check(verification.pass && verification.passed === 15, "module verification passes 15/15");
+check(api.DATA.hinge.ES === 14 && api.DATA.hinge.EL === 7, "E hinge arms exact");
+check(api.DATA.hinge.ratio === "2:1", "hinge ratio exact");
+check(api.DATA.mobius.find(x => x.n === 121).mu === 0, "121 is the zero control");
+check(api.DATA.mobius.find(x => x.n === 3310).factors === "2·5·331", "3310 factorization declared");
+check(api.DATA.mobius.find(x => x.n === 3310).mu === -1, "3310 is square-free negative");
+check(api.DATA.carriers.decimalAppend.includes("3310"), "3310 append carrier declared");
+check(api.DATA.carriers.reversal.includes("3301"), "3301 reversal carrier declared");
+check(api.DATA.carriers.verdict === "3301 ≠ 3310", "carriers not identified");
+check(api.DATA.tokens[0].total === 29 && api.DATA.tokens[1].total === 82, "token control sums exact");
+check(api.DATA.newCanonicalIds.length === 0 && api.DATA.relationChanges.length === 0, "no graph mutation");
+check(html.includes('id="eselCicadaCounter"') && html.includes('data-ehc-view="carriers"'), "workbench mount and controls present");
+check(html.includes("a0-esel-cicada-counter.js?rev=esel-cicada-r1-20261030"), "versioned module loaded");
+check(css.includes(".ehc-counter") && css.includes(".ehc-ledger"), "counter styling present");
+check(receipt.status === "PASS_WITH_TYPE_HOLDS", "receipt has bounded pass state");
+check(receipt.holds.carrierIdentity.startsWith("REJECT"), "receipt rejects carrier identity");
+check(receipt.holds.acousticOctave.startsWith("HOLD"), "receipt holds acoustic claim");
+check(receipt.newCanonicalIds.length === 0 && receipt.relationChanges.length === 0, "receipt records no identity or relation changes");
+check(api.renderHinge().includes("14 : 7 = 2 : 1"), "hinge renderer exposes ratio");
+check(api.renderMobius().includes("121") && api.renderMobius().includes("μ = 0"), "mobius renderer exposes zero control");
+check(api.renderTokens().includes("HARM|O|NICA"), "token renderer exposes owner split");
+check(api.renderCarriers().includes("3301 ≠ 3310"), "carrier renderer exposes non-identity");
+console.log(`PASS a0-esel-cicada-counter ${checks}/${checks}`);

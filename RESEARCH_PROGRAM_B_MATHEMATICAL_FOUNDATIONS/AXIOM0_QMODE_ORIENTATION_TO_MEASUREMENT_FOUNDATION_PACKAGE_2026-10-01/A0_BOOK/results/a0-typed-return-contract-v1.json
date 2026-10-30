@@ -1,0 +1,41 @@
+{
+  "schema": "nexah.a0.typed-return-contract/1",
+  "status": "LOCAL_SOURCE_BOUND_CONTRACT",
+  "identityReuse": [
+    "NEXAH_AX0_QMODE_FOUNDATION_PACKAGE",
+    "NEXAH:A0_ORIENTATION_EVIDENCE_LINEAGE:V1",
+    "A0_WORKBENCH",
+    "TESA_DOCUMENTARY_GRID",
+    "MOD:NUMBER_VIEW_SUITE",
+    "ART:A0:MATHEMATICAL_JOINTS"
+  ],
+  "requiredFields": [
+    "record",
+    "carrier",
+    "address",
+    "view",
+    "orientation",
+    "step",
+    "seam",
+    "transform",
+    "return_witness",
+    "negative_control",
+    "claim_holds"
+  ],
+  "resultVocabulary": ["PASS", "EXPECTED_FAIL", "HOLD", "OPEN", "UNDEFINED_CONTRACT"],
+  "rules": {
+    "carrierIsNotView": true,
+    "addressIsNotProjection": true,
+    "visualAdjacencyIsNotRelation": true,
+    "returnRequiresWitness": true,
+    "negativeControlRemainsVisible": true,
+    "missingIsNotZero": true
+  },
+  "graphEffect": {
+    "newCanonicalIds": 0,
+    "newRelations": 0,
+    "aliases": 0,
+    "effect": "REFERENCE_AND_SOURCE_HASH_CURRENTNESS_ONLY"
+  },
+  "claimCeiling": "Deterministic address/view transformations and documentary engineering receipts only."
+}

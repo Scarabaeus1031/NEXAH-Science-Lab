@@ -1,0 +1,30 @@
+{
+  "schema": "nexah.a0.engineering-view-return/1",
+  "date": "2026-10-28",
+  "instrument": "NEXAH_A0_ORIENTATION_CONTROLLER_BENCH",
+  "view": "fourGridOrientation",
+  "status": "PASS_TYPED_ORIENTATION_CROSSWALK",
+  "checks": 302,
+  "carriers": [
+    {"name": "5B", "native_count": "29 poses / 28 transitions", "cursor_rule": "Z"},
+    {"name": "TESA", "native_count": "28 interior addresses + external 29", "cursor_rule": "address=Z for Z=1..28; Z=0 external"},
+    {"name": "Root7 book", "native_count": "fixed seam / two pages", "cursor_rule": "inspection angle beta=180*Z/28"},
+    {"name": "Atlas Tessarec", "native_count": "Q4 16 / Q4xP3 48", "cursor_rule": "round(15*Z/28) / round(47*Z/28)"}
+  ],
+  "verified_boundaries": [
+    "common cursor is a normalized inspection coordinate, not a shared source clock",
+    "Z=0 is 5B pose 1 but no TESA interior address",
+    "Z=28 is 5B display closure, TESA address 28, flat book view and sampled Tessarec endpoint; not a common Return",
+    "52=13*2^2 and 23+29=52 are exact existing-register facts; the 90-degree/52 owner glyph reading remains a separate orientation mnemonic",
+    "cyan phase, red shadow, pin dot, complex semicircle and white elevator axis are separate synchronized display roles",
+    "source carriers and canonical counts remain unchanged"
+  ],
+  "browser_observation": "PASS at Z=0 and Z=28",
+  "authority": {
+    "new_id": false,
+    "new_relation": false,
+    "new_study": false,
+    "new_finding": false,
+    "publication_authority": false
+  }
+}

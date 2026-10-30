@@ -1694,3 +1694,87 @@ Rückwege:
 `A0_BOOK/A0_RESEARCH_DESK.html#breathing-crystal-aperture-return-20261029` →
 `SCIENCE_LAB/NAVIGATION/EVIDENCE/A0_ORIENTATION_EVIDENCE_LINEAGE_2026-10-10/A0_ORIENTATION_EVIDENCE_LINEAGE_BINDER_V1_2026-10-10.json`.
 
+<a id="typed-return-atlas-follow-up-20261030"></a>
+## P2 Preparation · Typed Return Atlas / Fibonacci-Coil Follow-up · 30 October 2026
+
+Status: `PRIORITIZED_PREPARATION_ONLY / NOT_ADMITTED / NOT_ACTIVE / STRUCTURE_FREEZE_PRESERVED`
+
+Der Engineering-Return vereinheitlicht elf Pflichtfelder für source-bound
+Adress-/View-Returns und prüft 28 TESA-Adressen in vier Orientierungen über
+`RAIL → COIL → UNCOIL → QRT11 WITNESS`. Alle 112 synthetischen Returns
+schließen exakt. Das Pascal-Gegengewicht bleibt ein Comparator und verändert
+keine Adresse.
+
+### Priorisierte offene Fragen
+
+1. **Fibonacci mod 7:** Die Pisano-Periode ist exakt 16 und besucht alle sieben
+   Restklassen. Zu prüfen bleibt nur, ob diese Sequenz als nützlicher
+   Adress-Comparator dient. Sie ist keine 7er-Permutation und belegt keine
+   Ursache der Coil-Geometrie.
+   Der getrennte diagonale Primindex-Lift `Δ(k)=(k,k) -> Δ(p_k)` liefert exakt
+   `Δ(1)->Δ(2)` und `Δ(2)->Δ(3)` und ist auf seinem Primzahlbild invertierbar;
+   er ist keine Fibonacci-Rekurrenz und kein Return. Die lokale Comparator-Linse
+   `ƒQ°±` trennt davon den signierten Dodeka-Rail: `±1/12` kehrt nach 12,
+   `±2/12` nach 6 Schritten exakt zum Start zurück. Der affine Typ-Control
+   `44+6=50=L` besitzt den exakten Rückweg `50-6=44`, begründet aber weder
+   `phi` noch eine Zahl-Farb-Abbildung. `phi` und Cyan/Light Blue/Dark Blue/Gelb
+   bleiben offene Ports, bis Carrier, Einheit und inverse Abbildung deklariert sind.
+   Die benachbarte Leiter reaktiviert keine neue RATH-Relation, sondern verweist
+   auf den vorhandenen Source Audit: `44+1=45`, `49=7²`, `44+6=50=L`,
+   `44+7=51=3·17` und `49+51=100`. Dabei gilt typisiert `p₄=7`, `p₅=11`,
+   `p₇=17` und daher `77=p₄·p₅`, nicht `p₄·p₇`. Integer, Winkel und
+   Euler-Totient bleiben getrennte Namespaces.
+2. **4774 / 47|74:** Generator oder Owner-Record wiederfinden; bis dahin kein
+   Operator und keine Relation.
+3. **CI|KA|DA und HARM|O|NICA:** Owner-Token bleiben von `3310`, Akustik und
+   Wortherkunft getrennt, bis ein Mappingvertrag vorliegt.
+4. **Pantone / Colour:** Standard, Illuminant, Messgerät und Geräteprofil
+   binden, bevor Farbübereinstimmung behauptet wird.
+5. **Sugar Stick / physische Coil:** Geometrie, Material, Last, Toleranz und
+   Kalibrierung sind ein eigener Engineering-Gate.
+6. **Audio / Resonanz:** Messsignal, Einheiten, Baseline, Comparator und
+   Falsifikationsschwelle fehlen; keine Aktivierung aus der Visualisierung.
+
+### Nächste zulässige Aktion
+
+Nur einen dokumentarischen Comparator-Review vorbereiten: Fibonacci-Residuen,
+Quintengang `+4 mod 7`, lineare Rail und Coil-Ansicht nebeneinander prüfen.
+Kein Primary Run, keine Human Study, keine physische Messung und keine
+Finding-/Claim-Promotion ohne separates Owner-/Admission-Gate.
+
+Rückwege:
+`A0_BOOK/A0_WERKBANK.html#typedReturnAtlas` →
+`A0_BOOK/results/a0-typed-return-atlas-return-2026-10-30.json` →
+`A0_BOOK/A0_RESEARCH_DESK.html#typed-return-atlas-return-20261030` →
+`NEXAH:A0_ORIENTATION_EVIDENCE_LINEAGE:V1`.
+
+<a id="f-a0-26-science-gates-20261030"></a>
+
+## F-A0-26 and full-thread Science gates — 2026-10-30
+
+Status: `PRIORITIZED / NOT_ACTIVE / OWNER-ACCEPTED FINDING / SEPARATE RUN GATES REQUIRED`.
+
+1. **P1 — Independent F-A0-26 review.** Generate alternative five-part
+   groupings and null groupings; test order reversal, carrier relabelling and
+   whether `2+3` remains distinguished against declared controls.
+2. **P2 — Typed transport.** Define carrier, map, invariant, inverse/residual
+   and failure condition for any proposed keyboard↔graph↔clamp comparison.
+3. **P2 — `3+1` band contract.** Declare three active band roles and one
+   frame/carrier role, including fourth-channel semantics, pairing, Return and
+   a counterexample. This extension is not yet in the exact Finding core.
+4. **P2 — Acoustic measurement.** Bind measured frequency/amplitude data,
+   tuning reference, uncertainty, baseline and preregistered failure rule to
+   the TESA/Zither comparator.
+5. **P3 — Clamp/material continuation.** Preserve the closed-ring collision
+   and nonzero fold-moment controls; require prototype-backed load, friction,
+   wear, tolerance and fabrication evidence before any mechanism claim.
+6. **P3 — Machina Human acceptance.** Verify controls, tour pacing and the
+   visible separation of three Source Windows from five interactive deck GLBs.
+7. **Paper gate.** Paper E may use the bounded representation-method example.
+   Paper C remains HOLD until typed transport, counterexamples and independent
+   review are complete. No manuscript claim or publication is authorized.
+
+Return: [full Science Desk synthesis](A0_BOOK/results/a0-thread-science-desk-synthesis-2026-10-30.md),
+[Finding](A0_BOOK/A0_RESEARCH_DESK.html#f-a0-26-octave-2plus3-cross-carrier-20261030),
+[Mathfield matrix](A0_BOOK/A0_MATHEMATICAL_JOINTS.html#octave-balance-pair-band-extension),
+and [Paper gate](32_A0_FINDINGS_AND_PAPER_WORKSPACE_2026-10-11.md#f-a0-26-octave-2plus3-cross-carrier-20261030).

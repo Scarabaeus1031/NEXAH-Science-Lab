@@ -1,0 +1,35 @@
+{
+  "schema": "nexah.a0.clp-guided-return-test-design/1",
+  "date": "2026-10-28",
+  "status": "PROTOCOL_REHEARSAL_NOT_RESEARCH_RUN",
+  "identity": "NEXAH_A0_ORIENTATION_CONTROLLER_BENCH",
+  "source": "SRC:A0OE:PASCAL_LISSAJOUS_MOBIUS_RETURN",
+  "question": "Does a coupled projection-plus-CRT view support exact return while preserving the distinction between state and view?",
+  "flow": ["SOURCE", "CUT", "VIEW", "RETURN"],
+  "conditions": {
+    "SINGLE": {
+      "visible": ["5:6 projection"],
+      "correct_response_for_collision_fixtures": "AMBIGUOUS",
+      "classification": "VIEW_ONLY"
+    },
+    "CLP": {
+      "visible": ["5:6 projection", "phase mod 6", "phase mod 5"],
+      "correct_response": "exact C30 phase",
+      "classification": "EXACT_STATE"
+    }
+  },
+  "rehearsal_fields": ["reconstruction correctness", "elapsed time", "state/view classification", "confidence"],
+  "storage": "NONE_LOCAL_EPHEMERAL",
+  "failure_rule": "No multi-view utility claim if exact reconstruction is not improved, elapsed time exceeds a preregistered threshold, or state/view confusion increases.",
+  "open_before_any_study": ["participant definition", "task order and counterbalancing", "time threshold", "sample size", "exclusion criteria", "analysis plan", "ethics and consent", "preregistration approval"],
+  "authority": {
+    "research_run": false,
+    "participant_data": false,
+    "scientific_evidence": false,
+    "new_identity": false,
+    "new_relation": false,
+    "new_carrier": false,
+    "new_operator": false,
+    "new_finding": false
+  }
+}

@@ -1,0 +1,84 @@
+{
+  "schema": "nexah.a0.typed-return-atlas.return/1",
+  "date": "2026-10-30",
+  "status": "PASS_WITH_OPEN_SCIENCE_BACKLOG",
+  "scope": "DOCUMENTARY_ENGINEERING_RETURN",
+  "contract": "results/a0-typed-return-contract-v1.json",
+  "identityReuse": [
+    "NEXAH_AX0_QMODE_FOUNDATION_PACKAGE",
+    "NEXAH:A0_ORIENTATION_EVIDENCE_LINEAGE:V1",
+    "A0_WORKBENCH",
+    "TESA_DOCUMENTARY_GRID",
+    "MOD:NUMBER_VIEW_SUITE",
+    "ART:A0:MATHEMATICAL_JOINTS"
+  ],
+  "exact": {
+    "contractFields": 11,
+    "records": 28,
+    "orientations": 4,
+    "crossInstrumentReturns": 112,
+    "route": ["TESA_SOURCE", "OCTAVE_RAIL", "COIL", "SEAM", "UNCOIL", "QRT11_WITNESS", "TYPED_RECEIPT"],
+    "returnRule": "uncoil(coil(n,d)) = n and n = 11q+r",
+    "pascalComparator": "i + (29-i) = 29; COMPARATOR_ONLY",
+    "fibonacciMod7": {
+      "pisanoPeriod": 16,
+      "period": [0,1,1,2,3,5,1,6,0,6,6,5,4,2,6,1],
+      "coversAllResidues": true,
+      "sevenStepPermutation": false
+    },
+    "diagonalPrimeIndexLift": {
+      "rule": "delta(k)=(k,k); delta(k) -> delta(p_k)",
+      "examples": ["delta(1)->delta(2)", "delta(2)->delta(3)"],
+      "exactOnPrimeImage": true,
+      "returnClaim": false,
+      "separateOpenMaps": ["phi", "colour sequence"]
+    },
+    "fqPrimeDodecaComparator": {
+      "notationState": "LOCAL_WORKING_NOTATION_NOT_CONTROLLED_VOCABULARY",
+      "primeIndexLift": {"examples": ["delta(1)->delta(2)", "delta(2)->delta(3)"], "exactOnImage": true, "returnClaim": false},
+      "signedDodeca": {"+1/12": {"period": 12, "return": true}, "-1/12": {"period": 12, "return": true}, "+2/12": {"period": 6, "return": true}, "-2/12": {"period": 6, "return": true}},
+      "lAffineControl": {"forward": "44+6=50=L", "inverse": "50-6=44", "exact": true, "phiBinding": false},
+      "rathNeighborRail": {
+        "sourceAudit": "52_A0_RATH_49_51_PHI5_SHADOW_JOINT_SOURCE_AUDIT_2026-10-13.md",
+        "exact": ["44+1=45", "49=7^2", "44+6=50=L", "44+7=51=3*17", "49+51=100", "EulerPhi(49)=42", "EulerPhi(51)=32"],
+        "typedPrimeAddresses": ["p4=7", "p5=11", "p7=17", "77=p4*p5"],
+        "nonIdentity": ["45 integer != 45 degree fold", "51 integer != historical 51 degree label", "77 != p4*p7", "phi symbol != Euler totient operator"]
+      },
+      "openPorts": ["phi", "ZE|TA owner token", "Hz frequency unit", "mph speed unit", "yen/glyph", "cyan", "light blue", "dark blue", "yellow"]
+    }
+  },
+  "scienceDesk": {
+    "effect": "PRIORITIZED_PREPARATION_BACKLOG_ONLY",
+    "studyActivation": 0,
+    "claimPromotion": 0,
+    "openMarkers": 7,
+    "authority": "A0_RESEARCH_DESK + canonical A0 backlog"
+  },
+  "builderDesk": {
+    "effect": "IMPLEMENTATION_RETURN",
+    "source": "A0_WERKBANK.html#typedReturnAtlas",
+    "tests": "a0-typed-return-atlas-tests.cjs",
+    "deployment": false
+  },
+  "nsnReturn": {
+    "identity": "NEXAH:A0_ORIENTATION_EVIDENCE_LINEAGE:V1",
+    "effect": "REFERENCE_AND_SOURCE_HASH_CURRENTNESS_ONLY",
+    "newCanonicalIds": 0,
+    "relationChanges": 0,
+    "aliasChanges": 0,
+    "publicationStateChanged": false
+  },
+  "holds": [
+    "FIBONACCI_CAUSATION",
+    "PHYSICAL_COIL",
+    "CALIBRATED_AUDIO",
+    "RESONANCE",
+    "PANTONE_MEASUREMENT",
+    "TOKEN_TO_CARRIER_IDENTITY"
+    ,"FQ_NOTATION_MAPPING"
+  ],
+  "acceptance": "CANDIDATE_ONLY_AWAITING_EXACT_REVISION_OWNER_ACCEPTANCE",
+  "publication": false,
+  "activation": false,
+  "claimCeiling": "Deterministic address/view transformations and documentary engineering receipts only."
+}
