@@ -13,16 +13,16 @@ assert.match(navigation, /if \(!laneIsCurrent && lane\.key !== "builder"\) \{[\s
   "an inactive Science house first enters the declared Science start page while Builder keeps its integrated menu");
 assert.match(navigation, /A0 NSNavigator · finden und zuordnen/,
   "Science navigation contains the source-bound data and register section");
-assert.match(navigation, /"entry": "A0_SCIENCE\.html"/,
-  "the declared Science entry is the actual document start of A0_SCIENCE");
-assert.doesNotMatch(navigation, /"entry": "A0_SCIENCE\.html#top"/,
-  "the Science entry does not skip its own navigation by targeting the hero anchor");
+assert.match(navigation, /"entry": "A0_RESEARCH_DESK\.html\?desk=research&rev=currentness-r3-20261031#top"/,
+  "the declared primary Science entry is the full current Science Desk");
+assert.match(navigation, /A0_SCIENCE\.html#contributions[\s\S]*?Konkrete Beiträge · Reader/,
+  "the compact A0 Science edition remains explicitly available as a Reader");
 assert.doesNotMatch(navigation, /nexah-public-connect|connectDot/,
   "the global A0 header does not expose the former ambiguous pink Connect point");
 assert.match(navigation, /header\.replaceChildren\(brand, laneNav, workspaceOverview, overview\)/,
   "the compact header contains no global Connect control");
-assert.match(navigation, /a0-workspace-monogram[^>]*>[\s\S]*?TH[\s\S]*?Mission Control/,
-  "Mission Control is represented by the compact TH owner signet");
+assert.match(navigation, /a0-workspace-monogram[^>]*>[\s\S]*?A0[\s\S]*?Control Register/,
+  "the served A0 Control Register replaces the unserved external Mission Control route");
 assert.match(science, /href="A0_SCIENCE\.html" aria-current="page"/,
   "the local Science start control also returns to the full document start");
 assert.doesNotMatch(science, /science-connect-dot|NEXAH_C_CONNECT\.html#scientific-review/,

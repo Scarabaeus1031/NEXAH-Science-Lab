@@ -2,7 +2,7 @@
 
 Date: `2026-10-11`
 
-Documentary currentness: `2026-10-30` — the canonical ledger contains
+Documentary currentness: `2026-10-31` — the canonical ledger contains
 `F-A0-01` through `F-A0-26`; the 23 October Bench/Joint, Tower–Shell,
 LOOK AGAIN and Diamond Lens returns remain synchronized as engineering triage,
 and the 26 October session is recorded below as a not-admitted scientific
@@ -2004,3 +2004,354 @@ receipts and claim boundary. Assembly checks pass `32/32`, the finite Assembly
 module passes `11/11`, and the Machina cockpit suite passes 49 checks. This is
 not a ninth body, fifth GLB cockpit, new canonical identity, graph relation,
 Study, Finding, mechanism claim, deployment or publication.
+## Finite Seam Witness / Platonic Cover / Radial Coordinates — documentation return — 2026-10-31
+
+<a id="finite-seam-witness-radial-documentation-2026-10-31"></a>
+
+### Classification
+
+`BOUNDED_ENGINEERING_FINDINGS / PAPER_E_METHOD_NOTE_CANDIDATE / NO_NEW_F-A0_FINDING`
+
+The NLK / Tessarec implementation supports three narrow, documentable results. They reuse the existing A0 package, `MOD:TESSAREC`, A0 Orientation Evidence Lineage and NLK receipt. They do not create a new body, carrier, Source Graph relation, Study or physical claim.
+
+### EF-NLK-07 — finite seam witness (16+1)
+
+For every source sample with linear address `ℓ ∈ {0,…,511}`, the transition adapter records
+
+```text
+p = floor(ℓ / 128)                 ∈ {0,…,3}
+w = floor((ℓ mod 128) / 16)       ∈ {0,…,7}
+c = (ℓ mod 16) + 1                ∈ {1,…,16}
+σ ∈ {SEAM_NODE, OFF_SEAM}
+```
+
+and reconstructs
+
+```text
+ℓ = 128p + 16w + c − 1.
+```
+
+The implemented audit returns `512/512` exact source addresses, `512/512` exact residue records, zero recorded loss and zero gaps. Address `17` is the displayed inspection-seam witness for `σ`; it is not a seventeenth local cell and does not increase carrier capacity.
+
+**Negative control.** Omitting `σ` leaves `(p,w,c) → ℓ` decodable, but the complete typed receipt can no longer certify whether the sample belongs to the declared seam boundary. The `+1` therefore contributes explicit boundary observability/provenance, not another source degree of freedom.
+
+### EF-NLK-08 — incidence-preserving Platonic seam cover
+
+The five displayed regular convex bodies use computed face-cycle counts `4 / 6 / 8 / 12 / 20`. Every displayed face boundary is composed of existing source edges. Arc Seams (`9/8 ×3`, `10/9 ×2`, `16/15 ×2`), Face Cover and the inset Dual Shell are view layers over those vertices and edges.
+
+The local grid imprint may change under declared quantization, while these invariants remain fixed:
+
+- `P:BODY:INDEX` source identity;
+- source vertex count;
+- source edge incidence;
+- computed convex face cycles.
+
+This is a bounded cover/inspection contract, not a proof of global tiling, new topology, physical seam, material skin, hinge mechanism or Platonic→Machina identity.
+
+### EF-NLK-09 — exact local radial coordinate contract
+
+For a finite carrier with dimensions `(Nx,Ny,Nz)` and pivot `((Nx−1)/2,(Ny−1)/2,(Nz−1)/2)`, define doubled integer offsets
+
+```text
+dx₂ = 2x − (Nx−1)
+dy₂ = 2y − (Ny−1)
+dz₂ = 2z − (Nz−1).
+```
+
+The instrument computes
+
+```text
+4r²    = dx₂² + dy₂² + dz₂²
+4rxy²  = dx₂² + dy₂²
+r      = sqrt(4r²) / 2
+rxy    = sqrt(4rxy²) / 2
+β      = atan2(|dy₂|, |dx₂|).
+```
+
+Within one declared carrier and cut, equality of the exact integer key `4r²` defines the local displayed radial shell. `r`, `rxy` and `β` are derived diagnostic values. `Q°_N(t)` remains the separate observation-state tuple (observer, orientation, horizon/cut, time/phase, instrument and projection rule); it is not identified with radius, bearing or the ISO angle bank.
+
+The verified witness `V:18:20:17` yields `4r²=396`, `r≈9.9498743711`, `β≈54.4623222080° = 0.9505468408 rad`. ALL and CROSS expose different visible subsets while preserving the same source address and exact radial key.
+
+### EF-NLK-10 — Full TESA as coordinated multi-layer view stack
+
+`Vigesimal Package Field / Full TESA Breath` is not a standard named mathematical tool. It is a local A0 engineering instrument assembled from established components: base-20 positional decomposition, a finite Cartesian grid, radial ring projection, isometric/oblique view transforms, layered boundary frames and periodic phase deformation.
+
+Its bounded capability is
+
+```text
+Dφ(Grid, Outer Frame, ℒ Edge, Package Field),
+D0 = D360 = identity display embedding.
+```
+
+The shared phase changes the rendered embedding of all four layers while preserving the decimal package value, `B20:Z:Y:X` address, package-to-grid quantization record, node identity and exact combinatorial counts. This supports comparison of stacked views under one control phase. It does not establish a physical wave, moving lattice, new topology, canonical cross-layer identity or scientific novelty of the individual components.
+
+#### TESA / IOTA four-step gate addendum — 31 October 2026
+
+The Game-of-Worlds QRT20 view now carries a receive-only display mapping for the existing IOTA gate semantics. On the finite `8×8` TESA address window the counterclockwise operator is
+
+```text
+R(x,y) = (y, 7-x),
+R⁴ = I.
+```
+
+One gate step rotates the active address, the `16/48` core/transition partition, OUT/RETURN paths and the displayed trace together. Four steps reproduce the original display coordinates exactly while the stored integer source, modulo-64 address and return record remain unchanged. The declared fold bank `45° → ISO 35.2643897° → 33° → 7° → 78°10′ → 78°12′` is a separate view selector; it is not a second clock and does not alter the gate counter.
+
+The same transform now carries the reused center record `FESN:4774` as a `2×2` seam body, initially `[[4,7],[7,4]]`. Under the declared row-wise view reading its directed half-labels alternate `47|74 ↔ 74|47`, while the inner typed seam remains `7|7`; the fourth turn restores `47|74`. This is a view-bound reading of the existing palindromic seam word, not a product, factor statement or newly admitted numerical relation.
+
+This is an exact finite software-return and an orientation instrument, not a new relation between QRT20 and IOTA, not a physical hinge and not a new TESA identity. The pre-existing QRT20 sidecar `+5 / 90°` remains a distinct quotient-carry view operator.
+
+### Paper routing and STOP boundary
+
+- **Mathfield / Paper E candidate:** typed boundary witnesses, explicit loss/provenance, view-invariant address return and separation of exact integer keys from derived display coordinates.
+- **Not promoted:** no new F-A0 finding, no universal seam theorem, no global tiling theorem, no physical radius/curvature/energy/resonance model, no cross-carrier identity.
+- **Required before stronger claim:** independent formalization of domains/codomains, an adversarial missing-/wrong-witness battery, cross-body incidence fixtures and a separately admitted comparison question.
+
+### Bound artifacts
+
+- Instrument: `A0_BOOK/A0_NLK_LSHELL_DEVELOPMENT_PROBE.html`
+- Transition implementation: `A0_BOOK/a0-tesseract-face-coupler.js`
+- NLK machine receipt: `A0_BOOK/results/a0-nlk-lshell-finite-grid-observatory-return-2026-10-30.json`
+- Transition receipt: `A0_BOOK/results/a0-tesseract-face-coupler-return-2026-10-30.json`
+- Mathfield: `A0_BOOK/A0_MATHEMATICAL_JOINTS.html#finite-seam-witness-radial-contract`
+- Science Desk: `A0_BOOK/A0_RESEARCH_DESK.html#finite-seam-witness-radial-return-20261031`
+
+**Governance return:** existing identities reused; new canonical IDs `0`; relation changes `0`; Study activation `0`; claim promotion `0`; publication `0`.
+
+### EF-NLK-11 — finite framed observability plug
+
+The NLK „Plug“ is classified as a `FINITE_CLOSED_OVER_DECLARED_MODEL_OBSERVABILITY_LENS`. It coordinates the selected finite carrier, frame, cut, perspective, enabled typed relation layers, phase and Return state through one shared state bus while preserving source identity, typed address, relation kind and exact counts.
+
+### Owner-prioritized Paper E candidate — Goethe boundary response × Leibniz relational spectrum
+
+**Priority date:** 31 October 2026
+**State:** `OWNER_PRIORITIZED_PREPARATION_ONLY / NOT_ADMITTED / NOT_ACTIVE`
+**Route:** existing Paper E and the existing Newton–Leibniz–Goethe Observer Lens; no new paper, Study, Family or Navigator identity.
+
+The NLK Plug already supplies the finite carrier, typed relation layers, selected frame, cut, phase and exact Return needed for a bounded methods case. The proposed quantitative extension keeps two analyses separate:
+
+1. **Goethe boundary response:** measure the display response as a function of frame, edge orientation, light/dark polarity, overlap and phase. This is a boundary-appearance diagnostic, not a calibrated wavelength or spectral-power measurement.
+2. **Leibniz relational spectrum:** construct one declared adjacency or Laplacian matrix for each typed layer and one explicitly weighted multilayer operator. Compare eigenvalues, eigenvectors, connectivity and mode stability under permitted frame changes. “Relational spectrum” is a local working term until the operator and comparison class are frozen; it is not asserted as an established Leibnizian scientific term.
+
+**Next exact question:** Does the frozen typed multilayer operator expose a reproducible relational signature that distinguishes source-preserving frame changes from cut, boundary and witness changes, while the Goethe boundary-response channel explains appearance changes without altering source identity?
+
+**Minimum preparation packet:** one frozen finite carrier; declared `GRID / BODY / PACKAGE / WAVE / SEAM` matrices; layer weights and normalization; frame/cut bank; permutation and degree-preserving null models; eigenvalue tolerance; boundary-response measure; exact Return checks; failure and abstention rules.
+
+**Levin problem-space crosswalk:** Paper E now records a bounded comparison to Michael Levin's morphogenetic problem-space framework. The shared question concerns navigation, boundaries, state spaces and preserved identity under changing views or perturbations. The scientific objects remain different: NLK is a finite representation-and-observation instrument; Levin studies living, bioelectric and goal-directed systems. The Platonic bodies are controlled finite test objects and are not identified with Levin's Platonic Space.
+
+**Owner-requested Builder job:** prepare a synchronized three-window crosswalk over the existing NLK state bus: `(1)` source record, `(2)` declared problem-space coordinate, `(3)` boundary/Return ledger. Acceptance requires stable node identity, typed layers, a declared perturbation/frame bank, exact Return, and visible `NO AGENCY / NO BIOELECTRIC MODEL` boundaries. The job is queued for specification and does not activate a Study or scientific run.
+
+**TOI working thesis — finite number canon and dynamic seams:** the current contribution is classified as a representation-and-transition architecture, not a new number theory. Decimal numbers, base-20 package addresses, residue records, letters and glyphs may be bound to one source address only through declared typed mappings. Every mapping must expose source, representation, operator, loss/residual and Return class. The Plug closes this contract over a selected finite model; it does not close or control the unbounded number space.
+
+The seam is treated as a typed transition map rather than a static border: projection, fold, rotation, base change, packaging and Return. Its motion is useful exactly when it reveals which source properties remain invariant and what residual is required to reconstruct the source. `TOI` is a noncanonical candidate abbreviation; `TOI != TOE` is the explicit claim boundary. No theorem, universal calculus, glyph-number identity, numerological inference or established field is asserted.
+
+**STOP:** no run, build claim, manuscript claim, novelty claim or physical-spectrum interpretation until the operator, comparator, measure and failure threshold are preregistered and a separate Human Owner admission/reopen decision exists.
+
+Its tracking scope is deliberately bounded:
+
+- **inside:** registered nodes and relations admitted by the active cut;
+- **boundary:** Outer Frame, ℒ edge and typed seam witnesses;
+- **outside:** only explicitly registered external witnesses such as the non-carrier `+1` seam witness.
+
+Thus „closed“ means complete over the declared finite state-and-observation contract. It does not mean thermodynamic isolation, topological closure, universal tracking or observation of undeclared external reality. The result is an engineering capability and Mission-Control currentness item, not a new Study, physical field or F-A0 promotion.
+
+### Paper E preparation lens — Radix Window / ROOT69 preset
+
+**State:** `PREPARATION_ONLY / NOT_A_FINDING / NOT_A_STUDY / NO_RUN`
+**Route:** existing A0 number-operator method, Paper E and NLK Plug; no new
+paper, Family, Navigator identity or canonical relation.
+
+The Owner observation around `69`, `sqrt(69)` and the recurring two-digit
+fragments is retained as one reproducible representation lens rather than as a
+number law. The exact source/operator contract is:
+
+```text
+SOURCE      integer 69
+OPERATOR    principal square root
+RADIX       base 10
+REFERENCE   85 fractional decimal places, explicit rounding rule
+FRAMING     integer digit retained; leading zero in 06/07 retained
+WINDOW      width 2, stride 1, ordered and overlapping
+CLASSIFY    prime / composite / neither, plus exact factorization
+RETURN      source + operator + radix + precision + frame + offsets
+```
+
+With a higher-precision diagnostic value
+`sqrt(69) = 8.30662386291807485258426274490749...`, the first ordered
+windows are `83, 30, 06, 66, 62, 23, 38, 86, 62, 29, 91, 18, 80, 07, ...`.
+The bounded exact relations include:
+
+- `69 = 3 x 23`;
+- `83` is prime number 23;
+- `66 = 2 x 3 x 11`, `62 = 2 x 31`, `38 = 2 x 19`, `86 = 2 x 43`;
+- `23`, `29` and `07` are prime; `91 = 7 x 13`;
+- `06` is a framed two-digit window, not the integer identity `6`; reversal,
+  rotation, glyph similarity and decimal concatenation are separate operators.
+
+The useful object is the typed chain
+
+```text
+source -> operator -> digit stream -> window address -> arithmetic class
+       -> factor core -> optional declared transform -> Return receipt
+```
+
+`ROOT69` is therefore only a named preset and regression fixture for a generic
+**Radix Window Lens**. The reusable instrument may accept another integer or
+rational source, a declared numeric operator, radix, precision, window width
+and stride. It may render windows as nodes and typed relations without
+identifying the display graph with the source number.
+
+**Required controls before any stronger interpretation:** run the identical
+contract over adjacent roots `68` and `70` and a frozen source corpus; report
+the frequency of the same factor/prime motifs; compare other radices and
+window frames; preserve all negative and non-specific outcomes. A visual or
+arithmetic recurrence is not evidence of uniqueness, causation, a prime
+generator, glyph-number identity or a new theory.
+
+**UDF opportunity:** transport the lens configuration and selected windows as
+a typed payload with `source`, `operator`, `radix`, `precision`, `window`,
+`offset`, `classification`, `factorization`, `residual` and `return_class`.
+This is a profile-delta candidate only; canonical UDF serialization is not
+changed.
+
+**Governance return:** reuse `NEXAH_AX0_QMODE_FOUNDATION_PACKAGE`, Paper E,
+the A0 number-operator surface and NLK Plug; new canonical IDs `0`; Source
+Graph relations `0`; Study activation `0`; F-A0 promotion `0`; publication
+`0`.
+
+<a id="ncs-numberloop-return-20261031"></a>
+
+## NCS Numberloop — W7/W8 Return Bridge, 2026-10-31
+
+**State:** `SOURCE_BOUND_METHOD_AND_ENGINEERING_RETURN / NOT_A_NEW_FINDING /
+NO_STUDY / NO_RUN / NO_PUBLICATION`
+**Owner session wording:** `NSC Numerloop`
+**Controlled wording:** `NCS Numberloop`, reusing the existing **NCS Return &
+Clockwork** vocabulary. `NSC` is retained as session provenance only; it is not
+registered as a new alias, module or Family.
+
+The implemented Game-of-Numbers lens declares the finite carrier
+`a_n=69+n`, `0<=n<=56`. Wheel 7 advances by `+1` sector and Wheel 8 by `-1`
+sector. At `n=56`, both orientations return because `lcm(7,8)=56`; the
+integer carrier does **not** return and stands at `125`. This is the central
+method-relevant observation: an exact view Return and a non-returning carrier
+can coexist without contradiction when their types remain explicit.
+
+The retained landmark ladder is exact inside this declared carrier:
+
+- `n=28`: `28=T7=7×8/2` and `69+28=97`;
+- `n=43`: `112=7×16`;
+- `n=50`: `119=7×17`, with `17` the seventh prime;
+- `n=51/52`: `120` as the declared mod-12 center and `121=11²`;
+- `n=56`: W7/W8 joint orientation Return at integer `125`.
+
+The crosswalk to the existing NCS lens is methodological, not an identity:
+the earlier fixture uses `C6×C7` with joint period `42`; the new Numberloop
+uses `C7×C8` with joint period `56`. They share the grammar
+`source → signed cyclic views → landmarks → Return/residual`, but have
+different carriers, operators and clocks. The recurrence of `7` and adjacent
+wheel orders does not establish one generator.
+
+**Paper triage:** retain as a bounded Paper-E method example and a possible
+Paper-C illustration of Return without identity. Do not assign `F-A0-27`, add
+a manuscript claim or interpret the landmark ladder as a prime generator,
+number law, physical clock or historical reconstruction. A later comparison
+must freeze both carriers, signed steps, phase clocks, landmark rules and
+failure semantics before any stronger use.
+
+**Builder/UDF route:** the existing instrument and tests are the returned
+implementation. A later, separately authorized NCS crosswalk may compare
+`C6×C7→42` and `C7×C8→56` side by side. A UDF profile delta may carry
+`source`, `carrier`, `wheel_orders`, `signed_steps`, `phase`, `landmarks`,
+`return_class`, `terminal_state` and `replay_hash`; the verified UDF core is
+unchanged.
+
+Sources: [Numberloop receipt](A0_BOOK/results/a0-ncs-numberloop-return-2026-10-31.json),
+[Game of Worlds](A0_BOOK/A0_GAME_OF_WORLDS_PLAY.html?world=numbers&view=returnbridge&rule=returnbridge#numbers),
+[Science Desk](A0_BOOK/A0_RESEARCH_DESK.html#ncs-numberloop-return-20261031),
+[Builder return](A0_BOOK/A0_BUILDER_LOG.html#ncs-numberloop-return-20261031).
+
+Governance: reuse `MOD:NUMBER_VIEW_SUITE`,
+`SG:LENS:A0_ORIENTATION_EVIDENCE` and
+`SG:LENS:MRB_ACR_NCS_Q106_RETURN_CROSSWALK`; new IDs `0`, relations `0`,
+aliases `0`, Study activation `0`, capability promotion `0`, publication `0`.
+
+### R4 inner-lens return — 72 Hub, 84 Joint, Repunit and Ghost-Grid lift
+
+The existing Numberloop record now exposes four further bounded readings without
+creating another operator or carrier:
+
+- the local rail `target−1 | target | target+1` with computed prime/composite
+  classification;
+- every exact positive factor pair as a Factor Rosette;
+- signed W7/W8 ticks with `PHASES DISTINCT`, intermediate `PHASE MATCH` and
+  full `JOINT RETURN` kept separate;
+- a display-only Repunit/Edelweiss ladder and separate Ghost-Grid scale handoff.
+
+At `n=3`, the carrier is `72`, its neighbours are the primes `71` and `73`,
+its six factor pairs include `6×12` and `8×9`, and four carrier states have
+been visited. At `n=15`, the carrier is `84`, both wheel ticks equal `1`, and
+`84=2×42=6×14=7×12`; this is an exact intermediate phase joint, not the full
+56-step Return. At `n=52`, `121=11²` opens the bounded visual ladder
+`11²=121`, `111²=12321`, `1111²=1234321`. The adjacent
+`11×11 → 1000×1000` Ghost-Grid label is explicitly a scale/view lift and not
+an identity with the Repunit-square sequence.
+
+**Verification:** `27813` Number checks PASS; `223` Play-shell checks PASS;
+normal-browser visual acceptance PASS at steps `3`, `15` and `52`. This is an
+implemented extension of the existing method example. It adds no `F-A0`,
+Study, canonical ID, relation, alias, Capability, manuscript claim or
+publication authority.
+
+<a id="game-of-worlds-2-sixfold-20261031"></a>
+
+### Game of Worlds 2.0 — Sixfold Synoptic return
+
+The Numberloop now has one animated six-panel reading surface: W7, W8,
+Return Disc, Dual Wheel, Repunit/Edelweiss and Factor/Ghost Field. All panels
+read the same saved `n=0..56` record; there are no panel-local clocks. Shared
+event pulses at `n=3/15/28/52/56` make 72, 84, 97, 121 and the joint
+orientation Return visible across the whole board.
+
+This is a synchronized projection and usability return, not another operator,
+carrier, Finding or law. Verification: Number Game `29245 PASS`, Play Shell
+`223 PASS`, local browser acceptance at `n=0` and the shared `n=15` / `84`
+phase pulse. Navigator delta remains IDs `0`, relations `0`, aliases `0`;
+Study, Capability and publication remain inactive.
+
+<a id="modular-shadow-clock-20261031"></a>
+
+### Modular Shadow Clock — one integer event, five residue images
+
+The Owner's `shadow` reading is retained as a precise quotient projection,
+not as a geometric claim about the historical Pinky-gon PLY. For
+`m in {7,11,12,13,17}` the instrument uses
+`pi_m(n)=n mod m` and `z_m(n)=exp(2*pi*i*pi_m(n)/m)`. Pink, Green and White
+show `A`, `B` and `A+B` on five concentric clocks while one saved Joint Lift
+frame remains the complete source state.
+
+The bounded paper record is
+[A0 Modular Shadow Clock — Residue images of one integer event](A0_MODULAR_SHADOW_CLOCK_RESEARCH_NOTE_2026-10-31.md).
+It contains the exact `1836 / 1729 / 3565` residue table, equations, animated
+fixture contract, PLY non-identity boundary and controls. The implementation
+reuses `MOD:NUMBER_VIEW_SUITE`; Navigator delta is IDs `0`, relations `0`,
+aliases `0`; no Study, Finding, Family or publication state is created.
+
+Verification return:
+[Modular Shadow Clock receipt](A0_BOOK/results/a0-modular-shadow-clock-return-2026-10-31.json).
+
+## QRT20 Stillpoint Bridge — exact codec and r18 rail {#qrt20-stillpoint-bridge-20261031}
+
+The implemented Numbers view keeps one retained integer distinct from its
+three exact readings: decimal, binary and the Euclidean address `N=20q+r`.
+For the declared `978 → 9778 → 97778` recurrence, `r=18` is invariant while
+the quotient grows. The optional sidecar is the separately declared
+quarter-turn `N→N+5`, so `(48,18)→(49,3)` at the seed. It is explicitly not
+the `+11 Joint Lift` and not a physical phase.
+
+Formal note:
+[A0 QRT20 Stillpoint Bridge](A0_QRT20_STILLPOINT_BRIDGE_RESEARCH_NOTE_2026-10-31.md).
+Verification return:
+[QRT20 Stillpoint Bridge receipt](A0_BOOK/results/a0-qrt20-stillpoint-bridge-return-2026-10-31.json).
+
+Disposition: `EXACT CODEC VIEW / IMPLEMENTED / BROWSER ACCEPTED / NEW ID 0 /
+RELATION 0 / STUDY 0 / FINDING 0 / PUBLICATION 0`.

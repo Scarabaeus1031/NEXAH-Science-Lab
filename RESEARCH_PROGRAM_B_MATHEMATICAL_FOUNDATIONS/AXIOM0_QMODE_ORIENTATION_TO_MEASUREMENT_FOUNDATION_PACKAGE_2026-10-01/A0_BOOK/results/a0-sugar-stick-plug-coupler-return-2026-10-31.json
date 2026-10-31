@@ -1,0 +1,31 @@
+{
+  "schema": "nexah.a0.sugar-stick-plug-coupler-return/1",
+  "date": "2026-10-31",
+  "status": "PASS_EXACT_56_STATE_PLUG_COUPLER_BROWSER_ACCEPTED",
+  "scope": "Existing TESSAREC pipe state decomposed exactly as Z7 x Z4 x Z2, projected to the Sugar Stick view and read through the existing typed Number Plug grammar.",
+  "contract": {
+    "pipe": "Z7 x Z8",
+    "split": "orientation = hinge + 4*cube",
+    "address": "a = station + 7*hinge + 28*cube",
+    "return": 56,
+    "offsets": [2, -2],
+    "flip_every": 4,
+    "trace": "3 x 6 edges + 1 origin = 19 display samples",
+    "exact_ports": ["DEC", "BIN", "QRT20"],
+    "guided_page_route": ["SWITCHBOARD_ORIENTATION", "SOURCE_56", "NUMBER_PLUG", "SUGAR_STICK", "4_PHASE_FLIP", "BIN_ADDRESS", "QRT20_ADDRESS", "EXACT_RETURN"],
+    "visible_bus": "active station -> address a -> selected DEC/BIN/QRT20 port",
+    "moebius": "HOLD_EDGE_IDENTIFICATION_UNDECLARED"
+  },
+  "identity": {
+    "reuse": ["NEXAH_A0_ORIENTATION_CONTROLLER_BENCH", "MOD:TESSAREC", "MOD:NUMBER_VIEW_SUITE"],
+    "new_ids": 0,
+    "new_relations": 0,
+    "new_operators": 0
+  },
+  "verification": {
+    "model_checks": 11,
+    "assembly_checks": 20,
+    "browser": "PASS_GUIDED_PAGE_ROUTE_8_STOPS_SWITCHBOARD_TO_SOURCE_TO_PLUG_TO_VISIBLE_BUS_TO_QRT20_TO_T56_RETURN"
+  },
+  "boundary": "The exact connector is a finite software bijection and display composition. Sugar Stick and the 19-sample trace are views. The four-phase side flip is exact; a Moebius edge identification, physical pipe, causal coupling, Study, Finding, deployment and publication remain unasserted."
+}

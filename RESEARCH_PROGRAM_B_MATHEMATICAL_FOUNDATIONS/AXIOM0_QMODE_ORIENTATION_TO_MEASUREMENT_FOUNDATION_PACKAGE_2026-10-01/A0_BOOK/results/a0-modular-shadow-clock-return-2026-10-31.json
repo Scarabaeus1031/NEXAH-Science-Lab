@@ -1,0 +1,59 @@
+{
+  "schema": "a0.modular-shadow-clock-return/1",
+  "date": "2026-10-31",
+  "status": "PASS_BOUNDED_FORMAL_VIEW_BROWSER_ACCEPTED",
+  "identity_reuse": [
+    "MOD:NUMBER_VIEW_SUITE",
+    "NEXAH_AX0_QMODE_FOUNDATION_PACKAGE",
+    "SG:LENS:A0_ORIENTATION_EVIDENCE"
+  ],
+  "source_event": {
+    "A": "1836",
+    "B": "1729",
+    "sum": "3565"
+  },
+  "projection": {
+    "residue": "pi_m(n)=n mod m",
+    "circle": "z_m(n)=exp(2*pi*i*pi_m(n)/m)",
+    "moduli": [7, 11, 12, 13, 17],
+    "seed_residues": {
+      "7": [2, 0, 2],
+      "11": [10, 2, 1],
+      "12": [0, 1, 1],
+      "13": [3, 0, 3],
+      "17": [0, 12, 12]
+    }
+  },
+  "implementation": {
+    "route": "A0_GAME_OF_WORLDS_PLAY.html?world=numbers&view=shadowclock&rule=sumlift&rev=shadowclock-r1#numbers",
+    "clock": "one retained Joint Lift cursor; no view-local timer",
+    "palette": {
+      "pink": "A",
+      "green": "B / return image",
+      "white": "A+B"
+    },
+    "files": [
+      "A0_BOOK/a0-game-of-numbers-model.js",
+      "A0_BOOK/a0-game-of-numbers.js",
+      "A0_BOOK/a0-game-of-numbers.css",
+      "A0_BOOK/a0-game-of-worlds-play.js",
+      "A0_BOOK/A0_GAME_OF_WORLDS_PLAY.html",
+      "A0_BOOK/assets/game-of-worlds-play/numbers/index.html",
+      "A0_BOOK/a0-game-of-numbers-tests.cjs"
+    ]
+  },
+  "paper_note": "A0_MODULAR_SHADOW_CLOCK_RESEARCH_NOTE_2026-10-31.md",
+  "verification": {
+    "number_game_checks": 30681,
+    "play_shell_checks": 231,
+    "ncs_numberloop_checks": 13,
+    "browser": "PASS at seed frame; complete five-ring clock, pink/green/white channels, formula and claim boundary visible"
+  },
+  "claim_boundary": "Exact finite residue arithmetic and a synchronized display only. No geometric shadow, Pinky-gon derivation, privileged modulus law, prime generator, cross-modulus identity, physical clock, Study, Finding or publication authority.",
+  "navigator_effect": {
+    "new_entities": 0,
+    "new_relations": 0,
+    "new_aliases": 0,
+    "family_change": 0
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "schema": "nexah.a0.qrt20-stillpoint-bridge-return/1",
+  "date": "2026-10-31",
+  "status": "PASS_BOUNDED_FORMAL_VIEW_BROWSER_ACCEPTED",
+  "identity": {
+    "reused": ["NEXAH_AX0_QMODE_FOUNDATION_PACKAGE", "MOD:NUMBER_VIEW_SUITE"],
+    "new_ids": 0,
+    "new_relations": 0,
+    "new_aliases": 0
+  },
+  "source": {
+    "seed": "978",
+    "rule": "N_0=978; N_(k+1)=10*N_k-2",
+    "decimal": "978",
+    "binary": "1111010010",
+    "qrt20": {"quotient": "48", "remainder": 18}
+  },
+  "stillpoint": {
+    "scope": "declared Sevenword finite run",
+    "invariant": "N_k mod 20 = 18",
+    "examples": ["q48 / r18", "q488 / r18", "q4888 / r18"]
+  },
+  "quarter_turn": {
+    "operator": "Phi_90(N)=N+5",
+    "seed_return": "983 = 20*49+3",
+    "boundary": "+5/90 degrees is not the +11 Joint Lift or a physical phase"
+  },
+  "visual_reading": {
+    "pascal_step_pyramid": "centered finite rows of the exact decimal words 9, then k+1 inner 7 digits, then 8",
+    "coupling_window": "digit-position lattice between adjacent stored rows",
+    "morphology": ["growing quotient as step field", "r18 as horizon pin", "+5 comparator as moon arm"],
+    "boundary": "display grammar only; not Pascal coefficients, quantum entanglement, physical coupling or a new recurrence"
+  },
+  "eightfold_terrace": {
+    "address": "k=8b+s; 0<=s<8; 0<=b<8",
+    "extent": 64,
+    "declared_run_horizon": 16,
+    "cell_states": ["VISITED", "DECLARED", "PROJECTION", "ACTIVE"],
+    "boundary": "the 8x8 field is an index projection and does not extend the existing Sevenword run from n=16 to n=63"
+  },
+  "route": "A0_GAME_OF_WORLDS_PLAY.html?world=numbers&view=qrt20&rule=sevenword&rev=qrt20-terrace-r1#numbers",
+  "verification": {
+    "number_checks": 33555,
+    "play_shell_checks": 231,
+    "browser": "PASS_N9_DECIMAL_BINARY_QRT20_R18_QUARTER_TURN_DIGIT_LATTICE_AND_EIGHTFOLD_TERRACE_VISIBLE_B1_S1",
+    "stepped_renderer": "PASS_PASCAL_STYLE_ROWS_GEOMETRIC_DIGIT_COUPLING_AND_8X8_K_EQUALS_8B_PLUS_S_PROJECTION_WITH_N16_BOUNDARY"
+  },
+  "authority_effect": {
+    "study": 0,
+    "finding": 0,
+    "capability": 0,
+    "publication": 0,
+    "deployment": 0
+  }
+}

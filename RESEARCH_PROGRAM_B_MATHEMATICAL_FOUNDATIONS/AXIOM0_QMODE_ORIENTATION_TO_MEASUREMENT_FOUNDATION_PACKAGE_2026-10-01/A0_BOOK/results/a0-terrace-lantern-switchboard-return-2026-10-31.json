@@ -1,0 +1,24 @@
+{
+  "schema": "nexah.a0.terrace-lantern-switchboard-return/1",
+  "date": "2026-10-31",
+  "status": "PASS_SOURCE_BOUND_BENCH_COMPOSITION_BROWSER_ACCEPTED",
+  "identity": {
+    "reused": ["NEXAH_A0_ORIENTATION_CONTROLLER_BENCH", "MOD:NUMBER_VIEW_SUITE", "A0_LANTERN_PANEL_V_CONTROL_LENS"],
+    "new_ids": 0,
+    "new_relations": 0,
+    "new_operators": 0
+  },
+  "composition": {
+    "cursor": "n=0..16",
+    "terrace": "k=8b+s; 8x8 address projection; declared horizon n16",
+    "lantern": "CERTIFIED_147_5; five channels; OPEN -> STOP -> EXACT_RETURN",
+    "milestones": [
+      {"n": 0, "address": "b0 / s0", "event": "OPEN", "angle_degrees": 0},
+      {"n": 8, "address": "b1 / s0", "event": "STOP", "angle_degrees": 147.5},
+      {"n": 16, "address": "b2 / s0", "event": "EXACT_RETURN", "angle_degrees": 0}
+    ]
+  },
+  "boundary": "A local Bench cursor projects two existing contracts. There is no shared source clock, source mutation, causal feed, physical light law, run extension, Study, Finding, claim promotion or publication effect.",
+  "verification": {"model_checks": 7, "integration_checks": 12, "browser": "PASS_OPEN_N0_STOP_N8_EXACT_RETURN_N16_NO_CONSOLE_ERRORS"},
+  "route": "A0_WERKBANK.html#terraceLanternSwitchboard"
+}

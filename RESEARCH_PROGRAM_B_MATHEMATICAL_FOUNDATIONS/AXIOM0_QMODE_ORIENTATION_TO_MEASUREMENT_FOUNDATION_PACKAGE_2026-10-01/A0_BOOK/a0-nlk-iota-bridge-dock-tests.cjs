@@ -27,5 +27,6 @@ assert.notEqual(Dock.receipt({tick:7,dir:1}).handoff.returnKey,Dock.receipt({tic
 const nlk=fs.readFileSync(path.join(root,'A0_NLK_LSHELL_DEVELOPMENT_PROBE.html'),'utf8');
 const iota=fs.readFileSync(path.join(root,'A0_IOTA_BRIDGE_DEMONSTRATOR.html'),'utf8');
 for(const token of ['data-nlk-iota-dock','data-nid-matrix','data-nid-open-iota','a0-nlk-iota-bridge-dock.js'])assert.ok(nlk.includes(token),`NLK missing ${token}`);
+for(const token of ['sevenfoldToggle','sevenfoldComparator','231 = 7 × 33','2ℓ + 1 = 7','NO CAUSAL COUPLING','SEVENFOLD:${state.sevenfold'])assert.ok(nlk.includes(token),`NLK sevenfold comparator missing ${token}`);
 for(const token of ['data-iota-nlk-handoff','data-iota-nlk-return','A0NlkIotaBridgeDock.mountIota'])assert.ok(iota.includes(token),`IOTA missing ${token}`);
 console.log('PASS · NLK ↔ IOTA typed dock · model, query, Q4 patchbay, return and HTML wiring');

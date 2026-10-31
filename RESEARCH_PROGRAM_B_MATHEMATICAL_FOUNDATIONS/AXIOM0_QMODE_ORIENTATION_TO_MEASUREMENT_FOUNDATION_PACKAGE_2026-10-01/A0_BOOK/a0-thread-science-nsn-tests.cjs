@@ -3,7 +3,7 @@ const root=path.resolve(__dirname,'../../../../..'),nav=path.join(root,'30 SCIEN
 const binder=JSON.parse(fs.readFileSync(path.join(nav,'EVIDENCE/A0_ORIENTATION_EVIDENCE_LINEAGE_2026-10-10/A0_ORIENTATION_EVIDENCE_LINEAGE_BINDER_V1_2026-10-10.json')));
 const entry=binder.documentary_update_20261018.thread_science_nsn_return_20261020;
 const receipt=JSON.parse(fs.readFileSync(path.join(__dirname,'results/a0-thread-science-nsn-return-2026-10-20.json')));
-const currentness=JSON.parse(fs.readFileSync(path.join(__dirname,'results/a0-thread-science-nsn-currentness-2026-10-30-r2.json')));
+const currentness=JSON.parse(fs.readFileSync(path.join(__dirname,'results/a0-thread-science-nsn-currentness-2026-10-31-r3.json')));
 let checks=0;function ok(value,label){assert.ok(value,label);checks++;}
 const hash=file=>crypto.createHash('sha256').update(fs.readFileSync(file)).digest('hex');
 ok(entry.canonical_count_effect===0&&entry.new_global_ids.length===0&&!entry.publication_authorized,'authority limits');

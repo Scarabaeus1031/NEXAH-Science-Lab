@@ -746,6 +746,128 @@ Eine solche Zuordnung wäre ein separat zu definierendes Modell. Die
 fortschreibbare Motiv- und Quellenablage bleibt
 [Numbermagick](../../NUMBER_OPERATOR_ARCHITECTURE_CONCORDANCE_AUDIT/09_CURRENT_RELEVANCE_TO_A0_TESSAREC_IHARA_2026-10-13.md#prime-rhythm-20261018).
 
+<a id="levin-problem-space-crosswalk"></a>
+
+### 14.7 Problem-Space Crosswalk: NLK und Michael Levin
+
+Michael Levins Arbeiten zu morphogenetischen Problemräumen,
+bioelektrischen Netzwerken und computational boundaries stellen eine
+benachbarte Forschungsfrage: Wie navigiert ein System in einem Zustandsraum,
+welche Grenze bestimmt seinen erfassbaren Bereich und wie bleibt eine
+Zielorientierung unter Störung erhalten? Der Anschluss an NEXAH liegt in der
+Sprache von Orientierung, Boundary, Koordinate, Störung und Return — nicht in
+einer Gleichsetzung der wissenschaftlichen Gegenstände.
+
+NLK ist ein endliches Darstellungs- und Beobachtungsinstrument. Seine
+`GRID / BODY / PACKAGE / WAVE / SEAM`-Lagen sind deklarierte, typisierte
+Ansichten eines eingefrorenen Records. Levins physiologische,
+transkriptionale, anatomische und Verhaltensräume betreffen lebende Systeme,
+bioelektrische Koordination und zielgerichtete Kompetenz. Ein exakter
+NLK-Return ist Invertierbarkeit beziehungsweise Zustandsrückkehr und kein
+Nachweis von Homöostase, Agency oder morphogenetischem Sollwert.
+
+Auch die platonischen Begriffe bleiben getrennt. Die fünf regulären Körper
+sind im NLK kontrollierte endliche Testkörper für Inzidenz, Projektion, Fuge
+und Return. Levins *Platonic Space* bezeichnet eine weitergehende
+Forschungsannahme über strukturierte Muster- und Möglichkeitsräume. Visuelle
+oder begriffliche Nähe erzeugt keine Identität zwischen beiden.
+
+Der Owner-requested Builder-Job spezifiziert daher eine Drei-Fenster-Fixture
+über einem gemeinsamen eingefrorenen NLK-State:
+
+1. `SOURCE_RECORD` — Quelle, Node-ID und typisierte Relationen;
+2. `DECLARED_PROBLEM_SPACE_COORDINATE` — Frame, Cut, Layer und Störung;
+3. `BOUNDARY_RETURN_LEDGER` — Erhalt, Verlust, Witness und exakter Return.
+
+Die Abnahme verlangt stabile Node-Identität, eine deklarierte Frame- und
+Perturbation-Bank, genau eine gemeinsame Clock sowie dauerhaft sichtbare
+Grenzen: `NO AGENCY`, `NO BIOELECTRIC MODEL`,
+`EXACT RETURN != HOMEOSTATIC GOAL` und
+`PLATONIC BODY != PLATONIC SPACE`. Der Job ist zur Spezifikation vorgemerkt,
+nicht aktiv; ein wissenschaftlicher Run benötigt weiterhin eine separate
+Admission/Reopen-Entscheidung.
+
+<a id="toi-dynamic-seam-working-thesis"></a>
+
+### 14.8 TOI-Arbeitsthese: Zahlenkanon, Plug und dynamische Fugen
+
+Die gegenwärtige Leistung wird nicht als neue Zahlentheorie klassifiziert.
+Sie ist eine formale Architektur für endliche Zahlenräume, ihre symbolischen
+Repräsentationen und ihre kontrollierten Übergänge. Eine Zahl, eine
+Basis-20-Adresse, ein Restklassenrecord, ein Buchstabe und ein Glyph dürfen
+denselben Quellrecord repräsentieren, werden aber nicht allein durch visuelle
+oder numerologische Ähnlichkeit identisch gesetzt.
+
+Der minimale Vertrag lautet:
+
+```text
+SOURCE_ADDRESS --T--> REPRESENTATION --R--> SOURCE_ADDRESS / RESIDUAL
+```
+
+#### Working Definition: NEXAH Plug
+
+Ein **Plug** ist ein endlicher, typisierter Beobachtungs- und
+Rückkehrvertrag über einer gehaltenen Quelle. In der Arbeitsnotation gilt:
+
+```text
+P = (S, B, {E_i}, {D_i}, K, L)
+```
+
+- `S` ist der gehaltene Source Record oder Carrier;
+- `B` ist die deklarierte endliche Grenze;
+- `E_i : S -> V_i` sind typisierte Ports, Ansichten oder Transformationen;
+- `D_i` ist der jeweilige Decoder oder Rückweg;
+- `K` ist der lokale Koordinator, etwa Cursor, Frame, Cut oder Phase;
+- `L` ist das Ledger aus `EXACT_RETURN`, `RESIDUAL`, benötigtem Witness und
+  erhaltenen Invarianten.
+
+Ein Port ist **exakt**, wenn `D_i(E_i(S)) = S`. Ist die Inversion nicht
+eindeutig, muss der Plug das Residuum und den zusätzlich benötigten Witness
+anzeigen. Ein gemeinsamer Cursor koordiniert Ansichten, begründet aber keine
+gemeinsame Quelle, Ursache oder Identität.
+
+Der vorhandene **NLK Framed Observability Plug** verwendet einen endlichen
+Node-/Object-Record und die getrennten Views `GRID / BODY / PACKAGE / WAVE /
+SEAM`. Der **A0 Number Representation Plug** verwendet einen gehaltenen
+Sevenword-Integer: `DEC`, `BIN` und `QRT20` sind exakte Codecs; die Terrace
+`k=8b+s` ist eine residuale Cursoradresse und benötigt den vollständigen
+Integer als Witness. Die Laterne ist dabei ein lokaler View-Output, kein
+Zahlenport und keine Source-Uhr.
+
+`NEXAH Plug`, `Framed Observability Plug` und `Typed Representation Plug`
+bleiben in dieser Fassung Arbeitsbegriffe innerhalb vorhandener Identitäten.
+Sie sind keine neu aufgenommenen kanonischen Vocabulary-Terme, Families,
+Navigator-Knoten oder wissenschaftlichen Claims.
+
+`T` muss Typ, Basis, Frame, Cut und Informationsverlust deklarieren. `R`
+klassifiziert den Rückweg als exakt, mehrdeutig, verlustbehaftet oder
+undefiniert. Der NLK-Plug schließt damit keinen universellen Zahlenraum,
+sondern einen gewählten endlichen Beobachtungsvertrag über Innen, Grenze und
+registrierte Außen-Witnesses.
+
+Die **Fuge** ist in dieser Arbeitsfassung keine statische Trennlinie, sondern
+eine typisierte Transition Map: Projektion, Faltung, Rotation, Basiswechsel,
+Paketierung oder Return. Ihre Bewegung macht prüfbar, welche Adresse,
+Inzidenz, Relation, Anzahl oder Phase invariant bleibt und welches Residuum
+für den Rückweg benötigt wird.
+
+`TOI` wird dafür nur als Kandidatenkürzel geführt — lesbar als *Theory of
+Interfaces*, *Theory of Instruments* oder *Theory of Orientation and
+Interfaces*. Die genaue Langform ist nicht kanonisiert. Die zentrale Grenze
+lautet:
+
+```text
+TOI != TOE
+```
+
+Die Arbeitsfassung beansprucht keine vollständige Welterklärung und keine
+Kontrolle „der Zahlen“. Sie beschreibt, wie deklarierte endliche Felder,
+Kodierungen und Übergänge source-bound verfolgt, verglichen und zurückgeführt
+werden können. Eine neue mathematische Behauptung entstünde erst durch einen
+formal gefrorenen Operator, einen nichttrivialen Invariantensatz oder einen
+bewiesenen Minimalitäts-/Vollständigkeitssatz; nichts davon wird hier
+vorweggenommen.
+
 ## 15. NEXAH Essence — gegenwärtige Kurzform
 
 ```text
@@ -784,6 +906,15 @@ review.
 3. Jessica Gurevitch, Julia Koricheva, Shinichi Nakagawa and Gavin Stewart,
    *Meta-analysis and the science of research synthesis*, Nature 555,
    175–182 (2018): <https://doi.org/10.1038/nature25753>
+4. Michael Levin, *Bioelectric networks: the cognitive glue enabling
+   evolutionary scaling from physiology to mind*, Animal Cognition 26,
+   1865–1891 (2023): <https://doi.org/10.1007/s10071-023-01780-3>
+5. Michael Levin, *The Computational Boundary of a “Self”: Developmental
+   Bioelectricity Drives Multicellularity and Scale-Free Cognition*, Frontiers
+   in Psychology 10 (2019): <https://doi.org/10.3389/fpsyg.2019.02688>
+6. Michael Levin and Hananel Hazan, *Symposium on the Platonic Space* (2025),
+   programme and recorded discussions:
+   <https://thoughtforms.life/symposium-on-the-platonic-space/>
 
 ## Internal source basis
 

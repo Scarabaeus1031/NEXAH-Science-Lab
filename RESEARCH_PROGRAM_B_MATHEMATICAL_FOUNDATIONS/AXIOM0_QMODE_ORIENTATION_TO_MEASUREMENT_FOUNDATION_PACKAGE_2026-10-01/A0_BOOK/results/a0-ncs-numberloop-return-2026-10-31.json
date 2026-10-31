@@ -1,0 +1,100 @@
+{
+  "schema": "nexah.a0.ncs-numberloop-return/1.2.0",
+  "date": "2026-10-31",
+  "title": "NCS Numberloop — C7×C8 orientation return over the 69→125 carrier",
+  "status": "SOURCE_BOUND_METHOD_AND_ENGINEERING_RETURN / NOT_A_NEW_FINDING / NOT_ACTIVE",
+  "owner_working_label": "NSC Numerloop",
+  "controlled_label": "NCS Numberloop",
+  "label_boundary": "NCS reuses the existing NCS Return & Clockwork terminology. NSC is retained only as the Owner's session wording and is not registered as an alias.",
+  "owning_identity": "NEXAH_AX0_QMODE_FOUNDATION_PACKAGE",
+  "navigator_identity_reuse": [
+    "MOD:NUMBER_VIEW_SUITE",
+    "SG:LENS:A0_ORIENTATION_EVIDENCE",
+    "SG:LENS:MRB_ACR_NCS_Q106_RETURN_CROSSWALK"
+  ],
+  "declared_model": {
+    "carrier": "a_n = 69 + n, 0 <= n <= 56",
+    "wheel_7": "n mod 7",
+    "wheel_8": "-n mod 8",
+    "joint_orientation_period": 56,
+    "joint_period_equation": "lcm(7,8)=56",
+    "integer_return": false,
+    "terminal_integer": 125,
+    "return_statement": "At n=56 both wheel orientations return; the monotone integer carrier has advanced from 69 to 125 and has not returned."
+  },
+  "landmarks": [
+    {"step": 3, "value": 72, "role": "factor hub and four-state visit", "equation": "71|72|73; 72=6×12=8×9=2³×3²"},
+    {"step": 15, "value": 84, "role": "intermediate phase joint", "equation": "W7=W8=1; 84=2×42=6×14=7×12"},
+    {"step": 28, "value": 97, "role": "T7 bridge", "equation": "28=T7=7×8/2; 69+28=97"},
+    {"step": 30, "value": 99, "role": "hinge"},
+    {"step": 43, "value": 112, "role": "seven-by-sixteen", "equation": "112=7×16"},
+    {"step": 50, "value": 119, "role": "Gauss-17 landing", "equation": "119=7×17"},
+    {"step": 51, "value": 120, "role": "mod-12 center"},
+    {"step": 52, "value": 121, "role": "square neighbor", "equation": "121=11²"},
+    {"step": 56, "value": 125, "role": "W7/W8 joint orientation return"}
+  ],
+  "inner_lenses": {
+    "local_number_rail": "For every selected carrier, display target−1 | target | target+1 with exact PRIME / COMPOSITE class.",
+    "factor_rosette": "Display every positive factor pair of the selected carrier as a radial address set.",
+    "phase_readout": "Display signed W7 and W8 sector ticks and distinguish PHASES DISTINCT, intermediate PHASE MATCH and full JOINT RETURN.",
+    "repunit_edelweiss_lift": ["11²=121", "111²=12321", "1111²=1234321"],
+    "ghost_grid_lift": "11×11 → 1000×1000 is a scale/view handoff only and is not identified with the Repunit-square sequence."
+  },
+  "game_of_worlds_2": {
+    "view": "synoptic",
+    "title": "Game of Worlds 2.0 — NCS Numberloop Sixfold Synoptic",
+    "clock": "One saved returnbridge cursor n=0..56; no panel-local timers.",
+    "panels": ["W7 wheel", "W8 counter-wheel", "return disc", "dual wheel", "repunit / Edelweiss", "factor / Ghost field"],
+    "event_steps": {"3": "72 HUB", "15": "84 PHASE JOINT", "28": "97 / T7 BRIDGE", "52": "121 / REPUNIT", "56": "W7/W8 JOINT RETURN"},
+    "display_boundary": "Six synchronized projections of one declared finite record; display coupling only, not a prime generator, physical law or independent six-clock model."
+  },
+  "crosswalk": {
+    "existing_ncs_return": "C6×C7 orientation control with lcm(6,7)=42 in the existing NCS Return Lens",
+    "new_numberloop_view": "C7×C8 counter-wheel orientation control with lcm(7,8)=56 in Game of Numbers",
+    "shared_method": "finite typed cyclic views, explicit carrier, declared phase steps and a visible Return receipt",
+    "non_identity": "42 and 56 are different periods over differently typed carriers and operators; adjacency of wheel orders does not identify the two systems."
+  },
+  "bounded_findings": [
+    "A joint orientation return can be exact while the underlying integer carrier remains non-returning.",
+    "The common return period is determined by the declared wheel orders and signed steps, not by visual coincidence.",
+    "The 97/99/112/119/120/121 landmarks form an inspectable address ladder inside this finite carrier; they do not constitute a prime generator or universal number law.",
+    "The reusable method object is source → signed cyclic views → landmarks → orientation Return / integer residual."
+  ],
+  "paper_route": {
+    "paper_e": "BOUNDED_METHOD_EXAMPLE_CANDIDATE",
+    "paper_c": "RETURN_WITHOUT_IDENTITY_ILLUSTRATION_CANDIDATE",
+    "new_f_a0_finding": false,
+    "manuscript_claim_added": false,
+    "publication_authorized": false
+  },
+  "builder_route": {
+    "status": "IMPLEMENTED_EXISTING_INSTRUMENT_GAME_OF_WORLDS_2_SIXFOLD / NO_NEW_BUILD_ACTIVATION",
+    "implemented_delta": "R4 local lenses plus a six-panel synchronized synoptic view driven by the single saved Numberloop cursor.",
+    "next_candidate": "Prepare, but do not activate, one NCS crosswalk view comparing C6×C7→42 and C7×C8→56 with separate carriers, operators, phase clocks and Return receipts.",
+    "udf_profile_delta": "Candidate payload fields: source, carrier, wheel_orders, signed_steps, phase, landmarks, return_class, terminal_state, replay_hash."
+  },
+  "verification": {
+    "number_game_tests": {"status": "PASS", "checks": 29245},
+    "game_of_worlds_play_tests": {"status": "PASS", "checks": 223},
+    "browser_landmarks": [0, 15],
+    "browser_status": "PASS_GAME_OF_WORLDS_2_SIXFOLD_VISUAL_AND_SHARED_84_EVENT_PULSE"
+  },
+  "sources": [
+    "A0_BOOK/A0_GAME_OF_WORLDS_PLAY.html?world=numbers&view=synoptic&rule=returnbridge#numbers",
+    "A0_BOOK/a0-game-of-numbers-model.js",
+    "A0_BOOK/a0-game-of-numbers.js",
+    "A0_BOOK/a0-game-of-numbers-tests.cjs",
+    "A0_BOOK/assets/game-of-worlds-play/numbers/index.html",
+    "A0_BOOK/assets/game-of-worlds-play/index.html#ncsLens",
+    "32_A0_FINDINGS_AND_PAPER_WORKSPACE_2026-10-11.md#ncs-numberloop-return-20261031"
+  ],
+  "governance": {
+    "new_navigator_ids": 0,
+    "new_relations": 0,
+    "new_aliases": 0,
+    "study_activation": false,
+    "capability_promotion": false,
+    "publication": false,
+    "duplicate_risk": "NSC versus existing NCS terminology resolved by retaining NSC only as noncanonical session wording."
+  }
+}

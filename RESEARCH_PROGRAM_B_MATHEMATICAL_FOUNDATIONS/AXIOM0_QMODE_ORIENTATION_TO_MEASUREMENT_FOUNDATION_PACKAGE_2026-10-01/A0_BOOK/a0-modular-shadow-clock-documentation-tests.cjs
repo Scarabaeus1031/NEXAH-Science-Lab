@@ -1,0 +1,13 @@
+const fs=require('node:fs'),path=require('node:path'),assert=require('node:assert/strict'),M=require('./a0-game-of-numbers-model.js');
+let checks=0;const ok=(value,message)=>{assert.ok(value,message);checks++},read=file=>fs.readFileSync(path.join(__dirname,file),'utf8');
+const note=read('../A0_MODULAR_SHADOW_CLOCK_RESEARCH_NOTE_2026-10-31.md'),workspace=read('../32_A0_FINDINGS_AND_PAPER_WORKSPACE_2026-10-11.md'),desk=read('A0_RESEARCH_DESK.html'),builder=read('A0_BUILDER_LOG.html'),receipt=JSON.parse(read('results/a0-modular-shadow-clock-return-2026-10-31.json'));
+ok(note.includes('\\pi_m(n)=[n]_m=n\\bmod m')&&note.includes('z_m(n)=\\exp'),'paper note states residue projection and circle embedding');
+ok(note.includes('Not established:')&&note.includes('geometric, optical or physical shadow mechanism'),'paper note retains an explicit claim ceiling');
+ok(note.includes('Relation to the Pinky-gon source')&&note.includes('does **not** infer the Modular Shadow Clock from the PLY'),'paper separates formal clock from historical PLY');
+const shadow=M.modularShadowProjection(1836,1729);ok(JSON.stringify(receipt.projection.seed_residues)===JSON.stringify(Object.fromEntries(shadow.clocks.map(q=>[q.modulus,q.residues]))),'receipt residues replay from the model');
+ok(receipt.navigator_effect.new_entities===0&&receipt.navigator_effect.new_relations===0&&receipt.navigator_effect.new_aliases===0,'receipt records graph-zero governance effect');
+ok(workspace.includes('id="modular-shadow-clock-20261031"')&&workspace.includes('a0-modular-shadow-clock-return-2026-10-31.json'),'Paper Workspace binds note and receipt');
+ok(desk.includes('id="modular-shadow-clock-return-20261031"')&&desk.includes('30681 NUMBER CHECKS PASS'),'Science Desk return is visible and revision-bound');
+ok(builder.includes('id="modular-shadow-clock-builder-return-20261031"')&&builder.includes('NO DEPLOYMENT'),'Builder return distinguishes build from deployment');
+ok(M.VIEWS.includes('shadowclock')&&M.contract('sumlift','shadowclock').modular_shadow_clock.moduli.join(',')==='7,11,12,13,17','implemented view contract matches the paper modulus set');
+console.log(JSON.stringify({status:'PASS',checks,scope:'Modular Shadow Clock equations, PLY non-identity boundary, exact receipt, Desk returns and implemented view binding'},null,2));

@@ -1,0 +1,17 @@
+'use strict';
+const assert=require('node:assert'),fs=require('node:fs'),path=require('node:path'),M=require('./a0-terrace-lantern-switchboard.js');let checks=0;const ok=(value,message)=>{assert.ok(value,message);checks++};
+const root=__dirname,html=fs.readFileSync(path.join(root,'A0_WERKBANK.html'),'utf8'),css=fs.readFileSync(path.join(root,'a0-bench-navigation.css'),'utf8'),receipt=JSON.parse(fs.readFileSync(path.join(root,'results/a0-terrace-lantern-switchboard-return-2026-10-31.json'),'utf8'));
+const open=M.model(0),stop=M.model(8),returned=M.model(16),verified=M.verify();
+ok(open.terrace.address==='b0 / s0'&&open.lantern.event==='OPEN','open');
+ok(stop.terrace.address==='b1 / s0'&&stop.lantern.event==='STOP','stop');
+ok(stop.lantern.angle===147.5&&stop.lantern.channels.length===5,'certified five-channel stop');
+ok(returned.terrace.address==='b2 / s0'&&returned.lantern.event==='EXACT_RETURN','return');
+ok(returned.terrace.cells.length===64&&returned.horizon===16,'64-cell projection / n16 horizon');
+ok(stop.coupling.sharedCursor&&!stop.coupling.sharedClock&&!stop.coupling.sourceMutation&&!stop.coupling.causalFeed,'local cursor only');
+ok(verified.status==='PASS_SOURCE_BOUND_BENCH_COMPOSITION'&&verified.checks===7,'model verifier');
+ok(html.includes('id="terraceLanternSwitchboard"')&&html.includes('data-tls-stage'),'Workbench assembly');
+ok(html.includes('a0-terrace-lantern-switchboard.js?rev=terrace-lantern-r1-20261031'),'runtime binding');
+ok(css.includes('.tls-switchboard')&&css.includes('.tls-cell.is-active'),'visual contract');
+ok(receipt.status==='PASS_SOURCE_BOUND_BENCH_COMPOSITION_BROWSER_ACCEPTED','receipt status');
+ok(receipt.identity.new_ids===0&&receipt.identity.new_relations===0,'governance');
+console.log(JSON.stringify({status:'PASS',checks,scope:'Eightfold Terrace + Panel V Lantern local-cursor Bench composition; receipt records separate browser acceptance'}));

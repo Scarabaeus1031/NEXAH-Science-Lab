@@ -1,0 +1,13 @@
+const fs=require('fs'),path=require('path'),M=require('./a0-game-of-numbers-model.js');
+let checks=0;const ok=(value,message)=>{checks++;if(!value)throw Error(message)};
+const receipt=JSON.parse(fs.readFileSync(path.join(__dirname,'results/a0-ncs-numberloop-return-2026-10-31.json'),'utf8'));
+ok(receipt.controlled_label==='NCS Numberloop','controlled label reuses NCS');
+ok(receipt.governance.new_navigator_ids===0&&receipt.governance.new_relations===0&&receipt.governance.new_aliases===0,'zero graph delta');
+for(const [n,target] of [[28,97],[43,112],[50,119],[51,120],[52,121],[56,125]])ok(Number(M.returnBridgeState(n).target)===target,'landmark '+n);
+const end=M.returnBridgeState(56);ok(end.jointReturn&&end.wheel7Tick===0&&end.wheel8Tick===0,'joint orientation return');
+ok(Number(end.target)===125&&receipt.declared_model.integer_return===false,'integer carrier does not return');
+const workspace=fs.readFileSync(path.join(__dirname,'..','32_A0_FINDINGS_AND_PAPER_WORKSPACE_2026-10-11.md'),'utf8');
+const desk=fs.readFileSync(path.join(__dirname,'A0_RESEARCH_DESK.html'),'utf8');
+const builder=fs.readFileSync(path.join(__dirname,'A0_BUILDER_LOG.html'),'utf8');
+for(const [text,name] of [[workspace,'workspace'],[desk,'desk'],[builder,'builder']])ok(text.includes('ncs-numberloop-return-20261031'),name+' return anchor');
+console.log(JSON.stringify({status:'PASS',checks,scope:'NCS Numberloop exact return, non-returning integer carrier, graph-zero and Desk bindings'},null,2));

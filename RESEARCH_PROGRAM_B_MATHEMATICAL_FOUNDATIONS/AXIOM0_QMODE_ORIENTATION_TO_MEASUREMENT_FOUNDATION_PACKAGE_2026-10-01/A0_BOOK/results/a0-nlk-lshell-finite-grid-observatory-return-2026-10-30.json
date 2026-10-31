@@ -45,8 +45,62 @@
     {
       "id": "EF-NLK-06",
       "result": "DIRECT-ZETA folds twelve declared zeta-zero nodes rigidly from the critical line into a horizontal carrier under w=i(s-1/2); address order and radius are preserved, without asserting the Riemann hypothesis or a zero-free region."
+    },
+    {
+      "id": "EF-NLK-07",
+      "result": "The transition tile is a 16-local-address adapter plus one typed inspection-seam witness. All 512 G8 cubed samples reconstruct exactly with zero recorded loss and zero gaps; address 17 adds boundary observability, not carrier capacity."
+    },
+    {
+      "id": "EF-NLK-08",
+      "result": "Platonic face cycles and V12 arc seams are incidence-preserving view covers over the existing source vertices and edges. The local grid imprint may change by quantization while the P:BODY:INDEX source identity and source-edge incidence remain fixed."
+    },
+    {
+      "id": "EF-NLK-09",
+      "result": "The radial diagnostic uses doubled integer offsets from the finite-grid pivot: 4r^2=dx2^2+dy2^2+dz2^2, r=sqrt(4r^2)/2, and beta=atan2(|dy2|,|dx2|). Q-degree remains a separate observation-state record."
+    },
+    {
+      "id": "EF-NLK-10",
+      "result": "Full TESA Breath is a coordinated multi-layer display deformation: the finite grid, outer frame, L edge and vigesimal package field share one reversible phase while source addresses, package values, quantization records and exact counts remain invariant."
+    },
+    {
+      "id": "EF-NLK-11",
+      "result": "The Plug is a finite framed observability lens: for one declared carrier, frame, cut, perspective and relation-layer set it coordinates typed inside, boundary and registered outside-witness records through one reversible state bus. Completeness applies only to the declared finite model, not to an unbounded external world."
     }
   ],
+  "finite_seam_witness_lemma": {
+    "classification": "BOUNDED_ENGINEERING_LEMMA",
+    "name": "FINITE_SEAM_WITNESS_16_PLUS_1",
+    "source_carrier": "G8_CUBED_512_SAMPLES",
+    "forward_address": "sample linear address -> (plate, window, localCell, seamStatus)",
+    "address_space": {"plates": 4, "windows_per_plate": 8, "local_cells": 16, "inspection_seam_address": 17},
+    "inverse_address": "linear=plate*128+window*16+localCell-1",
+    "verified_return": {"samples": 512, "address_pass": 512, "residue_pass": 512, "loss_count": 0, "gap_count": 0, "status": "PASS"},
+    "negative_control": "Removing seamStatus leaves the linear 4x8x16 coordinate decodable but removes the explicit boundary classification and fails the complete typed-receipt equality check.",
+    "claim_boundary": "16+1 means sixteen local address classes plus one non-carrier inspection witness. It does not mean seventeen cells, a new face, an extra dimension, a physical joint or a proof of global tiling."
+  },
+  "platonic_seam_cover_contract": {
+    "classification": "INCIDENCE_PRESERVING_VIEW_COVER",
+    "face_cycle_counts": {"TETRAHEDRON": 4, "CUBE": 6, "OCTAHEDRON": 8, "DODECAHEDRON": 12, "ICOSAHEDRON": 20},
+    "arc_seam_grammar": [{"ratio":"9/8","multiplicity":3},{"ratio":"10/9","multiplicity":2},{"ratio":"16/15","multiplicity":2}],
+    "invariants": ["source vertex count", "source edge incidence", "computed convex face cycles", "P:BODY:INDEX"],
+    "view_changes": ["face fill", "arc-seam curvature", "dual-shell inset", "finite-grid quantized imprint"],
+    "claim_boundary": "The cover documents which displayed seams follow existing source edges. It is not a physical seam, material skin, universal grid cover, topology theorem or Platonic-to-Machina identity."
+  },
+  "radial_observation_coordinate_contract": {
+    "classification": "EXACT_LOCAL_INTEGER_METRIC_PLUS_DERIVED_VIEW_COORDINATES",
+    "pivot": "((Nx-1)/2,(Ny-1)/2,(Nz-1)/2)",
+    "doubled_offsets": ["dx2=2x-(Nx-1)", "dy2=2y-(Ny-1)", "dz2=2z-(Nz-1)"],
+    "equations": {
+      "four_r_squared_xy": "4r_xy^2=dx2^2+dy2^2",
+      "four_r_squared": "4r^2=dx2^2+dy2^2+dz2^2",
+      "radius": "r=sqrt(4r^2)/2",
+      "xy_radius": "r_xy=sqrt(4r_xy^2)/2",
+      "bearing": "beta=atan2(abs(dy2),abs(dx2))"
+    },
+    "shell_equivalence": "Two visible nodes share a local radial shell iff their exact integer 4r^2 values agree within the same finite carrier and cut contract.",
+    "separation_rule": "Q-degree is the observation-state tuple; 4r^2, r, r_xy and beta are diagnostic values and are not interchangeable with Q-degree or the ISO angle bank.",
+    "claim_boundary": "These are finite local coordinates around a declared pivot. They do not establish physical radius, measured energy, curvature, resonance, a universal radial law or a cross-carrier identity."
+  },
   "verified_example": {
     "node": "V:18:20:17",
     "four_r_squared": 396,
@@ -86,6 +140,9 @@
   },
   "full_tesa_breath": {
     "classification": "SHARED_PHASE_REVERSIBLE_DISPLAY_EMBEDDING_ONLY",
+    "tool_classification": "CUSTOM_COORDINATED_MULTI_LAYER_VIEW_STACK",
+    "standard_components_reused": ["base-20 positional decomposition", "Cartesian finite grid", "radial ring projection", "isometric/oblique view transform", "layered boundary frames", "periodic phase deformation"],
+    "standard_named_tool": false,
     "display_grammar": "2 WAVE CHANNELS + 3 BASE20 AXES + 3 DISPLAY LAYERS",
     "display_layers": ["TESA frame", "base20 rings", "package nodes"],
     "shared_phase_targets": ["main finite grid", "vigesimal package field"],
@@ -99,6 +156,87 @@
       "40:39 reference frame ratio"
     ],
     "claim_boundary": "2+3+3 is a display grammar, not a number identity, physical breath, resonance or mechanism."
+  },
+  "finite_framed_observability_lens": {
+    "classification": "FINITE_CLOSED_OVER_DECLARED_MODEL_OBSERVABILITY_LENS",
+    "local_name": "PLUG",
+    "closure_scope": ["declared finite carrier", "selected frame", "selected cut", "selected perspective", "enabled typed relation layers", "explicit phase and return state"],
+    "shared_state_bus": ["selected node", "P:BODY:INDEX", "B20:Z:Y:X package address", "wave phase", "frame and perspective", "cut", "Q-degree observation state", "Return state"],
+    "tracked_regions": {
+      "inside": "registered nodes and relations admitted by the active cut",
+      "boundary": "outer frame, L edge and typed seam witnesses",
+      "outside": "only explicitly registered external witnesses such as the non-carrier +1 seam witness"
+    },
+    "completeness_rule": "Every declared record in the selected finite model is addressable or explicitly typed as outside the active view; no claim is made about undeclared objects or the unbounded world.",
+    "preserves": ["source identity", "typed address", "relation kind", "exact count", "phase return", "view/source distinction"],
+    "claim_boundary": "Closed means closed over the declared finite state and observation contract. It does not mean thermodynamically isolated, topologically closed, physically complete, universally tracking or capable of observing undeclared external reality."
+  },
+  "science_priority_candidate": {
+    "date": "2026-10-31",
+    "status": "OWNER_PRIORITIZED_PREPARATION_ONLY_NOT_ADMITTED_NOT_ACTIVE",
+    "paper_route": "EXISTING_PAPER_E_METHOD_CASE",
+    "identity_reuse": ["A0-VIEW-NEWTON-GOETHE-OBSERVER-LENS", "OCB:PRISM_RELATION_LENS", "NEXAH:A0_ORIENTATION_EVIDENCE_LINEAGE:V1"],
+    "goethe_channel": "FRAME_EDGE_ORIENTATION_POLARITY_OVERLAP_PHASE_BOUNDARY_RESPONSE_NOT_WAVELENGTH_SPECTRUM",
+    "leibniz_channel": "TYPED_LAYER_ADJACENCY_OR_LAPLACIAN_PLUS_DECLARED_MULTILAYER_OPERATOR",
+    "typed_layers": ["GRID", "BODY", "PACKAGE", "WAVE", "SEAM"],
+    "required_controls": ["FROZEN_FINITE_CARRIER", "DECLARED_LAYER_WEIGHTS_AND_NORMALIZATION", "FRAME_AND_CUT_BANK", "PERMUTATION_NULL", "DEGREE_PRESERVING_NULL", "EIGENVALUE_TOLERANCE", "BOUNDARY_RESPONSE_MEASURE", "EXACT_RETURN", "FAILURE_AND_ABSTENTION_RULES"],
+    "next_exact_question": "Does the frozen typed multilayer operator expose a reproducible relational signature that distinguishes source-preserving frame changes from cut, boundary and witness changes while the Goethe boundary-response channel explains appearance changes without changing source identity?",
+    "levin_problem_space_crosswalk": {
+      "status": "OWNER_REQUESTED_BUILDER_SPECIFICATION_QUEUED_NOT_ACTIVE",
+      "shared_questions": ["DECLARED_STATE_SPACE", "COMPUTATIONAL_BOUNDARY", "PERTURBATION", "NAVIGATION", "RETURN"],
+      "three_window_fixture": ["SOURCE_RECORD", "DECLARED_PROBLEM_SPACE_COORDINATE", "BOUNDARY_RETURN_LEDGER"],
+      "acceptance": ["STABLE_NODE_ID", "TYPED_LAYERS", "DECLARED_FRAME_AND_PERTURBATION_BANK", "ONE_SHARED_CLOCK", "EXACT_RETURN", "VISIBLE_NON_IDENTITY_BOUNDARIES"],
+      "non_identity_boundaries": ["NO_AGENCY", "NO_BIOELECTRIC_MODEL", "EXACT_RETURN_NOT_HOMEOSTATIC_GOAL", "PLATONIC_BODY_NOT_PLATONIC_SPACE"],
+      "builder_job_active": false,
+      "scientific_run_authorized": false
+    },
+    "toi_dynamic_seam_working_thesis": {
+      "status": "DOCUMENTED_METHOD_WORKING_THESIS_NOT_NEW_NUMBER_THEORY",
+      "canonical_term": false,
+      "candidate_expansions": [
+        "THEORY_OF_INTERFACES",
+        "THEORY_OF_INSTRUMENTS",
+        "THEORY_OF_ORIENTATION_AND_INTERFACES"
+      ],
+      "core_contract": "SOURCE_ADDRESS_TO_TYPED_TRANSFORMATION_TO_REPRESENTATION_TO_RETURN_OR_RESIDUAL",
+      "representation_types": [
+        "DECIMAL",
+        "BASE20_PACKAGE",
+        "RESIDUE_RECORD",
+        "LETTER",
+        "GLYPH"
+      ],
+      "dynamic_seams": [
+        "PROJECTION",
+        "FOLD",
+        "ROTATION",
+        "BASE_CHANGE",
+        "PACKAGING",
+        "RETURN"
+      ],
+      "required_ledger_fields": [
+        "SOURCE",
+        "OPERATOR",
+        "REPRESENTATION",
+        "INVARIANT",
+        "LOSS_OR_RESIDUAL",
+        "RETURN_CLASS"
+      ],
+      "claim_boundaries": [
+        "TOI_NOT_TOE",
+        "FINITE_DECLARED_MODEL_ONLY",
+        "NO_CONTROL_OF_UNBOUNDED_NUMBER_SPACE",
+        "NO_GLYPH_NUMBER_IDENTITY_BY_SIMILARITY",
+        "NO_NEW_THEOREM",
+        "NO_ESTABLISHED_FIELD_CLAIM"
+      ]
+    },
+    "new_identity": false,
+    "relation_change": false,
+    "study_activation": false,
+    "run_authorized": false,
+    "publication_authorized": false,
+    "claim_boundary": "Paper-worthy as a bounded methods candidate only. No calibrated optical spectrum, historical Leibniz terminology claim, physical mechanism, novelty result or effectiveness result is established."
   },
   "upper_boundary_layers": {
     "classification": "SEPARATE_SIMULTANEOUS_VIEW_LAYERS",

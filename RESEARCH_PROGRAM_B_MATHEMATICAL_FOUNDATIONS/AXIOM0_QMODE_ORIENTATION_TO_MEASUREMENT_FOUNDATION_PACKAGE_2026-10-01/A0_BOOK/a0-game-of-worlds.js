@@ -103,6 +103,7 @@
   $('worldHistory').onpointermove=event=>{if(!drag)return;camera.yaw+=(event.clientX-drag.x)*.008;camera.pitch=Math.max(-1.3,Math.min(1.3,camera.pitch+(event.clientY-drag.y)*.008));drag={x:event.clientX,y:event.clientY};history()};
   $('worldHistory').onpointerup=$('worldHistory').onpointercancel=()=>{drag=null};
   $('worldHistory').onkeydown=event=>{if(!['ArrowLeft','ArrowRight','ArrowUp','ArrowDown'].includes(event.key))return;event.preventDefault();if(event.key==='ArrowLeft')camera.yaw-=.15;if(event.key==='ArrowRight')camera.yaw+=.15;if(event.key==='ArrowUp')camera.pitch=Math.min(1.3,camera.pitch+.1);if(event.key==='ArrowDown')camera.pitch=Math.max(-1.3,camera.pitch-.1);history()};
+  const methodLab=$('methodLab');methodLab.ontoggle=()=>{if(methodLab.open)(root.requestAnimationFrame?root.requestAnimationFrame(render):render())};
   document.addEventListener('visibilitychange',()=>{if(document.hidden)pause()});root.addEventListener('resize',render);
   render();root.A0GameOfWorlds={snapshot:()=>JSON.parse(JSON.stringify(session)),pause,step:()=>step(true),render,replay:()=>model.replay(session)};
 })(typeof window==='undefined'?globalThis:window);

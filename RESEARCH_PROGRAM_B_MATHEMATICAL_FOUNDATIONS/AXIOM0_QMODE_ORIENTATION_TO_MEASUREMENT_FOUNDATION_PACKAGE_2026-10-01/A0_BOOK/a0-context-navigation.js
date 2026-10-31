@@ -14,9 +14,6 @@
   const file = decodeURIComponent(location.pathname.split("/").pop() || "index.html");
   const localOwnerContext = (location.protocol === "file:" || ["127.0.0.1", "localhost"].includes(location.hostname)) && !location.pathname.includes("/a0-human/");
   const nexahedronPublicHref = "https://nexahedron.com/";
-  const ownerServerRoot = localOwnerContext && /^https?:$/.test(location.protocol)
-    ? "http://127.0.0.1:8766/"
-    : "../../../../../";
   const nexahedronStagingHref = "http://127.0.0.1:3001/";
   const nexahedronHref = localOwnerContext ? nexahedronStagingHref : nexahedronPublicHref;
   const jointChildren = {
@@ -46,8 +43,8 @@
     {code:"01 · HUMAN", title:"Schau noch einmal", copy:"Frage, Licht, Blick und Return.", href:"A0_NEXAH_APERTURE_JOURNEY.html#human-view", accent:"#f177b8"},
     {code:"02 · PLAY", title:"Game of Worlds", copy:"LIFE, Domains und Numbers in ONE PULSE.", href:"A0_GAME_OF_WORLDS_PLAY.html?world=pulse#pulse", accent:"#d99d00"},
     {code:"03 · MATHFIELD", title:"Mathematical Joints", copy:"Buchstellen, Träger, Linsen und Fugen.", href:"A0_MATHEMATICAL_JOINTS.html", accent:"#159bb4"},
-    {code:"04 · BUILDER", title:"Orientation Bench", copy:"Quellen, Adapter und Kopplungen prüfen.", href:"A0_ORIENTATION_CONTROLLER_BENCH.html#benchFoyer", accent:"#2ca57a"},
-    {code:"05 · SCIENCE", title:"A0 Science", copy:"Methode, Families, Ergebnisse und Grenzen des A0-Programms.", href:"A0_SCIENCE.html#top", accent:"#806bd6"}
+    {code:"04 · BUILDER", title:"A0 Builder · Werkbank", copy:"Hauptmodule, Quellen, Adapter und Kopplungen gemeinsam öffnen.", href:"A0_WERKBANK.html?view=machina#bench-page-top", accent:"#2ca57a"},
+    {code:"05 · SCIENCE", title:"A0 Science Desk", copy:"Vollständiger Arbeitsraum für Methode, Findings, Returns und Grenzen.", href:"A0_RESEARCH_DESK.html?desk=research#top", accent:"#806bd6"}
   ];
 
   /* One inventory, three reading intentions. Navigation does not change identity or evidence state. */
@@ -147,7 +144,7 @@
     "code": "S",
     "label": "A0 · Science",
     "description": "Begriffe, Methode und Evidenz",
-    "entry": "A0_SCIENCE.html",
+    "entry": "A0_RESEARCH_DESK.html?desk=research&rev=currentness-r3-20261031#top",
     "sections": [
       {
         "label": "Wo wir stehen · Ergebnisse & Einordnung",
@@ -823,24 +820,12 @@
     return link;
   };
 
-  // Owner acceptance uses one ecosystem-root server. This keeps every local
-  // projection stable while preserving source-relative file:// fallbacks.
-  const localWorkspaceBase = localOwnerContext && /^https?:$/.test(location.protocol)
-    ? ownerServerRoot
-    : "../../../../../";
-  // The maintained long Builder Showcase redirects standalone readers back to
-  // the A0 shell by default. `standalone=1` is intentional here: A0 already
-  // owns the calm outer frame, so both the projection and a direct fallback
-  // must render the complete Showcase instead of the shortened portal cut.
-  const builderShowcaseHref = `${localWorkspaceBase}00%20EXECUTIVE/NEXAH-Mission-Control/00_OVERVIEW/BUILDER_STATUS_REPORT.html?standalone=1#top`;
-  const builderDeskHref = `${localWorkspaceBase}10%20NEXAH%20CORE/NEXAH/BUILDER/B0_BUILDER_DECK/index.html#top`;
-  const missionControlHref = `${localWorkspaceBase}00%20EXECUTIVE/NEXAH-Mission-Control/INTERNAL_NAVIGATOR/index.html#top`;
-  if (localOwnerContext && /^https?:$/.test(location.protocol)) {
-    document.querySelectorAll?.("a[href]").forEach((link) => {
-      const href = link.getAttribute("href") || "";
-      if (href.startsWith("../../../../../")) link.href = `${localWorkspaceBase}${href.slice("../../../../../".length)}`;
-    });
-  }
+  // The shared A0 server is rooted at A0_BOOK. Keep its primary navigation
+  // inside that served tree: ecosystem-level Mission-Control and Builder files
+  // remain source authorities, but they are not safe browser routes here.
+  const builderShowcaseHref = "A0_WERKBANK.html?view=machina&rev=a0-local-routes-r2-20261031#bench-page-top";
+  const builderDeskHref = "A0_BUILDER_LOG.html?rev=currentness-r3-20261031#top";
+  const missionControlHref = "A0_DATA_AND_REGISTERS.html#top";
   // Each lane gets its own invitation. Human is experience-led; Builder keeps the workshop.
   const humanShowcase = [
     ["a0-public-arkade-index.html#arkade", "ARKADE", "ONE PULSE und drei spielbare Welten direkt erleben", "arcade", "Play · Consumer View"],
@@ -853,7 +838,7 @@
   const builderShowcase = [
     builderShowcaseHome,
     ["A0_MACHINA_COCKPIT.html#benchFoyer", "THE MACHINA", "Eigener Viewer, Cockpit, Parts Shelf und Full Bench", "body", "Haus / Host"],
-    ["A0_WERKBANK.html", "Werkbank", "Maschine, Entdecken, Arbeiten und Quellen & Prüfen", "body", "Arbeitsoberfläche"]
+    ["A0_BUILDER_TOY_STORE.html#instrument-atlas", "Instrument Atlas", "Kuratiertes Werkzeugregal und Consumer Cuts", "body", "Builder · Atlas"]
   ];
   const machinaMainModules = [
     ["A0_MACHINA_COCKPIT.html#machinaAssembly", "THE MACHINA", "HOUSE / ASSEMBLY", "Viewer, Cockpit, Räume und exakte Returns in einem gemeinsamen Host.", "house"],
@@ -869,7 +854,7 @@
     ["A0_SPIN_TO_BLOOM_MEASUREMENT.html#edelweissBridge", "EDELWEISS", "Root → Field → Bloom → Dodeca → Receipt: die integrierende Kopplungsbank", "edelweiss", "CURRENT FLAGSHIP"];
   const builderFlagshipConstellation = machinaMainModules.map(([route, name, role, copy, accent]) => [route, name, copy, accent, role]);
   const scienceHighlights = [
-    ["A0_SCIENCE.html#top", "A0 Science · Reader", "Forschungsstand, Beiträge, Instrumente und Grenzen des gebundenen A0-Programms", "nexah", "Intern · source-bound Reader"],
+    ["A0_RESEARCH_DESK.html?desk=research&rev=currentness-r3-20261031#top", "A0 Science Desk", "Vollständiger Arbeitsraum für Prioritäten, Findings, Returns, Instrumente und Grenzen", "nexah", "Intern · autoritativer Desk"],
     ["A0_MATHEMATICAL_JOINTS.html", "Mathfield", "Mathematische Werkstatt für Buchstellen, Träger, Linsen, Fugen und ihre prüfbaren Returns", "cells", "Flagship · Mathematical Joints"],
     ["A0_DATA_AND_REGISTERS.html#top", "A0 NSNavigator", "A0-Struktur binden, zuständige Register finden und vorhandene Records weiterverwenden", "book", "Science · Source-bound Register Lens"]
   ];
@@ -1123,7 +1108,7 @@
   if (localOwnerContext) {
     scienceDeskLink = document.createElement("a");
     scienceDeskLink.className = "a0-workspace-icon a0-science-desk-link";
-    scienceDeskLink.href = "A0_RESEARCH_DESK.html?desk=research&rev=desk-top-r2#top";
+    scienceDeskLink.href = "A0_RESEARCH_DESK.html?desk=research&rev=currentness-r3-20261031#top";
     scienceDeskLink.innerHTML = '<svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="10"/><circle cx="16" cy="16" r="3"/><path d="M16 3v5M16 24v5M3 16h5M24 16h5M7 7l4 4M21 21l4 4M25 7l-4 4M11 21l-4 4"/></svg><span class="a0-workspace-label">Science Desk</span>';
     scienceDeskLink.setAttribute("aria-label", "Science Desk · Status, Methoden, Daten, Register und Evidenz");
     scienceDeskLink.title = "Science Desk · Daten & Register";
@@ -1131,15 +1116,15 @@
     builderDeskLink.className = "a0-workspace-icon a0-builder-desk-link";
     builderDeskLink.href = builderDeskHref;
     builderDeskLink.innerHTML = '<svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="4" r="2.2"/><path d="M16 7c-4.2 0-6.5 3.2-6.5 7.7V20c0 4.5 2.3 7 6.5 9 4.2-2 6.5-4.5 6.5-9v-5.3C22.5 10.2 20.2 7 16 7Z"/><path d="M10 11C5.8 8.7 2.7 11 3.5 15.2c.7 3.6 3.1 5.8 6 6.2M22 11c4.2-2.3 7.3 0 6.5 4.2-.7 3.6-3.1 5.8-6 6.2M10 15H5M22 15h5M10 20l-5 3M22 20l5 3"/></svg><span class="a0-workspace-label">Builder Desk</span>';
-    builderDeskLink.setAttribute("aria-label", "Builder Desk · Bestand, Build-Plan und Werkzeuge");
-    builderDeskLink.title = "Builder Desk";
+    builderDeskLink.setAttribute("aria-label", "Builder Desk · Werkbank, Flagship Labs und Werkzeuge");
+    builderDeskLink.title = "Builder Desk · Werkbank";
     workspaceOverview.append(scienceDeskLink, builderDeskLink);
     missionControlLink = document.createElement("a");
     missionControlLink.className = "a0-workspace-icon a0-mission-control-link";
     missionControlLink.href = missionControlHref;
-    missionControlLink.innerHTML = '<span class="a0-workspace-monogram" aria-hidden="true">TH</span><span class="a0-workspace-label">Mission Control</span>';
-    missionControlLink.setAttribute("aria-label", "TH · Mission Control · Strategie und Owner-Steuerung");
-    missionControlLink.title = "TH · Mission Control";
+    missionControlLink.innerHTML = '<span class="a0-workspace-monogram" aria-hidden="true">A0</span><span class="a0-workspace-label">Control Register</span>';
+    missionControlLink.setAttribute("aria-label", "A0 Control Register · Quellen, Relationen und Rückwege");
+    missionControlLink.title = "A0 Control Register";
     workspaceOverview.append(missionControlLink);
   }
   header.replaceChildren(brand, laneNav, workspaceOverview, overview);
@@ -1296,23 +1281,23 @@
       mountSiteProjection({
         href: builderShowcaseHref,
         label: "A0 BUILDER HOME · SHOWCASE",
-        title: "A0 Builder Home · source-bound Mission Control Showcase",
+        title: "A0 Builder Home · vollständige Werkbank",
         triggers: localBuilderEntries,
         route: "builder-showcase",
         lane: "builder"
       });
       mountSiteProjection({
         href: builderDeskHref,
-        label: "BUILDER DESK · B0",
-        title: "B0 Builder Desk unter NEXAH A0",
+        label: "BUILDER DESK · CURRENTNESS / RETURNS",
+        title: "A0 Builder Desk · Currentness, Chronik und Returns",
         triggers: [builderDeskLink],
         route: "builder-desk",
         lane: "builder"
       });
       mountSiteProjection({
         href: missionControlHref,
-        label: "MISSION CONTROL · STEUERUNG",
-        title: "Mission Control unter NEXAH A0",
+        label: "A0 CONTROL REGISTER",
+        title: "A0 Control Register · Quellen und Rückwege",
         triggers: [missionControlLink],
         route: "mission-control"
       });
