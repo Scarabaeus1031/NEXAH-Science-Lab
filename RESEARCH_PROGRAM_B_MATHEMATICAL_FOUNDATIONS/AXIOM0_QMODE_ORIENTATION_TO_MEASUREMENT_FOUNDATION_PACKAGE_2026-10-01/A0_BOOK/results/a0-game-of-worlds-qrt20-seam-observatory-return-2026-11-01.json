@@ -1,0 +1,60 @@
+{
+  "receipt_id": "A0_GAME_OF_WORLDS_QRT20_SEAM_OBSERVATORY_RETURN_2026_11_01",
+  "title": "Game of Worlds 2.0 — QRT20 Seam Observatory",
+  "date": "2026-11-01",
+  "status": "ENGINEERING_FINDING_LOCK",
+  "identity_action": "REUSE_ONLY",
+  "reused_identities": [
+    "NEXAH:A0_ORIENTATION_EVIDENCE_LINEAGE:V1",
+    "MOD:NUMBER_VIEW_SUITE"
+  ],
+  "guided_sequence": {
+    "stations": [20, 34, 41, 20],
+    "operators": ["SOURCE", "+14", "+7", "-21"],
+    "qrt20": ["q1:r0", "q1:r14", "q2:r1", "q1:r0"],
+    "return": "EXACT",
+    "residual": 0
+  },
+  "local_comparator": {
+    "pair": [97, 78],
+    "qrt20": ["q4:r17", "q3:r18"],
+    "delta": -19,
+    "register_step": "q-1:r+1",
+    "digit_sums": [16, 15],
+    "factor_classes": ["PRIME", "COMPOSITE:2x3x13"],
+    "return_status": "VIEW_ONLY",
+    "classification": "VISUAL_ONLY_COMPARATOR"
+  },
+  "view_operator": {
+    "id": "PENTAGON_SEAM_VIEW",
+    "classification": "LOCAL_VIEW_OPERATOR",
+    "definition": "Eine Fuge verbindet verschiedene Darstellungen über eine explizite Übergangsfolge, ohne ihre Identität gleichzusetzen."
+  },
+  "engineering_finding": {
+    "record": "EF-GOW2-01",
+    "statement": "Eine geschlossene, adressierte Folge kann als lokaler Comparator mit reproduzierbarem Return dargestellt und geprüft werden.",
+    "claim_ceiling": "ENGINEERING_VIEW_CONTRACT_ONLY"
+  },
+  "verification": {
+    "number_model": "PASS:33619",
+    "play_shell": "PASS:231",
+    "game_of_worlds": "PASS:2819",
+    "navigator_app": "PASS:253/253",
+    "source_graph": "PASS:332/32 composed",
+    "syntax": "PASS"
+  },
+  "graph_delta": {
+    "identities": 0,
+    "relations": 0,
+    "families": 0,
+    "studies": 0,
+    "findings": 0,
+    "publication_releases": 0
+  },
+  "bindings": {
+    "instrument": "../A0_GAME_OF_WORLDS_PLAY.html?world=numbers&view=qrt20&rule=sevenword#numbers",
+    "science_desk": "../A0_RESEARCH_DESK.html#qrt20-seam-observatory-return-20261101",
+    "builder_desk": "../A0_BUILDER_LOG.html#qrt20-seam-observatory-builder-return-20261101",
+    "mathfield": "../A0_MATHEMATICAL_JOINTS.html#qrt20-seam-observatory-contract"
+  }
+}
