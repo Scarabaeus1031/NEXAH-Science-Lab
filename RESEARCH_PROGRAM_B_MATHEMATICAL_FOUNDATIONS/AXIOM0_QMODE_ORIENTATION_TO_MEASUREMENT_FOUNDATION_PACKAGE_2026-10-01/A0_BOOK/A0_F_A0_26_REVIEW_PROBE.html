@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>F-A0-26 · Review Probe</title>
+  <link rel="stylesheet" href="a0-context-navigation.css?rev=flagship-constellation-r1-20261030">
+  <style>
+    :root{--bg:#061c25;--panel:#0b2934;--line:#285766;--ink:#e9f4f5;--muted:#9fb7be;--cyan:#5fe4ed;--gold:#ffd45f;--pink:#ec68b7;--green:#64e4b4;--red:#ff7e78}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 ui-monospace,SFMono-Regular,Menlo,monospace}main{max-width:1320px;margin:auto;padding:32px}.eyebrow{color:var(--cyan);letter-spacing:.15em;text-transform:uppercase;font-size:.78rem;font-weight:800}h1,h2,h3,p{margin-top:0}h1{font:700 clamp(2.4rem,6vw,5.8rem)/.94 Georgia,serif;max-width:1050px;margin:.4rem 0 1.3rem}.lede{font:1.1rem/1.6 system-ui,sans-serif;color:var(--muted);max-width:950px}.statusbar,.controls,.grid,.metrics,.sources{display:grid;gap:14px}.statusbar{grid-template-columns:repeat(4,1fr);margin:28px 0}.chip,.card,.probe,.source{border:1px solid var(--line);background:var(--panel);border-radius:18px;padding:18px}.chip b{display:block;color:var(--gold);font-size:1.1rem}.chip span{color:var(--muted);font-size:.78rem}.controls{grid-template-columns:repeat(5,minmax(0,1fr));margin:16px 0}.controls button,.links a{appearance:none;border:1px solid var(--line);border-radius:12px;padding:13px 15px;background:#0d303b;color:var(--ink);font:700 .82rem/1.2 inherit;cursor:pointer;text-decoration:none;text-align:center}.controls button[aria-pressed=true]{border-color:var(--pink);background:#482039}.probe{border-color:#4a8190}.probe-head{display:flex;justify-content:space-between;gap:20px;align-items:center}.probe-head strong{color:var(--gold);font-size:1.2rem}.balance{display:grid;grid-template-columns:2fr 3fr;gap:8px;margin:22px 0}.balance div{min-height:112px;display:grid;place-items:center;border-radius:14px;font:700 3rem/1 Georgia,serif}.balance div:first-child{background:#1a6370}.balance div:last-child{background:#6b315d}.grid{grid-template-columns:repeat(3,1fr);margin:18px 0}.card h3{color:var(--gold)}.card code{color:var(--cyan)}.card .verdict{display:inline-block;margin-top:8px;color:var(--green);font-weight:800}.card.control .verdict{color:var(--red)}.metrics{grid-template-columns:repeat(4,1fr);margin:18px 0}.metric{border-top:3px solid var(--cyan);padding-top:12px}.metric b{font-size:1.7rem;color:var(--gold)}.metric small{display:block;color:var(--muted)}.boundary{border:1px solid var(--pink);background:#26172b;border-radius:16px;padding:20px;margin:24px 0}.sources{grid-template-columns:repeat(2,1fr)}.source b{color:var(--cyan)}.source p{color:var(--muted);font-family:system-ui,sans-serif}.links{display:flex;gap:10px;flex-wrap:wrap;margin-top:24px}.links a:first-child{border-color:var(--gold);color:var(--gold)}@media(max-width:850px){main{padding:20px}.statusbar,.grid,.metrics,.sources,.controls{grid-template-columns:1fr}.probe-head{display:block}.balance{grid-template-columns:2fr 3fr}}
+  </style>
+  <style>
+    .projection-lab{margin:28px 0;border:1px solid #4a8190;background:#071f29;border-radius:20px;overflow:hidden}.projection-lab header{padding:24px 24px 10px}.projection-lab h2{font:700 clamp(1.8rem,4vw,3.4rem)/1 Georgia,serif;margin:.35rem 0 1rem}.projection-toolbar{display:grid;grid-template-columns:repeat(4,minmax(0,1fr)) minmax(0,1.25fr) 2fr;gap:10px;padding:0 24px 18px}.projection-toolbar button{border:1px solid var(--line);border-radius:11px;padding:12px;background:#0d303b;color:var(--ink);font:700 .8rem/1.2 inherit;cursor:pointer}.projection-toolbar button[aria-pressed=true]{background:#482039;border-color:var(--pink)}.projection-toolbar button:disabled{opacity:.38;cursor:not-allowed}.projection-toolbar label{display:grid;grid-template-columns:auto 1fr;align-items:center;gap:12px;color:var(--muted);font-size:.78rem}.projection-toolbar input{width:100%}.projection-stage{background:#04171f;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}.projection-stage svg{display:block;width:100%;height:auto;min-height:330px}.projection-ledger{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line)}.projection-ledger div{background:var(--panel);padding:16px}.projection-ledger b{display:block;color:var(--gold);margin-bottom:4px}.projection-ledger span{color:var(--muted);font-size:.8rem}.phase-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;padding:18px 24px}.phase-strip div{border:1px solid var(--line);border-radius:12px;padding:12px;color:var(--muted);font-size:.76rem}.phase-strip strong{display:block;color:var(--green);margin-bottom:4px}.phase-strip div:last-child strong{color:var(--gold)}@media(max-width:1050px){.projection-toolbar{grid-template-columns:repeat(3,1fr)}}@media(max-width:850px){.projection-toolbar,.projection-ledger,.phase-strip{grid-template-columns:1fr}.projection-toolbar label{grid-template-columns:1fr}.projection-stage svg{min-height:240px}}
+  </style>
+</head>
+<body>
+<header class="top"><a href="A0_RESEARCH_DESK.html#f-a0-26-review-closeout-20261030">A0 Science Desk</a><nav aria-label="Seitennavigation"><a href="A0_RESEARCH_DESK.html#f-a0-26-octave-2plus3-cross-carrier-20261030">Finding</a><a href="A0_MATHEMATICAL_JOINTS.html#octave-2plus3-cross-carrier-finding">Mathfield</a><a href="index.html">A0 Overview</a></nav></header>
+<main data-f-a0-26-probe>
+  <div class="eyebrow">A0 Science Desk · F-A0-26 · Nullmodell-Abschluss · 30.10.2026</div>
+  <h1>Die Wiederkehr besteht. Die Kopplung nicht.</h1>
+  <p class="lede">Drei typisierte Träger zeigen exakt <code>2+3=5</code>. Der Gegencheck zeigt zugleich, dass die Zählsignatur allein weder einen ausgezeichneten Transport noch einen gemeinsamen Mechanismus liefert. Damit ist das Finding im Owner-Scope sauber geschlossen und für unabhängige Prüfung vorbereitet.</p>
+
+  <section class="statusbar" aria-label="Finding status">
+    <div class="chip"><b>OWNER-SCOPE CLOSED</b><span>bounded descriptive finding</span></div>
+    <div class="chip"><b>NULL MODEL COMPLETE</b><span>3 controls declared</span></div>
+    <div class="chip"><b>EXTERNAL REVIEW OPEN</b><span>no independent sign-off claimed</span></div>
+    <div class="chip"><b>PUBLICATION 0</b><span>Paper E route only</span></div>
+  </section>
+
+  <section class="probe">
+    <div class="probe-head"><div><div class="eyebrow">Interactive review probe</div><h2>Beobachtung, Nulls und Spiegelung</h2></div><strong data-review-status>PASS</strong></div>
+    <div class="controls" role="group" aria-label="Review modes">
+      <button type="button" data-review-mode="observed" aria-pressed="true">Beobachtung</button>
+      <button type="button" data-review-mode="cuts" aria-pressed="false">10 Schnitte</button>
+      <button type="button" data-review-mode="graph" aria-pressed="false">Graph-Null</button>
+      <button type="button" data-review-mode="mirror" aria-pressed="false">Transport-HOLD</button>
+      <button type="button" data-review-mirror aria-pressed="false">Rollen spiegeln</button>
+    </div>
+    <div class="balance" aria-label="Two plus three partition"><div><span data-left-count>2</span></div><div><span data-right-count>3</span></div></div>
+    <p data-review-note>Die geordnete Partition bleibt auf allen drei deklarierten Trägern sichtbar.</p>
+  </section>
+
+  <section class="grid" aria-label="Positive carriers">
+    <article class="card"><div class="eyebrow">Carrier 01 · keyboard</div><h3>Fünf schwarze Tasten</h3><p>Positionen <code>1,3,6,8,10</code> in zwölf Halbtonschritten. Zyklische Abstandssignatur <code>2,3,2,2,3</code>; zwei sichtbare Gruppen mit zwei und drei Tasten.</p><span class="verdict">PASS · source-local grouping</span></article>
+    <article class="card"><div class="eyebrow">Carrier 02 · graph</div><h3>Grad 5 = 2 + 3</h3><p>Der gewählte Hamilton-Zyklus liefert an jedem Slot Grad <code>2</code>; der verbundene Restgraph Grad <code>3</code>. Vollgrad <code>5</code> bleibt exakt.</p><span class="verdict">PASS · exact decomposition</span></article>
+    <article class="card"><div class="eyebrow">Carrier 03 · clamp</div><h3>Drei auf · zwei ab</h3><p>Die deklarierte Shadow-/Clamp-Ansicht hält drei Aufwärts- und zwei Abwärtsrollen. Richtung und Moment bleiben Teil des source-lokalen Engineering-Vertrags.</p><span class="verdict">PASS · declared role split</span></article>
+  </section>
+
+  <section class="grid" aria-label="Null controls">
+    <article class="card control"><div class="eyebrow">Null N1 · combinatorics</div><h3>Zehn 2|3-Schnitte</h3><p>Fünf gelabelte Elemente besitzen <code>C(5,2)=10</code> mögliche Zweiergruppen. Die bloße Zählung ist deshalb nicht spezifisch.</p><span class="verdict">FAIL · uniqueness</span></article>
+    <article class="card control"><div class="eyebrow">Null N2 · graph family</div><h3>1.280 zulässige Zyklen</h3><p>Der endliche Audit enthält <code>1.280</code> verankerte ungerichtete Hamilton-Zyklen und <code>30.720</code> gelabelte Zuweisungen. Kein Zyklus ist ausgezeichnet.</p><span class="verdict">FAIL · distinguished map</span></article>
+    <article class="card control"><div class="eyebrow">Null N3 · orientation</div><h3>Spiegelung tauscht Rollen</h3><p>Die ungeordnete Menge <code>{2,3}</code> bleibt erhalten; links/rechts, auf/ab und Return/Residual können wechseln. Ohne Witness gibt es keinen Transport.</p><span class="verdict">HOLD · typed transport</span></article>
+  </section>
+
+  <section>
+    <div class="eyebrow">Existing acoustic results · reused, not rerun</div>
+    <h2>Akustik ist Referenzspur, nicht Abschlussbeweis.</h2>
+    <div class="metrics">
+      <div class="metric"><b>24→48</b><small>bestehende Integer-Frequenzschiene</small></div>
+      <div class="metric"><b>2:1</b><small>exaktes Oktavverhältnis im Modell</small></div>
+      <div class="metric"><b>16:15</b><small>MI→FA und SI→DO′, gleiche Ratioklasse</small></div>
+      <div class="metric"><b>+23,46 ct</b><small>Quintenzirkel-Rest / Pythagoreisches Komma</small></div>
+    </div>
+    <p class="lede">Übernommen werden nur bereits geprüfte Modell- und Comparator-Ergebnisse: 39 Acoustic-Checks PASS, Oktavratio <code>2</code>, gleiche Ratioklasse <code>16/15</code> bei unterschiedlichen absoluten Lücken und ein nicht verschwindender Quintenzirkel-Rest. Der Quellreceipt führt <code>measured_input = OPEN</code>; daher wird keine neue Messung und kein akustischer Mechanismus behauptet.</p>
+  </section>
+
+  <section class="projection-lab" id="acousticSourceProjection" data-acoustic-source-projection>
+    <header>
+      <div class="eyebrow">A0 extension · phases 1–3 · source → map → projection</div>
+      <h2>Tonrail, Quintenschritt und Lyra bleiben getrennte Operatoren.</h2>
+      <p class="lede">Die historischen Klavier- und Lyra-Visuals werden nicht als Messbelege übernommen. Wir extrahieren daraus einen endlichen 24er-Adressraum, eine separate <code>+7 mod 12</code>-Quintenpermutation und eine zentrale Fächerprojektion. Der neue <code>23+1</code>-Test trennt 23 innere Passagen von der optionalen Return-Seam. Erst Phase 4 darf diese Träger mit deklarierten akustischen Eingaben speisen.</p>
+    </header>
+    <div class="projection-toolbar" role="group" aria-label="Projection modes">
+      <button type="button" data-projection-mode="rail" aria-pressed="true">01 · 24er Tonrail</button>
+      <button type="button" data-projection-mode="fifths" aria-pressed="false">02 · Quintenzirkel</button>
+      <button type="button" data-projection-mode="lyra" aria-pressed="false">03 · Lyra-Fächer</button>
+      <button type="button" data-projection-mode="con-dao" aria-pressed="false">04 · CON–DAO 23+1</button>
+      <button type="button" data-topology-toggle aria-pressed="false" disabled>CON schließen · +1</button>
+      <label>Rail-Adresse <input type="range" min="0" max="23" value="0" step="1" data-projection-index></label>
+    </div>
+    <div class="projection-stage"><svg viewBox="0 0 960 390" role="img" aria-label="Tone rail and Lyra projection test" data-projection-canvas></svg></div>
+    <div class="projection-ledger" aria-label="Projection ledger">
+      <div><b data-projection-address>rail:00</b><span>source address retained across all three views</span></div>
+      <div><b data-projection-note>C · pitch class 0</b><span>note label is a 12-class quotient, not the full source identity</span></div>
+      <div><b data-projection-status>24→12 QUOTIENT</b><span>return status and declared information loss</span></div>
+    </div>
+    <div class="phase-strip">
+      <div><strong>1 · INVENTORY PASS</strong>15 hash-bound sources in four evidence classes; no source bytes copied.</div>
+      <div><strong>2 · FORMAL PASS</strong>Rail, fifth orbit and fan projection have distinct typed maps.</div>
+      <div><strong>3 · PROBE PASS</strong>24 rays, 23 inner passages and one typed Return seam are separated.</div>
+      <div><strong>4 · READY / NOT RUN</strong>Carrier schema prepared; measurement, material and geometry inputs remain open.</div>
+    </div>
+  </section>
+
+  <div class="boundary"><strong>Abschlussdisposition</strong><p><code>OWNER_CLOSED_BOUNDED_DESCRIPTIVE_FINDING / RECURRENCE PASS / COUNT SPECIFICITY FAIL / SHARED TRANSPORT HOLD / SHARED MECHANISM REJECT / ACOUSTIC RESULTS REUSED AS MODEL COMPARATORS / MEASURED INPUT OPEN / 3+1 BANDS HOLD / INDEPENDENT REVIEW OPEN / STUDY 0 / PUBLICATION 0</code></p></div>
+
+  <section class="sources" aria-label="Evidence sources">
+    <article class="source"><b>Edelweiss / graph</b><p>Finite incidence audit: exact degree split, 1.280 cycles, 30.720 assignments, no distinguished tip-to-slot map.</p></article>
+    <article class="source"><b>TESA acoustic overlay</b><p>Existing source-bound comparator with 39 passing checks and measured input explicitly open.</p></article>
+    <article class="source"><b>Octave / successor / fifths</b><p>Three separately typed rails; octave exact, fifths return non-exact with Pythagorean-comma residual.</p></article>
+    <article class="source"><b>Shadow / clamp</b><p>Role split and engineering moment remain source-local; no load or material transport from count alone.</p></article>
+  </section>
+
+  <nav class="links" aria-label="Return routes">
+    <a href="A0_RESEARCH_DESK.html#f-a0-26-review-closeout-20261030">Science Desk Closeout</a>
+    <a href="A0_MATHEMATICAL_JOINTS.html#octave-2plus3-cross-carrier-finding">Mathfield Finding</a>
+    <a href="results/a0-octave-2plus3-cross-carrier-finding-return-2026-10-30.json">Finding Receipt</a>
+    <a href="results/a0-tesa-acoustic-overlay-return-2026-10-30.json">Acoustic Result</a>
+    <a href="assets/a0-acoustic-source-projection-manifest-v1.json">Source Manifest 1–3</a>
+    <a href="results/a0-acoustic-source-projection-return-2026-10-30.json">Projection Receipt</a>
+    <a href="A0_ORIENTATION_CONTROLLER_BENCH.html#tesseractFaceCoupler">23|24|25 Bench Coupler</a>
+    <a href="results/a0-tesseract-face-coupler-return-2026-10-30.json">Face Coupler Receipt</a>
+    <a href="A0_SPIN_TO_BLOOM_MEASUREMENT.html#edelweissIncidenceAudit">Graph Audit</a>
+  </nav>
+</main>
+<script src="a0-f-a0-26-review-probe.js?rev=20261030-r1"></script>
+<script src="a0-acoustic-source-projection.js?rev=20261030-r1"></script>
+<script src="a0-context-navigation.js?rev=flagship-constellation-r1-20261030"></script>
+</body>
+</html>

@@ -1,0 +1,103 @@
+{
+  "schema": "nexah.a0.engineering-return/1.4.0",
+  "date": "2026-10-30",
+  "id": "A0_TESSERACT_FACE_COUPLER_RETURN_V1",
+  "status": "PASS_1_TO_14",
+  "carrier": "MOD:TESSAREC",
+  "parent_extension": "A0_ACOUSTIC_SOURCE_PROJECTION_RETURN_V1",
+  "bench": "A0_BOOK/A0_ORIENTATION_CONTROLLER_BENCH.html#tesseractFaceCoupler",
+  "flagship_surface": "A0_BOOK/A0_IOTA_BRIDGE_DEMONSTRATOR.html#gridBridgeFlagship",
+  "runtime": "A0_BOOK/a0-tesseract-face-coupler.js",
+  "tests": "A0_BOOK/a0-tesseract-face-coupler-tests.cjs",
+  "seam_curtain_tests": "A0_BOOK/a0-seam-curtain-router-tests.cjs",
+  "exact_q4_counts": {"vertices": 16, "edges": 32, "square_faces": 24, "cubes": 8, "antipodal_face_pairs": 12, "face_formula": "C(4,2) * 2^2 = 24"},
+  "declared_view_counts": {"g8_cubed_samples": 512, "g8_orthogonal_edges": 1344, "samples_per_q4_vertex": 32, "selected_face_samples": 128, "transition_tile_local_addresses": 16, "transition_tile_seam_address": 17, "zither_ports": 28, "winding_layouts": 2, "schedule_addresses": 48, "tower_input_receipts": 5},
+  "transition_tile": {
+    "id": "TRANSITION_TILE_16_PLUS_1",
+    "kind": "BOUNDARY_VIEW",
+    "carrier": false,
+    "source_samples": 512,
+    "plate_count": 4,
+    "windows_per_plate": 8,
+    "local_addresses": 16,
+    "inspection_seam_address": 17,
+    "loss_count": 0,
+    "gap_count": 0,
+    "reconstruction": {"address": 512, "weight": 512, "residue": 512, "return": 48, "status": "PASS"}
+  },
+  "winding": {
+    "layouts": ["ROW_MAJOR", "INTERLEAVED_4J"],
+    "row_major_transition_residues": [0, 7, 14, 21],
+    "interleaved_4j_transition_residues": [0, 4, 8, 12, 16, 20, 24],
+    "quadrature_phases_degrees": [0, 90, 180, 270],
+    "curtains": {"A": [0, 180], "B": [90, 270]},
+    "prime_29": {"ordinal": 10, "residue": 1, "slot": 2, "phase_degrees": 90, "plate_family": [1, 5, 9, 13, 17, 21, 25]},
+    "return_rule": "plate class recurs after +4 in INTERLEAVED_4J; the same mod-28 residue recurs only after +28",
+    "coil_seam": "27 -> 0"
+  },
+  "tower_intake": {
+    "receipts": 5,
+    "ports": ["Q4_FACE_24", "G8_CUBED_512", "T16_PLUS_1_TRANSITION_TILE", "Z28_WINDING_4_BY_7", "Z48_RANK48"],
+    "role": "typed downstream comparator",
+    "common_carrier": false,
+    "steering": false
+  },
+  "address_acoustic_dock": {
+    "status": "PASS_SOURCE_BOUND_ADAPTER",
+    "surface": "A0_BOOK/A0_IOTA_BRIDGE_DEMONSTRATOR.html#bridgeAcousticDock",
+    "source": "A0_ACOUSTIC_SOURCE_PROJECTION_RETURN_V1",
+    "route": ["BRIDGE_SAMPLE", "BASE_ADDRESS_WORD", "MOD_RESIDUE_VIEW", "SP_PHASE_11", "LYRA_RAIL_24"],
+    "supported_bases": [2, 3, 4, 5, 6, 8, 10, 11, 12, 16, 20, 24],
+    "lyra_pole_rule": "p <-> p+12 mod 24",
+    "fifth_view_rule": "q -> q+7 mod 12",
+    "sp_phase_rule": "n mod 11",
+    "common_carrier": false,
+    "measured_acoustic_input": false,
+    "owner_token_status": "SP remains a local unbound mnemonic"
+  },
+  "seam_curtain_router": {
+    "status": "PASS_25_OF_25",
+    "mask": "QW_COMPLEMENT",
+    "mask_rule": "BLUE iff q3=0; PINK iff q3=1",
+    "blue_nodes": 256,
+    "pink_nodes": 256,
+    "seam_edges": 576,
+    "seam_nodes": 504,
+    "z_midpoint_slices": 11,
+    "slices_reconstruct_seam": true,
+    "seam_components": 117,
+    "largest_component": {"nodes": 8, "edges": 12},
+    "handles": ["G8:2,2,2|q=0001", "G8:1,1,1|q=1110"],
+    "route": [146, 82, 74, 73],
+    "return_cycle": [146, 82, 74, 73, 74, 82, 146],
+    "return_gap": 0,
+    "interpretation": "The IOTA swing is tested as a route over a typed discrete seam graph. Curtain slices partition and reconstruct the seam edge set; they are not asserted to be material skins."
+  },
+  "steps": [
+    {"number": 1, "name": "EXACT_FACE_ATLAS", "status": "PASS", "result": "24 unique square faces generated from two varying axes and two fixed bits; four vertices and four edges per face"},
+    {"number": 2, "name": "FACE_INCIDENCE_MATRIX", "status": "PASS", "result": "24x24 symmetric matrix over SELF, EDGE_HINGE, VERTEX_TOUCH, ANTIPODE, PARALLEL and DISJOINT", "ordered_cell_counts": {"SELF": 24, "EDGE_HINGE": 192, "VERTEX_TOUCH": 96, "ANTIPODE": 24, "PARALLEL": 48, "DISJOINT": 192, "TOTAL": 576}},
+    {"number": 3, "name": "PUNCTURED_23_CONTROL", "status": "PASS", "result": "one selected square face is masked; the remaining geometric carrier has exactly 23 active faces"},
+    {"number": 4, "name": "EXTERNAL_25_WITNESS", "status": "PASS", "result": "24 geometric faces plus W:RETURN:OUTSIDE_Q4; the witness is not a twenty-fifth tesseract face"},
+    {"number": 5, "name": "EXACT_FACE_ANTIPODE", "status": "PASS", "result": "A complements both fixed bits, produces twelve unordered face pairs and two ordered bit-flip routes O-Y-X and O-P-X; A^2=id"},
+    {"number": 6, "name": "PINK_BLACK_VIEW_ORIENTATION", "status": "PASS", "result": "J_view swaps PINK and BLACK as a display operation and remains distinct from geometric A; J_view^2=id"},
+    {"number": 7, "name": "DECLARED_G8_CUBED_PROJECTION", "status": "PASS", "result": "512 samples map evenly to 16 Q4 vertex addresses at 32 samples per address; each selected face and its antipode receive 128 disjoint samples"},
+    {"number": 8, "name": "TRANSITION_TILE_16_PLUS_1", "status": "PASS", "result": "all 512 G8^3 addresses map bijectively through plate, window and local-cell coordinates and reconstruct with zero declared loss or gaps; address 17 is an inspection seam only"},
+    {"number": 9, "name": "DOCUMENTARY_4_BY_7_ZITHER_WINDING", "status": "PASS", "result": "the 128 selected-face samples are conserved under sample-index mod 28; structural empty ports are retained rather than filled"},
+    {"number": 10, "name": "SIGNED_PHI_EULER_RANK48_SCHEDULE", "status": "PASS", "result": "k maps through frac(k/phi), signed unit-circle phase, rank48 and multiplication by 7 mod 48; forward and reverse schedules are complex conjugates and inverse addresses"},
+    {"number": 11, "name": "Z28_WINDING_LAYOUT_COMPARATOR", "status": "PASS", "result": "row-major 4x7 and interleaved 4j are distinct declared layouts; interleaved transition residues are 0,4,...,24 across four 90-degree plates; prime 29 is the tenth prime and returns to residue 1, while the same residue returns only after 28"},
+    {"number": 12, "name": "TYPED_TOWER_RECEIPT_INTAKE", "status": "PASS", "result": "Tower receives separate Q4/24, G8^3/512, Tile16+1, Z28/4x7 and Z48/Rank48 receipts for comparison; no common carrier and no upstream steering are asserted"},
+    {"number": 13, "name": "SEAM_CURTAIN_HANDLE_RETURN", "status": "PASS", "result": "The q3 complement partitions all 512 G8 cubed nodes into 256 BLUE and 256 PINK nodes. Exactly 576 orthogonal edges cross the mask, eleven ordered z-midpoint curtain slices reconstruct that seam without duplication, and a deterministic three-edge handle route closes by exact reversal with return gap zero."},
+    {"number": 14, "name": "ADDRESS_ACOUSTIC_SOURCE_DOCK", "status": "PASS", "result": "The unchanged Bridge sample is rendered as an exact word in one declared BASE, a residue in the selected MOD view, an SP phase n mod 11, and a source-bound Lyra rail address p with coupled pole p+12 mod 24. No common-carrier or measured-acoustic claim is introduced."}
+  ],
+  "claim_boundary": {
+    "class": "FINITE_EXACT_INCIDENCE_WITH_DECLARED_TYPED_VIEWS",
+    "allowed": ["Q4 combinatorics", "face incidence", "geometric face antipode", "puncture control", "external witness register", "display orientation involution", "balanced finite projection", "16+1 transition view adapter", "lossless typed handoff receipt", "documentary winding", "winding layout comparator", "signed finite phase schedule", "typed Tower receipt intake", "finite base address word", "modular view receipt", "finite phase-11 address", "source-bound 24-rail pole pair", "binary complement partition", "discrete orthogonal seam", "ordered curtain partition", "addressed handle route", "exact graph return"],
+    "excluded": ["twenty-fifth tesseract face", "identity between Q4, G8^3 and 4x7", "every four residues equals the same residue", "Tower steering", "shared carrier across typed receipts", "natural-law status for phi schedule", "closed shell theorem", "material membrane", "acoustic field", "physical swing mechanism", "stability theorem", "physical machine", "new carrier identity"]
+  },
+  "a0_binding": {"role": "Bench source plus Bridge Flagship projection, 16+1 boundary-view adapter and source-bound acoustic address dock for the existing 24-address source and existing MOD:TESSAREC carrier", "route": "SOURCE_BENCH_TO_GRID_BRIDGE_FLAGSHIP_TO_ADDRESS_ACOUSTIC_DOCK_TO_EXACT_RECEIPT", "finding_status_changed": false, "phase4_acoustic_measurement_run": false, "paper_route": "SCIENCE_DESK_METHOD_AND_CONTROL_RECORD_ONLY"},
+  "governance": {
+    "existing_navigator_identity_reused": ["MOD:TESSAREC", "NEXAH:A0_ORIENTATION_EVIDENCE_LINEAGE:V1"],
+    "new_navigator_ids": [], "source_graph_relation_changes": [], "node_count_delta": 0, "relation_count_delta": 0, "alias_count_delta": 0,
+    "study_activation": false, "capability_promotion": false, "publication_authorized": false
+  }
+}

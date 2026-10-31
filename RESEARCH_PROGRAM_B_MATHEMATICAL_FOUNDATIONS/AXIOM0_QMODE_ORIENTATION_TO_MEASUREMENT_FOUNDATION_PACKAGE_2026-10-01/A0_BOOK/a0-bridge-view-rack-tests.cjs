@@ -1,0 +1,15 @@
+const assert=require('node:assert/strict');
+const fs=require('node:fs');
+const path=require('node:path');
+const rack=require('./a0-bridge-view-rack.js');
+let checks=0;const ok=(v,m)=>{assert.ok(v,m);checks++;};
+assert.deepEqual(rack.MODULI,[2,3,4,5,6,12,20]);checks++;
+assert.equal(rack.residue(59,12),11);checks++;
+assert.equal(rack.residue(-1,12),11);checks++;
+assert.deepEqual(rack.project(47,5),{sample:47,modulus:5,residue:2});checks++;
+const html=fs.readFileSync(path.join(__dirname,'A0_IOTA_BRIDGE_DEMONSTRATOR.html'),'utf8');
+for(const token of ['Ein Carrier. Sieben Restklassen-Ansichten.','data-bvr-rack','0–59 RECORD','VIEW IS NOT IDENTITY','A0_LIVING_BLUEPRINT.html#orientation-shelf'])ok(html.includes(token),'bridge owns '+token);
+ok(html.indexOf('data-bvr-rack')<html.indexOf('gridTowerIntakeTitle'),'view bank precedes Tower intake');
+const blueprint=fs.readFileSync(path.join(__dirname,'A0_LIVING_BLUEPRINT.html'),'utf8');
+ok(blueprint.includes('SYSTEM VIEW / HEAD')&&blueprint.includes('Machina Anatomy'),'Living Blueprint states its rotated system-view role');
+console.log(JSON.stringify({status:'PASS',checks,scope:'one-carrier modular view bank and navigation contract'}));

@@ -189,6 +189,69 @@ test.
 - ten octaves do not mathematically produce twelve;
 - a matching partition does not establish a common mechanism.
 
+### Null-model closeout
+
+- `N1`: `C(5,2)=10` label-bound `2|3` cuts share the same count signature;
+- `N2`: 1,280 anchored undirected Hamilton cycles and 30,720 labelled graph
+  assignments produce no distinguished cycle-to-carrier map;
+- `N3`: orientation reversal retains `{2,3}` but swaps typed roles.
+
+Disposition: recurrence `PASS`; count-specificity `FAIL`; graph uniqueness
+`FAIL`; shared transport `HOLD`; shared mechanism `REJECT`. The Owner scope is
+closed as a bounded descriptive finding; independent review remains open.
+
+Existing acoustic results are reused without rerun: 39 TESA comparator checks,
+octave ratio `2`, ratio class `16/15` and the nonzero `+23.46 ct` fifths
+residual. The source receipt retains `measured_input = OPEN`; these are model
+comparators, not empirical closure or part of the exact Finding core.
+
+### Acoustic source/projection extension · phases 1–3
+
+The historical keyboard, Lyra, Four-Rings and ARCHY U-01c material has now
+been sorted into four evidence classes. Only four source visuals enter the
+formalization core; contextual, acoustic-hypothesis and held-background files
+remain hash-bound but do not supply evidence. No historical source bytes were
+copied into A0.
+
+The reconstruction separates three operators that the old visuals placed near
+one another:
+
+1. a 24-address chromatic rail with `pitchClass = railIndex mod 12`;
+2. a separate circle-of-fifths permutation `q ↦ q+7 (mod 12)`;
+3. a central Lyra fan `p_i(t)=apex+t(rail_i−apex)`.
+
+All 24 Lyra rays return exactly for `t>0` under the declared geometry. At the
+common apex all addresses collide; a source key is therefore required. The
+open fan is additionally typed as `P24`: 24 line states define 23 inner
+passages and retain two endpoints. Closing only the declared `23→0` seam gives
+`C24`: the same 24 line states, 23 inner passages plus one Return passage and
+no endpoints. The graph invariant changes with precisely that seam: `P24` has
+cycle rank `0` and `V−E=1`; `C24` has cycle rank `1` and `V−E=0`. Thus `23+1`
+counts passages and creates one cycle; it does not add a twenty-fifth line.
+The pink walker exposes the difference as `OPEN_STOP` versus `RETURN_SEAM`.
+
+This local open/closed comparator shares method vocabulary with
+`NEXAH:CON_DAO_BREATH:V1`, but it is not that 13-state `6|1|6` carrier. No
+state map, identity merge or Source Graph relation is asserted. The
+interactive probe and 81-check receipt are bound to F-A0-26 as a bounded
+method extension, not as a change to the Finding's exact core. Phase 4 has a
+typed carrier handoff but remains `READY_NOT_RUN`: excitation, receiver,
+geometry, material profile, decay metric and null geometry are still open.
+
+The succeeding Bench coupling completes five finite controls over the
+existing `MOD:TESSAREC` carrier. All `24=C(4,2)·2²` square faces of Q4 are
+generated from bit coordinates and compared in one exact symmetric `24×24`
+incidence matrix. Its 576 ordered cells partition into 24 self-cells, 192
+edge-hinge cells, 96 vertex-touch cells, 72 parallel cells and 192 disjoint
+cells. The `23` layer removes one selected face as a puncture control; the
+`25` layer retains all 24 faces and adds `W:RETURN:OUTSIDE_Q4` as an external
+witness register. It is therefore not a twenty-fifth tesseract face. The view
+operator `J` swaps PINK and BLACK while YELLOW retains the shared edge-hinge
+role, and the implementation verifies `J²=id`. This is a finite incidence and
+orientation audit, not an acoustic run, stability result, material law or new
+carrier identity. The bound return is
+`results/a0-tesseract-face-coupler-return-2026-10-30.json`.
+
 ## Evidence-state matrix
 
 | Thread object | State | Claim ceiling |
@@ -198,21 +261,22 @@ test.
 | acoustic overlays | `MODEL / COMPARATOR` | no measured resonance |
 | Fibonacci, φ and color links | `HOLD` | no preferred generator or physics |
 | `3+1` band reading | `HOLD / NEXT TEST` | not in F-A0-26 exact core |
-| F-A0-26 | `OWNER_ACCEPTED / INDEPENDENT REVIEW OPEN` | bounded structural observation |
+| F-A0-26 | `OWNER-SCOPE CLOSED / NULL MODEL COMPLETE / INDEPENDENT REVIEW OPEN` | bounded descriptive observation; count non-specific |
 | manuscript claim | `0` | Paper E example only until review |
 | Study activation | `0` | requires separate intake and run contract |
 | publication | `0` | separate human gate required |
 
 ## Prioritized Science Desk gates
 
-1. **F-A0-26 independent review:** construct null groupings and alternative
-   five-part partitions; test order reversal and carrier relabelling.
+1. **F-A0-26 external review:** internal nulls are complete; an independent
+   reviewer may now challenge the frozen controls and boundaries.
 2. **Typed transport test:** define maps between keyboard, graph and clamp
    records; measure what survives beyond count/order/complement.
 3. **3+1 band contract:** name the three active band roles and the fourth
    frame/carrier role, with a failure case and exact Return or residual.
-4. **Acoustic measurement:** bind real frequency/amplitude data, tuning,
-   uncertainty and a preregistered comparator to the TESA/Zither view.
+4. **Optional future acoustic campaign:** existing model/comparator results are
+   bound; physical measurement remains a separate admission, not a closure
+   requirement for F-A0-26.
 5. **Clamp/material gate:** retain the negative ring collision and fold-moment
    result; test prototype-backed load, friction, wear and tolerance.
 6. **Human acceptance:** confirm Machina button language, tour pacing and the
@@ -235,6 +299,7 @@ test.
 ## Primary return routes
 
 - `A0_RESEARCH_DESK.html#f-a0-26-octave-2plus3-cross-carrier-20261030`
+- `A0_F_A0_26_REVIEW_PROBE.html`
 - `A0_MATHEMATICAL_JOINTS.html#octave-2plus3-cross-carrier-finding`
 - `A0_MATHEMATICAL_JOINTS.html#octave-balance-pair-band-extension`
 - `../32_A0_FINDINGS_AND_PAPER_WORKSPACE_2026-10-11.md#f-a0-26-octave-2plus3-cross-carrier-20261030`

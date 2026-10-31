@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NEXAHEDRON · Weiterleitung zur gepflegten Quelle</title>
+  <meta name="robots" content="noindex,nofollow">
+  <style>
+    html { background: #061722; color: #f5f0e7; font: 16px/1.5 system-ui, sans-serif; }
+    body { max-width: 42rem; margin: 15vh auto; padding: 2rem; }
+    a { color: #55d8e8; }
+  </style>
+</head>
+<body>
+  <h1>NEXAHEDRON wird aus seiner gepflegten Quelle geöffnet.</h1>
+  <p>Diese Adresse bleibt nur als Kompatibilitätsweg für ältere A0-Navigationen erhalten.</p>
+  <p><a id="nexahedron-source" href="https://nexahedron.com/">NEXAHEDRON öffnen</a></p>
+  <script>
+    (() => {
+      const localOwner = /^(?:127\.0\.0\.1|localhost)$/.test(location.hostname);
+      const target = localOwner
+        ? "http://127.0.0.1:8766/40%20EXPERIENCE%20PRODUCTION/NEXAHEDRON/public/a0-human/start/A0_NEXAH_APERTURE_JOURNEY.html#human-view"
+        : "https://nexahedron.com/";
+      const link = document.getElementById("nexahedron-source");
+      link.href = target;
+      location.replace(target);
+    })();
+  </script>
+</body>
+</html>

@@ -167,9 +167,9 @@ expect(binder.pentagon_knick_aperture_intake_20261025?.status === "PARKED_SOURCE
 expect(binder.pentagon_knick_aperture_intake_20261025?.instrument_atlas?.status === "SOURCE_BOUND_NAVIGATION_LAYER_NO_NEW_IDENTITY" && binder.pentagon_knick_aperture_intake_20261025?.instrument_atlas?.door_count === 12 && binder.pentagon_knick_aperture_intake_20261025?.instrument_atlas?.contract_fields?.join("→") === "carrier→view→return→boundary" && /not the controlling Mission Control Builder Atlas/.test(binder.pentagon_knick_aperture_intake_20261025?.instrument_atlas?.boundary || ""), "Instrument Atlas return and non-authority boundary");
 expect(binder.sources?.some((item) => item.source_id === "SRC:A0OE:A0_EXPERIENCE_NAVIGATION_FREEZE_RETURN" && /zero canonical-count/.test(item.authority_role)), "A0 experience freeze return retained with no-count boundary");
 expect(binder.sources?.some((item) => item.source_id === "SRC:A0OE:A0_EXPERIENCE_NAVIGATION_FREEZE_MC_RETURN" && /reciprocal Mission Control/.test(item.authority_role)), "reciprocal Mission Control experience-freeze return retained");
-expect(binder.a0_surface_coverage?.coverage_id === coverage.coverage_id && binder.a0_surface_coverage?.bound_surfaces === 81 && binder.a0_surface_coverage?.work_groups === 13, "A0 81-of-81 surface coverage binding");
+expect(binder.a0_surface_coverage?.coverage_id === coverage.coverage_id && binder.a0_surface_coverage?.bound_surfaces === 83 && binder.a0_surface_coverage?.work_groups === 13, "A0 83-of-83 surface coverage binding");
 expect(coverage.status === "INTERNAL_SOURCE_BOUND_COVERAGE_NO_NEW_IDENTITY", "A0 surface coverage status");
-expect(coverage.expected_surface_count === 81 && coverage.bound_surface_count === 81 && coverage.unbound_surfaces?.length === 0, "A0 surface coverage counts");
+expect(coverage.expected_surface_count === 83 && coverage.bound_surface_count === 83 && coverage.unbound_surfaces?.length === 0, "A0 surface coverage counts");
 expect(coverage.policy_effect?.changes_canonical_counts === false && coverage.policy_effect?.creates_module_identity === false && coverage.policy_effect?.activates_study === false && coverage.policy_effect?.promotes_evidence === false && coverage.policy_effect?.authorizes_publication === false, "A0 surface coverage policy boundary");
 const coveredSurfaces = coverage.work_bindings.flatMap((item) => item.surfaces).sort();
 const manifestSurfaces = manifest.surface_registry.map((item) => item.surface).sort();
@@ -325,6 +325,14 @@ expect(binder.a0_core_statement?.typed_chain?.join("→") === "SOURCE→OPERATIO
 expect(/return to the state/i.test(binder.a0_core_statement?.strongest_statement || "") && /return to the history/i.test(binder.a0_core_statement?.strongest_statement || ""), "A0 strongest statement");
 expect(/not the normative OLS itself/i.test(binder.vocabulary_boundary?.answer || ""), "OLS vocabulary answer");
 expect(/executes no experiment/i.test(binder.claim_ceiling || ""), "experiment boundary");
+const nlkGridReturn = binder.nlk_lshell_finite_grid_observatory_return_20261030;
+expect(nlkGridReturn?.status === "SOURCE_BOUND_ENGINEERING_DEMONSTRATOR_PASS_NO_SCIENCE_ADMISSION", "NLK L-Shell engineering return status");
+expect(nlkGridReturn?.engineering_finding_ids?.join("→") === "EF-NLK-01→EF-NLK-02→EF-NLK-03→EF-NLK-04→EF-NLK-05→EF-NLK-06", "six bounded NLK engineering findings");
+expect(nlkGridReturn?.new_canonical_ids?.length === 0 && nlkGridReturn?.relation_changes?.length === 0 && nlkGridReturn?.study_activation === false && nlkGridReturn?.new_f_a0_finding === false && nlkGridReturn?.publication_authorized === false, "NLK return has no canonical science or publication effect");
+expect(nlkGridReturn?.instrument_sha256 === hash(path.resolve(ecosystemRoot, "30 SCIENCE LAB/NEXAH-Science-Lab/RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01", nlkGridReturn.instrument)), "NLK instrument hash-bound");
+expect(nlkGridReturn?.receipt_sha256 === hash(path.resolve(ecosystemRoot, "30 SCIENCE LAB/NEXAH-Science-Lab/RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01", nlkGridReturn.receipt)), "NLK receipt hash-bound");
+expect(nlkGridReturn?.machina_consumer?.classification === "SOURCE_BOUND_LIVE_INTERFACE_CONSUMER" && nlkGridReturn?.machina_consumer?.assembly_route?.join("→") === "viewer→cockpit→parts→bench→relation→return→viewer" && nlkGridReturn?.machina_consumer?.exact_return === true, "Machina Relation Chamber consumes Tri-View through exact typed return");
+expect(nlkGridReturn?.machina_consumer?.ninth_body === false && nlkGridReturn?.machina_consumer?.fifth_glb_cockpit === false && nlkGridReturn?.machina_consumer?.guided_tour_changed === false && nlkGridReturn?.machina_consumer?.new_identity === false && nlkGridReturn?.machina_consumer?.relation_change === false, "Machina consumer does not alter body, cockpit, tour, identity or relation counts");
 
 const result = {
   status: failures.length ? "FAIL" : "PASS",

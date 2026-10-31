@@ -297,7 +297,7 @@ binding, shared inverse, row mapping and residue transport remain OPEN.
 | `F-A0-23` — the frozen prime-index nesting score for `717717/4774/1771` is reached or exceeded by `228/540` complete digit-multiset controls, while the three-palindrome fixed-point baseline occurs in `12/540` tuples | `OWNER_ACCEPTED / CLOSED / FAIL_PRIME_INDEX_SELECTIVITY_PALINDROME_BASELINE_DOMINATES / R2_LOCAL_REPLAY` | Number View negative selectivity boundary; the palindrome tail is selection-conditioned and not an independent discovery p-value | `A0-BL-048` canonical Labreport; lock `10/10`; byte-identical Primary/Replay; verifier `15/15` twice |
 | `F-A0-24` — the two decimal maps `abcd→bcd` and `abcd→acd` are individually lossy uniform projections with fibres `9` and `10`, but their ordered pair is injective and returns all `9000/9000` four-digit sources; existing Iota is a directed classifier and THOOTH is not an executable operator | `CLOSED / OWNER_ACCEPTED / PASS_TYPED_LOSSY_PROJECTIONS_WITH_JOINT_EXACT_RETURN / R2_LOCAL_REPLAY` | Candidate Paper C representation/Return example; preserve the nonoperator and no-glyph-algebra boundaries; publication still requires a separate gate | `A0-BL-049` canonical Labreport; lock `10/10`; byte-identical Primary/Replay; verifier `17/17` twice |
 | `F-A0-25` — exact view/residual-or-joint-view Return transfers across Q106/O16, Typed Seam and Decimal D4, but positive fixed-width economy is carrier-specific: `1/3` passes, not the preregistered `2/3` | `CLOSED / OWNER_ACCEPTED / MIXED_RETURN_GRAMMAR_PASS_ECONOMY_GENERALIZATION_FAIL / R2_LOCAL_REPLAY` | Paper B/C method boundary: exact Return and representation economy are separate claims; publication remains separately gated | `A0-BL-055` canonical Labreport; lock `11/11`; byte-identical Primary/Replay; verifier `20/20` twice |
-| `F-A0-26` — the ordered partition `2+3=5` recurs exactly in three typed views: the two black-key groups of one 12-semitone keyboard octave, the degree `2+3=5` decomposition of the bounded Edelweiss slot graph, and the declared three-up/two-down Shadow/Clamp load view; the carriers and operators remain non-identical | `OWNER_ACCEPTED / BOUNDED_CROSS_CARRIER_STRUCTURAL_OBSERVATION / INDEPENDENT_REVIEW_OPEN` | Paper E method/representation example; Paper C only after an explicit carrier-and-operator comparison. No shared mechanism, acoustic law or universality claim | Science Desk `F-A0-26` return, Mathfield note, existing Spin→Bloom and Shadow/D1–D2 source returns |
+| `F-A0-26` — the ordered partition `2+3=5` recurs exactly in three typed views: the two black-key groups of one 12-semitone keyboard octave, the degree `2+3=5` decomposition of the bounded Edelweiss slot graph, and the declared three-up/two-down Shadow/Clamp load view; the completed internal null model shows that count alone is non-specific and transports no shared mechanism | `OWNER_SCOPE_CLOSED / BOUNDED_DESCRIPTIVE_FINDING / NULL_MODEL_COMPLETE / INDEPENDENT_REVIEW_OPEN` | Paper E method/representation example; Paper C remains HOLD. No shared transport, mechanism, acoustic law or universality claim | Science Desk `F-A0-26` closeout, interactive Review Probe, Mathfield note, existing Spin→Bloom, TESA Acoustic Overlay and Shadow/D1–D2 returns |
 
 <a id="f-a0-26-octave-2plus3-cross-carrier-20261030"></a>
 
@@ -332,18 +332,32 @@ role carrier, but a perfect fifth spans seven semitone steps; the keyboard's
 generate twelve: twelve is the number of semitone steps per octave, while
 thirteen positions count both endpoints.
 
-**Next gate:** independent review must attempt counter-groupings, name the
-ordering convention, and test whether any proposed transport preserves more
-than the integer partition. Until then Paper E may use the comparison as a
-bounded representation example; Paper C may only cite the non-identity and
-typing discipline. No manuscript claim, Study activation, publication or
-Source-Graph relation follows automatically.
+**Internal closeout:** three declared nulls are complete. `C(5,2)=10` proves
+that the count signature is not selective; the graph family contains 1,280
+anchored undirected Hamilton cycles and 30,720 labelled assignments with no
+distinguished cycle; and orientation reversal preserves `{2,3}` while swapping
+typed roles. The recurrence therefore passes, count-specificity and uniqueness
+fail, shared transport remains HOLD and a shared mechanism is rejected.
+
+Existing acoustic results are referenced rather than rerun: the TESA overlay
+records 39 passing model/comparator checks, octave ratio `2`, shared ratio class
+`16/15` and a nonzero `+23.46` cent fifths residual. Its own receipt retains
+`measured_input = OPEN`, so it is not empirical closure and is not part of the
+exact finding core.
+
+**Next gate:** independent external review may challenge the now-frozen null
+model and typed boundaries. Paper E may use the closed bounded representation
+example; Paper C may cite only non-identity and typing discipline until an
+explicit transport survives review. No manuscript claim, Study activation,
+publication or Source-Graph relation follows automatically.
 
 Sources: [Science Desk](A0_BOOK/A0_RESEARCH_DESK.html#f-a0-26-octave-2plus3-cross-carrier-20261030),
+[Review Probe](A0_BOOK/A0_F_A0_26_REVIEW_PROBE.html),
 [Mathfield](A0_BOOK/A0_MATHEMATICAL_JOINTS.html#octave-2plus3-cross-carrier-finding),
 [typed balance matrix](A0_BOOK/A0_MATHEMATICAL_JOINTS.html#octave-balance-pair-band-extension),
 [Spin→Bloom](A0_BOOK/A0_SPIN_TO_BLOOM_MEASUREMENT.html#edelweissIncidenceAudit),
-[Shadow 3+2 triage](#shadow-triangle-3plus2-review-20261025), and
+[Shadow 3+2 triage](#shadow-triangle-3plus2-review-20261025),
+[existing acoustic result](A0_BOOK/results/a0-tesa-acoustic-overlay-return-2026-10-30.json), and
 [finding receipt](A0_BOOK/results/a0-octave-2plus3-cross-carrier-finding-return-2026-10-30.json).
 
 ## Documentary paper-support update — 2026-10-18
@@ -1762,3 +1776,231 @@ Graphrelation, Claim-Promotion oder Publikationsfreigabe.
 - Builder Return: `A0_BOOK/A0_BUILDER_LOG.html#breathing-crystal-v12-builder-return-20261030`
 - Machine Return: `A0_BOOK/results/a0-spin-to-bloom-measurement-return-2026-10-29.json`
 - UDF proof receipt: `A0_BOOK/results/a0-udf-orientation-return-proof-2026-10-30.json`
+
+## NLK / L-Shell finite-grid observatory return (2026-10-30)
+
+**Triage:** `ENGINEERING RETURN / NO NEW F-A0 FINDING / NO MANUSCRIPT CLAIM`.
+
+The local probe binds five model-scoped engineering findings: exact finite shell
+and Return arithmetic; persistent discrete node addresses across declared view
+changes; explicit separation of Q-degree state, radial shell, radius and
+bearing; separately switchable Platonic, package, wave and CRT/QRT relation
+layers; and separate renderer-sample versus exact-count reporting.
+
+These results support instrument and method documentation. They do **not**
+establish a physical mechanism, universal CRT/QRT law, measured resonance,
+Platonic-body/Machina identity, material or fabrication behavior, topology, or
+human utility. As of 2026-10-31 the exact instrument bytes are locked for
+internal Desk discoverability and registered as an internal source-bound
+engineering surface in the A0 Book manifest. This lock is not Science admission,
+Finding promotion, deployment or publication.
+
+- Instrument: `A0_BOOK/A0_NLK_LSHELL_DEVELOPMENT_PROBE.html`
+- Science Desk: `A0_BOOK/A0_RESEARCH_DESK.html#nlk-lshell-finite-grid-observatory-return-20261030`
+- Builder: `A0_BOOK/A0_BUILDER_LOG.html#nlk-lshell-finite-grid-observatory-builder-return-20261030`
+- Machine receipt: `A0_BOOK/results/a0-nlk-lshell-finite-grid-observatory-return-2026-10-30.json`
+- Next admissible gate: define an independent replay/export contract, then
+  review any proposed scientific claim separately.
+
+### Grid↝Wave coupling addendum (2026-10-30)
+
+The instrument now applies one phase-controlled deformation to grid nodes,
+local tubes, Platonic/body, package, CRT/QRT and radial display overlays. The
+mapping is explicitly classified as a **reversible display embedding**, not a
+physical wave or resonance claim. Source address, cut membership, exact counts
+and radial `4r²` remain invariant; zero amplitude is identity and the rendered
+embedding returns at `360°`. Four added controls raise the embedded suite from
+`35/35` to `39/39 PASS`. This remains an engineering return and creates no new
+F-A0 finding or manuscript claim.
+
+### Full TESA Breath addendum (2026-10-30)
+
+The reversible display embedding now uses one phase clock for the main finite
+grid and the Vigesimal Package Field. The shorthand `2+3+3` is explicitly
+limited to two sampled wave channels, three base-20 axes and three rendered
+layers (frame, ring and node). Decimal values, `B20:Z:Y:X` addresses, exact
+counts and the 40:39 frame reference remain invariant. Four new controls bring
+the embedded suite to `43/43 PASS`. This is an interface/engineering result,
+not evidence of physical breath, resonance or a shared mechanism.
+
+### Upper boundary layers addendum (2026-10-30)
+
+The upper finite-grid view now separates the closed outer frame, the inner
+L-edge and the selected perspective. Outer frame and L-edge are independently
+switchable and may be displayed together. Under Full TESA they share the same
+reversible display phase with the main grid and Vigesimal Package Field, while
+node identity, discrete address, exact counts and perspective state remain
+unchanged. Four controls extend the embedded suite to `47/47 PASS`: 360-degree
+return, zero-amplitude identity, distinct boundary paths and the declared
+L-edge-inside-frame condition. This is an interface/engineering result, not a
+new topology, physical boundary, Source-Graph relation or F-A0 finding.
+
+### Tri-View Dock addendum (2026-10-30)
+
+The finite-grid instrument now coordinates three existing projections in one
+interface: Grid, Platonic Body and Vigesimal Package. Each module may be closed,
+opened or pinned; Compare 3x keeps all three live while a shared status line
+reports selected node, body vertex, package address, display phase and
+perspective. A six-chapter interface demonstration moves from Carrier through
+Body-to-Grid, boundary layers, Full TESA Breath and package addressing to a
+three-view Return. Five structural controls raise the embedded suite to
+`52/52 PASS`. This is a usability and projection result. It neither merges the
+three object types nor creates a Bridge relation, scientific finding or claim.
+
+### THE MACHINA Relation Chamber addendum (2026-10-30)
+
+The existing Tri-View Dock is now consumed by THE MACHINA as an expandable,
+lazy-loaded interface room named **THE MACHINA · Relation Chamber**, with the
+technical label **NLK TRI-VIEW BRIDGE**. The Assembly route is now
+`viewer → cockpit → parts → bench → relation → return → viewer`; this is an
+interface-routing change only. The chamber does not create a ninth body, a
+fifth GLB cockpit, a new Source-Graph relation or a scientific result. The
+eight source hashes, four GLB handoffs and thirteen tour chapters remain
+unchanged. Assembly checks pass `28/28`, its finite state contract passes
+`11/11`, and browser QA confirms the live embedded Tri-View surface.
+
+### Rigid Body Orbit addendum (2026-10-30)
+
+The Platonic Body view now separates rigid source-body orientation from the
+grid/camera angle. One periodic phase applies the declared display schedule
+`X×2 / Y×1 / Z×3`; at `360°` the geometry returns within `1e-12` and vertex
+norms remain invariant. The selected source identity, for example `P:DOD:0`,
+does not change. Its local finite-grid imprint may change under quantization;
+the browser fixture at fixed grid angle `35°` showed `V:2:2:2 → V:4:0:2`.
+Body and imprint traces remain view-only. Six checks extend the embedded suite
+to `58/58 PASS`. This is an engineering display/quantization result, not a
+physical motion, lattice automorphism, body-grid identity, new F-A0 finding or
+manuscript claim.
+
+### Platonic Body Cover addendum (2026-10-31)
+
+The existing Body View now derives closed convex face cycles from the same
+source vertices and edges used by the five Platonic wire bodies. The verified
+face counts are `4 / 6 / 8 / 12 / 20`; every displayed face boundary follows
+an existing source edge. Five modes expose Nodes, Edges, Face Cover, V12 Arc
+Seams and a `0.76` inset Dual Shell. The arc view reuses the established V12
+brace grammar `9/8 ×3`, `10/9 ×2`, `16/15 ×2` as view seams only. Five checks
+extend the embedded suite to `63/63 PASS`. The Tri-View now also provides a
+full-width Focus/Back-to-3× cycle for Grid, Body and Package plus a distinct
+primary CTA hierarchy for Demo and motion controls; two UI checks bring the
+combined suite to `65/65 PASS`. This is a bounded engineering
+projection over existing geometry, not a new module, body, material cover,
+hinge, topology, Source-Graph relation, F-A0 finding or manuscript claim.
+
+### Internal integration lock (2026-10-31)
+
+The complete `65/65 PASS` instrument baseline is now locked to SHA-256
+`1ee98e15f0cb47b132f52ed76054af81b2c3c587e1d8cf40bf8792ac3c3fe69d`.
+The A0 Book manifest, Science Desk, Builder Log, Findings triage, Mission
+Control return and existing A0 Orientation Evidence binder point to this same
+bounded engineering object. This closes the local discoverability/currentness
+gate only. The classified result remains `ENGINEERING RETURN`; new canonical
+IDs, graph relations, Studies, F-A0 findings, manuscript claims, deployments
+and publications remain `0`.
+
+<a id="nlk-lshell-zeta-fold-return-20261031"></a>
+
+### DIRECT-ZETA fold-axis engineering addendum (2026-10-31)
+
+The existing Science Desk intake `DIRECT-ZETA` is now represented inside the
+NLK Grid view as a source-bound rigid coordinate fold. Its declared operator
+`w=i(s-1/2)` rotates twelve listed zeta-zero nodes around `s=1/2` through the
+closed display interval `0°…90°`. The implementation preserves node order,
+distance to the pivot and the source binding; at `90°` the image is a
+horizontal carrier. The Downloads source and existing Desktop intake copy are
+byte-identical at SHA-256
+`131a29d27bca9f87c0cc44f925cafa08016a149342fb3cf198ebaca3e4cbb96d`.
+
+Eight checks bring the embedded instrument suite to `73/73 PASS`; browser QA
+confirms all twelve nodes, synchronized Tri-View status/receipt and zero
+runtime errors. The Fold axis and Grid projection now share the exact declared
+bank `7, 33, 35, 35.2643897, 45, 78°10′, 78°12′, 90°` bidirectionally, with a
+visible pause at every station. The current instrument lock is SHA-256
+`64ad7151568827261619eed737ea9e340bec1beeec846946a05a65321d3b0ae5`.
+This is a coordinate-change and interface-trace result only. It is not a proof
+of the Riemann hypothesis or a zero-free region, and it creates no identity
+between the Zeta view and Q°, CRT/QRT, body, grid, package or wave layers.
+Canonical IDs, Source-Graph relations, Studies, F-A0 findings, manuscript
+claims, deployments and publications remain unchanged.
+
+<a id="nlk-lshell-zeta-rounding-clock-return-20261031"></a>
+
+### DIRECT-ZETA compass, rounding and Edelweiss ± Clock addendum (2026-10-31)
+
+The existing `DIRECT-ZETA` fold control now also drives the second supplied
+Zeta view from source
+`zeta-winkel-verrundung-174744c7a6f241c8845eb80a8c03969f.html`
+(SHA-256
+`d4b1107c67d3c0d3e9f2a9ec27417ee0c068a6162fd2eb266782a2adec9fe823`).
+The exact displayed compass advances from `333°` through zero to `63°` as the
+shared fold angle runs from `0°` to `90°`. The independent fillet diagnostic
+keeps `r=65 µm`, `d=r tan(θ/2)` and arc length `rθ`; at `90°`, `d=65 µm` and
+the arc is `102.102 µm` to three decimals. The Zeta plane remains
+dimensionless and is not identified with this micrometre test.
+
+The new PM/VM Edelweiss ± Clock is deliberately narrower in status: two
+counterphase radial display paths use `+φ` and `−φ`, each marked `5.5`, with
+the combined `5.5+5.5=11` slot reading. It is a locally constructed
+Lissajous/rosette view over the shared interface angle; it is not derived from
+the twelve zeros, not a physical clock or measured oscillator, and not a new
+Lissajous, body, Study or Source-Graph identity. Six additional checks bring
+the embedded instrument suite to `86/86 PASS`; browser QA confirms two clock
+paths, the extended receipt and zero failures. Instrument SHA-256:
+`10aa446af41e7ef58402043218e4b4aaa2b6987fc6bd8a443b3dbc05c10c120d`.
+No canonical ID, relation, F-A0 finding, manuscript claim, admission,
+deployment or publication state changes.
+
+### NLK / L-Shell N-band body coupling return — 2026-10-31
+
+Engineering result only: the existing Body View now couples its white breathing
+axis and displayed Platonic body to one shared phase. The declared scalar display
+weights are `0.429`, `0.456`, and `0.487`; their exact decimal sum is `1.372`.
+They are not additional ISO angles. The implementation applies a reversible,
+anisotropic view scale after the existing rigid body orientation while source
+vertices, edges, face cycles, `P:BODY:INDEX` identity, and the source input to
+local grid quantization remain unchanged. Three radial horizon guides and six
+orientation sectors now provide the clearer map grammar from the supplied
+references; OLGO, Giza, 1931, and prime-bridge annotations are not adopted as
+relations. Embedded verification is `80/80 PASS`:
+exact decimal sum, three declared weights, 360-degree view return, source-vertex
+preservation, shared axis/body phase control, three horizon records, and six
+sector records. Browser QA confirms the Dodecahedron, white axis, three rings,
+six sectors, three band ticks, and shared live receipt with zero
+errors. Instrument SHA-256:
+`252eb4537d8692bfb10e113f6d4ecd7e6a41eebcbcff7b7b334d87f9a915481b`.
+This is not a measured spectrum, physical wave model, Platonic-body identity,
+new Source-Graph relation, Study, F-A0 finding, manuscript claim, deployment,
+or publication.
+
+### NLK / L-Shell Book Seam · Raum→Board→Schatten return — 2026-10-31
+
+Engineering result only: the existing `BUCH · OPEN CROSS` scene now renders a
+source-bound two-page fold around the same finite grid. The default demo state
+is `β=93°` with seam ratio `L:R=64:27`; these are separate values. The ratio
+has sum 91 and exact helper lattice `LCM(64,27)=1728`. The source chain keeps
+18 Space records as 18 unique `6×3` Board addresses. Shadow projection has six
+visible positions with three depth sources each and is therefore reversible
+only when the depth record is retained. The source file is hash-bound at
+`2c74266de18fb63296f8338667d3d986d63d5bbd3c86d2e6402876a120ea9de3`.
+Seven added checks bring the instrument to `93/93 PASS`; browser QA confirms
+the preset, β/range animation, `64:27`, `LCM 1728`, shared-state receipt and
+seven-chapter demo entry. Instrument SHA-256:
+`324758883729d11430e4a02105621b5e354c22a8e2da06651dcf4d9fb2a3f053`.
+“Large Zither” is a curatorial view label only. `83+10=93` remains HOLD and is
+not used by the geometry. No new canonical identity, relation, Study, F-A0
+finding, manuscript claim, physical mechanism, deployment or publication.
+
+### THE MACHINA · NLK Live Relation Instrument — 2026-10-31
+
+Engineering/interface result only. The existing `THE MACHINA · Relation
+Chamber` now consumes the NLK instrument through two explicit projections:
+`MAIN_STAGE` at `#mainStageShell` is the default enlarged working view, while
+`TRI_VIEW_3X` at `#triViewDock` remains the parallel Grid/Body/Package
+comparison. Both routes point to the same
+`A0_NLK_LSHELL_DEVELOPMENT_PROBE.html` source; no duplicate instrument or
+state authority was created. THE MACHINA owns only access, view selection,
+lazy loading, reload and typed Return. The NLK source retains its controls,
+receipts and claim boundary. Assembly checks pass `32/32`, the finite Assembly
+module passes `11/11`, and the Machina cockpit suite passes 49 checks. This is
+not a ninth body, fifth GLB cockpit, new canonical identity, graph relation,
+Study, Finding, mechanism claim, deployment or publication.

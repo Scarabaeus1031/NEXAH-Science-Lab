@@ -1,0 +1,372 @@
+{
+  "schema": "nexah.a0.engineering-return/1.0",
+  "return_id": "A0_NLK_LSHELL_FINITE_GRID_OBSERVATORY_RETURN_20261030",
+  "title": "A0 NLK / L-Shell Finite Relational Grid Observatory",
+  "date": "2026-10-30",
+  "status": "SOURCE_BOUND_ENGINEERING_DEMONSTRATOR_PASS_NO_SCIENCE_ADMISSION",
+  "source_state": {
+    "repository": "NEXAH-Science-Lab",
+    "branch": "codex/grid-observatory-mission-control",
+    "base_commit": "bfa09a664deff650b08ce7216d4c3bf9d6a39fad",
+    "working_tree": "DIRTY",
+    "instrument": "A0_BOOK/A0_NLK_LSHELL_DEVELOPMENT_PROBE.html",
+        "instrument_class": "LOCKED_INTERNAL_SOURCE_BOUND_ENGINEERING_INSTRUMENT",
+    "preview": "LOCAL_FILE_OR_LOOPBACK_DIAGNOSTIC_NON_AUTHORITATIVE",
+    "commit_push_deployment_publication": "NONE"
+  },
+  "identity_reuse": [
+    "ART:A0:MATHEMATICAL_JOINTS",
+    "NEXAH:A0_ORIENTATION_EVIDENCE_LINEAGE:V1",
+    "NEXAH_A0_ORIENTATION_CONTROLLER_BENCH",
+    "NN:CRT_QRT_37_CARRIER_LADDER",
+    "DIRECT-ZETA"
+  ],
+  "engineering_findings": [
+    {
+      "id": "EF-NLK-01",
+      "result": "Finite N, K and (kx,ky,kz) shell counts and the declared inverse Return are exact inside the implemented model."
+    },
+    {
+      "id": "EF-NLK-02",
+      "result": "A node keeps its discrete coordinate address through declared camera angle and frame changes; a cut changes the visible subset, not the source address."
+    },
+    {
+      "id": "EF-NLK-03",
+      "result": "The radial Q-degree lens separates local observation state, exact shell value 4r^2, Euclidean radius and bearing; Q-degree is not treated as an angle."
+    },
+    {
+      "id": "EF-NLK-04",
+      "result": "Platonic-body edges, package addresses, wave samples and CRT/QRT rails are separate relation layers over the same finite grid and can be switched without asserting identity."
+    },
+    {
+      "id": "EF-NLK-05",
+      "result": "Renderer sampling and exact combinatorial totals are reported separately; the display is not the evidence count."
+    },
+    {
+      "id": "EF-NLK-06",
+      "result": "DIRECT-ZETA folds twelve declared zeta-zero nodes rigidly from the critical line into a horizontal carrier under w=i(s-1/2); address order and radius are preserved, without asserting the Riemann hypothesis or a zero-free region."
+    }
+  ],
+  "verified_example": {
+    "node": "V:18:20:17",
+    "four_r_squared": 396,
+    "radius": 9.9498743710662,
+    "bearing_degrees": 54.46232220802562,
+    "bearing_radians": 0.9505468408120752,
+    "all_cut": {"observed": 18225, "shell_points": 72},
+    "cross_cut": {"observed": 2001, "shell_points": 23}
+  },
+  "verification": {
+    "embedded_instrument_tests": "93/93 PASS",
+    "navigator_app_audit": "253/253 PASS",
+    "source_graph": "PASS",
+    "crt_qrt_binder": "PASS"
+  },
+  "wave_coupling": {
+    "classification": "REVERSIBLE_DISPLAY_EMBEDDING_ONLY",
+    "default_amplitude_percent": 65,
+    "phase_return": "0_DEGREES_EQUALS_360_DEGREES_WITHIN_1E-12",
+    "zero_amplitude": "IDENTITY",
+    "preserves": [
+      "V:x:y:z source address",
+      "grid neighborhood",
+      "cut membership",
+      "exact combinatorial count",
+      "radial 4r^2"
+    ],
+    "deforms": [
+      "rendered grid nodes",
+      "local tubes",
+      "body-to-grid overlay",
+      "package-to-grid overlay",
+      "CRT/QRT overlay",
+      "radial-shell overlay"
+    ],
+    "driver_overlay": "WX2/WY2 remains a separate sampled view layer"
+  },
+  "full_tesa_breath": {
+    "classification": "SHARED_PHASE_REVERSIBLE_DISPLAY_EMBEDDING_ONLY",
+    "display_grammar": "2 WAVE CHANNELS + 3 BASE20 AXES + 3 DISPLAY LAYERS",
+    "display_layers": ["TESA frame", "base20 rings", "package nodes"],
+    "shared_phase_targets": ["main finite grid", "vigesimal package field"],
+    "phase_return": "0_DEGREES_EQUALS_360_DEGREES_WITHIN_1E-12",
+    "zero_amplitude": "IDENTITY",
+    "preserves": [
+      "decimal package value",
+      "B20:Z:Y:X source address",
+      "package-to-grid quantization",
+      "exact combinatorial counts",
+      "40:39 reference frame ratio"
+    ],
+    "claim_boundary": "2+3+3 is a display grammar, not a number identity, physical breath, resonance or mechanism."
+  },
+  "upper_boundary_layers": {
+    "classification": "SEPARATE_SIMULTANEOUS_VIEW_LAYERS",
+    "layers": ["OUTER_FRAME", "L_EDGE"],
+    "perspective_independent": true,
+    "shared_phase_when_full_tesa_is_active": true,
+    "controls": ["OUTER FRAME", "L EDGE", "SOURCE ISO", "L OBLIQUE", "TESA FRONT"],
+    "verification": [
+      "360_DEGREE_DISPLAY_RETURN",
+      "ZERO_AMPLITUDE_IDENTITY",
+      "DISTINCT_PATHS",
+      "L_EDGE_REMAINS_INSIDE_OUTER_FRAME"
+    ],
+    "preserves": [
+      "source node identity",
+      "discrete grid address",
+      "exact counts",
+      "perspective selection"
+    ],
+    "claim_boundary": "Outer frame and L edge are independent display boundaries sharing only a view phase; they are not new source-graph relations or a topology proof."
+  },
+  "zeta_fold_axis": {
+    "classification": "SOURCE_BOUND_RIGID_COORDINATE_ROTATION_VIEW_ONLY",
+    "source_id": "DIRECT-ZETA",
+    "source_sha256": "131a29d27bca9f87c0cc44f925cafa08016a149342fb3cf198ebaca3e4cbb96d",
+    "operator": "w=i(s-1/2)",
+    "pivot": "s=1/2",
+    "angle_domain_degrees": [0, 90],
+    "coupled_angle_bank_degrees": [7, 33, 35, 35.2643897, 45, 78.16666666666667, 78.2, 90],
+    "coupling": "BIDIRECTIONAL_ZETA_FOLD_AND_GRID_VIEW_ANGLE",
+    "declared_nodes": 12,
+    "preserves": ["source node order", "distance to pivot", "declared zero heights", "DIRECT-ZETA source binding"],
+    "verification": ["TWELVE_DECLARED_NODES", "RIGID_RADIUS_INVARIANT", "NINETY_DEGREE_HORIZONTAL_CARRIER", "FIRST_ZERO_REAL_ENDPOINT", "EXACT_SOURCE_HASH_BOUND", "NINE_TOUR_STATIONS_INCLUDING_ZERO", "EXACT_ANGLE_BANK_REUSE", "TERMINAL_COUPLED_ANGLE_NINETY"],
+    "claim_boundary": "This is a coordinate-change demonstrator, not a Riemann-hypothesis proof, zero-free-region proof, universal mechanism or identity with Q-degree, CRT/QRT, body, grid, package or wave layers."
+  },
+  "zeta_rounding_clock": {
+    "classification": "SOURCE_BOUND_COMPASS_AND_SEPARATE_FILLET_DIAGNOSTIC_WITH_LOCAL_CLOCK_VIEW",
+    "identity_reuse": "DIRECT-ZETA",
+    "source_file": "zeta-winkel-verrundung-174744c7a6f241c8845eb80a8c03969f.html",
+    "source_sha256": "d4b1107c67d3c0d3e9f2a9ec27417ee0c068a6162fd2eb266782a2adec9fe823",
+    "shared_control": "ZETA_ANGLE_0_TO_90_DEGREES",
+    "compass": {
+      "start_degrees": 333,
+      "end_degrees": 63,
+      "wraps_through_zero": true
+    },
+    "fillet_diagnostic": {
+      "radius_micrometres": 65,
+      "tangent_distance": "65*tan(theta/2)",
+      "arc_length": "65*theta_rad",
+      "at_90_degrees": {
+        "tangent_distance_micrometres": 65,
+        "arc_length_micrometres_rounded_3dp": 102.102
+      },
+      "dimensionally_separate_from_zeta_plane": true
+    },
+    "edelweiss_clock": {
+      "classification": "LOCAL_COUNTERPHASE_RADIAL_LISSAJOUS_VIEW_ONLY",
+      "planes": ["PM_PLUS_PHASE", "VM_MINUS_PHASE"],
+      "half_cycles_per_plane": 5.5,
+      "combined_slot_count": 11,
+      "source_derived": false
+    },
+    "preserves": ["DIRECT_ZETA_IDENTITY", "TWELVE_SOURCE_NODES", "SHARED_ANGLE_STATE", "SEPARATE_UNITS"],
+    "verification": ["SOURCE_HASH_BOUND", "333_PLUS_90_WRAP_63", "FILLET_90_TANGENT_65", "FILLET_90_ARC_102_102", "CLOCK_5_5_PLUS_5_5_EQUALS_11", "PM_VM_COUNTERPHASE_PATHS_DISTINCT"],
+    "claim_boundary": "The compass and fillet formulas are source-bound views. The PM/VM Edelweiss clock is a local display construction, not a zeta-zero derivation, physical clock, measured oscillator, new Lissajous identity or canonical graph relation."
+  },
+  "book_seam_room_board_shadow": {
+    "classification": "SOURCE_BOUND_REVERSIBLE_BOOK_FOLD_AND_LOSSY_SHADOW_VIEW",
+    "local_view_id": "BOOK_SEAM_VIEW",
+    "source_file": "NEXAH_Raum_Board_Restklassen_v3.html",
+    "source_sha256": "2c74266de18fb63296f8338667d3d986d63d5bbd3c86d2e6402876a120ea9de3",
+    "default_demo_state": {"beta_degrees": 93, "left_divisions": 64, "right_divisions": 27, "helper_lcm": 1728},
+    "fold_operator": "[u*sin(beta/2), v, abs(u)*cos(beta/2)]",
+    "ratio_options": ["3:2", "2:1", "64:27"],
+    "address_chain": {"space_source_nodes": 18, "board_addresses": "6x3", "shadow_positions": 6, "depth_sources_per_shadow_position": 3},
+    "information_loss": "SHADOW_WITHOUT_DEPTH_RECORD_IS_THREE_TO_ONE",
+    "verification": ["SOURCE_HASH_BOUND", "RATIO_SET_EXACT", "LCM_64_27_EQUALS_1728", "BETA_93_PRESERVES_SOURCE_ADDRESS", "EIGHTEEN_UNIQUE_BOARD_ADDRESSES", "SIX_SHADOW_POSITIONS", "THREE_DEPTH_SOURCES_PER_POSITION"],
+    "claim_boundary": "93 is the fold angle; 64:27 sums to 91 and has helper LCM 1728. Large Zither is a curatorial label only. 83+10=93 remains HOLD and does not drive geometry."
+  },
+  "tri_view_dock": {
+    "classification": "COORDINATED_INTERFACE_PROJECTION_ONLY",
+    "views": ["GRID", "BODY", "PACKAGE"],
+    "module_states": ["CLOSED", "OPEN", "PINNED"],
+    "compare_mode": "THREE_SIMULTANEOUS_LIVE_VIEWS",
+    "focus_mode": "ONE_FULL_WIDTH_VIEW_WITH_BACK_TO_THREE_VIEW_RETURN",
+    "focus_targets": ["GRID", "BODY", "PACKAGE"],
+    "primary_ctas": ["PLAY_DEMO", "PLAY_ROTATION", "BODY_ORBIT", "N_BAND_BREATH", "WAVE", "FULL_TESA_BREATH", "ZETA_FOLD"],
+    "initial_state": "COMPARE_3X_ON__GRID_BODY_PACKAGE_OPEN_SIDE_BY_SIDE",
+    "shared_state_fields": ["selected node", "platonic body vertex", "B20 package address", "display phase", "perspective"],
+    "guided_demo_chapters": ["TRI_VIEW_ORIENTATION", "BOOK_SEAM_LARGE_ZITHER", "BOOK_FOLD_0_TO_180", "CARRIER_AND_SECTION", "BODY_TO_GRID", "BODY_ORBIT", "N_BAND_BODY_BREATH", "ZETA_FOLD_ANGLE_TOUR", "PM_VM_CLOCK", "FRAME_AND_L_EDGE", "WAVE_TO_GRID_COUPLING", "FULL_TESA_BREATH", "PACKAGE_ADDRESS", "CRT_QRT_LADDER", "RADIAL_Q_STATE_SHELL", "COMPARE_AND_RETURN"],
+    "guided_demo_chapter_count": 16,
+    "guided_demo_step_duration_milliseconds": 4200,
+    "verification": ["THREE_MODULES_OPEN_BY_DEFAULT", "UNIQUE_MODULE_IDENTITIES", "THREE_OPEN_CONTROLS", "THREE_PIN_CONTROLS", "THREE_FOCUS_CONTROLS", "FOUR_DEMO_CONTROLS", "SEVEN_PRIMARY_MOTION_CTAS", "SIXTEEN_GUIDED_CHAPTERS", "DEMO_STARTS_AND_RETURNS_TO_THREE_VIEW", "FOCUS_RETURNS_TO_THREE_VIEW_START", "EXIT_RETURNS_TO_THREE_VIEW_START"],
+    "claim_boundary": "The dock coordinates three existing projections and does not merge their identities, relations or evidence authority."
+  },
+  "main_stage": {
+    "classification": "ENLARGED_SYNCHRONIZED_INTERFACE_PROJECTION_ONLY",
+    "position": "ABOVE_DETAILED_CONTROLS_AND_TRI_VIEW_DOCK",
+    "views": ["AUTO_FOLLOW", "GRID", "BODY", "PACKAGE"],
+    "transport_above": ["PLAY_DEMO", "BACK", "NEXT"],
+    "selection_below": ["AUTO_FOLLOW", "GRID", "BODY", "PACKAGE", "EXIT_TO_LAB"],
+    "auto_demo_routing": {"GRID": [1,2,3,4,8,9,10,11,14,15,16], "BODY": [5,6,7], "PACKAGE": [12,13]},
+    "verification": ["MAIN_STAGE_VISIBLE_BEFORE_DENSE_LAB_CONTROLS", "AUTO_BODY_CHAPTER_5_PASS", "AUTO_PACKAGE_CHAPTER_12_PASS", "MANUAL_GRID_BODY_PACKAGE_SELECTION_PASS", "THREE_LIVE_COMPARE_MODULES_RETAINED"],
+    "claim_boundary": "The main stage clones one current live projection for legibility; it does not create a fourth object, merge identities or change evidence authority."
+  },
+  "nlk_iota_typed_bridge_dock": {
+    "classification": "TYPED_VIEW_CONTROL_HANDOFF_BETWEEN_EXISTING_INSTRUMENTS",
+    "roles": {
+      "nlk": "OBSERVATORY_AND_SWITCHBOARD",
+      "iota": "FINITE_SCHEDULE_ENGINE",
+      "io_grid": "Q4_24_BY_24_RELATION_PATCHBAY"
+    },
+    "handoff_fields": ["BASE", "MOD", "CARRIER_23_24_25", "Q4_SOURCE_FACE_0_TO_23", "CLOCK_TICK_0_TO_47", "EULER_DIRECTION_PLUS_OR_MINUS"],
+    "transport": "EXPLICIT_URL_QUERY_AND_RETURN_LINK",
+    "switchword_example": "IOTA:B12|M20|F01|C24|K00|D+",
+    "q4_relation_counts": {"SELF":24,"EDGE":192,"VERTEX":96,"ANTIPODE":24,"PARALLEL":48,"DISJOINT":192},
+    "moving_scan_windows": {
+      "classification": "TICK_COUPLED_8_BY_8_VIEW_WINDOWS_OVER_UNCHANGED_Q4_SOURCE",
+      "sample_window": "G8_SAMPLE_XY_PROJECTED_TO_Q4_VIEW_ORIGIN",
+      "clock_window": "RANK48_ROW_AND_SIGNED_EULER48_COLUMN",
+      "window_size": "8x8",
+      "source_matrix": "24x24_UNCHANGED",
+      "browser_observation": "PLAY48 moved SAMPLE S:1,17 to S:3,15 and CLOCK C:6,2 to C:10,5 while the source contract remained unchanged"
+    },
+    "navigation_integration": {
+      "classification": "DIRECT_DISCOVERABILITY_ROUTES_OVER_EXISTING_INSTRUMENT_IDENTITIES",
+      "a0_entry": "A0_BOOK/index.html#portal",
+      "machina_entry": "A0_BOOK/A0_MACHINA_ANATOMY_MAP.html#mainModules",
+      "shared_menu_entry": "A0_BOOK/A0_IOTA_BRIDGE_DEMONSTRATOR.html#gridBridgeFlagship",
+      "workbench_entries": ["A0_BOOK/A0_IOTA_BRIDGE_DEMONSTRATOR.html#gridBridgeFlagship", "A0_BOOK/A0_IOTA_BRIDGE_DEMONSTRATOR.html#iota23Bridge"],
+      "nlk_shared_header": true,
+      "new_identity": false,
+      "relation_change": false
+    },
+    "preserves": ["EXISTING_NLK_INSTRUMENT_IDENTITY", "EXISTING_IOTA_ENGINE_IDENTITY", "Q4_FACE_SOURCE_ADDRESS", "FINITE_SCHEDULE_RETURN_KEY", "BASE_AND_MOD_AS_SEPARATE_VIEWS"],
+    "verification": ["MODEL_AND_QUERY_ROUND_TRIP_PASS", "Q4_24_BY_24_PATCHBAY_PASS", "NONDEFAULT_BROWSER_HANDOFF_PASS", "IOTA_CONTROL_APPLICATION_PASS", "RETURN_TO_NLK_STATE_RESTORATION_PASS", "MOVING_SCAN_WINDOWS_54_OF_54_PASS", "PLAY48_SAMPLE_AND_CLOCK_WINDOWS_BROWSER_PASS", "Q4_SOURCE_MATRIX_UNCHANGED_PASS"],
+    "artifacts": {
+      "iota_instrument": {"path":"A0_BOOK/A0_IOTA_BRIDGE_DEMONSTRATOR.html","sha256":"e9d45cd58e929a4409435170a77073b55edd76b36e075ad400b75563da4b22b3"},
+      "q4_coupler": {"path":"A0_BOOK/a0-tesseract-face-coupler.js","sha256":"bcc1b983433cd73b3fd696c322d9fbb10cdcfa15c9c7cef9e40e5c2133b80d7b"},
+      "q4_coupler_style": {"path":"A0_BOOK/a0-tesseract-face-coupler.css","sha256":"1f4075e9e31cb450f59a80085a8ef3d055d39380f582965b659fd9a2a83db4a9"},
+      "q4_coupler_tests": {"path":"A0_BOOK/a0-tesseract-face-coupler-tests.cjs","sha256":"49526526de8c27a052ac55883d2b0bf63db7880270bc87ccdc6bd0d9c0e4802a"},
+      "controller": {"path":"A0_BOOK/a0-nlk-iota-bridge-dock.js","sha256":"27b579027f616de53ae0a997e24504f95ef959795394da7a7e109f644177a94e"},
+      "style": {"path":"A0_BOOK/a0-nlk-iota-bridge-dock.css","sha256":"b4e6a9714d74a70721aea77aa38aad65c3d1e22d2990802f0cded3044a21d8eb"},
+      "tests": {"path":"A0_BOOK/a0-nlk-iota-bridge-dock-tests.cjs","sha256":"5bab25379bae206ea0f816ea2707728ab52b2fb604517cb309d7b87e4839adc6"},
+      "a0_entry": {"path":"A0_BOOK/index.html","sha256":"bc0abdecb39a46dfd9b849904aa43b2ecc8a3e6c595cbe068f4081a7ed4d025a"},
+      "shared_navigation": {"path":"A0_BOOK/a0-context-navigation.js","sha256":"b139a193a201955de45eb21522c2599938e64b57e0eb6985c921f57b90bca7a3"},
+      "machina_map": {"path":"A0_BOOK/A0_MACHINA_ANATOMY_MAP.html","sha256":"adec3e93a2d75bb910c1c9e365fddfdb0cd630f2359e514b4d4047e5035f1b10"},
+      "workbench": {"path":"A0_BOOK/A0_WERKBANK.html","sha256":"6bd6be964b08046a576b2e1bcf5aee6769054415df7043dba3b144c78e5bf9b4"},
+      "nlk_instrument": {"path":"A0_BOOK/A0_NLK_LSHELL_DEVELOPMENT_PROBE.html","sha256":"ea64d7a89c6e60f2c160360978ebd366d2c93498488ee348b1cb50e9bf25fead"}
+    },
+    "common_carrier": false,
+    "common_clock": false,
+    "new_identity": false,
+    "relation_change": false,
+    "claim_boundary": "The dock transfers an explicit finite control state and renders existing Q4 relations. It does not merge NLK and IOTA, create a new carrier or master clock, or add a canonical Source Graph relation."
+  },
+  "body_orbit": {
+    "classification": "RIGID_THREE_AXIS_VIEW_ROTATION_WITH_LOCAL_GRID_IMPRINT",
+    "orientation_schedule": "X_PHASE_2X__Y_PHASE_1X__Z_PHASE_3X",
+    "grid_camera_state": "FIXED_WHILE_BODY_ORBIT_RUNS",
+    "source_node_identity": "P:BODY:INDEX_STABLE",
+    "grid_imprint": "V:X:Y:Z_MAY_CHANGE_BY_QUANTIZATION",
+    "trace": "SELECTED_SOURCE_VERTEX_AND_LOCAL_GRID_IMPRINT_VIEW_ONLY",
+    "verification": [
+      "360_DEGREE_RIGID_RETURN_WITHIN_1E-12",
+      "VERTEX_NORM_PRESERVED_WITHIN_1E-12",
+      "VISIBLE_THREE_AXIS_DISPLACEMENT",
+      "P_IDENTITY_STABLE",
+      "V_IMPRINT_CHANGES_FOR_DECLARED_FIXTURE",
+      "FOUR_BODY_ORBIT_CONTROLS"
+    ],
+    "browser_fixture": {
+      "body_node": "P:DOD:0",
+      "grid_angle_degrees": 35,
+      "initial_imprint": "V:2:2:2",
+      "observed_imprint": "V:4:0:2"
+    },
+    "claim_boundary": "Body Orbit is a reversible display transform plus local quantization trace. It is not a physical motion, grid automorphism, canonical body-grid identity or Source Graph relation."
+  },
+  "body_cover": {
+    "classification": "VIEW_ONLY_FACE_CYCLE_AND_V12_SEAM_PROJECTION",
+    "modes": ["NODES", "EDGES", "ARC_SEAMS", "FACE_COVER", "DUAL_SHELL"],
+    "face_cycle_counts": {
+      "TETRAHEDRON": 4,
+      "CUBE": 6,
+      "OCTAHEDRON": 8,
+      "DODECAHEDRON": 12,
+      "ICOSAHEDRON": 20
+    },
+    "v12_brace_families": [
+      {"ratio": "9/8", "multiplicity": 3},
+      {"ratio": "10/9", "multiplicity": 2},
+      {"ratio": "16/15", "multiplicity": 2}
+    ],
+    "dual_shell_inset_scale": 0.76,
+    "preserves": ["P:BODY:INDEX source identity", "source vertex count", "source edge incidence", "computed convex face cycles"],
+    "verification": ["FACE_COUNTS_4_6_8_12_20", "EVERY_FACE_BOUNDARY_FOLLOWS_SOURCE_EDGES", "V12_BRACE_GRAMMAR_3_2_2", "DUAL_SHELL_VERTEX_COUNT_PRESERVED", "FIVE_BODY_COVER_CONTROLS"],
+    "claim_boundary": "Face fills, V12 brace arcs and the inset dual shell are display projections over the existing Platonic source geometry. They do not establish a new body, physical covering, material skin, hinge, topology, graph relation or mechanism."
+  },
+  "body_n_band_coupling": {
+    "classification": "SHARED_PHASE_VIEW_ONLY_BODY_AND_AXIS_DEFORMATION",
+    "scalar_display_weights": [0.429, 0.456, 0.487],
+    "exact_decimal_sum": 1.372,
+    "shared_phase_targets": ["WHITE_BREATHING_AXIS", "DISPLAYED_PLATONIC_BODY"],
+    "radial_view_guides": {"horizons": 3, "orientation_sectors": 6},
+    "body_mapping": "ANISOTROPIC_AXIS_SCALE_OVER_ORIENTED_DISPLAY_VERTICES",
+    "source_geometry": "UNCHANGED",
+    "preserves": ["P:BODY:INDEX source identity", "source vertices", "source edges", "face cycles", "local grid imprint source calculation"],
+    "verification": ["EXACT_DECIMAL_SUM_1_372", "THREE_DECLARED_SCALAR_WEIGHTS", "360_DEGREE_VIEW_RETURN", "SOURCE_VERTEX_PRESERVED", "SHARED_AXIS_AND_BODY_PHASE_CONTROL", "THREE_RADIAL_HORIZON_RECORDS", "SIX_ORIENTATION_SECTOR_GUIDES"],
+    "claim_boundary": "The three values are scalar display weights, not ISO angles, measured spectral bands, a physical wave model or a new canonical body relation."
+  },
+  "machina_consumer": {
+    "curatorial_name": "THE MACHINA · RELATION CHAMBER",
+    "technical_name": "NLK LIVE RELATION INSTRUMENT / TRI-VIEW BRIDGE",
+    "ui_label": "C5 · RELATION",
+    "classification": "SOURCE_BOUND_LIVE_INTERFACE_CONSUMER",
+    "source_instrument": "A0_NLK_LSHELL_DEVELOPMENT_PROBE.html",
+    "default_projection": "MAIN_STAGE",
+    "default_anchor": "mainStageShell",
+    "alternate_projection": "TRI_VIEW_3X",
+    "alternate_anchor": "triViewDock",
+    "stage_first": true,
+    "assembly_route": ["viewer", "cockpit", "parts", "bench", "relation", "return", "viewer"],
+    "lazy_loaded": true,
+    "exact_return": true,
+    "ninth_body": false,
+    "fifth_glb_cockpit": false,
+    "guided_tour_changed": false,
+    "claim_boundary": "The chamber embeds this instrument as an operable consumer. It changes no GLB source, body count, cockpit handoff, tour chapter, canonical identity, graph relation or evidence state."
+  },
+  "claim_holds": [
+    "NO_PHYSICAL_MECHANISM",
+    "NO_UNIVERSAL_QRT_OR_CRT_CLAIM",
+    "NO_MEASURED_WAVE_OR_RESONANCE_CLAIM",
+    "NO_PLATONIC_BODY_TO_MACHINA_IDENTITY",
+    "NO_MATERIAL_FABRICATION_OR_LOAD_CLAIM",
+    "NO_TOPOLOGICAL_PROOF",
+    "NO_RIEMANN_HYPOTHESIS_OR_ZERO_FREE_REGION_PROOF",
+    "NO_HUMAN_UTILITY_RESULT"
+  ],
+  "integration_lock": {
+    "state": "LOCKED_FOR_INTERNAL_DESK_DISCOVERABILITY",
+    "locked_at": "2026-10-31",
+    "instrument_sha256": "ea64d7a89c6e60f2c160360978ebd366d2c93498488ee348b1cb50e9bf25fead",
+    "embedded_test_baseline": "93/93 PASS",
+    "manifest_registration": "A0_BOOK_MANIFEST.surface_registry",
+    "desk_routes": ["SCIENCE_DESK", "BUILDER_LOG", "FINDINGS_TRIAGE", "MISSION_CONTROL", "NAVIGATOR_BINDER"],
+    "authority_boundary": "Internal engineering currentness lock only; no commit, deployment, publication, Study admission, F-A0 promotion, new identity or relation."
+  },
+  "governance_effects": {
+    "new_canonical_ids": [],
+    "relation_changes": [],
+    "study_activation": false,
+    "new_f_a0_finding": false,
+    "manuscript_claim_change": false,
+    "manifest_effect": "REGISTERED_INTERNAL_SOURCE_BOUND_ENGINEERING_SURFACE",
+    "publication_authorized": false,
+    "deployment": "NONE"
+  },
+  "routes": {
+    "instrument": "../A0_NLK_LSHELL_DEVELOPMENT_PROBE.html",
+    "science_desk": "../A0_RESEARCH_DESK.html#nlk-lshell-finite-grid-observatory-return-20261030",
+    "builder_log": "../A0_BUILDER_LOG.html#nlk-lshell-finite-grid-observatory-builder-return-20261030",
+    "workbench": "../A0_WERKBANK.html#nlkLshellFiniteGridObservatory",
+    "mathfield": "../A0_MATHEMATICAL_JOINTS.html#nlk-lshell-finite-grid-observatory",
+    "findings_triage": "../../32_A0_FINDINGS_AND_PAPER_WORKSPACE_2026-10-11.md#nlk-lshell-finite-grid-observatory-return-20261030",
+    "navigator": "../../../../SCIENCE_LAB/NAVIGATION/APP/index.html#a0-orientation-evidence",
+    "machina_relation_chamber": "../A0_MACHINA_COCKPIT.html#relationChamber"
+  }
+}

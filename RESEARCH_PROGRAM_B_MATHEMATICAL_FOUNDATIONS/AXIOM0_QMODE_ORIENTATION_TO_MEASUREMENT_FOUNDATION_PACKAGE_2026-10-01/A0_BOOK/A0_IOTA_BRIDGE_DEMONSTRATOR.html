@@ -4,24 +4,112 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>NEXAH · IOTA Bridge Demonstrator</title>
+  <link rel="stylesheet" href="a0-context-navigation.css?rev=iota-nlk-nav-r1-20261031">
   <link rel="stylesheet" href="a0-bench-navigation.css?rev=module-deck-20261023-r1">
   <link rel="stylesheet" href="a0-bridge-tower-demonstrators.css?rev=20261023-r1">
   <link rel="stylesheet" href="a0-iota-2-3-bridge-probe.css?rev=20261026-seam-drift-r1">
   <link rel="stylesheet" href="a0-folded-axis-lrrl-window.css?rev=20261026-r1">
   <link rel="stylesheet" href="a0-module-window.css?rev=20261026-r1">
+  <link rel="stylesheet" href="a0-tesseract-face-coupler.css?rev=20261031-moving-windows-r1">
+  <link rel="stylesheet" href="a0-bridge-address-acoustic-dock.css?rev=20261030-r1">
+  <link rel="stylesheet" href="a0-nlk-iota-bridge-dock.css?rev=20261031-r1">
 </head>
 <body>
+<header class="top" id="a0-page-top">
+  <a class="brand" href="index.html#portal">NEXAH A0 <span>· IOTA GRID BRIDGE</span></a>
+  <nav aria-label="Lokale IOTA- und NLK-Navigation">
+    <a href="#gridBridgeFlagship">Grid Bridge</a>
+    <a href="A0_NLK_LSHELL_DEVELOPMENT_PROBE.html#nlkIotaDock">NLK Switchboard</a>
+    <a href="A0_MACHINA_ANATOMY_MAP.html#mainModules">8 Hauptmodule</a>
+    <a href="A0_WERKBANK.html#bench-page-top">THE MACHINA</a>
+  </nav>
+</header>
 <nav class="bench-sections bench-category-tabs" id="bench-page-top" aria-label="Werkbank-Bereiche"><a href="A0_WERKBANK.html#bench-page-top">START</a><a href="A0_MACHINA_COCKPIT.html#bench-page-top">WORKBENCH</a><a href="A0_WERKBANK.html?view=flagship-labs#bench-page-top">FLAGSHIP LABS</a><span aria-current="page">DEMONSTRATORS</span><a class="bench-catalog" href="A0_BUILDER_TOY_STORE.html#bench-page-top">TOY STORE</a></nav>
 <nav class="bench-category-items" aria-label="Demonstratoren"><span class="bench-context-label">DEMONSTRATORS</span><a class="domain-tower" href="A0_TOWER_RETURN_DEMONSTRATOR.html">TOWER</a><span class="domain-bridge" aria-current="page">BRIDGE</span></nav>
 <nav class="bench-modes" aria-label="Ansichtsebenen"><a href="A0_BENCH_ENTDECKEN.html">Build-Übersicht</a><span aria-current="page">Demonstrator</span><a href="A0_BENCH_QUELLEN.html">Quellen &amp; Prüfen</a></nav>
-<nav class="bench-quick-access" aria-label="Bridge Schnellzugriff"><a href="#module-entry"><small>01</small><b>Bridge</b><span>Einstieg und Schedule</span><em>ENTRY</em></a><a class="is-demo" href="#iota23Bridge"><small>02</small><b>8 / 12 → 24</b><span>Eigenständige Oberfläche</span><em>DEDICATED</em></a><a class="is-work" data-a0-window data-a0-window-title="Bridge in der Orientation Bench" href="A0_ORIENTATION_CONTROLLER_BENCH.html#iota23Bridge"><small>03</small><b>Bridge in Bench</b><span>Volle Einordnung</span><em>WORK</em></a><a class="is-return" href="A0_RESEARCH_DESK.html#iota-2-3-bridge-return-20261023"><small>04</small><b>Science Desk</b><span>Receipt und Grenze</span><em>RETURN</em></a></nav>
+<nav class="bench-quick-access" aria-label="Bridge Schnellzugriff"><a href="#module-entry"><small>01</small><b>Bridge</b><span>Einstieg und Schedule</span><em>ENTRY</em></a><a class="is-demo" href="#iota23Bridge"><small>02</small><b>8 / 12 → 24</b><span>IOTA Schedule Bridge</span><em>DEDICATED</em></a><a class="is-demo" href="#gridBridgeFlagship"><small>03</small><b>Grid Bridge</b><span>24 → 512 → 4×7 → 48</span><em>FLAGSHIP</em></a><a class="is-demo" href="#bridgeAcousticDock"><small>04</small><b>Address / Lyra</b><span>BASE · MOD · SP · 24 Rail</span><em>DOCK</em></a><a class="is-work" data-a0-window data-a0-window-title="Grid Bridge in der Orientation Bench" href="A0_ORIENTATION_CONTROLLER_BENCH.html#tesseractFaceCoupler"><small>05</small><b>Source Bench</b><span>Exakte Q4-Einordnung</span><em>WORK</em></a><a class="is-return" href="results/a0-tesseract-face-coupler-return-2026-10-30.json"><small>06</small><b>Receipt</b><span>Tests und Claim Boundary</span><em>RETURN</em></a><a class="is-work" href="A0_NLK_LSHELL_DEVELOPMENT_PROBE.html#nlkIotaDock"><small>07</small><b>NLK Switchboard</b><span>BASE · MOD · Carrier · Q4 · Clock</span><em>CONTROL</em></a></nav>
 <main class="demo-shell">
   <nav class="demo-nav" aria-label="Bridge und Tower Demonstratoren"><a aria-current="page" href="A0_IOTA_BRIDGE_DEMONSTRATOR.html">01 · Bridge</a><a href="A0_TOWER_RETURN_DEMONSTRATOR.html">02 · Tower</a><a data-a0-window data-a0-window-title="Bridge / Tower Return Matrix" href="A0_ORIENTATION_CONTROLLER_BENCH.html#iotaTowerReturnMatrix">03 · Return Matrix</a><a href="A0_RESEARCH_DESK.html#iota-2-3-bridge-return-20261023">Science Desk</a></nav>
-  <header class="demo-intro" id="module-entry"><small>DEMONSTRATOR 01 · INDEPENDENT IOTA SCHEDULE</small><h1>Bridge · 8 / 12 → 24</h1><p>Zwei gegenläufige modulare Ansichten laufen um einen festen STILL-Pin. <strong>S-HELL</strong> ist hier das lokale Owner-Mnemonik für diesen gehaltenen Shell-/Still-Punkt. Tick 8 und Tick 12 sind einseitige Returns; erst Tick 24 erzeugt das eigenständige Bridge-Receipt. Tower, q-Adresse und D°G werden auf dieser Seite nicht gelesen.</p></header>
+  <header class="demo-intro" id="module-entry"><small>DEMONSTRATOR 01 · TWO DECLARED BRIDGE CONTRACTS</small><h1>IOTA Bridge · Schedule und Grid Flagship</h1><p>Die Seite hält zwei Bridges getrennt: Der bestehende IOTA-Lauf verbindet die Perioden 8 und 12 bei Tick 24. Das neue Grid Flagship übersetzt einen exakten Q4-Flächenträger über eine deklarierte 512er Projektion in eine 4×7-Wicklung und einen Rank48-Zeitplan. NLK bleibt das vorgelagerte Switchboard für BASE, MOD, Carrier, Q4-Face und Clock; IOTA bleibt die Schedule Engine. Keine der Übersetzungen behauptet Trägeridentität.</p><nav class="tfc-links" aria-label="Bestehende Bridge Quellen und Rückwege"><a href="index.html#portal">A0 Portal ↖</a><a href="A0_MACHINA_ANATOMY_MAP.html#mainModules">THE MACHINA · 8 Hauptmodule ↖</a><a href="A0_NLK_LSHELL_DEVELOPMENT_PROBE.html#nlkIotaDock">NLK Switchboard ↔</a><a data-a0-window data-a0-window-title="IOTA Bridge in der Orientation Bench" href="A0_ORIENTATION_CONTROLLER_BENCH.html#iota23Bridge">IOTA Source Bench ↗</a><a href="A0_TESSAREC_BLUE_BODY_LAB.html">BLUE BODY ↗</a><a href="A0_PINK_DIAMOND_GRID_ATLAS.html">PINK DIAMOND ↗</a></nav></header>
+  <section class="iota-nlk-handoff" data-iota-nlk-handoff hidden aria-label="Incoming NLK typed handoff"><div><small>NLK SWITCHWORD RECEIVED</small><b data-iota-nlk-word>—</b></div><div><small>Q4 ROUTE</small><b data-iota-nlk-route>—</b></div><div><small>RETURN KEY</small><b data-iota-nlk-return-key>—</b></div><a data-iota-nlk-return href="A0_NLK_LSHELL_DEVELOPMENT_PROBE.html#nlkIotaDock">RETURN TO NLK ↩</a></section>
   <section class="iota23-bridge" id="iota23Bridge" data-layer="bridge" data-tick="0" aria-labelledby="iota23Title">
     <header><div><small>2|3 IOTA BRIDGE · STANDALONE VIEW</small><h2 id="iota23Title">Drei Achter, zwei Zwölfer, ein gemeinsamer Return.</h2><p>STEP prüft einzelne Ticks. PLAY stoppt am ersten positiven gemeinsamen Return.</p></div><output id="iota23Status" aria-live="polite">T00 · ORIGIN · BRIDGE</output></header>
     <div class="i23-controls"><button type="button" id="iota23Step">STEP</button><button type="button" class="primary" id="iota23Play" aria-pressed="false">PLAY</button><button type="button" id="iota23Reset">RESET</button><button type="button" data-i23-layer="BRIDGE">BRIDGE</button><button type="button" data-i23-layer="FACTOR">PRIME / POWER</button><button type="button" data-i23-layer="PULSE">11+13 PULSE</button><button type="button" data-i23-layer="SEAM">PINK SEAM / DRIFT</button><a data-a0-window data-a0-window-title="I/O Seam · Blue × Pink Lab" href="A0_BLUE_PINK_DODECA_CELL_RETURN.html?rev=20261026-iota-ring-frame-r2#coupledChannelBoundaryLens">I/O SEAM ↗</a><button type="button" id="iota23Export">EXPORT RECEIPT</button></div>
     <div class="i23-stage"><svg id="iota23BridgeSvg" viewBox="0 0 600 540" role="img" aria-label="Independent IOTA Bridge demonstrator with periods eight and twelve around a fixed STILL pin, locally called S-HELL"></svg><aside><div><small>AM · CLOCKWISE</small><b id="iota23Am">0/8 · ORIGIN</b></div><div><small>PM · COUNTERCLOCKWISE</small><b id="iota23Pm">0/12 · ORIGIN</b></div><div><small>JOINT RETURN</small><b id="iota23Return">ORIGIN</b></div><div><small>VISIBLE LAYER</small><b id="iota23Layer">BRIDGE</b></div><div><small>STILL · OWNER MNEMONIC</small><b>S-HELL</b></div><div><small>ADDRESS · READ ONLY</small><b>0 | 6 | 9</b></div></aside></div>
+  </section>
+  <section id="gridBridgeFlagship" class="tfc" data-tfc data-side="pink" aria-labelledby="gridBridgeTitle">
+    <header class="tfc-head">
+      <div><small>GRID BRIDGE FLAGSHIP · EXISTING MOD:TESSAREC CARRIER</small><h2 id="gridBridgeTitle">Source → Field → Winding → Clock → Return.</h2><p>Ein ausgewähltes Q4-Face bleibt der Source-Anker. Jeder weitere Port ist eine deklarierte, prüfbare Übersetzung mit eigener Verlust- und Gap-Grenze.</p></div>
+      <span class="tfc-badge">BRIDGE · NOT TOWER · 5 TYPED PORTS</span>
+    </header>
+    <div class="tfc-controls" role="group" aria-label="Grid Bridge control layers">
+      <button type="button" data-tfc-mode="23" aria-pressed="false">23 · PUNCTURE</button>
+      <button type="button" data-tfc-mode="24" aria-pressed="true">24 · FULL CARRIER</button>
+      <button type="button" data-tfc-mode="25" aria-pressed="false">25 · + WITNESS</button>
+      <button type="button" data-tfc-flip data-side="PINK">VIEW J · PINK → BLACK</button>
+      <label>SELECTED FACE <input type="range" min="0" max="23" step="1" value="0" data-tfc-face></label>
+    </div>
+    <div class="tfc-view-controls" aria-label="Existing grid view switches">
+      <fieldset><legend>GRID LENS</legend><button type="button" data-tfc-guide="relation" aria-pressed="true">RELATION</button><button type="button" data-tfc-guide="package" aria-pressed="false">3×3 PACKAGES</button><button type="button" data-tfc-guide="corner" aria-pressed="false">4×4 CORNERS</button><button type="button" data-tfc-guide="bands" aria-pressed="false">PINK BANDS</button></fieldset>
+      <fieldset><legend>PROJECTION</legend><button type="button" data-tfc-projection="grid" aria-pressed="true">GRID · 0°</button><button type="button" data-tfc-projection="diamond" aria-pressed="false">KARO · 45°</button></fieldset>
+      <label>CUBE LAYER <output data-tfc-cube-layer-out>0</output><input type="range" min="0" max="7" step="1" value="0" data-tfc-cube-layer></label>
+      <label>VIEWPORT<select data-tfc-viewport><option value="24">24×24 · SOURCE</option><option value="49">49×49 · GHOST</option><option value="100">100×100 · GHOST</option></select></label>
+    </div>
+    <div class="tfc-stage">
+      <div class="tfc-matrix-wrap"><svg data-tfc-matrix viewBox="0 0 430 430" role="img" aria-label="Exact 24 by 24 Q4 square-face relation matrix"></svg></div>
+      <aside class="tfc-console" aria-label="Grid Bridge source ledger">
+        <article><small>SOURCE ADDRESS</small><b data-tfc-address>01 · F:xy|zw=00</b></article>
+        <article><small>SOURCE LAYER</small><b data-tfc-layer>24 / 24 EXACT FACES</b></article>
+        <article><small>RELATION MATRIX</small><b data-tfc-relations>S 24 · E 192 · V 96 · A 24 · P 48 · D 192</b></article>
+        <article><small>RETURN REGISTER</small><b data-tfc-witness>EXTERNAL WITNESS · ABSENT</b></article>
+        <article><small>VIEW CONTRACT</small><b data-tfc-view-contract>24×24 RELATION · SOURCE DATA UNCHANGED</b></article>
+        <div class="tfc-legend" aria-label="Relation legend"><span><i class="s"></i>SELF</span><span><i class="e"></i>EDGE</span><span><i class="v"></i>VERTEX</span><span><i class="a"></i>ANTIPODE</span><span><i class="p"></i>PARALLEL</span><span><i class="d"></i>DISJOINT</span></div>
+      </aside>
+    </div>
+    <section class="tfc-pipeline" aria-labelledby="gridBridgePipelineTitle">
+      <header><div><small>ONE BRIDGE · FIVE DECLARED PORTS</small><h3 id="gridBridgePipelineTitle">Q4 / 24 → G8³ / 512 → Tile 16+1 → Zither 4×7 → Rank48</h3></div><div class="tfc-time-controls"><label>k / 48 <output data-tfc-step-out>00</output><input type="range" min="0" max="47" step="1" value="0" data-tfc-step></label><button type="button" data-tfc-play aria-pressed="false">PLAY 48</button><button type="button" data-tfc-rotate>ROTATE G8³ · 0°</button></div></header>
+      <div class="tfc-pipeline-grid">
+        <article><small>01 · SOURCE / Q4</small><h4>O → split → X</h4><svg data-tfc-antipode viewBox="0 0 320 260" role="img" aria-label="Selected Q4 face, exact antipode, and two bit-flip routes"></svg><dl><div><dt>ORIGIN O</dt><dd data-tfc-origin>O · F:xy|zw=00</dd></div><div><dt>ANTIPODE X</dt><dd data-tfc-target>X · F:xy|zw=11</dd></div><div><dt>SPLIT ROUTES</dt><dd data-tfc-routes>Y 10 · P 01 · A²=id</dd></div></dl></article>
+        <article><small>02 · FIELD / PROJECTION</small><h4>8×8×8 · 512</h4><svg data-tfc-cube viewBox="0 0 300 250" role="img" aria-label="Declared 512-sample host projected to Q4 addresses"></svg><p>32 Samples je Q4-Vertex; 128 treffen das Source-Face. Die Abbildung ist balanciert und nicht injektiv.</p></article>
+        <article class="tfc-transition-panel"><small>03 · ADAPTER / BOUNDARY VIEW</small><h4>16+1 Übergangsfliese</h4><svg data-tfc-transition-tile viewBox="0 0 300 250" role="img" aria-label="Sixteen local address cells and one seam witness"></svg><p>Vier Plates mit je acht Fenstern adressieren die 512 Samples in lokalen 16er-Zellen. <strong>17</strong> bezeugt die Naht; die Fliese ist kein neuer Carrier.</p></article>
+        <article class="tfc-winding-panel"><small>04 · WINDING / TRANSITIONS</small><h4>4×7 Zither · Z28 Coil</h4><div class="tfc-winding-controls" role="group" aria-label="Zither winding layout"><button type="button" data-tfc-winding-mode="ROW_MAJOR" aria-pressed="false">4 PLATES · 7 IN ROW</button><button type="button" data-tfc-winding-mode="INTERLEAVED_4J" aria-pressed="true">4j · QUADRATURE</button></div><svg data-tfc-zither viewBox="0 0 300 240" role="img" aria-label="Four by seven zither winding with row-major and interleaved quadrature layouts"></svg><p><code>sample mod 28</code> liefert den Residuenport. Im 4j-View ist <code>plate=r mod 4</code>; dieselbe Plate erscheint alle vier Residuen, derselbe Residuenport erst nach 28.</p></article>
+        <article><small>05 · CLOCK / SCHEDULE</small><h4>φ · ±Euler · Rank48</h4><div class="tfc-direction-controls" role="group" aria-label="Euler phase direction"><button type="button" data-tfc-euler-direction="1" aria-pressed="true">+ FORWARD</button><button type="button" data-tfc-euler-direction="-1" aria-pressed="false">− RETURN</button></div><svg data-tfc-euler viewBox="0 0 300 240" role="img" aria-label="Finite phi, signed Euler phase and rank 48 schedule"></svg><p><code>k → frac(k/φ) → e±²πiu → rank48 → ±7·rank mod 48</code>.</p></article>
+      </div>
+      <div class="tfc-pipeline-ledger"><span><small>CURRENT SAMPLE</small><b data-tfc-sample-out>G8³ #0 · (0,0,0) · q=0000</b></span><span><small>TRANSITION TILE</small><b data-tfc-tile-out>T16+1 · P0/W0/C01 · BLUE</b></span><span><small>WINDING PORT</small><b data-tfc-zither-out>4×7 #1 · lane +1</b></span><span><small>CLOCK ADDRESS</small><b data-tfc-schedule-out>+Euler · u=0 · 0° · rank 0</b></span></div>
+      <div class="tfc-handoff-ledger" aria-label="Typed transition handoff receipt"><span><small>HANDOFF / RETURN KEY</small><b data-tfc-handoff-out>G8:0|T16:0.0.1|S17:SEAM_NODE|Z28:0|E48:0|D:+</b></span><span><small>LOSS / GAPS / SEAM</small><b data-tfc-loss-out>LOSS 0 · GAPS 0 · SEAM_NODE</b></span><span><small>RECONSTRUCTION</small><b data-tfc-reconstruct-out>PASS · ADDRESS + WEIGHT + RESIDUE + RETURN</b></span></div>
+      <div class="tfc-transition-ledger" aria-label="Winding transition ledger"><span><small>TRANSITION POINTS</small><b data-tfc-transition-out>4j rounds · 0·4·8·12·16·20·24 · seam 27→0</b></span><span><small>10TH PRIME PROBE</small><b data-tfc-prime-out>p10=29 ≡ 1 mod 28 · slot 2 · P1 · family 1·5·9·13·17·21·25</b></span><span><small>TWO CURTAINS</small><b data-tfc-curtain-out>A 0/180 · B 90/270</b></span></div>
+    </section>
+    <section class="tfc-view-bank" aria-labelledby="gridViewBankTitle">
+      <header><div><small>05 · VIEW BANK / LIVING BLUEPRINT SHELF</small><h3 id="gridViewBankTitle">Ein Carrier. Sieben Restklassen-Ansichten.</h3></div><output data-bvr-status>MOD 2 · n=0 → r=0</output></header>
+      <p>Der Bridge-Sample bleibt derselbe. MOD 2, 3, 4, 5, 6, 12 und 20 färben nur seine Restklasse. Die Farbe ist deshalb eine Ansicht — keine neue Identität und kein zusätzlicher Carrier.</p>
+      <div class="tfc-view-bank-flow" aria-label="View-bank contract"><span><small>CARRIER</small><b>0–59 RECORD</b></span><i>→</i><span><small>VIEW</small><b>MOD m</b></span><i>→</i><span><small>BRIDGE SLOT</small><b>n mod m</b></span><i>→</i><span><small>RETURN</small><b>(n,m,r)</b></span></div>
+      <div class="tfc-view-rack" data-bvr-rack aria-label="Seven modular views of one carrier"></div>
+      <div class="tfc-view-bank-ledger"><span><small>SELECTED VIEW</small><b data-bvr-view>MOD 2 · 2 RESIDUES</b></span><span><small>CURRENT BRIDGE SAMPLE</small><b data-bvr-sample>n=0 · r=0</b></span><span><small>INVERSE</small><b>OPEN · VIEW IS NOT IDENTITY</b></span></div>
+      <nav class="tfc-links" aria-label="View bank sources"><a href="A0_LIVING_BLUEPRINT.html#orientation-shelf">Living Blueprint · MOD-Regal ↗</a><a href="A0_LIVING_BLUEPRINT.html#tube">Systemweg · Tube ↗</a><a href="A0_MACHINA_ANATOMY_MAP.html">Körperlage · Anatomy ↗</a></nav>
+    </section>
+    <section class="tfc-address-acoustic-dock" id="bridgeAcousticDock" data-bad-dock aria-labelledby="bridgeAcousticDockTitle">
+      <header><div><small>06 · TYPED ADDRESS ADAPTER / SOURCE-BOUND ACOUSTIC PORT</small><h3 id="bridgeAcousticDockTitle">BASE schreibt. MOD projiziert. SP taktet. Lyra zeigt.</h3><p>Der laufende Bridge-Sample bleibt derselbe Carrier. BASE erzeugt sein Stellenwort, das gewählte MOD-Regal liefert nur die Restklasse, der orange 11-Port markiert eine endliche Displayphase und die Lyra liest dieselbe Zahl auf einem getrennten 24er Tonrail mit Gegenpol.</p></div><span class="bad-badge">ADAPTER · NOT NEW CARRIER</span></header>
+      <div class="bad-controls"><label>ADDRESS BASE<select data-bad-base><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>8</option><option selected>12</option><option>10</option><option>11</option><option>16</option><option>20</option><option>24</option></select></label><span>MOD folgt dem oben gewählten Regal · SP folgt <code>n mod 11</code></span></div>
+      <div class="bad-flow" aria-label="Typed address to acoustic source flow"><span><small>CARRIER</small><b>BRIDGE SAMPLE n</b></span><span><small>ADDRESS LENS</small><b>BASE b · Stellenwort</b></span><span><small>VIEW + PHASE</small><b>MOD m · SP/11</b></span><span><small>SOURCE PORT</small><b>LYRA 24 · POLPAAR</b></span></div>
+      <div class="bad-stage"><svg data-bad-svg viewBox="0 0 834 350" role="img" aria-label="Eleven phase sockets, typed base mod phase triad and a 24 ray Lyra pole pair"></svg><aside class="bad-ledger"><div><small>BASE ADDRESS</small><b data-bad-word>0₁₀ = 0 (BASE 12)</b></div><div><small>MOD VIEW RECEIPT</small><b data-bad-mod>0 mod 2 = 0</b></div><div><small>ORANGE SP CONNECTOR</small><b data-bad-phase>SP 0/11 · display phase only</b></div><div><small>LYRA / TWO POLES</small><b data-bad-rail>rail:00 ↔ 12 · C · +7→G</b></div><div><small>STATUS</small><b data-bad-status>SOURCE-BOUND · MEASURED INPUT OPEN</b></div></aside></div>
+      <p class="bad-boundary"><strong>CLAIM BOUNDARY:</strong> BASE, MOD, SP und Lyra sind vier getrennte Lesarten derselben endlichen Zahl. Der 24er Gegenpol ist eine Adress-Antipode, keine gemessene akustische Gegenphase. <code>SP</code> bleibt ein lokales Owner-Mnemonic; der Dock erzeugt weder einen gemeinsamen Carrier noch einen Resonanz- oder Mechanismus-Claim.</p>
+      <nav class="bad-links" aria-label="Acoustic source port returns"><a href="A0_F_A0_26_REVIEW_PROBE.html?rev=acoustic-source-projection-r1#acousticSourceProjection">Akustische Quellenprüfung · Rail / Fifth / Lyra / 23+1 ↗</a><a href="assets/a0-acoustic-source-projection-manifest-v1.json">Source Manifest ↗</a><a href="results/a0-acoustic-source-projection-return-2026-10-30.json">Projection Receipt ↗</a></nav>
+    </section>
+    <section class="tfc-tower-intake" aria-labelledby="gridTowerIntakeTitle">
+      <header><div><small>VISUAL 04 · OVERALL VIEW / TOWER INTAKE</small><h3 id="gridTowerIntakeTitle">Vier Grids und eine Übergangsfliese docken über fünf Receipts.</h3></div><output data-tfc-tower-out>READY · Q4/24 + G8³/512 + T16+1 + Z28/4j + Z48 · 5 RECEIPTS</output></header>
+      <div class="tfc-grid-dock"><article><small>PORT 01 · SOURCE</small><b>Q4 / 24 Faces</b><span>exakte Inzidenz und Antipode</span></article><i aria-hidden="true">→</i><article><small>PORT 02 · FIELD</small><b>G8³ / 512</b><span>deklarierte, balancierte Projektion</span></article><i aria-hidden="true">→</i><article><small>PORT 03 · ADAPTER</small><b>Tile 16+1</b><span>lokale Adresse plus Inspektionsnaht</span></article><i aria-hidden="true">→</i><article><small>PORT 04 · COIL</small><b>Z28 / 4×7</b><span>Plate-, Curtain- und Seam-Adressen</span></article><i aria-hidden="true">→</i><article><small>PORT 05 · CLOCK</small><b>Z48 / Rank48</b><span>vorwärts/rückwärts typisierte φ/Euler-Zeitadresse</span></article><i aria-hidden="true">→</i><article class="tower"><small>COMPARATOR</small><b>TOWER</b><span>liest Receipts; steuert keine Bridge</span></article></div>
+      <p><strong>TRANSITION RULE:</strong> Ein Winding Point ist ein typisierter Handoff zwischen zwei Adressräumen. Er wird erst dann Tower-fähig, wenn Source, Regel, Ziel, Verlust und Return separat quittiert sind. Die vier Grids werden nicht zu einem gemeinsamen Carrier erklärt.</p>
+    </section>
+    <div class="tfc-steps" aria-label="Grid Bridge contract">
+      <article><small>SOURCE</small><b>EXACT Q4</b><span>24 Flächen, zwölf Antipodenpaare.</span></article>
+      <article><small>RULE 01</small><b>DECLARED</b><span>512 Samples → 16 Q4-Adressen.</span></article>
+      <article><small>RULE 02</small><b>LOSS VISIBLE</b><span>4×7 Wicklung behält leere Ports.</span></article>
+      <article><small>RULE 03</small><b>FINITE</b><span>Rank48 ist ein Zeitplan, kein Generatorgesetz.</span></article>
+      <article><small>RETURN</small><b>RECEIPT</b><span>Source, Regel, Target, Gap und Status bleiben getrennt.</span></article>
+    </div>
+    <p class="tfc-boundary"><strong>BRIDGE BOUNDARY:</strong> Die Source-Identität bleibt <code>MOD:TESSAREC</code>. <code>A</code> ist die geometrische Face-Antipode; <code>J_view</code> kippt nur PINK/BLACK. <code>Tile 16+1</code> ist ein adressierter View-Adapter, kein neuer Carrier. <code>G8³</code>, <code>4×7</code> und Rank48 sind typisierte Views, keine gemeinsamen Träger und kein physikalischer Mechanismus. Ein späterer Tower darf mehrere Bridge-Receipts vergleichen, steuert diese Bridge aber nicht.</p>
+    <nav class="tfc-links" aria-label="Grid Bridge returns"><a href="A0_NLK_LSHELL_DEVELOPMENT_PROBE.html#nlkIotaDock">NLK Switchboard ↔</a><a href="A0_ORIENTATION_CONTROLLER_BENCH.html#tesseractFaceCoupler">Source Bench ↗</a><a href="results/a0-tesseract-face-coupler-return-2026-10-30.json">Exact Receipt ↗</a><a href="A0_TOWER_RETURN_DEMONSTRATOR.html">Tower Comparator ↗</a><a href="../../../SCIENCE_LAB/NAVIGATION/APP/index.html#a0-orientation-evidence">NSNavigator Return ↗</a></nav>
+    <output class="tfc-status" data-tfc-status role="status" aria-live="polite">PASS · 24-LAYER · O→P/Y→X · G8³/512 · ZITHER 1/28 · RANK48 0</output>
   </section>
   <section class="folded-axis-lrrl" id="foldedAxisLrrlWindow" data-mode="FOLD" aria-labelledby="foldedAxisLrrlTitle">
     <header><div><small>FOLDED AXIS · LRRL · BOUNDED ENGINEERING VIEW</small><h2 id="foldedAxisLrrlTitle">White fold, orange outside, purple/pink inside.</h2><p>Vier getrennte Ansichten prüfen die gefaltete Achse, die Owner-Farbfolge <code>L–R–R–L</code>, exakt 99 erzeugte Gates und die weißen Prim-Pins um den roten Mittelpunkt 99.</p></div><output data-falw-status aria-live="polite">FOLD</output></header>
@@ -33,8 +121,18 @@
 </main>
 <script src="a0-iota-2-3-bridge-probe.js?rev=20261026-seam-drift-r1"></script>
 <script src="a0-folded-axis-lrrl-window.js?rev=20261026-r1"></script>
+<script src="a0-tesseract-face-coupler.js?rev=20261031-moving-windows-r1"></script>
+<script src="a0-bridge-view-rack.js?rev=20261030-r1"></script>
+<script src="a0-acoustic-source-projection.js?rev=20261030-source-projection-r1"></script>
+<script src="a0-bridge-address-acoustic-dock.js?rev=20261030-r1"></script>
+<script src="a0-nlk-iota-bridge-dock.js?rev=20261031-r1"></script>
 <script src="a0-module-window.js?rev=20261026-r1"></script>
 <script>window.A0Iota23BridgeController=window.A0Iota23BridgeProbe.mount(document,window);</script>
 <script>window.A0FoldedAxisLrrlController=window.A0FoldedAxisLrrlWindow.mount(document,window);</script>
+<script>window.A0GridBridgeFlagshipController=window.A0TesseractFaceCoupler.mount(document);</script>
+<script>window.A0GridBridgeViewRackController=window.A0BridgeViewRack.mount(document);</script>
+<script>window.A0BridgeAddressAcousticDockController=window.A0BridgeAddressAcousticDock.mount(document);</script>
+<script>window.A0NlkIotaHandoffController=window.A0NlkIotaBridgeDock.mountIota(document,window);</script>
+<script src="a0-context-navigation.js?rev=iota-nlk-nav-r1-20261031"></script>
 </body>
 </html>

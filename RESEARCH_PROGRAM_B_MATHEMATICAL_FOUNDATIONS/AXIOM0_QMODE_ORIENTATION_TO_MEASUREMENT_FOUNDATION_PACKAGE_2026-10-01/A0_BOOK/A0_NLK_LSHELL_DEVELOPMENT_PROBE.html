@@ -1,0 +1,1295 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>A0 · NLK / ℒ-Shell Development Probe</title>
+  <link rel="stylesheet" href="a0-context-navigation.css?rev=grid-bridge-nav-r1-20261031">
+  <style>
+    :root{
+      --ink:#061a23;--panel:#0a2732;--panel2:#0d303c;--line:#285462;
+      --text:#eaf5f7;--muted:#9eb7bf;--cyan:#5be0e8;--pink:#ee62ad;
+      --gold:#ffd05b;--mint:#65e0b7;--orange:#ff955e;--violet:#aa84dc;
+      --bad:#ff7a84;--paper:#f6f1e7;
+    }
+    *{box-sizing:border-box}html{background:var(--ink);color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+    body{margin:0;background:radial-gradient(circle at 50% -10%,#16404b 0,transparent 38rem),var(--ink)}
+    button,input,select{font:inherit}button,select,input[type=number]{color:var(--text);background:#0b222c;border:1px solid var(--line);border-radius:.55rem}
+    button{cursor:pointer;padding:.8rem 1rem;font-weight:800;letter-spacing:.04em}button:hover,button:focus-visible{border-color:var(--cyan);outline:none}button.active{background:var(--cyan);border-color:var(--cyan);color:#05202a}
+    main{max-width:1560px;margin:auto;border-inline:1px solid var(--line);min-height:100vh}
+    .hero{padding:3.2rem clamp(1.2rem,4vw,4rem) 2.4rem;border-bottom:1px solid var(--line);display:grid;grid-template-columns:minmax(0,1.4fr) minmax(18rem,.6fr);gap:2rem;align-items:end}
+    .eyebrow,.label,.mono{font-family:"SFMono-Regular",Consolas,monospace}.eyebrow{color:var(--cyan);font-weight:800;letter-spacing:.14em;text-transform:uppercase;font-size:.78rem}
+    h1,h2,h3{font-family:Georgia,serif;margin:.3rem 0}.hero h1{font-size:clamp(3rem,7vw,7rem);line-height:.88;letter-spacing:-.05em}.hero p{font-size:clamp(1rem,1.5vw,1.32rem);color:#b8cbd0;max-width:72ch;line-height:1.55}
+    .claim{border:1px solid var(--gold);padding:1rem 1.2rem;background:#302a18;color:var(--paper);align-self:stretch}.claim b{color:var(--gold)}
+    .pipe{display:grid;grid-template-columns:repeat(7,minmax(8rem,1fr));gap:.5rem;padding:1rem clamp(1rem,3vw,2.4rem);border-bottom:1px solid var(--line);overflow:auto;background:#06151c}.pipe div{min-width:9rem;border:1px solid var(--line);padding:.8rem}.pipe small{display:block;color:var(--cyan);font-family:monospace}.pipe b{font-size:.95rem}.pipe .arrow{min-width:auto;border:0;display:grid;place-items:center;color:var(--gold)}
+    .controls{display:grid;grid-template-columns:repeat(4,minmax(12rem,1fr));gap:1rem;padding:1.3rem clamp(1rem,3vw,2.4rem);border-bottom:1px solid var(--line);background:#08212b}
+    .control{display:grid;gap:.55rem}.control label{color:var(--muted);font-size:.72rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase}.control input,.control select{width:100%;padding:.75rem}.seg{display:flex;gap:.4rem;flex-wrap:wrap}.seg button{padding:.58rem .7rem;font-family:monospace;font-size:.8rem}
+    .player{display:grid;gap:.7rem;padding:.85rem clamp(1rem,3vw,2.4rem);border-bottom:1px solid var(--line);background:#061820}.player button{padding:.62rem .8rem;font:800 .76rem monospace}.player-primary{display:flex;gap:.55rem;align-items:center;flex-wrap:wrap}.player .group{display:flex;gap:.4rem;align-items:center;padding-right:.75rem;border-right:1px solid var(--line);flex-wrap:wrap}.player .group:last-child{border-right:0}.player small{color:var(--muted);font:700 .68rem monospace;letter-spacing:.08em}.player-intro{color:var(--muted);font:.72rem/1.45 monospace;margin:0}.control-panel{border:1px solid var(--line);background:#071d26}.control-panel>summary{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:.7rem;cursor:pointer;padding:.72rem .85rem;list-style:none;font:800 .76rem monospace;color:var(--text)}.control-panel>summary::-webkit-details-marker{display:none}.control-panel>summary::before{content:'＋';color:var(--cyan);font-size:1rem}.control-panel[open]>summary::before{content:'−'}.control-panel>summary small{justify-self:end;color:var(--cyan);text-align:right}.control-panel[open]>summary{border-bottom:1px solid var(--line);background:#092530}.panel-body{display:flex;gap:.55rem;align-items:center;flex-wrap:wrap;padding:.75rem}.panel-body .group{border-right:1px solid var(--line)}.panel-body .group:last-child{border-right:0}.layer-help{flex-basis:100%;color:var(--muted);font:.7rem/1.4 monospace}.wave-controls[hidden]{display:none}.angle-bank{border:0!important;padding:0!important}.angle-bank button{padding:.5rem .66rem}.angle-bank button.active{background:var(--gold);border-color:var(--gold);color:#241c05}
+    .work{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(22rem,.65fr);min-height:680px;border-bottom:1px solid var(--line)}
+    .stage{padding:1.5rem clamp(1rem,3vw,2.5rem);border-right:1px solid var(--line);position:relative;overflow:hidden;background-image:linear-gradient(#12313b66 1px,transparent 1px),linear-gradient(90deg,#12313b66 1px,transparent 1px);background-size:32px 32px}
+    .stage-head{display:flex;justify-content:space-between;gap:1rem;align-items:flex-start;position:relative;z-index:2}.stage h2{font-size:clamp(2rem,4vw,4rem)}.badge{display:inline-flex;border:1px solid var(--pink);color:var(--pink);border-radius:999px;padding:.45rem .7rem;font:800 .75rem monospace}
+    #machine{width:100%;height:530px;display:block}.axis{stroke:#527a86;stroke-width:1.5}.axis.hot{stroke:var(--gold);stroke-width:3}.core{fill:#173947;stroke:var(--cyan);stroke-width:3}.shell-face{fill:#e6b73955;stroke:var(--gold);stroke-width:2}.shell-edge{fill:#e562a344;stroke:var(--pink);stroke-width:2}.shell-corner{fill:#ff915c;stroke:#fff3d0;stroke-width:2}.removed{fill:#ff6b7355;stroke:var(--bad);stroke-dasharray:7 6;stroke-width:2}.viewonly{fill:#a884dc33;stroke:var(--violet);stroke-dasharray:9 6;stroke-width:3}.upper-outer-frame{fill:#292d4c20;stroke:var(--violet);stroke-width:2;stroke-dasharray:8 6}.upper-l-edge{fill:none;stroke:#c899ff;stroke-width:4;stroke-dasharray:10 7}.upper-boundary-label{font:800 11px monospace;fill:#d9c0ff}.svg-label{font:700 15px monospace;fill:var(--text)}.svg-small{font:700 12px monospace;fill:var(--muted)}
+    .voxel-core{fill:#79909a;stroke:#d7e4e7}.voxel-x{fill:var(--pink);stroke:#ffd6e9}.voxel-y{fill:var(--cyan);stroke:#d9fbff}.voxel-z{fill:var(--gold);stroke:#fff2bc}.voxel-xy{fill:var(--violet);stroke:#eadcff}.voxel-xz{fill:var(--orange);stroke:#ffe0ce}.voxel-yz{fill:var(--mint);stroke:#dbfff3}.voxel-xyz{fill:#fff;stroke:var(--gold)}.voxel-node{cursor:crosshair;pointer-events:all}.voxel-node:hover{stroke:#fff;stroke-width:2}.trace-tube{stroke:var(--cyan);stroke-width:2.2;opacity:.72}.trace-tube.off-cut{stroke:var(--violet);stroke-dasharray:6 5;opacity:.55}.trace-node{fill:#fff;stroke:var(--gold);stroke-width:4}.trace-neighbor{fill:var(--cyan);stroke:#fff;stroke-width:1.5}.body-map-edge{stroke:var(--bad);stroke-width:2.7;opacity:.82}.body-map-edge.off-cut{stroke:var(--pink);stroke-dasharray:7 5;opacity:.38}.body-map-node{fill:var(--bad);stroke:#fff;stroke-width:2.5;cursor:crosshair;pointer-events:all}.body-map-node.off-cut{fill:#51273b;stroke:var(--pink);stroke-dasharray:3 2;opacity:.72}.body-map-node.active{fill:var(--gold);stroke:var(--pink);stroke-width:4}.node-trace{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:.6rem;margin:.3rem 0 1rem}.node-trace div{background:#061820dd;border:1px solid var(--line);padding:.75rem;min-height:4.2rem}.node-trace small{display:block;color:var(--muted);font:700 .64rem monospace;text-transform:uppercase}.node-trace strong{display:block;color:var(--cyan);font:800 .82rem monospace;margin-top:.3rem;overflow-wrap:anywhere}.node-trace .hint{grid-column:1/-1;min-height:auto;color:var(--muted);font:.72rem/1.45 monospace}.node-trace .hint b{color:var(--gold)}
+    .readout{display:grid;grid-template-columns:repeat(4,1fr);gap:.6rem;position:relative;z-index:2}.readout div{background:#061820dd;border:1px solid var(--line);padding:.9rem}.readout small{display:block;color:var(--muted);font:700 .7rem monospace;text-transform:uppercase}.readout strong{display:block;color:var(--gold);font:800 clamp(1rem,2vw,1.45rem) monospace;margin-top:.25rem;overflow-wrap:anywhere}
+    .ledger{background:#071821;padding:1.5rem;display:grid;align-content:start;gap:.85rem}.ledger h2{font-size:2.2rem}.receipt{border:1px solid var(--cyan);padding:1rem;background:#0b2b35}.receipt code{color:var(--cyan);font-size:1.05rem;line-height:1.55;overflow-wrap:anywhere}.formula{border:1px solid var(--line);padding:1rem}.formula strong{display:block;color:var(--gold);font:800 1.15rem monospace}.formula p{color:var(--muted);line-height:1.45;margin:.5rem 0 0}.parts{display:grid;grid-template-columns:repeat(3,1fr);gap:.5rem}.parts div{border:1px solid var(--line);padding:.75rem}.parts small{color:var(--muted);display:block}.parts b{font-family:monospace}.status{padding:.8rem;border-left:4px solid var(--mint);background:#0d302e}.status.warn{border-color:var(--gold);background:#332d18}.status.bad{border-color:var(--bad);background:#351d25}
+    .eight-body{padding:2rem clamp(1rem,3vw,2.5rem);border-bottom:1px solid var(--line);background:#06151c}.eight-body[hidden]{display:none}.eight-head{display:flex;justify-content:space-between;gap:1rem;align-items:end;flex-wrap:wrap;margin-bottom:1rem}.eight-head h2{font-size:clamp(2rem,4vw,3.8rem)}.eight-receipt{color:var(--cyan);font:800 .76rem monospace;border:1px solid var(--line);padding:.7rem;max-width:60rem}.platonic-view{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(19rem,.75fr);border:1px solid var(--line);background:#081f29;margin-bottom:1rem}.platonic-stage{min-height:32rem;position:relative;background:radial-gradient(circle at 50% 45%,#17384a 0,transparent 48%),linear-gradient(#12313b55 1px,transparent 1px),linear-gradient(90deg,#12313b55 1px,transparent 1px);background-size:auto,32px 32px,32px 32px;display:grid;place-items:center;overflow:hidden}.platonic-stage svg{width:100%;height:32rem;display:block}.solid-edge{stroke:var(--gold);stroke-width:3;fill:none}.solid-edge.back{stroke:var(--cyan);stroke-width:2;stroke-dasharray:8 7;opacity:.42}.solid-node{fill:#fff4c9;stroke:var(--pink);stroke-width:2}.solid-axis{stroke:#416a76;stroke-width:1.5;stroke-dasharray:5 7}.platonic-info{padding:1.2rem;display:grid;align-content:start;gap:.75rem;border-left:1px solid var(--line)}.platonic-info h3{font-size:2rem}.platonic-info p{color:var(--muted);line-height:1.5;margin:0}.platonic-info code{color:var(--cyan);overflow-wrap:anywhere}.eight-grid{display:grid;grid-template-columns:repeat(5,minmax(11rem,1fr));gap:.75rem}.body-card{padding:.9rem;text-align:left;overflow:hidden;background:#081f29;border-color:var(--line);letter-spacing:normal;display:grid;gap:.5rem}.body-card:hover,.body-card:focus-visible{transform:translateY(-2px)}.body-card.active{background:#081f29;color:var(--text);border-color:var(--gold);box-shadow:0 0 0 1px var(--gold)}.body-card small{color:var(--cyan);font:700 .62rem monospace}.body-card b{color:var(--gold);font:800 1rem monospace}.body-card span{color:var(--muted);font-size:.75rem;line-height:1.4}.body-card code{color:#d7e4e7;font:700 .62rem monospace}.eight-boundary{color:var(--muted);line-height:1.5;margin:1rem 0 0}.eight-boundary b{color:var(--gold)}
+    .packages{padding:2rem clamp(1rem,3vw,2.5rem);border-bottom:1px solid var(--line);background:#071821}.package-controls{display:flex;gap:.7rem;align-items:center;flex-wrap:wrap;margin:1rem 0}.package-controls label{display:flex;gap:.7rem;align-items:center;color:var(--muted);font:800 .72rem monospace}.package-controls input{min-width:14rem;accent-color:var(--cyan)}.package-layout{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(18rem,.65fr);border:1px solid var(--line);background:#061820}.package-map{min-height:34rem;background-image:linear-gradient(#12313b55 1px,transparent 1px),linear-gradient(90deg,#12313b55 1px,transparent 1px);background-size:32px 32px}.package-map svg{display:block;width:100%;height:34rem}.package-frame{stroke:var(--violet);stroke-width:2;fill:#292d4c88;stroke-dasharray:9 6}.package-cartesian{stroke:#285462;stroke-width:1;fill:none}.package-ring{stroke:var(--violet);stroke-width:1.5;fill:none;opacity:.55}.package-spoke{stroke:var(--cyan);stroke-width:1;fill:none;opacity:.35}.package-layer{stroke:var(--gold);stroke-width:1.4;fill:none;opacity:.34}.package-lframe{fill:none;stroke:var(--violet);stroke-width:3;stroke-dasharray:9 6}.package-guide{fill:#061820;stroke:var(--muted);stroke-width:2}.package-point{stroke:#fff;stroke-width:2.5;cursor:pointer}.package-point.active{stroke:var(--gold);stroke-width:5}.package-label{font:800 13px monospace;fill:var(--text)}.package-detail{padding:1.2rem;border-left:1px solid var(--line);display:grid;align-content:start;gap:.8rem}.package-detail h3{font-size:2.2rem}.package-detail p{color:var(--muted);line-height:1.5;margin:0}.package-detail code{color:var(--cyan);font-size:1rem}.package-table{width:100%;border-collapse:collapse;margin-top:1rem;font:700 .78rem monospace}.package-table th,.package-table td{border-bottom:1px solid var(--line);padding:.7rem;text-align:left}.package-table th{color:var(--cyan)}.package-table button{padding:.45rem .6rem;width:100%;text-align:left}.package-table button.active{background:var(--gold);border-color:var(--gold);color:#241c05}.package-table .pass{color:var(--mint)}.package-table .fail{color:var(--bad)}.package-boundary{color:var(--muted);line-height:1.5;margin:1rem 0 0}.package-boundary b{color:var(--gold)}
+    .tests{padding:2rem clamp(1rem,3vw,2.5rem)}.tests h2{font-size:clamp(2rem,4vw,3.4rem)}.test-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(16rem,1fr));gap:.75rem}.test{border:1px solid var(--line);padding:1rem;background:#0a232d}.test header{display:flex;justify-content:space-between;gap:.5rem}.test .pass,.nxit .pass{color:var(--mint);font-weight:800}.test .fail,.nxit .fail{color:var(--bad);font-weight:800}.test code{display:block;color:var(--gold);margin-top:.7rem}.angle-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));gap:.75rem;margin:1rem 0 2rem}.angle-card{border:1px solid var(--line);padding:1rem;background:#081d26}.angle-card h3{color:var(--gold);font:800 1.08rem monospace}.angle-card p{color:var(--muted);line-height:1.42;margin:.55rem 0 0}.angle-card.axis{border-color:var(--mint)}.angle-card.axis h3{color:var(--mint)}.nxit{margin:1rem 0 2rem;border:1px solid var(--violet);background:linear-gradient(135deg,#161a31,#0a2732);padding:clamp(1rem,3vw,1.6rem)}.nxit-head{display:flex;justify-content:space-between;align-items:start;gap:1rem;flex-wrap:wrap}.nxit h3{font-size:clamp(1.6rem,3vw,2.7rem)}.nxit .route{display:grid;grid-template-columns:repeat(7,minmax(5rem,1fr));align-items:stretch;gap:.5rem;margin:1rem 0;overflow:auto}.nxit .node{border:1px solid var(--line);padding:.8rem;min-width:8rem}.nxit .node small{display:block;color:var(--muted);font:700 .65rem monospace}.nxit .node b{color:var(--gold);font:800 1rem monospace}.nxit .join{display:grid;place-items:center;color:var(--cyan);font:800 1rem monospace}.nxit-table{width:100%;border-collapse:collapse;font:700 .76rem monospace}.nxit-table th,.nxit-table td{border:1px solid var(--line);padding:.65rem;text-align:left;vertical-align:top}.nxit-table th{color:var(--cyan)}.nxit-boundary{color:var(--muted);line-height:1.5;margin:.8rem 0 0}.markers{display:grid;grid-template-columns:repeat(3,1fr);gap:.75rem;margin-top:1rem}.markers div{border:1px solid var(--line);padding:1rem}.boundary{padding:1.5rem clamp(1rem,3vw,2.5rem);border-top:1px solid var(--line);color:var(--muted);font-size:.9rem;line-height:1.55}.boundary b{color:var(--gold)}
+    @media(max-width:980px){.hero,.work,.platonic-view,.package-layout{grid-template-columns:1fr}.controls{grid-template-columns:repeat(2,1fr)}.stage{border-right:0;border-bottom:1px solid var(--line)}.platonic-info,.package-detail{border-left:0;border-top:1px solid var(--line)}.markers{grid-template-columns:1fr}.readout,.node-trace{grid-template-columns:repeat(2,1fr)}.eight-grid{grid-template-columns:repeat(2,minmax(12rem,1fr))}}
+    @media(max-width:620px){.controls{grid-template-columns:1fr}.hero{padding-top:2rem}.pipe{grid-template-columns:repeat(7,8rem)}#machine{height:400px}.parts{grid-template-columns:1fr}.nxit .route{grid-template-columns:repeat(7,7rem)}.eight-grid{grid-template-columns:1fr}.control-panel>summary{grid-template-columns:auto 1fr}.control-panel>summary small{grid-column:2;justify-self:start}.player-primary{align-items:stretch}.player-primary .group{width:100%;border-right:0;padding-right:0}.scene-group select{flex:1;min-width:0}}
+    .solid-node{cursor:crosshair}.solid-node:hover,.solid-node.active{fill:var(--gold);stroke:#fff;stroke-width:4}.package-grid-axis{fill:none;stroke:var(--gold);stroke-width:3;stroke-dasharray:8 6;opacity:.72}.package-grid-axis.y{stroke:var(--cyan)}.package-grid-axis.z{stroke:var(--violet)}.package-grid-guide{fill:none;stroke:var(--muted);stroke-width:1.8;stroke-dasharray:4 5;opacity:.65}.package-grid-node{stroke:#fff;stroke-width:2.5;cursor:crosshair;pointer-events:all}.package-grid-node.off-cut{opacity:.38;stroke-dasharray:3 2}.package-grid-node.active{stroke:var(--gold);stroke-width:5}.package-grid-pivot{fill:var(--ink);stroke:var(--pink);stroke-width:3}.scene-group select{padding:.55rem .7rem;min-width:14rem;font:800 .76rem monospace}.wave-path{fill:none;stroke:var(--cyan);stroke-width:3;opacity:.88}.wave-path.counter{stroke:var(--gold)}.wave-sample{fill:var(--cyan);stroke:#fff;stroke-width:1.5}.wave-sample.counter{fill:var(--gold)}.wave-crossing{fill:var(--pink);stroke:#fff;stroke-width:3}.wave-range{width:8rem;accent-color:var(--pink)}.qrt-ladder{fill:none;stroke:var(--violet);stroke-width:3.5;stroke-dasharray:8 5}.qrt-node{fill:var(--violet);stroke:#fff;stroke-width:2.5}.crt-fingerprint{fill:none;stroke:var(--pink);stroke-width:3}.crt-fingerprint.second{stroke:var(--cyan)}.crt-node{fill:var(--pink);stroke:#fff;stroke-width:2}.crt-node.second{fill:var(--cyan)}.radial-vector{stroke:var(--gold);stroke-width:3;stroke-dasharray:7 5}.radial-pivot{fill:var(--ink);stroke:var(--gold);stroke-width:3}.radial-shell-node{fill:none;stroke:var(--mint);stroke-width:2.2;opacity:.9}.radial-shell-node.selected{stroke:var(--gold);stroke-width:4}.q-observation-label{font:800 11px monospace;fill:var(--mint)}.zeta-source-axis{stroke:var(--muted);stroke-width:2;stroke-dasharray:6 6;opacity:.5}.zeta-target-axis{stroke:var(--gold);stroke-width:2;stroke-dasharray:8 6;opacity:.6}.zeta-fold-axis{stroke:var(--orange);stroke-width:4}.zeta-fold-node{fill:var(--pink);stroke:#fff;stroke-width:2}.zeta-fold-pivot{fill:var(--ink);stroke:var(--gold);stroke-width:4}.zeta-fold-label{font:800 11px monospace;fill:var(--gold)}.zeta-controls[hidden]{display:none}.zeta-range{width:8rem;accent-color:var(--orange)}.zeta-clock-guide{fill:none;stroke:var(--line);stroke-width:1}.zeta-clock-axis{stroke:var(--muted);stroke-width:1;stroke-dasharray:3 4}.zeta-clock-pm{fill:none;stroke:var(--pink);stroke-width:2.4}.zeta-clock-vm{fill:none;stroke:var(--cyan);stroke-width:2.4}.zeta-clock-hand{stroke:var(--gold);stroke-width:3}.zeta-clock-fillet{fill:none;stroke:var(--orange);stroke-width:3}.zeta-clock-text{font:800 9px monospace;fill:var(--text)}.zeta-clock-note{font:700 8px monospace;fill:var(--muted)}
+    .tri-console{padding:1rem clamp(1rem,3vw,2.4rem);border-block:1px solid var(--line);background:linear-gradient(90deg,#0c2934,#121d32);display:grid;gap:.75rem}.tri-console-head{display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap}.tri-console h2{font:800 1.15rem monospace;margin:0;color:var(--cyan)}.tri-actions,.tri-view-actions{display:flex;gap:.45rem;align-items:center;flex-wrap:wrap}.tri-console button{padding:.55rem .7rem;font:800 .7rem monospace}.cta-primary,.cta-motion,.cta-focus{border-width:2px!important;letter-spacing:.035em;transition:transform .16s ease,box-shadow .16s ease,filter .16s ease}.cta-primary{padding:.78rem 1.05rem!important;background:linear-gradient(135deg,var(--gold),var(--orange))!important;border-color:#ffe49a!important;color:#171407!important;font-size:.82rem!important;box-shadow:0 0 0 3px #ffd15c18,0 8px 22px #0007}.cta-motion{background:linear-gradient(135deg,#5be0e8,#6df0c2)!important;border-color:#b8fff0!important;color:#052027!important;box-shadow:0 0 0 2px #66e1e919}.cta-primary:hover,.cta-motion:hover,.cta-focus:hover{transform:translateY(-1px);filter:brightness(1.08)}.cta-primary.active,.cta-motion.active{background:linear-gradient(135deg,var(--pink),var(--gold))!important;border-color:#fff0b0!important;color:#171407!important}.tri-view-actions{padding-top:.7rem;border-top:1px solid var(--line)}.tri-view-actions small{color:var(--muted);font:800 .66rem monospace}.tri-shared-state{padding:.72rem;border:1px solid var(--line);background:#061820;color:var(--cyan);font:800 .72rem/1.45 monospace;overflow-wrap:anywhere}.tri-demo-copy{display:grid;grid-template-columns:auto 1fr;gap:.7rem;align-items:start;color:var(--muted);font:.75rem/1.45 monospace}.tri-demo-copy b{color:var(--gold);font-family:monospace}.tri-view-dock{display:block}.tri-module{border-bottom:1px solid var(--line);background:#061820}.tri-module>summary{display:grid;grid-template-columns:auto 1fr auto;gap:.75rem;align-items:center;cursor:pointer;list-style:none;padding:.85rem clamp(1rem,3vw,2.4rem);background:#09232d;font:800 .78rem monospace}.tri-module>summary::-webkit-details-marker{display:none}.tri-module>summary::before{content:'＋';color:var(--cyan);font-size:1rem}.tri-module[open]>summary::before{content:'−'}.tri-module[data-pinned="true"]>summary{box-shadow:inset 4px 0 var(--gold)}.tri-module>summary small{color:var(--muted);justify-self:end}.tri-module:not([open])>summary small{color:var(--cyan)}.tri-focus-bar{display:flex;justify-content:flex-end;padding:.55rem .7rem 0}.cta-focus{background:#102f3b;border-color:var(--cyan);color:var(--cyan);padding:.58rem .8rem;font:900 .7rem monospace}.tri-view-dock.focused{display:block;padding:.65rem;background:#04131a}.tri-view-dock.focused .tri-module[data-focused="false"]{display:none}.tri-view-dock.focused .tri-module[data-focused="true"]{border:1px solid var(--cyan);box-shadow:0 0 0 3px #66e1e912,0 18px 44px #0008}.tri-view-dock.focused .cta-focus{background:var(--gold);border-color:#ffe49a;color:#171407}.tri-view-dock.compare{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.65rem;padding:.65rem;background:#04131a}.tri-view-dock.compare .tri-module{border:1px solid var(--line);min-width:0}.tri-view-dock.compare .tri-module>summary{padding:.65rem}.tri-view-dock.compare .work,.tri-view-dock.compare .platonic-view,.tri-view-dock.compare .package-layout{grid-template-columns:1fr;min-height:0}.tri-view-dock.compare .stage,.tri-view-dock.compare .eight-body,.tri-view-dock.compare .packages{padding:.75rem;border:0}.tri-view-dock.compare .ledger,.tri-view-dock.compare .node-trace,.tri-view-dock.compare .readout,.tri-view-dock.compare .platonic-info,.tri-view-dock.compare .eight-grid,.tri-view-dock.compare .eight-boundary,.tri-view-dock.compare .package-controls,.tri-view-dock.compare .package-detail,.tri-view-dock.compare .package-table,.tri-view-dock.compare .package-boundary{display:none}.tri-view-dock.compare .stage-head h2,.tri-view-dock.compare .eight-head h2{font-size:1.25rem}.tri-view-dock.compare #machine,.tri-view-dock.compare .platonic-stage svg,.tri-view-dock.compare .package-map svg{height:24rem}.tri-view-dock.compare .platonic-stage,.tri-view-dock.compare .package-map{min-height:24rem}.tri-view-dock.compare .eight-head{margin-bottom:.5rem}.tri-view-dock.compare .eight-receipt{font-size:.6rem;padding:.45rem}.tri-view-dock.compare .package-label{font-size:10px}
+    .solid-trail{fill:none;stroke:var(--pink);stroke-width:2.4;stroke-dasharray:5 6;opacity:.72}.solid-trail-node{fill:var(--pink);opacity:.42}.body-map-trail{fill:none;stroke:var(--cyan);stroke-width:3;stroke-dasharray:5 6;opacity:.82}.body-orbit-controls,.body-cover-controls{display:flex;gap:.55rem;align-items:center;flex-wrap:wrap;margin:0 0 1rem}.body-orbit-controls button,.body-cover-controls button{padding:.58rem .72rem;font:800 .72rem monospace}.body-orbit-controls small,.body-cover-controls small{color:var(--cyan);font:800 .7rem/1.4 monospace}.body-band-axis-shadow{fill:none;stroke:#061820;stroke-width:9;opacity:.8}.body-band-axis{fill:none;stroke:#fff;stroke-width:4;filter:drop-shadow(0 0 6px #fff8)}.body-band-pivot{fill:var(--gold);stroke:#fff;stroke-width:2.5}.body-band-ring{fill:none;stroke-width:2;opacity:.38}.body-band-ring.band-1{stroke:var(--orange)}.body-band-ring.band-2{stroke:var(--cyan)}.body-band-ring.band-3{stroke:#78bfff}.body-band-sector{stroke:var(--violet);stroke-width:1.2;stroke-dasharray:5 7;opacity:.28}.body-band-tick{stroke-width:2;stroke-dasharray:6 6;opacity:.72}.body-band-tick.band-1{stroke:var(--orange)}.body-band-tick.band-2{stroke:var(--cyan)}.body-band-tick.band-3{stroke:#78bfff}.body-band-label{font:800 11px monospace;fill:#fff}.solid-cover-face{stroke:var(--gold);stroke-width:1.5;fill:#ffd15c26}.solid-cover-face.family-1{fill:#ff915c26;stroke:var(--orange)}.solid-cover-face.family-2{fill:#66e1e926;stroke:var(--cyan)}.solid-inner-face{fill:#a884dc18;stroke:var(--violet);stroke-width:1.4;stroke-dasharray:6 5}.solid-shell-link{stroke:var(--mint);stroke-width:1.3;stroke-dasharray:4 5;opacity:.58}.solid-arc{fill:none;stroke-width:4;opacity:.94}.solid-arc.family-0{stroke:var(--orange)}.solid-arc.family-1{stroke:var(--gold)}.solid-arc.family-2{stroke:var(--cyan)}.solid-cover-arcs .solid-edge{opacity:.14;stroke-width:1.4}.solid-cover-nodes .solid-node{fill:var(--cyan)}
+    @media(max-width:620px){.tri-view-dock.compare{grid-template-columns:1fr}.tri-view-dock.compare #machine,.tri-view-dock.compare .platonic-stage svg,.tri-view-dock.compare .package-map svg{height:28rem}.tri-view-dock.compare .platonic-stage,.tri-view-dock.compare .package-map{min-height:28rem}}
+    .book-controls[hidden]{display:none}.book-range{width:9rem;accent-color:var(--mint)}.book-seam{stroke:var(--mint);stroke-width:4}.book-page-left{fill:rgba(91,224,232,.055);stroke:var(--cyan);stroke-width:2}.book-page-right{fill:rgba(255,158,84,.055);stroke:var(--orange);stroke-width:2}.book-rule-left{stroke:var(--cyan);stroke-width:1.15;opacity:.58}.book-rule-right{stroke:var(--orange);stroke-width:1.15;opacity:.58}.book-helper{stroke:var(--mint);stroke-width:1;stroke-dasharray:3 4;opacity:.42}.book-source-node{fill:var(--cyan);stroke:#fff;stroke-width:1.5}.book-source-node.right{fill:var(--orange)}.book-label{font:800 10px monospace;fill:var(--mint)}
+    .main-stage-shell{padding:1rem clamp(1rem,3vw,2.4rem) 1.35rem;border-bottom:1px solid var(--line);background:linear-gradient(180deg,#0b2935,#061820)}.main-stage-head{display:flex;align-items:end;justify-content:space-between;gap:1rem;flex-wrap:wrap;margin-bottom:.8rem}.main-stage-head h2{font-size:clamp(1.8rem,3vw,3.2rem);margin:0}.main-stage-head p{margin:.25rem 0 0;color:var(--muted);font:.72rem/1.45 monospace}.main-stage-toolbar{display:flex;gap:.5rem;align-items:center;flex-wrap:wrap}.main-stage-toolbar.top{margin-bottom:.8rem}.main-stage-toolbar.bottom{margin-top:.8rem;justify-content:space-between}.main-stage-toolbar button{padding:.65rem .85rem;font:800 .72rem monospace}.main-stage-toolbar .stage-selectors{display:flex;gap:.45rem;align-items:center;flex-wrap:wrap}.main-stage-canvas{position:relative;border:1px solid var(--cyan);background:radial-gradient(circle at 50% 45%,#153947 0,transparent 52%),linear-gradient(#12313b66 1px,transparent 1px),linear-gradient(90deg,#12313b66 1px,transparent 1px),#06151c;background-size:auto,32px 32px,32px 32px;overflow:hidden;min-height:min(58vw,40rem)}#mainStageSvg{width:100%;height:min(58vw,40rem);min-height:30rem;display:block}.main-stage-label{position:absolute;top:.8rem;right:.8rem;border:1px solid var(--pink);border-radius:999px;padding:.45rem .7rem;background:#061820dd;color:var(--pink);font:800 .7rem monospace;z-index:2}.main-stage-note{color:var(--cyan);font:800 .7rem monospace}.main-stage-shell[data-view="body"] .main-stage-label{border-color:var(--gold);color:var(--gold)}.main-stage-shell[data-view="package"] .main-stage-label{border-color:var(--violet);color:var(--violet)}
+    @media(max-width:620px){#mainStageSvg{height:30rem;min-height:30rem}.main-stage-canvas{min-height:30rem}.main-stage-toolbar.bottom{align-items:flex-start;flex-direction:column}}
+  </style>
+  <link rel="stylesheet" href="a0-nlk-iota-bridge-dock.css?rev=20261031-r1">
+</head>
+<body>
+<header class="top" id="bench-page-top">
+  <a class="brand" href="index.html#portal">NEXAH A0 <span>· NLK / ℒ-SHELL</span></a>
+  <nav aria-label="Lokale NLK-Navigation">
+    <a href="#mainStageShell">Instrument</a>
+    <a href="#nlkIotaDock">IOTA Dock</a>
+    <a href="A0_MACHINA_ANATOMY_MAP.html#mainModules">8 Hauptmodule</a>
+    <a href="A0_WERKBANK.html#bench-page-top">THE MACHINA</a>
+  </nav>
+</header>
+<main>
+  <header class="hero">
+    <div>
+      <div class="eyebrow">A0 · bounded development instrument · NLK / ℒ-Shell</div>
+      <h1>N setzt den Körper.<br>ℒ schaltet die Sicht.<br>K bewegt die Schicht.</h1>
+      <p>Ein isolierter Rechner für Würfelträger, Orientierungswechsel und diskrete Hüllen. Erst wenn Adresse, Zerlegung und Rückkehr stimmen, darf diese Probe an Bridge oder Navigator andocken.</p>
+    </div>
+    <aside class="claim"><b>ENTWICKLUNGSGRENZE</b><br>Arithmetischer Engineering-Demonstrator. Keine neue Navigator-Identität, kein physikalischer Mechanismus, keine Live-Quelle und noch keine Bridge-Relation.</aside>
+  </header>
+
+  <section class="pipe" aria-label="NLK operator chain">
+    <div><small>01 · NATIVE</small><b>N<sup>3</sup> · Carrier</b></div><div class="arrow">→</div>
+    <div><small>02 · LENS</small><b>ℒ · Orientierung</b></div><div class="arrow">→</div>
+    <div><small>03 · LAYER</small><b>K⃗ · ±Schichten</b></div><div class="arrow">→</div>
+    <div><small>04 · RECEIPT</small><b>LSH · Return</b></div>
+  </section>
+
+  <section class="main-stage-shell" id="mainStageShell" data-view="grid" aria-label="Live main visual stage">
+    <div class="main-stage-head"><div><div class="eyebrow">Live Hauptfenster · synchronisierte Projektion</div><h2 id="mainStageTitle">Grid View</h2><p>Eine vergrößerte Ansicht desselben Zustands; darunter bleiben Grid, Körper und Package parallel prüfbar.</p></div><span class="main-stage-note" id="mainStageNote">AUTO · GRID</span></div>
+    <div class="main-stage-toolbar top" aria-label="Demo transport above main stage"><button id="demoPlay" class="cta-primary">▶ PLAY DEMO · 16 STEPS</button><button id="demoBack">← BACK</button><button id="demoNext">NEXT →</button></div>
+    <div class="main-stage-canvas"><span class="main-stage-label" id="mainStageStatus">LIVE · GRID</span><svg id="mainStageSvg" viewBox="0 0 900 540" role="img" aria-label="Enlarged synchronized NLK view"></svg></div>
+    <div class="main-stage-toolbar bottom"><div class="stage-selectors" id="mainStageControls"><small class="mono">HAUPTFENSTER</small><button data-main-stage="auto" class="active" aria-pressed="true">AUTO FOLLOW</button><button data-main-stage="grid">GRID</button><button data-main-stage="body">BODY</button><button data-main-stage="package">PACKAGE</button></div><button id="demoExit">EXIT TO LAB</button></div>
+  </section>
+
+  <details class="nid" id="nlkIotaDock" data-nlk-iota-dock open>
+    <summary>NLK ↔ IOTA · TYPED BRIDGE DOCK / 24×24 I/O PATCHBAY</summary>
+    <div class="nid-shell">
+      <header class="nid-head"><div><div class="eyebrow">SWITCHBOARD → SCHEDULE ENGINE → RETURN</div><h2>Ein Zustand. Zwei Instrumente. Ein quittierter Übergang.</h2><p>NLK wählt BASE, MOD, Carrier, Q4-Face und endlichen Clock-Tick. IOTA übernimmt diese Werte in seine vorhandenen Regler. Das Raster zeigt die exakte Q4-Flächenrelation; es erzeugt weder einen gemeinsamen Carrier noch eine gemeinsame Master-Uhr.</p></div><span class="nid-badge">VIEW / CONTROL HANDOFF</span></header>
+      <div class="nid-controls">
+        <label>IOTA BASE<select data-nid-base><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>8</option><option>10</option><option>11</option><option selected>12</option><option>16</option><option>20</option><option>24</option></select></label>
+        <label>IOTA MOD<select data-nid-mod><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>12</option><option selected>20</option></select></label>
+        <label>CARRIER<select data-nid-carrier><option>23</option><option selected>24</option><option>25</option></select></label>
+        <label>SOURCE FACE · <output data-nid-face-out>01</output><input type="range" min="0" max="23" step="1" value="0" data-nid-face></label>
+        <label>CLOCK · <output data-nid-tick-out>00</output>/48<input type="range" min="0" max="47" step="1" value="0" data-nid-tick></label>
+        <div class="nid-direction"><button type="button" data-nid-dir="1" aria-pressed="true">+ FORWARD</button><button type="button" data-nid-dir="-1" aria-pressed="false">− RETURN</button></div>
+      </div>
+      <div class="nid-grid">
+        <div class="nid-matrix-wrap"><svg class="nid-matrix" data-nid-matrix viewBox="0 0 430 430" role="img" aria-label="24 by 24 Q4 input output patchbay"></svg></div>
+        <div class="nid-ledger">
+          <article class="wide"><small>SWITCHWORD</small><b data-nid-switchword>IOTA:B12|M20|F01|C24|K00|D+</b></article>
+          <article><small>INPUT / SOURCE</small><b data-nid-source>01 · F:xy|zw=00</b></article><article><small>OUTPUT / CLOCK ADDRESS</small><b data-nid-target>01 · F:xy|zw=00</b></article>
+          <article><small>Q4 RELATION</small><b data-nid-relation>S · SELF</b></article><article><small>BASE · MOD · SP</small><b data-nid-address>0 (BASE 12) · r0/MOD 20 · SP 0/11</b></article>
+          <article class="wide"><small>IOTA RETURN KEY</small><b data-nid-return>—</b></article><article class="wide"><small>RECONSTRUCTION</small><b data-nid-reconstruct>PASS</b></article>
+          <div class="nid-actions wide"><a class="nid-open" data-nid-open-iota href="A0_IOTA_BRIDGE_DEMONSTRATOR.html#gridBridgeFlagship">APPLY TO IOTA ENGINE ↗</a><button type="button" data-nid-reset>RESET DOCK</button></div>
+        </div>
+      </div>
+      <p class="nid-boundary"><strong>BOUNDARY:</strong> NLK bleibt Observatory/Switchboard. IOTA bleibt die endliche Schedule Engine. Das 24×24-Feld ist ein Patchbay aus vorhandenen Q4-Relationen — kein neuer Körper, keine neue kanonische Identität und keine neue Source-Graph-Relation.</p>
+    </div>
+  </details>
+
+  <section class="controls" aria-label="Probe controls">
+    <div class="control"><label for="n">N · Kernkante</label><input id="n" type="number" min="2" max="64" value="8"></div>
+    <div class="control"><label for="lens">ℒ · Schaltstelle / Orientierung</label><select id="lens">
+      <option value="I">ℒ:I · Identität</option><option value="XY">ℒ:P · X↔Y</option><option value="XZ">ℒ:P · X↔Z</option><option value="M">ℒ:M · Spiegel X</option><option value="R90">ℒ:R90 · XY +90°</option><option value="R45">ℒ:R45 · +45° VIEW ONLY</option>
+    </select></div>
+    <div class="control"><label>Domain</label><div class="seg" id="modeButtons"><button data-mode="witness">N³+1</button><button data-mode="one">LSH 3+1</button><button data-mode="centered">6-face</button><button data-mode="asym" class="active">K⃗ XYZ</button></div></div>
+    <div class="control"><label>Richtung</label><div class="seg" id="dirButtons"><button data-dir="out" class="active">+K OUT</button><button data-dir="return">−K RETURN</button></div></div>
+    <div class="control k-one"><label for="k">K · Schichtstärke</label><input id="k" type="number" min="1" max="32" value="1"></div>
+    <div class="control k-vec" hidden><label for="kx">Kx</label><input id="kx" type="number" min="0" max="32" value="3"></div>
+    <div class="control k-vec" hidden><label for="ky">Ky</label><input id="ky" type="number" min="0" max="32" value="3"></div>
+    <div class="control k-vec" hidden><label for="kz">Kz</label><input id="kz" type="number" min="0" max="32" value="1"></div>
+  </section>
+
+  <section class="player" aria-label="Voxel player">
+    <p class="player-intro">START: Szene wählen. Danach nur die Gruppe öffnen, die verändert werden soll; Receipt und mathematischer Zustand bleiben dabei sichtbar.</p>
+    <div class="player-primary">
+      <div class="group scene-group"><small>01 · SZENE / SCHNELLWAHL</small><select id="scenePreset" aria-label="Szenen-Schnellwahl"><option value="custom">CUSTOM · AKTUELL</option><option value="book">BUCH · OPEN CROSS</option><option value="hinge">PACKAGE HINGE · X₁₉</option><option value="solid">SOLID MAP · DODEKAEDER</option><option value="wave">WAVE FIELD · TWO CHANNELS</option><option value="zeta">ZETA FOLD · 0→90°</option><option value="crtqrt">CRT/QRT · r17 LADDER</option><option value="radial">RADIAL / Q° · SHELL TRACE</option></select></div>
+      <div class="group"><small>TRÄGER</small><button id="preset8" class="active">N8 · 3/3/1</button><button id="preset24">N24 · 3/3/1</button></div>
+      <div class="group"><small>BEWEGUNG</small><button id="play" class="cta-motion">▶ PLAY ROTATION</button><button id="step">STEP +15°</button><button id="reset">RESET</button></div>
+    </div>
+    <details class="control-panel" open>
+      <summary>02 · RASTER &amp; SCHNITT <small id="viewControlSummary">CUBIC · FRAME OFF · ALL · 35°</small></summary>
+      <div class="panel-body">
+        <div class="group" id="gridButtons"><small>GRID VIEW</small><button data-grid="cubic" class="active">CUBIC · 26</button><button data-grid="sparse">SPARSE</button><button data-grid="octree">OCTREE · 2³</button><button data-grid="fcc">FCC · 12</button></div>
+        <div class="group" id="frameButtons"><small>VIEW PERSPECTIVE</small><button data-frame="none" class="active">SOURCE ISO</button><button data-frame="lframe">ℒ OBLIQUE</button><button data-frame="tesa">TESA FRONT</button></div>
+        <div class="group"><small>BOUNDARIES</small><button id="outerFrameToggle" class="active" aria-pressed="true">OUTER FRAME · ON</button><button id="lEdgeToggle" class="active" aria-pressed="true">ℒ EDGE · ON</button></div>
+        <div class="group" id="cutButtons"><small>SECTION / CUT</small><button data-cut="all" class="active">ALL</button><button data-cut="xy">XY</button><button data-cut="xz">XZ</button><button data-cut="yz">YZ</button><button data-cut="cross">CROSS</button></div>
+        <div class="group"><small>UMFANG</small><button id="whole" class="active">WHOLE MODEL</button></div>
+      </div>
+    </details>
+    <details class="control-panel" open>
+      <summary>03 · RELATIONSLAGEN <small id="layerControlSummary">PLATONIC</small></summary>
+      <div class="panel-body">
+        <div class="group"><small>KÖRPER</small><button id="eightBodyToggle" class="active" aria-pressed="true">PLATONIC FIELD · ON</button><button id="bodyMapToggle" aria-pressed="false">SOLID → GRID · OFF</button></div>
+        <div class="group"><small>ADRESSEN</small><button id="packageMapToggle" aria-pressed="false">PACKAGE → GRID · OFF</button><button id="crtQrtToggle" aria-pressed="false">CRT/QRT GRID · OFF</button><button id="radialToggle" aria-pressed="false">RADIAL / Q° VIEW · OFF</button><button id="nxitToggle" aria-pressed="false">N|XIT LENS · OFF</button></div>
+        <div class="group"><small>DYNAMIK</small><button id="waveToggle" aria-pressed="false">WAVE FIELD · OFF</button><button id="gridCouplingToggle" aria-pressed="false">GRID COUPLING · OFF</button><span id="waveControls" class="wave-controls" hidden><button id="wavePlay" class="cta-motion">▶ WAVE</button><input id="wavePhase" class="wave-range" type="range" min="0" max="360" step="1" value="0" aria-label="Wave phase"><small id="wavePhaseRead">0°</small><input id="waveAmplitude" class="wave-range" type="range" min="0" max="100" step="1" value="65" aria-label="Grid coupling amplitude"><small id="waveAmplitudeRead">A 65%</small></span></div>
+        <div class="group"><small>FOLD AXIS · COUPLED ANGLE BANK</small><button id="zetaFoldToggle" aria-pressed="false">ZETA FOLD · OFF</button><span id="zetaControls" class="zeta-controls" hidden><button id="zetaPlay" class="cta-motion">▶ TOUR 7→90°</button><button id="zetaClockToggle" aria-pressed="false">± CLOCK · OFF</button><input id="zetaAngle" class="zeta-range" type="range" min="0" max="90" step="0.1" value="0" aria-label="Coupled Zeta fold, compass and clock angle"><small id="zetaAngleRead">0° · START</small></span></div>
+        <div class="group"><small>BOOK SEAM · SOURCE-BOUND VIEW</small><button id="bookSeamToggle" aria-pressed="false">BOOK SEAM · OFF</button><span id="bookControls" class="book-controls" hidden><button id="bookPlay">▶ FOLD 0→180°</button><select id="bookRatio" aria-label="Book seam ratio"><option value="3:2">L:R 3:2</option><option value="2:1">L:R 2:1</option><option value="64:27" selected>L:R 64:27</option></select><input id="bookBeta" class="book-range" type="range" min="0" max="180" step="1" value="93" aria-label="Book fold beta"><small id="bookBetaRead">β93° · LCM 1728</small></span></div>
+        <div class="layer-help">Körperkante, Grid-Tube, Package-Adresse, Wave-Sample, Zeta-Fold und CRT/QRT-Fingerprint bleiben getrennte Relationsarten. ZETA FOLD übernimmt die bestehende DIRECT-ZETA-Ansicht: zwölf deklarierte Nullstellen drehen starr um s=½ von der kritischen Linie auf den horizontalen Träger. ± CLOCK ergänzt die quellgebundene Richtung 333°→63° und den separaten 65-µm-Verrundungstest; PM/VM zeigen zusätzlich eine lokale 5.5+5.5-/11-Slot-Edelweiss-Projektion, keine neue Quellenidentität. OUTER FRAME und ℒ EDGE sind zwei unabhängig schaltbare Begrenzungslagen; sie teilen bei FULL TESA nur Phase und sichtbare Deformation. GRID COUPLING deformiert nur ihre gemeinsame sichtbare Einbettung; Node-ID, exakte Koordinate, Nachbarschaft und Count bleiben unverändert. Q° bezeichnet den lokalen Beobachtungszustand; Bearing und Radialabstand sind davon getrennte Messwerte.</div>
+      </div>
+    </details>
+    <details class="control-panel">
+      <summary>04 · WINKELBANK / ERWEITERT <small id="angleControlSummary">35° · VIEW TRANSFORM</small></summary>
+      <div class="panel-body"><div class="group angle-bank" id="angleButtons"><button data-angle="7">7°</button><button data-angle="33">33°</button><button data-angle="35" class="active">35°</button><button data-angle="35.2643897">ISO 35.2643897°</button><button data-angle="45">45°</button><button data-angle="78.16666666666667">78°10′</button><button data-angle="78.2">78°12′</button><button data-angle="90">90°</button></div></div>
+    </details>
+  </section>
+
+  <section class="tri-console" aria-label="Tri-View Dock controls">
+    <div class="tri-console-head"><h2>TRI‑VIEW DOCK · GRID ↔ BODY ↔ PACKAGE</h2><div class="tri-actions"><button id="compare3x" class="active" aria-pressed="true">COMPARE 3× · ON</button><button id="triOpenAll">OPEN ALL</button><button id="triCloseLoose">CLOSE UNPINNED</button></div></div>
+    <div class="tri-view-actions" id="triViewActions">
+      <small>MODULE</small><button data-tri-toggle="grid">GRID · OPEN</button><button data-tri-pin="grid" aria-pressed="false">PIN GRID</button>
+      <button data-tri-toggle="body" class="active">BODY · OPEN</button><button data-tri-pin="body" aria-pressed="false">PIN BODY</button>
+      <button data-tri-toggle="package" class="active">PACKAGE · OPEN</button><button data-tri-pin="package" aria-pressed="false">PIN PACKAGE</button>
+    </div>
+    <div class="tri-shared-state" id="triSharedState">NODE:NONE · BODY:TET:0 · PACKAGE:1729 · φ0° · SOURCE ISO</div>
+    <div class="tri-console-head"><div class="tri-demo-copy"><b id="demoChapter">DEMO 0/16 · READY</b><span id="demoCopy">16 Kapitel führen von der Dreifachorientierung durch Buchnaht, Körper, Zeta, Wave, Package und Adresslinsen zurück zum gemeinsamen Compare-View.</span></div><span class="mono">HAUPTFENSTER ↑ · VERGLEICH 3× ↓</span></div>
+  </section>
+
+  <div class="tri-view-dock compare" id="triViewDock">
+  <details class="tri-module" id="triGrid" data-tri-view="grid" data-pinned="false" open>
+    <summary>01 · GRID VIEW <small id="triGridStatus">CARRIER · FRAME · RELATIONS</small></summary>
+    <div class="tri-focus-bar"><button class="cta-focus" data-tri-focus="grid">⤢ FOCUS GRID</button></div>
+  <section class="work">
+    <div class="stage">
+      <div class="stage-head"><div><div class="eyebrow">Transformationskörper · deklarierte Ansicht</div><h2 id="stageTitle">Einseitige ℒ-Shell</h2></div><span class="badge" id="viewBadge">EXACT LATTICE</span></div>
+      <svg id="machine" viewBox="0 0 900 540" role="img" aria-label="NLK cube and shell projection"></svg>
+      <div class="node-trace" id="nodeTrace" aria-live="polite">
+        <div><small>Tracked node</small><strong id="traceId">NONE · CLICK A NODE</strong></div>
+        <div><small>3D address / sector</small><strong id="traceAddress">—</strong></div>
+        <div><small>Local tubes</small><strong id="traceRelations">—</strong></div>
+        <div><small>Section anchor</small><strong id="traceCut">ALL · CENTER</strong></div>
+        <div><small>Q° observation state</small><strong id="qObservation">OFF · QD-01 VIEW</strong></div>
+        <div><small>Radial shell</small><strong id="radialShell">—</strong></div>
+        <div><small>XY bearing</small><strong id="radialBearing">—</strong></div>
+        <div><small>Observed points</small><strong id="qObservedPoints">—</strong></div>
+        <div class="hint"><b>RELATION LAYERS:</b> GRID_TUBE = lokale Nachbarschaft · BODY_EDGE = platonische Kante · PACKAGE_ADDRESS = B20→Grid-Abdruck · WAVE_SAMPLE = gesampelte Phase · ZETA_FOLD = starre Koordinatendrehung um s=½ · QRT_ADDRESS = n=20q+r · CRT_FINGERPRINT = Residuen mod 7/11/13/19 · RADIAL_SHELL = gleiches exaktes 4r² im lokalen Q°-Schnitt. Frame, Cut und Perspektive bleiben Ansichten.</div>
+      </div>
+      <div class="readout">
+        <div><small>Carrier</small><strong id="carrierRead">8³ = 512</strong></div>
+        <div><small>Transform</small><strong id="targetRead">11×11×9 = 1,089</strong></div>
+        <div><small>ΔV</small><strong id="deltaRead">+577</strong></div>
+        <div><small>Return</small><strong id="returnRead">EXACT</strong></div>
+      </div>
+    </div>
+    <aside class="ledger">
+      <div><div class="eyebrow">Measurement ledger</div><h2>NLK Receipt</h2></div>
+      <div class="receipt"><code id="receipt">N8 · ℒ:I · K⃗:+(3,3,1) · LSH</code></div>
+      <div class="formula"><strong id="formula">3n²k + 3nk² + k³</strong><p id="formulaExplain">Drei Flächenplatten, drei Kantenprismen und ein Eckwürfel schließen die neue einseitige Hülle.</p></div>
+      <div class="parts"><div><small>FACE</small><b id="facePart">1,728</b></div><div><small>EDGE</small><b id="edgePart">72</b></div><div><small>CORNER</small><b id="cornerPart">1</b></div></div>
+      <div class="status" id="returnStatus"><b>RETURN PASS</b><br><span id="returnText">K⁻¹ bringt den Träger auf 24³ zurück.</span></div>
+      <div class="formula"><strong>Operator-Reihenfolge</strong><p><code>X′ = K⃗(ℒ(X<sub>N</sub>))</code><br><code>RETURN = ℒ⁻¹(K⃗⁻¹(X′))</code></p></div>
+      <div class="status warn" id="angleStatus"><b>VIEW TRANSFORMATION · NO LATTICE MAP</b><br><span id="angleText">35° ändert nur die Ansicht; keine automatische Gitterautomorphie oder wissenschaftliche Relation.</span></div>
+      <div class="status warn" id="frameStatus"><b>FRAME: NONE</b><br><span id="frameText">Kein zusätzlicher Ansichtsrahmen.</span></div>
+      <div class="status warn" id="nxitStatus"><b>N|XIT: OFF</b><br><span id="nxitText">Die Dezimalumkehr-Linse ist nicht auf die Ansicht gelegt.</span></div>
+      <div class="status warn" id="lensStatus"><b>ℒ IST KEIN WEITERER KÖRPER</b><br>ℒ adressiert Permutation, Spiegelung oder Ansicht. R45 bleibt VIEW ONLY. Winkelbank und ℒ/TESA-Overlay verändern weder K-Shell-Zählung noch Carrier-Identität oder Source Graph.</div>
+    </aside>
+  </section>
+  </details>
+
+  <details class="tri-module" id="triBody" data-tri-view="body" data-pinned="false" open>
+    <summary>02 · BODY VIEW <small id="triBodyStatus">PLATONIC · SOURCE GEOMETRY</small></summary>
+    <div class="tri-focus-bar"><button class="cta-focus" data-tri-focus="body">⤢ FOCUS BODY</button></div>
+  <section class="eight-body" id="eightBodyDemo" aria-labelledby="eightBodyTitle">
+    <div class="eight-head">
+      <div><span class="eyebrow">Formal geometry · five regular convex polyhedra</span><h2 id="eightBodyTitle">Die fünf platonischen Körper</h2></div>
+      <div class="eight-receipt" id="eightBodyReceipt">5 SOLIDS · EULER 5/5 PASS · VIEW ONLY</div>
+    </div>
+    <div class="body-orbit-controls" aria-label="Independent Platonic body rotation">
+      <button id="bodyOrbit" class="cta-motion" aria-pressed="false">▶ BODY ORBIT · OFF</button><button id="bodyBandToggle" class="cta-motion" aria-pressed="false">▶ N-BAND BODY · OFF</button><button id="bodyStep">BODY STEP +15°</button><button id="bodyOrbitReset">RESET BODY</button><button id="bodyTraceToggle" class="active" aria-pressed="true">NODE TRACE · ON</button><small id="bodyOrbitRead">φ 0° · X×2 / Y×1 / Z×3 · GRID FIXED</small>
+    </div>
+    <div class="body-cover-controls" id="bodyCoverControls" aria-label="Platonic body cover view">
+      <small>BODY COVER</small><button data-body-cover="nodes">NODES</button><button data-body-cover="edges" class="active">EDGES</button><button data-body-cover="arcs">ARC SEAMS</button><button data-body-cover="faces">FACE COVER</button><button data-body-cover="dual">DUAL SHELL</button>
+    </div>
+    <div class="platonic-view">
+      <div class="platonic-stage"><svg id="platonicStage" viewBox="0 0 900 520" role="img" aria-label="Interaktive Projektion eines platonischen Körpers"></svg></div>
+      <aside class="platonic-info">
+        <span class="eyebrow" id="platonicKicker">SOLID 01 / 05</span><h3 id="platonicName">Tetraeder</h3>
+        <p id="platonicRole"></p><p id="platonicFacts"></p><code id="platonicSymbol"></code><code id="platonicGridMap">GRID MAP OFF</code>
+        <div class="status warn"><b id="platonicPerspective">PERSPECTIVE: SOURCE_ISO</b><br><span id="platonicStatus">Frame schaltet nur die Projektion.</span></div>
+      </aside>
+    </div>
+    <div class="eight-grid" id="eightBodyGrid"></div>
+    <p class="eight-boundary"><b>Formale Grenze:</b> Diese fünf Körper sind mathematische Referenzkörper. Sie werden hier nicht mit den acht MACHINA-Körpern gleichgesetzt. Eine spätere kuratorische Zuordnung muss separat begründet und als Interpretation markiert werden.</p>
+  </section>
+  </details>
+
+  <details class="tri-module" id="triPackage" data-tri-view="package" data-pinned="false" open>
+    <summary>03 · PACKAGE VIEW <small id="triPackageStatus">B20 · RINGS · BREATH</small></summary>
+    <div class="tri-focus-bar"><button class="cta-focus" data-tri-focus="package">⤢ FOCUS PACKAGE</button></div>
+  <section class="packages" id="vigesimalPackages" aria-labelledby="packageTitle">
+    <div class="eight-head">
+      <div><span class="eyebrow">Exact base-20 addresses · breathing projection</span><h2 id="packageTitle">Vigesimal Package Field</h2></div>
+      <div class="eight-receipt" id="packageReceipt">5/5 BASE20 PASS · FRAME 400:390 = 40:39 · VIEW ONLY</div>
+    </div>
+    <div class="package-controls">
+      <button id="packageBreath" class="cta-motion" aria-pressed="false">FULL TESA BREATH · OFF</button>
+      <label for="packagePhase">PHASE <span id="packagePhaseRead">0°</span><input id="packagePhase" type="range" min="0" max="360" step="1" value="0"></label>
+    </div>
+    <div class="package-layout">
+      <div class="package-map"><svg id="packageSvg" viewBox="0 0 900 540" role="img" aria-label="Basis-20-Pakete auf geschichteten Ring- und Frame-Grids"></svg></div>
+      <aside class="package-detail" aria-live="polite">
+        <span class="eyebrow" id="packageKicker">PACKAGE 01 / 05</span><h3 id="packageName">1729</h3>
+        <code id="packageAddress">B20 4:6:9</code><p id="packageFormula">4×400 + 6×20 + 9 = 1729</p>
+        <div class="status warn"><b id="packageState">STATIC PROJECTION</b><br><span>2 Wave-Kanäle + 3 B20-Achsen + 3 Display-Lagen (Frame/Ring/Node). Breath verändert nur die Projektion, niemals Dezimalwert oder Basis‑20-Adresse.</span></div>
+        <p><b>Axes:</b> Z = 400er-Schicht · Y = 20er-Ring · X = Position auf dem Ring.</p>
+      </aside>
+    </div>
+    <table class="package-table"><thead><tr><th>Dezimal</th><th>Basis 20 · Z:Y:X</th><th>Komponenten</th><th>Kontrolle</th></tr></thead><tbody id="packageTable"></tbody></table>
+    <p class="package-boundary"><b>Darstellungsgrenze:</b> Die fünf Packages sind exakte Stellenwertzerlegungen. X₁₉ und Y₁₉ bezeichnen je 20 diskrete Positionen von 0 bis 19; Z₄ bezeichnet die fünf hier belegten 400er-Schichten 0 bis 4. PACKAGE → GRID quantisiert diese Adressen nur in den aktuellen Carrier. FULL TESA BREATH synchronisiert zwei Wave-Kanäle, drei Basis-20-Achsen und drei sichtbare Display-Lagen (Frame, Ring, Node); <code>2+3+3</code> ist hier ausschließlich eine Projektionsgrammatik. Der gemeinsame Achsenpivot ist ein ADDRESS HINGE · VIEW ONLY und wird nicht mit dem Hinge/Actuator-Körper identifiziert. Spiralform, Farben, 400×390-TESA-Rahmen, 40:39-Verhältnis und Rosetta-Marker 16/31/46 sind lokale Ansichten. Die 400er-Stellenwertschicht ist nicht mit der 400-Pixel-Rahmenbreite identisch; planetarische, spektrale, DNA-, Fourier- oder physikalische Resonanzbehauptungen werden aus den Referenzbildern nicht übernommen.</p>
+  </section>
+  </details>
+  </div>
+
+  <section class="tests">
+    <div class="eyebrow">Finite declared controls</div><h2>Rechenbelege vor Integration</h2>
+    <article class="nxit" id="nxitLens">
+      <div class="nxit-head"><div><span class="eyebrow">Tested view-only arithmetic lens</span><h3>N|XIT · Transition Grid</h3></div><span class="badge" id="nxitBadge">16 / 16 PASS</span></div>
+      <div class="route" aria-label="N XIT transition route">
+        <div class="node"><small>CUBE SUM</small><b>41,616</b></div><div class="join">−</div>
+        <div class="node"><small>DECLARED GATE</small><b>42,000</b></div><div class="join">→</div>
+        <div class="node"><small>RESIDUAL</small><b>384</b></div><div class="join">R₁₀</div>
+        <div class="node"><small>REVERSED VIEW</small><b>483</b></div>
+      </div>
+      <table class="nxit-table">
+        <thead><tr><th>Test</th><th>Exact result</th><th>Classification</th></tr></thead>
+        <tbody id="nxitTests"></tbody>
+      </table>
+      <p class="nxit-boundary"><b>Boundary:</b> `616` ist nur ein palindromisches Suffix von `41,616`; die ganze Zahl ist nicht palindromisch. R₁₀ bewahrt hier Ziffernsumme und Restklasse modulo 9, aber weder Zahlidentität noch Primfaktoren. `20.784672` ist die gerundete Anzeige von `√432 + 62·10⁻⁶`, nicht `√432` und kein natürlich abgeleiteter Crystal-, Tesseract-, Con-Dao- oder Mechanismusbeleg.</p>
+    </article>
+    <div class="angle-grid" id="angleTests" aria-label="Angle classification bank"></div>
+    <div class="test-grid" id="tests"></div>
+    <div class="markers">
+      <div><span class="eyebrow">ROOT MARKER</span><h3>√432 = <span id="root432"></span></h3><p>Numerischer Marker, keine Frequenz- oder Mechanismusidentität.</p></div>
+      <div><span class="eyebrow">ATRIUM BAND</span><h3>φ³ / π² = <span id="zeta429"></span></h3><p>Erklärt die vorhandene 0.429-Linie als berechneten Marker.</p></div>
+      <div><span class="eyebrow">204² GATE</span><h3>23³ + 24³ + 25³ = 41,616</h3><p>Exakt 204²; der Abstand zu 42,000 beträgt 384.</p></div>
+      <div><span class="eyebrow">LF · 2+2+1 LENS</span><h3>Zwei Schnitte · zwei Gegenschnitte · ein Pivot</h3><p>Deklarierte Messansicht für „zwei Kerben“ und Schaltpunkt; keine zusätzliche Gitteridentität.</p></div>
+    </div>
+  </section>
+
+  <div class="boundary"><b>BODY ORBIT / N-BAND BOUNDARY:</b> Die Quellgeometrie rotiert starr über die drei deklarierten Anzeigeachsen X×2 / Y×1 / Z×3 innerhalb einer festen Grid-/Kameraansicht. Die optionale N-BAND-Kopplung verwendet 0.429 / 0.456 / 0.487 mit der exakten Dezimalsumme 1.372 als drei skalare Anzeigegewichte: dieselbe Phase treibt die weiße Breathing-Achse und eine rein sichtbare anisotrope Körperdeformation. Die Werte sind keine ISO-Winkel, keine gemessenen Spektralbänder und kein physikalisches Modell. Die Identität `P:*`, Quellkanten und Face-Cycles bleiben stabil; nur die Darstellung atmet. Spur und Kopplung sind View-only und erzeugen weder eine neue Körper-, Grid- noch Source-Graph-Relation.</div>
+  <footer class="boundary"><b>BOUNDARY:</b> Diese Datei entwickelt die fehlende NLK/LSH-Rechenlogik neben der bestehenden statischen Atrium-L-Shell-Ansicht. CUBIC, SPARSE und OCTREE lesen denselben endlichen Koordinatenrecord verschieden. FCC ist nur ein 12-Nachbarschafts-Komparator. Node-IDs, Schnittanker und lokale Tubes sind endliche Interface-Relationen innerhalb dieses Records; sie sind keine Source-Graph-Identitäten oder kanonischen Relationen. Das platonische Feld zeigt die fünf regulären konvexen Polyeder als formale Referenz und behauptet keine Identität mit den acht MACHINA-Körpern. SOLID → GRID quantisiert ihre normalisierten Eckpunkte achsenweise in den aktuellen endlichen Carrier; `P:*` bezeichnet den Körperknoten, `V:*` nur dessen lokalen Grid-Abdruck. Körperkanten und Grid-Tubes bleiben getrennte Relationsarten. PACKAGE → GRID bildet die exakten `B20:Z:Y:X`-Adressen über X₁₉/Y₁₉/Z₄ auf denselben Carrier ab; `PKG:*`, `B20:*` und `V:*` bleiben verschiedene Adresstypen. Der sichtbare Package-Pivot ist kein kanonisches oder mechanisches Scharnier. WAVE FIELD sampelt zwei deklarierte Sinuskanäle `WX₂/WY₂` mit je 20 View-Punkten; Phase, Kreuzung und Animation sind lokale Darstellung und keine gemessene Welle, Frequenz, Resonanz oder neue Graphrelation. ZETA FOLD verwendet die bereits registrierte Quelle `DIRECT-ZETA` und die Koordinatenabbildung `w=i(s−1/2)`: zwölf deklarierte Nullstellenhöhen werden starr um den Pivot `s=1/2` von 0° bis 90° in einen horizontalen Träger gefaltet. Die optionale ± CLOCK bindet die zweite Quellansicht mit `333°→63°` sowie den separaten Verrundungstest `r=65 µm`; Tangentenabstand und Bogenlänge bleiben in µm und werden nicht mit der dimensionslosen Zeta-Ebene identifiziert. PM/VM sind zwei gegenphasige Ansichten derselben lokal konstruierten 5.5+5.5-/11-Slot-Edelweiss-Rosette; diese Clock ist weder aus den Nullstellen abgeleitet noch eine neue Lissajous-, Körper- oder Source-Graph-Identität. Reihenfolge, Radius und Quellenadresse bleiben erhalten; die Ansicht ist weder ein Beweis der Riemannschen Vermutung oder einer Nullstellenfreiheit noch eine Identität mit Q°, Grid, Körper, Package oder Wave Field. CRT/QRT GRID verwendet die bestehende Identität `NN:CRT_QRT_37_CARRIER_LADDER`: sechs exakte Adressen `n=20q+17` werden mit ordinaler Leiterachse und `mod 11`-Ansicht projiziert; zwei Residuenbahnen zeigen ausschließlich die exakten Fingerprints von 11,357 und 11,537 modulo 7/11/13/19. Daraus wird weder ein universeller QRT-Operator noch Möbius-, Klebe- oder Topologiegleichheit abgeleitet. RADIAL / Q° VIEW verwendet die bestehende aktuelle Bedeutungsgrenze QD-01: `Q°_N(t)` ist der deklarierte lokale Beobachtungszustand aus Beobachterposition, Orientierung, Referenzebene, Zeit, Instrument und Projektionsregel. Q° bezeichnet weder einen gemessenen Winkel noch Quelle, Feld, Wahrheit oder universellen Operator. Innerhalb dieses Zustands berechnet die lokale Radialdiagnose den projektionsunabhängigen ganzzahligen Wert `4r²`, den daraus angezeigten Radius und einen separat benannten XY-Bearing-Winkel; gleiche `4r²`-Werte bilden nur eine endliche lokale Radialschale. Die Szenen-Schnellwahl speichert ausschließlich reproduzierbare Interface-Zustände. 90° ist ausschließlich dort eine achsen-/gittererhaltende Ansichtsrotation, wo die deklarierte kubische Achsenabbildung gilt; alle anderen Bankwinkel sind Ansichts­transformationen. Winkelähnlichkeit, ℒ/TESA-Perspektiven, Tür-Overlay und N|XIT-Dezimalumkehr begründen weder topologische Gleichheit noch Crystal-, Tesseract-, Con-Dao- oder wissenschaftliche Relation. Die Probe registriert keine neue Quelle, Route oder Identität und verändert weder Bridge noch Navigator.</footer>
+  <div class="boundary"><b>BOOK SEAM / RAUM→BOARD→SCHATTEN BOUNDARY:</b> `BOOK_SEAM_VIEW` bindet die lokale Quelle mit SHA-256 `2c74266de18fb63296f8338667d3d986d63d5bbd3c86d2e6402876a120ea9de3`. β ist ausschließlich der dimensionslose Faltwinkel; `64:27` bezeichnet 64 linke und 27 rechte Quellteilungen mit gemeinsamem Hilfsraster LCM 1728, nicht 93 Teilungen. Die 18 Raumknoten bleiben als 6×3 Board-Adressen erhalten; die Schattenansicht reduziert auf sechs Positionen mit je drei Tiefenquellen und ist nur mit Tiefenrecord eindeutig rückführbar. „Large Zither“ ist ein kuratorischer Anzeigename, keine akustische oder physikalische Behauptung. `83+10=93` bleibt HOLD und steuert die Geometrie nicht.</div>
+</main>
+<script>
+(() => {
+  const $ = id => document.getElementById(id);
+  const state = {mode:'asym',dir:'out',grid:'cubic',whole:true,angle:35,frame:'none',outerFrame:true,lEdge:true,cut:'all',selectedNodeId:null,nxit:false,eightBodies:true,bodyMap:false,solidFollow:false,platonicIndex:0,solidVertexIndex:0,bodyOrbit:false,bodyPhase:0,bodyRaf:0,bodyTrace:true,bodyTrail:[],bodyTracePhase:null,bodyCoverMode:'edges',bodyBandCoupling:false,packageMap:false,packageFollow:false,packageIndex:0,wave:false,wavePhase:0,wavePlaying:false,waveRaf:0,gridCoupling:false,waveAmplitude:65,zetaFold:false,zetaClock:false,zetaAngle:0,zetaPlaying:false,zetaRaf:0,bookSeam:false,bookBeta:93,bookRatio:'64:27',bookPlaying:false,bookRaf:0,crtQrt:false,radialLens:false,scenePreset:'custom',packageBreath:false,packagePhase:0,packageRaf:0,playing:false,raf:0,triCompare:true,triFocus:null,triPins:{grid:false,body:false,package:false},mainStageAuto:true,mainStageView:'grid',demoIndex:-1,demoPlaying:false,demoTimer:0};
+  const fmt = n => Number(n).toLocaleString('en-US');
+  const num = id => Math.max(0, Math.trunc(Number($(id).value)||0));
+  const lensNames = {I:'ℒ:I',XY:'ℒ:P(X↔Y)',XZ:'ℒ:P(X↔Z)',M:'ℒ:M(X)',R90:'ℒ:R90(XY)',R45:'ℒ:R45(VIEW)'};
+  const modeNames = {witness:'Carrier + Witness',one:'Einseitige ℒ-Shell',centered:'Zentrierte Sechsflächen-Hülle',asym:'Asymmetrische K⃗-Shell'};
+  const angleBank=[
+    {value:7,label:'7°',className:'VIEW_TRANSFORM',description:'Ansichtstransformation; keine automatische Gitterautomorphie oder wissenschaftliche Relation.'},
+    {value:33,label:'33°',className:'VIEW_TRANSFORM',description:'Ansichtstransformation; keine automatische Gitterautomorphie oder wissenschaftliche Relation.'},
+    {value:35,label:'35°',className:'VIEW_TRANSFORM',description:'Ansichtstransformation; keine automatische Gitterautomorphie oder wissenschaftliche Relation.'},
+    {value:35.2643897,label:'35.2643897° · ISOMETRIC',className:'VIEW_TRANSFORM',description:'Isometrische Ansichtsprojektion; keine automatische Gitterautomorphie oder wissenschaftliche Relation.'},
+    {value:45,label:'45°',className:'VIEW_TRANSFORM',description:'Ansichtstransformation; keine automatische Gitterautomorphie oder wissenschaftliche Relation.'},
+    {value:78+10/60,label:'78°10′',className:'VIEW_TRANSFORM',description:'Ansichtstransformation; keine automatische Gitterautomorphie oder wissenschaftliche Relation.'},
+    {value:78+12/60,label:'78°12′',className:'VIEW_TRANSFORM',description:'Ansichtstransformation; keine automatische Gitterautomorphie oder wissenschaftliche Relation.'},
+    {value:90,label:'90°',className:'AXIS_LATTICE_PRESERVING_WHERE_APPLICABLE',description:'Achsen-/gittererhaltende Ansichtsrotation für die deklarierte kubische Achsenabbildung; keine neue Relation.'}
+  ];
+  const zetaTourStops=[{value:0,label:'0° · START'},...angleBank.map(entry=>({value:entry.value,label:entry.label.replace(' · ISOMETRIC','')}))];
+  const angleEntry = value => angleBank.find(entry=>Math.abs(entry.value-value)<1e-8);
+  const angleLabel = value => {
+    const entry=angleEntry(value);if(entry)return entry.label.replace(' · ISOMETRIC','');
+    return `${Number(value.toFixed(7)).toString()}°`;
+  };
+  const zetaTourEntry=value=>zetaTourStops.find(entry=>Math.abs(entry.value-value)<1e-6);
+  const zetaTourLabel=value=>{const entry=zetaTourEntry(value);return entry?entry.label:`${Number(value.toFixed(1))}° · MOVING`};
+  function setCoupledZetaAngle(value){state.zetaAngle=Math.max(0,Math.min(90,value));state.angle=state.zetaAngle}
+  const latticeMap = () => Math.abs(state.angle-90)<1e-8&&state.grid==='cubic'?'CUBIC_AXIS_PRESERVING_VIEW_ROTATION':'NONE_VIEW_TRANSFORM';
+  const frameNames={none:'NONE',lframe:'ℒ_FRAME_VIEW_ONLY',tesa:'TESA_DOOR_VIEW_ONLY'};
+  const reverse10=n=>Number(String(n).split('').reverse().join(''));
+  const digitSum=n=>String(n).split('').reduce((sum,digit)=>sum+Number(digit),0);
+  const perspectiveProfiles={
+    none:{name:'SOURCE_ISO',yaw:0,depth:.48,height:.82,shear:0,orbit:'35deg 65deg 105%',fov:'38deg'},
+    lframe:{name:'ℒ_OBLIQUE',yaw:-33,depth:.62,height:.68,shear:.16,orbit:'-35deg 72deg 112%',fov:'32deg'},
+    tesa:{name:'TESA_DOOR_FRONTAL',yaw:0,depth:.28,height:1.04,shear:0,orbit:'0deg 90deg 120%',fov:'28deg'}
+  };
+  const phi=(1+Math.sqrt(5))/2,invPhi=1/phi;
+  const nBand={values:[.429,.456,.487],sum:1.372};
+  const nBandSectorAngles=Array.from({length:6},(_,index)=>index*60);
+  const roomBoardBook={id:'BOOK_SEAM_VIEW',sourceSha256:'2c74266de18fb63296f8338667d3d986d63d5bbd3c86d2e6402876a120ea9de3',ratios:[[3,2],[2,1],[64,27]],sourceNodes:18,boardColumns:6,boardRows:3,shadowPositions:6,shadowMultiplicity:3};
+  const gcd=(a,b)=>b?gcd(b,a%b):Math.abs(a),lcm=(a,b)=>Math.abs(a*b)/gcd(a,b);
+  const activeBookRatio=()=>state.bookRatio.split(':').map(Number);
+  function bookFoldPoint(u,v,beta=state.bookBeta){const a=beta*Math.PI/360;return [u*Math.sin(a),v,Math.abs(u)*Math.cos(a)]}
+  function bookScreenPoint(u,v,beta=state.bookBeta){const [x,y,z]=bookFoldPoint(u,v,beta);return {x:450+x*300,y:270+(y-.5)*330-z*72}}
+  function bookSeamOverlay(){
+    const [leftCount,rightCount]=activeBookRatio(),helper=lcm(leftCount,rightCount),pagePath=(side)=>{const points=[[side,0],[side,1],[0,1],[0,0]].map(([u,v])=>bookScreenPoint(u,v));return `M${points.map(point=>`${point.x.toFixed(1)},${point.y.toFixed(1)}`).join(' L')} Z`};
+    const rules=(side,count,className)=>Array.from({length:Math.min(count,16)+1},(_,index)=>{const u=side*index/Math.min(count,16),a=bookScreenPoint(u,0),b=bookScreenPoint(u,1);return `<line class="${className}" x1="${a.x.toFixed(1)}" y1="${a.y.toFixed(1)}" x2="${b.x.toFixed(1)}" y2="${b.y.toFixed(1)}"><title>${side<0?'L':'R'} source division ${Math.round(index/Math.min(count,16)*count)}/${count}</title></line>`}).join('');
+    const helpers=Array.from({length:9},(_,index)=>{const v=index/8,a=bookScreenPoint(-1,v),b=bookScreenPoint(1,v);return `<line class="book-helper" x1="${a.x.toFixed(1)}" y1="${a.y.toFixed(1)}" x2="${b.x.toFixed(1)}" y2="${b.y.toFixed(1)}"/>`}).join('');
+    const seamA=bookScreenPoint(0,0),seamB=bookScreenPoint(0,1),sourceNodes=Array.from({length:18},(_,index)=>{const side=index<9?-1:1,row=index%3,col=Math.floor(index%9/3),point=bookScreenPoint(side*(.25+.3*col),.2+.3*row);return `<circle class="book-source-node ${side>0?'right':''}" cx="${point.x.toFixed(1)}" cy="${point.y.toFixed(1)}" r="3"><title>SPACE NODE ${index+1}/18 · BOARD (${side<0?col:col+3},${row}) · SHADOW ${side<0?col:col+3} ×3</title></circle>`}).join('');
+    return `<g aria-label="Source-bound book seam and room board shadow view"><path class="book-page-left" d="${pagePath(-1)}"/><path class="book-page-right" d="${pagePath(1)}"/>${helpers}${rules(-1,leftCount,'book-rule-left')}${rules(1,rightCount,'book-rule-right')}<line class="book-seam" x1="${seamA.x}" y1="${seamA.y}" x2="${seamB.x}" y2="${seamB.y}"/>${sourceNodes}<text class="book-label" x="52" y="72">BOOK SEAM / LARGE ZITHER · β${state.bookBeta.toFixed(0)}° · L:R ${leftCount}:${rightCount} · LCM ${helper}</text><text class="book-label" x="52" y="88">SPACE 18 → BOARD 6×3 → SHADOW 6×3 · SOURCE ADDRESSES PRESERVED</text></g>`;
+  }
+  const cartesian=(as,bs,cs)=>as.flatMap(x=>bs.flatMap(y=>cs.map(z=>[x,y,z])));
+  const platonicBodies=[
+    {key:'TET',name:'Tetraeder',symbol:'{3,3}',dual:'Tetraeder',vertices:[[1,1,1],[1,-1,-1],[-1,1,-1],[-1,-1,1]],faces:4,expectedEdges:6,color:'var(--gold)'},
+    {key:'CUBE',name:'Würfel',symbol:'{4,3}',dual:'Oktaeder',vertices:cartesian([-1,1],[-1,1],[-1,1]),faces:6,expectedEdges:12,color:'var(--cyan)'},
+    {key:'OCT',name:'Oktaeder',symbol:'{3,4}',dual:'Würfel',vertices:[[1,0,0],[-1,0,0],[0,1,0],[0,-1,0],[0,0,1],[0,0,-1]],faces:8,expectedEdges:12,color:'var(--pink)'},
+    {key:'DOD',name:'Dodekaeder',symbol:'{5,3}',dual:'Ikosaeder',vertices:[...cartesian([-1,1],[-1,1],[-1,1]),...[0].flatMap(x=>[-invPhi,invPhi].flatMap(y=>[-phi,phi].map(z=>[x,y,z]))),...[-invPhi,invPhi].flatMap(x=>[-phi,phi].flatMap(y=>[0].map(z=>[x,y,z]))),...[-phi,phi].flatMap(x=>[0].flatMap(y=>[-invPhi,invPhi].map(z=>[x,y,z])))],faces:12,expectedEdges:30,color:'var(--mint)'},
+    {key:'ICO',name:'Ikosaeder',symbol:'{3,5}',dual:'Dodekaeder',vertices:[...[0].flatMap(x=>[-1,1].flatMap(y=>[-phi,phi].map(z=>[x,y,z]))),...[-1,1].flatMap(x=>[-phi,phi].flatMap(y=>[0].map(z=>[x,y,z]))),...[-phi,phi].flatMap(x=>[0].flatMap(y=>[-1,1].map(z=>[x,y,z])))],faces:20,expectedEdges:30,color:'var(--violet)'}
+  ];
+  function solidEdges(vertices){
+    const pairs=[];let minimum=Infinity;
+    for(let i=0;i<vertices.length;i++)for(let j=i+1;j<vertices.length;j++){
+      const d=vertices[i].reduce((sum,value,k)=>sum+(value-vertices[j][k])**2,0);
+      if(d>1e-9&&d<minimum)minimum=d;pairs.push([i,j,d]);
+    }
+    return pairs.filter(([, ,d])=>Math.abs(d-minimum)<1e-7).map(([a,b])=>[a,b]);
+  }
+  function solidFaceCycles(vertices){
+    const sub=(a,b)=>a.map((value,index)=>value-b[index]),dot=(a,b)=>a.reduce((sum,value,index)=>sum+value*b[index],0),cross=(a,b)=>[a[1]*b[2]-a[2]*b[1],a[2]*b[0]-a[0]*b[2],a[0]*b[1]-a[1]*b[0]],norm=a=>Math.hypot(...a),scale=(a,k)=>a.map(value=>value*k),found=new Map(),eps=1e-7;
+    for(let i=0;i<vertices.length;i++)for(let j=i+1;j<vertices.length;j++)for(let k=j+1;k<vertices.length;k++){
+      let normal=cross(sub(vertices[j],vertices[i]),sub(vertices[k],vertices[i])),normalLength=norm(normal);if(normalLength<eps)continue;
+      const distances=vertices.map(vertex=>dot(sub(vertex,vertices[i]),normal)),tolerance=eps*normalLength;
+      if(!distances.every(value=>value<=tolerance)&&!distances.every(value=>value>=-tolerance))continue;
+      const face=distances.map((value,index)=>Math.abs(value)<=tolerance?index:-1).filter(index=>index>=0);if(face.length<3)continue;
+      const key=[...face].sort((a,b)=>a-b).join(':');if(found.has(key))continue;
+      const center=[0,1,2].map(axis=>face.reduce((sum,index)=>sum+vertices[index][axis],0)/face.length);
+      if(dot(center,normal)<0)normal=scale(normal,-1);normal=scale(normal,1/norm(normal));
+      let u=sub(vertices[face[0]],center);u=scale(u,1/norm(u));const v=cross(normal,u);
+      found.set(key,[...face].sort((a,b)=>Math.atan2(dot(sub(vertices[a],center),v),dot(sub(vertices[a],center),u))-Math.atan2(dot(sub(vertices[b],center),v),dot(sub(vertices[b],center),u))));
+    }
+    return [...found.values()];
+  }
+  const v12BraceFamilies=[{ratio:'9/8',multiplicity:3},{ratio:'10/9',multiplicity:2},{ratio:'16/15',multiplicity:2}];
+  platonicBodies.forEach(body=>{body.edges=solidEdges(body.vertices);body.faceCycles=solidFaceCycles(body.vertices);body.euler=body.vertices.length-body.edges.length+body.faces});
+  function rotateSolidVertex(vertex,phaseDeg=state.bodyPhase){
+    const a=phaseDeg*Math.PI/180,ax=2*a,ay=a,az=3*a;
+    let [x,y,z]=vertex;
+    [y,z]=[y*Math.cos(ax)-z*Math.sin(ax),y*Math.sin(ax)+z*Math.cos(ax)];
+    [x,z]=[x*Math.cos(ay)+z*Math.sin(ay),-x*Math.sin(ay)+z*Math.cos(ay)];
+    [x,y]=[x*Math.cos(az)-y*Math.sin(az),x*Math.sin(az)+y*Math.cos(az)];
+    return [x,y,z];
+  }
+  const orientedSolidVertices=body=>body.vertices.map(vertex=>rotateSolidVertex(vertex));
+  function bandCoupledVertex(vertex,phaseDeg=state.wavePhase,amplitudePct=state.waveAmplitude,enabled=state.bodyBandCoupling){
+    if(!enabled)return vertex;
+    const phase=phaseDeg*Math.PI/180,gain=Math.max(0,Math.min(100,amplitudePct))/100*.22,maxBand=Math.max(...nBand.values);
+    return vertex.map((value,axis)=>value*(1+gain*(nBand.values[axis]/maxBand)*Math.sin(phase+axis*2*Math.PI/3)));
+  }
+  function bodyBandAxisPath(phaseDeg=state.wavePhase,amplitudePct=state.waveAmplitude){
+    const phase=phaseDeg*Math.PI/180,gain=Math.max(0,Math.min(100,amplitudePct))/100;
+    const points=Array.from({length:81},(_,index)=>{const t=index/80*2-1,w=(nBand.values[0]*Math.sin(phase+Math.PI*t)+nBand.values[1]*Math.sin(phase+2*Math.PI*t)+nBand.values[2]*Math.sin(phase+3*Math.PI*t))/nBand.sum;return {x:450+105*gain*w,y:260-205*t}});
+    return svgPath(points);
+  }
+  function bodyBandRingRecords(phaseDeg=state.wavePhase,amplitudePct=state.waveAmplitude){
+    const phase=phaseDeg*Math.PI/180,gain=Math.max(0,Math.min(100,amplitudePct))/100,outer=Math.max(...nBand.values);
+    return nBand.values.map((value,index)=>{const pulse=1+.025*gain*Math.sin(phase+index*2*Math.PI/3),radius=195*(value/outer)*pulse;return {value,index,rx:radius,ry:radius*.62}});
+  }
+  function solidGridPoint(body,vertex,dims,index){
+    const axes=[0,1,2],sizes=[dims.x,dims.y,dims.z];
+    const minima=axes.map(axis=>Math.min(...body.vertices.map(vertex=>vertex[axis])));
+    const maxima=axes.map(axis=>Math.max(...body.vertices.map(vertex=>vertex[axis])));
+    const address=axes.map(axis=>Math.max(0,Math.min(sizes[axis]-1,Math.round((vertex[axis]-minima[axis])/(maxima[axis]-minima[axis])*(sizes[axis]-1)))));
+    const [x,y,z]=address;
+    return {x,y,z,index,id:`P:${body.key}:${index}`,gridId:`V:${x}:${y}:${z}`};
+  }
+  function solidGridMap(body,dims,vertices=body.vertices){
+    const points=vertices.map((vertex,index)=>solidGridPoint(body,vertex,dims,index));
+    const unique=new Set(points.map(point=>point.gridId)).size;
+    return {points,unique,collisions:points.length-unique};
+  }
+  function clearBodyTrail(){state.bodyTrail=[];state.bodyTracePhase=null}
+  function recordBodyTrace(force=false){
+    if(!state.bodyTrace)return;
+    const phase=state.bodyPhase,previous=state.bodyTracePhase,distance=previous===null?360:((phase-previous+360)%360);
+    if(!force&&distance<7.5)return;
+    const body=platonicBodies[state.platonicIndex],vertex=body.vertices[state.solidVertexIndex];
+    state.bodyTrail.push({phase,vertex:rotateSolidVertex(vertex,phase)});
+    if(state.bodyTrail.length>48)state.bodyTrail.shift();
+    state.bodyTracePhase=phase;
+  }
+  const base20=value=>({z:Math.floor(value/400),y:Math.floor(value%400/20),x:value%20});
+  const packageData=[
+    {value:1729,color:'#ffd05b',role:'YELLOW PACKAGE'},
+    {value:417,color:'#65e0b7',role:'GREEN PACKAGE'},
+    {value:1836,color:'#5be0e8',role:'BLUE PACKAGE'},
+    {value:378,color:'#ff7a84',role:'RED PACKAGE'},
+    {value:718,color:'#aa84dc',role:'VIOLET PACKAGE'}
+  ].map(item=>({...item,...base20(item.value)}));
+  const directZeta={
+    id:'DIRECT-ZETA',sourceSha256:'131a29d27bca9f87c0cc44f925cafa08016a149342fb3cf198ebaca3e4cbb96d',
+    heights:[14.134725141734695,21.022039638771556,25.01085758014569,30.424876125859512,32.93506158773919,37.586178158825675,40.9187190121475,43.327073280915,48.00515088116716,49.7738324776723,52.970321477714464,56.44624769706339]
+  };
+  const zetaRounding={
+    id:'DIRECT-ZETA:ROUNDING_VIEW',sourceSha256:'d4b1107c67d3c0d3e9f2a9ec27417ee0c068a6162fd2eb266782a2adec9fe823',
+    startBearing:333,endBearing:63,filletRadiusUm:65,clockHalfCycles:5.5,clockSlots:11
+  };
+  function zetaRotate(point,angleDeg=state.zetaAngle){
+    const a=angleDeg*Math.PI/180,[x,y]=point;
+    return [x*Math.cos(a)-y*Math.sin(a),x*Math.sin(a)+y*Math.cos(a)];
+  }
+  function zetaScreen(point){return {x:450+point[0]*4,y:270-point[1]*4}}
+  function zetaFoldOverlay(){
+    const startA=zetaScreen([0,-60]),startB=zetaScreen([0,60]),targetA=zetaScreen([-60,0]),targetB=zetaScreen([60,0]);
+    const foldA=zetaScreen(zetaRotate([0,-60])),foldB=zetaScreen(zetaRotate([0,60]));
+    const nodes=directZeta.heights.map((height,index)=>{const point=zetaScreen(zetaRotate([0,height]));return `<circle class="zeta-fold-node" cx="${point.x.toFixed(2)}" cy="${point.y.toFixed(2)}" r="4"><title>ρ${index+1} · t=${height.toFixed(6)} · DIRECT-ZETA</title></circle>`}).join('');
+    return `<g aria-label="DIRECT-ZETA rigid fold-axis coordinate view"><line class="zeta-source-axis" x1="${startA.x}" y1="${startA.y}" x2="${startB.x}" y2="${startB.y}"><title>SOURCE CRITICAL LINE · VIEW REFERENCE</title></line><line class="zeta-target-axis" x1="${targetA.x}" y1="${targetA.y}" x2="${targetB.x}" y2="${targetB.y}"><title>90° HORIZONTAL CARRIER · VIEW REFERENCE</title></line><line class="zeta-fold-axis" x1="${foldA.x.toFixed(2)}" y1="${foldA.y.toFixed(2)}" x2="${foldB.x.toFixed(2)}" y2="${foldB.y.toFixed(2)}"/>${nodes}<circle class="zeta-fold-pivot" cx="450" cy="270" r="7"><title>s = ½ · declared rotation pivot</title></circle><text class="zeta-fold-label" x="52" y="90">DIRECT-ZETA · w=i(s−½) · FOLD ${state.zetaAngle.toFixed(1)}° · 12/12 PRESERVED</text></g>`;
+  }
+  function zetaClockPoint(cx,cy,radius,angleDeg){
+    const a=angleDeg*Math.PI/180;return [cx+radius*Math.cos(a),cy-radius*Math.sin(a)];
+  }
+  function zetaEdelweissPath(cx,cy,radius,phaseDeg=0,polarity=1){
+    const points=[];for(let index=0;index<=440;index+=1){const t=4*Math.PI*index/440,phase=polarity*phaseDeg*Math.PI/180,r=radius*(.73+.27*Math.cos(zetaRounding.clockHalfCycles*t+phase));points.push([cx+r*Math.cos(t),cy+r*Math.sin(t)])}
+    return points.map((point,index)=>`${index?'L':'M'}${point[0].toFixed(2)},${point[1].toFixed(2)}`).join(' ');
+  }
+  function zetaRoundingOverlay(){
+    const angle=state.zetaAngle,bearing=(zetaRounding.startBearing+angle)%360,compass=[742,116],compassRadius=52,hand=zetaClockPoint(...compass,compassRadius,bearing);
+    const referenceAxes=[0,63,153,243,333].map(axis=>{const p=zetaClockPoint(...compass,compassRadius,axis),q=zetaClockPoint(...compass,compassRadius+12,axis);return `<line class="zeta-clock-axis" x1="${compass[0]}" y1="${compass[1]}" x2="${p[0].toFixed(2)}" y2="${p[1].toFixed(2)}"/><text class="zeta-clock-note" x="${q[0].toFixed(2)}" y="${(q[1]+3).toFixed(2)}" text-anchor="middle">${axis}°</text>`}).join('');
+    const theta=angle*Math.PI/180,d=zetaRounding.filletRadiusUm*Math.tan(theta/2),arc=zetaRounding.filletRadiusUm*theta,scale=.42,fx=680,fy=462,fillet=angle>0?`M${fx-62},${fy} L${fx-d*scale},${fy} A${zetaRounding.filletRadiusUm*scale},${zetaRounding.filletRadiusUm*scale} 0 0 0 ${fx+d*Math.cos(theta)*scale},${fy-d*Math.sin(theta)*scale} L${fx+74*Math.cos(theta)},${fy-74*Math.sin(theta)}`:`M${fx-62},${fy} L${fx+74},${fy}`;
+    const pm=zetaEdelweissPath(742,250,58,angle,1),vm=zetaEdelweissPath(742,366,58,angle,-1);
+    return `<g aria-label="Zeta rounding, compass and PM VM Edelweiss clock view"><circle class="zeta-clock-guide" cx="${compass[0]}" cy="${compass[1]}" r="${compassRadius}"/>${referenceAxes}<line class="zeta-clock-hand" x1="${compass[0]}" y1="${compass[1]}" x2="${hand[0].toFixed(2)}" y2="${hand[1].toFixed(2)}"/><text class="zeta-clock-text" x="742" y="48" text-anchor="middle">COMPASS · 333°→${bearing.toFixed(1)}°</text><circle class="zeta-clock-guide" cx="742" cy="250" r="58"/><path class="zeta-clock-pm" d="${pm}"/><text class="zeta-clock-text" x="674" y="194">PM · +φ · 5.5</text><circle class="zeta-clock-guide" cx="742" cy="366" r="58"/><path class="zeta-clock-vm" d="${vm}"/><text class="zeta-clock-text" x="674" y="310">VM · −φ · 5.5</text><path class="zeta-clock-fillet" d="${fillet}"/><text class="zeta-clock-note" x="604" y="505">r=65µm · d=${d.toFixed(2)} · arc=${arc.toFixed(2)} · SEPARATE</text><text class="zeta-clock-note" x="742" y="438" text-anchor="middle">EDELWEISS ± CLOCK · 5.5+5.5 = 11 SLOTS · VIEW ONLY</text></g>`;
+  }
+  function packageGridMap(dims){
+    const points=packageData.map((item,index)=>{
+      const x=Math.round(item.x/19*(dims.x-1)),y=Math.round(item.y/19*(dims.y-1)),z=Math.round(item.z/4*(dims.z-1));
+      return {...item,index,x,y,z,id:`PKG:${item.value}`,sourceId:`B20:${item.z}:${item.y}:${item.x}`,gridId:`V:${x}:${y}:${z}`};
+    });
+    const unique=new Set(points.map(point=>point.gridId)).size;
+    return {points,unique,collisions:points.length-unique,domain:{x:19,y:19,z:4}};
+  }
+  const crtQrtLens={
+    id:'NN:CRT_QRT_37_CARRIER_LADDER',moduli:[7,11,13,19],
+    ladder:[
+      {n:37,q20:1,r20:17,mod11:4},{n:137,q20:6,r20:17,mod11:5},{n:237,q20:11,r20:17,mod11:6},
+      {n:537,q20:26,r20:17,mod11:9},{n:11357,q20:567,r20:17,mod11:5,crt:[3,5,8,14]},{n:11537,q20:576,r20:17,mod11:9,crt:[1,9,6,4]}
+    ]
+  };
+  function crtQrtGridMap(dims){
+    const ladder=crtQrtLens.ladder.map((item,index)=>({...item,index,x:Math.round(17/19*(dims.x-1)),y:Math.round(index/(crtQrtLens.ladder.length-1)*(dims.y-1)),z:Math.round(item.mod11/10*(dims.z-1))}));
+    const fingerprints=crtQrtLens.ladder.filter(item=>item.crt).map((item,carrierIndex)=>({n:item.n,points:item.crt.map((residue,index)=>({index,residue,modulus:crtQrtLens.moduli[index],x:Math.round(index/3*(dims.x-1)),y:Math.round(residue/(crtQrtLens.moduli[index]-1)*(dims.y-1)),z:Math.round((carrierIndex+1)/3*(dims.z-1))}))}));
+    return {ladder,fingerprints};
+  }
+  const rosettaGuides=[16,31,46].map(value=>({value,...base20(value)}));
+
+  function calc(){
+    const n=Math.max(2,num('n')), k=Math.max(1,num('k'));
+    const kx=num('kx'),ky=num('ky'),kz=num('kz'), out=state.dir==='out';
+    let target=n,delta=0,face=0,edge=0,corner=0,formula='',explain='',valid=true,ktoken='';
+    if(state.mode==='witness'){
+      target=n;delta=1;corner=1;formula='n³ + 1';ktoken='W:+1';
+      explain='Ein Witness ergänzt den Carrier, ohne eine vollständige geometrische Schicht zu behaupten.';
+    } else if(state.mode==='one'){
+      if(out){target=n+k;face=3*n*n*k;edge=3*n*k*k;corner=k**3;delta=face+edge+corner;formula='3n²k + 3nk² + k³';}
+      else {valid=k<n;target=n-k;face=3*n*n*k;edge=-3*n*k*k;corner=k**3;delta=valid?face+edge+corner:NaN;formula='3n²k − 3nk² + k³';}
+      ktoken=`K:${out?'+':'−'}${k}`;explain='Drei Flächenplatten, drei Kantenprismen und ein Eckwürfel bilden die einseitige 3+1-Zerlegung.';
+    } else if(state.mode==='centered'){
+      if(out){target=n+2*k;face=6*n*n*k;edge=12*n*k*k;corner=8*k**3;delta=face+edge+corner;formula='6n²k + 12nk² + 8k³';}
+      else {valid=2*k<n;target=n-2*k;delta=valid?n**3-target**3:NaN;face=6*n*n*k;edge=-12*n*k*k;corner=8*k**3;formula='n³ − (n−2k)³';}
+      ktoken=`K₆:${out?'+':'−'}${k}`;explain='K wirkt auf beide Seiten aller drei Achsen: sechs Flächen, zwölf Kantenbeiträge, acht Ecken.';
+    } else {
+      if(out){target=`${n+kx}×${n+ky}×${n+kz}`;face=n*n*(kx+ky+kz);edge=n*(kx*ky+kx*kz+ky*kz);corner=kx*ky*kz;delta=face+edge+corner;formula='n²Σk + nΣ(kᵢkⱼ) + kx·ky·kz';}
+      else {valid=kx<n&&ky<n&&kz<n;target=`${n-kx}×${n-ky}×${n-kz}`;face=n*n*(kx+ky+kz);edge=-n*(kx*ky+kx*kz+ky*kz);corner=kx*ky*kz;delta=valid?face+edge+corner:NaN;formula='n²Σk − nΣ(kᵢkⱼ) + kx·ky·kz';}
+      ktoken=`K⃗:${out?'+':'−'}(${kx},${ky},${kz})`;explain='K⃗ macht die drei Schichtanteile getrennt adressierbar; das Volumen bleibt exakt faktorisierbar.';
+    }
+    return {n,k,kx,ky,kz,out,target,delta,face,edge,corner,formula,explain,valid,ktoken};
+  }
+
+  function voxelRecord(c){
+    let dx=c.n,dy=c.n,dz=c.n;
+    if(state.mode==='asym'){
+      dx=c.out?c.n+c.kx:c.n;dy=c.out?c.n+c.ky:c.n;dz=c.out?c.n+c.kz:c.n;
+    }else if(state.mode==='one'||state.mode==='centered'){
+      const pad=state.mode==='centered'?2*c.k:c.k;
+      dx=dy=dz=c.out?c.n+pad:c.n;
+    }
+    const pts=[];
+    for(let x=0;x<dx;x++)for(let y=0;y<dy;y++)for(let z=0;z<dz;z++){
+      let sx=x>=c.n,sy=y>=c.n,sz=z>=c.n;
+      if(state.mode==='witness'){if(x===0&&y===0&&z===0)pts.push({x,y,z,kind:'core'});continue}
+      if(!c.out){sx=x>=Math.max(0,c.n-c.kx);sy=y>=Math.max(0,c.n-c.ky);sz=z>=Math.max(0,c.n-c.kz)}
+      const shell=sx||sy||sz;
+      if(state.whole||shell)pts.push({x,y,z,kind:shell?`${sx?'x':''}${sy?'y':''}${sz?'z':''}`:'core'});
+    }
+    if(state.mode==='witness')pts.push({x:c.n,y:c.n,z:c.n,kind:'xyz'});
+    let out=pts;
+    if(state.grid==='octree'){
+      const seen=new Map();
+      pts.forEach(p=>{const q={x:Math.floor(p.x/2),y:Math.floor(p.y/2),z:Math.floor(p.z/2),kind:p.kind};seen.set(`${q.x}|${q.y}|${q.z}`,q)});out=[...seen.values()];
+      dx=Math.ceil(dx/2);dy=Math.ceil(dy/2);dz=Math.ceil(dz/2);
+    }
+    out=out.map(point=>({...point,id:`V:${point.x}:${point.y}:${point.z}`}));
+    const allMap=new Map(out.map(point=>[point.id,point]));
+    if(state.selectedNodeId&&!allMap.has(state.selectedNodeId))state.selectedNodeId=null;
+    const selected=state.selectedNodeId?allMap.get(state.selectedNodeId):null;
+    const anchor=selected||{x:Math.floor((dx-1)/2),y:Math.floor((dy-1)/2),z:Math.floor((dz-1)/2)};
+    const inCut=point=>state.cut==='all'||(state.cut==='xy'&&point.z===anchor.z)||(state.cut==='xz'&&point.y===anchor.y)||(state.cut==='yz'&&point.x===anchor.x)||(state.cut==='cross'&&(point.x===anchor.x||point.y===anchor.y||point.z===anchor.z));
+    const cutPoints=out.filter(inCut),cap=1500,step=Math.max(1,Math.ceil(cutPoints.length/cap));
+    const points=cutPoints.filter((_,i)=>i%step===0);
+    if(selected&&!points.some(point=>point.id===selected.id))points.push(selected);
+    return {points,allPoints:out,allMap,inCut,total:out.length,cutTotal:cutPoints.length,shown:points.length,dims:{x:dx,y:dy,z:dz},anchor};
+  }
+
+  const relationOffsets=grid=>{
+    if(grid==='cubic'){
+      const offsets=[];for(let x=-1;x<=1;x++)for(let y=-1;y<=1;y++)for(let z=-1;z<=1;z++)if(x||y||z)offsets.push([x,y,z]);return offsets;
+    }
+    if(grid==='fcc')return [[1,1,0],[1,-1,0],[-1,1,0],[-1,-1,0],[1,0,1],[1,0,-1],[-1,0,1],[-1,0,-1],[0,1,1],[0,1,-1],[0,-1,1],[0,-1,-1]];
+    return [[1,0,0],[-1,0,0],[0,1,0],[0,-1,0],[0,0,1],[0,0,-1]];
+  };
+  const nodeNeighbors=(point,record)=>relationOffsets(state.grid).map(([x,y,z])=>record.allMap.get(`V:${point.x+x}:${point.y+y}:${point.z+z}`)).filter(Boolean);
+
+  function projectBase(p,dims){
+    const profile=perspectiveProfiles[state.frame],a=(state.angle+profile.yaw)*Math.PI/180,c=Math.cos(a),s=Math.sin(a);
+    let x=p.x-(dims.x-1)/2,y=p.y-(dims.y-1)/2,z=p.z-(dims.z-1)/2;
+    if(state.grid==='fcc'){x+=(p.z&1)*.5;y+=(p.z&1)*.5}
+    const rx=x*c-y*s,ry=x*s+y*c;
+    const scale=Math.min(22,350/Math.max(dims.x,dims.y,dims.z));
+    return {x:450+(rx-ry+z*profile.shear)*scale,y:270+(rx+ry)*scale*profile.depth-z*scale*profile.height,d:rx+ry+z};
+  }
+
+  function waveDeformation(point,dims,phaseDeg=state.wavePhase,amplitudePct=state.waveAmplitude){
+    const phase=phaseDeg*Math.PI/180,turns=2;
+    const nx=dims.x>1?point.x/(dims.x-1):0,ny=dims.y>1?point.y/(dims.y-1):0,nz=dims.z>1?point.z/(dims.z-1):0;
+    const amplitude=Math.max(0.35,(Math.max(dims.x,dims.y,dims.z)-1)*.12)*(amplitudePct/100);
+    return {
+      x:point.x+amplitude*Math.sin(turns*2*Math.PI*ny+phase),
+      y:point.y+amplitude*Math.sin(turns*2*Math.PI*nx+phase+Math.PI/2),
+      z:point.z+amplitude*.45*Math.sin(2*Math.PI*(nx+ny+nz)+phase)
+    };
+  }
+
+  function project(p,dims){
+    const visible=state.wave&&state.gridCoupling?waveDeformation(p,dims):p;
+    return projectBase(visible,dims);
+  }
+
+  function waveGridSamples(dims,phaseDeg){
+    const count=20,phase=phaseDeg*Math.PI/180,turns=2,ampX=Math.max(1,(dims.x-1)*.18),ampY=Math.max(1,(dims.y-1)*.18),midX=(dims.x-1)/2,midY=(dims.y-1)/2,midZ=(dims.z-1)/2;
+    const channelX=Array.from({length:count},(_,index)=>{const t=index/(count-1);return {x:t*(dims.x-1),y:midY+ampY*Math.sin(turns*2*Math.PI*t+phase),z:midZ,channel:'WX',index}});
+    const channelY=Array.from({length:count},(_,index)=>{const t=index/(count-1);return {x:midX+ampX*Math.sin(turns*2*Math.PI*t+phase+Math.PI/2),y:t*(dims.y-1),z:midZ,channel:'WY',index}});
+    return {channelX,channelY,count};
+  }
+
+  function radialMetric(point,dims){
+    const dx2=2*point.x-(dims.x-1),dy2=2*point.y-(dims.y-1),dz2=2*point.z-(dims.z-1);
+    const r4xy=dx2*dx2+dy2*dy2,r4= r4xy+dz2*dz2;
+    const bearingDeg=r4xy?Math.atan2(Math.abs(dy2),Math.abs(dx2))*180/Math.PI:0;
+    return {dx2,dy2,dz2,r4xy,r4,r:Math.sqrt(r4)/2,rxy:Math.sqrt(r4xy)/2,bearingDeg,bearingRad:bearingDeg*Math.PI/180};
+  }
+
+  function projectSolid(vertex,width,height,scale){
+    const profile=perspectiveProfiles[state.frame],a=(state.angle+profile.yaw)*Math.PI/180,c=Math.cos(a),s=Math.sin(a);
+    const [x,y,z]=vertex,rx=x*c-y*s,ry=x*s+y*c;
+    return {x:width/2+(rx-ry+z*profile.shear)*scale,y:height/2+(rx+ry)*scale*profile.depth-z*scale*profile.height,d:rx+ry+z};
+  }
+
+  function renderEightBodies(c){
+    const section=$('eightBodyDemo');
+    section.hidden=!state.eightBodies;
+    if(!state.eightBodies)return;
+    const body=platonicBodies[state.platonicIndex],profile=perspectiveProfiles[state.frame],record=voxelRecord(c),sourceOrientedVertices=orientedSolidVertices(body),orientedVertices=sourceOrientedVertices.map(vertex=>bandCoupledVertex(vertex)),mapping=solidGridMap(body,record.dims,sourceOrientedVertices);
+    state.solidVertexIndex=Math.min(state.solidVertexIndex,body.vertices.length-1);
+    const radius=Math.max(...body.vertices.flat().map(Math.abs)),scale=150/radius;
+    const points=orientedVertices.map(vertex=>projectSolid(vertex,900,520,scale));
+    const edges=body.edges.map(([a,b],index)=>({a,b,index,depth:(points[a].d+points[b].d)/2})).sort((a,b)=>a.depth-b.depth);
+    const edgeMarkup=edges.map(edge=>`<line class="solid-edge ${edge.depth<0?'back':''}" x1="${points[edge.a].x.toFixed(2)}" y1="${points[edge.a].y.toFixed(2)}" x2="${points[edge.b].x.toFixed(2)}" y2="${points[edge.b].y.toFixed(2)}"/>`).join('');
+    const faceRecords=body.faceCycles.map((indices,index)=>({indices,index,depth:indices.reduce((sum,vertexIndex)=>sum+points[vertexIndex].d,0)/indices.length})).sort((a,b)=>a.depth-b.depth);
+    const faceMarkup=faceRecords.map(face=>`<polygon class="solid-cover-face family-${face.index%3}" points="${face.indices.map(index=>`${points[index].x.toFixed(2)},${points[index].y.toFixed(2)}`).join(' ')}"><title>FACE ${face.index+1}/${body.faceCycles.length} · ${face.indices.length}-CYCLE</title></polygon>`).join('');
+    const innerPoints=orientedVertices.map(vertex=>projectSolid(vertex.map(value=>value*.76),900,520,scale));
+    const innerFaceMarkup=faceRecords.map(face=>`<polygon class="solid-inner-face" points="${face.indices.map(index=>`${innerPoints[index].x.toFixed(2)},${innerPoints[index].y.toFixed(2)}`).join(' ')}"/>`).join('');
+    const shellLinks=points.map((point,index)=>`<line class="solid-shell-link" x1="${point.x.toFixed(2)}" y1="${point.y.toFixed(2)}" x2="${innerPoints[index].x.toFixed(2)}" y2="${innerPoints[index].y.toFixed(2)}"/>`).join('');
+    const arcMarkup=edges.map(edge=>{const a=points[edge.a],b=points[edge.b],familyIndex=edge.index%v12BraceFamilies.length,family=v12BraceFamilies[familyIndex],mx=(a.x+b.x)/2,my=(a.y+b.y)/2,dx=b.x-a.x,dy=b.y-a.y,length=Math.hypot(dx,dy)||1,nx=-dy/length,ny=dx/length,sign=(mx-450)*nx+(my-260)*ny>=0?1:-1,bend=length*(.13+familyIndex*.025),cx=mx+nx*bend*sign,cy=my+ny*bend*sign;return `<path class="solid-arc family-${familyIndex}" d="M${a.x.toFixed(2)},${a.y.toFixed(2)} Q${cx.toFixed(2)},${cy.toFixed(2)} ${b.x.toFixed(2)},${b.y.toFixed(2)}"><title>V12 BRACE ${family.ratio} · VIEW SEAM</title></path>`}).join('');
+    const nodes=points.map((point,index)=>`<circle class="solid-node ${index===state.solidVertexIndex?'active':''}" data-solid-vertex="${index}" tabindex="0" cx="${point.x.toFixed(2)}" cy="${point.y.toFixed(2)}" r="${index===state.solidVertexIndex?7:5}"><title>${mapping.points[index].id} → ${mapping.points[index].gridId}</title></circle>`).join('');
+    const trailPoints=state.bodyTrace?state.bodyTrail.map(item=>projectSolid(item.vertex,900,520,scale)):[];
+    const trail=trailPoints.length?`<polyline class="solid-trail" points="${trailPoints.map(point=>`${point.x.toFixed(2)},${point.y.toFixed(2)}`).join(' ')}"/>${trailPoints.map(point=>`<circle class="solid-trail-node" cx="${point.x.toFixed(2)}" cy="${point.y.toFixed(2)}" r="2.7"/>`).join('')}`:'';
+    const coverMarkup={nodes:nodes,edges:`${edgeMarkup}${nodes}`,arcs:`${edgeMarkup}${arcMarkup}${nodes}`,faces:`${faceMarkup}${edgeMarkup}${nodes}`,dual:`${faceMarkup}${innerFaceMarkup}${shellLinks}${edgeMarkup}${nodes}`}[state.bodyCoverMode];
+    const coverLabels={nodes:'NODES',edges:'EDGES',arcs:'ARC SEAMS · V12 BRACES',faces:'FACE COVER',dual:'DUAL SHELL'};
+    const bandTicks=state.bodyBandCoupling?nBand.values.map((value,index)=>{const y=390-index*48;return `<line class="body-band-tick band-${index+1}" x1="700" y1="${y}" x2="830" y2="${y}"/><text class="body-band-label" x="704" y="${y-8}">B${index+1} ${value.toFixed(3)}</text>`}).join(''):'';
+    const bandRings=state.bodyBandCoupling?bodyBandRingRecords().map(record=>`<ellipse class="body-band-ring band-${record.index+1}" cx="450" cy="260" rx="${record.rx.toFixed(2)}" ry="${record.ry.toFixed(2)}"><title>N-BAND HORIZON ${record.index+1} · ${record.value.toFixed(3)} · VIEW GUIDE</title></ellipse>`).join(''):'';
+    const bandSectors=state.bodyBandCoupling?nBandSectorAngles.map(angle=>{const a=angle*Math.PI/180,x=450+215*Math.cos(a),y=260+133*Math.sin(a);return `<line class="body-band-sector" x1="450" y1="260" x2="${x.toFixed(2)}" y2="${y.toFixed(2)}"><title>SIX-SECTOR ORIENTATION GUIDE · ${angle}° · VIEW ONLY</title></line>`}).join(''):'';
+    const bandAxis=state.bodyBandCoupling?`${bandSectors}${bandRings}<path class="body-band-axis-shadow" d="${bodyBandAxisPath()}"/><path class="body-band-axis" d="${bodyBandAxisPath()}"/><circle class="body-band-pivot" cx="450" cy="260" r="6"><title>N-BAND SHARED PHASE PIVOT</title></circle>${bandTicks}<text class="body-band-label" x="626" y="66">N-BAND Σ ${nBand.sum.toFixed(3)} · 3 HORIZONS · 6-SECTOR GUIDE · φ${Math.round(state.wavePhase)}°</text>`:'';
+    $('platonicStage').innerHTML=`<line class="solid-axis" x1="70" y1="260" x2="830" y2="260"/><line class="solid-axis" x1="450" y1="45" x2="450" y2="475"/>${bandAxis}<g class="solid-cover-${state.bodyCoverMode}">${trail}${coverMarkup}</g><text class="svg-label" x="36" y="42">${body.name.toUpperCase()} · ${body.symbol} · ${coverLabels[state.bodyCoverMode]}</text><text class="svg-small" x="36" y="494">V ${body.vertices.length} · E ${body.edges.length} · F ${body.faceCycles.length} · EULER ${body.euler} · BODY φ${state.bodyPhase.toFixed(1)}° · ${state.bodyBandCoupling?'N-BAND VIEW COUPLED':'GRID FIXED'}</text>`;
+    $('platonicKicker').textContent=`SOLID ${String(state.platonicIndex+1).padStart(2,'0')} / 05 · ${body.symbol}`;
+    $('platonicName').textContent=body.name;
+    $('platonicRole').textContent=`Reguläres konvexes Polyeder · Dual: ${body.dual}.`;
+    $('platonicFacts').textContent=`V=${body.vertices.length} · E=${body.edges.length} · F=${body.faceCycles.length}/${body.faces} · V−E+F=${body.euler} · ${body.euler===2&&body.edges.length===body.expectedEdges&&body.faceCycles.length===body.faces?'PASS':'FAIL'}`;
+    $('platonicSymbol').textContent=`SCHLÄFLI ${body.symbol} · NORMALISIERTE KANTENLÄNGE`;
+    const selectedMap=mapping.points[state.solidVertexIndex];
+    $('platonicGridMap').textContent=`${state.bodyMap?'GRID MAP ON':'GRID MAP OFF'} · ${mapping.unique}/${mapping.points.length} UNIQUE · ${selectedMap.id} → ${selectedMap.gridId}`;
+    $('platonicPerspective').textContent=`PERSPECTIVE: ${profile.name} · BODY ORBIT ${state.bodyOrbit?'RUN':'HOLD'} · ${coverLabels[state.bodyCoverMode]}`;
+    $('platonicStatus').textContent=`${state.bodyCoverMode==='arcs'?'V12 ratios 9/8 · 10/9 · 16/15 are view seams over source edges. ':state.bodyCoverMode==='dual'?'Outer and inset shell reuse the same face cycles and vertex IDs. ':''}${state.bodyBandCoupling?'View coupling: the white axis and displayed body use the same phase with bands 0.429 / 0.456 / 0.487 (Σ 1.372). These are scalar display weights, not ISO angles. ':'Rigid body X×2/Y×1/Z×3 inside a fixed grid view. '}${selectedMap.id} remains stable; its current imprint is ${selectedMap.gridId}.`;
+    $('bodyOrbitRead').textContent=`φ ${state.bodyPhase.toFixed(1)}° · X×2 / Y×1 / Z×3 · GRID ${state.playing?'CAMERA MOVING':'FIXED'}`;
+    $('eightBodyReceipt').textContent=`5 REGULAR CONVEX POLYHEDRA · FACE CYCLES ${platonicBodies.filter(item=>item.faceCycles.length===item.faces).length}/5 PASS · COVER:${coverLabels[state.bodyCoverMode]} · BODY ORBIT:${state.bodyOrbit?'RUN':'HOLD'} · N-BAND:${state.bodyBandCoupling?'0.429/0.456/0.487 Σ1.372 @φ'+Math.round(state.wavePhase)+'°':'OFF'} · P-ID STABLE · GRID:${selectedMap.gridId} · VIEW ONLY`;
+    $('eightBodyGrid').innerHTML=platonicBodies.map((item,index)=>`<button class="body-card ${index===state.platonicIndex?'active':''}" data-solid-index="${index}" aria-label="${item.name} wählen"><small>${String(index+1).padStart(2,'0')} · ${item.symbol}</small><b>${item.name}</b><span>V ${item.vertices.length} · E ${item.edges.length} · F ${item.faces}</span><code>EULER ${item.euler===2?'PASS':'FAIL'} · DUAL ${item.dual.toUpperCase()}</code></button>`).join('');
+  }
+
+  function packageProjection(point,phaseDeg=state.packagePhase,amplitudePct=state.packageBreath?state.waveAmplitude:0){
+    const angle=2*Math.PI*point.x/20-Math.PI/2,phase=phaseDeg*Math.PI/180,gain=Math.max(0,Math.min(100,amplitudePct))/100;
+    const breathing=1+.085*gain*Math.sin(phase+3*angle+point.y*.21+point.z*.43);
+    const radius=(48+point.y*7)*breathing;
+    const hover=7*gain*Math.sin(phase+2*angle+point.z*.73);
+    const layerDrift=5*gain*Math.cos(phase+3*angle+point.y*.11);
+    return {x:410+point.z*34+Math.cos(angle)*radius+layerDrift,y:430-point.z*72+Math.sin(angle)*radius*.42+hover};
+  }
+  function packageFrameProjection(u,v,phaseDeg=state.packagePhase,amplitudePct=state.packageBreath?state.waveAmplitude:0){
+    const phase=phaseDeg*Math.PI/180,gain=Math.max(0,Math.min(100,amplitudePct))/100,scale=1+.018*gain*Math.sin(phase);
+    const baseX=450+(u-.5)*560*scale,baseY=270+(v-.5)*546*scale;
+    const channel2=Math.sin(phase+Math.PI*4*u+Math.PI*2*v);
+    const channel3=Math.sin(phase+Math.PI*6*v+Math.PI*2*u);
+    return {x:baseX+8*gain*channel3,y:baseY+8*gain*channel2};
+  }
+  function svgPath(points,close=false){
+    return points.map((point,index)=>`${index?'L':'M'}${point.x.toFixed(1)},${point.y.toFixed(1)}`).join(' ')+(close?' Z':'');
+  }
+  function sampledFrameLine(u0,v0,u1,v1,count=33){
+    return svgPath(Array.from({length:count},(_,index)=>{const t=index/(count-1);return packageFrameProjection(u0+(u1-u0)*t,v0+(v1-v0)*t)}));
+  }
+  function packagePath(z,y){
+    const samples=Array.from({length:81},(_,index)=>packageProjection({z,y,x:index*20/80}));
+    return samples.map((point,index)=>`${index?'L':'M'}${point.x.toFixed(1)},${point.y.toFixed(1)}`).join(' ');
+  }
+  function packageSpoke(z,x){
+    const samples=Array.from({length:40},(_,index)=>packageProjection({z,y:index*19/39,x}));
+    return samples.map((point,index)=>`${index?'L':'M'}${point.x.toFixed(1)},${point.y.toFixed(1)}`).join(' ');
+  }
+  function renderPackageSvg(){
+    const outline=svgPath([
+      ...Array.from({length:25},(_,i)=>packageFrameProjection(i/24,0)),
+      ...Array.from({length:24},(_,i)=>packageFrameProjection(1,(i+1)/24)),
+      ...Array.from({length:24},(_,i)=>packageFrameProjection(1-(i+1)/24,1)),
+      ...Array.from({length:23},(_,i)=>packageFrameProjection(0,1-(i+1)/24))
+    ],true);
+    const cartesian=Array.from({length:9},(_,index)=>`<path class="package-cartesian" d="${sampledFrameLine(index/8,0,index/8,1)}"/><path class="package-cartesian" d="${sampledFrameLine(0,index/8,1,index/8)}"/>`).join('');
+    const layers=[0,1,4].map(z=>`<path class="package-layer" d="${packagePath(z,19)}"/>`).join('');
+    const rings=[0,6,11,15,18].flatMap(y=>[0,1,4].map(z=>`<path class="package-ring" d="${packagePath(z,y)}"/>`)).join('');
+    const spokes=[0,5,10,15].flatMap(x=>[0,1,4].map(z=>`<path class="package-spoke" d="${packageSpoke(z,x)}"/>`)).join('');
+    const guides=rosettaGuides.map(guide=>{const point=packageProjection(guide);return `<circle class="package-guide" cx="${point.x.toFixed(1)}" cy="${point.y.toFixed(1)}" r="5"><title>Rosetta guide ${guide.value} · B20 ${guide.z}:${guide.y}:${guide.x}</title></circle>`}).join('');
+    const packages=packageData.map((item,index)=>{const point=packageProjection(item);return `<g data-package-index="${index}" role="button" aria-label="Package ${item.value} wählen"><circle class="package-point ${index===state.packageIndex?'active':''}" fill="${item.color}" cx="${point.x.toFixed(1)}" cy="${point.y.toFixed(1)}" r="${index===state.packageIndex?10:8}"/><text class="package-label" x="${(point.x+13).toFixed(1)}" y="${(point.y-10).toFixed(1)}">${item.value}</text></g>`}).join('');
+    const lframe=`${sampledFrameLine(.064,.062,.064,.938)} ${sampledFrameLine(.064,.938,.936,.938).replace(/^M/,'L')}`;
+    $('packageSvg').innerHTML=`<path class="package-frame" d="${outline}"/><path class="package-lframe" d="${lframe}"/>${cartesian}${layers}${rings}${spokes}${guides}${packages}<text class="svg-label" x="34" y="38">FULL TESA · 2 WAVE + 3 B20 AXES + 3 DISPLAY LAYERS</text><text class="svg-small" x="34" y="512">Z=400 · Y=20 · X=UNIT · GUIDES 16/31/46</text><text class="svg-small" x="748" y="512">40:39 BREATH</text>`;
+    $('packagePhaseRead').textContent=`${Math.round(state.packagePhase)}°`;
+  }
+  function renderPackageField(){
+    const item=packageData[state.packageIndex],pass=400*item.z+20*item.y+item.x===item.value,mapping=packageGridMap(voxelRecord(calc()).dims);
+    renderPackageSvg();
+    $('packageKicker').textContent=`PACKAGE ${String(state.packageIndex+1).padStart(2,'0')} / 05 · ${item.role}`;
+    $('packageName').textContent=String(item.value);
+    $('packageAddress').textContent=`B20 ${item.z}:${item.y}:${item.x}`;
+    $('packageFormula').textContent=`${item.z}×400 + ${item.y}×20 + ${item.x} = ${item.value}`;
+    $('packageState').textContent=`${state.packageBreath?'FULL TESA BREATH · SHARED PHASE':'STATIC PROJECTION'} · ${pass?'EXACT':'FAIL'} · MAIN GRID ${state.packageMap?'ON':'OFF'}`;
+    $('packageTable').innerHTML=packageData.map((entry,index)=>`<tr><td><button class="${index===state.packageIndex?'active':''}" data-package-index="${index}">${entry.value}</button></td><td>${entry.z}:${entry.y}:${entry.x}</td><td>${entry.z}×400 + ${entry.y}×20 + ${entry.x}</td><td class="${400*entry.z+20*entry.y+entry.x===entry.value?'pass':'fail'}">${400*entry.z+20*entry.y+entry.x===entry.value?'PASS':'FAIL'}</td></tr>`).join('');
+    $('packageReceipt').textContent=`${packageData.filter(entry=>400*entry.z+20*entry.y+entry.x===entry.value).length}/5 BASE20 PASS · GRID MAP ${mapping.unique}/5 UNIQUE · AXES X₁₉/Y₁₉ · FRAME 400:390 = 40:39 · ${state.packageBreath?'FULL TESA 2+3+3 · SHARED φ '+Math.round(state.packagePhase)+'°':'STATIC'} VIEW ONLY`;
+  }
+  function setPackageBreath(on){
+    cancelAnimationFrame(state.packageRaf);
+    state.packageBreath=on;
+    if(on){setWavePlay(false);state.wave=true;state.gridCoupling=true;state.packageMap=true;state.frame='tesa';state.outerFrame=true;state.lEdge=true;state.wavePhase=state.packagePhase;syncButtons();render()}
+    $('packageBreath').classList.toggle('active',on);$('packageBreath').setAttribute('aria-pressed',String(on));$('packageBreath').textContent=`FULL TESA BREATH · ${on?'ON':'OFF'}`;renderPackageField();
+    if(!on)return;
+    const tick=()=>{if(!state.packageBreath)return;state.packagePhase=(state.packagePhase+.55)%360;state.wavePhase=state.packagePhase;$('packagePhase').value=String(Math.round(state.packagePhase));$('wavePhase').value=String(Math.round(state.wavePhase));$('wavePhaseRead').textContent=`${Math.round(state.wavePhase)}°`;const current=calc();renderPackageSvg();renderSvg(current);if(state.bodyBandCoupling)renderEightBodies(current);syncTriDock();state.packageRaf=requestAnimationFrame(tick)};
+    state.packageRaf=requestAnimationFrame(tick);
+  }
+
+  function upperBoundaryProjection(u,v,phaseDeg=state.wavePhase,amplitudePct=state.wave&&state.gridCoupling?state.waveAmplitude:0){
+    const phase=phaseDeg*Math.PI/180,gain=amplitudePct/100,scale=1+.012*gain*Math.sin(phase);
+    const baseX=450+(u-.5)*650*scale,baseY=270+(v-.5)*390*scale;
+    const channelX=Math.sin(phase+Math.PI*4*u+Math.PI*2*v),channelY=Math.sin(phase+Math.PI*6*v+Math.PI*2*u);
+    return {x:baseX+6*gain*channelY,y:baseY+6*gain*channelX};
+  }
+  function sampledUpperBoundaryLine(u0,v0,u1,v1,count=32){
+    return svgPath(Array.from({length:count+1},(_,index)=>{const t=index/count;return upperBoundaryProjection(u0+(u1-u0)*t,v0+(v1-v0)*t)}));
+  }
+  function upperOuterPath(){
+    const points=[
+      ...Array.from({length:25},(_,i)=>upperBoundaryProjection(i/24,0)),
+      ...Array.from({length:24},(_,i)=>upperBoundaryProjection(1,(i+1)/24)),
+      ...Array.from({length:24},(_,i)=>upperBoundaryProjection(1-(i+1)/24,1)),
+      ...Array.from({length:23},(_,i)=>upperBoundaryProjection(0,1-(i+1)/24))
+    ];
+    return svgPath(points,true);
+  }
+  function upperLEdgePath(){
+    const vertical=Array.from({length:33},(_,i)=>upperBoundaryProjection(.075,.08+(.82*i/32)));
+    const horizontal=Array.from({length:32},(_,i)=>upperBoundaryProjection(.075+(.825*(i+1)/32),.9));
+    return svgPath([...vertical,...horizontal]);
+  }
+
+  function renderSvg(c){
+    const lens=$('lens').value,record=voxelRecord(c),size=state.grid==='octree'?7:Math.max(2.2,7-Math.max(record.dims.x,record.dims.y,record.dims.z)*.12);
+    const selected=state.selectedNodeId?record.allMap.get(state.selectedNodeId):null;
+    const neighbors=selected?nodeNeighbors(selected,record):[],neighborIds=new Set(neighbors.map(point=>point.id));
+    const projected=record.points.map(p=>({...p,...project(p,record.dims)})).sort((a,b)=>a.d-b.d);
+    const nodes=projected.map(p=>`<rect class="voxel-${p.kind} voxel-node" data-node-id="${p.id}" tabindex="0" x="${(p.x-size/2).toFixed(1)}" y="${(p.y-size/2).toFixed(1)}" width="${size.toFixed(1)}" height="${size.toFixed(1)}" rx="${(size*.18).toFixed(1)}" opacity="${p.kind==='core'?.32:.94}"><title>${p.id} · ${p.kind}</title></rect>`).join('');
+    let tubeMarkup='',traceMarkup='';
+    if(selected){
+      const origin=project(selected,record.dims);
+      tubeMarkup=neighbors.map(neighbor=>{const end=project(neighbor,record.dims);return `<line class="trace-tube ${record.inCut(neighbor)?'':'off-cut'}" x1="${origin.x.toFixed(1)}" y1="${origin.y.toFixed(1)}" x2="${end.x.toFixed(1)}" y2="${end.y.toFixed(1)}"/>`}).join('');
+      traceMarkup=neighbors.map(neighbor=>{const point=project(neighbor,record.dims);return `<circle class="trace-neighbor" cx="${point.x.toFixed(1)}" cy="${point.y.toFixed(1)}" r="${Math.max(2.8,size*.52).toFixed(1)}"/>`}).join('')+`<circle class="trace-node" cx="${origin.x.toFixed(1)}" cy="${origin.y.toFixed(1)}" r="${Math.max(5,size*1.15).toFixed(1)}"/>`;
+    }
+    let bodyMapMarkup='';
+    if(state.bodyMap){
+      const body=platonicBodies[state.platonicIndex],orientedVertices=orientedSolidVertices(body),mapping=solidGridMap(body,record.dims,orientedVertices);
+      const bodyPoints=mapping.points.map(point=>({...point,...project(point,record.dims)}));
+      const bodyEdges=body.edges.map(([a,b])=>`<line class="body-map-edge ${record.inCut(mapping.points[a])&&record.inCut(mapping.points[b])?'':'off-cut'}" x1="${bodyPoints[a].x.toFixed(1)}" y1="${bodyPoints[a].y.toFixed(1)}" x2="${bodyPoints[b].x.toFixed(1)}" y2="${bodyPoints[b].y.toFixed(1)}"><title>BODY_EDGE ${mapping.points[a].id} ↔ ${mapping.points[b].id}</title></line>`).join('');
+      const bodyNodes=bodyPoints.map((point,index)=>`<circle class="body-map-node ${record.inCut(mapping.points[index])?'':'off-cut'} ${index===state.solidVertexIndex?'active':''}" data-solid-map-index="${index}" tabindex="0" cx="${point.x.toFixed(1)}" cy="${point.y.toFixed(1)}" r="${index===state.solidVertexIndex?7:5}"><title>${point.id} → ${point.gridId}</title></circle>`).join('');
+      const mappedTrail=state.bodyTrace?state.bodyTrail.map(item=>solidGridPoint(body,item.vertex,record.dims,state.solidVertexIndex)).map(point=>project(point,record.dims)):[];
+      const bodyTrail=mappedTrail.length?`<polyline class="body-map-trail" points="${mappedTrail.map(point=>`${point.x.toFixed(1)},${point.y.toFixed(1)}`).join(' ')}"><title>SELECTED P NODE · CHANGING V IMPRINT · VIEW ONLY</title></polyline>`:'';
+      bodyMapMarkup=`<g aria-label="Platonic body graph mapped to grid">${bodyTrail}${bodyEdges}${bodyNodes}</g>`;
+    }
+    let packageMapMarkup='';
+    if(state.packageMap){
+      const mapping=packageGridMap(record.dims),origin=project({x:0,y:0,z:0},record.dims),xEnd=project({x:record.dims.x-1,y:0,z:0},record.dims),yEnd=project({x:0,y:record.dims.y-1,z:0},record.dims),zEnd=project({x:0,y:0,z:record.dims.z-1},record.dims);
+      const selectedPackage=mapping.points[state.packageIndex],selectedProjected=project(selectedPackage,record.dims);
+      const feet=[{x:selectedPackage.x,y:0,z:0},{x:0,y:selectedPackage.y,z:0},{x:0,y:0,z:selectedPackage.z}].map(point=>project(point,record.dims));
+      const guides=feet.map(foot=>`<line class="package-grid-guide" x1="${selectedProjected.x.toFixed(1)}" y1="${selectedProjected.y.toFixed(1)}" x2="${foot.x.toFixed(1)}" y2="${foot.y.toFixed(1)}"/>`).join('');
+      const packageNodes=mapping.points.map((point,index)=>{const p=project(point,record.dims);return `<circle class="package-grid-node ${record.inCut(point)?'':'off-cut'} ${index===state.packageIndex?'active':''}" data-package-map-index="${index}" tabindex="0" fill="${point.color}" cx="${p.x.toFixed(1)}" cy="${p.y.toFixed(1)}" r="${index===state.packageIndex?8:6}"><title>${point.id} · ${point.sourceId} → ${point.gridId}</title></circle>`}).join('');
+      packageMapMarkup=`<g aria-label="Base-20 package addresses mapped to grid"><line class="package-grid-axis" x1="${origin.x.toFixed(1)}" y1="${origin.y.toFixed(1)}" x2="${xEnd.x.toFixed(1)}" y2="${xEnd.y.toFixed(1)}"><title>X₁₉ · 20 POSITIONS · 0…19</title></line><line class="package-grid-axis y" x1="${origin.x.toFixed(1)}" y1="${origin.y.toFixed(1)}" x2="${yEnd.x.toFixed(1)}" y2="${yEnd.y.toFixed(1)}"><title>Y₁₉ · 20 POSITIONS · 0…19</title></line><line class="package-grid-axis z" x1="${origin.x.toFixed(1)}" y1="${origin.y.toFixed(1)}" x2="${zEnd.x.toFixed(1)}" y2="${zEnd.y.toFixed(1)}"><title>Z₄ · 5 DECLARED 400-LAYERS · 0…4</title></line>${guides}<circle class="package-grid-pivot" cx="${origin.x.toFixed(1)}" cy="${origin.y.toFixed(1)}" r="7"><title>ADDRESS HINGE · VIEW ONLY</title></circle>${packageNodes}<text class="svg-small" x="${(xEnd.x+8).toFixed(1)}" y="${(xEnd.y-7).toFixed(1)}">X₁₉</text><text class="svg-small" x="${(yEnd.x+8).toFixed(1)}" y="${(yEnd.y-7).toFixed(1)}">Y₁₉</text><text class="svg-small" x="${(zEnd.x+8).toFixed(1)}" y="${(zEnd.y-7).toFixed(1)}">Z₄</text></g>`;
+    }
+    let waveMarkup='';
+    if(state.wave){
+      const waves=waveGridSamples(record.dims,state.wavePhase),wx=waves.channelX.map(point=>({...point,...projectBase(point,record.dims)})),wy=waves.channelY.map(point=>({...point,...projectBase(point,record.dims)}));
+      const path=points=>points.map((point,index)=>`${index?'L':'M'}${point.x.toFixed(1)},${point.y.toFixed(1)}`).join(' ');
+      const samples=(points,counter)=>points.map(point=>`<circle class="wave-sample ${counter?'counter':''}" cx="${point.x.toFixed(1)}" cy="${point.y.toFixed(1)}" r="3"><title>WAVE_SAMPLE ${point.channel}:${point.index} · PHASE ${Math.round(state.wavePhase)}°</title></circle>`).join('');
+      const crossing=projectBase({x:(record.dims.x-1)/2,y:(record.dims.y-1)/2,z:(record.dims.z-1)/2},record.dims);
+      waveMarkup=`<g aria-label="Two sampled view-only wave channels"><path class="wave-path" d="${path(wx)}"/><path class="wave-path counter" d="${path(wy)}"/>${samples(wx,false)}${samples(wy,true)}<circle class="wave-crossing" cx="${crossing.x.toFixed(1)}" cy="${crossing.y.toFixed(1)}" r="6"><title>WAVE INTERACTION AXIS · VIEW ONLY</title></circle></g>`;
+    }
+    let crtQrtMarkup='';
+    if(state.crtQrt){
+      const mapping=crtQrtGridMap(record.dims);
+      const ladder=mapping.ladder.map(point=>({...point,...project(point,record.dims)}));
+      const ladderPath=ladder.map((point,index)=>`${index?'L':'M'}${point.x.toFixed(1)},${point.y.toFixed(1)}`).join(' ');
+      const ladderNodes=ladder.map(point=>`<circle class="qrt-node" cx="${point.x.toFixed(1)}" cy="${point.y.toFixed(1)}" r="6"><title>QRT_ADDRESS ${point.n} = 20×${point.q20}+${point.r20} · mod11=${point.mod11}</title></circle>`).join('');
+      const fingerprints=mapping.fingerprints.map((fingerprint,carrierIndex)=>{
+        const points=fingerprint.points.map(point=>({...point,...project(point,record.dims)}));
+        const rail=points.map((point,index)=>`${index?'L':'M'}${point.x.toFixed(1)},${point.y.toFixed(1)}`).join(' ');
+        const nodes=points.map(point=>`<circle class="crt-node ${carrierIndex?'second':''}" cx="${point.x.toFixed(1)}" cy="${point.y.toFixed(1)}" r="5"><title>CRT_FINGERPRINT ${fingerprint.n} mod ${point.modulus} = ${point.residue}</title></circle>`).join('');
+        return `<path class="crt-fingerprint ${carrierIndex?'second':''}" d="${rail}"><title>CRT_FINGERPRINT ${fingerprint.n} · mod 7/11/13/19</title></path>${nodes}`;
+      }).join('');
+      crtQrtMarkup=`<g aria-label="CRT QRT 37 carrier ladder view"><path class="qrt-ladder" d="${ladderPath}"/>${ladderNodes}${fingerprints}<text class="svg-small" x="52" y="72">r₂₀=17 · Q-LADDER ORDINAL · Z=mod11 · CRT 7/11/13/19</text></g>`;
+    }
+    let radialMarkup='',radialInfo=null;
+    if(state.radialLens){
+      const pivot={x:(record.dims.x-1)/2,y:(record.dims.y-1)/2,z:(record.dims.z-1)/2},pivotProjected=project(pivot,record.dims);
+      if(selected){
+        const metric=radialMetric(selected,record.dims),selectedProjected=project(selected,record.dims);
+        const shell=record.allPoints.filter(point=>record.inCut(point)&&radialMetric(point,record.dims).r4===metric.r4),shownShell=shell.slice(0,400);
+        const shellNodes=shownShell.map(point=>{const p=project(point,record.dims);return `<circle class="radial-shell-node ${point.id===selected.id?'selected':''}" cx="${p.x.toFixed(1)}" cy="${p.y.toFixed(1)}" r="${point.id===selected.id?8:5}"><title>RADIAL_SHELL ${point.id} · 4r²=${metric.r4}</title></circle>`}).join('');
+        radialMarkup=`<g aria-label="Local Q degree observation and exact radial shell"><line class="radial-vector" x1="${pivotProjected.x.toFixed(1)}" y1="${pivotProjected.y.toFixed(1)}" x2="${selectedProjected.x.toFixed(1)}" y2="${selectedProjected.y.toFixed(1)}"/><circle class="radial-pivot" cx="${pivotProjected.x.toFixed(1)}" cy="${pivotProjected.y.toFixed(1)}" r="7"><title>Q° OBSERVER PIVOT · LOCAL VIEW</title></circle>${shellNodes}<text class="q-observation-label" x="52" y="72">Q°_N(t) · LOCAL OBSERVATION · RADIAL SHELL 4r²=${metric.r4}</text></g>`;
+        radialInfo={metric,shellCount:shell.length,shellShown:shownShell.length};
+      }else{
+        radialMarkup=`<g aria-label="Local Q degree observation awaiting a target node"><circle class="radial-pivot" cx="${pivotProjected.x.toFixed(1)}" cy="${pivotProjected.y.toFixed(1)}" r="7"><title>Q° OBSERVER PIVOT · LOCAL VIEW</title></circle><text class="q-observation-label" x="52" y="72">Q°_N(t) · CLICK A NODE FOR EXACT RADIAL SHELL</text></g>`;
+      }
+    }
+    const zetaMarkup=state.zetaFold?zetaFoldOverlay():'';
+    const zetaClockMarkup=state.zetaFold&&state.zetaClock?zetaRoundingOverlay():'';
+    const bookMarkup=state.bookSeam?bookSeamOverlay():'';
+    const boundaryOverlay=`<g aria-label="Independent upper boundary layers">${state.outerFrame?`<path class="upper-outer-frame" d="${upperOuterPath()}"><title>OUTER FRAME · independent boundary layer · shared display phase</title></path><text class="upper-boundary-label" x="132" y="88">OUTER FRAME</text>`:''}${state.lEdge?`<path class="upper-l-edge" d="${upperLEdgePath()}"><title>ℒ EDGE · independent inner boundary layer · shared display phase</title></path><text class="upper-boundary-label" x="160" y="434">ℒ EDGE</text>`:''}</g>`;
+    const perspectiveOverlay=state.frame==='lframe'?`<text class="upper-boundary-label" x="660" y="88">ℒ OBLIQUE · VIEW</text>`:state.frame==='tesa'?`<text class="upper-boundary-label" x="660" y="88">TESA FRONT · VIEW</text>`:`<text class="upper-boundary-label" x="660" y="88">SOURCE ISO · VIEW</text>`;
+    const nxitOverlay=state.nxit?`<g class="viewonly" aria-label="N XIT decimal reversal view-only overlay"><rect x="610" y="65" width="235" height="88" rx="8"/><text class="svg-label" x="628" y="92">N|XIT · VIEW ONLY</text><text class="svg-label" x="628" y="120">384 → R₁₀ → 483</text><text class="svg-small" x="628" y="140">Δ99 · Σdigits 15 · mod9 6</text></g>`:'';
+    $('machine').innerHTML=`<line class="axis" x1="80" y1="270" x2="820" y2="270"/>${bookMarkup}<line class="axis" x1="450" y1="45" x2="450" y2="495"/><g>${nodes}</g>${bodyMapMarkup}<g>${tubeMarkup}${traceMarkup}</g>${packageMapMarkup}${waveMarkup}${crtQrtMarkup}${radialMarkup}${zetaMarkup}${zetaClockMarkup}${boundaryOverlay}${perspectiveOverlay}${nxitOverlay}<text class="svg-label" x="42" y="40">${state.grid.toUpperCase()} · ${record.dims.x}×${record.dims.y}×${record.dims.z} · θ ${angleLabel(state.angle)} · CUT ${state.cut.toUpperCase()}</text><text class="svg-small" x="42" y="515">${lensNames[lens]} · ${state.whole?'WHOLE MODEL':'SHELL ONLY'} · ${fmt(record.shown)}/${fmt(record.cutTotal)} CUT · ${fmt(record.total)} TOTAL</text><text class="svg-small" x="565" y="515">${state.bookSeam?`BOOK β${state.bookBeta.toFixed(0)}° · L:R ${state.bookRatio}`:state.zetaFold?`ZETA FOLD · ${state.zetaAngle.toFixed(1)}° · 12 NODES${state.zetaClock?' · ±CLOCK':''}`:state.wave&&state.gridCoupling?`GRID COUPLING · A${state.waveAmplitude}% · φ${Math.round(state.wavePhase)}°`:state.radialLens?'Q° LOCAL VIEW · EXACT 4r² SHELL':state.crtQrt?'CRT/QRT r₂₀=17 · 6+2 RAILS':state.wave?'WX₂ · WY₂ · 20+20 SAMPLES':state.packageMap?'X₁₉ · Y₁₉ · ADDRESS HINGE':state.bodyMap?'BODY GRAPH + GRID TUBES':'NODE IDS · LOCAL TUBES'} · VIEW ONLY</text>`;
+    $('traceId').textContent=selected?selected.id:'NONE · CLICK A NODE';
+    $('traceAddress').textContent=selected?`(${selected.x},${selected.y},${selected.z}) · ${selected.kind.toUpperCase()}`:'—';
+    $('traceRelations').textContent=selected?`${neighbors.length}/${relationOffsets(state.grid).length} · ${state.grid.toUpperCase()} LOCAL`:'—';
+    $('traceCut').textContent=`${state.cut.toUpperCase()} · (${record.anchor.x},${record.anchor.y},${record.anchor.z})`;
+    $('qObservation').textContent=state.radialLens?`Q°_N(t) · OBS:PIVOT · ORIENT:${angleLabel(state.angle)}/${lensNames[lens]} · HORIZON:${state.cut.toUpperCase()} · T:${state.wave?Math.round(state.wavePhase)+'° PHASE':'STATIC'} · INSTRUMENT:NLK · PROJ:${perspectiveProfiles[state.frame].name}`:'OFF · QD-01 VIEW';
+    $('radialShell').textContent=!state.radialLens?'—':radialInfo?`4r²=${radialInfo.metric.r4} · r=${radialInfo.metric.r.toFixed(4)} · ${radialInfo.shellCount} POINTS`:'CLICK A NODE';
+    $('radialBearing').textContent=!state.radialLens||!radialInfo?'—':`XY r=${radialInfo.metric.rxy.toFixed(4)} · β=${radialInfo.metric.bearingDeg.toFixed(4)}° / ${radialInfo.metric.bearingRad.toFixed(6)} rad`;
+    $('qObservedPoints').textContent=state.radialLens?`${fmt(record.cutTotal)}/${fmt(record.total)} IN Q° CUT · ${fmt(record.shown)} RENDERED`:'—';
+    $('nodeTrace').dataset.neighborIds=[...neighborIds].sort().join('|');
+    updateTriSharedState();
+    syncMainStage();
+  }
+
+  function render(){
+    const c=calc(), lens=$('lens').value, exact=lens!=='R45';
+    const activeRecord=voxelRecord(c);
+    if(state.bodyMap&&state.solidFollow){
+      const activeBody=platonicBodies[state.platonicIndex],followed=solidGridMap(activeBody,activeRecord.dims,orientedSolidVertices(activeBody)).points[state.solidVertexIndex];
+      state.selectedNodeId=activeRecord.allMap.has(followed.gridId)?followed.gridId:null;
+    }
+    if(state.packageMap&&state.packageFollow){
+      const followed=packageGridMap(activeRecord.dims).points[state.packageIndex];
+      state.selectedNodeId=activeRecord.allMap.has(followed.gridId)?followed.gridId:null;
+    }
+    const bankAngle=angleEntry(state.angle),map=latticeMap(),frame=frameNames[state.frame];
+    $('stageTitle').textContent=modeNames[state.mode];
+    $('viewBadge').textContent=map==='CUBIC_AXIS_PRESERVING_VIEW_ROTATION'?'AXIS / LATTICE-PRESERVING VIEW':state.grid==='fcc'?'COMPARATOR · 12':state.grid==='octree'?'AGGREGATED · 2³':exact?'VIEW TRANSFORM · COUNTS EXACT':'VIEW ONLY · RESAMPLED';
+    const derivedView=state.grid==='fcc'||state.grid==='octree';
+    $('viewBadge').style.borderColor=map==='CUBIC_AXIS_PRESERVING_VIEW_ROTATION'?'var(--mint)':exact&&!derivedView?'var(--pink)':'var(--gold)';
+    $('carrierRead').textContent=`${c.n}³ = ${fmt(c.n**3)}`;
+    const targetVol=typeof c.target==='number'?c.target**3:(c.out?(c.n+c.kx)*(c.n+c.ky)*(c.n+c.kz):(c.n-c.kx)*(c.n-c.ky)*(c.n-c.kz));
+    $('targetRead').textContent=state.mode==='witness'?`${fmt(c.n**3)} + 1 = ${fmt(c.n**3+1)}`:`${c.target} = ${c.valid?fmt(targetVol):'INVALID'}`;
+    $('deltaRead').textContent=state.mode==='witness'?'+1':c.valid?`${c.out?'+':'−'}${fmt(c.delta)}`:'INVALID K';
+    $('returnRead').textContent=c.valid&&exact?'EXACT':exact?'BLOCKED':'VIEW ONLY';
+    const body=platonicBodies[state.platonicIndex],bodyVertex=`P:${body.key}:${state.solidVertexIndex}`;
+    $('receipt').textContent=`N${c.n} · ${lensNames[lens]} · ${c.ktoken} · ${state.mode==='witness'?'WITNESS':'LSH'} · GRID:${state.grid.toUpperCase()} · ${state.whole?'WHOLE':'SHELL'} · CUT:${state.cut.toUpperCase()} · NODE:${state.selectedNodeId||'NONE'} · BOOK:${state.bookSeam?roomBoardBook.id+'@'+state.bookBeta.toFixed(0)+'°_'+state.bookRatio+'_LCM'+lcm(...activeBookRatio()):'OFF'} · BODY_MAP:${state.bodyMap?bodyVertex:'OFF'} · BODY_ORBIT:${state.bodyOrbit?'RUN@'+state.bodyPhase.toFixed(1)+'°':'HOLD@'+state.bodyPhase.toFixed(1)+'°'} · BODY_NBAND:${state.bodyBandCoupling?'0.429/0.456/0.487_SUM1.372@'+Math.round(state.wavePhase)+'°':'OFF'} · PACKAGE_MAP:${state.packageMap?'PKG:'+packageData[state.packageIndex].value:'OFF'} · WAVE:${state.wave?'WX2/WY2@'+Math.round(state.wavePhase)+'°':'OFF'} · WAVE_COUPLING:${state.wave&&state.gridCoupling?'DISPLAY_EMBEDDING_A'+state.waveAmplitude+'%':'OFF'} · ZETA_FOLD:${state.zetaFold?directZeta.id+'@'+state.zetaAngle.toFixed(1)+'°':'OFF'} · ZETA_CLOCK:${state.zetaClock?zetaRounding.id+'_PM_VM_5.5x2':'OFF'} · BOUNDARIES:${state.outerFrame?'OUTER':''}${state.outerFrame&&state.lEdge?'+':''}${state.lEdge?'L_EDGE':''}${!state.outerFrame&&!state.lEdge?'OFF':''} · CRT_QRT:${state.crtQrt?crtQrtLens.id:'OFF'} · QSTATE:${state.radialLens?'QD-01_VIEW_ONLY':'OFF'} · RADIAL:${state.radialLens?'EXACT_4R2':'OFF'} · FOLLOW:${state.solidFollow?'BODY':state.packageFollow?'PACKAGE':'OFF'} · ANGLE:${angleLabel(state.angle)} · FRAME:${frame} · PERSPECTIVE:${perspectiveProfiles[state.frame].name} · NXIT:${state.nxit?'VIEW_ONLY':'OFF'} · LATTICE_MAP:${map} · ${c.valid?'PASS':'BLOCKED'}`;
+    $('formula').textContent=c.formula;$('formulaExplain').textContent=c.explain;
+    $('facePart').textContent=fmt(c.face);$('edgePart').textContent=fmt(c.edge);$('cornerPart').textContent=fmt(c.corner);
+    const status=$('returnStatus');status.className='status'+(!c.valid?' bad':!exact?' warn':'');
+    status.querySelector('b').textContent=!c.valid?'RETURN BLOCKED':!exact?'RETURN VIEW-ONLY':'RETURN PASS';
+    $('returnText').textContent=!c.valid?'K überschreitet den verfügbaren Kern.':!exact?'R45 benötigt Resampling; keine exakte Zellinversion wird behauptet.':state.mode==='witness'?'Witness abziehen erhält den Carrier.':`K⃗⁻¹ und ℒ⁻¹ rekonstruieren den Carrier ${c.n}³.`;
+    const angleStatus=$('angleStatus');angleStatus.className='status '+(map==='CUBIC_AXIS_PRESERVING_VIEW_ROTATION'?'':'warn');
+    angleStatus.querySelector('b').textContent=map==='CUBIC_AXIS_PRESERVING_VIEW_ROTATION'?'90° · AXIS / LATTICE-PRESERVING VIEW ROTATION':'VIEW TRANSFORMATION · NO LATTICE MAP';
+    $('angleText').textContent=map==='CUBIC_AXIS_PRESERVING_VIEW_ROTATION'?'90° erhält die deklarierte kubische Achsenadressierung; es entsteht keine wissenschaftliche oder Source-Graph-Relation.':`${angleLabel(state.angle)} ${bankAngle?'ist ein deklarierter Bankwinkel':'ist eine freie Player-Ansicht'}; keine automatische Gitterautomorphie oder wissenschaftliche Relation.`;
+    $('frameStatus').querySelector('b').textContent=`FRAME: ${frame}`;
+    $('frameText').textContent=state.frame==='none'?'SOURCE_ISO: isometrische Referenzprojektion.':state.frame==='lframe'?'ℒ_OBLIQUE: Yaw, Tiefenmaß und Scherung ändern die Projektion sichtbar; Zahlen und Identität bleiben unverändert.':'TESA_DOOR_FRONTAL: frontale Türprojektion mit komprimierter Tiefe; Zahlen und Identität bleiben unverändert.';
+    $('nxitStatus').querySelector('b').textContent=`N|XIT: ${state.nxit?'VIEW_ONLY':'OFF'}`;
+    $('nxitText').textContent=state.nxit?'R₁₀(384)=483 liegt als getestete Dezimalansicht über dem Modell; Carrier, K-Shell, Winkel und Source Graph bleiben unverändert.':'Die Dezimalumkehr-Linse ist nicht auf die Ansicht gelegt.';
+    document.querySelectorAll('.k-one').forEach(el=>el.hidden=state.mode==='witness'||state.mode==='asym');
+    document.querySelectorAll('.k-vec').forEach(el=>el.hidden=state.mode!=='asym');
+    renderEightBodies(c);
+    renderSvg(c);
+  }
+
+  const declared=[
+    ['N24 · +1 LSH',25**3-24**3,1801],['N24 · −1 LSH',24**3-23**3,1657],
+    ['N24 · +2 LSH',26**3-24**3,3752],['N24 · −2 LSH',24**3-22**3,3176],
+    ['N8 · +1 LSH',9**3-8**3,217],['N8 · centered +1',10**3-8**3,488],
+    ['N8 · K⃗(3,3,1)',11*11*9-8**3,577],['N8³ + witness',8**3+1,513],
+    ['204² gate',23**3+24**3+25**3,204**2],
+    ['CUBIC local channels',relationOffsets('cubic').length,26],
+    ['FCC local channels',relationOffsets('fcc').length,12],
+    ['CUBIC CROSS retained tubes',relationOffsets('cubic').filter(([x,y,z])=>x===0||y===0||z===0).length,18],
+    ...packageData.map(item=>[`B20 ${item.value} · ${item.z}:${item.y}:${item.x}`,400*item.z+20*item.y+item.x,item.value]),
+    ...platonicBodies.map(body=>[`GRID MAP ${body.key} · UNIQUE`,solidGridMap(body,{x:11,y:11,z:9}).unique,body.vertices.length]),
+    ['B20 axis positions',20,20],['B20 max axis index',20-1,19],
+    ['PACKAGE GRID · N8 UNIQUE',packageGridMap({x:11,y:11,z:9}).unique,5],['PACKAGE GRID · OCTREE UNIQUE',packageGridMap({x:6,y:6,z:5}).unique,5],
+    ['WAVE WX samples',waveGridSamples({x:11,y:11,z:9},0).channelX.length,20],['WAVE WY samples',waveGridSamples({x:11,y:11,z:9},0).channelY.length,20],
+    ['WAVE COUPLING 360° return',Math.max(...Object.keys(waveDeformation({x:3,y:4,z:2},{x:11,y:11,z:9},0,65)).map(key=>Math.abs(waveDeformation({x:3,y:4,z:2},{x:11,y:11,z:9},0,65)[key]-waveDeformation({x:3,y:4,z:2},{x:11,y:11,z:9},360,65)[key])))<1e-12,true],
+    ['WAVE COUPLING zero amplitude identity',JSON.stringify(waveDeformation({x:3,y:4,z:2},{x:11,y:11,z:9},90,0))===JSON.stringify({x:3,y:4,z:2}),true],
+    ['WAVE COUPLING source address preserved',(()=>{const source={x:3,y:4,z:2};waveDeformation(source,{x:11,y:11,z:9},90,65);return JSON.stringify(source)===JSON.stringify({x:3,y:4,z:2})})(),true],
+    ['WAVE COUPLING visible displacement',(()=>{const moved=waveDeformation({x:3,y:4,z:2},{x:11,y:11,z:9},90,65);return Math.hypot(moved.x-3,moved.y-4,moved.z-2)>0.1})(),true],
+    ['ZETA FOLD declared node count',directZeta.heights.length,12],
+    ['ZETA FOLD rigid radius invariant',(()=>{const source=[0,directZeta.heights[6]],moved=zetaRotate(source,37);return Math.abs(Math.hypot(...source)-Math.hypot(...moved))<1e-12})(),true],
+    ['ZETA FOLD 90° reaches horizontal carrier',Math.abs(zetaRotate([0,directZeta.heights[0]],90)[1])<1e-12,true],
+    ['ZETA FOLD ρ₁ real endpoint',Math.abs(zetaRotate([0,directZeta.heights[0]],90)[0]+directZeta.heights[0])<1e-12,true],
+    ['ZETA FOLD source hash bound',directZeta.sourceSha256==='131a29d27bca9f87c0cc44f925cafa08016a149342fb3cf198ebaca3e4cbb96d',true],
+    ['ZETA ROUNDING source hash bound',zetaRounding.sourceSha256==='d4b1107c67d3c0d3e9f2a9ec27417ee0c068a6162fd2eb266782a2adec9fe823',true],
+    ['ZETA COMPASS 333° + 90° wraps to 63°',(zetaRounding.startBearing+90)%360,zetaRounding.endBearing],
+    ['ZETA FILLET 90° tangent distance',Math.round(zetaRounding.filletRadiusUm*Math.tan(Math.PI/4)),65],
+    ['ZETA FILLET 90° arc length µm',Math.round(zetaRounding.filletRadiusUm*Math.PI/2*1000),102102],
+    ['EDELWEISS 5.5 + 5.5 clock slots',zetaRounding.clockHalfCycles*2,zetaRounding.clockSlots],
+    ['PM / VM counterphase paths differ',zetaEdelweissPath(0,0,10,37,1)!==zetaEdelweissPath(0,0,10,37,-1),true],
+    ['ZETA TOUR declared bank stations',zetaTourStops.length,9],
+    ['ZETA TOUR reuses exact angle bank',zetaTourStops.slice(1).every((stop,index)=>Math.abs(stop.value-angleBank[index].value)<1e-12),true],
+    ['ZETA TOUR terminal coupled angle',zetaTourStops.at(-1).value,90],
+    ['FULL TESA BREATH 360° return',(()=>{const a=packageProjection(packageData[0],0,65),b=packageProjection(packageData[0],360,65);return Math.hypot(a.x-b.x,a.y-b.y)<1e-12})(),true],
+    ['FULL TESA BREATH zero amplitude identity',JSON.stringify(packageProjection(packageData[1],137,0))===JSON.stringify(packageProjection(packageData[1],0,0)),true],
+    ['FULL TESA BREATH source address preserved',(()=>{const source={...packageData[2]};packageProjection(source,93,65);return source.x===packageData[2].x&&source.y===packageData[2].y&&source.z===packageData[2].z&&source.value===1836})(),true],
+    ['FULL TESA frame visible displacement',(()=>{const a=packageFrameProjection(.3,.4,0,0),b=packageFrameProjection(.3,.4,90,65);return Math.hypot(a.x-b.x,a.y-b.y)>0.1})(),true],
+    ['UPPER FRAME 360° return',(()=>{const a=upperBoundaryProjection(.2,.3,0,65),b=upperBoundaryProjection(.2,.3,360,65);return Math.hypot(a.x-b.x,a.y-b.y)<1e-12})(),true],
+    ['UPPER FRAME zero amplitude identity',JSON.stringify(upperBoundaryProjection(.4,.6,137,0))===JSON.stringify(upperBoundaryProjection(.4,.6,0,0)),true],
+    ['OUTER FRAME and ℒ EDGE distinct paths',upperOuterPath()!==upperLEdgePath(),true],
+    ['ℒ EDGE remains inside OUTER FRAME',(()=>{const points=[upperBoundaryProjection(.075,.08,0,0),upperBoundaryProjection(.9,.9,0,0)];return points.every(point=>point.x>125&&point.x<775&&point.y>75&&point.y<465)})(),true],
+    ['TRI-VIEW default open module count',document.querySelectorAll('.tri-module[open]').length,3],
+    ['TRI-VIEW unique module identities',new Set([...document.querySelectorAll('.tri-module')].map(node=>node.dataset.triView)).size,3],
+    ['TRI-VIEW open controls',document.querySelectorAll('[data-tri-toggle]').length,3],
+    ['TRI-VIEW pin controls',document.querySelectorAll('[data-tri-pin]').length,3],
+    ['TRI-VIEW demo controls',document.querySelectorAll('#demoPlay,#demoBack,#demoNext,#demoExit').length,4],
+    ['TRI-VIEW focus controls',document.querySelectorAll('[data-tri-focus]').length,3],
+    ['PRIMARY motion CTA controls',document.querySelectorAll('.cta-primary,.cta-motion').length,7],
+    ['BODY ORBIT 360° rigid return',Math.max(...platonicBodies[3].vertices.flatMap(vertex=>rotateSolidVertex(vertex,360).map((value,axis)=>Math.abs(value-vertex[axis]))))<1e-12,true],
+    ['BODY ORBIT preserves vertex norm',(()=>{const source=platonicBodies[3].vertices[7],moved=rotateSolidVertex(source,37);return Math.abs(Math.hypot(...source)-Math.hypot(...moved))<1e-12})(),true],
+    ['BODY ORBIT visible 3-axis displacement',(()=>{const source=platonicBodies[3].vertices[7],moved=rotateSolidVertex(source,37);return Math.hypot(...source.map((value,index)=>value-moved[index]))>.1})(),true],
+    ['BODY ORBIT stable P identity',solidGridMap(platonicBodies[3],{x:11,y:11,z:9},platonicBodies[3].vertices.map(vertex=>rotateSolidVertex(vertex,37))).points[7].id==='P:DOD:7',true],
+    ['BODY ORBIT changes quantized V imprint',(()=>{const body=platonicBodies[3],dims={x:11,y:11,z:9},a=solidGridMap(body,dims,body.vertices.map(vertex=>rotateSolidVertex(vertex,0))).points,b=solidGridMap(body,dims,body.vertices.map(vertex=>rotateSolidVertex(vertex,37))).points;return a.some((point,index)=>point.gridId!==b[index].gridId)})(),true],
+    ['BODY ORBIT controls',document.querySelectorAll('#bodyOrbit,#bodyStep,#bodyOrbitReset,#bodyTraceToggle').length,4],
+    ['N-BAND exact decimal sum',Math.round(nBand.values.reduce((sum,value)=>sum+value,0)*1000),1372],
+    ['N-BAND declared scalar weights',nBand.values.join('/'),'0.429/0.456/0.487'],
+    ['N-BAND 360° view return',(()=>{const source=[1,.5,-.25],a=bandCoupledVertex(source,0,65,true),b=bandCoupledVertex(source,360,65,true);return Math.max(...a.map((value,index)=>Math.abs(value-b[index])))<1e-12})(),true],
+    ['N-BAND source vertex preserved',(()=>{const source=[1,.5,-.25],copy=[...source];bandCoupledVertex(source,90,65,true);return JSON.stringify(source)===JSON.stringify(copy)})(),true],
+    ['N-BAND axis and body shared phase control',document.querySelectorAll('#bodyBandToggle,#wavePhase').length,2],
+    ['N-BAND radial horizon records',bodyBandRingRecords(0,0).length,3],
+    ['N-BAND orientation sector guides',nBandSectorAngles.length,6],
+    ['BODY COVER exact face-cycle counts',platonicBodies.filter(body=>body.faceCycles.length===body.faces).length,5],
+    ['BODY COVER cycles follow source edges',platonicBodies.every(body=>{const edges=new Set(body.edges.map(([a,b])=>[Math.min(a,b),Math.max(a,b)].join(':')));return body.faceCycles.every(face=>face.every((vertex,index)=>edges.has([Math.min(vertex,face[(index+1)%face.length]),Math.max(vertex,face[(index+1)%face.length])].join(':'))))}),true],
+    ['BODY COVER V12 brace grammar',v12BraceFamilies.filter((item,index)=>item.ratio===['9/8','10/9','16/15'][index]&&item.multiplicity===[3,2,2][index]).length,3],
+    ['BODY COVER dual shell vertex preservation',platonicBodies.every(body=>body.vertices.map(vertex=>vertex.map(value=>value*.76)).length===body.vertices.length),true],
+    ['BODY COVER controls',document.querySelectorAll('[data-body-cover]').length,5],
+    ['BOOK SEAM source hash bound',roomBoardBook.sourceSha256==='2c74266de18fb63296f8338667d3d986d63d5bbd3c86d2e6402876a120ea9de3',true],
+    ['BOOK SEAM declared ratios',roomBoardBook.ratios.map(pair=>pair.join(':')).join('|'),'3:2|2:1|64:27'],
+    ['BOOK SEAM 64:27 helper grid',lcm(64,27),1728],
+    ['BOOK FOLD β93 preserves source address',(()=>{const source={u:-.5,v:21/64};bookFoldPoint(source.u,source.v,93);return source.u===-.5&&source.v===21/64})(),true],
+    ['ROOM → BOARD unique addresses',new Set(Array.from({length:18},(_,i)=>`${Math.floor(i/9)*3+Math.floor(i%9/3)}:${i%3}`)).size,18],
+    ['BOARD → SHADOW displayed positions',roomBoardBook.shadowPositions,6],
+    ['BOARD → SHADOW depth multiplicity',roomBoardBook.sourceNodes/roomBoardBook.shadowPositions,3],
+    ['QRT carrier reconstruction',crtQrtLens.ladder.filter(row=>row.n===20*row.q20+row.r20).length,6],
+    ['QRT r₂₀ invariant',crtQrtLens.ladder.filter(row=>row.r20===17).length,6],
+    ['CRT 11,357 fingerprint · 03:05:08:14',crtQrtLens.moduli.map(modulus=>11357%modulus).reduce((code,residue)=>code*100+residue,0),3050814],
+    ['CRT 11,537 fingerprint · 01:09:06:04',crtQrtLens.moduli.map(modulus=>11537%modulus).reduce((code,residue)=>code*100+residue,0),1090604],
+    ['RADIAL exact 4r²',radialMetric({x:10,y:10,z:8},{x:11,y:11,z:9}).r4,264],
+    ['RADIAL antipodes share shell',radialMetric({x:10,y:10,z:8},{x:11,y:11,z:9}).r4===radialMetric({x:0,y:0,z:0},{x:11,y:11,z:9}).r4,true],
+    ['RADIAL XY bearing',radialMetric({x:6,y:6,z:4},{x:11,y:11,z:9}).bearingDeg,45]
+  ];
+  const root432=Math.sqrt(432),candidate=20.784672,shifted=root432+62e-6;
+  const nxitDeclared=[
+    ['23³+24³+25³',23**3+24**3+25**3,41616,'EXACT SUM'],
+    ['204²',204**2,41616,'EXACT SQUARE'],
+    ['42,000−41,616',42000-41616,384,'EXACT RESIDUAL'],
+    ['R₁₀(384)',reverse10(384),483,'DECIMAL VIEW'],
+    ['483−384',483-384,99,'REVERSAL DELTA'],
+    ['Σdigits(384)',digitSum(384),15,'PRESERVED'],
+    ['Σdigits(483)',digitSum(483),15,'PRESERVED'],
+    ['384 mod 9',384%9,6,'PRESERVED'],
+    ['483 mod 9',483%9,6,'PRESERVED'],
+    ['384 ≠ 483',384!==483,true,'NON-IDENTITY'],
+    ['suffix(41,616)',String(41616).endsWith('616'),true,'PALINDROMIC SUFFIX'],
+    ['R₁₀(616)',reverse10(616),616,'PALINDROME'],
+    ['R₁₀(41,616) ≠ 41,616',reverse10(41616)!==41616,true,'WHOLE NOT PALINDROME'],
+    ['√432 = 12√3',Math.abs(root432-12*Math.sqrt(3))<Number.EPSILON,true,'EXACT RADICAL'],
+    ['20.784672 ≠ √432',candidate!==root432&&candidate*candidate!==432,true,'NEGATIVE CONTROL'],
+    ['round₆(√432+62·10⁻⁶)',Number(shifted.toFixed(6)),candidate,'DECLARED SHIFT · NOT DERIVED']
+  ];
+  const nxitPass=nxitDeclared.filter(([,got,want])=>Object.is(got,want)).length;
+  const nxitFormat=value=>typeof value==='number'?(Number.isInteger(value)?fmt(value):value.toFixed(6)):String(value);
+  $('nxitBadge').textContent=`${nxitPass} / ${nxitDeclared.length} ${nxitPass===nxitDeclared.length?'PASS':'FAIL'}`;
+  $('nxitTests').innerHTML=nxitDeclared.map(([name,got,want,classification])=>`<tr><td>${name}</td><td class="${Object.is(got,want)?'pass':'fail'}">${nxitFormat(got)} ${Object.is(got,want)?'✓':'≠ '+nxitFormat(want)}</td><td>${classification}</td></tr>`).join('');
+  $('angleTests').innerHTML=angleBank.map(entry=>`<article class="angle-card ${entry.value===90?'axis':''}"><h3>${entry.label}</h3><b>${entry.className}</b><p>${entry.description}</p></article>`).join('');
+  $('tests').innerHTML=declared.map(([name,got,want])=>`<article class="test"><header><b>${name}</b><span class="${got===want?'pass':'fail'}">${got===want?'PASS':'FAIL'}</span></header><code>${fmt(got)} ${got===want?'=':'≠'} ${fmt(want)}</code></article>`).join('');
+  $('root432').textContent=root432.toFixed(6);
+  $('zeta429').textContent=((1+Math.sqrt(5))/2)**3/Math.PI**2;
+
+  $('modeButtons').addEventListener('click',e=>{const b=e.target.closest('button[data-mode]');if(!b)return;markCustom();state.mode=b.dataset.mode;document.querySelectorAll('[data-mode]').forEach(x=>x.classList.toggle('active',x===b));render()});
+  $('dirButtons').addEventListener('click',e=>{const b=e.target.closest('button[data-dir]');if(!b)return;markCustom();state.dir=b.dataset.dir;document.querySelectorAll('[data-dir]').forEach(x=>x.classList.toggle('active',x===b));render()});
+  const triViewNames=['grid','body','package'];
+  const triViewElement=name=>$(`tri${name[0].toUpperCase()}${name.slice(1)}`);
+  function inferredMainStageView(){
+    if(!state.mainStageAuto)return state.mainStageView;
+    if(state.demoIndex>=0){if([4,5,6].includes(state.demoIndex))return 'body';if([11,12].includes(state.demoIndex))return 'package'}
+    if(state.scenePreset==='solid'||state.bodyOrbit||state.bodyBandCoupling)return 'body';
+    if(state.scenePreset==='hinge'||state.packageBreath)return 'package';
+    return 'grid';
+  }
+  function syncMainStage(){
+    const view=inferredMainStageView(),source={grid:$('machine'),body:$('platonicStage'),package:$('packageSvg')}[view],target=$('mainStageSvg');
+    if(!source||!target||!source.innerHTML)return;
+    target.setAttribute('viewBox',source.getAttribute('viewBox')||'0 0 900 540');target.innerHTML=source.innerHTML;
+    state.mainStageView=view;$('mainStageShell').dataset.view=view;
+    const labels={grid:'Grid View',body:'Platonic Body View',package:'Vigesimal Package View'};
+    $('mainStageTitle').textContent=labels[view];$('mainStageStatus').textContent=`LIVE · ${view.toUpperCase()}`;$('mainStageNote').textContent=`${state.mainStageAuto?'AUTO':'MANUAL'} · ${view.toUpperCase()}`;
+    $('mainStageControls').querySelectorAll('[data-main-stage]').forEach(button=>{const active=button.dataset.mainStage===(state.mainStageAuto?'auto':view);button.classList.toggle('active',active);button.setAttribute('aria-pressed',String(active))});
+  }
+  function updateTriSharedState(){
+    const body=platonicBodies[state.platonicIndex],pkg=packageData[state.packageIndex];
+    $('triSharedState').textContent=`NODE:${state.selectedNodeId||'NONE'} · BOOK:${state.bookSeam?'β'+state.bookBeta.toFixed(0)+'° L:R '+state.bookRatio:'OFF'} · BODY:P:${body.key}:${state.solidVertexIndex} @φ${state.bodyPhase.toFixed(1)}°${state.bodyMap?' → '+(state.selectedNodeId||'V:—'):''} · N-BAND:${state.bodyBandCoupling?'0.429/0.456/0.487 Σ1.372 @φ'+Math.round(state.wavePhase)+'°':'OFF'} · PACKAGE:${pkg.value}/B20 ${pkg.z}:${pkg.y}:${pkg.x} · WAVE φ${Math.round(state.wavePhase)}° · ZETA:${state.zetaFold?state.zetaAngle.toFixed(1)+'°'+(state.zetaClock?' PM/VM±':''):'OFF'} · ${perspectiveProfiles[state.frame].name} · ${state.bookSeam?'BOOK_SEAM_VIEW':state.bodyBandCoupling?'N-BAND↝BODY':state.bodyOrbit?'BODY↻ / GRID FIXED':state.zetaFold?'DIRECT-ZETA FOLD':state.wave&&state.gridCoupling?'GRID↝WAVE':'STATIC'}`;
+    $('triGridStatus').textContent=`${state.grid.toUpperCase()} · ${state.cut.toUpperCase()} · ${state.outerFrame?'OUTER':''}${state.outerFrame&&state.lEdge?'+':''}${state.lEdge?'ℒ':''}`;
+    $('triBodyStatus').textContent=`${body.name.toUpperCase()} · P:${body.key}:${state.solidVertexIndex}${state.bodyMap?' → '+(state.selectedNodeId||'GRID'):''} · ${state.bodyOrbit?'ORBIT':'HOLD'} φ${state.bodyPhase.toFixed(1)}° · ${state.bodyBandCoupling?'N-BAND COUPLED':'RIGID'}`;
+    $('triPackageStatus').textContent=`${pkg.value} · B20 ${pkg.z}:${pkg.y}:${pkg.x} · ${state.packageBreath?'BREATH':'STATIC'}`;
+  }
+  function syncTriDock(){
+    $('triViewDock').classList.toggle('compare',state.triCompare);
+    $('triViewDock').classList.toggle('focused',Boolean(state.triFocus));
+    $('triViewDock').dataset.focus=state.triFocus||'';
+    $('compare3x').classList.toggle('active',state.triCompare);
+    $('compare3x').setAttribute('aria-pressed',String(state.triCompare));
+    $('compare3x').textContent=`COMPARE 3× · ${state.triCompare?'ON':'OFF'}`;
+    triViewNames.forEach(name=>{
+      const details=triViewElement(name),pinned=state.triPins[name];
+      if(state.triCompare||pinned)details.open=true;
+      details.dataset.pinned=String(pinned);
+      details.dataset.focused=String(state.triFocus===name);
+      const toggle=$('triViewActions').querySelector(`[data-tri-toggle="${name}"]`),pin=$('triViewActions').querySelector(`[data-tri-pin="${name}"]`);
+      toggle.textContent=`${name.toUpperCase()} · ${details.open?'OPEN':'CLOSED'}`;
+      toggle.classList.toggle('active',details.open);
+      pin.textContent=`${pinned?'UNPIN':'PIN'} ${name.toUpperCase()}`;
+      pin.classList.toggle('active',pinned);
+      pin.setAttribute('aria-pressed',String(pinned));
+      const focus=details.querySelector('[data-tri-focus]');
+      focus.textContent=state.triFocus===name?'↩ BACK TO 3×':`⤢ FOCUS ${name.toUpperCase()}`;
+      focus.setAttribute('aria-pressed',String(state.triFocus===name));
+    });
+    updateTriSharedState();
+    syncMainStage();
+  }
+  function setTriCompare(on){state.triFocus=null;state.triCompare=on;syncTriDock()}
+  function setTriFocus(name){
+    setDemoPlaying(false);
+    if(state.triFocus===name){state.triFocus=null;state.triCompare=true;triViewNames.forEach(view=>triViewElement(view).open=true)}
+    else{state.triFocus=name;state.triCompare=false;triViewNames.forEach(view=>triViewElement(view).open=view===name||state.triPins[view])}
+    syncTriDock();
+  }
+  function setTriOpenList(openViews){
+    triViewNames.forEach(name=>{const details=triViewElement(name);details.open=state.triPins[name]||openViews.includes(name)});
+    syncTriDock();
+  }
+  const demoChapters=[
+    {title:'01 · TRI-VIEW ORIENTATION',copy:'Grid, Körper und Package starten nebeneinander; sie teilen einen Bedienzustand, nicht ihre Identität.',run(){setPackageBreath(false);setPreset(8);setTriCompare(true);setTriOpenList(triViewNames)}},
+    {title:'02 · BOOK SEAM / LARGE ZITHER',copy:'β93° zeigt die quellgebundene L:R‑Naht 64:27; 18 Quellen bleiben über Board und Schatten verfolgbar.',run(){setPackageBreath(false);applyScene('book');setTriCompare(false);setTriOpenList(['grid'])}},
+    {title:'03 · BOOK FOLD 0→180°',copy:'Die beiden gerasterten Seiten falten um dieselbe Naht; Adresse und Quellen-ID bleiben dabei erhalten.',run(){setPackageBreath(false);applyScene('book');state.bookBeta=0;setBookPlay(true);setTriCompare(false);setTriOpenList(['grid'])}},
+    {title:'04 · CARRIER + SECTION',copy:'Das endliche Grid zeigt Carrier, Shell, CROSS-Schnitt und exakten Return.',run(){setPackageBreath(false);setPreset(8);state.cut='cross';syncButtons();render();setTriCompare(false);setTriOpenList(['grid'])}},
+    {title:'05 · BODY → GRID',copy:'Ein platonischer Knoten erhält einen lokalen Grid-Abdruck; Körperkante und Grid-Tube bleiben verschieden.',run(){setPackageBreath(false);applyScene('solid');setTriCompare(false);setTriOpenList(['grid','body'])}},
+    {title:'06 · BODY ORBIT',copy:'Der Dodekaeder rotiert über X×2 / Y×1 / Z×3; P-ID bleibt stabil, während der lokale Grid-Abdruck wandert.',run(){setPackageBreath(false);applyScene('solid');setBodyOrbit(true);setTriCompare(false);setTriOpenList(['grid','body'])}},
+    {title:'07 · N-BAND BODY BREATH',copy:'0.429 / 0.456 / 0.487 treiben dieselbe sichtbare Phase von Körper und weißer Achse; die Quellgeometrie bleibt erhalten.',run(){setPackageBreath(false);applyScene('solid');state.wave=true;state.bodyBandCoupling=true;setWavePlay(true);syncButtons();render();setTriCompare(false);setTriOpenList(['grid','body'])}},
+    {title:'08 · ZETA FOLD ANGLE TOUR',copy:'Zwölf DIRECT-ZETA-Knoten fahren gekoppelt durch die deklarierte Winkelbank von 7° bis 90°.',run(){setPackageBreath(false);applyScene('zeta');state.zetaClock=false;setZetaPlay(true);setTriCompare(false);setTriOpenList(['grid'])}},
+    {title:'09 · PM / VM ± CLOCK',copy:'Kompass, 65‑µm-Verrundungsdiagnostik und lokale 5.5+5.5-Edelweiss-Clock teilen den Zeta-Winkelzustand.',run(){setPackageBreath(false);applyScene('zeta');state.zetaClock=true;setZetaPlay(true);setTriCompare(false);setTriOpenList(['grid'])}},
+    {title:'10 · FRAME + ℒ EDGE',copy:'Außenrahmen und innere ℒ-Kante teilen die Ansicht, bleiben aber getrennt schaltbare Begrenzungslagen.',run(){setPackageBreath(false);applyScene('wave');state.outerFrame=true;state.lEdge=true;syncButtons();render();setTriCompare(false);setTriOpenList(['grid'])}},
+    {title:'11 · WAVE → GRID COUPLING',copy:'Zwei deklarierte Wave-Kanäle deformieren die sichtbare Grid-Einbettung; Nodes, Adressen und Counts bleiben exakt.',run(){setPackageBreath(false);applyScene('wave');setWavePlay(true);setTriCompare(false);setTriOpenList(['grid'])}},
+    {title:'12 · FULL TESA BREATH',copy:'Hauptgrid, Frame, ℒ-Kante und Vigesimalfeld verwenden dieselbe reversible Display-Phase.',run(){setPackageBreath(false);applyScene('wave');setPackageBreath(true);setTriCompare(false);setTriOpenList(['grid','package'])}},
+    {title:'13 · PACKAGE ADDRESS',copy:'Die Base-20-Adresse wird in den Carrier quantisiert, ohne ihren Dezimalwert zu verändern.',run(){setPackageBreath(false);applyScene('hinge');setTriCompare(false);setTriOpenList(['grid','package'])}},
+    {title:'14 · CRT / QRT LADDER',copy:'Sechs exakte r₂₀=17-Adressen und zwei Residuenbahnen erscheinen als getrennte Fingerprints.',run(){setPackageBreath(false);applyScene('crtqrt');setTriCompare(false);setTriOpenList(['grid'])}},
+    {title:'15 · RADIAL / Q° SHELL',copy:'Der lokale Beobachtungszustand markiert eine exakte 4r²-Schale; Bearing und Radius bleiben getrennte Messwerte.',run(){setPackageBreath(false);applyScene('radial');setTriCompare(false);setTriOpenList(['grid'])}},
+    {title:'16 · COMPARE / RETURN',copy:'Die Tour kehrt zur Dreifachansicht zurück; Grid, Körper und Package zeigen denselben Bedienzustand mit getrennten Receipts.',run(){setPackageBreath(false);setPreset(8);setTriCompare(true);setTriOpenList(triViewNames)}}
+  ];
+  function showDemoChapter(index){
+    state.demoIndex=Math.max(0,Math.min(demoChapters.length-1,index));
+    const chapter=demoChapters[state.demoIndex];chapter.run();
+    $('demoChapter').textContent=`DEMO ${state.demoIndex+1}/${demoChapters.length} · ${chapter.title}`;
+    $('demoCopy').textContent=chapter.copy;
+    syncTriDock();
+  }
+  function setDemoPlaying(on){
+    clearTimeout(state.demoTimer);state.demoPlaying=on;if(on)state.mainStageAuto=true;$('demoPlay').classList.toggle('active',on);$('demoPlay').textContent=on?'Ⅱ PAUSE DEMO':'▶ PLAY DEMO · 16 STEPS';
+    if(!on)return;
+    if(state.demoIndex<0||state.demoIndex>=demoChapters.length-1)showDemoChapter(0);
+    const advance=()=>{if(!state.demoPlaying)return;if(state.demoIndex>=demoChapters.length-1){setDemoPlaying(false);return}showDemoChapter(state.demoIndex+1);state.demoTimer=setTimeout(advance,4200)};
+    state.demoTimer=setTimeout(advance,4200);
+  }
+  function syncButtons(){
+    document.querySelectorAll('[data-mode]').forEach(x=>x.classList.toggle('active',x.dataset.mode===state.mode));
+    document.querySelectorAll('[data-dir]').forEach(x=>x.classList.toggle('active',x.dataset.dir===state.dir));
+    document.querySelectorAll('[data-grid]').forEach(x=>x.classList.toggle('active',x.dataset.grid===state.grid));
+    document.querySelectorAll('[data-frame]').forEach(x=>x.classList.toggle('active',x.dataset.frame===state.frame));
+    document.querySelectorAll('[data-cut]').forEach(x=>x.classList.toggle('active',x.dataset.cut===state.cut));
+    document.querySelectorAll('[data-angle]').forEach(x=>x.classList.toggle('active',Math.abs(Number(x.dataset.angle)-state.angle)<1e-8));
+    $('whole').classList.toggle('active',state.whole);
+    $('whole').textContent=state.whole?'WHOLE MODEL':'SHELL ONLY';
+    $('nxitToggle').classList.toggle('active',state.nxit);
+    $('nxitToggle').setAttribute('aria-pressed',String(state.nxit));
+    $('nxitToggle').textContent=`N|XIT LENS · ${state.nxit?'ON':'OFF'}`;
+    $('eightBodyToggle').classList.toggle('active',state.eightBodies);
+    $('eightBodyToggle').setAttribute('aria-pressed',String(state.eightBodies));
+    $('eightBodyToggle').textContent=`PLATONIC FIELD · ${state.eightBodies?'ON':'OFF'}`;
+    $('bodyMapToggle').classList.toggle('active',state.bodyMap);
+    $('bodyMapToggle').setAttribute('aria-pressed',String(state.bodyMap));
+    $('bodyMapToggle').textContent=`SOLID → GRID · ${state.bodyMap?'ON':'OFF'}`;
+    $('packageMapToggle').classList.toggle('active',state.packageMap);
+    $('packageMapToggle').setAttribute('aria-pressed',String(state.packageMap));
+    $('packageMapToggle').textContent=`PACKAGE → GRID · ${state.packageMap?'ON':'OFF'}`;
+    $('waveToggle').classList.toggle('active',state.wave);
+    $('waveToggle').setAttribute('aria-pressed',String(state.wave));
+    $('waveToggle').textContent=`WAVE FIELD · ${state.wave?'ON':'OFF'}`;
+    $('gridCouplingToggle').classList.toggle('active',state.gridCoupling);
+    $('gridCouplingToggle').setAttribute('aria-pressed',String(state.gridCoupling));
+    $('gridCouplingToggle').textContent=`GRID COUPLING · ${state.gridCoupling?'ON':'OFF'}`;
+    $('waveControls').hidden=!state.wave;
+    $('zetaFoldToggle').classList.toggle('active',state.zetaFold);
+    $('zetaFoldToggle').setAttribute('aria-pressed',String(state.zetaFold));
+    $('zetaFoldToggle').textContent=`ZETA FOLD · ${state.zetaFold?'ON':'OFF'}`;
+    $('zetaControls').hidden=!state.zetaFold;
+    $('zetaClockToggle').classList.toggle('active',state.zetaClock);
+    $('zetaClockToggle').setAttribute('aria-pressed',String(state.zetaClock));
+    $('zetaClockToggle').textContent=`± CLOCK · ${state.zetaClock?'PM/VM':'OFF'}`;
+    $('zetaPlay').classList.toggle('active',state.zetaPlaying);
+    $('zetaPlay').textContent=state.zetaPlaying?'Ⅱ PAUSE ANGLE TOUR':'▶ TOUR 7→90°';
+    $('zetaAngle').value=String(state.zetaAngle);
+    $('zetaAngleRead').textContent=zetaTourLabel(state.zetaAngle);
+    $('bookSeamToggle').classList.toggle('active',state.bookSeam);
+    $('bookSeamToggle').setAttribute('aria-pressed',String(state.bookSeam));
+    $('bookSeamToggle').textContent=`BOOK SEAM · ${state.bookSeam?'ON':'OFF'}`;
+    $('bookControls').hidden=!state.bookSeam;
+    $('bookPlay').classList.toggle('active',state.bookPlaying);
+    $('bookPlay').textContent=state.bookPlaying?'Ⅱ PAUSE BOOK':'▶ FOLD 0→180°';
+    $('bookRatio').value=state.bookRatio;$('bookBeta').value=String(state.bookBeta);
+    $('bookBetaRead').textContent=`β${state.bookBeta.toFixed(0)}° · LCM ${lcm(...activeBookRatio())}`;
+    $('crtQrtToggle').classList.toggle('active',state.crtQrt);
+    $('crtQrtToggle').setAttribute('aria-pressed',String(state.crtQrt));
+    $('crtQrtToggle').textContent=`CRT/QRT GRID · ${state.crtQrt?'ON':'OFF'}`;
+    $('radialToggle').classList.toggle('active',state.radialLens);
+    $('radialToggle').setAttribute('aria-pressed',String(state.radialLens));
+    $('radialToggle').textContent=`RADIAL / Q° VIEW · ${state.radialLens?'ON':'OFF'}`;
+    $('outerFrameToggle').classList.toggle('active',state.outerFrame);
+    $('outerFrameToggle').setAttribute('aria-pressed',String(state.outerFrame));
+    $('outerFrameToggle').textContent=`OUTER FRAME · ${state.outerFrame?'ON':'OFF'}`;
+    $('lEdgeToggle').classList.toggle('active',state.lEdge);
+    $('lEdgeToggle').setAttribute('aria-pressed',String(state.lEdge));
+    $('lEdgeToggle').textContent=`ℒ EDGE · ${state.lEdge?'ON':'OFF'}`;
+    $('wavePhase').value=String(Math.round(state.wavePhase));
+    $('wavePhaseRead').textContent=`${Math.round(state.wavePhase)}°`;
+    $('waveAmplitude').value=String(state.waveAmplitude);
+    $('waveAmplitudeRead').textContent=`A ${state.waveAmplitude}%`;
+    $('bodyOrbit').classList.toggle('active',state.bodyOrbit);
+    $('bodyOrbit').setAttribute('aria-pressed',String(state.bodyOrbit));
+    $('bodyOrbit').textContent=state.bodyOrbit?'Ⅱ BODY ORBIT · RUN':'▶ BODY ORBIT · OFF';
+    $('bodyBandToggle').classList.toggle('active',state.bodyBandCoupling&&state.wavePlaying);
+    $('bodyBandToggle').setAttribute('aria-pressed',String(state.bodyBandCoupling));
+    $('bodyBandToggle').textContent=state.bodyBandCoupling?(state.wavePlaying?'Ⅱ N-BAND BREATH · RUN':'▶ N-BAND BREATH · READY'):'▶ N-BAND BODY · OFF';
+    $('bodyTraceToggle').classList.toggle('active',state.bodyTrace);
+    $('bodyTraceToggle').setAttribute('aria-pressed',String(state.bodyTrace));
+    $('bodyTraceToggle').textContent=`NODE TRACE · ${state.bodyTrace?'ON':'OFF'}`;
+    document.querySelectorAll('[data-body-cover]').forEach(button=>{const active=button.dataset.bodyCover===state.bodyCoverMode;button.classList.toggle('active',active);button.setAttribute('aria-pressed',String(active))});
+    $('bodyOrbitRead').textContent=`φ ${state.bodyPhase.toFixed(1)}° · X×2 / Y×1 / Z×3 · GRID ${state.playing?'CAMERA MOVING':'FIXED'}`;
+    const frameControlNames={none:'SOURCE ISO',lframe:'ℒ OBLIQUE',tesa:'TESA FRONT'};
+    $('viewControlSummary').textContent=`${state.grid.toUpperCase()} · ${frameControlNames[state.frame]} · ${state.outerFrame?'OUTER':''}${state.outerFrame&&state.lEdge?'+':''}${state.lEdge?'ℒ':''}${!state.outerFrame&&!state.lEdge?'NO BOUNDARY':''} · ${state.cut.toUpperCase()} · ${state.whole?'WHOLE':'SHELL'} · ${angleLabel(state.angle)}`;
+    const activeLayers=[state.bookSeam?`BOOK ${state.bookRatio} β${state.bookBeta.toFixed(0)}°`:null,state.eightBodies?'PLATONIC':null,state.bodyOrbit?'BODY↻':null,state.bodyBandCoupling?'N-BAND↝BODY':null,state.bodyMap?'SOLID→GRID':null,state.packageMap?'PACKAGE':null,state.wave?'WAVE':null,state.wave&&state.gridCoupling?'GRID↝WAVE':null,state.zetaFold?'ZETA FOLD':null,state.zetaClock?'PM/VM ±CLOCK':null,state.outerFrame?'OUTER FRAME':null,state.lEdge?'ℒ EDGE':null,state.crtQrt?'CRT/QRT':null,state.radialLens?'RADIAL/Q°':null,state.nxit?'N|XIT':null].filter(Boolean);
+    $('layerControlSummary').textContent=activeLayers.length?activeLayers.join(' · '):'ALLE LAGEN AUS';
+    $('angleControlSummary').textContent=`${angleLabel(state.angle)} · ${Math.abs(state.angle-90)<1e-8?'AXIS / LATTICE':'VIEW TRANSFORM'}`;
+    $('scenePreset').value=state.scenePreset;
+    $('preset8').classList.toggle('active',num('n')===8&&num('kx')===3&&num('ky')===3&&num('kz')===1);
+    $('preset24').classList.toggle('active',num('n')===24&&num('kx')===3&&num('ky')===3&&num('kz')===1);
+    syncTriDock();
+  }
+  function setPlay(on){
+    if(on&&state.bodyOrbit)setBodyOrbit(false);
+    state.playing=on;
+    $('play').textContent=on?'Ⅱ PAUSE ROTATION':'▶ PLAY ROTATION';
+    if(!on){cancelAnimationFrame(state.raf);return}
+    const tick=()=>{if(!state.playing)return;state.angle=(state.angle+.22)%360;render();state.raf=requestAnimationFrame(tick)};
+    state.raf=requestAnimationFrame(tick);
+  }
+  function setBodyOrbit(on){
+    if(on)setPlay(false);
+    state.bodyOrbit=on;
+    if(on){state.bodyMap=true;state.solidFollow=true;state.packageFollow=false;recordBodyTrace(true)}
+    syncButtons();
+    if(!on){cancelAnimationFrame(state.bodyRaf);render();return}
+    const tick=()=>{if(!state.bodyOrbit)return;state.bodyPhase=(state.bodyPhase+.42)%360;recordBodyTrace();render();state.bodyRaf=requestAnimationFrame(tick)};
+    state.bodyRaf=requestAnimationFrame(tick);
+  }
+  function resetBodyOrbit(){
+    setBodyOrbit(false);state.bodyPhase=0;clearBodyTrail();recordBodyTrace(true);render();
+  }
+  function markCustom(){state.scenePreset='custom';$('scenePreset').value='custom'}
+  function setWavePlay(on){
+    state.wavePlaying=on;
+    if(on)state.wave=true;
+    $('wavePlay').textContent=on?'Ⅱ PAUSE WAVE':'▶ WAVE';
+    syncButtons();
+    if(!on){cancelAnimationFrame(state.waveRaf);return}
+    const tick=()=>{if(!state.wavePlaying)return;state.wavePhase=(state.wavePhase+.8)%360;if(state.packageBreath){state.packagePhase=state.wavePhase;$('packagePhase').value=String(Math.round(state.packagePhase));renderPackageSvg()}$('wavePhase').value=String(Math.round(state.wavePhase));$('wavePhaseRead').textContent=`${Math.round(state.wavePhase)}°`;const current=calc();renderSvg(current);if(state.bodyBandCoupling)renderEightBodies(current);syncTriDock();state.waveRaf=requestAnimationFrame(tick)};
+    state.waveRaf=requestAnimationFrame(tick);
+  }
+  function setZetaPlay(on){
+    if(on)setPlay(false);
+    cancelAnimationFrame(state.zetaRaf);state.zetaPlaying=on;
+    if(on){state.zetaFold=true;if(state.zetaAngle>=90)setCoupledZetaAngle(0)}
+    syncButtons();
+    if(!on)return;
+    let targetIndex=zetaTourStops.findIndex(stop=>stop.value>state.zetaAngle+1e-6);if(targetIndex<0)targetIndex=1;
+    let last=null,holdUntil=0;
+    const tick=time=>{
+      if(!state.zetaPlaying)return;
+      if(holdUntil&&time<holdUntil){state.zetaRaf=requestAnimationFrame(tick);return}
+      const target=zetaTourStops[targetIndex];
+      if(last!==null)setCoupledZetaAngle(Math.min(target.value,state.zetaAngle+(time-last)*.05));
+      last=time;renderSvg(calc());syncButtons();
+      if(Math.abs(state.zetaAngle-target.value)<1e-6){
+        setCoupledZetaAngle(target.value);render();syncButtons();
+        if(targetIndex>=zetaTourStops.length-1){state.zetaPlaying=false;syncButtons();return}
+        targetIndex+=1;holdUntil=time+650;
+      }
+      state.zetaRaf=requestAnimationFrame(tick)
+    };
+    state.zetaRaf=requestAnimationFrame(tick);
+  }
+  function setBookPlay(on){
+    cancelAnimationFrame(state.bookRaf);state.bookPlaying=on;
+    if(on){setPlay(false);setZetaPlay(false);state.bookSeam=true;if(state.bookBeta>=180)state.bookBeta=0}
+    syncButtons();if(!on)return;
+    let last=null;const tick=time=>{if(!state.bookPlaying)return;if(last!==null)state.bookBeta=Math.min(180,state.bookBeta+(time-last)*.045);last=time;renderSvg(calc());syncButtons();if(state.bookBeta>=180){state.bookPlaying=false;syncButtons();return}state.bookRaf=requestAnimationFrame(tick)};
+    state.bookRaf=requestAnimationFrame(tick);
+  }
+  function applyScene(name){
+    setPlay(false);setWavePlay(false);setZetaPlay(false);setBookPlay(false);setBodyOrbit(false);state.bodyPhase=0;clearBodyTrail();
+    state.scenePreset=name;state.mode='asym';state.dir='out';state.grid='cubic';state.whole=true;state.outerFrame=true;state.lEdge=true;state.selectedNodeId=null;state.nxit=false;state.eightBodies=true;state.bodyMap=false;state.solidFollow=false;state.bodyBandCoupling=false;state.packageMap=false;state.packageFollow=false;state.wave=false;state.wavePhase=0;state.gridCoupling=false;state.waveAmplitude=65;state.zetaFold=false;state.zetaClock=false;state.zetaAngle=0;state.bookSeam=false;state.bookBeta=93;state.bookRatio='64:27';state.crtQrt=false;state.radialLens=false;
+    $('n').value=24;$('kx').value=3;$('ky').value=3;$('kz').value=1;
+    if(name==='book'){state.angle=35;state.frame='none';state.cut='cross';state.bookSeam=true;state.bookBeta=93;state.bookRatio='64:27'}
+    else if(name==='hinge'){state.angle=35;state.frame='lframe';state.cut='cross';state.packageMap=true;state.packageFollow=true;state.packageIndex=3}
+    else if(name==='solid'){state.angle=35;state.frame='none';state.cut='all';state.bodyMap=true;state.solidFollow=true;state.platonicIndex=3;state.solidVertexIndex=0;$('n').value=8}
+    else if(name==='wave'){state.angle=35;state.frame='lframe';state.cut='cross';state.packageMap=true;state.wave=true;state.gridCoupling=true}
+    else if(name==='zeta'){state.angle=0;state.frame='lframe';state.cut='cross';state.zetaFold=true;state.zetaClock=true;state.zetaAngle=0;$('n').value=8}
+    else if(name==='crtqrt'){state.angle=35;state.frame='lframe';state.cut='all';state.crtQrt=true}
+    else if(name==='radial'){state.angle=35;state.frame='none';state.cut='all';state.radialLens=true;state.selectedNodeId='V:18:20:17'}
+    syncButtons();render();renderPackageField();
+  }
+  function setPreset(n){
+    setPlay(false);setWavePlay(false);setZetaPlay(false);setBookPlay(false);setBodyOrbit(false);state.bodyPhase=0;clearBodyTrail();state.scenePreset='custom';state.mode='asym';state.dir='out';state.grid='cubic';state.whole=true;state.angle=35;state.frame='none';state.outerFrame=true;state.lEdge=true;state.cut='all';state.selectedNodeId=null;state.nxit=false;state.eightBodies=true;state.bodyMap=false;state.solidFollow=false;state.bodyBandCoupling=false;state.platonicIndex=0;state.solidVertexIndex=0;state.packageMap=false;state.packageFollow=false;state.packageIndex=0;state.wave=false;state.wavePhase=0;state.gridCoupling=false;state.waveAmplitude=65;state.zetaFold=false;state.zetaClock=false;state.zetaAngle=0;state.bookSeam=false;state.bookBeta=93;state.bookRatio='64:27';state.crtQrt=false;state.radialLens=false;
+    $('n').value=n;$('kx').value=3;$('ky').value=3;$('kz').value=1;
+    syncButtons();render();
+  }
+  $('play').addEventListener('click',()=>setPlay(!state.playing));
+  $('scenePreset').addEventListener('change',event=>{if(event.target.value==='custom')return;applyScene(event.target.value)});
+  $('step').addEventListener('click',()=>{markCustom();setPlay(false);state.angle=(state.angle+15)%360;render()});
+  $('reset').addEventListener('click',()=>setPreset(8));
+  $('preset8').addEventListener('click',()=>setPreset(8));
+  $('preset24').addEventListener('click',()=>setPreset(24));
+  $('gridButtons').addEventListener('click',e=>{const b=e.target.closest('button[data-grid]');if(!b)return;markCustom();setPlay(false);state.grid=b.dataset.grid;if(state.grid==='sparse')state.whole=false;syncButtons();render()});
+  $('frameButtons').addEventListener('click',e=>{const b=e.target.closest('button[data-frame]');if(!b)return;markCustom();state.frame=b.dataset.frame;syncButtons();render()});
+  $('outerFrameToggle').addEventListener('click',()=>{markCustom();state.outerFrame=!state.outerFrame;syncButtons();render()});
+  $('lEdgeToggle').addEventListener('click',()=>{markCustom();state.lEdge=!state.lEdge;syncButtons();render()});
+  $('cutButtons').addEventListener('click',e=>{const b=e.target.closest('button[data-cut]');if(!b)return;markCustom();state.cut=b.dataset.cut;syncButtons();render()});
+  $('angleButtons').addEventListener('click',e=>{const b=e.target.closest('button[data-angle]');if(!b)return;markCustom();setPlay(false);setZetaPlay(false);state.angle=Number(b.dataset.angle);if(state.zetaFold)state.zetaAngle=state.angle;syncButtons();render()});
+  $('whole').addEventListener('click',()=>{markCustom();setPlay(false);state.whole=!state.whole;syncButtons();render()});
+  $('nxitToggle').addEventListener('click',()=>{markCustom();state.nxit=!state.nxit;syncButtons();render()});
+  $('eightBodyToggle').addEventListener('click',()=>{markCustom();state.eightBodies=!state.eightBodies;syncButtons();render()});
+  $('bodyMapToggle').addEventListener('click',()=>{markCustom();state.bodyMap=!state.bodyMap;if(!state.bodyMap)state.solidFollow=false;syncButtons();render()});
+  $('packageMapToggle').addEventListener('click',()=>{markCustom();state.packageMap=!state.packageMap;if(!state.packageMap)state.packageFollow=false;syncButtons();render();renderPackageField()});
+  $('waveToggle').addEventListener('click',()=>{markCustom();state.wave=!state.wave;if(!state.wave){if(state.packageBreath)setPackageBreath(false);state.gridCoupling=false;state.bodyBandCoupling=false;setWavePlay(false)}syncButtons();render()});
+  $('gridCouplingToggle').addEventListener('click',()=>{markCustom();state.gridCoupling=!state.gridCoupling;if(state.gridCoupling)state.wave=true;syncButtons();render()});
+  $('zetaFoldToggle').addEventListener('click',()=>{markCustom();state.zetaFold=!state.zetaFold;if(!state.zetaFold)setZetaPlay(false);syncButtons();render()});
+  $('zetaClockToggle').addEventListener('click',()=>{markCustom();state.zetaClock=!state.zetaClock;if(state.zetaClock)state.zetaFold=true;syncButtons();render()});
+  $('zetaPlay').addEventListener('click',()=>{markCustom();setZetaPlay(!state.zetaPlaying);render()});
+  $('zetaAngle').addEventListener('input',event=>{markCustom();setZetaPlay(false);state.zetaFold=true;setCoupledZetaAngle(Number(event.target.value));syncButtons();renderSvg(calc())});
+  $('bookSeamToggle').addEventListener('click',()=>{markCustom();state.bookSeam=!state.bookSeam;if(!state.bookSeam)setBookPlay(false);syncButtons();render()});
+  $('bookPlay').addEventListener('click',()=>{markCustom();setBookPlay(!state.bookPlaying);render()});
+  $('bookRatio').addEventListener('change',event=>{markCustom();state.bookSeam=true;state.bookRatio=event.target.value;syncButtons();render()});
+  $('bookBeta').addEventListener('input',event=>{markCustom();setBookPlay(false);state.bookSeam=true;state.bookBeta=Number(event.target.value);syncButtons();renderSvg(calc())});
+  $('crtQrtToggle').addEventListener('click',()=>{markCustom();state.crtQrt=!state.crtQrt;syncButtons();render()});
+  $('radialToggle').addEventListener('click',()=>{markCustom();state.radialLens=!state.radialLens;syncButtons();render()});
+  $('wavePlay').addEventListener('click',()=>{markCustom();setWavePlay(!state.wavePlaying);render()});
+  $('wavePhase').addEventListener('input',event=>{markCustom();state.wave=true;state.wavePhase=Number(event.target.value);if(state.packageBreath){state.packagePhase=state.wavePhase;$('packagePhase').value=String(Math.round(state.packagePhase));renderPackageSvg()}syncButtons();const current=calc();renderSvg(current);if(state.bodyBandCoupling)renderEightBodies(current);syncTriDock()});
+  $('waveAmplitude').addEventListener('input',event=>{markCustom();state.wave=true;state.gridCoupling=true;state.waveAmplitude=Number(event.target.value);syncButtons();const current=calc();renderSvg(current);if(state.bodyBandCoupling)renderEightBodies(current);syncTriDock()});
+  $('bodyOrbit').addEventListener('click',()=>{markCustom();setBodyOrbit(!state.bodyOrbit)});
+  $('bodyBandToggle').addEventListener('click',()=>{markCustom();const on=!(state.bodyBandCoupling&&state.wavePlaying);state.bodyBandCoupling=on;state.wave=on||state.wave;if(on){state.eightBodies=true;setWavePlay(true)}else setWavePlay(false);syncButtons();render()});
+  $('bodyStep').addEventListener('click',()=>{markCustom();setBodyOrbit(false);state.bodyPhase=(state.bodyPhase+15)%360;state.bodyMap=true;state.solidFollow=true;state.packageFollow=false;recordBodyTrace(true);syncButtons();render()});
+  $('bodyOrbitReset').addEventListener('click',()=>{markCustom();resetBodyOrbit()});
+  $('bodyTraceToggle').addEventListener('click',()=>{markCustom();state.bodyTrace=!state.bodyTrace;clearBodyTrail();if(state.bodyTrace)recordBodyTrace(true);syncButtons();render()});
+  $('bodyCoverControls').addEventListener('click',event=>{const button=event.target.closest('[data-body-cover]');if(!button)return;markCustom();state.bodyCoverMode=button.dataset.bodyCover;syncButtons();render()});
+  $('eightBodyGrid').addEventListener('click',event=>{const card=event.target.closest('[data-solid-index]');if(!card)return;markCustom();state.platonicIndex=Number(card.dataset.solidIndex);state.solidVertexIndex=0;clearBodyTrail();recordBodyTrace(true);render()});
+  $('platonicStage').addEventListener('click',event=>{const node=event.target.closest('[data-solid-vertex]');if(!node)return;markCustom();state.solidVertexIndex=Number(node.dataset.solidVertex);state.bodyMap=true;state.solidFollow=true;state.packageFollow=false;clearBodyTrail();recordBodyTrace(true);syncButtons();render()});
+  $('platonicStage').addEventListener('keydown',event=>{if(event.key!=='Enter'&&event.key!==' ')return;const node=event.target.closest('[data-solid-vertex]');if(!node)return;event.preventDefault();state.solidVertexIndex=Number(node.dataset.solidVertex);state.bodyMap=true;state.solidFollow=true;state.packageFollow=false;clearBodyTrail();recordBodyTrace(true);syncButtons();render()});
+  $('packageSvg').addEventListener('click',event=>{const point=event.target.closest('[data-package-index]');if(!point)return;markCustom();state.packageIndex=Number(point.dataset.packageIndex);if(state.packageMap){state.packageFollow=true;state.solidFollow=false;render()}renderPackageField()});
+  $('packageTable').addEventListener('click',event=>{const point=event.target.closest('[data-package-index]');if(!point)return;markCustom();state.packageIndex=Number(point.dataset.packageIndex);if(state.packageMap){state.packageFollow=true;state.solidFollow=false;render()}renderPackageField()});
+  $('packageBreath').addEventListener('click',()=>setPackageBreath(!state.packageBreath));
+  $('packagePhase').addEventListener('input',event=>{state.packagePhase=Number(event.target.value);if(state.packageBreath){state.wavePhase=state.packagePhase;$('wavePhase').value=String(Math.round(state.wavePhase));$('wavePhaseRead').textContent=`${Math.round(state.wavePhase)}°`;renderSvg(calc())}renderPackageSvg()});
+  $('compare3x').addEventListener('click',()=>{setDemoPlaying(false);setTriCompare(!state.triCompare)});
+  $('triOpenAll').addEventListener('click',()=>{setDemoPlaying(false);state.triFocus=null;state.triCompare=true;setTriOpenList(triViewNames)});
+  $('triCloseLoose').addEventListener('click',()=>{setDemoPlaying(false);state.triCompare=false;setTriOpenList([])});
+  $('triViewActions').addEventListener('click',event=>{
+    const toggle=event.target.closest('[data-tri-toggle]'),pin=event.target.closest('[data-tri-pin]');if(!toggle&&!pin)return;setDemoPlaying(false);
+    if(toggle){const name=toggle.dataset.triToggle,details=triViewElement(name);if(!state.triPins[name])details.open=!details.open}
+    if(pin){const name=pin.dataset.triPin;state.triPins[name]=!state.triPins[name];if(state.triPins[name])triViewElement(name).open=true}
+    syncTriDock();
+  });
+  $('mainStageControls').addEventListener('click',event=>{const button=event.target.closest('[data-main-stage]');if(!button)return;const view=button.dataset.mainStage;state.mainStageAuto=view==='auto';if(!state.mainStageAuto)state.mainStageView=view;syncMainStage()});
+  $('triViewDock').addEventListener('click',event=>{const focus=event.target.closest('[data-tri-focus]');if(focus)setTriFocus(focus.dataset.triFocus)});
+  triViewNames.forEach(name=>triViewElement(name).addEventListener('toggle',()=>{if(state.triPins[name]&&!triViewElement(name).open)triViewElement(name).open=true;syncTriDock()}));
+  $('demoPlay').addEventListener('click',()=>setDemoPlaying(!state.demoPlaying));
+  $('demoBack').addEventListener('click',()=>{setDemoPlaying(false);state.mainStageAuto=true;showDemoChapter(state.demoIndex<=0?0:state.demoIndex-1)});
+  $('demoNext').addEventListener('click',()=>{setDemoPlaying(false);state.mainStageAuto=true;showDemoChapter(state.demoIndex<0?0:Math.min(demoChapters.length-1,state.demoIndex+1))});
+  $('demoExit').addEventListener('click',()=>{setDemoPlaying(false);setPackageBreath(false);setPlay(false);setWavePlay(false);setZetaPlay(false);setBookPlay(false);setBodyOrbit(false);setPreset(8);state.demoIndex=-1;state.mainStageAuto=true;state.mainStageView='grid';state.triCompare=true;setTriOpenList(triViewNames);$('demoChapter').textContent='DEMO 0/16 · READY';$('demoCopy').textContent='16 Kapitel führen von der Dreifachorientierung durch Buchnaht, Körper, Zeta, Wave, Package und Adresslinsen zurück zum gemeinsamen Compare-View.'});
+  $('machine').addEventListener('click',event=>{const pkg=event.target.closest('[data-package-map-index]');if(pkg){state.packageIndex=Number(pkg.dataset.packageMapIndex);state.packageFollow=true;state.solidFollow=false;render();renderPackageField();return}const solid=event.target.closest('[data-solid-map-index]');if(solid){state.solidVertexIndex=Number(solid.dataset.solidMapIndex);state.solidFollow=true;state.packageFollow=false;clearBodyTrail();recordBodyTrace(true);render();return}const node=event.target.closest('[data-node-id]');if(!node)return;state.solidFollow=false;state.packageFollow=false;state.selectedNodeId=node.dataset.nodeId;render()});
+  $('machine').addEventListener('keydown',event=>{if(event.key!=='Enter'&&event.key!==' ')return;const pkg=event.target.closest('[data-package-map-index]');if(pkg){event.preventDefault();state.packageIndex=Number(pkg.dataset.packageMapIndex);state.packageFollow=true;state.solidFollow=false;render();renderPackageField();return}const solid=event.target.closest('[data-solid-map-index]');if(solid){event.preventDefault();state.solidVertexIndex=Number(solid.dataset.solidMapIndex);state.solidFollow=true;state.packageFollow=false;clearBodyTrail();recordBodyTrace(true);render();return}const node=event.target.closest('[data-node-id]');if(!node)return;event.preventDefault();state.solidFollow=false;state.packageFollow=false;state.selectedNodeId=node.dataset.nodeId;render()});
+  ['n','lens','k','kx','ky','kz'].forEach(id=>$(id).addEventListener('input',()=>{markCustom();syncButtons();render()}));
+  syncButtons();
+  render();
+  renderPackageField();
+})();
+</script>
+<script src="a0-tesseract-face-coupler.js?rev=20261031-nlk-dock-r1"></script>
+<script src="a0-nlk-iota-bridge-dock.js?rev=20261031-r1"></script>
+<script>window.A0NlkIotaBridgeDockController=window.A0NlkIotaBridgeDock.mountNlk(document,window);</script>
+<script src="a0-context-navigation.js?rev=grid-bridge-nav-r1-20261031"></script>
+</body>
+</html>

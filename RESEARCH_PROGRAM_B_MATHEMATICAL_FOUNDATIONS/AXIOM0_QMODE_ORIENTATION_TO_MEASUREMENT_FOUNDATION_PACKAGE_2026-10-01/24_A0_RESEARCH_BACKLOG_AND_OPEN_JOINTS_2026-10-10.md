@@ -1752,19 +1752,22 @@ Rückwege:
 
 ## F-A0-26 and full-thread Science gates — 2026-10-30
 
-Status: `PRIORITIZED / NOT_ACTIVE / OWNER-ACCEPTED FINDING / SEPARATE RUN GATES REQUIRED`.
+Status: `OWNER-SCOPE CLOSED / NULL MODEL COMPLETE / NOT ACTIVE / INDEPENDENT REVIEW OPEN / SEPARATE RUN GATES REQUIRED`.
 
-1. **P1 — Independent F-A0-26 review.** Generate alternative five-part
-   groupings and null groupings; test order reversal, carrier relabelling and
-   whether `2+3` remains distinguished against declared controls.
+1. **DONE — Internal F-A0-26 null model.** `C(5,2)=10`, the 1,280-cycle
+   graph-family control and role reversal show that recurrence passes while
+   specificity and uniqueness fail. The frozen Review Probe is ready for an
+   independent reviewer; independent sign-off itself remains OPEN.
 2. **P2 — Typed transport.** Define carrier, map, invariant, inverse/residual
    and failure condition for any proposed keyboard↔graph↔clamp comparison.
 3. **P2 — `3+1` band contract.** Declare three active band roles and one
    frame/carrier role, including fourth-channel semantics, pairing, Return and
    a counterexample. This extension is not yet in the exact Finding core.
-4. **P2 — Acoustic measurement.** Bind measured frequency/amplitude data,
-   tuning reference, uncertainty, baseline and preregistered failure rule to
-   the TESA/Zither comparator.
+4. **BOUNDARY CLOSED FOR F-A0-26 — acoustic evidence reuse.** Existing TESA
+   model/comparator results are bound: 39 checks PASS, octave ratio `2`, ratio
+   class `16/15`, fifths residual `+23.46 ct`. Their receipt says
+   `measured_input = OPEN`; a new empirical campaign is optional future work,
+   not a prerequisite for this bounded descriptive Finding closeout.
 5. **P3 — Clamp/material continuation.** Preserve the closed-ring collision
    and nonzero fold-moment controls; require prototype-backed load, friction,
    wear, tolerance and fabrication evidence before any mechanism claim.
@@ -1776,5 +1779,37 @@ Status: `PRIORITIZED / NOT_ACTIVE / OWNER-ACCEPTED FINDING / SEPARATE RUN GATES 
 
 Return: [full Science Desk synthesis](A0_BOOK/results/a0-thread-science-desk-synthesis-2026-10-30.md),
 [Finding](A0_BOOK/A0_RESEARCH_DESK.html#f-a0-26-octave-2plus3-cross-carrier-20261030),
+[Review Probe](A0_BOOK/A0_F_A0_26_REVIEW_PROBE.html),
 [Mathfield matrix](A0_BOOK/A0_MATHEMATICAL_JOINTS.html#octave-balance-pair-band-extension),
 and [Paper gate](32_A0_FINDINGS_AND_PAPER_WORKSPACE_2026-10-11.md#f-a0-26-octave-2plus3-cross-carrier-20261030).
+
+<a id="a0-freeze-handoff-iota-ignition-20261031"></a>
+
+## A0 Freeze handoff · IOTA ignition / 6×7 switch / inside–outside — 31 October 2026
+
+Status: `PARKED_ENGINEERING_CONTINUATION / NOT_ADMITTED / NOT_ACTIVE / STRUCTURE_FREEZE_PRESERVED`.
+
+Der eingefrorene Arbeitsstand schließt die sichtbare Kette
+`A0 → THE MACHINA → IOTA GRID BRIDGE ↔ NLK SWITCHBOARD`, lässt aber drei
+bewusst offene Engineering-Fragen zurück:
+
+1. **6×7 switch / one free port.** Das vorhandene CRT-Raster `6×7` trägt die
+   42 Restklassen. Zu prüfen bleibt, ob ein zusätzlicher freier Kontrollport
+   oder eine explizite Umschaltposition als getrennte Boundary-/Witness-Rolle
+   sinnvoll ist. Der Port darf keine 43. Restklasse und keinen stillen neuen
+   Carrier erzeugen; Adresse, Verlust, inverse Rekonstruktion und Return müssen
+   vor einem Build deklariert werden.
+2. **Inside ↔ outside.** Die bestehende Innen-/Außen-Unterscheidung bleibt als
+   gerichtete Boundary-Information erhalten. Eine spätere Umschaltung muss
+   Seite, Vorzeichen beziehungsweise Witness mitführen und darf die beiden
+   Ansichten nicht als identische Zustände zusammenlegen.
+3. **IOTA ignition / pulse.** Der IOTA Bridge fehlt noch ein klarer endlicher
+   Startimpuls. Ein möglicher nächster Build darf den vorhandenen Pulse Grammar
+   Clock nur als typisierten Trigger verwenden: `ARM → PULSE → SCHEDULE →
+   RETURN`. Das ist ein UI-/Schedule-Ereignis, keine physische Zündung, keine
+   gemeinsame Master-Uhr und kein Resonanz- oder Mechanismus-Claim.
+
+Nächste zulässige Aktion: ausschließlich einen kleinen Kontrollvertrag mit
+Startzustand, Triggerkante, 6×7-Portrolle, Inside/Outside-Witness, Stopbedingung
+und exaktem Return entwerfen. Kein wissenschaftlicher Run, keine neue
+Source-Graph-Identität oder Relation und keine Publikationsfreigabe.

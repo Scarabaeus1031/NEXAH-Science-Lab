@@ -1,0 +1,157 @@
+{
+  "schema": "nexah.a0.source-manifest/1.0.0",
+  "id": "A0_ACOUSTIC_SOURCE_PROJECTION_MANIFEST_V1",
+  "date": "2026-10-30",
+  "scope": "F-A0-26 extension phases 1-3",
+  "copy_policy": "REFERENCE_ONLY_NO_SOURCE_BYTES_COPIED",
+  "classification_ledger": [
+    {"class": "FORMALIZATION_CORE", "use": "reconstruct a finite map and test it", "claim_ceiling": "exact finite address/projection only"},
+    {"class": "PROVENANCE_CONTEXT", "use": "retain historical vocabulary and grouping", "claim_ceiling": "context, not evidence"},
+    {"class": "HYPOTHESIS_ONLY", "use": "define later acoustic comparators", "claim_ceiling": "no measured material or room law"},
+    {"class": "HELD_BACKGROUND", "use": "possible phase-4/5 cross-check", "claim_ceiling": "not imported into the present model"}
+  ],
+  "sources": [
+    {
+      "id": "GENESIS_KEYBOARD_24",
+      "classification": "FORMALIZATION_CORE",
+      "path": "/Users/tho2020/Desktop/Desktop TASKS/DESKTOP_archy/THOOTH DASHBOARD/Nexahedron_Codex Staging Modules/GEN-E-SIS/klavier_codex_visual.png",
+      "sha256": "6ed7a8afaed23d6e9416e75b1aa60994cc13d1cbb538d7aca4bae22268b91e0d",
+      "bytes": 69252,
+      "extracted": ["24 displayed rail positions", "12 pitch-class labels repeated twice", "circle-of-fifths cue"],
+      "excluded": ["historical date annotation as scientific evidence"]
+    },
+    {
+      "id": "GENESIS_KEYBOARD_COLOR",
+      "classification": "FORMALIZATION_CORE",
+      "path": "/Users/tho2020/Desktop/Desktop TASKS/DESKTOP_archy/THOOTH DASHBOARD/Nexahedron_Codex Staging Modules/GEN-E-SIS/klavier_codex_visual_resonanz_dissonanz.png",
+      "sha256": "cac5043257fa54fcfbfb283d94d8a7850e0635694935cfed196812dec6820959",
+      "bytes": 77766,
+      "extracted": ["marked C/G classes", "marked F-sharp class"],
+      "excluded": ["resonance/dissonance labels as measured facts"]
+    },
+    {
+      "id": "GENESIS_LYRA_24",
+      "classification": "FORMALIZATION_CORE",
+      "path": "/Users/tho2020/Desktop/Desktop TASKS/DESKTOP_archy/THOOTH DASHBOARD/Nexahedron_Codex Staging Modules/GEN-E-SIS/lyra_codex_visual.png",
+      "sha256": "6271ee6c79b37003b4d2c722608f7bdd8a296d47e54755d227ba60111120d7b0",
+      "bytes": 392332,
+      "extracted": ["24 endpoints", "one common apex", "fan projection"],
+      "excluded": ["instrument acoustics"]
+    },
+    {
+      "id": "GENESIS_LYRA_GAMMA_X",
+      "classification": "FORMALIZATION_CORE",
+      "path": "/Users/tho2020/Desktop/Desktop TASKS/DESKTOP_archy/THOOTH DASHBOARD/Nexahedron_Codex Staging Modules/GEN-E-SIS/lyra_codex_visual_gammaX.png",
+      "sha256": "c28f7da78527042bc35b6069eaa560b64fa3efae70b0326aefc4f0fd3813fdb5",
+      "bytes": 113494,
+      "extracted": ["shared-axis collapse", "X/Y marker vocabulary"],
+      "excluded": ["Gamma or frequency semantics without a typed operator"]
+    },
+    {
+      "id": "GENESIS_WORLD_INSTRUMENT_GRAPHIC",
+      "classification": "PROVENANCE_CONTEXT",
+      "path": "/Users/tho2020/Desktop/Desktop TASKS/DESKTOP_archy/THOOTH DASHBOARD/Nexahedron_Codex Staging Modules/GEN-E-SIS/world_instrument_codex_graf.png",
+      "sha256": "1c0b688e33e1fd6b7f0ac35becdda41fc2ad227b3a06b93e1101b4b363db479c",
+      "bytes": 67935,
+      "extracted": ["strings/breath/percussion grouping"],
+      "excluded": ["7→17→24→42 as a physical derivation"]
+    },
+    {
+      "id": "GENESIS_WORLD_INSTRUMENT_DIAGRAM",
+      "classification": "PROVENANCE_CONTEXT",
+      "path": "/Users/tho2020/Desktop/Desktop TASKS/DESKTOP_archy/THOOTH DASHBOARD/Nexahedron_Codex Staging Modules/GEN-E-SIS/world_instrument_codex_diag.png",
+      "sha256": "6f63888f3e933eef3f00c864c4197547a4186390f7f37acecef8fd67b3c60d7c",
+      "bytes": 57498,
+      "extracted": ["instrument-family vocabulary"],
+      "excluded": ["taxonomy as evidence for a shared mechanism"]
+    },
+    {
+      "id": "GENESIS_STRADIVARI_GRAPHIC",
+      "classification": "PROVENANCE_CONTEXT",
+      "path": "/Users/tho2020/Desktop/Desktop TASKS/DESKTOP_archy/THOOTH DASHBOARD/Nexahedron_Codex Staging Modules/GEN-E-SIS/stradivari_detail_graf.png",
+      "sha256": "a7ca4bb34d171d5fd3e908c30dab29f6cd4c919cf5c12e921d4588156cb533d2",
+      "bytes": 47752,
+      "extracted": ["body/neck/string sketch"],
+      "excluded": ["geometric or acoustic accuracy"]
+    },
+    {
+      "id": "GENESIS_STRADIVARI_DIAGRAM",
+      "classification": "PROVENANCE_CONTEXT",
+      "path": "/Users/tho2020/Desktop/Desktop TASKS/DESKTOP_archy/THOOTH DASHBOARD/Nexahedron_Codex Staging Modules/GEN-E-SIS/stradivari_detail_diag.png",
+      "sha256": "100a3d476eab2dca6e997eb9d8ea290a29608ae6c18133739741476d698d1e86",
+      "bytes": 50096,
+      "extracted": ["alternate instrument sketch"],
+      "excluded": ["instrument measurement"]
+    },
+    {
+      "id": "FOUR_RINGS_SUMMARY",
+      "classification": "HYPOTHESIS_ONLY",
+      "path": "/Users/tho2020/Desktop/Desktop TASKS/DESKTOP_archy/y-1031_Release_some hot STUFF..../🏛 ARCHY V — Architecture as Hybrid Stabilization System_🧮ARCHY IV.IV-VI/🎵⭕⭕⭕⭕Four Rings_ARCHY_resonance_sound_architecture_report/Resonance_Sound_Architecture_Report_Summary.md",
+      "sha256": "0b970738cf9ff5decc742ae80d50050fd64daf9d58daf96837868521fd885d08",
+      "bytes": 5241,
+      "extracted": ["candidate variable families", "historical test vocabulary"],
+      "excluded": ["quantum, architectural stabilization, efficiency and material claims"]
+    },
+    {
+      "id": "FOUR_RINGS_RATIO_MATRIX",
+      "classification": "HYPOTHESIS_ONLY",
+      "path": "/Users/tho2020/Desktop/Desktop TASKS/DESKTOP_archy/y-1031_Release_some hot STUFF..../🏛 ARCHY V — Architecture as Hybrid Stabilization System_🧮ARCHY IV.IV-VI/🎵⭕⭕⭕⭕Four Rings_ARCHY_resonance_sound_architecture_report/visuals_🎵⭕⭕⭕⭕Song of the Four Rings_CONTINUE_Resonace_dissonance=Harmony/diagrams/Resonance Matrix for Frequencies.png",
+      "sha256": "ec28229c22839e85a78ce88959f371f7155a0b6400a274a277245d7e290a3362",
+      "bytes": 26757,
+      "extracted": ["candidate pairwise frequency-ratio matrix"],
+      "excluded": ["resonance strength interpretation"]
+    },
+    {
+      "id": "FOUR_RINGS_PENDULUM",
+      "classification": "HYPOTHESIS_ONLY",
+      "path": "/Users/tho2020/Desktop/Desktop TASKS/DESKTOP_archy/y-1031_Release_some hot STUFF..../🏛 ARCHY V — Architecture as Hybrid Stabilization System_🧮ARCHY IV.IV-VI/🎵⭕⭕⭕⭕Four Rings_ARCHY_resonance_sound_architecture_report/visuals_🎵⭕⭕⭕⭕Song of the Four Rings_CONTINUE_Resonace_dissonance=Harmony/diagrams/Pendulum Oscillations over Time.png",
+      "sha256": "4ac5edc9a1792668b7abdb776779c5703391752fe5838c2a0ab9314cfada6b41",
+      "bytes": 56429,
+      "extracted": ["synthetic periodic-control shape"],
+      "excluded": ["connection to acoustic data"]
+    },
+    {
+      "id": "FOUR_RINGS_ECHO",
+      "classification": "HYPOTHESIS_ONLY",
+      "path": "/Users/tho2020/Desktop/Desktop TASKS/DESKTOP_archy/y-1031_Release_some hot STUFF..../🏛 ARCHY V — Architecture as Hybrid Stabilization System_🧮ARCHY IV.IV-VI/🎵⭕⭕⭕⭕Four Rings_ARCHY_resonance_sound_architecture_report/visuals_🎵⭕⭕⭕⭕Song of the Four Rings_CONTINUE_Resonace_dissonance=Harmony/diagrams/Sound Echo Decay in a Rectangular Room.png",
+      "sha256": "ff30eb3133a1c81a8e6cf3226662e759401f057b0833baadc51503162ee12cb2",
+      "bytes": 43226,
+      "extracted": ["candidate decay-output field"],
+      "excluded": ["room measurement"]
+    },
+    {
+      "id": "FOUR_RINGS_MATERIAL_CURVES",
+      "classification": "HYPOTHESIS_ONLY",
+      "path": "/Users/tho2020/Desktop/Desktop TASKS/DESKTOP_archy/y-1031_Release_some hot STUFF..../🏛 ARCHY V — Architecture as Hybrid Stabilization System_🧮ARCHY IV.IV-VI/🎵⭕⭕⭕⭕Four Rings_ARCHY_resonance_sound_architecture_report/visuals_🎵⭕⭕⭕⭕Song of the Four Rings_CONTINUE_Resonace_dissonance=Harmony/diagrams/Sound Resonance Waves in Different Materials.png",
+      "sha256": "95e8e6ef5a12e1198f62ea6fdbc7ee377aa53237bbba749a0c9e6bfabc6205bd",
+      "bytes": 134636,
+      "extracted": ["candidate material-profile slot"],
+      "excluded": ["material coefficients and comparative performance"]
+    },
+    {
+      "id": "ARCHY_U01C_MODEL",
+      "classification": "HELD_BACKGROUND",
+      "path": "/Users/tho2020/Desktop/Desktop TASKS/DESKTOP_archy/y-1031_Release_some hot STUFF..../🏛 ARCHY V — Architecture as Hybrid Stabilization System_🧮ARCHY IV.IV-VI/🔷🔶🧭 ARCHY U-01-05 -  U6-U7 _ TODO/ARCHY U 01 - Subterranean Stabilization Systems/Archy U 01c Subterranean Stability Model.pdf",
+      "sha256": "58d2f1b350a97e6ad50b22e479ae7d101c29aa12eb4f7ff9b29fb35017446ac1",
+      "bytes": 32521,
+      "extracted": ["future normalized aperture/volume comparator candidate"],
+      "excluded": ["present acoustic carrier", "stability evidence"]
+    },
+    {
+      "id": "ARCHY_U01C_VISUAL",
+      "classification": "HELD_BACKGROUND",
+      "path": "/Users/tho2020/Desktop/Desktop TASKS/DESKTOP_archy/y-1031_Release_some hot STUFF..../🏛 ARCHY V — Architecture as Hybrid Stabilization System_🧮ARCHY IV.IV-VI/🔷🔶🧭 ARCHY U-01-05 -  U6-U7 _ TODO/ARCHY U 01 - Subterranean Stabilization Systems/Visuals_ARCHY U 01c SUBTERRANEAN stability model/ARCHY U-01c | Suberterranean System Stability.png",
+      "sha256": "1697ea1b3632e063c16196902b6aa66f4f4709d72bbead0a1e196030605d800d",
+      "bytes": 794057,
+      "extracted": ["historical stability-map rendering"],
+      "excluded": ["formula validation", "acoustic relation"]
+    }
+  ],
+  "governance": {
+    "new_navigator_ids": [],
+    "source_graph_relation_changes": [],
+    "study_activation": false,
+    "publication_authorized": false,
+    "owner_vocabulary_promoted": false
+  }
+}

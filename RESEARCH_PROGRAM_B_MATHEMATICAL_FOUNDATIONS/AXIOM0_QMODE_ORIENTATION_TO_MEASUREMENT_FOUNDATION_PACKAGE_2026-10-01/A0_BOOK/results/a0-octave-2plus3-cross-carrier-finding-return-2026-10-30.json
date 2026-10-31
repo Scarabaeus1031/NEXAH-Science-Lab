@@ -3,7 +3,7 @@
   "date": "2026-10-30",
   "finding_id": "F-A0-26",
   "title": "Octave / 2+3 / counterpair cross-carrier structural observation",
-  "status": "OWNER_ACCEPTED_BOUNDED_CROSS_CARRIER_STRUCTURAL_OBSERVATION_INDEPENDENT_REVIEW_OPEN",
+  "status": "OWNER_SCOPE_CLOSED_BOUNDED_DESCRIPTIVE_FINDING_NULL_MODEL_COMPLETE_INDEPENDENT_REVIEW_OPEN",
   "owning_identity": "NEXAH_AX0_QMODE_FOUNDATION_PACKAGE",
   "authority": {
     "scientific_classification": "A0 Science Desk",
@@ -53,6 +53,65 @@
     },
     "fifth_boundary": "A perfect fifth spans seven semitone steps; 2+3 here groups five roles and is not the interval measure."
   },
+  "review_closeout": {
+    "owner_scope": "CLOSED",
+    "independent_review": "OPEN",
+    "review_probe": "A0_BOOK/A0_F_A0_26_REVIEW_PROBE.html",
+    "null_model": {
+      "status": "COMPLETE",
+      "controls": [
+        {
+          "id": "N1_LABELED_CUTS",
+          "result": "FAIL_SPECIFICITY",
+          "fact": "C(5,2)=10 label-bound 2|3 cuts share the same count signature"
+        },
+        {
+          "id": "N2_GRAPH_CYCLE_FAMILY",
+          "result": "FAIL_UNIQUENESS",
+          "fact": "1280 anchored undirected Hamiltonian cycles and 30720 labeled assignments yield local degree 2 plus residual degree 3; none is distinguished"
+        },
+        {
+          "id": "N3_ORIENTATION_REVERSAL",
+          "result": "HOLD_TRANSPORT",
+          "fact": "mirroring preserves the unordered partition {2,3} while swapping typed roles and direction"
+        }
+      ]
+    },
+    "verdicts": {
+      "cross_carrier_recurrence": "PASS",
+      "count_specificity": "FAIL",
+      "shared_transport": "HOLD",
+      "shared_mechanism": "REJECT",
+      "three_plus_one_bands": "HOLD"
+    },
+    "acoustic_evidence_reuse": {
+      "class": "EXISTING_MODEL_AND_COMPARATOR_RESULTS_NOT_NEW_MEASUREMENT",
+      "source": "A0_BOOK/results/a0-tesa-acoustic-overlay-return-2026-10-30.json",
+      "verified_checks": 39,
+      "frequency_rail": [24, 27, 30, 32, 36, 40, 45, 48],
+      "octave_ratio": 2,
+      "shared_ratio_class": "16/15",
+      "fifths_return_exact": false,
+      "pythagorean_comma_cents": 23.460010384649014,
+      "measured_input": "OPEN",
+      "included_in_exact_finding_core": false
+    },
+    "acoustic_source_projection_extension": {
+      "status": "PHASES_1_TO_3_PASS_PHASE4_READY_NOT_RUN",
+      "manifest": "A0_BOOK/assets/a0-acoustic-source-projection-manifest-v1.json",
+      "receipt": "A0_BOOK/results/a0-acoustic-source-projection-return-2026-10-30.json",
+      "formal_maps": [
+        "24-address rail to 12 pitch classes",
+        "circle-of-fifths permutation q -> q + 7 mod 12",
+        "central Lyra fan with explicit apex collision",
+        "open P24 fan with 23 inner passages versus closed C24 with one additional typed return seam"
+      ],
+      "con_dao_boundary": "23+1 is a local open/closed passage comparator and is not identical with the existing 13-state NEXAH:CON_DAO_BREATH:V1 carrier.",
+      "included_in_exact_finding_core": false,
+      "measured_acoustic_result": false
+    },
+    "closure_boundary": "Owner-scope closure records the bounded descriptive recurrence and completed internal null model. It is not an independent review, empirical acoustic closure, Study closure, mechanism validation or publication decision."
+  },
   "paper_route": {
     "paper_e": "BOUNDED_METHOD_AND_REPRESENTATION_EXAMPLE",
     "paper_c": "HOLD_PENDING_TYPED_TRANSPORT_AND_INDEPENDENT_REVIEW",
@@ -74,6 +133,10 @@
     "A0_BOOK/downloads/A0_THE_ONE_D1_D2_YUGO_INTAKE_2026-10-25/engineering/d1-d2-clamp-v1/D1_D2_CLAMP_TEST_RESULTS.json",
     "A0_BOOK/A0_MATHEMATICAL_JOINTS.html#octave-2plus3-cross-carrier-finding",
     "A0_BOOK/A0_RESEARCH_DESK.html#f-a0-26-octave-2plus3-cross-carrier-20261030",
+    "A0_BOOK/A0_F_A0_26_REVIEW_PROBE.html",
+    "A0_BOOK/results/a0-tesa-acoustic-overlay-return-2026-10-30.json",
+    "A0_BOOK/assets/a0-acoustic-source-projection-manifest-v1.json",
+    "A0_BOOK/results/a0-acoustic-source-projection-return-2026-10-30.json",
     "32_A0_FINDINGS_AND_PAPER_WORKSPACE_2026-10-11.md#f-a0-26-octave-2plus3-cross-carrier-20261030"
   ],
   "governance": {

@@ -1,0 +1,75 @@
+{
+  "schema": "nexah.a0.engineering-return/1.0.0",
+  "date": "2026-10-30",
+  "id": "A0_ACOUSTIC_SOURCE_PROJECTION_RETURN_V1",
+  "parent_finding": "F-A0-26",
+  "status": "PASS_PHASES_1_TO_3_PHASE4_READY_NOT_RUN",
+  "completed_phases": [
+    "1_SOURCE_INVENTORY",
+    "2_FORMAL_RECONSTRUCTION",
+    "3_TONE_RAIL_LYRA_PROJECTION"
+  ],
+  "phase1": {
+    "manifest": "A0_BOOK/assets/a0-acoustic-source-projection-manifest-v1.json",
+    "source_count": 15,
+    "classes": ["FORMALIZATION_CORE", "PROVENANCE_CONTEXT", "HYPOTHESIS_ONLY", "HELD_BACKGROUND"],
+    "source_bytes_copied": false
+  },
+  "phase2": {
+    "rail": "24 discrete addresses; pitchClass = railIndex mod 12",
+    "circle_of_fifths": "separate permutation q -> q + 7 mod 12",
+    "tritone": "q -> q + 6 mod 12",
+    "lyra_projection": "p_i(t) = apex + t(rail_i-apex)",
+    "return": "exact for t>0 with the declared ray/rail geometry; ambiguous at the common apex",
+    "gamma_x_boundary": "collapse to a shared axis does not retain the 24-address identity unless the source key is carried separately"
+  },
+  "phase3": {
+    "probe": "A0_BOOK/A0_F_A0_26_REVIEW_PROBE.html#acousticSourceProjection",
+    "runtime": "A0_BOOK/a0-acoustic-source-projection.js",
+    "tests": "A0_BOOK/a0-acoustic-source-projection-tests.cjs",
+    "result": "PASS",
+    "assertions": [
+      "24 rail addresses map to two passes through 12 pitch classes",
+      "the +7 fifth map visits all 12 pitch classes before return",
+      "all 24 fan rays round-trip exactly away from the apex",
+      "the shared apex is an explicit 24-to-1 identity collision"
+    ],
+    "con_dao_23_plus_1_test": {
+      "status": "PASS",
+      "open_view": "P24: 24 line states, 23 inner passages, 2 endpoints, no return seam",
+      "closed_view": "C24: 24 line states, 23 inner passages, 1 typed return seam, 0 endpoints",
+      "pink_walker": "23 inner transitions followed by OPEN_STOP or by the declared 23->0 RETURN_SEAM",
+      "topological_control": "P24 has graph Euler V-E=1 and cycle rank 0; adding only the 23->0 seam gives C24 with V-E=0 and cycle rank 1",
+      "count_boundary": "23+1 counts passages in the closed view; it does not add a twenty-fifth line",
+      "existing_identity_crosswalk": "METHOD_GRAMMAR_ONLY / NON_IDENTITY_WITH_NEXAH:CON_DAO_BREATH:V1",
+      "existing_carrier_boundary": "The existing CON-DAO Breath carrier has 13 states (6|1|6). No state map, identity merge or Source Graph relation is asserted."
+    }
+  },
+  "phase4_handoff": {
+    "status": "READY_NOT_RUN",
+    "schema": "nexah.a0.acoustic-carrier/1.0.0",
+    "required_fields": ["sourceAddress", "pitchClass", "frequencyHz", "geometry", "sourcePoint", "boundaryPoint", "receiverPoint", "materialProfile", "projectionWitness"],
+    "open_inputs": ["measured or declared excitation", "receiver geometry", "material coefficients", "decay metric", "null geometry"],
+    "boundary": "No acoustic result, resonance mechanism, material law or room response is inferred by phases 1-3."
+  },
+  "bench_coupling": {
+    "status": "PASS_CONTROL_LAYERS_1_TO_5",
+    "surface": "A0_BOOK/A0_ORIENTATION_CONTROLLER_BENCH.html#tesseractFaceCoupler",
+    "receipt": "A0_BOOK/results/a0-tesseract-face-coupler-return-2026-10-30.json",
+    "reading": "23 = one punctured face; 24 = exact Q4 square-face carrier; 25 = 24 faces plus one external Return witness",
+    "measurement_effect": "NONE / phase 4 remains READY_NOT_RUN"
+  },
+  "a0_binding": {
+    "role": "bounded extension of F-A0-26 and existing octave/fifths comparator work",
+    "finding_status_changed": false,
+    "independent_review": "OPEN",
+    "paper_route": "PAPER_E_METHOD_EXAMPLE_ONLY"
+  },
+  "governance": {
+    "new_navigator_ids": [],
+    "source_graph_relation_changes": [],
+    "study_activation": false,
+    "capability_promotion": false,
+    "publication_authorized": false
+  }
+}

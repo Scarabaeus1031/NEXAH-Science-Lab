@@ -1,0 +1,31 @@
+'use strict';
+const assert=require('node:assert/strict');
+const fs=require('node:fs');
+const path=require('node:path');
+const Dock=require('./a0-nlk-iota-bridge-dock.js');
+const Coupler=require('./a0-tesseract-face-coupler.js');
+const root=__dirname;
+
+assert.deepEqual(Dock.BASES,[2,3,4,5,6,8,10,11,12,16,20,24]);
+assert.deepEqual(Dock.MODULI,[2,3,4,5,6,12,20]);
+assert.deepEqual(Dock.CARRIERS,[23,24,25]);
+assert.deepEqual(Dock.normalize({base:7,mod:99,carrier:22,face:-1,tick:49,dir:-1}),{base:12,modulus:20,carrier:24,face:23,tick:1,direction:-1});
+assert.equal(Dock.baseWord(47,20),'27');
+const query=Dock.encode({base:20,mod:12,carrier:25,face:23,tick:47,dir:-1});
+assert.deepEqual(Dock.decode(query),{base:20,modulus:12,carrier:25,face:23,tick:47,direction:-1});
+const receipt=Dock.receipt();
+assert.equal(receipt.switchword,'IOTA:B12|M20|F01|C24|K00|D+');
+assert.equal(receipt.reconstruction.pass,true);
+assert.equal(receipt.boundary.commonCarrier,false);
+assert.equal(receipt.boundary.commonClock,false);
+assert.equal(receipt.boundary.newGraphRelation,false);
+assert.equal(Coupler.matrix.length,24);
+assert.ok(Coupler.matrix.every(row=>row.length===24));
+assert.deepEqual(Coupler.relationCounts,{S:24,E:192,V:96,A:24,P:48,D:192});
+assert.notEqual(Dock.receipt({tick:7,dir:1}).handoff.returnKey,Dock.receipt({tick:7,dir:-1}).handoff.returnKey);
+
+const nlk=fs.readFileSync(path.join(root,'A0_NLK_LSHELL_DEVELOPMENT_PROBE.html'),'utf8');
+const iota=fs.readFileSync(path.join(root,'A0_IOTA_BRIDGE_DEMONSTRATOR.html'),'utf8');
+for(const token of ['data-nlk-iota-dock','data-nid-matrix','data-nid-open-iota','a0-nlk-iota-bridge-dock.js'])assert.ok(nlk.includes(token),`NLK missing ${token}`);
+for(const token of ['data-iota-nlk-handoff','data-iota-nlk-return','A0NlkIotaBridgeDock.mountIota'])assert.ok(iota.includes(token),`IOTA missing ${token}`);
+console.log('PASS · NLK ↔ IOTA typed dock · model, query, Q4 patchbay, return and HTML wiring');

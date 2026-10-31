@@ -16,6 +16,8 @@ assert.match(bookHome,/data-a0-nexah-stage-preview/,'A0 marks the NEXAH Science 
 assert.match(bookHome,/data-a0-nexah-stage/,'the NEXAH Science card opens the website stage inside the existing A0 acceptance frame');
 assert.match(bookHome,/Aktueller nexah\.de-Stagingstand mit öffentlicher Science, About, Library, Legal und den weiteren öffentlichen Seiten/,'A0 describes the integrated public staging surface');
 for (const hatch of ['Map &amp; Atlas','Library &amp; Papers','Instruments &amp; Games','Repositories &amp; Sources','Build &amp; Matter','Connect &amp; Return']) assert.ok(bookHome.includes(hatch),`ecosystem hatch missing: ${hatch}`);
+for (const flagship of ['Acht Hauptmodule','IOTA Grid Bridge','NLK / L-Shell','Edelweiß','Relation Chamber','Flagship Overview']) assert.ok(bookHome.includes(flagship),`A0 flagship entry missing: ${flagship}`);
+assert.ok(bookHome.includes('A0_IOTA_BRIDGE_DEMONSTRATOR.html#gridBridgeFlagship'),'A0 opens the Grid Bridge flagship at its direct anchor');
 assert.match(bookHome,/NEXAHEDRON · Human/,'the four-window portal includes the Human View');
 assert.match(bookHome,/Builder \+ Werkbank/,'the four-window portal includes the Workbench');
 assert.match(bookHome,/Scarabæus 1033/,'the four-window portal includes the Builder projection');
@@ -185,7 +187,7 @@ for (const action of ['Lesen','Zusammenhänge verstehen','Werkzeuge nutzen','Erg
 assert.doesNotMatch(navigation,/header.after\(primaryNav\)|header.after\(moduleNav\)/,'no additional top-level navigation strips');
 const shared = htmlFiles.filter((name) => fs.readFileSync(path.join(root, name), 'utf8').includes('a0-context-navigation.js'));
 // Newer standalone log/storyboard retain their own controls; explicit tour return is required.
-assert.deepEqual(htmlFiles.filter((name) => !shared.includes(name)).sort(), ['A0_7_11_TYPED_CROSSWALK.html', 'A0_ASSET_INDEX.html', 'A0_BUILDER_LOG.html', 'A0_CROWN_SHADOW_CONTACT_BENCH.html', 'A0_CURSOR_HANDOFF_CLICKDUMMY.html', 'A0_IOTA_BRIDGE_DEMONSTRATOR.html', 'A0_LOOK_AGAIN_PLAY.html', 'A0_ONE_PULSE_BENCH_MONITOR.html', 'A0_OPIUM.html', 'A0_PENTAGON_BODY_RETURN_GUIDED.html', 'A0_THEORY_STORYBOARD.html', 'A0_TOWER_RETURN_DEMONSTRATOR.html', 'LAB_ORIENTATION_MACHINE.html', 'NEXAH_SCIENCE.html']);
+assert.deepEqual(htmlFiles.filter((name) => !shared.includes(name)).sort(), ['A0_7_11_TYPED_CROSSWALK.html', 'A0_ASSET_INDEX.html', 'A0_BUILDER_LOG.html', 'A0_CROWN_SHADOW_CONTACT_BENCH.html', 'A0_CURSOR_HANDOFF_CLICKDUMMY.html', 'A0_LOOK_AGAIN_PLAY.html', 'A0_ONE_PULSE_BENCH_MONITOR.html', 'A0_OPIUM.html', 'A0_PENTAGON_BODY_RETURN_GUIDED.html', 'A0_THEORY_STORYBOARD.html', 'A0_TOWER_RETURN_DEMONSTRATOR.html', 'LAB_ORIENTATION_MACHINE.html', 'NEXAH_SCIENCE.html']);
 for (const surface of ['A0_BUILDER_LOG.html', 'A0_THEORY_STORYBOARD.html']) {
   assert.ok(fs.readFileSync(path.join(root, surface), 'utf8').includes('href="A0_TOURS.html"'), surface + ' retains an explicit tour return');
 }

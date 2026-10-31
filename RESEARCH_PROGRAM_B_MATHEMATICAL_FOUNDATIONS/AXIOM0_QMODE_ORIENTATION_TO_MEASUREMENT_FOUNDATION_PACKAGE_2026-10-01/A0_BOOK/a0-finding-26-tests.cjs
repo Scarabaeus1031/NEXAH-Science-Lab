@@ -33,7 +33,18 @@ check('no publication', receipt.paper_route.publication_authorized === false);
 check('no navigator ids', receipt.governance.new_navigator_ids.length === 0);
 check('no graph relations', receipt.governance.source_graph_relation_changes.length === 0);
 check('no Study activation', receipt.governance.study_activation === false);
+check('owner scope closed', receipt.review_closeout.owner_scope === 'CLOSED');
+check('independent review remains open', receipt.review_closeout.independent_review === 'OPEN');
+check('null model complete', receipt.review_closeout.null_model.status === 'COMPLETE');
+check('three null controls', receipt.review_closeout.null_model.controls.length === 3);
+check('count specificity fails', receipt.review_closeout.verdicts.count_specificity === 'FAIL');
+check('shared transport held', receipt.review_closeout.verdicts.shared_transport === 'HOLD');
+check('shared mechanism rejected', receipt.review_closeout.verdicts.shared_mechanism === 'REJECT');
+check('existing acoustic results reused', receipt.review_closeout.acoustic_evidence_reuse.verified_checks === 39);
+check('measured acoustic input open', receipt.review_closeout.acoustic_evidence_reuse.measured_input === 'OPEN');
 check('Desk binding', desk.includes('id="f-a0-26-octave-2plus3-cross-carrier-20261030"'));
+check('Desk closeout binding', desk.includes('id="f-a0-26-review-closeout-20261030"'));
+check('Review probe link', desk.includes('A0_F_A0_26_REVIEW_PROBE.html'));
 check('Desk full synthesis binding', desk.includes('id="a0-thread-science-synthesis-20261030"'));
 check('Mathfield finding', mathfield.includes('id="octave-2plus3-cross-carrier-finding"'));
 check('Mathfield balance matrix', mathfield.includes('id="octave-balance-pair-band-extension"'));
@@ -49,4 +60,4 @@ if (failures.length) {
   console.error(JSON.stringify({status:'FAIL', checks:checks.length, failures}, null, 2));
   process.exit(1);
 }
-console.log(JSON.stringify({status:'PASS', checks:checks.length, finding:'F-A0-26', exactCore:'2+3=5 + typed counterpairs', extension:'3+1 HOLD'}, null, 2));
+console.log(JSON.stringify({status:'PASS', checks:checks.length, finding:'F-A0-26', exactCore:'2+3=5 + typed counterpairs', disposition:'OWNER_SCOPE_CLOSED / INDEPENDENT_REVIEW_OPEN', extension:'3+1 HOLD'}, null, 2));

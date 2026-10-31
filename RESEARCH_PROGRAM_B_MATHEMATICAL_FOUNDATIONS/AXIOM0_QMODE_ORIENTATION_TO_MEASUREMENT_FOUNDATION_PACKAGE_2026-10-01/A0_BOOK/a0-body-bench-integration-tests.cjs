@@ -16,15 +16,16 @@ for (const [name, html, current] of [
   ['pink', pink, 'domain-pink'],
   ['joint', joint, 'domain-joint']
 ]) {
+  const isReturnRegister = name === 'joint';
   ok(html.includes('a0-bench-navigation.css'), name + ' loads shared flagship navigation');
-  ok(html.includes('class="bench-sections"'), name + ' stays inside flagship navigation');
+  ok(html.includes(isReturnRegister ? 'class="bench-context-path"' : 'class="bench-sections '), name + ' declares its navigation scope');
   ok(html.includes('aria-label="Ansichtsebenen"'), name + ' separates overview, instrument and source layers');
   ok(html.includes('class="body-bench-identity"'), name + ' declares full-bench identity');
   ok(html.includes('class="' + current + '" aria-current="page"'), name + ' marks the correct flagship');
   ok(html.includes('A0_TESSAREC_BLUE_BODY_LAB.html') || current === 'domain-blue', name + ' exposes Blue Body');
   ok(html.includes('A0_PINK_DIAMOND_GRID_ATLAS.html') || current === 'domain-pink', name + ' exposes Pink Diamond');
   ok(html.includes('A0_BLUE_PINK_DODECA_CELL_RETURN.html') || current === 'domain-joint', name + ' exposes Blue x Pink Lab');
-  ok(html.includes('A0_MACHINA_COCKPIT.html'), name + ' returns to THE MACHINA cockpit');
+  ok(html.includes('A0_MACHINA_COCKPIT.html') || html.includes('A0_WERKBANK.html?view=machina'), name + ' returns to THE MACHINA house');
   ok(html.includes('A0_BENCH_ENTDECKEN.html#body-exhibition'), name + ' links to the compatible Build overview anchor');
 }
 
@@ -33,7 +34,7 @@ ok(discover.includes('Blue Body'), 'discover page exposes Blue Body');
 ok(discover.includes('Pink Diamond'), 'discover page names the flagship Pink Diamond');
 ok(discover.includes('Blue × Pink Lab'), 'discover page promotes the coupled lab as the large connection flagship');
 ok(discover.includes('Game of Worlds läuft auf dem Build.'), 'discover page types Game of Worlds as software layer');
-ok((discover.match(/class="bench-flagship(?: |")/g) || []).length === 6, 'discover page has six flagship entries');
+ok((discover.match(/class="bench-flagship(?: |")/g) || []).length === 7, 'discover page has seven flagship entries');
 ok(css.includes('.domain-joint'), 'shared CSS styles the coupled build flagship');
 ok(css.includes('.body-bench-identity'), 'shared CSS styles full-bench identity');
 ok(css.includes('.software-layer-note'), 'shared CSS styles the software-layer distinction');
@@ -58,4 +59,4 @@ for (const href of [
   'A0_BENCH_ENTDECKEN.html'
 ]) ok(fs.existsSync(path.join(__dirname, href)), 'route exists: ' + href);
 
-console.log(JSON.stringify({status:'PASS', checks, scope:'six persistent flagships; Build overview, instruments and sources separated as view layers; Game of Worlds typed as software layer'}));
+console.log(JSON.stringify({status:'PASS', checks, scope:'seven persistent flagships; Build overview, instruments and sources separated as view layers; Game of Worlds typed as software layer'}));

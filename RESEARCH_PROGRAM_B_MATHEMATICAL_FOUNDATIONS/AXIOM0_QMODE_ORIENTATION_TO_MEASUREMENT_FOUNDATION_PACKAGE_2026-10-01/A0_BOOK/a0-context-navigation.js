@@ -414,7 +414,7 @@
         "label": "Demonstratoren",
         "items": [
           ["A0_TOWER_RETURN_DEMONSTRATOR.html", "TOWER", "q-Adresse, D°G-Witness und Return"],
-          ["A0_IOTA_BRIDGE_DEMONSTRATOR.html", "BRIDGE", "8/12-Schedule und gemeinsamer Return bei 24"],
+          ["A0_IOTA_BRIDGE_DEMONSTRATOR.html#gridBridgeFlagship", "IOTA GRID BRIDGE", "Schedule, Q4/24, G8³/512, Zither 4×7 und Rank48"],
           ["A0_PENTAGON_CROWN_RETURN_DEMONSTRATOR.html", "CROWN", "Fünfflaschenkrone, Herzmechanismus und gebundener Return"],
           ["A0_LANTERN_PANEL_V_CONTROL_LENS.html", "PANEL V", "147,5°-Kontrolllinse und Crown-Replay"],
           ["A0_ROOTROOM_CODON_ORIENTATION_RETURN.html", "ROOTROOM × CODON", "Fünf Green-Cube-Anker, Triplet-Register und Ein-/Zwei-Umlauf-Return"],
@@ -694,6 +694,7 @@
         "title": "Steuern und ausprobieren",
         "pages": [
           "A0_WERKBANK.html",
+          "A0_MACHINA_ANATOMY_MAP.html",
           "A0_MACHINA_COCKPIT.html",
           "A0_TOWER_RETURN_DEMONSTRATOR.html",
           "A0_IOTA_BRIDGE_DEMONSTRATOR.html",
@@ -701,6 +702,7 @@
           "A0_LANTERN_PANEL_V_CONTROL_LENS.html",
           "A0_ROOTROOM_CODON_ORIENTATION_RETURN.html",
           "A0_SPIN_TO_BLOOM_MEASUREMENT.html",
+          "A0_NLK_LSHELL_DEVELOPMENT_PROBE.html",
           "A0_BREATHING_CRYSTAL_APERTURE.html",
           "A0_BENCH_ENTDECKEN.html",
           "A0_BENCH_MODULES.html",
@@ -853,15 +855,19 @@
     ["A0_MACHINA_COCKPIT.html#benchFoyer", "THE MACHINA", "Eigener Viewer, Cockpit, Parts Shelf und Full Bench", "body", "Haus / Host"],
     ["A0_WERKBANK.html", "Werkbank", "Maschine, Entdecken, Arbeiten und Quellen & Prüfen", "body", "Arbeitsoberfläche"]
   ];
+  const machinaMainModules = [
+    ["A0_MACHINA_COCKPIT.html#machinaAssembly", "THE MACHINA", "HOUSE / ASSEMBLY", "Viewer, Cockpit, Räume und exakte Returns in einem gemeinsamen Host.", "house"],
+    ["A0_TESSAREC_BLUE_BODY_LAB.html#module-entry", "BLUE BODY", "FLAGSHIP LAB", "Carrier, Innenregister und kontrollierte Zustandsansichten.", "carrier"],
+    ["A0_PINK_DIAMOND_GRID_ATLAS.html#module-entry", "PINK DIAMOND", "FLAGSHIP LAB", "Ein Carrier und mehrere gebundene Relationsansichten.", "relation"],
+    ["A0_BLUE_PINK_DODECA_CELL_RETURN.html#module-entry", "BLUE × PINK", "FLAGSHIP LAB", "Gekoppelter Träger, Zellenregister und typisierte Returns.", "coupling"],
+    ["A0_TOWER_RETURN_DEMONSTRATOR.html#module-entry", "TOWER", "FLAGSHIP DEMONSTRATOR", "q-Adresse, Witness und quellgebundener Return.", "tower"],
+    ["A0_IOTA_BRIDGE_DEMONSTRATOR.html#gridBridgeFlagship", "IOTA GRID BRIDGE", "FLAGSHIP INSTRUMENT", "Schedule, Q4/24, G8³/512, Zither 4×7, Rank48 und gemeinsamer Return.", "bridge"],
+    ["A0_SPIN_TO_BLOOM_MEASUREMENT.html#edelweissBridge", "EDELWEISS", "CURRENT FLAGSHIP", "Root → Field → Bloom → Dodeca → Receipt.", "edelweiss"],
+    ["A0_NLK_LSHELL_DEVELOPMENT_PROBE.html#mainStageShell", "NLK / L-SHELL", "FLAGSHIP INSTRUMENT", "Grid, platonischer Körper, Package, Wave, Fold und Tri-View in einer source-bound Probe.", "nlk"]
+  ];
   const builderCurrentFlagship =
     ["A0_SPIN_TO_BLOOM_MEASUREMENT.html#edelweissBridge", "EDELWEISS", "Root → Field → Bloom → Dodeca → Receipt: die integrierende Kopplungsbank", "edelweiss", "CURRENT FLAGSHIP"];
-  const builderFlagshipConstellation = [
-    ["A0_MATHEMATICAL_JOINTS.html", "MATHEMATICAL JOINTS", "Formale Relationen, Operatoren, Tests und Claim-Grenzen", "mathfield"],
-    ["A0_BLUE_PINK_DODECA_CELL_RETURN.html#module-entry", "BLUE × PINK", "Gekoppelter Träger, Zellenregister und typisierte Returns", "coupling"],
-    ["A0_TESSAREC_BLUE_BODY_LAB.html#module-entry", "BLUE BODY", "Carrier, Innenregister und kontrollierte Zustände", "carrier"],
-    ["A0_PINK_DIAMOND_GRID_ATLAS.html#module-entry", "PINK DIAMOND", "Ein Carrier, mehrere gebundene Relationsansichten", "relation"],
-    ["A0_GAME_OF_WORLDS_PLAY.html?world=pulse#pulse", "GAME OF WORLDS", "Human View: das System als spielbare Zustandsoberfläche", "human"]
-  ];
+  const builderFlagshipConstellation = machinaMainModules.map(([route, name, role, copy, accent]) => [route, name, copy, accent, role]);
   const scienceHighlights = [
     ["A0_SCIENCE.html#top", "A0 Science · Reader", "Forschungsstand, Beiträge, Instrumente und Grenzen des gebundenen A0-Programms", "nexah", "Intern · source-bound Reader"],
     ["A0_MATHEMATICAL_JOINTS.html", "Mathfield", "Mathematische Werkstatt für Buchstellen, Träger, Linsen, Fugen und ihre prüfbaren Returns", "cells", "Flagship · Mathematical Joints"],
@@ -942,12 +948,12 @@
       constellation = document.createElement("section");
       constellation.className = "a0-flagship-constellation";
       constellation.setAttribute("aria-label", "Flagship Constellation");
-      constellation.innerHTML = '<h3>Flagship Constellation</h3><p>Fünf große Arbeitsräume — je einmal als Hauptkarte.</p>';
-      builderFlagshipConstellation.forEach(([route, name, copy, role]) => {
+      constellation.innerHTML = '<h3>Acht Hauptmodule</h3><p>Sechs eingefrorene Hauptzugänge plus Edelweiß und das neue NLK Flagship-Instrument. Rollen bleiben getrennt.</p>';
+      builderFlagshipConstellation.forEach(([route, name, copy, role, status]) => {
         const link = document.createElement("a");
         link.className = `a0-constellation-card a0-constellation-card--${role}`;
         link.href = route;
-        link.innerHTML = `<small>${role}</small><strong>${name}</strong><span>${copy}</span>`;
+        link.innerHTML = `<small>${status}</small><strong>${name}</strong><span>${copy}</span>`;
         if (targetFile(route) === file) link.setAttribute("aria-current", "page");
         constellation.append(link);
       });
@@ -978,10 +984,28 @@
     ["A0_ORIENTATION_CONTROLLER_BENCH.html#universalMachinePartsShelf", "03 · PARTS SHELF", "Modelle, Bauteile und Adapter"],
     ["A0_ORIENTATION_CONTROLLER_BENCH.html#benchWorkDesk", "04 · FULL BENCH", "Verbinden, prüfen und Returns lesen"]
   ];
-  const machinaMenu = document.createElement("nav");
+  const machinaMaps = [
+    ["A0_MACHINA_ANATOMY_MAP.html#mainModules", "HAUPTMODULE · 8", "Große Eingangskarte vor der Anatomy-Linse"],
+    ["A0_MACHINA_ANATOMY_MAP.html#anatomyMap", "ANATOMY · 7 ROLLEN", "Frame, Core, Body, Routing, Tract, Channel und Boundary"],
+    ["A0_BENCH_ENTDECKEN.html#flagships", "FLAGSHIP OVERVIEW", "Räume, Labs und Demonstratoren nach Rolle"],
+    ["A0_BUILDER_TOY_STORE.html#instrument-atlas", "INSTRUMENT ATLAS", "Vollständiger Bestand unterhalb der Hauptmodule"]
+  ];
+  const machinaMenu = document.createElement("div");
   machinaMenu.className = "a0-machina-menu";
-  machinaMenu.setAttribute("aria-label", "THE MACHINA Räume");
-  machinaRooms.forEach((room) => machinaMenu.append(makeReaderLink(room)));
+  machinaMenu.setAttribute("role", "navigation");
+  machinaMenu.setAttribute("aria-label", "THE MACHINA Räume, Hauptmodule und Karten");
+  const appendMachinaGroup = (label, copy, items, className) => {
+    const group = document.createElement("section");
+    group.className = `a0-machina-menu-group ${className}`;
+    group.innerHTML = `<header><b>${label}</b><span>${copy}</span></header>`;
+    const links = document.createElement("nav");
+    items.forEach((item) => links.append(makeReaderLink(item)));
+    group.append(links);
+    machinaMenu.append(group);
+  };
+  appendMachinaGroup("RÄUME & WORK", "Ein Host · getrennte Aufgaben", machinaRooms, "is-rooms");
+  appendMachinaGroup("8 HAUPTMODULE", "6 eingefroren · + Edelweiß · + NLK", machinaMainModules.map(([href, label, role, copy]) => [href, `${role} · ${label}`, copy]), "is-modules");
+  appendMachinaGroup("KARTEN & RETURN", "Orientieren, vertiefen, vollständig suchen", machinaMaps, "is-maps");
   workbenchEntry.append(workbenchSummary, machinaMenu);
   const workbenchFiles = new Set([
     "A0_WERKBANK.html", "A0_MACHINA_COCKPIT.html", "A0_ORIENTATION_CONTROLLER_BENCH.html",
@@ -990,7 +1014,7 @@
     "A0_BLUE_PINK_DODECA_CELL_RETURN.html", "A0_TOWER_RETURN_DEMONSTRATOR.html",
     "A0_IOTA_BRIDGE_DEMONSTRATOR.html", "A0_PENTAGON_CROWN_RETURN_DEMONSTRATOR.html",
     "A0_LANTERN_PANEL_V_CONTROL_LENS.html", "A0_ROOTROOM_CODON_ORIENTATION_RETURN.html", "A0_SPIN_TO_BLOOM_MEASUREMENT.html",
-    "A0_BREATHING_CRYSTAL_APERTURE.html"
+    "A0_BREATHING_CRYSTAL_APERTURE.html", "A0_NLK_LSHELL_DEVELOPMENT_PROBE.html", "A0_MACHINA_ANATOMY_MAP.html"
   ]);
   if (workbenchFiles.has(file)) workbenchEntry.dataset.current = "true";
   workbenchEntry.addEventListener("toggle", () => {

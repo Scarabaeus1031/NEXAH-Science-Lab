@@ -1,0 +1,33 @@
+{
+  "schema": "nexah.a0.machina-ac-carrier-test-return/1",
+  "date": "2026-10-30",
+  "status": "PASS",
+  "classification": "METHOD_RELEVANT_ENGINEERING_OBSERVATION",
+  "identity": "NEXAH_A0_ORIENTATION_CONTROLLER_BENCH",
+  "contract": "../a0-machina-ac-carrier-contract.js",
+  "tests": "../a0-machina-ac-carrier-contract-tests.cjs",
+  "router": "../a0-machina-ac-carrier-router.js",
+  "router_surface": "../A0_BLUE_PINK_DODECA_CELL_RETURN.html#machinaAcCarrierRouter",
+  "local_checks": 32,
+  "regressions": [
+    {"suite": "a0-machina-ac-carrier-router-tests.cjs", "status": "PASS", "checks": 33},
+    {"suite": "a0-tesseract-face-coupler-tests.cjs", "status": "PASS", "checks": 50},
+    {"suite": "a0-blue-pink-dodeca-cell-return-tests.cjs", "status": "PASS"},
+    {"suite": "a0-cell-return-performance-tests.cjs", "status": "PASS"},
+    {"suite": "a0-iota-tower-return-matrix-tests.cjs", "status": "PASS", "checks": 56},
+    {"suite": "a0-iota-tower-return-handoff-tests.cjs", "status": "PASS", "checks": 51},
+    {"suite": "a0-register-janus-tests.cjs", "status": "PASS", "checks": 1085},
+    {"suite": "SCIENCE_LAB/NAVIGATION/APP/audit_app.mjs", "status": "PASS", "checks": 253},
+    {"suite": "SCIENCE_LAB/NAVIGATION/GOVERNANCE/validate_source_graph.mjs", "status": "PASS", "checks": {"components": 20, "component_validators": 2, "governance_records": 5, "base": "329/29", "composed": "332/32"}}
+  ],
+  "observations": {
+    "return_pair": {"markers": ["06", "21"], "rule": "J_06_21 squared equals identity"},
+    "z28_quarter_phase": {"cardinality": 28, "offset_turns": 0.25, "offset_slots": 7, "closure_steps": 4},
+    "td_janus": {"ports": "4 TOP + 4 DOWN", "mapping": "T_i <-> D_(3-i)", "involution": true},
+    "kr_cycle": {"sequence": ["T0", "T1", "T2", "T3", "D3", "D2", "D1", "D0"], "period": 8},
+    "carrier_receipts": {"P60": "48+12", "R48": 48, "Q24": 24, "G512": 512, "Z28": 28, "V12": "6+6", "L84": "14x6 = 12x7 count only"}
+  },
+  "aliases": ["TD Janus", "integral Janus", "TDK", "TTDI", "RUDI", "KR cycle"],
+  "authority": {"new_identity": false, "new_relation": false, "new_carrier": false, "new_operator_family": false, "scientific_finding": false},
+  "claim_boundary": "PASS establishes an exact local return contract over existing typed receipts. It does not establish a common physical carrier, an H7/O8 morphism, an acoustic mechanism, or a canonical equivalence between the owner vocabulary aliases."
+}
