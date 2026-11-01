@@ -18,13 +18,61 @@
   "connector_control": {"value": 1032, "prime": false},
   "interactive_contract": {
     "layers": ["CORE", "HANDLE", "P-AXIS", "SHADOW", "NEGATIVE"],
-    "exact_test_count": 17,
+    "exact_test_count": 50,
     "shadow_status": "VIEW_HOLD_NO_ARITHMETIC_PROMOTION",
     "negative_controls": [
       "prime indices 173 and 174 are not palindromes",
       "reverse(1032)=2301 is composite",
-      "3303 is composite"
+      "3303 is composite",
+      "indices 180, 182, 463 and 465 are not palindromic"
     ]
+  },
+  "prime_elevator_contract": {
+    "bounded_prime_index_range": [11, 999],
+    "candidate_index_count": 989,
+    "palindromic_index_count": 99,
+    "palindromic_index_density": 0.10010111223458038,
+    "prime_reversal_survivor_count": 17,
+    "prime_reversal_survivor_rate_within_hits": 0.1717171717171717,
+    "palindromic_prime_value_count": 0,
+    "scarab_axis": [
+      {"prime_index": 181, "prime": 1087, "reverse": 7801, "reverse_prime": false, "factorization": "29*269", "role": "INNER_ANCHOR"},
+      {"prime_index": 464, "prime": 3301, "reverse": 1033, "reverse_prime": true, "role": "HANDLE"}
+    ],
+    "adjacent_index_controls": [
+      {"prime_index": 180, "prime": 1069, "reverse": 9601, "reverse_prime": true},
+      {"prime_index": 182, "prime": 1091, "reverse": 1901, "reverse_prime": true},
+      {"prime_index": 463, "prime": 3299, "reverse": 9923, "reverse_prime": true},
+      {"prime_index": 465, "prime": 3307, "reverse": 7033, "reverse_prime": false}
+    ],
+    "verdict": "P-index membership is bounded and reproducible; the Scarab endpoints are asymmetric under decimal reversal; geometric uniqueness is not established by this test."
+  },
+  "hinge_press_contract": {
+    "index_hinge": {"left": 179, "midpoint_degrees": 180, "right": 181, "twin_prime_pair": true, "sum": 360},
+    "prime_value_projection": {"p179": 1063, "p180": 1069, "p181": 1087, "left_gap": 6, "right_gap": 18, "gap_ratio": "1:3"},
+    "breathing_crystal_phase_views": ["INITIAL", "STABLE", "RESONANT", "TRANSIENT"],
+    "blue_lens_exact_record": {"left_prime": 97, "left_prime_index": 25, "roman_C": 100, "sum": 197, "sum_prime_index": 45},
+    "gh_address_control": {"A0Z25": "G6H7 -> 67", "A1Z26": "G7H8 -> 78", "operation": "digit_concatenation_not_sum"},
+    "view_roles_held": ["BLUE_LENS", "YELLOW_PRESS", "ORANGE_PRESS", "ANVIL", "GH_RESONANCE", "RESONANCE_PHASES"],
+    "claim_boundary": "Exact index, prime and Roman-numeral arithmetic only; phase, press, anvil, field, light, matter, density, consciousness and resonance labels remain source/view roles without a measurement contract."
+  },
+  "generation_bridge_contract": {
+    "exact_chain": {"encoding": "A1Z26", "G": 7, "p7": 17, "Q": 17, "reading": "G7 -> p7=17 -> Q17"},
+    "ladder": {
+      "in_alphabet_count": 9,
+      "prime_values": [2, 3, 5, 7, 11, 13, 17, 19, 23],
+      "readings": ["A1->B2", "B2->C3", "C3->E5", "D4->G7", "E5->K11", "F6->M13", "G7->Q17", "H8->S19", "I9->W23"],
+      "first_out_of_alphabet": {"index": 10, "prime": 29}
+    },
+    "selection": {
+      "source": "TESA R1C7 / G7",
+      "selected_lane": 7,
+      "verdict": "SOURCE_SELECTED_NOT_ARITHMETICALLY_UNIQUE",
+      "non_selectors": ["DEFG-G relation role", "Scarab geometry"]
+    },
+    "controls": {"A0Z25_G": 6, "A0Z25_Q": 16, "p17": 59, "qrt60_address": "q17/r11", "defg_G_role": "A INTERSECT B INTERSECT C"},
+    "rejected_source_equations": {"ln_phi_pi_not_0_428": true, "pi_phi_not_23_14": true},
+    "namespace_boundary": "Q17, p17, q17/r11 and DEFG-G are distinct typed records; Generation is a local view role only."
   },
   "exact_records": {
     "2401": "7^4",
