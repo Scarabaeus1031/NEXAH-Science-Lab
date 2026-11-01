@@ -1,0 +1,97 @@
+{
+  "schema": "nexah.a0.engineering-experiment-return/1.0.0",
+  "date": "2026-11-01",
+  "status": "PASS_BOUNDED_A_B_AND_R17_D4_SHARED_STATE_COMPARATOR",
+  "experiment_id": "EXP-GOW2-SEAM-01",
+  "identity_reuse": [
+    "NEXAH:A0_ORIENTATION_EVIDENCE_LINEAGE:V1",
+    "MOD:NUMBER_VIEW_SUITE"
+  ],
+  "path_order_comparator": {
+    "path_a": [20, 34, 41, 20],
+    "path_b": [20, 41, 34, 20],
+    "integer_return_both": true,
+    "qrt20_address_return_both": true,
+    "signed_area_a": -0.40211303259,
+    "signed_area_b": 0.40211303259,
+    "same_area_magnitude": true,
+    "opposite_display_orientation": true,
+    "base_10_control_changes_metric": true,
+    "open_path_control_rejects_return": true
+  },
+  "qrt20_d4_golden_path": {
+    "source_carrier": 11537,
+    "equation": "N_k = 11537 + 20k = 20(576+k) + 17",
+    "steps": 8,
+    "r17_invariant": true,
+    "step_4": {
+      "integer": 11617,
+      "d4_phase": 0,
+      "cap_bottom_side": "BOTTOM",
+      "phase_return": true,
+      "orientation_flip": true,
+      "integer_return": false
+    },
+    "step_7": {
+      "integer": 11677,
+      "pre_close": true,
+      "full_view_return": false
+    },
+    "step_8": {
+      "integer": 11697,
+      "d4_phase": 0,
+      "cap_bottom_side": "CAP",
+      "full_view_return": true,
+      "integer_return": false
+    },
+    "same_residue_controls": [11517, 11557],
+    "different_residue_controls": [11536, 11538]
+  },
+  "shared_state_contract": {
+    "fields": [
+      "carrier",
+      "base/modulus",
+      "quotient",
+      "residue",
+      "step",
+      "d4_phase",
+      "iota_phase",
+      "orientation",
+      "cap_bottom_side",
+      "package_address",
+      "return_state"
+    ],
+    "consumers": [
+      "QRT20",
+      "IOTA",
+      "NLK / GRID",
+      "PACKAGE / CAP-BOTTOM"
+    ],
+    "rule": "Each consumer reads the same record and may add a view; no consumer redefines the integer."
+  },
+  "golden_path": [
+    "QRT20",
+    "IOTA PULSE",
+    "NLK / GRID",
+    "PACKAGE / CAP-BOTTOM",
+    "RETURN"
+  ],
+  "relation_audit": [
+    "EXACT",
+    "TRANSFORM",
+    "VIEW",
+    "ILLUSTRATIVE",
+    "UNTESTED"
+  ],
+  "verification": {
+    "model_and_simulated_ui_checks": 33634,
+    "status": "PASS",
+    "browser_pixel_acceptance": "NOT_PERFORMED"
+  },
+  "new_canonical_ids": [],
+  "relation_changes": [],
+  "study_effect": "NONE",
+  "finding_effect": "NONE",
+  "publication_authorized": false,
+  "boundary": "Finite engineering state contract only. R17 is an exact mod-20 residue invariant for the declared +20 lift. D4, IOTA, NLK and Cap/Bottom remain separate view fields. Step 4 returns phase and flips the display side; step 8 returns the full display state. The integer never returns. No factor causality, physical phase, new number law, Study, Finding or publication is claimed."
+}
