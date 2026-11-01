@@ -51,7 +51,7 @@
 </svg>
 <figcaption><b>P‑PALINDROME AXIS</b><span><code>1087=p181</code> und <code>3301=p464</code>: beide Primindizes sind Palindrome. Das ist ein exakter Sortierbefund; „Elevator“, „Gate“ und „Regulator“ bleiben Orientierungsrollen.</span></figcaption>
 <div class="nto-test-console">
-<button type="button" data-nto-run>98 VERTRÄGE PRÜFEN</button>
+<button type="button" data-nto-run>103 VERTRÄGE PRÜFEN</button>
 <output data-nto-output aria-live="polite">Bereit · Core, Handle, P‑Achse und Negativkontrollen sind getrennt prüfbar.</output>
 <div class="nto-test-ledger" aria-label="Scarab-Regulator Prüfgruppen">
 <span data-nto-result="core"><b>CORE</b><em>1031 · 1032 · 1033</em></span>
@@ -66,6 +66,7 @@
 <span data-nto-result="nn"><b>NN SEAM</b><em>5 SYMBOLIC CHECKS · HANDLE REQUIRED</em></span>
 <span data-nto-result="e88"><b>ELEVATOR 88</b><em>5 PRE-BIND CHECKS · DAO BINDING NONE</em></span>
 <span data-nto-result="e88d"><b>E88 DISCRIMINATION</b><em>24 BLIND CELLS · 10 CONTRACTS · NEGATIVE</em></span>
+<span data-nto-result="tbd"><b>T-BOUNDARY</b><em>5 CHECKS · LOCAL HANDLE · GLOBAL UNIQUE ×</em></span>
 </div>
 </div>
 </figure>
@@ -194,6 +195,13 @@
 <div class="nto-ed-classification" aria-label="Klassifikation des Erkenntnis-Cuts"><span data-ed-class="exact"><b>EXACT</b><i>24 Zellen · p87/88/89 · Winkel</i></span><span data-ed-class="candidate"><b>CANDIDATE</b><i>richtungstragender Witness</i></span><span data-ed-class="view"><b>VIEW-ONLY</b><i>Masken + Reveal-Labels</i></span><span data-ed-class="negative"><b>NEGATIV</b><i>88 und Winkel selektieren nicht</i></span><span data-ed-class="open"><b>OFFEN</b><i>G°D · N · Handle · Triple Gate</i></span></div>
 <div class="nto-ed-actions"><button type="button" data-ed-run>RUN BLIND 24</button><button type="button" data-ed-reveal disabled>REVEAL LABELS</button><button type="button" data-ed-reset>RESET BLIND</button></div>
 <p><b>STOP / ERKENNTNIS-CUT:</b> Etage 88 ist eine exakte Adresse, aber kein nachgewiesener Richtungsselektor. Auch die vier Winkelvarianten tragen ohne Richtungs-Handle keine Richtungsinformation. Der zusätzliche Witness ist <code>CANDIDATE</code>, weil er Richtung codiert statt herleitet. Folgefragen — G°D-Vertrag, Definition von N, tatsächliches Handle und Triple-Gate-Mapping — bleiben notiert und werden nicht automatisch gebaut. <a href="results/a0-elevator-88-discrimination-preregistration-2026-11-01.json">Preregistration ↗</a> <a href="results/a0-elevator-88-discrimination-return-2026-11-01.json">Result ↗</a></p>
+</section>
+<section class="nto-t-boundary" data-tbd-state="blind" data-tbd-dao-binding="none" aria-labelledby="ntoTBoundaryTitle">
+<header><div><small>ORDERED PAIR · TRANSPOSE · BLIND SIDE TEST</small><h6 id="ntoTBoundaryTitle">T‑Boundary Discrimination</h6></div><output data-tbd-output aria-live="polite">BLIND · 13 STATES · LABELS HIDDEN · DAO NONE</output></header>
+<div class="nto-tbd-stage" role="img" aria-label="The ordered digit pairs seven-nine, eight-eight and nine-seven lie on the sum-sixteen slice. T swaps the outer pair and fixes eight-eight; the signed handle is plus one, zero and minus one."><article><small>SIDE +</small><b>7|9</b><span>79 · h=+1</span></article><i>⇄ T</i><article class="is-fixed"><small>BOUNDARY</small><b>8|8</b><span>88 · h=0</span></article><i>T ⇄</i><article><small>SIDE −</small><b>9|7</b><span>97 · h=−1</span></article></div>
+<ol class="nto-tbd-tests" aria-label="Five preregistered T-boundary tests"><li data-tbd-test="1"><b>1 · INVOLUTION</b><span>T²=id · 13 states</span><em>READY</em></li><li data-tbd-test="2"><b>2 · SIGN</b><span>h(Tx)=−h(x)</span><em>READY</em></li><li data-tbd-test="3"><b>3 · LOCAL FIX</b><span>8|8 unique in Σ16</span><em>READY</em></li><li data-tbd-test="4"><b>4 · PRELABEL</b><span>digits only</span><em>READY</em></li><li data-tbd-test="5"><b>5 · CONTROLS</b><span>6|6 · 7|7 fixed</span><em>READY</em></li></ol>
+<div class="nto-tbd-actions"><button type="button" data-tbd-run>RUN T 1–5</button><button type="button" data-tbd-reveal disabled>REVEAL VIEW LABELS</button><button type="button" data-tbd-reset>RESET</button></div>
+<p><b>BOUNDARY:</b> <code>T(a,b)=(b,a)</code> und <code>h=sign(b−a)</code> sind lokale Testdefinitionen, keine neue kanonische Operator‑Identität. <code>8|8</code> ist nur innerhalb <code>a+b=16</code> der eindeutige Fixpunkt; <code>6|6</code> und <code>7|7</code> widerlegen globale Einzigartigkeit. Inside/Outside, GOD/DOG, G°D/D°G, NN und DAO bleiben ungebunden. <a href="results/a0-t-boundary-discrimination-preregistration-2026-11-01.json">Preregistration ↗</a> <a href="results/a0-t-boundary-discrimination-return-2026-11-01.json">Result ↗</a></p>
 </section>
 </section>
 </section>

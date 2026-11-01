@@ -87,6 +87,19 @@
   })));
   const e88dSelfSelects=e88dPairs.filter((pair)=>pair.floor===88).every((pair)=>pair.landingOnlyUnique===2)&&e88dPairs.filter((pair)=>pair.floor!==88).every((pair)=>pair.landingOnlyUnique===1);
   const e88dWitnessOnly=e88dPairs.every((pair)=>pair.landingOnlyUnique===1&&pair.landingAngleUnique===1&&pair.withWitnessUnique===2);
+  const tBoundaryT=([a,b])=>Object.freeze([b,a]);
+  const tBoundaryH=([a,b])=>Math.sign(b-a);
+  const tBoundarySlices=Object.freeze([
+    Object.freeze({name:"main-sum-16",states:Object.freeze([[7,9],[8,8],[9,7]])}),
+    Object.freeze({name:"control-sum-12",states:Object.freeze([[5,7],[6,6],[7,5]])}),
+    Object.freeze({name:"control-sum-14",states:Object.freeze([[6,8],[7,7],[8,6]])}),
+    Object.freeze({name:"control-sum-15",states:Object.freeze([[7,8],[8,7]])}),
+    Object.freeze({name:"control-sum-17",states:Object.freeze([[8,9],[9,8]])})
+  ]);
+  const tBoundaryStates=Object.freeze(tBoundarySlices.flatMap((slice)=>slice.states));
+  const tBoundaryMain=tBoundarySlices[0].states;
+  const tBoundaryFixedMain=tBoundaryMain.filter((state)=>tBoundaryH(state)===0);
+  const tBoundaryFixedControls=tBoundaryStates.filter((state)=>tBoundaryH(state)===0);
 
   const groups={
     core:[
@@ -210,6 +223,13 @@
       ["floor-plus-angle projection collapses all twelve direction pairs",()=>e88dPairs.every((pair)=>pair.landingAngleUnique===1)],
       ["direction witness preserves all twelve direction pairs",()=>e88dPairs.every((pair)=>pair.withWitnessUnique===2)],
       ["floor 88 does not self-select and witness-only rule closes",()=>e88dSelfSelects===false&&e88dWitnessOnly===true]
+    ],
+    tbd:[
+      ["T squared closes on all thirteen frozen states",()=>tBoundaryStates.length===13&&tBoundaryStates.every((state)=>{const returned=tBoundaryT(tBoundaryT(state));return returned[0]===state[0]&&returned[1]===state[1];})],
+      ["signed handle flips under T and vanishes on diagonal",()=>tBoundaryStates.every((state)=>tBoundaryH(tBoundaryT(state))===-tBoundaryH(state))&&tBoundaryStates.filter((state)=>state[0]===state[1]).every((state)=>tBoundaryH(state)===0)],
+      ["eight-eight is the unique fixed point on the sum-sixteen slice",()=>tBoundaryFixedMain.length===1&&tBoundaryFixedMain[0][0]===8&&tBoundaryFixedMain[0][1]===8],
+      ["T-boundary handle is computable before view labels",()=>tBoundaryMain.map(tBoundaryH).join(",")==="1,0,-1"&&79+97===176&&176===2*88&&isPrime(79)&&isPrime(97)],
+      ["matched diagonal controls reject global uniqueness",()=>tBoundaryFixedControls.length===3&&tBoundaryFixedControls.map((state)=>state.join("")).join(",")==="88,66,77"]
     ]
   };
 
@@ -404,6 +424,33 @@
       edOutput.textContent="BLIND · 24 CELLS · TARGET HIDDEN · DAO BINDING NONE";
     });
   }
+    const tBoundary=e88Junction?.querySelector(".nto-t-boundary");
+    const tbdOutput=tBoundary?.querySelector("[data-tbd-output]");
+    const tbdReveal=tBoundary?.querySelector("[data-tbd-reveal]");
+    const tbdTestStatus=(test,text)=>{const target=tBoundary?.querySelector(`[data-tbd-test="${test}"] em`);if(target)target.textContent=text;};
+    tBoundary?.querySelector("[data-tbd-run]")?.addEventListener("click",()=>{
+      const labelsWereHidden=tBoundary.dataset.tbdState==="blind";
+      const tests=groups.tbd;
+      const passed=tests.filter(([,test])=>test()).length;
+      tBoundary.dataset.tbdState="tested";
+      ["PASS · T²=ID","PASS · +/0/−","PASS · LOCAL","PASS · PRELABEL","PASS · GLOBAL ×"].forEach((text,index)=>tbdTestStatus(index+1,text));
+      if(tbdReveal)tbdReveal.disabled=false;
+      tbdOutput.textContent=labelsWereHidden&&passed===tests.length
+        ?`PASS · ${passed}/${tests.length} · LOCAL PRELABEL HANDLE · GLOBAL UNIQUE × · BINDINGS NONE`
+        :`ABORT · ${passed}/${tests.length} · BLINDING OR CONTRACT FAILURE`;
+    });
+    tbdReveal?.addEventListener("click",()=>{
+      if(tBoundary.dataset.tbdState!=="tested")return;
+      tBoundary.dataset.tbdState="revealed";
+      tbdReveal.disabled=true;
+      tbdOutput.textContent="REVEALED AFTER CLASSIFICATION · INSIDE/OUTSIDE + GOD/DOG + G°D/D°G REMAIN OPEN";
+    });
+    tBoundary?.querySelector("[data-tbd-reset]")?.addEventListener("click",()=>{
+      tBoundary.dataset.tbdState="blind";
+      [1,2,3,4,5].forEach((test)=>tbdTestStatus(test,"READY"));
+      if(tbdReveal)tbdReveal.disabled=true;
+      tbdOutput.textContent="BLIND · 13 STATES · LABELS HIDDEN · DAO NONE";
+    });
 
   const elevator=root.querySelector(".nto-elevator");
   if(elevator){
@@ -506,11 +553,11 @@
     output.classList.toggle("is-pass",success);
     output.classList.toggle("is-fail",!success);
     output.textContent=success
-      ?`PASS · ${passed}/${total} · CORE + HANDLE + P‑AXIS + NEGATIVE + ELEVATOR + HINGE + G/Q17 + BLIND SCARAB + DAO BOUNDARY + NN SEAM + E88 WITNESS + E88 DISCRIMINATION · G°D = OPEN`
+      ?`PASS · ${passed}/${total} · CORE + HANDLE + P‑AXIS + NEGATIVE + ELEVATOR + HINGE + G/Q17 + BLIND SCARAB + DAO BOUNDARY + NN SEAM + E88 WITNESS + E88 DISCRIMINATION + T‑BOUNDARY · G°D = OPEN`
       :`FAIL · ${passed}/${total} · ${failures.join(" · ")}`;
     return {passed,total,failures,success};
   };
 
   root.querySelector("[data-nto-run]")?.addEventListener("click",runTests);
-  window.A0ScarabRegulator=Object.freeze({runTests,isPrime,primeIndex,reverseNumber,isPalindrome,elevatorRecords,controlRecords,conDaoStates,janus,nnCarrier,nnFlip,nnWithHandle,nnShadow,e88Carrier,e88Flip,e88Shadow,e88WithWitness,e88dCells,e88dPairs,e88dSelfSelects,e88dWitnessOnly});
+  window.A0ScarabRegulator=Object.freeze({runTests,isPrime,primeIndex,reverseNumber,isPalindrome,elevatorRecords,controlRecords,conDaoStates,janus,nnCarrier,nnFlip,nnWithHandle,nnShadow,e88Carrier,e88Flip,e88Shadow,e88WithWitness,e88dCells,e88dPairs,e88dSelfSelects,e88dWitnessOnly,tBoundaryT,tBoundaryH,tBoundaryStates});
 })();

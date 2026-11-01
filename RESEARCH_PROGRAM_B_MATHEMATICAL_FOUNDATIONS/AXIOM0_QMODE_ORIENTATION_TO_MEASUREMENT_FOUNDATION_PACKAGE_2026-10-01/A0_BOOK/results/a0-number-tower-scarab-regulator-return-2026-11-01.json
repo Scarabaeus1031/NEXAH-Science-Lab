@@ -18,7 +18,7 @@
   "connector_control": {"value": 1032, "prime": false},
   "interactive_contract": {
     "layers": ["CORE", "HANDLE", "P-AXIS", "SHADOW", "NEGATIVE"],
-    "exact_test_count": 98,
+    "exact_test_count": 103,
     "shadow_status": "VIEW_HOLD_NO_ARITHMETIC_PROMOTION",
     "negative_controls": [
       "prime indices 173 and 174 are not palindromes",
@@ -171,6 +171,26 @@
       },
       "dao_binding": "NONE",
       "followup_build_authorized": false
+    },
+    "t_boundary_discrimination": {
+      "preregistration": "results/a0-t-boundary-discrimination-preregistration-2026-11-01.json",
+      "result": "results/a0-t-boundary-discrimination-return-2026-11-01.json",
+      "main_slice": {"sum": 16, "states": ["7|9", "8|8", "9|7"]},
+      "local_transform": "T(a,b)=(b,a)",
+      "local_handle": "h(a,b)=sign(b-a)",
+      "test_count": 5,
+      "passed_test_count": 5,
+      "verdict": "PASS_LOCAL_HANDLE_NEGATIVE_GLOBAL_UNIQUENESS",
+      "classification": {
+        "exact": ["79 and 97 are prime reversals", "79+97=176=2*88", "T^2=id", "h=+1/0/-1 on the main slice"],
+        "candidate": ["8|8 as a local NN/STILL boundary on the sum-16 slice", "signed side handle for later source mapping"],
+        "view_only": ["inside/outside", "GOD/DOG", "NN inversion-field drawing"],
+        "negative": ["88 global uniqueness", "automatic G°D/D°G selection"],
+        "open": ["source-backed side semantics", "radial direction mapping", "G°D/D°G mapping"]
+      },
+      "matched_fixed_controls": ["6|6", "7|7"],
+      "bindings": {"dao": "NONE", "god_dog": "NONE", "dg_gd": "NONE"},
+      "does_not_define": ["CANONICAL_T_OPERATOR", "DAO_IDENTITY", "GOD_DOG_IDENTITY", "G_D_OPERATOR_BINDING", "INSIDE_OUTSIDE_SEMANTICS"]
     },
     "result_class": "UNDEFINED_CONTRACT",
     "verdict": "BOUNDARY_PASS; D°G REFERENCE HELD; G°D OPEN_UNBOUND; NO DAO EQUALITY OR TYPED RELATION ASSERTED"

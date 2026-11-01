@@ -1,0 +1,32 @@
+{
+  "schema": "nexah.a0.t-boundary-discrimination.return/1",
+  "preregistration_id": "A0_T_BOUNDARY_DISCRIMINATION_2026_11_01",
+  "date": "2026-11-01",
+  "status": "COMPLETE",
+  "aborted": false,
+  "main_slice": {
+    "sum": 16,
+    "records": [
+      {"pair": [7, 9], "integer_view": 79, "T": [9, 7], "h": 1, "fixed": false, "prime": true},
+      {"pair": [8, 8], "integer_view": 88, "T": [8, 8], "h": 0, "fixed": true, "prime": false},
+      {"pair": [9, 7], "integer_view": 97, "T": [7, 9], "h": -1, "fixed": false, "prime": true}
+    ]
+  },
+  "test_results": [
+    {"test": "INVOLUTION", "pass": true, "evidence": "T^2=id on all 13 frozen states"},
+    {"test": "SIGNED_HANDLE", "pass": true, "evidence": "h(T(x))=-h(x); diagonal h=0"},
+    {"test": "LOCAL_FIXED_POINT", "pass": true, "evidence": "8|8 is the only fixed state in S16"},
+    {"test": "PRELABEL_INDEPENDENCE", "pass": true, "evidence": "T and h use digits only"},
+    {"test": "GLOBAL_UNIQUENESS_CONTROL", "pass": true, "evidence": "6|6 and 7|7 are matched fixed controls; 8|8 is not globally unique"}
+  ],
+  "verdict": "PASS_LOCAL_HANDLE_NEGATIVE_GLOBAL_UNIQUENESS",
+  "classifications": {
+    "exact": ["79 and 97 are prime digit reversals", "79+97=176=2*88", "T^2=id", "h values +1,0,-1"],
+    "candidate": ["8|8 as local NN/STILL boundary on S16", "signed side handle for a later source mapping"],
+    "negative": ["88 is not a globally unique transpose fixed point", "the T structure does not select GOD/DOG or G°D/D°G"],
+    "view_only": ["inside/outside labels", "GOD/DOG labels", "NN inversion-field drawing"],
+    "open": ["source-backed side semantics", "mapping to radial direction", "mapping to G°D/D°G"]
+  },
+  "bindings": {"dao": "NONE", "god_dog": "NONE", "dg_gd": "NONE"},
+  "governance_delta": {"new_ids": 0, "new_relations": 0, "new_operators": 0, "new_studies": 0, "finding_promotions": 0, "publication_authorizations": 0, "deployment": false}
+}

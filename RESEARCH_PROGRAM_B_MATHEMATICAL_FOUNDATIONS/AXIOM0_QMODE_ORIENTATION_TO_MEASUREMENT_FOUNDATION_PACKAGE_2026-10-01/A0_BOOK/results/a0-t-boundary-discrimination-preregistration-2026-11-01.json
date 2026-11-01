@@ -1,0 +1,36 @@
+{
+  "schema": "nexah.a0.t-boundary-discrimination.preregistration/1",
+  "preregistration_id": "A0_T_BOUNDARY_DISCRIMINATION_2026_11_01",
+  "date": "2026-11-01",
+  "status": "FROZEN_BEFORE_EXECUTION",
+  "method_class": "BOUNDED_ENGINEERING_CONTRACT_AUDIT",
+  "object": {
+    "representation": "ORDERED_DIGIT_PAIR_NOT_DECIMAL",
+    "main_slice": {"sum": 16, "states": [[7, 9], [8, 8], [9, 7]]},
+    "transform": "T(a,b)=(b,a)",
+    "handle": "h(a,b)=sign(b-a)",
+    "labels_hidden_during_execution": ["GOD", "DOG", "G°D", "D°G", "INSIDE", "OUTSIDE"]
+  },
+  "controls": {
+    "even_sum_slices": [
+      {"sum": 12, "states": [[5, 7], [6, 6], [7, 5]]},
+      {"sum": 14, "states": [[6, 8], [7, 7], [8, 6]]}
+    ],
+    "odd_sum_slices": [
+      {"sum": 15, "states": [[7, 8], [8, 7]]},
+      {"sum": 17, "states": [[8, 9], [9, 8]]}
+    ]
+  },
+  "preregistered_tests": [
+    "T squared is identity on every frozen state",
+    "h changes sign under T and is zero exactly on diagonal states",
+    "8|8 is the unique fixed state within the sum-16 slice",
+    "labels are unnecessary for computing T and h",
+    "matched controls reject global uniqueness of 8|8"
+  ],
+  "success": "LOCAL_PRELABEL_DIRECTION_HANDLE_QUALIFIES",
+  "negative": "8|8 is not a globally unique fixed point",
+  "abort": ["incomplete frozen state set", "label leakage before classification", "T or h changed after execution", "DAO binding differs from NONE"],
+  "default": {"dao_binding": "NONE", "god_dog_binding": "NONE", "dg_gd_binding": "NONE"},
+  "claim_boundary": "This audit tests an ordered-pair transpose and sign handle. It does not identify inside/outside, GOD/DOG, G°D/D°G, NN, DAO or a physical inversion field."
+}
