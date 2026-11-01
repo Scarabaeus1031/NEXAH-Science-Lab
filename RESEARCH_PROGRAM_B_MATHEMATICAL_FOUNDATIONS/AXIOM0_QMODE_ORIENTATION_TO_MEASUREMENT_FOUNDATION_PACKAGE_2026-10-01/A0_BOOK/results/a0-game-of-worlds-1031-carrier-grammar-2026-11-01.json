@@ -1,0 +1,59 @@
+{
+  "schema": "nexah.a0.engineering-return/1",
+  "return_id": "A0-GOW2-CARRIER-1031-20261101",
+  "date": "2026-11-01",
+  "status": "PASS_BOUNDED_ENGINEERING_EXPERIMENT",
+  "experiment_id": "EXP-GOW2-CARRIER-1031-01",
+  "source_identity": "NEXAH:A0_ORIENTATION_EVIDENCE_LINEAGE:V1",
+  "module_identity": "MOD:NUMBER_VIEW_SUITE",
+  "carrier": 1031,
+  "exact_readings": {
+    "decimal": "1031",
+    "binary": "10000000111",
+    "prime_index": 173,
+    "prime_label": "p173",
+    "previous_prime": 1021,
+    "next_prime": 1033,
+    "qrt20": {"quotient": 51, "remainder": 11, "decode": 1031},
+    "qrt60": {"quotient": 17, "remainder": 11, "decode": 1031},
+    "prime_index_qrt20": {"quotient": 8, "remainder": 13, "decode": 173}
+  },
+  "view_only": {
+    "digit_cut": "17.3",
+    "source": "prime index 173",
+    "classification": "VIEW_ONLY_NOT_EQUAL_TO_CARRIER"
+  },
+  "controls": {
+    "adjacent_integers": [
+      {"value": 1030, "prime": false},
+      {"value": 1032, "prime": false}
+    ],
+    "adjacent_primes": [1021, 1033],
+    "same_r11_mod20": [
+      {"value": 1011, "address": "q50 / r11", "prime": false},
+      {"value": 1051, "address": "q52 / r11", "prime": true}
+    ]
+  },
+  "golden_path": [
+    "CARRIER 1031",
+    "PRIME INDEX 173",
+    "QRT20 q51/r11",
+    "QRT60 q17/r11",
+    "EXACT DECODE 1031"
+  ],
+  "relation_audit": ["EXACT", "TRANSFORM", "VIEW", "ILLUSTRATIVE", "UNTESTED"],
+  "validation": {
+    "model_and_ui_checks": 33639,
+    "model_and_ui_status": "PASS",
+    "browser_human_acceptance": "PENDING"
+  },
+  "authority": {
+    "source_mutation": false,
+    "new_identity": false,
+    "new_relation": false,
+    "new_study": false,
+    "new_finding": false,
+    "publication": false
+  },
+  "boundary": "1031, its prime index and its quotient/remainder addresses are exact. The 17.3 digit cut, clock arc and window form are views only. No historical, glyphic, lunar, physical or causal claim is established."
+}
