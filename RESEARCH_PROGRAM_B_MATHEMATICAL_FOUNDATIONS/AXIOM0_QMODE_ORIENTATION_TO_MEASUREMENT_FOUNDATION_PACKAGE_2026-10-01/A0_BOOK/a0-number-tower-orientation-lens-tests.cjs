@@ -65,14 +65,20 @@ check((html.match(/→ p[₁₂₃₄₅₆₇₈₉]=/g) || []).length === 9, '
 check(html.includes('p₁₀=29') || html.includes('p10=29'), 'p10=29 alphabet exit is disclosed');
 check(html.includes('TESA R1C7 SELECTOR'), 'TESA R1C7 source selector is visible');
 check(html.includes('nur eine von neun regulären Prime-Brücken'), 'G/Q17 non-uniqueness verdict is explicit');
+check(html.includes('class="nto-selector-matrix"'), 'Nine-lane selector matrix is mounted');
+check((html.match(/data-sm-selected="(?:true|false)"/g) || []).length === 9, 'Selector matrix contains nine typed lane rows');
+check((html.match(/data-sm-selected="true"/g) || []).length === 1, 'Selector matrix contains one source-selected lane');
+check(html.includes('Reverse-Prime und Twin-Membership lassen sechs Lanes stehen'), 'Arithmetic non-uniqueness result is visible');
 check(regulator.includes('G7 to p7=17 to Q17 holds under A1Z26'), 'Interactive runner checks the declared A1Z26 bridge');
 check(regulator.includes('source image equations are rejected'), 'Interactive runner rejects the supplied false equations');
 check(regulator.includes('exactly nine prime lifts remain inside A1Z26'), 'Interactive runner checks the full nine-lane set');
+check(regulator.includes('six lanes survive reverse and twin intersection'), 'Interactive runner checks the six-lane arithmetic intersection');
+check(regulator.includes('D/G7 is a matched arithmetic control') && regulator.includes('F/M13 is a matched arithmetic control'), 'Interactive runner checks matched D and F control lanes');
 check(desk.includes('id="number-tower-scarab-regulator-return-20261101"'), 'Science return is bound');
 check(log.includes('id="number-tower-scarab-regulator-builder-return-20261101"'), 'Builder return is bound');
 check(receipt.status === 'PASS_SOURCE_BOUND_ORIENTATION_LENS', 'Receipt status is PASS');
 check(receipt.floor_contract.join('|') === 'EXACT|ADDRESS|BUILT|SOURCE-ONLY', 'Receipt preserves floor order');
-check(receipt.interactive_contract.exact_test_count === 50, 'Receipt records the interactive 50-check contract');
+check(receipt.interactive_contract.exact_test_count === 58, 'Receipt records the interactive 58-check contract');
 check(receipt.prime_elevator_contract.palindromic_index_count === 99, 'Receipt records the bounded 99-index set');
 check(receipt.prime_elevator_contract.prime_reversal_survivor_count === 17, 'Receipt records the 17 reversal survivors');
 check(receipt.hinge_press_contract.index_hinge.sum === 360, 'Receipt records the 179/180/181 index hinge');
@@ -81,6 +87,8 @@ check(receipt.generation_bridge_contract.exact_chain.p7 === 17, 'Receipt records
 check(receipt.generation_bridge_contract.controls.p17 === 59, 'Receipt records p17=59 negative control');
 check(receipt.generation_bridge_contract.ladder.in_alphabet_count === 9, 'Receipt records all nine in-alphabet prime lanes');
 check(receipt.generation_bridge_contract.selection.verdict === 'SOURCE_SELECTED_NOT_ARITHMETICALLY_UNIQUE', 'Receipt records the bounded G/Q17 selection verdict');
+check(receipt.generation_bridge_contract.selector_matrix.arithmetic_intersection_count === 6, 'Receipt records the six arithmetic survivors');
+check(receipt.generation_bridge_contract.selector_matrix.source_selected_count === 1, 'Receipt records one TESA-selected lane');
 
 for (const [value, index] of [[1031, 173], [1033, 174], [1087, 181], [3301, 464]]) {
   check(isPrime(value), `${value} is prime`);

@@ -18,7 +18,7 @@
   "connector_control": {"value": 1032, "prime": false},
   "interactive_contract": {
     "layers": ["CORE", "HANDLE", "P-AXIS", "SHADOW", "NEGATIVE"],
-    "exact_test_count": 50,
+    "exact_test_count": 58,
     "shadow_status": "VIEW_HOLD_NO_ARITHMETIC_PROMOTION",
     "negative_controls": [
       "prime indices 173 and 174 are not palindromes",
@@ -69,6 +69,18 @@
       "selected_lane": 7,
       "verdict": "SOURCE_SELECTED_NOT_ARITHMETICALLY_UNIQUE",
       "non_selectors": ["DEFG-G relation role", "Scarab geometry"]
+    },
+    "selector_matrix": {
+      "lane_count": 9,
+      "prime_reverse_survivor_count": 7,
+      "twin_member_count": 7,
+      "arithmetic_intersection_count": 6,
+      "arithmetic_intersection_lanes": ["B2->C3", "C3->E5", "D4->G7", "E5->K11", "F6->M13", "G7->Q17"],
+      "matched_controls": ["D4->G7", "F6->M13"],
+      "partial_control": "H8->S19 retains twin membership but fails prime reversal",
+      "source_selected_count": 1,
+      "source_selected_lane": "G7->Q17",
+      "verdict": "ARITHMETIC_FILTERS_DO_NOT_SELECT_G_UNIQUELY; TESA_R1C7_DOES"
     },
     "controls": {"A0Z25_G": 6, "A0Z25_Q": 16, "p17": 59, "qrt60_address": "q17/r11", "defg_G_role": "A INTERSECT B INTERSECT C"},
     "rejected_source_equations": {"ln_phi_pi_not_0_428": true, "pi_phi_not_23_14": true},

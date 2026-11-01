@@ -106,7 +106,15 @@
       ["nine in-alphabet prime values are exact",()=>primes.slice(0,9).join(",")==="2,3,5,7,11,13,17,19,23"],
       ["p10=29 exits the alphabet",()=>primes[9]===29&&primes[9]>26],
       ["G/Q is lane seven of nine",()=>primes.slice(0,9).findIndex((prime)=>prime===17)===6],
-      ["TESA R1C7 selects G without arithmetic uniqueness",()=>document.getElementById("tesaZitherTranslator")!==null&&primes.filter((prime)=>prime<=26).length>1]
+      ["TESA R1C7 selects G without arithmetic uniqueness",()=>document.getElementById("tesaZitherTranslator")!==null&&primes.filter((prime)=>prime<=26).length>1],
+      ["seven lane values survive decimal prime reversal",()=>primes.slice(0,9).filter((prime)=>isPrime(reverseNumber(prime))).length===7],
+      ["seven lane values are twin-prime members",()=>primes.slice(0,9).filter((prime)=>isPrime(prime-2)||isPrime(prime+2)).length===7],
+      ["six lanes survive reverse and twin intersection",()=>primes.slice(0,9).filter((prime)=>isPrime(reverseNumber(prime))&&(isPrime(prime-2)||isPrime(prime+2))).length===6],
+      ["G/Q17 survives arithmetic intersection",()=>isPrime(reverseNumber(17))&&(isPrime(15)||isPrime(19))],
+      ["D/G7 is a matched arithmetic control",()=>isPrime(reverseNumber(7))&&(isPrime(5)||isPrime(9))],
+      ["F/M13 is a matched arithmetic control",()=>isPrime(reverseNumber(13))&&(isPrime(11)||isPrime(15))],
+      ["H/S19 fails reverse while retaining twin membership",()=>!isPrime(reverseNumber(19))&&isPrime(17)],
+      ["selector matrix contains exactly one source-selected lane",()=>document.querySelectorAll(".nto-selector-matrix tr[data-sm-selected='true']").length===1]
     ]
   };
 
@@ -123,6 +131,27 @@
           :view==="chain"
             ?"EXACT CHAIN · A1Z26 · G7 → p7=17 → Q17"
             :"CONTROLS · A0Z25 G6/Q16 · p17=59 · q17/r11 · DEFG-G";
+      });
+    });
+    const selectorMatrix=generationBridge.querySelector(".nto-selector-matrix");
+    const selectorOutput=selectorMatrix?.querySelector("[data-sm-output]");
+    selectorMatrix?.querySelectorAll("button[data-sm-filter]").forEach((button)=>{
+      button.addEventListener("click",()=>{
+        const filter=button.dataset.smFilter;
+        selectorMatrix.dataset.smFilter=filter;
+        selectorMatrix.querySelectorAll("button[data-sm-filter]").forEach((candidate)=>candidate.setAttribute("aria-pressed",String(candidate===button)));
+        const rows=[...selectorMatrix.querySelectorAll("tbody tr")];
+        rows.forEach((row)=>{
+          row.hidden=filter==="arithmetic"
+            ?!(row.dataset.smReverse==="true"&&row.dataset.smTwin==="true")
+            :filter==="selected"&&row.dataset.smSelected!=="true";
+        });
+        const visible=rows.filter((row)=>!row.hidden).length;
+        selectorOutput.textContent=filter==="all"
+          ?"ALL 9 · ARITHMETIC INTERSECTION 6 · TESA SELECTED 1"
+          :filter==="arithmetic"
+            ?`ARITHMETIC INTERSECTION · ${visible}/9 · G NOT UNIQUE`
+            :`TESA SOURCE SELECTION · ${visible}/9 · LANE 7`;
       });
     });
     generationBridge.querySelector("[data-gq-test]")?.addEventListener("click",()=>{
