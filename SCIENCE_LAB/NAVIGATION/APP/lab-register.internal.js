@@ -1,12 +1,40 @@
 window.NEXAH_LAB_REGISTER = {
   "schema": "nexah.science-lab.lab-register-lens/1.0.0",
   "status": "INTERNAL_READ_ONLY_SOURCE_BOUND_LENS",
-  "generated": "2026-10-29T18:57:46.980Z",
+  "generated": "2026-11-01T18:34:26.599Z",
   "source": "SCIENCE_LAB/LAB_REGISTER.md",
-  "source_sha256": "e6cca6aed53f95079c3af5b40e8bf2e1a5468799571d54ca0f0fa3ac166b6671",
+  "source_sha256": "556c0260287449da1eb10e0c107644bbb3b9ebbbbc7b026baf92a71f744dc1fe",
   "authority": "LAB_REGISTER retains identity, lifecycle and disposition authority; this lens is read-only.",
-  "study_count": 60,
+  "study_count": 62,
   "studies": [
+    {
+      "study_id": "A0_BL_058_PULSE_PERSISTENCE_WITHOUT_HARD_BOUNDARY_2026_11_01",
+      "question": "Does the strongest local event remain at one carrier time when a smooth boundary is translated and widened, or does it follow the boundary and representation?",
+      "owner": "Human Owner",
+      "native_state": "BOUNDARY_LOCKED_SMOOTH_EVENT; qualifier PHASE_COHERENT_ONLY; 6/7 discriminating checks true; carrier-persistence gate false",
+      "common_status": "AWAITING_OWNER_DISPOSITION / ACTIVE_SLOT_RELEASED_2026-11-01 / STRUCTURE_FREEZE_RESTORED",
+      "evidence_summary": "R2_LOCAL_REPLAY candidate; lock 6/6 plus parent reference, verifier PASS twice, Primary/Replay byte-identical at 1cd9dc7d...",
+      "primary_record": {
+        "label": "Labreport candidate",
+        "path": "LABREPORTS/MATHEMATICS/LABREPORT_A0_BL_058_PULSE_PERSISTENCE_WITHOUT_HARD_BOUNDARY_001.md"
+      },
+      "primary_records_text": "Labreport candidate · assessment · Primary result · result SVG",
+      "next_action": "Human Owner may accept, revise or reject; no physical-breath, carrier-intrinsic, utility, publication or successor claim"
+    },
+    {
+      "study_id": "A0_BL_057_ALPHA_BETA_MIRROR_BREATH_2026_11_01",
+      "question": "Does the exact 63/64 : 1/64 complement, after declared centering, define a reciprocal mirror-breath view with cycle Return; and is the recovered synthetic Core pulse sensitive to its hard t=25 cutoff?",
+      "owner": "Human Owner",
+      "native_state": "PASS_EXACT_COMPLEMENT_MIRROR_RETURN_WITH_CUTOFF_SENSITIVITY; 8/8 gates; Primary/Replay byte-identical",
+      "common_status": "CLOSED / OWNER_ACCEPTED_2026-11-01 / ACTIVE_SLOT_RELEASED",
+      "evidence_summary": "R2_LOCAL_REPLAY; lock 6/6, verifier PASS twice, artifact hash af641d10...",
+      "primary_record": {
+        "label": "Canonical Labreport",
+        "path": "LABREPORTS/MATHEMATICS/LABREPORT_A0_BL_057_ALPHA_BETA_MIRROR_BREATH_001.md"
+      },
+      "primary_records_text": "Canonical Labreport · Owner closure · Primary result",
+      "next_action": "NONE; any later successor, publication or claim promotion requires a separate decision"
+    },
     {
       "study_id": "A0_BL_056_CLP_MULTIVIEW_RETURN_2026_10_28",
       "question": "Does a declared coupled CLP multi-view of one fixed finite C30 source state reduce reconstruction ambiguity relative to a single lossy view without confusing added view information with a new mechanism?",

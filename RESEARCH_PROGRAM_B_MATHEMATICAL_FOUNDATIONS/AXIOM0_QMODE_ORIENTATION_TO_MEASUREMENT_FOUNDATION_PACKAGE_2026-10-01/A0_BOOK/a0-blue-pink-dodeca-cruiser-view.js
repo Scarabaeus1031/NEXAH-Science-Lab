@@ -17,6 +17,7 @@
   const badge = root.querySelector("[data-cruiser-phase]");
   const readout = Object.fromEntries([...root.querySelectorAll("[data-cruiser-readout]")].map((node) => [node.dataset.cruiserReadout, node]));
   const trace = Object.fromEntries([...root.querySelectorAll("[data-cruiser-trace]")].map((node) => [node.dataset.cruiserTrace, node]));
+  const topBridge = document.querySelector("[data-cruiser-vector-top]");
   face.innerHTML = Array.from({ length: 12 }, (_, index) => `<option value="${index}">D-${String(index + 1).padStart(2, "0")}</option>`).join("");
   let mode = "ASSEMBLY";
   let playing = false;
@@ -55,6 +56,48 @@
     ctx.fillText(`${state.spectrum.lens} · ${state.spectrum.activeBand.id} · ${state.spectrum.activeBand.wavelengthNm} nm`, prismX - prismSize, prismY + prismSize * 1.15);
     ctx.restore();
     return [prismX, prismY];
+  }
+  function drawVectorClosure(state, cx, cy, scale) {
+    const closure = state.vectorClosure;
+    const origin = [cx - scale * 1.55, cy + scale * 1.18];
+    const factor = scale * 0.72;
+    const point = ([x, y]) => [origin[0] + x * factor, origin[1] - y * factor];
+    const aPoint = point(closure.A), pPoint = point(closure.P);
+    const arrow = (from, to, color, width) => {
+      const angle = Math.atan2(to[1] - from[1], to[0] - from[0]);
+      ctx.strokeStyle = color; ctx.fillStyle = color; ctx.lineWidth = width;
+      ctx.beginPath(); ctx.moveTo(from[0], from[1]); ctx.lineTo(to[0], to[1]); ctx.stroke();
+      ctx.beginPath(); ctx.moveTo(to[0], to[1]); ctx.lineTo(to[0] - 10 * Math.cos(angle - 0.42), to[1] - 10 * Math.sin(angle - 0.42)); ctx.lineTo(to[0] - 10 * Math.cos(angle + 0.42), to[1] - 10 * Math.sin(angle + 0.42)); ctx.closePath(); ctx.fill();
+    };
+    ctx.save();
+    ctx.setLineDash([4, 4]); ctx.strokeStyle = "#708b9877"; ctx.lineWidth = 1;
+    ctx.beginPath(); ctx.moveTo(origin[0], origin[1]); ctx.lineTo(point(closure.B)[0], point(closure.B)[1]); ctx.lineTo(pPoint[0], pPoint[1]); ctx.stroke(); ctx.setLineDash([]);
+    arrow(origin, aPoint, "#58d9ff", 3.2);
+    arrow(aPoint, pPoint, "#ff62ad", 3.2);
+    arrow(origin, pPoint, "#ffd05a", 2);
+    ctx.fillStyle = "#dff4fb"; ctx.font = `${Math.max(9, scale * 0.065)}px ui-monospace,monospace`; ctx.textAlign = "left";
+    ctx.fillText("A · BLUE", (origin[0] + aPoint[0]) / 2, (origin[1] + aPoint[1]) / 2 - 7);
+    ctx.fillText("B · PINK", (aPoint[0] + pPoint[0]) / 2, (aPoint[1] + pPoint[1]) / 2 - 7);
+    ctx.fillStyle = "#ffd05a"; ctx.fillText("P=A+B", pPoint[0] + 7, pPoint[1] - 7);
+    ctx.fillStyle = "#74efbd"; ctx.fillText(`εP=${closure.error.toExponential(1)}`, origin[0], origin[1] + 18);
+    ctx.restore();
+  }
+  function renderTopBridge(state) {
+    if (!topBridge) return;
+    const closure = state.vectorClosure;
+    const raw = [[0, 0], closure.A, closure.P];
+    const minX = Math.min(...raw.map((point) => point[0])), maxX = Math.max(...raw.map((point) => point[0]));
+    const minY = Math.min(...raw.map((point) => point[1])), maxY = Math.max(...raw.map((point) => point[1]));
+    const spanX = Math.max(.01, maxX - minX), spanY = Math.max(.01, maxY - minY);
+    const map = ([x, y]) => [20 + (x - minX) / spanX * 140, 100 - (y - minY) / spanY * 82];
+    const origin = map([0, 0]), aPoint = map(closure.A), pPoint = map(closure.P);
+    const setLine = (key, from, to) => { const line = topBridge.querySelector(`[data-vector-top="${key}"]`); line.setAttribute("x1", from[0]); line.setAttribute("y1", from[1]); line.setAttribute("x2", to[0]); line.setAttribute("y2", to[1]); };
+    setLine("a", origin, aPoint); setLine("b", aPoint, pPoint); setLine("p", origin, pPoint);
+    const aLabel = topBridge.querySelector('[data-vector-top-label="a"]'), bLabel = topBridge.querySelector('[data-vector-top-label="b"]'), pLabel = topBridge.querySelector('[data-vector-top-label="p"]');
+    aLabel.setAttribute("x", (origin[0] + aPoint[0]) / 2); aLabel.setAttribute("y", (origin[1] + aPoint[1]) / 2 - 5);
+    bLabel.setAttribute("x", (aPoint[0] + pPoint[0]) / 2); bLabel.setAttribute("y", (aPoint[1] + pPoint[1]) / 2 - 5);
+    pLabel.setAttribute("x", pPoint[0] - 8); pLabel.setAttribute("y", pPoint[1] + 13);
+    topBridge.querySelector("[data-vector-top-output]").textContent = `εP = ${closure.error.toExponential(1)} · ${state.returnCell.cell_id} · ${state.route.cutOpen ? "OPEN" : "HOLD"}`;
   }
   function draw(state) {
     const { w, h } = size(), cx = w * 0.5, cy = h * 0.48, scale = Math.min(w, h) * 0.22;
@@ -101,6 +144,7 @@
     if (["ASSEMBLY", "BRIDGE", "RETURN"].includes(mode)) {
       ctx.save(); ctx.setLineDash([8, 7]); ctx.lineWidth = 2.5; ctx.strokeStyle = state.route.cutOpen ? state.spectrum.activeBand.color : "#ff789d"; ctx.beginPath(); ctx.moveTo(hullPoint[0], hullPoint[1]); ctx.lineTo(bodyPoint[0], bodyPoint[1]); ctx.lineTo(diamondPoint[0], diamondPoint[1]); ctx.lineTo(spectrumPoint[0], spectrumPoint[1]); ctx.lineTo(cx, cy + scale * 0.9); ctx.stroke(); ctx.restore();
       ctx.fillStyle = state.route.cutOpen ? state.spectrum.activeBand.color : "#ff789d"; ctx.beginPath(); ctx.arc(cx, cy + scale * 0.9, 8 + state.route.cutDepth * 8, 0, Math.PI * 2); ctx.fill();
+      drawVectorClosure(state, cx, cy, scale);
     }
     ctx.fillStyle = "#8cb7c8"; ctx.font = `${Math.max(11, w / 78)}px ui-monospace,monospace`; ctx.textAlign = "center";
     ctx.fillText(`${state.phase} · ${state.hull.faces[state.hull.faceIndex].id}:${state.route.addressSlot + 1} → ${state.body.frame.source.sourceKey} → ${state.route.cutOpen ? state.spectrum.activeBand.id : "HOLD"} → ${state.returnCell.cell_id}`, cx, h - 60);
@@ -112,7 +156,10 @@
     readout.gate.dataset.cut = state.route.cutOpen ? "open" : "hold";
     readout.spectrum.textContent = `${state.spectrum.lens} · ${state.spectrum.activeBand.id} · ${state.spectrum.activeBand.wavelengthNm} nm · ${state.spectrum.status.replace("SPECTRUM_", "")}`;
     readout.spectrum.style.color = state.route.cutOpen ? state.spectrum.activeBand.color : "#ff789d";
+    readout.vector.textContent = `${state.vectorClosure.equation} · εP=${state.vectorClosure.error.toExponential(1)}`;
+    readout.direction.textContent = `OUT→IN / IN→OUT · ${state.vectorClosure.orientationSign < 0 ? "CW" : "CCW"}`;
     readout.cell.textContent = state.returnCell.cell_id; readout.status.textContent = state.phase;
+    renderTopBridge(state);
     state.route.trace.forEach((item) => { trace[item.phase].dataset.state = item.status.toLowerCase(); });
     if (auto.checked) { face.value = state.route.faceIndex; slot.value = state.route.addressSlot; }
   }

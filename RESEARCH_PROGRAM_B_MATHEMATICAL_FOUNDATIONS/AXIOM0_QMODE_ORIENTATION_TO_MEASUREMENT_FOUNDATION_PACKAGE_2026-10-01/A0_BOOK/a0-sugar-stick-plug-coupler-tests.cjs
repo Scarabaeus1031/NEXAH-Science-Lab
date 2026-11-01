@@ -8,13 +8,13 @@ for(const port of C.PORTS)ok(records.every(r=>C.model(r.cursor,port).representat
 ok(C.model(56).return.status==='EXACT_RETURN'&&C.model(56).address===0,'56 return');
 ok(C.trace19().samples===19&&C.trace19().edges===18,'3x6 plus origin');
 ok(C.model(0).seam.moebiusStatus==='HOLD_EDGE_IDENTIFICATION_UNDECLARED','moebius hold');
-ok(C.TOUR_STOPS.length===8&&C.TOUR_STOPS[0].target==='#workbenchSwitchboard'&&C.TOUR_STOPS.at(-1).step===56,'bounded full-page guide from switchboard');
+ok(C.TOUR_STOPS.length===9&&C.TOUR_STOPS[0].target==='#workbenchSwitchboard'&&C.TOUR_STOPS[3].mode==='CARRIER_1031'&&C.TOUR_STOPS.at(-1).step===56,'bounded full-page guide with 1031 stop');
 ok(C.TOUR_STOPS.every(stop=>stop.title&&stop.copy&&stop.target),'guide explanation contract');
 ok(C.verify().status==='PASS_EXACT_56_STATE_PLUG_COUPLER','model verifier');
 const root=__dirname,html=fs.readFileSync(path.join(root,'A0_WERKBANK.html'),'utf8'),css=fs.readFileSync(path.join(root,'a0-sugar-stick-plug-coupler.css'),'utf8'),desk=fs.readFileSync(path.join(root,'A0_RESEARCH_DESK.html'),'utf8'),builder=fs.readFileSync(path.join(root,'A0_BUILDER_LOG.html'),'utf8'),receipt=JSON.parse(fs.readFileSync(path.join(root,'results/a0-sugar-stick-plug-coupler-return-2026-10-31.json'),'utf8'));
 ok(html.includes('id="sugarStickPlugCoupler"')&&html.includes('data-ssp-stage'),'Workbench binding');
 ok(html.includes('data-ssp-tour')&&html.includes('data-ssp-tour-launch')&&html.includes('FÜHRUNG STARTEN')&&html.includes('data-ssp-guide'),'top switchboard guide binding');
-ok(html.includes('a0-sugar-stick-plug-coupler.js?rev=sugar-stick-guide-r2-20261031'),'runtime binding');
+ok(html.includes('a0-sugar-stick-plug-coupler.js?rev=sugar-stick-guide-r3-20261101'),'runtime binding');
 ok(css.includes('.ssp-coupler')&&css.includes('.ssp-source-bus')&&css.includes('.ssp-tour-focus'),'visual connection contract');
 ok(desk.includes('id="sugar-stick-plug-coupler-return-20261031"'),'Science Desk return');
 ok(builder.includes('id="sugar-stick-plug-coupler-builder-return-20261031"'),'Builder return');

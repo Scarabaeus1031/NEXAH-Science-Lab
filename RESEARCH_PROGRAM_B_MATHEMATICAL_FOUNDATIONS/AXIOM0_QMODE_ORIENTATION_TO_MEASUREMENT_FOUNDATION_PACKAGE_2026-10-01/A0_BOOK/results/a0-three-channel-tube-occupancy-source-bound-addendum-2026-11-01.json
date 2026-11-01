@@ -1,0 +1,69 @@
+{
+  "schema": "nexah.a0.three-channel-tube-occupancy-source-bound-addendum/1",
+  "date": "2026-11-01",
+  "status": "SOURCE_BOUND_ADDENDUM_PASS_NO_RUNTIME_DELTA",
+  "scope": "Six fail-closed checks bind the three existing Three-Domain source ports to a local directed Tube Occupancy view and its derived +1 joint witness. The frozen TESA/Lissajous capture-replay cut is not modified.",
+  "identity_effect": {
+    "reused": [
+      "NEXAH_A0_ORIENTATION_CONTROLLER_BENCH",
+      "NEXAH:A0_ORIENTATION_EVIDENCE_LINEAGE:V1",
+      "SG:LENS:ILAU_ORIENTATION"
+    ],
+    "new_global_ids": [],
+    "new_aliases": [],
+    "new_canonical_relations": [],
+    "new_operator": false,
+    "new_carrier": false
+  },
+  "source_ports": [
+    {"ordinal": 1, "id": "chemistry", "color": "#22d3ee", "native_output": "thresholded binary grid and C00/C01/C10/C11 ledger"},
+    {"ordinal": 2, "id": "life", "color": "#f5bf42", "native_output": "binary grid and C00/C01/C10/C11 ledger"},
+    {"ordinal": 3, "id": "physics", "display_label": "PHYSICS / SPIN", "color": "#fb7185", "native_output": "thresholded spin grid and C00/C01/C10/C11 ledger"}
+  ],
+  "transition_classes": {
+    "C00": {"direction": "0->0", "color": "#91a8b5", "meaning": "inactive retention; observed zero-state, not NULL"},
+    "C01": {"direction": "0->1", "color": "#22d3ee", "meaning": "positive / birth"},
+    "C10": {"direction": "1->0", "color": "#ff78b7", "meaning": "negative / death"},
+    "C11": {"direction": "1->1", "color": "#f5bf42", "meaning": "retained / survive"}
+  },
+  "tube_occupancy_view": {
+    "status": "LOCAL_TYPED_VIEW_VOCABULARY",
+    "bins": ["H0+", "H0-", "H180+", "H180-", "V90+", "V90-", "V270+", "V270-"],
+    "meaning": "Directed internal occupancy addresses for the between-space of each source channel.",
+    "boundary": "The bins are view addresses. They do not identify cube axes, add a fourth source, or establish a physical tube mechanism."
+  },
+  "derived_joint": {
+    "label": "+1 / Zbar",
+    "formula": "Zbar=(z_chemistry+z_life+z_physics)/3",
+    "input_count": 3,
+    "source_port": false,
+    "feedback": false,
+    "meaning": "Arithmetic centroid of the three existing ledger phasors; derived witness only."
+  },
+  "residual_grammar": {
+    "exact": "SOURCE -> VIEW -> LOST INFORMATION -> RESIDUAL / SECOND VIEW -> RETURN",
+    "phantom_tine_new_identity": false,
+    "tamper_or_missing_policy": "HOLD"
+  },
+  "checks_1_to_6": [
+    {"n": 1, "id": "THREE_DISTINCT_SOURCE_PORTS", "expect": "Exactly chemistry, life and physics; ordinals 1, 2 and 3 are distinct."},
+    {"n": 2, "id": "COMPLETE_DIRECTED_TUBE_OCCUPANCY", "expect": "Each source channel exposes all eight unique directed local occupancy addresses."},
+    {"n": 3, "id": "DERIVED_PLUS_ONE_ONLY", "expect": "Zbar is derived from exactly the three readouts and is not a fourth source port."},
+    {"n": 4, "id": "NO_FEEDBACK", "expect": "No path exists from Zbar into chemistry, life or physics source state."},
+    {"n": 5, "id": "MISSING_TAMPERED_HOLD", "expect": "Missing source, incomplete occupancy, altered fingerprint or residual mismatch returns HOLD."},
+    {"n": 6, "id": "EXACT_REPLAY", "expect": "Replay restores source ordinal/address, complete occupancy fingerprint and joint witness exactly."}
+  ],
+  "frozen_parent": {
+    "tesa_lissajous_capture_replay": "UNCHANGED",
+    "runtime_delta": false,
+    "bench_machine_delta": false
+  },
+  "authority": {
+    "research_run": false,
+    "scientific_evidence": false,
+    "claim_promotion": false,
+    "publication_authorized": false,
+    "deployment_authorized": false
+  },
+  "claim_boundary": "This is a deterministic source-bound interface and contract check. Port colors and Tube Occupancy bins are typed display semantics; they do not prove a shared mechanism, physical channel topology, cube-axis identity, resonance law or new mathematical object."
+}

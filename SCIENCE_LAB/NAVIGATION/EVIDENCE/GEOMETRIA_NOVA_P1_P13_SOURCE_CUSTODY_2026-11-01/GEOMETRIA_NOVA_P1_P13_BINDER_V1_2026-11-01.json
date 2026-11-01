@@ -1,0 +1,179 @@
+{
+  "schema": "nexah.navigator.geometria-nova-p1-p13-source-custody-binder/1.0.0",
+  "version": "1.0.0",
+  "binder_id": "NEXAH:NAVIGATOR:GEOMETRIA_NOVA_P1_P13_SOURCE_CUSTODY:2026-11-01",
+  "node_id": "NN:GEOMETRIA_NOVA_P1_P13_SOURCE_CUSTODY",
+  "title": "Geometria Nova I–III · P1–P13 source custody and existing-identity crosswalk",
+  "as_of": "2026-11-01",
+  "status": "INTERNAL_SOURCE_BOUND_PROVENANCE_AND_CROSSWALK_LENS",
+  "publication_authorized": false,
+  "science_run_activated": false,
+  "changes_canonical_entity_counts": false,
+  "changes_canonical_relation_counts": false,
+  "creates_module_identity": false,
+  "creates_family_identity": false,
+  "source_authority": {
+    "repository": "NEXAH-CODEX",
+    "repository_root": "/Users/tho2020/Documents/GitHub/NEXAH-CODEX",
+    "corpus_root": "SYSTEM_1_MATHEMATICA/Hermetic_Pythagoras_Model/Geometria_Nova I-III",
+    "inspected_revision": "cc1962237940867becb7beb7d4d9fb9f6b613253",
+    "first_import_commit": "cfe69c809696",
+    "first_numbered_assets_commit": "e4eec7ea41b",
+    "p12_p13_import_commit": "0d71151da9d",
+    "latest_folder_revision": "9672801b83aa",
+    "first_import_date": "2025-10-07",
+    "generator_source_present_in_corpus": false,
+    "source_boundary": "The inspected corpus contains rendered assets and four Markdown records, but no generator source. Git history establishes custody and arrival, not mathematical validity or operator identity."
+  },
+  "source_inventory": {
+    "manifest_file": "SOURCE_INVENTORY_SHA256_2026-11-01.txt",
+    "manifest_sha256": "9b7df8b579e3e048adbbac19a51e15041eed39ed4a393e40963b3ad7be19ff45",
+    "tracked_source_count": 48,
+    "format_counts": {
+      "md": 4,
+      "png": 32,
+      "gif": 6,
+      "glb": 4,
+      "obj": 1,
+      "mtl": 1
+    },
+    "unicode_and_case_note": "The Git tree is authoritative. Some working-tree names may be case- or Unicode-normalized by macOS; validation uses the canonical Git paths."
+  },
+  "sequence_coverage": {
+    "declared_postulate_count": 13,
+    "numbered_asset_labels_present": ["P7", "P8", "P9", "P10", "P11", "P12", "P13"],
+    "numbered_asset_labels_absent": ["P1", "P2", "P3", "P4", "P5", "P6"],
+    "readme_explicitly_lists": ["P8", "P9", "P12", "P13"],
+    "visual_gallery_explicitly_lists": ["P8", "P9", "P12", "P13"],
+    "boundary": "P1–P6 are not represented by numbered source assets in the inspected folder. The title and README declaration do not substitute for missing fixtures."
+  },
+  "identity_reuse": {
+    "canonical_targets": [
+      "MOD:NUMBER_VIEW_SUITE",
+      "MOD:TESSAREC",
+      "ART:A0:MATHEMATICAL_JOINTS",
+      "ART:NUMBER:ELINE_POINCARE"
+    ],
+    "supporting_view_targets": [
+      "ART:HTML:AB9415A957FA",
+      "ART:HTML:A2861493E920",
+      "ART:HTML:82AB74C6E35F",
+      "ART:HTML:829A060DB56E"
+    ],
+    "later_visual_neighborhood_non_identity": "ART:HTML:2E64174F09E8",
+    "decision": "Reuse existing Navigator identities. Keep this corpus as one count-neutral source-bound lens; do not create a Geometria Nova module or family."
+  },
+  "postulate_crosswalk": [
+    {
+      "source_label": "P7",
+      "source_assets": ["visuals/P7_splinter_escape.png", "visuals/P7_splinter_escape_fixed.glb"],
+      "existing_targets": ["ART:A0:MATHEMATICAL_JOINTS"],
+      "relation_kind": "source-local splinter representation",
+      "evidence_basis": "The source visual names an escape construction; A0-BL-035 independently found no universal Splinter operator.",
+      "preserves": ["source-local geometry", "escape-direction visualization"],
+      "does_not_imply": ["universal Splinter operator", "physical escape mechanism", "new canonical relation"]
+    },
+    {
+      "source_label": "P8",
+      "source_assets": ["visuals/P8_square_kite.png", "visuals/P8_square_kite.obj", "visuals/P8_square_kite.mtl"],
+      "existing_targets": ["ART:A0:MATHEMATICAL_JOINTS", "MOD:NUMBER_VIEW_SUITE"],
+      "relation_kind": "supporting geometric view",
+      "evidence_basis": "The two-square/kite construction is a visual arrangement over existing bounded number and joint views.",
+      "preserves": ["square overlap", "seven marked positions", "projection grammar"],
+      "does_not_imply": ["privileged seven-axis physics", "operator equivalence", "new family identity"]
+    },
+    {
+      "source_label": "P9",
+      "source_assets": ["visuals/P9_crystal_tessarec.png", "visuals/P9_crystal_tessarec.glb"],
+      "existing_targets": ["MOD:TESSAREC", "ART:HTML:A2861493E920"],
+      "relation_kind": "source predecessor and supporting projection view",
+      "evidence_basis": "The asset is explicitly a crystal/tessarec projection and belongs under the existing Tessarec identity.",
+      "preserves": ["nested-frame projection", "rendered 3D/GLB view"],
+      "does_not_imply": ["physical four-dimensional object", "higher-dimensional transport", "new Tessarec identity"]
+    },
+    {
+      "source_label": "P10",
+      "source_assets": ["visuals/P10_cross_of_forces_view.png"],
+      "existing_targets": ["ART:A0:MATHEMATICAL_JOINTS"],
+      "relation_kind": "source-local orientation view",
+      "evidence_basis": "The cross is a diagrammatic orientation frame; no typed operator is supplied in the corpus.",
+      "preserves": ["crossing axes", "orientation cue"],
+      "does_not_imply": ["force law", "field dynamics", "canonical operator"]
+    },
+    {
+      "source_label": "P11",
+      "source_assets": ["visuals/P11_double_axis.png"],
+      "existing_targets": ["ART:A0:MATHEMATICAL_JOINTS", "ART:HTML:82AB74C6E35F"],
+      "relation_kind": "supporting observer/orientation view",
+      "evidence_basis": "The double-axis drawing is compatible with existing orientation and observer lenses but does not establish their identity.",
+      "preserves": ["paired axes", "view-dependent orientation"],
+      "does_not_imply": ["observer physics", "duality theorem", "new relation"]
+    },
+    {
+      "source_label": "P12",
+      "source_assets": ["visuals/P12_wave_layers.png", "visuals/P12_wave_layers.gif"],
+      "existing_targets": ["ART:NUMBER:ELINE_POINCARE", "ART:HTML:AB9415A957FA"],
+      "relation_kind": "Fourier and layered-time supporting view",
+      "evidence_basis": "The asset displays sinusoidal layers; Fourier representation is exact only when a function, basis, domain and convergence mode are defined.",
+      "preserves": ["wave superposition visualization", "layered temporal view"],
+      "does_not_imply": ["resonance mechanism", "frequency volume", "physical breathing field"]
+    },
+    {
+      "source_label": "P13",
+      "source_assets": ["visuals/P13_shadow_observer.png", "visuals/P13_shadow_observer.gif", "visuals/P13_shadow_observer.glb"],
+      "existing_targets": ["ART:HTML:AB9415A957FA", "ART:HTML:A2861493E920", "ART:HTML:82AB74C6E35F", "ART:HTML:829A060DB56E"],
+      "relation_kind": "observer, projection and shadow supporting view",
+      "evidence_basis": "The light/observer/shadow construction is a projection diagram and maps to existing observer and shadow views.",
+      "preserves": ["source-object-screen geometry", "observer-dependent projection", "animated/rendered representation"],
+      "does_not_imply": ["consciousness mechanism", "physical shadow entity", "canonical observer operator"]
+    }
+  ],
+  "claim_layers": {
+    "exact_or_classical_mathematics": [
+      "Euclidean Pythagorean relation c^2 = a^2 + b^2 under its standard hypotheses",
+      "Euclidean rectangular-box diagonal c^2 = a^2 + b^2 + d^2",
+      "De Gua's theorem for a right tetrahedron under its orthogonality hypotheses",
+      "Cavalieri's principle under equal-height and equal-cross-section hypotheses",
+      "Fourier decomposition as a representation theorem only after function space, basis, domain and convergence are specified"
+    ],
+    "representation_or_design": [
+      "tesseract projection and rotation",
+      "wave layering",
+      "proof temple, tree, lattice and network layouts",
+      "shadow-observer and source-object-screen diagrams",
+      "square-kite, cross-of-forces and double-axis views"
+    ],
+    "symbolic_or_unestablished": [
+      "resonance field and frequency volume language",
+      "f(a)^2 + f(b)^2 = f(c)^2 for an unspecified arbitrary f",
+      "phi and sqrt(2) as privileged transition axes",
+      "Möbius mu(n) as a field operator",
+      "V = integral phi*sqrt(2) dR without defined variables, measure or domain",
+      "3D-to-5D transport, geometry consciousness and physical resonance claims"
+    ],
+    "open_provenance_or_definition_gaps": [
+      "No generator source is present in the inspected corpus",
+      "P1–P6 numbered fixtures are absent",
+      "No formal common operator connecting P7–P13 is defined",
+      "Visual similarity is not identity or mechanism"
+    ]
+  },
+  "a0_development_boundary": {
+    "status": "LATER_REUSE_WITHOUT_RETROACTIVE_IDENTITY",
+    "paths": [
+      "ART:A0:MATHEMATICAL_JOINTS",
+      "ART:NUMBER:ELINE_POINCARE",
+      "ART:HTML:AB9415A957FA",
+      "ART:HTML:A2861493E920",
+      "ART:HTML:82AB74C6E35F",
+      "ART:HTML:829A060DB56E"
+    ],
+    "breathing_crystal_note": "ART:HTML:2E64174F09E8 is a later visual neighborhood only. It is not identified as the same object, a proof of P12, or a predecessor relation.",
+    "splinter_note": "A0-BL-035 remains controlling for the negative result: no universal Splinter operator was established."
+  },
+  "authority_boundary": {
+    "allowed": ["source custody", "hash verification", "documentary crosswalk", "claim-layer separation", "existing-identity supporting binding"],
+    "not_allowed": ["publication", "science-run activation", "claim promotion", "new module/family creation", "canonical relation creation"],
+    "next_permitted_action": "Use the lens for intake and retrieval. Any comparator, operator formalization or empirical test requires a separately selected governed route."
+  }
+}

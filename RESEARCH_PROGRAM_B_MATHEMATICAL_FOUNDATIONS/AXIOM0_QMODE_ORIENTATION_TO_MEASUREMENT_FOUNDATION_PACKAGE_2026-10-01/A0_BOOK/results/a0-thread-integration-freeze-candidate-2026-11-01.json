@@ -1,0 +1,172 @@
+{
+  "schema": "nexah.a0.thread-integration-freeze-candidate/1",
+  "date": "2026-11-01",
+  "status": "FROZEN_OWNER_ACCEPTED_LOCAL_COMMIT_PENDING",
+  "scope": "A0_SOURCE_BOUND_BENCH_MACHINE_DEMONSTRATOR_RETURN_THREAD_2026_11_01",
+  "authority": {
+    "channel": "A0",
+    "repository": "NEXAH-Science-Lab",
+    "branch": "codex/grid-observatory-mission-control",
+    "head": "c535e64494587782f7ddc0cd7f3ac4d5913bafaf",
+    "upstreamState": "AHEAD_1",
+    "sourceState": "DIRTY_WORKTREE_CANDIDATE",
+    "dirtyEntriesObserved": 1237,
+    "previewClass": "LOCAL_OWNER_STAGING",
+    "ownerAcceptance": true,
+    "ownerAcceptanceDate": "2026-11-01",
+    "ownerAcceptanceStatement": "Human Owner accepted the exact A0-framed freeze revision in the controlling Codex thread with: ok, let's do it",
+    "commitCreated": false,
+    "pushPerformed": false,
+    "deploymentPerformed": false,
+    "publicationAuthorized": false,
+    "scienceAdoption": false
+  },
+  "frozenRoute": {
+    "grammar": "SOURCE → BENCH → DEMONSTRATOR → RETURN",
+    "tourIdentity": "NEXAH_A0_ORIENTATION_CONTROLLER_BENCH",
+    "tourVersion": "2.1.0",
+    "chapters": 10,
+    "stations": 62,
+    "jointWindowOccupancyRoute": [
+      "cut-q-lens",
+      "joint-control",
+      "tesa-router",
+      "tesa-replay",
+      "tube-occupancy",
+      "record"
+    ],
+    "wholeMachineReturnClaim": false,
+    "sharedClockClaim": false,
+    "newCarrierClaim": false
+  },
+  "integratedBoundaries": {
+    "cubeFaces": "six faces as three opposing pairs",
+    "trapDoor": "typed cut",
+    "openBook": "two adjacent faces",
+    "pascalJoint": "typed seam",
+    "binderAndClamps": "source preservation and local hold functions",
+    "arcs": "movement paths only",
+    "phantomTine": "matched to RESIDUAL / SECOND VIEW; no new identity",
+    "residualGrammar": "SOURCE → VIEW → LOST INFORMATION → RESIDUAL / SECOND VIEW → RETURN",
+    "vectorClosure": {
+      "equation": "P=A+B",
+      "A": "Blue Address",
+      "B": "Pink Cut",
+      "P": "local closure point",
+      "outsideIn": "HULL → ADDRESS → APERTURE",
+      "insideOut": "APERTURE → SPECTRUM → RETURN",
+      "sameReturnCell": true,
+      "error": 0,
+      "physicalOrOpticalMeasurementClaim": false
+    }
+  },
+  "pinnedFiles": [
+    {
+      "path": "A0_BOOK/A0_ORIENTATION_CONTROLLER_BENCH.html",
+      "sha256": "2f6295b78917fedc67cdb939454aff2aa707ff7d5fadd9b030a27dc9a008e143"
+    },
+    {
+      "path": "A0_BOOK/A0_MACHINA_COCKPIT.html",
+      "sha256": "bae7b8b5b36027b7b4db519b84370c985e6ca5ecb92302c0b1cf672c807020a2"
+    },
+    {
+      "path": "A0_BOOK/A0_BLUE_PINK_DODECA_CELL_RETURN.html",
+      "sha256": "7ce7157c69ddf3b0291bd6e8739f0761d0190ebbfc2887ec48ef30e8d69b7086"
+    },
+    {
+      "path": "A0_BOOK/A0_RESEARCH_DESK.html",
+      "sha256": "225673bca40f892577c669ef846aa88e69ee346287f8689f32a68d079fdef649"
+    },
+    {
+      "path": "A0_BOOK/A0_BUILDER_LOG.html",
+      "sha256": "d45481f7b9d21837d6773cf9884f338b116a5b8bb6aa2fd5c2a8c8aa2ff31aa5"
+    },
+    {
+      "path": "A0_BOOK/a0-bench-showcase-tour.js",
+      "sha256": "a967ff5be7f86b6d694f80a3a7d4922d38d3f7901ca33469b0603cf49591f099"
+    },
+    {
+      "path": "A0_BOOK/a0-bench-showcase-tour-tests.cjs",
+      "sha256": "dca4bb87a7958a8dbff9283fa63ad15ce5d2a8e9210cb2c15b7de7388b20bb00"
+    },
+    {
+      "path": "A0_BOOK/a0-bench-showcase-tour-live-tests.cjs",
+      "sha256": "fc5fc7035db077a6a65b216e0025709e210302f2f628a486dabb507d10ff4385"
+    },
+    {
+      "path": "A0_BOOK/assets/a0-bench-showcase-tour-package-v1.json",
+      "sha256": "d5f31c88223bdee13925f742cda2011aba884bf8357b90c2ba86c7bfcd18e0aa"
+    },
+    {
+      "path": "A0_BOOK/assets/a0-blue-pink-dodeca-cruiser-v1.js",
+      "sha256": "58b71f81136c3dc48159bc8d5d12d2f20bb2cd9ceab5c574ff3bade9c2ecfad8"
+    },
+    {
+      "path": "A0_BOOK/a0-blue-pink-dodeca-cruiser-view.js",
+      "sha256": "9b01433e98be7c06ec80a2c88ea7f2fef12cfd720f0a497c477ff3981d692157"
+    },
+    {
+      "path": "A0_BOOK/a0-blue-pink-vector-closure.css",
+      "sha256": "53624e476ff23ba8919659dcbb53b64745ca0352bff0de9cf9715385acd542a4"
+    }
+  ],
+  "verification": {
+    "freezeSuite": {
+      "files": 23,
+      "passed": 23,
+      "failed": 0,
+      "runnerContextRetries": 4
+    },
+    "tourStatic": "92 checks PASS; 62 stations; 7 views",
+    "tourLive": "342 checks PASS; 62 stations; browser pixels not included",
+    "benchMap": "431 checks PASS; 54 modules; 34 edges; 6 groups",
+    "bluePinkCruiser": "PASS",
+    "scarabStretch": "1454 checks PASS; contract 1+3; mechanism 2:2:1; seam 3-1-2",
+    "tesaRouter": "63 checks PASS; 1536-case battery; 0 mismatches",
+    "tubeOccupancy": "39/39 interactive and 30/30 source-bound checks PASS",
+    "orbitGrid": "10094 checks PASS",
+    "sourceGraph": "PASS; 21 components; 3 component validators; 5 governance records; base 329/29; composed 332/32",
+    "a0EvidenceBinder": "PASS; 119 sources; 28 nodes; 41 relations; 22 aliases",
+    "navigatorAppAudit": "253/253 PASS",
+    "gitDiffCheck": "PASS"
+  },
+  "sourceGraphEffect": {
+    "workflow": "SEARCH → MATCH → BIND → BUILD → RETURN → GOVERN",
+    "reusedIdentities": [
+      "NEXAH_A0_ORIENTATION_CONTROLLER_BENCH",
+      "NEXAH:A0_ORIENTATION_EVIDENCE_LINEAGE:V1",
+      "SG:LENS:ILAU_ORIENTATION",
+      "A0-VIEW-BLUE-PINK-DODECA-CELL-RETURN"
+    ],
+    "effect": "REFERENCE_AND_SOURCE_HASH_CURRENTNESS_ONLY",
+    "semanticGraphChange": false,
+    "newCanonicalIds": 0,
+    "newAliases": 0,
+    "newRelations": 0,
+    "newOperators": 0,
+    "newStudies": 0,
+    "newFindings": 0
+  },
+  "currentnessGate": {
+    "status": "OWNER_ACCEPTED_CURRENTNESS_ADOPTION_PENDING",
+    "validatorStatus": "INVALID",
+    "reason": "The exact framed candidate is Owner-accepted; controlling hashes remain held until source-first commit and Mission Control reconciliation complete.",
+    "mismatchedControls": [
+      "NEXAH_A0_RESEARCH_PROTOCOL",
+      "SCIENCE_LAB_NAVIGATOR_SOURCE_GRAPH_INDEX",
+      "SCIENCE_LAB_A0_ORIENTATION_EVIDENCE_BINDER",
+      "MISSION_CONTROL_NAVIGATOR_SOURCE_GRAPH_CONTROL",
+      "A0_BUILDER_LOG_CURRENT",
+      "NEXAH_A0_ORIENTATION_CONTROLLER_BENCH",
+      "CURRENT/NAVIGATOR_CONTROL.md manifest entry",
+      "CURRENT/NAVIGATOR_SOURCE_GRAPH_CONTROL.json manifest entry"
+    ],
+    "automaticHashAdoptionPerformed": false
+  },
+  "openRisks": [
+    "The repository worktree contains 1237 observed dirty entries outside this bounded receipt; unrelated work is not frozen by this record.",
+    "Live browser pixels and native-device acceptance remain outside the automated closure suite.",
+    "Controlling-currentness adoption and local source-first commit remain separate closeout steps."
+  ],
+  "acceptanceBoundary": "The Human Owner accepted this exact A0-framed local freeze revision and its observed byte hashes on 2026-11-01. This acceptance authorizes bounded local source-first commit and currentness reconciliation only; it is not a push, deployment, publication, Study activation, Finding promotion, physical validation, or scientific adoption."
+}

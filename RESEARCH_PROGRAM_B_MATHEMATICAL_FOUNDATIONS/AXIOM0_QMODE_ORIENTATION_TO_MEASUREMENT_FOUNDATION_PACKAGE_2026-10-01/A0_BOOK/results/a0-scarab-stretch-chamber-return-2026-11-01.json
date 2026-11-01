@@ -1,0 +1,56 @@
+{
+  "schema": "nexah.a0.scarab-stretch-chamber-return/1.1.0",
+  "date": "2026-11-01",
+  "status": "SOURCE_BOUND_1_PLUS_3_VIEW_PASS",
+  "host": "A0_BOOK/A0_ORIENTATION_CONTROLLER_BENCH.html#scarabStretchChamber",
+  "identity_reuse": [
+    "NEXAH:INSTRUMENT:BREATHING_PRIME_CRYSTAL:V1",
+    "NEXAH_A0_ORIENTATION_CONTROLLER_BENCH",
+    "NEXAH:A0_ORIENTATION_EVIDENCE_LINEAGE:V1"
+  ],
+  "shared_clock": "breath.phase",
+  "source_plus_views": {
+    "source_count": 1,
+    "view_count": 3,
+    "views": ["STRETCH_BODY", "SECTION_CUT", "SEAM_RETURN"]
+  },
+  "mechanism_partition": {
+    "ratio": "2:2:1",
+    "source_flanks": 2,
+    "mirror_passes": ["A", "B"],
+    "oriented_return": 1,
+    "distinct_from": "1:2:1_DIAGONAL_POINT_COUNT"
+  },
+  "plate_projection": {
+    "view_role": "SECTION_CUT",
+    "camera_pose": "TOP_DOWN_Z",
+    "shape": "CARO",
+    "new_view": false
+  },
+  "stretch_contract": {
+    "source_dimensions": [2, 1, 1],
+    "matrix": "diag(lambda, lambda^(-1/2), lambda^(-1/2))",
+    "determinant": 1,
+    "phase_cycle": [0, 1],
+    "return": "EXACT_AT_PHASE_0_AND_1"
+  },
+  "typed_view_fixtures": {
+    "seam_order": [3, 1, 2],
+    "theta_pair": [5, 4],
+    "arithmetic": ["63+64=127", "127+54=181"]
+  },
+  "reading_candidates": ["C+3^3", "12:1", "SCARAB_CHAMBER"],
+  "verification": {
+    "scarab_stretch_assertions": 1454,
+    "breathing_crystal_assertions": 166,
+    "section_mirror_assertions": 6081,
+    "scarab_projection_assertions": 234,
+    "status": "PASS"
+  },
+  "test": "A0_BOOK/a0-scarab-stretch-chamber-tests.cjs",
+  "new_canonical_ids": [],
+  "relation_changes": [],
+  "finding_or_manuscript_effect": "NONE",
+  "publication_or_deployment": "NONE",
+  "boundary": "Source-bound one-source/three-view bridge only. The Teller/Caro is a TOP_DOWN_Z camera pose inside SECTION_CUT, not another source or view identity. The 2:2:1 mechanism ledger counts two source flanks, two typed mirror passes A/B and one oriented return; it is distinct from the existing 1:2:1 diagonal point count. Scarabaeus is an existing transport/view role. The analytic stretch, seam order, theta pair and arithmetic fixtures do not create a new carrier, identity, topology, physical chamber, breathing mechanism or scientific finding."
+}

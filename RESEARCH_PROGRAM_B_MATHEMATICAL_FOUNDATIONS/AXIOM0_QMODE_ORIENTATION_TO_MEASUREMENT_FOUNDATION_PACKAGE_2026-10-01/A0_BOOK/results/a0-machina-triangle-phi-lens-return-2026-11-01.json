@@ -1,0 +1,156 @@
+{
+  "schema": "nexah.a0.machina.triangle_phi_lens_return.v7",
+  "status": "PASS_TYPED_TRIANGLE_PI_18_DEGREE_PHI_PHASE64_COUNTER_AXIS_HEX_LAMELLA_QRT_OBJECT_LC_MOTION_AND_NLK_L_SHELL_CUBE_WOBBLE_LENS",
+  "date": "2026-11-01",
+  "host": "NEXAH_A0_ORIENTATION_CONTROLLER_BENCH",
+  "exact": {
+    "factor_partition": "16+17+19=52=4*13",
+    "holdout": "52+18=70",
+    "still_completion": "70+20=90",
+    "geometry": "triangle(16,17,19) has angle sum pi and a right angle at 17 in the declared cockpit coordinates",
+    "rectangle_completion": "18 is the fourth corner; the two diagonal triangles have equal area",
+    "phi_gate": ["phi=1/(2*sin(18deg))", "phi=2*cos(36deg)"],
+    "euclidean_division": "4=3*1+1",
+    "d3_orientations": ["753->537->375", "357->573->735"],
+    "phase_space": {
+      "register": "64=2^6=2^2*2^4",
+      "outer_cells": 4,
+      "local_states_per_cell": 16,
+      "equivalent_local_readings": ["2^(2^2)=16", "(2^2)^2=16"],
+      "prime_addresses_below_64": [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61],
+      "cockpit_band": {
+        "16": "010000 / 2^4 / power_of_two",
+        "17": "010001 / prime",
+        "18": "010010 / 2*3^2 / composite",
+        "19": "010011 / prime",
+        "20": "010100 / 2^2*5 / composite"
+      },
+      "aperture_pulse": "16->17->20->18->19->20",
+      "hamming_steps": [1, 2, 2, 1, 3],
+      "total_hamming": 9,
+      "return_target": "STILL_20",
+      "counter_axis": {
+        "pair": [8, 55],
+        "binary": ["001000", "110111"],
+        "six_bit_mask": 63,
+        "xor": 63,
+        "sum": 63,
+        "hamming_distance": 6,
+        "balanced_axis": "16+19=17+18=35",
+        "still_lift": "35+20=55",
+        "factorization": "55=5*11",
+        "roman_typed_read": "V*XI=LV"
+      },
+      "hex_lamella_hinge": {
+        "partition": "regular_hexagon=3_congruent_rhombi=6_equilateral_triangles",
+        "mercedes_seams": 3,
+        "seam_angle_degrees": 120,
+        "lamella_families": 3,
+        "lamellae_per_family": 7,
+        "total_lamella_lines": 21,
+        "octave_intervals_from_seven_inner_samples": 8,
+        "double_route_rails": 2,
+        "l_route": "16->17->19",
+        "hinge_route": "16->20->19",
+        "cube_read": "isometric_projection_only"
+      },
+      "qrt_object": {
+        "object_id": "QRT",
+        "projection_class": "AFFINE_SQUARE_TO_RHOMBUS",
+        "source_square": [[0, 0], [1, 0], [1, 1], [0, 1]],
+        "triangles": [
+          {"id": "T_Y", "local_alias": "BO"},
+          {"id": "T_beta", "display_id": "T_β", "local_alias": "TH"}
+        ],
+        "shared_diagonal": "R0->R2",
+        "partition": "area(T_Y)+area(T_beta)=area(QRT_rhombus)",
+        "equal_area_halves": true,
+        "affine_determinant_absolute_equals_rhombus_area": true,
+        "preserves_parallelism": true,
+        "preserves_angles": false,
+        "preserves_lengths": false,
+        "l7": {"route": "L", "lamellae": 7, "intervals": 8},
+        "phantom_tines": {"role": "negative_space_continuation", "face_count": 0},
+        "cube_read": {"role": "isometric_display_only", "dimension_claim": false}
+      },
+      "lc_motion": {
+        "object_id": "L_c",
+        "motion_class": "RIGID_PLANAR_ROTATION",
+        "fixed_opening_degrees": 120,
+        "roles": {
+          "theta": {"display": "Θ", "color": "yellow", "role": "phase_driver"},
+          "zeta": {"display": "Ζ", "color": "blue", "role": "chord_midpoint_witness"},
+          "lambda": {"display": "Λ", "color": "grey_white", "role": "return_endpoint"}
+        },
+        "chord_invariant": "length=2*radius*sin(60deg)",
+        "zeta_constraint": "Z=(Theta+Lambda)/2",
+        "exact_return": "one_full_turn",
+        "claim_boundary": "KINEMATIC_DISPLAY_ONLY"
+      },
+      "cube_wobble": {
+        "object_id": "NLK_L_SHELL_CUBE_VIEW",
+        "motion_class": "AFFINE_DISPLAY_WOBBLE",
+        "canonical_identity": "NLK_L_SHELL",
+        "local_alias": "LILITH / L-SEAM",
+        "phase_channels": [1, 2, 3],
+        "rotation_limit_degrees": 6,
+        "shear_limit_degrees": 4,
+        "topology_fixed": {
+          "rhombi": 3,
+          "triangles": 6,
+          "lamella_lines": 21,
+          "l_seam_route": [16, 17, 19]
+        },
+        "positive_determinant": true,
+        "exact_return": "one_full_turn",
+        "balance_witness": {
+          "existing_bench_model": "A0PascalJointCounterweight",
+          "reading": "COUNTERWEIGHT_WATER_LEVEL",
+          "center_fixed": true,
+          "return_level": 0
+        },
+        "claim_boundary": "DISPLAY_PROJECTION_ONLY"
+      }
+    }
+  },
+  "negative_controls": [
+    "integer 18 is not phi",
+    "52/18 is neither phi nor pi",
+    "visual resemblance does not create number identity, physical mechanism or evidence relation",
+    "prime positions are marked integer addresses, not an added phase-space dimension",
+    "8 and 55 are exact six-bit complement addresses, not a newly asserted physical opposition",
+    "V*XI=LV is a typed multiplication and does not make VXI a standard Roman numeral",
+    "the aperture pulse is a verified finite-state path, not a live physical controller",
+    "the three-rhombus hexagon creates an isometric cube reading, not a new cube body or topology",
+    "L, hinge and double route are declared planar display paths, not material hinges or mechanics",
+    "seven lamellae and eight intervals are a finite sampling convention, not an octave law",
+    "BO and TH are local aliases for T_Y and T_beta, not new canonical identities",
+    "the affine square-to-rhombus map preserves parallelism but does not preserve lengths or angles",
+    "phantom tines are negative-space continuations with zero additional faces",
+    "the QRT cube reading is an isometric display only and adds no spatial-dimension claim",
+    "Theta, Zeta and Lambda are typed display roles; their colors do not denote physical quantities",
+    "L_c is a bounded planar kinematic display, not a material hinge, Lissajous oscillator, spherical trajectory or machine-physics claim",
+    "the cube wobble is an affine display projection with fixed topology, not a deforming body, force field or physical cube mechanism",
+    "Lilith / L-Seam is a local display alias only and does not create a canonical Lilith identity",
+    "the existing A0PascalJointCounterweight is reused as a comparator and water-level witness, not as a causal weight or machine-physics coupling"
+  ],
+  "owner_visuals": "used as design cues only; not ingested as mathematical evidence",
+  "governance": {
+    "existing_identities_reused": ["NEXAH_A0_ORIENTATION_CONTROLLER_BENCH", "NEXAH:A0_ORIENTATION_EVIDENCE_LINEAGE:V1"],
+    "new_identity": 0,
+    "new_relation": 0,
+    "new_operator": 0,
+    "new_study": 0,
+    "new_finding": 0,
+    "publication": 0
+  },
+  "verification": {
+    "triangle_phi_phase64_counter_axis_hex_lamella_qrt_object_lc_motion_cube_wobble_model_and_static_tests": "PASS_268_OF_268",
+    "existing_machina_cockpit_tests": "PASS_49_OF_49",
+    "browser_states": ["FACTOR_52", "TRIANGLE_PI", "ANGLE_18_PHI", "D3_ADDRESS", "PHASE64", "COUNTER_AXIS_8_55", "HEX_L_HINGE", "QRT_OBJECT_SPLIT", "LC_MOTION_PLAY", "LC_EXACT_ONE_TURN_RETURN", "CUBE_WOBBLE_PLAY", "CUBE_WOBBLE_PAUSE", "CUBE_WOBBLE_EXACT_RETURN", "COUNTERWEIGHT_WATER_LEVEL_RETURN_ZERO", "EXACT_RETURN_52"],
+    "executed_dom": "PASS_64_GENERATED_ADDRESS_BUTTONS_0_THROUGH_63",
+    "evidence_binder": "PASS_119_SOURCES_28_NODES_41_RELATIONS_22_ALIASES",
+    "source_graph": "PASS_21_COMPONENTS_332_COMPOSED_ENTITIES_32_RELATIONS",
+    "mission_control_currentness": "VALID_484_CONTROLLING_SOURCES"
+  }
+}

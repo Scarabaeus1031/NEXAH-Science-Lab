@@ -12,6 +12,8 @@ const log = read('A0_BUILDER_LOG.html');
 const receipt = JSON.parse(read('results/a0-number-tower-scarab-regulator-return-2026-11-01.json'));
 const e88dPrereg = JSON.parse(read('results/a0-elevator-88-discrimination-preregistration-2026-11-01.json'));
 const e88dResult = JSON.parse(read('results/a0-elevator-88-discrimination-return-2026-11-01.json'));
+const dhiPrereg = JSON.parse(read('results/a0-direction-handle-isolation-preregistration-2026-11-01.json'));
+const dhiResult = JSON.parse(read('results/a0-direction-handle-isolation-return-2026-11-01.json'));
 const tbdPrereg = JSON.parse(read('results/a0-t-boundary-discrimination-preregistration-2026-11-01.json'));
 const tbdResult = JSON.parse(read('results/a0-t-boundary-discrimination-return-2026-11-01.json'));
 let checks = 0;
@@ -88,7 +90,7 @@ check(regulator.includes('blind order is frozen and deterministic'), 'Interactiv
 check(regulator.includes('geometry mapping is open for every candidate'), 'Interactive runner rejects invented geometry assignments');
 check(regulator.includes('reveal preserves the arithmetic survivor set'), 'Interactive runner checks reveal invariance');
 check(html.includes('class="nto-dao-bridge"'), 'DAO Bridge Testbench is mounted');
-check(html.includes('103 VERTRÄGE PRÜFEN') && html.includes('data-nto-result="dao"') && html.includes('data-nto-result="nn"') && html.includes('data-nto-result="e88"') && html.includes('data-nto-result="e88d"') && html.includes('data-nto-result="tbd"'), 'Main runner exposes the 103-check DAO, NN, Elevator-88, discrimination and T-boundary groups');
+check(html.includes('108 VERTRÄGE PRÜFEN') && html.includes('data-nto-result="dao"') && html.includes('data-nto-result="nn"') && html.includes('data-nto-result="e88"') && html.includes('data-nto-result="e88d"') && html.includes('data-nto-result="dhi"') && html.includes('data-nto-result="tbd"'), 'Main runner exposes the 108-check DAO, NN, Elevator-88, handle-isolation and T-boundary groups');
 check(html.includes('data-dg-samples="18"') && html.includes('data-dg-bands="5"'), 'D°G 18-sample and 5-band reference is frozen');
 check(html.includes('<strong>G°D</strong><span>OPEN · UNBOUND</span>'), 'G°D counter-channel remains open and unbound');
 check((html.match(/data-dao-step="[1-5]"/g) || []).length === 5, 'DAO Bridge exposes all five test steps');
@@ -124,6 +126,13 @@ check(e88dPrereg.default.dao_binding === 'NONE' && e88dPrereg.preregistered_rule
 check(e88dResult.status === 'COMPLETE' && e88dResult.aborted === false && e88dResult.matrix.cell_count === 24, 'Discrimination result is complete and not aborted');
 check(e88dResult.pair_results.length === 12 && e88dResult.pair_results.every((pair) => pair.landingOnlyUnique === 1 && pair.landingAngleUnique === 1 && pair.withWitnessUnique === 2), 'All twelve direction pairs show witness-only discrimination');
 check(e88dResult.verdict === 'NEGATIVE_88_DOES_NOT_SELECT_WITNESS_ONLY' && e88dResult.dao_binding === 'NONE', 'Result returns the preregistered negative class without DAO binding');
+check(html.includes('class="nto-direction-handle-isolation"') && html.includes('data-dhi-dao-binding="none"'), 'Direction-handle isolation gate is mounted with DAO NONE');
+check((html.match(/data-dhi-gate="[1-5]"/g) || []).length === 5, 'Five handle qualification gates are visible');
+check(html.includes('TARGET-DERIVED') && html.includes('ACTUAL HANDLE</small><b>OPEN'), 'Target-derived witness and open actual handle are explicit');
+check(regulator.includes('existing witness has no independent external source') && regulator.includes('ablation proves necessity but not independence'), 'Interactive runner checks independence separately from necessity');
+check(dhiPrereg.status === 'FROZEN_BEFORE_AUDIT' && dhiPrereg.qualification_gates.length === 5, 'Handle-isolation preregistration is frozen with five gates');
+check(dhiResult.verdict === 'NEGATIVE_TARGET_DERIVED_WITNESS' && dhiResult.gate_summary.passed === 2 && dhiResult.gate_summary.total === 5, 'Handle-isolation result records the negative 2-of-5 qualification');
+check(dhiResult.actual_handle_status === 'OPEN_NOT_IDENTIFIED' && dhiResult.dao_binding === 'NONE', 'Actual handle remains open with no DAO binding');
 check(html.includes('class="nto-t-boundary"') && html.includes('data-tbd-state="blind"') && html.includes('data-tbd-dao-binding="none"'), 'T-boundary gate starts blind with DAO NONE');
 check((html.match(/data-tbd-test="[1-5]"/g) || []).length === 5 && html.includes('RUN T 1–5'), 'Five T-boundary tests and their runner are mounted');
 check(regulator.includes('T squared closes on all thirteen frozen states') && regulator.includes('matched diagonal controls reject global uniqueness'), 'Interactive runner checks local closure and rejects global uniqueness');
@@ -138,11 +147,13 @@ check(desk.includes('id="elevator-88-discrimination-return-20261101"'), 'Elevato
 check(log.includes('id="elevator-88-discrimination-builder-return-20261101"'), 'Elevator-88 discrimination Builder return is bound');
 check(desk.includes('id="elevator-88-posttest-8107-view-20261101"') && desk.includes('3⁴|07'), 'Post-test 8107 decimal view is recorded without changing the frozen matrix');
 check(log.includes('id="elevator-88-posttest-8107-view-builder-return-20261101"'), 'Post-test 8107 Builder addendum is bound');
+check(desk.includes('id="direction-handle-isolation-return-20261101"'), 'Direction-handle isolation Science return is bound');
+check(log.includes('id="direction-handle-isolation-builder-return-20261101"'), 'Direction-handle isolation Builder return is bound');
 check(desk.includes('id="t-boundary-discrimination-return-20261101"'), 'T-boundary Science return is bound');
 check(log.includes('id="t-boundary-discrimination-builder-return-20261101"'), 'T-boundary Builder return is bound');
 check(receipt.status === 'PASS_SOURCE_BOUND_ORIENTATION_LENS', 'Receipt status is PASS');
 check(receipt.floor_contract.join('|') === 'EXACT|ADDRESS|BUILT|SOURCE-ONLY', 'Receipt preserves floor order');
-check(receipt.interactive_contract.exact_test_count === 103, 'Receipt records the interactive 103-check contract');
+check(receipt.interactive_contract.exact_test_count === 108, 'Receipt records the interactive 108-check contract');
 check(receipt.prime_elevator_contract.palindromic_index_count === 99, 'Receipt records the bounded 99-index set');
 check(receipt.prime_elevator_contract.prime_reversal_survivor_count === 17, 'Receipt records the 17 reversal survivors');
 check(receipt.hinge_press_contract.index_hinge.sum === 360, 'Receipt records the 179/180/181 index hinge');
@@ -174,6 +185,8 @@ check(receipt.dao_bridge_contract.elevator_88_candidate.dao_binding === 'NONE' &
 check(receipt.dao_bridge_contract.elevator_88_discrimination.cell_count === 24 && receipt.dao_bridge_contract.elevator_88_discrimination.pair_count === 12, 'Receipt records the bounded discrimination matrix');
 check(receipt.dao_bridge_contract.elevator_88_discrimination.floor_88_self_selects === false && receipt.dao_bridge_contract.elevator_88_discrimination.verdict === 'NEGATIVE_88_DOES_NOT_SELECT_WITNESS_ONLY', 'Receipt preserves the negative selector result');
 check(receipt.dao_bridge_contract.elevator_88_discrimination.dao_binding === 'NONE' && receipt.dao_bridge_contract.elevator_88_discrimination.followup_build_authorized === false, 'Receipt stops without DAO binding or automatic follow-up build');
+check(receipt.dao_bridge_contract.direction_handle_isolation.qualification_gate_count === 5 && receipt.dao_bridge_contract.direction_handle_isolation.passed_gate_count === 2, 'Receipt records the five-gate handle audit and two passes');
+check(receipt.dao_bridge_contract.direction_handle_isolation.verdict === 'NEGATIVE_TARGET_DERIVED_WITNESS' && receipt.dao_bridge_contract.direction_handle_isolation.actual_handle_status === 'OPEN_NOT_IDENTIFIED', 'Receipt keeps the target-derived witness negative and actual handle open');
 
 for (const [value, index] of [[1031, 173], [1033, 174], [1087, 181], [3301, 464]]) {
   check(isPrime(value), `${value} is prime`);

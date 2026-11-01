@@ -1,0 +1,12 @@
+{
+  "schema": "nexah.a0.tesa-lissajous-window-router.machine-return/1",
+  "date": "2026-11-01",
+  "status": "PASS",
+  "identity_reuse": ["NEXAH_A0_ORIENTATION_CONTROLLER_BENCH", "SG:LENS:ILAU_ORIENTATION"],
+  "implemented": {"instrument": "A0_ORIENTATION_CONTROLLER_BENCH.html#tesaLissajousWindowRouter", "module": "a0-tesa-lissajous-window-router.js", "styles": "a0-tesa-lissajous-window-router.css", "tests": ["a0-tesa-lissajous-window-router-tests.cjs", "a0-tesa-lissajous-bench-coupling-tests.cjs", "a0-tesa-lissajous-reload-persistence-tests.cjs"], "teller_adapter": "a0-orbit-grid-joints.js#selectAddress", "ledger": "a0-bench-session-ledger.js", "science_return": "A0_RESEARCH_DESK.html#tesa-lissajous-window-router-return-20261101", "builder_return": "A0_BUILDER_LOG.html#tesa-lissajous-window-router-builder-20261101"},
+  "contracts": {"version": "1.0.0", "status": "FROZEN_V1", "route_formula": "(port_ordinal-1)*8 + channel_index*2 + side_index + 1", "active_addresses": [1, 24], "reserved_addresses": [25, 26, 27, 28], "calibration_windows": ["7:AM/XY", "8:VM/YZ", "9:PM/ZX"], "gate_order": ["CAPTURE", "TOUCH", "WITNESS", "KAPPA", "AVAILABLE", "CUT_Q"], "capture_replay": "EXACT_ONLY_EXPLICIT_REPLAY", "reload_policy": "HYDRATE_WITHOUT_VIEW_MUTATION", "stale_persisted_policy": "LOWER_SOURCE_GENERATION_HOLD", "hold_policy": "RETAIN_LAST_CONFIRMED_WITHOUT_OVERWRITE", "source_feedback": false, "writes_source": false, "changes_carrier": false, "changes_clock": false, "second_clock": false},
+  "verification": {"router_checks": 63, "bench_coupling_checks": 12, "reload_persistence_checks": 16, "orbit_grid_checks": 10094, "ledger_checks": 18, "joint_checks": 90, "cut_q_checks": 16, "dimensions": "64_STATES_X_3_PORTS_X_4_CHANNELS_X_2_SIDES", "cases": 1536, "exact": 24, "hold": 1512, "mismatches": 0, "unique_active_routes": 24, "capture_change_replay": "PASS", "reload_hydration": "PASS_NO_MUTATION", "explicit_persisted_replay": "PASS", "tampered_receipt": "HOLD", "missing_gate_bit": "HOLD", "stale_persisted_generation": "HOLD", "result": "PASS"},
+  "governance_delta": {"new_ids": 0, "new_aliases": 0, "new_relations": 0, "new_operators": 0, "new_studies": 0, "new_findings": 0, "publication": 0},
+  "claim_ceiling": "DETERMINISTIC_INTERFACE_ROUTER_ONLY",
+  "deployment": "NONE"
+}

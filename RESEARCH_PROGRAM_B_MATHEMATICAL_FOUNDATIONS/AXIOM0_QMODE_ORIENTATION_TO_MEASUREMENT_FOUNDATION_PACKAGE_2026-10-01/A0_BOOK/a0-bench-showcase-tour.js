@@ -1,6 +1,6 @@
 (function(root,factory){const api=factory();if(typeof module==='object'&&module.exports)module.exports=api;else root.A0BenchShowcaseTour=api;})(typeof globalThis!=='undefined'?globalThis:this,function(){
   'use strict';
-  const VERSION='2.0.0';
+  const VERSION='2.1.0';
   const SOURCE_STATIONS=Object.freeze([
     Object.freeze({id:'division-return',target:'divisionReturnBench',scenario:'division-return',title:'Teilung · Übersetzung · Return',copy:'Drei eigene A/B-Verträge: gerichteter Split Rest, natives Re/ST-Profil, CRT-Reste mit vollständigem Quotienten-Return. Quellen erfassen und Regeln ausdrücklich anwenden.'}),
     Object.freeze({id:'lens-return',target:'benchLensReturn',scenario:'lens-return',title:'Linse → VM → Zahlenreturn',copy:'Zwei Linsen, markierte Überlagerung und separater exakter 978-Kanal. Anker erfassen, vorwärts gehen und inverse Schritte am vollen Integer prüfen.'}),
@@ -218,9 +218,17 @@
   }
 ];
   const CLOCK_STATIONS=Object.freeze([{"id":"clock-source","target":"nativeFaceBridge","title":"1 · Blue/Pink als führende Quelle","copy":"Die vorhandene Signalansicht öffnen. Hier laufen AM, VM und PM mit einer Quellzeit. Die Maske wird erst in der nächsten Station verbunden.","local":true,"chapter":"Blue/Pink → Maske"},{"id":"clock-connect","target":"maskClockLink","title":"2 · Verbinden und Pause bestätigen","copy":"Die Quelle wird pausiert. Erst ACK plus Masken-Readback ergeben SYNC. Keine Bestätigung: HOLD, kein vorgetäuschter Start.","local":true,"chapter":"Blue/Pink → Maske"},{"id":"clock-step","target":"maskObserverBench","title":"3 · Ein gemeinsamer Step","copy":"Ein Step erhöht die native Signalzeit um 1/120 Zyklus. Die Maske übernimmt den daraus berechneten Tick; ihre eigene Uhr bleibt aus.","local":true,"chapter":"Blue/Pink → Maske"},{"id":"clock-play","target":"maskObserverBench","title":"4 · Blue/Pink führt die Maskenbewegung","copy":"Die Quelle läuft; die Maskengeometrie folgt quantisiert. Frequenzpaar und Phase bleiben Quellenparameter. Montage/Kompass sind keine angepassten Signalfolger.","local":true,"chapter":"Blue/Pink → Maske"},{"id":"clock-pause","target":"maskClockLink","title":"5 · Gemeinsam pausieren","copy":"PAUSE wird von der Quelle bestätigt; der letzte Mask-Tick bleibt stehen. Das ist ein bestätigter Lesestand, kein gemeinsamer Return.","local":true,"chapter":"Blue/Pink → Maske"},{"id":"clock-disconnect","target":"maskClockLink","title":"6 · Entkoppeln und lokal weiterarbeiten","copy":"Die Quelle erhält DISCONNECT/Pause, die Maske bleibt stehen und ihre lokale Bedienung wird frei. Kein Quell-ACK für einen Gesamt-Return wird behauptet.","local":true,"chapter":"Blue/Pink → Maske"}].map(Object.freeze));
-  const ORDER=["launch","binder","body-interior","body-player","body-dodeca","one-flow","clock-source","clock-connect","clock-step","clock-play","clock-pause","clock-disconnect","glb-sources","mask-overview","mask-lrrl","mask-rllr","mask-return","teller-am","teller-vm","teller-pm","fold-play","fold-mirror","fold-end","codes-a","codes-b","codes-c","codes-return","caro-open","caro-closed","caro-return","sewing-source","native-face","ail","ninefold","family-grid-life","family-grid-plate","family-grid-cylinder","lens-return","m3-unrolled","m3-cylinder","m3-top","m3-slice","stack","pent","life03","adapter-a","adapter-b","finite-antipode","finite-ghostgons","moving-window","aperture-observatory","root","division-return","return-economy","replay","session-ledger"];
+  const JOINT_STATIONS=Object.freeze([
+    {id:'joint-cut',target:'cutQLensReturnBench',title:'1 · Cut / Q° Lens schließt drei Ansichten',copy:'Drei source-bound Cuts werden mit Touch und Witness geprüft. Die Station erzeugt nur den vorhandenen Cut-Receipt.',local:true,chapter:'Joint · Window · Occupancy'},
+    {id:'joint-gate',target:'jointControlReturnAudit',title:'2 · 64-State Joint nimmt den Receipt an',copy:'Der Joint liest Capture, Touch, Witness, κ, Availability und Cut als sechs getrennte Gates. Nur 111111 ist exakt.',local:true,chapter:'Joint · Window · Occupancy'},
+    {id:'joint-window',target:'tesaLissajousWindowRouter',title:'3 · TESA findet das Lissajous-Fenster',copy:'Port, Kanal und Seite adressieren genau ein bestehendes AM/VM/PM-Fenster. Das ist eine View-Projektion, kein Source-Write.',local:true,chapter:'Joint · Window · Occupancy'},
+    {id:'joint-replay',target:'tesaLissajousWindowRouter',title:'4 · Fenster-Receipt wird wieder abgespielt',copy:'Der lokale Capture wird validiert und in dasselbe deklarierte Fenster replayt. Source, Clock und Carrier bleiben unverändert.',local:true,chapter:'Joint · Window · Occupancy'},
+    {id:'joint-tube',target:'threeChannelTubeOccupancyBench',title:'5 · Drei Gegenpaare belegen sechs Würfelflächen',copy:'Chemistry, Life und Physics/Spin belegen je ein Gegenpaar. Fehlende Quelle oder manipuliertes Witness hält geschlossen.',local:true,chapter:'Joint · Window · Occupancy'},
+    {id:'joint-record',target:'recordPanel',title:'6 · Record hält Route und Grenzen fest',copy:'Die Route endet als lokaler Engineering-Receipt: Cut → Joint → Window → Replay → Occupancy. Kein Gesamtmaschinen-Return und keine neue Identität.',local:true,chapter:'Joint · Window · Occupancy'}
+  ].map(Object.freeze));
+  const ORDER=["launch","binder","body-interior","body-player","body-dodeca","one-flow","clock-source","clock-connect","clock-step","clock-play","clock-pause","clock-disconnect","glb-sources","mask-overview","mask-lrrl","mask-rllr","mask-return","teller-am","teller-vm","teller-pm","fold-play","fold-mirror","fold-end","codes-a","codes-b","codes-c","codes-return","caro-open","caro-closed","caro-return","sewing-source","native-face","ail","ninefold","family-grid-life","family-grid-plate","family-grid-cylinder","lens-return","m3-unrolled","m3-cylinder","m3-top","m3-slice","stack","pent","life03","adapter-a","adapter-b","finite-antipode","finite-ghostgons","moving-window","aperture-observatory","root","joint-cut","joint-gate","joint-window","joint-replay","joint-tube","joint-record","division-return","return-economy","replay","session-ledger"];
   function chapter(s){if(s.chapter)return s.chapter;if(['launch','binder'].includes(s.id))return 'Quelle & Körper';if(['native-face','ail','ninefold'].includes(s.id))return 'Native Bedienung';if(s.id.startsWith('family-grid-')||s.id.startsWith('m3-')||['stack','lens-return'].includes(s.id))return 'Ansichten & Messung';if(['pent','life03','adapter-a','adapter-b','finite-antipode','finite-ghostgons'].includes(s.id))return 'Adapter & Grenzfälle';if(['moving-window','aperture-observatory','root'].includes(s.id))return 'Fenster & Projektion';return 'Return & Record';}
-  const STATIONS=Object.freeze(ORDER.map(id=>{const s=[...SOURCE_STATIONS,...EXTRA,...CLOCK_STATIONS].find(s=>s.id===id);return Object.freeze({...s,chapter:chapter(s)});}));
+  const STATIONS=Object.freeze(ORDER.map(id=>{const s=[...SOURCE_STATIONS,...EXTRA,...CLOCK_STATIONS,...JOINT_STATIONS].find(s=>s.id===id);return Object.freeze({...s,chapter:chapter(s)});}));
   const CHAPTERS=Object.freeze([...new Set(STATIONS.map(s=>s.chapter))]);
   function createState(overrides={}){return Object.assign({running:false,index:-1,completed:false},overrides);}
   // The last station gets its full dwell before completion.
@@ -229,7 +237,7 @@
   function mount(doc,win=doc.defaultView||{}){
     const el=id=>doc.getElementById(id),start=el('benchTourStart'),title=el('benchTourTitle'),copy=el('benchTourCopy'),counter=el('benchTourCounter'),progress=el('benchTourProgress');
     if(!start||!title||!copy||!counter||!progress)throw Error('showcase controls missing');
-    let state=createState(),timer=0,token=0,focus=null,status='Bereit · lokale Demo verändert Regler und lokale Anker.',pace=18000,actionDepth=0,cancelPending=null,rangeEnd=null;
+    let state=createState(),timer=0,token=0,focus=null,status='Bereit · lokale Demo verändert Regler und lokale Anker.',pace=18000,actionDepth=0,cancelPending=null,rangeStart=null,rangeEnd=null,rangeLabel=null;
     const reduced=()=>Boolean(win.matchMedia?.('(prefers-reduced-motion: reduce)').matches);
     function emit(action,station=STATIONS[state.index]){doc.dispatchEvent(new win.CustomEvent('a0:bench-playback',{detail:{schema:'nexah.a0.bench-playback-event/1',source:'BENCH_SHOWCASE_TOUR',state:action,stationId:station?.id||null,target:station?.target||null,moduleId:win.A0BenchMapController?.moduleForTarget?.(station?.target)?.id||null,index:state.index,running:state.running,completed:state.completed,ownsBenchState:false}}));}
     function clearTimer(){if(timer)win.clearTimeout(timer);timer=0;}
@@ -274,6 +282,12 @@
       if(id.startsWith('codes-')){if(id==='codes-return')click('codeCalendarReturn');else{const index=['codes-a','codes-b','codes-c'].indexOf(id);set('codeCalendarAxis',index);set('codeCalendarRatio',index);if(id==='codes-a')click('codeCalendarCapture');if(id==='codes-b')click('codeCalendarReverse');if(id==='codes-c')click('codeCalendarTest');}}
       if(id.startsWith('caro-')){if(id==='caro-open'){requireCall('A0CaroBenchController','command','reset');requireCall('A0CaroBenchController','command','capture');if(!reduced())requireCall('A0CaroBenchController','play');}if(id==='caro-closed'){requireCall('A0CaroBenchController','command','toggle');requireCall('A0CaroBenchController','command','step');}if(id==='caro-return'&&requireCall('A0CaroBenchController','command','return')===false)throw Error('CARO-Anker fehlt');}
       if(id==='sewing-source'){if(!el('sewingSourceOpen')?.disabled)click('sewingSourceOpen');}
+      if(id==='joint-cut')click('cutQLensRun');
+      if(id==='joint-gate'){requireCall('A0JointControlReturnAuditController','request');click('jcraCapture');const view=requireCall('A0JointControlReturnAuditController','render');if(!view?.exact)throw Error('Joint bleibt '+(view?.status||'HOLD'));}
+      if(id==='joint-window'){const record=requireCall('A0TesaLissajousWindowRouterController','capture');if(record?.status?.startsWith?.('HOLD'))throw Error(record.status);}
+      if(id==='joint-replay'){const replayed=requireCall('A0TesaLissajousWindowRouterController','replay');if(!replayed?.replayed)throw Error(replayed?.status||'Replay bleibt HOLD');}
+      if(id==='joint-tube'){const checks=requireCall('A0ThreeChannelTubeOccupancyBenchController','runChecks');if(!checks?.pass)throw Error('Tube battery bleibt HOLD');const captured=requireCall('A0ThreeChannelTubeOccupancyBenchController','capture');if(!captured?.captured)throw Error(captured?.status||'Tube capture bleibt HOLD');const replayed=requireCall('A0ThreeChannelTubeOccupancyBenchController','replay');if(!replayed?.replayed)throw Error(replayed?.status||'Tube replay bleibt HOLD');}
+      if(id==='joint-record'){const windowState=win.A0TesaLissajousWindowRouterController?.state,tubeState=win.A0ThreeChannelTubeOccupancyBenchController?.state;if(!windowState?.lastReplayed)throw Error('TESA replay receipt fehlt');if(!tubeState)throw Error('Tube state fehlt');}
     }
     async function originalAction(s){
       if(s.id.startsWith('family-grid-')){requireCall('A0FamilyGridCouplerController','setView',s.view);if(!reduced())requireCall('A0FamilyGridCouplerController','start');}else optional('A0FamilyGridCouplerController','pause');
@@ -291,10 +305,10 @@
       if(s.id==='division-return'){requireCall('A0DivisionReturnController','select','split');for(const action of ['A','B','bind','return'])if(requireCall('A0DivisionReturnController','command',action)===false)throw Error('Split-Return: '+action+' abgewiesen');}
       if(s.id.startsWith('finite-')){const source=win.A0BenchFiniteControllers?.[s.id.slice(7)];if(!source)throw Error('Finite Quelle nicht bereit');for(const action of ['READ','CAPTURE','STEP'])if(source.command(action)?.status==='HOLD')throw Error('Finite Quelle: '+action+' bleibt HOLD');if(!reduced())source.play();}
     }
-    function schedule(localToken){clearTimer();if(!state.running||pace===0)return;timer=win.setTimeout(async()=>{if(localToken!==token)return;if(state.index===STATIONS.length-1||state.index===rangeEnd){state={...state,running:false,completed:true};pausePlayers();status=rangeEnd!==null?'Blue/Pink → Maske vorgeführt · entkoppelt, kein Gesamt-Return.':'Alle Stationen besucht · kein Gesamtmaschinen-Return. Quellfenster behalten eigene Zustände.';emit('COMPLETE');render();return;}await visit(state.index+1,true);},pace);}
+    function schedule(localToken){clearTimer();if(!state.running||pace===0)return;timer=win.setTimeout(async()=>{if(localToken!==token)return;if(state.index===STATIONS.length-1||state.index===rangeEnd){state={...state,running:false,completed:true};pausePlayers();status=rangeEnd!==null?rangeLabel+' vorgeführt · source-bound, kein Gesamtmaschinen-Return.':'Alle Stationen besucht · kein Gesamtmaschinen-Return. Quellfenster behalten eigene Zustände.';emit('COMPLETE');render();return;}await visit(state.index+1,true);},pace);}
     async function visit(index,running=false){
       if(!Number.isInteger(index)||index<0||index>=STATIONS.length)throw Error('invalid station index');
-      const localToken=++token;clearTimer();cancelWait();pausePlayers(STATIONS[index].id.startsWith('clock-'));optional('A0MaskClockBench','focus',false);if(rangeEnd!==null&&(index>rangeEnd||!STATIONS[index].id.startsWith('clock-')))rangeEnd=null;state={running,index,completed:false};
+      const localToken=++token;clearTimer();cancelWait();pausePlayers(STATIONS[index].id.startsWith('clock-'));optional('A0MaskClockBench','focus',false);if(rangeEnd!==null&&(index<rangeStart||index>rangeEnd)){rangeStart=null;rangeEnd=null;rangeLabel=null;}state={running,index,completed:false};
       focus?.classList.remove('bench-tour-focus');const station=STATIONS[index],target=el(station.target);
       status='Bedienung läuft · '+station.title;render();
       try{
@@ -311,10 +325,13 @@
       if(localToken!==token)return;emit('STATION',station);render();schedule(localToken);
     }
     function pause(){token++;clearTimer();cancelWait();state={...state,running:false};pausePlayers();status='PAUSE · selbst bedienen oder mit Weiter fortfahren. Bereits gesendete Quellanfragen sind nicht zurückgenommen; Quellfenster können eigene Uhren haben.';emit('PAUSE');render();}
-    async function begin(){if(state.index<0||state.completed){rangeEnd=null;return visit(0,true);}if(STATIONS[state.index]?.id.startsWith('clock-')&&!['clock-source','clock-disconnect'].includes(STATIONS[state.index].id)&&!win.A0MaskClockBench?.connected)return visit(STATIONS.findIndex(s=>s.id==='clock-connect'),true);state={...state,running:true,completed:false};status='FORTSETZEN · aktuelle Station bleibt unverändert; zum Wiederholen erneut in der Liste wählen.';emit('PLAY');render();schedule(token);}
+    async function begin(){if(state.index<0||state.completed){rangeStart=null;rangeEnd=null;rangeLabel=null;return visit(0,true);}if(STATIONS[state.index]?.id.startsWith('clock-')&&!['clock-source','clock-disconnect'].includes(STATIONS[state.index].id)&&!win.A0MaskClockBench?.connected)return visit(STATIONS.findIndex(s=>s.id==='clock-connect'),true);state={...state,running:true,completed:false};status='FORTSETZEN · aktuelle Station bleibt unverändert; zum Wiederholen erneut in der Liste wählen.';emit('PLAY');render();schedule(token);}
     const toggle=()=>state.running?pause():begin();
-    function startClockDemo(){rangeEnd=STATIONS.findIndex(s=>s.id==='clock-disconnect');return visit(STATIONS.findIndex(s=>s.id==='clock-source'),true);}
+    function startRange(first,last,label){rangeStart=STATIONS.findIndex(s=>s.id===first);rangeEnd=STATIONS.findIndex(s=>s.id===last);rangeLabel=label;return visit(rangeStart,true);}
+    function startClockDemo(){return startRange('clock-source','clock-disconnect','Blue/Pink → Maske');}
+    function startJointDemo(){return startRange('joint-cut','joint-record','Joint → TESA → Tube → Record');}
     for(const id of ['benchTourClockDemo','benchTourClockDemoTop'])el(id)?.addEventListener('click',startClockDemo);
+    for(const id of ['benchTourJointDemo','benchTourJointDemoTop'])el(id)?.addEventListener('click',startJointDemo);
     for(const id of ['benchTourStart','benchTourTop','benchTourDockPlay'])el(id)?.addEventListener('click',toggle);
     el('benchTourPrev')?.addEventListener('click',()=>visit(Math.max(0,state.index-1),false));
     el('benchTourNext')?.addEventListener('click',()=>{if(state.index===STATIONS.length-1||state.index===rangeEnd){pause();state.completed=true;render();}else visit(Math.max(0,state.index+1),false);});
@@ -330,7 +347,7 @@
     win.addEventListener?.('blur',()=>{if(state.running)pause();});
     if(el('benchTourStation'))el('benchTourStation').innerHTML=STATIONS.map((s,i)=>'<option value="'+i+'">'+String(i+1).padStart(2,'0')+' · '+s.chapter+' / '+s.title+'</option>').join('');
     progress.innerHTML=STATIONS.map(()=>'<i></i>').join('');render();
-    return Object.freeze({start:begin,pause,visit,startClockDemo,get state(){return{...state}},stations:STATIONS});
+    return Object.freeze({start:begin,pause,visit,startClockDemo,startJointDemo,get state(){return{...state}},stations:STATIONS});
   }
   const OVERVIEW=Object.freeze([
     {target:'bodyRouteBench',title:'1 · Die Körper',copy:'Hier liegen die Originalkörper. Du kannst ein Quellfenster öffnen; der Rundgang lädt und startet es nicht.'},

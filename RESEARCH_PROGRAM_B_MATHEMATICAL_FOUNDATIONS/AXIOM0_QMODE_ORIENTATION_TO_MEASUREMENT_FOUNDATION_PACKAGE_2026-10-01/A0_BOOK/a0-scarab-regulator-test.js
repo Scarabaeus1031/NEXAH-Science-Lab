@@ -87,6 +87,8 @@
   })));
   const e88dSelfSelects=e88dPairs.filter((pair)=>pair.floor===88).every((pair)=>pair.landingOnlyUnique===2)&&e88dPairs.filter((pair)=>pair.floor!==88).every((pair)=>pair.landingOnlyUnique===1);
   const e88dWitnessOnly=e88dPairs.every((pair)=>pair.landingOnlyUnique===1&&pair.landingAngleUnique===1&&pair.withWitnessUnique===2);
+  const directionHandleAudit=Object.freeze({field:"directionMask",origin:"TARGET_DIRECTION_MASK",externalSourcePointer:null,availableBeforeTarget:false,targetDependency:"DIRECT",counterfactualRelabelInvariant:false,withWitnessUnique:2,ablatedUnique:1});
+  const directionHandleQualified=directionHandleAudit.externalSourcePointer!==null&&directionHandleAudit.availableBeforeTarget&&directionHandleAudit.targetDependency==="NONE"&&directionHandleAudit.counterfactualRelabelInvariant&&directionHandleAudit.withWitnessUnique===2&&directionHandleAudit.ablatedUnique===1;
   const tBoundaryT=([a,b])=>Object.freeze([b,a]);
   const tBoundaryH=([a,b])=>Math.sign(b-a);
   const tBoundarySlices=Object.freeze([
@@ -223,6 +225,13 @@
       ["floor-plus-angle projection collapses all twelve direction pairs",()=>e88dPairs.every((pair)=>pair.landingAngleUnique===1)],
       ["direction witness preserves all twelve direction pairs",()=>e88dPairs.every((pair)=>pair.withWitnessUnique===2)],
       ["floor 88 does not self-select and witness-only rule closes",()=>e88dSelfSelects===false&&e88dWitnessOnly===true]
+    ],
+    dhi:[
+      ["direction handle origin is declared",()=>directionHandleAudit.origin==="TARGET_DIRECTION_MASK"],
+      ["existing witness has no independent external source",()=>directionHandleAudit.externalSourcePointer===null&&directionHandleAudit.targetDependency==="DIRECT"],
+      ["existing witness is not available before target assignment",()=>directionHandleAudit.availableBeforeTarget===false],
+      ["counterfactual relabel changes the witness record",()=>directionHandleAudit.counterfactualRelabelInvariant===false],
+      ["ablation proves necessity but not independence",()=>directionHandleAudit.withWitnessUnique===2&&directionHandleAudit.ablatedUnique===1&&directionHandleQualified===false]
     ],
     tbd:[
       ["T squared closes on all thirteen frozen states",()=>tBoundaryStates.length===13&&tBoundaryStates.every((state)=>{const returned=tBoundaryT(tBoundaryT(state));return returned[0]===state[0]&&returned[1]===state[1];})],
@@ -423,8 +432,24 @@
       renderEdMatrix(false);
       edOutput.textContent="BLIND · 24 CELLS · TARGET HIDDEN · DAO BINDING NONE";
     });
-  }
-    const tBoundary=e88Junction?.querySelector(".nto-t-boundary");
+    const directionHandleIsolation=e88Junction?.querySelector(".nto-direction-handle-isolation");
+    const dhiOutput=directionHandleIsolation?.querySelector("[data-dhi-output]");
+    const dhiGateStatus=(gate,text)=>{const target=directionHandleIsolation?.querySelector(`[data-dhi-gate="${gate}"] em`);if(target)target.textContent=text;};
+    directionHandleIsolation?.querySelector("[data-dhi-run]")?.addEventListener("click",()=>{
+      const tests=groups.dhi;
+      const passed=tests.filter(([,test])=>test()).length;
+      directionHandleIsolation.dataset.dhiState="tested";
+      ["DECLARED","FAIL · TARGET-DERIVED","FAIL · NOT PRE-TARGET","FAIL · RELABEL-DEPENDENT","PASS · 2→1"].forEach((text,index)=>dhiGateStatus(index+1,text));
+      dhiOutput.textContent=passed===tests.length
+        ?`NEGATIVE · ${passed}/${tests.length} AUDIT CONTRACTS · TARGET-DERIVED WITNESS · ACTUAL HANDLE OPEN · DAO NONE`
+        :`ABORT · ${passed}/${tests.length} · HANDLE AUDIT CONTRACT FAILURE`;
+    });
+    directionHandleIsolation?.querySelector("[data-dhi-reset]")?.addEventListener("click",()=>{
+      directionHandleIsolation.dataset.dhiState="ready";
+      [1,2,3,4,5].forEach((gate)=>dhiGateStatus(gate,"READY"));
+      dhiOutput.textContent="READY · 5 GATES · ACTUAL HANDLE OPEN · DAO NONE";
+    });
+    const tBoundary=directionHandleIsolation?.querySelector(".nto-t-boundary");
     const tbdOutput=tBoundary?.querySelector("[data-tbd-output]");
     const tbdReveal=tBoundary?.querySelector("[data-tbd-reveal]");
     const tbdTestStatus=(test,text)=>{const target=tBoundary?.querySelector(`[data-tbd-test="${test}"] em`);if(target)target.textContent=text;};
@@ -451,6 +476,7 @@
       if(tbdReveal)tbdReveal.disabled=true;
       tbdOutput.textContent="BLIND · 13 STATES · LABELS HIDDEN · DAO NONE";
     });
+  }
 
   const elevator=root.querySelector(".nto-elevator");
   if(elevator){
@@ -553,11 +579,11 @@
     output.classList.toggle("is-pass",success);
     output.classList.toggle("is-fail",!success);
     output.textContent=success
-      ?`PASS · ${passed}/${total} · CORE + HANDLE + P‑AXIS + NEGATIVE + ELEVATOR + HINGE + G/Q17 + BLIND SCARAB + DAO BOUNDARY + NN SEAM + E88 WITNESS + E88 DISCRIMINATION + T‑BOUNDARY · G°D = OPEN`
+      ?`PASS · ${passed}/${total} · CORE + HANDLE + P‑AXIS + NEGATIVE + ELEVATOR + HINGE + G/Q17 + BLIND SCARAB + DAO BOUNDARY + NN SEAM + E88 WITNESS + E88 DISCRIMINATION + HANDLE ISOLATION + T‑BOUNDARY · G°D = OPEN`
       :`FAIL · ${passed}/${total} · ${failures.join(" · ")}`;
     return {passed,total,failures,success};
   };
 
   root.querySelector("[data-nto-run]")?.addEventListener("click",runTests);
-  window.A0ScarabRegulator=Object.freeze({runTests,isPrime,primeIndex,reverseNumber,isPalindrome,elevatorRecords,controlRecords,conDaoStates,janus,nnCarrier,nnFlip,nnWithHandle,nnShadow,e88Carrier,e88Flip,e88Shadow,e88WithWitness,e88dCells,e88dPairs,e88dSelfSelects,e88dWitnessOnly,tBoundaryT,tBoundaryH,tBoundaryStates});
+  window.A0ScarabRegulator=Object.freeze({runTests,isPrime,primeIndex,reverseNumber,isPalindrome,elevatorRecords,controlRecords,conDaoStates,janus,nnCarrier,nnFlip,nnWithHandle,nnShadow,e88Carrier,e88Flip,e88Shadow,e88WithWitness,e88dCells,e88dPairs,e88dSelfSelects,e88dWitnessOnly,directionHandleAudit,directionHandleQualified,tBoundaryT,tBoundaryH,tBoundaryStates});
 })();

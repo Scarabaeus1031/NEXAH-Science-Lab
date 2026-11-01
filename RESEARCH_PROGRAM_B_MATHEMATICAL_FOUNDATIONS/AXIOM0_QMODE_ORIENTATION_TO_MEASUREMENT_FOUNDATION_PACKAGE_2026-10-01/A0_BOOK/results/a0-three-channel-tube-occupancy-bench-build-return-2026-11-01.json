@@ -1,0 +1,22 @@
+{
+  "schema": "nexah.a0.three-channel-tube-occupancy-bench-build-return/1",
+  "date": "2026-11-01",
+  "status": "IMPLEMENTED_LOCAL_SOURCE_BOUND_PASS",
+  "scope": "Interactive Bench projection of the accepted three-channel Tube Occupancy source-bound addendum.",
+  "parent_receipt": {
+    "path": "results/a0-three-channel-tube-occupancy-source-bound-addendum-2026-11-01.json",
+    "sha256": "db46a3c90e9b3287b261d0a2f1a578ac8af3be12c786c3cdef1e3b15827ad9aa"
+  },
+  "implementation": {
+    "anchor": "A0_ORIENTATION_CONTROLLER_BENCH.html#threeChannelTubeOccupancyBench",
+    "html_sha256": "414f9db65f89d2ef7b9a9ea4da4fc8de0bbd54bd78a365d4c7329c851a8a5364",
+    "javascript": {"path": "a0-three-channel-tube-occupancy-bench.js", "sha256": "cb7e546c75d51b21b71efde66b8a519cd1bcb9bbbcd82f2e67cee780e55155b7"},
+    "stylesheet": {"path": "a0-three-channel-tube-occupancy-bench.css", "sha256": "c313bc8f96cb25a18ccd9e049130ace509d787497df818993c613722d61bc949"},
+    "test": {"path": "a0-three-channel-tube-occupancy-bench-tests.cjs", "sha256": "07036184822ca8d21e688e59bcf9f68f8e1b21d625ad3c910c827d69d41791b6", "result": "PASS 39/39"}
+  },
+  "controls": ["select occupancy bin", "drop or restore source", "capture", "tamper demo", "exact replay", "run checks 1-6"],
+  "reused_identities": ["NEXAH_A0_ORIENTATION_CONTROLLER_BENCH", "SG:LENS:ILAU_ORIENTATION", "NEXAH:A0_ORIENTATION_EVIDENCE_LINEAGE:V1"],
+  "graph_delta": {"new_ids": 0, "new_aliases": 0, "new_relations": 0, "new_studies": 0, "new_findings": 0},
+  "runtime_boundary": {"bench_view_delta": true, "source_mutation": false, "feedback": false, "tesa_lissajous_capture_replay": "UNCHANGED"},
+  "claim_boundary": "The module is a deterministic local Bench view. Occupancy bins are display addresses, the violet joint is a derived arithmetic witness, and neither establishes a physical tube mechanism or new scientific identity."
+}

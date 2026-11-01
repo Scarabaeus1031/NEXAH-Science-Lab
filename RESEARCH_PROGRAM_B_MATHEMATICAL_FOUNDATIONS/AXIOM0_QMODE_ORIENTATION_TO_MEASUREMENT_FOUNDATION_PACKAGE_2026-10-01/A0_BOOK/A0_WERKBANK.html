@@ -51,7 +51,7 @@
 </svg>
 <figcaption><b>P‑PALINDROME AXIS</b><span><code>1087=p181</code> und <code>3301=p464</code>: beide Primindizes sind Palindrome. Das ist ein exakter Sortierbefund; „Elevator“, „Gate“ und „Regulator“ bleiben Orientierungsrollen.</span></figcaption>
 <div class="nto-test-console">
-<button type="button" data-nto-run>103 VERTRÄGE PRÜFEN</button>
+<button type="button" data-nto-run>108 VERTRÄGE PRÜFEN</button>
 <output data-nto-output aria-live="polite">Bereit · Core, Handle, P‑Achse und Negativkontrollen sind getrennt prüfbar.</output>
 <div class="nto-test-ledger" aria-label="Scarab-Regulator Prüfgruppen">
 <span data-nto-result="core"><b>CORE</b><em>1031 · 1032 · 1033</em></span>
@@ -66,6 +66,7 @@
 <span data-nto-result="nn"><b>NN SEAM</b><em>5 SYMBOLIC CHECKS · HANDLE REQUIRED</em></span>
 <span data-nto-result="e88"><b>ELEVATOR 88</b><em>5 PRE-BIND CHECKS · DAO BINDING NONE</em></span>
 <span data-nto-result="e88d"><b>E88 DISCRIMINATION</b><em>24 BLIND CELLS · 10 CONTRACTS · NEGATIVE</em></span>
+<span data-nto-result="dhi"><b>HANDLE ISOLATION</b><em>5 GATES · TARGET-DERIVED · ACTUAL HANDLE OPEN</em></span>
 <span data-nto-result="tbd"><b>T-BOUNDARY</b><em>5 CHECKS · LOCAL HANDLE · GLOBAL UNIQUE ×</em></span>
 </div>
 </div>
@@ -196,12 +197,19 @@
 <div class="nto-ed-actions"><button type="button" data-ed-run>RUN BLIND 24</button><button type="button" data-ed-reveal disabled>REVEAL LABELS</button><button type="button" data-ed-reset>RESET BLIND</button></div>
 <p><b>STOP / ERKENNTNIS-CUT:</b> Etage 88 ist eine exakte Adresse, aber kein nachgewiesener Richtungsselektor. Auch die vier Winkelvarianten tragen ohne Richtungs-Handle keine Richtungsinformation. Der zusätzliche Witness ist <code>CANDIDATE</code>, weil er Richtung codiert statt herleitet. Folgefragen — G°D-Vertrag, Definition von N, tatsächliches Handle und Triple-Gate-Mapping — bleiben notiert und werden nicht automatisch gebaut. <a href="results/a0-elevator-88-discrimination-preregistration-2026-11-01.json">Preregistration ↗</a> <a href="results/a0-elevator-88-discrimination-return-2026-11-01.json">Result ↗</a></p>
 </section>
+<section class="nto-direction-handle-isolation" data-dhi-state="ready" data-dhi-dao-binding="none" aria-labelledby="ntoDirectionHandleIsolationTitle">
+<header><div><small>SEPARATE FOLLOW-UP GATE · SOURCE INDEPENDENCE</small><h6 id="ntoDirectionHandleIsolationTitle">Direction‑Handle Isolation</h6></div><output data-dhi-output aria-live="polite">READY · 5 GATES · ACTUAL HANDLE OPEN · DAO NONE</output></header>
+<div class="nto-dhi-flow" role="img" aria-label="The existing direction mask is derived from the target label. It passes origin declaration and ablation necessity but fails externality, pre-target availability and counterfactual invariance."><article><small>CURRENT WITNESS</small><b>directionMask</b><span>MASK_A / MASK_B</span></article><i>→</i><article class="is-negative"><small>PROVENANCE</small><b>TARGET-DERIVED</b><span>no external source pointer</span></article><i>→</i><article><small>ACTUAL HANDLE</small><b>OPEN</b><span>independent observation required</span></article></div>
+<ol class="nto-dhi-gates" aria-label="Five preregistered direction handle qualification gates"><li data-dhi-gate="1"><b>1 · ORIGIN</b><span>Quelle benennen</span><em>READY</em></li><li data-dhi-gate="2"><b>2 · EXTERNALITY</b><span>nicht aus Ziel‑Label</span><em>READY</em></li><li data-dhi-gate="3"><b>3 · PRE‑TARGET</b><span>vor Label vorhanden</span><em>READY</em></li><li data-dhi-gate="4"><b>4 · COUNTERFACTUAL</b><span>bei Relabel invariant</span><em>READY</em></li><li data-dhi-gate="5"><b>5 · NECESSITY</b><span>Ablation 2→1</span><em>READY</em></li></ol>
+<div class="nto-dhi-actions"><button type="button" data-dhi-run>RUN HANDLE GATE</button><button type="button" data-dhi-reset>RESET</button></div>
+<p><b>NEGATIVE QUALIFICATION RULE:</b> Notwendigkeit allein genügt nicht. Der vorhandene Witness trennt zwei Records, weil er das Ziel‑Token direkt trägt. Er ist daher kein unabhängiges Handle. G, D, N, DAO und Triple Gate bleiben ungebunden. <a href="results/a0-direction-handle-isolation-preregistration-2026-11-01.json">Preregistration ↗</a> <a href="results/a0-direction-handle-isolation-return-2026-11-01.json">Result ↗</a></p>
 <section class="nto-t-boundary" data-tbd-state="blind" data-tbd-dao-binding="none" aria-labelledby="ntoTBoundaryTitle">
 <header><div><small>ORDERED PAIR · TRANSPOSE · BLIND SIDE TEST</small><h6 id="ntoTBoundaryTitle">T‑Boundary Discrimination</h6></div><output data-tbd-output aria-live="polite">BLIND · 13 STATES · LABELS HIDDEN · DAO NONE</output></header>
 <div class="nto-tbd-stage" role="img" aria-label="The ordered digit pairs seven-nine, eight-eight and nine-seven lie on the sum-sixteen slice. T swaps the outer pair and fixes eight-eight; the signed handle is plus one, zero and minus one."><article><small>SIDE +</small><b>7|9</b><span>79 · h=+1</span></article><i>⇄ T</i><article class="is-fixed"><small>BOUNDARY</small><b>8|8</b><span>88 · h=0</span></article><i>T ⇄</i><article><small>SIDE −</small><b>9|7</b><span>97 · h=−1</span></article></div>
 <ol class="nto-tbd-tests" aria-label="Five preregistered T-boundary tests"><li data-tbd-test="1"><b>1 · INVOLUTION</b><span>T²=id · 13 states</span><em>READY</em></li><li data-tbd-test="2"><b>2 · SIGN</b><span>h(Tx)=−h(x)</span><em>READY</em></li><li data-tbd-test="3"><b>3 · LOCAL FIX</b><span>8|8 unique in Σ16</span><em>READY</em></li><li data-tbd-test="4"><b>4 · PRELABEL</b><span>digits only</span><em>READY</em></li><li data-tbd-test="5"><b>5 · CONTROLS</b><span>6|6 · 7|7 fixed</span><em>READY</em></li></ol>
 <div class="nto-tbd-actions"><button type="button" data-tbd-run>RUN T 1–5</button><button type="button" data-tbd-reveal disabled>REVEAL VIEW LABELS</button><button type="button" data-tbd-reset>RESET</button></div>
 <p><b>BOUNDARY:</b> <code>T(a,b)=(b,a)</code> und <code>h=sign(b−a)</code> sind lokale Testdefinitionen, keine neue kanonische Operator‑Identität. <code>8|8</code> ist nur innerhalb <code>a+b=16</code> der eindeutige Fixpunkt; <code>6|6</code> und <code>7|7</code> widerlegen globale Einzigartigkeit. Inside/Outside, GOD/DOG, G°D/D°G, NN und DAO bleiben ungebunden. <a href="results/a0-t-boundary-discrimination-preregistration-2026-11-01.json">Preregistration ↗</a> <a href="results/a0-t-boundary-discrimination-return-2026-11-01.json">Result ↗</a></p>
+</section>
 </section>
 </section>
 </section>

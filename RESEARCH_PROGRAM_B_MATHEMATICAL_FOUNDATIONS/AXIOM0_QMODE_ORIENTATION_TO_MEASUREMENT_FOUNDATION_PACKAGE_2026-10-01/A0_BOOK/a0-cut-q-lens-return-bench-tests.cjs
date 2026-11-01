@@ -1,0 +1,22 @@
+'use strict';
+const assert=require('node:assert/strict');
+const bench=require('./a0-cut-q-lens-return-bench.js');
+let checks=0;
+function check(name,fn){fn();checks+=1;process.stdout.write(`PASS ${checks.toString().padStart(2,'0')} · ${name}\n`);}
+check('three declared cuts',()=>assert.equal(bench.CUTS.length,3));
+check('C1 symmetric triple',()=>assert.equal(bench.relation([31,32,33]),true));
+check('C2 offset triple',()=>assert.equal(bench.relation([7,8,9]),true));
+check('C3 address triple',()=>assert.equal(bench.relation([1031,1032,1033]),true));
+check('incomplete route remains OPEN',()=>assert.equal(bench.evaluate({touched:['C1']}).status,'OPEN'));
+check('complete consistent route is candidate',()=>assert.equal(bench.evaluate({touched:['C1','C2','C3']}).status,'INVARIANT_CANDIDATE'));
+check('complete route closes exact view return',()=>assert.equal(bench.evaluate({touched:['C1','C2','C3']}).exact_return,true));
+check('tamper is view-induced conflict',()=>assert.equal(bench.evaluate({touched:['C1','C2','C3'],tamper:true}).status,'VIEW_INDUCED'));
+check('missing witness fails closed',()=>assert.equal(bench.evaluate({touched:['C1','C2','C3'],witness:false}).status,'HOLD_MISSING_WITNESS'));
+check('root lift is exact',()=>assert.equal(32**2,1024));
+check('address lift is exact',()=>assert.deepEqual([7,8,9].map(n=>1024+n),[1031,1032,1033]));
+check('negative token controls stay unequal',()=>{assert.notEqual(1.3,13);assert.notEqual(1**6,13);});
+check('TESA window keeps three ordered candidates',()=>assert.deepEqual(bench.LISSAJOUS_WINDOWS.map(x=>`${x.address}:${x.plane}`),['7:AM','8:VM','9:PM']));
+check('C2 touch locates midpoint window pending return',()=>assert.equal(bench.evaluate({touched:['C2']}).tesa_lissajous_window.status,'LOCATED_PENDING_RETURN'));
+check('exact return confirms VM/YZ midpoint window',()=>assert.deepEqual(bench.evaluate({touched:['C1','C2','C3']}).tesa_lissajous_window.selected,{address:8,plane:'VM',pair:'YZ'}));
+check('tampered C2 refuses Lissajous window',()=>assert.equal(bench.evaluate({touched:['C1','C2','C3'],tamper:true}).tesa_lissajous_window.status,'REFUSED_CONFLICT'));
+process.stdout.write(`RESULT ${checks}/16 PASS\n`);

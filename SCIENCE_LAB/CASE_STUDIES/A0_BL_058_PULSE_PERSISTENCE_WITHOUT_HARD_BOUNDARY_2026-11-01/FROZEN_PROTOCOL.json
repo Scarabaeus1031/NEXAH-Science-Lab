@@ -1,0 +1,45 @@
+{
+  "schema": "nexah.a0-bl-058.protocol.v1",
+  "study_id": "A0-BL-058",
+  "date": "2026-11-01",
+  "signal": {
+    "t_min": 0.0,
+    "t_max": 50.0,
+    "reference_dt": 0.02,
+    "drift_linear": -0.002,
+    "drift_quadratic": -0.0005,
+    "envelope_amplitude": 0.015,
+    "envelope_center": 16.0,
+    "envelope_scale": 4.0,
+    "sine_amplitude": 0.01,
+    "omega": 0.8
+  },
+  "boundary": {
+    "kind": "logistic_only",
+    "centers": [23.0, 25.0, 27.0],
+    "widths": [0.5, 1.0, 2.0, 4.0]
+  },
+  "event_window": [18.0, 32.0],
+  "sampling_dts": [0.01, 0.02, 0.04],
+  "fourier": {
+    "orders": [16, 32, 64, 128],
+    "windows": ["hann", "tukey_0_5"],
+    "phase_control_order": 128,
+    "detrend": "endpoint_chord"
+  },
+  "alpha_beta": {
+    "alpha": [63, 64],
+    "beta": [1, 64],
+    "centered_q": [31, 64]
+  },
+  "thresholds": {
+    "boundary_tracking_slope_min": 0.75,
+    "carrier_persistence_t_span_max": 0.5,
+    "sampling_t_span_max": 0.1,
+    "fourier_t_error_max": 0.25,
+    "phase_t_change_min": 0.5,
+    "phase_amplitude_relative_change_min": 0.2,
+    "reciprocal_tolerance": 1e-12
+  },
+  "claim_boundary": "Deterministic analytic/synthetic event-origin classification only; no physical breath, material dilation, energy, resonance field, consciousness, biology, universal ratio role, privileged basis, prediction, utility or publication claim."
+}

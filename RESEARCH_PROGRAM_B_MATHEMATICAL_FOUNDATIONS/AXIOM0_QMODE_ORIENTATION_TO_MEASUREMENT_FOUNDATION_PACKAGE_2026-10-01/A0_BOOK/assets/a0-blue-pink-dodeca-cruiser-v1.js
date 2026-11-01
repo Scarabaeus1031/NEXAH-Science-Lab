@@ -23,7 +23,7 @@
     Object.freeze({ id: "VIOLET", color: "#925cf4", wavelengthNm: 410 })
   ]);
   const SPECTRUM_LENSES = Object.freeze(["NEWTON", "LEIBNIZ", "GOETHE"]);
-  const CLAIM_BOUNDARY = "SOURCE_BOUND_DETERMINISTIC_VIEW_HANDOFF_HULL_FACE_TO_BLUE_ADDRESS_TO_PINK_APERTURE_CUT_TO_SEVEN_BAND_SPECTRUM_VIEW_TO_RETURN_CELL_NO_CALIBRATED_OPTICS_NO_NEW_BODY_IDENTITY_NO_SHARED_PHYSICAL_ENGINE_NO_NEW_GRAPH_RELATION";
+  const CLAIM_BOUNDARY = "SOURCE_BOUND_DETERMINISTIC_VIEW_HANDOFF_HULL_FACE_TO_BLUE_ADDRESS_TO_PINK_APERTURE_CUT_TO_SEVEN_BAND_SPECTRUM_VIEW_TO_RETURN_CELL_WITH_DECLARED_LOCAL_VECTOR_CLOSURE_P_EQUALS_A_PLUS_B_NOT_CA_IDENT_05_NO_CALIBRATED_OPTICS_NO_NEW_BODY_IDENTITY_NO_SHARED_PHYSICAL_ENGINE_NO_NEW_GRAPH_RELATION";
   const SOURCES = Object.freeze([
     "MOD:TESSAREC",
     "A0-VIEW-BLUE-BODY-DODECA-COUNTERSHOT",
@@ -77,12 +77,47 @@
     return Object.freeze({ clockStep, faceIndex, addressSlot, addressIndex, layer, channel, phaseIndex, phase: PHASES[phaseIndex], gateSignal, effectiveOpening, gateThreshold, cutOpen, cutDepth, spectrumIndex, spectrumBand, spectrumTransmission, returnCell, trace });
   }
 
+  function vectorClosureFor(route) {
+    const addressAngle = TAU * route.addressIndex / 48;
+    const apertureAngle = addressAngle + (route.cutOpen ? 1 : -1) * (Math.PI / 6 + route.effectiveOpening * Math.PI / 6);
+    const addressMagnitude = 0.58 + 0.08 * route.addressSlot;
+    const apertureMagnitude = 0.22 + 0.38 * route.effectiveOpening;
+    const A = Object.freeze([
+      addressMagnitude * Math.cos(addressAngle),
+      addressMagnitude * Math.sin(addressAngle)
+    ]);
+    const B = Object.freeze([
+      apertureMagnitude * Math.cos(apertureAngle),
+      apertureMagnitude * Math.sin(apertureAngle)
+    ]);
+    const P = Object.freeze([A[0] + B[0], A[1] + B[1]]);
+    const error = Math.hypot(P[0] - (A[0] + B[0]), P[1] - (A[1] + B[1]));
+    const orientation = A[0] * B[1] - A[1] * B[0];
+    return Object.freeze({
+      kind: "SOURCE_BOUND_LOCAL_VIEW_OVERLAY",
+      equation: "P=A+B",
+      frame: "DECLARED_LOCAL_VIEW_COORDINATES",
+      A,
+      B,
+      P,
+      error,
+      exact: error === 0,
+      orientationSign: Math.sign(orientation),
+      outsideIn: Object.freeze(["HULL", "ADDRESS", "APERTURE"]),
+      insideOut: Object.freeze(["APERTURE", "SPECTRUM", "RETURN"]),
+      returnCell: route.returnCell.cell_id,
+      sourceBound: true,
+      caIdent05: false
+    });
+  }
+
   function assemblyState(input = {}) {
     if (!H3 || !Cell || !Blue || !Interior) throw new Error("Cruiser source modules are not available");
     const controls = normalizeControls(input);
     const dodeca = H3.buildDodecahedron();
     const blue = Blue.buildShell();
     const route = routeFor(controls);
+    const vectorClosure = vectorClosureFor(route);
     const phase = Math.min(11, route.faceIndex);
     const frame = Interior.frame(route.layer, route.channel, phase, route.effectiveOpening);
     const apertureAngle = -(TAU * controls.progress * 0.75 + route.channel / 16 * TAU);
@@ -95,6 +130,7 @@
       body: Object.freeze({ vertexCount: blue.vertices.length, faceCount: blue.faces.length, edgeCount: blue.edgeOwners.size, layer: route.layer, channel: route.channel, frame, angle: TAU * controls.progress * 0.5 }),
       aperture: Object.freeze({ role: Cell.buildPinkDiamondRoleContract(), requestedOpening: controls.aperture, openness: route.effectiveOpening, angle: apertureAngle, gateSignal: route.gateSignal, gateThreshold: route.gateThreshold, cutOpen: route.cutOpen, cutDepth: route.cutDepth }),
       spectrum: Object.freeze({ lens: controls.spectrumLens, bands: SPECTRUM, activeIndex: route.spectrumIndex, activeBand: route.spectrumBand, transmission: route.spectrumTransmission, status: route.cutOpen ? "SPECTRUM_PASS" : "SPECTRUM_HOLD" }),
+      vectorClosure,
       returnCell: route.returnCell,
       rotations: Object.freeze({ hull: TAU * controls.progress, body: TAU * controls.progress * 0.5, aperture: apertureAngle }),
       sources: SOURCES,
@@ -129,6 +165,21 @@
         spectrumTransmission: state.spectrum.transmission,
         trace: state.route.trace
       }),
+      vectorClosure: Object.freeze({
+        kind: state.vectorClosure.kind,
+        equation: state.vectorClosure.equation,
+        frame: state.vectorClosure.frame,
+        A: state.vectorClosure.A,
+        B: state.vectorClosure.B,
+        P: state.vectorClosure.P,
+        error: state.vectorClosure.error,
+        exact: state.vectorClosure.exact,
+        outsideIn: state.vectorClosure.outsideIn,
+        insideOut: state.vectorClosure.insideOut,
+        returnCell: state.vectorClosure.returnCell,
+        sourceBound: state.vectorClosure.sourceBound,
+        caIdent05: state.vectorClosure.caIdent05
+      }),
       counts: Object.freeze({ hullFaces: 12, hullEdges: 30, hullVertices: 20, blueAddresses: 48, blueLayers: 3, blueChannels: 16, returnCells: 60 }),
       displaySynchronization: Object.freeze({ clock: "SHARED_DISPLAY_CLOCK", hullDirection: 1, bodyDirection: 0.5, apertureDirection: -0.75 }),
       sourceIdentities: SOURCES,
@@ -154,10 +205,14 @@
       exactTwelveByFourBinding: routes.length === 48 && addressKeys.size === 48 && routePairs.size === 48,
       returnFacePreserved: routes.every((state) => state.returnCell.cell_id === `RETURN-00:F${String(state.hull.faceIndex + 1).padStart(2, "0")}`),
       exactSevenBandSpectrum: routes.every((state) => state.spectrum.bands.length === 7 && state.spectrum.activeIndex === state.route.addressIndex % 7),
+      exactVectorClosure: routes.every((state) => state.vectorClosure.exact && state.vectorClosure.error === 0 && state.vectorClosure.P[0] === state.vectorClosure.A[0] + state.vectorClosure.B[0] && state.vectorClosure.P[1] === state.vectorClosure.A[1] + state.vectorClosure.B[1]),
+      vectorReturnPreserved: routes.every((state) => state.vectorClosure.returnCell === state.returnCell.cell_id),
+      directionalRoutesDeclared: routes.every((state) => state.vectorClosure.outsideIn.join("→") === "HULL→ADDRESS→APERTURE" && state.vectorClosure.insideOut.join("→") === "APERTURE→SPECTRUM→RETURN"),
+      caIdentitySeparated: routes.every((state) => state.vectorClosure.caIdent05 === false),
       noIdentityMerge: receipt.newCanonicalIds.length === 0 && receipt.relationChanges.length === 0,
       claimBoundary: CLAIM_BOUNDARY
     });
   }
 
-  return { MODES, PHASES, SPECTRUM, SPECTRUM_LENSES, SOURCES, CLAIM_BOUNDARY, normalizeControls, routeFor, assemblyState, assemblyReceipt, validate, wrap };
+  return { MODES, PHASES, SPECTRUM, SPECTRUM_LENSES, SOURCES, CLAIM_BOUNDARY, normalizeControls, routeFor, vectorClosureFor, assemblyState, assemblyReceipt, validate, wrap };
 });

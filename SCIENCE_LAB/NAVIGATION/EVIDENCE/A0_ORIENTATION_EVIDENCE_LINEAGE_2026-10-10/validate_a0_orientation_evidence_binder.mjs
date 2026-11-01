@@ -154,6 +154,23 @@ for (const item of canonicalFlagship?.chain || []) {
     expect(target.startsWith(ecosystemRoot + path.sep) && fs.existsSync(target), `canonical flagship route exists: ${relative}`);
   }
 }
+const pulsePersistence = binder.pulse_persistence_boundary_phase_return_20261101;
+expect(pulsePersistence?.status === "BOUNDARY_LOCKED_SMOOTH_EVENT_AWAITING_OWNER_DISPOSITION", "A0-BL-058 visible return status");
+expect(pulsePersistence?.classification === "BOUNDARY_LOCKED_SMOOTH_EVENT" && pulsePersistence?.qualifier === "PHASE_COHERENT_ONLY", "A0-BL-058 classification and phase qualifier");
+expect(pulsePersistence?.identity_reuse?.join(",") === "NEXAH:A0_ORIENTATION_EVIDENCE_LINEAGE:V1,MOD:NUMBER_VIEW_SUITE", "A0-BL-058 reuses existing A0 evidence and Number View identities");
+expect(pulsePersistence?.metrics?.alpha === "63/64" && pulsePersistence?.metrics?.beta === "1/64" && pulsePersistence?.metrics?.phase_event_time_shift === 2.92, "A0-BL-058 alpha beta and phase metrics");
+expect(pulsePersistence?.new_canonical_ids?.length === 0 && pulsePersistence?.relation_changes?.length === 0 && pulsePersistence?.finding_or_manuscript_effect === "NONE" && pulsePersistence?.publication_or_deployment === "NONE", "A0-BL-058 projection creates no identity relation Finding publication or deployment");
+expect(pulsePersistence?.sources?.length === 4, "A0-BL-058 projection binds four result authorities");
+for (const source of pulsePersistence?.sources || []) {
+  const sourcePath = path.resolve(ecosystemRoot, source.ecosystem_path);
+  expect(sourcePath.startsWith(ecosystemRoot + path.sep) && fs.existsSync(sourcePath), `A0-BL-058 source exists: ${source.ecosystem_path}`);
+  if (fs.existsSync(sourcePath)) expect(hash(sourcePath) === source.sha256, `A0-BL-058 source hash matches: ${source.ecosystem_path}`);
+}
+for (const [routeName, route] of Object.entries(pulsePersistence?.routes || {})) {
+  const routePath = String(route).split("#")[0];
+  const target = path.resolve(ecosystemRoot, "30 SCIENCE LAB/NEXAH-Science-Lab/SCIENCE_LAB/NAVIGATION/APP", routePath);
+  expect(target.startsWith(ecosystemRoot + path.sep) && fs.existsSync(target), `A0-BL-058 app route exists: ${routeName}`);
+}
 expect(binder.reader_architecture?.status === "EDITORIAL_NAVIGATION_FRAME_NO_NEW_IDENTITY", "A0 reader architecture status");
 expect(binder.reader_architecture?.works?.length === 6, "six A0 reader works");
 expect(binder.reader_architecture?.works?.map((item) => item.label).join("→") === "A0 Book→Mathfield→Pascal Joint→SCC-003 Paper→Return Paper→Backlog", "A0 reader work order");

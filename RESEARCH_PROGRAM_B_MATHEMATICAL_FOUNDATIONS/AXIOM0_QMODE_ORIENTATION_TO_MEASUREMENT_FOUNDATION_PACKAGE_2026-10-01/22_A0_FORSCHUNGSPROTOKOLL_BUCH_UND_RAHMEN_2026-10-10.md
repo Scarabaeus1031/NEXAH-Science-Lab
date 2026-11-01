@@ -2450,3 +2450,79 @@ Boundary: Rootroom/Codon, Torus, Möbius, biological and physical-resonance
 readings remain `CANDIDATE/HOLD`. No new identity, relation, Study, F‑A0
 Finding, paper state or publication authorization.
 
+<a id="cut-q-lens-touch-receipt-field-note-20261101"></a>
+### 2026-11-01 — Cut, Q°-Linse, Touch Point und Return Receipt
+
+Die Owner-Lesung der drei verbundenen Ansichten wird als source-bound
+Feldnotiz festgehalten. Sie erweitert keine A0-, Bench- oder
+Navigator-Identität. Das sichtbare `L`, die vorhandene L-Shell/L-Seam und die
+indizierte Schreibweise `L_i` bleiben Darstellungs- und Verbindungsrollen; sie
+werden nicht still zu einem gemeinsamen mathematischen oder physikalischen
+Operator erklärt.
+
+Der minimale Vertrag lautet:
+
+```text
+F --C_i--> V_i --L_i^(Q°)--> O_i --tau_i--> R_i
+```
+
+- `F` ist das gehaltene Source Field;
+- `C_i` ist ein deklarierter Cut;
+- `V_i` ist die daraus erzeugte lokale Ansicht;
+- `L_i^(Q°)` ist die typisierte Q°-Beobachtungslinse;
+- `O_i` ist ihr sichtbares Readout;
+- `tau_i` ist der lokale Touch Point zwischen Ansicht und Rückgabe;
+- `R_i` ist das revisiongebundene Return Receipt.
+
+Das Receipt muss mindestens
+
+```text
+(source, cut, Q°-configuration, readout, status, witness)
+```
+
+halten. Ein Bildausschnitt, eine Lupe, eine Hex-/Glyphenfolge und eine
+Sprechblase werden dadurch nicht automatisch identisch: die Lupe bleibt
+`TOKEN / ADDRESS VIEW`, die Sprechblase `SEMANTIC READOUT`, und erst ein
+vollständiges Receipt darf die Verbindung als nachvollziehbaren Return
+ausweisen.
+
+Für die im Gespräch als „Emergenz aus dem Feld“ bezeichnete Beobachtung gilt
+die folgende begrenzte Klassifikation:
+
+```text
+SOURCE_RETAINED       direkt aus F rekonstruierbar
+VIEW_INDUCED          abhängig von Cut oder Linse
+INVARIANT_CANDIDATE   über mehrere nichtidentische Cuts stabil
+OPEN                  Witness oder Gegenkontrolle fehlt
+```
+
+Ein sichtbares Merkmal `E` darf nur dann als Kandidateninvariant geführt
+werden, wenn es in mindestens drei deklarierten, nichtidentischen Ansichten
+erhalten bleibt,
+
+```text
+E(C_1(F)) = E(C_2(F)) = E(C_3(F)),
+```
+
+und Relabeling-, alternative-Cut- und unvollständige-Witness-Kontrollen
+übersteht. Diese Bedingung ist ein Prüfvertrag, kein bereits bestandenes
+Resultat.
+
+Vorgesehene Werkbankführung:
+
+```text
+CUT -> Q° LENS -> TOUCH -> RECEIPT -> EXACT RETURN / AMBIGUOUS / HOLD
+```
+
+Sie soll die vorhandene Identität `NEXAH_A0_ORIENTATION_CONTROLLER_BENCH`,
+die bestehende Q°-Beobachtungskonfiguration und die A0-Machina-L-/L-Shell-
+Ansichten wiederverwenden. Ein späterer Engineering-Einbau benötigt einen
+deterministischen Receipt-Test, negative Kontrollen sowie getrennte Builder-
+und Science-Desk-Rückgaben. Bis dahin bleibt dies eine dokumentarische
+Formalisierung unter `STRUCTURE_FREEZE`.
+
+Status:
+`SOURCE_BOUND_FIELD_NOTE / FORMAL_DESIGN_ONLY / THREE_VIEW_CONTRACT /
+NO_EXECUTION / NO_NEW_ID / NO_NEW_RELATION / NO_STUDY / NO_FINDING /
+NO_PUBLICATION`.
+

@@ -1,0 +1,45 @@
+{
+  "schema": "nexah.a0.direction-handle-isolation.preregistration/1",
+  "preregistration_id": "A0_DIRECTION_HANDLE_ISOLATION_2026_11_01",
+  "date": "2026-11-01",
+  "status": "FROZEN_BEFORE_AUDIT",
+  "method_class": "BOUNDED_ENGINEERING_CONTRACT_AUDIT_NOT_SCIENCE_RUN",
+  "question": "Does the existing direction-bearing witness qualify as an actual independent handle rather than a target-derived label?",
+  "inputs": [
+    "a0-scarab-regulator-test.js",
+    "results/a0-elevator-88-discrimination-return-2026-11-01.json"
+  ],
+  "candidate": {
+    "field": "directionMask",
+    "values": ["MASK_A", "MASK_B"],
+    "current_projection": "floor|angle_variant|directionMask"
+  },
+  "qualification_gates": [
+    {"gate": "ORIGIN", "pass": "origin and source pointer are declared"},
+    {"gate": "EXTERNALITY", "pass": "source is external to the target direction label"},
+    {"gate": "PRE_TARGET", "pass": "value exists before target-label assignment"},
+    {"gate": "COUNTERFACTUAL", "pass": "swapping target labels does not change the handle value"},
+    {"gate": "NECESSITY", "pass": "ablation reduces two records to one"}
+  ],
+  "decision_rules": {
+    "qualified": "all five gates pass",
+    "negative": "necessity passes but any independence gate fails",
+    "open": "source provenance or temporal order cannot be inspected",
+    "abort": [
+      "input file missing",
+      "prior result not COMPLETE",
+      "candidate field changed after freeze",
+      "DAO binding differs from NONE"
+    ]
+  },
+  "claim_boundary": "A qualified information channel would still not define G, D, N, a DAO identity, a physical mechanism or a Source Graph relation.",
+  "default": {
+    "dao_binding": "NONE",
+    "actual_handle_status": "OPEN_UNQUALIFIED",
+    "new_ids": 0,
+    "new_relations": 0,
+    "new_operators": 0,
+    "study_activation": false,
+    "publication_authorized": false
+  }
+}

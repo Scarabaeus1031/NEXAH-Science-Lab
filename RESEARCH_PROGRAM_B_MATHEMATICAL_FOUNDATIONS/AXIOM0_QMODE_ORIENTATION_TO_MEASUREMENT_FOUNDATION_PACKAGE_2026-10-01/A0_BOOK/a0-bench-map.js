@@ -4,7 +4,7 @@
   else root.A0BenchMap=api;
 })(typeof globalThis!=='undefined'?globalThis:this,function(){
   'use strict';
-  const VERSION='1.0.0';
+  const VERSION='1.1.0';
   const SCHEMA='nexah.a0.ocb-bench-map/1';
   const IDENTITY='NEXAH_A0_ORIENTATION_CONTROLLER_BENCH';
   const EVENTS=Object.freeze({selection:'a0:bench-selection',focus:'a0:bench-focus',playback:'a0:bench-playback'});
@@ -68,6 +68,18 @@
     ['history','VERIFY','History','historyPanel','RESULT_LENS',null,'Retained local trace and residual reading.'],
     ['root5-crosswalk','VERIFY','1729 / Root-5 Crosswalk','root5Crosswalk','RESULT_LENS',null,'Four typed readings plus a 1728/1729/1730 null window; labels remain separate from arithmetic and mechanism.'],
     ['root5-blind-audit','VERIFY','1729 Blind Crosswalk Audit','root5BlindAudit','RESULT_LENS',null,'Finite blind arithmetic selector plus a frozen 1728→50000 window ladder; 1729 stays first but is not globally unique.'],
+    ['pulse-grammar','OPERATE','Pulse Grammar · boundary clock','pulseGrammarClock','STATE_OWNER',null,'Local pulse and boundary grammar over its declared source; no shared machine clock.'],
+    ['cut-q-lens','RETURN','Cut / Q° Lens · three views','cutQLensReturnBench','RETURN_WITNESS',null,'Three source-bound cuts close only with touch and arithmetic witnesses; negative controls fail closed.'],
+    ['joint-control','OPERATE','Joint Control · 64-state gate','jointControlReturnAudit','TYPED_HANDOFF',null,'Typed 3-port × 4-channel joint audit with explicit I/L/A/U partition and no feedback.'],
+    ['tesa-router','VIEW','TESA → Lissajous Window','tesaLissajousWindowRouter','VIEW_PROJECTION',null,'Maps an exact joint receipt to one declared AM/VM/PM window; capture and replay do not mutate the source.'],
+    ['tube-occupancy','VIEW','Three-Channel Tube · occupancy','threeChannelTubeOccupancyBench','VIEW_PROJECTION',null,'Six face bins are read as three opposite pairs; exact witness, capture and replay remain local views.'],
+    ['clp-guided','RETURN','CLP Guided Return','clpGuidedReturnTest','RETURN_WITNESS',null,'Bounded guided return test over the existing pulse and cut records.'],
+    ['va-av','VIEW','VA/AV Orientation Probe','vaAvOrientationProbe','VIEW_PROJECTION',null,'Read-only orientation probe; labels and arithmetic remain separate from mechanism.'],
+    ['iota23','OPERATE','IOTA 2|3 Bridge','iota23Bridge','TYPED_HANDOFF',null,'Two independent schedules first share a declared return at tick 24; no shared physical clock is inferred.'],
+    ['folded-axis','VIEW','Folded Axis · LR/RL window','foldedAxisLrrlWindow','VIEW_PROJECTION',null,'A bounded counter-axis reading of the existing ordered record.'],
+    ['double18','RETURN','Double-18 Ratchet Bridge','double18RatchetBridge','RETURN_WITNESS',null,'Typed ratchet and return witness; arithmetic labels do not create a new carrier.'],
+    ['six-face','VIEW','Six-Face Rainbow Tube','sixFaceRainbowTube','VIEW_PROJECTION',null,'Six cube faces remain three opposite source-bound pairs; color is a view channel.'],
+    ['iota-tower','RETURN','IOTA → Tower Return Matrix','iotaTowerReturnMatrix','RETURN_WITNESS',null,'Four-state post-hoc interlock: only 11 closes while both machines retain separate provenance.'],
     ['record','VERIFY','Record / Export','recordPanel','RETURN_WITNESS',null,'Current state, checks and bounded export record.']
   ];
   const MODULES=Object.freeze(rawModules.map(row=>Object.freeze({id:row[0],group:row[1],label:row[2],focusTarget:row[3],bindingType:row[4],scenario:row[5],description:row[6]})));
@@ -76,7 +88,9 @@
     ['state','operators','LIVE_COUPLED'],['state','measurement','LIVE_COUPLED'],['family-role','family-grid','VIEW_PROJECTION'],
     ['operators','ihara','LIVE_COUPLED'],['ail','ninefold','TYPED_HANDOFF'],['ihara','visual1','VIEW_PROJECTION'],
     ['measurement','aperture-stack','LIVE_COUPLED'],['visual1','family-grid','VIEW_PROJECTION'],['family-grid','root7','VIEW_PROJECTION'],['fold-lag','root7','VIEW_PROJECTION'],
-    ['ninefold','replay','RETURN_WITNESS'],['go-return','record','RETURN_WITNESS'],['root7','record','RETURN_WITNESS'],['economy','history','RESULT_LENS'],['root5-blind-audit','root5-crosswalk','RESULT_LENS'],['root5-crosswalk','record','RESULT_LENS'],['binder','record','TYPED_HANDOFF']
+    ['ninefold','replay','RETURN_WITNESS'],['go-return','record','RETURN_WITNESS'],['root7','record','RETURN_WITNESS'],['economy','history','RESULT_LENS'],['root5-blind-audit','root5-crosswalk','RESULT_LENS'],['root5-crosswalk','record','RESULT_LENS'],['binder','record','TYPED_HANDOFF'],
+    ['pulse-grammar','clp-guided','TYPED_HANDOFF'],['cut-q-lens','joint-control','TYPED_HANDOFF'],['joint-control','tesa-router','TYPED_HANDOFF'],['tesa-router','tube-occupancy','VIEW_PROJECTION'],['tube-occupancy','record','RETURN_WITNESS'],
+    ['va-av','folded-axis','VIEW_PROJECTION'],['folded-axis','double18','TYPED_HANDOFF'],['double18','record','RETURN_WITNESS'],['iota23','iota-tower','TYPED_HANDOFF'],['iota-tower','record','RETURN_WITNESS'],['six-face','record','RESULT_LENS']
   ];
   const EDGES=Object.freeze(rawEdges.map((row,index)=>Object.freeze({id:`edge-${String(index+1).padStart(2,'0')}`,from:row[0],to:row[1],bindingType:row[2]})));
   const copy=value=>JSON.parse(JSON.stringify(value));

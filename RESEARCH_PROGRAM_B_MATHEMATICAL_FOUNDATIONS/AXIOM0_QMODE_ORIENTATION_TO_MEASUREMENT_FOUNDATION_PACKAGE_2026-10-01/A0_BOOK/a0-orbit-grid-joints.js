@@ -70,11 +70,17 @@
       try{const r=plateCell(Number(el('address').value),Number(el('sign').value));el('grid-status').textContent=r.status+' · Adresse '+r.address+(r.point?' → ('+r.point.map(v=>v.toFixed(4)).join(', ')+') → '+r.returnedAddress:' · kein Tellerpunkt');el('grid').innerHTML=gridDrawing(r.address,r.sign);}
       catch(error){el('grid-status').textContent='HOLD · '+error.message;el('grid').innerHTML='';}
     }
+    function selectAddress(address,sign=Number(el('sign').value)){
+      T.cell(address);if(![-1,1].includes(Number(sign)))throw Error('plate sign');
+      el('address').value=String(address);el('sign').value=String(Number(sign));grid();
+      const dataset=host.dataset||(host.dataset={});dataset.tesaAddress=String(address);dataset.tesaSign=String(Number(sign));
+      return plateCell(address,Number(sign));
+    }
     el('source').addEventListener('change',refresh);el('preset').addEventListener('change',refresh);
     el('capture').addEventListener('click',()=>{if(!current)return;held=JSON.parse(JSON.stringify(record(current)));el('record').textContent=JSON.stringify(held,null,2);});
     el('address').addEventListener('input',grid);el('sign').addEventListener('change',grid);
     const unsub=win.A0MaskObserverController?.subscribe(refresh),unclock=win.A0MaskClockBench?.subscribe(refresh);
-    grid();refresh();return{refresh,get snapshot(){return current?JSON.parse(JSON.stringify(current)):null;},get held(){return held?JSON.parse(JSON.stringify(held)):null;},dispose(){disposed=true;unsub?.();unclock?.();}};
+    grid();refresh();return{refresh,selectAddress,get selectedAddress(){return Number(el('address').value);},get snapshot(){return current?JSON.parse(JSON.stringify(current)):null;},get held(){return held?JSON.parse(JSON.stringify(held)):null;},dispose(){disposed=true;unsub?.();unclock?.();}};
   }
   return{PRESETS,project,reading,plateCell,record,verify,drawing,gridDrawing,mount};
 });

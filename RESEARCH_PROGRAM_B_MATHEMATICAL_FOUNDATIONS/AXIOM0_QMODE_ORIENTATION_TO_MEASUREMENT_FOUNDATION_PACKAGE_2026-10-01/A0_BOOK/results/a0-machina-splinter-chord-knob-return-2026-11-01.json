@@ -1,0 +1,35 @@
+{
+  "schema": "nexah.a0.machina.splinter_chord_knob_return.v1",
+  "status": "PASS_SOURCE_BOUND_SPLINTER_CHORD_KNOB_BAY",
+  "date": "2026-11-01",
+  "host": "NEXAH_A0_ORIENTATION_CONTROLLER_BENCH",
+  "source": {
+    "path": "downloads/NEXAH_Splinter_Geometrie_Offline_2026-10-27.html",
+    "original_sha256": "d23d5d1d3f5b2240bfb50624fc66b78de42c130d45297ac29747a9e94e71f32d",
+    "derived_repository_sha256": "48f914da768b36e5245a3d967e8f6fb6286be69626118ea0fe0d8bbb1d807f95",
+    "existing_desk_record": "I-46A-C"
+  },
+  "control_contract": {
+    "q_knob": "half chord q; frozen stages 0.2, 0.1, 0.05, 0.025",
+    "chord_readout": "c=2q",
+    "height_readout": "delta=q^2/(1+sqrt(1-q^2))",
+    "alpha_knob": "orientation only; 0, 204 and 137.50776405003785 degrees",
+    "rotation_invariant": ["q", "c", "delta"]
+  },
+  "a0_bl_058_role": "SEPARATE_OPTIONAL_BOUNDARY_READOUT_NOT_A_GEOMETRIC_DERIVATION",
+  "terminology_boundary": "source-local circular segment is not A0-BL-035 SPL_LOCAL, a mechanical seam, pin mechanism or autonomous operator",
+  "governance": {
+    "existing_identities_reused": ["NEXAH_A0_ORIENTATION_CONTROLLER_BENCH", "NEXAH:A0_ORIENTATION_EVIDENCE_LINEAGE:V1"],
+    "new_identity": 0,
+    "new_relation": 0,
+    "new_study": 0,
+    "new_finding": 0,
+    "publication": 0
+  },
+  "verification": {
+    "static_and_formula_tests": "PASS_27_OF_27",
+    "existing_cockpit_tests": "PASS_49_OF_49",
+    "existing_assembly_tests": "PASS_32_OF_32_PLUS_MODEL_11_OF_11",
+    "browser_acceptance": "PASS_Q_0_05_C_0_1_DELTA_0_001250782228_ALPHA_204_AND_EXACT_RETURN"
+  }
+}

@@ -12,7 +12,7 @@
     "flip_every": 4,
     "trace": "3 x 6 edges + 1 origin = 19 display samples",
     "exact_ports": ["DEC", "BIN", "QRT20"],
-    "guided_page_route": ["SWITCHBOARD_ORIENTATION", "SOURCE_56", "NUMBER_PLUG", "SUGAR_STICK", "4_PHASE_FLIP", "BIN_ADDRESS", "QRT20_ADDRESS", "EXACT_RETURN"],
+    "guided_page_route": ["SWITCHBOARD_ORIENTATION", "SOURCE_56", "NUMBER_PLUG", "HELD_1031_QRT20_CONTROL", "SUGAR_STICK", "4_PHASE_FLIP", "BIN_ADDRESS", "QRT20_ADDRESS", "EXACT_RETURN"],
     "visible_bus": "active station -> address a -> selected DEC/BIN/QRT20 port",
     "moebius": "HOLD_EDGE_IDENTIFICATION_UNDECLARED"
   },
@@ -25,7 +25,7 @@
   "verification": {
     "model_checks": 11,
     "assembly_checks": 20,
-    "browser": "PASS_GUIDED_PAGE_ROUTE_8_STOPS_SWITCHBOARD_TO_SOURCE_TO_PLUG_TO_VISIBLE_BUS_TO_QRT20_TO_T56_RETURN"
+    "browser": "PASS_GUIDED_PAGE_ROUTE_9_STOPS_WITH_HELD_1031_CONTROL_AND_SEPARATE_PIPE_RETURN"
   },
   "boundary": "The exact connector is a finite software bijection and display composition. Sugar Stick and the 19-sample trace are views. The four-phase side flip is exact; a Moebius edge identification, physical pipe, causal coupling, Study, Finding, deployment and publication remain unasserted."
 }

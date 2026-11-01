@@ -1,0 +1,22 @@
+'use strict';
+const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path');
+const S=require('./a0-scarab-stretch-chamber.js');let checks=0;const ok=(v,m)=>{checks++;assert.ok(v,m)},near=(a,b,e=1e-12)=>ok(Math.abs(a-b)<=e,`${a} ≈ ${b}`);
+ok(S.SOURCE_ID==='NEXAH:INSTRUMENT:BREATHING_PRIME_CRYSTAL:V1','existing Breathing Crystal identity reused');
+ok(S.BENCH_ID==='NEXAH_A0_ORIENTATION_CONTROLLER_BENCH','existing Bench identity reused');
+ok(S.PHASE_EVENT==='a0:breathing-crystal-measurement','shared measurement event');
+ok(S.VIEW_ORDER.join(',')==='STRETCH_BODY,SECTION_CUT,SEAM_RETURN','one source has three declared views');
+ok(S.SEAM_ORDER.join(',')==='3,1,2','typed seam order 3-1-2');
+ok(S.THETA_PAIR.join(',')==='5,4','typed theta pair 5|4');
+ok(S.MECHANISM_PARTITION.ratio==='2:2:1','mechanism partition is 2:2:1');
+ok(S.MECHANISM_PARTITION.source_flanks===2&&S.MECHANISM_PARTITION.mirror_passes===2&&S.MECHANISM_PARTITION.oriented_return===1,'2:2:1 roles remain typed');
+ok(S.PLATE_PROJECTION.view_role==='SECTION_CUT'&&S.PLATE_PROJECTION.camera_pose==='TOP_DOWN_Z','plate/caro is a typed section-camera pose');
+ok(S.PLATE_PROJECTION.shape==='CARO'&&!S.PLATE_PROJECTION.new_view,'plate/caro does not add a fourth view');
+ok(S.ADDRESS_FIXTURES.left+S.ADDRESS_FIXTURES.right===127,'63+64=127');
+ok(S.ADDRESS_FIXTURES.pair+S.ADDRESS_FIXTURES.facets===181,'127+54=181');
+for(let i=0;i<=128;i++){const frame=S.snapshot(i/128),svg=S.drawing(frame);near(frame.determinant,1);ok(frame.volume_preserved,'volume-preserving analytic stretch');ok(frame.source_dimensions.join(',')==='2,1,1','source remains 2x1x1');ok(frame.source_plus_views.source===1&&frame.source_plus_views.views.length===3,'1+3 contract');ok(frame.mechanism_partition.ratio==='2:2:1','2:2:1 is carried in every frame');ok(frame.mechanism_partition!==frame.source_plus_views,'mechanism count remains distinct from source/view count');ok(frame.plate_projection.view_role==='SECTION_CUT'&&!frame.plate_projection.new_view,'plate remains inside section cut');ok(svg.includes('TELLER · CARO · Z↓'),'plate/caro inset is drawn');ok(!frame.source_mutation,'no source mutation');ok(frame.new_canonical_ids.length===0&&frame.relation_changes.length===0,'no graph change');ok(!svg.includes('NaN'),'finite SVG drawing');}
+const start=S.snapshot(0),end=S.snapshot(1),quarter=S.snapshot(.25);
+ok(start.exact_return&&end.exact_return,'both cycle boundaries return exactly');near(start.return_error,0);near(end.return_error,0);ok(!quarter.exact_return&&quarter.stretch_matrix[0][0]>1,'quarter phase opens the stretch view');
+const html=fs.readFileSync(path.join(__dirname,'A0_ORIENTATION_CONTROLLER_BENCH.html'),'utf8');
+for(const token of ['id="scarabStretchChamber"','data-ssc','data-ssc-svg','data-ssc-set-phase="0"','data-ssc-set-phase="0.25"','data-ssc-set-phase="0.5"','data-ssc-set-phase="0.75"','data-ssc-export','a0-scarab-stretch-chamber.js','a0-scarab-stretch-chamber.css','#scarabPillarProjection','#root7Sections','MECHANISM 2:2:1','zwei Quellflanken','nicht die vorhandene diagonale Punktzählung <code>1:2:1</code>','SECTION CUT · TELLER/CARO','TOP_DOWN_Z','keine zusätzliche Quelle oder View-Identität'])ok(html.includes(token),'HTML integration '+token);
+const source=fs.readFileSync(path.join(__dirname,'a0-scarab-stretch-chamber.js'),'utf8');ok(!/setInterval|setTimeout|requestAnimationFrame|fetch\(|postMessage|localStorage/.test(source),'no second clock or external writes');
+console.log(JSON.stringify({status:'PASS',checks,contract:'1+3',mechanism:'2:2:1',seam:'3-1-2',theta:'5|4',addresses:'63+64=127; +54=181'}));

@@ -1,0 +1,67 @@
+{
+  "schema": "nexah.a0.cube-face-residual-source-bound-crosswalk/1",
+  "id": "A0_CUBE_FACE_RESIDUAL_SOURCE_BOUND_CROSSWALK_2026_11_01",
+  "date": "2026-11-01",
+  "status": "SOURCE_BOUND_MAPPING_ONLY_NO_RUNTIME_DELTA",
+  "scope": "Documentary source-bound crosswalk added after the frozen TESA capture/replay cut.",
+  "identity_reuse": [
+    "NEXAH_A0_ORIENTATION_CONTROLLER_BENCH",
+    "NEXAH:A0_ORIENTATION_EVIDENCE_LINEAGE:V1",
+    "SG:LENS:ILAU_ORIENTATION",
+    "A0OE:PASCAL_PENTAGON_D5_TEST",
+    "NLK_L_SHELL"
+  ],
+  "frozen_contract": {
+    "tesa_capture_replay": "UNTOUCHED",
+    "bench_runtime": "UNTOUCHED",
+    "machine_runtime": "UNTOUCHED"
+  },
+  "cube_faces": {
+    "face_count": 6,
+    "opposite_pair_count": 3,
+    "opposite_pairs": [
+      {"axis": "X", "faces": ["LEFT", "RIGHT"]},
+      {"axis": "Y", "faces": ["FRONT", "BACK"]},
+      {"axis": "Z", "faces": ["TOP", "BOTTOM"]}
+    ]
+  },
+  "typed_mapping": {
+    "trap_door": {"type": "CUT", "boundary": "Declared view boundary; not a seventh face and not a mechanism identity."},
+    "open_book": {"type": "ADJACENT_FACE_PAIR", "faces": ["LEFT", "FRONT"], "boundary": "Two adjacent, non-opposite face views joined at one typed seam."},
+    "pascal_joint": {"type": "TYPED_SEAM", "reuses": ["A0OE:PASCAL_PENTAGON_D5_TEST", "A0PascalJointCounterweight"], "boundary": "Typed local seam; no new joint identity."},
+    "binder": {"type": "RETENTION_ACROSS_VIEWS", "preserves": ["source_address", "opposite_pair_membership"], "boundary": "Conservation ledger, not a force."},
+    "clamps": {"type": "LOCAL_HOLD", "preserves": ["selected_face", "selected_seam"], "boundary": "Local comparison hold; no global lock."},
+    "arcs": {"type": "MOTION_PATH", "boundary": "Displayed trajectory only; not a source, operator, or physical law."}
+  },
+  "residual_grammar": {
+    "display": "SOURCE → VIEW → LOST INFORMATION → RESIDUAL / SECOND VIEW → RETURN",
+    "steps": ["SOURCE", "VIEW", "LOST_INFORMATION", "RESIDUAL_OR_SECOND_VIEW", "RETURN"],
+    "phantom_tine_match": {
+      "type": "RESIDUAL_OR_SECOND_VIEW_WITNESS",
+      "existing_record": "A0_PHANTOM_TINE_YUGO_SOURCE_TRIAGE_2026_10_27",
+      "face_count": 0,
+      "creates_identity": false,
+      "creates_relation": false,
+      "equals_yugo": false,
+      "boundary": "Negative-space continuation or lost-information witness only; never a seventh face."
+    }
+  },
+  "source_bindings": [
+    "A0_BOOK/results/a0-machina-triangle-phi-lens-return-2026-11-01.json",
+    "A0_BOOK/results/a0-phantom-tine-yugo-source-triage-2026-10-27.json",
+    "SCIENCE_LAB/NAVIGATION/EVIDENCE/ILAU_ORIENTATION_INSTRUMENTS_2026-10-09/ILAU_ORIENTATION_INSTRUMENTS_BINDER_V1_2026-10-09.json",
+    "A0_BOOK/A0_RESEARCH_DESK.html#cube-face-residual-source-bound-crosswalk-return-20261101",
+    "A0_BOOK/A0_BUILDER_LOG.html#cube-face-residual-source-bound-crosswalk-builder-20261101"
+  ],
+  "claim_ceiling": "SOURCE_BOUND_DOCUMENTARY_CROSSWALK_ONLY",
+  "governance": {
+    "new_identity": 0,
+    "new_alias": 0,
+    "new_relation": 0,
+    "new_operator": 0,
+    "new_study": 0,
+    "new_finding": 0,
+    "publication": 0,
+    "deployment": 0
+  }
+}

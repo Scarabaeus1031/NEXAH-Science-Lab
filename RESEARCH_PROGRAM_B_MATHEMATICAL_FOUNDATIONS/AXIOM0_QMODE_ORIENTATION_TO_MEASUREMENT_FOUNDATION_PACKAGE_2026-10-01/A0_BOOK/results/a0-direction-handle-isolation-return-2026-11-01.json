@@ -1,0 +1,38 @@
+{
+  "schema": "nexah.a0.direction-handle-isolation.return/1",
+  "preregistration_id": "A0_DIRECTION_HANDLE_ISOLATION_2026_11_01",
+  "date": "2026-11-01",
+  "status": "COMPLETE",
+  "aborted": false,
+  "candidate": {
+    "field": "directionMask",
+    "values": ["MASK_A", "MASK_B"],
+    "current_projection": "floor|angle_variant|directionMask"
+  },
+  "gates": [
+    {"gate": "ORIGIN", "pass": true, "evidence": "TARGET_DIRECTION_MASK"},
+    {"gate": "EXTERNALITY", "pass": false, "evidence": "NO_EXTERNAL_SOURCE_POINTER; DIRECT_TARGET_DEPENDENCY"},
+    {"gate": "PRE_TARGET", "pass": false, "evidence": "MASK IS THE TARGET-SIDE TOKEN"},
+    {"gate": "COUNTERFACTUAL", "pass": false, "evidence": "RELABEL CHANGES THE WITNESS RECORD"},
+    {"gate": "NECESSITY", "pass": true, "evidence": "2 UNIQUE WITH TOKEN; 1 AFTER ABLATION"}
+  ],
+  "gate_summary": {"passed": 2, "total": 5},
+  "verdict": "NEGATIVE_TARGET_DERIVED_WITNESS",
+  "actual_handle_status": "OPEN_NOT_IDENTIFIED",
+  "classifications": {
+    "exact": ["candidate field is directionMask", "retained projection has 2 records", "ablation has 1 record"],
+    "negative": ["candidate is directly target-derived", "candidate fails externality, pre-target and counterfactual gates"],
+    "open": ["independent source observation", "source timestamp", "typed handle domain and codomain"],
+    "not_inferred": ["meaning of G", "meaning of D", "definition of N", "DAO identity", "Triple-Gate mapping"]
+  },
+  "dao_binding": "NONE",
+  "governance_delta": {
+    "new_ids": 0,
+    "new_relations": 0,
+    "new_operators": 0,
+    "new_studies": 0,
+    "finding_promotions": 0,
+    "publication_authorizations": 0,
+    "deployment": false
+  }
+}

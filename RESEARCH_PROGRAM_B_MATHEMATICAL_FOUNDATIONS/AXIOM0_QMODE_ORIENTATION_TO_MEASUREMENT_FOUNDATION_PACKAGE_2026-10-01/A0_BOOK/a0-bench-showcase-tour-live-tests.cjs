@@ -25,13 +25,17 @@ function fixture(reduced=false){
  let clockConnected=false;
  win.A0BenchSourceSectionsController={select(id){calls.push(['clock-source',id]);return{status:'FRAGMENT_REQUESTED'};}};
  win.A0MaskClockBench={focus(){},get connected(){return clockConnected;},disconnect(){clockConnected=false;calls.push(['clock','disconnect']);},async confirmed(action){calls.push(['clock',action]);clockConnected=true;return{source:{clock:1,playing:action==='PLAY'},maskTick:19};}};
+ let tesaReplayed=null;
+ win.A0JointControlReturnAuditController={request(){calls.push(['joint','request']);},render(){calls.push(['joint','render']);return{exact:true,status:'EXACT_RETURN'};}};
+ win.A0TesaLissajousWindowRouterController={capture(){calls.push(['tesa','capture']);return{schema:'test.capture'};},replay(){calls.push(['tesa','replay']);tesaReplayed={schema:'test.replay'};return{replayed:true,status:'REPLAYED'};},get state(){return{lastReplayed:tesaReplayed};}};
+ win.A0ThreeChannelTubeOccupancyBenchController={runChecks(){calls.push(['tube','runChecks']);return{pass:true,status:'PASS'};},capture(){calls.push(['tube','capture']);return{captured:true,status:'CAPTURED'};},replay(){calls.push(['tube','replay']);return{replayed:true,status:'REPLAYED'};},get state(){return{occupancy:true};}};
  win.A0BenchFiniteControllers=Object.fromEntries(['antipode','ghostgons'].map(kind=>[kind,{command(action){calls.push([kind,action]);return{status:'STEP'};},play(){calls.push([kind,'play']);},pause(){}}]));
  nodes.set('cwWindowPlay',new Node('cwWindowPlay'));nodes.set('cwWindowStep',new Node('cwWindowStep'));
  const tour=T.mount(doc,win),index=id=>T.STATIONS.findIndex(s=>s.id===id);return{nodes,doc,win,tour,timers,intervals,calls,index};
 }
 async function main(){
  const f=fixture(),{tour,nodes,win,timers,intervals,index,doc,calls}=f;
- ok(nodes.get('benchTourDock').hidden);eq(T.CHAPTERS.length,9);
+ ok(nodes.get('benchTourDock').hidden);eq(T.CHAPTERS.length,10);
  for(let i=0;i<T.STATIONS.length;i++){
   await tour.visit(i,false);eq(tour.state.index,i);ok(!nodes.get('benchTourActionStatus').textContent.startsWith('HOLD'),'station '+T.STATIONS[i].id);eq(timers.size,0,'no pending timeouts after manual entry');
   eq(nodes.get('benchTourDock').parentElement,T.STATIONS[i].scenario?nodes.get('coupledWindow'):doc.body,'dock in active top-layer or body');
@@ -57,6 +61,9 @@ async function main(){
  for(let i=0;i<6;i++){eq(demo.tour.state.index,demo.index(['clock-source','clock-connect','clock-step','clock-play','clock-pause','clock-disconnect'][i]));ok(demo.tour.state.running);const dwell=[...demo.timers.values()].find(t=>t.ms===18000);ok(dwell);await dwell.fn();}
  ok(demo.tour.state.completed&&!demo.tour.state.running);eq(demo.tour.state.index,demo.index('clock-disconnect'));ok(!demo.win.A0MaskClockBench.connected);
  eq(demo.calls.filter(c=>c[0]==='clock'&&c[1]!=='disconnect').map(c=>c[1]),['CONNECT','STEP','PLAY','PAUSE']);
+ const jointDemo=fixture();await jointDemo.nodes.get('benchTourJointDemoTop').click();
+ for(const id of ['joint-cut','joint-gate','joint-window','joint-replay','joint-tube','joint-record']){eq(jointDemo.tour.state.index,jointDemo.index(id));ok(jointDemo.tour.state.running);const dwell=[...jointDemo.timers.values()].find(t=>t.ms===18000);ok(dwell);await dwell.fn();}
+ ok(jointDemo.tour.state.completed&&!jointDemo.tour.state.running);ok(jointDemo.calls.some(c=>c[0]==='joint'&&c[1]==='request'));ok(jointDemo.calls.some(c=>c[0]==='tesa'&&c[1]==='replay'));ok(jointDemo.calls.some(c=>c[0]==='tube'&&c[1]==='runChecks'));
  const failed=fixture();failed.win.A0MaskClockBench.confirmed=()=>Promise.reject(Error('ACK fehlt'));await failed.tour.visit(failed.index('clock-connect'),true);ok(failed.nodes.get('benchTourActionStatus').textContent.startsWith('HOLD'));ok(!failed.tour.state.running);eq(failed.timers.size,0);
  await small.tour.visit(small.index('clock-play'));ok(!small.calls.some(c=>c[0]==='clock'&&c[1]==='PLAY'));ok(small.calls.some(c=>c[0]==='clock'&&c[1]==='PAUSE'));
  const cancelled=fixture();let late;cancelled.win.A0MaskClockBench.confirmed=()=>new Promise(resolve=>{late=resolve;});const wait=cancelled.tour.visit(cancelled.index('clock-connect'),true);await Promise.resolve();cancelled.tour.pause();await wait;late({source:{clock:1,playing:false},maskTick:19});await Promise.resolve();ok(!cancelled.tour.state.running);eq(cancelled.timers.size,0);

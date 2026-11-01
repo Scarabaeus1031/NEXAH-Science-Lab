@@ -18,7 +18,7 @@
   "connector_control": {"value": 1032, "prime": false},
   "interactive_contract": {
     "layers": ["CORE", "HANDLE", "P-AXIS", "SHADOW", "NEGATIVE"],
-    "exact_test_count": 103,
+    "exact_test_count": 108,
     "shadow_status": "VIEW_HOLD_NO_ARITHMETIC_PROMOTION",
     "negative_controls": [
       "prime indices 173 and 174 are not palindromes",
@@ -171,6 +171,20 @@
       },
       "dao_binding": "NONE",
       "followup_build_authorized": false
+    },
+    "direction_handle_isolation": {
+      "preregistration": "results/a0-direction-handle-isolation-preregistration-2026-11-01.json",
+      "result": "results/a0-direction-handle-isolation-return-2026-11-01.json",
+      "candidate_field": "directionMask",
+      "qualification_gate_count": 5,
+      "passed_gate_count": 2,
+      "failed_gates": ["EXTERNALITY", "PRE_TARGET", "COUNTERFACTUAL"],
+      "necessity_passed": true,
+      "independence_passed": false,
+      "verdict": "NEGATIVE_TARGET_DERIVED_WITNESS",
+      "actual_handle_status": "OPEN_NOT_IDENTIFIED",
+      "dao_binding": "NONE",
+      "does_not_define": ["G", "D", "N", "DAO_IDENTITY", "TRIPLE_GATE_MAPPING", "PHYSICAL_MECHANISM"]
     },
     "t_boundary_discrimination": {
       "preregistration": "results/a0-t-boundary-discrimination-preregistration-2026-11-01.json",

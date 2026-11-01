@@ -336,7 +336,7 @@ const checks = [
   ["framework family object evidence hierarchy", /Framework → families → objects → evidence/.test(js) && /package-local/.test(js)],
   ["central research question", /What remains identifiable and invariant/.test(js) && /introduced by view, cut or coupling/.test(js)],
   ["about route and navigation", /renderAboutV2/.test(js) && /case "about": renderAboutV2/.test(js) && /data-route-link="about"/.test(html)],
-  ["Lab Register source-bound lens", /lab-register\.internal\.js/.test(html) && /data-route-link="lab-register"/.test(html) && /case "lab-register": renderLabRegister/.test(js) && labRegister?.status === "INTERNAL_READ_ONLY_SOURCE_BOUND_LENS" && labRegister?.study_count === 60 && labRegister?.studies?.length === 60],
+  ["Lab Register source-bound lens", /lab-register\.internal\.js/.test(html) && /data-route-link="lab-register"/.test(html) && /case "lab-register": renderLabRegister/.test(js) && labRegister?.status === "INTERNAL_READ_ONLY_SOURCE_BOUND_LENS" && labRegister?.study_count === 62 && labRegister?.studies?.length === 62],
   ["Lab Register authority boundary", /LAB_REGISTER\.md remains the authority/.test(js) && /Window, not replacement/.test(js) && /does not create, rename, activate, close or promote a study/.test(js)],
   ["Navigator governance visible", /SEARCH → MATCH → BIND → BUILD → RETURN → GOVERN/.test(js) && /NAVIGATOR_GOVERNANCE_INDEX_2026-10-10\.md/.test(js) && /One Lab register\. One Source Graph/.test(js)],
   ["ecosystem responsibility map", /One ecosystem · distinct responsibilities/.test(js) && /NEXAHEDRON/.test(js) && /ORION/.test(js)],

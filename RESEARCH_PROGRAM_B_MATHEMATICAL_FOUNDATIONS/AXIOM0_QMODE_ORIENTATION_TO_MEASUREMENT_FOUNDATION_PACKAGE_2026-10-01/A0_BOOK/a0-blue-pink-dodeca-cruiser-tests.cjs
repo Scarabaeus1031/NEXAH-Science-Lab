@@ -1,4 +1,6 @@
 const assert = require("node:assert/strict");
+const fs = require("node:fs");
+const path = require("node:path");
 const Cruiser = require("./assets/a0-blue-pink-dodeca-cruiser-v1.js");
 
 const validation = Cruiser.validate();
@@ -9,6 +11,10 @@ assert.equal(validation.counterRotation, true);
 assert.equal(validation.exactTwelveByFourBinding, true);
 assert.equal(validation.returnFacePreserved, true);
 assert.equal(validation.exactSevenBandSpectrum, true);
+assert.equal(validation.exactVectorClosure, true);
+assert.equal(validation.vectorReturnPreserved, true);
+assert.equal(validation.directionalRoutesDeclared, true);
+assert.equal(validation.caIdentitySeparated, true);
 assert.equal(validation.noIdentityMerge, true);
 
 for (let step = 0; step <= 60; step += 1) {
@@ -21,6 +27,12 @@ for (let step = 0; step <= 60; step += 1) {
   assert.equal(state.returnCell.cell_id, `RETURN-00:F${String(state.hull.faceIndex + 1).padStart(2, "0")}`);
   assert.ok(state.rotations.hull >= 0);
   assert.ok(state.rotations.aperture <= 0);
+  assert.equal(state.vectorClosure.equation, "P=A+B");
+  assert.equal(state.vectorClosure.P[0], state.vectorClosure.A[0] + state.vectorClosure.B[0]);
+  assert.equal(state.vectorClosure.P[1], state.vectorClosure.A[1] + state.vectorClosure.B[1]);
+  assert.equal(state.vectorClosure.error, 0);
+  assert.equal(state.vectorClosure.returnCell, state.returnCell.cell_id);
+  assert.equal(state.vectorClosure.caIdent05, false);
 }
 
 const routeStates = [];
@@ -33,6 +45,9 @@ for (let faceIndex = 0; faceIndex < 12; faceIndex += 1) {
     assert.equal(state.spectrum.activeIndex, state.route.addressIndex % 7);
     assert.equal(state.spectrum.activeBand.wavelengthNm, Cruiser.SPECTRUM[state.route.addressIndex % 7].wavelengthNm);
     assert.equal(state.returnCell.cell_id, `RETURN-00:F${String(faceIndex + 1).padStart(2, "0")}`);
+    assert.equal(state.vectorClosure.exact, true);
+    assert.deepEqual(state.vectorClosure.outsideIn, ["HULL", "ADDRESS", "APERTURE"]);
+    assert.deepEqual(state.vectorClosure.insideOut, ["APERTURE", "SPECTRUM", "RETURN"]);
   }
 }
 assert.equal(new Set(routeStates.map((state) => state.body.frame.source.sourceKey)).size, 48);
@@ -58,5 +73,18 @@ assert.equal(receipt.handoff.spectrumBand.id, "BLUE");
 assert.ok(receipt.handoff.spectrumTransmission > 0);
 assert.ok(receipt.sourceIdentities.includes("A0-VIEW-NEWTON-GOETHE-OBSERVER-LENS"));
 assert.ok(receipt.sourceIdentities.includes("A0-VIEW-RAINBOW-PURPLE-RAIN"));
+assert.equal(receipt.vectorClosure.equation, "P=A+B");
+assert.equal(receipt.vectorClosure.exact, true);
+assert.equal(receipt.vectorClosure.error, 0);
+assert.equal(receipt.vectorClosure.returnCell, receipt.returnCell);
+assert.equal(receipt.vectorClosure.sourceBound, true);
+assert.equal(receipt.vectorClosure.caIdent05, false);
+
+const html = fs.readFileSync(path.join(__dirname, "A0_BLUE_PINK_DODECA_CELL_RETURN.html"), "utf8");
+assert.match(html, /data-cruiser-vector-top/);
+assert.match(html, /P = A \+ B/);
+assert.match(html, /Nicht CA-IDENT-05/);
+assert.match(html, /OUT→IN/);
+assert.match(html, /IN→OUT/);
 
 console.log("PASS a0-blue-pink-dodeca-cruiser-tests");

@@ -1,0 +1,39 @@
+{
+  "schema": "nexah.a0-bl-057.protocol.v1",
+  "study_id": "A0-BL-057",
+  "date": "2026-11-01",
+  "alpha": {"numerator": 63, "denominator": 64},
+  "beta": {"numerator": 1, "denominator": 64},
+  "center_map": "S(x)=2*x-1",
+  "q": {"numerator": 31, "denominator": 64},
+  "signal": {
+    "t_min": 0.0,
+    "t_max": 100.0,
+    "dt": 0.02,
+    "cutoff": 25.0,
+    "smooth_tau": 1.0,
+    "omega": 0.8,
+    "drift_linear": -0.002,
+    "drift_quadratic": -0.0005,
+    "envelope_amplitude": 0.015,
+    "envelope_center": 16.0,
+    "envelope_scale": 4.0,
+    "sine_amplitude": 0.01
+  },
+  "gates": {
+    "reciprocal_tolerance": 1e-12,
+    "return_tolerance": 1e-12,
+    "swap_tolerance": 1e-12,
+    "cutoff_acceleration_ratio_min": 5.0,
+    "hard_jump_min": 0.1,
+    "smooth_jump_max": 0.01,
+    "cutoff_window": [24.0, 26.0]
+  },
+  "classifications": [
+    "PASS_EXACT_COMPLEMENT_MIRROR_RETURN_WITH_CUTOFF_SENSITIVITY",
+    "MIXED_EXACT_MIRROR_RETURN_CUTOFF_SENSITIVITY_NOT_ESTABLISHED",
+    "FAIL_MIRROR_RETURN",
+    "INVALID_SOURCE_OR_CONTRACT"
+  ],
+  "claim_boundary": "Dimensionless analytic and synthetic display-scale test only. No physical breathing, universal Alpha/Beta role, mechanism, utility or publication claim."
+}

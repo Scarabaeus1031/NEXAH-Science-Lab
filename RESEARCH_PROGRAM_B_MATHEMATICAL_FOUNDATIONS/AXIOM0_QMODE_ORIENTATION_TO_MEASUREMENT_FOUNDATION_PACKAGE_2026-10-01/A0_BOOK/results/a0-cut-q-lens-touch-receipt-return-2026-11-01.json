@@ -1,0 +1,34 @@
+{
+  "schema": "A0_ENGINEERING_TEST_RECEIPT/v1",
+  "date": "2026-11-01",
+  "identity": "NEXAH_A0_ORIENTATION_CONTROLLER_BENCH",
+  "instrument": "A0_CUT_Q_LENS_TOUCH_RECEIPT/v1",
+  "anchor": "A0_ORIENTATION_CONTROLLER_BENCH.html#cutQLensReturnBench",
+  "source_field_note": "../../22_A0_FORSCHUNGSPROTOKOLL_BUCH_UND_RAHMEN_2026-10-10.md#cut-q-lens-touch-receipt-field-note-20261101",
+  "contract": "F --C_i--> V_i --L_i(Qdeg)--> O_i --tau_i--> R_i",
+  "invariant_signature": "a+c=2b",
+  "fixtures": [
+    {"cut":"C1","values":[31,32,33],"pass":true},
+    {"cut":"C2","values":[7,8,9],"pass":true},
+    {"cut":"C3","values":[1031,1032,1033],"pass":true}
+  ],
+  "tesa_lissajous_window": {
+    "rule": "ordered TESA window 7|8|9 reads AM|VM|PM",
+    "candidates": ["7:AM/XY", "8:VM/YZ", "9:PM/ZX"],
+    "selected": "8:VM/YZ",
+    "status": "LOCATED_CONFIRMED",
+    "writes_source": false
+  },
+  "checks": {"passed":16,"total":16,"command":"node A0_BOOK/a0-cut-q-lens-return-bench-tests.cjs"},
+  "negative_controls": [
+    "incomplete route -> OPEN",
+    "altered C2 midpoint -> VIEW_INDUCED",
+    "altered C2 midpoint -> REFUSED_CONFLICT for TESA/Lissajous window",
+    "missing witness -> HOLD_MISSING_WITNESS",
+    "1.3 != 13",
+    "1^6 != 13"
+  ],
+  "classification": "ENGINEERING_RETURN_ONLY",
+  "graph_effect": "NONE",
+  "boundary": "TESA 7|8|9 to AM|VM|PM is a local declared view adapter, not a native identity. No scientific finding, new carrier, operator, Navigator node, graph relation, research activation or publication claim."
+}

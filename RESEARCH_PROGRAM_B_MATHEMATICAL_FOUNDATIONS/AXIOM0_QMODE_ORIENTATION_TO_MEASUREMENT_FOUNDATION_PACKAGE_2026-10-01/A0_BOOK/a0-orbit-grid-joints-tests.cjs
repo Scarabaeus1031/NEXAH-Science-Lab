@@ -35,6 +35,7 @@ const source={get state(){return JSON.parse(JSON.stringify(state));},get clockOw
 const clock={get ready(){return ready;},subscribe(f){clockCallback=f;return()=>{clockCallback=null;};}};
 const mounted=J.mount({getElementById:id=>id==='orbitGridJoints'?host:null},{A0MaskObserverController:source,A0MaskClockBench:clock});
 ok(mounted.snapshot.tick===0);
+const selected=mounted.selectAddress(22,-1);ok(selected.address===22&&selected.sign===-1&&mounted.selectedAddress===22,'router selects the same existing Teller cell');
 const original=JSON.stringify(state);el('capture').fire('click');const held=JSON.stringify(mounted.held);state.tick=20;callback();ok(mounted.snapshot.tick===20&&JSON.stringify(mounted.held)===held);
 el('source').value='polygon';el('source').fire('change');ok(mounted.snapshot.source==='polygon');
 owner='source-clock';clockCallback();ok(mounted.snapshot===null&&el('capture').disabled&&el('drawing').innerHTML==='');

@@ -1,0 +1,69 @@
+{
+  "schema": "nexah.a0.joint-control-return-audit.machine-return/1",
+  "date": "2026-11-01",
+  "status": "PASS",
+  "identity_reuse": [
+    "NEXAH_A0_ORIENTATION_CONTROLLER_BENCH",
+    "SG:LENS:ILAU_ORIENTATION"
+  ],
+  "implemented": {
+    "instrument": "A0_ORIENTATION_CONTROLLER_BENCH.html#jointControlReturnAudit",
+    "module": "a0-joint-control-return-audit.js",
+    "styles": "a0-joint-control-return-audit.css",
+    "tests": "a0-joint-control-return-audit-tests.cjs",
+    "science_return": "A0_RESEARCH_DESK.html#joint-control-return-audit-20261101",
+    "builder_return": "A0_BUILDER_LOG.html#joint-control-return-audit-20261101"
+  },
+  "contracts": {
+    "ctrl_frame": "C_TO_T_TO_L_OR_R__90_DEG_BY_90_DEG",
+    "kappa_boundary": "63_TO_1__NORMALIZED_63_OVER_64_AND_1_OVER_64",
+    "ilau": "DISJOINT_EXHAUSTIVE_I_L_A_U_PARTITION",
+    "return": "SOURCE_CAPTURE_AND_TOUCH_AND_VALID_KAPPA_AND_WITNESS_AND_CUT_Q_RETURN",
+    "required_unavailable": "FAIL_CLOSED",
+    "port_boundary": "ORDINALS_1_2_3_ARE_NOT_ADDRESSES_1031_1032_1033",
+    "source_feedback": false,
+    "writes_source": false
+  },
+  "verification": {
+    "suite": "A0_JOINT_CONTROL_RETURN_AUDIT",
+    "checks": 90,
+    "result": "PASS",
+    "negative_controls": [
+      "MISSING_TOUCH",
+      "INVALID_KAPPA",
+      "MISSING_WITNESS",
+      "CONFLICTING_WITNESS",
+      "REQUIRED_INFORMATION_UNAVAILABLE",
+      "CHANGED_SOURCE_FINGERPRINT"
+    ],
+    "phase_space": {
+      "gate_order": ["CAPTURE", "TOUCH", "WITNESS", "KAPPA", "AVAILABLE", "CUT_Q"],
+      "states": 64,
+      "exact": 1,
+      "incomplete": 7,
+      "conflict": 24,
+      "unavailable": 32
+    },
+    "exhaustive_battery": {
+      "dimensions": "64_STATES_X_3_PORTS_X_4_CHANNELS_X_2_SIDES",
+      "cases": 1536,
+      "exact": 24,
+      "hold": 1512,
+      "mismatches": 0,
+      "result": "PASS"
+    },
+    "cut_q_status_bug_fixed": true,
+    "source_graph_validator": "PASS"
+  },
+  "governance_delta": {
+    "new_ids": 0,
+    "new_aliases": 0,
+    "new_relations": 0,
+    "new_operators": 0,
+    "new_studies": 0,
+    "new_findings": 0,
+    "publication": 0
+  },
+  "claim_ceiling": "DETERMINISTIC_INTERFACE_AUDIT_ONLY",
+  "deployment": "NONE"
+}

@@ -1,0 +1,68 @@
+{
+  "schema": "nexah.a0.joint-window-occupancy-tour-return/1",
+  "date": "2026-11-01",
+  "status": "IMPLEMENTED_LOCAL_SOURCE_BOUND_PASS",
+  "identity": "NEXAH_A0_ORIENTATION_CONTROLLER_BENCH",
+  "parent_flagship": "A0_MACHINA_COCKPIT",
+  "entry": "A0_ORIENTATION_CONTROLLER_BENCH.html#benchShowcase",
+  "route": [
+    "cut-q-lens",
+    "joint-control",
+    "tesa-router",
+    "tesa-replay",
+    "tube-occupancy",
+    "record"
+  ],
+  "operational_map": {
+    "modules": 54,
+    "edges": 34,
+    "groups": 6,
+    "recent_modules_added": 12,
+    "new_canonical_identity": 0,
+    "new_canonical_relation": 0
+  },
+  "tour": {
+    "version": "2.1.0",
+    "stations_total": 62,
+    "direct_demo_stations": 6,
+    "chapter": "Joint · Window · Occupancy",
+    "whole_machine_return": false,
+    "source_writes": false
+  },
+  "tests": [
+    {"suite": "a0-bench-map-tests.cjs", "status": "PASS", "checks": 431},
+    {"suite": "a0-bench-showcase-tour-tests.cjs", "status": "PASS", "checks": 92},
+    {"suite": "a0-bench-showcase-tour-live-tests.cjs", "status": "PASS", "checks": 342},
+    {"suite": "a0-three-channel-tube-occupancy-bench-tests.cjs", "status": "PASS", "checks": 39},
+    {"suite": "a0-joint-control-return-audit-tests.cjs", "status": "PASS", "checks": 90},
+    {"suite": "a0-tesa-lissajous-window-router-tests.cjs", "status": "PASS", "checks": 63, "cases": 1536, "exact": 24, "hold": 1512, "mismatches": 0}
+  ],
+  "implementation": [
+    {"path": "a0-bench-map.js", "sha256": "68ec1f6b706dacc8ca3a0dda80c5df5f1722876ac16129e646472ecee986eaca"},
+    {"path": "a0-bench-map-tests.cjs", "sha256": "33f479123488ec9079cd237e1f708d21bac2bf40336a67c8df1012e1884ee115"},
+    {"path": "a0-bench-showcase-tour.js", "sha256": "a967ff5be7f86b6d694f80a3a7d4922d38d3f7901ca33469b0603cf49591f099"},
+    {"path": "a0-bench-showcase-tour-tests.cjs", "sha256": "dca4bb87a7958a8dbff9283fa63ad15ce5d2a8e9210cb2c15b7de7388b20bb00"},
+    {"path": "a0-bench-showcase-tour-live-tests.cjs", "sha256": "fc5fc7035db077a6a65b216e0025709e210302f2f628a486dabb507d10ff4385"},
+    {"path": "A0_ORIENTATION_CONTROLLER_BENCH.html", "sha256": "808e7188a05296b785fb0e9d9dac132de2b6eefe896448bde85f96cfcf80cd1b"},
+    {"path": "A0_MACHINA_COCKPIT.html", "sha256": "bae7b8b5b36027b7b4db519b84370c985e6ca5ecb92302c0b1cf672c807020a2"},
+    {"path": "assets/a0-bench-showcase-tour-package-v1.json", "sha256": "d5f31c88223bdee13925f742cda2011aba884bf8357b90c2ba86c7bfcd18e0aa"}
+  ],
+  "source_bound_semantics": {
+    "six_faces": "three declared opposite pairs",
+    "trapdoor": "cut",
+    "open_book": "two adjacent faces",
+    "pascal_joint": "typed seam",
+    "binder_clamps": "preservation and local hold functions",
+    "arcs": "motion paths",
+    "phantom_tine": "matched to SOURCE → VIEW → LOST INFORMATION → RESIDUAL / SECOND VIEW → RETURN; no new identity"
+  },
+  "authority": {
+    "research_execution": false,
+    "scientific_evidence": false,
+    "claim_promotion": false,
+    "publication": false,
+    "new_flagship": false,
+    "new_demonstrator_identity": false
+  },
+  "boundary": "A bounded presentation and engineering integration inside the existing A0 Machina and Orientation Controller Bench. It adds no scientific finding, canonical identity, canonical relation, shared clock or whole-machine return."
+}
