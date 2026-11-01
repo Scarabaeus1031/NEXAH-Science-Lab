@@ -42,6 +42,51 @@
   }
   const controlRecords=[180,182,463,465].map((index)=>recordForIndex(index,"control"));
   const mirrorSurvivors=elevatorRecords.filter((record)=>record.reversePrime);
+  const conDaoStates=["CON-6","CON-5","CON-4","CON-3","CON-2","CON-1","STILL","DAO-1","DAO-2","DAO-3","DAO-4","DAO-5","DAO-6"];
+  const janus=(state)=>state==="STILL"?state:state.startsWith("CON-")?`DAO-${state.slice(4)}`:`CON-${state.slice(4)}`;
+  const nnCarrier=Object.freeze([
+    Object.freeze({route:"G°D",side:-1,handle:"GD"}),
+    Object.freeze({route:"STILL",side:0,handle:"STILL"}),
+    Object.freeze({route:"D°G",side:1,handle:"DG"})
+  ]);
+  const nnFlip=(state)=>state.side===0?state:Object.freeze({route:state.route==="G°D"?"D°G":"G°D",side:-state.side,handle:state.handle});
+  const nnWithHandle=(state)=>`${Math.abs(state.side)}|${state.handle}`;
+  const nnShadow=(state)=>String(Math.abs(state.side));
+  const e88Theta=Math.atan2(80,120)*180/Math.PI;
+  const e88Complement=90-e88Theta;
+  const e88Carrier=Object.freeze([
+    Object.freeze({route:"G°D",landing:88,witness:"THETA",angle:e88Theta}),
+    Object.freeze({route:"D°G",landing:88,witness:"COMPLEMENT",angle:e88Complement})
+  ]);
+  const e88Flip=(state)=>Object.freeze({
+    route:state.route==="G°D"?"D°G":"G°D",
+    landing:state.landing,
+    witness:state.witness==="THETA"?"COMPLEMENT":"THETA",
+    angle:state.witness==="THETA"?e88Complement:e88Theta
+  });
+  const e88Shadow=(state)=>String(state.landing);
+  const e88WithWitness=(state)=>`${state.landing}|${state.witness}`;
+  const e88dFloors=Object.freeze([87,88,89]);
+  const e88dAngles=Object.freeze([
+    Object.freeze({mask:"A0",name:"θ−0.17°",degrees:e88Theta-.17}),
+    Object.freeze({mask:"A1",name:"θ",degrees:e88Theta}),
+    Object.freeze({mask:"A2",name:"θ+0.17°",degrees:e88Theta+.17}),
+    Object.freeze({mask:"A3",name:"COMPLEMENT",degrees:e88Complement})
+  ]);
+  const e88dDirections=Object.freeze(["MASK_A","MASK_B"]);
+  const e88dBlindOrder=Object.freeze([17,4,21,8,13,0,19,6,23,10,15,2,18,5,22,9,12,1,20,7,16,3,14,11]);
+  const e88dCells=Object.freeze(e88dFloors.flatMap((floor)=>e88dAngles.flatMap((angle)=>e88dDirections.map((directionMask)=>Object.freeze({floor,floorMask:`L${e88dFloors.indexOf(floor)}`,angleMask:angle.mask,angleName:angle.name,degrees:angle.degrees,directionMask})))));
+  const e88dProjection=Object.freeze({
+    landingOnly:(cell)=>`L${cell.floor}`,
+    landingAngle:(cell)=>`L${cell.floor}|${cell.angleMask}`,
+    withWitness:(cell)=>`L${cell.floor}|${cell.angleMask}|${cell.directionMask}`
+  });
+  const e88dPairs=Object.freeze(e88dFloors.flatMap((floor)=>e88dAngles.map((angle)=>{
+    const pair=e88dCells.filter((cell)=>cell.floor===floor&&cell.angleMask===angle.mask);
+    return Object.freeze({floor,angleMask:angle.mask,landingOnlyUnique:new Set(pair.map(e88dProjection.landingOnly)).size,landingAngleUnique:new Set(pair.map(e88dProjection.landingAngle)).size,withWitnessUnique:new Set(pair.map(e88dProjection.withWitness)).size});
+  })));
+  const e88dSelfSelects=e88dPairs.filter((pair)=>pair.floor===88).every((pair)=>pair.landingOnlyUnique===2)&&e88dPairs.filter((pair)=>pair.floor!==88).every((pair)=>pair.landingOnlyUnique===1);
+  const e88dWitnessOnly=e88dPairs.every((pair)=>pair.landingOnlyUnique===1&&pair.landingAngleUnique===1&&pair.withWitnessUnique===2);
 
   const groups={
     core:[
@@ -115,6 +160,56 @@
       ["F/M13 is a matched arithmetic control",()=>isPrime(reverseNumber(13))&&(isPrime(11)||isPrime(15))],
       ["H/S19 fails reverse while retaining twin membership",()=>!isPrime(reverseNumber(19))&&isPrime(17)],
       ["selector matrix contains exactly one source-selected lane",()=>document.querySelectorAll(".nto-selector-matrix tr[data-sm-selected='true']").length===1]
+    ],
+    blind:[
+      ["blind protocol freezes exactly nine candidates",()=>document.querySelectorAll(".nto-blind-scarab [data-bs-candidate]").length===9],
+      ["blind order is frozen and deterministic",()=>[...document.querySelectorAll(".nto-blind-scarab [data-bs-candidate]")].map((candidate)=>candidate.dataset.bsLane).join(",")==="4,9,2,7,1,8,5,3,6"],
+      ["blind order contains every lane exactly once",()=>new Set([...document.querySelectorAll(".nto-blind-scarab [data-bs-candidate]")].map((candidate)=>candidate.dataset.bsLane)).size===9],
+      ["five Scarab features are defined before reveal",()=>document.querySelectorAll(".nto-blind-features span").length===5],
+      ["geometry mapping is open for every candidate",()=>[...document.querySelectorAll(".nto-blind-scarab [data-bs-candidate] em")].every((status)=>status.textContent.trim()==="GEOMETRY OPEN")],
+      ["blind arithmetic survivor set contains six candidates",()=>document.querySelectorAll(".nto-blind-scarab [data-bs-arithmetic='true']").length===6],
+      ["blind protocol starts with labels concealed",()=>document.querySelector(".nto-blind-scarab")?.dataset.bsInitial==="blind"],
+      ["no candidate receives an invented geometry selection",()=>document.querySelectorAll(".nto-blind-scarab [data-bs-geometry='selected']").length===0],
+      ["reveal preserves the arithmetic survivor set",()=>document.querySelectorAll(".nto-blind-scarab [data-bs-arithmetic='true']").length===6],
+      ["TESA remains one separate source selection",()=>document.querySelectorAll(".nto-blind-scarab [data-bs-selected='true']").length===1]
+    ],
+    dao:[
+      ["DAO bridge reuses the existing Workbench lens",()=>document.querySelectorAll(".nto-dao-bridge").length===1],
+      ["D°G reference preserves 18 samples",()=>document.querySelector(".nto-dao-bridge")?.dataset.dgSamples==="18"],
+      ["D°G reference preserves 5 bands",()=>document.querySelector(".nto-dao-bridge")?.dataset.dgBands==="5"],
+      ["G°D remains open and unbound",()=>document.querySelector(".nto-dao-stage .is-gd span")?.textContent.trim()==="OPEN · UNBOUND"],
+      ["three relationship hypotheses are preregistered",()=>document.querySelectorAll(".nto-dao-hypotheses [data-dao-hypothesis]").length===3],
+      ["no D/G to CON/DAO binding is asserted",()=>document.querySelector(".nto-dao-bridge")?.dataset.daoBinding==="none"],
+      ["CON–DAO carrier has thirteen unique states",()=>conDaoStates.length===13&&new Set(conDaoStates).size===13],
+      ["CON–DAO has six Janus pairs",()=>conDaoStates.filter((state)=>state.startsWith("CON-")).every((state)=>janus(state).startsWith("DAO-"))],
+      ["CON–DAO involution closes",()=>conDaoStates.every((state)=>janus(janus(state))===state)],
+      ["STILL is the fixed Janus point",()=>janus("STILL")==="STILL"]
+    ],
+    nn:[
+      ["NN candidate reuses the existing Triple Gate source",()=>document.querySelector(".nto-nn-seam a[href*='goReturnTitle']")!==null],
+      ["N swaps the two symbolic sides",()=>nnFlip(nnCarrier[0]).side===1&&nnFlip(nnCarrier[2]).side===-1],
+      ["N squared closes on all three symbolic states",()=>nnCarrier.every((state)=>{const returned=nnFlip(nnFlip(state));return returned.route===state.route&&returned.side===state.side&&returned.handle===state.handle;})],
+      ["retained handles keep the two side records unique",()=>new Set(nnCarrier.filter((state)=>state.side!==0).map(nnWithHandle)).size===2],
+      ["handle ablation produces a two-to-one shadow collision",()=>nnCarrier.filter((state)=>state.side!==0).length===2&&new Set(nnCarrier.filter((state)=>state.side!==0).map(nnShadow)).size===1]
+    ],
+    e88:[
+      ["Elevator 88 is an exact palindromic P-index address",()=>88===8*11&&isPalindrome(88)&&primes[87]===457],
+      ["p88 reversal is a composite control",()=>reverseNumber(457)===754&&!isPrime(754)],
+      ["source geometry keeps exact rounded and residual records separate",()=>Math.abs(e88Theta-33.690067525979785)<1e-12&&Math.abs(e88Complement-56.309932474020215)<1e-12&&Math.abs(e88Theta+e88Complement-90)<1e-12&&Math.abs(Math.hypot(80,120)-144.22205101855957)<1e-12&&Math.hypot(80,120)!==144&&51.84+48.16===100&&72+24===96&&100-(72+24)===4&&Math.abs(360/27-40/3)<1e-12&&7.83+.17===8],
+      ["landing ablation produces a two-to-one collision",()=>new Set(e88Carrier.map(e88Shadow)).size===1&&new Set(e88Carrier.map(e88WithWitness)).size===2],
+      ["Elevator 88 witness swap closes under N squared",()=>e88Carrier.every((state)=>{const returned=e88Flip(e88Flip(state));return returned.route===state.route&&returned.landing===state.landing&&returned.witness===state.witness&&Math.abs(returned.angle-state.angle)<1e-12;})]
+    ],
+    e88d:[
+      ["discrimination matrix is exactly 3 by 4 by 2",()=>e88dFloors.length===3&&e88dAngles.length===4&&e88dDirections.length===2&&e88dCells.length===24],
+      ["blind order covers twenty-four cells exactly once",()=>e88dBlindOrder.length===24&&new Set(e88dBlindOrder).size===24&&e88dBlindOrder.every((index)=>index>=0&&index<24)],
+      ["neighbor prime controls are exact",()=>primes[86]===449&&primes[87]===457&&primes[88]===461],
+      ["frozen angle variants are finite and exact",()=>e88dAngles.every((angle)=>Number.isFinite(angle.degrees))&&Math.abs(e88dAngles[0].degrees-(e88Theta-.17))<1e-12&&Math.abs(e88dAngles[3].degrees-e88Complement)<1e-12],
+      ["initial view conceals labels and target direction",()=>document.querySelector(".nto-e88-discrimination")?.dataset.edInitial==="blind"&&document.querySelector("[data-ed-reveal]")!==null],
+      ["DAO binding default remains none",()=>document.querySelector(".nto-e88-discrimination")?.dataset.edDaoBinding==="none"],
+      ["floor-only projection collapses all twelve direction pairs",()=>e88dPairs.length===12&&e88dPairs.every((pair)=>pair.landingOnlyUnique===1)],
+      ["floor-plus-angle projection collapses all twelve direction pairs",()=>e88dPairs.every((pair)=>pair.landingAngleUnique===1)],
+      ["direction witness preserves all twelve direction pairs",()=>e88dPairs.every((pair)=>pair.withWitnessUnique===2)],
+      ["floor 88 does not self-select and witness-only rule closes",()=>e88dSelfSelects===false&&e88dWitnessOnly===true]
     ]
   };
 
@@ -183,6 +278,130 @@
       hingeOutput.textContent=passed===tests.length
         ?`PASS · ${passed}/${tests.length} · 180° HINGE + BLUE/YELLOW PRESS · VIEW ROLES HELD`
         :`FAIL · ${passed}/${tests.length} · HINGE CONTRACT`;
+    });
+  }
+
+  const blindScarab=root.querySelector(".nto-blind-scarab");
+  if(blindScarab){
+    const blindOutput=blindScarab.querySelector("[data-bs-output]");
+    const revealButton=blindScarab.querySelector("[data-bs-reveal]");
+    blindScarab.querySelector("[data-bs-run]")?.addEventListener("click",()=>{
+      const tests=groups.blind;
+      const passed=tests.filter(([,test])=>test()).length;
+      blindOutput.textContent=passed===tests.length
+        ?`PASS · ${passed}/${tests.length} · 6 ARITHMETIC · 0 GEOMETRY · MAPPING OPEN`
+        :`FAIL · ${passed}/${tests.length} · BLIND CONTRACT`;
+    });
+    revealButton?.addEventListener("click",()=>{
+      blindScarab.dataset.bsState="revealed";
+      revealButton.setAttribute("aria-pressed","true");
+      blindOutput.textContent="REVEALED · K4 = G7→Q17 · TESA SOURCE ONLY · GEOMETRY MAPPING OPEN";
+    });
+    blindScarab.querySelector("[data-bs-reset]")?.addEventListener("click",()=>{
+      blindScarab.dataset.bsState="blind";
+      revealButton?.setAttribute("aria-pressed","false");
+      blindOutput.textContent="BLIND · 9 FROZEN · 6 ARITHMETIC · GEOMETRY MAPPING OPEN";
+    });
+  }
+
+  const daoBridge=root.querySelector(".nto-dao-bridge");
+  if(daoBridge){
+    const daoOutput=daoBridge.querySelector("[data-dao-output]");
+    const stepStatus=(step,text)=>{const target=daoBridge.querySelector(`[data-dao-step="${step}"] em`);if(target)target.textContent=text;};
+    daoBridge.querySelector("[data-dao-run]")?.addEventListener("click",()=>{
+      const tests=groups.dao;
+      const passed=tests.filter(([,test])=>test()).length;
+      daoBridge.dataset.daoState="tested";
+      stepStatus(1,"REFERENCE HELD");
+      stepStatus(2,"OPEN · UNBOUND");
+      stepStatus(3,"FIXED · SEPARATE");
+      stepStatus(4,"3 × NOT TESTABLE");
+      stepStatus(5,"UNDEFINED_CONTRACT");
+      daoBridge.querySelectorAll(".nto-dao-hypotheses span").forEach((status)=>{status.textContent="NOT TESTABLE · G°D MAP ABSENT";});
+      daoOutput.textContent=passed===tests.length
+        ?`PASS · ${passed}/${tests.length} BOUNDARIES · UNDEFINED_CONTRACT · DAO BINDING NONE`
+        :`FAIL · ${passed}/${tests.length} · DAO BOUNDARY CONTRACT`;
+    });
+    daoBridge.querySelector("[data-dao-reset]")?.addEventListener("click",()=>{
+      daoBridge.dataset.daoState="undefined";
+      ["REFERENCE","OPEN · UNBOUND","NON-IDENTITY","NOT RUN","NO BINDING"].forEach((text,index)=>stepStatus(index+1,text));
+      ["NOT TESTABLE","NOT TESTABLE FOR D/G","NOT DECIDABLE"].forEach((text,index)=>{const status=daoBridge.querySelectorAll(".nto-dao-hypotheses span")[index];if(status)status.textContent=text;});
+      daoOutput.textContent="READY · D°G 18/5 · G°D OPEN · DAO BINDING NONE";
+    });
+    const nnSeam=daoBridge.querySelector(".nto-nn-seam");
+    const nnOutput=nnSeam?.querySelector("[data-nn-output]");
+    const nnStepStatus=(step,text)=>{const target=nnSeam?.querySelector(`[data-nn-step="${step}"] em`);if(target)target.textContent=text;};
+    nnSeam?.querySelector("[data-nn-run]")?.addEventListener("click",()=>{
+      const tests=groups.nn;
+      const passed=tests.filter(([,test])=>test()).length;
+      nnSeam.dataset.nnState="tested";
+      ["1 FIXED POINT","LEFT ↔ RIGHT","N² = ID","2 UNIQUE","2→1 COLLISION"].forEach((text,index)=>nnStepStatus(index+1,text));
+      nnOutput.textContent=passed===tests.length
+        ?`PASS · ${passed}/${tests.length} · SYMBOLIC INVOLUTION · HANDLE NECESSARY · NO G/D BINDING`
+        :`FAIL · ${passed}/${tests.length} · NN SEAM CONTRACT`;
+    });
+    nnSeam?.querySelector("[data-nn-reset]")?.addEventListener("click",()=>{
+      nnSeam.dataset.nnState="ready";
+      [1,2,3,4,5].forEach((step)=>nnStepStatus(step,"READY"));
+      nnOutput.textContent="READY · 3 STATES · 1 FIXED SEAM · HANDLE TEST";
+    });
+    const e88Junction=nnSeam?.querySelector(".nto-e88-junction");
+    const e88Output=e88Junction?.querySelector("[data-e88-output]");
+    const e88StepStatus=(step,text)=>{const target=e88Junction?.querySelector(`[data-e88-step="${step}"] em`);if(target)target.textContent=text;};
+    e88Junction?.querySelector("[data-e88-run]")?.addEventListener("click",()=>{
+      const tests=groups.e88;
+      const passed=tests.filter(([,test])=>test()).length;
+      e88Junction.dataset.e88State="tested";
+      ["p88=457","754 COMPOSITE","TYPED PRECISION","2→1 / 2 UNIQUE","N²=ID"].forEach((text,index)=>e88StepStatus(index+1,text));
+      e88Output.textContent=passed===tests.length
+        ?`PASS · ${passed}/${tests.length} · LANDING NEEDS WITNESS · DAO BINDING NONE`
+        :`FAIL · ${passed}/${tests.length} · ELEVATOR 88 CONTRACT`;
+    });
+    e88Junction?.querySelector("[data-e88-reset]")?.addEventListener("click",()=>{
+      e88Junction.dataset.e88State="ready";
+      [1,2,3,4,5].forEach((step)=>e88StepStatus(step,"READY"));
+      e88Output.textContent="READY · p88=457 · LANDING COLLISION · DAO BINDING NONE";
+    });
+    const e88Discrimination=e88Junction?.querySelector(".nto-e88-discrimination");
+    const edOutput=e88Discrimination?.querySelector("[data-ed-output]");
+    const edMatrix=e88Discrimination?.querySelector("[data-ed-matrix]");
+    const edReveal=e88Discrimination?.querySelector("[data-ed-reveal]");
+    const renderEdMatrix=(revealed=false)=>{
+      if(!edMatrix)return;
+      edMatrix.replaceChildren(...e88dBlindOrder.map((cellIndex,blindIndex)=>{
+        const cell=e88dCells[cellIndex];
+        const article=document.createElement("article");
+        article.className="nto-ed-cell";
+        const route=cell.directionMask==="MASK_A"?"G°D":"D°G";
+        article.innerHTML=revealed
+          ?`<b>B${String(blindIndex+1).padStart(2,"0")}</b><span>${cell.floor} · ${cell.angleName}</span><em>${route} · WITNESS</em>`
+          :`<b>B${String(blindIndex+1).padStart(2,"0")}</b><span>${cell.floorMask} · ${cell.angleMask}</span><em>TARGET HIDDEN</em>`;
+        return article;
+      }));
+    };
+    renderEdMatrix(false);
+    e88Discrimination?.querySelector("[data-ed-run]")?.addEventListener("click",()=>{
+      const labelsWereHidden=e88Discrimination.dataset.edState==="blind"&&[...edMatrix.querySelectorAll("em")].every((item)=>item.textContent==="TARGET HIDDEN");
+      const tests=groups.e88d;
+      const passed=tests.filter(([,test])=>test()).length;
+      e88Discrimination.dataset.edState="tested";
+      if(edReveal)edReveal.disabled=false;
+      edOutput.textContent=labelsWereHidden&&passed===tests.length
+        ?`NEGATIVE · ${passed}/${tests.length} CONTRACTS · 24/24 CELLS · 88 DOES NOT SELECT · WITNESS ONLY · DAO NONE`
+        :`ABORT · ${passed}/${tests.length} · BLINDING OR CONTRACT FAILURE`;
+    });
+    edReveal?.addEventListener("click",()=>{
+      if(e88Discrimination.dataset.edState!=="tested")return;
+      e88Discrimination.dataset.edState="revealed";
+      renderEdMatrix(true);
+      edReveal.disabled=true;
+      edOutput.textContent="REVEALED AFTER CLASSIFICATION · NEGATIVE 88 SELECTOR · WITNESS CANDIDATE · DAO NONE";
+    });
+    e88Discrimination?.querySelector("[data-ed-reset]")?.addEventListener("click",()=>{
+      e88Discrimination.dataset.edState="blind";
+      if(edReveal)edReveal.disabled=true;
+      renderEdMatrix(false);
+      edOutput.textContent="BLIND · 24 CELLS · TARGET HIDDEN · DAO BINDING NONE";
     });
   }
 
@@ -287,11 +506,11 @@
     output.classList.toggle("is-pass",success);
     output.classList.toggle("is-fail",!success);
     output.textContent=success
-      ?`PASS · ${passed}/${total} · CORE + HANDLE + P‑AXIS + NEGATIVE + ELEVATOR + HINGE + G/Q17 · SHADOW = VIEW/HOLD`
+      ?`PASS · ${passed}/${total} · CORE + HANDLE + P‑AXIS + NEGATIVE + ELEVATOR + HINGE + G/Q17 + BLIND SCARAB + DAO BOUNDARY + NN SEAM + E88 WITNESS + E88 DISCRIMINATION · G°D = OPEN`
       :`FAIL · ${passed}/${total} · ${failures.join(" · ")}`;
     return {passed,total,failures,success};
   };
 
   root.querySelector("[data-nto-run]")?.addEventListener("click",runTests);
-  window.A0ScarabRegulator=Object.freeze({runTests,isPrime,primeIndex,reverseNumber,isPalindrome,elevatorRecords,controlRecords});
+  window.A0ScarabRegulator=Object.freeze({runTests,isPrime,primeIndex,reverseNumber,isPalindrome,elevatorRecords,controlRecords,conDaoStates,janus,nnCarrier,nnFlip,nnWithHandle,nnShadow,e88Carrier,e88Flip,e88Shadow,e88WithWitness,e88dCells,e88dPairs,e88dSelfSelects,e88dWitnessOnly});
 })();

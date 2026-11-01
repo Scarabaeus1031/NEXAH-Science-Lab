@@ -18,7 +18,7 @@
   "connector_control": {"value": 1032, "prime": false},
   "interactive_contract": {
     "layers": ["CORE", "HANDLE", "P-AXIS", "SHADOW", "NEGATIVE"],
-    "exact_test_count": 58,
+    "exact_test_count": 98,
     "shadow_status": "VIEW_HOLD_NO_ARITHMETIC_PROMOTION",
     "negative_controls": [
       "prime indices 173 and 174 are not palindromes",
@@ -82,9 +82,98 @@
       "source_selected_lane": "G7->Q17",
       "verdict": "ARITHMETIC_FILTERS_DO_NOT_SELECT_G_UNIQUELY; TESA_R1C7_DOES"
     },
+    "blind_scarab_protocol": {
+      "steps": ["FREEZE", "DEFINE", "ASSIGN", "TEST", "REVEAL"],
+      "candidate_count": 9,
+      "blind_order_source_lanes": [4, 9, 2, 7, 1, 8, 5, 3, 6],
+      "feature_schema": ["CORE_TRIANGLE", "HANDLE", "AXIS", "MIRROR_REVERSAL", "SHADOW_SIDE"],
+      "arithmetic_survivor_count": 6,
+      "geometry_mapping_status": "OPEN_UNDEFINED",
+      "geometry_selection_count": 0,
+      "reveal_source_selection": {"blind_candidate": "K4", "source_lane": 7, "reading": "G7->Q17", "authority": "TESA_R1C7_ONLY"},
+      "verdict": "PROTOCOL_READY; NO_SOURCE_BOUND_GEOMETRY_TO_LANE_MAPPING; NO_INDEPENDENT_SCARAB_SELECTION"
+    },
     "controls": {"A0Z25_G": 6, "A0Z25_Q": 16, "p17": 59, "qrt60_address": "q17/r11", "defg_G_role": "A INTERSECT B INTERSECT C"},
     "rejected_source_equations": {"ln_phi_pi_not_0_428": true, "pi_phi_not_23_14": true},
     "namespace_boundary": "Q17, p17, q17/r11 and DEFG-G are distinct typed records; Generation is a local view role only."
+  },
+  "dao_bridge_contract": {
+    "steps": ["FIX_DG_REFERENCE", "DEFINE_GD_OPEN", "PLACE_STILL_APERTURE", "TEST_THREE_HYPOTHESES", "RETURN_WITHOUT_BINDING"],
+    "dg_reference": {"status": "BUILT_REFERENCE", "sample_count": 18, "band_count": 5, "role": "S_TRACE_COUNTER_AXIS"},
+    "gd_counter_channel": {"status": "OPEN_UNBOUND", "typed_map_present": false, "input_domain_declared": false, "output_domain_declared": false},
+    "still_aperture": {"role": "FIXED_TEST_POINT", "identity_merge": false},
+    "hypotheses": {
+      "inverse": "NOT_TESTABLE_GD_MAP_ABSENT",
+      "dg_involution": "NOT_TESTABLE_GD_MAP_ABSENT",
+      "independent": "NOT_DECIDABLE_GD_MAP_ABSENT"
+    },
+    "con_dao_comparator": {"identity": "NEXAH:CON_DAO_BREATH:V1", "state_count": 13, "janus_pair_count": 6, "fixed_state": "STILL", "involution": true, "dg_identity_binding": false},
+    "nn_seam_candidate": {
+      "source_identity_reused": "A0_TRIPLE_GATE_ODD_ANTIPODE_LOCAL_INSTRUMENT",
+      "identity_status": "CANDIDATE_LENS_ONLY",
+      "states": ["G°D", "STILL", "D°G"],
+      "state_count": 3,
+      "fixed_state": "STILL",
+      "symbolic_flip": {"G°D": "D°G", "D°G": "G°D", "STILL": "STILL"},
+      "involution": true,
+      "with_handle_unique_records": 2,
+      "without_handle_shadow_records": 1,
+      "ablation_result": "TWO_TO_ONE_COLLISION",
+      "triple_gate_roles_reused": ["DIFFERENCE", "RELATION", "EMERGENCE"],
+      "does_not_define": ["G°D_TYPED_MAP", "GOD_DOG_IDENTITY", "MOBIUS_MECHANISM", "YEARTRACK_MECHANISM", "NEPTUNE_NORTH_MECHANISM", "CON_DAO_IDENTITY"]
+    },
+    "elevator_88_candidate": {
+      "identity_status": "CANDIDATE_LENS_ONLY",
+      "prime_index": 88,
+      "prime": 457,
+      "index_palindrome": true,
+      "index_factorization": "8*11",
+      "reverse": 754,
+      "reverse_prime": false,
+      "theta_degrees": 33.690067525979785,
+      "complement_degrees": 56.309932474020215,
+      "angle_sum_degrees": 90,
+      "landing_only_unique_records": 1,
+      "with_witness_unique_records": 2,
+      "ablation_result": "TWO_TO_ONE_COLLISION",
+      "witness_swap_involution": true,
+      "dao_binding": "NONE",
+      "typed_boundaries": {
+        "frame_204x204_not_angle_204_degrees": true,
+        "hypotenuse_80_120": 144.22205101855957,
+        "declared_144_is_exact": false,
+        "apex_decimal_split": "51.84+48.16=100",
+        "ray_residual": "100-(72+24)=4",
+        "exact_27_tick_step": "40/3 degrees",
+        "kink_pair_decimal_sum": "7.83+0.17=8"
+      },
+      "does_not_define": ["G°D_TYPED_MAP", "D°G_G°D_ANGLE_ASSIGNMENT", "DAO_IDENTITY", "CON_DAO_IDENTITY", "PHYSICAL_ELEVATOR"]
+    },
+    "elevator_88_discrimination": {
+      "preregistration": "results/a0-elevator-88-discrimination-preregistration-2026-11-01.json",
+      "result": "results/a0-elevator-88-discrimination-return-2026-11-01.json",
+      "matrix": "87/88/89 * (theta-0.17/theta/theta+0.17/complement) * MASK_A/MASK_B",
+      "cell_count": 24,
+      "pair_count": 12,
+      "blind_labels_before_execution": true,
+      "independent_blinding": false,
+      "floor_only_collision_pairs": 12,
+      "floor_plus_angle_collision_pairs": 12,
+      "direction_witness_unique_pairs": 12,
+      "floor_88_self_selects": false,
+      "verdict": "NEGATIVE_88_DOES_NOT_SELECT_WITNESS_ONLY",
+      "classification": {
+        "exact": ["24 complete cells", "p87=449", "p88=457", "p89=461", "frozen angle arithmetic"],
+        "candidate": ["direction-bearing witness"],
+        "view_only": ["blind masks", "post-classification labels"],
+        "negative": ["88 self-selection", "angle-only direction selection"],
+        "open": ["G°D contract", "definition of N", "actual handle", "Triple-Gate mapping"]
+      },
+      "dao_binding": "NONE",
+      "followup_build_authorized": false
+    },
+    "result_class": "UNDEFINED_CONTRACT",
+    "verdict": "BOUNDARY_PASS; D°G REFERENCE HELD; G°D OPEN_UNBOUND; NO DAO EQUALITY OR TYPED RELATION ASSERTED"
   },
   "exact_records": {
     "2401": "7^4",

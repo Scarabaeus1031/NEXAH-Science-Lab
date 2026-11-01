@@ -1,0 +1,52 @@
+{
+  "preregistration_id": "A0_ELEVATOR_88_DISCRIMINATION_PREREGISTRATION_2026_11_01",
+  "date": "2026-11-01",
+  "status": "FROZEN_BEFORE_EXECUTION",
+  "run_class": "BOUNDED_DETERMINISTIC_WORKBENCH_TEST_NOT_SCIENTIFIC_STUDY",
+  "question": "Does floor 88 preserve direction after ablation, or does only an additional direction-bearing witness preserve it?",
+  "matrix": {
+    "floors": [87, 88, 89],
+    "floor_masks": ["L0", "L1", "L2"],
+    "angle_variants": [
+      {"mask": "A0", "name": "THETA_MINUS_0_17", "degrees": 33.520067525979785},
+      {"mask": "A1", "name": "THETA", "degrees": 33.690067525979785},
+      {"mask": "A2", "name": "THETA_PLUS_0_17", "degrees": 33.860067525979785},
+      {"mask": "A3", "name": "COMPLEMENT", "degrees": 56.309932474020215}
+    ],
+    "direction_masks": ["MASK_A", "MASK_B"],
+    "cell_count": 24
+  },
+  "blinding": {
+    "execution_view": "OPAQUE_FLOOR_ANGLE_DIRECTION_MASKS",
+    "labels_hidden_before_run": true,
+    "expected_target_direction_hidden_before_run": true,
+    "reveal_allowed_only_after_classification": true,
+    "independent_blinding": false,
+    "boundary": "Procedural label concealment prevents UI target cueing; it is not an independent blinded experiment."
+  },
+  "preregistered_rules": {
+    "success_88_self_selects": "For every angle variant on floor 88, the landing-only projection preserves two direction records; floors 87 and 89 do not; the result is invariant under direction-label permutation.",
+    "negative_witness_only": "For every floor and angle variant, landing-only and landing-plus-angle each collapse two directions to one record, while an added direction-bearing witness preserves two records.",
+    "open_result": "Any complete non-aborted pattern that satisfies neither success nor negative rule remains OPEN.",
+    "abort": [
+      "matrix is not exactly 3*4*2=24 cells",
+      "labels or expected target direction are exposed before execution",
+      "an angle is non-finite or differs from the frozen values",
+      "a floor, angle variant or direction mask is missing or duplicated",
+      "DAO binding is anything other than NONE"
+    ]
+  },
+  "classification_vocabulary": ["EXACT", "CANDIDATE", "VIEW_ONLY", "NEGATIVE", "OPEN"],
+  "default": {
+    "dao_binding": "NONE",
+    "new_identity": false,
+    "new_relation": false,
+    "new_operator_binding": false
+  },
+  "followups_not_in_scope": [
+    "G_DEGREE_D_TYPED_CONTRACT",
+    "DEFINITION_OF_N",
+    "ACTUAL_DIRECTION_HANDLE",
+    "TRIPLE_GATE_MAPPING"
+  ]
+}
