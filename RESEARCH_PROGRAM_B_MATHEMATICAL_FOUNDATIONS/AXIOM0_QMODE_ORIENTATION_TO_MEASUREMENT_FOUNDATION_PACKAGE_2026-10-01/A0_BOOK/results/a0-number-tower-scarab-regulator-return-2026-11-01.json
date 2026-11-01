@@ -1,0 +1,58 @@
+{
+  "receipt_id": "A0_NUMBER_TOWER_SCARAB_REGULATOR_RETURN_2026_11_01",
+  "date": "2026-11-01",
+  "status": "PASS_SOURCE_BOUND_ORIENTATION_LENS",
+  "scope": "existing A0 Workbench orientation lens with independent layer controls and deterministic negative controls",
+  "carrier": {
+    "geometry": "SCARAB_TETRAHEDRON_TOP_VIEW",
+    "core": [1031, 1032, 1033],
+    "inner_anchor": 1087,
+    "handle": 3301
+  },
+  "verified_prime_records": [
+    {"value": 1031, "prime_index": 173, "palindromic_index": false},
+    {"value": 1033, "prime_index": 174, "palindromic_index": false},
+    {"value": 1087, "prime_index": 181, "palindromic_index": true},
+    {"value": 3301, "prime_index": 464, "palindromic_index": true}
+  ],
+  "connector_control": {"value": 1032, "prime": false},
+  "interactive_contract": {
+    "layers": ["CORE", "HANDLE", "P-AXIS", "SHADOW", "NEGATIVE"],
+    "exact_test_count": 17,
+    "shadow_status": "VIEW_HOLD_NO_ARITHMETIC_PROMOTION",
+    "negative_controls": [
+      "prime indices 173 and 174 are not palindromes",
+      "reverse(1032)=2301 is composite",
+      "3303 is composite"
+    ]
+  },
+  "exact_records": {
+    "2401": "7^4",
+    "2501": "41*61",
+    "mirror": "R(n)=5002-n; R(2501)=2501",
+    "phi3_over_pi2": 0.4292034214696826
+  },
+  "floor_contract": ["EXACT", "ADDRESS", "BUILT", "SOURCE-ONLY"],
+  "address_only": ["63/64", "432/487", "24/42", "204 degrees", "390 degrees"],
+  "built_reuse": ["Breathing Crystal", "NLK / L-Shell"],
+  "source_only_hold": ["213 Regulator", "M78", "AM/PM", "Shadow"],
+  "boundaries": [
+    "204 != 204 degrees != 2040",
+    "0.456 and 0.487 are declared display weights in this lens",
+    "geometric role does not imply shared arithmetic operator",
+    "P-palindrome means palindromic prime index only"
+  ],
+  "reused_identities": [
+    "NEXAH:A0_ORIENTATION_EVIDENCE_LINEAGE:V1",
+    "NEXAH:INSTRUMENT:BREATHING_PRIME_CRYSTAL:V1"
+  ],
+  "governance_delta": {
+    "new_ids": 0,
+    "new_relations": 0,
+    "new_operators": 0,
+    "new_studies": 0,
+    "finding_promotions": 0,
+    "publication_authorizations": 0,
+    "deployment": false
+  }
+}
