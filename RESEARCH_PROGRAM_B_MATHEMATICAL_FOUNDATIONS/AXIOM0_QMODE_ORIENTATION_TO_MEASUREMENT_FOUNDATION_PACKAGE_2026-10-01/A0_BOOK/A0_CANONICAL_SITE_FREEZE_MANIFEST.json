@@ -1,15 +1,17 @@
 {
   "schema_id": "nexah.a0.canonical-site-freeze",
-  "schema_version": "1.0.0",
-  "freeze_id": "A0_CANONICAL_SITE_FREEZE_2026-10-29",
-  "date": "2026-10-29",
-  "owner_reaffirmed_at": "2026-10-30",
+  "schema_version": "1.1.0",
+  "freeze_id": "A0_CANONICAL_SITE_FREEZE_2026-11-02",
+  "date": "2026-11-02",
+  "owner_reaffirmed_at": "2026-11-02",
+  "supersedes": "A0_CANONICAL_SITE_FREEZE_2026-10-29",
+  "current_freeze_record": "A0_CANONICAL_SITE_FREEZE_2026-11-02.md",
   "status": "OWNER_FIXED_CANONICAL_SITE_SOURCE_INTERNAL",
   "canonical_identity": "NEXAH:A0:FROM_DISTINCTION_TO_READOUT",
   "evidence_lineage": "NEXAH:A0_ORIENTATION_EVIDENCE_LINEAGE:V1",
   "canonical_root": "A0_BOOK/",
   "canonical_entry": "A0_BOOK/index.html#top",
-  "canonical_entry_sha256": "dd825aab292409829ef7c8b31fa8390255c1b3ae23a82a72f47b2847952d0313",
+  "canonical_entry_sha256": "908c9f5902f5686eb6fbcd80b95e1f21bad324dd4584206a7586ef58f3e3ea0e",
   "short_alias": "A0/index.html",
   "short_alias_sha256": "5ca73729fb6f44220a9e7b5008d3e602bd93b201067cd1551be6a86b7b4fae63",
   "short_alias_destination": "A0_BOOK/index.html#top",
@@ -45,20 +47,33 @@
       "path": "40 EXPERIENCE PRODUCTION/NEXAHEDRON/public/a0-human/",
       "kind": "BOUND_HUMAN_VIEW_PROJECTION",
       "authoritative": false
+    },
+    {
+      "path": "A0_BOOK/NEXAH_SCIENCE.html",
+      "kind": "BOUNDED_PUBLIC_EDITORIAL_CUT",
+      "authoritative": false
+    },
+    {
+      "path": "A0_BOOK/ARCHIVE/A0_CANONICAL_SITE_FREEZE_2026-10-29/",
+      "kind": "SUPERSEDED_FREEZE_RECORD",
+      "authoritative": false
     }
   ],
   "sha256": {
-    "index.html": "dd825aab292409829ef7c8b31fa8390255c1b3ae23a82a72f47b2847952d0313",
-    "A0_SCIENCE.html": "ba7a751150e9805ca966e04850e9d1937e771b2b1c542f82701b072e14905792",
-    "A0_WERKBANK.html": "59bfe64c3ac3922768a04bdd87f66d9617f477d189355ef3f6d35a773886f611",
-    "A0_BUILDER_TOY_STORE.html": "ccfb013d87a738e9f644391355ee36b2dabd25e10a1c0e2c9528197a1f85c68f",
-    "a0-context-navigation.js": "d30503bfc1f4da47b1a8c5c0c2dc75be4f2b0852dc51c60b604ecf28385a588e",
-    "a0-context-navigation.css": "a69fca78b9d75edcb5fb013c90b563956aed185afe3968b450ca508d24c494f5",
-    "a0-bench-navigation.css": "47e9f6c8b045675bda61a782676d293402815a21fea107ff6a3f147b5f2ef062",
-    "A0_BOOK_MANIFEST.json": "d4a4eb8f54f99873663cb92eb1532ac61a5a390924a49e285a77be75db8f4643",
+    "index.html": "908c9f5902f5686eb6fbcd80b95e1f21bad324dd4584206a7586ef58f3e3ea0e",
+    "A0_SCIENCE.html": "afcb153f88001e8289c3798ebe5d95bb23f56e9e4edf782631108894196c821f",
+    "A0_WERKBANK.html": "bf119d5c5294b5c911adf92aadd683567c5b2fc5ff885cca25d70d8272e0533f",
+    "A0_BUILDER_TOY_STORE.html": "671df17ffb93a53bc83e4ed896a855bfe86ee62e3835f8d3bb53abdf03123332",
+    "a0-context-navigation.js": "37de5cfa03fe628c099f2f94783f47f20cb97ad502f0230ed3404c46449c3d4a",
+    "a0-context-navigation.css": "ca3af7459457af141394e3e6cf470d8b68934b847795ae4ae5cc829094bfc017",
+    "a0-bench-navigation.css": "562f6c6e4459e70c3f286d96217966863b7bddb51f0ceb64a378b6bbee375a41",
+    "A0_BOOK_MANIFEST.json": "7f44f9d1f9b42ecc5c8fa81accd112c85c44e5ed693460140c5758de6ab7a1c9",
     "README.md": "08445dee517db2a4521153aba5ad405179a516c9412c6965920a4853ac177a44",
-    "A0_CANONICAL_SITE_FREEZE_2026-10-29.md": "80afb10449edc255014bf7201547c25de71b6ead603d179374e9cdfb7ec45ffb",
-    "ARCHIVE/README.md": "ecc5c6181275171ce8801cd816fdfef02c31b5109a3529154dd899fca18d6586"
+    "A0_CANONICAL_SITE_FREEZE_2026-11-02.md": "f6fe9ee1918dcdb585f67df5cebc7cea662a5ade6cd4ca42464946fad668e09d",
+    "ARCHIVE/README.md": "25d08b515b5e589a79cd6be2ed9795d4b45e3e7cac404bd1f3f07ff9a2bb8111",
+    "a0-reader-navigation-tests.cjs": "ac45955b742155509e262d094a65186b7dfe9126de97c1560b5c73ae1ff96f68",
+    "a0-compact-navigation-runtime-tests.cjs": "6e8130d75f99c53c892ebb7e0a7b32619de5de932d61ed07ab1e9206a8e77c76",
+    "assets/a0-orientation-map-v1.json": "415086365beb969140ec69cd6db0214487941d81b2e6b8c282044e28e8c6df33"
   },
   "governance_effect": {
     "new_scientific_identity": false,

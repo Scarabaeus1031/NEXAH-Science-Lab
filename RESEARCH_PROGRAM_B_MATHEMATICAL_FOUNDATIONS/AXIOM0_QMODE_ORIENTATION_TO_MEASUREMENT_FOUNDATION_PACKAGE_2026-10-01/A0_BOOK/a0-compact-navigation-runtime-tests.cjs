@@ -15,17 +15,21 @@ function mount(file,hash='',search='',surface={}){
   removeAttribute(k){delete this.attributes[k];}
   getAttribute(k){return this.attributes[k]||null;}
   addEventListener(type,fn){(this.events[type]??=[]).push(fn);}
-  querySelector(s){if(s==='nav')return this.children.find(n=>n.tagName==='NAV');if(s==='.brand')return this.children.find(n=>n.className==='brand');if(s.startsWith('.')){let found=null;const name=s.slice(1);const walk=n=>{for(const c of n.children){if((c.className||'').split(' ').includes(name)){found=c;return;}walk(c);if(found)return;}};walk(this);return found;}return null;}
+  click(){for(const fn of this.events.click||[])fn({preventDefault(){},currentTarget:this,target:this});}
+  querySelector(s){if(s==='nav')return this.children.find(n=>n.tagName==='NAV');if(s==='.brand')return this.children.find(n=>n.className==='brand');if(s==='.a0-site-projection-bar button'){const bar=this.querySelector('.a0-site-projection-bar');return bar?.children.find(n=>n.tagName==='BUTTON')||null;}if(s.startsWith('.')){let found=null;const name=s.slice(1);const walk=n=>{for(const c of n.children){if((c.className||'').split(' ').includes(name)){found=c;return;}walk(c);if(found)return;}};walk(this);return found;}return null;}
   querySelectorAll(s){if(s===':scope > a')return this.children.filter(n=>n.tagName==='A');const all=[];function walk(n){for(const c of n.children){all.push(c);walk(c);}}walk(this);if(s==='.a0-reader-lane')return all.filter(n=>(n.className||'').split(' ').includes('a0-reader-lane'));if(s.includes('[open]'))return all.filter(n=>n.tagName==='DETAILS'&&n.open);return [];}
   scrollIntoView(){this.scrolled=true;}
   focus(){this.focused=true;}
   getBoundingClientRect(){return{bottom:64};}
  }
  const header=new E('header'),brand=new E('a'),nav=new E('nav'),local=new E('a'),context=new E('a'),main=new E('main'),head=new E('head'),body=new E('body'),banner=new E('aside');brand.className='brand';local.setAttribute('href','#example');context.setAttribute('href','A0_THEORY_STORYBOARD.html#overview');context.id='humanCrosswalkNavBack';nav.append(local,context);header.append(brand,nav);banner.id='humanCrosswalkReturn';
- const doc={title:'A0 · test',head,body,currentScript:null,querySelector(s){if(s==='header.top, header.topbar')return header;if(s==='main')return main;return null;},querySelectorAll(s){const match=s.match(/^\[([^\]]+)\]$/);return match?nodes.filter(n=>Object.prototype.hasOwnProperty.call(n.attributes,match[1])):[];},getElementById(id){return nodes.find(n=>n.id===id)||null;},createElement(tag){return new E(tag);},addEventListener(){}};
- const location={pathname:'/book/'+file,hash,search,protocol:surface.protocol,hostname:surface.hostname},events={},win={location,addEventListener(k,fn){events[k]=fn;}};win.self=win;win.top=win;
- vm.runInNewContext(source,{window:win,document:doc,location,URL,URLSearchParams});
- return{header,main,banner,nodes,location,events};
+ const doc={title:'A0 · test',head,body,currentScript:null,querySelector(s){if(s==='header.top, header.topbar')return header;if(s==='main')return main;if(s==='.a0-site-projection:not([hidden])')return nodes.find(n=>n.className==='a0-site-projection'&&!n.hidden)||null;return null;},querySelectorAll(s){const match=s.match(/^\[([^\]]+)\]$/);return match?nodes.filter(n=>Object.prototype.hasOwnProperty.call(n.attributes,match[1])):[];},getElementById(id){return nodes.find(n=>n.id===id)||null;},createElement(tag){return new E(tag);},addEventListener(){}};
+ const protocol=surface.protocol,hostname=surface.hostname;
+ const location={pathname:'/book/'+file,hash,search,protocol,hostname};
+ location.href=protocol==='file:'?`file://${location.pathname}${search}${hash}`:`${protocol||'https:'}//${hostname||'example.invalid'}${location.pathname}${search}${hash}`;
+ const events={},history={pushState(_state,_title,url){const value=String(url);location.href=protocol==='file:'?`file://${value}`:`${protocol||'https:'}//${hostname||'example.invalid'}${value}`;location.hash=value.includes('#')?value.slice(value.indexOf('#')):'';}},win={location,addEventListener(k,fn){events[k]=fn;},scrollTo(){win.scrolled=true;}};win.self=win;win.top=win;
+ vm.runInNewContext(source,{window:win,document:doc,location,history,URL,URLSearchParams,requestAnimationFrame:(callback)=>callback()});
+ return{header,main,banner,nodes,location,events,win,history};
 }
 for(const file of ['index.html','A0_LIVING_BLUEPRINT.html','A0_SCIENTIFIC_POSITION_REPORT.html','A0_RESEARCH_DESK.html','A0_WERKBANK.html','A0_BENCH_ENTDECKEN.html','A0_ORIENTATION_CONTROLLER_BENCH.html','A0_DATA_AND_REGISTERS.html']){
  const m=mount(file),h=m.header;
@@ -48,7 +52,7 @@ for(const file of ['index.html','A0_LIVING_BLUEPRINT.html','A0_SCIENTIFIC_POSITI
  ok(register?.href==='A0_DATA_AND_REGISTERS.html#top'&&register.innerHTML.includes('A0 · NSNavigator'),'A0 NSNavigator is a direct shortcut beside THE MACHINA');
  ok((file==='A0_DATA_AND_REGISTERS.html')===(register?.attributes['aria-current']==='page'),'NSNavigator shortcut marks only its existing locator page current');
  const channels=lanes.children.find(n=>n.className==='a0-public-channels');
- ok(channels?.children[0].href==='https://nexahedron.com/'&&channels.children[1].href==='https://nexah.de/'&&channels.children[2].href==='https://www.scarabaeus1033.net/','the three public websites are visibly separated from A0 lanes');
+ ok(channels?.children[0].href==='https://nexahedron.com/'&&channels.children[1].href==='https://nexah.de/'&&channels.children[2].href==='https://scarabaeus1033.net/','the three public websites are visibly separated from A0 lanes');
  const scienceLane=menus.find(n=>n.className.endsWith('--science'));
  ok(m.nodes.some(n=>n.className?.includes('a0-reader-section')&&(n.innerHTML||'').includes('A0 NSNavigator')),'A0 NSNavigator is integrated into Science');
  for(const section of ['Highlights · aktueller Build','Workbench','Demonstratoren','Bestand & Status'])ok(m.nodes.some(n=>n.className?.includes('a0-reader-section')&&(n.innerHTML||'').includes(section)),section+' is separated inside Builder');
@@ -72,9 +76,9 @@ for(const file of ['index.html','A0_LIVING_BLUEPRINT.html','A0_SCIENTIFIC_POSITI
    ok(!anchor||target.includes('id="'+anchor+'"'),'existing local target and anchor '+card.href);
   }
   if(science){
-   ok(showcase.children[0].href==='A0_RESEARCH_DESK.html?desk=research&rev=currentness-r3-20261031#top','Science foregrounds the full current A0 Science Desk');
-   ok(showcase.children[0].className.includes('a0-showcase-card--nexah'),'A0 Science Desk retains its editorial flagship treatment');
-   ok(showcase.children[1].href==='A0_MATHEMATICAL_JOINTS.html','Science keeps Mathfield beside the NEXAH flagship');
+   ok(showcase.children[0].href==='A0_SCIENCE.html#top','Science foregrounds the long A0 Science editorial page');
+   ok(showcase.children[0].className.includes('a0-showcase-card--nexah'),'A0 Science retains its editorial flagship treatment');
+   ok(showcase.children[1].href==='A0_RESEARCH_DESK.html?desk=research&rev=currentness-r3-20261031#top','Science Desk remains a separately labelled internal workspace');
    ok(showcase.children[2].href==='A0_DATA_AND_REGISTERS.html#top','Science foregrounds its source-bound data and register map');
    ok(showcase.children.every(card=>!card.href.includes('TOY_STORE')),'no app showcase in Science');
   }
@@ -84,8 +88,7 @@ for(const file of ['index.html','A0_LIVING_BLUEPRINT.html','A0_SCIENTIFIC_POSITI
  if(file==='index.html'){
   ok(roles.every(lane=>lane.dataset.current!=='true'),'portal does not preselect a Reader house');
   const scienceSummary=roles.find(lane=>lane.className.endsWith('--science')).children[0];
-  let prevented=false;scienceSummary.events.click[0]({preventDefault(){prevented=true;}});
-  ok(prevented&&scienceSummary.events.click.length>0,'first Science click is handled as entry into the Science page');
+  ok(!(scienceSummary.events.click||[]).length,'Science opens its navigation drawer instead of redirecting to the internal Desk');
  }
  ok(h.children[3].children[0].textContent==='A0 Navigator','one consistently named A0 Navigator');
  ok(h.children[3].id==='a0-navigator','A0 Navigator has a stable shared target');
@@ -106,21 +109,22 @@ for(const file of ['index.html','A0_LIVING_BLUEPRINT.html','A0_SCIENTIFIC_POSITI
 }
 const incoming=mount('A0_LIVING_BLUEPRINT.html','','?hc_v=1&hc_scene=5');ok(!incoming.banner.hidden,'provided crosswalk context remains visible for protocol validation');
 const localOwner=mount('index.html','','',{protocol:'file:',hostname:''});
-const localLanes=localOwner.header.children[1],localWorkspaceOverview=localOwner.header.children[2],localScienceDesk=localWorkspaceOverview.children.find(n=>n.className.includes('a0-science-desk-link')),localBuilderDesk=localWorkspaceOverview.children.find(n=>n.className.includes('a0-builder-desk-link')),localScienceMenu=localLanes.children.find(n=>n.className.endsWith('--science')),localScienceSummary=localScienceMenu.children[0];
+const localLanes=localOwner.header.children[1],localWorkspaceOverview=localOwner.header.children[2],localScienceView=localWorkspaceOverview.children.find(n=>n.className.includes('a0-science-view-link')),localBuilderView=localWorkspaceOverview.children.find(n=>n.className.includes('a0-builder-view-link')),localScienceMenu=localLanes.children.find(n=>n.className.endsWith('--science')),localScienceSummary=localScienceMenu.children[0];
 ok(!localWorkspaceOverview.children.some(n=>n.className.includes('a0-human-draft-entry')),'the archived DRAFT has no visible A0 control');
 ok(localScienceSummary.innerHTML.includes('A0 · Science'),'the primary Science lane is explicitly internal to A0');
-for(const handler of localScienceSummary.events.click)handler({preventDefault(){},currentTarget:localScienceSummary});
-ok(localOwner.location.href==='A0_RESEARCH_DESK.html?desk=research&rev=currentness-r3-20261031#top','the primary A0 Science lane opens the full current Science Desk');
+ok((localScienceSummary.events.click||[]).length===1,'the primary A0 Science icon opens its long page before its drawer');
+ok(!String(localOwner.location.href||'').includes('A0_RESEARCH_DESK.html'),'opening Science navigation does not replace the A0 page with the internal Desk');
 ok(!localWorkspaceOverview.children.some(n=>n.className.includes('a0-nexah-link')),'no redundant NEXAH Science staging button remains in the owner workspace group');
-ok(localWorkspaceOverview.children.length===3&&localScienceDesk&&localBuilderDesk&&localWorkspaceOverview.children.some(n=>n.className.includes('a0-mission-control-link')),'Science Desk, Builder Desk and Mission Control form the right-side owner workspace group');
-ok(localScienceDesk.href==='A0_RESEARCH_DESK.html?desk=research&rev=currentness-r3-20261031#top','Science Desk enters the current selected view at its top');
-ok(localScienceDesk.innerHTML.includes('Science Desk')&&localBuilderDesk.innerHTML.includes('Builder Desk'),'Science Desk and Builder Desk are direct icon routes');
+ok(localWorkspaceOverview.children.length===3&&localScienceView&&localBuilderView&&localWorkspaceOverview.children.some(n=>n.className.includes('a0-mission-control-link')),'A0 Science, What can we build and TH Mission Control form the right-side view group');
+ok(localScienceView.href==='A0_SCIENCE.html#top'&&localScienceView.innerHTML.includes('A0 Science'),'Science view link opens the long A0 Science page');
+ok(localBuilderView.href.includes('BUILDER_STATUS_REPORT.html?standalone=1#top')&&localBuilderView.innerHTML.includes('What can we build?'),'Builder icon opens the maintained long What can we build showcase');
 ok(!localOwner.nodes.filter(n=>n.className?.includes('a0-reader-section')).some(n=>(n.innerHTML||'').includes('Science Desk')||(n.innerHTML||'').includes('Builder Desk')),'Desk links do not occupy Reader menus');
 const localBuilderMenu=localOwner.header.children[1].children.find(n=>n.className.endsWith('--builder')),localBuilderSummary=localBuilderMenu.children[0];
+const localMachinaEntry=localOwner.header.children[1].children.find(n=>n.className==='a0-workbench-entry'),localMachinaSummary=localMachinaEntry.children[0];
 const localBuilderShowcase=localBuilderMenu.children[1].children[0].children[0];
 ok(localBuilderShowcase.children.length===3&&localBuilderShowcase.children[0].href==='index.html?projection=builder-showcase'&&localBuilderShowcase.children[0].innerHTML.includes('A0 Builder Home'),'local Builder home uses the existing long source-bound A0 projection');
 const localProjections=localOwner.nodes.filter(n=>n.className==='a0-site-projection');
-ok(localProjections.length===5&&localProjections.every(n=>n.hidden),'existing house and owner projections are prepared but initially closed');
+ok(localProjections.length===6&&localProjections.every(n=>n.hidden),'existing house and owner projections are prepared but initially closed');
 const humanProjection=localProjections.find(n=>n.attributes['aria-label']==='NEXAHEDRON · HUMAN VIEW');
 ok(humanProjection?.children[0].children.at(-1).textContent==='A0 zurück','NEXAHEDRON stays inside the common A0 frame');
 ok(humanProjection?.children[1].title.includes('aktuelle Staging-Ansicht'),'local A0 identifies NEXAHEDRON as the current staging view');
@@ -130,36 +134,57 @@ const localScienceProjection=mount('A0_SCIENCE.html','','?projection=nexahedron'
 const projectedScienceLanes=localScienceProjection.header.children[1];
 const projectedScience=projectedScienceLanes.children.find(n=>n.className.endsWith('--science'));
 ok(projectedScience.dataset.current==='true'&&projectedScience.dataset.projectionObscured==='true','Science remains the return context without appearing active behind NEXAHEDRON');
-ok(localProjections.some(n=>n.attributes['aria-label']==='A0 BUILDER HOME · SHOWCASE'),'the source-bound Builder Showcase is available as a clearly named A0 house view');
-const builderShowcaseProjection=localProjections.find(n=>n.attributes['aria-label']==='A0 BUILDER HOME · SHOWCASE');
-ok(!localBuilderSummary.attributes['data-a0-builder-showcase']&&!(localBuilderSummary.events.click||[]).length,'Builder summary is a direct disclosure and no longer intercepts the first click');
-ok(!(localBuilderShowcase.children[0].events.click||[]).length&&builderShowcaseProjection.hidden===true,'A0 Builder Home is a stable query route into the prepared A0 projection');
+ok(localProjections.some(n=>n.attributes['aria-label']==='WHAT CAN WE BUILD NOW? · BUILDER SHOWCASE'),'the source-bound Builder Showcase is available as a clearly named A0 house view');
+const scienceReaderProjection=localProjections.find(n=>n.attributes['aria-label']==='A0 SCIENCE · FORSCHUNGSSTAND');
+const builderShowcaseProjection=localProjections.find(n=>n.attributes['aria-label']==='WHAT CAN WE BUILD NOW? · BUILDER SHOWCASE');
+const machinaProjection=localProjections.find(n=>n.attributes['aria-label']==='THE MACHINA · WERKBANK');
+ok(!localBuilderSummary.attributes['data-a0-builder-showcase']&&(localBuilderSummary.events.click||[]).length===1,'Builder icon opens What can we build before its drawer');
+ok(!(localBuilderShowcase.children[0].events.click||[]).length&&builderShowcaseProjection.hidden===true,'A0 Builder Home is a stable query route into the prepared long Builder projection');
+localScienceSummary.events.click[0]({preventDefault(){},currentTarget:localScienceSummary});
+ok(scienceReaderProjection.hidden===false&&scienceReaderProjection.children[1].getAttribute('src').includes('A0_SCIENCE.html?a0_projection=1#top'),'first Science icon click opens the long A0 Science page without a nested A0 shell');
+localScienceSummary.events.click[0]({preventDefault(){},currentTarget:localScienceSummary});
+ok(scienceReaderProjection.hidden===true&&localScienceMenu.open===true,'second Science click closes the reader and opens the Science menu');
+localBuilderSummary.events.click[0]({preventDefault(){},currentTarget:localBuilderSummary});
+ok(builderShowcaseProjection.hidden===false&&builderShowcaseProjection.children[1].getAttribute('src').includes('BUILDER_STATUS_REPORT.html?standalone=1#top'),'first Builder click opens What can we build now');
+localBuilderSummary.events.click[0]({preventDefault(){},currentTarget:localBuilderSummary});
+ok(builderShowcaseProjection.hidden===true&&localBuilderMenu.open===true,'second Builder click closes the showcase and opens the Builder menu');
+localScienceSummary.events.click[0]({preventDefault(){},currentTarget:localScienceSummary});
+localBuilderSummary.events.click[0]({preventDefault(){},currentTarget:localBuilderSummary});
+ok(scienceReaderProjection.hidden===true&&builderShowcaseProjection.hidden===false&&!localScienceMenu.open,'switching Science to Builder closes the previous projection and drawer completely');
+localMachinaSummary.events.click[0]({preventDefault(){},currentTarget:localMachinaSummary});
+ok(builderShowcaseProjection.hidden===true&&machinaProjection.hidden===false&&machinaProjection.children[1].getAttribute('src').includes('A0_WERKBANK.html?view=machina&a0_projection=1'),'first THE MACHINA click switches cleanly to its Werkbank view without a nested A0 shell');
+localMachinaSummary.events.click[0]({preventDefault(){},currentTarget:localMachinaSummary});
+ok(machinaProjection.hidden===true&&localMachinaEntry.open===true,'second THE MACHINA click closes the view and opens the machine menu');
 const localMachina=mount('A0_WERKBANK.html','','',{protocol:'file:',hostname:''});
-const localMachinaLanes=localMachina.header.children[1],localMachinaEntry=localMachinaLanes.children.find(n=>n.className==='a0-workbench-entry'),localMachinaBuilder=localMachinaLanes.children.find(n=>n.className.endsWith('--builder')),localMachinaBuilderSummary=localMachinaBuilder.children[0],localMachinaBuilderProjection=localMachina.nodes.find(n=>n.attributes['aria-label']==='A0 BUILDER HOME · SHOWCASE');
-ok(localMachinaEntry.dataset.current==='true','THE MACHINA starts as the single active return context on its own page');
-ok(!localMachinaBuilderSummary.attributes['data-a0-builder-showcase']&&localMachinaBuilderProjection.hidden===true,'THE MACHINA page also keeps Builder disclosure separate from the optional Showcase projection');
-const builderDeskProjection=localProjections.find(n=>n.attributes['aria-label']==='BUILDER DESK · CURRENTNESS / RETURNS');
-localBuilderDesk.events.click[0]({preventDefault(){},currentTarget:localBuilderDesk});
-ok(builderDeskProjection.hidden===false&&builderDeskProjection.children[1].getAttribute('src')===localBuilderDesk.href,'Builder Desk opens as a closable A0 house view');
-builderDeskProjection.children[0].children.at(-1).events.click[0]();
+const localMachinaLanes=localMachina.header.children[1],localMachinaPageEntry=localMachinaLanes.children.find(n=>n.className==='a0-workbench-entry'),localMachinaBuilder=localMachinaLanes.children.find(n=>n.className.endsWith('--builder')),localMachinaBuilderSummary=localMachinaBuilder.children[0],localMachinaBuilderProjection=localMachina.nodes.find(n=>n.attributes['aria-label']==='WHAT CAN WE BUILD NOW? · BUILDER SHOWCASE');
+ok(localMachinaPageEntry.dataset.current==='true','THE MACHINA starts as the single active return context on its own page');
+ok(!localMachinaBuilderSummary.attributes['data-a0-builder-showcase']&&(localMachinaBuilderSummary.events.click||[]).length===1&&localMachinaBuilderProjection.hidden===true,'THE MACHINA page keeps the Builder icon bound to the optional Showcase projection');
 const missionLink=localWorkspaceOverview.children.find(n=>n.className.includes('a0-mission-control-link'));
-const missionProjection=localProjections.find(n=>n.attributes['aria-label']==='A0 CONTROL REGISTER');
+const missionProjection=localProjections.find(n=>n.attributes['aria-label']==='TH · MISSION CONTROL · STEUERUNG');
 missionLink.events.click[0]({preventDefault(){},currentTarget:missionLink});
 ok(missionProjection.hidden===false&&missionProjection.children[1].getAttribute('src')===missionLink.href,'Mission Control opens as a closable A0 house view');
 const localServer=mount('A0_SCIENCE.html','','',{protocol:'http:',hostname:'127.0.0.1'});
 const localServerWorkspace=localServer.header.children[2];
 const localServerScience=localServer.header.children[1].children.find(n=>n.className.endsWith('--science')).children[0];
 ok(localServerScience.innerHTML.includes('A0 · Science'),'localhost retains the internal A0 Science lane beside the separate nexah.de channel');
-ok(localServerWorkspace.children.find(n=>n.className.includes('a0-mission-control-link')).href==='A0_DATA_AND_REGISTERS.html#top','localhost uses the served A0 Control Register instead of an unserved ecosystem path');
-ok(localServerWorkspace.children.find(n=>n.className.includes('a0-builder-desk-link')).href==='A0_BUILDER_LOG.html?rev=currentness-r3-20261031#top','localhost uses the served current Builder Desk instead of an unserved ecosystem path');
+ok(localServerWorkspace.children.find(n=>n.className.includes('a0-mission-control-link')).href.includes('NEXAH-Mission-Control/INTERNAL_NAVIGATOR/index.html#action-board'),'localhost restores TH to the ecosystem Mission Control action board');
+ok(localServerWorkspace.children.find(n=>n.className.includes('a0-science-view-link')).href==='A0_SCIENCE.html#top','localhost keeps the long A0 Science page on the Science icon');
+ok(localServerWorkspace.children.find(n=>n.className.includes('a0-builder-view-link')).href.includes('BUILDER_STATUS_REPORT.html?standalone=1#top'),'localhost keeps What can we build on the Builder icon');
 const directBuilder=mount('index.html','','?projection=builder-showcase',{protocol:'file:',hostname:''});
-const directBuilderProjection=directBuilder.nodes.find(n=>n.attributes['aria-label']==='A0 BUILDER HOME · SHOWCASE');
+const directBuilderProjection=directBuilder.nodes.find(n=>n.attributes['aria-label']==='WHAT CAN WE BUILD NOW? · BUILDER SHOWCASE');
 ok(directBuilderProjection?.hidden===false,'direct Builder route opens inside the persistent A0 shell');
-ok(directBuilderProjection?.children[1].getAttribute('src').includes('A0_WERKBANK.html?view=machina'),'direct Builder route loads the complete local Werkbank in the A0 projection');
+ok(directBuilderProjection?.children[1].getAttribute('src').includes('BUILDER_STATUS_REPORT.html?standalone=1#top'),'direct Builder route loads the complete What can we build showcase in the A0 projection');
 const directNexah=mount('index.html','','?projection=nexah-science',{protocol:'file:',hostname:''});
 const directNexahProjection=directNexah.nodes.find(n=>n.attributes['aria-label']==='NEXAH SCIENCE · STAGING / OWNER-ABNAHME');
 ok(directNexahProjection?.hidden===false,'direct NEXAH Science staging route opens inside the persistent A0 shell');
+const brandReturn=mount('index.html','#top','',{protocol:'file:',hostname:''});
+const brandMachinaEntry=brandReturn.header.children[1].children.find(n=>n.className==='a0-workbench-entry');
+const brandMachinaProjection=brandReturn.nodes.find(n=>n.attributes['aria-label']==='THE MACHINA · WERKBANK');
+brandMachinaEntry.children[0].events.click[0]({preventDefault(){},currentTarget:brandMachinaEntry.children[0]});
+ok(brandMachinaProjection.hidden===false,'start-page regression setup opens a house projection');
+brandReturn.header.children[0].click();
+ok(brandMachinaProjection.hidden===true&&brandReturn.win.scrolled===true,'NEXAH A0 closes the active house projection and visibly returns to the start-page top');
 const builderDesk=fs.readFileSync(path.resolve(__dirname,'A0_BUILDER_LOG.html'),'utf8');
-ok(builderDesk.includes('a0-context-navigation.js?rev=a0-local-routes-r2-20261031'),'current Builder Desk participates in the shared A0 shell');
+ok(builderDesk.includes('a0-context-navigation.js?rev=a0-page-first-r3-20261101'),'current Builder Desk participates in the shared A0 shell');
 ok(builderDesk.includes('31. Oktober 2026')&&builderDesk.includes('474 kontrollierte Quellen'),'Builder Desk exposes the currentness snapshot rather than the stale abbreviated surface');
 console.log(JSON.stringify({status:'PASS',checks,scope:'actual shared navigation script in DOM double; menu structure, index-only folding and contextual banner; not browser pixels'},null,2));

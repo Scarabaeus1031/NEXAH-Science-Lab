@@ -1,13 +1,13 @@
 {
   "schema": "nexah.a0.orientation-map.local/1",
-  "date": "2026-10-23",
+  "date": "2026-11-01",
   "status": "ENGINEERING_PASS_READING_THREAD_VIEWER_BROWSER_ACCEPTANCE_OPEN",
   "entry": "A0_LIVING_BLUEPRINT.html#a0-map-home",
   "viewReuse": "A0-VIEW-LIVING-BLUEPRINT and existing A0/E8 surfaces; no new canonical identity",
   "implementationFiles": [
     {
       "path": "a0-orientation-map.js",
-      "sha256": "2147f3ea7b9a65fa08bbbbd33320f9acad5560c5019dae1081e700ad55b6b178"
+      "sha256": "93b952a0a8b8a1d6458c3114484cd96b0bf982c1a6997ba02494cc50034a79d3"
     },
     {
       "path": "a0-orientation-map.css",
@@ -15,19 +15,19 @@
     },
     {
       "path": "a0-context-navigation.js",
-      "sha256": "0add083e6a08f013cd64ef86244749f6cb40e989990994f292a11653123f7424"
+      "sha256": "37de5cfa03fe628c099f2f94783f47f20cb97ad502f0230ed3404c46449c3d4a"
     },
     {
       "path": "a0-context-navigation.css",
-      "sha256": "dd655fbfc820281cf8e788d1c87868a01a6d2f02406f6c1d709cfcac1d27813f"
+      "sha256": "ca3af7459457af141394e3e6cf470d8b68934b847795ae4ae5cc829094bfc017"
     },
     {
       "path": "A0_LIVING_BLUEPRINT.html",
-      "sha256": "2b0ed8fd6735183987a7594dbc4dbc2ac63bae81c32946a00fe1745469ee1fac"
+      "sha256": "8e68eb3b3c8eb7a27636bbdf8ffc8062ea26d8363d2ff5d113b4bfa2aef68c0b"
     },
     {
       "path": "A0_BUILDER_LOG.html",
-      "sha256": "02a05a97b73003dfa0ca815475d3a626c5f2033efe47341ce39fa74750bc4ebf"
+      "sha256": "68789af40a949a8b2e465f1425bcc47ba20cbd0ef6ff8f9e8a77a4dce1b268bc"
     },
     {
       "path": "A0_ASSET_INDEX.html",
@@ -35,7 +35,7 @@
     },
     {
       "path": "A0_ORIENTATION_CONTROLLER_BENCH.html",
-      "sha256": "ada66931a2125ebb0ff29216cc34a2a74f82ef04db762f02569a473f7950ed40"
+      "sha256": "95b933bc3828ee44a4619816a8caac9e76e7a274dff5bd5bfdb552ead87e8c44"
     },
     {
       "path": "A0_THEORY_STORYBOARD.html",
@@ -55,7 +55,7 @@
     },
     {
       "path": "A0_TOURS.html",
-      "sha256": "8dc28fcb467be4a57f5f36f22a6eae8c3791e79f7e60548fe83e990f47a302bc"
+      "sha256": "d051447fb32a72bcc45b8f3e0b4df1d6e4a62ea8a3eddf5482f5cedf896f6cc0"
     },
     {
       "path": "a0-orientation-map-tests.cjs",
@@ -66,14 +66,18 @@
       "sha256": "0564c77d6c86fa635dc0d5c1e3de163d0fd3002efecc7f1a7d1d7252f839ca49"
     },
     {
+      "path": "a0-navigation-currentness-tests.cjs",
+      "sha256": "74166915cd06277056c92dd4f725ab9ac16687b5e2cf7d6b609aeae2c3b872dc"
+    },
+    {
       "path": "assets/a0-living-blueprint-v1.json",
       "sha256": "99f7776523ced2b0a65a00a6f38eb7c0e5c79282d5f73f3cacaa9ff82c0bc0f4"
     }
   ],
   "coverage": {
-    "bookPages": 76,
-    "sharedNavigationPages": 57,
-    "standalonePages": 9,
+    "bookPages": 84,
+    "sharedNavigationPages": 71,
+    "standalonePages": 13,
     "externalE8Pages": 2,
     "selectedNodes": 26,
     "documentedEdges": 30,
@@ -371,7 +375,7 @@
       "status": "link",
       "scope": "Andere Linse desselben Atlas",
       "proof": "A0_PINK_DIAMOND_GRID_ATLAS.html",
-      "sha256": "1ad8cf03e109bf8cede6a201f4fba52351a0f129af4d7a65988c511ffdab6a00"
+      "sha256": "7c834ddc34af9d574468e86f92e0009ca4c55dede627cd6c1fe861ec7e3de790"
     },
     {
       "from": "crt",
@@ -387,7 +391,7 @@
       "status": "link",
       "scope": "Innenregister und Player im selben Instrument",
       "proof": "A0_TESSAREC_BLUE_BODY_LAB.html",
-      "sha256": "c9b6726110fc84fa50e24afc7e8b9fcda3ab2a0c43b56fbc2c58a12def0aefb0"
+      "sha256": "80d410938a1360e73a1fa317b0470553c63a04722867e25afc462a62c0a3c66d"
     },
     {
       "from": "body",
@@ -403,7 +407,7 @@
       "status": "link",
       "scope": "Im gemeinsamen Fugen-Arbeitsraum öffnen",
       "proof": "A0_FIELDS_AND_JOINTS_ATLAS.html#joint-workspace",
-      "sha256": "13dbd5152ada250062c9c689272c53869385cb8b2b41d50a81af34f8d38233de"
+      "sha256": "d76274bd9c265de5d7ad17f33cc51449b222aae00ee0070b3cf2720b684fb101"
     },
     {
       "from": "coupling",
@@ -419,7 +423,7 @@
       "status": "link",
       "scope": "Bauabschnitt / Quellen / offene Abnahme",
       "proof": "A0_BUILDER_LOG.html#nested-lens",
-      "sha256": "02a05a97b73003dfa0ca815475d3a626c5f2033efe47341ce39fa74750bc4ebf"
+      "sha256": "68789af40a949a8b2e465f1425bcc47ba20cbd0ef6ff8f9e8a77a4dce1b268bc"
     },
     {
       "from": "blue",
@@ -427,7 +431,7 @@
       "status": "link",
       "scope": "Ergebnisse und offene Adapter",
       "proof": "A0_RESEARCH_DESK.html",
-      "sha256": "760224d8d9cf4a9d0a068d8413e66bc9a7557fa761f784f7fc76c0df80388a71"
+      "sha256": "0e1628a7167db467b3d28192ff1ec7328e81860799b34a2595351b9f55d11db8"
     },
     {
       "from": "fields",
@@ -435,7 +439,7 @@
       "status": "link",
       "scope": "Family-Lesepfad",
       "proof": "A0_FAMILY_CONNECTION_ATLAS.html#map",
-      "sha256": "7e225eb4420da1a33f3e6adcc75d7683c9921c7269a4b704356db5ac13486cfa"
+      "sha256": "9283157bffa2b47e86b974662a37dfb2a675f82e808494866c60a876096678a2"
     },
     {
       "from": "story",
@@ -443,7 +447,7 @@
       "status": "link",
       "scope": "Human-/Modell-Rückbindung",
       "proof": "A0_LIVING_BLUEPRINT.html",
-      "sha256": "2b0ed8fd6735183987a7594dbc4dbc2ac63bae81c32946a00fe1745469ee1fac"
+      "sha256": "8e68eb3b3c8eb7a27636bbdf8ffc8062ea26d8363d2ff5d113b4bfa2aef68c0b"
     },
     {
       "from": "log",
@@ -451,7 +455,7 @@
       "status": "link",
       "scope": "Zur Gesamtkarte",
       "proof": "A0_LIVING_BLUEPRINT.html#a0-map-home",
-      "sha256": "2b0ed8fd6735183987a7594dbc4dbc2ac63bae81c32946a00fe1745469ee1fac"
+      "sha256": "8e68eb3b3c8eb7a27636bbdf8ffc8062ea26d8363d2ff5d113b4bfa2aef68c0b"
     },
     {
       "from": "janus",
@@ -507,7 +511,7 @@
       "status": "link",
       "scope": "Phasenbestand und offene Abnahme dokumentiert",
       "proof": "A0_BUILDER_LOG.html#bench-quellfuge-parked",
-      "sha256": "02a05a97b73003dfa0ca815475d3a626c5f2033efe47341ce39fa74750bc4ebf"
+      "sha256": "68789af40a949a8b2e465f1425bcc47ba20cbd0ef6ff8f9e8a77a4dce1b268bc"
     },
     {
       "from": "joint",
@@ -515,7 +519,7 @@
       "status": "read",
       "scope": "Integer / Primexponenten / Totient / Gap; für 1111 explizit Q4=1111 und P0/F10, P1/F26 oder P2/F42; andere Schichtkarten bleiben HOLD",
       "proof": "A0_BUILDER_LOG.html#source-seam-1111-layer-witness",
-      "sha256": "02a05a97b73003dfa0ca815475d3a626c5f2033efe47341ce39fa74750bc4ebf"
+      "sha256": "68789af40a949a8b2e465f1425bcc47ba20cbd0ef6ff8f9e8a77a4dce1b268bc"
     },
     {
       "from": "fold",
@@ -523,7 +527,7 @@
       "status": "control",
       "scope": "Quellen-SET / STEP / CAPTURE / RETURN einschließlich pausiertem CON–DAO-Cursor",
       "proof": "A0_BUILDER_LOG.html#source-seam-con-dao-return",
-      "sha256": "02a05a97b73003dfa0ca815475d3a626c5f2033efe47341ce39fa74750bc4ebf"
+      "sha256": "68789af40a949a8b2e465f1425bcc47ba20cbd0ef6ff8f9e8a77a4dce1b268bc"
     },
     {
       "from": "native",
@@ -531,7 +535,7 @@
       "status": "link",
       "scope": "Engineering-PASS, Grenzen und offene Browserabnahme",
       "proof": "A0_BUILDER_LOG.html#source-seam-con-dao-return",
-      "sha256": "02a05a97b73003dfa0ca815475d3a626c5f2033efe47341ce39fa74750bc4ebf"
+      "sha256": "68789af40a949a8b2e465f1425bcc47ba20cbd0ef6ff8f9e8a77a4dce1b268bc"
     },
     {
       "from": "joint",
@@ -539,7 +543,7 @@
       "status": "link",
       "scope": "Gemeinsame Lesefolge, keine ausgeführte Zustandsübergabe",
       "proof": "A0_JOINT_APPLICATION_DEMONSTRATOR.html#mechanism",
-      "sha256": "73cfd239aab4cb39a66d4b90f988d5db1079eec14075305598b9c4e9150975c1"
+      "sha256": "c3c12cf035b509847a49847370e7891322f62a3b5b68d0f5b508d870250688f0"
     }
   ],
   "ownerReference": {

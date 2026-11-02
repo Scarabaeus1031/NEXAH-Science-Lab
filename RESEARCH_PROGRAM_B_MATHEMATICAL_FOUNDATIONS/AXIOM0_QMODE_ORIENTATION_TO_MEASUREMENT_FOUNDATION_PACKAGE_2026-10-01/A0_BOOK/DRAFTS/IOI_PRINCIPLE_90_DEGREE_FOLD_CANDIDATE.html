@@ -1,0 +1,508 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>IOI-Prinzip · 90°-Faltung · Seitenstudie</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #090d18;
+      --panel: #101625;
+      --panel-2: #0c1220;
+      --line: #33415a;
+      --text: #edf4ff;
+      --muted: #a8b6ca;
+      --blue: #4f83ff;
+      --cyan: #55d7e8;
+      --violet: #b585ff;
+      --gold: #ffc857;
+      --green: #62e6a7;
+      --pink: #ff77bd;
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background:
+        radial-gradient(circle at 80% 0%, rgba(79,131,255,.12), transparent 35rem),
+        var(--bg);
+      color: var(--text);
+      font: 16px/1.55 Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+    main { width: min(1180px, calc(100% - 32px)); margin: 34px auto 72px; }
+    h1, h2, h3 { line-height: 1.12; margin: 0; }
+    h1 { font-size: clamp(2.1rem, 5vw, 4.8rem); letter-spacing: -.045em; }
+    h2 { font-size: clamp(1.35rem, 2.4vw, 2rem); }
+    h3 { font-size: 1rem; text-transform: uppercase; letter-spacing: .09em; color: var(--cyan); }
+    p { margin: .7rem 0 0; }
+    code, .mono { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+    code { color: var(--gold); }
+    .eyebrow { color: var(--cyan); text-transform: uppercase; letter-spacing: .16em; font: 700 .74rem/1.4 ui-monospace, monospace; }
+    .lead { max-width: 850px; color: var(--muted); font-size: 1.08rem; }
+    .status {
+      display: inline-flex; gap: .55rem; align-items: center; margin-bottom: 18px;
+      border: 1px solid rgba(98,230,167,.55); border-radius: 999px; padding: 7px 12px;
+      color: var(--green); background: rgba(98,230,167,.07); font: 700 .72rem/1.2 ui-monospace, monospace;
+    }
+    .status::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: currentColor; }
+    .hero { padding: 32px; border: 1px solid var(--line); border-radius: 24px; background: linear-gradient(150deg, rgba(16,22,37,.97), rgba(9,13,24,.82)); }
+    .hero strong { color: var(--blue); }
+    .grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 18px; margin-top: 18px; }
+    .card { grid-column: span 6; padding: 24px; border: 1px solid var(--line); border-radius: 18px; background: rgba(16,22,37,.92); }
+    .wide { grid-column: 1 / -1; }
+    .third { grid-column: span 4; }
+    .formal { border-color: rgba(85,215,232,.42); }
+    .symbolic { border-color: rgba(181,133,255,.42); }
+    .boundary { border-color: rgba(255,200,87,.44); }
+    .tag { display: inline-block; margin: 0 6px 7px 0; padding: 4px 8px; border: 1px solid var(--line); border-radius: 999px; color: var(--muted); font: 650 .7rem/1.2 ui-monospace, monospace; }
+    .equation { margin-top: 16px; padding: 16px; overflow-x: auto; border-radius: 12px; background: #080d17; color: var(--text); font: 700 clamp(.9rem,2vw,1.15rem)/1.6 ui-monospace, monospace; }
+    ul { margin: 12px 0 0; padding-left: 1.2rem; color: var(--muted); }
+    li + li { margin-top: 8px; }
+    .ok { color: var(--green); }
+    .metaphor { color: var(--violet); }
+    .warning { color: var(--gold); }
+    .diagram-wrap { margin-top: 18px; border: 1px solid var(--line); border-radius: 18px; overflow: hidden; background: #080d17; }
+    .axis-story { display: grid; grid-template-columns: minmax(0, 1fr) 290px; gap: 18px; align-items: start; margin-top: 18px; }
+    .axis-stage { position: sticky; top: 18px; }
+    .story-steps { display: grid; gap: 38vh; padding: 9vh 0 30vh; }
+    .story-step { min-height: 170px; padding: 18px; border: 1px solid var(--line); border-radius: 14px; background: rgba(8,13,23,.94); color: var(--muted); opacity: .42; transform: translateY(8px); transition: opacity .25s ease, transform .25s ease, border-color .25s ease; }
+    .story-step.is-active { opacity: 1; transform: none; border-color: var(--cyan); }
+    .story-step b { display: block; margin-bottom: 8px; color: var(--text); }
+    .axis-part { transition: opacity .45s ease, filter .45s ease; }
+    #axisStory .axis-part { opacity: .12; }
+    #axisStory .part-base { opacity: 1; }
+    #axisStory[data-stage="1"] .part-q90,
+    #axisStory[data-stage="2"] .part-q90,
+    #axisStory[data-stage="3"] .part-q90 { opacity: 1; }
+    #axisStory[data-stage="2"] .part-l,
+    #axisStory[data-stage="3"] .part-l { opacity: 1; }
+    #axisStory[data-stage="3"] .part-return { opacity: 1; }
+    #axisStory[data-stage="1"] .part-q90,
+    #axisStory[data-stage="2"] .part-l,
+    #axisStory[data-stage="3"] .part-return { filter: drop-shadow(0 0 7px currentColor); }
+    svg { display: block; width: 100%; height: auto; }
+    .legend { display: flex; flex-wrap: wrap; gap: 12px 20px; padding: 14px 18px 18px; color: var(--muted); font-size: .86rem; }
+    .legend span::before { content: ""; display: inline-block; width: 22px; height: 3px; margin: 0 7px 3px 0; background: var(--swatch); }
+    .note { padding: 15px 17px; border-left: 3px solid var(--gold); background: rgba(255,200,87,.07); color: var(--muted); }
+    .unit-lens { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(300px, .85fr); gap: 18px; margin-top: 18px; }
+    .instrument { padding: 18px; border: 1px solid var(--line); border-radius: 14px; background: #080d17; }
+    .control-row { display: flex; flex-wrap: wrap; gap: 9px; margin: 14px 0; }
+    .control-row button {
+      border: 1px solid var(--line); border-radius: 9px; padding: 8px 11px; cursor: pointer;
+      background: #10192a; color: var(--muted); font: 700 .78rem/1 ui-monospace, monospace;
+    }
+    .control-row button:hover, .control-row button[aria-pressed="true"] { color: #08101a; border-color: var(--gold); background: var(--gold); }
+    .measure-range { width: 100%; accent-color: var(--cyan); }
+    .measure-primary { color: var(--gold); font: 800 clamp(2rem, 5vw, 4.4rem)/1 ui-monospace, monospace; }
+    .measure-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 16px; }
+    .measure-cell { padding: 13px; border: 1px solid var(--line); border-radius: 10px; color: var(--muted); }
+    .measure-cell b { display: block; margin-top: 5px; color: var(--text); font: 750 1.1rem/1.3 ui-monospace, monospace; }
+    .route-line { margin-top: 14px; color: var(--cyan); font: 700 .86rem/1.6 ui-monospace, monospace; }
+    .glyph-table { width: 100%; margin-top: 12px; border-collapse: collapse; font-size: .9rem; }
+    .glyph-table th, .glyph-table td { padding: 10px 8px; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+    .glyph-table th { color: var(--cyan); font: 700 .68rem/1.2 ui-monospace, monospace; text-transform: uppercase; letter-spacing: .08em; }
+    .glyph-table td:first-child { color: var(--gold); font: 800 1rem/1.3 ui-monospace, monospace; }
+    .glyph-table td:nth-child(2) { color: var(--green); font-family: ui-monospace, monospace; }
+    .glyph-table td:nth-child(3) { color: var(--violet); }
+    .gls-readout { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-top: 14px; }
+    .gls-readout > div { padding: 12px; border: 1px solid var(--line); border-radius: 10px; color: var(--muted); }
+    .gls-readout b { display: block; margin-top: 4px; color: var(--text); font: 750 1rem/1.3 ui-monospace, monospace; }
+    .gls-stage { min-height: 430px; }
+    .gls-stage .gls-soft { opacity: .38; }
+    .gls-stage .gls-live { filter: drop-shadow(0 0 5px currentColor); }
+    footer { margin-top: 20px; padding: 20px 4px; color: #75849b; font-size: .82rem; }
+    @media (max-width: 850px) {
+      .card, .third { grid-column: 1 / -1; }
+      .hero, .card { padding: 20px; }
+      .axis-story { grid-template-columns: 1fr; }
+      .axis-stage { position: sticky; top: 8px; z-index: 2; }
+      .story-steps { gap: 28vh; padding-top: 4vh; }
+      .unit-lens { grid-template-columns: 1fr; }
+      .measure-grid { grid-template-columns: 1fr; }
+      .gls-readout { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+<main>
+  <section class="hero">
+    <div class="status">SIDE STUDY · A0 FREEZE UNTOUCHED · NO NEW GRAPH IDENTITY</div>
+    <div class="eyebrow">IOI · Inside → Outside → Inside′</div>
+    <h1>Die <strong>blaue Ecke</strong> als<br>orthogonaler View-Wechsel.</h1>
+    <p class="lead">Eine formale Leselinse für System, Metaperspektive und Return. Die Zahlen- und Buchstabenbilder bleiben als deklarierte Symbolik erhalten; mathematische Aussagen, Metaphern und offene Hypothesen werden getrennt.</p>
+  </section>
+
+  <section class="grid">
+    <article class="card wide formal">
+      <h3>Formaler Kern</h3>
+      <h2>IOI ist eine dreistufige Abbildung — kein Beweis durch die Schreibweise 101.</h2>
+      <div class="equation">x ∈ S<sub>in</sub> &nbsp;—E→&nbsp; v ∈ M<sub>out</sub> &nbsp;—R→&nbsp; x′ ∈ S′<sub>in</sub><br>Closure-Test: &nbsp;R(E(x)) = x ? &nbsp;&nbsp; Residuum: &nbsp;ρ(x) = x′ − x</div>
+      <p><span class="tag">SOURCE / INSIDE</span><span class="tag">VIEW / OUTSIDE</span><span class="tag">RETURN / INSIDE′</span><span class="tag">RESIDUAL ρ</span></p>
+      <p class="lead">Der zweite Innenraum wird mit <strong>Inside′</strong> markiert: Er darf verändert sein. Erst der Closure-Test entscheidet, ob wirklich Identität, ein verlustbehafteter Return oder nur eine zweite Ansicht vorliegt.</p>
+    </article>
+
+    <article class="card symbolic">
+      <h3>Symbolische Lesart</h3>
+      <h2><span class="mono">I · O · I</span> als visuelles Palindrom.</h2>
+      <ul>
+        <li><span class="ok">Exakt:</span> Alphabetpositionen <code>9 + 15 + 9 = 33</code>.</li>
+        <li><span class="metaphor">Mnemonic:</span> Die beiden I können als Rahmen, das O als Zwischenraum gelesen werden.</li>
+        <li><span class="warning">Keine Folgerung:</span> Aus der Form von 101 folgt kein Satz über Dimension, Bewusstsein oder physikalische Systeme.</li>
+      </ul>
+    </article>
+
+    <article class="card formal">
+      <h3>Gödel · Church · Turing</h3>
+      <h2>Die Analogie braucht klare Grenzen.</h2>
+      <ul>
+        <li>Gödel betrifft hinreichend ausdrucksstarke, konsistente, effektiv axiomatisierte formale Systeme.</li>
+        <li>Turing zeigt die Unentscheidbarkeit des allgemeinen Halteproblems.</li>
+        <li>Die Church–Turing-These charakterisiert effektive Berechenbarkeit; sie ist keine geometrische IOI-Gleichung.</li>
+      </ul>
+      <p>IOI kann diese Perspektivwechsel <em>illustrieren</em>, ersetzt aber keinen der Sätze.</p>
+    </article>
+
+    <article class="card wide">
+      <h3>Geometrie der blauen Ecke</h3>
+      <h2>Baseline → Pivot → Q90 / L↓ → Return.</h2>
+      <div class="axis-story" id="axisStory" data-stage="0">
+      <div class="axis-stage">
+      <div class="diagram-wrap">
+        <svg viewBox="0 0 1000 660" role="img" aria-labelledby="chartTitle chartDesc">
+          <title id="chartTitle">IOI 90-Grad-Faltung mit blauer Ecke</title>
+          <desc id="chartDesc">Eine horizontale blaue Basis trägt die Marker 33, 45 und 78. Vom deklarierten Pivot 7 führt Q90 nach oben und die lokale L-Achse als Gegenrichtung nach unten. Eine violette Kurve zeigt den symbolischen Return.</desc>
+          <defs>
+            <pattern id="grid" width="50" height="50" patternUnits="userSpaceOnUse"><path d="M 50 0 L 0 0 0 50" fill="none" stroke="#202b40" stroke-width="1"/></pattern>
+            <marker id="arrowBlue" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#4f83ff"/></marker>
+            <marker id="arrowViolet" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#b585ff"/></marker>
+          </defs>
+          <rect width="1000" height="540" fill="url(#grid)"/>
+          <g font-family="ui-monospace, monospace" font-size="16" fill="#a8b6ca">
+            <g class="axis-part part-base">
+              <line x1="100" y1="330" x2="900" y2="330" stroke="#4f83ff" stroke-width="5" marker-end="url(#arrowBlue)"/>
+              <circle cx="225" cy="330" r="8" fill="#55d7e8"/>
+              <circle cx="430" cy="330" r="6" fill="#ffc857"/>
+              <circle cx="565" cy="330" r="6" fill="#ffc857"/>
+              <circle cx="760" cy="330" r="6" fill="#ffc857"/>
+              <text x="192" y="362" fill="#55d7e8">PIVOT 7</text>
+              <text x="418" y="316" fill="#ffc857">33</text><text x="378" y="378">IOI-Adresse</text>
+              <text x="553" y="316" fill="#ffc857">45</text><text x="520" y="404">Symboltakt</text>
+              <text x="748" y="316" fill="#ffc857">78</text><text x="710" y="378">Zyklusmarker</text>
+              <text x="116" y="305" fill="#4f83ff">INSIDE</text><text x="802" y="305" fill="#4f83ff">INSIDE′</text>
+            </g>
+            <g class="axis-part part-q90" color="#4f83ff">
+              <line x1="225" y1="330" x2="225" y2="68" stroke="#4f83ff" stroke-width="6" marker-end="url(#arrowBlue)"/>
+              <path d="M225 305 h25 v25" fill="none" stroke="#55d7e8" stroke-width="3"/>
+              <text x="245" y="92" fill="#4f83ff">Q90 · +90° · OUTSIDE VIEW</text>
+            </g>
+            <g class="axis-part part-l" color="#55d7e8">
+              <line x1="225" y1="330" x2="225" y2="570" stroke="#55d7e8" stroke-width="5" stroke-dasharray="12 8" marker-end="url(#arrowBlue)"/>
+              <path d="M225 330 h25 v25" fill="none" stroke="#55d7e8" stroke-width="3"/>
+              <text x="245" y="555" fill="#55d7e8">L↓ · −90° · GEGENRICHTUNG</text>
+            </g>
+            <g class="axis-part part-return" color="#b585ff">
+              <path d="M760 330 C700 235 505 190 250 92" fill="none" stroke="#b585ff" stroke-width="3" stroke-dasharray="10 9" marker-end="url(#arrowViolet)"/>
+              <path d="M250 570 C505 535 700 440 760 330" fill="none" stroke="#b585ff" stroke-width="2" stroke-dasharray="5 10" marker-end="url(#arrowViolet)"/>
+              <text x="535" y="196" fill="#b585ff">RETURN / zweite Lesart</text>
+            </g>
+          </g>
+        </svg>
+        <div class="legend">
+          <span style="--swatch:var(--blue)">Systembasis und orthogonaler View-Wechsel</span>
+          <span style="--swatch:var(--violet)">symbolische Return-Lesebahn</span>
+          <span style="--swatch:var(--gold)">deklarierte Adressmarker</span>
+        </div>
+      </div>
+      </div>
+      <div class="story-steps" aria-label="Scroll-Erzählung der Achsen">
+        <section class="story-step is-active" data-axis-step="0"><b>0 · Basis / Inside</b>Die blaue Horizontale ist das deklarierte Ausgangsfeld. Der Pivot ist ein Punkt — noch keine Richtung.</section>
+        <section class="story-step" data-axis-step="1"><b>1 · Q90 / +90°</b>Der positive Vierteldreh öffnet die obere orthogonale Ansicht. Q90 benennt diesen Port, nicht den Pivot selbst.</section>
+        <section class="story-step" data-axis-step="2"><b>2 · L↓ / −90°</b>Die Gegenrichtung benutzt denselben Ursprung. L ist hier ein lokales Leselabel für die untere Halb-Achse.</section>
+        <section class="story-step" data-axis-step="3"><b>3 · Return</b>Beide Ansichten können zurückgeführt werden. Ob Identität erhalten bleibt, entscheidet erst <span class="mono">R(E(x)) = x ?</span></section>
+      </div>
+      </div>
+      <p class="note"><strong>Wichtig:</strong> 90° bedeutet hier Orthogonalität in der dargestellten Ebene. Der Winkel beweist weder eine höhere Raumdimension noch eine physikalische oder kognitive Unabhängigkeit. Der Pivot 7 und die Marker 33/45/78 sind gewählte Lesemarken.</p>
+      <div class="equation">R<sub>+π/2</sub>e<sub>x</sub> = e<sub>y</sub> &nbsp;&nbsp;·&nbsp;&nbsp; R<sub>−π/2</sub>e<sub>x</sub> = −e<sub>y</sub> &nbsp;&nbsp;·&nbsp;&nbsp; Pivot ≠ Port</div>
+    </article>
+
+    <article class="card wide boundary" id="unitGlyphLens">
+      <h3>Unit Switch / Glyph Lens</h3>
+      <h2>Maß → Modul → Adresse → Glyphe.</h2>
+      <p class="lead">Dieselbe Länge kann in Fuß/Zoll oder in einem gewählten Modulraster gelesen werden. Die Umrechnung ist exakt; die anschließende Q- und Glyphenadresse ist eine deklarierte Leseschicht.</p>
+      <div class="unit-lens">
+        <section class="instrument" aria-labelledby="measureTitle">
+          <h3 id="measureTitle">Mess- und Modulumschalter</h3>
+          <div class="control-row" aria-label="Längen-Presets">
+            <button type="button" data-inch-preset="78">78″</button>
+            <button type="button" data-inch-preset="100">100″</button>
+            <button type="button" data-inch-preset="120" aria-pressed="true">120″</button>
+          </div>
+          <label class="mono" for="inchMeasure">Länge in Zoll: <output id="inchOutput">120</output>″</label>
+          <input class="measure-range" id="inchMeasure" type="range" min="0" max="240" step="1" value="120">
+          <div class="control-row" aria-label="Modulgröße">
+            <button type="button" data-module-size="10">10″-Raster</button>
+            <button type="button" data-module-size="12">12″-Raster</button>
+            <button type="button" data-module-size="20" aria-pressed="true">20″-Raster</button>
+          </div>
+          <div class="measure-primary" id="feetReadout">10′ 0″</div>
+          <div class="measure-grid">
+            <div class="measure-cell">Fuß/Zoll<b id="feetExact">10·12 + 0</b></div>
+            <div class="measure-cell">Modulteilung<b id="moduleExact">6·20 + 0</b></div>
+            <div class="measure-cell">Lokale Adresse<b id="moduleAddress">Q6 · r0</b></div>
+          </div>
+          <div class="route-line" id="measureRoute">120″ → 10′ 0″ → 6 × 20″ + 0″ → Q6·r0</div>
+        </section>
+
+        <section class="instrument" aria-labelledby="glyphTitle">
+          <h3 id="glyphTitle">Römische Zahl / visuelle Lesart</h3>
+          <table class="glyph-table">
+            <thead><tr><th>Wert</th><th>Standard</th><th>Deklarierte Glyphenlinse</th></tr></thead>
+            <tbody>
+              <tr><td>9</td><td>IX</td><td><code>VIIII</code> ist additive/historische Form; <code>QIX</code> bedeutet hier Q-Port + IX-Adresse.</td></tr>
+              <tr><td>99</td><td>XCIX</td><td><code>IC</code> bleibt eine nichtstandardisierte visuelle Kurzform, keine römische Gleichheit.</td></tr>
+              <tr><td>101</td><td>CI</td><td><code>CI = 101</code> ist exakt; <code>I·O·I</code> bleibt die IOI-Symbolschicht.</td></tr>
+              <tr><td>500 / 1000</td><td>D / M</td><td>Bögen, gedrehte V-Formen oder ein zusammengesetztes M sind Formanalogien, keine Zahlenoperation.</td></tr>
+            </tbody>
+          </table>
+          <p class="note"><strong>Typregel:</strong> Ein vorangestelltes <code>Q</code> benennt einen lokalen Port. Es gehört nicht zur römischen Zahl.</p>
+        </section>
+      </div>
+    </article>
+
+    <article class="card wide symbolic" id="glsReturnFold">
+      <h3>Zweite Faltungsebene / GLS Return</h3>
+      <h2><span class="mono">VII → lange 7 → L → S → Gᵣ | II</span></h2>
+      <p class="lead">Der „Galgen“ ist hier eine konstruierte 90°-Ecke. Seine Diagonale bei 45° ist die Winkelhalbierende. Der rosa Rückbogen liest dieselbe Konstruktion als Sweep/Return; die beiden violetten Striche bleiben getrennte Rails <span class="mono">II</span>.</p>
+      <div class="unit-lens">
+        <section class="instrument gls-stage" aria-labelledby="glsStageTitle">
+          <h3 id="glsStageTitle">Galgen · Winkel · Rückbogen</h3>
+          <svg viewBox="0 0 600 430" role="img" aria-labelledby="glsTitle glsDesc">
+            <title id="glsTitle">Interaktive GLS-Faltung im 90-Grad-Winkel</title>
+            <desc id="glsDesc">Eine goldene lange Sieben und eine rechtwinklige L-Achse teilen sich einen Pin. Ein verstellbarer Strahl zeigt 0 bis 90 Grad; bei 45 Grad halbiert er die Ecke. Ein rosa Bogen zeigt den symbolischen Return-Sweep, zwei violette Rails markieren II.</desc>
+            <defs>
+              <marker id="glsArrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10z" fill="#ff77bd"/></marker>
+            </defs>
+            <g font-family="ui-monospace, monospace">
+              <line x1="80" y1="340" x2="530" y2="340" stroke="#4f83ff" stroke-width="4"/>
+              <line x1="170" y1="370" x2="170" y2="55" stroke="#55d7e8" stroke-width="4"/>
+              <path d="M170 82 H455 L170 340" fill="none" stroke="#ffc857" stroke-width="6" stroke-linejoin="round"/>
+              <path d="M170 315 h25 v25" fill="none" stroke="#edf4ff" stroke-width="3"/>
+              <line x1="143" y1="70" x2="143" y2="250" stroke="#b585ff" stroke-width="3"/>
+              <line x1="156" y1="70" x2="156" y2="250" stroke="#b585ff" stroke-width="3"/>
+              <text x="121" y="54" fill="#b585ff" font-size="18">II</text>
+              <text x="328" y="67" fill="#ffc857" font-size="16">LANGE 7 / GALGEN</text>
+              <text x="184" y="110" fill="#55d7e8" font-size="15">L · Q90</text>
+              <text x="430" y="330" fill="#4f83ff" font-size="15">BASIS</text>
+              <path d="M170 340 C80 325 72 235 120 185 C148 156 155 120 143 93" fill="none" stroke="#ff77bd" stroke-width="4" stroke-dasharray="9 7" marker-end="url(#glsArrow)"/>
+              <text x="52" y="285" fill="#ff77bd" font-size="15">S · RETURN SWEEP</text>
+              <text x="83" y="173" fill="#ff77bd" font-size="18">Gᵣ</text>
+              <line id="glsAngleRay" class="gls-live" x1="170" y1="340" x2="325" y2="185" stroke="#62e6a7" stroke-width="5" color="#62e6a7"/>
+              <path id="glsAngleArc" d="M240 340 A70 70 0 0 0 219.5 290.5" fill="none" stroke="#62e6a7" stroke-width="3"/>
+              <text id="glsAngleLabel" x="236" y="283" fill="#62e6a7" font-size="18">45°</text>
+              <circle cx="170" cy="340" r="9" fill="#edf4ff" stroke="#ff77bd" stroke-width="4"/>
+              <text x="184" y="367" fill="#edf4ff" font-size="15">PIN / PIVOT</text>
+              <path d="M170 340 L455 82" fill="none" stroke="#ffc857" stroke-width="2" stroke-dasharray="5 8" class="gls-soft"/>
+            </g>
+          </svg>
+        </section>
+
+        <section class="instrument" aria-labelledby="glsControlTitle">
+          <h3 id="glsControlTitle">Faltwinkel θ</h3>
+          <div class="control-row" aria-label="Winkel-Presets">
+            <button type="button" data-gls-angle="0">0°</button>
+            <button type="button" data-gls-angle="45" aria-pressed="true">45° · Halbierende</button>
+            <button type="button" data-gls-angle="60">60° · zweite Faltung</button>
+            <button type="button" data-gls-angle="90">90° · Q90</button>
+          </div>
+          <label class="mono" for="glsAngle">θ = <output id="glsAngleOutput">45</output>°</label>
+          <input class="measure-range" id="glsAngle" type="range" min="0" max="90" step="1" value="45">
+          <div class="gls-readout">
+            <div>Vektorbild<b id="glsVector">Rπ/4 eₓ</b></div>
+            <div>Rolle<b id="glsRole">Winkelhalbierende</b></div>
+            <div>Glyphenroute<b>VII → Gᵣ | II</b></div>
+            <div>Return-Test<b>R(E(x)) = x ?</b></div>
+          </div>
+          <div class="equation" id="glsEquation">R<sub>π/4</sub>e<sub>x</sub> = (e<sub>x</sub> + e<sub>y</sub>)/√2</div>
+          <p class="note"><strong>Typgrenze:</strong> <code>VII = 7</code> bleibt die römische Zahl. <code>Gᵣ | II</code> ist eine deklarierte Form- und Bewegungslesart. Der 60°-Port ist eine eigene Faltstellung; er folgt nicht arithmetisch aus <code>VII + II = IX</code>.</p>
+        </section>
+      </div>
+    </article>
+
+    <article class="card third formal">
+      <h3>Bestätigte Arithmetik</h3>
+      <div class="equation">33 + 45 = 78<br>1 + … + 12 = 78<br>7 + 8 = 15</div>
+      <p>Diese Gleichheiten stimmen. Ihre gemeinsame Bedeutung bleibt eine Interpretation, solange kein zusätzliches Modell sie bindet.</p>
+    </article>
+
+    <article class="card third formal">
+      <h3>Primindex-Kette</h3>
+      <div class="equation">101 = p<sub>26</sub><br>26 = 2·13<br>13 = p<sub>6</sub><br>6 = 2·3<br>3 = p<sub>2</sub></div>
+      <p>Eine korrekte Zerlegung und Indexkette; „Matrjoschka“ ist eine passende Anschauung, aber kein eigener Primzahlsatz.</p>
+    </article>
+
+    <article class="card third symbolic">
+      <h3>Poetische Ebene</h3>
+      <div class="equation">101 ≈ I · O · I<br>33 ≈ Membran<br>78 ≈ Uhrzyklus</div>
+      <p>Diese Zuordnungen bleiben bewusst als visuelle Sprache markiert. Sie dürfen Hypothesen anregen, aber nicht als Messergebnis ausgegeben werden.</p>
+    </article>
+
+    <article class="card wide boundary">
+      <h3>Arbeitsvertrag dieser Seitenstudie</h3>
+      <h2>Reuse without merge.</h2>
+      <p>Die Studie nutzt die vorhandene NEXAH-Grammatik <code>SOURCE / INSIDE → VIEW / OUTSIDE → LOST INFORMATION / RESIDUAL → RETURN / INSIDE′</code>. Sie erzeugt keine neue kanonische Identität, keine Source-Graph-Kante und keine Änderung am eingefrorenen A0-Paket.</p>
+    </article>
+  </section>
+
+  <footer>Standalone candidate · 2026-11-02 · Ablage: Desktop/00_INCOMING · A0 freeze untouched.</footer>
+</main>
+<script>
+  (() => {
+    const story = document.querySelector('#axisStory');
+    const steps = [...document.querySelectorAll('[data-axis-step]')];
+    if (!story || !steps.length || !('IntersectionObserver' in window)) return;
+    const activate = (step) => {
+      const stage = step.dataset.axisStep;
+      story.dataset.stage = stage;
+      steps.forEach((candidate) => candidate.classList.toggle('is-active', candidate === step));
+    };
+    const observer = new IntersectionObserver((entries) => {
+      const visible = entries.filter((entry) => entry.isIntersecting).sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+      if (visible[0]) activate(visible[0].target);
+    }, { rootMargin: '-30% 0px -45% 0px', threshold: [0, .25, .6] });
+    steps.forEach((step) => observer.observe(step));
+  })();
+
+  (() => {
+    const slider = document.querySelector('#inchMeasure');
+    const inchOutput = document.querySelector('#inchOutput');
+    const feetReadout = document.querySelector('#feetReadout');
+    const feetExact = document.querySelector('#feetExact');
+    const moduleExact = document.querySelector('#moduleExact');
+    const moduleAddress = document.querySelector('#moduleAddress');
+    const route = document.querySelector('#measureRoute');
+    const presets = [...document.querySelectorAll('[data-inch-preset]')];
+    const modules = [...document.querySelectorAll('[data-module-size]')];
+    if (!slider || !route) return;
+    let moduleSize = 20;
+
+    const render = () => {
+      const inches = Number(slider.value);
+      const feet = Math.floor(inches / 12);
+      const inchRemainder = inches % 12;
+      const quotient = Math.floor(inches / moduleSize);
+      const remainder = inches % moduleSize;
+      inchOutput.value = inches;
+      feetReadout.textContent = `${feet}′ ${inchRemainder}″`;
+      feetExact.textContent = `${feet}·12 + ${inchRemainder}`;
+      moduleExact.textContent = `${quotient}·${moduleSize} + ${remainder}`;
+      moduleAddress.textContent = `Q${quotient} · r${remainder}`;
+      route.textContent = `${inches}″ → ${feet}′ ${inchRemainder}″ → ${quotient} × ${moduleSize}″ + ${remainder}″ → Q${quotient}·r${remainder}`;
+      presets.forEach((button) => button.setAttribute('aria-pressed', String(Number(button.dataset.inchPreset) === inches)));
+      modules.forEach((button) => button.setAttribute('aria-pressed', String(Number(button.dataset.moduleSize) === moduleSize)));
+    };
+
+    slider.addEventListener('input', render);
+    presets.forEach((button) => button.addEventListener('click', () => { slider.value = button.dataset.inchPreset; render(); }));
+    modules.forEach((button) => button.addEventListener('click', () => { moduleSize = Number(button.dataset.moduleSize); render(); }));
+    render();
+  })();
+
+  (() => {
+    const slider = document.querySelector('#glsAngle');
+    const output = document.querySelector('#glsAngleOutput');
+    const ray = document.querySelector('#glsAngleRay');
+    const arc = document.querySelector('#glsAngleArc');
+    const label = document.querySelector('#glsAngleLabel');
+    const vector = document.querySelector('#glsVector');
+    const role = document.querySelector('#glsRole');
+    const equation = document.querySelector('#glsEquation');
+    const presets = [...document.querySelectorAll('[data-gls-angle]')];
+    if (!slider || !ray || !arc) return;
+
+    const render = () => {
+      const angle = Number(slider.value);
+      const radians = angle * Math.PI / 180;
+      const radius = 220;
+      const arcRadius = 70;
+      const x = 170 + radius * Math.cos(radians);
+      const y = 340 - radius * Math.sin(radians);
+      const arcX = 170 + arcRadius * Math.cos(radians);
+      const arcY = 340 - arcRadius * Math.sin(radians);
+      const labelRadius = 98;
+      const labelRadians = Math.max(8, angle / 2) * Math.PI / 180;
+      ray.setAttribute('x2', x.toFixed(2));
+      ray.setAttribute('y2', y.toFixed(2));
+      arc.setAttribute('d', `M240 340 A70 70 0 0 0 ${arcX.toFixed(2)} ${arcY.toFixed(2)}`);
+      label.setAttribute('x', (170 + labelRadius * Math.cos(labelRadians)).toFixed(2));
+      label.setAttribute('y', (340 - labelRadius * Math.sin(labelRadians) - 8).toFixed(2));
+      label.textContent = `${angle}°`;
+      output.value = angle;
+      presets.forEach((button) => button.setAttribute('aria-pressed', String(Number(button.dataset.glsAngle) === angle)));
+
+      if (angle === 45) {
+        vector.textContent = 'Rπ/4 eₓ';
+        role.textContent = 'Winkelhalbierende';
+        equation.innerHTML = 'R<sub>π/4</sub>e<sub>x</sub> = (e<sub>x</sub> + e<sub>y</sub>)/√2';
+      } else if (angle === 90) {
+        vector.textContent = 'Rπ/2 eₓ = eᵧ';
+        role.textContent = 'Q90 / Outside-Port';
+        equation.innerHTML = 'R<sub>π/2</sub>e<sub>x</sub> = e<sub>y</sub>';
+      } else if (angle === 60) {
+        vector.textContent = 'Rπ/3 eₓ';
+        role.textContent = 'separate Faltstellung';
+        equation.innerHTML = 'R<sub>π/3</sub>e<sub>x</sub> = ½e<sub>x</sub> + (√3/2)e<sub>y</sub>';
+      } else if (angle === 0) {
+        vector.textContent = 'R0 eₓ = eₓ';
+        role.textContent = 'Inside / Basis';
+        equation.innerHTML = 'R<sub>0</sub>e<sub>x</sub> = e<sub>x</sub>';
+      } else {
+        vector.textContent = `R${angle}° eₓ`;
+        role.textContent = 'interpolierte Ansicht';
+        equation.innerHTML = `R<sub>${angle}°</sub>e<sub>x</sub> = cos(${angle}°)e<sub>x</sub> + sin(${angle}°)e<sub>y</sub>`;
+      }
+    };
+
+    slider.addEventListener('input', render);
+    presets.forEach((button) => button.addEventListener('click', () => { slider.value = button.dataset.glsAngle; render(); }));
+    render();
+  })();
+</script>
+<script>
+(() => {
+  if (new URLSearchParams(location.search).get('embed') !== 'open-book') return;
+  let remoteScroll = false;
+  const ratio = () => {
+    const root = document.documentElement;
+    return Math.max(0, Math.min(1, scrollY / Math.max(1, root.scrollHeight - innerHeight)));
+  };
+  const reportScroll = () => {
+    if (remoteScroll) return;
+    parent.postMessage({type:'ioi-open-book-scroll', source:'ioi', ratio:ratio()}, '*');
+  };
+  addEventListener('scroll', reportScroll, {passive:true});
+  document.addEventListener('scroll', reportScroll, {capture:true,passive:true});
+  addEventListener('message', event => {
+    if (event.source !== parent || !event.data) return;
+    if (event.data.type === 'ioi-open-book-scroll-to') {
+      remoteScroll = true;
+      const root = document.documentElement;
+      scrollTo(0, Math.max(0,Math.min(1,Number(event.data.ratio)||0)) * Math.max(0,root.scrollHeight-innerHeight));
+      setTimeout(() => { remoteScroll = false; }, 80);
+    }
+    if (event.data.type === 'ioi-open-book-command') {
+      const element = typeof event.data.selector === 'string' ? document.querySelector(event.data.selector) : null;
+      if (event.data.action === 'click') element?.click();
+      if (event.data.action === 'show') element?.scrollIntoView({behavior:'smooth',block:'center'});
+    }
+  });
+  document.addEventListener('click', event => {
+    const angle = event.target.closest('[data-gls-angle]');
+    const inch = event.target.closest('[data-inch-preset]');
+    if (angle) parent.postMessage({type:'ioi-open-book-control',source:'ioi',kind:'angle',value:Number(angle.dataset.glsAngle)}, '*');
+    if (inch) parent.postMessage({type:'ioi-open-book-control',source:'ioi',kind:'inch',value:Number(inch.dataset.inchPreset)}, '*');
+  });
+})();
+</script>
+</body>
+</html>

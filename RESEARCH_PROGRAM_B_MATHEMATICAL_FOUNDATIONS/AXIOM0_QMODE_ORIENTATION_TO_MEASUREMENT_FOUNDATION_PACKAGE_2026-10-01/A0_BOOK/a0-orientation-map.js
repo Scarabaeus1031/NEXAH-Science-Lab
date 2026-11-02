@@ -24,6 +24,14 @@ pages.push(
  {file:'A0_GAME_OF_WORLDS_PLAY.html',title:'Game of Worlds · PLAY'},
  {file:'A0_ONE_PULSE_BENCH_MONITOR.html',title:'ONE PULSE · Bench-Monitor'},
  {file:'A0_OPIUM.html',title:'OPIUM · Let the relations play'},
+ {file:'A0_BREATHING_CRYSTAL_APERTURE.html',title:'Breathing Crystal Aperture · A0'},
+ {file:'A0_F_A0_26_REVIEW_PROBE.html',title:'F-A0-26 · Review Probe'},
+ {file:'A0_LANTERN_PANEL_V_CONTROL_LENS.html',title:'Panel V Control Lens · A0'},
+ {file:'A0_MACHINA_ANATOMY_MAP.html',title:'NEXAH A0 · Machina Anatomy'},
+ {file:'A0_NLK_LSHELL_DEVELOPMENT_PROBE.html',title:'A0 · NLK / ℒ-Shell Development Probe'},
+ {file:'A0_PENTAGON_CROWN_RETURN_DEMONSTRATOR.html',title:'Pentagon Crown Return · Demonstrator · A0'},
+ {file:'A0_ROOTROOM_CODON_ORIENTATION_RETURN.html',title:'ROOTROOM × CODON · Orientation Return'},
+ {file:'A0_SPIN_TO_BLOOM_MEASUREMENT.html',title:'Spin to Bloom Measurement · A0'},
  {file:'NEXAH_SCIENCE.html',title:'NEXAH Science · A0 Source Surface'},
  {file:'a0-public-arkade-index.html',title:'NEXAH ARKADE · A0 Tool'}
 );
@@ -36,7 +44,7 @@ const currentWays=[
  {code:'02 · PLAY',title:'Game of Worlds',copy:'LIFE, Three Domains und Numbers werden in ONE PULSE gemeinsam lesbar.',href:'A0_GAME_OF_WORLDS_PLAY.html?world=pulse#pulse',accent:'#ffd06a'},
  {code:'03 · MATHFIELD',title:'Mathematical Joints',copy:'Buchstellen, Versuche, Träger, Linsen und Fugen untersuchen.',href:'A0_MATHEMATICAL_JOINTS.html',accent:'#53d5ed'},
  {code:'04 · BUILDER',title:'Orientation Bench',copy:'Quellen, Adapter und lokale Kopplungen bauen und prüfen.',href:'A0_ORIENTATION_CONTROLLER_BENCH.html#benchFoyer',accent:'#65e0ac'},
- {code:'05 · SCIENCE',title:'A0 Science Desk',copy:'Ergebnisse, Grenzen, Protokoll und offene Entscheidungen zurückbinden.',href:'A0_RESEARCH_DESK.html#desk-cabinet',accent:'#9f8cff'}
+ {code:'05 · SCIENCE',title:'A0 Science',copy:'Ergebnisse, Evidenz, Grenzen und nächstes Review-Gate lesen.',href:'A0_SCIENCE.html#status',accent:'#9f8cff'}
 ];
 // Curated UI subset of existing artifacts, NOT a new canonical graph or Family registry.
 const nodes=[

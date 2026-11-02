@@ -11,6 +11,14 @@
   const sourceNav = header?.querySelector("nav");
   if (!header || !sourceNav || header.dataset.a0Context === "ready") return;
 
+  const projectionContent = window.self !== window.top && new URLSearchParams(location.search).get("a0_projection") === "1";
+  if (projectionContent) {
+    document.documentElement.dataset.a0ProjectionContent = "true";
+    header.hidden = true;
+    header.style.display = "none";
+    return; // The outer A0 house owns navigation; keep the embedded page body and its local instruments only.
+  }
+
   const file = decodeURIComponent(location.pathname.split("/").pop() || "index.html");
   const localOwnerContext = (location.protocol === "file:" || ["127.0.0.1", "localhost"].includes(location.hostname)) && !location.pathname.includes("/a0-human/");
   const nexahedronPublicHref = "https://nexahedron.com/";
@@ -44,7 +52,7 @@
     {code:"02 · PLAY", title:"Game of Worlds", copy:"LIFE, Domains und Numbers in ONE PULSE.", href:"A0_GAME_OF_WORLDS_PLAY.html?world=pulse#pulse", accent:"#d99d00"},
     {code:"03 · MATHFIELD", title:"Mathematical Joints", copy:"Buchstellen, Träger, Linsen und Fugen.", href:"A0_MATHEMATICAL_JOINTS.html", accent:"#159bb4"},
     {code:"04 · BUILDER", title:"A0 Builder · Werkbank", copy:"Hauptmodule, Quellen, Adapter und Kopplungen gemeinsam öffnen.", href:"A0_WERKBANK.html?view=machina#bench-page-top", accent:"#2ca57a"},
-    {code:"05 · SCIENCE", title:"A0 Science Desk", copy:"Vollständiger Arbeitsraum für Methode, Findings, Returns und Grenzen.", href:"A0_RESEARCH_DESK.html?desk=research#top", accent:"#806bd6"}
+    {code:"05 · SCIENCE", title:"A0 Science", copy:"Forschungsstand, Ergebnisse, Instrumente, Methode und offene Prüfgrenzen.", href:"A0_SCIENCE.html#top", accent:"#806bd6"}
   ];
 
   /* One inventory, three reading intentions. Navigation does not change identity or evidence state. */
@@ -144,7 +152,7 @@
     "code": "S",
     "label": "A0 · Science",
     "description": "Begriffe, Methode und Evidenz",
-    "entry": "A0_RESEARCH_DESK.html?desk=research&rev=currentness-r3-20261031#top",
+    "entry": "A0_SCIENCE.html#top",
     "sections": [
       {
         "label": "Wo wir stehen · Ergebnisse & Einordnung",
@@ -380,7 +388,7 @@
     "code": "B",
     "label": "A0 · Builder",
     "description": "Tools, Neuerungen und Anwendungen",
-    "entry": "A0_BUILDER_TOY_STORE.html#bench-page-top",
+    "entry": "index.html?projection=builder-showcase#top",
     "sections": [
       {
         "label": "Highlights · aktueller Build",
@@ -611,7 +619,8 @@
           "A0_NEWTON_GOETHE_OBSERVER_LENS.html",
           "A0_THE_LIVING_INTERIOR.html",
           "A0_BLACK_SUN_BIG_MOON.html",
-          "A0_NEON_TRAP_DOOR.html"
+          "A0_NEON_TRAP_DOOR.html",
+          "a0-public-arkade-index.html"
         ]
       }
     ]
@@ -638,7 +647,8 @@
           "A0_DATA_AND_REGISTERS.html",
           "A0_VISUAL_FIELD_LIBRARY.html",
           "A0_ASSET_INDEX.html",
-          "NEXAH_C_CONNECT.html"
+          "NEXAH_C_CONNECT.html",
+          "NEXAH_SCIENCE.html"
         ]
       }
     ]
@@ -794,7 +804,7 @@
     ? null
     : jointChildren[file]
       ? readerLanes[2]
-      : (readerLanes.find((lane) => flatItems(lane).some(([href]) => targetFile(href) === file)) || null);
+      : (readerLanes.find((lane) => targetFile(lane.entry) === file || flatItems(lane).some(([href]) => targetFile(href) === file)) || null);
   const originalLinks = [...sourceNav.querySelectorAll(":scope > a")];
   const localLinks = originalLinks.filter((link) => (link.getAttribute("href") || "").startsWith("#"));
   const contextualLinks = originalLinks.filter((link) => !(link.getAttribute("href") || "").startsWith("#"));
@@ -808,6 +818,10 @@
     const target = new URL(brand.href, location.href);
     if (target.pathname !== location.pathname || target.hash !== "#top") return;
     event.preventDefault();
+    const activeProjection = document.querySelector?.(".a0-site-projection:not([hidden])");
+    if (activeProjection) {
+      activeProjection.querySelector?.(".a0-site-projection-bar button")?.click?.();
+    }
     if (location.hash !== "#top") history.pushState(null, "", `${location.pathname}${location.search}#top`);
     window.scrollTo(0, 0);
   });
@@ -820,12 +834,14 @@
     return link;
   };
 
-  // The shared A0 server is rooted at A0_BOOK. Keep its primary navigation
-  // inside that served tree: ecosystem-level Mission-Control and Builder files
-  // remain source authorities, but they are not safe browser routes here.
-  const builderShowcaseHref = "A0_WERKBANK.html?view=machina&rev=a0-local-routes-r2-20261031#bench-page-top";
+  // The three compact Owner controls open views, not the internal Desks:
+  // the long A0 Science reader, the maintained "What can we build now?"
+  // showcase and Mission Control. Their second action opens the matching A0
+  // navigation drawer. Desks remain separately named destinations inside A0.
+  const scienceReaderHref = "A0_SCIENCE.html#top";
+  const builderShowcaseHref = "../../../../../00%20EXECUTIVE/NEXAH-Mission-Control/00_OVERVIEW/BUILDER_STATUS_REPORT.html?standalone=1#top";
   const builderDeskHref = "A0_BUILDER_LOG.html?rev=currentness-r3-20261031#top";
-  const missionControlHref = "A0_DATA_AND_REGISTERS.html#top";
+  const missionControlHref = "../../../../../00%20EXECUTIVE/NEXAH-Mission-Control/INTERNAL_NAVIGATOR/index.html#action-board";
   // Each lane gets its own invitation. Human is experience-led; Builder keeps the workshop.
   const humanShowcase = [
     ["a0-public-arkade-index.html#arkade", "ARKADE", "ONE PULSE und drei spielbare Welten direkt erleben", "arcade", "Play · Consumer View"],
@@ -854,8 +870,8 @@
     ["A0_SPIN_TO_BLOOM_MEASUREMENT.html#edelweissBridge", "EDELWEISS", "Root → Field → Bloom → Dodeca → Receipt: die integrierende Kopplungsbank", "edelweiss", "CURRENT FLAGSHIP"];
   const builderFlagshipConstellation = machinaMainModules.map(([route, name, role, copy, accent]) => [route, name, copy, accent, role]);
   const scienceHighlights = [
-    ["A0_RESEARCH_DESK.html?desk=research&rev=currentness-r3-20261031#top", "A0 Science Desk", "Vollständiger Arbeitsraum für Prioritäten, Findings, Returns, Instrumente und Grenzen", "nexah", "Intern · autoritativer Desk"],
-    ["A0_MATHEMATICAL_JOINTS.html", "Mathfield", "Mathematische Werkstatt für Buchstellen, Träger, Linsen, Fugen und ihre prüfbaren Returns", "cells", "Flagship · Mathematical Joints"],
+    ["A0_SCIENCE.html#top", "A0 Science", "Lange redaktionelle Science-Seite mit Forschungsstand, Ergebnissen, Instrumenten, Methode und Grenzen", "nexah", "Science · Forschungsstand"],
+    ["A0_RESEARCH_DESK.html?desk=research&rev=currentness-r3-20261031#top", "A0 Science Desk", "Interner Arbeitsraum für Prioritäten, Findings, Returns, Instrumente und Grenzen", "cells", "Intern · autoritativer Desk"],
     ["A0_DATA_AND_REGISTERS.html#top", "A0 NSNavigator", "A0-Struktur binden, zuständige Register finden und vorhandene Records weiterverwenden", "book", "Science · Source-bound Register Lens"]
   ];
   const laneNav = document.createElement("nav");
@@ -875,13 +891,8 @@
       ? '<svg class="a0-builder-scarab" viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="4" r="2.2"/><path d="M16 7c-4.2 0-6.5 3.2-6.5 7.7V20c0 4.5 2.3 7 6.5 9 4.2-2 6.5-4.5 6.5-9v-5.3C22.5 10.2 20.2 7 16 7Z"/><path d="M10 11C5.8 8.7 2.7 11 3.5 15.2c.7 3.6 3.1 5.8 6 6.2M22 11c4.2-2.3 7.3 0 6.5 4.2-.7 3.6-3.1 5.8-6 6.2M10 15H5M22 15h5M10 20l-5 3M22 20l5 3M13 8 9 4M19 8l4-4M10 24l-3 4M22 24l3 4"/></svg><strong>A0 · Builder</strong><i aria-hidden="true"></i>'
       : `<strong>${lane.label}</strong><i aria-hidden="true"></i>`;
     summary.setAttribute("aria-label", laneIsCurrent ? `${lane.label} Navigation öffnen` : `${lane.label} öffnen`);
-    if (!laneIsCurrent && lane.key !== "builder") {
-      if (lane.key === "human") summary.setAttribute("data-a0-nexahedron", "");
-      summary.addEventListener("click", (event) => {
-        event.preventDefault();
-        if (lane.key !== "human") window.location.href = lane.entry;
-      });
-    }
+    // Science and Builder are both navigation drawers. Their public Reader /
+    // Home and their internal Desks remain separately labelled inside.
     const panel = document.createElement("div");
     panel.className = "a0-reader-panel";
     const sections = lane.sections || [{ label: "Reader", items: lane.items }];
@@ -1028,7 +1039,7 @@
   nexahPublic.rel = "noopener noreferrer";
   nexahPublic.textContent = "nexah.de ↗";
   const scarabaeusPublic = document.createElement("a");
-  scarabaeusPublic.href = "https://www.scarabaeus1033.net/";
+  scarabaeusPublic.href = "https://scarabaeus1033.net/";
   scarabaeusPublic.target = "_blank";
   scarabaeusPublic.rel = "noopener noreferrer";
   scarabaeusPublic.textContent = "scarabæus1033 ↗";
@@ -1102,29 +1113,29 @@
   const workspaceOverview = document.createElement("nav");
   workspaceOverview.className = "a0-workspace-overviews";
   workspaceOverview.setAttribute("aria-label", "Arbeitsübersichten");
-  let scienceDeskLink = null;
-  let builderDeskLink = null;
+  let scienceViewLink = null;
+  let builderViewLink = null;
   let missionControlLink = null;
   if (localOwnerContext) {
-    scienceDeskLink = document.createElement("a");
-    scienceDeskLink.className = "a0-workspace-icon a0-science-desk-link";
-    scienceDeskLink.href = "A0_RESEARCH_DESK.html?desk=research&rev=currentness-r3-20261031#top";
-    scienceDeskLink.innerHTML = '<svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="10"/><circle cx="16" cy="16" r="3"/><path d="M16 3v5M16 24v5M3 16h5M24 16h5M7 7l4 4M21 21l4 4M25 7l-4 4M11 21l-4 4"/></svg><span class="a0-workspace-label">Science Desk</span>';
-    scienceDeskLink.setAttribute("aria-label", "Science Desk · Status, Methoden, Daten, Register und Evidenz");
-    scienceDeskLink.title = "Science Desk · Daten & Register";
-    builderDeskLink = document.createElement("a");
-    builderDeskLink.className = "a0-workspace-icon a0-builder-desk-link";
-    builderDeskLink.href = builderDeskHref;
-    builderDeskLink.innerHTML = '<svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="4" r="2.2"/><path d="M16 7c-4.2 0-6.5 3.2-6.5 7.7V20c0 4.5 2.3 7 6.5 9 4.2-2 6.5-4.5 6.5-9v-5.3C22.5 10.2 20.2 7 16 7Z"/><path d="M10 11C5.8 8.7 2.7 11 3.5 15.2c.7 3.6 3.1 5.8 6 6.2M22 11c4.2-2.3 7.3 0 6.5 4.2-.7 3.6-3.1 5.8-6 6.2M10 15H5M22 15h5M10 20l-5 3M22 20l5 3"/></svg><span class="a0-workspace-label">Builder Desk</span>';
-    builderDeskLink.setAttribute("aria-label", "Builder Desk · Werkbank, Flagship Labs und Werkzeuge");
-    builderDeskLink.title = "Builder Desk · Werkbank";
-    workspaceOverview.append(scienceDeskLink, builderDeskLink);
+    scienceViewLink = document.createElement("a");
+    scienceViewLink.className = "a0-workspace-icon a0-science-view-link";
+    scienceViewLink.href = scienceReaderHref;
+    scienceViewLink.innerHTML = '<svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="10"/><circle cx="16" cy="16" r="3"/><path d="M16 3v5M16 24v5M3 16h5M24 16h5M7 7l4 4M21 21l4 4M25 7l-4 4M11 21l-4 4"/></svg><span class="a0-workspace-label">A0 Science</span>';
+    scienceViewLink.setAttribute("aria-label", "A0 Science · lange Science-Seite; erneut klicken für das Science-Menü");
+    scienceViewLink.title = "A0 Science · Reader / Menü";
+    builderViewLink = document.createElement("a");
+    builderViewLink.className = "a0-workspace-icon a0-builder-view-link";
+    builderViewLink.href = builderShowcaseHref;
+    builderViewLink.innerHTML = '<svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="4" r="2.2"/><path d="M16 7c-4.2 0-6.5 3.2-6.5 7.7V20c0 4.5 2.3 7 6.5 9 4.2-2 6.5-4.5 6.5-9v-5.3C22.5 10.2 20.2 7 16 7Z"/><path d="M10 11C5.8 8.7 2.7 11 3.5 15.2c.7 3.6 3.1 5.8 6 6.2M22 11c4.2-2.3 7.3 0 6.5 4.2-.7 3.6-3.1 5.8-6 6.2M10 15H5M22 15h5M10 20l-5 3M22 20l5 3"/></svg><span class="a0-workspace-label">What can we build?</span>';
+    builderViewLink.setAttribute("aria-label", "What can we build now? · lange Builder-Seite; erneut klicken für das Builder-Menü");
+    builderViewLink.title = "What can we build now? · Showcase / Menü";
+    workspaceOverview.append(scienceViewLink, builderViewLink);
     missionControlLink = document.createElement("a");
     missionControlLink.className = "a0-workspace-icon a0-mission-control-link";
     missionControlLink.href = missionControlHref;
-    missionControlLink.innerHTML = '<span class="a0-workspace-monogram" aria-hidden="true">A0</span><span class="a0-workspace-label">Control Register</span>';
-    missionControlLink.setAttribute("aria-label", "A0 Control Register · Quellen, Relationen und Rückwege");
-    missionControlLink.title = "A0 Control Register";
+    missionControlLink.innerHTML = '<span class="a0-workspace-monogram" aria-hidden="true">TH</span><span class="a0-workspace-label">Mission Control</span>';
+    missionControlLink.setAttribute("aria-label", "TH · Mission Control · Strategie, Priorität und Owner-Steuerung");
+    missionControlLink.title = "TH · Mission Control";
     workspaceOverview.append(missionControlLink);
   }
   header.replaceChildren(brand, laneNav, workspaceOverview, overview);
@@ -1141,6 +1152,7 @@
   else window.addEventListener("resize", syncContextHeaderHeight);
   if (document.body) {
     const siteProjections = [];
+    const siteProjectionClosers = [];
     const siteProjectionTriggers = [];
     const requestedProjection = new URLSearchParams(location.search).get("projection");
     const setProjectedLane = (laneKey = "") => {
@@ -1154,6 +1166,8 @@
       });
       if (laneKey) header.dataset.a0ProjectedLane = laneKey;
       else delete header.dataset.a0ProjectedLane;
+      if (laneKey === "machina") workbenchEntry.dataset.projectionCurrent = "true";
+      else delete workbenchEntry.dataset.projectionCurrent;
       // A projection temporarily owns the visible context. Preserve the
       // underlying THE MACHINA return state without showing two active pills.
       if (laneKey && workbenchEntry.getAttribute("aria-current") === "page") {
@@ -1164,7 +1178,7 @@
         delete workbenchEntry.dataset.a0ReturnCurrent;
       }
     };
-    const mountSiteProjection = ({ href, label, title, triggers, route, lane, refreshOnOpen = false, returnMessage = "" }) => {
+    const mountSiteProjection = ({ href, label, title, triggers, route, lane, pairedDetails = null, suppressInnerShell = false, refreshOnOpen = false, returnMessage = "" }) => {
       const projection = document.createElement("section");
       projection.className = "a0-site-projection";
       projection.hidden = true;
@@ -1181,6 +1195,20 @@
       projectionFrame.className = "a0-site-projection-frame";
       projectionFrame.title = title;
       projectionFrame.setAttribute("loading", "eager");
+      if (suppressInnerShell) {
+        projectionFrame.addEventListener("load", () => {
+          try {
+            const frameDocument = projectionFrame.contentDocument;
+            if (!frameDocument) return;
+            frameDocument.documentElement.dataset.a0ProjectionContent = "true";
+            const innerHeader = frameDocument.querySelector('[data-a0-context="ready"], header.top, header.topbar');
+            if (innerHeader) {
+              innerHeader.hidden = true;
+              innerHeader.style.display = "none";
+            }
+          } catch { /* Same-origin A0 projections only; leave external frames untouched. */ }
+        });
+      }
       projection.append(projectionBar, projectionFrame);
       document.body.append(projection);
       let activeTrigger = null;
@@ -1188,24 +1216,39 @@
         const bottom = header.getBoundingClientRect?.().bottom || 64;
         projection.style.top = `${Math.max(0, Math.ceil(bottom))}px`;
       };
-      const closeProjection = () => {
+      const closeProjection = ({ restoreFocus = true, resetProjectedLane = true } = {}) => {
         projection.hidden = true;
-        setProjectedLane();
+        if (resetProjectedLane) setProjectedLane();
         activeTrigger?.removeAttribute("aria-current");
-        activeTrigger?.focus?.();
+        if (restoreFocus) activeTrigger?.focus?.();
         activeTrigger = null;
       };
+      projectionBar.addEventListener("click", (event) => {
+        if (!event.target?.closest?.(".a0-site-projection-home")) return;
+        event.preventDefault();
+        closeProjection({ restoreFocus: false });
+        window.scrollTo(0, 0);
+      });
+      const pairedLane = () => lane
+        ? [...laneNav.querySelectorAll(".a0-reader-lane")].find((group) => group.dataset.lane === lane) || null
+        : null;
+      const pairedSurface = (trigger = null) => trigger?.closest?.(".a0-reader-lane, .a0-workbench-entry") || pairedDetails || pairedLane();
       const showProjection = (trigger = null) => {
         if (document.documentElement?.dataset?.nexahedronProjection) return;
-        const owningLane = trigger?.parentNode?.className?.includes?.("a0-reader-lane") ? trigger.parentNode : null;
-        siteProjections.forEach((other) => { if (other !== projection) other.hidden = true; });
+        const owningLane = pairedSurface(trigger);
+        siteProjectionClosers.forEach(({ owner, close }) => {
+          if (owner !== projection) close({ restoreFocus: false, resetProjectedLane: false });
+        });
         siteProjectionTriggers.forEach((other) => other?.removeAttribute("aria-current"));
+        laneNav.querySelectorAll("details[open]").forEach((details) => { details.open = false; });
         if (owningLane) owningLane.open = false;
         activeTrigger = trigger;
-        const projectionHref = refreshOnOpen
+        const locationBaseHref = location.href || `${location.protocol || "http:"}//${location.hostname || "localhost"}${location.pathname || "/"}`;
+        const projectionHref = refreshOnOpen || suppressInnerShell
           ? (() => {
-              const currentHref = new URL(href, location.href);
-              currentHref.searchParams.set("a0_preview", String(Date.now()));
+              const currentHref = new URL(href, locationBaseHref);
+              if (refreshOnOpen) currentHref.searchParams.set("a0_preview", String(Date.now()));
+              if (suppressInnerShell) currentHref.searchParams.set("a0_projection", "1");
               return currentHref.href;
             })()
           : href;
@@ -1218,15 +1261,28 @@
       };
       const openProjection = (event) => {
         event.preventDefault();
-        const owningLane = event.currentTarget?.parentNode?.className?.includes?.("a0-reader-lane") ? event.currentTarget.parentNode : null;
-        if (!projection.hidden && owningLane?.dataset?.lane === lane) {
+        const owningLane = pairedSurface(event.currentTarget);
+        if (!projection.hidden) {
           closeProjection();
-          owningLane.open = true;
+          if (owningLane) {
+            const deferMenu = typeof window.requestAnimationFrame === "function"
+              ? window.requestAnimationFrame.bind(window)
+              : typeof requestAnimationFrame === "function"
+                ? requestAnimationFrame
+                : typeof window.setTimeout === "function"
+                  ? window.setTimeout.bind(window)
+                  : (callback) => callback();
+            deferMenu(() => {
+              owningLane.open = true;
+              owningLane.querySelector?.("summary")?.focus?.();
+            }, 0);
+          }
           return;
         }
         showProjection(event.currentTarget);
       };
       siteProjections.push(projection);
+      siteProjectionClosers.push({ owner: projection, close: closeProjection });
       siteProjectionTriggers.push(...triggers);
       triggers.forEach((trigger) => trigger?.addEventListener("click", openProjection));
       projectionClose.addEventListener("click", closeProjection);
@@ -1278,26 +1334,39 @@
       [...document.querySelectorAll?.("[data-a0-nexah-stage-preview]") || []]
         .forEach((preview) => preview.setAttribute("src", nexahStagingHref));
       const localBuilderEntries = [...document.querySelectorAll?.("[data-a0-builder-showcase]") || []];
+      const scienceLaneSummary = laneNav.querySelector(".a0-reader-lane--science")?.children?.[0] || null;
+      const builderLaneSummary = laneNav.querySelector(".a0-reader-lane--builder")?.children?.[0] || null;
+      mountSiteProjection({
+        href: scienceReaderHref,
+        label: "A0 SCIENCE · FORSCHUNGSSTAND",
+        title: "A0 Science · Forschungsstand, Ergebnisse, Instrumente und Grenzen",
+        triggers: [scienceLaneSummary, scienceViewLink],
+        route: "science-reader",
+        lane: "science",
+        suppressInnerShell: true
+      });
       mountSiteProjection({
         href: builderShowcaseHref,
-        label: "A0 BUILDER HOME · SHOWCASE",
-        title: "A0 Builder Home · vollständige Werkbank",
-        triggers: localBuilderEntries,
+        label: "WHAT CAN WE BUILD NOW? · BUILDER SHOWCASE",
+        title: "What can we build now? · langer Builder Showcase",
+        triggers: [builderLaneSummary, builderViewLink, ...localBuilderEntries],
         route: "builder-showcase",
         lane: "builder"
       });
       mountSiteProjection({
-        href: builderDeskHref,
-        label: "BUILDER DESK · CURRENTNESS / RETURNS",
-        title: "A0 Builder Desk · Currentness, Chronik und Returns",
-        triggers: [builderDeskLink],
-        route: "builder-desk",
-        lane: "builder"
+        href: "A0_WERKBANK.html?view=machina#bench-page-top",
+        label: "THE MACHINA · WERKBANK",
+        title: "THE MACHINA · Räume, Hauptmodule und Werkbank",
+        triggers: [workbenchSummary],
+        route: "machina",
+        lane: "machina",
+        pairedDetails: workbenchEntry,
+        suppressInnerShell: true
       });
       mountSiteProjection({
         href: missionControlHref,
-        label: "A0 CONTROL REGISTER",
-        title: "A0 Control Register · Quellen und Rückwege",
+        label: "TH · MISSION CONTROL · STEUERUNG",
+        title: "Mission Control unter NEXAH A0",
         triggers: [missionControlLink],
         route: "mission-control"
       });
@@ -1321,7 +1390,7 @@
   }
   header.dataset.a0Lane = currentLane?.key || "portal";
   document.addEventListener("click", (event) => {
-    if (event.target.closest(".a0-reader-lane, .a0-page-menu")) return;
+    if (event.target.closest(".a0-reader-lane, .a0-workbench-entry, .a0-page-menu")) return;
     header.querySelectorAll("details[open]").forEach((details) => { details.open = false; });
   });
   document.addEventListener("keydown", (event) => {

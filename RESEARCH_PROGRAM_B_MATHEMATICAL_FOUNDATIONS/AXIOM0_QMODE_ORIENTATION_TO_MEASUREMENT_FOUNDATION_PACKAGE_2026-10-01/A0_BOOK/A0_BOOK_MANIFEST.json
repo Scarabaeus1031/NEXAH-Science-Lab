@@ -661,8 +661,8 @@
   ],
   "surface_audit_contract": {
     "check": 58,
-    "baseline": "31/31 before the new Axial Carrier Adapter Suite",
-    "expected_html_surfaces": 82,
+    "baseline": "84 canonical A0 Book HTML surfaces at the 2026-11-02 freeze",
+    "expected_html_surfaces": 84,
     "required_fields": [
       "work",
       "source",
@@ -706,6 +706,12 @@
         "reference_prefix": "/",
         "classification": "PUBLIC_SITE_ROOT_REFERENCE",
         "boundary": "The root-relative route belongs to the separately deployed NEXAH public site and is not a local A0 Book file reference."
+      },
+      {
+        "surface": "A0_MACHINA_COCKPIT.html",
+        "reference": "about:blank",
+        "classification": "RUNTIME_IFRAME_PLACEHOLDER",
+        "boundary": "The empty iframe source is replaced by the selected local viewer route at runtime and is not a missing file reference."
       }
     ]
   },
@@ -731,6 +737,13 @@
       ],
       "status": "INTERNAL_READ_ONLY_SOURCE_BOUND_LENS_NOT_PUBLIC",
       "claim_boundary": "SOURCE_BOUND_NAVIGATION_AND_CONCEPT_CROSSWALK_ONLY_NO_IDENTITY_COLLAPSE_NEW_STUDY_NEW_GRAPH_RELATION_SCIENTIFIC_GATE_CLOSURE_PHYSICAL_MECHANISM_NOVELTY_CERTIFICATE_OR_PUBLICATION"
+    },
+    {
+      "surface": "A0_MACHINA_ANATOMY_MAP.html",
+      "work": "THE MACHINA",
+      "source": "a0-machina-anatomy-map.js",
+      "status": "LOCAL_SOURCE_BOUND_ORIENTATION_LENS_NOT_PUBLIC",
+      "claim_boundary": "EIGHT_MAIN_MODULE_ROUTES_AND_SEVEN_ANATOMY_ROLES_AS_NAVIGATION_ONLY_NO_NEW_CANONICAL_IDENTITY_RELATION_STUDY_FINDING_EVIDENCE_PROMOTION_PHYSICAL_MECHANISM_OR_PUBLICATION"
     },
     {
       "surface": "A0_ASSET_INDEX.html",

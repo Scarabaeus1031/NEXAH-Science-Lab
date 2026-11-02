@@ -4,7 +4,11 @@ This directory is the only destination for superseded A0 site editions after
 an explicit Owner disposition. Archived editions are provenance records, not
 active entrances or source authorities.
 
-Current inventory at `2026-10-29`:
+Current inventory at `2026-11-02`:
+
+- `A0_CANONICAL_SITE_FREEZE_2026-10-29/` preserves the superseded freeze
+  decision, its exact manifest and an archive receipt. It is non-authoritative;
+  the active freeze is `../A0_CANONICAL_SITE_FREEZE_2026-11-02.md`;
 
 - archived deployment snapshots remain in
   `40 EXPERIENCE PRODUCTION/NEXAH deployment backups/` and are classified as

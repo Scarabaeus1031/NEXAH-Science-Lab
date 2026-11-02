@@ -196,7 +196,7 @@
       [route, "route"],
       ...folds.map((fold) => [fold, fold.id.replace("human-stage-", "")]),
       [finalReturn, "return"],
-    ].filter(([node]) => node);
+    ].filter(([node]) => Boolean(node));
     const observer = new IntersectionObserver((entries) => {
       if (performance.now() < routeLockUntil) return;
       let anchoredTarget = null;

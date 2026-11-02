@@ -1,0 +1,71 @@
+{
+  "schema_id": "nexah.a0.canonical-site-freeze",
+  "schema_version": "1.0.0",
+  "freeze_id": "A0_CANONICAL_SITE_FREEZE_2026-10-29",
+  "date": "2026-10-29",
+  "owner_reaffirmed_at": "2026-10-30",
+  "status": "OWNER_FIXED_CANONICAL_SITE_SOURCE_INTERNAL",
+  "canonical_identity": "NEXAH:A0:FROM_DISTINCTION_TO_READOUT",
+  "evidence_lineage": "NEXAH:A0_ORIENTATION_EVIDENCE_LINEAGE:V1",
+  "canonical_root": "A0_BOOK/",
+  "canonical_entry": "A0_BOOK/index.html#top",
+  "canonical_entry_sha256": "dd825aab292409829ef7c8b31fa8390255c1b3ae23a82a72f47b2847952d0313",
+  "short_alias": "A0/index.html",
+  "short_alias_sha256": "5ca73729fb6f44220a9e7b5008d3e602bd93b201067cd1551be6a86b7b4fae63",
+  "short_alias_destination": "A0_BOOK/index.html#top",
+  "alternate_authoritative_editions": 0,
+  "version_policy": {
+    "maintain_in_place": true,
+    "parallel_a0_editions_allowed": false,
+    "ordinary_changes_create_new_version": false,
+    "replacement_freeze_requires_explicit_human_owner_decision": true
+  },
+  "classifications": [
+    {
+      "path": "A0_BOOK/",
+      "kind": "CANONICAL_SOURCE_ROOT",
+      "authoritative": true
+    },
+    {
+      "path": "A0/",
+      "kind": "REDIRECT_ONLY_ALIAS",
+      "authoritative": false
+    },
+    {
+      "path": "00 EXECUTIVE/NEXAH-Mission-Control/OWNER_READ_PORTAL/{staging,release}/.../A0_BOOK/",
+      "kind": "GENERATED_PARTIAL_DESK_PROJECTION_NO_INDEX",
+      "authoritative": false
+    },
+    {
+      "path": "40 EXPERIENCE PRODUCTION/NEXAH deployment backups/",
+      "kind": "ARCHIVED_DEPLOYMENT_SNAPSHOT",
+      "authoritative": false
+    },
+    {
+      "path": "40 EXPERIENCE PRODUCTION/NEXAHEDRON/public/a0-human/",
+      "kind": "BOUND_HUMAN_VIEW_PROJECTION",
+      "authoritative": false
+    }
+  ],
+  "sha256": {
+    "index.html": "dd825aab292409829ef7c8b31fa8390255c1b3ae23a82a72f47b2847952d0313",
+    "A0_SCIENCE.html": "ba7a751150e9805ca966e04850e9d1937e771b2b1c542f82701b072e14905792",
+    "A0_WERKBANK.html": "59bfe64c3ac3922768a04bdd87f66d9617f477d189355ef3f6d35a773886f611",
+    "A0_BUILDER_TOY_STORE.html": "ccfb013d87a738e9f644391355ee36b2dabd25e10a1c0e2c9528197a1f85c68f",
+    "a0-context-navigation.js": "d30503bfc1f4da47b1a8c5c0c2dc75be4f2b0852dc51c60b604ecf28385a588e",
+    "a0-context-navigation.css": "a69fca78b9d75edcb5fb013c90b563956aed185afe3968b450ca508d24c494f5",
+    "a0-bench-navigation.css": "47e9f6c8b045675bda61a782676d293402815a21fea107ff6a3f147b5f2ef062",
+    "A0_BOOK_MANIFEST.json": "d4a4eb8f54f99873663cb92eb1532ac61a5a390924a49e285a77be75db8f4643",
+    "README.md": "08445dee517db2a4521153aba5ad405179a516c9412c6965920a4853ac177a44",
+    "A0_CANONICAL_SITE_FREEZE_2026-10-29.md": "80afb10449edc255014bf7201547c25de71b6ead603d179374e9cdfb7ec45ffb",
+    "ARCHIVE/README.md": "ecc5c6181275171ce8801cd816fdfef02c31b5109a3529154dd899fca18d6586"
+  },
+  "governance_effect": {
+    "new_scientific_identity": false,
+    "new_source_graph_relation": false,
+    "study_activation": false,
+    "claim_promotion": false,
+    "publication_authorized": false,
+    "canonical_count_effect": "NONE"
+  }
+}

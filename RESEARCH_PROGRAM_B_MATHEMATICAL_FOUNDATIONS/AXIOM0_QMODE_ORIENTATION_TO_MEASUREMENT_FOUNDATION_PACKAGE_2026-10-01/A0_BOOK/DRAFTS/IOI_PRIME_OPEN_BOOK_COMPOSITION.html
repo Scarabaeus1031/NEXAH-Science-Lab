@@ -1,0 +1,740 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>IOI × Prime Foldings · Open Book · White Pin</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #030912;
+      --panel: #07131d;
+      --line: #284250;
+      --text: #edf7fb;
+      --muted: #9eb5c0;
+      --cyan: #49d6ef;
+      --pink: #f36fb4;
+      --gold: #ffc857;
+      --green: #64e8b6;
+      --white: #f7fbff;
+      --seam: 76px;
+    }
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      margin: 0;
+      overflow: hidden;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 50% 48%, rgba(247,251,255,.07), transparent 15rem),
+        radial-gradient(circle at 14% 12%, rgba(73,214,239,.09), transparent 28rem),
+        radial-gradient(circle at 86% 12%, rgba(243,111,180,.09), transparent 28rem),
+        var(--bg);
+      font: 15px/1.45 Inter, ui-sans-serif, system-ui, sans-serif;
+    }
+    button { font: inherit; }
+    .shell { display: grid; grid-template-rows: auto auto 1fr auto; height: 100%; }
+    header {
+      position: relative; z-index: 20;
+      display: flex; align-items: center; justify-content: space-between; gap: 18px;
+      min-height: 76px; padding: 12px 18px;
+      border-bottom: 1px solid var(--line);
+      background: rgba(3,9,18,.96);
+      box-shadow: 0 10px 28px rgba(0,0,0,.28);
+    }
+    .title { min-width: 270px; }
+    .eyebrow { color: var(--green); letter-spacing: .14em; text-transform: uppercase; font: 700 .68rem ui-monospace, monospace; }
+    h1 { margin: 3px 0 0; font: 600 clamp(1.18rem,2.2vw,2rem)/1.05 Georgia,serif; }
+    h1 .ioi { color: var(--cyan); }
+    h1 .prime { color: var(--pink); }
+    .route { color: var(--muted); text-align: center; font: 700 .7rem/1.5 ui-monospace, monospace; }
+    .route b { color: var(--white); }
+    .controls { display: flex; justify-content: flex-end; gap: 7px; flex-wrap: wrap; }
+    .controls button, .controls a {
+      border: 1px solid var(--line); border-radius: 6px; padding: 7px 10px;
+      color: var(--text); background: #091923; cursor: pointer; text-decoration: none;
+      font: 700 .68rem ui-monospace, monospace; display: inline-grid; place-items: center;
+    }
+    .controls button[aria-pressed="true"] { color: #071018; background: var(--gold); border-color: var(--gold); }
+    .controls #storyToggle[aria-pressed="true"] { color: #031018; background: var(--cyan); border-color: var(--cyan); }
+    .shell[data-surface="story"] .controls > :not(#storyToggle):not(#leafFoldReturn):not(#commonStartReturn) { display: none; }
+    .shell[data-surface="story"] #storyToggle[aria-pressed="true"] { color: #170716; background: var(--pink); border-color: var(--pink); box-shadow: 0 0 22px rgba(243,111,180,.32); }
+    .shell[data-surface="story"] .source-note { display: none; }
+    .source-note {
+      position: relative; z-index: 18;
+      display: grid; grid-template-columns: auto minmax(0,1fr) auto; gap: 12px; align-items: center;
+      padding: 8px 18px; border-bottom: 1px solid rgba(168,117,255,.42);
+      background: linear-gradient(90deg, rgba(10,35,50,.97), rgba(21,17,42,.97));
+      color: var(--muted); font-size: .78rem;
+    }
+    .source-note strong { color: #c9a8ff; font: 800 .68rem ui-monospace, monospace; letter-spacing: .1em; }
+    .source-note b { color: var(--white); }
+    .source-note a {
+      border: 1px solid var(--cyan); border-radius: 5px; padding: 6px 9px;
+      color: var(--cyan); text-decoration: none; white-space: nowrap;
+      font: 800 .64rem ui-monospace, monospace; letter-spacing: .07em;
+    }
+    .book {
+      position: relative; min-height: 0;
+      display: grid; grid-template-columns: minmax(0,1fr) var(--seam) minmax(0,1fr);
+      padding: 12px 14px 10px;
+      transition: grid-template-columns .28s ease;
+    }
+    .book[data-mode="ioi"] { grid-template-columns: minmax(0,1fr) var(--seam) minmax(0,0fr); }
+    .book[data-mode="prime"] { grid-template-columns: minmax(0,0fr) var(--seam) minmax(0,1fr); }
+    .leaf {
+      position: relative; min-width: 0; overflow: hidden;
+      border: 1px solid var(--line); background: #041019;
+      box-shadow: 0 18px 40px rgba(0,0,0,.42);
+      transition: opacity .22s ease, transform .22s ease;
+    }
+    .leaf.left { border-radius: 18px 4px 4px 18px; border-right-color: rgba(247,251,255,.5); }
+    .leaf.right { border-radius: 4px 18px 18px 4px; border-left-color: rgba(247,251,255,.5); }
+    .book[data-mode="ioi"] .right, .book[data-mode="prime"] .left { opacity: .14; pointer-events: none; }
+    .visual-story {
+      min-height: 0; overflow: auto; padding: 18px;
+      background:
+        radial-gradient(circle at 50% 8%, rgba(73,214,239,.11), transparent 30rem),
+        linear-gradient(180deg, #04111a, #02070d);
+    }
+    .visual-story[hidden] { display: none; }
+    .story-boundary {
+      width: min(1180px, 100%); margin: 0 auto 16px; padding: 9px 12px;
+      border: 1px solid rgba(73,214,239,.5); border-radius: 8px;
+      color: var(--cyan); background: rgba(8,35,48,.72);
+      text-align: center; font: 800 .69rem ui-monospace, monospace; letter-spacing: .1em;
+    }
+    .story-intro, .story-summary {
+      width: min(1180px, 100%); margin: 0 auto 18px; padding: 20px 22px;
+      border: 1px solid rgba(73,214,239,.42); border-radius: 14px;
+      background: linear-gradient(135deg, rgba(7,30,44,.96), rgba(9,18,32,.94));
+      box-shadow: inset 4px 0 0 var(--cyan), 0 18px 44px rgba(0,0,0,.28);
+    }
+    .story-intro small, .story-summary small {
+      color: var(--cyan); font: 800 .66rem ui-monospace, monospace; letter-spacing: .13em;
+    }
+    .story-intro h2, .story-summary h2 { margin: 7px 0 8px; font: 600 clamp(1.4rem,3vw,2.35rem)/1.08 Georgia,serif; }
+    .story-intro p, .story-summary p { margin: 0; color: var(--muted); max-width: 75ch; }
+    .story-intro .spectrum { display: flex; gap: 6px; margin-top: 15px; }
+    .story-intro .spectrum i { display: block; width: min(88px,16vw); height: 5px; border-radius: 99px; }
+    .story-intro .spectrum i:nth-child(1) { background: var(--cyan); }
+    .story-intro .spectrum i:nth-child(2) { background: var(--pink); }
+    .story-intro .spectrum i:nth-child(3) { background: #a875ff; }
+    .story-intro .spectrum i:nth-child(4) { background: #ff5b68; }
+    .story-intro .spectrum i:nth-child(5) { background: var(--green); }
+    .story-plate {
+      width: min(1180px, 100%); margin: 0 auto 18px; padding: 12px;
+      border: 3px solid rgba(247,251,255,.92); border-radius: 16px;
+      background: #02070c;
+      box-shadow: 0 0 0 1px rgba(73,214,239,.28), 0 0 30px rgba(247,251,255,.13), 0 22px 60px rgba(0,0,0,.48);
+    }
+    .story-plate img { display: block; width: 100%; max-height: 64vh; object-fit: contain; border-radius: 8px; background: #010408; }
+    .story-caption { display: grid; grid-template-columns: auto 1fr; gap: 14px; align-items: baseline; padding: 10px 3px 1px; }
+    .story-caption strong { color: var(--gold); font: 800 .78rem ui-monospace, monospace; letter-spacing: .1em; }
+    .story-caption span { color: var(--muted); }
+    .story-return { border-color: rgba(247,251,255,.9); box-shadow: 0 0 0 1px rgba(100,232,182,.3), 0 0 30px rgba(100,232,182,.11), 0 22px 60px rgba(0,0,0,.48); }
+    .story-prisma { border-color: rgba(73,214,239,.92); box-shadow: 0 0 0 1px rgba(77,126,255,.38), 0 0 42px rgba(73,214,239,.16), 0 22px 60px rgba(0,0,0,.48); }
+    .story-prisma strong { color: var(--cyan); }
+    .story-psi { border-color: rgba(168,117,255,.92); box-shadow: 0 0 0 1px rgba(255,91,104,.28), 0 0 44px rgba(168,117,255,.16), 0 22px 60px rgba(0,0,0,.48); }
+    .story-psi strong { color: #c9a8ff; }
+    .story-summary { border-color: rgba(168,117,255,.46); box-shadow: inset 4px 0 0 #a875ff, 0 18px 44px rgba(0,0,0,.28); }
+    .story-summary small { color: #c9a8ff; }
+    .story-summary b { color: var(--white); }
+    .letter-lens {
+      width: min(1180px, 100%); margin: 0 auto 18px; padding: 18px;
+      border: 1px solid rgba(73,214,239,.48); border-radius: 14px;
+      background: linear-gradient(135deg, rgba(5,25,38,.97), rgba(18,11,31,.96));
+      box-shadow: inset 4px 0 0 var(--gold), 0 18px 44px rgba(0,0,0,.3);
+    }
+    .letter-lens header { display: block; min-height: 0; padding: 0; border: 0; background: transparent; box-shadow: none; }
+    .letter-lens small { color: var(--gold); font: 800 .66rem ui-monospace, monospace; letter-spacing: .13em; }
+    .letter-lens h2 { margin: 6px 0 5px; font: 600 clamp(1.35rem,2.8vw,2.2rem)/1.08 Georgia,serif; }
+    .letter-lens header p { margin: 0; color: var(--muted); max-width: 82ch; }
+    .letter-controls { display: grid; grid-template-columns: 1fr 1fr auto; gap: 12px; align-items: end; margin: 16px 0; }
+    .letter-controls label { display: grid; gap: 5px; color: var(--muted); font: 750 .66rem ui-monospace, monospace; letter-spacing: .08em; }
+    .letter-controls select, .letter-controls button {
+      min-height: 40px; border: 1px solid var(--line); border-radius: 6px; padding: 8px 10px;
+      color: var(--text); background: #071723; font: 800 .78rem ui-monospace, monospace;
+    }
+    .letter-controls button { cursor: pointer; border-color: var(--pink); color: var(--pink); }
+    .letter-controls button[aria-pressed="true"] { color: #071018; background: var(--pink); }
+    .ioi-glyph-stage {
+      display: grid; grid-template-columns: minmax(0,1fr) 120px minmax(0,1fr); gap: 14px; align-items: stretch;
+      min-height: 270px; padding: 14px; border: 1px solid var(--line); border-radius: 10px; background: #020910;
+    }
+    .glyph-leaf { position: relative; display: grid; place-items: center; overflow: hidden; border: 2px solid; border-radius: 10px; }
+    .glyph-leaf.vowel { border-color: var(--cyan); background: rgba(73,214,239,.09); }
+    .glyph-leaf.consonant { border-color: var(--pink); background: rgba(243,111,180,.09); }
+    .glyph-leaf::before, .glyph-leaf::after { content: ""; position: absolute; inset: 50% auto auto 50%; width: 140%; height: 1px; background: currentColor; opacity: .35; transform-origin: center; }
+    .glyph-leaf::before { transform: translate(-50%,-50%) rotate(32deg); }
+    .glyph-leaf::after { transform: translate(-50%,-50%) rotate(-32deg); }
+    .glyph-letter { position: relative; z-index: 2; font: 700 clamp(4rem,10vw,8rem)/1 Georgia,serif; }
+    .vowel .glyph-letter { color: var(--cyan); }
+    .consonant .glyph-letter { color: var(--pink); }
+    .glyph-role { position: absolute; left: 10px; bottom: 8px; color: var(--muted); font: 750 .61rem ui-monospace, monospace; letter-spacing: .1em; }
+    .glyph-channel { position: relative; display: grid; grid-template-rows: 1fr auto 1fr; place-items: center; }
+    .glyph-channel::before { content: ""; position: absolute; top: 0; bottom: 0; width: 3px; background: linear-gradient(transparent,var(--white) 12%,var(--white) 88%,transparent); box-shadow: 0 0 14px rgba(247,251,255,.6); }
+    .glyph-clamp { position: relative; z-index: 2; color: var(--white); font: 500 2.2rem/1 ui-monospace, monospace; }
+    .glyph-operator { position: relative; z-index: 3; display: grid; place-items: center; width: 78px; aspect-ratio: 1; border: 3px solid var(--white); border-radius: 50%; background: #071019; color: var(--gold); font: 800 2rem ui-monospace, monospace; box-shadow: 0 0 24px rgba(247,251,255,.25); }
+    .glyph-output { display: grid; grid-template-columns: repeat(3,1fr); gap: 10px; margin-top: 12px; }
+    .glyph-output div { padding: 10px; border: 1px solid var(--line); border-radius: 7px; background: rgba(5,16,25,.88); }
+    .glyph-output span { display: block; color: var(--muted); font: 750 .6rem ui-monospace, monospace; letter-spacing: .1em; }
+    .glyph-output strong { display: block; margin-top: 3px; color: var(--white); font: 800 1rem ui-monospace, monospace; }
+    .letter-boundary { margin: 11px 0 0; color: var(--muted); font-size: .78rem; }
+    .letter-boundary b { color: var(--green); }
+    .progression-bridge {
+      position: relative; display: grid; grid-template-columns: minmax(150px,.72fr) minmax(280px,1.35fr) minmax(150px,.72fr); gap: 14px; align-items: stretch;
+      min-height: 360px; margin-top: 14px; padding: 14px; overflow: hidden;
+      border: 1px solid rgba(247,251,255,.32); border-radius: 12px;
+      background: radial-gradient(circle at 50% 48%,rgba(247,251,255,.09),transparent 16rem),#020910;
+    }
+    .progression-bridge::before, .progression-bridge::after {
+      content: ""; position: absolute; z-index: 0; left: 7%; right: 7%; top: 50%; height: 2px; transform-origin: center;
+      background: linear-gradient(90deg,var(--cyan),var(--white) 48%,var(--white) 52%,var(--pink)); opacity: .7;
+    }
+    .progression-bridge::before { transform: rotate(13deg); }
+    .progression-bridge::after { transform: rotate(-13deg); opacity: .28; }
+    .progression-node { position: relative; z-index: 2; display: grid; place-items: center; align-content: center; gap: 8px; min-width: 0; padding: 16px; border: 1px solid; border-radius: 10px; text-align: center; }
+    .progression-node.blue { color: var(--cyan); border-color: var(--cyan); background: linear-gradient(145deg,rgba(73,214,239,.17),rgba(5,20,31,.96)); box-shadow: inset 4px 0 var(--cyan); }
+    .progression-node.pinky { color: var(--pink); border-color: var(--pink); background: linear-gradient(215deg,rgba(243,111,180,.18),rgba(20,8,27,.96)); box-shadow: inset -4px 0 var(--pink); }
+    .progression-node small { color: currentColor; font: 800 .62rem ui-monospace,monospace; letter-spacing: .12em; }
+    .progression-node strong { font: 700 clamp(2.8rem,7vw,5.6rem)/.9 Georgia,serif; }
+    .progression-node span { max-width: 18ch; color: var(--muted); font: 700 .66rem/1.45 ui-monospace,monospace; }
+    .progression-cube { position: relative; z-index: 3; min-width: 0; min-height: 330px; border: 1px solid rgba(247,251,255,.55); border-radius: 10px; overflow: hidden; background: #020609; box-shadow: 0 0 34px rgba(73,214,239,.13),0 0 54px rgba(243,111,180,.08); }
+    .progression-cube iframe { position: absolute; inset: 0; }
+    .progression-cube-label { position: absolute; z-index: 4; left: 50%; transform: translateX(-50%); padding: 5px 8px; border: 1px solid rgba(247,251,255,.38); border-radius: 999px; background: rgba(2,9,16,.86); color: var(--white); white-space: nowrap; font: 800 .58rem ui-monospace,monospace; letter-spacing: .09em; pointer-events: none; }
+    .progression-cube-label.top { top: 9px; }
+    .progression-cube-label.bottom { bottom: 9px; color: var(--gold); }
+    .elevator-axis { position: absolute; z-index: 4; top: 48px; bottom: 48px; width: 2px; background: linear-gradient(transparent,currentColor 12%,currentColor 88%,transparent); opacity: .68; pointer-events: none; }
+    .elevator-axis.left { left: calc(28% - 7px); color: var(--cyan); }
+    .elevator-axis.right { right: calc(28% - 7px); color: var(--pink); }
+    .elevator-axis::before, .elevator-axis::after { content: ""; position: absolute; left: 50%; width: 9px; height: 9px; border: 2px solid currentColor; background: #020910; transform: translate(-50%,-50%) rotate(45deg); }
+    .elevator-axis::before { top: 0; }
+    .elevator-axis::after { top: 100%; }
+    .progression-caption { grid-column: 1/-1; position: relative; z-index: 4; margin: 0; color: var(--muted); text-align: center; font-size: .76rem; }
+    .progression-caption b { color: var(--white); }
+    .story-references {
+      display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 18px;
+      width: min(1180px, 100%); margin: 0 auto 18px;
+    }
+    .reference-card { padding: 10px; border: 1px solid var(--line); border-radius: 12px; background: rgba(7,19,29,.9); }
+    .reference-card img { display: block; width: 100%; height: 240px; object-fit: contain; border-radius: 7px; background: #01050a; }
+    .reference-card h2 { margin: 9px 2px 3px; color: var(--text); font: 700 1rem Georgia,serif; }
+    .reference-card p { margin: 0 2px 2px; color: var(--muted); font-size: .82rem; }
+    .reference-card b { color: var(--pink); }
+    .shell[data-surface="story"] .book { display: none; }
+    .shell[data-surface="story"] .visual-story { display: block; }
+    iframe { display: block; width: 100%; height: 100%; border: 0; background: #06131d; }
+    .leaf-label {
+      position: absolute; z-index: 4; top: 10px; padding: 7px 10px;
+      border: 1px solid var(--line); background: rgba(3,9,18,.88); backdrop-filter: blur(8px);
+      font: 700 .68rem ui-monospace, monospace; letter-spacing: .08em;
+    }
+    .left .leaf-label { left: 10px; color: var(--cyan); }
+    .right .leaf-label { right: 10px; color: var(--pink); }
+    .spine { position: relative; z-index: 8; display: grid; place-items: center; min-width: var(--seam); }
+    .axis {
+      position: absolute; inset: 7px 50% 7px auto; width: 3px; transform: translateX(50%);
+      background: linear-gradient(transparent, var(--white) 7%, var(--white) 93%, transparent);
+      box-shadow: 0 0 7px rgba(247,251,255,.75), 0 0 24px rgba(73,214,239,.2);
+    }
+    .axis::before, .axis::after {
+      content: ""; position: absolute; left: 50%; width: 30px; height: 8px; transform: translateX(-50%);
+      border: 2px solid var(--white); border-left: 0; border-right: 0; opacity: .9;
+    }
+    .axis::before { top: 4%; }
+    .axis::after { bottom: 4%; }
+    .pin {
+      position: relative; display: grid; place-items: center; width: 58px; aspect-ratio: 1;
+      border-radius: 50%; border: 5px solid var(--white);
+      background: radial-gradient(circle, #061018 0 19%, var(--white) 20% 28%, #0a1721 29% 54%, var(--white) 55% 61%, #061018 62%);
+      box-shadow: 0 0 0 7px rgba(247,251,255,.1), 0 0 28px rgba(247,251,255,.65), 0 0 58px rgba(73,214,239,.25);
+    }
+    .pin::before, .pin::after {
+      content: ""; position: absolute; width: 92px; height: 2px; background: var(--white); opacity: .8;
+    }
+    .pin::before { transform: rotate(45deg); }
+    .pin::after { transform: rotate(-45deg); }
+    .pin-label { position: absolute; top: calc(50% + 44px); white-space: nowrap; color: var(--white); font: 800 .65rem ui-monospace, monospace; letter-spacing: .12em; }
+    .pin-state {
+      position: absolute; top: calc(50% + 67px); width: 180px; padding: 5px 7px;
+      color: var(--muted); background: rgba(3,9,18,.92); border: 1px solid var(--line); border-radius: 5px;
+      text-align: center; font: 700 .58rem/1.3 ui-monospace, monospace; letter-spacing: .04em;
+    }
+    .spine.is-coupled .pin { animation: pinPulse 1.25s ease-in-out infinite alternate; }
+    .spine.is-transfer .pin { box-shadow: 0 0 0 7px rgba(247,251,255,.15), 0 0 34px var(--gold), 0 0 68px rgba(73,214,239,.48); }
+    @keyframes pinPulse { from { filter: brightness(.86); } to { filter: brightness(1.25); } }
+    .seam-word { position: absolute; color: var(--muted); writing-mode: vertical-rl; font: 700 .62rem ui-monospace, monospace; letter-spacing: .16em; }
+    .seam-word.top { top: 12%; }
+    .seam-word.bottom { bottom: 12%; transform: rotate(180deg); }
+    .tooth { position: absolute; width: 13px; height: 28px; border: 2px solid var(--white); opacity: .78; }
+    .tooth.t1 { top: 29%; left: 7px; border-right: 0; }
+    .tooth.t2 { top: 29%; right: 7px; border-left: 0; }
+    .tooth.t3 { bottom: 29%; left: 7px; border-right: 0; }
+    .tooth.t4 { bottom: 29%; right: 7px; border-left: 0; }
+    footer {
+      display: grid; grid-template-columns: 1fr auto 1fr; gap: 12px; align-items: center;
+      min-height: 48px; padding: 8px 18px; border-top: 1px solid var(--line); background: #030912;
+      color: var(--muted); font: 650 .66rem/1.4 ui-monospace, monospace;
+    }
+    footer .left-note { color: var(--cyan); }
+    footer .right-note { color: var(--pink); text-align: right; }
+    footer .boundary { text-align: center; color: var(--gold); }
+    @media (max-width: 840px) {
+      header { align-items: flex-start; flex-wrap: wrap; }
+      .route { order: 3; width: 100%; text-align: left; }
+      .book { grid-template-columns: 1fr; overflow: auto; padding: 10px; }
+      .book[data-mode] { grid-template-columns: 1fr; }
+      .leaf { min-height: 75vh; border-radius: 14px !important; }
+      .spine { min-height: 82px; }
+      .axis { inset: 50% 7px auto; width: auto; height: 3px; transform: translateY(-50%); background: linear-gradient(90deg,transparent,var(--white) 7%,var(--white) 93%,transparent); }
+      .axis::before, .axis::after, .seam-word, .tooth { display: none; }
+      .book[data-mode="ioi"] .right, .book[data-mode="prime"] .left { display: none; }
+      .visual-story { padding: 10px; }
+      .source-note { grid-template-columns: 1fr; }
+      .source-note a { justify-self: start; }
+      .story-references { grid-template-columns: 1fr; }
+      .story-caption { grid-template-columns: 1fr; gap: 4px; }
+      .letter-controls, .glyph-output { grid-template-columns: 1fr; }
+      .ioi-glyph-stage { grid-template-columns: 1fr; }
+      .progression-bridge { grid-template-columns: 1fr; min-height: 0; }
+      .progression-node { min-height: 160px; }
+      .progression-cube { min-height: 340px; }
+      .elevator-axis { display: none; }
+      .glyph-leaf { min-height: 190px; }
+      .glyph-channel { min-height: 120px; grid-template-columns: 1fr auto 1fr; grid-template-rows: 1fr; }
+      .glyph-channel::before { top: 50%; bottom: auto; left: 0; right: 0; width: auto; height: 3px; }
+      footer { grid-template-columns: 1fr; }
+      footer .right-note, footer .boundary { text-align: left; }
+    }
+  </style>
+</head>
+<body>
+  <div class="shell" data-surface="book">
+    <header>
+      <div class="title">
+        <div class="eyebrow">Derived composition · sources remain separate</div>
+        <h1><span class="ioi">IOI / Q90</span> × <span class="prime">Prime Foldings</span></h1>
+      </div>
+      <div class="route"><b>INSIDE</b> → OUTSIDE → <b>RETURN</b><br>SOURCE A → WHITE PIN → SOURCE B</div>
+      <div class="controls" aria-label="Buchansicht steuern">
+        <a id="commonStartReturn" href="A0_IOI_LEAF_FOLD_OPEN_BOOK_START_2026-11-02.html">COMMON START ⌂</a>
+        <button data-mode="both" aria-pressed="true">BEIDE</button>
+        <button data-mode="ioi" aria-pressed="false">IOI</button>
+        <button data-mode="prime" aria-pressed="false">PRIME</button>
+        <button id="pinCouple" aria-pressed="false">PIN LINK · OFF</button>
+        <button id="couple" aria-pressed="false">L↔R SCROLL · OFF</button>
+        <button id="storyToggle" aria-pressed="false">OPEN CHURCH</button>
+        <button id="letterToggle" aria-pressed="false">LETTER LENS</button>
+        <a id="leafFoldReturn" href="A0_IOI_LEAF_FOLD_RETURN_2026-11-02.html#leaf-tour-cube">LEAF TOUR · CUBE ↩</a>
+        <button id="reset">RESET</button>
+      </div>
+    </header>
+
+    <aside class="source-note" aria-label="Formale Quelle der Modal Lens">
+      <strong>FORMAL SOURCE · GÖDEL / SCOTT</strong>
+      <span>Die verwendete Formel ist <b>Kurt Gödels modales ontologisches Argument</b> in der von <b>Dana Scott</b> überlieferten Fassung. P = positive Eigenschaft, G = gottähnlich, □ = notwendig, ◇ = möglich. Die Bildfolge ist eine formale Analogie, keine zeilenweise Beweisgrafik und kein empirischer Nachweis.</span>
+      <a href="#visualStory">MODAL LENS ANSEHEN →</a>
+    </aside>
+
+    <main class="book" id="book" data-mode="both">
+      <section class="leaf left" aria-label="IOI und 90-Grad-Faltung">
+        <div class="leaf-label">SOURCE A · IOI / Q90 / GLS</div>
+        <iframe id="ioiFrame" title="IOI-Prinzip und 90-Grad-Faltung" src="IOI_PRINCIPLE_90_DEGREE_FOLD_CANDIDATE.html?embed=open-book"></iframe>
+      </section>
+
+      <div class="spine" id="whitePin" aria-label="Weiße Achse mit gemeinsamem Pin">
+        <div class="axis"></div>
+        <div class="tooth t1"></div><div class="tooth t2"></div><div class="tooth t3"></div><div class="tooth t4"></div>
+        <div class="seam-word top">SPALT · ZAHN</div>
+        <div class="pin" title="White Pin · gemeinsamer Pivot"></div>
+        <div class="pin-label">WHITE PIN · Q90 | 45°</div>
+        <div class="pin-state" id="pinState">GETRENNT · QUELLEN BLEIBEN AUTONOM</div>
+        <div class="seam-word bottom">FALTE · RETURN</div>
+      </div>
+
+      <section class="leaf right" aria-label="Primfaltungen und Euler-Naht">
+        <div class="leaf-label">SOURCE B · PRIME / EULER / RETURN</div>
+        <iframe id="primeFrame" title="Prime Foldings und Euler-Naht" src="PRIME_FOLDINGS_SIDE_STUDY.html?embed=open-book"></iframe>
+      </section>
+    </main>
+
+    <section class="visual-story" id="visualStory" hidden aria-label="IOI Open Book Story View">
+      <div class="story-boundary">VISUAL BRIDGE · SOURCE-BOUND · NO NEW IDENTITY · A0 FREEZE UNTOUCHED</div>
+
+      <div class="story-intro">
+        <small>EINLEITUNG · TRIPTYCH + 1 UND MODAL LENS, EINE GEKOPPELTE LESEFOLGE</small>
+        <h2>Das Buch öffnet das P(R)ISMA.</h2>
+        <p>Die Serie liest dieselbe source-bound Komposition als Triptychon plus Return: Außenansicht, Rückkehransicht, spektrale Öffnung und Ψ-Lesefenster. Eine fünfte Modal Lens schreibt den Sichtwechsel als □ INSIDE → ◇ OUTSIDE → □ INSIDE′. Die weiße Achse hält den gemeinsamen Pin; die Blue Base trägt die Projektion. Farbe bezeichnet getrennte Ansichts- und Übergangskanäle — keine neue Physik und keine neue Identität.</p>
+        <div class="spectrum" aria-label="Kanäle Cyan, Pink, Violett, Rot und Grün"><i></i><i></i><i></i><i></i><i></i></div>
+      </div>
+
+      <section class="letter-lens" id="letterSyllableLens" aria-labelledby="letterLensTitle">
+        <header>
+          <small>R0 DARSTELLUNGSLINSE · 101 / Q° × LETTERS &amp; SYLLABLES</small>
+          <h2 id="letterLensTitle">Zwei Blätter, ein Kanal, zwei mögliche Lesefolgen.</h2>
+          <p>Die Buchstaben bleiben getrennte Quellen. Erst Orientierung und Seitenbit bestimmen, ob die lokale Demonstration als Konsonant–Vokal oder Vokal–Konsonant gelesen wird. Das ist eine Glyphen- und Ordnungsansicht, kein allgemeines linguistisches Silbenmodell.</p>
+        </header>
+        <div class="letter-controls">
+          <label>VOKAL · CYAN / LINKES BLATT
+            <select id="vowelSelect" aria-label="Vokal wählen"><option>A</option><option>E</option><option>I</option><option>O</option><option>U</option></select>
+          </label>
+          <label>KONSONANT · PINK / RECHTES BLATT
+            <select id="consonantSelect" aria-label="Konsonant wählen"><option>L</option><option>M</option><option>N</option><option>R</option><option>S</option><option>T</option></select>
+          </label>
+          <button id="orderShift" type="button" aria-pressed="false">= · KANAL</button>
+        </div>
+        <div class="ioi-glyph-stage" aria-live="polite">
+          <div class="glyph-leaf vowel"><span class="glyph-letter" id="vowelGlyph">A</span><span class="glyph-role">I · VOWEL · SOURCE A</span></div>
+          <div class="glyph-channel" aria-label="Weiße Kanalachse mit Clamps">
+            <span class="glyph-clamp">[</span><span class="glyph-operator" id="glyphOperator">=</span><span class="glyph-clamp">]</span>
+          </div>
+          <div class="glyph-leaf consonant"><span class="glyph-letter" id="consonantGlyph">L</span><span class="glyph-role">I′ · CONSONANT · SOURCE B</span></div>
+        </div>
+        <section class="progression-bridge" aria-label="Progression von AL über den rotierenden Cube zur Pinky-Achse">
+          <span class="elevator-axis left" aria-hidden="true"></span><span class="elevator-axis right" aria-hidden="true"></span>
+          <article class="progression-node blue">
+            <small>BLUE CORNER · SOURCE / AL</small><strong id="progressionAL">AL</strong><span>A–L · linkes Blatt · Vokal/Konsonant als getrennte Adressen</span>
+          </article>
+          <div class="progression-cube">
+            <span class="progression-cube-label top">Q¹ ↕ Q¹¹ · ELEVATOR AXES</span>
+            <iframe id="progressionCube" loading="lazy" title="Rotierender A0 Game of Worlds Cube als Progressions- und Orientierungsoperator" src="about:blank" data-file-src="../assets/game-of-worlds-play/ioi-world-cube/index.html?embed=progression"></iframe>
+            <span class="progression-cube-label bottom">ROTATE · DISTINGUISH · RETURN</span>
+          </div>
+          <article class="progression-node pinky">
+            <small>PINKY CORNER · RETURN / I′</small><strong>P·I·K·Y</strong><span>P(i)N(k)(y) · Cornerstone · adressierte Rückseite</span>
+          </article>
+          <p class="progression-caption"><b>Progression:</b> AL → rotierender Cube / Seitenbit → PINKY. Der Cube ist Pivot, Carrier und View-Operator — keine dritte Quelle und kein linguistischer Beweis.</p>
+        </section>
+        <div class="glyph-output">
+          <div><span>101 / SOURCE RECORD</span><strong id="sourceRecord">A | O | L</strong></div>
+          <div><span>LOCAL READING</span><strong id="syllableOutput">LA</strong></div>
+          <div><span>SIDE BIT / RETURN</span><strong id="sideBitOutput">R · C→V</strong></div>
+        </div>
+        <p class="letter-boundary"><b>Boundary:</b> <code>=</code> hält dieselbe Kanaladresse und liest C→V. <code>≠</code> markiert den ausgelösten Ordnungswechsel zu V→C. Die Clamps <code>[ ]</code> erhalten beide Quellen; keine Gleichsetzung von Buchstabe, Laut und Silbe.</p>
+      </section>
+
+      <figure class="story-plate">
+        <img src="ioi_open_book_assets/open-book-ioi-annotated.png" alt="Annotiertes Open Book mit Inside Outside Inside und C-Pin">
+        <figcaption class="story-caption">
+          <strong>01 · CHURCH VIEW · OUTSIDE / META-VIEW</strong>
+          <span>Die Außenansicht macht Pin, Binder, Phase/Residual und Return gemeinsam lesbar. Das ist eine deklarierte Anschauung — kein geometrischer Beweis eines Church- oder Gödel-Satzes.</span>
+        </figcaption>
+      </figure>
+
+      <figure class="story-plate story-return">
+        <img src="ioi_open_book_assets/open-book-pure.png" alt="Reines Open-Book-Modell mit weißer Achse und Ring-Pin">
+        <figcaption class="story-caption">
+          <strong>02 · RETURN VIEW · INSIDE′</strong>
+          <span>Gleiche Quelle, zweite Ansicht: Die weiße Achse hält oben und unten; der Ring-Pin markiert den Übergang INSIDE → OUTSIDE → INSIDE′.</span>
+        </figcaption>
+      </figure>
+
+      <figure class="story-plate story-prisma">
+        <img src="ioi_open_book_assets/open-book-prisma-blue-base-v3.png" alt="Geöffnetes IOI-Prisma über einer leuchtenden Blue Base mit fünf getrennten Farbkanälen">
+        <figcaption class="story-caption">
+          <strong>03 · P(R)ISMA OPEN · BLUE BASE / FIVE CHANNELS</strong>
+          <span>Der Pin öffnet die Projektion: Cyan/Blue, Pink, Violett, Rot und Grün werden als getrennte Kanäle sichtbar und kehren in einen gemeinsamen Return zurück. Die Blue Base ist Träger und Orientierung — nicht eine zusätzliche Quelle.</span>
+        </figcaption>
+      </figure>
+
+      <figure class="story-plate story-psi">
+        <img src="ioi_open_book_assets/ioi-psi-triptych-plus-one-v4.png" alt="Vier gekoppelte Ansichten über einer gemeinsamen Blue Base: Cyan als Wellenfenster, Pink und Violett als Apertur, Rot als Kontaktgrenze sowie Grün und Gold als Return">
+        <figcaption class="story-caption">
+          <strong>04 · Ψ / TRIPTYCH + 1 · HÖREN / SEHEN / TOUCH / RETURN</strong>
+          <span>Cyan liest den Wellenkanal, Pink/Violett die Apertur, Rot den Kontakt an der Naht; Grün/Gold führt über denselben White Pin zur Blue Base zurück. Das sind vier Lesefenster derselben Komposition — keine neuen Sinne, Quellen oder physikalischen Behauptungen.</span>
+        </figcaption>
+      </figure>
+
+      <figure class="story-plate story-modal">
+        <img src="ioi_open_book_assets/ioi-modal-lens-white-pin-v5.png" alt="Modal Lens mit cyanfarbenem Inside, pink-violettem Outside, grün-goldenem Inside-Prime und einer durchgehenden weißen Pin-Achse über der Blue Base">
+        <figcaption class="story-caption">
+          <strong>05 · MODAL LENS · □ INSIDE / ◇ OUTSIDE / □ INSIDE′</strong>
+          <span>Die Formelquelle ist Kurt Gödels modales ontologisches Argument in der von Dana Scott überlieferten Fassung: P bezeichnet „positive Eigenschaft“, G „gottähnlich“, □ Notwendigkeit und ◇ Möglichkeit. Das Bild übersetzt nicht den Beweis Zeile für Zeile, sondern abstrahiert nur □ und ◇ als Leselinse: gebundene Innenansicht → mögliche Außenansicht → rückgebundenes Inside′. Der White Pin hält dabei die Referenz. Formale Analogie — weder theologischer oder empirischer Nachweis noch Identität mit einem Church-, Gödel- oder Turing-Satz.</span>
+        </figcaption>
+      </figure>
+
+      <div class="story-references" aria-label="Gebundene visuelle Referenzen">
+        <article class="reference-card">
+          <img src="ioi_open_book_assets/cruiser-projection.png" alt="Cruiser Projektion mit Vektorschluss">
+          <h2>Applied projection · Cruiser</h2>
+          <p>Vergleichsansicht für Adressierung, Apertur und Rückschreiben. <b>Keine gemeinsame Identität.</b></p>
+        </article>
+        <article class="reference-card">
+          <img src="ioi_open_book_assets/euler-form-reference.png" alt="Historische Euler Zeichnung als Formreferenz">
+          <h2>Historical form reference · Euler</h2>
+          <p>Naht, Spalt, Tangente und Rückführung als historische Formreferenz. <b>Kein Nachweis eines gemeinsamen Mechanismus.</b></p>
+        </article>
+      </div>
+
+      <div class="story-summary">
+        <small>ZUSAMMENFASSUNG · OPEN → DIFFERENTIATE → RETURN</small>
+        <h2>Eine Naht, Triptych + 1, fünf Kanäle — und eine formale Linse.</h2>
+        <p><b>IOI</b> liefert die Bewegungsgrammatik. <b>Q90 / White Pin</b> hält Pivot und Faltung lesbar. <b>Prime Foldings</b> markiert Adressen und Grenzen. <b>P(R)ISMA</b> macht die Farbkanäle sichtbar; <b>Blue Base</b> hält die Orientierung. Die <b>Modal Lens</b> macht den Sichtwechsel als □ INSIDE → ◇ OUTSIDE → □ INSIDE′ lesbar, ohne daraus eine neue Identität abzuleiten. Der Rückweg bleibt explizit: SOURCE → VIEW → LOST INFORMATION / RESIDUAL → SECOND VIEW → RETURN.</p>
+      </div>
+    </section>
+
+    <footer>
+      <div class="left-note">I · O · I / Q90 / L / GLS</div>
+      <div class="boundary">VIEW-COMPOSITION · KEINE NEUE IDENTITÄT · A0 UNVERÄNDERT</div>
+      <div class="right-note">′ PRIME / ARCMIN · ″ DOUBLE-PRIME / ARCSEC / INCH · ° DEGREE</div>
+    </footer>
+  </div>
+
+  <script>
+    const book = document.getElementById('book');
+    const modeButtons = [...document.querySelectorAll('[data-mode]')].filter(el => el.tagName === 'BUTTON');
+    const pinCoupleButton = document.getElementById('pinCouple');
+    const coupleButton = document.getElementById('couple');
+    const resetButton = document.getElementById('reset');
+    const storyToggle = document.getElementById('storyToggle');
+    const letterToggle = document.getElementById('letterToggle');
+    const shell = document.querySelector('.shell');
+    const visualStory = document.getElementById('visualStory');
+    const ioiFrame = document.getElementById('ioiFrame');
+    const primeFrame = document.getElementById('primeFrame');
+    const whitePin = document.getElementById('whitePin');
+    const pinState = document.getElementById('pinState');
+    const vowelSelect = document.getElementById('vowelSelect');
+    const consonantSelect = document.getElementById('consonantSelect');
+    const orderShift = document.getElementById('orderShift');
+    const vowelGlyph = document.getElementById('vowelGlyph');
+    const consonantGlyph = document.getElementById('consonantGlyph');
+    const glyphOperator = document.getElementById('glyphOperator');
+    const sourceRecord = document.getElementById('sourceRecord');
+    const syllableOutput = document.getElementById('syllableOutput');
+    const sideBitOutput = document.getElementById('sideBitOutput');
+    const progressionAL = document.getElementById('progressionAL');
+    const progressionCube = document.getElementById('progressionCube');
+    const leafFoldReturn = document.getElementById('leafFoldReturn');
+    const commonStartReturn = document.getElementById('commonStartReturn');
+    let coupled = false;
+    let pinCoupled = false;
+    let pinTransfer = false;
+    const directScrollMute = {ioi:false, prime:false};
+    let shiftedOrder = false;
+
+    progressionCube.src = progressionCube.dataset.fileSrc;
+
+    function renderLetterLens() {
+      const vowel = vowelSelect.value;
+      const consonant = consonantSelect.value;
+      vowelGlyph.textContent = vowel;
+      consonantGlyph.textContent = consonant;
+      sourceRecord.textContent = `${vowel} | O | ${consonant}`;
+      progressionAL.textContent = `${vowel}${consonant}`;
+      glyphOperator.textContent = shiftedOrder ? '≠' : '=';
+      orderShift.textContent = shiftedOrder ? '≠ · SHIFT' : '= · KANAL';
+      orderShift.setAttribute('aria-pressed', String(shiftedOrder));
+      syllableOutput.textContent = shiftedOrder ? `${vowel}${consonant}` : `${consonant}${vowel}`;
+      sideBitOutput.textContent = shiftedOrder ? 'L · V→C' : 'R · C→V';
+    }
+
+    vowelSelect.addEventListener('change', renderLetterLens);
+    consonantSelect.addEventListener('change', renderLetterLens);
+    orderShift.addEventListener('click', () => {
+      shiftedOrder = !shiftedOrder;
+      renderLetterLens();
+    });
+    renderLetterLens();
+
+    function applyHashSurface() {
+      const isLetterLens = window.location.hash === '#letterSyllableLens';
+      const isStory = window.location.hash === '#visualStory' || isLetterLens;
+      if (!isStory) return;
+      shell.dataset.surface = 'story';
+      visualStory.hidden = false;
+      storyToggle.setAttribute('aria-pressed', 'true');
+      storyToggle.textContent = 'CLOSE CHURCH';
+      letterToggle.setAttribute('aria-pressed', String(isLetterLens));
+      if (isLetterLens) requestAnimationFrame(() => document.getElementById('letterSyllableLens').scrollIntoView({block: 'start'}));
+    }
+
+    applyHashSurface();
+    window.addEventListener('hashchange', applyHashSurface);
+
+    modeButtons.forEach(button => button.addEventListener('click', () => {
+      book.dataset.mode = button.dataset.mode;
+      modeButtons.forEach(item => item.setAttribute('aria-pressed', String(item === button)));
+    }));
+
+    coupleButton.addEventListener('click', () => {
+      coupled = !coupled;
+      coupleButton.setAttribute('aria-pressed', String(coupled));
+      coupleButton.textContent = coupled ? 'L↔R SCROLL · ON' : 'L↔R SCROLL · OFF';
+      pinState.textContent = coupled ? 'LINKS ↔ RECHTS · SCROLL GEKOPPELT' : (pinCoupled ? 'BEREIT · 7 / 33 / 45 / 78' : 'GETRENNT · QUELLEN BLEIBEN AUTONOM');
+    });
+
+    storyToggle.addEventListener('click', () => {
+      const isStory = shell.dataset.surface !== 'story';
+      shell.dataset.surface = isStory ? 'story' : 'book';
+      visualStory.hidden = !isStory;
+      storyToggle.setAttribute('aria-pressed', String(isStory));
+      storyToggle.textContent = isStory ? 'CLOSE CHURCH' : 'OPEN CHURCH';
+      letterToggle.setAttribute('aria-pressed', 'false');
+    });
+
+    letterToggle.addEventListener('click', () => {
+      shell.dataset.surface = 'story';
+      visualStory.hidden = false;
+      storyToggle.setAttribute('aria-pressed', 'true');
+      storyToggle.textContent = 'CLOSE CHURCH';
+      letterToggle.setAttribute('aria-pressed', 'true');
+      document.getElementById('letterSyllableLens').scrollIntoView({behavior: 'smooth', block: 'start'});
+    });
+
+    pinCoupleButton.addEventListener('click', () => {
+      pinCoupled = !pinCoupled;
+      pinCoupleButton.setAttribute('aria-pressed', String(pinCoupled));
+      pinCoupleButton.textContent = pinCoupled ? 'PIN LINK · ON' : 'PIN LINK · OFF';
+      whitePin.classList.toggle('is-coupled', pinCoupled);
+      pinState.textContent = pinCoupled ? 'BEREIT · 7 / 33 / 45 / 78' : 'GETRENNT · QUELLEN BLEIBEN AUTONOM';
+    });
+
+    resetButton.addEventListener('click', () => {
+      shell.dataset.surface = 'book';
+      visualStory.hidden = true;
+      storyToggle.setAttribute('aria-pressed', 'false');
+      storyToggle.textContent = 'OPEN CHURCH';
+      letterToggle.setAttribute('aria-pressed', 'false');
+      [ioiFrame, primeFrame].forEach(frame => {
+        try { frame.contentWindow.scrollTo({top: 0, behavior: 'smooth'}); } catch (_) {}
+      });
+    });
+
+    function relayScroll(source, ratio) {
+      const target = source === 'ioi' ? primeFrame : source === 'prime' ? ioiFrame : null;
+      const targetName = source === 'ioi' ? 'prime' : source === 'prime' ? 'ioi' : null;
+      if (!target || !targetName || !Number.isFinite(ratio)) return;
+      const boundedRatio = Math.max(0,Math.min(1,ratio));
+      const percent = Math.round(boundedRatio * 100);
+      coupleButton.textContent = `L↔R SCROLL · ${percent}%`;
+      pinState.textContent = `${source === 'ioi' ? 'LINKS' : 'RECHTS'} → ${source === 'ioi' ? 'RECHTS' : 'LINKS'} · ${percent}%`;
+      target.contentWindow.postMessage({type:'ioi-open-book-scroll-to', ratio:boundedRatio}, '*');
+      directScrollMute[targetName] = true;
+      try {
+        const root = target.contentDocument.documentElement;
+        target.contentWindow.scrollTo(0, boundedRatio * Math.max(0,root.scrollHeight-target.contentWindow.innerHeight));
+      } catch (_) {}
+      window.setTimeout(() => { directScrollMute[targetName] = false; }, 100);
+    }
+
+    window.addEventListener('message', event => {
+      const data = event.data;
+      if (!data || data.type !== 'ioi-open-book-scroll' || !coupled || directScrollMute[data.source]) return;
+      relayScroll(data.source, data.ratio);
+    });
+
+    function bindDirectScroll(frame, source) {
+      const attach = () => {
+        try {
+          const win = frame.contentWindow;
+          if (win.__ioiOpenBookScrollBound) return;
+          win.__ioiOpenBookScrollBound = true;
+          win.addEventListener('scroll', () => {
+            if (!coupled || directScrollMute[source]) return;
+            const root = frame.contentDocument.documentElement;
+            relayScroll(source, win.scrollY / Math.max(1,root.scrollHeight-win.innerHeight));
+          }, {passive:true});
+        } catch (_) {}
+      };
+      frame.addEventListener('load', attach);
+      attach();
+    }
+
+    bindDirectScroll(ioiFrame, 'ioi');
+    bindDirectScroll(primeFrame, 'prime');
+
+    function flashPin(message) {
+      pinState.textContent = message;
+      whitePin.classList.add('is-transfer');
+      window.setTimeout(() => whitePin.classList.remove('is-transfer'), 520);
+    }
+
+    function clickIn(frame, selector) {
+      try {
+        const element = frame.contentDocument && frame.contentDocument.querySelector(selector);
+        if (element) { element.click(); return element; }
+      } catch (_) {}
+      frame.contentWindow.postMessage({type:'ioi-open-book-command', action:'click', selector}, '*');
+      return true;
+    }
+
+    function showIn(frame, selector) {
+      try {
+        const element = frame.contentDocument && frame.contentDocument.querySelector(selector);
+        if (element) { element.scrollIntoView({behavior: 'smooth', block: 'center'}); return element; }
+      } catch (_) {}
+      frame.contentWindow.postMessage({type:'ioi-open-book-command', action:'show', selector}, '*');
+      return true;
+    }
+
+    function transferPrimeToIOI(n) {
+      if (!pinCoupled || pinTransfer) return;
+      pinTransfer = true;
+      if (n === 7) {
+        clickIn(ioiFrame, '[data-gls-angle="90"]');
+        showIn(ioiFrame, '#glsReturnFold');
+        flashPin('7 → PIVOT → Q90');
+      } else if (n === 33) {
+        showIn(ioiFrame, '[data-axis-step="0"]');
+        flashPin('33 → IOI-BASIS');
+      } else if (n === 45) {
+        clickIn(ioiFrame, '[data-gls-angle="45"]');
+        showIn(ioiFrame, '#glsReturnFold');
+        flashPin('45 → HALBIERENDE');
+      } else if (n === 78) {
+        clickIn(ioiFrame, '[data-inch-preset="78"]');
+        showIn(ioiFrame, '#unitGlyphLens');
+        flashPin('78 → ZYKLUS / 78″');
+      } else {
+        flashPin('17 → RESIDUAL · KEIN EXAKTER LINKSMARKER');
+      }
+      window.setTimeout(() => { pinTransfer = false; }, 120);
+    }
+
+    function transferIOIToPrime(kind, value) {
+      if (!pinCoupled || pinTransfer) return;
+      pinTransfer = true;
+      let n = null;
+      if (kind === 'angle' && value === 90) n = 7;
+      if (kind === 'angle' && value === 45) n = 45;
+      if (kind === 'inch' && value === 78) n = 78;
+      if (n !== null) {
+        clickIn(primeFrame, `[data-n="${n}"]`);
+        showIn(primeFrame, '#foldTitle');
+        flashPin(`${kind === 'angle' ? value + '°' : value + '″'} → p${n}`);
+      } else {
+        flashPin(`${value}${kind === 'angle' ? '°' : '″'} → RESIDUAL / HOLD`);
+      }
+      window.setTimeout(() => { pinTransfer = false; }, 120);
+    }
+
+    primeFrame.addEventListener('load', () => {
+      try {
+        primeFrame.contentDocument.querySelectorAll('[data-n]').forEach(button => {
+          button.addEventListener('click', () => transferPrimeToIOI(Number(button.dataset.n)));
+        });
+      } catch (_) {}
+    });
+
+    ioiFrame.addEventListener('load', () => {
+      try {
+        ioiFrame.contentDocument.querySelectorAll('[data-gls-angle]').forEach(button => {
+          button.addEventListener('click', () => transferIOIToPrime('angle', Number(button.dataset.glsAngle)));
+        });
+        ioiFrame.contentDocument.querySelectorAll('[data-inch-preset]').forEach(button => {
+          button.addEventListener('click', () => transferIOIToPrime('inch', Number(button.dataset.inchPreset)));
+        });
+      } catch (_) {}
+    });
+
+    window.addEventListener('message', event => {
+      const data = event.data;
+      if (!data || data.type !== 'ioi-open-book-control') return;
+      if (data.source === 'prime') transferPrimeToIOI(Number(data.value));
+      if (data.source === 'ioi') transferIOIToPrime(data.kind, Number(data.value));
+    });
+  </script>
+</body>
+</html>
