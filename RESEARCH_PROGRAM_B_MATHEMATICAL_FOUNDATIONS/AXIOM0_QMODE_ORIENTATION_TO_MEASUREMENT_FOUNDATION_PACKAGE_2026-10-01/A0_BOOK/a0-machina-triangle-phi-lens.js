@@ -103,6 +103,22 @@
     });
   }
 
+  function jalousieRegister(pinCount = 18) {
+    const pins = Number(pinCount);
+    if (!Number.isInteger(pins) || pins < 1) throw new RangeError("jalousie pin count must be a positive integer");
+    return Object.freeze({
+      objectId: "NLK_L_SHELL_JALOUSIE_VIEW",
+      projectionClass: "BOUNDED_DISPLAY_REGISTER",
+      interiorPinCount: pins,
+      frameBoundaryCount: 2,
+      gapCount: pins + 1,
+      leftAxisVisible: true,
+      tokens: Object.freeze(["MA", "PA", "S", "T", "A"]),
+      tokenRole: "LOCAL_POSITION_MARKERS",
+      claimBoundary: "DISPLAY_PROJECTION_ONLY"
+    });
+  }
+
   function qrtObject() {
     const rhombus = lamellaHexagon().rhombi[2];
     const [origin, cornerU, opposite, cornerV] = rhombus;
@@ -212,6 +228,102 @@
       exactReturnTurns: 1,
       claimBoundary: "DISPLAY_PROJECTION_ONLY"
     });
+  }
+
+  function raThBridge(turns = 0, samples = 181) {
+    if (!Number.isFinite(turns)) throw new TypeError("RA/TH turns must be finite");
+    if (!Number.isInteger(samples) || samples < 9) throw new RangeError("RA/TH samples must be an integer of at least nine");
+    const phase = turns * Math.PI * 2;
+    const exactReturn = Math.abs(turns - Math.round(turns)) < 1e-10;
+    const sway = Math.sin(phase);
+    const counter = Math.sin(phase * 2);
+    const pivot = Object.freeze([350, 160]);
+    const typedT = Object.freeze({
+      x: 350 + 13 * counter,
+      y: 235 + 8 * Math.cos(phase),
+      rotationDegrees: 9 * sway
+    });
+    const windowPath = Object.freeze(Array.from({ length: samples }, (_, index) => {
+      const parameter = index / (samples - 1) * Math.PI * 2 + phase;
+      return Object.freeze([
+        350 + 112 * Math.sin(3 * parameter),
+        358 + 62 * Math.sin(2 * parameter + Math.PI / 2)
+      ]);
+    }));
+    const iotaStepDegrees = 360 / 365;
+    const addressGap = 365 - 360;
+    const iotaHalfStep = .5;
+    const iotaMarkerDegrees = ((turns * 360) + iotaHalfStep * iotaStepDegrees) % 360;
+    return Object.freeze({
+      objectId: "NEXAH_A0_ORIENTATION_CONTROLLER_BENCH",
+      viewRole: "RA_TH_BRIDGE_PROJECTION",
+      motionClass: "TYPED_DISPLAY_HANDOFF",
+      turns,
+      pivot,
+      twinSticks: Object.freeze({
+        leftDegrees: -42 + 7 * sway,
+        rightDegrees: 42 - 7 * sway,
+        counterRotating: true
+      }),
+      typedT,
+      tesaWindow: Object.freeze({
+        existingRouter: "A0TesaLissajousWindowRouter",
+        frequencyRatio: Object.freeze([3, 2]),
+        phaseOffsetRadians: Math.PI / 2,
+        path: windowPath,
+        iotaDrift: Object.freeze({
+          sourceCarrier: "Z_365",
+          viewRule: "theta(k)=360deg*k/365",
+          displayCircleDegrees: 360,
+          carrierStateCount: 365,
+          stepDegrees: iotaStepDegrees,
+          addressGap,
+          vGapDegrees: addressGap * iotaStepDegrees,
+          halfStepAddress: iotaHalfStep,
+          halfStepDegrees: iotaHalfStep * iotaStepDegrees,
+          markerDegrees: iotaMarkerDegrees,
+          role: "IOTA_DISPLAY_INTERPOLATION",
+          sourceMutation: false,
+          boundary: "COORDINATE_READOUT_NOT_OPERATOR_INVARIANT"
+        })
+      }),
+      rec: Object.freeze({
+        label: "REC",
+        type: "TYPED_RETURN_RECEIPT",
+        route: Object.freeze(["RA", "TH", "T", "TESA", "REC", "RA"]),
+        readRole: "R",
+        displayRole: "D",
+        state: exactReturn ? "EXACT_RETURN" : "HOLD",
+        sourceAddressHeld: true,
+        sourceMutation: false
+      }),
+      existingModuleHandoffs: Object.freeze({
+        fullTesaLissajous: "A0_ORIENTATION_CONTROLLER_BENCH.html#tesaLissajousWindowRouter",
+        iotaBridgeTour: "A0_IOTA_BRIDGE_DEMONSTRATOR.html#module-entry",
+        iotaGridBridge: "A0_IOTA_BRIDGE_DEMONSTRATOR.html#gridBridgeFlagship",
+        contract: "LINKED_EXISTING_MODULES_NO_EMBEDDED_DUPLICATE"
+      }),
+      roles: Object.freeze({
+        RA: "LOCAL_RETURN_AXIS",
+        TH: "EXISTING_T_BETA_LOCAL_ALIAS",
+        T: "TYPED_HANDOFF_MARKER",
+        R: "READ_RETURN_ROLE",
+        D: "DISPLAY_ROLE"
+      }),
+      exactReturnTurns: 1,
+      sourceMutation: false,
+      newIdentity: false,
+      newRelation: false,
+      claimBoundary: "DISPLAY_PROJECTION_ONLY"
+    });
+  }
+
+  function advanceWobbleDegrees(currentDegrees, elapsedMilliseconds) {
+    const current = Number(currentDegrees);
+    const elapsed = Number(elapsedMilliseconds);
+    if (!Number.isFinite(current) || !Number.isFinite(elapsed)) throw new TypeError("wobble phase and elapsed time must be finite");
+    const next = current + Math.min(100, Math.max(0, elapsed)) * .025;
+    return ((next % 360) + 360) % 360;
   }
 
   function rotate(values, count) {
@@ -368,12 +480,23 @@
         pulse: pulseRoute(),
         counterAxis: counterAxis(),
         lamellaHexagon: lamellaHexagon(),
+        jalousieRegister: jalousieRegister(),
         qrtObject: qrtObject(),
         lcMotion: lcMotion(),
-        cubeWobble: cubeWobble()
+        cubeWobble: cubeWobble(),
+        raThBridge: raThBridge()
       })
     });
   }
+
+  const RATH_TOUR_STEPS = Object.freeze([
+    Object.freeze({ phase: 0, focus: "pivot", title: "1. RA / TH · zwei Rollen", copy: "RA bleibt die lokale Return-Achse; TH bleibt der vorhandene T_β-Alias. Die gemeinsame Ansicht setzt beide Rollen nicht gleich." }),
+    Object.freeze({ phase: 72, focus: "typed-t", title: "2. Taumelndes T · typisierte Übergabe", copy: "Die Gegenrotation bewegt das T als Display-Handoff. Sie erzeugt weder einen neuen Carrier noch eine Körperphysik." }),
+    Object.freeze({ phase: 144, focus: "tesa", title: "3. TESA · vorhandenes 3:2-Fenster", copy: "Das T übergibt an den bestehenden A0TesaLissajousWindowRouter mit δ=π/2; das große TESA-Modul bleibt die Quelle." }),
+    Object.freeze({ phase: 216, focus: "drift", title: "4. Z365 · V-Lücke und IOTA 0,5", copy: "θ(k)=360°·k/365. Δk=5 ergibt 4,932° V-Lücke; IOTA 0,5 bleibt der getrennte Halbschritt von 0,493°." }),
+    Object.freeze({ phase: 288, focus: "rec", title: "5. REC · R und D bleiben getrennt", copy: "REC hält die Quelladresse während der Ansicht. R→D→R ist ein typisierter Rückweg und keine Gleichsetzung von R und D." }),
+    Object.freeze({ phase: 0, focus: "return", title: "6. Exact Return · zurück zu RA", copy: "Die Phase, die V-Naht und der Receipt kehren gemeinsam auf den deklarierten Start zurück; Quelle und Identität bleiben unverändert.", returned: true })
+  ]);
 
   const VIEWS = Object.freeze({
     factor: Object.freeze({ label: "52 / 18", status: "EXACT · 16 + 17 + 19 = 52 = 4·13 · HOLDOUT 18 · 52/18 ≠ φ,π" }),
@@ -383,9 +506,11 @@
     phase: Object.freeze({ label: "2⁶ SPACE", status: "EXACT FINITE REGISTER · 64 = 2⁶ = 2²×2⁴ · FOUR QUADRANTS × SIXTEEN LOCAL STATES · PRIMES ARE MARKED ADDRESSES" }),
     axis: Object.freeze({ label: "8 ↔ 55 AXIS", status: "EXACT COUNTER AXIS · 8=001000₂ ↔ 55=110111₂ · XOR=63 · 35+20=55 · 55=5·11 · V×XI=LV" }),
     lamella: Object.freeze({ label: "HEX / L / HINGE", status: "EXACT PLANAR PARTITION · HEXAGON = 3 RHOMBI = 6 EQUILATERAL TRIANGLES · THREE 120° SEAMS · 3×7 LAMELLAE · 8 INTERVALS · DOUBLE ROUTE" }),
+    jalousie: Object.freeze({ label: "JALOUSIE 18 / 19", status: "BOUNDED DISPLAY REGISTER · 18 INTERIOR BLACK PINS + TWO FRAME EDGES = 19 GAPS · LEFT AXIS VISIBLE · MA · PA · S · T · A ARE LOCAL POSITION MARKERS" }),
     object: Object.freeze({ label: "QRT / T_Y / T_β", status: "EXACT OBJECT SPLIT · QRT AFFINE SQUARE→RHOMBUS · T_Y/BO + T_β/TH · SHARED DIAGONAL · L7 · PHANTOM TINES ADD ZERO FACES" }),
     motion: Object.freeze({ label: "L_c / Θ · Ζ · Λ", status: "KINEMATIC DISPLAY · FIXED 120° BÜGEL · Θ PHASE DRIVER · Ζ CHORD MIDPOINT · Λ RETURN ENDPOINT · EXACT RETURN AFTER ONE TURN" }),
-    wobble: Object.freeze({ label: "CUBE WOBBLE", status: "AFFINE DISPLAY WOBBLE · NLK / L-SHELL · 1:2:3 PHASE PATH · L-SEAM ATTACHED · EXACT RETURN AFTER ONE TURN" })
+    wobble: Object.freeze({ label: "EDELWEISS / 3-FACE WOBBLE", status: "AFFINE THREE-RHOMBUS DISPLAY · NLK / L-SHELL · 1:2:3 PHASE PATH · L-SEAM ATTACHED · NO CUBE-BODY CLAIM · EXACT RETURN AFTER ONE TURN" }),
+    rath: Object.freeze({ label: "RA / TH BRIDGE", status: "TYPED DISPLAY HANDOFF · TWIN-STICK PIVOT → WOBBLING T → EXISTING TESA 3:2 WINDOW · Z365 V-GAP + IOTA 0.5 DISPLAY DRIFT → REC → RA · R/D ROLES STAY SEPARATE · NO NEW IDENTITY OR RELATION" })
   });
 
   function mount(scope) {
@@ -394,12 +519,59 @@
     const wobbleTemplate = lens.querySelector("[data-tpl-wobble-template]");
     const buttonTray = lens.querySelector(".tpl-buttons");
     const side = lens.querySelector(".tpl-side");
+    const figureSvg = lens.querySelector(".tpl-figure svg");
+    if (figureSvg && !lens.querySelector(".tpl-jalousie-layer")) {
+      const svgNamespace = "http://www.w3.org/2000/svg";
+      const group = document.createElementNS(svgNamespace, "g");
+      group.setAttribute("class", "tpl-jalousie-layer");
+      group.setAttribute("aria-label", "Jalousie register with left axis, eighteen interior black pins and nineteen gaps");
+      const pins = Array.from({ length: 18 }, (_, index) => `<path data-jalousie-pin d="M154 ${122 + index * 14}H360"/>`).join("");
+      const tokens = jalousieRegister().tokens.map((token, index) => `<text x="410" y="${150 + index * 48}">${token}</text>`).join("");
+      group.innerHTML = `<rect class="tpl-jalousie-field" x="143" y="108" width="228" height="270" rx="8"/><path class="tpl-jalousie-axis" d="M118 86V402M108 108H128M108 378H128"/><rect class="tpl-jalousie-frame" x="143" y="108" width="228" height="270" rx="8"/><g class="tpl-jalousie-pins">${pins}</g><text class="tpl-jalousie-title" x="118" y="66">LEFT AXIS · 18 BLACK PINS · 19 GAPS</text><text class="tpl-jalousie-count" x="95" y="250" transform="rotate(-90 95 250)">A18 ↔ G19</text><path class="tpl-jalousie-marker-rail" d="M389 132V354"/><g class="tpl-jalousie-tokens" aria-label="Local position markers MA PA S T A">${tokens}</g>`;
+      figureSvg.appendChild(group);
+    }
+    if (figureSvg && !lens.querySelector(".tpl-rath-bridge")) {
+      const svgNamespace = "http://www.w3.org/2000/svg";
+      const group = document.createElementNS(svgNamespace, "g");
+      group.setAttribute("class", "tpl-rath-bridge");
+      group.setAttribute("aria-label", "RA TH bridge from counter-rotating twin sticks through a wobbling typed T into the existing TESA Lissajous window");
+      group.innerHTML = `<text class="tpl-rath-title" x="350" y="42" text-anchor="middle">RA / TH · TWIN STICKS → T → TESA → REC</text><line class="tpl-rath-axis" x1="350" y1="65" x2="350" y2="445"/><g data-tpl-rath-stick-left><line class="tpl-rath-stick left" x1="350" y1="160" x2="350" y2="58"/></g><g data-tpl-rath-stick-right><line class="tpl-rath-stick right" x1="350" y1="160" x2="350" y2="58"/></g><circle class="tpl-rath-pivot" cx="350" cy="160" r="10"/><text class="tpl-rath-role ra" x="208" y="112">RA · RETURN AXIS</text><text class="tpl-rath-role th" x="492" y="112">TH · T_β ALIAS</text><rect class="tpl-rath-window" x="175" y="272" width="350" height="44" rx="4"/><g data-tpl-rath-t><path class="tpl-rath-typed-t" d="M305 218H395M350 218V286"/><text class="tpl-rath-t-label" x="405" y="231">T · TYPED HANDOFF</text></g><circle class="tpl-rath-sphere" cx="350" cy="358" r="104"/><path class="tpl-rath-lissajous" data-tpl-rath-lissajous/><g class="tpl-rath-rec" data-tpl-rath-rec><path d="M510 358H548"/><rect x="548" y="340" width="72" height="36" rx="18"/><text x="584" y="363" text-anchor="middle">REC</text><text class="tpl-rath-rd" x="584" y="394" text-anchor="middle">R → D → R</text></g><text class="tpl-rath-caption" x="350" y="456" text-anchor="middle">EXISTING TESA · 3:2 · δ=π/2 · REC HOLDS SOURCE · ONE-TURN RETURN</text>`;
+      const driftGroup = document.createElementNS(svgNamespace, "g");
+      driftGroup.setAttribute("class", "tpl-rath-v-gap");
+      driftGroup.setAttribute("data-tpl-rath-v-gap", "");
+      driftGroup.setAttribute("aria-label", "Z365 coordinate-view V gap with separate IOTA half-step marker");
+      driftGroup.innerHTML = `<path d="M326 275L350 296L374 275"/><circle cx="350" cy="296" r="5"/><text x="350" y="324" text-anchor="middle">Z365 · Δk=5 · IOTA 0.5</text>`;
+      group.appendChild(driftGroup);
+      figureSvg.appendChild(group);
+    }
+    if (buttonTray && !lens.querySelector("[data-tpl-view=jalousie]")) {
+      const jalousieButton = document.createElement("button");
+      jalousieButton.type = "button";
+      jalousieButton.dataset.tplView = "jalousie";
+      jalousieButton.setAttribute("aria-pressed", "false");
+      jalousieButton.textContent = "JALOUSIE 18 / 19";
+      const objectButton = buttonTray.querySelector("[data-tpl-view=object]");
+      buttonTray.insertBefore(jalousieButton, objectButton || null);
+    }
     if (wobbleTemplate && buttonTray && side && !lens.querySelector("[data-tpl-view=wobble]")) {
       const fragment = wobbleTemplate.content.cloneNode(true);
       const wobbleButton = fragment.querySelector("[data-tpl-view=wobble]");
       const wobbleCard = fragment.querySelector(".tpl-wobble-card");
       buttonTray.appendChild(wobbleButton);
       side.insertBefore(wobbleCard, side.querySelector("[data-tpl-status]"));
+    }
+    if (buttonTray && side && !lens.querySelector("[data-tpl-view=rath]")) {
+      const bridgeButton = document.createElement("button");
+      bridgeButton.type = "button";
+      bridgeButton.dataset.tplView = "rath";
+      bridgeButton.setAttribute("aria-pressed", "false");
+      bridgeButton.textContent = "RA / TH BRIDGE";
+      buttonTray.appendChild(bridgeButton);
+      const bridgeCard = document.createElement("article");
+      bridgeCard.className = "tpl-rath-card";
+      bridgeCard.innerHTML = `<small>VISUAL 8 → VISUAL 10 · EXISTING BENCH REUSE</small><strong>TWIN STICKS · TAUMELNDES T · TESA 3:2 · REC</strong><label>PHASE <output data-tpl-rath-output>0° · 3:2 · REC</output><input data-tpl-rath-phase type="range" min="0" max="359" step="1" value="0" aria-label="RA TH bridge display phase"/></label><div><button type="button" data-tpl-rath-play aria-pressed="false">PLAY BRIDGE</button><button type="button" data-tpl-rath-return>EXACT RETURN</button></div><section class="tpl-rath-tour" aria-label="Geführte RA TH TESA REC Bridge Tour"><small>GEFÜHRTE BRIDGE TOUR · 6 SCHRITTE</small><b data-tpl-rath-tour-title>Achsen → T → TESA → Drift → REC → Return</b><span data-tpl-rath-tour-copy>Die Führung zeigt die vollständige Wirkung und hält alle Rollen typisiert.</span><div><button type="button" data-tpl-rath-tour-auto aria-pressed="false">▶ TOUR STARTEN</button><button type="button" data-tpl-rath-tour-next>WEITER →</button><button type="button" data-tpl-rath-tour-pause disabled>PAUSE</button></div><em data-tpl-rath-tour-progress>0 / 6 · BEREIT</em></section><nav aria-label="Existing module handoffs"><a href="A0_ORIENTATION_CONTROLLER_BENCH.html#tesaLissajousWindowRouter">FULL TESA / WEIGHTS / FIGURES ↗</a><a href="A0_IOTA_BRIDGE_DEMONSTRATOR.html#module-entry">IOTA BRIDGE TOUR ↗</a></nav><p><code>RA</code> ist die lokale Return-Achse; <code>TH</code> bleibt der bestehende Alias von <code>T_β</code>. Das taumelnde <code>T</code> übergibt typisiert an den vorhandenen <code>A0TesaLissajousWindowRouter</code>; <code>REC</code> belegt danach <code>R → D → R</code>, ohne R und D gleichzusetzen. Die beiden Links öffnen die bestehenden vollständigen Module — keine verkleinerte Doppelimplementierung. Keine neue Identität, Relation oder Körperphysik.</p>`;
+      bridgeCard.insertAdjacentHTML("beforeend", `<p class="tpl-rath-drift-note"><b>Z365 / V-GAP:</b> <code>θ(k)=360°·k/365</code> · <code>Δk=5</code> → <code>4,932°</code>. <code>IOTA 0,5</code> bleibt ein separater Halbschritt-Marker; weder Operatorgleichsetzung noch Quellenmutation.</p>`);
+      side.insertBefore(bridgeCard, side.querySelector("[data-tpl-status]"));
     }
     const buttons = Array.from(lens.querySelectorAll("[data-tpl-view]"));
     const status = lens.querySelector("[data-tpl-status]");
@@ -417,11 +589,28 @@
     const wobblePlay = lens.querySelector("[data-tpl-wobble-play]");
     const wobbleReturn = lens.querySelector("[data-tpl-wobble-return]");
     const wobbleGroup = lens.querySelector(".tpl-lamella-hex");
+    const wobbleFaces = Array.from(lens.querySelectorAll("[data-tpl-wobble-face]"));
+    const rathPhase = lens.querySelector("[data-tpl-rath-phase]");
+    const rathOutput = lens.querySelector("[data-tpl-rath-output]");
+    const rathPlay = lens.querySelector("[data-tpl-rath-play]");
+    const rathReturn = lens.querySelector("[data-tpl-rath-return]");
+    const rathTourAuto = lens.querySelector("[data-tpl-rath-tour-auto]");
+    const rathTourNext = lens.querySelector("[data-tpl-rath-tour-next]");
+    const rathTourPause = lens.querySelector("[data-tpl-rath-tour-pause]");
+    const rathTourProgress = lens.querySelector("[data-tpl-rath-tour-progress]");
+    const rathTourTitle = lens.querySelector("[data-tpl-rath-tour-title]");
+    const rathTourCopy = lens.querySelector("[data-tpl-rath-tour-copy]");
     const result = evaluate();
     let lcFrame = null;
     let lcPreviousTime = null;
     let wobbleFrame = null;
     let wobblePreviousTime = null;
+    let wobbleDegrees = 0;
+    let rathFrame = null;
+    let rathPreviousTime = null;
+    let rathDegrees = 0;
+    let rathTourTimer = null;
+    let rathTourIndex = -1;
 
     function setPoint(selector, point) {
       const element = lens.querySelector(selector);
@@ -479,6 +668,9 @@
       const state = cubeWobble(normalized / 360);
       const [cx, cy] = state.center;
       if (wobbleGroup) wobbleGroup.setAttribute("transform", `translate(${cx} ${cy}) rotate(${state.rotationDegrees}) skewX(${state.shearDegrees}) scale(${state.scaleX} ${state.scaleY}) translate(${-cx} ${-cy})`);
+      const faceVectors = [[-10,8],[0,-11],[10,8]];
+      wobbleFaces.forEach((face,index)=>{const channel=state.channels[index]||0,[dx,dy]=faceVectors[index];face.setAttribute("transform",`translate(${(dx*channel).toFixed(4)} ${(dy*channel).toFixed(4)}) rotate(${(channel*3).toFixed(4)} 350 240)`)});
+      wobbleDegrees = normalized;
       if (wobblePhase) wobblePhase.value = String(Math.round(normalized));
       if (wobbleOutput) wobbleOutput.textContent = `${Math.round(normalized)}° · ${state.frequencyRatio.join(":")}`;
       return state;
@@ -498,8 +690,86 @@
       if (wobblePreviousTime === null) wobblePreviousTime = time;
       const elapsed = Math.min(100, time - wobblePreviousTime);
       wobblePreviousTime = time;
-      renderWobble(Number(wobblePhase ? wobblePhase.value : 0) + elapsed * .025);
+      renderWobble(advanceWobbleDegrees(wobbleDegrees,elapsed));
       wobbleFrame = requestAnimationFrame(animateWobble);
+    }
+
+    function renderRaTh(degrees = 0) {
+      const normalized = ((Number(degrees) % 360) + 360) % 360;
+      const state = raThBridge(normalized / 360);
+      const left = lens.querySelector("[data-tpl-rath-stick-left]");
+      const right = lens.querySelector("[data-tpl-rath-stick-right]");
+      const typedT = lens.querySelector("[data-tpl-rath-t]");
+      const path = lens.querySelector("[data-tpl-rath-lissajous]");
+      const vGap = lens.querySelector("[data-tpl-rath-v-gap]");
+      if (left) left.setAttribute("transform", `rotate(${state.twinSticks.leftDegrees} 350 160)`);
+      if (right) right.setAttribute("transform", `rotate(${state.twinSticks.rightDegrees} 350 160)`);
+      if (typedT) typedT.setAttribute("transform", `translate(${state.typedT.x - 350} ${state.typedT.y - 235}) rotate(${state.typedT.rotationDegrees} 350 235)`);
+      if (path) path.setAttribute("d", state.tesaWindow.path.map((point, index) => `${index ? "L" : "M"}${point[0].toFixed(3)} ${point[1].toFixed(3)}`).join(" "));
+      if (vGap) vGap.setAttribute("transform", `rotate(${state.tesaWindow.iotaDrift.markerDegrees.toFixed(6)} 350 358)`);
+      rathDegrees = normalized;
+      if (rathPhase) rathPhase.value = String(Math.round(normalized));
+      if (rathOutput) rathOutput.textContent = `${Math.round(normalized)}° · 3:2 · ${state.rec.state === "EXACT_RETURN" ? "REC" : "HOLD"}`;
+      const rec = lens.querySelector("[data-tpl-rath-rec]");
+      if (rec) rec.setAttribute("data-state", state.rec.state.toLowerCase());
+      return state;
+    }
+
+    function stopRaTh() {
+      if (rathFrame !== null && typeof cancelAnimationFrame === "function") cancelAnimationFrame(rathFrame);
+      rathFrame = null;
+      rathPreviousTime = null;
+      if (rathPlay) {
+        rathPlay.textContent = "PLAY BRIDGE";
+        rathPlay.setAttribute("aria-pressed", "false");
+      }
+    }
+
+    function stopRaThTour(clearFocus = false) {
+      if (rathTourTimer !== null) clearTimeout(rathTourTimer);
+      rathTourTimer = null;
+      if (rathTourPause) rathTourPause.disabled = true;
+      if (rathTourAuto) rathTourAuto.setAttribute("aria-pressed", "false");
+      if (clearFocus) delete lens.dataset.rathTourFocus;
+    }
+
+    function showRaThTourStep(index) {
+      rathTourIndex = ((Number(index) % RATH_TOUR_STEPS.length) + RATH_TOUR_STEPS.length) % RATH_TOUR_STEPS.length;
+      const step = RATH_TOUR_STEPS[rathTourIndex];
+      stopRaTh();
+      select("rath");
+      renderRaTh(step.phase);
+      lens.dataset.rathTourFocus = step.focus;
+      if (rathTourTitle) rathTourTitle.textContent = step.title;
+      if (rathTourCopy) rathTourCopy.textContent = step.copy;
+      if (rathTourProgress) rathTourProgress.textContent = `${rathTourIndex + 1} / ${RATH_TOUR_STEPS.length} · ${step.returned ? "EXACT RETURN" : "TOUR"}`;
+      status.textContent = step.returned ? "PASS · BRIDGE TOUR · EXACT RA/TH → TESA → REC → RA RETURN" : `TOUR · ${step.title}`;
+      return step;
+    }
+
+    function runRaThTour() {
+      stopRaThTour();
+      showRaThTourStep(0);
+      if (rathTourPause) rathTourPause.disabled = false;
+      if (rathTourAuto) rathTourAuto.setAttribute("aria-pressed", "true");
+      const tick = () => {
+        if (rathTourIndex >= RATH_TOUR_STEPS.length - 1) {
+          stopRaThTour();
+          return;
+        }
+        showRaThTourStep(rathTourIndex + 1);
+        rathTourTimer = setTimeout(tick, 1500);
+      };
+      rathTourTimer = setTimeout(tick, 1500);
+      return { steps: RATH_TOUR_STEPS.length, exactReturn: true };
+    }
+
+    function animateRaTh(time) {
+      if (rathPreviousTime === null) rathPreviousTime = time;
+      const elapsed = Math.min(100, time - rathPreviousTime);
+      rathPreviousTime = time;
+      renderRaTh(advanceWobbleDegrees(rathDegrees, elapsed));
+      rathFrame = requestAnimationFrame(animateRaTh);
     }
 
     function animateLc(time) {
@@ -574,6 +844,9 @@
       } else if (lens.dataset.view === "lamella") {
         value.textContent = "3◇ / 7| / 8";
         detail.textContent = "3 rhombi · 6 triangles · 3×7 lamellae · 8 intervals · L 16→17→19 · hinge 16→20→19";
+      } else if (lens.dataset.view === "jalousie") {
+        value.textContent = "18 PINS / 19 GAPS";
+        detail.textContent = "left axis · bounded frame · black interior tines · MA · PA · S · T · A local position markers";
       } else if (lens.dataset.view === "object") {
         value.textContent = "QRT = T_Y + T_β";
         detail.textContent = "BO · TH · affine square→rhombus · shared diagonal · L7 · phantom face count 0";
@@ -583,8 +856,12 @@
         renderLc(Number(lcPhase ? lcPhase.value : 0));
       } else if (lens.dataset.view === "wobble") {
         value.textContent = "NLK / L-SHELL";
-        detail.textContent = "cube display · 1:2:3 phase path · violet L-seam attached · 3 rhombi / 6 triangles / 21 lamellae · exact return";
+        detail.textContent = "Edelweiss / three-face display · 1:2:3 phase path · violet L-seam attached · 3 rhombi / 6 triangles / 21 lamellae · no cube-body claim · exact return";
         renderWobble(Number(wobblePhase ? wobblePhase.value : 0));
+      } else if (lens.dataset.view === "rath") {
+        value.textContent = "RA → TH → T → TESA → REC → RA";
+        detail.textContent = "twin-stick pivot · wobbling typed T · existing TESA/Lissajous 3:2 window · Z365 view θ(k)=360°k/365 · Δk=5 V-gap · IOTA half-step 0.5 · exact return";
+        renderRaTh(Number(rathPhase ? rathPhase.value : 0));
       } else {
         value.textContent = "52";
         detail.textContent = `4·13 · +18=70 · +20=90 · 52/18=${result.negativeRatio.toFixed(6)}`;
@@ -639,23 +916,60 @@
       stopWobble();
       select("wobble");
       renderWobble(0);
-      status.textContent += " · EXACT NLK/L-SHELL RETURN";
+      status.textContent += " · EXACT EDELWEISS / NLK-L-SHELL RETURN";
+    });
+    if (rathPhase) rathPhase.addEventListener("input", () => {
+      stopRaThTour(true);
+      stopRaTh();
+      select("rath");
+      renderRaTh(Number(rathPhase.value));
+    });
+    if (rathPlay) rathPlay.addEventListener("click", () => {
+      stopRaThTour(true);
+      select("rath");
+      if (rathFrame !== null) {
+        stopRaTh();
+      } else if (typeof requestAnimationFrame === "function") {
+        rathPlay.textContent = "PAUSE BRIDGE";
+        rathPlay.setAttribute("aria-pressed", "true");
+        rathFrame = requestAnimationFrame(animateRaTh);
+      }
+    });
+    if (rathReturn) rathReturn.addEventListener("click", () => {
+      stopRaThTour(true);
+      stopRaTh();
+      select("rath");
+      renderRaTh(0);
+      status.textContent += " · EXACT RA/TH → TESA RETURN";
+    });
+    if (rathTourAuto) rathTourAuto.addEventListener("click", runRaThTour);
+    if (rathTourNext) rathTourNext.addEventListener("click", () => {
+      stopRaThTour();
+      showRaThTourStep(rathTourIndex + 1);
+    });
+    if (rathTourPause) rathTourPause.addEventListener("click", () => {
+      stopRaThTour();
+      if (rathTourProgress) rathTourProgress.textContent = `${Math.max(0, rathTourIndex + 1)} / ${RATH_TOUR_STEPS.length} · PAUSE`;
     });
     const reset = lens.querySelector("[data-tpl-reset]");
     if (reset) reset.addEventListener("click", () => {
       stopLc();
       stopWobble();
+      stopRaTh();
+      stopRaThTour(true);
       renderLc(0);
       renderWobble(0);
+      renderRaTh(0);
       select("factor");
       status.textContent += " · EXACT INTERFACE RETURN";
     });
     renderPhaseGrid();
     renderLc(0);
     renderWobble(0);
+    renderRaTh(0);
     select("factor");
-    return { select, result, renderLc, stopLc, renderWobble, stopWobble };
+    return { select, result, renderLc, stopLc, renderWobble, stopWobble, renderRaTh, stopRaTh, runRaThTour, showRaThTourStep, stopRaThTour };
   }
 
-  return { PHI, PHASE_BITS, LOCAL_BITS, PHASE_STATE_COUNT, LOCAL_STATE_COUNT, APERTURE_PULSE, COUNTER_AXIS_PAIR, LAMELLA_COUNT, LAMELLA_FAMILIES, HEX_CENTER, HEX_RADIUS, LC_CENTER, LC_RADIUS, LC_OPENING_DEGREES, POINTS, VIEWS, angleAt, triangleAngles, triangleArea, polygonArea, regularHexagon, lamellaHexagon, qrtObject, lcMotion, cubeWobble, rotate, toBinary, isPrime, factorize, formatFactors, phaseAddress, phaseStates, hammingDistance, bitComplement, counterAxis, pulseRoute, evaluate, mount };
+  return { PHI, PHASE_BITS, LOCAL_BITS, PHASE_STATE_COUNT, LOCAL_STATE_COUNT, APERTURE_PULSE, COUNTER_AXIS_PAIR, LAMELLA_COUNT, LAMELLA_FAMILIES, HEX_CENTER, HEX_RADIUS, LC_CENTER, LC_RADIUS, LC_OPENING_DEGREES, POINTS, VIEWS, RATH_TOUR_STEPS, angleAt, triangleAngles, triangleArea, polygonArea, regularHexagon, lamellaHexagon, jalousieRegister, qrtObject, lcMotion, cubeWobble, raThBridge, advanceWobbleDegrees, rotate, toBinary, isPrime, factorize, formatFactors, phaseAddress, phaseStates, hammingDistance, bitComplement, counterAxis, pulseRoute, evaluate, mount };
 });

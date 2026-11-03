@@ -1,7 +1,7 @@
 {
-  "schema": "nexah.a0.machina.triangle_phi_lens_return.v7",
-  "status": "PASS_TYPED_TRIANGLE_PI_18_DEGREE_PHI_PHASE64_COUNTER_AXIS_HEX_LAMELLA_QRT_OBJECT_LC_MOTION_AND_NLK_L_SHELL_CUBE_WOBBLE_LENS",
-  "date": "2026-11-01",
+  "schema": "nexah.a0.machina.triangle_phi_lens_return.v9",
+  "status": "PASS_TYPED_TRIANGLE_PI_18_DEGREE_PHI_PHASE64_COUNTER_AXIS_HEX_LAMELLA_QRT_OBJECT_LC_MOTION_NLK_L_SHELL_CUBE_WOBBLE_AND_JALOUSIE_18_19_LENS",
+  "date": "2026-11-03",
   "host": "NEXAH_A0_ORIENTATION_CONTROLLER_BENCH",
   "exact": {
     "factor_partition": "16+17+19=52=4*13",
@@ -110,6 +110,60 @@
           "return_level": 0
         },
         "claim_boundary": "DISPLAY_PROJECTION_ONLY"
+      },
+      "jalousie_register": {
+        "object_id": "NLK_L_SHELL_JALOUSIE_VIEW",
+        "projection_class": "BOUNDED_DISPLAY_REGISTER",
+        "interior_black_pins": 18,
+        "frame_boundary_edges": 2,
+        "gaps": 19,
+        "count_rule": "n interior pins between two frame boundaries define n+1 gaps",
+        "left_axis_visible": true,
+        "local_position_markers": ["MA", "PA", "S", "T", "A"],
+        "claim_boundary": "DISPLAY_PROJECTION_ONLY"
+      },
+      "ra_th_tesa_rec_bridge": {
+        "host_identity": "NEXAH_A0_ORIENTATION_CONTROLLER_BENCH",
+        "view_role": "RA_TH_BRIDGE_PROJECTION",
+        "motion_class": "TYPED_DISPLAY_HANDOFF",
+        "route": ["RA", "TH", "T", "TESA", "REC", "RA"],
+        "existing_tesa_router": "A0TesaLissajousWindowRouter",
+        "tesa_frequency_ratio": [3, 2],
+        "tesa_phase_offset": "pi/2",
+        "iota_coordinate_drift": {
+          "carrier": "Z_365",
+          "view_rule": "theta(k)=360deg*k/365",
+          "display_circle_degrees": 360,
+          "carrier_state_count": 365,
+          "address_gap": 5,
+          "v_gap_degrees": 4.931506849315069,
+          "half_step_address": 0.5,
+          "half_step_degrees": 0.4931506849315068,
+          "role": "DISPLAY_INTERPOLATION_ONLY"
+        },
+        "rec_type": "TYPED_RETURN_RECEIPT",
+        "rec_roles": {
+          "R": "READ_RETURN_ROLE",
+          "D": "DISPLAY_ROLE"
+        },
+        "existing_module_handoffs": {
+          "full_tesa_lissajous": "A0_ORIENTATION_CONTROLLER_BENCH.html#tesaLissajousWindowRouter",
+          "iota_bridge_tour": "A0_IOTA_BRIDGE_DEMONSTRATOR.html#module-entry",
+          "iota_grid_bridge": "A0_IOTA_BRIDGE_DEMONSTRATOR.html#gridBridgeFlagship",
+          "contract": "LINKED_EXISTING_MODULES_NO_EMBEDDED_DUPLICATE"
+        },
+        "return_contract": "HOLD_AWAY_FROM_PHASE_ZERO_EXACT_RETURN_AFTER_ONE_TURN",
+        "guided_tour": {
+          "kind": "EXISTING_BRIDGE_ORCHESTRATION",
+          "steps": 6,
+          "route": ["RA_TH_ROLES", "TYPED_T_HANDOFF", "EXISTING_TESA_3_TO_2", "Z365_V_GAP_IOTA_HALF_STEP", "REC_TYPED_RETURN", "EXACT_RA_RETURN"],
+          "terminal_phase_degrees": 0,
+          "exact_return": true,
+          "new_operator": false
+        },
+        "source_address_held": true,
+        "source_mutation": false,
+        "claim_boundary": "DISPLAY_PROJECTION_ONLY"
       }
     }
   },
@@ -132,7 +186,13 @@
     "L_c is a bounded planar kinematic display, not a material hinge, Lissajous oscillator, spherical trajectory or machine-physics claim",
     "the cube wobble is an affine display projection with fixed topology, not a deforming body, force field or physical cube mechanism",
     "Lilith / L-Seam is a local display alias only and does not create a canonical Lilith identity",
-    "the existing A0PascalJointCounterweight is reused as a comparator and water-level witness, not as a causal weight or machine-physics coupling"
+    "the existing A0PascalJointCounterweight is reused as a comparator and water-level witness, not as a causal weight or machine-physics coupling",
+    "the 18 jalousie pins are interior display tines; 19 is the resulting gap count, not an added body, address identity or physical aperture law",
+    "MA, PA, S, T and A are literal local position markers and are not promoted to controlled Navigator vocabulary",
+    "RA is a local return-axis role and TH remains the existing local alias of T_beta; neither is promoted to a new identity",
+    "TESA is the existing A0TesaLissajousWindowRouter nested inside the RA/TH projection, not a fifth shared phase target",
+    "REC is a typed return receipt; R and D remain separate read-return and display roles and are not asserted equal"
+    ,"the Z365 V-gap is a coordinate-view residual, not an operator invariant; IOTA 0.5 is a separate display half-step and is not identified with the five-address gap"
   ],
   "owner_visuals": "used as design cues only; not ingested as mathematical evidence",
   "governance": {
@@ -145,9 +205,9 @@
     "publication": 0
   },
   "verification": {
-    "triangle_phi_phase64_counter_axis_hex_lamella_qrt_object_lc_motion_cube_wobble_model_and_static_tests": "PASS_268_OF_268",
+    "triangle_phi_phase64_counter_axis_hex_lamella_qrt_object_lc_motion_cube_wobble_jalousie_ra_th_tesa_rec_model_and_static_tests": "PASS_729_OF_729",
     "existing_machina_cockpit_tests": "PASS_49_OF_49",
-    "browser_states": ["FACTOR_52", "TRIANGLE_PI", "ANGLE_18_PHI", "D3_ADDRESS", "PHASE64", "COUNTER_AXIS_8_55", "HEX_L_HINGE", "QRT_OBJECT_SPLIT", "LC_MOTION_PLAY", "LC_EXACT_ONE_TURN_RETURN", "CUBE_WOBBLE_PLAY", "CUBE_WOBBLE_PAUSE", "CUBE_WOBBLE_EXACT_RETURN", "COUNTERWEIGHT_WATER_LEVEL_RETURN_ZERO", "EXACT_RETURN_52"],
+    "browser_states": ["FACTOR_52", "TRIANGLE_PI", "ANGLE_18_PHI", "D3_ADDRESS", "PHASE64", "COUNTER_AXIS_8_55", "HEX_L_HINGE", "JALOUSIE_18_INTERIOR_PINS_19_GAPS", "QRT_OBJECT_SPLIT", "LC_MOTION_PLAY", "LC_EXACT_ONE_TURN_RETURN", "CUBE_WOBBLE_PLAY", "CUBE_WOBBLE_PAUSE", "CUBE_WOBBLE_EXACT_RETURN", "COUNTERWEIGHT_WATER_LEVEL_RETURN_ZERO", "RA_TH_TWIN_STICK_PLAY", "WOBBLING_TYPED_T", "TESA_3_TO_2_WINDOW", "Z365_V_GAP_IOTA_HALF_STEP", "RA_TH_GUIDED_TOUR_6_STEPS", "REC_HOLD", "REC_EXACT_RETURN_TO_RA", "EXACT_RETURN_52"],
     "executed_dom": "PASS_64_GENERATED_ADDRESS_BUTTONS_0_THROUGH_63",
     "evidence_binder": "PASS_119_SOURCES_28_NODES_41_RELATIONS_22_ALIASES",
     "source_graph": "PASS_21_COMPONENTS_332_COMPOSED_ENTITIES_32_RELATIONS",
