@@ -398,6 +398,7 @@ Beispiele machen den Unterschied greifbar:
 | Ziffernroute und QRT | `11537→11573→11357` hat ein gemeinsames Ziffernmultiset. Zwei Dezimalpartitionen rekonstruieren die jeweiligen Integer; QRT-Reste laufen `17→13→17`. | Ein gemeinsames Muster kann drei verschiedene Zustände verbinden. Verlustfreier Formatwechsel und wertändernde Permutation sind nicht derselbe Operator. |
 | Ghostgrid-Paarlift | `A_k=97·2^k`, `B_k=101·2^k`; mit Summe S und Differenz Δ gilt `(A_k,B_k)=((S−Δ)/2,(S+Δ)/2)`. | Bekannte inverse Algebra wird als bestehender begrenzter Relations-Witness genutzt. Die sichtbaren Palindrome `101,202,404,808` enden bei 1616; die Skalierungsrelation nicht. |
 | Pink Grid / CRT und Janus | Der vorhandene Atlas trennt Integer, Rastergröße, Quotient/Rest, CRT-Adressen und Spiegelansichten. `Z77≅Z7×Z11` ist ein exakter bekannter Rekonstruktionsfall. | Eine einzelne Restprojektion ist im Allgemeinen verlustbehaftet; der Return braucht die deklarierte Kombination. Ein Modulus ist nicht automatisch eine geometrische Achse. |
+| 28er-Faltledger / Pentagon-View | `4×7=28`, `1+2+3+4+5+6+7=28` und `c(i)=29−i` auf `{1,...,28}` sind exakt. Die Involution bildet vierzehn Komplementpaare; `29` bleibt externer Witness. | Gleiche Kardinalität erlaubt eine gewählte Zuordnung, liefert aber keine kanonische oder adjazenztreue Transportabbildung. Die Pentagon-Fliese ist erst mit Quelle, Fold-Map, Residuum und Return ein prüfbarer Joint. |
 | Bewegungs-, Faltungs- und Farbansichten | Root7-Flügelsequenz, 5B-Klappfolge und CRT16-Schlieren haben unterschiedliche lokale Zustands-, Projektions- und Farbverträge. | Violett/Gold beziehungsweise Grün/Schwarz und Rot/Schwarz sind im Flügel-Beleg erfasst. In 5B sind aktuelle Pose, Schatten und frühere Posen getrennt. CRT16-Schlieren betonen aktuelle Kanten räumlich; sie sind keine gespeicherten Zeit-Echos aus §8.4/14.4. |
 
 Auch die Reihen `11²=121`, `111²=12321`,
@@ -415,6 +416,40 @@ automatisch validiert. Paper C kontrolliert die formalen Return-Aussagen;
 Paper D führt Zahlen-/Folgen- und Auswahlfragen; Paper F behält
 Projektions-, Faltungs- und Spektralkontrollen. Dieses Paper E beschreibt,
 wie diese Beiträge ohne Identitätskollaps untersucht werden können.
+
+Der 28er-Faltledger bleibt deshalb methodisch ein Beispiel für
+`Quelle -> Adresse -> View/Fold -> Residuum -> Return`. Er erweitert weder
+SCC-003 noch F-A0-26. Ein Eintrag in Paper C darf die exakte Involution und
+die fehlende kanonische Transportabbildung gemeinsam zeigen; erst diese
+positive/negative Buchhaltung macht den Joint wissenschaftlich lesbar.
+
+Vier weitere klassische Rechenwitnesses dürfen in dieser Lane verwendet
+werden, sofern ihre Darstellungsbedingungen mitgeführt werden:
+
+```text
+B_n = 2501 * 2^n:
+2501, 5002, 10004, 20008, ...
+
+x * (10^m + 1) = 10^m*x + x,
+0 <= x < 10^m
+
+R_n = (10^n-1)/9,
+R_n^2 = 123...(n)...321       for 1 <= n <= 9
+
+binary tree of depth d:
+leaves = 2^d,
+all vertices = 2^(d+1)-1.
+```
+
+Beim Dezimalstempel ist die Kopie eine Aussage über zwei feste Blöcke der
+Breite `m`; führende Nullen müssen als Formatbestandteil erhalten bleiben.
+Bei `R_n^2` gilt die einfache Ziffernpyramide nur bis `n=9`, weil danach
+Zehnerüberträge auftreten. Der Baum der Tiefe `3` besitzt daher exakt acht
+Blätter, sieben Nicht-Blätter und fünfzehn Knoten insgesamt. Dies sind
+bekannte arithmetische beziehungsweise kombinatorische Identitäten. Sie sind
+geeignete Kontrollwitnesses, aber ohne zusätzliche typisierte Map keine
+biologische Verdopplungsregel, kein Fraktalmechanismus und kein neues
+NEXAH-Finding.
 
 Die vollständige, fortschreibbare
 [Numbermagick-Quellenkarte](../../NUMBER_OPERATOR_ARCHITECTURE_CONCORDANCE_AUDIT/09_CURRENT_RELEVANCE_TO_A0_TESSAREC_IHARA_2026-10-13.md#number-operator-field-20261018)

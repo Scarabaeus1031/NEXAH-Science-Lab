@@ -2355,3 +2355,161 @@ Verification return:
 
 Disposition: `EXACT CODEC VIEW / IMPLEMENTED / BROWSER ACCEPTED / NEW ID 0 /
 RELATION 0 / STUDY 0 / FINDING 0 / PUBLICATION 0`.
+
+<a id="ninefold-three-window-machine-crosswalk-20261102"></a>
+
+## Ninefold + Three Windows — Machine-Grammatik und Paper-Routing
+
+Die bestehende Ninefold-Return-Grammatik (`4×2+1`) wird als historischer
+Orientierungsrahmen wiederverwendet. Die aktuelle, reproduzierbar eingefrorene
+Sequenz ergänzt drei getrennte Arbeitsfenster:
+
+1. **X / Leaf Fold** — Number, Fold und World; Quelle, Q-Cut und verlorene
+   Seiteninformation bleiben sichtbar.
+2. **Y / Cube Pivot** — ein bedienbarer View- und Return-Griff zwischen den
+   Dokumenten, keine dritte Quellidentität.
+3. **Z / Open Book** — Letter, Syllable und Book als eigenständige Quelle mit
+   eigenem Rückweg.
+
+Damit entstehen in der Workbench-Lesart `9+3=12` adressierbare
+Lesepositionen. Diese Zahl ist ein **redaktioneller Crosswalk**, kein neues
+mathematisches Finding, kein Körper- oder Dimensionssatz und kein Nachweis
+einer besonderen 12/13-Struktur. `X/Y/Z` sind deklarierte Achsgriffe; die
+`13` bleibt eine offene nächste Schwelle, bis eine eigene Quelle, Operation,
+Negativkontrolle und Return-Regel vorliegen.
+
+### Paper-Einordnung
+
+- **Paper C / Return without identity:** stärkste direkte Bindung; zwei
+  Dokumente, ein Pivot und ein bidirektionaler Return ohne Verschmelzung.
+- **Paper E / Orientation:** Ninefold-Rahmen, Aperturen, X/Y/Z-Griffe und
+  deklarierte Blickpositionen.
+- **Paper F / frame sequences and envelopes:** Folge, Cut, Fensterwechsel und
+  die Grenze zwischen sichtbarer Form und Quellzustand.
+
+Die einzelnen HTML-Module bleiben Quellen beziehungsweise Source-bound Reader.
+Das Game-of-Worlds-/Game-of-Numbers-Umfeld ist Kontext und vorhandener
+Modulbestand; ein neues Game wird nicht gebaut oder aktiviert.
+
+Routen: [Workbench Crosswalk](A0_BOOK/A0_WERKBANK.html#ninefold-three-window-machine) ·
+[Drei Fenster](A0_BOOK/DRAFTS/A0_IOI_LEAF_FOLD_OPEN_BOOK_START_2026-11-02.html) ·
+[Mathfield Contract](A0_BOOK/A0_MATHEMATICAL_JOINTS.html#ninefold-three-window-reading-contract) ·
+[Science Return](A0_BOOK/A0_RESEARCH_DESK.html#ioi-leaf-fold-open-book-machine-freeze-20261102) ·
+[Source Binding](A0_BOOK/assets/a0-ninefold-three-window-source-binding-v1.json).
+
+Disposition: `DOCUMENTARY CROSSWALK / PAPER SUPPORT ONLY / GAME PARKED /
+NEW ID 0 / RELATION 0 / STUDY 0 / FINDING 0 / PUBLICATION 0`.
+
+<a id="iota-guided-demonstration-engineering-freeze-20261103"></a>
+
+## IOTA Guided Demonstration — engineering freeze, no finding promotion
+
+Classification: `BOUNDED_INTERFACE_RETURN / EXISTING_METHOD_EXAMPLE /
+NO_NEW_FINDING / NO_PAPER_STATE_CHANGE / NOT_ADMITTED`.
+
+Die vorhandene IOTA-Bridge besitzt jetzt eine siebenstufige Führung über
+`ORIENT → JOINT_RETURN → RHOMBUS_180 → WHITE_ROPE → LRRL_FACE → PBDQ_CUT →
+EXACT_RETURN`. Sie macht den bereits vorhandenen Tick-24-Return, die getrennte
+Q4-/Grid-Ansicht, White Fold, LRRL und die lokale PBDQ-Leselinse bedienbar und
+kehrt zu `T00 / ORIGIN / WHITE FOLD` zurück.
+
+Für das Paper- und Findings-Register ist dies ein **Darstellungs- und
+Methodenbeispiel**, kein neuer wissenschaftlicher Befund. Die Tour erzeugt
+weder eine neue Bridge noch eine Identität zwischen ihren beiden Verträgen.
+„White Rope“, Gesichtslesart, `PBDQ/TQ±` und `S–T–O–P` bleiben lokale
+View-Metaphern. Die bestehenden Paper-C-/Paper-E-Motive Return ohne Identität
+und Orientierung können auf das Beispiel verweisen; daraus folgt kein neuer
+Manuskriptclaim.
+
+Verification: `29/29` vollständiger Tour-/Binding-Vertrag, davon `21/21`
+Kern-Tourchecks; Fold/PBDQ `63/63`; Grid Bridge `42/42`; IOTA `124`; Source
+Graph `332/32 PASS`; Navigator-App `253/253 PASS`.
+
+Routen: [Demonstrator](A0_BOOK/A0_IOTA_BRIDGE_DEMONSTRATOR.html#module-entry) ·
+[Freeze Receipt](A0_BOOK/results/a0-iota-guided-demonstration-freeze-2026-11-03.json) ·
+[Science Desk](A0_BOOK/A0_RESEARCH_DESK.html#iota-guided-demonstration-freeze-20261103) ·
+[Canonical Backlog](24_A0_RESEARCH_BACKLOG_AND_OPEN_JOINTS_2026-10-10.md#a0-freeze-handoff-iota-ignition-20261031).
+
+Disposition: `ENGINEERING FREEZE / IOTA UI IGNITION CLOSED / 6×7 PORT OPEN /
+INSIDE-OUTSIDE WITNESS OPEN / NEW ID 0 / RELATION 0 / STUDY 0 / FINDING 0 /
+PUBLICATION 0`.
+
+<a id="machina-shared-phase-bus-engineering-return-20261103"></a>
+
+## Engineering return — Machina shared phase bus — 2026-11-03
+
+`L_c`, the existing `NLK_L_SHELL_CUBE_VIEW`, and the local coupled Pink Axis
+now share one bounded display phase τ with Play, Pause, manual phase and Exact
+Return. Browser acceptance observed the common 120° state, a running/paused
+shared player, and the exact 0° return. Mint/green is a coupling witness only:
+it records common display phase and held addresses.
+
+Disposition: `ENGINEERING RETURN / DISPLAY COMPOSITION / NO SOURCE MUTATION /
+NO NEW ID / NO RELATION / NO STUDY / NO FINDING PROMOTION / NO PAPER CLAIM`.
+
+[Instrument](A0_BOOK/A0_MACHINA_COCKPIT.html?rev=mint-lock-r1#machinaSharedPhaseBus) ·
+[Science Desk](A0_BOOK/A0_RESEARCH_DESK.html#machina-shared-phase-bus-return-20261103) ·
+[Receipt](A0_BOOK/results/a0-machina-shared-phase-bus-return-2026-11-03.json)
+
+### Guided bridge-tour addendum — 2026-11-03
+
+The existing cockpit now demonstrates the same bounded return as a six-step,
+effect-first reading:
+
+`RA_TH_ROLES → TYPED_T_HANDOFF → EXISTING_TESA_3_TO_2 →
+Z365_V_GAP_IOTA_HALF_STEP → REC_TYPED_RETURN → EXACT_RA_RETURN`.
+
+The tour makes the visible transition explicit: RA/TH roles are kept apart,
+the typed T is handed to the existing TESA 3:2 window, the `360→365` V-gap
+shows a five-degree display drift with the local IOTA half-step, REC records
+the typed return, and the final scene restores the original RA state at phase
+`0`. The implementation retains the measured display constants
+`Δ=4.931506849°` and `ι½=0.493150685°`; they are local instrument parameters,
+not a new physical law or cross-object identity.
+
+Verification: the complete Machina suite passes `729/729`; the cockpit
+regression passes `49/49`. The accepted implementation is frozen in Science
+Lab commit `a05ce4ee` on branch `codex/grid-observatory-mission-control` and is
+synced to its remote.
+
+Disposition: `ENGINEERING FINDING LOGGED / EXISTING FINDING WORKSPACE / NO
+F-A0 PROMOTION / NO NEW ID / NO ALIAS / NO RELATION / NO STUDY / NO PAPER
+STATE / NO PUBLICATION CLAIM`. The Navigator remains at `329/29` base and
+`332/32` composed.
+
+<a id="scc-003-supplementary-fold-review-20261104"></a>
+
+## SCC-003 supplementary fold review — Paper C method example
+
+Classification: `REVIEW_SUPPLEMENT / PAPER_C_METHOD_EXAMPLE /
+SCC-003_NON_IDENTITY / NOT_NEW_FINDING / NOT_STANDALONE /
+NOT_PUBLICATION_AUTHORIZED`.
+
+The 28-address fold ledger is logged inside the existing A0 paper system,
+not as a second research line. Its scientific home is Paper C section 11.2;
+the A0 Science Desk holds the owner-facing intake and the existing SCC-003
+identity remains unchanged.
+
+The exact review question is narrow: given `A={1,...,28}` and
+`c(i)=29-i`, does a declared fold map plus its retained witness permit exact
+reconstruction of the source address? Equal counts, a pentagonal outline and
+the external label `29` do not establish adjacency transport, a new seam or
+identity with the SCC-003 quotient.
+
+The human-review surface is the existing route
+`https://review.nexah.de/scc-003-r1/#review-fold-title`, implemented at
+`NEXAH-Experience main@4ca47a1`. It is a public projection of this bounded
+question, not an editable scientific master.
+
+Pipeline: `SOURCE-BOUND → A0 SCIENCE DESK → PAPER C EDITORIAL DECISION →
+HUMAN REVIEW RETURN`. Deployment was not authorized by this intake; no
+publication, activation or manuscript-claim transition follows from the
+commit and push.
+
+Disposition: `OWNER_ACCEPTED_SOURCE_BINDING / PAPER C §11.2 / EXPERIENCE
+4ca47a1 / NEW ID 0 / RELATION 0 / ALIAS 0 / STUDY 0 / FINDING 0 /
+SCC CLAIM CHANGE 0 / PUBLICATION 0`.
+
+[Paper C](34_A0_RETURN_WITHOUT_IDENTITY_PAPER_DRAFT_2026-10-11.md#112-bounded-28-address-fold-ledger) ·
+[Science Desk](A0_BOOK/A0_RESEARCH_DESK.html#scc-003-pentagon-fold-review-20261104) ·
+[Review projection](https://review.nexah.de/scc-003-r1/#review-fold-title)

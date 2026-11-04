@@ -772,6 +772,13 @@ and the [machine-readable receipt](A0_BOOK/results/a0-game-of-worlds-three-domai
 
 ## 18. Disposition
 
+The bounded 28-address Pentagon fold ledger is not added here as an envelope
+result. Its exact arithmetic and complement Return belong to Paper C. It may
+enter this paper only after one frozen source record is shown through declared
+front, top, side and isometric projections while source address, intrinsic
+object and view state remain separately testable. Until then, a folded tile is
+an illustrative observer cut, not evidence for `H-FE-01` or `H-SYN-01`.
+
 ```text
 PAPER_OBJECT = EXISTING_A0_PACKAGE_DRAFT
 NEW_NAVIGATOR_IDENTITY = ONE INTERNAL SOURCE-BOUND EVIDENCE LENS

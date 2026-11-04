@@ -333,6 +333,66 @@ operator or full-identity Return. The canonical documentary record is the
 with a [machine-readable receipt](A0_BOOK/results/a0-game-of-worlds-three-domain-atlas-return-2026-10-21.json).
 This example adds no formal case, proof, Study or evidence to Paper C.
 
+### 11.2 Bounded 28-address fold ledger
+
+The existing A0 material contains two exact but non-identical 28-counts:
+
+```text
+4 * 7              = 28
+1+2+3+4+5+6+7      = 28.
+```
+
+The first is the declared TESA/Zither address product. The second is the
+cardinality of a seven-row triangular register. Their equal cardinality
+permits a chosen bijection between the two finite sets, but does not select a
+canonical bijection, preserve adjacency or identify the carriers.
+
+For the labelled address set
+
+```text
+A = {1,2,...,28},
+```
+
+the complement rule
+
+```text
+c(i) = 29-i
+```
+
+is an exact involution: `c(c(i))=i`. It partitions `A` into fourteen pairs
+whose labels sum to `29`. The label `29` is the complement constant and may
+be displayed as an external witness; it is not a twenty-ninth member of `A`.
+
+A pentagonal tile may therefore be used as a fold/view controller for this
+ledger only after the source address, fold map and retained residual are
+declared. Exact Return then means recovering the original address from the
+folded view plus the stated witness. A drawing with 28 marks, a pentagonal
+outline or a shared count alone establishes none of the following:
+
+- an adjacency-preserving transport;
+- an identification with the SCC-003 quotient;
+- a new seam, vertex or mechanism;
+- a canonical relation between the TESA and triangular registers.
+
+This ledger is a documentary worked example of the Return vocabulary, not a
+sixth formal case and not a new Finding. The controlling A0 synthesis retains
+the cross-carrier transport as `OPEN/HOLD`; SCC-003 remains unchanged.
+
+Controlling records:
+
+- [A0 Thread Synthesis](A0_BOOK/results/a0-thread-science-desk-synthesis-2026-10-30.md)
+- [Grid/operator application synthesis](101_A0_GRID_OPERATOR_APPLICATION_SYNTHESIS_2026-10-15.md)
+
+Public review projection:
+
+- [SCC-003 supplementary fold review](https://review.nexah.de/scc-003-r1/#review-fold-title)
+  is the bounded human-review surface for this worked example.
+- Its implementation is frozen at `NEXAH-Experience main@4ca47a1`, source
+  `src/pages/scc-003-r1/index.astro#review-fold-title`.
+- The projection does not add a case, Finding, Study, Navigator identity or
+  SCC-003 claim. Scientific disposition remains owned by this Paper C source
+  and the A0 Science Desk.
+
 ## 12. External-review gate
 
 Before submission, publication, conference circulation or public academic
