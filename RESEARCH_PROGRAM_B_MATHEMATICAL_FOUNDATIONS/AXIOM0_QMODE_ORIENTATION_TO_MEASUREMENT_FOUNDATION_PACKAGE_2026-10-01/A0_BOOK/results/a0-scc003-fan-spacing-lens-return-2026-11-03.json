@@ -1,0 +1,49 @@
+{
+  "schema": "nexah.a0.scc003-fan-spacing-lens-return/1",
+  "date": "2026-11-03",
+  "status": "PASS_CONTEXTUAL_REPRESENTATION_OUTSIDE_THEOREM",
+  "paper": "A0_BOOK/A0_SCC_003_PASCAL_PENTAGON_PAPER.html#fan-spacing-lens",
+  "identity_reuse": ["A0OE:PASCAL_PENTAGON_D5_TEST", "NEXAH_A0_ORIENTATION_CONTROLLER_BENCH"],
+  "new_canonical_ids": [],
+  "relation_changes": [],
+  "exact_display_objects": {
+    "fan_gate_count": 99,
+    "factorization": "99=9x11",
+    "spacing_word": "3-22 // 32-33",
+    "linear_deltas": [19, 10, 1],
+    "typed_seam_after": 22
+  },
+  "open_adapter": {
+    "projection_Q106_to_G99": null,
+    "residual_register": null,
+    "alpha_outside": "OPEN_EXTERNAL_WITNESS",
+    "one_bit_balloon": "OPEN_UNTYPED_PROPOSAL",
+    "historical_63_64_weighting_asserted": false
+  },
+  "four_plate_reversal_lens": {
+    "pairs": [[61, 16], [19, 91]],
+    "exact": ["16=2^4", "91=7x13", "61=p18", "19=p8"],
+    "display_roles": ["RED_BALLOON_WITNESS", "BLUE_BODY_HEAD_SKY_WATER_FRAME", "GREEN_FLOOR_RETURN", "CL_O_UD_OWNER_MNEMONIC"],
+    "source_image_reproduced": false,
+    "scc003_map": null
+  },
+  "verification": {
+    "unit_test": "PASS SCC-003 contextual fan + four plates · 99 gates · 3-22 // 32-33 · 61<->16 · 19<->91",
+    "browser": "PASS figure heading, spacing word, boundary and anchor visible in live paper"
+  },
+  "source_bindings": [
+    {"path": "A0_BOOK/A0_SCC_003_PASCAL_PENTAGON_PAPER.html", "sha256": "50c680c951fa6b9be7c55ba19451cf71d5f9c18b4f34c9cea2de44d0bd3b335f"},
+    {"path": "25_A0_SCC_003_PASCAL_PENTAGON_PAPER_DRAFT_2026-10-10.md", "sha256": "5eb67c2ee16c13ad45c898b49b472436372cdb309fffeee6a22ba4b330806cb0"},
+    {"path": "A0_BOOK/a0-scc003-fan-spacing-lens.js", "sha256": "5c468e86fc71d074cd3e8f6777af3b914ce84a9368f3092e690f23d59a5cad9f"},
+    {"path": "A0_BOOK/a0-scc003-fan-spacing-lens.css", "sha256": "6755db616f25b06b11e97adb4b5b03fe02281326ac747c0cda1dcc0bd21b4ce9"},
+    {"path": "A0_BOOK/a0-scc003-fan-spacing-lens-tests.cjs", "sha256": "d5bcf9dc2b072b67ad5c091937af0b004728ba9351e1179ca5ca373e7f4a7b49"}
+  ],
+  "authority": {
+    "theorem_changed": false,
+    "verifier_changed": false,
+    "claim_ceiling_changed": false,
+    "research_activated": false,
+    "publication_authorized": false
+  },
+  "boundary": "The 99-gate fan, spacing word and decimal reversal pairs are exact display objects only. No map from the 106-vertex SCC-003 quotient to either lens is defined. Alpha, balloon, colour roles, cloud mnemonic and 63/64 are not promoted into the theorem."
+}

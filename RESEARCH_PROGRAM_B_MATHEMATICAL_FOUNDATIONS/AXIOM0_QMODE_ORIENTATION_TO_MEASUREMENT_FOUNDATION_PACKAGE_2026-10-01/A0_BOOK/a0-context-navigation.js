@@ -48,7 +48,7 @@
   const title = document.title.replace(/^NEXAH\s*[·—-]\s*/i, "").replace(/^A0\s*[·—-]\s*/i, "").trim();
   const quietEntry = file === "A0_NEXAH_APERTURE_JOURNEY.html";
   const overviewWays = [
-    {code:"01 · HUMAN", title:"Schau noch einmal", copy:"Frage, Licht, Blick und Return.", href:"A0_NEXAH_APERTURE_JOURNEY.html#human-view", accent:"#f177b8"},
+    {code:"01 · HUMAN", title:"A0 Human View", copy:"Bestand, Apps, Experiences, Lesepfade und Delta.", href:"A0_NEXAH_APERTURE_JOURNEY.html#a0-human-overview", accent:"#f177b8"},
     {code:"02 · PLAY", title:"Game of Worlds", copy:"LIFE, Domains und Numbers in ONE PULSE.", href:"A0_GAME_OF_WORLDS_PLAY.html?world=pulse#pulse", accent:"#d99d00"},
     {code:"03 · MATHFIELD", title:"Mathematical Joints", copy:"Buchstellen, Träger, Linsen und Fugen.", href:"A0_MATHEMATICAL_JOINTS.html", accent:"#159bb4"},
     {code:"04 · BUILDER", title:"A0 Builder · Werkbank", copy:"Hauptmodule, Quellen, Adapter und Kopplungen gemeinsam öffnen.", href:"A0_WERKBANK.html?view=machina#bench-page-top", accent:"#2ca57a"},
@@ -60,9 +60,9 @@
   {
     "key": "human",
     "code": "H",
-    "label": "NEXAHEDRON · Human",
-    "description": "Drehen, entdecken und ausprobieren",
-    "entry": "https://nexahedron.com/",
+    "label": "A0 · Human View",
+    "description": "Erleben, orientieren und zurückkehren",
+    "entry": "A0_NEXAH_APERTURE_JOURNEY.html#a0-human-overview",
     "sections": [
       {
         "label": "Beginnen",
@@ -192,6 +192,11 @@
             "A0_TESSAREC_FRAME_ENVELOPE_OBSERVER_PAPER.html",
             "Paper F · Tessarec",
             ""
+          ],
+          [
+            "assets/a0-field-notes/index.html#note-49",
+            "Field Notes · Theory kurz",
+            "Begleitnotiz zur bestehenden Theory-Arbeitsquelle · kein Paper"
           ]
         ]
       },
@@ -388,7 +393,7 @@
     "code": "B",
     "label": "A0 · Builder",
     "description": "Tools, Neuerungen und Anwendungen",
-    "entry": "index.html?projection=builder-showcase#top",
+    "entry": "A0_BUILDER_TOY_STORE.html#top",
     "sections": [
       {
         "label": "Highlights · aktueller Build",
@@ -583,9 +588,9 @@
     ]
   }
   ];
-  // A0 is the frame, not a second Human site: local work opens the current
-  // NEXAHEDRON staging application; public projections retain the live URL.
-  readerLanes[0].entry = nexahedronHref;
+  // The A0 Human View is an internal reading lane over existing A0 pages.
+  // NEXAHEDRON remains a separate external/public channel and is never used
+  // as this lane's home.
 
   // Editorial navigation homes, not canonical Families, source ownership or evidence admission.
   const navigationGroups = [
@@ -834,25 +839,28 @@
     return link;
   };
 
-  // The three compact Owner controls open views, not the internal Desks:
-  // the long A0 Science reader, the maintained "What can we build now?"
-  // showcase and Mission Control. Their second action opens the matching A0
-  // navigation drawer. Desks remain separately named destinations inside A0.
+  // The three compact Owner controls are direct Desk routes: Science Desk,
+  // Builder Desk and Mission Control. The Science and Builder lane summaries
+  // continue to open their long A0 reader/showcase projections separately.
   const scienceReaderHref = "A0_SCIENCE.html#top";
-  const builderShowcaseHref = "../../../../../00%20EXECUTIVE/NEXAH-Mission-Control/00_OVERVIEW/BUILDER_STATUS_REPORT.html?standalone=1#top";
-  const builderDeskHref = "A0_BUILDER_LOG.html?rev=currentness-r3-20261031#top";
+  const builderShowcaseHref = "A0_BUILDER_TOY_STORE.html#top";
+  const scienceDeskHref = "A0_RESEARCH_DESK.html?desk=overview&rev=currentness-r4-20261103#science-currentness-20261103";
+  const builderDeskHref = "../../../../../10%20NEXAH%20CORE/NEXAH/BUILDER/B0_BUILDER_DECK/build-desk.html#top";
   const missionControlHref = "../../../../../00%20EXECUTIVE/NEXAH-Mission-Control/INTERNAL_NAVIGATOR/index.html#action-board";
   // Each lane gets its own invitation. Human is experience-led; Builder keeps the workshop.
   const humanShowcase = [
+    ["A0_NEXAH_APERTURE_JOURNEY.html#a0-human-overview", "A0 HUMAN VIEW", "Bestand, Apps, Experiences, Lesepfade, Szenen und kontrolliertes Delta vor der einzelnen Journey", "nexah", "Start here · Inventory / Delta"],
     ["a0-public-arkade-index.html#arkade", "ARKADE", "ONE PULSE und drei spielbare Welten direkt erleben", "arcade", "Play · Consumer View"],
+    ["A0_GAME_OF_WORLDS.html", "GAME OF WORLDS", "Der originale Human-Einstieg in ONE PULSE und die drei spielbaren Welten", "body", "Human Flagship · Original"],
     ["A0_OPIUM.html", "OPIUM / Club", "Club Machine, Relations Player und Control Room als ein bestehendes Erlebnis-Ensemble", "book", "Club · Human Flagship"],
     ["A0_LOOK_AGAIN_PLAY.html", "LOOK AGAIN", "Fünf Wahrnehmungsvergleiche: gleiche Quelle, andere sichtbare Relation", "cells", "Perception · Human Game"]
   ];
   // The long Builder Home remains the existing source-bound A0 projection.
   // Keep one identity and one maintained source; do not mint a second A0 copy.
-  const builderShowcaseHome = ["index.html?projection=builder-showcase", "A0 Builder Home", "What can we build now? Der lange Builder Showcase mit Bestand, Anwendungen, Werkzeugwand und Grenzen", "nexah", "A0 · Builder Home"];
+  const builderShowcaseHome = [builderShowcaseHref, "A0 Builder Home", "What can we build now? Der lange Builder Showcase mit Bestand, Anwendungen, Werkzeugwand und Grenzen", "nexah", "A0 · Builder Home"];
   const builderShowcase = [
     builderShowcaseHome,
+    ["A0_RESEARCH_DESK.html?desk=overview&channel=builder#a0-current-state", "CURRENT STATE · BUILDER", "23/23 Bestand, aktive Builds, nächste Gates und Human-Exit-Kandidaten", "cells", "Desk lens · Stand 03.11."],
     ["A0_MACHINA_COCKPIT.html#benchFoyer", "THE MACHINA", "Eigener Viewer, Cockpit, Parts Shelf und Full Bench", "body", "Haus / Host"],
     ["A0_BUILDER_TOY_STORE.html#instrument-atlas", "Instrument Atlas", "Kuratiertes Werkzeugregal und Consumer Cuts", "body", "Builder · Atlas"]
   ];
@@ -886,7 +894,7 @@
   brand.setAttribute("aria-label", "NEXAH A0 · gemeinsames Portal");
   // Werkbank is a Builder room, not an additional Reader perspective. Data
   // and registers belong to Science as a source-bound navigation section.
-  readerLanes.filter((lane) => lane.key !== "human").forEach((lane) => {
+  readerLanes.forEach((lane) => {
     const laneIsCurrent = lane === currentLane;
     const group = document.createElement("details");
     group.className = `a0-reader-lane a0-reader-lane--${lane.key}`;
@@ -929,6 +937,7 @@
       card.className = `a0-showcase-card a0-showcase-card--${accent}`;
       card.href = href;
       if (href === builderShowcaseHref) card.setAttribute("data-a0-builder-showcase", "");
+      if (href === scienceFlagshipSourceHref) card.setAttribute("data-a0-science-flagship", "");
       card.innerHTML = `<span class="a0-showcase-art" aria-hidden="true"></span><span class="a0-showcase-copy"><small>${status}</small><strong>${label} <span aria-hidden="true">↗</span></strong><span>${description}</span></span>`;
       if (targetFile(href) === file) card.setAttribute("aria-current", "page");
       showcase.append(card);
@@ -980,17 +989,23 @@
   workbenchSummary.innerHTML = '<svg class="a0-machina-mark" viewBox="0 0 32 32" aria-hidden="true"><ellipse cx="16" cy="16" rx="10.5" ry="13"/><ellipse cx="16" cy="16" rx="5.5" ry="13"/><path d="M16 3v26"/></svg><strong>THE MACHINA</strong><i aria-hidden="true"></i>';
   workbenchSummary.setAttribute("aria-label", "THE MACHINA · Räume und Werkbank öffnen");
   const machinaRooms = [
-    ["A0_WERKBANK.html#bench-page-top", "WERKBANK · START", "Hausübersicht, Produktionskette und Bestand"],
+    ["A0_BENCH_ENTDECKEN.html#human-view", "START HERE · HUMAN VIEW", "Was THE MACHINA ist — bevor Karten, Bestand und Technik beginnen"],
+    ["A0_WERKBANK.html#bench-page-top", "WERKBANK · WORK", "Hausübersicht, Produktionskette und Bestand"],
     ["A0_MACHINA_COCKPIT.html#benchFoyer", "01 · VIEWER", "Maschinenkörper, GLBs und source-bound Fenster"],
     ["A0_MACHINA_COCKPIT.html#machinaCockpitTitle", "02 · COCKPIT", "Rollen, Orientierung und Zustände"],
     ["A0_ORIENTATION_CONTROLLER_BENCH.html#universalMachinePartsShelf", "03 · PARTS SHELF", "Modelle, Bauteile und Adapter"],
     ["A0_ORIENTATION_CONTROLLER_BENCH.html#benchWorkDesk", "04 · FULL BENCH", "Verbinden, prüfen und Returns lesen"]
   ];
   const machinaMaps = [
-    ["A0_MACHINA_ANATOMY_MAP.html#mainModules", "HAUPTMODULE · 8", "Große Eingangskarte vor der Anatomy-Linse"],
-    ["A0_MACHINA_ANATOMY_MAP.html#anatomyMap", "ANATOMY · 7 ROLLEN", "Frame, Core, Body, Routing, Tract, Channel und Boundary"],
+    ["A0_RESEARCH_DESK.html?desk=overview&channel=machina#a0-current-state", "CURRENT STATE · MACHINA", "Frozen Bestand, Configuration-Status und kontrollierter Human-Exit über Mission Control"],
+    ["A0_MACHINA_ANATOMY_MAP.html#mainModules", "MACHINA ANATOMY", "8 Hauptmodule und 7 Körperrollen in einer gemeinsamen Orientierungskarte"],
+    ["A0_LIVING_BLUEPRINT.html#map-room", "MAP ROOM", "Ein Einstieg in Anatomy, Systemkarte, Family Atlas und Forschungsfugen"],
     ["A0_BENCH_ENTDECKEN.html#flagships", "FLAGSHIP OVERVIEW", "Räume, Labs und Demonstratoren nach Rolle"],
     ["A0_BUILDER_TOY_STORE.html#instrument-atlas", "INSTRUMENT ATLAS", "Vollständiger Bestand unterhalb der Hauptmodule"]
+  ];
+  const machinaConfigurations = [
+    ["DRAFTS/A0_IOI_LEAF_FOLD_OPEN_BOOK_START_2026-11-02.html", "MACHINE · IOI FROZEN", "Leaf Fold → Cube Pivot → Open Book → Exact Return; reproduzierbare interne Machine Configuration"],
+    ["DRAFTS/A0_PERIODIC_CARRIER_Z100_2026-11-03.html#game-of-worlds-carrier-binding", "INSTRUMENT · STOFFREGISTER Z100", "Stabiler Carrier, drei Ansichten, Vergleich und Return unter Science-Autorität"]
   ];
   const machinaMenu = document.createElement("div");
   machinaMenu.className = "a0-machina-menu";
@@ -1005,8 +1020,9 @@
     group.append(links);
     machinaMenu.append(group);
   };
-  appendMachinaGroup("RÄUME & WORK", "Ein Host · getrennte Aufgaben", machinaRooms, "is-rooms");
+  appendMachinaGroup("EINSTIEG & RÄUME", "Erst verstehen · dann bedienen", machinaRooms, "is-rooms");
   appendMachinaGroup("8 HAUPTMODULE", "6 eingefroren · + Edelweiß · + NLK", machinaMainModules.map(([href, label, role, copy]) => [href, `${role} · ${label}`, copy]), "is-modules");
+  appendMachinaGroup("MACHINE & INSTRUMENT", "Gleiche Anatomy · verschiedene Rollen", machinaConfigurations, "is-configurations");
   appendMachinaGroup("KARTEN & RETURN", "Orientieren, vertiefen, vollständig suchen", machinaMaps, "is-maps");
   workbenchEntry.append(workbenchSummary, machinaMenu);
   const workbenchFiles = new Set([
@@ -1045,7 +1061,7 @@
   nexahPublic.rel = "noopener noreferrer";
   nexahPublic.textContent = "nexah.de ↗";
   const scarabaeusPublic = document.createElement("a");
-  scarabaeusPublic.href = "https://scarabaeus1033.net/";
+  scarabaeusPublic.href = "https://www.scarabaeus1033.net/";
   scarabaeusPublic.target = "_blank";
   scarabaeusPublic.rel = "noopener noreferrer";
   scarabaeusPublic.textContent = "scarabæus1033 ↗";
@@ -1063,7 +1079,7 @@
   const currentWays = document.createElement("section");
   currentWays.className = "a0-overview-current";
   currentWays.innerHTML = '<header><div><small>A0 NAVIGATOR · FÜNF EINSTIEGE</small><h3>Fünf Eingänge. Ein Werk.</h3></div><p>Wähle den Blick, der zu deiner Frage passt. Die Family Connection Map bleibt als technische Karte getrennt und zeigt Quellen, Joints, Adapter, Ansichten und Return.</p></header><nav aria-label="Fünf A0-Einstiege">'+overviewWays.map(way => '<a href="'+way.href+'" style="--way-accent:'+way.accent+'"'+(targetFile(way.href)===file?' aria-current="page"':'')+'><small>'+way.code+'</small><strong>'+way.title+'</strong><span>'+way.copy+'</span><em>'+(targetFile(way.href)===file?'DU BIST HIER':'ÖFFNEN ↗')+'</em></a>').join('')+'</nav>';
-  overviewBody.innerHTML = '<section class="a0-overview-actions"><h3>Was möchtest du tun?</h3>'+navigationGroups.map(group => '<a href="'+group.entry+'"><strong>'+actions[group.key]+'</strong><span>'+group.title+'</span></a>').join('')+'</section><details class="a0-overview-cluster" open><summary><span>Orientieren &amp; vollständig suchen</span><small>Häuser, Touren, Karten, Families und alle A0-Seiten</small></summary><div><a href="index.html?projection=builder-showcase">A0 Builder Home</a><a href="A0_WERKBANK.html#bench-page-top">Werkbank · Start</a><a href="A0_BENCH_ENTDECKEN.html#bench-page-top">Entdecken · Tour</a><a href="A0_LIVING_BLUEPRINT.html">Living Blueprint · Tour</a><a href="A0_BENCH_ENTDECKEN.html#body-exhibition">Workbench Map</a><a href="A0_LIVING_BLUEPRINT.html#a0-map-home">Family Connection Map</a><a href="index.html#a0-navigation-directory">Alle A0-Seiten nach Themen</a><a href="A0_FAMILY_CONNECTION_ATLAS.html">F1–F7 · funktionale Families</a><a href="NEXAH_C_CONNECT.html">C · Connect</a></div></details>';
+  overviewBody.innerHTML = '<section class="a0-overview-actions"><h3>Was möchtest du tun?</h3>'+navigationGroups.map(group => '<a href="'+group.entry+'"><strong>'+actions[group.key]+'</strong><span>'+group.title+'</span></a>').join('')+'</section><details class="a0-overview-cluster" open><summary><span>Orientieren &amp; vollständig suchen</span><small>Häuser, Touren, Karten, Families und alle A0-Seiten</small></summary><div><a href="A0_BUILDER_TOY_STORE.html#top">A0 Builder Home</a><a href="A0_WERKBANK.html#bench-page-top">Werkbank · Start</a><a href="A0_BENCH_ENTDECKEN.html#bench-page-top">Entdecken · Tour</a><a href="A0_LIVING_BLUEPRINT.html">Living Blueprint · Tour</a><a href="A0_BENCH_ENTDECKEN.html#body-exhibition">Workbench Map</a><a href="A0_LIVING_BLUEPRINT.html#a0-map-home">Family Connection Map</a><a href="index.html#a0-navigation-directory">Alle A0-Seiten nach Themen</a><a href="A0_FAMILY_CONNECTION_ATLAS.html">F1–F7 · funktionale Families</a><a href="NEXAH_C_CONNECT.html">C · Connect</a></div></details>';
   overviewBody.prepend(currentWays);
   const addContext = (label, links, expanded = false) => {
     if (!links.length) return;
@@ -1125,16 +1141,16 @@
   if (localOwnerContext) {
     scienceViewLink = document.createElement("a");
     scienceViewLink.className = "a0-workspace-icon a0-science-view-link";
-    scienceViewLink.href = scienceReaderHref;
-    scienceViewLink.innerHTML = '<svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="10"/><circle cx="16" cy="16" r="3"/><path d="M16 3v5M16 24v5M3 16h5M24 16h5M7 7l4 4M21 21l4 4M25 7l-4 4M11 21l-4 4"/></svg><span class="a0-workspace-label">A0 Science</span>';
-    scienceViewLink.setAttribute("aria-label", "A0 Science · lange Science-Seite; erneut klicken für das Science-Menü");
-    scienceViewLink.title = "A0 Science · Reader / Menü";
+    scienceViewLink.href = scienceDeskHref;
+    scienceViewLink.innerHTML = '<svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="10"/><circle cx="16" cy="16" r="3"/><path d="M16 3v5M16 24v5M3 16h5M24 16h5M7 7l4 4M21 21l4 4M25 7l-4 4M11 21l-4 4"/></svg><span class="a0-workspace-label">Science Desk</span>';
+    scienceViewLink.setAttribute("aria-label", "Science Desk öffnen");
+    scienceViewLink.title = "Science Desk";
     builderViewLink = document.createElement("a");
     builderViewLink.className = "a0-workspace-icon a0-builder-view-link";
-    builderViewLink.href = builderShowcaseHref;
-    builderViewLink.innerHTML = '<svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="4" r="2.2"/><path d="M16 7c-4.2 0-6.5 3.2-6.5 7.7V20c0 4.5 2.3 7 6.5 9 4.2-2 6.5-4.5 6.5-9v-5.3C22.5 10.2 20.2 7 16 7Z"/><path d="M10 11C5.8 8.7 2.7 11 3.5 15.2c.7 3.6 3.1 5.8 6 6.2M22 11c4.2-2.3 7.3 0 6.5 4.2-.7 3.6-3.1 5.8-6 6.2M10 15H5M22 15h5M10 20l-5 3M22 20l5 3"/></svg><span class="a0-workspace-label">What can we build?</span>';
-    builderViewLink.setAttribute("aria-label", "What can we build now? · lange Builder-Seite; erneut klicken für das Builder-Menü");
-    builderViewLink.title = "What can we build now? · Showcase / Menü";
+    builderViewLink.href = builderDeskHref;
+    builderViewLink.innerHTML = '<svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="4" r="2.2"/><path d="M16 7c-4.2 0-6.5 3.2-6.5 7.7V20c0 4.5 2.3 7 6.5 9 4.2-2 6.5-4.5 6.5-9v-5.3C22.5 10.2 20.2 7 16 7Z"/><path d="M10 11C5.8 8.7 2.7 11 3.5 15.2c.7 3.6 3.1 5.8 6 6.2M22 11c4.2-2.3 7.3 0 6.5 4.2-.7 3.6-3.1 5.8-6 6.2M10 15H5M22 15h5M10 20l-5 3M22 20l5 3"/></svg><span class="a0-workspace-label">Builder Desk</span>';
+    builderViewLink.setAttribute("aria-label", "Builder Desk öffnen");
+    builderViewLink.title = "Builder Desk";
     workspaceOverview.append(scienceViewLink, builderViewLink);
     missionControlLink = document.createElement("a");
     missionControlLink.className = "a0-workspace-icon a0-mission-control-link";
@@ -1340,24 +1356,34 @@
       [...document.querySelectorAll?.("[data-a0-nexah-stage-preview]") || []]
         .forEach((preview) => preview.setAttribute("src", nexahStagingHref));
       const localBuilderEntries = [...document.querySelectorAll?.("[data-a0-builder-showcase]") || []];
+      const localScienceFlagshipEntries = [...document.querySelectorAll?.("[data-a0-science-flagship]") || []];
       const scienceLaneSummary = laneNav.querySelector(".a0-reader-lane--science")?.children?.[0] || null;
       const builderLaneSummary = laneNav.querySelector(".a0-reader-lane--builder")?.children?.[0] || null;
       mountSiteProjection({
         href: scienceReaderHref,
         label: "A0 SCIENCE · FORSCHUNGSSTAND",
         title: "A0 Science · Forschungsstand, Ergebnisse, Instrumente und Grenzen",
-        triggers: [scienceLaneSummary, scienceViewLink],
+        triggers: [scienceLaneSummary],
         route: "science-reader",
         lane: "science",
         suppressInnerShell: true
       });
       mountSiteProjection({
+        href: scienceFlagshipSourceHref,
+        label: "A0 SCIENCE FLAGSHIP · STOFFREGISTER Z100",
+        title: "Stoffregister Z100 · Periodic Carrier und Game-of-Worlds-Anschluss",
+        triggers: localScienceFlagshipEntries,
+        route: "science-stoffregister",
+        lane: "science"
+      });
+      mountSiteProjection({
         href: builderShowcaseHref,
         label: "WHAT CAN WE BUILD NOW? · BUILDER SHOWCASE",
         title: "What can we build now? · langer Builder Showcase",
-        triggers: [builderLaneSummary, builderViewLink, ...localBuilderEntries],
+        triggers: [builderLaneSummary, ...localBuilderEntries],
         route: "builder-showcase",
-        lane: "builder"
+        lane: "builder",
+        suppressInnerShell: true
       });
       mountSiteProjection({
         href: "A0_WERKBANK.html?view=machina#bench-page-top",

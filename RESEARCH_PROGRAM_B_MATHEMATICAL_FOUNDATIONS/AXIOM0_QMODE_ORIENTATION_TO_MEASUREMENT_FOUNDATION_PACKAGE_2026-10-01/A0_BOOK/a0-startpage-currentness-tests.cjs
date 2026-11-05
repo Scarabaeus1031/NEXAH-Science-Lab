@@ -7,7 +7,7 @@ const html = fs.readFileSync(path.join(__dirname, "index.html"), "utf8");
 for (const publicHome of [
   "https://nexah.de/",
   "https://nexahedron.com/",
-  "https://scarabaeus1033.net/"
+  "https://www.scarabaeus1033.net/"
 ]) {
   assert.ok(html.includes(`href="${publicHome}"`), `missing live public home: ${publicHome}`);
 }

@@ -8,6 +8,8 @@ const read = file => fs.readFileSync(path.join(__dirname, file), 'utf8');
 const science = read('A0_SCIENCE.html');
 const desk = read('A0_RESEARCH_DESK.html');
 const storyboard = read('A0_THEORY_STORYBOARD.html');
+const fieldNotes = read('FIELD_NOTES_A0.md');
+const backlog = read('../24_A0_RESEARCH_BACKLOG_AND_OPEN_JOINTS_2026-10-10.md');
 let checks = 0;
 const check = (condition, message) => { assert.ok(condition, message); checks += 1; };
 
@@ -25,6 +27,11 @@ check(desk.includes('Delta 01.–05.11.'), 'desk delta window');
 check(desk.includes('?desk=returns#ioi-tessarec3-a0-binding-return-20261105'), 'latest binding return');
 check(desk.includes('?desk=returns#red-balloon-c20-carrier-ledger-20261104'), 'red-balloon return');
 check(desk.includes('25 Records · 0 neue Promotions'), 'desk finding ceiling');
+check(desk.includes('id="ioi-edelweiss-l-frame-brane-priority-20261105"'), 'documentary L-frame comparator priority is visible on desk');
+check(desk.includes('kein vierter Science-Gate') && desk.includes('NO BUILD'), 'documentary priority does not alter the three science gates');
+check(backlog.includes('<a id="ioi-edelweiss-l-frame-brane-comparator-20261105"></a>'), 'canonical backlog anchor for L-frame comparator');
+check(backlog.includes('NO_BUILD / NOT_ADMITTED / NOT_ACTIVE / NO_NEW_IDENTITY / NO_NEW_RELATION'), 'backlog preserves no-build and no-identity boundary');
+check(fieldNotes.includes('A0_RESEARCH_DESK.html#ioi-edelweiss-l-frame-brane-priority-20261105'), 'Field Note 46 returns to desk priority');
 
 check(storyboard.includes('id="currentness-20261105"'), 'storyboard currentness anchor');
 check(storyboard.includes('Science · Scientific Position'), 'scientific-position navigation preserved');

@@ -1,0 +1,18 @@
+const assert=require('node:assert/strict');
+const api=require('./a0-scc003-fan-spacing-lens.js');
+assert.equal(api.gatePoints().length,99);
+assert.deepEqual(api.SPACING_WORD.positions,[3,22,32,33]);
+assert.deepEqual(api.SPACING_WORD.deltas,[19,10,1]);
+assert.equal(api.SPACING_WORD.seamAfter,22);
+assert.equal(api.contract().projection106to99,null);
+assert.equal(api.contract().newIdentity,false);
+assert.ok(api.svgMarkup().includes('3–22 // 32–33'));
+for(const index of [3,22,32,33])assert.ok(api.svgMarkup().includes(`data-index="${index}"`));
+assert.equal(api.reverseDigits(61),16);
+assert.equal(api.reverseDigits(19),91);
+assert.equal(api.fourPlateContract().exact.sixteen,'16=2^4');
+assert.equal(api.fourPlateContract().exact.ninetyOne,'91=7×13');
+assert.equal(api.fourPlateContract().sourceImageUsed,false);
+assert.equal(api.fourPlateContract().scc003Map,null);
+assert.ok(api.plateSvgMarkup().includes('CL·O·UD'));
+console.log('PASS SCC-003 contextual fan + four plates · 99 gates · 3–22 // 32–33 · 61↔16 · 19↔91');

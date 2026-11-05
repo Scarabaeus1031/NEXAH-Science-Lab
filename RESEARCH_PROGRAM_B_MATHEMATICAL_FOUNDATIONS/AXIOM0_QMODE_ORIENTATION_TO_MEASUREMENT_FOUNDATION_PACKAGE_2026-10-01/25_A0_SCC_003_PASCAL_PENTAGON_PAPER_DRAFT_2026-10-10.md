@@ -246,6 +246,39 @@ definition or proofs above and do not establish a universal Pascal solid,
 physical resonance, crystallographic Lie system, canonical role for
 `110/111/112`, or an identity between pentagonal and hexagonal carriers.
 
+### 9.1 Contextual 99-gate fan and spacing word
+
+A separate bounded display generates exactly `99=9×11` fan gates. Four gate
+addresses are marked by the spacing word
+
+```text
+3–22 // 32–33
+```
+
+where `//` is a typed seam, not subtraction or equality. On a linear address
+rail the consecutive gaps are `19 // 10,1`.
+
+This is a contextual comparison only. No projection `pi:Q_106 -> G_99`, fiber
+decomposition or residual register has been defined. `Alpha outside` and the
+proposed one-bit balloon remain open witness roles rather than theorem
+objects. The historical `63/64:1/64` metric weighting is not asserted by this
+figure.
+
+### 9.2 Four-Plate Reversal Lens
+
+Two decimal reversal pairs are exact:
+
+```text
+rev_10(61)=16=2^4
+rev_10(19)=91=7*13
+```
+
+The source plates `61` and `19` are prime (`p18` and `p8`). The counterplates
+are typed as a power and a composite. An original abstract diagram assigns Red
+Balloon, Blue Body/Head/Sky/Water, Green Floor and `CL·O·UD` local display
+roles. It does not reproduce the supplied cover image, derive evidence from
+that image, define a colour mechanism or supply a map to the SCC-003 quotient.
+
 ## 10. Limitations and next gate
 
 This note fixes the object and compacts the existing proof and reproducibility

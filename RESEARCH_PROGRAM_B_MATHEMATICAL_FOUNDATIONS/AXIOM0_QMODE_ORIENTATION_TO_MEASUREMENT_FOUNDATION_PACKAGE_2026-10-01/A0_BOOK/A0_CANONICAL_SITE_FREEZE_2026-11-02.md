@@ -24,14 +24,18 @@ parallel edition.
 ## Accepted composition
 
 - `index.html#top` — canonical A0 entrance and portal.
-- `A0_SCIENCE.html#top` — the restored long Science reader beginning with
-  “Read the relations.” Its structural source is the accepted 21 October 2026
-  A0 edit (`7d8838f5`); it now uses the current shared navigation shell.
+- `A0_SCIENCE.html#top` — the restored long Science reader and internal Owner
+  staging view beginning with “Read the relations.” Its structural source is
+  the accepted 21 October 2026 A0 edit (`7d8838f5`); its dark control/atlas
+  shell, visible staging marker and `#science-status-plate` distinguish it from
+  the public nexah.de research presentation. It projects released scientific
+  currentness and exit boundaries without copying private Desk tasks.
 - `A0_WERKBANK.html` and THE MACHINA routes — subordinate Builder/Workbench
   rooms, not home pages.
 - `A0_DATA_AND_REGISTERS.html` — subordinate source-bound register room.
-- `NEXAH_SCIENCE.html` — bounded public/editorial Science cut, not the internal
-  A0 Science reader and not a canonical entrance.
+- `NEXAH_SCIENCE.html` — bounded public/editorial Science cut and nexah.de
+  source candidate, not the internal A0 Science staging reader and not a
+  canonical entrance.
 - NEXAHEDRON, nexah.de and Scarabæus 1033 — separate projections/channels.
 
 Temporary previews, browser tabs, copied deployment files and generated Desk

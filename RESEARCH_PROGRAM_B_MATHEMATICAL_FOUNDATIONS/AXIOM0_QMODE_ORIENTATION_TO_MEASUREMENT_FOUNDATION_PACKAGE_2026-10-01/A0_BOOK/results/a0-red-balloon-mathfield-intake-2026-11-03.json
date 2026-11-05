@@ -1,0 +1,155 @@
+{
+  "schema": "nexah.a0.science-desk.mathfield-intake.v1",
+  "recorded_at": "2026-11-03",
+  "updated_at": "2026-11-04",
+  "title": "The Red Balloon",
+  "classification": "SOURCE_BOUND_MATHFIELD_INSTRUMENT",
+  "paper_triage": "TBC_NOT_A_PAPER",
+  "publication_state": "NOT_PUBLISHED",
+  "study_state": "NO_NEW_STUDY",
+  "source": {
+    "repository": "40 EXPERIENCE PRODUCTION/NEXAH-Experience",
+    "branch": "main",
+    "base_commit": "425d1c1",
+    "working_tree_state": "UNCOMMITTED",
+    "path": "src/pages/scc-003-r1/generation-study/index.astro",
+    "sha256": "ff728e15e69749905afb27296c6c12bc19f5e2e6f8df08810be5b556dc191302",
+    "diagnostic_route": "/scc-003-r1/generation-study/"
+  },
+  "identity_reuse": [
+    "SCC-003 / A0OE:PASCAL_PENTAGON_D5_TEST",
+    "NEXAH:A0_ORIENTATION_EVIDENCE_LINEAGE:V1",
+    "NEXAH_A0_ORIENTATION_CONTROLLER_BENCH"
+  ],
+  "bounded_verified_core": {
+    "raw_source_incidences": 140,
+    "quotient_nodes": 106,
+    "directed_edges": 180,
+    "pascal_recurrences": 135,
+    "browser_verifier": "16/16 PASS",
+    "typed_return": "140/140",
+    "inverse_seam_transitions": "60/60"
+  },
+  "open_closure_register": {
+    "c": "UNDEFINED",
+    "owner_notation": ["5°2?", "5F", "10\"", "12\""],
+    "unit_contract": "MISSING",
+    "existing_local_display_parameter": {
+      "expression": "360° / 73",
+      "decimal_degrees": 4.931506849,
+      "dms": "4°55′53.42″",
+      "identity_to_owner_notation": "NOT_ESTABLISHED"
+    },
+    "next_gate": "Define c, declare whether 5°2? means 5°02′ or 5°00′02″, type F and the 10″/12″ values, then state one falsifiable closure or drift equation."
+  },
+  "typed_symbol_register": {
+    "double_prime_length": {
+      "display": "″_L",
+      "meaning": "inch / Zoll",
+      "exact_conversion": "1 in = 1 Zoll = 25.4 mm"
+    },
+    "double_prime_angle": {
+      "display": "″_theta",
+      "meaning": "arcsecond / Bogensekunde",
+      "exact_conversion": "1 arcsec = 1/3600 degree"
+    },
+    "iz": {
+      "meaning": "complex quarter-turn z -> i z",
+      "source": "01_FROM_LINE_TO_READOUT.html",
+      "not_an_abbreviation_for": "inch / Zoll"
+    },
+    "boundary": "The glyph ″ is overloaded. Every occurrence must carry a length or angle type before comparison or arithmetic."
+  },
+  "zeta_axis_register": {
+    "identity_reuse": "DIRECT-ZETA",
+    "operator": "w=i(s-1/2)",
+    "classification": "SOURCE_BOUND_COORDINATE_VIEW_ONLY",
+    "relation_to_red_balloon": "SEPARATE_REFERENCE_AXIS_NOT_YET_COUPLED",
+    "claim_boundary": "The existing DIRECT-ZETA axis may be shown as an explicit reference lane, but it is not derived from SCC-003 and creates no Riemann-zeta claim."
+  },
+  "portal_address_register": {
+    "exact_arithmetic": [
+      "2101 + 2901 = 5002",
+      "2 * 2501 = 5002",
+      "2 * 5002 = 10004"
+    ],
+    "digit_sums": {
+      "2101": 4,
+      "2501": 8,
+      "2901": 12,
+      "5002": 7,
+      "10004": 5
+    },
+    "existing_q_overlay": "2501 * 2 = 5002",
+    "owner_labels_hold": ["2501 QC", "5002 KFC", "10004 Doppelportal", "APM 3/4 groups", "CH I NA-prime"],
+    "claim_boundary": "The three equalities and digit sums are exact. Portal, QC, KFC, APM and CH I NA-prime are display or owner labels until separately typed; no resonance or mechanism is inferred."
+  },
+  "typed_zero_ledger": {
+    "schema": "nexah.a0.typed-zero-ledger/1",
+    "zero_value": "0 is a declared value or origin inside a typed domain D",
+    "null_state": "null marks missing, unknown or not-applicable assignment and is not coerced to 0",
+    "zero_digit": "a visible base-10 place inside a decimal numeral",
+    "aperture": "a declared opening, mask or unoccupied display region; no value semantics without a binder",
+    "non_identity": "ZERO_VALUE != NULL_STATE != ZERO_DIGIT != APERTURE",
+    "doubling_fixture": {
+      "chain": ["2501 * 2 = 5002", "5002 * 2 = 10004", "10004 * 2 = 20008"],
+      "visible_zero_digits": [1, 2, 3, 3],
+      "boundary": "The first two doublings create a visible 1-2-3 zero-digit staircase. The third doubling is the negative control: zero-digit count does not increase."
+    },
+    "grouping_fixture": {
+      "value": 100000000,
+      "power": "10^8",
+      "three_digit_view": "100|000|000",
+      "four_digit_view": "1|0000|0000",
+      "boundary": "Grouping is a view of one value, not a change of value or operator."
+    },
+    "new_operator": false,
+    "new_identity": false,
+    "evidence_effect": "DOCUMENTARY_TYPED_LEDGER_ONLY"
+  },
+  "story_lens": {
+    "schema": "nexah.a0.red-balloon-story/1",
+    "classification": "SOURCE_BOUND_MATHFIELD_STORY_LENS",
+    "story": [
+      "ONE_WITNESS",
+      "NINETY_NINE_ADDRESSED_GATES",
+      "SEPARATE_PHASE_COLOUR",
+      "SIXTEEN_STEPS_PLUS_SIXTEEN_GAPS",
+      "LEDGER_TRAJECTORY_APERTURE_RETURN",
+      "PRIME_MASK_OTHER_SIDE_OF_CURTAIN"
+    ],
+    "exact_display_contracts": {
+      "gate_field": "99 = 9 * 11",
+      "binary_fixture": "99 addressable one-bit slots; current fixture sets all slots to 1",
+      "phase_overlay": "H_j = exp(i * 2pi * (j - 1) / 99)",
+      "parity_ring": "32 = 16 even steps + 16 odd gaps; half-step = 11.25 degrees",
+      "ledger": "50 assets = 49 liabilities + 1 witness",
+      "inverse_imaginary": "i^-1 = -i",
+      "aperture": "T_alpha -> T_0 as alpha -> 0",
+      "prime_mask": "addresses 1..99; 25 prime apertures; 74 opaque positions",
+      "prime_display_lanes": "2 seeds (2,3) + 11 addresses congruent to 1 mod 6 + 12 addresses congruent to 5 mod 6"
+    },
+    "source_context": {
+      "mission_control_record": "SF-NUMBERMAGICK-2025-AUDIT",
+      "graph": "G_T_PRIME_TRINITIES_CONNECTORS",
+      "graph_invariants": "V=7; E=9; components=1; cycle rank=3",
+      "connector_1032": "composite 2^4*3*43; historical connector vertex, not a prime or operator"
+    },
+    "holds": ["THOS", "NAUTILUS", "C5_RING_CAUSALITY", "HOFMANN_RIEMANN", "CULTURAL_MNEMONICS_AS_EVIDENCE", "PRIME_FAMILY_COLOR_IDENTITY", "LOTUS_TOPOLOGY", "PRIME_PHYSICAL_CUT"],
+    "verification": "PASS Red Balloon story · 6 scenes · 99 gates · 25 prime apertures · 74 opaque · 16+16 ring · 50=49+1 · T_alpha->T_0",
+    "new_identity": false,
+    "new_relation": false,
+    "new_study": false,
+    "new_finding": false,
+    "publication": false,
+    "boundary": "The story is one continuous reader sequence over finite display contracts. No map Q106->G99 is defined. Colour is not a bit value. Prime addresses select openings in a declared finite mask; primes do not physically cut material. The 6k+/-1 display lanes are not the historical red/green/blue Prime Families. Lotus is a view label only. The trajectory, ledger pairing and aperture are declared view rules, not a physical flow, financial model, theorem or finding."
+  },
+  "navigator": {
+    "effect": "REFERENCE_ONLY",
+    "new_ids": 0,
+    "new_aliases": 0,
+    "relation_changes": 0,
+    "duplicate_risk": "NONE_NEW_EXISTING_SCC003_IDENTITY_REUSED"
+  },
+  "claim_boundary": "The Red Balloon now reads as one controlled story, while its mathematical layers remain typed. The spatial drawings, balloon, fins, helix, THOS, Nautilus, prime neighborhood and any 360-degree drift reading remain exploratory views. Only the frozen finite SCC-003 object and explicitly cited closed audits carry mathematical evidence. Desk or Mathfield placement does not admit a Study, promote a Finding, create a Paper or authorize publication."
+}

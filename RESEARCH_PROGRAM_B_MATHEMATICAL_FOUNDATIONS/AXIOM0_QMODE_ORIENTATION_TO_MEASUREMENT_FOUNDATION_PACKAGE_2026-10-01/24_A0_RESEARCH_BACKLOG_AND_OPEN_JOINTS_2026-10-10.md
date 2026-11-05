@@ -1787,7 +1787,7 @@ and [Paper gate](32_A0_FINDINGS_AND_PAPER_WORKSPACE_2026-10-11.md#f-a0-26-octave
 
 ## A0 Freeze handoff · IOTA ignition / 6×7 switch / inside–outside — 31 October 2026
 
-Status: `PARKED_ENGINEERING_CONTINUATION / NOT_ADMITTED / NOT_ACTIVE / STRUCTURE_FREEZE_PRESERVED`.
+Status: `PARTIAL_ENGINEERING_RETURN / IOTA_UI_IGNITION_CLOSED / 6×7_PORT_AND_INSIDE_OUTSIDE_WITNESS_OPEN / NOT_ADMITTED / NOT_ACTIVE / STRUCTURE_FREEZE_PRESERVED`.
 
 Der eingefrorene Arbeitsstand schließt die sichtbare Kette
 `A0 → THE MACHINA → IOTA GRID BRIDGE ↔ NLK SWITCHBOARD`, lässt aber drei
@@ -1803,13 +1803,119 @@ bewusst offene Engineering-Fragen zurück:
    gerichtete Boundary-Information erhalten. Eine spätere Umschaltung muss
    Seite, Vorzeichen beziehungsweise Witness mitführen und darf die beiden
    Ansichten nicht als identische Zustände zusammenlegen.
-3. **IOTA ignition / pulse.** Der IOTA Bridge fehlt noch ein klarer endlicher
-   Startimpuls. Ein möglicher nächster Build darf den vorhandenen Pulse Grammar
-   Clock nur als typisierten Trigger verwenden: `ARM → PULSE → SCHEDULE →
-   RETURN`. Das ist ein UI-/Schedule-Ereignis, keine physische Zündung, keine
-   gemeinsame Master-Uhr und kein Resonanz- oder Mechanismus-Claim.
+3. **IOTA ignition / pulse — auf Interface-Ebene geschlossen.** Die geführte
+   IOTA-Vorführung besitzt jetzt einen endlichen Start, führt über den ersten
+   positiven gemeinsamen Return bei Tick 24 und kehrt exakt zu `T00 / ORIGIN`
+   plus `WHITE FOLD` zurück. Der vorhandene Bridge-Player bleibt unabhängig.
+   Damit ist ausschließlich die fehlende UI-/Schedule-Auslösung geschlossen;
+   es entsteht keine physische Zündung, gemeinsame Master-Uhr und kein
+   Resonanz- oder Mechanismus-Claim.
 
-Nächste zulässige Aktion: ausschließlich einen kleinen Kontrollvertrag mit
-Startzustand, Triggerkante, 6×7-Portrolle, Inside/Outside-Witness, Stopbedingung
-und exaktem Return entwerfen. Kein wissenschaftlicher Run, keine neue
-Source-Graph-Identität oder Relation und keine Publikationsfreigabe.
+Nächste zulässige Aktion: ausschließlich die weiterhin offenen Punkte 1 und 2
+als kleinen Kontrollvertrag mit 6×7-Portrolle, Inside/Outside-Witness,
+Stopbedingung und exaktem Return entwerfen. Die UI-Zündung wird nicht erneut
+gebaut. Kein wissenschaftlicher Run, keine neue Source-Graph-Identität oder
+Relation und keine Publikationsfreigabe.
+
+Return: [IOTA Guided Demonstration](A0_BOOK/A0_IOTA_BRIDGE_DEMONSTRATOR.html#module-entry),
+[Freeze Receipt](A0_BOOK/results/a0-iota-guided-demonstration-freeze-2026-11-03.json),
+[Science Desk](A0_BOOK/A0_RESEARCH_DESK.html#iota-guided-demonstration-freeze-20261103)
+und [Findings/Paper Triage](32_A0_FINDINGS_AND_PAPER_WORKSPACE_2026-10-11.md#iota-guided-demonstration-engineering-freeze-20261103).
+
+<a id="machina-shared-phase-bus-return-20261103"></a>
+
+### Machina shared phase bus — bounded return — 2026-11-03
+
+The missing local coupling witness between `L_c`, `NLK/L-SHELL`, and the
+coupled Pink Axis is closed. A shared display phase τ now provides Play, Pause
+and Exact Return while preserving source bytes, identities and addresses. This
+is a return on existing Machina work, not a new A0-BL item.
+
+State: `CLOSED DISPLAY COUPLING / NO NEW A0-BL / NO GRAPH DELTA / NO FINDING
+PROMOTION`.
+
+[Machina instrument](A0_BOOK/A0_MACHINA_COCKPIT.html?rev=mint-lock-r1#machinaSharedPhaseBus) ·
+[Return receipt](A0_BOOK/results/a0-machina-shared-phase-bus-return-2026-11-03.json)
+
+<a id="ioi-edelweiss-l-frame-brane-comparator-20261105"></a>
+
+## Documentary Priority · IOI Cube / Edelweiß L-Frame / Brane Comparator · 5 November 2026
+
+Status: `PRIORITIZED_DOCUMENTARY_REVIEW / NO_BUILD / NOT_ADMITTED / NOT_ACTIVE / NO_NEW_IDENTITY / NO_NEW_RELATION / STRUCTURE_FREEZE_PRESERVED`
+
+Dieser Eintrag vergibt keine neue A0-BL-Nummer. Er bündelt den vorhandenen IOI
+World Cube, den bereits deklarierten Animationsvertrag
+`EDELWEISS_L_FRAME_WOBBLE` und die vorhandene
+[Field Note 46](A0_BOOK/assets/a0-field-notes/index.html#note-46). Im
+Quellvertrag bleiben zwei L-Frame-Bars, sieben äußere Pulse-Zellen, elf
+angehobene Frontdiagonal-Zellen, elf spiegelnd zurückkehrende
+Rechtsdiagonal-Zellen und der feste Pink-B-Corner-Witness getrennt. T/Y bleibt
+eine lokale Kantenrolle; B/ALU bleibt ein View-/Janus-Witness.
+
+### Eng gefasste Prüffrage
+
+Kann eine ausdrücklich deklarierte Projektion oder Faltung des vorhandenen
+zweidimensionalen L-Frames unterscheidbare Ansichten `B über T`, `B auf T` und
+`B unter T` erzeugen, während Adresse, Längen, Nachbarschaften,
+Orientierungszeichen und Return-Bedingung sichtbar erhalten oder als Residuum
+ausgewiesen werden?
+
+Der owner-supplied Videovergleich — eine gewickelte M2-Brane erscheint aus
+großer Distanz als eindimensionale Linie — ist ausschließlich ein didaktischer
+Comparator für `Fläche → Projektion → Linie`. Er ist keine Evidenz für ein
+String-/M-Theory-Modell, keine physikalische Brane, keine
+Dimensionsgleichsetzung und kein Mechanismus des Cubes.
+
+### Nächste zulässige Aktion
+
+Nur einen read-only Quellen-/Vertragsabgleich vorbereiten. Eine spätere
+Vergleichstabelle darf genau diese Felder enthalten:
+
+1. Quelle und bestehende Identität,
+2. Eingangsobjekt,
+3. deklarierter Transformationsparameter,
+4. projizierte Ansicht,
+5. erhaltene beziehungsweise verletzte Invariante,
+6. exakte Return- oder Stopbedingung.
+
+Kein GLB-Edit, keine neue Animation, kein Code, kein Experiment, keine Study,
+kein Finding, kein Paper und keine Navigator-Relation. Der Auftrag wird erst
+wieder aufgenommen, wenn der Quellenabgleich zeigt, dass entweder die
+vorhandenen Verträge die Lesart bereits vollständig abdecken oder genau eine
+bounded formal question für eine separate Human-Owner-Admission formuliert
+werden kann. Die drei aktiven Science-Gates des Desks bleiben unverändert.
+
+Rückwege:
+[Science Desk](A0_BOOK/A0_RESEARCH_DESK.html#ioi-edelweiss-l-frame-brane-priority-20261105) →
+[IOI World Cube](A0_BOOK/assets/game-of-worlds-play/ioi-world-cube/index.html#worldModel) →
+[Field Notes](A0_BOOK/assets/a0-field-notes/index.html#note-46).
+
+<a id="a0-owner-handbook-notes-binding-20261105"></a>
+
+## Owner Editorial · A0 Field Notes as NEXAH Handbook Notes · 5 November 2026
+
+Status: `DOCUMENTARY BINDING / OWNER HANDBOOK NOTES / NO_BUILD / NOT_ADMITTED / NOT_ACTIVE / NO_NEW_IDENTITY / NO_NEW_RELATION / STRUCTURE_FREEZE_PRESERVED`
+
+`A0_BOOK/FIELD_NOTES_A0.md` remains the single editable source for the Human
+Owner's private, evolving NEXAH handbook notes. The generated
+`assets/a0-field-notes/index.html` is only a searchable reading surface. This
+editorial role does not turn the notes into a Study, protocol, scientific
+authority, canonical vocabulary, evidence register or publication.
+
+The current addendum records the existing Essay boundary `TOE ≠ TOI`, the
+String-/M-Theory material as a didactic comparator, U-chain / `RLLR` / White
+Ghost-Snake / Ghost Grid as separated Owner view roles, and `PBC` as an open
+Physics/Biology/Chemistry mnemonic with order, carrier and coupling `TBD`.
+The bounded self-description is: NEXAH builds source-bound orientation maps
+for specialists; recurring patterns are mapped, not unified.
+
+No task is opened by this entry. A future return requires explicit Human Owner
+selection of exactly one note and a bounded question, owning source, evidence
+class, STOP condition and permitted Desk route. Until then, Builder,
+Navigator, Mission Control currentness, the Lab Register and publication state
+remain unchanged.
+
+Rückwege:
+[Owner-Handbuchnotizen](A0_BOOK/assets/a0-field-notes/index.html#note-50) →
+[Markdown-Quelle](A0_BOOK/FIELD_NOTES_A0.md#owner-handbuchnotizen--ideenparkplatz) →
+[Science Desk](A0_BOOK/A0_RESEARCH_DESK.html#a0-owner-handbook-notes-binding-20261105).

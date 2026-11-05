@@ -48,7 +48,7 @@ assert.match(navigation,/brand\.addEventListener\("click", \(event\) =>/,'same-p
 assert.match(navigation,/target\.pathname !== location\.pathname \|\| target\.hash !== "#top"/,'same-page Home remains active with preview revision parameters');
 assert.doesNotMatch(navigation,/target\.search !== location\.search/,'preview revision parameters do not disable the same-page Home action');
 assert.match(navigation,/window\.scrollTo\(0, 0\)/,'same-page Home clicks return to the actual viewport top');
-assert.match(navigation,/readerLanes\.filter\(\(lane\) => lane\.key !== "human"\)\.forEach/,'A0 Science and Builder are the internal expandable lanes');
+assert.match(navigation,/readerLanes\.forEach/,'A0 Human View, Science and Builder are the three internal expandable reading intentions');
 assert.doesNotMatch(navigation,/const benchMenu =/,'Werkbank is integrated into Builder instead of duplicated as a top-level lane');
 for (const section of ['Highlights · aktueller Build','Workbench','Demonstratoren','Bestand & Status']) assert.ok(navigation.includes(`"label": "${section}"`),`Builder separates ${section}`);
 assert.match(navigation,/A0_LIVING_BLUEPRINT\.html#open-questions[\s\S]*?Status & offene Fragen/,'Builder status group returns to the existing read-only Blueprint questions');
@@ -65,12 +65,16 @@ assert.match(navigation,/workbenchEntry\.className = "a0-workbench-entry"/,'THE 
 assert.match(navigation,/const machinaRooms = \[/,'THE MACHINA owns one explicit room dropdown');
 assert.match(navigation,/if \(!projection\.hidden\)[\s\S]*?deferMenu\(\(\) => \{[\s\S]*?owningLane\.open = true/,'a repeated projection action returns to the matching A0 menu after the projection closes');
 assert.match(navigation,/\$\{lane\.label\} Navigation öffnen/,'the current house exposes its navigation as the second action');
-assert.match(navigation,/"entry": "index\.html\?projection=builder-showcase#top"/,'the Builder lane returns through the canonical A0 portal projection');
+assert.match(navigation,/"entry": "A0_BUILDER_TOY_STORE\.html#top"/,'the Builder lane enters through the maintained long Builder surface');
 assert.match(navigation,/\|\| null\);/,'unlisted tool and register pages do not fall back to a false Science current state');
 assert.doesNotMatch(navigation,/\|\| readerLanes\[1\]/,'Science is never the implicit fallback lane');
 const scienceEntry=fs.readFileSync(path.join(root,'NEXAH_SCIENCE.html'),'utf8');
 const a0ScienceEntry=fs.readFileSync(path.join(root,'A0_SCIENCE.html'),'utf8');
-assert.match(a0ScienceEntry,/<a class="btn gold" href="A0_SCIENTIFIC_POSITION_REPORT.html">Scientific Position/);
+assert.match(a0ScienceEntry,/<a class="btn gold" href="#overview">Mit dem Überblick beginnen<\/a>/);
+assert.match(a0ScienceEntry,/<title>NEXAH · A0 Science · Owner Staging<\/title>/);
+assert.match(a0ScienceEntry,/id="overview"/);
+assert.match(a0ScienceEntry,/Source[\s\S]*Aperture[\s\S]*Relation[\s\S]*Return/);
+assert.match(a0ScienceEntry,/id="science-status-plate"/);
 assert.ok(scienceEntry.includes('id="who-we-are"') && scienceEntry.includes('href="/about/"'),'public Science identifies NEXAH and links its canonical About page');
 assert.ok(scienceEntry.includes('https://github.com/Scarabaeus1031/NEXAH') && scienceEntry.includes('https://github.com/Scarabaeus1031/NEXAH-Science-Lab'),'public Science exposes Core and Laboratory repositories');
 assert.doesNotMatch(scienceEntry,/href="(?:A0_|index\.html|NEXAH_C_CONNECT)/,'public Science does not route into A0 yet');
@@ -100,12 +104,12 @@ for (const token of [
 ]) assert.ok(navigation.includes(token), `navigation contract missing: ${token}`);
 
 const lanes=JSON.parse(navigation.match(/const readerLanes = (\[[\s\S]*?\n  \]);/)[1]);
-assert.deepEqual(lanes.map(l=>[l.key,l.code,l.label]),[['human','H','NEXAHEDRON · Human'],['science','S','A0 · Science'],['builder','B','A0 · Builder']]);
-assert.equal(lanes.find(l=>l.key==='builder').entry,'index.html?projection=builder-showcase#top','A0 Builder returns through the canonical A0 portal projection');
-assert.match(navigation,/const builderShowcaseHome = \["index\.html\?projection=builder-showcase", "A0 Builder Home"/,'the A0 Builder home reuses the existing long source-bound projection');
+assert.deepEqual(lanes.map(l=>[l.key,l.code,l.label]),[['human','H','A0 · Human View'],['science','S','A0 · Science'],['builder','B','A0 · Builder']]);
+assert.equal(lanes.find(l=>l.key==='builder').entry,'A0_BUILDER_TOY_STORE.html#top','A0 Builder enters through the maintained long Builder surface');
+assert.match(navigation,/const builderShowcaseHome = \[builderShowcaseHref, "A0 Builder Home"/,'the A0 Builder home reuses the maintained long source-bound Builder surface');
 assert.doesNotMatch(navigation,/summary\.setAttribute\("data-a0-builder-showcase", ""\)/,'the Builder lane opens its navigation directly instead of intercepting the first click');
 assert.match(navigation,/A0_WERKBANK\.html#bench-page-top">Werkbank · Start/,'A0 Navigator exposes Workbench as a direct start route');
-assert.equal(lanes.find(l=>l.key==='human').entry,'https://nexahedron.com/','Human home is the canonical NEXAHEDRON start page');
+assert.equal(lanes.find(l=>l.key==='human').entry,'A0_NEXAH_APERTURE_JOURNEY.html#a0-human-overview','Human home is the existing internal A0 Human View; NEXAHEDRON remains a separate public channel');
 const humanLane=lanes.find(l=>l.key==='human');
 assert.ok(humanLane.sections.flatMap(section=>section.items).some(([href,label])=>href==='A0_OPIUM.html#entrance'&&label==='OPIUM / Club'),'Human navigation exposes the existing OPIUM entrance');
 const scienceLane=lanes.find(l=>l.key==='science');
@@ -126,13 +130,14 @@ assert.doesNotMatch(navigation,/nexahScienceStagingLink|a0-nexah-science-staging
 assert.doesNotMatch(navigation,/summary\.setAttribute\("data-a0-nexah-stage"/,'A0 Science no longer doubles as the nexah.de staging trigger');
 assert.match(navigation,/nexahPublic\.href = "https:\/\/nexah\.de\/"/,'nexah.de is a separate public channel');
 assert.match(navigation,/nexahedronPublic\.href = "https:\/\/nexahedron\.com\/"/,'NEXAHEDRON is a separate public channel');
-assert.match(navigation,/scarabaeusPublic\.href = "https:\/\/scarabaeus1033\.net\/"/,'Scarabæus is a separate public channel');
-assert.match(navigation,/readerLanes\.filter\(\(lane\) => lane\.key !== "human"\)/,'the A0 lane row is separated from the three public websites');
-assert.match(navigation,/\["A0_WERKBANK\.html#bench-page-top", "WERKBANK · START"/,'THE MACHINA dropdown keeps the Workbench start room');
+assert.match(navigation,/scarabaeusPublic\.href = "https:\/\/www\.scarabaeus1033\.net\/"/,'Scarabæus is a separate public channel');
+assert.match(navigation,/readerLanes\.forEach/,'the three A0 reading intentions remain separate from the three public websites');
+assert.match(navigation,/\["A0_BENCH_ENTDECKEN\.html#human-view", "START HERE · HUMAN VIEW"/,'THE MACHINA dropdown starts with the consolidated Human View');
+assert.match(navigation,/\["A0_WERKBANK\.html#bench-page-top", "WERKBANK · WORK"/,'THE MACHINA dropdown keeps the Workbench work room');
 assert.match(navigation,/\["A0_ORIENTATION_CONTROLLER_BENCH\.html#benchWorkDesk", "04 · FULL BENCH"/,'THE MACHINA dropdown reaches the existing full bench');
 assert.match(navigation,/registerEntry\.href = "A0_DATA_AND_REGISTERS\.html#top"/,'A0 Register reuses the existing Science-owned locator page');
-assert.match(navigation,/scienceViewLink\.href = scienceReaderHref/,'Science compact control opens the long A0 Science reader');
-assert.match(navigation,/builderViewLink\.href = builderShowcaseHref/,'Builder compact control opens What can we build now');
+assert.match(navigation,/scienceViewLink\.href = scienceDeskHref/,'Science compact control opens the Science Desk');
+assert.match(navigation,/builderViewLink\.href = builderDeskHref/,'Builder compact control opens the B0 Builder Desk');
 assert.match(navigation,/const pairedLane = \(\) => lane/,'a second view-control click can return to the matching A0 menu');
 assert.match(navigation,/\["127\.0\.0\.1", "localhost"\]\.includes\(location\.hostname\)/,'localhost is recognized as the local Owner context');
 assert.doesNotMatch(navigation,/nexah-public-connect|connectDot/,'A0 global navigation has no ambiguous pink Connect point');
@@ -202,5 +207,5 @@ assert.match(livingBlueprint, /a0-context-navigation\.css\?rev=flagship-constell
 assert.match(livingBlueprint, /a0-context-navigation\.js\?rev=flagship-constellation-r1-20261030/);
 
 const human = fs.readFileSync(path.join(root, 'A0_NEXAH_APERTURE_JOURNEY.html'), 'utf8');
-assert.ok(human.includes('href="index.html"') && human.includes('href="A0_GAME_OF_WORLDS_PLAY.html#pulse"') && human.includes('href="A0_THE_LIVING_INTERIOR.html'), 'quiet Human journey retains explicit portal, play and Living Interior exits');
+assert.ok(human.includes('id="a0-human-overview"') && human.includes('href="a0-public-arkade-index.html#arkade"') && human.includes('href="A0_LIVING_BLUEPRINT.html#a0-map-home"'), 'A0 Human View retains its inventory, direct play and orientation-map exits');
 console.log(JSON.stringify({ status: 'PASS', registeredReaders: registered.length, sharedNavigationSurfaces: shared.length, standaloneSurfaces: htmlFiles.length - shared.length, allLocalHtmlReachable: htmlFiles.length }, null, 2));

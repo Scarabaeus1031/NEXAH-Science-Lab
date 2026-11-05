@@ -20,8 +20,8 @@ for(const file of files){
  ok(!/(?:BLUE BODY|PINK DIAMOND|BLUE × PINK LAB|TOWER|BRIDGE)/.test(categoryTabs),file+' category tabs do not mix individual Labs or Demonstrators');
  ok(!html.includes('class="bench-category-items"'),file+' removes the redundant Workbench object row');
  const mapNav=html.match(/<nav class="bench-modes bench-map-nav"[\s\S]*?<\/nav>/)?.[0]||'';
- ok((mapNav.match(/<a /g)||[]).length===6&&['Entdecken','8 Hauptmodule','Machina Anatomy','Living Blueprint','Workbench Map','Family Connection Map'].every(label=>mapNav.includes(label)),file+' exposes the main-module and anatomy routes before the supporting maps');
- ok(mapNav.includes('A0_BENCH_ENTDECKEN.html#body-exhibition')&&mapNav.includes('A0_LIVING_BLUEPRINT.html#a0-map-home'),file+' map routes deep-link to the structural sections');
+ ok((mapNav.match(/<a /g)||[]).length===7&&['Was ist THE MACHINA?','Machina Anatomy','Map Room','IOI · Frozen Machine','Stoffregister Z100','Räume &amp; Builds','Workbench'].every(label=>mapNav.includes(label)),file+' keeps the Human entrance, Anatomy, Map Room, Machine and Instrument in the lower navigation');
+ ok(mapNav.includes('A0_BENCH_ENTDECKEN.html#human-view')&&mapNav.includes('A0_MACHINA_ANATOMY_MAP.html#mainModules')&&mapNav.includes('A0_IOI_LEAF_FOLD_OPEN_BOOK_START_2026-11-02.html')&&mapNav.includes('A0_PERIODIC_CARRIER_Z100_2026-11-03.html#game-of-worlds-carrier-binding'),file+' lower navigation reaches the human entrance, Anatomy, IOI and Stoffregister');
  ok(!/<iframe|setInterval|autoplay|\.play\(/i.test(html),file+' editorial only');
  for(const href of [...html.matchAll(/href="([^"]+)"/g)].map(m=>m[1])){
    const [rawName,anchor]=href.split('#');
@@ -39,6 +39,11 @@ for(const file of files){
  }
 }
 const buildOverview=fs.readFileSync(path.join(__dirname,'A0_BENCH_ENTDECKEN.html'),'utf8');
+ok(buildOverview.includes('class="machina-human-view"')&&buildOverview.includes('id="human-view"'),'Build overview begins with one canonical Human View entrance');
+ok(buildOverview.includes('Was ist<br>THE MACHINA?')&&buildOverview.includes('HOUSE → BODY → VIEW → RETURN'),'Human View explains the house in plain language and one visible sequence');
+for(const route of ['A0_MACHINA_ANATOMY_MAP.html#anatomyMap','A0_MACHINA_ANATOMY_MAP.html#mainModules','A0_WERKBANK.html?view=machina#machinaHouseTitle'])ok(buildOverview.includes(`href="${route}"`),'Human View offers the staged route '+route);
+ok(buildOverview.includes('keine neue Source-Graph-Identität')&&buildOverview.includes('Autorität bleibt bei den besitzenden Quellen'),'Human View states the identity and source-authority boundary');
+ok(buildOverview.indexOf('id="human-view"')<buildOverview.indexOf('id="body-exhibition"'),'Human View precedes the builder inventory');
 ok(buildOverview.includes('id="localAddressAperture"'),'Build overview exposes the local address aperture');
 ok(buildOverview.includes('id="mathJointsGateway"'),'Build overview exposes the Mathematical Joints website gateway');
 ok(buildOverview.includes('A0_MATHEMATICAL_JOINTS.html#relation-rotation-spectrum-route'),'gateway binds the four-instrument Mathematical Joints entry');
@@ -74,8 +79,9 @@ const nav=fs.readFileSync(path.join(__dirname,'a0-context-navigation.js'),'utf8'
 const nlk=fs.readFileSync(path.join(__dirname,'A0_NLK_LSHELL_DEVELOPMENT_PROBE.html'),'utf8');
 const iota=fs.readFileSync(path.join(__dirname,'A0_IOTA_BRIDGE_DEMONSTRATOR.html'),'utf8');
 ok(nav.includes('"key": "builder"')&&nav.includes('"label": "A0 · Builder"'),'shared navigation restores the existing expandable A0 Builder lane');
-ok(nav.includes('"entry": "A0_BUILDER_TOY_STORE.html#bench-page-top"'),'shared Builder entry opens the normal A0 Builder source rather than its Scarabaeus edition');
-ok(nav.includes('const machinaRooms = [')&&nav.includes('"A0_WERKBANK.html#bench-page-top"'),'shared navigation gives THE MACHINA a room dropdown with its existing entrance');
+ok(nav.includes('"entry": "A0_BUILDER_TOY_STORE.html#top"'),'shared Builder entry opens the maintained long source-bound A0 Builder surface');
+ok(nav.includes('const builderDeskHref = "../../../../../10%20NEXAH%20CORE/NEXAH/BUILDER/B0_BUILDER_DECK/build-desk.html#top"'),'the B0 Builder Desk remains a separate direct workspace route');
+ok(nav.includes('const machinaRooms = [')&&nav.includes('"A0_BENCH_ENTDECKEN.html#human-view", "START HERE · HUMAN VIEW"')&&nav.includes('"A0_WERKBANK.html#bench-page-top"'),'shared navigation gives THE MACHINA a human entrance before its work rooms');
 ok(nav.includes('const machinaMainModules = [')&&((nav.match(/"FLAGSHIP (?:LAB|DEMONSTRATOR|INSTRUMENT)"/g)||[]).length>=6),'shared navigation declares the eight main-module routes with typed roles');
 ok(nav.includes('"A0_NLK_LSHELL_DEVELOPMENT_PROBE.html#mainStageShell"')&&nav.includes('"A0_MACHINA_ANATOMY_MAP.html#mainModules"'),'shared Machina sheet reaches NLK and the large main-module map');
 ok(/<header class="top"[^>]*>[\s\S]*?<nav aria-label="Lokale NLK-Navigation">/.test(nlk),'NLK supplies the host header required by shared A0 navigation');
@@ -85,7 +91,7 @@ ok(/<header class="top"[^>]*>[\s\S]*?<nav aria-label="Lokale IOTA- und NLK-Navig
 ok((iota.match(/href="A0_NLK_LSHELL_DEVELOPMENT_PROBE\.html#nlkIotaDock"/g)||[]).length>=4,'IOTA exposes NLK as persistent header, quick-access, intro, and flagship return port');
 ok(iota.includes('href="index.html#portal"')&&iota.includes('href="A0_MACHINA_ANATOMY_MAP.html#mainModules"'),'IOTA exposes explicit A0 and THE MACHINA returns');
 ok(nav.includes('"A0_IOTA_BRIDGE_DEMONSTRATOR.html#gridBridgeFlagship"')&&nav.includes('"IOTA GRID BRIDGE"'),'shared Machina sheet names and opens the Grid Bridge flagship directly');
-ok(nav.includes('appendMachinaGroup("RÄUME & WORK"')&&nav.includes('appendMachinaGroup("8 HAUPTMODULE"')&&nav.includes('appendMachinaGroup("KARTEN & RETURN"'),'shared Machina sheet separates rooms, main modules and maps');
+ok(nav.includes('appendMachinaGroup("EINSTIEG & RÄUME"')&&nav.includes('appendMachinaGroup("8 HAUPTMODULE"')&&nav.includes('appendMachinaGroup("KARTEN & RETURN"'),'shared Machina sheet separates human entry and rooms, main modules and maps');
 ok(nav.includes('class="a0-machina-mark"')&&nav.includes('<strong>THE MACHINA</strong>'),'shared navigation names and marks the enclosing house instead of promoting Workbench to the top level');
 ok(nav.includes('registerEntry.href = "A0_DATA_AND_REGISTERS.html#top"'),'shared navigation exposes the existing Register as a direct room beside Workbench');
 ok(nav.includes('registerEntry.innerHTML = "<strong>A0 · NSNavigator</strong>"'),'shared navigation names the existing register lens A0 NSNavigator');
@@ -104,13 +110,13 @@ ok((home.match(/class="bench-mode-grid"/g)||[]).length===0,'Werkbank start remov
 ok(home.includes('class="bench-house-overview"'),'Werkbank start places THE MACHINA house before the production chain');
 ok(/data-view="machina"[^>]*aria-current="location"[^>]*href="A0_WERKBANK\.html\?view=machina#machinaHouseTitle"/.test(home),'THE MACHINA house tab stays inside the Workbench overview and marks the enclosing house');
 ok(home.includes('A0_WERKBANK.html?view=demonstrators#bench-page-top')&&home.includes('A0_BUILDER_TOY_STORE.html#arkade'),'Production navigation retains the Demonstrator view and routes Cuts into the Toy Store');
-for(const label of ['THE MACHINA','SOURCE / ASSET','MODULE / TOOL','BENCH CONFIG.','DEMONSTRATOR','TOY STORE / CUTS','Entdecken','Machina Anatomy','Living Blueprint','Workbench','Family Atlas'])ok(home.includes(label),'Werkbank start exposes '+label);
+for(const label of ['THE MACHINA','SOURCE / ASSET','MODULE / TOOL','BENCH CONFIG.','DEMONSTRATOR','TOY STORE / CUTS','Was ist THE MACHINA?','Machina Anatomy','Map Room','IOI · Frozen Machine','Stoffregister Z100','Workbench'])ok(home.includes(label),'Werkbank start exposes '+label);
 const homeMaps=home.match(/<nav class="bench-modes bench-map-nav"[\s\S]*?<\/nav>/)?.[0]||'';
-ok((homeMaps.match(/<a /g)||[]).length===6&&homeMaps.includes('Entdecken')&&homeMaps.includes('8 Hauptmodule')&&homeMaps.includes('Machina Anatomy')&&homeMaps.includes('Living Blueprint')&&homeMaps.includes('Workbench')&&homeMaps.includes('Family Atlas'),'Werkbank keeps one tour, three orientation routes and two supporting maps');
-ok(homeMaps.indexOf('>8 Hauptmodule<')<homeMaps.indexOf('>Machina Anatomy<')&&homeMaps.indexOf('>Machina Anatomy<')<homeMaps.indexOf('>Living Blueprint<')&&homeMaps.indexOf('>Living Blueprint<')<homeMaps.indexOf('>Workbench<'),'Werkbank orders main modules before anatomy, system view and work map');
+ok((homeMaps.match(/<a /g)||[]).length===7&&homeMaps.includes('Was ist THE MACHINA?')&&homeMaps.includes('Machina Anatomy')&&homeMaps.includes('Map Room')&&homeMaps.includes('IOI · Frozen Machine')&&homeMaps.includes('Stoffregister Z100')&&homeMaps.includes('Räume &amp; Builds')&&homeMaps.includes('Workbench'),'Werkbank keeps Human View, Anatomy, Map Room, Machine, Instrument and work in one lower navigation');
+ok(homeMaps.indexOf('>Was ist THE MACHINA?<')<homeMaps.indexOf('>Machina Anatomy<')&&homeMaps.indexOf('>Machina Anatomy<')<homeMaps.indexOf('>Map Room<')&&homeMaps.indexOf('>Map Room<')<homeMaps.indexOf('>IOI · Frozen Machine<'),'Werkbank orders Human View before Anatomy, Map Room and Machine Configuration');
 ok(homeMaps.includes('A0_BENCH_ENTDECKEN.html#body-exhibition'),'Workbench Map opens the role-and-inventory section of the discovery tour');
-ok(homeMaps.includes('A0_LIVING_BLUEPRINT.html#a0-map-home'),'Family Atlas reuses the existing Living Blueprint technical map');
-ok(homeMaps.includes('A0_MACHINA_ANATOMY_MAP.html#mainModules')&&homeMaps.includes('A0_MACHINA_ANATOMY_MAP.html#anatomyMap'),'Werkbank separates the eight main-module entrance from the seven-role anatomy lens');
+ok(homeMaps.includes('A0_LIVING_BLUEPRINT.html#map-room'),'the Living Blueprint remains reachable as the consolidated Map Room');
+ok(homeMaps.includes('A0_MACHINA_ANATOMY_MAP.html#mainModules')&&!homeMaps.includes('A0_MACHINA_ANATOMY_MAP.html#anatomyMap'),'Werkbank uses one Machina Anatomy entrance for eight modules and seven roles');
 ok(!homeMaps.includes('Register')&&!homeMaps.includes('Tools &amp; Modules')&&!homeMaps.includes('Sources &amp; Verify'),'Werkbank map row contains no duplicated global or production routes');
 ok(!home.includes('>Alle Builds<'),'Werkbank no longer hides the Toy Store behind the ambiguous Alle Builds label');
 for(const stage of ['Source / Asset','Module / Tool','Bench Configuration','Demonstrator','Consumer Cut'])ok(home.includes(stage),'Werkbank start exposes production stage '+stage);
@@ -122,12 +128,12 @@ ok(/FLAGSHIP LABS[\s\S]*?A0_SPIN_TO_BLOOM_MEASUREMENT\.html#edelweissBridge[\s\S
 ok(!/DEMONSTRATORS[\s\S]*?Spin → Bloom \/ Edelweiß Bridge/.test(home),'Werkbank no longer leaves Edelweiß in the demonstrator role');
 ok(home.includes('A0_BREATHING_CRYSTAL_APERTURE.html')&&home.includes('Breathing Crystal Aperture'),'Werkbank exposes the bounded Breathing Crystal Aperture demonstrator');
 ok(home.includes('A0_IOTA_BRIDGE_DEMONSTRATOR.html#gridBridgeFlagship')&&home.includes('IOTA Grid Bridge'),'Werkbank separates the Grid Bridge flagship from the 8/12 schedule demonstrator');
-ok(!/<iframe|setInterval|autoplay|\.play\(/i.test(home),'Werkbank start is editorial only');
+ok(home.includes('<iframe loading="lazy"')&&home.includes('EXISTING MODULE · VIEW ONLY')&&!/setInterval|autoplay|\.play\(/i.test(home),'Werkbank start keeps its one declared view-only module passive');
 const toyStore=fs.readFileSync(path.join(__dirname,'A0_BUILDER_TOY_STORE.html'),'utf8');
 const toyStoreCategories=toyStore.match(/<nav class="bench-sections bench-category-tabs[^"]*"[\s\S]*?<\/nav>/)?.[0]||'';
 const toyStoreModes=toyStore.match(/<nav class="bench-modes[^"]*"[\s\S]*?<\/nav>/)?.[0]||'';
 for(const token of ['THE MACHINA','SOURCE / ASSET','MODULE / TOOL','BENCH CONFIG.','DEMONSTRATOR','TOY STORE / CUTS'])ok(toyStoreCategories.includes(token),'Toy Store retains production stage '+token);
-for(const token of ['Entdecken','8 Hauptmodule','Machina Anatomy','Living Blueprint','Workbench Map','Family Connection Map'])ok(toyStoreModes.includes(token),'Toy Store retains tour/orientation/map route '+token);
+for(const token of ['Was ist THE MACHINA?','Machina Anatomy','Map Room','IOI · Frozen Machine','Stoffregister Z100','Räume &amp; Builds','Workbench'])ok(toyStoreModes.includes(token),'Toy Store retains human/orientation/machine/instrument/work route '+token);
 ok(!toyStoreModes.includes('Register')&&!toyStoreModes.includes('Build Atlas')&&!toyStoreModes.includes('Quellen &amp; Prüfen'),'Toy Store removes duplicated global and production routes');
 ok(toyStoreCategories.includes('href="A0_BENCH_MODULES.html"'),'Toy Store sends Module / Tool to its independent shelf');
 ok(toyStoreCategories.includes('aria-current="page" href="#arkade"'),'Toy Store remains the active delivery stage on every internal section');
@@ -184,9 +190,9 @@ for(const file of flagshipPages){
  ok(html.includes('id="bench-page-top"'),file+' owns the stable page-top target');
  ok((html.match(/class="bench-quick-access"/g)||[]).length===1,file+' has one shared quick-access deck');
  const quick=html.match(/<nav class="bench-quick-access"[\s\S]*?<\/nav>/)?.[0]||'';
- ok((quick.match(/<a /g)||[]).length===(isMachina?6:isIotaBridge?7:4),file+' orders its declared quick-access levels');
- ok(isMachina?/<small>01<\/small>[\s\S]*?>EXHIBITION<\/em>[\s\S]*?<small>02<\/small>[\s\S]*?>ORIENTATION<\/em>[\s\S]*?<small>C5<\/small>[\s\S]*?>LIVE BRIDGE<\/em>[\s\S]*?<small>03<\/small>[\s\S]*?>MODELS<\/em>[\s\S]*?<small>04<\/small>[\s\S]*?>WORK<\/em>[\s\S]*?<small>05<\/small>[\s\S]*?>ASSEMBLY<\/em>/.test(quick):isIotaBridge?/<small>01<\/small>[\s\S]*?>ENTRY<\/em>[\s\S]*?<small>02<\/small>[\s\S]*?>DEDICATED<\/em>[\s\S]*?<small>03<\/small>[\s\S]*?>FLAGSHIP<\/em>[\s\S]*?<small>04<\/small>[\s\S]*?>DOCK<\/em>[\s\S]*?<small>05<\/small>[\s\S]*?>WORK<\/em>[\s\S]*?<small>06<\/small>[\s\S]*?>RETURN<\/em>[\s\S]*?<small>07<\/small>[\s\S]*?>CONTROL<\/em>/.test(quick):/<small>01<\/small>[\s\S]*?>ENTRY<\/em>[\s\S]*?<small>02<\/small>[\s\S]*?>(?:DEMO|INTEGRATED|DEDICATED)<\/em>[\s\S]*?<small>03<\/small>[\s\S]*?>WORK<\/em>[\s\S]*?<small>04<\/small>[\s\S]*?>RETURN<\/em>/.test(quick),file+' keeps its declared quick-access role order');
- for(const label of (isMachina?['EXHIBITION','ORIENTATION','LIVE BRIDGE','MODELS','WORK','ASSEMBLY']:isIotaBridge?['ENTRY','WORK','RETURN','CONTROL']:['ENTRY','WORK','RETURN']))ok(quick.includes('>'+label+'</em>'),file+' labels quick-access role '+label);
+ ok((quick.match(/<a /g)||[]).length===(isMachina?7:isIotaBridge?8:4),file+' orders its declared quick-access levels');
+ ok(isMachina?/<small>01<\/small>[\s\S]*?>EXHIBITION<\/em>[\s\S]*?<small>02<\/small>[\s\S]*?>ORIENTATION<\/em>[\s\S]*?<small>C5<\/small>[\s\S]*?>LIVE BRIDGE<\/em>[\s\S]*?<small>LIVE<\/small>[\s\S]*?>12 SEC TOUR<\/em>[\s\S]*?<small>03<\/small>[\s\S]*?>MODELS<\/em>[\s\S]*?<small>04<\/small>[\s\S]*?>WORK<\/em>[\s\S]*?<small>05<\/small>[\s\S]*?>ASSEMBLY<\/em>/.test(quick):isIotaBridge?/<small>01<\/small>[\s\S]*?>ENTRY<\/em>[\s\S]*?<small>02<\/small>[\s\S]*?>DEDICATED<\/em>[\s\S]*?<small>03<\/small>[\s\S]*?>LENS<\/em>[\s\S]*?<small>04<\/small>[\s\S]*?>FLAGSHIP<\/em>[\s\S]*?<small>05<\/small>[\s\S]*?>DOCK<\/em>[\s\S]*?<small>06<\/small>[\s\S]*?>WORK<\/em>[\s\S]*?<small>07<\/small>[\s\S]*?>RETURN<\/em>[\s\S]*?<small>08<\/small>[\s\S]*?>CONTROL<\/em>/.test(quick):/<small>01<\/small>[\s\S]*?>ENTRY<\/em>[\s\S]*?<small>02<\/small>[\s\S]*?>(?:DEMO|INTEGRATED|DEDICATED)<\/em>[\s\S]*?<small>03<\/small>[\s\S]*?>WORK<\/em>[\s\S]*?<small>04<\/small>[\s\S]*?>RETURN<\/em>/.test(quick),file+' keeps its declared quick-access role order');
+ for(const label of (isMachina?['EXHIBITION','ORIENTATION','LIVE BRIDGE','12 SEC TOUR','MODELS','WORK','ASSEMBLY']:isIotaBridge?['ENTRY','WORK','RETURN','CONTROL']:['ENTRY','WORK','RETURN']))ok(quick.includes('>'+label+'</em>'),file+' labels quick-access role '+label);
 }
 const machinaCockpit=fs.readFileSync(path.join(__dirname,'A0_MACHINA_COCKPIT.html'),'utf8');
 ok(machinaCockpit.includes('<a href="#machinaCockpitTitle">Pentagon Cockpit</a>'),'THE MACHINA exposes the Pentagon as its orientation room without hiding the shared Viewer page');

@@ -84,6 +84,79 @@ reverse(1087) = 7801
 They are representation-level facts. They do not establish a mirror operator
 on an independently defined state space.
 
+### Addendum 2026-11-04 — four-carrier reversal handles and common totient drain
+
+The later Owner note places the two decimal-reversal pairs in one four-carrier
+view:
+
+```text
+reverse(1087) = 7801
+reverse(1078) = 8701
+```
+
+This is an exact base-10 handle view, but the arithmetic types are not
+symmetric:
+
+| `n` | factorization | prime? | `phi(n)` | `phi(n)/n` | `d(n)` |
+|---:|---|---|---:|---:|---:|
+| 1087 | prime | yes | 1086 | 0.999080037 | 2 |
+| 7801 | `29 * 269` | no | 7504 | 0.961927958 | 4 |
+| 1078 | `2 * 7^2 * 11` | no | 420 | 0.389610390 | 12 |
+| 8701 | `7 * 11 * 113` | no | 6720 | 0.772325020 | 8 |
+
+Therefore the four numbers may be shown as two reversal handles, but not as
+four prime gates or as a prime-preserving mirror operation.
+
+The proposed compression/expansion pair is also exact after one ratio-label
+correction:
+
+```text
+1032 = 2^3 * 3 * 43
+phi(1032) = 336
+phi(1032)/1032 = 14/43 = 0.325581395...
+d(1032) = 16
+s(1032) = 1608
+s(1032) - 1032 = +576
+
+2301 = 3 * 13 * 59
+phi(2301) = 1392
+phi(2301)/2301 = 464/767 = 0.604954368...
+d(2301) = 8
+s(2301) = 1059
+s(2301) - 2301 = -1242
+```
+
+Thus the earlier displayed `0.6262` for `phi(2301)/2301` is not admitted.
+The polygonal label is read precisely as “the 26th nonagonal number”:
+
+```text
+P_9(26) = (7*26^2 - 5*26)/2 = 2301.
+```
+
+It does not mean that 2301 is the 26th polygonal class or a regular 26-gon.
+The two Euler-totient chains remain distinct before they enter one common
+power-of-two drain:
+
+```text
+1032 -> 336 -> 96 -> 32 -> 16 -> 8 -> 4 -> 2 -> 1
+2301 -> 1392 -> 448 -> 192 -> 64 -> 32 -> 16 -> 8 -> 4 -> 2 -> 1
+```
+
+The shared suffix is exact. `32` is the common entry for these two carriers,
+not a claimed entry point for every possible totient chain.
+
+Finally, the prime-index ledger must keep role and index separate:
+
+```text
+41 = p13
+43 = p14
+97 = p25
+```
+
+There are twelve primes from `p14=43` through `p25=97` when both endpoints
+are counted; the index displacement is eleven. `43` may be styled as a local
+closure/stop marker, but it remains prime and is not an arithmetic stop.
+
 ## Check B — the `7801`, `29`, `269`, `296`, `297` seam
 
 For two distinct primes `p` and `q`,

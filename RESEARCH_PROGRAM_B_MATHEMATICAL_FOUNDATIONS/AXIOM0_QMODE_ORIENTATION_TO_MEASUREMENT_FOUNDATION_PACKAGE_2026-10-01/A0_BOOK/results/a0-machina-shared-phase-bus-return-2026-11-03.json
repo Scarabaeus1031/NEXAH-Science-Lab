@@ -1,0 +1,19 @@
+{
+  "schema": "nexah.return.machina-shared-phase-bus/1.0.0",
+  "date": "2026-11-03",
+  "status": "IMPLEMENTED_BROWSER_ACCEPTED_EXACT_RETURN",
+  "host_id": "NEXAH_A0_ORIENTATION_CONTROLLER_BENCH",
+  "reused_identities": ["NEXAH_A0_ORIENTATION_CONTROLLER_BENCH", "NLK_L_SHELL"],
+  "targets": ["L_c", "NLK_L_SHELL_CUBE_VIEW", "COUPLED_PINK_AXIS"],
+  "display_role": "MINT_COUPLING_LOCK",
+  "controls": ["SHARED_PHASE", "PLAY_ALL", "PAUSE", "EXACT_RETURN"],
+  "browser_acceptance": {
+    "phase_120": "L_c=120; NLK/L-SHELL=120; Pink Axis=MINT LOCK / ADDRESSES HELD",
+    "player": "advanced all targets and paused successfully",
+    "exact_return": "L_c=0; NLK/L-SHELL=0; Pink Axis=MINT RETURN / SOURCE PAIR HELD"
+  },
+  "tests": {"contract": "PASS", "syntax": "PASS", "browser": "PASS"},
+  "source_mutation": false,
+  "graph_delta": {"ids": 0, "aliases": 0, "relations": 0},
+  "claim_ceiling": "Shared display phase only; no shared body physics, source clock, operator, Study, Finding or evidence relation."
+}

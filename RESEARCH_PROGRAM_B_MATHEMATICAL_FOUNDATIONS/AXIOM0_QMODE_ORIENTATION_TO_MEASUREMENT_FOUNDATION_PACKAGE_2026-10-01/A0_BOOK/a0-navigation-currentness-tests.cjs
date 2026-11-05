@@ -47,14 +47,15 @@ assert.deepEqual([...directoryPages].sort(), [...htmlPages].sort(), "thematic di
 assert.deepEqual([...orientationPages].sort(), [...htmlPages].sort(), "A0 Navigator page inventory drift");
 
 assert.match(contextSource, /"key": "science"[\s\S]*?"entry": "A0_SCIENCE\.html#top"/);
-assert.match(contextSource, /"key": "builder"[\s\S]*?"entry": "index\.html\?projection=builder-showcase#top"/);
+assert.match(contextSource, /"key": "builder"[\s\S]*?"entry": "A0_BUILDER_TOY_STORE\.html#top"/);
 assert.match(contextSource, /\["A0_SCIENCE\.html#top", "A0 Science"/);
-assert.match(contextSource, /scienceViewLink\.href = scienceReaderHref/);
-assert.match(contextSource, /builderViewLink\.href = builderShowcaseHref/);
-assert.match(contextSource, /Builder Status Report\.html|BUILDER_STATUS_REPORT\.html\?standalone=1/);
+assert.match(contextSource, /scienceViewLink\.href = scienceDeskHref/);
+assert.match(contextSource, /builderViewLink\.href = builderDeskHref/);
+assert.match(contextSource, /const builderShowcaseHref = "A0_BUILDER_TOY_STORE\.html#top"/);
+assert.doesNotMatch(contextSource, /A0_BUILDER_LOG\.html\?rev=currentness-r3-20261031#top/);
 assert.match(contextSource, /const pairedLane = \(\) => lane/);
-assert.match(contextSource, /triggers: \[scienceLaneSummary, scienceViewLink\]/);
-assert.match(contextSource, /triggers: \[builderLaneSummary, builderViewLink/);
+assert.match(contextSource, /triggers: \[scienceLaneSummary\]/);
+assert.match(contextSource, /triggers: \[builderLaneSummary, \.\.\.localBuilderEntries\]/);
 assert.doesNotMatch(
   contextSource,
   /"key": "science"[\s\S]*?"entry": "A0_RESEARCH_DESK\.html/

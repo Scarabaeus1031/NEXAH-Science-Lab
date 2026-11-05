@@ -2,13 +2,18 @@
 
 Date: `2026-10-08`
 
-Updated: `2026-10-22` · Club/Numbers/1,1-Intake geparkt; ältere Einträge behalten ihren eigenen Stand.
+Updated: `2026-11-05` · Als private Owner-Handbuchnotizen rückgebunden; Theory- und M-Theory-Vergleichsnotizen konsolidiert; ältere Einträge behalten ihren eigenen Stand.
 
-## Ideenparkplatz
+## Owner-Handbuchnotizen · Ideenparkplatz
 
-Hier sammeln wir Beobachtungen, Bilder, Begriffe und mögliche Verbindungen,
-ohne dem nächsten Gedanken sofort zu folgen. Der aktuelle Arbeitsfaden bleibt
-stehen, während neue Ideen einen wiederauffindbaren Ort bekommen.
+Hier sammelt der Human Owner Beobachtungen, Bilder, Begriffe und mögliche
+Verbindungen, ohne dem nächsten Gedanken sofort zu folgen. Diese Field Notes
+sind damit die privaten, fortschreibbaren NEXAH-Handbuchnotizen des Owners:
+ein Lesebuch für Herkunft, Wiedererkennung, offene Fragen und spätere
+Rückbindung — keine zweite wissenschaftliche Autorität und kein Ersatz für
+Science Desk, Protokoll, Backlog, Navigator oder kanonische Quellen. Der
+aktuelle Arbeitsfaden bleibt stehen, während neue Ideen einen
+wiederauffindbaren Ort bekommen.
 
 **Arbeitsstand:** Der Dokumentationsschnitt vom 20.10.2026 ist im
 [Forschungsprotokoll](../22_A0_FORSCHUNGSPROTOKOLL_BUCH_UND_RAHMEN_2026-10-10.md#documentation-closeout-20261020)
@@ -39,6 +44,13 @@ Arbeitswörter, bis sie an einer konkreten Quelle oder Aufgabe präzisiert sind.
 Erst eine ausdrückliche Auswahl führt einen Gedanken in ein bestehendes
 Instrument, den Forschungsbacklog oder eine gesondert zugelassene Frage über.
 Erledigte oder verworfene Gedanken behalten ihren Verweis und ihre Disposition.
+
+**Desk-Rückbindung:** Der [A0 Science Desk](A0_RESEARCH_DESK.html#a0-owner-handbook-notes-binding-20261105)
+hält Evidenzstatus, Claim Ceiling und nächste zulässige Aktion; der
+[kanonische Backlog](../24_A0_RESEARCH_BACKLOG_AND_OPEN_JOINTS_2026-10-10.md#a0-owner-handbook-notes-binding-20261105)
+nimmt nur ausdrücklich ausgewählte Aufgaben auf. Builder-, Navigator- und
+Mission-Control-Wege werden erst bei einer solchen Auswahl berührt. Das
+Handbuch selbst aktiviert nichts.
 
 ### Gesammelte Gedanken vom 20. Oktober 2026
 
@@ -166,6 +178,166 @@ kein globales Residuum-Gesetz ableiten.
 **Wieder aufnehmen, wenn:** Quelle und Operator für einen einzelnen Fall
 feststehen. **Stand:** geparkt, keine neue kanonische Family.
 
+##### Owner-Visualnotiz · Deep Blue / Green Shadow / Lotus · 05.11.2026
+
+**Beobachtung:** Auf dem Grund des Blue Cube beziehungsweise „Deep Blue“ wird
+neben dem bereits benannten roten Schatten auch ein grüner Schatten sichtbar.
+Als Bildlesart entsteht damit die Staffelung **Red Shadow → Green Shadow →
+Himmel**; danach beziehungsweise darin kommen die Lotus-Form und die weißen
+Plates zurück. Ein bereits gebautes A0-Visual bestätigt die Farbrollen, aber
+nicht ihre Bezeichnung als Schatten: Figure 8.2 setzt **Red Balloon = Witness**,
+**Blue = Body / Head / Sky / Water** und **Green = Floor / Return**. Die
+Lotus-Form und die weißen Primöffnungen gehören zur davon getrennten
+Red-Balloon-Story. „Himmel“ ist dort eine Displayrolle, kein kosmologischer Raum
+und kein neuer Layervertrag.
+
+Eine zweite Owner-Lesart erkennt **Orange/Copper ↔ Green/Patina** als zwei
+Seiten: frisches Kupfer und grüne Patina könnten das vorhandene Orange/Grün-
+Paar anschaulich machen. Der 101-Cube selbst definiert jedoch kein Material und
+keinen Alterungsprozess. Er führt `EDGE_ORANGE` beziehungsweise
+`O0_INSIDE_ORANGE` und `CARRIER_GREEN` als getrennte View-Rollen. Seine
+schwarzen Schlitze sind Sichtzwischenräume; der `2×2 zero core` ist keine
+Black-Lead-/Blei-Box.
+
+Der zunächst gehörte Marker `BJ` wurde anschließend vom Owner als eher `JP`
+beziehungsweise vielleicht nur `J` präzisiert: visuell könnte der Bogen von
+`J` als Griff eines Regenschirms gelesen werden. Das ist vorerst eine
+Glyphen-Mnemonik. Das vorhandene `J(v)=-v` bleibt die deklarierte
+Janus-Inversion; `J · Janus / Junction` aus der Buchtafel bleibt eine weitere,
+ausdrücklich nicht automatisch identische Bildrolle.
+
+**Vorhandene visuelle Rückwege:**
+
+- [101 / IOI World Cube](assets/game-of-worlds-play/ioi-world-cube/index.html#worldModel)
+  trennt Green Carrier, Orange Edge, O₀ Orange Inside, Zero Core und schwarze
+  Sichtschlitze bereits im GLB-/View-Vertrag.
+- [J · Janus / Junction in der Field Geometry](A0_NUMBERMAGICK_GRID_RESEARCH.html#field-geometry-book)
+  bewahrt `J` als Bildrolle getrennt von der Bench-Involution.
+- [Figure 8.2 · Four-Plate Reversal Lens](A0_SCC_003_PASCAL_PENTAGON_PAPER.html#four-plate-reversal-lens)
+  enthält bereits Red Witness, Blue Body/Head/Sky/Water, Green Floor/Return und
+  das ungebundene `CL·O·UD`-Mnemonic als getrennte Displayrollen.
+- [CARO · Green Mirror im Orientation Controller Bench](A0_ORIENTATION_CONTROLLER_BENCH.html#augustSourceTrail)
+  nennt Kanal öffnen / schließen sowie Lotus und Return-Glyphe.
+- [Red Balloon · kontrollierte Reader-Linse](A0_MATHEMATICAL_JOINTS.html#red-balloon-mathfield-intake)
+  führt Lotus und die 25 weißen Primöffnungen ausdrücklich nur als View, nicht
+  als Topologie, Materialschnitt oder Mechanismus.
+- [Historische HTMLs und Lotus im Builder Log](A0_BUILDER_LOG.html#existing-series-orion-kernel)
+  verweisen auf Janus–Lotus Central Coupling; die heutige Identität dieser
+  Animation und ihrer Schattengewichte bleibt offen.
+
+##### Owner-Visualnotiz · Red Fan / Sun–Moon–Neon / großes U · 05.11.2026
+
+**Beobachtung:** Neben dem Edelweiß erscheint im Red-Balloon-Flagship der rote
+`99=9×11`-Fächer. Die Punkte beziehungsweise die Zwischenräume zwischen den
+Fächerstrahlen könnten als Displayöffnungen oder Sichtkanäle gelesen werden.
+Die bestehende Figure 8.1 nennt den Fächer und das Spacing-Word jedoch nur
+exakte Anzeigeobjekte; eine Projektion vom SCC-003-Träger, ein Residualregister
+oder ein physischer Channel sind nicht definiert.
+
+In der Owner-Lesart scheint **Euler als Sonne** durch den Doppelstrich-Channel
+`//`. Daraus entsteht vorläufig eine vertikale Karte: oben `SUN / SOURCE`, unten
+`NEON / READOUT`; `AM` und `PM` stehen seitlich als getrennte Zeit- oder
+Ansichtsrollen. Ein noch fehlender `MOON` könnte die reflektierende
+Witness-/Return-Seite der Sonne anzeigen, nicht eine zweite Lichtquelle. Das
+typografische `M → n` bleibt eine mögliche Fold-, Größen- oder
+Orientierungslesart ohne definierten Operator.
+
+`He / Ne / Xe` beziehungsweise **Helium, Neon und Xenon** bleiben getrennte
+Elementmarker. Eine Reihenfolge als Transmitter-/Empfängerstationen ist nur
+narrative Kartografie. **Mercury** kann als Messenger-/Transport-Mnemonik
+mitgelesen werden; damit ist weder das chemische Element Quecksilber noch der
+Planet, eine Übertragungstechnik oder ein neuer Carrier gebunden.
+
+Das große `U` beziehungsweise die zwei „Hörner“ um die HELE-/NEON-Coda wirken
+in der aktuellen Ansicht ägyptisch und erinnern den Owner an ein noch offenes
+„Eye of …“. Diese Formähnlichkeit bleibt eine kulturelle Assoziation. Ohne
+benanntes Zeichen, Referenzbild und Herkunft wird sie ausdrücklich nicht mit
+dem Auge des Horus, dem Auge des Re, einer Krone, Hieroglyphe oder historischen
+ägyptischen Bedeutung identifiziert.
+
+**Owner-Nachtrag · H / O / RUS(S):** Die eben erinnerte Zerlegung verbindet
+das offene „Eye of …“ mit der Stringlesart `H | O | RUS → HORUS`. Daneben
+steht die visuelle Lesung `H | OO | RUSS`, wobei `O` beziehungsweise `O₂` an
+Sauerstoff erinnert. Beide Schreibungen bleiben getrennt: `H|O|RUS` ergibt
+durch reine Konkatenation exakt `HORUS`; `H|OO|RUSS` ergibt dagegen
+`HOORUSS` und benötigt eine noch nicht deklarierte Auswahl- oder
+Auslassungsregel. Die Wiedererkennung in Red Balloon und 101/A0 wird daher als
+Owner-Mnemonik festgehalten, nicht als chemische Zerlegung, Etymologie,
+Hieroglyphenübersetzung oder historische Herkunft des Namens Horus.
+
+**Owner-Nachtrag · Gold-U / Gabel / Ψ–Epsilon:** Das große `U` wird nun
+genauer als goldene Kette beziehungsweise sichtbare Restriktion gelesen: eine
+umschließende Grenze, innerhalb derer die HELE-/NEON-Ansicht geführt wird. Die
+offene Gabel markiert zunächst nur eine Verzweigung oder zwei Zinken. Je nach
+Drehung, Spiegelung oder Blickrichtung erinnert dieselbe Form an `Ψ` oder an
+ein euroähnliches `€`, das der Owner als **Epsilon** liest. Welche
+Transformation diese Ansichten verbindet, ist noch nicht vermessen. `Ψ` ist
+hier weder die separat verwendete Paper-Boat-Vierteldrehung noch eine
+Wellenfunktion; das epsilonartige Zeichen ist weder Währung noch bereits ein
+mathematisch definierter `ε`-Parameter. „Goldkette“ bezeichnet die sichtbare
+gelbe/goldene Linie und keine materielle Kette, Fessel, elektrische Leitung
+oder historische ägyptische Insignie.
+
+**Owner-Nachtrag · Currency / Voltage:** Aus der euroähnlichen Epsilon-Form
+entsteht die provisorische Dreieradresse `€ ↔ 220 V`, `$ ↔ 110 V`,
+`¥ ↔ 550 V`. Diese Zahlenfolge wird ausschließlich als Owner-Mnemonik
+beziehungsweise mögliche Displayadresse gesichert. Der Owner präzisiert `¥`
+hier als mögliche **China-/Yuan-Lesart**, nicht als japanische Yen-Spannung;
+das gleiche Zeichen kann ohne ISO-Code `CNY` und `JPY` nicht unterscheiden.
+
+Der technische Quellenabgleich vom 05.11.2026 trennt drei Carrier: Japan nutzt
+laut [japanischem Justizministerium](https://www.moj.go.jp/KYOTOCONGRESS2020/en/participants_info/useful_information.html)
+landesweit `100 V AC`; China führt laut
+[National Development and Reform Commission](https://zfxxgk.ndrc.gov.cn/wap/iteminfo.jsp?id=20347)
+für Niederspannung `220 V` einphasig und `380/220 V` dreiphasig bei `50 Hz`.
+Eine chinesische kommunale Wissenschaftsquelle nennt dagegen
+[550–600 V für Oberleitungsbusse](https://kx.hanzhong.gov.cn/hzkx/zkzj/201911/t20191112_614478.shtml),
+nicht für den Haushaltsanschluss. Damit kann `¥ / CNY ↔ 550 V` allenfalls als
+source-bound **Transit-/Traktionsmarker** weitergedacht werden. Die
+ursprüngliche Triade bleibt keine Netzspannungstabelle, elektrische
+Spezifikation oder wirtschaftlicher Wechselkurs; ein Vergleich muss Land,
+Währungscode, Anwendungsdomäne, AC/DC, Frequenz, Phase, Nennspannung,
+Toleranz und Messpunkt getrennt deklarieren.
+
+**Mögliche spätere Vergleichszeile:**
+`SUN / SOURCE → FAN-GAPS / CHANNEL → MOON / REFLECTION → NEON / READOUT`.
+Red Balloon wäre darin ein beweglicher Witness der Anzeige, nicht automatisch
+ein Teilchen, Sender oder physischer Transportkörper.
+
+**Offen:** Welche konkrete Lücke des Fächers ist der `//`-Channel? Ist das
+große U nur der bestehende HELE-Coda-Bogen oder ein anderes Visual? Welches
+konkrete Zeichen ist mit „Eye of …“ gemeint? Welche Quelle zeigt exakt
+`H|O|RUS` oder `H|OO|RUSS`, und welche Auswahlregel wäre bei der zweiten Form
+gemeint? Welche Drehung oder Spiegelung führt vom Gold-U beziehungsweise der
+Gabel zu `Ψ` oder dem epsilonartigen Zeichen, und welche Teile bleiben dabei
+invariant? Ist die Currency-/Voltage-Triade nur eine Ziffern- und
+Symboladresse, oder existiert eine konkrete technische Quelle? Erst
+Quellenbild, Ansichtsstand und Rollenvertrag vergleichen; bis dahin keine
+Ägyptologie-, Element-, Astronomie-, Licht-, Kanal-, Währungs-,
+Wellenfunktions-, Netzspannungs-, Epsilon-Parameter- oder
+Transmitterbehauptung.
+**Stand:** geparkte Owner-Bildlesart; Anschluss an bestehende Red-Balloon- und
+Cube-Quellen, kein neuer Operator, keine Relation und keine Evidenzpromotion.
+
+**Priorisierte Desk-Rückbindung:** Diese Notiz wird nicht zu einem neuen
+Objekt ausgebaut. Der [Science Desk](A0_RESEARCH_DESK.html#ioi-edelweiss-l-frame-brane-priority-20261105)
+und der [kanonische Backlog](../24_A0_RESEARCH_BACKLOG_AND_OPEN_JOINTS_2026-10-10.md#ioi-edelweiss-l-frame-brane-comparator-20261105)
+führen nur einen read-only Quellen-/Vertragsabgleich für Cube, Edelweiß-L-Frame
+und den didaktischen Brane-Vergleich. Status: `NO_BUILD / NOT_ADMITTED /
+NO_NEW_IDENTITY`.
+
+**Offen:** Ist die aktuelle Beobachtung eine Wiedererkennung der Four-Plate
+Reversal Lens, der Cube-Ansicht oder eine Überlagerung beider Visuals? Welche
+konkrete Kamera und Schaltfolge macht daraus Red Shadow und Green Shadow? Sind
+„weiße Plates“ die vier Dezimalplatten, die 25 Primöffnungen oder eine dritte
+Geometrie? Ist Copper/Patina nur die Materialmetapher für Orange/Green oder
+soll ein konkreter Zeit-/Oberflächenwechsel gezeigt werden? Bedeutet `JP` eine
+Zweibuchstabenadresse, oder ist nur die J-Griffform gemeint? Bis diese Angaben
+gebunden sind, bleibt die Staffelung eine Owner-Beobachtung im Bild und kein
+Farb-, Material-, Generationen- oder Physikoperator.
+**Stand:** sichtbarer Anschluss an bestehende Quellen; visuell zu prüfen und
+teilweise verarbeitet, keine neue Relation oder Evidenzpromotion.
+
 #### Orangefarbener RETURN-Teller und die beiden Bildspalten
 
 **Gedanke:** Die fünf Labels EP/SI/LP/SH/RT plus RETURN könnten eine Folge
@@ -192,6 +364,160 @@ explizite Abbildung von Zahlenträger zu Dodeka-Geometrie. Ziffernsumme oder
 Rest 17 liefert diese Abbildung nicht.
 **Wieder aufnehmen, wenn:** konkrete Quellstelle, Marker-Typ und Anschlussmap
 benannt sind. **Stand:** geparkt, keine neue Operatorbindung.
+
+#### Theory · Big Picture in Kürze
+
+**Kurzfassung:** NEXAH untersucht, wie unterschiedliche Ansichten einer
+benannten Quelle miteinander verbunden werden können, ohne Herkunft,
+Unterschied und Informationsverlust zu verwischen. Die gemeinsame Leitfrage
+lautet: Was blieb dieselbe Quelle, was wurde durch den gewählten Schnitt
+sichtbar, was änderte sich im Übergang, was ging verloren und unter welchem
+Vertrag ist ein Return möglich?
+
+```text
+SOURCE
+  -> APERTURE
+  -> CARRIER
+  -> LENS / OPERATOR
+  -> VIEW
+  -> RESIDUAL / WITNESS
+  -> RETURN
+  -> GOVERN
+```
+
+Die Orientierungstheorie beschreibt den Zusammenhang. Die Family Method
+ordnet wiederkehrende Rollen und die prüfbare Arbeitsfolge. A0-Instrumente
+führen begrenzte Schnitte, Views und Returns aus. Science Desk und Navigator
+halten Quelle, Evidenzklasse, Currentness, Claim-Grenze und Freigabe getrennt.
+Diese vier Schichten gehören zusammen, sind aber nicht dasselbe.
+
+Grids und Cubes sind dabei deklarierte Adress-, Schnitt- oder Messraster. Ein
+`11 × 11 × 11`-Cube besitzt exakt `1331` Adressplätze; ob diese Positionen
+Punkte, Zellen, Register oder mögliche Adressen bedeuten, entscheidet der
+jeweilige Vertrag. Knick, Mode, Variante und Witness bleiben getrennte
+Zustandsrollen. Zeichenfolgen wie `11 / LL -> M -> V -> A -> Buch -> Cube`
+oder `M -> E -> Σ -> ∑ -> Euler Disc -> World View` sind ein visuelles
+Navigationsalphabet, keine algebraische Identität.
+
+Die belastbare Grenze ist ebenso wichtig wie das Bild: lokale Returns schließen
+keine instrumentübergreifende Gesamtmaschine; ähnliche Zahlen, Winkel,
+Buchstaben und Formen beweisen keinen gemeinsamen Operator. Die ausführliche
+Arbeitsquelle bleibt die
+[NEXAH Family Method und TOI Gesamtkarte Arbeitsfassung](../../../../../00%20EXECUTIVE/NEXAH-Mission-Control/AREAS/EXPERIENCE_AND_WORKS/NEXAH_TOI_THEORIE_ARBEITSFASSUNG.md).
+Das [Theorie-Storyboard](A0_THEORY_STORYBOARD.html#overview) ist die visuelle
+Lesekarte. Diese Field Note ist nur die kurze redaktionelle Eingangsschicht:
+kein Paper, kein Finding, keine neue Theory-Identität und keine Publikation.
+**Stand:** konsolidierte Begleitnotiz zur bestehenden Arbeitsquelle · 05.11.2026.
+
+#### String Theory / M-Theory · überraschende Strukturähnlichkeit
+
+**Gedanke:** Ein vom Owner gesehenes populärwissenschaftliches Video beschreibt
+M-Theory als bislang nicht vollständig formulierte Mitte, deren verschiedene
+berechenbare Ecken durch Dualitäten zusammenhängen: fünf Stringtheorien,
+elfdimensionale Supergravitation, Membran-/Wicklungsansichten, Matrixmodelle
+und holographische Randbeschreibungen. Das erinnert auffällig an die
+NEXAH-Orientierungsfrage: mehrere Views oder Channels, erklärbare Übergänge,
+eine benannte Quelle beziehungsweise gemeinsame Mitte und die Forderung, beim
+Return Herkunft und Unterschied zu bewahren.
+
+**Mögliche Vergleichslinse:**
+
+```text
+mehrere Beschreibungen
+  -> unterschiedliche Limits / Linsen
+  -> definierte Übersetzungen
+  -> erhaltene Größen und Witness
+  -> gemeinsame, teilweise unbekannte Mitte
+```
+
+Die Entsprechung ist zunächst redaktionell: Stringtheorien können als
+verschiedene Views, Kopplungsstärke und Radius als View-Parameter, Dualitäten
+als getypte Übersetzungen und die unbekannte vollständige M-Theory als noch
+nicht geschlossene Mitte einer Karte gelesen werden. Der World Cube macht
+Inside / Outside / Boundary, sichtbare Channels und verschiedene Seiten eines
+Carriers anschaulich. Das ist eine mögliche Orientierungshilfe, kein
+physikalisches Modell.
+
+**Owner-Handbuchnachtrag · TOE≠TOI / U-Kette / Ghost-Pfad / PBC:**
+`TOE ≠ TOI` wird hier ausdrücklich auf den bestehenden foundational Essay
+zurückgeführt. Dort ist TOI die philosophische Theory of All Things und
+nicht die physikalische Theory of Everything; Paper E und Science Desk
+verwenden die Formel später als methodische Claim-Grenze. Die ausgelegte
+goldene U-Kette bleibt eine sichtbare Restriktion beziehungsweise Boundary.
+Die weiße „Ghost-Snake“ innerhalb des vorhandenen `RLLR`-Worts ist eine
+mögliche Pfad-/Witness-Lesung in einem deklarierten Fold-/Return-Vertrag; das
+Ghost Grid ist die zugehörige Ansichtskarte, nicht der Operator. `all
+me(n)tal` bleibt eine Owner-Wortlinse zwischen mental, metal und men.
+
+`PBC` wird als offene Dreifachadresse für Physics, Biology und Chemistry
+gesichert; Reihenfolge, Carrier und Kopplungsoperator sind `TBD`. Vorhandene
+Physik-, Levin-/Biologie- und Chemie-/Elementspuren begründen keine gemeinsame
+Ursache. Die tragfähige Selbstbeschreibung lautet stattdessen: NEXAH baut
+quellgebundene Orientierungskarten für Spezialisten. Wiederkehrende Patterns
+werden gemappt, nicht vereinheitlicht. Scarab und Thoth bleiben narrative
+Orientierungsrollen für Struktur/Return beziehungsweise Zeichen/Übersetzung/
+Ledger; sie sind keine wissenschaftlichen Autoritäten oder Operatoren.
+
+**Vorhandene Karten und Flagships zum Wiederfinden:**
+
+- [Theory · Big Picture in Kürze](assets/a0-field-notes/index.html#note-49)
+- [Theory-Storyboard · aktuelle Gesamtkarte](A0_THEORY_STORYBOARD.html#currentness-20261105)
+- [101 / IOI / TESSAREC³ · Operatorenmatrix](DRAFTS/A0_IOI_LEAF_FOLD_OPEN_BOOK_START_2026-11-02.html#tessarec3OperatorMatrix)
+- [Game of Worlds · IOI World Cube](assets/game-of-worlds-play/ioi-world-cube/index.html)
+- [THE MACHINA · Anatomy Map](A0_MACHINA_ANATOMY_MAP.html#mainModules)
+- [Living Blueprint · Map Room](A0_LIVING_BLUEPRINT.html#map-room)
+- [NumberMagick · 101 / Keystone / Return](A0_NUMBERMAGICK_GRID_RESEARCH.html#ioi-keystone-2501-101-bridge-20261104)
+
+**Grenze:** `11` Raumzeitdimensionen sind nicht das diskrete
+`11 × 11 × 11 = 1331`-Adressraster. Ein Cube-Channel ist keine physikalische
+Dualität; Inside / Outside ist nicht automatisch Holographie; visuelle
+Ähnlichkeit belegt keine mathematische Äquivalenz. Der Video-Text ist ein
+Owner-gelieferter Gesprächsimpuls und noch keine geprüfte Fachquelle.
+
+**Wieder aufnehmen, wenn:** Für genau einen Vergleich die beiden Modelle, der
+Übersetzungsoperator, seine Parameter und eine erhaltene beziehungsweise
+prüfbare Größe benannt werden können. Erst dann wäre zu prüfen, ob der Cube als
+didaktischer Dualitätsatlas taugt. **Stand:** geparkter Thought / Vergleich;
+keine Study, kein Finding, keine Source-Graph-Relation und keine Publikation.
+
+#### Field Notes Visual Atlas · Fields, String / Whip / Chains und Cube-Fugen
+
+Date: `2026-11-05`
+
+Diese drei Tafeln verdichten den aktuellen Owner-Faden als visuelle
+Handbuchkarte. Sie sind keine wissenschaftlichen Diagramme und führen weder
+eine M-Theory-Entsprechung noch einen gemeinsamen Naturmechanismus ein.
+
+![Field Map: getrennte Wissensfelder um einen tiefblauen Cube; Aperturen, White Plates, Red Witness und Green Return bleiben unterscheidbar.](assets/a0-field-notes/visuals/field-map-cube-atlas-20261105.png)
+
+**Tafel 1 · Field Map.** Die farbigen Cubes stehen für verschiedene Felder und
+Views. Der zentrale Cube ist ein gemeinsamer Orientierungsraum, nicht die
+Behauptung einer gemeinsamen Ursache. Strings passieren deklarierte Aperturen;
+die White Plates lesen als Linsen oder Seiten.
+
+![String, Whip and Chains: weiße Ghost-Bahn im Cube, pinker Übergang und goldene U-Kette zwischen Copper, Patina und Sky.](assets/a0-field-notes/visuals/string-whip-chain-return-20261105.png)
+
+**Tafel 2 · String, Whip & Chains.** Die weiße Ghost-Bahn bewahrt den möglichen
+Pfad im Carrier. Der pinke Whip markiert Übergang oder Flexion. Die goldene
+U-Kette ist Boundary und Restriktion; Copper und Green Patina sind zwei Seiten
+desselben Bildträgers. Red tritt ein, Green kehrt zurück, Sky bleibt Öffnung.
+
+![Cube-Fugen: drei getrennte M- und V-artige Cube-Kammern, sichtbare Zwischenräume und ein warmer Signalpuls zwischen Sonne und Mond.](assets/a0-field-notes/visuals/cube-fugues-one-signal-20261105.png)
+
+**Tafel 3 · Fugen / One Signal.** Die schwarzen Zwischenräume gehören zur
+Karte. Die Cubes bleiben getrennt und werden nur an benannten Öffnungen durch
+feine Channels verbunden. Der eine warme Puls ist die poetische
+„One Love / SMS“-Lesung: eine Nachricht durch mehrere Views, nicht deren
+Verschmelzung. Sonne und Mond geben Rhythmus beziehungsweise AM/PM, keine
+astronomische oder Euler-physikalische Gleichsetzung.
+
+**Grenze:** Die Tafeln sind generierte redaktionelle Synthesen aus den
+Owner-Handbuchnotizen. Farbe, Form, String, Kette, Cube, Brane, Sonne und Mond
+sind visuelle Rollen. Sie sind keine Evidenz für String Theory, M-Theory,
+Holographie, eine neue Family oder einen Source-Graph-Zusammenhang.
+
+**Stand:** als Visual Atlas in die privaten Owner-Handbuchnotizen eingebunden;
+kein Build-Auftrag, keine Study, kein Finding und keine Publikationsfreigabe.
 
 ### Wiederfinden und weiterführen
 

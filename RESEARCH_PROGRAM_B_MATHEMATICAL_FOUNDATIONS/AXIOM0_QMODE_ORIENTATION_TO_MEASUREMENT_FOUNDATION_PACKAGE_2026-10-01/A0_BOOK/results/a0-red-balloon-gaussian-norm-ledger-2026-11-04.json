@@ -1,0 +1,132 @@
+{
+  "record": "A0_RED_BALLOON_GAUSSIAN_NORM_LEDGER_2026_11_04",
+  "record_class": "bounded_calculation_receipt",
+  "source_identity": "NEXAH_AX0_QMODE_FOUNDATION_PACKAGE",
+  "reuses": "red-balloon-sieve-quaternion-ledger-20261104",
+  "source_bindings": [
+    "A0_RESEARCH_DESK.html#red-balloon-sieve-quaternion-ledger-20261104",
+    "../49_A0_SCARAB_TOTIENT_OPERATOR_SPINE_SOURCE_AUDIT_2026-10-13.md#addendum-2026-11-04--four-carrier-reversal-handles-and-common-totient-drain",
+    "A0_WERKBANK.html#eselCicadaCounter",
+    "results/a0-esel-cicada-harmonica-counter-return-2026-10-30.json"
+  ],
+  "parameters": {
+    "L": 50,
+    "m": [0, 1, 2]
+  },
+  "verified_equalities": [
+    "(50+i)(50-i)=2501",
+    "50^2+1=2501",
+    "2501=41*61",
+    "N((1+i)^m(50+i))=2^m*2501",
+    "m=0 -> 2501",
+    "m=1 -> 5002",
+    "m=2 -> 10004",
+    "50+i=sqrt(2501)*exp(+i*atan(1/50))",
+    "50-i=sqrt(2501)*exp(-i*atan(1/50))",
+    "1+i=sqrt(2)*exp(+i*pi/4)",
+    "1-i=sqrt(2)*exp(-i*pi/4)",
+    "abs(19-5)=14",
+    "abs(12-5)=7",
+    "14:7=2:1",
+    "(14,7)!=(2,1)",
+    "right_multiply_q(a,b,c,d)=(a-b+c,a+b+d,-a+c+d,d-b-c)",
+    "u=i-j",
+    "u^2=-2",
+    "A_next=A-2B",
+    "B_next=A+B",
+    "j=-i and k=0 is invariant under right multiplication by q=1+i-j",
+    "k=0 and i+j!=0 implies k_next=-(i+j)!=0",
+    "d*k*(1+i-j)=d*(i+j+k)",
+    "reverse10(1087)=7801",
+    "reverse10(1078)=8701",
+    "7801=29*269",
+    "1078=2*7^2*11",
+    "8701=7*11*113",
+    "41=p13",
+    "43=p14",
+    "97=p25",
+    "phi(1032)=336",
+    "phi(2301)=1392",
+    "phi(2301)/2301=464/767",
+    "2301=P_9(26)",
+    "totient_chain(1032)=1032->336->96->32->16->8->4->2->1",
+    "totient_chain(2301)=2301->1392->448->192->64->32->16->8->4->2->1"
+  ],
+  "status": {
+    "algebra": "EXACT",
+    "gaussian_norm_ladder": "EXACT",
+    "polar_e_plus_minus_pair": "EXACT",
+    "e_hinge_address_ratio": "EXACT_SOURCE_BOUND_COMPARATOR",
+    "quaternion_recurrence": "EXACT",
+    "u_axis_invariance": "EXACT",
+    "decimal_reversal_handles": "EXACT_BASE10_VIEW_ONLY",
+    "prime_preserving_reversal": "REJECTED",
+    "compression_expansion_arithmetic": "EXACT_WITH_2301_RATIO_CORRECTION",
+    "common_totient_suffix": "EXACT_FOR_1032_AND_2301",
+    "root7_reactivation": "NOT_AUTHORIZED_NOT_ESTABLISHED",
+    "e_hinge_to_quaternion_relation": "VISUAL_COMPARATOR_ONLY_NO_OPERATOR_BINDING",
+    "LE_XI": "OWNER_MNEMONIC_HOLD_UNDEFINED",
+    "a0_iota_keystone_interpretation": "OPEN_REQUIRES_TYPED_ENCODER_AND_COMPARATOR_FAMILY"
+  },
+  "owner_staging_candidate": {
+    "state": "UNCOMMITTED_LOCAL_OWNER_STAGING",
+    "public_channel": "nexah.de",
+    "production_target": "https://nexah.de/scc-003-r1/generation-study/",
+    "canonical_sources": [
+      {
+        "repository": "NEXAH-Science-Lab",
+        "path": "RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/A0_RESEARCH_DESK.html",
+        "sha256": "053757150bb82c082e6f3a964a545490e0f238b491ab30a4b324f01e5c02d6b2"
+      },
+      {
+        "repository": "NEXAH-Experience",
+        "path": "src/pages/scc-003-r1/generation-study/index.astro",
+        "sha256": "7d819ceb804f675abf9e6195187bdab19e79802de345677453dbefc567800c16"
+      }
+    ],
+    "currentness_chain": [
+      "SCIENCE_LAB/NAVIGATION/EVIDENCE/A0_ORIENTATION_EVIDENCE_LINEAGE_2026-10-10/A0_ORIENTATION_EVIDENCE_LINEAGE_BINDER_V1_2026-10-10.json",
+      "SCIENCE_LAB/NAVIGATION/APP/a0-orientation-evidence.internal.js",
+      "SCIENCE_LAB/NAVIGATION/GOVERNANCE/SOURCE_GRAPH_INDEX_V1_2026-10-10.json",
+      "CURRENT/NAVIGATOR_SOURCE_GRAPH_CONTROL.json",
+      "CURRENT/NAVIGATOR_CONTROL.md",
+      "CURRENT/CONTROLLING_SOURCES.csv",
+      "CURRENT/MANIFEST_SHA256.txt"
+    ],
+    "validation": {
+      "experience_astro_check": "PASS_111_FILES_0_ERRORS_0_WARNINGS_0_HINTS",
+      "experience_static_build": "PASS_214_PAGES",
+      "desktop_visual_qa": "PASS",
+      "mobile_390x844_visual_qa": "PASS",
+      "a0_evidence_binder": "PASS_120_SOURCES_28_NODES_41_RELATIONS_22_ALIASES",
+      "source_graph": "PASS_21_COMPONENTS_329_29_BASE_332_32_COMPOSED",
+      "navigator_app_audit": "PASS_253_OF_253",
+      "mission_control_currentness": "VALID_491_CONTROLLING_SOURCES_0_ERRORS"
+    },
+    "excluded_unrelated_experience_paths": [
+      "public/review-assets/scc-003-r1/PENTAGON_TILE_REVIEW_ADDENDUM.md",
+      "src/pages/scc-003-r1/index.astro",
+      "dist_wrong_release_33593d9/",
+      "output/"
+    ],
+    "release_state": {
+      "human_owner_acceptance": "OPEN",
+      "commit": "NOT_CREATED",
+      "push": "NOT_AUTHORIZED",
+      "deployment": "NOT_AUTHORIZED",
+      "publication": "NOT_AUTHORIZED"
+    }
+  },
+  "claim_boundary": [
+    "No prime prediction claim.",
+    "No quaternion coupling claim.",
+    "Decimal reversal is a base-10 representation relation and is not a prime-preserving mirror operator.",
+    "The common power-of-two suffix is established for 1032 and 2301 only; 32 is not asserted as the entry point of every totient chain.",
+    "The factor 7 does not reactivate the closed Root7 study or establish a Root7 adapter.",
+    "The E-hinge and quaternion u-axis share a two-arm visual grammar but are not the same operation.",
+    "No IOTA mechanism follows from the identities.",
+    "No new Study or Finding.",
+    "No new Source Graph identity or relation."
+  ],
+  "publication_authorized": false
+}

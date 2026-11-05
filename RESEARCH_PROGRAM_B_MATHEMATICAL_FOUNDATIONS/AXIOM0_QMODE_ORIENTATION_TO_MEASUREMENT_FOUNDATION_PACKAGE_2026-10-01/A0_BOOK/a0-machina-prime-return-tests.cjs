@@ -75,7 +75,7 @@ assert.match(desk, /Plug \/ Pink 2 \/ Tessarec–LOKI/);
 assert.match(desk, /id="machina-prime-return-science-desk-20261022"/);
 assert.match(desk, /DOCUMENTED_FORMAL_OBSERVATION_WITH_OWNER_NOTATION_HOLD/);
 assert.match(findings, /id="machina-prime-return-intake-20261022"/);
-assert.match(findings, /No new formal finding or manuscript claim/);
+assert.match(findings, /No new formal\s+finding or manuscript claim/);
 assert.match(findings, /22\^2\*2=968/);
 
 console.log('PASS a0-machina-prime-return-tests · 42 assertions');

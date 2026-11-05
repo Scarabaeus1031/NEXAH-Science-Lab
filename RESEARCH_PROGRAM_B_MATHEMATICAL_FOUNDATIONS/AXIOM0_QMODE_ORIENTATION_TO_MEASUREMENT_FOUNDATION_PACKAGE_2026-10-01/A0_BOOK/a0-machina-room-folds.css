@@ -1,0 +1,16 @@
+[hidden]{display:none!important}
+.machina-density-bar{position:sticky;top:0;z-index:19;display:flex;align-items:center;gap:8px;flex-wrap:wrap;padding:10px max(16px,4vw);border-block:1px solid #294b58;background:rgba(3,16,23,.96);backdrop-filter:blur(12px);color:#dff5f7}
+.machina-density-bar>strong{margin-right:auto;color:#6ee2d8;font:800 .58rem ui-monospace,monospace;letter-spacing:.11em}
+.machina-density-bar button{border:1px solid #426b78;border-radius:7px;background:#09212b;color:#dff5f7;padding:9px 11px;font:800 .56rem ui-monospace,monospace;cursor:pointer}
+.machina-density-bar button:hover,.machina-density-bar button:focus-visible{border-color:#6ee2d8;outline:2px solid transparent}
+.machina-density-bar button[aria-pressed="true"],.machina-density-bar button[data-fold-all]{background:#ffd15b;border-color:#ffd15b;color:#151102}
+[data-machina-fold]{position:relative;transition:margin .25s,border-color .25s}
+.machina-room-toggle{position:absolute;right:14px;top:14px;z-index:12;border:1px solid #5d8290;border-radius:999px;background:rgba(3,18,26,.92);color:#dff6f7;padding:8px 11px;font:800 .54rem ui-monospace,monospace;letter-spacing:.04em;cursor:pointer}
+.machina-room-toggle:hover,.machina-room-toggle:focus-visible{border-color:#ffd15b;color:#ffd15b;outline:2px solid transparent}
+.machina-room-summary{display:none;min-height:92px;padding:22px clamp(18px,4vw,44px);border:1px solid #355b68;border-radius:14px;background:linear-gradient(105deg,#071d27,#151523);align-items:center;gap:18px}
+.machina-room-summary small,.machina-room-summary b{display:block}.machina-room-summary small{color:#61ddd5;font:800 .55rem ui-monospace,monospace;letter-spacing:.1em}.machina-room-summary b{margin-top:7px;color:#f1f8f9;font:750 clamp(1.2rem,2.8vw,2rem) Georgia,serif}
+[data-machina-fold][data-room-collapsed="true"]{min-height:92px;margin-block:10px!important;border-color:transparent!important;background:transparent!important;padding:0!important}
+[data-machina-fold][data-room-collapsed="true"]>.machina-room-summary{display:flex}
+[data-machina-fold][data-room-collapsed="true"]>:not(.machina-room-summary):not(.machina-room-toggle){display:none!important}
+[data-machina-fold][data-room-collapsed="true"]>.machina-room-toggle{top:50%;transform:translateY(-50%)}
+@media(max-width:700px){.machina-density-bar{position:relative}.machina-density-bar>strong{width:100%}.machina-room-toggle{position:relative;display:block;right:auto;top:auto;margin:10px 12px 0 auto}[data-machina-fold][data-room-collapsed="true"]>.machina-room-toggle{position:absolute;right:10px;top:50%;margin:0}.machina-room-summary{padding-right:105px}}

@@ -6,14 +6,31 @@ const api=require('./a0-folded-axis-lrrl-window.js');
 let checks=0;
 function check(value,message){assert.ok(value,message);checks+=1;}
 function equal(a,b,message){assert.equal(a,b,message);checks+=1;}
-equal(api.VERSION,'1.0.0','version');
+equal(api.VERSION,'1.2.0','version');
 equal(api.IDENTITY,'NEXAH_A0_ORIENTATION_CONTROLLER_BENCH','reuses identity');
-equal(api.MODES.length,4,'four modes');
+equal(api.MODES.length,6,'six modes');
+equal(api.MODES.at(-1),'PBDQ_TQ','PBDQ/TQ glyph orbit mode');
 equal(api.LRRL.map(x=>x.token).join(''),'LRRL','token order');
 equal(api.LRRL[0].color,'ORANGE','left outer orange');
 equal(api.LRRL[1].color,'PURPLE_PINK','left inner purple/pink');
 equal(api.LRRL[2].color,'PURPLE_PINK','right inner purple/pink');
 equal(api.LRRL[3].color,'ORANGE','right outer orange');
+equal(api.STOP_READ.sequence.join(''),'STOP','STOP read order');
+equal(api.STOP_READ.roles.T,'TRANSITION','T is the transition role');
+equal(api.STOP_READ.roles.O,'ORIGIN_PIVOT','O is the origin pivot');
+equal(api.STOP_READ.roles.P,'POLE_RETURN','P is the pole return role');
+equal(api.STOP_READ.pReturnRole,'R','P hands off to return role R');
+equal(api.STOP_READ.pEqualsR,false,'P and R are not asserted equal');
+equal(api.PBDQ_TQ.sequence.join(''),'pbdq','glyph orbit order');
+equal(api.PBDQ_TQ.transforms.p,'IDENTITY','p is the base glyph');
+equal(api.PBDQ_TQ.transforms.b,'REFLECT_HORIZONTAL','b is the horizontal reflection');
+equal(api.PBDQ_TQ.transforms.d,'ROTATE_180','d is the half-turn');
+equal(api.PBDQ_TQ.transforms.q,'REFLECT_VERTICAL','q is the vertical reflection');
+equal(api.PBDQ_TQ.fontDependent,false,'glyph geometry is font independent');
+equal(api.PBDQ_TQ.ownerMnemonicStatus,'UNBOUND_CULTURAL_WORDPLAY','owner wordplay remains unbound');
+equal(api.LIC.identity,api.IDENTITY,'LIC reuses the bench identity');
+equal(api.LIC.newIdentity,false,'LIC creates no identity');
+equal(api.LIC.newRelation,false,'LIC creates no relation');
 const gates=api.gatePoints();
 equal(gates.length,99,'exact gate count');
 equal(new Set(gates.map(p=>`${p.row}:${p.col}`)).size,99,'unique grid addresses');
@@ -37,8 +54,14 @@ for(const file of ['A0_IOTA_BRIDGE_DEMONSTRATOR.html','A0_ORIENTATION_CONTROLLER
   check(html.includes('id="foldedAxisLrrlWindow"'),`${file} contains window`);
   check(html.includes('a0-folded-axis-lrrl-window.js'),`${file} loads module`);
   check(html.includes('a0-folded-axis-lrrl-window.css'),`${file} loads style`);
+  check(html.includes('data-falw-mode="STOP_READ"'),`${file} exposes STOP view`);
+  check(html.includes('data-falw-mode="PBDQ_TQ"'),`${file} exposes PBDQ/TQ view`);
+  check(html.includes('LENS PBDQ/TQ± · ID OCB · CONTRACT D2 DISPLAY'),`${file} exposes LIC`);
+  check(html.includes('SOURCE · TRANSITION · ORIGIN · POLE/RETURN'),`${file} keeps STOP roles visible`);
 }
 const source=fs.readFileSync(path.join(root,'a0-folded-axis-lrrl-window.js'),'utf8');
 check(source.includes('NO IMAGE-DERIVED COUNT'),'count boundary');
 check(source.includes('NO ARROKOTH ALIAS'),'alias boundary');
+check(source.includes('P↔R IS A RETURN-ROLE HANDOFF, NOT P=R'),'return role is not promoted to equality');
+check(source.includes('NOT A CLAIM ABOUT LGBTQ+ IDENTITIES'),'owner wordplay is not promoted to an identity claim');
 console.log(`PASS · ${checks}/${checks} folded-axis LRRL checks`);

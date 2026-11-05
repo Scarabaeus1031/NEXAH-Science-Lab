@@ -1,0 +1,47 @@
+{
+  "record_id": "A0_FOUR_NUMBER_PROJECTION_NULL_MODEL_001_CANDIDATE",
+  "execution_date": "2026-11-04",
+  "status": "INVALID_IMPLEMENTATION",
+  "authority": {
+    "owner_authorized": true,
+    "decision": "00 EXECUTIVE/NEXAH-Mission-Control/00_LAB_RESEARCH_DIRECTOR_DESK/DECISION_2026-11-04_A0_FOUR_NUMBER_NULL_MODEL_BOUNDED_REOPEN.md",
+    "scope": "one hash-bound local null-model command",
+    "publication_authorized": false
+  },
+  "command": "node A0_BOOK/assets/a0-four-number-projection-null-model.mjs --verify",
+  "working_directory": "RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01",
+  "runtime": "v24.19.0",
+  "frozen_inputs": {
+    "runner_sha256": "8217a6fd9de1769e625b35017e1c5035071c39c1d62c07a980926a5f641f26b3",
+    "specification_sha256": "79016df33226deff0092c26bd712bef4b970ab70b2eea33cc9a6215e669d0371",
+    "hash_lock_verified_before_execution": true,
+    "target": [1087, 7801, 2929, 12321]
+  },
+  "execution": {
+    "exit_code": 1,
+    "failed_gate": "known representation controls",
+    "error": "reversal mismatch for 2929",
+    "exact_counterexample": "reverse10(2929)=9292, not 2929",
+    "null_draws_executed": 0,
+    "p_values_produced": false,
+    "scientific_interpretation_permitted": false
+  },
+  "assessment": {
+    "preregistration_claim_rejected": "2929 is an odd four-digit palindrome / fixed point under decimal reversal",
+    "runner_behavior": "PASS_FAIL_CLOSED_BEFORE_SAMPLING",
+    "result_class": "INVALID_IMPLEMENTATION",
+    "common_totient_drain_tested": false,
+    "next_permitted_action": "static correction proposal and a new separate Human Owner run authorization",
+    "automatic_repair_or_rerun": false
+  },
+  "lifecycle_return": {
+    "active_slot_released": true,
+    "lab_operations_state": "STRUCTURE_FREEZE_RESTORED",
+    "portfolio_priority": "M-PUB01_RESUMES_UNCHANGED",
+    "new_study": false,
+    "new_finding": false,
+    "navigator_identity_delta": 0,
+    "navigator_relation_delta": 0
+  },
+  "claim_boundary": "The failed exact control invalidates this implementation before null sampling. It supplies no evidence for or against arithmetic coherence, a mirror operator, prime law, Root7 relation, IOTA mechanism, physical resonance or the separate 1032/2301 common-totient-drain hypothesis."
+}

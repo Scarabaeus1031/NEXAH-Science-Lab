@@ -3,20 +3,52 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="description" content="A0 Human View: eine kuratierte Reise durch Sehen, Bewegung, Leben und Lesen — mit Rainbow Light als einem begrenzten Erlebnisraum und einem sichtbaren Human Return.">
-  <title>NEXAH · The Aperture Journey</title>
+  <meta name="description" content="A0 Human View: interner Bestand, Apps, Experiences, Lesepfade und das kontrollierte Delta zu NEXAHEDRON. Die Aperture Journey bleibt als eine Experience erhalten.">
+  <title>NEXAH · A0 Human View · Bestand &amp; Delta</title>
   <link rel="stylesheet" href="a0-nexah-aperture-journey.css?rev=top-question-arrows-20261020">
   <link rel="stylesheet" href="a0-human-curation.css?rev=hybrid-fog-20261022">
   <link rel="stylesheet" href="a0-human-progressive-route.css?rev=guided-human-reading-20261025f">
   <link rel="stylesheet" href="a0-context-navigation.css?rev=flagship-constellation-r1-20261030">
+  <style>
+    .a0-human-overview{--ink:#132535;--paper:#f4efe5;--line:#c9bda8;--pink:#e94e9e;--cyan:#169eb0;--gold:#b67b00;background:var(--paper);color:var(--ink);padding:clamp(7rem,12vw,10rem) clamp(1.1rem,5vw,5rem) clamp(3.5rem,7vw,6rem);border-bottom:1px solid var(--line)}
+    .a0-human-overview *{box-sizing:border-box}.a0-human-overview a{color:inherit}.a0-human-overview__hero{display:grid;grid-template-columns:minmax(0,1.45fr) minmax(17rem,.55fr);gap:clamp(2rem,6vw,6rem);align-items:end;max-width:92rem;margin:0 auto 2rem}.a0-human-overview .kicker{font:800 .72rem/1.3 ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.16em;text-transform:uppercase;color:var(--pink)}
+    .a0-human-overview h1{max-width:12ch;margin:.55rem 0 1rem;font:700 clamp(3.5rem,8vw,8.6rem)/.86 Georgia,serif;letter-spacing:-.055em}.a0-human-overview__lead{max-width:45rem;margin:0;font:500 clamp(1.05rem,1.6vw,1.4rem)/1.55 system-ui,sans-serif}.a0-human-overview__boundary{border:1px solid var(--ink);padding:1.25rem;background:#fff9}.a0-human-overview__boundary strong{display:block;margin-bottom:.5rem;font:800 .72rem/1.3 ui-monospace,monospace;letter-spacing:.12em;text-transform:uppercase;color:var(--gold)}.a0-human-overview__boundary p{margin:0;font:600 .95rem/1.55 system-ui,sans-serif}
+    .a0-human-overview__status{display:grid;grid-template-columns:repeat(3,1fr);max-width:92rem;margin:0 auto 2.5rem;border:1px solid var(--ink)}.a0-human-overview__status div{padding:1rem 1.2rem;border-right:1px solid var(--ink)}.a0-human-overview__status div:last-child{border:0}.a0-human-overview__status small,.a0-human-overview__status span{display:block;font:800 .67rem/1.35 ui-monospace,monospace;letter-spacing:.1em;text-transform:uppercase}.a0-human-overview__status b{display:block;margin:.35rem 0;font:700 1.5rem/1.1 Georgia,serif}.a0-human-overview__status span{color:#62707b}
+    .a0-human-overview__section{max-width:92rem;margin:0 auto 2.5rem}.a0-human-overview__section>header{display:flex;justify-content:space-between;gap:2rem;align-items:end;margin-bottom:1rem}.a0-human-overview__section h2{margin:.2rem 0 0;font:700 clamp(2rem,4vw,4.5rem)/.95 Georgia,serif}.a0-human-overview__section>header p{max-width:36rem;margin:0;font:500 .95rem/1.5 system-ui,sans-serif}
+    .a0-human-apps{display:grid;grid-template-columns:repeat(12,1fr);gap:.8rem}.a0-human-app{grid-column:span 4;min-height:13rem;padding:1.25rem;border:1px solid var(--ink);text-decoration:none;background:#fff8;display:flex;flex-direction:column;transition:.18s transform,.18s box-shadow}.a0-human-app:first-child{grid-column:span 8;background:#15263a;color:#fff;border-color:#15263a}.a0-human-app:hover{transform:translateY(-3px);box-shadow:6px 6px 0 var(--pink)}.a0-human-app small{font:800 .66rem/1.35 ui-monospace,monospace;letter-spacing:.1em;text-transform:uppercase;color:var(--pink)}.a0-human-app strong{margin:.7rem 0;font:700 clamp(1.5rem,2.5vw,2.5rem)/1 Georgia,serif}.a0-human-app span{margin-top:auto;font:600 .9rem/1.45 system-ui,sans-serif}.a0-human-app b{margin-top:1rem;font:800 .7rem/1 ui-monospace,monospace;letter-spacing:.08em;color:var(--cyan)}
+    .a0-human-overview__lower{display:grid;grid-template-columns:1fr 1fr;gap:.8rem;max-width:92rem;margin:0 auto}.a0-human-panel{border:1px solid var(--ink);padding:1.3rem;background:#fff7}.a0-human-panel h3{margin:.25rem 0 1rem;font:700 1.75rem/1 Georgia,serif}.a0-human-panel ul{list-style:none;margin:0;padding:0}.a0-human-panel li{display:grid;grid-template-columns:7rem 1fr;gap:1rem;padding:.75rem 0;border-top:1px solid var(--line);font:500 .9rem/1.45 system-ui,sans-serif}.a0-human-panel li b{font:800 .66rem/1.4 ui-monospace,monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--gold)}.a0-human-panel__links{display:flex;flex-wrap:wrap;gap:.55rem;margin-top:1rem}.a0-human-panel__links a{padding:.7rem .8rem;border:1px solid var(--ink);font:800 .68rem/1 ui-monospace,monospace;letter-spacing:.06em;text-transform:uppercase;text-decoration:none}.a0-human-panel__links a:first-child{background:var(--ink);color:#fff}.a0-human-overview__down{display:block;max-width:92rem;margin:2rem auto 0;padding:1rem;border:1px solid var(--ink);text-align:center;font:800 .72rem/1 ui-monospace,monospace;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;background:#ffdf70}
+    @media(max-width:760px){.a0-human-overview__hero,.a0-human-overview__lower{grid-template-columns:1fr}.a0-human-overview__status{grid-template-columns:1fr}.a0-human-overview__status div{border-right:0;border-bottom:1px solid var(--ink)}.a0-human-overview__section>header{display:block}.a0-human-app,.a0-human-app:first-child{grid-column:1/-1}.a0-human-panel li{grid-template-columns:1fr;gap:.2rem}}
+  </style>
 </head>
 <body>
   <header class="top">
-    <a class="brand" href="index.html">NEXAH <span>· HUMAN VIEW</span></a>
-    <nav><a href="#human-view">Start</a><a href="#human-route">Wege</a><a href="#rainbow-light-tour">Rainbow Light</a><a href="#look-again-room">Look Again</a><a href="#instrument">Go deeper</a><a href="#return">Return</a></nav>
+    <a class="brand" href="#a0-human-overview">NEXAH <span>· A0 HUMAN VIEW</span></a>
+    <nav><a href="#a0-human-overview">Überblick</a><a href="#a0-human-apps">Apps</a><a href="#a0-human-delta">Delta</a><a href="#human-view">Aperture Journey</a><a href="#return">Return</a></nav>
   </header>
 
   <main>
+    <section class="a0-human-overview" id="a0-human-overview" aria-labelledby="a0HumanOverviewTitle">
+      <div class="a0-human-overview__hero">
+        <div><div class="kicker">A0 · HUMAN VIEW · BESTAND / DELTA · 03.11.2026</div><h1 id="a0HumanOverviewTitle">Was wir haben. Was Menschen betreten können.</h1><p class="a0-human-overview__lead">Die interne Übersicht über A0s menschliche Zugänge: bedienbare Apps und Experiences, geführte Lesepfade, einzelne Szenen und ihr kontrollierter Rückweg. Dies ist <strong>nicht</strong> die öffentliche NEXAHEDRON-Seite.</p></div>
+        <aside class="a0-human-overview__boundary"><strong>Klare Grenze</strong><p>A0 hält Bestand, Herkunft und Staging. NEXAHEDRON bleibt eine getrennte öffentliche Experience. Erst Mission Control wählt, ob ein konkreter Cut hinausgeht.</p></aside>
+      </div>
+      <div class="a0-human-overview__status" aria-label="A0 Human View Bestand"><div><small>Apps &amp; Experiences</small><b>5 Zugänge</b><span>bedienbar · mit Return</span></div><div><small>Lesen &amp; Vertiefen</small><b>2 Register</b><span>Wege · Szenen · Deep Links</span></div><div><small>Exit</small><b>1 Kandidat</b><span>Staging · kein Push</span></div></div>
+
+      <section class="a0-human-overview__section" id="a0-human-apps" aria-labelledby="a0HumanAppsTitle"><header><div><div class="kicker">Apps / Experiences · direkt betreten</div><h2 id="a0HumanAppsTitle">Erleben, nicht nur lesen.</h2></div><p>Diese fünf Zugänge sind die obere Human-Schicht. Karten, Theorie, Quellen und technische Benches bleiben darunter als Lesepfade und Vertiefungen erhalten.</p></header><div class="a0-human-apps">
+        <a class="a0-human-app" href="#human-view"><small>01 · Guided Human View</small><strong>Aperture Journey</strong><span>Sieben Fragen, Rainbow Light, Look Again und ein sichtbarer Human Return.</span><b>EXPERIENCE ÖFFNEN ↓</b></a>
+        <a class="a0-human-app" href="a0-public-arkade-index.html#arkade"><small>02 · Play</small><strong>ARKADE</strong><span>ONE PULSE und drei spielbare Welten in einer Consumer View.</span><b>APP ÖFFNEN ↗</b></a>
+        <a class="a0-human-app" href="A0_GAME_OF_WORLDS.html"><small>03 · Human Flagship</small><strong>Game of Worlds</strong><span>Der originale Human-Einstieg in ONE PULSE und drei getrennte Welten.</span><b>EXPERIENCE ÖFFNEN ↗</b></a>
+        <a class="a0-human-app" href="A0_OPIUM.html#entrance"><small>04 · Club</small><strong>OPIUM / Club</strong><span>Club Machine, Relations Player und Control Room als Ensemble.</span><b>CLUB ÖFFNEN ↗</b></a>
+        <a class="a0-human-app" href="A0_LOOK_AGAIN_PLAY.html"><small>05 · Perception</small><strong>LOOK AGAIN</strong><span>Fünf Wahrnehmungsvergleiche ohne Score, Norm oder Sehtest.</span><b>GAME ÖFFNEN ↗</b></a>
+      </div></section>
+
+      <div class="a0-human-overview__lower">
+        <section class="a0-human-panel" aria-labelledby="a0HumanReadingTitle"><div class="kicker">Verstehen &amp; vertiefen</div><h3 id="a0HumanReadingTitle">Der Rest sind Wege, Karten und Szenen.</h3><ul><li><b>Orientierung</b><span>A0 Touren, Living Blueprint und THE MACHINA Human View ordnen den Bestand.</span></li><li><b>Lesepfade</b><span>Theorie, Forschung, Quellen und Stoffregister erklären, prüfen und begrenzen.</span></li><li><b>Szenen</b><span>Rainbow / Purple Rain, Observer Lens, Living Interior, Black Sun / Big Moon und weitere Deep Links.</span></li></ul><div class="a0-human-panel__links"><a href="A0_TOURS.html">Touren &amp; Karten</a><a href="A0_LIVING_BLUEPRINT.html#a0-map-home">Living Blueprint</a><a href="A0_MACHINA_ANATOMY_MAP.html#mainModules">Machina Anatomy</a></div></section>
+        <section class="a0-human-panel" id="a0-human-delta" aria-labelledby="a0HumanDeltaTitle"><div class="kicker">A0 / NEXAHEDRON Delta</div><h3 id="a0HumanDeltaTitle">Intern vollständig. Extern bewusst ausgewählt.</h3><ul><li><b>Draußen</b><span>nexah.de und nexahedron.com bleiben getrennte, bereits bestehende öffentliche Oberflächen.</span></li><li><b>Staging</b><span>THE MACHINA Impact Tour ist der stärkste Human-Kandidat; Z100 bleibt primär Science-Cut, IOI eine mögliche Szene.</span></li><li><b>Gate</b><span>Kein Outreach, Deployment oder Release ohne Auswahl und Owner-Gate in Mission Control.</span></li></ul><div class="a0-human-panel__links"><a href="../../../../../00%20EXECUTIVE/NEXAH-Mission-Control/INTERNAL_NAVIGATOR/index.html#action-board">Mission Control</a><a href="A0_RESEARCH_DESK.html?desk=overview#a0-current-state">Current State Desk</a><a href="https://nexahedron.com/">NEXAHEDRON ↗</a></div></section>
+      </div>
+      <a class="a0-human-overview__down" href="#human-view">Eine Experience betreten · Aperture Journey ↓</a>
+    </section>
+
     <section class="human-view is-awaiting-start" id="human-view" aria-labelledby="humanTitle">
       <canvas id="humanCanvas" aria-hidden="true"></canvas>
       <div class="human-intro">

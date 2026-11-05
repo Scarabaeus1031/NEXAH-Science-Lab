@@ -37,6 +37,7 @@ ok(tools.some(e=>e.href==='A0_ORIENTATION_CONTROLLER_BENCH.html'),'Bench retaine
 const nav=fs.readFileSync(__dirname+'/a0-context-navigation.js','utf8'),lanes=JSON.parse(nav.match(/const readerLanes = (\[[\s\S]*?\n  \]);/)[1]);
 const science=lanes.find(l=>l.key==='science'),builder=lanes.find(l=>l.key==='builder');
 ok(science.sections.some(s=>s.label==='Verstehen & Zusammenhänge'&&s.items.some(i=>i[0]==='A0_FAMILY_CONNECTION_ATLAS.html#spatial-navigation')));
+ok(science.sections.some(s=>s.label==='Papers'&&s.items.some(i=>i[0]==='assets/a0-field-notes/index.html#note-49'&&i[1]==='Field Notes · Theory kurz')),'Theory short is a bounded Field Notes companion in Papers');
 ok(!builder.sections.flatMap(s=>s.items).some(i=>i[0]==='A0_FAMILY_CONNECTION_ATLAS.html'),'no competing Builder home');
 ok(builder.sections.flatMap(s=>s.items).some(i=>i[0]==='A0_FIELDS_AND_JOINTS_ATLAS.html#joint-workspace'),'work context distinct from explanation');
 const scienceHtml=fs.readFileSync(__dirname+'/A0_SCIENCE.html','utf8'),toyHtml=fs.readFileSync(__dirname+'/A0_BUILDER_TOY_STORE.html','utf8');

@@ -216,3 +216,54 @@ specification SHA-256:
 
 Any change to either file invalidates this preregistration hash lock and must
 be recorded before an authorized run.
+
+## 11. Owner-authorized bounded run gate — 2026-11-04
+
+The Human Owner authorized exactly one execution of the frozen command on
+2026-11-04. The private Research Director decision is:
+
+```text
+00 EXECUTIVE/NEXAH-Mission-Control/00_LAB_RESEARCH_DIRECTOR_DESK/
+DECISION_2026-11-04_A0_FOUR_NUMBER_NULL_MODEL_BOUNDED_REOPEN.md
+```
+
+The declared result destination is:
+
+```text
+A0_BOOK/results/a0-four-number-projection-null-model-run-2026-11-04.json
+```
+
+This bounded reopen reuses the existing A0 and `MOD:NUMBER_VIEW_SUITE`
+identities. It creates no Study, Navigator node, relation, Finding or
+publication state. Its target remains `{1087,7801,2929,12321}`; the separate
+`1032/2301` common-totient-drain hypothesis is outside this run. STOP after
+result return and restore `STRUCTURE_FREEZE`.
+
+## 12. Execution return — invalid implementation / STOP
+
+The authorized frozen command was executed exactly once on 2026-11-04 after
+both source hashes matched the preregistration. It exited with code `1` at the
+first representation-control assertion:
+
+```text
+Error: reversal mismatch for 2929
+reverse10(2929) = 9292 != 2929
+```
+
+The preregistration's statement that `2929` is a four-digit palindrome and a
+fixed point under decimal reversal is false. The runner failed closed before
+sampling: `0` null draws, no p-values and no scientific interpretation.
+
+Disposition:
+
+```text
+RESULT_CLASS = INVALID_IMPLEMENTATION
+ACTIVE_SLOT = RELEASED
+LAB_OPERATIONS_STATE = STRUCTURE_FREEZE_RESTORED
+AUTOMATIC_REPAIR_OR_RERUN = NO
+```
+
+Receipt:
+`A0_BOOK/results/a0-four-number-projection-null-model-run-2026-11-04.json`.
+A corrected target/specification would invalidate the original preregistration
+and requires a new static lock plus a separate Human Owner run authorization.

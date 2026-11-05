@@ -1,0 +1,66 @@
+{
+  "schema": "nexah.a0.pa231-sevenfold-cardinality-calibration-return/1",
+  "date": "2026-11-03",
+  "status": "PASS_CARDINALITY_ONLY_STOP",
+  "identity": {
+    "reused": [
+      "MOD:NUMBER_VIEW_SUITE",
+      "A0_NLK_LSHELL_DEVELOPMENT_PROBE",
+      "A0_PERIODIC_CARRIER_Z100_CANDIDATE"
+    ],
+    "new_ids": 0,
+    "new_relations": 0,
+    "new_operators": 0
+  },
+  "carrier": {
+    "record": "Pa-231",
+    "atomic_number": 91,
+    "mass_number": 231,
+    "electron_configuration": "[Rn] 5f2 6d1 7s2"
+  },
+  "cut_a_nuclear_partition": {
+    "protons": 91,
+    "neutrons": 140,
+    "nucleons": 231,
+    "factor": 7,
+    "quotients": [13, 20, 33],
+    "checks": [
+      "91 = 7 * 13",
+      "140 = 7 * 20",
+      "231 = 7 * 33"
+    ]
+  },
+  "cut_b_angular_count": {
+    "subshell": "5f",
+    "l": 3,
+    "m_l": [-3, -2, -1, 0, 1, 2, 3],
+    "slot_count": 7,
+    "check": "2l + 1 = 7"
+  },
+  "return_ledger": {
+    "retained": ["cardinality:7"],
+    "lost": ["nuclear-partition meaning"],
+    "introduced": ["m_l angular labels"],
+    "unresolved": ["causal coupling", "shared physical mechanism"],
+    "result": "CARDINALITY_ONLY_PASS"
+  },
+  "stop": "Equal cardinality does not establish identity, causal coupling, a shared physical mechanism, a chemistry law or a geometry proof.",
+  "verification": {
+    "specific_checks": 6,
+    "carrier_suite_assertions": 320,
+    "carrier_suite": "PASS"
+  },
+  "sources": {
+    "existing_comparator": "../A0_NLK_LSHELL_DEVELOPMENT_PROBE.html#mainStageShell",
+    "science_binding": "../../../../SCIENCE_LAB/RESEARCH_AREAS/FIELD_GLYPH_NUMBER_ARCHITECTURE_STAGE_0_2026-09-14/22_CHEMISTRY_SIX_PLUS_ONE_INTERACTION_BRIDGE.md",
+    "builder_return": "../A0_BUILDER_LOG.html#ftr231-sevenfold-builder-return-20261031"
+  },
+  "route": "../DRAFTS/A0_PERIODIC_CARRIER_Z100_2026-11-03.html#pa231-sevenfold-calibration",
+  "graph_effect": {
+    "entities": 0,
+    "relations": 0,
+    "studies": 0,
+    "findings": 0,
+    "publications": 0
+  }
+}

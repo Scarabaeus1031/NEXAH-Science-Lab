@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>A0 · Periodic Carrier · Z100</title>
+<style>
+:root{color-scheme:dark;--bg:#050d14;--panel:#091923;--panel2:#0d2430;--line:#21495b;--text:#edf8fb;--muted:#8da7b3;--cyan:#3ad9e8;--gold:#f2c75c;--pink:#ef6db5;--mint:#69efb9;--red:#ff776f}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(circle at 70% -10%,#103040 0,transparent 38%),var(--bg);color:var(--text);font-family:Inter,ui-sans-serif,system-ui,sans-serif}.shell{width:min(1680px,100%);margin:auto;padding:20px}.eyebrow,small,button,.mono{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.08em}.eyebrow{color:var(--cyan);font-size:11px;font-weight:800}.hero{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(280px,.7fr);gap:16px;margin-bottom:16px}.hero>section,.hero>aside,.stage,.ledger,.boundary-strip{border:1px solid var(--line);border-radius:18px;background:rgba(9,25,35,.9)}.hero>section{padding:30px}.hero h1{max-width:950px;margin:12px 0 14px;font-family:Georgia,serif;font-size:clamp(42px,7vw,96px);line-height:.88}.hero p{max-width:820px;margin:0;color:#bdd0d8;font-size:clamp(16px,2vw,22px);line-height:1.5}.hero>aside{display:grid;align-content:center;gap:12px;padding:22px}.control-card,.meta-card{padding:17px;border:1px solid var(--line);border-radius:12px;background:#06131b}.control-card{border-color:var(--gold)}.control-card strong,.meta-card strong{display:block;margin:7px 0;font:700 28px/1 Georgia,serif}.control-card span,.meta-card span{display:block;color:var(--muted);line-height:1.45}.meta-card{border-color:var(--pink)}.meta-card strong{color:var(--pink)}.boundary-strip{display:grid;grid-template-columns:repeat(6,1fr);overflow:hidden;margin-bottom:16px}.boundary-strip>div{min-height:88px;padding:16px;border-right:1px solid var(--line)}.boundary-strip>div:last-child{border:0}.boundary-strip small{color:var(--gold);font-size:9px}.boundary-strip b{display:block;margin-top:8px;font-size:13px}.workspace{display:grid;grid-template-columns:minmax(0,1fr) minmax(310px,420px);gap:16px}.stage{min-width:0;padding:18px}.toolbar{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-bottom:14px}.toolbar b{margin-right:auto;font-family:Georgia,serif;font-size:22px}.toolbar button,.compare button{padding:10px 12px;border:1px solid var(--line);border-radius:9px;background:#07151e;color:var(--muted);font-weight:800;font-size:10px;cursor:pointer}.toolbar button[aria-pressed=true]{border-color:var(--cyan);background:var(--cyan);color:#031018}.carrier-viewport{position:relative;min-height:650px;overflow:auto;border:1px solid var(--line);border-radius:14px;background:radial-gradient(circle at 50% 50%,rgba(58,217,232,.08),transparent 35%),#040c12}.carrier-field{position:relative;width:100%;height:650px;padding:18px}.element-node{border:1px solid #315a6b;border-radius:7px;background:#0c2230;color:#dff4fb;cursor:pointer;transition:.16s ease}.element-node:hover,.element-node:focus-visible,.element-node[aria-pressed=true]{z-index:5;border-color:var(--gold);box-shadow:0 0 0 2px #f2c75c55,0 0 24px #f2c75c33;outline:none}.element-node small{display:block;color:var(--muted);font-size:7px;letter-spacing:0}.element-node b{display:block;font-size:14px}.view-modern{display:grid;grid-template-columns:repeat(18,minmax(42px,1fr));grid-template-rows:repeat(9,58px);gap:5px;align-content:center;min-width:900px}.view-modern .element-node{position:relative}.view-cycle .element-node{position:absolute;width:39px;height:39px;padding:2px;transform:translate(-50%,-50%);border-radius:50%}.view-cycle:before{content:"RUSSELL-INSPIRED CYCLIC LENS · ATOMIC ORDER ONLY";position:absolute;left:50%;top:50%;width:58%;aspect-ratio:1;border:1px dashed #ef6db555;border-radius:50%;transform:translate(-50%,-50%);display:grid;place-items:center;color:#ef6db577;font:800 10px ui-monospace,monospace;letter-spacing:.12em}.view-cube{display:grid;grid-template-columns:repeat(10,minmax(44px,1fr));grid-template-rows:repeat(10,minmax(44px,1fr));gap:6px;align-content:center;min-width:680px;padding:55px 90px;transform:perspective(1100px) rotateX(34deg) rotateZ(-7deg);transform-origin:center}.view-cube .element-node{position:relative;box-shadow:9px 9px 0 #031018,10px 10px 0 #2a596c}.detail{display:grid;gap:12px;margin-top:14px;padding:16px;border:1px solid var(--line);border-radius:12px;background:#06131b}.detail>small{color:var(--mint);font-size:9px}.detail>div{display:flex;align-items:center;gap:14px}.detail strong{display:grid;place-items:center;width:64px;height:64px;border:1px solid var(--cyan);border-radius:14px;color:var(--cyan);font:700 34px Georgia,serif}.detail span{color:var(--muted);line-height:1.5}.detail span b{color:var(--text)}.detail code{color:var(--gold);font-size:11px}.side{display:grid;gap:16px;align-content:start}.ledger{padding:18px}.ledger h2{margin:4px 0 8px;font-family:Georgia,serif;font-size:30px}.ledger>p{margin:0 0 14px;color:var(--muted);line-height:1.5}.compare{display:flex;gap:8px;margin-bottom:14px}.compare button{flex:1}.compare button[aria-pressed=true]{border-color:var(--pink);color:var(--pink)}.ledger-grid{display:grid;gap:8px}.ledger-row{padding:12px;border:1px solid var(--line);border-radius:10px;background:#06131b}.ledger-row header{display:flex;justify-content:space-between;margin-bottom:8px}.ledger-row header small{font-size:9px}.ledger-row header span{color:var(--muted);font-size:10px}.ledger-row>div{display:flex;flex-wrap:wrap;gap:5px;min-height:29px}.ledger-row button{display:flex;gap:4px;align-items:center;padding:6px 8px;border:1px solid var(--line);border-radius:7px;background:#0b202b;color:var(--text);cursor:pointer}.ledger-row button small{color:var(--muted);font-size:7px}.retained{border-color:#69efb966}.retained header small{color:var(--mint)}.lost{border-color:#f2c75c66}.lost header small{color:var(--gold)}.introduced{border-color:#ef6db566}.introduced header small{color:var(--pink)}.unresolved{border-color:#ff776f66}.unresolved header small{color:var(--red)}.empty{color:#607985}.stop{padding:18px;border:1px solid var(--red);border-radius:18px;background:#210f14}.stop small{color:var(--red);font-weight:900}.stop h3{margin:8px 0;font:700 24px Georgia,serif}.stop p{margin:0;color:#d9aeb3;line-height:1.5}.status{position:sticky;bottom:8px;z-index:20;margin-top:16px;padding:12px 16px;border:1px solid var(--mint);border-radius:999px;background:#061812e8;color:var(--mint);text-align:center;font:800 10px ui-monospace,monospace;letter-spacing:.08em;backdrop-filter:blur(12px)}.source{margin:18px 0 0;color:var(--muted);font-size:11px;line-height:1.5}.source a{color:var(--cyan)}
+.calibration{margin-top:16px;padding:clamp(18px,3vw,30px);border:1px solid var(--gold);border-radius:18px;background:linear-gradient(135deg,#0c1820,#16140d)}.calibration header{display:grid;grid-template-columns:minmax(0,1fr) minmax(250px,.45fr);gap:20px;align-items:end}.calibration h2{margin:6px 0;font:700 clamp(30px,5vw,58px)/.95 Georgia,serif}.calibration header p{margin:0;color:var(--muted);line-height:1.55}.calibration nav{display:flex;flex-wrap:wrap;gap:8px}.calibration button{padding:10px 12px;border:1px solid #7b6330;border-radius:8px;background:#0a1116;color:#d9cda9;font:800 10px ui-monospace,monospace;cursor:pointer}.calibration button[aria-pressed=true]{background:var(--gold);color:#151006}.calibration-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-top:18px}.calibration-grid article{padding:16px;border:1px solid var(--line);border-radius:12px;background:#06131b}.calibration-grid small{color:var(--gold);font-size:9px}.calibration-grid b{display:block;margin:8px 0;color:#fff;font:700 22px Georgia,serif}.calibration-grid p{margin:0;color:var(--muted);line-height:1.5}.calibration[data-view=nuclear] [data-pa231-card=nuclear],.calibration[data-view=angular] [data-pa231-card=angular],.calibration[data-view=return] [data-pa231-card=return]{border-color:var(--gold);box-shadow:0 0 24px #f2c75c20}.calibration output{display:block;margin-top:10px;padding:13px;border:1px solid var(--mint);border-radius:10px;background:#061812;color:var(--mint);font:800 10px/1.5 ui-monospace,monospace;letter-spacing:.06em}.calibration-links{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}.calibration-links a{color:var(--cyan);font:800 10px ui-monospace,monospace;text-decoration:none}.calibration-boundary{margin:14px 0 0;padding-top:12px;border-top:1px solid #5c4a28;color:#c7b98e;font-size:12px;line-height:1.5}
+@media(max-width:1050px){.hero,.workspace{grid-template-columns:1fr}.boundary-strip{grid-template-columns:repeat(3,1fr)}.carrier-viewport{min-height:580px}.carrier-field{height:580px}.side{grid-template-columns:1fr 1fr}.stop{grid-column:1/-1}}@media(max-width:680px){.shell{padding:9px}.hero>section{padding:20px}.boundary-strip{grid-template-columns:1fr 1fr}.side{grid-template-columns:1fr}.carrier-viewport{min-height:520px}.carrier-field{height:520px}.view-cycle .element-node{width:30px;height:30px}.element-node b{font-size:11px}.calibration header,.calibration-grid{grid-template-columns:1fr}}
+</style>
+<style>
+.relation-test{margin-top:16px;padding:clamp(18px,3vw,30px);border:1px solid var(--pink);border-radius:18px;background:linear-gradient(135deg,#0a1720,#170d19)}
+.relation-test header{display:grid;grid-template-columns:minmax(0,1fr) minmax(250px,.45fr);gap:20px;align-items:end}.relation-test h2{margin:6px 0;font:700 clamp(30px,5vw,58px)/.95 Georgia,serif}.relation-test header p{margin:0;color:var(--muted);line-height:1.55}.relation-test nav{display:flex;flex-wrap:wrap;gap:8px}.relation-test button{padding:10px 12px;border:1px solid #713557;border-radius:8px;background:#0a1116;color:#d7b1c8;font:800 10px ui-monospace,monospace;cursor:pointer}.relation-test button[aria-pressed=true]{background:var(--pink);color:#160813}
+.relation-cuts{display:grid;grid-template-columns:1fr auto 1fr;gap:12px;align-items:stretch;margin-top:18px}.relation-cut,.relation-seam{padding:18px;border:1px solid var(--line);border-radius:12px;background:#06131b}.relation-cut{display:grid;align-content:start;gap:10px}.relation-cut small,.relation-seam small{color:var(--pink);font-size:9px}.relation-cut b{font:700 clamp(30px,4vw,52px) Georgia,serif}.relation-addresses{display:flex;flex-wrap:wrap;gap:7px}.relation-addresses span{padding:7px 9px;border:1px solid var(--line);border-radius:999px;color:var(--cyan);font:800 10px ui-monospace,monospace}.relation-seam{display:grid;place-items:center;min-width:150px;text-align:center}.relation-seam strong{color:var(--gold);font:700 28px Georgia,serif}
+.relation-ledger{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:12px}.relation-ledger div{padding:12px;border:1px solid var(--line);border-radius:10px;background:#06131b}.relation-ledger small{display:block;margin-bottom:7px;font-size:8px}.relation-ledger span{color:var(--muted);font-size:11px;line-height:1.4}.relation-test output{display:block;margin-top:12px;padding:13px;border:1px solid var(--mint);border-radius:10px;background:#061812;color:var(--mint);font:800 10px/1.5 ui-monospace,monospace;letter-spacing:.06em}.relation-boundary{margin:14px 0 0;padding-top:12px;border-top:1px solid #63314e;color:#cda8bc;font-size:12px;line-height:1.5}
+@media(max-width:680px){.relation-test header,.relation-cuts,.relation-ledger{grid-template-columns:1fr}.relation-seam{min-height:130px}}
+.ioi-test{margin-top:16px;padding:clamp(18px,3vw,30px);border:1px solid var(--cyan);border-radius:18px;background:linear-gradient(135deg,#071a22,#101323)}
+.ioi-test header{display:grid;grid-template-columns:minmax(0,1fr) minmax(260px,.45fr);gap:20px;align-items:end}.ioi-test h2{margin:6px 0;font:700 clamp(30px,5vw,58px)/.95 Georgia,serif}.ioi-test header p{margin:0;color:var(--muted);line-height:1.55}.ioi-test nav{display:flex;flex-wrap:wrap;gap:8px}.ioi-test button{padding:10px 12px;border:1px solid #266475;border-radius:8px;background:#07151e;color:#a9dce4;font:800 10px ui-monospace,monospace;cursor:pointer}.ioi-test button[aria-pressed=true]{background:var(--cyan);color:#031018}
+.ioi-fixture{display:grid;grid-template-columns:minmax(280px,.75fr) minmax(0,1.25fr);gap:14px;margin-top:18px}.ioi-matrix{position:relative;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:10px;min-height:390px;padding:34px;border:1px solid var(--line);border-radius:14px;background:#040c12}.ioi-cell{display:grid;place-items:center;padding:18px;border:1px solid #315a6b;border-radius:12px;background:#0c2230;text-align:center}.ioi-cell b{font:700 38px Georgia,serif}.ioi-cell span{color:var(--muted);font:800 10px ui-monospace,monospace}.ioi-q0{position:absolute;left:50%;top:50%;z-index:2;display:grid;place-items:center;width:74px;height:74px;border:3px solid #fff;border-radius:50%;background:#d84ca6;color:#fff;font:700 25px Georgia,serif;transform:translate(-50%,-50%);box-shadow:0 0 0 8px #040c12,0 0 30px #ef6db566}.ioi-axis{position:absolute;z-index:1;background:#ffffffaa}.ioi-axis-x{left:8%;right:8%;top:50%;height:2px}.ioi-axis-y{top:8%;bottom:8%;left:50%;width:2px}.ioi-diagonal{position:absolute;left:50%;top:50%;z-index:1;width:108%;height:2px;background:var(--gold);transform-origin:center}.ioi-diagonal-a{transform:translate(-50%,-50%) rotate(45deg)}.ioi-diagonal-b{transform:translate(-50%,-50%) rotate(-45deg)}
+.ioi-ledger{display:grid;grid-template-columns:1fr 1fr;gap:10px}.ioi-ledger article{padding:16px;border:1px solid var(--line);border-radius:12px;background:#06131b}.ioi-ledger small{color:var(--cyan);font-size:9px}.ioi-ledger b{display:block;margin:8px 0;color:#fff;font:700 24px Georgia,serif}.ioi-ledger p{margin:0;color:var(--muted);line-height:1.5}.ioi-test output{display:block;margin-top:12px;padding:13px;border:1px solid var(--mint);border-radius:10px;background:#061812;color:var(--mint);font:800 10px/1.5 ui-monospace,monospace;letter-spacing:.06em}.ioi-boundary{margin:14px 0 0;padding-top:12px;border-top:1px solid #28596a;color:#afd1d9;font-size:12px;line-height:1.55}.ioi-boundary a{color:var(--cyan);font-weight:800;text-decoration:none}
+@media(max-width:820px){.ioi-test header,.ioi-fixture,.ioi-ledger{grid-template-columns:1fr}.ioi-matrix{min-height:330px;padding:26px}.ioi-cell b{font-size:30px}}
+.worlds-binding{margin-top:16px;padding:clamp(18px,3vw,30px);border:1px solid var(--mint);border-radius:18px;background:linear-gradient(135deg,#071a19,#0d1722)}
+.worlds-binding header{display:grid;grid-template-columns:minmax(0,1fr) minmax(260px,.45fr);gap:20px;align-items:end}.worlds-binding h2{margin:6px 0;font:700 clamp(30px,5vw,58px)/.95 Georgia,serif}.worlds-binding header p{margin:0;color:var(--muted);line-height:1.55}.worlds-binding-flow{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:18px}.worlds-binding-flow article{padding:16px;border:1px solid var(--line);border-radius:12px;background:#06131b}.worlds-binding-flow small{color:var(--mint);font-size:9px}.worlds-binding-flow h3{margin:8px 0;color:#fff;font:700 23px Georgia,serif}.worlds-binding-flow p{margin:0;color:var(--muted);line-height:1.5}.worlds-binding-flow code{color:var(--gold)}.worlds-binding-links{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}.worlds-binding-links a{padding:9px 11px;border:1px solid var(--line);border-radius:8px;color:var(--cyan);font:800 10px ui-monospace,monospace;text-decoration:none}.worlds-binding-links a:first-child{border-color:var(--mint);color:var(--mint)}.worlds-binding-boundary{margin:14px 0 0;padding-top:12px;border-top:1px solid #285b4b;color:#afd2c3;font-size:12px;line-height:1.55}
+@media(max-width:900px){.worlds-binding header,.worlds-binding-flow{grid-template-columns:1fr 1fr}}@media(max-width:620px){.worlds-binding header,.worlds-binding-flow{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<main class="shell" data-c100-app>
+  <header class="hero">
+    <section>
+      <div class="eyebrow">A0 · BOUNDED APPLICATION CANDIDATE · 03.11.2026</div>
+      <h1>Ein Stoffregister.<br>Drei Ansichten.<br>Ein exakter Return.</h1>
+      <p>Z100 hält die offiziellen Elementidentitäten Z1–Z100 fest. Die moderne Periodenordnung, eine deklarierte zyklische Linse und ein konstruiertes 10×10-Carrier-Feld dürfen Nachbarschaften verändern – niemals das Element.</p>
+    </section>
+    <aside>
+      <div class="control-card"><small>EXTERNAL CONTROL · OFFICIAL CHEMISTRY</small><strong>101 · Md</strong><span>Mendelevium bleibt außerhalb des begrenzten Z100-Carriers sichtbar. Es verhindert, dass das +1 versehentlich als neues Element gelesen wird.</span></div>
+      <div class="meta-card"><small>+1 · META / RETURN POSITION</small><strong>ULLINIRIUM</strong><span>Historische NEXAH-Ansicht. Beobachtet den Vergleich; besitzt keine Ordnungszahl und ist kein Stoff.</span></div>
+    </aside>
+  </header>
+
+  <section class="boundary-strip" aria-label="Sechs Versuchsfelder">
+    <div><small>01 · REGISTER</small><b>100 offizielle Identitäten</b></div>
+    <div><small>02 · VIEWS</small><b>Modern · Cycle · Z100</b></div>
+    <div><small>03 · LEDGER</small><b>Retained / Lost / Introduced</b></div>
+    <div><small>04 · CONTROL</small><b>Md · Z101 bleibt extern</b></div>
+    <div><small>05 · RETURN</small><b>Z + Symbol bleiben exakt</b></div>
+    <div><small>06 · STOP</small><b>Keine Chemie aus Geometrie</b></div>
+  </section>
+
+  <div class="workspace">
+    <section class="stage">
+      <nav class="toolbar" aria-label="Ansicht wählen">
+        <b>Carrier View</b>
+        <button type="button" data-c100-view="modern" aria-pressed="true">MODERN</button>
+        <button type="button" data-c100-view="cycle" aria-pressed="false">CYCLE</button>
+        <button type="button" data-c100-view="cube" aria-pressed="false">Z100</button>
+      </nav>
+      <div class="carrier-viewport"><div class="carrier-field view-modern" data-c100-field></div></div>
+      <article class="detail" data-c100-detail></article>
+    </section>
+
+    <aside class="side">
+      <section class="ledger" data-c100-ledger>
+        <small class="eyebrow">COMPARISON LEDGER</small>
+        <h2 data-ledger-title>MODERN ↔ ZYKLISCHE LINSE</h2>
+        <p>Wähle ein Element. Das Ledger vergleicht ausschließlich sichtbare Nachbarschaften. Eigenschaften werden nicht übertragen.</p>
+        <div class="compare">
+          <button type="button" data-c100-compare="cycle" aria-pressed="true">CYCLE</button>
+          <button type="button" data-c100-compare="cube" aria-pressed="false">Z100</button>
+        </div>
+        <div class="ledger-grid">
+          <article class="ledger-row retained"><header><small>RETAINED</small><span>in beiden Ansichten</span></header><div data-ledger="retained"></div></article>
+          <article class="ledger-row lost"><header><small>LOST</small><span>nur Modern</span></header><div data-ledger="lost"></div></article>
+          <article class="ledger-row introduced"><header><small>INTRODUCED</small><span>nur Vergleichsansicht</span></header><div data-ledger="introduced"></div></article>
+          <article class="ledger-row unresolved"><header><small>UNRESOLVED</small><span>untypisierte Adresse</span></header><div data-ledger="unresolved"></div></article>
+        </div>
+      </section>
+      <section class="stop">
+        <small>STOP CONDITION</small>
+        <h3>Geometrie erzeugt keine Chemie.</h3>
+        <p>STOP bei neuer Elementidentität, Eigenschaftsübertragung, Russell-Chemiebeweis, natürlicher Cube-Behauptung oder physischer ULLINIRIUM-Deutung. Dieser Cut prüft Orientierung – nicht Materie.</p>
+      </section>
+    </aside>
+  </div>
+
+  <section class="calibration" id="pa231-sevenfold-calibration" data-pa231-calibration data-view="nuclear" aria-labelledby="pa231Title">
+    <header>
+      <div><small class="eyebrow">LANTERN CALIBRATION · EXISTING PA‑231 / 5f COMPARATOR · R0</small><h2 id="pa231Title">Ein Träger. Zwei Schnitte. Nur die Sieben kehrt zurück.</h2><p>Die Laterne schaltet zwischen Kernzahl‑Partition und 5f‑Winkelzählung. Der gemeinsame Carrier ist der dokumentierte Pa‑231‑Record; der Binder hält ausschließlich die Kardinalität <strong>7</strong>.</p></div>
+      <nav aria-label="Pa-231 Kalibrieransicht"><button type="button" data-pa231-view="nuclear" aria-pressed="true">CUT A · NUCLEAR</button><button type="button" data-pa231-view="angular" aria-pressed="false">CUT B · 5f</button><button type="button" data-pa231-view="return" aria-pressed="false">RETURN / STOP</button></nav>
+    </header>
+    <div class="calibration-grid">
+      <article data-pa231-card="nuclear"><small>CUT A · EXACT ARITHMETIC</small><b>91 + 140 = 231</b><p>91 = 7×13 · 140 = 7×20 · 231 = 7×33. Dieser Schnitt beschreibt eine Kernzahl‑Partition.</p></article>
+      <article data-pa231-card="angular"><small>CUT B · ESTABLISHED SLOT COUNT</small><b>ℓ=3 · 2ℓ+1=7</b><p>m<sub>ℓ</sub> = −3…+3 bezeichnet sieben Winkelkomponenten der f‑Unterschale. Dies ist eine andere physikalische Beschreibung.</p></article>
+      <article data-pa231-card="return"><small>ILAU RETURN</small><b>7 retained · coupling unresolved</b><p>Verloren: Kernpartitionsbedeutung. Eingeführt: m<sub>ℓ</sub>-Labels. Offen: gemeinsamer Mechanismus und Kausalität.</p></article>
+    </div>
+    <output data-pa231-output aria-live="polite">CUT A wird geladen…</output>
+    <nav class="calibration-links" aria-label="Bestehende Quellen und Comparator"><a href="../A0_NLK_LSHELL_DEVELOPMENT_PROBE.html?rev=sevenfold-r1#mainStageShell">BESTEHENDEN NLK COMPARATOR ÖFFNEN ↗</a><a href="../../../../SCIENCE_LAB/RESEARCH_AREAS/FIELD_GLYPH_NUMBER_ARCHITECTURE_STAGE_0_2026-09-14/22_CHEMISTRY_SIX_PLUS_ONE_INTERACTION_BRIDGE.md">SCIENCE SOURCE BINDING ↗</a><a href="../A0_BUILDER_LOG.html#ftr231-sevenfold-builder-return-20261031">BUILDER RETURN ↗</a><a href="../results/a0-pa231-sevenfold-cardinality-calibration-return-2026-11-03.json">TEST-RECEIPT ↗</a></nav>
+    <p class="calibration-boundary"><strong>STOP:</strong> Gleiche Anzahl ist weder Identität noch Kopplung. Die Kalibrierung bestätigt zwei exakte Siebenzählungen verschiedener Herkunft und beendet den Vergleich vor jeder Mechanismus‑, Chemie‑ oder Geometriebehauptung. Keine neue Source‑Graph‑Relation.</p>
+  </section>
+
+  <section class="relation-test" id="bro-sis-relation-test" data-bro-sis-test data-view="bro" aria-labelledby="broSisTitle">
+    <header>
+      <div><small class="eyebrow">TWO INSIDES · ONE DECLARED COMPARISON · R0 FIXTURE</small><h2 id="broSisTitle">BRO / SIS — die Relation bleibt, die Lesarten bleiben getrennt.</h2><p>Zwei begrenzte Elementfolgen werden im selben Z100-Register gelesen. Gemeinsame Zeit und Vergleichsrahmen sind deklariert; kein Wort, Glyph und kein Element erhält dadurch eine neue naturwissenschaftliche Bedeutung.</p></div>
+      <nav aria-label="BRO-SIS Testansicht"><button type="button" data-bro-sis-view="bro" aria-pressed="true">INSIDE A · BRO</button><button type="button" data-bro-sis-view="sis" aria-pressed="false">INSIDE B · SIS</button><button type="button" data-bro-sis-view="return" aria-pressed="false">ILAU / STOP</button></nav>
+    </header>
+    <div class="relation-cuts">
+      <article class="relation-cut"><small>INSIDE A · DECLARED TOKENS</small><b>Br · O</b><div class="relation-addresses"><span>Br · Z35</span><span>O · Z8</span></div><p>BRO ist eine explizit tokenisierte Registerlesung, keine automatisch erkannte chemische Verbindung.</p></article>
+      <article class="relation-seam"><small>SHARED FRAME</small><strong>T → R ← T</strong><span>gleiche Zeitbasis<br>ein Vergleichsrecord</span></article>
+      <article class="relation-cut"><small>INSIDE B · DECLARED TOKENS</small><b>S · I · S</b><div class="relation-addresses"><span>S · Z16</span><span>I · Z53</span><span>S · Z16</span></div><p>SIS bewahrt die Wiederholung von S; sie wird nicht auf eine einzige Adresse reduziert.</p></article>
+    </div>
+    <div class="relation-ledger" aria-label="ILAU Vergleichsbuchhaltung">
+      <div><small style="color:var(--mint)">I · RETAINED</small><span>gemeinsamer Z100-Träger, deklarierte Zeitbasis T und Vergleichsrahmen R</span></div>
+      <div><small style="color:var(--gold)">L · LOST</small><span>die jeweilige Wort- und Innenlesung beim Wechsel der Ansicht</span></div>
+      <div><small style="color:var(--pink)">A · ADDED</small><span>Tokenfolge, Wiederholung und Anordnung der jeweils anderen Ansicht</span></div>
+      <div><small style="color:var(--red)">U · UNRESOLVED</small><span>O↔0, Th↔θ, semantische oder kausale Kopplung</span></div>
+    </div>
+    <output data-bro-sis-output aria-live="polite">INSIDE A · Br/Z35 → O/Z8 · exact register addresses</output>
+    <p class="relation-boundary"><strong>CONTROL PATH:</strong> BROTHER wird ausschließlich als deklarierte Tokenfolge Br/Z35 · O/Z8 · Th/Z90 · Er/Z68 geprüft. <strong>STOP:</strong> Elementsymbol ≠ Zahlglyph ≠ Winkelzeichen ≠ Wortbedeutung. Der Test erzeugt keine neue Chemie, keine natürliche Sprache aus dem Periodensystem und keine Source-Graph-Relation.</p>
+  </section>
+
+  <section class="ioi-test" id="a0-ioi-q0-counter-axis" data-ioi-test data-view="fold" aria-labelledby="ioiTitle">
+    <header>
+      <div><small class="eyebrow">A0 I0I · EXISTING LEAF-FOLD BOUND TO Z100 · EXACT ADDRESS FIXTURE</small><h2 id="ioiTitle">Zwei 101-Wege. Eine Gegenachse. Herkunft bleibt lesbar.</h2><p>Vier offizielle Elementadressen bilden ein begrenztes 2×2-Fenster. Die beiden diagonalen Faltwege schließen exakt auf <strong>101</strong>; die orthogonale Gegenachse bewahrt Links/Rechts und Oben/Unten als signierte Abweichung. <strong>Q°</strong> ist die deklarierte Apertur im Zwischenraum – kein Element.</p></div>
+      <nav aria-label="A0 I0I Testansicht"><button type="button" data-ioi-view="fold" aria-pressed="true">FOLD · 101/101</button><button type="button" data-ioi-view="counter" aria-pressed="false">GEGENACHSE</button><button type="button" data-ioi-view="return" aria-pressed="false">RETURN / STOP</button></nav>
+    </header>
+    <div class="ioi-fixture">
+      <div class="ioi-matrix" aria-label="2 mal 2 Adressfenster Rhodium 45, Palladium 46, Cäsium 55 und Barium 56">
+        <span class="ioi-axis ioi-axis-x" aria-hidden="true"></span><span class="ioi-axis ioi-axis-y" aria-hidden="true"></span><span class="ioi-diagonal ioi-diagonal-a" aria-hidden="true"></span><span class="ioi-diagonal ioi-diagonal-b" aria-hidden="true"></span>
+        <article class="ioi-cell"><b>Rh</b><span>Z45 · oben/links</span></article><article class="ioi-cell"><b>Pd</b><span>Z46 · oben/rechts</span></article><article class="ioi-cell"><b>Cs</b><span>Z55 · unten/links</span></article><article class="ioi-cell"><b>Ba</b><span>Z56 · unten/rechts</span></article>
+        <div class="ioi-q0" title="Deklarierte Apertur; keine Elementadresse">Q°</div>
+      </div>
+      <div class="ioi-ledger">
+        <article><small>FOLD A · DIAGONALE</small><b>45 + 56 = 101</b><p>Rh/Z45 → Q° → Ba/Z56. Exakte Arithmetik; keine chemische Kopplung.</p></article>
+        <article><small>FOLD B · DIAGONALE</small><b>46 + 55 = 101</b><p>Pd/Z46 → Q° → Cs/Z55. Derselbe Zielwert, andere Herkunft.</p></article>
+        <article><small>GEGENACHSE · LINKS / RECHTS</small><b>100 | 101 | 102</b><p>Links 45+55 = 101−1; rechts 46+56 = 101+1. Das Vorzeichen ist der Side-Bit.</p></article>
+        <article><small>GEGENACHSE · OBEN / UNTEN</small><b>91 | 101 | 111</b><p>Oben 45+46 = 101−10; unten 55+56 = 101+10. Die Zehnerlage bleibt erhalten.</p></article>
+        <article><small>GESAMTTRÄGER</small><b>202 = 2 × 101</b><p>Der Mittelwert der vier Adressen ist 50,5. Zwei Innenansichten teilen eine Apertur, nicht eine Identität.</p></article>
+        <article><small>DREI GETRENNTE RECORDS</small><b>I0I ≠ 101 ≠ Md/Z101</b><p>I0I ist die Ansichtsnotation, 101 der geprüfte Zahlenwert und Md/Z101 die externe offizielle Elementadresse.</p></article>
+      </div>
+    </div>
+    <output data-ioi-output aria-live="polite">FOLD · Rh/Z45 + Ba/Z56 = 101 · Pd/Z46 + Cs/Z55 = 101 · TWO PATHS / ONE VALUE</output>
+    <p class="ioi-boundary"><strong>RETURN:</strong> Die Architektur kehrt wieder, der Weg nicht: `101` allein verliert den Side-Bit; die Gegenachse rekonstruiert Herkunft als ±1 und ±10. <strong>STOP:</strong> Q° ist keine Nullstelle, I0I keine Zahlidentität, Md/Z101 kein Ergebnis dieser Geometrie. Keine neue Chemie, Physik, Primzahl- oder Source-Graph-Behauptung. <a href="A0_IOI_LEAF_FOLD_RETURN_2026-11-02.html#leaf-tour-cube">BESTEHENDEN A0-IOI-LEAF-FOLD ÖFFNEN ↗</a></p>
+  </section>
+
+  <section class="worlds-binding" id="game-of-worlds-carrier-binding" data-worlds-binding="source-bound" aria-labelledby="worldsBindingTitle">
+    <header>
+      <div><small class="eyebrow">EXISTING GAME OF WORLDS · SOURCE-BOUND CARRIER HANDOFF · NO NEW GAME IDENTITY</small><h2 id="worldsBindingTitle">Ein Carrier. Drei Weltansichten. Ein spielbarer Return.</h2></div>
+      <p>Der Periodic Carrier wird nicht selbst zum Game. Er liefert dem bestehenden <strong>Game of Worlds</strong> drei getrennte Ansichten desselben Z1–Z100-Bestands. Die IOTA Bridge transportiert die deklarierte Auswahl; das Spiel macht den Ansichtswechsel und seinen Rest erfahrbar.</p>
+    </header>
+    <div class="worlds-binding-flow" aria-label="Carrier zu Game of Worlds Übergang">
+      <article data-carrier-role="modern"><small>01 · MODERN · SHADOW</small><h3>Ordnung als Schatten.</h3><p>Die offizielle Periodenanordnung ist die Kontrollansicht. Sie zeigt eine etablierte Ordnung des Trägers – nicht dessen einzig mögliche Form. <code>T/L/L</code> bleibt eine Owner-Lesart, kein Operator.</p></article>
+      <article data-carrier-role="cycle"><small>02 · CYCLE · RADIATOR LENS</small><h3>Das Blatt wobblet.</h3><p>Die zyklische Linse macht Phase, Umlauf und wechselnde Nachbarschaft sichtbar. Fibonacci- und Strahler-Lesarten sind prüfbare Kandidaten; sie werden nicht als verborgene Chemie oder Naturkausalität gesetzt.</p></article>
+      <article data-carrier-role="z100"><small>03 · Z100 · HELD CARRIER</small><h3>Adressen bleiben fest.</h3><p>Das begrenzte Register hält Z1–Z100 stabil, während Modern und Cycle ihre Projektionen ändern. So bleibt unterscheidbar, was Träger, Ansicht, Auswahl und Residuum ist.</p></article>
+      <article data-carrier-role="iota"><small>04 · IOTA · TYPED HANDOFF</small><h3>Von der Linse ins Spiel.</h3><p>IOTA übergibt Auswahl, Ansicht, Frame und Return-Receipt typisiert an das bestehende Game of Worlds. Das Spiel darf den Wechsel zeigen; es darf keine fehlende Relation erfinden.</p></article>
+    </div>
+    <nav class="worlds-binding-links" aria-label="Bestehende Game-of-Worlds-Anschlüsse"><a href="../A0_GAME_OF_WORLDS.html">GAME OF WORLDS · MAP ÖFFNEN ↗</a><a href="../A0_GAME_OF_WORLDS_PLAY.html?world=numbers#numbers">NUMBER / CYCLE LENS SPIELEN ↗</a><a href="../A0_GAME_OF_WORLDS_PLAY.html?world=pulse#pulse">ONE PULSE · RETURN SPIELEN ↗</a><a href="../A0_IOTA_BRIDGE_DEMONSTRATOR.html">IOTA BRIDGE ÖFFNEN ↗</a></nav>
+    <p class="worlds-binding-boundary"><strong>BOUNDARY:</strong> „Wobble“ bezeichnet hier den Wechsel einer Projektion auf einem gehaltenen Carrier. Es ist kein behauptetes Zittern des Stoffes. Fibonacci, Primblüten, <code>T/L/L</code> und weitere Glyph-Lesarten bleiben Kandidaten bis ein deklarierter Test ihre Rolle bestimmt. Dieser Anschluss erzeugt weder eine zweite Game-of-Worlds-Identität noch einen gemeinsamen physikalischen Generator.</p>
+  </section>
+
+  <div class="status" data-c100-status>VALIDATING Z100…</div>
+  <p class="source">Datenquelle: <a href="https://pubchem.ncbi.nlm.nih.gov/rest/pug/periodictable/JSON">PubChem Periodic Table · PUG REST</a>, lokal gebundener Z1–Z101-Cut vom 03.11.2026. Wissenschaftlicher Status: diagnostischer Candidate / R0; kein aktiver Lab-Run, keine Publikationsfreigabe.</p>
+</main>
+<script src="a0-periodic-elements-z100-pubchem.js"></script>
+<script src="a0-periodic-carrier-z100.js"></script>
+</body>
+</html>

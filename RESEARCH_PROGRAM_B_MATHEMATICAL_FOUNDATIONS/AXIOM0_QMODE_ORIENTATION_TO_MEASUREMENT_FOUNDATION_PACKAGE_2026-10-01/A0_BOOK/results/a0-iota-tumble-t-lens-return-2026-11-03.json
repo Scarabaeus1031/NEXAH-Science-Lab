@@ -1,0 +1,45 @@
+{
+  "schema": "nexah.a0.iota-tumble-t-lens-return/1",
+  "date": "2026-11-03",
+  "status": "PASS_BOUNDED_ENGINEERING_VIEW",
+  "instrument": "A0_BOOK/A0_IOTA_BRIDGE_DEMONSTRATOR.html#iotaTumbleTLens",
+  "identity_reuse": [
+    "NEXAH_A0_ORIENTATION_CONTROLLER_BENCH",
+    "IOTA_2_3_BRIDGE_VIEW"
+  ],
+  "new_canonical_ids": [],
+  "relation_changes": [],
+  "exact_contract": {
+    "period": 24,
+    "iota_degrees": 15,
+    "radial": "r(theta)=(cos theta,sin theta)",
+    "unit_tangent": "t(theta)=(-sin theta,cos theta)",
+    "return": "T(2pi)=T(0)",
+    "orange_events_at_return": 24
+  },
+  "singularity_control": {
+    "scalar_tan_theta": "undefined at 90 and 270 degrees",
+    "unit_tangent": "defined at all 24 states"
+  },
+  "verification": {
+    "node_test": "PASS a0-iota-tumble-t-lens · 24-state tangent frame · exact return · counted events",
+    "browser_acceptance": "PASS source tick 1 propagated to lens as 15 degrees, tan=0.267949, sparks=1/24, status OPEN"
+  },
+  "source_bindings": [
+    {"path": "A0_BOOK/A0_IOTA_BRIDGE_DEMONSTRATOR.html", "sha256": "f40e4b4f072e55bad39b9b0ccad34494262395d42ff9cac8a59bb552a42fd159"},
+    {"path": "A0_BOOK/a0-iota-tumble-t-lens.js", "sha256": "74ebe9f171c8660e207470acd8c7dd980fa008df01961cd842270af03b8c5ff8"},
+    {"path": "A0_BOOK/a0-iota-tumble-t-lens.css", "sha256": "615e68d37627fb5a93108109b383ea22e2c068190f8fca44302ddf260049e3a6"},
+    {"path": "A0_BOOK/a0-iota-tumble-t-lens-tests.cjs", "sha256": "bc1ea1a649ac2b6c4d843ed53136941f62dca5700d8097b1a105098db3a72d2e"}
+  ],
+  "authority": {
+    "research_run": false,
+    "scientific_evidence": false,
+    "new_identity": false,
+    "new_relation": false,
+    "new_operator": false,
+    "physical_mechanism": false,
+    "publication": false
+  },
+  "navigator_effect": "Existing IOTA and Orientation Controller identities reused. No Source Graph node, alias or relation change. No Mission Control identity created.",
+  "boundary": "Tumble, ratchet, Tao/Dao, sprout, splash and orange sparks remain local display mnemonics. Orange sparks count discrete source-tick transitions and do not denote energy."
+}
