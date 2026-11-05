@@ -3,6 +3,9 @@ const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('n
 const model=require('./a0-theory-storyboard.js');
 const html=fs.readFileSync(path.join(__dirname,'A0_THEORY_STORYBOARD.html'),'utf8');
 let checks=0;function check(value,message){assert.ok(value,message);checks++;}
+check(html.includes('id="currentness-20261105"')&&html.includes('Die sieben Fragen bleiben. Ihre Rückbindung ist weiter.'),'currentness bridge');
+check(html.includes('SOURCE → CARRIER → LENS → INSPECT')&&html.includes('140 → 106'),'current IOI and Red Balloon returns');
+check(!html.includes('Stand 17.10.2026')&&!html.includes('Erzählfassung 19.10.2026'),'stale editorial dates removed');
 check(model.scenes.length===7,'seven scenes');
 for(let i=0;i<7;i++){
   const s=model.scenes[i];
