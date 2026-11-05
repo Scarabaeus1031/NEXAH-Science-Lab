@@ -1,0 +1,176 @@
+{
+  "id": "A0_IOI_KEYSTONE_9_WHITE_ALU_PULSE_RETURN_2026_11_05",
+  "date": "2026-11-05",
+  "status": "PASS",
+  "classification": "R0_DOCUMENTED_FINITE_VIEW_ANIMATION",
+  "scope": "A source-bound scale pulse over existing GLB nodes. It anchors the white return fields, pink ALU markers, pink B witness and yellow package-9 face-center witness without adding geometry, materials, game state or a scientific mechanism.",
+  "animation": {
+    "name": "KEYSTONE_9_WHITE_ALU_PULSE",
+    "duration_seconds": 5.2,
+    "sequence": [
+      "RETURN_WHITE:TOP_r8_c8|FRONT_r8_c8|RIGHT_r8_c8",
+      "ILAU_NODE_A",
+      "ILAU_NODE_L",
+      "ILAU_NODE_U",
+      "B_CORNER_ALU",
+      "EULER_FACE_OBSERVER:PACKAGE_9_YELLOW_CENTER_WITNESS",
+      "RETURN_WHITE:TOP_r8_c8|FRONT_r8_c8|RIGHT_r8_c8"
+    ],
+    "track_path": "scale",
+    "translation_tracks": 0,
+    "new_geometry": 0,
+    "new_materials": 0
+  },
+  "count_lens": {
+    "package_grid": "8x8",
+    "tiles_per_package": 64,
+    "outer_packages": 8,
+    "outer_tiles": 512,
+    "center_package_index": 9,
+    "center_tiles": 64,
+    "total_packages": 9,
+    "total_tiles": 576,
+    "equations": [
+      "8*64=512",
+      "9*64=576",
+      "512+64=576"
+    ],
+    "semantic_status": "EXACT_COUNT_LENS_ONLY"
+  },
+  "address_map": {
+    "face_cells": "11*11=121",
+    "prime_diagonal": "P13->41",
+    "first_prime_markers": [
+      2,
+      3,
+      5
+    ],
+    "algo_l_seam": {
+      "up": "ORANGE_RIGHT_FRONT_EDGE",
+      "right": "ORANGE_TOP_FRONT_EDGE",
+      "status": "VIEW_ROLE_ONLY"
+    },
+    "white_return_gate": [
+      "TOP_r8_c8",
+      "FRONT_r8_c8",
+      "RIGHT_r8_c8"
+    ],
+    "black_slots": "INTER_TILE_VISIBILITY_GAPS_NOT_STATES",
+    "zero_red_balloon": "O0_CENTER_OWNER_VIEW_RETURN_APERTURE_OPEN",
+    "inside_outside_inside_prime": "EXISTING_AM_VM_PM_VIEW_CONTRACT"
+  },
+  "corner_coordinates": {
+    "semantic_axis_order": [
+      "IA",
+      "LR",
+      "OU"
+    ],
+    "coordinate_values": [
+      -1,
+      1
+    ],
+    "center": "O0=(0,0,0)",
+    "addresses": {
+      "ALU": [-1, -1, -1],
+      "ALO": [-1, -1, 1],
+      "ARU": [-1, 1, -1],
+      "ARO": [-1, 1, 1],
+      "ILU": [1, -1, -1],
+      "ILO": [1, -1, 1],
+      "IRU": [1, 1, -1],
+      "IRO": [1, 1, 1]
+    },
+    "b_alu_witness": {
+      "semantic": "ALU=(-1,-1,-1)",
+      "glb_normalized": "(+1,+1,+1)",
+      "adapter": "JANUS_CENTRAL_INVERSION_J(v)=-v",
+      "status": "DISPLAY_ADDRESS_ADAPTER_ONLY"
+    },
+    "navigation_order": [
+      "CAMERA",
+      "MAPS",
+      "SHEETS",
+      "PATHS_AND_PULSES",
+      "INSPECT"
+    ]
+  },
+  "side_navigation_rail": {
+    "placement": "HORIZONTAL_BOX_DIRECTLY_BELOW_CUBE",
+    "carrier_mode": "BODY_45_BLUE_CARRIER_ALL_SIDES",
+    "sheet_modes": {
+      "AM": "XY_INSIDE_O0_SOURCE",
+      "VM": "YZ_DIRECTED_FUGE",
+      "PM": "ZX_INSIDE_PRIME_GHOST_WITNESS"
+    },
+    "red_balloon_lens": {
+      "label": "RB_O0_SHADOW",
+      "visual_layers": [
+        "BLUE_BODY",
+        "BLACK_INTER_TILE_SLOTS",
+        "YELLOW_ADDRESS_LAYER",
+        "RED_SHADOW"
+      ],
+      "sheet_assignment": "UNASSIGNED_AGAINST_AM_VM_PM",
+      "status": "VIEW_LAYER_ONLY"
+    }
+  },
+  "guided_demo_tour": {
+    "placement": "LEFT_BELOW_CUBE_AND_NAVIGATION_RAIL",
+    "control": "MANUAL_PREVIOUS_NEXT_STOP",
+    "steps": [
+      "BODY_BLUE_CARRIER",
+      "MAP_121_PRIMES_ALGO_L",
+      "AM_XY_INSIDE",
+      "VM_YZ_DIRECTED_FUGE",
+      "PM_ZX_INSIDE_PRIME",
+      "RED_BALLOON_O0_SHADOW",
+      "CORNER_COORDINATES_IA_LR_OU",
+      "KEYSTONE_9_RETURN"
+    ],
+    "wide_record_deck": [
+      "FACE_RECORD",
+      "FULL_OCTANT",
+      "OBSERVERS",
+      "GRID",
+      "CLAIM_BOUNDARY",
+      "RECEIPT_LINKS"
+    ],
+    "status": "VIEW_ONLY_LABELLED_READER_ROUTE"
+  },
+  "reused_identities": [
+    "MOD:NUMBER_VIEW_SUITE",
+    "MOD:TESSAREC",
+    "A0_GAME_OF_WORLDS_PLAY",
+    "A0_IOI_LEAF_FOLD_RETURN_R0_DRAFT"
+  ],
+  "boundaries": {
+    "b_corner_record": "ALU=011001=25",
+    "b_corner_is_not_2501": true,
+    "yellow_package_9_is_not_a_new_number_identity": true,
+    "euler_observer_is_not_number_9": true,
+    "pulse_is_not_physical_energy_flow": true,
+    "red_balloon_zero_is_not_a_new_identity": true,
+    "algo_l_is_not_a_new_operator": true,
+    "black_slots_are_not_states": true,
+    "corner_letters_are_semantic_addresses_not_new_nodes": true,
+    "janus_inversion_is_a_view_adapter_not_an_identity": true,
+    "red_balloon_lens_is_not_am_or_pm": true,
+    "red_shadow_is_not_a_new_glb_node_or_physical_shadow_claim": true,
+    "opium_club_status": "OPEN_OWNER_MNEMONIC_UNBOUND",
+    "new_scientific_claim": false,
+    "publication_authorized": false
+  },
+  "graph_delta": {
+    "new_identities": 0,
+    "new_relations": 0,
+    "component_index_update_required": false
+  },
+  "artifacts": [
+    "assets/game-of-worlds-play/ioi-world-cube/a0_ioi_game_of_worlds_r0.glb",
+    "assets/game-of-worlds-play/ioi-world-cube/index.html",
+    "assets/game-of-worlds-play/ioi-world-cube/MANIFEST.json",
+    "A0_NUMBERMAGICK_GRID_RESEARCH.html",
+    "a0-ioi-game-of-worlds-glb-tests.cjs",
+    "a0-snce-101-12928-connector-tests.cjs"
+  ]
+}

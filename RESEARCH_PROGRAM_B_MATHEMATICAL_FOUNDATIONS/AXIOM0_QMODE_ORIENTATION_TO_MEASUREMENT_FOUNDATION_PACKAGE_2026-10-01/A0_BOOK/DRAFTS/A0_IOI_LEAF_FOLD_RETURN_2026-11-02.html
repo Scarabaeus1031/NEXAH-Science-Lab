@@ -6,10 +6,32 @@
 <meta name="referrer" content="no-referrer">
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'unsafe-inline' 'unsafe-eval' 'wasm-unsafe-eval' blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; style-src 'unsafe-inline' blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; img-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; font-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; media-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; worker-src blob:; connect-src blob: data:; frame-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
 <title>A0 · IOI Leaf Fold · Forschungsideenprotokoll</title>
-<style>:root{color-scheme:light dark;background:light-dark(rgb(255 255 255), rgb(24 24 24))}html,body{margin:0}body{box-sizing:border-box;padding:1rem;background:inherit}iframe{display:block;width:100%;height:calc(100vh - 2rem);margin:0 auto;border:0}</style>
+<style>
+  :root{color-scheme:dark;--shell:#050d14;--panel:#091924;--line:#21475a;--text:#edf8ff;--muted:#8ea8b5;--cyan:#41d8e8;--pink:#f06bb3;--gold:#f3c75f;--mint:#68f0be}
+  *{box-sizing:border-box}html,body{margin:0;min-height:100%;background:var(--shell);color:var(--text)}
+  body{overflow:hidden;font-family:Inter,ui-sans-serif,system-ui,sans-serif}
+  .leaf-reader-shell{display:grid;grid-template-rows:auto minmax(0,1fr);height:100vh;background:radial-gradient(circle at 50% -20%,rgba(65,216,232,.12),transparent 42%),var(--shell)}
+  .leaf-reader-bar{position:relative;z-index:20;display:flex;align-items:center;gap:8px;min-height:58px;padding:9px 14px;border-bottom:1px solid var(--line);background:rgba(5,13,20,.94);backdrop-filter:blur(14px)}
+  .leaf-reader-brand{display:grid;gap:3px;margin-right:auto}.leaf-reader-brand b{color:var(--cyan);font:850 10px/1 ui-monospace,monospace;letter-spacing:.13em}.leaf-reader-brand span{color:var(--muted);font:700 8px/1.25 ui-monospace,monospace;letter-spacing:.06em}
+  .leaf-reader-action{display:inline-grid;place-items:center;min-height:34px;padding:8px 11px;border:1px solid var(--line);border-radius:8px;background:var(--panel);color:var(--muted);cursor:pointer;text-decoration:none;font:800 8px/1.15 ui-monospace,monospace;letter-spacing:.06em;white-space:nowrap}
+  .leaf-reader-action:hover,.leaf-reader-action:focus-visible{border-color:var(--cyan);color:var(--cyan);outline:none}.leaf-reader-action.home{border-color:var(--pink);color:var(--pink)}.leaf-reader-action.play{border-color:var(--gold);color:var(--gold)}.leaf-reader-action.book{border-color:var(--mint);color:var(--mint)}.leaf-reader-action[aria-pressed="true"]{background:var(--cyan);border-color:var(--cyan);color:#041019}
+  .leaf-reader-frame{min-height:0;padding:10px}iframe{display:block;width:100%;height:100%;margin:0 auto;border:1px solid var(--line);border-radius:12px;background:#050b12}
+  .leaf-reader-shell[data-reading="true"] .leaf-reader-frame{padding:0}.leaf-reader-shell[data-reading="true"] iframe{border-radius:0;border-width:0}
+  @media(max-width:840px){.leaf-reader-bar{align-items:flex-start;flex-wrap:wrap}.leaf-reader-brand{flex:1 0 100%}.leaf-reader-action{flex:1}.leaf-reader-frame{padding:5px}}
+</style>
 
 </head>
 <body>
+<main class="leaf-reader-shell" id="leaf-reader-shell" data-reading="false">
+  <nav class="leaf-reader-bar" aria-label="Leaf Fold Reader Navigation">
+    <div class="leaf-reader-brand"><b>WINDOW 01 · LEAF FOLD</b><span>NUMBER / FOLD / WORLD · SOURCE-BOUND READER</span></div>
+    <a class="leaf-reader-action home" id="leaf-reader-home" href="A0_IOI_LEAF_FOLD_OPEN_BOOK_START_2026-11-02.html">← COMMON START</a>
+    <button class="leaf-reader-action" id="leaf-reader-mode" type="button" aria-pressed="false">LESEMODUS</button>
+    <button class="leaf-reader-action play" id="leaf-reader-play" type="button">▶ PLAY ALL</button>
+    <a class="leaf-reader-action book" id="leaf-reader-book" href="IOI_PRIME_OPEN_BOOK_COMPOSITION.html#letterSyllableLens">OPEN BOOK ↗</a>
+    <button class="leaf-reader-action" id="leaf-reader-fullscreen" type="button">VOLLBILD ⛶</button>
+  </nav>
+  <div class="leaf-reader-frame">
 <iframe id="codex-visualization" sandbox="allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox allow-downloads allow-top-navigation-by-user-activation" allow="fullscreen" allowfullscreen referrerpolicy="no-referrer" title="A0 IOI Leaf Fold Forschungsideenprotokoll" data-srcdoc="&lt;!doctype html&gt;
 &lt;html lang=&quot;de&quot; data-visualize-standalone&gt;
 &lt;head&gt;
@@ -2999,6 +3021,9 @@ html&gt;body{padding:0}&lt;/style&gt;
             &lt;button type=&quot;button&quot; data-kv-word=&quot;TESA&quot; aria-pressed=&quot;false&quot;&gt;TESA&lt;/button&gt;
             &lt;button type=&quot;button&quot; data-kv-word=&quot;RECORD&quot; aria-pressed=&quot;false&quot;&gt;RECORD&lt;/button&gt;
             &lt;button type=&quot;button&quot; data-kv-word=&quot;PINKY&quot; aria-pressed=&quot;false&quot;&gt;PINKY&lt;/button&gt;
+            &lt;button type=&quot;button&quot; data-kv-word=&quot;LUX&quot; aria-pressed=&quot;false&quot;&gt;LUX&lt;/button&gt;
+            &lt;button type=&quot;button&quot; data-kv-word=&quot;PINK&quot; aria-pressed=&quot;false&quot;&gt;PINK&lt;/button&gt;
+            &lt;button type=&quot;button&quot; data-kv-word=&quot;BLUE&quot; aria-pressed=&quot;false&quot;&gt;BLUE&lt;/button&gt;
           &lt;/div&gt;
           &lt;div class=&quot;kv-metrics&quot; aria-live=&quot;polite&quot;&gt;
             &lt;div class=&quot;kv-metric&quot;&gt;&lt;small&gt;NORMALIZED&lt;/small&gt;&lt;b id=&quot;kv-normalized&quot;&gt;AOK&lt;/b&gt;&lt;/div&gt;
@@ -3006,6 +3031,8 @@ html&gt;body{padding:0}&lt;/style&gt;
             &lt;div class=&quot;kv-metric loss&quot;&gt;&lt;small&gt;KV-ONLY CANDIDATES&lt;/small&gt;&lt;b id=&quot;kv-only-count&quot;&gt;525&lt;/b&gt;&lt;/div&gt;
             &lt;div class=&quot;kv-metric loss&quot;&gt;&lt;small&gt;KV + SIDE CANDIDATES&lt;/small&gt;&lt;b id=&quot;kv-side-count&quot;&gt;54&lt;/b&gt;&lt;/div&gt;
             &lt;div class=&quot;kv-metric&quot;&gt;&lt;small&gt;ADDRESS WORD&lt;/small&gt;&lt;b id=&quot;kv-address-word&quot;&gt;01·15·11&lt;/b&gt;&lt;/div&gt;
+            &lt;div class=&quot;kv-metric&quot;&gt;&lt;small&gt;A1Z26 SUM&lt;/small&gt;&lt;b id=&quot;kv-a1z26-sum&quot;&gt;27&lt;/b&gt;&lt;/div&gt;
+            &lt;div class=&quot;kv-metric&quot;&gt;&lt;small&gt;SCRABBLE · DE · NO BONUS&lt;/small&gt;&lt;b id=&quot;kv-scrabble-score&quot;&gt;7&lt;/b&gt;&lt;/div&gt;
             &lt;div class=&quot;kv-metric pass&quot; id=&quot;kv-return-card&quot;&gt;&lt;small&gt;FULL RETURN&lt;/small&gt;&lt;b id=&quot;kv-return&quot;&gt;PASS · AOK&lt;/b&gt;&lt;/div&gt;
           &lt;/div&gt;
           &lt;div class=&quot;kv-workbench&quot;&gt;
@@ -3121,7 +3148,7 @@ html&gt;body{padding:0}&lt;/style&gt;
         &lt;section class=&quot;ilau-bridge&quot; aria-labelledby=&quot;glb-world-title&quot;&gt;
           &lt;div class=&quot;ilau-head&quot;&gt;
             &lt;div&gt;&lt;h4 id=&quot;glb-world-title&quot;&gt;Game of Worlds · GLB Inspection Object&lt;/h4&gt;&lt;p&gt;Der IOI-/ILAU-Träger liegt jetzt zusätzlich als reproduzierbarer GLB vor. Number, Word, Graph und World bleiben benannte Projektionen eines gemeinsamen 11er-Carriers; Riemann/Ecke, Ihara/Kante, Euler/Fläche und Fibonacci/45° sind getrennte Beobachterrollen. Eine schaltbare Objektlegende trennt Körper, Rahmen, Kanten, B-Corner, drei aktive ILAU-Nodes, Adresslage, Schnitt, Beobachter und die pulsierende Ghost-3+1-Konstellation. Der Raumansicht-Schalter wechselt am selben Objekt zwischen Outside und zwei Inside-Kamerapresets bei 15H und 21H.&lt;/p&gt;&lt;/div&gt;
-            &lt;div class=&quot;glb-head-side&quot;&gt;&lt;div class=&quot;ilau-contract&quot;&gt;461 NODES · 19 MESHES&lt;br&gt;7 ANIMATIONS · 126,060 B&lt;/div&gt;&lt;button class=&quot;glb-open-large&quot; type=&quot;button&quot; data-player-fullscreen&gt;3D PLAYER GROSS / VOLLBILD ⛶&lt;/button&gt;&lt;/div&gt;
+            &lt;div class=&quot;glb-head-side&quot;&gt;&lt;div class=&quot;ilau-contract&quot;&gt;461 NODES · 19 MESHES&lt;br&gt;8 ANIMATIONS · REGENERATED&lt;/div&gt;&lt;button class=&quot;glb-open-large&quot; type=&quot;button&quot; data-player-fullscreen&gt;3D PLAYER GROSS / VOLLBILD ⛶&lt;/button&gt;&lt;/div&gt;
           &lt;/div&gt;
           &lt;div class=&quot;glb-embed-shell&quot;&gt;
             &lt;div class=&quot;glb-embed-stage&quot;&gt;&lt;iframe id=&quot;ioi-world-model&quot; src=&quot;../assets/game-of-worlds-play/ioi-world-cube/index.html&quot; allow=&quot;fullscreen&quot; allowfullscreen title=&quot;Game-of-Worlds-Demonstrator mit aktivierbarer Objektlegende, 11er Cube, grünem Carrier, orangefarbenen Kanten, pinkem ALU-B-Corner, drei pinken ILAU-Nodes und vier Beobachterrollen&quot;&gt;&lt;/iframe&gt;&lt;/div&gt;
@@ -3135,6 +3162,7 @@ html&gt;body{padding:0}&lt;/style&gt;
               &lt;button type=&quot;button&quot; data-glb-animation=&quot;FUGE_INSIDE_OUT_PULSE&quot; aria-pressed=&quot;false&quot;&gt;INSIDE–OUT FUGE PULSE&lt;/button&gt;
               &lt;button type=&quot;button&quot; data-glb-animation=&quot;EDELWEISS_L_FRAME_WOBBLE&quot; aria-pressed=&quot;false&quot;&gt;EDELWEISS · L-FRAME WOBBLE / MIRROR RETURN&lt;/button&gt;
               &lt;button type=&quot;button&quot; data-glb-animation=&quot;IHARA_ROSE_C5_RETURN&quot; aria-pressed=&quot;false&quot;&gt;IHARA × ROSE C5 · NO IMMEDIATE RETURN&lt;/button&gt;
+              &lt;button type=&quot;button&quot; data-glb-animation=&quot;KEYSTONE_9_WHITE_ALU_PULSE&quot; aria-pressed=&quot;false&quot;&gt;KEYSTONE 9 · WHITE → ALU → YELLOW → RETURN&lt;/button&gt;
               &lt;button type=&quot;button&quot; id=&quot;ioi-world-pause&quot; aria-pressed=&quot;false&quot;&gt;ANIMATION PAUSIEREN&lt;/button&gt;
               &lt;button type=&quot;button&quot; id=&quot;ioi-world-reset&quot;&gt;ANSICHT ZURÜCKSETZEN&lt;/button&gt;
               &lt;p class=&quot;glb-embed-status&quot; id=&quot;ioi-world-status&quot; aria-live=&quot;polite&quot;&gt;GLB WIRD GELADEN …&lt;/p&gt;
@@ -3150,10 +3178,13 @@ html&gt;body{padding:0}&lt;/style&gt;
             &lt;div class=&quot;ilau-equation&quot;&gt;&lt;b&gt;Q ADDRESS OVERLAY · VIEW ONLY&lt;/b&gt;&lt;code&gt;2501 × 2 = 5002&lt;/code&gt;&lt;span&gt;Ein schaltbares Player-Overlay legt 2501 in die Mitte und 5002 an den oberen Return, bezeichnet die Projektionsdiagonale als Q AXIS, T/Rosenbrücke links und Ghostgons 17·19·29 rechts. EG|1 bleibt ein Level-Origin-/Kontextbit; 7.83 bleibt eine ungebundene Frequenznotiz. Keine dieser Labels verändert GLB-Geometrie oder Game-State.&lt;/span&gt;&lt;/div&gt;
             &lt;div class=&quot;ilau-equation&quot;&gt;&lt;b&gt;EDELWEISS · L-FRAME WOBBLE / MIRROR RETURN&lt;/b&gt;&lt;code&gt;BINDER → 7 OUTER → 11 LIFT → 11 MIRROR RETURN → O₀&lt;/code&gt;&lt;span&gt;Pink bleibt ortsfester Binder. Zwei grüne Balken am oberen rechten L-Frame wippen gegensinnig; sieben Außenfelder pulsen nacheinander, elf Front-Diagonalfelder heben zur Ecke und elf Right-Diagonalfelder geben die Folge gespiegelt an O₀ zurück. Es ist ein sechssekündiger View-Clip und keine etablierte NLK-Shell- oder Bewegungsdynamik.&lt;/span&gt;&lt;/div&gt;
             &lt;div class=&quot;ilau-equation&quot;&gt;&lt;b&gt;IHARA × ROSE C5 · DIRECTED RETURN&lt;/b&gt;&lt;code&gt;FIELDS → 0→2→4→1→3→0 → WHITE → O₀ → GHOST&lt;/code&gt;&lt;span&gt;Fünf deklarierte Frontfelder tragen die exakte Rosenroute +2 mod 5. Ihre fünf Kanten repräsentieren zehn gerichtete Zustände; der ausgewählte Walk besitzt null unmittelbare Rückläufe nach der Hashimoto-Regel. Danach pulsen RETURN_WHITE außen, O₀ Orange innen und die ortsfesten Ghost-Witnesses. Dies ist ein lokaler Adapter zur bestehenden Ihara-/Rose-Arbeit, keine neue Ihara-Aussage.&lt;/span&gt;&lt;/div&gt;
+            &lt;div class=&quot;ilau-equation&quot;&gt;&lt;b&gt;KEYSTONE 9 · WHITE / ALU / YELLOW RETURN&lt;/b&gt;&lt;code&gt;WHITE → A → L → U → B/ALU → YELLOW 9 → WHITE&lt;/code&gt;&lt;span&gt;Der endliche Clip skaliert ausschließlich vorhandene Nodes: drei weiße r8c8-Return-Felder, die pinken A/L/U-Endpunkte, den pinken B-Corner und den gelben Euler-Flächenwitness. Gelb 9 bezeichnet nur das mittlere Paket der exakten Zähllinse 8·64=512 und 9·64=576; keine neue Zahlenidentität und kein physikalischer Pulse.&lt;/span&gt;&lt;/div&gt;
+            &lt;div class=&quot;ilau-equation&quot;&gt;&lt;b&gt;KEYSTONE ADDRESS CARD · L-SEAM / 121 / 2·3·5 / 0&lt;/b&gt;&lt;code&gt;11×11=121 · P₁,P₂,P₃=2,3,5 · ↑/→ · WHITE r8c8 · O₀&lt;/code&gt;&lt;span&gt;Die gelbe Randfigur wird als ALGO-L-Naht gelesen, die ersten drei Marker der vorhandenen P13→41-Diagonale als 2·3·5 und White r8c8 als Return-Gate. Schwarze Schlitze sind nur Zwischenräume der Kartenansicht. 0/Red Balloon bleibt eine offene Owner-Lesung der O₀-Apertur; keine neue Identität oder Operatorbindung.&lt;/span&gt;&lt;/div&gt;
+            &lt;div class=&quot;ilau-equation&quot;&gt;&lt;b&gt;CORNER COORDINATES · SEMANTIC / GEOMETRIC SPLIT&lt;/b&gt;&lt;code&gt;C=(IA,LR,OU) · O₀=(0,0,0) · J(v)=−v&lt;/code&gt;&lt;span&gt;Acht echte 3D-Hotspots tragen ALU, ALO, ARU, ARO, ILU, ILO, IRU und IRO. Der vorhandene B/ALU-Witness liegt geometrisch bei normiert (+++), sein semantischer Record ALU bei (---); die Janus-Inversion wird deshalb als expliziter View-Adapter geführt. Fibonacci-Geländer ist mit Seeds 1,1 definiert; die konkrete Euler-Treppe bleibt bis zur Operatorwahl OPEN.&lt;/span&gt;&lt;/div&gt;
             &lt;div class=&quot;ilau-equation&quot;&gt;&lt;b&gt;INSIDE / FUGE / INSIDE′ · SIDE BIT&lt;/b&gt;&lt;code&gt;AM/XY = INSIDE · VM/YZ = SEAM · PM/ZX = INSIDE′&lt;/code&gt;&lt;span&gt;AM startet die orange/weiße Inside–Out-Lesung in der 15H-Kamera. VM startet den gerichteten Ihara–Rose-Walk als Fuge. PM startet Ghost 3+1 in der 21H-Kamera als Inside′-Witness. Das Seitenbit unterscheidet Source und Return; die drei Labels bleiben Displayprojektionen, keine kanonischen Operatoren.&lt;/span&gt;&lt;/div&gt;
           &lt;/div&gt;
           &lt;div class=&quot;glb-actions&quot;&gt;&lt;button type=&quot;button&quot; data-player-fullscreen&gt;3D PLAYER GROSS / VOLLBILD ⛶&lt;/button&gt;&lt;a href=&quot;../assets/game-of-worlds-play/ioi-world-cube/a0_ioi_game_of_worlds_r0.glb&quot; download&gt;GLB LADEN ↓&lt;/a&gt;&lt;/div&gt;
-          &lt;div class=&quot;ilau-boundary&quot;&gt;&lt;b&gt;R0 / SOURCE-BOUND:&lt;/b&gt; Der GLB ist ein adressierbares Inspektions- und Erzählobjekt nach dem bestehenden GAME-4-LIFE-/Game-of-Worlds-Buildermuster. Ein Legendenklick dimmt die übrigen Materialgruppen, pulsiert die gewählte Gruppe dreimal und hält sie danach im Solo-Fokus. Violet, Red, Ghost 3+1, Inside–Out und Edelweiß bleiben getrennte View-Clips. Ihara×Rose bindet fünf vorhandene Frontfeld-Adressen an den exakten C5-Schritt +2 mod 5, führt zehn gerichtete Zustände und zeigt einen Walk ohne Sofort-Rücklauf; White, O₀ und Ghost schließen die deklarierte Return-Ansicht. AM/Inside, VM/Fuge und PM/Inside′ sind ein View-/Side-Bit-Vertrag, keine kanonische AM/VM/PM-Dynamik. H5 bleibt die offene Prime-Foldings-Hypothese und wird nicht zur Rosenbrücke umgebunden. Keine neue Ihara-Aussage, Game-Dynamik, NLK-Shell, physische Brücke oder Publikationsfreigabe. SHA-256: &lt;code&gt;bafdd30debd46a62…f3457c96&lt;/code&gt;.&lt;/div&gt;
+          &lt;div class=&quot;ilau-boundary&quot;&gt;&lt;b&gt;R0 / SOURCE-BOUND:&lt;/b&gt; Der GLB ist ein adressierbares Inspektions- und Erzählobjekt nach dem bestehenden GAME-4-LIFE-/Game-of-Worlds-Buildermuster. Ein Legendenklick dimmt die übrigen Materialgruppen, pulsiert die gewählte Gruppe dreimal und hält sie danach im Solo-Fokus. Violet, Red, Ghost 3+1, Inside–Out, Edelweiß und Keystone 9 bleiben getrennte View-Clips. Ihara×Rose bindet fünf vorhandene Frontfeld-Adressen an den exakten C5-Schritt +2 mod 5, führt zehn gerichtete Zustände und zeigt einen Walk ohne Sofort-Rücklauf; White, O₀ und Ghost schließen die deklarierte Return-Ansicht. Keystone 9 ist eine reine Paket-/Zähllinse über vorhandene Nodes; weder 9 noch Euler noch ALU=25 werden zu 2501 umdefiniert. AM/Inside, VM/Fuge und PM/Inside′ sind ein View-/Side-Bit-Vertrag, keine kanonische AM/VM/PM-Dynamik. H5 bleibt die offene Prime-Foldings-Hypothese und wird nicht zur Rosenbrücke umgebunden. Keine neue Ihara-Aussage, Game-Dynamik, NLK-Shell, physische Brücke oder Publikationsfreigabe. Der aktuelle SHA-256 steht im gebundenen GLB-Manifest.&lt;/div&gt;
         &lt;/section&gt;
         &lt;h4 class=&quot;cube-secondary-title&quot;&gt;Separate Nebenlinse · Rubik-Permutation / Six-Face Q-Bit&lt;/h4&gt;
         &lt;p&gt;Der folgende 3×3-Permutationscube bleibt als bereits gebundener A0-Vergleich erhalten. Er ist nicht der hier gemeinte 11×11×11-Binomial-Cube und darf weder dessen Pascal-Zerlegung noch dessen rote/pinke Corner-Rolle ersetzen.&lt;/p&gt;
@@ -3249,6 +3280,23 @@ html&gt;body{padding:0}&lt;/style&gt;
         &lt;p class=&quot;cube-sources&quot;&gt;&lt;strong&gt;Sources / Return:&lt;/strong&gt; &lt;a href=&quot;https://themathematics.app/app/worlds/cubes-app?v=d1c5147f4af2&quot;&gt;The Mathematics · Visual Cubes / The Binomial Cube&lt;/a&gt; · Owner screenshot 02.11.2026 · &lt;a href=&quot;../A0_ORIENTATION_CONTROLLER_BENCH.html#sixFaceRainbowTube&quot;&gt;NEXAH Bench · separate 54-Facelet Cube Orbit, [R,U]⁶ Return und Receipt&lt;/a&gt; · &lt;a href=&quot;../A0_ORIENTATION_CONTROLLER_BENCH.html#tesaLissajousWindowRouter&quot;&gt;NEXAH Bench · separates Six-Bit Gate&lt;/a&gt; · &lt;a href=&quot;https://rubiks.com/solve-guide&quot;&gt;Rubik’s official guide · center, edge and corner piece roles&lt;/a&gt; · &lt;a href=&quot;https://mathworld.wolfram.com/Cube.html&quot;&gt;MathWorld · cube V/E/F counts&lt;/a&gt;.&lt;/p&gt;
       &lt;/div&gt;
     &lt;/div&gt;
+  &lt;/section&gt;
+
+  &lt;section class=&quot;protocol-section&quot; id=&quot;q4-antipode-ledger&quot; aria-labelledby=&quot;q4-antipode-title&quot;&gt;
+    &lt;div class=&quot;protocol-head&quot;&gt;&lt;div class=&quot;protocol-no&quot;&gt;03c / Q4 WINDOW&lt;/div&gt;&lt;div&gt;&lt;h2 id=&quot;q4-antipode-title&quot;&gt;Antipoden und Fenster · die Buchhaltung wird sichtbar.&lt;/h2&gt;&lt;p&gt;Der Cube öffnet hier keinen neuen Carrier. Er reicht in den vorhandenen Q4-Prüfstand weiter: Dürer und Khajuraho bleiben getrennte Platzierungen; Komplement, Fensteradresse, Randregel, Residual und Return werden gemeinsam gelesen.&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;
+    &lt;div class=&quot;protocol-grid&quot;&gt;
+      &lt;article class=&quot;protocol-card&quot;&gt;&lt;span class=&quot;tag&quot;&gt;DÜRER · PLANAR&lt;/span&gt;&lt;h3&gt;x ↔ 17−x · R180&lt;/h3&gt;&lt;p&gt;Zeilen, Spalten und beide Hauptdiagonalen ergeben 34. Gegenüberliegende Zellen ergänzen sich zu 17. Die planaren 2×2-Fenster sind jedoch nicht alle gleich: der Carrier hält Magie, nicht Fensteruniformität.&lt;/p&gt;&lt;/article&gt;
+      &lt;article class=&quot;protocol-card&quot;&gt;&lt;span class=&quot;tag&quot;&gt;KHAJURAHO · TOROIDAL&lt;/span&gt;&lt;h3&gt;v ↔ 15−v · T(2,2)&lt;/h3&gt;&lt;p&gt;Alle toroidalen 2×2-Fenster summieren sich zu 34. Die toroidalen 3×3-Fenster erzeugen die Werte 69…84 genau einmal. Antipode bedeutet hier deklarierter Gegenoperator – nicht universell „immer gegenüber“ ohne Carriervertrag.&lt;/p&gt;&lt;/article&gt;
+      &lt;article class=&quot;protocol-card&quot;&gt;&lt;span class=&quot;tag&quot;&gt;VIEW CONTROL&lt;/span&gt;&lt;h3&gt;Blue ↔ Pink · same carrier, different cut&lt;/h3&gt;&lt;p&gt;Blue und Pink bleiben zwei Ansichten desselben gebundenen Körpers. Ihre Farben, Kameras und Wortwerte dürfen verschieden sein; der Return muss Carrier-Adresse und View-Tag getrennt bewahren.&lt;/p&gt;&lt;/article&gt;
+      &lt;article class=&quot;protocol-card&quot;&gt;&lt;span class=&quot;tag&quot;&gt;WORD FIXTURES · DE&lt;/span&gt;&lt;h3&gt;LUX 57 / 11 · PINK 50 / 10 · BLUE 40 / 7&lt;/h3&gt;&lt;p&gt;Jeweils &lt;code&gt;A1Z26 / Scrabble DE&lt;/code&gt;, ohne Bonusfelder: LUX = 57/11, PINK = 50/10, BLUE = 40/7. Das sind reproduzierbare Buchstabenprojektionen. Bei LUX bleibt nur &lt;code&gt;L×L+1=2501&lt;/code&gt; die gebundene Adressrechnung; U gehört zum Wortbild.&lt;/p&gt;&lt;/article&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;protocol-ledger&quot;&gt;
+      &lt;div class=&quot;protocol-row&quot;&gt;&lt;b&gt;Q4-01&lt;/b&gt;&lt;strong&gt;ANTIPODE PASS&lt;/strong&gt;&lt;span&gt;Dürer: &lt;code&gt;x+R180(x)=17&lt;/code&gt;. Khajuraho: &lt;code&gt;v+T(2,2)(v)=15&lt;/code&gt;. Zwei exakte, carriergebundene Involutionen; keine gemeinsame natürliche Identität.&lt;/span&gt;&lt;/div&gt;
+      &lt;div class=&quot;protocol-row&quot;&gt;&lt;b&gt;Q4-02&lt;/b&gt;&lt;strong&gt;WINDOW PASS / NEGATIVE CONTROL&lt;/strong&gt;&lt;span&gt;Khajuraho toroidal 2×2 = 34 für alle 16 Adressen; Dürer planar 2×2 variiert. Genau diese Differenz ist der Kontrollbefund.&lt;/span&gt;&lt;/div&gt;
+      &lt;div class=&quot;protocol-row&quot;&gt;&lt;b&gt;Q4-03&lt;/b&gt;&lt;strong&gt;PROJECTION PASS&lt;/strong&gt;&lt;span&gt;LUX, PINK und BLUE laufen im vorhandenen KV-/TESA-Codec. A1Z26, Scrabblewert, KV-Signatur und vollständige Adresse bleiben getrennte Readouts; nur die Volladresse liefert den eindeutigen Wort-Return.&lt;/span&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;p class=&quot;cube-sources&quot;&gt;&lt;strong&gt;Source-bound routes:&lt;/strong&gt; &lt;a href=&quot;../A0_Q4_MAGIC_SQUARE_JOINT_AUDIT.html&quot;&gt;Q4 Audit öffnen ↗&lt;/a&gt; · &lt;a href=&quot;../A0_ORIENTATION_CONTROLLER_BENCH.html#coupledWindowHub&quot;&gt;Moving Aperture · Coupled Window ↗&lt;/a&gt; · &lt;a href=&quot;../A0_BLUE_PINK_DODECA_CELL_RETURN.html#cells&quot;&gt;Blue / Pink Carrier ↗&lt;/a&gt; · &lt;a href=&quot;../A0_WERKBANK.html#numberTowerOrientationLens&quot;&gt;LUX Source Lens ↗&lt;/a&gt;&lt;/p&gt;
+    &lt;div class=&quot;protocol-stop&quot;&gt;&lt;b&gt;BOUNDARY:</b&gt; Magische Summen, Dezimalquersummen, Scrabblewerte, Farbrollen und Cube-Geometrie sind verschiedene Typen. Gleiche Zahlen oder ähnliche Bilder erzeugen weder eine neue Relation noch einen Geometriebeweis. Dieses Fenster bindet vorhandene Prüfstände; es startet keinen neuen Run.&lt;/div&gt;
   &lt;/section&gt;
 
   &lt;section class=&quot;protocol-section&quot; id=&quot;h4-h5-two-hand-bridge&quot; aria-labelledby=&quot;two-hand-title&quot;&gt;
@@ -3359,7 +3407,7 @@ html&gt;body{padding:0}&lt;/style&gt;
       &lt;div class=&quot;protocol-row&quot;&gt;&lt;b&gt;OBS-18&lt;/b&gt;&lt;strong&gt;KV Codec / Return Ladder&lt;/strong&gt;&lt;span&gt;Unter dem festgelegten A–Z-Vertrag mit V={A,E,I,O,U} bildet AOK auf VVK ab. Diese Typfolge besitzt 525 mögliche A–Z-Sequenzen; mit dem A–L/M–Z-Seitenrecord bleiben 54. Die vollständige TESA28-Adresse rekonstruiert AOK eindeutig. Y bleibt ein explizit schaltbarer Modellparameter.&lt;/span&gt;&lt;/div&gt;
       &lt;div class=&quot;protocol-row&quot;&gt;&lt;b&gt;OBS-19&lt;/b&gt;&lt;strong&gt;Janus 7 / 3D Chess Compass&lt;/strong&gt;&lt;span&gt;Die endliche lokale 3×3×3-Nachbarschaft zerfällt als 1 Zentrum + 6 Achsennachbarn + 12 Flächendiagonalen + 8 Raumecken = 27. Pferdeziele sind die 24 Vorzeichen und Permutationen von (2,1,0). Der 4×7-Pack ist als vier View-Sektoren mal sieben Kompassrollen deklariert; Fugen bleiben Grenzen.&lt;/span&gt;&lt;/div&gt;
       &lt;div class=&quot;protocol-row&quot;&gt;&lt;b&gt;OBS-20&lt;/b&gt;&lt;strong&gt;ILAU / Octant-to-Face Embedding&lt;/strong&gt;&lt;span&gt;Die drei Binärpaare I/A, L/R und O/U erzeugen 2³=8 Oktanten. Ihre Einbettung in den Six-Face-Raum wählt genau eine Fläche pro Gegenpaar und aktiviert daher drei von sechs Bits. ALU wird als ILAU-Endrecord B=011001 festgelegt: im gleichgewichteten 64er-Raum besitzt B Gewicht 1/64, im konditionierten Oktantteilraum 1/8.&lt;/span&gt;&lt;/div&gt;
-      &lt;div class=&quot;protocol-row&quot;&gt;&lt;b&gt;OBS-21&lt;/b&gt;&lt;strong&gt;Game of Worlds / Addressable GLB Projection&lt;/strong&gt;&lt;span&gt;Der gemeinsame 11er-Träger ist als reproduzierbarer GLB mit 461 benannten Nodes, neunzehn Meshes und sieben Animationen exportiert. Number, Word, Graph und World bleiben Projektionen; Riemann/Ecke, Ihara/Kante, Euler/Fläche und Fibonacci/45° bleiben getrennte Beobachterrollen. Der ALU-B-Record, die ½-Ebene und P13→41 liegen als Node-extras vor.&lt;/span&gt;&lt;/div&gt;
+      &lt;div class=&quot;protocol-row&quot;&gt;&lt;b&gt;OBS-21&lt;/b&gt;&lt;strong&gt;Game of Worlds / Addressable GLB Projection&lt;/strong&gt;&lt;span&gt;Der gemeinsame 11er-Träger ist als reproduzierbarer GLB mit 461 benannten Nodes, neunzehn Meshes und acht Animationen exportiert. Number, Word, Graph und World bleiben Projektionen; Riemann/Ecke, Ihara/Kante, Euler/Fläche und Fibonacci/45° bleiben getrennte Beobachterrollen. Der ALU-B-Record, die ½-Ebene und P13→41 liegen als Node-extras vor.&lt;/span&gt;&lt;/div&gt;
       &lt;div class=&quot;protocol-row&quot;&gt;&lt;b&gt;OBS-22&lt;/b&gt;&lt;strong&gt;Legend Solo Focus / Three-Pulse Inspection&lt;/strong&gt;&lt;span&gt;A, L und U sind als genau drei aktive ILAU-Endknoten mit einem vom B-Corner getrennten Material adressierbar. Ein Klick auf eine der elf Legenden-Gruppen dimmt alle anderen Gruppen, pulsiert die Auswahl dreimal und hält sie anschließend im Solo-Fokus; ALL ON rekonstruiert die vollständige Ansicht. Das verändert ausschließlich Kamera und Materialemission, weder GLB-State noch wissenschaftliche Aktivierung.&lt;/span&gt;&lt;/div&gt;
       &lt;div class=&quot;protocol-row&quot;&gt;&lt;b&gt;OBS-23&lt;/b&gt;&lt;strong&gt;Violet / Red / Ghost 3+1 Clips&lt;/strong&gt;&lt;span&gt;Violet bindet den vorhandenen HALF_PLANE_PULSE an seine Legendenwahl. Red besitzt einen eigenen RED_CORNER_WITNESS_PULSE. Ghost 3+1 ergänzt fünf Nodes: eine Gruppennode, World im Zentrum sowie Sun, Moon und Star als drei Glyphen; GHOST_3_PLUS_1_PULSE skaliert sie sequenziell, ohne Translation oder Orbitbahn.&lt;/span&gt;&lt;/div&gt;
       &lt;div class=&quot;protocol-row&quot;&gt;&lt;b&gt;OBS-24&lt;/b&gt;&lt;strong&gt;Outside / Inside Room Views&lt;/strong&gt;&lt;span&gt;Der Player besitzt drei explizite Kamerapresets: Outside zeigt den Carrier von außen; Inside 15H und Inside 21H setzen die Kamera nahe an O und unterscheiden zwei um 90° versetzte Innenraumrichtungen. Der Wechsel verändert weder GLB-Geometrie noch Material-, Record- oder World-State.&lt;/span&gt;&lt;/div&gt;
@@ -3373,6 +3421,15 @@ html&gt;body{padding:0}&lt;/style&gt;
       &lt;div class=&quot;protocol-row&quot;&gt;&lt;b&gt;OBS-32&lt;/b&gt;&lt;strong&gt;H4 × H5 / Two-Hand Source Lens&lt;/strong&gt;&lt;span&gt;Der Orientation Controller Bench liefert die linke C5-/Hashimoto-Hand; das Tessarec Blue Body Lab liefert die rechte Mapping-/Kontrollhand. Im lokalen Demonstrator hat der C5-Kanal Periode 5 und die gesetzte Kandidatenanzeige P13|P17|P23|C21 Periode 4; ihr gekoppelter Displayrecord kehrt nach 20 Ticks zurück. Das schließt weder H4 noch H5 wissenschaftlich.&lt;/span&gt;&lt;/div&gt;
       &lt;div class=&quot;protocol-row&quot;&gt;&lt;b&gt;OBS-33&lt;/b&gt;&lt;strong&gt;H8 / Record Deck · Club · Control · Stack&lt;/strong&gt;&lt;span&gt;Das bestehende Deck erlaubt eine deklarierte 3+2+1-Lesung aus drei Vinylpositionen, zwei Grammophon-/Schellackpositionen und einer Digital-Klasse. Newton/AM, Leibniz/VM und Goethe/PM bleiben unabhängige Beobachterlinsen. Club nutzt dieselbe Deck-Instanz; Control Room liest denselben bestätigten Carrier ohne zweite Uhr. Der Aperture Stack EP|SI|LP|SH|RT|RETURN ist eine separate Sechs-Platten-Fixture ohne automatische Zeilenabbildung auf die Deckmodi.&lt;/span&gt;&lt;/div&gt;
       &lt;div class=&quot;protocol-row&quot;&gt;&lt;b&gt;OBS-34&lt;/b&gt;&lt;strong&gt;Leaf Fold Demo / Open Book Return Route&lt;/strong&gt;&lt;span&gt;Eine siebenstufige Tour verbindet Source/101, Q-Cut, die eigenständige IOI/Q90×Prime-Foldings-Open-Book-Komposition, den Cube-Pivot, die Zwei-Hand-Linse, H8 und das Ledger. Die beiden HTML-Dateien besitzen einen bidirektionalen Rückweg; ihre Identitäten, Claim Boundaries und Quellrollen bleiben getrennt.&lt;/span&gt;&lt;/div&gt;
+      &lt;div class=&quot;protocol-row&quot;&gt;&lt;b&gt;OBS-35&lt;/b&gt;&lt;strong&gt;Q4 Antipode / Window Return&lt;/strong&gt;&lt;span&gt;Dürers &lt;code&gt;R180&lt;/code&gt;-Komplement und das toroidale Khajuraho-&lt;code&gt;T(2,2)&lt;/code&gt;-Komplement sind als zwei getrennte Carrierverträge angeschlossen. Khajuraho besteht die uniforme 2×2-Fensterprüfung; Dürer liefert die beabsichtigte Negativkontrolle.&lt;/span&gt;&lt;/div&gt;
+      &lt;div class=&quot;protocol-row&quot;&gt;&lt;b&gt;OBS-36&lt;/b&gt;&lt;strong&gt;LUX / PINK / BLUE Projection Fixtures&lt;/strong&gt;&lt;span&gt;Die drei Wörter sind jetzt im vorhandenen KV-/TESA-Codec direkt wählbar. A1Z26 und deutsche Scrabble-Punkte ohne Bonusfeld werden parallel ausgegeben; Pink und Blue bleiben zugleich verschiedene Wortrecords und zwei Ansichten eines gebundenen Körpers.&lt;/span&gt;&lt;/div&gt;
+      &lt;div class=&quot;protocol-row&quot;&gt;&lt;b&gt;OBS-37&lt;/b&gt;&lt;strong&gt;Keystone 9 / White–ALU–Yellow Return&lt;/strong&gt;&lt;span&gt;KEYSTONE_9_WHITE_ALU_PULSE führt als reine Scale-Animation von den drei weißen r8c8-Feldern über A, L, U und den pinken B/ALU-Witness zum gelben Euler-Flächenwitness und zurück nach Weiß. Die Paketrolle 9 kodiert ausschließlich 8·64=512 plus ein mittleres 64er-Paket = 576; sie erzeugt weder eine neue Identität noch einen physikalischen Pulse.&lt;/span&gt;&lt;/div&gt;
+      &lt;div class=&quot;protocol-row&quot;&gt;&lt;b&gt;OBS-38&lt;/b&gt;&lt;strong&gt;Keystone Address Card / Algo-L Seam&lt;/strong&gt;&lt;span&gt;Die source-bound Kartenansicht verbindet exakt 121 sichtbare Felder einer 11×11-Fläche, die ersten Primwerte 2,3,5 auf der vorhandenen P13→41-Diagonale, die zwei hervorgehobenen Randsegmente als ↑/→-L-Naht und White r8c8 als Return-Gate. Schwarze Schlitze bleiben Sichtzwischenräume; O₀/Red Balloon bleibt eine offene Owner-Lesung und erzeugt weder neue Zustände noch eine neue Source-Graph-Identität.&lt;/span&gt;&lt;/div&gt;
+      &lt;div class=&quot;protocol-row&quot;&gt;&lt;b&gt;OBS-39&lt;/b&gt;&lt;strong&gt;Corner Coordinate Layer / Navigation Order&lt;/strong&gt;&lt;span&gt;Die Navigation ist nach Camera, Maps, Sheets, Paths &amp; Pulses und Inspect sortiert. Acht Model-Viewer-Hotspots adressieren die semantischen Cube-Ecken im Register C=(IA,LR,OU); O₀ ist der Mittelpunkt. ALU=(---) wird über J(v)=−v auf den vorhandenen geometrischen B-Witness (+++) abgebildet. Diese Janus-Brücke ist ein Display-/Adressadapter und weder neue Geometrie noch Zahlenidentität.&lt;/span&gt;&lt;/div&gt;
+      &lt;div class=&quot;protocol-row&quot;&gt;&lt;b&gt;OBS-40&lt;/b&gt;&lt;strong&gt;Cube Navigation Rail / Red Balloon Shadow Lens&lt;/strong&gt;&lt;span&gt;Eine horizontale Box direkt unter dem Cube führt BODY/45°, AM/XY, VM/YZ, PM/ZX und RB/O₀ SHADOW. AM bleibt Inside/O₀-Quelle, VM die gerichtete Fuge und PM Inside′/Ghost. Red Balloon bleibt gegenüber diesen drei Sheet-Registern unzugeordnet und bündelt ausschließlich als View-Layer Blue Body, schwarze Zwischenräume, gelbe Adressschicht und roten Schatten. Neue GLB-Geometrie, neue Identität, Relation und physikalischer Schatten-Claim bleiben 0.&lt;/span&gt;&lt;/div&gt;
+      &lt;div class=&quot;protocol-row&quot;&gt;&lt;b&gt;OBS-41&lt;/b&gt;&lt;strong&gt;Labelled Cube Tour / Wide Reading Record&lt;/strong&gt;&lt;span&gt;Die linke Cube-Spalte führt eine manuelle Acht-Schritt-Tour BODY → MAP → AM → VM → PM → RED BALLOON → CORNERS → KEYSTONE RETURN. Jeder Schritt hat eine explizite Beschriftung und nutzt nur vorhandene Kamera-, Clip-, Overlay- und Materialzustände. Face Record, Full/Octant, Observers, Grid, Grenztext und Receipt-Links wurden aus der schmalen rechten Bedienleiste in ein breites linkes Leseregister verlegt. Diese redaktionelle Umordnung erzeugt weder Geometrie noch Study, Finding, Identität oder Relation.&lt;/span&gt;&lt;/div&gt;
+      &lt;div class=&quot;protocol-row&quot;&gt;&lt;b&gt;OBS-42&lt;/b&gt;&lt;strong&gt;Cube Intro / Primary Tour Entry&lt;/strong&gt;&lt;span&gt;Ein source-bound Intro vor dem Cube erklärt den einen bleibenden 11/9-Träger, die getrennten Farbrollen und die Reihenfolge Schauen → Führen lassen → Prüfen. Der primäre Einstieg startet direkt Schritt 1 der vorhandenen Acht-Schritt-Tour; der zweite Einstieg kehrt in den 101/A0-Kontext zurück. Diese Überleitung ist redaktionelle Orientierung und verändert weder Modellzustand noch Identität, Relation, Claim oder GLB-Geometrie.&lt;/span&gt;&lt;/div&gt;
+      &lt;div class=&quot;protocol-row&quot;&gt;&lt;b&gt;OBS-43&lt;/b&gt;&lt;strong&gt;Slash Window / Shutter Pulse&lt;/strong&gt;&lt;span&gt;Die gemeinsame 101/A0-Startseite liest den Slash als endliche Navigationsfolge 2 → 1 → 2: zwei getrennte Quellfenster öffnen, ein einzelnes Cube-/Münz-/Slash-Pivotfenster übernimmt, danach öffnen die zwei Quellen wieder getrennt. Schwarz markiert ausschließlich den geschlossenen Shutter-Zustand, Gelb den offenen Pivot-Durchgang. Die Folge zählt UI-Fenster und ist weder Division noch Cube-Flächensatz, Merge, neue Identität oder physikalischer Puls.&lt;/span&gt;&lt;/div&gt;
     &lt;/div&gt;
   &lt;/section&gt;
 
@@ -3413,6 +3470,7 @@ html&gt;body{padding:0}&lt;/style&gt;
       &lt;div class=&quot;hypothesis-row&quot; role=&quot;row&quot;&gt;&lt;b&gt;H31&lt;/b&gt;&lt;span class=&quot;status-exact&quot;&gt;DISPLAY LOOP / DECLARED PROJECTION&lt;/span&gt;&lt;span&gt;Der 101-Atem ist ein endlicher View-Controller über demselben Fold-Träger: 0° → 90° → 0° mit getrennten Haltephasen. O→0 und A–O–A′→1–0–1 sind gesetzte Darstellungsregeln; der Seitenbit-Verlust bleibt sichtbar und der Slider kann den Zyklus jederzeit unterbrechen.&lt;/span&gt;&lt;span&gt;Vor einer Spielregel die vier Phasenendpunkte, 2200/800/2200/800-ms-Zeiten, Seitenbit-Encode/Decode, Nullfugen-Highlight und Negativkontrollen ohne Aliasnamen einfrieren. Keine natürliche A=1-, Atem-, CD- oder AUNA-Identität ableiten.&lt;/span&gt;&lt;/div&gt;
       &lt;div class=&quot;hypothesis-row&quot; role=&quot;row&quot;&gt;&lt;b&gt;H32&lt;/b&gt;&lt;span class=&quot;status-exact&quot;&gt;FINITE BIJECTION / EXPECTED NON-IDENTITY&lt;/span&gt;&lt;span&gt;Die Karten↔Facelet-Map und die vierfache Rückkehr jedes elementaren Quarter-Turns sind im deklarierten Record exakt. Gleiche Mächtigkeit erzeugt keine natürliche Karten-Cube-Identität; 9|11 bleibt von 8|12 typverschieden.&lt;/span&gt;&lt;span&gt;Nur mit einer vorab eingefrorenen Kartenordnung, Zugfolge und Decode-Regel als späteren Spielcodec weiterverwenden. Der 33ᵣ-Operator bleibt undefiniert.&lt;/span&gt;&lt;/div&gt;
       &lt;div class=&quot;hypothesis-row&quot; role=&quot;row&quot;&gt;&lt;b&gt;H33&lt;/b&gt;&lt;span class=&quot;status-model&quot;&gt;POST-HOC PRIME ADDRESS / FINITE CENSUS&lt;/span&gt;&lt;span&gt;Die ausgewählte 13³→23³-Kette ist unter ihren deklarierten Dezimalsplits und Primindexoperationen rechnerisch geschlossen. Der n≤100-Scan liefert jedoch acht Treffer für die allgemeinere …|1|Prime-Regel; weder Einzigartigkeit noch eine basisunabhängige Prime-Mechanik folgt.&lt;/span&gt;&lt;span&gt;Vor jeder Erweiterung Parser, Basis, Splitposition, Suchfenster, Subtraktionskonstante und Kontrollfamilie präregistrieren. Prime-Wert, Prime-Index, Basisziffer und Cube-Kapazität getrennte Typen halten.&lt;/span&gt;&lt;/div&gt;
+      &lt;div class=&quot;hypothesis-row&quot; role=&quot;row&quot;&gt;&lt;b&gt;H34&lt;/b&gt;&lt;span class=&quot;status-exact&quot;&gt;EXACT / TYPED PROJECTIONS&lt;/span&gt;&lt;span&gt;LUX, PINK und BLUE besitzen unter eingefrorenem Alphabet reproduzierbare A1Z26-, KV-, TESA- und deutsche Scrabble-Readouts. Unterschiedliche Scores widersprechen der gemeinsamen Blue/Pink-Carrierrolle nicht, weil Wortrecord und Körperansicht verschiedene Typen sind.&lt;/span&gt;&lt;span&gt;Sprachversion, Steinwerte, Bonusfelder und Tokenisierung vor jedem Vergleich deklarieren; keine Semantik oder Geometrie aus gleicher oder verschiedener Punktzahl ableiten.&lt;/span&gt;&lt;/div&gt;
     &lt;/div&gt;
   &lt;/section&gt;
 
@@ -3951,6 +4009,7 @@ html&gt;body{padding:0}&lt;/style&gt;
       const kvWordButtons = [...root.querySelectorAll(&#x27;[data-kv-word]&#x27;)];
       const kvYButtons = [...root.querySelectorAll(&#x27;[data-kv-y]&#x27;)];
       const kvAlphabet = &#x27;ABCDEFGHIJKLMNOPQRSTUVWXYZ&#x27;;
+      const kvScrabbleDe = { A:1, B:3, C:4, D:1, E:1, F:4, G:2, H:2, I:1, J:6, K:4, L:2, M:3, N:1, O:2, P:4, Q:10, R:1, S:1, T:1, U:1, V:6, W:3, X:8, Y:10, Z:3 };
       let kvYType = &#x27;K&#x27;;
 
       function kvNormalize(value) {
@@ -3987,6 +4046,8 @@ html&gt;body{padding:0}&lt;/style&gt;
         root.querySelector(&#x27;#kv-only-count&#x27;).textContent = word ? kvCandidateCount(records, false).toLocaleString(&#x27;en-US&#x27;) : &#x27;0&#x27;;
         root.querySelector(&#x27;#kv-side-count&#x27;).textContent = word ? kvCandidateCount(records, true).toLocaleString(&#x27;en-US&#x27;) : &#x27;0&#x27;;
         root.querySelector(&#x27;#kv-address-word&#x27;).textContent = records.map(record =&gt; String(record.index).padStart(2, &#x27;0&#x27;)).join(&#x27;·&#x27;) || &#x27;∅&#x27;;
+        root.querySelector(&#x27;#kv-a1z26-sum&#x27;).textContent = String(records.reduce((sum, record) =&gt; sum + record.index, 0));
+        root.querySelector(&#x27;#kv-scrabble-score&#x27;).textContent = String(records.reduce((sum, record) =&gt; sum + (kvScrabbleDe[record.letter] || 0), 0));
         root.querySelector(&#x27;#kv-return&#x27;).textContent = returned ? `PASS · ${decoded}` : &#x27;WAITING · EMPTY&#x27;;
         root.querySelector(&#x27;#kv-return-card&#x27;).classList.toggle(&#x27;pass&#x27;, returned);
         kvWordButtons.forEach(button =&gt; button.setAttribute(&#x27;aria-pressed&#x27;, String(button.dataset.kvWord === word)));
@@ -4008,7 +4069,7 @@ html&gt;body{padding:0}&lt;/style&gt;
         });
         if (!records.length) kvRecords.textContent = &#x27;Enter at least one A–Z letter.&#x27;;
         root.querySelector(&#x27;#kv-boundary&#x27;).innerHTML = word
-          ? `&lt;b&gt;RESULT:&lt;/b&gt; &lt;code&gt;${word}→${signature}&lt;/code&gt; ist eine korrekte Typ-Projektion, aber kein invertierbarer Codec: ${kvCandidateCount(records, false).toLocaleString(&#x27;en-US&#x27;)} A–Z-Sequenzen besitzen dasselbe KV-Muster. Mit der Seitenfolge &lt;code&gt;${sides}&lt;/code&gt; bleiben ${kvCandidateCount(records, true).toLocaleString(&#x27;en-US&#x27;)} Kandidaten. Erst die vollständigen TESA28-Adressen rekonstruieren &lt;code&gt;${decoded}&lt;/code&gt; eindeutig. Y=${kvYType}; Ä/Ö/Ü/ß werden als AE/OE/UE/SS normalisiert.`
+          ? `&lt;b&gt;RESULT:&lt;/b&gt; &lt;code&gt;${word}→${signature}&lt;/code&gt; ist eine korrekte Typ-Projektion, aber kein invertierbarer Codec: ${kvCandidateCount(records, false).toLocaleString(&#x27;en-US&#x27;)} A–Z-Sequenzen besitzen dasselbe KV-Muster. Mit der Seitenfolge &lt;code&gt;${sides}&lt;/code&gt; bleiben ${kvCandidateCount(records, true).toLocaleString(&#x27;en-US&#x27;)} Kandidaten. Erst die vollständigen TESA28-Adressen rekonstruieren &lt;code&gt;${decoded}&lt;/code&gt; eindeutig. A1Z26 und deutsche Scrabble-Steine ohne Bonusfeld sind zusätzliche Wertprojektionen, keine Carrier-Identitäten. Y=${kvYType}; Ä/Ö/Ü/ß werden als AE/OE/UE/SS normalisiert.`
           : `&lt;b&gt;RESULT:&lt;/b&gt; Kein A–Z-Zeichen im Eingabefeld. Die leere Folge wird nicht als erfolgreicher Return gezählt.`;
       }
 
@@ -5279,6 +5340,8 @@ html&gt;body{padding:0}&lt;/style&gt;
 &lt;/body&gt;
 &lt;/html&gt;
 "></iframe>
+  </div>
+</main>
 
 <script>(() => {
   const frame = document.getElementById("codex-visualization");
@@ -5556,6 +5619,66 @@ html&gt;body{padding:0}&lt;/style&gt;
   }
   frame.srcdoc = frameHtml;
   delete frame.dataset.srcdoc;
+})();
+</script>
+<script>
+(() => {
+  const shell = document.querySelector('#leaf-reader-shell');
+  const frame = document.querySelector('#codex-visualization');
+  const mode = document.querySelector('#leaf-reader-mode');
+  const play = document.querySelector('#leaf-reader-play');
+  const fullscreen = document.querySelector('#leaf-reader-fullscreen');
+
+  function innerDocument() {
+    try { return frame.contentDocument || frame.contentWindow?.document || null; }
+    catch { return null; }
+  }
+
+  function setReading(active) {
+    shell.dataset.reading = String(active);
+    mode.setAttribute('aria-pressed', String(active));
+    mode.textContent = active ? 'READER SCHLIESSEN' : 'LESEMODUS';
+    const doc = innerDocument();
+    if (!doc) return;
+    let style = doc.querySelector('#leaf-reader-mode-style');
+    if (!style) {
+      style = doc.createElement('style');
+      style.id = 'leaf-reader-mode-style';
+      style.textContent = `
+        #ioi-leaf-fold.leaf-reader-active{max-width:960px!important;padding-left:clamp(22px,6vw,76px)!important;padding-right:clamp(22px,6vw,76px)!important}
+        #ioi-leaf-fold.leaf-reader-active .a0-lead{max-width:72ch!important;font-size:19px!important;line-height:1.72!important}
+        #ioi-leaf-fold.leaf-reader-active .protocol-head p,#ioi-leaf-fold.leaf-reader-active .protocol-card p,#ioi-leaf-fold.leaf-reader-active .protocol-card li{font-size:14px!important;line-height:1.68!important}
+        #ioi-leaf-fold.leaf-reader-active .protocol-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+        @media(max-width:760px){#ioi-leaf-fold.leaf-reader-active .protocol-grid{grid-template-columns:1fr!important}}
+      `;
+      doc.head.appendChild(style);
+    }
+    doc.querySelector('#ioi-leaf-fold')?.classList.toggle('leaf-reader-active', active);
+  }
+
+  mode.addEventListener('click', () => setReading(shell.dataset.reading !== 'true'));
+  play.addEventListener('click', () => {
+    setReading(false);
+    const doc = innerDocument();
+    const target = doc?.querySelector('#leaf-tour-start');
+    if (target) {
+      target.click();
+      play.textContent = 'PLAY ALL LÄUFT · 7 STOPS';
+    } else {
+      play.textContent = 'PLAYER LÄDT …';
+    }
+  });
+  fullscreen.addEventListener('click', async () => {
+    if (!document.fullscreenElement) await shell.requestFullscreen?.();
+    else await document.exitFullscreen?.();
+  });
+  document.addEventListener('fullscreenchange', () => {
+    fullscreen.textContent = document.fullscreenElement ? 'VOLLBILD SCHLIESSEN ×' : 'VOLLBILD ⛶';
+  });
+  frame.addEventListener('load', () => {
+    setReading(shell.dataset.reading === 'true');
+    play.textContent = '▶ PLAY ALL';
+  });
 })();
 </script>
 </body>

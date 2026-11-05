@@ -59,6 +59,9 @@ scene.userData = {
   visual_effect: 'EDELWEISS_L_FRAME_WOBBLE = view-only owner mnemonic; pink binder fixed in position, seven outer cells pulse, eleven-cell lift and mirrored return',
   rose_bridge: 'ROSE_C5 uses the exact +2 mod 5 route 0->2->4->1->3->0 over five declared front-face field addresses; the corresponding directed-edge walk has no immediate reversal',
   sheet_contract: 'AM/XY = INSIDE source view; VM/YZ = directed seam; PM/ZX = INSIDE_PRIME return view with Ghost 3+1 as fixed-position witness; display contract only',
+  keystone_9_contract: 'existing White r8c8 cells -> existing ALU A/L/U markers -> existing B corner -> existing yellow Euler face-center witness -> White return; scale-pulse display only; 8+1 package count lens, no carrier identity',
+  keystone_address_map: 'source-bound view over existing nodes: 11x11=121 face cells; first prime addresses 2,3,5 on P13->41 diagonal; highlighted up/right edges form ALGO_L seam; r8c8 White is return gate; O0 is open Red Balloon owner-view return aperture; black slots are inter-tile gaps, not states',
+  corner_coordinate_contract: 'semantic address order (IA,LR,OU) with values -1/+1; O0=(0,0,0); the existing B_CORNER_ALU at normalized GLB (+1,+1,+1) witnesses semantic ALU=(-1,-1,-1) through the declared Janus central inversion J(v)=-v; display/address adapter only',
   claim_boundary: 'Illustrative projection and addressable inspection object; not a new mathematical identity, physical mechanism, scientific result, Study, Navigator identity or publication.'
 };
 
@@ -172,15 +175,25 @@ for (let row = 0; row < count; row += 1) {
   }
 }
 
+const keystoneWhiteNodes = ['TOP_r8_c8', 'FRONT_r8_c8', 'RIGHT_r8_c8'].map((name) => carrier.getObjectByName(name));
+for (const node of keystoneWhiteNodes) Object.assign(node.userData, {
+  keystone_role: 'WHITE_RETURN_GATE',
+  package_view: '8_OUTER_TO_1_CENTER_COUNT_LENS',
+  package_tiles: 64,
+  outer_package_tiles: 512,
+  total_view_tiles: 576,
+  semantic_status: 'EXACT_COUNT_LENS_ONLY'
+});
+
 const frameHalf = half + 0.28;
 const corners = [-1, 1];
 for (const y of corners) for (const z of corners) addBar(carrier, `GREEN_X_${y}_${z}`, [-frameHalf, y * frameHalf, z * frameHalf], [frameHalf, y * frameHalf, z * frameHalf], 0.065, mats.green, { role: 'carrier frame' });
 for (const x of corners) for (const z of corners) addBar(carrier, `GREEN_Y_${x}_${z}`, [x * frameHalf, -frameHalf, z * frameHalf], [x * frameHalf, frameHalf, z * frameHalf], 0.065, mats.green, { role: 'carrier frame' });
 for (const x of corners) for (const y of corners) addBar(carrier, `GREEN_Z_${x}_${y}`, [x * frameHalf, y * frameHalf, -frameHalf], [x * frameHalf, y * frameHalf, frameHalf], 0.065, mats.green, { role: 'carrier frame' });
 
-addBar(carrier, 'ORANGE_TOP_FRONT_EDGE', [-frameHalf, frameHalf, frameHalf], [frameHalf, frameHalf, frameHalf], 0.18, mats.orange, { role: 'highlighted edge', glyph: 'T_OR_Y' });
-addBar(carrier, 'ORANGE_RIGHT_FRONT_EDGE', [frameHalf, -frameHalf, frameHalf], [frameHalf, frameHalf, frameHalf], 0.18, mats.orange, { role: 'highlighted edge', glyph: 'T_OR_Y' });
-const bCorner = addBox(carrier, 'B_CORNER_ALU', [frameHalf, frameHalf, frameHalf], [0.54, 0.54, 0.54], mats.pink, { role: 'declared B singleton / fixed-position Edelweiss binder', record: 'ALU', bits: '011001', decimal: 25, full_weight: '1/64', octant_weight: '1/8' });
+addBar(carrier, 'ORANGE_TOP_FRONT_EDGE', [-frameHalf, frameHalf, frameHalf], [frameHalf, frameHalf, frameHalf], 0.18, mats.orange, { role: 'highlighted edge', glyph: 'T_OR_Y', address_map_role: 'ALGO_L_RIGHT_AXIS', direction: 'RIGHT' });
+addBar(carrier, 'ORANGE_RIGHT_FRONT_EDGE', [frameHalf, -frameHalf, frameHalf], [frameHalf, frameHalf, frameHalf], 0.18, mats.orange, { role: 'highlighted edge', glyph: 'T_OR_Y', address_map_role: 'ALGO_L_UP_AXIS', direction: 'UP' });
+const bCorner = addBox(carrier, 'B_CORNER_ALU', [frameHalf, frameHalf, frameHalf], [0.54, 0.54, 0.54], mats.pink, { role: 'declared B singleton / fixed-position Edelweiss binder', keystone_role: 'PINK_B_ALU_WITNESS_NOT_2501', record: 'ALU', bits: '011001', decimal: 25, full_weight: '1/64', octant_weight: '1/8', semantic_coordinate: [-1, -1, -1], semantic_axis_order: ['IA', 'LR', 'OU'], glb_normalized_coordinate: [1, 1, 1], witness_transform: 'JANUS_CENTRAL_INVERSION_J(v)=-v' });
 
 const criticalPlane = addBox(worldRig, 'RIEMANN_HALF_PLANE', [0, 0, 0], [0.035, 6.15, 6.15], mats.violet, { coordinate: 'Re(s)=1/2 after normalized chart', involution: 's <-> 1-s', spatial_status: 'projective analogy; not literal complex geometry' });
 
@@ -206,21 +219,37 @@ for (let index = 0; index < 24; index += 1) {
   const angle = index / 24 * Math.PI * 2;
   addBox(wordWorld, `O0_RING_${String(index).padStart(2, '0')}`, [Math.cos(angle) * 0.58, 0, Math.sin(angle) * 0.58], [0.07, 0.07, 0.07], mats.gold, { role: 'O0 shared return ring', index });
 }
-addBox(wordWorld, 'O0_CENTER', [0, 0, 0], [0.22, 0.22, 0.22], mats.o0Inside, { role: 'shared pin / return center', view_pair: 'INSIDE_OUT_FUGE_B', paired_material: 'RETURN_WHITE' });
+addBox(wordWorld, 'O0_CENTER', [0, 0, 0], [0.22, 0.22, 0.22], mats.o0Inside, { role: 'shared pin / return center', view_pair: 'INSIDE_OUT_FUGE_B', paired_material: 'RETURN_WHITE', red_balloon_role: 'OWNER_VIEW_RETURN_APERTURE_OPEN', semantic_coordinate: [0, 0, 0], semantic_axis_order: ['IA', 'LR', 'OU'], identity_claim: false });
 
 for (const x of [-0.34, 0.34]) for (const z of [-0.34, 0.34]) addBox(numberWorld, `ZERO_CORE_${x}_${z}`, [x, -0.32, z], [0.48, 0.11, 0.48], mats.zero, { value: 0, role: '2x2 orientation core' });
 
 addBar(numberWorld, 'PRIME_DIAGONAL_P13_TO_41', [-3.0, -3.0, -3.0], [3.0, 3.0, 3.0], 0.055, mats.gold, { prime_index: 13, prime_value: 41, status: 'exact numerical address; no geometric identity' });
+const primeAddressValues = [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41];
 for (let index = 0; index < 13; index += 1) {
   const t = index / 12;
-  addBox(numberWorld, `PRIME_ADDRESS_${index + 1}`, [-3 + 6 * t, -3 + 6 * t, -3 + 6 * t], [0.1, 0.1, 0.1], index === 12 ? mats.white : mats.gold, { ordinal: index + 1, terminal_value: index === 12 ? 41 : null });
+  addBox(numberWorld, `PRIME_ADDRESS_${index + 1}`, [-3 + 6 * t, -3 + 6 * t, -3 + 6 * t], [0.1, 0.1, 0.1], index === 12 ? mats.white : mats.gold, {
+    ordinal: index + 1,
+    prime_value: primeAddressValues[index],
+    address_map_role: index < 3 ? 'FIRST_PRIME_MARKER_2_3_5' : 'P13_TO_41_SEQUENCE',
+    terminal_value: index === 12 ? 41 : null
+  });
 }
 
 addBar(graphWorld, 'IHARA_DIRECTED_EDGE', [frameHalf + 0.38, frameHalf + 0.38, -2.55], [frameHalf + 0.38, frameHalf + 0.38, 2.55], 0.11, mats.orange, { observer: 'IHARA', state_space: 'directed edges', rule: 'no immediate reversal' });
 addBox(graphWorld, 'IHARA_EDGE_OBSERVER', [frameHalf + 0.38, frameHalf + 0.38, 0], [0.36, 0.36, 0.36], mats.orange, { observer: 'IHARA', location: 'oriented edge midpoint' });
 addBar(graphWorld, 'RIEMANN_CORNER_SIGHTLINE', [frameHalf + 0.55, frameHalf + 0.55, frameHalf + 0.55], [0, 0, 0], 0.045, mats.red, { observer: 'RIEMANN', chart: 'corner camera toward half-plane' });
 addBox(graphWorld, 'RIEMANN_CORNER_OBSERVER', [frameHalf + 0.55, frameHalf + 0.55, frameHalf + 0.55], [0.42, 0.42, 0.42], mats.red, { observer: 'RIEMANN', mathematical_boundary: 'critical line is analytic, corner is NEXAH camera placement' });
-addBox(graphWorld, 'EULER_FACE_OBSERVER', [0, frameHalf + 0.48, 0], [0.48, 0.18, 0.48], mats.gold, { observer: 'EULER', location: 'face center', role: 'local factors to global product / face view' });
+const eulerKeystone = addBox(graphWorld, 'EULER_FACE_OBSERVER', [0, frameHalf + 0.48, 0], [0.48, 0.18, 0.48], mats.gold, {
+  observer: 'EULER',
+  location: 'face center',
+  role: 'local factors to global product / face view / yellow package-9 Keystone witness',
+  keystone_role: 'PACKAGE_9_YELLOW_CENTER_WITNESS',
+  package_index: 9,
+  package_tiles: 64,
+  outer_package_tiles: 512,
+  total_view_tiles: 576,
+  semantic_status: 'EXACT_COUNT_LENS_ONLY'
+});
 addBar(graphWorld, 'FIBONACCI_DIAGONAL_45', [-3.05, 0.16, -3.05], [3.05, 0.16, 3.05], 0.09, mats.green, { observer: 'FIBONACCI', angle_degrees: 45, role: 'rotated lattice recurrence view', identity_claim: false });
 
 const ghostConstellation = new THREE.Group();
@@ -320,6 +349,33 @@ const pulseTrackAt = (node, peak, factor = 1.46, duration = edelweissDuration) =
   const times = [0, peak - 0.16, peak, peak + 0.16, duration];
   return new THREE.VectorKeyframeTrack(`${node.name}.scale`, times, scaledValues(node.scale.toArray(), [1, 1, factor, 1, 1]));
 };
+const multiPulseTrack = (node, peaks, factor, duration) => {
+  const samples = [{ time: 0, factor: 1 }];
+  for (const peak of peaks) samples.push(
+    { time: peak - 0.14, factor: 1 },
+    { time: peak, factor },
+    { time: peak + 0.14, factor: 1 }
+  );
+  samples.push({ time: duration, factor: 1 });
+  samples.sort((left, right) => left.time - right.time);
+  return new THREE.VectorKeyframeTrack(
+    `${node.name}.scale`,
+    samples.map((sample) => sample.time),
+    scaledValues(node.scale.toArray(), samples.map((sample) => sample.factor))
+  );
+};
+
+const keystoneDuration = 5.2;
+const keystoneTracks = keystoneWhiteNodes.map((node) => multiPulseTrack(node, [0.55, 4.55], 1.5, keystoneDuration));
+for (const [face, peak] of [['A', 1.15], ['L', 1.6], ['U', 2.05]]) {
+  keystoneTracks.push(pulseTrackAt(wordWorld.getObjectByName(`ILAU_NODE_${face}`), peak, 1.72, keystoneDuration));
+}
+keystoneTracks.push(
+  pulseTrackAt(bCorner, 2.55, 1.62, keystoneDuration),
+  pulseTrackAt(eulerKeystone, 3.15, 1.82, keystoneDuration)
+);
+const keystoneClip = new THREE.AnimationClip('KEYSTONE_9_WHITE_ALU_PULSE', keystoneDuration, keystoneTracks);
+
 const wobbleTrack = (node, axis, phase = 0) => {
   const times = [0, 0.75, 1.5, 2.25, 3, 3.75, 4.5, 5.25, 6];
   const angles = [0, 0.055, -0.055, 0.07, -0.07, 0.055, -0.055, 0.035, 0].map((angle) => angle * (phase ? -1 : 1));
@@ -371,7 +427,7 @@ function exportGlb() {
       binary: true,
       trs: true,
       onlyVisible: true,
-      animations: [rotationClip, halfClip, redObserverClip, ghostClip, fugeClip, edelweissClip, iharaRoseClip]
+      animations: [rotationClip, halfClip, redObserverClip, ghostClip, fugeClip, edelweissClip, iharaRoseClip, keystoneClip]
     });
   });
 }
@@ -391,9 +447,9 @@ function parseDocument(bytes) {
   fs.writeFileSync(packedFile, `/* Generated byte-preserving GLB payload. */\nwindow.A0IOIGameOfWorldsGLB=${JSON.stringify(bytes.toString('base64'))};\n`);
   const manifest = {
     schema: 'nexah.a0.ioi-game-of-worlds-glb-manifest/1',
-    date: '2026-11-02',
+    date: '2026-11-05',
     status: 'R0_DOCUMENTED_SOURCE_BOUND_ILLUSTRATIVE_GLB',
-    reused_identities: ['A0_GAME_OF_WORLDS_PLAY', 'GAME_4_LIFE_PLUS_1_BUILDER_PATTERN', 'A0_IOI_LEAF_FOLD_RETURN_R0_DRAFT'],
+    reused_identities: ['A0_GAME_OF_WORLDS_PLAY', 'GAME_4_LIFE_PLUS_1_BUILDER_PATTERN', 'A0_IOI_LEAF_FOLD_RETURN_R0_DRAFT', 'MOD:NUMBER_VIEW_SUITE', 'MOD:TESSAREC'],
     new_navigator_identities: [],
     new_navigator_relations: [],
     source: 'DRAFTS/A0_IOI_LEAF_FOLD_RETURN_2026-11-02.html',
@@ -415,6 +471,11 @@ function parseDocument(bytes) {
       projection_views: ['NUMBER_WORLD', 'WORD_WORLD_ILAU', 'GRAPH_WORLD_OBSERVERS', 'WORLD_CARRIER_11'],
       edelweiss_wobble: 'view-only: two L-frame bars wobble; seven outer cells pulse; eleven front diagonal cells lift; eleven right diagonal cells return in mirror order; pink B-corner position remains fixed',
       ihara_rose_c5: 'five front-face field addresses; exact route +2 mod 5 = 0->2->4->1->3->0; ten directed edge states; selected walk has zero immediate reversals; White outside -> O0 Orange inside -> fixed Ghost PM/inside-prime witnesses',
+      keystone_9_white_alu_pulse: 'existing RETURN_WHITE r8c8 fields -> existing ILAU A/L/U nodes -> existing pink B/ALU witness -> existing yellow Euler face-center package-9 witness -> RETURN_WHITE; scale tracks only; 8*64=512 and 9*64=576 are count lenses, not identities',
+      keystone_address_card: '11x11=121 face cells; prime markers 2,3,5 lie on the existing P13->41 diagonal; the highlighted right/up edge pair is read as an ALGO_L view seam; White r8c8 is the return gate; O0/Red Balloon remains an open owner-view aperture; black inter-tile slots are visibility gaps only',
+      corner_coordinates: 'eight semantic corner addresses over axis order (IA,LR,OU), each coordinate in {-1,+1}; O0=(0,0,0); B/ALU is a Janus witness mapping ALU(-1,-1,-1) to existing GLB corner (+1,+1,+1) by J(v)=-v; labels are navigational hotspots, not new GLB nodes',
+      side_navigation_rail: 'horizontal box directly below the cube: BODY/45, AM/XY, VM/YZ, PM/ZX and RB/O0 SHADOW; Red Balloon combines the existing Blue Body, black visibility slots, yellow address layer and a CSS red shadow as an unassigned view lens, not as AM, PM, a GLB node or a physical-shadow claim',
+      guided_demo_tour: 'manual labelled eight-step reader route below the cube: BODY -> MAP -> AM -> VM -> PM -> RED_BALLOON -> CORNERS -> KEYSTONE_RETURN; Face Record, Full/Octant, Observers, Grid, boundary and receipt links are moved from the narrow right control column into one wide left record deck; view-only, no geometry or graph delta',
       sheet_views: ['AM_XY_INSIDE', 'VM_YZ_DIRECTED_SEAM', 'PM_ZX_INSIDE_PRIME']
     },
     claim_boundary: scene.userData.claim_boundary

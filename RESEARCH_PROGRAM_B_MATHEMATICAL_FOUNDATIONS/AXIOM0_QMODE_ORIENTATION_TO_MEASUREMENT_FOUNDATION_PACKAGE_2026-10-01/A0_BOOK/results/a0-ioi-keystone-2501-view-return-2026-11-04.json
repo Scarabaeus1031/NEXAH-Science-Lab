@@ -1,0 +1,59 @@
+{
+  "id": "A0_IOI_KEYSTONE_2501_VIEW_RETURN_2026_11_04",
+  "date": "2026-11-04",
+  "status": "PASS",
+  "classification": "R0_DOCUMENTED_VIEW_EXTENSION",
+  "scope": "A source-bound UI preset connecting the existing pink B-corner and T/Y edge material group to the existing Q-address overlay at 2501; no GLB geometry or game-state mutation.",
+  "reused_identities": [
+    "MOD:NUMBER_VIEW_SUITE",
+    "MOD:TESSAREC",
+    "A0_GAME_OF_WORLDS_PLAY",
+    "A0_IOI_LEAF_FOLD_RETURN_R0_DRAFT"
+  ],
+  "arithmetic": {
+    "operator": "R_5002(n)=5002-n",
+    "fixed_point": true,
+    "fixed_point_value": 2501,
+    "involution": "R_5002(R_5002(n))=n",
+    "factorization_2501": "41*61",
+    "doubling": "2*2501=5002"
+  },
+  "carrier_101": {
+    "k": 9,
+    "u": 4,
+    "epsilon": 1,
+    "power_of_two": 512,
+    "carrier": 51712
+  },
+  "tile_count": {
+    "grid": "24x24",
+    "package": "8x8",
+    "outer_packages": 8,
+    "center_packages": 1,
+    "tiles_per_package": 64,
+    "outer_tiles": 512,
+    "center_tiles": 64,
+    "total_tiles": 576,
+    "semantic_status": "EXACT_COUNT_DECOMPOSITION_ONLY"
+  },
+  "boundaries": {
+    "b_corner_record": "ALU=011001=25",
+    "b_corner_is_not_2501": true,
+    "number_101_is_not_2501": true,
+    "ty_status": "LOCAL_EDGE_GLYPH_NOT_CANONICAL_CARRIER",
+    "sightline_status": "DISPLAY_ONLY",
+    "new_scientific_claim": false,
+    "publication_authorized": false
+  },
+  "graph_delta": {
+    "new_identities": 0,
+    "new_relations": 0,
+    "component_index_update_required": false
+  },
+  "artifacts": [
+    "assets/game-of-worlds-play/ioi-world-cube/index.html",
+    "A0_NUMBERMAGICK_GRID_RESEARCH.html",
+    "a0-ioi-game-of-worlds-glb-tests.cjs",
+    "a0-snce-101-12928-connector-tests.cjs"
+  ]
+}
