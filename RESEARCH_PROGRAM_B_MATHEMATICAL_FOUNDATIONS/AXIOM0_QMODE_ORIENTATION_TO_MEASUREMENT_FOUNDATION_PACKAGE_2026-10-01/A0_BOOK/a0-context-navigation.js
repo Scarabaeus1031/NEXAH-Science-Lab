@@ -869,9 +869,15 @@
   const builderCurrentFlagship =
     ["A0_SPIN_TO_BLOOM_MEASUREMENT.html#edelweissBridge", "EDELWEISS", "Root → Field → Bloom → Dodeca → Receipt: die integrierende Kopplungsbank", "edelweiss", "CURRENT FLAGSHIP"];
   const builderFlagshipConstellation = machinaMainModules.map(([route, name, role, copy, accent]) => [route, name, copy, accent, role]);
+  const scienceFlagshipSourceHref = "DRAFTS/A0_PERIODIC_CARRIER_Z100_2026-11-03.html#game-of-worlds-carrier-binding";
+  const redBalloonFlagshipHref = "http://127.0.0.1:4328/scc-003-r1/generation-study/?rev=state-balance-r1#red-balloon-balance-title";
+  const ioiOpenBookFlagshipHref = "DRAFTS/A0_IOI_LEAF_FOLD_OPEN_BOOK_START_2026-11-02.html#tessarec3OperatorMatrix";
   const scienceHighlights = [
     ["A0_SCIENCE.html#top", "A0 Science", "Lange redaktionelle Science-Seite mit Forschungsstand, Ergebnissen, Instrumenten, Methode und Grenzen", "nexah", "Science · Forschungsstand"],
-    ["A0_RESEARCH_DESK.html?desk=research&rev=currentness-r3-20261031#top", "A0 Science Desk", "Interner Arbeitsraum für Prioritäten, Findings, Returns, Instrumente und Grenzen", "cells", "Intern · autoritativer Desk"],
+    ["A0_RESEARCH_DESK.html?desk=overview&channel=science#a0-current-state", "CURRENT STATE · SCIENCE", "Findings, Review-Gates, Staging und nächster zulässiger Exit in einer Desk-Linse", "cells", "Desk lens · Stand 03.11."],
+    [scienceFlagshipSourceHref, "STOFFREGISTER Z100", "Periodischer Carrier, drei Elementansichten und der source-bound Game-of-Worlds-Anschluss an derselben wiederauffindbaren Buchstelle", "carrier", "SCIENCE FLAGSHIP · STOFFREGISTER"],
+    [redBalloonFlagshipHref, "RED BALLOON", "SCC-003 als source-bound Science Flagship Notebook: finite Quelle, Quotient, Residuum und Return mit offenen Claim-Grenzen", "relation", "SCIENCE FLAGSHIP · RED BALLOON"],
+    [ioiOpenBookFlagshipHref, "101 / A0 OPEN BOOK", "Leaf Fold, Cube Pivot, TESSAREC³-Operatorenmatrix und Open Book als eine reproduzierbare Leseroute", "body", "SCIENCE FLAGSHIP · 101 / A0"],
     ["A0_DATA_AND_REGISTERS.html#top", "A0 NSNavigator", "A0-Struktur binden, zuständige Register finden und vorhandene Records weiterverwenden", "book", "Science · Source-bound Register Lens"]
   ];
   const laneNav = document.createElement("nav");

@@ -114,6 +114,11 @@ ok(commonStart.includes('Body, Shadow und Ghost sind drei Ansichten desselben Na
 ok(commonStart.includes('THE / OPERATOR · WINDOW / SHUTTER / PIVOT') && commonStart.includes('Zwei Quellen. Ein Durchgang. Zwei Quellen.'), 'Common start introduces the slash as a bounded three-window operator');
 ok(commonStart.includes("{state:'two',count:'2'") && commonStart.includes("{state:'one',count:'1'") && commonStart.includes('RUNNING · 2 → 1 → 2'), 'Slash pulse implements the finite 2-to-1-to-2 shutter sequence');
 ok(commonStart.includes('Das ist kein Cube-Flächensatz und keine Division.') && commonStart.includes('Kein Merge, keine neue Identität.'), 'Slash sequence preserves its non-identity and non-geometric boundary');
+ok(commonStart.includes('id="tessarec3OperatorMatrix"') && commonStart.includes('TESSAREC³ · OPERATOR READING MATRIX'), 'Common start exposes the bounded TESSAREC-cubed operator matrix');
+ok(['Mirror', 'Totient', 'Prime', 'Fold', 'Power', 'Cube', 'Boundary', 'Transport'].every((token) => commonStart.includes(`<b>${token}</b>`)), 'Operator matrix exposes all eight declared building blocks');
+ok(commonStart.includes('³ = THREE READING REGISTERS') && commonStart.includes('keine algebraische dritte Potenz'), 'TESSAREC-cubed notation is explicitly a three-register reading, not an exponent claim');
+ok(['101 · LEAF FOLD / Q-CUT', 'O · GAME OF WORLDS CUBE', 'A0 · TESSAREC BLUE BODY', 'A0 · MATHEMATICAL JOINTS'].every((token) => commonStart.includes(token)), 'Matrix provides the editorial 101, cube and A0 cross-references');
+ok(commonStart.includes('keinen Universaloperator') && commonStart.includes('keine natürliche oder physikalische TESSAREC³-Dynamik'), 'Matrix preserves its operator and physical non-claim boundaries');
 ok(commonStart.includes('A0_IOI_LEAF_FOLD_RETURN_2026-11-02.html#leaf-fold-tour'), 'Common start opens the Leaf Fold Play All tour');
 ok(commonStart.includes('IOI_PRIME_OPEN_BOOK_COMPOSITION.html#letterSyllableLens'), 'Common start opens the Open Book letter/syllable lens');
 ok(commonStart.includes('keine Source-Graph-Relation') && commonStart.includes('keine wissenschaftliche Aktivierung'), 'Common start preserves governance and activation boundaries');
