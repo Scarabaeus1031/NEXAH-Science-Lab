@@ -12,7 +12,7 @@ const humanView = fs.readFileSync(path.join(here, "A0_NEXAH_APERTURE_JOURNEY.htm
 
 assert.equal(state.schema, "nexah.a0.current-state-read-lens/1.0.0");
 assert.equal(state.status, "INTERNAL_READ_ONLY_ORIENTATION_LENS");
-assert.equal(state.records.length, 6);
+assert.equal(state.records.length, 7);
 assert.deepEqual(state.new_canonical_ids, []);
 assert.deepEqual(state.relation_changes, []);
 assert.equal(state.summary.active_research_cycles, 0);
@@ -21,6 +21,7 @@ assert.equal(state.summary.publication_authorized, false);
 assert.equal(state.summary.outreach_authorized, false);
 assert.equal(state.records.find(record => record.key === "the-machina").human_delta.readiness, "STRONGEST_NEXAHEDRON_CANDIDATE");
 assert.equal(state.records.find(record => record.key === "a0-human-view").object_class, "EXISTING_SOURCE_BOUND_ORIENTATION_LENS");
+assert.equal(state.records.find(record => record.key === "a0-101-world-cube-currentness-freeze").status, "FROZEN / LOCAL_SOURCE_BOUND / NO_PROMOTION");
 assert.deepEqual(state.nexahedron_exit_rule.not_authorized, ["CONTACT", "OUTREACH", "PUBLICATION", "DEPLOYMENT"]);
 assert.equal(state.nexahedron_exit_rule.required_sequence.length, 6);
 

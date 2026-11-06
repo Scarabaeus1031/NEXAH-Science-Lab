@@ -40,6 +40,8 @@ establish reactions or create a new chemical law.
 | Mass number `A` | number of protons plus neutrons in one nuclide | must not be confused with atomic number or atomic mass |
 | Isotope / nuclide | species with declared proton and neutron numbers | same element may have several nuclides with different physical properties |
 | Ion | atom or molecular species with net electric charge | charge state must be explicit; the element symbol alone is insufficient |
+| Alpha particle | helium-4 nucleus with two protons, two neutrons and charge `2+` | may be shown as `He-4(2+)`; it is not yet a neutral helium atom |
+| Radioactive decay record | typed parent nuclide, daughter nuclide, emitted radiation and conservation ledger | element addresses alone do not specify a decay or decay chain |
 | Molecule | discrete bonded collection of atoms | visual proximity does not establish a bond |
 | Compound | substance with a defined chemical composition involving more than one element | a shared number or shape does not establish a compound |
 | Chemical species | precisely specified atom, ion, molecule, radical or other chemical entity | preferred unit of identity for a measurement record |
@@ -183,6 +185,7 @@ definitions and measurements control those claims.
 | Example | What is exact | What remains open or excluded |
 |---|---|---|
 | `C(22,2)=231` and `Pa-231` | shared integer in two registers | no derivation of Pa from combinatorics |
+| `U-238 -> Th-234 + alpha`, `Th-232 -> Ra-228 + alpha`, `Pa-231 -> Ac-227 + alpha` | exact mass-number and atomic-number conservation in three independent records | no shared chain; neutralisation, transport and retention require environmental evidence |
 | `Ce/Pr/Nd + 32 -> Th/Pa/U` | atomic-number translation | no chemical equivalence |
 | reversed pairs around `Re, Z=75` | fixed midpoint with changing gaps | no reaction or material coupling |
 | `Dy/Ho/Er +29/+32` windows | translated three-position order | properties do not transfer with the indices |

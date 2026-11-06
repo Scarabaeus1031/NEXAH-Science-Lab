@@ -113,6 +113,43 @@
     };
   }
 
+  function radiogenicHeliumLens(data){
+    const bySymbol=new Map(carrierRows(data).map(row=>[row.symbol,row]));
+    const alpha={symbol:"He",z:2,a:4,charge:"2+",nucleons:{protons:2,neutrons:2}};
+    const declared=[
+      {id:"U238_TH234",parent:{symbol:"U",z:92,a:238},daughter:{symbol:"Th",z:90,a:234}},
+      {id:"TH232_RA228",parent:{symbol:"Th",z:90,a:232},daughter:{symbol:"Ra",z:88,a:228}},
+      {id:"PA231_AC227",parent:{symbol:"Pa",z:91,a:231},daughter:{symbol:"Ac",z:89,a:227}}
+    ];
+    const records=declared.map(record=>({
+      ...record,
+      parentElement:bySymbol.get(record.parent.symbol)||null,
+      daughterElement:bySymbol.get(record.daughter.symbol)||null,
+      alpha,
+      conservation:{
+        mass:record.parent.a===record.daughter.a+alpha.a,
+        charge:record.parent.z===record.daughter.z+alpha.z
+      }
+    }));
+    const exact=records.every(record=>record.parentElement&&record.daughterElement&&record.conservation.mass&&record.conservation.charge);
+    return {
+      id:"A0_Z100_RADIOGENIC_HELIUM_SOURCE_BOUND_LENS_R0",
+      carrier:"Z100 official element addresses plus declared nuclide records",
+      alpha,
+      records,
+      neutralization:"He2+ + 2 e- -> He-4 atom (environment-dependent electron capture)",
+      materialPath:["lattice or mineral source","defect / pore / fracture transport","retention or escape under declared T and p"],
+      ledger:{
+        retained:["official element addresses","A and Z bookkeeping","alpha as He-4 nucleus"],
+        lost:["nuclide identity when only Z is shown","decay history when only He/Z2 is retained"],
+        introduced:["declared isotope","decay mode","daughter record","material environment"],
+        unresolved:["site-specific transport","retention time","pressure and temperature dependence","sample provenance"]
+      },
+      result:exact?"EXACT_DECAY_BOOKKEEPING_PASS":"FIXTURE_FAILURE",
+      stop:"TH / PA / U ARE SEPARATE PARENT RECORDS, NOT ONE DECAY CHAIN / ELEMENT ADDRESS != NUCLIDE != MATERIAL TRANSPORT / NO NEW RELATION"
+    };
+  }
+
   function broSisRelationTest(data){
     const bySymbol=new Map(carrierRows(data).map(row=>[row.symbol,row]));
     const declared={bro:["Br","O"],sis:["S","I","S"],brother:["Br","O","Th","Er"]};
@@ -249,6 +286,8 @@
     const compareButtons=[...app.querySelectorAll("[data-c100-compare]")];
     const calibration=pa231SevenfoldCalibration();
     const calibrationRoot=app.querySelector("[data-pa231-calibration]");
+    const radiogenic=radiogenicHeliumLens(data);
+    const radiogenicRoot=app.querySelector("[data-radiogenic-helium]");
     const broSis=broSisRelationTest(data);
     const broSisRoot=app.querySelector("[data-bro-sis-test]");
     const ioi=ioiQ0CounterAxisTest(data);
@@ -300,6 +339,26 @@
       });
       output.textContent=copy.nuclear;
     }
+    if(radiogenicRoot){
+      const output=radiogenicRoot.querySelector("[data-radiogenic-output]");
+      const buttons=[...radiogenicRoot.querySelectorAll("[data-radiogenic-view]")];
+      const recordByView={u:radiogenic.records[0],th:radiogenic.records[1],pa:radiogenic.records[2]};
+      const line=record=>`${record.parent.a}${record.parent.symbol} -> ${record.daughter.a}${record.daughter.symbol} + alpha(4He2+) · A ${record.parent.a}=${record.daughter.a}+4 · Z ${record.parent.z}=${record.daughter.z}+2`;
+      const copy={
+        u:line(recordByView.u),
+        th:line(recordByView.th),
+        pa:line(recordByView.pa),
+        return:`${radiogenic.result} · He2+ + 2e- -> He-4 · MATERIAL TRANSPORT REQUIRES SAMPLE / T / p / UNCERTAINTY · STOP`
+      };
+      radiogenicRoot.addEventListener("click",event=>{
+        const button=event.target.closest("[data-radiogenic-view]");
+        if(!button)return;
+        buttons.forEach(item=>item.setAttribute("aria-pressed",String(item===button)));
+        radiogenicRoot.dataset.view=button.dataset.radiogenicView;
+        output.textContent=copy[button.dataset.radiogenicView];
+      });
+      output.textContent=copy.u;
+    }
     if(broSisRoot){
       const output=broSisRoot.querySelector("[data-bro-sis-output]");
       const buttons=[...broSisRoot.querySelectorAll("[data-bro-sis-view]")];
@@ -338,5 +397,5 @@
     render();
   }
 
-  return {VIEW_LABELS,carrierRows,boundaryControl,periodicPosition,cubePosition,cyclicPosition,modernNeighbors,cycleNeighbors,cubeNeighbors,neighbors,ledger,pa231SevenfoldCalibration,broSisRelationTest,ioiQ0CounterAxisTest,validate,mount};
+  return {VIEW_LABELS,carrierRows,boundaryControl,periodicPosition,cubePosition,cyclicPosition,modernNeighbors,cycleNeighbors,cubeNeighbors,neighbors,ledger,pa231SevenfoldCalibration,radiogenicHeliumLens,broSisRelationTest,ioiQ0CounterAxisTest,validate,mount};
 });

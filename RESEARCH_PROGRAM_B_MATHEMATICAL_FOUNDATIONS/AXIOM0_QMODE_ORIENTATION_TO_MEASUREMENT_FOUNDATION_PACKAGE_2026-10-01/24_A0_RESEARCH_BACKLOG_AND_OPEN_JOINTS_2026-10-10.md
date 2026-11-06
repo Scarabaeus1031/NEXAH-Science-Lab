@@ -1919,3 +1919,15 @@ Rückwege:
 [Owner-Handbuchnotizen](A0_BOOK/assets/a0-field-notes/index.html#note-50) →
 [Markdown-Quelle](A0_BOOK/FIELD_NOTES_A0.md#owner-handbuchnotizen--ideenparkplatz) →
 [Science Desk](A0_BOOK/A0_RESEARCH_DESK.html#a0-owner-handbook-notes-binding-20261105).
+## A0 101 / World Cube post-freeze open gates — 2026-11-05
+
+Status: `PARKED / NONE ACTIVE`.
+
+The currentness freeze closes the present integration pass. Four future gates are retained without activation:
+
+1. an independent comprehension test of the five-part 101/A0 route against an equally informative static baseline;
+2. an exact typed contract for `C / P / M / R` Owner markers;
+3. a source-bound definition and negative control for the delta/17 notation;
+4. a separate intake for any formal cross-module state connector between Heptad, floor, CPMR and Pascal registers.
+
+None of these gates authorizes Research, Build, participant contact, publication, deployment or outreach. Any successor requires a separate Owner decision with input, output, baseline, metric, stop rule and Return.

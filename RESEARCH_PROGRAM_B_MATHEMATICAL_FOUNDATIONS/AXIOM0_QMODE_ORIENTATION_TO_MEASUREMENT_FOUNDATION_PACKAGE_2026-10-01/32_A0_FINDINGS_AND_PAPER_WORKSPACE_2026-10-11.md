@@ -2513,3 +2513,20 @@ SCC CLAIM CHANGE 0 / PUBLICATION 0`.
 [Paper C](34_A0_RETURN_WITHOUT_IDENTITY_PAPER_DRAFT_2026-10-11.md#112-bounded-28-address-fold-ledger) ·
 [Science Desk](A0_BOOK/A0_RESEARCH_DESK.html#scc-003-pentagon-fold-review-20261104) ·
 [Review projection](https://review.nexah.de/scc-003-r1/#review-fold-title)
+## A0 101 / World Cube currentness freeze — 2026-11-05
+
+Disposition: `METHOD_RELEVANT_ENGINEERING_OBSERVATION / NO F-A0 PROMOTION / NO PAPER PROMOTION`.
+
+The source-bound World Cube now exposes a five-part context route — source, cut, carrier, generation and governed return — plus a twelve-stop demo. The following observations are retained for later method review:
+
+- a local orientation return does not imply historical-state reset;
+- fill, release and next-generation turn remain distinct transitions;
+- a relation may become an addressable parent only through a declared generation step;
+- multiple bounded views can share a carrier without identity collapse;
+- a typed receipt can preserve the route from Owner imagery to a testable local instrument while keeping the scientific claim ceiling explicit.
+
+No claim is promoted from the String/M-theory, resonance, Cathedral, Ghost Grid, Titan, lens or elevator imagery. Those terms remain comparison and provenance, not evidence of a physical model or shared mechanism.
+
+Open questions are parked, not active: independent reader comprehension; exact semantics for the CPMR markers; the source-bound meaning of delta/17 notation; and whether a future cross-module state connector can be specified without collapsing the registers.
+
+Sources: `A0_BOOK/A0_101_WORLD_CUBE_CURRENTNESS_FREEZE_2026-11-05.md`, `A0_BOOK/assets/game-of-worlds-play/ioi-world-cube/index.html#a0ContextLoop`, and `A0_BOOK/results/a0-101-world-cube-currentness-freeze-2026-11-05.json`.

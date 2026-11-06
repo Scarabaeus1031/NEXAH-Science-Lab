@@ -100,6 +100,28 @@ The calibration binds to the existing NLK comparator, Science source bridge
 and Builder return. Equal counts from different physical descriptions do not
 create an identity, a mechanism or a Navigator relation.
 
+## Source-bound radiogenic-helium lens — U / Th / Pa
+
+The Z100 carrier may resolve the element addresses used by three independently
+sourced alpha-decay records. The nuclide identity remains a separate record:
+
+```text
+U-238  -> Th-234 + He-4(2+)   A: 238=234+4   Z: 92=90+2
+Th-232 -> Ra-228 + He-4(2+)   A: 232=228+4   Z: 90=88+2
+Pa-231 -> Ac-227 + He-4(2+)   A: 231=227+4   Z: 91=89+2
+```
+
+All three rows conserve mass number and atomic number. They are not one decay
+chain. `He-4(2+)` denotes the alpha nucleus; neutral helium requires two
+electrons from the environment. Any statement about migration, trapping or
+retention additionally requires sample, matrix, temperature, pressure, time
+and uncertainty. The lens therefore returns `EXACT_DECAY_BOOKKEEPING_PASS`
+and then stops before a transport or material-mechanism claim.
+
+This lens reuses `NEXAH:A0_ORIENTATION_EVIDENCE_LINEAGE:V1` and
+`MOD:NUMBER_VIEW_SUITE`. It creates no new identity, relation, study or active
+run.
+
 ## Baseline and controls
 
 - baseline: official `(Z, symbol)` identity and modern period/group placement;

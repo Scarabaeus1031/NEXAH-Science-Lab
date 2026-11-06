@@ -1,6 +1,6 @@
 {
   "schema": "nexah.a0.current-state-read-lens/1.0.0",
-  "generated_for": "2026-11-03",
+  "generated_for": "2026-11-05",
   "status": "INTERNAL_READ_ONLY_ORIENTATION_LENS",
   "identity_reuse": [
     "NEXAH:A0:FROM_DISTINCTION_TO_READOUT",
@@ -21,14 +21,15 @@
     "nexahedron": "NEXAHEDRON is a separate Human Experience consumer and presentation surface; it does not own A0 science or build status."
   },
   "summary": {
-    "current_window": "2026-11-01/2026-11-03",
+    "current_window": "2026-11-01/2026-11-05",
     "maintained_findings_records": 25,
     "new_finding_promotions": 0,
     "active_research_cycles": 0,
     "active_builds": 0,
     "build_register": "23/23",
     "publication_authorized": false,
-    "outreach_authorized": false
+    "outreach_authorized": false,
+    "currentness_freeze": "A0_101_WORLD_CUBE_CURRENTNESS_FREEZE_2026-11-05"
   },
   "records": [
     {
@@ -37,7 +38,7 @@
       "object_class": "AUTHORITATIVE_INTERNAL_SCIENCE_DESK",
       "channels": ["science"],
       "status": "CURRENT / STRUCTURE_FREEZE",
-      "latest_return": "2026-11-03",
+      "latest_return": "2026-11-05",
       "authority": "A0 Science Desk / Science Lab",
       "claim_ceiling": "Currentness and classification only; no automatic Study, Finding, paper, publication or outreach promotion.",
       "next_gate": "Keep returns classified and select only separately authorized review or release packages.",
@@ -47,8 +48,29 @@
         "mission_control_gate": "SELECT_A_SPECIFIC_HUMAN_CUT"
       },
       "sources": [
-        "A0_RESEARCH_DESK.html#science-currentness-20261103",
+        "A0_RESEARCH_DESK.html#a0-101-world-cube-currentness-freeze-20261105",
         "../../../SCIENCE_LAB/NAVIGATION/APP/index.html#a0-orientation-evidence"
+      ]
+    },
+    {
+      "key": "a0-101-world-cube-currentness-freeze",
+      "title": "101 / A0 World Cube Currentness Freeze",
+      "object_class": "SOURCE_BOUND_ORIENTATION_AND_GENERATION_CONFIGURATION",
+      "channels": ["science", "builder", "machina", "human"],
+      "status": "FROZEN / LOCAL_SOURCE_BOUND / NO_PROMOTION",
+      "latest_return": "2026-11-05",
+      "authority": "A0 Science Desk classifies; Builder retains implementation evidence; Mission Control governs currentness",
+      "claim_ceiling": "Inspectable source-cut-carrier-generation-return route; no String/M-theory model, physical resonance, universal mechanism, new Study or Finding.",
+      "next_gate": "Only a separately authorized comprehension test or a typed CPMR/delta contract may reopen work.",
+      "human_delta": {
+        "readiness": "EXTENDED_LOCAL_DEMO_READY",
+        "nexahedron_pipeline": "NOT_QUEUED",
+        "mission_control_gate": "HOLD_AT_CURRENTNESS_FREEZE"
+      },
+      "sources": [
+        "assets/game-of-worlds-play/ioi-world-cube/index.html#a0ContextLoop",
+        "A0_101_WORLD_CUBE_CURRENTNESS_FREEZE_2026-11-05.md",
+        "results/a0-101-world-cube-currentness-freeze-2026-11-05.json"
       ]
     },
     {
@@ -57,18 +79,20 @@
       "object_class": "SCIENCE_FLAGSHIP_INSTRUMENT",
       "channels": ["science", "builder"],
       "status": "BUILD_COMPLETE / CURATE_AND_REVIEW",
-      "latest_return": "2026-11-03",
+      "latest_return": "2026-11-06",
       "authority": "A0 Science Desk; Builder retains implementation receipt",
-      "claim_ceiling": "Methods, HCI and visual-analytics instrument; no material law, thermal result or physical mechanism.",
-      "next_gate": "Curatorial and claim review; a Human or thermal-carrier test needs a separate intake.",
+      "claim_ceiling": "Methods, HCI and visual-analytics instrument with exact A/Z bookkeeping for three independent alpha-decay records; no shared decay chain, material law, geologic transport result or physical mechanism.",
+      "next_gate": "Curatorial and claim review; any helium migration or retention test needs a typed sample, matrix, T, p, time and uncertainty intake.",
       "human_delta": {
         "readiness": "EXPLAINABLE_CANDIDATE",
         "nexahedron_pipeline": "NOT_QUEUED",
         "mission_control_gate": "CHOOSE_NEXAH_DE_SCIENCE_CUT_OR_SEPARATE_HUMAN_EXPERIENCE"
       },
       "sources": [
-        "DRAFTS/A0_PERIODIC_CARRIER_Z100_2026-11-03.html#game-of-worlds-carrier-binding",
+        "DRAFTS/A0_PERIODIC_CARRIER_Z100_2026-11-03.html#radiogenic-helium-source-bound-lens",
         "A0_RESEARCH_DESK.html#periodic-carrier-z100-science-return-20261103",
+        "A0_RESEARCH_DESK.html#z100-radiogenic-helium-lens-return-20261106",
+        "A0_BUILDER_LOG.html#z100-radiogenic-helium-lens-builder-20261106",
         "A0_BUILDER_LOG.html#periodic-carrier-z100-ols-boundary-builder-20261103"
       ]
     },

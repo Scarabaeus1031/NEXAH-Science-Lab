@@ -204,6 +204,32 @@ This can enter the existing `3-6-9-12-...` display sequence as an atomic-number
 interval. It remains an index relation, not evidence that arsenic transforms
 into rhodium or that the two are chemically coupled.
 
+### `U / Th / Pa -> alpha -> He-4` — exact nuclear bookkeeping, open material path
+
+The Z100 register now exposes three source-bound alpha-decay examples without
+turning element addresses into nuclide identities:
+
+```text
+U-238  -> Th-234 + He-4(2+)   A: 238=234+4   Z: 92=90+2
+Th-232 -> Ra-228 + He-4(2+)   A: 232=228+4   Z: 90=88+2
+Pa-231 -> Ac-227 + He-4(2+)   A: 231=227+4   Z: 91=89+2
+```
+
+The emitted alpha particle is a helium-4 nucleus with two protons, two
+neutrons and charge `2+`. Neutral helium requires two environmental electrons.
+These are three independent parent records, not a `Th -> Pa -> U` or
+`U -> Th -> Pa` chain. The follow-on material ledger is deliberately open:
+
+```text
+nuclide record -> alpha nucleus -> neutralisation
+               -> migration / trapping / retention / loss
+```
+
+The final arrow requires an identified sample and matrix plus temperature,
+pressure, time and uncertainty. Thus the bridge supports exact A/Z
+conservation and a typed return to chemistry, but no generic geologic transport
+mechanism and no new Navigator relation.
+
 ### Closing the `Tm -> Hz -> Fz -> Re/ST` loop
 
 The previously reviewed Hz/Fz plate supplies the missing dynamical link:

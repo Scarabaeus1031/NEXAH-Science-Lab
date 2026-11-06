@@ -67,6 +67,19 @@ ok(ioi.ledger.lost.includes('path provenance when only 101 is retained'),'return
 ok(ioi.ledger.unresolved.includes('physical mechanism')&&ioi.ledger.unresolved.includes('prime or zero interpretation'),'mechanism and prime or zero readings remain unresolved');
 ok(/I0I != 101 != Md\/Z101/.test(ioi.stop)&&/NO NEW RELATION/.test(ioi.stop),'A0 I0I STOP prevents identity and relation promotion');
 
+const radiogenic=model.radiogenicHeliumLens(data);
+ok(radiogenic.result==='EXACT_DECAY_BOOKKEEPING_PASS','radiogenic helium lens passes exact A/Z bookkeeping');
+ok(radiogenic.records.length===3,'lens keeps exactly three independent parent records');
+ok(radiogenic.records.every(record=>record.conservation.mass&&record.conservation.charge),'all three alpha records conserve mass number and atomic number');
+ok(radiogenic.records.map(record=>record.parent.symbol+record.parent.a).join(',')==='U238,Th232,Pa231','parents remain U-238 Th-232 and Pa-231');
+ok(radiogenic.records.map(record=>record.daughter.symbol+record.daughter.a).join(',')==='Th234,Ra228,Ac227','daughters remain Th-234 Ra-228 and Ac-227');
+ok(radiogenic.records.every(record=>record.parentElement&&record.daughterElement),'all parent and daughter element addresses resolve inside Z100');
+ok(radiogenic.alpha.symbol==='He'&&radiogenic.alpha.z===2&&radiogenic.alpha.a===4,'alpha record is the He-4 nucleus');
+ok(radiogenic.alpha.nucleons.protons===2&&radiogenic.alpha.nucleons.neutrons===2&&radiogenic.alpha.charge==='2+','alpha particle composition and charge are explicit');
+ok(radiogenic.materialPath.includes('lattice or mineral source')&&radiogenic.materialPath.includes('retention or escape under declared T and p'),'material path remains a typed open question');
+ok(radiogenic.ledger.unresolved.includes('site-specific transport')&&radiogenic.ledger.unresolved.includes('retention time'),'transport and retention stay unresolved');
+ok(/SEPARATE PARENT RECORDS/.test(radiogenic.stop)&&/NO NEW RELATION/.test(radiogenic.stop),'radiogenic STOP prevents a fabricated chain or relation');
+
 const fs=require('node:fs');
 const html=fs.readFileSync(require('node:path').join(__dirname,'A0_PERIODIC_CARRIER_Z100_2026-11-03.html'),'utf8');
 ok(/id="game-of-worlds-carrier-binding"[^>]*data-worlds-binding="source-bound"/.test(html),'Periodic Carrier exposes one source-bound Game of Worlds handoff');
@@ -76,5 +89,10 @@ ok(html.includes('../A0_IOTA_BRIDGE_DEMONSTRATOR.html'),'handoff reuses the exis
 ok(/Wobble[^<]*bezeichnet hier den Wechsel einer Projektion/.test(html),'wobble is bounded as projection change rather than material mechanism');
 ok(html.includes('<code>T/L/L</code>')&&html.includes('und weitere Glyph-Lesarten bleiben Kandidaten'),'TLL and glyph readings remain explicit candidates');
 ok(/weder eine zweite Game-of-Worlds-Identität noch einen gemeinsamen physikalischen Generator/.test(html),'boundary prevents duplicate identity and physical generator claims');
+ok(/id="radiogenic-helium-source-bound-lens"[^>]*data-radiogenic-helium/.test(html),'HTML exposes one source-bound radiogenic helium lens');
+ok(['²³⁸U → ²³⁴Th + α','²³²Th → ²²⁸Ra + α','²³¹Pa → ²²⁷Ac + α'].every(record=>html.includes(record)),'HTML shows all three independent decay records');
+ok(html.includes('A: 238 = 234 + 4')&&html.includes('Z: 91 = 89 + 2'),'HTML exposes exact mass and charge bookkeeping');
+ok(html.includes('24_CHEMISTRY_FOUNDATIONS_GLOSSARY.md')&&html.includes('20_OY_JOULE_PASCAL_BOLTZMANN_BARRIER_BRIDGE.md'),'lens returns to Chemistry Glossary and material boundary sources');
+ok(/Pa oder Th sind keine „Grenze zu Helium“/.test(html),'claim ceiling rejects the symbolic boundary as a physical claim');
 
 console.log(`PASS · ${checks} assertions · Z100 Periodic Carrier candidate`);
