@@ -1,0 +1,35 @@
+const assert=require('node:assert/strict');
+const fs=require('node:fs');
+const path=require('node:path');
+const root=path.join(__dirname,'assets/game-of-worlds-play/ioi-world-cube');
+const api=require(path.join(root,'heptad-14-orientation.js'));
+const html=fs.readFileSync(path.join(root,'index.html'),'utf8');
+const controller=fs.readFileSync(path.join(root,'heptad-14-orientation.js'),'utf8');
+const manifest=JSON.parse(fs.readFileSync(path.join(root,'MANIFEST.json'),'utf8'));
+let checks=0;
+const check=(value,message)=>{assert.ok(value,message);checks++;};
+check(api.state14(0).archetype==='EULER','Euler anchors source position 0');
+check(api.state14(2).archetype==='RIEMANN','Riemann anchors source position 2');
+check(api.state14(12).archetype==='WEIL','Weil anchors source position 12');
+const sourceRiemann=api.point(1,7,2,0,0,0);
+check(Math.abs(sourceRiemann.x-1.24698)<1e-5,'documented Riemann X position');
+check(Math.abs(sourceRiemann.y+1.563663)<1e-5,'documented positive-Z screen orientation');
+check(api.starOrder.join(',')==='0,3,6,2,5,1,4,0','{7/3} inner-star traversal');
+check(Object.keys(api.referenceModes).join(',')==='17,19,29','three separate Shadow-gon controls');
+check(api.referenceModes[19].name==='DB? · OPEN','DB remains an open 19 marker');
+check(api.referenceModes[29].name==='WWK? · OPEN','WWK remains an open 29 marker');
+for(let n=0;n<14;n++){
+  const state=api.state14(n);
+  check(state.pair===(n+7)%14,'antipodal pair');
+  check(state.sector===n%7,'Z7 sector');
+  check(state.angleDegrees===n*180/7,'pi/7 angular step');
+  check(api.state14(state.pair).pair===n,'pair involution');
+}
+check(html.includes('heptad-14-orientation.css'),'adapter stylesheet');
+check(html.includes('heptad-14-orientation.js'),'adapter controller');
+check(controller.includes("host.id='heptad14Orientation'"),'adapter mount target');
+check(controller.includes('NO 14↔17 MAP'),'17 boundary');
+check(controller.includes('INNER STAR · {7/3}'),'inner-star control');
+check(controller.includes("button.textContent=referenceModes[order].button"),'19/29 control construction');
+check(manifest.contract.heptad_14_orientation_adapter.includes('Z14'),'manifest contract');
+console.log(JSON.stringify({status:'PASS',checks}));
