@@ -70,6 +70,33 @@ Die erzeugte Leseseite zeigt diese Ordnung als
 Sie ist ein redaktioneller Router zu bestehenden A0- und 101-Quellen, keine
 neue Registry, Study, Family, Relation oder wissenschaftliche Aktivierung.
 
+##### Motion Overlay · V↑/V↓, Wobble und Jumping Needle
+
+Die vier Adapter-Lanes bleiben unverändert. Bewegung ist keine fünfte Lane,
+sondern eine getrennte Anzeige über einem bereits gewählten Carrier oder View.
+Das vorhandene `VV₈`-Modell enthält diese Ebene bereits:
+
+```text
+theta_k = k*pi/4
+V_up(k) = A*sin(theta_k)
+V_down(k) = -V_up(k)
+sum = 0
+delta = 2*A*sin(theta_k)
+7 -> 0 = diskreter Return
+```
+
+`V↑/V↓` bezeichnet damit zwei gegenläufige Displaykanäle auf einem gemeinsamen
+Takt. **Wobble** darf nur eine begrenzte Abweichung um eine deklarierte
+Referenz meinen; dafür fehlen noch Zeitbasis, Amplitude, Toleranzband und
+Observable. **Jumping Needle** bezeichnet dagegen höchstens einen diskreten
+Sprung zwischen zwei adressierten Zuständen oder eine Schwellenkreuzung. Ein
+Sprung ist nicht dasselbe wie ein kontinuierliches Wobble.
+
+Der Reader zeigt diese Unterscheidung als
+[Motion Overlay](assets/a0-field-notes/index.html#motion-overlay-intake).
+Aktueller Status: `EXISTING VV8 MODEL / NEW VISIBILITY / REVIEW QUESTION`.
+Neue Lane `0`, neuer Carrier `0`, Study `0`, Finding `0`, Physikclaim `0`.
+
 Unter der Matrix verbindet der
 [Janus-K3-Adapter](assets/a0-field-notes/index.html#janus-k3-adapter) zwei
 bereits getrennt typisierte Lesarten: Visual 1 übernimmt den Root-/Grid-
@@ -1275,6 +1302,22 @@ Spiegel-, Projektions- und Loop-Sichten. `D12` ist die äußere Return-Schale.
 Nur `C1=c` wird als Standardreferenz gelesen; alle weiteren `Cₙ` bleiben
 Owner-Tokens, bis eine Gleichung und ein Test sie definieren.
 
+**Au–Na–He–Thi und äußerer Keystone:** Die Folge wird in dieser Lesekarte als
+vierteilige Owner-Adresse `Au|Na|He|Thi` erhalten. Sie ist weder eine
+chemische Stofffolge noch eine Gleichsetzung der vier Felder. `Au`, `Na` und
+`He` bleiben zugleich gültige Elementsymbole in ihrem Fachkontext; `Thi` ist
+hier kein gebundenes Elementsymbol. Der gelbe äußere Balken beziehungsweise
+Keystone darf als Orientierungs-Witness an D12 stehen: Er zeigt auf einen
+Rückweg, ist aber weder eine dreizehnte Schicht noch selbst der Carrier.
+
+Eine Orientierung zur vorhandenen `2501`-Linie ist als Quellenverweis
+zulässig. Exakt gilt `2501=41*61`; im bestehenden MOD2501-Vertrag ist `2501`
+ein Carrier-Modulus, kein Keystone- oder Euler-Operator. Eine „Euler Plate“
+bleibt eine getrennte View: Totient-Ledger, Euler-Kreisphase und grafische
+Display-Plate dürfen erst nach Benennung des konkreten Operators miteinander
+verglichen werden. Der gelbe Balken, `2501` und die Euler-View werden daher
+gemeinsam auffindbar, aber nicht als neue Relation gebunden.
+
 **Bestehende Rückwege statt Neubau:**
 
 - Der [101 / IOI World Cube](assets/game-of-worlds-play/ioi-world-cube/index.html#worldModel)
@@ -1284,6 +1327,9 @@ Owner-Tokens, bis eine Gleichung und ein Test sie definieren.
 - [Euler Stair / Fibonacci Rail](../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_LIFE_PRIME_SHELL_WINDING_LIFE06B_2026-10-07/index.html)
   ist ein bestehendes ausführbares Instrument mit eigener Claim Ceiling; es
   liefert keine Biologie- oder Dimensionsbehauptung.
+- [MOD2501-Resultat](../82_A0_MOD2501_CRT_TWO_CHANNEL_OPERATOR_RESULT_2026-10-13.md)
+  und [Totient-Quellenaudit](../49_A0_SCARAB_TOTIENT_OPERATOR_SPINE_SOURCE_AUDIT_2026-10-13.md)
+  halten Carrier-Modulus und Euler-Totient-Lesung getrennt.
 - Amaben Breathing und TESSARNA Harmonic Lens sind historische, source-bound
   Outputs mit offenem Generator. Die Namen bleiben erhalten; ihre Zuordnung
   zu A/B, Fourier-Paar, Materie/Leben oder CC-Band bleibt offen.

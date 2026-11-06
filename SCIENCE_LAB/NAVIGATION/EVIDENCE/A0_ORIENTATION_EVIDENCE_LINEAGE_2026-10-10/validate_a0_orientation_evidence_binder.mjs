@@ -166,6 +166,28 @@ for (const [label, relative, expected] of [
   expect(target.startsWith(ecosystemRoot + path.sep) && fs.existsSync(target), `Red Balloon ${label} exists`);
   if (fs.existsSync(target)) expect(hash(target) === expected, `Red Balloon ${label} hash matches`);
 }
+const sameCarrier = binder.same_carrier_different_maps_intake_20261106;
+expect(sameCarrier?.status === "SOURCE_BOUND_COMPARISON_CONTRACT_WITH_HOLDS", "Same Carrier intake remains a source-bound comparison contract with HOLDs");
+expect(sameCarrier?.identity_reuse?.join(",") === "ART:A0:MATHEMATICAL_JOINTS,NEXAH:A0_ORIENTATION_EVIDENCE_LINEAGE:V1,SG:LENS:A0_ORIENTATION_EVIDENCE", "Same Carrier intake reuses the existing A0 and Navigator lens identities");
+expect(sameCarrier?.operator_rail === "C -> T -> Qdeg -> R" && sameCarrier?.maps?.join(",") === "SOUND,SHAPE,MEANING", "Same Carrier operator rail and three maps remain typed");
+expect(sameCarrier?.normalized_pair?.join(",") === "-1,0,1" && sameCarrier?.plates_degrees?.join(",") === "7,33,45", "Same Carrier normalized mirror threads and plate angles remain exact");
+expect(sameCarrier?.holds?.includes("CHEMICAL_SYMBOL_OVERLAP") && sameCarrier?.symbolic_annotations?.includes("WHITE_PEARL_PIN") && sameCarrier?.symbolic_annotations?.includes("BLUE_WAVE_TRACE"), "Same Carrier symbolic annotations and chemical boundary remain explicit");
+expect(sameCarrier?.glb_spatial_bridge?.register_id === "CUR-3D-0028" && sameCarrier?.glb_spatial_bridge?.reuse === "SINGLE_REGISTERED_MODEL_NO_DUPLICATE_INSTANCE", "Same Carrier GLB bridge reuses the registered working model once");
+expect(sameCarrier?.glb_spatial_bridge?.representation_maps?.join(",") === "R_A(S)=graph,R_B(S)=waveform,R_C(S)=fold/aperture" && sameCarrier?.glb_spatial_bridge?.roles?.join(",") === "CARRIER,VIEW_MAP,Q_DEG,SLIT,TRACE", "Same Carrier GLB bridge retains native representation maps and five distinct reader roles");
+expect(sameCarrier?.glb_spatial_bridge?.topology_claim === false && sameCarrier?.glb_spatial_bridge?.shared_physics_claim === false && sameCarrier?.glb_spatial_bridge?.new_identity === false && sameCarrier?.glb_spatial_bridge?.new_relation === false, "Same Carrier GLB bridge creates no topology physics identity or relation claim");
+expect(sameCarrier?.new_identity === false && sameCarrier?.new_relation === false && sameCarrier?.new_operator === false && sameCarrier?.new_study === false && sameCarrier?.new_finding === false && sameCarrier?.publication === false && sameCarrier?.canonical_count_effect === 0, "Same Carrier intake changes no identity relation operator Study Finding publication or canonical count");
+for (const [label, relative, expected] of [
+  ["mathfield return", `30 SCIENCE LAB/NEXAH-Science-Lab/RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/${String(sameCarrier?.routes?.mathfield_return || "").split("#")[0]}`, sameCarrier?.source_hashes?.mathfield_return],
+  ["story runtime", "30 SCIENCE LAB/NEXAH-Science-Lab/RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/a0-red-balloon-story.js", sameCarrier?.source_hashes?.story_runtime],
+  ["story style", "30 SCIENCE LAB/NEXAH-Science-Lab/RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/a0-pacman-return-76001.css", sameCarrier?.source_hashes?.story_style],
+  ["story test", "30 SCIENCE LAB/NEXAH-Science-Lab/RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/a0-red-balloon-story-tests.cjs", sameCarrier?.source_hashes?.story_test],
+  ["receipt", `30 SCIENCE LAB/NEXAH-Science-Lab/RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/${sameCarrier?.routes?.receipt || ""}`, sameCarrier?.source_hashes?.receipt],
+  ["registered GLB", "30 SCIENCE LAB/NEXAH-Science-Lab/RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/assets/3d/nexah_roedelheim_record_play.glb", sameCarrier?.source_hashes?.registered_glb],
+]) {
+  const target = path.resolve(ecosystemRoot, relative || "");
+  expect(target.startsWith(ecosystemRoot + path.sep) && fs.existsSync(target), `Same Carrier ${label} exists`);
+  if (fs.existsSync(target)) expect(hash(target) === expected, `Same Carrier ${label} hash matches`);
+}
 expect(binder.spin_to_bloom_measurement_return_20261029?.status === "SOURCE_BOUND_ENGINEERING_MEASUREMENT_NO_ADMISSION", "Spin to Bloom bounded measurement status");
 expect(binder.spin_to_bloom_measurement_return_20261029?.identity_reuse?.includes("ART:A0:MATHEMATICAL_JOINTS"), "Spin to Bloom reuses Mathematical Joints identity");
 expect(binder.spin_to_bloom_measurement_return_20261029?.measurement?.return_candidate?.tips === 11 && binder.spin_to_bloom_measurement_return_20261029?.measurement?.return_candidate?.yz_events === 11 && binder.spin_to_bloom_measurement_return_20261029?.measurement?.return_candidate?.address_slots === 121, "Spin to Bloom 5:6 finite measurement");
