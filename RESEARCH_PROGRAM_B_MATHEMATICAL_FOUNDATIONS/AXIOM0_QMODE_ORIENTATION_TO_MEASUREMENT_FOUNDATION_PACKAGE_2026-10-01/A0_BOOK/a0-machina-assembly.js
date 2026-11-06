@@ -3,7 +3,7 @@ const STATIONS=Object.freeze([
   {id:"viewer",title:"Viewer",type:"SOURCE_VIEW",copy:"Drei checksum-gebundene Körper bleiben getrennte Source Windows im gemeinsamen Haus.",href:"#benchFoyer",preserves:"source bytes + provenance"},
   {id:"cockpit",title:"Pentagon Cockpit",type:"ORIENTATION",copy:"16/17, STILL 20 und 18/19 liefern die gemeinsame lokale Orientierung.",href:"#machinaCockpitTitle",preserves:"role + axis"},
   {id:"parts",title:"Parts Shelf",type:"MODEL_SHELF",copy:"Neun FAM-009 Modelle bleiben einzeln adressierbare Bauteile.",href:"A0_ORIENTATION_CONTROLLER_BENCH.html#universalMachinePartsShelf",preserves:"model identity + checksum"},
-  {id:"bench",title:"Full Bench",type:"OPERABLE_WORK",copy:"Instrumente werden über typisierte Anschlüsse bedient; keine gemeinsame Uhr wird erzeugt.",href:"A0_ORIENTATION_CONTROLLER_BENCH.html#benchWorkDesk",preserves:"instrument contract + return"},
+  {id:"bench",title:"Full Bench / Adapter Bay",type:"OPERABLE_WORK",copy:"Vier Adapter-Lanes bleiben getrennt; nur Carrier / Adresse ist live, ohne gemeinsame Uhr.",href:"A0_ORIENTATION_CONTROLLER_BENCH.html#mathfieldAdapterBay",preserves:"instrument contract + typed return"},
   {id:"relation",title:"Relation Chamber",type:"LIVE_RELATION_INSTRUMENT",copy:"Die NLK-Hauptbühne und der dreifache Vergleich bleiben zwei Projektionen derselben source-bound Instrumentquelle.",href:"#relationChamber",preserves:"instrument identity + projection type + source boundary"},
   {id:"return",title:"Typed Return",type:"TYPED_RECEIPT",copy:"Der gemeinsame Assembly-State kehrt zum Viewer zurück und hält alle Stationstypen im Receipt.",href:"A0_WERKBANK.html#typedReturnAtlas",preserves:"host + station ledger"}
 ]);
