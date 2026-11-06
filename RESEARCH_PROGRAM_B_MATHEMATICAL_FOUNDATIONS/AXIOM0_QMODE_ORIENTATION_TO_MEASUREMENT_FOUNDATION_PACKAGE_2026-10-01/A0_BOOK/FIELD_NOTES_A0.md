@@ -70,6 +70,28 @@ Die erzeugte Leseseite zeigt diese Ordnung als
 Sie ist ein redaktioneller Router zu bestehenden A0- und 101-Quellen, keine
 neue Registry, Study, Family, Relation oder wissenschaftliche Aktivierung.
 
+Unter der Matrix verbindet der
+[Janus-K3-Adapter](assets/a0-field-notes/index.html#janus-k3-adapter) zwei
+bereits getrennt typisierte Lesarten: Visual 1 übernimmt den Root-/Grid-
+Transport mit weißen `sqrt(2)`-Ticks, `sqrt(5)`-/`sqrt(7)`-Shells und
+separaten 7-/11-View-Grids; Visual 2 zeigt die exakte Faktorisierung
+`1001=7*11*13` als drei Adresskanäle. Das Tripel ist keine Base-3-Darstellung.
+Die in der Quelle berichtete empirische Auflösung `1/1001`, die arithmetische
+Faktorisierung und der Owner-Ausdruck „Janus triple mirror“ bleiben drei
+verschieden typisierte Aussagen. `Innen -> Schwelle -> Innen'` bezeichnet
+einen Return mit erhaltenem Schlüssel, nicht die Gleichheit von Innen und
+Innen'. „Julia Pearls“, Eule/Euler-Rim und `iAM CH(40) A irOS` bleiben
+Arbeitswörter auf `HOLD`, bis Quelle und Operator einzeln deklariert sind.
+
+Die ergänzte Body-Linse liest exakt `13+11=24`, `24+7=31`, `24-7=17` und
+`31+17=48`. `24 +/- 7 = {31,17}` ist dabei eine symmetrische
+Adressdarstellung, kein Schließungstheorem. Die sichtbare Return-Grammatik
+`1 -> 0(Q) -> 1'` bedeutet Innen -> Außen/Grey Space -> zurückgekehrtes
+Innen. Im `0(Q)`-Aperturkreis bleibt eine `1` als gehaltene Lesemarke
+sichtbar. Ringriss und Ghost Snake zeigen Schwelle und Wegspur; sie definieren
+weder einen Nullwert noch einen Träger oder eine physische Mechanik. MP, FBF
+und S-Cross bleiben ebenso wie die übrigen Owner-Wörter auf `HOLD`.
+
 **Desk-Rückbindung:** Der [A0 Science Desk](A0_RESEARCH_DESK.html#a0-owner-handbook-notes-binding-20261105)
 hält Evidenzstatus, Claim Ceiling und nächste zulässige Aktion; der
 [kanonische Backlog](../24_A0_RESEARCH_BACKLOG_AND_OPEN_JOINTS_2026-10-10.md#a0-owner-handbook-notes-binding-20261105)
@@ -1479,6 +1501,100 @@ View-Wechsel tatsächlich überlebt?
 vorhandenen A0-Ansichten, aber keine neue Nautilus-/Lotus-Identität, kein
 Flower-of-Life-Operator, keine Euler-Gleichsetzung, keine UV-Behauptung und
 keine neue Source-Graph-Relation.
+
+#### QWERTY / QWERTZ · Z-Layer, Iota und Velvet-Ring-Return
+
+**Datum:** 2026-11-06
+
+**Warum dies keine Wiederholung ist:** Die bekannte Grammatik
+`Innen → Schwelle → Innen′` kehrt wieder, erhält hier aber eine neue,
+getrennt typisierte Eingabeschicht. QWERTY/QWERTZ, Capsule-Zustand,
+Velvet-Maske, Ghost-Spur und Z-/Iota-Adresse sind ein Crosswalk für
+Eingabe, Verdeckung und Rückgabe; sie sind keine neuen Namen für Root Grid,
+Janus oder den `1→0(Q)→1′`-Adapter.
+
+```text
+RAW GLYPH INPUT
+→ QWERTY / QWERTZ VIEW
+→ CAPSULE / TIC-TAC STATE
+→ VELVET MASK
+→ GHOST TRACE
+→ IOTA EXIT / Z-LAYER
+→ RETURNED INPUT VIEW
+```
+
+**Rohstring:** `ōøö. 87œòç` wird exakt als Owner-Eingabe bewahrt. Ohne
+Zeichentabelle, Eingabesprache, Tastaturzustand und Transformationsregel wird
+er weder entschlüsselt noch als Codebuch, Lautschrift oder Zahlenfolge
+behandelt.
+
+**Layout und Adresse:** QWERTY und QWERTZ sind zwei getrennte Layout-Views
+desselben möglichen Eingaberecords. Ein Wechsel der sichtbaren Taste beweist
+weder Zeichenidentität noch Sprache, Locale oder gemeinsame Hardware.
+`Z-Layer` darf als Tiefen-/View-Adresse gelesen werden. `Iota` bleibt hier das
+historische Arbeitswort für einen gerichteten Schnitt oder Exit; es wird
+weder mit dem vorhandenen Iota-Schedule-Engine-Vertrag verschmolzen noch zu
+einem neuen Operator erhoben.
+
+**Capsules / Tic-Tacs:** Die kleinen Kapseln sind endliche Displaytokens oder
+Zustandsbehälter. Formähnlichkeit macht sie nicht zu chemischen,
+pharmazeutischen oder biologischen Objekten. `AM/PM` sind Zeitfenster-Labels
+einer View; ohne Clock-ID, Zeitzone und Übergangsregel entsteht keine
+gemeinsame Uhr und kein kosmischer Zeitkompass.
+
+**Velvet Ring und Ghost Snake:** Der schwarze beziehungsweise samtige Ring ist
+eine Okklusionsgrenze: Teile des Pfads dürfen hinter der Maske unsichtbar
+werden. Die Ghost Snake ist die erhaltene Provenienzspur, mit der Eintritt,
+verdeckte Passage und Austritt demselben Eingaberecord zugeordnet werden
+können. Sie ist kein dritter Carrier. „Entanglement“ bezeichnet in dieser
+Notiz ausschließlich eine deklarierte Displaykopplung oder
+Provenienzbindung, keine Quantenverschränkung.
+
+**Bildprovenienz:** Die aktuellen Owner-Bilder dienen als Gesprächs- und
+Formreferenz. Ihre Beschriftungen — einschließlich Q-Space, Thunderbird,
+SU(3)/SU(4) und der „13 Q-Wesenheiten“ — werden nicht als Daten, Fachtermini
+oder wissenschaftliche Evidenz importiert.
+
+**Stand:** starke, weil eigenständig typisierte, aber weiterhin unreviewte
+Field Note; `OPERATIONAL_EFFECT: NONE`. Keine neue Navigator-ID,
+Source-Graph-Relation, Tastatur-/Glyphen-Identität, Clock, Iota-Operator,
+Quantenbehauptung, Study, Finding oder Publikation aktiviert.
+
+#### Glyph Grammar · TEL@, œ und Sun–Moon Kiss
+
+**Datum:** 2026-11-06
+
+**Rückgebundene Kurzform:** Diese Owner-Grammatik fasst die bereits gebauten
+Host-, Gap- und Return-Ansichten zusammen. Sie ist eine Merkhilfe für die
+Navigation, keine mathematische Identität und kein neues Codebuch.
+
+```text
+TEL@ → { [101] // œ // [A0E] } → }{
+```
+
+- `[]` bezeichnet getrennte Frames beziehungsweise Record-Plates.
+- `//` bezeichnet die deklarierte Membran oder den sichtbaren Kanal zwischen
+  den Frames.
+- `œ` bezeichnet die Ligatur: zwei Innenansichten treffen an einer Naht,
+  ohne zu einer gemeinsamen Quelle zu verschmelzen.
+- `}{` bezeichnet den **Sun–Moon Kiss / Return Hinge**: Die beiden Kanten
+  bleiben getrennt und schließen nur über den deklarierten Return.
+- `TEL@` bleibt eine Owner-Mnemonik für adressierten Empfang. Daraus folgt
+  weder eine Telefon-, Sprach-, Buchstaben- noch Zahlenidentität.
+
+**Gebundene Route:** Der
+[Root-7-Schnitt](A0_ORIENTATION_CONTROLLER_BENCH.html#root7Sections) hält die
+Host-/Gap-Lesung; der
+[101/A0 World Cube](assets/game-of-worlds-play/ioi-world-cube/index.html#a0ContextLoop)
+hält die adressierten Frames; die
+[Shared I-Axis der Machina](A0_MACHINA_COCKPIT.html#machinaAdapterSwitchboard)
+transportiert nur Adresse, Fokus und Return. Der bestehende
+[Innen–Außen–Innen′-Adapter](assets/a0-field-notes/index.html#janus-k3-adapter)
+liefert die Rückführung als `1 → 0(Q) → 1′`.
+
+**Stand:** rückgebundene Owner-Handbuchnotiz; `OPERATIONAL_EFFECT: NONE`.
+Reuse vorhandener Quellen und Routen; keine neue Navigator-ID, Relation,
+Source, Study, Finding oder Publikation.
 
 ## Frühere Feldnotizen
 

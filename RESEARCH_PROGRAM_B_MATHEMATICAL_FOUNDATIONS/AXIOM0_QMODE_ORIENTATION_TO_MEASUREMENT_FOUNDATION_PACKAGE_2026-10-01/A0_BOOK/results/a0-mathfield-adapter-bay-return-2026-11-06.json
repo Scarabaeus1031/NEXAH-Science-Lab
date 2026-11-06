@@ -1,0 +1,22 @@
+{
+  "schema": "nexah.a0.mathfield-adapter-bay-return/1",
+  "date": "2026-11-06",
+  "status": "ENGINEERING_INTERFACE_RETURN",
+  "identityReuse": ["NEXAH_A0_ORIENTATION_CONTROLLER_BENCH"],
+  "placement": {
+    "runtime": "A0_ORIENTATION_CONTROLLER_BENCH.html#mathfieldAdapterBay",
+    "switchboard": "A0_MACHINA_COCKPIT.html#machinaAdapterSwitchboard",
+    "machinaStation": "04 / OPERABLE_WORK"
+  },
+  "lanes": [
+    {"id": "carrier", "status": "LIVE", "runtime": true},
+    {"id": "relation", "status": "HOLD", "runtime": false},
+    {"id": "view", "status": "NEXT", "runtime": false},
+    {"id": "analogy", "status": "COMPARE_ONLY", "runtime": false}
+  ],
+  "firstVerticalSlice": ["101/A0", "Q-Cut", "World Cube", "J", "A0 Return"],
+  "commandGrammar": ["CONNECT", "CAPTURE", "STEP_VIEW", "VERIFY", "RETURN", "RECEIPT"],
+  "navigatorEffect": {"newCanonicalIds": 0, "relationChanges": 0},
+  "authority": {"researchExecution": false, "claimPromotion": false, "publication": false},
+  "boundary": "Existing source-bound interfaces are routed through one local Bench adapter. No source merge, shared clock, new Study, new flagship identity or scientific promotion."
+}

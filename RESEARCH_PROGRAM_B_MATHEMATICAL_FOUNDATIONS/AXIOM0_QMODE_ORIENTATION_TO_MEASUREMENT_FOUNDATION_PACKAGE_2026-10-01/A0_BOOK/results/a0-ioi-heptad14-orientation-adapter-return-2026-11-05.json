@@ -1,0 +1,36 @@
+{
+  "schema": "nexah.a0.ioi-heptad14-orientation-adapter-return/1",
+  "date": "2026-11-05",
+  "status": "SOURCE_BOUND_VIEW_COMPLETE",
+  "scope": "One view-only 14-position orientation adapter inside the existing A0 IOI World Cube reader.",
+  "carrier": {"identity": "A0_GAME_OF_WORLDS_PLAY", "glb": "../assets/game-of-worlds-play/ioi-world-cube/a0_ioi_game_of_worlds_r0.glb", "mutation": "NONE", "corner_addresses_preserved": 8},
+  "adapter": {
+    "primary_positions": 7,
+    "antipodal_positions": 7,
+    "step_radians": "pi/7",
+    "angle_formula": "theta_n = n*pi/7",
+    "address_contract": "Z14 ~= Z7 x Z2",
+    "axis": "NADIR -> O0 -> ZENITH",
+    "source_order": ["Euler", "Riemann", "Ramanujan", "Gauss", "Goedel", "Penrose", "Weil"],
+    "source_position_basis": "Heptad_NodePositions_v1.csv regular radius-2 heptagon, 360/7 degree spacing",
+    "inner_star": {"polygon": "{7/3}", "traversal": [0, 3, 6, 2, 5, 1, 4, 0], "status": "VIEW_ADJACENCY_ONLY", "named_source_bridges": 4},
+    "reference_modes": [
+      {"order": 17, "label": "HMA", "status": "SEPARATE_VISUAL_CONTROL"},
+      {"order": 19, "label": "K1 / DB?", "status": "OPEN_MNEMONIC_SEPARATE_CONTROL"},
+      {"order": 29, "label": "K2 / WWK?", "status": "OPEN_MNEMONIC_SEPARATE_CONTROL"}
+    ],
+    "reference_boundary": "No map or shared dynamic is asserted between 14, 17, 19 and 29."
+  },
+  "position_sources": [
+    {"file": "Heptad_NodePositions_v1.csv", "sha256": "26f75647ffcb259b8b2669025044df634cda3e2077055927ee67239e68af160e", "use": "seven exact X/Z positions and 360/7 ordering"},
+    {"file": "Archetype_Heptad_Spec_v1.json", "sha256": "2d8b15db61d6f9c817d81ee2220a2e41d1edbd274e0ae9b2b005228dc9e756a0", "use": "node names, colors and roles only"}
+  ],
+  "existing_hash_bound_glb_sources": [
+    {"file": "Fusion_Architecture_v3_4_animated.glb", "sha256": "5b984ce35672c23ec7cda8553669aa6166052a94911d80ac61af9bf40e5829fa", "binding": "a0-bench-fusion-glb-audit-2026-10-21.json"},
+    {"file": "Euler_Bridges_3D.glb", "sha256": "c2edb66747e43590bcbf53297957813af8844d22d758d8c5a9e35a678c119321", "binding": "a0-bench-fusion-glb-audit-2026-10-21.json"}
+  ],
+  "local_not_admitted": ["Archetype_Heptad_Frame_v2.glb", "Resonance_Compass_3D.glb", "Heptad_Compass_Fusion_v1.glb"],
+  "navigator_effect": {"new_identities": [], "new_relations": [], "new_aliases": [], "count_effect": 0},
+  "publication_effect": "NONE",
+  "claim_boundary": "Illustrative orientation and address view only. It asserts no physical mechanism, 14-to-17 equivalence, GLB identity merge, mathematical discovery, Study, finding or publication."
+}
