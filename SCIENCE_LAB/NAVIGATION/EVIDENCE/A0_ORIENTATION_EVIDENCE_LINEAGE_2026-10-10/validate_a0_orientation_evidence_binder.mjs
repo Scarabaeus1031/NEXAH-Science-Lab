@@ -57,6 +57,23 @@ if (process.argv.includes("--finite-structure-return-only")) {
   process.exit(failures.length ? 1 : 0);
 }
 
+if (process.argv.includes("--root-grid-transport-only")) {
+  const update = binder.documentary_update_20261018?.antipode_root_grid_transport_20261106;
+  expect(update?.status === "LOCAL_ENGINEERING_PASS_BROWSER_ACCEPTED", "root-grid transport status");
+  expect(update?.existing_identity === "MOD:NUMBER_VIEW_SUITE" && update?.bench_identity === "NEXAH_A0_ORIENTATION_CONTROLLER_BENCH", "existing Bench and Number View identities reused");
+  expect(update?.canonical_count_effect === 0 && update?.publication_authorized === false, "no canonical-count or publication effect");
+  expect(update?.view_contract?.transport_modes?.join(",") === "FORWARD,BACKWARD,FEEDBACK", "three typed transport modes");
+  expect(update?.view_contract?.root2_ticks === 16 && update?.view_contract?.separate_grids?.join(",") === "silver-7,blue-11", "root ticks and separate grids");
+  expect(update?.test_checks?.finite_packages === 282 && update?.test_checks?.browser_pixel_acceptance === "PASS", "engineering and browser acceptance");
+  for (const source of update?.sources || []) {
+    const target = path.resolve(ecosystemRoot, source.ecosystem_path);
+    expect(target.startsWith(ecosystemRoot + path.sep) && fs.existsSync(target), "root-grid source exists");
+    if (fs.existsSync(target)) expect(hash(target) === source.sha256, "root-grid source hash");
+  }
+  console.log(JSON.stringify({status:failures.length ? "FAIL" : "PASS", scope:"A0 antipode root-grid transport currentness only", failures}, null, 2));
+  process.exit(failures.length ? 1 : 0);
+}
+
 // Scope check for current documentary receipts; default historical validation
 // remains unchanged and continues to report its pre-existing hash drift.
 if (process.argv.includes("--documentary-only")) {
@@ -115,6 +132,26 @@ expect(redBalloon?.story_lens?.prime_mask === "1..99; 25 prime apertures; 74 opa
 expect(redBalloon?.story_lens?.source_context?.graph === "G_T_PRIME_TRINITIES_CONNECTORS" && redBalloon?.story_lens?.source_context?.vertices === 7 && redBalloon?.story_lens?.source_context?.edges === 9 && redBalloon?.story_lens?.source_context?.cycle_rank === 3 && /composite/.test(redBalloon?.story_lens?.source_context?.connector_1032 || ""), "Historical Prime Trinities graph remains source context only");
 expect(redBalloon?.story_lens?.inverse_imaginary === "i^-1=-i" && redBalloon?.story_lens?.aperture_return === "T_alpha->T_0" && redBalloon?.story_lens?.holds?.includes("NAUTILUS"), "Red Balloon orientation, aperture and open metaphor boundaries retained");
 expect(redBalloon?.story_lens?.new_identity === false && redBalloon?.story_lens?.new_relation === false && redBalloon?.story_lens?.new_study === false && redBalloon?.story_lens?.new_finding === false, "Red Balloon story creates no identity relation Study or Finding");
+const algoNlkDock = redBalloon?.algo_nlk_return_dock;
+expect(algoNlkDock?.status === "SOURCE_BOUND_COORDINATED_INTERFACE_PROJECTION_ONLY" && algoNlkDock?.placement === "AFTER_ALGO_RETURN_AS_OBSERVATORY_NOT_GATE_7", "ALGO to NLK dock remains a subordinate observatory projection");
+expect(algoNlkDock?.identity_reuse?.join(",") === "ART:A0:MATHEMATICAL_JOINTS,NLK_L_SHELL,NEXAH:A0_ORIENTATION_EVIDENCE_LINEAGE:V1", "ALGO to NLK dock reuses existing identities");
+expect(algoNlkDock?.state_fields?.join(",") === "SELECTED_NODE,FRAME_AND_PERSPECTIVE,CUT,RELATION_LAYERS,WAVE_PHASE,RETURN_STATE" && algoNlkDock?.receipt_checks?.join(",") === "SOURCE_HELD,CUT_DECLARED,SEAMS_DISTINCT,VIEW_RETURNED,HISTORY_NOT_RESET", "ALGO to NLK dock preserves typed state fields and receipt checks");
+expect(algoNlkDock?.common_carrier === false && algoNlkDock?.common_clock === false && algoNlkDock?.source_mutation === false && algoNlkDock?.history_reset === false, "ALGO to NLK dock preserves carrier clock source and history boundaries");
+expect(algoNlkDock?.new_identity === false && algoNlkDock?.new_relation === false && algoNlkDock?.new_study === false && algoNlkDock?.new_finding === false && algoNlkDock?.publication === false, "ALGO to NLK dock creates no identity relation Study Finding or publication state");
+const whiteLineJoint = algoNlkDock?.polar_mirror_brane_crosswalk?.white_line_cikada_fold_joint;
+expect(whiteLineJoint?.schema === "nexah.a0.white-line-cikada-fold-joint/2" && whiteLineJoint?.classification === "SOURCE_BOUND_VIEW_ADAPTER_ONLY", "White-line Cikada joint remains a source-bound view adapter");
+expect(whiteLineJoint?.source_gate?.addresses?.join(",") === "1031,1032,1033" && whiteLineJoint?.source_gate?.fine_rail?.join(",") === "41,42,43" && whiteLineJoint?.source_gate?.operator === "h->h+990" && whiteLineJoint?.working_cartridges?.map((item) => item.label).join(",") === "X31,X32,X33", "White-line Cikada joint reuses the THE MACHINA SG fine rail and three local cartridge labels");
+expect(whiteLineJoint?.working_cartridges?.map((item) => item.source_band).join(",") === "F1,F2,F3" && /not a fourth equivalent channel/.test(whiteLineJoint?.shared_frame || ""), "White-line Cikada 3+1 contract keeps three bands and one shared frame distinct");
+expect(whiteLineJoint?.exact_maps?.includes("1031+1033=2064=2*1032") && whiteLineJoint?.exact_maps?.includes("rev_4(1033)=3301") && whiteLineJoint?.factorization_1032 === "2^3*3*43", "White-line Cikada exact arithmetic and connector factorization retained");
+expect(whiteLineJoint?.green_floor?.role === "GREEN_FLOOR_RETURN_VIEW" && whiteLineJoint?.green_floor?.view_layer === "PATINA_V" && whiteLineJoint?.green_floor?.material_layer === "PATINA_M" && /SUBSTRATE_MEDIUM_TIME_AND_REACTION/.test(whiteLineJoint?.green_floor?.material_binding || ""), "Patina view and material analogy remain explicitly separated");
+expect(whiteLineJoint?.scarab_trace?.generator === "h->h+990" && whiteLineJoint?.scarab_trace?.waveform === false && whiteLineJoint?.decimal_mirror?.operation === "reverse10" && whiteLineJoint?.decimal_mirror?.binding === "ARITHMETIC_RETURN_ONLY_NOT_CIKADA_IDENTITY", "SCARAB rail trace and decimal mirror use source operations without identity promotion");
+expect(Array.isArray(whiteLineJoint?.ilau?.unresolved) && whiteLineJoint.ilau.unresolved.length === 0, "White-line Cikada bounded adapter has no unresolved local mapping items");
+expect(whiteLineJoint?.new_identity === false && whiteLineJoint?.new_relation === false && whiteLineJoint?.new_operator === false && whiteLineJoint?.new_study === false && whiteLineJoint?.new_finding === false && whiteLineJoint?.publication === false, "White-line Cikada adapter creates no identity relation operator Study Finding or publication state");
+const scarabM83 = whiteLineJoint?.scarab_m83_connector;
+expect(scarabM83?.schema === "nexah.a0.scarab-m83-symbolic-connector-view/1" && scarabM83?.classification === "SOURCE_BOUND_SYMBOLIC_CONNECTOR_VIEW_ONLY", "M83 SC connector remains a source-bound symbolic view");
+expect(scarabM83?.exact_ladder?.join(",") === "83=81+2=P_23,26=2*13,169=13^2,26^3=17576=104*169" && /P_83=431/.test(scarabM83?.prime_boundary || ""), "M83 SC exact ladder and prime-index boundary retained");
+expect(scarabM83?.offset_return?.join(",") === "rev_2(13)=31,31+200=231,231-200=31" && /OWNER_DISPLAY_MARKER_ONLY/.test(scarabM83?.plus_c || ""), "M83 SC minus-200 return and plus-C display marker remain typed");
+expect(scarabM83?.new_port === false && scarabM83?.new_identity === false && scarabM83?.new_relation === false && scarabM83?.new_operator === false && scarabM83?.new_study === false && scarabM83?.new_finding === false && scarabM83?.publication === false, "M83 SC connector creates no port identity relation operator Study Finding or publication state");
 for (const [label, relative, expected] of [
   ["canonical source", redBalloon?.canonical_source?.ecosystem_path, redBalloon?.canonical_source?.sha256],
   ["Experience flagship receipt", redBalloon?.experience_flagship_receipt?.ecosystem_path, redBalloon?.experience_flagship_receipt?.sha256],

@@ -1,0 +1,44 @@
+{
+  "schema": "nexah.a0.antipode-root-grid-transport-return/1",
+  "date": "2026-11-06",
+  "status": "LOCAL_ENGINEERING_PASS_BROWSER_ACCEPTED",
+  "identity_reuse": [
+    "NEXAH_A0_ORIENTATION_CONTROLLER_BENCH",
+    "MOD:NUMBER_VIEW_SUITE"
+  ],
+  "entry": "A0_ORIENTATION_CONTROLLER_BENCH.html#finite-root-grid",
+  "scope": {
+    "transport_modes": ["FORWARD", "BACKWARD", "FEEDBACK"],
+    "root2_ticks": 16,
+    "root_comparator": "sqrt(7)/sqrt(5)",
+    "grid_reads": ["silver-7", "blue-11"],
+    "opposite_display_anchors": ["pi_PHASE", "phi_g"]
+  },
+  "checks": {
+    "finite_package_tests": 282,
+    "node_syntax": "PASS",
+    "browser_pixel_acceptance": "PASS"
+  },
+  "boundaries": [
+    "sqrt(2) ticks are a declared finite sampling view",
+    "sqrt(5) and sqrt(7) are compared as exact scalars only",
+    "phi_g is the golden-ratio display anchor and is not Euler totient phi(n)",
+    "silver-7 and blue-11 are separate display grids with no common clock or carrier",
+    "feedback compares forward/backward receipts and does not create a third carrier",
+    "no Root-to-Graph identity, physical coupling, Study, Finding or publication authority"
+  ],
+  "source_hashes": {
+    "bench_html": "94ce0f6a82fce6a44b91fd7a932b0b703ab230daef7e9be1fb0b42e98a9616bd",
+    "model": "0def80d069e1792c64b61c71f5c27032b63348cabb212060051f55909ad553b4",
+    "view": "0a3640977407ffc1c83fedead628efc168b4249810e4c2ef741d25dd3ec5acb9",
+    "style": "213b1caf78f0d6c552abd05091415e1d6208b2857137642b7a2edd65e84d9b14",
+    "tests": "34aa89d13e4b4a281d1f2ffea627d3f9a192e5c4a798f40d68d8f658dbd1c231"
+  },
+  "canonical_count_effect": 0,
+  "new_identity": false,
+  "new_relation": false,
+  "new_operator": false,
+  "new_study": false,
+  "new_finding": false,
+  "publication_authorized": false
+}
