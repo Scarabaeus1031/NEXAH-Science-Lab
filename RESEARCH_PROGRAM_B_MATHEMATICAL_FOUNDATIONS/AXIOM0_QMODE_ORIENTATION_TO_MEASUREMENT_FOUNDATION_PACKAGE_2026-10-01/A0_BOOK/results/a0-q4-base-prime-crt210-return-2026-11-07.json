@@ -1,0 +1,10 @@
+{
+  "record": "A0-BL-036 / Q4 Magic-Square Joint Audit",
+  "date": "2026-11-07",
+  "status": "PASS_EXACT_CRT210_VIEW_ADAPTER",
+  "carrier": {"seam": "15|14", "factorization": ["15=3x5", "14=2x7"], "modulus": 210, "base_primes": [2,3,5,7]},
+  "default_test": {"value": 1221, "residues": {"mod15": 6, "mod14": 3}, "reconstruction": 171, "equation": "1221=5x210+171"},
+  "verification": {"module": "218/218", "integration": "233/233"},
+  "boundary": ["C(v)=15-v remains the Q4 complement", "CRT_(15,14) is a separate integer reconstruction", "No historical-intent, physical-mechanism, or personal-data claim"],
+  "governance": {"new_identity":0,"new_relation":0,"new_alias":0,"new_operator":0,"new_study":0,"new_finding":0,"publication":0,"deployment":0}
+}

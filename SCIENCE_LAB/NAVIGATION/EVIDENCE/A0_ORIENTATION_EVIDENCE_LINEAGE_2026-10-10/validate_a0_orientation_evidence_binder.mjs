@@ -74,6 +74,29 @@ if (process.argv.includes("--root-grid-transport-only")) {
   process.exit(failures.length ? 1 : 0);
 }
 
+if (process.argv.includes("--rubik-qdc-crosswalk-only")) {
+  const update = binder.rubik_qdc_cross_section_dock_20261107;
+  const crosswalk = update?.exact_contract?.seven_way_heptad14_root7_crosswalk;
+  expect(update?.identity_reuse?.includes("NEXAH_A0_ORIENTATION_CONTROLLER_BENCH") && update?.identity_reuse?.includes("SG:LENS:ROOT7_LOOK"), "existing Bench and Root7 identities reused");
+  expect(crosswalk?.code_order?.join(",") === "100,010,001,110,101,011,111", "seven non-HOME codes in declared order");
+  expect(crosswalk?.primary_steps?.join(",") === "0,2,4,6,8,10,12", "seven even primary steps");
+  expect(crosswalk?.antipodes?.join(",") === "7,9,11,13,1,3,5", "seven antipodes");
+  expect(crosswalk?.z7_sectors?.join(",") === "0,2,4,6,1,3,5", "all Z7 sectors exactly once");
+  expect(/norm\^2=7/.test(crosswalk?.root7_control || "") && /CLOSED_BOUNDED_CONTROL_NOT_IDENTITY/.test(crosswalk?.root7_control || ""), "Root7 exact closed control");
+  expect(update?.verification?.dedicated === "200/200 PASS" && /EDGE-ONLY FIVE-STEP LEGALITY RECEIPT/.test(update?.verification?.browser || "") && /16 OF 16 BLOCKS/.test(update?.verification?.browser || "") && update?.verification?.world_cube_tour === "12 STOPS UNCHANGED", "engineering browser and tour acceptance");
+  expect(update?.new_identity === false && update?.new_relation === false && update?.new_operator === false && update?.new_study === false && update?.new_finding === false && update?.claim_ceiling_change === false, "no identity relation operator Study Finding or claim-ceiling change");
+  const a0Package = "30 SCIENCE LAB/NEXAH-Science-Lab/RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/";
+  for (const [routeKey, hashKey] of [["dock","dock"],["module","module"],["cube_verifier","cube_verifier"],["heptad_module","heptad_module"],["style","style"],["test","test"],["manifest","manifest"],["science_desk","science_desk"],["builder_desk","builder_desk"],["findings_triage","findings_triage"],["receipt","receipt"]]) {
+    const target = path.resolve(ecosystemRoot, a0Package + String(update?.routes?.[routeKey] || "").split("#")[0]);
+    expect(fs.existsSync(target), `${routeKey} exists`);
+    if (fs.existsSync(target)) expect(hash(target) === update?.source_hashes?.[hashKey], `${routeKey} hash`);
+  }
+  const missionControl = path.resolve(ecosystemRoot, "00 EXECUTIVE/NEXAH-Mission-Control/00_LAB_RESEARCH_DIRECTOR_DESK/RETURN_2026-11-07_A0_TYPED_MIRROR_F0_CLEAN_DESK.md");
+  expect(fs.existsSync(missionControl) && hash(missionControl) === update?.source_hashes?.mission_control, "Mission Control return hash");
+  console.log(JSON.stringify({status:failures.length ? "FAIL" : "PASS", scope:"Rubik QDC seven-way Heptad-14 Root7 crosswalk currentness only", failures}, null, 2));
+  process.exit(failures.length ? 1 : 0);
+}
+
 // Scope check for current documentary receipts; default historical validation
 // remains unchanged and continues to report its pre-existing hash drift.
 if (process.argv.includes("--documentary-only")) {
@@ -113,6 +136,64 @@ expect(binder.changes_canonical_family_count === false, "family count boundary")
 expect(binder.identity_reuse?.a0_surface_entity_id === "ART:A0:MATHEMATICAL_JOINTS", "A0 identity reuse");
 expect(binder.identity_reuse?.a0_module_entity_id === "MOD:NUMBER_VIEW_SUITE", "module identity reuse");
 expect(binder.identity_reuse?.ols_release_id === "OLS-RELEASE-1.0.0", "OLS release identity");
+const rubikQdc = binder.rubik_qdc_cross_section_dock_20261107;
+const heptadCrosswalk = rubikQdc?.exact_contract?.seven_way_heptad14_root7_crosswalk;
+const alignmentOverlay = rubikQdc?.exact_contract?.kite_teapot_red_balloon_alignment;
+const dualRoute = rubikQdc?.exact_contract?.qd_dual_route_macroblock_fixture;
+const dualRouteRegister = rubikQdc?.exact_contract?.qd_dual_route_macroblock_register;
+const compositeAddress = rubikQdc?.exact_contract?.composite_address_grammar;
+const elevatorCrosswalk = rubikQdc?.exact_contract?.elevator_world_cube_inspection_crosswalk;
+const q3dFixture = rubikQdc?.exact_contract?.q3d_bounded_slice_fixture;
+const q3dMoveGate = q3dFixture?.canonical_move_gate;
+const q3dEdgeRedesign = q3dFixture?.type_preserving_edge_redesign;
+const qdcOpenWorkFreeze = rubikQdc?.exact_contract?.qdc_q3d_open_work_freeze;
+expect(rubikQdc?.identity_reuse?.includes("NEXAH_A0_ORIENTATION_CONTROLLER_BENCH") && rubikQdc?.identity_reuse?.includes("SG:LENS:ROOT7_LOOK"), "Rubik QDC crosswalk reuses the existing Bench and Root7 lens identities");
+expect(heptadCrosswalk?.code_order?.join(",") === "100,010,001,110,101,011,111", "seven-way crosswalk excludes HOME and preserves declared code order");
+expect(heptadCrosswalk?.primary_steps?.join(",") === "0,2,4,6,8,10,12" && heptadCrosswalk?.antipodes?.join(",") === "7,9,11,13,1,3,5", "seven-way crosswalk primary and antipode steps");
+expect(heptadCrosswalk?.z7_sectors?.join(",") === "0,2,4,6,1,3,5" && /norm\^2=7/.test(heptadCrosswalk?.root7_control || ""), "seven-way crosswalk covers Z7 once and retains the exact Root7 norm control");
+expect(/no canonical Rubik move/.test(heptadCrosswalk?.boundary || "") && /no .*Study reopen/.test(heptadCrosswalk?.boundary || "") && rubikQdc?.new_identity === false && rubikQdc?.new_relation === false && rubikQdc?.new_operator === false && rubikQdc?.new_study === false && rubikQdc?.new_finding === false, "seven-way crosswalk creates no Rubik operator, identity, relation, Study or Finding");
+expect(/5\/82/.test(alignmentOverlay?.source_measure || "") && /three-anchor identity REJECTED/.test(alignmentOverlay?.result || "") && /CONSTRUCTED_SNAP_CONTROL/.test(alignmentOverlay?.control || ""), "alignment overlay preserves measured hinge offset and negative control");
+expect(/B12/.test(dualRoute?.target || "") && /B00->B10->B12/.test(dualRoute?.q_field_and_route || "") && /B00->B13->B12/.test(dualRoute?.d_field_and_route || ""), "Q and D routes reach the same B12 target through distinct paths");
+expect(/Q:R1C2=11/.test(dualRoute?.q_field_and_route || "") && /D:R1C2=8/.test(dualRoute?.d_field_and_route || "") && /\+1-1=0 mod 4/.test(dualRoute?.return || ""), "Q and D fields remain distinct and their returns close");
+expect(/B00 through B33/.test(dualRouteRegister?.coverage || "") && /sixteen 3x3 footprints/.test(dualRouteRegister?.coverage || "") && /permutations of integers 1 through 16/.test(dualRouteRegister?.plate_fields || ""), "Q and D register covers all sixteen macroblocks and retains both value permutations");
+expect(/16\/16 targets/.test(dualRouteRegister?.return || "") && /B12 retains/.test(dualRouteRegister?.reference || "") && /not canonical Rubik move table/.test(dualRouteRegister?.boundary || ""), "dual-route register closes all targets while preserving B12 and the non-operator boundary");
+expect(rubikQdc?.new_identity === false && rubikQdc?.new_relation === false && rubikQdc?.new_operator === false, "dual-route register creates no Rubik operator identity or relation");
+expect(/carrier K11; payload 12 BASE/.test(compositeAddress?.K12 || "") && /carrier L12; payload 12′ PRIME/.test(compositeAddress?.L12_prime || "") && /carrier M1′; payload 83 BASE/.test(compositeAddress?.M83 || ""), "composite addresses keep carrier coordinates and decimal payloads separate");
+expect(/Y\/Z fail closed/.test(compositeAddress?.reserved || "") && /no encryption, spatial coordinate, identity, relation or operator/.test(compositeAddress?.boundary || ""), "composite address grammar preserves reserved carriers and claim boundary");
+expect(/11x111=1221/.test(elevatorCrosswalk?.carrier || "") && /1221=45\*27\+6/.test(elevatorCrosswalk?.packet_address || "") && /1221\/1221/.test(elevatorCrosswalk?.return || ""), "Elevator packet ledger closes every scalar address exactly");
+expect(/not spatial packing/.test(elevatorCrosswalk?.boundary || "") && /open 1221-to-12321 lift/.test(elevatorCrosswalk?.boundary || ""), "Elevator crosswalk preserves packing and open-lift boundaries");
+expect(/B00 through B33/.test(q3dFixture?.target || "") && /B12 remains the reference/.test(q3dFixture?.target || "") && /3x3 token slice/.test(q3dFixture?.target || ""), "Q3D fixture covers all sixteen existing blocks and retains B12 as reference");
+expect(/D-E-F/.test(q3dFixture?.q_rail || "") && /B-E-H/.test(q3dFixture?.d_rail || "") && q3dFixture?.intersection === "center E only", "Q3D fixture retains the declared row column and center intersection");
+expect(/all sixteen/.test(q3dFixture?.order_test || "") && /reconstruct HOME 1 through 9/.test(q3dFixture?.return || "") && /return to B00/.test(q3dFixture?.return || "") && /16\/16 composed returns pass/.test(q3dFixture?.composition || ""), "Q3D register proves order sensitivity and composed return for all sixteen blocks");
+expect(/not a Navigator identity/.test(q3dFixture?.boundary || "") && /not .*general Q\/D-to-Cube control law/.test(q3dFixture?.boundary || "") && /local engineering construction/.test(q3dFixture?.boundary || ""), "Q3D fixture preserves identity and control-law boundaries while admitting the local edge construction");
+expect(/Q\+=\(D E F\)/.test(q3dMoveGate?.cycles || "") && /D\+=\(B E H\)/.test(q3dMoveGate?.cycles || ""), "Q3D canonical move gate binds the four exact token cycles");
+expect(/preserve corner, edge and center cubie classes/.test(q3dMoveGate?.invariant || "") && /center token E to an edge position/.test(q3dMoveGate?.violation || ""), "Q3D canonical move gate records the cubie-class invariant violation");
+expect(/^NONE;/.test(q3dMoveGate?.canonical_sequence || "") && /remain exact/.test(q3dMoveGate?.token_inverse || "") && /all sixteen/.test(q3dMoveGate?.projection || ""), "Q3D rejects canonical realization while retaining exact inverses across the register");
+expect(/invariant rejection/.test(q3dFixture?.boundary || "") && /not an exhaustive-search/.test(q3dFixture?.boundary || ""), "Q3D move gate preserves the bounded negative-proof boundary");
+expect(/QE\+=\(B F D\)/.test(q3dEdgeRedesign?.cycles || "") && /DE\+=\(B F H\)/.test(q3dEdgeRedesign?.cycles || "") && /six changed stickers/.test(q3dEdgeRedesign?.full_state || "") && /order three/.test(q3dEdgeRedesign?.return || "") && /not claimed/.test(q3dEdgeRedesign?.minimality || ""), "Q3D edge redesign binds legal type-preserving cycles, full-state audit and bounded minimality claim");
+expect(qdcOpenWorkFreeze?.state === "PARKED_HOLD_NO_ACTIVE_SUCCESSOR" && qdcOpenWorkFreeze?.items?.length === 6 && /Human Owner decision/.test(qdcOpenWorkFreeze?.reactivation || "") && /active-priority change 0/.test(qdcOpenWorkFreeze?.effect || ""), "QDC Q3D open-work freeze parks six successors behind a new Human Owner gate");
+expect(rubikQdc?.verification?.dedicated === "200/200 PASS" && /EDGE-ONLY FIVE-STEP LEGALITY RECEIPT/.test(rubikQdc?.verification?.browser || "") && /CENTER-TO-EDGE INVARIANT REJECTION RETAINED/.test(rubikQdc?.verification?.browser || "") && /ORDER THREE/.test(rubikQdc?.verification?.browser || "") && rubikQdc?.verification?.world_cube_tour === "12 STOPS UNCHANGED", "QDC engineering and browser acceptance");
+const a0Package = "30 SCIENCE LAB/NEXAH-Science-Lab/RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/";
+for (const [label, routeKey, hashKey] of [
+  ["Rubik QDC dock", "dock", "dock"],
+  ["Rubik QDC module", "module", "module"],
+  ["Rubik QDC cube verifier", "cube_verifier", "cube_verifier"],
+  ["Rubik QDC Heptad module", "heptad_module", "heptad_module"],
+  ["Rubik QDC style", "style", "style"],
+  ["Rubik QDC tests", "test", "test"],
+  ["Rubik QDC manifest", "manifest", "manifest"],
+  ["Rubik QDC Science Desk", "science_desk", "science_desk"],
+  ["Rubik QDC Builder Desk", "builder_desk", "builder_desk"],
+  ["Rubik QDC findings", "findings_triage", "findings_triage"],
+  ["Rubik QDC receipt", "receipt", "receipt"]
+]) {
+  const route = String(rubikQdc?.routes?.[routeKey] || "").split("#")[0];
+  const target = path.resolve(ecosystemRoot, a0Package + route);
+  expect(fs.existsSync(target), `${label} exists`);
+  if (fs.existsSync(target)) expect(hash(target) === rubikQdc?.source_hashes?.[hashKey], `${label} hash`);
+}
+const rubikMissionControl = path.resolve(ecosystemRoot, "00 EXECUTIVE/NEXAH-Mission-Control/00_LAB_RESEARCH_DIRECTOR_DESK/RETURN_2026-11-07_A0_TYPED_MIRROR_F0_CLEAN_DESK.md");
+expect(fs.existsSync(rubikMissionControl) && hash(rubikMissionControl) === rubikQdc?.source_hashes?.mission_control, "Rubik QDC Mission Control return hash");
 const redBalloon = binder.red_balloon_mathfield_intake_20261103;
 expect(redBalloon?.status === "SOURCE_BOUND_MATHFIELD_INSTRUMENT_PAPER_TBC", "Red Balloon remains a Mathfield instrument with Paper TBC");
 expect(redBalloon?.identity_reuse?.join(",") === "NEXAH:A0_ORIENTATION_EVIDENCE_LINEAGE:V1,A0OE:PASCAL_PENTAGON_D5_TEST,ART:A0:MATHEMATICAL_JOINTS,NEXAH_A0_ORIENTATION_CONTROLLER_BENCH", "Red Balloon reuses existing A0 SCC-003 Mathfield and Bench identities");

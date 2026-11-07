@@ -133,6 +133,15 @@
     host.querySelector('[data-h14-step="prev"]').addEventListener('click',()=>{step=mod(step-1,referenceModes[mode]?mode:14);draw();});
     host.querySelector('[data-h14-step="next"]').addEventListener('click',()=>{step=mod(step+1,referenceModes[mode]?mode:14);draw();});
     host.querySelector('[data-h14-step="zero"]').addEventListener('click',()=>{step=0;draw();});
+    document.addEventListener('a0:heptad14-select',event=>{
+      const requested=Number(event.detail&&event.detail.step);
+      if(!Number.isInteger(requested)||requested<0||requested>13)return;
+      mode=14;
+      step=mod(requested,14);
+      modeButtons.forEach(button=>button.setAttribute('aria-pressed',String(Number(button.dataset.h14Mode)===14)));
+      starButton.disabled=false;
+      draw();
+    });
     draw();
   };
   return {archetypes,colors,starOrder,referenceModes,mod,primaryIndex,state14,point,createHost,mount};

@@ -2,7 +2,8 @@ const fs=require('node:fs'),path=require('node:path'),assert=require('node:asser
 let checks=0;const ok=(v,m)=>{assert.ok(v,m);checks++},eq=(a,b)=>{assert.deepEqual(a,b);checks++};
 const html=fs.readFileSync(__dirname+'/A0_OPIUM.html','utf8'),css=fs.readFileSync(__dirname+'/a0-opium-entry.css','utf8'),js=fs.readFileSync(__dirname+'/a0-opium-entry.js','utf8');
 const scienceGateway=__dirname+'/SCIENCE_LAB';ok(fs.lstatSync(scienceGateway).isSymbolicLink(),'SCIENCE_LAB local source gateway');eq(fs.realpathSync(scienceGateway),path.resolve(__dirname,'../../../SCIENCE_LAB'));
-for(const m of html.matchAll(/(?:href|src)="([^"]+)"/g)){if(/^https?:\/\//.test(m[1]))continue;const [raw,a]=m[1].split('#'),p=raw.split('?')[0],f=path.resolve(__dirname,p||'A0_OPIUM.html');ok(fs.existsSync(f),m[1]);if(a&&!f.endsWith('/NAVIGATION/APP/index.html'))ok(fs.readFileSync(f,'utf8').includes('id="'+a+'"'),a);}
+for(const m of html.matchAll(/(?:href|src)="([^"]+)"/g)){if(/^https?:\/\//.test(m[1]))continue;const [raw,a]=m[1].split('#'),p=raw.split('?')[0],f=path.resolve(__dirname,p||'A0_OPIUM.html');ok(fs.existsSync(f),m[1]);if(a&&!f.endsWith('/NAVIGATION/APP/index.html')&&a!=='algoEightFloorRegister')ok(fs.readFileSync(f,'utf8').includes('id="'+a+'"'),a);}
+ok(fs.readFileSync(__dirname+'/assets/game-of-worlds-play/ioi-world-cube/algo-eight-floor-register.js','utf8').includes("host.id='algoEightFloorRegister'"),'dynamic eight-floor anchor');
 ok(!/<iframe|autoplay|fetch\(/.test(html));ok(!/setInterval|setTimeout|requestAnimationFrame|localStorage|postMessage/.test(js));
 for(const s of ['prefers-reduced-motion','650px','950px','opium-paused','opium-winds-off','opium-chamber-off','op-wind-flow','op-coil-route','op-ghost-drift','op-zipper-breathe','animation-play-state:paused'])ok(css.includes(s),s);
 for(const s of ['KEIN LIVE-READOUT','Lokal gekoppelt','Noch offen','kein Zugriff','keine Veröffentlichung']){if(s==='kein Zugriff')continue;ok(html.includes(s),s);}
@@ -11,6 +12,7 @@ eq((html.match(/class="op-wind w\d+"/g)||[]).length,11);eq((html.match(/<g class
 eq((html.match(/class="op-ghost op-ghost-\d"/g)||[]).length,3);ok(html.includes('class="op-orange-coil"'));ok(html.includes('class="op-zipper"'));ok(html.includes('Connector Chamber'));
 eq((html.match(/class="op-eight-petal"/g)||[]).length,8);eq((html.match(/<circle class="op-eight-orbit"/g)||[]).length,8);
 for(const s of ['240 = 8 × 30','Gleiche Acht ≠ gleicher Typ','7×8 = 56','11×11','E8 SOURCE DOCK','op-eight-turn','8-WAY TYPED SWITCHBOARD','Carrier','Operator','Return','Grenze','GHOST / PREVIOUS VIEW'])ok((html+css).includes(s),s);
+for(const s of ['id="opiumF0Seam"','F0 ↔ F0−','NO F8','A0_METHOD.html#floor-zero-method','algoEightFloorRegister','0/8 · 0/12'])ok(html.includes(s),s);
 function fixture(reduced=false){
  const events={},mediaEvents={},classes=new Set(),classList=()=>{const set=new Set();return{set,toggle(k,v){if(v)set.add(k);else set.delete(k)}}},makeButton=n=>({name:n,attrs:{},classList:classList(),addEventListener(k,f){events[n+':'+k]=f},setAttribute(k,v){this.attrs[k]=v}}),button=makeButton('button'),winds=makeButton('winds'),chamber=makeButton('chamber');
  const outputs={};for(const id of ['opiumMaskIndex','opiumMaskTitle','opiumMaskCarrier','opiumMaskOperator','opiumMaskView','opiumMaskReturn','opiumMaskBoundary','opiumGhostTrail'])outputs[id]={textContent:''};outputs.opiumMaskSource={attrs:{},setAttribute(k,v){this.attrs[k]=v}};

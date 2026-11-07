@@ -1,0 +1,61 @@
+{
+  "schema": "a0.repunit-crt-one-digit-lens.return.v1",
+  "date": "2026-11-07",
+  "status": "PASS_EXACT_REPUNIT_ORBIT_AND_PRODUCT_JUNCTION",
+  "scope": "LOCAL_DOCUMENTARY_ENGINEERING_COMPARATOR",
+  "source": {
+    "instrument": "A0_WERKBANK.html#repunitCrtOneDigitLens",
+    "module": "a0-repunit-crt-one-digit-lens.js",
+    "test": "a0-repunit-crt-one-digit-lens-tests.cjs",
+    "reuses": [
+      "results/a0-11x111-grid-elevator-result-2026-10-15.json",
+      "NEXAH:A0_ORIENTATION_EVIDENCE_LINEAGE:V1"
+    ]
+  },
+  "exact": {
+    "definition": "R_n=(10^n-1)/9",
+    "lens": ["mod 7", "mod 10"],
+    "orbit": [[1,1],[4,1],[6,1],[5,1],[2,1],[0,1]],
+    "recurrence": "r_(n+1)=3*r_n+1 mod 7",
+    "period": 6,
+    "multiplicativeOrder": "ord_7(10)=6",
+    "junction": {
+      "factors": [11,111],
+      "factorPairs": [[4,1],[6,1]],
+      "product": 1221,
+      "productPair": [3,1],
+      "crtModulus": 70,
+      "reconstruction": 31,
+      "fiber": "1221=17*70+31",
+      "simpleOrbitMember": false
+    }
+  },
+  "boundary": {
+    "supported": [
+      "the decimal one-digit channel is fixed modulo 10",
+      "the mod-7 repunit channel has exact period six",
+      "the product pair is computed componentwise",
+      "the pair (3,1) reconstructs 31 modulo 70"
+    ],
+    "notSupported": [
+      "identity with the CRT carrier Z/1221 ~= Z/11 x Z/111",
+      "a new Euler operator",
+      "a physical or universal one-digit mechanism",
+      "integer recovery beyond the declared modulo-70 fiber"
+    ]
+  },
+  "navigator": {
+    "identity": "NEXAH:A0_ORIENTATION_EVIDENCE_LINEAGE:V1",
+    "effect": "EXISTING_LENS_SOURCE_EXTENSION_ONLY",
+    "newIds": 0,
+    "relationChanges": 0,
+    "aliases": 0
+  },
+  "science": {
+    "classification": "ENGINEERING_COMPARATOR_NOT_NEW_FINDING",
+    "studyActivation": 0,
+    "claimCeilingChange": 0
+  },
+  "publication": false,
+  "deployment": false
+}

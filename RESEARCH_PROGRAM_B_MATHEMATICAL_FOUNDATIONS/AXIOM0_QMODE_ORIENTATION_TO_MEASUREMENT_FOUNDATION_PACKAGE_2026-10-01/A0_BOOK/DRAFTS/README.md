@@ -26,3 +26,11 @@ Internal Science Desk: `../A0_RESEARCH_DESK.html`
 Preserve these files for provenance. Do not promote them into top-level
 navigation or describe them as the current release without a new dated release
 decision.
+
+## Local non-authoritative companion candidates
+
+- `A0_TYPED_MIRROR_ROTATION_COMPASS_DRAFT_2026-11-07.html` — source-bound
+  orientation companion for fixed-width digit reversal, residue-circle mirror,
+  `R107` on `Z/280Z`, midpoint return and place lift. It reuses the existing
+  `NEXAH_A0_ORIENTATION_CONTROLLER_BENCH` identity; it is not accepted,
+  registered, deployed or public.

@@ -2530,3 +2530,490 @@ No claim is promoted from the String/M-theory, resonance, Cathedral, Ghost Grid,
 Open questions are parked, not active: independent reader comprehension; exact semantics for the CPMR markers; the source-bound meaning of delta/17 notation; and whether a future cross-module state connector can be specified without collapsing the registers.
 
 Sources: `A0_BOOK/A0_101_WORLD_CUBE_CURRENTNESS_FREEZE_2026-11-05.md`, `A0_BOOK/assets/game-of-worlds-play/ioi-world-cube/index.html#a0ContextLoop`, and `A0_BOOK/results/a0-101-world-cube-currentness-freeze-2026-11-05.json`.
+
+<a id="typed-mirror-f0-clean-desk-return--2026-11-07"></a>
+
+## Typed Mirror / F0 clean-desk return — 2026-11-07
+
+Classification: `ENGINEERING_AND_NAVIGATION_EXTENSION / METHOD_EXAMPLE /
+NOT_NEW_FINDING / NO_F-A0_PROMOTION / NOT_PAPER_PROMOTION /
+NOT_PUBLICATION_AUTHORIZED`.
+
+Four previously separate reading routes are now explicitly returned to one
+source-bound A0 custody chain:
+
+- the finite `280/5=56` display adapter and four CRT16 projections hand off to
+  the existing World Cube spiral/cube view and return through the existing
+  `Q4×P3` lift;
+- `METHOD:F0/F0−` records origin versus stored counterview without creating
+  `CF:F0`, `CF:F8` or another Family;
+- OPIUM keeps eight floor addresses `F0…F7` and performs only an inner view
+  switch at zero; IOTA `0/8` and `0/12` remain separate schedule-ring views;
+- the Pink Keystone Workbench route connects TD-Janus `O6`, the `I↔J` axis
+  switch, the `7×4` TESA rail, the 28-address coil and the G11 self-paired
+  comparator without identifying their carriers.
+
+The exact engineering content is the declared address, projection, view and
+return wiring. The following remain open and are parked rather than promoted:
+formal equivalence with `Q°±`; an exact Pantone standard; a shared operator
+between CRT16 and World Cube; the mapping to the separate `11×111` Elevator
+Grid; and any physical mechanism inferred from recurring spiral, cube, ring,
+T or keystone imagery.
+
+Verification retained by the closeout receipt: OPIUM `140 PASS`, Pink
+Keystone `19 PASS`, Typed Return Atlas `43/43 PASS`, Blue/Pink Dodeca Cell
+Return `125 PASS`,
+Source Graph `329/29` base and `332/32` composed `PASS`, Navigator App
+`253/253 PASS`.
+
+Disposition: `EXISTING A0 ORIENTATION LENS REUSED / NEW ID 0 / RELATION 0 /
+ALIAS 0 / OPERATOR 0 / STUDY 0 / FINDING 0 / CLAIM CEILING CHANGE 0 /
+PUBLICATION 0`.
+
+[Science Desk](A0_BOOK/A0_RESEARCH_DESK.html#typed-mirror-f0-clean-desk-return-20261107) ·
+[Builder Log](A0_BOOK/A0_BUILDER_LOG.html#typed-mirror-f0-clean-desk-builder-return-20261107) ·
+[Closeout Receipt](A0_BOOK/results/a0-typed-mirror-f0-clean-desk-return-2026-11-07.json)
+
+<a id="repunit-crt-one-digit-lens--2026-11-07"></a>
+
+## Repunit CRT one-digit lens — 2026-11-07
+
+Classification: `EXACT_ENGINEERING_COMPARATOR / METHOD_EXAMPLE /
+NOT_NEW_FINDING / NO_F-A0_PROMOTION / NOT_PAPER_PROMOTION`.
+
+For the six decimal repunits R_n=(10^n-1)/9, the declared
+`mod 7 × mod 10` lens gives the exact orbit
+
+`(1,1) → (4,1) → (6,1) → (5,1) → (2,1) → (0,1) → (1,1)`.
+
+The second component stays fixed because every repunit ends in decimal digit
+1. The first component follows `r_(n+1)=3r_n+1 mod 7` and has period six.
+The exact product test gives
+
+`11×111=1221`, `(4,1)(6,1)=(3,1)` and `1221=17×70+31`.
+
+The pair `(3,1)` is not a member of the simple six-state repunit orbit. This is
+retained as a product-junction observation. It is not promoted to a new
+operator or Finding. `ord_7(10)=6` supplies the standard Euler/Fermat period
+boundary; no stronger Euler interpretation follows.
+
+The existing `11×111` Grid Elevator remains a distinct carrier contract:
+`Z/1221 ≅ Z/11 × Z/111`. The new lens projects the integer value 1221 into
+`Z/7 × Z/10`; it does not replace or identify the two decompositions. The
+modulo-70 pair also does not recover the full integer without a quotient
+witness.
+
+Disposition: `91 PASS / EXACT ORBIT + PRODUCT JUNCTION / EXISTING A0
+ORIENTATION LENS REUSED / NEW ID 0 / RELATION 0 / ALIAS 0 / OPERATOR 0 /
+STUDY 0 / FINDING 0 / CLAIM CEILING CHANGE 0 / PUBLICATION 0`.
+
+[Workbench](A0_BOOK/A0_WERKBANK.html#repunitCrtOneDigitLens) ·
+[Science Desk](A0_BOOK/A0_RESEARCH_DESK.html#repunit-crt-one-digit-lens-return-20261107) ·
+[Builder Log](A0_BOOK/A0_BUILDER_LOG.html#repunit-crt-one-digit-lens-builder-return-20261107) ·
+[Receipt](A0_BOOK/results/a0-repunit-crt-one-digit-lens-return-2026-11-07.json)
+
+## Q4 Base-Prime CRT210 View · 2026-11-07
+
+**Disposition:** `ENGINEERING / EXACT COMPARATOR / NO FINDING PROMOTION`.
+
+The existing `A0-BL-036` Q4 Magic-Square Joint Audit now exposes the visible Dürer seam `15|14` as two coprime residue channels: `15=3×5`, `14=2×7`, hence `2×3×5×7=210`. The bounded default witness is `1221 → (6 mod15, 3 mod14) → 171 mod210`, with `1221=5×210+171`. All 210 residue classes roundtrip; module verification is `218/218` and integration verification `233/233`.
+
+This is not a promoted mathematical finding. `C(v)=15−v` remains the Q4 complement; Dürer's planar `R180`, Khajuraho's toroidal `T(2,2)`, the existing Repunit CRT70 lens, and the new `CRT_(15,14)` reconstruction remain separate operators/views. No claim of historical intent, physical mechanism, personal-date significance, new identity, relation, alias, Study, Finding, deployment, or publication is admitted.
+
+[Instrument](A0_BOOK/A0_Q4_MAGIC_SQUARE_JOINT_AUDIT.html#basePrimeCrtStage) ·
+[Science Desk](A0_BOOK/A0_RESEARCH_DESK.html#q4-base-prime-crt210-return-20261107) ·
+[Receipt](A0_BOOK/results/a0-q4-base-prime-crt210-return-2026-11-07.json)
+
+<a id="base11-365-drift-cube-dock--2026-11-07"></a>
+
+## Base-11 365 Drift Cube Dock — 2026-11-07
+
+Classification: `EXACT_ENGINEERING_VIEW / COMPARATOR / METHOD_EXAMPLE /
+NOT_NEW_FINDING / NO_F-A0_PROMOTION / NOT_PAPER_PROMOTION`.
+
+The existing World Cube now carries an optional code-native counter-shell view.
+The exact signal is
+
+`4774_10 = 3650_11 = 11 × 365_11`, with `365_11 = 360_11 + 5`.
+
+The mirrored decimal word is a deliberately retained control:
+`7447_10 = 5660_11`. It does not preserve the `365` prefix and therefore
+prevents a mirror-by-appearance claim. The declared geometric ledger is
+`12^3=1728`, `11^3=1331`, and shell complement `397`.
+
+The boundaries are decisive. `365_11` equals decimal 434, not 365 calendar
+days. `V/+5` is a residual display role. Calendar, circle, gap and fifth-element
+language remains Owner mnemonic material. The 12/11 construction is a view,
+not native GLB geometry; the existing `11 outer · 9 inner · 2×2 zero core`
+contract and frozen twelve-stop tour are unchanged.
+
+Disposition: `15 PASS / EXACT BASE-11 COMPARATOR / EXISTING WORLD CUBE AND A0
+ORIENTATION LENS REUSED / NEW ID 0 / RELATION 0 / ALIAS 0 / OPERATOR 0 /
+STUDY 0 / FINDING 0 / CLAIM CHANGE 0 / PUBLICATION 0`.
+
+[Dock](A0_BOOK/assets/game-of-worlds-play/ioi-world-cube/index.html#base11DriftCubeDock) ·
+[Science Desk](A0_BOOK/A0_RESEARCH_DESK.html#base11-365-drift-cube-dock-return-20261107) ·
+[Builder Log](A0_BOOK/A0_BUILDER_LOG.html#base11-365-drift-cube-dock-builder-return-20261107) ·
+[Receipt](A0_BOOK/results/a0-base11-365-drift-cube-dock-return-2026-11-07.json)
+
+<a id="rubik-qdc-cross-section--2026-11-07"></a>
+
+## Rubik QDC Cross-Section Dock — 2026-11-07
+
+Classification: `EXACT_ENGINEERING_VIEW / FINITE COMPARATOR / METHOD_EXAMPLE /
+NOT_NEW_FINDING / NO_F-A0_PROMOTION / NOT_PAPER_PROMOTION`.
+
+The existing World Cube now carries a second optional view below the Base-11
+counter-shell. Its outer ledger is exact in both senses:
+`12^3=1728=64×27`, and four axis-aligned `3×3×3` modules fit on each axis.
+The inner ledger deliberately separates two different statements:
+
+- volume division: `11^3=1331=49×27+8`;
+- axis-aligned packing: `floor(11/3)^3=27`, covering 729 cells and leaving
+  602 unit cells outside those modules.
+
+The two `4×4` source plates remain distinct. The Q gate evaluates the Dürer
+arrangement through four rows, four columns and two principal diagonals. The D
+gate evaluates the Khajuraho arrangement through eight broken diagonals and
+sixteen toroidal `2×2` windows. Five declared matrix transforms produce the
+finite classes BOTH, Q ONLY, D ONLY and NEITHER. These transforms are not
+claimed to be canonical Rubik moves.
+
+CRT remains an address-reconstruction method and Mandelbrot/Julia remains a
+comparison of fixed versus varying iteration inputs. Neither supplies a new
+operator, fractal identity, force, physical core or common mechanism.
+
+The added 24-address display maps `A-L` to unprimed `1-12` and `M-X` to
+primed `1'-12'`; `Y/Z` remain reserved. Its finite route separates three
+operations: `V1 | V9 -> V19` is digit concatenation, `V19 -> W19` is a
+carrier successor with the numeric channel retained, and `M78` is an explicit
+checksum Return because `78=sum(1..12)`. This is a display grammar, not
+encryption or a 3D coordinate, and it does not promote the pre-existing
+source-only `M78` HOLD marker.
+
+Disposition: `26 PASS / EXACT FINITE COMPARATOR + TYPED ADDRESS LOCK / EXISTING WORLD CUBE, Q4
+AUDIT AND A0 ORIENTATION LENS REUSED / NEW ID 0 / RELATION 0 / ALIAS 0 /
+OPERATOR 0 / STUDY 0 / FINDING 0 / CLAIM CHANGE 0 / PUBLICATION 0`.
+
+[Dock](A0_BOOK/assets/game-of-worlds-play/ioi-world-cube/index.html#rubikQdcCrossSectionDock) ·
+[Science Desk](A0_BOOK/A0_RESEARCH_DESK.html#rubik-qdc-cross-section-return-20261107) ·
+[Builder Log](A0_BOOK/A0_BUILDER_LOG.html#rubik-qdc-cross-section-builder-return-20261107) ·
+[Receipt](A0_BOOK/results/a0-rubik-qdc-cross-section-return-2026-11-07.json)
+
+<a id="qdc-q3d-open-work-freeze--2026-11-07"></a>
+
+### QDC/Q3D Open-work Freeze — 2026-11-07
+
+Classification: `DOCUMENTARY PARKED-HOLD REGISTER / NOT_NEW_FINDING /
+NO_F-A0_PROMOTION / NO_ACTIVE_SUCCESSOR`.
+
+The completed Q/D dual-route register, Q3D token fixture, invariant rejection
+of the center-moving cycles, legal type-preserving `Qe/De` edge redesign,
+54-facelet verification, Elevator crosswalk and composite address grammar
+remain the closed reproducible baseline.
+
+Six possible successors are frozen rather than silently continued: a general
+`4x4 field -> 3x3 block -> legal move` map; an operator reading of
+`103<->301` and `301x2=602`; a formal `Q°±` contract; a verified
+Pantone/Pink-Keystone binding; a shared physical mechanism across the visual
+Kite/Teapot/Red-Balloon/hinge/shell/pin roles; and semantic or astronomical
+promotion of `M83/W38` beyond the implemented typed address grammar.
+
+Each item is `PARKED_HOLD`. Reactivation requires a new explicit Human Owner
+decision routed through Mission Control. This freeze creates no active queue,
+Study, Finding, operator, Family vocabulary, claim-ceiling change, deployment
+or publication state.
+
+Disposition: `PARKED HOLD / NO ACTIVE SUCCESSOR / REOPEN ONLY BY NEW HUMAN
+OWNER DECISION / EXISTING QDC-Q3D + A0 EVIDENCE IDENTITIES REUSED / NEW ID 0 /
+RELATION 0 / ALIAS 0 / OPERATOR 0 / STUDY 0 / FINDING 0 / CLAIM CHANGE 0 /
+PUBLICATION 0 / DEPLOYMENT 0`.
+
+[Science Freeze](A0_BOOK/A0_RESEARCH_DESK.html#qdc-open-work-freeze-return-20261107) ·
+[Builder Freeze](A0_BOOK/A0_BUILDER_LOG.html#qdc-open-work-freeze-builder-20261107) ·
+[Freeze Receipt](A0_BOOK/results/a0-rubik-qdc-cross-section-return-2026-11-07.json)
+
+<a id="q3d-edge-only-redesign--2026-11-07"></a>
+
+### Q3D edge-only legal-move redesign — 2026-11-07
+
+Classification: `VERIFIED_LOCAL_ENGINEERING_CONSTRUCTION / NOT_NEW_FINDING /
+NO_F-A0_PROMOTION / NO_NAVIGATOR_OPERATOR`.
+
+The earlier center-moving Q/D token rails remain outside the legal Rubik state
+space. A separate type-preserving redesign replaces no source rule and defines
+two edge-only cycles: `Qe+=(B F D)` and `De+=(B F H)`, with their exact inverse
+cycles.
+
+The legal outer-turn word for Qe is
+`R U' R U R U R U' R' U' R2`; De is its conjugate `U Qe U'`. The existing
+54-facelet verifier shows exactly six moved stickers per word, forming three
+complete unflipped edge cubies. All centers and corners remain fixed. Both
+words have order three, both inverse words return the entire cube, and the two
+orders of composition remain distinct in both token and full cube state.
+
+The same bounded fixture is checked at all sixteen existing macroblock
+addresses `B00…B33`; the address does not mutate the physical move word. No
+shortest-word statement is made.
+
+Disposition: `200/200 PASS / LEGAL EDGE-ONLY OUTER-TURN REALIZATION /
+ORIGINAL CENTER RAILS STILL REJECTED / 16 OF 16 BLOCKS / EXISTING A0
+ORIENTATION LENS REUSED / NEW ID 0 / RELATION 0 / ALIAS 0 / OPERATOR 0 /
+STUDY 0 / FINDING 0 / CLAIM CHANGE 0 / PUBLICATION 0`.
+
+[Edge Redesign](A0_BOOK/assets/game-of-worlds-play/ioi-world-cube/index.html?rev=q3d-edge-redesign-r1#rubikQdcCrossSectionDock) ·
+[Science Desk](A0_BOOK/A0_RESEARCH_DESK.html#q3d-edge-only-redesign-return-20261107) ·
+[Builder Log](A0_BOOK/A0_BUILDER_LOG.html#q3d-edge-only-redesign-builder-20261107) ·
+[Receipt](A0_BOOK/results/a0-rubik-qdc-cross-section-return-2026-11-07.json)
+
+<a id="q3d-bounded-slice-fixture--2026-11-07"></a>
+
+### Q3D complete 16-block 3×3 slice register — 2026-11-07
+
+Classification: `SOURCE_BOUND_FINITE_PERMUTATION_FIXTURE / ENGINEERING METHOD
+EXAMPLE / NOT_NEW_FINDING / NO_F-A0_PROMOTION / NOT_GENERAL_CUBE_CONTROL`.
+
+The existing QDC dock now parameterizes the same bounded 3×3 token fixture
+across all sixteen existing macroblocks `B00…B33`; B12 remains the reference.
+Q cyclically permutes the middle row `D-E-F`; D cyclically permutes the middle
+column `B-E-H`. Their only shared position is center `E`. The declared
+compositions are order-sensitive in every block: `Q→D != D→Q`.
+
+Both token paths return exactly when their inverse operations are applied in
+reverse order. Both existing macro-address lanes also return independently to
+`B00`. Address selection and token permutation remain separate state fields.
+This does not define canonical Rubik generators, physical actuation or a
+general Q/D-to-Cube control law.
+
+Disposition: `160/160 PASS / 16 OF 16 BLOCKS / EXISTING A0 ORIENTATION LENS REUSED / NEW ID 0 /
+RELATION 0 / ALIAS 0 / OPERATOR 0 / STUDY 0 / FINDING 0 / CLAIM CHANGE 0 /
+PUBLICATION 0`.
+
+[Q3D Register](A0_BOOK/assets/game-of-worlds-play/ioi-world-cube/index.html?rev=q3d-register-r1#rubikQdcCrossSectionDock) ·
+[Science Desk](A0_BOOK/A0_RESEARCH_DESK.html#q3d-bounded-slice-fixture-return-20261107) ·
+[Builder Log](A0_BOOK/A0_BUILDER_LOG.html#q3d-bounded-slice-fixture-builder-20261107) ·
+[Receipt](A0_BOOK/results/a0-rubik-qdc-cross-section-return-2026-11-07.json)
+
+## Elevator–World-Cube Inspection Crosswalk — 2026-11-07
+
+<a id="elevator-world-cube-inspection-crosswalk--2026-11-07"></a>
+
+- Classification: **engineering method / exact finite address crosswalk; no Finding**.
+- Exact: `11×111=1221`, `1221=45×27+6`, and every scalar address roundtrips uniquely through both `(row,column)` and `(packet,slot)`.
+- Boundary: the 27-unit decomposition is a Euclidean ledger, not spatial packing, a physical cube count, a canonical Rubik move, or closure of the open `1221→12321` Elevator lift.
+- Governance: existing Elevator and World-Cube identities reused; identity, relation, operator, Study, publication, and Finding deltas are all zero.
+
+<a id="composite-address-grammar--2026-11-07"></a>
+
+### Composite Address Grammar — 2026-11-07
+
+Classification: `ENGINEERING_GRAMMAR / NOT_NEW_FINDING / NO_F-A0_PROMOTION`.
+
+The existing QDC carrier parses composite display tokens without merging
+their types: `K12 = K11 + payload 12`, `L12′ = L12 + payload 12′`, and
+`M83 = M1′ + payload 83`. A terminal prime belongs to the payload lane only;
+the carrier's intrinsic alphabet coordinate remains immutable. `Y/Z` fail
+closed. The displayed equality in `L12` is coincidence, not type identity.
+
+Disposition: `122/122 PASS / NEW ID 0 / RELATION 0 / OPERATOR 0 / STUDY 0 /
+FINDING 0 / CLAIM CHANGE 0 / PUBLICATION 0`.
+
+[Dock](A0_BOOK/assets/game-of-worlds-play/ioi-world-cube/index.html?rev=composite-address-r1#rubikQdcCrossSectionDock) ·
+[Science Desk](A0_BOOK/A0_RESEARCH_DESK.html#composite-address-grammar-return-20261107) ·
+[Builder Log](A0_BOOK/A0_BUILDER_LOG.html#composite-address-grammar-builder-20261107) ·
+[Receipt](A0_BOOK/results/a0-rubik-qdc-cross-section-return-2026-11-07.json)
+
+<a id="qd-dual-route-macroblock-fixture--2026-11-07"></a>
+## Q/D dual-route macroblock register — 2026-11-07
+
+Classification: `METHOD-RELEVANT ENGINEERING OBSERVATION / NO FINDING PROMOTION`.
+
+The bounded fixture now covers the complete existing `4×4` World-Cube
+macroblock register `B00…B33`. Every block expands to one `3×3` footprint of
+the 12×12 face. Q retains the Dürer permutation `1…16`; D retains the
+Khajuraho permutation `1…16`. The two declared display routes reach the same
+selected address and their inverse routes close independently on `B00`, with
+the declared turn receipt `+1−1=0 mod 4`. The original `B12` route remains
+unchanged as the backward-compatible reference case.
+
+All sixteen corresponding source payload pairs remain different. Shared
+destination therefore does not identify the Dürer and Khajuraho fields. The
+register is not a canonical Rubik move table, physical actuation, general Q/D
+control law, new operator or research activation.
+
+Disposition: `112/112 PASS / COMPLETE B00-B33 REGISTER / DISTINCT PLATE FIELDS /
+16 OF 16 DUAL RETURNS PASS / EXISTING A0 ORIENTATION LENS REUSED / NEW ID 0 / RELATION 0 /
+ALIAS 0 / OPERATOR 0 / STUDY 0 / FINDING 0 / CLAIM CHANGE 0 / PUBLICATION 0`.
+
+[Dock](A0_BOOK/assets/game-of-worlds-play/ioi-world-cube/index.html#rubikQdcCrossSectionDock) ·
+[Science Desk](A0_BOOK/A0_RESEARCH_DESK.html#qd-dual-route-macroblock-return-20261107) ·
+[Builder Log](A0_BOOK/A0_BUILDER_LOG.html#qd-dual-route-macroblock-builder-20261107) ·
+[Receipt](A0_BOOK/results/a0-rubik-qdc-cross-section-return-2026-11-07.json)
+
+<a id="seven-way-heptad14-root7-crosswalk--2026-11-07"></a>
+
+### Seven-Way / Heptad-14 / Root7 Control Crosswalk — 2026-11-07
+
+Classification: `SOURCE_BOUND_REVERSIBLE_DISPLAY_CROSSWALK / ENGINEERING METHOD
+EXAMPLE / CLOSED_ROOT7_CONTROL_REUSED / NOT_NEW_FINDING / NO_F-A0_PROMOTION`.
+
+The seven nonzero words of the existing finite steering comparator are mapped
+bijectively, in declared order, to the seven even primary steps of the existing
+Heptad-14 adapter:
+
+`100,010,001,110,101,011,111 ↔ 0,2,4,6,8,10,12`.
+
+Each primary step retains its exact antipode `n+7 mod14`, yielding
+`7,9,11,13,1,3,5`. Primary and antipode share one Z7 sector under the existing
+`theta_n=n*pi/7` contract. The inverse from each primary step to its steering
+word is total and unique; `000` remains HOME outside the seven-element map.
+
+`SG:LENS:ROOT7_LOOK` is reused only as a closed bounded control. Its exact
+vector is `(2,1,1,1)`, with norm squared 7 and norm `sqrt(7)`. The equal numeral
+7 compares the size of two finite sets with a norm square; it does not identify
+their types, construct a Root7 edge or axis, or reopen the closed Root7 result.
+
+Disposition: `78/78 PASS / ROOT7 NON_IDENTIFIABLE + HISTORY_REQUIRED +
+NOT_IDENTIFIED PRESERVED / NEW ID 0 / RELATION 0 / ALIAS 0 / OPERATOR 0 /
+STUDY REOPEN 0 / FINDING 0 / CLAIM CHANGE 0 / PUBLICATION 0`.
+
+[Dock](A0_BOOK/assets/game-of-worlds-play/ioi-world-cube/index.html#rubikQdcCrossSectionDock) ·
+[Heptad 14](A0_BOOK/assets/game-of-worlds-play/ioi-world-cube/index.html#heptad14Orientation) ·
+[Science Desk](A0_BOOK/A0_RESEARCH_DESK.html#seven-way-heptad14-root7-crosswalk-return-20261107) ·
+[Builder Log](A0_BOOK/A0_BUILDER_LOG.html#seven-way-heptad14-root7-crosswalk-builder-20261107) ·
+[Receipt](A0_BOOK/results/a0-rubik-qdc-cross-section-return-2026-11-07.json)
+
+<a id="seven-way-cube-steering-comparator--2026-11-07"></a>
+
+### Seven-Way Cube Steering Comparator — 2026-11-07
+
+Classification: `FINITE_DIRECTION_COMPARATOR / ENGINEERING METHOD EXAMPLE /
+NOT_NEW_FINDING / NO_F-A0_PROMOTION / NOT_PAPER_PROMOTION`.
+
+The existing Rubik Q/D/C dock now enumerates the complete finite state space
+`{0,1}^3`. The zero word `000` is HOME. The seven nonzero words partition
+exactly into three axes (`100`, `010`, `001`), three face diagonals (`110`,
+`101`, `011`) and one body diagonal (`111`). Hamming weight is the declared
+classifier.
+
+Return is explicit and finite: every direction word is self-inverse under
+XOR, so `d XOR d = 000` and the displayed route is `000 -> d -> 000`. The
+separate registers `3^2=9` and `3^3=27` remain face/module context; they are
+not generated by this binary grammar. `W=23` and `46=23+23=2*23` remain an
+address sidecar and do not select a steering direction.
+
+The Owner labels “Kiemen” for the six axis/face-diagonal ways and
+“Phantomzinke” for `111` are retained only as view language. The comparator
+does not establish canonical Rubik moves, a Q/D-plate-to-3x3 control map, an
+Elevator crosswalk, anatomy, material structure or a physical mechanism.
+
+Disposition: `50/50 PASS / EXISTING A0 ORIENTATION LENS REUSED / NEW ID 0 /
+RELATION 0 / ALIAS 0 / OPERATOR 0 / STUDY 0 / FINDING 0 / CLAIM CHANGE 0 /
+PUBLICATION 0`.
+
+[Dock](A0_BOOK/assets/game-of-worlds-play/ioi-world-cube/index.html#rubikQdcCrossSectionDock) ·
+[Science Desk](A0_BOOK/A0_RESEARCH_DESK.html#seven-way-cube-steering-return-20261107) ·
+[Builder Log](A0_BOOK/A0_BUILDER_LOG.html#seven-way-cube-steering-builder-20261107) ·
+[Receipt](A0_BOOK/results/a0-rubik-qdc-cross-section-return-2026-11-07.json)
+
+<a id="rubik-qdc-address-grammar-v2--2026-11-07"></a>
+
+### Address Grammar V2 · M83 / W38 / Pin-Hinge — 2026-11-07
+
+Classification: `SOURCE_BOUND_DISPLAY_GRAMMAR / ENGINEERING METHOD EXAMPLE /
+NOT_NEW_FINDING / NO_F-A0_PROMOTION / NOT_PAPER_PROMOTION`.
+
+The Q/D/C Address Lock now reuses four already documented views rather than
+creating another carrier: the nested M83/SC symbolic connector, the PAB
+fixed-width decimal reversal `83->38`, the reciprocal Angle Hinge and the
+registered LOKI subview boundary. The manual three-view route is
+`t1:M83 -> t2:W38 -> t3:100/C?`.
+
+The operations remain typed and separate. `rot180(M)=W` is a local glyph
+view; `rev2(83)=38` is fixed-width decimal reversal; `M78+1=M79`,
+`M78+12=M90` and `83+17=100` are ordinary integer offsets. `C` remains a
+separate Owner closure marker and is neither equated with 100 nor promoted to
+a Roman-numeral or general operator contract.
+
+The code-native Pin/Hinge view uses two major contact pins, three micro trace
+points and the existing `ị` fusion/closure/Return image notation. The round
+shell, square frame and purple/green crossing are view geometry only. M83 may
+retain the owner-supplied Messier/Southern-Pinwheel catalogue reading, but no
+astronomical mechanism or physical connector is transported. `SPG`, `DIME`
+and `Loki` remain Owner or neighboring-view labels with no time, coin,
+mythology or mechanism identity.
+
+Disposition: `38/38 PASS / EXISTING A0 ORIENTATION LENS REUSED / NEW ID 0 /
+RELATION 0 / ALIAS 0 / OPERATOR 0 / STUDY 0 / FINDING 0 / CLAIM CHANGE 0 /
+PUBLICATION 0`.
+
+[Dock](A0_BOOK/assets/game-of-worlds-play/ioi-world-cube/index.html#rubikQdcCrossSectionDock) ·
+[Science Desk](A0_BOOK/A0_RESEARCH_DESK.html#rubik-qdc-address-grammar-v2-return-20261107) ·
+[Builder Log](A0_BOOK/A0_BUILDER_LOG.html#rubik-qdc-address-grammar-v2-builder-20261107) ·
+[Receipt](A0_BOOK/results/a0-rubik-qdc-cross-section-return-2026-11-07.json)
+
+<a id="lo-shu-center-5-eight-line-comparator--2026-11-07"></a>
+
+### Lo Shu Center-5 / Eight-Line Comparator — 2026-11-07
+
+Classification: `SOURCE_BOUND_FINITE_COMPARATOR / ENGINEERING METHOD EXAMPLE /
+NOT_NEW_FINDING / NO_F-A0_PROMOTION / NOT_MAGIC_CUBE_CONSTRUCTION`.
+
+The existing World Cube Q/D/C Dock now includes the normal order-three Lo Shu
+arrangement `2 7 6 / 9 5 1 / 4 3 8`. It audits three rows, three columns and
+two principal diagonals separately; all eight lines sum to 15. The center is
+5, the four opposite pairs each sum to 10, and every center-axis triplet
+therefore closes as `10+5=15`.
+
+The outer ring has eight cells and total 40. Four even corners and four odd
+edge middles each total 20. The comparator records `9-8=1` between the Lo Shu
+face cardinality and the binary steering-state count without identifying the
+two sets. It also records the separate checksum difference
+`78-45=33=10+11+12=3*11`.
+
+`3^3=27` and the formal normal order-three magic-cube line constant
+`M3(3)=42` remain context only. No 3x3x3 magic cube, Rubik move map, mechanism,
+new operator or physical hinge is constructed.
+
+Disposition: `64/64 PASS / EXISTING A0 ORIENTATION LENS REUSED / NEW ID 0 /
+RELATION 0 / ALIAS 0 / OPERATOR 0 / STUDY 0 / FINDING 0 / CLAIM CHANGE 0 /
+PUBLICATION 0`.
+
+[Dock](A0_BOOK/assets/game-of-worlds-play/ioi-world-cube/index.html#rubikQdcCrossSectionDock) ·
+[Science Desk](A0_BOOK/A0_RESEARCH_DESK.html#lo-shu-center-5-eight-line-return-20261107) ·
+[Builder Log](A0_BOOK/A0_BUILDER_LOG.html#lo-shu-center-5-eight-line-builder-20261107) ·
+[Receipt](A0_BOOK/results/a0-rubik-qdc-cross-section-return-2026-11-07.json)
+
+<a id="q3d-canonical-move-gate--2026-11-07"></a>
+
+### Q3D canonical move feasibility gate — 2026-11-07
+
+Classification: `BOUNDED_INVARIANT_REJECTION / ENGINEERING METHOD EXAMPLE /
+NOT_NEW_FINDING / NO_F-A0_PROMOTION / NOT_CANONICAL_RUBIK_OPERATOR`.
+
+The declared token permutations are exact: `Q+=(D E F)`, `Q−=(D F E)`,
+`D+=(B E H)` and `D−=(B H E)`. Their inverse pairs reconstruct the bounded
+token register exactly.
+
+They are not realizable as legal 3x3 Rubik sequences under the declared face
+embedding. Every sequence generated by outer moves `U/D/L/R/F/B`, slice moves
+`M/E/S` and whole-cube rotations `x/y/z` preserves the cubie position class:
+corners remain corners, edges remain edges and centers remain centers. Each Q
+or D cycle sends center token `E` to an edge position. The target permutation
+therefore lies outside the legal Rubik state space; no finite canonical
+sequence or shortest legal length exists.
+
+The proof depends only on the common token rule, not the selected address, so
+the same rejection and the same exact token inverses apply at all sixteen
+existing macroblocks `B00…B33`. This closes the requested feasibility check
+without promoting Q3D into a Cube operator or changing the existing carrier.
+
+Disposition: `180/180 PASS / CANONICAL RUBIK REALIZATION REJECTED /
+Q3D TOKEN GRAMMAR RETAINED / 16 OF 16 BLOCKS / EXISTING A0 ORIENTATION LENS
+REUSED / NEW ID 0 / RELATION 0 / ALIAS 0 / OPERATOR 0 / STUDY 0 / FINDING 0 /
+CLAIM CHANGE 0 / PUBLICATION 0`.
+
+[Move Gate](A0_BOOK/assets/game-of-worlds-play/ioi-world-cube/index.html?rev=q3d-move-gate-r1#rubikQdcCrossSectionDock) ·
+[Science Desk](A0_BOOK/A0_RESEARCH_DESK.html#q3d-canonical-move-gate-return-20261107) ·
+[Builder Log](A0_BOOK/A0_BUILDER_LOG.html#q3d-canonical-move-gate-builder-20261107) ·
+[Receipt](A0_BOOK/results/a0-rubik-qdc-cross-section-return-2026-11-07.json)

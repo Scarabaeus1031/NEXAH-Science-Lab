@@ -13,6 +13,8 @@
 <link rel="stylesheet" href="a0-six-marker-grid-views.css">
 <link rel="stylesheet" href="a0-numbermagick-number-lens.css">
 <link rel="stylesheet" href="a0-gh-hinge.css">
+<link rel="stylesheet" href="a0-mod12-alpha-omega.css">
+<link rel="stylesheet" href="a0-reciprocal-angle-hinge.css">
 </head>
 <body>
 <a class="skip-link" href="#main-content">Zum Inhalt springen</a>
@@ -649,6 +651,43 @@
 <span>Quaternion Echo Route · 02.10.1978 ↔ 13.04.1982</span>
 </div>
     <p>Die Zahlpaare, Kalenderdaten und Artwork-Labels sind gemeinsam sichtbar, aber nicht semantisch aufeinander abgebildet. Der ungültige Datumsstring <code>29.02.1974</code> bleibt als explizites Void-Quellenmotiv erhalten. „Transversal“ bezeichnet hier die Vergleichslinie, keinen neuen Operator. Kalender: proleptisch gregorianisch.</p>
+    <details id="calendar-void-cut-return-20261106">
+      <summary>Prüfreturn · Kalender-Cut, Jahreswinkel und 12:3-Sidecar · 06.11.2026</summary>
+      <p><strong>PASS:</strong> <code>29.02.1972 + 12 Tage = 12.03.1972</code>; plus zwei Kalenderjahre ergibt <code>12.03.1974</code>, weitere zwei Kalendermonate ergeben <code>12.05.1974</code>. Vom Leap-Seed bis Alpha vergehen exakt <strong>742 Tage</strong>. <code>29.02.1974</code> bleibt ungültig und besitzt deshalb weder ISO-Datum noch Jahreswinkel; die beiden gesetzmäßigen Cut-Seiten sind <code>28.02.1974</code> und <code>01.03.1974</code>.</p>
+      <p>Die ausdrücklich deklarierte Anzeige <code>θ=360°·(DOY−1)/N</code> legt diese Seiten im Gemeinjahr um genau <code>360/365°</code> auseinander. Das ist eine Jahreskreis-Koordinate, keine zurückgewonnene Bewegung. Separat schließt der rationale Rollkreis-Sidecar <code>12:3 → 4:1</code>; der Innensplit ist <code>(12−3):3 = 3:1</code>, mit vier Spitzen und einem endlichen Return. Zwischen Kalender und Sidecar bleibt die Bridge <code>null</code>: kein Datumsoperator, kein Resonanzgesetz, keine physikalische Gegenrotation.</p>
+      <p><a href="results/a0-calendar-void-cut-return-2026-11-06.json">Maschinenlesbares Receipt</a> · <a href="a0-calendar-void-cut-tests.cjs">reproduzierbarer Test</a> · Reuse <code>MOD:NUMBER_VIEW_SUITE</code>; neue IDs/Relationen/Aliasse <code>0/0/0</code>.</p>
+    </details>
+    <section class="z12-lens" id="mod12-alpha-omega-return-20261106" data-z12-alpha-omega aria-labelledby="mod12AlphaOmegaTitle">
+      <header>
+        <div>
+          <small class="eyebrow">ONE CARRIER · TWO DIRECTED WALKS · FORMAL Z₁₂ VIEW</small>
+          <h4 id="mod12AlphaOmegaTitle">Alpha +7 / Omega +11 ≡ −1</h4>
+          <p>Ein Zwölferregister, zwei vollständige Adressläufe. <code>N</code> ist der lokale Schrittindex.</p>
+        </div>
+        <span class="z12-badge">SOURCE-BOUND LENS<br>NO NEW IDENTITY</span>
+      </header>
+      <div class="z12-grid">
+        <div class="z12-plot" data-z12-plot aria-live="polite"></div>
+        <div class="z12-panel">
+          <div class="z12-controls" role="group" aria-label="Z12 Laufrichtung wählen">
+            <button type="button" data-z12-mode="alpha" aria-pressed="true">ALPHA · +7</button>
+            <button type="button" data-z12-mode="omega" aria-pressed="false">OMEGA · +11 / −1</button>
+            <button type="button" data-z12-step="next">N +1</button>
+            <button type="button" data-z12-step="return">RETURN C</button>
+          </div>
+          <output class="z12-status" data-z12-status>Instrument wird initialisiert.</output>
+          <output class="z12-route" data-z12-route></output>
+          <div class="z12-ledger">
+            <div><small>ALPHA</small><b>+7 · Ordnung 12</b><span>Quintenzirkel-Adresslauf</span></div>
+            <div><small>OMEGA</small><b>+11 ≡ −1 · Ordnung 12</b><span>absteigender chromatischer Lauf</span></div>
+            <div><small>G / E</small><b>Stationen 7 / 4</b><span>Adressen, keine Personenidentität</span></div>
+            <div><small>KOMPOSITION</small><b>+7 + 11 ≡ +6</b><span>Ordnung 2; nicht gegenseitig invers</span></div>
+          </div>
+          <p class="z12-boundary"><strong>Grenze:</strong> <em>Bodie / Doyle</em> bleibt eine ungebundene Owner-Mnemonik. <code>DU↔UD</code> ist nur eine mögliche Ansichtsorientierung. Das Rad zeigt keine Möbius-Topologie, keinen Nordpol, keinen physikalischen Spin, keine Akustikmessung und keine Major/Minor-Ableitung.</p>
+          <p><a href="results/a0-mod12-alpha-omega-return-2026-11-06.json">Receipt</a> · <a href="a0-mod12-alpha-omega-tests.cjs">Test</a> · Anschluss an das bestehende <a href="A0_GAME_OF_WORLDS_PLAY.html#numbers">Numbers-/Joint-Instrument</a>.</p>
+        </div>
+      </div>
+    </section>
   </section>
   <section class="gh-root-witness" aria-labelledby="ghRootWitnessTitle">
     <div class="gh-root-head">
@@ -1072,6 +1111,24 @@
 <details><summary>Quellen- und Markerprüfung · getrennte Bügelrollen</summary><p><strong>Core / Best Frame:</strong> Das historische PNG <code>best_frame_angle_0.2.png</code> zeigt einen offenen 3D-Bügel; der eingeblendete Titel lautet abweichend „Best Frame (Angle=0.02)“. Die neu gelieferten Originale von Best Frame und <code>3D_Mode_Space.png</code> stimmen hashgenau mit dem Core-Archiv überein. Galerie und Bildfamilie belegen die Folge Zeitmodi → 3D-Kurve → Rotationsansichten → flache 2D-Projektion → rekonstruierte Membran. Der ursprüngliche Generator und die vollständigen Zustandsdaten bleiben trotzdem nicht wiedergefunden.</p><p><strong>ANKH / Koordinatensystem:</strong> Das neu empfangene Gesamtmodell bezeichnet die obere Hufeisenkontur ausdrücklich als „BÜGEL / 0.02 / Hufeisen“ und trennt sie von Querbalken/Membran und Stab/Achse. Das ist eine starke semantische Quellenstütze für eine Bezugsstruktur, aber noch kein ausführbarer Kippoperator; der Attachment-Hash bleibt im Record erhalten.</p><p><strong>Fibonacci:</strong> Der bestehende <code>a0-fibonacci-ring-operator-view-v1.js</code> zeichnet Ringe und eine geschlossene Bildschirm-Shell und vergleicht Samplingfolgen. Er besitzt weder räumlichen Connector noch 3D-Achse und wird deshalb nicht stillschweigend als Kippbügel verwendet.</p><p><strong>Mathfield:</strong> <code>A0_MATHEMATICAL_JOINTS.html</code> liefert mit <code>G_111</code>, Raster- und Polarkoordinaten einen exakten 2D-Bezugsrahmen. Ein Koordinatensystem kann als Bügel gelesen werden, sobald eine Einbettung ausdrücklich definiert ist; diese konkrete Kontur-/Gelenkeinbettung fehlt dort.</p><p><strong>Phi-Regulator:</strong> Fünf neu empfangene Diagramme verwenden „Bügel“ für eine Regler-/Haltecharakteristik im Phi-Zustandsindex. Quellcode, Parameterdefinition und Verbindung zur räumlichen ANKH- oder Pascal-Kontur wurden lokal nicht gefunden; <code>Phi-Split t=0.85/0.95</code> wird daher nicht in diesen Kippversuch übernommen.</p><p>„String ist/hat einen Bügel“, Up/Down, Stillpoint, zwei weitere Punkte, drei Schlangen, Sin/Tan/Cos, Theta/Tao/Dao, Iota/Ion/Kappa sowie „brane / Tasche / Becken / Öffnung / Duschvorhang / Schatten / Fenster nach draußen“ bleiben Owner-Lesarten. Sie motivieren getrennte Kurven-, Membran- und Projektionsprüfungen, definieren aber ohne Quellvertrag keine Achse, keinen Modus und kein Lichtmodell. Die Werte <code>0.0</code>, <code>3.1</code> und <code>2.3</code> konnten keinem Bügel belastbar als Kippwinkel, Länge oder Einheit zugeordnet werden. Der ausgeführte Test verwendet ausschließlich die offen dokumentierte dimensionslose Pascal-Displaymap <code>θ=−π/2+πr/n</code>, <code>R=1+0.06(2k−r)</code> und einen ausdrücklich neu deklarierten Projektionsadapter.</p><p><a href="results/a0-pascal-bracket-tilt-projection-2026-10-25.json">Vollständiger Zustands- und Testrecord →</a></p></details>
 <p class="status">BOUNDED_RESEARCH_CONNECTOR · REUSES MOD:NUMBER_VIEW_SUITE · SUBORDINATE_TO_ENG-D1D2-01 · NO DEPLOYMENT</p>
 </section>
+<section class="reciprocal-hinge" id="reciprocal-angle-hinge-return-20261106" data-reciprocal-angle-hinge aria-labelledby="reciprocalHingeTitle">
+<p class="eyebrow">Bestehender Carrier · reziproker Winkeladapter · kein neuer Operator</p>
+<h3 id="reciprocalHingeTitle">Der Doppelpunkt wird zum Winkelbügel.</h3>
+<p>Ein positives geordnetes Verhältnis <code>p:q</code> adressiert den Strahl <code>θ=arctan(p/q)</code>. Der Seitentausch <code>p:q ↔ q:p</code> spiegelt den Strahl exakt an <code>1:1 = 45°</code>, denn <code>arctan(p/q)+arctan(q/p)=90°</code>. Der zuvor fehlende Strahl <code>2:3 = 33,690°</code> schließt den reziproken Fächer zu <code>1:2, 2:3, 1:1, 3:2, 2:1</code>.</p>
+<div class="reciprocal-hinge-grid">
+<div><svg class="reciprocal-hinge-stage" viewBox="0 0 670 470" role="img" aria-label="Reziproker Winkelbügel in einer zweiseitigen Disc innerhalb eines festen Frames"></svg></div>
+<div class="reciprocal-hinge-controls">
+<fieldset><legend>Verhältnis wählen</legend><div class="reciprocal-hinge-buttons"><button type="button" data-ratio="1:2">1:2</button><button type="button" data-ratio="2:3" aria-pressed="true">2:3</button><button type="button" data-ratio="1:1">1:1</button><button type="button" data-ratio="3:2">3:2</button><button type="button" data-ratio="2:1">2:1</button></div></fieldset>
+<fieldset><legend>Ansicht und Return</legend><div class="reciprocal-hinge-buttons"><button type="button" data-action="swap">p:q ↔ q:p</button><button type="button" data-action="side">Seite ±</button><button type="button" data-action="breath">Atem starten</button><button type="button" data-action="reset">Reset</button></div></fieldset>
+<output class="hinge-state" data-side>+ · hell</output>
+<output data-ratio-readout></output>
+<output data-return></output>
+</div>
+</div>
+<p class="hinge-boundary"><strong>Getrennte Parameter:</strong> Der Ratio-Swap ist eine diskrete Involution; die Atembewegung dazwischen ist nur eine Display-Interpolation. <code>60° = arctan(√3)</code> gehört nicht exakt zum rationalen Fünferfächer und bleibt der unabhängige Kippwinkel des Bügeltests. Hell/Dunkel codiert die signierte Ansichtsseite, keinen Lichtschatten. Das <code>S</code> ist ein Verlaufsrecord, nicht die momentane Disc-Form.</p>
+<p class="hinge-owner"><code>Θ</code>, <code>Z</code>, <code>Λ</code>, „Cube“, „Disc“, V/X/Voxel, Notenschlüssel, Over-/Underworld und 2WD/4WD bleiben Owner-Lesarten. Gebaut ist ein endlicher Verhältnis-/Ansichtsadapter; keine physikalische Licht- oder Cube-Mechanik, kein Tonintervall-Beweis und keine historische Generatorrekonstruktion.</p>
+<p class="status">PASS_SOURCE_BOUND_FORMAL_VIEW · REUSES MOD:NUMBER_VIEW_SUITE + NEXAH:A0_ORIENTATION_EVIDENCE_LINEAGE:V1 · 0 NEW IDS / RELATIONS / ALIASES / OPERATORS / STUDIES / FINDINGS · LOCAL ONLY</p>
+</section>
 </section>
 <details id="research-apparatus" class="research-apparatus">
 <summary>Quellen, Kartenarten und offene Fragen<small>Originalrecords, EXP-Vergleich, Herkunft, Evidenzstatus und technische Grenzen</small>
@@ -1483,6 +1540,10 @@
 <script src="a0-numbermagick-number-lens.js">
 </script>
 <script src="a0-gh-hinge.js">
+</script>
+<script src="a0-mod12-alpha-omega.js">
+</script>
+<script src="a0-reciprocal-angle-hinge.js">
 </script>
 <script src="a0-context-navigation.js?rev=flagship-constellation-r1-20261030">
 </script>

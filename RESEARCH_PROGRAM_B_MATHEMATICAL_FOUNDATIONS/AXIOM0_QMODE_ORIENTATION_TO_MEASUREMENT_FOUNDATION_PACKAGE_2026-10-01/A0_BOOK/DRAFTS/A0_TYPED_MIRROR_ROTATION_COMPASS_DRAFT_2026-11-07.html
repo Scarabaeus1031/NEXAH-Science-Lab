@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self'; script-src 'self'; img-src 'self' data:; object-src 'none'; base-uri 'none'; form-action 'none'">
+  <title>A0 · Typed Mirror / Rotation Compass · Draft</title>
+  <link rel="stylesheet" href="a0-typed-mirror-rotation-compass.css">
+</head>
+<body>
+<main class="shell" data-a0-identity="NEXAH_A0_ORIENTATION_CONTROLLER_BENCH" data-view-id="A0_TYPED_MIRROR_ROTATION_COMPASS_DRAFT">
+  <header class="hero">
+    <div><div class="eyebrow">A0 · ORIENTATION CONTROLLER BENCH · SOURCE-BOUND COMPANION</div><h1>Typed Mirror<br>Rotation Compass</h1><p class="dek">Orientierung im Zahlenraum: feste Ziffernbreite, geometrische Spiegelung und Rotation bleiben drei getrennte Operator-Typen. Der Kompass zeigt, was exakt zurückkehrt — und was nur eine interessante Spur bleibt.</p></div>
+    <aside class="status" aria-label="Candidate status"><b>LOCAL DRAFT · NOT ACCEPTED</b><code>CHANNEL: INTERNAL A0<br>REPO: NEXAH-Science-Lab<br>BRANCH: codex/a0-field-notes-adapter-matrix-20261106<br>WORKTREE: DIRTY (PRE-EXISTING)<br>PREVIEW: LOCAL / NON-AUTHORITATIVE<br>DEPLOYMENT: NONE</code></aside>
+  </header>
+
+  <section class="layout">
+    <article class="panel">
+      <div class="eyebrow">R₁₀₇ ON ℤ/280ℤ</div><h2>280-wheel compass</h2>
+      <div class="wheel-wrap"><svg class="wheel" id="wheel" viewBox="0 0 600 600" role="img" aria-labelledby="wheel-title wheel-desc"><title id="wheel-title">Rotation compass modulo 280</title><desc id="wheel-desc">A complete 280-state orbit using step 107, with an independently controlled circle mirror.</desc></svg><div class="center-note"><strong>107</strong><span>gcd(107,280)=1<br>FULL ORBIT · 280</span></div></div>
+      <div class="controls" aria-label="Exact operators">
+        <button class="control primary" data-op="ROTATE_107">ROTATE +107</button><button class="control" data-op="CIRCLE_MIRROR">CIRCLE MIRROR n↦−n</button>
+        <button class="control" data-op="DIGIT_MIRROR">DIGIT MIRROR M₄</button><button class="control" data-op="RETURN">RETURN</button>
+      </div>
+      <div class="readout"><div class="metric"><small>digit word</small><b id="digit-word">1087</b></div><div class="metric"><small>phase / 280</small><b id="phase">0</b></div><div class="metric"><small>circle orientation</small><b id="orientation">direct</b></div></div>
+    </article>
+
+    <aside class="panel">
+      <div class="eyebrow">TYPE DISCIPLINE</div><h2>Same word “mirror”; different maps</h2>
+      <div class="panel separation"><strong>Do not collapse the operators.</strong><p><code>M_digit</code> reverses a fixed-width digit word. <code>M_circle</code> reflects a residue class. <code>L_k</code> changes place scale. Their visual resemblance is not an identity.</p></div>
+      <div class="formula"><code>M₄² = I</code><code>M◦R₁₀₇◦M = R₁₇₃</code><code>R₁₀₇²⁸⁰ = I</code><code>L₇(1)=10⁷</code></div>
+      <h3>Exact witnesses</h3><div class="witnesses">
+        <div class="witness"><div class="big">1087 ↔ 7801</div><p>p181 ↔ 29×269. Digit reversal is involutive; primality is not preserved.</p></div>
+        <div class="witness"><div class="big">1078 ↔ 8701</div><p>2×7²×11 ↔ 7×11×113. Both composite; exact factor records.</p></div>
+        <div class="witness"><div class="big">1031 | 1032 | 1033</div><p>Consecutive primes p173 and p174 around the exact midpoint: 1031+1033=2×1032.</p></div>
+        <div class="witness"><div class="big">1836−1729=107</div><p>107 is p28. This is a derived arithmetic readout, not a causal mechanism.</p></div>
+      </div>
+      <h3>Operator ledger</h3><pre class="ledger" id="ledger">SOURCE · 1087 · phase 0</pre>
+    </aside>
+  </section>
+
+  <section class="panel geometry-lens" aria-labelledby="geometry-title">
+    <div class="eyebrow">EXACT GEOMETRY LENS · PROJECTION, NOT CUBE IDENTITY</div><h2 id="geometry-title">Tangent envelope and 107 → 137 corridor</h2>
+    <div class="geometry-grid">
+      <div class="geometry-card">
+        <h3>Near-tangent seam envelope</h3>
+        <p>The fixed +107 chord keeps one perpendicular distance from the centre. Its envelope nearly touches the independently drawn inner ring, which makes the visible roof / plate reading geometrically inspectable.</p>
+        <div class="readout compact"><div class="metric"><small>computed envelope r</small><b id="tangent-radius">77.0755</b></div><div class="metric"><small>gap to ring r=80</small><b id="ring-gap">2.9245</b></div><div class="metric"><small>display points / chords</small><b id="trail-count">42 / 41</b></div></div>
+        <div class="hold"><strong>32-CUT READING · HOLD</strong><span>The current display contains 41 chords. A canonical 4×8 cut count still requires an explicit selection rule.</span></div>
+      </div>
+      <div class="geometry-card corridor-card">
+        <h3>Prime corridor · layout-bound edge</h3>
+        <p><code>107=p28</code> and <code>137=p33</code>: value span 30, prime-index span 5. The edge is exact in the supplied rectangular prime layout; it is not invariant under every prime embedding.</p>
+        <div class="corridor" role="img" aria-label="Prime corridor from 107 through 109, 113, 127 and 131 to 137">
+          <span style="--x:2%">107<small>p28</small></span><span style="--x:8.4%">109</span><span style="--x:21.2%">113</span><span style="--x:66%">127</span><span style="--x:78.8%">131</span><span style="--x:98%">137<small>p33</small></span>
+        </div>
+        <div class="colour-key"><span class="blue">BLUE · entry</span><span class="emerald">EMERALD · transition</span><span class="gold">GOLD · terminal witness</span></div>
+        <p class="boundary-note"><strong>φ proximity:</strong> the measured relation is <code>360×107/280 = 137.571428…°</code>, close to the golden angle. It does not follow from <code>137−107=30</code>.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="panel prime-stair-lens" aria-labelledby="prime-stair-title">
+    <div class="eyebrow">PRIME MILESTONE ORIENTATION · SOURCE-BOUND PROJECTION</div><h2 id="prime-stair-title">Eight-step prime stair with Purple-11 rail</h2>
+    <div class="prime-stair-grid">
+      <article class="prime-stair-plot">
+        <svg id="prime-stair" viewBox="0 0 900 390" role="img" aria-labelledby="prime-stair-svg-title prime-stair-svg-desc"><title id="prime-stair-svg-title">Prime milestone staircase</title><desc id="prime-stair-svg-desc">Every twenty-fifth prime from p25 to p200. Height is prime value, color is residue modulo nine, and a purple lower rail records ordinal index modulo eleven.</desc></svg>
+        <div class="prime-legend"><span class="mod1">p mod 9 = 1</span><span class="mod4">4</span><span class="mod7">7</span><span class="mod8">8</span><span class="purple11">PURPLE 11 · n mod 11 rail</span></div>
+      </article>
+      <aside class="axis-ledger">
+        <h3>Cube-reading · bounded axes</h3>
+        <dl><dt>tread / X</dt><dd>ordinal index <code>n=25…200</code></dd><dt>rise / Y</dt><dd>prime height <code>pₙ=97…1223</code></dd><dt>surface colour</dt><dd><code>pₙ mod 9</code> in {1,4,7,8}</dd><dt>purple rail</dt><dd><code>n mod 11</code>, constant stride +3</dd><dt>13-clock lens</dt><dd><code>pₙ mod 13</code>, source-bound second projection</dd><dt>72-wheel lens</dt><dd><code>pₙ mod 72</code>; 863 and 1223 meet at 71</dd></dl>
+        <div class="purple-sequence"><strong>PURPLE 11</strong><code>3 → 6 → 9 → 1 → 4 → 7 → 10 → 2</code></div>
+        <p><strong>Orientation answer:</strong> yes, this supplies a coherent prime-stair view for the Cube. It does not select a unique three-dimensional Cube embedding; the axes remain declared view coordinates.</p>
+      </aside>
+    </div>
+  </section>
+
+  <section class="panel ulam-lens" aria-labelledby="ulam-title">
+    <div class="eyebrow">ULAM DISCRIMINATOR · PRIME POSITION, NOT NEW PRIME LAW</div><h2 id="ulam-title">The eight milestone primes on the square spiral</h2>
+    <div class="ulam-grid">
+      <article class="ulam-plot-card">
+        <svg id="ulam-spiral" viewBox="0 0 680 680" role="img" aria-labelledby="ulam-svg-title ulam-svg-desc"><title id="ulam-svg-title">Ulam spiral through 1223</title><desc id="ulam-svg-desc">All primes through 1223 are plotted on the standard square spiral. The eight twenty-fifth-prime milestones are enlarged and colored by residue modulo nine.</desc></svg>
+        <div class="prime-legend"><span class="mod1">p mod 9 = 1</span><span class="mod4">4</span><span class="mod7">7</span><span class="mod8">8</span></div>
+      </article>
+      <aside class="ulam-ledger">
+        <h3>C-free stair display</h3>
+        <div class="c-free-sequence"><b>7</b><b>29</b><b>79</b><b>41</b><b>91</b><b>63</b><b>39</b><b>23</b></div>
+        <p>This preserves the owner-declared labels. From 229 onward they equal the last two decimal digits; <code>97→7</code> is an explicit first-term cut, so the row is not silently presented as one uniform <code>mod 100</code> map.</p>
+        <dl><dt>Ulam convention</dt><dd>1 at centre, 2 east, counter-clockwise square spiral</dd><dt>541</dt><dd>east axis at shell 12: <code>541=4·12²−3·12+1</code></dd><dt>shared axis</dt><dd>only 541 among these eight milestones</dd><dt>shared diagonal</dt><dd>none on the two principal diagonals</dd></dl>
+        <div class="hold"><strong>WHAT IT HELPS WITH</strong><span>Ulam makes quadratic line families visible and therefore gives a clean comparison surface for Euler polynomials. It does not turn this selected eight-point set into an Euler, Fibonacci or Euler–Mascheroni identity.</span></div>
+      </aside>
+    </div>
+  </section>
+
+  <section class="panel euler-timegear-lens" aria-labelledby="euler-timegear-title">
+    <div class="eyebrow">EULER FLOORS × ZETA TIMEGEAR · SHARED RULER, DISTINCT TYPES</div><h2 id="euler-timegear-title">Thirteen parallel floors on one 20-gate clock</h2>
+    <div class="euler-timegear-grid">
+      <article class="euler-rainbow-card">
+        <h3>Euler rainbow · declared 8+5 floor</h3>
+        <svg id="euler-rainbow" viewBox="0 0 720 390" role="img" aria-labelledby="euler-rainbow-title euler-rainbow-desc"><title id="euler-rainbow-title">Thirteen Euler offset curves</title><desc id="euler-rainbow-desc">Thirteen curves of n squared plus n plus c, partitioned visually into eight lower and five upper floors.</desc></svg>
+        <div class="floor-split"><span><b>8</b> lower floors · 13…751</span><span><b>5</b> upper floors · 883…1459</span></div>
+        <p><code>E_c(n)=n²+n+c</code>. Every lane has the same curvature; changing <code>c</code> only shifts the graph vertically. The 8+5 split is a declared display partition.</p>
+      </article>
+      <article class="timegear-card">
+        <h3>Zeta Timegear · exact tick carrier</h3>
+        <svg id="zeta-timegear" viewBox="0 0 520 520" role="img" aria-labelledby="timegear-title timegear-desc"><title id="timegear-title">Timegear with 400, 420 and 600 ticks</title><desc id="timegear-desc">Three concentric wheels share twenty gates of eighteen degrees and return together after 8400 ticks.</desc></svg>
+        <div class="timegear-metrics"><span>20 gates</span><span>18° / gate</span><span>20 · 21 · 30 ticks</span><span>LCM 8400</span></div>
+      </article>
+    </div>
+    <div class="gear-contract"><div><strong>Exact readout</strong><code>g ↦ (20g mod 400, 21g mod 420, 30g mod 600)</code></div><div><strong>Full return</strong><code>8400 = 21×400 = 20×420 = 14×600</code></div><div class="hold"><strong>DRIFT / γ · HOLD</strong><span>Neither 0.464° nor a map to the Euler–Mascheroni constant follows from the wheel arithmetic.</span></div></div>
+  </section>
+
+  <section class="panel e8-choir-lens" aria-labelledby="e8-choir-title">
+    <div class="eyebrow">E8 COXETER SPOKE CHOIR · REFERENCE PROJECTION</div><h2 id="e8-choir-title">R1–R8 stretched across a thirty-spoke wheel</h2>
+    <div class="e8-choir-grid">
+      <article class="e8-wheel-card">
+        <svg id="e8-spoke-choir" viewBox="0 0 720 720" role="img" aria-labelledby="e8-wheel-title e8-wheel-desc"><title id="e8-wheel-title">Eight Coxeter rings on thirty spokes</title><desc id="e8-wheel-desc">The 240 projected E8 roots are shown as eight rings of thirty positions. Four broad radial tubes connect the rounded golden-ratio ring pairs.</desc></svg>
+        <div class="spoke-controller"><label for="e8-spoke-phase">spoke phase <b id="e8-spoke-readout">0 / 29</b></label><input id="e8-spoke-phase" type="range" min="0" max="29" value="0" step="1"></div>
+      </article>
+      <aside class="e8-choir-ledger">
+        <h3>Eight canonical voices</h3>
+        <div class="ring-scale" aria-label="Coxeter radii"><span>R1 · .238235</span><span>R2 · .385473</span><span>R3 · .473861</span><span>R4 · .572925</span><span>R5 · .704294</span><span>R6 · .766723</span><span>R7 · .927011</span><span>R8 · 1.139572</span></div>
+        <h3>Four φ tubes</h3>
+        <div class="phi-pairs"><span>R1 ↔ R2</span><span>R3 ↔ R6</span><span>R4 ↔ R7</span><span>R5 ↔ R8</span></div>
+        <dl><dt>root carrier</dt><dd><code>240 = 8 × 30</code></dd><dt>spoke step</dt><dd><code>360° / 30 = 12°</code></dd><dt>return</dt><dd><code>C³⁰ = I</code></dd><dt>reference metric</dt><dd><code>‖r‖² = 2</code> in the bound 8D root set</dd></dl>
+        <div class="hold e8-stop"><strong>WHERE THE SCALE CONTINUES</strong><span>The reference scale stops at <b>R8</b>. Continuing the outer voice by φ gives the comparison guides <code>φR8 ≈ 1.8439</code> and <code>φ²R8 ≈ 2.9833</code>; these are compositional extension rings, not ninth and tenth E8 orbits.</span></div>
+      </aside>
+    </div>
+  </section>
+
+  <section class="panel five-t-lens" aria-labelledby="five-t-title">
+    <div class="eyebrow">5T × 8R · TWO-SIDE FINITE CHECK</div><h2 id="five-t-title">64 points, eight rings and the RLLR witness</h2>
+    <div class="five-t-grid">
+      <article class="five-t-equation">
+        <div class="side-card left"><small>LEFT · point carrier</small><strong>P / (R·T)</strong><code>64 / (8·5) = 8/5</code></div>
+        <div class="side-equals">=</div>
+        <div class="side-card right"><small>RIGHT · ring carrier</small><strong>R / T</strong><code>8 / 5 = 8/5</code></div>
+        <div class="closure-strip"><span><b>P=64=8²=R²</b> is the exact closure condition</span><span><code>(64/64)/5 = (8/8)/5 = 1/5</code></span></div>
+        <div class="rllr-word" aria-label="R L L R witness word"><span>R</span><span>L</span><span>L</span><span>R</span></div>
+      </article>
+      <aside class="five-t-calendar">
+        <h3>Leap-seed → P24 test</h3>
+        <div class="date-rail"><time datetime="1972-02-29">29.02.1972<small>DOY 60 · valid leap day</small></time><b>+24 days</b><time datetime="1972-03-24">24.03.1972<small>DOY 84</small></time></div>
+        <div class="five-t-metrics"><span><b>60/5 = 12</b> units</span><span><b>120/5 = 24</b> units</span><span><b>Δdate = 24</b> days</span><span class="drift"><b>24 mod 5 = 4</b> phase drift</span></div>
+        <div class="hold"><strong>TYPED SOURCE CROSSWALK · DECLARED HERE</strong><span><code>Δdate=24 days → Bench tick 24/120 = 1/5</code>. The native Bench word is <code>RLLR</code> with four 30-tick segments, so address 24 lies at <code>24/30</code> of the first <code>R</code>. NumberMagick supplies the valid leap seed; Orientation Controller Bench supplies the 120-tick RLLR route. No earlier direct date↔route relation was found.</span></div>
+        <div class="hold"><strong>RLLR / UNIT BOUNDARY</strong><span>The equality is exact, but RLLR remains a path/witness word with no bound operator. Division preserves the declared input unit: <code>60/5=12</code> does not become “12 hours” unless 60 was explicitly an hour carrier. The date match is a finite calendar witness, not an event or causal identity.</span></div>
+      </aside>
+    </div>
+    <div class="pink-diamond-handoff"><div><strong>280 → 56 handoff</strong><span>The current compass phase opens in the Pink Diamond 5T / 7×8 boundary dock.</span></div><a id="pink-diamond-handoff" href="../A0_PINK_DIAMOND_GRID_ATLAS.html?a0_phase=0#typedBoundaryHingeDock">OPEN PINK DIAMOND →</a></div>
+  </section>
+
+  <section class="panel return-route" id="spatial-return-route" aria-labelledby="spatial-return-title">
+    <div class="eyebrow">WHERE THIS DRAFT LANDS · RETURN, NOT ANOTHER MODULE</div><h2 id="spatial-return-title">The compass ends in the Pink Diamond spatial return</h2>
+    <p class="return-route-intro">This page remains the candidate intake and finite arithmetic compass. Its result is handed to existing instruments instead of rebuilding their geometry here.</p>
+    <nav class="return-route-flow" aria-label="Return route from the draft into existing A0 instruments">
+      <a href="../A0_ASSEMBLY_ATLAS.html#motion-test"><small>1 · T / SEAM</small><b>LL → T</b><span>owner glyph</span></a><i>→</i>
+      <a href="../A0_IOTA_BRIDGE_DEMONSTRATOR.html#iotaTumbleTLens"><small>2 · EXACT CHECKPOINT</small><b>T frame</b><span>24-step return</span></a><i>→</i>
+      <a href="../A0_PINK_DIAMOND_GRID_ATLAS.html#typedBoundaryHingeDock"><small>3 · ADDRESS</small><b>280 → 56</b><span>5T · 7×8</span></a><i>→</i>
+      <a href="../A0_PINK_DIAMOND_GRID_ATLAS.html#crt16SpatialReturn"><small>4 · FOUR VIEWS</small><b>I–IV CRT16</b><span>same carrier</span></a><i>→</i>
+      <a href="../assets/game-of-worlds-play/ioi-world-cube/index.html#a0AngleHingeDock"><small>5 · HINGE VIEW</small><b>Spiral / Cube</b><span>101/A0 · local same carrier</span></a><i>→</i>
+      <a href="../A0_FAMILY_CONNECTION_ATLAS.html#tessarecWitnessRoute"><small>6 · ALGO / LIFT</small><b>Q4 × P3</b><span>three-layer climb</span></a><i>→</i>
+      <a href="../../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_BLOCK01_CUBE_FACE_PROJECTION_RETURN_2026-10-06/NEXAH_BLOCK01_CUBE_LAB.html"><small>7 · CUBE RETURN</small><b>BLOCK‑01</b><span>Q3 / Q4</span></a>
+    </nav>
+    <div class="hold"><strong>TYPE BOUNDARY</strong><span>Front, Top, Side and Iso are four projections of one CRT16 carrier. Spiral and cube share one carrier only inside the existing 101/A0 Angle‑Hinge‑Dock; the preceding CRT16 connection is a typed view handoff. The <a href="../A0_METHOD.html#floor-zero-method">Family‑Method seam F0/F0−</a> and <a href="../A0_OPIUM.html#opiumF0Seam">OPIUM inner-ring switch</a> retain origin versus counterview without creating F8. The moving three-layer pattern belongs to the existing Tessarec lift. The <a href="../A0_PASCAL_PENTAGON_OPERATOR_JOINTS.html#grid-lift-visual">11×111 Elevator Grid</a> is a separate register carrier and keeps its open mapping. Nothing is merged merely because the pictures rhyme. <a href="../A0_RESEARCH_DESK.html#typed-mirror-f0-clean-desk-return-20261107">Science Desk clean-desk return →</a></span></div>
+  </section>
+
+  <section class="panel register-lens" aria-labelledby="register-title">
+    <div class="eyebrow">5·6·7 SYMMETRIC REGISTER · EXACT FINITE LEDGERS</div><h2 id="register-title">From pair-products to 107, 210 and the Q840 ring</h2>
+    <div class="register-grid">
+      <article class="register-card">
+        <h3>Elementary register</h3>
+        <div class="equation-stack"><code>e₁ = 5+6+7 = <b>18</b></code><code>pairs = 30 · 35 · 42</code><code>e₂ = 30+35+42 = <b>107</b></code><code>e₃ = 5×6×7 = <b>210</b></code></div>
+        <p>The appearance of 107 is the second elementary symmetric sum of the declared carrier 5·6·7. This is an arithmetic identity, not a field or resonance claim.</p>
+      </article>
+      <article class="register-card">
+        <h3>32 / 48 / 80 construction ledger</h3>
+        <div class="equation-stack"><code>7+8+17 = <b>32</b></code><code>7+11+13+17 = <b>48</b></code><code>32+48 = <b>80</b></code></div>
+        <p><strong>Type boundary:</strong> 32 is the declared symmetry ledger; the displayed orbit trail still has 41 chords. The two counts remain separate.</p>
+      </article>
+      <article class="register-card q840-card">
+        <h3>Q840 · 64-lens union</h3>
+        <div class="q-ring" role="img" aria-label="840-slot ring summarized by the divisibility classes 30, 35 and 42"><span class="q30">30</span><span class="q35">35</span><span class="q42">42</span><b>64</b><small>union ticks</small></div>
+        <div class="class-ledger"><span><i class="gold-dot"></i>30 total 28 · exclusive 24</span><span><i class="cyan-dot"></i>35 total 24 · exclusive 20</span><span><i class="pink-dot"></i>42 total 20 · exclusive 16</span><span><i class="white-dot"></i>triple 4 · 0/210/420/630</span></div>
+        <p><code>lcm(30,35,42)=210</code>; the three pair-only classes are empty. The four shared ticks plus 24+20+16 exclusive ticks give the exact 64-point union.</p>
+      </article>
+      <article class="register-card binary-card">
+        <h3>Binary “Vendissimal” · 20-slot carrier</h3>
+        <div class="binary-word" aria-label="Twenty bit word zero zero zero zero one zero zero zero one one one one zero zero one one one one zero one"><span>0000</span><span>1000</span><span>1111</span><span>0011</span><span>1101</span></div>
+        <div class="binary-metrics"><b>36669</b><span>10 ones · 10 zeros</span><span>3×17×719</span><span>36669 = 20×1833 + 9</span></div>
+        <p><strong>Interpretation boundary:</strong> this is a binary word padded onto a 20-position frame. It is not a conventional base-20 numeral and is not identified with the historical 20-periodic Vendissimal sine term.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="panel sources"><div class="eyebrow">SOURCE BINDINGS · NO NEW IDENTITY</div><h2>What this view reuses</h2><div class="source-grid">
+    <div class="source"><a href="../a0-scarab-pillar-projection.js">Scarab Pillar projection</a><br>Existing 1087↔7801 and 1033↔3301 readouts.</div>
+    <div class="source"><a href="../a0-cut-q-lens-return-bench.js">Cut/Q Lens Return Bench</a><br>Existing exact 1031|1032|1033 midpoint fixture.</div>
+    <div class="source"><a href="../../../../NEXAH_SEALED_COMPARISON_METHOD_0_1_2026-09-17/1729_MODULAR_PACKAGE_AUDIT.md">1729 modular package audit</a><br>Prime hinge and reversal classifications.</div>
+    <div class="source"><span class="mono">LIFE05A PRIME/N TRANSITION</span><br>Prime index and cumulative-return discipline; referenced, not duplicated.</div>
+    <div class="source"><a href="../../../../SCIENCE_LAB/NAVIGATION/EVIDENCE/IEEE300_GRAPH_GRID_VALIDATION_2026-10-08/IEEE300_GRAPH_GRID_NAVIGATOR_BINDING_V1_2026-10-08.json">12×1008 Generator v0 · recovered intake</a><br>Mission Control intake dated 2026-09-28; artifact <span class="mono">A-001</span>, SHA-256 <span class="mono">f1f38a71…51075e1</span>. <span class="mono">CAPTURE_AND_PARK · NOT ACTIVE</span>; the existing read-only binding is reused.</div>
+    <div class="source"><a href="A0_IOI_LEAF_FOLD_RETURN_2026-11-02.html#leaf-fold-tour">Current Leaf Fold return</a><br>Frozen accepted surface; linked only, never modified by this candidate.</div>
+    <div class="source"><a href="../../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_ROOT7_EULER_MIRROR_CONCORDANCE_INTAKE_2026-09-28/ghostgrid_q840_archaeology_results.json">Q840 archaeology result</a><br>Existing 21/21 PASS result; scientific hash <span class="mono">ba07e565…bb733</span>. Reused, not rerun.</div>
+    <div class="source"><span class="mono">FAM_002_A0_SELECTED_ASSETS.json · SRC-15…19</span><br>Hash-bound clockwork, prime-milestone and Q840 reconstruction ledgers; source conflicts remain recorded.</div>
+    <div class="source"><span class="mono">ieee9241_real_tunable_v13.9.20_vendissimal_janus_90.py</span><br>Historical Vendissimal-20 periodic term; provenance context only, not proof of the 36669 encoding.</div>
+    <div class="source"><span class="mono">SRC-17 · Prime_milestones__25th_steps_.csv</span><br>Prime milestone sequence; SHA-256 <span class="mono">6251a6e6…b76fa</span>.</div>
+    <div class="source"><span class="mono">SRC-18 · Prime_milestones…13_clock_residues.csv</span><br>13-clock residue lens; SHA-256 <span class="mono">ff313190…68f9e</span>.</div>
+    <div class="source"><a href="../../94_A0_TIMEGEAR_X20_SPARSE_GRAMMAR_ENGINEERING_RESULT_2026-10-15.md">A0 Timegear ×20 result</a><br>Existing 12/12 PASS engineering return; result SHA-256 <span class="mono">bdee7340…eb4e</span>.</div>
+    <div class="source"><a href="../../69_A0_EULER_TESSAREC_SPECTRUM_COMPARATOR_R0_PREREGISTRATION_2026-10-13.md">Euler comparator R0 design</a><br>Controls the historical 1459 lane, corrected 1471 lane and one-shape boundary; not executed here.</div>
+    <div class="source"><a href="../../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_LIFE_PRIME_SHELL_WINDING_LIFE06B_2026-10-07/index.html">LIFE06B · Euler Stair / Fibonacci Rail</a><br>Existing source-bound instrument; exact observation geometry, prime specificity open.</div>
+    <div class="source"><a href="../../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_LIFE_PRIME_COMPOSITE_WINDOW_LIFE06C_2026-10-07/index.html">LIFE06C · Prime vs Composite Windows</a><br>Existing negative control: no prime-window recurrence advantage on the registered holdout.</div>
+    <div class="source"><a href="../../../../SCIENCE_LAB/RESEARCH_AREAS/FIELD_GLYPH_NUMBER_ARCHITECTURE_STAGE_0_2026-09-14/NEXAH_EULER_ANTIPODE_TWO_CUT_INSTRUMENT.html">Euler Ladder · Antipode · Two-Cut</a><br>Existing <span class="mono">ART:TRANSVERSUM:TWO_CUT</span> instrument; value and address cuts remain typed.</div>
+    <div class="source"><a href="../../../../SCIENCE_LAB/CASE_STUDIES/E8_DEMOS_INTERACTIVE_ORIENTATION_2026-09-21/COXETER_ORBIT_TOPOLOGY_LAB_2026-10-05/NEXAH_WORD_ORBIT_SEQUENCER.html">Letter → Word → Power → Orbit → Return</a><br>Existing <span class="mono">ART:E8:WORD_ORBIT</span> source surface; shared index only, no shared generator.</div>
+    <div class="source"><a href="../../../../SCIENCE_LAB/CASE_STUDIES/E8_DEMOS_INTERACTIVE_ORIENTATION_2026-09-21/E8_DEMOS_VALIDATION_REPORT.md">E8-REP-03 · 240 roots / eight Coxeter rings</a><br>Existing bounded reference: 240 unique 8D roots, eight projected groups of 30 and four rounded φ-radius pairs. Projection only; no acoustic or physical coupling.</div>
+    <div class="source"><a href="../A0_NUMBERMAGICK_GRID_RESEARCH.html#calendar-void-cut-return-20261106">Calendar Void Cut / leap-seed source</a><br>Reuses the already tested valid date <span class="mono">29.02.1972</span>. The session-supplied <span class="mono">24.03.1972</span> is evaluated here only as a new finite comparison target.</div>
+    <div class="source"><a href="../A0_ORIENTATION_CONTROLLER_BENCH.html#maskObserverBench">Orientation Controller Bench · RLLR route source</a><br>Existing 120-tick mask excursion with four 30-tick letters. The new <span class="mono">24 days → tick 24</span> crosswalk is declared only in this draft and does not alter the Bench.</div>
+    <div class="source"><a href="../FIELD_NOTES_A0.md#owner-handbuchnotizen--ideenparkplatz">RLLR Owner note</a><br>Existing documentary boundary: RLLR may be read as a declared fold/return path witness; the word is not itself an operator.</div>
+  </div></section>
+  <section class="panel boundary"><strong>CLAIM CEILING.</strong> This is an exact finite arithmetic instrument and local orientation view. The equalities, prime classifications, milestone residues, Ulam coordinates, Euler offsets, Timegear ticks, E8 reference counts and rounded Coxeter-radius ratios, 5T ratios, finite calendar differences, factors, modular orbit, Q840 class counts, 20-slot binary word and computed tangent envelope are testable facts. The declared date-day-count → Bench-tick map is a comparison crosswalk, not a recovered historical relation or native calendar rule. “C-free”, “Euler rainbow”, “8+5 floor”, “Zeta Timegear”, “E8 spoke choir”, “φ tubes”, “RLLR”, “Cube stair”, “Purple 11”, “Rooftop”, “plate”, “Emerald Table”, “resonance” and “Vendissimal orb” remain projection, witness or working labels, not cube identities or mechanisms. They do not establish an Euler/Fibonacci/γ identity, acoustic scale or event identity. They do not establish a physical field, life code, E8 mechanism, zodiac mechanism, causal coupling, drift law, new NEXAH identity or accepted relation. Promotion, Navigator binding and publication all remain false.</section>
+</main>
+<script src="a0-typed-mirror-rotation-compass.js"></script>
+<script src="a0-typed-mirror-rotation-compass-view.js"></script>
+</body></html>

@@ -1,0 +1,15 @@
+.reciprocal-hinge{margin-top:2.5rem;padding-top:1.8rem;border-top:3px solid #bd327d}
+.reciprocal-hinge-grid{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(270px,.85fr);gap:1rem;align-items:start}
+.reciprocal-hinge-stage{display:block;width:100%;background:#07141d;border:1px solid #496978;border-radius:.4rem}
+.reciprocal-hinge-controls{display:grid;gap:.7rem}
+.reciprocal-hinge-controls fieldset{margin:0;padding:.8rem;border:1px solid #9eb0b7;background:#fff}
+.reciprocal-hinge-controls legend{font-weight:750;padding:0 .35rem}
+.reciprocal-hinge-buttons{display:flex;flex-wrap:wrap;gap:.45rem}
+.reciprocal-hinge button{font:inherit;padding:.5rem .7rem;border:1px solid #67818d;border-radius:.3rem;background:#fff;color:#15313f;cursor:pointer}
+.reciprocal-hinge button[aria-pressed=true]{border:2px solid #007e9b;background:#e6f5f6}
+.reciprocal-hinge output{display:block;padding:.7rem;border:1px solid #ccd5d7;background:#fff;overflow-wrap:anywhere}
+.reciprocal-hinge .hinge-state{border-left:4px solid #bd327d}
+.reciprocal-hinge .hinge-boundary{padding:1rem;border-left:4px solid #a27122;background:#eee8dc}
+.reciprocal-hinge .hinge-owner{font-size:.9rem;color:#5b4b2b}
+@media(max-width:760px){.reciprocal-hinge-grid{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){.reciprocal-hinge [data-action=breath]{display:none}}

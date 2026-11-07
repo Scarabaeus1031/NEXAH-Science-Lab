@@ -1,0 +1,48 @@
+{
+  "schema": "nexah.a0.engineering-return/1",
+  "return_id": "A0_BASE11_365_DRIFT_CUBE_DOCK_RETURN_2026_11_07",
+  "date": "2026-11-07",
+  "status": "PASS_EXACT_BASE11_COUNTERSHELL_VIEW_NO_FINDING_PROMOTION",
+  "identity_reuse": [
+    "A0_GAME_OF_WORLDS_PLAY",
+    "NEXAH:A0_ORIENTATION_EVIDENCE_LINEAGE:V1",
+    "SG:LENS:A0_ORIENTATION_EVIDENCE"
+  ],
+  "exact_results": {
+    "signal": "4774_10 = 3650_11 = 11 * 365_11",
+    "drift": "365_11 = 360_11 + 5",
+    "signal_decimal_check": 4774,
+    "control": "7447_10 = 5660_11",
+    "counter_shell": "12^3 - 11^3 = 397",
+    "outer_volume": 1728,
+    "inner_volume": 1331,
+    "shell_volume": 397
+  },
+  "verification": {
+    "dedicated_test": "15/15 PASS",
+    "interactive_records": [4774, 7447],
+    "default_return": 4774,
+    "browser_runtime": "PASS_SIGNAL_CONTROL_EXACT_RETURN",
+    "frozen_world_cube_tour": "12 STOPS UNCHANGED"
+  },
+  "boundaries": [
+    "365_11 is decimal 434, not 365 calendar days",
+    "360_11 + 5 is an exact Base-11 digit decomposition",
+    "V/+5 is a residual display role, not a physical fifth element",
+    "the 12/11 cube is a counter-shell view, not native GLB geometry",
+    "the native GLB remains 11 outer, 9 inner, 2x2 zero core",
+    "7447 is a comparator and does not carry the 365 prefix in Base 11"
+  ],
+  "governance": {
+    "new_identity": false,
+    "new_relation": false,
+    "new_alias": false,
+    "new_operator": false,
+    "new_study": false,
+    "new_finding": false,
+    "claim_ceiling_change": false,
+    "publication": false,
+    "deployment": false,
+    "canonical_count_effect": 0
+  }
+}

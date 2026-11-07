@@ -1,0 +1,59 @@
+{
+  "schema": "nexah.a0.mod12-alpha-omega-return/1",
+  "date": "2026-11-06",
+  "status": "PASS_SOURCE_BOUND_FORMAL_VIEW",
+  "identity_reuse": ["MOD:NUMBER_VIEW_SUITE"],
+  "new_identity": false,
+  "new_relation": false,
+  "new_alias": false,
+  "new_operator": false,
+  "new_study": false,
+  "new_finding": false,
+  "publication": false,
+  "carrier": {
+    "kind": "Z12_ADDRESS_REGISTER",
+    "modulus": 12,
+    "labels": ["C", "C♯/D♭", "D", "D♯/E♭", "E", "F", "F♯/G♭", "G", "G♯/A♭", "A", "A♯/B♭", "B"]
+  },
+  "alpha": {
+    "step": 7,
+    "gcd": 1,
+    "order": 12,
+    "visits_all_nodes": true,
+    "self_inverse": true,
+    "route": [0, 7, 2, 9, 4, 11, 6, 1, 8, 3, 10, 5, 0]
+  },
+  "omega": {
+    "step": 11,
+    "signed_reading": -1,
+    "gcd": 1,
+    "order": 12,
+    "visits_all_nodes": true,
+    "self_inverse": true,
+    "route": [0, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0]
+  },
+  "composition": {
+    "step": 6,
+    "order": 2,
+    "relation": "ALPHA_AFTER_OMEGA_EQUALS_PLUS_6",
+    "mutual_inverses": false
+  },
+  "addressed_stations": {
+    "G": 7,
+    "E": 4,
+    "alpha_steps": {"G": 1, "E": 4},
+    "omega_steps": {"G": 5, "E": 8}
+  },
+  "controls": {
+    "step_6": {"order": 2, "visits_all_nodes": false},
+    "step_4": {"order": 3, "visits_all_nodes": false},
+    "step_3": {"order": 4, "visits_all_nodes": false}
+  },
+  "notation": {
+    "N": "LOCAL_STEP_INDEX_ONLY",
+    "BODIE_DOYLE": "OWNER_MNEMONIC_UNBOUND",
+    "G_E": "ADDRESSED_STATION_PAIR_ONLY",
+    "DU_UD": "VIEW_ORIENTATION_FLIP_ONLY"
+  },
+  "boundary": "FINITE PITCH-CLASS ADDRESS VISUALIZATION IN EQUAL-TEMPERED Z12. NO ACOUSTIC MEASUREMENT, MAJOR/MINOR DERIVATION, MOBIUS TOPOLOGY, PHYSICAL SPIN, NORTH-POLE CLAIM, BODIE/DOYLE IDENTITY OR NEW NUMBER OPERATOR."
+}

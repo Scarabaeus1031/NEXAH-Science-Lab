@@ -1,0 +1,178 @@
+{
+  "schema": "a0.calendar-void-cut-return/1",
+  "date": "2026-11-06",
+  "status": "PASS_EXACT_FINITE_CALENDAR_AND_RATIO_CHECK_NO_OPERATOR_PROMOTION",
+  "identity_reuse": [
+    "MOD:NUMBER_VIEW_SUITE",
+    "NEXAH:A0_ORIENTATION_EVIDENCE_LINEAGE:V1"
+  ],
+  "graph_effect": {
+    "new_ids": 0,
+    "new_relations": 0,
+    "new_aliases": 0
+  },
+  "calendar": {
+    "seed": {
+      "label": "29.02.1972",
+      "day": 29,
+      "month": 2,
+      "year": 1972,
+      "calendar": "proleptic Gregorian",
+      "valid": true,
+      "iso": "1972-02-29",
+      "reason": "valid leap day"
+    },
+    "after_12_days": {
+      "label": "12.03.1972",
+      "day": 12,
+      "month": 3,
+      "year": 1972,
+      "calendar": "proleptic Gregorian",
+      "valid": true,
+      "iso": "1972-03-12",
+      "reason": "valid date"
+    },
+    "after_12_days_and_2_calendar_years": {
+      "label": "12.03.1974",
+      "day": 12,
+      "month": 3,
+      "year": 1974,
+      "calendar": "proleptic Gregorian",
+      "valid": true,
+      "iso": "1974-03-12",
+      "reason": "valid date"
+    },
+    "after_2_more_calendar_months": {
+      "label": "12.05.1974",
+      "day": 12,
+      "month": 5,
+      "year": 1974,
+      "calendar": "proleptic Gregorian",
+      "valid": true,
+      "iso": "1974-05-12",
+      "reason": "valid date"
+    },
+    "elapsed_seed_to_alpha_days": 742,
+    "void_date": {
+      "label": "29.02.1974",
+      "day": 29,
+      "month": 2,
+      "year": 1974,
+      "calendar": "proleptic Gregorian",
+      "valid": false,
+      "iso": null,
+      "reason": "1974 is not a leap year"
+    },
+    "lawful_cut_sides": {
+      "minus": {
+        "label": "28.02.1974",
+        "day": 28,
+        "month": 2,
+        "year": 1974,
+        "calendar": "proleptic Gregorian",
+        "valid": true,
+        "iso": "1974-02-28",
+        "reason": "valid date"
+      },
+      "plus": {
+        "label": "01.03.1974",
+        "day": 1,
+        "month": 3,
+        "year": 1974,
+        "calendar": "proleptic Gregorian",
+        "valid": true,
+        "iso": "1974-03-01",
+        "reason": "valid date"
+      }
+    },
+    "controls": [
+      {
+        "label": "11.03.1974",
+        "day": 11,
+        "month": 3,
+        "year": 1974,
+        "calendar": "proleptic Gregorian",
+        "valid": true,
+        "iso": "1974-03-11",
+        "reason": "valid date"
+      },
+      {
+        "label": "13.03.1974",
+        "day": 13,
+        "month": 3,
+        "year": 1974,
+        "calendar": "proleptic Gregorian",
+        "valid": true,
+        "iso": "1974-03-13",
+        "reason": "valid date"
+      },
+      {
+        "label": "12.04.1974",
+        "day": 12,
+        "month": 4,
+        "year": 1974,
+        "calendar": "proleptic Gregorian",
+        "valid": true,
+        "iso": "1974-04-12",
+        "reason": "valid date"
+      }
+    ]
+  },
+  "angle_readout": {
+    "seed": {
+      "convention": "theta = 360 degrees * (day_of_year - 1) / days_in_year",
+      "day_of_year": 60,
+      "days_in_year": 366,
+      "degrees": 58.032786885245905
+    },
+    "alpha": {
+      "convention": "theta = 360 degrees * (day_of_year - 1) / days_in_year",
+      "day_of_year": 71,
+      "days_in_year": 365,
+      "degrees": 69.04109589041096
+    },
+    "beta": {
+      "convention": "theta = 360 degrees * (day_of_year - 1) / days_in_year",
+      "day_of_year": 132,
+      "days_in_year": 365,
+      "degrees": 129.2054794520548
+    },
+    "minus": {
+      "convention": "theta = 360 degrees * (day_of_year - 1) / days_in_year",
+      "day_of_year": 59,
+      "days_in_year": 365,
+      "degrees": 57.205479452054796
+    },
+    "void_date": null,
+    "plus": {
+      "convention": "theta = 360 degrees * (day_of_year - 1) / days_in_year",
+      "day_of_year": 60,
+      "days_in_year": 365,
+      "degrees": 58.19178082191781
+    },
+    "cut_width_degrees": 0.9863013698630141
+  },
+  "ratio_sidecar": {
+    "R": 12,
+    "r": 3,
+    "reduced": [
+      4,
+      1
+    ],
+    "inner_split": [
+      3,
+      1
+    ],
+    "cusps": 4,
+    "carrier_circuits_per_return": 1,
+    "closure": "rational finite return"
+  },
+  "interpretation": {
+    "q_sides": "minus and plus are two lawful calendar readouts bracketing one invalid civil-date label",
+    "transverse_plane": "declared comparison cut only",
+    "ratio_bridge": null,
+    "date_to_motion": null,
+    "resonance_claim": null
+  },
+  "claim_boundary": "Exact proleptic-Gregorian arithmetic, declared annual phase readout and rational rolling-ratio sidecar only. The shared display does not identify dates, angles, ratios, resonance, physical rotation or a new operator."
+}

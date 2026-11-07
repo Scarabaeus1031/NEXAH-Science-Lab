@@ -11,6 +11,7 @@
     @media(max-width:900px){.workspace{grid-template-columns:1fr}.pascal{grid-template-columns:repeat(3,1fr)}.word-audit{grid-template-columns:1fr}.ilau{grid-template-columns:repeat(2,1fr)}}@media(max-width:560px){.top nav{display:none}h1{font-size:3rem}.stage{padding:10px;min-height:0}.pascal{grid-template-columns:1fr 1fr}.ilau{grid-template-columns:1fr}.factor-form{grid-template-columns:1fr}.cell small{display:none}}
   </style>
   <link rel="stylesheet" href="a0-context-navigation.css?rev=flagship-constellation-r1-20261030">
+  <link rel="stylesheet" href="a0-q4-base-prime-crt.css?rev=base-prime-crt210-r1-20261107">
 </head>
 <body>
   <header class="top"><a class="brand" href="A0_MATHEMATICAL_JOINTS.html">NEXAH · A0</a><nav aria-label="Navigation"><a href="A0_BOUNDARY_GRAPH_DEMONSTRATOR.html">Boundary Graph</a><a href="A0_MATHEMATICAL_JOINTS.html">Mathfield</a><a href="A0_RESEARCH_BACKLOG.html">Backlog</a><a href="index.html">Overview</a></nav></header>
@@ -28,6 +29,7 @@
         <button type="button" data-view="khajuraho" aria-pressed="false">2 · Khajuraho</button>
         <button type="button" data-view="pascal" aria-pressed="false">3 · Pascal Q4</button>
         <button type="button" data-view="prime" aria-pressed="false">4 · Prime / Wörter</button>
+        <button type="button" data-view="base-prime-crt" aria-pressed="false">5 · 15|14 / CRT₂₁₀</button>
       </div>
       <div class="toolbar" id="gridToolbar"><span>Beschriftung</span><button id="oneBased" type="button" aria-pressed="true">1…16</button><button id="zeroBased" type="button" aria-pressed="false">0…15 · Q4</button></div>
     </section>
@@ -65,6 +67,17 @@
       <div class="correction"><b>Korrektur der gelieferten Tafel:</b> 4144 + 1771 = 5915; 5915 + 49 = <b>5964</b>. Dabei gilt 4144 = 2⁴·7·37, 1771 = 7·11·23, 49 = 7² und 5964 = 2²·3·7·71. Die gezeigten Werte 5966 beziehungsweise 6015 folgen nicht aus dieser Addition.</div>
     </section>
 
+    <section class="stage q4-crt-stage" id="basePrimeCrtStage" data-q4-crt210 hidden>
+      <div class="stage-head"><div><h2>15|14 · vier Basisprimzahlen an einer sichtbaren Naht</h2><p>Dürers untere Mitte <b>15 · 14</b> wird als getrenntes Restpaar gelesen: zwei koprime zusammengesetzte Moduli, gemeinsam eindeutig modulo 210.</p></div><div class="equation">CRT₍15,14₎</div></div>
+      <div class="q4-prime-seam"><article><span>linke Nahtzahl</span><b>15 = 3 × 5</b></article><i>│</i><article><span>rechte Nahtzahl</span><b>14 = 2 × 7</b></article></div>
+      <div class="equation" style="text-align:center">gcd(15,14)=1 · 2 × 3 × 5 × 7 = 210</div>
+      <form class="q4-crt-form"><label class="sr-only" for="q4CrtInput">Ganze Zahl</label><input id="q4CrtInput" data-q4-crt-input inputmode="numeric" value="1221"><button type="submit">rekonstruieren</button></form>
+      <div class="q4-crt-presets" aria-label="Testwerte"><button type="button" data-q4-crt-preset="1221">1221</button><button type="button" data-q4-crt-preset="123321">123321</button><button type="button" data-q4-crt-preset="1514">1514</button><button type="button" data-q4-crt-preset="34">34</button></div>
+      <div class="q4-crt-output"><article><span>mod 15</span><b data-q4-crt-r15>6</b></article><article><span>mod 14</span><b data-q4-crt-r14>3</b></article><article><span>CRT-Ergebnis</span><b data-q4-crt-result>171 mod 210</b></article></div>
+      <div class="card" style="margin-top:10px"><div class="equation" data-q4-crt-equation>1221 = 5 × 210 + 171</div><div class="pass" data-q4-crt-status>PASS · (6, 3) rekonstruiert 171</div></div>
+      <div class="q4-crt-boundary"><strong>Operatorgrenze:</strong> Im Q4-Audit bleibt <code>C(v)=15−v</code> das Bitkomplement. <code>CRT₍15,14₎</code> ist daneben eine ganzzahlige Rekonstruktion und weder derselbe Operator noch eine Behauptung historischer Absicht. Persönliche Datumsbeispiele werden nicht gespeichert. Anschluss: <a href="A0_WERKBANK.html#repunitCrtOneDigitLens">Repunit-CRT-Werkbank</a> · <a href="results/a0-q4-base-prime-crt210-return-2026-11-07.json">Receipt</a>.</div>
+    </section>
+
     <section class="ilau" aria-label="ILAU-Grenze">
       <div><b>I · retained</b><span>16 Zustände, acht Komplemente, Pascal-Gewichte und geprüfte Summen</span></div><div><b>L · lost</b><span>Quersumme und Dezimalwort erhalten keine eindeutige Q4-Adresse</span></div><div><b>A · added</b><span>1-basierte Labels, Platzierungspermutation und gewählte Wortgrammatik</span></div><div><b>U · unresolved</b><span>Kein Primselektor, keine Kopplungsdynamik und kein physikalischer Kanal</span></div>
     </section>
@@ -97,12 +110,13 @@
     function factors(n){const out=[];let d=2;while(d*d<=n){let e=0;while(n%d===0){n/=d;e++}if(e)out.push([d,e]);d=d===2?3:d+2}if(n>1)out.push([n,1]);return out}
     function factorString(fs){return fs.length?fs.map(([p,e])=>e===1?String(p):`${p}^${e}`).join(' × '):'1'}
     function auditWord(raw){if(!/^\d{1,9}$/.test(raw)||Number(raw)<1){$('factorTitle').textContent='Ungültige Eingabe';$('factorOut').textContent='Erlaubt: 1 bis 9 Dezimalziffern, Wert ≥ 1';return}const n=Number(raw),fs=factors(n),prime=fs.length===1&&fs[0][0]===n&&fs[0][1]===1,digit=[...raw].reduce((s,c)=>s+Number(c),0);$('factorTitle').textContent=`Audit ${raw}`;$('factorOut').textContent=`${raw} = ${factorString(fs)}`;$('primeOut').textContent=prime?'prim':'zusammengesetzt';$('palindromeOut').textContent=raw===[...raw].reverse().join('')?'ja':'nein';$('digitOut').textContent=`${digit} / ${digit%9}`;$('sevenElevenOut').textContent=n%77===0?'ja':'nein'}
-    function setView(view){state.view=view;document.querySelectorAll('[data-view]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.view===view)));const grid=view==='durer'||view==='khajuraho';$('gridToolbar').hidden=!grid;$('gridWorkspace').hidden=!grid;$('pascalStage').hidden=view!=='pascal';$('primeStage').hidden=view!=='prime';if(grid){state.selected=matrix()[0][0];renderGrid()}if(view==='pascal')renderPascal()}
+    function setView(view){state.view=view;document.querySelectorAll('[data-view]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.view===view)));const grid=view==='durer'||view==='khajuraho';$('gridToolbar').hidden=!grid;$('gridWorkspace').hidden=!grid;$('pascalStage').hidden=view!=='pascal';$('primeStage').hidden=view!=='prime';$('basePrimeCrtStage').hidden=view!=='base-prime-crt';if(grid){state.selected=matrix()[0][0];renderGrid()}if(view==='pascal')renderPascal()}
     document.querySelectorAll('[data-view]').forEach(b=>b.addEventListener('click',()=>setView(b.dataset.view)));
     $('oneBased').addEventListener('click',()=>{state.oneBased=true;$('oneBased').setAttribute('aria-pressed','true');$('zeroBased').setAttribute('aria-pressed','false');renderGrid()});$('zeroBased').addEventListener('click',()=>{state.oneBased=false;$('oneBased').setAttribute('aria-pressed','false');$('zeroBased').setAttribute('aria-pressed','true');renderGrid()});
     $('factorForm').addEventListener('submit',e=>{e.preventDefault();auditWord($('wordInput').value.trim())});document.querySelectorAll('[data-word]').forEach(b=>b.addEventListener('click',()=>{$('wordInput').value=b.dataset.word;document.querySelectorAll('[data-word]').forEach(x=>x.setAttribute('aria-pressed',String(x===b)));auditWord(b.dataset.word)}));
     renderGrid();renderPascal();auditWord('1771');
   </script>
+  <script src="a0-q4-base-prime-crt.js?rev=base-prime-crt210-r1-20261107"></script>
   <script src="a0-context-navigation.js?rev=flagship-constellation-r1-20261030"></script>
 </body>
 </html>

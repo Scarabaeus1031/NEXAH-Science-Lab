@@ -1,0 +1,72 @@
+{
+  "schema": "a0.reciprocal-angle-hinge.return.v1",
+  "date": "2026-11-06",
+  "status": "PASS_SOURCE_BOUND_FORMAL_VIEW",
+  "question": "Can the supplied polar triangle and angle-fan sources be connected to the existing signed bracket/disc view without creating a new physical mechanism or canonical operator?",
+  "identity_reuse": [
+    "MOD:NUMBER_VIEW_SUITE",
+    "NEXAH:A0_ORIENTATION_EVIDENCE_LINEAGE:V1"
+  ],
+  "source_visuals": [
+    {
+      "role": "owner_supplied_polar_triangle_reference",
+      "sha256": "93436c3dbd78f4320345e2dedc347b7845c8a483c41251b465e99f4bbd07a3d7",
+      "copied_into_repository": false
+    },
+    {
+      "role": "owner_supplied_angle_fan_reference",
+      "sha256": "25632e6b83db2cf1675a052db6c02a01fd9b74c990f9faecb55427bd69927426",
+      "copied_into_repository": false
+    }
+  ],
+  "formal_core": {
+    "ratio_convention": "p:q means rise:run and theta=atan2(p,q) for positive integer p,q",
+    "involution": "J(p:q)=q:p",
+    "complement_identity": "atan(p/q)+atan(q/p)=90 degrees for p,q>0",
+    "fixed_point": "1:1 at 45 degrees",
+    "fan": [
+      {"ratio":"1:2","angle_degrees":26.56505117707799,"mate":"2:1"},
+      {"ratio":"2:3","angle_degrees":33.690067525979785,"mate":"3:2"},
+      {"ratio":"1:1","angle_degrees":45,"mate":"1:1"},
+      {"ratio":"3:2","angle_degrees":56.309932474020215,"mate":"2:3"},
+      {"ratio":"2:1","angle_degrees":63.43494882292201,"mate":"1:2"}
+    ],
+    "signed_state": "(side,p:q), side in {-1,+1}",
+    "coupled_flip": "F(side,p:q)=(-side,q:p)",
+    "return": "F squared is identity",
+    "sixty_degree_boundary": "60 degrees equals atan(sqrt(3)/1) and is not an exact member of the rational five-ray fan"
+  },
+  "display_contract": {
+    "cube": "fixed display frame only",
+    "disc": "signed display cut only",
+    "light_dark": "plus/minus side encoding, not physical illumination",
+    "colon": "ordered ratio separator and visible side seam",
+    "s_curve": "displayed path/history cue, not instantaneous disc geometry",
+    "breath": "opt-in interpolation between exact endpoint states; not an operator derivation and never autoplayed"
+  },
+  "holds": [
+    "THETA_ZETA_LAMBDA_SEMANTICS",
+    "PHYSICAL_LIGHT_OR_SHADOW",
+    "PHYSICAL_CUBE_OR_DISC_MECHANISM",
+    "MUSICAL_INTERVAL_DERIVATION",
+    "VOXEL_OR_V_X_IDENTITY",
+    "OVERWORLD_UNDERWORLD_IDENTITY",
+    "TWO_WHEEL_OR_FOUR_WHEEL_MECHANICS",
+    "HISTORICAL_GENERATOR_RECONSTRUCTION"
+  ],
+  "verification": {
+    "new_assertions": 43,
+    "pascal_thread_regression": 9027,
+    "browser_runtime": "PASS_RENDERED_ANCHOR_AND_EXPOSED_ALL_CONTROLS_ON_LOCAL_CANONICAL_SOURCE",
+    "human_visual_acceptance": "OPEN"
+  },
+  "new_identity": false,
+  "new_relation": false,
+  "new_alias": false,
+  "new_operator": false,
+  "new_study": false,
+  "new_finding": false,
+  "publication": false,
+  "canonical_count_effect": 0,
+  "claim_boundary": "A finite reciprocal-ratio and signed-view adapter has been implemented inside the existing Number View suite. The exact trigonometric identity and two-step return do not establish a physical mechanism, light model, musical law, historical generator, canonical Cube identity or universal NEXAH operator."
+}
