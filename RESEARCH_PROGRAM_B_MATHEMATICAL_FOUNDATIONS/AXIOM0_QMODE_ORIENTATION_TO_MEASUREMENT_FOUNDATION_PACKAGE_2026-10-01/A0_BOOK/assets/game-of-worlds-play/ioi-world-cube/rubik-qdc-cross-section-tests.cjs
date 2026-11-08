@@ -202,6 +202,18 @@ test('edge redesign makes no shortest sequence claim',()=>assert.equal(qdc.q3dEd
 test('edge redesign does not promote a Navigator operator',()=>assert.equal(qdc.q3dEdgeRubikAudit().operatorPromotion,false));
 test('edge redesign register covers all sixteen existing blocks',()=>assert.deepEqual(qdc.q3dEdgeRubikRegisterAudit().blocks,qdc.q3dRubikRegisterAudit().blocks));
 test('all sixteen blocks pass the full-state edge redesign audit',()=>assert.deepEqual([qdc.q3dEdgeRubikRegisterAudit().allLegal,qdc.q3dEdgeRubikRegisterAudit().allFullStateChecksPass,qdc.q3dEdgeRubikRegisterAudit().allReturnsExact,qdc.q3dEdgeRubikRegisterAudit().allOrderSensitive],[true,true,true,true]));
+test('instrument demo contains twelve stations',()=>assert.equal(qdc.instrumentDemoContract().stations.length,12));
+test('instrument demo starts on the existing carrier and ends in return',()=>assert.deepEqual([qdc.instrumentDemoContract().stations[0].id,qdc.instrumentDemoContract().stations.at(-1).id],['carrier','return']));
+test('instrument demo station ids are unique',()=>assert.equal(new Set(qdc.instrumentDemoContract().stations.map(station=>station.id)).size,12));
+test('instrument demo exposes the Heptad dispatch bridge',()=>assert.equal(qdc.instrumentDemoContract().stations.find(station=>station.id==='heptad').connection,'DISPATCH_BRIDGE'));
+test('instrument demo exposes the full cube verifier bridge',()=>assert.equal(qdc.instrumentDemoContract().stations.find(station=>station.id==='edge').connection,'VERIFIER_BRIDGE'));
+test('instrument demo activation remains local only',()=>assert.equal(qdc.instrumentDemoContract().activation,'LOCAL_DEMONSTRATOR_STATE_ONLY'));
+test('instrument demo creates no Navigator graph effect',()=>assert.deepEqual(qdc.instrumentDemoContract().navigatorEffect,{nodes:0,relations:0,aliases:0,operators:0}));
+test('instrument demo does not merge identities',()=>assert.equal(qdc.instrumentDemoContract().identityMerge,false));
+test('all six successor ideas remain frozen outside the demo',()=>assert.equal(qdc.instrumentDemoContract().frozenSuccessors.length,6));
+test('inactive demo state is exact return at position zero',()=>assert.deepEqual(qdc.instrumentDemoState(),{active:false,index:-1,station:null,position:'00 / 12',returned:true}));
+test('last demo station marks returned state',()=>assert.equal(qdc.instrumentDemoState(11,true).returned,true));
+test('invalid demo station fails closed',()=>assert.throws(()=>qdc.instrumentDemoState(12,true)));
 test('complete verifier passes',()=>assert.equal(qdc.verify().pass,true));
 
 process.stdout.write(`rubik-qdc-cross-section: ${passed}/${passed} PASS\n`);

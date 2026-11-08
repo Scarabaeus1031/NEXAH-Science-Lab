@@ -2700,6 +2700,62 @@ OPERATOR 0 / STUDY 0 / FINDING 0 / CLAIM CHANGE 0 / PUBLICATION 0`.
 [Builder Log](A0_BOOK/A0_BUILDER_LOG.html#rubik-qdc-cross-section-builder-return-20261107) ·
 [Receipt](A0_BOOK/results/a0-rubik-qdc-cross-section-return-2026-11-07.json)
 
+<a id="typed-mirror-wheel-gate-closeout--2026-11-08"></a>
+
+### Typed Mirror wheel / gate closeout — 2026-11-08
+
+Classification: `LOCAL_ENGINEERING_CLOSEOUT / SOURCE_BOUND_CROSSWALK /
+NOT_NEW_FINDING / NO_F-A0_PROMOTION / NO_PUBLICATION`.
+
+The existing Typed Mirror candidate now ends in one explicit return lens:
+`8 SOURCE POLES → PAIR SPLIT → HARP/PENTAGON → GATE/MIRROR → RETURN`.
+The Edelweiss rotor turns inside a grey boundary ring while twelve joint marks
+remain attached to that outer ring. The white moon line is a background
+orientation line. Yellow/orange, green and pink retain gate, comparator and
+split roles respectively.
+
+AXIS08, Pulse Grammar, Pentagon Yellow Vent and A0 Science are linked as
+separate source surfaces. The existing NEXAH-CODEX hand/foot notes supply only
+the historical symbolic thumb↔pinky contact and index–middle–ring axis. They do
+not establish anatomy, biomechanics, a physical mechanism or a new operator.
+
+Disposition: `LOCAL CLOSEOUT / EXISTING SG:LENS:A0_ORIENTATION_EVIDENCE REUSED /
+QDC HOLD UNCHANGED / M-PUB01 PRIORITY UNCHANGED / NEW ID 0 / RELATION 0 /
+ALIAS 0 / OPERATOR 0 / STUDY 0 / FINDING 0 / DEPLOYMENT 0 / PUBLICATION 0`.
+
+[Closeout Lens](A0_BOOK/DRAFTS/A0_TYPED_MIRROR_ROTATION_COMPASS_DRAFT_2026-11-07.html#science-desk-return-crosswalk) ·
+[Science Desk](A0_BOOK/A0_RESEARCH_DESK.html#typed-mirror-wheel-gate-closeout-20261108) ·
+[Builder Log](A0_BOOK/A0_BUILDER_LOG.html#typed-mirror-wheel-gate-closeout-builder-20261108) ·
+[Receipt](A0_BOOK/results/a0-typed-mirror-wheel-gate-closeout-2026-11-08.json)
+
+## QDC activatable instrument demo — 2026-11-08
+
+Classification: `METHOD-RELEVANT ENGINEERING DEMONSTRATOR / NOT_NEW_FINDING /
+NO_F-A0_PROMOTION / LOCAL ACTIVATION ONLY`.
+
+The existing World-Cube/QDC carrier now exposes a twelve-station demonstrator.
+It does not infer a new common instrument identity: the controller calls the
+already bounded UI states, typed address crosswalks, Heptad-14 dispatch and
+54-facelet verifier in a declared sequence.
+
+Browser acceptance confirmed activation at `01/12`, a live Heptad dispatch
+from demo station `06/12` into external adapter step `08/14`, and the exact
+station-12 reconstruction of Steering `000`, Elevator `0` and Q3D
+`HOME · B12`. `RETURN / STOP` then closed the demonstrator at `00/12`.
+
+The six frozen successor questions remain excluded. Activation does not reopen
+a Study, promote a Finding, admit a Navigator operator, publish, deploy or
+merge carriers.
+
+Disposition: `212/212 PASS / BROWSER VERIFIED / EXISTING A0 ORIENTATION LENS
+REUSED / NEW ID 0 / RELATION 0 / ALIAS 0 / OPERATOR 0 / STUDY 0 / FINDING 0 /
+CLAIM CHANGE 0 / PUBLICATION 0 / DEPLOYMENT 0`.
+
+[Demo](A0_BOOK/assets/game-of-worlds-play/ioi-world-cube/index.html?rev=instrument-demo-r1#rubikQdcCrossSectionDock) ·
+[Science Desk](A0_BOOK/A0_RESEARCH_DESK.html#qdc-activatable-instrument-demo-return-20261108) ·
+[Builder Log](A0_BOOK/A0_BUILDER_LOG.html#qdc-activatable-instrument-demo-builder-20261108) ·
+[Receipt](A0_BOOK/results/a0-rubik-qdc-cross-section-return-2026-11-07.json)
+
 <a id="qdc-q3d-open-work-freeze--2026-11-07"></a>
 
 ### QDC/Q3D Open-work Freeze — 2026-11-07

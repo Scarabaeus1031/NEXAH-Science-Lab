@@ -53,6 +53,21 @@
     J_LUV:{label:'J-LUV / KITE VIEW',center:[180,100],tip:[180,18],hingeY:105,source:'A0_WERKBANK.html#machinaHouseTitle'},
     HEPTAD:{label:'HEPTAD REFERENCE',center:[250,250],tip:[250,36],hingeY:250,source:'heptad-14-orientation.js'}
   };
+  const INSTRUMENT_DEMO_STATIONS=[
+    {id:'carrier',title:'WORLD CUBE · CARRIER',connection:'SAME_CARRIER',target:'.rqdc-layout',detail:'12³, 11³ und die getrennten Q/D-Platten öffnen im bestehenden World-Cube-Kontext.'},
+    {id:'plates',title:'Q / D · 34-PLATTEN',connection:'VIEW_ADAPTER',target:'.rqdc-layout',detail:'Dürer-Q und Khajuraho-D werden getrennt geprüft; beide behalten im Ausgangszustand den Summenvertrag 34.'},
+    {id:'address',title:'ADDRESS LOCK · M83 / W38',connection:'SHARED_ADDRESS',target:'.rqdc-address-lock',detail:'Carrier, Payload, Glyphenrotation und Ziffern-Return bleiben typgetrennt und gemeinsam bedienbar.'},
+    {id:'steering',title:'7-WAY · 111',connection:'STATE_BRIDGE',target:'.rqdc-steering',detail:'Der Körperdiagonal-Code 111 wird aktiviert und kehrt durch XOR mit sich selbst nach HOME 000 zurück.'},
+    {id:'loshu',title:'LO SHU · CENTER 5',connection:'VIEW_ADAPTER',target:'.rqdc-loshu',detail:'Eine der acht geprüften 15er-Linien zeigt den gehaltenen Center-Hinge 5.'},
+    {id:'heptad',title:'HEPTAD 14 · ROOT7',connection:'DISPATCH_BRIDGE',target:'.rqdc-heptad-xwalk',detail:'Der QDC-Code adressiert den bestehenden Heptad-14-Adapter und dessen antipodalen Gegenpunkt.'},
+    {id:'hinge',title:'ANGLE HINGE · SOURCE',connection:'VIEW_ADAPTER',target:'.rqdc-alignment',detail:'Kite/Teapot, Bronze-Hinge und Red-Balloon werden als Zwei-Anker-Vergleich gezeigt; die Identität bleibt verworfen.'},
+    {id:'dual',title:'Q / D · DUAL ROUTE',connection:'SHARED_BLOCK_ADDRESS',target:'.rqdc-dual-route',detail:'Zwei getrennte Routen adressieren denselben Makroblock B12 und schließen getrennt zurück.'},
+    {id:'elevator',title:'ELEVATOR · 1220 CAP',connection:'ADDRESS_CROSSWALK',target:'.rqdc-elevator-world',detail:'Die letzte 11×111-Adresse wird in den 27er-Paketkanal gelesen und exakt als 1220 rekonstruiert.'},
+    {id:'q3d',title:'Q3D · ORDER',connection:'STATE_BRIDGE',target:'.rqdc-q3d',detail:'Q→D und D→Q bleiben unterscheidbar; die Token-Route besitzt einen exakten inversen Return.'},
+    {id:'edge',title:'Qᵉ / Dᵉ · LEGAL EDGE',connection:'VERIFIER_BRIDGE',target:'.rqdc-q3d-edge-gate',detail:'Der vollständige 54-Facelet-Verifier bestätigt legale äußere Zugwörter, feste Center und exakte Inversen.'},
+    {id:'return',title:'RETURN · HOME / FREEZE',connection:'EXACT_RETURN',target:'.rqdc-demo-console',detail:'Alle Demo-Zustände kehren auf ihre deklarierte Ausgangslage zurück; die sechs eingefrorenen Nachfolger bleiben HOLD.'}
+  ];
+  const FROZEN_SUCCESSORS=['4X4_TO_3X3_LEGAL_MOVE_MAP','103_301_602_OPERATOR','Q_DEGREE_PLUS_MINUS','PANTONE_PINK_BINDING','PHYSICAL_MECHANISM','SEMANTIC_ASTRONOMICAL_M83_W38'];
   function macroblockFootprint(row,column){
     const rows=[row*3,row*3+1,row*3+2],columns=[column*3,column*3+1,column*3+2];
     return {rows,columns,humanRows:(rows[0]+1)+'-'+(rows[2]+1),humanColumns:(columns[0]+1)+'-'+(columns[2]+1)};
@@ -475,12 +490,32 @@
     return {move:MOVES[move]?move:'home',label:contract.label,detail:contract.detail,durer,khajuraho,q,d,className:q.pass&&d.pass?'both':q.pass?'q':d.pass?'d':'neither'};
   }
 
+  function instrumentDemoContract(){
+    const ids=INSTRUMENT_DEMO_STATIONS.map(station=>station.id);
+    const connections=INSTRUMENT_DEMO_STATIONS.map(station=>station.connection);
+    return {
+      stations:INSTRUMENT_DEMO_STATIONS.map(station=>({...station})),
+      frozenSuccessors:FROZEN_SUCCESSORS.slice(),
+      activation:'LOCAL_DEMONSTRATOR_STATE_ONLY',
+      identityMerge:false,
+      navigatorEffect:{nodes:0,relations:0,aliases:0,operators:0},
+      pass:ids.length===12&&new Set(ids).size===ids.length&&ids[0]==='carrier'&&ids.at(-1)==='return'&&connections.includes('DISPATCH_BRIDGE')&&connections.includes('VERIFIER_BRIDGE')&&FROZEN_SUCCESSORS.length===6
+    };
+  }
+
+  function instrumentDemoState(index=-1,active=false){
+    const contract=instrumentDemoContract();
+    if(!active)return {active:false,index:-1,station:null,position:'00 / '+String(contract.stations.length).padStart(2,'0'),returned:true};
+    if(!Number.isInteger(index)||index<0||index>=contract.stations.length)throw new Error('demo station index out of range');
+    return {active:true,index,station:{...contract.stations[index]},position:String(index+1).padStart(2,'0')+' / '+String(contract.stations.length).padStart(2,'0'),returned:index===contract.stations.length-1};
+  }
+
   function verify(){
     const p11=packingAudit(11),p12=packingAudit(12);
     const expected={home:'both',both:'both',q:'q',d:'d',neither:'neither'};
     const moves=Object.keys(expected).map(move=>({move,result:evaluate(move)}));
-    const lock=addressLock(),grammar=addressGrammarV2(),compositeAddresses=compositeAddressContract(),steering=steeringContract(),loShu=loShuAudit(),heptadCrosswalk=heptadCrosswalkContract(),alignment=alignmentAudit(),dualRoute=dualRouteAudit(),dualRouteRegister=dualRouteRegisterAudit(),elevatorWorld=elevatorWorldContract(),q3d=q3dAudit(),q3dRegister=q3dRegisterAudit(),q3dRubik=q3dRubikAudit(),q3dRubikRegister=q3dRubikRegisterAudit(),q3dEdgeRubik=q3dEdgeRubikAudit(),q3dEdgeRubikRegister=q3dEdgeRubikRegisterAudit();
-    return {pass:p11.volumeQuotient===49&&p11.volumeRemainder===8&&p11.spatialCount===27&&p11.spatialRemainder===602&&p12.volumeQuotient===64&&p12.volumeRemainder===0&&p12.spatialCount===64&&p12.spatialRemainder===0&&moves.every(item=>item.result.className===expected[item.move])&&lock.pass&&grammar.pass&&compositeAddresses.pass&&steering.pass&&loShu.pass&&heptadCrosswalk.pass&&alignment.centerPass&&alignment.axisPass&&!alignment.hingePass&&!alignment.threeAnchorPass&&dualRoute.pass&&dualRoute.sameEndpoint&&dualRoute.distinctIntermediate&&dualRoute.qReturnsHome&&dualRoute.dReturnsHome&&dualRoute.turnReturn===0&&!dualRoute.fieldIdentityMerged&&dualRouteRegister.pass&&elevatorWorld.pass&&q3d.pass&&q3dRegister.pass&&q3dRubik.pass&&q3dRubikRegister.pass&&q3dEdgeRubik.pass&&q3dEdgeRubikRegister.pass,p11,p12,moves,addressLock:lock,addressGrammarV2:grammar,compositeAddresses,steering,loShu,heptadCrosswalk,alignment,dualRoute,dualRouteRegister,elevatorWorld,q3d,q3dRegister,q3dRubik,q3dRubikRegister,q3dEdgeRubik,q3dEdgeRubikRegister};
+    const lock=addressLock(),grammar=addressGrammarV2(),compositeAddresses=compositeAddressContract(),steering=steeringContract(),loShu=loShuAudit(),heptadCrosswalk=heptadCrosswalkContract(),alignment=alignmentAudit(),dualRoute=dualRouteAudit(),dualRouteRegister=dualRouteRegisterAudit(),elevatorWorld=elevatorWorldContract(),q3d=q3dAudit(),q3dRegister=q3dRegisterAudit(),q3dRubik=q3dRubikAudit(),q3dRubikRegister=q3dRubikRegisterAudit(),q3dEdgeRubik=q3dEdgeRubikAudit(),q3dEdgeRubikRegister=q3dEdgeRubikRegisterAudit(),instrumentDemo=instrumentDemoContract();
+    return {pass:p11.volumeQuotient===49&&p11.volumeRemainder===8&&p11.spatialCount===27&&p11.spatialRemainder===602&&p12.volumeQuotient===64&&p12.volumeRemainder===0&&p12.spatialCount===64&&p12.spatialRemainder===0&&moves.every(item=>item.result.className===expected[item.move])&&lock.pass&&grammar.pass&&compositeAddresses.pass&&steering.pass&&loShu.pass&&heptadCrosswalk.pass&&alignment.centerPass&&alignment.axisPass&&!alignment.hingePass&&!alignment.threeAnchorPass&&dualRoute.pass&&dualRoute.sameEndpoint&&dualRoute.distinctIntermediate&&dualRoute.qReturnsHome&&dualRoute.dReturnsHome&&dualRoute.turnReturn===0&&!dualRoute.fieldIdentityMerged&&dualRouteRegister.pass&&elevatorWorld.pass&&q3d.pass&&q3dRegister.pass&&q3dRubik.pass&&q3dRubikRegister.pass&&q3dEdgeRubik.pass&&q3dEdgeRubikRegister.pass&&instrumentDemo.pass,p11,p12,moves,addressLock:lock,addressGrammarV2:grammar,compositeAddresses,steering,loShu,heptadCrosswalk,alignment,dualRoute,dualRouteRegister,elevatorWorld,q3d,q3dRegister,q3dRubik,q3dRubikRegister,q3dEdgeRubik,q3dEdgeRubikRegister,instrumentDemo};
   }
 
   function matrixHtml(matrix,label){
@@ -714,6 +749,67 @@
     section.querySelector('[data-rqdc-elevator-state]').textContent=state.pass?'EXACT RETURN · PASS':'RETURN · FAIL';
   }
 
+  function returnInstrumentDemo(root){
+    render(root,'home');
+    renderAddress(root,'split');
+    renderGrammar(root,'t1');
+    renderSteering(root,'000');
+    renderLoShu(root,'D1');
+    renderHeptadCrosswalk(root,'100');
+    renderAlignment(root,'source');
+    renderDualRoute(root,'both','B12');
+    renderQ3d(root,'home','B12');
+    renderElevatorWorld(root,0);
+    root.querySelectorAll('.rqdc-demo-target').forEach(target=>target.classList.remove('rqdc-demo-target'));
+  }
+
+  function activateInstrumentDemoStation(root,index,options={}){
+    const state=instrumentDemoState(index,true),station=state.station;
+    root.querySelectorAll('.rqdc-demo-target').forEach(target=>target.classList.remove('rqdc-demo-target'));
+    if(station.id==='carrier')render(root,'home');
+    else if(station.id==='plates')render(root,'both');
+    else if(station.id==='address'){renderAddress(root,'concat');renderGrammar(root,'t2');}
+    else if(station.id==='steering')renderSteering(root,'111');
+    else if(station.id==='loshu')renderLoShu(root,'D1');
+    else if(station.id==='heptad')renderHeptadCrosswalk(root,'101');
+    else if(station.id==='hinge')renderAlignment(root,'source');
+    else if(station.id==='dual')renderDualRoute(root,'both','B12');
+    else if(station.id==='elevator')renderElevatorWorld(root,1220);
+    else if(station.id==='q3d')renderQ3d(root,'qd','B12');
+    else if(station.id==='return')returnInstrumentDemo(root);
+    const target=root.querySelector(station.target);
+    if(target)target.classList.add('rqdc-demo-target');
+    const console=root.querySelector('.rqdc-demo-console');
+    console.dataset.demoActive='true';
+    console.dataset.demoIndex=String(index);
+    root.querySelector('[data-rqdc-demo-position]').textContent=state.position;
+    root.querySelector('[data-rqdc-demo-title]').textContent=station.title;
+    root.querySelector('[data-rqdc-demo-connection]').textContent=station.connection.replaceAll('_',' ');
+    root.querySelector('[data-rqdc-demo-detail]').textContent=station.detail;
+    root.querySelector('[data-rqdc-demo-prev]').disabled=index===0;
+    root.querySelector('[data-rqdc-demo-next]').disabled=index===INSTRUMENT_DEMO_STATIONS.length-1;
+    root.querySelectorAll('[data-rqdc-demo-station]').forEach(button=>button.setAttribute('aria-current',String(Number(button.dataset.rqdcDemoStation)===index)));
+    document.body.classList.add('rqdc-demo-active');
+    if(options.scroll!==false&&target)target.scrollIntoView({behavior:typeof matchMedia==='function'&&matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'center'});
+    return state;
+  }
+
+  function stopInstrumentDemo(root){
+    returnInstrumentDemo(root);
+    const contract=instrumentDemoContract(),console=root.querySelector('.rqdc-demo-console');
+    console.dataset.demoActive='false';
+    console.dataset.demoIndex='-1';
+    root.querySelector('[data-rqdc-demo-position]').textContent='00 / '+String(contract.stations.length).padStart(2,'0');
+    root.querySelector('[data-rqdc-demo-title]').textContent='BEREIT · VERBUNDENE INSTRUMENTE';
+    root.querySelector('[data-rqdc-demo-connection]').textContent='LOCAL DEMONSTRATOR';
+    root.querySelector('[data-rqdc-demo-detail]').textContent='Aktivieren öffnet zwölf geprüfte Stationen und endet im exakten Return. Keine Study-, Release- oder Operator-Aktivierung.';
+    root.querySelector('[data-rqdc-demo-prev]').disabled=true;
+    root.querySelector('[data-rqdc-demo-next]').disabled=true;
+    root.querySelectorAll('[data-rqdc-demo-station]').forEach(button=>button.setAttribute('aria-current','false'));
+    document.body.classList.remove('rqdc-demo-active');
+    return instrumentDemoState();
+  }
+
   function mount(){
     document.querySelectorAll('[data-rubik-qdc]').forEach(root=>{
       if(root.dataset.mounted==='true')return;
@@ -731,6 +827,11 @@
       root.querySelectorAll('[data-rqdc-q3d-block]').forEach(button=>button.addEventListener('click',()=>{const active=root.querySelector('[data-rqdc-q3d-mode][aria-pressed="true"]');renderQ3d(root,active?active.dataset.rqdcQ3dMode:'home',button.dataset.rqdcQ3dBlock);}));
       root.querySelectorAll('[data-rqdc-elevator-input]').forEach(input=>input.addEventListener('input',()=>renderElevatorWorld(root,input.value)));
       root.querySelectorAll('[data-rqdc-elevator-preset]').forEach(button=>button.addEventListener('click',()=>renderElevatorWorld(root,button.dataset.rqdcElevatorPreset)));
+      root.querySelector('[data-rqdc-demo-activate]').addEventListener('click',()=>activateInstrumentDemoStation(root,0));
+      root.querySelectorAll('[data-rqdc-demo-station]').forEach(button=>button.addEventListener('click',()=>activateInstrumentDemoStation(root,Number(button.dataset.rqdcDemoStation))));
+      root.querySelector('[data-rqdc-demo-prev]').addEventListener('click',()=>{const index=Number(root.querySelector('.rqdc-demo-console').dataset.demoIndex);if(index>0)activateInstrumentDemoStation(root,index-1);});
+      root.querySelector('[data-rqdc-demo-next]').addEventListener('click',()=>{const index=Number(root.querySelector('.rqdc-demo-console').dataset.demoIndex);if(index>=0&&index<INSTRUMENT_DEMO_STATIONS.length-1)activateInstrumentDemoStation(root,index+1);});
+      root.querySelector('[data-rqdc-demo-return]').addEventListener('click',()=>stopInstrumentDemo(root));
       root.querySelector('[data-rqdc-reset]').addEventListener('click',()=>render(root,'home'));
       render(root,'home');
       renderAddress(root,'split');
@@ -742,8 +843,9 @@
       renderDualRoute(root,'both');
       renderQ3d(root,'home');
       renderElevatorWorld(root,0);
+      stopInstrumentDemo(root);
     });
   }
 
-  return {MAGIC,DURER,KHAJURAHO,LO_SHU,LO_SHU_LINES,HEPTAD_ARCHETYPES,HEPTAD_CROSSWALK_CODES,ROOT7_CONTROL,ALIGNMENT_PROFILES,DUAL_ROUTE_REGISTER,DUAL_ROUTE_FIXTURE,Q3D_SOURCE,Q3D_RAILS,Q3D_POSITION_TYPES,RUBIK_GENERATOR_CLASSES,Q3D_EDGE_RAILS,Q3D_EDGE_FACELETS,Q3D_EDGE_SEQUENCES,AXIS_A,AXIS_B,ADDRESS_STATES,GRAMMAR_STATES,STEERING_CODES,MOVES,clone,rotate90,permuteCols,shiftAllRows,shiftFirstRow,qAudit,dAudit,loShuAudit,loShuState,heptadCrosswalkState,heptadCrosswalkCode,heptadCrosswalkContract,alignmentAudit,alignmentState,macroblockFootprint,buildDualRouteFixture,dualRouteFixture,qRouteKey,dualRouteAudit,dualRouteRegisterAudit,dualRouteState,q3dApply,q3dRun,q3dCycle,q3dRubikFeasibility,q3dRubikAudit,q3dRubikRegisterAudit,q3dEdgeApply,q3dEdgeCycle,q3dEdgeSequence,q3dEdgeRubikFeasibility,q3dEdgeRubikAudit,q3dEdgeRubikRegisterAudit,q3dAudit,q3dRegisterAudit,q3dState,packingAudit,elevatorGridAddress,cubePacketAddress,returnCubePacket,elevatorWorldCrosswalk,elevatorWorldContract,alphaAddress,concatenateAddress,successorAddress,axisChecksum,parseAddressToken,compositeAddressContract,rotateGlyph,reverseFixed,mirrorAddress,offsetAddress,addressLock,addressGrammarV2,normalizeSteeringCode,steeringWeight,steeringClass,xorSteering,steeringState,steeringContract,evaluate,verify,cubeSvg,grammarSvg,steeringSvg,loShuSvg,heptadCrosswalkSvg,alignmentSvg,dualRouteSvg,dispatchHeptadSelection,mount};
+  return {MAGIC,DURER,KHAJURAHO,LO_SHU,LO_SHU_LINES,HEPTAD_ARCHETYPES,HEPTAD_CROSSWALK_CODES,ROOT7_CONTROL,ALIGNMENT_PROFILES,INSTRUMENT_DEMO_STATIONS,FROZEN_SUCCESSORS,DUAL_ROUTE_REGISTER,DUAL_ROUTE_FIXTURE,Q3D_SOURCE,Q3D_RAILS,Q3D_POSITION_TYPES,RUBIK_GENERATOR_CLASSES,Q3D_EDGE_RAILS,Q3D_EDGE_FACELETS,Q3D_EDGE_SEQUENCES,AXIS_A,AXIS_B,ADDRESS_STATES,GRAMMAR_STATES,STEERING_CODES,MOVES,clone,rotate90,permuteCols,shiftAllRows,shiftFirstRow,qAudit,dAudit,loShuAudit,loShuState,heptadCrosswalkState,heptadCrosswalkCode,heptadCrosswalkContract,alignmentAudit,alignmentState,macroblockFootprint,buildDualRouteFixture,dualRouteFixture,qRouteKey,dualRouteAudit,dualRouteRegisterAudit,dualRouteState,q3dApply,q3dRun,q3dCycle,q3dRubikFeasibility,q3dRubikAudit,q3dRubikRegisterAudit,q3dEdgeApply,q3dEdgeCycle,q3dEdgeSequence,q3dEdgeRubikFeasibility,q3dEdgeRubikAudit,q3dEdgeRubikRegisterAudit,q3dAudit,q3dRegisterAudit,q3dState,packingAudit,elevatorGridAddress,cubePacketAddress,returnCubePacket,elevatorWorldCrosswalk,elevatorWorldContract,alphaAddress,concatenateAddress,successorAddress,axisChecksum,parseAddressToken,compositeAddressContract,rotateGlyph,reverseFixed,mirrorAddress,offsetAddress,addressLock,addressGrammarV2,normalizeSteeringCode,steeringWeight,steeringClass,xorSteering,steeringState,steeringContract,instrumentDemoContract,instrumentDemoState,evaluate,verify,cubeSvg,grammarSvg,steeringSvg,loShuSvg,heptadCrosswalkSvg,alignmentSvg,dualRouteSvg,dispatchHeptadSelection,mount};
 });

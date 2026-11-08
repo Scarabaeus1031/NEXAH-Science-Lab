@@ -2,7 +2,7 @@
 
 Date: `2026-10-08`
 
-Updated: `2026-11-06` · Als private Owner-Handbuchnotizen rückgebunden; 12-Schichten-Cube-/Shell-Lesekarte ergänzt; ältere Einträge behalten ihren eigenen Stand.
+Updated: `2026-11-08` · Als private Owner-Handbuchnotizen rückgebunden; 11³-/D12-/−1/12-Vergleichslinse ergänzt; ältere Einträge behalten ihren eigenen Stand.
 
 ## Owner-Handbuchnotizen · Ideenparkplatz
 
@@ -511,6 +511,30 @@ nicht geschlossene Mitte einer Karte gelesen werden. Der World Cube macht
 Inside / Outside / Boundary, sichtbare Channels und verschiedene Seiten eines
 Carriers anschaulich. Das ist eine mögliche Orientierungshilfe, kein
 physikalisches Modell.
+
+**Owner-Nachtrag · 11³ / D12 / vorgeschlagene 13 / −1/12:** Im vorhandenen
+World-Cube-Vertrag ist `11³ = 1331` zunächst ein inneres Adressraster. `D12`
+bezeichnet die nächste deklarierte Shell-/Adressschicht. Eine mögliche `13`
+bleibt eine vorgeschlagene zweite Boundary-/Return-Adresse; sie ist weder
+automatisch `13³` noch eine physikalische Dimension. Diese Rollen dürfen als
+Vergleichskarte nebeneinanderliegen, werden hier aber nicht identifiziert.
+
+Auch `−1/12` besitzt bereits mindestens zwei lokale, verschieden typisierte
+Vorkommen. Im
+[Root-Room-View/Return-Audit](../../../NEXAH_SEALED_COMPARISON_METHOD_0_1_2026-09-17/ROOT_ROOM_VIEW_RETURN_AUDIT.md)
+ist `(12−13)/12 = −1/12` der vorzeichenbehaftete normalisierte Vergleich zu
+`(13−12)/12 = +1/12`. Im
+[Typed Return Atlas](A0_RESEARCH_DESK.html#typed-return-atlas-return-20261030)
+ist `±1/12` dagegen ein lokaler Phasenschritt, der nach zwölf Schritten
+schließt. Falls mit dem String-Theory-Hinweis die aus analytischer Fortsetzung
+oder Regularisierung bekannte `−1/12` gemeint ist, ist das ein dritter
+mathematischer Kontext — nicht die gewöhnliche Summe positiver ganzer Zahlen
+und kein Beleg für eine Cube- oder String-Identität. Vor jedem Vergleich sind
+Quelle, Formel, Operator und Regularisierungsvertrag exakt zu benennen.
+
+**Status:** `UNREVIEWED COMPARATOR / OPERATIONAL_EFFECT NONE`. Keine neue
+Theory-, Study-, Finding-, Körper- oder Dimensionsidentität; keine Änderung an
+Claim Ceiling, Evidenzstatus oder Publikationsfreigabe.
 
 **Owner-Handbuchnachtrag · TOE≠TOI / U-Kette / Ghost-Pfad / PBC:**
 `TOE ≠ TOI` wird hier ausdrücklich auf den bestehenden foundational Essay

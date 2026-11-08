@@ -8,6 +8,8 @@
   const MODULUS=280;
   const STEP=107;
   const MIRROR_STEP=(MODULUS-STEP)%MODULUS;
+  const HALF_TURN=MODULUS/2;
+  const ALPHA_RESIDUAL=HALF_TURN-STEP;
   const TRAIL_RADIUS=213;
   const TRAIL_POINT_COUNT=42;
   const INNER_RING_RADIUS=80;
@@ -57,6 +59,191 @@
     const goldenAngle=360*(1-1/((1+Math.sqrt(5))/2));
     const stepAngle=360*STEP/MODULUS;
     return {goldenAngle,stepAngle,error:Math.abs(stepAngle-goldenAngle),coprime:gcd(STEP,MODULUS)===1,orbitLength:orbit().length};
+  }
+  function seedFieldAudit(count=MODULUS){
+    if(!Number.isInteger(count)||count<1||count>MODULUS) throw new TypeError('seed field count must be an integer from 1 through 280');
+    const angle=goldenStepAudit();
+    const points=Array.from({length:count},(_,offset)=>{
+      const ordinal=offset+1;
+      return {
+        ordinal,
+        radius:Math.sqrt(ordinal/count),
+        wheelPhase:mod(ordinal*STEP),
+        wheelDegrees:mod(ordinal*angle.stepAngle,360),
+        goldenDegrees:mod(ordinal*angle.goldenAngle,360)
+      };
+    });
+    return {
+      count,
+      radialRule:'r_n = sqrt(n/N)',
+      centreSeed:{index:7,prime:17,label:'SEED 7 / p7=17'},
+      wheel:{step:STEP,modulus:MODULUS,degrees:angle.stepAngle,fullFiniteOrbit:count===MODULUS&&gcd(STEP,MODULUS)===1},
+      goldenComparator:{degrees:angle.goldenAngle,perStepDifference:angle.error,cumulativeUnwrappedDifference:(count-1)*angle.error,status:'COMPARATOR_ONLY_NOT_WHEEL_OPERATOR'},
+      gateOrdinals:[28,29,30],
+      gatePrimes:[107,109,113],
+      points,
+      typeBoundary:'CENTRE_SEED_REGISTER != RADIAL_INDEX != WHEEL_PHASE != GOLDEN_COMPARATOR'
+    };
+  }
+  function nautilusStairAudit(mode='nautilus'){
+    const availableModes=['nautilus','stairs','triangle','cube'];
+    if(!availableModes.includes(mode)) throw new TypeError(`nautilus stair mode must be one of ${availableModes.join(', ')}`);
+    const triangle=[107,109,113].map(value=>({value,index:primeIndex(value)}));
+    const letterCube=[
+      {face:'A',role:'SEED_INDEX',value:7},
+      {face:'B',role:'SEED_PRIME',value:17},
+      {face:'C',role:'GATE_P28',value:107},
+      {face:'D',role:'GATE_P29',value:109},
+      {face:'E',role:'GATE_P30',value:113},
+      {face:'F',role:'FINITE_RETURN',value:280}
+    ];
+    return {
+      mode,
+      availableModes,
+      centreSeed:{index:7,prime:17},
+      arc:{step:STEP,modulus:MODULUS,label:'R107/280 NAUTILUS PATH',status:'MORPHOLOGY_AND_ORIENTATION_GUIDE_ONLY'},
+      stairs:PRIME_MILESTONES.map(({index,prime})=>({index,prime})),
+      pinkTriangle:triangle,
+      letterCube,
+      handoff:['SEED_FIELD','NAUTILUS_PATH','PRIME_STAIR','PINK_TRIANGLE','LETTER_CUBE'],
+      sourceBindings:['A0_TYPED_MIRROR_ROTATION_COMPASS','NEXAH_A0_ORIENTATION_CONTROLLER_BENCH','PBM:GRID11'],
+      exclusions:['ASTROPHYSICS','ZODIAC','NEUTRINO','STARGATE'],
+      graphDelta:{nodes:0,relations:0,aliases:0,status:'ZERO_GRAPH_DELTA_EXISTING_A0_IDENTITY_REUSED'},
+      typeBoundary:'NAUTILUS_PATH != BIOLOGICAL_SHELL != STAIR_HEIGHT != TRIANGLE_METRIC != LETTER_MEANING != CUBE_FACE_IDENTITY'
+    };
+  }
+  function octagonWobbleAudit(mode='octagon'){
+    const availableModes=['octagon','pi-out','wobble29','crescent-strip'];
+    if(!availableModes.includes(mode)) throw new TypeError(`octagon wobble mode must be one of ${availableModes.join(', ')}`);
+    const diameter=1,radius=diameter/2,sides=8;
+    const innerPerimeter=sides*diameter*Math.sin(Math.PI/sides);
+    const outerPerimeter=sides*diameter*Math.tan(Math.PI/sides);
+    const hits=Array.from({length:29},(_,index)=>{
+      const phase=2*Math.PI*index/29;
+      return {index:index+1,degrees:360*index/29,wobbleRadius:1+0.04*Math.sin(3*phase),mark:'X'};
+    });
+    return {
+      mode,
+      availableModes,
+      circle:{diameter,radius,circumference:Math.PI*diameter},
+      octagon:{sides,turnDegrees:360/sides,innerPerimeter,outerPerimeter,sourceApproximation:3.31},
+      localIJ:{I:'INSCRIBED_INNER_POLYGON',J:'CIRCUMSCRIBED_OUTER_JACKET'},
+      hits,
+      strip:{cells:29,order:'CIRCULAR_ORDER_UNWRAPPED_LEFT_TO_RIGHT',mask:'CRESCENT_DISPLAY_OCCLUDER',readableUnderMask:true},
+      sourceBinding:'SESSION_TRANSCRIPT_ARCHIMEDES_CIRCLE_APPROXIMATION_11_32_TO_16_39',
+      graphDelta:{nodes:0,relations:0,aliases:0,status:'ZERO_GRAPH_DELTA_EXISTING_A0_IDENTITY_REUSED'},
+      typeBoundary:'OCTAGON_VERTEX != PI_CIRCUMFERENCE != I_INNER_POLYGON != J_OUTER_JACKET != X_HIT != WOBBLE_DISPLAY_OFFSET != CRESCENT_MASK != STRIP_ADDRESS'
+    };
+  }
+  function pascalStringTowerAudit(round=8,iotaOffset=0){
+    const k=Number(round),offset=Number(iotaOffset);
+    if(!Number.isInteger(k)||k<0||k>64) throw new TypeError('Pascal tower round must be an integer from 0 through 64');
+    if(!Number.isFinite(offset)||offset<-22.5||offset>22.5) throw new TypeError('Iota offset must be between -22.5 and 22.5 degrees');
+    const row=[];let coefficient=1n;
+    for(let column=0;column<=k;column+=1){row.push(coefficient);coefficient=coefficient*BigInt(k-column)/BigInt(column+1);}
+    const binaryMass=2n**BigInt(k),ternaryMass=3n**BigInt(k);
+    const riceField=k===0?0n:2n**BigInt(k-1),riceThrough=2n**BigInt(k)-1n;
+    return {
+      round:k,
+      sharedCounter:{decimal:String(k),binary:k.toString(2),ternary:k.toString(3),status:'SAME_INTEGER_DIFFERENT_RADIX_WRITINGS'},
+      pascal:{layers:k+1,rowCells:k+1,row,rowSum:binaryMass,rule:'SUM_BINOMIAL_ROW_K=2^K'},
+      trinomial:{layers:k+1,layerCells:(k+1)*(k+2)/2,coefficientSum:ternaryMass,rule:'SUM_TRINOMIAL_LAYER_K=3^K'},
+      doubling:{fields:k,fieldMass:riceField,totalThroughField:riceThrough,field64:2n**63n,totalThrough64:2n**64n-1n},
+      octagon:{vertices:8,openVertex:8,heldEdge:[8,1],turnDegrees:45,status:'OPEN_AT_8_DISPLAY_GAP'},
+      iota:{offsetDegrees:offset,baseDegrees:45,displayDegrees:45+offset,status:'LOCAL_DISPLAY_OFFSET_NOT_OPERATOR'},
+      yellowTriangles:[
+        {id:'TOWER_CABLE',legs:[30,40],hypotenuse:50,status:'EXACT_3_4_5_SCALE'},
+        {id:'IOTA_COMPARATOR',baseDegrees:45,offsetDegrees:offset,status:'ROTATED_DISPLAY_SHADOW'}
+      ],
+      tower:{measuredHeight:30,groundDistance:40,cableLength:50,sourceNarratedStorageFloors:32000,storageFloorClaimStatus:'TRANSCRIPT_NARRATION_NOT_DERIVED_HERE'},
+      sourceBindings:['A0OE:PASCAL_PENTAGON_D5_TEST','A0-BL-050','A0_VV8_COUNTERPHASE_MODEL','SESSION_TRANSCRIPT_2026_11_08'],
+      graphDelta:{nodes:0,relations:0,aliases:0,status:'ZERO_GRAPH_DELTA_EXISTING_A0_IDENTITY_REUSED'},
+      typeBoundary:'PASCAL_LAYER != TRINOMIAL_LAYER != RADIX_WRITING != RICE_FIELD != PHYSICAL_TOWER_HEIGHT != IOTA_OFFSET != OCTAGON_GAP'
+    };
+  }
+  function keystoneNewDayAudit(offsetSeconds=-300,microseconds=0){
+    const offset=Number(offsetSeconds),micros=Number(microseconds);
+    if(!Number.isInteger(offset)||offset<-300||offset>300) throw new TypeError('New Day offset must be an integer from -300 through 300 seconds');
+    if(!Number.isInteger(micros)||micros<0||micros>999999) throw new TypeError('Microsecond offset must be an integer from 0 through 999999');
+    const daySeconds=24*60*60;
+    const wrappedSeconds=((offset%daySeconds)+daySeconds)%daySeconds;
+    const hours=Math.floor(wrappedSeconds/3600),minutes=Math.floor((wrappedSeconds%3600)/60),seconds=wrappedSeconds%60;
+    const pad=value=>String(value).padStart(2,'0');
+    const frames=[
+      {id:'t1',offsetSeconds:-300,label:'23:55:00',role:'FIVE_MINUTES_BEFORE_BOUNDARY'},
+      {id:'t2',offsetSeconds:-60,label:'23:59:00',role:'FINAL_MINUTE'},
+      {id:'t3',offsetSeconds:-1,label:'23:59:59',role:'FINAL_SECOND'},
+      {id:'t4',offsetSeconds:0,label:'00:00:00',role:'IOTA_RESET_PIVOT'},
+      {id:'t5',offsetSeconds:1,label:'00:00:01',role:'YUGO_POST_RESET_VIEW'}
+    ];
+    const closestFrame=frames.reduce((best,frame)=>Math.abs(frame.offsetSeconds-offset)<Math.abs(best.offsetSeconds-offset)?frame:best,frames[0]);
+    return {
+      offsetSeconds:offset,
+      microseconds:micros,
+      displayTime:`${pad(hours)}:${pad(minutes)}:${pad(seconds)}.${String(micros).padStart(6,'0')}`,
+      clockHands:{hourDegrees:(wrappedSeconds+micros/1e6)/120,minuteDegrees:((wrappedSeconds%3600)+micros/1e6)/10,secondDegrees:(seconds+micros/1e6)*6},
+      frames,
+      closestFrame,
+      tower:{side:50,squareCells:50*50,keystone:1,total:50*50+1,factors:[41,61],formula:'L^2+1',doubling:[2501,5002,10004,20008]},
+      primeOverlap:{yearString:'1997',split:['19','97'],suffixValue:97,primeIndex:25,primeValue:97,exact:isPrime(97)&&primeIndex(97)===25,status:'STRING_SUFFIX_AND_PRIME_ADDRESS_OVERLAP_ONLY'},
+      neighborRegisters:{twentyFourPlusMinusOne:[23,25],imageCorridor:[24,25,26],status:'TWO_DECLARED_READINGS_NOT_ONE_OPERATOR'},
+      geometry:{outerVertices:8,pentagons:2,pentagonVertices:5,tubeRole:'PRE_RESET_TO_POST_RESET_VIEW_CONNECTOR'},
+      roles:{iota:'HELD_EVENT_PIVOT_AT_T4',yugo:'NORMALIZED_POST_RESET_DIRECTION_VIEW'},
+      sourceBindings:['A0_BLUE_PINK_DODECA_CELL_RETURN#LUX','A0_RESEARCH_DESK#typed-symbol-and-address-addendum','A0OE:PRIME_STAIR','A0_YUGO_IOTA_PIVOT'],
+      graphDelta:{nodes:0,relations:0,aliases:0,status:'ZERO_GRAPH_DELTA_EXISTING_A0_IDENTITY_REUSED'},
+      typeBoundary:'TOWER_CELL_COUNT != KEYSTONE_ADDRESS != MOD2501_CARRIER != YEAR_STRING != PRIME_VALUE != PRIME_INDEX != CLOCK_STATE != IOTA_PIVOT != YUGO_DIRECTION'
+    };
+  }
+  function primeGateGridAudit(){
+    const seedField=seedFieldAudit();
+    const gates=seedField.gateOrdinals.map((index,offset)=>{
+      const prime=seedField.gatePrimes[offset],point=seedField.points[index-1],angleRadians=point.wheelDegrees*Math.PI/180;
+      return {
+        index,
+        prime,
+        sum:index+prime,
+        indexMinusPrime:index-prime,
+        primeMinusIndex:prime-index,
+        product:index*prime,
+        wheelDegrees:point.wheelDegrees,
+        comparatorDegrees:point.goldenDegrees,
+        driftDegrees:index*seedField.goldenComparator.perStepDifference,
+        cosineProjection:{x:Math.cos(angleRadians),y:Math.sin(angleRadians)}
+      };
+    });
+    return {
+      gates,
+      sums:gates.map(entry=>entry.sum),
+      sumGaps:gates.slice(1).map((entry,index)=>entry.sum-gates[index].sum),
+      signedDifferences:gates.map(entry=>entry.indexMinusPrime),
+      reverseDifferences:gates.map(entry=>entry.primeMinusIndex),
+      products:gates.map(entry=>entry.product),
+      threads:gates.map((entry,lane)=>({lane:lane+1,index:entry.index,radius:142+lane*24,status:'SEPARATE_CONCENTRIC_DISPLAY_LANE'})),
+      yellowTriangle:{source:'WHEEL_FIELD_R107_OVER_280',vertices:gates.map(entry=>entry.index)},
+      greenShadow:{source:'GOLDEN_COMPARATOR_ONLY',driftDegrees:gates.map(entry=>entry.driftDegrees),status:'COMPARATOR_SHADOW_NOT_SECOND_GATE'},
+      cosineStatus:'ANGLE_COORDINATE_PROJECTION_NOT_PRIME_LAW',
+      graphDelta:{nodes:0,relations:0,aliases:0},
+      arithmeticCorrections:['29-109=-80_NOT_-70','30-113=-83_NOT_-87'],
+      typeBoundary:'PRIME_INDEX != PRIME_VALUE != SUM != SIGNED_DIFFERENCE != PRODUCT != COSINE_COORDINATE'
+    };
+  }
+  function typedStartCrosswalkAudit(){
+    const primeSeedIndex=7;
+    const primeSeedValue=17;
+    const gate=[107,109,113];
+    const nBandRatio=((1+Math.sqrt(5))/2)**3/(Math.PI**2);
+    const wheelComparator=3/7;
+    const phase203=203;
+    return {
+      ep:{formatInches:7,rpm:45,role:'SOURCE_FORMAT_AND_ENTRY_POINT_NOT_NUMERIC_OPERATOR'},
+      primeSeed:{index:primeSeedIndex,value:primeSeedValue,indexExact:primeIndex(primeSeedValue)===primeSeedIndex},
+      gate:gate.map(value=>({value,index:primeIndex(value)})),
+      gateStartIndexMultiple:primeIndex(gate[0])/primeSeedIndex,
+      alpha33:{halfTurn:HALF_TURN,step:STEP,residual:ALPHA_RESIDUAL,degrees:360*ALPHA_RESIDUAL/MODULUS,closure:STEP+ALPHA_RESIDUAL===HALF_TURN},
+      nBandComparator:{ratio:nBandRatio,wheelRatio:wheelComparator,difference:nBandRatio-wheelComparator,status:'NUMERIC_COMPARATOR_NOT_IDENTITY'},
+      phase203:{source:phase203,unwrapped:phase203+STEP,wrapped:rotate(phase203),degrees:360*phase203/MODULUS,mirror:circleMirror(phase203),status:'OWNER_DECLARED_DECIMAL_SUFFIX_COMPARATOR_NOT_INTRINSIC'},
+      typeBoundary:'EP_FORMAT != PRIME_SEED != PRIME_INDEX != WHEEL_PHASE'
+    };
   }
   function geometryAudit(){
     const stepAngle=360*STEP/MODULUS;
@@ -171,6 +358,61 @@
       projectionBoundary:'ORDINAL_HEIGHT_RESIDUE_LENS_NOT_UNIQUE_CUBE_EMBEDDING'
     };
   }
+  function flyingCarpetAudit(mode='grid'){
+    const modes=['grid','branch','spectrum'];
+    if(!modes.includes(mode)) throw new TypeError('flying carpet mode must be grid, branch or spectrum');
+    const stair=primeStairAudit();
+    const points=stair.milestones.map((entry,index)=>({
+      ...entry,
+      cFreeLabel:C_FREE_STAIR_LABELS[index],
+      gridU:entry.indexMod11,
+      gridV:C_FREE_STAIR_LABELS[index]%11
+    }));
+    const yellowApertures=[points[0],points[4]].map(entry=>({
+      prime:entry.prime,
+      displayLabel:entry.cFreeLabel,
+      visibleDifference:entry.prime-entry.cFreeLabel,
+      relation:'VISUAL_SEPARATION_ONLY'
+    }));
+    return {
+      mode,
+      availableModes:modes,
+      points,
+      cubeAddress:{sourceWord:'101',nRegister:15,displayWord:'151',status:'OWNER_DECLARED_CUBE_ADDRESS_READING_NOT_ARITHMETIC_EQUALITY'},
+      yellowApertures,
+      orangeBranch:points.map(entry=>entry.prime),
+      spectrumClasses:stair.mod9Classes,
+      coordinateRule:'U = PRIME_INDEX_MOD_11; V = OWNER_DECLARED_C_FREE_LABEL_MOD_11',
+      cFreeUniformRule:false,
+      typeBoundary:'GRID_COORDINATE != PRIME_VALUE != C_FREE_DISPLAY_LABEL != CUBE_ADDRESS_GLYPH'
+    };
+  }
+  function hingeOneAudit(mode='split'){
+    const modes=['split','hedge','drip','glyphs'];
+    if(!modes.includes(mode)) throw new TypeError('hinge-one mode must be split, hedge, drip or glyphs');
+    const glyphs=[
+      {slot:1,glyph:'*',colourRole:'PINK'},
+      {slot:2,glyph:'#',colourRole:'PINK'},
+      {slot:3,glyph:'Θ',colourRole:'YELLOW'},
+      {slot:4,glyph:'ị',colourRole:'PINK'},
+      {slot:5,glyph:'0',colourRole:'ORANGE'},
+      {slot:6,glyph:'•',colourRole:'YELLOW'},
+      {slot:7,glyph:'!',colourRole:'PINK'},
+      {slot:8,glyph:'∧',colourRole:'PINK'},
+      {slot:9,glyph:'Ж',colourRole:'YELLOW'}
+    ];
+    return {
+      mode,
+      availableModes:modes,
+      hinge:{address:1,label:'H1',role:'OWNER_DECLARED_DISPLAY_HINGE',operationBound:false},
+      partition:{upper:'PINK_HEDGE',lower:'YELLOW_DRIP',seam:'HINGE_1',status:'DISPLAY_PARTITION_ONLY'},
+      pinkHedge:{mark:'×',markCount:60,turns:1,status:'OWNER_VISUAL_SAMPLE_NOT_PANTONE_BINDING'},
+      yellowDrip:{dropCount:glyphs.length,source:'HINGE_1',target:'GLYPH_REGISTER',status:'DISPLAY_TRACE_ONLY'},
+      glyphRegister:{rows:3,columns:3,glyphs,status:'OWNER_SUPPLIED_UNASSIGNED_DISPLAY_GLYPHS'},
+      sourceBinding:{grid:'PBM:GRID11',carrier:'NEXAH_A0_ORIENTATION_CONTROLLER_BENCH',addressGrammar:'QDC_ADDRESS_GRAMMAR_V2',majorPins:2,microPins:3,closureGlyph:'ị'},
+      typeBoundary:'HINGE_ADDRESS != OPERATOR != HEDGE_MARK != YELLOW_DROP != GLYPH_MEANING'
+    };
+  }
   function ulamCoordinate(n){
     n=Number(n);
     if(!Number.isInteger(n)||n<1) throw new TypeError('ulamCoordinate requires a positive integer');
@@ -215,6 +457,25 @@
       historicalTerminal:{value:1459,primeIndex:primeIndex(1459)},
       correctedTerminal:{value:1471,primeIndex:primeIndex(1471)},
       interpretationBoundary:'THIRTEEN_OFFSETS_ONE_SHARED_QUADRATIC_SHAPE'
+    };
+  }
+  function eulerRingBreathAudit(step=140){
+    step=Number(step);
+    if(!Number.isInteger(step)||step<0||step>MODULUS) throw new TypeError('Euler ring breath step must be an integer from 0 through 280');
+    const angle=goldenStepAudit();
+    const relativeDegrees=step*angle.error;
+    const normalizedAperture=2*Math.abs(Math.sin(relativeDegrees*Math.PI/360));
+    return {
+      step,
+      floors:{lower:8,upper:5,total:13,closes:8+5===13},
+      floorPrime:{value:13,index:primeIndex(13),exact:primeIndex(13)===6},
+      addressBridge:{source:101,indexLift:primeIndex(13),target:107,exact:101+primeIndex(13)===107},
+      primePath:[{value:101,index:primeIndex(101)},{value:103,index:primeIndex(103)},{value:107,index:primeIndex(107)}],
+      primeGaps:[103-101,107-103],
+      gapTotal:107-101,
+      drift:{perStepDegrees:angle.error,relativeDegrees,normalizedAperture,terminalDegrees:MODULUS*angle.error},
+      arithmeticBoundary:{threeTimesTwo:3*2,threeSquared:3**2,oneSquared:1**2,oneIsPrime:isPrime(1)},
+      typeBoundary:'FLOOR_COUNT -> PRIME_INDEX -> ADDRESS_INCREMENT; VIEW_APERTURE_NOT_EULER_OPERATOR_OR_PHYSICAL_BREATH'
     };
   }
   function timegearAudit(){
@@ -309,18 +570,26 @@
       midpoint:{left:1031,mid:1032,right:1033,identity:1031+1033===2*1032,leftPrimeIndex:primeIndex(1031),rightPrimeIndex:primeIndex(1033)},
       residual:{high:1836,low:1729,difference:1836-1729,primeIndex:primeIndex(1836-1729)},
       circle:{modulus:MODULUS,step:STEP,mirrorStep:MIRROR_STEP,gcd:gcd(STEP,MODULUS),orbitLength:a.orbitLength,stepAngle:a.stepAngle,goldenAngle:a.goldenAngle,error:a.error,conjugacy:circleMirror(rotate(circleMirror(41),STEP))===rotate(41,MIRROR_STEP)},
+      seedField:seedFieldAudit(),
+      nautilusStair:nautilusStairAudit(),
+      primeGateGrid:primeGateGridAudit(),
       geometry:geometryAudit(),
+      typedStartCrosswalk:typedStartCrosswalkAudit(),
       primeCorridor:primeCorridorAudit(),
       symmetric567:symmetric567Audit(),
       constructionLedger:constructionLedgerAudit(),
       q840:q840Audit(),
       binary20:binary20Audit(),
       primeStair:primeStairAudit(),
+      flyingCarpet:flyingCarpetAudit(),
+      hingeOne:hingeOneAudit(),
       ulamMilestones:ulamMilestoneAudit(),
       eulerRainbow:eulerRainbowAudit(),
+      eulerRingBreath:eulerRingBreathAudit(),
       timegear:timegearAudit(),
       e8SpokeChoir:e8SpokeChoirAudit(),
       fiveTRllr:fiveTRllrAudit(),
+      keystoneNewDay:keystoneNewDayAudit(),
       lift:{operator:'L_k(n)=10^k n',sample:String(lift(1,7)),notMirror:true}
     };
   }
@@ -336,5 +605,5 @@
     next.history.push(operator);return next;
   }
 
-  return {MODULUS,STEP,MIRROR_STEP,TRAIL_RADIUS,TRAIL_POINT_COUNT,INNER_RING_RADIUS,PRIME_CORRIDOR,PRIME_MILESTONES,EULER_HISTORICAL_FLOORS,EULER_CORRECTED_FLOORS,C_FREE_STAIR_LABELS,E8_COXETER_RADII,E8_PHI_PAIRS,mod,gcd,lcm,rotate,circleMirror,digitMirror,lift,isPrime,factors,primeIndex,orbit,goldenStepAudit,geometryAudit,primeCorridorAudit,symmetric567Audit,constructionLedgerAudit,q840Audit,binary20Audit,primeStairAudit,ulamCoordinate,ulamMilestoneAudit,eulerRainbowAudit,timegearAudit,e8SpokeChoirAudit,fiveTRllrAudit,exactAudit,createState,apply};
+  return {MODULUS,STEP,MIRROR_STEP,HALF_TURN,ALPHA_RESIDUAL,TRAIL_RADIUS,TRAIL_POINT_COUNT,INNER_RING_RADIUS,PRIME_CORRIDOR,PRIME_MILESTONES,EULER_HISTORICAL_FLOORS,EULER_CORRECTED_FLOORS,C_FREE_STAIR_LABELS,E8_COXETER_RADII,E8_PHI_PAIRS,mod,gcd,lcm,rotate,circleMirror,digitMirror,lift,isPrime,factors,primeIndex,orbit,goldenStepAudit,seedFieldAudit,nautilusStairAudit,octagonWobbleAudit,pascalStringTowerAudit,keystoneNewDayAudit,primeGateGridAudit,typedStartCrosswalkAudit,geometryAudit,primeCorridorAudit,symmetric567Audit,constructionLedgerAudit,q840Audit,binary20Audit,primeStairAudit,flyingCarpetAudit,hingeOneAudit,ulamCoordinate,ulamMilestoneAudit,eulerRainbowAudit,eulerRingBreathAudit,timegearAudit,e8SpokeChoirAudit,fiveTRllrAudit,exactAudit,createState,apply};
 });

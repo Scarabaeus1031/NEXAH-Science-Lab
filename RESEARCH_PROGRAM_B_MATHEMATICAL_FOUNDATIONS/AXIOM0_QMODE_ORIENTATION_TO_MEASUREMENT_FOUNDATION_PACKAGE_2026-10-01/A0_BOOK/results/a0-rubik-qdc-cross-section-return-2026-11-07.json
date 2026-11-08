@@ -1,7 +1,7 @@
 {
-  "schema": "nexah.a0.rubik-qdc-cross-section-return/1.15.0",
-  "date": "2026-11-07",
-  "status": "IMPLEMENTED_LOCAL_SOURCE_BOUND_VIEW_WITH_PARKED_OPEN_WORK_FREEZE",
+  "schema": "nexah.a0.rubik-qdc-cross-section-return/1.16.0",
+  "date": "2026-11-08",
+  "status": "IMPLEMENTED_LOCAL_SOURCE_BOUND_ACTIVATABLE_DEMO_WITH_PARKED_OPEN_WORK_FREEZE",
   "open_work_freeze": {
     "state": "PARKED_HOLD_NO_ACTIVE_SUCCESSOR",
     "date": "2026-11-07",
@@ -76,6 +76,22 @@
   "publication_authorized": false,
   "deployment_authorized": false,
   "contracts": {
+    "activatable_instrument_demo": {
+      "activation": "LOCAL_DEMONSTRATOR_STATE_ONLY",
+      "stations": ["WORLD_CUBE_CARRIER", "QD_34_PLATES", "ADDRESS_LOCK_M83_W38", "SEVEN_WAY_111", "LO_SHU_CENTER_5", "HEPTAD14_ROOT7", "ANGLE_HINGE_SOURCE", "QD_DUAL_ROUTE_B12", "ELEVATOR_1220_CAP", "Q3D_ORDER", "QE_DE_LEGAL_EDGE", "EXACT_RETURN_HOME_FREEZE"],
+      "connection_classes": ["SAME_CARRIER", "VIEW_ADAPTER", "SHARED_ADDRESS", "STATE_BRIDGE", "DISPATCH_BRIDGE", "SHARED_BLOCK_ADDRESS", "ADDRESS_CROSSWALK", "VERIFIER_BRIDGE", "EXACT_RETURN"],
+      "live_bridges": {
+        "ui_state": "existing QDC render functions",
+        "heptad_dispatch": "existing Heptad-14 adapter receives the selected primary step",
+        "address_crosswalk": "existing Elevator and macroblock address returns",
+        "cube_verifier": "existing 54-facelet A0SixFaceRainbowTube verifier"
+      },
+      "return": "station 12 and RETURN/STOP restore Q/D HOME, split address, M83 t1, steering 000, Lo Shu D1, Heptad 100, source hinge, dual B12, Q3D HOME B12 and Elevator 0",
+      "frozen_successors_excluded": 6,
+      "identity_merge": false,
+      "navigator_effect": {"nodes": 0, "relations": 0, "aliases": 0, "operators": 0},
+      "status": "BROWSER_VERIFIED_ACTIVATABLE_LOCAL_DEMONSTRATOR"
+    },
     "outer_12": {
       "volume": 1728,
       "module_volume": 27,
@@ -279,10 +295,10 @@
   ],
   "tests": {
     "command": "node A0_BOOK/assets/game-of-worlds-play/ioi-world-cube/rubik-qdc-cross-section-tests.cjs",
-    "assertions": 200,
-    "status": "200_OF_200_PASS"
+    "assertions": 212,
+    "status": "212_OF_212_PASS"
   },
-  "browser_acceptance": "PASS_VISIBLE_Q3D_EDGE_ONLY_FIVE_STEP_LEGALITY_RECEIPT_B12_TARGET_6_OF_54_FACELETS_ORDER3_INVERSE_AND_16_BLOCK_PROJECTION_SHOWN / RUNTIME_VERIFIED_BY_200_OF_200_NODE_ASSERTIONS",
+  "browser_acceptance": "PASS_VISIBLE_ACTIVATABLE_12_STATION_INSTRUMENT_DEMO / HEPTAD_DISPATCH_TO_STEP_08_OF_14_VERIFIED / STATION_12_EXACT_RETURN_AND_STOP_TO_00_OF_12_VERIFIED / RUNTIME_VERIFIED_BY_212_OF_212_NODE_ASSERTIONS",
   "claim_boundary": [
     "49 complete 27-unit volume packets plus remainder 8 is not a geometric packing of forty-nine 3x3x3 cubes inside an 11x11x11 cube",
     "the five controls are declared matrix transformations, not canonical Rubik group generators",
