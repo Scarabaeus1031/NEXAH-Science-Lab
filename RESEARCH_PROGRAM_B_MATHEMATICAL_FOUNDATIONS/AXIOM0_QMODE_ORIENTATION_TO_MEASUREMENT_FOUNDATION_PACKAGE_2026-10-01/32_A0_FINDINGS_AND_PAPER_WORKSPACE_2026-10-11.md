@@ -2700,6 +2700,127 @@ OPERATOR 0 / STUDY 0 / FINDING 0 / CLAIM CHANGE 0 / PUBLICATION 0`.
 [Builder Log](A0_BOOK/A0_BUILDER_LOG.html#rubik-qdc-cross-section-builder-return-20261107) ·
 [Receipt](A0_BOOK/results/a0-rubik-qdc-cross-section-return-2026-11-07.json)
 
+<a id="pascal-joint-aquarium-orca-pinguin-pendulum--2026-11-08"></a>
+
+### Pascal Joint Aquarium / Orca–Pinguin / Nautilus display — 2026-11-08
+
+Classification: `OWNER-OBSERVED ENGINEERING VIEW FINDING / SAME WORLD-CUBE
+CARRIER / NOT_NEW_SCIENTIFIC_FINDING / NO_F-A0_PROMOTION`.
+
+Mode 10 adds two display arms around one visible pivot: ORCA carries the broad
+slow arc and PINGUIN the shorter counter-pulse; DUET activates both. BLUE WHALE
+and SQUID frame, but do not fill, the open `33 + 1 · ATEM / KOPF` aperture.
+NAUTILUS adds a chambered shell trace around that opening. RETURN restores both
+arms and all chamber/centre motion exactly to HOME.
+
+The names are local image and motion roles. The shell is a figure-ground aid:
+it articulates the boundary without closing the centre. No animal or mollusc
+species, aquarium/fluid simulation, growth law, Fibonacci/phi relation,
+asserted logarithmic spiral, gravity, frequency, coupled-pendulum dynamics,
+breathing mechanism or anatomical identity is claimed. New identity, relation,
+alias, operator, Study, canonical Scientific Finding, deployment and
+publication remain `0`.
+
+[Instrument](A0_BOOK/assets/game-of-worlds-play/ioi-world-cube/index.html?rev=pascal-joint-loop-r20#pascalJointRoulette3) ·
+[Science Desk](A0_BOOK/A0_RESEARCH_DESK.html#pascal-joint-aquarium-orca-pinguin-pendulum-finding-20261108) ·
+[Builder Log](A0_BOOK/A0_BUILDER_LOG.html#pascal-joint-aquarium-orca-pinguin-pendulum-builder-20261108)
+
+<a id="pascal-joint-penta-magnet-crescent--2026-11-08"></a>
+
+### Pascal Joint Penta Magnet / Crescent — 2026-11-08
+
+Classification: `OWNER_OBSERVED_ENGINEERING_VIEW_FINDING /
+NOT_CANONICAL_SCIENTIFIC_FINDING / NO_F-A0_PROMOTION / DISPLAY_ONLY`.
+
+The current Sphere Cube made the small pin bloom visible but did not expose the
+governing fivefold orientation strongly enough. The r16 view therefore renders
+one large code-native pentagram as exactly five star lines, five outer corners
+and five square line witnesses. This is the bounded content of the finding:
+the larger construction makes the existing C5/D5 gameplay orientation legible.
+
+A separate crescent ray records the Owner cue `11→23 / 333°`. The angle reuses
+the already source-bound DIRECT-ZETA compass reference and is not derived from
+the pentagram. Shared display placement does not create an operator or Source
+Graph relation.
+
+“Penta Magnet” names the visual attractor in the game. It does not claim
+magnetic force, a physical field, attraction measurement or a common mechanism.
+The crescent does not claim a Moon, orbit or astronomical alignment.
+
+Disposition: `EXISTING A0 GAME + PASCAL PENTAGON D5 + DIRECT-ZETA REFERENCES
+REUSED / 5 LINES / 5 CORNERS / 5 SQUARES / 11-TO-23 / 333-DEGREE DISPLAY /
+NEW NAVIGATOR ID 0 / RELATION 0 / ALIAS 0 / OPERATOR 0 / STUDY 0 / CANONICAL
+SCIENTIFIC FINDING 0 / CLAIM PROMOTION 0 / PUBLICATION 0`.
+
+[Instrument](A0_BOOK/assets/game-of-worlds-play/ioi-world-cube/index.html?rev=pascal-joint-loop-r16#pascalJointRoulette3) ·
+[Science Desk](A0_BOOK/A0_RESEARCH_DESK.html#pascal-joint-penta-magnet-crescent-finding-20261108) ·
+[Builder Log](A0_BOOK/A0_BUILDER_LOG.html#pascal-joint-penta-magnet-crescent-builder-20261108) ·
+[Receipt](A0_BOOK/results/a0-pascal-joint-loop-return-2026-11-08.json)
+
+<a id="pascal-joint-deep-blue-wobble-crack--2026-11-08"></a>
+
+### Pascal Joint Deep Blue wobble / crack — 2026-11-08
+
+Classification: `OWNER_OBSERVED_ENGINEERING_VIEW_FINDING /
+NOT_CANONICAL_SCIENTIFIC_FINDING / DISPLAY_AND_INTERACTION_ONLY`.
+
+The existing World Cube now has a separate mode below Roulette³. A heavy outer
+frame leads a slow bounded display wobble, while the deep-blue inner field
+follows on a longer delayed phase. One seven-shaped seam opens two clipped view
+halves. `RETURN` removes the animation, closes the seam and restores exact
+visual `HOME · Δ0`.
+
+The stage is a scalable `760×480` SVG rather than a `1000×1000` raster. The
+strength control changes only CSS display amplitudes, and reduced-motion
+preference disables animation while retaining a static bounded split view.
+
+Deep Blue, ocean, hovering, trembling and crack are view language. They do not
+claim an ocean, fluid dynamics, earthquake, fracture, material response or a
+second Cube carrier.
+
+Disposition: `EXISTING A0 GAME / WORLD CUBE / PASCAL JOINT SOURCES REUSED /
+SEPARATE MODE BELOW ROULETTE3 / 760x480 SVG / FRAME LEADS / FIELD LAGS /
+7-SHAPED SPLIT / EXACT RETURN / NEW NAVIGATOR ID 0 / RELATION 0 / ALIAS 0 /
+OPERATOR 0 / STUDY 0 / CANONICAL SCIENTIFIC FINDING 0 / CLAIM PROMOTION 0 /
+PUBLICATION 0`.
+
+[Instrument](A0_BOOK/assets/game-of-worlds-play/ioi-world-cube/index.html?rev=pascal-joint-loop-r17#pascalJointRoulette3) ·
+[Science Desk](A0_BOOK/A0_RESEARCH_DESK.html#pascal-joint-deep-blue-wobble-crack-finding-20261108) ·
+[Builder Log](A0_BOOK/A0_BUILDER_LOG.html#pascal-joint-deep-blue-wobble-crack-builder-20261108) ·
+[Receipt](A0_BOOK/results/a0-pascal-joint-loop-return-2026-11-08.json)
+
+<a id="pascal-joint-frame-ship-hepta-fish--2026-11-08"></a>
+
+### Pascal Joint Frame Ship / hepta-fish counterface — 2026-11-08
+
+Classification: `OWNER_OBSERVED_ENGINEERING_VIEW_FINDING /
+NOT_CANONICAL_SCIENTIFIC_FINDING / DISPLAY_AND_INTERACTION_ONLY`.
+
+The unchanged World Cube carrier now has a second `760×480` view below Deep
+Blue. Its heavy outer frame is locally readable as ship, lantern and Cube
+corner. A seven-node steering figure with bounded magenta chords occupies the
+center.
+
+The long gold `SPEER` is the fixed carrier/keel axis. The shorter `PFEIL` is the
+current direction vector. `HECHT →` and `← Z-FACED` select opposing local fish
+counterfaces; optional `GLIDE` adds bounded display motion. `RETURN` clears the
+direction, glide and arrow state and restores exact visual `HOME`.
+
+Ship, lantern, Hecht, zebra/Z-faced fish head, spear and arrow are view
+language. They do not claim a vessel, weapon, animal or biological species,
+propulsion, a navigation mechanism or a second Cube carrier.
+
+Disposition: `EXISTING A0 GAME / WORLD CUBE / PASCAL JOINT / HEPTAD AND
+GELENKLATERNE REFERENCES REUSED / SECOND VIEW BELOW DEEP BLUE / 7-NODE
+HEPTAGON / SPEER FIXED AXIS / PFEIL CURRENT VECTOR / HECHT + Z-FACED /
+EXACT RETURN / NEW NAVIGATOR ID 0 / RELATION 0 / ALIAS 0 / OPERATOR 0 /
+STUDY 0 / CANONICAL SCIENTIFIC FINDING 0 / CLAIM PROMOTION 0 / PUBLICATION 0`.
+
+[Instrument](A0_BOOK/assets/game-of-worlds-play/ioi-world-cube/index.html?rev=pascal-joint-loop-r18#pascalJointRoulette3) ·
+[Science Desk](A0_BOOK/A0_RESEARCH_DESK.html#pascal-joint-frame-ship-hepta-fish-finding-20261108) ·
+[Builder Log](A0_BOOK/A0_BUILDER_LOG.html#pascal-joint-frame-ship-hepta-fish-builder-20261108) ·
+[Receipt](A0_BOOK/results/a0-pascal-joint-loop-return-2026-11-08.json)
+
 <a id="typed-mirror-wheel-gate-closeout--2026-11-08"></a>
 
 ### Typed Mirror wheel / gate closeout — 2026-11-08
