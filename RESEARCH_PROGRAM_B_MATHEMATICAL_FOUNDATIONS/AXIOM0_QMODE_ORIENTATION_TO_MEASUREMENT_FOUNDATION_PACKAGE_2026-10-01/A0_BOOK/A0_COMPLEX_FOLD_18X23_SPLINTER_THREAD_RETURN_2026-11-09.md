@@ -73,6 +73,51 @@ g(r)=\left\|C_i^+(r)-C_i^-(r)\right\|=2r\sin|\delta|.
 
 This gives a reproducible local gap. It does not yet define a full origami crease pattern or prove global flat foldability.
 
+## Atlas Bridge local-cut lens
+
+The existing historical Atlas Bridge record lists the following sphere groups:
+
+```text
+core axis: 3
+flanks: 2
+double crown: 2
+Pleiades shell: 7
+resonance nodes: 4
+```
+
+The exact count is therefore:
+
+```math
+7_{\mathrm{inner}}=3_{\mathrm{axis}}+2_{\mathrm{flanks}}+2_{\mathrm{crown}},
+```
+
+```math
+18=7_{\mathrm{inner}}+7_{\mathrm{outer}}+4_{\mathrm{nodes}}.
+```
+
+The historical shorthand `3+1+1+7+4=18` is arithmetically false (`16`, not `18`) and is not retained by this instrument. The five-part carrier or “Wagen” is the bounded role grouping `3 axis + 2 flanks = 5`; it becomes the inner septet only after adding the two crown roles. This count does not establish a regular pentagon, pyramid or physical mechanism.
+
+For three macro nodes, let
+
+```math
+K_k=R_{2\pi k/3}(R,0), \qquad k\in\{0,1,2\}.
+```
+
+At each node, define the radial normal and its tangent:
+
+```math
+n_k=(\cos\alpha_k,\sin\alpha_k),\qquad
+t_k=(-\sin\alpha_k,\cos\alpha_k),\qquad n_k\cdot t_k=0.
+```
+
+The selected `Inner-1` cut at radius `ρ₁` is the local pair
+
+```math
+G_{k,\pm}=K_k+\rho_1n_k\pm\frac{g(\rho_1)}{2}t_k.
+```
+
+Thus the gap is read along a tangent that is exactly orthogonal to the circle radius. The three displayed cuts repeat one declared local rule; “Tri-Entanglement” is a documentary macro-view and does not assert physical entanglement. This is a relation lens between existing Atlas Bridge imagery and the existing SCC-003/A0 Splinter carrier, not a new graph identity or canonical relation.
+
 ## Origami constraints still required
 
 For an actual single-vertex flat-foldable crease pattern, at least the following tests must be performed on the ordered sector angles and mountain/valley assignment:
