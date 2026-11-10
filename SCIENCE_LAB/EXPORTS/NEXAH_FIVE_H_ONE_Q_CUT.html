@@ -1069,6 +1069,23 @@ html&gt;body{padding:0}&lt;/style&gt;
     #five-h-q-cut .fhq-stages { margin-top: 0.35rem; }
     #five-h-q-cut .fhq-stage-panel { margin-top: 0.35rem; min-height: 1.4rem; color: var(--muted-foreground); }
     #five-h-q-cut .fhq-detail { margin: 0.3rem 0 0; min-height: 1.4rem; color: var(--muted-foreground); }
+    #five-h-q-cut .fhq-legend { margin-top: 0.8rem; padding-top: 0.7rem; border-top: 1px solid var(--border); }
+    #five-h-q-cut .fhq-legend-head { display: flex; align-items: center; justify-content: space-between; gap: 0.75rem; flex-wrap: wrap; }
+    #five-h-q-cut .fhq-legend-title { margin: 0; color: var(--foreground); font-weight: 600; letter-spacing: 0.04em; }
+    #five-h-q-cut .fhq-role-list { display: flex; flex-wrap: wrap; gap: 0.45rem 1rem; margin: 0.55rem 0 0; padding: 0; list-style: none; }
+    #five-h-q-cut .fhq-role { display: inline-flex; align-items: center; gap: 0.4rem; color: var(--muted-foreground); }
+    #five-h-q-cut .fhq-swatch { width: 1.4rem; height: 0.18rem; flex: 0 0 auto; background: var(--border); }
+    #five-h-q-cut .fhq-swatch-carrier { height: 0.75rem; border: 1px solid var(--border); background: transparent; }
+    #five-h-q-cut .fhq-swatch-q { background: var(--fhq-q); }
+    #five-h-q-cut .fhq-swatch-cut { background: var(--fhq-cut); }
+    #five-h-q-cut .fhq-swatch-pearl { width: 0.75rem; height: 0.75rem; border-radius: 50%; background: var(--viz-series-2); }
+    #five-h-q-cut .fhq-swatch-shadow { background: var(--muted-foreground); }
+    #five-h-q-cut .fhq-swatch-record { background: var(--fhq-record); }
+    #five-h-q-cut .fhq-swatch-return { height: 0; border-top: 2px dashed var(--viz-series-5); background: transparent; }
+    #five-h-q-cut .fhq-held { margin-top: 0.65rem; padding: 0.65rem 0.75rem; border-left: 2px solid var(--viz-series-5); background: color-mix(in srgb, var(--viz-series-5) 7%, transparent); }
+    #five-h-q-cut .fhq-held[hidden] { display: none; }
+    #five-h-q-cut .fhq-held p { margin: 0; }
+    #five-h-q-cut .fhq-held p + p { margin-top: 0.35rem; }
     @media (max-width: 680px) {
       #five-h-q-cut .fhq-stage { min-height: 930px; }
     }
@@ -1111,6 +1128,26 @@ html&gt;body{padding:0}&lt;/style&gt;
 
   &lt;p class=&quot;fhq-detail text-small&quot; aria-live=&quot;polite&quot;&gt;&lt;/p&gt;
 
+  &lt;section class=&quot;fhq-legend text-small&quot; aria-labelledby=&quot;fhq-legend-title&quot;&gt;
+    &lt;div class=&quot;fhq-legend-head&quot;&gt;
+      &lt;p class=&quot;fhq-legend-title&quot; id=&quot;fhq-legend-title&quot;&gt;CODED ROLES · OPERATOR LAYER&lt;/p&gt;
+      &lt;button class=&quot;btn&quot; id=&quot;fhq-held-toggle&quot; type=&quot;button&quot; aria-expanded=&quot;false&quot; aria-controls=&quot;fhq-held-reading&quot;&gt;HELD READING · OFF&lt;/button&gt;
+    &lt;/div&gt;
+    &lt;ul class=&quot;fhq-role-list&quot;&gt;
+      &lt;li class=&quot;fhq-role&quot;&gt;&lt;span class=&quot;fhq-swatch fhq-swatch-carrier&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;T⁴ Carrier · projection scaffold&lt;/li&gt;
+      &lt;li class=&quot;fhq-role&quot;&gt;&lt;span class=&quot;fhq-swatch fhq-swatch-q&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;Q° Pin · local observation&lt;/li&gt;
+      &lt;li class=&quot;fhq-role&quot;&gt;&lt;span class=&quot;fhq-swatch fhq-swatch-cut&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;ι · IOTA CUT · oriented section&lt;/li&gt;
+      &lt;li class=&quot;fhq-role&quot;&gt;&lt;span class=&quot;fhq-swatch fhq-swatch-pearl&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;Bronze Pearl · projected state&lt;/li&gt;
+      &lt;li class=&quot;fhq-role&quot;&gt;&lt;span class=&quot;fhq-swatch fhq-swatch-shadow&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;Silver Shadow · mask boundary&lt;/li&gt;
+      &lt;li class=&quot;fhq-role&quot;&gt;&lt;span class=&quot;fhq-swatch fhq-swatch-record&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;Green Record · held trace&lt;/li&gt;
+      &lt;li class=&quot;fhq-role&quot;&gt;&lt;span class=&quot;fhq-swatch fhq-swatch-return&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;Purple Return · re-feed&lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;div class=&quot;fhq-held&quot; id=&quot;fhq-held-reading&quot; hidden&gt;
+      &lt;p&gt;&lt;strong&gt;HELD READING · reader aliases, no operator identity&lt;/strong&gt;&lt;/p&gt;
+      &lt;p&gt;THOTH holds the carrier · HEART names the round trip · WHALE follows the purple return · PINOCCHIO marks OUT / OUT′ across the cut.&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/section&gt;
+
   &lt;script&gt;
     (() =&gt; {
       const root = document.getElementById(&#x27;five-h-q-cut&#x27;);
@@ -1124,6 +1161,8 @@ html&gt;body{padding:0}&lt;/style&gt;
       const janusButton = root.querySelector(&#x27;[data-janus-run]&#x27;);
       const stagePanel = root.querySelector(&#x27;#fhq-stage-panel&#x27;);
       const detail = root.querySelector(&#x27;.fhq-detail&#x27;);
+      const heldToggle = root.querySelector(&#x27;#fhq-held-toggle&#x27;);
+      const heldReading = root.querySelector(&#x27;#fhq-held-reading&#x27;);
       const ns = &#x27;http://www.w3.org/2000/svg&#x27;;
       const breathClocks = [
         { id: &#x27;H₁&#x27;, name: &#x27;DAY&#x27;, period: 0.9999998937, display: &#x27;24 h&#x27;, kind: &#x27;BEAT&#x27;, color: &#x27;var(--viz-series-1)&#x27; },
@@ -1158,6 +1197,13 @@ html&gt;body{padding:0}&lt;/style&gt;
       let janusRunning = false;
       const janusGates = [3, 6, 9, 12, 24, 36, 42, 48];
       let gateIndex = -1;
+
+      heldToggle.addEventListener(&#x27;click&#x27;, () =&gt; {
+        const expanded = heldToggle.getAttribute(&#x27;aria-expanded&#x27;) === &#x27;true&#x27;;
+        heldToggle.setAttribute(&#x27;aria-expanded&#x27;, String(!expanded));
+        heldToggle.textContent = `HELD READING · ${expanded ? &#x27;OFF&#x27; : &#x27;ON&#x27;}`;
+        heldReading.hidden = expanded;
+      });
 
       const make = (tag, attrs = {}, content = &#x27;&#x27;) =&gt; {
         const el = document.createElementNS(ns, tag);
@@ -1390,7 +1436,7 @@ html&gt;body{padding:0}&lt;/style&gt;
         line(projX-pearlR*1.25, projY+pearlR*0.72, projX+pearlR*1.25, projY-pearlR*0.72, &#x27;fhq-cut&#x27;);
         textAt(projX, projY+4, &#x27;Φπ&#x27;, &#x27;fhq-label&#x27;, &#x27;middle&#x27;);
         textAt(projX, projY-pearlR-70, &#x27;T⁴ CARRIER&#x27;, &#x27;fhq-label&#x27;, &#x27;middle&#x27;);
-        textAt(projX+pearlR*1.12, projY-pearlR*0.72-8, &#x27;ι CUT&#x27;, &#x27;fhq-muted&#x27;, &#x27;start&#x27;);
+        textAt(projX+pearlR*1.12, projY-pearlR*0.72-8, &#x27;ι · IOTA CUT&#x27;, &#x27;fhq-muted&#x27;, &#x27;start&#x27;);
         textAt(projX, projY+pearlR+80, &#x27;T³(q) · PROJECTED STATE&#x27;, &#x27;fhq-label&#x27;, &#x27;middle&#x27;);
 
         const recordX = loom ? width * 0.15 : Math.min(width-155, projX+170);

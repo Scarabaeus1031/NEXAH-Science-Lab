@@ -23,6 +23,10 @@ for (const token of ["Hⱼ", "Q°", "ΠQ", "TRACE", "MASK", "T³(q)"]) {
   assert.ok(source.includes(token), `canonical surface is missing ${token}`);
 }
 
+for (const token of ["ι · IOTA CUT", "CODED ROLES · OPERATOR LAYER", "HELD READING · reader aliases, no operator identity"]) {
+  assert.ok(source.includes(token), `canonical surface is missing reading boundary ${token}`);
+}
+
 for (const path of Object.values(binding.bindings).filter((value) => !value.includes(":"))) {
   await readFile(new URL(path, root));
 }

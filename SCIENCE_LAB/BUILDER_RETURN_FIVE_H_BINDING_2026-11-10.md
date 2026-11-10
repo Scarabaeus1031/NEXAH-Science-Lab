@@ -14,7 +14,7 @@ The canonical implementation remains:
 
 with SHA-256:
 
-`8c733218dfd1ae6e8632653439877c059429286fa45e09889d0ccfdce0e123ca`
+`260703da4277c1236d719781c036a24ee4fea2445c4b2a587898f82cce4dfa16`
 
 `NEXAH-Experience` receives a generated, byte-identical read-only projection at
 `public/review-assets/scc-003-r1/demonstrators/five-h-one-q-cut.html`. The
