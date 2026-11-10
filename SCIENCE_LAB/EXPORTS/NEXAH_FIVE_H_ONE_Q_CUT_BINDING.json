@@ -1,0 +1,37 @@
+{
+  "schema": "nexah.five-h-binding/1.0.0",
+  "date": "2026-11-10",
+  "binding_id": "BIND:FIVE_H:SCC_003",
+  "identity_effect": "REUSES_EXISTING_IDENTITIES_ONLY",
+  "canonical_surface": {
+    "entity_id": "ART:FIVE_H:ONE_Q_CUT",
+    "module_id": "MOD:FIVE_H_PHASE_CUT",
+    "repository": "NEXAH-Science-Lab",
+    "path": "SCIENCE_LAB/EXPORTS/NEXAH_FIVE_H_ONE_Q_CUT.html",
+    "sha256": "8c733218dfd1ae6e8632653439877c059429286fa45e09889d0ccfdce0e123ca"
+  },
+  "related_identity": "SCC-003 / A0OE:PASCAL_PENTAGON_D5_TEST",
+  "contract": ["Hⱼ", "Q°", "ΠQ", "TRACE", "MASK", "T³(q)"],
+  "contract_display": "Hⱼ → Q° → ΠQ → TRACE → MASK → T³(q)",
+  "bindings": {
+    "scc_003_projection": "NEXAH-Experience:/scc-003-r1/five-h-binding/",
+    "science_desk_return": "RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/results/a0-scc-003-five-h-binding-return-2026-11-10.json",
+    "mission_control_return": "SCIENCE_LAB/MISSION_CONTROL_RETURN_FIVE_H_BINDING_2026-11-10.md",
+    "builder_desk_return": "SCIENCE_LAB/BUILDER_RETURN_FIVE_H_BINDING_2026-11-10.md"
+  },
+  "navigator_effect": {
+    "new_entities": 0,
+    "new_relations": 0,
+    "new_aliases": 0,
+    "canonical_counts_changed": false,
+    "note": "Documentary source binding over existing Five-H and SCC-003 identities; no Source Graph relation is asserted."
+  },
+  "authority": {
+    "science": "A0 Science Desk / NEXAH Science Lab",
+    "implementation": "NEXAH-Science-Lab for the canonical instrument; NEXAH-Experience for the read-only channel projection",
+    "currentness_and_release": "Mission Control",
+    "technical_verification": "Builder Desk / B0",
+    "publication_authorized": false
+  },
+  "claim_boundary": "The binding is a documentary comparison and navigation lens. It does not alter SCC-003 claims C1-C6, prove carrier identity, create a physical or astronomical mechanism, activate a Study, or authorize publication."
+}
