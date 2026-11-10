@@ -27,6 +27,10 @@ for (const token of ["ι · IOTA CUT", "CODED ROLES · OPERATOR LAYER", "HELD RE
   assert.ok(source.includes(token), `canonical surface is missing reading boundary ${token}`);
 }
 
+for (const token of ["5-STRING LOOP · OFF", "FIVE-STRING SCORE · 5 SAITEN · Q° = TAKTSTRICH", "½ NODE · 24 h HINGE"]) {
+  assert.ok(source.includes(token), `canonical surface is missing score-loop token ${token}`);
+}
+
 for (const path of Object.values(binding.bindings).filter((value) => !value.includes(":"))) {
   await readFile(new URL(path, root));
 }

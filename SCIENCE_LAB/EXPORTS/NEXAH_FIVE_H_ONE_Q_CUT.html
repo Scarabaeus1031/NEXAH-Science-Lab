@@ -1106,6 +1106,7 @@ html&gt;body{padding:0}&lt;/style&gt;
       &lt;button class=&quot;btn&quot; type=&quot;button&quot; data-view=&quot;triptych&quot; aria-pressed=&quot;false&quot;&gt;TRIPTYCHON&lt;/button&gt;
       &lt;button class=&quot;btn&quot; type=&quot;button&quot; data-next-gate&gt;Gate → 3 h&lt;/button&gt;
       &lt;button class=&quot;btn&quot; type=&quot;button&quot; data-janus-run&gt;JANUS · 2 Tage&lt;/button&gt;
+      &lt;button class=&quot;btn&quot; type=&quot;button&quot; data-score-loop aria-pressed=&quot;false&quot;&gt;5-STRING LOOP · OFF&lt;/button&gt;
     &lt;/div&gt;
   &lt;/div&gt;
 
@@ -1145,6 +1146,7 @@ html&gt;body{padding:0}&lt;/style&gt;
     &lt;div class=&quot;fhq-held&quot; id=&quot;fhq-held-reading&quot; hidden&gt;
       &lt;p&gt;&lt;strong&gt;HELD READING · reader aliases, no operator identity&lt;/strong&gt;&lt;/p&gt;
       &lt;p&gt;THOTH holds the carrier · HEART names the round trip · WHALE follows the purple return · PINOCCHIO marks OUT / OUT′ across the cut.&lt;/p&gt;
+      &lt;p&gt;H IV / H II O names an even-string reading · ½ NODE marks the hinge · I / p q b d names a mirror-turn alphabet · 0.01 ↔ 1.00 is a display-scale reading.&lt;/p&gt;
     &lt;/div&gt;
   &lt;/section&gt;
 
@@ -1159,6 +1161,7 @@ html&gt;body{padding:0}&lt;/style&gt;
       const viewButtons = [...root.querySelectorAll(&#x27;[data-view]&#x27;)];
       const nextGateButton = root.querySelector(&#x27;[data-next-gate]&#x27;);
       const janusButton = root.querySelector(&#x27;[data-janus-run]&#x27;);
+      const scoreLoopButton = root.querySelector(&#x27;[data-score-loop]&#x27;);
       const stagePanel = root.querySelector(&#x27;#fhq-stage-panel&#x27;);
       const detail = root.querySelector(&#x27;.fhq-detail&#x27;);
       const heldToggle = root.querySelector(&#x27;#fhq-held-toggle&#x27;);
@@ -1195,6 +1198,8 @@ html&gt;body{padding:0}&lt;/style&gt;
       let viewMode = &#x27;readout&#x27;;
       let janusHour = 0;
       let janusRunning = false;
+      let scoreLoopRunning = false;
+      let scoreLoopFrame = 0;
       const janusGates = [3, 6, 9, 12, 24, 36, 42, 48];
       let gateIndex = -1;
 
@@ -1379,15 +1384,26 @@ html&gt;body{padding:0}&lt;/style&gt;
 
           timeValue.textContent = `${t0.toFixed(1)} d`;
           stagePanel.textContent = activeStage === &#x27;mask&#x27; ? stageDescriptions.mask : &#x27;TRIPTYCHON · Licht erzeugt die Projektion, der Schatten hält die Maske, der Record kehrt als Faden zurück.&#x27;;
-          if (!running &amp;&amp; !janusRunning) detail.textContent = `3+6+9+12+24+36+42+48 = 180° · SHADOW ist die aktive Mittelansicht.`;
+          if (!running &amp;&amp; !janusRunning &amp;&amp; !scoreLoopRunning) detail.textContent = `3+6+9+12+24+36+42+48 = 180° · SHADOW ist die aktive Mittelansicht.`;
           return;
         }
 
         const clocks = activeStage === &#x27;base&#x27; ? baseClocks : breathClocks;
         textAt(bankLeft, 22, activeStage === &#x27;base&#x27; ? &#x27;BASE CLOCKS Tⱼ&#x27; : &#x27;DISPLAY RHYTHMS Hⱼ&#x27;, &#x27;fhq-label&#x27;);
         textAt(qX, 22, &#x27;Q°(t₀)&#x27;, &#x27;fhq-label&#x27;, &#x27;middle&#x27;);
+        if (loom) textAt((clockX+qX)/2, 112, &#x27;FIVE-STRING SCORE · 5 SAITEN · Q° = TAKTSTRICH&#x27;, &#x27;fhq-muted&#x27;, &#x27;middle&#x27;);
         line(qX, qTop, qX, qBottom, &#x27;fhq-q&#x27;);
         arrow(qX, qTop, -Math.PI/2, &#x27;fhq-q&#x27;);
+
+        if (loom) {
+          const scoreX0 = clockX + radius + 9;
+          const scoreW = qX - scoreX0;
+          janusGates.filter((hour) =&gt; hour &lt; 48).forEach((hour) =&gt; {
+            const x = scoreX0 + scoreW * hour / 48;
+            line(x, qTop+22, x, qBottom-22, hour === 24 ? &#x27;fhq-soft&#x27; : &#x27;fhq-structure&#x27;, hour === 24 ? &#x27;stroke-width:2&#x27; : &#x27;opacity:0.38&#x27;);
+          });
+          textAt(scoreX0 + scoreW/2, qBottom+21, &#x27;½ NODE · 24 h HINGE&#x27;, &#x27;fhq-muted&#x27;, &#x27;middle&#x27;);
+        }
 
         const cutPoints = [];
         clocks.forEach((clock, index) =&gt; {
@@ -1486,7 +1502,7 @@ html&gt;body{padding:0}&lt;/style&gt;
 
         timeValue.textContent = `${t0.toFixed(1)} d`;
         stagePanel.textContent = stageDescriptions[activeStage];
-        if (!running &amp;&amp; !janusRunning) detail.textContent = `JANUS ${janusHour.toFixed(0)} h · DAY/NIGHT-Doppellauf · Gatefolge 3–6–9–12–24–36–42–48 · Record wird zurück eingespeist.`;
+        if (!running &amp;&amp; !janusRunning &amp;&amp; !scoreLoopRunning) detail.textContent = `JANUS ${janusHour.toFixed(0)} h · DAY/NIGHT-Doppellauf · Gatefolge 3–6–9–12–24–36–42–48 · Record wird zurück eingespeist.`;
       }
 
       timeInput.addEventListener(&#x27;input&#x27;, () =&gt; {
@@ -1558,7 +1574,7 @@ html&gt;body{padding:0}&lt;/style&gt;
       });
 
       janusButton.addEventListener(&#x27;click&#x27;, () =&gt; {
-        if (janusRunning || running) return;
+        if (janusRunning || running || scoreLoopRunning) return;
         const reducedMotion = window.matchMedia(&#x27;(prefers-reduced-motion: reduce)&#x27;).matches;
         if (reducedMotion) {
           janusHour = 48;
@@ -1594,6 +1610,53 @@ html&gt;body{padding:0}&lt;/style&gt;
         };
         requestAnimationFrame(step);
       });
+
+      scoreLoopButton.addEventListener(&#x27;click&#x27;, () =&gt; {
+        if (janusRunning || running) return;
+        if (scoreLoopRunning) {
+          scoreLoopRunning = false;
+          cancelAnimationFrame(scoreLoopFrame);
+          displayOffset = 0;
+          scoreLoopButton.textContent = &#x27;5-STRING LOOP · OFF&#x27;;
+          scoreLoopButton.setAttribute(&#x27;aria-pressed&#x27;, &#x27;false&#x27;);
+          janusButton.disabled = false;
+          nextGateButton.disabled = false;
+          turnButton.disabled = false;
+          timeInput.disabled = false;
+          draw();
+          detail.textContent = &#x27;Score-Loop gehalten · fünf Saiten bleiben auf dem aktuellen 48-h-Takt stehen.&#x27;;
+          return;
+        }
+        if (window.matchMedia(&#x27;(prefers-reduced-motion: reduce)&#x27;).matches) {
+          detail.textContent = &#x27;Score-Loop bleibt wegen reduzierter Bewegung angehalten; Gate-Taktstriche sind vollständig sichtbar.&#x27;;
+          return;
+        }
+        scoreLoopRunning = true;
+        viewMode = &#x27;loom&#x27;;
+        viewButtons.forEach((item) =&gt; item.setAttribute(&#x27;aria-pressed&#x27;, String(item.dataset.view === &#x27;loom&#x27;)));
+        scoreLoopButton.textContent = &#x27;5-STRING LOOP · ON&#x27;;
+        scoreLoopButton.setAttribute(&#x27;aria-pressed&#x27;, &#x27;true&#x27;);
+        janusButton.disabled = true;
+        nextGateButton.disabled = true;
+        turnButton.disabled = true;
+        timeInput.disabled = true;
+        const start = performance.now() - (janusHour/48)*4000;
+        const step = (now) =&gt; {
+          if (!scoreLoopRunning) return;
+          const turns = (now-start)/4000;
+          janusHour = (turns*48) % 48;
+          displayOffset = turns % 1;
+          draw();
+          detail.textContent = `5-STRING SCORE · LOOP ${turns.toFixed(2)} · ${janusHour.toFixed(1)} / 48 h · Q° setzt den wiederkehrenden Taktstrich.`;
+          scoreLoopFrame = requestAnimationFrame(step);
+        };
+        scoreLoopFrame = requestAnimationFrame(step);
+      });
+
+      window.addEventListener(&#x27;pagehide&#x27;, () =&gt; {
+        scoreLoopRunning = false;
+        cancelAnimationFrame(scoreLoopFrame);
+      }, { once: true });
 
       new ResizeObserver(draw).observe(root);
       draw();
