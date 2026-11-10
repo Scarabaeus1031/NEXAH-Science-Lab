@@ -1031,10 +1031,24 @@ All exact arithmetic is carried by existing SCC-003, Root-432, Keystone-2501
 and CRT/QRT contracts. No new identity, relation, Family, Study, Finding,
 operator or physical claim was created.
 
-Open gates after freeze:
+Qualification gates after freeze:
 
-1. a real face/edge adjacency model for the `18 x 23` fold;
-2. Kawasaki sector-angle and Maekawa mountain/valley checks;
-3. physical validation only after a material and measurement protocol exists.
+1. **Topology receipt — local pass / global open.** The implemented periodic
+   candidates are `G_18,23 = (V,E,F,χ) = (414,828,414,0)` and
+   `G_20,23 = (460,920,460,0)`. Both are degree-four quad grids with the tested
+   `3M/1V` Maekawa assignment and `90°+90°=180°` Kawasaki alternation. This is
+   a local necessary-condition result on toroidal carriers, not a planar crease
+   pattern, global rigid-foldability proof or physical mechanism.
+2. **Material/load protocol — ready / not run.** Controls, measurements, stop
+   conditions and a no-post-hoc-threshold rule are specified. No specimen or
+   measured-load result exists yet.
+3. **Qualified review — awaiting external review.** A bounded review packet
+   now asks one reviewer to assess the graph construction, claim ceiling and
+   material protocol against one frozen commit. It has not been sent and has
+   received no external approval.
+
+The three Experience artifacts live under
+`public/review-assets/scc-003-r1/qualification/`. They remain projections of
+the existing `SCC-003` identity and create no Source Graph delta.
 
 Freeze receipt: `results/a0-scc-003-complex-fold-thread-freeze-2026-11-10.json`.
