@@ -2700,6 +2700,85 @@ OPERATOR 0 / STUDY 0 / FINDING 0 / CLAIM CHANGE 0 / PUBLICATION 0`.
 [Builder Log](A0_BOOK/A0_BUILDER_LOG.html#rubik-qdc-cross-section-builder-return-20261107) ·
 [Receipt](A0_BOOK/results/a0-rubik-qdc-cross-section-return-2026-11-07.json)
 
+<a id="scc-003-complex-fold-thread-freeze--2026-11-10"></a>
+
+### SCC-003 Complex Fold thread freeze — 2026-11-10
+
+Classification: `SOURCE_BOUND_DOCUMENTARY_RETURN / ENGINEERING VIEW PACKAGE /
+NOT_NEW_FINDING / NO_F-A0_PROMOTION / PHYSICAL_FOLDABILITY_OPEN`.
+
+The final SCC-003 pass consolidates four views without creating a new research
+object: RGB capsule, T(Y)-Holder, CRT Ghost-Grid and the r17 metal lens. The
+last view records the exact common residue
+`137,237,537,737,937 ≡ 17 (mod 20)`. Silver, gold and bronze are display roles
+for outer return, inner holder and capture seam only; they are not element,
+alloy or material-resonance claims.
+
+The numeric ledgers remain exact where declared: `432=2^4*3^3`,
+`1080^2=432*2700`, `2501=41*61`, the five-level staff has deltas
+`96,111,102,111`, and Visual 3 reuses the registered CRT/QRT r17 family.
+Shared residue does not imply shared factorization, carrier or generator.
+
+This closes the documentary thread. A physical origami claim remains outside
+scope until a face/edge topology and Kawasaki/Maekawa checks are supplied.
+
+Disposition: `FROZEN / EXPERIENCE COMMIT 961cf6a / NEW ID 0 / RELATION 0 /
+ALIAS 0 / OPERATOR 0 / FAMILY 0 / STUDY 0 / FINDING 0 / CLAIM CHANGE 0 /
+PUBLICATION 0`.
+
+[Demonstrator](A0_BOOK/../../../../../40%20EXPERIENCE%20PRODUCTION/NEXAH-Experience/public/review-assets/scc-003-r1/demonstrators/complex-fold-18x23.html#root432-keystone-capsule) ·
+[Science Desk](A0_BOOK/A0_RESEARCH_DESK.html#scc-003-root432-keystone-capsule-return-20261110) ·
+[Protocol](A0_BOOK/A0_COMPLEX_FOLD_18X23_SPLINTER_THREAD_RETURN_2026-11-09.md#thread-freeze--2026-11-10) ·
+[Freeze Receipt](A0_BOOK/results/a0-scc-003-complex-fold-thread-freeze-2026-11-10.json)
+
+## SCC-003 Complex Fold candidate findings — 2026-11-10
+
+Classification: `THREE_FINDING_CANDIDATES / NOT_ADMITTED / NOT_PROMOTED / KNOWN_THEOREMS_SEPARATE / NEW_ID_0 / RELATION_0 / STUDY_0 / FINDING_0`.
+
+### FC-1 — finite projection collapse
+
+The symbolic inputs remain distinct:
+
+```text
+PNNP != RLLR.
+```
+
+Under the explicitly declared complete C100 capture, their displayed projections coincide. The candidate question is whether a bounded capture map can be classified by the distinctions it preserves and collapses. Promotion requires a formal alphabet, composition law, invariant, failure case and independently replayable capture test.
+
+### FC-2 — phantom address without carrier growth
+
+The tested view has fourteen addressed slots but twelve physical creases:
+
+```text
+−1 PHANTOM | 12 REAL FOLDS | +1 PHANTOM.
+```
+
+Both phantom witnesses add zero faces and zero creases. The candidate concerns representation cardinality versus carrier cardinality; it is not a new body, dimension or topology claim.
+
+### FC-3 — return-valley role
+
+The concrete month-knuckle assignment has `7M/5V`. Typing one valley separately gives
+
+```text
+5V = 4V + 1V_return,
+7M−5V=2.
+```
+
+This preserves the Maekawa count. It does not establish that a mountain mechanically holds a valley, nor that `V_return` is bistable or produces snap-through. Promotion requires a declared crease position, geometry, energy landscape, hysteresis/return test, layer ordering and collision control.
+
+### Known mathematical gates, not new findings
+
+- Kawasaki: alternating sector-angle sums at a flat-foldable single vertex each equal `π`; the equal twelve-sector candidate gives `180°/180°`.
+- Maekawa: `M−V=±2`; the declared twelve-crease word gives `7−5=2`.
+- The N-band identity, π convergents and φ Fibonacci ratios are exact or standard approximation mathematics. Their shared `q+r/b` Plate grammar is a project method crosswalk, not a new theorem.
+
+Disposition: `KEEP AS CANDIDATES / NO STUDY ACTIVATION / NO FINDING PROMOTION / NO PAPER CLAIM / NEXT ACTION REQUIRES OWNER-ADMITTED TEST CONTRACT`.
+
+[Science Desk](A0_BOOK/A0_RESEARCH_DESK.html#scc-003-complex-fold-finding-candidate-ledger-20261110) ·
+[Mathfield](A0_BOOK/A0_MATHEMATICAL_JOINTS.html#complex-fold-phantom-boundary-return-valley-addendum) ·
+[Thread Return](A0_BOOK/A0_COMPLEX_FOLD_18X23_SPLINTER_THREAD_RETURN_2026-11-09.md#what-may-be-new) ·
+[Machine Return](A0_BOOK/results/a0-e06-1221-to-12321-lift-result-2026-11-10.json)
+
 <a id="pascal-joint-aquarium-orca-pinguin-pendulum--2026-11-08"></a>
 
 ### Pascal Joint Aquarium / Orca–Pinguin / Nautilus display — 2026-11-08
