@@ -1,0 +1,49 @@
+{
+  "schema": "nexah.a0.field-notes-ma-pi-red-balloon-freeze/1.0.0",
+  "freeze_id": "A0_FIELD_NOTES_MA_PI_RED_BALLOON_FREEZE_2026-11-11",
+  "date": "2026-11-11",
+  "status": "HUMAN_OWNER_AUTHORIZED_LOCAL_SOURCE_BOUND_FROZEN",
+  "branch": "codex/five-h-binding",
+  "source_parent": "0f45bd1dd068d3993318d5b240d340638b04b33d",
+  "science_desk_return": "A0_BOOK/A0_FIELD_NOTES_MA_PI_RED_BALLOON_SCIENCE_DESK_FREEZE_RETURN_2026-11-11.md",
+  "tour": {
+    "title": "MA^pi / Red Balloon",
+    "stages": 8,
+    "ticker_sequence": [0, 499, 500, 501, 1000, 501, 499, 0],
+    "address_operator": "J(n)=1000-n",
+    "return_check": "J(J(n))=n",
+    "pa_phases": ["CARRIER", "P_VIEW", "BINDER", "A_VIEW", "RESIDUAL", "RETURN"],
+    "typed_boundary": "TOUR CLOCK != ADDRESS SCALE; P x A VIEW GRAMMAR != CARRIER IDENTITY; TAO ANGLE != J ADDRESS != P x A PHASE"
+  },
+  "frozen_files": {
+    "build-a0-field-notes.cjs": "c86a42016a9f90e3749300ee449b49271d336c1a14ff6bbdf234ae7fffd660e7",
+    "a0-field-notes-reader-tests.cjs": "20e2877deca17ce8d4c8a2426e8f73c440aadea2848c3f180b8a1358d16ee204",
+    "assets/a0-field-notes/index.html": "98f8ab79d9876e0b7b3bbd65d598297bd6a56f9676f3a11fef697d8e69888e80"
+  },
+  "verification": {
+    "field_notes_build": "PASS / 64 notes / 29 ideas",
+    "field_notes_reader": "PASS / 202 checks",
+    "orientation_controller_bench": "PASS / v0.21.0 / J involution / six-phase P x A journey",
+    "browser_acceptance": "PASS / visible tour / ticker and typed readouts update across stages",
+    "source_graph_preflight": "PRE_EXISTING_FAIL / 5 stale hashes in already modified shared A0 Orientation Evidence binder / no graph mutation staged by this freeze",
+    "mission_control_currentness": "PRE_EXISTING_DIRTY_FAIL / 11 currentness mismatches across already modified shared sources, including the newly frozen Field Notes reader hash / no Mission Control files staged by this freeze"
+  },
+  "identity_reuse": [
+    "ART:A0:MATHEMATICAL_JOINTS",
+    "NEXAH:A0_ORIENTATION_EVIDENCE_LINEAGE:V1",
+    "SG:LENS:A0_ORIENTATION_EVIDENCE",
+    "NEXAH_A0_ORIENTATION_CONTROLLER_BENCH"
+  ],
+  "governance_effect": {
+    "new_identity": false,
+    "new_relation": false,
+    "new_alias": false,
+    "new_operator": false,
+    "new_study": false,
+    "new_finding": false,
+    "claim_ceiling_change": false,
+    "canonical_count_effect": 0,
+    "deployment": false,
+    "publication": false
+  }
+}
