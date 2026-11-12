@@ -3537,3 +3537,55 @@ CLAIM CHANGE 0 / PUBLICATION 0`.
 [Science Desk](A0_BOOK/A0_RESEARCH_DESK.html#q3d-canonical-move-gate-return-20261107) ·
 [Builder Log](A0_BOOK/A0_BUILDER_LOG.html#q3d-canonical-move-gate-builder-20261107) ·
 [Receipt](A0_BOOK/results/a0-rubik-qdc-cross-section-return-2026-11-07.json)
+
+<a id="a0101-sound-packages--2026-11-12"></a>
+
+### A0/101 sound packages — 2026-11-12
+
+Classification: `SOURCE_BOUND_INTERFACE_AND_FINDINGS_INTAKE / R0_DOCUMENTED /
+NOT_NEW_F-A0_FINDING / NO_PAPER_PROMOTION / NO_STUDY_ACTIVATION`.
+
+The A0/101 Open Book now joins four previously separate reading layers without
+identifying them: the held flute/resonance-point view, one chromatic keyboard
+octave, the existing 24-address rail/fifth/Lyra projection and the existing
+`4×7=28` TESA/Zither address product.
+
+The exact retained findings are finite and typed:
+
+- one chromatic octave has 12 semitone steps and 13 displayed endpoint
+  positions;
+- its five black keys split as ordered `2+3` in the declared C view;
+- the 24-address rail, `+7 mod 12` fifth permutation and Lyra fan remain
+  separate operators;
+- `4×7=28` is the existing Zither address product; the four audible package
+  permutations are a new local UI projection, not a recovered generator;
+- `3/7=0.4285714286…` and `φ³/π²=0.4292034215…` are distinct, with
+  `Δ=0.0006319929…`; shared rounding to `0.429` is not identity;
+- `37/63=137` and `37/64=163` remain historical display labels, not ordinary
+  equations.
+
+The interface suite passes `21/21`; browser checks confirm the chromatic key,
+star arc, motif sequence, individual Zither grooves and package Return at
+`7/7`. This verifies the declared interface, routing and boundary behavior. It
+does not verify a physical flute or Zither, an amplitude field, astronomical
+tone assignment, Beethoven identity, a common music/number/geometry operator
+or a new resonance law.
+
+Open gates are source-specific: recover a historical Zither/frame generator,
+declare tuning/excitation/measurement quantities for any future acoustic test,
+recover the K/L κ visual generator, and recover the missing
+`root_zeta_index_machine.glb` under verified custody. Until then the strongest
+status is a source-bound instrument and findings intake at `R0_DOCUMENTED`.
+
+Disposition: `21/21 PASS / EXACT FINITE KEYBOARD + ADDRESS ARITHMETIC /
+SOURCE-BOUND OPERATOR CROSSWALK / FOUR DECLARED ZITHER UI PACKAGES /
+0.429 COMPARATOR VALUES DISTINCT / HISTORICAL LABELS HELD / GENERATOR + TUNING
++ ASSET CUSTODY OPEN / EXISTING A0 IDENTITIES REUSED / NEW ID 0 / RELATION 0 /
+ALIAS 0 / STUDY 0 / CANONICAL FINDING 0 / CLAIM CHANGE 0 / PUBLICATION 0`.
+
+[Science Desk](A0_BOOK/A0_RESEARCH_DESK.html#a0-101-sound-packages-return-20261112) ·
+[Open Book](A0_BOOK/DRAFTS/A0_IOI_LEAF_FOLD_OPEN_BOOK_START_2026-11-02.html#a0-101-orientation-coupler) ·
+[Receipt](A0_BOOK/results/a0-101-sound-packages-science-desk-return-2026-11-12.json) ·
+[24 Rail / Fifth / Lyra](A0_BOOK/A0_F_A0_26_REVIEW_PROBE.html#acousticSourceProjection) ·
+[Zither 4×7](A0_BOOK/A0_IOTA_BRIDGE_DEMONSTRATOR.html#gridBridgeFlagship) ·
+[N-Band](A0_BOOK/A0_PASCAL_GENERATION_CORNER.html#n-band-49-return)

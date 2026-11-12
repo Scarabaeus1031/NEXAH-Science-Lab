@@ -1,0 +1,15 @@
+'use strict';
+const assert=require('node:assert/strict');const fs=require('node:fs');const path=require('node:path');
+const api=require('./a0-pi-q4-deck-comparator.js');let tests=0;const test=(name,fn)=>{fn();tests++;console.log(`PASS ${name}`)};
+test('Q4 complement is an involution on all 16 states',()=>{for(let v=0;v<16;v++)assert.equal(api.q4Complement(api.q4Complement(v)),v)});
+test('Q4 complement sums to 15',()=>{for(let v=0;v<16;v++)assert.equal(v+api.q4Complement(v),15)});
+test('chosen suit cycle returns after four steps',()=>{for(let i=0;i<4;i++)assert.equal(api.suitStep(i,4),i)});
+test('suit cycle is not the Q4 complement operator',()=>assert.notEqual(api.suitStep(0),api.q4Complement(0)));
+test('PIQ mask has exact two inside and six outside gates',()=>assert.deepEqual(api.maskSummary(true),{recoverable:2,unknown:0,outside:6,label:'2 recoverable · 6 outside'}));
+test('trace-off changes only the two inside points to unknown',()=>assert.deepEqual(api.maskSummary(false),{recoverable:0,unknown:2,outside:6,label:'2 unknown · 6 outside'}));
+test('mask source coordinates are preserved',()=>{assert.equal(api.MASK_GATES.length,8);assert.equal(api.MASK_GATES.find(g=>g.label==='12h').x,367.234521);assert.equal(api.MASK_GATES.find(g=>g.label==='36h').zone,'inside')});
+test('audited 54-card profile keeps 48 mobile and six anchors',()=>{const p=api.deckProfile('standard54');assert.equal(p.count,54);assert.equal(48+4+2,p.count);assert.match(p.note,/sechs feste Zentren/)});
+test('display profiles retain declared carrier sizes',()=>assert.deepEqual(['doppelkopf48','skat32','poker52'].map(k=>api.deckProfile(k).count),[48,32,52]));
+test('Polaris baseline and rotated null have distinct residuals',()=>{assert.equal(api.polarisBearing(0).residual,0);assert.equal(api.polarisBearing(37).residual,37);assert.equal(api.polarisBearing(37).status,'NULL CONTROL')});
+test('HTML binds the comparator without promoting PIQ identity',()=>{const html=fs.readFileSync(path.join(__dirname,'A0_Q4_MAGIC_SQUARE_JOINT_AUDIT.html'),'utf8');assert.match(html,/PI × Q4 Deck Comparator/);assert.match(html,/a0-pi-q4-deck-comparator\.js/);assert.match(html,/HQ-PIQ Ergebnisbericht/);assert.match(html,/Deck-Cube Audit Receipt/);assert.match(html,/keine Produktidentität/);assert.doesNotMatch(html,/>PIQ Deck Comparator</)});
+console.log(`${tests}/${tests} comparator tests passed`);

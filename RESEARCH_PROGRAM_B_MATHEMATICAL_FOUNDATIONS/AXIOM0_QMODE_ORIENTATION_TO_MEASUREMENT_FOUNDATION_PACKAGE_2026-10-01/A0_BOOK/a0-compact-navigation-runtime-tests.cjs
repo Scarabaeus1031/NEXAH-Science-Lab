@@ -7,6 +7,9 @@ const generationCornerEntry=fs.readFileSync(__dirname+'/A0_PASCAL_GENERATION_COR
 ok(generationCornerEntry.includes('id="unified-generation-corner-candidate"')&&generationCornerEntry.includes('A0 internal candidate · unpushed · no public channel'),'A0 Generation Corner entry declares the unified candidate as internal and unpushed');
 ok(generationCornerEntry.includes('http://127.0.0.1:4328/laboratory/roedelheim-observatory/generation-corner/'),'A0 Generation Corner entry opens the exact local Experience candidate');
 ok(generationCornerEntry.includes('A0_RESEARCH_DESK.html#scc-003-r1-generation-review-bridge-20261110')&&generationCornerEntry.includes('http://127.0.0.1:4328/scc-003-r1/'),'A0 Generation Corner returns to the Science Desk and keeps the SCC-003-R1 review target as local staging');
+ok(generationCornerEntry.includes('id="n-band-49-return"')&&generationCornerEntry.includes('N(x) = 3x/7'),'A0 Generation Corner includes the bounded N-band / 49-return documentary lens');
+ok(generationCornerEntry.includes('N(784−672)=N(112)=48')&&generationCornerEntry.includes('1031+49 = 1032+48 = 1033+47 = 1080'),'N-band lens states the exact scaled difference and three address returns');
+ok(generationCornerEntry.includes('q₁₀₀₀(1.031)=1031')&&generationCornerEntry.includes('1080°=24·45°')&&generationCornerEntry.includes('Adresse <code>1080</code> und der Winkel <code>1080°</code> sind nicht identisch'),'N-band lens keeps decimal scaling, address return and angle carrier typed apart');
 function mount(file,hash='',search='',surface={}){
  const nodes=[];
  class E{
@@ -99,7 +102,7 @@ for(const file of ['index.html','A0_LIVING_BLUEPRINT.html','A0_SCIENTIFIC_POSITI
    ok(showcase.children[5].href==='DRAFTS/A0_PERIODIC_CARRIER_Z100_2026-11-03.html#game-of-worlds-carrier-binding'&&showcase.children[5].attributes['data-a0-science-flagship']===''&&showcase.children[5].innerHTML.includes('SCIENCE FLAGSHIP · STOFFREGISTER'),'Science foregrounds the Z100 Stoffregister at its source-bound Game-of-Worlds anchor and marks it for the A0 house view');
    ok(showcase.children[6].href.startsWith('http://127.0.0.1:4328/')&&showcase.children[6].innerHTML.includes('SCIENCE FLAGSHIP · RED BALLOON'),'Science exposes Red Balloon as its source-bound local flagship notebook');
    ok(showcase.children.some(card=>card.href==='http://127.0.0.1:4328/review-assets/scc-003-r1/demonstrators/complex-fold-18x23.html?rev=crt-ghost-grid-20261110#root432-keystone-capsule'&&card.innerHTML.includes('SCC-003 · SOURCE-BOUND DEMONSTRATOR')),'Science exposes Complex Fold beside Red Balloon without promoting it to a separate flagship identity');
-   ok(showcase.children[8].href==='DRAFTS/A0_IOI_LEAF_FOLD_OPEN_BOOK_START_2026-11-02.html#tessarec3OperatorMatrix'&&showcase.children[8].innerHTML.includes('SCIENCE FLAGSHIP · 101 / A0'),'Science exposes the frozen 101 / A0 Open Book route');
+   ok(showcase.children[8].href==='DRAFTS/A0_IOI_LEAF_FOLD_OPEN_BOOK_START_2026-11-02.html#a0-101-orientation-coupler'&&showcase.children[8].innerHTML.includes('SCIENCE FLAGSHIP · 101 / A0'),'Science exposes the frozen 101 / A0 Open Book route at its orientation coupler');
    ok(showcase.children[9].href==='A0_DATA_AND_REGISTERS.html#top','Science foregrounds its source-bound data and register map');
    ok(!showcase.children.some(card=>card.innerHTML.includes('A0 Science Desk')),'Science Desk is not duplicated as a flagship card');
    ok(showcase.children.every(card=>!card.href.includes('TOY_STORE')),'no app showcase in Science');

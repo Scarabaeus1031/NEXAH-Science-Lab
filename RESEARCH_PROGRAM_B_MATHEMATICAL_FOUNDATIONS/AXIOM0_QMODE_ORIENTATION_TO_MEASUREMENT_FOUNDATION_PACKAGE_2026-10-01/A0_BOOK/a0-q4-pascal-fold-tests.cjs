@@ -1,0 +1,14 @@
+'use strict';
+const assert=require('node:assert/strict');const fs=require('node:fs');const path=require('node:path');const api=require('./a0-q4-pascal-fold.js');let n=0;const test=(name,fn)=>{fn();n++;console.log(`PASS ${name}`)};
+test('parity split creates two eight-state wings',()=>{assert.equal(api.wingGroups(0).flat().length,8);assert.equal(api.wingGroups(1).flat().length,8)});
+test('each Q3 wing has 1-3-3-1 free-bit distribution',()=>{for(const p of [0,1])assert.deepEqual(api.wingGroups(p).map(g=>g.length),[1,3,3,1])});
+test('zero counting reverses but preserves Q3 distribution',()=>{for(const p of [0,1])assert.deepEqual(api.wingGroups(p,'zeros').map(g=>g.length),[1,3,3,1])});
+test('ones fuse to Pascal row four',()=>assert.deepEqual(api.fusionBins('ones').map(b=>b.total),[1,4,6,4,1]));
+test('zeros fuse to the same Pascal row four',()=>assert.deepEqual(api.fusionBins('zeros').map(b=>b.total),[1,4,6,4,1]));
+test('wing contributions add componentwise',()=>assert.deepEqual(api.fusionBins('ones').map(b=>[b.even.length,b.odd.length]),[[1,0],[3,1],[3,3],[1,3],[0,1]]));
+test('Pascal generator returns 1-4-6-4-1',()=>assert.deepEqual(api.pascalRow(4),[1,4,6,4,1]));
+test('complement crosses parity axis for every state',()=>assert.equal(api.audit().complementParity,true));
+test('complement reverses Hamming weight',()=>assert.equal(api.audit().complementWeight,true));
+test('0101 and 1010 remain complementary',()=>assert.equal(api.complement(0b0101),0b1010));
+test('HTML exposes the downward Pascal foldout and both count modes',()=>{const html=fs.readFileSync(path.join(__dirname,'A0_Q4_MAGIC_SQUARE_JOINT_AUDIT.html'),'utf8');assert.match(html,/Q4 = Q3 × Q1/);assert.match(html,/Einsen zählen/);assert.match(html,/Nullen zählen/);assert.match(html,/1–3–3–1/);assert.match(html,/1 \+ 4 \+ 6 \+ 4 \+ 1/);assert.match(html,/a0-q4-pascal-fold\.js/)});
+console.log(`${n}/${n} Pascal-fold tests passed`);

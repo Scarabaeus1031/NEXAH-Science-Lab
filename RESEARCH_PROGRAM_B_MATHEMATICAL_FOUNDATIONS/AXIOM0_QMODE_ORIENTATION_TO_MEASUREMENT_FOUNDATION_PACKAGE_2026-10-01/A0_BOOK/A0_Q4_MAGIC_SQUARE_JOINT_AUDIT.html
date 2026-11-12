@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>A0 Q4 Magic-Square Joint Audit</title>
-  <meta name="description" content="Interaktiver Audit von Q4, Pascal-Zeile 4, Dürer- und Khajuraho-Quadrat sowie einer getrennten Prime- und Dezimalwort-Prüfung.">
+  <meta name="description" content="Interaktiver Audit von Q4, Pascal-Zeile 4, Dürer- und Khajuraho-Quadrat sowie getrennten Prime-, Dezimalwort- und Masken-/Faltoperatoren.">
   <style>
     :root{color-scheme:dark;--bg:#050b12;--panel:#0a1723;--panel2:#0e2130;--line:#29485a;--text:#e9f2f5;--muted:#92a8b3;--cyan:#49c8e5;--gold:#e8b94f;--pink:#e668a4;--violet:#b785f4;--green:#70d79b;--red:#ef668a;--mono:"SFMono-Regular",Consolas,monospace;--sans:Inter,ui-sans-serif,system-ui,-apple-system,sans-serif;--serif:Georgia,"Times New Roman",serif}
     *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(circle at 76% 4%,rgba(73,200,229,.1),transparent 24%),var(--bg);color:var(--text);font-family:var(--sans);line-height:1.5}button,input{font:inherit}button:focus-visible,input:focus-visible,a:focus-visible{outline:3px solid var(--cyan);outline-offset:3px}a{color:var(--cyan)}[hidden]{display:none!important}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}.top{position:sticky;top:0;z-index:10;display:flex;justify-content:space-between;gap:20px;align-items:center;padding:13px 4vw;background:rgba(5,11,18,.94);border-bottom:1px solid var(--line);backdrop-filter:blur(10px)}.brand{text-decoration:none;color:var(--text);font-weight:800;letter-spacing:.12em}.top nav{display:flex;gap:14px;flex-wrap:wrap}.top nav a{text-decoration:none;color:var(--muted);font:700 .65rem var(--mono);text-transform:uppercase}.wrap{max-width:1260px;margin:auto;padding:0 4vw}.hero{padding:7vh 0 30px}.eyebrow{color:var(--gold);font:700 .68rem var(--mono);letter-spacing:.14em;text-transform:uppercase}h1{font:700 clamp(2.8rem,6vw,6rem)/.92 var(--serif);letter-spacing:-.05em;margin:.22em 0}.lead{max-width:940px;color:#b7c8cf;font:400 clamp(1rem,2vw,1.25rem)/1.55 var(--serif)}.claim{border-left:4px solid var(--red);background:rgba(239,102,138,.08);padding:14px 17px;color:#c8d5da;font-size:.86rem;max-width:1050px}.claim b{color:#ffabc1}.tabs,.toolbar,.presets{display:flex;gap:8px;flex-wrap:wrap}.tabs{margin:28px 0 12px}.tabs button,.toolbar button,.presets button{border:1px solid #3a5d70;background:#08131e;color:#bdd0d7;padding:9px 11px}.tabs button[aria-pressed="true"],.toolbar button[aria-pressed="true"],.presets button[aria-pressed="true"]{border-color:var(--gold);background:var(--gold);color:#071019}.toolbar{align-items:center;margin-bottom:16px}.toolbar span{color:var(--muted);font:700 .65rem var(--mono);text-transform:uppercase;margin-right:4px}.workspace{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(290px,.65fr);gap:16px;align-items:start}.stage,.card{border:1px solid var(--line);background:var(--panel)}.stage{padding:18px;min-height:620px;background:linear-gradient(145deg,#07131d,#0c1e2c)}.stage-head{display:flex;justify-content:space-between;gap:16px;align-items:start;margin-bottom:18px}.stage-head h2,.card h2,.card h3{font:700 1.22rem var(--serif);margin:0}.stage-head p,.card p{color:var(--muted);font-size:.78rem;margin:4px 0 0}.grid-wrap{display:grid;grid-template-columns:minmax(280px,520px);justify-content:center;gap:16px}.magic-grid{display:grid;grid-template-columns:repeat(4,1fr);aspect-ratio:1;border:1px solid var(--line);background:#071019}.cell{position:relative;border:1px solid #28485a;background:rgba(14,33,48,.8);color:var(--text);display:grid;place-items:center;font:700 clamp(1.25rem,4vw,2.3rem) var(--serif);min-width:0}.cell small{position:absolute;right:6px;bottom:4px;color:var(--muted);font:500 .62rem var(--mono)}.cell.selected{background:var(--gold);color:#071019}.cell.pair{background:var(--pink);color:#071019}.cell.line{box-shadow:inset 0 0 0 2px var(--cyan)}.grid-caption{text-align:center;color:var(--muted);font:.74rem var(--mono)}.ledger{display:grid;gap:12px}.card{padding:16px}.equation{font:700 clamp(.95rem,2vw,1.18rem)/1.55 var(--mono);color:var(--gold);overflow-wrap:anywhere}.facts{display:grid;gap:7px;margin-top:10px}.fact{display:flex;justify-content:space-between;gap:12px;border-top:1px solid #213c4b;padding-top:7px}.fact span{color:var(--muted);font-size:.75rem}.fact strong{font:700 .78rem var(--mono);text-align:right}.pass{color:var(--green)}.warn{color:var(--gold)}.stop{color:var(--red)}.pascal{display:grid;grid-template-columns:repeat(5,minmax(90px,1fr));gap:10px;align-items:start;padding:18px 0}.fiber{display:grid;gap:7px;justify-items:center}.fiber-head{width:100%;text-align:center;border-top:3px solid var(--cyan);background:var(--panel2);padding:9px}.fiber-head b{display:block;font:700 1rem var(--mono)}.fiber-head span{color:var(--muted);font-size:.7rem}.states{display:flex;gap:5px;flex-wrap:wrap;justify-content:center}.state{border:1px solid var(--line);background:#08131e;color:var(--text);padding:6px;font:600 .68rem var(--mono)}.state.selected{border-color:var(--gold);color:var(--gold)}.state.pair{border-color:var(--pink);color:var(--pink)}.joint-line{display:grid;grid-template-columns:1fr auto 1fr;gap:14px;align-items:center;margin:24px 0}.joint-line i{height:2px;background:var(--line)}.joint-line b{font:700 .78rem var(--mono);color:var(--gold)}.chain{display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;margin:28px 0}.chain .prime{width:74px;height:74px;border:2px solid var(--cyan);border-radius:50%;display:grid;place-items:center;font:700 1.4rem var(--serif)}.chain .arrow{color:var(--gold);font-size:1.3rem}.word-audit{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.word{border-top:3px solid var(--gold);background:var(--panel2);padding:13px}.word h3{font:700 1.55rem var(--serif);margin:0 0 5px}.word code{color:var(--cyan);font-size:.78rem;overflow-wrap:anywhere}.word p{margin:.5em 0}.factor-form{display:grid;grid-template-columns:1fr auto;gap:8px;margin:18px 0}.factor-form input{min-width:0;border:1px solid #3a5d70;background:#071019;color:var(--text);padding:10px}.factor-form button{border:1px solid var(--gold);background:var(--gold);color:#071019;padding:10px 14px}.correction{border-left:4px solid var(--gold);background:rgba(232,185,79,.08);padding:13px;margin-top:16px;font:.8rem var(--mono)}.ilau{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:18px 0 50px}.ilau div{border-top:3px solid var(--green);background:var(--panel);padding:12px}.ilau div:nth-child(2){border-color:var(--red)}.ilau div:nth-child(3){border-color:var(--gold)}.ilau div:nth-child(4){border-color:var(--violet)}.ilau b{display:block;font:.72rem var(--mono)}.ilau span{display:block;color:var(--muted);font-size:.72rem;margin-top:4px}.sources{border:1px solid var(--line);background:var(--panel);padding:16px;margin:18px 0 50px}.sources h2{font:700 1.2rem var(--serif);margin:0 0 8px}.sources p{font-size:.78rem;color:var(--muted)}.sources a{margin-right:14px}.footer{border-top:1px solid var(--line);padding:28px 4vw;color:var(--muted);font-size:.75rem}
@@ -12,6 +12,18 @@
   </style>
   <link rel="stylesheet" href="a0-context-navigation.css?rev=flagship-constellation-r1-20261030">
   <link rel="stylesheet" href="a0-q4-base-prime-crt.css?rev=base-prime-crt210-r1-20261107">
+  <link rel="stylesheet" href="a0-seven-mask-fold.css?rev=seven-mask-fold-r1-20261112">
+  <link rel="stylesheet" href="a0-ghost-skin-chain.css?rev=polaris-compare-deck-r4-20261112">
+  <link rel="stylesheet" href="a0-pi-q4-deck-comparator.css?rev=pi-q4-deck-r1-20261112">
+  <link rel="stylesheet" href="a0-q4-dual-overlay.css?rev=dual-overlay-r1-20261112">
+  <link rel="stylesheet" href="a0-q4-pascal-fold.css?rev=pascal-fold-r1-20261112">
+  <link rel="stylesheet" href="a0-q4-cube-snake.css?rev=cube-snake-r1-20261112">
+  <link rel="stylesheet" href="a0-q4-lamella-fold.css?rev=lamella-fold-r1-20261112">
+  <link rel="stylesheet" href="a0-q4-twin-tower.css?rev=twin-tower-r1-20261112">
+  <style>.q4-tt-return{display:inline-flex;align-items:center;border:1px solid #8f969b;color:#e8ecee;padding:6px 8px;text-decoration:none;font:.57rem var(--mono)}.q4-tt-return:hover{border-color:#ef233c;color:#ef233c}</style>
+  <link rel="stylesheet" href="a0-q4-split-clamp.css?rev=split-clamp-r1-20261112">
+  <link rel="stylesheet" href="a0-q4-clock-fork.css?rev=clock-fork-r1-20261112">
+  <link rel="stylesheet" href="a0-galileo-package-story.css?rev=galileo-package-r1-20261112">
 </head>
 <body>
   <header class="top"><a class="brand" href="A0_MATHEMATICAL_JOINTS.html">NEXAH · A0</a><nav aria-label="Navigation"><a href="A0_BOUNDARY_GRAPH_DEMONSTRATOR.html">Boundary Graph</a><a href="A0_MATHEMATICAL_JOINTS.html">Mathfield</a><a href="A0_RESEARCH_BACKLOG.html">Backlog</a><a href="index.html">Overview</a></nav></header>
@@ -23,21 +35,192 @@
       <div class="claim"><b>Claim boundary:</b> Exakt sind der endliche Q4-Carrier, Bitkomplement, Hamming-Gewichte, Pascal-Zeile 4, die angegebenen Summen, Permutationen und Faktorisierungen. Die Wahl der Beschriftung 1…16, Dezimalpalindrome, Primindizes und historische NEXAH-Marker sind zusätzliche Repräsentationen; sie begründen keinen Primselektor, keine Dynamik und keinen physikalischen Mechanismus.</div>
     </section>
 
-    <section aria-label="Audit-Ansichten">
-      <div class="tabs" role="group" aria-label="Ansicht">
+    <section aria-label="Audit-Ansichten und eigener Ghostgrid-Vergleichsraum">
+      <div class="tabs" role="group" aria-label="Sechs Q4-Audit-Ansichten">
         <button type="button" data-view="durer" aria-pressed="true">1 · Dürer</button>
         <button type="button" data-view="khajuraho" aria-pressed="false">2 · Khajuraho</button>
         <button type="button" data-view="pascal" aria-pressed="false">3 · Pascal Q4</button>
         <button type="button" data-view="prime" aria-pressed="false">4 · Prime / Wörter</button>
         <button type="button" data-view="base-prime-crt" aria-pressed="false">5 · 15|14 / CRT₂₁₀</button>
+        <button type="button" data-view="seven-mask-fold" aria-pressed="false">6 · Masken / Falten</button>
+      </div>
+      <div class="ghost-route" role="group" aria-label="Eigenständiger Ghostgrid-Vergleichsraum">
+        <button type="button" data-view="ghost-skin-chain" aria-pressed="false"><span>EIGENER VERGLEICHSRAUM</span><strong>Ghostgrid · Kette · Polaris</strong><small>Drei synchronisierte Fenster · Carrier, Fourier-Linse und Projektion</small><i aria-hidden="true">→</i></button>
       </div>
       <div class="toolbar" id="gridToolbar"><span>Beschriftung</span><button id="oneBased" type="button" aria-pressed="true">1…16</button><button id="zeroBased" type="button" aria-pressed="false">0…15 · Q4</button></div>
+    </section>
+
+    <section class="stage ghost-chain-stage" id="ghostSkinChainStage" data-ghost-skin-chain hidden>
+      <div class="stage-head"><div><h2>Ghostgrid · Haut, Kette und wandernder Glint</h2><p>Ein fester Träger, acht Stationen und drei synchronisierte Fenster. Station 7 markiert den Knick; nach acht Schritten kehrt der Automat exakt zum Ausgangszustand zurück.</p></div><div class="equation">P⁸ = id</div></div>
+      <div class="gsc-polaris" id="gscPolarisBoundary"><b>✦ POLARIS · GEMEINSAMER LEUCHTTURM</b><span>Sichtbarer Orientierungsmarker nahe dem Himmelspol – nicht der Pol selbst, kein physikalischer Attraktor. In allen Fenstern nur dieselbe Display-Referenz.</span><a href="../../../SCIENCE_LAB/NAVIGATION/POLAR_JANUS_EVIDENCE_BRIDGE_2026-10-06.md">Evidence Bridge</a></div>
+      <div class="gsc-controls" role="group" aria-label="Zwei bis drei gleichzeitige Darstellungen und Bewegung" aria-describedby="gscWindowRule">
+        <button type="button" data-gsc-mode="skin" aria-pressed="false">Haut</button><button type="button" data-gsc-mode="chain" aria-pressed="true">Kette</button><button type="button" data-gsc-mode="ghost" aria-pressed="true">Ghostgrid</button><button type="button" data-gsc-mode="fourier" aria-pressed="true">Fourier-Linse</button><button type="button" data-gsc-mode="atlas" aria-pressed="false">1000² Atlas</button><button type="button" data-gsc-mode="pentagrid" aria-pressed="false">Pentagrid</button>
+        <span class="gsc-spacer"></span><button type="button" data-gsc-play>Start</button><button type="button" data-gsc-step>Schritt</button><button type="button" data-gsc-reset>Reset</button><label>Tempo <input data-gsc-speed type="range" min="220" max="1600" value="900" step="20"></label>
+      </div>
+      <p class="gsc-window-rule" id="gscWindowRule">VERGLEICHSDECK · mindestens 2, höchstens 3 Ansichten gleichzeitig · same carrier, different cuts</p>
+      <div class="gsc-layout">
+        <div class="gsc-compare" aria-label="Drei synchronisierte Fenster desselben Carriers">
+          <figure class="gsc-figure" data-gsc-panel><canvas data-gsc-canvas role="img" aria-label="Synchronisiertes Vergleichsfenster 1"></canvas><div class="gsc-overlay"><div class="gsc-badge"><span data-gsc-window>FENSTER 1</span> · <span data-gsc-view-title>KETTE</span></div><div class="gsc-state"><span>POLARIS REF</span><b><span data-gsc-index>0</span> / 7</b></div><figcaption class="gsc-caption" data-gsc-caption>Acht Stationen: der Lesekopf zieht sich am festen Mesh entlang.</figcaption></div></figure>
+          <figure class="gsc-figure" data-gsc-panel><canvas data-gsc-canvas role="img" aria-label="Synchronisiertes Vergleichsfenster 2"></canvas><div class="gsc-overlay"><div class="gsc-badge"><span data-gsc-window>FENSTER 2</span> · <span data-gsc-view-title>FOURIER-LINSE</span></div><div class="gsc-state"><span>POLARIS REF</span><b><span data-gsc-index>0</span> / 7</b></div><figcaption class="gsc-caption" data-gsc-caption>Spektralkreis und Modenpaare desselben Zustands.</figcaption></div></figure>
+          <figure class="gsc-figure" data-gsc-panel><canvas data-gsc-canvas role="img" aria-label="Synchronisiertes Vergleichsfenster 3"></canvas><div class="gsc-overlay"><div class="gsc-badge"><span data-gsc-window>FENSTER 3</span> · <span data-gsc-view-title>GHOSTGRID</span></div><div class="gsc-state"><span>POLARIS REF</span><b><span data-gsc-index>0</span> / 7</b></div><figcaption class="gsc-caption" data-gsc-caption>Zwei Gitterlagen zeigen die Moiré-Projektion.</figcaption></div></figure>
+        </div>
+        <aside class="gsc-ledger" aria-live="polite"><div class="card"><h3>Endlicher Vertrag</h3><div class="gsc-readout"><div><span>Station</span><b data-gsc-station>HOF</b></div><div><span>Return</span><b class="pass" data-gsc-return>P⁸ = id</b></div><div><span>Adresse</span><b data-gsc-address>G120:570</b></div><div><span>Horizont</span><b>1000²</b></div></div><div class="gsc-sequence" aria-label="Acht Stationen"><i data-gsc-dot class="on"></i><i data-gsc-dot></i><i data-gsc-dot></i><i data-gsc-dot></i><i data-gsc-dot></i><i data-gsc-dot></i><i data-gsc-dot></i><i data-gsc-dot></i></div></div><div class="card"><h3>HOF / Cube-Footprint</h3><p>Die Mittelzelle ist eine gehaltene Referenzfläche. Die Kette bewegt nicht das Netz, sondern nur die Ableseposition – wie ein Zugkopf an einer verlegten Kette.</p></div><div class="card"><h3>Sechs Ansichten, ein Carrier</h3><p><b>Fourier-Linse</b> zeigt Kreis, Linien und Projektionskegel. <b>1000² Atlas</b> adressiert Ψ-Seeds und Knoten. <b>Pentagrid</b> zeigt fünf Richtungsfamilien in einem endlichen Fenster.</p></div></aside>
+      </div>
+      <div class="gsc-boundary"><strong>Claim boundary / Materialanalogie:</strong> „Aluminiumhaut“, „Mercury“, Lotus-Effekt, Milchstraße und Kettenschiff sind hier ausschließlich Bild- und Bedienmetaphern. Der Automat simuliert keine Hg/Al-Reaktion, keine Korrosion, keine Benetzung und keine reale Materialkinetik. Das 1000²-Feld ist ein virtueller Koordinatenraum, kein gespeichertes Millionenzellengedächtnis. Das Pentagrid ist ein endliches Fünfrichtungsfenster und keine vollständige Penrose-Kachelung oder Unendlichkeitsbehauptung.</div>
+      <details class="gsc-v69" open>
+        <summary>V69-EINSCHUB · NEXAH CORE CHECK · Quelle, Operator und Testleiter</summary>
+        <div class="gsc-v69-body">
+          <div class="gsc-v69-core"><div><span>Core-Identität</span><b>ARCHITECTURE/CORE/field_reconstruction</b></div><div><span>Carrier</span><b>(voltage, gradient)</b></div><div><span>Raster</span><b>100 × 100</b></div><div><span>Rekonstruktion</span><b>linear + σ=2</b></div><div><span>Außenbereich</span><b>NaN → 0</b></div></div>
+          <div class="gsc-v69-tests"><article><b>T0 · Provenienz</b><p><code>ieee_noisy.csv</code>, Spalten <code>time</code> und <code>voltage</code>; Producer und Bild bleiben hashgebunden.</p></article><article><b>T1 · Auflösungs-Sensitivität</b><p>40/80/120-Gitter werden auf ein gemeinsames 80er-Referenzgitter gebracht. Differenzen sind Warnsignal, kein Invarianzbeweis.</p></article><article><b>T2 · Stützregions-Kontrolle</b><p><code>linear</code>, <code>nearest</code> und die Regel <code>NaN→0</code> getrennt vergleichen; Rand-Streamlines dürfen nicht still als Dynamik gelten.</p></article><article><b>T3 · 8³-Adapter-Gate</b><p>V69 CLEAN ist zweidimensional. Eine dritte Achse und die Abbildung auf <code>Z₈³</code> benötigen einen eigenen Adaptervertrag und Nullkontrollen.</p></article></div>
+          <div class="gsc-v69-return">FOKUS-RETURN · Z₈³ CARRIER → 3D-DFT → MODENPAARE → GHOSTGRID · V69 NUR ALS GETRENNTE OVERLAY-SCHICHT</div>
+          <div class="gsc-v69-links">Core-Rückwege: <a href="../../../../../10%20NEXAH%20CORE/NEXAH/ARCHITECTURE/CORE/field_reconstruction/NEXAH_FIELD_RECONSTRUCTION_PACKAGE.html">Package</a> · <a href="../../../../../10%20NEXAH%20CORE/NEXAH/ARCHITECTURE/CORE/field_reconstruction/NEXAH_FIELD_RECONSTRUCTION_DEMONSTRATOR.html">17-stage Pipeline</a> · <a href="../../../../../10%20NEXAH%20CORE/NEXAH/ARCHITECTURE/CORE/field_reconstruction/NEXAH_FIELD_VISUAL_BENCH.html">61-frame Bench</a></div>
+        </div>
+      </details>
+      <section class="piq-comparator" data-piq-comparator aria-labelledby="piqComparatorTitle">
+        <header class="piq-head">
+          <div><span>TESTLICHER EINSCHUB · VIER CARRIER, GEMEINSAME ABLESEFLÄCHE</span><h3 id="piqComparatorTitle">PI × Q4 Deck Comparator</h3><p>Innen ↔ außen, Komplement, Spielregel und Peilung erscheinen gleichzeitig. Die Fenster werden verglichen – nicht gleichgesetzt.</p></div>
+          <div class="piq-mark" aria-label="PI mal Q4, keine PIQ-Identität">PI <b>×</b> Q4</div>
+        </header>
+        <div class="piq-grid">
+          <article class="piq-panel piq-q4"><div class="piq-kicker">FENSTER A · Q4 / SUITS</div><h4>Komplement und Viererzyklus</h4><div class="piq-q4-display"><button type="button" data-piq-q4-down aria-label="Vorheriger Q4-Zustand">−</button><output data-piq-q4-state>0000₂</output><span>↔</span><output data-piq-q4-pair>1111₂</output><button type="button" data-piq-q4-up aria-label="Nächster Q4-Zustand">+</button></div><div class="piq-suits" data-piq-suits aria-label="Gewählter Viererzyklus der Farben"></div><p class="piq-result"><b data-piq-q4-equation>C(0)=15</b><span>σ⁴ = id</span></p><small>Der Farbzyklus ♠→♦→♥→♣ ist eine gewählte Permutation; er ist nicht das Bitkomplement.</small></article>
+          <article class="piq-panel piq-mask"><div class="piq-kicker">FENSTER B · ΠQ MASK</div><h4>Blattmaske · 2 innen / 6 außen</h4><div class="piq-mask-field" data-piq-mask-field role="img" aria-label="Acht Quellpunkte und horizontale PIQ-Maskengrenzen"></div><label class="piq-switch"><input type="checkbox" data-piq-trace checked> vollständige Spur / Decoder verfügbar</label><p class="piq-result"><b data-piq-mask-summary>2 recoverable · 6 outside</b><span>HQ-PIQ</span></p><small>Ohne vollständige Spur werden die zwei maskierten Punkte UNKNOWN – nicht rekonstruiert.</small></article>
+          <article class="piq-panel piq-deck"><div class="piq-kicker">FENSTER C · DECK CARRIER</div><h4>52 + 2 · Regeln sind Operatoren</h4><label>Regelprofil<select data-piq-deck-select><option value="standard54">54 · Standard + 2 Joker</option><option value="doppelkopf48">48 · Doppelkopf</option><option value="skat32">32 · Skat</option><option value="poker52">52 · Poker</option></select></label><div class="piq-deck-card"><span data-piq-deck-count>54</span><b data-piq-deck-title>STANDARD + 2 JOKER</b><p data-piq-deck-note>48 mobile Karten + 4 Asse + 2 Joker als sechs feste Zentren.</p></div><p class="piq-result"><b data-piq-deck-equation>48 + 4 + 2 = 54</b><span data-piq-deck-status>EXAKTER AUDIT</span></p><small>Spielregeln sind Metadaten beziehungsweise Operatoren – keine „55. Karte“. Varianten bleiben Varianten.</small></article>
+          <article class="piq-panel piq-polaris"><div class="piq-kicker">FENSTER D · POLARIS BEARING</div><h4>Zwei halten den Ring · einer peilt</h4><svg data-piq-bearing viewBox="0 0 360 230" role="img" aria-label="Ring mit zwei Haltepunkten und einer Peilachse zu Polaris"><circle class="piq-ring" cx="180" cy="135" r="58"/><circle class="piq-holder" cx="130" cy="164" r="8"/><circle class="piq-holder" cx="230" cy="164" r="8"/><line class="piq-axis" data-piq-axis x1="180" y1="135" x2="180" y2="35"/><circle class="piq-bearing-point" data-piq-bearing-point cx="180" cy="77" r="7"/><text class="piq-star" x="180" y="25">✦</text><text class="piq-star-label" x="198" y="27">POLARIS REF</text></svg><label class="piq-switch"><input type="checkbox" data-piq-null> Nullkontrolle +37°</label><p class="piq-result"><b data-piq-residual>Δθ = 0°</b><span data-piq-bearing-status>PASS BY CONSTRUCTION</span></p><small>Display-Peiltest, kein extrahierter Naturbefund und kein physikalischer Attraktor.</small></article>
+        </div>
+        <div class="piq-boundary"><strong>Claim boundary:</strong> <code>PI × Q4</code> ist ein Vergleichslabel, keine Produktidentität. Q4-Komplement, ΠQ-Maske, Deckregeln und Polaris-Peilung bleiben verschiedene Operator-/Carrier-Typen. „QUAZAR“, Kartenbilder und Glasperlen sind Bildvokabular; hier wird weder Prime-Harmonic-Resonanz noch ein physikalischer Mechanismus behauptet.</div>
+        <nav class="piq-links" aria-label="Gebundene Comparator-Quellen"><a href="A0_PLATINUM_IRIDIUM_PI_LENS.html">PI Lens</a><a href="../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_ROOT7_EULER_MIRROR_CONCORDANCE_INTAKE_2026-09-28/29_H_Q_PIQ_MASK_COMPATIBILITY_01_RESULT_REPORT.md">HQ-PIQ Ergebnisbericht</a><a href="results/a0-deck-cube-ledger-return-2026-11-02.json">Deck-Cube Audit Receipt</a></nav>
+      </section>
     </section>
 
     <section class="workspace" id="gridWorkspace">
       <div class="stage">
         <div class="stage-head"><div><h2 id="gridTitle">Dürer · planare Komplementrotation</h2><p id="gridNote">Wähle eine Zelle: ihr 4-Bit-Komplement liegt an der um 180° gedrehten Gegenposition.</p></div></div>
-        <div class="grid-wrap"><div class="magic-grid" id="magicGrid" role="grid" aria-label="4 mal 4 Zahlenquadrat"></div><div class="grid-caption" id="gridCaption">P(C(v)) = R₁₈₀(P(v))</div></div>
+        <div class="q4-five-window" data-q4-dual-overlay>
+          <div class="q4-dual-top">
+            <figure class="q4-square-window" data-q4-square="durer"><div class="q4-window-label">FENSTER 1 · DÜRER</div><div class="magic-grid" id="magicGrid" role="grid" aria-label="Dürer 4 mal 4 Zahlenquadrat"></div><figcaption>P(C(v)) = R₁₈₀(P(v)) · planar</figcaption></figure>
+            <figure class="q4-square-window" data-q4-square="khajuraho"><div class="q4-window-label">FENSTER 2 · KHAJURAHO</div><div class="magic-grid" data-q4-khajuraho role="grid" aria-label="Khajuraho 4 mal 4 Zahlenquadrat"></div><figcaption>P(C(v)) = T(2,2)(P(v)) · torisch</figcaption></figure>
+          </div>
+          <div class="q4-overlay-three">
+            <article class="q4-overlay-window"><div class="q4-window-label">FENSTER 3 · DECKUNGSOVERLAY</div><h3>gleicher Ort · anderes Label</h3><div class="q4-pair-grid" data-q4-pair-grid aria-label="Positionsgleiche Dürer-zu-Khajuraho-Paare"></div><p data-q4-overlay-readout>16 → 7 · keine Fixpunkte</p></article>
+            <article class="q4-overlay-window"><div class="q4-window-label">FENSTER 4 · ZWEI SAITEN</div><h3>zwei Wege zum Komplement</h3><div class="q4-strings" data-q4-strings></div><p class="q4-101-pair">0101₂ ↔ 1010₂ · Q4-Paar</p></article>
+            <article class="q4-overlay-window"><div class="q4-window-label">FENSTER 5 · PM / VM DISPLAY</div><h3>14er-Bahn + 2er-Wechsel</h3><div class="q4-cycles" data-q4-cycles></div><p data-q4-cycle-readout>π = C₁₄ · C₂</p></article>
+          </div>
+          <div class="q4-overlay-boundary"><strong>Overlay-Grenze:</strong> Das deckungsgleiche Auflegen erzeugt eine exakte Zellpermutation ohne Fixpunkte: einen 14er-Zyklus und <code>8 ↔ 11</code> in der 1…16-Beschriftung. „PM / VM“, „zwei Saiten“, „101-Cube“ und Polar/Janus sind hier Displaylesarten dieser endlichen Abbildung – keine neu eingeführten Operatoren oder physikalischen Empfangsmodi.</div>
+          <section class="q4-pascal-fold" data-q4-pascal-fold aria-labelledby="q4PascalFoldTitle">
+            <header class="q4-pf-head"><div><span>FOLDOUT · Q4 = Q3 × Q1</span><h3 id="q4PascalFoldTitle">Gerade / ungerade aufklappen · mit Pascal zählen</h3><p>Zwei Achtzustands-Flügel, ein festes Endbit und drei freie Bits.</p></div><div class="q4-pf-controls" role="group" aria-label="Gezählte Bits"><button type="button" data-q4-pf-mode="ones" aria-pressed="true">Einsen zählen</button><button type="button" data-q4-pf-mode="zeros" aria-pressed="false">Nullen zählen</button></div></header>
+            <div class="q4-pf-wings">
+              <article class="q4-pf-wing even"><div class="q4-pf-wing-head"><b>GERADE · b₀=0</b><span>Q3-FLÜGEL · 8 ZUSTÄNDE</span></div><div data-q4-pf-even></div></article>
+              <div class="q4-pf-axis" aria-live="polite"><span>KOMPLEMENTACHSE</span><b data-q4-pf-axis>1111 ↔ 0000</b><i>C(v)=15−v</i></div>
+              <article class="q4-pf-wing odd"><div class="q4-pf-wing-head"><b>UNGERADE · b₀=1</b><span>Q3-FLÜGEL · 8 ZUSTÄNDE</span></div><div data-q4-pf-odd></div></article>
+            </div>
+            <div class="q4-pf-plus" aria-hidden="true"><span>1–3–3–1</span><b>+</b><span>1–3–3–1</span></div>
+            <div class="q4-pf-fusion" data-q4-pf-fusion aria-label="Pascal-4-Fusion"></div>
+            <p class="q4-pf-equation" data-q4-pf-equation>C(4,k) = C(3,k) + C(3,k−1) · 1 + 4 + 6 + 4 + 1 = 16</p>
+            <div class="q4-pf-boundary"><strong>Zählgrenze:</strong> „Erbsen“ meint ausschließlich Popcount. Das Sortieren in gerade/ungerade fixiert ein Bit und lässt zwei isomorphe Q3-Flügel zurück. „Töpfchen / Kröpfchen“ ist eine Filtermetapher, keine Wertung der Zustände.</div>
+          </section>
+          <section class="q4-cube-snake" data-q4-cube-snake aria-labelledby="q4CubeSnakeTitle">
+            <header class="q4-cs-head">
+              <div><span>STEUERZENTRALE · 11³ = 1331 ZELLEN</span><h3 id="q4CubeSnakeTitle">Der ganze Würfel läuft als Schlange</h3><p>Eine kantenbenachbarte Route besucht jede Zelle genau einmal. Drei Zahlkanäle lesen dieselbe laufende Adresse.</p></div>
+              <output data-q4-cs-counter>0000 / 1330</output>
+            </header>
+            <div class="q4-cs-controls" role="group" aria-label="Schlangenroute steuern">
+              <button type="button" data-q4-cs-play>Start</button><button type="button" data-q4-cs-step>Schritt</button><button type="button" data-q4-cs-reset>Reset</button>
+              <label>Position <input data-q4-cs-position type="range" min="0" max="1330" value="0" step="1"></label>
+              <label>Tempo <input data-q4-cs-speed type="range" min="35" max="800" value="180" step="5"></label>
+            </div>
+            <div class="q4-cs-layout">
+              <figure class="q4-cs-stage"><canvas data-q4-cs-canvas role="img" aria-label="Projizierter 11 mal 11 mal 11 Würfel mit kantenbenachbarter Schlangenroute"></canvas><figcaption><b>SNAKE₁₃₃₁</b> · jeder Schritt hat Manhattan-Abstand 1 · kein Sprung zwischen den Ebenen</figcaption></figure>
+              <aside class="q4-cs-console" aria-live="polite">
+                <div class="q4-cs-coord"><span>ZELLE</span><b data-q4-cs-cell>(0, 0, 0)</b><i data-q4-cs-layer>Ebene 1 / 11</i></div>
+                <div class="q4-cs-code binary"><span>BINÄR · 11 STELLEN</span><b data-q4-cs-binary>00000000000</b><i>2¹⁰ &lt; 1331 ≤ 2¹¹</i></div>
+                <div class="q4-cs-code ternary"><span>TRINÄR · 7 STELLEN</span><b data-q4-cs-ternary>0000000</b><i>3⁶ &lt; 1331 ≤ 3⁷</i></div>
+                <div class="q4-cs-code pental"><span>PENTÄLER · 5 STELLEN</span><b data-q4-cs-pental>00000</b><i>5⁴ &lt; 1331 ≤ 5⁵</i></div>
+              </aside>
+            </div>
+            <div class="q4-cs-family">
+              <div class="q4-cs-family-head"><span>ZWEI SEITEN · EIN 7er-SCHARNIER</span><div role="group" aria-label="Spiegelwortfamilie"><button type="button" data-q4-cs-family="1" aria-pressed="true">17 / 71</button><button type="button" data-q4-cs-family="3" aria-pressed="false">37 / 73</button><button type="button" data-q4-cs-family="4" aria-pressed="false">47 / 74</button></div></div>
+              <div class="q4-cs-word-axis"><article><span>SEITE A</span><b data-q4-cs-left>17</b></article><i>7</i><article><span>SEITE B</span><b data-q4-cs-right>71</b></article><strong data-q4-cs-word>1771 ↔ 7117</strong></div>
+              <p data-q4-cs-word-equation>17|71 ↔ 71|17 · S₂² = id</p>
+            </div>
+            <div class="q4-cs-boundary"><strong>Codegrenze:</strong> Binär, trinär und „PenTäler“ sind drei gepolsterte Schreibweisen derselben Zelladresse <code>0…1330</code>; „PenTäler“ ist hier der lokale Anzeigename für Basis 5. Die Wortpaare benutzen einen deklarierten Zwei-Block-Tausch – keine gewöhnliche Dezimalumkehr. Die Würfelprojektion und die Schlangenbewegung sind endliche Bedienmodelle, kein physikalischer Raum- oder Bewegungsanspruch.</div>
+          </section>
+          <section class="q4-lamella-fold" data-q4-lamella-fold aria-labelledby="q4LamellaTitle">
+            <header class="q4-lf-head"><div><span>LAMELLENWERK · DIAGONALEN IM 11³-CUBE</span><h3 id="q4LamellaTitle">V hält die Mitte · acht Richtungen falten</h3><p>Ein lokales 3×3-Schachfenster wird als XY-, XZ- oder YZ-Lamelle durch den Würfel gelegt.</p></div><output data-q4-lf-plane>XY · z=5</output></header>
+            <div class="q4-lf-controls">
+              <div role="group" aria-label="Figur oder Bewegungsoperator"><button type="button" data-q4-lf-piece="king" aria-pressed="true">König · ±1</button><button type="button" data-q4-lf-piece="queen" aria-pressed="false">Dame · Strahl</button><button type="button" data-q4-lf-piece="knight" aria-pressed="false">P/Pferd · 2+1</button></div>
+              <div role="group" aria-label="Würfellamelle"><button type="button" data-q4-lf-slice="xy" aria-pressed="true">XY</button><button type="button" data-q4-lf-slice="xz" aria-pressed="false">XZ</button><button type="button" data-q4-lf-slice="yz" aria-pressed="false">YZ</button><button type="button" data-q4-lf-fold>Falte +90°</button></div>
+              <label>Damenweite <input data-q4-lf-distance type="range" min="1" max="5" value="3" step="1"><b data-q4-lf-distance-out>3</b></label>
+            </div>
+            <div class="q4-lf-layout">
+              <figure class="q4-lf-cube"><canvas data-q4-lf-canvas role="img" aria-label="Elferraster-Würfel mit einer aktiven Mittellamelle, Diagonalen und gewähltem Schachzug"></canvas><figcaption><b data-q4-lf-caption>KÖNIG</b> · gehaltenes V bleibt bei (5,5,5); das Zielfeld ist eine Vorschau</figcaption></figure>
+              <aside class="q4-lf-keyboard" aria-label="Neunerfeld um das gehaltene Zentrum V">
+                <div class="q4-lf-keygrid">
+                  <button type="button" data-q4-lf-key="1">1</button><button type="button" data-q4-lf-key="2">2</button><button type="button" data-q4-lf-key="3">3</button>
+                  <button type="button" data-q4-lf-key="4">4</button><button type="button" class="center" disabled>V<small>5</small></button><button type="button" data-q4-lf-key="6">6</button>
+                  <button type="button" data-q4-lf-key="7">7</button><button type="button" data-q4-lf-key="8">8</button><button type="button" data-q4-lf-key="9">9</button>
+                </div>
+                <div class="q4-lf-readout" aria-live="polite"><span>V → ZIEL</span><b data-q4-lf-route>(5,5,5) → (6,6,5)</b><i data-q4-lf-vector>Δ=(+1,+1,0)</i><strong data-q4-lf-rule>König · genau ein Nachbarschritt</strong></div>
+              </aside>
+            </div>
+            <div class="q4-lf-strip" data-q4-lf-strip aria-label="Aktuelle Bewegungsfamilie"></div>
+            <section class="q4-twin-tower" data-q4-twin-tower aria-labelledby="q4TwinTowerTitle">
+              <header class="q4-tt-head"><div><span>GAME OF NUMBERS · TWIN CUBE COUPLER</span><h4 id="q4TwinTowerTitle">Zwei Türme · agree to disagree</h4><p>Ein Träger, zwei Gegenphasen — Signal, Schwarz/Weiß/Rot und Shift sind verschiedene Erscheinungen derselben Geometrie.</p></div><div class="q4-tt-head-state"><output data-q4-tt-plane>XY · z=5</output><b data-q4-tt-agreement>AGREE · 0° / 0°</b></div></header>
+              <div class="q4-tt-controls">
+                <div role="group" aria-label="Turmkopplung"><button type="button" data-q4-tt-mode="parallel" aria-pressed="true">I I · Parallelstreifen</button><button type="button" data-q4-tt-mode="cross" aria-pressed="false">H×V · gekoppelt</button></div>
+                <div role="group" aria-label="Gerichteter Viertelturn"><button type="button" data-q4-tt-angle="0" aria-pressed="true">0°</button><button type="button" data-q4-tt-angle="90" aria-pressed="false">90°</button><button type="button" data-q4-tt-angle="180" aria-pressed="false">180°</button><button type="button" data-q4-tt-angle="270" aria-pressed="false">270°</button><button type="button" data-q4-tt-turn>+90°</button></div>
+                <div role="group" aria-label="Darstellungspalette"><button type="button" data-q4-tt-palette="signal" aria-pressed="false">Signal</button><button type="button" data-q4-tt-palette="bwr" aria-pressed="true">B·W·R</button><button type="button" data-q4-tt-palette="p186" aria-pressed="false">186 View</button><button type="button" data-q4-tt-palette="shift" aria-pressed="false">Shift</button><a class="q4-tt-return" href="DRAFTS/A0_IOI_LEAF_FOLD_OPEN_BOOK_START_2026-11-02.html#a0-101-orientation-coupler">101 / A0 Open Book ↗</a></div>
+              </div>
+              <div class="q4-tt-layout">
+                <figure class="q4-tt-stage"><canvas data-q4-tt-canvas role="img" aria-label="Graues Schachbrett mit rotem und blauem Cube-Zeiger in Gegenphase"></canvas><figcaption><b data-q4-tt-caption>AGREE · I I</b> · gleicher Träger, zwei bewusst verschiedene Orientierungslesarten</figcaption></figure>
+                <aside class="q4-tt-ledger" aria-live="polite">
+                  <article class="red"><span data-q4-tt-a-name>A · ROT · VORSEITE</span><b data-q4-tt-a>ROT · +q = 0°</b><i data-q4-tt-a-line>A · y=6</i></article>
+                  <article class="blue"><span data-q4-tt-ap-name>A′ · WEISS · GEGENSEITE</span><b data-q4-tt-ap>WEISS · −q = 0°</b><i data-q4-tt-ap-line>A′ · y=4</i></article>
+                  <article class="cold"><span>KALTPUNKT-REFERENZ</span><b>−273,15 °C ≈ 0 K</b><i>nicht −273 K</i></article>
+                  <article class="palette"><span>VIEW PALETTE</span><b data-q4-tt-palette-readout>B · W · R</b><i>Darstellung · kein Operator</i></article>
+                  <p data-q4-tt-equation>d(0°)=(1,0) · d(180°)=−d(0°)</p>
+                </aside>
+              </div>
+              <div class="q4-tt-boundary"><strong>Kopplungsgrenze:</strong> A liest <code>+q</code>, A′ liest <code>−q</code>. Daher gilt bei 0° und 180° <code>AGREE</code>, bei 90° und 270° <code>DISAGREE</code>. Signal, <code>B·W·R</code>, <code>186 VIEW</code> und Red-/Grey-Shift verändern nur die Palette. <code>186 VIEW</code> ist keine zertifizierte Pantone-Spezifikation. Black Sun, Horizont und Haarriss sind Bildrollen. <code>99+1</code> ist eine lokale Displaypopulation; <code>1728+1=1729</code> bleibt eine getrennte exakte Zahlspur. Daraus folgt weder ein astronomischer Redshift noch eine Ballon-, Schatten- oder Lichtmechanik.</div>
+            </section>
+            <section class="q4-split-clamp" data-q4-split-clamp aria-labelledby="q4SplitClampTitle">
+              <header class="q4-sc-head"><div><span>DER SPALT · PYTHAGORAS-BÜGEL · CLAMP RETURN</span><h4 id="q4SplitClampTitle">Zwei Hälften halten eine offene Mitte</h4><p>A und A′ weichen auseinander. Ein rechtwinkliger 3–4–5-Bügel und zwei sichtbare Clamps tragen die Korrespondenz über den Spalt, ohne ihn zu schließen.</p></div><output data-q4-sc-count>01 / 04</output></header>
+              <nav class="q4-sc-nav" aria-label="Vier Szenen des Spaltfensters"><button type="button" data-q4-sc-stage aria-pressed="true">1 · Spalt</button><button type="button" data-q4-sc-stage aria-pressed="false">2 · 3–4–5</button><button type="button" data-q4-sc-stage aria-pressed="false">3 · Bügel</button><button type="button" data-q4-sc-stage aria-pressed="false">4 · Return</button><span class="spacer"></span><button type="button" data-q4-sc-prev>←</button><button type="button" data-q4-sc-play>Auto</button><button type="button" data-q4-sc-next>→</button></nav>
+              <div class="q4-sc-layout">
+                <figure class="q4-sc-stage"><canvas data-q4-sc-canvas role="img" aria-label="Zwei getrennte Cube-Hälften mit leuchtendem Spalt, Pythagoras-Dreieck und zwei offenen Bügeln"></canvas></figure>
+                <aside class="q4-sc-reading" aria-live="polite"><small>AKTUELLE SZENE</small><h5 data-q4-sc-title>Der Spalt</h5><code data-q4-sc-formula>A | seam | A′</code><p>Das Fenster erzählt eine View-Abfolge. Der Spalt ist eine sichtbare Grenze; die Bügel sind eine gezeichnete Korrespondenz.</p></aside>
+              </div>
+              <div class="q4-sc-boundary"><strong>Spaltgrenze:</strong> Exakt ist ausschließlich <code>3² + 4² = 5²</code> sowie der bereits deklarierte endliche Clamp-Split <code>C<sub>A</sub>+C<sub>B</sub>=x</code>. Cube-Hälften, Lichtpunkt, 120°-Bügel und Clamps sind Darstellungsrollen. Sie behaupten weder materielles Klemmen noch Last, Reibung, Lichtausbreitung, Raumkrümmung oder einen neuen Return-Operator. Der Spalt bleibt im Bild absichtlich offen.</div>
+            </section>
+            <section class="q4-clock-fork" data-q4-clock-fork aria-labelledby="q4ClockForkTitle">
+              <header class="q4-cf-head"><div><span>A0/101 · NLK SHARED PHASE · KUBRIK RETURN</span><h4 id="q4ClockForkTitle">Eine Clock · Mitte gehalten · zwei oder drei Gabeln</h4><p>Ein ganzzahliger Takt <code>g</code> adressiert Vierteldrehung, A/A′-Seite und einen endlichen Verzweigungspfad.</p></div><output>g = <b data-q4-cf-g>0</b></output></header>
+              <div class="q4-cf-controls">
+                <div role="group" aria-label="Clock-Steuerung"><button type="button" data-q4-cf-play>Start</button><button type="button" data-q4-cf-step>Schritt</button><button type="button" data-q4-cf-reset>Reset</button><label>Tempo <input data-q4-cf-speed type="range" min="120" max="1400" value="650" step="10"></label></div>
+                <div role="group" aria-label="Verzweigungsgrad"><button type="button" data-q4-cf-arity="2" aria-pressed="true">2er-Gabel · 2³</button><button type="button" data-q4-cf-arity="3" aria-pressed="false">3er-Gabel · 3³</button></div>
+                <div role="group" aria-label="Kubrik-Blockfamilie"><button type="button" data-q4-cf-family="3113" aria-pressed="true">31|13</button><button type="button" data-q4-cf-family="4774" aria-pressed="false">47|74</button></div>
+              </div>
+              <div class="q4-cf-layout">
+                <figure class="q4-cf-stage"><canvas data-q4-cf-canvas role="img" aria-label="Gehaltener Kubrik-Block mit binärem oder ternärem Verzweigungsbaum"></canvas></figure>
+                <aside class="q4-cf-ledger" aria-live="polite">
+                  <article><span>NLK PHASE</span><b data-q4-cf-phase>0 / 7</b></article><article><span>VIERTELTURN</span><b data-q4-cf-angle>0°</b></article>
+                  <article><span>SEITE</span><b data-q4-cf-side>A</b></article><article><span>GABELADRESSE</span><b data-q4-cf-branch>000₍2₎</b></article>
+                  <article><span>KUBRIK-BLOCK</span><b data-q4-cf-word>3113</b></article><article><span>TÜRME</span><b>Clock-gekoppelt</b></article>
+                  <article class="wide"><span>GEMEINSAMER RETURN</span><b data-q4-cf-return>C₈ × B8 → 8 Ticks</b></article>
+                </aside>
+              </div>
+              <div class="q4-cf-boundary"><strong>Clock-Grenze:</strong> Dies ist eine endliche Displayclock, kein physikalischer Oszillator. <code>q=g mod 4</code> steuert 0°/90°/180°/270° der vorhandenen Türme; <code>g mod 8</code> trennt A und A′. Die Gabel ist eine Basis-2- oder Basis-3-Adresse mit Tiefe 3. Der Kubrik-Block benutzt den vorhandenen involutiven Zwei-Block-Tausch; er ist weder Dezimalumkehr noch ein neuer Cube-Carrier. Schachfelder bleiben Adressen derselben Mittellamelle.</div>
+            </section>
+            <section class="gps-story" data-galileo-package-story aria-labelledby="gpsStoryTitle">
+              <header class="gps-head"><div><span>GALILEO’S PARADOX · FROM LANDMARKS TO PACKAGES</span><h4 id="gpsStoryTitle">Eine Korrespondenz · vier Erscheinungsformen</h4><p>Landmarken, Schatten, Curtain-Kanäle und Crystal Package werden nacheinander gelesen — gleiche Adressidee, ausdrücklich verschiedene Geometrien und Kontexte.</p></div><output data-gps-count>01 / 04</output></header>
+              <nav class="gps-nav" aria-label="Vier visuelle Szenen"><button type="button" data-gps-stage aria-pressed="true">1 · Strecke</button><button type="button" data-gps-stage aria-pressed="false">2 · Schatten / Leiter</button><button type="button" data-gps-stage aria-pressed="false">3 · Curtain I I</button><button type="button" data-gps-stage aria-pressed="false">4 · Crystal ±1</button><span class="spacer"></span><button type="button" data-gps-prev>←</button><button type="button" data-gps-play>Auto</button><button type="button" data-gps-next>→</button></nav>
+              <div class="gps-layout">
+                <figure class="gps-figure"><canvas data-gps-canvas role="img" aria-label="Vierstufige Illustration von Galileo-Korrespondenz, Schattenleiter, Curtain-Kanälen und Triple-Gate-Crystal"></canvas></figure>
+                <aside class="gps-reading" aria-live="polite"><small>AKTUELLE SZENE</small><h5 data-gps-title>Landmarks → packages</h5><code data-gps-formula>n ↔ n² · Δ₂(n)=2n+1</code><p>Die Szene wechselt nur die Darstellung. Quelle, Adressregel und Claim-Grenze bleiben getrennt.</p></aside>
+              </div>
+              <div class="gps-boundary"><strong>Erzählgrenze:</strong> Exakt sind <code>n↔n²</code>, die endlichen Differenzformeln und das lokale Gate-Alphabet <code>{−1,0,+1}</code>. Das A/B-Grau ist im Renderer identisch; Schatten und Leiter verändern nur den Kontext. Curtain, Cherenkov-/IceCube-Anmutung, Zylinder, Red Balloon, Crystal Cube und PIPE CONSTELLATION sind getrennte visuelle beziehungsweise source-bound Rollen. Sie begründen keine gemeinsame Physik, Detektorgeometrie, Lichtausbreitung oder neue Triple-Gate-Regel.</div>
+            </section>
+            <div class="q4-lf-boundary"><strong>Operatorgrenze:</strong> Das Neunerfeld <code>1–2–3 / 4–V–6 / 7–8–9</code> ist eine lokale Lamellenadresse. Der König wählt acht unmittelbare Nachbarn; die Dame liest endliche Strahlen; <code>2+1</code> ist der Springer-/Pferdsprung und nicht der Bauernzug. XY→XZ→YZ ist eine deklarierte Koordinatenfalte derselben Mittellamelle – keine Behauptung über einen materiell faltbaren Würfel.</div>
+          </section>
+        </div>
       </div>
       <aside class="ledger">
         <div class="card"><h2>Gewählter Zustand</h2><div class="equation" id="selectionEquation">x=16 · v=15 · 1111₂</div><div class="facts"><div class="fact"><span>Hamming-Gewicht</span><strong id="weightOut">4</strong></div><div class="fact"><span>Komplement</span><strong id="pairOut">x'=1 · v'=0</strong></div><div class="fact"><span>Ortsoperator</span><strong id="operatorOut">R₁₈₀</strong></div><div class="fact"><span>Joint-Test</span><strong class="pass" id="jointOut">PASS</strong></div></div></div>
@@ -78,6 +261,38 @@
       <div class="q4-crt-boundary"><strong>Operatorgrenze:</strong> Im Q4-Audit bleibt <code>C(v)=15−v</code> das Bitkomplement. <code>CRT₍15,14₎</code> ist daneben eine ganzzahlige Rekonstruktion und weder derselbe Operator noch eine Behauptung historischer Absicht. Persönliche Datumsbeispiele werden nicht gespeichert. Anschluss: <a href="A0_WERKBANK.html#repunitCrtOneDigitLens">Repunit-CRT-Werkbank</a> · <a href="results/a0-q4-base-prime-crt210-return-2026-11-07.json">Receipt</a>.</div>
     </section>
 
+    <section class="stage seven-mask-stage" id="sevenMaskFoldStage" data-seven-mask-fold hidden>
+      <div class="stage-head"><div><h2>Die zwei Masken · Spiegel, Blocktausch und Falte</h2><p>Die Sicheln zeigen nur zwei Ansichten an einer gemeinsamen Naht. Wähle den Operator: dieselbe Geometrie darf verschiedene, sauber typisierte Transformationen tragen.</p></div><div class="equation">R / M / S / op</div></div>
+      <div class="smf-controls" role="group" aria-label="Maskenoperator">
+        <button type="button" data-smf-mode="hinge" aria-pressed="true">71 ↔ 73</button>
+        <button type="button" data-smf-mode="blocks" aria-pressed="false">7447 ↔ 4774</button>
+        <button type="button" data-smf-mode="scarab" aria-pressed="false">3301 ↔ 1033</button>
+        <button type="button" data-smf-mode="seven" aria-pressed="false">7 op 7</button>
+      </div>
+      <div class="smf-layout">
+        <figure class="smf-figure">
+          <svg viewBox="0 0 900 500" role="img" aria-labelledby="smfSvgTitle smfSvgDesc">
+            <title id="smfSvgTitle">Zwei Masken treffen sich an einer Faltachse</title><desc id="smfSvgDesc">Zwei symmetrische sichelartige Schalen berühren eine goldene Mittelachse. Beschriftungen ändern sich mit dem gewählten Operator.</desc>
+            <path class="smf-shell" d="M430 58C235 42 70 135 142 250C70 365 235 458 430 442C300 350 300 150 430 58Z"/>
+            <path class="smf-shell right" d="M470 58C665 42 830 135 758 250C830 365 665 458 470 442C600 350 600 150 470 58Z"/>
+            <path class="smf-nose" d="M430 58C350 150 350 350 430 442M470 58C550 150 550 350 470 442"/>
+            <path class="smf-thread" d="M180 250C300 196 355 304 450 250C545 196 600 304 720 250"/>
+            <line class="smf-fold" x1="450" y1="35" x2="450" y2="465"/><circle class="smf-seam" cx="450" cy="250" r="8"/>
+            <text class="smf-small" x="245" y="92">LINKE MASKE</text><text class="smf-small" x="655" y="92">RECHTE MASKE</text>
+            <text class="smf-label" x="245" y="265" data-smf-left>71</text><text class="smf-label" x="655" y="265" data-smf-right>73</text>
+            <text class="smf-op" x="450" y="205" data-smf-center>72</text><text class="smf-small" x="450" y="300" data-smf-operator>M₇₂</text>
+            <text class="smf-small" x="450" y="482" data-smf-caption>Zahlenspiegel</text>
+          </svg>
+        </figure>
+        <aside class="smf-ledger" aria-live="polite">
+          <div class="card"><h3 data-smf-title>71 ↔ 73 · Spiegel um 72</h3><div class="smf-equations" data-smf-equations></div><div class="smf-status" data-smf-status>PASS · Involution und Primindizes getrennt</div></div>
+          <div class="card"><h3>7er-Operatorfächer</h3><p>Vier korrekte Ergebnisse, vier verschiedene Operationen.</p><div class="smf-seven-grid" data-smf-seven hidden><span>7+7=14</span><span>7×7=49</span><span>7÷7=1</span><span>7^7=823543</span></div></div>
+          <div class="card"><h3>Gebundene Rückwege</h3><p><a href="A0_PASCAL_GENERATION_CORNER.html#n-band-49-return">Pascal / 49-Return</a> · <a href="A0_WERKBANK.html#scarabaeusTitanReturnBridge">Scarabäus × Titan Bench</a></p></div>
+        </aside>
+      </div>
+      <div class="smf-boundary"><strong>Typgrenze:</strong> <code>M₇₂</code> (arithmetischer Spiegel), <code>R₄</code> (Ziffernumkehr), <code>S₂</code> (Tausch zweier Zweierblöcke) und <code>+ × ÷ ^</code> sind verschiedene Operatoren. Die Sichel-/Nasenform ist eine Anzeigegeometrie; sie beweist weder eine natürliche „Flower of Life“-Identität noch einen physikalischen Faltkanal.</div>
+    </section>
+
     <section class="ilau" aria-label="ILAU-Grenze">
       <div><b>I · retained</b><span>16 Zustände, acht Komplemente, Pascal-Gewichte und geprüfte Summen</span></div><div><b>L · lost</b><span>Quersumme und Dezimalwort erhalten keine eindeutige Q4-Adresse</span></div><div><b>A · added</b><span>1-basierte Labels, Platzierungspermutation und gewählte Wortgrammatik</span></div><div><b>U · unresolved</b><span>Kein Primselektor, keine Kopplungsdynamik und kein physikalischer Kanal</span></div>
     </section>
@@ -100,23 +315,35 @@
     function locationOf(m,x){for(let r=0;r<4;r++)for(let c=0;c<4;c++)if(m[r][c]===x)return[r,c]}
     function expectedPairLocation(r,c){return state.view==='durer'?[3-r,3-c]:[(r+2)%4,(c+2)%4]}
     function sums(m){const rows=m.map(r=>r.reduce((a,b)=>a+displayed(b),0));const cols=[0,1,2,3].map(c=>m.reduce((s,r)=>s+displayed(r[c]),0));const diag=[0,1,2,3].reduce((s,i)=>s+displayed(m[i][i]),0);const anti=[0,1,2,3].reduce((s,i)=>s+displayed(m[i][3-i]),0);return{rows,cols,diag:[diag,anti]}}
-    function renderGrid(){const m=matrix(),x=state.selected,v=x-1,partner=17-x,[r,c]=locationOf(m,x),[pr,pc]=locationOf(m,partner),[er,ec]=expectedPairLocation(r,c),target=displaySum(),audit=sums(m);$('magicGrid').innerHTML='';
-      m.forEach((row,ri)=>row.forEach((value,ci)=>{const b=document.createElement('button');b.type='button';b.className='cell'+(value===x?' selected':'')+(value===partner?' pair':'');b.setAttribute('role','gridcell');b.setAttribute('aria-label',`Zustand ${displayed(value)}, Bitadresse ${bits(value-1)}`);b.innerHTML=`${displayed(value)}<small>${bits(value-1)}</small>`;b.addEventListener('click',()=>{state.selected=value;renderGrid()});$('magicGrid').appendChild(b)}));
+    function renderGrid(){const m=matrix(),displayMatrix=DURER,x=state.selected,v=x-1,partner=17-x,[r,c]=locationOf(m,x),[pr,pc]=locationOf(m,partner),[er,ec]=expectedPairLocation(r,c),target=displaySum(),audit=sums(m);$('magicGrid').innerHTML='';
+      displayMatrix.forEach((row,ri)=>row.forEach((value,ci)=>{const b=document.createElement('button');b.type='button';b.className='cell'+(value===x?' selected':'')+(value===partner?' pair':'');b.setAttribute('role','gridcell');b.setAttribute('aria-label',`Dürer Zustand ${displayed(value)}, Bitadresse ${bits(value-1)}`);b.innerHTML=`${displayed(value)}<small>${bits(value-1)}</small>`;b.addEventListener('click',()=>{state.selected=value;renderGrid()});$('magicGrid').appendChild(b)}));
       const op=state.view==='durer'?'R₁₈₀':'T(2,2) torisch',pass=pr===er&&pc===ec;
-      $('gridTitle').textContent=state.view==='durer'?'Dürer · planare Komplementrotation':'Khajuraho · toroidale Halbverschiebung';$('gridNote').textContent=state.view==='durer'?'Wähle eine Zelle: ihr 4-Bit-Komplement liegt an der um 180° gedrehten Gegenposition.':'Wähle eine Zelle: ihr Komplement liegt zwei Zeilen und zwei Spalten weiter, jeweils modulo 4.';$('gridCaption').textContent=state.view==='durer'?'P(C(v)) = R₁₈₀(P(v))':'P(C(v)) = T(2,2)(P(v)) auf dem Torus';
-      $('selectionEquation').textContent=`x=${displayed(x)} · v=${v} · ${bits(v)}₂`;$('weightOut').textContent=popcount(v);$('pairOut').textContent=`x'=${displayed(partner)} · v'=${15-v}`;$('operatorOut').textContent=op;$('jointOut').textContent=pass?'PASS':'FAIL';$('jointOut').className=pass?'pass':'stop';$('sumEquation').textContent=state.oneBased?'4·(16+1)/2 = 34':'34−4 = 30 nach x↦x−1';$('rowsOut').textContent=`${audit.rows.filter(z=>z===target).length}/4 = ${target}`;$('colsOut').textContent=`${audit.cols.filter(z=>z===target).length}/4 = ${target}`;$('diagOut').textContent=`${audit.diag.filter(z=>z===target).length}/2 = ${target}`;$('pairSumOut').textContent=displayPairSum();$('typeBoundary').textContent=state.view==='durer'?'Die 180°-Rotation realisiert das Bitkomplement nur aufgrund der Dürer-Platzierungspermutation.':'Die toroidale Halbverschiebung realisiert hier dasselbe Komplement; sie ist nicht dieselbe Ortsoperation wie Dürers planare Rotation.';
+      $('gridTitle').textContent=state.view==='durer'?'Dürer · planare Komplementrotation':'Khajuraho · toroidale Halbverschiebung';$('gridNote').textContent=state.view==='durer'?'Wähle eine Zelle: ihr 4-Bit-Komplement liegt an der um 180° gedrehten Gegenposition.':'Wähle eine Zelle: ihr Komplement liegt zwei Zeilen und zwei Spalten weiter, jeweils modulo 4.';
+      $('selectionEquation').textContent=`x=${displayed(x)} · v=${v} · ${bits(v)}₂`;$('weightOut').textContent=popcount(v);$('pairOut').textContent=`x'=${displayed(partner)} · v'=${15-v}`;$('operatorOut').textContent=op;$('jointOut').textContent=pass?'PASS':'FAIL';$('jointOut').className=pass?'pass':'stop';$('sumEquation').textContent=state.oneBased?'4·(16+1)/2 = 34':'34−4 = 30 nach x↦x−1';$('rowsOut').textContent=`${audit.rows.filter(z=>z===target).length}/4 = ${target}`;$('colsOut').textContent=`${audit.cols.filter(z=>z===target).length}/4 = ${target}`;$('diagOut').textContent=`${audit.diag.filter(z=>z===target).length}/2 = ${target}`;$('pairSumOut').textContent=displayPairSum();$('typeBoundary').textContent=state.view==='durer'?'Die 180°-Rotation realisiert das Bitkomplement nur aufgrund der Dürer-Platzierungspermutation.':'Die toroidale Halbverschiebung realisiert hier dasselbe Komplement; sie ist nicht dieselbe Ortsoperation wie Dürers planare Rotation.';window.dispatchEvent(new CustomEvent('a0:q4-update',{detail:{selected:x,oneBased:state.oneBased,primary:state.view}}));
     }
     function renderPascal(){const root=$('pascalFibers');root.innerHTML='';for(let k=0;k<=4;k++){const states=[];for(let v=0;v<16;v++)if(popcount(v)===k)states.push(v);const f=document.createElement('div');f.className='fiber';f.innerHTML=`<div class="fiber-head"><b>W${k}</b><span>C(4,${k}) = ${states.length}</span></div><div class="states"></div>`;const list=f.querySelector('.states');states.forEach(v=>{const b=document.createElement('button');b.type='button';b.className='state'+(v===state.pascalState?' selected':'')+(v===(15-state.pascalState)?' pair':'');b.textContent=bits(v);b.addEventListener('click',()=>{state.pascalState=v;renderPascal()});list.appendChild(b)});root.appendChild(f)}const v=state.pascalState,w=popcount(v),p=15-v;$('pascalJoint').textContent=`${bits(v)} ↔ ${bits(p)} · W${w} ↔ W${4-w}`}
     function factors(n){const out=[];let d=2;while(d*d<=n){let e=0;while(n%d===0){n/=d;e++}if(e)out.push([d,e]);d=d===2?3:d+2}if(n>1)out.push([n,1]);return out}
     function factorString(fs){return fs.length?fs.map(([p,e])=>e===1?String(p):`${p}^${e}`).join(' × '):'1'}
     function auditWord(raw){if(!/^\d{1,9}$/.test(raw)||Number(raw)<1){$('factorTitle').textContent='Ungültige Eingabe';$('factorOut').textContent='Erlaubt: 1 bis 9 Dezimalziffern, Wert ≥ 1';return}const n=Number(raw),fs=factors(n),prime=fs.length===1&&fs[0][0]===n&&fs[0][1]===1,digit=[...raw].reduce((s,c)=>s+Number(c),0);$('factorTitle').textContent=`Audit ${raw}`;$('factorOut').textContent=`${raw} = ${factorString(fs)}`;$('primeOut').textContent=prime?'prim':'zusammengesetzt';$('palindromeOut').textContent=raw===[...raw].reverse().join('')?'ja':'nein';$('digitOut').textContent=`${digit} / ${digit%9}`;$('sevenElevenOut').textContent=n%77===0?'ja':'nein'}
-    function setView(view){state.view=view;document.querySelectorAll('[data-view]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.view===view)));const grid=view==='durer'||view==='khajuraho';$('gridToolbar').hidden=!grid;$('gridWorkspace').hidden=!grid;$('pascalStage').hidden=view!=='pascal';$('primeStage').hidden=view!=='prime';$('basePrimeCrtStage').hidden=view!=='base-prime-crt';if(grid){state.selected=matrix()[0][0];renderGrid()}if(view==='pascal')renderPascal()}
+    function setView(view){state.view=view;document.querySelectorAll('[data-view]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.view===view)));const grid=view==='durer'||view==='khajuraho';$('gridToolbar').hidden=!grid;$('gridWorkspace').hidden=!grid;$('pascalStage').hidden=view!=='pascal';$('primeStage').hidden=view!=='prime';$('basePrimeCrtStage').hidden=view!=='base-prime-crt';$('sevenMaskFoldStage').hidden=view!=='seven-mask-fold';$('ghostSkinChainStage').hidden=view!=='ghost-skin-chain';if(grid){state.selected=matrix()[0][0];renderGrid()}if(view==='pascal')renderPascal()}
     document.querySelectorAll('[data-view]').forEach(b=>b.addEventListener('click',()=>setView(b.dataset.view)));
+    window.addEventListener('a0:q4-select',e=>{const value=Number(e.detail&&e.detail.value);if(Number.isInteger(value)&&value>=1&&value<=16){state.selected=value;renderGrid()}});
     $('oneBased').addEventListener('click',()=>{state.oneBased=true;$('oneBased').setAttribute('aria-pressed','true');$('zeroBased').setAttribute('aria-pressed','false');renderGrid()});$('zeroBased').addEventListener('click',()=>{state.oneBased=false;$('oneBased').setAttribute('aria-pressed','false');$('zeroBased').setAttribute('aria-pressed','true');renderGrid()});
     $('factorForm').addEventListener('submit',e=>{e.preventDefault();auditWord($('wordInput').value.trim())});document.querySelectorAll('[data-word]').forEach(b=>b.addEventListener('click',()=>{$('wordInput').value=b.dataset.word;document.querySelectorAll('[data-word]').forEach(x=>x.setAttribute('aria-pressed',String(x===b)));auditWord(b.dataset.word)}));
-    renderGrid();renderPascal();auditWord('1771');
+    renderGrid();renderPascal();auditWord('1771');if(location.hash==='#sevenMaskFoldStage')setView('seven-mask-fold');if(location.hash==='#ghostSkinChainStage')setView('ghost-skin-chain');
   </script>
   <script src="a0-q4-base-prime-crt.js?rev=base-prime-crt210-r1-20261107"></script>
+  <script src="a0-seven-mask-fold.js?rev=seven-mask-fold-r1-20261112"></script>
+  <script src="a0-ghost-skin-chain.js?rev=polaris-compare-deck-r4-20261112"></script>
+  <script src="a0-pi-q4-deck-comparator.js?rev=pi-q4-deck-r1-20261112"></script>
+  <script src="a0-q4-dual-overlay.js?rev=dual-overlay-r1-20261112"></script>
+  <script src="a0-q4-pascal-fold.js?rev=pascal-fold-r1-20261112"></script>
+  <script src="a0-q4-cube-snake.js?rev=cube-snake-r1-20261112"></script>
+  <script src="a0-q4-lamella-fold.js?rev=lamella-fold-r1-20261112"></script>
+  <script src="a0-q4-twin-tower.js?rev=twin-tower-r1-20261112"></script>
+  <script src="a0-q4-split-clamp.js?rev=split-clamp-r1-20261112"></script>
+  <script src="a0-q4-clock-fork.js?rev=clock-fork-r1-20261112"></script>
+  <script src="a0-galileo-package-story.js?rev=galileo-package-r1-20261112"></script>
   <script src="a0-context-navigation.js?rev=flagship-constellation-r1-20261030"></script>
 </body>
 </html>

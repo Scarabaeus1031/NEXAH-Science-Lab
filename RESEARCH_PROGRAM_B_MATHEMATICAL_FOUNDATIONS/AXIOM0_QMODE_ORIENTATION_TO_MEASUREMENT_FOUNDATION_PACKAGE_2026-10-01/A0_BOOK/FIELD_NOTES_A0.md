@@ -2,7 +2,7 @@
 
 Date: `2026-10-08`
 
-Updated: `2026-11-11` · Disposition Pass für 29 aktive Ideen, drei angewandte Arbeitsverträge, vierteiliger Quantum-Grid-Intake-Split, begrenzter Tube-Routing-Vertrag und lokaler Visual-1/5/6-Crosswalk ergänzt; ältere Einträge behalten ihren eigenen Stand.
+Updated: `2026-11-12` · Disposition Pass für 31 aktive Ideen; der aktuelle Mask/Phase/Time/Field-Faden ist als getyptes Résumé ergänzt. Drei angewandte Arbeitsverträge, vierteiliger Quantum-Grid-Intake-Split, begrenzter Tube-Routing-Vertrag und lokaler Visual-1/5/6-Crosswalk bleiben erhalten; ältere Einträge behalten ihren eigenen Stand.
 
 ## Owner-Handbuchnotizen · Ideenparkplatz
 
@@ -3326,6 +3326,219 @@ Receipt, `432` der lokale Rückkehrpunkt.
 **Stand:** code-native Field-Notes-Linse und Builder-Vertrag; bestehende IDs
 `OP-UDF-01`, `BT-045` und `MOD:TESSAREC` wiederverwendet. Neue ID `0`, neue
 Relation `0`, Study `0`, Finding `0`, Capability-Aktivierung `0`.
+
+#### THIS NOW · Orientation before judgment — Résumé des Mask/Phase/Time/Field-Fadens
+
+**Disposition:** `PARTIAL` · dokumentarisch gebunden; der formale Phasenkern ist bereits in der PI Lens sichtbar, alle weitergehenden Deutungen bleiben getypt oder offen.
+
+Date: `2026-11-12`
+
+Diese Notiz hält den aktuellen langen Owner-Faden zusammen, ohne aus seinen
+Beobachtungen, Wortspielen, Bildern und exakten Teilrechnungen eine gemeinsame
+Naturtheorie zu machen. Die Arbeitsbewegung lautet:
+
+```text
+LOOK -> RECORD -> TYPE -> BIND -> TEST OR PARK -> RETURN
+```
+
+`This Now` ist dabei keine absolute Zeitdefinition. Es ist die ausgewählte
+Adresse eines Beobachters in einem deklarierten Frame. Die Field Notes lesen
+zuerst aus und bewerten später.
+
+### 1. Fünf Register statt einer großen Gleichung
+
+1. **SEEN:** sichtbare Kreise, Überlappung, rote Achse, Raster, Pfeile,
+   Ballon, Spitze, Rand, Vorder-/Rückseite, Flimmern und Wobble.
+2. **FORMAL:** definierte Winkel, komplexe Vierteldrehungen, Überlappungsmaß,
+   Mittelwert, Residuum, Topologie und Einheiten.
+3. **MODEL / PHYSICS:** nur mit Objekt, Messgröße, Einheit, Dynamik,
+   Vergleich und Negativkontrolle.
+4. **CULTURE / MORPHOLOGY:** Janus, Omega, Maya-Haab, Atlantis, Kirchen,
+   Golden Apple, Speer, Krone, Lotus, Softeis und ähnliche Formbilder.
+5. **OPEN GLYPH:** noch ungebundene Zeichenketten, Klangähnlichkeiten und
+   Zahladressen. Sie bleiben lesbar, aber ohne still ergänzten Operator.
+
+### 2. Der mathematisch belastbare Phasenkern
+
+Die vorhandene PI Lens führt die Phasenadressen
+`0°, 36°, 45°, 90°, 99°, 101°, 180°, 204°`. Exakte trigonometrische
+Identitäten werden dort von bloß deklarierten Adressen getrennt. Für die
+komplexe Vierteldrehung gilt:
+
+```text
+J^0 = 1
+J^1 = i
+J^2 = -1
+J^3 = -i
+J^4 = 1
+```
+
+Damit sind `+90°` und `-270°` dieselbe Endadresse modulo `360°`, aber nicht
+dieselbe Weggeschichte:
+
+```text
+-270° congruent +90° (mod 360°)
+endpoint equal; winding history different
+```
+
+Diese Winding-Information gehört in einen Route-/History-Record und nicht in
+einen einfachen `0…360°`-Slider. Ebenso gilt:
+
+```text
+333° = 360° - 27° = 330° + 3°
+39 = 3 * 13
+3 * 3^2 = 27, not 39
+```
+
+`333°` ist daher eine saubere deklarierte Adresse mit zwei möglichen
+Residuen (`-27°` gegen Return, `+3°` gegen die Station `330°`), aber kein
+bevorzugtes Naturgesetz. `204°`, `99°` und `101°` bleiben ebenfalls
+Adressen, solange keine zusätzliche Erzeugungsregel geprüft ist.
+
+### 3. Maske, zwei Schleifen und das In-between
+
+Zwei gleich große Kreise können eine Figure-8-Maske und eine geometrische
+Schnittlinse zeigen. Die PI Lens trennt bereits:
+
+```text
+geometric overlap  != phase relation
+kappa = overlap_fraction * cos(delta_phi)
+Q_plus  = cos^2(delta_phi/2)
+Q_minus = sin^2(delta_phi/2)
+Q_plus + Q_minus = 1
+```
+
+Die rote Linie ist dort eine animierte Referenzachse, kein gemessenes Signal.
+Spule, Magnetismus und Equalizer bleiben Anschauungen, bis Strom, Spannung,
+Feld, Geometrie und Messverfahren erklärt sind. Ein rechter Winkel folgt
+nicht aus Gelb/Grün/Hellblau oder aus einer Perspektive, sondern aus
+`u dot v = 0`.
+
+### 4. Oberfläche, Pfeile, Faden und transversale Ansicht
+
+Die zuletzt betrachteten 3D-Bilder werden getrennt gelesen:
+
+```text
+surface        = declared carrier or display sheet
+local arrows   = vector field only if vectors and coordinates are supplied
+selected thread= one trajectory or traced route
+view           = projection / camera / transverse cut
+```
+
+Ein einzelnes `Frame 0` beweist keine Dynamik. Eine Bewegung benötigt
+`X(u,v,t)` oder eine andere Zeitregel. Torus, Möbiusband und Kleinsche Flasche
+sind nicht austauschbar: geschlossener orientierbarer Ringkörper,
+nichtorientierbares Band mit Rand und nichtorientierbare geschlossene Fläche
+sind verschiedene Typen.
+
+Das Auto-Bild ist als Modellgrammatik brauchbar:
+
+```text
+x_carrier(t) = x0
+theta_wheel(t) varies
+```
+
+Der äußere Carrier kann im gewählten Frame ruhen, während interne Zustände
+laufen. Handbremse ist Gate/Hold, Lenkrad lokale Orientierung, Kompass
+externer Frame, mentale Karte internes Modell und Track der tatsächliche
+Record.
+
+### 5. Tik, Tok, Track und Return
+
+```text
+Tik   = Ereignis / Cut
+Tok   = Gegenereignis / Intervall
+Track = gespeicherte Folge
+Now   = ausgewählte Adresse
+Return= Vergleich mit Quelle oder Ausgangszustand
+```
+
+Eine Note ist ein Ereignis, ihr Notenwert eine Dauer, der Takt ein Messrahmen
+und das Tempo die Abbildung dieses Rahmens auf Zeit. Das Pendel ist allgemein
+nichtlinear (`theta'' + (g/l) sin(theta) = 0`); die lineare Form entsteht nur
+als Kleinwinkelnäherung.
+
+### 6. Licht, Ladung und Entladung
+
+Der optische Faden bleibt zunächst:
+
+```text
+white input -> aperture / prism cut -> spectral channels
+             -> grid / frame -> observer pivot -> recorded view
+```
+
+Farbwerte wie `530 nm` und `600 nm` sind Wellenlängenadressen. Ihr
+arithmetischer Mittelpunkt ist `565 nm`, die Residuen sind `-35 nm` und
+`+35 nm`; daraus folgt keine universelle Siebenerregel.
+
+Der physikalische Elektrostatik-Faden benötigt mindestens:
+
+```text
+charge Q [C] -> electric field E [V/m] -> potential V [V]
+capacitance C [F] -> current I=dQ/dt [A]
+stored energy U=(1/2) C V^2
+```
+
+Spannung kann bei näherungsweise fehlendem Dauerstrom bestehen. Bei einer
+Entladung wird daraus ein zeitlicher Prozess. Blitz, Erwärmung, Druckwelle,
+Donner und Echo bilden eine mögliche Kausalkette; dass wir den Blitz vor dem
+Donner wahrnehmen, folgt aus den verschiedenen Ausbreitungsgeschwindigkeiten
+von Licht und Schall. Patina und Ruß sind materielle Spuren und benötigen ihre
+eigene Provenienz; sie sind keine allgemeine Zeitmetrik.
+
+### 7. Kalender, Münze, Janus und die fünf offenen Tage
+
+Die saubere Kalenderarithmetik lautet:
+
+```text
+12 * 30 = 360                    # idealisierte Zwölferscheibe
+18 * 20 + 5 = 365              # Maya-Haab
+common Gregorian year = 365
+```
+
+Die fünf zusätzlichen Haab-Tage heißen Wayeb. Das römische `V` für fünf und
+`360 + V` sind eine moderne Owner-Glyphe, keine Maya-Notation. Die Münze trägt
+zwei Flächen und einen Rand; Janus liefert eine kulturelle Zwei-Ansichten-
+Metapher. Der Rand bewahrt die Relation, ist aber keine dritte Vorderseite.
+
+`V + V = X` ist nur dann eine gültige Formkonstruktion, wenn Spiegelung,
+Drehung und Überlagerung als Operationen angegeben werden. Eine gedrehte `3`
+kann typografisch an `E` erinnern, ist aber keine mathematische Identität.
+`VIX` sowie Ketten wie `R*D*MH/TKR` bleiben ungebundene Owner-Tokens.
+
+### 8. Deep down: Kulturspur ohne Kausalkette
+
+Ring of Fire, Inselbögen, Tiefseegräben und Subduktion besitzen eine reale
+geologische Beziehung. Atlantis, Golden Apple, orthodoxe Kuppeln, Zuckerrohr,
+Softeis und der rote Ballon bleiben kulturelle oder morphologische Bilder.
+Sie dürfen als Wiedererkennungsmarker im Fieldbook nebeneinanderstehen, aber
+nicht als historische oder physikalische Ableitungskette.
+
+### 9. Platzierungsentscheidung
+
+```text
+FIELD NOTES:
+  dieses Gesamtresümee, Beobachtungen, Kulturspuren, offene Glyphen,
+  Modellvorschläge und STOP-Grenzen
+
+PI LENS:
+  vorhandene exakte Kreisüberlappung, Phasenkorrelation,
+  Q+/Q-Partition und deklarierte Winkeladressen
+
+NO BUILD NOW:
+  keine neue Theorie, kein neuer elektromagnetischer Mechanismus,
+  keine Maya-Atlantis-Geologie, keine Gleichsetzung der Topologien,
+  keine weitere PI-Steuerung ohne einen Route-/Winding-Vertrag
+```
+
+**Return:** Die PI Lens muss für diesen Faden nicht erweitert werden. Das
+fehlende Stück ist nicht noch ein Winkelknopf, sondern ein späterer expliziter
+Record für `address + direction + winding + source + return`. Bis zu einer
+solchen Auswahl bleibt diese Notiz der eine dokumentarische Anker.
+
+**Governance / Claim Ceiling:** bestehende A0 Field Notes und bestehende PI
+Lens wiederverwendet. Neue Identität `0`, neue Source-Graph-Relation `0`, neue
+Study `0`, Finding `0`, wissenschaftliche Aktivierung `0`, Publikation `0`.
 
 ## Frühere Feldnotizen
 

@@ -1,0 +1,197 @@
+.pi-phase-anchors {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 5px;
+  margin: -2px 0 14px;
+}
+
+.pi-phase-anchors button {
+  min-width: 0;
+  padding: 7px 3px;
+  border: 1px solid #284955;
+  background: #071820;
+  color: #9cb4bd;
+  font: 700 10px/1.05 ui-monospace, monospace;
+  letter-spacing: .02em;
+}
+
+.pi-phase-anchors button small {
+  display: block;
+  margin-top: 3px;
+  color: #f0c63c;
+  font-size: 8px;
+}
+
+.pi-phase-anchors button[aria-pressed="true"] {
+  border-color: #f0c63c;
+  background: #263019;
+  color: #fff4bd;
+  box-shadow: 0 0 12px rgba(240, 198, 60, .18);
+}
+
+.pi-winding-routes {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 5px;
+  margin: -5px 0 7px;
+}
+
+.pi-winding-routes button,
+.pi-winding-actions button {
+  min-width: 0;
+  border: 1px solid #3b354f;
+  background: #100f1d;
+  color: #cabee1;
+  font: 800 9px/1.08 ui-monospace, monospace;
+  letter-spacing: .025em;
+}
+
+.pi-winding-routes button {
+  padding: 7px 4px;
+}
+
+.pi-winding-routes button small {
+  display: block;
+  margin-top: 3px;
+  color: #ff7b84;
+  font-size: 8px;
+}
+
+.pi-winding-routes button[aria-pressed="true"] {
+  border-color: #ff5968;
+  background: #2a1018;
+  color: #fff0e7;
+  box-shadow: 0 0 12px rgba(255, 75, 87, .2);
+}
+
+.pi-winding-actions {
+  display: grid;
+  grid-template-columns: 1.45fr 1fr 1fr;
+  gap: 5px;
+  margin: 0 0 14px;
+}
+
+.pi-winding-actions button {
+  padding: 8px 3px;
+  border-color: #274955;
+  background: #071820;
+  color: #a9d9e0;
+}
+
+.pi-winding-actions button:first-child {
+  border-color: #ff5968;
+  color: #ffd6d9;
+}
+
+.pi-binding-controls {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 5px;
+  margin: 0 0 9px;
+}
+
+.pi-binding-controls > b {
+  grid-column: 1 / -1;
+  color: #d4b878;
+  font: 800 9px/1.2 ui-monospace, monospace;
+  letter-spacing: .12em;
+}
+
+.pi-binding-controls button {
+  min-width: 0;
+  padding: 7px 2px;
+  border: 1px solid #59492e;
+  background: #15120d;
+  color: #d8c69c;
+  font: 800 9px/1 ui-monospace, monospace;
+}
+
+.pi-binding-controls button small {
+  display: block;
+  margin-top: 3px;
+  color: #64ddea;
+  font-size: 7px;
+}
+
+.pi-binding-controls button[aria-pressed="true"] {
+  border-color: #e0b85e;
+  background: #302613;
+  color: #fff2c3;
+  box-shadow: 0 0 14px rgba(224, 184, 94, .2);
+}
+
+.pi-zipper-scale {
+  margin-bottom: 14px;
+}
+
+.pi-zipper-scale input {
+  accent-color: #5bd6e5;
+}
+
+.pi-binding-sequence {
+  display: grid;
+  gap: 7px;
+  margin: -4px 0 14px;
+  padding: 9px;
+  border: 1px solid #59492e;
+  background: linear-gradient(135deg, rgba(31, 24, 12, .86), rgba(4, 17, 22, .92));
+}
+
+.pi-binding-sequence > b,
+.pi-binding-sequence > small {
+  color: #d4b878;
+  font: 800 8px/1.25 ui-monospace, monospace;
+  letter-spacing: .08em;
+}
+
+.pi-binding-sequence-actions {
+  display: grid;
+  grid-template-columns: 1.25fr 1fr .72fr 1.15fr;
+  gap: 4px;
+}
+
+.pi-binding-sequence button {
+  min-width: 0;
+  padding: 7px 2px;
+  border: 1px solid #3e6570;
+  background: #071820;
+  color: #aeeaf0;
+  font: 800 8px/1 ui-monospace, monospace;
+}
+
+.pi-binding-sequence button[aria-pressed="true"] {
+  border-color: #e0b85e;
+  background: #302613;
+  color: #fff2c3;
+}
+
+.pi-binding-sequence label {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 3px 8px;
+  color: #9ec7cd;
+  font: 800 8px/1 ui-monospace, monospace;
+}
+
+.pi-binding-sequence label output { text-align: right; color: #f1cd79; }
+.pi-binding-sequence label input { grid-column: 1 / -1; width: 100%; accent-color: #e0b85e; }
+
+.pi-binding-beats {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 4px;
+}
+
+.pi-binding-beats span {
+  padding: 5px 0;
+  border: 1px solid #294a53;
+  color: #738e95;
+  text-align: center;
+  font: 900 9px/1 ui-monospace, monospace;
+}
+
+.pi-binding-beats span.is-active {
+  border-color: #e0b85e;
+  color: #fff0b9;
+  box-shadow: 0 0 10px rgba(224, 184, 94, .22);
+}

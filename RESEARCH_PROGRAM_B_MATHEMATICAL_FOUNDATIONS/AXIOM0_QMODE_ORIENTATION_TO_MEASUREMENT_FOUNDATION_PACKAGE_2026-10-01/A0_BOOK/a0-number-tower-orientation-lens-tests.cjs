@@ -5,6 +5,7 @@ const path = require('node:path');
 const base = __dirname;
 const read = (name) => fs.readFileSync(path.join(base, name), 'utf8');
 const html = read('A0_WERKBANK.html');
+const pascal = read('A0_PASCAL_GENERATION_CORNER.html');
 const css = read('a0-number-tower-orientation-lens.css');
 const regulator = read('a0-scarab-regulator-test.js');
 const desk = read('A0_RESEARCH_DESK.html');
@@ -43,7 +44,16 @@ check(html.includes('EXACT ≠ ADDRESS ≠ BUILT VIEW ≠ SOURCE-ONLY'), 'Status
 check(html.includes('204</code>, <code>204°</code> und <code>2040'), '204 carriers remain distinct');
 check(html.includes('0,456</code> und <code>0,487</code> bleiben deklarierte Displaygewichte'), 'Band-weight claim ceiling is explicit');
 check(html.includes('Neue ID, Relation, Study, Finding-Promotion oder Publikationsfreigabe: <code>0</code>'), 'Governance delta is visible');
+check(html.includes('id="scarabaeusTitanReturnBridge"'), 'Scarabaeus × Titan finite Return bridge is mounted on the Workbench');
+check(html.includes('1031 <i>+49</i> 1080') && html.includes('1032 <i>+48</i> 1080') && html.includes('1033 <i>+47</i> 1080'), 'Three exact 1080 Return lanes are visible');
+check(html.includes('1033 <i>+48</i> 1081') && html.includes('ε = +1 · HOLD verworfen'), 'Off-by-one negative control is visible');
+check(html.includes('o(a)=1080−a') && html.includes('|ε| ≤ 0'), 'Finite Return map and zero-residual hold criterion are explicit');
+check(html.includes('A0_PASCAL_GENERATION_CORNER.html#n-band-49-return'), 'Workbench returns to the Pascal N-band source view');
+check(pascal.includes('A0_WERKBANK.html#scarabaeusTitanReturnBridge'), 'Pascal N-band returns to the finite Workbench bridge');
+check(pascal.includes('A0_ORIENTATION_CONTROLLER_BENCH.html#orientationRoleMap'), 'Pascal N-band exposes the bounded Titan role map');
+check(html.includes('keinen allgemeinen Titan-Algorithmus'), 'Titan role remains bounded and is not promoted to a general algorithm');
 check(css.includes('.nto-layout'), 'Layout styles exist');
+check(css.includes('.nto-return-bridge'), 'Finite Return bridge styles exist');
 check(css.includes('@media(max-width:900px)'), 'Responsive breakpoint exists');
 check(css.includes('[data-status="SOURCE-ONLY"]'), 'Source-only floor has a distinct style');
 for (const layer of ['core', 'handle', 'paxis', 'shadow', 'negative']) {

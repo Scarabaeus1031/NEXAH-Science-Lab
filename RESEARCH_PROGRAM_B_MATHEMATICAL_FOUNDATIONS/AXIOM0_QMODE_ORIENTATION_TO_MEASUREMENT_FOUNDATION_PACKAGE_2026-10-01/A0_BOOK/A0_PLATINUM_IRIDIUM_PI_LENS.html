@@ -4,7 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>PI Lens · Platinum–Iridium Dual Polyhedron · A0</title>
-<link rel="stylesheet" href="a0-platinum-iridium-pi-lens.css?rev=matrix-window-r11-20261112">
+<link rel="stylesheet" href="a0-platinum-iridium-pi-lens.css?rev=phase-address-r14-20261112">
+<link rel="stylesheet" href="a0-platinum-iridium-pi-phase-address.css?rev=binding-av-sequence-r18-20261112">
 <link rel="stylesheet" href="a0-platinum-iridium-pi-lens-edelweiss.css?rev=fourier-slice-r10-20261111">
 <link rel="stylesheet" href="a0-platinum-iridium-pi-matrix-window.css?rev=matrix-window-r11-20261112">
 <script>document.documentElement.classList.toggle('embed',new URLSearchParams(location.search).has('embed'));</script>
@@ -55,6 +56,8 @@
       <button type="button" data-pi-visual="CARRIER_AUDIT" aria-pressed="false">10 · CARRIER / TYPE AUDIT</button>
       <button type="button" data-pi-visual="NUMBER_LOOP" aria-pressed="false">11 · 213 LOOP / OPERATOR</button>
       <button type="button" data-pi-visual="MATRIX_HOLONOMY" aria-pressed="false">12 · 3 MATRIX / HOLONOMY</button>
+      <button type="button" data-pi-visual="MASK_PHASE_RELATION" aria-pressed="false">13 · MASK / PHASE EQ</button>
+      <button type="button" data-pi-visual="BINDING_ZIPPER" aria-pressed="false">14 · BINDING / ZIPPER</button>
       <output id="piVisualRole">C8 FRAME → X·Y → C9 → X/XI/XII @ ¥</output>
     </div>
     <div class="pi-work">
@@ -76,6 +79,49 @@
           <label><input type="checkbox" id="piTrace" checked> <span class="trace">○</span> TRACE HOLD</label>
         </fieldset>
         <label class="pi-scale">IRIDIUM SCALE <output id="piScaleOut">1.80×</output><input id="piScale" type="range" min="0.45" max="2.4" step="0.01" value="1.8"></label>
+        <label class="pi-scale">MASK PHASE <output id="piMaskPhaseOut">90°</output><input id="piMaskPhase" type="range" min="0" max="360" step="1" value="90"></label>
+        <div class="pi-phase-anchors" role="group" aria-label="Exakte und deklarierte Phasenadressen">
+          <button type="button" data-pi-phase="0" title="cos(0°) = +1">0° <small>+1</small></button>
+          <button type="button" data-pi-phase="36" title="2 cos(36°) = φ">36° <small>φ</small></button>
+          <button type="button" data-pi-phase="45" title="2 cos(45°) = √2">45° <small>√2</small></button>
+          <button type="button" data-pi-phase="90" title="cos(90°) = 0">90° <small>0</small></button>
+          <button type="button" data-pi-phase="99" title="Deklarierte Phasenadresse 99°">99° <small>Q</small></button>
+          <button type="button" data-pi-phase="101" title="Deklarierte Phasenadresse 101°">101° <small>Q</small></button>
+          <button type="button" data-pi-phase="180" title="cos(180°) = −1">180° <small>−1</small></button>
+          <button type="button" data-pi-phase="204" title="Deklarierte Phasenadresse 204°">204° <small>Q</small></button>
+          <button type="button" data-pi-phase="333" title="Deklarierte Phasenadresse 333° = 360° − 27°">333° <small>−27</small></button>
+        </div>
+        <div class="pi-winding-routes" role="group" aria-label="Gerichtete Maskenrouten mit erhaltener Weggeschichte">
+          <button type="button" data-pi-winding="90" aria-pressed="true">+90° <small>CCW · ¼T</small></button>
+          <button type="button" data-pi-winding="-270" aria-pressed="false">−270° <small>CW · ¾T</small></button>
+          <button type="button" data-pi-winding="204" aria-pressed="false">+204° <small>CCW</small></button>
+          <button type="button" data-pi-winding="333" aria-pressed="false">+333° <small>CCW · −27°</small></button>
+        </div>
+        <div class="pi-winding-actions" role="group" aria-label="Winding-Route steuern">
+          <button type="button" id="piWindingPlay">▶ RUN ROUTE</button>
+          <button type="button" id="piWindingStep">+ STEP</button>
+          <button type="button" id="piWindingReturn">↩ SOURCE</button>
+        </div>
+        <div class="pi-binding-controls" role="group" aria-label="Binding-Ansicht in Vierteldrehungen orientieren">
+          <b>BINDING ORIENTATION</b>
+          <button type="button" data-pi-binding-angle="0" aria-pressed="true">0° <small>QUER</small></button>
+          <button type="button" data-pi-binding-angle="90" aria-pressed="false">90° <small>SC</small></button>
+          <button type="button" data-pi-binding-angle="180" aria-pressed="false">180° <small>RETURN</small></button>
+          <button type="button" data-pi-binding-angle="270" aria-pressed="false">270° <small>FLIP</small></button>
+        </div>
+        <label class="pi-scale pi-zipper-scale">ZIPPER / COUPLING <output id="piZipperProgressOut">100%</output><input id="piZipperProgress" type="range" min="0" max="1" step="0.01" value="1"></label>
+        <div class="pi-binding-sequence" aria-label="Source-bound World Cube turn and sound sequence">
+          <b>PI TURN · 101 CUBE A/V SEQUENCE</b>
+          <div class="pi-binding-sequence-actions">
+            <button type="button" id="piBindingPlay" aria-pressed="false">▶ RUN 360°</button>
+            <button type="button" id="piBindingStep">+ BEAT · 18°</button>
+            <button type="button" id="piBindingReturn">↩ μ0</button>
+            <button type="button" id="piBindingSound" aria-pressed="false">♫ SOUND · OFF</button>
+          </div>
+          <label>MICROTICK <output id="piBindingMicrotickOut">μ000 / 120 · 0°</output><input id="piBindingMicrotick" type="range" min="0" max="119" step="1" value="0"></label>
+          <div class="pi-binding-beats" aria-label="Five source-bound jukebox beats"><span>DA</span><span>DA</span><span>DA</span><span>DÆ</span><span>Ō</span></div>
+          <small>40 TICKS · 120 μ · 3°/μ · 30 μ/QUARTER · SOUND IS OPTIONAL BROWSER MNEMONIC</small>
+        </div>
         <dl>
           <div><dt>ϕ</dt><dd id="piPhi">1.618034</dd></div>
           <div><dt>INNER / OUTER</dt><dd id="piCounts">12 / 12</dd></div>
@@ -111,6 +157,17 @@
           <div><dt>FOURIER FAMILY</dt><dd id="piFourierFamily">XYZ/R · 2D/3D PENDING</dd></div>
           <div><dt>CARRIER CHAIN</dt><dd id="piCarrierAudit">TYPE AUDIT PENDING</dd></div>
           <div><dt>213 LOOP</dt><dd id="piNumberLoop">OPERATOR AUDIT PENDING</dd></div>
+          <div><dt>MASK RELATION</dt><dd id="piMaskRelation">OVERLAP · PENDING</dd></div>
+          <div><dt>PHASE EQ</dt><dd id="piPhaseEqualizer">L 0.50 · R 0.50</dd></div>
+          <div><dt>Q CHANNELS</dt><dd id="piQChannels">Q⁺ 0.50 · Q⁻ 0.50</dd></div>
+          <div><dt>PHASE ADDRESS</dt><dd id="piPhaseAddress">90° · cos = 0</dd></div>
+          <div><dt>WINDING ROUTE</dt><dd id="piWindingRoute">+90° CCW → 90°</dd></div>
+          <div><dt>ROUTE STATE</dt><dd id="piWindingState">1.00 / 1.00 · COMPLETE</dd></div>
+          <div><dt>BINDING VIEW</dt><dd id="piBindingView">0° · QUER</dd></div>
+          <div><dt>ZIPPER</dt><dd id="piZipperState">12 / 12 · COUPLED</dd></div>
+          <div><dt>JANUS</dt><dd id="piJanusState">J(J(u)) = u · FIX ½</dd></div>
+          <div><dt>PI SEQUENCE</dt><dd id="piBindingSequence">μ000 · Q1 · BEAT 1/5</dd></div>
+          <div><dt>AV CUE</dt><dd id="piBindingCue">DA · 392 Hz · GEOMETRY</dd></div>
           <div><dt>FOLD HYPOTHESIS</dt><dd id="piFoldHypothesis">OWNER VIEW · UNTESTED</dd></div>
           <div><dt>Hg UV SOURCE</dt><dd id="piHgUv">253.7 nm · UV-C</dd></div>
           <div><dt>VISIBLE RETURN</dt><dd id="piVisibleReturn">404.7 · 435.8 · 546.1 · 577–579 nm</dd></div>
@@ -188,6 +245,8 @@
       <article><b>VISUAL 10 · CARRIER / TYPE AUDIT</b><p>Dualpolyeder, Möbiusband, Klein‑Flasche und Fourierkoeffizienten sind keine äquivalenten Objekte. Typ und Randinvarianten widersprechen einer globalen Gleichsetzung. Exakt implementiert ist nur die invertierbare DFT des fest gesampelten Möbius‑Rands; eine Möbius‑zu‑Klein‑Verklebung ist hier nicht konstruiert.</p></article>
       <article><b>VISUAL 11 · 213 LOOP / OPERATOR</b><p>Der historische Weg <code>213→196→199→207→213</code> besitzt die Differenzen <code>−17,+3,+8,+6</code> und schließt mit Summe 0 erst nach der expliziten letzten Kante. Weder konstante Translation noch eine einzige affine Rekursion passen. Das ist ein annotierter Rundweg, kein eindeutiger Operator.</p></article>
       <article><b>VISUAL 12 · 3 MATRIX / HOLONOMY</b><p>Die drei lokalen Schritte <code>90° / 180° / 270°</code> werden in einem eigenen Fenster derselben PI-Linse verglichen. Gleiche Normalen bilden den kommutativen C4-Control; verschiedene Lamellen-Normalen testen nichtkommutative Holonomie und Reihenfolge; der explizite Klein-Schritt kehrt mit <code>det(H)=−1</code> die Orientierung um. Die Ansicht reuse die vorhandene Matrix-Engine und erzeugt weder eine Penrose-Parkettierung noch eine neue Topologie- oder Navigator-Identität.</p></article>
+      <article><b>VISUAL 13 · MASK / PHASE / WINDING</b><p>Zwei getrennte Schleifen bilden eine Figure‑8‑Maske; ihre geometrische Schnittlinse bleibt von Zwischenphase und Weggeschichte getrennt. Exakt angezeigt werden Kreisüberlappung, <code>κ=A∩/A·cos(Δφ)</code> und die komplementären Kanäle <code>Q⁺=cos²(Δφ/2)</code>, <code>Q⁻=sin²(Δφ/2)</code>. Der Route-Record erhält zusätzlich Vorzeichen, Richtung, durchlaufenen Winkel, Fortschritt und Endadresse. Dadurch landen <code>+90°</code> und <code>−270°</code> beide bei <code>90° mod 360°</code>, bleiben aber als verschiedene Wege sichtbar. <code>204°</code> und <code>333°=360°−27°</code> sind deklarierte Routen; aus ihnen wird keine besondere Konstantenidentität abgeleitet. Die rote Referenzachse flimmert als reine Display-Animation und bleibt bei reduzierter Bewegung statisch. „Zwei geladene Spulen“, Magnetismus und Equalizer sind Anschauungen — keine elektromagnetische Simulation, Signal-, Energie- oder Kraftmessung. Das ausführliche dokumentarische Return liegt in <a href="assets/a0-field-notes/index.html#note-66">Field Note 66</a>.</p></article>
+      <article><b>VISUAL 14 · BINDING / ZIPPER / PI TURN</b><p>Die Queransicht legt zwei getrennte Domänen <code>D−</code> und <code>D+</code> um eine endliche Bindungszone <code>Bε</code>. Der Zipper verbindet nur die deklarierten Gegenpunkte <code>(u,J(u))</code> mit <code>J(u)=1−u</code>; daher gilt exakt <code>J(J(u))=u</code> und der Fixpunkt liegt bei <code>u=½</code>. Die Vierteldrehungen <code>0°/90°/180°/270°</code> ändern die Ansicht, nicht das Objekt. Hinzu kommt nun die bereits im 101 World Cube implementierte Sequenz: <code>40</code> Ticks werden als <code>120</code> Mikroticks zu je <code>3°</code> gelesen; damit hat jedes <code>90°</code>-Frame exakt <code>30</code> Mikroticks. Fünf Phasen pro Frame führen durch <code>GEOMETRY → BINDING → JANUS → PROJECTION → RETURN</code> und verwenden die vorhandenen Cues <code>DA · DA · DA · DÆ · Ō</code>. Der zuschaltbare Browserklang ist ein Quellen-Mnemonic, keine Aufnahme, Resonanzmessung oder physikalische Evidenz. Buddha, Maria, Christus, Shiva oder andere Figuren bleiben kulturelle Bildmotive und werden weder mathematisch identifiziert noch als Belege verwendet. Zipper, Binding und Flow sind Darstellungsrollen — kein physischer Kopplungs-, Kraft- oder Energiemechanismus.</p></article>
       <article><b>METAL-FOLD → n-GON · HYPOTHESIS</b><p>Die Zuordnung Gold/5, Silber/6, Rhodium/7, Mercury/8, Platinum/12 und Iridium/14 wird als historische OWNER‑HYPOTHESIS eingeblendet. Sie ist weder aus der 12+12‑Quelle abgeleitet noch als Frequenz-, Kristall- oder Stoffgesetz bestätigt.</p></article>
       <article><b>VISUAL 5 · LIGHT CASCADE / NEON DRIFT</b><p>Die Messanker bleiben getrennt: Hg besitzt eine starke Linie bei <code>253.7 nm</code> im UV‑C sowie sichtbare Linien um <code>404.7</code>, <code>435.8</code>, <code>546.1</code> und <code>577–579 nm</code>. Eine Phosphorschicht kann UV in sichtbares Licht umwandeln; sie ist eine eigene Konversionsschicht und keine automatische Eigenschaft der Hg‑Naht.</p></article>
       <article><b>Ne10 / C1·C2·C3 · BOUNDARY</b><p>Eine reine Neonentladung erscheint orange‑rot. Cyan/Magenta setzt Beschichtung, Gasgemisch oder eine lokale Displaypalette voraus. <code>C1/C2/C3</code>, „Neon Drift“ und „compressed light“ sind hier Leseschichten; ohne Pulsdauer, Energie, Strahlfläche oder Resonatorparameter behaupten sie keinen gemessenen Kompressionsmechanismus.</p></article>
@@ -197,7 +256,7 @@
     <p><strong>IDENTITY:</strong> Wiederverwendung von <code>ART:A0:MATHEMATICAL_JOINTS</code>, <code>MOD:ORIENTATION_DEMONSTRATORS</code>, <code>SRC:A0OE:PASCAL_LISSAJOUS_MOBIUS_RETURN</code> und <code>NEXAH:CON_DAO_BREATH:V1</code>. Keine neue Study, kein neuer kanonischer Knoten und keine neue Relation.</p>
   </section>
 </main>
-<script src="a0-platinum-iridium-pi-lens.js?rev=matrix-breathe-r12-20261112"></script>
+<script src="a0-platinum-iridium-pi-lens.js?rev=binding-av-sequence-r18-20261112"></script>
 <script>window.A0PlatinumIridiumPI?.mount(document,window);</script>
 </body>
 </html>

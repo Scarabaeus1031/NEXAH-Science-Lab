@@ -902,7 +902,7 @@
   const complexFoldScc003Href = "http://127.0.0.1:4328/review-assets/scc-003-r1/demonstrators/complex-fold-18x23.html?rev=crt-ghost-grid-20261110#root432-keystone-capsule";
   const generationCornerCandidateHref = "A0_PASCAL_GENERATION_CORNER.html#unified-generation-corner-candidate";
   const scc003ReviewStagingHref = "http://127.0.0.1:4328/scc-003-r1/";
-  const ioiOpenBookFlagshipHref = "DRAFTS/A0_IOI_LEAF_FOLD_OPEN_BOOK_START_2026-11-02.html#tessarec3OperatorMatrix";
+  const ioiOpenBookFlagshipHref = "DRAFTS/A0_IOI_LEAF_FOLD_OPEN_BOOK_START_2026-11-02.html#a0-101-orientation-coupler";
   const scienceHighlights = [
     ["A0_PLATINUM_IRIDIUM_PI_LENS.html", "PI LENS · KLEIN / FOURIER / HOLONOMY", "Aktueller topologischer Höhepunkt: Dual Shell, Möbius-Return, geschlossene Klein-Immersion, Fourier-Slices und die nichtkommutative 3-Matrix-Workbench in einer source-bound Linse", "edelweiss", "CURRENT HIGHLIGHT · 12.11 · 37/37 + 426/426 PASS"],
     ["A0_SCIENCE.html#top", "A0 Science", "Lange redaktionelle Science-Seite mit Forschungsstand, Ergebnissen, Instrumenten, Methode und Grenzen", "nexah", "Science · Forschungsstand"],

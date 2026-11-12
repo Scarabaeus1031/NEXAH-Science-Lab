@@ -1,0 +1,21 @@
+'use strict';
+const assert=require('node:assert/strict');
+const fs=require('node:fs');
+const path=require('node:path');
+const S=require('./a0-q4-cube-snake.js');
+let passed=0;function test(name,fn){fn();passed++;process.stdout.write(`PASS ${name}\n`);}
+test('11 cubed is 1331',()=>assert.equal(S.TOTAL,1331));
+test('snake contains every cube cell',()=>assert.equal(S.PATH.length,1331));
+test('snake cells are unique',()=>assert.equal(new Set(S.PATH.map(p=>`${p.x},${p.y},${p.z}`)).size,1331));
+test('every snake step is edge adjacent',()=>assert.ok(S.PATH.slice(1).every((p,i)=>S.manhattan(S.PATH[i],p)===1)));
+test('snake starts at origin',()=>assert.deepEqual(S.PATH[0],{x:0,y:0,z:0}));
+test('snake ends in far corner',()=>assert.deepEqual(S.PATH.at(-1),{x:10,y:10,z:10}));
+test('maximum address uses 11 binary digits',()=>assert.equal(S.address(1330).binary,'10100110010'));
+test('maximum address uses 7 ternary digits',()=>assert.equal(S.address(1330).ternary,'1211021'));
+test('maximum address uses 5 base-5 digits',()=>assert.equal(S.address(1330).pental,'20310'));
+test('1771 family is a two-block swap',()=>assert.deepEqual(S.family(1),{left:'17',right:'71',forward:'1771',swapped:'7117'}));
+test('3773 family is a two-block swap',()=>assert.deepEqual(S.family(3),{left:'37',right:'73',forward:'3773',swapped:'7337'}));
+test('4774 family is a two-block swap',()=>assert.deepEqual(S.family(4),{left:'47',right:'74',forward:'4774',swapped:'7447'}));
+test('audit passes route contract',()=>{const a=S.audit();assert.equal(a.uniqueCells,1331);assert.equal(a.adjacentSteps,true)});
+test('HTML exposes controller, three code lanes and word families',()=>{const html=fs.readFileSync(path.join(__dirname,'A0_Q4_MAGIC_SQUARE_JOINT_AUDIT.html'),'utf8');assert.match(html,/data-q4-cube-snake/);assert.match(html,/BINÄR · 11 STELLEN/);assert.match(html,/TRINÄR · 7 STELLEN/);assert.match(html,/PENTÄLER · 5 STELLEN/);assert.match(html,/data-q4-cs-family="4"/);assert.match(html,/a0-q4-cube-snake\.js/)});
+process.stdout.write(`Cube snake: ${passed}/14 PASS\n`);

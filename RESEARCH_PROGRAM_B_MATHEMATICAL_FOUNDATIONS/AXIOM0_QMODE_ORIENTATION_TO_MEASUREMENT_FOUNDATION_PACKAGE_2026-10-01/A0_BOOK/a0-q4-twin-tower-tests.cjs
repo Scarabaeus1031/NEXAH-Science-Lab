@@ -1,0 +1,25 @@
+'use strict';
+const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path');const T=require('./a0-q4-twin-tower.js');let passed=0;function test(name,fn){fn();passed++;process.stdout.write(`PASS ${name}\n`);}
+test('angles normalize to quarter turns',()=>assert.deepEqual([-90,0,90,180,270,360].map(T.normalizeAngle),[270,0,90,180,270,0]));
+test('zero degrees points horizontal positive',()=>assert.deepEqual(T.direction(0),[1,0]));
+test('ninety degrees points vertical positive',()=>assert.deepEqual(T.direction(90),[0,1]));
+test('one eighty reverses zero',()=>assert.deepEqual(T.direction(180),[-1,0]));
+test('two seventy reverses ninety',()=>assert.deepEqual(T.direction(270),[0,-1]));
+test('parallel carriers are antiparallel',()=>{const c=T.carriers('parallel',0);assert.deepEqual(c.A.direction,[1,0]);assert.deepEqual(c.Ap.direction,[-1,0])});
+test('parallel carriers occupy two distinct strips',()=>assert.equal(T.audit().parallelDisjoint,true));
+test('each horizontal parallel strip has eleven cells',()=>assert.deepEqual(T.audit().parallelCounts,[11,11]));
+test('cross carriers are perpendicular',()=>{const c=T.carriers('cross',0);assert.deepEqual(c.A.direction,[1,0]);assert.deepEqual(c.Ap.direction,[0,1])});
+test('cross supports share only held center',()=>assert.equal(T.audit().crossUnion,21));
+test('four quarter turns return to start',()=>assert.equal(T.audit().quarterCycle,true));
+test('all opposite directions negate exactly',()=>assert.equal(T.audit().opposites,true));
+test('red and blue agree at zero and one eighty',()=>assert.deepEqual([T.cubeAgreement(0).label,T.cubeAgreement(180).label],['AGREE','AGREE']));
+test('red and blue disagree at quarter turns',()=>assert.deepEqual([T.cubeAgreement(90),T.cubeAgreement(270)],[{red:90,blue:270,agrees:false,label:'DISAGREE'},{red:270,blue:90,agrees:false,label:'DISAGREE'}]));
+test('counterphase closes after four quarter turns',()=>assert.equal(T.counterAngle(360),0));
+test('absolute zero conversion reference is minus 273 point 15 Celsius',()=>assert.equal(T.audit().zeroKelvinCelsius,-273.15));
+test('four view palettes preserve named roles',()=>assert.deepEqual(Object.keys(T.PALETTES),['signal','bwr','p186','shift']));
+test('black white red is the fallback palette',()=>assert.equal(T.paletteProfile('missing').id,'bwr'));
+test('186 view is screen display not palette identity',()=>assert.match(T.paletteProfile('p186').label,/VIEW · SCREEN/));
+test('shift population is ninety nine plus one',()=>assert.deepEqual(T.audit().balloons,{grey:99,red:1}));
+test('cube successor track is seventeen twenty nine',()=>assert.equal(T.audit().cubeSuccessor,1729));
+test('HTML binds twin cubes palettes and correct boundaries',()=>{const html=fs.readFileSync(path.join(__dirname,'A0_Q4_MAGIC_SQUARE_JOINT_AUDIT.html'),'utf8');assert.match(html,/data-q4-twin-tower/);assert.match(html,/agree to disagree/);assert.match(html,/data-q4-tt-palette="shift"/);assert.match(html,/186 VIEW/);assert.match(html,/99\+1/);assert.match(html,/1728\+1=1729/);assert.match(html,/−273,15 °C ≈ 0 K/);assert.match(html,/nicht −273 K/);assert.match(html,/a0-q4-twin-tower\.js/)});
+process.stdout.write(`Twin tower: ${passed}/22 PASS\n`);

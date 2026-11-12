@@ -1,0 +1,14 @@
+'use strict';
+const assert=require('node:assert/strict');const fs=require('node:fs');const path=require('node:path');const api=require('./a0-q4-dual-overlay.js');let n=0;const test=(name,fn)=>{fn();n++;console.log(`PASS ${name}`)};
+test('both carriers contain labels 1 through 16',()=>{for(const m of [api.DURER,api.KHAJURAHO])assert.deepEqual(api.flatten(m).slice().sort((a,b)=>a-b),Array.from({length:16},(_,i)=>i+1))});
+test('same-cell overlay is a bijection',()=>assert.equal(new Set(Object.values(api.sameCellMap())).size,16));
+test('same-cell overlay has no fixed points',()=>assert.deepEqual(api.fixedPoints(),[]));
+test('same-cell overlay begins with Dürer 16 to Khajuraho 7',()=>assert.equal(api.sameCellMap()[16],7));
+test('overlay decomposes into exact 14 and 2 cycles',()=>assert.deepEqual(api.permutationCycles().map(c=>c.length).sort((a,b)=>b-a),[14,2]));
+test('short overlay cycle is 8 and 11',()=>assert.deepEqual(api.permutationCycles().find(c=>c.length===2),[8,11]));
+test('Dürer complement uses planar half-turn for every label',()=>assert.equal(api.audit().durerComplements,true));
+test('Khajuraho complement uses toroidal half-shift for every label',()=>assert.equal(api.audit().khajurahoComplements,true));
+test('0101 and 1010 are a Q4 complement pair',()=>assert.equal(api.complement(6),11));
+test('all exact overlay audits pass',()=>{const a=api.audit();assert.equal(a.bijection,true);assert.equal(a.noFixed,true);assert.deepEqual(a.cycleLengths,[14,2])});
+test('HTML exposes two upper and three lower windows',()=>{const html=fs.readFileSync(path.join(__dirname,'A0_Q4_MAGIC_SQUARE_JOINT_AUDIT.html'),'utf8');assert.equal((html.match(/FENSTER [12] ·/g)||[]).length,2);assert.equal((html.match(/FENSTER [345] ·/g)||[]).length,3);assert.match(html,/14er-Zyklus/);assert.match(html,/8 ↔ 11/);assert.match(html,/0101₂ ↔ 1010₂/);assert.match(html,/a0-q4-dual-overlay\.js/);assert.doesNotMatch(html,/\$\('gridCaption'\)/)});
+console.log(`${n}/${n} dual-overlay tests passed`);
