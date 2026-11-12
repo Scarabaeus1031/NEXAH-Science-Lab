@@ -1,0 +1,22 @@
+{
+  "schema": "a0.ullinium-closing-receipt-preregistration/1.0.0",
+  "date": "2026-11-11",
+  "status": "FROZEN_BOUNDED_ENGINEERING_VERIFICATION_NOT_A_LAB_RUN",
+  "seed": 20261111,
+  "trials": 10000,
+  "source_object": "two labelled C6 cycles",
+  "selector": "identify exactly one shared display edge and its four source endpoint occurrences",
+  "randomization": ["display vertex permutation", "source layer swap", "independent cycle rotation", "independent cycle reflection"],
+  "conditions": ["FULL_RECEIPT", "NO_TAGS", "WRONG_SEAM", "PHANTOM_REMOVE"],
+  "metric": "exact labelled reconstruction of all 12 source vertex occurrences",
+  "gates": {
+    "full_receipt_rate": {"operator": "=", "value": 1},
+    "phantom_remove_rate": {"operator": "=", "value": 1},
+    "no_tags_rate": {"operator": "<=", "value": 0.01},
+    "wrong_seam_rate": {"operator": "=", "value": 0},
+    "receipt_advantage": {"operator": ">=", "value": 0.98}
+  },
+  "falsifier": "any frozen gate fails",
+  "allowed_outcomes": ["PASS_BOUNDED_INFORMATION_RETURN", "FALSIFIED", "INVALID_RUN"],
+  "claim_ceiling": "information-preservation benchmark only; no physical fusion, resonance law, LEE mechanism, Study, Finding, identity, relation, paper result or publication"
+}

@@ -1,0 +1,85 @@
+{
+  "schema": "nexah.a0.source_bound_demonstrator_return.v1",
+  "date": "2026-11-10",
+  "status": "PASS_EXACT_ADDRESS_VIEW_PHYSICAL_OPEN",
+  "title": "SCC-003 CRT 11/20 to Complex Fold 20x23 Address Return",
+  "reused_identities": [
+    "SCC-003 / A0OE:PASCAL_PENTAGON_D5_TEST",
+    "ART:A0:MATHEMATICAL_JOINTS",
+    "NEXAH:A0_ORIENTATION_EVIDENCE_LINEAGE:V1"
+  ],
+  "exact_checks": {
+    "width_11_bridge": [
+      "528 = 48 * 11",
+      "537 = 11 * 48 + 9"
+    ],
+    "residue_20_bridge": "537 = 20 * 26 + 17",
+    "coprime_moduli": "gcd(11, 20) = 1",
+    "crt_class": "x = 97 (mod 220)",
+    "prime_index": "97 = P25",
+    "fold_projection": [
+      "97 mod 20 = 17",
+      "97 = 4 * 23 + 5",
+      "97 mod 23 = 5"
+    ],
+    "fold_address": {
+      "gate": 17,
+      "station": 5,
+      "angle_degrees": 306,
+      "normalized_radius": "5/23"
+    },
+    "xi_prime_hinge": [
+      "99 = 9 * 11",
+      "97 = P25",
+      "101 = P26",
+      "(97 + 101) / 2 = 99",
+      "99 is the unique center c in {11,22,...,121} with c-2 and c+2 both prime"
+    ],
+    "p80_witness": [
+      "537 + 23 = 560 = 7 * 80",
+      "101 * 4 = 404",
+      "413 + 1 = 414",
+      "414 - 404 = 10",
+      "404 + 414 = 818 = 2 * 409 = 2 * P80"
+    ]
+  },
+  "constructed_views": [
+    "Visual 5 CRT-to-fold address",
+    "20 angular gate spokes",
+    "23-station normalized radial read"
+  ],
+  "open_checks": [
+    "mountain-valley assignment",
+    "ordered sector angles",
+    "Kawasaki theorem",
+    "Maekawa theorem",
+    "rigid foldability",
+    "layer order",
+    "self-collision",
+    "G18 versus G20 topology identity",
+    "whether the XI/P80 arithmetic witness has any fold-mechanical consequence"
+  ],
+  "routes": {
+    "demonstrator": "../../../../../../../40 EXPERIENCE PRODUCTION/NEXAH-Experience/public/review-assets/scc-003-r1/demonstrators/complex-fold-18x23.html#root432-keystone-capsule",
+    "science_desk": "../A0_RESEARCH_DESK.html#scc-003-root432-keystone-capsule-return-20261110",
+    "mathfield": "../A0_MATHEMATICAL_JOINTS.html#complex-fold-crt-fold-address-return",
+    "pink_diamond_address_spine": "../A0_PINK_DIAMOND_GRID_ATLAS.html#address-spine"
+  },
+  "interpretation_boundary": {
+    "404_role": "existing dyadic mirror channel from 101 -> 202 -> 404 -> 808",
+    "414_role": "existing SCC-003 closure from 413 + 1",
+    "p80_role": "exact arithmetic witness only",
+    "shared_generator_claim": false,
+    "new_fold_family_claim": false
+  },
+  "graph_effect": {
+    "new_identity": 0,
+    "new_alias": 0,
+    "new_relation": 0,
+    "new_family": 0,
+    "new_study": 0,
+    "new_finding": 0,
+    "claim_change": 0,
+    "publication": 0
+  }
+}

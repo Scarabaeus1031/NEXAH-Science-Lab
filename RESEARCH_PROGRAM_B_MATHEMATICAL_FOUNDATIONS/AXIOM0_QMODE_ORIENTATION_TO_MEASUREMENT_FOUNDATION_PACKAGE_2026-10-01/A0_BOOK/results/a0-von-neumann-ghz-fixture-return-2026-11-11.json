@@ -1,0 +1,79 @@
+{
+  "schema": "a0.finite-math-fixture.return.v1",
+  "fixtureId": "A0-MATH-VN-GHZ-01",
+  "date": "2026-11-11",
+  "authority": "HUMAN_OWNER_AUTHORIZED_BOUNDED_ENGINEERING_VERIFICATION",
+  "classification": "DETERMINISTIC_FINITE_MATH_FIXTURE / NOT_A_LAB_RUN / NOT_ADMITTED",
+  "reproducibility": "LOCAL_EXECUTABLE_CHECK / LAB_R_CLASS_NOT_APPLICABLE",
+  "identityDisposition": "REUSES_A0_FIELD_NOTES_AND_EXISTING_A0_ORIENTATION_EVIDENCE_LINEAGE",
+  "claimCeiling": "KNOWN_PAULI_AND_GHZ_MATHEMATICS / TYPED_A0_CONTEXT_ADAPTER / NO_NEW_PHYSICS",
+  "operatorOutcome": {
+    "A": "sigma_z",
+    "B": "sigma_x",
+    "commutator": [[0, 2], [-2, 0]],
+    "anticommutator": [[0, 0], [0, 0]],
+    "sameQubitSumSpectrum": [-1.414213562373, 1.414213562373],
+    "contextFreeOutcomeSums": [-2, 0, 2],
+    "diagonalObservable": "(sigma_z-sigma_x)/sqrt(2)",
+    "diagonalSpectrum": [-1, 1],
+    "expectationLinearityWitness": {"state": "|0>", "left": 1, "right": 1}
+  },
+  "rotationAdapter": {
+    "definition": "M_B(beta)=cos(beta)*sigma_z+sin(beta)*sigma_x",
+    "samplesDegrees": [-90, -45, 0, 45, 90],
+    "sampleSpectra": {
+      "0": [-1, 1],
+      "45": [-1, 1],
+      "90": [-1, 1],
+      "-90": [-1, 1],
+      "-45": [-1, 1]
+    },
+    "diagonalControl": {"degrees": -45, "observable": "(sigma_z-sigma_x)/sqrt(2)", "matchesD": true},
+    "typedRoles": {"carrier": "OIL path", "apparatus": "Q_B lens", "displayPose": "RIS", "observable": "M_B(beta)"},
+    "boundary": "Q_B is not M_B; visible RIS rotation does not by itself establish physical implementation of U_y(beta)."
+  },
+  "commutingControl": {
+    "observables": ["sigma_z tensor I", "I tensor sigma_x"],
+    "commutatorIsZero": true,
+    "sumSpectrum": [-2, 0, 0, 2]
+  },
+  "ghzParity": {
+    "variables": ["X1", "X2", "X3", "Z1", "Z2", "Z3"],
+    "contexts": [
+      "X1 xor X2 xor X3 = 1",
+      "X1 xor Z2 xor Z3 = 0",
+      "Z1 xor X2 xor Z3 = 0",
+      "Z1 xor Z2 xor X3 = 0"
+    ],
+    "leftXor": 0,
+    "rightXor": 1,
+    "assignmentsChecked": 64,
+    "satisfyingAssignments": 0,
+    "maximumContextsSatisfied": 3,
+    "assignmentsAtMaximum": 32
+  },
+  "checks": [
+    {"id": "P01", "pass": true, "statement": "Pauli involutions: Z²=X²=I"},
+    {"id": "P02", "pass": true, "statement": "Same-qubit anticommutator vanishes"},
+    {"id": "P03", "pass": true, "statement": "Same-qubit observables do not commute"},
+    {"id": "P04", "pass": true, "statement": "(Z+X)²=2I"},
+    {"id": "P05", "pass": true, "statement": "D=(Z−X)/√2 has D²=I"},
+    {"id": "P06", "pass": true, "statement": "spec(Z+X)={−√2,+√2}"},
+    {"id": "P07", "pass": true, "statement": "spec(D)={−1,+1}"},
+    {"id": "P08", "pass": true, "statement": "Context-free ±1 outcome sums are only −2,0,+2"},
+    {"id": "P09", "pass": true, "statement": "Expectation values remain linear"},
+    {"id": "P10", "pass": true, "statement": "Two-subsystem control observables commute"},
+    {"id": "P11", "pass": true, "statement": "Commuting control spectrum is −2,0,0,+2"},
+    {"id": "R01", "pass": true, "statement": "Every sampled M_B(beta) is an involution"},
+    {"id": "R02", "pass": true, "statement": "Rotation endpoints recover A=Z and B=X"},
+    {"id": "R03", "pass": true, "statement": "M_B(−45°) recovers D=(Z−X)/sqrt(2)"},
+    {"id": "R04", "pass": true, "statement": "Opposite diagonal contexts anticommute and remain distinct"},
+    {"id": "G01", "pass": true, "statement": "No deterministic local assignment satisfies all four GHZ parity contexts"}
+  ],
+  "summary": {
+    "checksPassed": 16,
+    "checksTotal": 16,
+    "graphDelta": {"identities": 0, "relations": 0, "aliases": 0, "studies": 0, "findings": 0, "promotions": 0}
+  },
+  "stop": "No hidden-variable solution, Bell/GHZ/locality fix, measurement-model completion, experiment, Study activation or publication claim."
+}

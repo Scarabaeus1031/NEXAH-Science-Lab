@@ -1,0 +1,65 @@
+{
+  "schema": "a0.edelweiss-genesis-translation-return/1.0.0",
+  "date": "2026-11-11",
+  "status": "PASS_EXACT_DISPLAY_RETURN",
+  "title": "Edelweiss genesis — historical NEXAHEDRON V3 translation lens",
+  "placement": {
+    "owner": "A0 Spin to Bloom Measurement",
+    "section": "edelweissGenesisTranslation",
+    "order": [
+      "edelweissBridge",
+      "edelweissGenesisTranslation",
+      "lissajous119GapBench",
+      "platinumIridiumPiReturn"
+    ]
+  },
+  "historical_source": {
+    "catalog_id": "ASSET-108D97E1FE03",
+    "title": "NEXAHEDRON V3 — INNER ↔ ALGO ↔ OUTER",
+    "sha256": "f792bb7ad784f40ea2fb3c99e67925c4003828f9bf43aa2557b9eea97489824b",
+    "authority": "LOCATOR_ONLY",
+    "binding": "excluded-historical",
+    "use": "interaction grammar and visual provenance only"
+  },
+  "translation_chain": [
+    "INNER RING",
+    "CUT ×5",
+    "UNROLL 5",
+    "LOCAL JOINT ×5",
+    "A2 / KITE TRIANGLE FOLD",
+    "PILLAR / OBELISK VIEW AXIS",
+    "BODY / SHADOW / GHOST",
+    "11:9 CLOSED TRACE",
+    "EXACT DISPLAY RETURN"
+  ],
+  "finite_result": {
+    "ring_edges": 5,
+    "cuts": 5,
+    "flaps": 5,
+    "local_joints": 5,
+    "shadow_depths": 3,
+    "return_residual": 0,
+    "lissajous_pair": "11:9",
+    "lissajous_curve_closed": true,
+    "comparator_slots": 12,
+    "occupied_comparator_slots": 11,
+    "open_comparator_slots": 1,
+    "open_slot_belongs_to_curve": false
+  },
+  "tests": {
+    "command": "node a0-edelweiss-genesis-translation-tests.cjs",
+    "status": "PASS",
+    "checks": 58
+  },
+  "authority": {
+    "identity_reuse": [
+      "ART:A0:MATHEMATICAL_JOINTS",
+      "MOD:TESSAREC"
+    ],
+    "new_canonical_ids": [],
+    "relation_changes": [],
+    "study_created": false,
+    "publication_authority": false
+  },
+  "claim_boundary": "The five visible joints use Pascal Joint only as a local working name; no tested Pascal SCC identity is asserted without a seam witness. The A2/Kite triangle, pillar/obelisk, three shadows and wobble are display roles, not a physical mechanism. Wobble does not model Euler-disc energy or friction. The 11:9 curve is closed and its one open slot belongs only to a separately declared 11-to-12 comparator. No material, botanical-genesis, resonance, new identity, Study or canonical relation claim is made."
+}

@@ -1,0 +1,39 @@
+{
+  "schema": "a0.ullinium-methods-1-5-preregistration/1.0.0",
+  "date": "2026-11-11",
+  "status": "FROZEN_BOUNDED_ENGINEERING_VERIFICATION_NOT_A_LAB_RUN",
+  "seed": 20261111,
+  "trials_per_family": 2000,
+  "trials": 10000,
+  "families": ["cycle", "tree", "grid", "fan", "general"],
+  "overlaps": ["vertex", "edge", "path2"],
+  "methods": [
+    "ADJACENCY_ONLY",
+    "PROPERTY_GRAPH",
+    "BIPARTITE_INCIDENCE",
+    "COSPAN_PUSHOUT",
+    "NEXAH_RETURN_RECEIPT"
+  ],
+  "metrics": [
+    "exact_labelled_reconstruction",
+    "single_map_corruption_detection",
+    "false_seam_detection",
+    "canonical_json_bytes",
+    "payload_record_count"
+  ],
+  "gates": {
+    "adjacency_exact_max": 0.01,
+    "provenance_methods_exact_min": 1,
+    "provenance_methods_corruption_detection_min": 1,
+    "provenance_methods_false_seam_detection_min": 1
+  },
+  "claim_ceiling": "Deterministic software-encoding benchmark only; not a Lab run, theorem, physical mechanism, Study, Finding, paper result or publication authority.",
+  "identity_effect": {
+    "new_identity": 0,
+    "new_relation": 0,
+    "new_alias": 0,
+    "study": 0,
+    "finding": 0,
+    "publication": 0
+  }
+}

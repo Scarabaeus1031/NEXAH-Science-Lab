@@ -106,6 +106,27 @@ For each candidate, test:
 
 The likely scientifically useful outcome is not “one grid is the other,” but a classified statement of which structures survive each lift and which require a seam/side witness.
 
+## Test return — 2026-11-10
+
+`E06-LIFT-01` was executed over all 1,221 source states. The three preregistered maps are all injective and exactly reversible on their images, but they preserve different structures:
+
+| Lift | Unit adjacency | Global Janus | Endpoint coverage |
+|---|---:|---:|---:|
+| `L_interval(a,b)=(10a,b)` | no | no | no |
+| `L_stride11(a,b)=(11a,b)` | no | yes | yes |
+| `L_address(a,b)=(a,b)` | yes | no | no |
+
+An axis-swapped address map is an equally exact adjacency-preserving embedding, so the orientation is not identifiable from adjacency alone. A deterministic scrambled injection passes cardinality/injectivity but fails the adjacency and Janus controls.
+
+The result is therefore a classified mixed return, not recovery of the canonical E06 lift. No candidate preserves every requested structure. An explicit invariant choice plus an orientation, seam or side witness is still required.
+
+The same bounded runner verifies the linked arithmetic and fold gates: `1221²=121·12321`, `12121=17·23·31`, `297/7=42+3/7`, the six-sector Kawasaki sums, the Maekawa count `4−2=2`, the pentagonal metric `2cos(π/5)=φ`, and a closure-preserving Kawasaki failure control. The 2026-11-10 twelve-stage addendum also verifies the month-knuckle word `MVMVMVM|MVMVM` with `7M/5V`, equal-sector Kawasaki closure at `12×30°`, and rejects month-day-proportional angles by the unequal alternating sums `184/181`. The phantom-boundary addendum then verifies fourteen addressed slots as twelve physical creases plus two zero-face boundary witnesses, preserves `7M/5V` under the typed partition `5V=4V+1V_return`, and separates `7 mod 4=3`, `7π mod 2π=π` and `2cos(π/5)=φ`. The Plate-ladder addendum verifies `297/7=41+1+3/7`, the π convergents through `355/113`, the Fibonacci-ratio φ ladder through `21/13`, and rejects `41+1+1` as a numerical equality. A final documentary check verifies that the Science Desk and Findings workspace expose exactly three bounded candidates without promoting a finding, study or graph relation.
+
+Status: `25 PASS / 0 FAIL / THREE FINDING CANDIDATES VISIBLE WITHOUT PROMOTION / N-BAND EXACT PLATE / PI-PHI APPROXIMATION LADDERS / CONCRETE 12-STAGE M-V WORD / TWO ZERO-FACE PHANTOM BOUNDARIES / RETURN-VALLEY ROLE TYPED / SNAP-THROUGH AND SOLITON OPEN / CANONICAL LIFT STILL OPEN / RIGID FOLD STILL OPEN / SEARCH SPACE NARROWED`.
+
+- Runner: `A0_BOOK/a0-e06-1221-to-12321-lift-tests.cjs`
+- Machine result: `A0_BOOK/results/a0-e06-1221-to-12321-lift-result-2026-11-10.json`
+
 ## Governance result
 
 This audit reuses `NEXAH_AX0_QMODE_FOUNDATION_PACKAGE`, `MOD:NUMBER_VIEW_SUITE`, the existing `G11`, `G111` and `E06` Observatory records, and the existing Navigator evidence lenses. It creates no new Navigator identity or relation and changes no canonical counts. The Source Graph validator remains `PASS` at `269 entities / 32 relations` in the composed internal view.

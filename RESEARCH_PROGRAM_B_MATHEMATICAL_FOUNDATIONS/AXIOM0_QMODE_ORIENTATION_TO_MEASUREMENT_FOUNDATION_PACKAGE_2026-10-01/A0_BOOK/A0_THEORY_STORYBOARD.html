@@ -5,9 +5,9 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="description" content="NEXAH Family Method / TOI: sieben bedienbare Leseszenen zu Relationen, Innen/Außen, Matroschka, Phase, Schatten, Emergenz und Return.">
   <title>NEXAH · Die Zusammenhänge · Theorie-Storyboard</title>
-  <link rel="stylesheet" href="a0-theory-storyboard.css?rev=currentness-20261105">
+  <link rel="stylesheet" href="a0-theory-storyboard.css?rev=all-windows-20261112">
   <script src="a0-human-crosswalk.js?rev=1" defer></script>
-  <script src="a0-theory-storyboard.js?rev=currentness-20261105" defer></script>
+  <script src="a0-theory-storyboard.js?rev=all-windows-20261112" defer></script>
   <link rel="stylesheet" href="a0-explanation-reading-path.css">
 </head>
 <body>
@@ -31,8 +31,9 @@
     </div>
     <div class="reading-order" aria-label="Empfohlene Leseroute"><strong>Empfohlene Route</strong><span>Aktuellen Stand erfassen</span><span>Sieben Fragen durchspielen</span><span>3+1-Bezüge vertiefen</span><span>Quellen und Grenzen prüfen</span></div>
   </section>
-  <nav class="view-switch" aria-label="Zwei Ansichten desselben Storyboards">
+  <nav class="view-switch" aria-label="Drei Ansichten desselben Storyboards">
     <button type="button" id="viewOverview" aria-pressed="true">Erzählweg · sieben Szenen</button>
+    <button type="button" id="viewAllWindows" aria-pressed="false">Alle Fenster · gleichzeitig offen</button>
     <button type="button" id="viewArchitecture" aria-pressed="false">Vertiefung · drei Fragen und der Rückweg</button>
   </nav>
   <p id="humanReturnStatus" class="scene-relation" aria-live="polite" hidden></p>
@@ -40,6 +41,11 @@
     <div class="section-head"><div><div class="eyebrow">Gesamtkarte · sieben Zugänge, kein Naturgesetz in sieben Schritten</div><h2 id="overviewTitle" tabindex="-1">Sieben Fragen, ein roter Faden.</h2></div><span class="caption">Eine Szene wählen ↓</span></div>
     <div id="sceneCards" class="scene-grid"></div>
     <div class="relation-band"><span>Relationen tragen alle Szenen.</span><span>Innen / außen wechseln mit dem Rahmen.</span><span>Return prüft die Übergänge.</span></div>
+  </section>
+  <section id="allWindows" hidden aria-labelledby="allWindowsTitle">
+    <div class="section-head"><div><div class="eyebrow">Sieben Lesefenster · ein gemeinsamer Überblick</div><h2 id="allWindowsTitle" tabindex="-1">Alle Fenster sind offen.</h2></div><span class="caption">Jede Szene bleibt ein eigener lokaler Blick.</span></div>
+    <p class="architecture-intro">Diese Ansicht legt alle sieben Fragen nebeneinander: Beziehung, Grenze, Teil/Ganzes, Bewegung, Projektion, Muster und Return. Die Fenster teilen keine laufende Zustandsmaschine; jedes öffnet seine eigene bedienbare Szene oder das zugehörige Instrument.</p>
+    <div id="allWindowCards" class="all-window-grid"></div>
   </section>
   <section id="architecture" hidden aria-labelledby="architectureTitle">
     <div class="section-head"><div><div class="eyebrow">Schaltplan der Lesarten · keine bereits geschlossene Runtime</div><h2 id="architectureTitle" tabindex="-1">Drei Bereiche. Eine Querbeziehung.</h2></div></div>

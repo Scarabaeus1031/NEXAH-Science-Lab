@@ -1,0 +1,17 @@
+'use strict';
+const assert=require('node:assert/strict');
+const M=require('./a0-ij-half-seam-direction.js');
+let checks=0;const ok=(value,label)=>{assert.ok(value,label);checks++;};
+const proof=M.verify();
+ok(proof.status==='PASS','bounded IJ half-seam fixture passes');
+ok(proof.field.fieldId==='F-IJ-01'&&proof.field.i===9&&proof.field.j===10&&proof.field.sum===19,'I and J retain addresses 9 and 10 in shared field 19');
+ok(proof.seam.minus===-0.5&&proof.seam.zero===0&&proof.seam.plus===0.5,'half-seam exposes minus, zero and plus positions');
+ok(proof.seam.midpoint===0&&proof.seam.separation===1,'half-seam midpoint and directed separation are exact');
+ok(M.reflect(-0.5)===0.5&&M.reflect(0.5)===-0.5,'reflection swaps the two half positions');
+assert.throws(()=>M.reflect(Infinity),/finite/);checks++;
+ok(proof.body.counts.vertices===6&&proof.body.counts.edges===12&&proof.body.counts.faces===8&&!proof.body.cone,'square bipyramid counts remain distinct from a cone');
+assert.throws(()=>M.bipyramid(0),/positive/);checks++;
+ok(proof.nBand.numerator===297&&proof.nBand.denominator===7&&proof.nBand.rounded3===42.429,'42.429 is the three-decimal N-band return');
+ok(Math.abs(proof.nBand.from45-18/7)<1e-12&&proof.nBand.from45Exact==='18/7','residual from 45 degrees is exactly 18/7');
+ok(Object.values(proof.authority).every(value=>value===false),'fixture creates no identity, relation, operator, study or finding');
+console.log(JSON.stringify({status:'PASS',checks,scope:'F-IJ-01 arithmetic, symmetric half-seam, square bipyramid counts, exact N-band source and authority boundary'}));

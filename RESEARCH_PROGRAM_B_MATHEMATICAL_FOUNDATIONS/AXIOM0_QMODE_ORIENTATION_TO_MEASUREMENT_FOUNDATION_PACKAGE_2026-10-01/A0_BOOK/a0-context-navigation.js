@@ -170,6 +170,26 @@
         ]
       },
       {
+        "label": "Instrumente & interne Kandidaten",
+        "items": [
+          [
+            "A0_PASCAL_GENERATION_CORNER.html#unified-generation-corner-candidate",
+            "Generation Corner · A0 Entry",
+            "Rödelheim Observatory, Q°-Achse, Five H, Complex Fold, Hof und Generationen · interne, noch nicht publizierte Candidate-Revision"
+          ],
+          [
+            "http://127.0.0.1:4328/scc-003-r1/",
+            "SCC-003-R1 · Reviewraum (lokal)",
+            "Zielroute review.nexah.de · gefrorenes 30-Dateien-Paket · lokales Owner-Staging, nicht publiziert, Reviewer noch offen"
+          ],
+          [
+            "http://127.0.0.1:4328/review-assets/scc-003-r1/demonstrators/complex-fold-18x23.html?rev=crt-ghost-grid-20261110#root432-keystone-capsule",
+            "SCC-003 · Complex Fold 18×23",
+            "Root 432, Keystone, CRT Ghost Grid und Fold Address · bestehender SCC-003-Demonstrator mit Science-Desk- und Mathfield-Return"
+          ]
+        ]
+      },
+      {
         "label": "Papers",
         "compact": true,
         "items": [
@@ -844,7 +864,7 @@
   // continue to open their long A0 reader/showcase projections separately.
   const scienceReaderHref = "A0_SCIENCE.html#top";
   const builderShowcaseHref = "A0_BUILDER_TOY_STORE.html#top";
-  const scienceDeskHref = "A0_RESEARCH_DESK.html?desk=overview&rev=currentness-r4-20261103#science-currentness-20261103";
+  const scienceDeskHref = "A0_RESEARCH_DESK.html?desk=overview&rev=research-reader-r1-20261110#nexah-research-reader-currentness-20261110";
   const builderDeskHref = "../../../../../10%20NEXAH%20CORE/NEXAH/BUILDER/B0_BUILDER_DECK/build-desk.html#top";
   const missionControlHref = "../../../../../00%20EXECUTIVE/NEXAH-Mission-Control/INTERNAL_NAVIGATOR/index.html#action-board";
   // Each lane gets its own invitation. Human is experience-led; Builder keeps the workshop.
@@ -879,12 +899,19 @@
   const builderFlagshipConstellation = machinaMainModules.map(([route, name, role, copy, accent]) => [route, name, copy, accent, role]);
   const scienceFlagshipSourceHref = "DRAFTS/A0_PERIODIC_CARRIER_Z100_2026-11-03.html#game-of-worlds-carrier-binding";
   const redBalloonFlagshipHref = "http://127.0.0.1:4328/scc-003-r1/generation-study/?rev=state-balance-r1#red-balloon-balance-title";
+  const complexFoldScc003Href = "http://127.0.0.1:4328/review-assets/scc-003-r1/demonstrators/complex-fold-18x23.html?rev=crt-ghost-grid-20261110#root432-keystone-capsule";
+  const generationCornerCandidateHref = "A0_PASCAL_GENERATION_CORNER.html#unified-generation-corner-candidate";
+  const scc003ReviewStagingHref = "http://127.0.0.1:4328/scc-003-r1/";
   const ioiOpenBookFlagshipHref = "DRAFTS/A0_IOI_LEAF_FOLD_OPEN_BOOK_START_2026-11-02.html#tessarec3OperatorMatrix";
   const scienceHighlights = [
+    ["A0_PLATINUM_IRIDIUM_PI_LENS.html", "PI LENS · KLEIN / FOURIER / HOLONOMY", "Aktueller topologischer Höhepunkt: Dual Shell, Möbius-Return, geschlossene Klein-Immersion, Fourier-Slices und die nichtkommutative 3-Matrix-Workbench in einer source-bound Linse", "edelweiss", "CURRENT HIGHLIGHT · 12.11 · 37/37 + 426/426 PASS"],
     ["A0_SCIENCE.html#top", "A0 Science", "Lange redaktionelle Science-Seite mit Forschungsstand, Ergebnissen, Instrumenten, Methode und Grenzen", "nexah", "Science · Forschungsstand"],
     ["A0_RESEARCH_DESK.html?desk=overview&channel=science#a0-current-state", "CURRENT STATE · SCIENCE", "Findings, Review-Gates, Staging und nächster zulässiger Exit in einer Desk-Linse", "cells", "Desk lens · Stand 03.11."],
+    [generationCornerCandidateHref, "GENERATION CORNER", "A0-gerahmte interne Leseroute: Rödelheim Observatory als Q°-Achse, Generationsgeschichte, Five H, Complex Fold, Hof und genealogischer Return", "edelweiss", "A0 INTERNAL CANDIDATE · UNPUSHED"],
+    [scc003ReviewStagingHref, "SCC-003-R1 · REVIEW", "Gefrorenes 30-Dateien-Reviewpaket und Proof Capsule im lokalen Owner-Staging; Zielroute review.nexah.de, noch nicht deployed oder veröffentlicht", "cells", "OUTREACH GATE · REVIEWER PENDING · LOCAL ONLY"],
     [scienceFlagshipSourceHref, "STOFFREGISTER Z100", "Periodischer Carrier, drei Elementansichten und der source-bound Game-of-Worlds-Anschluss an derselben wiederauffindbaren Buchstelle", "carrier", "SCIENCE FLAGSHIP · STOFFREGISTER"],
     [redBalloonFlagshipHref, "RED BALLOON", "SCC-003 als source-bound Science Flagship Notebook: finite Quelle, Quotient, Residuum und Return mit offenen Claim-Grenzen", "relation", "SCIENCE FLAGSHIP · RED BALLOON"],
+    [complexFoldScc003Href, "SCC-003 · COMPLEX FOLD", "18×23-Demonstrator mit Root-432-Kapsel, CRT Ghost Grid, Fold Address und direkten Returns zu Science Desk und Mathfield", "edelweiss", "SCC-003 · SOURCE-BOUND DEMONSTRATOR"],
     [ioiOpenBookFlagshipHref, "101 / A0 OPEN BOOK", "Leaf Fold, Cube Pivot, TESSAREC³-Operatorenmatrix und Open Book als eine reproduzierbare Leseroute", "body", "SCIENCE FLAGSHIP · 101 / A0"],
     ["A0_DATA_AND_REGISTERS.html#top", "A0 NSNavigator", "A0-Struktur binden, zuständige Register finden und vorhandene Records weiterverwenden", "book", "Science · Source-bound Register Lens"]
   ];
@@ -938,6 +965,7 @@
       card.href = href;
       if (href === builderShowcaseHref) card.setAttribute("data-a0-builder-showcase", "");
       if (href === scienceFlagshipSourceHref) card.setAttribute("data-a0-science-flagship", "");
+      if (href === "A0_PLATINUM_IRIDIUM_PI_LENS.html") card.setAttribute("data-a0-science-current-highlight", "");
       card.innerHTML = `<span class="a0-showcase-art" aria-hidden="true"></span><span class="a0-showcase-copy"><small>${status}</small><strong>${label} <span aria-hidden="true">↗</span></strong><span>${description}</span></span>`;
       if (targetFile(href) === file) card.setAttribute("aria-current", "page");
       showcase.append(card);

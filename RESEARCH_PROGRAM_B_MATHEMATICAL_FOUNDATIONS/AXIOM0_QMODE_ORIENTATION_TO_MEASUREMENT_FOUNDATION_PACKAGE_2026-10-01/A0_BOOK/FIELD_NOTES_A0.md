@@ -2,7 +2,7 @@
 
 Date: `2026-10-08`
 
-Updated: `2026-11-08` · Als private Owner-Handbuchnotizen rückgebunden; 11³-/D12-/−1/12-Vergleichslinse ergänzt; ältere Einträge behalten ihren eigenen Stand.
+Updated: `2026-11-11` · Disposition Pass für 29 aktive Ideen, drei angewandte Arbeitsverträge, vierteiliger Quantum-Grid-Intake-Split, begrenzter Tube-Routing-Vertrag und lokaler Visual-1/5/6-Crosswalk ergänzt; ältere Einträge behalten ihren eigenen Stand.
 
 ## Owner-Handbuchnotizen · Ideenparkplatz
 
@@ -70,6 +70,139 @@ Die erzeugte Leseseite zeigt diese Ordnung als
 Sie ist ein redaktioneller Router zu bestehenden A0- und 101-Quellen, keine
 neue Registry, Study, Family, Relation oder wissenschaftliche Aktivierung.
 
+### Angewandte A0-Arbeitsverträge · Disposition Pass 11.11.2026
+
+Diese drei Verträge sind aus den Field Notes extrahierte Arbeitsregeln. Sie
+strukturieren vorhandene Records und Demonstratoren; sie sind keine neue
+Registry, kein kontrolliertes Vokabular und keine wissenschaftliche Promotion.
+
+```text
+CONTEXT_RECORD = {
+  carrier, context, observable, apparatus, provenance, outcome
+}
+
+VIEW_RETURN = {
+  source, aperture, view, residual, return_key, return_status
+}
+
+EVENT_LEDGER = {
+  event_id, t, delta_t, event, status
+}
+status in {ON, HOLD, REST, RETURN}
+```
+
+Anwendungsregel: Ein Feld darf `UNKNOWN` sein, aber nicht stillschweigend aus
+Bildnähe, Wortspiel oder Zahlenresonanz ergänzt werden. Ein Return ist nur
+`PASS`, wenn Quellrecord, Routingregel, Ausgangsadresse und Rückschlüssel
+zusammenpassen. Fehlender oder falscher Rückschlüssel endet `FAIL_CLOSED`.
+
+Die erzeugte Leseseite führt diese Verträge unter
+[Applied Work Contracts](assets/a0-field-notes/index.html#applied-work-contracts)
+und prüft den Rückweg im begrenzten
+[Tube Routing Contract](assets/a0-field-notes/index.html#tube-routing-contract).
+
+##### G8 Key Corner · zweiter geschlossener View-Return
+
+Der erste Tube-Vertrag bleibt unverändert:
+
+```text
+G7 -> PRIME_INDEX(7) -> Q17 -> KEY G7 = PASS
+```
+
+Daneben wird jetzt ein zweiter, **getrennter** View-Return geführt:
+
+```text
+G8 = 2^3
+DO -> RE -> MI -> FA
+R  -> R  -> R  -> L
+KEY_CORNER -> KEY G8 = PASS
+```
+
+`DO/RE/MI/FA` sind Stationsnamen der vorhandenen musikalischen Rail;
+`R/R/R/L` ist hier die Owner-Choreografie „dreimal rechts, einmal links“.
+Sie ist ausdrücklich **nicht** der bereits implementierte Six-Face-
+Rubikoperator `G=R F L U^-1`. Ebenso bleibt `G8=2^3` von der vorhandenen
+Projektion `G8^3=512` getrennt. Ein `G7`-Schlüssel auf der G8-Route und ein
+`G8`-Schlüssel auf der G7-Route enden jeweils `FAIL_CLOSED`.
+
+Damit ist G8 als lokaler Key-Corner-View geschlossen, ohne eine neue
+algebraische Identität, Cube-Permutation oder Source-Graph-Relation zu
+behaupten. Reuse: vorhandene V12-Notenrail, World-Cube-Corner-Address und
+Six-Face-View; neue Study, Finding und Physikbehauptung jeweils `0`.
+
+##### G9 Hellblau · Orion-Astrolabe als rotierende Quellenansicht
+
+Für G9 wird zunächst nur eine lokale Ansichts- und Seitenkodierung festgehalten:
+
+```text
+G9 VIEW FRONT = HELLBLAU
+COUNTER SIDE = GELB / ROT / WEISS
+SOURCE = NEXAH_NTO_11357_ORION_ASTROLABE_v6_ROOT_SHRINK_TRAMPOLINE.glb
+```
+
+Das vorhandene GLB wird unverändert als **eine** drehbare Quelle eingebunden.
+Es enthält zwei echte Animationsclips:
+
+```text
+ROOT_SHRINK_TRAMPOLINE_BREATH
+NEXAH_MUSEUM_CYCLE_ORIGINAL_INVERSE_SILO
+```
+
+Die Quellmetadaten deklarieren für den ersten Clip die 18-Sekunden-Sequenz
+`SHRINK -> BEND -> CROSS -> INVERT -> RELEASE`. Hellblau sowie
+Gelb/Rot/Weiß sind Viewer-Codes; sie färben oder mutieren das GLB nicht.
+
+Semantische Grenze: Die konkrete Bedeutung von `G9` bleibt in A0 offen. Diese
+Ansicht wird weder mit dem vorhandenen Gate `G9_RETURN_WITH_MEMORY` noch mit
+einem physikalischen Mechanismus identifiziert. Das Modell behält seinen Status
+`ARCHIVED_EVIDENCE_CASE_STUDY / EXPLORATORY_3D_REPRESENTATION`. Die A0-Seite
+referenziert die kanonische Archivdatei über einen relativen Symlink und erzeugt
+keine zweite Binärkopie. Neue Identität, Relation, Study und Finding: `0`.
+
+Der rotierende Quellenviewer steht unter
+[G9 Orion Rotation](assets/a0-field-notes/index.html#g9-orion-rotation).
+
+##### Owner-Crosswalk · Notes-2 → Visual 1 → Visual 5 (+3) → Visual 6
+
+Die aktuelle Owner-Zuordnung liest die sichtbare **Second-Intake-Karte** nicht
+als „Visual 2“, sondern als den Einstieg **Visual 1** dieser lokalen Folge:
+
+```text
+NOTES-2 / SECOND INTAKE = VISUAL 1
+VISUAL 1 + THREE DECLARED VIEW LAYERS -> VISUAL 5
+VISUAL 5 + BRONZE GHOST / CRITICAL NETWORK -> VISUAL 6
+```
+
+`Visual 1` bindet damit die bestehende `C120 JOINT / C24 VIEW / Q4`-Karte mit
+den vier Kardinaladressen `{0,6,12,18}`. Die `+3`-Lesung bezeichnet drei
+zusätzliche, getrennt erhaltene Vergleichsansichten: das `Z_3885/T_1301`-
+Orbitfeld, die dreiachsige `−37`-Family-Kopplung und die dreigeteilte
+`Z_777`-Operatoransicht. `Visual 5` bleibt als sichtbarer Anker der bereits
+dokumentierte **11357 Algol Resonance Ring**. `Visual 6` ergänzt danach die
+Bronze-/Gold-Netzlesung der Hofmann-Riemann-Gesamtkarte: Pillar, Edge, Face,
+Cell, Shadow Grid und Ghost Prime bleiben verschiedene Rollen des sichtbaren
+Critical-Network-Panels.
+
+Diese Folge ist ein **Owner View Stack**. `+3` ist eine Zählung zusätzlicher
+Ansichten, keine Dimensionserhöhung, Gruppenoperation, Orbitgleichung oder
+physikalische Kopplung. Ebenso überschreibt diese lokale Nummerierung nicht
+die frühere 13-Bilder-Serie, in der `Visual 6` als „Inversion Stillpoint &
+Ghost Bonds“ geführt wurde.
+
+Quellbytes des sichtbaren Crosswalks:
+
+- `Visual 1` · `owner-v1-cardinal-square-20261111.png` · SHA-256
+  `edd97438393e6350b21fac2488c93933cae96f43eb74e1d0c8a1c93665eae3c9`
+- `Visual 5` · `owner-v5-algol-plus3-20261111.jpeg` · SHA-256
+  `9e547e5b62535f2e2726d1cb96c051bcd661f7e8a698d94aafca79c2902b1546`
+- `Visual 6` · `owner-v6-bronze-critical-network-20261111.jpeg` · SHA-256
+  `399a6eee985116d77fea0c81b11ab9c32b8ca3f6de0c693a32c876883ae76a8f`
+
+Die drei `+3`-Stütztafeln bleiben Quellenzeugen, nicht Beweise des Crosswalks:
+`Z_3885` SHA-256 `645a7263…`, `−37 Family` SHA-256 `3581c856…` und
+`Z_777` SHA-256 `9d012b66…`. Neue Identity, Relation, Study, Finding und
+Claim-Promotion: jeweils `0`.
+
 ##### Motion Overlay · V↑/V↓, Wobble und Jumping Needle
 
 Die vier Adapter-Lanes bleiben unverändert. Bewegung ist keine fünfte Lane,
@@ -133,6 +266,8 @@ Sie sind keine wortgetreue Gesprächsmitschrift und keine neuen Ergebnisse.
 
 #### Eine verdrehte Fläche mit großer und kleiner Schlaufe
 
+**Disposition:** `HOLD_SOURCE` · Originalbild und Randverklebung fehlen.
+
 **Gedanke:** Das gesuchte Visual zeigt möglicherweise nicht zwei unabhängige
 Grids, sondern eine Fläche, die sich verdreht und zwei verschieden große
 Schlaufen bildet. Die Erinnerung bleibt als Suchhinweis erhalten.
@@ -142,6 +277,8 @@ Nachbarschaft sind gemeint? Möbius-, Torus- und bloße Projektionsbilder nicht
 vorab gleichsetzen. Wieder aufnehmen, wenn das konkrete Visual gefunden ist.
 
 #### Sechs Teller und eine gemeinsame Mitte
+
+**Disposition:** `HOLD_OPERATOR` · Rolle der Mitte ist nicht bestimmt.
 
 **Gedanke:** Die Owner-Lesart verbindet 6+1 und 6|1|6 mit einer gelben/goldenen
 Mitte, im Gespräch auch „gelber Chor“ genannt. Vorhanden sind sechs MUINDI-
@@ -154,6 +291,8 @@ Quelle: [CON–DAO-Modell](../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_CON_DAO_JANUS
 
 #### Die Farben der Einsen und der Kontext der Dreiergruppen
 
+**Disposition:** `APPLIED` · lokale Farbrolle und Herkunft reisen mit dem Record.
+
 **Gedanke:** Gleichwertige „1er“ können je nach Dreiergruppe, Rolle und
 Matroschka-Ebene cyan, gold oder anders erscheinen. Beim Rückführen soll
 ihre Herkunft erkennbar bleiben, auch wenn sie in der Ansicht verdeckt wird.
@@ -165,6 +304,8 @@ Lesarten. Auch P=A+B verlangt zuerst einen deklarierten additiven Raum.
 
 #### Die Tube als Verteiler und Rückführung
 
+**Disposition:** `PARTIAL` · Routingvertrag wird angewendet; gemeinsamer Tube-Mechanismus bleibt offen.
+
 **Gedanke:** Zahlencontainer, Adressen und lokale Rollen werden durch einen
 Übergang verteilt und wieder zusammengeführt.
 
@@ -174,6 +315,8 @@ C10-Tube-Operator und Zylinderansicht sind noch kein gemeinsamer Verteiler.
 Quelle: [gesicherte Tube-Herkunft](results/a0-tube-operator-lineage-return-2026-10-20.json).
 
 #### Zahlen als Adressen und gemeinsamer Skalenlift
+
+**Disposition:** `APPLIED` · Wert, Adresse, Einheit, Tupel und Projektion bleiben getrennte Typen.
 
 **Gedanke:** Adresse und Bezugsraum ändern sich gemeinsam; eine normierte
 Position kann dabei erhalten bleiben. Beispiel: 204/1000=2040/10000.
@@ -186,6 +329,8 @@ Quelle: [NumberMagick-Kurzfassung](A0_NUMBERMAGICK_GRID_RESEARCH.html#address-co
 
 #### Gruppierungen und ein mögliches gemeinsames Verfahren
 
+**Disposition:** `HOLD_OPERATOR` · die Funktion von `+1` ist nicht einheitlich definiert.
+
 **Gedanke:** 3+1, 4+1, 5+1, 6+1 sowie duale und dreifache Gruppen könnten
 Teile einer zusammenhängenden Arbeitsweise sein.
 
@@ -195,6 +340,8 @@ Siebenergruppen bleiben unterschiedliche Einteilungen. 5+6=11 allein
 definiert noch keine Übersetzungsregel.
 
 #### Vorhandene Module statt erneuter Gesamtneubau
+
+**Disposition:** `APPLIED` · bestehende Module werden source-bound angebunden statt dupliziert.
 
 **Gedanke:** Telleransichten, Shared View, TESA, LOKI, Observer und native
 Quellen sollen langfristig in einem verständlichen Arbeitsraum zugänglich sein.
@@ -206,6 +353,8 @@ als vollständigen System-Return behandeln.
 
 #### ORION und frühere NEXAH-Arbeiten als Vorgeschichte
 
+**Disposition:** `HOLD_SOURCE` · ORION-era Quelldatei beziehungsweise Autorenrecord fehlt.
+
 **Gedanke:** Der Owner erkennt denselben Entwurfsfaden in NEXAH-CODEX,
 NEXAH, ORION und A0 wieder. Quellenarbeit soll Wiederanfänge vermeiden.
 
@@ -214,6 +363,8 @@ finden. Kreative Herkunft, heutiger Repository-Inhalt und zertifizierter
 Funktionsumfang getrennt halten.
 
 #### 131 und 313
+
+**Disposition:** `HOLD_SOURCE` · bewusst zurückgestellt; keine aktive Aufgabe.
 
 **Stand:** Bewusst zurückgestellt. Erst nach dem Dokumentations-Closeout und
 einer erneuten ausdrücklichen Auswahl aufnehmen.
@@ -225,6 +376,8 @@ Demonstratoren und Papers bleiben an ihren bestehenden Orten; diese Notizen
 bewahren offene Anschlussideen, keine neuen Finding-Nummern.
 
 #### 1,1 als zwei Anschlüsse und deklarierter Schnitt
+
+**Disposition:** `PARTIAL` · lokaler Demonstrator vorhanden; gemeinsames Inverses offen.
 
 **Gedanke:** Zwei lila Anschlüsse, Club oben und Relations Player unten,
 das Komma als Schnitt/Trennung. Verbinden könnte einen geschlossenen Lauf
@@ -238,6 +391,8 @@ Verbindungsoperator und Rückvergleich festgelegt sind.
 **Stand:** geparkt; nur der lokale Demonstrator ist implementiert.
 
 #### Grüner Coil, F′-Schatten und Generationen
+
+**Disposition:** `HOLD_OPERATOR` · Quellenanschlüsse sichtbar, Schatten- und Generationenoperator nicht definiert.
 
 **Gedanke:** Grün als Übergang zwischen CRT und QRT; F′ als Schatten;
 A/B/C und D/E/F mit G dazwischen, Euler/Fibonacci/Primes als mögliche
@@ -414,6 +569,8 @@ teilweise verarbeitet, keine neue Relation oder Evidenzpromotion.
 
 #### Orangefarbener RETURN-Teller und die beiden Bildspalten
 
+**Disposition:** `HOLD_OPERATOR` · Residuum-Transport und Spaltenzuordnung fehlen.
+
 **Gedanke:** Die fünf Labels EP/SI/LP/SH/RT plus RETURN könnten eine Folge
 mit Auffangstelle für das Residuum bilden. Daneben steht in der Quelle
 AS/ST/EI/NS/SS/KZ/45°. Keine automatische zeilenweise Paarung.
@@ -426,6 +583,8 @@ eine nachvollziehbare Zuordnung zu einem vorhandenen Operator vorliegen.
 **Stand:** geparkt; Bildlegende dokumentiert, Auffangstellen-Hypothese offen.
 
 #### CON–DAO-Leiter, 12.6 / 13.7 und 17er-Dodeka
+
+**Disposition:** `HOLD_SOURCE` · Marker-Typ, Einheit und Anschlussmap fehlen.
 
 **Gedanke:** Die genannte Leiter und die Marker 12.6 / 13.7 könnten die
 beiden Seiten verbinden; 11537 / „17er-Dodeka“ wurde als Club-Anschluss
@@ -440,6 +599,8 @@ Rest 17 liefert diese Abbildung nicht.
 benannt sind. **Stand:** geparkt, keine neue Operatorbindung.
 
 #### Theory · Big Picture in Kürze
+
+**Disposition:** `APPLIED` · konsolidierte redaktionelle Eingangsschicht.
 
 **Kurzfassung:** NEXAH untersucht, wie unterschiedliche Ansichten einer
 benannten Quelle miteinander verbunden werden können, ohne Herkunft,
@@ -484,6 +645,8 @@ kein Paper, kein Finding, keine neue Theory-Identität und keine Publikation.
 **Stand:** konsolidierte Begleitnotiz zur bestehenden Arbeitsquelle · 05.11.2026.
 
 #### String Theory / M-Theory · überraschende Strukturähnlichkeit
+
+**Disposition:** `ARCHIVED_ANALOGY` · Vergleichslinse erhalten, keine operative oder physikalische Bindung.
 
 **Gedanke:** Ein vom Owner gesehenes populärwissenschaftliches Video beschreibt
 M-Theory als bislang nicht vollständig formulierte Mitte, deren verschiedene
@@ -580,6 +743,8 @@ keine Study, kein Finding, keine Source-Graph-Relation und keine Publikation.
 
 #### Field Notes Visual Atlas · Fields, String / Whip / Chains und Cube-Fugen
 
+**Disposition:** `APPLIED` · redaktioneller Visual Atlas ist eingebunden.
+
 Date: `2026-11-05`
 
 Diese drei Tafeln verdichten den aktuellen Owner-Faden als visuelle
@@ -618,6 +783,8 @@ Holographie, eine neue Family oder einen Source-Graph-Zusammenhang.
 kein Build-Auftrag, keine Study, kein Finding und keine Publikationsfreigabe.
 
 #### VV₈-Modell · zwei V-Kanäle im Achtphasen-Return
+
+**Disposition:** `APPLIED` · lokaler synthetischer Demonstrator ist rückgebunden.
 
 Date: `2026-11-05`
 
@@ -986,6 +1153,8 @@ Owner-Handbuchmodell / rückgebunden.
 
 #### Maskenschneider · L–M–R Road zwischen Red Balloon und Euler View
 
+**Disposition:** `PARTIAL` · `8−1 ACTIVE CUT` ist angewendet; L–M–R-Semantik bleibt offen.
+
 Date: `2026-11-05`
 
 **Owner-Lesung:** Der neue Name **Maskenschneider** bezeichnet die bereits
@@ -1063,6 +1232,8 @@ Relation `0`, Study `0`, Finding `0`, Claim-Promotion `0`.
 
 #### 17/5-Innenstern · Chessboard-Lesung im 17er-Fenster
 
+**Disposition:** `APPLIED` · lokaler View-Build abgeschlossen; Delta-Deutung bleibt als Restfrage markiert.
+
 Date: `2026-11-05`
 
 **Owner-Beobachtung:** Im schwarzen `Resonance Key Sheet — 7→12→17` ist der
@@ -1112,6 +1283,8 @@ offen; neue ID `0`, Alias `0`, Relation `0`, Study `0`, Finding `0`,
 Claim-Promotion `0`.
 
 #### LANiF Frequency Anchor · 444-Hz-Skala, Orbit-Chips und Silver Pillar
+
+**Disposition:** `PARTIAL` · normierte Frequenz-/Intervallansicht anwendbar; Resonanzphysik nicht gebunden.
 
 Date: `2026-11-06`
 
@@ -1195,6 +1368,8 @@ Finding `0`, Claim-Promotion `0`.
 
 #### Mask–Membrane–Turn · Stillpoints, Tonereignisse und 270°-Gegenansicht
 
+**Disposition:** `APPLIED` · typisierter Ereignisrecord trennt Pause, Ton und Return.
+
 Date: `2026-11-06`
 
 **Owner-Lesung:** Die Lotus-Drift-Tafel und die Takt-/Melodie-Partitur dürfen
@@ -1270,6 +1445,8 @@ bedeutet nicht, dass Handbuch, Protokoll und Mission Control bereits
 vollständig abgeglichen sind.
 
 #### 12 Adressschichten · 11³ Cube, Außenschale und CC-Band
+
+**Disposition:** `APPLIED` · zwölfte Schicht ist eine Adress-/Boundary-Rolle, keine physikalische Dimension.
 
 **Gedanke:** Der vorhandene `11×11×11`-World-Cube kann als innerer endlicher
 Adressraum gelesen werden. Eine zusätzliche äußere Schale trägt die Adresse
@@ -1382,6 +1559,8 @@ biologische Family, Navigator-Identität oder physikalische Theorie aktiviert.
 
 #### 0–28 Tunnel · 7→17, 6/13 und F4-Return
 
+**Disposition:** `PARTIAL` · `7→17` ist rückgebunden; `6/13`, F4 und Tunnelregel bleiben offen.
+
 **Beobachtung:** Die grüne Hülle mit lokalem `2+2`-Kern kann in der Owner-Lesung
 als Tunnel- oder Schalenbild für einen endlichen Zählraum `0…28` dienen. Dabei
 müssen zwei Zählweisen sichtbar getrennt bleiben:
@@ -1428,6 +1607,8 @@ Navigator-ID, Relation, chemische Family, F4-Definition oder physikalische
 Tunnelbehauptung: `0`.
 
 #### C&A / Ca · vier Plates, zwei Shades und Pink-Diamond-Linse
+
+**Disposition:** `PARTIAL` · source-bound Plate/Shade/View-Adapter ist zulässig; Material-/Family-Deutung bleibt offen.
 
 **Owner-Lesung:** Die aktuellen ÀU-NÁ-HÊ-TI-Bilder erinnern an drei bereits
 getrennt geführte A0-Bausteine: Ghost Grid, Pink Diamond und die vier dunklen
@@ -1494,6 +1675,8 @@ Navigator-ID, Source-Graph-Relation, Calcium-Family, Gray-Code-Gleichsetzung,
 Plate oder physikalische Aussage aktiviert.
 
 #### Nautilus / Lotus · Segelkarte, Euler-Spiegel und Echo-Return
+
+**Disposition:** `ARCHIVED_ANALOGY` · Navigationsbild erhalten, kein gemeinsamer Geometrie- oder Physikoperator.
 
 **Owner-Lesung:** Nautilus, Lotus und Flower-of-Life können als drei
 Darstellungen einer Navigationsfrage nebeneinanderstehen, ohne dieselbe
@@ -1574,6 +1757,8 @@ keine neue Source-Graph-Relation.
 
 #### QWERTY / QWERTZ · Z-Layer, Iota und Velvet-Ring-Return
 
+**Disposition:** `APPLIED` · Input, Maskierung, Provenienzspur und Return sind als UI-Vertrag getrennt.
+
 **Datum:** 2026-11-06
 
 **Warum dies keine Wiederholung ist:** Die bekannte Grammatik
@@ -1632,6 +1817,8 @@ Quantenbehauptung, Study, Finding oder Publikation aktiviert.
 
 #### Glyph Grammar · TEL@, œ und Sun–Moon Kiss
 
+**Disposition:** `APPLIED` · Navigationsmnemonik rückgebunden; kein Codebuch.
+
 **Datum:** 2026-11-06
 
 **Rückgebundene Kurzform:** Diese Owner-Grammatik fasst die bereits gebauten
@@ -1665,6 +1852,1480 @@ liefert die Rückführung als `1 → 0(Q) → 1′`.
 **Stand:** rückgebundene Owner-Handbuchnotiz; `OPERATIONAL_EFFECT: NONE`.
 Reuse vorhandener Quellen und Routen; keine neue Navigator-ID, Relation,
 Source, Study, Finding oder Publikation.
+
+#### YUGO One Loop · Torus, Buchfalte, Muschel-Scroll und `p = 0.005`
+
+**Disposition:** `PARTIAL` · Quellen- und Rollenvertrag korrigiert; Torus-/Scroll-/Domain-Analogien bleiben offen.
+
+**Datum:** 2026-11-10
+
+**Korrigierte Herkunft:** Die erinnerte Spielansicht ist
+[YUGO · One Loop](downloads/A0_THE_ONE_D1_D2_YUGO_INTAKE_2026-10-25/NEXAH_Yugo_One_Loop_Offline.html):
+ein Ball, eine D1–D2-Achse, eine kippbare Fläche und drei Ziele. Im vorhandenen
+A0-Rollenvertrag ist `IOTA` der festgehaltene Ereignis-/Bezugspunkt; `YUGO`
+ist die rotierbare normierte lokale Flussrichtung. Das Spiel implementiert
+weder einen Zipper noch eine Muschel-Scroll, einen Torus oder den `24K`-Takt.
+
+Die Owner-Lesart darf diese Quelle als Bildausgangspunkt verwenden, hält die
+Darstellungsformen aber getrennt:
+
+```text
+YUGO One Loop   = Ball + Pivot/Achse + kippbare Fläche + Rückgabe
+Buchfalte       = zwei sichtbare Seiten treffen an Falte oder Membran
+Muschel-Scroll  = Trennung wird als fortlaufender eingerollter Pfad gelesen
+Torus           = Anfang/Ende oder gegenüberliegende Ränder werden identifiziert;
+                  das zentrale Loch bleibt erhalten
+Q° / Observer  = lokaler Schnitt, an dem die geschlossene Lesung sichtbar wird
+```
+
+Eine wirkliche Lochfüllung wäre ein eigener topologischer Wechsel. Sie folgt
+nicht aus dem YUGO-Loop oder aus einer geschlossenen Bildspur.
+
+**Zahlen- und Boundary-Lesart:**
+
+```text
+27 % + 5 % + 69 % = 101 %
+27 % = 3^3 %
+69 % = 68 % + 1 %
+sqrt(8) ≈ 2.828427
+5 + sqrt(8) ≈ 7.828427
+sqrt(8) - 5 ≈ -2.171573
+```
+
+Diese Werte sind vorerst Adress- und Darstellungsmarker, keine
+Wahrscheinlichkeiten, Energie- oder Stoffanteile. Das Minus kann eine
+Orientierung relativ zur gewählten Boundary markieren; es bezeichnet keine
+negative Energie.
+
+Der neue Marker ist von der Fünf-Prozent-Lesart zu trennen:
+
+```text
+p = 0.005 = 0.5 %
+5 % = 0.05
+
+delta   = L - R
+delta_p = delta + s*p,  s in {-1,+1}
+TIP iff sign(delta_p) != sign(delta)
+```
+
+`p` ist das kleine, noch unkalibrierte „Zünglein an der Waage“. Es erzeugt
+weder die Waage noch die Energie; es kann nur nahe einer deklarierten Schwelle
+die orientierte Seite wechseln. `p` ist hier kein statistischer p-Wert.
+Einheit, Normierung, Observable, Vorzeichenregel und Schwelle bleiben `TBD`.
+
+**Getrennter 24K-Comparator:** `24K` stammt nicht aus dem YUGO-Spiel. Es
+gehört zur vorhandenen lokalen [J-/VV₈-Kalibrierung](assets/a0-field-notes/index.html#vv8-j-title):
+`3K` pro Achtel, `6K` pro Viertel und `24K` für einen vollständigen lokalen
+Return. `K` ist dort eine Zählereinheit, weder Kelvin noch Karat, Energie oder
+universelle Zeit. Eine spätere Verbindung zu YUGO benötigt einen expliziten
+Adapter und darf nicht aus der gemeinsamen Loop-Form abgeleitet werden.
+
+Die Tafel `CCC↔KKK Bridge — Bio-Neon / Observer V` bleibt ein Owner-Visual.
+Ihre Labels `Light / Consciousness`, `Matter / Density`, `GH RESONANCE` und
+die numerischen Quotienten begründen ohne Definitionen, Einheiten, Quellen
+und Tests weder Bewusstseins-, Bio-, Resonanz-, Materie- noch
+Energiebehauptungen.
+
+```text
+SOURCE → CUT / MEMBRANE → ORIENTED DIFFERENCE
+       → TRANSFORMATION → RESIDUAL → RETURN
+```
+
+**Kurzform:** Die YUGO-Fläche richtet die Rückgabe aus. Die Falte trennt zwei
+Seiten. Die Scroll trägt die Trennung durch die Muschel. Der Torus verbindet
+Anfang und Ende, ohne sein Loch automatisch zu beseitigen. `p=0.005` bleibt
+ein kleiner Kippmarker an der Schwelle.
+
+**Owner-Nachtrag · Riss, Druckrichtung, Red Balloon und
+Double-Pentagon-Fliese:** Die neue Bildfolge wird in derselben Notiz gehalten:
+
+```text
+HELD TILE → RISS / DISPLAY_BREACH → gerichteter Druckmarker
+          → RED BALLOON / WITNESS → RIGHT
+
+[99 | 1 | 0 | 1 | 99]
+99 + 1 + 0 + 1 + 99 = 200
+```
+
+Das Wort `[99 | 1 | 0 | 1 | 99]` ist eine palindromische Adresse um den
+mittleren Nullschnitt; seine Summe `200` ist exakt, aber Adresse und Summe sind
+zwei verschiedene Decoder. Die beiden `99` bleiben zunächst zwei gehaltene
+Flanken der Owner-Fliese, die beiden `1` lokale Boundary-/Witness-Marker und
+die `0` der sichtbare Cut. `0` bedeutet hier weder Vernichtung noch fehlende
+Quelle. Der rote Ball, der nach rechts kippt oder fällt, zeigt die gewählte
+Orientierung nach dem Cut: **Red Balloon = beweglicher Witness**, nicht
+automatisch Teilchen, Masse oder Transportkörper.
+
+`Druck` bezeichnet in dieser Lesung nur den gerichteten Bedien- oder
+Darstellungsimpuls auf die kippbare Fläche. Ein physikalischer Druck bräuchte
+Kraft, Fläche, Einheit und Messvertrag. Ebenso bezeichnet `DISPLAY_BREACH` den
+sichtbaren Riss beziehungsweise die geöffnete Boundary der Ansicht, nicht
+einen nachgewiesenen Materialbruch und keinen Source-Graph-Breach. Ob der
+kleine Marker `p=0.005` dieses Kippen auslöst, bleibt offen; aus der gemeinsamen
+Schwellenform folgt noch keine Gleichsetzung mit einem der beiden `1`-Marker.
+
+Als mathematischer Comparator existiert bereits
+[A0-BL-047 · Double-Pentagon Split](../../../SCIENCE_LAB/CASE_STUDIES/A0_BL_047_DOUBLE_PENTAGON_SPLIT_2026-10-18/README.md):
+ein typisiertes `4+1`-C5 wird durch je eine deklarierte Kantenunterteilung zu
+zwei möglichen `5+1`-C6-Erweiterungen. Der Return ist exakt, die Paarung ohne
+zusätzlich orientierte Kante jedoch zweifach und nicht kanonisch. Das stützt
+die Trennung von **Fliese / Split / Orientierung**; es beweist nicht, dass die
+Owner-Fliese mit diesem Graphobjekt identisch ist. Der vorhandene
+[SCC-003 99-Gate-Fächer](A0_SCC_003_PASCAL_PENTAGON_PAPER.html#fan-spacing-lens)
+bleibt ebenfalls ein getrennter Zähl- und Darstellungsgegenstand; seine `99`
+werden durch die neue `99+1+0+1+99`-Adresse nicht verdoppelt oder erweitert.
+
+**Owner-Visualsatz · Torus, Penrose und Aperturen verschiedener Domains:** Die
+vier bereitgestellten Tafeln — `NEXAH Hypothesis`, `World Formation`, `NEXAH
+Penrose Translation Map` und `From Point to Torus` — werden als
+zusammengehörige Erklärungsskizzen gelesen, nicht als wissenschaftliche
+Belege. Ihr gemeinsamer, bereits vorhandener A0-Kern ist:
+
+```text
+DOMAIN / CARRIER
+  → BOUNDARY
+  → APERTURE / SELECTION RULE
+  → ALLOWED, BLOCKED OR UNOBSERVED TRANSITION
+  → TRACE / PROJECTION
+  → RESIDUAL
+  → OPTIONAL RETURN TEST
+```
+
+Für jeden Einsatz muss der lokale Vertrag neu eingesetzt werden:
+
+```text
+AP_d = (carrier_d, frame_d, boundary_d, selection_d,
+        direction_d, trace_d, residual_d, return_test_d, provenance_d)
+```
+
+`AP_d` ist hier nur ein Arbeitsrecord der Notiz, keine neue kanonische A0-
+oder Navigator-Schemaidentität. Er konkretisiert den vorhandenen
+[NRDL-Kontextvertrag](../../../NEXAH_RELATIONAL_DESCRIPTION_LANGUAGE_CANDIDATE_2026-09-04/04_ALPHABET_AND_PRIMITIVES.md):
+Eine Apertur ist dort eine Selektionsfunktion beziehungsweise ein
+Messfenster; ihre sichtbare Kreisform beweist kein physisches Loch.
+
+**Die vier Formen hängen so zusammen:**
+
+```text
+POINT → ANCHOR → RELATION → THREAD → WEAVE → FOLD → RETURN
+                                      |
+                                      +→ lokale Passage / Apertur
+
+TORUS    = möglicher globaler Closure-Vertrag durch Randidentifikation
+PENROSE  = kausale Ordnungs-/Erreichbarkeitskarte in kompakter Darstellung
+APERTURE = lokaler Auswahl-, Mess- oder Übergangsvertrag an einer Boundary
+MASK     = bestimmt, welcher Ausschnitt sichtbar oder klassifiziert wird
+```
+
+Damit ist eine Apertur **nicht** automatisch ein Torusloch. Ein Cut oder eine
+Öffnung kann lokal sein, ohne einen Handle zu erzeugen; ein Torus entsteht
+erst, wenn gegenüberliegende Ränder oder Anfang und Ende ausdrücklich
+identifiziert werden. Umgekehrt kann ein Torus durch eine Maske als Ring
+erscheinen, ohne dass die Maske seine Topologie erzeugt. Das Penrose-Diagramm
+ist ebenfalls kein Torus: Es komprimiert eine kausale Struktur und markiert
+Erreichbarkeit, Horizonte und Grenzen. Daraus folgen weder periodische
+Randbedingungen noch ein Wurmloch, ein geschlossener Zeitweg oder
+überlichtschneller Transport.
+
+Die `World Formation`-Kette bleibt eine Prozesslesung:
+
+```text
+NETWORK → CONVERGENCE → FUNNEL → NECK / APERTURE → OUTFLOW → SPHERE
+```
+
+Sie kann in einem deklarierten Modell ein Engpass-, Übergangs- und
+Expansionsmuster zeigen. Sie beweist nicht, dass Welten, Sterne, Zellen oder
+Bewusstsein durch denselben Funnel-Mechanismus entstehen. Ebenso ist
+`nested transport tubes` eine skalierte Formanalogie; „Felder sind Geometrie“,
+„Objekte sind Akkumulationen“, biologische, kosmische und superluminale Tubes
+sowie die drei Geschwindigkeitsregime bleiben ungetestete Aussagen der Tafel.
+
+**Domain-Crosswalk:**
+
+```text
+DARSTELLUNG / MESSUNG  aperture = Auswahlfenster; mask = Sicht-/Messschnitt
+GRAPH / NETWORK        aperture = typisiertes Gateway oder zulässige Kante
+TOPOLOGIE              aperture = lokale Öffnung; torus = globale Verklebung
+PENROSE / CAUSAL       boundary = Erreichbarkeitsgrenze; horizon = domain-spezifisch
+BIOLOGIE               aperture = Membranport nur mit biologischem Mechanismus
+VERKEHR / GESELLSCHAFT aperture = Gate/Schwelle nur mit lokalem Zustandsvertrag
+```
+
+Gleiche Grammatik bedeutet hier **vergleichbare Fragen**, nicht gleiche
+Physik: Was ist der Carrier? Welche Boundary? Wer oder was selektiert? Welche
+Richtung ist zulässig? Was wird nicht gesehen? Welche Spur bleibt? Gibt es
+einen prüfbaren Return? Die bestehende
+[A0 Aperture Journey](A0_NEXAH_APERTURE_JOURNEY.html#human-view) führt genau
+diesen Human-Return: Die Welt, ihre Ansicht und die gewählte Relation werden
+nach dem Wechsel wieder getrennt. Die vorhandene
+[Relational-Archetype-Matrix](../../../NEXAH_CCR01_RA01_RELATIONAL_ARCHETYPE_ADDENDUM_2026-09-05/05_RELATIONAL_ARCHETYPE_MATRIX.csv)
+hält zusätzlich fest, dass eine reproduzierbare aperturförmige Darstellung
+noch keinen Sensor- oder physikalischen Aperturmechanismus begründet.
+
+**Stand:** private Owner-Handbuchnotiz; bestehende YUGO-, A0-Field-Notes-,
+J-/VV₈-, Red-Balloon-, SCC-003-, A0-BL-047-, NRDL-, Aperture-Journey- und
+Relational-Archetype-Quellen wiederverwendet.
+`OPERATIONAL_EFFECT: NONE`. Neue
+Navigator-ID, Relation, Study, Finding, Aktivierung, Claim-Promotion und
+Publikation jeweils `0`.
+
+#### Quantum Grid / NumberMagick · Manifest, Knotenarchitektur und 29-Visual-Intake
+
+**Disposition:** `PARTIAL` · endliche Teilpakete geschlossen; gemischter Intake bleibt nach untenstehendem Split typisiert.
+
+**Datum:** 2026-11-10
+
+**Stand:** `OWNER VISUAL INTAKE / R0 DOCUMENTED / NOT ADMITTED / NO RUN`
+
+<a id="quantum-grid-disposition-split"></a>
+
+**Disposition split · 11.11.2026:** Der frühere Sammelintake wird in vier
+unabhängige Pakete getrennt. Die Trennung verändert keine Source-Graph-
+Identität und erzeugt keine neue Study oder Finding-Promotion.
+
+1. **Pauli / GHZ · `APPLIED`:** `A0-MATH-VN-GHZ-01` ist als endliches
+   Engineering-Fixture mit `16/16 PASS` abgeschlossen. Es bleibt bekannte
+   Mathematik und kein Lab Run.
+2. **Cube / Torus / Address Carrier · `PARTIAL`:** exakte endliche Adressen,
+   Restklassen und deklarierte View-Wege dürfen als Engineering-Instrumente
+   verwendet werden. Visuelle Nachbarschaft erzeugt keine Topologie.
+3. **Packing / Topologie · `HOLD_OPERATOR`:** Zelle, Metrik, Verklebung,
+   Orientierbarkeit, Belegungsregel und Nichtüberlappungs-Test fehlen.
+4. **29 Visuals · `HOLD_SOURCE`:** Bildcustody ist dokumentiert; Generatoren,
+   Koordinatentabellen, Kanten-/Operatorentypen und Fachquellen bleiben offen.
+
+Der Parent-Intake bleibt deshalb `PARTIAL`: sein exaktes Teilpaket ist
+geschlossen, seine Engineering-, Topologie- und Quellenreste bleiben sichtbar.
+
+**Manifest · Kurzfassung (Owner-Text, orthografisch geglättet):**
+
+> **Quantum Grid**
+>
+> Schwarze Löcher — vielleicht viel mehr, als sie bislang für uns sichtbar
+> preisgeben, im Doughnut der kosmischen Zahlentheorie?
+>
+> Brütend die Bahnen der Planeten und in geraden Wegen die Verschränkung der
+> Atome entlang, ein Gamma-Kokon?
+>
+> Die Zahlen lügen nicht … und die Muster — ja, sie bleiben faszinierend.
+
+Die 29 bereitgestellten Tafeln werden als ein zusammenhängender Owner-Intake
+bewahrt. Ihre Bildsprache ist konkret; ihre wissenschaftlichen Behauptungen
+sind es noch nicht. Diese Notiz rekonstruiert deshalb zuerst **Knoten, Kanten,
+Ringe, Achsen, Tracks und Marker**. Sie erzeugt weder eine neue
+Numbermagick-Identität noch einen physikalischen oder kosmologischen Claim.
+
+**Identity disposition:** Wiederverwendet werden die bestehende
+[A0-Numbermagick-Lesefläche](A0_NUMBERMAGICK_GRID_RESEARCH.html#start), ihr
+Modul `MOD:NUMBER_VIEW_SUITE`, die gebundene Artefaktidentität
+`ART:HTML:2CC28367D6B6` und der historische, nicht zugelassene Source-Field-
+Record `SF-NUMBERMAGICK-2025-AUDIT`. Der vorhandene
+[Graph-Extraction-Packet](../../../NUMBER_OPERATOR_ARCHITECTURE_CONCORDANCE_AUDIT/NUMBERMAGICK_GRAPH_SOURCE_EXTRACTION_PACKET_2026-10-13/README.md)
+bleibt die Quellen- und Claim-Grenze: dekorative Bögen, semantische Nähe und
+Loop-Sprache werden nicht ohne explizite Relation zu Graphkanten oder Zyklen.
+
+### 1. Rekonstruierter Basishub
+
+Die erste Tafel zeigt genau sieben sichtbare Knoten: einen zentralen Hub und
+sechs Basis-/Adressknoten.
+
+```text
+V = {F, B10, B20, B30, B7, B13, B17}
+
+F   = Flow ↔ Rückflow
+B10 = Base 10 / Dezimal
+B20 = Base 20 / Vigesimal
+B30 = Base 30 / Zeitmaß
+B7  = Base 7 / Q-Space
+B13 = Base 13 / Übersetzung
+B17 = Base 17 / Primanker
+
+E_visible = {(F,B10),(F,B20),(F,B30),(F,B7),(F,B13),(F,B17)}
+```
+
+Wenn die sechs gestrichelten Speichen die vollständige Kantenmenge sind, ist
+der sichtbare Graph der Stern `K₁,₆`: verbunden, azyklisch, `|V|=7`, `|E|=6`,
+Zyklusrang `|E|-|V|+1=0`. `Flow ↔ Rückflow` ist zunächst der Name des Hubs
+oder eine gewünschte Richtungssemantik; eine Inverse, Bijektion oder
+verlustfreie Rückführung ist damit noch nicht definiert. Die Farben können
+Kantentypen markieren, benötigen dafür aber eine Legende.
+
+Für eine spätere ausführbare Fassung braucht jeder sichtbare Knoten und jede
+Kante mindestens folgenden lokalen Record:
+
+```text
+NODE = (local_id, label, carrier, radix_or_frame, address,
+        role, unit, provenance, claim_state)
+
+EDGE = (source, target, relation_type, direction, operator,
+        input_contract, output_contract, loss, return_test, status)
+```
+
+Das sind Arbeitsfelder dieser Notiz, keine neuen kanonischen Navigator-
+Schemata. Die übrigen Tafeln lassen sich darin als fünf lokale Rollenfamilien
+lesen:
+
+```text
+CARRIER / ADDRESS  Base 7, 10, 13, 17, 20, 30; 12er- und 72er-Raster
+OPERATOR / GATE    Q-Flip, Erith Flip, Lock (VM), Triplesix Gate, Scarabline
+TRACK / CYCLE      Spiral, Root-Track, Pi-Ring, Lissajous, Permutationszyklus
+BOUNDARY / AXIS    Event Horizon, F-Axis, P-Axis, Membran, Black Pillar
+WITNESS / MARKER   Observer Spark, Dock, Alpha/Beta/Gamma, 12/24/36, Drift
+```
+
+### 2. Was die Tafeln exakt tragen
+
+```text
+Babylon-Comparator:  25/8 = 3.125
+Ägypten-Comparator:  256/81 ≈ 3.16049382716
+
+Prime ladder:        223, 227, 229, 233 sind prim
+Prime gaps:          4, 2, 4
+
+Breathing branches:  9/98 ≈ 0.0918367347
+                     9/70 ≈ 0.1285714286
+Beat:                9/70 - 9/98 = 63/1715
+                     ≈ 0.0367346939
+
+1561 code:           1561 = 7 × 223
+
+Cube / return:       12³ = 1728
+                     24 × 72 = 1728
+                     144 × 12 = 1728
+                     1728 = 2⁶ × 3³
+```
+
+Die Beschriftung `j(i)=1728` ist in der üblichen Normierung der modularen
+`j`-Funktion eine mathematische Identität. Sie verbindet aber nicht von selbst
+einen gezeichneten Torus mit dem `12×12×12`-Würfel oder mit einem physischen
+Raum. Definition, Normierung und verwendetes Gitter müssen im Quellcode der
+Tafel explizit werden.
+
+**Owner-Präzisierung · Cube, Torus-Pose und „Weg der Tori“:** Der
+`12×12×12`-Cube ist in diesem Visual bereits der eigene lokale Carrier. Er ist
+hier **keine 101-Verbindung** und wird nicht an den 101/A0 World Cube gebunden.
+Seine Seitenlänge ist im lokalen Frame `L=12`; die `1728` bezeichnet seine
+Zellenzahl beziehungsweise das exakte Produkt `12³`, nicht automatisch ein
+Volumen mit physikalischer Einheit.
+
+Die Tafel zeigt den Torus im oberen rechten Bereich. Solange Generatorcode und
+Koordinatentabelle fehlen, hält die neue Frontlinse nur eine ausdrücklich
+sichtbare Arbeitsrekonstruktion:
+
+```text
+cube frame:  (x,y,z) in [0,12]³
+torus pose:  c_T ≈ (9,9,9)       VISUAL ESTIMATE
+torus size:  R ≈ 2, r ≈ 0.6     VISUAL ESTIMATE
+
+T(s) = (c(s), R(s), r(s), F(s)),  s in [0,1]
+F(s) = (i_s, j_s, k_s),           j_s = k_s × i_s
+
+p(s,theta,phi)
+  = c(s)
+  + (R(s)+r(s)cos(phi))(cos(theta)i_s + sin(theta)k_s)
+  + r(s)sin(phi)j_s
+
+STick(s,theta,phi)
+  := (c,R,r; i_s,j_s,k_s; theta,phi)   LOCAL UI RECORD
+```
+
+`c` ist das Zentrum, `R` der Hauptradius und `r` der Röhrenradius. Der lokale
+orthonormale Frame `F=(i_s,j_s,k_s)` hält hier die Orientierung; die vom Owner
+betonten `i`- und `k`-Achsen spannen die Torusebene auf, während
+`j_s=k_s×i_s` ihre orientierte Normale liefert. `theta` läuft um den
+Hauptradius, `phi` durch den Röhrenquerschnitt. `STick` ist dafür ein lokaler
+UI-Record und kein Standardbegriff; `sTc` bleibt eine mögliche Kurzform, bis
+ihre Tokenisierung festgelegt ist. Die Owner-Zeile `1′ ~ Q° µ −ijuM` bleibt
+sichtbares Rohmaterial und wird ohne Operator-, Domänen- und Einheitenvertrag
+nicht als Gleichung geparst. Der „Weg der Tori“ ist damit keine Behauptung
+mehr, dass mehrere Tori physisch existieren: Er ist eine Folge von
+**Torus-Ansichten entlang eines deklarierten Wegparameters**. Erst Quellcode
+oder Messdaten dürfen die Schätzwerte ersetzen und entscheiden, ob Zentrum,
+Größe oder Frame tatsächlich variieren.
+
+Die lokale Owner-Schreibweise `\ị/.` wird zusätzlich als **Glyph/Merkschreibweise**
+für die orientierte `i↔j`-Diagonale geführt, nicht als neuer mathematischer
+Operator und nicht als Carrier-Identität:
+
+```text
+delta_ij    = (i-j)/sqrt(2)
+delta_sigma = sigma delta_ij,  sigma in {-1,+1}
+glyph: \ị/. := -delta_ij | 0 | +delta_ij    OWNER MNEMONIC
+
+compare: a,b in {-1,+1}
+         ab=+1  AGREE
+         ab=-1  DISAGREE
+```
+
+Damit bezeichnet `sigma` die geometrische Gegenorientierung auf demselben
+normierten `i-j`-Träger. Das Produkt `ab` bezeichnet dagegen ausschließlich
+den Vergleich zweier binärer Alice/Bob-Ausgänge. Beide Lesarten teilen ein
+`±1`-Register, werden aber **nicht gleichgesetzt**; eine Übertragung braucht
+einen expliziten Adapter. Das diakritische Zeichen `ị` bleibt Teil des
+Owner-Glyphs und wird weder als selbstständiger Operator noch als Name einer
+Person formalisiert.
+
+**A0-Vorschlag · von-Neumann/Bell-Kontextadapter**
+
+**Stand:** `R0_DOCUMENTED / OWNER PROPOSAL / NO HIDDEN-VARIABLE SOLUTION CLAIM`
+
+Der Vorschlag hält genau den Typfehler sichtbar, den Bell 1966 an der
+verbreiteten Lesung von von Neumanns No-go-Argument kritisierte. Für zwei
+nichtkommutierende Pauli-Observablen gilt:
+
+```text
+A = sigma_z
+B = sigma_x
+[A,B] != 0
+
+spec(A)   = {-1,+1}
+spec(B)   = {-1,+1}
+spec(A+B) = {-sqrt(2),+sqrt(2)}
+```
+
+Eine kontextfreie, dispersionsfreie Wertzuweisung würde bei zusätzlicher
+Linearitätsforderung dagegen nur
+
+```text
+v(A)+v(B) in {-2,0,+2}
+```
+
+liefern. Deshalb wird im A0-Vorschlag **nicht** `v(A+B)=v(A)+v(B)` für
+nichtkommutierende Observablen vorausgesetzt. Operator- und
+Erwartungswertlinearität bleiben unangetastet; zurückgewiesen wird allein die
+ungeprüfte Übertragung auf jeden hypothetischen Einzelzustand.
+
+Die normierte Diagonalablesung bleibt ein eigener Messkontext:
+
+```text
+D = (A-B)/sqrt(2)
+spec(D) = {-1,+1}
+
+R = (carrier, context, observable, apparatus, outcome, provenance)
+v_R(O)  = outcome only inside the declared record R
+```
+
+**Rotationsadapter · OIL/RIS-Linse `Q_B` zu `M_B(beta)`**
+
+Die vorhandene OIL/RIS-Quelle wird nicht als neue Observable umbenannt. OIL
+bezeichnet dort `outer orbit / inner orbit / link-transfer orbit`; RIS
+bezeichnet die sichtbaren Operatorrollen `rotation / inversion / shift`.
+`Q_B` bleibt eine der drei registrierten Ansichts- beziehungsweise
+Apparaturlinsen. Erst der folgende explizite Adapter erzeugt daraus einen
+deklarierten Bob-Messkontext:
+
+```text
+A = sigma_z
+B = sigma_x
+
+U_y(beta) = exp(-i beta sigma_y / 2)
+M_B(beta) = U_y(beta) A U_y(beta)^dagger
+          = cos(beta) A + sin(beta) B
+
+M_B(beta)^2 = I
+spec(M_B(beta)) = {-1,+1}
+
+M_B(0)       = A
+M_B(+pi/2)   = B
+M_B(-pi/4)   = (A-B)/sqrt(2) = D
+M_B(+pi/4)   = (A+B)/sqrt(2)
+```
+
+Der typisierte Anschluss lautet:
+
+```text
+chi_B:
+  (OIL path, Q_B lens, RIS pose, beta)
+    -> R_B(carrier, context_B(beta), M_B(beta), apparatus_Q_B,
+           outcome, provenance)
+```
+
+Damit ist `Q_B` **nicht** `M_B`: Die Linse/Apparatur gehört zum Record, die
+Observable wird durch `beta` festgelegt. Ebenso ist RIS zunächst die
+source-bound Displaygrammatik; ohne zusätzlichen Implementierungsnachweis
+beweist eine sichtbare RIS-Rotation nicht, dass eine physische Apparatur die
+unitäre Rotation `U_y(beta)` realisiert. Der erweiterte Demonstrator macht
+diese vier Rollen nebeneinander verstellbar sichtbar und bindet den bekannten
+Diagonalpunkt `D` bei `beta=-45°` zurück.
+
+Der A0-Anschluss verwendet dafür zwei getrennte, aber gemeinsam sichtbare
+Zustände:
+
+```text
+II = (I_L,I_R)
+II --pi_oe--> ö
+II != ö
+
+øø = two declared cuts / windows
+ö  = one shared display carrier with two retained witnesses
+œ  = two inside views meeting at a declared seam
+```
+
+`pi_oe` ist ein lokaler View-/Projektionsadapter, kein physikalischer
+Operator. Die bestehende Owner-Spur `ö · ô · ò · ó · õ · œ · o` und die
+Angabe `6 + II states` bleiben Rohmaterial mit offener vollständiger Belegung.
+Die bereits verwendete Schreibweise `\ị/.` darf die gerichtete
+`i↔j`-Diagonale markieren; sie identifiziert jedoch weder Glyph, Observable,
+Apparatur noch Outcome.
+
+**Prüfbarer Minimaltest:** Eine endliche Matrix-Fixture muss getrennt zeigen:
+
+1. die Spektren von `A`, `B`, `A+B` und `(A-B)/sqrt(2)`,
+2. Additivität von Erwartungswerten,
+3. das Scheitern der kontextfreien Outcome-Addition für `[A,B] != 0`,
+4. einen positiven Kommutationskontrollfall,
+5. den verlustbehafteten View `II -> ö` mit erhaltenem Residualrecord.
+
+**Claim Ceiling:** Dies ist kein Beweis verborgener Variablen, keine Lösung
+des Messproblems, kein Gegenbeweis zu Bell oder Kochen–Specker und keine neue
+Quantenmechanik. Der Vorschlag ist eine typisierte A0-Darstellungsregel:
+**Operatoren dürfen addieren; Outcomes müssen es nicht; der Messkontext muss
+im Record mitgeführt werden.** Referenz: John S. Bell, *On the Problem of
+Hidden Variables in Quantum Mechanics*, *Reviews of Modern Physics* 38
+(1966), 447–452, DOI `10.1103/RevModPhys.38.447`.
+
+**GHZ/Mermin-Anschluss · Penta-Rim mit zentralem `Z_3`-Hub**
+
+Das Schlussbild aus Tim Maudlins zweiter Bell-Vorlesung wird als endlicher
+Kontextgraph an denselben Adapter angeschlossen. Die fünf äußeren Knoten
+
+```text
+X_1 -- X_2 -- X_3 -- Z_2 -- Z_1
+```
+
+lassen sich als Pentagon-Rand zeichnen; `Z_3` sitzt als Kreuzungs- und
+Vermittlungsknoten im Inneren. Diese **Penta-Rim + Hub**-Darstellung ist eine
+View des Mermin-GHZ-Inzidenzgraphen, nicht dessen mathematische Ursache. Vor
+allem bezeichnet `Z_3` hier die Z-Messwahl am dritten Ort (Charlie), **nicht**
+die zyklische Gruppe `Z/3Z`, keinen Qutrit und keinen zusätzlichen Zustand.
+
+Mit `U=1`, `D=0` lauten die vier perfekten Paritätskontexte:
+
+```text
+C_0 = {X_1,X_2,X_3}:  X_1 xor X_2 xor X_3 = 1  (odd)
+C_1 = {X_3,Z_2,Z_1}:  X_3 xor Z_2 xor Z_1 = 0  (even)
+C_2 = {X_2,Z_3,Z_1}:  X_2 xor Z_3 xor Z_1 = 0  (even)
+C_3 = {X_1,Z_3,Z_2}:  X_1 xor Z_3 xor Z_2 = 0  (even)
+```
+
+Jede der sechs lokalen Variablen erscheint beim XOR aller vier Gleichungen
+genau zweimal. Links bleibt deshalb `0`; rechts bleibt `1`:
+
+```text
+C_0 xor C_1 xor C_2 xor C_3  =>  0 = 1  CONTRADICTION
+```
+
+Damit kann keine einzige kontextunabhängige, vorab festgelegte U/D-Belegung
+alle vier perfekten GHZ-Kontexte gleichzeitig erfüllen. Der zentrale `Z_3`-
+Hub ist visuell nützlich, aber der Beweis liegt in der doppelten Inzidenz
+jedes Knotens und der ungeraden Gesamtparität. Owner-Bezeichnungen wie
+`TIP B` oder `ßC` dürfen als Display-Aliasse am Hub stehen, erzeugen jedoch
+keinen Operator, keine Gruppe und keine weitere Messvariable.
+
+**Claim Ceiling:** Der A0-View illustriert den GHZ/Mermin-Widerspruch gegen
+lokale, kontextunabhängige Vorbelegungen unter den deklarierten perfekten
+Korrelationen. Er ist keine lokale Lösung von Bell, kein Beweis eines
+NEXAH-Pentagon-Mechanismus und keine Ableitung neuer Physik. Quellenanker:
+Tim Maudlin, *Bell's theorem* (Videovorlesung, Teil 2),
+`https://www.youtube.com/watch?v=XVZzuIUZveg`, Abschnitt ca. `3:01:45–3:07:20`;
+N. David Mermin, *Extreme quantum entanglement in a superposition of
+macroscopically distinct states*, *Physical Review Letters* 65 (1990), 1838,
+DOI `10.1103/PhysRevLett.65.1838`.
+
+**Rückbindung · begrenztes Finding-Ledger**
+
+**Receipt:** `A0-FTN-RETURN-VN-GHZ-01`
+
+**Stand:** `R0_DOCUMENTED / OWNER-ACCEPTED RETURN / NOT A LAB FINDING`
+
+**Bestehende Quelle:** `FIELD_NOTES_A0.md` → erzeugte Field-Notes-Linse
+
+**Graphwirkung:** keine neue Identity, Relation, Study, Finding-Promotion oder
+Registry-Zuordnung
+
+Die folgenden Befunde werden festgehalten, aber nach Evidenztyp getrennt:
+
+1. **Exakt · Operator/Outcome:** Für `A=sigma_z`, `B=sigma_x` ist
+   `spec(A+B)={-sqrt(2),+sqrt(2)}`. Das ist nicht die Menge der möglichen
+   Summen zweier separat vorgegebener `±1`-Outcomes.
+2. **Exakt · eigener Kontext:** `D=(A-B)/sqrt(2)` hat wieder das Spektrum
+   `{-1,+1}`, bleibt jedoch eine eigene Observable mit eigenem Messkontext.
+3. **Darstellungsbefund · typisierter Record:** Ein Outcome wird nur zusammen
+   mit `carrier`, `context`, `observable`, `apparatus` und `provenance`
+   rückgebunden. Der Kontext darf beim View-Return nicht verschwinden.
+4. **Exakt · GHZ-Parität:** Die vier Kontexte `XXX`, `XZZ`, `ZXZ`, `ZZX`
+   ergeben beim gemeinsamen XOR links `0`, rechts `1`. Eine einzige lokale,
+   kontextunabhängige U/D-Vorbelegung aller sechs Variablen ist damit
+   unmöglich.
+5. **Darstellungsbefund · Penta-Rim:** Fünf äußere Knoten plus zentraler
+   `Z_3`-Hub bilden eine kompakte Ansicht desselben Sechsvariablen-/
+   Vierkontext-Records. Das Pentagon ist Einbettung, nicht Beweisursache.
+6. **Typgrenze · `Z_3`:** Der Hub bezeichnet die Z-Messwahl am dritten Ort
+   (Charlie). Er ist weder `Z/3Z`, noch Qutrit, siebter Zustand oder neuer
+   NEXAH-Operator.
+7. **Negativbefund / STOP:** Weder von Neumanns Problem noch Bell, GHZ, das
+   Messproblem oder Lokalität werden durch A0 „gelöst“. Festgehalten wird ein
+   sauberer Kontextadapter und ein endliches Unmöglichkeitszertifikat.
+
+**Owner-Return · 11. November 2026:** Die separate Freigabe für das endliche
+Fixture liegt vor. `A0-MATH-VN-GHZ-01` prüft jetzt sechzehn deterministische
+Mathematik-Assertions: Pauli-Involutionen, Kommutator und Antikommutator,
+`spec(Z+X)`, die normierte Diagonalobservable, Erwartungswertlinearität, einen
+kommutierenden Zwei-Subsystem-Kontrollfall, vier Rotationskontrollen für
+`M_B(beta)` sowie alle `64` lokalen GHZ-Bitbelegungen. Ergebnis: `16/16 PASS`;
+keine der `64` Belegungen erfüllt alle vier GHZ-Kontexte, höchstens drei werden
+gleichzeitig erfüllt.
+
+**Statusgrenze:** Das Fixture ist ein lokaler ausführbarer Engineering-Check,
+kein Lab Run und kein zugelassener Study-Record. Deshalb entsteht keine
+Lab-Reproduzierbarkeitsklasse und keine Finding-Promotion. Der Claim Ceiling
+bleibt `KNOWN PAULI AND GHZ MATHEMATICS / TYPED A0 CONTEXT ADAPTER / NO NEW
+PHYSICS`.
+
+[Runner](a0-von-neumann-ghz-fixture.cjs) ·
+[Receipt](results/a0-von-neumann-ghz-fixture-return-2026-11-11.json) ·
+[Science Desk](A0_RESEARCH_DESK.html#von-neumann-ghz-finite-fixture-20261111) ·
+[Mathfield](A0_MATHEMATICAL_JOINTS.html#von-neumann-ghz-finite-fixture)
+
+**Rotes Ei / Grid:** Das neue Visual `Euler Spiral · Trinity 37–41–43 → 11²`
+trägt die exakte lokale Summe
+
+```text
+37 + 41 + 43 = 121 = 11².
+```
+
+Das rote Ei wird zunächst als elliptisches **Auswahlfenster / Maske** über der
+Prime-/Euler-Spur gelesen. Es ist nicht automatisch ein Torus und noch kein
+Grid. Für ein Grid fehlen Zellen, Nachbarschaft, Adressregel und Kantenvertrag;
+für einen Torus fehlen Randidentifikation und Verklebung. Die gelben Marker
+`37`, `41`, `43` bleiben eine hervorgehobene Trinity im Fensterkontext. Die
+zusätzliche Tafel `Geometric Integration Schema — Panels V–VII` bleibt eine
+separate Spiral-/Achsenansicht mit den Markern `29`, `137`, `1729`, `1836`;
+sie erzeugt ohne gemeinsamen Generator keine Relation zum Cube oder roten Ei.
+
+### 2b. Bronze-Ring / 24er-Aperture-Serie
+
+Die nachgereichte Serie wird vorne als weitere Projektion innerhalb von
+`MOD:NUMBER_VIEW_SUITE` aufgenommen — nicht als neue Identität. Ihr exakter
+Zahlenträger ist stärker als die sichtbare Ähnlichkeit von Uhr, Lamellen,
+Haube und flachgelegtem Torus:
+
+```text
+59192 = 2³ × 7² × 151
+τ(59192) = (3+1)(2+1)(1+1) = 24
+
+positive divisors mod 24 = {1,2,4,7,8,14}
+
+class 1:  1, 49, 1057
+class 2:  2, 98, 2114
+class 4:  4, 28, 196, 604, 4228, 29596
+class 7:  7, 151, 7399
+class 8:  8, 56, 392, 1208, 8456, 59192
+class 14: 14, 302, 14798
+
+Zither chain: 151 × 7 = 1057
+              1057 × 8 = 8456
+              8456 × 7 = 59192
+```
+
+Der **Bronze-Ring** ist damit ein sauberer 24er-Adresscarrier; die sechs
+Farbfamilien lassen sich als Divisoren-Restklassen lesen. Die **Lamellen**
+sind partielle Außenbänder beziehungsweise Klassenfenster, die **Haube** ist
+die geschichtete Envelope-Ansicht, und die **Luke** hält ein Intervall sichtbar
+offen. Der **open cube** bezeichnet hier einen Carrier, dessen Randvertrag
+nicht topologisch versiegelt ist — nicht einen bereits bewiesenen offenen
+3-Raum.
+
+Die Aperture um Adresse `18` führt den Faden `T0 → T1 → T2 → …` als
+Ansichtsfolge weiter. Sie ist noch keine Bewegungsgleichung. Die rote Linie
+wird zunächst als `θ_DAO?` geführt: eine Owner-Hypothese für die
+Orientierungs-/Schnittlinie der Torus-Route, keine bereits identifizierte
+Dao-, Zeit- oder physische Achse.
+
+Die Winkel dürfen nicht zusammengeschoben werden:
+
+```text
+24-clock tick = 360°/24 = 15°
+41° = 2.7333… ticks
+20° = 1.3333… ticks
+41° − 20° = 21° = 1.4 ticks
+
+if 4.1 is a clock address: 4.1 × 15° = 61.5°
+
+43 ↔ 53 mod 24 = 19 ↔ 5
+short separation = 10 ticks = 150°   (not a diameter)
+
+if 42.429 is degrees: 42.429°/15° = 2.8286 ticks
+√8 ticks = 42.426406871°              (near, not equal)
+```
+
+Die Ladder-Marken `{3,13,23,33,43,53}` werden modulo 24 zu
+`{3,13,23,9,19,5}`. Das erklärt sechs Lamellenpositionen, beweist aber noch
+keine mechanische Naht. Die sichtbaren Schlieren werden deshalb als
+**geschichtete Trace-/Envelope-Darstellung** aufgenommen; erst ein gemeinsamer
+Generator oder eine Koordinatentabelle dürfte sie mit Torusweg, Haube oder
+Feldströmung identifizieren.
+
+Der Owner-Rohstring bleibt unverändert erhalten:
+
+```text
+1728+1.0+1837-1.02+ 203 204 205 206
+```
+
+Sicher isolierbar sind derzeit nur die möglichen Schnitte `1728+1=1729`,
+`1837−1=1836` und die Markerfolge `203…206`. Interpunktion,
+Operatorreihenfolge sowie die Rollen von `1.0` und `1.02` bleiben offen.
+Diese Serie ergänzt die bestehende **Aperture Source Map**; sie setzt Cube,
+Torus, Bronze-Ring, θ/Dao, 18er-Luke, Zither und physischen Mechanismus nicht
+gleich.
+
+### 2c. Chrono-Conveyor / 60→24 / Quadrat-Projektion
+
+Die neue Bildfolge zeigt denselben Stoff aus einer anderen Richtung. Der
+24er-Ring ist nun nicht nur Restklassenträger, sondern Empfangsfläche einer
+geordneten Leiter, einer schrägen View und einer anschließenden
+Vier-Knoten-Auswahl.
+
+Die Leiter beginnt auf einer kanonischen Repräsentantenscheibe
+`S₆₀={0,…,59}`:
+
+```text
+O₆₀ = (3,13,23,33,43,53)
+next(n) = n+10 mod 60
+
+representative-wise mod 24:
+(3,13,23,33,43,53) -> (3,13,23,9,19,5)
+```
+
+Die Reihenfolge ist neu sichtbar. Sie darf aber nicht als kanonischer
+Gruppenquotient `C₆₀→C₂₄` notiert werden: `24` teilt `60` nicht, und dieselbe
+Klasse modulo 60 kann verschiedene Reste modulo 24 besitzen. Beispielsweise
+gilt `3≡63 (mod 60)`, aber `3≠15 (mod 24)`. Ein sauberer gemeinsamer
+Verfeinerungsträger ist stattdessen
+
+```text
+C₁₂₀ -> C₆₀
+C₁₂₀ -> C₂₄
+```
+
+weil sowohl `60` als auch `24` Teiler von `120=lcm(60,24)` sind.
+
+Das Quadrat folgt anschließend aus vier gleichmäßig getrennten Adressen des
+24er Rings:
+
+```text
+K = {0,6,12,18}
+0 -> 6 -> 12 -> 18 -> 0
+angular separation = 6 ticks = 90°
+diagonals = 0 <-> 12 and 6 <-> 18
+```
+
+Aufrecht oder als Raute gezeichnet bleibt es dasselbe eingeschriebene
+Quadrat. Die oblique Ellipse ist eine View-Transformation. Sie ändert weder
+den endlichen Carrier noch beweist sie einen Torus. Die gelbe Pyramiden- oder
+Fold-Ansicht ist erst nach einer zusätzlichen Höhen-, Flächen- und
+Orientierungsdefinition ein 3D-Lift des Quadrats.
+
+Weitere exakte Ablesungen:
+
+```text
+Q-drift ratio = 264/263
+one-turn excess = 360° × (264/263 - 1)
+                = 360°/263
+                ≈ 1.3688212928°
+
+41 and 43 are prime
+42 = (41+43)/2 is composite
+
+2760 = 24 × 115 = 2³ × 3 × 5 × 23
+```
+
+Die `1…24` an der radialen Divisorentafel sind Rangadressen, nicht die
+tatsächlichen 24 Teilerwerte von `59192`. Ebenso bleiben `1031–1033`,
+`1933–2966`, `353 Fold`, `25?`, `ANU`, Splinter, Saddle/Injector, Return node
+und Trinity-Chain vorläufige Owner-Tokens oder View-Rollen. Sichtbare
+Nachbarschaft reicht nicht für einen gemeinsamen Generator.
+
+Damit ist das Neue dieses Intakes präzise: **60er Leiterordnung → deklarierte
+24er Ansicht → vier Kardinaladressen → Quadrat**. Es ist keine zweite
+NumberMagick-Identität, kein neuer TESSAREC-Carrier und kein physisches
+Conveyor-Modell.
+
+### 2d. ILAU-Quadrat / vier Roots / Staff und Flip-Achse
+
+Der neue Satz macht die bisherige Quadratansicht zu einem expliziten lokalen
+Koordinatensystem. Die Einheit ist `u=1`; damit ist die halbe Kantenlänge
+`1u`, die volle Quadratseite `2u` und
+
+```text
+Q = [-1,1] × [-1,1]
+center O = (0,0)
+
+I = (-1,+1)  RETAINED
+L = (+1,+1)  LOST
+A = (-1,-1)  ADDED
+U = (+1,-1)  UNRESOLVED
+```
+
+Diese Buchstabenbelegung ist keine neue Deutung. Sie übernimmt exakt die
+Vier-Fenster-Lage des bestehenden `ILAU × Cartography Extension`-Instruments.
+Neu ist nur, dass die vier Statusfenster als vier Root-Ecken um einen
+gemeinsamen Ursprung lesbar werden.
+
+Staff und Flip-Achse sind zwei verschiedene Geraden:
+
+```text
+staff S = {(0,t) : t ∈ R}       = vertical axis x=0
+staff mirror σS(x,y) = (-x,y)   : I<->L, A<->U
+
+flip F = {(t,0) : t ∈ R}        = horizontal axis y=0
+flip σF(x,y) = (x,-y)           : I<->A, L<->U
+
+σS ∘ σF (x,y) = (-x,-y)         : I<->U, L<->A
+```
+
+Die acht äußeren Petal-Adressen der gelieferten Polaransicht werden als
+deklarierte Adressspalte aufgenommen. Die vier Diagonalstrahlen treffen die
+Root-Ecken:
+
+```text
+NW 135° -> 26 -> I       NE  45° -> 24 -> L
+SW 225° -> 35 -> A       SE 315° -> 42 -> U
+
+W 180° -> 30             E   0° -> 23
+N  90° -> 25             S 270° -> 41
+```
+
+Diese Zahlen sind sichtbare Bildadressen; aus ihnen wird hier keine
+arithmetische ILAU-Erzeugungsregel abgeleitet. Ebenso bleibt die orange
+Spiralspur mit den zwei inneren Markern eine offene Übergangsansicht. Ohne
+Parameterisierung ist sie weder ein Root-Operator noch eine logarithmische
+Spirale, ein Wachstumsmodell oder eine physische Bahn.
+
+Die Rootroom-Kreise sind lokale Ecken-/Fensterbereiche um die vier
+Koordinaten. `Root` bedeutet in diesem Intake daher nicht botanische Wurzel
+und nicht algebraische Nullstelle. Die konzentrischen `r1/r2/r3`-Schalen
+bleiben Mess-/Displayradien; sie erzeugen weder Staff noch Flip.
+
+### 2d.1. J² / Oval / 500±1±500 — Adressspeicher, nicht fünfte Kardinalrichtung
+
+Die neue Oval- und Pentagonfolge zeigt eine Schicht, die in der bisherigen
+Vier-Kardinal-Ansicht tatsächlich noch nicht explizit war: Das Quadrat zeigt
+vier **Lagen**; eine Involution erklärt dagegen, wie eine Lage mit ihrer
+Gegenlage gespeichert und exakt zurückgelesen wird. Auf dem 24er Ring müssen
+deshalb Rotation und Spiegelung getrennt notiert werden:
+
+```text
+R(k) = k + 6 mod 24          R⁴ = id
+J₂₄(k) = -k mod 24           J₂₄² = id
+
+K = {0,6,12,18}
+R:   0 -> 6 -> 12 -> 18 -> 0
+J₂₄: 0 -> 0,  6 <-> 18,  12 -> 12
+J₂₄ R J₂₄ = R⁻¹
+```
+
+`R` erzeugt also die vier 90°-Kardinalansichten. `J₂₄` ist keine weitere
+Richtung, sondern der Rücklese-/Spiegeloperator. Genau diese dihedrale
+Trennung ist im Core-Pentagon bereits formal vorhanden: Dort gelten für den
+getrennten Fünferträger `r⁵=e`, `m²=e` und `mrm=r⁻¹`. Das ist dieselbe
+Operatorgrammatik, aber **nicht derselbe Carrier**: Quadrat/Kardinalansicht
+ist `C₄` beziehungsweise die Auswahl `K⊂C₂₄`; Pentagonorientierung ist `C₅`
+mit `D₅`-Spiegelung.
+
+Die Owner-Schreibweise `500±1±500` bekommt eine saubere lokale Lesung auf
+dem 1001-Adressen-Rail `A₁₀₀₁={0,…,1000}`:
+
+```text
+J₁₀₀₀(n) = 1000 - n          J₁₀₀₀² = id
+fixed point = 500
+500 ± 1   = {499,501}
+500 ± 500 = {0,1000}
+four stored addresses = {0,499,501,1000}
+```
+
+Damit sind die vier Werte symmetrisch um die feste Mitte `500` gespeichert.
+Sie sind jedoch nicht ohne eine zusätzliche deklarierte Abbildung die vier
+90°-Adressen `{0,6,12,18}`. Insbesondere wählt eine Adresse noch keine Naht.
+Diese Grenze entspricht dem bestehenden Core-Vertrag der
+`NCS_292_Q106_INTERTWINER_RETURN_PACKAGE`: Ein Address-Readout legt weder
+eine der kompatiblen Seams noch eine Janus-Variante fest.
+
+Das Oval darf daher als **Carrier-/Frame-Ansicht** gelesen werden. Die zwei
+gelieferten Bilder zeigen eine achsparallele und eine diagonale Zerlegung
+desselben sichtbaren Felds. Die eingetragenen Gewichte
+`2,2,1,1/2,1/2` summieren sich zu `6`; sie sind ohne deklarierte Maßfunktion
+weder Wahrscheinlichkeiten noch Flächenanteile. Der Core führt das
+`OVAL CUT BRANCH` zudem im `EXPERIMENTAL`-Zweig als deformierbares
+Übergangsmanifold. Diese Bedeutung wird hier nicht rückwirkend als Gesetz
+des Kardinalträgers übernommen.
+
+Die LEVIS-/Nieten-/Zipper-Sprache bleibt eine präzise Bau-Metapher:
+
+```text
+Niete    = gespeicherter Adressknoten
+Zipper   = deklarierte, typisierte Seam-/Adjazenzbindung
+Oval/Grid= Carrier oder Frame, in dem beides dargestellt wird
+```
+
+Sie ist kompatibel mit dem historischen `MRB09_GRID_ZIPPER_CENTER_RETURN`
+und der späteren typisierten Zipper-Arbeit, beweist aber keine textile oder
+physische Mechanik. Als kompakter Arbeitsrecord kann `JI+3` deshalb lokal
+geschrieben werden als
+
+```text
+JI+3(a) = (a, J(a); x, y, z; seam_key?)
+```
+
+`a` und `J(a)` halten das Adresspaar, `J²=id` hält den exakten Return, und
+`(x,y,z)` ist erst die gewählte räumliche Ansicht. `seam_key` bleibt offen,
+bis eine Quelle die Bindung wirklich auswählt. Das erhöhte Pentagonbild kann
+so als 3D-View eines getrennten D₅-Trägers gelesen werden; es ist kein Beleg
+für eine fünfte Kardinaladresse und kein automatischer Lift des Ovals.
+
+**Core-Rückbindung:** `NEXAH/EXPERIMENTAL/FRAMEWORK/NEXAH/geometry/oval_cut_branch_master.md`;
+`NEXAH/RESEARCH/NOTES/PASCAL_PENTAGON_D5_TEST_2026-10-10/README.md`;
+`NEXAH/RESEARCH/NOTES/PASCAL_PENTAGON_D5_TEST_2026-10-10/PASCAL_ROSETTA_JOINT_DESIGN_2026-10-11/NCS_292_Q106_INTERTWINER_RETURN_PACKAGE_2026-10-11/FORMAL_CONTRACT.md`.
+Status: `LOCAL VIEW CONTRACT / NO IDENTITY MERGE / SEAM OPEN`.
+
+### 2d.2. Alice / Bob · 25 % · Black 8 / 1|8|1 — Entscheidungsfenster, kein neuer Bell-Claim
+
+Die zwei Blinkseiten des J-Cockpits dürfen lokal als Alice-/Bob-Register
+gelesen werden. Das ergänzt den bereits notierten Vergleich
+`a,b∈{-1,+1}`; es ersetzt weder dessen Kontextadapter noch erzeugt es eine
+quantenphysikalische Verteilung. Der endliche Paarraum ist
+
+```text
+Ω_AB = {(--),(-+),(+-),(++)}
+C(a,b) = ab
+
+C=+1  <=>  AGREE     = {(--),(++)}
+C=-1  <=>  DISAGREE  = {(-+),(+-)}
+```
+
+Genau `25 %` pro Paarzustand folgt nur unter der zusätzlichen Deklaration
+
+```text
+P(A=-1)=P(A=+1)=1/2
+P(B=-1)=P(B=+1)=1/2
+A and B independent
+
+P(a,b)=1/4 for every (a,b) in Ω_AB
+P(AGREE)=P(DISAGREE)=1/2
+```
+
+Ohne Unabhängigkeit oder bei verzerrten Marginalen gilt die 25-%-Verteilung
+nicht. Insbesondere ist sie nicht aus den Farben, der Doppelhexagonform oder
+dem CC-Band ablesbar. Das Band hält die Relation; es legt keine Statistik fest.
+
+Die Zahlenfenster bleiben drei getrennte Typen:
+
+```text
+cockpit pre-return: 22.8k <= J < 24k       = 5 % des 24k-Umlaufs
+micro window:       22.80 -> 22.81 -> 22.82
+                    increments = +0.01, total width = 0.02
+
+integer rail:       2501 -> 2603 -> 2705
+                    offsets = -102, 0, +102
+                    rho(N)=5206-N, fixed point 2603
+```
+
+`2501` ist daher in diesem Rail **nicht** die Boundary oder der Fixpunkt.
+Eine Anzeige `25.01` kann aus dem Integer nur durch eine ausdrücklich
+deklarierte Skala `s(n)=n/100` entstehen. Diese Displayprojektion ändert weder
+die Faktorisierung `2501=41·61` noch den Modulus `Z_2501` und macht aus dem
+Cockpit-Mikroschritt `0.01` keinen gemeinsamen Operator.
+
+Die Owner-Lesung **Black 8** bekommt vorläufig eine lokale Gate-Grammatik:
+
+```text
+1 | 8 | 1 = ENTRY | BLACK-8 GATE | EXIT/RETURN     OWNER MNEMONIC
+
+state before gate -> black_8 decision -> WIN or HOLD/LOSS
+```
+
+Das ist eine Spiel-/Entscheidungsansicht, keine automatisch importierte
+Billardregel. „first in“ und „last out“ bezeichnen zudem zwei verschiedene
+Ordnungsverträge. Der vorhandene Record wählt noch keinen davon:
+
+```text
+FIFO: first in  -> first out
+LIFO: last in   -> first out
+BLACK-8 closure candidate: ordinary states first, black_8 last -> WIN
+```
+
+Soll „first in **oder** last out to WIN“ eine eigene Regel sein, müssen
+Startzustand, erlaubte Reihenfolge, Black-8-Bedingung und Win-Prädikat noch
+explizit angegeben werden. Bis dahin bleibt `WIN` ein Statuslabel und kein
+berechnetes Ergebnis.
+
+`181` wird ebenfalls nicht kollabiert. Im bestehenden Werkbankvertrag gilt
+exakt
+
+```text
+179 <- 180° -> 181
+179 + 181 = 360
+p_181 = 1087
+```
+
+Die Ziffernzerlegung `181 -> 1|8|1` ist als Black-8-Mnemonik lesbar; die
+numerische Scharnieradresse `180+1`, der Primindex `181` und das Spielgate
+bleiben drei getrennte Register. Status:
+`LOCAL DISTRIBUTION VIEW / BLACK-8 RULE OPEN / NO NEW ID OR GRAPH RELATION`.
+
+### 2e. `1,i,j,k` / √2-Diagonale / Paper-Boat-Faltstamm
+
+Hier liegt tatsächlich die geometrische Brücke. Allerdings sind `i` und `j`
+nicht selbst die Wurzel aus zwei. Sie spannen die quadratische Blattebene auf:
+
+```text
+Π = span{i,j}
+i² = j² = k² = ijk = -1
+ij = k,  ji = -k
+```
+
+Für ein Blatt mit halber Kantenlänge `u=1` werden die vier ILAU-Ecken in
+dieser Ebene zu
+
+```text
+I = -i + j       L =  i + j
+A = -i - j       U =  i - j
+
+|-i+j| = |i+j| = |-i-j| = |i-j| = √2
+```
+
+Damit sind die vier normierten Root-Richtungen
+`(±i±j)/√2`. Die beiden Diagonalfalze besitzen die Einheitsrichtungen
+
+```text
+δ+ = (i+j)/√2
+δ- = (i-j)/√2
+```
+
+und nicht `i` oder `j` allein. `1` bezeichnet den unveränderten
+HOME-Zustand; `k=ij` ist die orientierte Normale des Blatts. `k` ist damit
+nicht automatisch die vierte Ecke. Die Reihenfolge `ij=k` versus `ji=-k`
+macht sichtbar, warum eine geordnete Faltfolge eine Orientierung trägt.
+
+Eine endliche Falte um eine Diagonale lässt sich als Rotor schreiben:
+
+```text
+qδ(θ) = cos(θ/2) + δ sin(θ/2)
+v'    = qδ(θ) v qδ(θ)^-1
+```
+
+Bei `θ=π` tauscht die `δ+`-Falte innerhalb der Ausgangsebene `i↔j`. Die
+`δ-`-Falte bildet `i↦-j` und `j↦-i` ab. Für Zwischenwinkel verlässt die
+bewegte Blatthälfte die Ebene; dort wird `k` als Normalenrichtung relevant.
+
+Das erklärt den gemeinsamen Stamm von Quadratblatt, Diagonalfalte,
+Papierschiffchen und der vom Owner erkannten „Narrenkappe“. Es beweist aber
+noch nicht, dass Boot und Kappe dieselbe fertige Origamiform sind. Dafür
+fehlen eine geordnete Crease-Sequenz, Berg-/Talzeichen, Layer Order,
+Selbstkollision und ein eindeutiger Endzustand. Vorerst gilt daher:
+
+```text
+square sheet -> diagonal crease grammar -> boat/cap branch
+common fold stem != identical final form
+```
+
+Der vorhandene `Paper-Boat Return D.U.T.` bleibt die technische Zielansicht.
+Er führt einen deklarierten Double-Cover-Displayreturn: bei `360°` wiederholt
+sich die Projektion auf Sheet B; erst `720°` kehrt der gespeicherte
+Displayrecord zu Sheet A zurück. Das passt als Quaternionen-/Spinor-Analogie,
+ist aber kein Beweis, dass das Papierobjekt selbst eine Spinor-Topologie hat.
+
+**Typwarnung:** ILAU-`I` ist `Retained`; Quaternion-`i` ist eine Basiseinheit.
+Groß-/Kleinschreibung und Rolle dürfen nicht zusammenfallen.
+
+### 2f. IJ-Feld 19 / ±0.5-Naht / gerichtete Doppelpyramide
+
+Die neue Präzisierung bindet zuerst an ein bereits gebautes Instrument: In
+`F-IJ-01` teilen I und J ein Feld; ihre Buchstabenadressen sind `9` und `10`.
+Damit ist die gemeinsame arithmetische Lesung exakt
+
+```text
+I = 9 = 3²
+J = 10
+field sum = 9 + 10 = 19
+```
+
+Die Relation um die gemeinsame Naht wird nicht mit `±1`, sondern mit zwei
+Halblagen geschrieben:
+
+```text
+s- = -0.5       seam = 0       s+ = +0.5
+reflection ρ(s) = -s
+directed separation s+ - s- = 1
+midpoint (s- + s+)/2 = 0
+```
+
+Beim Schließen einer idealisierten Falte werden die beiden Halblagen auf die
+Naht projiziert. Beim Öffnen tragen sie wieder die zwei Seiten. `±0.5` ist
+hier eine normierte, dimensionslose Seitenkoordinate — noch keine Dicke,
+Reibzahl oder physische Wegmessung.
+
+Das letzte Kreisbild setzt zwei deklarierte Display-Paare über das Zentrum
+`77`:
+
+```text
+vertical display pair   1 <-> k
+horizontal display pair j <-> i
+center address          77 = 7 x 11
+```
+
+Diese Gegenüberstellung ist eine Projektionsregel des Bildes. In der
+Quaternionenbasis sind `1,i,j,k` paarweise orthogonal; `1` und `k` sowie `i`
+und `j` sind keine Antipoden. Der IJ-Summenwert `19` und die Center-Adresse
+`77` bleiben ebenfalls verschiedene Register.
+
+Für das Quadrat mit Grundpunkten `(±1,±1,0)` und zwei Spitzen
+`a±=(0,0,±h)` entsteht eine quadratische Doppelpyramide mit sechs Ecken,
+zwölf Kanten und acht Dreiecksflächen. Die rote Richtungsachse `n` wählt eine
+Spitze beziehungsweise Orientierung. Erst wenn ein Erzeugungsstrahl
+kontinuierlich um `n` läuft, darf seine Hülle als Kegel geschrieben werden:
+
+```text
+g(phi) = a+ + t (r cos(phi)e1 + r sin(phi)e2 - h n)
+tan(alpha) = r/h
+0 <= phi < 2pi
+```
+
+Die statische Vierseitenpyramide ist also kein Kegel. `Twist` kann zunächst
+als reine Phasenverschiebung `theta -> theta+tau` auf dem Ring geführt
+werden. `Reibung` bleibt offen, bis Kontaktfläche, Normalkraft und mindestens
+ein Reibungs- oder Drehmomentgesetz erklärt sind.
+
+Die Zahl `42.429` besitzt inzwischen eine quellengebundene Herkunft:
+
+```text
+297/7 = 42 + 3/7 = 42.428571...
+rounded to three decimals = 42.429
+45 - 297/7 = 18/7 = 2.571428...
+```
+
+Damit ist die frühere Nähe zu `sqrt(8)` nur eine numerische Nebenbeobachtung,
+nicht der Decoder. Ebenso bleiben `45° fold` und `isometric projection`
+getrennt; eine isometrische Ansicht benötigt eine ausdrücklich erklärte
+Projektionsmatrix.
+
+`1 ounce` und `24K` sind typverschieden: Masse und Feinheit. Daneben existiert
+im A0-Field-Notes-Cockpit bereits ein drittes `24k` als lokale Zähleinheit für
+den Vollreturn. Ohne Adapter gilt daher `ounce != karat != 24k counter`.
+
+Die Owner-Wörter `OTD`, `AA'`, `IYODA/JEDI`, `sixth` und `red line` bleiben
+Such-/Werkbanklabels. Der Bestand bestätigt IOTA-, YUGO- und IJ-Instrumente,
+aber noch keinen gemeinsamen Operator unter diesen Namen.
+
+Der `Ghostgrid 2357` zeigt einen gerichteten Dreierzyklus
+`357 → 537 → 735 → 357`. Das sind nur drei der sechs Permutationen der
+Ziffern `3,5,7`; `375`, `573` und `753` fehlen, und `2357` selbst ist kein
+gezeichneter Knoten. Der Zyklus ist daher exakt für die drei sichtbaren
+Zustände, nicht für die vollständige Permutationsmenge.
+
+### 2g. A / A′ / IJ in einer Vase — UI statt neuer Geometrie
+
+Die Vase ist eine UX-Hülle für bereits deklarierte Rollen. Sie fügt keinen
+neuen Körper hinzu. Der Lesepfad läuft von unten nach oben:
+
+```text
+Root7 stem -> shared IJ field 19 -> A / A' rim -> T carrier / Y opening
+```
+
+Der Root7-Träger wird lokal durch den bereits bekannten Vektor erklärt:
+
+```text
+L = (2,1,1,1)
+||L|| = sqrt(7)
+e7_hat = L/sqrt(7)
+```
+
+Die normierte Richtung `e7_hat` trägt den vertikalen UI-Pfad. `sqrt(7)`
+allein wählt keine globale ausgezeichnete Achse.
+
+Die drei auswählbaren Leselagen verwenden dieselbe Halbnaht:
+
+```text
+A   : s = -0.5   -> display N(s) = 1727
+IJ  : s =  0     -> display N(s) = 1728
+A'  : s = +0.5   -> display N(s) = 1729
+N(s) = 1728 + 2s
+```
+
+Diese Abbildung ist eine lokale Displaybrücke. Sie macht A und A′ nicht
+außerhalb der Ansicht zu den Integern 1727 und 1729. Im Bauch der Vase bleibt
+das gemeinsame Feld exakt `I=9`, `J=10`, `9+10=19`.
+
+Die korrigierte Owner-Route lautet
+
+```text
+A - T - A' · r_i
+```
+
+`T` ist der Träger beziehungsweise der lokale Owner-Alias „Dämon“: Er liest
+den bereits vorhandenen 101-Cube diagonal/transversal. `r_i` ist hier nur die
+lokale Abtastadresse auf dieser Transversale. Der Pink Stone markiert die
+Überlagerung der A/A′-Ansichten im UI; er behauptet keine physikalische oder
+quantenmechanische Superposition.
+
+Zusätzliche Owner-Beschriftungen des T-Trägers sind:
+
+```text
+T has PA|⁄LA
+204° view CT|RL
+```
+
+Sie werden als Label und Blickkonfiguration bewahrt, nicht als neue Achsen,
+Operatoren oder Source-Graph-Relationen. Der Basisblick ist `phi_0=204°`.
+
+Die neuen Trägerzeichen werden als Ansichten geführt:
+
+```text
+/    oblique carrier view
+|    axial carrier view
+±T   two half-threshold views
+¥    T threshold plus Y opening
+```
+
+Das „taumelnde T“ ist ein View-Parameter, keine neue Geometrie:
+
+```text
+T(tau) = R(tau) T0
+phi(tau) = 204 degrees + tau
+tau in [-12 degrees,+12 degrees]
+```
+
+Der kleine Winkelregler kippt nur Schwelle und Y-Kopf. Vase, Root7-Stamm,
+IJ-Feld und A/A′-Rollen bleiben unverändert. Der UI-Vertrag lautet daher:
+ein Fokus, drei Leselagen, ein Träger, keine neue Identität oder Relation.
+
+### 2h. Glyphenquartal / Quaternionenrail / QED-Return — Packing HOLD
+
+Der Demonstrator hält vier Register ausdrücklich auseinander:
+
+```text
+N       in {1727,1728,1729}       Zahlenträger
+h       in {1,i,j,k}              Quaternionen-Orientierung
+g       in G4°={q°,p°,b°,d°}      lokales Glyphenquartal
+sigma   in {NN,PP}                Polaritätslesung
+epsilon = QED in {0,1}            Return-Receipt
+```
+
+Ein Zustand ist damit
+
+```text
+X_n = (N, h_n, sigma, g_n, epsilon_n).
+```
+
+Der `¥-eta Move` schaltet zwei getrennte, aber synchron angezeigte Rails:
+
+```text
+glyph:       q° -> p° -> b° -> d° -> q°
+orientation: 1  -> i  -> j  -> k  -> 1
+```
+
+Gleichschritt bedeutet keine Identität der Register. `QED=1` wird erst nach
+dem vierten Move gesetzt, wenn beide Anzeigen wieder ihre jeweilige
+Startadresse tragen. `HOME` ist dagegen nur Schritt `0` und besitzt ohne
+abgeschlossenen Lauf `QED=0`. Die Schreibweise
+`æ ⊕ å ⊕ QED(1)` ist eine getypte Komposition, keine arithmetische Summe.
+
+Die drei auswählbaren Zahlenträger bewahren ausschließlich exakte Arithmetik:
+
+```text
+1727 = 11·157
+1728 = 12³
+1729 = 7·13·19 = 1³+12³ = 9³+10³
+```
+
+Das bestehende Mathfield-`Q°` bleibt der Controller beziehungsweise
+Beobachtungszustand. Das lokale `G4°` dieses Demonstrators bezeichnet nur die
+vier Glyphen `q°/p°/b°/d°`; insbesondere gilt weiterhin die bestehende Grenze
+`1i / jk ≠ Q°`. `QED` wird hier weder als Beweisoperator noch als
+Zahlengleichung eingeführt.
+
+**Packing HOLD:** Diese UI ordnet Zustände, Polarität und Return. Sie behauptet
+weder Zellbelegung, Dichte, Überlappungsfreiheit, Raumfüllung noch einen
+Packing- oder Tiling-Satz. Vor einer Packing-Fortsetzung fehlen mindestens
+Zelle, Metrik, Belegungsregel und Nichtüberlappungs-Test.
+
+Governance: Der Demonstrator nutzt die bestehenden Identitäten
+`ART:A0:MATHEMATICAL_JOINTS` und `MOD:NUMBER_VIEW_SUITE`. Er erzeugt keine
+neue Navigator-Identität, Relation, Study, Finding, Operatorbindung oder
+Source-Graph-Kante und ändert keinen wissenschaftlichen Status.
+
+### 2i. Keystone 2501 / SÆM 2603 / Gegenlage 2705
+
+Die drei Adressen bilden eine exakte symmetrische Rail:
+
+```text
+N_m = 51(51+2m)+2,  m in {-1,0,+1}
+
+INNEN              AUSSEN / SÆM          INNEN'
+2501      +102          2603       +102      2705
+49·51+2                 51²+2                 53·51+2
+```
+
+Damit gelten gleichzeitig:
+
+```text
+2501 = 49·51+2 = 41·61
+2603 = 51²+2    = 19·137
+2705 = 53·51+2 = 5·541
+102  = 2·51
+204  = 4·51
+49   = 7²
+```
+
+Die Spiegelung um den mittleren Seam ist
+
+```text
+rho(N) = 2·2603-N = 5206-N.
+```
+
+Sie vertauscht `2501` und `2705`, hält `2603` fest und erfüllt
+`rho(rho(N))=N`. Die Animation liest diese drei Adressen als
+`INNEN -> AUSSEN/SÆM -> INNEN'`. Das ist ein deklarierter View-Weg: Die
+Arithmetik beweist Symmetrie und Abstände, aber nicht von selbst eine
+topologische Innen-/Außenpassage.
+
+Der vorhandene `204° CT|RL`-Blick und der exakte Zahlspan `204` werden im
+Demonstrator sichtbar nebeneinandergelegt. Sie bleiben verschiedene Typen:
+Winkel und dimensionslose Adressdifferenz werden nicht addiert oder
+identifiziert. Die `7×7`-Brücke tritt exakt als unterer Rail-Faktor `49` auf.
+
+Governance: Bestehende Keystone-2501-Concordance,
+`ART:A0:MATHEMATICAL_JOINTS` und `MOD:NUMBER_VIEW_SUITE` werden wiederverwendet.
+Neue Identität, Relation, Operatorbindung, Study, Finding oder Packing-Aussage:
+`0`.
+
+### 3. Korrekturen und offene Decoder
+
+- `√2 + √3 + √5 + √7 ≈ 8.028083658506`, nicht `80`. Falls `80` ein Code,
+  eine Konkatenation, Skalierung oder ein anderer Operator ist, muss dieser
+  Decoder genannt werden.
+- In Base 13 sind `0…9,A,B,C` die dreizehn Ziffern mit
+  `A=10`, `B=11`, `C=12`; `13` ist der nächste Übertrag, keine weitere
+  Ziffer. `C (12.6=Gamma)` ist ohne getrennte Notation für Dezimalwert,
+  Phase oder Messwert nicht lesbar.
+- `5 % + 27.5 % + 68 % = 100.5 %`; zusammen mit dem zusätzlichen
+  `0.5 % Drift` wären es `101 %`. Die Segmente sind daher derzeit
+  Darstellungsmarker, keine normierte kosmologische Zerlegung.
+- Die vertikale „Steg-Primzahlen-Leiter“ mit `42/34/42/34` enthält keine
+  Primzahlen. Falls `34` und `42` Abstände, Indizes oder Brückencodes sind,
+  muss ihre Rolle getrennt vom Primzahlwert deklariert werden.
+- Die Marker `1728`, `1760`, `1836` auf den drei Geschwindigkeitsringen sind
+  Zahlenadressen ohne definierte Abbildung auf `<c`, `=c` oder `>c`.
+  Ein Ring oder eine Wellenlinie ist kein Nachweis superluminaler Bewegung.
+- Die historischen Bezeichnungen der π-Näherungen, die kosmologischen
+  Prozentwerte und die astronomischen Achsen `Polaris–Vega`, Orion-, Draco-
+  und Crux-ähnliche Muster benötigen jeweils Quelle, Epoche, Koordinaten,
+  Toleranz und Vergleichsmaß.
+
+### 4. Topologie ist mehr als die sichtbare Schleife
+
+Möbiusband, Torus und Kleinsche Flasche werden in mehreren Tafeln als
+Zielwörter verwendet. Eine Kreislinie, drei parallele Tracks oder eine
+geschlossene Spirale reichen dafür nicht. Benötigt werden mindestens
+Randidentifikation, Orientierbarkeit, Schnitt-/Verklebungsregel und eine
+prüfbare Abbildung zwischen Ausgangs- und Zielobjekt. Insbesondere gilt:
+
+```text
+three tracks ≠ triple Möbius
+closed drawing ≠ torus
+inside/outside label ≠ Klein bottle
+event-horizon ring ≠ measured black-hole horizon
+```
+
+`Erith Flip → Threetrack → Lock (VM)` ist damit eine klare
+**Architekturabsicht**, aber noch keine definierte Quotientenabbildung. Ebenso
+benötigen die Lissajous-Tafeln Frequenzverhältnisse, Phasen, Parameterbereich
+und Gleichheitstoleranz, bevor aus den Kurven ein reproduzierbares Objekt wird.
+
+### 5. Black Hole, Gamma-Kokon und Observer Sparks
+
+Die Tafeln `Lilith = Gamma Tooth-Wheel`, `Black Pillar & Feathered Snake`,
+`Mega-Strip` und die drei Geschwindigkeitsringe bleiben im Intake als
+Owner-Modelle und poetische Hypothesen erhalten. Sie zeigen eine konsistente
+Bildgrammatik — Kern, Boundary, Zähne/Emissionen, Ringe, Achse, Spur und
+Beobachtermarker. Sie belegen derzeit weder:
+
+- einen schwarzen-Loch-Mechanismus oder eine neue Ereignishorizont-Struktur,
+- Gamma-Strahlung als „Kokon“ oder Zahlengitter,
+- planetare Bahnen oder atomare Verschränkung entlang derselben Geraden,
+- dunkle Materie/Energie als Möbius- oder Mega-Strip,
+- reale Sternbilder in den Observer Sparks,
+- Tachyonen, Bewusstsein oder eine universelle kosmische Zahlentheorie.
+
+Für die Spark-/Konstellationsbilder ist der nächste saubere Test kein neues
+Sternbild, sondern ein Detektionsvertrag:
+
+```text
+INPUT = point set + frame + scale + seed
+RULE  = neighborhood + angle/length tolerances + minimum support
+NULL  = matched random point fields
+OUT   = candidate pattern + score + false-positive rate + provenance
+```
+
+### 6. Intake-Fragen vor jeder Aktivierung
+
+1. Existieren Generatorcode oder Tabellen für alle 29 Tafeln, oder nur die
+   Rasterbilder?
+2. Was sind die exakten Operatoren für `Q-Flip`, `Erith Flip`, `Lock (VM)`,
+   `Lilith-Naht`, `Gamma-Track`, `Scarabline` und `Triplesix Gate`?
+3. Sind Winkel, Radien und Knotenpositionen Daten oder nur Layout?
+4. Welche Linienarten und Farben sind Kanten, Hilfslinien, Tracks, Grenzen
+   oder Annotationen?
+5. Ist die Reihenfolge der 29 Bilder kanonisch, und welche Tafeln teilen
+   tatsächlich denselben Carrier?
+6. Welche Quelle und welches Messjahr gelten für historische, astronomische
+   und kosmologische Beschriftungen?
+7. Welcher Return muss erhalten bleiben: Zahl, Adresse, Orientierung,
+   Topologie, physischer Zustand oder nur die sichtbare Spur?
+
+**Kurzurteil:** Ja — die Node-Architektur ist schon sehr konkret. Sie enthält
+einen klaren Basishub, lokale Gates, Achsen, Track-Familien, Grenzen und
+Witness-Marker. Der nächste Engpass ist nicht mehr das Zeichnen, sondern das
+Typisieren der Kanten und Operatoren. Genau dort trennt sich ein faszinierendes
+Muster von einem ausführbaren Modell.
+
+**Custody / Claim Ceiling:** 29 externe Photos-Library-Derivate wurden für
+diesen Intake visuell gelesen, aber nicht in das Repository kopiert. Keine
+neue Source-Graph-Relation, kein Experiment, keine Study, kein Finding, keine
+Publikation und kein Outreach-Claim. `OPERATIONAL_EFFECT: NONE`.
+
+#### UDF Ink × Mask × 432 · die Spur bleibt
+
+**Disposition:** `APPLIED` · begrenzte Builder-Arbeitslinse; keine wissenschaftliche Claim-Promotion.
+
+Date: `2026-11-11`
+
+Die Owner-Tafel `BLU(E) Polygonal Resonance · Boki, Lucy, UDF` wird als
+Arbeitsgrammatik in das bestehende Projekt `UDF Orientation Return` gebunden.
+Sie erzeugt keinen neuen Polygon-, Resonanz- oder Frequenzoperator.
+
+```text
+M_t       = aktive Maske / View-Auswahl
+trace_t   = typisierter Übergangsrecord
+I_{t+1}   = I_t ⊕ trace_t          # append-only Ink Ledger
+R(s_t)    = s_home = 432           # View-Return
+R(I_t)    = I_t                    # Spuren bleiben
+```
+
+Die Register `540`, `720-A`, `720-B` und `1080` wählen lokale
+Polygon-/Layer-Ansichten. `432` ist der lokale Home-/Return-Pin der Linse.
+Ob einzelne Zahlen andernorts als Winkel-, Summen-, Skalierungs- oder
+Frequenzwerte auftreten, wird nicht in diese Zustandsmaschine importiert.
+
+Das Ink Ledger erhält jede Auswahl in Reihenfolge. Ein Return schließt den
+aktiven View, löscht aber weder Provenienz noch frühere Spuren. Damit bekommt
+die bisherige UDF-Formel `content → address/relation → projection → trace →
+Return` eine sichtbare Schaltfläche: Mask ist die Auswahl, Ink ist das
+Receipt, `432` der lokale Rückkehrpunkt.
+
+**Stand:** code-native Field-Notes-Linse und Builder-Vertrag; bestehende IDs
+`OP-UDF-01`, `BT-045` und `MOD:TESSAREC` wiederverwendet. Neue ID `0`, neue
+Relation `0`, Study `0`, Finding `0`, Capability-Aktivierung `0`.
 
 ## Frühere Feldnotizen
 
@@ -4026,3 +5687,133 @@ equation register: symbol, domain, operator, input, output, unit, source and
 test. `Equations Part III` remains a referenced source candidate until the
 actual file, hash, license and claim binding are available. No π/Φ/√2 identity,
 prime mechanism or universal equation is inferred from visual alignment.
+
+## 28. A0 Science Desk · operativer Backlog-Merkzettel
+
+Date: `2026-11-08`
+
+Stand: `PRIVATE OWNER NOTE / CURRENTNESS SNAPSHOT / NO NEW TASK REGISTRY`
+
+Dieser Merkzettel bewahrt die bereinigte Arbeitsübersicht des A0 Science Desk,
+damit sie zwischen den vielen Field Notes schnell wiedergefunden werden kann.
+Er vergibt keine neue `A0-BL`-Identität, aktiviert keine Study, ändert keinen
+Lifecycle- oder Evidence-Status und ersetzt weder den
+[kanonischen Backlog](../24_A0_RESEARCH_BACKLOG_AND_OPEN_JOINTS_2026-10-10.md)
+noch das [Lab Register](../../../SCIENCE_LAB/LAB_REGISTER.md). Bei Abweichungen
+gelten diese beiden Quellen; der [Science Desk](A0_RESEARCH_DESK.html) zeigt
+die operative Projektion.
+
+### A. Unmittelbar entscheidungsbedürftig
+
+1. **`A0-BL-056` · CLP Multi-View Return:** unabhängigen Reviewer und
+   semantischen Receipt-Verifier vorbereiten, CRT-Claim-Ceiling prüfen; danach
+   separater Owner-Freeze-/Activation-Entscheid. Interner Preflight vorhanden,
+   kein Primary-/Replay-Run aktiviert.
+2. **`A0-BL-058` · Pulse Persistence:** Owner-Disposition
+   `accept / revise / reject`. Der Befund bleibt
+   `BOUNDARY_LOCKED_SMOOTH_EVENT / PHASE_COHERENT_ONLY`, nicht
+   carrier-intrinsisch und kein physikalischer Atemmechanismus.
+3. **Euler–Tessarec Residual Fold Audit:** Owner-Disposition für den
+   validierten Sekundärbefund; ein graphnativer Nachfolger benötigt eine neue
+   Admission.
+4. **`A0-BL-015` · SCC-003 Review-Lane:** qualifizierten unabhängigen
+   Reviewer benennen; Proof-Attack und Prior-Art-Review durchführen; Return
+   klassifizieren. Bis dahin `R2–R3 internal`, keine externe Bestätigung oder
+   Publikationsfreigabe.
+
+### B. Priorisierte Vorbereitung · nicht aktiviert
+
+1. **Typed Return Atlas / Fibonacci–Coil:** nur dokumentarischen Comparator-
+   Review vorbereiten. Offen bleiben Fibonacci `mod 7` als Vergleich,
+   Provenienz von `4774 / 47|74`, Verträge für `CI|KA|DA` und
+   `HARM|O|NICA`, Pantone-/Farbmessung, physische Coil sowie ein messbarer
+   Audio-/Resonanzvertrag.
+2. **`F-A0-26` · Cross-Carrier / 3+1:** unabhängiges Sign-off, typisierter
+   Keyboard↔Graph↔Clamp-Transportvertrag, exakter `3+1`-Bandvertrag und
+   Gegenbeispiele. Empirische Akustik bleibt optional; Paper C bleibt bis zu
+   diesen Gates auf `HOLD`.
+3. **Three Lissajous · 3+1 Seam Mode:** exakte Seam-Lösung,
+   Beobachtungstoleranz, Transversalität, Re-Separation und externe
+   Prior-Art-Prüfung sind offen; Formal Design ist keine aktivierte Study.
+
+### C. Engineering und Abnahme
+
+1. **D1/D2, Crown und Lantern:** Material, Masse, Schwerpunkt, Reibung,
+   Lastspiel, Sicherheitsfaktor, Drehmomenthülle, Pin-/Lagerlasten,
+   Verschleiß, Thermik und Toleranzen binden; unabhängigen GLB-/CAD-Replay
+   und einen einfachen physischen Prototyp mit Montageprotokoll ausführen.
+   Kein Fabrication Release.
+2. **Human-/Browser-Abnahme:** Narrow/Mobile, Tastatur/Fokus, Reduced Motion
+   sowie die bestehenden OPIUM-/Club-/Control-Room-, Crown-, D1/D2- und
+   YUGO/IOTA-Wege im realen Browserlauf prüfen.
+3. **Fehlende Assembly-Zuordnung:** `BT-033` OLS Record Processor, `BT-034`
+   NSN Graph Studio, `BT-035` M3 Graph/Grid Viewer und `BT-036` Local
+   Observatory bleiben `UNASSIGNED_MISSING_ASSEMBLY`.
+4. **IOTA / 6×7:** freien Control-Port von den 42 Residuen trennen; Adresse,
+   Verlust, Inverse und Return deklarieren; Inside↔Outside-Witness mit
+   Seite/Vorzeichen typisieren. Das geschlossene Ignition-UI nicht neu bauen.
+
+### D. Dokumentarische Quellenlücken
+
+- Original-HTML der rot-grünen Zwei-Prozent-Spirale;
+- historische Quelle für `1|369|1` und zugehörige Owner-Token;
+- ungebundene Gleichsetzung `Phantom-Tine = YUGO`;
+- historischer Mathfield-Hashkonflikt;
+- getrennte Source-/Bundle-/Release-Pins der öffentlichen Projektion;
+- noch nicht zugeordnete Owner-Visuals und Arbeitswörter;
+- Messverträge vor stärkeren Farb-, Audio-, Material- oder
+  Mechanismusdeutungen.
+
+### E. Bewusst geparkt / `NO BUILD`
+
+- IOI/Edelweiß/Brane nur als read-only Quellen-/Vertragsvergleich, nicht als
+  M-Theory-Evidenz;
+- Number-Space-/Farb-/Channel-Grammatik nicht als universelles Modell;
+- ein 101/World-Cube-Nachfolger erst nach eigenem Verständlichkeitstest,
+  typisiertem C/P/M/R-Vertrag, Definition und Negativkontrolle für `Δ/17`
+  sowie einem separat zugelassenen Cross-Module-State-Connector;
+- keine physikalischen, biologischen oder kosmologischen Mechanismen aus
+  Bildähnlichkeit oder lokalem Gleichklang ableiten.
+
+### Wiederaufnahme-Regel
+
+Beim nächsten A0-Backlog-Review zuerst Lab Register und kanonischen Backlog
+lesen, dann diesen Snapshot als Checkliste verwenden. Geschlossene Punkte
+streichen oder mit ihrer Disposition versehen; neue Ideen nur bei expliziter
+Owner-Auswahl übernehmen. Die Leitformel `one carrier · multiple views` sowie
+Newton/Leibniz/Goethe als getrennte Linsen sind bereits als A0-Lesarten
+rückgebunden. Erst eine stärkere, begrenzte und prüfbare Behauptung daraus
+wäre ein neuer wissenschaftlicher Intake.
+
+## 29. Owner-Reaffirmation · Forschung bleibt eingefroren
+
+Date: `2026-11-08`
+
+Entscheidung: `REMAIN_FROZEN / ACTIVE RESEARCH 0 / NO SUCCESSOR ACTIVE`
+
+Der Human Owner bestätigt den bereits geltenden `STRUCTURE_FREEZE`. Es wird
+jetzt kein neuer π-/φ-/8°-Beweisfaden, kein Experiment, kein wissenschaftlicher
+Replay und keine stärkere Mechanismus- oder Welterklärung aktiviert.
+`A0-BL-056` und andere offene Records bleiben erhalten, aber `NOT ACTIVE`.
+Ein späterer Wiedereinstieg benötigt wieder eine ausdrückliche, begrenzte
+Owner-Entscheidung.
+
+Die Pause verwirft die NEXAH-Perspektive nicht. Ihr gegenwärtiger Wert liegt
+in einer methodischen und erkenntnistheoretischen Leistung: einen deklarierten
+Carrier durch verschiedene Ansichten zu verfolgen; Relation, Schnitt,
+Projektion, Verlust, Residuum und Return auseinanderzuhalten; und den eigenen
+Beobachterstandpunkt sichtbar zu lassen. Das kann eine neue Perspektive sein,
+ohne bereits eine neue Naturtheorie oder ein extern bestätigtes mathematisches
+Resultat zu sein.
+
+Die Arbeitsformel für den Freeze lautet:
+
+> Wissen, was man glaubt — und nicht glauben, dass man schon weiß.
+
+Ein exaktes π-/φ-/Winkelverhältnis kann später als begrenzte mathematische
+Aussage bewiesen werden, sofern Objekte und Abbildung vollständig definiert
+sind. Ein solcher Beweis würde zunächst genau diese Relation zeigen; er würde
+nicht automatisch die weitergehende NEXAH-Lesart, physikalische Relevanz oder
+Einzigartigkeit beweisen. Während des Freeze dürfen Motive als Owner Notes
+bewahrt werden. Ausführung, Claim-Promotion, Finding, Publikation und
+Outreach-Effekt bleiben `0`.

@@ -1,0 +1,70 @@
+{
+  "schema": "a0.lissajous-11-9-gap-return/1.0.0",
+  "date": "2026-11-11",
+  "status": "PASS_CLOSED_CURVE_WITH_ONE_OPEN_COMPARATOR_SLOT",
+  "identity": "ART:A0:MATHEMATICAL_JOINTS",
+  "parameters": {
+    "a": 11,
+    "b": 9,
+    "phase_degrees": 90,
+    "comparator_slots": 12,
+    "display_axis": "X"
+  },
+  "exact_result": {
+    "gcd": 1,
+    "reduced_ratio": "11:9",
+    "primitive_period": "2*pi",
+    "x_cycles_per_primitive_pass": 11,
+    "y_cycles_per_primitive_pass": 9,
+    "closed": true
+  },
+  "comparator_result": {
+    "declared_display_count": 11,
+    "occupied_slots": 11,
+    "open_slots": 1,
+    "curve_segment_missing": false
+  },
+  "falsifiers": [
+    {
+      "id": "SAME_GAP_DIFFERENT_PAIR",
+      "pair": "11:10",
+      "result": "ONE_OPEN_SLOT_ALSO",
+      "meaning": "The gap alone does not identify 11:9."
+    },
+    {
+      "id": "NON_COPRIME_PERIOD",
+      "pair": "12:9",
+      "result": "GCD_3_PRIMITIVE_PERIOD_2PI_OVER_3",
+      "meaning": "Integer closure at 2*pi is not the same as one primitive pass."
+    },
+    {
+      "id": "SLOT_MATCH",
+      "pair": "11:9",
+      "slots": 11,
+      "result": "ZERO_OPEN_SLOTS",
+      "meaning": "The gap belongs to the declared comparator, not to the curve."
+    }
+  ],
+  "test_receipt": {
+    "command": "node a0-lissajous-11-9-gap-tests.cjs",
+    "checks": 48,
+    "result": "PASS"
+  },
+  "historical_visual_source": {
+    "repository": "NEXAH-CODEX",
+    "path": "SYSTEM_3_COSMICA_ASTROPHYSICA/MÖBIUS-METAL-CODEX/visuals/Lissajous 11:9 Harmonic Scanner - Platinum Group Resonance Mesh.png",
+    "role": "HISTORICAL_VISUAL_REFERENCE_ONLY"
+  },
+  "authority": {
+    "identity_reuse": [
+      "ART:A0:MATHEMATICAL_JOINTS",
+      "MOD:TESSAREC"
+    ],
+    "new_canonical_ids": [],
+    "relation_changes": [],
+    "study_activation": false,
+    "claim_promotion": false,
+    "publication": false
+  },
+  "claim_boundary": "Standard finite Lissajous geometry plus a declared 11-to-12 display comparator. Eleven petals is a local X-cycle display convention, not a phase-invariant topological petal count. No platinum/iridium resonance, material coupling, physical oscillator or new canonical relation is established."
+}

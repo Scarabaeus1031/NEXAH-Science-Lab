@@ -1,0 +1,81 @@
+{
+  "schema": "nexah.a0.owner-staging-source-binding-receipt/1.0.0",
+  "record_id": "A0:SCC003:101_CARRIER_CUBE_A0:OWNER_STAGING:2026-11-09",
+  "date": "2026-11-09",
+  "updated_at": "2026-11-10",
+  "status": "OWNER_STAGING_UNCOMMITTED_ACCEPTANCE_PENDING",
+  "identity_reuse": [
+    "SCC-003 / A0OE:PASCAL_PENTAGON_D5_TEST",
+    "ART:A0:MATHEMATICAL_JOINTS",
+    "NEXAH:A0_ORIENTATION_EVIDENCE_LINEAGE:V1"
+  ],
+  "role_binding": {
+    "101": "CARRIER / FOLD",
+    "O_CUBE": "PIVOT / VIEW",
+    "A0": "BOOK / RETURN",
+    "LEAF_FOLD": "OPTIONAL_INPUT_LENS_NOT_PARENT"
+  },
+  "candidate": {
+    "channel": "nexah.de / SCC-003 review asset",
+    "canonical_editable_repository": "40 EXPERIENCE PRODUCTION/NEXAH-Experience",
+    "branch": "main",
+    "source_path": "public/review-assets/scc-003-r1/demonstrators/complex-fold-18x23.html",
+    "working_tree_state": "DIRTY_UNCOMMITTED",
+    "preview_class": "OWNER_STAGING",
+    "acceptance_state": "PENDING_EXACT_A0_REVIEW",
+    "deployment_target": "NONE_NOT_AUTHORIZED",
+    "publication_state": "NOT_AUTHORIZED"
+  },
+  "files": [
+    {
+      "path": "40 EXPERIENCE PRODUCTION/NEXAH-Experience/public/review-assets/scc-003-r1/demonstrators/complex-fold-18x23.html",
+      "role": "SCC-003_INTERACTIVE_DEMONSTRATOR",
+      "git_state": "MODIFIED_TRACKED",
+      "sha256": "1c089208d0cf2ebd1329a2357a2c1faccf3057fe85dc0284f90cbf681b62ece3"
+    },
+    {
+      "path": "40 EXPERIENCE PRODUCTION/NEXAH-Experience/public/review-assets/scc-003-r1/models/machina-blue-pearl.glb",
+      "role": "LOCAL_GLTF_BINARY_ASSET",
+      "git_state": "UNTRACKED",
+      "sha256": "30aae1c0900a8e8807ab290aafa33490fdc37c720d257d6302870641c2f42d3d"
+    },
+    {
+      "path": "40 EXPERIENCE PRODUCTION/NEXAH-Experience/public/review-assets/scc-003-r1/vendor/model-viewer.min.js",
+      "role": "LOCAL_VIEWER_RUNTIME",
+      "git_state": "UNTRACKED",
+      "sha256": "283b0672384614b4847636c306fc93fe4b1fcadc76d668b4e47f0ca76bcf033b"
+    },
+    {
+      "path": "40 EXPERIENCE PRODUCTION/NEXAH-Experience/src/pages/scc-003-r1/generation-study/index.astro",
+      "role": "SCC-003_GENERATION_STUDY_BENCH_EMBED",
+      "git_state": "MODIFIED_TRACKED",
+      "sha256": "e4d4b3fee19a77a5946a1fb5cbe10588dd3171cdfecd9baf6ccf99d485772ad7"
+    }
+  ],
+  "science_desk_return": "A0_BOOK/A0_RESEARCH_DESK.html#scc-003-101-carrier-cube-a0-return-20261109",
+  "graph_effect": {
+    "new_ids": 0,
+    "new_aliases": 0,
+    "relation_changes": 0,
+    "canonical_count_effect": 0
+  },
+  "known_preflight_state": {
+    "source_graph_validation": "FAIL_PREEXISTING_A0_ORIENTATION_AND_RED_BALLOON_HASH_MISMATCHES",
+    "mission_control_currentness": "INVALID_PREEXISTING_A0_RESEARCH_DESK_HASH_MISMATCH",
+    "overwritten_baseline_hashes": false
+  },
+  "boundaries": [
+    "The receipt records the present local source bytes; it is not a publication or deployment receipt.",
+    "The GLB and viewer runtime remain untracked and therefore are not accepted release assets.",
+    "Leaf Fold is an optional reading lens, not a new parent or identity.",
+    "No experiment, Study, Finding, Claim Ceiling change, publication or outreach action is authorized."
+  ],
+  "new_identity": false,
+  "new_relation": false,
+  "new_operator": false,
+  "new_study": false,
+  "new_finding": false,
+  "claim_ceiling_changed": false,
+  "deployment_authorized": false,
+  "publication_authorized": false
+}

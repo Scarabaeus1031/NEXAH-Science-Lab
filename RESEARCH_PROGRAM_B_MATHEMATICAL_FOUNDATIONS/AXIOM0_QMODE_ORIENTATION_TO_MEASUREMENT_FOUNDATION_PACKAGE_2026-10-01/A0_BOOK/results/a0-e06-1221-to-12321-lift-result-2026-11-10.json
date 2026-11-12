@@ -1,0 +1,537 @@
+{
+  "schema": "a0.e06-1221-to-12321-lift.engineering-result.v1",
+  "executionDate": "2026-11-10",
+  "authority": {
+    "kind": "OWNER_AUTHORIZED_A0_ENGINEERING_TEST",
+    "reuses": [
+      "G11",
+      "G111",
+      "E06",
+      "A0_11X111_GRID_ELEVATOR",
+      "SCC-003"
+    ],
+    "labRun": false,
+    "studyActivated": false,
+    "navigatorIdentityCreated": false,
+    "canonicalRelationCreated": false,
+    "findingPromoted": false,
+    "publicationAuthorized": false
+  },
+  "status": "PASS_CLASSIFIED_MIXED_LIFT_AND_FOLD_GATES",
+  "summary": {
+    "pass": 25,
+    "fail": 0,
+    "sourceStates": 1221,
+    "targetStates": 12321,
+    "liftCandidates": 3,
+    "singleWinner": false
+  },
+  "result": {
+    "arithmeticBridge": "EXACT",
+    "plateApproximation": "N_BAND_EXACT_41_PLUS_1_PLUS_3_OVER_7 / PI_CONVERGENT_22_OVER_7 / PHI_CONVERGENT_8_OVER_5 / COMMON_FORMAT_NOT_COMMON_IDENTITY",
+    "liftClassification": {
+      "interval": "INJECTIVE_RETURN / COARSE_10_STEP / MISSES_GLOBAL_ENDPOINT / JANUS_FAIL",
+      "stride11": "INJECTIVE_RETURN / COARSE_11_STEP / ENDPOINT_PASS / JANUS_PASS",
+      "address": "INJECTIVE_RETURN / UNIT_ADJACENCY_PASS / NARROW_STRIP / GLOBAL_JANUS_FAIL"
+    },
+    "foldCandidate": "SIX_SECTOR_KAWASAKI_PASS / TWELVE_STAGE_MONTH_KNUCKLE_MV_WORD_PASS / EQUAL_12_SECTOR_KAWASAKI_PASS / DAY_PROPORTIONAL_ANGLES_REJECTED / TWO_ZERO_FACE_PHANTOM_BOUNDARIES / 5V_PARTITIONED_AS_4V_PLUS_1V_RETURN / SNAP_THROUGH_AND_SOLITON_UNTESTED / RIGID_FOLD_AND_LAYER_ORDER_OPEN",
+    "interpretation": "No candidate preserves every requested structure; the lift requires an explicit choice of invariant and an orientation or seam witness."
+  },
+  "profiles": {
+    "interval": {
+      "formula": "L_interval(a,b)=(10a,b)",
+      "imageStates": 1221,
+      "injective": true,
+      "roundTrips": true,
+      "horizontalLengths": [
+        10
+      ],
+      "verticalLengths": [
+        1
+      ],
+      "unitAdjacency": false,
+      "janusCommutes": false,
+      "targetEndpointCoverage": false,
+      "uRange": [
+        0,
+        100
+      ]
+    },
+    "stride11": {
+      "formula": "L_stride11(a,b)=(11a,b)",
+      "imageStates": 1221,
+      "injective": true,
+      "roundTrips": true,
+      "horizontalLengths": [
+        11
+      ],
+      "verticalLengths": [
+        1
+      ],
+      "unitAdjacency": false,
+      "janusCommutes": true,
+      "targetEndpointCoverage": true,
+      "uRange": [
+        0,
+        110
+      ]
+    },
+    "address": {
+      "formula": "L_address(a,b)=(a,b)",
+      "imageStates": 1221,
+      "injective": true,
+      "roundTrips": true,
+      "horizontalLengths": [
+        1
+      ],
+      "verticalLengths": [
+        1
+      ],
+      "unitAdjacency": true,
+      "janusCommutes": false,
+      "targetEndpointCoverage": false,
+      "uRange": [
+        0,
+        10
+      ]
+    }
+  },
+  "checks": [
+    {
+      "id": "A-01",
+      "title": "The Seed-Junction-Field multiplicative bridge is exact",
+      "status": "PASS",
+      "detail": {
+        "seed": 121,
+        "junction": 1221,
+        "field": 12321,
+        "identity": "1221^2=121*12321"
+      }
+    },
+    {
+      "id": "A-02",
+      "title": "The prime-palindrome address has exactly the declared factors",
+      "status": "PASS",
+      "detail": {
+        "value": 12121,
+        "factors": [
+          17,
+          23,
+          31
+        ],
+        "digitPalindrome": true
+      }
+    },
+    {
+      "id": "A-03",
+      "title": "The N-band return is the reduced rational 297/7",
+      "status": "PASS",
+      "detail": {
+        "numerator": 297,
+        "denominator": 7,
+        "mixed": "42+3/7",
+        "decimal": 42.42857142857143,
+        "rounded3": 42.429
+      }
+    },
+    {
+      "id": "A-04",
+      "title": "The N-band plate decomposes exactly as station 41, one full step and a three-sevenths residual",
+      "status": "PASS",
+      "detail": {
+        "exact": "297/7 = 42+3/7 = 41+1+3/7",
+        "baseStation": 41,
+        "fullSteps": 1,
+        "residual": "3/7",
+        "residualDecimal": 0.42857142857142855,
+        "residualRounded3": 0.429
+      }
+    },
+    {
+      "id": "A-05",
+      "title": "The pi plate is a convergent ladder with 22/7 as the seven-step approximation",
+      "status": "PASS",
+      "detail": {
+        "ladder": [
+          "3/1",
+          "22/7",
+          "333/106",
+          "355/113"
+        ],
+        "sevenStepPlate": "22/7 = 3+1/7",
+        "sevenPi": 21.991148575128552,
+        "sevenPiTo22Residual": 0.008851424871448188,
+        "approximationError": 0.0012644892673496777
+      }
+    },
+    {
+      "id": "A-06",
+      "title": "The phi plate is the Fibonacci-ratio ladder with 8/5 as the five-step approximation",
+      "status": "PASS",
+      "detail": {
+        "ladder": [
+          "1/1",
+          "2/1",
+          "3/2",
+          "5/3",
+          "8/5",
+          "13/8",
+          "21/13"
+        ],
+        "fiveStepPlate": "8/5 = 1+3/5",
+        "fivePhi": 8.090169943749475,
+        "fivePhiFrom8Residual": 0.09016994374947451,
+        "approximationError": 0.018033988749894814,
+        "exactMetricContract": "2cos(pi/5)=phi"
+      }
+    },
+    {
+      "id": "A-07",
+      "title": "The visual 41+1+1 notation is rejected as arithmetic and retained only as a typed three-slot view",
+      "status": "PASS",
+      "detail": {
+        "rejectedEquality": "41+1+1 != 297/7",
+        "typedSlots": [
+          "BASE_STATION_41",
+          "FULL_STEP_1",
+          "RESIDUAL_SLOT_3_OVER_7"
+        ],
+        "exactReplacement": "41+1+3/7 = 297/7"
+      }
+    },
+    {
+      "id": "L-01",
+      "title": "All three preregistered lifts are injective and exactly reversible on their images",
+      "status": "PASS",
+      "detail": {
+        "interval": {
+          "formula": "L_interval(a,b)=(10a,b)",
+          "imageStates": 1221,
+          "injective": true,
+          "roundTrips": true,
+          "horizontalLengths": [
+            10
+          ],
+          "verticalLengths": [
+            1
+          ],
+          "unitAdjacency": false,
+          "janusCommutes": false,
+          "targetEndpointCoverage": false,
+          "uRange": [
+            0,
+            100
+          ]
+        },
+        "stride11": {
+          "formula": "L_stride11(a,b)=(11a,b)",
+          "imageStates": 1221,
+          "injective": true,
+          "roundTrips": true,
+          "horizontalLengths": [
+            11
+          ],
+          "verticalLengths": [
+            1
+          ],
+          "unitAdjacency": false,
+          "janusCommutes": true,
+          "targetEndpointCoverage": true,
+          "uRange": [
+            0,
+            110
+          ]
+        },
+        "address": {
+          "formula": "L_address(a,b)=(a,b)",
+          "imageStates": 1221,
+          "injective": true,
+          "roundTrips": true,
+          "horizontalLengths": [
+            1
+          ],
+          "verticalLengths": [
+            1
+          ],
+          "unitAdjacency": true,
+          "janusCommutes": false,
+          "targetEndpointCoverage": false,
+          "uRange": [
+            0,
+            10
+          ]
+        }
+      }
+    },
+    {
+      "id": "L-02",
+      "title": "Only the address lift preserves unit open-grid adjacency",
+      "status": "PASS",
+      "detail": {
+        "interval": {
+          "horizontal": [
+            10
+          ],
+          "vertical": [
+            1
+          ]
+        },
+        "stride11": {
+          "horizontal": [
+            11
+          ],
+          "vertical": [
+            1
+          ]
+        },
+        "address": {
+          "horizontal": [
+            1
+          ],
+          "vertical": [
+            1
+          ]
+        }
+      }
+    },
+    {
+      "id": "L-03",
+      "title": "Only the stride-11 lift commutes with the global Janus reflection",
+      "status": "PASS",
+      "detail": {
+        "interval": false,
+        "stride11": true,
+        "address": false
+      }
+    },
+    {
+      "id": "L-04",
+      "title": "Only stride-11 reaches both target-axis endpoints",
+      "status": "PASS",
+      "detail": {
+        "interval": {
+          "covered": false,
+          "range": [
+            0,
+            100
+          ]
+        },
+        "stride11": {
+          "covered": true,
+          "range": [
+            0,
+            110
+          ]
+        },
+        "address": {
+          "covered": false,
+          "range": [
+            0,
+            10
+          ]
+        }
+      }
+    },
+    {
+      "id": "L-05",
+      "title": "Axis swap is a distinct equally exact graph embedding",
+      "status": "PASS",
+      "detail": {
+        "injective": true,
+        "unitAdjacency": true,
+        "identicalToAddressLift": false,
+        "implication": "embedding is not unique without an orientation witness"
+      }
+    },
+    {
+      "id": "L-06",
+      "title": "A deterministic scrambled injection fails the structure controls",
+      "status": "PASS",
+      "detail": {
+        "injective": true,
+        "unitAdjacency": false,
+        "janusCommutes": false,
+        "classification": "NEGATIVE_CONTROL"
+      }
+    },
+    {
+      "id": "O-01",
+      "title": "The six-sector phi/pi candidate closes and satisfies Kawasaki exactly",
+      "status": "PASS",
+      "detail": {
+        "sectorsInPiFifths": [
+          1,
+          2,
+          2,
+          1,
+          2,
+          2
+        ],
+        "total": "2pi",
+        "alternatingOdd": "pi",
+        "alternatingEven": "pi"
+      }
+    },
+    {
+      "id": "O-02",
+      "title": "The declared mountain-valley count satisfies Maekawa",
+      "status": "PASS",
+      "detail": {
+        "M": 4,
+        "V": 2,
+        "difference": 2,
+        "assignmentGeometry": "OPEN"
+      }
+    },
+    {
+      "id": "O-03",
+      "title": "The pentagonal metric relation reproduces phi",
+      "status": "PASS",
+      "detail": {
+        "phi": 1.618033988749895,
+        "twoCosPiOver5": 1.618033988749895,
+        "absoluteError": 0
+      }
+    },
+    {
+      "id": "O-04",
+      "title": "A closure-preserving perturbation is rejected by Kawasaki",
+      "status": "PASS",
+      "detail": {
+        "total": "2pi",
+        "alternatingOdd": "501pi/500",
+        "alternatingEven": "499pi/500",
+        "classification": "NEGATIVE_CONTROL"
+      }
+    },
+    {
+      "id": "O-05",
+      "title": "The twelve-stage month-knuckle word gives a concrete Maekawa assignment",
+      "status": "PASS",
+      "detail": {
+        "days": [
+          31,
+          28,
+          31,
+          30,
+          31,
+          30,
+          31,
+          31,
+          30,
+          31,
+          30,
+          31
+        ],
+        "word": "MVMVMVMMVMVM",
+        "groupedWord": "MVMVMVM|MVMVM",
+        "M": 7,
+        "V": 5,
+        "difference": 2,
+        "backjumpWitness": "JUL_M -> AUG_M",
+        "interpretation": "31=knuckle peak; 28/29/30=gap; month lengths are state labels, not sector angles"
+      }
+    },
+    {
+      "id": "O-06",
+      "title": "Equal twelve-sector geometry closes and satisfies Kawasaki independently of month lengths",
+      "status": "PASS",
+      "detail": {
+        "sectorsInDegrees": [
+          30,
+          30,
+          30,
+          30,
+          30,
+          30,
+          30,
+          30,
+          30,
+          30,
+          30,
+          30
+        ],
+        "alternatingOdd": 180,
+        "alternatingEven": 180,
+        "monthDayNegativeControl": [
+          184,
+          181
+        ],
+        "classification": "EQUAL_SECTOR_KAWASAKI_PASS / DAY_PROPORTIONAL_ANGLE_REJECTED"
+      }
+    },
+    {
+      "id": "O-07",
+      "title": "Two phantom boundaries extend the address rail without adding creases or faces",
+      "status": "PASS",
+      "detail": {
+        "addressWord": "-1_PHANTOM | 12_REAL_FOLDS | +1_PHANTOM",
+        "addressedSlots": 14,
+        "physicalCreases": 12,
+        "phantomFaceDelta": 0,
+        "classification": "BOUNDARY_WITNESSES_NOT_CREASES"
+      }
+    },
+    {
+      "id": "O-08",
+      "title": "The five valleys may be typed as four ordinary valleys plus one return valley without changing Maekawa",
+      "status": "PASS",
+      "detail": {
+        "M": 7,
+        "V": 5,
+        "partition": "5V = 4V + 1V_return",
+        "maekawaDifference": 2,
+        "returnValleyIndex": "OPEN",
+        "mechanicalMeaning": "UNTESTED"
+      }
+    },
+    {
+      "id": "O-09",
+      "title": "Phase arithmetic, pi wrapping and phi geometry remain distinct",
+      "status": "PASS",
+      "detail": {
+        "sevenPi": 21.991148575128552,
+        "claimSevenPiEqualsThree": false,
+        "sevenPiModuloTwoPi": "pi",
+        "sevenModuloFour": 3,
+        "phiContract": "2cos(pi/5)=phi",
+        "classification": "PHASE_INDEX / ANGLE / METRIC_RATIO KEPT SEPARATE"
+      }
+    },
+    {
+      "id": "O-10",
+      "title": "Return-wave and fold-flip terminology is explicitly bounded",
+      "status": "PASS",
+      "detail": {
+        "counterWave": "REFLECTION",
+        "persistentInterference": "STANDING_WAVE_CANDIDATE",
+        "bistableFoldFlip": "SNAP_THROUGH_CANDIDATE",
+        "shapePreservingNonlinearPulse": "SOLITON_REQUIRES_SEPARATE_PDE_EVIDENCE",
+        "energyLandscapeMeasured": false,
+        "bistabilityEstablished": false,
+        "solitonEstablished": false
+      }
+    },
+    {
+      "id": "V-01",
+      "title": "Mathfield and thread protocol retain the declared view vocabulary and claim ceiling",
+      "status": "PASS",
+      "detail": {
+        "vocabularyBound": true,
+        "physicalMechanismClaim": false,
+        "newFinding": false
+      }
+    },
+    {
+      "id": "V-02",
+      "title": "Science Desk and Findings workspace expose the candidate ledger without promotion",
+      "status": "PASS",
+      "detail": {
+        "candidatesVisible": 3,
+        "findingPromoted": false,
+        "studyActivated": false,
+        "graphDelta": 0
+      }
+    }
+  ]
+}

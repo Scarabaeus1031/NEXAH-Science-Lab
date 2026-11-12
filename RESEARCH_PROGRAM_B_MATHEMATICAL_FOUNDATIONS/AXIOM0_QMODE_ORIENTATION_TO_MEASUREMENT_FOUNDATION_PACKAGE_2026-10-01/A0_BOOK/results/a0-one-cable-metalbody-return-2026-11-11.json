@@ -1,0 +1,80 @@
+{
+  "schema": "a0.one-cable-metalbody-return/1.0.0",
+  "date": "2026-11-11",
+  "status": "PASS_EXACT_DISPLAY_RETURN",
+  "title": "One Cable / Metalbody — one source, three synchronized cuts",
+  "placement": {
+    "owner": "A0 Spin to Bloom Measurement",
+    "section": "oneCableMetalbody",
+    "order": [
+      "edelweissGenesisTranslation",
+      "lissajous119GapBench",
+      "oneCableMetalbody",
+      "platinumIridiumPiReturn"
+    ]
+  },
+  "historical_sources": [
+    {
+      "catalog_id": "ASSET-D985A96C8281",
+      "title": "POLARPASS coupled triptych",
+      "sha256": "bdf3f8c9d5b334204b4095e8e1a95902e4ff6e36866ad696a9fb087789a6693d",
+      "authority": "LOCATOR_ONLY",
+      "binding": "excluded-historical"
+    },
+    {
+      "catalog_id": "ASSET-A2F3E96DFD1F",
+      "title": "POLARPASS I-X-O triptych",
+      "sha256": "bb0339a5112d60db28a8d56df645d460d72accb7637c0b1a4da5fd5c33f8c2ba",
+      "authority": "LOCATOR_ONLY",
+      "binding": "excluded-historical"
+    },
+    {
+      "catalog_id": "ASSET-97EDDE4EC3F1",
+      "title": "POLARPASS beta split",
+      "sha256": "31a08ac72e441fe2ed075fe02723e2e381de1876c3ac840882555228504d39c7",
+      "authority": "LOCATOR_ONLY",
+      "binding": "excluded-historical"
+    }
+  ],
+  "finite_result": {
+    "source_carriers": 1,
+    "carrier_closed": true,
+    "synchronized_views": 3,
+    "view_names": ["I / INSIDE", "X / XPERIENCE", "O / OUTSIDE"],
+    "display_modes": ["SMOOTH", "EDGE", "BITE", "LILITH", "RETURN"],
+    "bite_changes_source": false,
+    "lilith_is_operator": false,
+    "return_phase_degrees": 43,
+    "return_residual": 0
+  },
+  "view_roles": {
+    "metalbody": "synthetic closed display carrier",
+    "aki_nabel": "local comparison gate",
+    "jupiter": "outer view envelope only",
+    "bite": "visibility mask over an intact source carrier",
+    "lilith": "observer/counterview vocabulary only"
+  },
+  "tests": {
+    "command": "node a0-one-cable-metalbody-tests.cjs",
+    "status": "PASS",
+    "checks": 57
+  },
+  "governance_reconciliation": {
+    "instrument_sha256": "d942671ff26c8f9e2694c24308ffb92d682592556188aadc1b2c95de317341b6",
+    "evidence_binder_sha256": "e3e2e0610fccc5e192d8b7daa8fb5a0181f9f973db572e44e70796d0d1ce9c2f",
+    "source_graph_components": 21,
+    "base_counts": "329/29",
+    "composed_counts": "332/32",
+    "app_audit_checks": 253,
+    "new_graph_ids": 0,
+    "new_relations": 0
+  },
+  "authority": {
+    "identity_reuse": ["ART:A0:MATHEMATICAL_JOINTS", "MOD:TESSAREC"],
+    "new_canonical_ids": [],
+    "relation_changes": [],
+    "study_created": false,
+    "publication_authority": false
+  },
+  "claim_boundary": "One synthetic closed display carrier is projected into three synchronized cuts. Smooth, Edge, Bite and Lilith alter only display sampling, visibility or observer labeling. Lilith is not a causal operator. Metalbody, AKI NABEL, JUPITER and Bite are local view roles only; no material cable, anatomy, astronomy, energy transfer, shared POLARPASS physics, new identity, Study or canonical relation is asserted."
+}

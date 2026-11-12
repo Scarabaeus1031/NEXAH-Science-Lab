@@ -1,0 +1,241 @@
+{
+  "schema": "nexah.a0.digit-geometry-preregistered-null-audit/1",
+  "status": "FALSIFIED_STRONGER_ALIGNMENT_FOR_DECLARED_OPERATOR_AND_HOLDOUTS",
+  "preregistration": {
+    "path": "results/A0_DIGIT_GEOMETRY_PREREGISTERED_NULL_TEST_2026-11-11.md",
+    "sha256": "c63ec688dc21fac8cfdfdb8828d81d19f917dadc711ebae91d56bd33bda9ef63",
+    "frozen_before_holdout_generation": true
+  },
+  "implementation": {
+    "runner": "a0_digit_geometry_preregistered_null_test.py",
+    "decimal_engine": "python Decimal; Gauss-Legendre pi; Decimal exp/sqrt",
+    "base_seed_hex": "0xa0112026",
+    "rng": "xorshift32",
+    "replicates_per_population": 100000,
+    "epsilon": 1e-12
+  },
+  "prefix_checks": {
+    "pi": {
+      "sha256": "8001c8d5d496f3f763d0fd3cca5af6c2992c6f4c033c333f3907e3b86301d9fd",
+      "expected": "8001c8d5d496f3f763d0fd3cca5af6c2992c6f4c033c333f3907e3b86301d9fd"
+    },
+    "e": {
+      "sha256": "1f4db92d2326b73906c56652a2a3a54426c63c6b36b7f58eac3598c2749c9e8e",
+      "expected": "1f4db92d2326b73906c56652a2a3a54426c63c6b36b7f58eac3598c2749c9e8e"
+    },
+    "phi": {
+      "sha256": "39a2a382410a4765e4d5ac53b56f889a537b2808fe7e43577c9aebddf758384b",
+      "expected": "39a2a382410a4765e4d5ac53b56f889a537b2808fe7e43577c9aebddf758384b"
+    },
+    "sqrt2": {
+      "sha256": "24c27b60bbb174a65e0a836e452a24eae0e45321c86e1fefce641f8cda02e17e",
+      "expected": "24c27b60bbb174a65e0a836e452a24eae0e45321c86e1fefce641f8cda02e17e"
+    }
+  },
+  "holdout_hashes": {
+    "H1_DIGITS_501_1000": {
+      "pi": "46f893e3bcb528ba2af05c4996347c3bbd4a0aec861cdbaad1615a6370cad71b",
+      "e": "da303c234bc86ac8e72785c28917145df05116349bca94deb90815b7685be38c",
+      "phi": "fd160ce59df81ca549372e2737b1469f48dbce538496ae4ca57548ab5bb5067d",
+      "sqrt2": "28e28c82e40d065f274811aadcec2dc7f24e6b9d8f1aa92801cce28571f7d902"
+    },
+    "H2_DIGITS_1001_1500": {
+      "pi": "090b0121d144b3ba6dc54b6821fa7a85c93f3bf6204edd73ee5739e6b5ef3e19",
+      "e": "8ce3d0756e132ec9e075f756c2935d6e8570112338bad4628d3903ce51d4fc07",
+      "phi": "fb1e4f31b870737ad404fcdae6612b204f0294aab03d9d7fb00dd179dbc92f4a",
+      "sqrt2": "7636e70d8b5d7267c8afb46344d75fc391aecfcc6708bf6ac76ba36184006b76"
+    }
+  },
+  "H1": {
+    "label": "H1_DIGITS_501_1000",
+    "frames": 100,
+    "observed_inside": 5,
+    "N1_circular": {
+      "replicates": 100000,
+      "mean": 8.56747,
+      "median": 8.0,
+      "sd": 2.668229337800632,
+      "quantiles": {
+        "q005": 2.0,
+        "q01": 3.0,
+        "q99": 15.0,
+        "q995": 16.0
+      },
+      "p_low_plus_one": 0.12076879231207688,
+      "p_high_plus_one": 0.9459205407945921,
+      "p_two_sided": 0.24153758462415376,
+      "z": -1.33701775535554,
+      "deviation_from_median": -3.0
+    },
+    "N2_permutation": {
+      "replicates": 100000,
+      "mean": 8.5675,
+      "median": 8.0,
+      "sd": 2.664226670161531,
+      "quantiles": {
+        "q005": 2.0,
+        "q01": 3.0,
+        "q99": 15.0,
+        "q995": 16.0
+      },
+      "p_low_plus_one": 0.12122878771212288,
+      "p_high_plus_one": 0.945180548194518,
+      "p_two_sided": 0.24245757542424576,
+      "z": -1.3390377177568396,
+      "deviation_from_median": -3.0
+    }
+  },
+  "H2": {
+    "label": "H2_DIGITS_1001_1500",
+    "frames": 100,
+    "observed_inside": 10,
+    "N1_circular": {
+      "replicates": 100000,
+      "mean": 8.22508,
+      "median": 8.0,
+      "sd": 2.6073356119993454,
+      "quantiles": {
+        "q005": 2.0,
+        "q01": 3.0,
+        "q99": 15.0,
+        "q995": 15.0
+      },
+      "p_low_plus_one": 0.8108318916810832,
+      "p_high_plus_one": 0.3006669933300667,
+      "p_two_sided": 0.6013339866601334,
+      "z": 0.6807409034078906,
+      "deviation_from_median": 2.0
+    },
+    "N2_permutation": {
+      "replicates": 100000,
+      "mean": 8.22659,
+      "median": 8.0,
+      "sd": 2.628274523694205,
+      "quantiles": {
+        "q005": 2.0,
+        "q01": 3.0,
+        "q99": 15.0,
+        "q995": 16.0
+      },
+      "p_low_plus_one": 0.8084719152808472,
+      "p_high_plus_one": 0.3033769662303377,
+      "p_two_sided": 0.6067539324606754,
+      "z": 0.6747430620403233,
+      "deviation_from_median": 2.0
+    }
+  },
+  "offset_controls_H1": [
+    {
+      "offset": 1,
+      "frames": 99,
+      "observed_inside": 15,
+      "N1_circular": {
+        "replicates": 100000,
+        "mean": 9.64608,
+        "median": 10.0,
+        "sd": 2.8189112496848847,
+        "quantiles": {
+          "q005": 3.0,
+          "q01": 4.0,
+          "q99": 17.0,
+          "q995": 18.0
+        },
+        "p_low_plus_one": 0.975780242197578,
+        "p_high_plus_one": 0.04844951550484495,
+        "p_two_sided": 0.0968990310096899,
+        "z": 1.899286471185815,
+        "deviation_from_median": 5.0
+      }
+    },
+    {
+      "offset": 2,
+      "frames": 99,
+      "observed_inside": 12,
+      "N1_circular": {
+        "replicates": 100000,
+        "mean": 8.86128,
+        "median": 9.0,
+        "sd": 2.713377371763832,
+        "quantiles": {
+          "q005": 3.0,
+          "q01": 3.0,
+          "q99": 16.0,
+          "q995": 16.0
+        },
+        "p_low_plus_one": 0.9063809361906381,
+        "p_high_plus_one": 0.16440835591644085,
+        "p_two_sided": 0.3288167118328817,
+        "z": 1.1567576381606193,
+        "deviation_from_median": 3.0
+      }
+    },
+    {
+      "offset": 3,
+      "frames": 99,
+      "observed_inside": 7,
+      "N1_circular": {
+        "replicates": 100000,
+        "mean": 9.14298,
+        "median": 9.0,
+        "sd": 2.7790460089030553,
+        "quantiles": {
+          "q005": 3.0,
+          "q01": 3.0,
+          "q99": 16.0,
+          "q995": 17.0
+        },
+        "p_low_plus_one": 0.2860071399286007,
+        "p_high_plus_one": 0.8290117098829012,
+        "p_two_sided": 0.5720142798572014,
+        "z": -0.7711207346458709,
+        "deviation_from_median": -2.0
+      }
+    },
+    {
+      "offset": 4,
+      "frames": 99,
+      "observed_inside": 7,
+      "N1_circular": {
+        "replicates": 100000,
+        "mean": 8.32396,
+        "median": 8.0,
+        "sd": 2.6330153661534146,
+        "quantiles": {
+          "q005": 2.0,
+          "q01": 3.0,
+          "q99": 15.0,
+          "q995": 16.0
+        },
+        "p_low_plus_one": 0.3923760762392376,
+        "p_high_plus_one": 0.7480225197748023,
+        "p_two_sided": 0.7847521524784752,
+        "z": -0.5028303355229481,
+        "deviation_from_median": -1.0
+      }
+    }
+  ],
+  "gates": {
+    "G1_H1_BOTH_NULLS": false,
+    "G2_H2_BOTH_NULLS": false,
+    "G3_SAME_DIRECTION": false,
+    "G4_ABS_Z_AT_LEAST_2_5": false,
+    "G5_OFFSET_ROBUSTNESS": false
+  },
+  "decision": {
+    "stronger_statement": "SYNCHRONOUS_ALIGNMENT_EXCEEDS_NULL",
+    "retained": false,
+    "interpretation": "At least one preregistered gate failed; the stronger synchronous-alignment statement is falsified for this operator and these holdouts."
+  },
+  "claim_boundary": "FINITE_PREREGISTERED_NULL_AUDIT_NOT_CONSTANT_IDENTITY_NORMALITY_RANDOMNESS_PHYSICS_OR_UNIVERSAL_LAW",
+  "graph_delta": {
+    "nodes": 0,
+    "relations": 0,
+    "aliases": 0
+  },
+  "authority_effect": {
+    "study_activation": false,
+    "canonical_finding": false,
+    "claim_ceiling_change": false,
+    "publication_authorized": false
+  }
+}

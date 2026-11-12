@@ -1,0 +1,26 @@
+.a0-search-scope{
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  gap:.55rem;
+  margin:.65rem 0 .9rem;
+  color:inherit;
+  font:600 .72rem/1.45 ui-monospace,"SFMono-Regular",Consolas,monospace;
+}
+.a0-search-scope strong{
+  display:inline-flex;
+  align-items:center;
+  min-height:1.75rem;
+  padding:.28rem .58rem;
+  border:1px solid currentColor;
+  color:var(--scope-accent,#24bed5);
+  background:color-mix(in srgb,var(--scope-accent,#24bed5) 9%,transparent);
+  font-size:.64rem;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+}
+.a0-search-scope span{opacity:.78}
+.a0-search-scope a{color:inherit;text-underline-offset:.2em}
+@supports not (background:color-mix(in srgb,#000 10%,transparent)){
+  .a0-search-scope strong{background:transparent}
+}

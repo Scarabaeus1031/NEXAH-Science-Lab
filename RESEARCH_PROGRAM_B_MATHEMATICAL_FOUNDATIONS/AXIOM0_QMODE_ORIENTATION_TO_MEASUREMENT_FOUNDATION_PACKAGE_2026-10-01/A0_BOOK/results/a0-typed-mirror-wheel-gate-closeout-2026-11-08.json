@@ -1,0 +1,93 @@
+{
+  "receipt_id": "A0_TYPED_MIRROR_WHEEL_GATE_CLOSEOUT_2026_11_08",
+  "status": "LOCAL_ENGINEERING_CLOSEOUT_VERIFIED_WITH_PREEXISTING_GOVERNANCE_BASELINE_FAILURES",
+  "date": "2026-11-08",
+  "timezone": "Europe/Berlin",
+  "identity_reused": "SG:LENS:A0_ORIENTATION_EVIDENCE",
+  "route": [
+    "8_SOURCE_POLES",
+    "PAIR_SPLIT",
+    "HARP_PENTAGON",
+    "GATE_MIRROR",
+    "TYPED_RETURN"
+  ],
+  "visual_roles": {
+    "grey": "OUTER_BOUNDARY_RING_WITH_12_JOINTS",
+    "white": "MOON_BACKGROUND_ORIENTATION_LINE",
+    "yellow_orange": "GATE_AND_HARP",
+    "green": "COMPARATOR_SHADOW",
+    "pink": "SPLIT_AND_HANDOFF"
+  },
+  "source_bindings": [
+    "A0_BOOK/A0_AXIS08_FOLD_RETURN_SEQUENCER.html#pentagonSewing",
+    "A0_BOOK/A0_ORIENTATION_CONTROLLER_BENCH.html#pulseGrammarClock",
+    "A0_BOOK/downloads/A0_PENTAGON_KNICK_APERTURE_INTAKE_2026-10-25/sources/lantern/NEXAH_PENTAGON_GELENKLATERNE_LAB.html#yellowVentOverlay",
+    "A0_BOOK/A0_SCIENCE.html#top",
+    "NEXAH-CODEX/SYSTEM_8_LUNAR_FORCE/NEUTRINO_CABLES_AND_FINGERFIELDS/neutrino_finger_model.md",
+    "NEXAH-CODEX/SYSTEM_8_LUNAR_FORCE/FOOT_RESonance_MODEL/foot_resonance_codex.md#handfoot-resonance-bridge"
+  ],
+  "verification": {
+    "typed_mirror_assertions": "273/273_PASS",
+    "desk_production_routing": {
+      "status": "20/20_PASS",
+      "workbench_finder": true,
+      "science_desk_zone": "returns",
+      "parking_label": "Historie / Parken",
+      "routed_source_paths_checked": "4/4_PRESENT",
+      "science_desk_8plus3_board": "11/11_TARGETS_PRESENT"
+    },
+    "browser_dom": {
+      "status": "PASS",
+      "closeout_visible": true,
+      "joint_count": 12,
+      "animation": "closure-wheel-turn_24s",
+      "moon_line": "rgb(244,247,246)"
+    },
+    "source_links": "7/7_PATHS_PRESENT_AND_TARGET_ANCHORS_VERIFIED",
+    "source_graph_validator": {
+      "status": "PREEXISTING_BASELINE_FAIL",
+      "base": "329/29",
+      "composed": "332/32",
+      "failure_count": 7,
+      "failures": [
+        "QDC_ENGINEERING_AND_BROWSER_ACCEPTANCE",
+        "RUBIK_QDC_SCIENCE_DESK_HASH",
+        "RUBIK_QDC_BUILDER_DESK_HASH",
+        "RUBIK_QDC_FINDINGS_HASH",
+        "RED_BALLOON_SCIENCE_DESK_RETURN_HASH",
+        "SRC_A0OE_FINDINGS_PAPER_WORKSPACE_HASH",
+        "SRC_A0OE_A0_RESEARCH_DESK_CHECK58_HASH"
+      ]
+    },
+    "mission_control_currentness": {
+      "status": "PREEXISTING_INVALID_BASELINE",
+      "active_priority": "M-PUB01",
+      "error_count": 9
+    }
+  },
+  "artifact_sha256": {
+    "typed_mirror_html": "087d6f70a96da3da7b2333a588e12cf884a71a8fea22c234597504dc1da6f084",
+    "typed_mirror_css": "6c982e96b5071e995471ffdb0cb623fa0a512b2b333337fb46df457ceb80bd80",
+    "typed_mirror_tests": "33c34fdbf783808de3b26330f674688a32076b8e72db199c509b72baf4805d2a",
+    "typed_mirror_return": "953a9ea0807f20b79c87771bbc85c1c633fdcb0d3f4f269cf68a06d9974feb2d",
+    "science_desk": "2043bab7f4c2b96691a4abae0a643f7e4642c9a949740d7ee84ec00ea1a54070",
+    "workbench": "d4a7155d1e55e39eb778015b14be7b6e7e915bee96e65a83301ce521a51c2ce5",
+    "workbench_navigation_css": "278c73e3efaf5531eb21d45f3fcd23303cc42dfdf57185fe69dff4835bd4e59d",
+    "desk_production_routing_tests": "2fc513fe68cbcba06ef47251fcac83d5447583c17bb00208ff9c50057d25c337",
+    "builder_log": "e850432598c108a4a28f9b36b3124c451413bf7a325a2778189fb4494b4acafd",
+    "findings_workspace": "fc2386ae9c1d08283136dc360679773c0ec79def5dd4dcab9124cd5b59cd8269"
+  },
+  "governance": {
+    "qdc_hold_unchanged": true,
+    "mission_control_priority_unchanged": "M-PUB01",
+    "new_identity": 0,
+    "new_relation": 0,
+    "new_alias": 0,
+    "new_operator": 0,
+    "new_study": 0,
+    "new_finding": 0,
+    "deployment": 0,
+    "publication": 0
+  },
+  "claim_boundary": "WHEEL_ROTATION != OUTER_JOINT != MOON_LINE != HARP_STRING != HAND_GESTURE != PHYSICAL_MECHANISM"
+}

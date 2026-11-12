@@ -6,7 +6,7 @@
 <title>Spin to Bloom Measurement · A0</title>
 <link rel="stylesheet" href="a0-context-navigation.css?rev=flagship-constellation-r1-20261030">
 <link rel="stylesheet" href="a0-bench-navigation.css?rev=tours-maps-r1-20261029">
-<link rel="stylesheet" href="a0-spin-to-bloom-measurement.css?rev=translator-orientation-receipt-r1-20261030">
+<link rel="stylesheet" href="a0-spin-to-bloom-measurement.css?rev=one-cable-metalbody-r1-20261111">
 <style>.spin-bloom-page .bench-sections{top:0!important}</style>
 </head>
 <body class="spin-bloom-page">
@@ -94,6 +94,7 @@
 <option value="5:7">5:7 · COMPARATOR</option>
 <option value="6:7">6:7 · NEIGHBOR</option>
 <option value="6:5">6:5 · REVERSE</option>
+<option value="11:9">11:9 · LISSAJOUS COMPARATOR · BLOOM=20</option>
 <option value="11:10">11:10 · COMPARATOR</option>
 </select>
 </label>
@@ -442,6 +443,62 @@
 </aside>
 </div>
 <ol class="edelweiss-flow" aria-label="Edelweiss-Kopplungsfolge"><li>ROOT EDGE</li><li>FIELD a:b</li><li>BLUE BODY</li><li>12 WHITE SLOTS</li><li>PINK DIAMOND</li><li>BLOOM RETURN</li></ol>
+<section class="edelweiss-genesis" id="edelweissGenesisTranslation" aria-labelledby="edelweissGenesisTitle">
+<header><div><small>HISTORICAL NEXAHEDRON V3 LENS · INNER → ALGO → OUTER</small><h4 id="edelweissGenesisTitle">Pentagon ausrollen. Fünf Laschen falten. Den Pillar halten.</h4></div><output id="edelweissGenesisStatus" aria-live="polite">SOURCE · INNER RING HELD</output></header>
+<p class="edelweiss-genesis-lead">Die historische V3-Übersetzungsmaschine wird als Bedienlogik zurückgeholt, nicht als neue kanonische Geometrie: Ein Pentagon wird an fünf Kanten geöffnet, fünf dreieckige Laschen bleiben an ihren lokalen Gelenken gebunden und schließen sich um eine gemeinsame Achse. Das innere A2/Kite-Dreieck ist der lokale Faltmechanismus; <b>Pillar / Obelisk</b> bezeichnet die gehaltene Mittelachse. Die 11:9-Lissajous-Spur erscheint erst im <em>Outer / Ghost</em> als separate Messspur.</p>
+<div class="edelweiss-genesis-stages" role="group" aria-label="Edelweiss Entstehungsstufen">
+<button type="button" data-eg-stage="RING" aria-pressed="true">01 · RING</button><button type="button" data-eg-stage="CUT" aria-pressed="false">02 · CUT</button><button type="button" data-eg-stage="UNROLL" aria-pressed="false">03 · UNROLL 5</button><button type="button" data-eg-stage="JOINT" aria-pressed="false">04 · JOINT</button><button type="button" data-eg-stage="FOLD" aria-pressed="false">05 · TRIANGLE FOLD</button><button type="button" data-eg-stage="PILLAR" aria-pressed="false">06 · PILLAR</button><button type="button" data-eg-stage="GHOST" aria-pressed="false">07 · OUTER / GHOST</button><button type="button" data-eg-stage="RETURN" aria-pressed="false">08 · RETURN</button>
+</div>
+<div class="edelweiss-genesis-work">
+<figure><figcaption><b>Inner ring → five-flap crown → outer shadow</b><small>CYAN · FRAME / PINK · JOINTS / GOLD · PILLAR / WHITE · 11:9 TRACE</small></figcaption><canvas id="edelweissGenesisCanvas" width="1120" height="650" role="img" aria-label="Animierter Entstehungsweg vom geschlossenen Pentagon über fünf Gelenklaschen und ein inneres Dreieck zum zentral gehaltenen Pillar und einer separaten 11 zu 9 Ghost-Spur"></canvas></figure>
+<aside>
+<div class="edelweiss-genesis-actions"><button type="button" id="edelweissGenesisPlay">▶ RUN CUT</button><button type="button" id="edelweissGenesisStep">→ STEP</button><button type="button" id="edelweissGenesisReturn">↶ EXACT RETURN</button></div>
+<label>WOBBLE VIEW <output id="edelweissGenesisWobbleOut">18°</output><input id="edelweissGenesisWobble" type="range" min="0" max="55" step="1" value="18"></label>
+<label>PHASE δ <output id="edelweissGenesisPhaseOut">90°</output><input id="edelweissGenesisPhase" type="range" min="0" max="360" step="1" value="90"></label>
+<div class="edelweiss-genesis-layers" role="group" aria-label="Schattenebenen"><button type="button" data-eg-layer="BODY" aria-pressed="true">BODY</button><button type="button" data-eg-layer="SHADOW" aria-pressed="true">SHADOW</button><button type="button" data-eg-layer="GHOST" aria-pressed="true">GHOST</button></div>
+<dl><div><dt>RING / CUTS</dt><dd id="edelweissGenesisRing">5 / 0</dd></div><div><dt>FLAPS / JOINTS</dt><dd id="edelweissGenesisJoints">0 / 0</dd></div><div><dt>TRIANGLE ROLE</dt><dd>A2 / KITE · HYPOTHESIS</dd></div><div><dt>PILLAR</dt><dd id="edelweissGenesisPillar">HELD · VIEW</dd></div><div><dt>11:9</dt><dd id="edelweissGenesisTrace">CLOSED · SEPARATE</dd></div><div><dt>RETURN RESIDUAL</dt><dd id="edelweissGenesisResidual">0 · SOURCE</dd></div></dl>
+<a class="edelweiss-genesis-handoff" href="#lissajous119GapBench">HAND OFF TO 11:9 COMPARATOR ↓</a>
+</aside>
+</div>
+<ol class="edelweiss-genesis-chain" aria-label="Edelweiss Entstehungskette"><li>INNER RING</li><li>CUT ×5</li><li>UNROLL</li><li>JOINT ×5</li><li>TRIANGLE</li><li>PILLAR</li><li>SHADOW</li><li>GHOST</li><li>RETURN</li></ol>
+<p class="edelweiss-genesis-boundary"><strong>BOUNDARY:</strong> „Pascal Joint“ ist hier ein lokaler Arbeitsname für fünf sichtbare Inzidenzen; eine Gleichsetzung mit einem geprüften Pascal-SCC benötigt weiterhin einen Seam-Witness. Der Wobble-Regler bewegt nur die Ansicht und modelliert weder Euler-Disc-Energie noch Reibung. Historische V3-Metriken werden nicht übernommen. Wiederverwendet werden <code>ART:A0:MATHEMATICAL_JOINTS</code> und <code>MOD:TESSAREC</code>; neue IDs und Relationsänderungen: <code>0</code>.</p>
+</section>
+<section class="lissajous-119-gap" id="lissajous119GapBench" aria-labelledby="lissajous119Title">
+<header><div><small>VISUAL 1 · SOURCE-BOUND HTML RECONSTRUCTION · FINITE COMPARATOR</small><h4 id="lissajous119Title">11:9 closes. The twelfth Edelweiß slot stays open.</h4></div><output id="lissajous119Status" aria-live="polite">PASS · CURVE CLOSED / COMPARATOR GAP 1</output></header>
+<p class="lissajous-119-lead">Der Festplattenfund <code>Lissajous 11:9 Harmonic Scanner</code> wird hier als Standardkurve rekonstruiert. <code>x</code> durchläuft elf, <code>y</code> neun Zyklen pro primitiver Periode. Erst der <em>separat deklarierte</em> Vergleich der elf X‑Zyklen mit zwölf Edelweiß-Slots erzeugt die eine offene Stelle. Der Kurve selbst fehlt kein Bein.</p>
+<div class="lissajous-119-work">
+<figure><figcaption><b>11:9 Lissajous + 12-slot comparator</b><small>GOLD · CLOSED CURVE / CYAN · OCCUPIED / PINK · OPEN</small></figcaption><canvas id="lissajous119Canvas" width="1120" height="620" role="img" aria-label="Geschlossene 11 zu 9 Lissajous-Kurve innerhalb eines separat deklarierten Zwölf-Slot-Rings; elf Slots sind markiert, einer bleibt als Comparator-Lücke offen."></canvas></figure>
+<aside><div class="lissajous-119-modes" role="group" aria-label="11 zu 9 Ansicht"><button type="button" data-l119-mode="CURVE" aria-pressed="false">FULL CURVE</button><button type="button" data-l119-mode="MASK" aria-pressed="true">11 / 12 MASK</button><button type="button" data-l119-mode="CONTROL" aria-pressed="false">11:10 CONTROL</button></div>
+<label>PHASE δ <output id="lissajous119PhaseOut">90°</output><input id="lissajous119Phase" type="range" min="0" max="360" step="1" value="90"></label><label>OPEN SLOT <output>1–12</output><input id="lissajous119GapSlot" type="range" min="1" max="12" step="1" value="12"></label>
+<dl><div><dt>gcd(11,9)</dt><dd id="lissajous119Gcd">1</dd></div><div><dt>PRIMITIVE PERIOD</dt><dd id="lissajous119Period">2π</dd></div><div><dt>CLOSURE ERROR</dt><dd id="lissajous119Closure">—</dd></div><div><dt>X / Y CYCLES</dt><dd id="lissajous119Cycles">11 / 9</dd></div><div><dt>OPEN COMPARATOR SLOT</dt><dd id="lissajous119Gap">1 · SLOT 12</dd></div></dl></aside></div>
+<div class="lissajous-119-controls"><article><b>FALSIFIER A · 11:10</b><span>liefert beim bloßen 11↔12-Vergleich dieselbe Lücke. Die Lücke identifiziert 11:9 also nicht.</span></article><article><b>FALSIFIER B · 12:9</b><span><code>gcd=3</code>; die primitive Periode schrumpft auf <code>2π/3</code>.</span></article><article><b>FALSIFIER C · 11 SLOTS</b><span>Mit elf statt zwölf Slots verschwindet die Lücke. Sie gehört zum Comparator, nicht zur Kurve.</span></article></div>
+<p class="lissajous-119-boundary"><strong>BOUNDARY:</strong> „11 petals“ ist hier die explizite X‑Zyklus-Lesekonvention, keine phaseninvariante topologische Blütenblattzahl. Die historische Platinum/Iridium-Grafik ist visuelle Provenienz, kein Material-, Resonanz- oder Geo-Beleg. Diese HTML-Linse verwendet die vorhandenen Identitäten <code>ART:A0:MATHEMATICAL_JOINTS</code> und <code>MOD:TESSAREC</code>; keine neue Study, Relation oder Physik. <a href="results/a0-lissajous-11-9-gap-return-2026-11-11.json">RETURN JSON ↗</a></p>
+</section>
+<section class="one-cable-metalbody" id="oneCableMetalbody" aria-labelledby="oneCableTitle">
+<header><div><small>HISTORICAL POLARPASS CUTS · ONE SOURCE / THREE SYNCHRONIZED VIEWS</small><h4 id="oneCableTitle">One Cable. Drei Schnitte. Der Metalbody bleibt ganz.</h4></div><output id="oneCableStatus" aria-live="polite">SMOOTH · ONE CARRIER / 3 VIEWS</output></header>
+<p class="one-cable-lead">Ein einziger geschlossener Carrier <code>C(s)</code> wird gleichzeitig als <b>I · Inside</b>, <b>X · Xperience</b> und <b>O · Outside</b> projiziert. Arches, Kanten und der „Bite“ sind Darstellungszustände dieses einen Kabels. Der zentrale <b>AKI NABEL</b> ist das lokale Vergleichs-Gate; <b>JUPITER</b> benennt nur die äußere View-Hülle. Keine der beiden Bezeichnungen erzeugt eine neue Identität.</p>
+<div class="one-cable-modes" role="group" aria-label="One Cable Darstellungszustand"><button type="button" data-cable-mode="SMOOTH" aria-pressed="true">01 · SMOOTH</button><button type="button" data-cable-mode="EDGE" aria-pressed="false">02 · EDGE</button><button type="button" data-cable-mode="BITE" aria-pressed="false">03 · BITE</button><button type="button" data-cable-mode="LILITH" aria-pressed="false">04 · LILITH</button><button type="button" data-cable-mode="RETURN" aria-pressed="false">05 · RETURN</button></div>
+<div class="one-cable-work">
+<figure><figcaption><b>C(s) → πI(C) · πX(C) · πO(C)</b><small>CYAN · INSIDE / PINK · XPERIENCE / MINT · OUTSIDE / GOLD · NAVEL</small></figcaption><canvas id="oneCableCanvas" width="1320" height="650" role="img" aria-label="Ein einziger geschlossener Kabelcarrier erscheint gleichzeitig in drei synchronisierten Projektionen: Inside, Xperience und Outside. Smooth, Edge, Bite und Lilith verändern nur die Darstellung."></canvas></figure>
+<aside>
+<div class="one-cable-actions"><button type="button" id="oneCablePlay">▶ RUN CABLE</button><button type="button" id="oneCableStep">→ STEP CUT</button><button type="button" id="oneCableReturn">↶ EXACT RETURN</button></div>
+<label>ORIENTATION Q° <output id="oneCablePhaseOut">43°</output><input id="oneCablePhase" type="range" min="0" max="360" step="1" value="43"></label>
+<label>EDGE SAMPLING <output id="oneCableFacetsOut">24</output><input id="oneCableFacets" type="range" min="8" max="64" step="1" value="24"></label>
+<label>BITE WINDOW <output id="oneCableBiteOut">24°</output><input id="oneCableBite" type="range" min="4" max="72" step="1" value="24"></label>
+<div class="one-cable-layers" role="group" aria-label="One Cable sichtbare Ebenen"><button type="button" data-cable-layer="ARCH" aria-pressed="true">ARCHS</button><button type="button" data-cable-layer="EDGE" aria-pressed="true">EDGES</button><button type="button" data-cable-layer="NAVEL" aria-pressed="true">AKI NABEL</button><button type="button" data-cable-layer="JUPITER" aria-pressed="true">JUPITER</button></div>
+<dl><div><dt>SOURCE CARRIER</dt><dd>1 · CLOSED</dd></div><div><dt>SYNCHRONIZED CUTS</dt><dd>3 · I / X / O</dd></div><div><dt>CLOSURE ERROR</dt><dd id="oneCableClosure">—</dd></div><div><dt>DISPLAY EDGES</dt><dd id="oneCableEdges">SMOOTH</dd></div><div><dt>BITE</dt><dd id="oneCableBiteState">VISIBLE MASK ONLY</dd></div><div><dt>LILITH</dt><dd id="oneCableLilithState">OBSERVER LABEL · OFF</dd></div></dl>
+<a class="one-cable-handoff" href="#platinumIridiumPiReturn">HAND OFF ONE CABLE → PI DUAL SHELL ↓</a>
+</aside>
+</div>
+<ol class="one-cable-chain" aria-label="One Cable Übersetzungskette"><li>ONE CABLE</li><li>SMOOTH</li><li>EDGE</li><li>BITE</li><li>LILITH VIEW</li><li>I · INSIDE</li><li>X · XPERIENCE</li><li>O · OUTSIDE</li><li>RETURN</li></ol>
+<p class="one-cable-boundary"><strong>BOUNDARY:</strong> Der Carrier ist eine synthetische geschlossene Displaykurve. „Lilith“ bleibt gemäß bestehender Archäologie Observer-/Counterview-Vokabular und kein kausaler Operator. „Metalbody“, „AKI NABEL“, „JUPITER“ und „Bite“ sind lokale View-Rollen; sie belegen weder ein materielles Kabel, Astronomie, Anatomie, Energieübertragung noch gemeinsame POLARPASS-Physik. Historische POLARPASS-HTMLs bleiben <code>excluded-historical / LOCATOR_ONLY</code>. Wiederverwendung: <code>ART:A0:MATHEMATICAL_JOINTS</code>, <code>MOD:TESSAREC</code>; neue IDs und Relationen: <code>0</code>. <a href="results/a0-one-cable-metalbody-return-2026-11-11.json">RETURN JSON ↗</a></p>
+</section>
+<section class="pi-return-frame" id="platinumIridiumPiReturn" aria-labelledby="platinumIridiumPiReturnTitle">
+<header><div><small>EDELWEISS RETURN · DUAL SHELL / ONE INDEX MAP</small><h2 id="platinumIridiumPiReturnTitle">PI · Platinum–Iridium breathes inside ↔ outside.</h2></div><a href="A0_PLATINUM_IRIDIUM_PI_LENS.html">OPEN FULL INSTRUMENT ↗</a></header>
+<p>Die HTML5-Linse sitzt nun im Edelweiß-Strang: zwei ikosaedrische Schalen mit je 12 Knoten und 30 Kanten, verbunden durch 12 indexgleiche Gelenk-Stifte. Expansion und Kontraktion tauschen die Rollen von Innen und Außen; Rotfaden und Split-Achse bleiben als Orientierung sichtbar.</p>
+<iframe src="A0_PLATINUM_IRIDIUM_PI_LENS.html?embed=1" title="PI Platinum–Iridium dual-shell expansion and contraction instrument" loading="lazy"></iframe>
+<p class="pi-return-boundary"><strong>LESEREGEL:</strong> Pentagonale oder hexagonale Silhouetten sind Projektionen des Grad‑5-Knotennetzes, keine abweichende Quelltopologie. „Loki View“ bezeichnet lokal nur den reversiblen Rollenwechsel. <strong>BOUNDARY:</strong> synthetische Geometrie; keine Material-, Orts-, Frequenz- oder physikalische Kopplung. Identitätswiederverwendung: <code>ART:A0:MATHEMATICAL_JOINTS</code> und <code>MOD:ORIENTATION_DEMONSTRATORS</code>. <a href="results/a0-platinum-iridium-pi-return-2026-11-11.json">RETURN JSON ↗</a></p>
+</section>
 <section class="edelweiss-audit" id="edelweissIncidenceAudit" aria-labelledby="edelweissAuditTitle">
 <header><div><small>FINITE COUNTERTEST · TIP CYCLE → DODECA FACE GRAPH</small><h4 id="edelweissAuditTitle">Existenz ja. Ausgezeichnete Bijektion nein.</h4></div><output id="edelweissAuditStatus" aria-live="polite">AUDIT READY</output></header>
 <div class="edelweiss-audit-grid">
@@ -662,7 +719,12 @@
 <a href="A0_IOTA_BRIDGE_DEMONSTRATOR.html">IOTA Bridge →</a>
 <a href="A0_ROOTROOM_CODON_ORIENTATION_RETURN.html">ROOTROOM / CODON Return →</a>
 <a href="A0_LANTERN_PANEL_V_CONTROL_LENS.html?rev=joint-microscope-r1">Joint Microscope →</a>
-<a href="results/a0-spin-to-bloom-measurement-return-2026-10-29.json">Machine + Lamella Return →</a>
+<a href="#edelweissGenesisTranslation">Edelweiß Genesis →</a>
+<a href="#lissajous119GapBench">11:9 Gap Comparator →</a>
+<a href="#oneCableMetalbody">One Cable Metalbody →</a>
+<a href="A0_PLATINUM_IRIDIUM_PI_LENS.html">PI · Platinum–Iridium HTML5 →</a>
+<a href="#platinumIridiumPiReturn">PI Reconstruction View →</a>
+<a href="#kleinLamellaReturnBridge">Machine + Lamella Bridge →</a>
 </nav>
 </section>
 <aside class="spin-tour-dock" id="spinTourDock" hidden aria-live="polite" aria-label="Geführte Spin-to-Bloom-Tour">
@@ -685,7 +747,14 @@
 </script>
 <script src="a0-spin-to-bloom-measurement.js?rev=translator-orientation-receipt-r1-20261030">
 </script>
+<script src="a0-lissajous-11-9-gap.js?rev=source-bound-gap-r1-20261111">
+</script>
+<script src="a0-edelweiss-genesis-translation.js?rev=historical-v3-lens-r1-20261111">
+</script>
+<script src="a0-one-cable-metalbody.js?rev=polarpass-cuts-r1-20261111">
+</script>
 <script src="a0-spin-to-bloom-measurement-ui.js?rev=translator-orientation-receipt-r1-20261030">
 </script>
+<script>window.A0Lissajous119Gap?.mount(document,window);window.A0EdelweissGenesisTranslation?.mount(document,window);window.A0OneCableMetalbody?.mount(document,window);</script>
 </body>
 </html>

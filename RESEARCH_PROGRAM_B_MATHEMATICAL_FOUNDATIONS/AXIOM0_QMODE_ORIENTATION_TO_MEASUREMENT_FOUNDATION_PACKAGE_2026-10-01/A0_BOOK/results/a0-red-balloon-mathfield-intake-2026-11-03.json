@@ -1,7 +1,7 @@
 {
   "schema": "nexah.a0.science-desk.mathfield-intake.v1",
   "recorded_at": "2026-11-03",
-  "updated_at": "2026-11-06",
+  "updated_at": "2026-11-09",
   "title": "The Red Balloon",
   "classification": "SOURCE_BOUND_MATHFIELD_INSTRUMENT",
   "paper_triage": "TBC_NOT_A_PAPER",
@@ -106,6 +106,64 @@
     "new_operator": false,
     "new_identity": false,
     "evidence_effect": "DOCUMENTARY_TYPED_LEDGER_ONLY"
+  },
+  "delta_cube_coordinate_addendum": {
+    "schema": "nexah.a0.red-balloon-delta-cube-coordinate-addendum/1",
+    "classification": "EXACT_RELATION_AND_DECLARED_VIEW_CONTRACT",
+    "pi_residual": {
+      "expression": "delta_pi = 10/3 - pi",
+      "decimal": 0.19174067974354037,
+      "scaled_10100": 1936.5808654097577,
+      "quantizer": "Q(x) = round(10100*x)",
+      "quantized_address": 1937,
+      "boundary": "1937 is a derived address under Q, not a hidden identity. The leading decimal digits 19 do not imply a theorem involving 92+19=111."
+    },
+    "declared_twist_view": {
+      "map": "H_delta(t) = (r*cos(2*pi*delta*t), r*sin(2*pi*delta*t), t)",
+      "delta_zero": "straight line parallel to the T axis; on the T axis only when r=0",
+      "variable_radius": "r(t) gives a variable-radius helical or spiral view",
+      "boundary": "The spiral is produced by the declared map, not automatically by 10/3-pi."
+    },
+    "base_11_control": {
+      "exact": ["121 = 11^2", "121*11 = 1331 = 11^3", "phi(121) = 110"],
+      "nonclaims": ["121 is not a Fibonacci number", "multiplication by 11 does not derive pi", "Fe | integral | Euler | chi is a symbolic legend only"]
+    },
+    "cube_coordinate_contract": {
+      "coordinate": "C=(IA,LR,OU)",
+      "signs": {"A": -1, "I": 1, "L": -1, "R": 1, "U": -1, "O": 1},
+      "origin": "O_0=(0,0,0)",
+      "corners": {
+        "ALU": [-1, -1, -1], "ALO": [-1, -1, 1],
+        "ARU": [-1, 1, -1], "ARO": [-1, 1, 1],
+        "ILU": [1, -1, -1], "ILO": [1, -1, 1],
+        "IRU": [1, 1, -1], "IRO": [1, 1, 1]
+      },
+      "open_glb_map": "M: C_letters -> C_GLB",
+      "open_reason": "B_CORNER_ALU is currently placed at the positive GLB corner; a Janus or sign-inversion map is possible but not yet declared."
+    },
+    "cube_witness_chain": {
+      "exact": ["1429+299=1728=12^3", "1429+299+1=1729", "299=13*23", "1729=7*13*19", "1729=1^3+12^3=9^3+10^3"],
+      "prime_1429": true,
+      "boundary": "Bead, midpoint or witness are view roles for +1. The arithmetic does not imply that a physical cube opens into 7, 13 and 19 axes."
+    },
+    "moving_bead_gap": {
+      "conditional_equation": "r_star(t) = -delta_gap(t)/sin(theta_13(t)-theta_7(t))",
+      "domain_gate": "angles, offset, units and sign convention declared; denominator nonzero",
+      "nonidentity": "delta_gap != delta_pi unless a separate binder explicitly identifies them"
+    },
+    "open_owner_choices": [
+      "Select and declare the GLB map M.",
+      "Define Euler stair E as totient sequence, Euler path or the existing 2-Euler address rule.",
+      "Keep Fibonacci rail F separate with seeds 1,1 and recurrence F_(n+1)=F_n+F_(n-1)."
+    ],
+    "navigator": {"new_ids": 0, "new_aliases": 0, "relation_changes": 0},
+    "new_operator": false,
+    "new_identity": false,
+    "new_relation": false,
+    "new_study": false,
+    "new_finding": false,
+    "publication": false,
+    "evidence_effect": "DOCUMENTARY_TYPING_AND_VIEW_CONTRACT_ONLY"
   },
   "story_lens": {
     "schema": "nexah.a0.red-balloon-story/1",

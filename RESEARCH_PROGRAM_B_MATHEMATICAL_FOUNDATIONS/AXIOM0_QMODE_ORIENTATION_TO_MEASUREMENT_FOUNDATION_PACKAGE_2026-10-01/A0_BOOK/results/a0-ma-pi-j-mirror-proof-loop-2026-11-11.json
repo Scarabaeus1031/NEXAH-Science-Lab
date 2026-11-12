@@ -1,0 +1,268 @@
+{
+  "schema": "nexah.a0.ma-pi-j-mirror-proof-loop/1.0.0",
+  "date": "2026-11-11",
+  "status": "LOCAL_SOURCE_BOUND_PROOF_DEMONSTRATOR",
+  "route": "A0_BOOK/assets/a0-field-notes/index.html#ma-pi-proof-loop",
+  "definitions": {
+    "domain": "X={0,1,...,1000}",
+    "involution": "J(n)=1000-n",
+    "residual": "r(n)=n-500"
+  },
+  "proof": {
+    "addresses": 1001,
+    "involution_checks": "1001/1001 PASS",
+    "pair_cancellation_checks": "500/500 PASS",
+    "fixed_points": [500],
+    "total_discrete_balance": 0,
+    "continuous_integral_balance": 0
+  },
+  "negative_controls": {
+    "odd_limit_999_has_integer_fixed_point": false,
+    "shifted_center_499_balance": 1001,
+    "incomplete_0_to_999_balance_around_500": -500
+  },
+  "angle_sidecar": {
+    "value": 66069137,
+    "modulus": 360,
+    "remainder": 137,
+    "step": 137,
+    "gcd": 1,
+    "smallest_return_steps": 360,
+    "full_return_degrees": 49320
+  },
+  "gyro_t_sidecar": {
+    "status": "SOURCE_BOUND_VIEW_REUSE",
+    "ui_alias": "GYRO T / Pink Cube",
+    "addresses": [1031, 1032, 1033],
+    "source_rail": [41, 42, 43],
+    "source_shift": "h -> h+990",
+    "operator": "R_1032(n)=2064-n",
+    "exact_relation": "1031+1033=2064=2*1032",
+    "residues": {
+      "mod_7": [2, 3, 4],
+      "mod_11": [8, 9, 10],
+      "mod_12": [11, 0, 1],
+      "mod_13": [4, 5, 6]
+    },
+    "control_100_121": {
+      "mod_7": [2, 2],
+      "mod_11": [1, 0],
+      "mod_12": [4, 1],
+      "mod_13": [9, 4],
+      "boundary": "A shared residue is not address identity."
+    },
+    "mod_360": {
+      "J_1000": {"addresses": [137, 143], "constant": 280},
+      "R_1032": {"addresses": [311, 312, 313], "constant": 264}
+    },
+    "grouping_control": {
+      "residue_rail": [2, 3, 4],
+      "first_three_primes": [2, 3, 5],
+      "pair_address": [16, 56],
+      "pair_derivation": ["2^4=16", "7*2^3=56"],
+      "concatenated_integer": 1656,
+      "concatenated_factorization": "2^3*3^2*23",
+      "equal_sum_gate": "7+11=12+6=18",
+      "thirteen_gate": "1+12=13",
+      "pair_residues": {
+        "mod_7": [2, 0],
+        "mod_11": [5, 1],
+        "mod_12": [4, 8],
+        "mod_13": [3, 4]
+      },
+      "hold": {"token": "165 / 135 / 2*3", "status": "UNPARSED_OWNER_TOKEN"}
+    },
+    "graph_delta": {"new_nodes": 0, "new_relations": 0, "new_aliases": 0}
+  },
+  "scarab_return_sidecar": {
+    "status": "SOURCE_BOUND_FULL_TURN_VIEW",
+    "route": "A0_BOOK/assets/a0-field-notes/index.html#gyro-scarab-return",
+    "decimal_mirrors": [[1033, 3301], [1087, 7801]],
+    "negative_controls": {"reverse_1032": 2301, "reverse_1031": 1301, "transform_to_3201": "HOLD"},
+    "orbit": [1031, 1032, 1033, 3201, 3301, 7801],
+    "crown_sum": 17399,
+    "crown_factorization": "127*137",
+    "axis_ledger": "17399+(-6867)=10532",
+    "cipher_handle": {"pair_address": "1033|3301", "decimal_concatenation": "10333301"},
+    "tesa_existing_a0": {"mod_42": [25, 25], "mod_9": [7, 7]},
+    "inside_outside_boundary": "0!=1",
+    "unit_circle": {"scan": "0->360 degrees", "orientation": "COUNTERCLOCKWISE_VIEW", "return": "SAME_POINT"},
+    "angle_projection_mod_360": {"1033": 313, "3301": 61, "17399": 119, "R_1032_constant": 264},
+    "carrier_264_control": {
+      "factorization": "2^3*3*11",
+      "division_64": "4 remainder 8",
+      "division_32": "8 remainder 8",
+      "binary": "100001000",
+      "hexadecimal": "108",
+      "boundary": "Shared residue does not establish C64/B32 carrier identity."
+    },
+    "hold": ["3201_TRANSFORM_RULE", "STONE_KITE_OPERATOR", "C64_B32_SEMANTICS"],
+    "graph_delta": {"new_nodes": 0, "new_relations": 0, "new_aliases": 0}
+  },
+  "kubrik_block_return_sidecar": {
+    "status": "SOURCE_BOUND_BLOCK_SWAP_VIEW",
+    "route": "A0_BOOK/assets/a0-field-notes/index.html#kubrik-block-return",
+    "prime_window": "37+41+43=121=11^2",
+    "left_bottom_route": "141/3=47",
+    "block_families": {
+      "31_13": {"forward": 3113, "swapped": 1331, "forward_factorization": "11*283", "swapped_factorization": "11^3"},
+      "47_74": {"forward": 4774, "swapped": 7447, "forward_factorization": "2*7*11*31", "swapped_factorization": "11*677"}
+    },
+    "operator": {"name": "two-block swap", "involution": true, "boundary": "Block swap is not ordinary decimal reversal."},
+    "glyph_619_control": {"half_turn_glyph": "619", "decimal_reverse": 916, "boundary": "Display rotation is not decimal identity."},
+    "breathing_crystal_view": {"moving_bands": 3, "fixed_core": 1, "identity": "NEXAH:INSTRUMENT:BREATHING_PRIME_CRYSTAL:V1"},
+    "seam_token": {"token": "31|i|13", "status": "ORIENTATION_SEAM_VIEW_NOT_IMAGINARY_MULTIPLICATION"},
+    "hopf_boundary": {"status": "HOLD_NO_TRANSFER", "existing_comparator": "NEXAH_PCA_HOPF_C4_REQUANTIZATION_TEST", "global_commutation": "REJECTED", "active_capability": false},
+    "identity_reuse": ["FESN:4774", "NEXAH_A0_ORIENTATION_CONTROLLER_BENCH", "NEXAH:INSTRUMENT:BREATHING_PRIME_CRYSTAL:V1"],
+    "graph_delta": {"new_nodes": 0, "new_relations": 0, "new_aliases": 0}
+  },
+  "harmonic_529_staircase_sidecar": {
+    "status": "SOURCE_BOUND_TYPED_DIFFERENCE_VIEW",
+    "route": "A0_BOOK/assets/a0-field-notes/index.html#harmonic-529-return",
+    "integer_rail": [432, 440, 456, 487, 529],
+    "increments": [8, 16, 31, 42],
+    "total_delta": 97,
+    "foundation": {
+      "142": "2*71",
+      "143": "11*13",
+      "144": "12^2=F_12",
+      "432": "3*144"
+    },
+    "connector_529_531": {
+      "left": "529=23^2",
+      "right": "531=3^2*59",
+      "midpoint": 530,
+      "separation": 2
+    },
+    "phase_view": {"degrees": 144, "existing_C5_rail": [0, 72, 144, 216, 288]},
+    "crystal_scale_view": {
+      "operator": "S_1000(x)=1000x",
+      "source_bands": [0.429, 0.456, 0.487],
+      "display_addresses": [429, 456, 487],
+      "boundary": "Declared scaling view; not source-object identity."
+    },
+    "triple_root_chamber": {
+      "status": "LOCAL_SQUARED_ADDRESS_SPLIT_VIEW",
+      "radicands": [429, 439, 456],
+      "roots": ["sqrt(429)", "sqrt(439)", "sqrt(456)"],
+      "address_increments": [10, 17],
+      "total_address_delta": "456-429=27=3^3",
+      "factorizations": {
+        "429": "3*11*13",
+        "439": "PRIME",
+        "456": "2^3*3*19"
+      },
+      "source_binding": {
+        "429": "S_1000(BAND_0.429)",
+        "439": "LOCAL_SPLIT_ADDRESS_NOT_CRYSTAL_BAND",
+        "456": "S_1000(BAND_0.456)"
+      },
+      "boundary": "10, 17 and 27 are radicand/address differences; they are not differences of the square-root values."
+    },
+    "phi_angle_gate": {
+      "phi": "(1+sqrt(5))/2",
+      "definition": "theta_phi=atan(sqrt(phi))",
+      "angle_degrees": 51.827292372987756,
+      "complement_degrees": 38.172707627012244,
+      "identities": ["tan(theta_phi)=sqrt(phi)", "sin(theta_phi)=1/sqrt(phi)", "cos(theta_phi)=1/phi"],
+      "rounded_poster_angles": [51.83, 38.17],
+      "root_chamber_coupling": "HOLD_NO_DECLARED_OPERATOR"
+    },
+    "typed_source_lanes": {
+      "crystal": ["BAND_0.429", "BAND_0.456", "BAND_0.487", "PLATE_ROOT432"],
+      "frequency_seeds_hz": [432, 440, 444],
+      "complex_phase": "exp(i*theta) in S1",
+      "real_growth": "exp(x) in positive reals"
+    },
+    "negative_controls": {
+      "144_squared": 20736,
+      "456_equals_144_squared": false,
+      "fibonacci_binding": "144=F_12 only",
+      "unparsed_voltage_token": "230/400V"
+    },
+    "hold": ["HARMONIC_MECHANISM", "VOLTAGE_ADAPTER", "EXPONENTIAL_RAIL_COUPLING", "ROOT_PHI_COUPLING", "POSTER_48_17_1_83_27_17_MINUS_11_X87_X33_232"],
+    "identity_reuse": ["NEXAH:INSTRUMENT:BREATHING_PRIME_CRYSTAL:V1", "NEXAH_A0_ORIENTATION_CONTROLLER_BENCH"],
+    "graph_delta": {"new_nodes": 0, "new_relations": 0, "new_aliases": 0}
+  },
+  "demonstrator_sync_sidecar": {
+    "status": "SOURCE_BOUND_TYPED_HANDOFF",
+    "route": [
+      "A0_ORIENTATION_CONTROLLER_BENCH.html#breathingCrystalBench",
+      "A0_ORIENTATION_CONTROLLER_BENCH.html#bcbRootChamberHandoff",
+      "A0_ORIENTATION_CONTROLLER_BENCH.html#aperturePhiReturn",
+      "assets/a0-field-notes/index.html#harmonic-529-return"
+    ],
+    "type_chain": ["GLB_NODE", "NORMALIZED_BAND_LABEL", "SCALED_INTEGER_ADDRESS", "LOCAL_SPLIT_ADDRESS", "ANGLE_COMPARATOR"],
+    "crystal_nodes": ["BAND_0.429", "BAND_0.456"],
+    "address_chamber": [429, 439, 456],
+    "aperture_comparison": {
+      "declared_p3_degrees": 51.83,
+      "exact_phi_degrees": 51.827292372987756,
+      "signed_residual_degrees": 0.002707627012244,
+      "display_residual_degrees": 0.002708,
+      "complement_degrees": 38.172707627012244
+    },
+    "mutations": {"glb": false, "node_port_contract": false, "aperture_fixture": false, "canonical_identity": false},
+    "boundary": "Typed handoff and return links only; no root-to-phi mechanism or carrier identity transfer.",
+    "graph_delta": {"new_nodes": 0, "new_relations": 0, "new_aliases": 0}
+  },
+  "rath_balance_bridge": {
+    "status": "BOUNDED_AFFINE_VIEW_ON_EXISTING_OPEN_SEMANTIC_OPERATOR",
+    "source_record": "RATH_49_51_SEMANTIC_OPERATOR_OPEN",
+    "operator": "J_100(p)=100-p",
+    "atlas_percent": 51,
+    "hektor_percent": 49,
+    "fixed_seam_percent": 50,
+    "percent_sum": 100,
+    "minute_adapter": {
+      "operator": "M(p)=0.6p",
+      "atlas_minutes": 30.6,
+      "hektor_minutes": 29.4,
+      "sum_minutes": 60,
+      "separation_minutes": 1.2,
+      "separation_seconds": 72
+    },
+    "control_rails": {
+      "j1000_pair": [227, 773],
+      "j1000_sum": 1000,
+      "minute_span": "833-773=60",
+      "percent_span": "477-377=100"
+    },
+    "typed_angles": {
+      "204_degrees": {"arcminutes": 12240, "arcseconds": 734400},
+      "400_arcminutes": {"degrees": 6.666666666666667, "arcseconds": 24000},
+      "420_arcseconds": {"degrees": 0.11666666666666667, "arcminutes": 7}
+    },
+    "hold": ["LUX_PHYSICAL_UNIT_WITHOUT_MEASUREMENT", "PI_DAO_UNDECLARED_OPERATOR", "RATH_SEMANTIC_MECHANISM_OPEN"],
+    "graph_delta": {"new_nodes": 0, "new_relations": 0, "new_aliases": 0}
+  },
+  "verification": {
+    "field_notes_build": "PASS / 64 notes / 29 ideas",
+    "field_notes_reader": "PASS / 247 checks",
+    "orientation_controller_bench": "PASS / v0.21.0",
+    "breathing_crystal_bench": "PASS / 169 checks / 119 addressed nodes"
+  },
+  "sha256": {
+    "build-a0-field-notes.cjs": "166790ba7dc22d7fb428a8bdcfc36cfe6eed4594a00933140b08acf7bef2ebf3",
+    "assets/a0-field-notes/ma-pi-proof-loop.js": "1812f1d97d3dc2290c92addaa292fc470f1cd6229d742edec7f6cb7f6fe1a7d4",
+    "assets/a0-field-notes/ma-pi-proof-loop.css": "55b74637bf1b93a04bcadfd39d21ae76bded226d9a687780746cf60340e92466",
+    "assets/a0-field-notes/ma-pi-gyro-t.css": "ef11e2af0a1ca0b6313fa82cada001a73024e77ea9c3e95399c96c299675b385",
+    "assets/a0-field-notes/index.html": "990e6bee23c0f4cda9479ff0c788ee73aa5e855fda218536eaafc9e14efa6990",
+    "A0_ORIENTATION_CONTROLLER_BENCH.html": "c4442386465bc67ec58fb20aa603e9314b9df816c030854498931e1762cb2da9",
+    "a0-breathing-crystal-bench.css": "22ef677a74983c251caa104e415ed0bff4e908984deea84c7b1067f036a0b1e1",
+    "a0-aperture-stack-calibration.css": "48ff65cbbb63639fda24f0c736626e4e7a3f345ce90ee0f688c885c57c906212"
+  },
+  "navigator": {
+    "identity_reuse": [
+      "ART:A0:MATHEMATICAL_JOINTS",
+      "NEXAH:A0_ORIENTATION_EVIDENCE_LINEAGE:V1",
+      "SG:LENS:A0_ORIENTATION_EVIDENCE",
+      "NEXAH_A0_ORIENTATION_CONTROLLER_BENCH"
+    ],
+    "new_nodes": 0,
+    "new_relations": 0,
+    "new_aliases": 0,
+    "canonical_count_delta": 0
+  },
+  "claim_boundary": "Known reflection and symmetry mathematics presented through a distinctive local interactive instrument; no new theorem, physics, Study, Finding, publication or external novelty determination."
+}

@@ -14,8 +14,8 @@ ok(receipt.navigatorEffect.newCanonicalIds===0&&receipt.navigatorEffect.relation
 ok(receipt.claimCeiling.includes("interface"),"claim ceiling explicit");
 ok(receipt.relationChamber.sourceBound&&!receipt.relationChamber.ninthBody&&!receipt.relationChamber.guidedTourChanged,"relation chamber stays a bounded live consumer");
 ok(html.includes('id="relationChamber"')&&html.includes("NLK LIVE RELATION INSTRUMENT")&&html.includes("TRI‑VIEW BRIDGE")&&html.includes("data-mrc-frame"),"relation chamber mounted");
-ok(html.includes('data-mrc-view="stage"')&&html.includes('data-mrc-view="dock"')&&html.includes('data-src="A0_NLK_LSHELL_DEVELOPMENT_PROBE.html"'),"relation chamber exposes stage-first and tri-view projections");
-ok(relationJs.VIEW_ANCHORS.stage==="mainStageShell"&&relationJs.VIEW_ANCHORS.dock==="triViewDock","relation chamber routes both source anchors");
+ok(html.includes('data-mrc-view="stage"')&&html.includes('data-mrc-view="dock"')&&html.includes('data-mrc-view="pi"')&&html.includes('data-src="A0_NLK_LSHELL_DEVELOPMENT_PROBE.html"'),"relation chamber exposes NLK and PI projections");
+ok(relationJs.VIEW_ROUTES.stage.endsWith("#mainStageShell")&&relationJs.VIEW_ROUTES.dock.endsWith("#triViewDock")&&relationJs.VIEW_ROUTES.pi==="A0_PLATINUM_IRIDIUM_PI_LENS.html?embed=1","relation chamber routes both NLK views and the PI lens");
 ok(relationCss.includes("button[data-mrc-view].is-active")&&relationCss.includes("min-height:760px"),"relation projection controls and main stage are visibly styled");
 ok(receipt.relationChamber.stageFirst&&receipt.relationChamber.entryProjection.endsWith("#mainStageShell")&&receipt.relationChamber.comparisonProjection.endsWith("#triViewDock"),"relation receipt binds stage-first entry and comparison projection");
 ok(foyer.MODELS.length===8&&foyer.SOURCE_WINDOWS.length===3&&foyer.GLB_DECK.length===5&&foyer.GLB_COCKPITS.length===4,"three source windows and five deck GLBs remain separately typed");

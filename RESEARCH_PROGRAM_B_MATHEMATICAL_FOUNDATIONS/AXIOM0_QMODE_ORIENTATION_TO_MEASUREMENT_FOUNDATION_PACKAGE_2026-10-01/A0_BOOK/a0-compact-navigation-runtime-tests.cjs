@@ -3,6 +3,10 @@ const source=fs.readFileSync(__dirname+'/a0-context-navigation.js','utf8');let c
 const ok=(v,m)=>{assert(v,m);checks++;};
 const legacyNexahedronRoute=fs.readFileSync(__dirname+'/a0-human/start/index.html','utf8');
 ok(legacyNexahedronRoute.includes('/40%20EXPERIENCE%20PRODUCTION/NEXAHEDRON/public/a0-human/start/A0_NEXAH_APERTURE_JOURNEY.html#human-view')&&legacyNexahedronRoute.includes('location.replace(target)'),'legacy A0 NEXAHEDRON route remains a redirect to the maintained Human View source, not a duplicate application');
+const generationCornerEntry=fs.readFileSync(__dirname+'/A0_PASCAL_GENERATION_CORNER.html','utf8');
+ok(generationCornerEntry.includes('id="unified-generation-corner-candidate"')&&generationCornerEntry.includes('A0 internal candidate · unpushed · no public channel'),'A0 Generation Corner entry declares the unified candidate as internal and unpushed');
+ok(generationCornerEntry.includes('http://127.0.0.1:4328/laboratory/roedelheim-observatory/generation-corner/'),'A0 Generation Corner entry opens the exact local Experience candidate');
+ok(generationCornerEntry.includes('A0_RESEARCH_DESK.html#scc-003-r1-generation-review-bridge-20261110')&&generationCornerEntry.includes('http://127.0.0.1:4328/scc-003-r1/'),'A0 Generation Corner returns to the Science Desk and keeps the SCC-003-R1 review target as local staging');
 function mount(file,hash='',search='',surface={}){
  const nodes=[];
  class E{
@@ -57,6 +61,11 @@ for(const file of ['index.html','A0_LIVING_BLUEPRINT.html','A0_SCIENTIFIC_POSITI
  ok(channels?.children[0].href==='https://nexahedron.com/'&&channels.children[1].href==='https://nexah.de/'&&channels.children[2].href==='https://www.scarabaeus1033.net/','the three public websites are visibly separated from A0 lanes');
  const scienceLane=menus.find(n=>n.className.endsWith('--science'));
  ok(m.nodes.some(n=>n.className?.includes('a0-reader-section')&&(n.innerHTML||'').includes('A0 NSNavigator')),'A0 NSNavigator is integrated into Science');
+ const scienceReading=scienceLane.children[1].children[0].children[1];
+ const generationCornerSection=scienceReading.children[0].children.find(n=>(n.innerHTML||'').includes('Instrumente & interne Kandidaten'));
+ ok(generationCornerSection?.children.some(link=>link.href==='A0_PASCAL_GENERATION_CORNER.html#unified-generation-corner-candidate'),'Science routes the unpushed unified Generation Corner through its existing A0 entry instead of presenting it as a public channel');
+ ok(generationCornerSection?.children.some(link=>link.href==='http://127.0.0.1:4328/scc-003-r1/'&&link.innerHTML.includes('Reviewraum (lokal)')),'Science exposes the intended SCC-003-R1 review room as local owner staging, not as a deployed public channel');
+ ok(generationCornerSection?.children.some(link=>link.href==='http://127.0.0.1:4328/review-assets/scc-003-r1/demonstrators/complex-fold-18x23.html?rev=crt-ghost-grid-20261110#root432-keystone-capsule'),'Science exposes the existing SCC-003 Complex Fold demonstrator as a direct A0 route');
  for(const section of ['Highlights · aktueller Build','Workbench','Demonstratoren','Bestand & Status'])ok(m.nodes.some(n=>n.className?.includes('a0-reader-section')&&(n.innerHTML||'').includes(section)),section+' is separated inside Builder');
  ok(!m.nodes.some(n=>n.className?.includes('a0-reader-section')&&(n.innerHTML||'').includes('Flagship Labs')),'Builder directory does not repeat the flagship constellation');
  const workspaceOverview=h.children[2];
@@ -72,7 +81,7 @@ for(const file of ['index.html','A0_LIVING_BLUEPRINT.html','A0_SCIENTIFIC_POSITI
   ok(showcase.className==='a0-showcase'&&reading.className==='a0-reader-reading','features first and directory last');
   const science=lane.className.endsWith('--science');
   const human=lane.className.endsWith('--human');
-  ok(showcase.children.length===(science?6:builder?4:5),science?'six curated Science cards including Red Balloon and 101 / A0':builder?'four curated Builder entry cards':'five curated Human entry cards');
+  ok(showcase.children.length===(science?10:builder?4:5),science?'ten curated Science cards including PI Lens, Generation Corner, SCC-003-R1 Review, Red Balloon, Complex Fold and 101 / A0':builder?'four curated Builder entry cards':'five curated Human entry cards');
   for(const card of showcase.children){
    if(/^https?:/.test(card.href))continue;
    const [route,anchor]=card.href.split('#'),page=route.split('?')[0];
@@ -81,13 +90,17 @@ for(const file of ['index.html','A0_LIVING_BLUEPRINT.html','A0_SCIENTIFIC_POSITI
    ok(!anchor||target.includes('id="'+anchor+'"')||dynamicAnchor,'existing local target and anchor '+card.href);
   }
   if(science){
-   ok(showcase.children[0].href==='A0_SCIENCE.html#top','Science foregrounds the long A0 Science editorial page');
-   ok(showcase.children[0].className.includes('a0-showcase-card--nexah'),'A0 Science retains its editorial flagship treatment');
-   ok(showcase.children[1].href==='A0_RESEARCH_DESK.html?desk=overview&channel=science#a0-current-state'&&showcase.children[1].innerHTML.includes('CURRENT STATE · SCIENCE'),'Science retains the bounded current-state lens without repeating the Science Desk card');
-   ok(showcase.children[2].href==='DRAFTS/A0_PERIODIC_CARRIER_Z100_2026-11-03.html#game-of-worlds-carrier-binding'&&showcase.children[2].attributes['data-a0-science-flagship']===''&&showcase.children[2].innerHTML.includes('SCIENCE FLAGSHIP · STOFFREGISTER'),'Science foregrounds the Z100 Stoffregister at its source-bound Game-of-Worlds anchor and marks it for the A0 house view');
-   ok(showcase.children[3].href.startsWith('http://127.0.0.1:4328/')&&showcase.children[3].innerHTML.includes('SCIENCE FLAGSHIP · RED BALLOON'),'Science exposes Red Balloon as its source-bound local flagship notebook');
-   ok(showcase.children[4].href==='DRAFTS/A0_IOI_LEAF_FOLD_OPEN_BOOK_START_2026-11-02.html#tessarec3OperatorMatrix'&&showcase.children[4].innerHTML.includes('SCIENCE FLAGSHIP · 101 / A0'),'Science exposes the frozen 101 / A0 Open Book route');
-   ok(showcase.children[5].href==='A0_DATA_AND_REGISTERS.html#top','Science foregrounds its source-bound data and register map');
+   ok(showcase.children[0].href==='A0_PLATINUM_IRIDIUM_PI_LENS.html'&&showcase.children[0].attributes['data-a0-science-current-highlight']===''&&showcase.children[0].innerHTML.includes('CURRENT HIGHLIGHT'),'Science foregrounds the current PI Lens highlight without creating a new identity');
+   ok(showcase.children[1].href==='A0_SCIENCE.html#top','Science keeps the long A0 Science editorial page');
+   ok(showcase.children[1].className.includes('a0-showcase-card--nexah'),'A0 Science retains its editorial flagship treatment');
+   ok(showcase.children[2].href==='A0_RESEARCH_DESK.html?desk=overview&channel=science#a0-current-state'&&showcase.children[2].innerHTML.includes('CURRENT STATE · SCIENCE'),'Science retains the bounded current-state lens without repeating the Science Desk card');
+   ok(showcase.children[3].href==='A0_PASCAL_GENERATION_CORNER.html#unified-generation-corner-candidate'&&showcase.children[3].innerHTML.includes('A0 INTERNAL CANDIDATE · UNPUSHED')&&showcase.children[3].innerHTML.includes('GENERATION CORNER'),'Science keeps the unpushed unified Generation Corner inside its existing A0 frame instead of routing to the separate nexah.de preview');
+   ok(showcase.children[4].href==='http://127.0.0.1:4328/scc-003-r1/'&&showcase.children[4].innerHTML.includes('REVIEWER PENDING · LOCAL ONLY'),'Science keeps the intended review.nexah.de route as a local-only outreach gate');
+   ok(showcase.children[5].href==='DRAFTS/A0_PERIODIC_CARRIER_Z100_2026-11-03.html#game-of-worlds-carrier-binding'&&showcase.children[5].attributes['data-a0-science-flagship']===''&&showcase.children[5].innerHTML.includes('SCIENCE FLAGSHIP · STOFFREGISTER'),'Science foregrounds the Z100 Stoffregister at its source-bound Game-of-Worlds anchor and marks it for the A0 house view');
+   ok(showcase.children[6].href.startsWith('http://127.0.0.1:4328/')&&showcase.children[6].innerHTML.includes('SCIENCE FLAGSHIP · RED BALLOON'),'Science exposes Red Balloon as its source-bound local flagship notebook');
+   ok(showcase.children.some(card=>card.href==='http://127.0.0.1:4328/review-assets/scc-003-r1/demonstrators/complex-fold-18x23.html?rev=crt-ghost-grid-20261110#root432-keystone-capsule'&&card.innerHTML.includes('SCC-003 · SOURCE-BOUND DEMONSTRATOR')),'Science exposes Complex Fold beside Red Balloon without promoting it to a separate flagship identity');
+   ok(showcase.children[8].href==='DRAFTS/A0_IOI_LEAF_FOLD_OPEN_BOOK_START_2026-11-02.html#tessarec3OperatorMatrix'&&showcase.children[8].innerHTML.includes('SCIENCE FLAGSHIP · 101 / A0'),'Science exposes the frozen 101 / A0 Open Book route');
+   ok(showcase.children[9].href==='A0_DATA_AND_REGISTERS.html#top','Science foregrounds its source-bound data and register map');
    ok(!showcase.children.some(card=>card.innerHTML.includes('A0 Science Desk')),'Science Desk is not duplicated as a flagship card');
    ok(showcase.children.every(card=>!card.href.includes('TOY_STORE')),'no app showcase in Science');
   }
@@ -125,7 +138,7 @@ ok((localScienceSummary.events.click||[]).length===1,'the primary A0 Science ico
 ok(!String(localOwner.location.href||'').includes('A0_RESEARCH_DESK.html'),'opening Science navigation does not replace the A0 page with the internal Desk');
 ok(!localWorkspaceOverview.children.some(n=>n.className.includes('a0-nexah-link')),'no redundant NEXAH Science staging button remains in the owner workspace group');
 ok(localWorkspaceOverview.children.length===3&&localScienceView&&localBuilderView&&localWorkspaceOverview.children.some(n=>n.className.includes('a0-mission-control-link')),'Science Desk, Builder Desk and TH Mission Control form the right-side Desk group');
-ok(localScienceView.href==='A0_RESEARCH_DESK.html?desk=overview&rev=currentness-r4-20261103#science-currentness-20261103'&&localScienceView.innerHTML.includes('Science Desk'),'Science icon opens the current Science Desk directly');
+ok(localScienceView.href==='A0_RESEARCH_DESK.html?desk=overview&rev=research-reader-r1-20261110#nexah-research-reader-currentness-20261110'&&localScienceView.innerHTML.includes('Science Desk'),'Science icon opens the current Science Desk directly');
 ok(localBuilderView.href.includes('10%20NEXAH%20CORE/NEXAH/BUILDER/B0_BUILDER_DECK/build-desk.html#top')&&localBuilderView.innerHTML.includes('Builder Desk'),'Builder icon opens the B0 Builder Desk directly');
 ok(!(localScienceView.events.click||[]).length&&!(localBuilderView.events.click||[]).length,'Science and Builder Desk icons remain direct links instead of projection triggers');
 ok(!localOwner.nodes.filter(n=>n.className?.includes('a0-reader-section')).some(n=>(n.innerHTML||'').includes('Science Desk')||(n.innerHTML||'').includes('Builder Desk')),'Desk links do not occupy Reader menus');
@@ -151,7 +164,7 @@ const builderShowcaseProjection=localProjections.find(n=>n.attributes['aria-labe
 const machinaProjection=localProjections.find(n=>n.attributes['aria-label']==='THE MACHINA · WERKBANK');
 ok(!localBuilderSummary.attributes['data-a0-builder-showcase']&&(localBuilderSummary.events.click||[]).length===1,'Builder icon opens What can we build before its drawer');
 ok((localBuilderShowcase.children[0].events.click||[]).length===1&&builderShowcaseProjection.hidden===true,'A0 Builder Home opens the maintained long Builder surface inside the prepared projection');
-const localScienceShowcase=localScienceMenu.children[1].children[0].children[0],localScienceFlagship=localScienceShowcase.children[2];
+const localScienceShowcase=localScienceMenu.children[1].children[0].children[0],localScienceFlagship=localScienceShowcase.children[5];
 ok((localScienceFlagship.events.click||[]).length===1&&scienceFlagshipProjection.hidden===true,'the Science Stoffregister flagship is bound to an A0 house projection');
 localScienceFlagship.events.click[0]({preventDefault(){},currentTarget:localScienceFlagship});
 ok(scienceFlagshipProjection.hidden===false&&scienceFlagshipProjection.children[1].getAttribute('src').includes('DRAFTS/A0_PERIODIC_CARRIER_Z100_2026-11-03.html#game-of-worlds-carrier-binding'),'the Stoffregister opens at its exact anchor inside the persistent A0 frame');

@@ -1,0 +1,113 @@
+{
+  "schema": "a0.ullinium-methods-1-5-result/1.0.0",
+  "date": "2026-11-11",
+  "classification": "BOUNDED_ENGINEERING_VERIFICATION_NOT_A_LAB_RUN",
+  "preregistration_sha256": "598f076f49a976288bed48987ea68d8530a3fe4944a6879815dcc81b0a225dbe",
+  "seed": 20261111,
+  "trials": 10000,
+  "population": {
+    "families": {
+      "cycle": 2000,
+      "tree": 2000,
+      "grid": 2000,
+      "fan": 2000,
+      "general": 2000
+    },
+    "overlaps": {
+      "vertex": 3334,
+      "edge": 3333,
+      "path2": 3333
+    }
+  },
+  "methods": {
+    "ADJACENCY_ONLY": {
+      "exact_count": 0,
+      "exact_rate": 0,
+      "corruption_detected_count": 0,
+      "corruption_detection_rate": 0,
+      "false_seam_detected_count": 0,
+      "false_seam_detection_rate": 0,
+      "total_bytes": 2392198,
+      "mean_bytes": 239.2198,
+      "total_records": 779364,
+      "mean_records": 77.9364
+    },
+    "PROPERTY_GRAPH": {
+      "exact_count": 10000,
+      "exact_rate": 1,
+      "corruption_detected_count": 10000,
+      "corruption_detection_rate": 1,
+      "false_seam_detected_count": 10000,
+      "false_seam_detection_rate": 1,
+      "total_bytes": 19213578,
+      "mean_bytes": 1921.3578,
+      "total_records": 910219,
+      "mean_records": 91.0219
+    },
+    "BIPARTITE_INCIDENCE": {
+      "exact_count": 10000,
+      "exact_rate": 1,
+      "corruption_detected_count": 10000,
+      "corruption_detection_rate": 1,
+      "false_seam_detected_count": 10000,
+      "false_seam_detection_rate": 1,
+      "total_bytes": 27878968,
+      "mean_bytes": 2787.8968,
+      "total_records": 1789469,
+      "mean_records": 178.9469
+    },
+    "COSPAN_PUSHOUT": {
+      "exact_count": 10000,
+      "exact_rate": 1,
+      "corruption_detected_count": 10000,
+      "corruption_detection_rate": 1,
+      "false_seam_detected_count": 10000,
+      "false_seam_detection_rate": 1,
+      "total_bytes": 11734610,
+      "mean_bytes": 1173.461,
+      "total_records": 1589232,
+      "mean_records": 158.9232
+    },
+    "NEXAH_RETURN_RECEIPT": {
+      "exact_count": 10000,
+      "exact_rate": 1,
+      "corruption_detected_count": 10000,
+      "corruption_detection_rate": 1,
+      "false_seam_detected_count": 10000,
+      "false_seam_detection_rate": 1,
+      "total_bytes": 23894976,
+      "mean_bytes": 2389.4976,
+      "total_records": 1309554,
+      "mean_records": 130.9554
+    }
+  },
+  "gates": {
+    "population_total": true,
+    "population_families": true,
+    "population_overlaps": true,
+    "adjacency_exact": true,
+    "provenance_exact": true,
+    "corruption_detection": true,
+    "false_seam_detection": true
+  },
+  "valid_comparison": true,
+  "conclusion": "EQUIVALENT_RECOVERY_WITH_EXPLICIT_GOVERNANCE_OVERHEAD",
+  "comparison": {
+    "best_standard_mean_bytes": 1173.461,
+    "nexah_mean_bytes": 2389.4976,
+    "nexah_byte_overhead_vs_best_standard": 1216.0366000000001,
+    "nexah_byte_ratio_vs_best_standard": 2.0362820749901362,
+    "distinct_reconstruction_advantage": false,
+    "distinct_robustness_advantage": false
+  },
+  "descriptive_runtime_ms": 8957.466042,
+  "claim_ceiling": "Deterministic software-encoding benchmark only; not a Lab run, theorem, physical mechanism, Study, Finding, paper result or publication authority.",
+  "identity_effect": {
+    "new_identity": 0,
+    "new_relation": 0,
+    "new_alias": 0,
+    "study": 0,
+    "finding": 0,
+    "publication": 0
+  }
+}

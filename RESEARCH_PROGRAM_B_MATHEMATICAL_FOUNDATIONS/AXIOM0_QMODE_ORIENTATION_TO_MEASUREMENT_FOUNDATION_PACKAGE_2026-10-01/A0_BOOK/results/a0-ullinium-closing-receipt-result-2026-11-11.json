@@ -1,0 +1,39 @@
+{
+  "schema": "a0.ullinium-closing-receipt-result/1.0.0",
+  "date": "2026-11-11",
+  "classification": "BOUNDED_ENGINEERING_VERIFICATION_NOT_A_LAB_RUN",
+  "preregistration_sha256": "bd86c225cbe00fe2a85d423810473d4b0830c0d35d6a70fa4fb3d41043ccdfcd",
+  "seed": 20261111,
+  "trials": 10000,
+  "exact_counts": {
+    "full": 10000,
+    "noTags": 36,
+    "wrongSeam": 0,
+    "phantomReturn": 10000
+  },
+  "exact_rates": {
+    "full": 1,
+    "noTags": 0.0036,
+    "wrongSeam": 0,
+    "phantomReturn": 1
+  },
+  "receipt_advantage": 0.9964,
+  "gates": {
+    "full_receipt_rate": true,
+    "phantom_remove_rate": true,
+    "no_tags_rate": true,
+    "wrong_seam_rate": true,
+    "receipt_advantage": true
+  },
+  "outcome": "PASS_BOUNDED_INFORMATION_RETURN",
+  "interpretation": "The retained layer-and-seam receipt uniquely preserves the randomized labelled preimages in this declared two-C6 shared-edge population. The result is an encoding and return property, not a physical mechanism.",
+  "claim_ceiling": "information-preservation benchmark only; no physical fusion, resonance law, LEE mechanism, Study, Finding, identity, relation, paper result or publication",
+  "identity_effect": {
+    "new_identity": 0,
+    "new_relation": 0,
+    "new_alias": 0,
+    "study": 0,
+    "finding": 0,
+    "publication": 0
+  }
+}

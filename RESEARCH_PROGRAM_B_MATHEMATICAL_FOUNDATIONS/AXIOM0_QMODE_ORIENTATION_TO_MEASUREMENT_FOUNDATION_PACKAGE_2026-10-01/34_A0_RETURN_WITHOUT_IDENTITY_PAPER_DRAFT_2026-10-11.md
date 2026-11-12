@@ -393,6 +393,60 @@ Public review projection:
   SCC-003 claim. Scientific disposition remains owned by this Paper C source
   and the A0 Science Desk.
 
+<a id="ullinium-methods-1-5-comparator"></a>
+
+### 11.3 Five provenance encodings: exact Return without algorithmic privilege
+
+The Ullinium closing comparator was followed by a frozen engineering
+comparison of five encodings over the same labelled graph-gluing task. The
+population contains 10,000 deterministic trials: 2,000 each from cycle, tree,
+ladder-grid, planar-fan and connected-general graph families. The overlap
+selector rotates through one vertex, one edge and one length-two path.
+
+The five methods are:
+
+1. anonymous adjacency only;
+2. a property graph carrying source-origin properties;
+3. a bipartite incidence/projection graph;
+4. an explicit cospan/pushout with source maps;
+5. the NEXAH Loss/Return Receipt with layer maps, seam preimages, source
+   digest, return status and claim boundary.
+
+| encoding | exact labelled Return | corruption / false-seam detection | mean canonical JSON bytes |
+|---|---:|---:|---:|
+| adjacency only | `0 / 10,000` | not available | `239.22` |
+| property graph | `10,000 / 10,000` | `10,000 / 10,000` each | `1,921.36` |
+| bipartite incidence | `10,000 / 10,000` | `10,000 / 10,000` each | `2,787.90` |
+| cospan / pushout | `10,000 / 10,000` | `10,000 / 10,000` each | `1,173.46` |
+| NEXAH Return Receipt | `10,000 / 10,000` | `10,000 / 10,000` each | `2,389.50` |
+
+All seven preregistered validity gates pass. The result is therefore not that
+NEXAH discovered a stronger inverse. Property, incidence and cospan methods
+already retain sufficient provenance for exact labelled reconstruction, and
+the cospan/pushout is the smallest standard payload in this implementation.
+NEXAH uses `2.04×` that payload while providing the same exactness and
+fail-closed integrity.
+
+The bounded conclusion is:
+
+```text
+EQUIVALENT_RECOVERY_WITH_EXPLICIT_GOVERNANCE_OVERHEAD
+```
+
+What remains distinct is the packaging of layer, seam, declared loss, Return
+status and claim ceiling in one receipt. That integration may be useful for
+auditable research operation, but this benchmark establishes neither a new
+graph algorithm nor a compression, robustness or mathematical novelty
+advantage. It is a documentary engineering comparator, not a sixth formal
+Paper-C case and not a new `F-A0` Finding.
+
+Controlling records:
+
+- [Frozen methods 1–5 preregistration](A0_BOOK/results/A0_ULLINIUM_METHODS_1_5_PREREGISTRATION_2026-11-11.md)
+- [Machine-readable result](A0_BOOK/results/a0-ullinium-methods-1-5-result-2026-11-11.json)
+- [Comparator runner](A0_BOOK/a0_ullinium_methods_1_5_benchmark.cjs)
+- [Science Desk return](A0_BOOK/A0_RESEARCH_DESK.html#ullinium-closing-comparator-return-20261111)
+
 ## 12. External-review gate
 
 Before submission, publication, conference circulation or public academic

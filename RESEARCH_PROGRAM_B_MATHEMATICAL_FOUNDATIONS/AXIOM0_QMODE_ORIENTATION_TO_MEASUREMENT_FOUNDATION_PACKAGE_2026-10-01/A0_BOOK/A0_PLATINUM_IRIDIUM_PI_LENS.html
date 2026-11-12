@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>PI Lens · Platinum–Iridium Dual Polyhedron · A0</title>
+<link rel="stylesheet" href="a0-platinum-iridium-pi-lens.css?rev=matrix-window-r11-20261112">
+<link rel="stylesheet" href="a0-platinum-iridium-pi-lens-edelweiss.css?rev=fourier-slice-r10-20261111">
+<link rel="stylesheet" href="a0-platinum-iridium-pi-matrix-window.css?rev=matrix-window-r11-20261112">
+<script>document.documentElement.classList.toggle('embed',new URLSearchParams(location.search).has('embed'));</script>
+</head>
+<body>
+<header class="pi-top">
+  <a href="index.html">NEXAH · A0</a>
+  <nav><a href="A0_RESEARCH_DESK.html#platinum-iridium-pi-lens-holonomy-return-20261112">SCIENCE DESK</a><a href="../32_A0_FINDINGS_AND_PAPER_WORKSPACE_2026-10-11.md#platinum-iridium-pi-lens-holonomy--2026-11-12">FINDINGS</a><a href="A0_SPIN_TO_BLOOM_MEASUREMENT.html#platinumIridiumPiReturn">SPIN TO BLOOM RETURN</a></nav>
+</header>
+<main>
+  <header class="pi-hero">
+    <div>
+      <small>SOURCE-BOUND HTML5 RECONSTRUCTION · PI</small>
+      <h1>Platinum–Iridium<br><em>Dual Polyhedron</em></h1>
+      <p>Zwei Schalen aus zwölf ϕ‑Koordinaten, je 30 Kanten und zwölf korrespondierenden Gelenk-Brücken — rekonstruiert aus dem wiedergefundenen Plotly-Generator und als Expansion/Kontraktion lesbar gemacht.</p>
+    </div>
+    <aside><b>PI · PLATINUM / IRIDIUM</b><span>INTERACTIVE ORIENTATION LENS</span><output id="piStatus" aria-live="polite">READY · 12↔12 · SCALE 1.80</output></aside>
+  </header>
+
+  <section class="pi-instrument" id="piInstrument" aria-labelledby="piInstrumentTitle">
+    <header>
+      <div><small>ROTATE · ZOOM · BREATHE · HOLD THE TRACE</small><h2 id="piInstrumentTitle">Zwei Schalen. Eine Index-Achse. Innen ↔ außen.</h2></div>
+      <div class="pi-actions">
+        <button type="button" id="piAuto" aria-pressed="true">Ⅱ AUTO TURN</button>
+        <button type="button" id="piReset">↺ RESET VIEW</button>
+        <button type="button" id="piExport">↓ EXPORT RECEIPT</button>
+      </div>
+    </header>
+    <div class="pi-motion" role="group" aria-label="Expansion und Kontraktion">
+      <button type="button" data-pi-motion="HOLD" aria-pressed="true">HOLD</button>
+      <button type="button" data-pi-motion="EXPAND" aria-pressed="false">↗ EXPAND</button>
+      <button type="button" data-pi-motion="CONTRACT" aria-pressed="false">↘ CONTRACT</button>
+      <button type="button" data-pi-motion="BREATH" aria-pressed="false">∞ BREATHE</button>
+      <button type="button" data-pi-motion="INVERT" aria-pressed="false">⇄ INVERT</button>
+      <output id="piRole">PLATINUM INNER → IRIDIUM OUTER</output>
+    </div>
+    <div class="pi-visuals" role="group" aria-label="Projizierte Leseansichten">
+      <b>VISUAL 3 · Q±</b>
+      <button type="button" data-pi-visual="SOURCE" aria-pressed="false">1 · SOURCE</button>
+      <button type="button" data-pi-visual="C8_XY" aria-pressed="false">2 · C8 / X·Y</button>
+      <button type="button" data-pi-visual="Q_PLUS_MINUS" aria-pressed="true">3 · Q± / C9</button>
+      <button type="button" data-pi-visual="METAL_RELAY" aria-pressed="false">4 · METAL RELAY / Hg80</button>
+      <button type="button" data-pi-visual="LIGHT_CASCADE" aria-pressed="false">5 · LIGHT CASCADE / Ne10</button>
+      <button type="button" data-pi-visual="MOBIUS_REACTOR" aria-pressed="false">6 · MÖBIUS REACTOR / Q°</button>
+      <button type="button" data-pi-visual="KLEIN_FLIP" aria-pressed="false">7 · KLEIN BOTTLE / FLIP</button>
+      <button type="button" data-pi-visual="FOURIER_SLICE" aria-pressed="false">8 · FOURIER SLICE / ORANGE</button>
+      <button type="button" data-pi-visual="FOURIER_FAMILY" aria-pressed="false">9 · FOURIER FAMILY / XYZ</button>
+      <button type="button" data-pi-visual="CARRIER_AUDIT" aria-pressed="false">10 · CARRIER / TYPE AUDIT</button>
+      <button type="button" data-pi-visual="NUMBER_LOOP" aria-pressed="false">11 · 213 LOOP / OPERATOR</button>
+      <button type="button" data-pi-visual="MATRIX_HOLONOMY" aria-pressed="false">12 · 3 MATRIX / HOLONOMY</button>
+      <output id="piVisualRole">C8 FRAME → X·Y → C9 → X/XI/XII @ ¥</output>
+    </div>
+    <div class="pi-work">
+      <figure>
+        <figcaption><b>PI Dual Polyhedron</b><small>DRAG · ROTATE / WHEEL · ZOOM</small></figcaption>
+        <canvas id="piCanvas" width="1200" height="820" role="img" aria-label="Interaktive dreidimensionale Rekonstruktion aus zwölf inneren Platinpunkten, zwölf skalierten Iridiumpunkten und zwölf goldenen Verbindungsachsen."></canvas>
+        <div class="pi-axis-key" aria-hidden="true"><span class="x">X</span><span class="y">Y</span><span class="z">Z</span></div>
+      </figure>
+      <aside>
+        <fieldset>
+          <legend>VISIBLE LAYERS</legend>
+          <label><input type="checkbox" id="piPlatinum" checked> <span class="platinum">●</span> PLATINUM · INNER</label>
+          <label><input type="checkbox" id="piIridium" checked> <span class="iridium">●</span> IRIDIUM · OUTER</label>
+          <label><input type="checkbox" id="piShells" checked> <span class="shell">⬡</span> POLYGON SHELLS · 30 + 30</label>
+          <label><input type="checkbox" id="piBridges" checked> <span class="gold">—</span> GOLDEN BRIDGES</label>
+          <label><input type="checkbox" id="piAxis" checked> <span class="axis">—</span> RED THREAD / SPLIT AXIS</label>
+          <label><input type="checkbox" id="piMercury" checked> <span class="mercury">◉</span> Hg80 MIRROR SEAM</label>
+          <label><input type="checkbox" id="piMobius" checked> <span class="mobius">⟲</span> 0-BAND · CON–DAO FLIP</label>
+          <label><input type="checkbox" id="piTrace" checked> <span class="trace">○</span> TRACE HOLD</label>
+        </fieldset>
+        <label class="pi-scale">IRIDIUM SCALE <output id="piScaleOut">1.80×</output><input id="piScale" type="range" min="0.45" max="2.4" step="0.01" value="1.8"></label>
+        <dl>
+          <div><dt>ϕ</dt><dd id="piPhi">1.618034</dd></div>
+          <div><dt>INNER / OUTER</dt><dd id="piCounts">12 / 12</dd></div>
+          <div><dt>BRIDGES</dt><dd id="piBridgeCount">12</dd></div>
+          <div><dt>SHELL GRAPH</dt><dd id="piShellGraph">30 EDGES · DEGREE 5</dd></div>
+          <div><dt>HINGE PINS</dt><dd id="piPinCount">12 · INDEX-LOCKED</dd></div>
+          <div><dt>EDGE LENGTHS P / I</dt><dd id="piEdgeLengths">2.000 / 3.600</dd></div>
+          <div><dt>SHELL RATIO I:P</dt><dd id="piEdgeRatio">1.800</dd></div>
+          <div><dt>PIN SPAN</dt><dd id="piPinSpan">1.521</dd></div>
+          <div><dt>CENTROID</dt><dd id="piCentroid">0 / 0 / 0</dd></div>
+          <div><dt>SCALE RESIDUAL</dt><dd id="piResidual">0.00e+0</dd></div>
+          <div><dt>VIEW</dt><dd id="piView">—</dd></div>
+          <div><dt>VISUAL 3</dt><dd id="piVisualReadout">C8 · X/Y · C9</dd></div>
+          <div><dt>Q± GATE</dt><dd id="piQGate">X · XI · XII @ ¥</dd></div>
+          <div><dt>RED Z-WIPPE</dt><dd id="piZorae">ZORÆŒ · DISPLAY</dd></div>
+          <div><dt>METAL RELAY</dt><dd id="piMetalRelay">Ir77 → Pt78 → Au79 → Hg80</dd></div>
+          <div><dt>Hg80 SEAM</dt><dd id="piMercurySeam">MIRROR · OPEN</dd></div>
+          <div><dt>0-BAND</dt><dd id="piMobiusAudit">PASS · 1T FLIP · 2T RETURN</dd></div>
+          <div><dt>BOUNDARY</dt><dd id="piMobiusBoundary">1 EDGE LOOP · w&lt;R</dd></div>
+          <div><dt>REACTOR</dt><dd id="piReactorStatus">CONCEPTUAL · NON-PHYSICAL</dd></div>
+          <div><dt>Q° PHASE</dt><dd id="piQDegree">0.0° / 720°</dd></div>
+          <div><dt>E-AXIS</dt><dd id="piEAxis">WHITE · REFERENCE</dd></div>
+          <div><dt>GOLDEN HOUR</dt><dd id="piGoldenHour">ORANGE · LOCAL PHASE</dd></div>
+          <div><dt>PLUTO TIME</dt><dd id="piPlutoTime">PURPLE · LOCAL TIME</dd></div>
+          <div><dt>KLEIN AUDIT</dt><dd id="piKleinAudit">SEAMS · PENDING</dd></div>
+          <div><dt>KLEIN BOUNDARY</dt><dd id="piKleinBoundary">0 · QUOTIENT CLOSED</dd></div>
+          <div><dt>3D STATUS</dt><dd id="piKleinImmersion">IMMERSION · SELF-INTERSECTION</dd></div>
+          <div><dt>FOURIER AUDIT</dt><dd id="piFourierAudit">PARSEVAL · PENDING</dd></div>
+          <div><dt>DOMINANT MODE</dt><dd id="piFourierMode">k = —</dd></div>
+          <div><dt>LOTUS GLB</dt><dd id="piLotusAudit">2 COMPONENTS · χ 0 + 2</dd></div>
+          <div><dt>ZIPFEL</dt><dd id="piLotusZipfel">OVERLAY / PROJECTION · NOT BOUNDARY</dd></div>
+          <div><dt>ORIENTABILITY</dt><dd id="piLotusOrientability">χ0 · AUDIT PENDING</dd></div>
+          <div><dt>FOURIER FAMILY</dt><dd id="piFourierFamily">XYZ/R · 2D/3D PENDING</dd></div>
+          <div><dt>CARRIER CHAIN</dt><dd id="piCarrierAudit">TYPE AUDIT PENDING</dd></div>
+          <div><dt>213 LOOP</dt><dd id="piNumberLoop">OPERATOR AUDIT PENDING</dd></div>
+          <div><dt>FOLD HYPOTHESIS</dt><dd id="piFoldHypothesis">OWNER VIEW · UNTESTED</dd></div>
+          <div><dt>Hg UV SOURCE</dt><dd id="piHgUv">253.7 nm · UV-C</dd></div>
+          <div><dt>VISIBLE RETURN</dt><dd id="piVisibleReturn">404.7 · 435.8 · 546.1 · 577–579 nm</dd></div>
+          <div><dt>Ne10 DRIFT</dt><dd id="piNeonDrift">ORANGE-RED · LOCAL AFTERGLOW</dd></div>
+          <div><dt>COMPRESSED LIGHT</dt><dd id="piCompressedLight">DISPLAY ROLE · UNMEASURED</dd></div>
+        </dl>
+        <p class="pi-equation"><code>Vᵢ = (±1, ±ϕ, 0)</code><code>+ cyclic permutations</code><code>Wᵢ = s · Vᵢ</code><code>Bᵢ = [Vᵢ, Wᵢ]</code></p>
+      </aside>
+    </div>
+    <section class="pi-matrix-window" id="piMatrixWindow" hidden aria-label="Eingebettete Drei-Matrix-Holonomie-Workbench">
+      <iframe src="A0_THREE_MATRIX_HOLONOMY_WORKBENCH.html?embed=pi" title="3-Matrix Holonomy Workbench innerhalb der PI-Linse"></iframe>
+    </section>
+  </section>
+
+  <section class="pi-source-cabinet" id="piTripleGateCabinet" aria-labelledby="piCabinetTitle">
+    <header>
+      <div><small>SOURCE CABINET · RED THREAD RETURN</small><h2 id="piCabinetTitle">Pipe → Live Machine → File Lineage</h2></div>
+      <output id="piCabinetStatus" aria-live="polite">PIPE CONSTELLATION · SOURCE-BOUND VIEW</output>
+    </header>
+    <nav class="pi-cabinet-tabs" aria-label="Triple Gate Source Cabinet">
+      <button type="button" data-pi-cabinet="PIPE" aria-pressed="true">1 · PIPE / TRIPLE GATE</button>
+      <button type="button" data-pi-cabinet="MACHINE" aria-pressed="false">2 · LIVE HTML MACHINE</button>
+      <button type="button" data-pi-cabinet="FILES" aria-pressed="false">3 · FILE / RECEIPT CABINET</button>
+    </nav>
+    <div class="pi-red-thread" aria-hidden="true"><i></i><b>RED THREAD</b><i></i><span>RED BALLOON RETURN</span></div>
+    <article class="pi-cabinet-panel is-active" data-pi-cabinet-panel="PIPE">
+      <div class="pi-cabinet-stage"><canvas id="piPipeCanvas" width="1200" height="650" role="img" aria-label="Source-bound pipe constellation with six historical axes, five RNCG number stations and a local Triple-Lambda gate overlay."></canvas></div>
+      <aside><small>VISUAL 1 · OFFLINE RETURN</small><h3>RNCG Pipe Constellation</h3><p>Die historischen Achsen <code>X/Y/Z/Φ/Ψ/Π</code> kreuzen die fünf RNCG‑Stationen <code>123 · 125 · 292 · 1974 · 4032</code>. Der lokale Triple‑Lambda‑Aufsatz <code>√429 · √439 · √456</code> ist eine benachbarte Gate-Leseschicht — keine Gleichsetzung der Zahlenfamilien.</p><dl><div><dt>SOURCE</dt><dd>RNCG v3 · OFFLINE HTML</dd></div><div><dt>PIPE</dt><dd>AXIS CROSSING VIEW</dd></div><div><dt>GATE</dt><dd>3 ARMS · LOCAL OVERLAY</dd></div></dl></aside>
+    </article>
+    <article class="pi-cabinet-panel" data-pi-cabinet-panel="MACHINE" hidden>
+      <div class="pi-cabinet-stage"><canvas id="piAxisCanvas" width="1200" height="650" role="img" aria-label="Offline reconstruction of the historical TRIPLESIX F-axis viewer with ring, F axis, tangential axis and Red Thread."></canvas></div>
+      <aside><small>VISUAL 2 · LIVE HTML RETURN</small><h3>TRIPLESIX Axis Machine</h3><p>Eine offlinefähige Rückkehr des historischen HTML‑Viewers: F‑Achse, tangentiale TripleSix‑Achse, 71‑Punkt‑Ring und die deklarierten Winkeladressen. Die Bewegung ist Viewer‑Animation, keine native Bewegung eines GLB‑Quellmodells.</p><dl><div><dt>TRIPLE</dt><dd>66° · 99° · 69°</dd></div><div><dt>LOCKS</dt><dd>42 · 42.6 · 71 · 137.036</dd></div><div><dt>PAIR</dt><dd>MERCURY ↔ ERIS · OWNER LABEL</dd></div></dl></aside>
+    </article>
+    <article class="pi-cabinet-panel pi-file-cabinet" data-pi-cabinet-panel="FILES" hidden>
+      <header><small>HISTORICAL SOURCE ROOT · READ-ONLY INVENTORY</small><h3>684 files · one bounded cabinet</h3><p>Die Liste bindet die vorhandene Festplattenfamilie, ohne sie zu kopieren, umzubenennen oder wissenschaftlich aufzuwerten.</p></header>
+      <div class="pi-file-stats"><b>276 <small>PNG</small></b><b>74 <small>PDF</small></b><b>66 <small>GLB</small></b><b>41 <small>PLY</small></b><b>24 <small>JSON</small></b><b>20 <small>TXT</small></b><b>20 <small>STL</small></b><b>15 <small>MD</small></b><b>12 <small>PY</small></b><b>9 <small>HTML</small></b><b>9 <small>SVG</small></b></div>
+      <div class="pi-file-groups">
+        <section><b>CONTROL</b><code>Triplesix Mission BUNDLE/TRIPLESIX_Mission_Readme.md</code><code>universal_axis_register.json</code><code>triplesix_links.json</code></section>
+        <section><b>LIVE HTML</b><code>RNCG_HTML_FALLBACK/rncg_pentagon_fallback_v3.html</code><code>Triplesix Mission BUNDLE/triplesix_viewer.html</code><code>Riemann HTML/riemann_sphere_viewer.html</code></section>
+        <section><b>GEOMETRY</b><code>regulators_213.gltf</code><code>scarabaeus_meta_gateways.glb</code><code>triplesix_millennium2.glb</code></section>
+        <section><b>REPORTS</b><code>Panel 1-9 Overview.pdf</code><code>Triplesix Mission.pdf</code><code>Nexah–glb Gesamtbericht.pdf</code></section>
+      </div>
+      <p class="pi-source-root"><b>ROOT</b> <code>…/TODO_Tripple 6_TLayer_ Panels_Maytroschk 789_GLB_STL_PLY/</code></p>
+    </article>
+    <footer><b>IDENTITY DISPOSITION</b> Reuse/extension only: <code>ART:A0:MATHEMATICAL_JOINTS</code> · <code>MOD:ORIENTATION_DEMONSTRATORS</code> · <code>SRC:A0OE:TRIPLESIX_S3_CUBE_GRID_FOLD_AUDIT</code> · existing Red Balloon source line. No new graph identity or relation.</footer>
+  </section>
+
+  <section class="pi-receipt" aria-labelledby="piReceiptTitle">
+    <header><small>PROVENANCE · RECONSTRUCTION RECEIPT</small><h2 id="piReceiptTitle">Was erhalten ist — und was die Linse nicht behauptet.</h2></header>
+    <div>
+      <article><b>RECOVERED SOURCE</b><p>Der archivierte Generator definiert die zwölf ϕ‑Punkte, skaliert sie mit <code>1.8</code> und verbindet korrespondierende Indizes. Die wiederholte historische Legende entstand aus zwölf einzelnen Linien-Traces.</p></article>
+      <article><b>HTML5 RETURN · 2 IN 1</b><p>Diese Fassung erhält Geometrie und Bedienidee, ergänzt die aus den Koordinaten exakt ableitbaren 30 Kanten je Schale und macht die zwölf Index-Brücken als Gelenk-Stifte sichtbar.</p></article>
+      <article><b>LOKI VIEW · LOCAL MNEMONIC</b><p>Beim Durchgang durch <code>s=1</code> wechseln Iridium und Platinum ihre Innen-/Außenrolle. „Loki“ ist dafür nur eine lokale Merkhilfe — keine neue Identität, Relation oder physikalische Behauptung.</p></article>
+      <article><b>VISUAL 3 · Q±</b><p>Der projizierte C8‑Rahmen, das große X/Y, die C9‑Ansicht und X/XI/XII am lokalen ¥‑Gate sind Leseschichten über derselben 12+12‑Quelle. Die rote „ZORÆŒ“-Säbelkurve ist eine sichtbare Z‑Wippe zwischen Q− und Q+.</p></article>
+      <article><b>VISUAL 4 · METAL RELAY</b><p><code>Ir77 → Pt78 → Au79 → Hg80</code> ist eine exakte Ordnungszahlfolge. Die beiden Schalen, goldenen Brücken und die silberne Hg‑Naht sind lokale Rollen derselben synthetischen Maschine; sie behaupten keine Materialimplementierung.</p></article>
+      <article><b>0-BAND · CON–DAO FLIP</b><p>Das Zentrum ist nun ein echtes Möbiusband: <code>M(u,v)=((R+v cos(u/2))cos u,(R+v cos(u/2))sin u,v sin(u/2))</code>. Rechnerisch gilt <code>M(u+2π,v)=M(u,−v)</code> und <code>M(u+4π,v)=M(u,v)</code>; die Randkurve schließt erst nach <code>4π</code>. CON–DAO bezeichnet hier den typisierten Flip‑Operator, Hg80 die Nahtadresse und die Null den Schlusspunkt — keine neue Körperidentität.</p></article>
+      <article><b>VISUAL 6 · MÖBIUS REACTOR / Q°</b><p>Der Reaktor ist eine dynamische Instrumentenansicht desselben geprüften Bandes: Weiß bezeichnet die unkalibrierte E‑Referenzachse, Orange eine lokale „Golden Hour“-Phasenadresse, Lila eine lokale „Pluto Time“-Zeitadresse und <code>Q°</code> die Beobachterphase über einem <code>720°</code>-Zyklus. „Reaktor“ benennt den sichtbaren Umlauf; weder Tachyonen noch Energieerzeugung, astronomische Zeitkopplung oder ein physischer Apparat werden behauptet.</p></article>
+      <article><b>VISUAL 7 · KLEIN BOTTLE / FLIP</b><p>Die Null wird hier als randlose Quotientenschließung gelesen: <code>K(u,v+2π)=K(u,v)</code> und <code>K(u+2π,v)=K(u,2π−v)</code>. Die zweite Verklebung enthält den Orientierungs‑Flip. Die sichtbare Form ist eine geprüfte Figure‑8‑Immersion in drei Dimensionen und besitzt deshalb einen Selbstschnitt; sie ist keine eingebettete Flasche, kein Energiepfad und keine kosmologische Topologiebehauptung.</p></article>
+      <article><b>VISUAL 8 · FOURIER SLICE / ORANGE</b><p>Der orange Slice ist keine übernommene Bildbehauptung, sondern die diskrete Fourier‑Analyse einer deklarierten skalaren Projektion der geprüften <code>4π</code>-Möbius-Randkurve. Orange zeigt den Betrag <code>|Fₖ|</code>, Lila die Phase <code>arg(Fₖ)</code>; Parseval wird numerisch geprüft. Der ϕ‑Ring ist nur eine Referenzmarke und kein Generatorgesetz.</p></article>
+      <article><b>KLEIN LOTUS GLB · MESH AUDIT</b><p><code>klein_bottle_multigrid_lotus.glb</code> enthält nach dem Verschweißen lagegleicher Nahtpunkte zwei getrennte geschlossene Komponenten. Der Orientierungs‑Propagationstest klassifiziert χ=0 als nichtorientierbare Crosscap‑2‑Fläche — also als Klein‑Flasche und nicht als Torus. χ=2 ist eine orientierbare Sphäre. Gauß–Bonnet schließt jeweils bis etwa 3×10⁻¹². Der „Zipfel“ ist keine offene Randkante; die kleine Sphäre bleibt ohne Dreiecksschnitt und rund 2,7002 gesampelte Einheiten entfernt.</p></article>
+      <article><b>VISUAL 9 · FOURIER FAMILY / XYZ</b><p>Die getrennten x/y/z/radialen Signale zeigen, was projektionsstabil ist und was nicht: Beim Möbius‑Rand tragen x und y k=2, z und Radius k=1. Im 24‑fachen XY‑Sweep bleibt k=2 bei 24/24 Projektionen dominant. Beim deklarierten Klein‑Diagonalpfad dominieren x/y/z dagegen mit k=1. 2D‑Raster und 3D‑Voxel bestehen Parseval; daraus folgt kein physisches Spektrum.</p></article>
+      <article><b>VISUAL 10 · CARRIER / TYPE AUDIT</b><p>Dualpolyeder, Möbiusband, Klein‑Flasche und Fourierkoeffizienten sind keine äquivalenten Objekte. Typ und Randinvarianten widersprechen einer globalen Gleichsetzung. Exakt implementiert ist nur die invertierbare DFT des fest gesampelten Möbius‑Rands; eine Möbius‑zu‑Klein‑Verklebung ist hier nicht konstruiert.</p></article>
+      <article><b>VISUAL 11 · 213 LOOP / OPERATOR</b><p>Der historische Weg <code>213→196→199→207→213</code> besitzt die Differenzen <code>−17,+3,+8,+6</code> und schließt mit Summe 0 erst nach der expliziten letzten Kante. Weder konstante Translation noch eine einzige affine Rekursion passen. Das ist ein annotierter Rundweg, kein eindeutiger Operator.</p></article>
+      <article><b>VISUAL 12 · 3 MATRIX / HOLONOMY</b><p>Die drei lokalen Schritte <code>90° / 180° / 270°</code> werden in einem eigenen Fenster derselben PI-Linse verglichen. Gleiche Normalen bilden den kommutativen C4-Control; verschiedene Lamellen-Normalen testen nichtkommutative Holonomie und Reihenfolge; der explizite Klein-Schritt kehrt mit <code>det(H)=−1</code> die Orientierung um. Die Ansicht reuse die vorhandene Matrix-Engine und erzeugt weder eine Penrose-Parkettierung noch eine neue Topologie- oder Navigator-Identität.</p></article>
+      <article><b>METAL-FOLD → n-GON · HYPOTHESIS</b><p>Die Zuordnung Gold/5, Silber/6, Rhodium/7, Mercury/8, Platinum/12 und Iridium/14 wird als historische OWNER‑HYPOTHESIS eingeblendet. Sie ist weder aus der 12+12‑Quelle abgeleitet noch als Frequenz-, Kristall- oder Stoffgesetz bestätigt.</p></article>
+      <article><b>VISUAL 5 · LIGHT CASCADE / NEON DRIFT</b><p>Die Messanker bleiben getrennt: Hg besitzt eine starke Linie bei <code>253.7 nm</code> im UV‑C sowie sichtbare Linien um <code>404.7</code>, <code>435.8</code>, <code>546.1</code> und <code>577–579 nm</code>. Eine Phosphorschicht kann UV in sichtbares Licht umwandeln; sie ist eine eigene Konversionsschicht und keine automatische Eigenschaft der Hg‑Naht.</p></article>
+      <article><b>Ne10 / C1·C2·C3 · BOUNDARY</b><p>Eine reine Neonentladung erscheint orange‑rot. Cyan/Magenta setzt Beschichtung, Gasgemisch oder eine lokale Displaypalette voraus. <code>C1/C2/C3</code>, „Neon Drift“ und „compressed light“ sind hier Leseschichten; ohne Pulsdauer, Energie, Strahlfläche oder Resonatorparameter behaupten sie keinen gemessenen Kompressionsmechanismus.</p></article>
+      <article><b>TRIPLE GATE SOURCE CABINET</b><p>Pipe‑Konstellation, offline HTML‑Maschine und kuratierte Dateilinie binden das historische TripleSix/T‑Layer‑Modul als read‑only Quellenansicht. Red Thread ist der sichtbare Durchgang; Red Balloon bezeichnet die bereits vorhandene source‑bound Return-Linie.</p></article>
+      <article><b>BOUNDARY</b><p>„Platinum“, „Iridium“, „Rödelheim“, „Bockenheim“ und „Golden Resonance“ sind historische Layer-Namen. Die Darstellung belegt keine Material-, Orts-, Frequenz- oder physikalische Kopplung.</p></article>
+    </div>
+    <p><strong>IDENTITY:</strong> Wiederverwendung von <code>ART:A0:MATHEMATICAL_JOINTS</code>, <code>MOD:ORIENTATION_DEMONSTRATORS</code>, <code>SRC:A0OE:PASCAL_LISSAJOUS_MOBIUS_RETURN</code> und <code>NEXAH:CON_DAO_BREATH:V1</code>. Keine neue Study, kein neuer kanonischer Knoten und keine neue Relation.</p>
+  </section>
+</main>
+<script src="a0-platinum-iridium-pi-lens.js?rev=matrix-breathe-r12-20261112"></script>
+<script>window.A0PlatinumIridiumPI?.mount(document,window);</script>
+</body>
+</html>

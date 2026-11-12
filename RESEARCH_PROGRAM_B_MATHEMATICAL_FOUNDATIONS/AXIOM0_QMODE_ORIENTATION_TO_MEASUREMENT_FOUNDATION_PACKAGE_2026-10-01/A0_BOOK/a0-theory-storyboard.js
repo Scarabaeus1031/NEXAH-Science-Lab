@@ -181,10 +181,16 @@
     if(incoming.status==='valid'){moments[incoming.context.scene-1]=incoming.context.moment;if(incoming.context.layer)selectedLayer=incoming.context.layer;}
     const cards=el('sceneCards'),svg=el('sceneSvg');
     cards.innerHTML=scenes.map((s,i)=>'<button type="button" class="scene-card" data-scene="'+i+'"><svg viewBox="0 0 280 145" aria-hidden="true">'+drawing(i,50,280,145,true)+'</svg><span class="card-copy"><span class="number">0'+(i+1)+'</span><strong>'+s.title+'</strong><span class="teaser">'+s.teaser+'</span></span></button>').join('');
+    const allWindowCards=el('allWindowCards');
+    function renderAllWindows(){
+      allWindowCards.innerHTML=scenes.map((s,i)=>'<article class="all-window"><div class="all-window__head"><span class="number">0'+(i+1)+'</span><div><span class="eyebrow">'+s.tag+'</span><h3>'+s.title+'</h3></div></div><figure><svg viewBox="0 0 560 300" role="img" aria-label="'+s.caption+'">'+drawing(i,moments[i],560,300)+'</svg><figcaption>'+s.caption+'</figcaption></figure><p class="all-window__question">'+s.question+'</p><details><summary>Einordnung, Instrument und Grenze</summary><p><strong>Lesebeispiel:</strong> '+s.idea+'</p><p><strong>Gebaut:</strong> '+s.built+'</p><p><strong>Offen:</strong> '+s.open+'</p></details><div class="all-window__actions"><button type="button" data-scene="'+i+'">Szene bedienen ↗</button><a href="'+s.href+'">Instrument öffnen ↗</a></div></article>').join('');
+    }
+    renderAllWindows();
     const map=el('architectureMap');
     map.innerHTML=layers.map((layer,i)=>'<button type="button" class="layer-button" data-layer="'+layer.id+'" aria-pressed="'+(layer.id===selectedLayer)+'" aria-controls="layerTitle layerExplanation layerRoute layerScenes">'+(i<3?'<svg viewBox="0 0 280 145" aria-hidden="true">'+drawing([2,3,4][i],50,280,145,true)+'</svg>':'')+'<span class="layer-number">'+layer.number+'</span><strong>'+layer.title+'</strong><span class="layer-terms">'+layer.terms+'</span></button>').join('');
     function viewButtons(){
       el('viewOverview').setAttribute('aria-pressed',String(view==='overview'||view==='scene'));
+      el('viewAllWindows').setAttribute('aria-pressed',String(view==='all'));
       el('viewArchitecture').setAttribute('aria-pressed',String(view==='architecture'));
     }
     function humanReading(){
@@ -220,9 +226,16 @@
     function showArchitecture(layer=selectedLayer,updateHash=true){
       if(!layers.some(item=>item.id===layer))return false;
       selectedLayer=layer;view='architecture';current=-1;
-      el('overview').hidden=true;el('scene').hidden=true;el('architecture').hidden=false;
+      el('overview').hidden=true;el('allWindows').hidden=true;el('scene').hidden=true;el('architecture').hidden=false;
       viewButtons();renderLayer();returnRegister();
       if(updateHash){win.history.replaceState(null,'','#layer-'+selectedLayer);el('architectureTitle').focus({preventScroll:true});el('architectureTitle').scrollIntoView?.({block:'start'});}
+      return true;
+    }
+    function showAllWindows(updateHash=true){
+      view='all';current=-1;renderAllWindows();
+      el('overview').hidden=true;el('architecture').hidden=true;el('scene').hidden=true;el('allWindows').hidden=false;
+      viewButtons();
+      if(updateHash){win.history.replaceState(null,'','#all-windows');el('allWindowsTitle').focus({preventScroll:true});el('allWindowsTitle').scrollIntoView?.({block:'start'});}
       return true;
     }
     function diagram(){
@@ -234,7 +247,7 @@
     }
     function show(index,updateHash=true){
       current=index<0?-1:clamp(index,0,6)|0;
-      view=current<0?'overview':'scene';el('architecture').hidden=true;viewButtons();
+      view=current<0?'overview':'scene';el('architecture').hidden=true;el('allWindows').hidden=true;viewButtons();
       el('overview').hidden=current>=0;el('scene').hidden=current<0;
       if(updateHash)win.history.replaceState(null,'',current<0?'#overview':'#scene-'+(current+1));
       if(current<0){if(updateHash){el('overviewTitle').focus({preventScroll:true});el('overviewTitle').scrollIntoView?.({block:'start'});}return;}
@@ -247,6 +260,7 @@
       if(updateHash){el('sceneTitle').focus({preventScroll:true});el('sceneTitle').scrollIntoView?.({block:'start'});}
     }
     cards.addEventListener('click',event=>{const b=event.target.closest('[data-scene]');if(b)show(Number(b.dataset.scene));});
+    allWindowCards.addEventListener('click',event=>{const b=event.target.closest('[data-scene]');if(b)show(Number(b.dataset.scene));});
     el('toOverview').addEventListener('click',()=>show(-1));
     function preserveDeparture(){
       if(current<0||crosswalk.rowFor(current+1).status!=='bound')return;
@@ -256,6 +270,7 @@
     el('humanJourneyLink').addEventListener('click',preserveDeparture);
     el('humanBlueprintLink').addEventListener('click',preserveDeparture);
     el('viewOverview').addEventListener('click',()=>show(-1));
+    el('viewAllWindows').addEventListener('click',()=>showAllWindows());
     el('viewArchitecture').addEventListener('click',()=>showArchitecture());
     el('toArchitecture').addEventListener('click',()=>showArchitecture(layersForScene(current)[0]||selectedLayer));
     el('sceneLayers').addEventListener('click',event=>{const button=event.target.closest('[data-layer]');if(button)showArchitecture(button.dataset.layer);});
@@ -278,6 +293,7 @@
     function fromHash(){
       const hash=win.location.hash,m=/^#scene-([1-7])$/.exec(hash),layer=/^#layer-(structure|coupling|visibility|return)$/.exec(hash);
       if(hash==='#sources')return;
+      if(hash==='#all-windows'){showAllWindows(false);return;}
       if(hash==='#architecture'||layer){showArchitecture(layer?layer[1]:selectedLayer,false);return;}
       show(m?Number(m[1])-1:-1,false);
     }
@@ -290,7 +306,7 @@
       if(incoming.status==='invalid'){show(-1,false);el('humanReturnStatus').hidden=false;el('humanReturnStatus').textContent='Ungültiger Rückkehrkontext: neutraler Einstieg, keine fremden Werte übernommen.';}
       else fromHash();
     }
-    return {show,showArchitecture,get snapshot(){return{view,scene:current,value,selectedLayer,returnValue};}};
+    return {show,showAllWindows,showArchitecture,get snapshot(){return{view,scene:current,value,selectedLayer,returnValue};}};
   }
   return{scenes,layers,layersForScene,drawing,returnExample,mount};
 });

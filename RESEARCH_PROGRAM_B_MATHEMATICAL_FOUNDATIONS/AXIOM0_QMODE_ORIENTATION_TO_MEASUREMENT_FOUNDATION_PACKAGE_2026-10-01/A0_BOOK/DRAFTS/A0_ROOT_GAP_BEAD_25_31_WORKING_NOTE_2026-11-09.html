@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>A0 · Root Gap / Bead / 25|31 · Working Note</title>
+  <style>
+    :root{--ink:#eef6f5;--muted:#9eb4bb;--paper:#06151d;--panel:#0a202a;--line:#28505e;--cyan:#61dce8;--pink:#ef72b5;--gold:#ffc83d;--white:#f7faf5;--red:#ff6b6b;--green:#7ce4ad;--mono:"SFMono-Regular",Consolas,"Liberation Mono",monospace;--serif:Georgia,"Times New Roman",serif;--sans:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(circle at 50% -20%,#12303c 0,#06151d 34rem);color:var(--ink);font:16px/1.55 var(--sans)}
+    a{color:var(--cyan)}button,input{font:inherit}.shell{width:min(1320px,calc(100% - 32px));margin:auto}.mono,.eyebrow,.badge,.label,code{font-family:var(--mono)}
+    header{padding:56px 0 28px;border-bottom:1px solid var(--line)}.eyebrow{color:var(--gold);font-size:.75rem;font-weight:800;letter-spacing:.18em;text-transform:uppercase}.hero{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(280px,.8fr);gap:34px;align-items:end}h1{font:700 clamp(3rem,8vw,7rem)/.84 var(--serif);letter-spacing:-.055em;margin:.22em 0}.slash{color:var(--cyan)}.lead{max-width:780px;color:#bdd0d5;font-size:clamp(1rem,2vw,1.25rem)}
+    .status{border:1px solid var(--gold);background:#171d18;padding:18px}.status strong{color:var(--gold);display:block;font-family:var(--mono);font-size:.8rem;letter-spacing:.1em}.status p{margin:.5rem 0 0;color:#c8d2c8}.badges{display:flex;flex-wrap:wrap;gap:7px;margin-top:20px}.badge{border:1px solid var(--line);border-radius:99px;padding:5px 9px;color:var(--muted);font-size:.67rem;letter-spacing:.06em}.badge.stop{border-color:#8a4c4c;color:#ffabab}
+    nav{position:sticky;top:0;z-index:20;background:rgba(6,21,29,.94);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}nav .shell{display:flex;gap:4px;overflow:auto;padding:8px 0}nav a{white-space:nowrap;text-decoration:none;color:#c3d6da;padding:8px 11px;border-radius:5px;font:700 .72rem var(--mono)}nav a:hover{background:#11303b;color:#fff}
+    main{padding:34px 0 80px}.section{margin:0 0 26px;border:1px solid var(--line);background:linear-gradient(145deg,rgba(13,40,51,.96),rgba(6,21,29,.98));box-shadow:0 18px 50px rgba(0,0,0,.18)}.section-head{padding:22px 24px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;gap:18px;align-items:flex-start}.section-head h2{margin:.12em 0 0;font:700 clamp(1.8rem,4vw,3.3rem)/1 var(--serif)}.section-head p{margin:0;max-width:560px;color:var(--muted)}.grid2{display:grid;grid-template-columns:1fr 1fr}.pane{padding:24px;min-width:0}.pane+.pane{border-left:1px solid var(--line)}.label{color:var(--cyan);font-size:.7rem;font-weight:800;letter-spacing:.13em;text-transform:uppercase}.claim{border-left:3px solid var(--green);padding:10px 14px;background:#0b2a28}.model{border-left:3px solid var(--pink);padding:10px 14px;background:#24182a}.warning{border-left:3px solid var(--gold);padding:10px 14px;background:#292313}.eq{font:800 clamp(1rem,3vw,1.65rem)/1.35 var(--mono);color:var(--gold);padding:15px;border:1px solid #765f20;background:#151a18;overflow:auto}.small{font-size:.82rem;color:var(--muted)}
+    .stage{position:relative;min-height:430px;background:radial-gradient(circle at center,#102c36,#06151d 68%);overflow:hidden}.stage svg{display:block;width:100%;height:100%;min-height:430px}.controls{display:grid;gap:13px;margin-top:18px}.control{display:grid;grid-template-columns:145px 1fr 62px;align-items:center;gap:10px}.control output{color:var(--gold);text-align:right;font:800 .8rem var(--mono)}input[type=range]{width:100%;accent-color:var(--pink)}.buttons{display:flex;gap:8px;flex-wrap:wrap}.buttons button{background:#0b2631;color:var(--ink);border:1px solid var(--line);padding:9px 12px;border-radius:4px;cursor:pointer;font:800 .72rem var(--mono)}.buttons button[aria-pressed=true]{border-color:var(--gold);color:var(--gold);background:#2a2515}
+    .readouts{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.readout{padding:12px;border:1px solid var(--line);background:#071820}.readout b{display:block;color:var(--gold);font:800 1.1rem var(--mono)}.readout span{color:var(--muted);font-size:.72rem}.legend{display:flex;gap:14px;flex-wrap:wrap;margin-top:12px;color:var(--muted);font:700 .7rem var(--mono)}.dot{width:9px;height:9px;border-radius:50%;display:inline-block;margin-right:5px}
+    .fact-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.fact{border:1px solid var(--line);padding:17px;background:#071820}.fact h3{font:700 2rem var(--serif);margin:0;color:var(--gold)}.fact code{display:block;color:var(--cyan);margin:.4rem 0}.ledger{width:100%;border-collapse:collapse}.ledger th,.ledger td{text-align:left;padding:11px 9px;border-bottom:1px solid var(--line);vertical-align:top}.ledger th{color:var(--cyan);font:800 .7rem var(--mono)}.ledger td:first-child{font-family:var(--mono);color:var(--gold)}
+    .source-list{display:grid;gap:8px}.source{border:1px solid var(--line);padding:12px;background:#071820}.source b{display:block;color:var(--ink)}footer{border-top:1px solid var(--line);padding:24px 0 50px;color:var(--muted);font-size:.78rem}.nowrap{white-space:nowrap}
+    @media(max-width:850px){.hero,.grid2{grid-template-columns:1fr}.pane+.pane{border-left:0;border-top:1px solid var(--line)}.fact-grid{grid-template-columns:1fr}.section-head{display:block}.section-head p{margin-top:12px}.control{grid-template-columns:105px 1fr 52px}.readouts{grid-template-columns:1fr}.stage,.stage svg{min-height:360px}}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="shell hero">
+      <div>
+        <div class="eyebrow">A0 · bounded companion · 09.11.2026</div>
+        <h1>Root Gap <span class="slash">/</span><br>Bead <span class="slash">/</span> 25|31</h1>
+        <p class="lead">Eine gemeinsame Arbeitsfläche für die Faltungs-, Zähl- und Spaltbeobachtungen: zwei Dreieckslagen, ein stabiler 5×5-Kern, ein wandernder Bead und die messbare Lücke zwischen gelber und weißer Diagonale.</p>
+        <div class="badges"><span class="badge">LOCAL WORKING DRAFT</span><span class="badge stop">NOT_A_FINDING</span><span class="badge stop">NO_ROOT7_REOPEN</span><span class="badge stop">NO_SCC_CLAIM_EFFECT</span><span class="badge">NO SOURCE GRAPH SEMANTIC EFFECT</span></div>
+      </div>
+      <aside class="status"><strong>STATUS / AUTHORITY</strong><p>Diese HTML bewahrt eine Untersuchungsidee. Sie ist weder Science-Desk-Ergebnis noch Navigator-Knoten, Publikationsfreigabe oder Änderung des ROOT7-Closeouts.</p></aside>
+    </div>
+  </header>
+  <nav aria-label="Seitennavigation"><div class="shell"><a href="#map">01 · Karte</a><a href="#fold">02 · Faltung</a><a href="#transfer">03 · 28→25|31</a><a href="#gap">04 · Spalt</a><a href="#numbers">05 · Zahlen</a><a href="#boundary">06 · Grenze</a></div></nav>
+  <main class="shell">
+    <section class="section" id="map">
+      <div class="section-head"><div><div class="eyebrow">01 · Zoom out</div><h2>Ein Objekt, drei Lesarten.</h2></div><p>Die Seite hält Geometrie, Zählung und Zahlenspiel zusammen, ohne sie gleichzusetzen. Jede Lesart hat einen eigenen Prüftyp.</p></div>
+      <div class="grid2">
+        <div class="pane"><div class="label">Exakt / berechenbar</div><div class="claim"><b>Geometrie:</b> Linien, Winkel, Abstände und Schnittpunkte.<br><b>Zählung:</b> 28+28=56 und 25+31=56.<br><b>Arithmetik:</b> Faktorisierungen und Identitäten.</div></div>
+        <div class="pane"><div class="label" style="color:var(--pink)">Lesart / Arbeitsmodell</div><div class="model"><b>Root Gap:</b> ein entstehender Zwischenraum, keine Quadratwurzel.<br><b>Bead:</b> beweglicher Relationshalter oder Abtastpunkt.<br><b>Mother Pentagon:</b> gesetzte Hüllkontur, nicht automatisch die reale Vereinigungsgrenze.</div></div>
+      </div>
+    </section>
+
+    <section class="section" id="fold">
+      <div class="section-head"><div><div class="eyebrow">02 · Origami / Projektion</div><h2>Die Speerform wandert.</h2></div><p>Zwei Dreieckslagen über einer Fünferhülle. Versatz und Drehung erzeugen Schnittmenge, Überstand und „Splinter“.</p></div>
+      <div class="grid2">
+        <div class="pane stage"><svg id="foldSvg" viewBox="0 0 620 470" role="img" aria-label="Interaktive Überlagerung aus Pentagon und zwei Dreiecken">
+          <circle cx="310" cy="235" r="184" fill="none" stroke="#244c59"/><circle cx="310" cy="235" r="112" fill="none" stroke="#173a46"/>
+          <polygon points="310,75 465,188 406,372 214,372 155,188" fill="#ffc83d18" stroke="#ffc83d" stroke-width="3"/>
+          <g id="triA"><polygon points="310,35 120,308 458,250" fill="#61dce826" stroke="#61dce8" stroke-width="2"/><line x1="310" y1="35" x2="310" y2="422" stroke="#61dce8" stroke-dasharray="7 7" opacity=".55"/></g>
+          <g id="triB"><polygon points="310,52 150,287 470,322" fill="#ef72b535" stroke="#ef72b5" stroke-width="3"/><line x1="310" y1="52" x2="310" y2="430" stroke="#ef72b5" stroke-width="3" opacity=".8"/></g>
+          <path id="spear" d="M310 64 L386 252 L310 288 L235 252 Z" fill="#f7faf53a" stroke="#f7faf5" stroke-width="1.5"/>
+          <circle cx="310" cy="235" r="7" fill="#f7faf5"/><text x="323" y="230" fill="#f7faf5" font-family="monospace" font-size="12">BEAD / PIVOT</text>
+          <path d="M78 151 L135 184" stroke="#9eb4bb"/><text x="30" y="142" fill="#9eb4bb" font-family="monospace" font-size="11">SPLINTER</text>
+        </svg></div>
+        <div class="pane">
+          <div class="label">Steuerung</div>
+          <div class="controls">
+            <label class="control"><span>Versatz X</span><input id="foldX" type="range" min="-70" max="70" value="22"><output id="foldXOut">22</output></label>
+            <label class="control"><span>Versatz Y</span><input id="foldY" type="range" min="-55" max="55" value="3"><output id="foldYOut">3</output></label>
+            <label class="control"><span>Drehung</span><input id="foldRot" type="range" min="-28" max="28" value="7"><output id="foldRotOut">7°</output></label>
+          </div>
+          <div class="legend"><span><i class="dot" style="background:var(--gold)"></i>gesetzte Fünferhülle</span><span><i class="dot" style="background:var(--cyan)"></i>T₁</span><span><i class="dot" style="background:var(--pink)"></i>T₂</span><span><i class="dot" style="background:var(--white)"></i>Schnittlesart</span></div>
+          <p class="warning"><b>Geometrische Grenze:</b> Das helle Speer-/Kite-Gebiet ist hier eine Visualisierung der vermuteten Schnittlesart. Eine echte Polygon-Schnittmenge wäre aus den deklarierten Eckkoordinaten zu berechnen.</p>
+          <p>Origami-Lesart: A4-Ecken zur Mitte, zweite Faltung, Mittelgrat. Eine vierseitige Pyramide besitzt vier Seitenflächen; Faltspuren können zusätzlich vier innere Kanten markieren. Zwei quadratische Pyramiden Basis an Basis ergeben einen Oktaeder.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="transfer">
+      <div class="section-head"><div><div class="eyebrow">03 · Count-preserving transfer</div><h2>28|28 wird 25|31.</h2></div><p>Nicht neue Masse, sondern verschobene Zuordnung: Eine Dreierkappe wechselt die Seite, die Summe 56 bleibt invariant.</p></div>
+      <div class="grid2">
+        <div class="pane stage"><svg id="countSvg" viewBox="0 0 620 470" role="img" aria-label="Interaktive Zähltransformation von 28 und 28 zu 25 und 31"></svg></div>
+        <div class="pane">
+          <div class="buttons" role="group" aria-label="Zählzustand"><button id="balancedBtn" aria-pressed="true">28 | 28</button><button id="transferBtn" aria-pressed="false">25 | 31</button></div>
+          <div class="eq" id="countEq">28 + 28 = 56 = 7 × 8</div>
+          <p><b>Leseregel:</b> Jede 28 kann als <span class="nowrap">25 + 3</span> gelesen werden. Wird eine 3er-Kappe von links nach rechts gebunden, entsteht <span class="nowrap">(28−3)|(28+3)=25|31</span>.</p>
+          <div class="readouts"><div class="readout"><b id="leftCount">28</b><span>linker Träger</span></div><div class="readout"><b>56</b><span>Gesamtzahl invariant</span></div><div class="readout"><b id="rightCount">28</b><span>rechter Träger</span></div></div>
+          <p class="warning"><b>Wichtig:</b> 56 ist die geschichtete bzw. Multimengen-Zahl. Die geometrische Vereinigung zweier Lagen ist <code>56−k</code>, sobald <code>k</code> Punkte tatsächlich zusammenfallen.</p>
+          <p class="model">Die „Mother-Pentagon“-Kontur ist eine gesetzte Hülle um 5×5-Kern und Kappe. Bei Versatz können zusätzliche Ecken sichtbar werden; dann ist die reale Außenkontur nicht zwingend fünfeckig.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="gap">
+      <div class="section-head"><div><div class="eyebrow">04 · Golden arc / white reference</div><h2>Der Spalt wird messbar.</h2></div><p>Der Bead läuft auf dem goldenen Fold-Bogen γ. Die weiße Referenz W ist um δ versetzt und um Δθ gedreht. Das Display liest den normalen, signierten Abstand.</p></div>
+      <div class="grid2">
+        <div class="pane stage"><svg id="gapSvg" viewBox="0 0 620 470" role="img" aria-label="Gelbe und weiße Diagonale mit beweglichem Bead und Spaltmessung">
+          <defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0L6 3L0 6Z" fill="#61dce8"/></marker></defs>
+          <g opacity=".2" stroke="#61dce8"><path d="M0 390H620M0 310H620M0 230H620M0 150H620M0 70H620"/><path d="M70 0V470M150 0V470M230 0V470M310 0V470M390 0V470M470 0V470M550 0V470"/></g>
+          <path id="yellowArc" d="M85 390 Q310 100 550 85" fill="none" stroke="#ffc83d" stroke-width="4"/>
+          <line id="whiteLine" x1="85" y1="355" x2="550" y2="50" stroke="#f7faf5" stroke-width="3"/>
+          <line id="gapLine" x1="310" y1="242" x2="310" y2="205" stroke="#61dce8" stroke-width="3" stroke-dasharray="5 4" marker-end="url(#arrow)"/>
+          <circle id="bead" cx="310" cy="242" r="11" fill="#ef72b5" stroke="#f7faf5" stroke-width="3"/>
+          <circle id="rootMark" cx="0" cy="0" r="7" fill="#071820" stroke="#7ce4ad" stroke-width="3"/>
+          <text id="gapText" x="326" y="216" fill="#61dce8" font-family="monospace" font-size="13">g = 0</text>
+          <text x="475" y="110" fill="#ffc83d" font-family="monospace" font-size="12">γ / GOLD FOLD</text><text x="462" y="60" fill="#f7faf5" font-family="monospace" font-size="12">W / WHITE REF</text>
+        </svg></div>
+        <div class="pane">
+          <div class="controls">
+            <label class="control"><span>Offset δ</span><input id="delta" type="range" min="-70" max="70" value="34"><output id="deltaOut">34</output></label>
+            <label class="control"><span>Winkel Δθ</span><input id="angle" type="range" min="-18" max="18" value="7"><output id="angleOut">7°</output></label>
+            <label class="control"><span>Bead t</span><input id="radius" type="range" min="0" max="100" value="50"><output id="radiusOut">0.50</output></label>
+          </div>
+          <div class="eq">B(t)=γ(t)<br>G(t)=n<sub>W</sub>·(B(t)−W₀) · g(t)=|G(t)|</div>
+          <div class="readouts"><div class="readout"><b id="signedGap">0.00</b><span>signierter Spalt G(t)</span></div><div class="readout"><b id="absGap">0.00</b><span>Breite g(t)</span></div><div class="readout"><b id="rootAt">—</b><span>Schließstelle t*</span></div></div>
+          <p class="claim"><b>Schließstelle:</b> <code>g(t*)=0</code>. Sie wird im Intervall <code>0≤t≤1</code> numerisch auf dem deklarierten Bézier-Bogen gesucht; ohne Vorzeichenwechsel bleibt die Schließstelle außerhalb dieser Ansicht.</p>
+          <p class="model"><b>Root-Gap-Lesart:</b> „Root“ bezeichnet hier die Nullstelle des signierten Spalts bzw. einen generativen Zwischenraum. Es bezeichnet nicht automatisch <span class="nowrap">√7</span>.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="numbers">
+      <div class="section-head"><div><div class="eyebrow">05 · Arithmetic ledger</div><h2>Exakte Zahlen, deklarierte Schnitte.</h2></div><p>Die vierstelligen Blöcke dürfen typografisch gelesen werden. Die Blocklesart ist aber nicht die Primfaktorzerlegung der Gesamtzahl.</p></div>
+      <div class="pane">
+        <div class="fact-grid">
+          <article class="fact"><h3>1429</h3><code>prime</code><p>Blocklesart <b>14|29</b>: 14=2×7; 29 ist die 10. Primzahl. Diese Lesart ist gesetzt, nicht durch die Primfaktorzerlegung erzeugt.</p></article>
+          <article class="fact"><h3>6541</h3><code>31 × 211</code><p>Blocklesart <b>65|41</b>: 65=5×13; 41 ist die 13. Primzahl. Spiegelhinweise: 14↔41 und 65↔56.</p></article>
+          <article class="fact"><h3>1729</h3><code>7 × 13 × 19</code><p><b>1³+12³ = 9³+10³</b>. Die Verbindung zu dieser Notiz ist eine exakte arithmetische Brücke, kein geometrischer Kausalnachweis.</p></article>
+        </div>
+        <div class="eq" style="margin-top:14px">1429 + 299 = 1728 = 12³<br>1429 + (13×23) + 1 = 1729 = 7×13×19</div>
+        <table class="ledger"><thead><tr><th>Element</th><th>Exakter Status</th><th>Zulässige Arbeitslesart</th></tr></thead><tbody>
+          <tr><td>7 / 13</td><td>Faktoren in deklarierten Teilblöcken; beide Faktoren von 1729.</td><td>Zwei Achsen, wenn die Achsendefinition separat angegeben wird.</td></tr>
+          <tr><td>+1</td><td>1728+1=1729.</td><td>Bead/Witness als grafischer Marker; keine physikalische Einheit.</td></tr>
+          <tr><td>299</td><td>13×23.</td><td>Brückenterm zwischen 1429 und 12³.</td></tr>
+          <tr><td>„Loki“</td><td>Keine mathematische Identität.</td><td>Visuelle Eselsbrücke für hornartige Überstände.</td></tr>
+        </tbody></table>
+      </div>
+    </section>
+
+    <section class="section" id="boundary">
+      <div class="section-head"><div><div class="eyebrow">06 · ROOT7 / SCC boundary</div><h2>Relation bewahren, Identitäten trennen.</h2></div><p>Die Notiz sitzt neben vorhandenen Untersuchungen. Sie ändert weder deren Befunde noch deren Claim Ceiling.</p></div>
+      <div class="grid2">
+        <div class="pane"><div class="label">ROOT7 exakt</div><div class="eq">||(2,1,1,1)|| = √(2²+1²+1²+1²) = √7</div><p>ROOT7 bleibt die bereits dokumentierte Norm-/Orientierungsfrage. Kardinalität 8→16 ist nicht die Metrik √7. Endpunkte allein identifizieren keine Winkelhistorie.</p><p><a href="../../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_ROOT7_LOOK_ORIENTATION_2026-10-08/index.html">Vorhandenen ROOT7-Look öffnen ↗</a></p></div>
+        <div class="pane"><div class="label" style="color:var(--pink)">Diese Notiz</div><div class="model">„Root gaps“ sind hier Residuen, Nullstellen oder ungebundene Freiheitsgrade zwischen bewegten Lagen. Das ist eine neue Arbeitsvokabel innerhalb des Drafts, keine neue Navigator-Taxonomie.</div><div class="source-list" style="margin-top:14px"><div class="source"><b>Navigator</b>Reuses existing A0 / ROOT7 context; no node, relation, alias or semantic binding change. Only the canonical-source currentness hash is refreshed.</div><div class="source"><b>SCC-003</b>No claim, package or review effect. Die SCC-Visuals sind nur Ausgangsbeobachtung.</div><div class="source"><b>Science Desk</b>Eine spätere wissenschaftliche Bindung erfordert Revision, Quellenprüfung, Claim Ceiling und Human-Owner-Entscheidung.</div></div></div>
+      </div>
+    </section>
+  </main>
+  <footer><div class="shell"><b>Canonical class:</b> local A0 companion candidate · dirty/unaccepted until separately framed. <b>Implementation:</b> one self-contained HTML, no external assets, no public route. <b>Source Graph semantic effect:</b> none; the Red Balloon source-currentness hash may change, but visual proximity and shared numbers create no identity or relation.</div></footer>
+  <script>
+    const $=id=>document.getElementById(id);
+    const rad=d=>d*Math.PI/180;
+    function updateFold(){const x=+$('foldX').value,y=+$('foldY').value,r=+$('foldRot').value;$('triB').setAttribute('transform',`translate(${x} ${y}) rotate(${r} 310 235)`);$('spear').setAttribute('transform',`translate(${x*.23} ${y*.2}) rotate(${r*.35} 310 235)`);$('foldXOut').value=x;$('foldYOut').value=y;$('foldRotOut').value=r+'°'}
+    ['foldX','foldY','foldRot'].forEach(id=>$(id).addEventListener('input',updateFold));updateFold();
+    const ns='http://www.w3.org/2000/svg';
+    function node(svg,x,y,color,ghost=false){const c=document.createElementNS(ns,'circle');c.setAttribute('cx',x);c.setAttribute('cy',y);c.setAttribute('r',ghost?5:6);c.setAttribute('fill',ghost?'none':color);c.setAttribute('stroke',color);c.setAttribute('stroke-width',ghost?2:1);svg.appendChild(c)}
+    function text(svg,x,y,value,color='#eef6f5',size=13){const t=document.createElementNS(ns,'text');t.setAttribute('x',x);t.setAttribute('y',y);t.setAttribute('fill',color);t.setAttribute('font-family','monospace');t.setAttribute('font-size',size);t.setAttribute('text-anchor','middle');t.textContent=value;svg.appendChild(t)}
+    let transferred=false;
+    function drawCounts(){const svg=$('countSvg');svg.replaceChildren();const left=transferred?25:28,right=transferred?31:28;const colors=['#61dce8','#ef72b5'];[[165,left],[455,right]].forEach(([cx,n],side)=>{const base=Math.min(n,25);for(let i=0;i<base;i++)node(svg,cx-56+(i%5)*28,230+Math.floor(i/5)*28,colors[side]);const cap=n-25;for(let i=0;i<cap;i++)node(svg,cx+(i-1)*28,202-Math.abs(i-1)*20,'#ffc83d');text(svg,cx,105,n,'#ffc83d',34);text(svg,cx,135,n===25?'5×5 CORE':n===31?'5×5 + 2×3':'5×5 + 3','#9eb4bb',11)});text(svg,165,160,transferred?'0° · 25':'0° · 25+3','#9eb4bb',11);text(svg,455,160,transferred?'180° · 25+3+3':'0° · 25+3','#9eb4bb',11);const path=document.createElementNS(ns,'path');path.setAttribute('d','M240 165 C300 115 330 115 390 165');path.setAttribute('fill','none');path.setAttribute('stroke','#ffc83d');path.setAttribute('stroke-width','2');path.setAttribute('stroke-dasharray','7 6');if(transferred)svg.appendChild(path);text(svg,310,420,transferred?'180° DISPLAY FLIP + DECLARED −3 | +3':'BALANCE: 28 | 28','#eef6f5',13);$('leftCount').textContent=left;$('rightCount').textContent=right;$('countEq').textContent=transferred?'25 + 31 = 56 = 7 × 8':'28 + 28 = 56 = 7 × 8';$('balancedBtn').setAttribute('aria-pressed',String(!transferred));$('transferBtn').setAttribute('aria-pressed',String(transferred))}
+    $('balancedBtn').onclick=()=>{transferred=false;drawCounts()};$('transferBtn').onclick=()=>{transferred=true;drawCounts()};drawCounts();
+    function updateGap(){const delta=+$('delta').value,angle=+$('angle').value,t=+$('radius').value/100;const p0={x:85,y:390},p1={x:310,y:100},p2={x:550,y:85};const point=u=>({x:(1-u)*(1-u)*p0.x+2*(1-u)*u*p1.x+u*u*p2.x,y:(1-u)*(1-u)*p0.y+2*(1-u)*u*p1.y+u*u*p2.y});const chord=Math.atan2(p2.y-p0.y,p2.x-p0.x),whiteTheta=chord-rad(angle),nx=-Math.sin(whiteTheta),ny=Math.cos(whiteTheta),len=620;const wx=p0.x+delta*nx,wy=p0.y+delta*ny;$('whiteLine').setAttribute('x1',wx);$('whiteLine').setAttribute('y1',wy);$('whiteLine').setAttribute('x2',wx+len*Math.cos(whiteTheta));$('whiteLine').setAttribute('y2',wy+len*Math.sin(whiteTheta));const signedAt=u=>{const p=point(u);return (p.x-wx)*nx+(p.y-wy)*ny};const b=point(t),signed=signedAt(t),gx=b.x-signed*nx,gy=b.y-signed*ny;$('bead').setAttribute('cx',b.x);$('bead').setAttribute('cy',b.y);$('gapLine').setAttribute('x1',b.x);$('gapLine').setAttribute('y1',b.y);$('gapLine').setAttribute('x2',gx);$('gapLine').setAttribute('y2',gy);$('gapText').setAttribute('x',(b.x+gx)/2+12);$('gapText').setAttribute('y',(b.y+gy)/2-8);$('gapText').textContent='g = '+Math.abs(signed).toFixed(1);let root=null,prevT=0,prev=signedAt(0);for(let i=1;i<=200;i++){const nextT=i/200,next=signedAt(nextT);if(next===0||prev*next<0){let lo=prevT,hi=nextT;for(let j=0;j<32;j++){const mid=(lo+hi)/2;if(signedAt(lo)*signedAt(mid)<=0)hi=mid;else lo=mid}root=(lo+hi)/2;break}prevT=nextT;prev=next}$('rootMark').style.display=root===null?'none':'block';if(root!==null){const rp=point(root);$('rootMark').setAttribute('cx',rp.x);$('rootMark').setAttribute('cy',rp.y)}$('deltaOut').value=delta;$('angleOut').value=angle+'°';$('radiusOut').value=t.toFixed(2);$('signedGap').textContent=signed.toFixed(2);$('absGap').textContent=Math.abs(signed).toFixed(2);$('rootAt').textContent=root===null?'outside':root.toFixed(3);}
+    ['delta','angle','radius'].forEach(id=>$(id).addEventListener('input',updateGap));updateGap();
+  </script>
+</body>
+</html>

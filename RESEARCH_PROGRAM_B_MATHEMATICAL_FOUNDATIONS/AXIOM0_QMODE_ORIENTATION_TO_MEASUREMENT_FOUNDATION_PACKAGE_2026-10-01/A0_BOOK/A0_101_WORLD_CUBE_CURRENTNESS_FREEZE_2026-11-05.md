@@ -62,3 +62,27 @@ Validators: recorded in the machine receipt after the final local verification p
 Status after return is `HOLD`. Reopening requires one separately authorized bounded gate: either an independent comprehension test, a typed CPMR marker contract, a source-bound account of the delta/17 notation, or a formal cross-module state connector. No gate is active by this freeze.
 
 No commit, push, deployment, publication, outreach or external contact is authorized or performed by this record.
+
+## Source-bound Matroschka window addendum — 2026-11-12
+
+The current A0/101 reading surface now exposes the existing Matroschka Cluster
+Bridge as an embedded, lazy-loaded window inside the World Cube context. The
+reader route is extended editorially to:
+
+```text
+101 / SOURCE
+→ Q-CUT / VIEW
+→ WORLD CUBE / CARRIER
+→ J / GENERATION
+→ MATROSCHKA / NEST + PROJECT + WITNESS
+→ A0 / RETURN
+```
+
+This is a source-bound projection of
+`A0_MATROSCHKA_CLUSTER_BRIDGE.html#mcb-3d-source-lens`, not a copied engine.
+It reuses `A0_GAME_OF_WORLDS_PLAY`,
+`NEXAH_A0_ORIENTATION_CONTROLLER_BENCH`,
+`ART:A0:MATHEMATICAL_JOINTS`, `METHOD:F0/F0−` and the already governed
+Matroschka source assets. The embedded window introduces no new Navigator
+identity, relation, alias, Study, Finding, claim-ceiling change or publication
+authority. The 5 November freeze and its HOLD/reopen rule remain unchanged.

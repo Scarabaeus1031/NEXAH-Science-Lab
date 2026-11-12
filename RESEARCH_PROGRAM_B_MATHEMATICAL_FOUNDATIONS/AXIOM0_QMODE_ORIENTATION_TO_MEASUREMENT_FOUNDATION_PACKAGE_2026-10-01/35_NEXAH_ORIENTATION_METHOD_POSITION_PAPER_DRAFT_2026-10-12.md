@@ -588,6 +588,143 @@ Dokumentarische Quellen:
 Der Atlas ist damit ein ausführbares Fallbeispiel für die Methode, nicht deren
 Validierung. Die Paper- und Finding-States bleiben unverändert.
 
+<a id="field-notes-digit-geometry-method-case"></a>
+
+### 8.9 Field Notes: Zifferngeometrie mit vollständigem Verlustreceipt
+
+*Dokumentarische Methodenergänzung vom 11.11.2026; endliche Fixture,
+kein Normalitätsbeweis, keine Konstantenidentität und kein neuer `F-A0`-Befund.*
+
+Das Digit-Pentagon-Instrument macht einen vollständigen
+Darstellungswechsel prüfbar. Je fünf aufeinanderfolgende Dezimalziffern bilden
+einen positionssensitiven Record. Die Ziffer bestimmt den Radius, ihre Stelle
+im Block den Winkel. Damit entstehen nicht „die Formen der Konstanten“,
+sondern deklarierte endliche Ansichten eines gehaltenen Ziffernrecords.
+
+```text
+digit source
+  → five-position polar embedding
+  → centroid / polygon view
+  → extrema projection (2-gon)
+  → loss receipt
+  → π-relative coordinate change
+  → barycentric inside / boundary / outside decision
+```
+
+Der methodische Punkt liegt im gemeinsamen Ledger. Die 2-gon-Projektion hält
+nur Minimum und Maximum samt Indizes. Die drei verworfenen `(index,value)`-
+Paare bleiben im Loss Receipt erhalten; erst mit ihnen ist der ursprüngliche
+Fünferblock exakt rekonstruierbar. Die visuelle Reduktion wird dadurch nicht
+mit einem informationsfreien Return verwechselt.
+
+Für den relativen View wird in jedem Frame der π-Schwerpunkt vom Schwerpunkt
+von `e`, `φ` und `√2` subtrahiert. Das ist ein Koordinatenwechsel, keine
+physische Zentrierung und keine Beziehung der Konstanten. Ein exakter
+baryzentrischer Test entscheidet anschließend, ob der Ursprung strikt im
+Dreieck der drei relativen Punkte liegt. Auf den gepinnten ersten 500
+Nachkommastellen, Blockgröße fünf, ergeben sich 100 Frames:
+
+| finite fixture result | value |
+|---|---:|
+| strictly inside | `8` |
+| on boundary | `0` |
+| degenerate | `0` |
+| maximum-area frame | `60` |
+
+Diese Zahlen sind reproduzierbare Eigenschaften der deklarierten Fixture und
+des gewählten Operators. Sie beweisen weder Normalität oder Zufälligkeit der
+Ziffern noch eine privilegierte Relation zwischen `π,e,φ,√2`. Eine
+wissenschaftliche Musterfrage beginnt erst mit einem vorab eingefrorenen
+Selektor, Block-/Offsetkontrollen, einem Nullensemble und unabhängigen
+Holdouts. Autokorrelation der 2-gon-Achse oder Entropie des Loss Receipts sind
+mögliche spätere Statistiken, nicht bereits Ergebnisse.
+
+Dieser Prüfvertrag wurde anschließend tatsächlich eingefroren und auf zwei
+zuvor nicht im Instrument enthaltenen 500-Ziffern-Holdouts ausgeführt. Der
+primäre Selektor blieb unverändert: 100 nicht überlappende Fünferblöcke,
+π-Zentrierung und Anzahl strikt baryzentrisch innen liegender Frames. Pro
+Holdout wurden zwei Vergleichspopulationen mit je 100.000 Replikaten erzeugt:
+unabhängige zyklische Blockverschiebungen sowie unabhängige
+Fisher–Yates-Blockpermutationen.
+
+| preregistered holdout | observed | matched null result |
+|---|---:|---|
+| digits 501–1000 | `5 / 100` inside | circular `p=0.242`, permutation `p=0.242`; deviation below null median |
+| digits 1001–1500 | `10 / 100` inside | circular `p=0.601`, permutation `p=0.607`; deviation above null median |
+
+Damit schlagen alle fünf vorab festgelegten Retentionsgates fehl: keine der
+beiden Abweichungen erreicht `p≤0.01` oder `|z|≥2.5`, die Richtung repliziert
+nicht und die Offsetkontrollen tragen kein stabiles Vorzeichen. Die stärkere
+Aussage einer ausgezeichneten synchronen Ausrichtung ist für diesen Operator
+und diese Holdouts falsifiziert. Das ist ein positives Methodenergebnis: Der
+Workflow kann eine visuell interessante Übereinstimmung mit einem
+reproduzierbaren Negativbefund begrenzen, ohne das Instrument selbst zu
+verwerfen.
+
+Als Paper-E-Fall bildet das Instrument die Sequenz T1–T8 konkret ab: Quelle
+und Block (`T1`), positionssensitiver Cut (`T2`), Polygon/Schwerpunkt (`T3`),
+relative Differenz (`T4`), Segment- und Dreiecksrelation (`T5`), Offset- und
+Framekontrolle (`T6`), rekonstruierbarer Return (`T7`) und Loss/Barycentric
+Ledger (`T8`). Das Beispiel stützt damit die **Ausführbarkeit** der Methode,
+nicht ihre externe Wirksamkeit oder Neuheit.
+
+Dokumentarische Quellen:
+
+- [Digit-Pentagon / π-relative triangle](A0_BOOK/assets/a0-field-notes/index.html#pi-relative-ticker)
+- [Science-Desk-Return](A0_BOOK/A0_RESEARCH_DESK.html#field-notes-living-blueprint-return-20261111)
+- [Findings- und Paper-Routing](32_A0_FINDINGS_AND_PAPER_WORKSPACE_2026-10-11.md#field-notes-living-blueprint-findings-return-20261111)
+- [Machine-readable Return Receipt](A0_BOOK/results/a0-field-notes-living-blueprint-return-2026-11-11.json)
+- [Frozen null-audit preregistration](A0_BOOK/results/A0_DIGIT_GEOMETRY_PREREGISTERED_NULL_TEST_2026-11-11.md)
+- [Preregistered null-audit result](A0_BOOK/results/a0-digit-geometry-preregistered-null-test-2026-11-11.json)
+
+<a id="ullinium-methods-1-5-method-case"></a>
+
+### 8.10 Methods 1–5: ein Verfahren muss auch den eigenen Vorteil verwerfen können
+
+*Dokumentarische Methodenergänzung vom 11.11.2026; präregistrierter
+Engineering-Comparator, kein Lab-Run, kein neuer Algorithmus und kein neuer
+`F-A0`-Befund.*
+
+Der Ullinium-Closing-Fall wurde gegen vier etablierte Repräsentationsklassen
+gebenscht: reine Adjazenz, Property Graph, bipartiter Inzidenzgraph und
+Cospan/Pushout. NEXAH trat als fünfte Methode mit demselben Quellgraphen,
+demselben Overlap-Selektor und derselben exakten Rekonstruktionsaufgabe an.
+Vor der Ausführung wurden fünf Graphfamilien, drei Overlap-Typen, 10.000
+Fälle, Integritätskontrollen, Payload-Metrik und der Falsifier eingefroren.
+
+Das Resultat trennt zwei Aussagen:
+
+1. **Provenienz ist erforderlich.** Reine Adjazenz rekonstruiert keine der
+   10.000 labelled Quellen. Alle vier provenienztragenden Methoden erreichen
+   `10,000/10,000` exakte Returns und erkennen Einzelkorruption sowie falsche
+   Naht jeweils vollständig.
+2. **NEXAH ist nicht algorithmisch privilegiert.** Cospan/Pushout erreicht
+   dieselbe Exaktheit und Robustheit mit durchschnittlich `1,173.46` Byte.
+   Das NEXAH Receipt benötigt `2,389.50` Byte beziehungsweise `2.04×` so viel.
+
+```text
+EQUIVALENT_RECOVERY_WITH_EXPLICIT_GOVERNANCE_OVERHEAD
+```
+
+Der verbleibende NEXAH-Beitrag ist damit genauer bezeichnet: Source-Layer,
+Seam, deklarierter Loss, Return-Status und Claim Boundary werden in einer
+gemeinsamen prüfbaren Hülle geführt. Das kann Forschungspraxis und Human
+Return unterstützen; der Bench zeigt aber keinen neuen
+Rekonstruktionsalgorithmus, keine Kompressionsüberlegenheit und keine erhöhte
+Manipulationsrobustheit.
+
+Für Paper E ist gerade diese negative Vorteilsentscheidung methodisch
+relevant. Die Sequenz endet nicht zwingend in einer NEXAH-Promotion, sondern
+kann nach deklariertem Vergleich bei `NO_DISTINCT_METHOD_ADVANTAGE` stoppen
+und nur die tatsächlich zusätzliche Governance-Rolle behalten.
+
+Dokumentarische Quellen:
+
+- [Methods 1–5 frozen preregistration](A0_BOOK/results/A0_ULLINIUM_METHODS_1_5_PREREGISTRATION_2026-11-11.md)
+- [Methods 1–5 machine result](A0_BOOK/results/a0-ullinium-methods-1-5-result-2026-11-11.json)
+- [Science Desk return](A0_BOOK/A0_RESEARCH_DESK.html#ullinium-closing-comparator-return-20261111)
+- [Paper C comparator note](34_A0_RETURN_WITHOUT_IDENTITY_PAPER_DRAFT_2026-10-11.md#ullinium-methods-1-5-comparator)
+
 
 ## 9. Euler / Navier–Stokes als adversarialer Beispiel-Record
 

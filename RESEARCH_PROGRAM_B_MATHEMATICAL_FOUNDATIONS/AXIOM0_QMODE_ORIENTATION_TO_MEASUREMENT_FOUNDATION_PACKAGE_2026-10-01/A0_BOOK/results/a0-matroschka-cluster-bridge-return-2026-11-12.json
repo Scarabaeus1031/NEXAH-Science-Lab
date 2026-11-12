@@ -1,0 +1,580 @@
+{
+  "schema": "a0.matroschka-cluster-bridge.return.v6",
+  "fixtureId": "A0-MATH-MCB-01",
+  "date": "2026-11-12",
+  "classification": "DETERMINISTIC_FINITE_MATH_FIXTURE / SOURCE-BOUND A0 ENGINEERING / NOT_A_LAB_RUN / NOT_ADMITTED",
+  "identityDisposition": "REUSES METHOD:F0/F0- + A0 MATHEMATICAL JOINTS + ORIENTATION CONTROLLER BENCH + V2-A01 CANDIDATE LENS; EXTENDS EXISTING MISSION CONTROL SURFACE ASSET-883C1509BCEF; REUSES GLB SOURCE ASSET-E78DF8527C6B; NO NEW NAVIGATOR ID",
+  "claimCeiling": "DECLARED Z6^3 PILOT + ESTABLISHED SPHERE/STEREOGRAPHIC/MATRIX MATHEMATICS / HISTORICAL TRIPLE-SIX GENERATOR NOT RECOVERED / NO NEW PHYSICS",
+  "pipeline": [
+    "DECLARED TRIPLE-SIX PILOT Z6^3",
+    "CLUSTER PARTITION (a+b+c) mod 3",
+    "NESTED CARRIER: ADDRESS -> CLUSTER -> CUBE -> GEOSPHERE + RADIAL WITNESS",
+    "3D SOURCE LENS: Q-SPACE CORE -> TRIPLE WHEEL -> LADDER",
+    "METHOD:F0/F0- VIEW SEAM",
+    "EXTERNAL RIEMANN STEREOGRAPHIC CHART",
+    "Q-DEGREE OBSERVATION",
+    "A3 270-DEGREE ORIENTATION-REVERSING SNAP",
+    "SEAM / RETURN"
+  ],
+  "matryoshkaCarrier": {
+    "layers": [
+      {
+        "index": 0,
+        "id": "ADDRESS",
+        "object": "(a,b,c) in Z6^3",
+        "role": "discrete source record"
+      },
+      {
+        "index": 1,
+        "id": "CLUSTER",
+        "object": "X_i subset of X",
+        "role": "local neighbourhood cell"
+      },
+      {
+        "index": 2,
+        "id": "CUBE",
+        "object": "u in [-1,1]^3",
+        "role": "finite embedding carrier"
+      },
+      {
+        "index": 3,
+        "id": "GEOSPHERE_WITH_WITNESS",
+        "object": "(u/||u||, rho)",
+        "role": "direction plus retained radial witness"
+      }
+    ],
+    "externalView": {
+      "id": "RIEMANN_Q_VIEW",
+      "object": "stereographic chart plus Q-degree observer",
+      "role": "projection and observation; not a carrier shell"
+    },
+    "returnPath": "RIEMANN_Q_VIEW -> GEOSPHERE_WITH_WITNESS -> CUBE -> CLUSTER -> ADDRESS",
+    "boundary": "nested-carrier visualization; visual similarity is not evidence"
+  },
+  "livingBlueprint": {
+    "cycle": "0 -> 90 -> 180 -> 270 -> 360 == 0",
+    "stations": [
+      {
+        "index": 0,
+        "angle": 0,
+        "label": "ADDRESS",
+        "operator": "I",
+        "polarity": "Q°+",
+        "orientation": 1,
+        "bearing": "ORIENT",
+        "landing": {
+          "token": "101",
+          "type": "ADDRESS / IDENTITY"
+        },
+        "exit": false,
+        "return": false
+      },
+      {
+        "index": 1,
+        "angle": 90,
+        "label": "CLUSTER",
+        "operator": "A₁",
+        "polarity": "Q°+",
+        "orientation": 1,
+        "bearing": "ZENITH",
+        "landing": {
+          "token": "1.1",
+          "type": "DISPLAY / SEAM"
+        },
+        "exit": false,
+        "return": false
+      },
+      {
+        "index": 2,
+        "angle": 180,
+        "label": "GEOSPHERE",
+        "operator": "A₂A₁",
+        "polarity": "Q°+",
+        "orientation": 1,
+        "bearing": "OCCIDENT",
+        "landing": {
+          "token": "1.21",
+          "type": "1:2:1 DISPLAY FILL"
+        },
+        "exit": false,
+        "return": false
+      },
+      {
+        "index": 3,
+        "angle": 270,
+        "label": "N exiT°",
+        "operator": "A₃A₂A₁",
+        "polarity": "Q°−",
+        "orientation": -1,
+        "bearing": "NADIR",
+        "landing": {
+          "token": "1.1",
+          "type": "RETURN VIEW"
+        },
+        "exit": true,
+        "return": false
+      },
+      {
+        "index": 4,
+        "angle": 360,
+        "label": "RETURN",
+        "operator": "H⁻¹H",
+        "polarity": "Q°+",
+        "orientation": 1,
+        "bearing": "ORIENT / HERE",
+        "landing": {
+          "token": "101",
+          "type": "RETURN IDENTITY"
+        },
+        "exit": false,
+        "return": true
+      }
+    ],
+    "orientationRose": {
+      "origin": "HERE",
+      "axis": [
+        "ORIENT",
+        "ZENITH",
+        "OCCIDENT",
+        "NADIR"
+      ],
+      "parameter": "AZIMUT"
+    },
+    "typedLanding": {
+      "addressToken": "101",
+      "displayValue": 1.1,
+      "fillValue": 1.21,
+      "displayMap": "D:(1,0,1) -> 1.1",
+      "inverseDisplayMap": "D^-1:1.1 -> (1,0,1)",
+      "boundary": "101 is an address token; it is not numerically equal to 1.1"
+    },
+    "exitGlyph": {
+      "label": "N exiT°",
+      "wordmark": "NE¥AH",
+      "status": "PRESENTATION_ONLY / NOT_A_NAVIGATOR_ALIAS"
+    }
+  },
+  "runtimeVisual": {
+    "sourceAssetId": "ASSET-E78DF8527C6B",
+    "source": "assets/universal-machine-fam009/atomic_matroschka_triplewheel_helix_words.glb",
+    "sourceSha256": "1b66873d800b6f39ffb8ab6ec0578b39a443c98ef4bec66d69af692bf63be23d",
+    "derivative": "assets/universal-machine-fam009/atomic_matroschka_triplewheel_helix_runtime_r1.glb",
+    "derivativeSha256": "77622c77cb184e57c1f8670935885664007420ab75452949f90365629021acf6",
+    "animation": "MCB_TRIPLE_WHEEL_RETURN_10S",
+    "snapTimes": [
+      0,
+      2.5,
+      5,
+      7.5,
+      10
+    ],
+    "relation": "SOURCE_BOUND_PRESENTATION_DERIVATIVE / SAME_ASSET_IDENTITY / NO_GRAPH_RELATION_DELTA"
+  },
+  "historicalContext": {
+    "asset": "assets/a0-stern-gerlach-gerlach-to-bohr-postcard-1922.jpg",
+    "sha256": "4fe163932717b5a842dc7535d6bd86a984aa50b49b8d65a20c91a7bf551dd2d5",
+    "object": "Walther Gerlach postcard to Niels Bohr, 8 February 1922, showing silver-beam traces without and with inhomogeneous magnetic field",
+    "localSource": "Human Owner supplied screenshot",
+    "externalProvenance": [
+      "Niels Bohr Archive",
+      "AIP Emilio Segre Visual Archives",
+      "Max Planck Society historical transcription"
+    ],
+    "relation": "HISTORICAL_MEASUREMENT_CONTEXT_ONLY / NOT_EVIDENCE_FOR_MCB",
+    "publication": "NOT_CLEARED"
+  },
+  "census": {
+    "carrier": "DECLARED_TRIPLE_SIX_PILOT_Z6_CUBED",
+    "nodes": 216,
+    "clusterCounts": [
+      72,
+      72,
+      72
+    ],
+    "undirectedEdges": 648,
+    "edgeCounts": {
+      "AB": 216,
+      "BC": 216,
+      "AC": 216
+    },
+    "exactReturns": 216,
+    "maxReturnEpsilon": 1.3142199108697421e-15,
+    "witnesslessFailures": 216,
+    "wrongOrderFailures": 210,
+    "matrix": {
+      "determinants": [
+        1,
+        1,
+        -1,
+        -1
+      ],
+      "orthogonality": 1.5907354687065926e-32,
+      "commutator12": 2.8284271247461903,
+      "commutator23": 2.8284271247461903
+    }
+  },
+  "checks": [
+    {
+      "id": "T01",
+      "pass": true,
+      "statement": "Triple-Six pilot contains 6^3=216 addresses",
+      "detail": "PASS"
+    },
+    {
+      "id": "T02",
+      "pass": true,
+      "statement": "Cluster partition has three typed cells",
+      "detail": "PASS"
+    },
+    {
+      "id": "T03",
+      "pass": true,
+      "statement": "Every cluster contains 72 addresses",
+      "detail": "PASS"
+    },
+    {
+      "id": "T04",
+      "pass": true,
+      "statement": "Z6^3 nearest-neighbor graph has 648 undirected edges",
+      "detail": "PASS"
+    },
+    {
+      "id": "T05",
+      "pass": true,
+      "statement": "A-B seam count is 216",
+      "detail": "PASS"
+    },
+    {
+      "id": "T06",
+      "pass": true,
+      "statement": "B-C seam count is 216",
+      "detail": "PASS"
+    },
+    {
+      "id": "T07",
+      "pass": true,
+      "statement": "C-A seam count is 216",
+      "detail": "PASS"
+    },
+    {
+      "id": "G01",
+      "pass": true,
+      "statement": "Every cube embedding has nonzero radius",
+      "detail": "PASS"
+    },
+    {
+      "id": "G02",
+      "pass": true,
+      "statement": "Every geosphere point has unit norm",
+      "detail": "PASS"
+    },
+    {
+      "id": "G03",
+      "pass": true,
+      "statement": "Every oriented point remains on the unit sphere",
+      "detail": "PASS"
+    },
+    {
+      "id": "G04",
+      "pass": true,
+      "statement": "Riemann chart round-trips every oriented point",
+      "detail": "PASS"
+    },
+    {
+      "id": "G05",
+      "pass": true,
+      "statement": "Riemann chart remains finite on the declared carrier",
+      "detail": "PASS"
+    },
+    {
+      "id": "A01",
+      "pass": true,
+      "statement": "A1 is orientation preserving",
+      "detail": "PASS"
+    },
+    {
+      "id": "A02",
+      "pass": true,
+      "statement": "A2 is orientation preserving",
+      "detail": "PASS"
+    },
+    {
+      "id": "A03",
+      "pass": true,
+      "statement": "A3 is orientation reversing",
+      "detail": "PASS"
+    },
+    {
+      "id": "A04",
+      "pass": true,
+      "statement": "Holonomy is orientation reversing",
+      "detail": "PASS"
+    },
+    {
+      "id": "A05",
+      "pass": true,
+      "statement": "Holonomy remains orthogonal",
+      "detail": "PASS"
+    },
+    {
+      "id": "A06",
+      "pass": true,
+      "statement": "A1 and A2 do not commute",
+      "detail": "PASS"
+    },
+    {
+      "id": "A07",
+      "pass": true,
+      "statement": "A2 and A3 do not commute",
+      "detail": "PASS"
+    },
+    {
+      "id": "A08",
+      "pass": true,
+      "statement": "Declared inverse closes H",
+      "detail": "PASS"
+    },
+    {
+      "id": "R01",
+      "pass": true,
+      "statement": "All 216 typed returns reconstruct the source",
+      "detail": "PASS"
+    },
+    {
+      "id": "R02",
+      "pass": true,
+      "statement": "Maximum typed return error stays below tolerance",
+      "detail": "PASS"
+    },
+    {
+      "id": "R03",
+      "pass": true,
+      "statement": "All returned addresses equal their source",
+      "detail": "PASS"
+    },
+    {
+      "id": "R04",
+      "pass": true,
+      "statement": "Dropping the radial witness is detected",
+      "detail": "PASS"
+    },
+    {
+      "id": "R05",
+      "pass": true,
+      "statement": "Using the wrong inverse order is detected",
+      "detail": "PASS"
+    },
+    {
+      "id": "R06",
+      "pass": true,
+      "statement": "Center-near address still returns exactly",
+      "detail": "PASS"
+    },
+    {
+      "id": "R07",
+      "pass": true,
+      "statement": "Outer-corner address still returns exactly",
+      "detail": "PASS"
+    },
+    {
+      "id": "Q01",
+      "pass": true,
+      "statement": "Q-degree measurement is bounded by the unit interval",
+      "detail": "PASS"
+    },
+    {
+      "id": "Q02",
+      "pass": true,
+      "statement": "Changing Q-degree changes a reading, not the source",
+      "detail": "PASS"
+    },
+    {
+      "id": "Q03",
+      "pass": true,
+      "statement": "Q-degree observer axis is normalized",
+      "detail": "PASS"
+    },
+    {
+      "id": "B01",
+      "pass": true,
+      "statement": "Historical Triple-Six generator is not claimed by the model",
+      "detail": "PASS"
+    },
+    {
+      "id": "B02",
+      "pass": true,
+      "statement": "Cluster rule is explicit on every route",
+      "detail": "PASS"
+    },
+    {
+      "id": "B03",
+      "pass": true,
+      "statement": "Q-degree is typed as observation state",
+      "detail": "PASS"
+    },
+    {
+      "id": "B04",
+      "pass": true,
+      "statement": "Exact return requires the retained radius witness",
+      "detail": "PASS"
+    },
+    {
+      "id": "B05",
+      "pass": true,
+      "statement": "Wrong-order control preserves the negative result",
+      "detail": "PASS"
+    },
+    {
+      "id": "F01",
+      "pass": true,
+      "statement": "F0 and F0- return the same source address",
+      "detail": "PASS"
+    },
+    {
+      "id": "F02",
+      "pass": true,
+      "statement": "F0- changes view but not carrier",
+      "detail": "PASS"
+    },
+    {
+      "id": "F03",
+      "pass": true,
+      "statement": "F0 namespace remains a method seam, not CF:F0",
+      "detail": "PASS"
+    },
+    {
+      "id": "S01",
+      "pass": true,
+      "statement": "Living Blueprint exposes five canonical snap stations",
+      "detail": "PASS"
+    },
+    {
+      "id": "S02",
+      "pass": true,
+      "statement": "The third local operator is exposed at the 270-degree snap",
+      "detail": "PASS"
+    },
+    {
+      "id": "S03",
+      "pass": true,
+      "statement": "The 270-degree snap reverses orientation and changes Q polarity",
+      "detail": "PASS"
+    },
+    {
+      "id": "S04",
+      "pass": true,
+      "statement": "The fifth station closes 360 degrees onto the return",
+      "detail": "PASS"
+    },
+    {
+      "id": "S05",
+      "pass": true,
+      "statement": "Orientation rose traverses Orient, Zenith, Occident and Nadir",
+      "detail": "PASS"
+    },
+    {
+      "id": "S06",
+      "pass": true,
+      "statement": "HERE is recovered at the 360-degree identity return",
+      "detail": "PASS"
+    },
+    {
+      "id": "D01",
+      "pass": true,
+      "statement": "Display fill is the exact square of the 1.1 display value",
+      "detail": "PASS"
+    },
+    {
+      "id": "D02",
+      "pass": true,
+      "statement": "Positive square-root return recovers the 1.1 display value",
+      "detail": "PASS"
+    },
+    {
+      "id": "D03",
+      "pass": true,
+      "statement": "101 remains a typed address token rather than a numeric equality claim",
+      "detail": "PASS"
+    },
+    {
+      "id": "N01",
+      "pass": true,
+      "statement": "Matryoshka carrier has four typed nested layers",
+      "detail": "PASS"
+    },
+    {
+      "id": "N02",
+      "pass": true,
+      "statement": "Riemann and Q-degree remain an external view rather than a carrier shell",
+      "detail": "PASS"
+    },
+    {
+      "id": "N03",
+      "pass": true,
+      "statement": "Matryoshka return explicitly traverses view back to address",
+      "detail": "PASS"
+    },
+    {
+      "id": "V01",
+      "pass": true,
+      "statement": "Registered source GLB hash remains unchanged",
+      "detail": "PASS"
+    },
+    {
+      "id": "V02",
+      "pass": true,
+      "statement": "Runtime derivative remains bound to the existing source identity",
+      "detail": "PASS"
+    },
+    {
+      "id": "V03",
+      "pass": true,
+      "statement": "Runtime exposes one declared ten-second animation",
+      "detail": "PASS"
+    },
+    {
+      "id": "V04",
+      "pass": true,
+      "statement": "Runtime animation targets core and all three named wheels",
+      "detail": "PASS"
+    },
+    {
+      "id": "V05",
+      "pass": true,
+      "statement": "HTML embeds the runtime through the local governed viewer",
+      "detail": "PASS"
+    },
+    {
+      "id": "V06",
+      "pass": true,
+      "statement": "HTML exposes all five synchronized 3D snap controls",
+      "detail": "PASS"
+    },
+    {
+      "id": "V07",
+      "pass": true,
+      "statement": "A0 viewer declares its five-snap fallback without hiding the embedded clip",
+      "detail": "PASS"
+    },
+    {
+      "id": "V08",
+      "pass": true,
+      "statement": "Runtime synchronizes visible model angle with the canonical snap sequence",
+      "detail": "PASS"
+    }
+  ],
+  "summary": {
+    "checksPassed": 58,
+    "checksTotal": 58,
+    "pass": true,
+    "graphDelta": {
+      "identities": 0,
+      "relations": 0,
+      "aliases": 0,
+      "studies": 0,
+      "findings": 0,
+      "promotions": 0
+    }
+  },
+  "stop": "No physical nesting law from the visual design, numeric identity between address token 101 and display value 1.1, CF:F0 or CF:F8, historical Triple-Six reconstruction, Riemann hypothesis claim, natural cluster law, topology theorem, physical mechanism, natural atomic or DNA dynamics, Navigator alias, Study activation, Finding promotion, image publication clearance or publication authority."
+}

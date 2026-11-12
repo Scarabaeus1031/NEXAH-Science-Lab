@@ -36,6 +36,13 @@ const events={},win={location:{hash:''},history:{replaceState(a,b,hash){win.loca
 const ui=model.mount(doc,win);
 check(ui.snapshot.scene===-1&&!elements.overview.hidden&&elements.scene.hidden,'overview is initial view');
 check((elements.sceneCards.innerHTML.match(/data-scene=/g)||[]).length===7,'seven native cards');
+check((elements.allWindowCards.innerHTML.match(/class="all-window"/g)||[]).length===7,'seven simultaneous windows');
+ui.showAllWindows();
+check(ui.snapshot.view==='all'&&!elements.allWindows.hidden&&elements.overview.hidden&&elements.architecture.hidden&&elements.scene.hidden,'all windows view visible');
+check(elements.viewAllWindows.attributes['aria-pressed']==='true','all windows switch state');
+elements.allWindowCards.emit('click',{target:{closest(){return{dataset:{scene:'3'}};}}});
+check(ui.snapshot.scene===3&&ui.snapshot.view==='scene','window opens interactive scene');
+ui.show(-1);
 for(let i=0;i<7;i++){
   elements.sceneCards.emit('click',{target:{closest(){return{dataset:{scene:String(i)}};}}});
   check(ui.snapshot.scene===i&&!elements.scene.hidden&&elements.overview.hidden,'card opens scene');
@@ -89,6 +96,7 @@ check(elements.returnExplanation.textContent.includes('4/6'),'lost difference am
 win.location.hash='#layer-coupling';events.hashchange();check(ui.snapshot.selectedLayer==='coupling'&&ui.snapshot.view==='architecture','deep link group');
 win.location.hash='#sources';events.hashchange();check(ui.snapshot.view==='architecture','source anchor does not silently change view');
 win.location.hash='#architecture';events.hashchange();check(ui.snapshot.view==='architecture','architecture root route');
+win.location.hash='#all-windows';events.hashchange();check(ui.snapshot.view==='all'&&!elements.allWindows.hidden,'all windows deep link');
 elements.viewOverview.emit('click');check(ui.snapshot.view==='overview'&&elements.architecture.hidden,'overview switch works');
 function linkExists(href){
   const [p,anchor]=href.split('#'),target=p?path.resolve(__dirname,decodeURIComponent(p.split('?')[0])):path.join(__dirname,'A0_THEORY_STORYBOARD.html');

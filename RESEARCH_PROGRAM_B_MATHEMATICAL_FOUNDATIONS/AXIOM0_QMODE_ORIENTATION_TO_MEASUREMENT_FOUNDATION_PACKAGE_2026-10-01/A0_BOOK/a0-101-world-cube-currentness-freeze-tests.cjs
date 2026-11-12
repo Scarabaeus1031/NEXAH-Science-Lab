@@ -20,7 +20,8 @@ let checks = 0;
 const ok = (condition, message) => { checks += 1; if (!condition) throw new Error(`FAIL ${checks}: ${message}`); };
 
 ok(cube.includes('id="a0ContextLoop"'), 'Cube exposes the 101/A0 context route');
-ok(['SOURCE / LEAF', 'APERTURE / VIEW', 'CARRIER / MAP', 'ORIENT / CONTINUE', 'RECEIPT / GOVERN'].every(token => cube.includes(token)), 'Context route contains all five typed stations');
+ok(['SOURCE / LEAF', 'APERTURE / VIEW', 'CARRIER / MAP', 'ORIENT / CONTINUE', 'NEST / PROJECT / WITNESS', 'RECEIPT / GOVERN'].every(token => cube.includes(token)), 'Context route contains all six typed stations including the Matroschka window');
+ok(cube.includes('id="matroschka101Dock"') && cube.includes('A0_MATROSCHKA_CLUSTER_BRIDGE.html?embed=a0-101#mcb-3d-source-lens'), 'World Cube embeds the canonical Matroschka source lens');
 ok((cube.match(/\{title:'/g) || []).length === 12, 'Extended demo contains exactly twelve tour steps');
 ok(['HEPTAD 14 · ORIENTATION', 'ALGO · EIGHT FLOORS', 'CPMR · SPIRAL OVER CUBE', 'PASCAL · FILL / RELEASE / J-TURN', 'KEYSTONE 9 · A0 RETURN'].every(token => cube.includes(token)), 'Tour binds all successor modules and the governed return');
 ok(cube.includes('String-/M-Theory') && cube.includes('keine physikalische Dualität, Resonanz oder gemeinsame Theorie'), 'Player carries the explicit physics nonclaim');
@@ -45,7 +46,7 @@ ok(receipt.external_effect.commit === false && receipt.external_effect.push === 
 console.log(JSON.stringify({
   status: 'PASS',
   checks,
-  route: ['101_SOURCE', 'Q_CUT', 'WORLD_CUBE', 'J_GENERATION', 'A0_RECEIPT'],
+  route: ['101_SOURCE', 'Q_CUT', 'WORLD_CUBE', 'J_GENERATION', 'MATROSCHKA_WITNESS', 'A0_RECEIPT'],
   tour_steps: 12,
   navigator_delta: '0/0/0'
 }));

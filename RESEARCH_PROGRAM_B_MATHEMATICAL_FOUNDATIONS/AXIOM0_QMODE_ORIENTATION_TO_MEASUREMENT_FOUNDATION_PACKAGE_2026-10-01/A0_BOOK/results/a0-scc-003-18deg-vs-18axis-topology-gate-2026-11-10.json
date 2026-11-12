@@ -1,0 +1,57 @@
+{
+  "record_id": "A0-SCC003-18DEG-VS-18AXIS-TOPOLOGY-GATE-2026-11-10",
+  "date": "2026-11-10",
+  "status": "TESTED_HOLD",
+  "identity_reused": "SCC-003 / A0OE:PASCAL_PENTAGON_D5_TEST",
+  "source": "40 EXPERIENCE PRODUCTION/NEXAH-Experience/public/review-assets/scc-003-r1/demonstrators/complex-fold-18x23.html",
+  "question": "Does a periodic quad-grid adjacency plus local Maekawa and Kawasaki checks select 18 axes x 23 stations or the declared 18-degree carrier x 23 stations?",
+  "test_contract": {
+    "topology": "periodic quad grid C_angular x C_23",
+    "adjacency": "symmetric sparse degree-four adjacency",
+    "faces": "one explicit quad per angular/station cell",
+    "mountain_valley_assignment": "angular perfect matching supplies one V edge per vertex; all remaining incident edges are M",
+    "maekawa": "M=3, V=1, therefore |M-V|=2 at every vertex",
+    "kawasaki": "four equal 90-degree sectors, therefore each alternating sum is 180 degrees"
+  },
+  "candidates": [
+    {
+      "name": "G_18_23",
+      "meaning": "18 axes x 23 stations",
+      "vertices": 414,
+      "edges": 828,
+      "quad_faces": 414,
+      "euler_characteristic": 0,
+      "adjacency": "PASS",
+      "maekawa": "PASS",
+      "kawasaki": "PASS"
+    },
+    {
+      "name": "G_20_23",
+      "meaning": "360 degrees / 18 degrees = 20 directions x 23 stations",
+      "vertices": 460,
+      "edges": 920,
+      "quad_faces": 460,
+      "euler_characteristic": 0,
+      "adjacency": "PASS",
+      "maekawa": "PASS",
+      "kawasaki": "PASS"
+    }
+  ],
+  "result": "Both candidates pass the declared local necessary conditions. The checks do not select the carrier semantics.",
+  "disposition": "HOLD mechanism binding until Human Owner selects whether 18 denotes an axis count or an 18-degree angular step. The existing SCC-003 demonstrator currently declares the latter.",
+  "claim_boundary": "The test uses a toroidal periodic carrier. It is not a planar crease-pattern, global rigid-foldability, layer-order, collision, material, stress or physical self-support proof.",
+  "navigator_effect": {
+    "new_entities": 0,
+    "new_relations": 0,
+    "new_aliases": 0,
+    "effect": "Existing SCC-003 identity reused; no Source Graph semantic change."
+  },
+  "verification": {
+    "targeted_site_test": "PASS",
+    "inline_script_syntax": "PASS (11 scripts)",
+    "astro_check": "PASS (0 errors, 0 warnings, 0 hints)",
+    "experience_tests": "68 PASS / 1 environment failure: ORION_REPOSITORY_PATH absent",
+    "astro_build": "PASS (214 pages)",
+    "source_graph_validator": "PRE-EXISTING FAIL: A0 orientation evidence hash mismatches; no new identity or relation was added"
+  }
+}

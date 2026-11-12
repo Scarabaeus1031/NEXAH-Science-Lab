@@ -1,0 +1,410 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>A0 · Matroschka Cluster Bridge</title>
+<link rel="stylesheet" href="a0-matroschka-cluster-bridge.css?v=mcb-3d-r2">
+<style>.mcb-3d-stage model-viewer{transform:rotate(var(--mcb-model-angle,0deg));transition:transform .62s cubic-bezier(.2,.8,.2,1)}@media(prefers-reduced-motion:reduce){.mcb-3d-stage model-viewer{transition:none}}</style>
+<script defer src="assets/vendor/a0-model-viewer-classic.js"></script>
+</head>
+<body>
+<main id="matroschkaClusterBridge" class="mcb-shell">
+<header class="mcb-top">
+<div>
+<div class="mcb-kicker">A0 · V2-A01 TYPED FIXTURE · METHOD:F0/F0− · SEARCH → MATCH → BIND → BUILD → RETURN</div>
+<h1>Matroschka<br>Cluster Bridge.</h1>
+<p>Das fehlende Bindeglied wird als endlicher, prüfbarer Pilot gebaut: ein deklarierter Triple‑Six-Träger, drei lokale Cluster, eine Geosphere mit Riemann-Karte, die vorhandene F0/F0−-Nullfuge, ein getrennter Q°-Messzustand und ein Return, der den beim Normieren verlorenen Radius als Witness verlangt.</p>
+</div>
+<span id="mcb-check-state" class="mcb-state">58/58 · LOCAL PASS</span>
+</header>
+<section class="mcb-chain" aria-label="Typisierte Übergangskette">
+<article data-snap-station="0">
+<span class="mcb-label">X₀ · 0° · ADDRESS</span>
+<b>Triple‑Six Pilot</b>
+<small>Z₆³ · 216 Zustände</small>
+</article>
+<article data-snap-station="1">
+<span class="mcb-label">T₀₁ · 90° · PARTITION</span>
+<b>Cluster A/B/C</b>
+<small>(a+b+c) mod 3</small>
+</article>
+<article data-snap-station="2">
+<span class="mcb-label">T₁₂ · 180° · EMBED</span>
+<b>Geosphere</b>
+<small>u/‖u‖ + ρ</small>
+</article>
+<article data-snap-station="3">
+<span class="mcb-label">A₃ · 270° · FLIP</span>
+<b>Riemann / Q°±</b>
+<small>N exiT° · det −1</small>
+</article>
+<article data-snap-station="4">
+<span class="mcb-label">R₃₀ · 360°/0°</span>
+<b>Seam / Return</b>
+<small>ε=d(RT(x),x)</small>
+</article>
+</section>
+<section class="mcb-grid">
+<div class="mcb-stage">
+<svg viewBox="0 0 1180 630" role="img" aria-labelledby="mcb-svg-title">
+<title id="mcb-svg-title">Triple-Six zu Cluster, Geosphere, animiertem Q Grad Plus/Minus, Orientierungsrose, 270 Grad Exit und Return</title>
+<defs>
+<radialGradient id="mcbSphere">
+<stop offset="0" stop-color="#17485b"/>
+<stop offset=".72" stop-color="#08212c"/>
+<stop offset="1" stop-color="#020b10"/>
+</radialGradient>
+<marker id="mcbArrowPlus" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+<path d="M0 0L10 5L0 10Z" fill="#ff4d83"/>
+</marker>
+<marker id="mcbArrowMinus" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+<path d="M0 0L10 5L0 10Z" fill="#39c8ef"/>
+</marker>
+</defs>
+<text x="55" y="64" class="mcb-title">TRIPLE‑SIX · Z₆³</text>
+<path d="M80 120V500H255M80 500l78-62M255 500l78-62M333 438V118M80 120l78-62h175v380" class="mcb-seam"/>
+<g fill="#173b49" stroke="#39c8ef" opacity=".75">
+<circle cx="150" cy="484" r="4"/>
+<circle cx="172" cy="466" r="4"/>
+<circle cx="194" cy="448" r="4"/>
+<circle cx="216" cy="430" r="4"/>
+<circle cx="238" cy="412" r="4"/>
+</g>
+<circle id="mcb-source-point" class="mcb-point" cx="194" cy="466" r="10" fill="currentColor"/>
+<text x="290" y="210" class="mcb-title">CLUSTER</text>
+<path d="M315 390L405 330L495 390Z" fill="none" stroke="#5e7e88"/>
+<circle cx="315" cy="390" r="38" fill="#0d2c38" stroke="#39c8ef"/>
+<circle cx="405" cy="330" r="38" fill="#2d2111" stroke="#ff9c3b"/>
+<circle cx="495" cy="390" r="38" fill="#0c2f24" stroke="#69df9e"/>
+<text x="315" y="395" text-anchor="middle" class="mcb-title">A</text>
+<text x="405" y="335" text-anchor="middle" class="mcb-title">B</text>
+<text x="495" y="395" text-anchor="middle" class="mcb-title">C</text>
+<circle id="mcb-cluster-point" class="mcb-point" cx="405" cy="330" r="8" fill="currentColor"/>
+<text x="600" y="105" class="mcb-title">GEOSPHERE · H=A₃A₂A₁</text>
+<circle cx="690" cy="310" r="155" fill="url(#mcbSphere)" stroke="#39c8ef"/>
+<ellipse cx="690" cy="310" rx="155" ry="46" fill="none" stroke="#245367"/>
+<ellipse cx="690" cy="310" rx="46" ry="155" fill="none" stroke="#245367"/>
+<path d="M535 310H845M690 155V465" class="mcb-seam"/>
+<g id="mcb-orientation-rose" class="mcb-orientation-rose">
+<circle cx="690" cy="310" r="176"/>
+<line id="mcb-azimuth-ray" x1="690" y1="310" x2="866" y2="310"/>
+<circle id="mcb-azimuth-head" cx="866" cy="310" r="6"/>
+<text x="690" y="123" text-anchor="middle">ZENITH</text>
+<text x="690" y="503" text-anchor="middle">NADIR</text>
+<text x="503" y="315" text-anchor="end">OCCIDENT</text>
+<text x="877" y="315">ORIENT</text>
+<text x="690" y="315" text-anchor="middle" class="mcb-here">HERE</text>
+<text id="mcb-azimuth-rose" x="790" y="176">AZIMUT 0°</text>
+</g>
+<circle id="mcb-geo-point" class="mcb-point" cx="735" cy="240" r="10" fill="currentColor"/>
+<g id="mcb-q-frame">
+<circle cx="690" cy="310" r="21" class="mcb-q-hinge"/>
+<line id="mcb-q-plus" class="mcb-q-ray mcb-q-ray-plus" x1="690" y1="310" x2="805" y2="220" marker-end="url(#mcbArrowPlus)"/>
+<line id="mcb-q-minus" class="mcb-q-ray mcb-q-ray-minus" x1="690" y1="310" x2="575" y2="400" marker-end="url(#mcbArrowMinus)"/>
+<text id="mcb-q-plus-label" x="810" y="216" class="mcb-q-label mcb-q-label-plus">Q°+</text>
+<text id="mcb-q-minus-label" x="540" y="418" class="mcb-q-label mcb-q-label-minus">Q°−</text>
+</g>
+<text x="842" y="150" class="mcb-title">Q°± · LIVE FRAME</text>
+<text x="885" y="178" class="mcb-note">source unchanged</text>
+<path d="M900 220C985 215 1045 248 1082 315C1045 382 985 415 900 410" fill="none" stroke="#a977e8" stroke-width="2"/>
+<line x1="900" y1="315" x2="1082" y2="315" stroke="#a977e8"/>
+<text x="955" y="286" class="mcb-title">RIEMANN</text>
+<text x="948" y="344" class="mcb-note">z=(x+iy)/(1−zₛ)</text>
+<path id="mcb-route" class="mcb-route" d="M194 466C260 470 290 410 405 330S560 310 735 240S905 270 1035 315S1110 430 1045 500"/>
+<circle id="mcb-snap-cursor" class="mcb-snap-cursor" cx="194" cy="466" r="9"/>
+<circle id="mcb-return-point" cx="1045" cy="500" r="16" fill="#69df9e"/>
+<g id="mcb-exit-glyph" class="mcb-exit-glyph">
+<text x="954" y="455">¥</text>
+<text x="978" y="455">NE¥AH</text>
+<text x="978" y="480">N exiT° · 270°</text>
+</g>
+<text x="920" y="540" class="mcb-title">RETURN · ρ WITNESS</text>
+<text x="920" y="563" class="mcb-note">ε = d(RT(x),x)</text>
+</svg>
+</div>
+<aside class="mcb-controls">
+<div class="mcb-label">LIVING BLUEPRINT · BOLA / STICK</div>
+<div class="mcb-snap-head">
+<strong id="mcb-snap-name">ADDRESS</strong>
+<span><b id="mcb-bearing">ORIENT</b><br><span id="mcb-snap-angle">0° · Q°+</span></span>
+</div>
+<div id="mcb-snap-track" class="mcb-snap-track" role="group" aria-label="Fünf Stationen der Living Blueprint Sequenz">
+<button type="button" data-snap="0">0°<small>ADDRESS</small>
+</button>
+<button type="button" data-snap="1">90°<small>CLUSTER</small>
+</button>
+<button type="button" data-snap="2">180°<small>GEO</small>
+</button>
+<button type="button" data-snap="3">270°<small>N exiT°</small>
+</button>
+<button type="button" data-snap="4">360°<small>RETURN</small>
+</button>
+</div>
+<div class="mcb-landing" aria-label="Typed landing from address token 101 through display 1.1 and fill 1.21 back to identity">
+<div class="mcb-landing-now"><small>HERE · TYPED LANDING</small><strong id="mcb-landing-token">101</strong><span id="mcb-landing-type">ADDRESS / IDENTITY</span></div>
+<div class="mcb-landing-track"><span data-landing-station="0">101</span><i>→</i><span data-landing-station="1">1.1</span><i>→</i><span data-landing-station="2">1.21</span><i>→</i><span data-landing-station="3">1.1</span><i>→</i><span data-landing-station="4">101</span></div>
+<p><code>D:(1,0,1) → 1.1</code> · <code>1.1² = 1.21</code> · <code>√1.21 = 1.1</code><br><strong>101 ist ein Adress-Token, nicht numerisch gleich 1.1.</strong></p>
+</div>
+<div class="mcb-buttons mcb-sequence-buttons">
+<button id="mcb-play" type="button">PLAY BOLA</button>
+<button id="mcb-snap" type="button">NEXT SNAP</button>
+</div>
+<div class="mcb-label mcb-observer-label">LIVE ADDRESS + OBSERVER</div>
+<div class="mcb-control">
+<label>
+<span>a · Z₆</span>
+<b id="mcb-a-value">2</b>
+</label>
+<input id="mcb-a" type="range" min="0" max="5" value="2">
+</div>
+<div class="mcb-control">
+<label>
+<span>b · Z₆</span>
+<b id="mcb-b-value">1</b>
+</label>
+<input id="mcb-b" type="range" min="0" max="5" value="1">
+</div>
+<div class="mcb-control">
+<label>
+<span>c · Z₆</span>
+<b id="mcb-c-value">4</b>
+</label>
+<input id="mcb-c" type="range" min="0" max="5" value="4">
+</div>
+<div class="mcb-control">
+<label>
+<span>Q° Azimut</span>
+<b id="mcb-azimuth-value">35°</b>
+</label>
+<input id="mcb-azimuth" type="range" min="-180" max="180" value="35">
+</div>
+<div class="mcb-control">
+<label>
+<span>Q° Elevation</span>
+<b id="mcb-elevation-value">25°</b>
+</label>
+<input id="mcb-elevation" type="range" min="-90" max="90" value="25">
+</div>
+<div class="mcb-buttons">
+<button id="mcb-f0">F0 ↔ F0− · <span id="mcb-f0-side">F0</span>
+</button>
+<button id="mcb-next">NEXT ADDRESS</button>
+<button id="mcb-center">CENTER‑NEAR</button>
+<button id="mcb-corner">OUTER CORNER</button>
+</div>
+<div class="mcb-readout">
+<div>
+<small>ADDRESS</small>
+<strong id="mcb-address">
+</strong>
+</div>
+<div>
+<small>CLUSTER</small>
+<strong id="mcb-cluster">
+</strong>
+</div>
+<div>
+<small>ρ WITNESS</small>
+<strong id="mcb-radius">
+</strong>
+</div>
+<div>
+<small>RIEMANN z</small>
+<strong id="mcb-chart">
+</strong>
+</div>
+<div>
+<small>Q° READING</small>
+<strong id="mcb-q">
+</strong>
+</div>
+<div>
+<small>RETURN ε</small>
+<strong id="mcb-return">
+</strong>
+</div>
+<div>
+<small>DROP ρ ε</small>
+<strong id="mcb-witnessless">
+</strong>
+</div>
+<div>
+<small>WRONG ORDER ε</small>
+<strong id="mcb-wrong">
+</strong>
+</div>
+<div>
+<small>FULL CENSUS</small>
+<strong id="mcb-census">
+</strong>
+</div>
+<div>
+<small>FAILURES ρ / ORDER</small>
+<strong id="mcb-failures">
+</strong>
+</div>
+</div>
+</aside>
+</section>
+<section class="mcb-nest" aria-labelledby="mcb-nest-title">
+<header><div><div class="mcb-label">MATROSCHKA CARRIER WINDOW · NESTED RECORDS</div><h2 id="mcb-nest-title">Die Schalen tragen Riemann — nicht umgekehrt.</h2><p>Adresse, Cluster, Cube und Geosphere liegen als getypte Träger ineinander. Erst außerhalb dieser Schalen entstehen Riemann-Karte und Q°-Beobachtung; der Return durchläuft die Schichten zurück bis zum unveränderten Adressrecord.</p></div><strong id="mcb-nest-state">0° · ADDRESS SHELL</strong></header>
+<div class="mcb-nest-visual">
+<svg viewBox="0 0 1180 520" role="img" aria-labelledby="mcb-nest-svg-title mcb-nest-svg-desc">
+<title id="mcb-nest-svg-title">Animierte Matroschka der getypten Carrier vor der externen Riemann- und Q-Grad-Ansicht</title>
+<desc id="mcb-nest-svg-desc">Vier ineinander liegende Schalen zeigen Address, Cluster, Cube und Geosphere mit radialem Witness. Eine Projektion führt nach außen zur Riemann- und Q-Grad-Ansicht und ein Return-Pfad führt zurück zu HERE.</desc>
+<defs><linearGradient id="mcbNestOuter" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#39c8ef" stop-opacity=".16"/><stop offset="1" stop-color="#a977e8" stop-opacity=".05"/></linearGradient><linearGradient id="mcbNestInner" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#ff9c3b" stop-opacity=".18"/><stop offset="1" stop-color="#ffd05b" stop-opacity=".04"/></linearGradient><marker id="mcbNestArrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10Z" fill="#ffd05b"/></marker></defs>
+<g class="mcb-nest-shells">
+<path data-nest-layer="3" d="M350 474C190 472 145 370 201 202C244 72 456 72 499 202C555 370 510 472 350 474Z" fill="url(#mcbNestOuter)"/>
+<path data-nest-layer="2" d="M350 438C230 436 194 352 232 224C263 122 437 122 468 224C506 352 470 436 350 438Z" fill="url(#mcbNestInner)"/>
+<path data-nest-layer="1" d="M350 400C270 398 246 337 270 245C290 171 410 171 430 245C454 337 430 398 350 400Z"/>
+<path data-nest-layer="0" d="M350 362C307 360 294 322 307 266C318 221 382 221 393 266C406 322 393 360 350 362Z"/>
+</g>
+<g class="mcb-nest-cubes" data-nest-layer="2"><path d="M350 202L425 245V333L350 376L275 333V245Z"/><path d="M350 202V290M425 245L350 290L275 245M350 290V376"/><path d="M350 238L394 264V316L350 342L306 316V264Z"/></g>
+<path class="mcb-nest-flow" d="M120 408C188 503 510 505 572 356C632 212 451 88 287 116C150 140 113 260 188 324C258 383 483 352 491 250C499 161 372 132 291 178C220 218 233 302 303 318C354 330 402 292 389 251"/>
+<text x="112" y="438" class="mcb-nest-note">FLOW / SPIRAL VIEW</text>
+<g class="mcb-nest-labels"><text x="350" y="292" text-anchor="middle" class="mcb-nest-here">HERE</text><text x="350" y="321" text-anchor="middle">ADDRESS · (a,b,c)</text><text x="350" y="385" text-anchor="middle">CLUSTER · Xᵢ</text><text x="350" y="425" text-anchor="middle">CUBE · u</text><text x="350" y="495" text-anchor="middle">GEOSPHERE · u/‖u‖ + ρ</text></g>
+<path class="mcb-nest-project" d="M515 245C625 185 682 186 756 246" marker-end="url(#mcbNestArrow)"/>
+<text x="624" y="177" class="mcb-nest-note">PROJECT / OBSERVE</text>
+<g class="mcb-nest-external" data-nest-external="true"><path d="M812 132C954 133 1031 203 1052 279C1027 356 949 425 812 426"/><line x1="812" y1="279" x2="1052" y2="279"/><circle cx="812" cy="279" r="8"/><circle cx="1052" cy="279" r="8"/><text x="930" y="250" text-anchor="middle">RIEMANN / Q° VIEW</text><text x="930" y="307" text-anchor="middle" class="mcb-nest-note">OUTSIDE THE CARRIER SHELLS</text></g>
+<path class="mcb-nest-return" d="M1052 342C1002 482 740 498 538 438C470 418 413 400 350 362" marker-end="url(#mcbNestArrow)"/>
+<text x="745" y="484" class="mcb-nest-note">RETURN · ρ WITNESS · ε</text>
+</svg>
+</div>
+<div class="mcb-nest-ledger"><span><b>1</b> ADDRESS</span><i>⊂</i><span><b>2</b> CLUSTER</span><i>⊂</i><span><b>3</b> CUBE</span><i>⊂</i><span><b>4</b> GEOSPHERE + ρ</span><i>→</i><span class="is-view"><b>VIEW</b> RIEMANN / Q°</span><i>↩</i><span><b>HERE</b> RETURN</span></div>
+<p class="mcb-nest-boundary"><strong>Visual boundary:</strong> Die goldene Spiral-/„Föhn“-Linse übersetzt die Formensprache der Owner-Visuals in eine Präsentationsansicht. Sie ist kein zusätzlicher Operator, kein physikalischer Wirbel und kein Evidenzbeleg für die Carrier-Hierarchie.</p>
+</section>
+<section id="mcb-3d-source-lens" class="mcb-3d" aria-labelledby="mcb-3d-title">
+<header>
+<div>
+<div class="mcb-label">3D SOURCE LENS · ASSET-E78DF8527C6B · RUNTIME DERIVATIVE R1</div>
+<h2 id="mcb-3d-title">Die Perle im Träger: Q‑Core → Triple Wheel → Ladder.</h2>
+<p>Das vorhandene Atomic‑Matroschka‑GLB wird als räumliche Lesart an dieselbe fünfteilige Snap-Sequenz gebunden. Der Q‑Space Core atmet leicht; Proton-, Neutron- und Electron-Wheel laufen mit getrenntem Vorzeichen beziehungsweise Tempo. Die Leiter bleibt der sichtbare Übergangsträger.</p>
+</div>
+<strong id="mcb-3d-state">LOADING · 0° ORIENT</strong>
+</header>
+<div class="mcb-3d-grid">
+<figure class="mcb-3d-stage">
+<model-viewer id="mcb-3d-model" src="assets/universal-machine-fam009/atomic_matroschka_triplewheel_helix_runtime_r1.glb?v=77622c77" alt="Interaktive Atomic Matroschka mit Q-Space Core, drei gegenläufigen Wheels und DNA-artiger Ladder" camera-controls interaction-prompt="none" loading="lazy" reveal="auto" autoplay animation-name="MCB_TRIPLE_WHEEL_RETURN_10S" shadow-intensity="0.7" exposure="1.15" camera-orbit="0deg 12deg 105%" min-camera-orbit="auto 0deg 55%" max-camera-orbit="auto 160deg 220%">
+<div class="mcb-3d-progress" slot="progress-bar" aria-hidden="true"><i></i></div>
+</model-viewer>
+<div class="mcb-3d-axis" aria-hidden="true"><span class="is-zenith">ZENITH · 90°</span><span class="is-orient">ORIENT · 0°</span><span class="is-nadir">NADIR · 270°</span><span class="is-occident">OCCIDENT · 180°</span><b>HERE</b></div>
+<figcaption><span id="mcb-3d-frame">FRAME 0.00 s</span><span>Drag · orbit · wheel zoom</span></figcaption>
+</figure>
+<aside class="mcb-3d-copy">
+<div class="mcb-3d-map">
+<article><small>HERE / ADDRESS</small><b>Q‑SPACE CORE</b><p>ruhender Bezugspunkt; leichte Scale-Atmung ist Runtime-Präsentation</p></article>
+<article><small>LOCAL OPERATORS</small><b>TRIPLE WHEEL</b><p>Proton +360° · Neutron −360° · Electron +720° pro Return-Zyklus</p></article>
+<article><small>TRANSITION CARRIER</small><b>DNA LADDER</b><p>sichtbare Verbindungsgeometrie; kein biologischer Mechanismus-Claim</p></article>
+</div>
+<div class="mcb-3d-snapbar" role="group" aria-label="3D-Snap auswählen">
+<button type="button" data-mcb-3d-snap="0">0°<small>ORIENT</small></button>
+<button type="button" data-mcb-3d-snap="1">90°<small>ZENITH</small></button>
+<button type="button" data-mcb-3d-snap="2">180°<small>OCCIDENT</small></button>
+<button type="button" data-mcb-3d-snap="3">270°<small>NADIR / EXIT</small></button>
+<button type="button" data-mcb-3d-snap="4">360°<small>HERE / RETURN</small></button>
+</div>
+<div class="mcb-buttons mcb-3d-buttons">
+<button id="mcb-3d-play" type="button" aria-pressed="false">▶ PLAY SNAP CYCLE</button>
+<button id="mcb-3d-reset" type="button">↺ RESET VIEW</button>
+<button id="mcb-3d-orbit" type="button" aria-pressed="false">AUTO ORBIT OFF</button>
+</div>
+<div class="mcb-3d-return"><span>SOURCE</span><code>atomic_matroschka_triplewheel_helix_words.glb</code><span>RUNTIME</span><code>MCB_TRIPLE_WHEEL_RETURN_10S · 4 CHANNELS</code><span>A0 VIEW</span><code>5 SNAP FALLBACK · SAME TIMELINE</code><span>IDENTITY</span><code>REUSES ASSET-E78DF8527C6B</code></div>
+<p class="mcb-source-boundary"><strong>3D boundary:</strong> räumliche Präsentations- und Orientierungslinse. Die Rotation ist ein deklarierter 10‑Sekunden-Runtime-Zyklus; sie rekonstruiert keinen historischen Generator, keine natürliche Atomdynamik und keine DNA-, Feld- oder Transportphysik.</p>
+<nav class="mcb-source-links" aria-label="GLB-Quellen"><a href="assets/universal-machine-fam009/atomic_matroschka_triplewheel_helix_words.glb" download>ORIGINAL GLB ↓</a><a href="assets/universal-machine-fam009/atomic_matroschka_triplewheel_helix_runtime_r1.glb" download>RUNTIME GLB ↓</a></nav>
+</aside>
+</div>
+</section>
+<section class="mcb-history" aria-labelledby="mcb-history-title">
+<figure>
+<img src="assets/a0-stern-gerlach-gerlach-to-bohr-postcard-1922.jpg" alt="Walther Gerlachs Postkarte an Niels Bohr vom 8. Februar 1922: Silberstrahl ohne Magnetfeld links und die geteilte Ablagerung mit inhomogenem Magnetfeld rechts">
+<figcaption>Walther Gerlach → Niels Bohr · 8. Februar 1922 · Stern–Gerlach-Aufnahme. Interne Referenzkopie aus dem vom Human Owner bereitgestellten Screenshot; historisches Original: Niels Bohr Archive / AIP Emilio Segrè Visual Archives.</figcaption>
+</figure>
+<article>
+<div class="mcb-label">HISTORICAL MEASUREMENT WITNESS · SOURCE-BOUND CONTEXT</div>
+<h2 id="mcb-history-title">Der reale Riss: ein Strahl, zwei diskrete Spuren.</h2>
+<p>Links bleibt der Silberatomstrahl ohne Magnetfeld als einzelne Spur sichtbar. Rechts übersetzt das inhomogene Magnetfeld die diskrete Komponente des magnetischen Moments entlang der Messachse in zwei getrennte Ablagerungen. Das ist der historische Nachweis der <em>Richtungsquantelung</em> — nicht eine Bestätigung der Matroschka-Bridge.</p>
+<div class="mcb-zipper">
+<div>
+<small>CARRIER</small>
+<strong>ein Silberatomstrahl</strong>
+</div>
+<span>→</span>
+<div>
+<small>ZIPPER / ∇B</small>
+<strong>Orientierung wird räumlich getrennt</strong>
+</div>
+<span>→</span>
+<div>
+<small>BUTTON / WITNESS</small>
+<strong>zwei Auftreffspuren</strong>
+</div>
+</div>
+<h3>Unsere Design-Linse: Knopf und Zipper an der „501 Blue Jeans“.</h3>
+<p>Der <strong>Zipper</strong> ist die Übergangsapparatur: Er macht eine zuvor interne Orientierung als getrennten Pfad sichtbar. Der <strong>Knopf</strong> ist der gespeicherte Auftreffpunkt — der Witness, an dem die Messung festgehalten wird. Die Jeans ist der gemeinsame materielle Carrier. Das ist eine erklärende Analogie für Seam, Split und Return; sie ersetzt weder das Experiment noch dessen Quantentheorie.</p>
+<nav class="mcb-source-links" aria-label="Historische Quellen">
+<a href="https://physicstoday.aip.org/features/stern-and-gerlach-how-a-bad-cigar-helped-reorient-atomic-physics">AIP · historische Einordnung</a>
+<a href="https://pure.mpg.de/rest/items/item_1199615_8/component/file_1217568/content">MPG · Postkarte und Transkription</a>
+</nav>
+<p class="mcb-source-boundary">
+<strong>Source boundary:</strong> Kontextvergleich · keine Gleichsetzung · keine neue Physik · keine Publikationsfreigabe des Bildes.</p>
+</article>
+</section>
+<section class="mcb-cards">
+<article class="mcb-card">
+<div class="mcb-label">A₁ · 90° · det +1</div>
+<h3>Lokaler Frame 1</h3>
+<div id="mcb-A1" class="mcb-matrix">
+</div>
+</article>
+<article class="mcb-card">
+<div class="mcb-label">A₂ · 180° · det +1</div>
+<h3>Lokaler Frame 2</h3>
+<div id="mcb-A2" class="mcb-matrix">
+</div>
+</article>
+<article class="mcb-card">
+<div class="mcb-label">A₃ · 270° + FLIP · det −1</div>
+<h3>Klein-Schritt</h3>
+<div id="mcb-A3" class="mcb-matrix">
+</div>
+</article>
+</section>
+<section class="mcb-cards">
+<article class="mcb-card">
+<div class="mcb-label">ILAU · PRESERVED</div>
+<h3>Adresse durch Witness</h3>
+<p>Cluster, Geosphere, Riemann-Karte und Matrixframe bleiben getrennte Records. Mit <code>ρ</code> und inverser Operatorreihenfolge kehren alle 216 Adressen exakt zurück.</p>
+</article>
+<article class="mcb-card">
+<div class="mcb-label">ILAU · LOST</div>
+<h3>Radius beim Normieren</h3>
+<p>
+<code>u → u/‖u‖</code> verliert die radiale Lage. Der negative Kontrollpfad verwirft <code>ρ</code> und erzeugt einen messbaren Return-Fehler.</p>
+</article>
+<article class="mcb-card">
+<div class="mcb-label">ILAU · UNRESOLVED</div>
+<h3>Historischer Generator</h3>
+<p>
+<code>Z₆³</code> ist der deklarierte Pilot, nicht die Rekonstruktion des historischen Triple‑Six Gate-Hit-Generators und keine natürliche Cluster- oder Riemann-Gesetzmäßigkeit.</p>
+</article>
+</section>
+<div class="mcb-boundary">
+<strong>Claim ceiling:</strong> endliches, deterministisches Mathematik-/Engineering-Fixture auf etablierter Algebra, Sphäre und stereographischer Projektion. <code>101</code> ist ein getyptes Adress-Token; <code>D:(1,0,1) → 1.1</code> ist eine deklarierte Anzeigeabbildung und keine numerische Gleichsetzung. <code>1:2:1</code> bleibt ein Display-Label. <code>METHOD:F0/F0−</code> ist die vorhandene Nullfuge desselben Trägers — weder <code>CF:F0</code> noch <code>CF:F8</code>. <code>NE¥AH / N exiT°</code> ist das sichtbare Exit-Glyph des 270°-Snaps, kein neuer Navigator-Alias. Kein Riemann-Hypothesen-Claim, keine historische Triple‑Six-Rekonstruktion, keine neue Physik, keine Study- oder Finding-Promotion.</div>
+<nav class="mcb-links">
+<a href="assets/game-of-worlds-play/ioi-world-cube/index.html#matroschka101Dock">A0 / 101 · WORLD CUBE WINDOW</a>
+<a href="index.html#matroschka-101-entry">A0 ENTRY</a>
+<a href="A0_ORIENTATION_CONTROLLER_BENCH.html#matroschkaClusterBridge">BENCH RETURN</a>
+<a href="A0_MATHEMATICAL_JOINTS.html#matroschka-cluster-bridge">MATHFIELD</a>
+<a href="A0_MACHINA_COCKPIT.html?view=matroschka#relationChamber">MACHINA PORT</a>
+<a href="A0_RESEARCH_DESK.html#matroschka-cluster-bridge-20261112">SCIENCE DESK</a>
+<a href="A0_BUILDER_LOG.html#matroschka-cluster-bridge-builder-20261112">BUILDER RETURN</a>
+<a href="results/a0-matroschka-cluster-bridge-return-2026-11-12.json">MACHINE RECEIPT</a>
+</nav>
+</main>
+<script src="a0-matroschka-cluster-model.js">
+</script>
+<script src="a0-matroschka-cluster-bridge.js?v=mcb-3d-r2">
+</script>
+</body>
+</html>

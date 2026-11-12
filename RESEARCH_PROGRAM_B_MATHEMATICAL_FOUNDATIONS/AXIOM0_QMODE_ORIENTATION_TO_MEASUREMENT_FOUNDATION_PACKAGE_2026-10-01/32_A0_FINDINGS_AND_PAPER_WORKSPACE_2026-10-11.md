@@ -2,12 +2,14 @@
 
 Date: `2026-10-11`
 
-Documentary currentness: `2026-10-31` — the canonical ledger contains
+Documentary currentness: `2026-11-11` — the canonical ledger contains
 `F-A0-01` through `F-A0-26`; the 23 October Bench/Joint, Tower–Shell,
 LOOK AGAIN and Diamond Lens returns remain synchronized as engineering triage,
-and the 26 October session is recorded below as a not-admitted scientific
-intake. Earlier findings retain their original evidence state. No new formal
-finding or manuscript claim follows from either synchronization.
+the 26 October session remains a not-admitted scientific intake, and the
+11 November Field-Notes/Living-Blueprint return is routed below as a finite
+method and diagnostic result. Earlier findings retain their original evidence
+state. No new canonical `F-A0` finding or SCC-003 theorem follows from these
+synchronizations.
 
 Status: `DOCUMENTARY_PAPER_WORKSPACE / PREPARATION_ONLY / NOT_ACTIVE / NOT_SUBMITTED`
 
@@ -267,6 +269,89 @@ theorem, Paper, Study or F-A0 row is created or changed by this update.
 and [Desk A0](A0_BOOK/A0_RESEARCH_DESK.html#club-control-return-20261022) retain
 the implementation scope. Browser/human acceptance, live Club/Player-to-Bench
 binding, shared inverse, row mapping and residue transport remain OPEN.
+
+<a id="field-notes-living-blueprint-findings-return-20261111"></a>
+
+## Field Notes / Living Blueprint — findings and paper return, 2026-11-11
+
+Classification: `FINITE_ENGINEERING_AND_DIAGNOSTIC_RESULT / PAPER_C_METHOD_COMPARATOR /
+PAPER_E_FALSIFIABLE_METHOD_CASE / NO_NEW_F-A0 / NO_STUDY / NO_CLAIM_PROMOTION`.
+
+The current Field Notes bind a family of exact finite operators, typed view
+adapters and one reproducible digit-geometry diagnostic to the Science Desk
+and Living Blueprint. The return reuses `ART:A0:MATHEMATICAL_JOINTS` and
+`NEXAH:A0_ORIENTATION_EVIDENCE_LINEAGE:V1`; it creates no Navigator identity,
+relation or alias.
+
+### Retained bounded findings
+
+| Finding note | Evidence state | Scientific reading |
+|---|---|---|
+| `EF-FN-01` — the five-digit embedding is position-sensitive and preserves block, vertex index, centroid, extrema and a complete three-entry loss receipt | `FINITE_EXACT / 964 MODEL CHECKS PASS` | an executable representation-and-reduction instrument; not a theorem about the constants |
+| `EF-FN-02` — on the pinned 500-digit fixtures for `π,e,φ,√2`, exactly 8 of 100 π-relative triangles contain the π-origin strictly; 0 lie on the boundary and 0 are degenerate | `FINITE_DESCRIPTIVE RESULT / REPRODUCIBLE FIXTURE` | a property of this declared block operator and finite fixture; not evidence of normality, randomness or a privileged constants relation |
+| `EF-FN-03` — the LANiF `±1/12` step and RGB loop form a deterministic phase-display receipt | `ENGINEERING DISPLAY CONTRACT` | no gyro, acoustic measurement, physical RGB coupling or resonance claim |
+| `EF-FN-04` — mirror, complement and Return examples close only within their declared carriers and type registers | `FINITE EXACT / TYPED VIEW CONTRACT` | number, address, angle, frequency, unit and display role remain non-identical |
+| `EF-FN-05` — a frozen selector tested unseen digits 501–1000 and 1001–1500 against 100,000 circular-shift and 100,000 block-permutation null replicates per holdout | `PREREGISTERED BOUNDED NEGATIVE RESULT / ALL 5 GATES FAIL` | H1 gives 5 inside cases (`p≈0.242`), H2 gives 10 (`p≈0.607`) with opposite deviation signs; the stronger synchronous-alignment statement is falsified for this operator and these holdouts |
+| `EF-FN-06` — five graph encodings were compared on 10,000 preregistered labelled gluing cases spanning five graph families and three overlap selectors | `BOUNDED ENGINEERING COMPARATOR / 7 OF 7 GATES PASS` | adjacency-only gives `0/10,000` labelled returns; property, incidence, cospan/pushout and NEXAH each give `10,000/10,000` exact and fail-closed returns; NEXAH shows no reconstruction or robustness advantage and carries `2.04×` the best standard payload |
+
+These are **finding notes**, not additions to the canonical `F-A0-01…26`
+ledger. Promotion would require a separately admitted question and evidence
+that exceeds the finite fixture.
+
+### Paper routing
+
+- **Paper E — Orientation Method:** incorporate the full chain
+  `held digit source → five-position embedding → centroid/view → extrema
+  projection → loss receipt → π-relative coordinate change → barycentric
+  decision`. This is a concrete T1–T8/Plug example because both the visible
+  result and discarded information are returned.
+- **Paper C — Return without identity:** incorporate the methods 1–5
+  comparator as a bounded engineering note, not a sixth formal case. It shows
+  that provenance-bearing property, incidence and cospan encodings already
+  recover the labelled preimages exactly. NEXAH's retained contribution in
+  this population is the integrated seam/loss/return/claim-boundary receipt,
+  not a new reconstruction algorithm or compression result.
+- **Paper E — falsifiable method discipline:** cross-reference the same result
+  as evidence that a preregistered NEXAH comparator can return
+  `NO_DISTINCT_METHOD_ADVANTAGE` rather than promote its own vocabulary.
+- **Paper A / SCC-003:** unchanged. Digit pentagons, 1031/1032/1033 motifs,
+  LANiF and the scarab views do not enter its quotient theorem, proof package
+  or novelty claim.
+- **Paper F:** unchanged. The field-notes egg/antenna and phase displays do not
+  supply a Tessarec envelope model or observation mechanism.
+
+### Preregistered null-audit return
+
+The requested gate has now been executed without reusing the exploratory first
+500 digits as confirmation. The preregistration froze the statistic, two null
+populations, `p≤0.01`, `|z|≥2.5`, a second holdout and four offset controls
+before digits 501–1500 were generated.
+
+| holdout | observed inside | circular-shift null | block-permutation null |
+|---|---:|---:|---:|
+| digits 501–1000 | `5 / 100` | mean `8.567`, two-sided `p=0.242`, `z=−1.337` | mean `8.568`, `p=0.242`, `z=−1.339` |
+| digits 1001–1500 | `10 / 100` | mean `8.225`, two-sided `p=0.601`, `z=+0.681` | mean `8.227`, `p=0.607`, `z=+0.675` |
+
+All five frozen gates fail. In particular, neither holdout departs
+significantly from its matched null and the signed deviation reverses between
+H1 and H2. The result is therefore a strong **negative control result**: the
+finite geometry remains a valid representation-and-Return instrument, while
+the stronger synchronous-constants reading is not retained.
+
+Autocorrelation of the 2-gon axis or entropy of the loss receipt would be new
+questions with their own frozen selectors; they are not rescue statistics for
+this failed gate.
+
+Sources: [Science Desk return](A0_BOOK/A0_RESEARCH_DESK.html#field-notes-living-blueprint-return-20261111),
+[Living Blueprint route](A0_BOOK/A0_LIVING_BLUEPRINT.html#field-notes-living-return),
+[interactive fixture](A0_BOOK/assets/a0-field-notes/index.html#pi-relative-ticker),
+[machine-readable receipt](A0_BOOK/results/a0-field-notes-living-blueprint-return-2026-11-11.json),
+[frozen null-audit preregistration](A0_BOOK/results/A0_DIGIT_GEOMETRY_PREREGISTERED_NULL_TEST_2026-11-11.md),
+[null-audit result](A0_BOOK/results/a0-digit-geometry-preregistered-null-test-2026-11-11.json),
+[methods 1–5 frozen preregistration](A0_BOOK/results/A0_ULLINIUM_METHODS_1_5_PREREGISTRATION_2026-11-11.md),
+[methods 1–5 machine result](A0_BOOK/results/a0-ullinium-methods-1-5-result-2026-11-11.json),
+[Paper C comparator](34_A0_RETURN_WITHOUT_IDENTITY_PAPER_DRAFT_2026-10-11.md#ullinium-methods-1-5-comparator),
+[Paper E method case](35_NEXAH_ORIENTATION_METHOD_POSITION_PAPER_DRAFT_2026-10-12.md#field-notes-digit-geometry-method-case).
 
 ## Findings ledger
 
@@ -2477,6 +2562,54 @@ F-A0 PROMOTION / NO NEW ID / NO ALIAS / NO RELATION / NO STUDY / NO PAPER
 STATE / NO PUBLICATION CLAIM`. The Navigator remains at `329/29` base and
 `332/32` composed.
 
+<a id="scc-003-r1-generation-review-crosswalk-20261110"></a>
+
+## SCC-003-R1 / Generation Corner / Review crosswalk — 2026-11-10
+
+Classification: `REVIEW_ROUTE_RECONCILIATION / EXISTING_FINDINGS_CROSSWALK /
+SOURCE_BOUND_READER_LENSES / NOT_NEW_FINDING / NOT_PAPER_PROMOTION /
+NOT_PUBLICATION_AUTHORIZED`.
+
+The existing SCC-003 identity and its frozen external-review packet remain the
+scientific spine. The six packet claims C1–C6 belong to Paper A and the exact
+finite quotient evidence. The newly consolidated reader route — Rödelheim
+Observatory as Q° axis, Generation Corner, Five H, Hof, Complex Fold and Red
+Balloon — does not enlarge that proof object.
+
+Paper routing is now explicit:
+
+- **Paper A · SCC-003** owns the finite review object and the six frozen claims.
+- **Paper C · Return without identity** owns typed Return, residual and bounded
+  Fold questions; the 28-address fold remains a supplementary method example.
+- **Paper E · NEXAH Orientation Method** owns the source-aware orientation and
+  generation reading, not a new mathematical result.
+- **Paper F · Tessarec Frame / Envelope / Observer** owns projection, frame and
+  observer-cut boundaries, not evidence for SCC-003 symmetry.
+
+The three existing Complex-Fold candidates remain exactly where they were:
+projection collapse, phantom boundary and return valley. They are reviewable
+candidates, not admitted Findings. No fourth candidate is inferred from the
+combined visual series, and no candidate is promoted by appearing in the
+review room.
+
+The intended outreach route is
+`https://review.nexah.de/scc-003-r1/`. The current implementation remains
+`LOCAL_OWNER_STAGING_NOT_PUBLISHED`; the thirty-file packet is frozen and
+validated, but no named reviewer, transmission, independent return, deployment
+or publication exists yet.
+
+Disposition: `EXISTING SCC-003 IDENTITY REUSED / 30-FILE PACKET FROZEN /
+REVIEWER PENDING / PAPER A CLAIM AUTHORITY PRESERVED / PAPER C-E-F CONTEXT
+TYPED / 3 EXISTING CANDIDATES RETAINED / NEW FINDING 0 / FINDING PROMOTION 0 /
+NEW STUDY 0 / NEW RELATION 0 / CLAIM CHANGE 0 / DEPLOYMENT 0 / PUBLICATION 0`.
+
+[Science Desk](A0_BOOK/A0_RESEARCH_DESK.html#scc-003-r1-generation-review-bridge-20261110) ·
+[Generation Corner](A0_BOOK/A0_PASCAL_GENERATION_CORNER.html#unified-generation-corner-candidate) ·
+[Paper A](A0_BOOK/A0_SCC_003_PASCAL_PENTAGON_PAPER.html) ·
+[Paper C](34_A0_RETURN_WITHOUT_IDENTITY_PAPER_DRAFT_2026-10-11.md) ·
+[Frozen review manifest](56_SCC_003_EXTERNAL_REVIEW_PACKET_2026-10-13/PACKAGE_MANIFEST.json) ·
+[Local review staging](http://127.0.0.1:4328/scc-003-r1/)
+
 <a id="scc-003-supplementary-fold-review-20261104"></a>
 
 ## SCC-003 supplementary fold review — Paper C method example
@@ -2699,6 +2832,127 @@ OPERATOR 0 / STUDY 0 / FINDING 0 / CLAIM CHANGE 0 / PUBLICATION 0`.
 [Science Desk](A0_BOOK/A0_RESEARCH_DESK.html#rubik-qdc-cross-section-return-20261107) ·
 [Builder Log](A0_BOOK/A0_BUILDER_LOG.html#rubik-qdc-cross-section-builder-return-20261107) ·
 [Receipt](A0_BOOK/results/a0-rubik-qdc-cross-section-return-2026-11-07.json)
+
+<a id="matroschka-cluster-bridge--2026-11-12"></a>
+
+### Matroschka Cluster Bridge / F0 return — 2026-11-12
+
+Classification: `DETERMINISTIC_FINITE_MATH_FIXTURE / SOURCE-BOUND A0
+ENGINEERING / V2-A01 CANDIDATE LENS / NOT_A_LAB_RUN / NOT_ADMITTED`.
+
+The proposed global route is now executable as a typed finite fixture:
+`DECLARED Z6^3 PILOT -> CLUSTER -> GEOSPHERE/RIEMANN -> METHOD:F0/F0- ->
+Q-DEGREE -> SEAM/RETURN`. The carrier has 216 addresses. The explicit cluster
+rule `(a+b+c) mod 3` yields three cells of 72 addresses and a 648-edge
+toroidal nearest-neighbour graph.
+
+The three local matrices have determinants `+1,+1,-1`; their ordered product
+is orthogonal and orientation reversing. `METHOD:F0/F0-` is reused as an
+origin/counterview seam on the same carrier. It is neither `CF:F0` nor
+`CF:F8`. Q-degree remains a separate observation state and does not modify the
+source address.
+
+With the retained radial witness, all 216 routes return with maximum numerical
+error `1.3142199108697421e-15`. Removing the witness is detected on 216/216
+routes; applying the inverse matrices in the wrong order is detected on
+210/216 routes. The six fixed points of the wrong-order control are retained
+as a truthful boundary, not hidden.
+
+The fixture does not recover the historical Triple-Six generator, establish a
+natural cluster law, prove a topology theorem or the Riemann hypothesis, or
+support a physical mechanism. It opens no Study and promotes no canonical
+Finding.
+
+Disposition: `38/38 PASS / EXISTING A0 + METHOD:F0/F0- + V2-A01 CANDIDATE
+LENS REUSED / NEW ID 0 / RELATION 0 / ALIAS 0 / STUDY 0 / FINDING 0 / CLAIM
+CHANGE 0 / PUBLICATION 0`.
+
+[Instrument](A0_BOOK/A0_MATROSCHKA_CLUSTER_BRIDGE.html) ·
+[Mathfield](A0_BOOK/A0_MATHEMATICAL_JOINTS.html#matroschka-cluster-bridge) ·
+[Bench](A0_BOOK/A0_ORIENTATION_CONTROLLER_BENCH.html#matroschkaClusterBridge) ·
+[Science Desk](A0_BOOK/A0_RESEARCH_DESK.html#matroschka-cluster-bridge-20261112) ·
+[Builder Log](A0_BOOK/A0_BUILDER_LOG.html#matroschka-cluster-bridge-builder-20261112) ·
+[Receipt](A0_BOOK/results/a0-matroschka-cluster-bridge-return-2026-11-12.json)
+
+<a id="platinum-iridium-pi-lens-holonomy--2026-11-12"></a>
+
+### Platinum–Iridium PI Lens / Matrix Holonomy Return — 2026-11-12
+
+**Classification:** `SOURCE_BOUND_ENGINEERING_AND_MATHEMATICAL_RETURN / FINDINGS_TRIAGE / NOT_NEW_CANONICAL_FINDING / MATHFIELD_CROSSWALK + BENCH_INSTRUMENT + MACHINA_PROJECTION`
+
+The existing PI Lens now returns its twelve views, Klein/Lotus topology audit,
+Fourier family and embedded three-matrix holonomy workbench through one bounded
+evidence route. The exact carrier remains `12 + 12` vertices, `30 + 30` shell
+edges, twelve index bridges and scale `1.8`. The Möbius parameterization closes
+after the declared two-turn return; the Klein view is boundaryless and
+nonorientable; the audited GLB contains a crosscap-2 component with `χ=0` and a
+separate sphere with `χ=2`. Declared Fourier projections satisfy their Parseval
+checks. The matrix workbench distinguishes a `C4` control, noncommuting local
+lamella steps and an orientation-reversing Klein composition with `det=-1`.
+
+`BREATHE` is display-only projection motion and does not alter the determinant.
+No Penrose tiling, material law, calibrated spectrum, energy mechanism,
+cosmological topology, unique number-loop operator or physical coupling is
+established. Browser review reached `12/12` views; the current suites report
+`37/37` matrix and `426/426` PI checks.
+
+**Triage decision:** the owner-selected placement is now explicit. Mathematical
+Joints supplies the typed crosswalk, Orientation Controller Bench exposes the
+existing live workbench, and THE MACHINA reuses its Relation Chamber as a
+projection port. The PI Lens remains the single canonical runtime. No new
+canonical ID, relation, Study, finding promotion, paper route or publication is
+authorized.
+
+[Science Desk](A0_BOOK/A0_RESEARCH_DESK.html#platinum-iridium-pi-lens-holonomy-return-20261112) ·
+[PI Lens](A0_BOOK/A0_PLATINUM_IRIDIUM_PI_LENS.html) ·
+[Mathfield](A0_BOOK/A0_MATHEMATICAL_JOINTS.html#platinum-iridium-pi-holonomy-crosswalk) ·
+[Bench](A0_BOOK/A0_ORIENTATION_CONTROLLER_BENCH.html#piHolonomyBench) ·
+[Machina](A0_BOOK/A0_MACHINA_COCKPIT.html#relationChamber) ·
+[Builder Return](A0_BOOK/A0_BUILDER_LOG.html#platinum-iridium-pi-lens-holonomy-builder-20261112) ·
+[Receipt](A0_BOOK/results/a0-platinum-iridium-pi-return-2026-11-11.json) ·
+[NSNavigator](../../SCIENCE_LAB/NAVIGATION/APP/index.html#a0-orientation-evidence)
+
+<a id="von-neumann-bell-ghz-finite-fixture--2026-11-11"></a>
+
+### Von Neumann / Bell / GHZ finite fixture — 2026-11-11
+
+Classification: `OWNER_AUTHORIZED_BOUNDED_ENGINEERING_VERIFICATION /
+DETERMINISTIC_FINITE_MATH_FIXTURE / NOT_A_LAB_RUN / NOT_ADMITTED /
+NOT_NEW_FINDING / NO_F-A0_PROMOTION`.
+
+`A0-MATH-VN-GHZ-01` turns the accepted Field-Notes context ledger into sixteen
+deterministic checks. For same-qubit `A=sigma_z` and `B=sigma_x`, it verifies
+`[A,B] != 0`, `{A,B}=0`, `(A+B)^2=2I` and
+`spec(A+B)={-sqrt(2),+sqrt(2)}`. Context-free sums of separately assigned
+`+/-1` outcomes remain the different set `{-2,0,+2}`. The normalized diagonal
+`D=(A-B)/sqrt(2)` satisfies `D^2=I` and has spectrum `{-1,+1}`.
+
+Four rotation controls bind the existing OIL/RIS and `Q_B` view roles to the
+separate observable family `M_B(beta)=cos(beta)Z+sin(beta)X`. Five sampled
+axes remain involutions with spectrum `{-1,+1}`; the endpoints recover `Z`
+and `X`, while `beta=-45°` recovers `D`. `Q_B` remains apparatus/view and is
+not renamed `M_B`; visible RIS rotation is not a physical unitary claim.
+
+Two controls keep the claim typed. Expectation-value linearity is verified on
+`|0>` as `<A+B>=<A>+<B>=1`. The separate-subsystem pair `Z tensor I` and
+`I tensor X` commutes and its sum has spectrum `{-2,0,0,+2}`.
+
+The GHZ census enumerates all `64` assignments of `X1,X2,X3,Z1,Z2,Z3`.
+Satisfying assignments for all four parity contexts: `0`. Maximum contexts
+satisfied simultaneously: `3/4`; assignments at that maximum: `32`.
+
+Result: `16/16 PASS`. Claim Ceiling:
+`KNOWN_PAULI_AND_GHZ_MATHEMATICS / TYPED_A0_CONTEXT_ADAPTER /
+NO_NEW_PHYSICS`. This does not solve hidden variables, Bell, GHZ, locality or
+the measurement problem. It is not an experiment or admitted Study and has no
+Lab reproducibility class. Source Graph delta: identities `0`, relations `0`,
+aliases `0`, Studies `0`, Findings `0`, promotions `0`.
+
+[Runner](A0_BOOK/a0-von-neumann-ghz-fixture.cjs) ·
+[Receipt](A0_BOOK/results/a0-von-neumann-ghz-fixture-return-2026-11-11.json) ·
+[Science Desk](A0_BOOK/A0_RESEARCH_DESK.html#von-neumann-ghz-finite-fixture-20261111) ·
+[Mathfield](A0_BOOK/A0_MATHEMATICAL_JOINTS.html#von-neumann-ghz-finite-fixture) ·
+[Field Notes](A0_BOOK/assets/a0-field-notes/index.html#neumann-ghz-finding-return)
 
 <a id="scc-003-complex-fold-thread-freeze--2026-11-10"></a>
 
