@@ -2894,7 +2894,16 @@ lamella steps and an orientation-reversing Klein composition with `det=-1`.
 No Penrose tiling, material law, calibrated spectrum, energy mechanism,
 cosmological topology, unique number-loop operator or physical coupling is
 established. Browser review reached `12/12` views; the current suites report
-`37/37` matrix and `426/426` PI checks.
+`37/37` matrix, `453/453` PI and `50/50` Black-Sun/Core checks.
+
+**Orange 1 / Dynamic Carrier addendum:** the existing NEXAH Core v9 runtime
+places Lorenz, Halvorsen and Rössler in the same visual sequence
+`RAW → FIELD → BASINS/GATES → COHERENCE → NEON`. This is a display crosswalk,
+not a common dynamical object. KDE colours are normalized independently for
+each panel, so orange marks a high local display value rather than a universal
+`1` or shared absolute density. The gate masks are declared local density
+percentiles; no universal threshold, ontology, mechanism or new physics is
+promoted.
 
 **Triage decision:** the owner-selected placement is now explicit. Mathematical
 Joints supplies the typed crosswalk, Orientation Controller Bench exposes the
@@ -2904,7 +2913,8 @@ canonical ID, relation, Study, finding promotion, paper route or publication is
 authorized.
 
 [Science Desk](A0_BOOK/A0_RESEARCH_DESK.html#platinum-iridium-pi-lens-holonomy-return-20261112) ·
-[PI Lens](A0_BOOK/A0_PLATINUM_IRIDIUM_PI_LENS.html) ·
+[PI Lens · Orange 1](A0_BOOK/A0_PLATINUM_IRIDIUM_PI_LENS.html#pi-dynamic-carrier-bridge) ·
+[Dynamic Carrier Lens](A0_BOOK/A0_BLACK_SUN_BIG_MOON.html#core) ·
 [Mathfield](A0_BOOK/A0_MATHEMATICAL_JOINTS.html#platinum-iridium-pi-holonomy-crosswalk) ·
 [Bench](A0_BOOK/A0_ORIENTATION_CONTROLLER_BENCH.html#piHolonomyBench) ·
 [Machina](A0_BOOK/A0_MACHINA_COCKPIT.html#relationChamber) ·

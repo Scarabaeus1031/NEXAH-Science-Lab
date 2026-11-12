@@ -28,11 +28,11 @@ ok(worldCube.includes('101 · ADDRESS') && worldCube.includes('WITNESS · RETURN
 ok(worldCubeFreeze.includes('Source-bound Matroschka window addendum') && worldCubeFreeze.includes('→ MATROSCHKA / NEST + PROJECT + WITNESS'), '101 currentness record documents the embedded window');
 
 ok((mathfield.match(/id="matroschka-cluster-bridge"/g) || []).length === 1, 'Mathfield retains one scientific home');
-ok(mathfield.includes('64/64 PASS') && mathfield.includes('ASSET-E78DF8527C6B') && mathfield.includes('DIRECT-ZETA') && mathfield.includes('CAND:POLARPASS'), 'Mathfield carries current verification, source lens and A0 crosswalk');
+ok(mathfield.includes('64/64 PASS') && mathfield.includes('ASSET-E78DF8527C6B') && mathfield.includes('DIRECT-ZETA') && mathfield.includes('CAND:POLARPASS'), 'Mathfield retains the 64-check base fixture, source lens and A0 crosswalk');
 ok(mathfield.includes('A0_MACHINA_COCKPIT.html?view=matroschka#relationChamber'), 'Mathfield routes to the Machina projection');
 
 ok((desk.match(/id="matroschka-cluster-bridge-20261112"/g) || []).length === 1, 'Science Desk retains one status return');
-ok(desk.includes('64/64 PASS') && desk.includes('Δgraph=0') && desk.includes('Historical visual crosswalk'), 'Science Desk preserves status, A0 crosswalk and zero graph delta');
+ok(desk.includes('64/64 PASS') && desk.includes('Δgraph=0') && desk.includes('Historical visual crosswalk'), 'Science Desk preserves the base-fixture status, A0 crosswalk and zero graph delta');
 
 ok(machina.includes('data-mrc-view="matroschka"'), 'Machina exposes a Matroschka projection control');
 ok(machina.includes('THE MACHINE · THE MATROSCHKA'), 'Machina names the machine/matroschka reading');

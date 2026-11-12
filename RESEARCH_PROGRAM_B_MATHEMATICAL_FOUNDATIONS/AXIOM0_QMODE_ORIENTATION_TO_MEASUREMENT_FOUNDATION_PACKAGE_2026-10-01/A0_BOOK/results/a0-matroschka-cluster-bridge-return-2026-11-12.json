@@ -1,14 +1,16 @@
 {
-  "schema": "a0.matroschka-cluster-bridge.return.v8",
+  "schema": "a0.matroschka-cluster-bridge.return.v10",
   "fixtureId": "A0-MATH-MCB-01",
   "date": "2026-11-12",
   "classification": "DETERMINISTIC_FINITE_MATH_FIXTURE / SOURCE-BOUND A0 ENGINEERING / NOT_A_LAB_RUN / NOT_ADMITTED",
-  "identityDisposition": "REUSES METHOD:F0/F0- + A0 MATHEMATICAL JOINTS + ORIENTATION CONTROLLER BENCH + V2-A01 CANDIDATE LENS; REUSES DIRECT-ZETA AND CAND:POLARPASS; EXTENDS EXISTING MISSION CONTROL SURFACE ASSET-883C1509BCEF; REUSES GLB SOURCE ASSET-E78DF8527C6B; REUSES HASH-BOUND NEXAHEDRON V3 QUARANTINE SOURCE AS A NONAUTHORITATIVE DISPLAY LENS; NO NEW NAVIGATOR ID",
-  "claimCeiling": "DECLARED Z6^3 PILOT + ESTABLISHED SPHERE/STEREOGRAPHIC/MATRIX/FINITE-PHASE MATHEMATICS / HISTORICAL TRIPLE-SIX GENERATOR NOT RECOVERED / NEXAHEDRON V3 METRICS ARE DISPLAY HEURISTICS / DIRECT-ZETA VIEW IS NOT RH EVIDENCE / POLAR-JANUS VIEW IS NOT A PHYSICAL RATCHET LAW / NO NEW PHYSICS",
+  "identityDisposition": "REUSES METHOD:F0/F0- + A0 MATHEMATICAL JOINTS + ORIENTATION CONTROLLER BENCH + V2-A01 CANDIDATE LENS; REUSES DIRECT-ZETA AND CAND:POLARPASS; EXTENDS EXISTING MISSION CONTROL SURFACE ASSET-883C1509BCEF; REUSES GLB SOURCE ASSET-E78DF8527C6B; REUSES HASH-BOUND NEXAHEDRON V3 QUARANTINE SOURCE AS A NONAUTHORITATIVE DISPLAY LENS; EXTENDS THE EXISTING OWNER GLYPH AS A LOCAL TYPED VIEW ADAPTER; NO NEW NAVIGATOR ID",
+  "claimCeiling": "DECLARED Z6^3 PILOT + ESTABLISHED SPHERE/STEREOGRAPHIC/MATRIX/FINITE-PHASE/ROOTS-OF-UNITY/V4/DIHEDRAL MATHEMATICS / I-UNDER-DOT Y YEN KEYBOARD AND GEAR LABELS ARE PRESENTATION MARKERS / KEYBOARD SAMPLE IS LAYOUT-DEPENDENT / GEAR STATES ARE NOT A GROUP OR VEHICLE MODEL / HISTORICAL TRIPLE-SIX GENERATOR NOT RECOVERED / NEXAHEDRON V3 METRICS ARE DISPLAY HEURISTICS / DIRECT-ZETA VIEW IS NOT RH EVIDENCE / POLAR-JANUS VIEW IS NOT A PHYSICAL RATCHET LAW / NO NEW NUMBER OR PHYSICS",
   "pipeline": [
     "DECLARED TRIPLE-SIX PILOT Z6^3",
     "CLUSTER PARTITION (a+b+c) mod 3",
     "NESTED CARRIER: ADDRESS -> CLUSTER -> CUBE -> GEOSPHERE + RADIAL WITNESS",
+    "MAITROSCHKA JOINT: C12 -> Y SPLIT (+i/-i) -> YEN RETURN",
+    "SHIFT REGISTER: KEYBOARD V4 -> SYM(12-GON) -> FINITE GEAR GRAPH -> ORIENTED VIEW",
     "HISTORICAL SOURCE LENS: INNER -> OPERATOR -> OUTER / NEXAHEDRON V3",
     "A0 CROSSWALK VIEW: DIRECT-ZETA CRITICAL SEAM + CAND:POLARPASS FINITE PHASE",
     "3D SOURCE LENS: Q-SPACE CORE -> TRIPLE WHEEL -> LADDER",
@@ -52,6 +54,81 @@
     },
     "returnPath": "RIEMANN_Q_VIEW -> GEOSPHERE_WITH_WITNESS -> CUBE -> CLUSTER -> ADDRESS",
     "boundary": "nested-carrier visualization; visual similarity is not evidence"
+  },
+  "maitroschkaJoint": {
+    "label": "Maị­troschka",
+    "status": "OWNER_MNEMONIC / TYPED VIEW ADAPTER / NOT_A_NEW_NUMBER_OR_OPERATOR",
+    "carrier": "C12 = Z/12Z",
+    "generator": "zeta_12 = exp(2*pi*i/12)",
+    "positions": {
+      "one": 0,
+      "plusI": 3,
+      "minusOne": 6,
+      "minusI": 9,
+      "return": 12
+    },
+    "split": {
+      "marker": "Y",
+      "plus": "zeta_12^3 = i",
+      "minus": "zeta_12^-3 = zeta_12^9 = -i",
+      "role": "oriented display branches"
+    },
+    "return": {
+      "marker": "¥",
+      "law": "zeta_12^12 = 1",
+      "lift": "Z -> Z/12Z",
+      "role": "visible return marker; not currency and not an algebraic operator"
+    },
+    "shiftGear": {
+      "keyboard": {
+        "carrier": "V4 = C2 x C2",
+        "modifiers": [
+          "PLAIN",
+          "SHIFT",
+          "OPTION",
+          "SHIFT+OPTION"
+        ],
+        "sampleLayout": "MAC_US",
+        "sampleKey": {
+          "PLAIN": "a",
+          "SHIFT": "A",
+          "OPTION": "å",
+          "SHIFT+OPTION": "Å"
+        },
+        "boundary": "layout-dependent input transducer; no glyph etymology"
+      },
+      "symmetry": {
+        "carrier": "Sym(12-gon)",
+        "order": 24,
+        "notation": "D12 (order 24; also called D24 by the order convention)",
+        "relations": [
+          "r^12 = e",
+          "s^2 = e",
+          "s r s = r^-1"
+        ],
+        "roles": {
+          "r": "rotation",
+          "s": "flip / trapdoor view"
+        }
+      },
+      "gear": {
+        "states": [
+          "P",
+          "R",
+          "N",
+          "D",
+          "3",
+          "2",
+          "1"
+        ],
+        "type": "FINITE_DIRECTED_STATE_GRAPH_NOT_A_GROUP",
+        "auto": "TRANSITION_CONTROLLER_NOT_A_GEAR_STATE"
+      },
+      "pipeline": "KEY x V4 MODIFIER x GEAR STATE -> VISIBLE GLYPH / ORIENTED VIEW",
+      "boundary": "Keyboard output, twelve-gon symmetry and gear selection are three typed layers. AUTO selects transitions. No vehicle physics, ancient-sign genealogy, new algebraic operator or canonical vocabulary is asserted."
+    },
+    "typedComposition": "T_[1:5] + R_i-under-dot",
+    "boundary": "The glyph i-under-dot marks the declared i<->j pin/hinge. Y and ¥ are presentation markers. All algebra remains ordinary roots-of-unity and typed-return mathematics."
   },
   "historicalTranslationLens": {
     "source": "Mission Control quarantine / Nexah Transition Machine / NEXA V instrument / nexahedron_v3/nexahedron-v3.html",
@@ -589,6 +666,78 @@
       "detail": "PASS"
     },
     {
+      "id": "J01",
+      "pass": true,
+      "statement": "The Maịtroschka joint reuses the finite carrier C12",
+      "detail": "PASS"
+    },
+    {
+      "id": "J02",
+      "pass": true,
+      "statement": "Position 3 on C12 is the positive i branch",
+      "detail": "PASS"
+    },
+    {
+      "id": "J03",
+      "pass": true,
+      "statement": "Position 9 on C12 is the negative i branch",
+      "detail": "PASS"
+    },
+    {
+      "id": "J04",
+      "pass": true,
+      "statement": "The twelve-step display closes exactly onto one",
+      "detail": "PASS"
+    },
+    {
+      "id": "J05",
+      "pass": true,
+      "statement": "Y remains a split marker and Yen remains a return marker",
+      "detail": "PASS"
+    },
+    {
+      "id": "J06",
+      "pass": true,
+      "statement": "The glyph lens preserves an explicit non-operator boundary",
+      "detail": "PASS"
+    },
+    {
+      "id": "K01",
+      "pass": true,
+      "statement": "Keyboard modifiers form one declared four-state V4 display carrier",
+      "detail": "PASS"
+    },
+    {
+      "id": "K02",
+      "pass": true,
+      "statement": "The Mac US sample keeps plain Shift Option and Shift-Option outputs distinct",
+      "detail": "PASS"
+    },
+    {
+      "id": "K03",
+      "pass": true,
+      "statement": "The declared twelve-gon symmetry has order 24 and satisfies srs equals r inverse",
+      "detail": "PASS"
+    },
+    {
+      "id": "K04",
+      "pass": true,
+      "statement": "D12 notation carries its order-convention warning",
+      "detail": "PASS"
+    },
+    {
+      "id": "K05",
+      "pass": true,
+      "statement": "The seven gear labels remain a finite state graph rather than a group",
+      "detail": "PASS"
+    },
+    {
+      "id": "K06",
+      "pass": true,
+      "statement": "AUTO is typed as transition controller and the shift lens asserts no glyph genealogy",
+      "detail": "PASS"
+    },
+    {
       "id": "V01",
       "pass": true,
       "statement": "Registered source GLB hash remains unchanged",
@@ -656,8 +805,8 @@
     }
   ],
   "summary": {
-    "checksPassed": 64,
-    "checksTotal": 64,
+    "checksPassed": 76,
+    "checksTotal": 76,
     "pass": true,
     "graphDelta": {
       "identities": 0,
@@ -668,5 +817,5 @@
       "promotions": 0
     }
   },
-  "stop": "No physical nesting law from the visual design, numeric identity between address token 101 and display value 1.1, CF:F0 or CF:F8, historical Triple-Six reconstruction, Riemann hypothesis claim, equivalence between Julia Mandelbrot Riemann or Hofmann fields, scientific meaning for display heuristics, natural cluster law, topology theorem, physical ratchet or 111 Hz law, natural atomic or DNA dynamics, Navigator alias, Study activation, Finding promotion, image publication clearance or publication authority."
+  "stop": "No physical nesting law from the visual design, numeric identity between address token 101 and display value 1.1, CF:F0 or CF:F8, historical Triple-Six reconstruction, Riemann hypothesis claim, equivalence between Julia Mandelbrot Riemann or Hofmann fields, scientific meaning for display heuristics, natural cluster law, topology theorem, physical ratchet or 111 Hz law, natural atomic or DNA dynamics, new number or algebraic operator from the i-under-dot Y or Yen markers, keyboard glyph genealogy, vehicle physics or group structure for the gear labels, Navigator alias, Study activation, Finding promotion, image publication clearance or publication authority."
 }

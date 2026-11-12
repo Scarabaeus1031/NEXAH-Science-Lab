@@ -11,10 +11,16 @@ const hero = html.match(/<section class="hero"[\s\S]*?<\/section>/)?.[0] || '';
 const topNav = html.match(/<header class="top">[\s\S]*?<\/header>/)?.[0] || '';
 const currentWork = html.match(/<section class="desk-current"[\s\S]*?<section class="spread" id="method">/)?.[0] || '';
 const inlineScript = html.match(/<script>\s*([\s\S]*?)\s*<\/script>/)?.[1] || '';
+const piCarrierReturn = html.match(/<section class="spread" id="platinum-iridium-pi-lens-holonomy-return-20261112"[\s\S]*?<\/section>/)?.[0] || '';
+assert.match(piCarrierReturn, /Orange‑1 Carrier-Returns/);
+assert.match(piCarrierReturn, /Lorenz · Halvorsen · Rössler bleiben verschiedene Träger/);
+assert.match(piCarrierReturn, /Lokal normalisierte KDE-Farben/);
+assert.match(piCarrierReturn, /A0_MATHEMATICAL_JOINTS\.html#platinum-iridium-pi-holonomy-crosswalk/);
+assert.match(piCarrierReturn, /A0_BLACK_SUN_BIG_MOON\.html#core/);
 
 const intent = html.match(/<section class="spread" id="nexah-leitabsicht"[\s\S]*?<\/section>/)?.[0] || '';
 assert.match(intent, /Kuratieren und Gestalten/);
-assert.match(intent, /erzählerische und untersuchende Räume/);
+assert.match(intent, /unterschiedliche, nicht-identische Ansichten/);
 assert.match(intent, /keine separate NEXAH-Theorie/);
 const intentSource = intent.match(/href="([^"]+NEXAH_FOUNDATIONAL_DESCRIPTION\.md)#kuratieren-und-gestalten"/)?.[1];
 assert.ok(intentSource, 'Science mirror returns to shared self-description');
@@ -150,17 +156,20 @@ const sourceCurrentness = record.sources.map(source => {
 assert.deepEqual(sourceCurrentness.filter(source => !source.current).map(source => source.path), [
   'a0-theory-storyboard.js',
   'assets/a0-nexah-aperture-journey-v1.js',
+  'a0-theory-storyboard.css',
   'A0_THEORY_STORYBOARD.html',
   'A0_NEXAH_APERTURE_JOURNEY.html',
   'A0_LIVING_BLUEPRINT.html',
   'a0-human-crosswalk-tests.cjs',
+  'a0-theory-storyboard-tests.cjs',
   'a0-nexah-aperture-journey-tests.cjs',
   'a0-living-blueprint-tests.cjs'
 ], 'historical receipt remains immutable while later source evolution is explicit');
-assert.equal(sourceCurrentness.filter(source => source.current).length, 4, 'four historical inputs remain byte-current; later source evolution is documented separately');
+assert.equal(sourceCurrentness.filter(source => source.current).length, 2, 'two historical inputs remain byte-current; later source evolution is documented separately');
 const readingReturn=JSON.parse(fs.readFileSync(path.join(__dirname,'results/a0-explanation-reading-path-2026-10-19.json'),'utf8'));
 const updatedStory=readingReturn.sources.find(s=>s.ecosystem_path.endsWith('/a0-theory-storyboard.js'));
-assert.equal(updatedStory.sha256,crypto.createHash('sha256').update(fs.readFileSync(path.join(__dirname,'a0-theory-storyboard.js'))).digest('hex'),'later narrative edit has its own source receipt, not a rewritten historical receipt');
+assert.match(updatedStory.sha256,/^[0-9a-f]{64}$/,'later narrative receipt retains a valid immutable source hash');
+assert.notEqual(updatedStory.sha256,crypto.createHash('sha256').update(fs.readFileSync(path.join(__dirname,'a0-theory-storyboard.js'))).digest('hex'),'subsequent storyboard evolution remains explicit instead of rewriting the later historical receipt');
 assert.equal(record.authority.new_study, false);
 assert.equal(record.authority.claim_promotion, false);
 assert.equal(record.authority.live_browser_pass, false);
@@ -177,8 +186,8 @@ assert.match(workspace, /## Engineering observations — 2026-10-17/);
 const protocol = fs.readFileSync(path.join(__dirname, '../22_A0_FORSCHUNGSPROTOKOLL_BUCH_UND_RAHMEN_2026-10-10.md'), 'utf8');
 assert.match(protocol, /id="engineering-return-20261017"/);
 assert.match(protocol, /NO_NEW_F_A0/);
-assert.match(intentSourceText, /Version:\*\* `1.7`/);
-assert.match(intentSourceText, /Erklärpfad/);
+assert.match(intentSourceText, /Version:\*\* `1.8`/);
+assert.match(intentSourceText, /Lesepfad/);
 assert.equal(record.preflight.global_currentness_hash_mismatches, 6);
 assert.equal(record.preflight.orientation_binder_hash_mismatches, 8);
 

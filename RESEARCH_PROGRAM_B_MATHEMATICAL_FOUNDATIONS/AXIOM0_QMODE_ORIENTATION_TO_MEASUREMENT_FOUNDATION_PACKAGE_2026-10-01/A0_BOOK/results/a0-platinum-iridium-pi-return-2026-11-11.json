@@ -212,6 +212,37 @@
     "new_graph_ids": [],
     "relation_changes": []
   },
+  "dynamic_carrier_return": {
+    "schema": "a0.pi-dynamic-carrier-return/1.0.0",
+    "status": "PASS_SOURCE_BOUND_DISPLAY_CROSSWALK",
+    "source": "10 NEXAH CORE/NEXAH/PROTO_CORE/NEXAH_DEMONSTRATOR/scripts/hero/generate_nexah_hero_v9.py",
+    "existing_runtime": "A0_BLACK_SUN_BIG_MOON.html#core",
+    "pi_bridge": "A0_PLATINUM_IRIDIUM_PI_LENS.html#pi-dynamic-carrier-bridge",
+    "systems": ["Lorenz", "Halvorsen", "Rossler"],
+    "pipeline": ["RAW", "FIELD", "BASINS_GATES", "COHERENCE", "NEON"],
+    "display_contract": {
+      "density_method": "scipy.stats.gaussian_kde over each projected trajectory",
+      "color_normalization": "PER_PANEL_LOCAL_IMSHOW_NORMALIZATION",
+      "orange_role": "HIGH_LOCAL_DISPLAY_VALUE_NOT_UNIVERSAL_ONE",
+      "basins_gate": "density below local 20th percentile",
+      "neon_gate": "density below local 15th percentile",
+      "coherence_display": "dx / sqrt(dx^2 + dy^2); local direction cosine, not universal coherence"
+    },
+    "claim_boundary": "The shared visualization pipeline does not identify the three dynamical systems, establish a universal gate threshold, create an absolute cross-system density scale, or imply a physical mechanism.",
+    "returns": {
+      "mathfield": "A0_MATHEMATICAL_JOINTS.html#platinum-iridium-pi-holonomy-crosswalk",
+      "science_desk": "A0_RESEARCH_DESK.html#platinum-iridium-pi-lens-holonomy-return-20261112",
+      "builder": "A0_BUILDER_LOG.html#platinum-iridium-pi-lens-holonomy-builder-20261112",
+      "findings_triage": "../32_A0_FINDINGS_AND_PAPER_WORKSPACE_2026-10-11.md#platinum-iridium-pi-lens-holonomy--2026-11-12"
+    },
+    "verification": {"pi_checks": 453, "black_sun_checks": 50, "desk_mathfield_binding_checks": 9},
+    "identity_reuse": ["ART:A0:MATHEMATICAL_JOINTS", "MOD:ORIENTATION_DEMONSTRATORS", "NEXAH:A0_ORIENTATION_EVIDENCE_LINEAGE:V1"],
+    "new_canonical_ids": [],
+    "relation_changes": [],
+    "new_study": false,
+    "canonical_finding_promoted": false,
+    "publication_authorized": false
+  },
   "integration_return": {
     "status": "BOUND_TO_MATHFIELD_BENCH_AND_MACHINA_PROJECTION",
     "date": "2026-11-12",
@@ -223,12 +254,16 @@
     "canonical_interactive_source": "A0_PLATINUM_IRIDIUM_PI_LENS.html",
     "routes": {
       "mathfield_crosswalk": "A0_MATHEMATICAL_JOINTS.html#platinum-iridium-pi-holonomy-crosswalk",
+      "dynamic_carrier_lens": "A0_BLACK_SUN_BIG_MOON.html#core",
       "bench_instrument": "A0_ORIENTATION_CONTROLLER_BENCH.html#piHolonomyBench",
       "machina_projection": "A0_MACHINA_COCKPIT.html#relationChamber"
     },
     "test_status": {
       "matrix_checks": 37,
       "pi_checks_before_integration_binding": 426,
+      "pi_checks_after_dynamic_carrier_binding": 453,
+      "black_sun_checks_after_dynamic_carrier_binding": 50,
+      "desk_mathfield_binding_checks": 9,
       "browser_views_checked": 12,
       "matrix_breathe_verified": true,
       "klein_determinant_stable_during_breathe": -1

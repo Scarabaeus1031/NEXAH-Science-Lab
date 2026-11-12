@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>A0 · Matroschka Cluster Bridge</title>
 <link rel="stylesheet" href="a0-matroschka-cluster-bridge.css?v=mcb-3d-r2">
-<style>.mcb-3d-stage model-viewer{transform:rotate(var(--mcb-model-angle,0deg));transition:transform .62s cubic-bezier(.2,.8,.2,1)}@media(prefers-reduced-motion:reduce){.mcb-3d-stage model-viewer{transition:none}}</style>
+<style>.mcb-3d-stage model-viewer{transform:rotate(var(--mcb-model-angle,0deg));transition:transform .62s cubic-bezier(.2,.8,.2,1)}.mcb-joint-split>text:not(.mcb-joint-note):not(.mcb-joint-y){fill:var(--ink);font:800 12px/1.2 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}.mcb-joint-return>text:not(.mcb-joint-note):not(.mcb-joint-yen){fill:var(--ink);font:800 12px/1.2 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}@media(prefers-reduced-motion:reduce){.mcb-3d-stage model-viewer{transition:none}}</style>
 <script defer src="assets/vendor/a0-model-viewer-classic.js"></script>
 </head>
 <body>
@@ -16,7 +16,7 @@
 <h1>Matroschka<br>Cluster Bridge.</h1>
 <p>Das fehlende Bindeglied wird als endlicher, prüfbarer Pilot gebaut: ein deklarierter Triple‑Six-Träger, drei lokale Cluster, eine Geosphere mit Riemann-Karte, die vorhandene F0/F0−-Nullfuge, ein getrennter Q°-Messzustand und ein Return, der den beim Normieren verlorenen Radius als Witness verlangt.</p>
 </div>
-<span id="mcb-check-state" class="mcb-state">64/64 · LOCAL PASS</span>
+<span id="mcb-check-state" class="mcb-state">76/76 · LOCAL PASS</span>
 </header>
 <section class="mcb-chain" aria-label="Typisierte Übergangskette">
 <article data-snap-station="0">
@@ -274,6 +274,63 @@
 <div class="mcb-nest-ledger"><span><b>1</b> ADDRESS</span><i>⊂</i><span><b>2</b> CLUSTER</span><i>⊂</i><span><b>3</b> CUBE</span><i>⊂</i><span><b>4</b> GEOSPHERE + ρ</span><i>→</i><span class="is-view"><b>VIEW</b> RIEMANN / Q°</span><i>↩</i><span><b>HERE</b> RETURN</span></div>
 <p class="mcb-nest-boundary"><strong>Visual boundary:</strong> Die goldene Spiral-/„Föhn“-Linse übersetzt die Formensprache der Owner-Visuals in eine Präsentationsansicht. Sie ist kein zusätzlicher Operator, kein physikalischer Wirbel und kein Evidenzbeleg für die Carrier-Hierarchie.</p>
 </section>
+<section id="mcb-maitroschka-joint" class="mcb-joint" aria-labelledby="mcb-joint-title">
+<header>
+<div>
+<div class="mcb-label">OWNER GLYPH LENS · C₁₂ ROOTS OF UNITY · TYPED VIEW ADAPTER</div>
+<h2 id="mcb-joint-title">Maị­troschka: Y teilt die Ansicht — ¥ bindet den Return.</h2>
+<p><code>ị</code> ist hier keine neue Zahl. Es markiert den bereits vorhandenen orientierten Pin zwischen den lokalen <code>i↔j</code>-Lesarten. Der Zwölferkreis liefert die Algebra; <code>Y</code> zeigt den Split in <code>+i</code> und <code>−i</code>, <code>¥</code> den sichtbaren Rückweg mit erhaltenem Witness.</p>
+</div>
+<strong>C₁₂ · 0/3/6/9/12</strong>
+</header>
+<div class="mcb-joint-grid">
+<figure class="mcb-joint-stage">
+<svg viewBox="0 0 1180 520" role="img" aria-labelledby="mcb-joint-svg-title mcb-joint-svg-desc">
+<title id="mcb-joint-svg-title">Maịtroschka Joint vom Zwölferkreis über den Y-Split zum Yen-Return</title>
+<desc id="mcb-joint-svg-desc">Ein Zwölferkreis markiert eins, i, minus eins und minus i. Ein Y teilt die beiden orientierten i-Zweige. Beide laufen mit gespeichertem Witness zum Yen-Zeichen zusammen und von dort ohne Rest zur Eins zurück.</desc>
+<defs><marker id="mcbJointArrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10Z" fill="#ffd05b"/></marker><radialGradient id="mcbJointCore"><stop offset="0" stop-color="#ffd05b" stop-opacity=".24"/><stop offset="1" stop-color="#020b10" stop-opacity="0"/></radialGradient></defs>
+<g class="mcb-joint-clock" transform="translate(250 260)">
+<circle r="176"/><circle r="132"/><circle r="72" fill="url(#mcbJointCore)"/>
+<g class="mcb-joint-ticks"><line y1="-148" y2="-174"/><line y1="-148" y2="-174" transform="rotate(30)"/><line y1="-148" y2="-174" transform="rotate(60)"/><line y1="-148" y2="-174" transform="rotate(90)"/><line y1="-148" y2="-174" transform="rotate(120)"/><line y1="-148" y2="-174" transform="rotate(150)"/><line y1="-148" y2="-174" transform="rotate(180)"/><line y1="-148" y2="-174" transform="rotate(210)"/><line y1="-148" y2="-174" transform="rotate(240)"/><line y1="-148" y2="-174" transform="rotate(270)"/><line y1="-148" y2="-174" transform="rotate(300)"/><line y1="-148" y2="-174" transform="rotate(330)"/></g>
+<path d="M0 0L0-132M0 0L132 0M0 0L0 132M0 0L-132 0"/>
+<text x="0" y="8" text-anchor="middle" class="mcb-joint-pin">ị</text>
+<text x="146" y="5">1 · 0/12</text><text x="0" y="-143" text-anchor="middle" class="is-plus">+i · 3</text><text x="-146" y="5" text-anchor="end">−1 · 6</text><text x="0" y="158" text-anchor="middle" class="is-minus">−i · 9</text>
+</g>
+<text x="250" y="485" text-anchor="middle" class="mcb-joint-note">ζ₁₂ = exp(2πi/12) · i=ζ₁₂³ · −i=ζ₁₂⁹</text>
+<path class="mcb-joint-feed" d="M426 260H522" marker-end="url(#mcbJointArrow)"/>
+<g class="mcb-joint-split">
+<circle cx="570" cy="260" r="40"/><text x="570" y="278" text-anchor="middle" class="mcb-joint-y">Y</text>
+<path class="is-plus" d="M595 235C660 168 717 147 786 147" marker-end="url(#mcbJointArrow)"/><path class="is-minus" d="M595 285C660 352 717 373 786 373" marker-end="url(#mcbJointArrow)"/>
+<text x="670" y="132" class="is-plus">ị₊ := ζ₁₂³ = +i</text><text x="670" y="408" class="is-minus">ị₋ := ζ₁₂⁹ = −i</text><text x="570" y="330" text-anchor="middle" class="mcb-joint-note">VIEW SPLIT</text><text x="570" y="344" text-anchor="middle" class="mcb-joint-note">SOURCE UNCHANGED</text>
+</g>
+<g class="mcb-joint-return">
+<path class="is-plus" d="M786 147C900 147 938 205 965 260"/><path class="is-minus" d="M786 373C900 373 938 315 965 260"/>
+<circle cx="992" cy="260" r="58"/><text x="992" y="281" text-anchor="middle" class="mcb-joint-yen">¥</text>
+<text x="992" y="347" text-anchor="middle" class="mcb-joint-note">RETURN MARKER</text><text x="992" y="361" text-anchor="middle" class="mcb-joint-note">ρ · ε · ADDRESS</text>
+<path class="mcb-joint-loop" d="M992 318C1008 478 764 500 576 466C448 443 360 406 310 367" marker-end="url(#mcbJointArrow)"/>
+</g>
+<text x="590" y="486" class="mcb-joint-note">ℤ → ℤ/12ℤ · UNBOUNDED LIFT / FINITE DISPLAY · ζ₁₂¹² = 1</text>
+</svg>
+<figcaption><span>1 → C₁₂ → Y / ±i → ¥ / RETURN → 1</span><span>NO SLACK: ε=0 REQUIRES THE DECLARED WITNESS</span></figcaption>
+</figure>
+<aside class="mcb-joint-ledger">
+<article><small>PIN / HINGE</small><b>ị · i↔j</b><p>Owner-Mnemonic für den orientierten Übergang am Cut; kein unabhängiger Zahlenwert und kein neuer Operator.</p></article>
+<article><small>SPLIT / TWO VIEWS</small><b>Y · ị₊ / ị₋</b><p><code>ị₊=ζ₁₂³=i</code> und <code>ị₋=ζ₁₂⁻³=ζ₁₂⁹=−i</code>. Die Zweige ändern die Ansicht, nicht die Quelladresse.</p></article>
+<article><small>RETURN / +1 LAYER</small><b>¥ · R<sub>ị</sub></b><p><code>𝒯±=R<sub>ị±</sub>∘T₅∘…∘T₁</code>. Der Return ist eine getypte Rückbindung und nicht das bereits belegte A0-<code>T₆</code>.</p></article>
+<article><small>CLOSURE / NO SLACK</small><b>ζ₁₂¹²=1</b><p>Die unbegrenzte Zählung lebt im Lift <code>ℤ</code>; die Anzeige projiziert nach <code>ℤ/12ℤ</code>. Ein exakter Schluss verlangt <code>ε=0</code>.</p></article>
+</aside>
+</div>
+<section class="mcb-shift-gear" aria-labelledby="mcb-shift-gear-title">
+<header><div><div class="mcb-label">SHIFT REGISTER · KEYBOARD × SYMMETRY × GEAR</div><h3 id="mcb-shift-gear-title">Keyboard Shift → Gear Shift → Orientation Shift.</h3></div><strong>V₄ × Sym(12-gon) × GEAR GRAPH</strong></header>
+<div class="mcb-shift-grid">
+<article class="mcb-keyboard-register"><small>INPUT TRANSDUCER · MAC US SAMPLE</small><h4>Eine Taste · vier Modifier-Zustände</h4><div class="mcb-keycaps" aria-label="Vier Ausgaben der Taste a"><span><b>a</b><i>PLAIN</i></span><span><b>A</b><i>SHIFT</i></span><span><b>å</b><i>OPTION</i></span><span><b>Å</b><i>SHIFT+OPTION</i></span></div><code>V₄ ≅ C₂ × C₂</code><p>Die Ausgabe ist vom Tastaturlayout abhängig. Akzent-, Ordinal- und Gradzeichen bleiben prüfbare Eingabeausgaben, keine hergeleitete Zeichengenealogie.</p></article>
+<article class="mcb-dihedral-register"><small>TWELVE-GON · ROTATION + FLIP</small><h4><code>Sym(12-gon)</code> · Ordnung 24</h4><div class="mcb-dihedral-glyph" aria-hidden="true"><b>12</b><span>r</span><i>s</i></div><code>r¹²=e · s²=e · srs=r⁻¹</code><p><code>r</code> dreht die Zwölferadresse; <code>s</code> spiegelt die Ansicht als TrapDoor-Flip. Das ist je nach Konvention <code>D₁₂</code> oder <code>D₂₄</code>; deshalb wird die Ordnung immer mitgeführt.</p></article>
+<article class="mcb-gear-register"><small>FINITE SELECTOR · NOT A GROUP</small><h4>Gear-State-Machine</h4><div class="mcb-gear-rail" aria-label="Gear states P R N D 3 2 1"><b>P</b><i>↔</i><b>R</b><i>↔</i><b>N</b><i>↔</i><b>D</b><i>↔</i><b>3</b><i>↔</i><b>2</b><i>↔</i><b>1</b></div><div class="mcb-auto-state"><strong>AU·TO</strong><span>transition controller · not another gear</span></div><p><code>P/R/N/D/3/2/1</code> sind lokale Auswahlzustände. Fahrzeugphysik, Übersetzungsverhältnisse und historische Schaltlogik werden nicht behauptet.</p></article>
+</div>
+<p class="mcb-shift-boundary"><strong>Typed composition:</strong> <code>KEY × V₄-MODIFIER × GEAR-STATE → VISIBLE GLYPH / ORIENTED VIEW</code>. <code>L</code>, <code>T</code>, umgedrehte <code>7</code>, <code>S</code>/Haken, <code>ª</code>, <code>µ</code>, <code>å</code> und <code>°</code> bleiben beobachtete Formen oder Tastaturausgaben. Ähnlichkeit allein erzeugt weder Operator noch Etymologie noch A0-Vokabular.</p>
+</section>
+<p class="mcb-joint-boundary"><strong>Notation boundary:</strong> <code>Maị­troschka</code> ist eine lokale Owner-Lesart, kein Navigator-Alias. <code>Y</code> und <code>¥</code> sind sichtbare Split-/Return-Marker, keine neu erfundenen mathematischen Glyphoperatoren. Die belastbare Struktur bleibt <code>C₁₂</code>, die zwölfte Einheitswurzel, der orientierte <code>±i</code>-Zweig und der bereits typisierte Witness-Return.</p>
+</section>
 <section id="mcb-nexahedron-v3-lens" class="mcb-translation" aria-labelledby="mcb-translation-title">
 <header>
 <div>
@@ -440,7 +497,7 @@
 </article>
 </section>
 <div class="mcb-boundary">
-<strong>Claim ceiling:</strong> endliches, deterministisches Mathematik-/Engineering-Fixture auf etablierter Algebra, Sphäre und stereographischer Projektion. <code>101</code> ist ein getyptes Adress-Token; <code>D:(1,0,1) → 1.1</code> ist eine deklarierte Anzeigeabbildung und keine numerische Gleichsetzung. <code>1:2:1</code> bleibt ein Display-Label. <code>METHOD:F0/F0−</code> ist die vorhandene Nullfuge desselben Trägers — weder <code>CF:F0</code> noch <code>CF:F8</code>. <code>NE¥AH / N exiT°</code> ist das sichtbare Exit-Glyph des 270°-Snaps, kein neuer Navigator-Alias. Kein Riemann-Hypothesen-Claim, keine historische Triple‑Six-Rekonstruktion, keine neue Physik, keine Study- oder Finding-Promotion.</div>
+<strong>Claim ceiling:</strong> endliches, deterministisches Mathematik-/Engineering-Fixture auf etablierter Algebra, Sphäre, stereographischer Projektion und Einheitswurzeln. <code>101</code> ist ein getyptes Adress-Token; <code>D:(1,0,1) → 1.1</code> ist eine deklarierte Anzeigeabbildung und keine numerische Gleichsetzung. <code>1:2:1</code> bleibt ein Display-Label. <code>METHOD:F0/F0−</code> ist die vorhandene Nullfuge desselben Trägers — weder <code>CF:F0</code> noch <code>CF:F8</code>. <code>ị</code>, <code>Y</code> und <code>¥</code> markieren Pin, Split und Return, sind aber keine neuen Zahlen oder algebraischen Operatoren. Das Shift Register verwendet klassisches <code>V₄</code>, <code>Sym(12-gon)</code> und einen endlichen Zustandsgraphen; es behauptet weder Glyphen-Etymologie noch Fahrzeugphysik oder eine Gruppe der Gear-Labels. <code>NE¥AH / N exiT°</code> bleibt ein sichtbares Exit-Glyph des 270°-Snaps, kein neuer Navigator-Alias. Kein Riemann-Hypothesen-Claim, keine historische Triple‑Six-Rekonstruktion, keine neue Physik, keine Study- oder Finding-Promotion.</div>
 <nav class="mcb-links">
 <a href="assets/game-of-worlds-play/ioi-world-cube/index.html#matroschka101Dock">A0 / 101 · WORLD CUBE WINDOW</a>
 <a href="index.html#matroschka-101-entry">A0 ENTRY</a>

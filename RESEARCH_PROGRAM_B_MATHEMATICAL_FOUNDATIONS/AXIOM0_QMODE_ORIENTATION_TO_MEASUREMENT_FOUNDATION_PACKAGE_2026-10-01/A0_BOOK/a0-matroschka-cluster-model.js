@@ -58,6 +58,24 @@
     returnPath:'RIEMANN_Q_VIEW -> GEOSPHERE_WITH_WITNESS -> CUBE -> CLUSTER -> ADDRESS',
     boundary:'nested-carrier visualization; visual similarity is not evidence'
   };
+  const MAITROSCHKA_JOINT={
+    label:'Maị­troschka',
+    status:'OWNER_MNEMONIC / TYPED VIEW ADAPTER / NOT_A_NEW_NUMBER_OR_OPERATOR',
+    carrier:'C12 = Z/12Z',
+    generator:'zeta_12 = exp(2*pi*i/12)',
+    positions:{one:0,plusI:3,minusOne:6,minusI:9,return:12},
+    split:{marker:'Y',plus:'zeta_12^3 = i',minus:'zeta_12^-3 = zeta_12^9 = -i',role:'oriented display branches'},
+    return:{marker:'¥',law:'zeta_12^12 = 1',lift:'Z -> Z/12Z',role:'visible return marker; not currency and not an algebraic operator'},
+    shiftGear:{
+      keyboard:{carrier:'V4 = C2 x C2',modifiers:['PLAIN','SHIFT','OPTION','SHIFT+OPTION'],sampleLayout:'MAC_US',sampleKey:{PLAIN:'a',SHIFT:'A',OPTION:'å','SHIFT+OPTION':'Å'},boundary:'layout-dependent input transducer; no glyph etymology'},
+      symmetry:{carrier:'Sym(12-gon)',order:24,notation:'D12 (order 24; also called D24 by the order convention)',relations:['r^12 = e','s^2 = e','s r s = r^-1'],roles:{r:'rotation',s:'flip / trapdoor view'}},
+      gear:{states:['P','R','N','D','3','2','1'],type:'FINITE_DIRECTED_STATE_GRAPH_NOT_A_GROUP',auto:'TRANSITION_CONTROLLER_NOT_A_GEAR_STATE'},
+      pipeline:'KEY x V4 MODIFIER x GEAR STATE -> VISIBLE GLYPH / ORIENTED VIEW',
+      boundary:'Keyboard output, twelve-gon symmetry and gear selection are three typed layers. AUTO selects transitions. No vehicle physics, ancient-sign genealogy, new algebraic operator or canonical vocabulary is asserted.'
+    },
+    typedComposition:'T_[1:5] + R_i-under-dot',
+    boundary:'The glyph i-under-dot marks the declared i<->j pin/hinge. Y and ¥ are presentation markers. All algebra remains ordinary roots-of-unity and typed-return mathematics.'
+  };
   const NEXAHEDRON_V3_SOURCE_LENS={
     source:'Mission Control quarantine / Nexah Transition Machine / NEXA V instrument / nexahedron_v3/nexahedron-v3.html',
     sha256:'f792bb7ad784f40ea2fb3c99e67925c4003828f9bf43aa2557b9eea97489824b',
@@ -170,5 +188,5 @@
       matrix:{determinants:[det(A1),det(A2),det(A3),det(H)],orthogonality:matrixDistance(mm(transpose(H),H),eye()),commutator12:matrixDistance(mm(A1,A2),mm(A2,A1)),commutator23:matrixDistance(mm(A2,A3),mm(A3,A2))}
     };
   }
-  return {EPS,CLUSTERS,A1,A2,A3,F0_MINUS,H,HINV,WRONG_INV,SNAP_SEQUENCE,DISPLAY_RETURN,MATRYOSHKA_CARRIER,NEXAHEDRON_V3_SOURCE_LENS,snapOf,address,clusterOf,cubeOf,sphereOf,stereographic,inverseStereographic,observer,route,allAddresses,census,math:{dot,norm,sub,scale,transpose,mv,mm,det,eye,matrixDistance}};
+  return {EPS,CLUSTERS,A1,A2,A3,F0_MINUS,H,HINV,WRONG_INV,SNAP_SEQUENCE,DISPLAY_RETURN,MATRYOSHKA_CARRIER,MAITROSCHKA_JOINT,NEXAHEDRON_V3_SOURCE_LENS,snapOf,address,clusterOf,cubeOf,sphereOf,stereographic,inverseStereographic,observer,route,allAddresses,census,math:{dot,norm,sub,scale,transpose,mv,mm,det,eye,matrixDistance}};
 });
