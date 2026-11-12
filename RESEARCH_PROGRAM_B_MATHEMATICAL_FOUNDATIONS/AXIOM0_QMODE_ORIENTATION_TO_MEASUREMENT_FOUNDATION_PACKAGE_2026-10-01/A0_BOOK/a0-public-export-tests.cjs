@@ -28,7 +28,9 @@ assert.ok(receipt.hostRoutes.includes("/contact/"));
 assert.ok(receipt.hostRoutes.includes("/forschen/"));
 assert.match(receipt.sourceRevision, /^[0-9a-f]{40}$/);
 assert.match(index, /<title>A0 Science · Forschungsstand und Arbeitsraum<\/title>/);
-assert.match(index, /A0 Science · aktueller Forschungs- und Quellenraum/);
+assert.match(index, /A0 Science · öffentlicher Forschungs- und Quellenraum/);
+assert.match(index, /Public Science projection · claim-bounded/);
+assert.doesNotMatch(index, /Owner Staging|Internal · no public release|Source-bound · local · not public/);
 assert.doesNotMatch(index, /a0-context-navigation\.(?:css|js)/);
 assert.match(index, /class="a0-public-primary"/);
 assert.match(index, /NEXAH <span>· Orientation<\/span>/);
@@ -43,7 +45,7 @@ assert.match(index, /Interne A0-, Desk- und Mission-Control-Bereiche bleiben get
 assert.match(index, /href="https:\/\/nexahedron\.com"/);
 assert.match(index, /href="https:\/\/www\.scarabaeus1033\.net"/);
 assert.doesNotMatch(index, /github\.com\/Scarabaeus1031\/NEXAH-Science-Lab/);
-assert.match(index, /Der gebaute Forschungsgegenstand/);
+assert.match(index, /Wir bauen keine Sammlung einzelner Bilder\. Wir untersuchen Übergänge\./);
 assert.match(index, /href="\/library\/">Library/);
 assert.match(index, /href="\/A0_TOURS\.html#explanation-path">Geführte Tour/);
 

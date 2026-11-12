@@ -64,6 +64,7 @@ function normalizeKnownPublicRoutes(html) {
     .replace(/(assets\/game-of-worlds-play\/three-domain-transition-test\/index\.html)#blue-body\b/g, "$1#blueBodyMotor")
     .replace(/index\.html#research-now\b/g, "A0_SCIENCE.html#status")
     .replace(/index\.html#wegweiser\b/g, "A0_SCIENCE.html#understand")
+    .replace(/index\.html#matroschka-101-entry\b/g, "A0_MATHEMATICAL_JOINTS.html#matroschka-cluster-bridge")
     .replace(/https:\/\/github\.com\/Scarabaeus1031\/NEXAH-Science-Lab\/tree\/main\/SCIENCE_LAB\/NAVIGATION\b/g, "https://github.com/Scarabaeus1031/NEXAH-Science-Lab")
     .replace(/https:\/\/www\.researchobject\.org\/ro-crate\/specification\//g, "https://www.researchobject.org/ro-crate/specification.html");
 }
@@ -87,7 +88,19 @@ function applyPublicContentBoundary(html, relative) {
     .replace(/Keine Ausführung, Simulation oder Evidenzproduktion während Structure Freeze\./g, "Keine Ausführung, Simulation oder Evidenzproduktion ohne separate Study-Aktivierung.")
     .replace(/Structure Freeze/g, "interne Forschungssteuerung");
   if (relative === "A0_SCIENCE.html") {
-    projected = projected.replace(/\.status-grid\{display:grid;grid-template-columns:repeat\(4,1fr\)\}/, ".status-grid{display:grid;grid-template-columns:repeat(3,1fr)}");
+    projected = projected
+      .replace(/<title>[^<]*A0 Science[^<]*<\/title>/i, "<title>A0 Science · Forschungsstand und Arbeitsraum</title>")
+      .replace(/<meta name="description" content="[^"]*">/i, '<meta name="description" content="Öffentliche, source-bound A0-Science-Lesefassung: Forschungsstand, Evidenzgrenzen und Review-Gates.">')
+      .replace(/\s*<aside class="stage-strip"[\s\S]*?<\/aside>/i, "")
+      .replace(/Internal Science Reader · Owner Staging · 05\.11\.2026/g, "A0 Science · öffentlicher Forschungs- und Quellenraum")
+      .replace(/zum internen A0-Science-Stand/g, "zum öffentlichen A0-Science-Stand")
+      .replace(/<span>Owner staging<\/span>/gi, "<span>Source-bound</span>")
+      .replace(/<strong>Internal · no public release<\/strong>/gi, "<strong>Public Science projection · claim-bounded</strong>")
+      .replace(/<article><small>Publication<\/small><strong>Not authorized<\/strong><p>[\s\S]*?<\/p><\/article>/i, "")
+      .replace(/SCIENCE RELEASE READY = NONE/g, "SCIENTIFIC CLAIM PROMOTION = NONE")
+      .replace(/<strong>Staging boundary:<\/strong> Diese A0-Seite ist die interne Owner-Lesefassung\. Sie eröffnet keine Study, aktiviert keinen Run und autorisiert weder Kontakt noch Deployment, Publikation oder Outreach\. Ein nexah\.de-Cut benötigt eine exakte manifestgebundene Revision und einen separaten Owner-Release\./g, "<strong>Public boundary:</strong> Diese Seite ist eine manifestgebundene Lesefassung. Sie eröffnet keine Study, aktiviert keinen Run und fördert keinen wissenschaftlichen Claim. Der SCC-003-R1-Reviewraum ist eine getrennte, eng begrenzte öffentliche Review-Projektion.")
+      .replace(/Diese Seite ist eine interne Orientierungs- und Lesefläche\. Sie erzeugt keine neue Study, aktiviert keine Forschung und autorisiert keine wissenschaftliche oder öffentliche Claim-Promotion\./g, "Diese öffentliche Orientierungs- und Lesefläche erzeugt keine neue Study, aktiviert keine Forschung und fördert keinen wissenschaftlichen Claim.")
+      .replace(/\.status-grid\{display:grid;grid-template-columns:repeat\(4,1fr\)\}/, ".status-grid{display:grid;grid-template-columns:repeat(3,1fr)}");
   }
   if (relative === "A0_SCIENTIFIC_POSITION_REPORT.html") {
     projected = projected
