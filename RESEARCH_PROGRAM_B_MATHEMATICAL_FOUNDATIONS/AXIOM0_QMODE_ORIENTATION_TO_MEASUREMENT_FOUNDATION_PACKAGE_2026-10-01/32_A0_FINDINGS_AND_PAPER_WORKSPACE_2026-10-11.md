@@ -3589,3 +3589,41 @@ ALIAS 0 / STUDY 0 / CANONICAL FINDING 0 / CLAIM CHANGE 0 / PUBLICATION 0`.
 [24 Rail / Fifth / Lyra](A0_BOOK/A0_F_A0_26_REVIEW_PROBE.html#acousticSourceProjection) ·
 [Zither 4×7](A0_BOOK/A0_IOTA_BRIDGE_DEMONSTRATOR.html#gridBridgeFlagship) ·
 [N-Band](A0_BOOK/A0_PASCAL_GENERATION_CORNER.html#n-band-49-return)
+
+<a id="rainbow-bridge-miwa-lantern--2026-11-12"></a>
+
+### Rainbow Bridge · ARC/TUBE/CUT + MIWA Lantern — 2026-11-12
+
+Classification: `SOURCE_BOUND_INTERACTIVE_VIEW_RETURN / R0_DOCUMENTED /
+NOT_NEW_F-A0_FINDING / NO_PAPER_PROMOTION / NO_STUDY_ACTIVATION`.
+
+The strongest exact statement is intentionally narrow: the diagonal of a unit
+square has ratio `√2`. The seven displayed stages — point, line, wedge, arc,
+lens, tube and crystal — are controlled projections of the Human View. Height,
+stretch and observer angle change the view; they do not derive a universal
+root pattern, wormhole geometry or calibrated optical law.
+
+The MIWA extension preserves its two declared stellar carriers and adds one
+observer-local visibility frame: lantern source, curtain boundary,
+Pineal/Pineapple aperture, π phase canopy and shadow. The Scarab Node Keeper
+holds a visible node and its nearest visible screen neighbors. Those neighbors
+are an interface aid, not physical bonds, astronomical catalog relations or
+Source Graph edges.
+
+The result therefore strengthens the Human/Builder story without changing the
+scientific claim ceiling. Rainbow Bridge, Six-Face Rainbow Tube and MIWA are
+linked as separate instruments; navigation and visual correspondence do not
+establish object, carrier or mechanism identity.
+
+Disposition: `INTERACTIVE VIEW PASS / EXACT √2 SQUARE DIAGONAL ONLY / BROWSER
+VERIFIED / EXISTING A0 + MIWA IDENTITIES REUSED / NEW ID 0 / RELATION 0 /
+ALIAS 0 / OPERATOR 0 / STUDY 0 / CANONICAL FINDING 0 / CLAIM CHANGE 0 /
+PUBLICATION 0`.
+
+[Rainbow Bridge](A0_BOOK/A0_RAINBOW_PURPLE_RAIN.html#bridge) ·
+[Observer Lens](A0_BOOK/A0_NEWTON_GOETHE_OBSERVER_LENS.html#lens) ·
+[MIWA Lantern](../../SCIENCE_LAB/EXPORTS/MIWA_PINEAP_AN_DROMEDA.html) ·
+[Six-Face Tube](A0_BOOK/A0_ORIENTATION_CONTROLLER_BENCH.html#sixFaceRainbowTube) ·
+[Science Desk](A0_BOOK/A0_RESEARCH_DESK.html#rainbow-bridge-miwa-lantern-return-20261112) ·
+[Builder Log](A0_BOOK/A0_BUILDER_LOG.html#rainbow-bridge-miwa-lantern-builder-20261112) ·
+[Receipt](A0_BOOK/results/a0-rainbow-bridge-miwa-lantern-return-2026-11-12.json)

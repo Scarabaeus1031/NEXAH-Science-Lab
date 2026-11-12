@@ -6,9 +6,10 @@
   <title>Rainbow / Purple Rain · A0</title>
   <link rel="stylesheet" href="a0-context-navigation.css?rev=flagship-constellation-r1-20261030">
   <link rel="stylesheet" href="a0-rainbow-purple-rain.css?rev=20261014-v2">
+  <link rel="stylesheet" href="a0-rainbow-bridge-arc-tube-cut.css?rev=20261112-r1">
 </head>
 <body>
-  <header class="top"><a class="brand" href="A0_SCIENCE.html">NEXAH · A0</a><nav><a href="A0_NEXAH_APERTURE_JOURNEY.html">Aperture Journey</a><a href="#prism">Prism</a><a href="#views">Views</a><a href="#questions">Questions</a><a href="#wheel">Wheel</a><a href="#rain">Rain</a><a href="#return">Return</a><a href="A0_NEWTON_GOETHE_OBSERVER_LENS.html">Observer Lens</a><a href="A0_BLACK_SUN_BIG_MOON.html">Black Sun / Moon</a></nav></header>
+  <header class="top"><a class="brand" href="A0_SCIENCE.html">NEXAH · A0</a><nav><a href="A0_NEXAH_APERTURE_JOURNEY.html">Aperture Journey</a><a href="#prism">Prism</a><a href="#views">Views</a><a href="#bridge">Bridge</a><a href="#questions">Questions</a><a href="#wheel">Wheel</a><a href="#rain">Rain</a><a href="#return">Return</a><a href="A0_NEWTON_GOETHE_OBSERVER_LENS.html">Observer Lens</a><a href="A0_BLACK_SUN_BIG_MOON.html">Black Sun / Moon</a></nav></header>
 
   <section class="hero" id="home">
     <div class="hero-rain" aria-hidden="true"></div>
@@ -24,7 +25,7 @@
   </section>
 
   <nav class="journey-nav" aria-label="Rainbow Experience Kapitel">
-    <a href="#prism"><b>01</b> Prism</a><a href="#views"><b>02</b> Views</a><a href="#lens"><b>03</b> Lens</a><a href="#questions"><b>04</b> Questions</a><a href="#wheel"><b>05</b> Wheel</a><a href="#rain"><b>06</b> Rain</a><a href="#return"><b>07</b> Return</a>
+    <a href="#prism"><b>01</b> Prism</a><a href="#views"><b>02</b> Views</a><a href="#lens"><b>03</b> Lens</a><a href="#bridge"><b>03+</b> Bridge</a><a href="#questions"><b>04</b> Questions</a><a href="#wheel"><b>05</b> Wheel</a><a href="#rain"><b>06</b> Rain</a><a href="#return"><b>07</b> Return</a>
     <span class="journey-marker" id="journeyMarker">01 / PRISM</span>
   </nav>
 
@@ -61,6 +62,25 @@
         <div class="portal-copy"><span class="kicker">The essence · three coupled lenses</span><h2>Quelle · Relation · Erscheinung.</h2><p>Newton, Goethe und Leibniz schneiden dasselbe Ereignis verschieden. Die aktive Linse steuert zugleich Farbklima, Drehrichtung und das Wheel — bei weiterhin getrennten Fragen.</p><a href="A0_NEWTON_GOETHE_OBSERVER_LENS.html">Enter the full observer lens ↗</a></div>
         <div class="portal-windows" role="group" aria-label="Linse für Essence und Wheel wählen"><button type="button" data-question="newton" class="active" aria-pressed="true">NEWTON<small>spectrum / measurement</small></button><button type="button" data-question="goethe" aria-pressed="false">GOETHE<small>boundary / appearance</small></button><button type="button" data-question="leibniz" aria-pressed="false">LEIBNIZ<small>relation / order</small></button></div>
       </div>
+    </section>
+
+    <section class="scene rainbow-bridge-scene" id="bridge" data-scene="03+ / BRIDGE">
+      <div class="scene-copy"><div class="scene-number">03+</div><div><span class="kicker">Human cross-section instrument · ARC / TUBE / CUT</span><h2>Stretch the pyramid.<br>Walk the cut.</h2><p>Ein quadratisches Raster behält seine exakte √2-Diagonale. Höhe, Streckung und Beobachterwinkel verändern nur den dargestellten Schnitt: Punkt, Linie, Keil, Bogen, Linse, Tube oder kristallines Knotenfeld.</p></div></div>
+      <div class="rb-shell">
+        <div class="rb-head"><div><small>WHITE INPUT → WEDGE → RELATIONAL GRID → ARC → CUT</small><strong>Rainbow Bridge · Höhen- und Schnittmaschine</strong></div><output id="rbStageOut">4/7 · Bogen</output></div>
+        <div class="rb-stage"><canvas id="rainbowBridgeCanvas" role="img" aria-label="Interaktive Höhen- und Schnittmaschine: weißes Licht tritt durch einen Keil, zwei Raster bilden eine gestreckte Bogen- und Tubenprojektion, ein beweglicher Schnitt markiert lokale Kristallknoten"></canvas><p class="rb-stage-note"><b id="rbStageHint">Die gestreckte Projektion liest sich als Brücke.</b><br>Der Bogen ist eine observer-lokale Schnittspur. Er verbindet die dargestellten Fenster, behauptet aber keine gemeinsame physische Trägersubstanz.</p></div>
+        <div class="rb-console">
+          <div class="rb-controls">
+            <div class="rb-control"><label for="rbHeight">Height / Schnitthöhe <output id="rbHeightOut">52%</output></label><input id="rbHeight" type="range" min="0" max="100" value="52"></div>
+            <div class="rb-control"><label for="rbStretch">Pyramid stretch <output id="rbStretchOut">62%</output></label><input id="rbStretch" type="range" min="0" max="100" value="62"></div>
+            <div class="rb-control"><label for="rbObserver">Observer angle <output id="rbObserverOut">38°</output></label><input id="rbObserver" type="range" min="0" max="90" value="38"></div>
+          </div>
+          <div class="rb-layers"><span class="rb-layer-title">Display layers</span><div class="rb-layer-buttons"><button type="button" data-rb-layer="grid" aria-pressed="true">Grid</button><button type="button" data-rb-layer="wave" aria-pressed="true">Wave</button><button type="button" data-rb-layer="crystal" aria-pressed="true">Crystal</button></div><div class="rb-actions"><button type="button" id="rbPlay" aria-pressed="false">Play height</button><button type="button" id="rbReset">Reset</button><button type="button" id="rbExport">Export state</button><a href="A0_ORIENTATION_CONTROLLER_BENCH.html#sixFaceRainbowTube">Six-Face Tube ↗</a><a href="../../../SCIENCE_LAB/EXPORTS/MIWA_PINEAP_AN_DROMEDA.html">MIWA / Lantern ↗</a></div></div>
+        </div>
+        <div class="rb-ledger"><div><small>Exact retained ratio</small><b>√2 = <span id="rbDiagOut">1.41421</span></b></div><div><small>Moving aperture</small><b id="rbCutOut">56.9%</b></div><div><small>Nodes in current cut</small><b id="rbNodeOut">0</b></div><div><small>Identity state</small><b>HUMAN VIEW · NO GRAPH Δ</b></div></div>
+      </div>
+      <div class="rb-reading"><article><small>NEWTON · ORDER</small><h3>Welche Farbbänder werden getrennt?</h3><p>Der Keil ordnet die dargestellten Spektralwege. Die Szene ist keine kalibrierte Optiksimulation.</p></article><article><small>LEIBNIZ · RELATION</small><h3>Welche Raster bleiben verschieden?</h3><p>Cyan und Gold werden gemeinsam lesbar, ohne identisch oder zu einer neuen Substanz zu werden.</p></article><article><small>GOETHE · BOUNDARY</small><h3>Wo erscheint die Grenze?</h3><p>Der pinke Cut macht Apertur, Hell–Dunkel-Übergang und lokale Sichtbarkeit explizit.</p></article><article><small>OBSERVER · HEIGHT</small><h3>Welcher Schnitt wird gehalten?</h3><p>Der Höhenregler führt durch sieben Darstellungsstufen; der Return bewahrt die gewählte Adresse.</p></article></div>
+      <p class="rb-boundary"><b>CLAIM BOUNDARY:</b> Exakt ist hier nur die Diagonale eines Einheitsquadrats mit dem Verhältnis <code>√2</code>. Bogen, Tube, Welle, Kristall, „Ananas“, Höhenstufe und Apertur sind konstruktive Human-View-Darstellungen. Kein Wurmloch, keine universelle Wurzelordnung, keine kalibrierte Optik, keine neue Kosmologie und keine physische Identität mit MIWA oder dem Six-Face Rainbow Tube. Die Links bilden einen Lesepfad, keine neue Source-Graph-Relation.</p>
     </section>
 
     <section class="scene question-scene" id="questions" data-scene="04 / QUESTIONS">
@@ -104,6 +124,7 @@
 
   <footer><span>RAINBOW / PURPLE RAIN · SEVEN WINDOWS OF APPEARANCE</span><a href="A0_ORIENTATION_CONTROLLER_BENCH.html#orientationRoleMap">Regenbogen / Scarabaeus / CIKADA / Titan · Anschlusskarte ↗</a><span>Internal composed experience · not public</span></footer>
   <script src="a0-context-navigation.js?rev=flagship-constellation-r1-20261030"></script>
+  <script src="a0-rainbow-bridge-arc-tube-cut.js?rev=20261112-r1"></script>
   <script src="assets/a0-rainbow-purple-rain-v1.js?rev=20261014-v2"></script>
 </body>
 </html>

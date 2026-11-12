@@ -1,0 +1,70 @@
+{
+  "schema": "nexah.a0.rainbow-bridge-miwa-lantern-return/1.0.0",
+  "date": "2026-11-12",
+  "status": "PASS_IMPLEMENTED_SOURCE_BOUND_HUMAN_VIEW_AND_OBSERVER_FRAME_RETURN",
+  "title": "Rainbow Bridge ARC/TUBE/CUT · MIWA Lantern + Scarab Node Keeper",
+  "scope": {
+    "human_view": "A0_RAINBOW_PURPLE_RAIN.html#bridge",
+    "observer_lens": "A0_NEWTON_GOETHE_OBSERVER_LENS.html",
+    "miwa_master": "SCIENCE_LAB/EXPORTS/MIWA_PINEAP_AN_DROMEDA.html",
+    "classification": "INTERACTIVE_HUMAN_VIEW_AND_OBSERVER_LOCAL_DISPLAY_EXTENSION",
+    "research_run": false,
+    "publication_authorized": false
+  },
+  "identity_return": {
+    "reused": [
+      "A0-VIEW-RAINBOW-PURPLE-RAIN",
+      "A0-VIEW-NEWTON-GOETHE-OBSERVER-LENS",
+      "ART:MIWA:MAIN",
+      "MOD:OBSERVATORY_MIWA",
+      "NEXAH_A0_ORIENTATION_CONTROLLER_BENCH"
+    ],
+    "new_identity": 0,
+    "new_relation": 0,
+    "new_alias": 0,
+    "canonical_entity_delta": 0,
+    "canonical_relation_delta": 0
+  },
+  "rainbow_bridge": {
+    "stages": ["POINT", "LINE", "WEDGE", "ARC", "LENS", "TUBE", "CRYSTAL"],
+    "controls": ["height", "pyramid_stretch", "observer_angle", "grid", "wave", "crystal", "play", "reset", "export"],
+    "exact_statement": "The diagonal of a unit square has ratio sqrt(2).",
+    "display_roles": ["arc", "tube", "cut", "aperture", "crystal_nodes", "pineapple_reading"],
+    "crosswalks": ["A0_ORIENTATION_CONTROLLER_BENCH.html#sixFaceRainbowTube", "SCIENCE_LAB/EXPORTS/MIWA_PINEAP_AN_DROMEDA.html"]
+  },
+  "miwa_extension": {
+    "frame": "LANTERN-SHADOW-CUT",
+    "source": "declared lantern",
+    "boundary": "semi-transparent curtain",
+    "aperture": "Pineal / Pineapple aperture",
+    "phase_reference": "pi phase canopy",
+    "carriers": ["Milky Way", "Andromeda"],
+    "node_keeper": "observer-local nearest visible neighbors and breadcrumb",
+    "export_boundary": "screen neighborhoods are not physical bonds, catalog relations or Source Graph edges"
+  },
+  "source_hashes": {
+    "A0_NEWTON_GOETHE_OBSERVER_LENS.html": "5ff151fabed655bd96961f20fca3f0c13db5ac102ce70887a3d2c7e06210d2b6",
+    "A0_RAINBOW_PURPLE_RAIN.html": "e1d0d14600e341c24e7cf409602fa7625aa29a5064333a5d0abde1f63ca01fba",
+    "a0-rainbow-bridge-arc-tube-cut.css": "1d0e6e6c4a9b59387a554752eb132f4d8591902e1c163c56b07ae660d44fff0c",
+    "a0-rainbow-bridge-arc-tube-cut.js": "3759bec58f5935b3788f6e2ebca650565d18ad530e0abda94cc696cba775e68d",
+    "MIWA_PINEAP_AN_DROMEDA.html": "c3b29e208d8fe81b06f59445a04628d585a66b584c8d43b2b7a7b9ce9cf7d182"
+  },
+  "verification": {
+    "rainbow_bridge_model_tests": "3/3 PASS",
+    "relevant_node_tests": "9 tests / 5 files PASS",
+    "six_face_assertions": "108/108 PASS",
+    "browser": "PASS: 7/7 crystal, moving cut, layer toggle and reset",
+    "source_graph": "PASS 332 entities / 32 relations",
+    "navigator_app": "PASS 253/253",
+    "diff_check": "PASS"
+  },
+  "authority_effect": {
+    "study_activation": 0,
+    "canonical_finding": 0,
+    "claim_promotion": 0,
+    "deployment": 0,
+    "publication": 0,
+    "mission_control_priority_change": 0
+  },
+  "claim_boundary": "Only the declared square diagonal sqrt(2) statement is exact in the bridge model. Arc, tube, wave, crystal, pineapple, lantern, curtain, shadow, pi canopy and nearest-node neighborhood are bounded display constructions. They establish no wormhole, universal root law, calibrated optical model, astronomical relation, physical carrier coupling, common mechanism or new Source Graph relation."
+}
