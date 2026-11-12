@@ -58,6 +58,18 @@
     returnPath:'RIEMANN_Q_VIEW -> GEOSPHERE_WITH_WITNESS -> CUBE -> CLUSTER -> ADDRESS',
     boundary:'nested-carrier visualization; visual similarity is not evidence'
   };
+  const NEXAHEDRON_V3_SOURCE_LENS={
+    source:'Mission Control quarantine / Nexah Transition Machine / NEXA V instrument / nexahedron_v3/nexahedron-v3.html',
+    sha256:'f792bb7ad784f40ea2fb3c99e67925c4003828f9bf43aa2557b9eea97489824b',
+    custody:'READ_ONLY_HISTORICAL_SOURCE / QUARANTINE_REMAINS_NONAUTHORITATIVE',
+    position:'GEOSPHERE_WITH_WITNESS -> TRANSLATION_LENS -> RIEMANN_Q_VIEW',
+    innerLenses:['JULIA','MANDELBROT'],
+    outerLenses:['RIEMANN','HOFMANN'],
+    operators:['INVERT','ROTATE','SCALE','SAMPLE','RANK','PHASE'],
+    metrics:'OPERATIONAL_DISPLAY_HEURISTIC_ONLY / NOT_SCIENTIFIC_VALIDATION',
+    returnAuthority:'NONE / TYPED MCB RETURN STILL REQUIRES RHO WITNESS',
+    graphDelta:{identities:0,relations:0,aliases:0}
+  };
   function snapOf(index){
     const i=mod(Number(index)||0,SNAP_SEQUENCE.length);
     return {...SNAP_SEQUENCE[i]};
@@ -139,5 +151,5 @@
       matrix:{determinants:[det(A1),det(A2),det(A3),det(H)],orthogonality:matrixDistance(mm(transpose(H),H),eye()),commutator12:matrixDistance(mm(A1,A2),mm(A2,A1)),commutator23:matrixDistance(mm(A2,A3),mm(A3,A2))}
     };
   }
-  return {EPS,CLUSTERS,A1,A2,A3,F0_MINUS,H,HINV,WRONG_INV,SNAP_SEQUENCE,DISPLAY_RETURN,MATRYOSHKA_CARRIER,snapOf,address,clusterOf,cubeOf,sphereOf,stereographic,inverseStereographic,observer,route,allAddresses,census,math:{dot,norm,sub,scale,transpose,mv,mm,det,eye,matrixDistance}};
+  return {EPS,CLUSTERS,A1,A2,A3,F0_MINUS,H,HINV,WRONG_INV,SNAP_SEQUENCE,DISPLAY_RETURN,MATRYOSHKA_CARRIER,NEXAHEDRON_V3_SOURCE_LENS,snapOf,address,clusterOf,cubeOf,sphereOf,stereographic,inverseStereographic,observer,route,allAddresses,census,math:{dot,norm,sub,scale,transpose,mv,mm,det,eye,matrixDistance}};
 });

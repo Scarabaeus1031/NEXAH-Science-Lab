@@ -1,14 +1,15 @@
 {
-  "schema": "a0.matroschka-cluster-bridge.return.v6",
+  "schema": "a0.matroschka-cluster-bridge.return.v7",
   "fixtureId": "A0-MATH-MCB-01",
   "date": "2026-11-12",
   "classification": "DETERMINISTIC_FINITE_MATH_FIXTURE / SOURCE-BOUND A0 ENGINEERING / NOT_A_LAB_RUN / NOT_ADMITTED",
-  "identityDisposition": "REUSES METHOD:F0/F0- + A0 MATHEMATICAL JOINTS + ORIENTATION CONTROLLER BENCH + V2-A01 CANDIDATE LENS; EXTENDS EXISTING MISSION CONTROL SURFACE ASSET-883C1509BCEF; REUSES GLB SOURCE ASSET-E78DF8527C6B; NO NEW NAVIGATOR ID",
-  "claimCeiling": "DECLARED Z6^3 PILOT + ESTABLISHED SPHERE/STEREOGRAPHIC/MATRIX MATHEMATICS / HISTORICAL TRIPLE-SIX GENERATOR NOT RECOVERED / NO NEW PHYSICS",
+  "identityDisposition": "REUSES METHOD:F0/F0- + A0 MATHEMATICAL JOINTS + ORIENTATION CONTROLLER BENCH + V2-A01 CANDIDATE LENS; EXTENDS EXISTING MISSION CONTROL SURFACE ASSET-883C1509BCEF; REUSES GLB SOURCE ASSET-E78DF8527C6B; REUSES HASH-BOUND NEXAHEDRON V3 QUARANTINE SOURCE AS A NONAUTHORITATIVE DISPLAY LENS; NO NEW NAVIGATOR ID",
+  "claimCeiling": "DECLARED Z6^3 PILOT + ESTABLISHED SPHERE/STEREOGRAPHIC/MATRIX MATHEMATICS / HISTORICAL TRIPLE-SIX GENERATOR NOT RECOVERED / NEXAHEDRON V3 METRICS ARE DISPLAY HEURISTICS / NO NEW PHYSICS",
   "pipeline": [
     "DECLARED TRIPLE-SIX PILOT Z6^3",
     "CLUSTER PARTITION (a+b+c) mod 3",
     "NESTED CARRIER: ADDRESS -> CLUSTER -> CUBE -> GEOSPHERE + RADIAL WITNESS",
+    "HISTORICAL SOURCE LENS: INNER -> OPERATOR -> OUTER / NEXAHEDRON V3",
     "3D SOURCE LENS: Q-SPACE CORE -> TRIPLE WHEEL -> LADDER",
     "METHOD:F0/F0- VIEW SEAM",
     "EXTERNAL RIEMANN STEREOGRAPHIC CHART",
@@ -50,6 +51,35 @@
     },
     "returnPath": "RIEMANN_Q_VIEW -> GEOSPHERE_WITH_WITNESS -> CUBE -> CLUSTER -> ADDRESS",
     "boundary": "nested-carrier visualization; visual similarity is not evidence"
+  },
+  "historicalTranslationLens": {
+    "source": "Mission Control quarantine / Nexah Transition Machine / NEXA V instrument / nexahedron_v3/nexahedron-v3.html",
+    "sha256": "f792bb7ad784f40ea2fb3c99e67925c4003828f9bf43aa2557b9eea97489824b",
+    "custody": "READ_ONLY_HISTORICAL_SOURCE / QUARANTINE_REMAINS_NONAUTHORITATIVE",
+    "position": "GEOSPHERE_WITH_WITNESS -> TRANSLATION_LENS -> RIEMANN_Q_VIEW",
+    "innerLenses": [
+      "JULIA",
+      "MANDELBROT"
+    ],
+    "outerLenses": [
+      "RIEMANN",
+      "HOFMANN"
+    ],
+    "operators": [
+      "INVERT",
+      "ROTATE",
+      "SCALE",
+      "SAMPLE",
+      "RANK",
+      "PHASE"
+    ],
+    "metrics": "OPERATIONAL_DISPLAY_HEURISTIC_ONLY / NOT_SCIENTIFIC_VALIDATION",
+    "returnAuthority": "NONE / TYPED MCB RETURN STILL REQUIRES RHO WITNESS",
+    "graphDelta": {
+      "identities": 0,
+      "relations": 0,
+      "aliases": 0
+    }
   },
   "livingBlueprint": {
     "cycle": "0 -> 90 -> 180 -> 270 -> 360 == 0",
@@ -515,6 +545,24 @@
       "detail": "PASS"
     },
     {
+      "id": "N04",
+      "pass": true,
+      "statement": "NEXAHEDRON V3 source lens is hash-bound to the read-only quarantine source",
+      "detail": "PASS"
+    },
+    {
+      "id": "N05",
+      "pass": true,
+      "statement": "Historical source lens is positioned outside the Matryoshka carrier before Riemann Q view",
+      "detail": "PASS"
+    },
+    {
+      "id": "N06",
+      "pass": true,
+      "statement": "Historical lens keeps four distinct display fields and six declared view operators",
+      "detail": "PASS"
+    },
+    {
       "id": "V01",
       "pass": true,
       "statement": "Registered source GLB hash remains unchanged",
@@ -561,11 +609,29 @@
       "pass": true,
       "statement": "Runtime synchronizes visible model angle with the canonical snap sequence",
       "detail": "PASS"
+    },
+    {
+      "id": "V09",
+      "pass": true,
+      "statement": "HTML exposes the source-bound INNER OPERATOR OUTER translation lens",
+      "detail": "PASS"
+    },
+    {
+      "id": "V10",
+      "pass": true,
+      "statement": "Translation runtime retains the six declared operators and labels its scores as display heuristics",
+      "detail": "PASS"
+    },
+    {
+      "id": "V11",
+      "pass": true,
+      "statement": "Historical translation lens preserves zero graph authority and typed witness return",
+      "detail": "PASS"
     }
   ],
   "summary": {
-    "checksPassed": 58,
-    "checksTotal": 58,
+    "checksPassed": 64,
+    "checksTotal": 64,
     "pass": true,
     "graphDelta": {
       "identities": 0,
@@ -576,5 +642,5 @@
       "promotions": 0
     }
   },
-  "stop": "No physical nesting law from the visual design, numeric identity between address token 101 and display value 1.1, CF:F0 or CF:F8, historical Triple-Six reconstruction, Riemann hypothesis claim, natural cluster law, topology theorem, physical mechanism, natural atomic or DNA dynamics, Navigator alias, Study activation, Finding promotion, image publication clearance or publication authority."
+  "stop": "No physical nesting law from the visual design, numeric identity between address token 101 and display value 1.1, CF:F0 or CF:F8, historical Triple-Six reconstruction, Riemann hypothesis claim, equivalence between Julia Mandelbrot Riemann or Hofmann fields, scientific meaning for display heuristics, natural cluster law, topology theorem, physical mechanism, natural atomic or DNA dynamics, Navigator alias, Study activation, Finding promotion, image publication clearance or publication authority."
 }
