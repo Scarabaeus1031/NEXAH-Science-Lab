@@ -1,15 +1,16 @@
 {
-  "schema": "a0.matroschka-cluster-bridge.return.v7",
+  "schema": "a0.matroschka-cluster-bridge.return.v8",
   "fixtureId": "A0-MATH-MCB-01",
   "date": "2026-11-12",
   "classification": "DETERMINISTIC_FINITE_MATH_FIXTURE / SOURCE-BOUND A0 ENGINEERING / NOT_A_LAB_RUN / NOT_ADMITTED",
-  "identityDisposition": "REUSES METHOD:F0/F0- + A0 MATHEMATICAL JOINTS + ORIENTATION CONTROLLER BENCH + V2-A01 CANDIDATE LENS; EXTENDS EXISTING MISSION CONTROL SURFACE ASSET-883C1509BCEF; REUSES GLB SOURCE ASSET-E78DF8527C6B; REUSES HASH-BOUND NEXAHEDRON V3 QUARANTINE SOURCE AS A NONAUTHORITATIVE DISPLAY LENS; NO NEW NAVIGATOR ID",
-  "claimCeiling": "DECLARED Z6^3 PILOT + ESTABLISHED SPHERE/STEREOGRAPHIC/MATRIX MATHEMATICS / HISTORICAL TRIPLE-SIX GENERATOR NOT RECOVERED / NEXAHEDRON V3 METRICS ARE DISPLAY HEURISTICS / NO NEW PHYSICS",
+  "identityDisposition": "REUSES METHOD:F0/F0- + A0 MATHEMATICAL JOINTS + ORIENTATION CONTROLLER BENCH + V2-A01 CANDIDATE LENS; REUSES DIRECT-ZETA AND CAND:POLARPASS; EXTENDS EXISTING MISSION CONTROL SURFACE ASSET-883C1509BCEF; REUSES GLB SOURCE ASSET-E78DF8527C6B; REUSES HASH-BOUND NEXAHEDRON V3 QUARANTINE SOURCE AS A NONAUTHORITATIVE DISPLAY LENS; NO NEW NAVIGATOR ID",
+  "claimCeiling": "DECLARED Z6^3 PILOT + ESTABLISHED SPHERE/STEREOGRAPHIC/MATRIX/FINITE-PHASE MATHEMATICS / HISTORICAL TRIPLE-SIX GENERATOR NOT RECOVERED / NEXAHEDRON V3 METRICS ARE DISPLAY HEURISTICS / DIRECT-ZETA VIEW IS NOT RH EVIDENCE / POLAR-JANUS VIEW IS NOT A PHYSICAL RATCHET LAW / NO NEW PHYSICS",
   "pipeline": [
     "DECLARED TRIPLE-SIX PILOT Z6^3",
     "CLUSTER PARTITION (a+b+c) mod 3",
     "NESTED CARRIER: ADDRESS -> CLUSTER -> CUBE -> GEOSPHERE + RADIAL WITNESS",
     "HISTORICAL SOURCE LENS: INNER -> OPERATOR -> OUTER / NEXAHEDRON V3",
+    "A0 CROSSWALK VIEW: DIRECT-ZETA CRITICAL SEAM + CAND:POLARPASS FINITE PHASE",
     "3D SOURCE LENS: Q-SPACE CORE -> TRIPLE WHEEL -> LADDER",
     "METHOD:F0/F0- VIEW SEAM",
     "EXTERNAL RIEMANN STEREOGRAPHIC CHART",
@@ -74,6 +75,31 @@
       "PHASE"
     ],
     "metrics": "OPERATIONAL_DISPLAY_HEURISTIC_ONLY / NOT_SCIENTIFIC_VALIDATION",
+    "visualSources": {
+      "criticalSeam": {
+        "sha256": "d9d66ef9369fd7b82222a7e112357fc2dad51cb640c1a88576a3b6cd097c10b8",
+        "custody": "MISSION_CONTROL_QUARANTINE / READ_ONLY"
+      },
+      "polarJanus": {
+        "sha256": "58de13847b70a4c6a42818e0cbc38e07b92898f4b20c75e80d9907a74835e947",
+        "custody": "SCIENCE_LAB_CASE_STUDY / HISTORICAL_VISUAL"
+      }
+    },
+    "identityReuse": {
+      "criticalSeam": "DIRECT-ZETA / Re(s)=1/2 / SOURCE_BOUND_COORDINATE_VIEW_ONLY",
+      "polarJanus": "CAND:POLARPASS / polar-janus-420-wheel / OWNER_VISUAL_NOT_VALIDATED_RESULT",
+      "stillpoint": "ORION Stillpoint Compass / COMPARATOR_REVIEW_ONLY"
+    },
+    "mathematicalReadings": {
+      "criticalSeam": "J(s)=1-conj(s); Fix(J)={s:Re(s)=1/2}; display breathing is a homotopy, not RH evidence",
+      "polarJanus": "theta_k=2*pi*k/420 on Z/420Z; psi_plus(t)=-psi_minus(-t) is a display symmetry, not a physical ratchet law"
+    },
+    "a0Crosswalk": [
+      "results/a0-red-balloon-mathfield-intake-2026-11-03.json#zeta_axis_register",
+      "results/a0-splinter-geometry-cl-td-intake-2026-10-27.json#critical_line",
+      "A0_ORIENTATION_CONTROLLER_BENCH.html#orientationRoleMap",
+      "../../../SCIENCE_LAB/NAVIGATION/POLAR_JANUS_EVIDENCE_SLICE_V1_2026-10-06.json"
+    ],
     "returnAuthority": "NONE / TYPED MCB RETURN STILL REQUIRES RHO WITNESS",
     "graphDelta": {
       "identities": 0,
@@ -547,7 +573,7 @@
     {
       "id": "N04",
       "pass": true,
-      "statement": "NEXAHEDRON V3 source lens is hash-bound to the read-only quarantine source",
+      "statement": "NEXAHEDRON and critical-seam sources are hash-bound while quarantine stays read-only",
       "detail": "PASS"
     },
     {
@@ -559,7 +585,7 @@
     {
       "id": "N06",
       "pass": true,
-      "statement": "Historical lens keeps four distinct display fields and six declared view operators",
+      "statement": "Historical lens keeps distinct fields, six view operators and existing A0 identities",
       "detail": "PASS"
     },
     {
@@ -613,13 +639,13 @@
     {
       "id": "V09",
       "pass": true,
-      "statement": "HTML exposes the source-bound INNER OPERATOR OUTER translation lens",
+      "statement": "HTML exposes the translation lens and both A0-reconciled mathematical views",
       "detail": "PASS"
     },
     {
       "id": "V10",
       "pass": true,
-      "statement": "Translation runtime retains the six declared operators and labels its scores as display heuristics",
+      "statement": "Runtime retains the six operators and renders bounded DIRECT-ZETA and Z/420Z views",
       "detail": "PASS"
     },
     {
@@ -642,5 +668,5 @@
       "promotions": 0
     }
   },
-  "stop": "No physical nesting law from the visual design, numeric identity between address token 101 and display value 1.1, CF:F0 or CF:F8, historical Triple-Six reconstruction, Riemann hypothesis claim, equivalence between Julia Mandelbrot Riemann or Hofmann fields, scientific meaning for display heuristics, natural cluster law, topology theorem, physical mechanism, natural atomic or DNA dynamics, Navigator alias, Study activation, Finding promotion, image publication clearance or publication authority."
+  "stop": "No physical nesting law from the visual design, numeric identity between address token 101 and display value 1.1, CF:F0 or CF:F8, historical Triple-Six reconstruction, Riemann hypothesis claim, equivalence between Julia Mandelbrot Riemann or Hofmann fields, scientific meaning for display heuristics, natural cluster law, topology theorem, physical ratchet or 111 Hz law, natural atomic or DNA dynamics, Navigator alias, Study activation, Finding promotion, image publication clearance or publication authority."
 }

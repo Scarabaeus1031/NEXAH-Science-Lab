@@ -136,6 +136,36 @@
     for(const key of ['rot','scale','sample','phase']){$('#mcb-translation-'+key).addEventListener('input',event=>{translation[key]=Number(event.target.value);set('mcb-translation-'+key+'-value',translation[key].toFixed(2))})}
     requestAnimationFrame(drawTranslation);
   }
+  const criticalCanvas=$('#mcb-critical-seam-canvas'),janusCanvas=$('#mcb-janus-seam-canvas');
+  function fitCanvas(canvas){
+    const ratio=Math.min(2,window.devicePixelRatio||1),width=Math.max(360,canvas.clientWidth||720),height=Math.max(260,canvas.clientHeight||420);
+    if(canvas.width!==Math.round(width*ratio)||canvas.height!==Math.round(height*ratio)){canvas.width=Math.round(width*ratio);canvas.height=Math.round(height*ratio)}
+    const context=canvas.getContext('2d');context.setTransform(ratio,0,0,ratio,0,0);return {context,width,height};
+  }
+  function drawA0SourceMath(timeMs=0){
+    const time=timeMs/1000;
+    if(criticalCanvas){
+      const {context:c,width:w,height:h}=fitCanvas(criticalCanvas),cx=w/2,top=38,bottom=h-34,breathe=.5+.5*Math.sin(time*.9);
+      c.fillStyle='#02090d';c.fillRect(0,0,w,h);c.font='800 10px ui-monospace';c.textAlign='center';c.fillStyle='#8eabb3';c.fillText('J(s)=1−s̄ · FIXED SEAM Re(s)=1/2',cx,20);
+      c.strokeStyle='rgba(255,208,91,.22)';for(let r=42;r<Math.min(w,h)*.48;r+=42){c.beginPath();c.arc(cx,h*.52,r,0,Math.PI*2);c.stroke()}
+      const gap=10+26*breathe;c.lineWidth=2.2;c.strokeStyle='#39c8ef';c.beginPath();c.moveTo(cx-gap/2,top);c.lineTo(cx-gap/2,h*.51-gap*.12);c.stroke();c.strokeStyle='#ff4d83';c.beginPath();c.moveTo(cx+gap/2,h*.51+gap*.12);c.lineTo(cx+gap/2,bottom);c.stroke();
+      c.setLineDash([5,6]);c.strokeStyle='rgba(255,255,255,.42)';c.beginPath();c.moveTo(cx,top);c.lineTo(cx,bottom);c.stroke();c.setLineDash([]);
+      [14.134725,21.02204,25.010858,30.424876,32.935062].forEach((ordinate,index)=>{const y=top+(bottom-top)*(index+1)/6;c.beginPath();c.arc(cx,y,2.8,0,Math.PI*2);c.fillStyle='#39c8ef';c.fill();c.textAlign='left';c.fillStyle='#8eabb3';c.fillText('γ'+(index+1)+' ≈ '+ordinate.toFixed(3),cx+10,y+3)});
+      c.textAlign='center';c.fillStyle='#ffcf5b';c.fillText('DISPLAY HOMOTOPY · SEAM HELD · NO RH CLAIM',cx,h-12);
+    }
+    if(janusCanvas){
+      const {context:c,width:w,height:h}=fitCanvas(janusCanvas),left=w*.29,right=w*.72,cy=h*.49,r=Math.min(w*.2,h*.35),phase=time*.32;
+      c.fillStyle='#02090d';c.fillRect(0,0,w,h);c.font='800 10px ui-monospace';c.textAlign='center';c.fillStyle='#8eabb3';c.fillText('FINITE PHASE θₖ=2πk/420 · JANUS DISPLAY PAIR',w/2,20);
+      c.strokeStyle='rgba(255,255,255,.35)';c.beginPath();c.arc(left,cy,r,0,Math.PI*2);c.stroke();
+      for(let k=0;k<60;k++){const angle=2*Math.PI*k/60-Math.PI/2,x=left+Math.cos(angle)*r,y=cy+Math.sin(angle)*r;c.beginPath();c.arc(x,y,k%10===0?2.4:1.2,0,Math.PI*2);c.fillStyle=k%2?'#39c8ef':'#a977e8';c.fill()}
+      const hand=phase%(Math.PI*2);c.strokeStyle='#ffcf5b';c.lineWidth=2.4;c.beginPath();c.moveTo(left,cy);c.lineTo(left+Math.cos(hand-Math.PI/2)*r*.82,cy+Math.sin(hand-Math.PI/2)*r*.82);c.stroke();
+      c.strokeStyle='rgba(255,255,255,.24)';c.beginPath();c.moveTo(w*.5,42);c.lineTo(w*.5,h-34);c.stroke();
+      const drawPsi=(sign,color)=>{c.beginPath();for(let i=0;i<=180;i++){const t=-4+i*8/180,x=right+t*r*.42,y=cy-sign*Math.exp(-.42*Math.abs(t))*Math.sin(3.1*t+phase)*r*.62;i?c.lineTo(x,y):c.moveTo(x,y)}c.strokeStyle=color;c.lineWidth=2;c.stroke()};drawPsi(1,'#39c8ef');drawPsi(-1,'#ff4d83');
+      c.fillStyle='#73d69f';c.beginPath();c.arc(right,cy,5,0,Math.PI*2);c.fill();c.fillStyle='#8eabb3';c.fillText('k mod 420',left,h-14);c.fillText('ψ₊(t)=−ψ₋(−t)',right,h-14);
+    }
+    if(criticalCanvas||janusCanvas)requestAnimationFrame(drawA0SourceMath);
+  }
+  if(criticalCanvas||janusCanvas)requestAnimationFrame(drawA0SourceMath);
   inputs.forEach(id=>$('#mcb-'+id).addEventListener('input',render));
   $('#mcb-next').addEventListener('click',()=>{let n=state.a*36+state.b*6+state.c;n=(n+1)%216;state.a=Math.floor(n/36);state.b=Math.floor(n/6)%6;state.c=n%6;['a','b','c'].forEach(id=>$('#mcb-'+id).value=state[id]);render()});
   $('#mcb-corner').addEventListener('click',()=>{state.a=5;state.b=5;state.c=5;['a','b','c'].forEach(id=>$('#mcb-'+id).value=state[id]);render()});

@@ -67,6 +67,25 @@
     outerLenses:['RIEMANN','HOFMANN'],
     operators:['INVERT','ROTATE','SCALE','SAMPLE','RANK','PHASE'],
     metrics:'OPERATIONAL_DISPLAY_HEURISTIC_ONLY / NOT_SCIENTIFIC_VALIDATION',
+    visualSources:{
+      criticalSeam:{sha256:'d9d66ef9369fd7b82222a7e112357fc2dad51cb640c1a88576a3b6cd097c10b8',custody:'MISSION_CONTROL_QUARANTINE / READ_ONLY'},
+      polarJanus:{sha256:'58de13847b70a4c6a42818e0cbc38e07b92898f4b20c75e80d9907a74835e947',custody:'SCIENCE_LAB_CASE_STUDY / HISTORICAL_VISUAL'}
+    },
+    identityReuse:{
+      criticalSeam:'DIRECT-ZETA / Re(s)=1/2 / SOURCE_BOUND_COORDINATE_VIEW_ONLY',
+      polarJanus:'CAND:POLARPASS / polar-janus-420-wheel / OWNER_VISUAL_NOT_VALIDATED_RESULT',
+      stillpoint:'ORION Stillpoint Compass / COMPARATOR_REVIEW_ONLY'
+    },
+    mathematicalReadings:{
+      criticalSeam:'J(s)=1-conj(s); Fix(J)={s:Re(s)=1/2}; display breathing is a homotopy, not RH evidence',
+      polarJanus:'theta_k=2*pi*k/420 on Z/420Z; psi_plus(t)=-psi_minus(-t) is a display symmetry, not a physical ratchet law'
+    },
+    a0Crosswalk:[
+      'results/a0-red-balloon-mathfield-intake-2026-11-03.json#zeta_axis_register',
+      'results/a0-splinter-geometry-cl-td-intake-2026-10-27.json#critical_line',
+      'A0_ORIENTATION_CONTROLLER_BENCH.html#orientationRoleMap',
+      '../../../SCIENCE_LAB/NAVIGATION/POLAR_JANUS_EVIDENCE_SLICE_V1_2026-10-06.json'
+    ],
     returnAuthority:'NONE / TYPED MCB RETURN STILL REQUIRES RHO WITNESS',
     graphDelta:{identities:0,relations:0,aliases:0}
   };

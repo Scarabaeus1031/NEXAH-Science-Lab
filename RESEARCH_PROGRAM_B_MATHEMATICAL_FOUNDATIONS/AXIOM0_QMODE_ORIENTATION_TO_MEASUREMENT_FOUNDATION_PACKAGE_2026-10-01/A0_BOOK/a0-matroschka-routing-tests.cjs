@@ -28,18 +28,18 @@ ok(worldCube.includes('101 · ADDRESS') && worldCube.includes('WITNESS · RETURN
 ok(worldCubeFreeze.includes('Source-bound Matroschka window addendum') && worldCubeFreeze.includes('→ MATROSCHKA / NEST + PROJECT + WITNESS'), '101 currentness record documents the embedded window');
 
 ok((mathfield.match(/id="matroschka-cluster-bridge"/g) || []).length === 1, 'Mathfield retains one scientific home');
-ok(mathfield.includes('58/58 PASS') && mathfield.includes('ASSET-E78DF8527C6B'), 'Mathfield carries current verification and source lens');
+ok(mathfield.includes('64/64 PASS') && mathfield.includes('ASSET-E78DF8527C6B') && mathfield.includes('DIRECT-ZETA') && mathfield.includes('CAND:POLARPASS'), 'Mathfield carries current verification, source lens and A0 crosswalk');
 ok(mathfield.includes('A0_MACHINA_COCKPIT.html?view=matroschka#relationChamber'), 'Mathfield routes to the Machina projection');
 
 ok((desk.match(/id="matroschka-cluster-bridge-20261112"/g) || []).length === 1, 'Science Desk retains one status return');
-ok(desk.includes('58/58 PASS') && desk.includes('Δgraph=0'), 'Science Desk preserves status and zero graph delta');
+ok(desk.includes('64/64 PASS') && desk.includes('Δgraph=0') && desk.includes('Historical visual crosswalk'), 'Science Desk preserves status, A0 crosswalk and zero graph delta');
 
 ok(machina.includes('data-mrc-view="matroschka"'), 'Machina exposes a Matroschka projection control');
 ok(machina.includes('THE MACHINE · THE MATROSCHKA'), 'Machina names the machine/matroschka reading');
 ok(relation.VIEW_ROUTES.matroschka === 'A0_MATROSCHKA_CLUSTER_BRIDGE.html?embed=machina#mcb-3d-source-lens', 'Machina lazy route targets the source lens');
 ok(relation.VIEW_STATUS.matroschka.includes('Q-CORE / TRIPLE WHEEL / LADDER / RETURN'), 'Machina status keeps the typed 3D route');
 
-ok(builder.includes('A0/101 Distribution Return') && builder.includes('58 PASS'), 'Builder records the distributed current build');
+ok(builder.includes('A0/101 Distribution Return') && builder.includes('64 PASS') && /DIRECT.?(?:ZETA)/.test(builder), 'Builder records the distributed current build and reused A0 identity');
 ok(builder.includes('ASSET-883C1509BCEF') && builder.includes('ASSET-E78DF8527C6B'), 'Builder reuses both existing asset identities');
 
 for (const route of [
