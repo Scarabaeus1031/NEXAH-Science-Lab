@@ -1,0 +1,1640 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Interne A0 Field Note II über Feld, Potential, Phase, Grenze, Geometrie und Flow — mit vier begrenzten Leselaboren, zwei einfachen Architekturvisuals, hydraulischem Field Atlas und IEEE-Rückbindung.">
+  <title>NEXAH · FIELD NOTE II · The Architecture of Difference</title>
+  <style>
+    :root{
+      color-scheme:dark;
+      --ink:#f4f0e5;
+      --muted:#aeb5b6;
+      --night:#071014;
+      --panel:#0d191e;
+      --panel2:#12242a;
+      --line:#284047;
+      --gold:#e6bd67;
+      --cyan:#70d9e8;
+      --blue:#4588d7;
+      --amber:#f0a951;
+      --red:#ef765f;
+      --green:#89c997;
+      --max:1240px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:
+      radial-gradient(circle at 18% 8%,rgba(69,136,215,.12),transparent 25rem),
+      radial-gradient(circle at 82% 20%,rgba(230,189,103,.09),transparent 28rem),
+      var(--night);color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.6}
+    a{color:var(--cyan)}
+    a:hover{color:#b5f4fa}
+    button,input,select{font:inherit}
+    .top{position:sticky;top:0;z-index:20;display:flex;justify-content:space-between;gap:1rem;align-items:center;padding:.85rem max(1rem,calc((100vw - var(--max))/2));background:rgba(7,16,20,.9);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+    .top strong{font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
+    .top nav{display:flex;gap:.9rem;flex-wrap:wrap;justify-content:flex-end}
+    .top a{font-size:.76rem;text-decoration:none;color:var(--muted)}
+    main{max-width:var(--max);margin:auto;padding:0 1.2rem 7rem}
+    section{padding:5rem 0;border-bottom:1px solid var(--line)}
+    .hero{min-height:82vh;display:grid;grid-template-columns:1.25fr .75fr;gap:3rem;align-items:center}
+    .eyebrow,.status{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
+    h1{margin:.5rem 0 1.4rem;font-size:clamp(3.6rem,9vw,8.4rem);line-height:.84;letter-spacing:-.065em;font-weight:650}
+    h1 em{display:block;color:var(--cyan);font-family:Georgia,serif;font-weight:400}
+    h2{margin:.35rem 0 1.2rem;font-size:clamp(2.1rem,5vw,4.5rem);line-height:1;letter-spacing:-.045em}
+    h3{margin:.2rem 0 .6rem;font-size:1.25rem;line-height:1.2}
+    .lead{max-width:52rem;font-size:clamp(1.15rem,2vw,1.55rem);color:#d7dddc}
+    .caption,.fine{color:var(--muted);font-size:.88rem}
+    .declaration{padding:1.2rem;border:1px solid rgba(230,189,103,.45);background:linear-gradient(135deg,rgba(230,189,103,.12),rgba(112,217,232,.04));border-radius:1rem}
+    .declaration b{display:block;color:var(--gold);margin-bottom:.4rem}
+    .hero-field{position:relative;min-height:28rem;border:1px solid var(--line);border-radius:50% 44% 52% 46%;overflow:hidden;background:radial-gradient(circle,rgba(112,217,232,.13),transparent 55%)}
+    .hero-field::before,.hero-field::after{content:"";position:absolute;inset:16%;border:1px solid rgba(112,217,232,.4);border-radius:50%;transform:rotate(24deg)}
+    .hero-field::after{inset:30%;border-color:rgba(230,189,103,.55);transform:rotate(-20deg)}
+    .hero-field span{position:absolute;padding:.3rem .6rem;border:1px solid var(--line);border-radius:99px;background:rgba(7,16,20,.82);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase}
+    .hero-field .f1{left:8%;top:18%;color:var(--cyan)}
+    .hero-field .f2{right:7%;top:31%;color:var(--gold)}
+    .hero-field .f3{left:17%;bottom:14%;color:var(--green)}
+    .hero-field .f4{right:13%;bottom:18%;color:var(--red)}
+    .hero-field .core{inset:50% auto auto 50%;transform:translate(-50%,-50%);color:var(--ink);font-size:.9rem}
+    .chain{display:grid;grid-template-columns:repeat(6,1fr);gap:.55rem;margin-top:2rem}
+    .chain article{min-height:8rem;padding:1rem;border:1px solid var(--line);border-radius:.8rem;background:var(--panel)}
+    .chain b{display:block;color:var(--cyan);font-size:.7rem;letter-spacing:.12em;margin-bottom:.45rem}
+    .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:1rem}
+    .card{grid-column:span 4;padding:1.35rem;border:1px solid var(--line);border-radius:1rem;background:linear-gradient(160deg,var(--panel2),var(--panel))}
+    .card.wide{grid-column:span 6}
+    .card.full{grid-column:1/-1}
+    .card p:last-child{margin-bottom:0}
+    .formula{display:block;margin:1rem 0;padding:1rem;border-left:2px solid var(--gold);background:rgba(0,0,0,.18);font:1.05rem ui-monospace,SFMono-Regular,Menlo,monospace;color:#fff;overflow:auto}
+    .joint{display:grid;grid-template-columns:1fr auto 1fr;gap:1rem;align-items:center;margin:2rem 0}
+    .joint article{padding:1.5rem;border:1px solid var(--line);border-radius:1rem;background:var(--panel)}
+    .joint .mark{font-size:2rem;color:var(--gold)}
+    .labs{display:grid;gap:1.2rem}
+    .lab{min-width:0;padding:1.4rem;border:1px solid var(--line);border-radius:1.2rem;background:linear-gradient(145deg,rgba(18,36,42,.96),rgba(8,18,22,.97))}
+    .lab-head{display:flex;flex-wrap:wrap;justify-content:space-between;gap:1rem;align-items:start;margin-bottom:1rem}
+    .lab-head span{padding:.22rem .55rem;border:1px solid var(--line);border-radius:99px;color:var(--muted);font-size:.68rem;letter-spacing:.08em;text-transform:uppercase}
+    .lab-layout{min-width:0;display:grid;grid-template-columns:minmax(260px,.8fr) minmax(360px,1.2fr);gap:1.2rem}
+    .controls{min-width:0;display:grid;gap:.9rem;padding:1rem;border:1px solid var(--line);border-radius:.8rem;background:rgba(0,0,0,.18)}
+    .mode-row{display:flex;flex-wrap:wrap;gap:.45rem}
+    .mode-row button{border:1px solid var(--line);border-radius:99px;padding:.48rem .72rem;background:var(--night);color:var(--muted);font-size:.72rem;letter-spacing:.06em;text-transform:uppercase}
+    .mode-row button[aria-pressed="true"]{border-color:var(--cyan);background:rgba(112,217,232,.14);color:var(--ink)}
+    label{display:grid;gap:.35rem;color:#d7dddc;font-size:.86rem}
+    label output{float:right;color:var(--gold);font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
+    input[type="range"]{width:100%;accent-color:var(--cyan)}
+    select{width:100%;padding:.62rem .7rem;border:1px solid var(--line);border-radius:.55rem;background:var(--night);color:var(--ink)}
+    .readout{display:grid;grid-template-columns:repeat(2,1fr);gap:.55rem}
+    .readout div{padding:.75rem;border:1px solid var(--line);border-radius:.65rem;background:var(--night)}
+    .readout dt{font-size:.66rem;letter-spacing:.09em;text-transform:uppercase;color:var(--muted)}
+    .readout dd{margin:.25rem 0 0;font:1rem ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--cyan)}
+    .stage{position:relative;min-width:0;min-height:22rem;border:1px solid var(--line);border-radius:.8rem;background:
+      linear-gradient(rgba(112,217,232,.035) 1px,transparent 1px),
+      linear-gradient(90deg,rgba(112,217,232,.035) 1px,transparent 1px),#071014;background-size:28px 28px;overflow:hidden}
+    .stage svg{width:100%;height:100%;min-height:22rem;display:block}
+    .boundary{margin-top:1rem;padding:.85rem 1rem;border-left:3px solid var(--red);background:rgba(239,118,95,.08);color:#e9c8c2;font-size:.86rem}
+    .boundary b{color:var(--red)}
+    .theses{counter-reset:thesis;display:grid;gap:.75rem}
+    .thesis{display:grid;grid-template-columns:3rem 1fr;gap:1rem;padding:1.2rem;border:1px solid var(--line);border-radius:.8rem;background:var(--panel)}
+    .thesis::before{counter-increment:thesis;content:counter(thesis,decimal-leading-zero);color:var(--gold);font:1.1rem ui-monospace,SFMono-Regular,Menlo,monospace}
+    .thesis p{margin:0}
+    table{width:100%;border-collapse:collapse;font-size:.9rem}
+    th,td{text-align:left;vertical-align:top;padding:.85rem;border-bottom:1px solid var(--line)}
+    th{color:var(--gold);font-size:.7rem;letter-spacing:.08em;text-transform:uppercase}
+    .source-list{display:grid;grid-template-columns:repeat(2,1fr);gap:.75rem}
+    .source-list a{display:block;padding:1rem;border:1px solid var(--line);border-radius:.7rem;text-decoration:none;background:var(--panel)}
+    .source-list small{display:block;color:var(--muted);margin-top:.3rem}
+    footer{max-width:var(--max);margin:auto;padding:2rem 1.2rem 5rem;color:var(--muted);display:flex;justify-content:space-between;gap:2rem;border-top:1px solid var(--line)}
+    @media(max-width:900px){
+      .hero{grid-template-columns:1fr}.hero-field{min-height:22rem}.chain{grid-template-columns:repeat(2,1fr)}
+      .card,.card.wide{grid-column:1/-1}.lab-layout{grid-template-columns:1fr}.source-list{grid-template-columns:1fr}
+      .joint{grid-template-columns:1fr}.joint .mark{text-align:center;transform:rotate(90deg)}
+    }
+    @media(max-width:620px){
+      .top{position:relative;align-items:flex-start}.top nav{display:none}section{padding:3.5rem 0}h1{font-size:3.4rem}
+      .chain{grid-template-columns:1fr}.readout{grid-template-columns:1fr}.hero-field{min-height:18rem}table{display:block;max-width:100%;overflow-x:auto}footer{display:block}
+    }
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+  </style>
+</head>
+<body>
+  <header class="top">
+    <strong>NEXAH · A0 · Field Note II</strong>
+    <nav aria-label="Seitennavigation">
+      <a href="#thesis">These</a><a href="#grammar">Grammatik</a><a href="#labs">Leselabore</a><a href="#field-transport">Feldtransport</a><a href="#hydraulic-atlas">Hydraulik</a><a href="#simple-visuals">Visual I/II</a><a href="#ieee">IEEE</a><a href="#ledger">Ledger</a><a href="#sources">Quellen</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="top">
+      <div>
+        <div class="eyebrow">Field Note II · interne Arbeitsfassung · 13. November 2026</div>
+        <h1>The Architecture<br><em>of Difference</em></h1>
+        <p class="lead">Feld · Potential · Phase · Grenze · Geometrie · Flow. Eine Sammelfläche für die Frage, wie Unterschiede räumlich gehalten, durch Architektur getrennt und über zulässige Wege in Bewegung übersetzt werden.</p>
+        <div class="declaration"><b>Status · NOTES ONLY</b>Bestehende A0- und IEEE-Quellen werden relationiert. Keine neue Study, kein physikalischer Universalmechanismus, kein IEEE-V2, keine Source-Graph-Relation, keine Veröffentlichung und keine Aktivierung.</div>
+      </div>
+      <div class="hero-field" role="img" aria-label="Schematisches relationales Feld mit Potential, Grenze, Phase und Flow">
+        <span class="f1">Potential</span><span class="f2">Boundary</span><span class="f3">Phase</span><span class="f4">Flow</span><span class="core">Relation</span>
+      </div>
+    </section>
+
+    <section id="thesis">
+      <div class="eyebrow">01 · Ausgangsthese</div>
+      <h2>Das vermeintlich Leere gehört zum System.</h2>
+      <p class="lead">Objekte sind sichtbar. Felder, Gradienten, Kopplungen und Randbedingungen sind oft nicht direkt sichtbar — und bestimmen dennoch, welche Übergänge möglich werden.</p>
+      <div class="chain" aria-label="Sechsstufige Arbeitsgrammatik">
+        <article><b>01</b><h3>Difference</h3><p>Zwei Zustände sind nicht gleich.</p></article>
+        <article><b>02</b><h3>Boundary</h3><p>Die Differenz wird gehalten.</p></article>
+        <article><b>03</b><h3>Field</h3><p>Die Konfiguration strukturiert den Raum.</p></article>
+        <article><b>04</b><h3>Gradient</h3><p>Eine Richtung möglicher Änderung erscheint.</p></article>
+        <article><b>05</b><h3>Path</h3><p>Topologie erlaubt oder blockiert Passage.</p></article>
+        <article><b>06</b><h3>Flow</h3><p>Eine Möglichkeit wird als Prozess realisiert.</p></article>
+      </div>
+      <p class="caption">Arbeitsgrammatik, kein universelles Naturgesetz. Jeder Anwendungsfall benötigt eigene Größen, Einheiten, Dynamik und Evidenz.</p>
+    </section>
+
+    <section id="grammar">
+      <div class="eyebrow">02 · Vier getrennte Leseschichten</div>
+      <h2>Architektur ist mehr als Form.</h2>
+      <div class="grid">
+        <article class="card"><h3>Topologie</h3><p>Was ist verbunden, getrennt, offen oder geschlossen? Topologie legt mögliche Pfade fest, aber nicht deren Stärke.</p></article>
+        <article class="card"><h3>Geometrie</h3><p>Abstände, Winkel, Flächen, Krümmungen und Maßstäbe formen lokale Relationen und Feldverteilungen.</p></article>
+        <article class="card"><h3>Material</h3><p>Leitfähigkeit, Permittivität, Chemie, Reibung und Trägheit bestimmen die Antwort eines Mediums.</p></article>
+        <article class="card wide"><h3>Feld &amp; Potential</h3><p>Ein Feld ordnet jedem Ort einen Zustand zu. Ein Potential beschreibt eine Landschaft möglicher Energieänderung; sein Gradient liefert eine lokale Richtung.</p><code class="formula">E = −∇φ</code></article>
+        <article class="card wide"><h3>Randbedingung &amp; Übergang</h3><p>Platten, Membranen, Ufer, Separatoren und Netzgrenzen sind nicht bloß Ränder. Sie bestimmen mit, welche Lösung überhaupt existiert.</p><code class="formula">architecture = topology + geometry + material + boundary conditions</code></article>
+      </div>
+      <div class="joint">
+        <article><span class="status">Leibniz-Lesart</span><h3>Relation</h3><p>Ein Zustand ist durch seine Lage, Nachbarschaft und Unterschiede zu anderen Zuständen mitbestimmt.</p></article>
+        <div class="mark" aria-hidden="true">↔</div>
+        <article><span class="status">Faraday-Lesart</span><h3>Feld</h3><p>Die lokale Vermittlungsstruktur besitzt messbare Eigenschaften, Energie und eigene Dynamik.</p></article>
+      </div>
+    </section>
+
+    <section id="labs">
+      <div class="eyebrow">03 · Vier lokale Leselabore</div>
+      <h2>Eine Grammatik. Getrennte Mechanismen.</h2>
+      <p class="lead">Die Regler machen Relationen sichtbar. Sie teilen keinen gemeinsamen Zustand und beweisen keine universelle Feldtheorie.</p>
+      <div class="labs">
+        <article class="lab" id="capacitorLab">
+          <header class="lab-head"><div><span class="status">Lab A · Elektrostatik</span><h3>Geometrie speichert nicht allein — sie formt das Feld.</h3></div><span>idealisiertes Plattenmodell</span></header>
+          <div class="lab-layout">
+            <div class="controls">
+              <label>Spannung V <span><output id="voltageOut">24 V</output></span><input id="voltage" type="range" min="1" max="120" value="24"></label>
+              <label>Plattenabstand d <span><output id="gapOut">6 mm</output></span><input id="gap" type="range" min="1" max="20" value="6"></label>
+              <label>relative Permittivität εᵣ <span><output id="epsilonOut">2.0</output></span><input id="epsilon" type="range" min="10" max="100" value="20"></label>
+              <dl class="readout">
+                <div><dt>Feldstärke E≈V/d</dt><dd id="fieldOut"></dd></div>
+                <div><dt>Energiedichte uₑ</dt><dd id="energyOut"></dd></div>
+              </dl>
+              <code class="formula">uₑ = ½ ε₀ εᵣ E²</code>
+            </div>
+            <div class="stage"><svg id="capacitorSvg" viewBox="0 0 640 360" role="img" aria-label="Veränderlicher Plattenabstand und schematische Feldlinien"></svg></div>
+          </div>
+          <p class="boundary"><b>Grenze:</b> Das Modell vernachlässigt Randfelder, Frequenzabhängigkeit, Durchbruch, Materialverluste und reale Elektrodengeometrie. Die ½ ist das Integral des Feldaufbaus, keine halbe Phase und keine 0,5-Drift.</p>
+        </article>
+
+        <article class="lab" id="phaseLab">
+          <header class="lab-head"><div><span class="status">Lab B · AC-Netz</span><h3>Flow entsteht aus relativer Phase und Kopplung.</h3></div><span>vereinfachte verlustlose Beziehung</span></header>
+          <div class="lab-layout">
+            <div class="controls">
+              <label>Phase Knoten i · δᵢ <span><output id="phaseAOut">20°</output></span><input id="phaseA" type="range" min="-180" max="180" value="20"></label>
+              <label>Phase Knoten j · δⱼ <span><output id="phaseBOut">−15°</output></span><input id="phaseB" type="range" min="-180" max="180" value="-15"></label>
+              <label>Kopplung K <span><output id="couplingOut">1.00</output></span><input id="coupling" type="range" min="10" max="150" value="100"></label>
+              <dl class="readout">
+                <div><dt>Phasendifferenz Δδ</dt><dd id="deltaOut"></dd></div>
+                <div><dt>normierter Flow K·sin(Δδ)</dt><dd id="flowOut"></dd></div>
+              </dl>
+              <code class="formula">Pᵢⱼ ∝ K · sin(δᵢ − δⱼ)</code>
+            </div>
+            <div class="stage"><svg id="phaseSvg" viewBox="0 0 640 360" role="img" aria-label="Zwei Phasenzeiger, ihre Differenz und ein richtungsabhängiger Flow"></svg></div>
+          </div>
+          <p class="boundary"><b>Grenze:</b> Dies ist kein vollständiges AC-Power-Flow-Modell und kein IEEE-Ergebnis. Reale Netze benötigen Spannungsbeträge, Admittanzen, Wirk- und Blindleistung, Verluste, Betriebsgrenzen und einen deklarierten Solver.</p>
+        </article>
+
+        <article class="lab" id="geometryLab">
+          <header class="lab-head"><div><span class="status">Lab C · Orientierungsgeometrie</span><h3>Drift beschreibt Änderung entlang eines erklärten Parameters.</h3></div><span>synthetische Punkte · keine IEEE-Daten</span></header>
+          <div class="lab-layout">
+            <div class="controls">
+              <label>Kampagnenposition λ <span><output id="stepOut">4 / 8</output></span><input id="step" type="range" min="1" max="8" value="4"></label>
+              <label>Projektions-Scherung <span><output id="shearOut">0.35</output></span><input id="shear" type="range" min="-80" max="80" value="35"></label>
+              <dl class="readout">
+                <div><dt>adjacent displacement</dt><dd id="displacementOut"></dd></div>
+                <div><dt>normalized local drift</dt><dd id="driftOut"></dd></div>
+                <div><dt>direction change</dt><dd id="turnOut"></dd></div>
+                <div><dt>contiguous path length</dt><dd id="pathOut"></dd></div>
+              </dl>
+            </div>
+            <div class="stage"><svg id="geometrySvg" viewBox="0 0 640 360" role="img" aria-label="Synthetischer Zustandsraumpfad mit markierter Drift und Richtungsänderung"></svg></div>
+          </div>
+          <p class="boundary"><b>Grenze:</b> Geometrische Drift ist hier eine Änderung pro Schritt des deklarierten Parameters. Sie ist weder Elektronendrift noch Geschwindigkeit, Zeitderivat, Ursache, Warnsignal oder Stabilitätsnachweis. Die Scherung demonstriert zusätzlich die Abhängigkeit von der Repräsentation.</p>
+        </article>
+
+        <article class="lab" id="lightningLab">
+          <header class="lab-head"><div><span class="status">Lab D · Luft → leitender Kanal</span><h3>Ein Feld kann seinen eigenen vorübergehenden Pfad mit hervorbringen.</h3></div><span>schematischer Durchbruch · keine Vorhersage</span></header>
+          <div class="lab-layout">
+            <div class="controls">
+              <label>lokale Feldstärke E <span><output id="stormFieldOut">1,80 MV/m</output></span><input id="stormField" type="range" min="20" max="420" value="180"></label>
+              <label>relative Feuchte-/Geometrie-Störung <span><output id="stormPerturbationOut">0,35</output></span><input id="stormPerturbation" type="range" min="0" max="100" value="35"></label>
+              <dl class="readout">
+                <div><dt>lokale Energiedichte</dt><dd id="stormEnergyOut"></dd></div>
+                <div><dt>Regime</dt><dd id="stormRegimeOut"></dd></div>
+                <div><dt>Pfadstatus</dt><dd id="stormPathOut"></dd></div>
+                <div><dt>Topologie</dt><dd id="stormTopologyOut"></dd></div>
+              </dl>
+              <code class="formula">insulator → ionization → leader → connected path → current</code>
+            </div>
+            <div class="stage"><svg id="lightningSvg" viewBox="0 0 640 360" role="img" aria-label="Schematische Wolke, Feldlinien und entstehender verzweigter Blitzkanal"></svg></div>
+          </div>
+          <p class="boundary"><b>Grenze:</b> Die häufig genannte Größenordnung von etwa 3 MV/m gilt für idealisierte trockene Luft unter bestimmten Bedingungen. Reale Blitzinitiierung ist räumlich nichtuniform und hängt unter anderem von Druck, Feuchte, Geometrie, Vorionisation und lokalen Feldverstärkungen ab. Der Regler ist ein Lesemodell, kein Wetter- oder Durchbruchssolver.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="field-transport">
+      <div class="eyebrow">04 · Kapitel 9 · Maxwell, Poynting und die Geometrie des Energieflusses</div>
+      <h2>Das Feld besitzt Speicher, Richtung und Durchgang.</h2>
+      <p class="lead">Der Videoteil wird hier nicht als neue NEXAH-Theorie übernommen. Er öffnet eine etablierte physikalische Schicht: Quellen erzeugen Felder, zeitliche Änderungen koppeln elektrische und magnetische Anteile, und der Poynting-Vektor beschreibt den lokalen elektromagnetischen Energiefluss.</p>
+
+      <div class="grid">
+        <article class="card wide"><span class="status">Quelle und Senke</span><h3>Elektrische Ladung strukturiert das elektrische Feld.</h3><code class="formula">∇·E = ρ / ε₀</code><p>Die Divergenz liest lokale Quellenstruktur: positive Ladung liefert auswärts gerichteten elektrischen Fluss, negative Ladung einwärts gerichteten.</p></article>
+        <article class="card wide"><span class="status">Keine magnetischen Monopole im Modell</span><h3>Magnetische Feldlinien besitzen keinen isolierten Anfang.</h3><code class="formula">∇·B = 0</code><p>Die magnetische Flussbilanz durch eine geschlossene Oberfläche ist null.</p></article>
+        <article class="card wide"><span class="status">Faraday</span><h3>Ein zeitlich veränderliches Magnetfeld erzeugt Zirkulation im elektrischen Feld.</h3><code class="formula">∇×E = −∂B/∂t</code><p>Der Curl beschreibt lokale Umlaufstruktur — nicht bloß eine gerade Verbindung zwischen zwei Punkten.</p></article>
+        <article class="card wide"><span class="status">Ampère–Maxwell</span><h3>Strom und veränderliches elektrisches Feld erzeugen magnetische Zirkulation.</h3><code class="formula">∇×B = μ₀J + μ₀ε₀ ∂E/∂t</code><p>Diese Kopplung erlaubt elektromagnetischen Störungen, sich auch ohne materiellen Leiter durch den Raum fortzupflanzen.</p></article>
+      </div>
+
+      <div class="joint">
+        <article><span class="status">Lokaler Speicher</span><h3>Feldenergiedichte</h3><code class="formula">u = ½(E·D + B·H)</code><p>In einem einfachen linearen Medium wird Energie lokal dem elektrischen und magnetischen Feldanteil zugeordnet.</p></article>
+        <div class="mark" aria-hidden="true">→</div>
+        <article><span class="status">Lokaler Transport</span><h3>Poynting-Vektor</h3><code class="formula">S = E × H</code><p>Richtung und Betrag von <em>S</em> beschreiben den elektromagnetischen Energiefluss pro Fläche.</p></article>
+      </div>
+
+      <article class="lab">
+        <header class="lab-head"><div><span class="status">Conservation window</span><h3>Speicheränderung + Grenzfluss = Übergang an Materie.</h3></div><span>Poynting-Theorem</span></header>
+        <code class="formula">∂u/∂t + ∇·S = −J·E</code>
+        <p>Die Gleichung trennt drei Rollen: zeitliche Änderung der Feldenergie, Zu- oder Abfluss durch die lokale Umgebung und Arbeit des Feldes an Ladungsträgern. Joule-Wärme, Licht oder mechanische Wirkung entstehen dort, wo Feld und Materie Energie austauschen.</p>
+        <code class="formula">d/dt ∫<sub>Ω</sub> u dV + ∮<sub>∂Ω</sub> S·n dA = −∫<sub>Ω</sub> J·E dV</code>
+        <p class="caption">Geometrische Lesart: <strong>Ω</strong> ist ein gewähltes Volumen, <strong>∂Ω</strong> seine Grenze, <strong>n</strong> die lokale Außennormale. Das Oberflächenintegral misst, was die Grenze durchquert. Die Grenze ist damit Teil der Bilanz und nicht bloß der gezeichnete Rand.</p>
+      </article>
+
+      <div class="chain" aria-label="Geometrische Übertragung des Poynting-Satzes">
+        <article><b>01 · Ω</b><h3>Region</h3><p>Welchen Teil des Systems lesen wir?</p></article>
+        <article><b>02 · ∂Ω</b><h3>Boundary</h3><p>Wo kann Energie ein- oder austreten?</p></article>
+        <article><b>03 · u</b><h3>Density</h3><p>Was ist lokal gespeichert?</p></article>
+        <article><b>04 · S</b><h3>Flux</h3><p>In welche Richtung wird Energie übertragen?</p></article>
+        <article><b>05 · J·E</b><h3>Exchange</h3><p>Wo geht Feldenergie in Materiewirkung über?</p></article>
+        <article><b>06 · Return</b><h3>Balance</h3><p>Schließen Speicher, Grenzfluss und Austausch?</p></article>
+      </div>
+
+      <h3 style="margin-top:3rem">Domain Atlas · Medium, aktive Grenze und dominanter Transport</h3>
+      <table>
+        <thead><tr><th>Domäne</th><th>Zustand/Träger</th><th>aktive Grenzen</th><th>Transport und Übergang</th></tr></thead>
+        <tbody>
+          <tr><td>Meer, See, Fluss</td><td>Flüssigkeit, gelöste Stoffe und Ionen</td><td>Ufer, Oberfläche, Thermokline, Salzgradient</td><td>Advektion, Diffusion, Wärme- und Ionentransport</td></tr>
+          <tr><td>Land und Gestein</td><td>Festkörper und poröse Materie</td><td>Schicht, Bruch, Oberfläche, Pore</td><td>Spannung, Wärmeleitung, Grundwasser, langsame Verformung</td></tr>
+          <tr><td>Lava und Vulkan</td><td>Schmelze, Kristalle und Gas</td><td>Kruste, Schmelzfront, Riss, Druckgrenze</td><td>Konvektion, Entgasung, Erstarrung, Ausbruch</td></tr>
+          <tr><td>Atmosphäre</td><td>Gas, Aerosole, Wasser und Eis</td><td>Front, Wolkenrand, Druck- und Temperaturgradient</td><td>Wind, Konvektion, Phasenwechsel, Ladungstrennung</td></tr>
+          <tr><td>Blitzkanal</td><td>ionisiertes Gas / Plasma</td><td>Leader-Spitze, Kanalhülle, Durchbruchsschwelle</td><td>Ionisationskaskade, Strom, Wärme, Licht und Schall</td></tr>
+          <tr><td>Eis</td><td>geordneter Festkörper</td><td>Eis/Wasser/Luft-Phasenfront</td><td>Wärmefluss, Schmelzen, Gefrieren und langsames Fließen</td></tr>
+          <tr><td>Feuer</td><td>Reaktionszone und heiße Produkte; keine eigene klassische Phase</td><td>Flammenfront, Brennstoff-/Oxidatorgrenze</td><td>Reaktion, Konvektion, Diffusion und Strahlung</td></tr>
+          <tr><td>Licht</td><td>elektromagnetisches Feld</td><td>Material-, Reflexions-, Brechungs- und Absorptionsgrenzen</td><td>elektromagnetischer Energiefluss und Materiekopplung</td></tr>
+        </tbody>
+      </table>
+      <p class="boundary"><b>Kapitel-10-Intake:</b> Der gelieferte Text endet bei Kapitel 9, 53:16, mit Hertz. Für Kapitel 10 liegt in diesem Anhang kein Quelltext vor. Der nächste Abschnitt bleibt deshalb <code>AWAITING_SOURCE</code>; er wird nicht aus Erinnerung oder aus der Kapitelüberschrift ergänzt.</p>
+      <p class="boundary"><b>Nicht-Identität:</b> Maxwell-Feldgeometrie, Materialdomänen und NEXAH-Orientierungsgeometrie teilen Begriffe wie Region, Grenze, Dichte, Flux und Return. Daraus folgt keine gemeinsame Gleichung für Wasser, Lava, Biologie, IEEE-Zustandsräume oder kosmische Akkretion.</p>
+    </section>
+
+    <section id="hydraulic-atlas">
+      <div class="eyebrow">05 · Owner Field Atlas · Becken, Röhren, Wurzeln und wandernde Zustände</div>
+      <h2>Die Energie bleibt in der Bilanz. Die Organisation des Flusses emergiert.</h2>
+      <p class="lead">Das hydraulische Bild verbindet Speicher, Druck, Boundary, Zirkulation und verzweigte Wege. Es ist keine Gleichsetzung von Wasser, Elektrizität, Wärme und Biologie: Jede Domäne behält ihre Größe, Einheit und Materialgleichung. Gemeinsam ist zunächst nur die Bilanzgrammatik.</p>
+
+      <div class="joint">
+        <article><span class="status">Pascal-Brücke</span><h3>Druck ist Energie pro Volumen.</h3><code class="formula">1 Pa = 1 N/m² = 1 J/m³</code><p>Damit ist der Pascal nicht nur eine Kraft-pro-Fläche-Einheit. Er besitzt dieselbe Dimension wie eine Energiedichte. Bei einer Volumenänderung leistet ein Druckfeld Arbeit.</p></article>
+        <div class="mark" aria-hidden="true">↔</div>
+        <article><span class="status">Hydraulische Arbeit</span><h3>Ein Becken kann Energie halten und über Grenzen abgeben.</h3><code class="formula">δW = p · dV &nbsp; · &nbsp; W = ∫ p dV</code><p>Staudamm, Gefäß, Kammer und elastische Ader verbinden Potential, Speicherfähigkeit und einen zugelassenen Durchgang.</p></article>
+      </div>
+
+      <article class="lab">
+        <header class="lab-head"><div><span class="status">A / B / β / P · vorläufige Owner-Lesart</span><h3>Zwei Becken, ein dämpfender Übergang und ein umlaufender Return.</h3></div><span>View grammar · keine Naturgleichung</span></header>
+        <div class="lab-layout">
+          <div class="controls">
+            <p><strong style="color:var(--blue)">A · Blau</strong><br>Richtungs- und Beckenhinweis der ersten Seite.</p>
+            <p><strong style="color:var(--red)">B · Rot</strong><br>Gegenseite, Aufnahme- oder Weitergabeseite; keine feste Anoden-/Kathodenidentität.</p>
+            <p><strong style="color:var(--green)">β / P · Grün</strong><br>Boundary-, Dämpfungs- und Phasenreadout im Übergangsband. Boundary und Phase bleiben getrennte Rollen, auch wenn dieselbe Farbe sie in dieser Ansicht zusammenhält.</p>
+            <code class="formula">ΔΦ = Φ<sub>B</sub> − Φ<sub>A</sub><br>flow ∝ conductance × difference</code>
+          </div>
+          <div class="stage">
+            <svg viewBox="0 0 720 420" role="img" aria-labelledby="hydraulicAtlasTitle hydraulicAtlasDesc">
+              <title id="hydraulicAtlasTitle">Hydraulischer Field Atlas mit zwei Becken, grüner Boundary und verzweigten Röhren</title>
+              <desc id="hydraulicAtlasDesc">Ein blaues A-Becken und ein rotes B-Becken sind durch ein grünes Übergangsband und mehrere Röhren verbunden. Pfeile zeigen einen orientierten Kreislauf; Verzweigungen erinnern an Adern und Wurzeln.</desc>
+              <defs>
+                <linearGradient id="atlasBridge" x1="0" x2="1"><stop offset="0" stop-color="#4588d7"/><stop offset=".5" stop-color="#89c997"/><stop offset="1" stop-color="#ef765f"/></linearGradient>
+                <marker id="atlasArrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#e6bd67"/></marker>
+              </defs>
+              <path d="M52 168 C90 92 214 76 286 168 C244 202 220 252 218 314 C126 324 60 266 52 168Z" fill="rgba(69,136,215,.17)" stroke="#4588d7" stroke-width="3"/>
+              <path d="M668 168 C630 92 506 76 434 168 C476 202 500 252 502 314 C594 324 660 266 668 168Z" fill="rgba(239,118,95,.17)" stroke="#ef765f" stroke-width="3"/>
+              <path d="M286 168 C318 138 402 138 434 168 L502 314 C444 344 276 344 218 314Z" fill="rgba(137,201,151,.12)" stroke="#89c997" stroke-width="2" stroke-dasharray="7 7"/>
+              <path d="M122 178 C224 120 288 110 360 154 C432 198 504 205 598 160" fill="none" stroke="url(#atlasBridge)" stroke-width="15" stroke-linecap="round"/>
+              <path d="M598 160 C542 82 438 62 360 100 C282 138 188 116 122 178" fill="none" stroke="#e6bd67" stroke-width="2.5" marker-end="url(#atlasArrow)"/>
+              <path d="M360 154 L360 252 M360 216 L302 276 M360 216 L418 276 M302 276 L272 338 M302 276 L326 344 M418 276 L394 344 M418 276 L448 338" fill="none" stroke="#89c997" stroke-width="5" stroke-linecap="round"/>
+              <circle cx="122" cy="178" r="16" fill="#4588d7"/><circle cx="598" cy="160" r="16" fill="#ef765f"/><circle cx="360" cy="154" r="14" fill="#89c997"/>
+              <text x="122" y="184" text-anchor="middle" fill="#fff" font-size="14" font-family="ui-monospace,monospace">A</text>
+              <text x="598" y="166" text-anchor="middle" fill="#fff" font-size="14" font-family="ui-monospace,monospace">B</text>
+              <text x="360" y="160" text-anchor="middle" fill="#071014" font-size="13" font-family="ui-monospace,monospace">β/P</text>
+              <text x="122" y="365" text-anchor="middle" fill="#4588d7" font-size="13" font-family="ui-monospace,monospace">BASIN · STORE</text>
+              <text x="360" y="382" text-anchor="middle" fill="#89c997" font-size="13" font-family="ui-monospace,monospace">TUBES · VEINS · ROOTS</text>
+              <text x="598" y="365" text-anchor="middle" fill="#ef765f" font-size="13" font-family="ui-monospace,monospace">BASIN · RETURN</text>
+            </svg>
+          </div>
+        </div>
+        <p class="boundary"><b>Zeichengrenze:</b> A, B, β und P sind hier Ansichtsrollen. Ohne Codebook sind sie weder Atlantik/Pazifik, Anode/Kathode, magnetisches B-Feld noch allgemeine Naturkonstanten. Die Farbrichtung ist eine lokale Darstellung, kein Beweis einer planetaren oder elektrochemischen Identität.</p>
+      </article>
+
+      <article class="lab" id="architectureDemo" style="margin-top:1.2rem">
+        <header class="lab-head"><div><span class="status">Architectural demonstrator · one carrier, four views</span><h3>Nicht die Physik wechselt — der Schnitt durch dieselbe Architektur wechselt.</h3></div><span>notes-only view instrument</span></header>
+        <div class="lab-layout">
+          <div class="controls">
+            <div>
+              <span class="status">Ansicht</span>
+              <div class="mode-row" role="group" aria-label="Architektonische Ansicht">
+                <button type="button" data-arch-view="structure" aria-pressed="true">Structure</button>
+                <button type="button" data-arch-view="passage" aria-pressed="false">Passage</button>
+                <button type="button" data-arch-view="cut" aria-pressed="false">Cut</button>
+                <button type="button" data-arch-view="return" aria-pressed="false">Return</button>
+              </div>
+            </div>
+            <label>Öffnung κ <span><output id="archOpenOut">0,55</output></span><input id="archOpen" type="range" min="0" max="100" value="55"></label>
+            <label>Boundary-Versatz <span><output id="archShiftOut">0</output></span><input id="archShift" type="range" min="-80" max="80" value="0"></label>
+            <dl class="readout" aria-live="polite">
+              <div><dt>Carrier</dt><dd>ONE / HELD</dd></div>
+              <div><dt>Passage</dt><dd id="archPassageOut">FILTERED</dd></div>
+              <div><dt>aktive Lesart</dt><dd id="archViewOut">STRUCTURE</dd></div>
+              <div><dt>Residual</dt><dd>OPEN</dd></div>
+            </dl>
+            <code class="formula">same carrier<br>≠ same cut<br>≠ same path history</code>
+          </div>
+          <div class="stage"><svg id="architectureSvg" viewBox="0 0 720 420" role="img" aria-label="Interaktiver architektonischer Grundriss mit zwei Räumen, verschiebbarer Boundary, Öffnung, Passage und Return"></svg></div>
+        </div>
+        <p class="boundary"><b>Offene Lesart:</b> κ und Versatz sind Darstellungsparameter ohne physikalische Einheit. Der Demonstrator zeigt, wie dieselbe Architektur als Struktur, Durchgang, Schnitt oder Rückweg gelesen werden kann. Keine Ansicht erschöpft den Carrier; der Residual bleibt ausdrücklich offen.</p>
+      </article>
+
+      <div id="simple-visuals" style="padding-top:4rem">
+        <div class="eyebrow">Visual I &amp; II · einfache Architekturbegriffe</div>
+        <h2>Ein Träger kann mehrere Grenzen und mehrere Bilder zugleich halten.</h2>
+        <p class="lead">Wasser macht die Architektur unmittelbar lesbar: Zustand, Temperatur, Konzentration und sichtbare Spur schneiden dasselbe Becken verschieden. Der zweite Blick hält das Ereignis fest und wechselt nur seine Darstellung.</p>
+      </div>
+
+      <article class="lab" id="boundaryVisual">
+        <header class="lab-head"><div><span class="status">Visual I · one system — many boundaries</span><h3>Ein Wasserbecken erzeugt nicht nur eine Grenze.</h3></div><span>carrier view · not a solver</span></header>
+        <div class="lab-layout">
+          <div class="controls">
+            <div>
+              <span class="status">Grenzlesart</span>
+              <div class="mode-row" role="group" aria-label="Grenztyp im Wasserbecken">
+                <button type="button" data-boundary-view="all" aria-pressed="true">Alle</button>
+                <button type="button" data-boundary-view="phase" aria-pressed="false">Phase</button>
+                <button type="button" data-boundary-view="thermal" aria-pressed="false">Thermal</button>
+                <button type="button" data-boundary-view="concentration" aria-pressed="false">Konzentration</button>
+                <button type="button" data-boundary-view="visible" aria-pressed="false">Spur</button>
+              </div>
+            </div>
+            <label>Lesetiefe <span><output id="boundaryDepthOut">MITTE · 55%</output></span><input id="boundaryDepth" type="range" min="8" max="92" value="55"></label>
+            <dl class="readout" aria-live="polite">
+              <div><dt>Carrier</dt><dd>ONE / HELD</dd></div>
+              <div><dt>Grenzen</dt><dd id="boundaryCountOut">FOUR VIEWS</dd></div>
+              <div><dt>aktive Lesart</dt><dd id="boundaryViewOut">ALL</dd></div>
+              <div><dt>Mechanismus</dt><dd>UNASSIGNED</dd></div>
+            </dl>
+            <code class="formula">boundary ≠ trace<br>trace ≠ mechanism</code>
+          </div>
+          <div class="stage"><svg id="boundarySvg" viewBox="0 0 720 420" role="img" aria-label="Interaktives Wasserbecken mit Dampf, Flüssigkeit, Eis sowie Phasen-, Temperatur-, Konzentrations- und sichtbarer Außengrenze"></svg></div>
+        </div>
+        <p class="boundary"><b>Architekturgrenze:</b> Die Lesetiefe ist eine normierte Blickposition, kein berechneter Druck. Tiefe kann als spätere Druck-Linse dienen; ein „Black Hole“ wird hier bewusst nicht mit Tiefsee oder Drucksenke identifiziert.</p>
+      </article>
+
+      <article class="lab" id="representationVisual" style="margin-top:1.2rem">
+        <header class="lab-head"><div><span class="status">Visual II · one event — many representations</span><h3>Vier Aufnahmen zeigen dasselbe Übergangsereignis — nicht vier Ereignisse.</h3></div><span>event binder · no recovered data</span></header>
+        <div class="lab-layout">
+          <div class="controls">
+            <div>
+              <span class="status">Darstellung</span>
+              <div class="mode-row" role="group" aria-label="Darstellung desselben Übergangsereignisses">
+                <button type="button" data-event-view="all" aria-pressed="true">Alle</button>
+                <button type="button" data-event-view="direct" aria-pressed="false">Direkt</button>
+                <button type="button" data-event-view="thermal" aria-pressed="false">Thermal</button>
+                <button type="button" data-event-view="structure" aria-pressed="false">Struktur</button>
+                <button type="button" data-event-view="signal" aria-pressed="false">Signal</button>
+              </div>
+            </div>
+            <label>Ereignisposition <span><output id="eventPositionOut">FRAME · 0,50</output></span><input id="eventPosition" type="range" min="12" max="88" value="50"></label>
+            <dl class="readout" aria-live="polite">
+              <div><dt>Ereignis</dt><dd>ONE / HELD</dd></div>
+              <div><dt>Records</dt><dd>FOUR</dd></div>
+              <div><dt>Fokus</dt><dd id="eventViewOut">ALL</dd></div>
+              <div><dt>Binder</dt><dd>HELD</dd></div>
+            </dl>
+            <code class="formula">R<sub>direct</sub>(x) ≠ R<sub>thermal</sub>(x)<br>≠ R<sub>structure</sub>(x) ≠ R<sub>signal</sub>(x)</code>
+          </div>
+          <div class="stage"><svg id="eventSvg" viewBox="0 0 720 420" role="img" aria-label="Vier synchronisierte Darstellungen eines gemeinsamen Übergangsereignisses: direkte Ansicht, Wärmebild, Strukturansicht und Signal"></svg></div>
+        </div>
+        <p class="boundary"><b>Bindergrenze:</b> Zeit, Ort, Probe, Kalibrierung und Protokoll müssen gemeinsam gehalten werden, bevor Spuren verglichen werden. Die vier Panels sind redaktionelle Konstruktionen; sie rekonstruieren keine Messdaten aus den Owner-Tafeln.</p>
+      </article>
+
+      <article class="lab" id="redThreadVisual" style="margin-top:1.2rem">
+        <header class="lab-head"><div><span class="status">Visual III · follow the red balloon</span><h3>Eine Frage wandert durch fünf Architekturen — nicht eine Gleichung durch alle Wissenschaften.</h3></div><span>relation route · mechanisms separate</span></header>
+        <div class="lab-layout">
+          <div class="controls">
+            <div>
+              <span class="status">Station des roten Fadens</span>
+              <div class="mode-row" role="group" aria-label="Station des roten Fadens von Physik bis Biologie">
+                <button type="button" data-thread-view="field" aria-pressed="true">Feld</button>
+                <button type="button" data-thread-view="passage" aria-pressed="false">Wege</button>
+                <button type="button" data-thread-view="chemistry" aria-pressed="false">Chemie</button>
+                <button type="button" data-thread-view="geology" aria-pressed="false">Geologie</button>
+                <button type="button" data-thread-view="biology" aria-pressed="false">Biologie</button>
+              </div>
+            </div>
+            <dl class="readout" aria-live="polite">
+              <div><dt>Orientierungsmarker</dt><dd>RED BALLOON</dd></div>
+              <div><dt>aktive Station</dt><dd id="threadViewOut">FIELD</dd></div>
+              <div><dt>gemeinsame Frage</dt><dd>HOW TRANSFER?</dd></div>
+              <div><dt>Mechanismus</dt><dd>LOCAL / TYPED</dd></div>
+            </dl>
+            <code class="formula" id="threadFormula">U = Δφ<br>I = dQ/dt<br>P = U · I</code>
+            <p id="threadDescription">Faraday macht lokale Induktion und Feldwirkung experimentell greifbar; Maxwell hält elektrische und magnetische Felder in einer gekoppelten Theorie. Spannung, Strom und Leistung bleiben typisierte Größen.</p>
+          </div>
+          <div class="stage"><svg id="threadSvg" viewBox="0 0 720 420" role="img" aria-label="Ein roter Ballon folgt einem roten Faden durch Feldphysik, Wegarchitektur, Elektrochemie, Geologie und Biologie"></svg></div>
+        </div>
+        <p class="boundary"><b>Roter-Faden-Grenze:</b> Der Ballon trägt die Frage nach Differenz, Grenze, Passage, Transformation und Return. Er trägt keine Energie und beweist keine gemeinsame Substanz oder Universalgleichung. Physik, Chemie, Geologie und Biologie bedingen einander kausal und materiell, behalten aber ihre jeweiligen Zustandsgrößen, Skalen und Evidenzformen.</p>
+      </article>
+
+      <article class="lab" id="zetaPhysicsVisual" style="margin-top:1.2rem">
+        <header class="lab-head"><div><span class="status">Visual IV · zeta seam and diagonal ruler</span><h3>Der Spalt trennt Orientierungen. Die Diagonale macht den Unterschied messbar.</h3></div><span>complex-plane view · not a physical derivation</span></header>
+        <div class="lab-layout">
+          <div class="controls">
+            <div>
+              <span class="status">Architekturmaß</span>
+              <div class="mode-row" role="group" aria-label="Architekturmaß der Zeta-Seam">
+                <button type="button" data-zeta-mode="micro" aria-pressed="true">1 : 2 : 1</button>
+                <button type="button" data-zeta-mode="macro" aria-pressed="false">3 : 1 : 3</button>
+              </div>
+            </div>
+            <div>
+              <span class="status">Orientierung</span>
+              <div class="mode-row" role="group" aria-label="Positive oder negative diagonale Orientierung">
+                <button type="button" data-zeta-phase="plus" aria-pressed="true">+45°</button>
+                <button type="button" data-zeta-phase="minus" aria-pressed="false">−45°</button>
+              </div>
+            </div>
+            <label>Ansichtsframe <span><output id="zetaFrameOut">t3 · SEAM</output></span><input id="zetaFrame" type="range" min="1" max="5" value="3"></label>
+            <dl class="readout" aria-live="polite">
+              <div><dt>Zeta-Line</dt><dd>ζ = 0 / HELD</dd></div>
+              <div><dt>Phase</dt><dd id="zetaPhaseOut">+π/4</dd></div>
+              <div><dt>Messstab</dt><dd>|1+i| = √2</dd></div>
+              <div><dt>aktive Architektur</dt><dd id="zetaModeOut">1 : 2 : 1</dd></div>
+            </dl>
+            <code class="formula">z<sub>±</sub> = 1 ± i<br>|z<sub>±</sub>| = √2<br>arg(z<sub>±</sub>) = ±π/4</code>
+          </div>
+          <div class="stage"><svg id="zetaSvg" viewBox="0 0 720 420" role="img" aria-label="Komplexe Orientierungsebene mit zentraler Zeta-Seam, fünf Ansichtsframes, positiver oder negativer Diagonale und Wurzel-zwei-Messstab"></svg></div>
+        </div>
+        <p class="boundary"><b>Typgrenze:</b> <code>1:2:1</code> ist hier die Multiplizität zweier binärer Beiträge; <code>3:1:3</code> ist eine separate Makroaufteilung in drei linke Zonen, eine Seam und drei rechte Zonen. Der Übergang zwischen beiden ist eine Ansichtsänderung, keine mathematische Ableitung. Weil <code>i³ = −i</code>, vertauscht <code>1 ± i³ = 1 ∓ i</code> nur die beiden konjugierten Orientierungen. Die Frames <code>t1…t5</code> sind geordnete Ansichten, nicht automatisch physikalische Zeit.</p>
+      </article>
+
+      <article class="lab" id="measureMapVisual" style="margin-top:1.2rem">
+        <header class="lab-head"><div><span class="status">Visual V · one quantity — many coordinate systems</span><h3>Die Größe bleibt. Einheit, Nullpunkt und Zahlenwert wechseln.</h3></div><span>measure &amp; map · SI type gate</span></header>
+        <div class="lab-layout">
+          <div class="controls">
+            <label>Temperaturzustand <span><output id="temperatureStateOut">273,15 K</output></span><input id="temperatureState" type="range" min="22315" max="37315" step="100" value="27315"></label>
+            <label>Strecke <span><output id="distanceStateOut">50,00 km</output></span><input id="distanceState" type="range" min="0" max="10000" step="25" value="5000"></label>
+            <dl class="readout" aria-live="polite">
+              <div><dt>Temperaturabbildung</dt><dd>AFFINE · ax+b</dd></div>
+              <div><dt>Streckenabbildung</dt><dd>LINEAR · ax</dd></div>
+              <div><dt>Typ-Gate</dt><dd>K ≠ km</dd></div>
+              <div><dt>Systemgrenze</dt><dd>DECLARED CUT</dd></div>
+            </dl>
+            <code class="formula" id="measureMapFormula">0,00 °C = 32,00 °F = 273,15 K<br>50,00 km = 31,07 mi</code>
+          </div>
+          <div class="stage"><svg id="measureMapSvg" viewBox="0 0 720 420" role="img" aria-label="Zwei gekoppelte Messkarten: Celsius, Fahrenheit und Kelvin für einen Temperaturzustand sowie Kilometer und Meilen für eine Strecke; darunter ein Freikörperbild mit deklarierter Systemgrenze"></svg></div>
+        </div>
+        <p class="boundary"><b>Messgrenze:</b> Celsius, Fahrenheit und Kelvin sind Koordinaten desselben Temperaturzustands; Kilometer und Meile sind Koordinaten derselben Strecke. Temperatur und Strecke bleiben verschiedene physikalische Größen. <code>K</code> ist Kelvin, <code>k</code> das SI-Präfix kilo und <code>km</code> eine Längeneinheit. Die Owner-Grafiken werden als Orientierungsquelle gelesen; „Phi-Kelvin“, „Zeta-Kelvin“, „Empathie-T“, tachyonische Ebenen und variable Lichtgeschwindigkeiten sind keine SI-Größen oder etablierten physikalischen Dimensionen.</p>
+      </article>
+
+      <article class="lab" id="oneCarrierFourViews" style="margin-top:1.2rem">
+        <header class="lab-head"><div><span class="status">Visual VI · one carrier / four views</span><h3>Der Cube bleibt ein Objekt. Die Lesart wechselt.</h3></div><span>type lock · view roles only</span></header>
+        <div class="lab-layout">
+          <div class="controls">
+            <div>
+              <span class="status">Aktive Ansicht</span>
+              <div class="mode-row" role="group" aria-label="Vier Ansichten desselben Cube-Carriers">
+                <button type="button" data-carrier-view="topology" aria-pressed="true">Topology</button>
+                <button type="button" data-carrier-view="metric" aria-pressed="false">Metric</button>
+                <button type="button" data-carrier-view="orientation" aria-pressed="false">Orientation</button>
+                <button type="button" data-carrier-view="passage" aria-pressed="false">Passage / Return</button>
+              </div>
+            </div>
+            <dl class="readout" aria-live="polite">
+              <div><dt>Carrier</dt><dd>ONE / HELD</dd></div>
+              <div><dt>aktive Ansicht</dt><dd id="carrierViewOut">TOPOLOGY</dd></div>
+              <div><dt>Red Marker</dt><dd>ADDRESS / VIEW</dd></div>
+              <div><dt>Claim effect</dt><dd>NONE</dd></div>
+            </dl>
+            <code class="formula" id="carrierFormula">V − E + F = 8 − 12 + 6 = 2</code>
+            <p id="carrierDescription">Acht Ecken, zwölf Kanten und sechs Flächen beschreiben die Topologie desselben Würfels. Die sechs Flächen sind Grenzen oder Ansichten, nicht sechs physikalische Carrier.</p>
+          </div>
+          <div class="stage"><svg id="carrierSvg" viewBox="0 0 720 420" role="img" aria-label="Ein Cube-Carrier mit vier umschaltbaren Ansichten für Topologie, Metrik, Orientierung sowie Passage und Return"></svg></div>
+        </div>
+        <div class="grid" style="margin-top:1rem">
+          <article class="card"><span class="status">Frame code</span><p><strong style="color:var(--cyan)">Cyan</strong> = äußerer Carrier · <strong style="color:var(--blue)">Blau</strong> = Deck oder Fläche · <strong style="color:var(--gold)">Gelb</strong> = Achse oder Messstab.</p></article>
+          <article class="card"><span class="status">Joint code</span><p><strong style="color:var(--red)">Rot</strong> = ausgewählte Adresse · <strong style="color:#ef9fca">Pink</strong> = Hinge oder Übergangsspur · Schwarz = gehaltene oder verdeckte Zelle.</p></article>
+          <article class="card"><span class="status">Ratio code</span><p><code>1:2:1</code>, <code>1:3:1</code> und <code>1:4:1</code> bleiben drei deklarierte Verteilungen. Nur <code>1:2:1</code> besitzt hier die binomiale Zwei-Beitrags-Lesart.</p></article>
+        </div>
+        <p class="boundary"><b>Type Lock:</b> Der rote Marker ist eine Adresse oder Darstellung, kein Proton. Pink hält die grafische Fuge, nicht fundamentale Materie. Die lokale 11°-Marke ist ein Ansichtsparameter; sie ist nicht die Erdachsenneigung von ungefähr 23,4°. Rund 11° kann nur mit expliziter Achsenangabe als vereinfachte magnetische Dipolneigung diskutiert werden. Das beigefügte Three-Domain-Modell bleibt <code>UNADMITTED · MODEL-ONLY</code>: gemeinsame Montage erzeugt keine gemeinsame Dynamik.</p>
+      </article>
+
+      <article class="lab" id="seamFlowReader" style="margin-top:1.2rem">
+        <header class="lab-head"><div><span class="status">Visual VII · seam flow / ratio return</span><h3>Die Fuge hält den Schnitt. Operatoren bewegen die Ansicht.</h3></div><span>Loki coordinates · local owner grammar</span></header>
+        <div class="lab-layout">
+          <div class="controls">
+            <div>
+              <span class="status">Book / Gap Ratio</span>
+              <div class="mode-row" role="group" aria-label="Symmetrisches Eins-zu-n-zu-eins-Verhältnis">
+                <button type="button" data-ratio-n="2" aria-pressed="true">1 : 2 : 1</button>
+                <button type="button" data-ratio-n="3" aria-pressed="false">1 : 3 : 1</button>
+                <button type="button" data-ratio-n="4" aria-pressed="false">1 : 4 : 1</button>
+                <button type="button" data-ratio-n="5" aria-pressed="false">1 : 5 : 1</button>
+              </div>
+            </div>
+            <div>
+              <span class="status">Fugenoperator</span>
+              <div class="mode-row" role="group" aria-label="Operatoren für Richtung, Schnitt und Level">
+                <button type="button" id="seamMinus">− Lower</button>
+                <button type="button" id="seamPlus">+ Higher</button>
+                <button type="button" id="seamSlash" aria-pressed="false">/ Cut</button>
+                <button type="button" id="seamLift" aria-pressed="false">^ Lift</button>
+              </div>
+            </div>
+            <dl class="readout" aria-live="polite">
+              <div><dt>Ratio</dt><dd id="ratioOut">1 : 2 : 1</dd></div>
+              <div><dt>Return State</dt><dd id="returnStateOut">HOME</dd></div>
+              <div><dt>Cut</dt><dd id="seamCutOut">/</dd></div>
+              <div><dt>Level</dt><dd id="seamLevelOut">INNER</dd></div>
+            </dl>
+            <code class="formula" id="seamFormula">1:2:1 → total 4<br>6 + [5,6,7,6,5] → [11,12,13,12,11]</code>
+          </div>
+          <div class="stage"><svg id="seamFlowSvg" viewBox="0 0 720 420" role="img" aria-label="Interaktiver Fugenfluss-Reader mit Eins-zu-n-zu-eins-Verhältnis, symmetrischer Return-Leiter, Schnittoperator und inneren Cube-Koordinaten"></svg></div>
+        </div>
+        <div class="grid" style="margin-top:1rem">
+          <article class="card"><span class="status">Angle ledger</span><p><code>e<sup>iθ</sup></code> trägt Rotation; <code>π</code> skaliert den Winkel. <code>φ</code> bleibt ein Verhältnis. Ein Golden Angle entsteht nur durch eine zusätzliche deklarierte Konstruktion.</p></article>
+          <article class="card"><span class="status">Root ledger</span><p><code>√2</code> Fläche · <code>√3</code> Raumdiagonale · <code>√4 = 2</code> Skalenschritt · <code>√5</code> Diagonale eines 1×2-Rechtecks.</p></article>
+          <article class="card"><span class="status">Coordinate ledger</span><p>Ein ebener Schnitt besitzt vier Quadranten. Das Cube-Volumen besitzt acht Oktanten. „Loki Coordinates“ ist die lokale Ansichtsbezeichnung, keine etablierte Physik.</p></article>
+        </div>
+        <p class="boundary"><b>Operatorgrenze:</b> <code>−</code> und <code>+</code> bewegen den lokalen Return-Index. <code>/</code> kippt die deklarierte Schnittdiagonale und bedeutet hier keine Division. <code>^</code> wechselt zwischen innerem und gehobenem View-Level und bedeutet hier keine Potenz. <code>7² = 49 &lt; 51 &lt; 56 = 7×8</code> bleibt eine arithmetische Klammer; <code>√51</code>, das 7×7-Feld und der 7×8-Carrier werden nicht identifiziert.</p>
+      </article>
+
+      <article class="lab" id="breathingElevator" style="margin-top:1.2rem">
+        <header class="lab-head"><div><span class="status">Visual VIII · breathing elevator</span><h3>Drei Bänder, ein Seilzug und fünf geordnete Snapshots.</h3></div><span>bounded motion model · no wave finding</span></header>
+        <div class="lab-layout">
+          <div class="controls">
+            <div>
+              <span class="status">Aktives Band</span>
+              <div class="mode-row" role="group" aria-label="Aktives Elevator-Band">
+                <button type="button" data-elevator-band="6" aria-pressed="true">n = 6</button>
+                <button type="button" data-elevator-band="7" aria-pressed="false">n = 7</button>
+                <button type="button" data-elevator-band="8" aria-pressed="false">n = 8</button>
+              </div>
+            </div>
+            <label>Snapshot <span><output id="elevatorFrameOut">t0 · HIGH</output></span><input id="elevatorFrame" type="range" min="0" max="4" step="1" value="0"></label>
+            <label>Hubamplitude a <span><output id="elevatorAmplitudeOut">0,60 view</output></span><input id="elevatorAmplitude" type="range" min="0" max="100" value="60"></label>
+            <dl class="readout" aria-live="polite">
+              <div><dt>Band index</dt><dd id="elevatorBandOut">6</dd></div>
+              <div><dt>Prime lift</dt><dd id="elevatorPrimeOut">p₆ = 13</dd></div>
+              <div><dt>Richtung</dt><dd id="elevatorDirectionOut">HELD / TURN</dd></div>
+              <div><dt>Return</dt><dd id="elevatorReturnOut">HOME</dd></div>
+            </dl>
+            <code class="formula" id="elevatorFormula">2×3 = 6 → 7 → 2³ = 8<br>p₆ = 13 · p₇ = 17 · p₈ = 19</code>
+          </div>
+          <div class="stage"><svg id="elevatorSvg" viewBox="0 0 720 420" role="img" aria-label="Drei gekoppelte Elevator-Bänder 6, 7 und 8 mit Prime-Lift 13, 17 und 19, Seilzug, fünf Snapshots und rotem Ballon"></svg></div>
+        </div>
+        <p class="boundary"><b>Dynamikgrenze:</b> Der Demonstrator zeigt die deklarierte Folge <code>zₙ(t)=n+a·cos(2πt/4)</code> in fünf Snapshots; alle drei Bänder verwenden in dieser Ansicht dieselbe Phase. Das ist ein lokales Bewegungsmodell, keine aus den Quellbildern gemessene stehende Welle. Eine stehende Welle benötigt Feldgröße, Zeitbasis, Randbedingungen, feste Knoten und einen geprüften Modus. „V69“ und „n-bands“ bleiben Owner-View-Labels, bis ein Codebook und Messvertrag vorliegen.</p>
+      </article>
+
+      <article class="lab" id="shadowProjectionReader" style="margin-top:1.2rem">
+        <header class="lab-head"><div><span class="status">Visual IX · small shadow / big shadow</span><h3>Ein Carrier, zwei Projektionen und eine rückführbare Adresse.</h3></div><span>Mod 7 × Mod 11 · CRT address</span></header>
+        <div class="lab-layout">
+          <div class="controls">
+            <div>
+              <span class="status">Projektionsfokus</span>
+              <div class="mode-row" role="group" aria-label="Fokus der lokalen und globalen Projektion">
+                <button type="button" data-shadow-view="both" aria-pressed="true">Both</button>
+                <button type="button" data-shadow-view="local" aria-pressed="false">Small</button>
+                <button type="button" data-shadow-view="global" aria-pressed="false">Big</button>
+              </div>
+            </div>
+            <label>Adresse n mod 77 <span><output id="shadowAddressOut">n = 3</output></span><input id="shadowAddress" type="range" min="0" max="76" step="1" value="3"></label>
+            <dl class="readout" aria-live="polite">
+              <div><dt>Mode 7</dt><dd id="shadowMod7Out">3</dd></div>
+              <div><dt>Mod 11</dt><dd id="shadowMod11Out">3</dd></div>
+              <div><dt>CRT class</dt><dd id="shadowCrtOut">3 mod 77</dd></div>
+              <div><dt>Source</dt><dd>ONE / HELD</dd></div>
+            </dl>
+            <code class="formula">S<sub>small</sub> = π<sub>local</sub>(X)<br>S<sub>big</sub> = π<sub>global</sub>(X)<br>S<sub>small</sub> ≠ S<sub>big</sub></code>
+          </div>
+          <div class="stage"><svg id="shadowSvg" viewBox="0 0 720 420" role="img" aria-label="Ein gemeinsamer Carrier wird als kleiner lokaler Schatten und großer globaler Schatten projiziert; eine Mod-7- und Mod-11-Adresse markiert denselben Zustand"></svg></div>
+        </div>
+        <p class="boundary"><b>Projektionsgrenze:</b> Weil 7 und 11 teilerfremd sind, bestimmt das Paar <code>(n mod 7, n mod 11)</code> genau eine Restklasse modulo 77. Das ist eine endliche Adressgrammatik, kein physikalisches Mode-Coupling. Wenn der String „6-1-9“ ausdrücklich zur Zahl 619 typisiert wird, gilt <code>619 ≡ 3 (mod 7)</code> und <code>619 ≡ 3 (mod 11)</code>; ohne diese Typisierung bleibt er eine Adresse. Hopf, Torus, Resonanz und Flow sind in den gelieferten Bildern Titel oder Hypothesen, keine durch die Grafiken allein nachgewiesenen Dynamiken.</p>
+      </article>
+
+      <article class="lab" id="counterliftReader" style="margin-top:1.2rem">
+        <header class="lab-head"><div><span class="status">Visual X · blue / red counterlift</span><h3>Zwei Schöpfer bewegen sich gegensinnig an einem gemeinsamen Träger.</h3></div><span>ideal kinematics · shared rope</span></header>
+        <div class="lab-layout">
+          <div class="controls">
+            <label>Blauer Hub x <span><output id="counterliftPositionOut">+0,00</output></span><input id="counterliftPosition" type="range" min="-100" max="100" value="0"></label>
+            <label>Rippen / Cage <span><output id="counterliftRibsOut">6 ribs</output></span><input id="counterliftRibs" type="range" min="4" max="9" step="1" value="6"></label>
+            <div>
+              <span class="status">Mechanik-Linse</span>
+              <div class="mode-row" role="group" aria-label="Kraft-Overlay des Gegenaufzugs">
+                <button type="button" id="counterliftForces" aria-pressed="false">Force overlay</button>
+              </div>
+            </div>
+            <dl class="readout" aria-live="polite">
+              <div><dt>Blue</dt><dd id="counterliftBlueOut">0,50 H</dd></div>
+              <div><dt>Red</dt><dd id="counterliftRedOut">0,50 H</dd></div>
+              <div><dt>Rope sum</dt><dd id="counterliftSumOut">1,00 H</dd></div>
+              <div><dt>Middle</dt><dd>CRACK / HELD</dd></div>
+            </dl>
+            <code class="formula">x<sub>blue</sub> + x<sub>red</sub> = H<br>Δx<sub>red</sub> = −Δx<sub>blue</sub></code>
+          </div>
+          <div class="stage"><svg id="counterliftSvg" viewBox="0 0 720 420" role="img" aria-label="Blauer und roter Gegengewichtsaufzug mit gemeinsamer Seilschleife, mittlerem Riss und einstellbarem Rippenkäfig"></svg></div>
+        </div>
+        <p class="boundary"><b>Modellgrenze:</b> Die gemeinsame Seillänge koppelt hier nur zwei normierte Positionen. Der Force-Overlay aktiviert die Typisierung <code>M := mass</code>, <code>Tᵧ := T·cos θ</code> und <code>Tlat := T·sin θ</code>; bei symmetrischem Zug können sich laterale Komponenten aufheben. Reale Aufzüge und Schöpfwerke benötigen zusätzlich Motor oder Antrieb, Reibung, Bremse, Umlenkrollen, Seilelastizität und Sicherheitsbedingungen. <code>MASS ≠ M + ASS</code>: Die Wortfuge ist keine Algebra.</p>
+      </article>
+
+      <article class="lab" id="formatYardReader" style="margin-top:1.2rem">
+        <header class="lab-head"><div><span class="status">Visual XI · format yard / geo relation</span><h3>Format, Ort und Pause sind drei Arten, eine Relation zu rahmen.</h3></div><span>geometry · geography · timing</span></header>
+        <div class="lab-layout">
+          <div class="controls">
+            <div>
+              <span class="status">Relationslinse</span>
+              <div class="mode-row" role="group" aria-label="Relationslinse für Format, Geografie oder Morse-Lücke">
+                <button type="button" data-yard-view="format" aria-pressed="true">DIN / US</button>
+                <button type="button" data-yard-view="geo" aria-pressed="false">East / West</button>
+                <button type="button" data-yard-view="gap" aria-pressed="false">Morse gap</button>
+              </div>
+            </div>
+            <label>Yard-Maß <span><output id="yardLengthOut">1,00 yd</output></span><input id="yardLength" type="range" min="0" max="1000" step="25" value="100"></label>
+            <label id="placeMarkerControl" hidden>Ortsmarker
+              <select id="placeMarkerSelect" aria-label="Geografischen Ortsmarker auswählen">
+                <optgroup label="Referenzorte">
+                  <option value="roedelheim">Rödelheim · Frankfurt</option>
+                  <option value="brandenburg">Brandenburger Tor · Berlin</option>
+                  <option value="red-square">Roter Platz · Moskau</option>
+                  <option value="tiananmen">Tian’anmen · Beijing</option>
+                  <option value="liberty">Freiheitsstatue · New York Harbor</option>
+                  <option value="washington">Washington, D.C.</option>
+                </optgroup>
+                <optgroup label="Owner-supplied Konstellation">
+                  <option value="giza">Giza</option><option value="prague">Prag</option><option value="tel-aviv">Tel Aviv</option>
+                  <option value="jerusalem">Jerusalem</option><option value="budapest">Budapest</option><option value="rome">Rom</option>
+                  <option value="paris">Paris</option><option value="london">London</option><option value="madrid">Madrid</option>
+                  <option value="lisbon">Lissabon</option><option value="cairo">Kairo</option><option value="asmara">Asmara</option>
+                  <option value="addis">Addis Ababa</option><option value="mumbai">Mumbai / Bombay</option><option value="saigon">Ho-Chi-Minh-Stadt / Saigon</option>
+                  <option value="visoko">Visoko · Bosnien</option><option value="mostar">Mostar</option><option value="siroki">Široki Brijeg</option>
+                  <option value="hainan">Hainan</option><option value="hobart">Hobart · Indiana</option><option value="mekong">Mekong-Delta</option>
+                  <option value="sachsenhausen">Sachsenhausen · Frankfurt</option><option value="iceland">Reykjavík / Island</option>
+                  <option value="dead-sea">Totes Meer</option><option value="con-dao">Côn Đảo</option><option value="philippines">Manila / Philippinen</option>
+                  <option value="wellington">Wellington / Neuseeland</option>
+                </optgroup>
+              </select>
+            </label>
+            <div>
+              <span class="status">Gap clock</span>
+              <div class="mode-row" role="group" aria-label="Morse-Lückendauer">
+                <button type="button" data-morse-gap="1" aria-pressed="true">1 · sign</button>
+                <button type="button" data-morse-gap="3" aria-pressed="false">3 · letter</button>
+                <button type="button" data-morse-gap="7" aria-pressed="false">7 · word</button>
+              </div>
+            </div>
+            <dl class="readout" aria-live="polite">
+              <div><dt>Metric</dt><dd id="meterLengthOut">0,9144 m</dd></div>
+              <div><dt>Format</dt><dd id="formatDeltaOut">+5,9 / +17,6 mm</dd></div>
+              <div><dt>Axis</dt><dd id="yardAxisOut">0 · GAP</dd></div>
+              <div><dt>Gap</dt><dd id="morseGapOut">1 unit</dd></div>
+              <div><dt>Place</dt><dd id="placeMarkerOut">—</dd></div>
+            </dl>
+            <code class="formula" id="yardFormula">A4 = 210 × 297 mm<br>US Letter = 215,9 × 279,4 mm</code>
+          </div>
+          <div class="stage"><svg id="formatYardSvg" viewBox="0 0 720 420" role="img" aria-label="Umschaltbarer Reader für A4 und US Letter, Ost-West-Ortsmarker sowie Morse-Lückendauern"></svg></div>
+        </div>
+        <p class="boundary"><b>Relationsgrenze:</b> <code>1 yd = 0,9144 m</code> ist eine exakte Einheitenumrechnung. A4, US Letter, Quadrat und Raute sind Geometrien mit unterschiedlichen Seitenverhältnissen. Die Ortsmarker sind näherungsweise WGS-84-orientierte Referenzpunkte; sie bilden weder eine vermessene Achse noch ein Möbius-, Tellurik-, Resonanz- oder Energienetz. Reihenfolge, Namensklang und gezeichnete Verbindung bleiben separate narrative Linsen. Nadir, Zenith, <code>0</code>, <code>Ø</code> und die Morse-Pause sind hier Orientierungszeichen. Die 5D-/6D-Beschriftung der gelieferten Skizze wird nicht als etablierte Physik übernommen.</p>
+      </article>
+
+      <article class="lab" id="nexitBoundaryReader" style="margin-top:1.2rem">
+        <header class="lab-head"><div><span class="status">Visual XII · NEXIT — the welcoming boundary</span><h3>Die Ordnung steht. Der Carrier bewegt sich durch ihre Übergänge.</h3></div><span>owner lexicon · order ≠ dynamics</span></header>
+        <div class="lab-layout">
+          <div class="controls">
+            <div>
+              <span class="status">Leselinse</span>
+              <div class="mode-row" role="group" aria-label="NEXIT-Linse für Ordnung, Bewegung oder beide Ansichten">
+                <button type="button" data-nexit-view="both" aria-pressed="true">Both</button>
+                <button type="button" data-nexit-view="order" aria-pressed="false">Hasse order</button>
+                <button type="button" data-nexit-view="motion" aria-pressed="false">Turning wheel</button>
+              </div>
+            </div>
+            <label>Cycle step <span><output id="nexitStepOut">s0 · ROOT</output></span><input id="nexitStep" type="range" min="0" max="4" step="1" value="0"></label>
+            <div>
+              <span class="status">Orientierung</span>
+              <div class="mode-row" role="group" aria-label="Richtung des symbolischen NEXIT-Zyklus">
+                <button type="button" id="nexitDirection" aria-pressed="false">Forward →</button>
+              </div>
+            </div>
+            <dl class="readout" aria-live="polite">
+              <div><dt>State</dt><dd id="nexitStateOut">ROOT / SOURCE</dd></div>
+              <div><dt>Carrier</dt><dd id="nexitCarrierOut">RED + BLACK ROOT</dd></div>
+              <div><dt>Boundary</dt><dd id="nexitGateOut">NEXIT / HELD</dd></div>
+              <div><dt>Expression</dt><dd id="nexitExpressionOut">POTENTIAL</dd></div>
+            </dl>
+            <code class="formula" id="nexitFormula">order: ROOT ≺ MATERIA ≺ NEXIT ≺ EXPRESSION<br>motion: s₀ → s₁ → s₂ → s₃ → s₄ → s₀′</code>
+          </div>
+          <div class="stage"><svg id="nexitSvg" viewBox="0 0 720 420" role="img" aria-label="NEXIT-Reader mit azyklischer Hasse-Ordnung, roter und schwarzer Wurzel, leuchtender Übergangsfuge sowie getrenntem dynamischem Rückkehrrad"></svg></div>
+        </div>
+        <p class="boundary"><b>Codebook-Grenze:</b> „Red Materia“, „Red Ginseng“, <code>TA · I / GEN / SENG</code>, Schwarz, Rot, Weiß, Grau, Neon, NEXIT und WELCOME bilden hier ein symbolisches Owner-Vokabular. Es behauptet weder eine Wortherkunft noch eine botanische, medizinische oder universelle materielle Wirkung. Der Hasse-Graph zeigt nur eine partielle Ordnung ohne Zyklus; das Rad darunter trägt die Zeit- und Rückkehrlesart. <strong>The order does not turn. The carrier turns through the order.</strong></p>
+      </article>
+
+      <article class="lab" id="fieldToVehicleReader" style="margin-top:1.2rem">
+        <header class="lab-head"><div><span class="status">Visual XIII · field to vehicle</span><h3>Energie wird gekoppelt und gewandelt; Kontrolle wählt den Pfad.</h3></div><span>physics spine · applications stay typed</span></header>
+        <div class="lab-layout">
+          <div class="controls">
+            <div>
+              <span class="status">Anwendungsfenster</span>
+              <div class="mode-row" role="group" aria-label="Anwendungsfenster entlang des physikalischen Pfads">
+                <button type="button" data-field-vehicle-view="spine" aria-pressed="true">Physics spine</button>
+                <button type="button" data-field-vehicle-view="coil" aria-pressed="false">Tesla coil</button>
+                <button type="button" data-field-vehicle-view="vise" aria-pressed="false">Vise</button>
+                <button type="button" data-field-vehicle-view="vehicle" aria-pressed="false">Vehicle</button>
+              </div>
+            </div>
+            <label>Aktive Station <span><output id="fieldVehicleStepOut">s0 · FIELD</output></span><input id="fieldVehicleStep" type="range" min="0" max="6" step="1" value="0"></label>
+            <dl class="readout" aria-live="polite">
+              <div><dt>Quantity</dt><dd id="fieldVehicleQuantityOut">E / B</dd></div>
+              <div><dt>Operation</dt><dd id="fieldVehicleOperationOut">CONFIGURE</dd></div>
+              <div><dt>Application</dt><dd id="fieldVehicleApplicationOut">PHYSICS SPINE</dd></div>
+              <div><dt>Owner codes</dt><dd>FF · HG · STDW / OPEN</dd></div>
+            </dl>
+            <code class="formula" id="fieldVehicleFormula">FIELD → POTENTIAL → CURRENT → ENERGY FLOW<br>→ COUPLING → CONVERSION → CONTROL / MOTION</code>
+          </div>
+          <div class="stage"><svg id="fieldVehicleSvg" viewBox="0 0 720 420" role="img" aria-label="Interaktiver Pfad vom elektromagnetischen Feld über Potential, Strom, Energiefluss, Kopplung und Wandlung bis zu Kontrolle und Fahrzeugbewegung, mit getrennten Tesla-Spulen-, Schraubstock- und Fahrzeugfenstern"></svg></div>
+        </div>
+        <p class="boundary"><b>Typgrenze:</b> Tesla-Spule, Schraubstock und Fahrzeug teilen eine Architektur aus Quelle, Kopplung, Übersetzung, Randbedingung und Output; ihre Mechanismen bleiben verschieden. Eine Tesla-Spule arbeitet mit gekoppelten resonanten Schwingkreisen. Die Schraubspindel übersetzt Rotation in Translation und Spannkraft. Im idealen rollenden Rad gilt <code>v = ωR</code>; reale Reifen können schlupfen. Lenkrad und Fahrer gehören zum Kontrollpfad, nicht zur Energiequelle. <code>FF</code>, <code>HG</code> und <code>STDW</code> bleiben offene Owner-Codes ohne physikalische Auflösung.</p>
+      </article>
+
+      <div class="grid" style="margin-top:1.2rem">
+        <article class="card"><span class="status">Spätere Material-Linse</span><h3>Zinn / Zeta Line</h3><p>Zinn kann Phasen und Übergänge anschaulich machen. „Zeta Line“ bleibt vorerst eine lokale Owner-Bezeichnung für eine Material- oder Phasengrenze, keine universelle Border.</p></article>
+        <article class="card"><span class="status">Spätere Landschafts-Linse</span><h3>Donau / Rhein</h3><p>Wasserscheiden, Einzugsgebiete, Quellen, Zuflüsse und Senken zeigen ein System mit vielen Grenzen und verzweigten Pfaden — ohne Flussnetz und elektrisches Netz gleichzusetzen.</p></article>
+        <article class="card"><span class="status">Spätere Tiefen-Linse</span><h3>Meer / Drucksenke</h3><p>Tiefe, hydrostatischer Druck, Temperatur, Salzgehalt und Topografie können als getrennte Felder über demselben Becken gelesen werden.</p></article>
+      </div>
+
+      <div class="grid" style="margin-top:1.2rem">
+        <article class="card"><span class="status">J ist typisiert</span><h3>Joule und Flussdichte teilen ein Zeichen, nicht automatisch eine Bedeutung.</h3><code class="formula">J = Einheit der Energie<br><b>J</b><sub>E</sub> = Energieflussdichte</code><p>Erst Größe, Einheit und Richtung entscheiden, was das Zeichen bezeichnet. Ein Energiefluss kann in W/m² angegeben werden; ein Joule bleibt eine Energiemenge.</p></article>
+        <article class="card"><span class="status">Pink Strip</span><h3>Das Minus markiert Orientierung oder Abfluss.</h3><code class="formula">Γ = ∮ u·dl &nbsp; · &nbsp; ω = ∇×u</code><p>Ein negativer Wirbel ist relativ zur gewählten positiven Orientierung gegenläufig. Negative Wärme oder negative Energie folgt daraus nicht.</p></article>
+        <article class="card"><span class="status">Kalorie</span><h3>Andere Einheit, dieselbe Energiegröße.</h3><code class="formula">1 cal<sub>th</sub> = 4.184 J</code><p>Ein negatives Vorzeichen bei Wärme bedeutet in einer gewählten Bilanz meist: Energie verlässt das betrachtete System. Es bezeichnet keine zweite Art von Energie.</p></article>
+        <article class="card wide"><span class="status">Tube law</span><h3>Differenz treibt, Widerstand gewichtet, Compliance speichert.</h3><code class="formula">Q<sub>h</sub> = Δp / R<sub>h</sub><br>R<sub>h</sub> = 8 μ L / (π r⁴) &nbsp; · &nbsp; C<sub>h</sub> = dV/dp</code><p>Im idealisierten laminaren Rohr reagiert der Fluss besonders stark auf den Radius. Elastische Wände speichern Volumen unter Druck. So entstehen aus Tubes, Adern und Roots gekoppelte Widerstands-, Speicher- und Verteilernetze.</p></article>
+        <article class="card wide"><span class="status">Conservation / emergence</span><h3>Übertragung und Umwandlung erhalten die Bilanz; Muster können neu entstehen.</h3><code class="formula">∂u/∂t + ∇·<b>J</b><sub>E</sub> = s<br>closed system: E<sub>total</sub> = constant</code><p>Ein lokales Gebiet kann Energie gewinnen oder verlieren. Im geschlossenen Gesamtsystem wird Energie nicht erzeugt oder vernichtet. Was emergiert, ist eine neue Organisation: Wirbel, Front, Grenzschicht, Konvektionszelle oder verzweigter Transportweg.</p></article>
+      </div>
+
+      <div class="chain" aria-label="Hydraulische NEXAH-Lesekette">
+        <article><b>01 · Basin</b><h3>Store</h3><p>Volumen, Höhe, Druck oder chemisches Potential halten eine Differenz.</p></article>
+        <article><b>02 · β</b><h3>Boundary</h3><p>Die Grenze selektiert und dämpft mögliche Übergänge.</p></article>
+        <article><b>03 · Tube</b><h3>Path</h3><p>Länge, Radius, Material und Verzweigung gewichten den Durchgang.</p></article>
+        <article><b>04 · J</b><h3>Flux</h3><p>Eine gerichtete Rate durchquert eine Fläche.</p></article>
+        <article><b>05 · R</b><h3>Return</h3><p>Zirkulation trägt Zustand und Geschichte zurück.</p></article>
+        <article><b>06 · Form</b><h3>Emergence</h3><p>Der Flow erzeugt ein Muster, das folgenden Flow umlenkt.</p></article>
+      </div>
+
+      <p class="caption"><strong>Visual cue:</strong> 54 Owner-supplied Field-Atlas-, Water-Atlas-, OLS-, ORION-, Chemie-, Cube-, Flow-, Format-, Frame-Audit-, Ortsmarker-, Projektions- und Messsystem-Tafeln, 13. November 2026. Sie werden hier als Kartographie- und Gestaltungsquelle gelesen. Die Visuals sind eigenständige redaktionelle SVG-Konstruktionen; HDL/LDL, planetare Achsen, 5D-/6D-Labels, 7,83-Hz-Labels, Black-/White-Hole-Zuordnungen, Atomdarstellungen, 1:2:1-/3:1:3-Übergänge, nicht-SI-Dimensionstabellen, Hopf-/Torus-/Wellen-Titel, Ortsachsen, Sacred-Node-, Resonanz-, CMB- und Cosmic-Grid-Overlays sowie farbliche Identitäten werden nicht als neue NEXAH-Ergebnisse oder gemeinsame physikalische Abbildung übernommen.</p>
+    </section>
+
+    <section id="ieee">
+      <div class="eyebrow">06 · IEEE-Rückbindung</div>
+      <h2>Zwei Felder dürfen nicht ineinanderfallen.</h2>
+      <p class="lead">Der IEEE-Benchmark trägt physikalisch motivierte Netzgrößen. NEXAH konstruiert darüber eine deklarierte Orientierungsgeometrie. Die Verbindung ist fruchtbar, weil die Ebenen getrennt bleiben.</p>
+      <div class="grid">
+        <article class="card wide"><span class="status">Layer A · Power System</span><h3>Netz-, Zustands- und Solverebene</h3><p>Busse, Leitungen, Spannungsbeträge, Phasenwinkel, Leistungen, Lastskalierung und Konvergenzstatus gehören zum modellierten elektrischen System.</p></article>
+        <article class="card wide"><span class="status">Layer B · Orientation</span><h3>Projektions- und Geometrieebene</h3><p>Deklarierte Zustandsvektoren, Standardisierung, adjacent displacement, local drift, path length, direction change und discrete curvature gehören zur Auswertung.</p></article>
+        <article class="card full"><h3>Die zulässige Fuge</h3><code class="formula">physical frames → declared representation → adjacent comparison → geometry → bounded orientation brief</code><p>Die Geometrie beschreibt die ausgewählte Repräsentation der Kampagne. Sie wird nicht rückwirkend zur vollständigen räumlichen Elektrodynamik des Netzes.</p></article>
+      </div>
+      <table>
+        <thead><tr><th>Begriff</th><th>Physikalische Lesart</th><th>NEXAH-Lesart</th><th>STOP</th></tr></thead>
+        <tbody>
+          <tr><td>Field</td><td>elektrische/magnetische Größen oder netzphysikalischer Zustand</td><td>strukturierter Zustands- oder Darstellungsraum</td><td>gemeinsames Wort ≠ gleicher Mechanismus</td></tr>
+          <tr><td>Phase</td><td>Spannungswinkel im AC-Modell</td><td>nur übernehmen, wenn Quelle und Einheit erhalten bleiben</td><td>Phase ≠ beliebiger Zyklus</td></tr>
+          <tr><td>Drift</td><td>z. B. Ladungsträgerdrift in Material</td><td>normierte lokale Änderung entlang λ</td><td>λ ≠ Zeit</td></tr>
+          <tr><td>Boundary</td><td>Material-, Netz- oder Betriebsgrenze</td><td>expliziter Solver-/Evidence-Stopp</td><td>Nichtkonvergenz ≠ zertifizierte Stabilitätsgrenze</td></tr>
+          <tr><td>Geometry</td><td>räumliche Leiter- und Materialanordnung</td><td>Geometrie der projizierten Zustandsfolge</td><td>Projektion ≠ Objekt</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="ledger">
+      <div class="eyebrow">07 · Sammel-Ledger</div>
+      <h2>Was wir vorläufig festhalten.</h2>
+      <div class="theses">
+        <article class="thesis"><p><strong>Difference before flow.</strong> Ein gerichteter Prozess setzt einen Unterschied und einen zulässigen Übertragungsweg voraus; der konkrete Mechanismus bleibt domänenspezifisch.</p></article>
+        <article class="thesis"><p><strong>Boundary is productive.</strong> Eine Grenze blockiert nicht nur. Sie kann Differenzen halten, selektiven Austausch ermöglichen und dadurch Speicher- oder Organisationsfähigkeit erzeugen.</p></article>
+        <article class="thesis"><p><strong>Empty is an observational category.</strong> Ein optisch leerer Zwischenraum kann Felder, Energie, thermische Bewegung oder ungemessene Freiheitsgrade enthalten. Abwesenheit im Readout ist keine Abwesenheit im System.</p></article>
+        <article class="thesis"><p><strong>Architecture shapes transition.</strong> Topologie erlaubt Wege; Geometrie und Materialgesetze gewichten sie; Randbedingungen wählen eine konkrete Lösungsklasse.</p></article>
+        <article class="thesis"><p><strong>Flow makes form; form redirects flow.</strong> Prozesse erzeugen Strukturen, deren neue Grenzen und Kopplungen die folgenden Prozesse verändern.</p></article>
+        <article class="thesis"><p><strong>Same grammar, separate mechanisms.</strong> Batterie, Staudamm, Membran, Kondensator, Akkretionsscheibe und IEEE-Zustandskampagne dürfen verglichen, aber nicht identifiziert werden.</p></article>
+        <article class="thesis"><p><strong>Follow the question, not a universal equation.</strong> Der rote Ballon hält die Frage nach Difference, Boundary, Passage, Transformation und Return über Physik, Chemie, Geologie und Biologie zusammen. An jeder Station wechseln Größen, Einheiten, Skalen und Mechanismen.</p></article>
+      </div>
+      <h3 style="margin-top:2.5rem">Zwischensynthese · dreizehn Visuals, ein typisierter roter Faden</h3>
+      <div class="grid">
+        <article class="card"><span class="status">01 · Physics</span><h3>Größe vor Symbol.</h3><p><code>E</code>, <code>U</code>, <code>I</code>, <code>S</code>, <code>T</code>, <code>M</code> und <code>v</code> erhalten erst durch Definition, Einheit und Messvertrag physikalische Bedeutung.</p></article>
+        <article class="card"><span class="status">02 · Architecture</span><h3>Grenzen halten Unterschiede.</h3><p>Topologie erlaubt Pfade; Geometrie, Material und Randbedingungen gewichten Passage, Speicher und Antwort.</p></article>
+        <article class="card"><span class="status">03 · Representation</span><h3>Ansicht ist nicht Objekt.</h3><p>Foto, Wärmebild, Projektion, Karte, Format und Schatten können dasselbe Ereignis oder denselben Carrier verschieden darstellen.</p></article>
+        <article class="card"><span class="status">04 · Dynamics</span><h3>Order is not motion.</h3><p>Der Hasse-Graph ordnet Zustände. Ein Rad, Elevator oder Flow trägt einen Carrier zeitlich durch mögliche Übergänge.</p></article>
+        <article class="card"><span class="status">05 · Return</span><h3>Rückkehr ist keine Löschung.</h3><p>Eine Startadresse kann wieder erreicht werden, während Pfad, Orientierung, Residuum und Geschichte erhalten bleiben.</p></article>
+        <article class="card"><span class="status">06 · Interface</span><h3>Kontrolle ist nicht Quelle.</h3><p>Lenkrad, Membran, Gate oder Schraubgriff wählen und übersetzen; sie erzeugen nicht automatisch die Energie des Systems.</p></article>
+        <article class="card wide"><span class="status">07 · Sound &amp; Culture</span><h3>Wortbrücken sind Navigationshilfen.</h3><p><code>M / ASS</code>, <code>@MAD</code>, <code>AL · F · RED</code>, Hof/Yard, <code>NEUMA · NN</code> und Rosenbrücke V bleiben Sound-, Kultur- oder Relationsmarker — keine Algebra, Etymologie oder Physik.</p></article>
+        <article class="card wide"><span class="status">08 · Open codes</span><h3>Unaufgelöst bleibt sichtbar.</h3><p><code>FF</code>, <code>HG</code>, <code>STDW</code> und <code>ME → MA</code> werden nicht erraten. Ein späteres Codebook darf sie definieren, typisieren, verwerfen oder offen lassen.</p></article>
+        <article class="card full"><span class="status">09 · Place</span><h3>Ein Ort ist ein Anker, noch keine Verbindung.</h3><p>Rödelheim, Giza, Visoko, Berlin, Beijing, New York Harbor, Côn Đảo oder Wellington dürfen als geografische Marker erscheinen. Erst ein deklarierter Relationstyp macht aus zwei Markern einen Pfad, eine historische Route, eine Messachse oder eine Hypothese. Die gezeichnete Linie allein beweist nichts.</p></article>
+      </div>
+      <div class="declaration" style="margin-top:1.2rem"><b>Interim result</b>Ein sichtbarer Zustand ruht auf einer oft unsichtbaren Architektur aus Differenz, Feld, Grenze, Kopplung, Kraft und Geschichte. Vergleiche öffnen Perspektiven; nur typisierte Relationen tragen wissenschaftliche Aussagen.</div>
+      <h3 style="margin-top:2.5rem">Offene Fragen für spätere Demonstratoren</h3>
+      <div class="grid">
+        <article class="card"><h3>Water / electrolyte</h3><p>Wie werden hydraulisches Potential, Ionentransport und Elektrochemie in drei getrennten, gekoppelten Schichten gezeigt?</p></article>
+        <article class="card"><h3>Shear / basin</h3><p>Wann erzeugt Scherung Mischung, wann eine persistente Grenzschicht und wie unterscheiden wir beides im Readout?</p></article>
+        <article class="card"><h3>Accretion</h3><p>Wie zeigen wir Gravitation, Drehimpuls, differentielle Rotation und Dissipation, ohne „alles ist eine Zentrifuge“ zu behaupten?</p></article>
+        <article class="card"><h3>Field / particle</h3><p>Welche Erklärung verbindet Feldbeschreibung, stabile gebundene Zustände und sichtbare Objekte, ohne Masse als bloß „gefrorene Energie“ zu verengen?</p></article>
+        <article class="card"><h3>IEEE case window</h3><p>Welche kanonischen IEEE-9/14-Artefakte dürfen rein lesend visualisiert werden, ohne das Frozen Case Protocol zu verändern?</p></article>
+        <article class="card"><h3>Cut / mask / residual</h3><p>Wie zeigt jede Projektion gleichzeitig das Sichtbare, ihren Schnitt und den unbekannten oder verlorenen Rest?</p></article>
+        <article class="card full"><span class="status">PARKED · NOT ADMITTED · COMPANION CANDIDATE</span><h3>Field Note III · The Earth Star Harmonic Grid</h3><p><em>An Atlas of Projection, Pattern and Cosmic Quest.</em> Vorgemerkt als poetisch-analytischer Companion mit vier getrennten Layern: <strong>Earth</strong> (prüfbare Koordinaten), <strong>Projection</strong> (Mittelpunkt, Antipode und Verzerrung), <strong>Construction</strong> (deklarierte Fibonacci-, Lucas-, Spiral-, Polyeder- oder Immersions-Overlays) und <strong>Story</strong> (kulturelle Bedeutung, Erinnerung und persönliche Route). Geplante Relationstypen: <code>GEODESIC</code>, <code>PROJECTION</code>, <code>CONSTRUCTED</code>, <code>HISTORICAL</code>, <code>POETIC</code> und <code>OPEN</code>. Keine Datei, Study, Source-Graph-Identität oder physikalische Grid-Behauptung wird durch diese Vormerkung erzeugt.</p></article>
+      </div>
+    </section>
+
+    <section id="sources">
+      <div class="eyebrow">08 · Quellen, Status und Return</div>
+      <h2>Source-bound, nicht source-replacing.</h2>
+      <div class="source-list">
+        <a href="../FIELD_NOTES_A0.md"><strong>A0 Field Notes</strong><small>Owner-Handbook-Notizen und bestehender notes-only Rahmen</small></a>
+        <a href="../A0_FIELDS_AND_JOINTS_ATLAS.html"><strong>A0 Fields &amp; Joints Atlas</strong><small>Fields → Views → Joints → Return</small></a>
+        <a href="../A0_THEORY_STORYBOARD.html"><strong>A0 Theory Storyboard</strong><small>Relation, Grenze, Phase, Projektion, Muster und Return</small></a>
+        <a href="../../../../../../10%20NEXAH%20CORE/NEXAH/APPLICATIONS/power_systems/ieee_geometry_v1/README.md"><strong>IEEE Geometry V1</strong><small>Frozen Case Protocol · Core-Quellautorität</small></a>
+        <a href="../../../../../../10%20NEXAH%20CORE/NEXAH/APPLICATIONS/power_systems/ieee_geometry_v1/evaluation_orientation_brief.md"><strong>IEEE-14 Orientation Brief</strong><small>Berechneter bounded Readout und explizite Claim-Grenzen</small></a>
+        <a href="../../../../../../00%20EXECUTIVE/NEXAH-Mission-Control/AREAS/EXPERIENCE_AND_WORKS/ORIENTATION_INSTRUMENT_DISCOVERY_STUDY.md"><strong>Orientation Instrument Discovery Study</strong><small>Operator-Mapping, Demonstratorgrenzen und IEEE-V2-STOP</small></a>
+        <a href="https://npgallery.nps.gov/AssetDetail/cf9d1d0b-5a47-48a3-96ac-75447e30dcee"><strong>Statue of Liberty · NPS place record</strong><small>WGS-84-Ortsmarker für die Ost–West-Linse</small></a>
+        <a href="https://ungegn.un.org/dashboard/cities/details?id=737"><strong>Frankfurt am Main · UNGEGN</strong><small>Geografischer Stadtmarker; keine Gebäude- oder Vermessungsachse</small></a>
+        <a href="https://en.wikipedia.org/wiki/Brandenburg_Gate"><strong>Brandenburger Tor · coordinate reference</strong><small>Ortsmarker für Berlin / BT</small></a>
+        <a href="https://commons.wikimedia.org/wiki/Institution:Tiananmen_Square"><strong>Tian’anmen Square · coordinate reference</strong><small>Ortsmarker für Beijing / Peking</small></a>
+      </div>
+      <p class="caption"><strong>Gesprächsquellen:</strong> Owner-supplied Videotranskript, Kapitel 9, 46:52–53:16, sowie 54 Owner-supplied Atlas-, Labor-, Cube-, Flow-, Format-, Frame-Audit-, Ortsmarker-, Projektions- und Messsystem-Tafeln vom 13. November 2026. Die Seite übernimmt keine längeren wörtlichen Passagen; automatische Transkriptfehler wie „John Henry pointing“ werden fachlich als John Henry Poynting / Poynting-Theorem eingeordnet. Kapitel 10 war im gelieferten Ausschnitt nicht enthalten. Die Tafeln liefern eine visuelle Übergangsgrammatik, keine Evidenzpromotion ihrer planetaren, Frequenz-, HDL/LDL-, Atom-, Dimensions-, Dynamik-, Ortsachsen-, Cosmic-Grid- oder Einheitensystem-Zuordnungen.</p>
+      <p class="boundary"><b>Authority:</b> Diese HTML ist eine lokale A0-Draft-Field-Note. Sie verändert weder die IEEE-Quelle noch den A0-Reader, das Manifest, den Navigator, Mission-Control-Currentness, eine Study, ein Finding, eine Family oder einen Publikationsstatus.</p>
+    </section>
+  </main>
+
+  <footer><span>FIELD NOTE II · The Architecture of Difference</span><span>Local draft · Notes only · No graph effect · Not public</span></footer>
+
+  <script>
+    const $=id=>document.getElementById(id);
+    const fmt=(n,d=2)=>Number(n).toLocaleString('de-DE',{maximumFractionDigits:d,minimumFractionDigits:d});
+    const svg=(name,attrs={})=>{const n=document.createElementNS('http://www.w3.org/2000/svg',name);Object.entries(attrs).forEach(([k,v])=>n.setAttribute(k,v));return n};
+    const add=(root,name,attrs={})=>{const n=svg(name,attrs);root.appendChild(n);return n};
+    const text=(root,x,y,value,attrs={})=>{const n=add(root,'text',{x,y,fill:'#aeb5b6','font-size':13,'font-family':'ui-monospace,monospace',...attrs});n.textContent=value;return n};
+
+    function renderCapacitor(){
+      const V=+$('voltage').value,dMm=+$('gap').value,er=+$('epsilon').value/10,d=dMm/1000,E=V/d,u=.5*8.8541878128e-12*er*E*E;
+      $('voltageOut').textContent=V+' V';$('gapOut').textContent=dMm+' mm';$('epsilonOut').textContent=fmt(er,1);
+      $('fieldOut').textContent=E>=1000?fmt(E/1000,2)+' kV/m':fmt(E,1)+' V/m';$('energyOut').textContent=fmt(u,5)+' J/m³';
+      const root=$('capacitorSvg');root.replaceChildren();
+      const gap=70+dMm*6,x1=320-gap/2,x2=320+gap/2;
+      add(root,'rect',{x:x1-16,y:55,width:16,height:250,rx:5,fill:'#e6bd67'});add(root,'rect',{x:x2,y:55,width:16,height:250,rx:5,fill:'#70d9e8'});
+      text(root,x1-8,42,'+',{fill:'#e6bd67','font-size':22,'text-anchor':'middle'});text(root,x2+8,42,'−',{fill:'#70d9e8','font-size':24,'text-anchor':'middle'});
+      for(let y=82;y<=278;y+=28){
+        add(root,'line',{x1:x1+2,y1:y,x2:x2-2,y2:y,stroke:'#70d9e8','stroke-width':Math.min(4,1+E/25000),opacity:.35+Math.min(.55,E/60000)});
+        add(root,'path',{d:`M ${x2-12} ${y-5} L ${x2-2} ${y} L ${x2-12} ${y+5}`,fill:'none',stroke:'#70d9e8','stroke-width':1.5});
+      }
+      text(root,320,334,`d = ${dMm} mm · εᵣ = ${fmt(er,1)}`,{'text-anchor':'middle'});
+    }
+
+    function anglePoint(cx,cy,r,deg){const a=(deg-90)*Math.PI/180;return[cx+r*Math.cos(a),cy+r*Math.sin(a)]}
+    function renderPhase(){
+      const a=+$('phaseA').value,b=+$('phaseB').value,K=+$('coupling').value/100,delta=a-b,flow=K*Math.sin(delta*Math.PI/180);
+      $('phaseAOut').textContent=a+'°';$('phaseBOut').textContent=b+'°';$('couplingOut').textContent=fmt(K,2);$('deltaOut').textContent=(delta>=0?'+':'')+delta+'°';$('flowOut').textContent=(flow>=0?'+':'')+fmt(flow,3);
+      const root=$('phaseSvg');root.replaceChildren();
+      [[170,a,'#e6bd67','i'],[470,b,'#70d9e8','j']].forEach(([cx,deg,color,label])=>{
+        add(root,'circle',{cx,cy:160,r:88,fill:'none',stroke:'#284047','stroke-width':2});add(root,'line',{x1:cx-100,y1:160,x2:cx+100,y2:160,stroke:'#284047'});add(root,'line',{x1:cx,y1:60,x2:cx,y2:260,stroke:'#284047'});
+        const [x,y]=anglePoint(cx,160,75,deg);add(root,'line',{x1:cx,y1:160,x2:x,y2:y,stroke:color,'stroke-width':5,'stroke-linecap':'round'});add(root,'circle',{cx:x,cy:y,r:7,fill:color});text(root,cx,290,`δ${label} = ${deg}°`,{fill:color,'text-anchor':'middle'});
+      });
+      const dir=flow>=0?1:-1,from=dir>0?265:375,to=dir>0?375:265,w=2+Math.abs(flow)*8;
+      add(root,'line',{x1:from,y1:160,x2:to,y2:160,stroke:Math.abs(flow)<.03?'#52656a':'#ef765f','stroke-width':w,'stroke-linecap':'round'});
+      add(root,'path',{d:dir>0?`M ${to-14} 150 L ${to} 160 L ${to-14} 170`:`M ${to+14} 150 L ${to} 160 L ${to+14} 170`,fill:'none',stroke:'#ef765f','stroke-width':3});
+      text(root,320,135,`Δδ = ${delta}°`,{fill:'#f4f0e5','text-anchor':'middle'});text(root,320,205,`Flow ${flow>=0?'i → j':'j → i'}`,{fill:'#ef765f','text-anchor':'middle'});
+    }
+
+    const basePoints=[[62,275],[120,245],[180,228],[245,178],[308,190],[380,130],[470,116],[565,72]];
+    function projectedPoints(shear){return basePoints.map(([x,y])=>[x+shear*(300-y)/3,y])}
+    function dist(a,b){return Math.hypot(a[0]-b[0],a[1]-b[1])}
+    function renderGeometry(){
+      const step=+$('step').value,shear=+$('shear').value/100,pts=projectedPoints(shear),i=step-1;
+      let path=0;for(let k=1;k<=i;k++)path+=dist(pts[k],pts[k-1]);
+      const disp=i>0?dist(pts[i],pts[i-1]):0,drift=disp/.25;
+      let turn=null;if(i>1){const a=[pts[i-1][0]-pts[i-2][0],pts[i-1][1]-pts[i-2][1]],b=[pts[i][0]-pts[i-1][0],pts[i][1]-pts[i-1][1]],c=(a[0]*b[0]+a[1]*b[1])/(Math.hypot(...a)*Math.hypot(...b));turn=Math.acos(Math.max(-1,Math.min(1,c)))*180/Math.PI}
+      $('stepOut').textContent=step+' / 8';$('shearOut').textContent=(shear>=0?'+':'')+fmt(shear,2);$('displacementOut').textContent=i?fmt(disp,2):'—';$('driftOut').textContent=i?fmt(drift,2)+' / λ':'—';$('turnOut').textContent=turn===null?'—':fmt(turn,1)+'°';$('pathOut').textContent=fmt(path,2);
+      const root=$('geometrySvg');root.replaceChildren();
+      add(root,'line',{x1:35,y1:310,x2:610,y2:310,stroke:'#284047'});add(root,'line',{x1:35,y1:40,x2:35,y2:310,stroke:'#284047'});text(root,600,335,'projection x',{'text-anchor':'end'});text(root,18,55,'y',{transform:'rotate(-90 18 55)'});
+      add(root,'polyline',{points:pts.slice(0,i+1).map(p=>p.join(',')).join(' '),fill:'none',stroke:'#70d9e8','stroke-width':4,'stroke-linejoin':'round'});
+      add(root,'polyline',{points:pts.slice(i).map(p=>p.join(',')).join(' '),fill:'none',stroke:'#284047','stroke-width':2,'stroke-dasharray':'5 8'});
+      pts.forEach((p,k)=>{add(root,'circle',{cx:p[0],cy:p[1],r:k===i?9:5,fill:k<=i?'#e6bd67':'#52656a',stroke:k===i?'#fff':'none','stroke-width':2});text(root,p[0],p[1]-14,'λ'+k,{'text-anchor':'middle',fill:k===i?'#fff':'#8f9b9d'});});
+      if(i>0){const a=pts[i-1],b=pts[i];add(root,'line',{x1:a[0],y1:a[1],x2:b[0],y2:b[1],stroke:'#ef765f','stroke-width':6,opacity:.7});text(root,(a[0]+b[0])/2,(a[1]+b[1])/2-12,'local drift',{fill:'#ef765f','text-anchor':'middle'});}
+    }
+
+    function renderLightning(){
+      const E=+$('stormField').value/100,perturbation=+$('stormPerturbation').value/100;
+      const effective=E*(1+.38*perturbation),threshold=3,ratio=effective/threshold,active=ratio>=1;
+      const u=.5*8.8541878128e-12*(E*1e6)**2;
+      $('stormFieldOut').textContent=fmt(E,2)+' MV/m';$('stormPerturbationOut').textContent=fmt(perturbation,2);
+      $('stormEnergyOut').textContent=fmt(u,2)+' J/m³';$('stormRegimeOut').textContent=active?'ionisierend':'isolierend';
+      $('stormPathOut').textContent=active?'Leader offen':'kein Kanal';$('stormTopologyOut').textContent=active?'verzweigt / suchend':'getrennte Regionen';
+      const root=$('lightningSvg');root.replaceChildren();
+      add(root,'path',{d:'M 70 85 C 105 42 155 60 175 43 C 215 11 265 35 282 65 C 322 55 355 78 350 110 L 72 110 Z',fill:'#263941',stroke:'#70d9e8','stroke-width':2});
+      add(root,'path',{d:'M 0 318 Q 120 288 230 310 T 430 302 T 640 312 L 640 360 L 0 360 Z',fill:'#3c3426',stroke:'#e6bd67','stroke-width':2});
+      for(let x=102;x<=332;x+=38){add(root,'line',{x1:x,y1:118,x2:x+100*(perturbation-.5),y2:292,stroke:'#70d9e8','stroke-width':1+ratio*1.4,opacity:.18+.42*Math.min(1,ratio),'stroke-dasharray':'7 9'});}
+      text(root,210,34,'charge-separated cloud',{fill:'#aeb5b6','text-anchor':'middle'});text(root,480,335,'ground / return region',{fill:'#e6bd67','text-anchor':'middle'});
+      if(active){
+        const main='M 230 108 L 216 142 L 244 168 L 220 194 L 238 220 L 205 247 L 218 277 L 202 305';
+        add(root,'path',{d:main,fill:'none',stroke:'#fff3a8','stroke-width':5,'stroke-linecap':'round','stroke-linejoin':'round'});
+        add(root,'path',{d:'M 220 194 L 174 215 L 151 247',fill:'none',stroke:'#e6bd67','stroke-width':3});
+        add(root,'path',{d:'M 238 220 L 283 242 L 307 270',fill:'none',stroke:'#e6bd67','stroke-width':3});
+        add(root,'path',{d:'M 205 247 L 164 272',fill:'none',stroke:'#e6bd67','stroke-width':2});
+        text(root,395,175,'conductive topology appears',{fill:'#ef765f'});
+      }else{
+        add(root,'circle',{cx:230,cy:125,r:7+8*ratio,fill:'#e6bd67',opacity:.55});text(root,395,175,'field present · path absent',{fill:'#70d9e8'});
+      }
+      text(root,395,198,`E_eff / E* = ${fmt(ratio,2)}`,{fill:'#aeb5b6'});
+    }
+
+    let architectureView='structure';
+    function renderArchitecture(){
+      const openness=+$('archOpen').value/100,shift=+$('archShift').value,bx=360+shift*1.15,gap=8+openness*126,top=210-gap/2,bottom=210+gap/2;
+      const passage=openness<.18?'CLOSED':openness<.72?'FILTERED':'OPEN';
+      $('archOpenOut').textContent=fmt(openness,2);$('archShiftOut').textContent=(shift>0?'+':'')+shift;$('archPassageOut').textContent=passage;$('archViewOut').textContent=architectureView.toUpperCase();
+      document.querySelectorAll('[data-arch-view]').forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.archView===architectureView)));
+      const root=$('architectureSvg');root.replaceChildren();
+      const active={structure:'#70d9e8',passage:'#89c997',cut:'#ef765f',return:'#e6bd67'}[architectureView];
+      add(root,'rect',{x:50,y:42,width:620,height:326,rx:12,fill:'#09151a',stroke:'#52656a','stroke-width':2});
+      add(root,'path',{d:`M 50 42 H ${bx} V 368 H 50 Z`,fill:'#4588d7',opacity:architectureView==='structure'?.17:.08});
+      add(root,'path',{d:`M ${bx} 42 H 670 V 368 H ${bx} Z`,fill:'#ef765f',opacity:architectureView==='structure'?.14:.07});
+      for(let x=90;x<650;x+=52)add(root,'line',{x1:x,y1:58,x2:x,y2:352,stroke:'#284047','stroke-width':1,opacity:.34});
+      for(let y=82;y<350;y+=44)add(root,'line',{x1:66,y1:y,x2:654,y2:y,stroke:'#284047','stroke-width':1,opacity:.34});
+      add(root,'line',{x1:bx,y1:42,x2:bx,y2:top,stroke:'#89c997','stroke-width':12,'stroke-linecap':'square'});
+      add(root,'line',{x1:bx,y1:bottom,x2:bx,y2:368,stroke:'#89c997','stroke-width':12,'stroke-linecap':'square'});
+      add(root,'rect',{x:bx-18,y:top,width:36,height:gap,rx:5,fill:'#89c997',opacity:.08+.20*openness,stroke:'#89c997','stroke-width':2,'stroke-dasharray':'6 6'});
+      add(root,'circle',{cx:160,cy:210,r:25,fill:'#4588d7'});add(root,'circle',{cx:560,cy:210,r:25,fill:'#ef765f'});
+      text(root,160,216,'A',{fill:'#fff','font-size':17,'text-anchor':'middle'});text(root,560,216,'B',{fill:'#fff','font-size':17,'text-anchor':'middle'});text(root,bx,28,'β',{fill:'#89c997','font-size':18,'text-anchor':'middle'});
+      text(root,160,342,'ROOM / BASIN A',{fill:'#70a9e8','text-anchor':'middle'});text(root,560,342,'ROOM / BASIN B',{fill:'#ef9a8a','text-anchor':'middle'});
+      if(architectureView==='structure'){
+        add(root,'path',{d:'M 92 108 H 228 V 170 H 92 Z M 492 252 H 628 V 314 H 492 Z',fill:'none',stroke:active,'stroke-width':3});
+        text(root,360,397,'STRUCTURE · TWO ROOMS / ONE CARRIER',{fill:active,'text-anchor':'middle'});
+      }
+      if(architectureView==='passage'){
+        const width=2+openness*10,opacity=.2+.8*openness;
+        add(root,'path',{d:`M 160 210 C 250 ${150-shift/3}, ${bx-70} ${210-gap/4}, ${bx} 210 C ${bx+70} ${210+gap/4}, 470 ${270+shift/3}, 560 210`,fill:'none',stroke:active,'stroke-width':width,opacity,'stroke-linecap':'round'});
+        add(root,'path',{d:`M ${bx-14} 201 L ${bx} 210 L ${bx-14} 219`,fill:'none',stroke:'#f4f0e5','stroke-width':2.5});
+        text(root,360,397,`PASSAGE · ${passage} · κ ${fmt(openness,2)}`,{fill:active,'text-anchor':'middle'});
+      }
+      if(architectureView==='cut'){
+        add(root,'path',{d:`M 92 330 L 628 86`,fill:'none',stroke:active,'stroke-width':5,'stroke-dasharray':'12 9'});
+        add(root,'path',{d:`M 270 272 L 302 282 M 418 146 L 450 156`,fill:'none',stroke:'#fff','stroke-width':3});
+        text(root,360,397,'CUT · VIEW LINE ≠ CARRIER',{fill:active,'text-anchor':'middle'});
+      }
+      if(architectureView==='return'){
+        add(root,'path',{d:`M 160 210 C 235 72, 478 72, 560 210 C 478 348, 235 348, 160 210`,fill:'none',stroke:active,'stroke-width':4});
+        add(root,'path',{d:'M 171 190 L 160 210 L 184 214',fill:'none',stroke:active,'stroke-width':4,'stroke-linecap':'round','stroke-linejoin':'round'});
+        add(root,'circle',{cx:bx,cy:210,r:9,fill:'#89c997'});
+        text(root,360,397,'RETURN · SAME ADDRESS ≠ SAME HISTORY',{fill:active,'text-anchor':'middle'});
+      }
+    }
+
+    let boundaryView='all';
+    function renderBoundaryVisual(){
+      const depth=+$('boundaryDepth').value;
+      const zone=depth<34?'OBEN':depth<68?'MITTE':'TIEF';
+      $('boundaryDepthOut').textContent=`${zone} · ${depth}%`;
+      $('boundaryViewOut').textContent=boundaryView.toUpperCase();
+      $('boundaryCountOut').textContent=boundaryView==='all'?'FOUR VIEWS':'ONE FOCUS';
+      document.querySelectorAll('[data-boundary-view]').forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.boundaryView===boundaryView)));
+      const root=$('boundarySvg');root.replaceChildren();
+      const active=kind=>boundaryView==='all'||boundaryView===kind?1:.13;
+      const sampleY=92+depth*2.55;
+      add(root,'rect',{x:55,y:42,width:610,height:326,rx:18,fill:'#0a171c',stroke:'#52656a','stroke-width':2});
+      add(root,'rect',{x:57,y:125,width:606,height:241,rx:0,fill:'#173b50',opacity:.78});
+      add(root,'rect',{x:57,y:44,width:606,height:81,rx:16,fill:'#d8eef1',opacity:.08});
+      for(let x=92;x<650;x+=74)add(root,'circle',{cx:x,cy:82+(x%3)*9,r:3+(x%4),fill:'#d8eef1',opacity:.2});
+      add(root,'path',{d:'M 58 286 C 128 268, 178 246, 248 250 C 294 254, 322 277, 356 310 L 356 366 L 58 366 Z',fill:'#d9f3ff',opacity:.30});
+      add(root,'path',{d:'M 58 286 C 128 268, 178 246, 248 250 C 294 254, 322 277, 356 310',fill:'none',stroke:'#70d9e8','stroke-width':4,opacity:active('phase')});
+      add(root,'path',{d:'M 58 125 C 112 119, 174 134, 225 124 S 342 130, 402 123 S 545 130, 663 124',fill:'none',stroke:'#70d9e8','stroke-width':4,opacity:active('phase')});
+      add(root,'path',{d:'M 486 72 C 470 132, 510 182, 488 236 C 468 286, 506 325, 488 360',fill:'none',stroke:'#ef765f','stroke-width':4,opacity:active('thermal')});
+      add(root,'path',{d:'M 86 168 C 176 148, 258 178, 330 206 S 480 250, 630 270',fill:'none',stroke:'#89c997','stroke-width':4,'stroke-dasharray':'3 9','stroke-linecap':'round',opacity:active('concentration')});
+      add(root,'rect',{x:56,y:43,width:608,height:324,rx:17,fill:'none',stroke:'#e6bd67','stroke-width':3,'stroke-dasharray':'11 8',opacity:active('visible')});
+      add(root,'line',{x1:68,y1:sampleY,x2:652,y2:sampleY,stroke:'#f4f0e5','stroke-width':1.5,'stroke-dasharray':'5 7',opacity:.68});
+      add(root,'circle',{cx:675,cy:sampleY,r:6,fill:'#f4f0e5'});
+      text(root,78,75,'DAMPF',{fill:'#d8eef1'});text(root,78,151,'FLÜSSIGKEIT',{fill:'#70d9e8'});text(root,105,334,'EIS',{fill:'#d8eef1'});
+      text(root,405,112,'Γ PHASE',{fill:'#70d9e8',opacity:active('phase')});
+      text(root,514,199,'Γ THERMAL',{fill:'#ef765f',opacity:active('thermal')});
+      text(root,398,259,'Γ CONCENTRATION',{fill:'#89c997',opacity:active('concentration')});
+      text(root,360,397,`ONE CARRIER · ${boundaryView==='all'?'MULTIPLE BOUNDARIES':boundaryView.toUpperCase()+' FOCUS'}`,{fill:'#e6bd67','text-anchor':'middle'});
+    }
+
+    let eventView='all';
+    function renderEventVisual(){
+      const position=+$('eventPosition').value/100;
+      $('eventPositionOut').textContent=`FRAME · ${fmt(position,2)}`;
+      $('eventViewOut').textContent=eventView.toUpperCase();
+      document.querySelectorAll('[data-event-view]').forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.eventView===eventView)));
+      const root=$('eventSvg');root.replaceChildren();
+      const panels=[
+        {kind:'direct',x:34,y:38,label:'DIRECT / PHOTO'},
+        {kind:'thermal',x:372,y:38,label:'THERMAL'},
+        {kind:'structure',x:34,y:205,label:'STRUCTURE'},
+        {kind:'signal',x:372,y:205,label:'SIGNAL'}
+      ];
+      panels.forEach(panel=>{
+        const opacity=eventView==='all'||eventView===panel.kind?1:.16;
+        const x=panel.x,y=panel.y,w=314,h=138,front=x+28+position*258;
+        add(root,'rect',{x,y,width:w,height:h,rx:8,fill:'#09151a',stroke:'#52656a','stroke-width':2,opacity});
+        text(root,x+14,y+22,panel.label,{fill:'#e6bd67',opacity});
+        if(panel.kind==='direct'){
+          add(root,'rect',{x:x+12,y:y+34,width:front-x-12,height:90,fill:'#173b50',opacity:.8*opacity});
+          add(root,'rect',{x:front,y:y+34,width:x+w-12-front,height:90,fill:'#d8eef1',opacity:.26*opacity});
+          for(let yy=y+48;yy<y+118;yy+=18)add(root,'path',{d:`M ${front} ${yy} l 18 -10 l 14 10 l 20 -12`,fill:'none',stroke:'#d8eef1','stroke-width':1.4,opacity});
+        }
+        if(panel.kind==='thermal'){
+          add(root,'rect',{x:x+12,y:y+34,width:front-x-12,height:90,fill:'#4588d7',opacity:.42*opacity});
+          add(root,'rect',{x:front,y:y+34,width:x+w-12-front,height:90,fill:'#ef765f',opacity:.55*opacity});
+          add(root,'rect',{x:front-20,y:y+34,width:40,height:90,fill:'#e6bd67',opacity:.35*opacity});
+        }
+        if(panel.kind==='structure'){
+          for(let cx=x+28;cx<x+w-18;cx+=28){
+            const ordered=cx>front;
+            add(root,ordered?'rect':'circle',ordered?{x:cx-5,y:y+64+((cx/28)%2)*18,width:12,height:12,transform:`rotate(45 ${cx+1} ${y+70})`,fill:'#70d9e8',opacity:.72*opacity}:{cx,cy:y+68+((cx/28)%3)*16,r:6,fill:'#70d9e8',opacity:.45*opacity});
+          }
+        }
+        if(panel.kind==='signal'){
+          add(root,'line',{x1:x+16,y1:y+118,x2:x+w-12,y2:y+118,stroke:'#52656a',opacity});
+          add(root,'line',{x1:x+16,y1:y+40,x2:x+16,y2:y+118,stroke:'#52656a',opacity});
+          add(root,'path',{d:`M ${x+18} ${y+56} H ${front-30} C ${front-12} ${y+56}, ${front-16} ${y+103}, ${front+24} ${y+103} H ${x+w-14}`,fill:'none',stroke:'#70d9e8','stroke-width':3,opacity});
+        }
+        add(root,'line',{x1:front,y1:y+30,x2:front,y2:y+126,stroke:'#e6bd67','stroke-width':2,'stroke-dasharray':'5 5',opacity});
+      });
+      const labels=['TIME t','PLACE r','SAMPLE ID','CALIBRATION','PROTOCOL'];
+      labels.forEach((label,i)=>{const x=38+i*134;add(root,'line',{x1:x,y1:378,x2:x+96,y2:378,stroke:'#284047'});text(root,x,368,label,{fill:'#aeb5b6','font-size':11});});
+      text(root,360,407,'ONE EVENT · FOUR RECORDS · BINDER HELD',{fill:'#e6bd67','text-anchor':'middle'});
+    }
+
+    const threadStations={
+      field:{label:'FIELD',title:'FARADAY → MAXWELL',formula:'U = Δφ<br>I = dQ/dt<br>P = U · I',description:'Faraday macht lokale Induktion und Feldwirkung experimentell greifbar; Maxwell hält elektrische und magnetische Felder in einer gekoppelten Theorie. Spannung, Strom und Leistung bleiben typisierte Größen.'},
+      passage:{label:'PATHS',title:'WATERWAY → LANDWAY → GRID',formula:'Q<sub>h</sub> = A · v<br>P<sub>h</sub> = Δp · Q<sub>h</sub>',description:'Menschen lesen zunächst vorhandene Fluss-, Küsten-, Tal- und Passagenräume. Straße, Kanal, Schiene und Stromnetz bauen anschließend neue Leitfähigkeiten in dieselbe Landschaft.'},
+      chemistry:{label:'CHEM',title:'ANODE ↔ ELECTROLYTE ↔ CATHODE',formula:'anode: oxidation<br>cathode: reduction<br>ΔG = −n F E<sub>cell</sub>',description:'Chemische Energie erscheint als Differenz elektrochemischer Potentiale. Anode und Kathode benennen Reaktionsrollen; ihre Vorzeichen hängen vom galvanischen oder elektrolytischen Betriebsmodus ab.'},
+      geology:{label:'GEO',title:'BASIN · LAYER · HEAT · WATER',formula:'q = −k ∇T<br>Δp = ρ g Δh',description:'Gestein, Poren, Wasser, Minerale, Wärme und Druck bilden gekoppelte, langsam wandelnde Architekturen. Geologie stellt Material, Speicher, Gefälle und Grenzen für chemische und biologische Prozesse bereit.'},
+      biology:{label:'BIO',title:'MEMBRANE · GRADIENT · METABOLISM',formula:'Δμ̃ = Δμ + z F Δψ<br>power = flux × driving force',description:'Lebende Systeme halten elektrochemische Unterschiede an Membranen und koppeln Flüsse an chemische Arbeit. Der Gradient ist eine Bedingung des Prozesses, aber noch nicht das Leben selbst.'}
+    };
+    let threadView='field';
+    function renderThreadVisual(){
+      const keys=Object.keys(threadStations),station=threadStations[threadView],index=keys.indexOf(threadView),xs=[80,220,360,500,640],bx=xs[index];
+      $('threadViewOut').textContent=station.label;
+      $('threadFormula').innerHTML=station.formula;
+      $('threadDescription').textContent=station.description;
+      document.querySelectorAll('[data-thread-view]').forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.threadView===threadView)));
+      const root=$('threadSvg');root.replaceChildren();
+      add(root,'path',{d:'M 80 108 C 132 72, 170 144, 220 108 S 310 72, 360 108 S 450 144, 500 108 S 590 72, 640 108',fill:'none',stroke:'#ef765f','stroke-width':4,'stroke-linecap':'round'});
+      keys.forEach((key,i)=>{
+        const active=key===threadView;
+        add(root,'circle',{cx:xs[i],cy:108,r:active?13:8,fill:active?'#ef765f':'#071014',stroke:active?'#fff':'#ef765f','stroke-width':active?3:2});
+        text(root,xs[i],138,threadStations[key].label,{fill:active?'#f4f0e5':'#aeb5b6','text-anchor':'middle','font-size':11});
+      });
+      add(root,'circle',{cx:bx,cy:50,r:20,fill:'#ef4f45',stroke:'#f4f0e5','stroke-width':2});
+      add(root,'path',{d:`M ${bx-5} 69 L ${bx} 77 L ${bx+5} 69 Z`,fill:'#ef4f45'});
+      add(root,'path',{d:`M ${bx} 77 C ${bx-12} 86, ${bx+10} 93, ${bx} 106`,fill:'none',stroke:'#ef765f','stroke-width':2});
+      text(root,360,176,station.title,{fill:'#e6bd67','font-size':16,'text-anchor':'middle'});
+      add(root,'rect',{x:48,y:196,width:624,height:156,rx:10,fill:'#09151a',stroke:'#284047','stroke-width':2});
+      if(threadView==='field'){
+        add(root,'rect',{x:150,y:222,width:16,height:98,rx:3,fill:'#e6bd67'});add(root,'rect',{x:554,y:222,width:16,height:98,rx:3,fill:'#70d9e8'});
+        for(let y=236;y<=306;y+=18){add(root,'line',{x1:174,y1:y,x2:546,y2:y,stroke:'#70d9e8','stroke-width':2});add(root,'path',{d:`M 530 ${y-5} L 544 ${y} L 530 ${y+5}`,fill:'none',stroke:'#70d9e8','stroke-width':2});}
+        text(root,158,337,'+',{fill:'#e6bd67','text-anchor':'middle'});text(root,562,337,'−',{fill:'#70d9e8','text-anchor':'middle'});text(root,360,277,'FIELD / DIFFERENCE',{fill:'#f4f0e5','text-anchor':'middle'});
+      }
+      if(threadView==='passage'){
+        add(root,'path',{d:'M 72 232 C 180 306, 254 218, 360 276 S 534 310, 648 232',fill:'none',stroke:'#4588d7','stroke-width':18,opacity:.72});
+        add(root,'path',{d:'M 72 318 C 196 270, 280 318, 400 250 S 566 228, 648 282',fill:'none',stroke:'#e6bd67','stroke-width':6,'stroke-dasharray':'18 10'});
+        add(root,'path',{d:'M 92 214 L 628 330 M 150 226 V 254 M 290 256 V 284 M 430 286 V 314 M 570 316 V 344',fill:'none',stroke:'#70d9e8','stroke-width':2});
+        text(root,112,258,'WATER',{fill:'#9ac8f0'});text(root,518,262,'LAND',{fill:'#e6bd67'});text(root,360,338,'GRID',{fill:'#70d9e8','text-anchor':'middle'});
+      }
+      if(threadView==='chemistry'){
+        add(root,'rect',{x:92,y:218,width:536,height:112,rx:8,fill:'#173b50',opacity:.45});
+        add(root,'rect',{x:148,y:208,width:28,height:132,fill:'#e6bd67'});add(root,'rect',{x:544,y:208,width:28,height:132,fill:'#70d9e8'});
+        for(let x=226;x<=494;x+=54){add(root,'circle',{cx:x,cy:250+(x%3)*15,r:7,fill:x%2?'#ef765f':'#89c997'});}
+        add(root,'path',{d:'M 185 278 H 530 M 512 268 L 530 278 L 512 288',fill:'none',stroke:'#f4f0e5','stroke-width':3});
+        text(root,162,363,'ANODE',{fill:'#e6bd67','text-anchor':'middle'});text(root,360,363,'ELECTROLYTE',{fill:'#aeb5b6','text-anchor':'middle'});text(root,558,363,'CATHODE',{fill:'#70d9e8','text-anchor':'middle'});
+      }
+      if(threadView==='geology'){
+        add(root,'path',{d:'M 56 230 C 170 202, 250 250, 360 225 S 540 202, 664 238 L 664 342 L 56 342 Z',fill:'#3b3327',stroke:'#e6bd67','stroke-width':2});
+        add(root,'path',{d:'M 56 264 C 176 236, 264 286, 374 256 S 552 242, 664 278',fill:'none',stroke:'#ef765f','stroke-width':10,opacity:.42});
+        add(root,'path',{d:'M 90 214 C 210 254, 262 222, 356 270 S 526 308, 638 248',fill:'none',stroke:'#4588d7','stroke-width':7,opacity:.8});
+        for(let x=110;x<630;x+=66)add(root,'circle',{cx:x,cy:310-(x%4)*9,r:5,fill:'#89c997'});
+        text(root,118,204,'BASIN',{fill:'#9ac8f0'});text(root,500,220,'HEAT / LAYER',{fill:'#ef9a8a'});text(root,360,333,'PORE WATER · MINERALS',{fill:'#d7dddc','text-anchor':'middle'});
+      }
+      if(threadView==='biology'){
+        add(root,'line',{x1:86,y1:254,x2:634,y2:254,stroke:'#89c997','stroke-width':8});add(root,'line',{x1:86,y1:292,x2:634,y2:292,stroke:'#89c997','stroke-width':8});
+        for(let x=104;x<=616;x+=32){add(root,'circle',{cx:x,cy:254,r:8,fill:'#89c997'});add(root,'circle',{cx:x,cy:292,r:8,fill:'#89c997'});}
+        [150,218,286,510,578].forEach((x,i)=>add(root,'circle',{cx:x,cy:220-(i%2)*18,r:7,fill:'#70d9e8'}));
+        add(root,'path',{d:'M 382 224 C 350 238, 350 308, 382 324 M 382 224 C 414 238, 414 308, 382 324',fill:'#12242a',stroke:'#e6bd67','stroke-width':3});
+        add(root,'path',{d:'M 382 206 V 334 M 372 320 L 382 334 L 392 320',fill:'none',stroke:'#e6bd67','stroke-width':3});
+        text(root,190,202,'ION GRADIENT',{fill:'#70d9e8','text-anchor':'middle'});text(root,382,350,'COUPLED WORK',{fill:'#e6bd67','text-anchor':'middle'});text(root,548,316,'MEMBRANE',{fill:'#89c997','text-anchor':'middle'});
+      }
+      text(root,360,397,'SAME QUESTION · DIFFERENT VARIABLES · TYPED RELATIONS',{fill:'#ef765f','text-anchor':'middle'});
+    }
+
+    let zetaMode='micro',zetaPhase='plus';
+    function renderZetaVisual(){
+      const frame=+$('zetaFrame').value,positive=zetaPhase==='plus',sign=positive?1:-1;
+      const frameNames=['LEFT FIELD','LEFT APPROACH','SEAM','RIGHT EMERGENCE','RIGHT FIELD'];
+      $('zetaFrameOut').textContent=`t${frame} · ${frameNames[frame-1]}`;
+      $('zetaPhaseOut').textContent=positive?'+π/4':'−π/4';
+      $('zetaModeOut').textContent=zetaMode==='micro'?'1 : 2 : 1':'3 : 1 : 3';
+      document.querySelectorAll('[data-zeta-mode]').forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.zetaMode===zetaMode)));
+      document.querySelectorAll('[data-zeta-phase]').forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.zetaPhase===zetaPhase)));
+      const root=$('zetaSvg');root.replaceChildren();
+      add(root,'rect',{x:44,y:38,width:632,height:326,rx:10,fill:'#09151a',stroke:'#52656a','stroke-width':2});
+      for(let x=92;x<676;x+=48)add(root,'line',{x1:x,y1:52,x2:x,y2:350,stroke:'#284047','stroke-width':1,opacity:.45});
+      for(let y=70;y<350;y+=40)add(root,'line',{x1:58,y1:y,x2:662,y2:y,stroke:'#284047','stroke-width':1,opacity:.45});
+      if(zetaMode==='micro'){
+        const groups=[{x:92,w:176,label:'1',fill:'#4588d7'},{x:268,w:184,label:'2',fill:'#89c997'},{x:452,w:176,label:'1',fill:'#ef765f'}];
+        groups.forEach(g=>{add(root,'rect',{x:g.x,y:54,width:g.w,height:294,fill:g.fill,opacity:.09});text(root,g.x+g.w/2,82,g.label,{fill:g.fill,'font-size':20,'text-anchor':'middle'});});
+        text(root,360,106,'FOUR MICROPATHS → THREE OBSERVED SUMS',{fill:'#aeb5b6','text-anchor':'middle'});
+      }else{
+        const start=68,w=80;
+        for(let i=0;i<7;i++){
+          const seam=i===3,side=i<3?'#4588d7':i>3?'#ef765f':'#89c997';
+          add(root,'rect',{x:start+i*w,y:54,width:w,height:294,fill:side,opacity:seam?.18:.08,stroke:seam?'#89c997':'none','stroke-width':seam?2:0});
+          text(root,start+i*w+w/2,82,seam?'1':i<3?String(i+1):String(i-3),{fill:side,'font-size':16,'text-anchor':'middle'});
+        }
+        text(root,360,106,'THREE LEFT ZONES · ONE SEAM · THREE RIGHT ZONES',{fill:'#aeb5b6','text-anchor':'middle'});
+      }
+      add(root,'rect',{x:345,y:38,width:30,height:326,fill:'#89c997',opacity:.13});
+      add(root,'line',{x1:360,y1:38,x2:360,y2:364,stroke:'#89c997','stroke-width':4});
+      text(root,360,28,'ζ · SEAM / GAP',{fill:'#89c997','font-size':14,'text-anchor':'middle'});
+      add(root,'line',{x1:88,y1:210,x2:632,y2:210,stroke:'#d7dddc','stroke-width':2});
+      add(root,'line',{x1:360,y1:334,x2:360,y2:86,stroke:'#d7dddc','stroke-width':2});
+      text(root,640,204,'Re',{fill:'#d7dddc'});text(root,372,76,'Im',{fill:'#d7dddc'});
+      const x1=200,y1=210+sign*160,x2=520,y2=210-sign*160;
+      add(root,'line',{x1,y1,x2,y2,stroke:'#e6bd67','stroke-width':5,'stroke-linecap':'round'});
+      add(root,'path',{d:`M ${x2-18} ${y2-sign*2} L ${x2} ${y2} L ${x2-13} ${y2+sign*13}`,fill:'none',stroke:'#e6bd67','stroke-width':3});
+      const markerT=(frame-1)/4,mx=x1+(x2-x1)*markerT,my=y1+(y2-y1)*markerT;
+      add(root,'circle',{cx:mx,cy:my,r:13,fill:'#ef4f45',stroke:'#f4f0e5','stroke-width':3});
+      text(root,mx,my-20,`t${frame}`,{fill:'#f4f0e5','font-size':14,'text-anchor':'middle'});
+      const rx=470,ry=210-sign*110;
+      add(root,'line',{x1:360,y1:210,x2:rx,y2:ry,stroke:'#70d9e8','stroke-width':3,'stroke-dasharray':'7 6'});
+      add(root,'line',{x1:360,y1:210,x2:rx,y2:210,stroke:'#70d9e8','stroke-width':1.5});
+      add(root,'line',{x1:rx,y1:210,x2:rx,y2:ry,stroke:'#70d9e8','stroke-width':1.5});
+      text(root,415,226,'1',{fill:'#70d9e8','text-anchor':'middle'});text(root,484,210-sign*55,positive?'i':'−i',{fill:'#70d9e8','text-anchor':'middle'});
+      text(root,420,positive?82:326,'√(1²+1²) = √2',{fill:'#70d9e8','text-anchor':'middle'});
+      const framesX=[200,280,360,440,520];
+      framesX.forEach((x,i)=>{add(root,'circle',{cx:x,cy:382,r:i+1===frame?7:4,fill:i+1===frame?'#ef4f45':'#52656a'});text(root,x,405,`t${i+1}`,{fill:i+1===frame?'#f4f0e5':'#8f9b9d','text-anchor':'middle','font-size':11});});
+      text(root,82,340,positive?'−(1+i)':'−(1−i)',{fill:'#4588d7'});
+      text(root,638,340,positive?'1+i':'1−i',{fill:'#ef765f','text-anchor':'end'});
+    }
+
+    function renderMeasureMap(){
+      const kelvin=+$('temperatureState').value/100,celsius=kelvin-273.15,fahrenheit=celsius*9/5+32;
+      const km=+$('distanceState').value/100,miles=km/1.609344;
+      $('temperatureStateOut').textContent=`${fmt(kelvin,2)} K`;
+      $('distanceStateOut').textContent=`${fmt(km,2)} km`;
+      $('measureMapFormula').innerHTML=`${fmt(celsius,2)} °C = ${fmt(fahrenheit,2)} °F = ${fmt(kelvin,2)} K<br>${fmt(km,2)} km = ${fmt(miles,2)} mi`;
+      const root=$('measureMapSvg');root.replaceChildren();
+      const x0=116,x1=646,w=x1-x0,tempT=(kelvin-223.15)/150,distT=km/100,tempX=x0+w*tempT,distX=x0+w*distT;
+      const tempLabelX=tempT>.82?tempX-10:tempX+10,tempAnchor=tempT>.82?'end':'start';
+      const distLabelX=distT>.82?distX-10:distX+10,distAnchor=distT>.82?'end':'start';
+      text(root,42,34,'TEMPERATURE · ONE STATE / THREE COORDINATES',{fill:'#e6bd67','font-size':14});
+      const tempRows=[
+        {y:70,label:'K',value:`${fmt(kelvin,2)} K`,left:'223,15',right:'373,15',color:'#70d9e8'},
+        {y:116,label:'°C',value:`${fmt(celsius,2)} °C`,left:'−50,00',right:'100,00',color:'#e6bd67'},
+        {y:162,label:'°F',value:`${fmt(fahrenheit,2)} °F`,left:'−58,00',right:'212,00',color:'#ef765f'}
+      ];
+      tempRows.forEach(row=>{
+        text(root,64,row.y+5,row.label,{fill:row.color,'font-size':14,'text-anchor':'middle'});
+        add(root,'line',{x1:x0,y1:row.y,x2:x1,y2:row.y,stroke:'#52656a','stroke-width':3});
+        for(let i=0;i<=6;i++)add(root,'line',{x1:x0+w*i/6,y1:row.y-5,x2:x0+w*i/6,y2:row.y+5,stroke:'#52656a'});
+        text(root,x0,row.y+20,row.left,{fill:'#8f9b9d','font-size':10,'text-anchor':'middle'});text(root,x1,row.y+20,row.right,{fill:'#8f9b9d','font-size':10,'text-anchor':'middle'});
+        text(root,tempLabelX,row.y-10,row.value,{fill:row.color,'font-size':12,'text-anchor':tempAnchor});
+      });
+      add(root,'line',{x1:tempX,y1:52,x2:tempX,y2:176,stroke:'#f4f0e5','stroke-width':2,'stroke-dasharray':'5 5'});
+      add(root,'circle',{cx:tempX,cy:70,r:6,fill:'#70d9e8'});add(root,'circle',{cx:tempX,cy:116,r:6,fill:'#e6bd67'});add(root,'circle',{cx:tempX,cy:162,r:6,fill:'#ef765f'});
+      text(root,42,218,'DISTANCE · ONE LENGTH / TWO COORDINATES',{fill:'#e6bd67','font-size':14});
+      const distRows=[
+        {y:250,label:'km',value:`${fmt(km,2)} km`,right:'100,00',color:'#89c997'},
+        {y:294,label:'mi',value:`${fmt(miles,2)} mi`,right:'62,14',color:'#4588d7'}
+      ];
+      distRows.forEach(row=>{
+        text(root,64,row.y+5,row.label,{fill:row.color,'font-size':14,'text-anchor':'middle'});
+        add(root,'line',{x1:x0,y1:row.y,x2:x1,y2:row.y,stroke:'#52656a','stroke-width':3});
+        for(let i=0;i<=5;i++)add(root,'line',{x1:x0+w*i/5,y1:row.y-5,x2:x0+w*i/5,y2:row.y+5,stroke:'#52656a'});
+        text(root,x0,row.y+19,'0,00',{fill:'#8f9b9d','font-size':10,'text-anchor':'middle'});text(root,x1,row.y+19,row.right,{fill:'#8f9b9d','font-size':10,'text-anchor':'middle'});
+        text(root,distLabelX,row.y-10,row.value,{fill:row.color,'font-size':12,'text-anchor':distAnchor});
+      });
+      add(root,'line',{x1:distX,y1:234,x2:distX,y2:306,stroke:'#f4f0e5','stroke-width':2,'stroke-dasharray':'5 5'});
+      add(root,'circle',{cx:distX,cy:250,r:6,fill:'#89c997'});add(root,'circle',{cx:distX,cy:294,r:6,fill:'#4588d7'});
+      add(root,'circle',{cx:360,cy:356,r:34,fill:'#12242a',stroke:'#89c997','stroke-width':3,'stroke-dasharray':'6 5'});
+      text(root,360,352,'SYSTEM',{fill:'#f4f0e5','font-size':12,'text-anchor':'middle'});text(root,360,369,'CUT',{fill:'#89c997','font-size':11,'text-anchor':'middle'});
+      add(root,'line',{x1:236,y1:356,x2:320,y2:356,stroke:'#70d9e8','stroke-width':4});add(root,'path',{d:'M 306 346 L 320 356 L 306 366',fill:'none',stroke:'#70d9e8','stroke-width':3});
+      add(root,'line',{x1:400,y1:356,x2:484,y2:356,stroke:'#ef765f','stroke-width':4});add(root,'path',{d:'M 470 346 L 484 356 L 470 366',fill:'none',stroke:'#ef765f','stroke-width':3});
+      text(root,226,342,'INPUT',{fill:'#70d9e8','text-anchor':'middle'});text(root,494,342,'OUTPUT',{fill:'#ef765f','text-anchor':'middle'});
+      text(root,360,407,'CUT → BOUNDARY → CROSSING → BALANCE → RETURN',{fill:'#e6bd67','text-anchor':'middle'});
+    }
+
+    const carrierViews={
+      topology:{label:'TOPOLOGY',formula:'V − E + F = 8 − 12 + 6 = 2',description:'Acht Ecken, zwölf Kanten und sechs Flächen beschreiben die Topologie desselben Würfels. Die sechs Flächen sind Grenzen oder Ansichten, nicht sechs physikalische Carrier.'},
+      metric:{label:'METRIC',formula:'face diagonal = √2 · body diagonal = √3 · sidecar fold = √5',description:'Die Diagonalen messen unterschiedliche Geometrien. √5 und φ erscheinen erst mit einer zusätzlichen 1×2-Fold- oder Pentagon-Geometrie; sie liegen nicht automatisch im Einheitswürfel.'},
+      orientation:{label:'ORIENTATION',formula:'R ∈ SO(3) · local view tilt = 11°',description:'Das zentrale Gyroskop hält eine Orientierung des Carriers. Die 11°-Marke ist ein lokaler Ansichtsparameter, keine automatische Erdachsen-, Magnetfeld- oder Dynamikbehauptung.'},
+      passage:{label:'PASSAGE / RETURN',formula:'A — C/β — B · H on G · R(Sₜ) → S₀',description:'A und B bleiben zwei Räume desselben Carriers. C ist die Apertur, β die regulierende Fuge, G der Background und H der gerichtete Bogen; Return prüft die Rückkehr zur Startadresse.'}
+    };
+    let carrierView='topology';
+    function renderCarrierViews(){
+      const view=carrierViews[carrierView];
+      $('carrierViewOut').textContent=view.label;$('carrierFormula').textContent=view.formula;$('carrierDescription').textContent=view.description;
+      document.querySelectorAll('[data-carrier-view]').forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.carrierView===carrierView)));
+      const root=$('carrierSvg');root.replaceChildren();
+      const front=[[220,130],[500,130],[500,340],[220,340]],back=[[140,70],[420,70],[420,280],[140,280]],vertices=[...front,...back];
+      add(root,'path',{d:'M 220 130 L 500 130 L 500 340 L 220 340 Z',fill:'#4588d7',opacity:.10,stroke:'#70d9e8','stroke-width':3});
+      add(root,'path',{d:'M 140 70 L 420 70 L 420 280 L 140 280 Z',fill:'#4588d7',opacity:.05,stroke:'#70d9e8','stroke-width':3});
+      [[0,0],[1,1],[2,2],[3,3]].forEach(([f,b])=>add(root,'line',{x1:front[f][0],y1:front[f][1],x2:back[b][0],y2:back[b][1],stroke:'#70d9e8','stroke-width':3}));
+      add(root,'rect',{x:330,y:184,width:48,height:48,fill:'#050708',stroke:'#52656a','stroke-width':2});
+      text(root,354,213,'HOLD',{fill:'#aeb5b6','font-size':10,'text-anchor':'middle'});
+      add(root,'circle',{cx:462,cy:112,r:11,fill:'#ef4f45',stroke:'#f4f0e5','stroke-width':2});
+      add(root,'line',{x1:190,y1:358,x2:522,y2:86,stroke:'#e6bd67','stroke-width':3,opacity:.55});
+      if(carrierView==='topology'){
+        vertices.forEach(([x,y],i)=>{add(root,'circle',{cx:x,cy:y,r:7,fill:i<4?'#ef765f':'#e6bd67',stroke:'#f4f0e5','stroke-width':1.5});text(root,x+10,y-8,`v${i+1}`,{fill:'#aeb5b6','font-size':10});});
+        text(root,610,142,'V = 8',{fill:'#ef765f','font-size':17,'text-anchor':'middle'});text(root,610,184,'E = 12',{fill:'#e6bd67','font-size':17,'text-anchor':'middle'});text(root,610,226,'F = 6',{fill:'#70d9e8','font-size':17,'text-anchor':'middle'});text(root,610,278,'χ = 2',{fill:'#f4f0e5','font-size':20,'text-anchor':'middle'});
+      }
+      if(carrierView==='metric'){
+        add(root,'line',{x1:220,y1:130,x2:500,y2:340,stroke:'#e6bd67','stroke-width':6});text(root,370,255,'√2 · FACE',{fill:'#e6bd67','font-size':13,'text-anchor':'middle'});
+        add(root,'line',{x1:140,y1:70,x2:500,y2:340,stroke:'#ef765f','stroke-width':4,'stroke-dasharray':'9 7'});text(root,278,142,'√3 · BODY',{fill:'#ef765f','font-size':13,'text-anchor':'middle'});
+        add(root,'rect',{x:548,y:88,width:66,height:132,fill:'none',stroke:'#89c997','stroke-width':3});add(root,'line',{x1:548,y1:220,x2:614,y2:88,stroke:'#89c997','stroke-width':3});
+        text(root,581,238,'1 × 2',{fill:'#89c997','text-anchor':'middle'});text(root,581,258,'√5 / φ SIDECAR',{fill:'#89c997','font-size':11,'text-anchor':'middle'});
+      }
+      if(carrierView==='orientation'){
+        add(root,'ellipse',{cx:360,cy:220,rx:112,ry:42,fill:'none',stroke:'#ef9fca','stroke-width':4,transform:'rotate(11 360 220)'});
+        add(root,'ellipse',{cx:360,cy:220,rx:54,ry:116,fill:'none',stroke:'#70d9e8','stroke-width':4,transform:'rotate(-24 360 220)'});
+        add(root,'line',{x1:244,y1:220,x2:476,y2:220,stroke:'#ef765f','stroke-width':3});add(root,'line',{x1:360,y1:98,x2:360,y2:342,stroke:'#89c997','stroke-width':3});
+        add(root,'circle',{cx:360,cy:220,r:12,fill:'#e6bd67'});text(root,360,45,'LOCAL VIEW TILT · 11°',{fill:'#e6bd67','font-size':14,'text-anchor':'middle'});text(root,360,392,'R ∈ SO(3) · ORIENTATION ONLY',{fill:'#ef9fca','text-anchor':'middle'});
+      }
+      if(carrierView==='passage'){
+        add(root,'path',{d:'M 150 82 L 354 126 L 354 324 L 230 330 L 230 140 Z',fill:'#4588d7',opacity:.18});
+        add(root,'path',{d:'M 366 126 L 492 132 L 492 330 L 366 324 Z',fill:'#ef765f',opacity:.16});
+        add(root,'line',{x1:360,y1:104,x2:360,y2:346,stroke:'#89c997','stroke-width':10});text(root,360,92,'β',{fill:'#89c997','font-size':19,'text-anchor':'middle'});
+        add(root,'rect',{x:344,y:194,width:32,height:56,rx:5,fill:'#70d9e8',opacity:.65,stroke:'#f4f0e5','stroke-width':2});text(root,360,188,'C',{fill:'#70d9e8','font-size':16,'text-anchor':'middle'});
+        text(root,274,252,'A',{fill:'#70a9e8','font-size':24,'text-anchor':'middle'});text(root,446,252,'B',{fill:'#ef9a8a','font-size':24,'text-anchor':'middle'});
+        add(root,'path',{d:'M 274 250 C 300 158, 420 158, 446 250 C 420 316, 300 316, 274 250',fill:'none',stroke:'#ef9fca','stroke-width':5});
+        add(root,'path',{d:'M 286 228 L 274 250 L 300 252',fill:'none',stroke:'#ef9fca','stroke-width':4});
+        text(root,360,158,'H · ROUTE',{fill:'#ef9fca','text-anchor':'middle'});text(root,580,326,'G · BACKGROUND',{fill:'#aeb5b6','text-anchor':'middle'});text(root,360,392,'RETURN · SAME ADDRESS / HISTORY HELD',{fill:'#e6bd67','text-anchor':'middle'});
+      }
+      text(root,62,392,'ONE CARRIER',{fill:'#70d9e8','font-size':12});
+    }
+
+    let ratioN=2,seamIndex=0,seamCut=1,seamLift=false;
+    function renderSeamFlow(){
+      const values=[11,12,13,12,11],states=['HOME','RISE +1','APEX','FALL −1','HOME′ / ρ=0'];
+      $('ratioOut').textContent=`1 : ${ratioN} : 1`;$('returnStateOut').textContent=states[seamIndex];$('seamCutOut').textContent=seamCut===1?'/':'\\';$('seamLevelOut').textContent=seamLift?'LIFTED':'INNER';
+      $('seamFormula').innerHTML=`1:${ratioN}:1 → total ${ratioN+2}<br>6 + [5,6,7,6,5] → [11,12,13,12,11]`;
+      document.querySelectorAll('[data-ratio-n]').forEach(button=>button.setAttribute('aria-pressed',String(+button.dataset.ratioN===ratioN)));
+      $('seamSlash').setAttribute('aria-pressed',String(seamCut===-1));$('seamLift').setAttribute('aria-pressed',String(seamLift));
+      const root=$('seamFlowSvg');root.replaceChildren();
+      const barX=68,barY=38,barW=584,barH=58,total=ratioN+2,leftW=barW/total,midW=barW*ratioN/total;
+      add(root,'rect',{x:barX,y:barY,width:leftW,height:barH,fill:'#4588d7',opacity:.72});
+      add(root,'rect',{x:barX+leftW,y:barY,width:midW,height:barH,fill:'#89c997',opacity:.34});
+      add(root,'rect',{x:barX+leftW+midW,y:barY,width:leftW,height:barH,fill:'#ef765f',opacity:.72});
+      [barX,barX+leftW,barX+leftW+midW,barX+barW].forEach(x=>add(root,'line',{x1:x,y1:barY,x2:x,y2:barY+barH,stroke:'#f4f0e5','stroke-width':2}));
+      text(root,barX+leftW/2,73,'1',{fill:'#f4f0e5','font-size':18,'text-anchor':'middle'});text(root,barX+leftW+midW/2,73,String(ratioN),{fill:'#89c997','font-size':22,'text-anchor':'middle'});text(root,barX+leftW+midW+leftW/2,73,'1',{fill:'#f4f0e5','font-size':18,'text-anchor':'middle'});
+      text(root,360,118,`BOOK / GAP · 1 : ${ratioN} : 1 · TOTAL ${ratioN+2}`,{fill:'#e6bd67','text-anchor':'middle'});
+      const xs=[100,230,360,490,620],ys=[194,166,138,166,194];
+      add(root,'polyline',{points:xs.map((x,i)=>`${x},${ys[i]}`).join(' '),fill:'none',stroke:'#ef9fca','stroke-width':5,'stroke-linejoin':'round'});
+      xs.forEach((x,i)=>{const active=i===seamIndex;add(root,'circle',{cx:x,cy:ys[i],r:active?13:8,fill:active?'#ef4f45':'#071014',stroke:active?'#f4f0e5':'#ef9fca','stroke-width':active?3:2});text(root,x,ys[i]-18,String(values[i]),{fill:active?'#f4f0e5':'#aeb5b6','font-size':14,'text-anchor':'middle'});text(root,x,226,`s${i}`,{fill:active?'#ef765f':'#52656a','font-size':11,'text-anchor':'middle'});});
+      text(root,360,246,'11 → 12 → 13 → 12 → 11',{fill:'#f4f0e5','text-anchor':'middle'});
+      const liftY=seamLift?-18:0,cx=360,cy=326+liftY,size=92,off=38;
+      add(root,'rect',{x:cx-size/2,y:cy-size/2,width:size,height:size,fill:'#4588d7',opacity:.13,stroke:'#70d9e8','stroke-width':3});
+      add(root,'rect',{x:cx-size/2-off,y:cy-size/2-off,width:size,height:size,fill:'none',stroke:'#70d9e8','stroke-width':2});
+      [[cx-size/2,cy-size/2,cx-size/2-off,cy-size/2-off],[cx+size/2,cy-size/2,cx+size/2-off,cy-size/2-off],[cx+size/2,cy+size/2,cx+size/2-off,cy+size/2-off],[cx-size/2,cy+size/2,cx-size/2-off,cy+size/2-off]].forEach(p=>add(root,'line',{x1:p[0],y1:p[1],x2:p[2],y2:p[3],stroke:'#70d9e8','stroke-width':2}));
+      add(root,'line',{x1:cx,y1:cy-size/2,x2:cx,y2:cy+size/2,stroke:'#52656a','stroke-width':2});add(root,'line',{x1:cx-size/2,y1:cy,x2:cx+size/2,y2:cy,stroke:'#52656a','stroke-width':2});
+      const d=seamCut===1?`M ${cx-size/2} ${cy+size/2} L ${cx+size/2} ${cy-size/2}`:`M ${cx-size/2} ${cy-size/2} L ${cx+size/2} ${cy+size/2}`;
+      add(root,'path',{d,fill:'none',stroke:'#e6bd67','stroke-width':5});
+      add(root,'circle',{cx,cy,r:9,fill:'#ef4f45',stroke:'#f4f0e5','stroke-width':2});
+      text(root,cx-24,cy-24,'QII',{fill:'#aeb5b6','font-size':10,'text-anchor':'middle'});text(root,cx+24,cy-24,'QI',{fill:'#aeb5b6','font-size':10,'text-anchor':'middle'});text(root,cx-24,cy+29,'QIII',{fill:'#aeb5b6','font-size':10,'text-anchor':'middle'});text(root,cx+24,cy+29,'QIV',{fill:'#aeb5b6','font-size':10,'text-anchor':'middle'});
+      text(root,154,318,'π · ANGLE SCALE',{fill:'#e6bd67'});text(root,154,340,'eⁱᶿ · ROTATION',{fill:'#70d9e8'});text(root,154,362,'φ · RATIO ONLY',{fill:'#89c997'});
+      text(root,566,310,'√2 · FACE',{fill:'#70d9e8','text-anchor':'middle'});text(root,566,332,'√3 · BODY',{fill:'#ef9fca','text-anchor':'middle'});text(root,566,354,'√4 · SCALE',{fill:'#e6bd67','text-anchor':'middle'});text(root,566,376,'√5 · 1×2',{fill:'#89c997','text-anchor':'middle'});
+      text(root,360,407,`LOKI COORDINATES · ${seamLift?'LIFTED VIEW':'INNER VIEW'} · CUT ${seamCut===1?'/':'\\'}`,{fill:'#ef765f','text-anchor':'middle'});
+    }
+
+    const elevatorPrimes={6:13,7:17,8:19};
+    let elevatorBand=6;
+    function renderElevator(){
+      const frame=+$('elevatorFrame').value,amplitude=+$('elevatorAmplitude').value/100,angle=frame*Math.PI/2,position=Math.cos(angle);
+      const frameNames=['HIGH','MID / FALL','LOW','MID / RISE','HIGH / RETURN'],directions=['HELD / TURN','FALLING','HELD / TURN','RISING','HELD / TURN'];
+      $('elevatorFrameOut').textContent=`t${frame} · ${frameNames[frame]}`;$('elevatorAmplitudeOut').textContent=`${fmt(amplitude,2)} view`;
+      $('elevatorBandOut').textContent=String(elevatorBand);$('elevatorPrimeOut').textContent=`p${String(elevatorBand).split('').map(d=>'₀₁₂₃₄₅₆₇₈₉'[+d]).join('')} = ${elevatorPrimes[elevatorBand]}`;
+      $('elevatorDirectionOut').textContent=directions[frame];$('elevatorReturnOut').textContent=frame===0?'HOME':frame===4?'HOME′ / ρ=0':'OUT / HISTORY';
+      document.querySelectorAll('[data-elevator-band]').forEach(button=>button.setAttribute('aria-pressed',String(+button.dataset.elevatorBand===elevatorBand)));
+      const root=$('elevatorSvg');root.replaceChildren(),xs=[190,360,530],bands=[6,7,8],carY=210-position*110*amplitude;
+      text(root,360,30,'2×3 = 6  →  7  →  2³ = 8',{fill:'#e6bd67','font-size':16,'text-anchor':'middle'});
+      bands.forEach((band,i)=>{
+        const x=xs[i],active=band===elevatorBand,color=active?'#ef765f':i===1?'#89c997':'#4588d7';
+        add(root,'rect',{x:x-44,y:62,width:88,height:300,rx:8,fill:'#09151a',stroke:active?'#ef765f':'#284047','stroke-width':active?3:2});
+        add(root,'circle',{cx:x,cy:72,r:15,fill:'none',stroke:'#e6bd67','stroke-width':4});
+        add(root,'line',{x1:x,y1:87,x2:x,y2:carY-22,stroke:'#e6bd67','stroke-width':3});
+        add(root,'rect',{x:x-28,y:carY-22,width:56,height:44,rx:6,fill:color,opacity:active?.95:.42,stroke:active?'#f4f0e5':'none','stroke-width':2});
+        text(root,x,carY+5,`n${band}`,{fill:'#f4f0e5','font-size':14,'text-anchor':'middle'});
+        text(root,x,388,`p${band} = ${elevatorPrimes[band]}`,{fill:color,'font-size':13,'text-anchor':'middle'});
+        [0,1,2,3,4].forEach(t=>{const y=210-Math.cos(t*Math.PI/2)*110*amplitude;add(root,'circle',{cx:x+36,cy:y,r:t===frame?5:2.5,fill:t===frame?'#ef4f45':'#52656a'});});
+        if(active){add(root,'circle',{cx:x,cy:carY-50,r:15,fill:'#ef4f45',stroke:'#f4f0e5','stroke-width':2});add(root,'path',{d:`M ${x-4} ${carY-35} L ${x} ${carY-28} L ${x+4} ${carY-35} Z`,fill:'#ef4f45'});}
+      });
+      add(root,'path',{d:`M ${xs[0]} ${carY} C 260 ${carY-35}, 290 ${carY+35}, ${xs[1]} ${carY} C 430 ${carY-35}, 460 ${carY+35}, ${xs[2]} ${carY}`,fill:'none',stroke:'#ef9fca','stroke-width':3,'stroke-dasharray':'8 6'});
+      text(root,360,410,`SNAPSHOT t${frame} · zₙ = n + ${fmt(amplitude,2)} cos(2πt/4) · ${directions[frame]}`,{fill:'#70d9e8','text-anchor':'middle'});
+    }
+
+    let shadowView='both';
+    function renderShadowProjection(){
+      const n=+$('shadowAddress').value,r7=n%7,r11=n%11;
+      $('shadowAddressOut').textContent=`n = ${n}`;$('shadowMod7Out').textContent=String(r7);$('shadowMod11Out').textContent=String(r11);$('shadowCrtOut').textContent=`${n} mod 77`;
+      document.querySelectorAll('[data-shadow-view]').forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.shadowView===shadowView)));
+      const root=$('shadowSvg');root.replaceChildren(),localOpacity=shadowView==='both'||shadowView==='local'?1:.14,globalOpacity=shadowView==='both'||shadowView==='global'?1:.14;
+      text(root,175,36,'SMALL SHADOW · πlocal(X)',{fill:'#70d9e8','font-size':14,'text-anchor':'middle',opacity:localOpacity});
+      text(root,535,36,'BIG SHADOW · πglobal(X)',{fill:'#e6bd67','font-size':14,'text-anchor':'middle',opacity:globalOpacity});
+      const lx=82,ly=92,ls=186,lo=40;
+      add(root,'rect',{x:lx,y:ly,width:ls,height:ls,fill:'#4588d7',opacity:.08*localOpacity,stroke:'#70d9e8','stroke-width':3});add(root,'rect',{x:lx+lo,y:ly-lo,width:ls,height:ls,fill:'none',stroke:'#70d9e8','stroke-width':2,opacity:localOpacity});
+      [[lx,ly,lx+lo,ly-lo],[lx+ls,ly,lx+ls+lo,ly-lo],[lx+ls,ly+ls,lx+ls+lo,ly+ls-lo],[lx,ly+ls,lx+lo,ly+ls-lo]].forEach(p=>add(root,'line',{x1:p[0],y1:p[1],x2:p[2],y2:p[3],stroke:'#70d9e8','stroke-width':2,opacity:localOpacity}));
+      const localX=lx+18+(ls-36)*(r7/6),localY=ly+18+(ls-36)*(1-r11/10);
+      add(root,'path',{d:`M ${lx+ls/2} ${ly+ls/2} Q ${lx+ls*.72} ${ly+ls*.35}, ${localX} ${localY}`,fill:'none',stroke:'#ef9fca','stroke-width':4,opacity:localOpacity});
+      add(root,'circle',{cx:localX,cy:localY,r:10,fill:'#ef4f45',stroke:'#f4f0e5','stroke-width':2,opacity:localOpacity});
+      text(root,175,314,`(${r7}/6, ${r11}/10) · NORMALIZED`,{fill:'#70d9e8','text-anchor':'middle',opacity:localOpacity});
+      const gx=408,gy=66,cw=36,ch=27;
+      for(let row=0;row<11;row++)for(let col=0;col<7;col++)add(root,'rect',{x:gx+col*cw,y:gy+row*ch,width:cw-3,height:ch-3,fill:row===r11&&col===r7?'#ef4f45':'#4588d7',opacity:row===r11&&col===r7?globalOpacity:.12*globalOpacity,stroke:row===r11&&col===r7?'#f4f0e5':'#284047','stroke-width':row===r11&&col===r7?2:1});
+      text(root,gx-18,gy+r11*ch+18,`r₁₁=${r11}`,{fill:'#e6bd67','font-size':11,'text-anchor':'end',opacity:globalOpacity});text(root,gx+r7*cw+16,gy+11*ch+18,`r₇=${r7}`,{fill:'#e6bd67','font-size':11,'text-anchor':'middle',opacity:globalOpacity});
+      add(root,'path',{d:'M 306 180 C 336 154, 364 154, 394 180 M 380 168 L 394 180 L 378 188',fill:'none',stroke:'#89c997','stroke-width':3});
+      text(root,350,142,'SAME X',{fill:'#89c997','text-anchor':'middle'});
+      text(root,360,392,`ADDRESS ${n} · (${r7} mod 7, ${r11} mod 11) · UNIQUE mod 77`,{fill:'#f4f0e5','text-anchor':'middle'});
+      text(root,360,413,'SAME SOURCE · DIFFERENT SHADOW',{fill:'#ef765f','text-anchor':'middle'});
+    }
+
+    let counterliftForceView=false;
+    function renderCounterlift(){
+      const p=+$('counterliftPosition').value/100,ribs=+$('counterliftRibs').value,blue=.5+.35*p,red=.5-.35*p;
+      $('counterliftPositionOut').textContent=`${p>=0?'+':''}${fmt(p,2)}`;$('counterliftRibsOut').textContent=`${ribs} ribs`;
+      $('counterliftBlueOut').textContent=`${fmt(blue,2)} H`;$('counterliftRedOut').textContent=`${fmt(red,2)} H`;$('counterliftSumOut').textContent=`${fmt(blue+red,2)} H`;
+      $('counterliftForces').setAttribute('aria-pressed',String(counterliftForceView));
+      const root=$('counterliftSvg');root.replaceChildren(),leftX=210,rightX=510,top=68,bottom=350,blueY=bottom-blue*230,redY=bottom-red*230;
+      add(root,'rect',{x:76,y:42,width:568,height:326,rx:12,fill:'#09151a',stroke:'#52656a','stroke-width':2});
+      for(let i=0;i<ribs;i++){
+        const y=76+i*(260/(ribs-1));
+        add(root,'line',{x1:96,y1:y,x2:324,y2:y,stroke:'#284047','stroke-width':2});add(root,'line',{x1:396,y1:y,x2:624,y2:y,stroke:'#284047','stroke-width':2});
+      }
+      [leftX,rightX].forEach(x=>{add(root,'line',{x1:x-58,y1:60,x2:x-58,y2:350,stroke:'#70d9e8','stroke-width':3});add(root,'line',{x1:x+58,y1:60,x2:x+58,y2:350,stroke:'#70d9e8','stroke-width':3});add(root,'circle',{cx:x,cy:top,r:24,fill:'#071014',stroke:'#e6bd67','stroke-width':4});});
+      add(root,'path',{d:`M ${leftX} ${blueY-27} V ${top} C ${leftX} 34, ${rightX} 34, ${rightX} ${top} V ${redY-27}`,fill:'none',stroke:'#e6bd67','stroke-width':4});
+      add(root,'rect',{x:leftX-42,y:blueY-27,width:84,height:54,rx:7,fill:'#4588d7',stroke:'#f4f0e5','stroke-width':2});
+      add(root,'rect',{x:rightX-42,y:redY-27,width:84,height:54,rx:7,fill:'#ef765f',stroke:'#f4f0e5','stroke-width':2});
+      text(root,leftX,blueY+5,'BLUE · B',{fill:'#f4f0e5','font-size':13,'text-anchor':'middle'});text(root,rightX,redY+5,'RED · R',{fill:'#f4f0e5','font-size':13,'text-anchor':'middle'});
+      const crack=[];for(let y=72,i=0;y<=350;y+=24,i++)crack.push(`${360+(i%2?9:-9)},${y}`);
+      add(root,'polyline',{points:crack.join(' '),fill:'none',stroke:'#ef9fca','stroke-width':4});
+      add(root,'rect',{x:348,y:188,width:24,height:50,rx:5,fill:'#89c997',opacity:.75});text(root,360,180,'β / GAP',{fill:'#89c997','font-size':12,'text-anchor':'middle'});
+      add(root,'path',{d:`M 280 ${blueY} H 326 M 314 ${blueY-8} L 326 ${blueY} L 314 ${blueY+8} M 440 ${redY} H 394 M 406 ${redY-8} L 394 ${redY} L 406 ${redY+8}`,fill:'none',stroke:'#f4f0e5','stroke-width':2});
+      if(counterliftForceView){
+        add(root,'line',{x1:leftX,y1:blueY-30,x2:leftX,y2:blueY-78,stroke:'#89c997','stroke-width':4});add(root,'path',{d:`M ${leftX-8} ${blueY-66} L ${leftX} ${blueY-78} L ${leftX+8} ${blueY-66}`,fill:'none',stroke:'#89c997','stroke-width':3});
+        add(root,'line',{x1:leftX,y1:blueY+30,x2:leftX,y2:blueY+70,stroke:'#ef765f','stroke-width':4});add(root,'path',{d:`M ${leftX-8} ${blueY+58} L ${leftX} ${blueY+70} L ${leftX+8} ${blueY+58}`,fill:'none',stroke:'#ef765f','stroke-width':3});
+        add(root,'line',{x1:leftX-44,y1:blueY,x2:leftX-82,y2:blueY,stroke:'#e6bd67','stroke-width':3});add(root,'path',{d:`M ${leftX-70} ${blueY-7} L ${leftX-82} ${blueY} L ${leftX-70} ${blueY+7}`,fill:'none',stroke:'#e6bd67','stroke-width':3});
+        add(root,'line',{x1:leftX+44,y1:blueY,x2:leftX+82,y2:blueY,stroke:'#e6bd67','stroke-width':3});add(root,'path',{d:`M ${leftX+70} ${blueY-7} L ${leftX+82} ${blueY} L ${leftX+70} ${blueY+7}`,fill:'none',stroke:'#e6bd67','stroke-width':3});
+        text(root,leftX+14,blueY-72,'Tᵧ',{fill:'#89c997','font-size':12});text(root,leftX+14,blueY+68,'mg',{fill:'#ef765f','font-size':12});text(root,leftX-92,blueY-10,'Tlat',{fill:'#e6bd67','font-size':10});text(root,leftX+92,blueY-10,'Tlat',{fill:'#e6bd67','font-size':10,'text-anchor':'end'});text(root,leftX,blueY+5,'M',{fill:'#f4f0e5','font-size':15,'text-anchor':'middle'});
+        text(root,360,330,'ΣFᵧ = Tᵧ − mg = Maᵧ',{fill:'#89c997','font-size':12,'text-anchor':'middle'});text(root,360,350,'Tlat,L + Tlat,R = 0 · symmetric case',{fill:'#e6bd67','font-size':10,'text-anchor':'middle'});
+      }
+      text(root,180,392,`xB = ${fmt(blue,2)} H`,{fill:'#70d9e8','text-anchor':'middle'});text(root,360,392,'RIB CAGE · SHARED YARD',{fill:'#aeb5b6','text-anchor':'middle'});text(root,540,392,`xR = ${fmt(red,2)} H`,{fill:'#ef765f','text-anchor':'middle'});
+    }
+
+    const geoMarkers=[
+      {id:'roedelheim',name:'Rödelheim · Frankfurt',lat:50.124,lon:8.607,type:'reference'},
+      {id:'brandenburg',name:'Brandenburger Tor · Berlin',lat:52.5163,lon:13.3777,type:'reference'},
+      {id:'red-square',name:'Roter Platz · Moskau',lat:55.7539,lon:37.6208,type:'reference'},
+      {id:'tiananmen',name:'Tian’anmen · Beijing',lat:39.9055,lon:116.3976,type:'reference'},
+      {id:'liberty',name:'Freiheitsstatue · New York Harbor',lat:40.6892,lon:-74.0445,type:'reference'},
+      {id:'washington',name:'Washington, D.C.',lat:38.9072,lon:-77.0369,type:'reference'},
+      {id:'giza',name:'Giza',lat:29.9792,lon:31.1342,type:'constellation'},
+      {id:'prague',name:'Prag',lat:50.0755,lon:14.4378,type:'constellation'},
+      {id:'tel-aviv',name:'Tel Aviv',lat:32.0853,lon:34.7818,type:'constellation'},
+      {id:'jerusalem',name:'Jerusalem',lat:31.7683,lon:35.2137,type:'constellation'},
+      {id:'budapest',name:'Budapest',lat:47.4979,lon:19.0402,type:'constellation'},
+      {id:'rome',name:'Rom',lat:41.9028,lon:12.4964,type:'constellation'},
+      {id:'paris',name:'Paris',lat:48.8566,lon:2.3522,type:'constellation'},
+      {id:'london',name:'London',lat:51.5074,lon:-0.1278,type:'constellation'},
+      {id:'madrid',name:'Madrid',lat:40.4168,lon:-3.7038,type:'constellation'},
+      {id:'lisbon',name:'Lissabon',lat:38.7223,lon:-9.1393,type:'constellation'},
+      {id:'cairo',name:'Kairo',lat:30.0444,lon:31.2357,type:'constellation'},
+      {id:'asmara',name:'Asmara',lat:15.3229,lon:38.9251,type:'constellation'},
+      {id:'addis',name:'Addis Ababa',lat:8.9806,lon:38.7578,type:'constellation'},
+      {id:'mumbai',name:'Mumbai / Bombay',lat:19.076,lon:72.8777,type:'constellation'},
+      {id:'saigon',name:'Ho-Chi-Minh-Stadt / Saigon',lat:10.8231,lon:106.6297,type:'constellation'},
+      {id:'visoko',name:'Visoko · Bosnien',lat:43.9889,lon:18.1781,type:'constellation'},
+      {id:'mostar',name:'Mostar',lat:43.3438,lon:17.8078,type:'constellation'},
+      {id:'siroki',name:'Široki Brijeg',lat:43.3829,lon:17.5924,type:'constellation'},
+      {id:'hainan',name:'Hainan',lat:19.2,lon:109.7,type:'constellation'},
+      {id:'hobart',name:'Hobart · Indiana',lat:41.5323,lon:-87.255,type:'constellation'},
+      {id:'mekong',name:'Mekong-Delta',lat:10.0,lon:105.8,type:'constellation'},
+      {id:'sachsenhausen',name:'Sachsenhausen · Frankfurt',lat:50.105,lon:8.69,type:'constellation'},
+      {id:'iceland',name:'Reykjavík / Island',lat:64.1466,lon:-21.9426,type:'constellation'},
+      {id:'dead-sea',name:'Totes Meer',lat:31.5,lon:35.5,type:'constellation'},
+      {id:'con-dao',name:'Côn Đảo',lat:8.683,lon:106.6,type:'constellation'},
+      {id:'philippines',name:'Manila / Philippinen',lat:14.5995,lon:120.9842,type:'constellation'},
+      {id:'wellington',name:'Wellington / Neuseeland',lat:-41.2866,lon:174.7756,type:'constellation'}
+    ];
+    let yardView='format',morseGap=1;
+    function renderFormatYard(){
+      const yards=+$('yardLength').value/100,meters=yards*.9144;
+      $('yardLengthOut').textContent=`${fmt(yards,2)} yd`;$('meterLengthOut').textContent=`${fmt(meters,4)} m`;$('morseGapOut').textContent=`${morseGap} unit${morseGap===1?'':'s'}`;
+      $('placeMarkerControl').hidden=yardView!=='geo';
+      $('placeMarkerOut').textContent=yardView==='geo'?geoMarkers.find(p=>p.id===$('placeMarkerSelect').value).name:'—';
+      $('yardAxisOut').textContent=yardView==='geo'?'E / W · 0°':yardView==='gap'?'NADIR · 0 · ZENITH':'0 · GAP';
+      $('formatDeltaOut').textContent=yardView==='format'?'+5,9 / +17,6 mm':'VIEW / HELD';
+      document.querySelectorAll('[data-yard-view]').forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.yardView===yardView)));
+      document.querySelectorAll('[data-morse-gap]').forEach(button=>button.setAttribute('aria-pressed',String(+button.dataset.morseGap===morseGap)));
+      const root=$('formatYardSvg');root.replaceChildren();
+      if(yardView==='format'){
+        $('yardFormula').innerHTML='A4 = 210 × 297 mm<br>US Letter = 215,9 × 279,4 mm';
+        const scale=.88,cx=360,cy=205,a4w=210*scale,a4h=297*scale,lw=215.9*scale,lh=279.4*scale;
+        add(root,'rect',{x:cx-lw/2,y:cy-lh/2,width:lw,height:lh,fill:'#ef765f',opacity:.09,stroke:'#ef765f','stroke-width':4});
+        add(root,'rect',{x:cx-a4w/2,y:cy-a4h/2,width:a4w,height:a4h,fill:'#4588d7',opacity:.10,stroke:'#70d9e8','stroke-width':4});
+        add(root,'rect',{x:cx-52,y:cy-52,width:104,height:104,fill:'none',stroke:'#e6bd67','stroke-width':3,'stroke-dasharray':'9 6',transform:`rotate(45 ${cx} ${cy})`});
+        add(root,'line',{x1:cx,y1:42,x2:cx,y2:365,stroke:'#52656a','stroke-width':1.5});add(root,'line',{x1:222,y1:cy,x2:498,y2:cy,stroke:'#52656a','stroke-width':1.5});
+        text(root,242,52,'A4 · 210 × 297',{fill:'#70d9e8'});text(root,478,374,'LETTER · 215,9 × 279,4',{fill:'#ef765f','text-anchor':'end'});
+        text(root,360,198,'□ / ◇',{fill:'#e6bd67','font-size':22,'text-anchor':'middle'});text(root,360,224,'CENTER HELD',{fill:'#aeb5b6','font-size':11,'text-anchor':'middle'});
+        text(root,360,405,'LETTER +5,9 mm WIDTH · A4 +17,6 mm HEIGHT',{fill:'#f4f0e5','text-anchor':'middle'});
+      }
+      if(yardView==='geo'){
+        const selected=geoMarkers.find(p=>p.id===$('placeMarkerSelect').value),mapX=lon=>54+(lon+180)/360*612,mapY=lat=>340-(lat+60)/135*292;
+        $('yardFormula').innerHTML=`${selected.lat>=0?'+':''}${fmt(selected.lat,4)}° lat · ${selected.lon>=0?'+':''}${fmt(selected.lon,4)}° lon<br>orientation anchor · not a field relation`;
+        add(root,'rect',{x:54,y:48,width:612,height:292,rx:8,fill:'#09151a',stroke:'#52656a','stroke-width':2});
+        [-120,-60,0,60,120].forEach(lon=>{const x=mapX(lon);add(root,'line',{x1:x,y1:48,x2:x,y2:340,stroke:lon===0?'#89c997':'#284047','stroke-width':lon===0?2:1,'stroke-dasharray':lon===0?'8 7':'4 8'});text(root,x,360,`${lon>0?'+':''}${lon}°`,{fill:'#aeb5b6','font-size':9,'text-anchor':'middle'});});
+        [-30,0,30,60].forEach(lat=>{const y=mapY(lat);add(root,'line',{x1:54,y1:y,x2:666,y2:y,stroke:lat===0?'#e6bd67':'#284047','stroke-width':lat===0?2:1,'stroke-dasharray':lat===0?'8 7':'4 8'});text(root,48,y+3,`${lat>0?'+':''}${lat}°`,{fill:'#aeb5b6','font-size':9,'text-anchor':'end'});});
+        geoMarkers.forEach(p=>{const active=p.id===selected.id,x=mapX(p.lon),y=mapY(p.lat),color=p.type==='reference'?'#70d9e8':'#ef9fca';add(root,'circle',{cx:x,cy:y,r:active?9:3.5,fill:active?'#ef765f':color,opacity:active?1:.62,stroke:active?'#f4f0e5':'none','stroke-width':active?2:0});});
+        const sx=mapX(selected.lon),sy=mapY(selected.lat),labelX=Math.min(548,Math.max(170,sx)),labelY=sy<88?sy+34:sy-22;
+        add(root,'line',{x1:sx,y1:sy,x2:labelX,y2:labelY+5,stroke:'#ef765f','stroke-width':2});
+        text(root,labelX,labelY,selected.name.toUpperCase(),{fill:'#f4f0e5','font-size':11,'text-anchor':'middle'});
+        text(root,labelX,labelY+17,`${selected.lat>=0?'+':''}${fmt(selected.lat,3)}° · ${selected.lon>=0?'+':''}${fmt(selected.lon,3)}°`,{fill:'#e6bd67','font-size':10,'text-anchor':'middle'});
+        text(root,58,30,'WGS-84-ORIENTIERUNG · APPROXIMATE ANCHORS',{fill:'#70d9e8','font-size':10});text(root,662,30,'● REFERENCE  ·  ● OWNER CONSTELLATION',{fill:'#aeb5b6','font-size':9,'text-anchor':'end'});
+        text(root,360,398,'PLACE ≠ PATH ≠ FIELD · A LINE BETWEEN MARKERS IS A DECLARED RELATION',{fill:'#e6bd67','text-anchor':'middle'});
+      }
+      if(yardView==='gap'){
+        $('yardFormula').innerHTML='Morse timing = 1 : 3 : 7<br>mark and gap are typed separately';
+        const unit=24,start=74,y=112,sequence=[{n:1,t:'·'},{n:1,g:true},{n:3,t:'—'},{n:morseGap,g:true},{n:1,t:'·'},{n:7,g:true},{n:3,t:'—'}];let x=start;
+        sequence.forEach(s=>{if(s.g){add(root,'rect',{x,y:y-18,width:s.n*unit,height:36,fill:'#89c997',opacity:.14});text(root,x+s.n*unit/2,y+42,String(s.n),{fill:'#89c997','text-anchor':'middle'});}else{add(root,'rect',{x,y:y-10,width:s.n*unit,height:20,rx:s.n===1?10:2,fill:s.n===1?'#70d9e8':'#ef765f'});text(root,x+s.n*unit/2,y-24,s.t,{fill:'#f4f0e5','font-size':18,'text-anchor':'middle'});}x+=s.n*unit;});
+        text(root,360,178,`SELECTED GAP · ${morseGap} UNIT${morseGap===1?'':'S'}`,{fill:'#e6bd67','text-anchor':'middle'});
+        const keys=[['1','2','3'],['4','V·5','6'],['7','8','9'],['#','0 / Ø','*']],kw=74,kh=38,kx=249,ky=210;
+        keys.forEach((row,r)=>row.forEach((label,c)=>{const active=label==='V·5'||label==='0 / Ø';add(root,'rect',{x:kx+c*kw,y:ky+r*kh,width:kw-6,height:kh-6,rx:5,fill:active?'#89c997':'#12242a',opacity:active?.55:1,stroke:'#284047'});text(root,kx+c*kw+(kw-6)/2,ky+r*kh+22,label,{fill:active?'#f4f0e5':'#aeb5b6','text-anchor':'middle'});}));
+        text(root,360,386,'1–4 · V(5) · 6–9 · # 0 *',{fill:'#70d9e8','text-anchor':'middle'});text(root,360,408,'THE PAUSE IS PART OF THE CODE',{fill:'#ef765f','text-anchor':'middle'});
+      }
+    }
+
+    let nexitView='both',nexitDirection=1;
+    function renderNexit(){
+      const raw=+$('nexitStep').value,step=nexitDirection===1?raw:(5-raw)%5;
+      const states=[
+        {short:'ROOT',state:'ROOT / SOURCE',carrier:'RED + BLACK ROOT',expression:'POTENTIAL'},
+        {short:'MATERIA',state:'RED MATERIA',carrier:'ROOT / MEMORY',expression:'STORED'},
+        {short:'NEXIT',state:'NEXIT BOUNDARY',carrier:'PASSAGE / SELECTED',expression:'THRESHOLD'},
+        {short:'NEON',state:'WHITE / NEON',carrier:'SIGNAL / EMISSION',expression:'VISIBLE'},
+        {short:'RETURN',state:'GREY RETURN',carrier:'RESIDUAL / MEMORY',expression:'ROOT′'}
+      ],s=states[step];
+      $('nexitStepOut').textContent=`s${step} · ${s.short}`;$('nexitStateOut').textContent=s.state;$('nexitCarrierOut').textContent=s.carrier;$('nexitExpressionOut').textContent=s.expression;
+      $('nexitGateOut').textContent=step===2?'NEXIT / OPEN':'NEXIT / HELD';
+      $('nexitDirection').textContent=nexitDirection===1?'Forward →':'← Reverse';$('nexitDirection').setAttribute('aria-pressed',String(nexitDirection===-1));
+      document.querySelectorAll('[data-nexit-view]').forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.nexitView===nexitView)));
+      const root=$('nexitSvg');root.replaceChildren(),orderOpacity=nexitView==='both'||nexitView==='order'?1:.12,motionOpacity=nexitView==='both'||nexitView==='motion'?1:.12;
+      const nodes=[
+        {x:360,y:166,label:'ROOT / SOURCE',level:0,color:'#52656a'},
+        {x:264,y:116,label:'BLACK ROOT',level:1,color:'#aeb5b6'},
+        {x:456,y:116,label:'RED MATERIA',level:1,color:'#ef765f'},
+        {x:360,y:68,label:'NEXIT',level:2,color:'#89c997'},
+        {x:270,y:24,label:'WHITE / NEON',level:3,color:'#70d9e8'},
+        {x:450,y:24,label:'GREY / RETURN',level:4,color:'#aeb5b6'}
+      ];
+      [[0,1],[0,2],[1,3],[2,3],[3,4],[3,5]].forEach(([a,b])=>add(root,'line',{x1:nodes[a].x,y1:nodes[a].y-10,x2:nodes[b].x,y2:nodes[b].y+10,stroke:'#52656a','stroke-width':2,opacity:orderOpacity}));
+      nodes.forEach((n,i)=>{const active=(step===0&&i===0)||(step===1&&(i===1||i===2))||(step===2&&i===3)||(step===3&&i===4)||(step===4&&i===5);add(root,'circle',{cx:n.x,cy:n.y,r:active?12:8,fill:active?n.color:'#071014',stroke:n.color,'stroke-width':active?3:2,opacity:orderOpacity});text(root,n.x,n.y+(i<4?24:-16),n.label,{fill:active?'#f4f0e5':n.color,'font-size':10,'text-anchor':'middle',opacity:orderOpacity});});
+      text(root,70,30,'HASSE · ORDER / NO CYCLE',{fill:'#e6bd67','font-size':11,opacity:orderOpacity});
+
+      const passageY=244;
+      add(root,'path',{d:'M 82 268 C 126 230, 150 226, 198 252 M 82 276 C 130 250, 160 258, 198 252',fill:'none',stroke:'#aeb5b6','stroke-width':5,'stroke-linecap':'round',opacity:motionOpacity});
+      add(root,'path',{d:'M 82 216 C 126 246, 154 224, 198 252',fill:'none',stroke:'#ef765f','stroke-width':7,'stroke-linecap':'round',opacity:motionOpacity});
+      for(let i=0;i<6;i++)add(root,'path',{d:`M ${92+i*18} ${276-i*7} l ${-12-i*2} ${20+i*4}`,fill:'none',stroke:i%2?'#ef765f':'#52656a','stroke-width':3,opacity:motionOpacity});
+      add(root,'path',{d:'M 205 252 C 252 212, 286 212, 326 244',fill:'none',stroke:'#ef765f','stroke-width':6,opacity:motionOpacity});
+      add(root,'rect',{x:337,y:193,width:46,height:112,rx:14,fill:'#70d9e8',opacity:step===2?.48:.13,stroke:'#89c997','stroke-width':3});
+      add(root,'path',{d:'M 360 190 L 350 214 L 370 232 L 348 252 L 372 272 L 358 306',fill:'none',stroke:'#f4f0e5','stroke-width':step===2?7:3,opacity:motionOpacity});
+      add(root,'path',{d:'M 394 252 C 438 212, 478 216, 518 248',fill:'none',stroke:step>=3?'#70d9e8':'#52656a','stroke-width':6,opacity:motionOpacity});
+      add(root,'circle',{cx:550,cy:238,r:28,fill:step===3?'#f4f0e5':'#071014',stroke:'#70d9e8','stroke-width':4,opacity:motionOpacity});
+      add(root,'circle',{cx:610,cy:272,r:23,fill:step===4?'#aeb5b6':'#071014',stroke:'#aeb5b6','stroke-width':3,opacity:motionOpacity});
+      text(root,138,205,'TA · I / GEN / SENG',{fill:'#ef765f','font-size':10,'text-anchor':'middle',opacity:motionOpacity});text(root,138,310,'OWNER SOUND MAP',{fill:'#aeb5b6','font-size':10,'text-anchor':'middle',opacity:motionOpacity});
+      text(root,360,180,step===2?'WELCOME / OPEN':'NEXIT / HELD',{fill:'#89c997','font-size':11,'text-anchor':'middle',opacity:motionOpacity});text(root,550,282,'WHITE / NEON',{fill:'#70d9e8','font-size':10,'text-anchor':'middle',opacity:motionOpacity});text(root,610,310,'GREY',{fill:'#aeb5b6','font-size':10,'text-anchor':'middle',opacity:motionOpacity});
+
+      const cx=360,cy=354,r=42;
+      add(root,'circle',{cx,cy,r,fill:'none',stroke:'#e6bd67','stroke-width':3,opacity:motionOpacity});
+      const wheelPoints=[];for(let i=0;i<5;i++){const a=(-90+i*72)*Math.PI/180,x=cx+r*Math.cos(a),y=cy+r*Math.sin(a);wheelPoints.push([x,y]);add(root,'circle',{cx:x,cy:y,r:i===step?8:4,fill:i===step?'#ef765f':'#071014',stroke:i===step?'#f4f0e5':'#e6bd67','stroke-width':2,opacity:motionOpacity});text(root,x,y+18,`s${i}`,{fill:i===step?'#f4f0e5':'#aeb5b6','font-size':9,'text-anchor':'middle',opacity:motionOpacity});}
+      const head=nexitDirection===1?wheelPoints[1]:wheelPoints[4];add(root,'path',{d:nexitDirection===1?`M ${head[0]-14} ${head[1]-4} L ${head[0]} ${head[1]} L ${head[0]-6} ${head[1]+13}`:`M ${head[0]+14} ${head[1]-4} L ${head[0]} ${head[1]} L ${head[0]+6} ${head[1]+13}`,fill:'none',stroke:'#e6bd67','stroke-width':3,opacity:motionOpacity});
+      text(root,86,398,'THE ORDER DOES NOT TURN',{fill:'#70d9e8','font-size':11,opacity:orderOpacity});text(root,634,398,'THE CARRIER TURNS',{fill:'#ef765f','font-size':11,'text-anchor':'end',opacity:motionOpacity});
+    }
+
+    const fieldVehicleStations=[
+      {label:'FIELD',quantity:'E / B',operation:'CONFIGURE'},
+      {label:'POTENTIAL',quantity:'U = Δφ',operation:'DIFFERENCE'},
+      {label:'CURRENT',quantity:'I = dQ/dt',operation:'TRANSPORT'},
+      {label:'ENERGY',quantity:'S / P',operation:'TRANSFER'},
+      {label:'COUPLING',quantity:'M / κ',operation:'LINK'},
+      {label:'CONVERSION',quantity:'τ / F',operation:'TRANSFORM'},
+      {label:'CONTROL',quantity:'δ / v',operation:'ORIENT'}
+    ];
+    let fieldVehicleView='spine';
+    function renderFieldVehicle(){
+      const step=+$('fieldVehicleStep').value,station=fieldVehicleStations[step];
+      $('fieldVehicleStepOut').textContent=`s${step} · ${station.label}`;$('fieldVehicleQuantityOut').textContent=station.quantity;$('fieldVehicleOperationOut').textContent=station.operation;
+      const applicationNames={spine:'PHYSICS SPINE',coil:'TESLA COIL',vise:'VISE / SCHRAUBSTOCK',vehicle:'VEHICLE / CONTROL'};
+      $('fieldVehicleApplicationOut').textContent=applicationNames[fieldVehicleView];
+      document.querySelectorAll('[data-field-vehicle-view]').forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.fieldVehicleView===fieldVehicleView)));
+      const formulas={spine:'FIELD → POTENTIAL → CURRENT → ENERGY FLOW<br>→ COUPLING → CONVERSION → CONTROL / MOTION',coil:'Vₛ/Vₚ ≈ Nₛ/Nₚ &nbsp; · &nbsp; f₀ = 1/(2π√LC)<br>ideal relations · coupled resonant circuits',vise:'rotation θ → spindle translation x<br>geometry + friction + frame → clamping force',vehicle:'power path: source → transmission → wheel<br>control path: driver → steering → orientation'};
+      $('fieldVehicleFormula').innerHTML=formulas[fieldVehicleView];
+      const root=$('fieldVehicleSvg');root.replaceChildren(),xs=[54,156,258,360,462,564,666],y=76;
+      add(root,'line',{x1:54,y1:y,x2:666,y2:y,stroke:'#284047','stroke-width':4});
+      xs.forEach((x,i)=>{const active=i===step,color=active?'#ef765f':i<4?'#70d9e8':'#e6bd67';if(i<xs.length-1)add(root,'path',{d:`M ${x+18} ${y-7} L ${x+30} ${y} L ${x+18} ${y+7}`,fill:'none',stroke:'#52656a','stroke-width':2});add(root,'circle',{cx:x,cy:y,r:active?13:8,fill:active?color:'#071014',stroke:color,'stroke-width':active?3:2});text(root,x,110,fieldVehicleStations[i].label,{fill:active?'#f4f0e5':'#aeb5b6','font-size':9,'text-anchor':'middle'});});
+      text(root,54,34,'PHYSICS SPINE',{fill:'#e6bd67','font-size':11});text(root,666,34,`ACTIVE · ${station.quantity}`,{fill:'#ef765f','font-size':11,'text-anchor':'end'});
+      add(root,'rect',{x:42,y:132,width:636,height:230,rx:12,fill:'#09151a',stroke:'#284047','stroke-width':2});
+      if(fieldVehicleView==='spine'){
+        add(root,'rect',{x:90,y:164,width:16,height:130,rx:3,fill:'#e6bd67'});add(root,'rect',{x:218,y:164,width:16,height:130,rx:3,fill:'#70d9e8'});
+        for(let yy=184;yy<286;yy+=24){add(root,'line',{x1:112,y1:yy,x2:210,y2:yy,stroke:'#70d9e8','stroke-width':2});add(root,'path',{d:`M 198 ${yy-5} L 210 ${yy} L 198 ${yy+5}`,fill:'none',stroke:'#70d9e8','stroke-width':2});}
+        add(root,'path',{d:'M 248 228 C 284 186, 322 186, 354 228 S 424 270, 460 228',fill:'none',stroke:'#ef9fca','stroke-width':5});
+        add(root,'circle',{cx:515,cy:228,r:48,fill:'none',stroke:'#e6bd67','stroke-width':5});add(root,'circle',{cx:515,cy:228,r:12,fill:'#e6bd67'});
+        for(let a=0;a<8;a++){const p=a*Math.PI/4;add(root,'line',{x1:515+14*Math.cos(p),y1:228+14*Math.sin(p),x2:515+44*Math.cos(p),y2:228+44*Math.sin(p),stroke:'#e6bd67','stroke-width':3});}
+        add(root,'path',{d:'M 565 228 H 635 M 620 216 L 635 228 L 620 240',fill:'none',stroke:'#89c997','stroke-width':4});
+        text(root,162,322,'E / U',{fill:'#70d9e8','text-anchor':'middle'});text(root,354,322,'I / S',{fill:'#ef9fca','text-anchor':'middle'});text(root,515,322,'CONVERT',{fill:'#e6bd67','text-anchor':'middle'});text(root,625,322,'MOTION',{fill:'#89c997','text-anchor':'middle'});
+      }
+      if(fieldVehicleView==='coil'){
+        for(let i=0;i<6;i++)add(root,'ellipse',{cx:218,cy:190+i*22,rx:62,ry:14,fill:'none',stroke:'#e6bd67','stroke-width':4});
+        for(let i=0;i<10;i++)add(root,'ellipse',{cx:456,cy:158+i*16,rx:42,ry:10,fill:'none',stroke:'#70d9e8','stroke-width':3});
+        add(root,'path',{d:'M 270 242 C 326 176, 364 174, 412 224',fill:'none',stroke:'#ef9fca','stroke-width':5,'stroke-dasharray':'8 7'});
+        add(root,'path',{d:'M 456 144 L 490 120 L 476 102 L 520 78 L 506 60',fill:'none',stroke:'#f4f0e5','stroke-width':4});
+        add(root,'line',{x1:156,y1:328,x2:518,y2:328,stroke:'#52656a','stroke-width':2});
+        text(root,218,352,'PRIMARY · LₚCₚ',{fill:'#e6bd67','text-anchor':'middle'});text(root,456,352,'SECONDARY · LₛCₛ',{fill:'#70d9e8','text-anchor':'middle'});text(root,586,186,'FF',{fill:'#ef765f','font-size':22,'text-anchor':'middle'});text(root,586,210,'OWNER CODE / OPEN',{fill:'#aeb5b6','font-size':10,'text-anchor':'middle'});
+      }
+      if(fieldVehicleView==='vise'){
+        add(root,'path',{d:'M 116 166 V 326 H 580 V 166 M 116 326 H 580',fill:'none',stroke:'#70d9e8','stroke-width':12,'stroke-linejoin':'round'});
+        add(root,'rect',{x:176,y:186,width:34,height:106,fill:'#e6bd67'});add(root,'rect',{x:486,y:186,width:34,height:106,fill:'#e6bd67'});add(root,'rect',{x:210,y:210,width:276,height:58,rx:6,fill:'#ef765f',opacity:.32,stroke:'#ef765f','stroke-width':3});
+        add(root,'line',{x1:78,y1:238,x2:176,y2:238,stroke:'#f4f0e5','stroke-width':8});add(root,'line',{x1:72,y1:200,x2:72,y2:276,stroke:'#89c997','stroke-width':8,'stroke-linecap':'round'});
+        for(let x=92;x<172;x+=16)add(root,'path',{d:`M ${x} 228 l 12 20`,fill:'none',stroke:'#e6bd67','stroke-width':2});
+        add(root,'path',{d:'M 224 238 H 470 M 238 226 L 224 238 L 238 250 M 456 226 L 470 238 L 456 250',fill:'none',stroke:'#f4f0e5','stroke-width':3});
+        text(root,72,182,'HANDLE',{fill:'#89c997','text-anchor':'middle'});text(root,130,218,'SPINDLE',{fill:'#e6bd67','text-anchor':'middle'});text(root,348,202,'WORKPIECE / CARRIER',{fill:'#ef765f','text-anchor':'middle'});text(root,348,354,'FRAME HOLDS THE COUNTERFORCE',{fill:'#70d9e8','text-anchor':'middle'});
+      }
+      if(fieldVehicleView==='vehicle'){
+        add(root,'rect',{x:184,y:158,width:352,height:170,rx:48,fill:'#4588d7',opacity:.13,stroke:'#70d9e8','stroke-width':4});
+        [[220,176],[500,176],[220,310],[500,310]].forEach(([x,yy])=>{add(root,'circle',{cx:x,cy:yy,r:25,fill:'#071014',stroke:'#e6bd67','stroke-width':5});add(root,'circle',{cx:x,cy:yy,r:7,fill:'#e6bd67'});});
+        add(root,'circle',{cx:360,cy:218,r:34,fill:'none',stroke:'#89c997','stroke-width':5});add(root,'circle',{cx:360,cy:218,r:8,fill:'#89c997'});add(root,'line',{x1:360,y1:218,x2:360,y2:188,stroke:'#89c997','stroke-width':4});add(root,'line',{x1:360,y1:218,x2:334,y2:235,stroke:'#89c997','stroke-width':4});add(root,'line',{x1:360,y1:218,x2:386,y2:235,stroke:'#89c997','stroke-width':4});
+        add(root,'circle',{cx:360,cy:278,r:18,fill:'#ef765f'});text(root,360,283,'V',{fill:'#f4f0e5','text-anchor':'middle'});
+        add(root,'path',{d:'M 248 244 H 314 M 406 244 H 472',fill:'none',stroke:'#ef9fca','stroke-width':5});add(root,'path',{d:'M 456 234 L 472 244 L 456 254',fill:'none',stroke:'#ef9fca','stroke-width':3});
+        text(root,360,146,'1 STEERING WHEEL + 1 DRIVER',{fill:'#89c997','text-anchor':'middle'});text(root,360,354,'4 CONTACTS · POWER PATH ≠ CONTROL PATH',{fill:'#e6bd67','text-anchor':'middle'});text(root,92,246,'HG',{fill:'#aeb5b6','font-size':18,'text-anchor':'middle'});text(root,628,246,'STDW',{fill:'#aeb5b6','font-size':18,'text-anchor':'middle'});
+      }
+      text(root,360,402,'SAME ARCHITECTURAL GRAMMAR · DIFFERENT MECHANISMS',{fill:'#ef765f','text-anchor':'middle'});
+    }
+
+    ['voltage','gap','epsilon'].forEach(id=>$(id).addEventListener('input',renderCapacitor));
+    ['phaseA','phaseB','coupling'].forEach(id=>$(id).addEventListener('input',renderPhase));
+    ['step','shear'].forEach(id=>$(id).addEventListener('input',renderGeometry));
+    ['stormField','stormPerturbation'].forEach(id=>$(id).addEventListener('input',renderLightning));
+    ['archOpen','archShift'].forEach(id=>$(id).addEventListener('input',renderArchitecture));
+    document.querySelectorAll('[data-arch-view]').forEach(button=>button.addEventListener('click',()=>{architectureView=button.dataset.archView;renderArchitecture()}));
+    $('boundaryDepth').addEventListener('input',renderBoundaryVisual);
+    document.querySelectorAll('[data-boundary-view]').forEach(button=>button.addEventListener('click',()=>{boundaryView=button.dataset.boundaryView;renderBoundaryVisual()}));
+    $('eventPosition').addEventListener('input',renderEventVisual);
+    document.querySelectorAll('[data-event-view]').forEach(button=>button.addEventListener('click',()=>{eventView=button.dataset.eventView;renderEventVisual()}));
+    document.querySelectorAll('[data-thread-view]').forEach(button=>button.addEventListener('click',()=>{threadView=button.dataset.threadView;renderThreadVisual()}));
+    $('zetaFrame').addEventListener('input',renderZetaVisual);
+    document.querySelectorAll('[data-zeta-mode]').forEach(button=>button.addEventListener('click',()=>{zetaMode=button.dataset.zetaMode;renderZetaVisual()}));
+    document.querySelectorAll('[data-zeta-phase]').forEach(button=>button.addEventListener('click',()=>{zetaPhase=button.dataset.zetaPhase;renderZetaVisual()}));
+    ['temperatureState','distanceState'].forEach(id=>$(id).addEventListener('input',renderMeasureMap));
+    document.querySelectorAll('[data-carrier-view]').forEach(button=>button.addEventListener('click',()=>{carrierView=button.dataset.carrierView;renderCarrierViews()}));
+    document.querySelectorAll('[data-ratio-n]').forEach(button=>button.addEventListener('click',()=>{ratioN=+button.dataset.ratioN;renderSeamFlow()}));
+    $('seamMinus').addEventListener('click',()=>{seamIndex=Math.max(0,seamIndex-1);renderSeamFlow()});
+    $('seamPlus').addEventListener('click',()=>{seamIndex=Math.min(4,seamIndex+1);renderSeamFlow()});
+    $('seamSlash').addEventListener('click',()=>{seamCut*=-1;renderSeamFlow()});
+    $('seamLift').addEventListener('click',()=>{seamLift=!seamLift;renderSeamFlow()});
+    document.querySelectorAll('[data-elevator-band]').forEach(button=>button.addEventListener('click',()=>{elevatorBand=+button.dataset.elevatorBand;renderElevator()}));
+    ['elevatorFrame','elevatorAmplitude'].forEach(id=>$(id).addEventListener('input',renderElevator));
+    document.querySelectorAll('[data-shadow-view]').forEach(button=>button.addEventListener('click',()=>{shadowView=button.dataset.shadowView;renderShadowProjection()}));
+    $('shadowAddress').addEventListener('input',renderShadowProjection);
+    ['counterliftPosition','counterliftRibs'].forEach(id=>$(id).addEventListener('input',renderCounterlift));
+    $('counterliftForces').addEventListener('click',()=>{counterliftForceView=!counterliftForceView;renderCounterlift()});
+    document.querySelectorAll('[data-yard-view]').forEach(button=>button.addEventListener('click',()=>{yardView=button.dataset.yardView;renderFormatYard()}));
+    document.querySelectorAll('[data-morse-gap]').forEach(button=>button.addEventListener('click',()=>{morseGap=+button.dataset.morseGap;renderFormatYard()}));
+    $('yardLength').addEventListener('input',renderFormatYard);
+    $('placeMarkerSelect').addEventListener('change',renderFormatYard);
+    document.querySelectorAll('[data-nexit-view]').forEach(button=>button.addEventListener('click',()=>{nexitView=button.dataset.nexitView;renderNexit()}));
+    $('nexitStep').addEventListener('input',renderNexit);
+    $('nexitDirection').addEventListener('click',()=>{nexitDirection*=-1;renderNexit()});
+    document.querySelectorAll('[data-field-vehicle-view]').forEach(button=>button.addEventListener('click',()=>{fieldVehicleView=button.dataset.fieldVehicleView;renderFieldVehicle()}));
+    $('fieldVehicleStep').addEventListener('input',renderFieldVehicle);
+    renderCapacitor();renderPhase();renderGeometry();renderLightning();renderArchitecture();renderBoundaryVisual();renderEventVisual();renderThreadVisual();renderZetaVisual();renderMeasureMap();renderCarrierViews();renderSeamFlow();renderElevator();renderShadowProjection();renderCounterlift();renderFormatYard();renderNexit();renderFieldVehicle();
+  </script>
+</body>
+</html>

@@ -34,3 +34,10 @@ decision.
   `R107` on `Z/280Z`, midpoint return and place lift. It reuses the existing
   `NEXAH_A0_ORIENTATION_CONTROLLER_BENCH` identity; it is not accepted,
   registered, deployed or public.
+- `A0_FIELD_NOTE_II_ARCHITECTURE_OF_DIFFERENCE_2026-11-13.html` — internal
+  notes-only collection surface for field, potential, phase, boundary,
+  geometry and flow, with four local explanatory laboratories, a bounded
+  Maxwell/Poynting and domain-atlas reading, and an explicit IEEE Geometry V1
+  non-identity boundary. It reuses the existing A0 field-note frame and
+  read-only IEEE sources; it is not a new Study, Finding, Navigator relation,
+  registered reader surface, deployment or publication.
