@@ -47,11 +47,15 @@ assert.match(navigation, /"entry": "A0_NEXAH_APERTURE_JOURNEY\.html#a0-human-ove
 assert.match(navigation, /readerLanes\.forEach\(\(lane\) =>/);
 assert.doesNotMatch(navigation, /channel=human#a0-current-state/);
 assert.match(navigation, /\["A0_GAME_OF_WORLDS\.html", "GAME OF WORLDS"/);
+assert.match(navigation, /MIWA_PINEAP_AN_DROMEDA\.html", "MIWA · SKY THREADS"/);
 assert.doesNotMatch(runtime, /data-current-filter="human"/);
 assert.match(runtime, /initialChannel === "human"/);
 assert.match(runtime, /searchParams\.delete\("channel"\)/);
 assert.match(runtime, /A0_NEXAH_APERTURE_JOURNEY\.html#a0-human-overview/);
 assert.match(humanView, /id="a0-human-overview"/);
+assert.match(humanView, /<b>6 Zugänge<\/b>/);
+assert.match(humanView, /02 · Human Observatory · Staging/);
+assert.match(humanView, /MIWA ist der stärkste Human-Observatory-Demonstrator/);
 assert.match(humanView, /A0 \/ NEXAHEDRON Delta/);
 assert.match(humanView, /id="human-view"/);
 

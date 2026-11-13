@@ -78,10 +78,13 @@ assert.match(a0ScienceEntry,/id="science-status-plate"/);
 assert.ok(scienceEntry.includes('id="who-we-are"') && scienceEntry.includes('href="/about/"'),'public Science identifies NEXAH and links its canonical About page');
 assert.ok(scienceEntry.includes('https://github.com/Scarabaeus1031/NEXAH') && scienceEntry.includes('https://github.com/Scarabaeus1031/NEXAH-Science-Lab'),'public Science exposes Core and Laboratory repositories');
 assert.doesNotMatch(scienceEntry,/href="(?:A0_|index\.html|NEXAH_C_CONNECT)/,'public Science does not route into A0 yet');
-for (const [name, source] of [['NEXAH_SCIENCE.html',scienceEntry],['A0_SCIENTIFIC_POSITION_REPORT.html',fs.readFileSync(path.join(root,'A0_SCIENTIFIC_POSITION_REPORT.html'),'utf8')]]) {
+for (const [name, source] of [['NEXAH_SCIENCE.html',scienceEntry]]) {
   for (const internal of ['A0_RESEARCH_DESK.html','A0_RESEARCH_BACKLOG.html','A0_BUILDER_LOG.html','A0_LABORATORY.html']) assert.ok(!source.includes(`href="${internal}`),`${name} has no public route into ${internal}`);
   assert.ok(!source.includes('SCIENCE_LAB/NAVIGATION/APP/'),`${name} does not route to the internal Navigator app`);
 }
+const internalPosition = fs.readFileSync(path.join(root,'A0_SCIENTIFIC_POSITION_REPORT.html'),'utf8');
+assert.match(internalPosition,/A0 Science · evidenzgebundener Stand/,'the scientific position report remains an internal A0 assessment surface');
+assert.match(internalPosition,/A0_RESEARCH_DESK\.html/,'the internal position report may return to its owning Science Desk');
 assert.match(fs.readFileSync(path.join(root,'A0_THEORY_STORYBOARD.html'),'utf8'),/<a href="A0_SCIENTIFIC_POSITION_REPORT.html">Science · Scientific Position<\/a>/);
 const manifest = JSON.parse(fs.readFileSync(path.join(root, 'A0_BOOK_MANIFEST.json'), 'utf8'));
 // The ARKADE build-root template is not a source-directory Reader page.
@@ -116,7 +119,8 @@ const scienceLane=lanes.find(l=>l.key==='science');
 assert.equal(scienceLane.entry,'A0_SCIENCE.html#top');
 assert.ok(scienceLane.sections[0].label.startsWith('Wo wir stehen'));
 assert.equal(scienceLane.sections[0].items[0][0],'A0_SCIENTIFIC_POSITION_REPORT.html');
-assert.equal(scienceLane.sections[1].label,'Papers');
+assert.equal(scienceLane.sections[1].label,'Instrumente & interne Kandidaten');
+assert.equal(scienceLane.sections[2].label,'Papers');
 assert.ok(scienceLane.sections.some(section=>section.label.startsWith('A0 NSNavigator')),'Science owns the A0 NSNavigator register lens');
 assert.ok(scienceLane.sections.flatMap(section=>section.items).some(([href])=>href==='A0_DATA_AND_REGISTERS.html#top'),'Science exposes the existing data/register map');
 const internalTargets=new Set(['A0_RESEARCH_DESK.html','A0_F_A0_26_REVIEW_PROBE.html','A0_RESEARCH_BACKLOG.html','A0_BUILDER_LOG.html','A0_LABORATORY.html']);
@@ -194,7 +198,7 @@ for (const action of ['Lesen','Zusammenhänge verstehen','Werkzeuge nutzen','Erg
 assert.doesNotMatch(navigation,/header.after\(primaryNav\)|header.after\(moduleNav\)/,'no additional top-level navigation strips');
 const shared = htmlFiles.filter((name) => fs.readFileSync(path.join(root, name), 'utf8').includes('a0-context-navigation.js'));
 // Newer standalone log/storyboard retain their own controls; explicit tour return is required.
-assert.deepEqual(htmlFiles.filter((name) => !shared.includes(name)).sort(), ['A0_7_11_TYPED_CROSSWALK.html', 'A0_ASSET_INDEX.html', 'A0_CROWN_SHADOW_CONTACT_BENCH.html', 'A0_CURSOR_HANDOFF_CLICKDUMMY.html', 'A0_LOOK_AGAIN_PLAY.html', 'A0_ONE_PULSE_BENCH_MONITOR.html', 'A0_OPIUM.html', 'A0_PENTAGON_BODY_RETURN_GUIDED.html', 'A0_THEORY_STORYBOARD.html', 'A0_TOWER_RETURN_DEMONSTRATOR.html', 'LAB_ORIENTATION_MACHINE.html', 'NEXAH_SCIENCE.html']);
+assert.deepEqual(htmlFiles.filter((name) => !shared.includes(name)).sort(), ['A0_7_11_TYPED_CROSSWALK.html', 'A0_ASSET_INDEX.html', 'A0_CROWN_SHADOW_CONTACT_BENCH.html', 'A0_CURSOR_HANDOFF_CLICKDUMMY.html', 'A0_LOOK_AGAIN_PLAY.html', 'A0_MATROSCHKA_CLUSTER_BRIDGE.html', 'A0_ONE_PULSE_BENCH_MONITOR.html', 'A0_OPIUM.html', 'A0_PENTAGON_BODY_RETURN_GUIDED.html', 'A0_PLATINUM_IRIDIUM_PI_LENS.html', 'A0_THEORY_STORYBOARD.html', 'A0_THREE_MATRIX_HOLONOMY_WORKBENCH.html', 'A0_TOWER_RETURN_DEMONSTRATOR.html', 'LAB_ORIENTATION_MACHINE.html', 'NEXAH_SCIENCE.html']);
 for (const surface of ['A0_BUILDER_LOG.html', 'A0_THEORY_STORYBOARD.html']) {
   assert.ok(fs.readFileSync(path.join(root, surface), 'utf8').includes('href="A0_TOURS.html"'), surface + ' retains an explicit tour return');
 }
@@ -207,5 +211,5 @@ assert.match(livingBlueprint, /a0-context-navigation\.css\?rev=flagship-constell
 assert.match(livingBlueprint, /a0-context-navigation\.js\?rev=flagship-constellation-r1-20261030/);
 
 const human = fs.readFileSync(path.join(root, 'A0_NEXAH_APERTURE_JOURNEY.html'), 'utf8');
-assert.ok(human.includes('id="a0-human-overview"') && human.includes('href="a0-public-arkade-index.html#arkade"') && human.includes('href="A0_LIVING_BLUEPRINT.html#a0-map-home"'), 'A0 Human View retains its inventory, direct play and orientation-map exits');
+assert.ok(human.includes('id="a0-human-overview"') && human.includes('href="../../../SCIENCE_LAB/EXPORTS/MIWA_PINEAP_AN_DROMEDA.html"') && human.includes('href="a0-public-arkade-index.html#arkade"') && human.includes('href="A0_LIVING_BLUEPRINT.html#a0-map-home"'), 'A0 Human View retains its MIWA staging route, inventory, direct play and orientation-map exits');
 console.log(JSON.stringify({ status: 'PASS', registeredReaders: registered.length, sharedNavigationSurfaces: shared.length, standaloneSurfaces: htmlFiles.length - shared.length, allLocalHtmlReachable: htmlFiles.length }, null, 2));

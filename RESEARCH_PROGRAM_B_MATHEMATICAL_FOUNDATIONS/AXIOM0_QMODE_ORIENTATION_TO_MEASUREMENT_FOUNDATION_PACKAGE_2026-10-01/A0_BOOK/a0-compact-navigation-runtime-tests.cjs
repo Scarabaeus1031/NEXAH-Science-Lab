@@ -84,7 +84,7 @@ for(const file of ['index.html','A0_LIVING_BLUEPRINT.html','A0_SCIENTIFIC_POSITI
   ok(showcase.className==='a0-showcase'&&reading.className==='a0-reader-reading','features first and directory last');
   const science=lane.className.endsWith('--science');
   const human=lane.className.endsWith('--human');
-  ok(showcase.children.length===(science?10:builder?4:5),science?'ten curated Science cards including PI Lens, Generation Corner, SCC-003-R1 Review, Red Balloon, Complex Fold and 101 / A0':builder?'four curated Builder entry cards':'five curated Human entry cards');
+  ok(showcase.children.length===(science?10:builder?4:6),science?'ten curated Science cards including PI Lens, Generation Corner, SCC-003-R1 Review, Red Balloon, Complex Fold and 101 / A0':builder?'four curated Builder entry cards':'six curated Human entry cards including MIWA Human Observatory staging');
   for(const card of showcase.children){
    if(/^https?:/.test(card.href))continue;
    const [route,anchor]=card.href.split('#'),page=route.split('?')[0];

@@ -8,6 +8,58 @@ Owning identity: `NEXAH_AX0_QMODE_FOUNDATION_PACKAGE`
 
 Mission Control backlog: `RELATIONAL_IDENTIFIABILITY_UNDER_REPRESENTATION_CHANGE`
 
+<a id="miwa-editorial-priority-20261113"></a>
+
+## Human Owner Editorial Priority — MIWA Sky Threads · 13 November 2026
+
+**Status:** `EDITORIAL PASS 1–4 COMPLETE / SCALE-TIME GATE SPECIFIED / EXISTING ARTIFACT / SOURCE-BOUND / NOT A STUDY / NOT ACTIVE / NO GRAPH DELTA`
+
+The Human Owner places the existing MIWA master at the top of the current
+editorial refinement list. This is an Experience-, reading- and documentation
+priority only. It does not displace the scientific portfolio priority, admit a
+new A0 question, activate a Study, promote a Finding or authorize publication.
+
+**Current baseline:** MIWA now combines the native Milky Way / Pineal Aperture /
+Andromeda carrier view, observer frames, Lantern / Shadow, Distance Threads,
+the Light-Time Ledger, local CSV/JSON import and three bounded Gaia DR3 presets.
+The presets retain source, release, epoch, query fingerprint, distance method,
+uncertainty and claim boundary. The M31 sightline explicitly keeps Gaia rows as
+Milky Way foreground and uses a separately sourced M31 core anchor.
+
+**Ordered editorial TODO:**
+
+1. **Reading entrance — completed:** make `FIELD → APERTURE → RECORD` legible
+   before the controls and expose catalog/provenance state at first glance.
+2. **Preset onboarding — completed:** explain Bright Nearby, Sirius Field and
+   M31 Field at the point of use, including the current boundary of each view.
+3. **Editorial pass — completed:** harmonize German/English microcopy, hierarchy, labels,
+   tooltips, empty states and the relation between Observer Record, Node Record
+   and Light-Time Ledger.
+4. **Responsive pass — completed:** preserve the essential sky, preset and record route on
+   medium and small screens instead of merely hiding the scientific reading
+   surfaces.
+5. **Scale and time gate — specified, not activated:** design — but do not yet claim or activate — a bounded
+   larger-catalog / proper-motion / epoch comparison with performance budget,
+   baseline, uncertainty display and STOP rule.
+6. **A0 Human View staging — completed, local only:** expose the existing MIWA
+   master as `Human Observatory · Staging`, preserve its direct Return to the
+   Human View and keep Science evidence, public projection, push and deployment
+   states unchanged.
+
+**Completion boundary:** editorial work may improve the existing page and its
+local documentation. Any new astronomical inference, catalog membership rule,
+physical entanglement claim, participant/user network, deployment or public
+release requires its own bounded authority and review path.
+
+Existing identities are reused: `ART:MIWA:MAIN` and
+`MOD:OBSERVATORY_MIWA`. New Navigator identity, relation, alias, Study,
+Finding, claim promotion and publication authorization: `0`.
+
+Routes: [MIWA master](../../SCIENCE_LAB/EXPORTS/MIWA_PINEAP_AN_DROMEDA.html) ·
+[Gaia bridge](../../SCIENCE_LAB/EXPORTS/MIWA_GAIA_BRIDGE_README.md) ·
+[Scale + Epoch Design Gate](../../SCIENCE_LAB/EXPORTS/MIWA_SCALE_EPOCH_DESIGN_GATE.md) ·
+[Observer lens](A0_BOOK/A0_NEWTON_GOETHE_OBSERVER_LENS.html#lens).
+
 <a id="a0-bl-056-clp-multiview-return-20261028"></a>
 
 ## A0-BL-056 — CLP Multi-View Return

@@ -56,6 +56,8 @@ assert.ok(html.includes('Schau<br>noch einmal.'));
 assert.ok(html.includes('id="human-route"'));
 assert.ok(html.includes('BEGIN IN THE DARK'));
 assert.ok(html.includes('a0-public-arkade-index.html#arkade'));
+assert.ok(html.includes('../../../SCIENCE_LAB/EXPORTS/MIWA_PINEAP_AN_DROMEDA.html'));
+assert.ok(html.includes('02 · Human Observatory · Staging'));
 assert.ok(html.includes('RAINBOW LIGHT · A HUMAN TOUR'));
 assert.ok(html.includes('Enter a<br>dark room.'));
 assert.ok(html.includes('id="rainbow-light-tour"'));

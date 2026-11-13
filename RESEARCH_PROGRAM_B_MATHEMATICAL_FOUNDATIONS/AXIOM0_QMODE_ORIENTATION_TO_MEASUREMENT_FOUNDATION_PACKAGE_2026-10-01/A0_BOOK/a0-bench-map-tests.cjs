@@ -2,7 +2,7 @@
 const assert=require('node:assert/strict');
 const M=require('./a0-bench-map.js');
 let checks=0;const check=(value,message)=>{assert.ok(value,message);checks++};
-assert.equal(M.VERSION,'1.1.0');checks++;
+assert.equal(M.VERSION,'1.3.0');checks++;
 assert.equal(M.IDENTITY,'NEXAH_A0_ORIENTATION_CONTROLLER_BENCH');checks++;
 assert.equal(M.GROUPS.length,6);checks++;
 check(M.MODULES.length>=20,'complete operational module projection');
@@ -16,8 +16,8 @@ state=M.filterState(state,'VIEW_PROJECTION');assert.equal(state.filter,'VIEW_PRO
 assert.throws(()=>M.filterState(state,'MYSTERY'),/unknown Bench Map filter/);checks++;
 state=M.playbackState(state,{state:'PLAY',stationId:'native-face',target:'nativeFaceBridge',index:2});assert.equal(state.playback.moduleId,'native-face');checks++;
 assert.equal(M.moduleForTarget('systemBinder').id,'binder');checks++;
-for(const id of ['cut-q-lens','joint-control','tesa-router','tube-occupancy','pulse-grammar','clp-guided','va-av','iota23','folded-axis','double18','six-face','iota-tower'])check(Boolean(M.moduleById(id)),'recent Bench module mapped '+id);
-for(const [from,to] of [['cut-q-lens','joint-control'],['joint-control','tesa-router'],['tesa-router','tube-occupancy'],['tube-occupancy','record'],['iota23','iota-tower']])check(M.EDGES.some(edge=>edge.from===from&&edge.to===to),'typed route '+from+' → '+to);
+for(const id of ['cut-q-lens','joint-control','tesa-router','tube-occupancy','pulse-grammar','clp-guided','va-av','iota23','folded-axis','double18','six-face','echo-winding','light-time','iota-tower'])check(Boolean(M.moduleById(id)),'recent Bench module mapped '+id);
+for(const [from,to] of [['cut-q-lens','joint-control'],['joint-control','tesa-router'],['tesa-router','tube-occupancy'],['tube-occupancy','record'],['iota23','iota-tower'],['six-face','echo-winding'],['echo-winding','light-time'],['light-time','record']])check(M.EDGES.some(edge=>edge.from===from&&edge.to===to),'typed route '+from+' → '+to);
 const registry=M.registry();assert.equal(registry.modules.length,M.MODULES.length);checks++;assert.equal(registry.events.playback,'a0:bench-playback');checks++;
 assert.match(registry.boundary,/owns neither Bench state nor playback/);checks++;
 const fs=require('node:fs'),html=fs.readFileSync('A0_ORIENTATION_CONTROLLER_BENCH.html','utf8');

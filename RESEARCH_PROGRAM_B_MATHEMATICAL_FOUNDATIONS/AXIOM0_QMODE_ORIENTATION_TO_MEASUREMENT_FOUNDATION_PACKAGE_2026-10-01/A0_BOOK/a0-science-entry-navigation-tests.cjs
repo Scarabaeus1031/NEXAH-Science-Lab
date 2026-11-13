@@ -9,22 +9,24 @@ const connect = fs.readFileSync(path.join(root, "NEXAH_C_CONNECT.html"), "utf8")
 
 assert.match(navigation, /summary\.setAttribute\("aria-label", laneIsCurrent \? `\$\{lane\.label\} Navigation öffnen`/,
   "the current Science house opens its integrated navigation");
-assert.match(navigation, /if \(!laneIsCurrent && lane\.key !== "builder"\) \{[\s\S]*?if \(lane\.key !== "human"\) window\.location\.href = lane\.entry;/,
-  "an inactive Science house first enters the declared Science start page while Builder keeps its integrated menu");
+assert.match(navigation, /readerLanes\.forEach\(\(lane\) => \{[\s\S]*?const panel = document\.createElement\("div"\);/,
+  "each Reader house exposes its bounded navigation drawer without an implicit redirect");
 assert.match(navigation, /A0 NSNavigator · finden und zuordnen/,
   "Science navigation contains the source-bound data and register section");
-assert.match(navigation, /"entry": "A0_RESEARCH_DESK\.html\?desk=research&rev=currentness-r3-20261031#top"/,
-  "the declared primary Science entry is the full current Science Desk");
+assert.match(navigation, /"entry": "A0_SCIENCE\.html#top"/,
+  "the declared primary Science entry is the internal A0 Science Reader");
+assert.match(navigation, /Intern · Arbeitsbereich[\s\S]*?A0_RESEARCH_DESK\.html/,
+  "the Science Desk remains explicitly separated as an internal work area");
 assert.match(navigation, /A0_SCIENCE\.html#contributions[\s\S]*?Konkrete Beiträge · Reader/,
   "the compact A0 Science edition remains explicitly available as a Reader");
 assert.doesNotMatch(navigation, /nexah-public-connect|connectDot/,
   "the global A0 header does not expose the former ambiguous pink Connect point");
 assert.match(navigation, /header\.replaceChildren\(brand, laneNav, workspaceOverview, overview\)/,
   "the compact header contains no global Connect control");
-assert.match(navigation, /a0-workspace-monogram[^>]*>[\s\S]*?A0[\s\S]*?Control Register/,
-  "the served A0 Control Register replaces the unserved external Mission Control route");
-assert.match(science, /href="A0_SCIENCE\.html" aria-current="page"/,
-  "the local Science start control also returns to the full document start");
+assert.match(navigation, /a0-workspace-monogram[^>]*>TH<[\s\S]*?Mission Control/,
+  "the local Owner workspace keeps a clearly labelled Mission Control return");
+assert.match(science, /id="top"[\s\S]*?href="#overview">Mit dem Überblick beginnen<\/a>/,
+  "the internal Science Reader begins at its document start and leads into the overview");
 assert.doesNotMatch(science, /science-connect-dot|NEXAH_C_CONNECT\.html#scientific-review/,
   "the Science start page no longer duplicates the dedicated C Connect review route");
 assert.match(connect, /class="route route-review" href="#scientific-review"/,
@@ -32,4 +34,4 @@ assert.match(connect, /class="route route-review" href="#scientific-review"/,
 assert.match(connect, /id="scientific-review"/,
   "the Science Connect entry resolves to an existing bounded section");
 
-console.log(JSON.stringify({ status: "PASS", assertions: 12, surface: "NEXAH Science navigation" }, null, 2));
+console.log(JSON.stringify({ status: "PASS", assertions: 13, surface: "NEXAH Science navigation" }, null, 2));

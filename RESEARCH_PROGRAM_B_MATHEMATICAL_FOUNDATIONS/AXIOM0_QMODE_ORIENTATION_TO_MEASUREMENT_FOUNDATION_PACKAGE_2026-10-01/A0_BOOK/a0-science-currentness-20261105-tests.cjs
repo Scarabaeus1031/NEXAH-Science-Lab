@@ -13,11 +13,13 @@ const backlog = read('../24_A0_RESEARCH_BACKLOG_AND_OPEN_JOINTS_2026-10-10.md');
 let checks = 0;
 const check = (condition, message) => { assert.ok(condition, message); checks += 1; };
 
-check(science.includes('Owner Staging · 05.11.2026'), 'science owner-staging date');
-check(science.includes('Currentness Overlay · 5. November 2026'), 'science currentness overlay');
+check(science.includes('Owner Staging · 13.11.2026'), 'science owner-staging date');
+check(science.includes('Currentness Overlay · 13. November 2026'), 'science currentness overlay');
 check(science.includes('25 F-A0 Records · 0 Promotions'), 'science ledger ceiling');
 check(science.includes('140→106') && science.includes('180 Kanten') && science.includes('135 Rekurrenzen'), 'red-balloon bounded return');
 check(science.includes('SOURCE → CARRIER → LENS → INSPECT'), '101 IOI TESSAREC thread');
+check(science.includes('Echo/Winding + Light-Time'), 'latest bounded orientation and measurement returns');
+check(science.includes('A0 internal · no release'), 'A0 remains internal while website projections stay separate');
 check(science.includes('SCIENCE RELEASE READY = NONE'), 'publication boundary');
 check(!science.includes('Owner Staging · 03.11.2026'), 'stale science staging removed');
 
@@ -38,7 +40,8 @@ check(storyboard.includes('Science · Scientific Position'), 'scientific-positio
 check(storyboard.includes('Science · Überblick'), 'science overview navigation');
 
 for (const [document, href] of [
-  [science, 'A0_RESEARCH_DESK.html#science-currentness-20261105'],
+  [science, 'A0_RESEARCH_DESK.html#echo-winding-return-20261113'],
+  [science, 'A0_RESEARCH_DESK.html#light-time-measurement-return-20261113'],
   [storyboard, 'A0_RESEARCH_DESK.html?desk=returns#ioi-tessarec3-a0-binding-return-20261105']
 ]) {
   const [, anchor] = href.split('#');
@@ -46,4 +49,4 @@ for (const [document, href] of [
   check(desk.includes(`id="${anchor}"`), `desk anchor exists ${anchor}`);
 }
 
-console.log(`PASS · ${checks} checks · A0 Science, Desk and Storyboard currentness aligned at 05.11.2026.`);
+console.log(`PASS · ${checks} checks · A0 Science current through 13.11.2026 with the 05.11 Desk/Storyboard baseline preserved.`);

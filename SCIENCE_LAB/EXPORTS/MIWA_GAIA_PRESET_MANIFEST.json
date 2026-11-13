@@ -1,0 +1,50 @@
+{
+  "schema": "nexah.miwa.gaia-preset-manifest/1",
+  "generated_at": "2026-11-13T00:43:08.628559+00:00",
+  "identity_reuse": [
+    "MOD:OBSERVATORY_MIWA",
+    "ART:MIWA:MAIN"
+  ],
+  "authority": false,
+  "graph_delta": 0,
+  "publication_authorized": false,
+  "source_endpoint": "https://gea.esac.esa.int/tap-server/tap/sync",
+  "source_release": "Gaia DR3 / gaiadr3.gaia_source",
+  "source_documentation": "https://www.cosmos.esa.int/web/gaia-users/archive",
+  "distance_rule": "distance_pc = 1000 / parallax_mas after each preset's declared quality cuts",
+  "spectral_rule": "spectral_class is a BP-RP display-color proxy, not a spectroscopic classification",
+  "andromeda_boundary": "Gaia cone rows in the M31 direction remain Milky Way foreground; only the separately sourced M31 core reference uses the Andromeda carrier.",
+  "browser_bundle": "MIWA_GAIA_PRESETS.js",
+  "presets": [
+    {
+      "preset": "bright-nearby",
+      "file": "MIWA_GAIA_BRIGHT_NEARBY.csv",
+      "row_count": 120,
+      "gaia_row_count": 120,
+      "anchor_row_count": 0,
+      "query_id": "GAIA_DR3_F569A66718F46C50",
+      "adql": "SELECT TOP 120 source_id, ra, dec, parallax, parallax_error,\nparallax_over_error, phot_g_mean_mag, bp_rp, ruwe, ref_epoch,\nphot_variable_flag, non_single_star\nFROM gaiadr3.gaia_source\nWHERE parallax > 10\nAND parallax_over_error >= 10\nAND phot_g_mean_mag IS NOT NULL\nAND phot_g_mean_mag <= 8\nAND ruwe < 1.4\nORDER BY phot_g_mean_mag ASC",
+      "boundary": "Inverse-parallax display distance after declared quality cuts; not a complete nearby-star census."
+    },
+    {
+      "preset": "sirius-neighborhood",
+      "file": "MIWA_GAIA_SIRIUS_NEIGHBORHOOD.csv",
+      "row_count": 121,
+      "gaia_row_count": 120,
+      "anchor_row_count": 1,
+      "query_id": "GAIA_DR3_5B35D48B5FD619B0",
+      "adql": "SELECT TOP 120 source_id, ra, dec, parallax, parallax_error,\nparallax_over_error, phot_g_mean_mag, bp_rp, ruwe, ref_epoch,\nphot_variable_flag, non_single_star\nFROM gaiadr3.gaia_source\nWHERE 1 = CONTAINS(\n  POINT('ICRS', ra, dec),\n  CIRCLE('ICRS', 101.28715533, -16.71611586, 5.0)\n)\nAND parallax > 0\nAND parallax_over_error >= 10\nAND phot_g_mean_mag IS NOT NULL\nAND phot_g_mean_mag <= 15\nAND ruwe < 1.4",
+      "boundary": "Gaia quality-cut field around the Sirius direction; proximity on screen is not physical association."
+    },
+    {
+      "preset": "andromeda-field",
+      "file": "MIWA_GAIA_ANDROMEDA_FIELD.csv",
+      "row_count": 121,
+      "gaia_row_count": 120,
+      "anchor_row_count": 1,
+      "query_id": "GAIA_DR3_33167F8B15494E37",
+      "adql": "SELECT TOP 120 source_id, ra, dec, parallax, parallax_error,\nparallax_over_error, phot_g_mean_mag, bp_rp, ruwe, ref_epoch,\nphot_variable_flag, non_single_star\nFROM gaiadr3.gaia_source\nWHERE 1 = CONTAINS(\n  POINT('ICRS', ra, dec),\n  CIRCLE('ICRS', 10.6847083, 41.26875, 2.0)\n)\nAND parallax > 0\nAND parallax_over_error >= 5\nAND phot_g_mean_mag IS NOT NULL\nAND phot_g_mean_mag <= 18\nAND ruwe < 1.4",
+      "boundary": "Gaia sources in the M31 sightline are retained as Milky Way foreground unless a separate membership source says otherwise."
+    }
+  ]
+}

@@ -178,6 +178,21 @@
             "Rödelheim Observatory, Q°-Achse, Five H, Complex Fold, Hof und Generationen · interne, noch nicht publizierte Candidate-Revision"
           ],
           [
+            "A0_PLATINUM_IRIDIUM_PI_LENS.html",
+            "Platinum / Iridium · π Lens",
+            "Interne source-bound Linse für Dual Shell, Möbius-Return, Fourier-Slices und Holonomy"
+          ],
+          [
+            "A0_MATROSCHKA_CLUSTER_BRIDGE.html",
+            "Matroschka Cluster Bridge",
+            "Verschachtelte Carrier und Cluster als begrenztes internes Vergleichsinstrument"
+          ],
+          [
+            "A0_THREE_MATRIX_HOLONOMY_WORKBENCH.html",
+            "Three-Matrix Holonomy Workbench",
+            "Nichtkommutative Matrixfolge und Return als interne mathematische Werkbank"
+          ],
+          [
             "http://127.0.0.1:4328/scc-003-r1/",
             "SCC-003-R1 · Reviewraum (lokal)",
             "Zielroute review.nexah.de · gefrorenes 30-Dateien-Paket · lokales Owner-Staging, nicht publiziert, Reviewer noch offen"
@@ -697,7 +712,9 @@
           "A0_BOUNDARY_GRAPH_DEMONSTRATOR.html",
           "A0_JOINT_APPLICATION_DEMONSTRATOR.html",
           "A0_JARP_CROSS_LENS_EXTENSION.html",
-          "A0_IHARA_HASHIMOTO_CYCLE_BRIDGE.html"
+          "A0_IHARA_HASHIMOTO_CYCLE_BRIDGE.html",
+          "A0_PLATINUM_IRIDIUM_PI_LENS.html",
+          "A0_THREE_MATRIX_HOLONOMY_WORKBENCH.html"
         ]
       },
       {
@@ -716,6 +733,7 @@
           "A0_TESSAREC_BLUE_BODY_LAB.html",
           "A0_BLUE_BODY_DODECA_COUNTERSHOT.html",
           "A0_AXIS08_FOLD_RETURN_SEQUENCER.html",
+          "A0_MATROSCHKA_CLUSTER_BRIDGE.html",
           "A0_AXIAL_CARRIER_ADAPTER_SUITE.html",
           "A0_GAME_4_LIFE_PLUS_1.html",
           "A0_GAME_OF_WORLDS.html",
@@ -870,6 +888,7 @@
   // Each lane gets its own invitation. Human is experience-led; Builder keeps the workshop.
   const humanShowcase = [
     ["A0_NEXAH_APERTURE_JOURNEY.html#a0-human-overview", "A0 HUMAN VIEW", "Bestand, Apps, Experiences, Lesepfade, Szenen und kontrolliertes Delta vor der einzelnen Journey", "nexah", "Start here · Inventory / Delta"],
+    ["../../../SCIENCE_LAB/EXPORTS/MIWA_PINEAP_AN_DROMEDA.html", "MIWA · SKY THREADS", "Human Observatory mit Sternfeld, Apertur, Distanzfäden und quellgebundenem Record; internes Staging, keine astronomische Kopplungsbehauptung", "cells", "HUMAN OBSERVATORY · LOCAL STAGING"],
     ["a0-public-arkade-index.html#arkade", "ARKADE", "ONE PULSE und drei spielbare Welten direkt erleben", "arcade", "Play · Consumer View"],
     ["A0_GAME_OF_WORLDS.html", "GAME OF WORLDS", "Der originale Human-Einstieg in ONE PULSE und die drei spielbaren Welten", "body", "Human Flagship · Original"],
     ["A0_OPIUM.html", "OPIUM / Club", "Club Machine, Relations Player und Control Room als ein bestehendes Erlebnis-Ensemble", "book", "Club · Human Flagship"],
