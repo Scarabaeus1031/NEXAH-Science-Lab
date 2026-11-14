@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>B2 Beta Return — One Frame, Three Feedback Views</title>
+  <style>
+    :root { color-scheme: dark; --ink:#eaf4f5; --muted:#91a9af; --panel:#10222a; --line:#284650; --gold:#f2bd53; --cyan:#4de1e1; --pink:#ef61ce; --red:#ff6c63; }
+    * { box-sizing:border-box; }
+    body { margin:0; background:#07151b; color:var(--ink); font:15px/1.55 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+    main { width:min(1480px, 96vw); margin:auto; padding:34px 0 54px; }
+    header { display:grid; grid-template-columns:1fr auto; gap:28px; align-items:end; border-bottom:1px solid var(--line); padding-bottom:24px; }
+    h1 { margin:0; font:700 clamp(30px,4vw,62px)/1.02 system-ui,sans-serif; letter-spacing:-.04em; }
+    h1 span { color:var(--gold); }
+    .eyebrow { color:var(--cyan); letter-spacing:.16em; text-transform:uppercase; margin-bottom:10px; }
+    .subtitle { max-width:850px; color:var(--muted); font-size:16px; }
+    .formula { border:1px solid var(--line); background:#0a1b22; padding:14px 18px; color:#fff2ca; font-size:17px; white-space:nowrap; }
+    .controls { display:grid; grid-template-columns:repeat(5,minmax(140px,1fr)) auto; gap:12px; margin:24px 0; padding:16px; border:1px solid var(--line); background:#0a1b22; }
+    label { color:var(--muted); font-size:12px; text-transform:uppercase; letter-spacing:.08em; }
+    label span { float:right; color:var(--ink); }
+    input, select, button { width:100%; margin-top:6px; accent-color:var(--gold); }
+    input[type="number"], select, button { min-height:36px; border:1px solid var(--line); background:#102832; color:var(--ink); padding:7px 9px; }
+    button { align-self:end; cursor:pointer; color:#07151b; background:var(--gold); font-weight:800; }
+    .views { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; }
+    article { border:1px solid var(--line); background:var(--panel); min-width:0; }
+    article h2 { margin:0; padding:12px 14px; font:700 16px/1 system-ui,sans-serif; display:flex; justify-content:space-between; }
+    article[data-sign="negative"] h2 { color:var(--cyan); }
+    article[data-sign="zero"] h2 { color:var(--gold); }
+    article[data-sign="positive"] h2 { color:var(--pink); }
+    canvas { display:block; width:100%; aspect-ratio:1.25; background:#050d11; image-rendering:auto; }
+    .metrics { display:grid; grid-template-columns:1fr 1fr; border-top:1px solid var(--line); }
+    .metrics div { padding:10px 12px; }
+    .metrics div + div { border-left:1px solid var(--line); }
+    .metrics b { display:block; font-size:20px; color:var(--ink); }
+    .metrics small { color:var(--muted); }
+    .reading { display:grid; grid-template-columns:1.2fr .8fr; gap:16px; margin-top:16px; }
+    .card { border:1px solid var(--line); background:#0a1b22; padding:18px; }
+    .card h3 { margin:0 0 8px; color:var(--gold); font:700 17px system-ui,sans-serif; }
+    .sequence { display:flex; gap:9px; align-items:center; flex-wrap:wrap; color:var(--muted); }
+    .sequence b { color:var(--ink); border:1px solid var(--line); padding:5px 8px; }
+    .boundary { border-left:3px solid var(--red); }
+    code { color:#fff2ca; }
+    footer { color:var(--muted); margin-top:18px; font-size:12px; }
+    @media (max-width:900px) { header,.reading { grid-template-columns:1fr; } .controls { grid-template-columns:repeat(2,1fr); } .views { grid-template-columns:1fr; } .formula { white-space:normal; } }
+  </style>
+</head>
+<body>
+<main>
+  <header>
+    <div>
+      <div class="eyebrow">A0 · B2 · explanatory mechanism</div>
+      <h1><span>Beta Return</span><br>One Frame, Three Feedback Views</h1>
+      <p class="subtitle">Dieselbe quadratische Iteration wird dreimal gelesen. Nur der lokale Rückführungsparameter <code>β_feedback</code> wechselt sein Vorzeichen. So wird sichtbar, wie Rückbindung eine Passage verändert, ohne den Frame mit dem Weg zu verwechseln.</p>
+    </div>
+    <div class="formula">zₙ₊₁ = zₙ² + c + β_feedback (zₙ − zₙ₋₁)</div>
+  </header>
+
+  <section class="controls" aria-label="Darstellungsparameter">
+    <label>Ansicht<select id="mode"><option value="julia">Julia · c fest</option><option value="mandelbrot">Mandelbrot · c variiert</option></select></label>
+    <label>|β_feedback| <span id="betaValue">0.18</span><input id="beta" type="range" min="0" max="0.6" step="0.01" value="0.18"></label>
+    <label>c · Real<input id="cReal" type="number" min="-2" max="1" step="0.001" value="-0.745"></label>
+    <label>c · Imaginär<input id="cImag" type="number" min="-1.5" max="1.5" step="0.001" value="0.113"></label>
+    <label>Iterationen <span id="iterationValue">90</span><input id="iterations" type="range" min="24" max="180" step="2" value="90"></label>
+    <button id="reset" type="button">Reset</button>
+  </section>
+
+  <section class="views" aria-label="Drei Feedback-Ansichten">
+    <article data-sign="negative"><h2><span>REVERSE</span><span id="labelNegative">β = −0.18</span></h2><canvas id="canvasNegative" width="430" height="344"></canvas><div class="metrics"><div><b id="boundedNegative">—</b><small>bounded share</small></div><div><b id="escapeNegative">—</b><small>mean escape step</small></div></div></article>
+    <article data-sign="zero"><h2><span>REFERENCE</span><span>β = 0</span></h2><canvas id="canvasZero" width="430" height="344"></canvas><div class="metrics"><div><b id="boundedZero">—</b><small>bounded share</small></div><div><b id="escapeZero">—</b><small>mean escape step</small></div></div></article>
+    <article data-sign="positive"><h2><span>FORWARD</span><span id="labelPositive">β = +0.18</span></h2><canvas id="canvasPositive" width="430" height="344"></canvas><div class="metrics"><div><b id="boundedPositive">—</b><small>bounded share</small></div><div><b id="escapePositive">—</b><small>mean escape step</small></div></div></article>
+  </section>
+
+  <section class="reading">
+    <div class="card">
+      <h3>Leseschlüssel</h3>
+      <div class="sequence"><b>c</b> setzt den Frame <span>→</span><b>z</b> durchläuft ihn <span>→</span><b>β_feedback</b> bestimmt, wie die letzte Bewegung zurückwirkt.</div>
+      <p><strong>Mandelbrot:</strong> <code>z₀ = 0</code>, der Pixel variiert <code>c</code> — eine Karte der Frames. <strong>Julia:</strong> <code>c</code> bleibt fest, der Pixel variiert <code>z₀</code> — eine Karte möglicher Passagen innerhalb eines Frames.</p>
+    </div>
+    <div class="card boundary">
+      <h3>Claim boundary</h3>
+      <p>Dies ist eine explorative Rekurrenz und ein Erklärungsinstrument. Sie ist keine neue Naturgleichung und kein Nachweis dafür, dass <em>c</em> physikalisch ein Raumzeit-Grid ist. <code>β_feedback</code> ist hier ein lokaler Parameter und nicht automatisch identisch mit anderen β-/Boundary-Begriffen in A0.</p>
+    </div>
+  </section>
+  <footer>Implementation self-check: β_feedback = 0 reproduces the classical quadratic recurrence; initial feedback is zero when z₀ = z₋₁. Escape radius = 4.</footer>
+</main>
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  const controls = { mode: $("mode"), beta: $("beta"), cReal: $("cReal"), cImag: $("cImag"), iterations: $("iterations") };
+  const views = [
+    { key: "Negative", sign: -1, canvas: $("canvasNegative"), color: [77,225,225] },
+    { key: "Zero", sign: 0, canvas: $("canvasZero"), color: [242,189,83] },
+    { key: "Positive", sign: 1, canvas: $("canvasPositive"), color: [239,97,206] },
+  ];
+  let pending = 0;
+
+  function renderView(view, betaMagnitude, maxIterations, mode, fixedC) {
+    const canvas = view.canvas;
+    const context = canvas.getContext("2d", { alpha: false });
+    const image = context.createImageData(canvas.width, canvas.height);
+    const betaFeedback = view.sign * betaMagnitude;
+    const scale = mode === "julia" ? 1.6 : 1.72;
+    const centerX = mode === "julia" ? 0 : -0.55;
+    let bounded = 0, escaped = 0, escapeTotal = 0;
+
+    for (let py = 0; py < canvas.height; py += 1) {
+      const imaginary = (0.5 - py / canvas.height) * 2 * scale * canvas.height / canvas.width;
+      for (let px = 0; px < canvas.width; px += 1) {
+        const real = centerX + (px / canvas.width - 0.5) * 2 * scale;
+        let cr = mode === "julia" ? fixedC.r : real;
+        let ci = mode === "julia" ? fixedC.i : imaginary;
+        let zr = mode === "julia" ? real : 0;
+        let zi = mode === "julia" ? imaginary : 0;
+        let previousR = zr, previousI = zi, iteration = 0;
+        for (; iteration < maxIterations; iteration += 1) {
+          const nextR = zr * zr - zi * zi + cr + betaFeedback * (zr - previousR);
+          const nextI = 2 * zr * zi + ci + betaFeedback * (zi - previousI);
+          previousR = zr; previousI = zi; zr = nextR; zi = nextI;
+          if (zr * zr + zi * zi > 16) break;
+        }
+        const offset = (py * canvas.width + px) * 4;
+        if (iteration === maxIterations) {
+          bounded += 1;
+          image.data[offset] = 4; image.data[offset + 1] = 12; image.data[offset + 2] = 16;
+        } else {
+          escaped += 1; escapeTotal += iteration;
+          const t = Math.pow(iteration / maxIterations, 0.42);
+          const band = 0.58 + 0.42 * Math.sin(iteration * 0.72) ** 2;
+          image.data[offset] = 5 + view.color[0] * t * band;
+          image.data[offset + 1] = 10 + view.color[1] * t * band;
+          image.data[offset + 2] = 14 + view.color[2] * t * band;
+        }
+        image.data[offset + 3] = 255;
+      }
+    }
+    context.putImageData(image, 0, 0);
+    const total = canvas.width * canvas.height;
+    return { bounded: 100 * bounded / total, escape: escaped ? escapeTotal / escaped : maxIterations };
+  }
+
+  function render() {
+    pending = 0;
+    const betaMagnitude = Number(controls.beta.value);
+    const maxIterations = Number(controls.iterations.value);
+    const mode = controls.mode.value;
+    const fixedC = { r: Number(controls.cReal.value), i: Number(controls.cImag.value) };
+    $("betaValue").textContent = betaMagnitude.toFixed(2);
+    $("iterationValue").textContent = maxIterations;
+    $("labelNegative").textContent = `β = −${betaMagnitude.toFixed(2)}`;
+    $("labelPositive").textContent = `β = +${betaMagnitude.toFixed(2)}`;
+    const results = views.map((view) => renderView(view, betaMagnitude, maxIterations, mode, fixedC));
+    views.forEach((view, index) => {
+      $(`bounded${view.key}`).textContent = `${results[index].bounded.toFixed(2)}%`;
+      $(`escape${view.key}`).textContent = results[index].escape.toFixed(2);
+    });
+  }
+
+  function schedule() { if (!pending) pending = requestAnimationFrame(render); }
+  Object.values(controls).forEach((control) => control.addEventListener("input", schedule));
+  $("reset").addEventListener("click", () => {
+    controls.mode.value = "julia"; controls.beta.value = "0.18"; controls.cReal.value = "-0.745"; controls.cImag.value = "0.113"; controls.iterations.value = "90"; schedule();
+  });
+  render();
+})();
+</script>
+</body>
+</html>
