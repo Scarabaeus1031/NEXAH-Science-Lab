@@ -1,0 +1,25 @@
+const assert = require('node:assert/strict');
+const fs = require('node:fs');
+const path = require('node:path');
+const root = __dirname;
+const read = (name) => fs.readFileSync(path.join(root, name), 'utf8');
+const page = read('A0_FIELD_NOTES.html');
+const desk = read('A0_RESEARCH_DESK.html');
+const story = read('A0_ARCHITECTURE_OF_DIFFERENCE.html');
+
+assert.match(page, /<title>A0 Field Notes — Observation → Difference<\/title>/);
+assert.match(page, /id="observation-note"/);
+assert.match(page, /id="difference-note"/);
+assert.match(page, /Wenn eine Differenz sichtbar geworden ist – was tut sie\?/);
+assert.match(page, /The circle returns\./);
+assert.match(page, /One carrier\. Multiple frames\./);
+assert.match(page, /href="A0_ARCHITECTURE_OF_DIFFERENCE\.html"/);
+assert.match(page, /Δgraph=0/);
+assert.match(desk, /href="A0_FIELD_NOTES\.html#observation-note"/);
+assert.match(desk, /href="A0_FIELD_NOTES\.html#difference-note"/);
+assert.match(desk, /id="field-notes-reading-path-freeze-20261114"/);
+assert.match(desk, /Δgraph=0/);
+assert.match(story, /href="A0_FIELD_NOTES\.html"/);
+assert.match(story, /id="frame-expression"/);
+assert.match(story, /id="mechanism" data-tzl-bridge/);
+console.log('PASS a0-field-notes-reading-path-tests');

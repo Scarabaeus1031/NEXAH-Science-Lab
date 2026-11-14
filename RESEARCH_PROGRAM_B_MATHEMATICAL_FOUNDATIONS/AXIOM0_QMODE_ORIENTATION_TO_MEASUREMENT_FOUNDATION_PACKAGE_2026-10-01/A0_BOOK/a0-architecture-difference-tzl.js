@@ -28,6 +28,16 @@
     function render(){const d=Number(slider.value),ledger=cubeLedger(d);dimension.textContent=d;row.textContent=ledger.shells.join(' : ');total.textContent=ledger.total;normalized.textContent=ledger.normalizedTotal.toFixed(1);signed.textContent=ledger.signed;}
     slider.addEventListener('input',render);render();
   }
-  function mountAll(){document.querySelectorAll('[data-tzl-bridge]').forEach(mount);document.querySelectorAll('[data-cube-ledger]').forEach(mountCubeLedger);}
-  return{TAU,binomial,pascalRow,fibonacci,fibonacciDiagonal,cubeLedger,exactCubeFacts,eulerBridge,audit,mount,mountCubeLedger,mountAll};
+  function mountFrameExpressionJoint(el){
+    const model=el.querySelector('#feJointModel');
+    if(!model)return;
+    el.querySelectorAll('[data-fe-animation]').forEach(button=>button.addEventListener('click',()=>{
+      model.animationName=button.dataset.feAnimation;
+      model.currentTime=0;
+      model.play?.();
+    }));
+    el.querySelector('[data-fe-pause]')?.addEventListener('click',()=>model.pause?.());
+  }
+  function mountAll(){document.querySelectorAll('[data-tzl-bridge]').forEach(mount);document.querySelectorAll('[data-cube-ledger]').forEach(mountCubeLedger);document.querySelectorAll('[data-fe-glb]').forEach(mountFrameExpressionJoint);}
+  return{TAU,binomial,pascalRow,fibonacci,fibonacciDiagonal,cubeLedger,exactCubeFacts,eulerBridge,audit,mount,mountCubeLedger,mountFrameExpressionJoint,mountAll};
 });
