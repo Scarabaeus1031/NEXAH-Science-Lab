@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="description" content="Interne A0 Field Note II über Feld, Potential, Phase, Grenze, Geometrie und Flow — mit begrenzten Leselaboren, Architekturvisuals, historischem Michelson–Morley-Control-Window, Carrier–Gamma–Shadow-Projektionslinse, hydraulischem Field Atlas und IEEE-Rückbindung.">
+  <meta name="description" content="Interne A0 Field Note II über Feld, Potential, Phase, Grenze, Geometrie und Flow — mit begrenzten Leselaboren, Architekturvisuals, historischem Michelson–Morley-Control-Window, Carrier–Gamma–Shadow-Projektionslinse, TZL-01 One Carrier / Three Views, exaktem MOD2501-J⁴-Demonstrator, hydraulischem Field Atlas und IEEE-Rückbindung.">
   <title>NEXAH · FIELD NOTE II · The Architecture of Difference</title>
   <style>
     :root{
@@ -101,10 +101,14 @@
     .source-list{display:grid;grid-template-columns:repeat(2,1fr);gap:.75rem}
     .source-list a{display:block;padding:1rem;border:1px solid var(--line);border-radius:.7rem;text-decoration:none;background:var(--panel)}
     .source-list small{display:block;color:var(--muted);margin-top:.3rem}
+    .j4-proof{display:grid;grid-template-columns:repeat(4,1fr);gap:.55rem;margin-top:.8rem}
+    .j4-proof div{padding:.7rem;border:1px solid var(--line);border-radius:.65rem;background:var(--night);text-align:center}
+    .j4-proof b{display:block;color:var(--gold);font:1rem ui-monospace,SFMono-Regular,Menlo,monospace}
+    .j4-proof small{color:var(--muted)}
     footer{max-width:var(--max);margin:auto;padding:2rem 1.2rem 5rem;color:var(--muted);display:flex;justify-content:space-between;gap:2rem;border-top:1px solid var(--line)}
     @media(max-width:900px){
       .hero{grid-template-columns:1fr}.hero-field{min-height:22rem}.chain{grid-template-columns:repeat(2,1fr)}
-      .card,.card.wide{grid-column:1/-1}.lab-layout{grid-template-columns:1fr}.source-list{grid-template-columns:1fr}
+      .card,.card.wide{grid-column:1/-1}.lab-layout{grid-template-columns:1fr}.source-list{grid-template-columns:1fr}.j4-proof{grid-template-columns:repeat(2,1fr)}
       .joint{grid-template-columns:1fr}.joint .mark{text-align:center;transform:rotate(90deg)}
     }
     @media(max-width:620px){
@@ -118,7 +122,7 @@
   <header class="top">
     <strong>NEXAH · A0 · Field Note II</strong>
     <nav aria-label="Seitennavigation">
-      <a href="#thesis">These</a><a href="#grammar">Grammatik</a><a href="#labs">Leselabore</a><a href="#carrierGammaShadow">γ / Shadow</a><a href="#field-transport">Feldtransport</a><a href="#hydraulic-atlas">Hydraulik</a><a href="#simple-visuals">Visual I/II</a><a href="#ieee">IEEE</a><a href="#ledger">Ledger</a><a href="#sources">Quellen</a>
+      <a href="#thesis">These</a><a href="#grammar">Grammatik</a><a href="#labs">Leselabore</a><a href="#carrierGammaShadow">γ / Shadow</a><a href="#field-transport">Feldtransport</a><a href="#hydraulic-atlas">Hydraulik</a><a href="#simple-visuals">Visual I/II</a><a href="#janus2501">J⁴ / 2501</a><a href="#tzl01">TZL-01</a><a href="#ieee">IEEE</a><a href="#ledger">Ledger</a><a href="#sources">Quellen</a>
     </nav>
   </header>
 
@@ -862,8 +866,98 @@
       <p class="caption"><strong>Visual cue:</strong> 54 Owner-supplied Field-Atlas-, Water-Atlas-, OLS-, ORION-, Chemie-, Cube-, Flow-, Format-, Frame-Audit-, Ortsmarker-, Projektions- und Messsystem-Tafeln, 13. November 2026. Sie werden hier als Kartographie- und Gestaltungsquelle gelesen. Die Visuals sind eigenständige redaktionelle SVG-Konstruktionen; HDL/LDL, planetare Achsen, 5D-/6D-Labels, 7,83-Hz-Labels, Black-/White-Hole-Zuordnungen, Atomdarstellungen, 1:2:1-/3:1:3-Übergänge, nicht-SI-Dimensionstabellen, Hopf-/Torus-/Wellen-Titel, Ortsachsen, Sacred-Node-, Resonanz-, CMB- und Cosmic-Grid-Overlays sowie farbliche Identitäten werden nicht als neue NEXAH-Ergebnisse oder gemeinsame physikalische Abbildung übernommen.</p>
     </section>
 
+    <section id="janus2501">
+      <div class="eyebrow">06 · Exact arithmetic window</div>
+      <h2>Die Grenze trägt eine echte Vierteldrehung.</h2>
+      <p class="lead">Hier passt die Intuition mathematisch exakt — in einem endlichen Ring. Weil <code>2501 = 50² + 1</code>, wirkt Multiplikation mit <code>50</code> modulo <code>2501</code> wie ein diskreter Quarter-Turn: zweimal führt sie zum Gegenpunkt, viermal exakt zurück.</p>
+      <article class="lab" id="janus2501Lab">
+        <header class="lab-head"><div><span class="status">Visual XIV · MOD2501 / J⁴</span><h3>Difference² + keystone → four-quadrant return.</h3></div><span>exhaustively tested · 2501 states</span></header>
+        <div class="lab-layout">
+          <div class="controls">
+            <label>Startadresse x <span><output id="j4SeedOut">1</output></span><input id="j4Seed" type="range" min="1" max="2500" step="1" value="1"></label>
+            <div>
+              <span class="status">Operator clock</span>
+              <div class="mode-row" role="group" aria-label="Schritte des MOD2501-Vierteldrehungsoperators">
+                <button type="button" id="j4Next">J · next quarter</button>
+                <button type="button" id="j4Reset">Return x</button>
+              </div>
+            </div>
+            <dl class="readout" aria-live="polite">
+              <div><dt>Step</dt><dd id="j4StepOut">J⁰ · SOURCE</dd></div>
+              <div><dt>State</dt><dd id="j4StateOut">1</dd></div>
+              <div><dt>CRT · mod 41 | 61</dt><dd id="j4CrtOut">1 | 1</dd></div>
+              <div><dt>Exact relation</dt><dd id="j4RelationOut">x</dd></div>
+            </dl>
+            <code class="formula">2501 = 50² + 1 = 41 × 61<br>J(x) = 50x mod 2501<br>J² = −I &nbsp; · &nbsp; J⁴ = I</code>
+            <div class="j4-proof" aria-label="Vier Quadratwurzeln von minus eins modulo 2501">
+              <div><b>50</b><small>√−1</small></div><div><b>255</b><small>√−1</small></div><div><b>2246</b><small>√−1</small></div><div><b>2451</b><small>√−1</small></div>
+            </div>
+          </div>
+          <div class="stage"><svg id="j4Svg" viewBox="0 0 720 420" role="img" aria-label="Vierstufiger Orbit von x über Jx und minus x zurück zu x modulo 2501, mit 50 mal 50 Raster und separatem Keystone"></svg></div>
+        </div>
+        <p class="boundary"><b>Exakte Grenze:</b> Bewiesen und exhaustiv getestet ist ausschließlich die endliche Arithmetik des Operators <code>M50: x ↦ 50x mod 2501</code>. Der Test prüft alle 2501 Zustände sowie die vier CRT-Wurzeln von <code>−1</code>. <code>M50</code> ist nicht der eingefrorene A0-Operator <code>M64</code> und ersetzt dessen Janus-Negativbefund nicht. Die Darstellung beweist keine Raumzeit-, Lorentz-, Gamma-, Lorenz-, Feld-, Teilchen- oder Naturkonstante. <code>(a−b)²</code> kann eine quadrierte Differenz bezeichnen; es ist nicht automatisch <code>a²+b²</code>.</p>
+      </article>
+      <div class="grid" style="margin-top:1.2rem">
+        <article class="card"><span class="status">Grid + keystone</span><h3>2500 + 1</h3><p>Das <code>50×50</code>-Raster liefert 2500 Zellen; die zusätzliche <code>1</code> ist eine getrennte Keystone-Adresse. Das ist eine Zähl- und Verpackungsrelation, keine zusätzliche Raumdimension.</p></article>
+        <article class="card"><span class="status">Gaussian norm</span><h3>Konjugation schließt.</h3><code class="formula">(50+i)(50−i)=50²+1=2501</code><p>Die Normidentität erklärt die Form <code>L²+1</code>. Sie erlaubt die Vierteldrehungslesart im Quotientenring, ohne daraus einen physikalischen Carrier abzuleiten.</p></article>
+        <article class="card"><span class="status">Four quadrants</span><h3>Quelle, Quarter, Mirror, Return.</h3><p>Für jede von Null verschiedene Startadresse ist der Orbit <code>x → Jx → −x → −Jx → x</code>. Das Plus zwischen zwei Achsen ist hier eine algebraische Konstruktion; seine visuelle Kreuzform ist eine Darstellung.</p></article>
+      </div>
+    </section>
+
+    <section id="tzl01">
+      <div class="eyebrow">07 · Bounded multi-view instrument</div>
+      <h2>Ein Träger. Drei Ansichten. Ein NOW-Fenster.</h2>
+      <p class="lead">TZL-01 bindet die bereits vorhandene Apertur-Idee an eine gemeinsame Zustandsadresse: Der Träger <code>C(q)</code> bleibt derselbe, während Θ, Z und Λ drei deklarierte Darstellungen erzeugen. Das sichtbare <code>):(</code> ist das lokale Vergleichsfenster — nicht die Zeit selbst.</p>
+      <article class="lab" id="tzl01Lab">
+        <header class="lab-head"><div><span class="status">TZL-01 · one carrier / three views</span><h3>NOW is the aperture between memory and possibility.</h3></div><span>local display label · no graph identity</span></header>
+        <div class="lab-layout">
+          <div class="controls">
+            <label>Gemeinsamer Frame q <span><output id="tzlFrameOut">0° · 0/8</output></span><input id="tzlFrame" type="range" min="0" max="315" step="45" value="0"></label>
+            <div>
+              <span class="status">Frame clock</span>
+              <div class="mode-row" role="group" aria-label="TZL-01 Frame-Steuerung">
+                <button type="button" id="tzlNext">+45° · next view</button>
+                <button type="button" id="tzlReturn">Return · 0°</button>
+              </div>
+            </div>
+            <dl class="readout" aria-live="polite">
+              <div><dt>Carrier</dt><dd id="tzlCarrierOut">C(0)</dd></div>
+              <div><dt>NOW window</dt><dd id="tzlNowOut">W₀ · open</dd></div>
+              <div><dt>Θ view</dt><dd id="tzlThetaOut">0°</dd></div>
+              <div><dt>Z view</dt><dd id="tzlZetaOut">45°</dd></div>
+              <div><dt>Λ view</dt><dd id="tzlLambdaOut">135°</dd></div>
+              <div><dt>Closure</dt><dd id="tzlClosureOut">0 / 8</dd></div>
+            </dl>
+            <code class="formula">C(q) → {V<sub>Θ</sub>(C,q), V<sub>Z</sub>(C,q+45°), V<sub>Λ</sub>(C,q+135°)}<br>NOW := W(C,q) &nbsp; · &nbsp; C(q+360°)=C(q)<br>λ<sub>load</sub>(t) ≠ Λ<sub>view</sub>(q)</code>
+          </div>
+          <div class="stage"><svg id="tzlSvg" viewBox="0 0 960 420" role="img" aria-label="Ein gemeinsamer Carrier als NOW-Apertur, polare Theta-Zeta-Lambda-Ansicht und Acht-Frame-Returnstreifen"></svg></div>
+        </div>
+        <p class="boundary"><b>Claim boundary:</b> <code>Θ</code>, <code>Z</code> und <code>Λ<sub>view</sub></code> sind typisierte Display-Rollen. Die Versätze <code>45°</code> und <code>135°</code> sind eine erklärte Einbettung dieses Demonstrators, kein abgeleitetes Naturgesetz. <code>NOW</code> bezeichnet eine Vergleichsapertur; der Pac-Man-Spalt zeigt den ausgeschnittenen Komplementsektor. Der 360°-Return schließt nur die Anzeigeadresse. Er beweist weder Zeitrückkehr noch eine physikalische Carrier-, GLB-, Feld- oder Teilchenidentität.</p>
+      </article>
+      <div class="grid" style="margin-top:1.2rem">
+        <article class="card"><span class="status">View 1 · aperture</span><h3>):( hält den Vergleich offen.</h3><p>Links und rechts stehen für gespeicherten und möglichen Kontext. NOW ist die lokale Fuge, in der beide Seiten auf denselben Carrier bezogen werden.</p></article>
+        <article class="card"><span class="status">View 2 · orientation</span><h3>Θ / Z / Λ teilen eine Adresse.</h3><p>Die drei Marker werden aus demselben <code>q</code> berechnet. Ihre Farben und Winkel helfen beim Lesen; sie erzeugen keine zusätzlichen Zustände.</p></article>
+        <article class="card"><span class="status">View 3 · return strip</span><h3>Acht Frames, eine Schließung.</h3><p>Der Streifen macht die diskrete Display-Periode sichtbar. Frame 8 kehrt zur Adresse 0 zurück; die Prozessgeschichte bleibt davon unberührt.</p></article>
+      </div>
+      <h3 style="margin-top:2rem">Typed Gap Ledger · gleiche Formfamilie, getrennte Zahlrollen</h3>
+      <table>
+        <thead><tr><th>Token</th><th>A0-gebundene Rolle</th><th>Zulässige Lesart</th><th>Nicht ableiten</th></tr></thead>
+        <tbody>
+          <tr><td><code>45° / 135°</code></td><td>deklarierte TZL-Displayversätze</td><td>Adressen dreier Ansichten desselben Carriers</td><td>keine privilegierten Naturwinkel</td></tr>
+          <tr><td><code>0.15</code></td><td>Skalenkoeffizient in <code>frontScale(q)=0.85+0.15|sin(θ)|</code></td><td>bewegte Hülle des historischen 1440°-Displays</td><td>kein universelles n-band oder Gamma-Wert</td></tr>
+          <tr><td><code>0.020833…</code></td><td><code>1/48</code> Umdrehung; maximale Lücke des Uniform-Controls</td><td>exaktes Resultat eines gebundenen Sampling-Comparators</td><td>nicht identisch mit <code>±0.02°</code> Controller-Toleranz</td></tr>
+          <tr><td><code>1.1 → 1.21</code></td><td>Decoder <code>D(1,1)=1.1</code>, danach <code>S(1.1)=1.21</code></td><td>Adresse → Skalar → Operatorresultat</td><td><code>1.1</code> ist nicht automatisch Θ, Tao, Dao oder ein Resonanzgesetz</td></tr>
+          <tr><td><code>CON-6…STILL…DAO-6</code></td><td>13 Zustände; Janus-Involution mit fixem Stillpoint</td><td><code>6|1|6</code> als exakt deklarierter Carrier</td><td>keine Identität mit Kartenrang, <code>−13%</code> oder einer Toruszahl</td></tr>
+          <tr><td><code>Θ / Tao / Dao / Iota</code></td><td>historische Prozess-, Ansichts- und Rollenmarker</td><td>Source-bound Visualsprache und Vergleichsrollen</td><td>keine gemeinsame Algebra ohne Operatorvertrag</td></tr>
+          <tr><td><code>Möbius / Klein / 3+1</code></td><td>benachbarte Topologie- und Seam-Modelle</td><td>Orientierbarkeit, Schnitt, Rückseite und Zusatzrolle untersuchen</td><td>Topologie folgt nicht aus ähnlichen Zahlen oder einem Display-Loop</td></tr>
+          <tr><td><code>33° / 333° / −13° / 0.17×0.30</code></td><td>offene Owner-Adressen</td><td>sichtbar halten und Quelle, Einheit, Carrier und Operator suchen</td><td>noch keine Gleichung oder TZL-Identität</td></tr>
+        </tbody>
+      </table>
+      <p class="boundary"><b>A0-Rückbindung:</b> Die stärkste gemeinsame Aussage lautet nicht „alle Zahlen sind dasselbe“, sondern: <em>ein Träger kann mehrere deklarierte Schnitte besitzen, und die Lücke zwischen ihnen trägt Rückkehrinformation.</em> CON–DAO, Θ/Z/Λ, Möbius/Klein und der <code>3+1</code>-Seam bleiben dabei verwandte Darstellungsgrammatiken mit getrennten Carriern und Operatoren.</p>
+    </section>
+
     <section id="ieee">
-      <div class="eyebrow">06 · IEEE-Rückbindung</div>
+      <div class="eyebrow">08 · IEEE-Rückbindung</div>
       <h2>Zwei Felder dürfen nicht ineinanderfallen.</h2>
       <p class="lead">Der IEEE-Benchmark trägt physikalisch motivierte Netzgrößen. NEXAH konstruiert darüber eine deklarierte Orientierungsgeometrie. Die Verbindung ist fruchtbar, weil die Ebenen getrennt bleiben.</p>
       <div class="grid">
@@ -884,7 +978,7 @@
     </section>
 
     <section id="ledger">
-      <div class="eyebrow">07 · Sammel-Ledger</div>
+      <div class="eyebrow">09 · Sammel-Ledger</div>
       <h2>Was wir vorläufig festhalten.</h2>
       <div class="theses">
         <article class="thesis"><p><strong>Difference before flow.</strong> Ein gerichteter Prozess setzt einen Unterschied und einen zulässigen Übertragungsweg voraus; der konkrete Mechanismus bleibt domänenspezifisch.</p></article>
@@ -895,7 +989,7 @@
         <article class="thesis"><p><strong>Same grammar, separate mechanisms.</strong> Batterie, Staudamm, Membran, Kondensator, Akkretionsscheibe und IEEE-Zustandskampagne dürfen verglichen, aber nicht identifiziert werden.</p></article>
         <article class="thesis"><p><strong>Follow the question, not a universal equation.</strong> Der rote Ballon hält die Frage nach Difference, Boundary, Passage, Transformation und Return über Physik, Chemie, Geologie und Biologie zusammen. An jeder Station wechseln Größen, Einheiten, Skalen und Mechanismen.</p></article>
       </div>
-      <h3 style="margin-top:2.5rem">Zwischensynthese · dreizehn Visuals, ein historisches Kontrollfenster, eine Projektionslinse, ein typisierter roter Faden</h3>
+      <h3 style="margin-top:2.5rem">Zwischensynthese · vierzehn Visuals, ein historisches Kontrollfenster, eine Projektionslinse, ein typisierter roter Faden</h3>
       <div class="grid">
         <article class="card"><span class="status">01 · Physics</span><h3>Größe vor Symbol.</h3><p><code>E</code>, <code>U</code>, <code>I</code>, <code>S</code>, <code>T</code>, <code>M</code> und <code>v</code> erhalten erst durch Definition, Einheit und Messvertrag physikalische Bedeutung.</p></article>
         <article class="card"><span class="status">02 · Architecture</span><h3>Grenzen halten Unterschiede.</h3><p>Topologie erlaubt Pfade; Geometrie, Material und Randbedingungen gewichten Passage, Speicher und Antwort.</p></article>
@@ -921,12 +1015,16 @@
     </section>
 
     <section id="sources">
-      <div class="eyebrow">08 · Quellen, Status und Return</div>
+      <div class="eyebrow">10 · Quellen, Status und Return</div>
       <h2>Source-bound, nicht source-replacing.</h2>
       <div class="source-list">
         <a href="../FIELD_NOTES_A0.md"><strong>A0 Field Notes</strong><small>Owner-Handbook-Notizen und bestehender notes-only Rahmen</small></a>
         <a href="../A0_FIELDS_AND_JOINTS_ATLAS.html"><strong>A0 Fields &amp; Joints Atlas</strong><small>Fields → Views → Joints → Return</small></a>
         <a href="../A0_THEORY_STORYBOARD.html"><strong>A0 Theory Storyboard</strong><small>Relation, Grenze, Phase, Projektion, Muster und Return</small></a>
+        <a href="../A0_RESEARCH_DESK.html"><strong>A0 Research Desk · L²+1 / 2501</strong><small>Gaussian norm: (50+i)(50−i)=2501=41·61</small></a>
+        <a href="../A0_BLUE_PINK_DODECA_CELL_RETURN.html"><strong>Blue / Pink Cell Return</strong><small>50²+1=2501 als getrennte Grid-plus-Keystone-Konstruktion</small></a>
+        <a href="../../82_A0_MOD2501_CRT_TWO_CHANNEL_OPERATOR_RESULT_2026-10-13.md"><strong>Check 82 · MOD2501 CRT</strong><small>Z₂₅₀₁ ≅ Z₄₁ × Z₆₁ und carrier-spezifische Operatorik</small></a>
+        <a href="../../84_A0_M64_JANUS_SECTOR_TRANSFER_RESULT_2026-10-14.md"><strong>Check 84 · M64 Janus control</strong><small>Negativkontrolle; M50 darf den eingefrorenen M64-Befund nicht überschreiben</small></a>
         <a href="../../../../../../10%20NEXAH%20CORE/NEXAH/APPLICATIONS/power_systems/ieee_geometry_v1/README.md"><strong>IEEE Geometry V1</strong><small>Frozen Case Protocol · Core-Quellautorität</small></a>
         <a href="../../../../../../10%20NEXAH%20CORE/NEXAH/APPLICATIONS/power_systems/ieee_geometry_v1/evaluation_orientation_brief.md"><strong>IEEE-14 Orientation Brief</strong><small>Berechneter bounded Readout und explizite Claim-Grenzen</small></a>
         <a href="../../../../../../00%20EXECUTIVE/NEXAH-Mission-Control/AREAS/EXPERIENCE_AND_WORKS/ORIENTATION_INSTRUMENT_DISCOVERY_STUDY.md"><strong>Orientation Instrument Discovery Study</strong><small>Operator-Mapping, Demonstratorgrenzen und IEEE-V2-STOP</small></a>
@@ -1764,6 +1862,82 @@
       text(root,360,402,'SAME ARCHITECTURAL GRAMMAR · DIFFERENT MECHANISMS',{fill:'#ef765f','text-anchor':'middle'});
     }
 
+    let j4Step=0;
+    const mod2501=value=>((value%2501)+2501)%2501;
+    const j4Apply=value=>mod2501(50*value);
+    function renderJanus2501(){
+      const seed=+$('j4Seed').value,orbit=[seed];
+      for(let i=0;i<4;i++)orbit.push(j4Apply(orbit.at(-1)));
+      const state=orbit[j4Step],relations=['x','Jx','−x','−Jx','x · RETURN'],labels=['SOURCE','QUARTER','MIRROR','THREE-QUARTER','RETURN'];
+      $('j4SeedOut').textContent=seed;$('j4StepOut').textContent=`J${['⁰','¹','²','³','⁴'][j4Step]} · ${labels[j4Step]}`;$('j4StateOut').textContent=state;$('j4CrtOut').textContent=`${state%41} | ${state%61}`;$('j4RelationOut').textContent=relations[j4Step];
+      const root=$('j4Svg');root.replaceChildren();
+      const gx=38,gy=36,gs=198;
+      add(root,'rect',{x:gx,y:gy,width:gs,height:gs,rx:5,fill:'#0b1a20',stroke:'#70d9e8','stroke-width':2});
+      for(let i=1;i<50;i++){const p=gx+i*gs/50;add(root,'line',{x1:p,y1:gy,x2:p,y2:gy+gs,stroke:'#70d9e8','stroke-width':.35,opacity:.24});const q=gy+i*gs/50;add(root,'line',{x1:gx,y1:q,x2:gx+gs,y2:q,stroke:'#70d9e8','stroke-width':.35,opacity:.24});}
+      text(root,gx+gs/2,gy+gs+24,'50 × 50 = 2500',{fill:'#70d9e8','text-anchor':'middle'});
+      add(root,'rect',{x:104,y:104,width:66,height:66,rx:8,fill:'#e6bd67',opacity:.22,stroke:'#e6bd67','stroke-width':3});
+      text(root,137,131,'+ 1',{fill:'#e6bd67','font-size':21,'text-anchor':'middle'});text(root,137,151,'KEYSTONE',{fill:'#f4f0e5','font-size':9,'text-anchor':'middle'});
+      const cx=494,cy=201,r=132,points=[];
+      for(let i=0;i<4;i++){const a=(-90+i*90)*Math.PI/180;points.push([cx+r*Math.cos(a),cy+r*Math.sin(a)]);}
+      add(root,'circle',{cx,cy,r,fill:'none',stroke:'#284047','stroke-width':2});
+      add(root,'line',{x1:cx-r-20,y1:cy,x2:cx+r+20,y2:cy,stroke:'#52656a','stroke-width':1});add(root,'line',{x1:cx,y1:cy-r-20,x2:cx,y2:cy+r+20,stroke:'#52656a','stroke-width':1});
+      points.forEach((p,i)=>{const next=points[(i+1)%4];add(root,'path',{d:`M ${p[0]} ${p[1]} Q ${cx+(p[0]+next[0]-2*cx)*.72} ${cy+(p[1]+next[1]-2*cy)*.72} ${next[0]} ${next[1]}`,fill:'none',stroke:i<j4Step?'#e6bd67':'#4588d7','stroke-width':i<j4Step?5:2,opacity:i<j4Step?1:.6});});
+      const nodeStates=orbit.slice(0,4),nodeRelations=['x','Jx','−x','−Jx'];
+      points.forEach((p,i)=>{const active=(j4Step%4)===i||(j4Step===4&&i===0);add(root,'circle',{cx:p[0],cy:p[1],r:active?18:12,fill:active?'#ef765f':'#071014',stroke:active?'#f4f0e5':'#70d9e8','stroke-width':active?4:2});text(root,p[0],p[1]+4,String(nodeStates[i]),{fill:active?'#f4f0e5':'#70d9e8','font-size':11,'text-anchor':'middle'});text(root,p[0],p[1]+(i===0?-27:31),nodeRelations[i],{fill:'#e6bd67','font-size':12,'text-anchor':'middle'});});
+      add(root,'circle',{cx,cy,r:38,fill:'#e6bd67',opacity:.12,stroke:'#e6bd67','stroke-width':2});text(root,cx,cy-4,'J × 50',{fill:'#e6bd67','font-size':15,'text-anchor':'middle'});text(root,cx,cy+17,'mod 2501',{fill:'#aeb5b6','font-size':10,'text-anchor':'middle'});
+      text(root,360,390,`ORBIT · ${orbit.join(' → ')}`,{fill:'#f4f0e5','font-size':11,'text-anchor':'middle'});text(root,360,410,'EXACT RETURN IN A FINITE RING · NOT A PHYSICAL FIELD CLAIM',{fill:'#ef765f','font-size':9,'text-anchor':'middle'});
+    }
+
+    const tzlColors={theta:'#e6bd67',zeta:'#70d9e8',lambda:'#ef9fca'};
+    function renderTZL(){
+      const q=+$('tzlFrame').value,index=q/45,next=(index+1)%8;
+      $('tzlFrameOut').textContent=`${q}° · ${index}/8`;
+      $('tzlCarrierOut').textContent=`C${index} · shared`;
+      $('tzlNowOut').textContent=`W${index} · aperture`;
+      $('tzlThetaOut').textContent=`${q}°`;
+      $('tzlZetaOut').textContent=`${(q+45)%360}°`;
+      $('tzlLambdaOut').textContent=`${(q+135)%360}°`;
+      $('tzlClosureOut').textContent=index===0?'0 / 8 · HOME':`${index} / 8 · next ${next}`;
+
+      const root=$('tzlSvg');root.replaceChildren();
+      const pane=(x,title,sub)=>{add(root,'rect',{x,y:38,width:286,height:334,rx:14,fill:'#09151a',stroke:'#284047','stroke-width':2});text(root,x+18,64,title,{fill:'#f4f0e5','font-size':12});text(root,x+268,64,sub,{fill:'#aeb5b6','font-size':9,'text-anchor':'end'});};
+      pane(16,'1 · NOW / APERTURE','same carrier');pane(337,'2 · Θ / Z / Λ','three views');pane(658,'3 · RETURN STRIP','eight frames');
+
+      // View 1: NOW is a comparison aperture cut from one continuous carrier.
+      const c1x=159,c1y=202,r1=91,p1=anglePoint(c1x,c1y,r1,q-22.5),p2=anglePoint(c1x,c1y,r1,q+22.5);
+      add(root,'circle',{cx:c1x,cy:c1y,r:r1,fill:'#101b20',stroke:'#70d9e8','stroke-width':3});
+      add(root,'path',{d:`M ${c1x} ${c1y} L ${p1.x} ${p1.y} A ${r1} ${r1} 0 0 1 ${p2.x} ${p2.y} Z`,fill:'#071014',stroke:'#ef765f','stroke-width':2});
+      const nowRay=anglePoint(c1x,c1y,r1-8,q);add(root,'line',{x1:c1x,y1:c1y,x2:nowRay.x,y2:nowRay.y,stroke:'#e6bd67','stroke-width':3});
+      add(root,'circle',{cx:c1x,cy:c1y,r:11,fill:'#e6bd67'});text(root,c1x,c1y+4,'NOW',{fill:'#071014','font-size':8,'font-weight':700,'text-anchor':'middle'});
+      text(root,c1x-108,c1y+4,'M',{fill:'#ef9fca','font-size':18,'text-anchor':'middle'});text(root,c1x+108,c1y+4,'N',{fill:'#70d9e8','font-size':18,'text-anchor':'middle'});
+      text(root,c1x,c1y-111,') : (',{fill:'#e6bd67','font-size':16,'text-anchor':'middle'});text(root,c1x,c1y+124,`W${index} · visible slice`,{fill:'#aeb5b6','font-size':10,'text-anchor':'middle'});
+
+      // View 2: three declared embeddings of that same carrier state.
+      const c2x=480,c2y=202,r2=92,roles=[['Θ',q,tzlColors.theta],['Z',(q+45)%360,tzlColors.zeta],['Λ',(q+135)%360,tzlColors.lambda]],rolePoints=[];
+      add(root,'circle',{cx:c2x,cy:c2y,r:r2,fill:'none',stroke:'#52656a','stroke-width':2});
+      for(let a=0;a<360;a+=45){const endpoint=anglePoint(c2x,c2y,r2,a);add(root,'line',{x1:c2x,y1:c2y,x2:endpoint.x,y2:endpoint.y,stroke:'#284047','stroke-width':1});}
+      roles.forEach(([label,angle,color])=>{const p=anglePoint(c2x,c2y,r2-8,angle);rolePoints.push(p);add(root,'line',{x1:c2x,y1:c2y,x2:p.x,y2:p.y,stroke:color,'stroke-width':4});add(root,'circle',{cx:p.x,cy:p.y,r:8,fill:color,stroke:'#f4f0e5','stroke-width':1});text(root,p.x,p.y-13,label,{fill:color,'font-size':13,'font-weight':700,'text-anchor':'middle'});});
+      add(root,'path',{d:`M ${rolePoints[0].x} ${rolePoints[0].y} L ${rolePoints[1].x} ${rolePoints[1].y} L ${rolePoints[2].x} ${rolePoints[2].y} Z`,fill:'#ef9fca',opacity:.08,stroke:'#ef9fca','stroke-width':2});
+      add(root,'circle',{cx:c2x,cy:c2y,r:12,fill:'#ef765f',stroke:'#f4f0e5','stroke-width':2});text(root,c2x,c2y+4,`C${index}`,{fill:'#f4f0e5','font-size':8,'text-anchor':'middle'});
+      text(root,c2x,c2y+124,'offsets: 0° / +45° / +135°',{fill:'#aeb5b6','font-size':10,'text-anchor':'middle'});
+
+      // View 3: the address advances; the ninth mark is the declared return to address zero.
+      const x0=686,x1=916,y=206,step=(x1-x0)/8;
+      add(root,'line',{x1:x0,y1:y,x2:x1,y2:y,stroke:'#52656a','stroke-width':3});
+      for(let i=0;i<=8;i++){
+        const x=x0+i*step,home=i===8,active=i===index||(index===0&&home);
+        if(i<8)add(root,'path',{d:`M ${x+step-10} ${y-5} L ${x+step-2} ${y} L ${x+step-10} ${y+5}`,fill:'none',stroke:'#52656a','stroke-width':1.5});
+        add(root,'circle',{cx:x,cy:y,r:active?9:5,fill:active?(home?'#89c997':'#ef765f'):'#071014',stroke:home?'#89c997':'#70d9e8','stroke-width':active?3:1.5});
+        text(root,x,y+25,home?'0′':String(i),{fill:active?'#f4f0e5':'#aeb5b6','font-size':9,'text-anchor':'middle'});
+      }
+      add(root,'path',{d:`M ${x1} ${y-14} C ${x1-58} ${y-100}, ${x0+58} ${y-100}, ${x0} ${y-14}`,fill:'none',stroke:'#89c997','stroke-width':2,'stroke-dasharray':'7 6'});
+      text(root,(x0+x1)/2,y-76,'RETURN / SAME ADDRESS',{fill:'#89c997','font-size':10,'text-anchor':'middle'});
+      text(root,(x0+x1)/2,y+75,`q ${q}° → ${(q+45)%360}°`,{fill:'#e6bd67','font-size':13,'text-anchor':'middle'});
+      text(root,(x0+x1)/2,y+101,'display cycle ≠ time reversal',{fill:'#ef765f','font-size':9,'text-anchor':'middle'});
+
+      text(root,480,401,'ONE CARRIER · THREE DECLARED VIEWS · ONE LOCAL NOW WINDOW',{fill:'#f4f0e5','font-size':11,'text-anchor':'middle'});
+    }
+
     ['voltage','gap','epsilon'].forEach(id=>$(id).addEventListener('input',renderCapacitor));
     ['phaseA','phaseB','coupling'].forEach(id=>$(id).addEventListener('input',renderPhase));
     ['step','shear'].forEach(id=>$(id).addEventListener('input',renderGeometry));
@@ -1803,7 +1977,13 @@
     $('nexitDirection').addEventListener('click',()=>{nexitDirection*=-1;renderNexit()});
     document.querySelectorAll('[data-field-vehicle-view]').forEach(button=>button.addEventListener('click',()=>{fieldVehicleView=button.dataset.fieldVehicleView;renderFieldVehicle()}));
     $('fieldVehicleStep').addEventListener('input',renderFieldVehicle);
-    renderCapacitor();renderPhase();renderGeometry();renderLightning();renderArchitecture();renderBoundaryVisual();renderEventVisual();renderThreadVisual();renderZetaVisual();renderMeasureMap();renderCarrierViews();renderOrientationControlCase();renderCarrierGammaShadow();renderSeamFlow();renderElevator();renderShadowProjection();renderCounterlift();renderFormatYard();renderNexit();renderFieldVehicle();
+    $('j4Seed').addEventListener('input',()=>{j4Step=0;renderJanus2501()});
+    $('j4Next').addEventListener('click',()=>{j4Step=(j4Step+1)%5;renderJanus2501()});
+    $('j4Reset').addEventListener('click',()=>{j4Step=0;renderJanus2501()});
+    $('tzlFrame').addEventListener('input',renderTZL);
+    $('tzlNext').addEventListener('click',()=>{$('tzlFrame').value=(+$('tzlFrame').value+45)%360;renderTZL()});
+    $('tzlReturn').addEventListener('click',()=>{$('tzlFrame').value=0;renderTZL()});
+    renderCapacitor();renderPhase();renderGeometry();renderLightning();renderArchitecture();renderBoundaryVisual();renderEventVisual();renderThreadVisual();renderZetaVisual();renderMeasureMap();renderCarrierViews();renderOrientationControlCase();renderCarrierGammaShadow();renderSeamFlow();renderElevator();renderShadowProjection();renderCounterlift();renderFormatYard();renderNexit();renderFieldVehicle();renderJanus2501();renderTZL();
   </script>
 </body>
 </html>
