@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="description" content="Interne A0 Field Note II über Feld, Potential, Phase, Grenze, Geometrie und Flow — mit vier begrenzten Leselaboren, zwei einfachen Architekturvisuals, hydraulischem Field Atlas und IEEE-Rückbindung.">
+  <meta name="description" content="Interne A0 Field Note II über Feld, Potential, Phase, Grenze, Geometrie und Flow — mit begrenzten Leselaboren, Architekturvisuals, historischem Michelson–Morley-Control-Window, Carrier–Gamma–Shadow-Projektionslinse, hydraulischem Field Atlas und IEEE-Rückbindung.">
   <title>NEXAH · FIELD NOTE II · The Architecture of Difference</title>
   <style>
     :root{
@@ -118,7 +118,7 @@
   <header class="top">
     <strong>NEXAH · A0 · Field Note II</strong>
     <nav aria-label="Seitennavigation">
-      <a href="#thesis">These</a><a href="#grammar">Grammatik</a><a href="#labs">Leselabore</a><a href="#field-transport">Feldtransport</a><a href="#hydraulic-atlas">Hydraulik</a><a href="#simple-visuals">Visual I/II</a><a href="#ieee">IEEE</a><a href="#ledger">Ledger</a><a href="#sources">Quellen</a>
+      <a href="#thesis">These</a><a href="#grammar">Grammatik</a><a href="#labs">Leselabore</a><a href="#carrierGammaShadow">γ / Shadow</a><a href="#field-transport">Feldtransport</a><a href="#hydraulic-atlas">Hydraulik</a><a href="#simple-visuals">Visual I/II</a><a href="#ieee">IEEE</a><a href="#ledger">Ledger</a><a href="#sources">Quellen</a>
     </nav>
   </header>
 
@@ -548,6 +548,58 @@
         <p class="boundary"><b>Type Lock:</b> Der rote Marker ist eine Adresse oder Darstellung, kein Proton. Pink hält die grafische Fuge, nicht fundamentale Materie. Die lokale 11°-Marke ist ein Ansichtsparameter; sie ist nicht die Erdachsenneigung von ungefähr 23,4°. Rund 11° kann nur mit expliziter Achsenangabe als vereinfachte magnetische Dipolneigung diskutiert werden. Das beigefügte Three-Domain-Modell bleibt <code>UNADMITTED · MODEL-ONLY</code>: gemeinsame Montage erzeugt keine gemeinsame Dynamik.</p>
       </article>
 
+      <article class="lab" id="orientationControlCase" style="margin-top:1.2rem">
+        <header class="lab-head"><div><span class="status">Historical control window · Michelson–Morley 1887</span><h3>Ein Carrier dreht die Orientierung. Der Return zeigt die Differenz.</h3></div><span>established experiment · bounded analogy</span></header>
+        <div class="lab-layout">
+          <div class="controls">
+            <label>Orientierungsstation <span><output id="controlCasePhaseOut">0° · ADDRESS</output></span><input id="controlCasePhase" type="range" min="0" max="4" step="1" value="0"></label>
+            <dl class="readout" aria-live="polite">
+              <div><dt>Carrier</dt><dd id="controlCaseCarrierOut">Hg + STONE</dd></div>
+              <div><dt>Arc</dt><dd id="controlCaseArcOut">TWO PATHS</dd></div>
+              <div><dt>Flip</dt><dd id="controlCaseFlipOut">0° / HELD</dd></div>
+              <div><dt>Return</dt><dd id="controlCaseReturnOut">BASELINE</dd></div>
+            </dl>
+            <code class="formula" id="controlCaseFormula">one carrier → rotate frame → compare return<br>expected ≈ 0.4 fringe · observed &lt; 0.02</code>
+            <p id="controlCaseDescription">Die Sandsteinplatte schwimmt auf Quecksilber. Quelle, Strahlteiler, Spiegel und zwei senkrechte Lichtwege drehen als eine gehaltene Architektur; verglichen wird die Interferenz nach dem Return.</p>
+          </div>
+          <div class="stage"><svg id="controlCaseSvg" viewBox="0 0 720 420" role="img" aria-label="Interaktives historisches Michelson–Morley-Control-Window mit Quecksilberträger, zwei Lichtwegen und fünf Orientierungsstationen"></svg></div>
+        </div>
+        <div class="grid" style="margin-top:1rem">
+          <article class="card"><span class="status">Carrier / Hg</span><p>Quecksilber ist das reibungsarme Traglager der rotierenden Sandsteinplatte. Es ist weder der gesuchte Äther noch das optische Messsignal.</p></article>
+          <article class="card"><span class="status">Difference contract</span><p>Das Modell erwartete ungefähr <code>0,4</code> Fringe; beobachtet wurden weniger als <code>0,02</code>. Das Nullresultat ist ein begrenztes Messergebnis, kein fehlendes Ereignis.</p></article>
+          <article class="card"><span class="status">Orientation cycle</span><p><code>0° → 90° → 180° → 270° → 360°/0°</code> ist hier ein endlicher Reader für Ausgangslage, Achsentausch, Gegenlage, zweiten Achsentausch und Return.</p></article>
+        </div>
+        <p class="boundary"><b>Kontrollgrenze:</b> Michelson–Morley ist ein historisches Physikexperiment und kein Beleg für eine neue NEXAH-Physik. Das Quecksilberbad trägt die Apparatur; es ist weder Äther noch Messsignal. Die Fünf-Stationen-Anzeige ordnet die Rotation für diese Field Note. Sie ersetzt nicht das historische Beobachtungsprotokoll und leitet aus <code>270°</code>, <code>360°</code> oder einem möglichen zweiten Umlauf keine zusätzliche physikalische Wirkung ab.</p>
+      </article>
+
+      <article class="lab" id="carrierGammaShadow" style="margin-top:1.2rem">
+        <header class="lab-head"><div><span class="status">Projection lens · Carrier / Gamma / Shadow</span><h3>Der Raum trägt. Das Feld richtet. Die Bahn schreibt einen Schatten.</h3></div><span>Lorenz 1963 · numerical explainer · notes only</span></header>
+        <div class="lab-layout">
+          <div class="controls">
+            <label>Projektionswinkel θ <span><output id="gammaProjectionOut">45° · FOLDED</output></span><input id="gammaProjection" type="range" min="0" max="180" step="5" value="45"></label>
+            <label>Zustand auf γ(t) <span><output id="gammaStateOut">63 % · RIGHT BASIN</output></span><input id="gammaState" type="range" min="0" max="100" step="1" value="63"></label>
+            <div class="mode-row" role="group" aria-label="Verdeckte Tiefenrichtung ein- oder ausblenden">
+              <button type="button" id="gammaPhantom" aria-pressed="true">Phantom Zinke · sichtbar</button>
+            </div>
+            <dl class="readout" aria-live="polite">
+              <div><dt>Carrier</dt><dd>M / 3D HELD</dd></div>
+              <div><dt>Gamma path</dt><dd>γ(t) / ONE ORBIT</dd></div>
+              <div><dt>Local direction</dt><dd id="gammaTangentOut">F(y) ∈ TᵧM</dd></div>
+              <div><dt>Hidden depth d</dt><dd id="gammaDepthOut">0.00</dd></div>
+            </dl>
+            <code class="formula">y ∈ M · F(y) ∈ TᵧM<br>γ̇(t) = F(γ(t)) · shadow = Pθγ</code>
+            <p>Links bleibt der dreidimensionale Carrier. Rechts ändert nur die Projektion ihren Winkel. Die gestrichelte Phantom-Zinke zeigt, welche Tiefenkomponente im Schatten verloren geht.</p>
+          </div>
+          <div class="stage"><svg id="gammaShadowSvg" viewBox="0 0 720 420" role="img" aria-label="Interaktiver Lorenz-Projektionsreader mit dreidimensionalem Carrier, Trajektorie Gamma, lokalem Tangentialraum, zweidimensionalem Schatten, Switch Gate und Phantom-Zinke"></svg></div>
+        </div>
+        <div class="grid" style="margin-top:1rem">
+          <article class="card"><span class="status">Carrier M</span><p>Der Phasenraum hält alle zulässigen Zustände. Der aktuelle Punkt <code>y</code> ist nicht der Raum; er wird vom Vektorfeld durch ihn getragen.</p></article>
+          <article class="card"><span class="status">TY / tangent</span><p><code>TᵧM</code> ist der lokale Tangentialraum am Zustand <code>y</code>. Dort liegt die momentane Richtung <code>F(y)</code>, der die Bahn <code>γ(t)</code> folgt.</p></article>
+          <article class="card"><span class="status">Switch / shadow</span><p>Die zentrale Halszone trennt die beiden Umlaufräume. Eine Projektion kann Tiefe, Zweige oder Return-Anteile überlagern und als scheinbare Lücke zeigen.</p></article>
+        </div>
+        <p class="boundary"><b>Projektionsgrenze:</b> Der Reader integriert das klassische Lorenz-System lokal mit <code>σ=10</code>, <code>ρ=28</code> und <code>β=8/3</code>. <code>γ(t)</code> bezeichnet hier eine Trajektorie und nicht den Lorentzfaktor der Relativität. Die „Phantom Zinke“ ist ein deklarierter Hinweis auf die durch <code>Pθ</code> unterdrückte Tiefenkoordinate; sie ist weder ein dritter Lorenz-Flügel noch eine neue physikalische Komponente. Ähnliche Schattenformen begründen keine Identität zwischen Lorenz, Rössler, Halvorsen oder V69.</p>
+      </article>
+
       <article class="lab" id="seamFlowReader" style="margin-top:1.2rem">
         <header class="lab-head"><div><span class="status">Visual VII · seam flow / ratio return</span><h3>Die Fuge hält den Schnitt. Operatoren bewegen die Ansicht.</h3></div><span>Loki coordinates · local owner grammar</span></header>
         <div class="lab-layout">
@@ -843,7 +895,7 @@
         <article class="thesis"><p><strong>Same grammar, separate mechanisms.</strong> Batterie, Staudamm, Membran, Kondensator, Akkretionsscheibe und IEEE-Zustandskampagne dürfen verglichen, aber nicht identifiziert werden.</p></article>
         <article class="thesis"><p><strong>Follow the question, not a universal equation.</strong> Der rote Ballon hält die Frage nach Difference, Boundary, Passage, Transformation und Return über Physik, Chemie, Geologie und Biologie zusammen. An jeder Station wechseln Größen, Einheiten, Skalen und Mechanismen.</p></article>
       </div>
-      <h3 style="margin-top:2.5rem">Zwischensynthese · dreizehn Visuals, ein typisierter roter Faden</h3>
+      <h3 style="margin-top:2.5rem">Zwischensynthese · dreizehn Visuals, ein historisches Kontrollfenster, eine Projektionslinse, ein typisierter roter Faden</h3>
       <div class="grid">
         <article class="card"><span class="status">01 · Physics</span><h3>Größe vor Symbol.</h3><p><code>E</code>, <code>U</code>, <code>I</code>, <code>S</code>, <code>T</code>, <code>M</code> und <code>v</code> erhalten erst durch Definition, Einheit und Messvertrag physikalische Bedeutung.</p></article>
         <article class="card"><span class="status">02 · Architecture</span><h3>Grenzen halten Unterschiede.</h3><p>Topologie erlaubt Pfade; Geometrie, Material und Randbedingungen gewichten Passage, Speicher und Antwort.</p></article>
@@ -878,12 +930,15 @@
         <a href="../../../../../../10%20NEXAH%20CORE/NEXAH/APPLICATIONS/power_systems/ieee_geometry_v1/README.md"><strong>IEEE Geometry V1</strong><small>Frozen Case Protocol · Core-Quellautorität</small></a>
         <a href="../../../../../../10%20NEXAH%20CORE/NEXAH/APPLICATIONS/power_systems/ieee_geometry_v1/evaluation_orientation_brief.md"><strong>IEEE-14 Orientation Brief</strong><small>Berechneter bounded Readout und explizite Claim-Grenzen</small></a>
         <a href="../../../../../../00%20EXECUTIVE/NEXAH-Mission-Control/AREAS/EXPERIENCE_AND_WORKS/ORIENTATION_INSTRUMENT_DISCOVERY_STUDY.md"><strong>Orientation Instrument Discovery Study</strong><small>Operator-Mapping, Demonstratorgrenzen und IEEE-V2-STOP</small></a>
+        <a href="https://journals.ametsoc.org/view/journals/atsc/20/2/1520-0469_1963_020_0130_dnf_2_0_co_2.xml"><strong>Lorenz 1963 · Deterministic Nonperiodic Flow</strong><small>Primärquelle für das dreidimensionale System und die klassische Parameterfamilie</small></a>
+        <a href="https://case.edu/ech/articles/m/michelson-morley-experiment"><strong>Michelson–Morley Experiment · Case Western Reserve University</strong><small>Historischer Ort, Sandsteinplatte, Quecksilberbad und rotierende Versuchsanordnung</small></a>
+        <a href="https://www.aps.org/funding-recognition/historic-sites/case"><strong>Case Western Reserve · APS Historic Physics Site</strong><small>Strahlteilung, Rotation, Nullresultat und Verhältnis von erwartetem zu beobachtetem Fringe-Shift</small></a>
         <a href="https://npgallery.nps.gov/AssetDetail/cf9d1d0b-5a47-48a3-96ac-75447e30dcee"><strong>Statue of Liberty · NPS place record</strong><small>WGS-84-Ortsmarker für die Ost–West-Linse</small></a>
         <a href="https://ungegn.un.org/dashboard/cities/details?id=737"><strong>Frankfurt am Main · UNGEGN</strong><small>Geografischer Stadtmarker; keine Gebäude- oder Vermessungsachse</small></a>
         <a href="https://en.wikipedia.org/wiki/Brandenburg_Gate"><strong>Brandenburger Tor · coordinate reference</strong><small>Ortsmarker für Berlin / BT</small></a>
         <a href="https://commons.wikimedia.org/wiki/Institution:Tiananmen_Square"><strong>Tian’anmen Square · coordinate reference</strong><small>Ortsmarker für Beijing / Peking</small></a>
       </div>
-      <p class="caption"><strong>Gesprächsquellen:</strong> Owner-supplied Videotranskript, Kapitel 9, 46:52–53:16, sowie 54 Owner-supplied Atlas-, Labor-, Cube-, Flow-, Format-, Frame-Audit-, Ortsmarker-, Projektions- und Messsystem-Tafeln vom 13. November 2026. Die Seite übernimmt keine längeren wörtlichen Passagen; automatische Transkriptfehler wie „John Henry pointing“ werden fachlich als John Henry Poynting / Poynting-Theorem eingeordnet. Kapitel 10 war im gelieferten Ausschnitt nicht enthalten. Die Tafeln liefern eine visuelle Übergangsgrammatik, keine Evidenzpromotion ihrer planetaren, Frequenz-, HDL/LDL-, Atom-, Dimensions-, Dynamik-, Ortsachsen-, Cosmic-Grid- oder Einheitensystem-Zuordnungen.</p>
+      <p class="caption"><strong>Gesprächsquellen:</strong> Owner-supplied Videotranskript, Kapitel 9, 46:52–53:16, sowie Owner-supplied Atlas-, Labor-, Cube-, Flow-, Format-, Frame-Audit-, Ortsmarker-, Projektions-, Messsystem-, Michelson–Morley- und Lorenz-Projektionsbilder vom 13. und 14. November 2026. Die Seite übernimmt keine längeren wörtlichen Passagen; automatische Transkriptfehler wie „John Henry pointing“ werden fachlich als John Henry Poynting / Poynting-Theorem eingeordnet. Kapitel 10 war im gelieferten Ausschnitt nicht enthalten. Die Tafeln liefern eine visuelle Übergangsgrammatik, keine Evidenzpromotion ihrer planetaren, Frequenz-, HDL/LDL-, Atom-, Dimensions-, Dynamik-, Ortsachsen-, Cosmic-Grid- oder Einheitensystem-Zuordnungen.</p>
       <p class="boundary"><b>Authority:</b> Diese HTML ist eine lokale A0-Draft-Field-Note. Sie verändert weder die IEEE-Quelle noch den A0-Reader, das Manifest, den Navigator, Mission-Control-Currentness, eine Study, ein Finding, eine Family oder einen Publikationsstatus.</p>
     </section>
   </main>
@@ -1295,6 +1350,117 @@
       text(root,62,392,'ONE CARRIER',{fill:'#70d9e8','font-size':12});
     }
 
+    function renderOrientationControlCase(){
+      const phase=+$('controlCasePhase').value,angle=phase*90;
+      const stations=[
+        {name:'ADDRESS',flip:'0° / HELD',return:'BASELINE'},
+        {name:'AXIS SWAP',flip:'90° / FLIP',return:'COMPARE A↔B'},
+        {name:'COUNTER',flip:'180° / OPPOSITE',return:'HALF TURN'},
+        {name:'SECOND SWAP',flip:'270° / FLIP',return:'COMPARE B↔A'},
+        {name:'RETURN',flip:'360° / 0°',return:'HOME′ / RESIDUAL'}
+      ],state=stations[phase];
+      $('controlCasePhaseOut').textContent=`${angle}° · ${state.name}`;
+      $('controlCaseCarrierOut').textContent='Hg + STONE';
+      $('controlCaseArcOut').textContent='TWO PATHS';
+      $('controlCaseFlipOut').textContent=state.flip;
+      $('controlCaseReturnOut').textContent=state.return;
+      $('controlCaseFormula').innerHTML='one carrier → rotate frame → compare return<br>expected ≈ 0.4 fringe · observed &lt; 0.02';
+      $('controlCaseDescription').textContent='Die Sandsteinplatte schwimmt auf Quecksilber. Quelle, Strahlteiler, Spiegel und zwei senkrechte Lichtwege drehen als eine gehaltene Architektur; verglichen wird die Interferenz nach dem Return.';
+      const root=$('controlCaseSvg');root.replaceChildren();
+      text(root,360,30,'MICHELSON–MORLEY · CLEVELAND 1887',{fill:'#e6bd67','font-size':15,'text-anchor':'middle'});
+      add(root,'circle',{cx:330,cy:216,r:162,fill:'#e6bd67',opacity:.08,stroke:'#e6bd67','stroke-width':12});
+      add(root,'circle',{cx:330,cy:216,r:140,fill:'#071014',stroke:'#52656a','stroke-width':2});
+      text(root,330,396,'MERCURY / Hg · ROTATING CARRIER',{fill:'#e6bd67','font-size':12,'text-anchor':'middle'});
+      const carrier=add(root,'g',{transform:`rotate(${angle} 330 216)`});
+      add(carrier,'rect',{x:220,y:126,width:220,height:180,rx:8,fill:'#4588d7',opacity:.18,stroke:'#70d9e8','stroke-width':3});
+      add(carrier,'circle',{cx:330,cy:216,r:12,fill:'#f4f0e5',stroke:'#e6bd67','stroke-width':3});
+      add(carrier,'line',{x1:330,y1:216,x2:414,y2:216,stroke:'#70d9e8','stroke-width':6});
+      add(carrier,'line',{x1:330,y1:216,x2:330,y2:142,stroke:'#ef9fca','stroke-width':6});
+      add(carrier,'line',{x1:414,y1:194,x2:414,y2:238,stroke:'#f4f0e5','stroke-width':6});
+      add(carrier,'line',{x1:308,y1:142,x2:352,y2:142,stroke:'#f4f0e5','stroke-width':6});
+      add(carrier,'line',{x1:318,y1:204,x2:342,y2:228,stroke:'#e6bd67','stroke-width':5});
+      add(carrier,'circle',{cx:242,cy:216,r:9,fill:'#ef765f'});
+      add(carrier,'line',{x1:251,y1:216,x2:318,y2:216,stroke:'#ef765f','stroke-width':4});
+      text(carrier,414,258,'ARM A',{fill:'#70d9e8','font-size':11,'text-anchor':'middle'});
+      text(carrier,360,150,'ARM B',{fill:'#ef9fca','font-size':11});
+      text(carrier,242,240,'SOURCE',{fill:'#ef765f','font-size':10,'text-anchor':'middle'});
+      add(root,'path',{d:'M 174 110 A 184 184 0 0 1 486 110',fill:'none',stroke:'#89c997','stroke-width':3,'stroke-dasharray':'8 7'});
+      add(root,'path',{d:'M 472 99 L 488 110 L 470 118',fill:'none',stroke:'#89c997','stroke-width':3});
+      text(root,330,76,`${angle}° · ${state.name}`,{fill:'#89c997','font-size':14,'text-anchor':'middle'});
+      const barX=535,barW=130;
+      text(root,600,118,'FRINGE SHIFT',{fill:'#f4f0e5','font-size':12,'text-anchor':'middle'});
+      text(root,535,154,'EXPECTED',{fill:'#aeb5b6','font-size':10});
+      add(root,'rect',{x:barX,y:165,width:barW,height:18,rx:4,fill:'#e6bd67',opacity:.72});
+      text(root,672,179,'0.4',{fill:'#e6bd67','font-size':12,'text-anchor':'end'});
+      text(root,535,218,'OBSERVED',{fill:'#aeb5b6','font-size':10});
+      add(root,'rect',{x:barX,y:229,width:Math.max(4,barW*.02/.4),height:18,rx:4,fill:'#70d9e8'});
+      text(root,672,243,'< 0.02',{fill:'#70d9e8','font-size':12,'text-anchor':'end'});
+      add(root,'line',{x1:barX,y1:270,x2:barX+barW,y2:270,stroke:'#52656a','stroke-width':2});
+      for(let i=0;i<9;i++)add(root,'rect',{x:barX+i*15,y:286,width:8,height:45,fill:i===4?'#e6bd67':'#7b83ad',opacity:i===4?.9:.45});
+      text(root,600,350,'RETURN → RESIDUAL',{fill:'#ef765f','font-size':11,'text-anchor':'middle'});
+      text(root,360,410,'SAME APPARATUS · CHANGED ORIENTATION · BOUNDED COMPARISON',{fill:'#ef765f','font-size':11,'text-anchor':'middle'});
+    }
+
+    const lorenzDerivative=([x,y,z])=>[10*(y-x),x*(28-z)-y,x*y-(8/3)*z];
+    const lorenzGamma=(()=>{
+      let p=[.1,0,0];const out=[],dt=.005;
+      for(let i=0;i<6800;i++){
+        const k1=lorenzDerivative(p);
+        const k2=lorenzDerivative(p.map((v,j)=>v+k1[j]*dt/2));
+        const k3=lorenzDerivative(p.map((v,j)=>v+k2[j]*dt/2));
+        const k4=lorenzDerivative(p.map((v,j)=>v+k3[j]*dt));
+        p=p.map((v,j)=>v+dt*(k1[j]+2*k2[j]+2*k3[j]+k4[j])/6);
+        if(i>=1800&&i%5===0)out.push([...p]);
+      }
+      return out;
+    })();
+    let gammaPhantomVisible=true;
+    function renderCarrierGammaShadow(){
+      const theta=+$('gammaProjection').value,rad=theta*Math.PI/180,index=Math.min(lorenzGamma.length-1,Math.round(+$('gammaState').value/100*(lorenzGamma.length-1))),state=lorenzGamma[index];
+      const labels=['FRONT','FOLDED','SIDE','COUNTER-FOLDED','RETURN'],projectionLabel=labels[Math.round(theta/45)];
+      const basin=Math.abs(state[0])<2?'SWITCH GATE':state[0]<0?'LEFT BASIN':'RIGHT BASIN';
+      const depth=-state[0]*Math.sin(rad)+state[1]*Math.cos(rad);
+      $('gammaProjectionOut').textContent=`${theta}° · ${projectionLabel}`;
+      $('gammaStateOut').textContent=`${$('gammaState').value} % · ${basin}`;
+      $('gammaDepthOut').textContent=(depth>=0?'+':'')+fmt(depth,2);
+      $('gammaTangentOut').textContent='F(y) ∈ TᵧM';
+      $('gammaPhantom').setAttribute('aria-pressed',String(gammaPhantomVisible));
+      $('gammaPhantom').textContent=`Phantom Zinke · ${gammaPhantomVisible?'sichtbar':'verborgen'}`;
+      const root=$('gammaShadowSvg');root.replaceChildren();
+      text(root,220,28,'CARRIER M · 3D STATE SPACE',{fill:'#70d9e8','font-size':13,'text-anchor':'middle'});
+      text(root,582,28,`SHADOW Pθγ · ${theta}°`,{fill:'#e6bd67','font-size':13,'text-anchor':'middle'});
+      add(root,'rect',{x:38,y:48,width:376,height:326,rx:8,fill:'#071014',stroke:'#52656a','stroke-width':2});
+      add(root,'rect',{x:454,y:48,width:242,height:326,rx:8,fill:'#071014',stroke:'#52656a','stroke-width':2});
+      const carrierRaw=lorenzGamma.map(([x,y,z])=>[.82*x-.25*y,.16*x+.10*y-.78*(z-25)]);
+      const cU=carrierRaw.map(p=>p[0]),cV=carrierRaw.map(p=>p[1]),cMinU=Math.min(...cU),cMaxU=Math.max(...cU),cMinV=Math.min(...cV),cMaxV=Math.max(...cV);
+      const carrierPoint=([x,y,z])=>[64+(x*.82-y*.25-cMinU)/(cMaxU-cMinU)*324,70+(.16*x+.10*y-.78*(z-25)-cMinV)/(cMaxV-cMinV)*278];
+      add(root,'path',{d:lorenzGamma.map((p,i)=>`${i?'L':'M'} ${carrierPoint(p)[0].toFixed(1)} ${carrierPoint(p)[1].toFixed(1)}`).join(' '),fill:'none',stroke:'#70d9e8','stroke-width':1.15,opacity:.58});
+      add(root,'path',{d:'M 64 70 L 388 70 L 388 348 L 64 348 Z M 38 96 L 362 96 L 362 374 L 38 374 Z M 64 70 L 38 96 M 388 70 L 362 96 M 388 348 L 362 374 M 64 348 L 38 374',fill:'none',stroke:'#52656a','stroke-width':1.4});
+      const cp=carrierPoint(state),flow=lorenzDerivative(state),flowLength=Math.hypot(...flow),next=state.map((v,i)=>v+flow[i]/flowLength*4),cq=carrierPoint(next);
+      add(root,'circle',{cx:cp[0],cy:cp[1],r:8,fill:'#ef765f',stroke:'#f4f0e5','stroke-width':2});
+      add(root,'line',{x1:cp[0],y1:cp[1],x2:cq[0],y2:cq[1],stroke:'#89c997','stroke-width':4,'stroke-linecap':'round'});
+      add(root,'path',{d:`M ${cq[0]-8} ${cq[1]-5} L ${cq[0]} ${cq[1]} L ${cq[0]-8} ${cq[1]+5}`,fill:'none',stroke:'#89c997','stroke-width':2.5});
+      text(root,cp[0]+12,cp[1]-12,'y = γ(t)',{fill:'#ef765f','font-size':11});
+      text(root,cq[0]+8,cq[1]+18,'F(y) ∈ TᵧM',{fill:'#89c997','font-size':11});
+      const shadowRaw=lorenzGamma.map(([x,y,z])=>[x*Math.cos(rad)+y*Math.sin(rad),z]);
+      const sU=shadowRaw.map(p=>p[0]),sV=shadowRaw.map(p=>p[1]),sMinU=Math.min(...sU),sMaxU=Math.max(...sU),sMinV=Math.min(...sV),sMaxV=Math.max(...sV);
+      const shadowPoint=([x,y,z])=>[472+(x*Math.cos(rad)+y*Math.sin(rad)-sMinU)/(sMaxU-sMinU)*206,70+(sMaxV-z)/(sMaxV-sMinV)*278];
+      add(root,'path',{d:lorenzGamma.map((p,i)=>`${i?'L':'M'} ${shadowPoint(p)[0].toFixed(1)} ${shadowPoint(p)[1].toFixed(1)}`).join(' '),fill:'none',stroke:'#f0a951','stroke-width':1.35,opacity:.72});
+      const gateX=472+(0-sMinU)/(sMaxU-sMinU)*206;
+      add(root,'line',{x1:gateX,y1:82,x2:gateX,y2:340,stroke:'#ef9fca','stroke-width':2,'stroke-dasharray':'7 7',opacity:.72});
+      text(root,gateX+6,96,'Σ / SWITCH',{fill:'#ef9fca','font-size':10});
+      const sp=shadowPoint(state);
+      add(root,'circle',{cx:sp[0],cy:sp[1],r:8,fill:'#ef765f',stroke:'#f4f0e5','stroke-width':2});
+      if(gammaPhantomVisible){
+        const dx=Math.max(-54,Math.min(54,depth*2.2)),px=Math.max(466,Math.min(688,sp[0]+dx)),py=Math.max(76,sp[1]-34);
+        add(root,'line',{x1:sp[0],y1:sp[1],x2:px,y2:py,stroke:'#70d9e8','stroke-width':3,'stroke-dasharray':'5 5'});
+        add(root,'circle',{cx:px,cy:py,r:5,fill:'#70d9e8'});
+        text(root,px+(dx>=0?-4:4),py-10,'PHANTOM TINE',{fill:'#70d9e8','font-size':10,'text-anchor':dx>=0?'end':'start'});
+      }
+      text(root,582,365,`hidden depth d = ${(depth>=0?'+':'')+fmt(depth,2)}`,{fill:'#70d9e8','font-size':11,'text-anchor':'middle'});
+      text(root,360,405,'ONE CARRIER · ONE γ-PATH · MANY PROJECTIONS',{fill:'#ef765f','font-size':11,'text-anchor':'middle'});
+    }
+
     let ratioN=2,seamIndex=0,seamCut=1,seamLift=false;
     function renderSeamFlow(){
       const values=[11,12,13,12,11],states=['HOME','RISE +1','APEX','FALL −1','HOME′ / ρ=0'];
@@ -1614,6 +1780,9 @@
     document.querySelectorAll('[data-zeta-phase]').forEach(button=>button.addEventListener('click',()=>{zetaPhase=button.dataset.zetaPhase;renderZetaVisual()}));
     ['temperatureState','distanceState'].forEach(id=>$(id).addEventListener('input',renderMeasureMap));
     document.querySelectorAll('[data-carrier-view]').forEach(button=>button.addEventListener('click',()=>{carrierView=button.dataset.carrierView;renderCarrierViews()}));
+    $('controlCasePhase').addEventListener('input',renderOrientationControlCase);
+    ['gammaProjection','gammaState'].forEach(id=>$(id).addEventListener('input',renderCarrierGammaShadow));
+    $('gammaPhantom').addEventListener('click',()=>{gammaPhantomVisible=!gammaPhantomVisible;renderCarrierGammaShadow()});
     document.querySelectorAll('[data-ratio-n]').forEach(button=>button.addEventListener('click',()=>{ratioN=+button.dataset.ratioN;renderSeamFlow()}));
     $('seamMinus').addEventListener('click',()=>{seamIndex=Math.max(0,seamIndex-1);renderSeamFlow()});
     $('seamPlus').addEventListener('click',()=>{seamIndex=Math.min(4,seamIndex+1);renderSeamFlow()});
@@ -1634,7 +1803,7 @@
     $('nexitDirection').addEventListener('click',()=>{nexitDirection*=-1;renderNexit()});
     document.querySelectorAll('[data-field-vehicle-view]').forEach(button=>button.addEventListener('click',()=>{fieldVehicleView=button.dataset.fieldVehicleView;renderFieldVehicle()}));
     $('fieldVehicleStep').addEventListener('input',renderFieldVehicle);
-    renderCapacitor();renderPhase();renderGeometry();renderLightning();renderArchitecture();renderBoundaryVisual();renderEventVisual();renderThreadVisual();renderZetaVisual();renderMeasureMap();renderCarrierViews();renderSeamFlow();renderElevator();renderShadowProjection();renderCounterlift();renderFormatYard();renderNexit();renderFieldVehicle();
+    renderCapacitor();renderPhase();renderGeometry();renderLightning();renderArchitecture();renderBoundaryVisual();renderEventVisual();renderThreadVisual();renderZetaVisual();renderMeasureMap();renderCarrierViews();renderOrientationControlCase();renderCarrierGammaShadow();renderSeamFlow();renderElevator();renderShadowProjection();renderCounterlift();renderFormatYard();renderNexit();renderFieldVehicle();
   </script>
 </body>
 </html>
