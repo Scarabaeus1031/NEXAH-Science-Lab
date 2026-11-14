@@ -122,7 +122,7 @@
   <header class="top">
     <strong>NEXAH · A0 · Field Note II</strong>
     <nav aria-label="Seitennavigation">
-      <a href="#thesis">These</a><a href="#grammar">Grammatik</a><a href="#labs">Leselabore</a><a href="#carrierGammaShadow">γ / Shadow</a><a href="#field-transport">Feldtransport</a><a href="#hydraulic-atlas">Hydraulik</a><a href="#simple-visuals">Visual I/II</a><a href="#janus2501">J⁴ / 2501</a><a href="#tzl01">TZL-01</a><a href="#ieee">IEEE</a><a href="#ledger">Ledger</a><a href="#sources">Quellen</a>
+      <a href="#thesis">These</a><a href="#grammar">Grammatik</a><a href="#labs">Leselabore</a><a href="#carrierGammaShadow">γ / Shadow</a><a href="#field-transport">Feldtransport</a><a href="#hydraulic-atlas">Hydraulik</a><a href="#simple-visuals">Visual I/II</a><a href="#janus2501">J⁴ / 2501</a><a href="#tzl01">TZL-01</a><a href="#ieee">IEEE</a><a href="#ledger">Ledger</a><a href="#epilogue-screw">Screw</a><a href="#sources">Quellen</a>
     </nav>
   </header>
 
@@ -1014,8 +1014,27 @@
       </div>
     </section>
 
+    <section id="epilogue-screw">
+      <div class="eyebrow">10 · Epilog · Euler → Helix → Return</div>
+      <h2>The circle returns. The line advances. The screw does both.</h2>
+      <p class="lead">Ein linearer Parameter <code>t</code> kann als Winkeladresse auf einem Kreis erscheinen. Erst die Kopplung dieser Rotation an eine Translation erzeugt die Schraubenlinie: eine geschlossene Ansicht auf dem Kreis und zugleich eine offene Fortsetzung auf dem Carrier.</p>
+      <div class="grid">
+        <article class="card wide"><span class="status">View · circular address</span><h3>Euler liefert den Umlauf.</h3><code class="formula">e<sup>it</sup> = cos t + i sin t<br>E(t) = (r cos t, r sin t)<br>E(t + 2π) = E(t)</code><p>Linie und Umlauf, Parameter und Winkel, Koordinate und Rotation werden verbunden. Die Adresse in der Ebene kehrt nach einer vollen Periode zurück.</p></article>
+        <article class="card wide"><span class="status">Carrier · rotation + translation</span><h3>Pitch erzeugt die Screw.</h3><code class="formula">H(t) = (r cos t, r sin t, p t)<br>H(t + 2π) − H(t) = (0, 0, 2πp)</code><p>Der Pitch <code>p</code> koppelt die Kreisbewegung an linearen Fortschritt. Für <code>p ≠ 0</code> kehrt die Winkeladresse zurück, nicht aber der vollständige räumliche Zustand.</p></article>
+        <article class="card full"><span class="status">Projection audit</span><h3>Return der Ansicht ≠ Return des Carriers.</h3><code class="formula">π<sub>xy</sub>(H(t + 2π)) = π<sub>xy</sub>(H(t))<br>H(t + 2π) ≠ H(t) &nbsp; if &nbsp; p ≠ 0</code><p>Die Kreisprojektion schließt; die Höhenkoordinate bewahrt das Residuum <code>2πp</code>. Derselbe sichtbare Winkel kann deshalb zu verschiedenen Punkten der Geschichte gehören. In der Sprache dieser Field Note: <strong>Der View kehrt zurück, während der Carrier die Passage erinnert.</strong></p></article>
+      </div>
+
+      <h3 style="margin-top:2.5rem">Hawking-Fenster · Information, Evaporation und die Grenze der Analogie</h3>
+      <div class="grid">
+        <article class="card wide"><span class="status">1976 · information loss</span><h3>Der frühe Konflikt.</h3><p>Hawkings semiklassische Argumentation führte bei vollständiger Verdampfung eines Schwarzen Lochs zu einem Verlust von Vorhersagbarkeit: Ein reiner Anfangszustand schien in einen thermischen gemischten Zustand überzugehen. Das Problem betrifft die Vereinbarkeit von Gravitation, Hawking-Strahlung und unitärer Quantenentwicklung — nicht die pauschale Löschung „aller Information am Ende der Zeit“.</p></article>
+        <article class="card wide"><span class="status">2005 · revised position</span><h3>Die spätere Revision.</h3><p>Hawking vertrat später die Gegenposition: In einer vollständigen quantengravitativen Beschreibung bleibe die Entwicklung unitär und Information gehe nicht fundamental verloren. Damit wurde aus der behaupteten Löschung eine offene Frage nach dem Träger und der Rekonstruktion der Information.</p></article>
+        <article class="card full"><span class="status">Bounded bridge · analogy only</span><h3>Was die Screw hier leisten darf.</h3><p>Die Helix ist ein präzises Projektionsgleichnis: Eine Darstellung kann schließen, obwohl eine weitere Koordinate Geschichte bewahrt. Sie ist <strong>kein</strong> Modell eines Schwarzen Lochs, keine Rechnung der Hawking-Strahlung und keine Lösung des Informationsparadoxons. Ebenso beweist die geometrisch nicht schließende Höhenfolge noch keine thermodynamische Irreversibilität. Sie zeigt nur, warum „dieselbe sichtbare Adresse“ nicht mit „demselben vollständigen Zustand“ identisch sein muss.</p></article>
+      </div>
+      <div class="declaration" style="margin-top:1.2rem"><b>Closing figure</b>The circle returns.<br>The line advances.<br>The screw does both.<br><br><strong>Rückkehr ist keine Löschung.</strong></div>
+    </section>
+
     <section id="sources">
-      <div class="eyebrow">10 · Quellen, Status und Return</div>
+      <div class="eyebrow">11 · Quellen, Status und Return</div>
       <h2>Source-bound, nicht source-replacing.</h2>
       <div class="source-list">
         <a href="../FIELD_NOTES_A0.md"><strong>A0 Field Notes</strong><small>Owner-Handbook-Notizen und bestehender notes-only Rahmen</small></a>
@@ -1029,6 +1048,8 @@
         <a href="../../../../../../10%20NEXAH%20CORE/NEXAH/APPLICATIONS/power_systems/ieee_geometry_v1/evaluation_orientation_brief.md"><strong>IEEE-14 Orientation Brief</strong><small>Berechneter bounded Readout und explizite Claim-Grenzen</small></a>
         <a href="../../../../../../00%20EXECUTIVE/NEXAH-Mission-Control/AREAS/EXPERIENCE_AND_WORKS/ORIENTATION_INSTRUMENT_DISCOVERY_STUDY.md"><strong>Orientation Instrument Discovery Study</strong><small>Operator-Mapping, Demonstratorgrenzen und IEEE-V2-STOP</small></a>
         <a href="https://journals.ametsoc.org/view/journals/atsc/20/2/1520-0469_1963_020_0130_dnf_2_0_co_2.xml"><strong>Lorenz 1963 · Deterministic Nonperiodic Flow</strong><small>Primärquelle für das dreidimensionale System und die klassische Parameterfamilie</small></a>
+        <a href="https://journals.aps.org/prd/abstract/10.1103/PhysRevD.14.2460"><strong>Hawking 1976 · Breakdown of predictability</strong><small>Primärquelle der frühen Informationsverlust-Position bei gravitationellem Kollaps und Verdampfung</small></a>
+        <a href="https://arxiv.org/abs/hep-th/0507171"><strong>Hawking 2005 · Information Loss in Black Holes</strong><small>Primärquelle der revidierten Position: unitäre Entwicklung ohne fundamentalen Informationsverlust</small></a>
         <a href="https://case.edu/ech/articles/m/michelson-morley-experiment"><strong>Michelson–Morley Experiment · Case Western Reserve University</strong><small>Historischer Ort, Sandsteinplatte, Quecksilberbad und rotierende Versuchsanordnung</small></a>
         <a href="https://www.aps.org/funding-recognition/historic-sites/case"><strong>Case Western Reserve · APS Historic Physics Site</strong><small>Strahlteilung, Rotation, Nullresultat und Verhältnis von erwartetem zu beobachtetem Fringe-Shift</small></a>
         <a href="https://npgallery.nps.gov/AssetDetail/cf9d1d0b-5a47-48a3-96ac-75447e30dcee"><strong>Statue of Liberty · NPS place record</strong><small>WGS-84-Ortsmarker für die Ost–West-Linse</small></a>
