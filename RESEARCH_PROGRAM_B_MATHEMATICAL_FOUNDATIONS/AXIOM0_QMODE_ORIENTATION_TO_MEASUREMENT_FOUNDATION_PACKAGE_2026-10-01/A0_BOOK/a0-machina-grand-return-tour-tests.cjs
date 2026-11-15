@@ -1,0 +1,16 @@
+'use strict';
+const assert=require('node:assert/strict');
+const fs=require('node:fs');
+const path=require('node:path');
+const tour=require('./a0-machina-grand-return-tour.js');
+const cockpit=fs.readFileSync(path.join(__dirname,'A0_MACHINA_COCKPIT.html'),'utf8');
+assert.deepEqual(tour.verify(),{pass:true,passed:9,total:9,scenes:6});
+assert.equal(tour.SCENES.length,6);
+assert.deepEqual(tour.circuit(0).sceneIds,['source','blue','pink','coupling','curtain','return','source']);
+assert.equal(tour.circuit(4).exactReturn,true);
+assert.equal(tour.state(0).host,'NEXAH_A0_ORIENTATION_CONTROLLER_BENCH');
+assert.equal(tour.state(0).buildRegisterDelta,0);
+assert.deepEqual(tour.state(0).graph,{nodes:0,relations:0,aliases:0});
+for(const token of ['data-machina-grand-return','Grand Return Tour','6 SCENES · 1 RETURN','PINK','VIEW ONLY','CURTAIN','AM · VM · PM','HUMAN RETURN','0 IDs · 0 relations · 0 aliases'])assert.ok(cockpit.includes(token),token);
+for(const file of ['a0-machina-grand-return-tour.js','a0-machina-grand-return-tour.css','results/a0-machina-grand-return-tour-2026-11-15.json'])assert.ok(fs.existsSync(path.join(__dirname,file)),file);
+console.log('PASS · THE MACHINA Grand Return Tour · 6 scenes · exact return · no new identity');
