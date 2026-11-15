@@ -40,6 +40,7 @@ remain separate Owner decisions.
 - [A0 Site](index.html#top) — one canonical A0 entry
 - [A0 Science Desk](A0_RESEARCH_DESK.html) — scientific status and coordination room inside A0
 - [A0 Scientific Position](A0_SCIENTIFIC_POSITION_REPORT.html) — Assessment vom 13. Oktober mit Currentness Addendum vom 16. Oktober
+- [A0 Evidence Class Matrix](A0_EVIDENCE_CLASS_MATRIX_FREEZE_2026-11-15.md) — frozen claim-writing contract for `EXACT`, `BOUNDED_COMPUTATIONAL`, `MODEL` and `VISUAL_HYPOTHESIS`
 - [Aperture Journey](A0_NEXAH_APERTURE_JOURNEY.html) — primärer geführter Human-Lesepfad
 - [Living Blueprint](A0_LIVING_BLUEPRINT.html) — ruhige Human-/Systemkarte
 - [A0 Book](index.html) — eight-chapter Foundation reader

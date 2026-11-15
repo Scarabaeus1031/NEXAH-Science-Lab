@@ -16,7 +16,7 @@
 | PRIMARY_RESULT | `BOUNDARY_LOCKED_SMOOTH_EVENT`; qualifier `PHASE_COHERENT_ONLY` |
 | AUDIT_RESULT | tracking slope `0.905`; event span `8.48`; sampling span `0.02`; Fourier error `0.06`; phase shift `2.92` |
 | REPLAY_RESULT | byte-identical at `1cd9dc7d...`; independent verifier PASS twice |
-| FINAL_CLASSIFICATION | `BOUNDED_ANALYTIC_SYNTHETIC_BOUNDARY_LOCKED_RESULT / AWAITING_OWNER_DISPOSITION` |
+| FINAL_CLASSIFICATION | `BOUNDED_ANALYTIC_SYNTHETIC_BOUNDARY_LOCKED_RESULT / OWNER_ACCEPTED_2026-11-15` |
 | WHAT_WAS_ESTABLISHED | In the frozen model, the strongest smooth event follows boundary translation, is sampling- and high-order-Fourier-stable, and depends on harmonic phase order |
 | WHAT_WAS_NOT_ESTABLISHED | Carrier-intrinsic pulse, physical breath, resonance, energy, consciousness, biology, universal Alpha/Beta semantics, prediction or utility |
 | REFUTED_ELIMINATED_CLAIMS | Smoothing alone makes the event carrier-intrinsic; Fourier stability establishes intrinsic dynamics; spectral amplitudes alone determine the event |
@@ -24,9 +24,9 @@
 | ARCHITECTURE_CHANGES | One Study lifecycle identity `A0-BL-058`; Navigator entity/relation/alias delta `0/0/0` |
 | INFORMATION_BOUNDARIES | `R2_LOCAL_REPLAY`; analytic/synthetic input only |
 | DOWNSTREAM_IMPLICATIONS | Treat the recovered pulse as a boundary-and-phase-dependent diagnostic, not as a physical breathing mechanism |
-| NEXT_ACTION | Human Owner accept, revise or reject; no successor implied |
+| NEXT_ACTION | `NONE`; retain the bounded diagnostic; no successor implied |
 | ARTIFACTS | [Assessment](../../CASE_STUDIES/A0_BL_058_PULSE_PERSISTENCE_WITHOUT_HARD_BOUNDARY_2026-11-01/02_RESULT_ASSESSMENT.md) · [Primary JSON](../../CASE_STUDIES/A0_BL_058_PULSE_PERSISTENCE_WITHOUT_HARD_BOUNDARY_2026-11-01/artifacts/PRIMARY_RESULT.json) · [SVG](../../CASE_STUDIES/A0_BL_058_PULSE_PERSISTENCE_WITHOUT_HARD_BOUNDARY_2026-11-01/artifacts/PULSE_PERSISTENCE_RESULT.svg) |
-| CLOSURE_STATUS | `AWAITING_OWNER_DISPOSITION / ACTIVE_SLOT_RELEASED / STRUCTURE_FREEZE_RESTORED` |
+| CLOSURE_STATUS | `CLOSED / OWNER_ACCEPTED_BOUNDARY_LOCKED_SMOOTH_EVENT / ACTIVE_SLOT_RELEASED / STRUCTURE_FREEZE_RESTORED` |
 
 ## Central conclusion
 

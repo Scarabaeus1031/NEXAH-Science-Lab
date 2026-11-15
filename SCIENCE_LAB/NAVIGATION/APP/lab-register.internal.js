@@ -1,9 +1,9 @@
 window.NEXAH_LAB_REGISTER = {
   "schema": "nexah.science-lab.lab-register-lens/1.0.0",
   "status": "INTERNAL_READ_ONLY_SOURCE_BOUND_LENS",
-  "generated": "2026-11-01T18:34:26.599Z",
+  "generated": "2026-11-15T11:11:42.554Z",
   "source": "SCIENCE_LAB/LAB_REGISTER.md",
-  "source_sha256": "556c0260287449da1eb10e0c107644bbb3b9ebbbbc7b026baf92a71f744dc1fe",
+  "source_sha256": "8f65e264ef696084ed2eaf02d4d3a60ef013c064d9054c4d17ab14ad1b75147e",
   "authority": "LAB_REGISTER retains identity, lifecycle and disposition authority; this lens is read-only.",
   "study_count": 62,
   "studies": [
@@ -12,14 +12,14 @@ window.NEXAH_LAB_REGISTER = {
       "question": "Does the strongest local event remain at one carrier time when a smooth boundary is translated and widened, or does it follow the boundary and representation?",
       "owner": "Human Owner",
       "native_state": "BOUNDARY_LOCKED_SMOOTH_EVENT; qualifier PHASE_COHERENT_ONLY; 6/7 discriminating checks true; carrier-persistence gate false",
-      "common_status": "AWAITING_OWNER_DISPOSITION / ACTIVE_SLOT_RELEASED_2026-11-01 / STRUCTURE_FREEZE_RESTORED",
-      "evidence_summary": "R2_LOCAL_REPLAY candidate; lock 6/6 plus parent reference, verifier PASS twice, Primary/Replay byte-identical at 1cd9dc7d...",
+      "common_status": "CLOSED / OWNER_ACCEPTED_BOUNDARY_LOCKED_SMOOTH_EVENT_2026-11-15 / ACTIVE_SLOT_RELEASED / STRUCTURE_FREEZE_RESTORED",
+      "evidence_summary": "R2_LOCAL_REPLAY; lock 6/6 plus parent reference, verifier PASS twice, Primary/Replay byte-identical at 1cd9dc7d...",
       "primary_record": {
-        "label": "Labreport candidate",
+        "label": "Canonical Labreport",
         "path": "LABREPORTS/MATHEMATICS/LABREPORT_A0_BL_058_PULSE_PERSISTENCE_WITHOUT_HARD_BOUNDARY_001.md"
       },
-      "primary_records_text": "Labreport candidate · assessment · Primary result · result SVG",
-      "next_action": "Human Owner may accept, revise or reject; no physical-breath, carrier-intrinsic, utility, publication or successor claim"
+      "primary_records_text": "Canonical Labreport · Owner closure · assessment · Primary result · result SVG",
+      "next_action": "NONE; retain as bounded boundary- and phase-dependent diagnostic; no physical-breath, carrier-intrinsic, utility, publication or successor claim"
     },
     {
       "study_id": "A0_BL_057_ALPHA_BETA_MIRROR_BREATH_2026_11_01",

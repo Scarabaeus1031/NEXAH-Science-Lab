@@ -1,7 +1,7 @@
 # A0-BL-058 — result assessment
 
 Date: `2026-11-01`  
-Status: `BOUNDED_RESULT / AWAITING_OWNER_DISPOSITION`
+Status: `BOUNDED_RESULT / OWNER_ACCEPTED_2026-11-15 / CLOSED`
 
 ## Frozen result
 

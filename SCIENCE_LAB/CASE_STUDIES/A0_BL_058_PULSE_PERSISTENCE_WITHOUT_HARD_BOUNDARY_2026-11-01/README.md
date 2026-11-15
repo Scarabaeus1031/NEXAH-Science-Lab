@@ -1,6 +1,6 @@
 # A0-BL-058 · Pulse Persistence Without Hard Boundary
 
-Status: `BOUNDED_RESULT / AWAITING_OWNER_DISPOSITION / ACTIVE_SLOT_RELEASED`
+Status: `CLOSED / OWNER_ACCEPTED_BOUNDARY_LOCKED_SMOOTH_EVENT / ACTIVE_SLOT_RELEASED`
 
 The frozen deterministic test asked whether the strongest local event remains
 at one carrier time after replacing the previous hard cutoff with translated
@@ -14,6 +14,9 @@ carrier time. Sampling and high-order Fourier reconstruction are stable, while
 a fixed-amplitude phase control materially changes the event. This is an
 analytic/synthetic classification, not evidence of physical breathing or
 resonance.
+
+The Human Owner accepted this bounded disposition on `2026-11-15`. No
+successor run, publication or claim promotion follows from the closure.
 
 ## Reproduce
 
@@ -31,3 +34,4 @@ python3 verify_result.py artifacts/REPLAY_RESULT.json
 - [Assessment](02_RESULT_ASSESSMENT.md)
 - [Result projection](artifacts/PULSE_PERSISTENCE_RESULT.svg)
 - [Integration receipt](03_POST_RUN_INTEGRATION_RECEIPT.md)
+- [Owner closure](06_OWNER_CLOSURE_RECORD.md)
