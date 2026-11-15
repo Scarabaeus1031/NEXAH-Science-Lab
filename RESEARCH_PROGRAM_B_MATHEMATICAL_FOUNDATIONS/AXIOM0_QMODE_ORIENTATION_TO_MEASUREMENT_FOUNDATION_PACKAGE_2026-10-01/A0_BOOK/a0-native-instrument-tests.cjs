@@ -13,12 +13,13 @@ class Element{
 function source(file){
   const html=fs.readFileSync(file,'utf8'),nodes={};
   for(const match of html.matchAll(/id="([^"]+)"/g))nodes[match[1]]=new Element('div',match[1]);
-  const tabs=['inner','outer','ladder'].map((key,i)=>{const el=new Element('button');el.dataset.view=key;if(!i)el.classes.add('active');return el});
-  for(const key of ['inner','outer','ladder'])if(nodes[key]&&key==='inner')nodes[key].classes.add('active');
+  const viewKeys=['inner','outer','ladder','curtain','atlas','paths','packaging','models'];
+  const tabs=viewKeys.map((key,i)=>{const el=new Element('button');el.dataset.view=key;if(!i)el.classes.add('active');return el});
+  for(const key of viewKeys)if(nodes[key]&&key==='inner')nodes[key].classes.add('active');
   if(nodes.k)nodes.k.value='0';
   const doc={events:{},getElementById:key=>nodes[key],createElementNS:(_,tag)=>new Element(tag),createElement:tag=>new Element(tag),
     querySelector(selector){if(selector[0]==='#')return nodes[selector.slice(1)];if(selector==='.tabs button.active')return tabs.find(x=>x.classes.has('active'));const m=selector.match(/data-view="([^"]+)"/);if(m)return tabs.find(x=>x.dataset.view===m[1]);throw Error('unsupported selector '+selector)},
-    querySelectorAll:selector=>selector==='.tabs button'?tabs:selector==='.view'?['inner','outer','ladder'].map(x=>nodes[x]):[],
+    querySelectorAll:selector=>selector==='.tabs button'?tabs:selector==='.view'?viewKeys.map(x=>nodes[x]):[],
     addEventListener(k,fn){(this.events[k]??=[]).push(fn)}};
   const context={document:doc,A0NativeInstrumentContract:C,ResizeObserver:class{observe(){}},console};context.window=context;
   vm.createContext(context);
@@ -48,6 +49,8 @@ for(const instrument of [jan,two]){
 jan.api.dispatch({command:'SET',payload:{view:'ladder',k:-3}});
 eq(jan.api.dispatch({command:'STEP'}).reading.value,12543);
 eq(jan.api.dispatch({command:'MIRROR'}).reading.value,12567);
+jan.api.dispatch({command:'SET',payload:{view:'curtain',curtainStage:4,curtainX:11357,curtainCenter:11947,curtainDrift:0,curtainMapped:true}});
+let curtainRead=jan.api.dispatch({command:'READ'});eq([curtainRead.reading.view,curtainRead.reading.curtain.stage,curtainRead.reading.curtain.status,curtainRead.reading.curtain.pinkDiamondRole],['curtain','RETURN','EXACT_RETURN','VIEW_ONLY'],'integrated Curtain native read');
 const before=jan.api.dispatch({command:'READ'}).state;
 ok(!jan.api.dispatch({command:'SET',payload:{view:'outer',k:99}}).ok,'atomic Janus validation');
 eq(jan.api.dispatch({command:'READ'}).state,before);

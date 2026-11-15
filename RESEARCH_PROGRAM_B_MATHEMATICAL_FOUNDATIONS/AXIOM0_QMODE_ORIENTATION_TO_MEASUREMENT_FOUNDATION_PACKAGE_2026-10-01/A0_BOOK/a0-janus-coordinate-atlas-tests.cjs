@@ -5,6 +5,7 @@ const path=require('node:path');
 
 const here=__dirname;
 const cockpit=fs.readFileSync(path.join(here,'A0_MACHINA_COCKPIT.html'),'utf8');
+const hostPort=fs.readFileSync(path.join(here,'a0-machina-janus-coordinate-atlas.js'),'utf8');
 const janusPath=path.resolve(here,'../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_ELEVEN_SPACE_JANUS_NUMBER_VIEW_2026-10-06/NEXAH_JANUS_ARITHMETIC_LADDER.html');
 const notePath=path.resolve(here,'../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_ELEVEN_SPACE_JANUS_NUMBER_VIEW_2026-10-06/JANUS_COORDINATE_ATLAS_MATHEMATICAL_NOTE_2026-11-15.md');
 const janus=fs.readFileSync(janusPath,'utf8');
@@ -13,10 +14,22 @@ const note=fs.readFileSync(notePath,'utf8');
 assert.ok(cockpit.includes('id="janusCoordinateAtlas"'));
 assert.ok(cockpit.includes('ART:NUMBER:JANUS_LADDER'));
 assert.ok(cockpit.includes('data-jca-frame'));
+assert.ok(cockpit.includes('data-jca-curtain'));
+assert.ok(cockpit.includes('CURTAIN RETURN IN A0 ÖFFNEN'));
+assert.ok(cockpit.includes('AM / VM / PM / RETURN'));
+assert.ok(cockpit.includes('PINK DIAMOND'));
 assert.ok(fs.existsSync(janusPath));
 assert.ok(fs.existsSync(notePath));
 assert.equal((cockpit.match(/id="janusCoordinateAtlas"/g)||[]).length,1);
 assert.ok(janus.includes('data-view="atlas"'));
+assert.ok(janus.includes('data-view="curtain"'));
+assert.ok(janus.includes('routeA-routeB'));
+assert.ok(janus.includes("pinkDiamondRole:'VIEW_ONLY'"));
+assert.ok(janus.includes("sourceLocation.search.match(/[?&]view=([^&]+)/"));
+assert.ok(hostPort.includes('frame.contentWindow.A0NativeInstrument'));
+assert.ok(hostPort.includes("view:'curtain'"));
+assert.ok(hostPort.includes('curtainMapped:true'));
+assert.ok(hostPort.includes("url.searchParams.set('view',view)"));
 assert.ok(janus.includes('id="atlasPhysics"'));
 assert.ok(janus.includes('HOLD · premise not declared'));
 assert.ok(janus.includes('data-view="paths"'));
@@ -59,6 +72,14 @@ for(const [name,v] of Object.entries(relations)){
   assert.equal(2*v.m-v.a,v.b,`${name} affine reflection`);
   assert.equal(2*v.m-v.b,v.a,`${name} involution return`);
 }
+
+const curtain=(x,c,drift)=>{
+  const J=value=>2*c-value;
+  const routeA=J(x+drift),routeB=J(x)+drift;
+  return {routeA,routeB,residual:routeA-routeB,returnA:J(routeA),returnB:J(routeB)};
+};
+assert.deepEqual(curtain(11357,11947,0),{routeA:12537,routeB:12537,residual:0,returnA:11357,returnB:11357});
+for(const drift of [-40,-7,1,19,40])assert.equal(curtain(11357,11947,drift).residual,-2*drift);
 
 const q=.2,beta=Math.sqrt(1-q*q),delta=1-beta;
 assert.ok(Math.abs(delta-.0202041028867288)<1e-15);

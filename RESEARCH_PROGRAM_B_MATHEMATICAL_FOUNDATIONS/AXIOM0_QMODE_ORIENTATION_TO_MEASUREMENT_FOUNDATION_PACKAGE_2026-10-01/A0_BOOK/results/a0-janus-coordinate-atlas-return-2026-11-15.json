@@ -6,7 +6,7 @@
   "canonical_identity": "ART:NUMBER:JANUS_LADDER",
   "canonical_source": "SCIENCE_LAB/CASE_STUDIES/NEXAH_ELEVEN_SPACE_JANUS_NUMBER_VIEW_2026-10-06/NEXAH_JANUS_ARITHMETIC_LADDER.html",
   "integration": {
-    "mode": "lazy_source_bound_iframe",
+    "mode": "lazy_source_bound_iframe_with_native_view_dispatch",
     "new_navigator_ids": 0,
     "new_navigator_relations": 0,
     "duplicated_engines": 0,
@@ -19,7 +19,11 @@
     "centered_address": "kappa_m(J_m(x))=-kappa_m(x)",
     "chart": "u^2+(sqrt(1-u^2))^2=1",
     "segment_height": "delta=1-sqrt(1-q^2)=q^2/(1+sqrt(1-q^2))",
-    "q_0_2": "delta=0.0202041028867288..."
+    "q_0_2": "delta=0.0202041028867288...",
+    "curtain_sequence": "REFERENCE -> AM -> VM -> PM -> RETURN",
+    "curtain_routes": "routeA=J_c(S_Delta(x)); routeB=S_Delta(J_c(x))",
+    "curtain_residual": "routeA-routeB=-2*Delta",
+    "curtain_default_return": "Delta=0 gives routeA=routeB and both Janus returns equal x"
     ,"dual_generator_total": "23^3+24^3+25^3=41616=204^2=(12*17)^2"
     ,"declared_path_partition": "10350+31250+16=41616"
     ,"paired_inner_count": "31250=2*15625; 15625=25^3=5^6"
@@ -46,6 +50,7 @@
     "rosetta_is_translation_view_not_operator_identity": true,
     "speed_of_light_digit_address": "NOT_ESTABLISHED",
     "exact_total_is_41616_not_41416": true
+    ,"pink_diamond_role": "VIEW_ONLY_NOT_JANUS_OR_CURTAIN_OPERATOR"
     ,"ihara_nexus_role": "TYPED_RETURN_PORT_NOT_TRACE_OR_OPERATOR_IDENTITY"
     ,"sc_role": "SOURCE_OR_CARRIER_ONLY_WHEN_LOCALLY_DECLARED"
     ,"c808_role": "LOCAL_CHANNEL_MARKER_NOT_PHYSICAL_CONSTANT"
@@ -67,12 +72,14 @@
     "a0-janus-coordinate-atlas-tests.cjs: PASS",
     "a0-machina-janus-coordinate-atlas.js: syntax PASS",
     "Janus inline script: syntax PASS",
-    "Janus HTML parser: PASS"
+    "Janus HTML parser: PASS",
+    "a0-native-instrument-tests.cjs: 34 PASS",
+    "validate_antipode_bridge.mjs: PASS"
   ],
   "governance_validation": {
-    "source_graph": "FAIL_PREEXISTING_UNRELATED",
+    "source_graph": "PASS_332_RECORDS_32_RELATIONS",
     "changed_navigator_records": 0,
-    "failure_scope": "SG:LENS:A0_ORIENTATION_EVIDENCE hash mismatches in existing Rubik QDC, Red Balloon, Same Carrier and A0 Research Desk records"
+    "authority_effect": "NONE; existing ART:NUMBER:JANUS_LADDER reused"
   },
-  "claim_boundary": "Coordinate charts, radial allocation and layer models do not establish shared Janus, Ramanujan, Ihara, Riemann or physical dynamics."
+  "claim_boundary": "The Curtain is a bounded view within the existing Janus Ladder. Pink Diamond is view-only. Coordinate charts, radial allocation and layer models do not establish shared Janus, Ramanujan, Ihara, Riemann or physical dynamics."
 }

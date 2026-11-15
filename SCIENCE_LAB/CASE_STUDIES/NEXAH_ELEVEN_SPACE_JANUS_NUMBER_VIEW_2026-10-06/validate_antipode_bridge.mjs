@@ -30,12 +30,35 @@ for (const [center, a, b] of [[11947,11357,12537],[12555,11357,13753],[12555,125
   assert.equal(reflect(center, reflect(center, a)), a);
 }
 
+const curtainCompare = (x, center, drift) => {
+  const routeA = reflect(center, x + drift);
+  const routeB = reflect(center, x) + drift;
+  return {
+    routeA,
+    routeB,
+    residual: routeA - routeB,
+    returnA: reflect(center, routeA),
+    returnB: reflect(center, routeB)
+  };
+};
+for (const drift of [-40, -7, -1, 0, 1, 7, 40]) {
+  const result = curtainCompare(11357, 11947, drift);
+  assert.equal(result.residual, drift === 0 ? 0 : -2 * drift, `Curtain residual ${drift}`);
+  assert.equal(result.returnA - 11357, drift, `Curtain route A return ${drift}`);
+  assert.equal(result.returnB - 11357, drift === 0 ? 0 : -drift, `Curtain route B return ${drift}`);
+}
+
 assert.match(eleven, /NEXAH_JANUS_ARITHMETIC_LADDER\.html/);
 assert.match(janus, /NEXAH_ELEVEN_SPACE_FOUR_VIEWS\.html/);
 assert.match(eleven, /NEXAH_EULER_ANTIPODE_TWO_CUT_INSTRUMENT\.html/);
 assert.match(janus, /NEXAH_EULER_ANTIPODE_TWO_CUT_INSTRUMENT\.html/);
 assert.match(antipode, /NEXAH_ELEVEN_SPACE_FOUR_VIEWS\.html/);
 assert.match(antipode, /NEXAH_JANUS_ARITHMETIC_LADDER\.html/);
+assert.match(janus, /data-view="curtain"/);
+assert.match(janus, /AM → VM → PM → Referenz-Return/);
+assert.match(janus, /Pink Diamond Grid · Vergleichsansicht/);
+assert.match(janus, /routeA-routeB/);
+assert.match(janus, /pinkDiamondRole:'VIEW_ONLY'/);
 
 const bridge = registry.relations.find(({ relation_id }) => relation_id === 'REL:TWO_CUT_NUMBER_ANTIPODE');
 assert.ok(bridge, 'typed Antipode relation is registered');
@@ -48,6 +71,8 @@ console.log(JSON.stringify({
   arithmetic_checks: residues.size + 3,
   involution_pairs: 5,
   reciprocal_html_links: 6,
+  curtain_residual_controls: 7,
+  curtain_dom_contracts: 5,
   registry_relation: bridge.relation_id,
   boundary: 'nine shells remain distinct from eleven residue states'
 }, null, 2));

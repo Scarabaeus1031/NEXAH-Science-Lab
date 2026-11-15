@@ -12,8 +12,9 @@ HTML sources:
 1. `NEXAH_ELEVEN_SPACE_FOUR_VIEWS.html` — four coordinated readings of one
    modular field in `Z/11Z`;
 2. `NEXAH_JANUS_ARITHMETIC_LADDER.html` — exact mod-13, midpoint, nested-shell
-   palindrome-translation views, a typed coordinate atlas, an exact `204²`
-   path ledger and a bounded layer-model gallery.
+   palindrome-translation views, a typed coordinate atlas, an integrated
+   Curtain `AM → VM → PM → Return` comparator, an exact `204²` path ledger
+   and a bounded layer-model gallery.
 
 Both instruments are supporting surfaces of `MOD:NUMBER_VIEW_SUITE`. They do
 not create a new module, operator, Connection Family or physical claim.
@@ -101,11 +102,39 @@ Its Ramanujan/Ihara/Riemann names and the proposed coupling through `2501`
 remain display addresses on `HOLD`. The bundled Pancake and Rolled Sheet
 plates are owner-supplied visual hypotheses, not mathematical sources.
 
+## Curtain / Janus return comparator
+
+The Curtain is now an eighth view inside the existing Janus Ladder rather
+than a separate instrument. Its minimal declared adapter preserves one integer
+carrier while the display reads `REFERENCE → AM → VM → PM → RETURN`. It then
+compares the two orders
+
+```text
+route A = J_c(S_delta(x))
+route B = S_delta(J_c(x))
+```
+
+where `J_c(x)=2c-x` and `S_delta(x)=x+delta`. Their exact difference is
+`route A - route B = -2 delta`. At `delta=0`, both routes meet at the same
+Janus counter-address and a second Janus application returns to `x`. Nonzero
+drift is the negative control; with no declared adapter the result is
+`NOT_MAPPED`.
+
+The Pink Diamond Grid appears beside the Curtain as a labelled comparison
+view for stage, middle axis and Return aperture. It is not the Janus
+involution, the Curtain operator or a new relation between their existing
+identities. The bounded engineering receipt is
+`SEAM_JANUS_CURTAIN_RETURN_2026-11-15.json`.
+
 ## Claim boundary
 
 - A shared residue does not identify integers or generators.
 - A midpoint reflection is standard arithmetic, not a newly established Janus
   mechanism.
+- The Curtain zero-drift pass is an adapter-level commutation result, not a
+  machine-core or physical-mechanism result.
+- Pink Diamond is a view-only comparison here and is not identified with the
+  Janus involution, Curtain stages, shells or residues.
 - Membership in the Antipode method does not identify arithmetic reflection,
   geographic antipodes, shell layers and Q-mirror inversion as one operator.
 - The oval, circle, ladder and color coding are representations.

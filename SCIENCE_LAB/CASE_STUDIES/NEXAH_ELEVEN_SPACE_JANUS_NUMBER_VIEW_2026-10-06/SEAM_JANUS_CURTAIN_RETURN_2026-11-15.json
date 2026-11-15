@@ -1,0 +1,40 @@
+{
+  "schema": "nexah.number-view.janus-curtain-return/1",
+  "date": "2026-11-15",
+  "status": "LOCAL_ENGINEERING_PASS_INTEGRATED_EXISTING_ARTIFACT",
+  "classification": "SOURCE_BOUND_READ_ONLY_COMPARATOR_NO_MACHINE_CORE",
+  "canonical_identity": "ART:NUMBER:JANUS_LADDER",
+  "identity_reuse": [
+    "ART:NUMBER:JANUS_LADDER",
+    "MOD:NUMBER_VIEW_SUITE",
+    "NEXAH_A0_ORIENTATION_CONTROLLER_BENCH"
+  ],
+  "route": "SCIENCE_LAB/CASE_STUDIES/NEXAH_ELEVEN_SPACE_JANUS_NUMBER_VIEW_2026-10-06/NEXAH_JANUS_ARITHMETIC_LADDER.html#curtain",
+  "contract": {
+    "curtain": ["REFERENCE", "AM", "VM", "PM", "RETURN"],
+    "janus": "J_c(x)=2c-x",
+    "seam_adapter": "S_delta(x)=x+delta",
+    "fixture": {"x": 11357, "c": 11947, "J_c_x": 12537},
+    "route_a": "J_c(S_delta(x))",
+    "route_b": "S_delta(J_c(x))",
+    "commutator_residual": "route_a-route_b=-2*delta",
+    "default_result": "EXACT_RETURN",
+    "negative_control": "delta!=0 => RESIDUAL",
+    "unmapped_result": "NOT_MAPPED",
+    "pink_diamond_role": "VIEW_ONLY"
+  },
+  "verification": {
+    "arithmetic_checks": 10,
+    "involution_pairs": 5,
+    "curtain_residual_controls": 7,
+    "curtain_dom_contracts": 5,
+    "duplicate_html_ids": 0,
+    "source_graph": "332 entities / 32 relations PASS"
+  },
+  "graph_delta": {"identities": 0, "relations": 0, "aliases": 0},
+  "new_operator": false,
+  "new_study": false,
+  "new_finding": false,
+  "publication_authorized": false,
+  "claim_boundary": "The zero-drift pass is an adapter-level commutation result only. Pink Diamond is a comparison view and is not identified with the Janus involution, Curtain stages, shells or residues. No machine core, physical mechanism, evidence promotion, identity, relation, Study, Finding or publication state is created."
+}
