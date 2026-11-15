@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Source-bound comparator for an open pentagonal curtain, its triangular-bipyramid convex hull and the 010 South Cross projection.">
+  <title>Five Points · Three Readings — Ramanujan Pentagon Comparator</title>
+  <link rel="stylesheet" href="ramanujan-pentagon.css">
+</head>
+<body>
+  <main class="rp-shell" data-ramanujan-pentagon>
+    <header class="rp-top">
+      <div>
+        <div class="rp-eyebrow">A0 · SOURCE-BOUND FORMAL-DESIGN FIXTURE · NODE:RAMANUJAN_ESCAPE</div>
+        <h1>Five Points · Three Readings</h1>
+        <p>Dieselben fünf Punkte tragen eine offene Pentagon-Curtain-Fläche, schließen als dreieckige Bipyramide und erscheinen in der 010-Projektion als South Cross. Ansicht ist keine Identität.</p>
+      </div>
+      <div class="rp-status">LOCAL OWNER STAGING · NOT ACTIVE · NOT PUBLISHED</div>
+    </header>
+
+    <div class="rp-proof-state" aria-label="Evidenzstatus des Ramanujan-Pentagon-Comparators">
+      <article><small>HEIGHT INPUT</small><strong>RECONSTRUCTED_FROM_VISUAL</strong><p>Der Höhenvektor <code>(0, 0.5, 2, 0, 0)</code> ist aus dem historischen Bild rekonstruiert und nicht als ursprüngliche 3D-Geometrie nachgewiesen.</p></article>
+      <article><small>DERIVED GEOMETRY</small><strong>VERIFIED_FOR_DECLARED_COORDINATES</strong><p>Hull, innere Achse, T4/T5-Grenze, Flip und Return sind für genau diesen deklarierten Input rechnerisch getestet.</p></article>
+    </div>
+
+    <nav class="rp-tabs" aria-label="Drei geometrische Lesarten">
+      <button type="button" data-mode="cikada" aria-pressed="true">CIKADA · Curtain</button>
+      <button type="button" data-mode="scarab" aria-pressed="false">SCARAB · Hull</button>
+      <button type="button" data-mode="dragonfly" aria-pressed="false">DRAGONFLY · 010</button>
+      <button class="rp-return" type="button" data-return>RETURN · Carrier</button>
+    </nav>
+
+    <section class="rp-main">
+      <div class="rp-stage-wrap">
+        <header class="rp-stage-head">
+          <div><small>DRAG TO INSPECT · FIXED PRESETS REMAIN THE DECLARED VIEWS</small><h2 data-rp-mode-label>CIKADA · OPEN CURTAIN</h2><p data-rp-mode-copy>T4/T5 diagonal flip on one pentagonal boundary</p></div>
+          <small>HEIGHT INPUT · RECONSTRUCTED_FROM_VISUAL<br>DERIVED GEOMETRY · VERIFIED</small>
+        </header>
+        <svg class="rp-stage" data-rp-stage viewBox="0 0 800 560" role="img" aria-label="Interactive five-point geometry comparator"></svg>
+        <footer class="rp-footer"><span><code>P2–P5</code> is the internal apex axis, not a hull edge. Slits are view annotations, not geometry.</span><a href="../../DRAFTS/A0_RAMANUJAN_PENTAGON_DIAGONAL_FLIP_THREE_PORT_WORKING_NOTE_2026-11-14.md">Working note</a></footer>
+      </div>
+
+      <aside class="rp-sidebar">
+        <div class="rp-ledger" aria-label="Current geometry ledger">
+          <div><small>VIEW</small><strong data-rp-view>CIKADA</strong></div>
+          <div><small>CURTAIN</small><strong data-rp-state>T4</strong></div>
+          <div><small>FACES</small><strong data-rp-faces>125 · 245 · 234</strong></div>
+          <div><small>CLOSED HULL</small><strong>V5 · E9 · F6</strong></div>
+        </div>
+
+        <div class="rp-control-block">
+          <span class="rp-control-title">DIAGONAL FLIP · Φ²=id</span>
+          <div class="rp-controls">
+            <button type="button" data-flip="T4" aria-pressed="true">T4 · P2–P4</button>
+            <button type="button" data-flip="T5" aria-pressed="false">T5 · P3–P5</button>
+          </div>
+        </div>
+
+        <div class="rp-control-block">
+          <span class="rp-control-title">VISIBLE LAYERS</span>
+          <div class="rp-layer-controls">
+            <label><input type="checkbox" data-layer="curtain" checked> Curtain</label>
+            <label><input type="checkbox" data-layer="hull"> Hull</label>
+            <label><input type="checkbox" data-layer="axis" checked> Axis P2–P5</label>
+            <label><input type="checkbox" data-layer="splinters"> Splinters</label>
+            <label><input type="checkbox" data-layer="slits"> Slits</label>
+          </div>
+        </div>
+
+        <p class="rp-boundary"><strong>Claim ceiling:</strong> exact planar pentagon and finite combinatorics; the height profile remains reconstructed from the historical visual. No Ramanujan theorem, physical resonance, insect identity, cube identity, 60° face or channel mechanism is asserted.</p>
+      </aside>
+    </section>
+  </main>
+  <script src="ramanujan-pentagon.js"></script>
+  <script>if(new URLSearchParams(location.search).get('embed')==='1')document.body.dataset.embed='true';</script>
+</body>
+</html>

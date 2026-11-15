@@ -447,6 +447,51 @@ Controlling records:
 - [Comparator runner](A0_BOOK/a0_ullinium_methods_1_5_benchmark.cjs)
 - [Science Desk return](A0_BOOK/A0_RESEARCH_DESK.html#ullinium-closing-comparator-return-20261111)
 
+<a id="carrier-witness-residual-comparator"></a>
+
+### 11.4 Carrier, witness and residual: an analytic Return comparator
+
+The integrated Mathfield view adds a compact analytic comparator to the paper's
+method layer. It does not add a sixth formal case to the five closed Studies.
+For a shared phase parameter `t`, define
+
+```text
+C(t) = sin(t)
+E(t) = e^t
+R_dyad(t) = C(t) - E(t).
+```
+
+After one complete angular turn,
+
+```text
+C(t+2π)-C(t) = 0,
+E(t+2π)-E(t) = e^t(e^(2π)-1),
+R_dyad(t+2π)-R_dyad(t) = -e^t(e^(2π)-1).
+```
+
+The periodic carrier therefore returns exactly, while the exponential witness
+does not. The residual does not become a new object or an error to be hidden;
+it is the exact record of why the composite readout fails identity return.
+This gives a minimal executable example of the paper's typed hierarchy:
+
+```text
+carrier return != witness return != composite identity return.
+```
+
+The example is elementary and analytically complete. Its contribution is the
+typing and presentation of the seam, not a new theorem about `sin`, `exp`,
+dyadic fields, Zeta, physics or natural systems. The Dyadic Audit, Antipode
+Return, SNCE connector and K-channel sources remain evidence sidecars with
+their original scopes. The Ramanujan/Pentagon comparator remains outside this
+Paper-C argument.
+
+Controlling records:
+
+- [integrated Mathfield comparator](A0_BOOK/A0_MATHEMATICAL_JOINTS.html#return-layer-audit)
+- [Science Desk disposition](A0_BOOK/A0_RESEARCH_DESK.html#return-layer-paper-routing-20261115)
+- [Findings/Paper triage](32_A0_FINDINGS_AND_PAPER_WORKSPACE_2026-10-11.md#carrier-witness-residual-return--2026-11-15)
+- [machine receipt](A0_BOOK/results/a0-return-layer-desk-binding-2026-11-15.json)
+
 ## 12. External-review gate
 
 Before submission, publication, conference circulation or public academic

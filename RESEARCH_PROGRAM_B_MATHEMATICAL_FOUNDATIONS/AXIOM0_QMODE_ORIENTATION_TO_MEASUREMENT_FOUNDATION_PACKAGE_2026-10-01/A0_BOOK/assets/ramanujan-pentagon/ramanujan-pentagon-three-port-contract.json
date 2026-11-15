@@ -1,0 +1,99 @@
+{
+  "schema": "nexah.a0.ramanujan-pentagon-three-port/1",
+  "status": "SOURCE_BOUND_WORKING_FIXTURE_NOT_ACTIVE",
+  "reused_lineage": "NODE:RAMANUJAN_ESCAPE",
+  "new_navigator_ids": [],
+  "new_graph_relations": [],
+  "relationship_boundary": {
+    "part_of_scc003": false,
+    "ramanujan_theorem_claim": false,
+    "physical_channel_claim": false
+  },
+  "source_lock": {
+    "historical_visual_sha256": "3ee2d062984a5cc85cf741841e40cc9f95dd57b429cd9d392676ca4376966e6e",
+    "owner_annotation_sha256": "90f20e0861ff85f589876b5cc9daa7c8a6b48b36dd2b99d489bd5f3275983825",
+    "generator_recovered": false
+  },
+  "planar_carrier": {
+    "kind": "regular_pentagon",
+    "circumradius": 3,
+    "angle_step_degrees": 72,
+    "side_length": 3.526711513754839,
+    "diagonal_length": 5.706339097770921,
+    "points": [
+      {"id": "P1", "x": 3, "y": 0},
+      {"id": "P2", "x": 0.9270509831248424, "y": 2.8531695488854605},
+      {"id": "P3", "x": -2.427050983124842, "y": 1.7633557568774196},
+      {"id": "P4", "x": -2.427050983124843, "y": -1.7633557568774192},
+      {"id": "P5", "x": 0.9270509831248417, "y": -2.853169548885461}
+    ]
+  },
+  "height_profile": {
+    "status": "RECONSTRUCTED_FROM_VISUAL",
+    "values": {"P1": 0, "P2": 0.5, "P3": 2, "P4": 0, "P5": 0},
+    "verification": "UNVERIFIED_AS_HISTORICAL_3D_SOURCE",
+    "claim_boundary": "The declared height input is not historical source data until the generator, coordinate array or camera model is recovered."
+  },
+  "triangulations": {
+    "T1": {"diagonals": ["P1P3", "P1P4"], "faces": ["123", "134", "145"]},
+    "T2": {"diagonals": ["P1P3", "P3P5"], "faces": ["123", "135", "345"]},
+    "T3": {"diagonals": ["P1P4", "P2P4"], "faces": ["124", "234", "145"]},
+    "T4": {"diagonals": ["P2P4", "P2P5"], "faces": ["125", "245", "234"]},
+    "T5": {"diagonals": ["P2P5", "P3P5"], "faces": ["125", "235", "345"]}
+  },
+  "closure_control": {
+    "status": "VERIFIED_FOR_DECLARED_RECONSTRUCTED_COORDINATES",
+    "kind": "triangular_bipyramid_convex_hull",
+    "vertices": 5,
+    "edges": 9,
+    "faces": 6,
+    "euler_characteristic": 2,
+    "hull_faces": ["123", "124", "135", "145", "234", "345"],
+    "hull_edges": ["P1P2", "P1P3", "P1P4", "P1P5", "P2P3", "P2P4", "P3P4", "P3P5", "P4P5"],
+    "internal_axis": "P2P5",
+    "equatorial_face": "134",
+    "axis_pierces_equatorial_face": true,
+    "claim_boundary": "The hull classification is exact for the declared reconstructed coordinates. It is not historical source data until the generator or source array is recovered."
+  },
+  "selected_flip": {
+    "states": ["T4", "T5"],
+    "common_face": "125",
+    "common_diagonal": "P2P5",
+    "state_a_diagonal": "P2P4",
+    "state_b_diagonal": "P3P5",
+    "operator": "Phi(T4)=T5; Phi(T5)=T4; Phi^2=id"
+  },
+  "projection": {
+    "map": "pi_z(x,y,z)=(x,y,0)",
+    "ports": [
+      {"id": "d2", "type": "descent_fiber", "source": "P2", "length": 0.5},
+      {"id": "d3", "type": "descent_fiber", "source": "P3", "length": 2},
+      {"id": "o5", "type": "planar_outlet_return", "source": "P5", "length": 0}
+    ],
+    "view_modes": [
+      {"id": "CIKADA_CURTAIN", "formal_role": "OPEN_TRIANGULATED_PENTAGON", "geometry_effect": "NONE_VIEW_ONLY"},
+      {"id": "SCARAB_HULL", "formal_role": "CLOSED_TRIANGULAR_BIPYRAMID_CONTROL", "geometry_effect": "CONVEX_HULL_OF_SAME_FIVE_POINTS"},
+      {"id": "DRAGONFLY_010", "formal_role": "SOUTH_CROSS_TRANSVERSE_PROJECTION", "geometry_effect": "NONE_VIEW_ONLY"}
+    ],
+    "display_annotations": {
+      "splinters": "Hull edges not belonging to the pentagonal boundary; display role only.",
+      "slits": "Visibility-gap annotations; never counted as edges or faces.",
+      "o_cube": "Projection frame only; not a cube identity.",
+      "carrier_101": "Existing carrier/fold reading only; distinct from the binary direction code 101."
+    }
+  },
+  "return_record_minimum": [
+    "carrier_id",
+    "cyclic_order",
+    "height_profile",
+    "projection_frame",
+    "triangulation_state"
+  ],
+  "open_questions": [
+    "Recover the historical generator or coordinate array.",
+    "Declare a carried state and update rule before using channel or drain as a formal term.",
+    "Test an oval-weight map separately; none is currently source-bound.",
+    "Do not assert a 60-degree face under the inferred height profile.",
+    "Do not identify the triangular-bipyramid control with a historical intended body until the generator is recovered."
+  ]
+}

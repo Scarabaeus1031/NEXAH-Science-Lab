@@ -1,0 +1,62 @@
+{
+  "receipt": "A0_AXIS_ADAPTER_RETURN_2026_11_15",
+  "status": "IMPLEMENTED_BROWSER_VERIFIED",
+  "date": "2026-11-15",
+  "home": "A0_ARCHITECTURE_OF_DIFFERENCE.html#axis-adapter",
+  "integration": "existing_reader_before_screw",
+  "standalone": false,
+  "shared_parameter": "theta_degrees",
+  "views": [
+    "omega_unit_circle",
+    "w_shifted_circle",
+    "z_inverse_critical_line",
+    "helix_continuation",
+    "theta_zeta_lambda_120_degree_bow"
+  ],
+  "exact_contract": {
+    "omega": "exp(i*theta)",
+    "w": "1 + omega",
+    "z": "1 / w",
+    "finite_consequence": "Re(z) = 1/2",
+    "declared_pole": "theta = 180 degrees; w = 0",
+    "helix": "H(theta) = (cos(theta), sin(theta), p*theta)",
+    "bow": "opening = 120 degrees; chord = sqrt(3); midpoint_radius = 1/2"
+  },
+  "checkpoint_204_degrees": {
+    "omega": [-0.9135454576426009, -0.40673664307580015],
+    "w": [0.08645454235739913, -0.40673664307580015],
+    "z": [0.5, 2.352315054699955],
+    "critical_line_residual": -5.551115123125783e-17,
+    "disposition": "orientation_checkpoint_not_selector"
+  },
+  "gamma_separation": [
+    "carrier_address_GAMMA",
+    "return_trace_Gamma(t;phi)",
+    "Lorentz_gamma",
+    "Gamma_function"
+  ],
+  "claim_boundary": [
+    "coordinate_coupling_only",
+    "no_zeta_zero_claim",
+    "no_RH_claim",
+    "no_physical_axis_claim",
+    "no_new_operator"
+  ],
+  "verification": {
+    "axis_reader_tests": "23/23 PASS",
+    "splinter_regression": "27/27 PASS",
+    "browser": "PASS",
+    "initial_angle": "204 degrees"
+  },
+  "governance": {
+    "reused_identity": "A0_ARCHITECTURE_OF_DIFFERENCE",
+    "new_identities": [],
+    "new_relations": [],
+    "new_aliases": [],
+    "new_studies": [],
+    "new_findings": [],
+    "graph_delta": 0,
+    "deployment": false,
+    "publication": false
+  }
+}

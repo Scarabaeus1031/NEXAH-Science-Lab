@@ -1,0 +1,10 @@
+.oval-shadow-grid{display:grid;grid-template-columns:minmax(300px,.8fr) minmax(420px,1.2fr);gap:22px;align-items:stretch}
+.oval-shadow-card{margin:0;border:1px solid var(--line);background:#06131d;padding:18px}
+.oval-shadow-card img,.oval-shadow-card model-viewer{display:block;width:100%;height:520px;object-fit:contain;background:#000;--poster-color:#000}
+.oval-shadow-card figcaption{margin-top:12px;color:#8fa7b1;font-size:.76rem}
+.oval-shadow-ledger{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;margin-top:12px;background:var(--line);border:1px solid var(--line)}
+.oval-shadow-ledger div{padding:13px;background:#0b202d}
+.oval-shadow-ledger small{display:block;color:var(--muted);font:700 .58rem var(--mono);text-transform:uppercase}
+.oval-shadow-ledger b{color:#fff;font:800 .92rem var(--mono)}
+@media(max-width:980px){.oval-shadow-grid{grid-template-columns:1fr}.oval-shadow-card img,.oval-shadow-card model-viewer{height:460px}}
+@media(max-width:560px){.oval-shadow-card img,.oval-shadow-card model-viewer{height:360px}.oval-shadow-ledger{grid-template-columns:1fr 1fr}}

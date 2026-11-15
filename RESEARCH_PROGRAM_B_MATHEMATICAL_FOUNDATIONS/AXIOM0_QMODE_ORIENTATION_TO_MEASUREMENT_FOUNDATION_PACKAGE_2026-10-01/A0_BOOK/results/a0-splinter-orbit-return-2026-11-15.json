@@ -1,0 +1,54 @@
+{
+  "schema": "nexah.a0.splinter-orbit-return/1",
+  "date": "2026-11-15",
+  "status": "PASS_DECLARED_RETURN",
+  "verificationClass": "BOUNDED_ENGINEERING_VERIFICATION",
+  "researchRun": false,
+  "scientificEvidence": false,
+  "views": ["SHADOW", "FIELD", "RETURN"],
+  "delta": {
+    "formula": "1-sqrt(1-0.2^2)",
+    "value": 0.020204102886728803,
+    "visiblePartial": 0.0202041028,
+    "implies204Degrees": false
+  },
+  "historicalResidual": {
+    "source": [1933, 1939, 1945],
+    "anchor": 1729,
+    "residuals": [204, 210, 216],
+    "angleClaim": false
+  },
+  "auditHorizon2048": {
+    "value": 2048,
+    "exactPower": "2^11",
+    "range": "1<=n<=2048",
+    "successorHits": 311,
+    "digitCut": "204|8 DISPLAY_ONLY",
+    "derivedFrom204": false,
+    "derivedFromDelta": false,
+    "role": "BOUNDED_SUCCESSOR_AUDIT_HORIZON"
+  },
+  "declaredCarrier": {
+    "formula": "r_n(theta)=0.95+0.22*sin(n*theta)",
+    "lift": "H_n(theta)=(r*cos(theta),r*sin(theta),0.42*sin(theta))",
+    "harmonics": [5, 7],
+    "radialBelts": 12,
+    "fullCycleClosed": true,
+    "mirrorInvolutive": true,
+    "projectionInvariant": true
+  },
+  "negativeControls": {
+    "shortCycleRejected": true,
+    "perturbedEndpointRejected": true
+  },
+  "authority": {
+    "newIdentity": false,
+    "newRelation": false,
+    "newOperator": false,
+    "study": false,
+    "finding": false,
+    "publication": false,
+    "sourceGraphEffect": "NO_SOURCE_GRAPH_EFFECT"
+  },
+  "boundary": "Closure is proved only for the declared parametric carrier. This is not evidence for a Ramanujan theorem, universal Splinter operator, legacy ODE, IEEE grid behavior, zeta claim or physical mechanism."
+}

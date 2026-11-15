@@ -1,0 +1,107 @@
+'use strict';
+const assert=require('node:assert/strict');
+const fs=require('node:fs');
+const path=require('node:path');
+
+const here=__dirname;
+const cockpit=fs.readFileSync(path.join(here,'A0_MACHINA_COCKPIT.html'),'utf8');
+const janusPath=path.resolve(here,'../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_ELEVEN_SPACE_JANUS_NUMBER_VIEW_2026-10-06/NEXAH_JANUS_ARITHMETIC_LADDER.html');
+const notePath=path.resolve(here,'../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_ELEVEN_SPACE_JANUS_NUMBER_VIEW_2026-10-06/JANUS_COORDINATE_ATLAS_MATHEMATICAL_NOTE_2026-11-15.md');
+const janus=fs.readFileSync(janusPath,'utf8');
+const note=fs.readFileSync(notePath,'utf8');
+
+assert.ok(cockpit.includes('id="janusCoordinateAtlas"'));
+assert.ok(cockpit.includes('ART:NUMBER:JANUS_LADDER'));
+assert.ok(cockpit.includes('data-jca-frame'));
+assert.ok(fs.existsSync(janusPath));
+assert.ok(fs.existsSync(notePath));
+assert.equal((cockpit.match(/id="janusCoordinateAtlas"/g)||[]).length,1);
+assert.ok(janus.includes('data-view="atlas"'));
+assert.ok(janus.includes('id="atlasPhysics"'));
+assert.ok(janus.includes('HOLD · premise not declared'));
+assert.ok(janus.includes('data-view="paths"'));
+assert.ok(janus.includes('data-view="packaging"'));
+assert.ok(janus.includes('id="packaging"'));
+assert.ok(janus.includes('data-view="models"'));
+assert.ok(janus.includes('10,350 + 31,250 + 16 = 41,616'));
+assert.ok(janus.includes('0.02° ≠ δ(0.2)=0.020204…'));
+assert.ok(janus.includes('C808'));
+assert.ok(janus.includes('204 ≠ 216°'));
+assert.ok(janus.includes('41,616 mod 360 = 216°'));
+assert.ok(janus.includes('Galileo packing grammar'));
+assert.ok(janus.includes('1+7+19+37=64=4³'));
+assert.ok(janus.includes('16=2⁴=4²'));
+assert.ok(janus.includes('64=2⁶=4³'));
+assert.ok(janus.includes('id="shellOctaveFifthsConnector"'));
+assert.ok(janus.includes('7=p₄ · 19=p₈ · 37=p₁₂'));
+assert.ok(janus.includes('531441/524288'));
+assert.ok(janus.includes('23.4600'));
+assert.ok(janus.includes('octaveSuccessorFifthsBridge'));
+assert.ok(janus.includes('keine kulturelle Genealogie'));
+assert.ok(janus.includes('T⁴ → T³(q) PROJECTED STATE'));
+assert.ok(cockpit.includes('n³ · Δ₃(n)'));
+assert.ok(cockpit.includes('SHELL ↔ OCTAVE/FIFTHS'));
+assert.ok(cockpit.includes('XY / YZ / ZX'));
+assert.ok(note.includes('Existing Galileo packing grammar'));
+assert.ok(note.includes('7+1'));
+assert.ok(note.includes('Typed connector: cubic shells, octave and fifths'));
+assert.ok(note.includes('531441 / 524288'));
+assert.ok(note.includes('CONTEXT / HOLD'));
+for(const address of ['101','202','404','808','1616','3232'])assert.ok(janus.includes(`class="channel-node${address==='808'?' is-active':''}">${address}</div>`));
+for(const asset of ['204-path-ledger.jpeg','riemann-ihara-ramanujan-schematic.png','pancake-hypothesis.jpeg','rolled-sheet-hypothesis.jpeg','pancake-universe.jpeg']){
+  assert.ok(fs.existsSync(path.join(path.dirname(janusPath),'assets/path-and-layer-models',asset)),asset);
+}
+
+const relations={outer:{m:12555,r:1198,a:11357,b:13753},inner:{m:11947,r:590,a:11357,b:12537},local:{m:12555,r:18,a:12537,b:12573}};
+for(const [name,v] of Object.entries(relations)){
+  assert.equal(v.m-v.r,v.a,`${name} lower endpoint`);
+  assert.equal(v.m+v.r,v.b,`${name} upper endpoint`);
+  assert.equal(2*v.m-v.a,v.b,`${name} affine reflection`);
+  assert.equal(2*v.m-v.b,v.a,`${name} involution return`);
+}
+
+const q=.2,beta=Math.sqrt(1-q*q),delta=1-beta;
+assert.ok(Math.abs(delta-.0202041028867288)<1e-15);
+assert.ok(Math.abs(delta-q*q/(1+beta))<1e-15);
+assert.equal(1/q,5);
+assert.ok(Math.abs(beta-2*Math.sqrt(6)/5)<1e-15);
+assert.equal(23**3+24**3+25**3,204**2);
+assert.equal(10350+31250+16,204**2);
+assert.equal(31250,2*15625);
+assert.equal(15625,25**3);
+assert.equal(41616,2**4*3**2*17**2);
+assert.equal(10350,2*3**2*5**2*23);
+assert.equal(206**2-204**2,820);
+assert.equal(820,41*20);
+assert.equal(41616%360,216);
+assert.equal(59192,41616+26**3);
+assert.equal(59192%360,152);
+assert.equal(100808,59192+41616);
+assert.equal(100808%360,8);
+assert.deepEqual([101,202,404,808,1616,3232],Array.from({length:6},(_,k)=>101*2**k));
+const shell=n=>n**3-(n-1)**3;
+assert.deepEqual([1,2,3,4].map(shell),[1,7,19,37]);
+assert.equal([1,2,3,4].reduce((sum,n)=>sum+shell(n),0),4**3);
+assert.equal(shell(5),61);
+assert.equal(shell(6),91);
+assert.equal(64,2**6);
+assert.equal(64,4**3);
+assert.equal(64,8**2);
+const primes=[2,3,5,7,11,13,17,19,23,29,31,37,41,43,47,53,59,61];
+assert.equal(primes[3],7);
+assert.equal(primes[7],19);
+assert.equal(primes[11],37);
+assert.equal(primes[17],61);
+const comma=3**12/2**19;
+assert.equal(3**12,531441);
+assert.equal(2**19,524288);
+assert.notEqual(comma,1);
+const commaCents=1200*Math.log2(comma);
+assert.ok(Math.abs(commaCents-23.460010384649014)<1e-12);
+assert.ok(janus.includes('ledger map · role → count'));
+assert.ok(janus.includes('The exact total is <code>41,616</code>, not <code>41,416</code>'));
+assert.ok(janus.includes('speed-of-light digit code'));
+
+const u=.5;
+assert.ok(Math.abs(u*u+(Math.sqrt(1-u*u))**2-1)<1e-15);
+console.log('PASS · Janus Coordinate Atlas · exact arithmetic, chart and A0 source binding');

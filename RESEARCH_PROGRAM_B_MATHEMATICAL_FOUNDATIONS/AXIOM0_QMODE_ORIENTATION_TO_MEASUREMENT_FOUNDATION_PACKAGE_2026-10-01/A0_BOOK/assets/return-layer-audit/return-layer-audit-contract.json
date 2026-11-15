@@ -1,0 +1,28 @@
+{
+  "schema": "a0.mathfield.return-layer-audit.v1",
+  "date": "2026-11-15",
+  "identity_effect": {
+    "reuses": "ART:A0:MATHEMATICAL_JOINTS",
+    "new_identity": false,
+    "new_relation": false,
+    "new_alias": false,
+    "new_study": false,
+    "new_finding": false
+  },
+  "core": {
+    "carrier": "C(t)=sin(t)",
+    "witness": "E(t)=exp(t)",
+    "residual": "R_dyad(t)=sin(t)-exp(t)",
+    "carrier_return": "C(t+2pi)-C(t)=0",
+    "residual_return_defect": "R_dyad(t+2pi)-R_dyad(t)=-exp(t)(exp(2pi)-1)"
+  },
+  "evidence_channels": [
+    {"name": "prime-index dyadic channel", "status": "PASS_BOUNDED_TYPED_ARITHMETIC_AUDIT_NO_GENERAL_LAW", "checks": 18, "pairs": 2098176, "dyadic_hits": 386},
+    {"name": "E8 antipode return", "status": "PASS", "checks": 14, "claim_boundary": "NO_E8_ANTIPODAL_SPECIFICITY_RETAINED"},
+    {"name": "Pascal antipode pair", "status": "PASS", "checks": 41, "identity": "ART:NUMBER:PRIMEGRID_BLOCK02B_TRINARY_ANTIPODE"},
+    {"name": "SNCE 101/12928 connector", "status": "PASS_WITH_NEGATIVE_SELECTOR_CONTROL", "checks": 49, "unique_selector": false},
+    {"name": "historical dyadic grid", "status": "SOURCE_RECONSTRUCTION_ONLY", "rows": 552, "scientific_activation": "NOT_ADMITTED"},
+    {"name": "EXP-JANUS-11B kappa channel", "status": "CONDITIONAL", "reproducible": false, "reason": "board tables only; code and raw data unavailable"}
+  ],
+  "claim_ceiling": "Integrated explanatory comparator. No new physical channel, universal law, Zeta identity, Study, Finding, graph identity or publication state."
+}

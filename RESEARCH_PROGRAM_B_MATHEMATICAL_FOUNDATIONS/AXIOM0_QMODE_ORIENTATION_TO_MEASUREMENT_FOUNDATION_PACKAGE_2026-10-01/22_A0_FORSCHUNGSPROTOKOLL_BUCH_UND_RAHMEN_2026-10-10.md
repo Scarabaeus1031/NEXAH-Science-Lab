@@ -2532,3 +2532,17 @@ The post–Open Book field-note delta was returned as one bounded local freeze. 
 
 Classification remains `DOCUMENTARY + METHOD-RELEVANT ENGINEERING OBSERVATION`. No new Study, experiment, Finding, paper result or physical claim was admitted. String/M-theory and resonance language remains editorial comparison. Navigator reuse is explicit; canonical ID, relation and alias deltas are all zero. The resulting state is `HOLD`.
 
+## Carrier / Witness / Residual Mathfield return — 2026-11-15
+
+The existing Mathematical Joints surface now carries one integrated analytic
+comparator rather than a new standalone demonstrator. It distinguishes
+`C(t)=sin(t)`, `E(t)=exp(t)` and `R_dyad(t)=sin(t)-exp(t)` under one phase
+control and exposes the exact defects `0`, `exp(t)(exp(2π)-1)` and its negative.
+
+Science Desk classifies this as an exact elementary-mathematics fixture and a
+Paper-C methods note. Findings routing explicitly records `NO_NEW_F-A0`; A0
+Science receives a bounded currentness card; Builder records implementation
+and test custody. The Ramanujan/Pentagon comparator stays in its separate
+geometric/SCC-003 line. Status: `HOLD / NO_NEW_ID / NO_RELATION / NO_STUDY /
+NO_FINDING / NO_CLAIM_PROMOTION / NO_PUBLICATION`.
+

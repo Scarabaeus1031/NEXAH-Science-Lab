@@ -1,0 +1,44 @@
+{
+  "schema_id": "nexah.a0.return-layer-desk-binding",
+  "schema_version": "1.0.0",
+  "date": "2026-11-15",
+  "status": "SOURCE_BOUND_INTEGRATION_RETURN",
+  "identity_reuse": [
+    "ART:A0:MATHEMATICAL_JOINTS",
+    "NEXAH:A0_ORIENTATION_EVIDENCE_LINEAGE:V1"
+  ],
+  "exact_contract": {
+    "carrier": "C(t)=sin(t)",
+    "witness": "E(t)=exp(t)",
+    "residual": "R_dyad(t)=sin(t)-exp(t)",
+    "carrier_defect_2pi": "0",
+    "witness_defect_2pi": "exp(t)*(exp(2*pi)-1)",
+    "residual_defect_2pi": "-exp(t)*(exp(2*pi)-1)"
+  },
+  "verification": {
+    "integration_binding_checks": "51/51 PASS",
+    "dyadic_audit": "18/18 PASS",
+    "antipode_return": "14/14 PASS",
+    "snce_connector": "49/49 PASS"
+  },
+  "returns": {
+    "mathfield": "A0_MATHEMATICAL_JOINTS.html#return-layer-audit",
+    "science_desk": "A0_RESEARCH_DESK.html#return-layer-paper-routing-20261115",
+    "builder_desk": "A0_BUILDER_LOG.html#return-layer-mathfield-builder-return-20261115",
+    "findings_workspace": "../32_A0_FINDINGS_AND_PAPER_WORKSPACE_2026-10-11.md#carrier-witness-residual-return--2026-11-15",
+    "paper_c_source": "../34_A0_RETURN_WITHOUT_IDENTITY_PAPER_DRAFT_2026-10-11.md#carrier-witness-residual-comparator",
+    "paper_c_reader": "A0_RETURN_WITHOUT_IDENTITY_PAPER.html#carrier-witness-residual",
+    "a0_science": "A0_SCIENCE.html#return-layer-currentness-20261115"
+  },
+  "paper_disposition": "PAPER_C_METHOD_NOTE_NOT_SIXTH_FORMAL_CASE",
+  "separation_boundary": "RAMANUJAN_PENTAGON_REMAINS_SEPARATE_GEOMETRIC_LINE",
+  "deltas": {
+    "navigator_identities": 0,
+    "navigator_relations": 0,
+    "navigator_aliases": 0,
+    "studies": 0,
+    "canonical_findings": 0,
+    "claim_ceiling_changes": 0,
+    "publications": 0
+  }
+}

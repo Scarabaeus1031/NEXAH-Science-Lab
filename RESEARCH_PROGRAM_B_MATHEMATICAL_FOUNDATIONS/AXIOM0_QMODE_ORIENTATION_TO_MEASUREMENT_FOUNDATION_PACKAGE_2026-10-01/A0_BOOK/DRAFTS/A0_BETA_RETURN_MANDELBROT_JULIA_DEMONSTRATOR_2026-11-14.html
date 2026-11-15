@@ -36,6 +36,8 @@
     .reading { display:grid; grid-template-columns:1.2fr .8fr; gap:16px; margin-top:16px; }
     .card { border:1px solid var(--line); background:#0a1b22; padding:18px; }
     .card h3 { margin:0 0 8px; color:var(--gold); font:700 17px system-ui,sans-serif; }
+    .card a { color:var(--cyan); }
+    .card.ntf { grid-column:1/-1; }
     .sequence { display:flex; gap:9px; align-items:center; flex-wrap:wrap; color:var(--muted); }
     .sequence b { color:var(--ink); border:1px solid var(--line); padding:5px 8px; }
     .boundary { border-left:3px solid var(--red); }
@@ -71,6 +73,12 @@
   </section>
 
   <section class="reading">
+    <div class="card ntf" id="ntf-reading">
+      <h3>NPF → NTF · lokale Iterationslesart</h3>
+      <p><strong>NPF</strong> hält in dieser Lesart den strukturellen Frame: Grenzen, mögliche Passagen und die Koordinaten der Ansicht. <strong>NTF</strong> benennt lokal den Übergang von einem vollständigen Rekurrenzzustand zum nächsten:</p>
+      <div class="sequence"><b>Sₙ = (zₙ, zₙ₋₁, c, β_feedback)</b><span>→</span><b>ATM</b><span>→</span><b>Sₙ₊₁</b></div>
+      <p><strong>Aperture</strong> wählt die betrachtete Passage, <strong>Transition</strong> führt den Rechenschritt aus, <strong>Memory</strong> liegt im erhaltenen Vorgänger <code>zₙ₋₁</code>. Der nächste Zustand trägt diese Differenz weiter. NTF ist hier weder ein neuer Operator noch eine physikalische Behauptung; es ist ein lesbarer Name für die bereits implementierte Iteration. <a href="../A0_FIELD_NOTES.html#ntf-iteration">Kuratierter Einstieg</a> · <a href="A0_FIELD_NOTE_II_ARCHITECTURE_OF_DIFFERENCE_2026-11-13.html#ntf-b2-bridge">ausführliche Grenze</a>.</p>
+    </div>
     <div class="card">
       <h3>Leseschlüssel</h3>
       <div class="sequence"><b>c</b> setzt den Frame <span>→</span><b>z</b> durchläuft ihn <span>→</span><b>β_feedback</b> bestimmt, wie die letzte Bewegung zurückwirkt.</div>
@@ -81,7 +89,7 @@
       <p>Dies ist eine explorative Rekurrenz und ein Erklärungsinstrument. Sie ist keine neue Naturgleichung und kein Nachweis dafür, dass <em>c</em> physikalisch ein Raumzeit-Grid ist. <code>β_feedback</code> ist hier ein lokaler Parameter und nicht automatisch identisch mit anderen β-/Boundary-Begriffen in A0.</p>
     </div>
   </section>
-  <footer>Implementation self-check: β_feedback = 0 reproduces the classical quadratic recurrence; initial feedback is zero when z₀ = z₋₁. Escape radius = 4.</footer>
+  <footer>Implementation self-check: β_feedback = 0 reproduces the classical quadratic recurrence; initial feedback is zero when z₀ = z₋₁. Escape radius = 4. NTF is a local reading label, not a canonical operator.</footer>
 </main>
 <script>
 (() => {

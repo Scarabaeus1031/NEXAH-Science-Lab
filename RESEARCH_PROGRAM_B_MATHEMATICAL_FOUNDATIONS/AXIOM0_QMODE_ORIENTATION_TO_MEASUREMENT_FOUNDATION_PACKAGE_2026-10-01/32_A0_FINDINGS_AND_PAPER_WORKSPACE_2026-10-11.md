@@ -3627,3 +3627,40 @@ PUBLICATION 0`.
 [Science Desk](A0_BOOK/A0_RESEARCH_DESK.html#rainbow-bridge-miwa-lantern-return-20261112) ·
 [Builder Log](A0_BOOK/A0_BUILDER_LOG.html#rainbow-bridge-miwa-lantern-builder-20261112) ·
 [Receipt](A0_BOOK/results/a0-rainbow-bridge-miwa-lantern-return-2026-11-12.json)
+
+<a id="carrier-witness-residual-return--2026-11-15"></a>
+
+### Carrier / Witness / Residual Return — 2026-11-15
+
+Classification: `PAPER_C_METHOD_NOTE / EXACT_ANALYTIC_COMPARATOR /
+NOT_NEW_F-A0_FINDING / NO_STUDY_ACTIVATION / NO_PAPER_PROMOTION`.
+
+The integrated Mathfield comparator makes one exact distinction inspectable:
+
+```text
+C(t) = sin(t)                  Δ₂πC = 0
+E(t) = e^t                     Δ₂πE = e^t(e^(2π)-1)
+R_dyad(t) = sin(t)-e^t         Δ₂πR = -e^t(e^(2π)-1)
+```
+
+This supports the existing Paper-C thesis that endpoint recurrence,
+representation recovery and full identity are different predicates. The
+periodic carrier returns; the witness does not; the residual reports the
+failure of the combined readout to close. The comparator is therefore useful
+as a compact method figure and executable explanation.
+
+It is **not** a sixth closed Paper-C Study, a new dyadic law, a Zeta-line
+identity, a physical channel, an SNCE selector result or a canonical `F-A0`
+Finding. The Dyadic, Antipode, SNCE, historical-grid and K-channel records
+remain separately typed sources. The nearby Ramanujan/Pentagon comparator
+remains in its own SCC-003/geometric line and is not evidence for this
+Return-layer statement.
+
+Paper disposition: incorporate as a bounded methods subsection in Paper C;
+retain the five closed Studies as the paper's formal evidence core. No Paper A,
+Paper E or external-publication state changes.
+
+[Mathfield comparator](A0_BOOK/A0_MATHEMATICAL_JOINTS.html#return-layer-audit) ·
+[Science Desk return](A0_BOOK/A0_RESEARCH_DESK.html#return-layer-paper-routing-20261115) ·
+[Paper C source](34_A0_RETURN_WITHOUT_IDENTITY_PAPER_DRAFT_2026-10-11.md#carrier-witness-residual-comparator) ·
+[Machine receipt](A0_BOOK/results/a0-return-layer-desk-binding-2026-11-15.json)

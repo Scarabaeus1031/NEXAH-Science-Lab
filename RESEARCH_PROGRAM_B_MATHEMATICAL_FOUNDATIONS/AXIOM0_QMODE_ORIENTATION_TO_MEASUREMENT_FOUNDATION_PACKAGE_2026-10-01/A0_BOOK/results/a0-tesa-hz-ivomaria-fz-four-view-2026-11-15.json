@@ -1,0 +1,40 @@
+{
+  "schema": "a0.tesa-four-view-return.v1",
+  "recordId": "TESA-28/VIEW-RETURN-2026-11-15",
+  "status": "PASS_VIEW_PRESERVATION",
+  "carrier": {
+    "sampleCount": 28,
+    "externalAddress": 29,
+    "sha256": "3ef85cb870448d10eb4d2fd93b7fae6ae41ab172c1e15de1577e11d094ff0478"
+  },
+  "views": [
+    "TESA_GRID",
+    "HZ_LADDER",
+    "IVOMARIA_POLAR",
+    "FZ_RETURN_R270"
+  ],
+  "checks": {
+    "sampleCountPreserved": true,
+    "identityPreserved": true,
+    "orderPreserved": true,
+    "valuePreserved": true,
+    "external29Excluded": true,
+    "fzEqualsR270": true
+  },
+  "separation": {
+    "ocbM3SampleCount": 48,
+    "sameRecordClaim": false
+  },
+  "claimCeiling": [
+    "VIEW_ONLY",
+    "NO_PHYSICAL_FREQUENCY",
+    "NO_CARDANO_IDENTITY",
+    "NO_RAMANUJAN_IDENTITY",
+    "NO_NEW_RELATION"
+  ],
+  "graphDelta": {
+    "newIdentities": 0,
+    "newRelations": 0,
+    "sourceGraphEffect": "NO_SOURCE_GRAPH_EFFECT"
+  }
+}

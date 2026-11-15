@@ -1983,3 +1983,15 @@ The currentness freeze closes the present integration pass. Four future gates ar
 4. a separate intake for any formal cross-module state connector between Heptad, floor, CPMR and Pascal registers.
 
 None of these gates authorizes Research, Build, participant contact, publication, deployment or outreach. Any successor requires a separate Owner decision with input, output, baseline, metric, stop rule and Return.
+
+## Carrier / Witness / Residual closeout — 2026-11-15
+
+Status: `RETURNED / NO_NEW_BACKLOG_ITEM / HOLD`.
+
+The integrated Mathfield comparator closes the immediate documentation and
+paper-routing gap for the Carrier/Witness/Residual seam. It is bound to Science
+Desk, Builder Desk, Findings/Paper Workspace, Paper C and A0 Science. No
+additional demonstrator, new Study or new Finding is needed. Any later attempt
+to connect this elementary analytic example to a Zeta line, physical dyadic
+field, natural mechanism or the separate Ramanujan/Pentagon geometry requires
+a new bounded question, baseline, counterexample and Human Owner admission.
