@@ -9,6 +9,16 @@
   "route": ["SOURCE", "BLUE_CARRIER", "PINK_VIEW_ONLY", "BLUE_PINK_HANDOFF", "CURTAIN_JANUS", "HUMAN_RETURN", "SOURCE"],
   "scene_count": 6,
   "exact_return": true,
+  "module_dip": {
+    "mode": "lazy_source_bound_single_frame",
+    "choreography": ["tour", "module_open", "module_close", "next_scene"],
+    "automatic_per_scene": true,
+    "final_state": "source_with_window_closed",
+    "copies": 0,
+    "recursive_host_frames": 0,
+    "tour_updates_open_frame": true,
+    "close_returns_to_tour": true
+  },
   "sources_reused": [
     "A0_MACHINA_COCKPIT.html#benchFoyer",
     "A0_TESSAREC_BLUE_BODY_LAB.html#blue-body-interior-crt16",

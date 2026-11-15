@@ -10,9 +10,9 @@ const failures = [];
 const check = (condition, message) => { if (!condition) failures.push(message); };
 const sha256 = (file) => crypto.createHash("sha256").update(fs.readFileSync(file)).digest("hex");
 
-check(manifest.freeze_id === "A0_CANONICAL_SITE_FREEZE_2026-11-02", "unexpected freeze id");
-check(manifest.current_freeze_record === "A0_CANONICAL_SITE_FREEZE_2026-11-02.md", "active freeze record changed");
-check(manifest.supersedes === "A0_CANONICAL_SITE_FREEZE_2026-10-29", "superseded freeze provenance missing");
+check(manifest.freeze_id === "A0_CANONICAL_SITE_FREEZE_2026-11-15", "unexpected freeze id");
+check(manifest.current_freeze_record === "A0_CANONICAL_SITE_FREEZE_2026-11-15.md", "active freeze record changed");
+check(manifest.supersedes === "A0_CANONICAL_SITE_FREEZE_2026-11-02", "superseded freeze provenance missing");
 check(manifest.canonical_entry === "A0_BOOK/index.html#top", "canonical entry changed");
 check(manifest.alternate_authoritative_editions === 0, "alternate authoritative edition admitted");
 check(manifest.version_policy?.maintain_in_place === true, "maintain-in-place policy missing");
@@ -23,10 +23,11 @@ check(manifest.version_policy?.replacement_freeze_requires_explicit_human_owner_
 const canonical = fs.readFileSync(path.join(root, "index.html"), "utf8");
 check(canonical.includes('<link rel="canonical" href="index.html">'), "canonical link missing");
 check(canonical.includes('name="nexah:a0-authority" content="CANONICAL_SOURCE"'), "canonical authority marker missing");
-check(canonical.includes('name="nexah:a0-freeze" content="A0_CANONICAL_SITE_FREEZE_2026-11-02"'), "active freeze marker missing");
+check(canonical.includes('name="nexah:a0-freeze" content="A0_CANONICAL_SITE_FREEZE_2026-11-15"'), "active freeze marker missing");
 check(sha256(path.join(root, "index.html")) === manifest.canonical_entry_sha256, "canonical entry hash mismatch");
 check(fs.existsSync(path.join(root, manifest.current_freeze_record)), "active freeze record missing");
-check(fs.existsSync(path.join(root, "ARCHIVE/A0_CANONICAL_SITE_FREEZE_2026-10-29/RECEIPT.md")), "superseded freeze archive receipt missing");
+check(fs.existsSync(path.join(root, "A0_CANONICAL_SITE_FREEZE_2026-11-02.md")), "superseded freeze record missing");
+check(fs.existsSync(path.join(root, "ARCHIVE/A0_CANONICAL_SITE_FREEZE_2026-10-29/RECEIPT.md")), "freeze provenance archive receipt missing");
 
 const alias = fs.readFileSync(path.join(packageRoot, "A0", "index.html"), "utf8");
 check(alias.includes("new URL('../A0_BOOK/index.html'"), "short A0 alias no longer returns to canonical entry");
@@ -55,7 +56,7 @@ const result = {
   freeze_id: manifest.freeze_id,
   canonical_entry: manifest.canonical_entry,
   alternate_authoritative_editions: manifest.alternate_authoritative_editions,
-  checks: 21 + Object.keys(manifest.sha256).length,
+  checks: 22 + Object.keys(manifest.sha256).length,
   failures
 };
 console.log(JSON.stringify(result, null, 2));

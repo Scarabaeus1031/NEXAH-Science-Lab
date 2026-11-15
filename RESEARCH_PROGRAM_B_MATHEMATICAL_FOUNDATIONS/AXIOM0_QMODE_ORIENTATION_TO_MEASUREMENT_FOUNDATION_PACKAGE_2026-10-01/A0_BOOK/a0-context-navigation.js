@@ -675,6 +675,8 @@
         "title": "Zusammenhang und Methode",
         "pages": [
           "A0_LIVING_BLUEPRINT.html",
+          "A0_ARCHITECTURE_OF_DIFFERENCE.html",
+          "A0_FIELD_NOTES.html",
           "A0_THEORY_STORYBOARD.html",
           "A0_FAMILY_CONNECTION_ATLAS.html",
           "A0_NEXAH_RESEARCH_METHOD.html",
