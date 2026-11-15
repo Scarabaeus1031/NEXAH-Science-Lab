@@ -1,0 +1,15 @@
+{
+  "schema": "nexah.a0.rolled-layer-seam-return-receipt/1",
+  "recordId": "A0-RLSR-2026-11-15",
+  "status": "PASS_SOURCE_BOUND_ENGINEERING_VIEW",
+  "identity": "NEXAH_A0_ORIENTATION_CONTROLLER_BENCH",
+  "studyContext": {"id": "A0_BL_056_CLP_MULTIVIEW_RETURN_2026_10_28", "use": "READING_BRIDGE_ONLY", "lifecycleChange": false, "primaryRun": false, "replay": false},
+  "stages": ["SHEET", "STACK", "ROLL", "SEAM", "PILLAR_RETURN"],
+  "views": ["REGISTER_LAYERS", "AB_CROSS_SEAM", "ROLLED_BODY"],
+  "sideLabels": ["PALAT", "SCHINKEN"],
+  "checks": {"automated": 84, "status": "PASS", "layerOrderPreserved": true, "boundaryPairingOneToOne": true, "typedReturnAddressPreserved": true, "fiveStationsPresent": true, "threeSynchronizedViewsPresent": true},
+  "positiveFinding": "Coupled layer, cross-section and body views preserve one typed register address while making the A/B seam and return pillar jointly readable.",
+  "boundary": {"palatSchinken": "DISPLAY_SIDE_MNEMONICS", "lorenzFtLePotential": "NOT_BOUND_AS_EVIDENCE", "physicalFold": false, "newTopology": false, "newOperator": false, "claimPromotion": false, "publication": false},
+  "navigator": {"effect": "EXISTING_IDENTITY_SOURCE_CURRENTNESS_ONLY", "reusedIds": ["NEXAH_A0_ORIENTATION_CONTROLLER_BENCH", "NEXAH:A0_ORIENTATION_EVIDENCE_LINEAGE:V1"], "newIdentities": 0, "newRelations": 0, "newAliases": 0, "duplicateRisk": "NONE_OBSERVED"},
+  "paths": {"instrument": "A0_BOOK/A0_ORIENTATION_CONTROLLER_BENCH.html#rolledLayerSeamReturn", "module": "A0_BOOK/a0-rolled-layer-seam-return.js", "test": "A0_BOOK/a0-rolled-layer-seam-return-tests.cjs", "scienceDesk": "A0_BOOK/A0_RESEARCH_DESK.html#rolled-layer-seam-return-20261115", "builderDesk": "A0_BOOK/A0_BUILDER_LOG.html#rolled-layer-seam-return-builder-20261115"}
+}

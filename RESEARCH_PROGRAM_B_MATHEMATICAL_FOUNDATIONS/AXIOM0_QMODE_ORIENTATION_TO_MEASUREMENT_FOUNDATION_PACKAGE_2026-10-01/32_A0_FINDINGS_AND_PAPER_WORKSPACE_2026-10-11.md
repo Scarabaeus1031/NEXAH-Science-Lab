@@ -3664,3 +3664,28 @@ Paper E or external-publication state changes.
 [Science Desk return](A0_BOOK/A0_RESEARCH_DESK.html#return-layer-paper-routing-20261115) ·
 [Paper C source](34_A0_RETURN_WITHOUT_IDENTITY_PAPER_DRAFT_2026-10-11.md#carrier-witness-residual-comparator) ·
 [Machine receipt](A0_BOOK/results/a0-return-layer-desk-binding-2026-11-15.json)
+
+<a id="rolled-layer-seam-return--2026-11-15"></a>
+
+### Rolled Layer Seam Return · PALAT / SCHINKEN — 2026-11-15
+
+Classification: `A0_BL_056 READING BRIDGE / SOURCE_BOUND_ENGINEERING_VIEW /
+NOT_NEW_F-A0_FINDING / NO_STUDY_ACTIVATION / NO_PAPER_PROMOTION`.
+
+The Orientation Controller Bench now presents one local five-station view:
+
+`SHEET → STACK → ROLL → SEAM → PILLAR RETURN`.
+
+Register order, one-to-one A/B boundary pairing and the typed register address
+remain invariant across three synchronized views. This makes the positive
+method statement inspectable: incomplete views can jointly localize a return
+address through their compatible intersection.
+
+`PALAT` and `SCHINKEN` are memorable front/back labels only. The demonstrator
+does not execute `A0_BL_056`, bind Lorenz/FTLE/potential imagery as evidence,
+recover a physical fold, establish a new topology or promote a Finding.
+
+[Demonstrator](A0_BOOK/A0_ORIENTATION_CONTROLLER_BENCH.html#rolledLayerSeamReturn) ·
+[Science Desk](A0_BOOK/A0_RESEARCH_DESK.html#rolled-layer-seam-return-20261115) ·
+[Builder Log](A0_BOOK/A0_BUILDER_LOG.html#rolled-layer-seam-return-builder-20261115) ·
+[Receipt](A0_BOOK/results/a0-rolled-layer-seam-return-2026-11-15.json)

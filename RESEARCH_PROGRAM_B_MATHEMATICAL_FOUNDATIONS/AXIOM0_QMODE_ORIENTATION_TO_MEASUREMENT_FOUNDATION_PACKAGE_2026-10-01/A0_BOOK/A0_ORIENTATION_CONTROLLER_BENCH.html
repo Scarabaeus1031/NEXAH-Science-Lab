@@ -53,6 +53,7 @@
   <link rel="stylesheet" href="a0-tl-final-pin.css?rev=20261023-r1">
   <link rel="stylesheet" href="a0-channel-census.css?rev=20261023-r1">
   <link rel="stylesheet" href="a0-aperture-stack-calibration.css?rev=20261022-source-link">
+  <link rel="stylesheet" href="a0-rolled-layer-seam-return.css?rev=20261115-r1">
   <link rel="stylesheet" href="a0-bench-showcase-tour.css?rev=20261019-longplay-r1">
   <link rel="stylesheet" href="a0-native-face-ninefold.css?rev=20261019-reader-r1">
   <link rel="stylesheet" href="a0-ail-replay.css?rev=20261018-gap04-replay-r1">
@@ -1769,6 +1770,15 @@
           </section>
           <div class="aps-boundary"><b>BOUNDARY:</b> Die Winkel sind eine source-lokale Fixture aus einer Owner-supplied Concept Visual; der ausführbare Originalgenerator wurde nicht wiedergefunden. Toleranz, Visibility Gate und Display-RMSE sind Engineering-Konventionen, keine empirische, optische, astronomische, primzahlbezogene oder kausale Kalibrierung.</div>
         </section>
+        <section class="rlsr-instrument" id="rolledLayerSeamReturn" data-stage="sheet" aria-labelledby="rlsrTitle">
+          <header class="rlsr-head"><div><small>M3 + VIEWS · A0_BL_056 READING BRIDGE · SOURCE-BOUND ENGINEERING VIEW</small><h3 id="rlsrTitle">PALAT / SCHINKEN · Schicht, Rolle, Naht und Return.</h3><p>Fünf Stationen zeigen denselben geordneten Schichtrecord gleichzeitig als Register, A/B-Querschnitt und gerollten Körper. <code>PALAT</code> und <code>SCHINKEN</code> sind die sichtbaren Seitenlabels; sie benennen weder einen neuen Operator noch einen zweiten Träger.</p></div><output id="rlsrStatus" aria-live="polite">01 · SHEET · PALAT</output></header>
+          <div class="rlsr-controls"><button type="button" id="rlsrPlay" class="primary" aria-pressed="false">Play five stations</button><button type="button" id="rlsrStep">Step</button><button type="button" id="rlsrReset">Reset</button><label>Station <input id="rlsrStage" type="range" min="0" max="4" step="1" value="0"><output id="rlsrStageOut">01 / 05</output></label><label>Visible side <select id="rlsrSide"><option value="PALAT">PALAT · A side</option><option value="SCHINKEN">SCHINKEN · B side</option></select></label><label>Register <select id="rlsrRegister"><option value="0">R0</option><option value="1">R1</option><option value="2">R2</option><option value="3" selected>R3</option><option value="4">R4</option><option value="5">R5</option><option value="6">R6</option></select></label><button type="button" id="rlsrExport">Export view record</button></div>
+          <nav class="rlsr-stations" aria-label="Five synchronized fold stations"><button type="button" data-rlsr-stage="0" class="active"><b>01</b><span>SHEET</span></button><button type="button" data-rlsr-stage="1"><b>02</b><span>STACK</span></button><button type="button" data-rlsr-stage="2"><b>03</b><span>ROLL</span></button><button type="button" data-rlsr-stage="3"><b>04</b><span>SEAM</span></button><button type="button" data-rlsr-stage="4"><b>05</b><span>PILLAR RETURN</span></button></nav>
+          <div class="rlsr-views"><article><header><small>VIEW 1</small><b>REGISTER / LAYERS</b></header><svg id="rlsrLayerSvg" viewBox="0 0 420 300" role="img" aria-label="Seven ordered layers of one retained register record"></svg></article><article><header><small>VIEW 2</small><b>A/B CROSS + SEAM</b></header><svg id="rlsrCrossSvg" viewBox="0 0 420 300" role="img" aria-label="Cross section with paired A and B boundaries and central return pillar"></svg></article><article><header><small>VIEW 3</small><b>ROLLED BODY</b></header><svg id="rlsrBodySvg" viewBox="0 0 420 300" role="img" aria-label="Sheet rolling into an open torus and closing at a return pillar"></svg></article></div>
+          <div class="rlsr-ledger" id="rlsrLedger" aria-live="polite"></div>
+          <p class="rlsr-positive"><strong>POSITIVE FINDING:</strong> Die Schichtordnung, die eindeutige A/B-Randpaarung und die typisierte Registeradresse bleiben durch alle fünf Darstellungen erhalten. Der Informationsgewinn liegt in der gekoppelten Lesung der Ansichten.</p>
+          <p class="rlsr-boundary"><strong>BOUNDARY:</strong> Der Demonstrator visualisiert die bestehende Multi-View-/Return-Grammatik und verwendet keine Lorenz-, FTLE- oder Potentialdaten als Nachweis. <code>PALAT ↔ SCHINKEN</code> ist eine merkfähige Vorder-/Rückseitenbeschriftung. Der Körper ist eine deklarierte Display-Geometrie; es wird keine physische Faltung, neue Topologie oder Aktivierung von <code>A0_BL_056</code> behauptet.</p>
+        </section>
         <section class="ocb-qa" id="ocbBrowserQa" aria-labelledby="ocbQaTitle">
           <header><div><small>PRIORITY 1 · OCB-GAP-09</small><h3 id="ocbQaTitle">Browser, accessibility and interaction QA</h3></div><button type="button" id="ocbQaRun">Run current viewport QA</button></header>
           <div class="ocb-qa-grid"><article><small>WIDE · 1440×900</small><b>AUTOMATED CONTRACT PASS</b><span>Manual pixel acceptance remains open.</span></article><article><small>TABLET · 820×1100</small><b>RESPONSIVE CONTRACT PASS</b><span>Single-column stages below 900 px.</span></article><article><small>PHONE · 390×844</small><b>RESPONSIVE CONTRACT PASS</b><span>Scrollable SVG, stacked controls, no motion requirement.</span></article></div>
@@ -2528,6 +2538,11 @@
     catch(error){const status=document.getElementById('channelCensusStatus');if(status)status.textContent=`CENSUS HOLD · ${error&&error.message?error.message:String(error)}`;console.error(error)}
   </script>
   <script src="a0-aperture-stack-calibration.js?rev=20261022-binder-live"></script>
+  <script src="a0-rolled-layer-seam-return.js?rev=20261115-r1"></script>
+  <script>
+    try{window.A0RolledLayerSeamReturnController=window.A0RolledLayerSeamReturn.mount(document,window)}
+    catch(error){const status=document.getElementById('rlsrStatus');if(status)status.textContent=`ROLLED LAYER HOLD · ${error&&error.message?error.message:String(error)}`;console.error(error)}
+  </script>
   <script>
     try{window.A0ApertureStackController=window.A0ApertureStackCalibration.mount(document)}
     catch(error){const status=document.getElementById('apStackStatus'),metric=document.getElementById('apStackMetric');const message=`STACK MOUNT ERROR · ${error&&error.message?error.message:String(error)}`;if(status){status.textContent=message;status.dataset.state='error'}if(metric)metric.textContent=message;console.error(error)}
