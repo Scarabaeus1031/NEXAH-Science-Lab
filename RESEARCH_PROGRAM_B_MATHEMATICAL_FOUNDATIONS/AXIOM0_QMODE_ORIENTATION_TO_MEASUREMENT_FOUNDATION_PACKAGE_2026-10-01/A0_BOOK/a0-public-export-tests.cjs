@@ -15,8 +15,7 @@ if (!suppliedOutput) {
 }
 
 const receipt = JSON.parse(fs.readFileSync(path.join(output, ".a0-public-export.json"), "utf8"));
-const composedEntry = path.join(output, "forschen", "index.html");
-const index = fs.readFileSync(fs.existsSync(composedEntry) ? composedEntry : path.join(output, "index.html"), "utf8");
+const index = fs.readFileSync(path.join(output, "A0_SCIENCE.html"), "utf8");
 const externalLinks = new Set();
 let localReferences = 0;
 let anchorReferences = 0;
@@ -36,6 +35,12 @@ assert.match(index, /class="a0-public-primary"/);
 assert.match(index, /NEXAH <span>· Orientation<\/span>/);
 assert.match(index, /aria-label="NEXAH Hauptnavigation"/);
 assert.match(index, /href="\/forschen\/">Science<\/a>/);
+for (const destination of [
+  "/A0_SCIENTIFIC_POSITION_REPORT.html#currentness-20261019",
+  "/A0_SCIENCE.html#contributions",
+  "/A0_MATHEMATICAL_JOINTS.html#register-cut-aperture",
+  "/NEXAH_C_CONNECT.html#scientific-review",
+]) assert.match(index, new RegExp(destination.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")));
 assert.match(index, /class="a0-public-directory"/);
 assert.match(index, /Navigation <span aria-hidden="true">\+<\/span>/);
 assert.match(index, /class="a0-public-skip" href="#a0-public-content">Zum Inhalt<\/a>/);
