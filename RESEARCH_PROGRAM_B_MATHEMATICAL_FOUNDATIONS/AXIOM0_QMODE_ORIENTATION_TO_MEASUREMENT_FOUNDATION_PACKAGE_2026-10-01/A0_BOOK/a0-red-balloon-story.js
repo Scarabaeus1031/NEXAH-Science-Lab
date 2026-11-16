@@ -5,7 +5,7 @@
 })(typeof globalThis!=='undefined'?globalThis:this,function(){
   'use strict';
 
-  const VERSION='1.11.0';
+  const VERSION='1.12.0';
   const TAU=2*Math.PI;
   const PHI=(1+Math.sqrt(5))/2;
   const DE_RIS_GATES=Object.freeze([
@@ -201,6 +201,64 @@
     const n=Number(value),w=Math.trunc(Number(width));
     if(!Number.isInteger(n)||n<0||!Number.isInteger(w)||w<1||String(n).length>w)throw new RangeError('Fixed-width non-negative integer required');
     return Number(String(n).padStart(w,'0').split('').reverse().join(''));
+  }
+
+  function uniqueDigitWords(word){
+    const source=String(word);
+    if(!/^\d+$/.test(source))throw new TypeError('Digit word required');
+    const counts={};
+    for(const digit of source)counts[digit]=(counts[digit]||0)+1;
+    const digits=Object.keys(counts).sort(),words=[];
+    const visit=prefix=>{
+      if(prefix.length===source.length){words.push(prefix);return;}
+      for(const digit of digits)if(counts[digit]>0){counts[digit]-=1;visit(prefix+digit);counts[digit]+=1;}
+    };
+    visit('');
+    return Object.freeze(words);
+  }
+
+  function scarabCipherTrip(mode='HANDLE',selection){
+    const canonical='10333301';
+    const all=uniqueDigitWords(canonical);
+    const palindromes=Object.freeze(all.filter(word=>word===word.split('').reverse().join('')));
+    const handles=Object.freeze(palindromes.filter(word=>word.slice(2,6)==='3333'));
+    const modes=Object.freeze({HANDLE:handles,PALINDROME:palindromes,MIX:all});
+    const modeKey=Object.hasOwn(modes,mode)?mode:'HANDLE',words=modes[modeKey];
+    const requested=selection===undefined&&modeKey==='HANDLE'?canonical:String(selection??'');
+    const numericIndex=Number(selection);
+    const index=words.includes(requested)?words.indexOf(requested):Number.isFinite(numericIndex)?((Math.trunc(numericIndex)%words.length)+words.length)%words.length:0;
+    const crownComponents=Object.freeze([7801,3301,3201,1033,1032,1031]);
+    const crownSum=crownComponents.reduce((sum,value)=>sum+value,0),axisNode=10532,shadowDiff=axisNode-crownSum;
+    const checks=Object.freeze([
+      Object.freeze({id:'palindrome',label:'10333301 = rev₈(10333301)',pass:canonical===canonical.split('').reverse().join('')}),
+      Object.freeze({id:'double-reading',label:'1033|3301 = 10|3333|01',pass:'1033'+'3301'===canonical&&'10'+'3333'+'01'===canonical}),
+      Object.freeze({id:'mix-count',label:'8!/(2!2!4!) = 420',pass:all.length===420}),
+      Object.freeze({id:'palindrome-count',label:'4!/(1!1!2!) = 12',pass:palindromes.length===12}),
+      Object.freeze({id:'handle-count',label:'fixed 3333 core = 2 handles',pass:handles.length===2&&handles.includes(canonical)}),
+      Object.freeze({id:'scarab-axis',label:'1031+1033=2×1032',pass:1031+1033===2*1032}),
+      Object.freeze({id:'titan-field',label:'1083=361×3=19²×3',pass:1083===361*3&&361===19**2}),
+      Object.freeze({id:'crown-sum',label:'Σ crown components = 17399',pass:crownSum===17399}),
+      Object.freeze({id:'shadow-diff',label:'10532−17399=−6867',pass:shadowDiff===-6867})
+    ]);
+    return Object.freeze({
+      schema:'nexah.a0.scarab-cipher-red-balloon-trip/1',
+      classification:'SOURCE_BOUND_CIPHER_BOX_AND_NARRATIVE_ROUTE_ONLY',
+      identityReuse:Object.freeze(['ART:A0:MATHEMATICAL_JOINTS','NEXAH_A0_ORIENTATION_CONTROLLER_BENCH','CIKADA_3301_LATER_MARKER_PROVENANCE_INTAKE']),
+      canonical,
+      readings:Object.freeze({scarabCikada:Object.freeze(['1033','3301']),outerCoreOuter:Object.freeze(['10','3333','01'])}),
+      digits:Object.freeze({length:8,counts:Object.freeze({'0':2,'1':2,'3':4})}),
+      mode:modeKey,index,selected:words[index],modes:Object.freeze({HANDLE:Object.freeze({count:handles.length,words:handles}),PALINDROME:Object.freeze({count:palindromes.length,words:palindromes}),MIX:Object.freeze({count:all.length,words:all})}),
+      journey:Object.freeze({scarabRail:Object.freeze([1031,1032,1033]),titanStardust:Object.freeze({address:1032,role:'USER_IMAGE_CAPTION_AT_SHARED_AXIS'}),cikadaMirror:Object.freeze({source:1033,target:3301,operator:'rev_4',binding:'ARITHMETIC_RETURN_ONLY_NOT_HISTORICAL_IDENTITY'}),lunarField:Object.freeze({address:1083,factorization:'3×361=3×19²',prefix108:'DECIMAL_PREFIX_ONLY_NOT_EQUALITY'}),redBalloon:Object.freeze({role:'EXISTING_FINITE_READER_ROUTE',mechanism:false})}),
+      crown:Object.freeze({components:crownComponents,sum:crownSum,axisNode,shadowDiff}),
+      sourceWitnesses:Object.freeze([
+        Object.freeze({label:'SCARAB_CROWN_POSTER',sha256:'9a6acec7f4757dd60c66f689a38eeddd882c46bb5b968fb65bf23ede56eaed6c'}),
+        Object.freeze({label:'LUNAR_ERIS_COSMOGRAM',sha256:'1ac25f01cf6076060a84b4c18801dda56ff1bc41f149b09465d738b285564eb1'}),
+        Object.freeze({label:'ZTP_TITAN_AXIS_POSTER',sha256:'31b03d881542990a00dddd6e9d7cacd99e99f38cf720f3febf4507241e3736b2'})
+      ]),
+      checks,status:checks.every(check=>check.pass)?'EXACT_FINITE_CIPHER_RECEIPT_WITH_NARRATIVE_HOLDS':'HOLD',
+      newIdentity:false,newRelation:false,newOperator:false,newStudy:false,newFinding:false,publication:false,
+      boundary:'The finite permutations, palindrome counts, decimal reversals, crown sum, shadow difference and Titan factorization are exact. Scarab, Cikada, Titan Stardust, Lunar Field and Red Balloon remain source or narrative roles. The decimal prefix 108 is not 1083, rev_4(1033)=3301 does not establish historical Cikada identity, and the image captions do not establish an astronomical or physical mechanism.'
+    });
   }
 
   function whiteLineCikadaJoint(activeLane='x32'){
@@ -485,7 +543,7 @@
       phaseOverlay:'H_j=exp(i*2pi*(j-1)/99)',ledger:ledger(),inverseImaginary:'i^-1=-i',
       derisScrew:Object.freeze({schema:'nexah.a0.red-balloon-deris-screw-view/1',classification:'SOURCE_BOUND_VIEW_ONLY',workingLabel:'DE(ris) Screw',gates:DE_RIS_GATES.length,defaultAngleDegrees:360}),
       algoStream:Object.freeze({schema:'nexah.a0.red-balloon-algo-stream-grey-space-view/1',classification:'SOURCE_BOUND_VIEW_ONLY',workingLabel:'ALGO STREAM / GREY SPACE',steps:ALGO_STREAM_STEPS.length,placement:'AFTER_DERIS_SCREW_NOT_GATE_7'}),
-      algoNlkDock:Object.freeze({schema:'nexah.a0.algo-nlk-return-dock/1',classification:'SOURCE_BOUND_COORDINATED_INTERFACE_PROJECTION_ONLY',placement:'AFTER_ALGO_RETURN_AS_OBSERVATORY_NOT_GATE_7',target:'NLK_L_SHELL',polarMirrorSchema:polarMirrorCrosswalk().schema,bridgeBraneReturnMatrixSchema:bridgeBraneReturnMatrix().schema,whiteLineCikadaFoldSchema:whiteLineCikadaJoint().schema,scarabM83ConnectorSchema:scarabM83Connector().schema,alphaMirrorClosureSchema:alphaMirrorClosure().schema,pacmanReturn76001Schema:pacmanReturn76001().schema,gateScoreShadowSchema:gateScoreShadow2024().schema,honestReturnMachineGlbSchema:honestReturnMachineGlb().schema,sameCarrierDifferentMapsSchema:sameCarrierDifferentMapsIntake().schema}),
+      algoNlkDock:Object.freeze({schema:'nexah.a0.algo-nlk-return-dock/1',classification:'SOURCE_BOUND_COORDINATED_INTERFACE_PROJECTION_ONLY',placement:'AFTER_ALGO_RETURN_AS_OBSERVATORY_NOT_GATE_7',target:'NLK_L_SHELL',polarMirrorSchema:polarMirrorCrosswalk().schema,bridgeBraneReturnMatrixSchema:bridgeBraneReturnMatrix().schema,whiteLineCikadaFoldSchema:whiteLineCikadaJoint().schema,scarabCipherTripSchema:scarabCipherTrip().schema,scarabM83ConnectorSchema:scarabM83Connector().schema,alphaMirrorClosureSchema:alphaMirrorClosure().schema,pacmanReturn76001Schema:pacmanReturn76001().schema,gateScoreShadowSchema:gateScoreShadow2024().schema,honestReturnMachineGlbSchema:honestReturnMachineGlb().schema,sameCarrierDifferentMapsSchema:sameCarrierDifferentMapsIntake().schema}),
       primeMask:Object.freeze({domain:'addresses 1..99',openAddresses:primeMask().holes,opaqueAddresses:primeMask().opaque,displayLanes:Object.freeze({seed:2,sixPlus:11,sixMinus:12})}),
       sourceContext:Object.freeze({record:'SF-NUMBERMAGICK-2025-AUDIT',graph:'G_T_PRIME_TRINITIES_CONNECTORS',vertices:7,edges:9,components:1,cycleRank:3,connector1032:'composite 2^3*3*43; historical connector vertex, not a prime or operator'}),
       newIdentity:false,newRelation:false,newStudy:false,newFinding:false,publication:false,
@@ -739,5 +797,5 @@
     return Object.freeze({render,renderDeris,renderAlgoStream,renderAlgoNlkDock,renderWhiteLineJoint,getScene:()=>STORIES[index],getScrew:()=>derisScrew(derisAngle?derisAngle.value:360),getAlgoStream:()=>algoStream(algoIndex),getAlgoNlkDock:()=>algoNlkReturnDock(algoIndex),getBridgeBraneReturnMatrix:()=>bridgeBraneReturnMatrix(),getWhiteLineCikadaJoint:()=>whiteLineCikadaJoint(foldLane),contract});
   }
 
-  return Object.freeze({VERSION,STORIES,DE_RIS_GATES,ALGO_STREAM_STEPS,isPrime,primeMask,gateRecords,parityRing,ledger,aperture,derisScrew,algoStream,algoNlkReturnDock,polarMirrorCrosswalk,bridgeBraneReturnMatrix,reverseFixedWidth,whiteLineCikadaJoint,alphaMirrorClosure,pacmanReturn76001,gateScoreShadow2024,honestReturnMachineGlb,sameCarrierDifferentMapsIntake,scarabM83Connector,contract,svgMarkup,derisSvgMarkup,derisShellMarkup,algoStreamSvgMarkup,algoStreamShellMarkup,algoNlkDockShellMarkup,polarMirrorShellMarkup,bridgeBraneReturnMatrixMarkup,whiteLineCikadaSvgMarkup,whiteLineCikadaJointMarkup,shellMarkup,mount});
+  return Object.freeze({VERSION,STORIES,DE_RIS_GATES,ALGO_STREAM_STEPS,isPrime,primeMask,gateRecords,parityRing,ledger,aperture,derisScrew,algoStream,algoNlkReturnDock,polarMirrorCrosswalk,bridgeBraneReturnMatrix,reverseFixedWidth,uniqueDigitWords,scarabCipherTrip,whiteLineCikadaJoint,alphaMirrorClosure,pacmanReturn76001,gateScoreShadow2024,honestReturnMachineGlb,sameCarrierDifferentMapsIntake,scarabM83Connector,contract,svgMarkup,derisSvgMarkup,derisShellMarkup,algoStreamSvgMarkup,algoStreamShellMarkup,algoNlkDockShellMarkup,polarMirrorShellMarkup,bridgeBraneReturnMatrixMarkup,whiteLineCikadaSvgMarkup,whiteLineCikadaJointMarkup,shellMarkup,mount});
 });

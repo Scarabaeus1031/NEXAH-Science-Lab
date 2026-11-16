@@ -8,6 +8,7 @@
 <link rel="stylesheet" href="a0-platinum-iridium-pi-phase-address.css?rev=binding-av-sequence-r18-20261112">
 <link rel="stylesheet" href="a0-platinum-iridium-pi-lens-edelweiss.css?rev=fourier-slice-r10-20261111">
 <link rel="stylesheet" href="a0-platinum-iridium-pi-matrix-window.css?rev=matrix-window-r11-20261112">
+<link rel="stylesheet" href="a0-platinum-iridium-pi-oval-sampler.css?rev=oval-phi-r1-20261116">
 <script>document.documentElement.classList.toggle('embed',new URLSearchParams(location.search).has('embed'));</script>
 </head>
 <body>
@@ -182,6 +183,31 @@
     </section>
   </section>
 
+  <section class="pi-oval-sampler" id="piOvalSampler" aria-labelledby="piOvalSamplerTitle">
+    <header>
+      <div><small>VISUAL 15 · PLATINUM / IRIDIUM · SHARED PATH, DIFFERENT SAMPLING</small><h2 id="piOvalSamplerTitle">Das Oval atmet. Zwei Leser tasten denselben Rand ab.</h2></div>
+      <output id="piOvalStatus" aria-live="polite">PASS · SHARED OVAL · 2:1</output>
+    </header>
+    <div class="pi-oval-grid">
+      <div class="pi-oval-stage"><canvas id="piOvalSamplerCanvas" width="1000" height="560" role="img" aria-label="Ein atmendes Oval mit 24 Platinum-Abtastpunkten und 12 Iridium-Abtastpunkten auf demselben Rand."></canvas></div>
+      <aside class="pi-oval-controls">
+        <label>φ · DISPLAY PHASE <input id="piOvalPhase" type="range" min="0" max="359" step="1" value="0"><output id="piOvalPhaseOut">0.0°</output></label>
+        <div class="pi-oval-buttons"><button type="button" id="piOvalPlay" aria-pressed="false">▶ PLAY PHASE</button><button type="button" id="piOvalStep">+15° STEP</button><button type="button" id="piOvalReset">↺ RESET</button></div>
+        <dl class="pi-oval-ledger">
+          <div><dt>PLATINUM · READER 2</dt><dd>24 SAMPLES</dd></div>
+          <div><dt>IRIDIUM · READER 1</dt><dd>12 SAMPLES</dd></div>
+          <div><dt>RELATION</dt><dd>2:1 · SAME OVAL</dd></div>
+          <div><dt>COINCIDENT</dt><dd>12 · EVERY 2nd Pt</dd></div>
+          <div><dt>Pt-ONLY</dt><dd>12 INTERLEAVED</dd></div>
+          <div><dt>OVAL</dt><dd id="piOvalAxes">a — · b — · A —</dd></div>
+          <div><dt>ϕ · VARPHI</dt><dd>REFERENCE 1.618…</dd></div>
+        </dl>
+        <p class="pi-oval-boundary"><b>BOUNDARY:</b> „Pt“ und „Ir“ sind hier zwei typisierte Leser derselben Kurve. Die Animation ist eine Display-Atmung; sie behauptet weder Materialantwort noch biologisches Ei, Metrologie, Energiefluss oder einen ϕ-Generator.</p>
+      </aside>
+    </div>
+    <footer><b>PARAMETERIZATION</b> <code>x=a(φ)·cos θ</code> · <code>y=b(φ)·sin θ</code> · shared path, two discrete sample sets · Identity reuse only; no new canonical node or relation.</footer>
+  </section>
+
   <section class="pi-source-cabinet" id="piTripleGateCabinet" aria-labelledby="piCabinetTitle">
     <header>
       <div><small>SOURCE CABINET · RED THREAD RETURN</small><h2 id="piCabinetTitle">Pipe → Live Machine → File Lineage</h2></div>
@@ -247,6 +273,7 @@
       <article><b>VISUAL 12 · 3 MATRIX / HOLONOMY</b><p>Die drei lokalen Schritte <code>90° / 180° / 270°</code> werden in einem eigenen Fenster derselben PI-Linse verglichen. Gleiche Normalen bilden den kommutativen C4-Control; verschiedene Lamellen-Normalen testen nichtkommutative Holonomie und Reihenfolge; der explizite Klein-Schritt kehrt mit <code>det(H)=−1</code> die Orientierung um. Die Ansicht reuse die vorhandene Matrix-Engine und erzeugt weder eine Penrose-Parkettierung noch eine neue Topologie- oder Navigator-Identität.</p></article>
       <article><b>VISUAL 13 · MASK / PHASE / WINDING</b><p>Zwei getrennte Schleifen bilden eine Figure‑8‑Maske; ihre geometrische Schnittlinse bleibt von Zwischenphase und Weggeschichte getrennt. Exakt angezeigt werden Kreisüberlappung, <code>κ=A∩/A·cos(Δφ)</code> und die komplementären Kanäle <code>Q⁺=cos²(Δφ/2)</code>, <code>Q⁻=sin²(Δφ/2)</code>. Der Route-Record erhält zusätzlich Vorzeichen, Richtung, durchlaufenen Winkel, Fortschritt und Endadresse. Dadurch landen <code>+90°</code> und <code>−270°</code> beide bei <code>90° mod 360°</code>, bleiben aber als verschiedene Wege sichtbar. <code>204°</code> und <code>333°=360°−27°</code> sind deklarierte Routen; aus ihnen wird keine besondere Konstantenidentität abgeleitet. Die rote Referenzachse flimmert als reine Display-Animation und bleibt bei reduzierter Bewegung statisch. „Zwei geladene Spulen“, Magnetismus und Equalizer sind Anschauungen — keine elektromagnetische Simulation, Signal-, Energie- oder Kraftmessung. Das ausführliche dokumentarische Return liegt in <a href="assets/a0-field-notes/index.html#note-66">Field Note 66</a>.</p></article>
       <article><b>VISUAL 14 · BINDING / ZIPPER / PI TURN</b><p>Die Queransicht legt zwei getrennte Domänen <code>D−</code> und <code>D+</code> um eine endliche Bindungszone <code>Bε</code>. Der Zipper verbindet nur die deklarierten Gegenpunkte <code>(u,J(u))</code> mit <code>J(u)=1−u</code>; daher gilt exakt <code>J(J(u))=u</code> und der Fixpunkt liegt bei <code>u=½</code>. Die Vierteldrehungen <code>0°/90°/180°/270°</code> ändern die Ansicht, nicht das Objekt. Hinzu kommt nun die bereits im 101 World Cube implementierte Sequenz: <code>40</code> Ticks werden als <code>120</code> Mikroticks zu je <code>3°</code> gelesen; damit hat jedes <code>90°</code>-Frame exakt <code>30</code> Mikroticks. Fünf Phasen pro Frame führen durch <code>GEOMETRY → BINDING → JANUS → PROJECTION → RETURN</code> und verwenden die vorhandenen Cues <code>DA · DA · DA · DÆ · Ō</code>. Der zuschaltbare Browserklang ist ein Quellen-Mnemonic, keine Aufnahme, Resonanzmessung oder physikalische Evidenz. Buddha, Maria, Christus, Shiva oder andere Figuren bleiben kulturelle Bildmotive und werden weder mathematisch identifiziert noch als Belege verwendet. Zipper, Binding und Flow sind Darstellungsrollen — kein physischer Kopplungs-, Kraft- oder Energiemechanismus.</p></article>
+      <article><b>VISUAL 15 · OVAL / φ / DUAL SAMPLING</b><p>Platinum und Iridium lesen denselben parametrisierten Ovalrand mit getrennten diskreten Takten: <code>24:12 = 2:1</code>. Jeder zweite Platinum-Punkt fällt rechnerisch mit einem Iridium-Punkt zusammen; zwölf Platinum-Punkte liegen dazwischen. <code>φ</code> steuert ausschließlich die sichtbare Atemphase der Halbachsen. <code>ϕ=(1+√5)/2</code> bleibt eine Referenzmarke und erzeugt weder Oval noch Sampling. „Ei“, „Atmung“, Pt und Ir sind Darstellungsrollen — keine biologische, stoffliche oder metrologische Behauptung.</p></article>
       <article><b>METAL-FOLD → n-GON · HYPOTHESIS</b><p>Die Zuordnung Gold/5, Silber/6, Rhodium/7, Mercury/8, Platinum/12 und Iridium/14 wird als historische OWNER‑HYPOTHESIS eingeblendet. Sie ist weder aus der 12+12‑Quelle abgeleitet noch als Frequenz-, Kristall- oder Stoffgesetz bestätigt.</p></article>
       <article><b>VISUAL 5 · LIGHT CASCADE / NEON DRIFT</b><p>Die Messanker bleiben getrennt: Hg besitzt eine starke Linie bei <code>253.7 nm</code> im UV‑C sowie sichtbare Linien um <code>404.7</code>, <code>435.8</code>, <code>546.1</code> und <code>577–579 nm</code>. Eine Phosphorschicht kann UV in sichtbares Licht umwandeln; sie ist eine eigene Konversionsschicht und keine automatische Eigenschaft der Hg‑Naht.</p></article>
       <article><b>Ne10 / C1·C2·C3 · BOUNDARY</b><p>Eine reine Neonentladung erscheint orange‑rot. Cyan/Magenta setzt Beschichtung, Gasgemisch oder eine lokale Displaypalette voraus. <code>C1/C2/C3</code>, „Neon Drift“ und „compressed light“ sind hier Leseschichten; ohne Pulsdauer, Energie, Strahlfläche oder Resonatorparameter behaupten sie keinen gemessenen Kompressionsmechanismus.</p></article>
@@ -256,7 +283,8 @@
     <p><strong>IDENTITY:</strong> Wiederverwendung von <code>ART:A0:MATHEMATICAL_JOINTS</code>, <code>MOD:ORIENTATION_DEMONSTRATORS</code>, <code>SRC:A0OE:PASCAL_LISSAJOUS_MOBIUS_RETURN</code> und <code>NEXAH:CON_DAO_BREATH:V1</code>. Keine neue Study, kein neuer kanonischer Knoten und keine neue Relation.</p>
   </section>
 </main>
-<script src="a0-platinum-iridium-pi-lens.js?rev=binding-av-sequence-r18-20261112"></script>
-<script>window.A0PlatinumIridiumPI?.mount(document,window);</script>
+<script src="a0-platinum-iridium-pi-lens.js?rev=oval-phi-r19-20261116"></script>
+<script src="a0-platinum-iridium-pi-oval-sampler.js?rev=oval-phi-r1-20261116"></script>
+<script>window.A0PlatinumIridiumPI?.mount(document,window);window.A0PiOvalSampler?.mount(document,window);</script>
 </body>
 </html>

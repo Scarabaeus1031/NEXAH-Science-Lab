@@ -4,8 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>A0 · Matroschka Cluster Bridge</title>
-<link rel="stylesheet" href="a0-matroschka-cluster-bridge.css?v=mcb-3d-r2">
-<style>.mcb-3d-stage model-viewer{transform:rotate(var(--mcb-model-angle,0deg));transition:transform .62s cubic-bezier(.2,.8,.2,1)}.mcb-joint-split>text:not(.mcb-joint-note):not(.mcb-joint-y){fill:var(--ink);font:800 12px/1.2 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}.mcb-joint-return>text:not(.mcb-joint-note):not(.mcb-joint-yen){fill:var(--ink);font:800 12px/1.2 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}@media(prefers-reduced-motion:reduce){.mcb-3d-stage model-viewer{transition:none}}</style>
+<link rel="stylesheet" href="a0-matroschka-cluster-bridge.css?v=mcb-final-plug-r1">
+<link rel="stylesheet" href="a0-matroschka-janus-motion.css?v=20261115-hopf-glb-repair-r2">
+<link rel="stylesheet" href="a0-matroschka-pi-oval.css?v=20261116-oval-phi-r1">
+<style>.mcb-joint-split>text:not(.mcb-joint-note):not(.mcb-joint-y){fill:var(--ink);font:800 12px/1.2 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}.mcb-joint-return>text:not(.mcb-joint-note):not(.mcb-joint-yen){fill:var(--ink);font:800 12px/1.2 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}.mcb-hopf-jump{display:inline-block;margin-top:13px;border:1px solid var(--gold);padding:8px 10px;background:#191608;color:var(--gold);text-decoration:none;font:900 9px/1.2 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.08em}.mcb-hopf-jump:hover{background:var(--gold);color:#07131b}.mcb-3d-stage model-viewer{position:relative;z-index:1;background:radial-gradient(circle at 50% 45%,rgba(43,83,100,.34),#02080d 72%)}</style>
 <script defer src="assets/vendor/a0-model-viewer-classic.js"></script>
 </head>
 <body>
@@ -16,9 +18,14 @@
 <h1>Matroschka<br>Cluster Bridge.</h1>
 <p>Das fehlende Bindeglied wird als endlicher, prüfbarer Pilot gebaut: ein deklarierter Triple‑Six-Träger, drei lokale Cluster, eine Geosphere mit Riemann-Karte, die vorhandene F0/F0−-Nullfuge, ein getrennter Q°-Messzustand und ein Return, der den beim Normieren verlorenen Radius als Witness verlangt.</p>
 </div>
-<span id="mcb-check-state" class="mcb-state">76/76 · LOCAL PASS</span>
+<span id="mcb-check-state" class="mcb-state">109/109 · LOCAL PASS</span>
 </header>
-<section class="mcb-chain" aria-label="Typisierte Übergangskette">
+<section id="mcb-module-tour" class="mcb-module-tour" aria-labelledby="mcb-tour-title">
+<header><div><div class="mcb-label">GEFÜHRTE MODULTOUR · 9 STATIONEN · LOCAL</div><h2 id="mcb-tour-title">Triple‑Six → Carrier → Y/¥ → Ghostgrid → PI Oval → Hopf → Final Plug → 3D → Evidence.</h2><p>Die Tour bewegt nur die Ansicht und setzt lokale Displayzustände. Sie verändert weder Quelle, Adresse, Evidenzstatus noch Navigatorgraph.</p></div><div class="mcb-tour-actions"><button id="mcb-tour-start" type="button" aria-pressed="false">▶ TOUR STARTEN</button><button id="mcb-tour-prev" type="button" disabled>← ZURÜCK</button><button id="mcb-tour-next" type="button">WEITER →</button><button id="mcb-tour-return" type="button">RETURN TOP</button></div></header>
+<nav class="mcb-tour-stations" aria-label="Stationen der Matroschka-Modultour"><button type="button" data-mcb-tour-step="0">01<small>ROUTE</small></button><button type="button" data-mcb-tour-step="1">02<small>LIVE FRAME</small></button><button type="button" data-mcb-tour-step="2">03<small>Y / ¥</small></button><button type="button" data-mcb-tour-step="3">04<small>GHOSTGRID</small></button><button type="button" data-mcb-tour-step="4">05<small>PI OVAL</small></button><button type="button" data-mcb-tour-step="5">06<small>HOPF</small></button><button type="button" data-mcb-tour-step="6">07<small>FINAL PLUG</small></button><button type="button" data-mcb-tour-step="7">08<small>3D RETURN</small></button><button type="button" data-mcb-tour-step="8">09<small>EVIDENCE</small></button></nav>
+<div class="mcb-tour-readout" aria-live="polite"><strong id="mcb-tour-progress">0 / 9 · BEREIT</strong><div><b id="mcb-tour-step-title">Ein Träger, neun kontrollierte Lesarten.</b><span id="mcb-tour-step-copy">Start führt von der endlichen Adresse über die getrennte Oval-Abtastung und sichtbare Hopf-Faser bis zum ¥‑Gate und anschließend zur Evidence-Grenze.</span></div><a href="A0_RESEARCH_DESK.html#matroschka-final-plug-return-20261115">SCIENCE DESK · FINDINGS →</a></div>
+</section>
+<section id="mcb-route-chain" class="mcb-chain" aria-label="Typisierte Übergangskette">
 <article data-snap-station="0">
 <span class="mcb-label">X₀ · 0° · ADDRESS</span>
 <b>Triple‑Six Pilot</b>
@@ -45,7 +52,7 @@
 <small>ε=d(RT(x),x)</small>
 </article>
 </section>
-<section class="mcb-grid">
+<section id="mcb-live-frame" class="mcb-grid">
 <div class="mcb-stage">
 <svg viewBox="0 0 1180 630" role="img" aria-labelledby="mcb-svg-title">
 <title id="mcb-svg-title">Triple-Six zu Cluster, Geosphere, animiertem Q Grad Plus/Minus, Orientierungsrose, 270 Grad Exit und Return</title>
@@ -247,7 +254,7 @@
 </div>
 </aside>
 </section>
-<section class="mcb-nest" aria-labelledby="mcb-nest-title">
+<section id="mcb-carrier-window" class="mcb-nest" aria-labelledby="mcb-nest-title">
 <header><div><div class="mcb-label">MATROSCHKA CARRIER WINDOW · NESTED RECORDS</div><h2 id="mcb-nest-title">Die Schalen tragen Riemann — nicht umgekehrt.</h2><p>Adresse, Cluster, Cube und Geosphere liegen als getypte Träger ineinander. Erst außerhalb dieser Schalen entstehen Riemann-Karte und Q°-Beobachtung; der Return durchläuft die Schichten zurück bis zum unveränderten Adressrecord.</p></div><strong id="mcb-nest-state">0° · ADDRESS SHELL</strong></header>
 <div class="mcb-nest-visual">
 <svg viewBox="0 0 1180 520" role="img" aria-labelledby="mcb-nest-svg-title mcb-nest-svg-desc">
@@ -352,6 +359,17 @@
 <button type="button" class="is-active" data-mcb-outer-lens="riemann">OUTER · RIEMANN</button>
 <button type="button" data-mcb-outer-lens="hofmann">OUTER · HOFMANN</button>
 </div>
+<section id="mcb-ghostgrid-comparator" class="mcb-ghostgrid" aria-labelledby="mcb-ghostgrid-title">
+<div class="mcb-ghostgrid-head"><div><small>GHOSTGRID · GAP COMPARATOR</small><h3 id="mcb-ghostgrid-title">Lücke, Vierteldrehung und separate Brücke.</h3></div><b id="mcb-ghostgrid-mode">RIEMANN OPEN</b></div>
+<div class="mcb-ghostgrid-modes" role="group" aria-label="Ghostgrid comparison modes">
+<button type="button" class="is-active" data-mcb-ghost-mode="riemann">RIEMANN · OPEN</button>
+<button type="button" data-mcb-ghost-mode="rot90">RIEMANN · +90°</button>
+<button type="button" data-mcb-ghost-mode="bridge">+ MANDELBROT GHOST</button>
+<button type="button" data-mcb-ghost-mode="julia">JULIA · CONTROL</button>
+</div>
+<div class="mcb-ghostgrid-toggles"><label><input id="mcb-ghostgrid-grid" type="checkbox" checked> RELATION GRID</label><label><input id="mcb-ghostgrid-pearls" type="checkbox" checked> WHITE PEARLS</label><label><input id="mcb-ghostgrid-egg" type="checkbox" checked> GHOST EGG</label></div>
+<div class="mcb-ghostgrid-ledger"><span>END GAP <b id="mcb-ghostgrid-gap">0.0000</b></span><span>ROTATION <b id="mcb-ghostgrid-invariant">INVARIANT</b></span><span>BRIDGE <b id="mcb-ghostgrid-bridge">SEPARATE OVERLAY</b></span><span>PEARLS <b id="mcb-ghostgrid-pearl-count">13 SAMPLES</b></span></div>
+</section>
 <label>ROTATE <output id="mcb-translation-rot-value">0.35</output><input id="mcb-translation-rot" type="range" min="0" max="2" step=".01" value=".35"></label>
 <label>SCALE <output id="mcb-translation-scale-value">1.00</output><input id="mcb-translation-scale" type="range" min=".5" max="1.5" step=".01" value="1"></label>
 <label>SAMPLE <output id="mcb-translation-sample-value">1.00</output><input id="mcb-translation-sample" type="range" min=".25" max="1" step=".01" value="1"></label>
@@ -362,7 +380,7 @@
 <div><small>COLLAPSED · DISPLAY</small><b id="mcb-translation-collapsed">0.0%</b></div>
 </div>
 <div class="mcb-translation-source"><span>SOURCE SHA256</span><code>f792bb7ad784f40ea2fb3c99e67925c4003828f9bf43aa2557b9eea97489824b</code><span>POSITION</span><code>GEOSPHERE → TRANSLATION LENS → RIEMANN/Q°</code><span>OPERATORS</span><code>invert · rotate · scale · sample · rank · phase</code></div>
-<p class="mcb-source-boundary"><strong>Source boundary:</strong> Die Prozentwerte sind die historische operative Anzeigeheuristik, keine wissenschaftlichen Validierungs-, Erhaltungs- oder Kollapsscores. Julia/Mandelbrot, Riemann und Hofmann bleiben verschiedene Darstellungsfelder; die Ansicht behauptet weder Äquivalenz noch physikalische Invarianz. Die Quarantäne bleibt read-only und erhält keine A0- oder Navigator-Autorität.</p>
+<p class="mcb-source-boundary"><strong>Source boundary:</strong> Die Prozentwerte sind die historische operative Anzeigeheuristik, keine wissenschaftlichen Validierungs-, Erhaltungs- oder Kollapsscores. Julia/Mandelbrot, Riemann und Hofmann bleiben verschiedene Darstellungsfelder; die Ansicht behauptet weder Äquivalenz noch physikalische Invarianz. Eine starre 90°-Drehung erhält die Endpunktdistanz und schließt die Riemann-Anzeigelücke nicht. Mandelbrot-Ghost, hinteres Ei und weiße Perlen sind getrennte Vergleichs-Overlays; sichtbare Überdeckung ist keine Kurvenidentität, analytische Fortsetzung oder RH-Aussage. Die Quarantäne bleibt read-only und erhält keine A0- oder Navigator-Autorität.</p>
 </aside>
 </div>
 <div class="mcb-source-math" aria-label="A0-Abgleich der historischen Visuals">
@@ -372,27 +390,72 @@
 <p>Die Atembewegung ist eine Anzeigehomotopie um eine feste Fuge. Endlich markierte Nullstellenordinaten bleiben Referenzpunkte; daraus folgt keine Riemann-Hypothese.</p>
 <nav><a href="results/a0-red-balloon-mathfield-intake-2026-11-03.json">DIRECT‑ZETA Register →</a><a href="results/a0-splinter-geometry-cl-td-intake-2026-10-27.json">Re(s)=1/2 · NON_IDENTITY →</a></nav>
 </article>
-<article>
+<article id="mcb-polar-janus-motion">
 <header><div><small>A0 CROSSWALK · CAND:POLARPASS</small><h3>Polar‑Janus · endliche Phase statt Naturgetriebe</h3></div><code>θₖ=2πk/420 · k∈ℤ/420ℤ</code></header>
 <canvas id="mcb-janus-seam-canvas" width="720" height="420" role="img" aria-label="Code-native 420-Phasenansicht mit Janus-gespiegeltem Kurvenpaar"></canvas>
-<p>Das 420‑Rad ist eine quantisierte Anzeigephase; das Janus-Paar zeigt <code>ψ₊(t)=−ψ₋(−t)</code>. 111 Hz, Welle/Materie und Ratsche bleiben Labels ohne hier hergeleitetes physikalisches Gesetz.</p>
+<div class="mcb-janus-motion" aria-label="Finite Polar-Janus Animationssteuerung">
+<div class="mcb-janus-actions"><button id="mcb-janus-play" type="button" aria-pressed="true">PAUSE</button><button id="mcb-janus-step" type="button">+1 PHASE</button><button id="mcb-janus-reset" type="button">RETURN 0</button></div>
+<label><span>FINITE ADDRESS</span><input id="mcb-janus-scrub" type="range" min="0" max="419" step="1" value="0"></label>
+<div class="mcb-janus-ledger"><span>i <b id="mcb-janus-phase">0/420</b></span><span>SHADOW dⱼ <b id="mcb-janus-shadow">0.000</b></span><span>u <b id="mcb-janus-segment">TWO_HUMP_SINK</b></span><span>GATE <b id="mcb-janus-return">EXACT RETURN</b></span></div>
+</div>
+<div class="mcb-janus-parameter-bank"><small>OWNER INPUT · UNTYPED PARAMETER BANK</small><code>15 · 2.80 · 1.21 · 0.70 · 1.02 · 3.00</code><span>Retained as comparison candidates. The animation binds only the finite <code>k/420</code> clock and the declared <code>1:2:1</code> display silhouette.</span></div>
+<p>Das 420‑Rad ist eine quantisierte Anzeigephase. <code>i</code> wandert auf der Schale, <code>Q₀=Re(i)</code> macht den Ghostline-Schatten sichtbar und <code>u</code> folgt einer sinkenden Zwei-Buckel-Bahn in eine kleine Endschleife. Nur <code>420→0</code> ist hier der exakte Return. Das Janus-Paar <code>ψ₊(t)=−ψ₋(−t)</code>, 111 Hz, Welle/Materie und Ratsche bleiben historische Labels ohne hier hergeleitetes physikalisches Gesetz.</p>
 <nav><a href="A0_ORIENTATION_CONTROLLER_BENCH.html#orientationRoleMap">A0 Rollenkarte →</a><a href="../../../SCIENCE_LAB/NAVIGATION/POLAR_JANUS_EVIDENCE_SLICE_V1_2026-10-06.json">Governed Evidence Slice →</a></nav>
 </article>
 </div>
 <p class="mcb-a0-crosswalk-boundary"><strong>A0-Abgleich:</strong> Beide Tafeln sind neue code-native Ansichten vorhandener Register. Sie erzeugen keine Identität, Relation, Study oder Finding. <code>HOFMANN_RIEMANN</code> bleibt HOLD; der Polar‑Janus-Slice behält seine gemischten und negativen Grenzen.</p>
 </section>
+<section id="mcb-pi-oval-sampler" class="mcb-pi-oval" aria-labelledby="mcb-pi-oval-title">
+<header><div><div class="mcb-label">STATION 05 · CANONICAL PI LENS · OVAL / φ / 2:1</div><h2 id="mcb-pi-oval-title">Platinum–Iridium: derselbe Ovalrand, zwei Abtastungen.</h2><p>Die Matroschka baut keine zweite PI-Maschine. Sie bindet Visual 15 aus der kanonischen Platinum–Iridium-Linse ein: 24 Platinum-Punkte und 12 Iridium-Punkte lesen denselben atmenden Ovalrand.</p></div><a href="A0_PLATINUM_IRIDIUM_PI_LENS.html#piOvalSampler">PI LENS · OPEN FULL →</a></header>
+<iframe src="A0_PLATINUM_IRIDIUM_PI_LENS.html?embed=1#piOvalSampler" title="Visual 15 der kanonischen Platinum-Iridium-Linse: atmendes Oval mit 2 zu 1 Abtastung" loading="eager"></iframe>
+<p><strong>Typed boundary:</strong> <code>φ</code> ist Displayphase; <code>ϕ</code> ist nur Referenz. Pt/Ir benennen zwei Leser, nicht zwei Materialantworten. „Ei“ und „Atmung“ sind Anschauungen. Ghost Snake π, das Prime-Letter-Zodiak-Schema und die Oval-Abtastung bleiben getrennte Records; gemeinsame Kreis- oder Schlangenformen erzeugen keine Identität.</p>
+</section>
+<section id="mcb-hopf-fibration" class="mcb-hopf-fibration" aria-labelledby="mcb-hopf-title">
+<header><div><div class="mcb-label">STATION 06 · STANDARD HOPF FIBRATION · S³ → S² · S¹ FIBERS</div><h2 id="mcb-hopf-title">Hier ist Hopf: viele geschlossene Fasern, eine gemeinsame Basis.</h2><p>Das ist die aktuelle Hopf-Ansicht — nicht das Atomic-GLB weiter unten. Sie konstruiert echte Hopf-Fasern in <code>S³</code> und projiziert sie stereographisch in den sichtbaren <code>R³</code>-Raum. Farbe markiert den Basispunkt auf <code>S²</code>; die wandernde Perle ist nur die gemeinsame Faserphase.</p></div><strong id="mcb-hopf-state">LIVE · 8 FIBERS · φ 0°</strong></header>
+<div class="mcb-hopf-grid">
+<figure class="mcb-hopf-stage"><canvas id="mcb-hopf-canvas" width="1100" height="650" role="img" aria-label="Animierte stereographische Projektion mehrerer geschlossener und paarweise verschlungener Hopf-Fasern"></canvas><figcaption><span>HOPF MAP · <code>h(z₁,z₂)=(2z₁z̄₂, |z₁|²−|z₂|²)</code></span><span>STEREOGRAPHIC DISPLAY · NOT A FIELD MECHANISM</span></figcaption></figure>
+<aside class="mcb-hopf-controls"><div class="mcb-hopf-actions"><button id="mcb-hopf-play" type="button" aria-pressed="true">Ⅱ PAUSE FIBERS</button><button id="mcb-hopf-step" type="button">+1 PHASE</button><button id="mcb-hopf-reset" type="button">↺ RESET</button></div><label><span>FIBER PHASE φ</span><input id="mcb-hopf-phase" type="range" min="0" max="359" step="1" value="0"></label><label><span>VISIBLE FIBERS</span><input id="mcb-hopf-count" type="range" min="4" max="12" step="1" value="8"></label><div class="mcb-hopf-ledger"><span>TOTAL SPACE<b>S³ · ‖z₁‖²+‖z₂‖²=1</b></span><span>BASE SPACE<b>S² · ONE COLOR / POINT</b></span><span>FIBER<b>S¹ · COMMON PHASE</b></span><span>LINKING<b id="mcb-hopf-linking">PAIRWISE · DISPLAYED</b></span><span>PROJECTION<b>R³ · STEREOGRAPHIC</b></span><span>RETURN<b id="mcb-hopf-return">φ 0° · CLOSED</b></span></div></aside>
+</div>
+<div class="mcb-hopf-source-grid">
+<figure class="mcb-hopf-hair"><img src="assets/matroschka-hopf/nexah-core-ieee118-v2-swarm-field.gif" alt="Bestehende NEXAH-Core Swarm-Field-Animation mit vielen grauen Trajektorien"><figcaption><b>H‑AIR · SOURCE GIF</b><span>Visual 3 · <code>ieee118_v2_swarm_field.gif</code></span><small>SHA‑256 <code>ba7d2536635a…859df271</code> · dynamische Feldreferenz, keine Hopf-Faser.</small></figcaption></figure>
+<figure class="mcb-hopf-breath"><canvas id="mcb-stability-breath-canvas" width="720" height="420" role="img" aria-label="Code-native atmende Stabilitätsfläche als Display-Replay der archivierten NEXAH Stability Animation Field Formel"></canvas><figcaption><b>GRID BREATH · CODE-NATIVE REPLAY</b><span><code>Z=base−2y²−0.8sin(2πx/(n−1)+τ/4)</code></span><small>Aus dem vorhandenen archivierten Display-Skript gelesen; keine Neuausführung eines Lab-Experiments.</small></figcaption></figure>
+</div>
+<p class="mcb-hopf-boundary"><strong>Source boundary:</strong> Hopf-Fibration, Swarm/H‑air und Stability‑Breath sind drei getrennte Records. Nur die linke Hauptansicht visualisiert die klassische Hopf-Abbildung. Der Swarm-GIF bleibt ein bestehendes NEXAH-Core-Experimentalartefakt; das atmende Grid ist eine lokale Formel-Replay-Ansicht. Ähnlichkeit, gemeinsames Atmen oder Verschlingung erzeugt keine gemeinsame Engine, physikalische Relation, Study oder Finding.</p>
+</section>
+<section id="mcb-final-plug" class="mcb-final-plug" aria-labelledby="mcb-final-plug-title">
+<header>
+<div><div class="mcb-label">STATION 07 · FINAL PLUG · HOPF DISPLAY × IHARA RETURN AUDIT</div><h2 id="mcb-final-plug-title">Phase wird sichtbar — der Rückweg bleibt endlich.</h2><p>Fünf Aperturen führen die kontinuierliche Faserphase um die Bola. Daneben protokolliert ein diskreter, nicht-zurückspringender C₅‑Pfad dieselben fünf Anzeigezeitpunkte bis zum getypten Return.</p></div>
+<strong id="mcb-final-plug-status">t₁ · 0.02 · IN FLIGHT</strong>
+</header>
+<div class="mcb-final-plug-grid">
+<figure class="mcb-final-plug-stage">
+<canvas id="mcb-final-plug-canvas" width="1080" height="520" role="img" aria-label="Fünfschrittige Ansicht mit Regenbogen-Aperturen, Hopf-Faser um eine feste Bola und separatem Ihara-C5-Rückwegaudit"></canvas>
+<figcaption><span>Δt = 0.02 · t₁ … t₅</span><span>CONTINUOUS DISPLAY ≠ DISCRETE PATH</span></figcaption>
+</figure>
+<aside class="mcb-final-plug-controls">
+<div class="mcb-final-plug-actions"><button id="mcb-final-plug-play" type="button" aria-pressed="false">▶ PLAY RETURN</button><button id="mcb-final-plug-step" type="button">NEXT t</button><button id="mcb-final-plug-reset" type="button">↺ RESET t₁</button></div>
+<div class="mcb-final-plug-times" role="group" aria-label="Endliche Zeitpunkte"><button type="button" data-mcb-final-step="1" class="is-active">t₁<small>0.02</small></button><button type="button" data-mcb-final-step="2">t₂<small>0.04</small></button><button type="button" data-mcb-final-step="3">t₃<small>0.06</small></button><button type="button" data-mcb-final-step="4">t₄<small>0.08</small></button><button type="button" data-mcb-final-step="5">t₅<small>0.10</small></button></div>
+<label><span>FINITE PHASE ADDRESS</span><input id="mcb-final-plug-scrub" type="range" min="1" max="5" step="1" value="1"></label>
+<div class="mcb-final-plug-ledger"><span>TIME DRIFT<b id="mcb-final-plug-time">0.02</b></span><span>PHASE φ<b id="mcb-final-plug-phase">72°</b></span><span>DISPLAY / SEAM<b id="mcb-final-plug-display">101 · ADDRESS</b></span><span>LOCAL ι<b id="mcb-final-plug-iota">1.1 · HELD</b></span><span>HOPF BASE<b id="mcb-final-plug-hopf">FIXED · ‖p‖=1</b></span><span>IHARA ROUTE<b id="mcb-final-plug-ihara">0→1 · NB</b></span><span>RETURN<b id="mcb-final-plug-return">OPEN</b></span></div>
+<div class="mcb-final-plug-sequence" aria-label="Getypte Anzeigeabfolge"><span>101<small>ADDRESS</small></span><i>→</i><span>1.1<small>DISPLAY</small></span><i>→</i><span>1.21<small>SQUARE</small></span><i>→</i><span>1.1<small>√ RETURN</small></span><i>→</i><span class="is-yen">¥<small>ρ · ε=0</small></span><i>→</i><span class="is-address-return">101<small>ADDRESS</small></span></div>
+</aside>
+</div>
+<nav class="mcb-final-plug-links"><a href="A0_IHARA_HASHIMOTO_CYCLE_BRIDGE.html">IHARA / HASHIMOTO AUDIT →</a><a href="../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_PCA_PHASE_SPACE_CORE_INTAKE_2026-10-03/03_ROOT_SIGN_QUATERNION_HOPF_OBSERVATION_BRIDGE.md">HOPF OBSERVATION BRIDGE →</a><a href="../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_PCA_PHASE_SPACE_CORE_INTAKE_2026-10-03/09_HOPF_C4_REQUANTIZATION_COMMUTATION_TEST.md">HOLONOMY CONTROL →</a></nav>
+<p class="mcb-final-plug-boundary"><strong>Typed boundary:</strong> Die Hopf-Seite zeigt eine kontinuierliche <code>S¹</code>-Faserphase der Standardabbildung <code>S³→S²</code>; die Ihara-Seite auditiert einen getrennten endlichen C₅/Hashimoto-Pfad. Die gemeinsame Fünferuhr ist eine Display-Kopplung, keine Identität beider Strukturen. <code>ι=1.1</code> ist hier ein lokaler Anzeige-Witness, nicht das UTG‑IOTA‑Ereignis. <code>19→1.9</code>, ein physischer Feldmechanismus, neue Operatoren, Studies, Findings oder Navigator-Relationen werden nicht behauptet.</p>
+</section>
 <section id="mcb-3d-source-lens" class="mcb-3d" aria-labelledby="mcb-3d-title">
 <header>
 <div>
-<div class="mcb-label">3D SOURCE LENS · ASSET-E78DF8527C6B · RUNTIME DERIVATIVE R1</div>
+<div class="mcb-label">STATION 08 · ATOMIC GLB SOURCE LENS · NOT THE HOPF VIEW</div>
 <h2 id="mcb-3d-title">Die Perle im Träger: Q‑Core → Triple Wheel → Ladder.</h2>
 <p>Das vorhandene Atomic‑Matroschka‑GLB wird als räumliche Lesart an dieselbe fünfteilige Snap-Sequenz gebunden. Der Q‑Space Core atmet leicht; Proton-, Neutron- und Electron-Wheel laufen mit getrenntem Vorzeichen beziehungsweise Tempo. Die Leiter bleibt der sichtbare Übergangsträger.</p>
+<a class="mcb-hopf-jump" href="#mcb-hopf-fibration">↑ HOPF-FIBRATION · STATION 06</a>
 </div>
 <strong id="mcb-3d-state">LOADING · 0° ORIENT</strong>
 </header>
 <div class="mcb-3d-grid">
 <figure class="mcb-3d-stage">
-<model-viewer id="mcb-3d-model" src="assets/universal-machine-fam009/atomic_matroschka_triplewheel_helix_runtime_r1.glb?v=77622c77" alt="Interaktive Atomic Matroschka mit Q-Space Core, drei gegenläufigen Wheels und DNA-artiger Ladder" camera-controls interaction-prompt="none" loading="lazy" reveal="auto" autoplay animation-name="MCB_TRIPLE_WHEEL_RETURN_10S" shadow-intensity="0.7" exposure="1.15" camera-orbit="0deg 12deg 105%" min-camera-orbit="auto 0deg 55%" max-camera-orbit="auto 160deg 220%">
+<model-viewer id="mcb-3d-model" data-mcb-src="assets/universal-machine-fam009/atomic_matroschka_triplewheel_helix_runtime_r1.glb?v=77622c77" alt="Interaktive Atomic Matroschka mit Q-Space Core, drei gegenläufigen Wheels und DNA-artiger Ladder" camera-controls interaction-prompt="none" loading="eager" reveal="auto" autoplay animation-name="MCB_TRIPLE_WHEEL_RETURN_10S" shadow-intensity="0.75" exposure="1.35" camera-orbit="0deg 68deg 145%" min-camera-orbit="auto 18deg 75%" max-camera-orbit="auto 155deg 240%">
 <div class="mcb-3d-progress" slot="progress-bar" aria-hidden="true"><i></i></div>
 </model-viewer>
 <div class="mcb-3d-axis" aria-hidden="true"><span class="is-zenith">ZENITH · 90°</span><span class="is-orient">ORIENT · 0°</span><span class="is-nadir">NADIR · 270°</span><span class="is-occident">OCCIDENT · 180°</span><b>HERE</b></div>
@@ -422,7 +485,7 @@
 </aside>
 </div>
 </section>
-<section class="mcb-history" aria-labelledby="mcb-history-title">
+<section id="mcb-history-context" class="mcb-history" aria-labelledby="mcb-history-title">
 <figure>
 <img src="assets/a0-stern-gerlach-gerlach-to-bohr-postcard-1922.jpg" alt="Walther Gerlachs Postkarte an Niels Bohr vom 8. Februar 1922: Silberstrahl ohne Magnetfeld links und die geteilte Ablagerung mit inhomogenem Magnetfeld rechts">
 <figcaption>Walther Gerlach → Niels Bohr · 8. Februar 1922 · Stern–Gerlach-Aufnahme. Interne Referenzkopie aus dem vom Human Owner bereitgestellten Screenshot; historisches Original: Niels Bohr Archive / AIP Emilio Segrè Visual Archives.</figcaption>
@@ -509,9 +572,11 @@
 <a href="results/a0-matroschka-cluster-bridge-return-2026-11-12.json">MACHINE RECEIPT</a>
 </nav>
 </main>
-<script src="a0-matroschka-cluster-model.js">
+<script src="a0-matroschka-cluster-model.js?v=yen-gate-r1">
 </script>
-<script src="a0-matroschka-cluster-bridge.js?v=mcb-3d-r2">
+<script src="a0-matroschka-atomic-glb-offline.js?v=77622c77-offline-r1">
+</script>
+<script src="a0-matroschka-cluster-bridge.js?v=mcb-wheels-clock-r5">
 </script>
 </body>
 </html>

@@ -5,7 +5,7 @@
 })(typeof globalThis !== 'undefined' ? globalThis : this, function () {
   'use strict';
 
-  const VERSION = '0.21.0';
+  const VERSION = '0.26.0';
   const EPSILON = 1e-9;
   const PRIMES = [2, 3, 5, 7, 11];
   const OPERATOR_IDS = ['J', 'R', 'E'];
@@ -1001,6 +1001,273 @@
     };
   }
 
+  function typedLoopPhasePlug() {
+    const rhoRD = -0.838307340612269;
+    const tenTwelfths = 10 / 12;
+    const wrappedCounterAddress = mod(-10, 12);
+    const decimalSeed = 7.83;
+    const decimalFraction = decimalSeed - Math.floor(decimalSeed);
+    const roman = [
+      ['I', 1], ['V', 5], ['X', 10], ['L', 50], ['C', 100], ['D', 500], ['M', 1000]
+    ].map(([glyph, value]) => ({ glyph, value }));
+    const alpha = Array.from({ length: 26 }, (_, index) => ({ glyph: String.fromCharCode(65 + index), index: index + 1 }));
+    const primes = [97, 101, 103, 107];
+    const primeSteps = primes.slice(1).map((value, index) => value - primes[index]);
+    const relationTokens = [
+      { glyph: '≠', role: 'NON_IDENTITY', status: 'TYPED' },
+      { glyph: '≈', role: 'DECLARED_TOLERANCE', status: 'TYPED' },
+      { glyph: '∥', role: 'PARALLEL_VIEW_OR_SHEET', status: 'TYPED' },
+      { glyph: '//', role: 'CUT_OR_CHANNEL_DISPLAY', status: 'LOCAL' },
+      { glyph: '¥', role: 'OWNER_GLYPH_WITNESS', status: 'OPEN' },
+      { glyph: '√', role: 'ROOT_OR_SPLIT_WITNESS', status: 'OPEN_UNTIL_OPERAND_BOUND' }
+    ];
+    const stations = [
+      { id: 1, key: 'DIGIT', title: '1–9 / 0 seam', carrier: 'DECIMAL_DIGIT_RING', exact: 'digits 1…9; 0 is the declared seam marker', open: '0 is not automatically null, outside or Return' },
+      { id: 2, key: 'ROMAN', title: 'V · i · X', carrier: 'ROMAN_VALUE_LANE', exact: 'I,V,X,L,C,D,M retain standard values', open: 'lower-case i is a seam/lift witness, not Roman I or sqrt(-1)' },
+      { id: 3, key: 'ALPHA_AK', title: 'A–K / 47 witness', carrier: 'ALPHABET_INDEX_LANE_A_K', exact: 'A…K = indices 1…11', open: '47 remains an Owner boundary witness; no derivation from A–K is asserted' },
+      { id: 4, key: 'ALPHA_LZ', title: 'L–Z / 97 witness', carrier: 'ALPHABET_INDEX_LANE_L_Z', exact: 'L…Z = indices 12…26', open: '97 remains an Owner boundary witness; L is not identified with 2' },
+      { id: 5, key: 'PRIME', title: '97 → 101 → 103 → 107', carrier: 'DECLARED_PRIME_ADDRESS_RAIL', exact: 'all four addresses are prime; steps are +4,+2,+4', open: '2^2 labels only the +4 steps; C02 remains an unexpanded Owner token' },
+      { id: 6, key: 'DECIMAL', title: '838 / 783', carrier: 'SEPARATE_DECIMAL_READOUTS', exact: '838 is the existing palindrome mnemonic; 783 = 3^3·29', open: 'digit proximity does not identify graph mask, factorization or correlation' },
+      { id: 7, key: 'PHASE12', title: '−10/12 ⇄ +2/12', carrier: 'DECLARED_C12_PHASE_VIEW', exact: '−10/12 mod 1 = +2/12', open: 'rho(R,D) and 7.83 are approximate observations, not C12 invariants' },
+      { id: 8, key: 'LIFT', title: 'A | i | A′', carrier: 'TWO_VIEW_LIFT_WITH_KEY', exact: "A and A' may share one projection while retaining different lift keys", open: 'projection equality does not imply source identity' },
+      { id: 9, key: 'STOP_RETURN', title: 'C8 STOP / octave Return', carrier: 'SEPARATED_C8_AND_OCTAVE_VIEWS', exact: 'C8 has eight addresses; the octave uses ratio 2:1, while twelve semitone steps belong to the declared 12-TET display', open: 'octagon, octave and STOP are not one carrier or mechanism' }
+    ];
+    return {
+      schema: 'nexah.a0.typed-loop-phase-plug/1.0.0',
+      identityAction: 'REUSE_NEXAH_A0_ORIENTATION_CONTROLLER_BENCH_AND_MOD_NUMBER_VIEW_SUITE',
+      stationCount: stations.length,
+      seam: { glyph: 'i', role: 'BETWEEN_STATIONS_LIFT_KEY', typedNonIdentities: ['Roman I', 'sqrt(-1)', 'alphabet index I=9'] },
+      loopWord: stations.flatMap(station => [String(station.id), 'i']).concat('1′'),
+      stations,
+      roman,
+      alphabet: { first: alpha.slice(0, 11), second: alpha.slice(11), boundaryWitnesses: [47, 97] },
+      primeRail: { addresses: primes, steps: primeSteps, powerOfTwoSteps: primeSteps.map(step => step === 2 ** 2) },
+      exactLocalArithmetic: { threePlusMinusThree: [3 - 3, 3 + 3], mTimesMIfMultiplicationDeclared: 1000 * 1000 },
+      phaseComparator: {
+        rhoRD,
+        magnitude: Math.abs(rhoRD),
+        tenTwelfths,
+        wrappedCounterAddress,
+        rhoDistanceToNegativeTenTwelfths: Math.abs(rhoRD + tenTwelfths),
+        decimalSeed,
+        decimalFraction,
+        decimalDistanceToTenTwelfths: Math.abs(decimalFraction - tenTwelfths),
+        status: 'RETROSPECTIVE_CANDIDATE_COMPARISON_NOT_FINDING'
+      },
+      relations: relationTokens,
+      scarabCipherCrosswalk: {
+        sourceSchema: 'nexah.a0.scarab-cipher-red-balloon-trip/1',
+        sourceModule: 'a0-red-balloon-story.js',
+        existingJoint: 'A0_MATHEMATICAL_JOINTS.html#whiteLineCikadaJoint',
+        readings: ['1033|3301', '10|3333|01'],
+        counts: { handle: 2, palindrome: 12, mix: 420 },
+        role: 'EXISTING_RED_BALLOON_AND_SCARAB_RETURN_CROSSWALK'
+      },
+      ownerTokensOnHold: ['LCVM', 'M×M -> T→Y', '¥|Y|√ split', 'C02', '3±3'],
+      gates: {
+        nineStations: stations.length === 9,
+        primeRailExact: primes.every(isPrimeInteger) && primeSteps.join(',') === '4,2,4',
+        phaseWrapExact: wrappedCounterAddress === 2,
+        decimal838Separated: rootSpace838Audit().decimalCheck.leftConcat === 838,
+        decimal783Exact: 783 === 3 ** 3 * 29,
+        octaveAndOctagonSeparated: true
+      },
+      boundary: 'This plug coordinates typed lanes and an exact finite loop. Approximate decimal proximity, alphabet cuts, Roman glyphs, C8, octave and Owner tokens do not become identities, mechanisms, scientific findings or physical claims.'
+    };
+  }
+
+  function reverseFixedWidthDecimal(value, width = 4) {
+    return Number(String(Math.trunc(Math.abs(Number(value)))).padStart(width, '0').slice(-width).split('').reverse().join(''));
+  }
+
+  function swapDecimalBlocks(value, blockWidth = 2) {
+    const width = Math.max(1, Math.trunc(Number(blockWidth)));
+    const word = String(Math.trunc(Math.abs(Number(value)))).padStart(width * 2, '0').slice(-width * 2);
+    return Number(word.slice(width) + word.slice(0, width));
+  }
+
+  function numericalTransitionSequence() {
+    const layers = [
+      { depth: 4, key: 'OUTER_REV4', title: 'Outer reversal shell', values: [1087, 7801], operator: 'REV4', formula: 'rev₄(1087)=7801', status: 'EXACT_EXISTING' },
+      { depth: 3, key: 'MIDDLE_BLOCK', title: 'Crossed-four middle lane', values: [4774, 7447], operator: 'BLOCK_SWAP_S2', formula: 'S₂(47|74)=74|47', status: 'EXACT_EXISTING' },
+      { depth: 2, key: 'INNER_REV2', title: 'Inner decimal bridge', values: [14, 41], operator: 'REV2', formula: 'rev₂(14)=41', status: 'EXACT_DECLARED_VIEW' },
+      { depth: 1, key: 'CORE_NEIGHBORS', title: 'Core neighbor rail', values: [41, 42, 43], operator: 'INTEGER_NEIGHBOR', formula: '41<42<43', status: 'EXACT_NUMBER_VIEW' }
+    ];
+    return {
+      schema: 'nexah.a0.numerical-transition-sequence/1',
+      identityAction: 'REUSE_NEXAH_A0_ORIENTATION_CONTROLLER_BENCH_MOD_NUMBER_VIEW_SUITE_AND_FESN_4774',
+      layers,
+      bridgeWitness: { shell: 49, totient: 42, gap: 7, formula: '49−φ(49)=7', status: 'EXACT_EXISTING_NUMBER_VIEW' },
+      multiplierRail: { values: [27, 108, 432], factors: [4, 4], formula: '27×4=108; 108×4=432', status: 'EXACT_ARITHMETIC_SOURCE_CUE_ONLY' },
+      middleLaneAudit: {
+        forward: swapDecimalBlocks(4774, 2),
+        returning: swapDecimalBlocks(7447, 2),
+        eachIsRev4Fixed: reverseFixedWidthDecimal(4774, 4) === 4774 && reverseFixedWidthDecimal(7447, 4) === 7447,
+        boundary: 'BLOCK_SWAP_S2 is not REV4 even though both endpoint words are decimal palindromes.'
+      },
+      coreAudit: { lowerPrime: isPrimeInteger(41), centerPrime: isPrimeInteger(42), upperPrime: isPrimeInteger(43), phi43: 42 },
+      gates: {
+        outerReversal: reverseFixedWidthDecimal(1087, 4) === 7801 && reverseFixedWidthDecimal(7801, 4) === 1087,
+        middleBlockSwap: swapDecimalBlocks(4774, 2) === 7447 && swapDecimalBlocks(7447, 2) === 4774,
+        middleRev4Fixed: reverseFixedWidthDecimal(4774, 4) === 4774 && reverseFixedWidthDecimal(7447, 4) === 7447,
+        innerReversal: reverseFixedWidthDecimal(14, 2) === 41 && reverseFixedWidthDecimal(41, 2) === 14,
+        coreNeighbors: 41 + 1 === 42 && 42 + 1 === 43,
+        gapSeven: 49 - 42 === 7,
+        multiplierRail: 27 * 4 === 108 && 108 * 4 === 432
+      },
+      boundary: 'Four nested display layers use three distinct operators and one neighbor rail. Shared digits, seven-count imagery and source vocabulary do not establish one mechanism, physical resonance, neutrino field or frequency law.'
+    };
+  }
+
+  function nexusEggWheel(options = {}) {
+    const orientation = String(options.orientation || 'HORIZONTAL').toUpperCase() === 'VERTICAL' ? 'VERTICAL' : 'HORIZONTAL';
+    const taper = Math.max(0, Math.min(0.42, Number(options.taper ?? 0.22)));
+    const point = (angleDegrees, scale = 1) => {
+      const theta = Number(angleDegrees) * Math.PI / 180;
+      const localX = scale * Math.cos(theta) * (1 - taper * Math.sin(theta));
+      const localY = -scale * Math.sin(theta);
+      return orientation === 'HORIZONTAL'
+        ? { x: -localY, y: localX, angleDegrees: Number(angleDegrees) }
+        : { x: localX, y: localY, angleDegrees: Number(angleDegrees) };
+    };
+    const grid64 = Array.from({ length: 64 }, (_, index) => ({ index, ...point(index * 360 / 64, 0.78) }));
+    const grid27 = Array.from({ length: 27 }, (_, index) => ({ index, ...point(index * 360 / 27, 0.48) }));
+    const shell = Array.from({ length: 129 }, (_, index) => point(index * 360 / 128, 1));
+    const anchors = [
+      { id: 'ALPHA', value: 1087, angleDegrees: 156.6, ...point(156.6, 1.02) },
+      { id: 'BETA', value: 7801, angleDegrees: 1.8, ...point(1.8, 1.02) },
+      { id: 'PHI', value: 8888, angleDegrees: 158.4, ...point(158.4, 1.02) }
+    ];
+    const crossSection = normalizedHeight => {
+      const s = Math.max(-1, Math.min(1, Number(normalizedHeight)));
+      return 2 * Math.sqrt(1 - s * s) * (1 - taper * s);
+    };
+    const upperWidth = crossSection(0.5), lowerWidth = crossSection(-0.5);
+    return {
+      schema: 'nexah.a0.nexus-egg-wheel/1',
+      identityAction: 'EXTEND_NEXAH_A0_ORIENTATION_CONTROLLER_BENCH_EGG_SHELL_VIEW',
+      orientation,
+      taper,
+      powers: { fourCubed: 4 ** 3, twoSixth: 2 ** 6, threeCubed: 3 ** 3, threeTimesNine: 3 * 9 },
+      grids: { outer64: grid64, inner27: grid27 },
+      shell,
+      anchors,
+      asymmetry: {
+        bilateralAboutBodyAxis: true,
+        topBottomSymmetric: taper === 0,
+        upperWidthAtHalfHeight: upperWidth,
+        lowerWidthAtHalfHeight: lowerWidth,
+        upperToLowerRatio: upperWidth / lowerWidth,
+        tighterBodyPole: 'TOP',
+        screenDirectionOfBodyTop: orientation === 'HORIZONTAL' ? 'RIGHT' : 'UP'
+      },
+      gates: {
+        dyadicIdentity: 4 ** 3 === 64 && 2 ** 6 === 64,
+        triadicIdentity: 3 ** 3 === 27 && 3 * 9 === 27,
+        gridCounts: grid64.length === 64 && grid27.length === 27,
+        declaredAsymmetry: taper === 0 || upperWidth < lowerWidth
+      },
+      boundary: 'A deterministic display geometry for two finite address grids. Taper and anchor angles are declared view parameters; they do not establish a physical field, travel metric, resonance, planetary mechanism or calibrated egg morphology.'
+    };
+  }
+
+  function eggShellScanFixture(latitudeBands = 9, longitudeSteps = 24) {
+    const bands = Math.max(3, Math.trunc(Number(latitudeBands)));
+    const sectors = Math.max(8, Math.trunc(Number(longitudeSteps)));
+    const samples = [];
+    for (let band = 0; band < bands; band += 1) {
+      const latitudeDegrees = 72 - band * (144 / (bands - 1));
+      for (let slot = 0; slot < sectors; slot += 1) {
+        const sector = band % 2 === 0 ? slot : sectors - 1 - slot;
+        const azimuthDegrees = sector * 360 / sectors;
+        const phase = sector / sectors;
+        samples.push({
+          index: samples.length + 1,
+          key: `B${String(band + 1).padStart(2, '0')}:S${String(sector + 1).padStart(2, '0')}`,
+          band: band + 1,
+          sector: sector + 1,
+          slot: slot + 1,
+          latitudeDegrees,
+          azimuthDegrees,
+          phase,
+          depth: Math.cos(latitudeDegrees * Math.PI / 180) * Math.cos(azimuthDegrees * Math.PI / 180),
+          reading: phase < 0.5 ? 1087 : 7801
+        });
+      }
+    }
+    return {
+      schema: 'nexah.a0.egg-shell-lamp-scan-fixture/1',
+      latitudeBands: bands,
+      longitudeSteps: sectors,
+      totalSamples: samples.length,
+      samples,
+      boundary: 'Declared discrete shell sampling; not continuous surface coverage, calibrated metrology or laser physics.'
+    };
+  }
+
+  function eggShellScanFrame(step = 0, config = {}) {
+    const fixture = eggShellScanFixture(config.latitudeBands || 9, config.longitudeSteps || 24);
+    const visited = Math.max(0, Math.min(fixture.totalSamples, Math.trunc(Number(step) || 0)));
+    const complete = visited === fixture.totalSamples;
+    const current = visited ? fixture.samples[visited - 1] : null;
+    return {
+      schema: 'nexah.a0.egg-shell-lamp-scan/1',
+      identityAction: 'REUSE_NEXAH_A0_ORIENTATION_CONTROLLER_BENCH_AND_EXISTING_SCARAB_RETURN',
+      fixture: { latitudeBands: fixture.latitudeBands, longitudeSteps: fixture.longitudeSteps, totalSamples: fixture.totalSamples },
+      visited,
+      coverage: visited / fixture.totalSamples,
+      normalizedTime: visited / fixture.totalSamples,
+      current,
+      reading: complete ? 1087 : current ? current.reading : 1087,
+      readingLabel: complete ? '1087 · RETURN' : current ? String(current.reading) : '1087 · START',
+      reversePair: [1087, reverseFixedWidthDecimal(1087, 4)],
+      complete,
+      closureReceipt: complete ? `CLOSED · ${fixture.totalSamples}/${fixture.totalSamples} · 1087 RETURN` : null,
+      boundary: 'τ is normalized scan order and φ is display phase. Neither is physical time; 1087↔7801 is decimal view reversal, not temporal reversal.'
+    };
+  }
+
+  function createEggShellScanState(overrides = {}) {
+    const frame = eggShellScanFrame(overrides.step || 0, overrides);
+    return {
+      schema: 'nexah.a0.egg-shell-lamp-scan-state/1',
+      version: VERSION,
+      step: frame.visited,
+      cycles: Math.max(0, Math.trunc(Number(overrides.cycles || 0))),
+      speedMs: Math.max(24, Math.trunc(Number(overrides.speedMs || 90))),
+      running: Boolean(overrides.running) && !frame.complete,
+      history: Array.isArray(overrides.history) ? clone(overrides.history) : [],
+      frame
+    };
+  }
+
+  function stepEggShellScan(input = {}, direction = 1) {
+    const state = createEggShellScanState(input);
+    const forward = Number(direction) >= 0;
+    const total = state.frame.fixture.totalSamples;
+    const nextStep = Math.max(0, Math.min(total, state.step + (forward ? 1 : -1)));
+    if (nextStep === state.step) return state;
+    const nextFrame = eggShellScanFrame(nextStep, state.frame.fixture);
+    const history = forward
+      ? state.history.concat({ ...nextFrame.current, normalizedTime: nextFrame.normalizedTime })
+      : state.history.slice(0, -1);
+    return createEggShellScanState({
+      step: nextStep,
+      cycles: state.cycles + (forward && nextFrame.complete ? 1 : 0),
+      speedMs: state.speedMs,
+      running: state.running && !nextFrame.complete,
+      history,
+      latitudeBands: state.frame.fixture.latitudeBands,
+      longitudeSteps: state.frame.fixture.longitudeSteps
+    });
+  }
+
+  function runEggShellScan(steps = 216, initial = {}) {
+    let state = createEggShellScanState(initial);
+    for (let index = 0; index < Math.max(0, Math.trunc(Number(steps))); index += 1) state = stepEggShellScan(state, 1);
+    return state;
+  }
+
   const Q4_GRAY_AXIS_SCHEDULE = Object.freeze([0, 1, 0, 2, 0, 1, 0, 3, 0, 1, 0, 2, 0, 1, 0, 3]);
 
   function rootSpaceEngineFrame(tick = 0) {
@@ -1200,7 +1467,8 @@
     polygonAntipodeContract, polygonCountershotOverlayContract, qhDefgSeriesContract,
     polarToSquare, fold45Pair, recordMirrorCode, noiseGridControlContract, janusGridFoldSummary, polarPassRaster, memoryGateLens, familyOrientationSnapshot,
     cycleAntipode, cycleGoReturn, exhaustiveCycleGoReturn, oddAntipodeBattery, s3PermutationRegister, repunitPalindromeGate,
-    hypercubeGraph, rootSpace838Audit, Q4_GRAY_AXIS_SCHEDULE,
+    hypercubeGraph, rootSpace838Audit, typedLoopPhasePlug, reverseFixedWidthDecimal, swapDecimalBlocks, numericalTransitionSequence, nexusEggWheel,
+    eggShellScanFixture, eggShellScanFrame, createEggShellScanState, stepEggShellScan, runEggShellScan, Q4_GRAY_AXIS_SCHEDULE,
     rootSpaceEngineFrame, createRootSpaceEngine, stepRootSpaceEngine, runRootSpaceEngine,
     PXA_JOURNEY_PHASES, createPxaJourneyState, stepPxaJourney, runPxaJourney,
     MASTER_DEMO_PHASES, createMasterDemonstratorState, stepMasterDemonstrator, runMasterDemonstrator

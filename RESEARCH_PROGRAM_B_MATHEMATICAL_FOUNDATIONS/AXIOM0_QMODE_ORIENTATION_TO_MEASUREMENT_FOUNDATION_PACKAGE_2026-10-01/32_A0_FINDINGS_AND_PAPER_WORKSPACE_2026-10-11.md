@@ -2874,13 +2874,65 @@ CHANGE 0 / PUBLICATION 0`.
 [Builder Log](A0_BOOK/A0_BUILDER_LOG.html#matroschka-cluster-bridge-builder-20261112) ·
 [Receipt](A0_BOOK/results/a0-matroschka-cluster-bridge-return-2026-11-12.json)
 
+#### Current findings package / paper candidate — 2026-11-16
+
+Classification: `ENGINEERING_FINDING_CANDIDATES / SOURCE_BOUND_EVIDENCE /
+AWAITING_OWNER_TRIAGE / NOT_A_CANONICAL_FINDING / NOT_A_STUDY /
+NOT_AUTHORIZED_FOR_PUBLICATION`.
+
+The current instrument now returns nine views through one stable MCB identity
+and reports `109/109 PASS` in receipt schema `v20`. The package supports six
+bounded candidate statements:
+
+1. **Witnessed return.** The radial witness `rho` is operationally necessary:
+   all 216 declared routes close with it, while the witnessless control is
+   detected on 216/216 routes and the wrong inverse order on 210/216.
+2. **Representation separation.** Ghostgrid overlays and a rigid 90-degree
+   rotation do not establish Mandelbrot/Julia identity, close a Riemann gap,
+   or infer root structure. The failed visual closure is retained as a
+   negative comparison.
+3. **Shared carrier, different sampling.** The PI station samples one oval at
+   24 Platinum and 12 Iridium positions. Every second Platinum sample is
+   shared, so the declared relation is exactly `24:12 = 2:1`; `phi` is display
+   phase and golden-ratio `varphi` remains only a reference.
+4. **Continuous/discrete separation.** The Hopf view presents the classical
+   continuous `S3 -> S2` fibration with closed `S1` fibers. The Ihara view
+   audits a separate finite `C5`/Hashimoto path. A shared clock does not make
+   them the same structure.
+5. **Typed operational gate.** The display sequence
+   `101 -> 1.1 -> 1.21 -> 1.1 -> YEN[rho,epsilon=0] -> 101` makes the return
+   explicit at `t5=.10`; the YEN glyph is a gate/marker, not an independent
+   number or new algebraic operator.
+6. **Portable runtime without identity duplication.** Direct URL loading and
+   a local offline Blob load the same source-bound GLB identity. The declared
+   ten-second Wheels animation uses an explicit frame clock; it is a runtime
+   presentation, not a physical transport mechanism.
+
+**Provisional paper frame:** *Typed Returns Across Heterogeneous Views: a
+finite carrier, negative comparisons, dual sampling, fiber/graph separation,
+and source-bound runtime portability.* This is an outline candidate only. It
+must not be cited as a result, submitted, published, or used to raise the claim
+ceiling until the owner selects a narrower question and the Science Desk
+admits the required evidence route.
+
+Disposition: `109/109 PASS / NINE STATIONS / EXISTING A0-MATH-MCB-01 +
+ASSET-E78DF8527C6B REUSED / DELTA GRAPH 0 / NEW ID 0 / RELATION 0 / ALIAS 0 /
+STUDY 0 / CANONICAL FINDING 0 / CLAIM CHANGE 0 / PUBLICATION 0`.
+
+[Current instrument](A0_BOOK/A0_MATROSCHKA_CLUSTER_BRIDGE.html#mcb-module-tour) ·
+[Science Desk](A0_BOOK/A0_RESEARCH_DESK.html#matroschka-final-plug-return-20261115) ·
+[Mathfield](A0_BOOK/A0_MATHEMATICAL_JOINTS.html#matroschka-findings-return-20261116) ·
+[A0 Science](A0_BOOK/A0_SCIENCE.html#matroschka-findings-return-20261116) ·
+[Builder Log](A0_BOOK/A0_BUILDER_LOG.html#matroschka-findings-builder-return-20261116) ·
+[Receipt v20](A0_BOOK/results/a0-matroschka-cluster-bridge-return-2026-11-12.json)
+
 <a id="platinum-iridium-pi-lens-holonomy--2026-11-12"></a>
 
 ### Platinum–Iridium PI Lens / Matrix Holonomy Return — 2026-11-12
 
 **Classification:** `SOURCE_BOUND_ENGINEERING_AND_MATHEMATICAL_RETURN / FINDINGS_TRIAGE / NOT_NEW_CANONICAL_FINDING / MATHFIELD_CROSSWALK + BENCH_INSTRUMENT + MACHINA_PROJECTION`
 
-The existing PI Lens now returns its twelve views, Klein/Lotus topology audit,
+The existing PI Lens now returns its fifteen views, Klein/Lotus topology audit,
 Fourier family and embedded three-matrix holonomy workbench through one bounded
 evidence route. The exact carrier remains `12 + 12` vertices, `30 + 30` shell
 edges, twelve index bridges and scale `1.8`. The Möbius parameterization closes
@@ -2894,7 +2946,17 @@ lamella steps and an orientation-reversing Klein composition with `det=-1`.
 No Penrose tiling, material law, calibrated spectrum, energy mechanism,
 cosmological topology, unique number-loop operator or physical coupling is
 established. Browser review reached `12/12` views; the current suites report
-`37/37` matrix, `453/453` PI and `50/50` Black-Sun/Core checks.
+`37/37` matrix, `668/668` PI, `26/26` Oval-Sampler and `50/50` Black-Sun/Core checks.
+
+**Oval / φ / dual-sampling addendum — 2026-11-16:** Visual 15 reads one
+parametric oval with two discrete readers. Platinum samples 24 positions;
+Iridium samples 12. Every second Platinum position coincides with an Iridium
+position, giving the exact declared ratio `24:12 = 2:1`, twelve shared samples
+and twelve interleaved Platinum-only samples. `φ` controls display phase;
+`ϕ=(1+√5)/2` remains a reference and is not the oval generator. “Egg”,
+“breathing”, Platinum and Iridium are presentation roles, not biological,
+material, metrological or physical claims. The Matroschka tour embeds this
+canonical PI view rather than creating a duplicate instrument.
 
 **Orange 1 / Dynamic Carrier addendum:** the existing NEXAH Core v9 runtime
 places Lorenz, Halvorsen and Rössler in the same visual sequence
@@ -2913,6 +2975,8 @@ canonical ID, relation, Study, finding promotion, paper route or publication is
 authorized.
 
 [Science Desk](A0_BOOK/A0_RESEARCH_DESK.html#platinum-iridium-pi-lens-holonomy-return-20261112) ·
+[PI Lens · Oval Sampler](A0_BOOK/A0_PLATINUM_IRIDIUM_PI_LENS.html#piOvalSampler) ·
+[Matroschka · PI Station](A0_BOOK/A0_MATROSCHKA_CLUSTER_BRIDGE.html#mcb-pi-oval-sampler) ·
 [PI Lens · Orange 1](A0_BOOK/A0_PLATINUM_IRIDIUM_PI_LENS.html#pi-dynamic-carrier-bridge) ·
 [Dynamic Carrier Lens](A0_BOOK/A0_BLACK_SUN_BIG_MOON.html#core) ·
 [Mathfield](A0_BOOK/A0_MATHEMATICAL_JOINTS.html#platinum-iridium-pi-holonomy-crosswalk) ·

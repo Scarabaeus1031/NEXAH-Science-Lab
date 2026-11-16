@@ -188,5 +188,108 @@
       matrix:{determinants:[det(A1),det(A2),det(A3),det(H)],orthogonality:matrixDistance(mm(transpose(H),H),eye()),commutator12:matrixDistance(mm(A1,A2),mm(A2,A1)),commutator23:matrixDistance(mm(A2,A3),mm(A3,A2))}
     };
   }
-  return {EPS,CLUSTERS,A1,A2,A3,F0_MINUS,H,HINV,WRONG_INV,SNAP_SEQUENCE,DISPLAY_RETURN,MATRYOSHKA_CARRIER,MAITROSCHKA_JOINT,NEXAHEDRON_V3_SOURCE_LENS,snapOf,address,clusterOf,cubeOf,sphereOf,stereographic,inverseStereographic,observer,route,allAddresses,census,math:{dot,norm,sub,scale,transpose,mv,mm,det,eye,matrixDistance}};
+  function finiteJanusFrame(index=0,options={}){
+    const phaseIndex=mod(Math.trunc(Number(index)||0),420),q=phaseIndex/420,theta=2*Math.PI*q;
+    const loopStart=.78,sink=Number(options.sink??.7),amplitude=Number(options.amplitude??.34);
+    const uPointAt=t=>{
+      const raw=Number(t),p=raw===1?1-Number.EPSILON:mod(raw,1);
+      if(p<loopStart){
+        const s=p/loopStart,envelope=.42+.58*Math.sin(Math.PI*s);
+        return {x:-1+1.55*s,y:sink*s-amplitude*envelope*Math.sin(4*Math.PI*s),segment:'TWO_HUMP_SINK'};
+      }
+      const s=(p-loopStart)/(1-loopStart),angle=Math.PI+2*Math.PI*s;
+      return {x:.75+.2*Math.cos(angle),y:sink+.13*Math.sin(angle)+.05*s,segment:'TONGUE_LOOP'};
+    };
+    const shell={re:Math.cos(theta),im:Math.sin(theta)};
+    const u=uPointAt(q);
+    return {
+      schema:'nexah.a0.finite-janus-shadow-return/1',
+      identityAction:'EXTEND_EXISTING_CAND_POLARPASS_DISPLAY_LENS',
+      phaseIndex,phaseCount:420,normalizedPhase:q,theta,
+      i:shell,
+      shadow:{re:shell.re,im:0,ghostDistance:2*Math.abs(shell.im),projection:'Q0=Re(i)'},
+      u,
+      path:Array.from({length:181},(_,sample)=>({q:sample/180,...uPointAt(sample/180)})),
+      display:{humps:2,humpPattern:[1,2,1],fillToken:1.21,smallLoop:true,ownerParameterBank:[15,2.80,1.21,.70,1.02,3.00],parameterStatus:'UNTYPED_COMPARISON_CANDIDATES'},
+      return:{exact:phaseIndex===0,address:`${phaseIndex}/420`,nextAddress:`${mod(phaseIndex+1,420)}/420`},
+      gates:{finitePhase:Number.isInteger(phaseIndex)&&phaseIndex>=0&&phaseIndex<420,shadowOnGhostline:true,twoHumps:true,loopDeclared:true},
+      boundary:'Finite display animation only. The shell point, Ghostline projection, sinking u-path, 1:2:1 silhouette and 1.21 fill token do not establish RH, a zeta-zero law, a physical field, a Riemann return mechanism or equality with the historical Polar-Janus evidence.'
+    };
+  }
+  function ghostgridComparator(options={}){
+    const count=Math.max(64,Math.trunc(Number(options.samples)||340));
+    const rotationDeg=Number(options.rotationDeg??90),angle=rotationDeg*Math.PI/180;
+    const field=kind=>Array.from({length:count+1},(_,index)=>{
+      const q=index/count;
+      if(kind==='julia'){
+        const t=q*Math.PI*8,radial=.55+.18*Math.sin(3*t)+.1*Math.sin(7*t);
+        return {x:radial*Math.cos(t),y:radial*Math.sin(t)};
+      }
+      if(kind==='mandelbrot'){
+        const t=q*Math.PI*2,radial=.42*(1-Math.cos(t))+.12*Math.cos(5*t);
+        return {x:radial*Math.cos(t),y:.72*radial*Math.sin(t)};
+      }
+      const t=-35+q*70,den=.25+t*t;
+      return {x:(-t/den)*.95,y:-((.5/den)*5-.08)};
+    });
+    const rotate=points=>points.map(point=>({x:point.x*Math.cos(angle)-point.y*Math.sin(angle),y:point.x*Math.sin(angle)+point.y*Math.cos(angle)}));
+    const gap=points=>Math.hypot(points.at(-1).x-points[0].x,points.at(-1).y-points[0].y);
+    const riemann=field('riemann'),rotatedRiemann=rotate(riemann),julia=field('julia'),mandelbrot=field('mandelbrot');
+    const pearlCount=13;
+    const pearls=Array.from({length:pearlCount},(_,index)=>{
+      const q=index/(pearlCount-1),a=rotatedRiemann[Math.round(q*(rotatedRiemann.length-1))],b=mandelbrot[Math.round(q*(mandelbrot.length-1))];
+      return {index,q,riemann:a,mandelbrot:b,residual:Math.hypot(a.x-b.x,a.y-b.y)};
+    });
+    return {
+      schema:'nexah.a0.ghostgrid-gap-comparator/1',
+      identityAction:'EXTEND_EXISTING_A0_MATROSCHKA_TRANSLATION_LENS',
+      sourceReuse:['GHOSTGRID_ALPHABET_ROTATION_RECONSTRUCTION_AUDIT_2026-09-10','NEXAH:A0_ORIENTATION_EVIDENCE_LINEAGE:V1','CAND:POLARPASS'],
+      modes:['RIEMANN_OPEN','RIEMANN_ROT90','MANDELBROT_BRIDGE','JULIA_CONTROL'],
+      rotationDeg,
+      fields:{riemann,rotatedRiemann,mandelbrot,julia},
+      endpointGap:{riemann:gap(riemann),rotatedRiemann:gap(rotatedRiemann),mandelbrot:gap(mandelbrot),julia:gap(julia)},
+      invariants:{rigidRotationPreservesGap:Math.abs(gap(riemann)-gap(rotatedRiemann))<1e-12,quarterTurnGridAutomorphism:Math.abs(mod(rotationDeg,90))<EPS},
+      pearls,
+      ghostHull:{kind:'DISPLAY_ENVELOPE_BEHIND_MANDELBROT',axes:[1.08,.82],physicalCarrier:false},
+      graphDelta:{identities:0,relations:0,aliases:0},
+      boundary:'A rigid rotation preserves endpoint distance and cannot close the Riemann display gap. The Mandelbrot ghost hull and white pearl correspondences are separate comparison overlays; visual coverage is not curve identity, analytic continuation, a Riemann-Hypothesis result or a physical extra shell.'
+    };
+  }
+  function finalPlugFrame(step=1){
+    const phaseStep=clamp(Math.trunc(Number(step)||1),1,5),time=phaseStep*.02,phi=2*Math.PI*phaseStep/5;
+    const invSqrt2=1/Math.sqrt(2),alpha=Math.PI/2;
+    const z1={re:invSqrt2*Math.cos(phi),im:invSqrt2*Math.sin(phi)};
+    const z2={re:invSqrt2*Math.cos(phi+alpha),im:invSqrt2*Math.sin(phi+alpha)};
+    const hopf={
+      x:2*(z1.re*z2.re+z1.im*z2.im),
+      y:2*(z1.im*z2.re-z1.re*z2.im),
+      z:z1.re*z1.re+z1.im*z1.im-z2.re*z2.re-z2.im*z2.im
+    };
+    const displays=[
+      {token:'101',type:'ADDRESS',operation:'SOURCE'},
+      {token:'1.1',type:'DISPLAY',operation:'MAP'},
+      {token:'1.21',type:'DISPLAY',operation:'SQUARE'},
+      {token:'1.1',type:'DISPLAY',operation:'POSITIVE_ROOT'},
+      {token:'101',type:'ADDRESS',operation:'RETURN'}
+    ];
+    const routePrefix=Array.from({length:phaseStep+1},(_,index)=>index%5),triples=[];
+    for(let index=0;index+2<routePrefix.length;index++)triples.push(routePrefix.slice(index,index+3));
+    const immediateBacktrack=triples.some(([a,,c])=>a===c);
+    return {
+      schema:'nexah.a0.hopf-ihara-final-plug/1',
+      identityAction:'EXTEND_EXISTING_A0_MATROSCHKA_TRANSLATION_LENS',
+      sourceReuse:['NEXAH:A0_ORIENTATION_EVIDENCE_LINEAGE:V1','A0_IHARA_HASHIMOTO_CYCLE_BRIDGE','NEXAH_PCA_PHASE_SPACE_CORE_INTAKE_2026-10-03'],
+      phaseStep,phaseCount:5,timeDrift:.02,time,phi,hue:(phaseStep-1)*72,
+      aperture:{index:phaseStep,angle:phi,open:true,count:5},
+      iota:{token:'ι',role:'LOCAL_INVARIANT_WITNESS',displayValue:1.1,invariant:true,notIdentity:'UTG_IOTA_THRESHOLD_EVENT'},
+      display:displays[phaseStep-1],displaySequence:displays,
+      hopf:{fiberPoint:[z1.re,z1.im,z2.re,z2.im],fiberNorm:Math.hypot(z1.re,z1.im,z2.re,z2.im),base:hopf,baseNorm:Math.hypot(hopf.x,hopf.y,hopf.z),role:'CONTINUOUS_PHASE_DISPLAY_S3_TO_S2'},
+      ihara:{graph:'C5',nodes:[0,1,2,3,4],routePrefix,activeNode:phaseStep%5,immediateBacktrack,nonBacktracking:!immediateBacktrack,closed:phaseStep===5,role:'FINITE_HASHIMOTO_ROUTE_AUDIT'},
+      returnGate:{marker:MAITROSCHKA_JOINT.return.marker,active:phaseStep===5,witness:'rho',witnessHeld:phaseStep===5,epsilon:phaseStep===5?0:null,role:'VISIBLE_TYPED_RETURN_GATE_NOT_AN_OPERATOR',source:'MAITROSCHKA_JOINT.return'},
+      return:{exact:phaseStep===5&&displays[phaseStep-1].token==='101',address:'101',displayWitness:1.1,through:'¥[rho,epsilon=0]'},
+      graphDelta:{identities:0,relations:0,aliases:0},
+      boundary:'The standard Hopf map displays a continuous S1 fiber phase while its S2 base remains fixed; it is not identified with the discrete C5/Hashimoto route. The Ihara layer audits only the declared non-backtracking finite cycle. Local iota is a retained witness label, not the UTG threshold event. Yen is the reused visible typed return marker and is neither currency nor an algebraic operator. No physical field, causal Hopf mechanism, natural 19-to-1.9 law, new operator, Study, Finding or graph relation is asserted.'
+    };
+  }
+  return {EPS,CLUSTERS,A1,A2,A3,F0_MINUS,H,HINV,WRONG_INV,SNAP_SEQUENCE,DISPLAY_RETURN,MATRYOSHKA_CARRIER,MAITROSCHKA_JOINT,NEXAHEDRON_V3_SOURCE_LENS,snapOf,address,clusterOf,cubeOf,sphereOf,stereographic,inverseStereographic,observer,route,allAddresses,census,finiteJanusFrame,ghostgridComparator,finalPlugFrame,math:{dot,norm,sub,scale,transpose,mv,mm,det,eye,matrixDistance}};
 });

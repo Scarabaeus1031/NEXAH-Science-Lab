@@ -273,9 +273,27 @@
     "canonical_finding_promoted": false,
     "publication_authorized": false
   },
+  "oval_phi_sampler": {
+    "schema": "a0.oval-phi-dual-sampler/1.0.0",
+    "status": "PASS_SHARED_OVAL_TWO_TO_ONE_SAMPLING",
+    "path": "x=a(phi) cos(theta), y=b(phi) sin(theta)",
+    "sampling": {
+      "platinum": {"role": "FAST_READER_2", "count": 24},
+      "iridium": {"role": "BASE_READER_1", "count": 12},
+      "ratio": "2:1",
+      "shared_samples": 12,
+      "platinum_only_samples": 12,
+      "coincidence_residual_max": 0
+    },
+    "symbols": {"phi": "DISPLAY_PHASE", "varphi": "REFERENCE_ONLY_NOT_GENERATOR"},
+    "claims": {"material_response": false, "biological_egg": false, "metrology": false, "physical_breathing": false, "golden_ratio_generator": false, "ghost_snake_identity": false},
+    "matroschka_reuse": "A0_MATROSCHKA_CLUSTER_BRIDGE.html#mcb-pi-oval-sampler",
+    "new_canonical_ids": [],
+    "relation_changes": []
+  },
   "governance_reconciliation": {
-    "instrument_sha256": "d69d037678de4318870f4e6a5a2086f23c7daf56e50e028a443fea7f114bb8e1",
-    "evidence_binder_sha256": "94deb4ba3ef713cd4e30aa745c46f57a16799275d7aa4d9ab7699d371393bcbc",
+    "instrument_sha256": "c38f85ac7fedb25080c9eb3cac42713734b52dc003b23b41341788ff802734b3",
+    "evidence_binder_sha256": "a50bdcaec9c1909b17a49842b0421eef06b42f8f6deb0e086e18a3c4fc794f2b",
     "source_graph_components": 21,
     "base_counts": "329/29",
     "composed_counts": "332/32",

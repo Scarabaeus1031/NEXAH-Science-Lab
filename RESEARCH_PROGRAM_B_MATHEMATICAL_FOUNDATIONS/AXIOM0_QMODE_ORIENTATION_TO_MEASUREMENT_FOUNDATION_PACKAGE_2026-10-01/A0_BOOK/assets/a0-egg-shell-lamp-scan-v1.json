@@ -1,0 +1,32 @@
+{
+  "schema": "nexah.a0.egg-shell-lamp-scan/1",
+  "title": "Egg-Shell Lamp Scan · 1087↔7801 Return",
+  "identity_action": "REUSE_NEXAH_A0_ORIENTATION_CONTROLLER_BENCH_AND_EXISTING_SCARAB_RETURN",
+  "host": "A0_ORIENTATION_CONTROLLER_BENCH.html#eggShellLampScan",
+  "sampling": {"latitude_bands": 9, "longitude_steps": 24, "total_samples": 216, "order": "SERPENTINE"},
+  "exact": {"reverse10_1087": 7801, "reverse10_7801": 1087, "closure_address": 1087},
+  "numerical_transition": {
+    "layer_order": [4, 3, 2, 1],
+    "layers": [
+      {"layer": 4, "values": [1087, 7801], "operator": "REV4"},
+      {"layer": 3, "values": [4774, 7447], "operator": "BLOCK_SWAP_S2"},
+      {"layer": 2, "values": [14, 41], "operator": "REV2"},
+      {"layer": 1, "values": [41, 42, 43], "operator": "INTEGER_NEIGHBOR"}
+    ],
+    "gap_witness": {"shell": 49, "totient": 42, "gap": 7},
+    "separate_multiplier_rail": {"values": [27, 108, 432], "factors": [4, 4]}
+  },
+  "nexus_egg_wheel": {
+    "orientation": "HORIZONTAL",
+    "default_taper": 0.22,
+    "dyadic_grid": {"count": 64, "equalities": ["4^3=64", "2^6=64"]},
+    "triadic_grid": {"count": 27, "equalities": ["3^3=27", "3*9=27"]},
+    "anchors": [{"id":"ALPHA","value":1087,"display_angle_degrees":156.6},{"id":"BETA","value":7801,"display_angle_degrees":1.8},{"id":"PHI","value":8888,"display_angle_degrees":158.4}],
+    "symmetry": "BILATERAL_BODY_AXIS_WITH_DECLARED_POLE_TAPER",
+    "anchor_status": "SUPPLIED_VISUAL_VIEW_PARAMETERS"
+  },
+  "declared": ["egg-shaped display projection", "discrete shell sampling", "normalized scan order tau", "azimuth display phase phi", "64/27 finite address grids", "body-axis symmetry with pole taper"],
+  "not_claimed": ["continuous surface coverage", "physical or SI time", "temporal reversal", "calibrated laser metrology", "astronomical mechanism", "neutrino field", "physical resonance", "one operator across all four layers", "travel metric", "calibrated egg morphology"],
+  "sources": ["../A0_ORIENTATION_CONTROLLER_BENCH.html#scarabPillarProjection", "../A0_MA_PI_J_MIRROR_PROOF_LOOP_SCIENCE_DESK_RETURN_2026-11-11.md", "../a0-seven-mask-fold.js", "../../51_A0_4774_4114_8888_SNCE_404_SOURCE_BINDING_2026-10-13.md", "../../52_A0_RATH_49_51_PHI5_SHADOW_JOINT_SOURCE_AUDIT_2026-10-13.md"],
+  "governance_delta": {"new_identity": 0, "new_relation": 0, "new_study": 0, "new_finding": 0, "new_publication": 0}
+}
