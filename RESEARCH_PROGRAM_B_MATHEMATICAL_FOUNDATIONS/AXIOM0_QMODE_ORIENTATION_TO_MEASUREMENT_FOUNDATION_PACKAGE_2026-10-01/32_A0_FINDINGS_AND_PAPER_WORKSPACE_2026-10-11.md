@@ -2926,6 +2926,44 @@ STUDY 0 / CANONICAL FINDING 0 / CLAIM CHANGE 0 / PUBLICATION 0`.
 [Builder Log](A0_BOOK/A0_BUILDER_LOG.html#matroschka-findings-builder-return-20261116) ·
 [Receipt v20](A0_BOOK/results/a0-matroschka-cluster-bridge-return-2026-11-12.json)
 
+#### Science closeout audit — 2026-11-16
+
+Owner disposition: `CURRENT ENGINEERING INTEGRATION SCOPE CLOSED / SCIENCE
+STRUCTURE FREEZE RETAINED / NO ACTIVE SUCCESSOR`.
+
+The six candidate statements are resolved into three deliberately separate
+classes:
+
+1. **Verified engineering facts.** The declared finite fixture closes all
+   `216/216` witnessed routes; the witnessless and wrong-order controls remain
+   visible. The `24:12` oval sampler is exact inside its declared discrete
+   model. Hopf and Ihara remain different carriers. The Yen gate is a typed
+   display marker. Direct and offline loading preserve one GLB identity, and
+   the Wheels runtime advances through the explicit frame clock. These are
+   implementation and finite-fixture results, not canonical Science Findings.
+2. **Exploratory questions, parked.** Generalization across carriers, a natural
+   cluster law, a scientific paper thesis, physical interpretation and any
+   claim connecting the visual layers require a separately bounded question,
+   admission, comparator and review route. None is active.
+3. **Visual/application material, parked.** `Projector 29 / Mimosa`, close-ups,
+   skull/bug/panther readings, hologram/Antarctica views, continent/ocean
+   geometry, geographic nodes, Ancient Sites and grey-noise snakes are retained
+   only as `FIELD_ART / APPLICATION_NOTES`. Visual resemblance, geographic
+   placement and overlay are not evidence, identity or mechanism.
+
+Closeout audit: Matroschka `109/109 PASS`; PI lens `668/668 PASS`; PI oval
+sampler `26/26 PASS`; Orientation Controller Bench v0.26 PASS; Red Balloon
+story PASS; Source Graph `332/32 PASS`; Navigator App `253/253 PASS`; B0 static
+audit `428` local links PASS and Methods integration `31/31 PASS`; Mission
+Control currentness VALID. The controlling machine receipt remains v20 and no
+evidence was repaired or reinterpreted during closeout.
+
+There are no open items inside the accepted integration scope. Reopening any
+parked item requires a new Human Owner decision. Identity reuse remains
+`A0-MATH-MCB-01`, `ASSET-E78DF8527C6B`, `ASSET-883C1509BCEF` and
+`METHOD:F0/F0-`; graph, alias, Study, canonical Finding, Capability,
+claim-ceiling and publication deltas remain `0`.
+
 <a id="platinum-iridium-pi-lens-holonomy--2026-11-12"></a>
 
 ### Platinum–Iridium PI Lens / Matrix Holonomy Return — 2026-11-12

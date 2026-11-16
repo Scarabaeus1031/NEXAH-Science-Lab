@@ -1,9 +1,9 @@
 window.NEXAH_LAB_REGISTER = {
   "schema": "nexah.science-lab.lab-register-lens/1.0.0",
   "status": "INTERNAL_READ_ONLY_SOURCE_BOUND_LENS",
-  "generated": "2026-11-15T11:11:42.554Z",
+  "generated": "2026-11-16T01:08:25.208Z",
   "source": "SCIENCE_LAB/LAB_REGISTER.md",
-  "source_sha256": "8f65e264ef696084ed2eaf02d4d3a60ef013c064d9054c4d17ab14ad1b75147e",
+  "source_sha256": "5c73f26d048b8aa8e45a284457b24ff42bdac2cc27fa62aabe8deba7bc427067",
   "authority": "LAB_REGISTER retains identity, lifecycle and disposition authority; this lens is read-only.",
   "study_count": 62,
   "studies": [
@@ -39,15 +39,15 @@ window.NEXAH_LAB_REGISTER = {
       "study_id": "A0_BL_056_CLP_MULTIVIEW_RETURN_2026_10_28",
       "question": "Does a declared coupled CLP multi-view of one fixed finite C30 source state reduce reconstruction ambiguity relative to a single lossy view without confusing added view information with a new mechanism?",
       "owner": "Human Owner",
-      "native_state": "ADMITTED OPEN; internal pre-review complete; deterministic synthetic preflight only; no participant data and no scientific run",
-      "common_status": "OPEN / NOT ACTIVE / INTERNAL_PRE_REVIEW_COMPLETE_2026-10-28",
+      "native_state": "ADMITTED OPEN / OWNER_DEFERRED_2026-11-16; internal pre-review complete; deterministic synthetic preflight only; no participant data and no scientific run",
+      "common_status": "OPEN / NOT ACTIVE / OWNER_DEFERRED / PARKED_NO_MAINTENANCE_BURDEN / NO_ACTIVE_SUCCESSOR",
       "evidence_summary": "R0_PRE_REVIEW_COMPLETE; candidate hashes, comparator, schema, runner and technical receipt recorded; 16/16 tests pass; Primary/Replay blocked; independent reviewer and semantic verifier remain open",
       "primary_record": {
         "label": "Admission record",
         "path": "CASE_STUDIES/A0_BL_056_CLP_MULTIVIEW_RETURN_2026-10-28/00_ADMISSION_RECORD.md"
       },
       "primary_records_text": "Admission record · internal closeout · source-bound findings notes",
-      "next_action": "Name an independent reviewer, implement the semantic receipt verifier, review the CRT ceiling, then obtain separate Owner freeze/activation; private reviewer room remains BACKLOG_ONLY / NOT BUILT / NOT PUBLIC; no execution or NEXAH Science projection before then"
+      "next_action": "None while deferred. Any later reopening requires a new Owner decision plus independent reviewer, semantic verifier, CRT review and a separate freeze/activation gate; no execution or NEXAH Science projection before then"
     },
     {
       "study_id": "A0_BL_055_CROSS_CARRIER_RETURN_ECONOMY_2026_10_18",
@@ -207,15 +207,15 @@ window.NEXAH_LAB_REGISTER = {
       "study_id": "A0_EULER_TESSAREC_RESIDUAL_FOLD_AUDIT_2026_10_13",
       "question": "Where does the registered Euler shape fail across the eight held-out rank slices, and do extremes, multiplicities or the trivial eigenvalue explain the residual pattern?",
       "owner": "Human Owner",
-      "native_state": "EXTREME_CONCENTRATED; F1+F8=82.3926% of positive Euler excess SSE; 47-value and multiplicity controls do not rescue parent result",
-      "common_status": "EXECUTION_STOPPED / VALIDATED_SECONDARY_DIAGNOSTIC / AWAITING_OWNER_DISPOSITION",
+      "native_state": "EXTREME_CONCENTRATED / OWNER_ACCEPTED_AS_BOUNDED_SECONDARY_DIAGNOSTIC_2026-11-16; F1+F8=82.3926% of positive Euler excess SSE; 47-value and multiplicity controls do not rescue parent result",
+      "common_status": "READY_FOR_LABREPORT / NO_ACTIVE_SUCCESSOR / NO_CLAIM_PROMOTION",
       "evidence_summary": "R2_LOCAL_REPLAY_CANDIDATE; immutable JSON/SVG and independent validator PASS; no scientific replay performed",
       "primary_record": {
         "label": "Check 73 result",
         "path": "../RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/73_A0_EULER_TESSAREC_RESIDUAL_FOLD_AUDIT_RESULT_2026-10-13.md"
       },
       "primary_records_text": "Check 73 result · Check 72 protocol",
-      "next_action": "Owner may accept, revise or reject the localization; graph-native successor requires a new admission and authorization"
+      "next_action": "Retrospective canonical Labreport/closure gate only; no replay, successor, claim promotion or publication is authorized"
     },
     {
       "study_id": "A0_EULER_TESSAREC_SPECTRUM_COMPARATOR_2026_10_13",
