@@ -20,6 +20,8 @@ SPDX identifier: `Apache-2.0`
 Repository documentation, scientific reports, figures and original repository
 artwork are licensed under the
 [Creative Commons Attribution 4.0 International license](https://creativecommons.org/licenses/by/4.0/).
+The repository-level declaration is provided in
+[`LICENSE-DOCS.md`](LICENSE-DOCS.md).
 
 This includes Markdown documentation and original NEXAH images, including the
 RC1 poster artwork. Attribution should identify the artifact, the NEXAH Science
@@ -32,6 +34,8 @@ SPDX identifier: `CC-BY-4.0`
 Machine-readable datasets and derived numerical results are dedicated to the
 public domain under
 [CC0 1.0 Universal](https://creativecommons.org/publicdomain/zero/1.0/).
+The repository-level declaration is provided in
+[`LICENSE-DATA.md`](LICENSE-DATA.md).
 
 This includes CSV and JSON result records when they function as datasets or
 derived numerical outputs. JSON schemas, configuration files and executable
@@ -45,6 +49,13 @@ Material identified as third-party remains subject to its original rights and
 license. Inclusion in this repository does not replace or broaden those terms.
 Where no compatible publication right is recorded, the material is not covered
 by the grants above.
+
+## Origin, naming and citation
+
+See [`NOTICE`](NOTICE) for project origin, [`TRADEMARKS.md`](TRADEMARKS.md) for
+descriptive use of project names and marks, and [`CITATION.cff`](CITATION.cff)
+for repository-level citation metadata. Package-specific provenance and
+citation records remain controlling for individual studies and artifacts.
 
 ## No authority or evidence effect
 

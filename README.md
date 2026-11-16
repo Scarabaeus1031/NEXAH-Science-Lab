@@ -116,5 +116,13 @@ Inspect the license and provenance of the specific package before reuse. A
 repository-wide contribution route does not override third-party data,
 historical artifact or package-specific restrictions.
 
+Executable source code is released under [Apache 2.0](LICENSE), original
+documentation and research material under [CC BY 4.0](LICENSE-DOCS.md), and
+original machine-readable datasets and derived numerical results published as
+data under [CC0 1.0](LICENSE-DATA.md). See the controlling [License
+Scope](LICENSE_SCOPE.md), [Licensing Index](LICENSES.md), project-origin
+[NOTICE](NOTICE), naming policy [TRADEMARKS.md](TRADEMARKS.md), and
+[CITATION.cff](CITATION.cff).
+
 No contribution, issue, replay or pull request becomes an adopted scientific
 result without the documented audit, integration and closure path.
