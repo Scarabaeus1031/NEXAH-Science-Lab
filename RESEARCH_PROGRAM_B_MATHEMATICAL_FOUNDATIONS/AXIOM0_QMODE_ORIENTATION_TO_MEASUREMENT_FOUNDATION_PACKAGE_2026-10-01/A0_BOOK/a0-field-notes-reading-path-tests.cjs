@@ -9,7 +9,7 @@ const story = read('A0_ARCHITECTURE_OF_DIFFERENCE.html');
 const fieldNoteTwo = read('DRAFTS/A0_FIELD_NOTE_II_ARCHITECTURE_OF_DIFFERENCE_2026-11-13.html');
 const betaReturn = read('DRAFTS/A0_BETA_RETURN_MANDELBROT_JULIA_DEMONSTRATOR_2026-11-14.html');
 
-assert.match(page, /<title>A0 Field Notes — Observation → Difference<\/title>/);
+assert.match(page, /<title>A0 Field Notes — Observation → Difference → Time After Time<\/title>/);
 assert.match(page, /id="observation-note"/);
 assert.match(page, /id="difference-note"/);
 assert.match(page, /Wenn eine Differenz sichtbar geworden ist – was tut sie\?/);

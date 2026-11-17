@@ -85,6 +85,10 @@ assert.ok(script.includes("document.getElementById('beginJourney').addEventListe
 assert.ok(html.includes('Dieses Fenster ergänzt die Route. Schließen bringt dich an exakt dieselbe Lesestelle zurück.'));
 assert.ok(html.includes('src="assets/a0-nexah-aperture-journey-v1.js'));
 assert.ok(html.includes('class="brand" href="#a0-human-overview"'));
+assert.ok(html.indexOf('id="a0-human-overview"')<html.indexOf('id="missing-condition"'));
+assert.ok(html.indexOf('id="missing-condition"')<html.indexOf('id="human-view"'));
+assert.ok(html.indexOf('id="human-view"')<html.indexOf('id="a0-human-public"'));
+assert.ok(fs.readFileSync(path.join(__dirname,'a0-human-locale.js'),'utf8').includes('if (window.parent !== window)'));
 assert.ok(!html.includes("a0-human-flagship-journey.js"));
 assert.ok(!html.includes('ENTER THROUGH THIS QUESTION'));
 assert.ok(!html.includes('FIND THE RAINBOW'));

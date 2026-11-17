@@ -229,9 +229,9 @@
             ""
           ],
           [
-            "assets/a0-field-notes/index.html#note-49",
-            "Field Notes · Theory kurz",
-            "Begleitnotiz zur bestehenden Theory-Arbeitsquelle · kein Paper"
+            "A0_FIELD_NOTES.html#observation-note",
+            "Field Notes · Lesepfad",
+            "Kuratiertes Deckblatt für Observation, Difference, Time After Time und den +1-Return"
           ]
         ]
       },
@@ -885,8 +885,12 @@
   const scienceReaderHref = "A0_SCIENCE.html#top";
   const builderShowcaseHref = "A0_BUILDER_TOY_STORE.html#top";
   const scienceDeskHref = "A0_RESEARCH_DESK.html?desk=overview&rev=research-reader-r1-20261110#nexah-research-reader-currentness-20261110";
-  const builderDeskHref = "../../../../../10%20NEXAH%20CORE/NEXAH/BUILDER/B0_BUILDER_DECK/build-desk.html#top";
-  const missionControlHref = "../../../../../00%20EXECUTIVE/NEXAH-Mission-Control/INTERNAL_NAVIGATOR/index.html#action-board";
+  // The A0 owner preview is served from A0_BOOK. Cross-repository ../ routes
+  // escape that HTTP root and therefore resolve to 404 even though the files
+  // exist on disk. These source-preserving symlink routes keep one canonical
+  // Desk implementation while making both destinations reachable in preview.
+  const builderDeskHref = "owner-routes/builder-desk/build-desk.html#top";
+  const missionControlHref = "owner-routes/mission-control/INTERNAL_NAVIGATOR/index.html#action-board";
   // Each lane gets its own invitation. Human is experience-led; Builder keeps the workshop.
   const humanShowcase = [
     ["A0_NEXAH_APERTURE_JOURNEY.html#a0-human-overview", "A0 HUMAN VIEW", "Bestand, Apps, Experiences, Lesepfade, Szenen und kontrolliertes Delta vor der einzelnen Journey", "nexah", "Start here · Inventory / Delta"],

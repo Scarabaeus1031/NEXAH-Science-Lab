@@ -273,7 +273,7 @@
   function steeringContract(){
     const states=STEERING_CODES.map(item=>steeringState(item.code));
     const counts=states.reduce((out,state)=>{out[state.role]=(out[state.role]||0)+1;return out;},{});
-    return {states,nonzero:states.filter(state=>state.code!=='000'),counts,context:{binaryCube:'2^3=8=1 HOME + 7 NONZERO WAYS',faceRegister:'3^2=9',moduleRegister:'3^3=27',addressSidecar:'W=23; 46=23+23=2*23'},ownerView:{lateral:'six nonzero axis/face-diagonal ways may be read as KIEMEN',body:'111 may be read as PHANTOMZINKE'},boundary:'FINITE Z2^3 DIRECTION COMPARATOR; NOT A CANONICAL RUBIK MOVE, Q/D PLATE MAPPING, PHYSICAL GILL OR PHANTOM OBJECT',pass:states.length===8&&states.filter(state=>state.code!=='000').length===7&&states.every(state=>state.pass)&&counts.HOME===1&&counts.AXIS===3&&counts.FACE_DIAGONAL===3&&counts.BODY_DIAGONAL===1};
+    return {states,nonzero:states.filter(state=>state.code!=='000'),counts,context:{binaryCube:'2^3=8=1 HOME + 7 NONZERO WAYS',faceRegister:'3^2=9',moduleRegister:'3^3=27',addressSidecar:'W=23; 46=23+23=2*23'},ownerView:{lateral:'six nonzero axis/face-diagonal ways may be read as KIEMEN',body:'111 may be read as PHANTOMZINKE'},boundary:'FINITE Z2^3 DIRECTION COMPARATOR; NOT A CANONICAL RUBIK MOVE, Q/D PLATE MAPPING, PHYSICAL GILL OR PHANTOM OBJECT',pass:states.length===8&&states.filter(state=>state.code!=='000').length===7&&states.every(state=>state.pass)&&counts["HOME"]===1&&counts.AXIS===3&&counts.FACE_DIAGONAL===3&&counts.BODY_DIAGONAL===1};
   }
 
   function loShuAudit(matrix=LO_SHU){

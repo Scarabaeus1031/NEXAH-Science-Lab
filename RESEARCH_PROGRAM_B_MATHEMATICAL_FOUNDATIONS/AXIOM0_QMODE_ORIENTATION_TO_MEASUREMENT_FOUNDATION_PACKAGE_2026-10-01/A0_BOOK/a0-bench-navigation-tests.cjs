@@ -80,7 +80,10 @@ const nlk=fs.readFileSync(path.join(__dirname,'A0_NLK_LSHELL_DEVELOPMENT_PROBE.h
 const iota=fs.readFileSync(path.join(__dirname,'A0_IOTA_BRIDGE_DEMONSTRATOR.html'),'utf8');
 ok(nav.includes('"key": "builder"')&&nav.includes('"label": "A0 · Builder"'),'shared navigation restores the existing expandable A0 Builder lane');
 ok(nav.includes('"entry": "A0_BUILDER_TOY_STORE.html#top"'),'shared Builder entry opens the maintained long source-bound A0 Builder surface');
-ok(nav.includes('const builderDeskHref = "../../../../../10%20NEXAH%20CORE/NEXAH/BUILDER/B0_BUILDER_DECK/build-desk.html#top"'),'the B0 Builder Desk remains a separate direct workspace route');
+ok(nav.includes('const builderDeskHref = "owner-routes/builder-desk/build-desk.html#top"'),'the B0 Builder Desk remains a separate direct workspace route inside the A0 preview root');
+ok(nav.includes('const missionControlHref = "owner-routes/mission-control/INTERNAL_NAVIGATOR/index.html#action-board"'),'Mission Control remains a separate direct workspace route inside the A0 preview root');
+ok(fs.existsSync(path.join(__dirname,'owner-routes','builder-desk','build-desk.html')),'the Builder Desk owner route resolves to its canonical source');
+ok(fs.existsSync(path.join(__dirname,'owner-routes','mission-control','INTERNAL_NAVIGATOR','index.html')),'the Mission Control owner route resolves to its canonical source');
 ok(nav.includes('const machinaRooms = [')&&nav.includes('"A0_BENCH_ENTDECKEN.html#human-view", "START HERE · HUMAN VIEW"')&&nav.includes('"A0_WERKBANK.html#bench-page-top"'),'shared navigation gives THE MACHINA a human entrance before its work rooms');
 ok(nav.includes('const machinaMainModules = [')&&((nav.match(/"FLAGSHIP (?:LAB|DEMONSTRATOR|INSTRUMENT)"/g)||[]).length>=6),'shared navigation declares the eight main-module routes with typed roles');
 ok(nav.includes('"A0_NLK_LSHELL_DEVELOPMENT_PROBE.html#mainStageShell"')&&nav.includes('"A0_MACHINA_ANATOMY_MAP.html#mainModules"'),'shared Machina sheet reaches NLK and the large main-module map');

@@ -51,7 +51,7 @@ check(html.includes("engineeringReturns.hidden = false"), "Engineering Returns m
 check(html.includes('href="#engineering-returns-20261021"'), "hero must expose the protocol archive");
 const note = html.indexOf('class="field-notes-postit" id="field-notes-entry"');
 check(note > hero && note < snapshot, "Field Notes post-it must live in the Science Desk hero");
-check(html.includes('href="assets/a0-field-notes/index.html"'), "Field Notes post-it must open the note reader");
+check(html.includes('id="field-notes-entry" href="A0_FIELD_NOTES.html"'), "Field Notes post-it must open the curated cover");
 check(html.includes('id="current-desk-raum"'), "Current FAM-002 Desk post-it must exist");
 check(html.includes('FAM_002_THREAD_RETURN_AND_BENCH_MAP_2026-10-28.html'), "Current FAM-002 Desk post-it must open the complete research room");
 check(html.includes('id="current-intake-gallery"'), "Current FAM-002 intake gallery post-it must exist");

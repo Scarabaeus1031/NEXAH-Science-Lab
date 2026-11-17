@@ -9,46 +9,111 @@
   <link rel="stylesheet" href="a0-human-curation.css?rev=hybrid-fog-20261022">
   <link rel="stylesheet" href="a0-human-progressive-route.css?rev=guided-human-reading-20261025f">
   <link rel="stylesheet" href="a0-context-navigation.css?rev=flagship-constellation-r1-20261030">
+  <link rel="stylesheet" href="a0-human-missing-condition.css?rev=human-view-a0-20261116">
   <style>
     .a0-human-overview{--ink:#132535;--paper:#f4efe5;--line:#c9bda8;--pink:#e94e9e;--cyan:#169eb0;--gold:#b67b00;background:var(--paper);color:var(--ink);padding:clamp(7rem,12vw,10rem) clamp(1.1rem,5vw,5rem) clamp(3.5rem,7vw,6rem);border-bottom:1px solid var(--line)}
     .a0-human-overview *{box-sizing:border-box}.a0-human-overview a{color:inherit}.a0-human-overview__hero{display:grid;grid-template-columns:minmax(0,1.45fr) minmax(17rem,.55fr);gap:clamp(2rem,6vw,6rem);align-items:end;max-width:92rem;margin:0 auto 2rem}.a0-human-overview .kicker{font:800 .72rem/1.3 ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.16em;text-transform:uppercase;color:var(--pink)}
     .a0-human-overview h1{max-width:12ch;margin:.55rem 0 1rem;font:700 clamp(3.5rem,8vw,8.6rem)/.86 Georgia,serif;letter-spacing:-.055em}.a0-human-overview__lead{max-width:45rem;margin:0;font:500 clamp(1.05rem,1.6vw,1.4rem)/1.55 system-ui,sans-serif}.a0-human-overview__boundary{border:1px solid var(--ink);padding:1.25rem;background:#fff9}.a0-human-overview__boundary strong{display:block;margin-bottom:.5rem;font:800 .72rem/1.3 ui-monospace,monospace;letter-spacing:.12em;text-transform:uppercase;color:var(--gold)}.a0-human-overview__boundary p{margin:0;font:600 .95rem/1.55 system-ui,sans-serif}
     .a0-human-overview__status{display:grid;grid-template-columns:repeat(3,1fr);max-width:92rem;margin:0 auto 2.5rem;border:1px solid var(--ink)}.a0-human-overview__status div{padding:1rem 1.2rem;border-right:1px solid var(--ink)}.a0-human-overview__status div:last-child{border:0}.a0-human-overview__status small,.a0-human-overview__status span{display:block;font:800 .67rem/1.35 ui-monospace,monospace;letter-spacing:.1em;text-transform:uppercase}.a0-human-overview__status b{display:block;margin:.35rem 0;font:700 1.5rem/1.1 Georgia,serif}.a0-human-overview__status span{color:#62707b}
     .a0-human-overview__section{max-width:92rem;margin:0 auto 2.5rem}.a0-human-overview__section>header{display:flex;justify-content:space-between;gap:2rem;align-items:end;margin-bottom:1rem}.a0-human-overview__section h2{margin:.2rem 0 0;font:700 clamp(2rem,4vw,4.5rem)/.95 Georgia,serif}.a0-human-overview__section>header p{max-width:36rem;margin:0;font:500 .95rem/1.5 system-ui,sans-serif}
-    .a0-human-apps{display:grid;grid-template-columns:repeat(12,1fr);gap:.8rem}.a0-human-app{grid-column:span 4;min-height:13rem;padding:1.25rem;border:1px solid var(--ink);text-decoration:none;background:#fff8;display:flex;flex-direction:column;transition:.18s transform,.18s box-shadow}.a0-human-app:first-child{grid-column:span 8;background:#15263a;color:#fff;border-color:#15263a}.a0-human-app:hover{transform:translateY(-3px);box-shadow:6px 6px 0 var(--pink)}.a0-human-app small{font:800 .66rem/1.35 ui-monospace,monospace;letter-spacing:.1em;text-transform:uppercase;color:var(--pink)}.a0-human-app strong{margin:.7rem 0;font:700 clamp(1.5rem,2.5vw,2.5rem)/1 Georgia,serif}.a0-human-app span{margin-top:auto;font:600 .9rem/1.45 system-ui,sans-serif}.a0-human-app b{margin-top:1rem;font:800 .7rem/1 ui-monospace,monospace;letter-spacing:.08em;color:var(--cyan)}
+    .a0-human-apps{display:grid;grid-template-columns:repeat(12,1fr);gap:.8rem}.a0-human-app{grid-column:span 4;min-height:13rem;padding:1.25rem;border:1px solid var(--ink);text-decoration:none;background:#fff8;display:flex;flex-direction:column;transition:.18s transform,.18s box-shadow}.a0-human-app:first-child{grid-column:span 8;background:#15263a;color:#fff;border-color:#15263a}.a0-human-app:hover{transform:translateY(-3px);box-shadow:6px 6px 0 var(--pink)}.a0-human-app small{font:800 .66rem/1.35 ui-monospace,monospace;letter-spacing:.1em;text-transform:uppercase;color:var(--pink)}.a0-human-app strong{margin:.7rem 0;font:700 clamp(1.5rem,2.5vw,2.5rem)/1 Georgia,serif}.a0-human-app span{margin-top:auto;font:600 .9rem/1.45 system-ui,sans-serif}.a0-human-app b{margin-top:1rem;font:800 .7rem/1 ui-monospace,monospace;letter-spacing:.08em;color:var(--cyan)}.a0-human-overview__section--public{margin-top:4rem;padding-top:3rem;border-top:1px solid var(--ink)}.a0-human-overview--public-floor{padding-top:clamp(4rem,8vw,7rem)}.a0-human-overview--public-floor .a0-human-overview__section--public{margin-top:0}.a0-human-overview__section--public .kicker{color:var(--cyan)}.a0-human-apps--public .a0-human-app:first-child{grid-column:span 4;background:#fff8;color:var(--ink);border-color:var(--ink)}.a0-human-apps--public .a0-human-app:last-child{background:#15263a;color:#fff;border-color:#15263a}
+    .a0-human-recovered{max-width:92rem;margin:4rem auto 2.5rem;border:1px solid var(--ink);background:#061622;color:#f4efe5}.a0-human-recovered__head{display:grid;grid-template-columns:minmax(0,1fr) minmax(18rem,.65fr);gap:2rem;align-items:end;padding:clamp(1.4rem,3vw,2.6rem);border-bottom:1px solid #375262}.a0-human-recovered__head .kicker{color:#f5b93e}.a0-human-recovered__head h2{max-width:12ch;margin:.3rem 0 0;font:700 clamp(2.5rem,5vw,5rem)/.88 Georgia,serif;letter-spacing:-.045em}.a0-human-recovered__head p{margin:0;color:#b9cbd4;font:500 .98rem/1.6 system-ui,sans-serif}.a0-human-recovered__head strong{color:#f4efe5}.a0-human-recovered__frame{position:relative;background:#020b11}.a0-human-recovered__frame iframe{display:block;width:100%;height:min(78rem,92vh);min-height:48rem;border:0;background:#061622}.a0-human-recovered__return{display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:.85rem 1rem;border-top:1px solid #375262;color:#9fb6c1;font:700 .64rem/1.5 ui-monospace,monospace;letter-spacing:.08em;text-transform:uppercase}.a0-human-recovered__return a{color:#f5b93e}
     .a0-human-overview__lower{display:grid;grid-template-columns:1fr 1fr;gap:.8rem;max-width:92rem;margin:0 auto}.a0-human-panel{border:1px solid var(--ink);padding:1.3rem;background:#fff7}.a0-human-panel h3{margin:.25rem 0 1rem;font:700 1.75rem/1 Georgia,serif}.a0-human-panel ul{list-style:none;margin:0;padding:0}.a0-human-panel li{display:grid;grid-template-columns:7rem 1fr;gap:1rem;padding:.75rem 0;border-top:1px solid var(--line);font:500 .9rem/1.45 system-ui,sans-serif}.a0-human-panel li b{font:800 .66rem/1.4 ui-monospace,monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--gold)}.a0-human-panel__links{display:flex;flex-wrap:wrap;gap:.55rem;margin-top:1rem}.a0-human-panel__links a{padding:.7rem .8rem;border:1px solid var(--ink);font:800 .68rem/1 ui-monospace,monospace;letter-spacing:.06em;text-transform:uppercase;text-decoration:none}.a0-human-panel__links a:first-child{background:var(--ink);color:#fff}.a0-human-overview__down{display:block;max-width:92rem;margin:2rem auto 0;padding:1rem;border:1px solid var(--ink);text-align:center;font:800 .72rem/1 ui-monospace,monospace;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;background:#ffdf70}
-    @media(max-width:760px){.a0-human-overview__hero,.a0-human-overview__lower{grid-template-columns:1fr}.a0-human-overview__status{grid-template-columns:1fr}.a0-human-overview__status div{border-right:0;border-bottom:1px solid var(--ink)}.a0-human-overview__section>header{display:block}.a0-human-app,.a0-human-app:first-child{grid-column:1/-1}.a0-human-panel li{grid-template-columns:1fr;gap:.2rem}}
+    @media(max-width:760px){.a0-human-overview__hero,.a0-human-overview__lower,.a0-human-recovered__head{grid-template-columns:1fr}.a0-human-overview__status{grid-template-columns:1fr}.a0-human-overview__status div{border-right:0;border-bottom:1px solid var(--ink)}.a0-human-overview__section>header{display:block}.a0-human-app,.a0-human-app:first-child{grid-column:1/-1}.a0-human-panel li{grid-template-columns:1fr;gap:.2rem}.a0-human-recovered__frame iframe{min-height:42rem;height:82vh}.a0-human-recovered__return{display:block}}
   </style>
 </head>
 <body>
   <header class="top">
     <a class="brand" href="#a0-human-overview">NEXAH <span>· A0 HUMAN VIEW</span></a>
-    <nav><a href="#a0-human-overview">Überblick</a><a href="#a0-human-apps">Apps</a><a href="#a0-human-delta">Delta</a><a href="#human-view">Aperture Journey</a><a href="#return">Return</a></nav>
+    <nav><a href="#a0-human-overview">Inventory</a><a href="#missing-condition">Inside</a><a href="#human-story">Story</a><a href="#human-view">Questions</a><a href="#human-route">Journey</a><a href="#a0-human-public">Public</a><a href="#return">Return</a></nav>
   </header>
 
   <main>
     <section class="a0-human-overview" id="a0-human-overview" aria-labelledby="a0HumanOverviewTitle">
       <div class="a0-human-overview__hero">
-        <div><div class="kicker">A0 · HUMAN VIEW · BESTAND / DELTA · 15.11.2026</div><h1 id="a0HumanOverviewTitle">Was wir haben. Was Menschen betreten können.</h1><p class="a0-human-overview__lead">Die interne Übersicht über A0s menschliche Zugänge: bedienbare Apps und Experiences, geführte Lesepfade, einzelne Szenen und ihr kontrollierter Rückweg. Dies ist <strong>nicht</strong> die öffentliche NEXAHEDRON-Seite.</p></div>
+        <div><div class="kicker">A0 HUMAN VIEW · INVENTORY / DELTA · OWNER STAGING · 17.11.2026</div><h1 id="a0HumanOverviewTitle">Was wir haben. Was als Nächstes hinausgehen könnte.</h1><p class="a0-human-overview__lead">Hier beginnt der interne A0-Bestand: bedienbare Instrumente, wiedergefundene Arbeitsflächen, geführte Lesepfade und ihr kontrollierter Rückweg. Die bereits öffentliche NEXAHEDRON-Experience folgt bewusst <strong>erst nach der Entwicklungsfläche</strong>.</p></div>
         <aside class="a0-human-overview__boundary"><strong>Klare Grenze</strong><p>A0 hält Bestand, Herkunft und Staging. NEXAHEDRON bleibt eine getrennte öffentliche Experience. Erst Mission Control wählt, ob ein konkreter Cut hinausgeht.</p></aside>
       </div>
-      <div class="a0-human-overview__status" aria-label="A0 Human View Bestand"><div><small>Apps &amp; Experiences</small><b>7 Zugänge</b><span>bedienbar · mit Return</span></div><div><small>Lesen &amp; Vertiefen</small><b>2 Register</b><span>Wege · Szenen · Deep Links</span></div><div><small>Exit</small><b>1 Kandidat</b><span>Staging · kein Push</span></div></div>
+      <div class="a0-human-overview__status" aria-label="A0 Human View Bestand"><div><small>Apps &amp; Experiences</small><b>8 Zugänge</b><span>bedienbar · mit Return</span></div><div><small>Owner Staging</small><b>4 in Entwicklung</b><span>hier zuerst · vor möglichem Push</span></div><div><small>NEXAHEDRON</small><b>4 bereits draußen</b><span>weiter unten · öffentliche Fenster</span></div></div>
 
-      <section class="a0-human-overview__section" id="a0-human-apps" aria-labelledby="a0HumanAppsTitle"><header><div><div class="kicker">Apps / Experiences · direkt betreten</div><h2 id="a0HumanAppsTitle">Erleben, nicht nur lesen.</h2></div><p>Diese sieben Zugänge sind die obere Human-Schicht. Karten, Theorie, Quellen und technische Benches bleiben darunter als Lesepfade und Vertiefungen erhalten.</p></header><div class="a0-human-apps">
-        <a class="a0-human-app" href="#human-view"><small>01 · Guided Human View</small><strong>Aperture Journey</strong><span>Sieben Fragen, Rainbow Light, Look Again und ein sichtbarer Human Return.</span><b>EXPERIENCE ÖFFNEN ↓</b></a>
-        <a class="a0-human-app" href="A0_MACHINA_COCKPIT.html#machinaGrandReturnTour"><small>02 · Guided Module Tour · Local</small><strong>Grand Return Tour</strong><span>Source, Blue, Pink, Handoff, Curtain und Human Return öffnen ihre echten Module nacheinander und schließen wieder.</span><b>TOUR STARTEN →</b></a>
-        <a class="a0-human-app" href="../../../SCIENCE_LAB/EXPORTS/MIWA_PINEAP_AN_DROMEDA.html"><small>03 · Human Observatory · Staging</small><strong>MIWA · Sky Threads</strong><span>Sternfeld, Apertur, Distanzfäden und quellgebundene Records in einem starken Beobachter-Demonstrator. Lokal bedienbar; keine astronomische Kopplungsbehauptung.</span><b>STAGING-DEMONSTRATOR ÖFFNEN ↗</b></a>
-        <a class="a0-human-app" href="a0-public-arkade-index.html#arkade"><small>04 · Play</small><strong>ARKADE</strong><span>ONE PULSE und drei spielbare Welten in einer Consumer View.</span><b>APP ÖFFNEN ↗</b></a>
-        <a class="a0-human-app" href="A0_GAME_OF_WORLDS.html"><small>05 · Human Flagship</small><strong>Game of Worlds</strong><span>Der originale Human-Einstieg in ONE PULSE und drei getrennte Welten.</span><b>EXPERIENCE ÖFFNEN ↗</b></a>
-        <a class="a0-human-app" href="A0_OPIUM.html#entrance"><small>06 · Club</small><strong>OPIUM / Club</strong><span>Club Machine, Relations Player und Control Room als Ensemble.</span><b>CLUB ÖFFNEN ↗</b></a>
-        <a class="a0-human-app" href="A0_LOOK_AGAIN_PLAY.html"><small>07 · Perception</small><strong>LOOK AGAIN</strong><span>Fünf Wahrnehmungsvergleiche ohne Score, Norm oder Sehtest.</span><b>GAME ÖFFNEN ↗</b></a>
+      <section class="a0-human-overview__section" id="a0-human-apps" aria-labelledby="a0HumanAppsTitle"><header><div><div class="kicker">Development floor · Owner Staging · kein Push</div><h2 id="a0HumanAppsTitle">Die nächste Etage wird hier geprüft.</h2></div><p>Diese vier Zugänge bleiben zuerst im A0 Owner Frame: prüfen, erleben, begrenzen und zurückführen. Erst ein eigener Mission-Control-Gate macht aus einem lokalen Instrument einen öffentlichen Kandidaten.</p></header><div class="a0-human-apps" data-human-layer="development">
+        <a class="a0-human-app" href="#missing-condition"><small>00 · Human Entry</small><strong>The Missing Condition</strong><span>Ei, Hedge, Crack und Chicken: erst die eigene Position erklären, dann sieben Fragen, Rainbow Light, Look Again und Return.</span><b>ENTWICKLUNGSSTRECKE BEGINNEN ↓</b></a>
+        <a class="a0-human-app" href="A0_ORIENTATION_DESK_RECOVERED.html"><small>RECOVERED · NEXAHEDRON 2026-08/09 · Local</small><strong>The Orientation Desk</strong><span>Eine Frage, sichtbares Material, eine offene Grenze und THE EYE als zuschaltbare Vergleichslinse. Historischer Ursprung, neu im A0 Owner Frame gebunden.</span><b>RECOVERED INSTRUMENT ÖFFNEN →</b></a>
+        <a class="a0-human-app" href="A0_MACHINA_COCKPIT.html#machinaGrandReturnTour"><small>01 · Guided Module Tour · Local</small><strong>Grand Return Tour</strong><span>Source, Blue, Pink, Handoff, Curtain und Human Return öffnen ihre echten Module nacheinander und schließen wieder.</span><b>TOUR STARTEN →</b></a>
+        <a class="a0-human-app" href="../../../SCIENCE_LAB/EXPORTS/MIWA_PINEAP_AN_DROMEDA.html"><small>02 · Human Observatory · Staging</small><strong>MIWA · Sky Threads</strong><span>Sternfeld, Apertur, Distanzfäden und quellgebundene Records in einem starken Beobachter-Demonstrator. Lokal bedienbar; keine astronomische Kopplungsbehauptung.</span><b>STAGING-DEMONSTRATOR ÖFFNEN ↗</b></a>
       </div></section>
+
+      <section class="a0-human-recovered" id="orientation-desk-recovered" aria-labelledby="orientationDeskRecoveredTitle">
+        <header class="a0-human-recovered__head"><div><div class="kicker">DEVELOPMENT FLOOR · RECOVERED FROM NEXAHEDRON · OWNER STAGING</div><h2 id="orientationDeskRecoveredTitle">The Orientation Desk.</h2></div><p><strong>Hier gehört die Recovery hin:</strong> noch A0, noch Entwicklung, direkt im Human-View-Bestand sichtbar. Der Desk hält Frage, Material und Grenze; THE EYE bleibt eine zuschaltbare Vergleichslinse. Kein Push und keine Publikationsfreigabe.</p></header>
+        <div class="a0-human-recovered__frame"><iframe src="A0_ORIENTATION_DESK_RECOVERED.html" title="Recovered NEXAHEDRON Orientation Desk inside A0 Human View" loading="eager"></iframe></div>
+        <div class="a0-human-recovered__return"><span>Embedded development instrument · source-bound · Δgraph=0</span><a href="A0_ORIENTATION_DESK_RECOVERED.html">Instrument in voller Größe öffnen ↗</a></div>
+      </section>
 
       <div class="a0-human-overview__lower">
         <section class="a0-human-panel" aria-labelledby="a0HumanReadingTitle"><div class="kicker">Verstehen &amp; vertiefen</div><h3 id="a0HumanReadingTitle">Der Rest sind Wege, Karten und Szenen.</h3><ul><li><b>Orientierung</b><span>A0 Touren, Living Blueprint und THE MACHINA Human View ordnen den Bestand; die Grand Return Tour führt kompakt durch die Module.</span></li><li><b>Lesepfade</b><span>Theorie, Forschung, Quellen und Stoffregister erklären, prüfen und begrenzen.</span></li><li><b>Szenen</b><span>Rainbow / Purple Rain, Observer Lens, Living Interior, Black Sun / Big Moon und weitere Deep Links.</span></li></ul><div class="a0-human-panel__links"><a href="A0_MACHINA_COCKPIT.html#machinaGrandReturnTour">Grand Return Tour</a><a href="A0_TOURS.html">Touren &amp; Karten</a><a href="A0_LIVING_BLUEPRINT.html#a0-map-home">Living Blueprint</a><a href="A0_MACHINA_ANATOMY_MAP.html#mainModules">Machina Anatomy</a></div></section>
-        <section class="a0-human-panel" id="a0-human-delta" aria-labelledby="a0HumanDeltaTitle"><div class="kicker">A0 / NEXAHEDRON Delta</div><h3 id="a0HumanDeltaTitle">Intern vollständig. Extern bewusst ausgewählt.</h3><ul><li><b>Draußen</b><span>nexah.de und nexahedron.com bleiben getrennte, bereits bestehende öffentliche Oberflächen.</span></li><li><b>Staging</b><span>Die Grand Return Tour ist als lokale A0-Orientierungsroute gebaut. MIWA bleibt der stärkste Human-Observatory-Demonstrator; ein öffentlicher Cut ist nicht freigegeben.</span></li><li><b>Gate</b><span>Kein Outreach, Deployment oder Release ohne Auswahl und Owner-Gate in Mission Control.</span></li></ul><div class="a0-human-panel__links"><a href="../../../../../00%20EXECUTIVE/NEXAH-Mission-Control/INTERNAL_NAVIGATOR/index.html#action-board">Mission Control</a><a href="A0_RESEARCH_DESK.html?desk=overview#a0-current-state">Current State Desk</a><a href="https://nexahedron.com/">NEXAHEDRON ↗</a></div></section>
+        <section class="a0-human-panel" id="a0-human-delta" aria-labelledby="a0HumanDeltaTitle"><div class="kicker">A0 / NEXAHEDRON Delta</div><h3 id="a0HumanDeltaTitle">Intern vollständig. Extern bewusst ausgewählt.</h3><ul><li><b>Draußen</b><span>nexah.de und nexahedron.com bleiben getrennte, bereits bestehende öffentliche Oberflächen.</span></li><li><b>Staging</b><span>Die Grand Return Tour ist als lokale A0-Orientierungsroute gebaut. MIWA bleibt der stärkste Human-Observatory-Demonstrator; ein öffentlicher Cut ist nicht freigegeben.</span></li><li><b>Gate</b><span>Kein Outreach, Deployment oder Release ohne Auswahl und Owner-Gate in Mission Control.</span></li></ul><div class="a0-human-panel__links"><a href="owner-routes/mission-control/INTERNAL_NAVIGATOR/index.html#action-board">Mission Control</a><a href="A0_RESEARCH_DESK.html?desk=overview#a0-current-state">Current State Desk</a><a href="https://nexahedron.com/">NEXAHEDRON ↗</a></div></section>
       </div>
-      <a class="a0-human-overview__down" href="#human-view">Eine Experience betreten · Aperture Journey ↓</a>
+      <a class="a0-human-overview__down" href="#missing-condition">Owner-Staging betreten · The Missing Condition ↓</a>
+    </section>
+
+    <section class="missing-condition" id="missing-condition" aria-labelledby="missingConditionTitle">
+      <div class="mc-shell">
+        <div class="mc-status" aria-label="A0 Owner staging state"><span>CHANNEL · A0 INTERNAL</span><span>SOURCE · A0_BOOK</span><span>BRANCH · CODEX/FIVE-H-BINDING</span><span>WORKTREE · UNCOMMITTED</span><span>PREVIEW · OWNER_STAGING</span><span>ACCEPTANCE · OPEN</span><span>DEPLOYMENT · NONE</span></div>
+        <header class="mc-head">
+          <div><div class="mc-kicker">HUMAN VIEW · ROOM 00 · ORIENTATION FROM WITHIN</div><h2 id="missingConditionTitle">The Missing<em>Condition.</em></h2><p>Eine Ansicht braucht einen Beobachter. Ein Beobachter hat einen Körper. Ein Körper ist bereits in einem Feld. Bevor wir vergleichen, erklären wir deshalb Position, Grenze, Apertur und Frage.</p></div>
+          <aside class="mc-thesis"><strong>The human condition</strong><p>You are not outside the world you are trying to see.</p></aside>
+        </header>
+
+        <div class="mc-stage" data-mc-stage="inside">
+          <div class="mc-visual" aria-label="Code-native Human-View-Darstellung von Ei, Grenze, Crack und Chicken">
+            <svg viewBox="0 0 1000 620" role="img" aria-labelledby="mcSvgTitle mcSvgDesc">
+              <title id="mcSvgTitle">The Missing Condition: A to A prime through a declared crack</title>
+              <desc id="mcSvgDesc">Links hält eine Eiform einen situierten menschlichen Körper. Eine leuchtende Bruchfuge öffnet eine Apertur. Eine Spur führt zu einer Chicken-Darstellung rechts.</desc>
+              <defs><radialGradient id="mcGlow"><stop stop-color="#69dce8" stop-opacity=".65"/><stop offset="1" stop-color="#69dce8" stop-opacity="0"/></radialGradient></defs>
+              <path class="mc-grid" d="M0 100H1000M0 200H1000M0 300H1000M0 400H1000M0 500H1000M100 0V620M200 0V620M300 0V620M400 0V620M500 0V620M600 0V620M700 0V620M800 0V620M900 0V620"/>
+              <circle class="mc-orbit" cx="300" cy="310" r="235"/><circle class="mc-orbit" cx="300" cy="310" r="170"/><path class="mc-axis" d="M300 45V575M65 310H935"/>
+              <text class="mc-svg-title mc-svg-gold" x="88" y="72">A · EGG</text><text class="mc-svg-small" x="88" y="96">INSIDE · HELD POTENTIAL</text>
+              <path class="mc-egg-shell" d="M300 72C198 72 132 202 132 344c0 137 72 216 168 216s168-79 168-216C468 202 402 72 300 72Z"/>
+              <path class="mc-inner" d="M300 106c-75 0-127 106-127 230 0 112 53 177 127 177s127-65 127-177c0-124-52-230-127-230Z"/>
+              <g class="mc-human"><circle cx="300" cy="254" r="32"/><path d="M300 286v118M242 340l58-37 58 37M300 404l-48 67M300 404l48 67"/></g>
+              <text class="mc-svg-small" x="248" y="535">YOU ARE HERE</text>
+              <path class="mc-crack" d="M445 168l-24 52 31 48-40 45 37 54-34 55 24 48"/>
+              <circle class="mc-aperture" cx="443" cy="311" r="12"/><circle cx="443" cy="311" r="76" fill="url(#mcGlow)" opacity=".45"/>
+              <path class="mc-trace" d="M468 310C555 260 612 213 694 220C790 228 817 317 886 330"/>
+              <text class="mc-svg-title mc-svg-gold" x="655" y="72">A′ · CHICKEN</text><text class="mc-svg-small" x="655" y="96">OUTSIDE · REALIZED TRACE</text>
+              <g class="mc-chicken"><ellipse class="mc-chicken-shape" cx="753" cy="352" rx="116" ry="91"/><circle class="mc-chicken-shape" cx="842" cy="257" r="58"/><path class="mc-chicken-line" d="M898 258l42 18-43 15M811 203l8-29 19 25 20-26 9 35M682 346c44-51 95-37 117 13-34 54-88 63-117-13ZM719 440l-9 70m68-69 13 69m-103 0h45m36 0h45"/><circle cx="859" cy="250" r="5" fill="#e9d7ad"/></g>
+              <text class="mc-svg-small" x="480" y="586">HEDGE → HINGE → PASSAGE → TRACE</text>
+            </svg>
+          </div>
+          <div class="mc-copy" aria-live="polite">
+            <small id="mcStageCount">01 / 05</small><h3 id="mcStageTitle">You are already inside.</h3><p id="mcStageCopy">Das Ei ist kein Gegenstand vor dir. Es ist zunächst die Welt, die den Körper hält. Orientierung beginnt, indem der Beobachter seine eigene Position im Feld erklärt.</p><div class="mc-formula" id="mcStageFormula">HUMAN VIEW = FIELD + SITUATED BODY</div>
+            <div class="mc-ilau" aria-label="ILAU transition receipt"><article><b>I · RETAINED</b><span>Adresse, Abstammung und die erklärte Beziehung zwischen A und A′.</span></article><article><b>L · LOST</b><span>Die ungebrochene Schale und der frühere Innen-/Außenvertrag.</span></article><article><b>A · INTRODUCED</b><span>Crack, Apertur, Exposition und die gewählte Darstellung der Passage.</span></article><article><b>U · UNKNOWN</b><span>Erleben, genaue Zukunft und alles, was der gesetzte Frame nicht entscheiden kann.</span></article></div>
+            <div class="mc-controls"><button id="mcPrevious" type="button" aria-label="Vorheriger Human-View-Schritt">←</button><button id="mcNext" type="button" aria-label="Nächster Human-View-Schritt">NEXT →</button></div>
+          </div>
+        </div>
+
+        <nav class="mc-step-nav" aria-label="The Missing Condition Schritte"><button type="button" data-mc-go="0"><b>01</b><span>Inside</span></button><button type="button" data-mc-go="1"><b>02</b><span>Hedge</span></button><button type="button" data-mc-go="2"><b>03</b><span>Hinge</span></button><button type="button" data-mc-go="3"><b>04</b><span>Passage</span></button><button type="button" data-mc-go="4"><b>05</b><span>Receipt</span></button></nav>
+        <div class="mc-route"><p><strong>HUMAN → I → II → III → +1</strong><br>Erst den situierten Menschen lokalisieren. Dann Observation, Difference, Time After Time und den Living Blueprint öffnen.</p><div><a href="#human-view">Sieben Human Questions ↓</a><a href="A0_FIELD_NOTES.html#reading-path">Zu den Field Notes →</a></div></div>
+        <p class="mc-boundary"><strong>Human-readable orientation instrument.</strong> Ei, Chicken, Hedge, Hinge und <code>LIT</code> sind eine deklarierte Übergangsmetapher. Die Darstellung behauptet keine neue Biologie, Physik, Bewusstseinstheorie oder natürliche Q°–R°–T°-Gesetzmäßigkeit. <code>Δgraph=0</code>.</p>
+        <noscript><span class="mc-noscript">Ohne JavaScript bleibt der vollständige Receipt lesbar. <a href="A0_FIELD_NOTES.html#reading-path">Weiter zu den Field Notes →</a></span></noscript>
+      </div>
+    </section>
+
+    <section class="human-story" id="human-story" aria-labelledby="humanStoryTitle">
+      <header class="human-story__head">
+        <div><div class="mc-kicker">THE HUMAN STORY · QUESTION → ORIENTATION → LIGHT → RETURN</div><h2 id="humanStoryTitle">What came first?</h2></div>
+        <p><strong>Das Huhn oder das Ei?</strong> Die Frage hat ohne Frame keine einzige Antwort. Das Ei kommt zuerst, wenn wir Entwicklung lesen. Das Chicken kommt zuerst, wenn wir Abstammung rückwärts erklären. NEXAH beginnt deshalb nicht mit einem Ding, sondern mit der deklarierten Relation.</p>
+      </header>
+      <div class="human-story__rail" aria-label="Sechs Stationen der Human Story">
+        <article><small>01 · THE QUESTION</small><b>Egg ↔ Chicken</b><p>A und A′ sind zwei lesbare Zustände einer gehaltenen Geschichte. „Zuerst“ wird erst durch Cut, Richtung und Zweck bestimmbar.</p><code>FRAME → ORDER</code></article>
+        <article><small>02 · THE HINGE</small><b>The crack.</b><p>Die Hedge hält Potential. Die Hinge öffnet eine lokale Passage. Der Crack verändert den Grenzvertrag.</p><code>BOUNDARY → APERTURE</code></article>
+        <article><small>03 · THE BIRD</small><b>Orientation within.</b><p>Der Vogel ist hier eine menschlich lesbare Orientierungsfigur: Körper, Feld, Richtung und erinnerte Spur – keine Behauptung über einen neuen biologischen Mechanismus.</p><code>BODY · FIELD · DIRECTION</code></article>
+        <article><small>04 · THE LIGHT</small><b>Rainbow begins at a difference.</b><p>Licht wird zur Human View, sobald eine Bedingung unterscheidbar wird: Quelle, Material, Winkel, Körper oder Apertur.</p><code>LIGHT × CONDITION → VIEW</code></article>
+        <article class="is-gold"><small>05 · THE GOLD</small><b>What survives the passage?</b><p>Gold ist keine zusätzliche Spektralfarbe. Es markiert den erhaltenen Faden: Aufmerksamkeit, Relation und das, was nach dem Cut noch adressierbar bleibt.</p><code>I · RETAINED TRACE</code></article>
+        <article><small>06 · THE RECORD</small><b>Life is not a stream alone.</b><p>Nach Licht und Passage folgt die Wahl: konsumieren, erinnern oder zurückkehren. Die Jukebox hält eine Spur, ohne das lebendige Ereignis mit seinem Record zu verwechseln.</p><code>PLAY → TRACE → RETURN</code></article>
+      </div>
+      <div class="human-story__turn"><p><strong>LILO</strong> kann als leiser Human-Merksatz bleiben: <em>Look In · Look Out.</em> Nicht als neue Formel, sondern als Atembewegung zwischen Innen- und Außenansicht.</p><a href="#human-view">Die sieben Fragen öffnen ↓</a></div>
+      <p class="human-story__boundary"><strong>Declared story grammar.</strong> Chicken, Egg, Bird, Rainbow, Gold, Stream und Jukebox sind Orientierungsbilder. Sie begründen keine Numerologie, Naturkonstante, Vogel-Navigationstheorie oder universelle Entwicklungsfolge.</p>
     </section>
 
     <section class="human-view is-awaiting-start" id="human-view" aria-labelledby="humanTitle">
@@ -103,7 +168,7 @@
         <li><article><small>02 · CHANGE</small><b>DIE APERTUR WECHSELT.</b><span>Verändere eine Bedingung: Licht, Blick, Maßstab, Nachbarschaft oder Weg. Die Ansicht antwortet.</span></article></li>
         <li><article><small>03 · RETURN</small><b>DER UNTERSCHIED WIRD LESBAR.</b><span>Der Return trennt wieder Welt, Ansicht und Relation. So wird Veränderung vergleichbar, ohne alles gleichzusetzen.</span></article></li>
       </ol>
-      <a class="human-route-start" href="#human-stage-light"><span>GEFÜHRT BEGINNEN</span><b>ENTER A DARK ROOM ↓</b></a>
+      <a class="human-route-start" href="#invitation"><span>GEFÜHRT BEGINNEN</span><b>ENTER A DARK ROOM ↓</b></a>
       <p class="human-route-note"><b>Ein Lesepfad vor den Türen.</b> Zuerst Dark Room, dann Look Again, dann Return. Spiele, Library und weitere Welten erscheinen erst danach als freiwillige Fortsetzungen. <a href="#return">Lesepfad überspringen · zum Return ↓</a></p>
     </section>
 
@@ -213,6 +278,17 @@
       </section>
     </section>
 
+    <section class="a0-human-overview a0-human-overview--public-floor" id="a0-human-public" aria-labelledby="a0HumanPublicTitle">
+      <section class="a0-human-overview__section a0-human-overview__section--public"><header><div><div class="kicker">AFTER THE A0 DEVELOPMENT ROUTE · ALREADY OUTSIDE · NEXAHEDRON</div><h2 id="a0HumanPublicTitle">Was Menschen bereits betreten können.</h2></div><p>Diese vier Experiences sind bereits Teil der öffentlichen NEXAHEDRON-Welt. Sie stehen deshalb am unteren Ende dieser A0-Seite: als vorhandene Public Windows, nicht als Beginn der Entwicklungsfläche. <strong>LOOK AGAIN</strong> schließt diese Etage bewusst ab.</p></header><div class="a0-human-apps a0-human-apps--public" data-human-layer="public">
+        <a class="a0-human-app" href="a0-public-arkade-index.html#arkade"><small>03 · Play · Public</small><strong>ARKADE</strong><span>ONE PULSE und drei spielbare Welten in einer Consumer View.</span><b>APP ÖFFNEN ↗</b></a>
+        <a class="a0-human-app" href="A0_GAME_OF_WORLDS.html"><small>04 · Human Flagship · Public</small><strong>Game of Worlds</strong><span>Der originale Human-Einstieg in ONE PULSE und drei getrennte Welten.</span><b>EXPERIENCE ÖFFNEN ↗</b></a>
+        <a class="a0-human-app" href="A0_OPIUM.html#entrance"><small>05 · Club · Public</small><strong>OPIUM / Club</strong><span>Club Machine, Relations Player und Control Room als Ensemble.</span><b>CLUB ÖFFNEN ↗</b></a>
+        <a class="a0-human-app" href="A0_LOOK_AGAIN_PLAY.html"><small>06 · Perception · Public</small><strong>LOOK AGAIN</strong><span>Fünf Wahrnehmungsvergleiche ohne Score, Norm oder Sehtest.</span><b>SCHAU NOCH EINMAL ↗</b></a>
+      </div></section>
+
+      <a class="a0-human-overview__down" href="#return">Experience schließen · zum Return ↓</a>
+    </section>
+
     <section class="return" id="return" aria-labelledby="returnTitle">
       <canvas id="returnCanvas" aria-hidden="true"></canvas>
       <div>
@@ -228,7 +304,9 @@
 
   <footer><span><strong>A0-VIEW-NEXAH-APERTURE-JOURNEY</strong><br>One carrier · many windows · declared return</span><span>INTERNAL · SOURCE-BOUND EXPERIENCE · NOT PUBLIC</span></footer>
   <script src="a0-context-navigation.js?rev=flagship-constellation-r1-20261030"></script>
+  <script src="a0-human-missing-condition.js?rev=human-view-a0-20261116"></script>
   <script src="assets/a0-nexah-aperture-journey-v1.js?rev=curated-human-route-20261022"></script>
   <script src="a0-human-progressive-route.js?rev=guided-human-reading-20261025f"></script>
+  <script src="a0-human-locale.js?rev=a0-owner-order-r1-20261117"></script>
 </body>
 </html>
