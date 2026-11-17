@@ -4,30 +4,24 @@ const path = require('node:path');
 
 const root = __dirname;
 const bookHome = fs.readFileSync(path.join(root, 'index.html'), 'utf8');
-assert.match(bookHome,/aria-label="Position in A0"/,'A0 home exposes its own internal position');
-assert.match(bookHome,/Eingang in den NEXAH Cosmos/,'A0 threshold names the Cosmos UX view');
+const activeBookHome = bookHome.replace(/<template\b[\s\S]*?<\/template>/g, '');
+const publicPreview = activeBookHome.match(/<section class="portal-home"[\s\S]*?<\/section>/)?.[0] || '';
 assert.match(bookHome,/history\.scrollRestoration = "manual"/,'A0 home disables browser scroll restoration for the declared #top entry');
-assert.match(bookHome,/document\.querySelectorAll\("\.portal-house iframe, model-viewer"\)/,'A0 home holds #top while its previews settle');
+assert.match(bookHome,/main\.insertBefore\(hero, readingGate\)/,'the canonical A0 hero is placed before the Field Notes reading gate');
+assert.match(bookHome,/document\.querySelectorAll\("model-viewer"\)/,'A0 home holds #top while active model previews settle');
 assert.match(bookHome,/addEventListener\("pageshow", \(\) => requestAnimationFrame\(restoreHomeTop\)\)/,'restored A0 home pages return to the declared top');
-assert.match(bookHome,/„NEXAH Cosmos“ bezeichnet hier diese Human-facing UX-Ansicht/,'Cosmos label is bounded as a view, not a new authority');
-assert.match(bookHome,/iframe[^>]+src="https:\/\/nexah\.de\/"/,'A0 previews the accepted public Science channel without copying its source');
-assert.match(bookHome,/UNDERSTAND · LIVE/,'A0 identifies nexah.de as a live public channel');
-assert.match(bookHome,/Die öffentliche Orientierungsfläche mit Science, About, Library und Legal/,'A0 describes the bounded public Science surface');
-for (const hatch of ['Map &amp; Atlas','Library &amp; Papers','Instruments &amp; Games','Repositories &amp; Sources','Build &amp; Matter','Connect &amp; Return']) assert.ok(bookHome.includes(hatch),`ecosystem hatch missing: ${hatch}`);
-const hatchStart = bookHome.indexOf('<nav class="portal-hatches"');
-const ecosystemHatches = bookHome.slice(hatchStart, bookHome.indexOf('</nav>', hatchStart) + 6);
-for (const flagship of ['Acht Hauptmodule','IOTA Grid Bridge','NLK / L-Shell','Edelweiß','Relation Chamber','Flagship Overview']) assert.ok(bookHome.includes(flagship),`A0 flagship entry missing: ${flagship}`);
-assert.ok(bookHome.includes('A0_IOTA_BRIDGE_DEMONSTRATOR.html#gridBridgeFlagship'),'A0 opens the Grid Bridge flagship at its direct anchor');
-assert.match(bookHome,/NEXAHEDRON · Human/,'the four-window portal includes the Human View');
-assert.match(bookHome,/Builder \+ Werkbank/,'the four-window portal includes the Workbench');
-assert.match(bookHome,/Scarabæus 1033/,'the four-window portal includes the Builder projection');
-assert.doesNotMatch(ecosystemHatches,/href="[^"]*(?:A0_RESEARCH_DESK|A0_RESEARCH_BACKLOG|A0_BUILDER_LOG|A0_LABORATORY)\.html/,'ecosystem hatches do not expose internal desks');
+assert.match(bookHome,/<template id="a0-threshold-archive"[^>]+superseded-by-canonical-a0-hero/,'the superseded Cosmos threshold is inert');
+assert.match(bookHome,/<template id="a0-duplicate-entry-archive"[^>]+superseded-by-reading-gate-guide-and-research-now/,'duplicate entry and position panels are inert');
+assert.doesNotMatch(activeBookHome,/class="(?:nexah-threshold|entry-switch)"/,'the live start page excludes duplicate threshold and entry panels');
+for (const activeSection of ['id="a0-home"','id="field-notes-entrance"','id="finden"','id="portal"','id="wegweiser"','id="research-now"']) assert.ok(activeBookHome.includes(activeSection),`lean A0 route missing ${activeSection}`);
+assert.match(bookHome,/href="#research-now">Currentness<\/a>/,'currentness navigation targets the maintained research status');
+assert.match(bookHome,/href="#field-notes-entrance">Lesepfad öffnen<\/a>/,'A0 hero enters through the maintained Field Notes route');
 assert.doesNotMatch(bookHome,/Eine Stimme gehört zum Record\./,'A0 home leaves the Human Voice/Record presentation to NEXAHEDRON');
 assert.match(bookHome,/<template id="a0-built-world-concept" data-disposition="nexahedron-human-view-candidate">/,'the Built World concept is removed from the active A0 flow and retained for Human View disposition');
-assert.equal((bookHome.match(/<article class="portal-house /g)||[]).length,4,'A0 starts with exactly four embedded portal windows');
-assert.equal((bookHome.match(/id="scientific-position-entry"/g)||[]).length,1,'one visible position-report entry');
-assert.ok(bookHome.indexOf('id="scientific-position-entry"')<bookHome.indexOf('id="wegweiser"'),'position report before instrument directory');
-assert.ok(bookHome.includes('Was macht NEXAH konkret?'));
+assert.equal((activeBookHome.match(/<article class="portal-house /g)||[]).length,3,'A0 keeps one compact preview window for each public website');
+assert.equal((activeBookHome.match(/<iframe[^>]+src="https:\/\/(?:nexahedron\.com|nexah\.de)/g)||[]).length,2,'the live preview uses the two remote website windows once each');
+assert.doesNotMatch(publicPreview,/portal-currentness|portal-depth|portal-hatches|portal-house--builder/,'the public preview does not duplicate A0 currentness, internal routes or Builder content');
+assert.equal((activeBookHome.match(/id="scientific-position-entry"/g)||[]).length,0,'scientific position is reached through research status instead of a duplicate panel');
 assert.ok(bookHome.includes('href="A0_SCIENTIFIC_POSITION_REPORT.html"'));
 assert.ok(bookHome.includes('href="A0_SCIENTIFIC_POSITION_REPORT.html#currentness-20261024"'));
 assert.ok(bookHome.includes('Historischer A0 Status vom 12. Oktober 2026'));
@@ -89,7 +83,11 @@ assert.match(fs.readFileSync(path.join(root,'A0_THEORY_STORYBOARD.html'),'utf8')
 const manifest = JSON.parse(fs.readFileSync(path.join(root, 'A0_BOOK_MANIFEST.json'), 'utf8'));
 // The ARKADE build-root template is not a source-directory Reader page.
 const registered = [...new Set(manifest.surface_registry.map((record) => record.surface.split('#')[0]).filter((surface) => surface.endsWith('.html') && surface !== 'a0-public-arkade-index.html'))];
-const archivedReaderSurfaces = new Set(['NEXAH_SCIENCE.html']);
+const archivedReaderSurfaces = new Set([
+  'NEXAH_SCIENCE.html',
+  'A0_NEXAHEDRON_LIVING_WORKSPACE_SNAPSHOT.html',
+  'A0_ORIENTATION_DESK_RECOVERED.html'
+]);
 
 for (const surface of registered) {
   if (archivedReaderSurfaces.has(surface)) continue;
@@ -198,7 +196,7 @@ for (const action of ['Lesen','Zusammenhänge verstehen','Werkzeuge nutzen','Erg
 assert.doesNotMatch(navigation,/header.after\(primaryNav\)|header.after\(moduleNav\)/,'no additional top-level navigation strips');
 const shared = htmlFiles.filter((name) => fs.readFileSync(path.join(root, name), 'utf8').includes('a0-context-navigation.js'));
 // Newer standalone log/storyboard retain their own controls; explicit tour return is required.
-assert.deepEqual(htmlFiles.filter((name) => !shared.includes(name)).sort(), ['A0_7_11_TYPED_CROSSWALK.html', 'A0_ARCHITECTURE_OF_DIFFERENCE.html', 'A0_ASSET_INDEX.html', 'A0_CROWN_SHADOW_CONTACT_BENCH.html', 'A0_CURSOR_HANDOFF_CLICKDUMMY.html', 'A0_FIELD_NOTES.html', 'A0_LOOK_AGAIN_PLAY.html', 'A0_MATROSCHKA_CLUSTER_BRIDGE.html', 'A0_ONE_PULSE_BENCH_MONITOR.html', 'A0_OPIUM.html', 'A0_PENTAGON_BODY_RETURN_GUIDED.html', 'A0_PLATINUM_IRIDIUM_PI_LENS.html', 'A0_THEORY_STORYBOARD.html', 'A0_THREE_MATRIX_HOLONOMY_WORKBENCH.html', 'A0_TOWER_RETURN_DEMONSTRATOR.html', 'LAB_ORIENTATION_MACHINE.html', 'NEXAH_SCIENCE.html']);
+assert.deepEqual(htmlFiles.filter((name) => !shared.includes(name)).sort(), ['A0_7_11_TYPED_CROSSWALK.html', 'A0_ARCHITECTURE_OF_DIFFERENCE.html', 'A0_ASSET_INDEX.html', 'A0_CROWN_SHADOW_CONTACT_BENCH.html', 'A0_CURSOR_HANDOFF_CLICKDUMMY.html', 'A0_FIELD_NOTES.html', 'A0_LOOK_AGAIN_PLAY.html', 'A0_MATROSCHKA_CLUSTER_BRIDGE.html', 'A0_NEXAHEDRON_LIVING_WORKSPACE_SNAPSHOT.html', 'A0_ONE_PULSE_BENCH_MONITOR.html', 'A0_OPIUM.html', 'A0_ORIENTATION_DESK_RECOVERED.html', 'A0_PENTAGON_BODY_RETURN_GUIDED.html', 'A0_PLATINUM_IRIDIUM_PI_LENS.html', 'A0_THEORY_STORYBOARD.html', 'A0_THREE_MATRIX_HOLONOMY_WORKBENCH.html', 'A0_TOWER_RETURN_DEMONSTRATOR.html', 'LAB_ORIENTATION_MACHINE.html', 'NEXAH_SCIENCE.html']);
 for (const surface of ['A0_BUILDER_LOG.html', 'A0_THEORY_STORYBOARD.html']) {
   assert.ok(fs.readFileSync(path.join(root, surface), 'utf8').includes('href="A0_TOURS.html"'), surface + ' retains an explicit tour return');
 }
