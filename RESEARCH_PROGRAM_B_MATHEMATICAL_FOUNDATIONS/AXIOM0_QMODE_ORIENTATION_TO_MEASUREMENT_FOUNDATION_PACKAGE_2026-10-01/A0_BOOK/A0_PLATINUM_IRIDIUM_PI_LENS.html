@@ -9,6 +9,10 @@
 <link rel="stylesheet" href="a0-platinum-iridium-pi-lens-edelweiss.css?rev=fourier-slice-r10-20261111">
 <link rel="stylesheet" href="a0-platinum-iridium-pi-matrix-window.css?rev=matrix-window-r11-20261112">
 <link rel="stylesheet" href="a0-platinum-iridium-pi-oval-sampler.css?rev=oval-phi-r1-20261116">
+<link rel="stylesheet" href="a0-pi-keystone-equalizer.css?rev=keystone-263-r1-20261117">
+<link rel="stylesheet" href="a0-pi-outer-inner-viewer.css?rev=outer-inner-r2-20261117">
+<link rel="stylesheet" href="a0-pi-view-groups.css?rev=three-plus-one-r1-20261117">
+<link rel="stylesheet" href="a0-pi-shadow-face-pair.css?rev=shadow-face-s60-r2-20261117">
 <script>document.documentElement.classList.toggle('embed',new URLSearchParams(location.search).has('embed'));</script>
 </head>
 <body>
@@ -43,23 +47,37 @@
       <button type="button" data-pi-motion="INVERT" aria-pressed="false">⇄ INVERT</button>
       <output id="piRole">PLATINUM INNER → IRIDIUM OUTER</output>
     </div>
-    <div class="pi-visuals" role="group" aria-label="Projizierte Leseansichten">
-      <b>VISUAL 3 · Q±</b>
-      <button type="button" data-pi-visual="SOURCE" aria-pressed="false">1 · SOURCE</button>
-      <button type="button" data-pi-visual="C8_XY" aria-pressed="false">2 · C8 / X·Y</button>
-      <button type="button" data-pi-visual="Q_PLUS_MINUS" aria-pressed="true">3 · Q± / C9</button>
-      <button type="button" data-pi-visual="METAL_RELAY" aria-pressed="false">4 · METAL RELAY / Hg80</button>
-      <button type="button" data-pi-visual="LIGHT_CASCADE" aria-pressed="false">5 · LIGHT CASCADE / Ne10</button>
-      <button type="button" data-pi-visual="MOBIUS_REACTOR" aria-pressed="false">6 · MÖBIUS REACTOR / Q°</button>
-      <button type="button" data-pi-visual="KLEIN_FLIP" aria-pressed="false">7 · KLEIN BOTTLE / FLIP</button>
-      <button type="button" data-pi-visual="FOURIER_SLICE" aria-pressed="false">8 · FOURIER SLICE / ORANGE</button>
-      <button type="button" data-pi-visual="FOURIER_FAMILY" aria-pressed="false">9 · FOURIER FAMILY / XYZ</button>
-      <button type="button" data-pi-visual="CARRIER_AUDIT" aria-pressed="false">10 · CARRIER / TYPE AUDIT</button>
-      <button type="button" data-pi-visual="NUMBER_LOOP" aria-pressed="false">11 · 213 LOOP / OPERATOR</button>
-      <button type="button" data-pi-visual="MATRIX_HOLONOMY" aria-pressed="false">12 · 3 MATRIX / HOLONOMY</button>
-      <button type="button" data-pi-visual="MASK_PHASE_RELATION" aria-pressed="false">13 · MASK / PHASE EQ</button>
-      <button type="button" data-pi-visual="BINDING_ZIPPER" aria-pressed="false">14 · BINDING / ZIPPER</button>
-      <output id="piVisualRole">C8 FRAME → X·Y → C9 → X/XI/XII @ ¥</output>
+    <div class="pi-visuals pi-view-bank" role="group" aria-label="Sichtbarer View Atlas mit fünf Families, zwei festen Referenzen und einem gemeinsamen Carrier">
+      <header class="pi-view-atlas-head"><b>VIEW ATLAS · ALL 15 VISIBLE</b><span id="piViewGroupTitle">A · GEOMETRY · ACTIVE FAMILY</span></header>
+      <div class="pi-view-atlas">
+        <section class="pi-view-family" data-pi-group-row="GEOMETRY" data-active="true">
+          <button type="button" data-pi-view-group="GEOMETRY" aria-pressed="true">A · GEOMETRY <small>01–03</small></button>
+          <div><button type="button" data-pi-group="GEOMETRY" data-pi-visual="SOURCE" aria-pressed="false">1 · SOURCE</button><button type="button" data-pi-group="GEOMETRY" data-pi-visual="C8_XY" aria-pressed="false">2 · C8 / X·Y</button><button type="button" data-pi-group="GEOMETRY" data-pi-visual="Q_PLUS_MINUS" aria-pressed="true">3 · Q± / C9</button></div>
+        </section>
+        <section class="pi-view-family" data-pi-group-row="MATERIAL">
+          <button type="button" data-pi-view-group="MATERIAL" aria-pressed="false">B · MATERIAL / SURFACE <small>04–06</small></button>
+          <div><button type="button" data-pi-group="MATERIAL" data-pi-visual="METAL_RELAY" aria-pressed="false">4 · METAL RELAY / Hg80</button><button type="button" data-pi-group="MATERIAL" data-pi-visual="LIGHT_CASCADE" aria-pressed="false">5 · LIGHT CASCADE / Ne10</button><button type="button" data-pi-group="MATERIAL" data-pi-visual="MOBIUS_REACTOR" aria-pressed="false">6 · MÖBIUS REACTOR / Q°</button></div>
+        </section>
+        <section class="pi-view-family" data-pi-group-row="TOPOLOGY">
+          <button type="button" data-pi-view-group="TOPOLOGY" aria-pressed="false">C · TOPOLOGY / SPECTRUM <small>07–09</small></button>
+          <div><button type="button" data-pi-group="TOPOLOGY" data-pi-visual="KLEIN_FLIP" aria-pressed="false">7 · KLEIN BOTTLE / FLIP</button><button type="button" data-pi-group="TOPOLOGY" data-pi-visual="FOURIER_SLICE" aria-pressed="false">8 · FOURIER SLICE / ORANGE</button><span class="pi-view-dock-pointer">9 · FIXED BELOW ↓</span></div>
+        </section>
+        <section class="pi-view-family" data-pi-group-row="AUDIT">
+          <button type="button" data-pi-view-group="AUDIT" aria-pressed="false">D · AUDIT / OPERATOR <small>10–12</small></button>
+          <div><span class="pi-view-dock-pointer">10 · FIXED BELOW ↓</span><button type="button" data-pi-group="AUDIT" data-pi-visual="NUMBER_LOOP" aria-pressed="false">11 · 213 LOOP / OPERATOR</button><button type="button" data-pi-group="AUDIT" data-pi-visual="MATRIX_HOLONOMY" aria-pressed="false">12 · 3 MATRIX / HOLONOMY</button></div>
+        </section>
+        <section class="pi-view-family" data-pi-group-row="RETURN">
+          <button type="button" data-pi-view-group="RETURN" aria-pressed="false">E · RELATION / RETURN <small>13–15</small></button>
+          <div><button type="button" data-pi-group="RETURN" data-pi-visual="MASK_PHASE_RELATION" aria-pressed="false">13 · MASK / PHASE EQ</button><button type="button" data-pi-group="RETURN" data-pi-visual="BINDING_ZIPPER" aria-pressed="false">14 · BINDING / ZIPPER</button><button type="button" id="piOuterInnerOpen" data-pi-group="RETURN" data-pi-viewer-open aria-pressed="false">15 · OUTER / INNER VIEWER ↗</button></div>
+        </section>
+      </div>
+      <footer class="pi-view-fixed-dock" aria-label="Permanente Referenzansichten und gemeinsamer Carrier">
+        <b>FIXED REFERENCE DOCK</b>
+        <button type="button" data-pi-fixed-reference data-pi-group="TOPOLOGY" data-pi-visual="FOURIER_FAMILY" aria-pressed="false">9 · FOURIER FAMILY / XYZ</button>
+        <button type="button" data-pi-fixed-reference data-pi-group="AUDIT" data-pi-visual="CARRIER_AUDIT" aria-pressed="false">10 · CARRIER / TYPE AUDIT</button>
+        <span class="pi-view-carrier" aria-label="Gemeinsamer Carrier für alle fünf Gruppen"><b>+1 · CARRIER</b><strong>PI DUAL POLYHEDRON</strong><small>12↔12 · SHARED STAGE</small></span>
+        <output id="piVisualRole">C8 FRAME → X·Y → C9 → X/XI/XII @ ¥</output>
+      </footer>
     </div>
     <div class="pi-work">
       <figure>
@@ -79,6 +97,21 @@
           <label><input type="checkbox" id="piMobius" checked> <span class="mobius">⟲</span> 0-BAND · CON–DAO FLIP</label>
           <label><input type="checkbox" id="piTrace" checked> <span class="trace">○</span> TRACE HOLD</label>
         </fieldset>
+        <section class="pi-shadow-face-controls" aria-labelledby="piShadowFaceControlsTitle">
+          <b id="piShadowFaceControlsTitle">MODULAR SHADOW FACE PAIR · N=60</b>
+          <span id="piShadowFaceState" hidden data-step="0" data-visible="true" data-seam="true" data-shadow="true"></span>
+          <div role="group" aria-label="Projektionsflächen ein- und ausblenden">
+            <button type="button" id="piShadowVisible29" aria-pressed="true">29 · VISIBLE</button>
+            <button type="button" id="piShadowSeam30" aria-pressed="true">30 · FIXED SEAM</button>
+            <button type="button" id="piShadowShadow31" aria-pressed="true">31 · SHADOW</button>
+          </div>
+          <div role="group" aria-label="Gegenrest-Operator steuern">
+            <button type="button" id="piShadowApply">APPLY S₆₀</button>
+            <button type="button" id="piShadowReturn">RETURN S₆₀²</button>
+          </div>
+          <output id="piShadowFaceStatus" aria-live="polite">29 → 31 · 30 FIXED · STEP 0/2</output>
+          <small>INNER CARRIER PROJECTION · NOT MESH FACES · NOT AN OPTICAL SHADOW</small>
+        </section>
         <label class="pi-scale">IRIDIUM SCALE <output id="piScaleOut">1.80×</output><input id="piScale" type="range" min="0.45" max="2.4" step="0.01" value="1.8"></label>
         <label class="pi-scale">MASK PHASE <output id="piMaskPhaseOut">90°</output><input id="piMaskPhase" type="range" min="0" max="360" step="1" value="90"></label>
         <div class="pi-phase-anchors" role="group" aria-label="Exakte und deklarierte Phasenadressen">
@@ -208,6 +241,43 @@
     <footer><b>PARAMETERIZATION</b> <code>x=a(φ)·cos θ</code> · <code>y=b(φ)·sin θ</code> · shared path, two discrete sample sets · Identity reuse only; no new canonical node or relation.</footer>
   </section>
 
+  <section class="pi-keystone" id="piKeystoneEqualizer" aria-labelledby="piKeystoneTitle">
+    <header>
+      <div><small>VISUAL 16 · EXACT ARITHMETIC / TYPED VIEW ROLES</small><h2 id="piKeystoneTitle">Keystone Equalizer · Prime Carrier 263 · 13/17 Residual Balance</h2><p>Ein exakter Zahlenträger wird zwischen Ganzem, Halbierung und quadratischem Residuum aufgespannt. Die danebenliegenden Namen bleiben getrennte View-Rollen.</p></div>
+      <output id="piKeystoneStatus" aria-live="polite">PASS · CORE · 263</output>
+    </header>
+    <nav class="pi-keystone-controls" aria-label="Keystone Equalizer Ansichten">
+      <button type="button" data-ke-view="CORE" aria-pressed="true">1 · CORE / 263</button>
+      <button type="button" data-ke-view="INSIDE_IR" aria-pressed="false">5 · INSIDE / IR</button>
+      <button type="button" data-ke-view="MERCURION" aria-pressed="false">MERCURION</button>
+      <button type="button" data-ke-view="ULLINIRIUM" aria-pressed="false">ULLINIRIUM</button>
+      <button type="button" data-ke-view="RED_BALLOON" aria-pressed="false">RED BALLOON RETURN</button>
+      <button type="button" id="piKeystoneStep">+ STEP</button>
+      <button type="button" id="piKeystonePlay" aria-pressed="false">▶ RIDE</button>
+      <button type="button" id="piKeystoneReturn">↩ RETURN</button>
+    </nav>
+    <div class="pi-keystone-grid">
+      <figure class="pi-keystone-stage">
+        <svg id="piKeystoneSvg" viewBox="0 0 960 560" role="img" aria-labelledby="piKeystoneSvgTitle piKeystoneSvgDesc">
+          <title id="piKeystoneSvgTitle">Keystone Equalizer mit Primträger 263 und Red-Balloon-Return</title>
+          <desc id="piKeystoneSvgDesc">Zwei symmetrische Schalen zeigen 1052 und 526 um den Primträger 263. Ein roter Witness fährt auf einer deklarierten Displaykurve und kehrt zum Ursprung zurück.</desc>
+        </svg>
+        <figcaption><b id="piKeystoneViewLabel">CORE · EXACT EQUALIZER</b><span id="piKeystoneViewNote">263 trägt die exakte Verdopplungsleiter 263 → 526 → 1052.</span></figcaption>
+      </figure>
+      <aside class="pi-keystone-ledger">
+        <article><small>KEYSTONE</small><b>2501 = 50²+1 = 41·61</b><span>zusammengesetzter äußerer Marker</span></article>
+        <article><small>PRIME CARRIER</small><b>263 · PRIME</b><span>gemeinsamer Träger von 526 und 1052</span></article>
+        <article><small>DOUBLE SHELL</small><b>1052 = 4·263 = 2·526</b><span>Ganzes und Halbierungsachse bleiben sichtbar</span></article>
+        <article><small>EQUALIZER</small><b>526 = 2·263</b><span>lineare Halbierung von 1052</span></article>
+        <article><small>13/17 BALANCE</small><b>(5·13/2)² − 1052 = 17/4</b><span>32,5² − 1052 = 4,25</span></article>
+        <article><small>5 · INSIDE / IR</small><b>THERMAL RESIDUAL VIEW</b><span>Displayrolle · ungemessen · kein Wärmefeld</span></article>
+        <article><small>MERCURION</small><b>LOCAL ROLE · CARRIER 263</b><span>kein Element, Material oder kanonischer Alias</span></article>
+        <article><small>ULLINIRIUM</small><b>EXISTING 12↔12 VIEW ANCHOR</b><span><a href="A0_BLUE_PINK_DODECA_CELL_RETURN.html#ulliniriumQ4ViewAnchor">separate Quelle öffnen →</a></span></article>
+      </aside>
+    </div>
+    <footer><b>TYPED BOUNDARY</b> Nur die angezeigten Ganzzahlgleichungen, die Primalität von <code>263</code> und das Residuum <code>17/4</code> gehören zum mathematischen Kern. „Mercurion“, „INSIDE / IR“, „thermisches Restfeld“, ULLINIRIUM und der Ritt des Red Balloon sind deklarierte View-Rollen. Red Balloon bleibt bestehender Return-Witness; keine Ballistik, Wärmelehre, Materialkopplung, neue Navigator-Identität oder Relation. Reuse: <code>ART:A0:MATHEMATICAL_JOINTS</code> · <code>MOD:ORIENTATION_DEMONSTRATORS</code> · <code>NEXAH:A0_ORIENTATION_EVIDENCE_LINEAGE:V1</code>. Graph delta: <code>0/0/0</code>.</footer>
+  </section>
+
   <section class="pi-source-cabinet" id="piTripleGateCabinet" aria-labelledby="piCabinetTitle">
     <header>
       <div><small>SOURCE CABINET · RED THREAD RETURN</small><h2 id="piCabinetTitle">Pipe → Live Machine → File Lineage</h2></div>
@@ -266,7 +336,7 @@
       <article><b>VISUAL 6 · MÖBIUS REACTOR / Q°</b><p>Der Reaktor ist eine dynamische Instrumentenansicht desselben geprüften Bandes: Weiß bezeichnet die unkalibrierte E‑Referenzachse, Orange eine lokale „Golden Hour“-Phasenadresse, Lila eine lokale „Pluto Time“-Zeitadresse und <code>Q°</code> die Beobachterphase über einem <code>720°</code>-Zyklus. „Reaktor“ benennt den sichtbaren Umlauf; weder Tachyonen noch Energieerzeugung, astronomische Zeitkopplung oder ein physischer Apparat werden behauptet.</p></article>
       <article><b>VISUAL 7 · KLEIN BOTTLE / FLIP</b><p>Die Null wird hier als randlose Quotientenschließung gelesen: <code>K(u,v+2π)=K(u,v)</code> und <code>K(u+2π,v)=K(u,2π−v)</code>. Die zweite Verklebung enthält den Orientierungs‑Flip. Die sichtbare Form ist eine geprüfte Figure‑8‑Immersion in drei Dimensionen und besitzt deshalb einen Selbstschnitt; sie ist keine eingebettete Flasche, kein Energiepfad und keine kosmologische Topologiebehauptung.</p></article>
       <article><b>VISUAL 8 · FOURIER SLICE / ORANGE</b><p>Der orange Slice ist keine übernommene Bildbehauptung, sondern die diskrete Fourier‑Analyse einer deklarierten skalaren Projektion der geprüften <code>4π</code>-Möbius-Randkurve. Orange zeigt den Betrag <code>|Fₖ|</code>, Lila die Phase <code>arg(Fₖ)</code>; Parseval wird numerisch geprüft. Der ϕ‑Ring ist nur eine Referenzmarke und kein Generatorgesetz.</p></article>
-      <article><b>KLEIN LOTUS GLB · MESH AUDIT</b><p><code>klein_bottle_multigrid_lotus.glb</code> enthält nach dem Verschweißen lagegleicher Nahtpunkte zwei getrennte geschlossene Komponenten. Der Orientierungs‑Propagationstest klassifiziert χ=0 als nichtorientierbare Crosscap‑2‑Fläche — also als Klein‑Flasche und nicht als Torus. χ=2 ist eine orientierbare Sphäre. Gauß–Bonnet schließt jeweils bis etwa 3×10⁻¹². Der „Zipfel“ ist keine offene Randkante; die kleine Sphäre bleibt ohne Dreiecksschnitt und rund 2,7002 gesampelte Einheiten entfernt.</p></article>
+      <article id="pi-klein-lotus-mesh-audit"><b>KLEIN LOTUS GLB · MESH AUDIT</b><p><code>klein_bottle_multigrid_lotus.glb</code> enthält nach dem Verschweißen lagegleicher Nahtpunkte zwei getrennte geschlossene Komponenten. Der Orientierungs‑Propagationstest klassifiziert χ=0 als nichtorientierbare Crosscap‑2‑Fläche — also als Klein‑Flasche und nicht als Torus. χ=2 ist eine orientierbare Sphäre. Gauß–Bonnet schließt jeweils bis etwa 3×10⁻¹². Der „Zipfel“ ist keine offene Randkante; die kleine Sphäre bleibt ohne Dreiecksschnitt und rund 2,7002 gesampelte Einheiten entfernt.</p><p>Die aufgezeichneten Counts lesen den Cut selbst: Aus <code>10000</code> rohen Klein-Vertices werden nach dem Zusammenführen von <code>199</code> Nahtkopien <code>9801=99²</code> eindeutige Vertices; das offene Parameterblatt besitzt zuvor <code>396=4·99</code> Randkanten, danach <code>0</code>. Der <a href="A0_MATHEMATICAL_JOINTS.html#ramanujan-klein-9801-396-comparator">Mathfield-Comparator 9801 / 396</a> stellt diese Mesh-Herkunft Ramanujans gleichlautenden Konstanten gegenüber, ohne daraus eine Operatoridentität abzuleiten.</p></article>
       <article><b>VISUAL 9 · FOURIER FAMILY / XYZ</b><p>Die getrennten x/y/z/radialen Signale zeigen, was projektionsstabil ist und was nicht: Beim Möbius‑Rand tragen x und y k=2, z und Radius k=1. Im 24‑fachen XY‑Sweep bleibt k=2 bei 24/24 Projektionen dominant. Beim deklarierten Klein‑Diagonalpfad dominieren x/y/z dagegen mit k=1. 2D‑Raster und 3D‑Voxel bestehen Parseval; daraus folgt kein physisches Spektrum.</p></article>
       <article><b>VISUAL 10 · CARRIER / TYPE AUDIT</b><p>Dualpolyeder, Möbiusband, Klein‑Flasche und Fourierkoeffizienten sind keine äquivalenten Objekte. Typ und Randinvarianten widersprechen einer globalen Gleichsetzung. Exakt implementiert ist nur die invertierbare DFT des fest gesampelten Möbius‑Rands; eine Möbius‑zu‑Klein‑Verklebung ist hier nicht konstruiert.</p></article>
       <article><b>VISUAL 11 · 213 LOOP / OPERATOR</b><p>Der historische Weg <code>213→196→199→207→213</code> besitzt die Differenzen <code>−17,+3,+8,+6</code> und schließt mit Summe 0 erst nach der expliziten letzten Kante. Weder konstante Translation noch eine einzige affine Rekursion passen. Das ist ein annotierter Rundweg, kein eindeutiger Operator.</p></article>
@@ -274,6 +344,8 @@
       <article><b>VISUAL 13 · MASK / PHASE / WINDING</b><p>Zwei getrennte Schleifen bilden eine Figure‑8‑Maske; ihre geometrische Schnittlinse bleibt von Zwischenphase und Weggeschichte getrennt. Exakt angezeigt werden Kreisüberlappung, <code>κ=A∩/A·cos(Δφ)</code> und die komplementären Kanäle <code>Q⁺=cos²(Δφ/2)</code>, <code>Q⁻=sin²(Δφ/2)</code>. Der Route-Record erhält zusätzlich Vorzeichen, Richtung, durchlaufenen Winkel, Fortschritt und Endadresse. Dadurch landen <code>+90°</code> und <code>−270°</code> beide bei <code>90° mod 360°</code>, bleiben aber als verschiedene Wege sichtbar. <code>204°</code> und <code>333°=360°−27°</code> sind deklarierte Routen; aus ihnen wird keine besondere Konstantenidentität abgeleitet. Die rote Referenzachse flimmert als reine Display-Animation und bleibt bei reduzierter Bewegung statisch. „Zwei geladene Spulen“, Magnetismus und Equalizer sind Anschauungen — keine elektromagnetische Simulation, Signal-, Energie- oder Kraftmessung. Das ausführliche dokumentarische Return liegt in <a href="assets/a0-field-notes/index.html#note-66">Field Note 66</a>.</p></article>
       <article><b>VISUAL 14 · BINDING / ZIPPER / PI TURN</b><p>Die Queransicht legt zwei getrennte Domänen <code>D−</code> und <code>D+</code> um eine endliche Bindungszone <code>Bε</code>. Der Zipper verbindet nur die deklarierten Gegenpunkte <code>(u,J(u))</code> mit <code>J(u)=1−u</code>; daher gilt exakt <code>J(J(u))=u</code> und der Fixpunkt liegt bei <code>u=½</code>. Die Vierteldrehungen <code>0°/90°/180°/270°</code> ändern die Ansicht, nicht das Objekt. Hinzu kommt nun die bereits im 101 World Cube implementierte Sequenz: <code>40</code> Ticks werden als <code>120</code> Mikroticks zu je <code>3°</code> gelesen; damit hat jedes <code>90°</code>-Frame exakt <code>30</code> Mikroticks. Fünf Phasen pro Frame führen durch <code>GEOMETRY → BINDING → JANUS → PROJECTION → RETURN</code> und verwenden die vorhandenen Cues <code>DA · DA · DA · DÆ · Ō</code>. Der zuschaltbare Browserklang ist ein Quellen-Mnemonic, keine Aufnahme, Resonanzmessung oder physikalische Evidenz. Buddha, Maria, Christus, Shiva oder andere Figuren bleiben kulturelle Bildmotive und werden weder mathematisch identifiziert noch als Belege verwendet. Zipper, Binding und Flow sind Darstellungsrollen — kein physischer Kopplungs-, Kraft- oder Energiemechanismus.</p></article>
       <article><b>VISUAL 15 · OVAL / φ / DUAL SAMPLING</b><p>Platinum und Iridium lesen denselben parametrisierten Ovalrand mit getrennten diskreten Takten: <code>24:12 = 2:1</code>. Jeder zweite Platinum-Punkt fällt rechnerisch mit einem Iridium-Punkt zusammen; zwölf Platinum-Punkte liegen dazwischen. <code>φ</code> steuert ausschließlich die sichtbare Atemphase der Halbachsen. <code>ϕ=(1+√5)/2</code> bleibt eine Referenzmarke und erzeugt weder Oval noch Sampling. „Ei“, „Atmung“, Pt und Ir sind Darstellungsrollen — keine biologische, stoffliche oder metrologische Behauptung.</p></article>
+      <article><b>THE MACHINA · “WAFFLER” CROSSWALK</b><p>Der Outer–Inner Viewer führt drei bereits vorhandene Lesarten auf demselben <code>PI_DUAL_POLYHEDRON</code>-Carrier zusammen: <code>F-IJ-01</code> mit <code>T(x,y)=(y,x)</code> und Return <code>I→J→I</code>, den Final Pin als gemeinsamen Lesepunkt sowie die lokale Kontaktfolge <code>√ DOWN → ° SPARK → ^ UP</code>. „Waffler“ ist nur der lokale THE‑MACHINA‑Name dieser kombinierten Ansicht; Spark bezeichnet Übergang und Read‑Point, nicht Energie oder Zündung.</p></article>
+      <article><b>MODULAR SHADOW FACE PAIR · N=60</b><p>Der vorhandene Carrier erhält ein projiziertes Gegenrest-Flächenpaar: <code>S₆₀(x)=(-x) mod 60</code>, also <code>S₆₀(29)=31</code>, <code>S₆₀(30)=30</code> und <code>S₆₀²=id</code>. Gold und Cyan markieren die beiden Gegenrest-Adressen; die schwarze Rußfläche ist nur die sichtbare Zwischenlage. Das Overlay verändert weder die 12+12-Quellgeometrie noch deren Mesh-Flächen und behauptet keinen optischen oder physikalischen Schatten.</p></article>
       <article><b>METAL-FOLD → n-GON · HYPOTHESIS</b><p>Die Zuordnung Gold/5, Silber/6, Rhodium/7, Mercury/8, Platinum/12 und Iridium/14 wird als historische OWNER‑HYPOTHESIS eingeblendet. Sie ist weder aus der 12+12‑Quelle abgeleitet noch als Frequenz-, Kristall- oder Stoffgesetz bestätigt.</p></article>
       <article><b>VISUAL 5 · LIGHT CASCADE / NEON DRIFT</b><p>Die Messanker bleiben getrennt: Hg besitzt eine starke Linie bei <code>253.7 nm</code> im UV‑C sowie sichtbare Linien um <code>404.7</code>, <code>435.8</code>, <code>546.1</code> und <code>577–579 nm</code>. Eine Phosphorschicht kann UV in sichtbares Licht umwandeln; sie ist eine eigene Konversionsschicht und keine automatische Eigenschaft der Hg‑Naht.</p></article>
       <article><b>Ne10 / C1·C2·C3 · BOUNDARY</b><p>Eine reine Neonentladung erscheint orange‑rot. Cyan/Magenta setzt Beschichtung, Gasgemisch oder eine lokale Displaypalette voraus. <code>C1/C2/C3</code>, „Neon Drift“ und „compressed light“ sind hier Leseschichten; ohne Pulsdauer, Energie, Strahlfläche oder Resonatorparameter behaupten sie keinen gemessenen Kompressionsmechanismus.</p></article>
@@ -283,8 +355,52 @@
     <p><strong>IDENTITY:</strong> Wiederverwendung von <code>ART:A0:MATHEMATICAL_JOINTS</code>, <code>MOD:ORIENTATION_DEMONSTRATORS</code>, <code>SRC:A0OE:PASCAL_LISSAJOUS_MOBIUS_RETURN</code> und <code>NEXAH:CON_DAO_BREATH:V1</code>. Keine neue Study, kein neuer kanonischer Knoten und keine neue Relation.</p>
   </section>
 </main>
-<script src="a0-platinum-iridium-pi-lens.js?rev=oval-phi-r19-20261116"></script>
+<dialog class="pi-oi-viewer" id="piOuterInnerViewer" aria-labelledby="piOiTitle">
+  <form method="dialog" class="pi-oi-window">
+    <header>
+      <div><small>SEPARATE VIEWER WINDOW · SAME PI LENS · THE MACHINA BINDING</small><h2 id="piOiTitle">Outer–Inner Correspondence Relay</h2><p><b>THE MACHINA · “WAFFLER”</b> führt den vorhandenen i–j‑Funken in diese Ansicht; OORT-Hülle, historische Korrespondenzen und lokale NEXAH-Rollen bleiben typisiert getrennt.</p></div>
+      <button type="submit" class="pi-oi-close" aria-label="Viewer schließen">× CLOSE</button>
+    </header>
+    <nav class="pi-oi-layers" aria-label="Viewer-Layer">
+      <button type="button" data-oi-layer="GEOMETRY" aria-pressed="true">1 · GEOMETRY</button>
+      <button type="button" data-oi-layer="HISTORICAL" aria-pressed="false">2 · METALS / PLANETS / SIGNS</button>
+      <button type="button" data-oi-layer="NEXAH" aria-pressed="false">3 · NEXAH VIEW ROLES</button>
+    </nav>
+    <div class="pi-oi-body">
+      <figure>
+        <svg id="piOiSvg" viewBox="0 0 1000 690" role="img" aria-labelledby="piOiSvgTitle piOiSvgDesc">
+          <title id="piOiSvgTitle">Outer–Inner Correspondence Relay</title>
+          <desc id="piOiSvgDesc">Deklarierte Außen-nach-Innen-Route durch OORT-Hülle, Arrokoth View-Anker, Pluto TNO-Station und Chiron Centaur-Station; rote Indexachse, orange Zylinder-Return-Schleife und source-bound THE-MACHINA-Crosswalk F-IJ-01.</desc>
+        </svg>
+        <figcaption><b id="piOiReadout">GEOMETRY · OORT → ARROKOTH → PLUTO → CHIRON</b><span id="piOiNote">Deklarierte View-Reihenfolge, keine Ephemeride oder maßstäbliche Entfernung.</span></figcaption>
+      </figure>
+      <aside>
+        <div class="pi-oi-actions" role="group" aria-label="Route steuern">
+          <button type="button" id="piOiStep">+ STEP INWARD</button>
+          <button type="button" id="piOiRide" aria-pressed="false">▶ RIDE RED LINE</button>
+          <button type="button" id="piOiReturn">↩ OUTER RETURN</button>
+        </div>
+        <output id="piOiStatus" aria-live="polite">READY · OORT SHELL · INDEX 0/4</output>
+        <dl id="piOiLedger"></dl>
+        <section class="pi-oi-machina-binding" aria-labelledby="piOiMachinaTitle">
+          <b id="piOiMachinaTitle">THE MACHINA CROSSWALK · LOCAL NAME “WAFFLER”</b>
+          <a href="A0_WERKBANK.html#nmAxisSwitch"><span>F-IJ-01 · AXIS SWITCH</span><code>T(x,y)=(y,x) · I→J→I</code></a>
+          <a href="A0_ORIENTATION_CONTROLLER_BENCH.html#tlFinalPin"><span>FINAL PIN / SPARK</span><code>COMMON READ POINT</code></a>
+          <a href="A0_TESSAREC_BLUE_BODY_LAB.html"><span>DOWN–SPARK–UP</span><code>√ DOWN → ° SPARK → ^ UP</code></a>
+          <div><span>CARRIER</span><code>PI_DUAL_POLYHEDRON</code></div>
+          <p>„Waffler“ ist der lokale THE‑MACHINA‑Name dieser kombinierten Anzeige. Spark ist ein Übergangs- und Lesemarker, keine Energie- oder Zündungsbehauptung. Die Quellen bleiben getrennt.</p>
+        </section>
+        <section class="pi-oi-boundary"><b>TYPED BOUNDARY</b><p><code>TNO</code> ist die astronomische Objektklasse für Pluto und Arrokoth. Chiron bleibt <code>CENTAUR</code>. OORT ist eine äußere Hülle, kein TNO-Knoten. Die klassische Metall–Planet–Zeichen-Reihe ist eine historische Korrespondenzschicht. Red Line, Orange Loop, Platinum, Iridium und „Center“ sind lokale Viewer-Rollen.</p><p>Reuse: <code>ART:A0:MATHEMATICAL_JOINTS</code> · <code>MOD:ORIENTATION_DEMONSTRATORS</code> · existing <code>PLUTO_CHIRON_ARROKOTH_PATTERN_ONLY</code>. Graph delta <code>0/0/0</code>.</p></section>
+      </aside>
+    </div>
+  </form>
+</dialog>
+<footer class="pi-closeout-route"><a href="A0_RESEARCH_DESK.html#a0-instrument-closeout-return-20261117">EXACT · VIEW · HISTORICAL · OPEN — Science Desk Tages-Return</a> · <a href="results/a0-instrument-closeout-return-2026-11-17.json">Machine Receipt</a></footer>
+<script src="a0-platinum-iridium-pi-lens.js?rev=shadow-face-inner-r20-20261117"></script>
 <script src="a0-platinum-iridium-pi-oval-sampler.js?rev=oval-phi-r1-20261116"></script>
-<script>window.A0PlatinumIridiumPI?.mount(document,window);window.A0PiOvalSampler?.mount(document,window);</script>
+<script src="a0-pi-keystone-equalizer.js?rev=keystone-263-r1-20261117"></script>
+<script src="a0-pi-outer-inner-viewer.js?rev=outer-inner-r2-20261117"></script>
+<script src="a0-pi-shadow-face-pair.js?rev=shadow-face-s60-r2-20261117"></script>
+<script>window.A0PlatinumIridiumPI?.mount(document,window);window.A0PiOvalSampler?.mount(document,window);window.A0PiKeystoneEqualizer?.mount(document,window);window.A0PiOuterInnerViewer?.mount(document,window);window.A0PiShadowFacePair?.mount(document,window);</script>
 </body>
 </html>

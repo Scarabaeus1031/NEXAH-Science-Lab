@@ -25,7 +25,8 @@
   function boundaryRecord(B=100,a=5,b=6,view='area',channel=true){
     if(!Number.isFinite(B)||!Number.isFinite(a)||!Number.isFinite(b))throw Error('finite boundary inputs required');
     if(!BOUNDARY_VIEWS.includes(view))throw Error('unknown boundary view');
-    return{B,a,b,view,channel:Boolean(channel),fields:{f00:B*B,f01:B*b,f10:a*B,f11:a*b},total:(B+a)*(B+b),pascal:{n:a+b,mirror:[a,b]},boundary:'Area, boundary, graph and Pascal are representations of declared inputs, not identical structures.'};
+    const n=a+b;
+    return{B,a,b,view,channel:Boolean(channel),fields:{f00:B*B,f01:B*b,f10:a*B,f11:a*b},total:(B+a)*(B+b),pascal:{n,mirror:[a,b],jointSquare:n**2},atlasRoleView:{sequence:['THOTH','TITAN','GATE','SWITCH','DERIS'],status:'DOCUMENTARY_ROLE_CROSSWALK_ONLY'},boundary:'Area, boundary, graph, Pascal and the Atlas role crosswalk are representations of declared inputs, not identical structures. The joint square is not the area-ledger remainder.'};
   }
   function initialCurrent(id){
     if(id==='jarp')return{caseIndex:0,case:JARP_CASES[0]};

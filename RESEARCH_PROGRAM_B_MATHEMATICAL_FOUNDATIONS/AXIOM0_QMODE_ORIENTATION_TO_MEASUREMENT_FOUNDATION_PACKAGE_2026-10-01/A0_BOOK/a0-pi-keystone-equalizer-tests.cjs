@@ -1,0 +1,16 @@
+'use strict';
+const assert=require('node:assert/strict');
+const fs=require('node:fs');
+const path=require('node:path');
+const M=require('./a0-pi-keystone-equalizer.js');
+let checks=0;const eq=(a,b,m)=>{checks++;assert.equal(a,b,m)};const ok=(v,m)=>{checks++;assert.ok(v,m)};
+const audit=M.audit();
+eq(audit.status,'PASS_EXACT_KEYSTONE_EQUALIZER','bounded audit');eq(audit.checks,9,'internal exact checks');
+eq(M.KEYSTONE,2501);eq(M.KEYSTONE,50**2+1);eq(M.KEYSTONE,41*61);eq(M.CARRIER,263);eq(M.isPrime(263),true);eq(M.isPrime(2501),false);
+eq(M.EQUALIZER,2*263);eq(M.DOUBLE_SHELL,4*263);eq(M.DOUBLE_SHELL,2*M.EQUALIZER);eq(M.RADIUS,32.5);eq(M.RADIUS**2-M.DOUBLE_SHELL,17/4);eq(M.RESIDUAL,4.25);
+eq(audit.roles.insideIr,'THERMAL_RESIDUAL_DISPLAY_ROLE_UNMEASURED');eq(audit.roles.mercurion,'LOCAL_ROLE_FOR_PRIME_CARRIER_263_NOT_ELEMENT_OR_MATERIAL');eq(audit.roles.ullinirium,'EXISTING_12_TO_12_VIEW_ANCHOR_REFERENCE_ONLY');eq(audit.roles.redBalloon,'EXISTING_SOURCE_BOUND_RETURN_WITNESS');
+eq(audit.claims.ballistics,false);eq(audit.claims.thermalField,false);eq(audit.claims.materialCoupling,false);eq(audit.claims.elementIdentity,false);eq(audit.graphDelta.identities,0);eq(audit.graphDelta.relations,0);eq(audit.graphDelta.aliases,0);
+eq(M.frame('RED_BALLOON',0).balloon.x,130);eq(M.frame('RED_BALLOON',1).balloon.x,830);eq(M.frame('UNKNOWN',0).view,'CORE');ok(M.svgMarkup(M.frame('INSIDE_IR',.5)).includes('RESIDUAL 17/4'),'residual visible');ok(M.svgMarkup(M.frame('RED_BALLOON',.5)).includes('RED BALLOON · RETURN WITNESS'),'return witness visible');
+const html=fs.readFileSync(path.join(__dirname,'A0_PLATINUM_IRIDIUM_PI_LENS.html'),'utf8');
+ok(html.includes('id="piKeystoneEqualizer"'),'station mounted');ok(html.includes('Keystone Equalizer · Prime Carrier 263 · 13/17 Residual Balance'),'mathematical name retained');ok(html.includes('2501 = 50²+1 = 41·61'),'keystone factorization visible');ok(html.includes('(5·13/2)² − 1052 = 17/4'),'residual equation visible');ok(html.includes('5 · INSIDE / IR'),'inside IR visible');ok(html.includes('THERMAL RESIDUAL VIEW'),'thermal view typed');ok(html.includes('MERCURION'),'Mercurion local role visible');ok(html.includes('ULLINIRIUM'),'Ullinirium reference visible');ok(html.includes('Red Balloon bleibt bestehender Return-Witness'),'Red Balloon boundary visible');ok(html.includes('a0-pi-keystone-equalizer.js'),'runtime wired');
+console.log(JSON.stringify({status:'PASS',checks,name:audit.name,graphDelta:audit.graphDelta}));

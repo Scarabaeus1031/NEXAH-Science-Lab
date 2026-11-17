@@ -1,0 +1,35 @@
+{
+  "status": "PASS",
+  "checks": 15,
+  "identity_effect": "reuses ART:A0:MATHEMATICAL_JOINTS, the canonical PI Lens and the existing N-band operator; no new identity, relation, Study or Finding",
+  "transition_convention": "T_[i<-k] = T_[i<-j] o T_[j<-k]",
+  "dual_sampling": {
+    "carrier": "same parametric oval",
+    "platinum_samples": 24,
+    "iridium_samples": 12,
+    "operator": "Pi_Ir = D2 o Pi_Pt",
+    "shared_samples": 12,
+    "platinum_only_samples": 12,
+    "zipper_naturality": "D2 o J24 = J12 o D2 on aligned even samples"
+  },
+  "n_band_integer_shadow": {
+    "operator": "N(x)=3x/7",
+    "source": 2401,
+    "source_form": "7^4",
+    "target": 1029,
+    "target_form": "3*7^3",
+    "exact_equation": "N(2401)=(3/7)*7^4=3*7^3=1029",
+    "mod_3_mod_5_window": "1029..1040",
+    "joint_zero_tag": 1035
+  },
+  "comparators": {
+    "band_milli": [429, 456, 487],
+    "band_sum_milli": 1372,
+    "three_sevenths": 0.42857142857142855,
+    "kappa_phi3_over_pi2": 0.4292034214696826,
+    "difference": 0.0006319928982540,
+    "decimal_view_only": [432, 439, 456, 487],
+    "held_labels": ["432/487 horizon", "-992 Silver", "0.439 label"]
+  },
+  "claim_boundary": "Exact finite sampling, involution, composition and N-band arithmetic only. PIT/TJP remain owner mnemonics until domains and codomains are declared. 432/487, -992 and 0.439 are not promoted from view labels to a common operator, physical spectrum or material law."
+}

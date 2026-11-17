@@ -1,0 +1,76 @@
+.pcr-distributor > circle {
+  fill: #071019;
+  stroke: #4dd7ef;
+  stroke-width: 2;
+}
+
+.pcr-port {
+  stroke-width: 3;
+}
+
+.pcr-port.is-active {
+  stroke: #70d79b;
+}
+
+.pcr-port.is-held {
+  stroke: #657d88;
+  stroke-dasharray: 5 4;
+}
+
+.pcr-port-dot.is-active {
+  fill: #70d79b;
+  stroke: #071019;
+  stroke-width: 2;
+}
+
+.pcr-port-dot.is-held {
+  fill: #071019;
+  stroke: #e668a4;
+  stroke-width: 3;
+}
+
+.pcr-yugo {
+  stroke: #e8b94f;
+  stroke-width: 4;
+  stroke-linecap: round;
+  filter: drop-shadow(0 0 5px #e8b94f);
+}
+
+.pcr-cylinder .pcr-rim-glow {
+  fill: none;
+  stroke: #e8b94f;
+  stroke-width: 4;
+  opacity: .72;
+  filter: url(#pcrRimGlow);
+}
+
+.pcr-cylinder .pcr-clamp {
+  fill: none;
+  stroke: #e668a4;
+  stroke-width: 4;
+  stroke-linecap: round;
+}
+
+.pcr-topology {
+  fill: none;
+  stroke-width: 5;
+  opacity: .88;
+  filter: drop-shadow(0 0 4px currentColor);
+}
+
+.pcr-topology.is-parallel {
+  stroke: #70d79b;
+}
+
+.pcr-topology.is-reversed {
+  stroke: #e668a4;
+}
+
+.pcr-topology.is-mobius {
+  stroke: #e8b94f;
+  stroke-dasharray: 9 6;
+}
+
+.pcr-topology-label {
+  fill: #e8b94f !important;
+}

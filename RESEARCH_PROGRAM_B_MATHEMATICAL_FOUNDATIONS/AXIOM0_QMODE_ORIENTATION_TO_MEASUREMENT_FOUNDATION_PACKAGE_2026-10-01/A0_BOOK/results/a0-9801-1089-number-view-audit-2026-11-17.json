@@ -1,0 +1,100 @@
+{
+  "status": "PASS",
+  "checks": 89,
+  "identity_effect": "reuses ART:A0:MATHEMATICAL_JOINTS and MOD:NUMBER_VIEW_SUITE; no new identity, relation, Study or Finding",
+  "observed": {
+    "89": {"prime": true, "prime_index": 24, "factors": [[89, 1]], "divisors": 2, "digit_sum": 17, "reverse4": 9800, "square_root": null, "binary": "1011001"},
+    "1089": {"prime": false, "factors": [[3, 2], [11, 2]], "divisors": 9, "digit_sum": 18, "reverse4": 9801, "square_root": 33, "binary": "10001000001"},
+    "7801": {"prime": false, "factors": [[29, 1], [269, 1]], "divisors": 4, "digit_sum": 16, "reverse4": 1087, "square_root": null, "binary": "1111001111001"},
+    "9801": {"prime": false, "factors": [[3, 4], [11, 2]], "divisors": 15, "digit_sum": 18, "reverse4": 1089, "square_root": 99, "binary": "10011001001001"}
+  },
+  "exhaustive_square_domain": {"root_min": 32, "root_max": 99, "description": "all four-digit positive integer squares"},
+  "square_reversals": [
+    {"root": 33, "value": 1089, "reverse4": 9801, "reverse_root": 99},
+    {"root": 99, "value": 9801, "reverse4": 1089, "reverse_root": 33}
+  ],
+  "exact_scale": {"root_ratio": 3, "square_ratio": 9, "shared_factor": "11^2"},
+  "prime_square_hinge": {
+    "left": {"value": 97, "prime_index": 25},
+    "midpoint": {"value": 99, "factorization": "3^2 * 11"},
+    "right": {"value": 101, "prime_index": 26},
+    "classification": "consecutive cousin primes with value gap 4",
+    "operator": "(97 + 101) / 2 = 99; 97 * 101 = (99 - 2)(99 + 2) = 99^2 - 2^2 = 9797; 99^2 = 9801",
+    "square_gap": 4,
+    "existing_return": "results/a0-folded-axis-lrrl-window-return-2026-10-26.json",
+    "disposition": "difference-of-squares bridge; the scalar gap 4 is not automatically a 2x2 mesh"
+  },
+  "qrt20_prime_index_axis": {
+    "source": {"value": 97, "prime_index": 25, "index_form": "5^2", "address": {"q": 4, "r": 17}},
+    "return_view": {"value": 78, "address": {"q": 3, "r": 18}},
+    "step": {"value": -19, "prime_magnitude": 19, "prime_index": 8, "index_form": "2^3"},
+    "coordinate_delta": {"q": -1, "r": 1},
+    "axis_invariant": "4+17 = 3+18 = 21",
+    "disposition": "exact QRT20 countershift and prime-index crosswalk; return to one names the opposing unit coordinate move, not a numeric map from 97 to 1"
+  },
+  "grid_quotient_audit": {
+    "convention": "N points per axis including duplicated periodic endpoints",
+    "identity": "N^2 - (2N - 1) = (N - 1)^2",
+    "fixtures": [
+      {"N": 10, "open": {"vertices": 100, "boundary_edges": 36}, "one_seam": {"vertices": 90, "duplicates": 10, "boundary_edges": 18}, "two_seams": {"vertices": 81, "duplicates": 19, "boundary_edges": 0}},
+      {"N": 100, "open": {"vertices": 10000, "boundary_edges": 396}, "one_seam": {"vertices": 9900, "duplicates": 100, "boundary_edges": 198}, "two_seams": {"vertices": 9801, "duplicates": 199, "boundary_edges": 0}},
+      {"N": 1000, "open": {"vertices": 1000000, "boundary_edges": 3996}, "one_seam": {"vertices": 999000, "duplicates": 1000, "boundary_edges": 1998}, "two_seams": {"vertices": 998001, "duplicates": 1999, "boundary_edges": 0}}
+    ],
+    "orientation_boundary": "direct and reversed gluing can share vertex and boundary counts; topology requires the gluing map",
+    "evidence_boundary": "only N=100 is bound to the existing Klein mesh receipt; other N values are algebraic calculator states"
+  },
+  "decimal_ghost_grid": {
+    "status": "VIEW_BOUND_SHADOW_LEDGER",
+    "route": "carrier X -> shadow record S_v=V_v(X) -> fixed-width decimal address G_10(S_v) -> exterior T4 difference record",
+    "t4_role": "outside comparison layer over declared records; retained, lost, introduced and unresolved remain explicit",
+    "boundary": "shadow is not a second carrier; decimal grid is an address/view layer; T4 does not create a body, topology or physical outside"
+  },
+  "cube_threshold": {
+    "base": 1728,
+    "base_form": "12^3",
+    "shifted_fibonacci_offsets": [1, 2, 3, 5, 8, 13],
+    "values": [1729, 1730, 1731, 1733, 1736, 1741],
+    "prime_values": [{"value": 1733, "prime_index": 270}, {"value": 1741, "prime_index": 271}],
+    "taxicab_witness": ["1^3 + 12^3 = 1729", "9^3 + 10^3 = 1729"],
+    "pre_prime_threshold": "1740 = 1728 + 12; 1740 + 1 = 1741",
+    "century_view": "1736 + 100 = 1836; C=100 is not promoted to an operator"
+  },
+  "binding_audit": {
+    "source": 1729,
+    "plus_41": {
+      "offset": 41,
+      "offset_prime_index": 13,
+      "target": 1770,
+      "exact_equation": "1729 + 41 = 1770",
+      "ratio": 0.9768361581920904,
+      "rounded_4dp": "0.9768",
+      "ncs_292_crosswalk": {"modulus": 292, "source_residue": 269, "target_residue": 18, "translation": 41, "equation": "269 + 41 = 18 mod 292"},
+      "euler_view": "E(n)=n^2+n+41 and E(0)=41; this marker does not derive an Euler lattice"
+    },
+    "plus_61": {
+      "offset": 61,
+      "offset_prime_index": 18,
+      "target": 1790,
+      "target_prime": false,
+      "target_factorization": "2 * 5 * 179 = 10 * P41",
+      "cofactor": 179,
+      "cofactor_prime_index": 41,
+      "exact_equation": "1729 + P18 = 1790 = 10 * P41",
+      "ratio": 0.9659217877094972,
+      "rounded_4dp": "0.9659",
+      "ncs_292_crosswalk": {"modulus": 292, "source_residue": 269, "target_residue": 38, "translation": 61, "equation": "269 + 61 = 38 mod 292"}
+    },
+    "disposition": "two exact rational and residue translations; P18-to-P41 is an index crosswalk, not a prime-preserving map, NCS identity or coherence envelope"
+  },
+  "visual_phase_labels": {
+    "values": [5958.66539603044, 1422, 1543, 6548],
+    "disposition": "all four supplied expressions are numerically distinct; the visual alone does not establish a common phase-lock or resonance invariant"
+  },
+  "dispositions": {
+    "0089": "fixed-width display of prime 89; REV4 gives 9800, not 9801",
+    "1089_9801": "unique nontrivial reversal pair among four-digit squares",
+    "7801": "existing exact REV4 address paired with 1087; outside the square ladder",
+    "9800_plus_1": "adjacency only; no generator inferred"
+  },
+  "claim_boundary": "Finite integer, quotient-count and fixed-width decimal-view audit only; the Decimal Ghost Grid is a view-bound shadow ledger and T4 is its exterior difference layer, not another carrier; prime-to-square, grid-seam, cube-offset and modulo-292 translation operators remain typed; equal quotient counts do not identify torus and Klein-type gluing; the QRT20 P8/P25 axis is an exact coordinate countershift with q+r retained, not a prime generator or return-to-one theorem; the P18-to-P41 observation is an exact index crosswalk, not a generator; no phase-lock, coherence envelope, NCS identity, resonance, physical-coupling or carrier-identity claim."
+}

@@ -1,0 +1,345 @@
+{
+  "status": "PASS",
+  "checks": 31,
+  "carrier": {
+    "domain": "k in {1,...,9}",
+    "encoder": "E(k)=overline(2k01)=2001+100k",
+    "nodes": [
+      2101,
+      2201,
+      2301,
+      2401,
+      2501,
+      2601,
+      2701,
+      2801,
+      2901
+    ],
+    "invariant": "E(k) mod 100 = 1"
+  },
+  "mirror": {
+    "operator": "R(n)=5002-n",
+    "registerForm": "R(E(k))=E(10-k)",
+    "fixedPoint": 2501,
+    "pairs": [
+      [
+        2101,
+        2901
+      ],
+      [
+        2201,
+        2801
+      ],
+      [
+        2301,
+        2701
+      ],
+      [
+        2401,
+        2601
+      ]
+    ]
+  },
+  "rootCorridor": {
+    "lower": "2301=49^2-10^2",
+    "middle": "2401=49^2=7^4",
+    "upper": "2501=49^2+10^2",
+    "midpoint": "2301+2501=2*2401=4802"
+  },
+  "nodeRoles": {
+    "compositeFactorizations": [
+      "2101=11*191",
+      "2201=31*71",
+      "2301=3*13*59",
+      "2401=7^4",
+      "2501=41*61",
+      "2601=3^2*17^2=51^2",
+      "2701=37*73",
+      "2901=3*967"
+    ],
+    "prime": "2801",
+    "triangular": "2701=T73"
+  },
+  "nBandPartition": "1029+(429+456+487)=3*7^3+4*7^3=7^4=2401",
+  "mirrorStair280Wheel": {
+    "reversals": [
+      "1031<->1301",
+      "1032<->2301",
+      "1033<->3301"
+    ],
+    "residuesMod280": [
+      [
+        1031,
+        191
+      ],
+      [
+        1032,
+        192
+      ],
+      [
+        1033,
+        193
+      ],
+      [
+        1087,
+        247
+      ],
+      [
+        1301,
+        181
+      ],
+      [
+        2301,
+        61
+      ],
+      [
+        2801,
+        1
+      ],
+      [
+        3301,
+        221
+      ],
+      [
+        7801,
+        241
+      ]
+    ],
+    "primeIndices": {
+      "1087": 181,
+      "2801": 408
+    },
+    "correction": "2801=P408, not P409; 7801=29*269 passes the wheel candidate gate but is composite."
+  },
+  "twinPrimeRotatingCross": {
+    "candidate": "S_n=(6n-1,6n+1)",
+    "unitsMod12": [
+      1,
+      5,
+      7,
+      11
+    ],
+    "axes": {
+      "A": [
+        5,
+        7
+      ],
+      "B": [
+        11,
+        1
+      ]
+    },
+    "anglesDegrees": {
+      "omega": 30,
+      "pairWidth": 60,
+      "axisFlip": 180
+    },
+    "rows": [
+      {
+        "n": 1,
+        "pair": [
+          5,
+          7
+        ],
+        "survives": true,
+        "axis": "A"
+      },
+      {
+        "n": 2,
+        "pair": [
+          11,
+          13
+        ],
+        "survives": true,
+        "axis": "B"
+      },
+      {
+        "n": 3,
+        "pair": [
+          17,
+          19
+        ],
+        "survives": true,
+        "axis": "A"
+      },
+      {
+        "n": 4,
+        "pair": [
+          23,
+          25
+        ],
+        "survives": false,
+        "axis": "B"
+      },
+      {
+        "n": 5,
+        "pair": [
+          29,
+          31
+        ],
+        "survives": true,
+        "axis": "A"
+      },
+      {
+        "n": 6,
+        "pair": [
+          35,
+          37
+        ],
+        "survives": false,
+        "axis": "B"
+      },
+      {
+        "n": 7,
+        "pair": [
+          41,
+          43
+        ],
+        "survives": true,
+        "axis": "A"
+      },
+      {
+        "n": 10,
+        "pair": [
+          59,
+          61
+        ],
+        "survives": true,
+        "axis": "B"
+      }
+    ],
+    "boundary": "Deterministic candidate rotation plus irregular prime-survival mask; not a twin-prime generator or theorem."
+  },
+  "crtRathMod36": {
+    "typedInputs": {
+      "channels": 16,
+      "startModulus": 17,
+      "hinge": 18
+    },
+    "declaredOperator": "q=2*(18+18)/24=3",
+    "exactBridge": "1836=(16+17+3)*(17*3)=36*51",
+    "residues": [
+      [
+        17,
+        0
+      ],
+      [
+        19,
+        12
+      ],
+      [
+        23,
+        19
+      ],
+      [
+        29,
+        9
+      ],
+      [
+        31,
+        7
+      ],
+      [
+        37,
+        23
+      ],
+      [
+        41,
+        32
+      ],
+      [
+        43,
+        30
+      ],
+      [
+        47,
+        3
+      ],
+      [
+        53,
+        34
+      ],
+      [
+        59,
+        7
+      ],
+      [
+        61,
+        6
+      ],
+      [
+        67,
+        27
+      ],
+      [
+        71,
+        61
+      ],
+      [
+        73,
+        11
+      ],
+      [
+        79,
+        19
+      ]
+    ],
+    "commonCarrier": "lcm(24,36)=72; degrees C72->C36=2 and C72->C24=3",
+    "boundary": "Declared typed crosswalk; not derived from A272899. Decimal 18|36 is a view only."
+  },
+  "fibonacci51Bridge": {
+    "carrier": "51=3*17 with 17=P7; 2601=51^2=3^2*17^2",
+    "fibonacciLock": "89+12^2=233 with 89=F11=P24, 144=F12 and 233=F13=P51",
+    "thresholdReturn": "12^2*12=12^3=1728",
+    "tubeMirror": "2401+2601=2*2501",
+    "separatePrimeRead": "2801=7^4+20^2=P408; 408 is composite, so 2801 is not super-prime",
+    "boundary": "Prime indices, Fibonacci positions and arithmetic identities are exact but remain distinct operators; index equality is not a causal mechanism."
+  },
+  "prime409PascalShadowSwitch": {
+    "primeIndexSwitch": "2801=P408 -> 2803=P409 with twin-prime gap +2",
+    "residueViews": {
+      "mod12": [
+        5,
+        7
+      ],
+      "mod32": [
+        17,
+        19
+      ]
+    },
+    "pascalCore": "a=47, b=74, n=a+b=121 and C(121,47)=C(121,74)",
+    "areaShortcut": "(100+47)(100+74)=100*221+3478=25578",
+    "shadowAddressView": "one-based addresses (48,75) sum to 123 and are not the Pascal complement indices",
+    "exactBigInt": {
+      "invariantCombination": "C(121,47)=C(121,74)=9461526413670410452587229673057400",
+      "shadowCombination": "C(123,48)=C(123,75)=39438795934316160903201102353860929",
+      "invariantHistories": "2^121=2658455991569831745807614120560689152",
+      "shadowHistories": "2^123=10633823966279326983230456482242756608",
+      "historyRatio": "4",
+      "combinationRatio": "C(123,48)/C(121,47)=2501/600"
+    },
+    "repunitDecimalView": "11^2=121 -> 111^2=12321; prefix 123 is decimal-view evidence only",
+    "horseshoeView": "0.032-0.012=0.020; midpoint=0.022",
+    "openContract": "0.012/0.032/0.020 remain decimal view values until modulus, normalization and RL/RR return operator are declared."
+  },
+  "ckHorizonGlyphView": {
+    "carrier": "one shared vertical K stem",
+    "upperView": "K_Lambda: upper opening/projection shell",
+    "lowerView": "K_beta: lower receiving/return shell",
+    "aperture": "C remains an embracing aperture view",
+    "hook": "cedilla/ç is a local attach-return marker on the lower shell",
+    "boundary": "CK->KK is view duplication only; no algebraic doubling, new node, topological gluing proof or universal glyph semantics."
+  },
+  "localVocabulary": {
+    "label": "LL0",
+    "meaning": "fixed decimal zero seam in overline(2k01)",
+    "nonIdentity": [
+      "LL->T",
+      "LL/LR/RL/RR",
+      "PI LL AR",
+      "null",
+      "aperture"
+    ]
+  },
+  "claimBoundary": "Exact finite decimal carrier, affine involution, factor arithmetic, prime/Fibonacci indices, candidate sieves and declared typed crosswalks only. Resonance tube and rotating cross are view names. Matching indices do not establish cause. No frequency, material coupling, physical resonance, prime generator, A272899 derivation, canonical LL merge, new Source Graph identity, relation, study or finding."
+}
